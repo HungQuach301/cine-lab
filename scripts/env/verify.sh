@@ -19,7 +19,8 @@ ls /opt/pw-browsers 2>/dev/null | grep -q chromium && ok "Chromium (Playwright)"
 
 # Mạng
 code(){ curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$1"; }
-c=$(code https://api.elevenlabs.io/v1/user); [ "$c" = "200" ] && ok "ElevenLabs API (khoá được proxy gắn)" || ko "ElevenLabs API" "HTTP $c — kiểm API credential (header xi-api-key, host api.elevenlabs.io)"
+el_body=$(curl -s --max-time 20 -w "\n%{http_code}" https://api.elevenlabs.io/v1/models); c=$(tail -n1 <<<"$el_body")
+[ "$c" = "200" ] && ok "ElevenLabs API (khoá được proxy gắn)" || { ko "ElevenLabs API" "HTTP $c — kiểm API credential (header xi-api-key, host api.elevenlabs.io)"; echo "      body: $(sed '$d' <<<"$el_body" | head -c 300)"; }
 c=$(code https://huggingface.co/api/models/Systran/faster-whisper-small); [ "$c" = "200" ] && ok "Hugging Face" || ko "Hugging Face" "HTTP $c — thêm huggingface.co, *.huggingface.co, *.hf.co"
 c=$(code https://pypi.org/simple/pip/); [ "$c" = "200" ] && ok "PyPI" || ko "PyPI" "HTTP $c"
 c=$(code https://freesound.org/); [[ "$c" =~ ^(200|301|302)$ ]] && ok "Freesound" || ko "Freesound" "HTTP $c (tuỳ chọn)"
