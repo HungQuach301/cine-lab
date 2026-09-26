@@ -1,0 +1,1102 @@
+{
+  "cases": [
+    {
+      "code": "N1",
+      "sample": "24 fps CFR (testsrc2)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 0.3,
+      "metrics": [
+        [
+          "r_frame_rate",
+          24.0,
+          "==",
+          24.0,
+          true
+        ],
+        [
+          "avg_frame_rate",
+          24.0,
+          "==",
+          24.0,
+          true
+        ],
+        [
+          "bước PTS lệch khỏi 1/24 s > 0,5 ms",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "PTS trùng (lặp khung)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khoảng hở PTS (rơi khung)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "N1",
+      "sample": "rơi khung 10 (PTS hở)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.3,
+      "metrics": [
+        [
+          "r_frame_rate",
+          24.0,
+          "==",
+          24.0,
+          true
+        ],
+        [
+          "avg_frame_rate",
+          23.5,
+          "==",
+          24.0,
+          false
+        ],
+        [
+          "bước PTS lệch khỏi 1/24 s > 0,5 ms",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "PTS trùng (lặp khung)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khoảng hở PTS (rơi khung)",
+          1,
+          "<=",
+          0,
+          false
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "N1",
+      "sample": "25 fps",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.3,
+      "metrics": [
+        [
+          "r_frame_rate",
+          25.0,
+          "==",
+          24.0,
+          false
+        ],
+        [
+          "avg_frame_rate",
+          25.0,
+          "==",
+          24.0,
+          false
+        ],
+        [
+          "bước PTS lệch khỏi 1/24 s > 0,5 ms",
+          49,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "PTS trùng (lặp khung)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khoảng hở PTS (rơi khung)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "N2",
+      "sample": "BT.709 đủ nhãn, dải limited",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 0.4,
+      "metrics": [
+        [
+          "color_primaries",
+          "bt709",
+          "==",
+          "bt709",
+          true
+        ],
+        [
+          "color_transfer",
+          "bt709",
+          "==",
+          "bt709",
+          true
+        ],
+        [
+          "color_space",
+          "bt709",
+          "==",
+          "bt709",
+          true
+        ],
+        [
+          "color_range",
+          "tv",
+          "==",
+          "tv",
+          true
+        ],
+        [
+          "luma ngoài dải limited",
+          0.0,
+          "<=",
+          0.5,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "N2",
+      "sample": "không có nhãn màu",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.4,
+      "metrics": [
+        [
+          "color_primaries",
+          "(không có)",
+          "==",
+          "bt709",
+          false
+        ],
+        [
+          "color_transfer",
+          "(không có)",
+          "==",
+          "bt709",
+          false
+        ],
+        [
+          "color_space",
+          "(không có)",
+          "==",
+          "bt709",
+          false
+        ],
+        [
+          "color_range",
+          "(không có)",
+          "==",
+          "tv",
+          false
+        ],
+        [
+          "luma ngoài dải limited",
+          0.0,
+          "<=",
+          0.5,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "N2",
+      "sample": "nhãn tv nhưng luma 0/255 (full range)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.3,
+      "metrics": [
+        [
+          "color_primaries",
+          "bt709",
+          "==",
+          "bt709",
+          true
+        ],
+        [
+          "color_transfer",
+          "bt709",
+          "==",
+          "bt709",
+          true
+        ],
+        [
+          "color_space",
+          "bt709",
+          "==",
+          "bt709",
+          true
+        ],
+        [
+          "color_range",
+          "tv",
+          "==",
+          "tv",
+          true
+        ],
+        [
+          "luma ngoài dải limited",
+          100.0,
+          "<=",
+          0.5,
+          false
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "N3",
+      "sample": "YouTube: H.264 High 14 Mbps, AAC 384k 48 kHz",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.5,
+      "metrics": [
+        [
+          "tỷ lệ khung",
+          1.7778,
+          "==",
+          1.7778,
+          true
+        ],
+        [
+          "SAR",
+          "1:1",
+          "==",
+          "1:1",
+          true
+        ],
+        [
+          "codec/profile hình",
+          "h264/High",
+          "==",
+          "h264/High | hevc/Main(10)",
+          true
+        ],
+        [
+          "pix_fmt",
+          "yuv420p",
+          "==",
+          "yuv420p | yuv420p10le",
+          true
+        ],
+        [
+          "kích thước",
+          "1920x1080",
+          "==",
+          "1920x1080 | 3840x2160",
+          true
+        ],
+        [
+          "bitrate hình đo từ gói",
+          14.0154,
+          ">=",
+          12.0,
+          true
+        ],
+        [
+          "codec âm",
+          "aac/LC",
+          "==",
+          "aac/LC",
+          true
+        ],
+        [
+          "tần số lấy mẫu âm",
+          48000,
+          "==",
+          48000,
+          true
+        ],
+        [
+          "số kênh âm",
+          2,
+          "==",
+          2,
+          true
+        ]
+      ],
+      "notes": [
+        "Bitrate âm đo từ gói: 240 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
+      ]
+    },
+    {
+      "code": "N3",
+      "sample": "YouTube: 3 Mbps, AAC 128k 44,1 kHz",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.8,
+      "metrics": [
+        [
+          "tỷ lệ khung",
+          1.7778,
+          "==",
+          1.7778,
+          true
+        ],
+        [
+          "SAR",
+          "1:1",
+          "==",
+          "1:1",
+          true
+        ],
+        [
+          "codec/profile hình",
+          "h264/High",
+          "==",
+          "h264/High | hevc/Main(10)",
+          true
+        ],
+        [
+          "pix_fmt",
+          "yuv420p",
+          "==",
+          "yuv420p | yuv420p10le",
+          true
+        ],
+        [
+          "kích thước",
+          "1920x1080",
+          "==",
+          "1920x1080 | 3840x2160",
+          true
+        ],
+        [
+          "bitrate hình đo từ gói",
+          3.0424,
+          ">=",
+          12.0,
+          false
+        ],
+        [
+          "codec âm",
+          "aac/LC",
+          "==",
+          "aac/LC",
+          true
+        ],
+        [
+          "tần số lấy mẫu âm",
+          44100,
+          "==",
+          48000,
+          false
+        ],
+        [
+          "số kênh âm",
+          2,
+          "==",
+          2,
+          true
+        ]
+      ],
+      "notes": [
+        "Bitrate âm đo từ gói: 128 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
+      ]
+    },
+    {
+      "code": "N3",
+      "sample": "Lưu trữ: ProRes 422 HQ + PCM 24 bit",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.4,
+      "metrics": [
+        [
+          "tỷ lệ khung",
+          1.7778,
+          "==",
+          1.7778,
+          true
+        ],
+        [
+          "SAR",
+          "1:1",
+          "==",
+          "1:1",
+          true
+        ],
+        [
+          "codec/profile hình",
+          "prores/HQ",
+          "==",
+          "prores HQ/4444/4444XQ | dnxhr HQ/HQX/444 | ffv1",
+          true
+        ],
+        [
+          "chiều cao",
+          1080,
+          ">=",
+          1080,
+          true
+        ],
+        [
+          "codec âm",
+          "pcm_s24le",
+          "==",
+          "pcm_*",
+          true
+        ],
+        [
+          "độ sâu bit âm",
+          24,
+          ">=",
+          24,
+          true
+        ],
+        [
+          "tần số lấy mẫu âm",
+          48000,
+          ">=",
+          48000,
+          true
+        ]
+      ],
+      "notes": [
+        "Bitrate hình đo: 61.5 Mbps (tham khảo)."
+      ]
+    },
+    {
+      "code": "N3",
+      "sample": "Lưu trữ: H.264 + AAC",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.8,
+      "metrics": [
+        [
+          "tỷ lệ khung",
+          1.7778,
+          "==",
+          1.7778,
+          true
+        ],
+        [
+          "SAR",
+          "1:1",
+          "==",
+          "1:1",
+          true
+        ],
+        [
+          "codec/profile hình",
+          "h264/High",
+          "==",
+          "prores HQ/4444/4444XQ | dnxhr HQ/HQX/444 | ffv1",
+          false
+        ],
+        [
+          "chiều cao",
+          1080,
+          ">=",
+          1080,
+          true
+        ],
+        [
+          "codec âm",
+          "aac",
+          "==",
+          "pcm_*",
+          false
+        ],
+        [
+          "độ sâu bit âm",
+          0,
+          ">=",
+          24,
+          false
+        ],
+        [
+          "tần số lấy mẫu âm",
+          48000,
+          ">=",
+          48000,
+          true
+        ]
+      ],
+      "notes": [
+        "Bitrate hình đo: 13.9 Mbps (tham khảo)."
+      ]
+    },
+    {
+      "code": "P1",
+      "sample": "tiêu đề + phụ đề tách rời",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.2,
+      "metrics": [
+        [
+          "điểm ảnh nét chữ va chạm",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "P1",
+      "sample": "phụ đề đè lên tiêu đề",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.2,
+      "metrics": [
+        [
+          "điểm ảnh nét chữ va chạm",
+          63828,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "P1",
+      "sample": "matte khai lệch vị trí so với render",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.1,
+      "metrics": [
+        [
+          "điểm ảnh nét chữ va chạm",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          0.0,
+          ">=",
+          90.0,
+          false
+        ]
+      ],
+      "notes": [
+        "Matte không khớp khung render: số đo chữ không đáng tin, coi như trượt."
+      ]
+    },
+    {
+      "code": "G4",
+      "sample": "chữ sáng trên nền tối (~14:1)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.8,
+      "metrics": [
+        [
+          "tương phản chữ/nền (P10) thấp nhất",
+          14.8213,
+          ">=",
+          4.5,
+          true
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "G4",
+      "sample": "chữ xám trên nền xám (~1,4:1)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.1,
+      "metrics": [
+        [
+          "tương phản chữ/nền (P10) thấp nhất",
+          1.514,
+          ">=",
+          4.5,
+          false
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "G3",
+      "sample": "gradient 8 bit không dither (bậc thang)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.4,
+      "metrics": [
+        [
+          "diện tích banding lớn nhất",
+          45.2083,
+          "<=",
+          0.2,
+          false
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "G3",
+      "sample": "cùng gradient có dither/grain",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 3.8,
+      "metrics": [
+        [
+          "diện tích banding lớn nhất",
+          0.0,
+          "<=",
+          0.2,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "G3",
+      "sample": "mảng phẳng phong cách hoá, biên cứng",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 0.8,
+      "metrics": [
+        [
+          "diện tích banding lớn nhất",
+          0.0,
+          "<=",
+          0.2,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "M1",
+      "sample": "−14 LUFS, đỉnh giới hạn −1,6 dBFS",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.3,
+      "metrics": [
+        [
+          "integrated loudness",
+          -14.0,
+          "in",
+          [
+            -15.0,
+            -13.0
+          ],
+          true
+        ],
+        [
+          "true peak",
+          -3.8,
+          "<=",
+          -1.0,
+          true
+        ]
+      ],
+      "notes": [
+        "LRA = 1.9 LU (tham khảo)."
+      ]
+    },
+    {
+      "code": "M1",
+      "sample": "−8 LUFS, cắt đỉnh tại 0 dBFS",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.2,
+      "metrics": [
+        [
+          "integrated loudness",
+          -8.2,
+          "in",
+          [
+            -15.0,
+            -13.0
+          ],
+          false
+        ],
+        [
+          "true peak",
+          -0.4,
+          "<=",
+          -1.0,
+          false
+        ]
+      ],
+      "notes": [
+        "LRA = 1.9 LU (tham khảo)."
+      ]
+    },
+    {
+      "code": "M3",
+      "sample": "stereo tương quan cao",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.1,
+      "metrics": [
+        [
+          "cửa sổ tương quan < −0,3",
+          0.0,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "mất mát mono tích phân (BS.1770)",
+          -0.0623,
+          ">=",
+          -3.0,
+          true
+        ],
+        [
+          "mất mát mono cửa sổ 3 s tệ nhất",
+          -0.0406,
+          ">=",
+          -6.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "M3",
+      "sample": "kênh phải đảo pha",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.1,
+      "metrics": [
+        [
+          "cửa sổ tương quan < −0,3",
+          100.0,
+          "<=",
+          1.0,
+          false
+        ],
+        [
+          "mất mát mono tích phân (BS.1770)",
+          -18.4637,
+          ">=",
+          -3.0,
+          false
+        ],
+        [
+          "mất mát mono cửa sổ 3 s tệ nhất",
+          -22.0417,
+          ">=",
+          -6.0,
+          false
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "J1",
+      "sample": "lời + nhạc nền thấp 22 dB",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 6.1,
+      "metrics": [
+        [
+          "từ bắt buộc nghe đúng",
+          100.0,
+          ">=",
+          100.0,
+          true
+        ],
+        [
+          "WER",
+          0.0,
+          "<=",
+          5.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "J1",
+      "sample": "nhạc/ồn lấn át lời 1,7–4,2 s",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 3.6,
+      "metrics": [
+        [
+          "từ bắt buộc nghe đúng",
+          94.4444,
+          ">=",
+          100.0,
+          false
+        ],
+        [
+          "WER",
+          5.5556,
+          "<=",
+          5.0,
+          false
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "H1",
+      "sample": "easing, cung, quay chậm 4 s; kim đồng hồ 'mechanical'",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 0.0,
+      "metrics": [
+        [
+          "đoạn tuyến tính ở bộ phận nhân vật",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kênh 'mechanical' thiếu lý do",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kênh có lớp không hợp lệ",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "H1",
+      "sample": "cánh tay nội suy tuyến tính 20 khung",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.0,
+      "metrics": [
+        [
+          "đoạn tuyến tính ở bộ phận nhân vật",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "kênh 'mechanical' thiếu lý do",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kênh có lớp không hợp lệ",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "O3",
+      "sample": "tài sản khớp SHA thư viện",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 0.0,
+      "metrics": [
+        [
+          "tài sản không có trong thư viện",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "tài sản lệch SHA so với thư viện",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "tài sản thư viện thiếu file trên đĩa",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "file media lạ trong thư mục làm việc",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "File cảnh của shot (được miễn quét, v1 sẽ đọc liên kết bên trong): shots/sh010/sh010.blend"
+      ]
+    },
+    {
+      "code": "O3",
+      "sample": "tài sản bị sửa sau khoá + vẽ lại ngoài thư viện",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.0,
+      "metrics": [
+        [
+          "tài sản không có trong thư viện",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "tài sản lệch SHA so với thư viện",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "tài sản thư viện thiếu file trên đĩa",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "file media lạ trong thư mục làm việc",
+          1,
+          "<=",
+          0,
+          false
+        ]
+      ],
+      "notes": [
+        "File cảnh của shot (được miễn quét, v1 sẽ đọc liên kết bên trong): shots/sh010/sh010.blend"
+      ]
+    }
+  ],
+  "rule_proven": {
+    "N1": true,
+    "N2": true,
+    "N3": true,
+    "P1": true,
+    "G4": true,
+    "G3": true,
+    "M1": true,
+    "M3": true,
+    "J1": true,
+    "H1": true,
+    "O3": true
+  },
+  "e2e": {
+    "exit_code": 0,
+    "dirty_exit_code": 1,
+    "verdict": "ĐẠT",
+    "statuses": {
+      "N1": "PASS",
+      "N2": "PASS",
+      "N3": "PASS",
+      "P1": "PASS",
+      "G4": "PASS",
+      "G3": "PASS",
+      "M1": "PASS",
+      "M3": "PASS",
+      "J1": "PASS",
+      "H1": "PASS",
+      "O3": "PASS"
+    },
+    "lock_match": true,
+    "near_threshold": [
+      {
+        "code": "M1",
+        "metric": "integrated loudness",
+        "value": -14.4,
+        "threshold": [
+          -15.0,
+          -13.0
+        ]
+      }
+    ],
+    "ok": true
+  },
+  "sample_dir": "/tmp/claude-0/-home-user-cine-lab/5c76494b-21dd-5f88-95c3-d0dc59164c33/scratchpad/st4"
+}

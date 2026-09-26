@@ -1,0 +1,28 @@
+# CINE LAB — khoá luật kiểm (chỉ phiên K sửa)
+VERSION: 0.1.0
+DATE_UTC: 2026-09-26T16:45:48Z
+ALGO: sha256 của chuỗi các dòng '<sha256 file>  <đường dẫn tương đối>\n', sắp theo đường dẫn,
+      mọi file trong checks/ trừ LOCK, __pycache__/ và *.pyc
+TREE_SHA256: 57dc729b855308462a96683d454bfc1a3b10d3c67532bef2a98d984d97a335ae
+
+# FILES
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
+858685341722f9ebcf5ff32d0799fca65e8b9415ec4612186549c4ef35216b3c  RULES.md
+5dba7af9e4d805aee2f0edff3c7610b6750320de7f554d24f29f143b98d3371d  RUN.md
+f6622606a7d0654129a85ce309715cfdf23023dd2a343f07a0d80ee560aa2e1c  cinecheck/__init__.py
+8073245341076176a635dc1d59d780c68cb3f5984f40a909e672029235e85f08  cinecheck/common.py
+2478170c8bbcaeca61a57b44a865b1ee498f0ca8ff7ddd5d91aa1de4087f5ee1  cinecheck/lockhash.py
+2d514827d6631a9488ee53e21f831bd8880949247c7893a42a53394c3ba8fb17  cinecheck/registry.py
+91cf3a6e2718ebd50c3e69f7001e79a2ea13c377660764462a726fff085f380e  cinecheck/report.py
+1ceadf4fe025fd1c6df1b2b387e6f6031b89c040c1a24028709cf1c933232e75  cinecheck/rule_g3.py
+df1e33f28b1684e0cf8210f53b74356ac4a7069bf80bb10adf84ad65afab24ed  cinecheck/rule_h1.py
+556afa098a35eb2089bcde1b66d0ff1f9ff41a583ade4b092eafa0596b51005c  cinecheck/rule_j1.py
+245e53e3560168377b3909cb63f115eece6b7e6fe8a5a79593e75261eec2fb19  cinecheck/rule_o3.py
+c6f70612d2db77c4d4d3a23766e9990e4253ba567771748c280fa34b0e206f3f  cinecheck/rules_audio.py
+4d014ec50e0c3d89ddccbc384f904ffc2b1190cc66bdb03a8d788e3937c795fc  cinecheck/rules_file.py
+83c974f71b58d37aaba1bad613db03d70de375b0ccfc1bb7a0cc6bd7321e4f3b  cinecheck/rules_text.py
+9bee416f5aa46de7c2b19751128a296cdf02f234298115ecfe62be8daa6fc028  lock.py
+a7e5fe850c93eabbbc62a4060359e38af765886f8d28e615efb4a03e056d0389  run.py
+afeee1201dcc64b47bda93b53d242963433a0815f5ed3b612d204358f12a09fa  selftest/fixtures/speech_en.flac
+eb6c99e27c3dd5477adb25288dd550d32fff9aab58cee476d020a4f204fef72f  selftest/fixtures/speech_en.script.txt
+ae9e2876528e6213da733ec7c0831fc82cd106e708c335f8ac7c80a80b440461  selftest/run_selftest.py
