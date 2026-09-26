@@ -2,7 +2,8 @@
 Chạy (qua peakmem để đo RSS đỉnh):
   cd /opt/acestep-src/ACE-Step-1.5 && /opt/cine/bin/python /home/user/cine-lab/reports/m0/peakmem.py \
      /home/user/cine-lab/reports/m0/raw/music-<tag>.mem.json -- \
-     /opt/acestep/bin/python /home/user/cine-lab/reports/m0/music/acestep_gen.py --tag <tag> [--lm 0|1] [--steps 8]
+     /opt/acestep/bin/python .../acestep_gen.py --tag <tag> [--lm 0|1] [--steps 8] [--quant int8_weight_only]
+Biến môi trường bắt buộc trên máy 15 GB: ACESTEP_VAE_DECODE_CHUNK_SIZE=64 (mặc định 256 bị OOM khi giải mã VAE).
 Ghi: reports/m0/music/<tag>*.flac và reports/m0/raw/music-<tag>.json."""
 import argparse, json, os, sys, time
 t_start = time.time()
@@ -10,6 +11,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--tag', default='theme-dit'); ap.add_argument('--lm', type=int, default=0)
 ap.add_argument('--steps', type=int, default=8); ap.add_argument('--seed', type=int, default=20260926)
 ap.add_argument('--duration', type=float, default=60.0); ap.add_argument('--threads', type=int, default=4)
+ap.add_argument('--quant', default=None)  # None | int8_weight_only
 a = ap.parse_args()
 import torch
 torch.set_num_threads(a.threads)
@@ -26,7 +28,7 @@ CAPTION = ("Quiet cinematic theme for an animated short film. Solo felt piano wi
 
 t0 = time.time()
 dit = AceStepHandler()
-msg, ok = dit.initialize_service(project_root=ROOT, config_path='acestep-v15-turbo', device='cpu')
+msg, ok = dit.initialize_service(project_root=ROOT, config_path='acestep-v15-turbo', device='cpu', quantization=a.quant)
 dit_load = time.time() - t0
 llm = LLMHandler(); lm_load = 0.0
 if a.lm:
@@ -46,7 +48,7 @@ files = []
 if res.success:
     for i, au in enumerate(res.audios):
         dst = os.path.join(OUT, f'{a.tag}-{i + 1}.flac'); os.replace(au['path'], dst); files.append(os.path.relpath(dst, OUT))
-rec = {'tag': a.tag, 'model': 'acestep-v15-turbo' + (' + 5Hz-lm-1.7B (pt)' if a.lm else ' (DiT only)'),
+rec = {'tag': a.tag, 'model': 'acestep-v15-turbo' + (' + 5Hz-lm-1.7B (pt)' if a.lm else ' (DiT only)'), 'quant': a.quant,
        'device': 'cpu', 'threads': a.threads, 'steps': a.steps, 'duration_req_s': a.duration, 'seed': a.seed,
        'caption': CAPTION, 'init_msg': str(msg)[:500], 'dit_load_s': round(dit_load, 1), 'lm_load_s': round(lm_load, 1),
        'generate_s': round(gen_s, 1), 'total_s': round(time.time() - t_start, 1), 'success': res.success,

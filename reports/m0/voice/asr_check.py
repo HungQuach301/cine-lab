@@ -10,8 +10,19 @@ MODEL = sys.argv[1] if len(sys.argv) > 1 else 'small.en'
 meta = json.load(open(os.path.join(RAW, 'voice-takes.json')))
 STOP = {'the', 'a', 'an', 'then', 'now', 'just', 'we', 'you', 'how', 'that', 's', 'll', 'one'}
 
+ONES = 'zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split()
+TENS = 'x x twenty thirty forty fifty sixty seventy eighty ninety'.split()
+def num2w(m):
+    n = int(m.group()); 
+    if n < 20: return ONES[n]
+    if n < 100: return TENS[n // 10] + ('' if n % 10 == 0 else ' ' + ONES[n % 10])
+    return m.group()
+
 def norm(s):
+    # Chuẩn hoá cách viết tương đương của ASR: số -> chữ ("40" = "forty"), "good night" = "goodnight".
     s = s.lower().replace('’', "'")
+    s = re.sub(r"\d+", num2w, s)
+    s = re.sub(r"good[\s-]+night", "goodnight", s)
     s = re.sub(r"\[[^\]]*\]", ' ', s)          # bỏ thẻ âm thanh nếu model đọc thành lời
     s = s.replace("that's", 'that is').replace("you'll", 'you will').replace("don't", 'do not')
     return re.findall(r"[a-z]+", s)
