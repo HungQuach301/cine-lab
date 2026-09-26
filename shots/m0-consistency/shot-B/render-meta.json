@@ -1,0 +1,55 @@
+{
+  "sheet_path": "../../../reports/m0/consistency/model-sheet.json",
+  "sheet_sha256": "d097fae9604f68bbc766d377a4dcf9144417c80a82f4e30ef17c154c0007fa20",
+  "H_px": 146.42857142857144,
+  "figure_height_px_excl_hat": 820.0,
+  "pose_deg": {
+    "near_upper_arm": 188,
+    "near_forearm": 260,
+    "far_upper_arm": 78,
+    "far_forearm": 84,
+    "near_thigh": 96,
+    "near_shin": 95,
+    "far_thigh": 84,
+    "far_shin": 85,
+    "pole": 204
+  },
+  "interpretation_H": {
+    "hat_overlap_head": 0.22,
+    "hat_brim_thickness": 0.08,
+    "hat_crown_width_frac": 0.66,
+    "pole_below_hand": 0.25,
+    "hand_center_beyond_wrist": 0.5,
+    "heel_behind_ankle": 0.12
+  },
+  "joints_px": {
+    "hip": [
+      1250.0,
+      694.21
+    ],
+    "shoulder": [
+      1250.0,
+      433.57
+    ],
+    "near_elbow": [
+      1112.25,
+      414.21
+    ],
+    "near_wrist": [
+      1090.63,
+      291.63
+    ],
+    "near_hand_c": [
+      1087.33,
+      272.89
+    ],
+    "near_knee": [
+      1231.63,
+      868.96
+    ],
+    "near_ankle": [
+      1216.96,
+      1036.71
+    ]
+  }
+}
