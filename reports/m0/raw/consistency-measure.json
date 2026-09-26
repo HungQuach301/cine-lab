@@ -1,0 +1,157 @@
+{
+ "shots": [
+  ".claude/worktrees/agent-a455537e60530810a/shots/m0-consistency/shot-A",
+  ".claude/worktrees/agent-aed9074821efa00d4/shots/m0-consistency/shot-B"
+ ],
+ "tolerance": 0.03,
+ "head_px": {
+  ".claude/worktrees/agent-a455537e60530810a/shots/m0-consistency/shot-A": 58.0,
+  ".claude/worktrees/agent-aed9074821efa00d4/shots/m0-consistency/shot-B": 146.0
+ },
+ "measurements": {
+  ".claude/worktrees/agent-a455537e60530810a/shots/m0-consistency/shot-A": {
+   "head": {
+    "length_px": 58.0,
+    "width_px": 50.0,
+    "axis_deg": 90.0,
+    "area_px": 2214
+   },
+   "torso": {
+    "length_px": 109.0,
+    "width_px": 74.0,
+    "axis_deg": 90.0,
+    "area_px": 6868
+   },
+   "upper_arm": {
+    "length_px": 55.2,
+    "width_px": 17.06,
+    "axis_deg": 52.1,
+    "area_px": 849
+   },
+   "forearm": {
+    "length_px": 49.4,
+    "width_px": 14.69,
+    "axis_deg": 161.9,
+    "area_px": 650
+   },
+   "thigh": {
+    "length_px": 69.55,
+    "width_px": 21.67,
+    "axis_deg": 68.0,
+    "area_px": 1374
+   },
+   "shin": {
+    "length_px": 66.48,
+    "width_px": 18.17,
+    "axis_deg": 81.9,
+    "area_px": 1102
+   }
+  },
+  ".claude/worktrees/agent-aed9074821efa00d4/shots/m0-consistency/shot-B": {
+   "head": {
+    "length_px": 146.0,
+    "width_px": 126.0,
+    "axis_deg": 90.0,
+    "area_px": 14510
+   },
+   "torso": {
+    "length_px": 278.0,
+    "width_px": 190.0,
+    "axis_deg": 90.0,
+    "area_px": 44830
+   },
+   "upper_arm": {
+    "length_px": 139.87,
+    "width_px": 42.16,
+    "axis_deg": -172.0,
+    "area_px": 5357
+   },
+   "forearm": {
+    "length_px": 124.97,
+    "width_px": 36.28,
+    "axis_deg": 80.0,
+    "area_px": 4130
+   },
+   "thigh": {
+    "length_px": 176.35,
+    "width_px": 54.08,
+    "axis_deg": 96.0,
+    "area_px": 8702
+   },
+   "shin": {
+    "length_px": 168.93,
+    "width_px": 45.49,
+    "axis_deg": 95.0,
+    "area_px": 7038
+   }
+  }
+ },
+ "rows": [
+  {
+   "part": "head",
+   "sheet": 1.0,
+   "shot_a": 1.0,
+   "shot_b": 1.0,
+   "dev_a_vs_sheet": 0.0,
+   "dev_b_vs_sheet": 0.0,
+   "dev_a_vs_b": 0.0,
+   "pass_C3_between_shots": true,
+   "within_5pct_of_threshold": false
+  },
+  {
+   "part": "torso",
+   "sheet": 1.9,
+   "shot_a": 1.8793,
+   "shot_b": 1.9041,
+   "dev_a_vs_sheet": -0.0109,
+   "dev_b_vs_sheet": 0.0022,
+   "dev_a_vs_b": 0.013,
+   "pass_C3_between_shots": true,
+   "within_5pct_of_threshold": false
+  },
+  {
+   "part": "upper_arm",
+   "sheet": 0.95,
+   "shot_a": 0.9517,
+   "shot_b": 0.958,
+   "dev_a_vs_sheet": 0.0018,
+   "dev_b_vs_sheet": 0.0084,
+   "dev_a_vs_b": 0.0066,
+   "pass_C3_between_shots": true,
+   "within_5pct_of_threshold": false
+  },
+  {
+   "part": "forearm",
+   "sheet": 0.85,
+   "shot_a": 0.8517,
+   "shot_b": 0.856,
+   "dev_a_vs_sheet": 0.002,
+   "dev_b_vs_sheet": 0.0071,
+   "dev_a_vs_b": 0.005,
+   "pass_C3_between_shots": true,
+   "within_5pct_of_threshold": false
+  },
+  {
+   "part": "thigh",
+   "sheet": 1.2,
+   "shot_a": 1.1991,
+   "shot_b": 1.2079,
+   "dev_a_vs_sheet": -0.0007,
+   "dev_b_vs_sheet": 0.0066,
+   "dev_a_vs_b": 0.0073,
+   "pass_C3_between_shots": true,
+   "within_5pct_of_threshold": false
+  },
+  {
+   "part": "shin",
+   "sheet": 1.15,
+   "shot_a": 1.1462,
+   "shot_b": 1.1571,
+   "dev_a_vs_sheet": -0.0033,
+   "dev_b_vs_sheet": 0.0062,
+   "dev_a_vs_b": 0.0094,
+   "pass_C3_between_shots": true,
+   "within_5pct_of_threshold": false
+  }
+ ]
+}

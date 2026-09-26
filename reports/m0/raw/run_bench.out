@@ -5,3 +5,5 @@
 == b-3d-mb1 16:45:16
 {"cmd": "node render_chromium.js --style 3d --samples 1 --out ../media/b-3d-mb1.mp4 --json ../raw/bench-b-3d-mb1.json", "exit": 0, "wall_s": 81.17, "peak_rss_mb": 1463.0}
 == b-3d-mb8 16:46:37
+{"cmd": "node render_chromium.js --style 3d --samples 8 --out ../media/b-3d-mb8.mp4 --json ../raw/bench-b-3d-mb8.json", "exit": 0, "wall_s": 468.57, "peak_rss_mb": 1450.3}
+== c-wb-mb1 16:54:26

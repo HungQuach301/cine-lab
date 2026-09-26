@@ -1,0 +1,69 @@
+/home/user/cine-lab/reports/m0/bench/scene_bpy.py:31: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(h + str(emit)); m.use_nodes = True
+/home/user/cine-lab/reports/m0/bench/scene_bpy.py:87: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('w'); sc.world = w; w.use_nodes = True
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+00:07.706  render           | Saved: 'frames/wb1/f0000.png'
+frame 0 2.19s
+00:09.389  render           | Saved: 'frames/wb1/f0001.png'
+frame 1 1.69s
+00:11.153  render           | Saved: 'frames/wb1/f0002.png'
+frame 2 1.76s
+00:12.838  render           | Saved: 'frames/wb1/f0003.png'
+frame 3 1.68s
+00:14.497  render           | Saved: 'frames/wb1/f0004.png'
+frame 4 1.66s
+00:16.354  render           | Saved: 'frames/wb1/f0005.png'
+frame 5 1.86s
+00:18.104  render           | Saved: 'frames/wb1/f0006.png'
+frame 6 1.75s
+00:19.926  render           | Saved: 'frames/wb1/f0007.png'
+frame 7 1.82s
+00:21.651  render           | Saved: 'frames/wb1/f0008.png'
+frame 8 1.73s
+00:23.410  render           | Saved: 'frames/wb1/f0009.png'
+frame 9 1.76s
+00:25.062  render           | Saved: 'frames/wb1/f0010.png'
+frame 10 1.65s
+00:26.757  render           | Saved: 'frames/wb1/f0011.png'
+frame 11 1.70s
+00:28.460  render           | Saved: 'frames/wb1/f0012.png'
+frame 12 1.70s
+00:30.173  render           | Saved: 'frames/wb1/f0013.png'
+frame 13 1.71s
+00:31.946  render           | Saved: 'frames/wb1/f0014.png'
+frame 14 1.77s
+00:33.651  render           | Saved: 'frames/wb1/f0015.png'
+frame 15 1.71s
+00:35.358  render           | Saved: 'frames/wb1/f0016.png'
+frame 16 1.71s
+00:37.003  render           | Saved: 'frames/wb1/f0017.png'
+frame 17 1.64s
+00:38.698  render           | Saved: 'frames/wb1/f0018.png'
+frame 18 1.70s
+00:40.394  render           | Saved: 'frames/wb1/f0019.png'
+frame 19 1.69s
+00:42.066  render           | Saved: 'frames/wb1/f0020.png'
+frame 20 1.67s
+00:43.764  render           | Saved: 'frames/wb1/f0021.png'
+frame 21 1.70s
+00:45.395  render           | Saved: 'frames/wb1/f0022.png'
+frame 22 1.63s
+00:47.143  render           | Saved: 'frames/wb1/f0023.png'
+frame 23 1.75s
+00:49.372  render           | Saved: 'frames/wb1/f0024.png'
+frame 24 2.23s
+00:51.124  render           | Saved: 'frames/wb1/f0025.png'
+frame 25 1.75s
+00:52.780  render           | Saved: 'frames/wb1/f0026.png'
+frame 26 1.65s
+00:54.417  render           | Saved: 'frames/wb1/f0027.png'
+frame 27 1.64s
+00:56.090  render           | Saved: 'frames/wb1/f0028.png'
+frame 28 1.67s
+00:57.767  render           | Saved: 'frames/wb1/f0029.png'
+frame 29 1.68s
+00:59.458  render           | Saved: 'frames/wb1/f0030.png'
+frame 30 1.69s

@@ -1,6 +1,7 @@
 """M0 bước 6 — đo tỷ lệ bộ phận nhân vật từ mặt nạ đã render (không dùng số tự khai của agent).
 Mỗi shot có thư mục masks/ với <part>.png (bộ phận vẽ riêng, trắng trên đen, cùng phép biến đổi như khung hình).
-Độ dài bộ phận = cạnh dài của hình chữ nhật bao nhỏ nhất (cv2.minAreaRect) của mặt nạ.
+Độ dài bộ phận = bề dài của mặt nạ chiếu lên trục chính (PCA trên các điểm ảnh > 127), bề rộng = chiếu lên trục phụ.
+(Bản đầu dùng cv2.minAreaRect: SAI với elip gần tròn — đầu 57×49 px bị đo thành vuông 52×52 xoay 45°. Đã bỏ.)
 ratio = length(part) / length(head). So với model sheet và giữa 2 shot; ngưỡng C3 = 3% (nội bộ).
 Chạy: /opt/cine/bin/python reports/m0/consistency/measure_parts.py SHOT_A_DIR SHOT_B_DIR"""
 import json, os, sys
@@ -18,11 +19,16 @@ def measure(shot):
         if not os.path.exists(fn):
             out[p] = None; continue
         m = cv2.imread(fn, cv2.IMREAD_GRAYSCALE)
-        pts = cv2.findNonZero((m > 127).astype(np.uint8))
-        if pts is None:
+        ys, xs = np.nonzero(m > 127)
+        if len(xs) == 0:
             out[p] = None; continue
-        (cx, cy), (w, h), ang = cv2.minAreaRect(pts)
-        out[p] = {'length_px': round(max(w, h), 2), 'width_px': round(min(w, h), 2), 'area_px': int(len(pts))}
+        P = np.stack([xs, ys], 1).astype(np.float64); c = P.mean(0)
+        evals, evecs = np.linalg.eigh(np.cov((P - c).T))
+        major, minor = evecs[:, 1], evecs[:, 0]
+        a, b = (P - c) @ major, (P - c) @ minor
+        # +1 px: mỗi điểm ảnh phủ 1 px theo trục (đo mép ngoài, không phải tâm điểm ảnh)
+        out[p] = {'length_px': round(float(a.max() - a.min() + 1), 2), 'width_px': round(float(b.max() - b.min() + 1), 2),
+                  'axis_deg': round(float(np.degrees(np.arctan2(major[1], major[0]))), 1), 'area_px': int(len(xs))}
     return out
 
 def ratios(meas):
