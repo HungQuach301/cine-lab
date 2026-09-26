@@ -1,0 +1,2 @@
+{"style":"2d","samples":1,"frames":240,"film_s":10,"wall_s":89.513,"startup_s":0.196,"draw_s":0.13749999999988358,"png_encode_s":73.61310000000044,"transfer_s":13.163399999999674,"render_s_per_film_s":8.9513,"out":"../media/a-2d-mb1.mp4"}
+{"cmd": "node render_chromium.js --style 2d --samples 1 --out ../media/a-2d-mb1.mp4 --json ../raw/bench-a-2d-mb1.json", "exit": 0, "wall_s": 90.14, "peak_rss_mb": 1390.6}

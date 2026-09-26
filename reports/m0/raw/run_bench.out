@@ -1,0 +1,7 @@
+== a-2d-mb1 16:35:55
+{"cmd": "node render_chromium.js --style 2d --samples 1 --out ../media/a-2d-mb1.mp4 --json ../raw/bench-a-2d-mb1.json", "exit": 0, "wall_s": 90.14, "peak_rss_mb": 1390.6}
+== a-2d-mb8 16:37:26
+{"cmd": "node render_chromium.js --style 2d --samples 8 --out ../media/a-2d-mb8.mp4 --json ../raw/bench-a-2d-mb8.json", "exit": 0, "wall_s": 470.02, "peak_rss_mb": 1364.7}
+== b-3d-mb1 16:45:16
+{"cmd": "node render_chromium.js --style 3d --samples 1 --out ../media/b-3d-mb1.mp4 --json ../raw/bench-b-3d-mb1.json", "exit": 0, "wall_s": 81.17, "peak_rss_mb": 1463.0}
+== b-3d-mb8 16:46:37

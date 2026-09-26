@@ -16,9 +16,15 @@ export DEBIAN_FRONTEND=noninteractive
   { apt-get update -q || echo "WARN: apt-get update báo lỗi một nguồn phụ, vẫn tiếp tục"; } &&
   retry apt-get install -y -q --no-install-recommends software-properties-common ffmpeg sox mediainfo \
       fonts-noto-core fonts-liberation2 libgl1 libegl1 libxi6 libxkbcommon0 libsm6 libxrender1 libxxf86vm1 libxfixes3 &&
-  retry add-apt-repository -y ppa:deadsnakes/ppa &&
-  { apt-get update -q || true; } &&
-  retry apt-get install -y -q python3.13 python3.13-venv &&
+  # Ảnh VM trỏ python3 -> 3.11 (không có apt_pkg) nên add-apt-repository lỗi "No module named 'apt_pkg'".
+  # Ảnh đã có sẵn nguồn deadsnakes + python3.13; chỉ thêm PPA khi thiếu, và gọi bằng python3.12 của hệ thống.
+  if ! command -v python3.13 >/dev/null; then
+    if ! ls /etc/apt/sources.list.d/ | grep -q deadsnakes; then
+      retry /usr/bin/python3.12 /usr/bin/add-apt-repository -y ppa:deadsnakes/ppa && { apt-get update -q || true; }
+    fi
+    retry apt-get install -y -q python3.13 python3.13-venv
+  fi &&
+  python3.13 -m venv --help >/dev/null &&
   echo "OK_APT"
 ) &
 P1=$!
@@ -45,7 +51,7 @@ P3=$!
 wait $P1; R1=$?
 # 4) Blender as a Python module (bpy) trong venv Python 3.13 riêng — sau khi apt xong
 (
-  [ $R1 -eq 0 ] && python3.13 -m venv /opt/bpy &&
+  command -v python3.13 >/dev/null && python3.13 -m venv /opt/bpy &&
   retry /opt/bpy/bin/pip install -q bpy &&
   echo "OK_BPY"
 ) &
