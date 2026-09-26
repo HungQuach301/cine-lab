@@ -34,7 +34,7 @@ P1=$!
   python3 -m venv /opt/cine &&
   retry /opt/cine/bin/pip install -q --upgrade pip &&
   retry /opt/cine/bin/pip install -q faster-whisper pyloudnorm numpy scipy soundfile librosa \
-      opencv-python-headless pillow scenedetect elevenlabs requests jsonschema &&
+      opencv-python-headless pillow scenedetect elevenlabs requests jsonschema psutil &&
   echo "OK_PY"
 ) &
 P2=$!

@@ -7,3 +7,11 @@
 == b-3d-mb8 16:46:37
 {"cmd": "node render_chromium.js --style 3d --samples 8 --out ../media/b-3d-mb8.mp4 --json ../raw/bench-b-3d-mb8.json", "exit": 0, "wall_s": 468.57, "peak_rss_mb": 1450.3}
 == c-wb-mb1 16:54:26
+{"cmd": "/opt/bpy/bin/python scene_bpy.py --engine WORKBENCH --start 0 --end 240 --mb 1 --outdir frames/wb1 --json ../raw/bench-c-wb-mb1.json", "exit": 0, "wall_s": 430.13, "peak_rss_mb": 894.5}
+== c-wb-mb8 17:01:45
+{"cmd": "/opt/bpy/bin/python scene_bpy.py --engine WORKBENCH --start 96 --end 120 --mb 8 --outdir frames/wb8 --json ../raw/bench-c-wb-mb8.json", "exit": 0, "wall_s": 484.56, "peak_rss_mb": 1229.5}
+== c-ee-mb1 17:09:51
+{"cmd": "/opt/bpy/bin/python scene_bpy.py --engine EEVEE --start 96 --end 120 --mb 1 --outdir frames/ee1 --json ../raw/bench-c-ee-mb1.json", "exit": 0, "wall_s": 409.1, "peak_rss_mb": 2003.5}
+== c-ee-mb8 17:16:42
+{"cmd": "/opt/bpy/bin/python scene_bpy.py --engine EEVEE --start 96 --end 102 --mb 8 --outdir frames/ee8 --json ../raw/bench-c-ee-mb8.json", "exit": 0, "wall_s": 97.15, "peak_rss_mb": 2022.1}
+== DONE 17:18:20

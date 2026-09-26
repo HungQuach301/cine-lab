@@ -6,7 +6,7 @@ const fs = require('fs'), path = require('path');
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const style = arg('style', '2d'), start = +arg('start', 0), end = +arg('end', 240), samples = +arg('samples', 1);
-const out = arg('out', `out-${style}.mp4`), jsonOut = arg('json', null);
+const out = arg('out', `out-${style}.mp4`), jsonOut = arg('json', null), fmt = arg('fmt', 'image/png');
 const ROOT = __dirname;
 const scene = JSON.parse(fs.readFileSync(path.join(ROOT, 'scene.json')));
 const sheet = JSON.parse(fs.readFileSync(path.join(ROOT, '../consistency/model-sheet.json')));
@@ -38,7 +38,7 @@ const sheet = JSON.parse(fs.readFileSync(path.join(ROOT, '../consistency/model-s
   let draw = 0, enc = 0, xfer = 0;
   for (let f = start; f < end; f++) {
     const a = Date.now();
-    const r = await page.evaluate(([f, s]) => window.renderFrame(f, s), [f, samples]);
+    const r = await page.evaluate(([f, s, fm]) => window.renderFrame(f, s, fm), [f, samples, fmt]);
     const buf = Buffer.from(r.url.slice(r.url.indexOf(',') + 1), 'base64');
     draw += r.draw_ms; enc += r.encode_ms; xfer += Date.now() - a - r.draw_ms - r.encode_ms;
     if (!ff.stdin.write(buf)) await new Promise((res) => ff.stdin.once('drain', res));
@@ -48,7 +48,7 @@ const sheet = JSON.parse(fs.readFileSync(path.join(ROOT, '../consistency/model-s
   await browser.close();
   const tEnd = Date.now();
   const frames = end - start, filmS = frames / scene.fps, wall = (tEnd - tStart) / 1000;
-  const res = { style, samples, frames, film_s: filmS, wall_s: wall, startup_s: (tReady - tStart) / 1000,
+  const res = { style, samples, fmt, frames, film_s: filmS, wall_s: wall, startup_s: (tReady - tStart) / 1000,
     draw_s: draw / 1000, png_encode_s: enc / 1000, transfer_s: xfer / 1000,
     render_s_per_film_s: wall / filmS, out };
   console.log(JSON.stringify(res));
