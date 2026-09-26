@@ -1,0 +1,25 @@
+{
+  "id": "M0-TEST-LAMPLIGHTER",
+  "_doc": "Model sheet thử nghiệm M0 (không phải thiết kế phim; chưa được chủ dự án duyệt). Đơn vị: H = chiều cao đầu. Mọi độ dài đo dọc trục bộ phận, từ khớp gốc đến đầu mút.",
+  "unit": "H",
+  "head":      {"length": 1.00, "width": 0.86, "shape": "ellipse", "color": "#e0b894", "id_color": "#ff0000"},
+  "hat":       {"length": 0.55, "width": 1.30, "shape": "brim+crown", "color": "#2b2230", "id_color": "#00ff00"},
+  "neck":      {"length": 0.15, "width": 0.30, "color": "#c9a17f"},
+  "torso":     {"length": 1.90, "width": 1.10, "shape": "trapezoid", "top_width": 0.90, "bottom_width": 1.30, "color": "#6b3f2e", "id_color": "#0000ff"},
+  "upper_arm": {"length": 0.95, "width": 0.28, "color": "#5c3526", "id_color": "#ffff00"},
+  "forearm":   {"length": 0.85, "width": 0.24, "color": "#5c3526", "id_color": "#ff00ff"},
+  "hand":      {"length": 0.26, "width": 0.26, "shape": "circle", "color": "#e0b894"},
+  "thigh":     {"length": 1.20, "width": 0.36, "color": "#3a3240", "id_color": "#00ffff"},
+  "shin":      {"length": 1.15, "width": 0.30, "color": "#3a3240", "id_color": "#ff8000"},
+  "foot":      {"length": 0.55, "width": 0.20, "color": "#1d1a1f"},
+  "pole":      {"length": 3.20, "width": 0.07, "color": "#8a6a3a"},
+  "joints": {
+    "shoulder_from_torso_top": 0.12,
+    "hip_at_torso_bottom": true,
+    "neck_on_torso_top": true
+  },
+  "total_height_H": 5.60,
+  "_total_check": "head 1.00 + neck 0.15 + torso 1.90 + thigh 1.20 + shin 1.15 + foot 0.20 = 5.60",
+  "measured_parts": ["head", "torso", "upper_arm", "forearm", "thigh", "shin"],
+  "ratio_definition": "ratio(part) = length_px(part) / length_px(head); tolerance C3 = 3% (nội bộ)"
+}
