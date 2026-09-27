@@ -67,7 +67,7 @@ varying vec3 vWP; varying vec4 vFogC;
 #ifdef USE_ACOL
 varying vec3 vCol;
 #endif
-uniform vec3 uAlb;
+uniform vec3 uAlb; uniform vec3 uBun;
 uniform float uStep, uOff, uQlo, uQhi;
 uniform vec3 uCool, uWarm, uInk, uLanternPos;
 uniform vec4 uElec, uBay, uBounce, uFog, uLantAng; uniform vec3 uHs, uHg, uDc, uDd, uLampC; uniform vec4 uLampP[4];
@@ -139,6 +139,15 @@ float inkP = 0.0;
 #elif PAT == 5
 { // ngói/đá phiến mái: hàng ngang
   inkP = gl1(vWP.y, 0.24, 0.012)*0.35; alb *= 0.94 + 0.1*vn(vWP.xz*0.7); }
+#elif PAT == 6
+{ // tóc búi: nét mực toả từ búi tóc (đọc được là gáy chải ngược, không phải mặt)
+  vec2 d = vWP.xy - uBun.xy; float rr = length(d); float sp = 6.2832/34.0; float ang = atan(d.y, d.x) + 0.35*rr*10.0;
+  float fd = abs(fract(ang/sp + 0.5) - 0.5)*sp*rr; float px = fwidth(vWP.x)*1.1;
+  inkP = (1.0 - smoothstep(0.0018, 0.0018 + px, fd)) * smoothstep(0.045, 0.06, rr) * 0.75;
+  inkP = max(inkP, (1.0 - smoothstep(0.003, 0.003 + px, abs(rr - 0.052))) * 0.85);
+  float sp2 = 6.2832/5.0; float fd2 = abs(fract((atan(d.y, d.x) - rr*95.0)/sp2 + 0.5) - 0.5)*sp2*rr;
+  inkP = max(inkP, (1.0 - smoothstep(0.002, 0.002 + px, fd2)) * (1.0 - smoothstep(0.046, 0.05, rr)) * 0.7);
+  alb *= rr < 0.052 ? 0.8 : 1.0; }
 #endif
 float L = dot(E, vec3(0.2126, 0.7152, 0.0722));
 vec3 hue = E / max(L, 1e-6);
@@ -165,7 +174,7 @@ function toon(hex, o = {}) {
   if (DBG.NOPAT) m.defines.PAT = 0;
   const alb = C(hex);
   m.onBeforeCompile = (sh) => {
-    sh.uniforms.uAlb = { value: alb };
+    sh.uniforms.uAlb = { value: alb }; sh.uniforms.uBun = { value: o.bun ?? new THREE.Vector3() };
     for (const k of Object.keys(G)) sh.uniforms[k] = G[k];
     for (const k of Object.keys(FAR)) sh.uniforms[k] = FAR[k];
     sh.vertexShader = sh.vertexShader
@@ -205,6 +214,37 @@ vFog = vec4(0.0);
   if (DBG.NOFS) m.fragmentShader = 'varying vec3 vCol; void main(){ gl_FragColor = vec4(vCol, 1.0); }';
   m.userData = { toon: true, id: MAT_ID++ };
   return m;
+}
+// Nướng sẵn màu phố xa theo đỉnh trên CPU (cùng công thức với farToon): máy quay và ánh sáng tĩnh trong khung,
+// nên mỗi mẫu tích luỹ chỉ còn tô màu đỉnh. Với shot có máy quay chạy: nướng lại mỗi khung (vài chục ms).
+const ss = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+function skyColJS(d) {
+  const e = d.y; const hx = d.x + 1e-5, hz = d.z + 1e-5, hl = Math.hypot(hx, hz); const S = G.uSunDir.value, sl = Math.hypot(S.x, S.z);
+  const gl = Math.pow(Math.max((hx * S.x + hz * S.z) / (hl * sl), 0), 3), e1 = 0.035 + 0.05 * gl;
+  const A = G.uSkyA.value, Bc = G.uSkyB.value, Cc = G.uSkyC.value, D = G.uSkyD.value;
+  const c = A.clone().lerp(Bc, ss(-0.03, e1 + 0.04, e)).lerp(Cc, ss(e1, 0.26, e)).lerp(D, ss(0.2, 0.62, e));
+  return c.multiplyScalar(1 + 0.55 * gl * (1 - ss(-0.02, 0.22, e)));
+}
+function bakeFarMesh(mesh, camPos) {
+  const g = mesh.geometry, P = g.attributes.position, N = g.attributes.normal, A = g.attributes.aCol, out = new Float32Array(P.count * 3);
+  const hs = FAR.uHs.value, hg = FAR.uHg.value, dc = FAR.uDc.value, dd = FAR.uDd.value, st = G.uStep.value, of = G.uOff.value, qlo = G.uQlo.value, qhi = G.uQhi.value;
+  const cool = G.uCool.value, warm = G.uWarm.value, fog = G.uFog.value, skyC = G.uSkyC.value;
+  const v = new THREE.Vector3();
+  for (let i = 0; i < P.count; i++) {
+    const nx = N.getX(i), ny = N.getY(i), nz = N.getZ(i), w = 0.5 * ny + 0.5, dl = Math.max(nx * dd.x + ny * dd.y + nz * dd.z, 0);
+    const E = [hg.x + (hs.x - hg.x) * w + dc.x * dl, hg.y + (hs.y - hg.y) * w + dc.y * dl, hg.z + (hs.z - hg.z) * w + dc.z * dl];
+    const L = 0.2126 * E[0] + 0.7152 * E[1] + 0.0722 * E[2], q = Math.floor(Math.log2(Math.max(L, 1e-6)) / st + of), Lq = Math.pow(2, (q + 0.5 - of) * st);
+    const tt = Math.min(1, Math.max(0, (q - qlo) / (qhi - qlo)));
+    v.set(P.getX(i) - camPos.x, P.getY(i) - camPos.y, P.getZ(i) - camPos.z); const dist = v.length(); v.divideScalar(dist);
+    const fa = 1 - Math.exp(-Math.max(dist - fog.y, 0) * fog.x), sk = skyColJS(v);
+    const fc = sk.clone().lerp(skyC, 0.86).multiplyScalar(fog.z).lerp(sk, ss(700, 2600, dist));
+    const tint = [cool.x + (warm.x - cool.x) * tt, cool.y + (warm.y - cool.y) * tt, cool.z + (warm.z - cool.z) * tt];
+    for (let k = 0; k < 3; k++) { const col = A.array[i * 3 + k] * tint[k] * (E[k] / Math.max(L, 1e-6)) * Lq; out[i * 3 + k] = col + (fc.getComponent(k) - col) * fa; }
+  }
+  g.setAttribute('bCol', new THREE.BufferAttribute(out, 3));
+  const m = new THREE.ShaderMaterial({ vertexShader: 'attribute vec3 bCol; varying vec3 vC; void main(){ vC = bCol; gl_Position = projectionMatrix*modelViewMatrix*vec4(position,1.0); }',
+    fragmentShader: 'varying vec3 vC; void main(){ gl_FragColor = vec4(vC, 1.0); }' });
+  m.userData = { toon: true, id: mesh.material.userData.id }; mesh.material = m;
 }
 // Vật phát sáng (lửa, kính đèn, cửa sổ sáng): không lượng tử hoá, giá trị > 1 cho vai tone.
 function glow(hex, k, o = {}) {
@@ -480,7 +520,7 @@ window.renderFrame = async (name, samples) => {
   const s = scenes[name]; if (!s) throw new Error('khung lạ ' + name);
   s.apply();
   const t0 = performance.now();
-  if (!DBG.noInk) renderInk(s, DBG.inkN ?? Math.max(2, Math.min(8, Math.round(samples / 4))));
+  if (!DBG.noInk) renderInk(s, DBG.inkN ?? Math.max(1, Math.min(4, Math.round(samples / 8))));
   const ms = pipe.accumulate(s.scene, s.cam, samples, s.hook || (s.hook = sampleHook(s)));
   renderer.autoClearDepth = true;
   return { accum_ms: performance.now() - t0, pipe_ms: ms };
@@ -559,7 +599,15 @@ function buildS5() {
     const hd = ch.sheet.parts.head, Hm = ch.H;
     const g = new THREE.SphereGeometry(0.5, 40, 20, Math.PI * 1.02, Math.PI * 0.96, 0.12 * Math.PI, 0.60 * Math.PI);
     const sh = new THREE.Mesh(g, mf('hair', col)); sh.scale.set(hd.width_front * Hm * 1.025, hd.length * Hm * 1.02, hd.width_side * Hm * 1.025); sh.position.y = hd.length * Hm / 2;
-    sh.material.side = THREE.DoubleSide; ch.joints.head.add(sh);
+    sh.material.side = THREE.DoubleSide; sh.userData.hairShell = true; ch.joints.head.add(sh);
+  }
+  { // tóc Ida: vật liệu riêng có nét toả từ búi
+    ida.root.position.set(-0.55, 0, 1.0); ida.root.rotation.y = Math.PI - 0.08; ida.root.updateMatrixWorld(true);
+    const bunR = sheets.ida.costume.hair.bun_diameter_H / 2 * ida.H; let bun = null;
+    ida.joints.head.traverse((o) => { if (o.isMesh && o.geometry.type === 'SphereGeometry' && Math.abs(o.geometry.parameters.radius - bunR) < 1e-6) bun = o; });
+    const bp = new THREE.Vector3(); if (bun) bun.getWorldPosition(bp);
+    const hm = toon('#6f6a76', { pat: 6, bun: bp, side: THREE.DoubleSide });
+    ida.joints.head.traverse((o) => { if (o.isMesh && (o.userData.part === 'hair' || o.userData.hairShell)) o.material = hm; });
   }
   for (const ch of [ida, cas]) { scene.add(ch.root); ch.root.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); }
   // Đèn lồng trên nền đá, cách vách 3 m, ngay trong miệng vòm.
@@ -916,6 +964,7 @@ function buildS1() {
     G.uElec.value.set(0, 0, 0, 0); G.uBay.value.set(1.6, 4, 0.9, 0); G.uBounce.value.set(0, 0, 0, 0);
     G.uFog.value.set(0.0012, 80, 0.95, 0); G.uLantAng.value.set(0, 0.7, 0, 0.3);
     renderSky();
+    if (!scene.userData.baked && !DBG.noBake) { scene.userData.baked = true; scene.traverse((o) => { if (o.isMesh && (o.name === 'Fwall' || o.name === 'Froof')) bakeFarMesh(o, cam.position); }); }
     const hs = hemi.color.clone().multiplyScalar(hemi.intensity), hg = hemi.groundColor.clone().multiplyScalar(hemi.intensity), dc = after.color.clone().multiplyScalar(after.intensity);
     FAR.uHs.value.set(hs.r, hs.g, hs.b); FAR.uHg.value.set(hg.r, hg.g, hg.b); FAR.uDc.value.set(dc.r, dc.g, dc.b); FAR.uDd.value.copy(after.position).normalize();
     const lc = C('#ffa04a'); FAR.uLampC.value.set(lc.r, lc.g, lc.b); lampLights.forEach((v, i) => FAR.uLampP.value[i].copy(v));

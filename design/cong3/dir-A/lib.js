@@ -133,8 +133,11 @@ const KIND = {
     float dome = smoothstep(0.0, 0.035, edge);
     float r = h12(id + 7.0);
     vec3 st = diffuseColor.rgb * mix(vec3(0.78,0.80,0.86), vec3(1.12,1.04,0.96), r) * (0.85+0.3*vn(vWP*9.0));
-    diffuseColor.rgb = mix(st*0.35, st, smoothstep(0.0, 0.012, edge));
-    pH = dome*0.02; pRough = (r-0.5)*0.2 - dome*0.1;`,
+    // khử răng cưa: khi mạch đá nhỏ hơn điểm ảnh, thay họa tiết bằng màu trung bình
+    float aa = clamp(1.35 - 3.2*max(fwidth(q.x)/${(o.w ?? 0.22).toFixed(3)}, fwidth(q.y)/${(o.l ?? 0.14).toFixed(3)}), 0.0, 1.0);
+    vec3 avg = diffuseColor.rgb * (0.85+0.3*vn(vWP*2.0)) * 0.82;
+    diffuseColor.rgb = mix(avg, mix(st*0.35, st, smoothstep(0.0, 0.012, edge)), aa);
+    pH = dome*0.02*aa; pRough = ((r-0.5)*0.2 - dome*0.1)*aa;`,
   flags: () => `
     vec2 q = vUvP; vec2 b = vec2(q.x/0.62, q.y/0.52);
     float row = floor(b.y); b.x += mod(row,2.0)*0.5;
@@ -154,9 +157,10 @@ const KIND = {
     vec3 c = diffuseColor.rgb * (0.72 + 0.5*r) * (0.8 + 0.4*fbm(vWP*0.7));
     float moss = smoothstep(0.62, 0.72, fbm(vWP*1.3+2.0)) * 0.6;
     c = mix(c, vec3(0.13,0.14,0.09), moss*0.5);
-    c *= mix(0.55, 1.0, gap) * (0.75 + 0.25*fy);
+    float aa = clamp(1.35 - 3.2*max(fwidth(q.x)/0.21, fwidth(q.y)/0.17), 0.0, 1.0);
+    c *= mix(0.78, mix(0.55, 1.0, gap) * (0.75 + 0.25*fy), aa);
     diffuseColor.rgb = c;
-    pH = fy*0.022 + gap*0.004; pRough = (r-0.5)*0.25;`,
+    pH = (fy*0.022 + gap*0.004)*aa; pRough = (r-0.5)*0.25*aa;`,
   // Mặt tiền nhà (s1): vữa sơn hoặc gạch, cửa sổ kính bóng (phản chiếu trời qua IBL), một số ô đèn ấm.
   // vUvP = (u dọc tường, v cao trên nền) mét; vAux = (seed, rộng, số tầng, 1 = mặt có cửa sổ).
   facade: () => `
@@ -169,7 +173,8 @@ const KIND = {
     { vec2 b = vec2(q.x/0.23, q.y/0.077); float row = floor(b.y); b.x += mod(row,2.0)*0.5; vec2 id = floor(b); vec2 f = fract(b);
       float e = min(min(f.x,1.0-f.x)*0.23, min(f.y,1.0-f.y)*0.077);
       vec3 br = c * mix(0.8, 1.15, h12(id)); br = mix(c*0.7, br, smoothstep(0.004,0.01,e));
-      c = mix(c, br, isBrick); pH += isBrick*smoothstep(0.004,0.01,e)*0.004; }
+      float aab = clamp(1.35 - 3.2*max(fwidth(q.x)/0.23, fwidth(q.y)/0.077), 0.0, 1.0);
+      c = mix(c, mix(c*0.92, br, aab), isBrick); pH += isBrick*smoothstep(0.004,0.01,e)*0.004*aab; }
     float SH = 3.1;
     float row = floor(q.y/SH); float fy = q.y - row*SH;
     float ncol = max(1.0, floor(wid/2.2)); float colW = wid/ncol;

@@ -1,14 +1,14 @@
 {
  "page": "dir-B/scene.js",
- "frame": "s1_opening",
+ "frame": "s5_shadows",
  "W": 1920,
  "H": 1080,
  "samples": 32,
  "frames": 48,
- "setup_s": 0.758,
- "render_frame_s": 29.375,
- "page_reported_accum_ms": 21.199999999254942,
- "finalize_per_extra_frame_s": 0.3443191489361702,
- "total_wall_s": 47.366,
+ "setup_s": 1.111,
+ "render_frame_s": 21.35,
+ "page_reported_accum_ms": 53.20000000111759,
+ "finalize_per_extra_frame_s": 0.4271914893617021,
+ "total_wall_s": 43.681,
  "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
 }

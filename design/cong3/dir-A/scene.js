@@ -38,8 +38,8 @@ vec3 tonemap(vec3 c){
   float Lt = acesFit(vec3(L)).g;
   vec3 h = c * (Lt / L);
   float mx = max(h.r, max(h.g, h.b));
-  if (mx > 1.0) { h /= mx; h = mix(h, vec3(1.0), clamp((mx - 1.0) * 0.35, 0.0, 0.6)); }
-  return clamp(mix(a, h, 0.55), 0.0, 1.0);
+  if (mx > 1.0) { h /= mx; h = mix(h, vec3(1.0), clamp((mx - 1.0) * 0.25, 0.0, 0.45)); }
+  return clamp(mix(a, h, 0.7), 0.0, 1.0);
 }`;
 
 window.setup = async (cfg) => {
@@ -336,9 +336,9 @@ function buildS1() {
         c += vec3(0.55, 0.20, 0.06) * pow(az, 6.0) * exp(-max(e, 0.0) * 28.0);
         // mây tầng mỏng, đáy mây bắt hồng
         vec2 cp = d.xz / max(e, 0.03) * 1.2;
-        float cl = smoothstep(0.52, 0.78, fbm(vec3(cp.x*1.2, cp.y*3.5, 0.3))) * smoothstep(0.02, 0.07, e) * (1.0 - smoothstep(0.25, 0.45, e));
+        float cl = smoothstep(0.56, 0.80, fbm(vec3(cp.x*0.6, cp.y*1.4, 0.3))) * smoothstep(0.02, 0.07, e) * (1.0 - smoothstep(0.25, 0.45, e));
         vec3 cc = mix(vec3(0.10, 0.07, 0.13), vec3(0.75, 0.33, 0.28), pow(az, 1.5));
-        c = mix(c, cc, cl * 0.7);
+        c = mix(c, cc, cl * 0.55);
         if (e < 0.0) c = mix(hor * 0.55, vec3(0.018, 0.016, 0.024), smoothstep(0.0, -0.06, e));
         gl_FragColor = vec4(c * k, 1.0);
       }` });
@@ -347,7 +347,7 @@ function buildS1() {
   const envScene = new THREE.Scene(); envScene.add(new THREE.Mesh(sky.geometry, skyMat));
   const env = pm.fromScene(envScene, 0.04, 1, 5000).texture;
   scene.environment = env;
-  scene.fog = new THREE.FogExp2(new THREE.Color(0.125, 0.092, 0.150), 0.0026);
+  scene.fog = new THREE.Fog(new THREE.Color(0.125, 0.092, 0.150), 60, 1250);
 
   // --- mặt đất dốc: phố xuống dần xa máy quay ---
   const gy = (z) => (z > 6 ? 0 : (z - 6) * 0.035);
@@ -359,7 +359,7 @@ function buildS1() {
   // Máy quay (đặt sớm để loại nhà ngoài khung khi dựng)
   const cam = new THREE.PerspectiveCamera(50, W / H, 1, 6000);
   const cpos = new THREE.Vector3(-8, 37, 62);
-  const PITCH = 21 * Math.PI / 180;
+  const PITCH = 19 * Math.PI / 180;
   const aim = at(70).p.clone(); const hd = new THREE.Vector3(aim.x - cpos.x, 0, aim.z - cpos.z).normalize();
   const tgt = cpos.clone().add(new THREE.Vector3(hd.x * Math.cos(PITCH), -Math.sin(PITCH), hd.z * Math.cos(PITCH)).multiplyScalar(100));
   cam.position.copy(cpos); cam.lookAt(tgt); cam.updateMatrixWorld(); cam.updateProjectionMatrix();
@@ -465,32 +465,34 @@ function buildS1() {
   }
   // dãy nhà phía bắc quảng trường (dưới máy quay, tiền cảnh nhoè)
   { let t = 0; while (t < 44) { const w = 5.5 + R() * 3; house(mat4(-22 + t + w / 2, 0, 49, Math.PI), w + 0.2, 10, 3 + Math.floor(R() * 1.5), R()); t += w; } }
-  for (const [x, z] of [[-12, 30], [9, 32], [-13, 9]]) tree(x, z, 1.1);
   // thành phố nền (lưới, lệch ngẫu nhiên), bỏ vùng quanh phố và quảng trường
   const cl = []; for (let s = -2; s < L; s += 2) cl.push(at(s).p);
   const nearStreet = (x, z, r) => cl.some((p) => (p.x - x) ** 2 + (p.z - z) ** 2 < r * r);
   // Khối phố 40×34 m, phố 9 m giữa các khối; nhà liền kề quanh chu vi khối (sân trong ở giữa).
-  const BX = 52, BZ = 45;
-  for (let j = 0; j < 24; j++) for (let i = 0; i < 18; i++) {
+  const BX = 52, BZ = 45, TH = 0.33; // lưới khối xoay ~19° so với trục nhìn → bớt cảm giác lưới máy tính
+  const G = (x, z) => { const dx = x + 10, dz = z + 150; return [-10 + dx * Math.cos(TH) + dz * Math.sin(TH), -150 - dx * Math.sin(TH) + dz * Math.cos(TH)]; };
+  const pushLamp = (x, z) => { const [gx, gz] = G(x, z); if (nearStreet(gx, gz, 9) || (Math.abs(gx) < 30 && gz > 0 && gz < 55)) return; BGL.push(new THREE.Vector3(gx, gy(gz) + 3.4, gz)); };
+  for (let j = -2; j < 26; j++) for (let i = -3; i < 20; i++) {
     const bx = -430 + i * BX, bz = 64 - j * BZ;
-    const cx = bx + 20, cz = bz - 17;
+    const [cx, cz] = G(bx + 20, bz - 17);
     if (!inView(cx, gy(cz) + 6, cz, 0.35)) continue;
     const dist = Math.hypot(cx - cpos.x, cz - cpos.z); const lo = dist > 140;
-    // đèn khí dọc mép phố phía +x và phía −z của khối
-    for (let t = 6; t < 40; t += 21) if (R() < 0.45) { const p = new THREE.Vector3(bx + t, 0, bz + 5.5); p.y = gy(p.z) + 3.4; if (!nearStreet(p.x, p.z, 9) && !(Math.abs(p.x) < 30 && p.z > 0 && p.z < 50)) BGL.push(p); }
-    for (let t = 5; t < 40; t += 15) if (R() < 0.6) { const p = new THREE.Vector3(bx + 40 + ((t / 15) % 2 < 1 ? 3 : 9), 0, bz - t); p.y = gy(p.z) + 3.4; if (!nearStreet(p.x, p.z, 9) && !(Math.abs(p.x) < 30 && p.z > 0 && p.z < 50)) BGL.push(p); }
-    if (!lo || dist < 420) { const nt = Math.floor(R() * 3.2); for (let k = 0; k < nt; k++) tree(bx + 11 + R() * 18, bz - 10 - R() * 14, 0.9 + R() * 0.5); }
-    const edges = [[bx, bz, 1, 0, 40, 0], [bx + 40, bz - 34, -1, 0, 40, Math.PI], [bx + 40, bz, 0, -1, 34, -Math.PI / 2], [bx, bz - 34, 0, 1, 34, Math.PI / 2]];
-    for (const [ex, ez, dx, dz, len, rot] of edges) {
+    // đèn khí dọc mép phố phía +z và phía +x của khối
+    for (let t = 6; t < 40; t += 21) if (R() < 0.45) pushLamp(bx + t, bz + 5.5);
+    for (let t = 5; t < 40; t += 15) if (R() < 0.6) pushLamp(bx + 40 + ((t / 15) % 2 < 1 ? 3 : 9), bz - t);
+    if (!lo || dist < 420) { const nt = Math.floor(R() * 3.2); for (let k = 0; k < nt; k++) { const [tx, tz] = G(bx + 11 + R() * 18, bz - 10 - R() * 14); if (!nearStreet(tx, tz, 14)) tree(tx, tz, 0.9 + R() * 0.5); } }
+    const tall = R() < 0.12 ? 1.6 : 0; // vài khối nhà cao hơn (kho, xưởng)
+    const edges = [[bx, bz, 1, 0, 40], [bx + 40, bz - 34, -1, 0, 40], [bx + 40, bz, 0, -1, 34], [bx, bz - 34, 0, 1, 34]];
+    for (const [ex, ez, dx, dz, len] of edges) {
       let t = 0;
       while (t < len - 4) {
-        const w = Math.min(len - t, 5.5 + R() * 4.5), d = 8.5 + R() * 2.5, st = 2 + Math.floor(R() * 2.6);
+        const w = Math.min(len - t, 5.5 + R() * 4.5), d = 8.5 + R() * 2.5, st = 2 + Math.floor(R() * 2.6 + tall);
         // mặt tiền hướng ra phố (ra ngoài khối): pháp tuyến ngoài = (−dz, dx)
         const nx = -dz, nz = dx;
-        const hx = ex + dx * (t + w / 2) - nx * d / 2, hz = ez + dz * (t + w / 2) - nz * d / 2;
-        const skip = nearStreet(hx, hz, 12) || (Math.abs(hx) < 30 && hz > -2 && hz < 50) || R() < 0.04;
-        if (!skip) house(mat4(hx, gy(hz), hz, Math.atan2(nx, nz)), w + 0.1, d, st, R(), { cross: R() < 0.18, lo });
-        t += w; void rot;
+        const [hx, hz] = G(ex + dx * (t + w / 2) - nx * d / 2, ez + dz * (t + w / 2) - nz * d / 2);
+        const skip = nearStreet(hx, hz, 12) || (Math.abs(hx) < 30 && hz > -2 && hz < 55) || R() < 0.04;
+        if (!skip) house(mat4(hx, gy(hz), hz, Math.atan2(nx, nz) + TH + (R() - 0.5) * 0.04), w + 0.1, d, st, R(), { cross: R() < 0.18, lo });
+        t += w;
       }
     }
   }
@@ -521,7 +523,7 @@ function buildS1() {
     const pos = []; for (let i = 0; i < N; i++) { const [x0, h0] = P[i], [x1, h1] = P[i + 1]; const z = -1700; pos.push(x0, -60, z, x1, -60, z, x1, h1, z, x0, -60, z, x1, h1, z, x0, h0, z); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); g.computeVertexNormals();
     g.setAttribute('uv', new THREE.Float32BufferAttribute(new Array(pos.length / 3 * 2).fill(0), 2)); void rg;
-    scene.add(new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: new THREE.Color(0.085, 0.062, 0.105), fog: false, side: THREE.DoubleSide })));
+    scene.add(new THREE.Mesh(g, new THREE.MeshBasicMaterial({ color: new THREE.Color(0.10, 0.074, 0.122), fog: false, side: THREE.DoubleSide })));
     const stk = [];
     for (const [x, z, hh] of [[-150, -760, 38], [-128, -780, 30], [210, -640, 34]]) stk.push({ g: new THREE.CylinderGeometry(1.1, 1.9, hh, 10), m: mat4(x, gy(z) + hh / 2, z), color: '#5a4038' });
     for (let i = 0; i < 10; i++) { const a = i / 10 * Math.PI * 2; stk.push({ g: new THREE.CylinderGeometry(0.4, 0.4, 26, 6), m: mat4(95 + 16 * Math.cos(a), gy(-520) + 13, -520 + 16 * Math.sin(a)), color: '#3a3a40' }); }
@@ -612,8 +614,10 @@ function buildS1() {
     HL.length = LIT; HC.length = LIT;
     for (const p of keep) { HL.push({ p, c: new THREE.Color(1.0, 0.46, 0.16).multiplyScalar(0.9) }); HC.push({ p, c: new THREE.Color(1.0, 0.75, 0.45).multiplyScalar(1.4) }); }
     // quầng khí sáng (sương bắt ánh đèn) phía trên các ngọn bị mái che: thấy lờ mờ trên nóc nhà
-    const haze = BGL.filter((_, i) => !vis[i]).map((p) => ({ p: p.clone().add(new THREE.Vector3(0, 9.5, 0)), c: new THREE.Color(1.0, 0.45, 0.17).multiplyScalar(0.10) }));
-    scene.add(haloPoints(haze, 20.0)); }
+    const haze = BGL.filter((p, i) => !vis[i] && (i % 2 === 0) && p.distanceTo(cpos) < 520).map((p) => ({ p: p.clone().add(new THREE.Vector3(0, 9.5, 0)), c: new THREE.Color(1.0, 0.45, 0.17).multiplyScalar(0.16) }));
+    scene.add(haloPoints(haze, 15.0)); }
+  // đặt hào quang lệch ~1,2 m về phía máy quay để không bị chính mũ đèn che (hào quang là hiện tượng của ống kính/không khí)
+  for (const L of [HL, HC]) for (const it of L) it.p = it.p.clone().add(cpos.clone().sub(it.p).normalize().multiplyScalar(1.2));
   const hp1 = haloPoints(HL, 9.0), hp2 = haloPoints(HC, 2.2); scene.add(hp1, hp2);
   if (DBG.bigHalo) { hp1.material.size = 60; hp1.material.depthTest = false; console.log('BGL', BGL.length, JSON.stringify(BGL.slice(0,3))); }
   const lampLightsArr = [];
