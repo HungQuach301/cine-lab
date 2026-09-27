@@ -9,6 +9,8 @@ Quy trình:
 3. C3 (run.py) đối chiếu. TRƯỢT khi: thiếu yêu cầu kiểm toán (THIẾU), bộ mặt nạ hoặc video đổi sau khi phát
    yêu cầu, thiếu log hoặc log thiếu mục bắt buộc, SHA file cảnh trong log khác file trên đĩa, thiếu mặt nạ
    render lại, hoặc mặt nạ nộp lệch mặt nạ render lại vượt dải nhiễu (tỷ lệ) hay vượt ngưỡng khớp điểm ảnh.
+4. v1.4: parts.json có 'views' (góc nhìn, gập, che, độ sâu) thì xưởng xuất lại views của các khung được chọn vào
+   <video>.audit/rerender/<khung 5 chữ số>/views.json (cùng lược đồ một mục của 'views'); lệch bản nộp → TRƯỢT.
 
 Log bắt buộc (mỗi mục một dòng, thêm dòng tự do được):
   SCENE <đường dẫn file cảnh tính từ gốc repo> SHA256 <64 hex>
@@ -26,6 +28,7 @@ import numpy as np
 
 N_FRAMES = (1, 2)          # số khung được chọn (ngẫu nhiên 1 hoặc 2)
 XOR_MAX = 0.02             # điểm ảnh khác nhau / điểm ảnh biên của mặt nạ render lại (nội bộ)
+VIEWS_TOL = dict(goc=1.0, ty_le=0.005)  # v1.4: views render lại lệch bản nộp (nội bộ; render tất định ≈ 0)
 
 
 def sha256_file(p):
@@ -158,6 +161,37 @@ def verify(video, parts_dir, repo, spec, load_mask, length_px, uncertainty, asse
                 u = uncertainty(lr, hr)
                 worst_ratio = max(worst_ratio, d / u)
                 rows.append(dict(khung=f, bo_phan=part, lech_ty_le_pct=round(100 * d, 3), U_pct=round(100 * u, 3)))
+    # v1.4: parts.json có 'views' thì render lại phải xuất lại số liệu góc nhìn/tư thế của khung đó và khớp bản nộp
+    if isinstance(spec.get("views"), dict):
+        v_bad, v_worst = 0, dict(goc=0.0, ty_le=0.0)
+        for f in frames:
+            vp = ad / "rerender" / f"{f:05d}" / "views.json"
+            sub = spec["views"].get(str(f))
+            try:
+                got = json.loads(vp.read_text(encoding="utf-8")) if vp.is_file() else None
+                pairs = [("goc", sub["view_deg"], got["view_deg"], True), ("goc", sub["elev_deg"], got["elev_deg"], False)]
+                for part, q in sub["parts"].items():
+                    g = got["parts"][part]
+                    pairs += [("ty_le", q["foreshorten"], g["foreshorten"], False), ("ty_le", q["hidden"], g["hidden"], False),
+                              ("ty_le", q["depth"], g["depth"], False)]
+                loc = dict(goc=0.0, ty_le=0.0)
+                for key, x, y, circ in pairs:
+                    dd = abs(float(x) - float(y))
+                    if circ:
+                        dd = abs((dd + 180.0) % 360.0 - 180.0)
+                    loc[key] = max(loc[key], dd)
+                for key in loc:
+                    v_worst[key] = max(v_worst[key], loc[key])
+                rows.append(dict(khung=f, views_render_lai="khớp" if all(
+                    loc[k_] <= VIEWS_TOL[k_] for k_ in VIEWS_TOL) else "lệch", views_lech=loc))
+            except (TypeError, KeyError, ValueError, AttributeError):
+                v_bad += 1
+                rows.append(dict(khung=f, views_render_lai="thiếu hoặc sai định dạng views.json"))
+        ms.append(metric("kiểm toán: views.json render lại thiếu hoặc sai định dạng", v_bad, "<=", 0))
+        ms.append(metric("kiểm toán: views render lại lệch bản nộp — góc nhìn, góc ngẩng (lớn nhất)",
+                         round(v_worst["goc"], 3), "<=", VIEWS_TOL["goc"], "°"))
+        ms.append(metric("kiểm toán: views render lại lệch bản nộp — foreshorten, hidden, depth (lớn nhất)",
+                         round(v_worst["ty_le"], 4), "<=", VIEWS_TOL["ty_le"]))
     ms.append(metric("kiểm toán: mặt nạ render lại thiếu hoặc khác kích thước", missing, "<=", 0))
     ms.append(metric("kiểm toán: lệch tỷ lệ nộp/render lại, tính theo dải nhiễu U (lớn nhất)", worst_ratio, "<=", 1.0,
                      "×U"))

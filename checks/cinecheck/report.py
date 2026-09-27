@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-ICON = {"PASS": "ĐẠT", "FAIL": "TRƯỢT", "MISSING": "THIẾU", "N/A": "—", "ERROR": "LỖI ĐO"}
+ICON = {"PASS": "ĐẠT", "FAIL": "TRƯỢT", "MISSING": "THIẾU", "N/A": "—", "ERROR": "LỖI ĐO", "REVIEW": "CẦN NGƯỜI XEM"}
 
 
 def _fmt(v):

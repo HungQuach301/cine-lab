@@ -394,12 +394,14 @@ def cases(d):
     C += cases_v12.cases(d)
     import cases_v13  # thay đổi v1.3: J1 theo stem thoại, C3 4× khi đầu nhỏ, kiểm toán ngẫu nhiên
     C += cases_v13.cases(d)
+    import cases_v14  # thay đổi v1.4: J1/J1b không có luồng âm, C3 lược đồ sheet + góc nhìn/tư thế (CẦN NGƯỜI XEM)
+    C += cases_v14.cases(d)
     return C
 
 
 def e2e(d):
     """Mẫu tổng hợp sạch 1080p24 8 giây, master YouTube, chạy qua lệnh duy nhất run.py.
-    v1.1: mặt nạ C3 ở 2×; master có grain nên N3 đòi ≥ 30 Mbps (mẫu mã 40 Mbps)."""
+    v1.1: mặt nạ C3 ở 2×; master có grain nên N3 đòi ≥ 30 Mbps (mẫu mã 40 Mbps). v1.4: parts.json có views."""
     import cases_v1 as v1
     name = "e2e_clean"
     size = (1920, 1080)
@@ -420,8 +422,11 @@ def e2e(d):
     json.dump(v1.SHEET, open(pd / "sheet.json", "w"))
     for k, m in fmasks.items():
         Image.fromarray((m * 255).astype(np.uint8)).save(pd / "m" / f"{k}.png")
+    # v1.4: views xuất từ render (góc nhìn 0°, không gập, không bị che, cùng độ sâu với đầu)
+    view0 = {"view_deg": 0.0, "elev_deg": 0.0, "parts": {k: {"foreshorten": 1.0, "hidden": 0.0, "depth": 1.0} for k in fmasks}}
     json.dump({"model_sheet": "sheet.json", "scale": ms,
-               "frames": {str(i): {k: f"m/{k}.png" for k in fmasks} for i in range(0, n, 12)}},
+               "frames": {str(i): {k: f"m/{k}.png" for k in fmasks} for i in range(0, n, 12)},
+               "views": {str(i): view0 for i in range(0, n, 12)}},
               open(pd / "parts.json", "w"))
     path = v1.h1b_path(n) * np.array([1.2, 1.0]) + np.array([-40, 380])
     yy_, xx_ = np.mgrid[-28:29, -28:29]
@@ -470,6 +475,7 @@ def e2e(d):
         rr.mkdir(parents=True, exist_ok=True)
         for k in fmasks:
             shutil.copy(pd / "m" / f"{k}.png", rr / f"{k}.png")
+        (rr / "views.json").write_text(json.dumps(view0))
     scene = "shots/sh010/sh010.blend"
     (au.audit_dir(v) / "render.log").write_text(
         f"SCENE {scene} SHA256 {au.sha256_file(repo / scene)}\n"

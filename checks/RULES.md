@@ -1,4 +1,4 @@
-# CINE LAB — BỘ LUẬT L1 v1.3 (phiên K)
+# CINE LAB — BỘ LUẬT L1 v1.4 (phiên K)
 
 Căn cứ: `docs/cine-lab/CINE-LAB-KHUNG-CHAT-LUONG.md` mục 1 và 4; `docs/cine-lab/CINE-LAB-BAI-HOC-BRIEF-D.md`.
 Nguyên tắc: đo từ file đã render; mỗi luật có test tự chứng minh; ngưỡng "nội bộ" là đề xuất, hiệu chuẩn sau bài thử.
@@ -9,6 +9,23 @@ v1.1 = v1 + 4 quyết định của chủ dự án (Q-C3, Q-P0, Q-G3b, Q-J1b), x
 v1.2 = v1.1 + 3 khiếu nại J1 được chủ dự án chấp nhận (27/09/2026) + Q-C3b (bịt lỗ hổng mặt nạ phóng to). Vẫn 16 luật, đều cấp Chặn; không nới ngưỡng nào.
 
 v1.3 = v1.2 + quyết định của chủ dự án về v1.2: Q-C3c = B (kiểm toán ngẫu nhiên), Q-δ = A (δ = 2; 4× khi đầu < 100 px), Q-J1c = phương án mới (chèn theo stem thoại). Không nới ngưỡng nào.
+
+v1.4 = v1.3 + 3 khiếu nại của P ở Cổng 3 được chủ dự án chấp nhận (chat 27/09/2026): J1/J1b khi không có luồng âm; lược đồ model sheet của C3; C3 theo tư thế và góc nhìn (B-i). Vẫn 16 luật, đều cấp Chặn; không nới ngưỡng nào. Thêm trạng thái **CẦN NGƯỜI XEM** (mã thoát 5), không bao giờ là ĐẠT.
+
+### Thay đổi của v1.4
+
+| Căn cứ | Luật | Trước (v1.3) | Sau (v1.4) | Ngưỡng | Test tự chứng minh |
+|---|---|---|---|---|---|
+| Khiếu nại J1/J1b (Cổng 3 v3) | J1, J1b | File không có luồng âm → TRƯỢT "Không có luồng âm" (M3 cùng điều kiện: "—") | Không có luồng âm: kịch bản rỗng (sau chuẩn hoá không còn từ) → "—" không áp dụng, như M3; kịch bản có lời hoặc không có kịch bản → THIẾU. J1b quyết theo kịch bản, không cần stem | không đổi | — ×3 (J1, J1b, run.py không có stem) / THIẾU ×2 / có âm nhưng thiếu từ → TRƯỢT |
+| Khiếu nại C3 tài liệu (Cổng 3 v3) | C3 | Máy đọc độ dài ở cấp gốc; sheet lồng trong `parts{}` → "LỖI ĐO KeyError: 'torso'" | Lược đồ ghi ở RUN.md 3.6.1: độ dài ở cấp gốc, nếu thiếu thì `parts{}` (một nguồn cho mọi bộ phận, không trộn), và `c3_views`. Sai định dạng (sheet, `parts.json`, `views`) → THIẾU với "Sai định dạng (RUN.md mục 3.6): …" nêu đúng trường | không đổi | chỉ `parts{}` → ĐẠT / thiếu torso, khoá góc 'front', views thiếu trường → THIẾU, không lộ lỗi Python |
+| Khiếu nại C3 tư thế/góc (A2+), chủ dự án chọn B-i | C3 | Mọi mẫu so với số góc 0°, nên tư thế và góc nhìn làm TRƯỢT nhân vật dựng đúng | Chỉ so ở mẫu **đo được**, với số của góc `c3_views` gần nhất. Không đo được khi: chạm mép khung (máy tự đo); không có mặt nạ đầu; góc 3D giữa hướng nhìn và góc gần nhất > 30°; đầu co ngắn/bị che (cả khung); `c3_views` ghi null; bộ phận bị vật ngoài thân che > 10%; co ngắn do tư thế (gập) > 2%; phối cảnh lệch đầu > 2%. Góc và tư thế lấy từ `views` xuất từ render (RUN.md 3.6.2); không có `views` thì như v1.3. Mẫu không đo được được đếm, liệt kê; tỷ lệ đo được báo theo từng shot (tách shot như G3b). **Shot có nhân vật mà 0 mẫu đo được → CẦN NGƯỜI XEM.** Mặt nạ rỗng mà `views` khai không bị che → thiếu mặt nạ (lỗi). Kiểm toán ngẫu nhiên đối chiếu cả `views` | góc ≤ 30° (chủ dự án); co ngắn 0,02, che 0,10, phối cảnh 0,02, kiểm toán views 1°/0,005 (nội bộ) | (a) đúng tỷ lệ, cẳng tay gập → ĐẠT (không views: TRƯỢT); (b) tay +20% ở 0° → TRƯỢT; (c) toàn góc lệch → CẦN NGƯỜI XEM; thêm: ngẩng 35°, góc gần nhất 45°/0°, null ở 90°, phối cảnh, mặt nạ rỗng khai không che, bị che hoàn toàn, đầu cắt khung, 2 shot, kiểm toán views khớp/lệch |
+| Lỗi phát hiện khi chạy thử v1.4 | C3 | — | Độ khớp biên mặt nạ–cạnh ảnh (chống mặt nạ giả) đo ở **mọi** khung có nhân vật, kể cả khung không đo được tỷ lệ (bản nháp v1.4 bỏ sót, làm chỉ số = 0) | không đổi | ca (c), đầu cắt khung, 2 shot |
+
+**K thêm ngoài nguyên văn quyết định (nêu để chủ dự án biết):**
+1. **Phối cảnh (`depth`)**: bộ phận gần hoặc xa máy hơn đầu thì phóng to/thu nhỏ theo tỷ lệ độ sâu. Model sheet đo bằng máy trực giao nên không có hiệu ứng này. Ví dụ đo thật: ở walk_cas, cẳng tay gần máy hơn đầu 2,5% theo trục máy, nên trông dài ra khoảng 2,5% chỉ vì phối cảnh. K loại mẫu lệch độ sâu > 2%, không hiệu chỉnh (hiệu chỉnh sẽ để số khai sửa số đo).
+2. **Góc ngẩng**: "lệch ≤ 30°" được tính là góc 3D giữa hướng nhìn thật và hướng nhìn tham chiếu (ngẩng 0°), để máy quay nhìn từ trên cao cũng bị tính là lệch góc.
+3. **"Gập" đo bằng co ngắn trên mặt phẳng ảnh**, không bằng góc khớp: gập trong mặt phẳng ảnh không đổi độ dài 2D nên vẫn đo được; gập về phía máy làm ngắn đi nên bị loại. Lần đo đầu bằng góc 3D (ngưỡng 15°) loại cả đầu hơi cúi trong walk_cas ở góc nhìn nghiêng, dù độ dài 2D không đổi.
+4. **"Bị che" chỉ tính vật ngoài thân nhân vật** (cảnh, đạo cụ, nhân vật khác). Mũ che 55% đầu là thiết kế, đã có trong số đo B1.
 
 ### Thay đổi của v1.3
 
@@ -80,7 +97,17 @@ Thêm mục vào bảng = sửa luật: phiên K làm, chủ dự án duyệt, k
 | H1b | 4.H | `screen_tracks` (toạ độ khớp nhân vật chiếu qua máy quay) so với luồng quang học DIS trên file render, trung vị đĩa 4 px | mọi nhân vật có track; mỗi track khớp ≥ 90% cặp khung (nội bộ) | Chặn | khai easing nhưng render tuyến tính; thiếu track / track đúng |
 | C3 | 4.C | Mặt nạ bộ phận mỗi 12 khung; độ dài PCA; tỷ lệ so model sheet; nhiễu U = √((1 px/L)² + (1 px/L_đầu)²) hiệu chuẩn Monte Carlo; quyết định dải bảo vệ (ISO 14253-1); biên mặt nạ phải nằm trên cạnh ảnh render. **v1.1: thêm hệ số mặt nạ 2–4× (xem trên)** | 0 trượt chắc chắn (\|lệch\| − U > 3%); 0 không chứng minh được (\|lệch\| + U > 3%); độ khớp biên ≥ 1,5 (nội bộ) | Chặn | thân +6%; đầu 57 px (nhiễu vượt biên); mặt nạ lệch 20 px / đúng sheet đầu 146 px; thân +2% đầu 146 px; mô hình nhiễu phủ 100% sai số |
 
-Kết quả test tự chứng minh: `reports/checks-selftest/selftest.md` (v1.3: 96 ca đơn — 81 ca v1.2 giữ kỳ vọng, cộng 15 ca mới (3 J1, 12 C3); chạy đầu–cuối có thêm bước kiểm toán ngẫu nhiên. v1.2: 81 ca đơn — 69 ca v1.1 giữ kỳ vọng, trong đó ca C3 "đầu 57 px, 4×" đổi thân +2% → +1,5% vì δ = 2 và ca hiệu chuẩn nhiễu dùng δ = 2; cộng 12 ca mới (7 J1, 5 C3). v1.1: 69 ca đơn — 51 ca v1 giữ nguyên kỳ vọng, trong đó 4 ca C3 chuyển mặt nạ 1× sang 2× và ca hiệu chuẩn nhiễu mở rộng ra s = 1, 2, 4; cộng 18 ca mới — và chạy đầu–cuối 16 luật qua `run.py`).
+Kết quả test tự chứng minh: `reports/checks-selftest/selftest.md` (v1.4: 121 ca đơn — 96 ca v1.3 giữ kỳ vọng, cộng 25 ca mới (5 J1/J1b gọi trực tiếp + 1 qua run.py, 19 C3); chạy đầu–cuối: parts.json có `views`, kiểm toán render lại có `views.json`. v1.3: 96 ca đơn — 81 ca v1.2 giữ kỳ vọng, cộng 15 ca mới (3 J1, 12 C3); chạy đầu–cuối có thêm bước kiểm toán ngẫu nhiên. v1.2: 81 ca đơn — 69 ca v1.1 giữ kỳ vọng, trong đó ca C3 "đầu 57 px, 4×" đổi thân +2% → +1,5% vì δ = 2 và ca hiệu chuẩn nhiễu dùng δ = 2; cộng 12 ca mới (7 J1, 5 C3). v1.1: 69 ca đơn — 51 ca v1 giữ nguyên kỳ vọng, trong đó 4 ca C3 chuyển mặt nạ 1× sang 2× và ca hiệu chuẩn nhiễu mở rộng ra s = 1, 2, 4; cộng 18 ca mới — và chạy đầu–cuối 16 luật qua `run.py`).
+
+## Giới hạn đã biết của v1.4 (mới)
+
+1. **Góc nhìn và tư thế là số xuất từ render (`views`), máy không tự đo được.** Mặt nạ không cho biết nhân vật quay hướng nào. Các chốt chặn: kiểm toán ngẫu nhiên render lại cả `views` (1–2 khung); shot có nhân vật mà 0 mẫu đo được thành CẦN NGƯỜI XEM; mọi mẫu bị loại được liệt kê kèm lý do; không có `views` thì so chặt như v1.3. Khai sai có chọn lọc ở khung không được kiểm toán vẫn có thể lọt, xác suất bị bắt ≈ số khung kiểm / số khung mẫu (như giới hạn 2 của v1.3).
+2. **So với số góc gần nhất, không nội suy** (theo quyết định). Góc thật cách góc tham chiếu tới 22,5° (giữa 0° và 45°) thì số đúng có thể khác số tham chiếu vài %: thân Ida 2,584 (0°) → 2,332 (45°), điểm giữa lệch khoảng 4,9%. Nhân vật dựng đúng vẫn có thể TRƯỢT ở góc lưng chừng (quyết định Q-C3n).
+3. **Độ dài NHÌN THẤY đổi theo tư thế qua trang phục.** Chạy thử walk_cas: co ngắn xương ≈ 1,000, góc cách −90° 10–19°, nhưng đùi dài hơn số −90° khoảng 10% ở 3/4 khung; có thể do áo len che đùi nhiều ít theo nhịp bước. `hidden` chỉ tính vật ngoài thân nên không loại được trường hợp này (quyết định Q-C3w).
+4. **`c3_views` 4 góc (0°, 45°, 90°, −90°) để hở −45°, ±135°, 180°.** Chạy thử: 5/8 file có góc ngoài ±30° quanh mọi góc tham chiếu nên CẦN NGƯỜI XEM.
+5. **Tách shot dùng PySceneDetect như G3b.** Cắt mềm (hoà tan) có thể không tách; khi đó hai shot được tính chung và tỷ lệ đo được là của cả hai.
+6. **CẦN NGƯỜI XEM chưa có quy trình người chấm** trong `RUBRIC.md`: ai xem, so với gì, ghi kết quả ở đâu (quyết định Q-C3r).
+7. Ngưỡng co ngắn 0,02, che 0,10, phối cảnh 0,02 và dung sai kiểm toán `views` 1°/0,005 là **nội bộ, chưa hiệu chuẩn**.
 
 ## Giới hạn đã biết của v1.3 (mới)
 
