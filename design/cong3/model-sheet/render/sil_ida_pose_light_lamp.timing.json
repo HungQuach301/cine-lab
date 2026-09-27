@@ -1,14 +1,14 @@
 {
  "page": "model-sheet/sheet_page.js",
- "frame": "ida_back",
+ "frame": "sil_ida_pose_light_lamp",
  "W": 700,
  "H": 1000,
  "samples": 16,
  "frames": 1,
- "setup_s": 0.059,
- "render_frame_s": 1.718,
- "page_reported_accum_ms": 131.80000000074506,
+ "setup_s": 0.075,
+ "render_frame_s": 0.2,
+ "page_reported_accum_ms": 0,
  "finalize_per_extra_frame_s": null,
- "total_wall_s": 2.253,
+ "total_wall_s": 0.646,
  "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
 }

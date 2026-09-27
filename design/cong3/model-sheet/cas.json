@@ -158,17 +158,17 @@
           0
         ],
         "neck": [
-          -14,
+          -18,
           0,
           0
         ],
         "shoulder_L": [
-          -150,
+          -168,
           0,
-          -14
+          -10
         ],
         "elbow_L": [
-          -22,
+          -8,
           0,
           0
         ],
@@ -178,12 +178,12 @@
           90
         ],
         "shoulder_R": [
-          -150,
+          -168,
           0,
-          14
+          10
         ],
         "elbow_R": [
-          -22,
+          -8,
           0,
           0
         ],
@@ -205,64 +205,73 @@
           "thumb_cross": true
         }
       },
-      "props": []
+      "props": [],
+      "stage": {
+        "view": 180,
+        "wall_shadow": true
+      }
     },
     "look_lantern": {
-      "label": "C2 — Hạ tay, quay nhìn đèn lồng, không xin (cảnh 4)",
+      "label": "C2 — Nghiêng người nhìn đèn lồng dưới đất, hai tay ôm trước ngực, không xin (cảnh 4)",
       "scene": 4,
       "joints": {
         "spine": [
-          4,
-          -12,
+          20,
+          0,
           0
         ],
         "neck": [
-          10,
-          -34,
+          26,
+          0,
           0
         ],
         "shoulder_L": [
-          6,
+          -34,
           0,
-          4
+          -8
         ],
         "elbow_L": [
-          -12,
+          -96,
           0,
           0
         ],
         "shoulder_R": [
-          10,
+          -34,
           0,
-          -3
+          8
         ],
         "elbow_R": [
-          -10,
+          -96,
           0,
           0
         ],
         "hip_L": [
+          -8,
           0,
-          0,
-          3
+          0
         ],
-        "hip_R": [
+        "knee_L": [
+          14,
           0,
-          0,
-          -3
+          0
         ]
       },
       "hands": {
         "L": {
           "spread": 0.0,
-          "curl": 0.7
+          "curl": 0.8
         },
         "R": {
           "spread": 0.0,
-          "curl": 0.7
+          "curl": 0.8
         }
       },
-      "props": []
+      "props": [
+        "lantern_ground_front"
+      ],
+      "stage": {
+        "view": 90
+      }
     },
     "hold_ladder": {
       "label": "C3 — Giữ thang hai tay (cảnh 5)",
@@ -324,7 +333,10 @@
           "curl": 0.9
         }
       },
-      "props": []
+      "props": [],
+      "stage": {
+        "view": 70
+      }
     },
     "warm_hands_copy": {
       "label": "C4 — Tự hơ tay trên đèn lồng, đếm ba (cảnh 5)",
@@ -414,7 +426,10 @@
       },
       "props": [
         "lantern_ground_front"
-      ]
+      ],
+      "stage": {
+        "view": 80
+      }
     },
     "half_raised": {
       "label": "C5 — Đứng cạnh Ida, tay nửa giơ, nhìn hai cái bóng trên vách (cảnh 5)",
@@ -481,7 +496,10 @@
           "curl": 0.15
         }
       },
-      "props": []
+      "props": [],
+      "stage": {
+        "view": 150
+      }
     }
   },
   "measured_parts": [

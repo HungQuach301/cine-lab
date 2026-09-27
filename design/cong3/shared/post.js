@@ -33,11 +33,11 @@ export function createPipeline(renderer, W, H, opts = {}) {
   if (overlayTex) { overlayTex.colorSpace = THREE.NoColorSpace; overlayTex.flipY = true; }
   const outMat = new THREE.RawShaderMaterial({
     glslVersion: THREE.GLSL3,
-    uniforms: { tAcc: { value: accRT.texture }, tOver: { value: overlayTex }, frame: { value: 0 }, sigma: { value: GRAIN.sigma_code / 255 }, dith: { value: GRAIN.dither_lsb / 255 }, res: { value: new THREE.Vector2(W, H) }, ...(opts.uniforms || {}) },
+    uniforms: { tAcc: { value: accRT.texture }, tOver: { value: overlayTex }, frame: { value: 0 }, uExp: { value: exposure }, sigma: { value: GRAIN.sigma_code / 255 }, dith: { value: GRAIN.dither_lsb / 255 }, res: { value: new THREE.Vector2(W, H) }, ...(opts.uniforms || {}) },
     vertexShader: VS,
-    fragmentShader: `precision highp float; uniform sampler2D tAcc; uniform sampler2D tOver; uniform float frame, sigma, dith; uniform vec2 res; in vec2 vUv; out vec4 o;
+    fragmentShader: `precision highp float; uniform sampler2D tAcc; uniform sampler2D tOver; uniform float frame, sigma, dith, uExp; uniform vec2 res; in vec2 vUv; out vec4 o;
       ${opts.uniformDecl || ''}
-      const float EXPOSURE = ${exposure.toFixed(4)};
+      #define EXPOSURE uExp
       const float GSIZE = ${GRAIN.size_px.toFixed(2)}, GTOE = ${GRAIN.grain_toe_code.toFixed(2)}, DTOE = ${GRAIN.dither_toe_code.toFixed(2)};
       const bool HAS_OVER = ${overlayTex ? 'true' : 'false'};
       ${tone}
