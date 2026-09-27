@@ -1,0 +1,25 @@
+{
+  "_doc": "Giọng nhân vật của phim Last Round. Phiên P giữ. voice_id là giọng đã lưu vĩnh viễn trong tài khoản ElevenLabs của dự án (khoá do proxy gắn cho api.elevenlabs.io). Quyền: xem RIGHTS.md theo mã 'rights'.",
+  "voices": [
+    {
+      "role": "lamplighter",
+      "status": "chosen",
+      "voice_id": "59pjz3MTZdh9U1AETKfW",
+      "name_in_account": "CINE-LastRound-Lamplighter-V3",
+      "category": "generated (Voice Design)",
+      "design_model": "eleven_ttv_v3",
+      "tts_model": "eleven_v3",
+      "description": "An elderly English woman in her late seventies, soft and slightly hoarse, frail breath, a working woman's warmth, speaking quietly and close to the microphone, emotional, on the edge of tears.",
+      "origin": "M0 V3, preview t2 (reports/m0/voice/takes/V3-designed_t2-preview.mp3), lưu bằng POST /v1/text-to-voice ngày 2026-09-27 (reports/m1/voice/save-v3.json)",
+      "owner_rating": "3/3 preview 'tin được'; điểm t1/t2/t3 = 4/5/4; lưu t2 (điểm cao nhất)",
+      "reference_take_sha256": "2aad323cc4111ce1532a1cc3c08c52ce9b27ee3eeae34a696889dccf816206e0",
+      "rights": "M1-V3"
+    },
+    {
+      "role": "child",
+      "status": "open",
+      "voice_id": null,
+      "note": "Austin (thư viện) trượt 1/3, 'giọng tương đối trưởng thành'. Voice Design với mô tả trẻ 8–10 tuổi bị ElevenLabs chặn (403 blocked_generation) ngày 2026-09-27: reports/m1/voice/child-takes.json. Chờ chủ dự án chọn hướng."
+    }
+  ]
+}

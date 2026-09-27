@@ -1,0 +1,67 @@
+{
+ "request": {
+  "voice_name": "CINE-LastRound-Lamplighter-V3",
+  "voice_description": "An elderly English woman in her late seventies, soft and slightly hoarse, frail breath, a working woman's warmth, speaking quietly and close to the microphone, emotional, on the edge of tears.",
+  "generated_voice_id": "59pjz3MTZdh9U1AETKfW",
+  "labels": {
+   "project": "cine-lab",
+   "role": "lamplighter",
+   "source": "M0 V3 preview t2"
+  }
+ },
+ "http": 200,
+ "latency_s": 5.78,
+ "response": {
+  "voice_id": "59pjz3MTZdh9U1AETKfW",
+  "name": "CINE-LastRound-Lamplighter-V3",
+  "samples": null,
+  "category": "generated",
+  "fine_tuning": {
+   "is_allowed_to_fine_tune": false,
+   "state": {},
+   "verification_failures": [],
+   "verification_attempts_count": 0,
+   "manual_verification_requested": false,
+   "language": null,
+   "progress": {},
+   "message": {},
+   "dataset_duration_seconds": null,
+   "verification_attempts": null,
+   "slice_ids": null,
+   "manual_verification": null,
+   "max_verification_attempts": null,
+   "next_max_verification_attempts_reset_unix_ms": null
+  },
+  "labels": {
+   "project": "cine-lab",
+   "role": "lamplighter",
+   "source": "M0 V3 preview t2"
+  },
+  "description": "An elderly English woman in her late seventies, soft and slightly hoarse, frail breath, a working woman's warmth, speaking quietly and close to the microphone, emotional, on the edge of tears.",
+  "available_for_tiers": [],
+  "settings": {
+   "stability": 0.5,
+   "use_speaker_boost": true,
+   "similarity_boost": 0.75,
+   "style": 0.0,
+   "speed": 1.0
+  },
+  "sharing": null,
+  "high_quality_base_model_ids": [],
+  "verified_languages": [],
+  "collection_ids": null,
+  "safety_control": null,
+  "voice_verification": null,
+  "permission_on_resource": null,
+  "is_owner": null,
+  "is_legacy": false,
+  "is_mixed": false,
+  "favorited_at_unix": null,
+  "created_at_unix": 1790469403,
+  "is_bookmarked": null,
+  "recording_quality": null,
+  "labelling_status": null,
+  "recording_quality_reason": null,
+  "orb_thumbnail_signed_urls": null
+ }
+}
