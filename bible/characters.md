@@ -1,4 +1,4 @@
-# HỒ SƠ NHÂN VẬT — "Last Round" (v1.2 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+; **v1.2: A1 + đo thêm góc (Cổng 4 vòng v2)** · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
+# HỒ SƠ NHÂN VẬT — "Last Round" (v1.3 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+; **v1.2: A1 + đo thêm góc (Cổng 4 vòng v2)** · **v1.3: D2 mũ Ida #262a33 (đóng Cổng 4)** · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
 
 Căn cứ: kịch bản chốt `scripts/last-round.fountain` (nháp 2), luật thế giới v0.3. Dùng cho rubric **C1** (người chấm phải nêu được 4 yếu tố từ phim, không đọc hồ sơ) và cho diễn xuất ở Cổng 6.
 
@@ -36,7 +36,7 @@ Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`
 | Váy | Váy dài #4a3a44 lộ dưới vạt áo, gấu cách đất 0,42 H; tất tối #3a3235 | — | 3B |
 | Khăn | Khăn len #8e5c5a, một đuôi buông trước ngực | — | 3B |
 | Tóc | Búi sau gáy dưới vành mũ | Tóc #5a4034 lộ ở gáy và dưới vành mũ (để không đọc thành búi tóc bé gái) | 3B |
-| Mũ | Mũ phớt, **không nơ** trên băng mũ; **v1.2:** màu gốc trung tính #2b2a2a (albedo cố định, không chỉnh theo shot) | **Giữ mũ len có quả bông** | 3B, 4A; v1.2 |
+| Mũ | Mũ phớt, **không nơ** trên băng mũ; **v1.3 (D2):** màu gốc xám xanh sẫm **#262a33** (albedo cố định, không chỉnh theo shot; v1.2 là #2b2a2a) | **Giữ mũ len có quả bông** | 3B, 4A; v1.2; D2 (v1.3) |
 | Mặt nữ tính (v1.2) | **A1:** 3 lọn tóc bạc mềm ở mỗi thái dương + 2 lọn ở gáy; hoa tai nhỏ bắt sáng (nụ + giọt, vàng cũ #c9a466). Cổ áo đứng dựng cao tới cằm (khớp hình sheet; bỏ cổ trần dài) | — | A1 (Cổng 4) |
 | Mắt (v1.2) | Tròng nâu #5a4636, lòng trắng ngà tối #7a6e66; không tự phát sáng | như cũ | Cổng 4 v2 |
 | Mặt | Không khắc khe miệng/nếp nhăn vào hình học; khe môi, nếp nhăn, mi, đồi mồi là nét vẽ; chất da mờ (Lambert, không bóng) | như Ida; tàn nhang vẽ | C′, sửa L3 |
