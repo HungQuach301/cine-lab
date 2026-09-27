@@ -234,6 +234,14 @@ export async function buildS5(ida, cas, dbg = {}, mkChar, charUpdate) {
   if (dbg.briefcam) { // biến thể đúng chữ brief: 1,5 m sau đèn, ngang 1,3 m, FOV 40° (khung nằm trọn trong vòm — để P so sánh)
     cam.fov = 40; cam.shiftY = 0.12; cam.position.set(0.1, 1.3, LANTERN_Z + 1.5); cam.lookAt(0.1, 1.3, 0); cam.updateProjectionMatrix(); }
 
+  // v3 (6B): TRUNG CẢNH — máy qua vai 3/4 sau-phải, cạnh đèn lồng (không chắn tia), nhìn hai người và bóng của họ trên vách.
+  // Đầu/má tách khỏi bóng nền nhờ (1) đèn lồng dưới đất sau lưng hai người chiếu viền lên má, gáy, mép mũ (nguồn có trong truyện),
+  // (2) dội ấm từ vách bên (uSide). Không thêm đèn giả.
+  if (dbg.medium) {
+    const m = dbg.medium === true || dbg.medium === 1 ? {} : dbg.medium;
+    cam.fov = m.fov ?? 38; cam.shiftY = 0; cam.position.set(...(m.pos || [1.35, 1.0, 2.7])); cam.lookAt(...(m.look || [-0.1, 1.0, 0.8])); cam.updateProjectionMatrix();
+  }
+
   // Jitter nguồn trong khối kính (~12 cm) theo mẫu: dãy Halton(2,3) riêng, tâm tại ngọn lửa
   const hal = (i, b) => { let f = 1, r = 0; while (i > 0) { f /= b; r += f * (i % b); i = Math.floor(i / b); } return r; };
   const onSample = (i, n) => {

@@ -41,7 +41,7 @@ Mọi số dưới đây là **đo thật, tuần tự trên máy rỗi**, 1920�
 
 Thời gian dựng cảnh (một lần mỗi shot) không tính. Agent 2D đo nhân vật gốc (khối nguyên thuỷ) cùng lúc: cùng cỡ với 2D. Phần vượt ngân sách chủ yếu do **2 đèn điểm có bóng (6 lượt cube × 8 mẫu) + lớp vẽ**, không do nhân vật.
 
-### Luật máy trên shot đi bộ (`checks/run.py --profile shot`, 96 khung, x264 30 Mbps; báo cáo: `v2/final/<3d|2d>/check/`)
+### Luật máy trên shot đi bộ (`checks/run.py --profile shot`, 96 khung, x264 30 Mbps; báo cáo: `v2/out/v2/<3d|2d>/check/`)
 | | N1 | N2 luma ngoài dải | G3 banding | G3b |
 |---|---|---|---|---|
 | 3D | ĐẠT | ĐẠT 0,1347% | ĐẠT 0% | ĐẠT: σ 1,328; CV 0,055; max/min 1,00; tương quan khung kề 0,209 |
@@ -49,7 +49,7 @@ Thời gian dựng cảnh (một lần mỗi shot) không tính. Agent 2D đo nh
 
 Chỉ số trong ±5% quanh ngưỡng (theo máy): **không có**.
 
-### Nhấp nháy lớp vẽ (máy tĩnh, 24 khung, so với cùng shot không lớp vẽ; `v2/final/*/flicker.json`)
+### Nhấp nháy lớp vẽ (máy tĩnh, 24 khung, so với cùng shot không lớp vẽ; `v2/out/v2/*/flicker.json`)
 | | ΔL trung bình, điểm tĩnh (mã 8 bit) | Tỷ lệ điểm tĩnh đổi > 2 mã | ΔL cả khung |
 |---|---|---|---|
 | 3D có lớp vẽ / không | 0,272 / 0,245 | 0,18% / 0% | 1,071 / 1,079 |
@@ -57,7 +57,7 @@ Chỉ số trong ±5% quanh ngưỡng (theo máy): **không có**.
 
 Lớp vẽ chỉ thêm khoảng 0,025 mã trên điểm tĩnh, không nhìn thấy. Xem 4 khung liên tiếp quanh nhân vật: không thấy vệt nhiễu trôi. **Giới hạn:** Ida đi ngược sáng nên nhân vật gần như là silhouette. Shot này chưa thử được lớp vẽ trên **mặt** đang chuyển động (máy lia, cận cảnh). Cách 2D đổi tranh mỗi 4° góc nhìn: không thấy nhảy trong shot đi bộ, nhưng sẽ lộ khi đầu quay nhanh ở cận cảnh (agent 2D tự nêu).
 
-### Silhouette C2 (kiểm mù: agent không biết dự án, xem 10 silhouette không nhãn, trộn thứ tự; `v2/final/*/C2-silhouettes-*.png`, khoá `v2/final/*/c2/blind-key.json`)
+### Silhouette C2 (kiểm mù: agent không biết dự án, xem 10 silhouette không nhãn, trộn thứ tự; `v2/out/v2/*/C2-silhouettes-*.png`, khoá `v2/out/v2/*/c2/blind-key.json`)
 | | Hành động đúng | Chấm chặt | Giới tính / tuổi |
 |---|---|---|---|
 | Vòng 1 (nhân vật cũ, 2 lượt) | 85% | 80% | Ida đọc là "đàn ông", Cas là "bé gái búi tóc" |

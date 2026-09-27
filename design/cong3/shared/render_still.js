@@ -46,7 +46,7 @@ fs.mkdirSync(out, { recursive: true });
   spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-i', '-', '-vf', 'vflip', '-frames:v', '1', png], { input: bufs[0] });
   if (frames > 1) fs.writeFileSync(path.join(out, frame + '.rgb'), Buffer.concat(bufs));
   const timing = { page: page_, frame, W, H, samples, frames, setup_s: tSetup / 1000, render_frame_s: accumWall / 1000,
-    page_reported_accum_ms: r && r.accum_ms, finalize_per_extra_frame_s: finWall && finWall / 1000, total_wall_s: (Date.now() - t0) / 1000,
+    page_reported_accum_ms: r && r.accum_ms, page_prof_ms: r && r.prof_ms, finalize_per_extra_frame_s: finWall && finWall / 1000, total_wall_s: (Date.now() - t0) / 1000,
     note: 'render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)' };
   fs.writeFileSync(path.join(out, frame + '.timing.json'), JSON.stringify(timing, null, 1));
   console.log(JSON.stringify(timing));

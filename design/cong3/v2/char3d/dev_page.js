@@ -1,5 +1,5 @@
 // Trang thử riêng của cách (1): turnaround / cận mặt / cận tay dưới đèn studio trung tính (không phải shot so sánh).
-// node shared/render_still.js --page v2/char3d/dev_page.js --frame <tên> --out v2/char3d/dev --samples 4 --w 960 --h 540
+// node shared/render_still.js --page v2/char3d/dev_page.js --frame <tên> --out v2/out/v2-dev/char3d-dev --samples 4 --w 960 --h 540
 //   --args '{"who":"ida|cas","view":"sheet|face|hands|back","pose":"turnaround"}'
 import * as THREE from '../../shared/node_modules/three/build/three.module.js';
 import { createPipeline, createRenderer } from '../../shared/post.js';

@@ -8,7 +8,7 @@
 import * as THREE from '../shared/node_modules/three/build/three.module.js';
 import { buildGasLamp } from '../shared/props.js';
 import { buildLadder } from '../shared/cast.js';
-import { walkPose, WALK } from '../shared/anim.js';
+import { walkPose, WALK, WALK_CHILD } from '../shared/anim.js';
 import { limewashTex, flagTex, glowSprite, planarUV, rng, canvasTex, blotches } from '../dir-C/common.js';
 
 const X = new THREE.Vector3(1, 0, 0), Y = new THREE.Vector3(0, 1, 0), Z = new THREE.Vector3(0, 0, 1);
@@ -65,7 +65,7 @@ function jitterLights(lights, i, n, radius) {
 function readyChar(ch, scene) { ch.root.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); ch.root.userData.imp = 1; scene.add(ch.root); return ch; }
 
 // ---------------- a) cận mặt Ida ----------------
-export async function buildCloseIda(ida, mkChar, upd, frame = 0) {
+export async function buildCloseIda(ida, mkChar, upd, frame = 0, dbg = {}) {
   const scene = new THREE.Scene(); const R = rng(31);
   scene.add(skyDome([[0, '#2c2d5c'], [0.55, '#5b4a78'], [0.82, '#b0708a'], [1, '#d99a86']]));
   scene.fog = new THREE.Fog('#6a5680', 18, 120);
@@ -73,12 +73,13 @@ export async function buildCloseIda(ida, mkChar, upd, frame = 0) {
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), lamMat({ color: '#3a3240' })); ground.rotation.x = -Math.PI / 2; scene.add(ground);
   scene.add(new THREE.HemisphereLight('#7c78c0', '#2a2030', 0.55));
   const rim = new THREE.DirectionalLight('#9aa0e8', 0.55); rim.position.set(-3, 5, -6); scene.add(rim);          // trời sáng phía sau lưng Ida → viền lạnh
-  const lamps = [addLamp(scene, new THREE.Vector3(0, 0, 0), frame, { mapSize: 2048 })];
+  const lamps = [addLamp(scene, new THREE.Vector3(0, 0, 0), frame, { mapSize: dbg.mapSize ?? 1024 })];
   const far = addLamp(scene, new THREE.Vector3(-9, 0, -8), frame, { shadow: false });                                // ngọn đèn xa, nhoè hậu cảnh
   // thang tựa cột, Ida đứng trên thang, mặt quay vào lồng đèn (+z → đèn ở z=+0,5 so với Ida)
   const lad = buildLadder(1.8, 0.34, 6, (r, c) => lamMat({ color: c }), '#8a6a45'); lad.position.set(0, 0, -0.85); lad.rotation.x = 0.36; scene.add(lad);
   const ch = readyChar(mkChar(ida, { material: charMat, detail: 36 }), scene);
-  const pose = ida.poses.warm_hands_ladder; ch.setPose(pose); ch.root.position.set(0, pose.root_y_m, -0.58); ch.root.updateMatrixWorld(true);
+  const pose = ida.poses.warm_hands_ladder; ch.setPose(pose); ch.joints.head.rotation.y += (dbg.headTurn ?? 0) * Math.PI / 180;   // cửa thử C′: quay đầu về phía máy (độ)
+  ch.root.position.set(0, pose.root_y_m, -0.58); ch.root.updateMatrixWorld(true);
   // máy quay: ngang tầm mặt, lệch 40° về phải-trước, 60 mm (FOV dọc ~22°)
   const head = new THREE.Vector3(); ch.joints.head.getWorldPosition(head); head.y += 0.12;
   const cam = new THREE.PerspectiveCamera(17, 16 / 9, 0.05, 500);   // ~85 mm
@@ -89,14 +90,14 @@ export async function buildCloseIda(ida, mkChar, upd, frame = 0) {
   const onSample = (i, n) => {
     if (upd) upd(ch, cam);
     jitterLights(lamps, i, n, GAS.glass);
-    if (n > 1) { const a = 2 * Math.PI * hal(i + 1, 2), r = aperture * Math.sqrt(hal(i + 1, 3)); cam.position.copy(base).addScaledVector(right, Math.cos(a) * r).addScaledVector(up, Math.sin(a) * r); cam.lookAt(focusP); }
+    // v3 (L1, L2): KHÔNG rung khẩu độ nữa — DOF làm hậu kỳ bằng đĩa tròn theo độ sâu (shared/dof.js), cùng A và F.
   };
   if (upd) upd(ch, cam);
-  return { scene, cam, onSample, chars: [ch], paintP: { rNear: 2.5, rFar: 6.0, dNear: 1.2, dFar: 25, impScale: 0.35, stroke: 0.035, halation: 0.14, bloomWide: 0.06 } };
+  return { scene, cam, onSample, chars: [ch], dof: { aperture, focusD, cam }, paintP: { rNear: 2.5, rFar: 6.0, dNear: 1.2, dFar: 25, impScale: 0.35, stroke: 0.035, halation: 0.14, bloomWide: 0.06 } };
 }
 
 // ---------------- b) Cas làm chim bóng ----------------
-export async function buildCasBird(cas, mkChar, upd, frame = 0) {
+export async function buildCasBird(cas, mkChar, upd, frame = 0, dbg = {}) {
   const scene = new THREE.Scene(); scene.background = new THREE.Color('#0d0c16');
   scene.add(skyDome([[0, '#0f1030'], [0.7, '#1f1c40'], [1, '#2e2548']]));
   const wallTex = limewashTex(41, { metres: 6, grime: true, brick: 0.06 });
@@ -104,23 +105,31 @@ export async function buildCasBird(cas, mkChar, upd, frame = 0) {
   const plinth = new THREE.Mesh(new THREE.BoxGeometry(12, 0.42, 0.08), lamMat({ color: '#8d877f' })); plinth.position.set(0, 0.21, 0.04); plinth.receiveShadow = true; scene.add(plinth);
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(14, 12), lamMat({ color: '#ffffff', map: flagTex(7, { metres: 4 }) })); ground.rotation.x = -Math.PI / 2; ground.position.z = 6; planarUV(ground.geometry, X, Z, 4, [0, 0]); ground.receiveShadow = true; scene.add(ground);
   scene.add(new THREE.HemisphereLight('#3a3c78', '#15121c', 0.30));
-  const lamps = [addLamp(scene, new THREE.Vector3(-1.0, 0, 4.5), frame, { mapSize: 2048 })];
+  const lamps = [addLamp(scene, new THREE.Vector3(...(dbg.lamp || [-2.2, 0, 4.2]))   /* v3 (5B): đèn lệch trái hơn → bóng chim tách khỏi bóng đầu */, frame, { mapSize: dbg.mapSize ?? 1024 })];
   // cột điện kiểu mới cạnh tường, CHƯA bật (tấm kính tối) — cảnh 4 trước khi khối cuối chuyển
   const post = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.09, 7, 16), lamMat({ color: '#3f434c' })); post.position.set(2.4, 3.5, 1.1); post.castShadow = true; scene.add(post);
   const panel = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.5, 0.12), lamMat({ color: '#2c2f38' })); panel.position.set(2.4, 7.0, 1.1); scene.add(panel);
   const ch = readyChar(mkChar(cas, { material: charMat, detail: 32 }), scene);
-  ch.setPose(cas.poses.shadow_bird); ch.root.position.set(0.15, 0, 0.95); ch.root.rotation.y = Math.PI + 0.15; ch.root.updateMatrixWorld(true);
+  const bp = dbg.pose ? { ...cas.poses.shadow_bird, ...dbg.pose, joints: { ...cas.poses.shadow_bird.joints, ...(dbg.pose.joints || {}) } } : cas.poses.shadow_bird;
+  ch.setPose(bp); ch.root.position.set(0.15, 0, 0.95); ch.root.rotation.y = Math.PI + 0.15; ch.root.updateMatrixWorld(true);
+  let dump = null;
+  if (dbg.dump) { ch.root.updateMatrixWorld(true); const W = (o) => o.getWorldPosition(new THREE.Vector3()).toArray().map((v) => +v.toFixed(3)); dump = {};
+    for (const sd of ['L', 'R']) { const h = ch.hands[sd]; let tipM = h.fingers[1]; while (tipM.children.find((c) => c.isGroup)) tipM = tipM.children.find((c) => c.isGroup);
+      let tipT = h.thumb; while (tipT.children.find((c) => c.isGroup)) tipT = tipT.children.find((c) => c.isGroup);
+      dump[sd] = { shoulder: W(ch.joints['shoulder_' + sd]), elbow: W(ch.joints['elbow_' + sd]), wrist: W(ch.joints['wrist_' + sd]), midBase: W(h.fingers[1]), midTipJ: W(tipM), thumbB: W(h.thumb), thumbTipJ: W(tipT) }; }
+    dump.head = W(ch.joints.head); }
   // máy quay: 3/4 sau-phải Cas, ngang ngực người lớn, thấy Cas và chim trên tường
   const cam = new THREE.PerspectiveCamera(30, 16 / 9, 0.05, 500);
-  cam.position.set(2.1, 1.4, 3.3); cam.lookAt(0.5, 1.45, 0.3);
+  cam.position.set(...(dbg.camPos || [2.2, 1.3, 3.6])); cam.lookAt(...(dbg.camLook || [0.3, 1.1, 0]));   // v3: thấy trọn Cas và chim trên tường
   const onSample = (i, n) => { if (upd) upd(ch, cam); jitterLights(lamps, i, n, GAS.glass); };
   if (upd) upd(ch, cam);
-  return { scene, cam, onSample, chars: [ch], paintP: { rNear: 3.0, rFar: 6.0, dNear: 2, dFar: 20, impScale: 0.4, stroke: 0.04, halation: 0.12, bloomWide: 0.06 } };
+  return { scene, cam, onSample, chars: [ch], dump, paintP: { rNear: 3.0, rFar: 6.0, dNear: 2, dFar: 20, impScale: 0.4, stroke: 0.04, halation: 0.12, bloomWide: 0.06 } };
 }
 
 // ---------------- walk: Ida vác thang qua 2 cột đèn ----------------
 export const WALK_SHOT = { frames: 96, x0: 3.7, lampsX: [2.3, -0.9], z: 0.4 };
-export async function buildWalk(ida, mkChar, upd) {
+export async function buildWalk(ida, mkChar, upd, who = 'ida') {
+  const isCas = who === 'cas', gait = isCas ? WALK_CHILD : WALK;
   const scene = new THREE.Scene(); const R = rng(53);
   scene.add(skyDome([[0, '#1d1f4a'], [0.6, '#3c3566'], [0.88, '#7a5a80'], [1, '#a8708a']]));
   scene.fog = new THREE.Fog('#4a4068', 14, 90);
@@ -135,14 +144,14 @@ export async function buildWalk(ida, mkChar, upd) {
   scene.add(new THREE.HemisphereLight('#5c5aa8', '#221b2a', 0.35));
   const lamps = WALK_SHOT.lampsX.map((x) => addLamp(scene, new THREE.Vector3(x, 0, -1.1), 0));
   const ch = readyChar(mkChar(ida, { material: charMat, detail: 28 }), scene);
-  const base = ida.poses.walk_ladder;
+  const base = isCas ? ida.poses.turnaround : ida.poses.walk_ladder;   // (tham số 'ida' = sheet của nhân vật đi)
   // máy tĩnh: ngang 1,5 m, 35 mm tương đương (FOV dọc 38°), hơi chéo
   const cam = new THREE.PerspectiveCamera(38, 16 / 9, 0.05, 500);
   cam.position.set(0.9, 1.6, 8.6); cam.lookAt(0.9, 2.2, 0);
   let fNow = 0;
   const setT = (t) => {
-    const p = walkPose(t, base); ch.setPose(p);
-    ch.root.position.set(WALK_SHOT.x0 - WALK.speed_mps * t, p.root_y_m, WALK_SHOT.z); ch.root.rotation.y = -Math.PI / 2; ch.root.updateMatrixWorld(true);
+    const p = walkPose(t, base, { gait, bothArms: isCas }); ch.setPose(p);
+    ch.root.position.set(WALK_SHOT.x0 - gait.speed_mps * t, p.root_y_m, WALK_SHOT.z); ch.root.rotation.y = -Math.PI / 2; ch.root.updateMatrixWorld(true);
   };
   // Motion blur: mỗi mẫu một thời điểm trong màn trập 180° (1/48 s), thứ tự bắt đầu từ giữa; đèn jitter; lửa thở theo khung.
   const onSample = (i, n) => {

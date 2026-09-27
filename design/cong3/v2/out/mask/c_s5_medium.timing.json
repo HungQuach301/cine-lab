@@ -1,0 +1,14 @@
+{
+ "page": "v2/page.js",
+ "frame": "c_s5_medium",
+ "W": 1920,
+ "H": 1080,
+ "samples": 1,
+ "frames": 1,
+ "setup_s": 7.027,
+ "render_frame_s": 0.684,
+ "page_reported_accum_ms": 19.399999999906868,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 8.639,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

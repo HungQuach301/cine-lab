@@ -1,10 +1,10 @@
 #!/bin/bash
 # Cổng 3 v2 — render chính thức TUẦN TỰ (máy rỗi) cho 2 cách làm nhân vật: 3 khung tĩnh + walk 96 khung (+24 khung không lớp vẽ để đo nhấp nháy).
-# 1920×1080, 8 mẫu (thiết lập sản xuất; ngân sách ≤ 5 s/khung). Kết quả: v2/final/<3d|2d>/
+# 1920×1080, 8 mẫu (thiết lập sản xuất; ngân sách ≤ 5 s/khung). Kết quả: v2/out/v2/<3d|2d>/
 cd "$(dirname "$0")/.."; export PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
 RAW=${RAW:-/tmp/claude-0/v2raw}; mkdir -p $RAW
 for C in 3d 2d; do
-  O=v2/final/$C; mkdir -p $O
+  O=v2/out/v2/$C; mkdir -p $O
   for S in a_close_ida b_cas_bird c_s5_wide; do
     node shared/render_still.js --page v2/page.js --frame $S --out $O --samples 8 --args "{\"char\":\"$C\",\"shot\":\"$S\"}" 2>&1 | grep -o '"render_frame_s":[0-9.]*' | sed "s/^/$C $S /"
   done

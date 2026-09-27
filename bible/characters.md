@@ -1,4 +1,4 @@
-# HỒ SƠ NHÂN VẬT — "Last Round" (v0.1, Cổng 3 vòng 2 · đề xuất của Claude, chờ chủ dự án duyệt)
+# HỒ SƠ NHÂN VẬT — "Last Round" (v1.0 · chủ dự án đã duyệt ở Cổng 3 vòng 2 · **KHOÁ** từ Cổng 3 vòng 3; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
 
 Căn cứ: kịch bản chốt `scripts/last-round.fountain` (nháp 2), luật thế giới v0.3. Dùng cho rubric **C1** (người chấm phải nêu được 4 yếu tố từ phim, không đọc hồ sơ) và cho diễn xuất ở Cổng 6.
 
@@ -24,3 +24,19 @@ Căn cứ: kịch bản chốt `scripts/last-round.fountain` (nháp 2), luật t
 
 ## Quan hệ
 Không có câu thoại nào giữa hai người ngoài *"Go on, then."*. Quan hệ được kể bằng khoảng cách: xa (cảnh 4, Ida đứng nhìn, không gọi) → gần (cảnh 5, hai cái bóng cạnh nhau) → trao (đèn lồng) → tách ra nhưng nối bằng ánh sáng (cảnh 6, ô cửa sáng trên con ngõ nơi Ida đứng).
+
+## Thiết kế và tỷ lệ đã duyệt (Cổng 3 vòng 2, khoá vòng 3)
+Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`, `bun_scale`, `scarf`, `skirt`, `hair`, `face`). H = chiều dài đầu.
+
+| Hạng mục | Ida | Cas | Quyết định |
+|---|---|---|---|
+| Cách dựng | Thân 3D, tay 3D, **mặt vẽ tay trên texture phủ đầu 3D** | như Ida | C′ |
+| Bàn tay | **1,15×** số đo gốc | **1,30×** (trần cho phép) | 2A |
+| Búi tóc | **1,3×** (đường kính hiệu dụng 0,546 H) | — | 2A |
+| Váy | Váy dài #4a3a44 lộ dưới vạt áo, gấu cách đất 0,42 H; tất tối #3a3235 | — | 3B |
+| Khăn | Khăn len #8e5c5a, một đuôi buông trước ngực | — | 3B |
+| Tóc | Búi sau gáy dưới vành mũ | Tóc #5a4034 lộ ở gáy và dưới vành mũ (để không đọc thành búi tóc bé gái) | 3B |
+| Mũ | Mũ phớt, **không nơ** trên băng mũ | **Giữ mũ len có quả bông** | 3B, 4A |
+| Mặt | Không khắc khe miệng/nếp nhăn vào hình học; khe môi, nếp nhăn, mi, đồi mồi là nét vẽ; chất da mờ (Lambert, không bóng) | như Ida; tàn nhang vẽ | C′, sửa L3 |
+| Chim bóng | — | Hai cổ tay **bắt chéo**, ngón cái là đầu chim, các ngón xoè là cánh | 5B |
+

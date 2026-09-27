@@ -48,7 +48,9 @@
       "palm_length": 0.3,
       "palm_width": 0.25,
       "finger_length": 0.26,
-      "thumb_length": 0.2
+      "thumb_length": 0.2,
+      "scale": 1.3,
+      "scale_note": "quyết định 2A: phóng 1,3× (trần cho phép); tay là nhạc cụ của chim bóng"
     },
     "thigh": {
       "length": 1.05,
@@ -86,10 +88,18 @@
     "cap": {
       "height_H": 0.52,
       "cuff_H": 0.16,
-      "bobble_diameter_H": 0.36
+      "bobble_diameter_H": 0.36,
+      "keep": true,
+      "decision": "4A: giữ mũ len có quả bông"
     },
     "boots": {
       "style": "ủng to cổ thấp, mũi tròn"
+    },
+    "hair": {
+      "nape_hair": true,
+      "color": "#5a4034",
+      "note": "3B: tóc lộ ở gáy và dưới vành mũ để không đọc thành búi tóc bé gái",
+      "decision": "3B"
     }
   },
   "props": {
@@ -149,7 +159,7 @@
       "props": []
     },
     "shadow_bird": {
-      "label": "C1 — Chim bóng: hai tay giơ cao trên đầu, lòng bàn tay hướng tường, ngón xoè ngang làm cánh, ngón cái dựng làm đầu (cảnh 4, 6)",
+      "label": "C1 — Chim bóng 5B: cánh tay vươn về phía tường, cẳng tay dựng chéo nhau ở cổ tay, hai ngón cái chập giữa làm đầu chim, ngón xoè ngang làm cánh (cảnh 4, 6). Góc khớp giải ngược (IK) từ hướng mong muốn, xem reports/m1/CONG-3-VONG-3.md",
       "scene": 4,
       "joints": {
         "spine": [
@@ -163,44 +173,44 @@
           0
         ],
         "shoulder_L": [
-          -168,
-          0,
-          -10
+          -123.1,
+          -24.1,
+          -10.0
         ],
         "elbow_L": [
-          -8,
+          -50.2,
           0,
           0
         ],
         "wrist_L": [
-          90,
-          0,
-          90
+          103.9,
+          41.2,
+          -104.8
         ],
         "shoulder_R": [
-          -168,
-          0,
-          10
+          -123.1,
+          24.1,
+          10.0
         ],
         "elbow_R": [
-          -8,
+          -50.2,
           0,
           0
         ],
         "wrist_R": [
-          90,
-          0,
-          -90
+          103.9,
+          -41.2,
+          104.8
         ]
       },
       "hands": {
         "L": {
-          "spread": 1.0,
+          "spread": 0.9,
           "curl": 0.0,
           "thumb_cross": true
         },
         "R": {
-          "spread": 1.0,
+          "spread": 0.9,
           "curl": 0.0,
           "thumb_cross": true
         }
@@ -510,5 +520,44 @@
     "thigh",
     "shin"
   ],
-  "ratio_definition": "như ida.json"
+  "ratio_definition": "như ida.json",
+  "face": {
+    "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D",
+    "no_carved_mouth_groove": true
+  },
+  "_c3_doc": "Khoá cấp gốc head/torso/upper_arm/forearm/thigh/shin: bản sao parts[...] cho checks C3 (lược đồ như sheet M0: bộ phận ở cấp gốc). Cùng giá trị, sinh từ parts; sửa parts thì sinh lại.",
+  "head": {
+    "length": 1.0,
+    "width_front": 0.9,
+    "width_side": 0.98,
+    "id_color": "#ff0000"
+  },
+  "torso": {
+    "length": 1.48,
+    "shoulder_width": 1.1,
+    "waist_width": 0.86,
+    "hip_width": 0.92,
+    "depth_ratio": 0.6,
+    "id_color": "#0000ff"
+  },
+  "upper_arm": {
+    "length": 0.92,
+    "width_front": 0.24,
+    "id_color": "#ffff00"
+  },
+  "forearm": {
+    "length": 0.82,
+    "width_front": 0.21,
+    "id_color": "#ff00ff"
+  },
+  "thigh": {
+    "length": 1.05,
+    "width_front": 0.27,
+    "id_color": "#00ffff"
+  },
+  "shin": {
+    "length": 1.15,
+    "width_front": 0.22,
+    "id_color": "#ff8000"
+  }
 }

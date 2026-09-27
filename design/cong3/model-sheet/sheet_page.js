@@ -67,7 +67,7 @@ window.renderFrame = async (name, samples) => {
     // trung cảnh nửa người trên (như khung b): canh giữa đôi tay và bóng chim trên tường
     const hw = new THREE.Vector3(); chars.cas.joints.wrist_R.getWorldPosition(hw); const lw = new THREE.Vector3(); L.getWorldPosition(lw);
     const wz = new THREE.Vector3(); wall.getWorldPosition(wz); const k = (wz.z - lw.z) / (hw.z - lw.z); const sh = lw.clone().add(hw.clone().sub(lw).multiplyScalar(k));
-    const cx = (hw.x + sh.x) / 2, cy = hw.y - 0.25, a2 = W / H, vh = Math.max(1.6, (Math.abs(hw.x - sh.x) + 0.9) / a2);
+    const cx = hw.x + (sh.x - hw.x) * 0.62, cy = Math.min(hw.y, sh.y) - 0.3, a2 = W / H, vh = Math.max(2.2, (Math.abs(hw.x - sh.x) + 2.6) / a2);   // v3: bao trọn bóng chim 5B và bóng thân (không cắt mép)
     Object.assign(cam, { left: -vh * a2 / 2, right: vh * a2 / 2, top: vh / 2, bottom: -vh / 2 }); cam.position.set(cx, cy, 10); cam.lookAt(cx, cy, 0); cam.updateProjectionMatrix();
   }
   if (mod.update) mod.update(ch, cam);

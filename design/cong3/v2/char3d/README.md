@@ -92,9 +92,9 @@ Tôi chưa chạy bộ đo C3 chính thức (thuộc `checks/`, phiên K). Đề
 ## Lệnh thử
 ```
 cd design/cong3; export PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
-node shared/render_still.js --page v2/page.js --frame a_close_ida --out v2/char3d/test --samples 8 --w 960 --h 540 --args '{"char":"3d","shot":"a_close_ida"}'
-node shared/render_seq.js --page v2/page.js --shot walk --from 48 --to 49 --out v2/char3d/test --samples 8 --w 960 --h 540 --args '{"char":"3d"}' --pngs 48
-node shared/render_still.js --page v2/char3d/dev_page.js --frame cas_light --out v2/char3d/dev --samples 4 --w 960 --h 540 --args '{"who":"cas","view":"light","pose":"shadow_bird","ry":3.29159,"fov":5}'
+node shared/render_still.js --page v2/page.js --frame a_close_ida --out v2/out/v2-dev/char3d-test --samples 8 --w 960 --h 540 --args '{"char":"3d","shot":"a_close_ida"}'
+node shared/render_seq.js --page v2/page.js --shot walk --from 48 --to 49 --out v2/out/v2-dev/char3d-test --samples 8 --w 960 --h 540 --args '{"char":"3d"}' --pngs 48
+node shared/render_still.js --page v2/char3d/dev_page.js --frame cas_light --out v2/out/v2-dev/char3d-dev --samples 4 --w 960 --h 540 --args '{"who":"cas","view":"light","pose":"shadow_bird","ry":3.29159,"fov":5}'
 ```
 
 ## Việc đang chờ chủ dự án

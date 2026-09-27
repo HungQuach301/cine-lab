@@ -48,7 +48,9 @@
       "palm_length": 0.36,
       "palm_width": 0.3,
       "finger_length": 0.3,
-      "thumb_length": 0.24
+      "thumb_length": 0.24,
+      "scale": 1.15,
+      "scale_note": "quyết định 2A (Cổng 3 vòng 2): phóng 1,15× so với số đo trên; đọc được ở khung rộng"
     },
     "thigh": {
       "length": 1.45,
@@ -81,14 +83,29 @@
     "hat": {
       "crown_height_H": 0.48,
       "brim_diameter_H": 1.36,
-      "brim_droop_front_deg": 12
+      "brim_droop_front_deg": 12,
+      "bow": false,
+      "bow_note": "3B: KHÔNG nơ trên băng mũ"
     },
     "hair": {
       "bun_diameter_H": 0.42,
-      "position": "sau gáy, dưới vành mũ"
+      "position": "sau gáy, dưới vành mũ",
+      "bun_scale": 1.3,
+      "bun_note": "2A: búi 1,3× (đường kính hiệu dụng 0,546 H)"
     },
     "boots": {
       "style": "ủng thấp cổ, mũi tròn hẹp"
+    },
+    "scarf": {
+      "color": "#8e5c5a",
+      "style": "khăn len đan quấn cổ, một đuôi buông trước ngực",
+      "decision": "3B"
+    },
+    "skirt": {
+      "color": "#4a3a44",
+      "hem_above_ground_H": 0.42,
+      "style": "váy dài dưới vạt áo khoác, tất tối #3a3235",
+      "decision": "3B"
     }
   },
   "props": {
@@ -718,5 +735,44 @@
     "thigh",
     "shin"
   ],
-  "ratio_definition": "ratio(part) = length(part) / length(head), đo giữa hai tâm khớp; ngưỡng C3 = 3% (luật v1.1, có tính nhiễu đo; mặt nạ 2–4×)"
+  "ratio_definition": "ratio(part) = length(part) / length(head), đo giữa hai tâm khớp; ngưỡng C3 = 3% (luật v1.1, có tính nhiễu đo; mặt nạ 2–4×)",
+  "face": {
+    "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D (v2/char3d/facepaint.js)",
+    "no_carved_mouth_groove": true
+  },
+  "_c3_doc": "Khoá cấp gốc head/torso/upper_arm/forearm/thigh/shin: bản sao parts[...] cho checks C3 (lược đồ như sheet M0: bộ phận ở cấp gốc). Cùng giá trị, sinh từ parts; sửa parts thì sinh lại.",
+  "head": {
+    "length": 1.0,
+    "width_front": 0.78,
+    "width_side": 0.92,
+    "id_color": "#ff0000"
+  },
+  "torso": {
+    "length": 2.0,
+    "shoulder_width": 1.45,
+    "waist_width": 1.1,
+    "hip_width": 1.3,
+    "depth_ratio": 0.62,
+    "id_color": "#0000ff"
+  },
+  "upper_arm": {
+    "length": 1.15,
+    "width_front": 0.34,
+    "id_color": "#ffff00"
+  },
+  "forearm": {
+    "length": 1.0,
+    "width_front": 0.28,
+    "id_color": "#ff00ff"
+  },
+  "thigh": {
+    "length": 1.45,
+    "width_front": 0.4,
+    "id_color": "#00ffff"
+  },
+  "shin": {
+    "length": 1.4,
+    "width_front": 0.3,
+    "id_color": "#ff8000"
+  }
 }

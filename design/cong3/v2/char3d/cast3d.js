@@ -12,6 +12,7 @@ import * as THREE from '../../shared/node_modules/three/build/three.module.js';
 import { buildCharacter as baseBuild } from '../../shared/cast.js';
 import { ell, sph, cap, rbox, smin, smax, gauss, sstep, fbm, vnoise, sculpt, patch, tube, gridGeo, CpuSkin, len3 } from './sdf.js';
 import { paintMap, normalMap } from './tex3d.js';
+import { paintFace, faceUV } from './facepaint.js';
 
 // Phóng to bàn tay + ngón (không thuộc C3; trần cho phép 1,3×). Cas: tối đa để chim bóng thành hình cánh. Ida: vừa đủ cho cận cảnh.
 export const HAND_SCALE = { ida: 1.15, cas: 1.3 };
@@ -121,8 +122,7 @@ export function buildCharacter(sheet, opts = {}) {
       d = smax(d, -ell(ax, y, z, [0.025, 0.397, 0.455], [0.013, 0.008, 0.018]), 0.008);         // lỗ mũi
       d = smin(d, ell(x, y, z, [0, 0.29, 0.345], [0.07, 0.022, 0.03]), 0.05);                    // môi trên mỏng (mềm, không tạo gờ khuất tia chiếu)
       d = smin(d, ell(x, y, z, [0, 0.245, 0.33], [0.06, 0.02, 0.03]), 0.05);                     // môi dưới (lùi, mềm)
-      d += 0.003 * g2(ax, y, [[0, 0.268], [0.05, 0.265], [0.082, 0.256]], 0.007) * front(z, 0.2);                       // khe miệng (rãnh nông), khoé hơi trễ
-      d += idaWrinkle(x, y, z);
+      // C′ (vòng 3): khe miệng và nếp nhăn KHÔNG khắc vào hình học nữa (L3: rãnh khoé miệng như sẹo) — vẽ trên texture mặt (facepaint.js).
     } else {
       d = ell(x, y, z, [0, 0.57, -0.04], [0.45, 0.43, 0.48]);
       d = smin(d, ell(x, y, z, [0, 0.36, 0.07], [0.37, 0.33, 0.37]), 0.14);
@@ -138,30 +138,17 @@ export function buildCharacter(sheet, opts = {}) {
       d = smax(d, -ell(ax, y, z, [0.02, 0.352, 0.462], [0.011, 0.007, 0.014]), 0.006);
       d = smin(d, ell(x, y, z, [0, 0.272, 0.408], [0.066, 0.019, 0.028]), 0.03);
       d = smin(d, ell(x, y, z, [0, 0.238, 0.398], [0.056, 0.021, 0.03]), 0.03);
-      d += 0.007 * g2(ax, y, [[0, 0.256], [0.04, 0.257], [0.068, 0.262]], 0.005) * front(z, 0.2);                      // khe miệng, khoé hơi nhếch
+      // C′: khe miệng vẽ trên texture mặt.
     }
     return d;
   }
-  const skinTone = (x, y, z) => {
-    const ax = Math.abs(x); let r = 1, g = 1, b = 1;
-    const cheek = gauss(Math.hypot(ax - (isIda ? 0.2 : 0.19), y - (isIda ? 0.40 : 0.33)), isIda ? 0.08 : 0.1) * front(z, 0.15);
-    r += 0.05 * cheek; g -= 0.08 * cheek; b -= 0.08 * cheek;
-    const nose = gauss(Math.hypot(x, y - (isIda ? 0.43 : 0.38)), 0.05) * front(z, 0.3); r += 0.03 * nose; g -= 0.06 * nose; b -= 0.05 * nose;
-    const lips = gauss(x / 0.08, 1) * gauss((y - (isIda ? 0.267 : 0.255)) / 0.035, 1) * front(z, 0.3); g -= (isIda ? 0.13 : 0.16) * lips; b -= 0.10 * lips; r -= 0.02 * lips;
-    const sock = gauss(Math.hypot(ax - E[0], y - E[1] - 0.01), 0.07) * front(z, 0.2); r -= 0.07 * sock; g -= 0.08 * sock; b -= 0.02 * sock;   // hốc mắt: lạnh tím
-    // Viền mi trên: nét tối như nét cọ vẽ mắt (đọc được hướng nhìn dù mí che gần hết).
-    const lidY = E[1] + (isIda ? 0.009 - 0.03 * (ax - E[0]) : 0.032) - (isIda ? 3.2 : 2.2) * (ax - E[0]) ** 2;
-    const lash = gauss(y - lidY, isIda ? 0.006 : 0.007) * sstep(ER * 1.25, ER * 0.7, Math.abs(ax - E[0])) * front(z, 0.25);
-    const lk = isIda ? 1 : 0.6; r -= 0.55 * lash * lk; g -= 0.6 * lash * lk; b -= 0.5 * lash * lk;
-    const brow = gauss(y - 0.78, 0.12) * front(z, 0.1); r += 0.02 * brow; g += 0.02 * brow;                                              // trán sáng vàng
-    if (isIda) { const w = idaWrinkle(x, y, z); const k = Math.max(0, w) * 6; r -= k * 0.8; g -= k; b -= k * 0.7;
-      for (const [sx, sy, sr] of [[0.27, 0.66, 0.018], [0.24, 0.44, 0.012], [-0.29, 0.58, 0.015], [-0.2, 0.38, 0.01]]) { const s = gauss(Math.hypot(x - sx, y - sy), sr) * 0.08; r -= s * 0.6; g -= s; b -= s * 1.3; } // đồi mồi nhạt
-    }
-    return [r, g, b];
-  };
+  // C′: má, mũi, môi, hốc mắt, mi, nếp nhăn, đồi mồi chuyển sang texture vẽ tay (facepaint.js); màu đỉnh chỉ giữ trán sáng vàng + AO.
+  const skinTone = (x, y, z) => { const brow = gauss(y - 0.78, 0.12) * front(z, 0.1); return [1 + 0.02 * brow, 1 + 0.02 * brow, 1]; };
   const hq = isIda ? 1 : 0.8;
   add(headG, sculpt(headSDF, { c: [0, 0.48, 0.02], r: [0.45, 0.6, 0.6], nu: R(112 * hq), nv: R(84 * hq), scale: H, uv: [6, 3], gradE: 0.002, warp: [0.4, 0.62], eps: 2e-5,
     color: aoCol(headSDF, 0.22, skinTone) }), 'skin', C.skin, 'head');
+  { const hm = parts[parts.length - 1]; faceUV(hm.geometry, H);   // C′: mặt vẽ tay, UV chiếu trước trên chính lưới đầu → đi theo đầu, không trượt
+    hm.material = matFn('skin', C.skin, 'head', { map: paintFace(isIda, E), vertexColors: true }); }
   // Nhãn cầu (màu đỉnh: lòng trắng xỉn, tròng, con ngươi) — nhìn hơi xuống.
   const eyeTex = (() => {   // tròng mắt vẽ trên canvas (UV cầu: +z ở u = 0,25, v = 0,5)
     const cv = document.createElement('canvas'); cv.width = 256; cv.height = 128; const g = cv.getContext('2d');
@@ -234,7 +221,7 @@ export function buildCharacter(sheet, opts = {}) {
     add(headG, patch(hairSDF, { c: hc, t0: 0.75, nu: R(84), nv: R(24), phA: -Math.PI, phB: Math.PI, th: (u, ph) => thMax(ph), scale: H, uv: [8, 2],
       color: (x, y, z, n, u, v) => { const k = 1 - 0.25 * sstep(0.7, 1, v); return [k, k, k * 1.02]; } }), 'hair', C.hair, 'hair');
     // Búi tóc to: cuộn xoắn.
-    const bunR = sheet.costume.hair.bun_diameter_H / 2 * BUN_SCALE;
+    const bunR = sheet.costume.hair.bun_diameter_H / 2 * (sheet.costume.hair.bun_scale ?? BUN_SCALE);
     const bunSDF = (x, y, z) => {
       const px = x - bunC[0], py = y - bunC[1], pz = z - bunC[2];
       const a = Math.atan2(px, py), rho = Math.hypot(px, py);
@@ -450,7 +437,7 @@ export function buildCharacter(sheet, opts = {}) {
   }
 
   // =============================== BÀN TAY ===============================
-  const hp = P.hand, HS = isIda ? HAND_SCALE.ida : HAND_SCALE.cas;
+  const hp = P.hand, HS = hp.scale ?? (isIda ? HAND_SCALE.ida : HAND_SCALE.cas);   // model sheet (2A) thắng hằng số
   const fingerJ = {};
   for (const s of ['L', 'R']) {
     const sx = s === 'L' ? 1 : -1, h = ch.hands[s]; h.hand.scale.setScalar(HS);

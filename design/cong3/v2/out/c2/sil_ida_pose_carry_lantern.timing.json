@@ -1,0 +1,14 @@
+{
+ "page": "model-sheet/sheet_page.js",
+ "frame": "sil_ida_pose_carry_lantern",
+ "W": 700,
+ "H": 1000,
+ "samples": 1,
+ "frames": 1,
+ "setup_s": 0.91,
+ "render_frame_s": 1.709,
+ "page_reported_accum_ms": 0,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 2.961,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}
