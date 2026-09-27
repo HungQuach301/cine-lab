@@ -6,7 +6,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.2,
+      "seconds": 0.4,
       "metrics": [
         [
           "r_frame_rate",
@@ -52,7 +52,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "metrics": [
         [
           "r_frame_rate",
@@ -98,7 +98,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "metrics": [
         [
           "r_frame_rate",
@@ -144,7 +144,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.6,
       "metrics": [
         [
           "color_primaries",
@@ -190,7 +190,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.4,
+      "seconds": 0.6,
       "metrics": [
         [
           "color_primaries",
@@ -236,7 +236,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.4,
       "metrics": [
         [
           "color_primaries",
@@ -282,7 +282,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 2.6,
+      "seconds": 3.8,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -321,7 +321,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          13.8918,
+          13.9413,
           ">=",
           12.0,
           true
@@ -359,7 +359,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.8,
+      "seconds": 2.2,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -398,7 +398,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          3.102,
+          3.0544,
           ">=",
           12.0,
           false
@@ -436,7 +436,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 2.1,
+      "seconds": 2.3,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -498,7 +498,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.9,
+      "seconds": 1.3,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -560,7 +560,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 1.5,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -585,7 +585,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.9,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -610,7 +610,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.5,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -637,7 +637,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.7,
+      "seconds": 2.6,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -662,7 +662,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.8,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -687,7 +687,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 2.2,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -705,7 +705,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 3.7,
+      "seconds": 4.8,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -723,7 +723,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.8,
+      "seconds": 1.5,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -741,7 +741,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 1.7,
       "metrics": [
         [
           "integrated loudness",
@@ -771,7 +771,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.8,
       "metrics": [
         [
           "integrated loudness",
@@ -801,7 +801,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.5,
       "metrics": [
         [
           "cửa sổ tương quan < −0,3",
@@ -833,7 +833,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.5,
       "metrics": [
         [
           "cửa sổ tương quan < −0,3",
@@ -865,7 +865,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.4,
+      "seconds": 10.5,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -894,7 +894,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.8,
+      "seconds": 9.0,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -1069,7 +1069,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.9,
+      "seconds": 4.3,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1096,7 +1096,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 2.2,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1124,7 +1124,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 2.6,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1151,7 +1151,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.9,
+      "seconds": 1.7,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1179,7 +1179,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.8,
+      "seconds": 1.2,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1208,7 +1208,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.9,
+      "seconds": 3.2,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1249,7 +1249,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 2.1,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1290,7 +1290,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 2.0,
+      "seconds": 2.8,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1331,7 +1331,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.8,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1372,7 +1372,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 2.0,
+      "seconds": 3.1,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1414,7 +1414,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.9,
+      "seconds": 3.1,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1456,7 +1456,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.8,
+      "seconds": 2.8,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1498,7 +1498,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.9,
+      "seconds": 3.2,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1540,7 +1540,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 2.0,
+      "seconds": 3.3,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1582,7 +1582,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 2.6,
       "metrics": [
         [
           "nhân vật có kênh bộ phận nhưng không có screen track",
@@ -1616,7 +1616,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 2.5,
       "metrics": [
         [
           "nhân vật có kênh bộ phận nhưng không có screen track",
@@ -1650,7 +1650,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.6,
+      "seconds": 0.8,
       "metrics": [
         [
           "nhân vật có kênh bộ phận nhưng không có screen track",
@@ -1685,7 +1685,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 8.9,
+      "seconds": 15.3,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -1744,7 +1744,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.42,
           "<=",
           3.0,
@@ -1777,10 +1777,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -1789,7 +1798,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 5.1,
+      "seconds": 15.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -1848,7 +1857,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           6.74,
           "<=",
           3.0,
@@ -1881,10 +1890,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 5.98%. 1846 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 5.98%. 1846 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -1893,7 +1911,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.5,
+      "seconds": 1.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -1938,7 +1956,7 @@
           false
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           6.6,
           "<=",
           3.0,
@@ -1971,10 +1989,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 640×432 px trên khung 640×432 → hệ số đo ×1 (khai báo: 1). Đầu cao 57.1–57.1 px video. Lệch lớn nhất 1.47%. 354 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 640×432 px trên khung 640×432 → hệ số đo ×1 (khai báo: 1). Đầu cao 57.1–57.1 px video. Lệch lớn nhất (mẫu đo được) 1.47%. 354 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Q-C3: mặt nạ phải render ở độ phân giải gấp 2–4 lần khung video (đo từ kích thước PNG).",
         "Đầu nhỏ nhất 57.1 px video < 100 px: bắt buộc mặt nạ 4× (Q-δ).",
         "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
@@ -1986,7 +2013,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.9,
+      "seconds": 13.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2045,7 +2072,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           2.79,
           "<=",
           3.0,
@@ -2078,10 +2105,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 2.02%. 1853 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 2.02%. 1853 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -2090,7 +2126,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.2,
+      "seconds": 9.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2149,7 +2185,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.42,
           "<=",
           3.0,
@@ -2182,10 +2218,19 @@
           ">=",
           1.5,
           false
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -2194,7 +2239,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 203.9,
+      "seconds": 419.6,
       "metrics": [
         [
           "tỷ lệ sai số thật nằm trong U(δ)",
@@ -2221,7 +2266,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2266,7 +2311,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           2.8,
           "<=",
           3.0,
@@ -2299,10 +2344,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 692×984 px trên khung 692×984 → hệ số đo ×1 (khai báo: 1). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.69%. 970 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 692×984 px trên khung 692×984 → hệ số đo ×1 (khai báo: 1). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.69%. 970 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Q-C3: mặt nạ phải render ở độ phân giải gấp 2–4 lần khung video (đo từ kích thước PNG)."
       ]
     },
@@ -2312,7 +2366,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 12.1,
+      "seconds": 22.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2371,7 +2425,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           2.56,
           "<=",
           3.0,
@@ -2404,10 +2458,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×1728 px trên khung 640×432 → hệ số đo ×4 (khai báo: 4). Đầu cao 57.0–57.0 px video. Lệch lớn nhất 1.57%. 1493 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×1728 px trên khung 640×432 → hệ số đo ×4 (khai báo: 4). Đầu cao 57.0–57.0 px video. Lệch lớn nhất (mẫu đo được) 1.57%. 1493 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -2416,7 +2479,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.9,
+      "seconds": 13.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2475,7 +2538,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.3,
           "<=",
           3.0,
@@ -2508,10 +2571,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1920×2100 px trên khung 640×700 → hệ số đo ×3 (khai báo: 3). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.33%. 1905 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.34 (trải đều ≈ 0.33)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1920×2100 px trên khung 640×700 → hệ số đo ×3 (khai báo: 3). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.33%. 1905 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.34 (trải đều ≈ 0.33).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -2520,7 +2592,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 3.1,
+      "seconds": 4.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2579,7 +2651,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.39,
           "<=",
           3.0,
@@ -2612,10 +2684,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2768×3936 px trên khung 692×984 → hệ số đo ×4 (khai báo: 4). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.86%. 970 vị trí biên phân biệt; tỷ lệ dồn 1 pha 1.00 (trải đều ≈ 0.25).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2768×3936 px trên khung 692×984 → hệ số đo ×4 (khai báo: 4). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.86%. 970 vị trí biên phân biệt; tỷ lệ dồn 1 pha 1.00 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Biên mặt nạ nằm trên lưới thô: mặt nạ có vẻ được phóng to từ độ phân giải thấp hơn, không phải render ở hệ số khai. Render lại mặt nạ ở độ phân giải thật."
       ]
     },
@@ -2625,7 +2706,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 6.1,
+      "seconds": 16.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2684,7 +2765,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.42,
           "<=",
           3.0,
@@ -2717,10 +2798,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 4). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 4). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -2729,7 +2819,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 5.0,
+      "seconds": 9.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2788,7 +2878,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.42,
           "<=",
           3.0,
@@ -2821,10 +2911,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: không). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: không). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -2833,7 +2932,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 2.4,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -2861,7 +2960,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 2.3,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -2890,7 +2989,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.6,
+      "seconds": 2.6,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -2919,7 +3018,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 2.5,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -2946,7 +3045,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 2.2,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -2973,7 +3072,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 2.5,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -2998,7 +3097,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.6,
+      "seconds": 2.3,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -3023,7 +3122,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.8,
+      "seconds": 1.2,
       "metrics": [
         [
           "độ khớp matte–render thấp nhất",
@@ -3043,7 +3142,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.6,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -3068,7 +3167,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 1.9,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -3095,7 +3194,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 10.0,
+      "seconds": 14.0,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -3134,7 +3233,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          15.9599,
+          16.0152,
           ">=",
           30.0,
           false
@@ -3162,7 +3261,7 @@
         ]
       ],
       "notes": [
-        "G3b đo có grain (σ lớn nhất theo shot 1.06 ≥ 0.8 mã): master YouTube phải ≥ 30 Mbps để bộ mã giữ grain (Q-G3b).",
+        "G3b đo có grain (σ lớn nhất theo shot 1.11 ≥ 0.8 mã): master YouTube phải ≥ 30 Mbps để bộ mã giữ grain (Q-G3b).",
         "Bitrate âm đo từ gói: 148 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
       ]
     },
@@ -3172,7 +3271,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 9.6,
+      "seconds": 14.1,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -3211,7 +3310,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          41.592,
+          41.606,
           ">=",
           30.0,
           true
@@ -3249,7 +3348,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 15.4,
+      "seconds": 31.7,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3281,7 +3380,7 @@
         ]
       ],
       "notes": [
-        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.8–58.2 s.",
+        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.86–58.26 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ]
@@ -3376,7 +3475,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 18.5,
+      "seconds": 36.9,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3394,7 +3493,7 @@
         ]
       ],
       "notes": [
-        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.8–58.2 s.",
+        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.86–58.26 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ]
@@ -3405,7 +3504,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 15.8,
+      "seconds": 32.0,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3423,7 +3522,7 @@
         ]
       ],
       "notes": [
-        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.8–58.2 s.",
+        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.86–58.26 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ]
@@ -3434,7 +3533,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 16.0,
+      "seconds": 30.9,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3452,7 +3551,7 @@
         ]
       ],
       "notes": [
-        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.8–58.2 s.",
+        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 1: 'you' 56.86–58.26 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ]
@@ -3463,7 +3562,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.5,
+      "seconds": 10.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3522,7 +3621,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -3555,10 +3654,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -3567,7 +3675,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.5,
+      "seconds": 12.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3626,7 +3734,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.12,
           "<=",
           3.0,
@@ -3659,10 +3767,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.35%. 2524 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.35%. 2524 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Biên mặt nạ là dải xám rộng: mặt nạ có vẻ được phóng to từ ảnh độ phân giải thấp hơn. Render mặt nạ ở độ phân giải thật (nhị phân hoặc khử răng cưa ở chính độ phân giải đó)."
       ]
     },
@@ -3672,7 +3789,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 5.7,
+      "seconds": 11.6,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3731,7 +3848,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.46,
           "<=",
           3.0,
@@ -3764,10 +3881,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.4%. 1864 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.50 (trải đều ≈ 0.50).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.4%. 1864 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.50 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Biên mặt nạ là dải xám rộng: mặt nạ có vẻ được phóng to từ ảnh độ phân giải thấp hơn. Render mặt nạ ở độ phân giải thật (nhị phân hoặc khử răng cưa ở chính độ phân giải đó)."
       ]
     },
@@ -3777,7 +3903,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.2,
+      "seconds": 8.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3836,7 +3962,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.57,
           "<=",
           3.0,
@@ -3869,10 +3995,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.8%. 622 vị trí biên phân biệt; tỷ lệ dồn 1 pha 1.00 (trải đều ≈ 0.25).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.8%. 622 vị trí biên phân biệt; tỷ lệ dồn 1 pha 1.00 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Biên mặt nạ nằm trên lưới thô: mặt nạ có vẻ được phóng to từ độ phân giải thấp hơn, không phải render ở hệ số khai. Render lại mặt nạ ở độ phân giải thật."
       ]
     },
@@ -3882,7 +4017,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 92.9,
+      "seconds": 182.0,
       "metrics": [
         [
           "sai số / U(δ=2) lớn nhất — thật",
@@ -3923,7 +4058,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 22.9,
+      "seconds": 45.3,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3948,7 +4083,7 @@
         ]
       ],
       "notes": [
-        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.wav' không có lời tại đó (Q-J1c): 0.",
+        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.wav' không có lời tại đó (Q-J1c): 1: 'then.' 105.6–105.6 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ]
@@ -3993,7 +4128,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 24.7,
+      "seconds": 48.1,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -4011,7 +4146,7 @@
         ]
       ],
       "notes": [
-        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.wav' không có lời tại đó (Q-J1c): 0.",
+        "5 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.wav' không có lời tại đó (Q-J1c): 1: 'then.' 105.6–105.6 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ]
@@ -4022,7 +4157,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 3.2,
+      "seconds": 5.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4081,7 +4216,7 @@
           false
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           3.59,
           "<=",
           3.0,
@@ -4116,6 +4251,13 @@
           true
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: mặt nạ ≥ 4×",
           true,
           "==",
@@ -4124,7 +4266,9 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 1280×864 px trên khung 640×432 → hệ số đo ×2 (khai báo: 2). Đầu cao 57.0–57.0 px video. Lệch lớn nhất 0.9%. 774 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1280×864 px trên khung 640×432 → hệ số đo ×2 (khai báo: 2). Đầu cao 57.0–57.0 px video. Lệch lớn nhất (mẫu đo được) 0.9%. 774 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Đầu nhỏ nhất 57.0 px video < 100 px: bắt buộc mặt nạ 4× (Q-δ).",
         "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
       ]
@@ -4135,7 +4279,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 3.9,
+      "seconds": 9.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4194,7 +4338,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.36,
           "<=",
           3.0,
@@ -4227,10 +4371,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2304 px trên khung 640×576 → hệ số đo ×4 (khai báo: 4). Đầu cao 80.0–80.0 px video. Lệch lớn nhất 0.4%. 2094 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25)."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2304 px trên khung 640×576 → hệ số đo ×4 (khai báo: 4). Đầu cao 80.0–80.0 px video. Lệch lớn nhất (mẫu đo được) 0.4%. 2094 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
       ]
     },
     {
@@ -4239,7 +4392,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 10.2,
+      "seconds": 18.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4298,7 +4451,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -4394,11 +4547,20 @@
           "<=",
           0.02,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:05:12Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:10:25Z."
       ]
     },
     {
@@ -4407,7 +4569,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 11.0,
+      "seconds": 23.6,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4466,7 +4628,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.2,
           "<=",
           3.0,
@@ -4564,6 +4726,13 @@
           false
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: điểm ảnh khác nhau",
           true,
           "==",
@@ -4572,8 +4741,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.43%. 2550 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.27 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:05:23Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.43%. 2550 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.27 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:10:48Z."
       ]
     },
     {
@@ -4582,7 +4753,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 13.3,
+      "seconds": 30.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4641,7 +4812,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           2.66,
           "<=",
           3.0,
@@ -4739,6 +4910,13 @@
           false
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: lệch tỷ lệ",
           true,
           "==",
@@ -4747,8 +4925,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 2.1%. 2618 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:05:37Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 2.1%. 2618 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:11:19Z."
       ]
     },
     {
@@ -4757,7 +4937,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 9.9,
+      "seconds": 19.4,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4816,7 +4996,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -4911,6 +5091,13 @@
           0.0,
           "<=",
           0.02,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
           true
         ],
         [
@@ -4922,8 +5109,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:05:47Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:11:39Z."
       ]
     },
     {
@@ -4932,7 +5121,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 10.2,
+      "seconds": 22.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4991,7 +5180,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -5089,6 +5278,13 @@
           true
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: SCENE",
           true,
           "==",
@@ -5097,8 +5293,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:05:57Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:12:01Z."
       ]
     },
     {
@@ -5107,7 +5305,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 10.5,
+      "seconds": 20.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5166,7 +5364,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -5264,6 +5462,13 @@
           true
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: FRAME",
           true,
           "==",
@@ -5272,8 +5477,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:06:07Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:12:21Z."
       ]
     },
     {
@@ -5282,7 +5489,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 9.1,
+      "seconds": 21.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5341,7 +5548,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -5439,6 +5646,13 @@
           true
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: thiếu hoặc khác kích thước",
           true,
           "==",
@@ -5447,8 +5661,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:06:17Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:12:43Z."
       ]
     },
     {
@@ -5457,7 +5673,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 10.4,
+      "seconds": 19.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5516,7 +5732,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.58,
           "<=",
           3.0,
@@ -5614,6 +5830,13 @@
           false
         ],
         [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
           "trượt đúng vì: không đổi sau khi phát",
           true,
           "==",
@@ -5622,8 +5845,10 @@
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.8%. 2445 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T05:06:27Z."
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.8%. 2445 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-27T14:13:01Z."
       ]
     },
     {
@@ -5632,7 +5857,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 12.4,
+      "seconds": 16.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5691,7 +5916,7 @@
           true
         ],
         [
-          "biên trên |lệch| + U lớn nhất",
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
           1.02,
           "<=",
           3.0,
@@ -5724,10 +5949,19 @@
           ">=",
           1.5,
           true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
         ]
       ],
       "notes": [
-        "Model sheet: sheet.json. Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
         "Chưa có yêu cầu kiểm toán ngẫu nhiên (request.json): phiên P chạy `checks/audit.py issue c3a_noreq.mp4`."
       ]
     },
@@ -5737,7 +5971,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 8.5,
+      "seconds": 15.9,
       "metrics": [
         [
           "phát lại yêu cầu bị từ chối",
@@ -5748,7 +5982,2177 @@
         ]
       ],
       "notes": [
-        "/tmp/claude-0/-home-user-cine-lab/03d8aa4f-3843-5a76-981b-e78d2ceba171/scratchpad/st10/c3a_reissue.audit/request.json đã có. Không phát lại yêu cầu kiểm toán (xoá phải có lý do, ghi vào git)."
+        "/tmp/claude-0/-home-user-cine-lab/6ddefa23-1afb-555e-9688-901d8393776b/scratchpad/stfull/c3a_reissue.audit/request.json đã có. Không phát lại yêu cầu kiểm toán (xoá phải có lý do, ghi vào git)."
+      ]
+    },
+    {
+      "code": "J1",
+      "sample": "v1.4: không có luồng âm, kịch bản rỗng (chỉ ghi chú/chỉ dẫn) → — (như M3)",
+      "expect": "N/A",
+      "got": "N/A",
+      "ok": true,
+      "seconds": 0.2,
+      "metrics": [],
+      "notes": [
+        "Không có luồng âm và kịch bản thoại rỗng (đoạn không lời): không áp dụng, thống nhất với M3."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "v1.4: không có luồng âm, kịch bản rỗng → — (không cần stem)",
+      "expect": "N/A",
+      "got": "N/A",
+      "ok": true,
+      "seconds": 0.2,
+      "metrics": [],
+      "notes": [
+        "Không có luồng âm và kịch bản thoại rỗng (đoạn không lời): không áp dụng, thống nhất với M3."
+      ]
+    },
+    {
+      "code": "J1",
+      "sample": "v1.4: không có luồng âm nhưng kịch bản có lời → THIẾU (không ĐẠT)",
+      "expect": "MISSING",
+      "got": "MISSING",
+      "ok": true,
+      "seconds": 0.2,
+      "metrics": [],
+      "notes": [
+        "Không có luồng âm nhưng kịch bản có 3 từ: thiếu luồng âm, không đo được. Không chèn luồng âm im lặng để lách (sẽ TRƯỢT vì thiếu từ)."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "v1.4: không có luồng âm nhưng kịch bản có lời → THIẾU (không ĐẠT)",
+      "expect": "MISSING",
+      "got": "MISSING",
+      "ok": true,
+      "seconds": 0.2,
+      "metrics": [],
+      "notes": [
+        "Không có luồng âm nhưng kịch bản có 3 từ: thiếu luồng âm, không đo được. Không chèn luồng âm im lặng để lách (sẽ TRƯỢT vì thiếu từ)."
+      ]
+    },
+    {
+      "code": "J1",
+      "sample": "v1.4: có luồng âm nhưng thiếu từ (kịch bản thêm câu không nói) → vẫn TRƯỢT",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 9.7,
+      "metrics": [
+        [
+          "từ bắt buộc nghe đúng",
+          76.0,
+          ">=",
+          100.0,
+          false
+        ],
+        [
+          "WER",
+          24.0,
+          "<=",
+          5.0,
+          false
+        ]
+      ],
+      "notes": [
+        "2 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < -60 dBFS): 0.",
+        "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
+        "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "v1.4 run.py: không luồng âm + kịch bản rỗng + không có thư mục stem → J1, J1b, M3 đều —",
+      "expect": "N/A",
+      "got": "N/A",
+      "ok": true,
+      "seconds": 2.0,
+      "metrics": [
+        [
+          "đúng lý do: run.py: J1, J1b, M3 đều '—' khi không có luồng âm, kịch bản rỗng, không có stem ({'M3': 'N/A', 'J1': 'N/A', 'J1b': 'N/A'})",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Không có luồng âm và kịch bản thoại rỗng (đoạn không lời): không áp dụng, thống nhất với M3."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 (a): đúng tỷ lệ, cẳng tay gập về phía máy (2D còn 55%), views khai foreshorten 0,55 → không TRƯỢT",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 16.7,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1764,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5108,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.35,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.8466,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1764 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 4/5 (80.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 4/5 (80%).",
+        "Không đo được: 1 mẫu bộ phận — gập: co ngắn do tư thế > 2%: 1. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 (a, đối chứng): cùng mẫu, không có views → so mọi mẫu như v1.3 → TRƯỢT oan (lý do khiếu nại)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 9.4,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1764,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5108,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          46.13,
+          "<=",
+          3.0,
+          false
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.8466,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 44.52%. 1764 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 (b): cánh tay (trên + cẳng) dài thêm 20% ở góc chuẩn 0°, không gập → TRƯỢT",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 13.5,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1965,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5099,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          21.29,
+          "<=",
+          3.0,
+          false
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          2,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.4062,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 20.36%. 1965 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 (c): shot toàn góc lệch (view 150°, cách góc gần nhất 60°), tay dài 20% → CẦN NGƯỜI XEM (không ĐẠT)",
+      "expect": "REVIEW",
+      "got": "REVIEW",
+      "ok": true,
+      "seconds": 12.4,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1965,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5099,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          0.0,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.4062,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "đúng lý do: báo 0/5 mẫu đo được trên shot, liệt kê 5 mẫu không đo được",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) None%. 1965 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 0/5 (0.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 0/5 (0%).",
+        "Không đo được: 5 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 5. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: góc nhìn 0° nhưng máy ngẩng 35° (lệch 3D 35° > 30°) → CẦN NGƯỜI XEM",
+      "expect": "REVIEW",
+      "got": "REVIEW",
+      "ok": true,
+      "seconds": 8.0,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1856,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          0.0,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5779,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          1,
+          "<=",
+          0,
+          false
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) None%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 0/5 (0.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 0/5 (0%).",
+        "Không đo được: 5 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 5. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: nhân vật đúng số góc 45°, views 40° → so với góc gần nhất 45° → ĐẠT",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 10.0,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1831,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5085,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.51,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.3308,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.42%. 1831 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: cùng nhân vật (số góc 45°) nhưng views khai 5° → so với 0° → TRƯỢT",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 10.3,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1831,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5085,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          8.68,
+          "<=",
+          3.0,
+          false
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          5,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.3308,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 7.89%. 1831 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: view 85° → góc 90° ghi null cho tay → 2 tay không đo được, thân/chân đạt",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 12.7,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1854,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5086,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.23,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.1103,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "đúng lý do: tay trên, cẳng tay 'khuất ở góc tham chiếu' (c3_views null)",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.31%. 1854 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 3/5 (60.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 3/5 (60%).",
+        "Không đo được: 2 mẫu bộ phận — khuất ở góc tham chiếu (c3_views ghi null): 2. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: cẳng tay gần máy hơn đầu 6% (vẽ dài 6%), views depth 0,94 → không đo được, còn lại ĐẠT",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 13.6,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1867,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.511,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.35,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5452,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1867 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 4/5 (80.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 4/5 (80%).",
+        "Không đo được: 1 mẫu bộ phận — phối cảnh: độ sâu lệch đầu > 2%: 1. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 chống khai sai: mặt nạ cẳng tay rỗng nhưng views khai không bị che (hidden 0) → TRƯỢT",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 14.4,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1591,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5104,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.35,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.9584,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1591 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: cẳng tay bị che hoàn toàn (hidden 1,0), mặt nạ rỗng → không đo được, còn lại ĐẠT",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 11.8,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1591,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5104,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.35,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.9584,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1591 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 4/5 (80.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 4/5 (80%).",
+        "Không đo được: 1 mẫu bộ phận — bị che > 10%: 1. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: đầu bị cắt ở mép trên khung, không có views → máy tự loại mẫu → CẦN NGƯỜI XEM",
+      "expect": "REVIEW",
+      "got": "REVIEW",
+      "ok": true,
+      "seconds": 10.1,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1770,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.509,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          0.0,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          8.2239,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "đúng lý do: máy tự thấy đầu bị cắt khung (không cần views)",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 126.0–126.0 px video. Lệch lớn nhất (mẫu đo được) None%. 1770 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 0/5 (0.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 0/5 (0%).",
+        "Không đo được: 5 mẫu bộ phận — đầu chạm mép khung (bị cắt): 5. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+        "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4: 2 shot trong một file, shot 2 toàn góc lệch → CẦN NGƯỜI XEM, báo tỷ lệ đo được từng shot",
+      "expect": "REVIEW",
+      "got": "REVIEW",
+      "ok": true,
+      "seconds": 18.5,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          7424,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.42,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.4648,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "đúng lý do: tách 2 shot, tỷ lệ đo được theo shot 100% / 0% ([100.0, 0.0])",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 7424 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 10/20 (50.0%) trên 4 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 10/10 (100%); shot 2 (khung 24–47): 0/10 (0%).",
+        "Không đo được: 10 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 10. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "Shot [2]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 kiểm toán: views render lại khớp bản nộp (mặt nạ khớp, log đủ)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 13.2,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          4.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          4.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          2594,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.2529,
+          "<=",
+          0.625,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.02,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.2986,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "kiểm toán: video không đổi sau khi phát yêu cầu",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: bộ mặt nạ nộp không đổi sau khi phát yêu cầu",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: có khung được chọn",
+          1,
+          ">=",
+          1,
+          true
+        ],
+        [
+          "kiểm toán: có render.log",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: log có dòng SCENE, SHA-256 khớp file cảnh trên đĩa",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: khung được chọn không có dòng FRAME … CMD trong log",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kiểm toán: views.json render lại thiếu hoặc sai định dạng",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kiểm toán: views render lại lệch bản nộp — góc nhìn, góc ngẩng (lớn nhất)",
+          0.0,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "kiểm toán: views render lại lệch bản nộp — foreshorten, hidden, depth (lớn nhất)",
+          0.0,
+          "<=",
+          0.005,
+          true
+        ],
+        [
+          "kiểm toán: mặt nạ render lại thiếu hoặc khác kích thước",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kiểm toán: lệch tỷ lệ nộp/render lại, tính theo dải nhiễu U (lớn nhất)",
+          0.0,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "kiểm toán: điểm ảnh khác nhau / điểm ảnh biên (lớn nhất)",
+          0.0,
+          "<=",
+          0.02,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "Kiểm toán ngẫu nhiên: hạt giống 424242, khung [0], phát bởi selftest lúc 2026-09-27T14:16:41Z."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 kiểm toán: views nộp khai 0° nhưng render lại ra 40° (khai sai góc để chọn số so) → TRƯỢT",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 10.0,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          4.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          4.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          2594,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.2529,
+          "<=",
+          0.625,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.02,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.2986,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "kiểm toán: video không đổi sau khi phát yêu cầu",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: bộ mặt nạ nộp không đổi sau khi phát yêu cầu",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: có khung được chọn",
+          1,
+          ">=",
+          1,
+          true
+        ],
+        [
+          "kiểm toán: có render.log",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: log có dòng SCENE, SHA-256 khớp file cảnh trên đĩa",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "kiểm toán: khung được chọn không có dòng FRAME … CMD trong log",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kiểm toán: views.json render lại thiếu hoặc sai định dạng",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kiểm toán: views render lại lệch bản nộp — góc nhìn, góc ngẩng (lớn nhất)",
+          40.0,
+          "<=",
+          1.0,
+          false
+        ],
+        [
+          "kiểm toán: views render lại lệch bản nộp — foreshorten, hidden, depth (lớn nhất)",
+          0.0,
+          "<=",
+          0.005,
+          true
+        ],
+        [
+          "kiểm toán: mặt nạ render lại thiếu hoặc khác kích thước",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "kiểm toán: lệch tỷ lệ nộp/render lại, tính theo dải nhiễu U (lớn nhất)",
+          0.0,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "kiểm toán: điểm ảnh khác nhau / điểm ảnh biên (lớn nhất)",
+          0.0,
+          "<=",
+          0.02,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "đúng lý do: trượt vì views render lại lệch bản nộp",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "Kiểm toán ngẫu nhiên: hạt giống 424242, khung [0], phát bởi selftest lúc 2026-09-27T14:16:51Z."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 lược đồ: độ dài chỉ nằm trong parts{} (sheet của phim) → đọc được, ĐẠT",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 13.0,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1856,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          0.0,
+          "<=",
+          2.5,
+          true
+        ],
+        [
+          "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          4.0,
+          ">=",
+          3.98,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          1.42,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5779,
+          ">=",
+          1.5,
+          true
+        ],
+        [
+          "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json (độ dài: parts{}; góc tham chiếu: 0° (không có views)). Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất (mẫu đo được) 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50).",
+        "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
+        "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 lược đồ: thiếu độ dài 'torso' ở mọi nơi (trước: LỖI ĐO KeyError) → THIẾU, thông báo rõ",
+      "expect": "MISSING",
+      "got": "MISSING",
+      "ok": true,
+      "seconds": 7.5,
+      "metrics": [
+        [
+          "đúng lý do: báo 'Sai định dạng' rõ ràng, không lộ lỗi Python",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Sai định dạng (RUN.md mục 3.6): không tìm thấy độ dài bộ phận. Cần {bộ phận: {\"length\": số}} cho 'head' và mọi bộ phận trong measured_parts, ở cấp gốc hoặc trong parts{}, hoặc bảng c3_views. Thiếu: {'cấp gốc': ['head', 'torso', 'upper_arm', 'forearm', 'thigh', 'shin'], 'parts{}': ['torso']}."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 lược đồ: c3_views có khoá góc không đọc được ('front') → THIẾU, thông báo rõ",
+      "expect": "MISSING",
+      "got": "MISSING",
+      "ok": true,
+      "seconds": 8.1,
+      "metrics": [
+        [
+          "đúng lý do: báo 'Sai định dạng' rõ ràng, không lộ lỗi Python",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Sai định dạng (RUN.md mục 3.6): c3_views: khoá góc 'front' không đọc được (dạng '0°', '45°', '-90°')."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.4 lược đồ: views thiếu trường foreshorten → THIẾU, thông báo rõ",
+      "expect": "MISSING",
+      "got": "MISSING",
+      "ok": true,
+      "seconds": 8.6,
+      "metrics": [
+        [
+          "đúng lý do: báo 'Sai định dạng' rõ ràng, không lộ lỗi Python",
+          true,
+          "==",
+          true,
+          true
+        ]
+      ],
+      "notes": [
+        "Sai định dạng (RUN.md mục 3.6): views['0'].parts.head.foreshorten phải là số (gặp None)."
       ]
     }
   ],
@@ -5812,5 +8216,5 @@
     ],
     "ok": true
   },
-  "sample_dir": "/tmp/claude-0/-home-user-cine-lab/03d8aa4f-3843-5a76-981b-e78d2ceba171/scratchpad/st10"
+  "sample_dir": "/tmp/claude-0/-home-user-cine-lab/6ddefa23-1afb-555e-9688-901d8393776b/scratchpad/stfull"
 }

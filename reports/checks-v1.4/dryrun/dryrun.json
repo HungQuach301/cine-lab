@@ -1,0 +1,2310 @@
+{
+ "a_close_ida": {
+  "khong_views": {
+   "status": "REVIEW",
+   "chi_so_truot": [
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 371.7–371.7 px video. Lệch lớn nhất (mẫu đo được) None%. 21436 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/6 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/6 (0%).",
+    "Không đo được: 6 mẫu bộ phận — chạm mép khung (bị cắt): 6. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "co_views": {
+   "status": "REVIEW",
+   "chi_so_truot": [
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 44.1° so với -90° (view -47.39°, ngẩng 12.49°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 44.1° so với -90° (view -47.39°, ngẩng 12.49°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 44.1° so với -90° (view -47.39°, ngẩng 12.49°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 44.1° so với -90° (view -47.39°, ngẩng 12.49°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 44.1° so với -90° (view -47.39°, ngẩng 12.49°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 44.1° so với -90° (view -47.39°, ngẩng 12.49°)"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 371.7–371.7 px video. Lệch lớn nhất (mẫu đo được) None%. 21436 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/6 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/6 (0%).",
+    "Không đo được: 6 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 6. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": -47.39,
+    "elev_deg": 12.49,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9967,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9803,
+      "hidden": 0.0075,
+      "depth": 1.0424
+     },
+     "upper_arm": {
+      "foreshorten": 0.7583,
+      "hidden": 0,
+      "depth": 0.9145
+     },
+     "forearm": {
+      "foreshorten": 0.784,
+      "hidden": 0,
+      "depth": 0.8273
+     },
+     "thigh": {
+      "foreshorten": 0.9543,
+      "hidden": 1,
+      "depth": 1.0099
+     },
+     "shin": {
+      "foreshorten": 0.954,
+      "hidden": 1,
+      "depth": 1.009
+     }
+    }
+   },
+   "12": {
+    "view_deg": -47.39,
+    "elev_deg": 12.49,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9967,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9803,
+      "hidden": 0.0075,
+      "depth": 1.0424
+     },
+     "upper_arm": {
+      "foreshorten": 0.7583,
+      "hidden": 0,
+      "depth": 0.9145
+     },
+     "forearm": {
+      "foreshorten": 0.784,
+      "hidden": 0,
+      "depth": 0.8273
+     },
+     "thigh": {
+      "foreshorten": 0.9543,
+      "hidden": 1,
+      "depth": 1.0099
+     },
+     "shin": {
+      "foreshorten": 0.954,
+      "hidden": 1,
+      "depth": 1.009
+     }
+    }
+   }
+  }
+ },
+ "b_cas_bird": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%",
+    "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 8,
+     "do_duoc": 6,
+     "ty_le_pct": 75.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 1.8958,
+     "sheet": 1.669,
+     "lech_pct": 13.59,
+     "U_pct": 0.43,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.9214,
+     "sheet": 0.945,
+     "lech_pct": -2.5,
+     "U_pct": 0.56,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": null,
+     "ty_le": 1.11,
+     "sheet": 1.191,
+     "lech_pct": -6.8,
+     "U_pct": 0.51,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 1.8958,
+     "sheet": 1.669,
+     "lech_pct": 13.59,
+     "U_pct": 0.43,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.9214,
+     "sheet": 0.945,
+     "lech_pct": -2.5,
+     "U_pct": 0.56,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": null,
+     "ty_le": 1.11,
+     "sheet": 1.191,
+     "lech_pct": -6.8,
+     "U_pct": 0.51,
+     "ket_qua": "trượt chắc chắn"
+    }
+   ],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "shin",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    },
+    {
+     "khung": 12,
+     "bo_phan": "shin",
+     "ly_do": "chạm mép khung (bị cắt)",
+     "chi_tiet": ""
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: cas.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 132.4–132.4 px video. Lệch lớn nhất (mẫu đo được) 13.59%. 5674 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 6/8 (75.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 6/8 (75%).",
+    "Không đo được: 2 mẫu bộ phận — chạm mép khung (bị cắt): 2. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+    "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+   ]
+  },
+  "co_views": {
+   "status": "REVIEW",
+   "chi_so_truot": [
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 8,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "thigh",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "shin",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "thigh",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "shin",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 61.1° so với 90° (view 150.76°, ngẩng 8.89°)"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: cas.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 132.4–132.4 px video. Lệch lớn nhất (mẫu đo được) None%. 5674 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/8 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/8 (0%).",
+    "Không đo được: 8 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 8. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": 150.76,
+    "elev_deg": 8.89,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9182,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9946,
+      "hidden": 0,
+      "depth": 1.0296
+     },
+     "upper_arm": {
+      "foreshorten": 0.7144,
+      "hidden": 0,
+      "depth": 1.0619
+     },
+     "forearm": {
+      "foreshorten": 1.0147,
+      "hidden": 0,
+      "depth": 1.0851
+     },
+     "thigh": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 1.0445
+     },
+     "shin": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 1.0488
+     }
+    }
+   },
+   "12": {
+    "view_deg": 150.76,
+    "elev_deg": 8.89,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9182,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9946,
+      "hidden": 0,
+      "depth": 1.0296
+     },
+     "upper_arm": {
+      "foreshorten": 0.7144,
+      "hidden": 0,
+      "depth": 1.0619
+     },
+     "forearm": {
+      "foreshorten": 1.0147,
+      "hidden": 0,
+      "depth": 1.0851
+     },
+     "thigh": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 1.0445
+     },
+     "shin": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 1.0488
+     }
+    }
+   }
+  }
+ },
+ "c_s5_medium": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%",
+    "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 6,
+     "ty_le_pct": 100.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.6652,
+     "sheet": 2.584,
+     "lech_pct": 3.14,
+     "U_pct": 0.43,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.7736,
+     "sheet": 1.55,
+     "lech_pct": -50.09,
+     "U_pct": 0.66,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": null,
+     "sheet": null,
+     "lech_pct": null,
+     "U_pct": null,
+     "ket_qua": "thiếu mặt nạ"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.6652,
+     "sheet": 2.584,
+     "lech_pct": 3.14,
+     "U_pct": 0.43,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.7736,
+     "sheet": 1.55,
+     "lech_pct": -50.09,
+     "U_pct": 0.66,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": null,
+     "sheet": null,
+     "lech_pct": null,
+     "U_pct": null,
+     "ket_qua": "thiếu mặt nạ"
+    }
+   ],
+   "khong_do_duoc": [],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 123.6–123.6 px video. Lệch lớn nhất (mẫu đo được) 50.09%. 3992 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 6/6 (100.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 6/6 (100%).",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+    "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+   ]
+  },
+  "co_views": {
+   "status": "REVIEW",
+   "chi_so_truot": [
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 60.7° so với 90° (view 150.67°, ngẩng -0.53°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 60.7° so với 90° (view 150.67°, ngẩng -0.53°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 60.7° so với 90° (view 150.67°, ngẩng -0.53°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 60.7° so với 90° (view 150.67°, ngẩng -0.53°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 60.7° so với 90° (view 150.67°, ngẩng -0.53°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 60.7° so với 90° (view 150.67°, ngẩng -0.53°)"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 123.6–123.6 px video. Lệch lớn nhất (mẫu đo được) None%. 3992 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/6 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/6 (0%).",
+    "Không đo được: 6 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 6. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": 150.67,
+    "elev_deg": -0.53,
+    "parts": {
+     "head": {
+      "foreshorten": 0.8323,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9934,
+      "hidden": 0,
+      "depth": 1.065
+     },
+     "upper_arm": {
+      "foreshorten": 0.7094,
+      "hidden": 0,
+      "depth": 1.1244
+     },
+     "forearm": {
+      "foreshorten": 0.9495,
+      "hidden": 1,
+      "depth": 1.1911
+     },
+     "thigh": {
+      "foreshorten": 0.9979,
+      "hidden": 1,
+      "depth": 1.0849
+     },
+     "shin": {
+      "foreshorten": 0.9979,
+      "hidden": 1,
+      "depth": 1.0742
+     }
+    }
+   },
+   "12": {
+    "view_deg": 150.67,
+    "elev_deg": -0.53,
+    "parts": {
+     "head": {
+      "foreshorten": 0.8323,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9934,
+      "hidden": 0,
+      "depth": 1.065
+     },
+     "upper_arm": {
+      "foreshorten": 0.7094,
+      "hidden": 0,
+      "depth": 1.1244
+     },
+     "forearm": {
+      "foreshorten": 0.9495,
+      "hidden": 1,
+      "depth": 1.1911
+     },
+     "thigh": {
+      "foreshorten": 0.9979,
+      "hidden": 1,
+      "depth": 1.0849
+     },
+     "shin": {
+      "foreshorten": 0.9979,
+      "hidden": 1,
+      "depth": 1.0742
+     }
+    }
+   }
+  }
+ },
+ "c_s5_wide": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%",
+    "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 6,
+     "ty_le_pct": 100.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 5.8495,
+     "sheet": 2.584,
+     "lech_pct": 126.38,
+     "U_pct": 3.87,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 2.8687,
+     "sheet": 1.55,
+     "lech_pct": 85.08,
+     "U_pct": 4.04,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 2.5594,
+     "sheet": 0.963,
+     "lech_pct": 165.77,
+     "U_pct": 4.09,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 5.8495,
+     "sheet": 2.584,
+     "lech_pct": 126.38,
+     "U_pct": 3.87,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 2.8687,
+     "sheet": 1.55,
+     "lech_pct": 85.08,
+     "U_pct": 4.04,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 2.5594,
+     "sheet": 0.963,
+     "lech_pct": 165.77,
+     "U_pct": 4.09,
+     "ket_qua": "trượt chắc chắn"
+    }
+   ],
+   "khong_do_duoc": [],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 13.1–13.1 px video. Lệch lớn nhất (mẫu đo được) 165.77%. 1292 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 6/6 (100.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 6/6 (100%).",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
+   ]
+  },
+  "co_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 76.8° so với -90° (view -166.8°, ngẩng 1.98°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 76.8° so với -90° (view -166.8°, ngẩng 1.98°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 76.8° so với -90° (view -166.8°, ngẩng 1.98°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 76.8° so với -90° (view -166.8°, ngẩng 1.98°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 76.8° so với -90° (view -166.8°, ngẩng 1.98°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 76.8° so với -90° (view -166.8°, ngẩng 1.98°)"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 13.1–13.1 px video. Lệch lớn nhất (mẫu đo được) None%. 1292 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/6 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/6 (0%).",
+    "Không đo được: 6 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 6. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": -166.8,
+    "elev_deg": 1.98,
+    "parts": {
+     "head": {
+      "foreshorten": 0.8255,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9932,
+      "hidden": 0,
+      "depth": 1.016
+     },
+     "upper_arm": {
+      "foreshorten": 0.7787,
+      "hidden": 0,
+      "depth": 1.0184
+     },
+     "forearm": {
+      "foreshorten": 0.9252,
+      "hidden": 0,
+      "depth": 1.0338
+     },
+     "thigh": {
+      "foreshorten": 0.9978,
+      "hidden": 1,
+      "depth": 1.0153
+     },
+     "shin": {
+      "foreshorten": 0.9978,
+      "hidden": 0,
+      "depth": 1.0127
+     }
+    }
+   },
+   "12": {
+    "view_deg": -166.8,
+    "elev_deg": 1.98,
+    "parts": {
+     "head": {
+      "foreshorten": 0.8255,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9932,
+      "hidden": 0,
+      "depth": 1.016
+     },
+     "upper_arm": {
+      "foreshorten": 0.7787,
+      "hidden": 0,
+      "depth": 1.0184
+     },
+     "forearm": {
+      "foreshorten": 0.9252,
+      "hidden": 0,
+      "depth": 1.0338
+     },
+     "thigh": {
+      "foreshorten": 0.9978,
+      "hidden": 1,
+      "depth": 1.0153
+     },
+     "shin": {
+      "foreshorten": 0.9978,
+      "hidden": 0,
+      "depth": 1.0127
+     }
+    }
+   }
+  }
+ },
+ "d_s6_alley": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 6,
+     "ty_le_pct": 100.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.3455,
+     "sheet": 2.584,
+     "lech_pct": -9.23,
+     "U_pct": 1.14,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.3514,
+     "sheet": 1.55,
+     "lech_pct": -12.81,
+     "U_pct": 1.3,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.3205,
+     "sheet": 0.963,
+     "lech_pct": 37.13,
+     "U_pct": 1.31,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.3455,
+     "sheet": 2.584,
+     "lech_pct": -9.23,
+     "U_pct": 1.14,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.3514,
+     "sheet": 1.55,
+     "lech_pct": -12.81,
+     "U_pct": 1.3,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.3205,
+     "sheet": 0.963,
+     "lech_pct": 37.13,
+     "U_pct": 1.31,
+     "ket_qua": "trượt chắc chắn"
+    }
+   ],
+   "khong_do_duoc": [],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 47.8–47.8 px video. Lệch lớn nhất (mẫu đo được) 37.13%. 2460 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 6/6 (100.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 6/6 (100%).",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
+   ]
+  },
+  "co_views": {
+   "status": "REVIEW",
+   "chi_so_truot": [
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+     "chi_tiet": "foreshorten 0.865"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+     "chi_tiet": "foreshorten 0.865"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+     "chi_tiet": "foreshorten 0.865"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+     "chi_tiet": "foreshorten 0.865"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+     "chi_tiet": "foreshorten 0.865"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+     "chi_tiet": "foreshorten 0.865"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 47.8–47.8 px video. Lệch lớn nhất (mẫu đo được) None%. 2460 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/6 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/6 (0%).",
+    "Không đo được: 6 mẫu bộ phận — đầu cúi/ngẩng/nghiêng: co ngắn > 2%: 6. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": 48.43,
+    "elev_deg": -0.29,
+    "parts": {
+     "head": {
+      "foreshorten": 0.8653,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9794,
+      "hidden": 0,
+      "depth": 0.9549
+     },
+     "upper_arm": {
+      "foreshorten": 0.9146,
+      "hidden": 0,
+      "depth": 0.9851
+     },
+     "forearm": {
+      "foreshorten": 1.0368,
+      "hidden": 0,
+      "depth": 0.9706
+     },
+     "thigh": {
+      "foreshorten": 1.0103,
+      "hidden": 1,
+      "depth": 0.9392
+     },
+     "shin": {
+      "foreshorten": 1.0103,
+      "hidden": 1,
+      "depth": 0.9186
+     }
+    }
+   },
+   "12": {
+    "view_deg": 48.43,
+    "elev_deg": -0.29,
+    "parts": {
+     "head": {
+      "foreshorten": 0.8653,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 0.9794,
+      "hidden": 0,
+      "depth": 0.9549
+     },
+     "upper_arm": {
+      "foreshorten": 0.9146,
+      "hidden": 0,
+      "depth": 0.9851
+     },
+     "forearm": {
+      "foreshorten": 1.0368,
+      "hidden": 0,
+      "depth": 0.9706
+     },
+     "thigh": {
+      "foreshorten": 1.0103,
+      "hidden": 1,
+      "depth": 0.9392
+     },
+     "shin": {
+      "foreshorten": 1.0103,
+      "hidden": 1,
+      "depth": 0.9186
+     }
+    }
+   }
+  }
+ },
+ "e_ending": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%",
+    "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 6,
+     "ty_le_pct": 100.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.6394,
+     "sheet": 2.584,
+     "lech_pct": 2.14,
+     "U_pct": 1.77,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.5158,
+     "sheet": 1.55,
+     "lech_pct": -2.21,
+     "U_pct": 1.98,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1579,
+     "sheet": 0.963,
+     "lech_pct": 20.24,
+     "U_pct": 2.19,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.6394,
+     "sheet": 2.584,
+     "lech_pct": 2.14,
+     "U_pct": 1.77,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.5158,
+     "sheet": 1.55,
+     "lech_pct": -2.21,
+     "U_pct": 1.98,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1579,
+     "sheet": 0.963,
+     "lech_pct": 20.24,
+     "U_pct": 2.19,
+     "ket_qua": "trượt chắc chắn"
+    }
+   ],
+   "khong_do_duoc": [],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 30.2–30.2 px video. Lệch lớn nhất (mẫu đo được) 20.24%. 1882 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 6/6 (100.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 6/6 (100%).",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+    "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+   ]
+  },
+  "co_views": {
+   "status": "REVIEW",
+   "chi_so_truot": [
+    "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      23
+     ],
+     "khung_nhan_vat": 2,
+     "mau": 6,
+     "do_duoc": 0,
+     "ty_le_pct": 0.0
+    }
+   ],
+   "do": [],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 33.9° so với -90° (view -123.27°, ngẩng 7.17°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 33.9° so với -90° (view -123.27°, ngẩng 7.17°)"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 33.9° so với -90° (view -123.27°, ngẩng 7.17°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 33.9° so với -90° (view -123.27°, ngẩng 7.17°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 33.9° so với -90° (view -123.27°, ngẩng 7.17°)"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+     "chi_tiet": "lệch 33.9° so với -90° (view -123.27°, ngẩng 7.17°)"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 30.2–30.2 px video. Lệch lớn nhất (mẫu đo được) None%. 1882 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 0/6 (0.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–23): 0/6 (0%).",
+    "Không đo được: 6 mẫu bộ phận — góc nhìn lệch > 30° mọi góc tham chiếu: 6. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": -123.27,
+    "elev_deg": 7.17,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9878,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1.0076,
+      "hidden": 0,
+      "depth": 1.0049
+     },
+     "upper_arm": {
+      "foreshorten": 0.995,
+      "hidden": 0,
+      "depth": 0.9962
+     },
+     "forearm": {
+      "foreshorten": 0.9194,
+      "hidden": 0,
+      "depth": 1.0068
+     },
+     "thigh": {
+      "foreshorten": 0.9931,
+      "hidden": 1,
+      "depth": 0.9916
+     },
+     "shin": {
+      "foreshorten": 0.9931,
+      "hidden": 0,
+      "depth": 0.9836
+     }
+    }
+   },
+   "12": {
+    "view_deg": -123.27,
+    "elev_deg": 7.17,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9878,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1.0076,
+      "hidden": 0,
+      "depth": 1.0049
+     },
+     "upper_arm": {
+      "foreshorten": 0.995,
+      "hidden": 0,
+      "depth": 0.9962
+     },
+     "forearm": {
+      "foreshorten": 0.9194,
+      "hidden": 0,
+      "depth": 1.0068
+     },
+     "thigh": {
+      "foreshorten": 0.9931,
+      "hidden": 1,
+      "depth": 0.9916
+     },
+     "shin": {
+      "foreshorten": 0.9931,
+      "hidden": 0,
+      "depth": 0.9836
+     }
+    }
+   }
+  }
+ },
+ "walk": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      47
+     ],
+     "khung_nhan_vat": 4,
+     "mau": 12,
+     "do_duoc": 12,
+     "ty_le_pct": 100.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.1619,
+     "sheet": 2.584,
+     "lech_pct": -16.34,
+     "U_pct": 1.25,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.4204,
+     "sheet": 1.55,
+     "lech_pct": -8.36,
+     "U_pct": 1.38,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.0104,
+     "sheet": 0.963,
+     "lech_pct": 4.93,
+     "U_pct": 1.59,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.1839,
+     "sheet": 2.584,
+     "lech_pct": -15.48,
+     "U_pct": 1.26,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.4426,
+     "sheet": 1.55,
+     "lech_pct": -6.93,
+     "U_pct": 1.39,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.0394,
+     "sheet": 0.963,
+     "lech_pct": 7.94,
+     "U_pct": 1.59,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.1999,
+     "sheet": 2.584,
+     "lech_pct": -14.86,
+     "U_pct": 1.28,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.4315,
+     "sheet": 1.55,
+     "lech_pct": -7.65,
+     "U_pct": 1.42,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.2448,
+     "sheet": 0.963,
+     "lech_pct": 29.27,
+     "U_pct": 1.5,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 2.237,
+     "sheet": 2.584,
+     "lech_pct": -13.43,
+     "U_pct": 1.29,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "upper_arm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.4603,
+     "sheet": 1.55,
+     "lech_pct": -5.79,
+     "U_pct": 1.42,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 1.0669,
+     "sheet": 0.963,
+     "lech_pct": 10.78,
+     "U_pct": 1.61,
+     "ket_qua": "trượt chắc chắn"
+    }
+   ],
+   "khong_do_duoc": [],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 42.6–44.2 px video. Lệch lớn nhất (mẫu đo được) 29.27%. 4933 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 12/12 (100.0%) trên 4 khung có nhân vật. Theo shot: shot 1 (khung 0–47): 12/12 (100%).",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6)."
+   ]
+  },
+  "co_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      47
+     ],
+     "khung_nhan_vat": 4,
+     "mau": 12,
+     "do_duoc": 4,
+     "ty_le_pct": 33.3
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 2.1619,
+     "sheet": 2.153,
+     "lech_pct": 0.41,
+     "U_pct": 1.25,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 2.1839,
+     "sheet": 2.153,
+     "lech_pct": 1.43,
+     "U_pct": 1.26,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 2.1999,
+     "sheet": 2.153,
+     "lech_pct": 2.18,
+     "U_pct": 1.28,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 2.237,
+     "sheet": 2.153,
+     "lech_pct": 3.9,
+     "U_pct": 1.29,
+     "ket_qua": "không chứng minh được"
+    }
+   ],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "upper_arm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.975"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.968"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "upper_arm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.976"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.969"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "upper_arm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.975"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.969"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "upper_arm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.976"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.970"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 42.6–44.2 px video. Lệch lớn nhất (mẫu đo được) 3.9%. 4933 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 4/12 (33.3%) trên 4 khung có nhân vật. Theo shot: shot 1 (khung 0–47): 4/12 (33.3%).",
+    "Không đo được: 8 mẫu bộ phận — phối cảnh: độ sâu lệch đầu > 2%: 8. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": -71.36,
+    "elev_deg": 3.98,
+    "parts": {
+     "head": {
+      "foreshorten": 1.0001,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0.0313,
+      "depth": 0.9961
+     },
+     "upper_arm": {
+      "foreshorten": 0.9937,
+      "hidden": 0,
+      "depth": 0.9753
+     },
+     "forearm": {
+      "foreshorten": 0.9941,
+      "hidden": 0.0654,
+      "depth": 0.9683
+     },
+     "thigh": {
+      "foreshorten": 1,
+      "hidden": 1,
+      "depth": 0.9826
+     },
+     "shin": {
+      "foreshorten": 1,
+      "hidden": 1,
+      "depth": 0.9795
+     }
+    }
+   },
+   "12": {
+    "view_deg": -74.18,
+    "elev_deg": 3.95,
+    "parts": {
+     "head": {
+      "foreshorten": 1.0005,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0.0469,
+      "depth": 0.9963
+     },
+     "upper_arm": {
+      "foreshorten": 0.9964,
+      "hidden": 0,
+      "depth": 0.9757
+     },
+     "forearm": {
+      "foreshorten": 0.9945,
+      "hidden": 0.0063,
+      "depth": 0.969
+     },
+     "thigh": {
+      "foreshorten": 1.0002,
+      "hidden": 1,
+      "depth": 0.9828
+     },
+     "shin": {
+      "foreshorten": 1.0006,
+      "hidden": 0,
+      "depth": 0.9799
+     }
+    }
+   },
+   "24": {
+    "view_deg": -77.07,
+    "elev_deg": 3.86,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9995,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0.0508,
+      "depth": 0.9959
+     },
+     "upper_arm": {
+      "foreshorten": 0.9957,
+      "hidden": 0,
+      "depth": 0.9752
+     },
+     "forearm": {
+      "foreshorten": 0.9999,
+      "hidden": 0,
+      "depth": 0.969
+     },
+     "thigh": {
+      "foreshorten": 1.0003,
+      "hidden": 1,
+      "depth": 0.9824
+     },
+     "shin": {
+      "foreshorten": 1.0004,
+      "hidden": 0,
+      "depth": 0.9796
+     }
+    }
+   },
+   "36": {
+    "view_deg": -80.08,
+    "elev_deg": 3.9,
+    "parts": {
+     "head": {
+      "foreshorten": 1.0007,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0.0378,
+      "depth": 0.9964
+     },
+     "upper_arm": {
+      "foreshorten": 0.9993,
+      "hidden": 0,
+      "depth": 0.9761
+     },
+     "forearm": {
+      "foreshorten": 0.9957,
+      "hidden": 0,
+      "depth": 0.9698
+     },
+     "thigh": {
+      "foreshorten": 1.0004,
+      "hidden": 1,
+      "depth": 0.983
+     },
+     "shin": {
+      "foreshorten": 1,
+      "hidden": 1,
+      "depth": 0.98
+     }
+    }
+   }
+  }
+ },
+ "walk_cas": {
+  "khong_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%",
+    "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+    "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      47
+     ],
+     "khung_nhan_vat": 4,
+     "mau": 16,
+     "do_duoc": 16,
+     "ty_le_pct": 100.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 1.6654,
+     "sheet": 1.669,
+     "lech_pct": -0.22,
+     "U_pct": 1.26,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.9368,
+     "sheet": 0.945,
+     "lech_pct": -0.87,
+     "U_pct": 1.58,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1749,
+     "sheet": 1.191,
+     "lech_pct": -1.36,
+     "U_pct": 1.42,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "shin",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1268,
+     "sheet": 1.132,
+     "lech_pct": -0.46,
+     "U_pct": 1.45,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 1.6861,
+     "sheet": 1.669,
+     "lech_pct": 1.03,
+     "U_pct": 1.28,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.949,
+     "sheet": 0.945,
+     "lech_pct": 0.42,
+     "U_pct": 1.6,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1991,
+     "sheet": 1.191,
+     "lech_pct": 0.68,
+     "U_pct": 1.43,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "shin",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1653,
+     "sheet": 1.132,
+     "lech_pct": 2.94,
+     "U_pct": 1.45,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 1.7033,
+     "sheet": 1.669,
+     "lech_pct": 2.06,
+     "U_pct": 1.29,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.9712,
+     "sheet": 0.945,
+     "lech_pct": 2.78,
+     "U_pct": 1.59,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": null,
+     "ty_le": 1.189,
+     "sheet": 1.191,
+     "lech_pct": -0.17,
+     "U_pct": 1.45,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "shin",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1422,
+     "sheet": 1.132,
+     "lech_pct": 0.9,
+     "U_pct": 1.48,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "torso",
+     "goc_tham_chieu": null,
+     "ty_le": 1.7363,
+     "sheet": 1.669,
+     "lech_pct": 4.03,
+     "U_pct": 1.3,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "forearm",
+     "goc_tham_chieu": null,
+     "ty_le": 0.974,
+     "sheet": 0.945,
+     "lech_pct": 3.07,
+     "U_pct": 1.61,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1104,
+     "sheet": 1.191,
+     "lech_pct": -6.77,
+     "U_pct": 1.52,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "shin",
+     "goc_tham_chieu": null,
+     "ty_le": 1.1784,
+     "sheet": 1.132,
+     "lech_pct": 4.1,
+     "U_pct": 1.48,
+     "ket_qua": "không chứng minh được"
+    }
+   ],
+   "khong_do_duoc": [],
+   "ghi_chu": [
+    "Model sheet: cas.json (độ dài: cấp gốc; góc tham chiếu: 0° (không có views)). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 44.4–46.2 px video. Lệch lớn nhất (mẫu đo được) 6.77%. 4810 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 16/16 (100.0%) trên 4 khung có nhân vật. Theo shot: shot 1 (khung 0–47): 16/16 (100%).",
+    "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
+    "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+   ]
+  },
+  "co_views": {
+   "status": "FAIL",
+   "chi_so_truot": [
+    "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+    "bộ phận–khung lệch chắc chắn > 3%",
+    "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+    "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất"
+   ],
+   "theo_shot": [
+    {
+     "shot": 1,
+     "khung": [
+      0,
+      47
+     ],
+     "khung_nhan_vat": 4,
+     "mau": 16,
+     "do_duoc": 12,
+     "ty_le_pct": 75.0
+    }
+   ],
+   "do": [
+    {
+     "khung": 0,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.6654,
+     "sheet": 1.654,
+     "lech_pct": 0.69,
+     "U_pct": 1.26,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1749,
+     "sheet": 1.076,
+     "lech_pct": 9.19,
+     "U_pct": 1.42,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 0,
+     "bo_phan": "shin",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1268,
+     "sheet": 1.134,
+     "lech_pct": -0.63,
+     "U_pct": 1.45,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.6861,
+     "sheet": 1.654,
+     "lech_pct": 1.94,
+     "U_pct": 1.28,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1991,
+     "sheet": 1.076,
+     "lech_pct": 11.44,
+     "U_pct": 1.43,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "shin",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1653,
+     "sheet": 1.134,
+     "lech_pct": 2.76,
+     "U_pct": 1.45,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.7033,
+     "sheet": 1.654,
+     "lech_pct": 2.98,
+     "U_pct": 1.29,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.189,
+     "sheet": 1.076,
+     "lech_pct": 10.5,
+     "U_pct": 1.45,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "shin",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1422,
+     "sheet": 1.134,
+     "lech_pct": 0.72,
+     "U_pct": 1.48,
+     "ket_qua": "đạt"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "torso",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.7363,
+     "sheet": 1.654,
+     "lech_pct": 4.98,
+     "U_pct": 1.3,
+     "ket_qua": "trượt chắc chắn"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "thigh",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1104,
+     "sheet": 1.076,
+     "lech_pct": 3.2,
+     "U_pct": 1.52,
+     "ket_qua": "không chứng minh được"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "shin",
+     "goc_tham_chieu": -90.0,
+     "ty_le": 1.1784,
+     "sheet": 1.134,
+     "lech_pct": 3.91,
+     "U_pct": 1.48,
+     "ket_qua": "không chứng minh được"
+    }
+   ],
+   "khong_do_duoc": [
+    {
+     "khung": 0,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.975"
+    },
+    {
+     "khung": 12,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.975"
+    },
+    {
+     "khung": 24,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.975"
+    },
+    {
+     "khung": 36,
+     "bo_phan": "forearm",
+     "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+     "chi_tiet": "depth 0.975"
+    }
+   ],
+   "ghi_chu": [
+    "Model sheet: cas.json (độ dài: cấp gốc; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 7680×4320 px trên khung 1920×1080 → hệ số đo ×4 (khai báo: 4). Đầu cao 44.4–46.2 px video. Lệch lớn nhất (mẫu đo được) 11.44%. 4810 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+    "Mẫu bộ phận đo được: 12/16 (75.0%) trên 4 khung có nhân vật. Theo shot: shot 1 (khung 0–47): 12/16 (75%).",
+    "Không đo được: 4 mẫu bộ phận — phối cảnh: độ sâu lệch đầu > 2%: 4. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+    "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+   ]
+  },
+  "views": {
+   "0": {
+    "view_deg": -71.3,
+    "elev_deg": 5.59,
+    "parts": {
+     "head": {
+      "foreshorten": 1.0002,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9969
+     },
+     "upper_arm": {
+      "foreshorten": 0.9969,
+      "hidden": 0,
+      "depth": 0.9808
+     },
+     "forearm": {
+      "foreshorten": 0.9974,
+      "hidden": 0,
+      "depth": 0.9752
+     },
+     "thigh": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9869
+     },
+     "shin": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9845
+     }
+    }
+   },
+   "12": {
+    "view_deg": -74.11,
+    "elev_deg": 5.67,
+    "parts": {
+     "head": {
+      "foreshorten": 1.0001,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9969
+     },
+     "upper_arm": {
+      "foreshorten": 0.9966,
+      "hidden": 0,
+      "depth": 0.9807
+     },
+     "forearm": {
+      "foreshorten": 0.9979,
+      "hidden": 0,
+      "depth": 0.9752
+     },
+     "thigh": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9869
+     },
+     "shin": {
+      "foreshorten": 1.0001,
+      "hidden": 0,
+      "depth": 0.9845
+     }
+    }
+   },
+   "24": {
+    "view_deg": -77.01,
+    "elev_deg": 5.72,
+    "parts": {
+     "head": {
+      "foreshorten": 1.0004,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9969
+     },
+     "upper_arm": {
+      "foreshorten": 0.9981,
+      "hidden": 0,
+      "depth": 0.9809
+     },
+     "forearm": {
+      "foreshorten": 0.9974,
+      "hidden": 0,
+      "depth": 0.9754
+     },
+     "thigh": {
+      "foreshorten": 1.0001,
+      "hidden": 0,
+      "depth": 0.987
+     },
+     "shin": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9846
+     }
+    }
+   },
+   "36": {
+    "view_deg": -79.96,
+    "elev_deg": 5.75,
+    "parts": {
+     "head": {
+      "foreshorten": 0.9999,
+      "hidden": 0,
+      "depth": 1
+     },
+     "torso": {
+      "foreshorten": 1,
+      "hidden": 0,
+      "depth": 0.9968
+     },
+     "upper_arm": {
+      "foreshorten": 0.9968,
+      "hidden": 0,
+      "depth": 0.9807
+     },
+     "forearm": {
+      "foreshorten": 0.9994,
+      "hidden": 0,
+      "depth": 0.9752
+     },
+     "thigh": {
+      "foreshorten": 1.0001,
+      "hidden": 0,
+      "depth": 0.9868
+     },
+     "shin": {
+      "foreshorten": 1.0001,
+      "hidden": 0,
+      "depth": 0.9845
+     }
+    }
+   }
+  }
+ }
+}

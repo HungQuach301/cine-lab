@@ -4,6 +4,7 @@ Thư mục <video>.stems/: dialogue.wav|flac (thoại) và ≥ 1 file âm khác 
 sfx.wav ...) — mọi file âm không phải dialogue.* được cộng lại thành nền. Máy:
   1) kiểm tổng các stem khớp mix cuối trong file video (hồi quy 2 hệ số, lệch thời gian ±100 ms);
   2) tách câu từ stem thoại (khoảng lặng ≥ 350 ms), tính SII rút gọn theo từng câu và cửa sổ 0,5 s.
+v1.4 (khiếu nại Cổng 3): file không có luồng âm → kịch bản rỗng: "—" (như M3); kịch bản có lời: THIẾU. Không cần stem.
 """
 import subprocess
 from pathlib import Path
@@ -12,7 +13,7 @@ import numpy as np
 
 from scipy.optimize import nnls
 
-from .common import FAIL, metric, probe, read_audio, result, stream
+from .common import FAIL, metric, no_audio, probe, read_audio, result, stream
 
 SR = 48000
 AUDIO_EXT = {".wav", ".flac", ".aif", ".aiff", ".w64"}
@@ -127,9 +128,9 @@ def sentences(d_mono):
     return segs, act
 
 
-def check_j1b(video, profile, stem_dir=None):
-    if stream(probe(video), "audio") is None:
-        return result("J1b", FAIL, notes=["File không có luồng âm."])
+def check_j1b(video, profile, stem_dir=None, script_path=None):
+    if stream(probe(video), "audio") is None:  # v1.4: kịch bản rỗng → "—"; có lời → THIẾU (không cần stem)
+        return no_audio("J1b", script_path)
     mix = read_audio(video, SR, 2).astype(np.float64)
     D, B, names = load_stems(stem_dir)
     if abs(len(mix) - len(D)) > SR:
