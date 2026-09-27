@@ -1,0 +1,14 @@
+{
+ "page": "v2/page.js",
+ "frame": "e_ending",
+ "W": 1920,
+ "H": 1080,
+ "samples": 3,
+ "frames": 24,
+ "setup_s": 5.311,
+ "render_frame_s": 2.31,
+ "page_reported_accum_ms": 12.100000000093132,
+ "finalize_per_extra_frame_s": 0.30039130434782607,
+ "total_wall_s": 15.84,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

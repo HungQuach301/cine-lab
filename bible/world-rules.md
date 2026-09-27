@@ -8,6 +8,7 @@ Căn cứ cho Cổng 3 (thiết kế, style frame, color script) và Cổng 7 (�
 - Thành phố hư cấu, không tên, không cờ, không chữ viết của nước nào. Kiến trúc gạch và thạch cao, mái dốc, ống khói; thời kỳ gợi đầu thế kỷ 20 nhưng không gắn năm nào.
 - Con phố của Ida: **Ostler Street**, một phố dốc nhẹ, cong, dài **11 cột đèn khí**. Cuối phố là bức tường gạch trắng vôi của một nhà kho (tường chim bóng).
 - Quảng trường ở đầu phố có một **đồng hồ điện công cộng** trên cột sắt cao (~6 m): mặt tròn kính mờ phát sáng trắng, đường kính ~1,2 m, **12 vạch đen, không chữ số**, hai kim đen, kim phút dài gần chạm vành. Đồng hồ là thứ **sáng đầu tiên** của lưới điện mới, kèm một tiếng chuông điện đánh đúng giờ. Nhìn thấy được từ khắp Ostler Street và từ trên mái nhà.
+- Mặt phố Ostler và quảng trường: đá lát. *(Chủ dự án, Cổng 3 đợt vá A2+; kịch bản ghi "cobbles". Vỉa hè trước mặt tiền: đá phiến, có bó vỉa.)*
 - Nhà kho cuối phố có một **hốc cửa bốc hàng hình vòm, sâu ~4 m** **[P]**: vách trong trát vôi, khuất đèn điện (xem mục 3.4).
 - Nhà Cas: cửa sổ tầng một trông xuống một **con ngõ hẹp giữa hai nhà**, khuất đèn điện của phố.
 - Đêm chuyển đổi: dây điện đã kéo sẵn, các **cột điện kiểu mới** đứng xen giữa cột đèn khí. Chúng bật theo từng khối phố, từ quảng trường ở đầu phố lan về cuối phố, như một làn sóng. **Khối cuối cùng (cột điện cạnh tường nhà kho) bật muộn hơn một nhịp**: đó là khe thời gian để Ida thắp ngọn thứ 11.

@@ -1,0 +1,2 @@
+SCENE design/cong3/v2/page.js SHA256 cb2e89e9c313539e51e54cde3c70b421ee024883aadeb9a6b14360efef5eca62
+FRAME 0 CMD node design/cong3/shared/export_sidecars.js --page v2/page.js --shot a_close_ida --video design/cong3/v2/out/a2p/a_close_ida.mp4 --parts 0 --scale 4 --args {"char":"3d"} --audit-dir design/cong3/v2/out/a2p/a_close_ida.audit/rerender

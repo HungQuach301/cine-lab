@@ -1,0 +1,3 @@
+SCENE design/cong3/v2/page.js SHA256 b2f88fa1933e8196599f5b8ca1e467e6feeaaa7447504e5a7768738c675db410
+FRAME 0 CMD node design/cong3/shared/export_sidecars.js --page v2/page.js --shot c_s5_wide --video design/cong3/v2/out/c_s5_wide.mp4 --parts 0 --scale 4 --args {"char":"3d"} --audit-dir design/cong3/v2/out/c_s5_wide.audit/rerender
+FRAME 12 CMD node design/cong3/shared/export_sidecars.js --page v2/page.js --shot c_s5_wide --video design/cong3/v2/out/c_s5_wide.mp4 --parts 12 --scale 4 --args {"char":"3d"} --audit-dir design/cong3/v2/out/c_s5_wide.audit/rerender

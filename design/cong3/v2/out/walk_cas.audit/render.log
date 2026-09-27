@@ -1,0 +1,2 @@
+SCENE design/cong3/v2/page.js SHA256 b2f88fa1933e8196599f5b8ca1e467e6feeaaa7447504e5a7768738c675db410
+FRAME 36 CMD node design/cong3/shared/export_sidecars.js --page v2/page.js --shot walk_cas --video design/cong3/v2/out/walk_cas.mp4 --parts 36 --scale 4 --args {"char":"3d"} --audit-dir design/cong3/v2/out/walk_cas.audit/rerender

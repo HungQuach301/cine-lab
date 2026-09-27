@@ -36,20 +36,22 @@ def limb_ratio(m, head_px):
     opened = ndimage.binary_opening(m, structure=disk)
     return float((m & ~opened).sum() / max(1, m.sum()))
 
+IDA_P = ['walk_ladder', 'light_lamp', 'carry_lantern', 'crouch_lantern', 'warm_hands_ladder', 'look_shadows']
+CAS_P = ['shadow_bird', 'look_lantern', 'warm_hands_copy', 'hold_ladder']
+
 def main():
     ida = json.load(open(os.path.join(HERE, 'ida.json'))); cas = json.load(open(os.path.join(HERE, 'cas.json')))
     out = {}
-    for who, sheet, poses in (('ida', ida, ['walk_ladder', 'warm_hands', 'crouch_lantern', 'look_shadows']),
-                              ('cas', cas, ['shadow_bird', 'look_lantern', 'hold_ladder', 'warm_hands_copy', 'half_raised'])):
+    for who, sheet, poses in (('ida', ida, IDA_P), ('cas', cas, CAS_P)):
         # đầu cao bao nhiêu px trong khung (camera trực giao 2,15 m cho 1000 px)
-        head_px = sheet['H_m'] * 1000 / 2.15
         masks = {p: sil_mask(f'{who}_pose_{p}') for p in poses}
+        head_px = sheet['H_m'] * 1000 / 2.15  # tham chiếu: khung 2,15 m; khung tự canh to hơn thì đĩa hơi lớn (thiên về chặt)
         norms = {p: normalize(m) for p, m in masks.items()}
         pair = {f'{a}~{b}': round(iou(norms[a], norms[b]), 3) for i, a in enumerate(poses) for b in poses[i + 1:]}
         limbs = {p: round(limb_ratio(m, head_px), 3) for p, m in masks.items()}
         out[who] = {'iou_giua_tu_the': pair, 'iou_lon_nhat': max(pair.values()), 'ty_le_chi_tach_khoi': limbs}
     # khác biệt giữa hai nhân vật ở cùng loại tư thế đứng (turnaround chưa render silhouette → dùng look_shadows vs half_raised)
-    a, b = normalize(sil_mask('ida_pose_look_shadows')), normalize(sil_mask('cas_pose_half_raised'))
+    a, b = normalize(sil_mask('ida_pose_look_shadows')), normalize(sil_mask('cas_pose_look_lantern'))
     out['ida_vs_cas_dung'] = round(iou(a, b), 3)
     json.dump(out, open(os.path.join(HERE, 'c2-silhouette-metrics.json'), 'w'), indent=1, ensure_ascii=False)
 
@@ -80,15 +82,15 @@ def main():
             d.rectangle((x, y + 130, x + 60, y + 190), fill=v, outline=(60, 60, 60)); d.text((x, y + 196), k, font=font(13), fill=INK); d.text((x, y + 214), v, font=font(12), fill=(90, 90, 90)); x += 110
         im.save(os.path.join(HERE, fname), optimize=True)
 
-    sheet_img('ida', ida, ['walk_ladder', 'warm_hands', 'crouch_lantern', 'look_shadows'], 'MS-ida.png')
-    sheet_img('cas', cas, ['shadow_bird', 'look_lantern', 'hold_ladder', 'warm_hands_copy', 'half_raised'], 'MS-cas.png')
+    sheet_img('ida', ida, IDA_P, 'MS-ida.png')
+    sheet_img('cas', cas, CAS_P, 'MS-cas.png')
 
     # bảng silhouette C2
-    names = [('ida', p) for p in ['walk_ladder', 'warm_hands', 'crouch_lantern', 'look_shadows']] + [('cas', p) for p in ['shadow_bird', 'look_lantern', 'hold_ladder', 'warm_hands_copy', 'half_raised']]
-    cw, ch = 300, 430; im = Image.new('RGB', (cw * 5 + 40, 80 + 2 * (ch + 70)), 'white'); d = ImageDraw.Draw(im)
+    names = [('ida', p) for p in IDA_P] + [('cas', p) for p in CAS_P]
+    cw, ch = 300, 430; im = Image.new('RGB', (cw * 6 + 40, 80 + 2 * (ch + 70)), 'white'); d = ImageDraw.Draw(im)
     d.text((20, 18), 'KIỂM SILHOUETTE (C2) — tô đen đặc từng tư thế then chốt', font=font(28, True), fill=INK)
     for k, (who, p) in enumerate(names):
-        r, c = divmod(k, 5) if k < 5 else (1, k - 4) if False else divmod(k, 5)
+        r, c = divmod(k, 6)
         t = Image.open(os.path.join(R, f'sil_{who}_pose_{p}.png')).convert('L').resize((cw, ch), Image.LANCZOS)
         x, y = 20 + c * cw, 70 + r * (ch + 70); im.paste(t, (x, y))
         sheet = ida if who == 'ida' else cas; lab = sheet['poses'][p]['label'].split(' — ')

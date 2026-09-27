@@ -232,6 +232,13 @@ export function buildCharacter(sheet, opts = {}) {
   const lantern = buildLantern(sheet.props?.lantern?.height_H ? sheet.props.lantern.height_H * H : 0.245, mat);
   props.lantern = lantern;
   if (isIda) { props.ladder = buildLadder(sheet.props.ladder.length_H * H, sheet.props.ladder.width_H * H, sheet.props.ladder.rungs, mat, C.ladder); }
+  if (isIda) { // sào mồi: thanh gỗ mảnh, đầu mồi đồng có ngọn lửa nhỏ
+    const L = sheet.props.pole.length_H * H, pole = new THREE.Group(); pole.name = 'pole';
+    const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.011, 0.014, L, 8), mat('ladder', C.ladder, 'pole')); shaft.position.y = L / 2; shaft.castShadow = true; pole.add(shaft);
+    const tip = new THREE.Mesh(new THREE.CylinderGeometry(0.016, 0.02, 0.09, 8), mat('tin', '#9a7a4a', 'pole')); tip.position.y = L + 0.03; tip.castShadow = true; pole.add(tip);
+    const fl = new THREE.Mesh(new THREE.SphereGeometry(0.016, 8, 6), mat('flame', '#fff0c8', 'flame')); fl.scale.set(0.8, 1.8, 0.8); fl.position.y = L + 0.1; pole.add(fl);
+    pole.userData = { length: L, gripFrac: 0.3 }; props.pole = pole;
+  }
 
   const character = { root, joints, parts, props, hands, coatPanels, H, sheet, hipY };
   character.setPose = (pose) => applyPose(character, pose);
@@ -283,7 +290,7 @@ function applyPose(ch, pose) {
     const h = hands[s];
     h.fingers.forEach((f, i) => {
       f.rotation.set(0, 0, 0);
-      f.rotation.x = (1.5 - i) * 0.30 * (hp.spread ?? 0.1);         // xoè trong mặt phẳng lòng bàn tay
+      f.rotation.x = -(1.5 - i) * 0.30 * (hp.spread ?? 0.1);        // xoè trong mặt phẳng lòng bàn tay (dấu âm: ngón 0 ở +z xoè về +z — sửa lỗi vòng 1, agent 3D phát hiện)
       f.rotation.z = -h.sx * (hp.curl ?? 0.4) * 1.45;                 // gập vào lòng bàn tay (lòng quay vào thân)
     });
     h.thumb.rotation.set(-0.5 - 0.6 * (hp.spread ?? 0.1), 0, -h.sx * (hp.curl ?? 0.4) * 0.9);
@@ -294,13 +301,22 @@ function applyPose(ch, pose) {
   const lan = ch.props.lantern, lad = ch.props.ladder;
   if (lan.parent) lan.parent.remove(lan);
   if (lad && lad.parent) lad.parent.remove(lad);
+  const pl_ = ch.props.pole; if (pl_ && pl_.parent) pl_.parent.remove(pl_);
   if (want.has('lantern_belt')) { const pl = joints.pelvis; pl.add(lan); lan.position.set(ch.sheet.parts.torso.hip_width / 2 * 1.02 * H, 0.35 * H - lan.userData.handleY, 0.10 * H); lan.rotation.set(0, 0.4, 0); }
-  if (want.has('lantern_hand_R')) { const wr = joints.wrist_R; wr.add(lan); lan.position.set(0, -0.30 * H - lan.userData.handleY, 0); lan.rotation.set(0, 0, 0); lan.updateMatrixWorld(); }
+  if (want.has('lantern_hand_R')) { ch.root.add(lan); ch._hangLantern = true; } // treo theo trọng lực tại điểm nắm (tính sau khi cập nhật ma trận)
   if (want.has('lantern_ground_front')) { ch.root.add(lan); lan.position.set(0, -ch.root.position.y, 1.05 * H); lan.rotation.set(0, 0.3, 0); }
   if (want.has('ladder_shoulder') && lad) { const sp = joints.spine; sp.add(lad); lad.position.set(-0.55 * H, ch.sheet.parts.torso.length * H + 0.05 * H, -0.3 * H); lad.rotation.set(-(90 - 28) * D2R, 0.18, -0.10); lad.translateY(-lad.children[0].geometry.parameters.height * 0.55); }
+  if (want.has('pole_hand_R') && pl_) { const wr = joints.wrist_R; wr.add(pl_); pl_.position.set(0, -ch.sheet.parts.hand.palm_length * H * 0.55, 0); pl_.rotation.set(Math.PI, 0, 0); pl_.translateY(-pl_.userData.length * pl_.userData.gripFrac); } // sào theo trục ngón tay, nắm ở 30% thân sào
   ch.root.updateMatrixWorld(true);
   // Treo đèn lồng: giữ đèn thẳng đứng theo trọng lực khi treo tay/thắt lưng.
-  if (lan.parent && (want.has('lantern_hand_R') || want.has('lantern_belt'))) {
+  if (ch._hangLantern && want.has('lantern_hand_R')) {
+    // Điểm nắm = giữa lòng bàn tay phải (thế giới) → quai đèn tại đó, đèn thõng thẳng xuống, quay mặt theo nhân vật.
+    const grip = new THREE.Vector3(0, -ch.sheet.parts.hand.palm_length * H * 0.6, 0); joints.wrist_R.localToWorld(grip);
+    const rootInv = new THREE.Matrix4().copy(ch.root.matrixWorld).invert(); grip.applyMatrix4(rootInv);
+    const rq = new THREE.Quaternion(); ch.root.getWorldQuaternion(rq);
+    lan.position.set(grip.x, grip.y - lan.userData.handleY, grip.z); lan.quaternion.identity(); lan.rotateY(0.4); ch.root.updateMatrixWorld(true);
+  } else ch._hangLantern = false;
+  if (lan.parent && want.has('lantern_belt')) {
     const q = new THREE.Quaternion(); lan.parent.getWorldQuaternion(q); lan.quaternion.copy(q.invert()); lan.rotateY(0.4); ch.root.updateMatrixWorld(true);
   }
 }

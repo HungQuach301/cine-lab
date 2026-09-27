@@ -1,0 +1,14 @@
+{
+ "page": "v2/page.js",
+ "frame": "a_close_ida",
+ "W": 1920,
+ "H": 1080,
+ "samples": 3,
+ "frames": 24,
+ "setup_s": 5.189,
+ "render_frame_s": 4.702,
+ "page_reported_accum_ms": 10.399999999906868,
+ "finalize_per_extra_frame_s": 0.3383478260869565,
+ "total_wall_s": 18.707,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

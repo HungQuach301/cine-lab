@@ -1,0 +1,14 @@
+{
+ "page": "model-sheet/sheet_page.js",
+ "frame": "sil_ida_pose_walk_ladder",
+ "W": 700,
+ "H": 1000,
+ "samples": 1,
+ "frames": 1,
+ "setup_s": 1.102,
+ "render_frame_s": 0.91,
+ "page_reported_accum_ms": 0,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 2.465,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}
