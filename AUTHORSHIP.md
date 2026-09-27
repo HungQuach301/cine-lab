@@ -34,3 +34,13 @@ Chỉ chủ dự án ghi hoặc xác nhận các dòng này.
 | 2026-09-27 | Cổng 2 | 11A — Thời lượng 2:30 | Chủ dự án chọn từ phương án Claude đề xuất — **theo khuyến nghị** | Hai phương án thời lượng | Chủ dự án (chat 27/09/2026) |
 | 2026-09-27 | Cổng 2 | Duyệt luật thế giới v0.2 (gồm các mục [P]); **kịch bản nháp 2 CHỐT** | Chủ dự án duyệt | Luật thế giới và kịch bản do Claude soạn theo các lựa chọn của chủ dự án | Chủ dự án (chat 27/09/2026) |
 | 2026-09-27 | Kiểm định | Duyệt bộ luật checks/v1.1 (LOCK d97f9b01…5c3f) | Chủ dự án duyệt | Luật do phiên K viết | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 1 (đóng) | Tiêu chí L3 đạt: chủ dự án đọc logline P3 cho 3 người, 3/3 kể lại đúng và muốn xem | Chủ dự án tự tổ chức đọc và ghi nhận | Logline P3 do Claude soạn, chủ dự án chọn | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 2 (đóng) | Nghe table read nháp 2: 4 câu thoại rõ và tự nhiên; J1 trên table read ĐẠT theo checks v1.2 | Chủ dự án nghe và chấm bằng tai | Table read do Claude dựng bằng giọng chủ dự án đã chọn | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Kiểm định | Duyệt checks v1.3 (Q-C3d A, Q-C3e A, Q-AUD A); LOCK 144b3cff…0294 | Chủ dự án duyệt | Luật do phiên K viết | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | Hướng mỹ thuật: C "Painted Glow" | Chủ dự án chọn bằng mắt từ 3 hướng Claude đề xuất — **theo khuyến nghị** | Ba hướng mỹ thuật, 6 khung mẫu | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | Ngân sách render bài thử ≤ 5 s/khung, KHÔNG hạ chất lượng để đạt 2,5 s; tối ưu lại khi làm phim 15 phút | Chủ dự án quyết — **KHÁC khuyến nghị** (Claude khuyến nghị giữ ≤ 2,5 s và tối ưu C) | Ba phương án ngân sách | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | 2A — Cảnh 5 dùng khung rộng "tranh trong tranh" | Chủ dự án chọn — **theo khuyến nghị** | Ba phương án máy quay | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | 4A — Duyệt tỷ lệ và trang phục model sheet; vòng 2 nâng chất | Chủ dự án chọn — **theo khuyến nghị** | Model sheet Ida/Cas | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | 5A — Nắp đèn lồng chắn tia hướng lên, đưa vào luật thế giới | Chủ dự án chọn — **theo khuyến nghị** | Giả định quang học của hướng B | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | 6A — Duyệt color script 6 ô; vẽ lại bằng hướng C | Chủ dự án chọn — **theo khuyến nghị** | Color script | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 3 v1 | Đánh giá độc lập: nhân vật là điểm yếu lớn nhất (ma-nơ-canh ghép khối, lệch chất tranh sơn); cảnh 5 người quá tối, cần viền sáng tách khỏi bóng | Chủ dự án (qua rà độc lập trong Project) chỉ đạo sửa | — | Chủ dự án (chat 27/09/2026) |

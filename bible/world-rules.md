@@ -1,6 +1,6 @@
-# LUẬT THẾ GIỚI — "Last Round" (v0.2, Cổng 2 · 27/09/2026)
+# LUẬT THẾ GIỚI — "Last Round" (v0.3, Cổng 3 · 27/09/2026)
 
-v0.2 = v0.1 + hai sửa quang học của chủ dự án (cảnh 5, cảnh 6) + mặt đồng hồ điện công cộng + các hệ quả P rút ra khi rà kịch bản nháp 2 (đánh dấu **[P]**, chờ chủ dự án duyệt).
+v0.3 = v0.2 + nắp đèn lồng chắn tia hướng lên (quyết định 5A, mục 4). v0.2 = v0.1 + hai sửa quang học của chủ dự án (cảnh 5, cảnh 6) + mặt đồng hồ điện công cộng + các hệ quả P rút ra khi rà kịch bản nháp 2 (đánh dấu **[P]**, chờ chủ dự án duyệt).
 
 Căn cứ cho Cổng 3 (thiết kế, style frame, color script) và Cổng 7 (ánh sáng). Mọi shot phải tuân theo. Muốn đổi luật thì chủ dự án duyệt, rồi ghi vào `AUTHORSHIP.md`.
 
@@ -54,6 +54,7 @@ Một vật (bàn tay, người) đổ bóng rõ lên một mặt (tường, n�
 ## 4. Lửa và đồ nghề của Ida
 - Ida thắp bằng sào mồi (que mồi cháy ở đầu), trèo thang ngắn để mở van và lau kính. Thang vác chéo vai phải, đầu thang chúc về trước.
 - Đèn lồng tay của Ida: thiếc, kính 4 mặt, **mồi từ ngọn đèn khí** bằng que mồi. Một đèn lồng cháy được "đến sáng".
+- **Phân bố sáng của đèn lồng (5A):** nắp thiếc hình chóp chắn tia hướng lên trên ~49° so với phương ngang, đế chắn tia thẳng xuống. Hệ quả: vòm trần hốc cửa và phần trên cao của vách nhận ít sáng trực tiếp (chỉ ánh dội ấm), phần giữa và thấp của vách sáng nhất. Bóng người vẫn vươn cao vì nguồn thấp; đỉnh bóng rơi vào vùng vách tối dần, nên đầu bóng mềm và nhạt hơn thân bóng.
 - Đồng hồ bỏ túi của Ida chạy chậm **7 phút**; bà biết và vẫn để thế. Mặt đồng hồ **cũng chỉ có vạch, không chữ số**, để khớp với đồng hồ quảng trường và không có chữ đọc được.
 - **Cách đọc "7 phút" bằng hình:** 7 phút tương ứng kim phút lệch **42°**. Dễ đọc nhất khi hai kim nằm **hai bên số 12** (một kim vừa qua đỉnh, một kim chưa tới). Cảnh 3 dùng đúng khoảnh khắc đó. Cảnh 6: kim đồng hồ bỏ túi được vặn tiến tới trùng hướng kim đồng hồ quảng trường.
 
