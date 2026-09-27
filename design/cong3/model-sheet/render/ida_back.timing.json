@@ -1,0 +1,14 @@
+{
+ "page": "model-sheet/sheet_page.js",
+ "frame": "ida_back",
+ "W": 700,
+ "H": 1000,
+ "samples": 16,
+ "frames": 1,
+ "setup_s": 0.065,
+ "render_frame_s": 1.748,
+ "page_reported_accum_ms": 140.09999999962747,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 2.278,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

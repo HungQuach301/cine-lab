@@ -1,0 +1,14 @@
+{
+ "page": "dir-B/scene.js",
+ "frame": "s5_shadows",
+ "W": 1920,
+ "H": 1080,
+ "samples": 8,
+ "frames": 1,
+ "setup_s": 1.044,
+ "render_frame_s": 8.739,
+ "page_reported_accum_ms": 18.299999998882413,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 10.504,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

@@ -1,0 +1,14 @@
+{
+ "page": "model-sheet/sheet_page.js",
+ "frame": "cas_q34",
+ "W": 700,
+ "H": 1000,
+ "samples": 16,
+ "frames": 1,
+ "setup_s": 0.063,
+ "render_frame_s": 1.269,
+ "page_reported_accum_ms": 103.69999999925494,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 1.795,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

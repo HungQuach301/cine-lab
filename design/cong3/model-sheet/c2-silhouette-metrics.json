@@ -1,0 +1,42 @@
+{
+ "ida": {
+  "iou_giua_tu_the": {
+   "walk_ladder~warm_hands": 0.19,
+   "walk_ladder~crouch_lantern": 0.4,
+   "walk_ladder~look_shadows": 0.466,
+   "warm_hands~crouch_lantern": 0.297,
+   "warm_hands~look_shadows": 0.266,
+   "crouch_lantern~look_shadows": 0.489
+  },
+  "iou_lon_nhat": 0.489,
+  "ty_le_chi_tach_khoi": {
+   "walk_ladder": 0.382,
+   "warm_hands": 0.232,
+   "crouch_lantern": 0.337,
+   "look_shadows": 0.181
+  }
+ },
+ "cas": {
+  "iou_giua_tu_the": {
+   "shadow_bird~look_lantern": 0.612,
+   "shadow_bird~hold_ladder": 0.244,
+   "shadow_bird~warm_hands_copy": 0.36,
+   "shadow_bird~half_raised": 0.295,
+   "look_lantern~hold_ladder": 0.239,
+   "look_lantern~warm_hands_copy": 0.337,
+   "look_lantern~half_raised": 0.297,
+   "hold_ladder~warm_hands_copy": 0.234,
+   "hold_ladder~half_raised": 0.273,
+   "warm_hands_copy~half_raised": 0.378
+  },
+  "iou_lon_nhat": 0.612,
+  "ty_le_chi_tach_khoi": {
+   "shadow_bird": 0.441,
+   "look_lantern": 0.433,
+   "hold_ladder": 0.706,
+   "warm_hands_copy": 0.405,
+   "half_raised": 0.462
+  }
+ },
+ "ida_vs_cas_dung": 0.301
+}
