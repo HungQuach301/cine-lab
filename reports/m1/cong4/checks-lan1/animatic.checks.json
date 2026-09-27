@@ -1,0 +1,3207 @@
+{
+  "tool": "cinecheck 1.3.0",
+  "created_utc": "2026-09-27T15:03:46Z",
+  "file": "/home/user/cine-lab/design/cong4/animatic/out/animatic.mp4",
+  "profile": "shot",
+  "verdict": "TRƯỢT",
+  "lock": {
+    "expected": "144b3cff71dea1eb43ffb9fb55d09e91801872fae16996ca35a27381b4fb0294",
+    "actual": "144b3cff71dea1eb43ffb9fb55d09e91801872fae16996ca35a27381b4fb0294",
+    "match": true
+  },
+  "inputs": {
+    "script": "/home/user/cine-lab/design/cong4/animatic/out/animatic.script.txt",
+    "text": "/home/user/cine-lab/design/cong4/animatic/out/animatic.text",
+    "stems": "/home/user/cine-lab/design/cong4/animatic/out/animatic.stems",
+    "parts": null,
+    "motion": "/home/user/cine-lab/design/cong4/animatic/out/animatic.motion.json",
+    "assets": "/home/user/cine-lab/design/cong4/animatic/out/animatic.assets.json",
+    "library": "/home/user/cine-lab/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 8,
+    "FAIL": 5,
+    "MISSING": 1,
+    "N/A": 2,
+    "ERROR": 0
+  },
+  "near_threshold": [
+    {
+      "code": "G3b",
+      "metric": "σ grain nhỏ nhất theo shot",
+      "value": 0.821,
+      "threshold": 0.8
+    },
+    {
+      "code": "G3b",
+      "metric": "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
+      "value": 0.202,
+      "threshold": 0.2
+    }
+  ],
+  "results": [
+    {
+      "code": "N1",
+      "section": "4.N — Kỹ thuật file",
+      "title": "24 fps CFR; không rơi hay lặp khung theo PTS",
+      "level": "Chặn",
+      "measure": "ffprobe đọc PTS từng gói hình của luồng video đầu tiên, sắp xếp theo PTS, tính hiệu PTS kề nhau. Đồng thời đọc r_frame_rate và avg_frame_rate.",
+      "threshold_text": "r_frame_rate = avg_frame_rate = 24/1; 0 bước PTS lệch khỏi 1/24 s quá 0,5 ms; 0 PTS trùng; 0 khoảng hở.",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "r_frame_rate",
+          "value": 24.0,
+          "op": "==",
+          "threshold": 24.0,
+          "unit": "fps",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "avg_frame_rate",
+          "value": 24.0,
+          "op": "==",
+          "threshold": 24.0,
+          "unit": "fps",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "bước PTS lệch khỏi 1/24 s > 0,5 ms",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "bước",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "PTS trùng (lặp khung)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "khung",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "khoảng hở PTS (rơi khung)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "chỗ",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "so_khung": 3600
+      },
+      "seconds": 0.16
+    },
+    {
+      "code": "N2",
+      "section": "4.N — Kỹ thuật file",
+      "title": "BT.709 đủ 3 trường; dải limited — đo cả nhãn lẫn giá trị điểm ảnh",
+      "level": "Chặn",
+      "measure": "Nhãn: color_primaries, color_transfer, color_space phải là bt709; color_range là tv. Điểm ảnh: lấy mẫu luma (2 khung/giây, tối đa 240 khung), tính tỷ lệ mẫu nằm ngoài dải limited (8 bit: <16 hoặc >235; 10 bit: <64 hoặc >940).",
+      "threshold_text": "Đủ 4 nhãn đúng; tỷ lệ luma ngoài dải ≤ 0,5% (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "color_primaries",
+          "value": "bt709",
+          "op": "==",
+          "threshold": "bt709",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "color_transfer",
+          "value": "bt709",
+          "op": "==",
+          "threshold": "bt709",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "color_space",
+          "value": "bt709",
+          "op": "==",
+          "threshold": "bt709",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "color_range",
+          "value": "tv",
+          "op": "==",
+          "threshold": "tv",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "luma ngoài dải limited",
+          "value": 0.0357,
+          "op": "<=",
+          "threshold": 0.5,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "khung_lay_mau": 240,
+        "bit_depth": 8
+      },
+      "seconds": 4.89
+    },
+    {
+      "code": "N3",
+      "section": "4.N — Kỹ thuật file",
+      "title": "Codec và bitrate đúng loại master; khung 16:9, SAR 1:1",
+      "level": "Chặn",
+      "measure": "ffprobe đọc codec, profile, pix_fmt, kích thước, SAR; bitrate hình tính từ tổng kích thước gói / thời lượng (không dùng số khai trong header). Bitrate âm đo từ gói chỉ báo tham khảo: AAC dùng ít bit cho đoạn âm đơn giản nên không phản ánh chất lượng. Profile youtube: dùng chung số đo grain của G3b (σ theo shot) để chọn ngưỡng bitrate.",
+      "threshold_text": "youtube: H.264 High hoặc HEVC Main/Main10, yuv420p/yuv420p10le, 1920×1080 hoặc 3840×2160, bitrate hình đo ≥ 12 Mbps (1080p) / ≥ 45 Mbps (2160p) (nội bộ, trên mức khuyến nghị YouTube 8/35–45 Mbps); v1.1 (Q-G3b): khi G3b đo thấy grain (σ trung vị của một shot bất kỳ ≥ 0,8 mã) thì bitrate hình đo ≥ 30 Mbps (1080p; 2160p vẫn ≥ 45); âm AAC-LC 48 kHz 2 kênh (bitrate âm chỉ báo tham khảo). archive: ProRes 422 HQ/4444/4444 XQ, DNxHR HQ/HQX/444 hoặc FFV1; âm PCM ≥ 24 bit 48 kHz; ≥ 1920×1080. Cả hai: tỷ lệ 16:9, SAR 1:1.",
+      "status": "N/A",
+      "metrics": [],
+      "notes": [
+        "Không áp cho profile 'shot'."
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "P0",
+      "section": "4.P — Chữ, tiêu đề, phụ đề",
+      "title": "Máy dò chữ độc lập: mọi chữ trong hình phải có matte",
+      "level": "Chặn",
+      "measure": "Lấy mẫu 2 khung/giây (tối đa 240 khung) từ file render. Máy dò PP-OCRv4 det (DB, ONNX ghim SHA trong checks/models/) tìm vùng nghi là chữ (điểm hộp ≥ 0,6); mô hình nhận dạng PP-OCRv4 rec đọc từng vùng, chỉ giữ vùng đọc ra ≥ 2 ký tự Latin/số, chiếm ≥ 60% ký tự, độ tin ≥ 0,8, và độ đặc nét < 0,85 (trung vị diện tích/hộp bao của các thành phần sau ngưỡng Otsu; ký tự đo được 0,4–0,7, ô cửa sổ ≈ 1,0) — loại cửa sổ, lưới, hoa văn. Vùng có matte = ≥ 50% diện tích hộp nằm trong nét matte (alpha ≥ 0,02) của các phần tử đang hiện ở khung đó, nới 0,35 × chiều cao hộp. Không cần matte để chạy: thiếu thư mục chữ thì mọi chữ dò được đều trượt. Ngoài khung lấy mẫu, mỗi phần tử chữ được đọc thêm ở khung giữa khoảng hiện. v1.1 (Q-P0): phần tử 'diegetic': true (chữ trong thế giới phim) được tính là có matte; vùng chữ gán cho phần tử diegetic (phủ nhiều nhất) được chuẩn hoá thành từ như J1 và so với: dòng thoại của <video>.script.txt (phụ đề), chữ đọc được trong matte phần tử không diegetic (tiêu đề, phụ đề, credit), trường 'text' khai cho phần tử không diegetic. Trùng = giống cả dòng ≥ 0,80 (difflib, dòng ≥ 2 từ hoặc ≥ 6 ký tự) hoặc giống một đoạn liền ≥ 0,85 với ≥ 2 từ và ≥ 50% số từ của dòng.",
+      "threshold_text": "0 vùng chữ dò được mà không có matte; 0 vùng chữ diegetic trùng phụ đề/tiêu đề (ngưỡng hộp 0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%, giống 0,80/0,85: nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "vùng chữ dò được không có matte",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "vùng·khung",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "vùng·khung",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [
+        "Lấy mẫu 246 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 195 (bỏ qua)."
+      ],
+      "evidence": {
+        "chu_khong_matte": [],
+        "vung_co_matte": 39,
+        "vung_bi_loai": 195,
+        "vung_khoi_dac": [],
+        "khung_lay_mau": 246,
+        "phan_tu_may_do_khong_thay": [],
+        "diegetic_trung_phu_de": [],
+        "chu_doc_trong_matte": [
+          {
+            "khung": 300,
+            "phan_tu": "sub01",
+            "diegetic": false,
+            "chu": "Evening, old street."
+          },
+          {
+            "khung": 315,
+            "phan_tu": "sub01",
+            "diegetic": false,
+            "chu": "Evening, old street."
+          },
+          {
+            "khung": 318,
+            "phan_tu": "sub01",
+            "diegetic": false,
+            "chu": "Evening, old street."
+          },
+          {
+            "khung": 330,
+            "phan_tu": "sub01",
+            "diegetic": false,
+            "chu": "Evening, old street."
+          },
+          {
+            "khung": 345,
+            "phan_tu": "sub01",
+            "diegetic": false,
+            "chu": "Evening, old street."
+          },
+          {
+            "khung": 1440,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 1455,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 1470,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 1478,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 1485,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 1500,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 1515,
+            "phan_tu": "sub02",
+            "diegetic": false,
+            "chu": "Not yet... not yet."
+          },
+          {
+            "khung": 2115,
+            "phan_tu": "sub03",
+            "diegetic": false,
+            "chu": "Go on, then."
+          },
+          {
+            "khung": 2130,
+            "phan_tu": "sub03",
+            "diegetic": false,
+            "chu": "Go on, then."
+          },
+          {
+            "khung": 2135,
+            "phan_tu": "sub03",
+            "diegetic": false,
+            "chu": "Go on, then."
+          },
+          {
+            "khung": 2145,
+            "phan_tu": "sub03",
+            "diegetic": false,
+            "chu": "Go on, then."
+          },
+          {
+            "khung": 2640,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2655,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2670,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2685,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2700,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2730,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2745,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2750,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2760,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2775,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2805,
+            "phan_tu": "sub06",
+            "diegetic": false,
+            "chu": "You'll be brighter now."
+          },
+          {
+            "khung": 2819,
+            "phan_tu": "sub06",
+            "diegetic": false,
+            "chu": "You'll be brighter now."
+          },
+          {
+            "khung": 2820,
+            "phan_tu": "sub06",
+            "diegetic": false,
+            "chu": "You'll be brighter now."
+          },
+          {
+            "khung": 2835,
+            "phan_tu": "sub06",
+            "diegetic": false,
+            "chu": "You'll be brighter now."
+          },
+          {
+            "khung": 2865,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2880,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2895,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2910,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2925,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2940,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2955,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2970,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2985,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          }
+        ]
+      },
+      "seconds": 41.99
+    },
+    {
+      "code": "P1",
+      "section": "4.P — Chữ, tiêu đề, phụ đề",
+      "title": "Không chữ đè chữ, tính theo điểm ảnh nét chữ",
+      "level": "Chặn",
+      "measure": "Mỗi phần tử chữ có matte RGBA xuất từ render (checks/RUN.md mục 3). Nét chữ = alpha ≥ 0,5, nới 1 px. Ở mọi khung có ≥ 2 phần tử, đếm điểm ảnh thuộc ≥ 2 nét. Chống khai man: ở lõi nét (alpha ≥ 0,98, co 1 px) màu matte phải khớp màu khung render (lệch kênh ≤ 24/255) ở ≥ 90% điểm ảnh.",
+      "threshold_text": "0 điểm ảnh va chạm; độ khớp matte ≥ 90%.",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "điểm ảnh nét chữ va chạm",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "px",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "độ khớp matte–render thấp nhất",
+          "value": 100.0,
+          "op": ">=",
+          "threshold": 90.0,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "va_cham": [],
+        "do_khop": {
+          "sub01": 100.0,
+          "sub02": 100.0,
+          "sub03": 100.0,
+          "sub04": 100.0,
+          "sub05": 100.0,
+          "sub06": 100.0,
+          "sub07": 100.0
+        }
+      },
+      "seconds": 12.85
+    },
+    {
+      "code": "G4",
+      "section": "4.G — Ánh sáng và màu",
+      "title": "Chữ tương phản ≥ 4,5:1 (WCAG AA), đo điểm ảnh",
+      "level": "Chặn",
+      "measure": "Với mỗi phần tử chữ, lấy tối đa 24 khung rải đều. Độ chói tương đối (WCAG, sRGB) của chữ = trung vị trên lõi nét trong khung render. Nền = vành 2–6 px quanh nét (trừ nét của mọi phần tử). Tính tỷ lệ tương phản từng điểm nền với chữ; lấy phân vị 10 (90% điểm nền đạt). Lấy giá trị nhỏ nhất qua các khung. v1.1 (Q-P0): phần tử 'diegetic': true được miễn đo tương phản nhưng vẫn kiểm độ khớp matte–render như P1.",
+      "threshold_text": "Phân vị 10 của tỷ lệ tương phản ≥ 4,5 ở mọi phần tử không diegetic, mọi khung lấy mẫu; độ khớp matte–render ≥ 90% ở mọi phần tử.",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "tương phản chữ/nền (P10) thấp nhất",
+          "value": 1.1851,
+          "op": ">=",
+          "threshold": 4.5,
+          "unit": ":1",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "độ khớp matte–render thấp nhất",
+          "value": 100.0,
+          "op": ">=",
+          "threshold": 90.0,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "theo_phan_tu": {
+          "sub01": {
+            "ty_le_p10": 10.0,
+            "khung": 309
+          },
+          "sub02": {
+            "ty_le_p10": 1.21,
+            "khung": 1506
+          },
+          "sub03": {
+            "ty_le_p10": 4.96,
+            "khung": 2122
+          },
+          "sub04": {
+            "ty_le_p10": 1.19,
+            "khung": 2698
+          },
+          "sub05": {
+            "ty_le_p10": 1.21,
+            "khung": 2724
+          },
+          "sub06": {
+            "ty_le_p10": 1.2,
+            "khung": 2794
+          },
+          "sub07": {
+            "ty_le_p10": 1.24,
+            "khung": 2911
+          }
+        },
+        "do_khop": {
+          "sub01": 100.0,
+          "sub02": 100.0,
+          "sub03": 100.0,
+          "sub04": 100.0,
+          "sub05": 100.0,
+          "sub06": 100.0,
+          "sub07": 100.0
+        },
+        "mien_diegetic": []
+      },
+      "seconds": 13.57
+    },
+    {
+      "code": "G3",
+      "section": "4.G — Ánh sáng và màu",
+      "title": "Không banding trên gradient",
+      "level": "Chặn",
+      "measure": "Luma ở độ sâu gốc, 2 khung/giây (tối đa 240 khung). Điểm banding = điểm nằm trong mảng phẳng tuyệt đối 5×5, và trong cửa sổ 95×95 quanh nó: (a) có ≥ 3 mức mảng phẳng khác nhau (bậc thang), (b) mọi bước nhảy giữa điểm kề ≤ 2 mã (không có cạnh cứng), (c) biên độ luma ≤ 24 mã. Diện tích banding = tỷ lệ điểm banding trên khung.",
+      "threshold_text": "Diện tích banding ≤ 0,2% khung ở mọi khung lấy mẫu (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "diện tích banding lớn nhất",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.2,
+          "unit": "% khung",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "khung_lay_mau": 240,
+        "bit_depth": 8,
+        "khung_te_nhat": null,
+        "khung_vuot_nguong": [],
+        "trung_binh_pct": 0.0
+      },
+      "seconds": 8.63
+    },
+    {
+      "code": "G3b",
+      "section": "4.G — Ánh sáng và màu",
+      "title": "Grain cố định: có grain, ổn định theo thời gian và giữa các shot, chuyển động theo khung",
+      "level": "Chặn",
+      "measure": "Cặp khung kề (n, n+1) mỗi 12 khung (tối đa 240 cặp), luma quy về thang 8 bit. Phần dư = luma − làm mờ Gauss σ=1,5. Khối 32×32 phẳng khi độ lệch chuẩn của ảnh làm mờ σ=2 ≤ 1,5 mã và luma trung bình trong [40, 210]; khung cần ≥ 20 khối phẳng. σ grain của khung = trung vị qua khối của 1,4826·MAD phần dư, đo ở cả khung n và n+1 (bắt grain dao động theo loại khung mã hoá I/P/B). Shot tách bằng PySceneDetect ContentDetector mặc định. Grain đứng yên đo bằng tương quan phần dư khung n với n+1 trên khối phẳng.",
+      "threshold_text": "Trung vị σ mỗi shot ≥ 0,8 mã 8 bit; CV của σ theo thời gian trong mỗi shot ≤ 0,20; σ shot lớn nhất / nhỏ nhất ≤ 1,30; tương quan khung kề ≤ 0,50 (đều nội bộ).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "σ grain nhỏ nhất theo shot",
+          "value": 0.821,
+          "op": ">=",
+          "threshold": 0.8,
+          "unit": "mã 8 bit",
+          "ok": true,
+          "near": true
+        },
+        {
+          "name": "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
+          "value": 0.202,
+          "op": "<=",
+          "threshold": 0.2,
+          "unit": "",
+          "ok": false,
+          "near": true
+        },
+        {
+          "name": "σ shot lớn nhất / nhỏ nhất",
+          "value": 2.4287,
+          "op": "<=",
+          "threshold": 1.3,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
+          "value": 0.865,
+          "op": "<=",
+          "threshold": 0.5,
+          "unit": "",
+          "ok": false,
+          "near": false
+        }
+      ],
+      "notes": [
+        "53 shot (PySceneDetect); 426 khung đo, 54 khung không đủ khối phẳng.",
+        "12 shot không đo được grain (không có khung đủ khối phẳng)."
+      ],
+      "evidence": {
+        "theo_shot": {
+          "4": {
+            "tu_khung": 252,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 0.877,
+            "cv": 0.026,
+            "tuong_quan_khung_ke": 0.161
+          },
+          "5": {
+            "tu_khung": 288,
+            "so_khung_do": 12,
+            "sigma_trung_vi": 1.409,
+            "cv": 0.058,
+            "tuong_quan_khung_ke": 0.588
+          },
+          "6": {
+            "tu_khung": 384,
+            "so_khung_do": 12,
+            "sigma_trung_vi": 1.283,
+            "cv": 0.047,
+            "tuong_quan_khung_ke": 0.612
+          },
+          "7": {
+            "tu_khung": 480,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 0.891,
+            "cv": 0.056,
+            "tuong_quan_khung_ke": 0.215
+          },
+          "8": {
+            "tu_khung": 576,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.86,
+            "cv": 0.039,
+            "tuong_quan_khung_ke": 0.83
+          },
+          "9": {
+            "tu_khung": 624,
+            "so_khung_do": 12,
+            "sigma_trung_vi": 1.643,
+            "cv": 0.043,
+            "tuong_quan_khung_ke": 0.746
+          },
+          "13": {
+            "tu_khung": 917,
+            "so_khung_do": 4,
+            "sigma_trung_vi": 1.417,
+            "cv": 0.055,
+            "tuong_quan_khung_ke": 0.71
+          },
+          "14": {
+            "tu_khung": 960,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.268,
+            "cv": 0.02,
+            "tuong_quan_khung_ke": 0.638
+          },
+          "17": {
+            "tu_khung": 1104,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 1.319,
+            "cv": 0.023,
+            "tuong_quan_khung_ke": 0.505
+          },
+          "18": {
+            "tu_khung": 1164,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 1.167,
+            "cv": 0.036,
+            "tuong_quan_khung_ke": 0.43
+          },
+          "19": {
+            "tu_khung": 1224,
+            "so_khung_do": 4,
+            "sigma_trung_vi": 1.853,
+            "cv": 0.029,
+            "tuong_quan_khung_ke": 0.769
+          },
+          "21": {
+            "tu_khung": 1296,
+            "so_khung_do": 2,
+            "sigma_trung_vi": 1.244,
+            "cv": 0.011,
+            "tuong_quan_khung_ke": 0.56
+          },
+          "22": {
+            "tu_khung": 1330,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.402,
+            "cv": 0.074,
+            "tuong_quan_khung_ke": 0.555
+          },
+          "23": {
+            "tu_khung": 1380,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 1.063,
+            "cv": 0.137,
+            "tuong_quan_khung_ke": 0.395
+          },
+          "24": {
+            "tu_khung": 1440,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.023,
+            "cv": 0.202,
+            "tuong_quan_khung_ke": 0.473
+          },
+          "25": {
+            "tu_khung": 1512,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.857,
+            "cv": 0.142,
+            "tuong_quan_khung_ke": 0.8
+          },
+          "26": {
+            "tu_khung": 1584,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.612,
+            "cv": 0.043,
+            "tuong_quan_khung_ke": 0.733
+          },
+          "27": {
+            "tu_khung": 1632,
+            "so_khung_do": 16,
+            "sigma_trung_vi": 1.321,
+            "cv": 0.066,
+            "tuong_quan_khung_ke": 0.275
+          },
+          "28": {
+            "tu_khung": 1752,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.008,
+            "cv": 0.073,
+            "tuong_quan_khung_ke": 0.502
+          },
+          "29": {
+            "tu_khung": 1824,
+            "so_khung_do": 12,
+            "sigma_trung_vi": 1.597,
+            "cv": 0.195,
+            "tuong_quan_khung_ke": 0.734
+          },
+          "30": {
+            "tu_khung": 1920,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.947,
+            "cv": 0.105,
+            "tuong_quan_khung_ke": 0.865
+          },
+          "31": {
+            "tu_khung": 1992,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.994,
+            "cv": 0.066,
+            "tuong_quan_khung_ke": 0.864
+          },
+          "32": {
+            "tu_khung": 2064,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.946,
+            "cv": 0.035,
+            "tuong_quan_khung_ke": 0.755
+          },
+          "33": {
+            "tu_khung": 2112,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.011,
+            "cv": 0.035,
+            "tuong_quan_khung_ke": 0.726
+          },
+          "34": {
+            "tu_khung": 2184,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.865,
+            "cv": 0.055,
+            "tuong_quan_khung_ke": 0.857
+          },
+          "35": {
+            "tu_khung": 2256,
+            "so_khung_do": 26,
+            "sigma_trung_vi": 1.237,
+            "cv": 0.038,
+            "tuong_quan_khung_ke": 0.324
+          },
+          "36": {
+            "tu_khung": 2448,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.613,
+            "cv": 0.039,
+            "tuong_quan_khung_ke": 0.637
+          },
+          "37": {
+            "tu_khung": 2496,
+            "so_khung_do": 12,
+            "sigma_trung_vi": 1.215,
+            "cv": 0.021,
+            "tuong_quan_khung_ke": 0.544
+          },
+          "38": {
+            "tu_khung": 2592,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 0.923,
+            "cv": 0.032,
+            "tuong_quan_khung_ke": 0.282
+          },
+          "39": {
+            "tu_khung": 2640,
+            "so_khung_do": 24,
+            "sigma_trung_vi": 0.918,
+            "cv": 0.077,
+            "tuong_quan_khung_ke": 0.206
+          },
+          "40": {
+            "tu_khung": 2808,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 0.928,
+            "cv": 0.029,
+            "tuong_quan_khung_ke": 0.358
+          },
+          "41": {
+            "tu_khung": 2868,
+            "so_khung_do": 14,
+            "sigma_trung_vi": 0.969,
+            "cv": 0.049,
+            "tuong_quan_khung_ke": 0.276
+          },
+          "42": {
+            "tu_khung": 2978,
+            "so_khung_do": 2,
+            "sigma_trung_vi": 0.956,
+            "cv": 0.006,
+            "tuong_quan_khung_ke": 0.34
+          },
+          "43": {
+            "tu_khung": 2998,
+            "so_khung_do": 2,
+            "sigma_trung_vi": 1.616,
+            "cv": 0.01,
+            "tuong_quan_khung_ke": 0.765
+          },
+          "44": {
+            "tu_khung": 3014,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.064,
+            "cv": 0.063,
+            "tuong_quan_khung_ke": 0.505
+          },
+          "45": {
+            "tu_khung": 3048,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 0.994,
+            "cv": 0.067,
+            "tuong_quan_khung_ke": 0.344
+          },
+          "47": {
+            "tu_khung": 3216,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 0.861,
+            "cv": 0.013,
+            "tuong_quan_khung_ke": 0.182
+          },
+          "48": {
+            "tu_khung": 3288,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.021,
+            "cv": 0.034,
+            "tuong_quan_khung_ke": 0.367
+          },
+          "49": {
+            "tu_khung": 3336,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 0.88,
+            "cv": 0.029,
+            "tuong_quan_khung_ke": 0.47
+          },
+          "50": {
+            "tu_khung": 3408,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 0.821,
+            "cv": 0.023,
+            "tuong_quan_khung_ke": 0.208
+          },
+          "51": {
+            "tu_khung": 3480,
+            "so_khung_do": 16,
+            "sigma_trung_vi": 1.295,
+            "cv": 0.17,
+            "tuong_quan_khung_ke": 0.572
+          }
+        },
+        "shot_bat_dau": [
+          0,
+          96,
+          204,
+          222,
+          252,
+          288,
+          384,
+          480,
+          576,
+          624,
+          720,
+          816,
+          888,
+          917,
+          960,
+          1008,
+          1056,
+          1104,
+          1164,
+          1224,
+          1258,
+          1296,
+          1330,
+          1380,
+          1440,
+          1512,
+          1584,
+          1632,
+          1752,
+          1824,
+          1920,
+          1992,
+          2064,
+          2112,
+          2184,
+          2256,
+          2448,
+          2496,
+          2592,
+          2640,
+          2808,
+          2868,
+          2978,
+          2998,
+          3014,
+          3048,
+          3120,
+          3216,
+          3288,
+          3336,
+          3408,
+          3480,
+          3594
+        ]
+      },
+      "seconds": 10.23
+    },
+    {
+      "code": "M1",
+      "section": "4.M — Mix và master",
+      "title": "Master YouTube: −14 LUFS ±1; true peak ≤ −1 dBTP",
+      "level": "Chặn",
+      "measure": "ffmpeg ebur128 (ITU-R BS.1770-4, cổng tuyệt đối −70 và tương đối −10 LU), peak=true (lấy mẫu vượt) trên luồng âm đầu tiên của file.",
+      "threshold_text": "Integrated trong [−15, −13] LUFS; true peak ≤ −1,0 dBTP.",
+      "status": "N/A",
+      "metrics": [],
+      "notes": [
+        "Không áp cho profile 'shot'."
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "M3",
+      "section": "4.M — Mix và master",
+      "title": "Tương quan pha và tương thích mono",
+      "level": "Chặn",
+      "measure": "Giải mã stereo 48 kHz float. Cửa sổ 400 ms không chồng; cửa sổ hoạt động khi RMS kênh lớn hơn ≥ −50 dBFS. (1) Hệ số tương quan L/R từng cửa sổ. (2) Mất mát khi gộp mono = độ ồn BS.1770 của (L+R)/2 phát cả 2 kênh trừ độ ồn stereo. (3) Mất công suất mono/stereo trên cửa sổ trượt 3 s. Phần 'lời rõ trên nhạc' của M3 được đo bởi J1 (ASR trên bản gộp mono của mix cuối).",
+      "threshold_text": "≤ 1% cửa sổ hoạt động có tương quan < −0,3; mất mát mono tích phân ≥ −3,0 dB; cửa sổ 3 s tệ nhất ≥ −6,0 dB (nội bộ).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "cửa sổ tương quan < −0,3",
+          "value": 2.7701,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "%",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "mất mát mono tích phân (BS.1770)",
+          "value": -0.1647,
+          "op": ">=",
+          "threshold": -3.0,
+          "unit": "dB",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "mất mát mono cửa sổ 3 s tệ nhất",
+          "value": -5.1043,
+          "op": ">=",
+          "threshold": -6.0,
+          "unit": "dB",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "tuong_quan_trung_vi": 0.999,
+        "tuong_quan_nho_nhat": -0.718,
+        "cua_so_te_nhat_giay": 15.2
+      },
+      "seconds": 3.2
+    },
+    {
+      "code": "J1",
+      "section": "4.J — Giọng",
+      "title": "Mọi từ trong kịch bản nghe rõ trên bản mix cuối",
+      "level": "Chặn",
+      "measure": "faster-whisper small.en (revision ghim, int8, beam 5, nhiệt độ 0, không mồi bằng kịch bản, không nối ngữ cảnh, có mốc từng chữ) chạy trên luồng âm của file, gộp mono 16 kHz. Chuẩn hoá: chữ thường, bỏ dấu câu, dấu nháy và gạch nối, số → chữ; v1.2: từ ghép/tách theo bảng COMPOUND (goodnight = good night…, RULES.md) cho cả kịch bản và bản nghe. Từ bắt buộc = toàn bộ từ trong kịch bản thoại. v1.2: (1) lượt ASR toàn file, căn Levenshtein với kịch bản để lấy mốc từng câu (câu = dòng kịch bản); cửa sổ câu = mốc chữ neo đầu/cuối nới tối đa 2 s; v1.3: ranh giới hai câu = tâm đoạn lặng dài nhất (khung 50 ms ≤ min + 10 dB, năng lượng stem thoại nếu có, không thì mix) giữa lúc BẮT ĐẦU chữ neo cuối câu trước và chữ neo đầu câu sau; cửa sổ > 28 s tách tại khoảng lặng lớn nhất. (2) ASR riêng từng cửa sổ câu, căn với câu đó. (3) v1.3 (Q-J1c): có <video>.stems/dialogue.* thì chữ ASR chỉ được giữ khi stem thoại có lời (≥ 1 khung 10 ms > max(đỉnh − 35 dB, −60 dBFS), như J1b) trong [đầu chữ − 0,15 s, cuối chữ + 0,15 s]; không có stem thì chữ nằm hoàn toàn trong im lặng số (mọi khung 50 ms chạm chữ có RMS < −60 dBFS) bị bỏ. Chữ bị bỏ liệt kê trong báo cáo. (4) Chữ lượt toàn file nằm ngoài mọi cửa sổ câu (không trong im lặng số) tính là chèn.",
+      "threshold_text": "100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "từ bắt buộc nghe đúng",
+          "value": 100.0,
+          "op": ">=",
+          "threshold": 100.0,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "WER",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 5.0,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [
+        "7 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.flac' không có lời tại đó (Q-J1c): 7: 'I'll' 15.82–17.22 s; 'see' 17.22–17.22 s; 'you' 17.22–34.46 s; 'next' 34.46–34.46 s; 'time,' 34.46–43.22 s; 'bye!' 43.24–43.24 s; 'You' 148.58–149.98 s.",
+        "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
+        "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
+      ],
+      "evidence": {
+        "so_tu_kich_ban": 34,
+        "thay": 0,
+        "mat": 0,
+        "chen": 0,
+        "tu_truot": [],
+        "theo_cau": [
+          {
+            "cau": 1,
+            "loi": "Evening, old street.",
+            "cua_so": [
+              9.22,
+              16.02
+            ],
+            "neo": [
+              11.22,
+              14.02
+            ],
+            "nghe": "evening old street",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          },
+          {
+            "cau": 2,
+            "loi": "Not yet... not yet.",
+            "cua_so": [
+              57.06,
+              64.5
+            ],
+            "neo": [
+              59.06,
+              62.5
+            ],
+            "nghe": "not yet not yet",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          },
+          {
+            "cau": 3,
+            "loi": "Go on, then.",
+            "cua_so": [
+              85.4,
+              90.84
+            ],
+            "neo": [
+              87.4,
+              88.84
+            ],
+            "nghe": "go on then",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          },
+          {
+            "cau": 4,
+            "loi": "That's the last one, then.",
+            "cua_so": [
+              107.78,
+              112.7
+            ],
+            "neo": [
+              109.78,
+              111.72
+            ],
+            "nghe": "thats the last one then",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          },
+          {
+            "cau": 5,
+            "loi": "Goodnight, old street.",
+            "cua_so": [
+              112.7,
+              115.73
+            ],
+            "neo": [
+              113.4,
+              114.78
+            ],
+            "nghe": "good night old street",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          },
+          {
+            "cau": 6,
+            "loi": "You'll be brighter now.",
+            "cua_so": [
+              115.73,
+              118.33
+            ],
+            "neo": [
+              116.36,
+              117.74
+            ],
+            "nghe": "youll be brighter now",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          },
+          {
+            "cau": 7,
+            "loi": "Just... keep a little dark for the ones who need it.",
+            "cua_so": [
+              118.33,
+              126.78
+            ],
+            "neo": [
+              118.68,
+              124.78
+            ],
+            "nghe": "just keep a little dark for the ones who need it",
+            "thay": 0,
+            "mat": 0,
+            "chen": 0,
+            "tu_truot": []
+          }
+        ],
+        "chu_bo_vi_im_lang_so": [
+          {
+            "bat_dau": 15.82,
+            "ket_thuc": 17.22,
+            "chu": "I'll",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 17.22,
+            "ket_thuc": 17.22,
+            "chu": "see",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 17.22,
+            "ket_thuc": 34.46,
+            "chu": "you",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 34.46,
+            "ket_thuc": 34.46,
+            "chu": "next",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 34.46,
+            "ket_thuc": 43.22,
+            "chu": "time,",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 43.24,
+            "ket_thuc": 43.24,
+            "chu": "bye!",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 148.58,
+            "ket_thuc": 149.98,
+            "chu": "You",
+            "ly_do": "stem thoại im"
+          }
+        ],
+        "vung_im_lang_so": [],
+        "chen_ngoai_cau": [],
+        "ban_nghe_toan_file": "Evening, Old Street  I'll see you next time, bye!  Not yet, not yet.  Go on then.  That's the last one, then. Good night, old street. You'll be brighter now.  So, just keep a little dark for the ones who need it.  You",
+        "doan_toan_file": [
+          [
+            11.22,
+            14.02,
+            "Evening, Old Street"
+          ],
+          [
+            15.82,
+            43.24,
+            "I'll see you next time, bye!"
+          ],
+          [
+            59.06,
+            62.5,
+            "Not yet, not yet."
+          ],
+          [
+            87.4,
+            88.84,
+            "Go on then."
+          ],
+          [
+            109.78,
+            117.74,
+            "That's the last one, then. Good night, old street. You'll be brighter now."
+          ],
+          [
+            117.74,
+            124.78,
+            "So, just keep a little dark for the ones who need it."
+          ],
+          [
+            148.58,
+            149.98,
+            "You"
+          ]
+        ],
+        "mo_hinh": "Systran/faster-whisper-small.en@d1d751a5f8271d482d14ca55d9e2deeebbae577f"
+      },
+      "seconds": 52.21
+    },
+    {
+      "code": "J1b",
+      "section": "4.J/4.M — Giọng; Mix (M3: lời luôn nghe rõ trên nhạc)",
+      "title": "Lời rõ trên nhạc theo từng câu, đo từ stem thoại và stem nền",
+      "level": "Chặn",
+      "measure": "Thư mục <video>.stems/: dialogue.* và các stem nền (M&E), xuất từ bản mix. (1) Khớp tổng: tìm lệch thời gian ±100 ms bằng tương quan chéo; bao năng lượng khung 100 ms × 7 dải octave 125 Hz–8 kHz; khớp không âm E_mix ≈ a²·E_thoại + b²·E_nền (sai số tương đối); sai lệch = P95 của |10·log10(dự đoán/E_mix)| trên ô có năng lượng (bền với AAC và limiter nhẹ). (2) Câu = đoạn hoạt động của stem thoại (khung 10 ms > đỉnh − 35 dB và > −60 dBFS), tách khi lặng ≥ 350 ms, dài ≥ 300 ms. (3) Mỗi câu: công suất 6 dải octave 250 Hz–8 kHz của a·thoại và b·nền (mono) trên khoảng câu; SII rút gọn = Σ tầm quan trọng dải (ANSI S3.5, octave) × clip((SNR dải + 15)/30, 0, 1), không tính lan truyền che lấp và ngưỡng nghe. Cửa sổ 0,5 s trượt 50 ms trong câu.",
+      "threshold_text": "Sai lệch bao P95 ≤ 3 dB; |20·log10(a/b)| ≤ 1 dB; SII rút gọn mỗi câu ≥ 0,75; mọi cửa sổ 0,5 s trong câu ≥ 0,45. Ngưỡng nội bộ, CHƯA HIỆU CHUẨN (Q-J1b: giữ cấp Chặn; mốc 0,75/0,45 lấy theo cách diễn giải SII của ANSI S3.5; hiệu chuẩn sau bài thử với 3–5 người nghe mù, xem RULES.md).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "sai lệch bao năng lượng tổng stem so với mix (P95)",
+          "value": 0.1707,
+          "op": "<=",
+          "threshold": 3.0,
+          "unit": "dB",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "chênh hệ số khớp thoại/nền",
+          "value": 0.0416,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "dB",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "SII rút gọn thấp nhất theo câu",
+          "value": 0.851,
+          "op": ">=",
+          "threshold": 0.75,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
+          "value": 0.1552,
+          "op": ">=",
+          "threshold": 0.45,
+          "unit": "",
+          "ok": false,
+          "near": false
+        }
+      ],
+      "notes": [
+        "Stem: dialogue.flac, amb.flac, music.flac, sfx.flac. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 0.991, nền 0.996.",
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -36.9 dB."
+      ],
+      "evidence": {
+        "so_cau": 8,
+        "cau": [
+          {
+            "tu_giay": 12.13,
+            "den_giay": 14.11,
+            "sii": 0.989,
+            "sii_cua_so_min": 0.911,
+            "cua_so_te_giay": 13.08,
+            "snr_dai_db": [
+              30.6,
+              13.1,
+              24.1,
+              47.5,
+              79.0,
+              70.7
+            ]
+          },
+          {
+            "tu_giay": 60.13,
+            "den_giay": 62.88,
+            "sii": 0.851,
+            "sii_cua_so_min": 0.155,
+            "cua_so_te_giay": 61.03,
+            "snr_dai_db": [
+              11.7,
+              6.2,
+              29.6,
+              11.6,
+              9.6,
+              1.3
+            ]
+          },
+          {
+            "tu_giay": 88.06,
+            "den_giay": 89.18,
+            "sii": 0.936,
+            "sii_cua_so_min": 0.817,
+            "cua_so_te_giay": 88.66,
+            "snr_dai_db": [
+              14.1,
+              51.2,
+              65.5,
+              34.0,
+              7.6,
+              9.6
+            ]
+          },
+          {
+            "tu_giay": 110.1,
+            "den_giay": 111.99,
+            "sii": 0.992,
+            "sii_cua_so_min": 0.937,
+            "cua_so_te_giay": 111.45,
+            "snr_dai_db": [
+              11.2,
+              60.4,
+              69.7,
+              34.3,
+              22.1,
+              19.2
+            ]
+          },
+          {
+            "tu_giay": 113.56,
+            "den_giay": 115.06,
+            "sii": 0.997,
+            "sii_cua_so_min": 0.966,
+            "cua_so_te_giay": 114.56,
+            "snr_dai_db": [
+              13.6,
+              58.2,
+              62.3,
+              39.5,
+              20.3,
+              18.2
+            ]
+          },
+          {
+            "tu_giay": 116.54,
+            "den_giay": 117.94,
+            "sii": 0.996,
+            "sii_cua_so_min": 0.896,
+            "cua_so_te_giay": 117.44,
+            "snr_dai_db": [
+              15.0,
+              65.1,
+              70.6,
+              36.5,
+              15.4,
+              13.0
+            ]
+          },
+          {
+            "tu_giay": 119.33,
+            "den_giay": 119.84,
+            "sii": 0.986,
+            "sii_cua_so_min": 0.986,
+            "cua_so_te_giay": 119.33,
+            "snr_dai_db": [
+              8.1,
+              50.9,
+              61.8,
+              34.1,
+              19.3,
+              16.5
+            ]
+          },
+          {
+            "tu_giay": 120.87,
+            "den_giay": 124.05,
+            "sii": 0.986,
+            "sii_cua_so_min": 0.809,
+            "cua_so_te_giay": 121.97,
+            "snr_dai_db": [
+              8.2,
+              48.8,
+              63.5,
+              34.7,
+              17.6,
+              14.9
+            ]
+          }
+        ],
+        "lech_ms": 0.0,
+        "he_so": {
+          "thoai": 0.9908,
+          "nen": 0.9956
+        }
+      },
+      "seconds": 11.12
+    },
+    {
+      "code": "H1",
+      "section": "4.H — Hoạt hình",
+      "title": "Không chuyển động tuyến tính ở bộ phận nhân vật",
+      "level": "Chặn",
+      "measure": "Dữ liệu chuyển động bake theo từng khung xuất từ phần mềm dựng (không phải khoá khai báo). Với mỗi kênh lớp 'character_part': tốc độ = chuẩn hiệu giá trị giữa 2 khung kề; đang chuyển động khi tốc độ > 2% tốc độ lớn nhất của kênh. Đoạn tuyến tính = chuỗi bước liên tiếp có mọi tốc độ trong ±3% trung bình chuỗi, và (a) dài ≥ 8 bước và bắt đầu ngay sau hoặc kết thúc ngay trước một lần đứng yên (khởi/dừng không easing), hoặc (b) dài ≥ 24 bước ở bất kỳ đâu.",
+      "threshold_text": "0 đoạn tuyến tính ở kênh bộ phận nhân vật. Kênh 'mechanical' được miễn nhưng phải có lý do và được liệt kê trong báo cáo.",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "đoạn tuyến tính ở bộ phận nhân vật",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "đoạn",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kênh 'mechanical' thiếu lý do",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "kênh",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kênh có lớp không hợp lệ",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "kênh",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "kenh_kiem": 793,
+        "doan_tuyen_tinh": [],
+        "kenh_mien": [
+          {
+            "id": "camera/s01.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s02.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s02.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s03.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s03.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s04.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s04.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s05.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s05.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s06.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s06.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s07.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s07.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s08.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s08.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s09.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s10.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s11.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s11.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s12.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s12.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s13.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s13.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s14.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s14.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s15.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s15.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s16.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s17.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s17.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s18.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s18.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s19.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s19.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s20.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s20.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s21.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s21.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s22.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s22.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s23.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s23.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s24.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s24.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s24.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s25.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s25.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s25.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s26.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s26.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s26.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s27.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s27.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s27.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s28.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s28.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s28.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s29.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s29.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s29.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s30.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s30.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s30.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s31.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s31.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s31.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s32.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s32.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s32.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s33.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s33.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s33.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s34.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s34.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s34.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s35.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s35.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s35.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s36.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s36.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s36.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s37.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s37.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s37.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s38.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s38.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s38.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s39.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s39.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s39.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s40.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s40.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s41.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s41.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s41.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s42.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s42.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s42.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s43.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s44.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s44.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s45.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s45.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s46.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s46.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "ida/s47.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s47.loc",
+            "lop": "camera",
+            "ly_do": ""
+          },
+          {
+            "id": "cas/s48.root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          },
+          {
+            "id": "camera/s48.loc",
+            "lop": "camera",
+            "ly_do": ""
+          }
+        ],
+        "kenh_lop_la": [],
+        "kenh_mechanical_thieu_ly_do": []
+      },
+      "seconds": 0.16
+    },
+    {
+      "code": "H1b",
+      "section": "4.H — Hoạt hình",
+      "title": "Chuyển động khai báo khớp hình render (luồng quang học ở vùng nhân vật)",
+      "level": "Chặn",
+      "measure": "<video>.motion.json phải có 'screen_tracks': toạ độ điểm ảnh từng khung của khớp nhân vật, chiếu từ rig bake qua máy quay render (null khi bị che). Luồng quang học DIS (OpenCV, preset medium, tính ở ≤ 1280 px rộng) giữa khung n và n+1 của file render; tại mỗi điểm lấy trung vị luồng trong đĩa bán kính 4 px. Cặp khung khớp khi |luồng − (p(n+1) − p(n))| ≤ max(1,5 px, 25% độ dài dịch chuyển). Tối đa 480 cặp khung rải đều.",
+      "threshold_text": "Mọi nhân vật có kênh 'character_part' có ≥ 1 screen track; mỗi track khớp ở ≥ 90% cặp khung đo (nội bộ).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "nhân vật có kênh bộ phận nhưng không có screen track",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "nhân vật",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
+          "value": 0.0,
+          "op": ">=",
+          "threshold": 90.0,
+          "unit": "%",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "track không đo được cặp khung nào (toàn null/ngoài khung)",
+          "value": 67,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "track",
+          "ok": false,
+          "near": false
+        }
+      ],
+      "notes": [
+        "183 track, 389 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
+      ],
+      "evidence": {
+        "theo_track": {
+          "ida/hand_L@s02": {
+            "cap_khung": 15,
+            "khop_pct": 73.3,
+            "epe_trung_vi": 0.81,
+            "lech_lon_nhat": {
+              "khung": 118,
+              "epe": 2.74,
+              "khai": [
+                0.21,
+                -0.24
+              ],
+              "luong": [
+                -2.48,
+                0.29
+              ]
+            }
+          },
+          "ida/hand_R@s02": {
+            "cap_khung": 15,
+            "khop_pct": 80.0,
+            "epe_trung_vi": 0.27,
+            "lech_lon_nhat": {
+              "khung": 147,
+              "epe": 2.04,
+              "khai": [
+                -2.74,
+                0.66
+              ],
+              "luong": [
+                -1.02,
+                -0.43
+              ]
+            }
+          },
+          "ida/head@s02": {
+            "cap_khung": 15,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.23,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s03": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.28,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s03": {
+            "cap_khung": 7,
+            "khop_pct": 85.7,
+            "epe_trung_vi": 1.06,
+            "lech_lon_nhat": {
+              "khung": 220,
+              "epe": 8.53,
+              "khai": [
+                -3.67,
+                -18.42
+              ],
+              "luong": [
+                -3.62,
+                -9.89
+              ]
+            }
+          },
+          "ida/head@s03": {
+            "cap_khung": 2,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.68,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s04": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s04": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.0,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s04": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s05": {
+            "cap_khung": 8,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.05,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s05": {
+            "cap_khung": 9,
+            "khop_pct": 88.9,
+            "epe_trung_vi": 0.18,
+            "lech_lon_nhat": {
+              "khung": 352,
+              "epe": 16.6,
+              "khai": [
+                -8.23,
+                28.63
+              ],
+              "luong": [
+                8.34,
+                27.68
+              ]
+            }
+          },
+          "ida/head@s05": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.04,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s07": {
+            "cap_khung": 13,
+            "khop_pct": 69.2,
+            "epe_trung_vi": 1.45,
+            "lech_lon_nhat": {
+              "khung": 520,
+              "epe": 2.06,
+              "khai": [
+                2.81,
+                1.57
+              ],
+              "luong": [
+                4.83,
+                1.19
+              ]
+            }
+          },
+          "ida/hand_R@s07": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.14,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s07": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.11,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s08": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.61,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s08": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.38,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s08": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.3,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s11": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s11": {
+            "cap_khung": 4,
+            "khop_pct": 75.0,
+            "epe_trung_vi": 0.14,
+            "lech_lon_nhat": {
+              "khung": 842,
+              "epe": 1.93,
+              "khai": [
+                3.3,
+                -0.61
+              ],
+              "luong": [
+                1.39,
+                -0.29
+              ]
+            }
+          },
+          "ida/head@s11": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.04,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s12": {
+            "cap_khung": 9,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s13": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.04,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s13": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s13": {
+            "cap_khung": 6,
+            "khop_pct": 83.3,
+            "epe_trung_vi": 0.06,
+            "lech_lon_nhat": {
+              "khung": 981,
+              "epe": 2.73,
+              "khai": [
+                -7.09,
+                3.44
+              ],
+              "luong": [
+                -8.57,
+                5.74
+              ]
+            }
+          },
+          "ida/hand_L@s14": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s14": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s14": {
+            "cap_khung": 3,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.11,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s15": {
+            "cap_khung": 2,
+            "khop_pct": 50.0,
+            "epe_trung_vi": 1.24,
+            "lech_lon_nhat": {
+              "khung": 1076,
+              "epe": 2.08,
+              "khai": [
+                -1.58,
+                3.02
+              ],
+              "luong": [
+                -0.41,
+                1.31
+              ]
+            }
+          },
+          "ida/hand_R@s15": {
+            "cap_khung": 5,
+            "khop_pct": 80.0,
+            "epe_trung_vi": 0.21,
+            "lech_lon_nhat": {
+              "khung": 1090,
+              "epe": 1.57,
+              "khai": [
+                4.57,
+                0.01
+              ],
+              "luong": [
+                3.01,
+                -0.16
+              ]
+            }
+          },
+          "ida/head@s15": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.1,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s18": {
+            "cap_khung": 1,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.35,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s18": {
+            "cap_khung": 2,
+            "khop_pct": 50.0,
+            "epe_trung_vi": 15.18,
+            "lech_lon_nhat": {
+              "khung": 1229,
+              "epe": 30.23,
+              "khai": [
+                -12.61,
+                31.08
+              ],
+              "luong": [
+                -0.97,
+                3.18
+              ]
+            }
+          },
+          "ida/head@s18": {
+            "cap_khung": 2,
+            "khop_pct": 50.0,
+            "epe_trung_vi": 3.47,
+            "lech_lon_nhat": {
+              "khung": 1244,
+              "epe": 6.26,
+              "khai": [
+                -6.47,
+                0.17
+              ],
+              "luong": [
+                -1.52,
+                3.99
+              ]
+            }
+          },
+          "ida/hand_L@s19": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.16,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s19": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.05,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s19": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s20": {
+            "cap_khung": 9,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s20": {
+            "cap_khung": 3,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.09,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s20": {
+            "cap_khung": 3,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s21": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.17,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s21": {
+            "cap_khung": 2,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.25,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s22": {
+            "cap_khung": 10,
+            "khop_pct": 90.0,
+            "epe_trung_vi": 0.27,
+            "lech_lon_nhat": {
+              "khung": 1470,
+              "epe": 2.23,
+              "khai": [
+                0.0,
+                0.0
+              ],
+              "luong": [
+                -0.03,
+                -2.23
+              ]
+            }
+          },
+          "ida/hand_L@s23": {
+            "cap_khung": 10,
+            "khop_pct": 90.0,
+            "epe_trung_vi": 0.54,
+            "lech_lon_nhat": {
+              "khung": 1566,
+              "epe": 2.1,
+              "khai": [
+                -0.47,
+                -2.52
+              ],
+              "luong": [
+                -0.09,
+                -0.46
+              ]
+            }
+          },
+          "ida/hand_R@s23": {
+            "cap_khung": 5,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.08,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s23": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.09,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s24": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.04,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s24": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.03,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s24": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.03,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s24": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.09,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s24": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.06,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s24": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s25": {
+            "cap_khung": 16,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.11,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s25": {
+            "cap_khung": 16,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.11,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s25": {
+            "cap_khung": 16,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.08,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s26": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s27": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s27": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s27": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.0,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s28": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.07,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s28": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.04,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s28": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s29": {
+            "cap_khung": 1,
+            "khop_pct": 0.0,
+            "epe_trung_vi": 11.31,
+            "lech_lon_nhat": {
+              "khung": 1997,
+              "epe": 11.31,
+              "khai": [
+                7.33,
+                23.84
+              ],
+              "luong": [
+                17.77,
+                19.49
+              ]
+            }
+          },
+          "cas/hand_R@s29": {
+            "cap_khung": 1,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 3.84,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s29": {
+            "cap_khung": 8,
+            "khop_pct": 62.5,
+            "epe_trung_vi": 1.4,
+            "lech_lon_nhat": {
+              "khung": 2019,
+              "epe": 15.67,
+              "khai": [
+                6.16,
+                0.64
+              ],
+              "luong": [
+                -9.45,
+                -0.75
+              ]
+            }
+          },
+          "cas/hand_L@s30": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s30": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s30": {
+            "cap_khung": 3,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s30": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.03,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s30": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s31": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s32": {
+            "cap_khung": 1,
+            "khop_pct": 0.0,
+            "epe_trung_vi": 2.88,
+            "lech_lon_nhat": {
+              "khung": 2187,
+              "epe": 2.88,
+              "khai": [
+                2.73,
+                -1.75
+              ],
+              "luong": [
+                2.28,
+                1.09
+              ]
+            }
+          },
+          "cas/hand_R@s32": {
+            "cap_khung": 2,
+            "khop_pct": 50.0,
+            "epe_trung_vi": 13.36,
+            "lech_lon_nhat": {
+              "khung": 2194,
+              "epe": 26.32,
+              "khai": [
+                -7.26,
+                -27.56
+              ],
+              "luong": [
+                -8.62,
+                -1.28
+              ]
+            }
+          },
+          "ida/hand_L@s32": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s32": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s32": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s33": {
+            "cap_khung": 15,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.18,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s33": {
+            "cap_khung": 26,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.11,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s33": {
+            "cap_khung": 25,
+            "khop_pct": 92.0,
+            "epe_trung_vi": 0.22,
+            "lech_lon_nhat": {
+              "khung": 2362,
+              "epe": 3.04,
+              "khai": [
+                0.48,
+                -3.26
+              ],
+              "luong": [
+                -0.02,
+                -0.26
+              ]
+            }
+          },
+          "ida/hand_R@s33": {
+            "cap_khung": 26,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.1,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s34": {
+            "cap_khung": 7,
+            "khop_pct": 85.7,
+            "epe_trung_vi": 0.08,
+            "lech_lon_nhat": {
+              "khung": 2494,
+              "epe": 2.35,
+              "khai": [
+                0.0,
+                0.0
+              ],
+              "luong": [
+                1.44,
+                -1.86
+              ]
+            }
+          },
+          "cas/head@s34": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.04,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s34": {
+            "cap_khung": 7,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.13,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s35": {
+            "cap_khung": 9,
+            "khop_pct": 66.7,
+            "epe_trung_vi": 0.54,
+            "lech_lon_nhat": {
+              "khung": 2531,
+              "epe": 14.16,
+              "khai": [
+                12.79,
+                0.19
+              ],
+              "luong": [
+                -1.36,
+                0.09
+              ]
+            }
+          },
+          "cas/hand_R@s35": {
+            "cap_khung": 12,
+            "khop_pct": 66.7,
+            "epe_trung_vi": 0.65,
+            "lech_lon_nhat": {
+              "khung": 2523,
+              "epe": 16.07,
+              "khai": [
+                15.05,
+                0.2
+              ],
+              "luong": [
+                -1.01,
+                0.55
+              ]
+            }
+          },
+          "cas/head@s35": {
+            "cap_khung": 12,
+            "khop_pct": 83.3,
+            "epe_trung_vi": 0.33,
+            "lech_lon_nhat": {
+              "khung": 2523,
+              "epe": 21.56,
+              "khai": [
+                14.23,
+                0.01
+              ],
+              "luong": [
+                -7.3,
+                1.17
+              ]
+            }
+          },
+          "ida/hand_L@s35": {
+            "cap_khung": 9,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.4,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s35": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.12,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s35": {
+            "cap_khung": 13,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.19,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s36": {
+            "cap_khung": 4,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.56,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s36": {
+            "cap_khung": 6,
+            "khop_pct": 83.3,
+            "epe_trung_vi": 0.13,
+            "lech_lon_nhat": {
+              "khung": 2604,
+              "epe": 2.4,
+              "khai": [
+                0.0,
+                0.0
+              ],
+              "luong": [
+                1.31,
+                -2.01
+              ]
+            }
+          },
+          "ida/head@s37": {
+            "cap_khung": 23,
+            "khop_pct": 95.7,
+            "epe_trung_vi": 0.23,
+            "lech_lon_nhat": {
+              "khung": 2721,
+              "epe": 1.69,
+              "khai": [
+                -0.07,
+                -0.22
+              ],
+              "luong": [
+                1.01,
+                -1.52
+              ]
+            }
+          },
+          "cas/hand_L@s38": {
+            "cap_khung": 8,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s38": {
+            "cap_khung": 8,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s38": {
+            "cap_khung": 8,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s39": {
+            "cap_khung": 14,
+            "khop_pct": 92.9,
+            "epe_trung_vi": 0.2,
+            "lech_lon_nhat": {
+              "khung": 2903,
+              "epe": 1.85,
+              "khai": [
+                0.0,
+                0.0
+              ],
+              "luong": [
+                -0.47,
+                1.79
+              ]
+            }
+          },
+          "cas/hand_L@s41": {
+            "cap_khung": 4,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.27,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s41": {
+            "cap_khung": 4,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.45,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s41": {
+            "cap_khung": 4,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.07,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s41": {
+            "cap_khung": 4,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s41": {
+            "cap_khung": 3,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s41": {
+            "cap_khung": 4,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s42": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.09,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s42": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.09,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s42": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s42": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s44": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.03,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_R@s44": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.06,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s44": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.05,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s45": {
+            "cap_khung": 6,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.3,
+            "lech_lon_nhat": null
+          },
+          "ida/head@s45": {
+            "cap_khung": 6,
+            "khop_pct": 83.3,
+            "epe_trung_vi": 0.24,
+            "lech_lon_nhat": {
+              "khung": 3320,
+              "epe": 3.63,
+              "khai": [
+                6.61,
+                -2.37
+              ],
+              "luong": [
+                6.55,
+                1.26
+              ]
+            }
+          },
+          "ida/hand_L@s47": {
+            "cap_khung": 10,
+            "khop_pct": 70.0,
+            "epe_trung_vi": 0.73,
+            "lech_lon_nhat": {
+              "khung": 3408,
+              "epe": 2.16,
+              "khai": [
+                0.19,
+                -1.45
+              ],
+              "luong": [
+                1.92,
+                -0.16
+              ]
+            }
+          },
+          "ida/hand_R@s47": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.29,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_L@s48": {
+            "cap_khung": 17,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.12,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s48": {
+            "cap_khung": 17,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.13,
+            "lech_lon_nhat": null
+          },
+          "cas/head@s48": {
+            "cap_khung": 17,
+            "khop_pct": 94.1,
+            "epe_trung_vi": 0.36,
+            "lech_lon_nhat": {
+              "khung": 3598,
+              "epe": 1.52,
+              "khai": [
+                0.65,
+                0.04
+              ],
+              "luong": [
+                2.17,
+                0.01
+              ]
+            }
+          }
+        },
+        "nhan_vat_thieu_track": []
+      },
+      "seconds": 14.24
+    },
+    {
+      "code": "C3",
+      "section": "4.C — Nhân vật",
+      "title": "Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
+      "level": "Chặn",
+      "measure": "<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12. v1.1 (Q-C3): mặt nạ bắt buộc ở độ phân giải gấp s = 2–4 lần khung; s đo từ kích thước PNG (rộng/rộng và cao/cao phải bằng nhau, mọi mặt nạ cùng cỡ), trường 'scale' nếu có phải khớp s đo. Chống phóng to mặt nạ thấp hơn: tập vị trí biên phân biệt (x chuyển tiếp ngang, y chuyển tiếp dọc) quy về pha lưới s (k = round(s) ngăn); tỷ lệ dồn vào 1 pha phải ≤ 1/k + (1 − 1/k)/2 (s=2: 0,75; s=3: 0,67; s=4: 0,625) với ≥ 40 vị trí (render thật ≈ 1/k; phóng to từ mặt nạ nhị phân ≈ 1,0). Độ dài = bề dài chiếu lên trục chính PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 2 px mặt nạ (v1.2; v1.1: 1 px); hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 và phủ cả sai số của mặt nạ phóng to từ matte 1× khử răng cưa rồi ngưỡng hoá (loại không phát hiện được bằng ảnh). v1.3 (Q-δ): đầu < 100 px video ở khung mẫu bất kỳ thì hệ số mặt nạ ≥ 4. v1.3 (Q-C3c) kiểm toán ngẫu nhiên: phiên P chạy checks/audit.py issue (hạt giống từ secrets, 1–2 khung trong khung mẫu, ghi <video>.audit/request.json kèm SHA video và SHA bộ mặt nạ); xưởng render lại mặt nạ các khung đó từ file cảnh đã khoá vào <video>.audit/rerender/ và ghi render.log (SCENE <file> SHA256 <hex>; FRAME <n> CMD <lệnh>). Đối chiếu: video và bộ mặt nạ không đổi sau khi phát; log đủ, SHA file cảnh khớp đĩa (và thuộc scene_files nếu có assets.json); đủ mặt nạ render lại cùng cỡ; lệch tỷ lệ bộ phận/đầu nộp so với render lại ≤ 1·U (δ = 2); điểm ảnh khác nhau / điểm ảnh biên ≤ 0,02. Chưa có yêu cầu = THIẾU. v1.2 (C3b): dải xám ở biên (điểm ảnh mức 6–249 / điểm ảnh biên) ≤ 2,5 — mặt nạ phóng to còn giữ mức xám thì trượt. Quyết định kiểu ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
+      "threshold_text": "Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; dải xám biên ≤ 2,5; đầu < 100 px thì ≥ 4×; kiểm toán ngẫu nhiên đạt (lệch ≤ 1·U, khác điểm ảnh ≤ 0,02, log và SHA file cảnh khớp); 0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ).",
+      "status": "MISSING",
+      "metrics": [],
+      "notes": [
+        "Thiếu dữ liệu đầu vào: animatic.parts/parts.json"
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "O3",
+      "section": "4.O — Liên tục và nhất quán",
+      "title": "Mọi tài sản lấy từ thư viện có SHA",
+      "level": "Chặn",
+      "measure": "Tính lại SHA-256 từ đĩa cho mọi tài sản trong danh sách dùng của shot và so với thư viện assets/LIBRARY.json. Quét thư mục làm việc của shot: mọi file media (mô hình, ảnh, âm, font) không nằm trong thư viện là tài sản ngoài thư viện (trừ thư mục render/, out/, cache/, frames/).",
+      "threshold_text": "0 tài sản lệch SHA; 0 tài sản không có trong thư viện; 0 file media lạ trong thư mục làm việc.",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "tài sản không có trong thư viện",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "tài sản lệch SHA so với thư viện",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "tài sản thư viện thiếu file trên đĩa",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "file media lạ trong thư mục làm việc",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [
+        "File cảnh của shot (được miễn quét, v1 sẽ đọc liên kết bên trong): design/cong4/animatic/film.js, design/cong4/animatic/page.js, design/cong4/animatic/sets.js, design/cong4/animatic/sets2.js, design/cong4/animatic/util.js"
+      ],
+      "evidence": {
+        "so_tai_san_dung": 7,
+        "ngoai_thu_vien": [],
+        "lech_sha": [],
+        "thieu_file": [],
+        "file_la": []
+      },
+      "seconds": 0.01
+    }
+  ]
+}

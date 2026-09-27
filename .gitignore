@@ -5,3 +5,13 @@ out/tmp/
 /tmp/
 *.wav.tmp
 cache/
+
+# Cổng 4: ảnh gốc PNG của cổng mặt (bản JPEG nằm trong reports/m1/cong4/kiem-mu-mat)
+design/cong4/mat/lan*/**/*.png
+# Cổng 4 animatic: bản trung gian lớn (tái tạo được bằng render_film.js / package.py HQ=1) — không commit
+design/cong4/animatic/out/video.mp4
+design/cong4/animatic/out/hq/
+# Cổng 4 v2: video nhóm + video ghép trung gian, âm trung gian (tái tạo bằng render_film.js / assemble.py / audio/mix.py) — không commit
+design/cong4/animatic/out/v2/*.mp4
+design/cong4/animatic/out/v2/audio/
+design/cong4/animatic/out/v2/audit_void_*/

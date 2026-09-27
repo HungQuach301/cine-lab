@@ -1,0 +1,82 @@
+{
+ "W": 960,
+ "H": 540,
+ "shots": 6,
+ "frames": 408,
+ "total_wall_s": 725.127,
+ "mp4": "/home/user/cine-lab/design/cong4/animatic/out/v2/video_s02-s03-s04-s07-s08-s25.mp4",
+ "summary": [
+  {
+   "id": "s02",
+   "t0": 4,
+   "t1": 8.5,
+   "frames": 108,
+   "setup_s": 2.723,
+   "per_frame_s": {
+    "mean": 1.809,
+    "max": 10.348
+   },
+   "wall_s": 201.796
+  },
+  {
+   "id": "s03",
+   "t0": 8.5,
+   "t1": 10.5,
+   "frames": 48,
+   "setup_s": 2.637,
+   "per_frame_s": {
+    "mean": 2.629,
+    "max": 10.517
+   },
+   "wall_s": 131.37
+  },
+  {
+   "id": "s04",
+   "t0": 10.5,
+   "t1": 12,
+   "frames": 36,
+   "setup_s": 3.544,
+   "per_frame_s": {
+    "mean": 2.064,
+    "max": 10.122
+   },
+   "wall_s": 79.488
+  },
+  {
+   "id": "s07",
+   "t0": 19,
+   "t1": 23,
+   "frames": 96,
+   "setup_s": 2.12,
+   "per_frame_s": {
+    "mean": 1.25,
+    "max": 7.158
+   },
+   "wall_s": 124.057
+  },
+  {
+   "id": "s08",
+   "t0": 23,
+   "t1": 25,
+   "frames": 48,
+   "setup_s": 2.247,
+   "per_frame_s": {
+    "mean": 1.148,
+    "max": 7.613
+   },
+   "wall_s": 58.387
+  },
+  {
+   "id": "s25",
+   "t0": 59,
+   "t1": 62,
+   "frames": 72,
+   "setup_s": 1.197,
+   "per_frame_s": {
+    "mean": 1.741,
+    "max": 8.114
+   },
+   "wall_s": 127.835
+  }
+ ]
+}

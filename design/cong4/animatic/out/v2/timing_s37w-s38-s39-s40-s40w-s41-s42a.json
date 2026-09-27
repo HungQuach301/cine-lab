@@ -1,0 +1,94 @@
+{
+ "W": 960,
+ "H": 540,
+ "shots": 7,
+ "frames": 401,
+ "total_wall_s": 951.376,
+ "mp4": "/home/user/cine-lab/design/cong4/animatic/out/v2/video_s37w-s38-s39-s40-s40w-s41-s42a.mp4",
+ "summary": [
+  {
+   "id": "s37w",
+   "t0": 100.8,
+   "t1": 103.6,
+   "frames": 67,
+   "setup_s": 3.493,
+   "per_frame_s": {
+    "mean": 2.228,
+    "max": 14.29
+   },
+   "wall_s": 155.378
+  },
+  {
+   "id": "s38",
+   "t0": 103.6,
+   "t1": 105,
+   "frames": 34,
+   "setup_s": 2.812,
+   "per_frame_s": {
+    "mean": 2.208,
+    "max": 10.745
+   },
+   "wall_s": 79.557
+  },
+  {
+   "id": "s39",
+   "t0": 105,
+   "t1": 109.4,
+   "frames": 106,
+   "setup_s": 3.468,
+   "per_frame_s": {
+    "mean": 2.385,
+    "max": 11.277
+   },
+   "wall_s": 261.082
+  },
+  {
+   "id": "s40",
+   "t0": 109.4,
+   "t1": 112,
+   "frames": 62,
+   "setup_s": 2.876,
+   "per_frame_s": {
+    "mean": 2.127,
+    "max": 11.915
+   },
+   "wall_s": 138.068
+  },
+  {
+   "id": "s40w",
+   "t0": 112,
+   "t1": 114,
+   "frames": 48,
+   "setup_s": 2.868,
+   "per_frame_s": {
+    "mean": 2.596,
+    "max": 13.755
+   },
+   "wall_s": 129.52
+  },
+  {
+   "id": "s41",
+   "t0": 114,
+   "t1": 115.5,
+   "frames": 36,
+   "setup_s": 2.942,
+   "per_frame_s": {
+    "mean": 2.386,
+    "max": 13.382
+   },
+   "wall_s": 90.695
+  },
+  {
+   "id": "s42a",
+   "t0": 115.5,
+   "t1": 117.5,
+   "frames": 48,
+   "setup_s": 2.985,
+   "per_frame_s": {
+    "mean": 1.856,
+    "max": 13.361
+   },
+   "wall_s": 94.308
+  }
+ ]
+}

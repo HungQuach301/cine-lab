@@ -37,13 +37,17 @@ const mir = (pts) => pts.map(([x, y]) => [-x, y]);
 //  press: mím môi (0–1, môi mỏng lại); chin: căng cằm (nếp "da cam"); wet: mắt ngấn nước; lidDrop: mí trên sụp (nét mi hạ xuống).
 export const EXPR = {
   neutral:   { browIn: 0.000, browOut: 0.000, knit: 0.000, corner: 0.004, press: 0.2, chin: 0.0, wet: 0.0, lidDrop: 0.000, smile: 0.0, tear: 0 },
-  sad_smile: { browIn: 0.040, browOut: -0.012, knit: 0.006, corner: 0.042, press: 0.6, chin: 0.0, wet: 0.6, lidDrop: 0.010, smile: 1.0, tear: 0 },
-  choked:    { browIn: 0.055, browOut: -0.020, knit: 0.020, corner: -0.032, press: 1.0, chin: 1.0, wet: 1.0, lidDrop: 0.006, smile: 0.0, tear: 1 },
+  sad_smile: { asym: 0.3, browIn: 0.040, browOut: -0.012, knit: 0.006, corner: 0.042, press: 0.6, chin: 0.0, wet: 0.6, lidDrop: 0.010, smile: 1.0, tear: 0 },
+  strained:  { asym: 0.15, browIn: 0.040, browOut: -0.004, knit: 0.028, corner: -0.012, press: 1.0, chin: 0.4, wet: 0.2, lidDrop: 0.000, smile: 0.0, tear: 0 },   // Cổng 4: gắng sức, lẩm bẩm "Not yet"
+  choked:    { asym: 0.2, browIn: 0.055, browOut: -0.020, knit: 0.020, corner: -0.032, press: 1.0, chin: 1.0, wet: 1.0, lidDrop: 0.006, smile: 0.0, tear: 1 },
 };
 
 // E = tâm nhãn cầu [x, y, z] (H), dùng chung với khối đầu để nét mi khớp đúng mí.
-export function paintFace(isIda, E, seed = 7, expr = 'neutral') {
-  const X = EXPR[expr] || EXPR.neutral;
+// o.mesh (Cổng 4): lưới đầu tự biến dạng theo biểu cảm (cast3d.js) → nét có vị trí (mày, mi, khoé miệng, rãnh mũi–má) vẽ ở chỗ TRUNG TÍNH
+// và đi theo lưới; chỉ giữ theo biểu cảm các nét không phải hình khối (ngấn nước, nước mắt, nếp cười, nếp cằm, nếp giữa mày, độ cong nếp trán, môi mím).
+export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
+  const XE = EXPR[expr] || EXPR.neutral, N0 = EXPR.neutral;
+  const X = o.mesh ? { ...XE, browIn: N0.browIn, browOut: N0.browOut, knit: N0.knit, corner: N0.corner, lidDrop: N0.lidDrop } : XE;
   const cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'); const R = rng(seed);
   g.fillStyle = '#ffffff'; g.fillRect(0, 0, N, N);
   const both = (pts, ...a) => { stroke(g, R, pts, ...a); stroke(g, R, mir(pts), ...a); };
@@ -73,7 +77,7 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral') {
   const browPts = (isIda ? [[0.045, 0.655], [0.12, 0.676], [0.19, 0.668], [0.235, 0.64]] : [[0.055, 0.60], [0.13, 0.607], [0.215, 0.586]]).map(([x, y], k, a) => {
     const t = k / (a.length - 1); return [x - X.knit * (1 - t), y + X.browIn * (1 - t) + X.browOut * t]; });
   both(browPts, isIda ? 7 : 7, bw, 0.95, 0.3);
-  if (X.knit > 0.003) for (const s of [1, -1]) stroke(g, R, [[s * 0.022, 0.655], [s * 0.026, 0.625]], 2, '140,95,88', 0.45 * X.knit / 0.01, 0.2);   // nếp dọc giữa mày
+  if (XE.knit > 0.003) for (const s of [1, -1]) stroke(g, R, [[s * 0.022, 0.655], [s * 0.026, 0.625]], 2, '140,95,88', 0.45 * XE.knit / 0.01, 0.2);   // nếp dọc giữa mày
   // 5) Mũi: bóng cánh mũi và lỗ mũi — vẽ, không khắc sâu.
   for (const s of [1, -1]) blot(g, s * 0.03, isIda ? 0.40 : 0.354, 0.016, '120,70,64', 0.45);
   // 6) Miệng: môi có hình (cung Cupid, môi dưới đầy hơn), khe môi mềm; mím (press) làm môi mỏng; khoé theo biểu cảm.
@@ -92,7 +96,7 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral') {
     stroke(g, R, [[-0.05, 0.205], [0, 0.198], [0.05, 0.205]], 2.2, '150,100,92', 0.4 * X.chin, 0.2); }
   // 7) Tuổi (Ida): nếp trán (biểu cảm buồn: cong lên giữa), rãnh mũi–má rõ, rãnh khoé miệng xuống cằm, đồi mồi. Cas: tàn nhang.
   if (isIda) {
-    const lift = X.browIn * 1.5;
+    const lift = o.mesh ? XE.browIn : XE.browIn * 1.5;   // lưới đã nâng trán giữa 0,5·browIn
     for (const yy of [0.735, 0.772, 0.808]) for (const s of [1, -1]) stroke(g, R, [[s * 0.02, yy + lift], [s * 0.12, yy + 0.004 + lift * 0.3], [s * 0.24, yy - 0.006]], 2.6, '130,88,82', 0.5, 0.3);
     both([[0.07, 0.43], [0.098, 0.34], [0.118 + c * 0.3, 0.275 + c]], 5, '120,76,72', 0.66, 0.22);          // rãnh mũi–má
     both([[mw + 0.012, my + c - 0.006], [0.1, 0.19], [0.108, 0.13]], 3.6, '125,82,76', 0.55, 0.25);           // rãnh khoé miệng xuống cằm

@@ -1,0 +1,78 @@
+{
+ "film": "animatic.mp4",
+ "version": "Cổng 4 — animatic v2 (previs), kịch bản nháp 3",
+ "duration": "2:22",
+ "language": "en",
+ "instructions_for_viewer": "Watch the video once, from start to finish, without pausing or rewinding. Use headphones or speakers at a comfortable volume. This is a rough early draft: the pictures and sound are unfinished. Then answer the questions below. There are no right or wrong answers.",
+ "instructions_for_host": [
+  "Không giới thiệu phim, không kể nội dung, không nói tên nhân vật trước khi xem.",
+  "Người xem xem một lần, không dừng, không tua lại. Trả lời ngay sau khi xem, không bàn với người khác.",
+  "Câu (c) hỏi theo mốc giờ; người xem được phép tua tới đúng mốc SAU khi đã trả lời (a) và (b), nhưng chỉ xem khung dừng (không phát).",
+  "Ghi nguyên văn câu trả lời; không diễn giải."
+ ],
+ "questions": [
+  {
+   "id": "a",
+   "type": "free_text",
+   "prompt": "Tell us the story in 2–3 sentences."
+  },
+  {
+   "id": "b",
+   "type": "timeline_marks",
+   "prompt": "Was there any moment where your attention drifted? Tick every segment where it did. If it never did, tick nothing.",
+   "segments": [
+    "0:00–0:10",
+    "0:10–0:20",
+    "0:20–0:30",
+    "0:30–0:40",
+    "0:40–0:50",
+    "0:50–1:00",
+    "1:00–1:10",
+    "1:10–1:20",
+    "1:20–1:30",
+    "1:30–1:40",
+    "1:40–1:50",
+    "1:50–2:00",
+    "2:00–2:10",
+    "2:10–2:20",
+    "2:20–2:23"
+   ],
+   "free_timestamps_prompt": "If you remember a more exact time, write it here (m:ss)."
+  },
+  {
+   "id": "c1",
+   "type": "free_text",
+   "timestamp": "0:40",
+   "prompt": "What did you feel at 0:40?"
+  },
+  {
+   "id": "c2",
+   "type": "free_text",
+   "timestamp": "1:41",
+   "prompt": "What did you feel at 1:41?"
+  },
+  {
+   "id": "c3",
+   "type": "free_text",
+   "timestamp": "2:00",
+   "prompt": "What did you feel at 2:00?"
+  },
+  {
+   "id": "d",
+   "type": "scale",
+   "prompt": "Would you watch another film by this maker?",
+   "scale": {
+    "min": 1,
+    "max": 5,
+    "min_label": "Definitely not",
+    "max_label": "Definitely yes"
+   }
+  }
+ ],
+ "notes_for_owner": {
+  "c1": "Giữ 0:40 (quyết định B1). v2: 0:40 = s13, sóng trắng tới chính Ida; trước đó 0:25–0:32 đồng hồ 8:00, đồng hồ bỏ túi 7:53 và bóng đèn điện bật trên nền trời đêm.",
+  "c2": "v1 1:50 (đầu L4) → v2 1:41: cột góc (đoạn cáp cuối) nhấp hai lần rồi đứng trắng đúng lúc \"You'll be brighter now\" (s37w) — chỉ đạo chủ dự án.",
+  "c3": "v1 2:07 → v2 2:00: Cas hơ tay đếm ba trong hốc cửa tối cậu tự chọn (s42) — chỉ đạo chủ dự án.",
+  "neutrality": "Câu hỏi không nêu nhân vật, sự kiện, cảm xúc hay chủ đề; câu (c) chỉ nêu mốc giờ."
+ }
+}

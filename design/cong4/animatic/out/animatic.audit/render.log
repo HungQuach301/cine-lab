@@ -1,0 +1,8 @@
+# Kiểm toán C3 (RUN.md 3.7) — phiên P render lại (P cũng là người dựng animatic Cổng 4; không có phiên xưởng riêng). Yêu cầu lần 5; lần 1–4 bị huỷ trước khi đối chiếu (đổi video hoặc sửa định dạng parts.json), hạt giống ghi trong reports/m1/CONG-4-V2.md mục C3.
+SCENE design/cong4/animatic/page.js SHA256 9cacb73126363c0bccd2eb8c81b77aa113e3144ec92cae322cef7f2fd4c44f32
+SCENE design/cong4/animatic/film.js SHA256 b18a381a4f39f4715c064a9e26e4b0d62ffc6039e45c561b4ae48d7020e565eb
+SCENE design/cong4/animatic/sets.js SHA256 44ef28605f4fbd80f79048a0b29bf84d17cd4a80dfe01a0fc5496efff2a509fa
+SCENE design/cong4/animatic/sets2.js SHA256 1bef4e63bd3beafecf95736bc054af6ea3e025d247a8e4f514221bac44d6103f
+SCENE design/cong4/animatic/util.js SHA256 e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc
+FRAME 708 CMD node design/cong4/animatic/export_c3.js --audit-dir design/cong4/animatic/out/animatic.audit/rerender --frames 708,2616 --scale 4
+FRAME 2616 CMD node design/cong4/animatic/export_c3.js --audit-dir design/cong4/animatic/out/animatic.audit/rerender --frames 708,2616 --scale 4

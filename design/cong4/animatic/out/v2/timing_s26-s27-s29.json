@@ -1,0 +1,46 @@
+{
+ "W": 960,
+ "H": 540,
+ "shots": 3,
+ "frames": 192,
+ "total_wall_s": 687.309,
+ "mp4": "/home/user/cine-lab/design/cong4/animatic/out/v2/video_s26-s27-s29.mp4",
+ "summary": [
+  {
+   "id": "s26",
+   "t0": 62,
+   "t1": 64,
+   "frames": 48,
+   "setup_s": 2.392,
+   "per_frame_s": {
+    "mean": 3.68,
+    "max": 15.328
+   },
+   "wall_s": 181.615
+  },
+  {
+   "id": "s27",
+   "t0": 64,
+   "t1": 67,
+   "frames": 72,
+   "setup_s": 1.587,
+   "per_frame_s": {
+    "mean": 3.55,
+    "max": 13.944
+   },
+   "wall_s": 260.945
+  },
+  {
+   "id": "s29",
+   "t0": 69,
+   "t1": 72,
+   "frames": 72,
+   "setup_s": 1.808,
+   "per_frame_s": {
+    "mean": 3.296,
+    "max": 13.265
+   },
+   "wall_s": 241.939
+  }
+ ]
+}
