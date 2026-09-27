@@ -2,11 +2,11 @@
 // Khung: '<ida|cas>_<view>' (turnaround: front, q34, side, back) hoặc '<ida|cas>_pose_<tên tư thế>';
 // tiền tố 'sil_' = silhouette đen đặc trên nền trắng (kiểm C2), không hậu kỳ.
 import * as THREE from '../shared/node_modules/three/build/three.module.js';
-import { buildCharacter, buildLadder } from '../shared/cast.js';
+import { buildLadder } from '../shared/cast.js';
 import { buildGasLamp } from '../shared/props.js';
 import { createPipeline, createRenderer } from '../shared/post.js';
 
-let W, H, renderer, pipe, scene, cam, chars = {}, sil = false, ground, backdrop, keyL;
+let W, H, renderer, pipe, scene, cam, chars = {}, sil = false, ground, backdrop, keyL, mod;
 const VIEW = { front: 0, q34: -38, side: 90, back: 180 };
 const POSE_VIEW = { walk_ladder: 90, warm_hands: 70, crouch_lantern: 60, look_shadows: -30, shadow_bird: 180, look_lantern: -30, hold_ladder: 70, warm_hands_copy: 70, half_raised: 150 };
 
@@ -15,7 +15,10 @@ window.setup = async (cfg) => {
   const [ida, cas] = await Promise.all(['model-sheet/ida.json', 'model-sheet/cas.json'].map((p) => fetch('/' + p).then((r) => r.json())));
   renderer = createRenderer(W, H);
   scene = new THREE.Scene();
-  chars.ida = buildCharacter(ida, { detail: 28 }); chars.cas = buildCharacter(cas, { detail: 28 });
+  // --args {"char":"3d"|"2d"} → module nhân vật vòng 2 (cùng API shared/cast.js); mặc định shared/cast.js
+  mod = await import({ base: '../shared/cast.js', '3d': '../v2/char3d/cast3d.js', '2d': '../v2/char2d/cast2d.js' }[cfg.char || 'base']);
+  const matF = (role, color, part, extra = {}) => new THREE.MeshStandardMaterial({ color, roughness: 0.85, ...extra });
+  chars.ida = mod.buildCharacter(ida, { detail: 28, material: matF }); chars.cas = mod.buildCharacter(cas, { detail: 28, material: matF });
   // Nền studio: phông xám ấm cong, đèn key/fill/rim trung tính (không phải ánh sáng phim).
   backdrop = new THREE.Mesh(new THREE.PlaneGeometry(20, 12), new THREE.MeshStandardMaterial({ color: '#8f8a84', roughness: 1 }));
   backdrop.position.set(0, 3, -3); backdrop.receiveShadow = true; scene.add(backdrop);
@@ -67,6 +70,7 @@ window.renderFrame = async (name, samples) => {
     const cx = (hw.x + sh.x) / 2, cy = hw.y - 0.25, a2 = W / H, vh = Math.max(1.6, (Math.abs(hw.x - sh.x) + 0.9) / a2);
     Object.assign(cam, { left: -vh * a2 / 2, right: vh * a2 / 2, top: vh / 2, bottom: -vh / 2 }); cam.position.set(cx, cy, 10); cam.lookAt(cx, cy, 0); cam.updateProjectionMatrix();
   }
+  if (mod.update) mod.update(ch, cam);
   if (sil) return { accum_ms: 0 };
   const ms = pipe.accumulate(scene, cam, samples);
   return { accum_ms: ms };
@@ -78,7 +82,7 @@ window.finalize = (f) => {
   // Silhouette: chỉ nhân vật + đạo cụ, tô đen đặc, nền trắng, không grain.
   if (wallStage) { // silhouette có ngữ cảnh: nhân vật đen đặc; tường sáng nhận bóng chim; không grain
     const hid = [backdrop, ground]; hid.forEach((m) => (m.visible = false)); const saved = [];
-    chars.cas.root.traverse((o) => { if (o.isMesh) { saved.push([o, o.material]); o.material = BLACK; } });
+    chars.cas.root.traverse((o) => { if (o.isMesh && o.material.colorWrite !== false) { const m = o.material; saved.push([o, m]); o.material = (m.map || m.alphaTest) ? new THREE.MeshBasicMaterial({ color: 0, map: m.map, alphaTest: m.alphaTest || 0.5, side: THREE.DoubleSide }) : BLACK; } });
     const amb = scene.children.filter((o) => o.isLight && o.parent === scene); amb.forEach((l) => (l.visible = false));
     renderer.setRenderTarget(null); renderer.setClearColor(0xffffff, 1); renderer.clear(); renderer.render(scene, cam);
     saved.forEach(([o, m]) => (o.material = m)); amb.forEach((l) => (l.visible = true)); hid.forEach((m) => (m.visible = true));
@@ -87,8 +91,10 @@ window.finalize = (f) => {
     let bin = ''; for (let i = 0; i < rgb.length; i += 0x8000) bin += String.fromCharCode.apply(null, rgb.subarray(i, i + 0x8000)); return btoa(bin);
   }
   const hidden = [backdrop, ground]; hidden.forEach((m) => (m.visible = false));
-  scene.overrideMaterial = BLACK; renderer.setRenderTarget(null); renderer.setClearColor(0xffffff, 1); renderer.clear();
-  renderer.render(scene, cam); scene.overrideMaterial = null; hidden.forEach((m) => (m.visible = true));
+  const swap = []; scene.traverse((o) => { if (!o.isMesh || !o.visible) return; const m = o.material; if (m.colorWrite === false) return;
+    swap.push([o, m]); o.material = (m.map || m.alphaMap || m.alphaTest) ? new THREE.MeshBasicMaterial({ color: 0x000000, map: m.map, alphaMap: m.alphaMap, alphaTest: m.alphaTest || 0.5, side: THREE.DoubleSide }) : BLACK; });
+  renderer.setRenderTarget(null); renderer.setClearColor(0xffffff, 1); renderer.clear();
+  renderer.render(scene, cam); swap.forEach(([o, m]) => (o.material = m)); hidden.forEach((m) => (m.visible = true));
   const gl = renderer.getContext(); const px = new Uint8Array(W * H * 4); gl.readPixels(0, 0, W, H, gl.RGBA, gl.UNSIGNED_BYTE, px);
   const rgb = new Uint8Array(W * H * 3); for (let i = 0, j = 0; i < px.length; i += 4, j += 3) { rgb[j] = px[i]; rgb[j + 1] = px[i + 1]; rgb[j + 2] = px[i + 2]; }
   let bin = ''; for (let i = 0; i < rgb.length; i += 0x8000) bin += String.fromCharCode.apply(null, rgb.subarray(i, i + 0x8000));
