@@ -212,7 +212,11 @@ export function buildCharacter(sheet, opts = {}) {
     addProxy(spine, new THREE.SphereGeometry(1, 20, 12), [0, 1.74 * Hm, -0.02 * Hm], null, [0.74 * Hm, 0.28 * Hm, 0.47 * Hm]);
     addProxy(spine, new THREE.SphereGeometry(1, 12, 8), [0, 1.30 * Hm, 0.40 * Hm], null, [0.11 * Hm, 0.09 * Hm, 0.08 * Hm]);
   } else {
-    head.traverse((m) => { if (m.isMesh && m.userData.part === 'bobble') { m.position.y = 1.20 * Hm - 0.66 * Hm; m.scale.setScalar(0.205 / (sheet.costume.cap.bobble_diameter_H / 2)); } });
+    head.traverse((m) => { if (m.isMesh && m.userData.part === 'bobble') { m.position.y = 1.20 * Hm - 0.66 * Hm; m.scale.setScalar(0.205 / (sheet.costume.cap.bobble_diameter_H / 2));
+      // bóng quả bông phải "xù len" (khác búi tóc trơn): gai sợi ngẫu nhiên trên khối
+      const g = new THREE.IcosahedronGeometry(sheet.costume.cap.bobble_diameter_H / 2 * Hm, 3), pa = g.attributes.position;
+      for (let i = 0; i < pa.count; i++) { const x = pa.getX(i), y = pa.getY(i), z = pa.getZ(i); const f = 1 + 0.16 * Math.max(0, Math.sin(x * 900 + 1) * Math.sin(y * 870 + 2) * Math.sin(z * 910 + 3)) ** 0.5; pa.setXYZ(i, x * f, y * f, z * f); }
+      g.computeVertexNormals(); m.geometry = g; } });
     for (const x of [1, -1]) addProxy(head, new THREE.SphereGeometry(1, 10, 8), [0.475 * x * Hm, 0.46 * Hm, -0.06 * Hm], [0, -0.62 * x, 0], [0.05 * Hm, 0.155 * Hm, 0.115 * Hm]); // tai vểnh
   }
 
@@ -341,6 +345,9 @@ export function buildCharacter(sheet, opts = {}) {
       const hp = (pose.hands || {})[s] || { spread: 0.1, curl: 0.4 }, rig = fingerRig[s], sx = rig.sx, curl = hp.curl ?? 0.4;
       rig.fingers.forEach((f) => { f.base.rotation.z = -sx * curl * 0.75; f.mid.rotation.set(0, 0, -sx * curl * 1.0); f.dist.rotation.set(0, 0, -sx * curl * 0.7); });
       rig.thumb.mid.rotation.set(0, 0, hp.thumb_cross ? 0 : -sx * curl * 0.6);
+      // thumb_cross (chim bóng): hai ngón cái nghiêng vào giữa (+y khung tay = phía tay kia) cho chạm đầu nhau → MỘT cái đầu chim,
+      // đốt ngoài hơi quặp làm mỏ. Chỉ đổi khớp ngón (không thuộc khung xương đo C3).
+      if (hp.thumb_cross) { rig.thumb.base.rotation.x -= 0.62; rig.thumb.mid.rotation.x = -0.35; }
     }
     root.updateMatrixWorld(true);
   };

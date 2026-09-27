@@ -59,10 +59,15 @@ const BUN = [0, 0.50, -0.52];
 function idaHair(id, P) {
   const dx = P[0] - BUN[0], dy = P[1] - BUN[1], dz = P[2] - BUN[2];
   let lock, fine;
-  if (id === I.BUN) { const a = Math.atan2(dy, dx), r = Math.hypot(dx, dy); lock = 0.5 + 0.5 * Math.sin(r * 58 + a * 1.2 + vn2(a * 2, r * 8) * 2.5); fine = 0.5 + 0.5 * Math.sin(r * 320 + vn2(a * 9, r * 30) * 5); }
-  else { const phi = Math.atan2(dx, dy), d = Math.hypot(dx, dy, dz); lock = vn2(phi * 7 + d * 3, d * 2.5) * 0.7 + vn2(phi * 20, d * 5) * 0.3; fine = 0.5 + 0.5 * Math.sin(phi * 110 + vn2(phi * 12, d * 6) * 9); }
+  // góc dùng dạng tuần hoàn (cos, sin) → không có đường nối ở ±π
+  if (id === I.BUN) { const a = Math.atan2(dy, dx), r = Math.hypot(dx, dy), ca = Math.cos(a), sa = Math.sin(a);
+    lock = Math.pow(0.5 + 0.5 * Math.sin(r * 44 + a * 2 + (vn3(ca * 2, sa * 2, r * 8) - 0.5) * 5), 0.8); fine = 0.5 + 0.5 * Math.sin(r * 300 + (vn3(ca * 9, sa * 9, r * 30) - 0.5) * 10); }
+  else { const phi = Math.atan2(dx, dy), d = Math.hypot(dx, dy, dz), cp = Math.cos(phi), sp = Math.sin(phi);
+    lock = vn3(cp * 7, sp * 7, d * 2.5) * 0.7 + vn3(cp * 20 + 5, sp * 20, d * 5) * 0.3; fine = 0.5 + 0.5 * Math.sin(phi * 110 + (vn3(cp * 12, sp * 12, d * 6) - 0.5) * 12); }
   const t = clamp(0.2 + 0.65 * lock + 0.16 * (fine - 0.5));
-  return t < 0.5 ? lerp3([104, 100, 98], [158, 153, 147], t * 2) : lerp3([158, 153, 147], [212, 208, 200], (t - 0.5) * 2);
+  // giá trị trung bình (không trắng loá): gáy/búi nhìn từ sau không bị đọc thành khuôn mặt (lỗi vòng 1)
+  const c = t < 0.5 ? lerp3([78, 74, 73], [124, 120, 116], t * 2) : lerp3([124, 120, 116], [176, 172, 166], (t - 0.5) * 2);
+  return id === I.BUN ? lerp3([58, 55, 55], c, 0.35 + 0.65 * lock) : c;
 }
 function idaHeadColor(id, P, out) {
   const y = P[1], x = P[0], z = P[2], ax = Math.abs(x);
