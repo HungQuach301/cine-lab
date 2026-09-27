@@ -1,0 +1,112 @@
+{
+ "voice_id": "59pjz3MTZdh9U1AETKfW",
+ "model": "eleven_v3",
+ "stability": 0.5,
+ "seed": 101,
+ "film_s": 165.0,
+ "scenes": [
+  [
+   "1 The Round",
+   0,
+   30
+  ],
+  [
+   "2 Switch-on",
+   30,
+   55
+  ],
+  [
+   "3 The Race",
+   55,
+   85
+  ],
+  [
+   "4 The Wall",
+   85,
+   115
+  ],
+  [
+   "5 The Last Lamp",
+   115,
+   145
+  ],
+  [
+   "6 The Window",
+   145,
+   165
+  ]
+ ],
+ "normalize": "peak -3 dBFS",
+ "cues": [
+  {
+   "code": "L1",
+   "scene": "1 The Round",
+   "script_cue_s": 10.0,
+   "placed_s": 10.0,
+   "shifted_s": 0.0,
+   "dur_s": 2.16,
+   "end_s": 12.16,
+   "text_clean": "Evening, old street.",
+   "text_sent": "[softly] Evening, old street.",
+   "character_cost": "cached",
+   "latency_s": 1.51,
+   "fits_scene": true
+  },
+  {
+   "code": "L2",
+   "scene": "3 The Race",
+   "script_cue_s": 72.0,
+   "placed_s": 72.0,
+   "shifted_s": 0.0,
+   "dur_s": 2.88,
+   "end_s": 74.88,
+   "text_clean": "Not yet... not yet.",
+   "text_sent": "[under her breath, strained] Not yet... not yet.",
+   "character_cost": "cached",
+   "latency_s": 0.01,
+   "fits_scene": true
+  },
+  {
+   "code": "L3",
+   "scene": "4 The Wall",
+   "script_cue_s": 104.0,
+   "placed_s": 104.0,
+   "shifted_s": 0.0,
+   "dur_s": 2.3,
+   "end_s": 106.3,
+   "text_clean": "Go on, then.",
+   "text_sent": "[gently] Go on, then.",
+   "character_cost": "cached",
+   "latency_s": 0.01,
+   "fits_scene": true
+  },
+  {
+   "code": "L4",
+   "scene": "5 The Last Lamp",
+   "script_cue_s": 122.0,
+   "placed_s": 122.0,
+   "shifted_s": 0.0,
+   "dur_s": 14.08,
+   "end_s": 136.08,
+   "text_clean": "That's the last one, then. Goodnight, old street. You'll be brighter now. Just... keep a little dark for the ones who need it.",
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] You'll be brighter now. [whispers] Just... keep a little dark for the ones who need it.",
+   "character_cost": "cached",
+   "latency_s": 0.04,
+   "fits_scene": true
+  },
+  {
+   "code": "L5",
+   "scene": "5 The Last Lamp",
+   "script_cue_s": 139.5,
+   "placed_s": 139.5,
+   "shifted_s": 0.0,
+   "dur_s": 3.2,
+   "end_s": 142.7,
+   "text_clean": "Warm your hands first. Three counts.",
+   "text_sent": "[warmly, quietly] Warm your hands first. Three counts.",
+   "character_cost": "cached",
+   "latency_s": 0.0,
+   "fits_scene": true
+  }
+ ]
+}

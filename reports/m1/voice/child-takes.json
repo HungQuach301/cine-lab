@@ -1,0 +1,28 @@
+{
+ "line_clean": "Please, could you light the old one? The new ones hurt my eyes.",
+ "line_v3": "[timidly] Please... could you light the old one? [whispers] The new ones hurt my eyes.",
+ "design_text": "[timidly] Um... excuse me? Sorry. I didn't mean to follow you. It's just... the new lamps are so bright, and I can't sleep, and yours is the only warm one left.",
+ "voices": [
+  {
+   "tag": "C2",
+   "description": "A shy eight-year-old girl with a light English accent. Small, thin, high voice; hesitant, soft, a little breathy, with small pauses, nervous but polite. A real child's voice, not an adult imitating a child.",
+   "design_http": 403,
+   "design_latency_s": 0.83,
+   "design_error": "{\"detail\":{\"type\":\"authorization_error\",\"code\":\"forbidden\",\"message\":\"Sorry, this prompt potentially doesn't follow our safety guidelines and therefore has been blocked.\",\"status\":\"blocked_generation\",\"request_id\":\"b7a4c64d77cdd9bcbc3a5dec02772521\"}}"
+  },
+  {
+   "tag": "C3",
+   "description": "A timid nine-year-old boy, neutral British English. Soft high voice that has not broken yet; quiet and unsure, trailing off at the ends of phrases. A real child's voice, not an adult imitating a child.",
+   "design_http": 403,
+   "design_latency_s": 0.97,
+   "design_error": "{\"detail\":{\"type\":\"authorization_error\",\"code\":\"forbidden\",\"message\":\"Sorry, this prompt potentially doesn't follow our safety guidelines and therefore has been blocked.\",\"status\":\"blocked_generation\",\"request_id\":\"2c1ff30e1d7398cc1643ba8b05072c19\"}}"
+  },
+  {
+   "tag": "C4",
+   "description": "A withdrawn ten-year-old girl with a soft Northern English accent. Quiet, whispery, low energy, speaking close and carefully as if afraid of being told off. A real child's voice, not an adult imitating a child.",
+   "design_http": 403,
+   "design_latency_s": 0.74,
+   "design_error": "{\"detail\":{\"type\":\"authorization_error\",\"code\":\"forbidden\",\"message\":\"Sorry, this prompt potentially doesn't follow our safety guidelines and therefore has been blocked.\",\"status\":\"blocked_generation\",\"request_id\":\"7adc4a399bc0c27bbc3a5dec027725ac\"}}"
+  }
+ ]
+}

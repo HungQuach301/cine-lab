@@ -1,0 +1,6 @@
+[page] [.WebGL-0x3bc400190800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[page] [.WebGL-0x3bc400190800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[page] [.WebGL-0x3bc400190800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels
+[page] [.WebGL-0x3bc400190800]GL Driver Message (OpenGL, Performance, GL_CLOSE_PATH_NV, High): GPU stall due to ReadPixels (this message will no longer repeat)
+{"style":"3d","samples":8,"fmt":"raw","frames":240,"film_s":10,"wall_s":456.412,"startup_s":0.389,"draw_s":1.3031000000024215,"png_encode_s":413.0796999999937,"transfer_s":37.59320000000391,"render_s_per_film_s":45.6412,"out":"b-3d-mb8-dither.mp4"}
+{"cmd": "node render_chromium.js --style 3d --samples 8 --fmt raw --out b-3d-mb8-dither.mp4 --json b-3d-mb8-dither.render.json", "exit": 0, "wall_s": 456.87, "peak_rss_mb": 1617.9}
