@@ -1,0 +1,57 @@
+/home/user/cine-lab/reports/m0/bench/scene_bpy.py:31: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m = bpy.data.materials.new(h + str(emit)); m.use_nodes = True
+/home/user/cine-lab/reports/m0/bench/scene_bpy.py:87: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  w = bpy.data.worlds.new('w'); sc.world = w; w.use_nodes = True
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+EGL Error (0x3009): EGL_BAD_MATCH: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+00:23.990  render           | Saved: 'frames/ee1/f0096.png'
+frame 96 18.52s
+00:41.323  render           | Saved: 'frames/ee1/f0097.png'
+frame 97 17.34s
+00:58.400  render           | Saved: 'frames/ee1/f0098.png'
+frame 98 17.07s
+01:15.603  render           | Saved: 'frames/ee1/f0099.png'
+frame 99 17.22s
+01:32.228  render           | Saved: 'frames/ee1/f0100.png'
+frame 100 16.61s
+01:48.851  render           | Saved: 'frames/ee1/f0101.png'
+frame 101 16.62s
+02:05.646  render           | Saved: 'frames/ee1/f0102.png'
+frame 102 16.81s
+02:22.547  render           | Saved: 'frames/ee1/f0103.png'
+frame 103 16.89s
+02:39.262  render           | Saved: 'frames/ee1/f0104.png'
+frame 104 16.72s
+02:56.016  render           | Saved: 'frames/ee1/f0105.png'
+frame 105 16.75s
+03:13.127  render           | Saved: 'frames/ee1/f0106.png'
+frame 106 17.11s
+03:30.280  render           | Saved: 'frames/ee1/f0107.png'
+frame 107 17.15s
+03:47.243  render           | Saved: 'frames/ee1/f0108.png'
+frame 108 16.96s
+04:03.872  render           | Saved: 'frames/ee1/f0109.png'
+frame 109 16.63s
+04:20.171  render           | Saved: 'frames/ee1/f0110.png'
+frame 110 16.30s
+04:36.510  render           | Saved: 'frames/ee1/f0111.png'
+frame 111 16.34s
+04:52.683  render           | Saved: 'frames/ee1/f0112.png'
+frame 112 16.17s
+05:08.885  render           | Saved: 'frames/ee1/f0113.png'
+frame 113 16.21s
+05:25.016  render           | Saved: 'frames/ee1/f0114.png'
+frame 114 16.13s
+05:41.688  render           | Saved: 'frames/ee1/f0115.png'
+frame 115 16.67s
+05:58.455  render           | Saved: 'frames/ee1/f0116.png'
+frame 116 16.76s
+06:15.400  render           | Saved: 'frames/ee1/f0117.png'
+frame 117 16.94s
+06:31.781  render           | Saved: 'frames/ee1/f0118.png'
+frame 118 16.38s
+06:48.352  render           | Saved: 'frames/ee1/f0119.png'
+frame 119 16.57s
+{"engine": "EEVEE", "mb_samples": 1, "frames": 24, "setup_s": 5.045370817184448, "render_s": 402.8866436481476, "mean_s_per_frame": 16.78694348533948, "max_s_per_frame": 18.521153450012207, "wall_s": 407.9345951080322, "res_percent": 100, "render_s_per_film_s": 407.9345951080322}
+{"cmd": "/opt/bpy/bin/python scene_bpy.py --engine EEVEE --start 96 --end 120 --mb 1 --outdir frames/ee1 --json ../raw/bench-c-ee-mb1.json", "exit": 0, "wall_s": 409.1, "peak_rss_mb": 2003.5}

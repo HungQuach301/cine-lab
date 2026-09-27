@@ -1,0 +1,21 @@
+{
+ "tag": "theme-dit",
+ "model": "acestep-v15-turbo (DiT only)",
+ "device": "cpu",
+ "threads": 4,
+ "steps": 8,
+ "duration_req_s": 60.0,
+ "seed": 20260926,
+ "caption": "Quiet cinematic theme for an animated short film. Solo felt piano with soft sustained strings and a distant celesta. Sad, still and tender at first, slowly opening into a small, warm feeling of hope. Slow tempo, sparse, intimate, lots of space, no drums, no vocals.",
+ "init_msg": "[OK] Model initialized successfully on cpu\nMain model: /opt/acestep-src/ACE-Step-1.5/checkpoints/acestep-v15-turbo\nVAE: /opt/acestep-src/ACE-Step-1.5/checkpoints/vae\nText encoder: /opt/acestep-src/ACE-Step-1.5/checkpoints/Qwen3-Embedding-0.6B\nDtype: torch.float32\nAttention: sdpa\nCompiled: False\nQuantization: Disabled\nOffload to CPU: False\nOffload DiT to CPU: False\nMLX DiT: Unavailable (PyTorch fallback)\nMLX VAE: Unavailable (PyTorch fallback)",
+ "dit_load_s": 23.1,
+ "lm_load_s": 0.0,
+ "generate_s": 230.9,
+ "total_s": 261.1,
+ "success": true,
+ "error": null,
+ "files": [
+  "theme-dit-1.flac"
+ ],
+ "torch": "2.14.0+cu130"
+}

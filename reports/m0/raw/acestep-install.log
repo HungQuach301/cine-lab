@@ -1,0 +1,33 @@
+++ date -u +%T
+16:39:00
+++ uv venv -p /usr/bin/python3.12 /opt/acestep
+Using CPython 3.12.3 interpreter at: /usr/bin/python3.12
+Creating virtual environment at: /opt/acestep
+Activate with: source /opt/acestep/bin/activate
+++ VIRTUAL_ENV=/opt/acestep
+++ uv pip install --index-url https://download.pytorch.org/whl/cpu torch==2.10.0 torchaudio==2.10.0 torchvision==0.25.0
+++ tail -5
+error: Failed to fetch: `https://download.pytorch.org/whl/cpu/torch/`
+  Caused by: Request failed after 3 retries
+  Caused by: error sending request for url (https://download.pytorch.org/whl/cpu/torch/)
+  Caused by: client error (Connect)
+  Caused by: tunnel error: unsuccessful
+++ tail -5
+++ VIRTUAL_ENV=/opt/acestep
+++ uv pip install 'transformers>=4.51.0,<4.58.0' 'diffusers>=0.37.0' matplotlib scipy soundfile loguru einops 'accelerate>=1.12.0' diskcache 'numba>=0.63.1' 'vector-quantize-pytorch>=1.27.15' 'torchao>=0.16.0,<0.17.0' toml modelscope 'peft>=0.18.0' safetensors==0.7.0 xxhash typer-slim pytorch-wavelets pywavelets huggingface_hub psutil fastapi uvicorn python-multipart gradio==6.2.0 'torchcodec>=0.9.1'
+ + urllib3==2.8.0
+ + uvicorn==0.54.0
+ + vector-quantize-pytorch==1.31.6
+ + xxhash==4.0.1
+ + zipp==4.1.0
+++ VIRTUAL_ENV=/opt/acestep
+++ uv pip install --no-deps -e .
+++ tail -3
+Prepared 1 package in 632ms
+Installed 1 package in 1ms
+ + ace-step==1.5.0 (from file:///opt/acestep-src/ACE-Step-1.5)
+++ date -u +%T
+16:40:02
+Prepared 1 package in 126ms
+Installed 1 package in 8ms
+ + torchaudio==2.11.0

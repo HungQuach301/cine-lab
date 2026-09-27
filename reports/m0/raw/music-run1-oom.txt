@@ -1,0 +1,6 @@
+# ACE-Step lần 1 (VAE chunk 256): log gốc bị lần chạy 2 ghi đè. Bằng chứng còn lại:
+# peakmem (chép từ đầu ra phiên): {"cmd": "/opt/acestep/bin/python .../acestep_gen.py --tag theme-dit --lm 0", "exit": -9, "wall_s": 127.69, "peak_rss_mb": 13573.8}
+# dmesg:
+[ 4917.134709] python invoked oom-killer: gfp_mask=0xcc0(GFP_KERNEL), order=0, oom_score_adj=0
+[ 4917.230938] oom-kill:constraint=CONSTRAINT_MEMCG,nodemask=(null),cpuset=/,mems_allowed=0,oom_memcg=/process_api/01a0de89-653b-71a1-87fc-78f7eedddac2/claude-code-bash,task_memcg=/process_api/01a0de89-653b-71a1-87fc-78f7eedddac2/claude-code-bash,task=python,pid=7354,uid=0
+[ 4917.238629] Memory cgroup out of memory: Killed process 7354 (python) total-vm:18126852kB, anon-rss:13951028kB, file-rss:2980kB, shmem-rss:0kB, UID:0 pgtables:29484kB oom_score_adj:0

@@ -1,0 +1,106 @@
+2026-09-26 17:48:03.181 | DEBUG    | acestep.core.generation.handler.init_service_memory_basic:_apply_malloc_mmap_threshold:50 - [memory] Set M_MMAP_THRESHOLD=131072 for immediate OS reclaim of large frees
+Skipping import of cpp extensions due to incompatible torch version 2.14.0+cu130 for torchao version 0.16.0             Please see https://github.com/pytorch/ao/issues/2919 for more info
+2026-09-26 17:48:07.946 | WARNING  | acestep.training.lokr_utils:<module>:24 - LyCORIS library not installed. LoKr training/inference unavailable. Install with: pip install lycoris-lora
+2026-09-26 17:48:07.947 | WARNING  | acestep.training.data_module:<module>:25 - Lightning not installed. Training module will not be available.
+2026-09-26 17:48:07.949 | WARNING  | acestep.training.trainer:<module>:29 - Lightning Fabric not installed. Training will use basic training loop.
+2026-09-26 17:48:07.949 | WARNING  | acestep.training.trainer:<module>:40 - bitsandbytes not installed. Using standard AdamW.
+2026-09-26 17:48:07.972 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:645 - ================================================================================
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:646 - ⚠️ GPU NOT DETECTED - DIAGNOSTIC INFORMATION
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:647 - ================================================================================
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:707 - ✓ PyTorch CUDA build detected
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:708 -   CUDA version: 13.0
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:709 - 
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:710 - ❌ torch.cuda.is_available() returned False
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:711 - 
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:712 - Common causes for NVIDIA GPUs:
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:713 -   1. NVIDIA drivers not installed
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:714 -   2. CUDA runtime not installed or version mismatch
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:715 -   3. GPU not supported by installed CUDA version
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:716 - 
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:717 - Troubleshooting steps:
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:718 -   1. Verify NVIDIA driver installation:
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:719 -      nvidia-smi  # Should list your GPU
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:720 -   2. Check CUDA version compatibility
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:721 -   3. Reinstall PyTorch with CUDA support:
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:722 -      pip install torch --index-url https://download.pytorch.org/whl/cu121
+2026-09-26 17:48:07.973 | WARNING  | acestep.gpu_config:_log_gpu_diagnostic_info:740 - ================================================================================
+2026-09-26 17:48:07.976 | INFO     | acestep.core.generation.handler.init_service_loader:_load_main_model_from_checkpoint:174 - [initialize_service] Attempting to load model with attention implementation: sdpa
+2026-09-26 17:48:31.022 | INFO     | acestep.core.generation.handler.mlx_dit_init:_init_mlx_dit:22 - [MLX-DiT] MLX not available on this platform; skipping.
+2026-09-26 17:48:31.022 | INFO     | acestep.core.generation.handler.mlx_vae_init:_init_mlx_vae:37 - [MLX-VAE] MLX not available on this platform; skipping.
+2026-09-26 17:48:31.023 | INFO     | acestep.inference:generate_music:662 - [generate_music] LLM usage decision: thinking=False, use_cot_caption=False, use_cot_language=False, use_cot_metas=True, need_lm_for_cot=True, llm_initialized=False, use_lm=False
+2026-09-26 17:48:31.023 | INFO     | acestep.core.generation.handler.generate_music:generate_music:313 - [generate_music] Turbo model detected: overriding guidance_scale 7.0 -> 1.0 (turbo does not use CFG).
+2026-09-26 17:48:31.023 | INFO     | acestep.core.generation.handler.generate_music:generate_music:329 - [generate_music] Starting generation...
+2026-09-26 17:48:31.023 | INFO     | acestep.core.generation.handler.generate_music:generate_music:332 - [generate_music] Preparing inputs...
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:119 - 
+======================================================================
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:120 - 🔍 [DEBUG] DiT TEXT ENCODER INPUT (Inference)
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:121 - ======================================================================
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:122 - text_prompt:
+# Instruction
+Fill the audio semantic mask based on the given conditions:
+
+# Caption
+Quiet cinematic theme for an animated short film. Solo felt piano with soft sustained strings and a distant celesta. Sad, still and tender at first, slowly opening into a small, warm feeling of hope. Slow tempo, sparse, intimate, lots of space, no drums, no vocals.
+
+# Metas
+- bpm: 66
+- timesignature: 4
+- keyscale: D minor
+- duration: 60 seconds
+<|endoftext|>
+
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:123 - ======================================================================
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:124 - lyrics_text:
+# Languages
+unknown
+
+# Lyric
+[Instrumental]<|endoftext|>
+2026-09-26 17:48:31.121 | INFO     | acestep.core.generation.handler.conditioning_text:_prepare_text_conditioning_inputs:125 - ======================================================================
+
+2026-09-26 17:48:31.136 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:110 - [preprocess_batch] Inferring prompt embeddings...
+2026-09-26 17:48:32.205 | INFO     | acestep.core.generation.handler.conditioning_embed:preprocess_batch:113 - [preprocess_batch] Inferring lyric embeddings...
+2026-09-26 17:48:32.206 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:173 - [service_generate] Generating audio... (DiT backend: PyTorch (cpu))
+2026-09-26 17:48:36.244 | INFO     | acestep.core.generation.handler.service_generate_execute:_execute_service_generate_diffusion:276 - [service_generate] DiT diffusion via PyTorch (cpu)...
+2026-09-26 17:48:40.043 | INFO     | acestep.models.common.dcw_correction:__init__:98 - [DCW] Active — mode=double, scaler=0.0500, high_scaler=0.0200, wavelet='haar'
+2026-09-26 17:48:49.719 | WARNING  | acestep.models.common.dcw_loader:_try_import:39 - DCW is enabled but 'pytorch_wavelets' is not installed. Install with `pip install pytorch_wavelets PyWavelets` to use Differential Correction in Wavelet domain. Falling back to no-op for this generation.
+2026-09-26 17:49:58.232 | INFO     | acestep.core.generation.handler.generate_music_decode:_prepare_generate_music_decode_state:42 - [generate_music] Model generation completed. Decoding latents...
+2026-09-26 17:49:58.233 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_prepare_generate_music_decode_state:64 - [generate_music] pred_latents: torch.Size([1, 1500, 64]), dtype=torch.float32
+2026-09-26 17:49:58.234 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_prepare_generate_music_decode_state:65 - [generate_music] time_costs: {'encoder_time_cost': 3.79753041267395, 'diffusion_time_cost': 78.18649053573608, 'diffusion_per_step_time_cost': 9.77331131696701, 'total_time_cost': 81.98402094841003, 'offload_time_cost': 0.0}
+2026-09-26 17:49:58.251 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:127 - [generate_music] Decoding latents with VAE...
+2026-09-26 17:49:58.252 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:136 - [generate_music] Before VAE decode: allocated=0.00GB, max=0.00GB
+2026-09-26 17:49:58.255 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:154 - [generate_music] Effective free VRAM before VAE decode: 0.00 GB
+2026-09-26 17:49:58.255 | WARNING  | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:159 - [generate_music] Only 0.00 GB free VRAM; auto-enabling CPU VAE decode
+2026-09-26 17:49:58.255 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:165 - [generate_music] Moving VAE to CPU for decode (ACESTEP_VAE_ON_CPU=1)...
+2026-09-26 17:49:58.259 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:172 - [generate_music] Using tiled VAE decode to reduce VRAM usage...
+2026-09-26 17:49:58.259 | INFO     | acestep.core.generation.handler.vae_decode:tiled_decode:56 - [tiled_decode] chunk_size=64, offload_wav_to_cpu=True, latents_shape=torch.Size([1, 64, 1500])
+2026-09-26 17:49:58.259 | WARNING  | acestep.core.generation.handler.vae_decode_chunks:_tiled_decode_inner:39 - [tiled_decode] Reduced overlap from 64 to 16 for chunk_size=64
+2026-09-26 17:52:20.806 | INFO     | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:190 - [generate_music] Restoring VAE to original device after CPU decode path...
+2026-09-26 17:52:20.812 | DEBUG    | acestep.core.generation.handler.generate_music_decode:_decode_generate_music_pred_latents:193 - [generate_music] After VAE decode: allocated=0.00GB, max=0.00GB
+2026-09-26 17:52:21.084 | INFO     | acestep.core.generation.handler.generate_music_payload:_build_generate_music_success_payload:38 - [generate_music] VAE decode completed. Preparing audio tensors...
+2026-09-26 17:52:21.084 | INFO     | acestep.core.generation.handler.generate_music_payload:_build_generate_music_success_payload:50 - [generate_music] Done! Generated 1 audio tensors.
+2026-09-26 17:52:21.315 | INFO     | acestep.inference:generate_music:1002 - [Normalization] Audio 0 BEFORE: Peak=0.8057, Target=-1.0dB
+2026-09-26 17:52:21.339 | INFO     | acestep.inference:generate_music:1007 - [Normalization] Audio 0 AFTER: Peak=0.8913
+2026-09-26 17:52:21.919 | DEBUG    | acestep.audio_utils:save_audio:319 - [AudioSaver] Saved audio to /home/user/cine-lab/reports/m0/music/dd98fe28-470a-2fa5-80e6-ab43c9cc3657.flac (flac, 48000Hz)
+{
+ "tag": "theme-dit",
+ "model": "acestep-v15-turbo (DiT only)",
+ "device": "cpu",
+ "threads": 4,
+ "steps": 8,
+ "duration_req_s": 60.0,
+ "seed": 20260926,
+ "caption": "Quiet cinematic theme for an animated short film. Solo felt piano with soft sustained strings and a distant celesta. Sad, still and tender at first, slowly opening into a small, warm feeling of hope. Slow tempo, sparse, intimate, lots of space, no drums, no vocals.",
+ "init_msg": "[OK] Model initialized successfully on cpu\nMain model: /opt/acestep-src/ACE-Step-1.5/checkpoints/acestep-v15-turbo\nVAE: /opt/acestep-src/ACE-Step-1.5/checkpoints/vae\nText encoder: /opt/acestep-src/ACE-Step-1.5/checkpoints/Qwen3-Embedding-0.6B\nDtype: torch.float32\nAttention: sdpa\nCompiled: False\nQuantization: Disabled\nOffload to CPU: False\nOffload DiT to CPU: False\nMLX DiT: Unavailable (PyTorch fallback)\nMLX VAE: Unavailable (PyTorch fallback)",
+ "dit_load_s": 23.1,
+ "lm_load_s": 0.0,
+ "generate_s": 230.9,
+ "total_s": 261.1,
+ "success": true,
+ "error": null,
+ "files": [
+  "theme-dit-1.flac"
+ ],
+ "torch": "2.14.0+cu130"
+}
+{"cmd": "/opt/acestep/bin/python /home/user/cine-lab/reports/m0/music/acestep_gen.py --tag theme-dit --lm 0", "exit": 0, "wall_s": 263.53, "peak_rss_mb": 13543.2}

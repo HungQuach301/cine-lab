@@ -1,0 +1,7 @@
+== a-2d-mb8-clean 17:18:37
+{"cmd": "node render_chromium.js --style 2d --samples 8 --out ../media/a-2d-mb8.mp4 --json ../raw/bench-a-2d-mb8-clean.json", "exit": 0, "wall_s": 421.33, "peak_rss_mb": 1362.6}
+== b-3d-mb8-clean 17:25:39
+{"cmd": "node render_chromium.js --style 3d --samples 8 --out ../media/b-3d-mb8.mp4 --json ../raw/bench-b-3d-mb8-clean.json", "exit": 0, "wall_s": 453.63, "peak_rss_mb": 1452.7}
+== a-2d-mb1-jpeg 17:33:12
+{"cmd": "node render_chromium.js --style 2d --samples 1 --fmt image/jpeg --out frames/a-2d-mb1-jpeg.mp4 --json ../raw/bench-a-2d-mb1-jpeg.json", "exit": 0, "wall_s": 66.47, "peak_rss_mb": 1294.3}
+== DONE 17:34:19
