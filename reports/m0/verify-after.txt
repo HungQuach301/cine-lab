@@ -1,0 +1,13 @@
+== Máy: 4 vCPU, 15 GB RAM, đĩa trống 27G
+== RESULT apt=1 py=0 playwright=0 bpy=1 (0 = OK)
+PASS  ffmpeg 6.1.1-3ubuntu5
+PASS  ffmpeg ebur128 (đo LUFS)
+PASS  Python chính: faster-whisper, pyloudnorm, opencv, scenedetect, elevenlabs, librosa
+PASS  Blender bpy 5.2.2 LTS
+PASS  Chromium (Playwright)
+PASS  ElevenLabs API (khoá được proxy gắn)
+PASS  Hugging Face
+PASS  PyPI
+PASS  Freesound
+PASS  ffmpeg encode H.264 1080p24
+== Tổng: 10 PASS, 0 FAIL

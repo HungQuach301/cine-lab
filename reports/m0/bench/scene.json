@@ -1,0 +1,13 @@
+{
+  "_doc": "Cảnh mẫu M0 dùng chung cho 3 phong cách. Đơn vị: px ở 1920x1080 (2D) hoặc m (3D, 1 m = 100 px).",
+  "width": 1920, "height": 1080, "fps": 24, "duration_s": 10,
+  "motion_blur": {"samples": 8, "shutter": 0.5},
+  "camera": {"pan_px_per_s": 60},
+  "character": {"start_x": -250, "end_x": 2500, "ground_y": 900, "height_px": 260, "step_hz": 1.8},
+  "layers": [
+    {"name": "far",  "parallax": 0.15, "color": "#3b2f4a"},
+    {"name": "mid",  "parallax": 0.5,  "color": "#2a2233"},
+    {"name": "near", "parallax": 1.4,  "color": "#120e16"}
+  ],
+  "light": {"type": "warm_point", "world_x": 1150, "y": 560, "color": "#ffb45a", "radius_px": 520}
+}

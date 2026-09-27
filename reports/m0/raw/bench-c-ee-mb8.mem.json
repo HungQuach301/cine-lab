@@ -1,0 +1,6 @@
+{
+ "cmd": "/opt/bpy/bin/python scene_bpy.py --engine EEVEE --start 96 --end 102 --mb 8 --outdir frames/ee8 --json ../raw/bench-c-ee-mb8.json",
+ "exit": 0,
+ "wall_s": 97.15,
+ "peak_rss_mb": 2022.1
+}

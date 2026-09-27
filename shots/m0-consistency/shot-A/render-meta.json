@@ -1,0 +1,46 @@
+{
+  "sheet": "/home/user/cine-lab/reports/m0/consistency/model-sheet.json",
+  "H_px": 57.142857142857146,
+  "target_height_px": 320.0,
+  "origin_hip_px": [
+    760.0,
+    615.8503576777921
+  ],
+  "ground_y": 738.0,
+  "supersample_masks": 8,
+  "supersample_frame": 4,
+  "pose": {
+    "near_leg": [
+      68,
+      82,
+      -2
+    ],
+    "far_leg": [
+      110,
+      128,
+      28
+    ],
+    "near_arm": [
+      52,
+      -18
+    ],
+    "far_arm": [
+      120,
+      108
+    ],
+    "pole_angle": -58,
+    "pole_grip_frac": 0.3,
+    "hat_sink": 0.15,
+    "brim_thickness_frac": 0.18,
+    "crown_width_frac": 0.9,
+    "hat_shift": -0.02
+  },
+  "masks": {
+    "head": "masks/head.png",
+    "torso": "masks/torso.png",
+    "upper_arm": "masks/upper_arm.png",
+    "forearm": "masks/forearm.png",
+    "thigh": "masks/thigh.png",
+    "shin": "masks/shin.png"
+  }
+}

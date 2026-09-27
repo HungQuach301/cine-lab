@@ -1,0 +1,18 @@
+{
+ "config": "2D Canvas, motion blur 8 mẫu, 240 khung chia đôi 0–119 / 120–239",
+ "solo_wall_s": 420.806,
+ "w1_wall_s": 360.754,
+ "w2_wall_s": 360.135,
+ "parallel_render_span_s": 365.9,
+ "total_incl_agent_overhead_s": 381.8,
+ "agent_overhead_s": 15.9,
+ "speedup_render": 1.15,
+ "speedup_total": 1.102,
+ "concat_vs_solo_psnr_db": {
+  "avg": 56.85,
+  "min": 53.59,
+  "note": "khung nguồn giống nhau; chênh do x264 mã hoá 2 đoạn riêng"
+ },
+ "conflicts": "Không xung đột git. 2 lệnh git bị bộ lọc cách ly worktree chặn nhầm (chữ \"parallel\" bị hiểu là lệnh parallel/xargs); agent vòng qua bằng git -C.",
+ "worktree_base": "Worktree tạo từ main (ea7b185), KHÔNG từ nhánh đang làm; agent phải git checkout <commit> -- <paths>."
+}

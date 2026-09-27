@@ -1,0 +1,163 @@
+{
+ "voices": [
+  [
+   "V1-maria-moody",
+   "wGcFBfKz5yUQqhqr0mVy",
+   "Maria Moody - Grandmotherly Storykeeper (old, female, American; notice 730 ngày)"
+  ],
+  [
+   "V2-beatrice",
+   "kkPJzQOWz2Oz9cUaEaQd",
+   "Beatrice - Mature, Gentle and Engaging (old, female, British; notice 730 ngày)"
+  ],
+  [
+   "C1-austin",
+   "Xb3zeLrTi6F4ziIcXdwk",
+   "Austin - Timid and Casual (young male, American; \"timid orphan boy\"; notice 730 ngày)"
+  ]
+ ],
+ "takes": [
+  {
+   "file": "takes/V1-maria-moody_t1-natural.mp3",
+   "voice_id": "wGcFBfKz5yUQqhqr0mVy",
+   "model": "eleven_v3",
+   "stability": 0.5,
+   "seed": 101,
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] Forty years... every single night. [whispers] You'll be brighter now. Just... don't forget how warm we were.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 8.09,
+   "character_cost": null,
+   "request_id": "6ymHcdNJ2hErVv4usepN"
+  },
+  {
+   "file": "takes/V1-maria-moody_t2-creative.mp3",
+   "voice_id": "wGcFBfKz5yUQqhqr0mVy",
+   "model": "eleven_v3",
+   "stability": 0.0,
+   "seed": 202,
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] Forty years... every single night. [whispers] You'll be brighter now. Just... don't forget how warm we were.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 7.38,
+   "character_cost": null,
+   "request_id": "btmiYyJc38ZplL2VvEO1"
+  },
+  {
+   "file": "takes/V1-maria-moody_t3-creative.mp3",
+   "voice_id": "wGcFBfKz5yUQqhqr0mVy",
+   "model": "eleven_v3",
+   "stability": 0.0,
+   "seed": 303,
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] Forty years... every single night. [whispers] You'll be brighter now. Just... don't forget how warm we were.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 5.7,
+   "character_cost": null,
+   "request_id": "5yLGExaMn685tAiIDftB"
+  },
+  {
+   "file": "takes/V2-beatrice_t1-natural.mp3",
+   "voice_id": "kkPJzQOWz2Oz9cUaEaQd",
+   "model": "eleven_v3",
+   "stability": 0.5,
+   "seed": 101,
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] Forty years... every single night. [whispers] You'll be brighter now. Just... don't forget how warm we were.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 10.71,
+   "character_cost": null,
+   "request_id": "1LGBDuDto6vIlr2mJlU0"
+  },
+  {
+   "file": "takes/V2-beatrice_t2-creative.mp3",
+   "voice_id": "kkPJzQOWz2Oz9cUaEaQd",
+   "model": "eleven_v3",
+   "stability": 0.0,
+   "seed": 202,
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] Forty years... every single night. [whispers] You'll be brighter now. Just... don't forget how warm we were.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 4.82,
+   "character_cost": null,
+   "request_id": "gP9EhGqP2mfm8XP4nDQN"
+  },
+  {
+   "file": "takes/V2-beatrice_t3-creative.mp3",
+   "voice_id": "kkPJzQOWz2Oz9cUaEaQd",
+   "model": "eleven_v3",
+   "stability": 0.0,
+   "seed": 303,
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] Forty years... every single night. [whispers] You'll be brighter now. Just... don't forget how warm we were.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 3.91,
+   "character_cost": null,
+   "request_id": "b9pnydJhRDVI48R5GnyM"
+  },
+  {
+   "kind": "voice_design",
+   "description": "An elderly English woman in her late seventies, soft and slightly hoarse, frail breath, a working woman's warmth, speaking quietly and close to the microphone, emotional, on the edge of tears.",
+   "text_clean": "That's the last one, then. Goodnight, old street. Forty years, every single night. You'll be brighter now. Just don't forget how warm we were.",
+   "http": 200,
+   "latency_s": 9.33,
+   "character_cost": null,
+   "files": [
+    {
+     "file": "takes/V3-designed_t1-preview.mp3",
+     "generated_voice_id": "O9VUPrv4UMUyC0WM40iS",
+     "duration_s": 17.948875
+    },
+    {
+     "file": "takes/V3-designed_t2-preview.mp3",
+     "generated_voice_id": "59pjz3MTZdh9U1AETKfW",
+     "duration_s": 17.7138125
+    },
+    {
+     "file": "takes/V3-designed_t3-preview.mp3",
+     "generated_voice_id": "UURLgKseeRNWf2aVWfZF",
+     "duration_s": 20.0386875
+    }
+   ]
+  },
+  {
+   "file": "takes/C1-austin_t1-natural.mp3",
+   "voice_id": "Xb3zeLrTi6F4ziIcXdwk",
+   "model": "eleven_v3",
+   "stability": 0.5,
+   "seed": 101,
+   "text_sent": "[timidly] Please... could you light the old one? [whispers] The new ones hurt my eyes.",
+   "text_clean": "Please, could you light the old one? The new ones hurt my eyes.",
+   "http": 200,
+   "latency_s": 7.67,
+   "character_cost": null,
+   "request_id": "xxhVs9eLKFJ8RaNJNBf2"
+  },
+  {
+   "file": "takes/C1-austin_t2-creative.mp3",
+   "voice_id": "Xb3zeLrTi6F4ziIcXdwk",
+   "model": "eleven_v3",
+   "stability": 0.0,
+   "seed": 202,
+   "text_sent": "[timidly] Please... could you light the old one? [whispers] The new ones hurt my eyes.",
+   "text_clean": "Please, could you light the old one? The new ones hurt my eyes.",
+   "http": 200,
+   "latency_s": 2.55,
+   "character_cost": null,
+   "request_id": "mTwuULZsvPf4Zgap2zMU"
+  },
+  {
+   "file": "takes/C1-austin_t3-creative.mp3",
+   "voice_id": "Xb3zeLrTi6F4ziIcXdwk",
+   "model": "eleven_v3",
+   "stability": 0.0,
+   "seed": 303,
+   "text_sent": "[timidly] Please... could you light the old one? [whispers] The new ones hurt my eyes.",
+   "text_clean": "Please, could you light the old one? The new ones hurt my eyes.",
+   "http": 200,
+   "latency_s": 2.38,
+   "character_cost": null,
+   "request_id": "CRWCWiqVFpHKyeeGs0oe"
+  }
+ ]
+}

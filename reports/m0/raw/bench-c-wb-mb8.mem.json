@@ -1,0 +1,6 @@
+{
+ "cmd": "/opt/bpy/bin/python scene_bpy.py --engine WORKBENCH --start 96 --end 120 --mb 8 --outdir frames/wb8 --json ../raw/bench-c-wb-mb8.json",
+ "exit": 0,
+ "wall_s": 484.56,
+ "peak_rss_mb": 1229.5
+}
