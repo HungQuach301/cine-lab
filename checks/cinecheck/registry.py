@@ -145,10 +145,13 @@ RULES = {
                 "hoá: chữ thường, bỏ dấu câu, dấu nháy và gạch nối, số → chữ; v1.2: từ ghép/tách theo bảng COMPOUND "
                 "(goodnight = good night…, RULES.md) cho cả kịch bản và bản nghe. Từ bắt buộc = toàn bộ từ trong "
                 "kịch bản thoại. v1.2: (1) lượt ASR toàn file, căn Levenshtein với kịch bản để lấy mốc từng câu "
-                "(câu = dòng kịch bản); cửa sổ câu = mốc chữ đầu/cuối nới tối đa 2 s, không vượt điểm giữa khoảng "
-                "lặng với câu kề; cửa sổ > 28 s tách tại khoảng lặng lớn nhất. (2) ASR riêng từng cửa sổ câu, căn "
-                "với câu đó. (3) Chữ ASR nằm hoàn toàn trong im lặng số (mọi khung 50 ms chạm chữ có RMS < "
-                "−60 dBFS) bị bỏ, liệt kê trong báo cáo. (4) Chữ lượt toàn file nằm ngoài mọi cửa sổ câu (không "
+                "(câu = dòng kịch bản); cửa sổ câu = mốc chữ neo đầu/cuối nới tối đa 2 s; v1.3: ranh giới hai câu = "
+                "tâm đoạn lặng dài nhất (khung 50 ms ≤ min + 10 dB, năng lượng stem thoại nếu có, không thì mix) giữa "
+                "lúc BẮT ĐẦU chữ neo cuối câu trước và chữ neo đầu câu sau; cửa sổ > 28 s tách tại khoảng lặng lớn nhất. (2) ASR riêng từng cửa sổ câu, căn "
+                "với câu đó. (3) v1.3 (Q-J1c): có <video>.stems/dialogue.* thì chữ ASR chỉ được giữ khi stem thoại có "
+                "lời (≥ 1 khung 10 ms > max(đỉnh − 35 dB, −60 dBFS), như J1b) trong [đầu chữ − 0,15 s, cuối chữ + 0,15 s]; "
+                "không có stem thì chữ nằm hoàn toàn trong im lặng số (mọi khung 50 ms chạm chữ có RMS < −60 dBFS) bị bỏ. "
+                "Chữ bị bỏ liệt kê trong báo cáo. (4) Chữ lượt toàn file nằm ngoài mọi cửa sổ câu (không "
                 "trong im lặng số) tính là chèn.",
         threshold="100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ).",
         profiles=("shot", "youtube", "archive"),
@@ -211,13 +214,21 @@ RULES = {
                 "sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 2 px "
                 "mặt nạ (v1.2; v1.1: 1 px); hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 và phủ cả sai số của "
                 "mặt nạ phóng to từ matte 1× khử răng cưa rồi ngưỡng hoá (loại không phát hiện được bằng ảnh). "
+                "v1.3 (Q-δ): đầu < 100 px video ở khung mẫu bất kỳ thì hệ số mặt nạ ≥ 4. v1.3 (Q-C3c) kiểm toán ngẫu "
+                "nhiên: phiên P chạy checks/audit.py issue (hạt giống từ secrets, 1–2 khung trong khung mẫu, ghi "
+                "<video>.audit/request.json kèm SHA video và SHA bộ mặt nạ); xưởng render lại mặt nạ các khung đó từ "
+                "file cảnh đã khoá vào <video>.audit/rerender/ và ghi render.log (SCENE <file> SHA256 <hex>; FRAME <n> "
+                "CMD <lệnh>). Đối chiếu: video và bộ mặt nạ không đổi sau khi phát; log đủ, SHA file cảnh khớp đĩa "
+                "(và thuộc scene_files nếu có assets.json); đủ mặt nạ render lại cùng cỡ; lệch tỷ lệ bộ phận/đầu nộp "
+                "so với render lại ≤ 1·U (δ = 2); điểm ảnh khác nhau / điểm ảnh biên ≤ 0,02. Chưa có yêu cầu = THIẾU. "
                 "v1.2 (C3b): dải xám ở biên (điểm ảnh mức 6–249 / điểm ảnh biên) ≤ 2,5 — mặt nạ phóng to còn giữ "
                 "mức xám thì trượt. Quyết định kiểu "
                 "ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = "
                 "không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh "
                 "ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
         threshold="Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; "
-                  "dải xám biên ≤ 2,5; "
+                  "dải xám biên ≤ 2,5; đầu < 100 px thì ≥ 4×; kiểm toán ngẫu nhiên đạt (lệch ≤ 1·U, khác điểm ảnh ≤ 0,02, "
+                  "log và SHA file cảnh khớp); "
                   "0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu "
                   "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ).",
         profiles=("shot", "youtube", "archive"),

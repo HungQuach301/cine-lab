@@ -8,10 +8,16 @@ v1.2 (3 khiếu nại J1 được chấp nhận, 27/09/2026):
    thời gian; cắt audio theo mốc câu; ASR riêng từng câu; căn từng câu. Chữ lượt toàn file nằm ngoài mọi
    cửa sổ câu (và không nằm trong im lặng số) vẫn tính là chèn.
 Ngưỡng không đổi: 100% từ bắt buộc; WER ≤ 5%.
+
+v1.3 (Q-J1c): khi có <video>.stems/dialogue.* (bắt buộc theo J1b), một chữ ASR chỉ được giữ (và tính chèn nếu
+không khớp kịch bản) khi stem thoại có lời nói tại thời điểm đó: có ít nhất một khung 10 ms "có lời" (định nghĩa
+như J1b: năng lượng > max(đỉnh − 35 dB, −60 dBFS)) trong [đầu chữ − 0,15 s, cuối chữ + 0,15 s]. Chữ rơi vào đoạn
+stem thoại im lặng bị bỏ và liệt kê. Không có stem: giữ quy tắc im lặng số −60 dBFS của v1.2 (J1b khi đó báo THIẾU).
 """
 import re
 import subprocess
 import unicodedata
+from pathlib import Path
 
 import numpy as np
 
@@ -121,6 +127,7 @@ _model = None
 SR = 16000
 SIL_DB = -60.0      # im lặng số: RMS khung 50 ms < −60 dBFS
 SIL_FRAME = 0.05
+SPEECH_MARGIN = 0.15  # dung sai mốc chữ ASR so với stem (J1b cho phép lệch stem–mix ±100 ms)
 PAD_MAX = 2.0       # cửa sổ câu nới tối đa 2 s ra ngoài chữ neo đầu/cuối (không vượt điểm giữa khoảng lặng)
 WIN_MAX = 28.0      # cửa sổ > 28 s được tách tại khoảng cách câu lớn nhất (Whisper giải mã 30 s)
 
@@ -201,15 +208,42 @@ def script_lines(path):
     return out
 
 
-def _word_list(words, sil):
-    """Tách chữ ASR thành [(t0, t1, từ chuẩn hoá)] giữ lại, và danh sách chữ bị bỏ vì im lặng số."""
+def dialogue_activity(stem_dir):
+    """(mặt nạ 'có lời' khung 10 ms như J1b, tên file, năng lượng 50 ms). (None, None, None) nếu không có stem thoại."""
+    from .rule_j1b import AUDIO_EXT
+    d = Path(stem_dir)
+    dia = [p for p in sorted(d.iterdir()) if p.suffix.lower() in AUDIO_EXT and p.stem.lower() == "dialogue"]
+    if not dia:
+        return None, None, None
+    x = load_audio(dia[0])
+    hop = SR // 100
+    fr = len(x) // hop
+    e = 10 * np.log10(np.mean(x[:fr * hop].astype(np.float64).reshape(fr, hop) ** 2, 1) + 1e-20)
+    if fr == 0 or e.max() < -60:
+        return np.zeros(max(fr, 1), bool), dia[0].name, energy50(x)
+    return e > max(e.max() - 35, -60), dia[0].name, energy50(x)
+
+
+def speech_at(act, t0, t1):
+    a = max(0, int(np.floor((t0 - SPEECH_MARGIN) * 100)))
+    b = min(len(act), int(np.ceil((t1 + SPEECH_MARGIN) * 100)) + 1)
+    return a < b and bool(act[a:b].any())
+
+
+def _word_list(words, sil, act=None):
+    """Tách chữ ASR thành [(t0, t1, từ chuẩn hoá)] giữ lại, và danh sách chữ bị bỏ.
+    act (mặt nạ lời của stem thoại) có thì bỏ chữ ngoài đoạn có lời; không có thì bỏ chữ trong im lặng số."""
     kept, dropped = [], []
     for t0, t1, w in words:
         toks = normalize(w)
         if not toks:
             continue
-        if in_silence(sil, t0, t1):
-            dropped.append(dict(bat_dau=round(t0, 2), ket_thuc=round(t1, 2), chu=w))
+        if act is not None:
+            if not speech_at(act, t0, t1):
+                dropped.append(dict(bat_dau=round(t0, 2), ket_thuc=round(t1, 2), chu=w, ly_do="stem thoại im"))
+                continue
+        elif in_silence(sil, t0, t1):
+            dropped.append(dict(bat_dau=round(t0, 2), ket_thuc=round(t1, 2), chu=w, ly_do="im lặng số"))
             continue
         kept += [(t0, t1, t) for t in toks]
     return kept, dropped
@@ -239,8 +273,39 @@ def _align_map(ref, hyp):
     return mp
 
 
-def sentence_windows(lines, full_words, dur):
-    """Mốc câu từ căn kịch bản với chữ lượt toàn file. Trả list (t0, t1, neo_đầu, neo_cuối) mỗi câu."""
+def energy50(x):
+    """Năng lượng (dB) theo khung 50 ms."""
+    n = int(SR * SIL_FRAME)
+    k = len(x) // n
+    return 10 * np.log10(np.mean(x[:k * n].astype(np.float64).reshape(k, n) ** 2, 1) + 1e-20)
+
+
+def quiet_cut(e, t0, t1):
+    """Điểm cắt giữa hai câu: tâm đoạn lặng dài nhất (khung ≤ min + 10 dB) trong [t0, t1] (giây).
+    v1.3: không dùng mốc KẾT THÚC chữ của Whisper (chữ cuối câu có thể bị kéo dài nuốt chữ đầu câu sau)."""
+    a, b = int(np.floor(t0 / SIL_FRAME)), int(np.ceil(t1 / SIL_FRAME))
+    a, b = max(0, a), min(len(e), b)
+    if b - a < 3:
+        return (t0 + t1) / 2
+    seg = e[a:b]
+    q = seg <= seg.min() + 10
+    best, cur, start, bs = 0, 0, 0, 0
+    for i, v in enumerate(list(q) + [False]):
+        if v:
+            if cur == 0:
+                start = i
+            cur += 1
+        else:
+            if cur > best:
+                best, bs = cur, start
+            cur = 0
+    return (a + bs + best / 2) * SIL_FRAME
+
+
+def sentence_windows(lines, full_words, dur, e=None):
+    """Mốc câu từ căn kịch bản với chữ lượt toàn file. Trả list (t0, t1, neo) mỗi câu.
+    Ranh giới hai câu neo được = đoạn lặng dài nhất giữa lúc BẮT ĐẦU chữ neo cuối câu trước và lúc bắt đầu
+    chữ neo đầu câu sau (e: năng lượng 50 ms của stem thoại nếu có, không thì của mix)."""
     ref, owner = [], []
     for k, (_, w) in enumerate(lines):
         ref += w
@@ -250,18 +315,26 @@ def sentence_windows(lines, full_words, dur):
     anchors = [[] for _ in lines]
     for ri, hj in mp.items():
         anchors[owner[ri]].append((full_words[hj][0], full_words[hj][1]))
-    span = [(min(a[0] for a in an), max(a[1] for a in an)) if an else None for an in anchors]
+    # (bắt đầu chữ neo đầu, kết thúc chữ neo cuối, bắt đầu chữ neo cuối)
+    span = [(min(a[0] for a in an), max(a[1] for a in an), max(a[0] for a in an)) if an else None
+            for an in anchors]
+    idx = [k for k in range(len(lines)) if span[k]]
+    cut = {}
+    for k, k2 in zip(idx, idx[1:]):
+        t0, t1 = span[k][2], span[k2][0]
+        cut[(k, k2)] = quiet_cut(e, t0, t1) if e is not None and t1 > t0 else (span[k][1] + t1) / 2
     wins = []
     for k in range(len(lines)):
-        prev_end = next((span[j][1] for j in range(k - 1, -1, -1) if span[j]), 0.0)
-        next_start = next((span[j][0] for j in range(k + 1, len(lines)) if span[j]), dur)
+        pk = next((j for j in range(k - 1, -1, -1) if span[j]), None)
+        nk = next((j for j in range(k + 1, len(lines)) if span[j]), None)
         if span[k]:
-            a0, a1 = span[k]
-            lo = max(a0 - PAD_MAX, (prev_end + a0) / 2 if k else 0.0, 0.0)
-            hi = min(a1 + PAD_MAX, (a1 + next_start) / 2 if k < len(lines) - 1 else dur, dur)
-        else:  # câu không neo được: cả khoảng giữa hai câu neo
-            lo, hi = prev_end, next_start
-        wins.append((lo, hi, span[k]))
+            a0, a1, _ = span[k]
+            lo = max(a0 - PAD_MAX, cut[(pk, k)] if pk is not None else 0.0, 0.0)
+            hi = min(a1 + PAD_MAX, cut[(k, nk)] if nk is not None else dur, dur)
+        else:  # câu không neo được: từ lúc bắt đầu chữ neo cuối câu trước tới chữ neo đầu câu sau
+            lo = span[pk][2] if pk is not None else 0.0
+            hi = span[nk][0] if nk is not None else dur
+        wins.append((lo, hi, (span[k][0], span[k][1]) if span[k] else None))
     return wins
 
 
@@ -275,7 +348,7 @@ def _split_long(lo, hi, words):
     return _split_long(lo, cut, words) + _split_long(cut, hi, words)
 
 
-def check_j1(path, profile, script_path=None):
+def check_j1(path, profile, script_path=None, stem_dir=None):
     if stream(probe(path), "audio") is None:
         return result("J1", FAIL, notes=["Không có luồng âm."])
     ref = normalize(script_text(script_path))
@@ -287,10 +360,15 @@ def check_j1(path, profile, script_path=None):
     audio = load_audio(path)
     dur = len(audio) / SR
     sil = silence_mask(audio)
+    act, stem_name, e_cut = None, None, energy50(audio)
+    if stem_dir is not None and Path(stem_dir).is_dir():
+        act, stem_name, e_stem = dialogue_activity(stem_dir)
+        if e_stem is not None:
+            e_cut = e_stem
     # lượt 1: toàn file, để căn kịch bản với thời gian và bắt lời nằm ngoài mọi câu
     full_text, full_segs, full_raw = asr(audio)
-    full_words, dropped_full = _word_list(full_raw, sil)
-    wins = sentence_windows(lines, full_words, dur)
+    full_words, dropped_full = _word_list(full_raw, sil, act)
+    wins = sentence_windows(lines, full_words, dur, e_cut)
     # lượt 2: từng câu
     S = D = I = 0
     hit_all, per, dropped = [], [], list(dropped_full)
@@ -298,7 +376,7 @@ def check_j1(path, profile, script_path=None):
         hyp_words = []
         for a, b in _split_long(lo, hi, full_words):
             _, _, raw = asr(audio[int(a * SR):int(b * SR)], offset=a)
-            kept, dr = _word_list(raw, sil)
+            kept, dr = _word_list(raw, sil, act)
             hyp_words += kept
             dropped += dr
         hw = [w for _, _, w in hyp_words]
@@ -325,7 +403,10 @@ def check_j1(path, profile, script_path=None):
           metric("WER", wer, "<=", 5.0, "%")]
     sil_regions = [r for r in silent_regions(sil) if r[1] - r[0] >= 0.5]
     notes = [f"{len(lines)} câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). "
-             f"Chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < {SIL_DB:g} dBFS): {len(dropped)}"
+             + ((f"Chữ ASR bị bỏ vì stem thoại '{stem_name}' không có lời tại đó (Q-J1c): {len(dropped)}")
+              if act is not None else
+              f"Không có stem thoại: chữ ASR bị bỏ vì nằm hoàn toàn trong im lặng số (RMS 50 ms < {SIL_DB:g} dBFS): "
+              f"{len(dropped)}")
              + (": " + "; ".join(f"'{x['chu']}' {x['bat_dau']}–{x['ket_thuc']} s" for x in dropped[:10])
                 if dropped else "") + ".",
              f"Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): {len(outside)}"

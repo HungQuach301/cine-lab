@@ -20,6 +20,8 @@ nhân mượt (song tuyến, bicubic, Lanczos) KHÔNG phân biệt được đá
 2,0 px mặt nạ, đủ phủ sai số của cả loại này (tối đa 1,557·U(δ=1) trên ~770 mẫu, s = 2–4, đầu 40–146 px) và
 của mặt nạ thật ở mọi cỡ đầu (tối đa 1,21·U(δ=1): mô hình δ = 1 của v1.1 che thiếu khi khảo sát thêm cỡ đầu):
 mặt nạ phóng to không thể dẫn tới kết luận "đạt" sai.
+v1.3: (Q-δ) đầu nhân vật cao < 100 px video ở bất kỳ khung mẫu nào thì mặt nạ phải ≥ 4×. (Q-C3c) kiểm toán ngẫu
+nhiên (cinecheck/audit.py) khi chạy qua run.py: thiếu yêu cầu kiểm toán → THIẾU; đối chiếu trượt → TRƯỢT.
 Quy tắc quyết định kiểu ISO 14253-1 (dải bảo vệ):
   đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; còn lại = không chứng minh được.
 """
@@ -30,10 +32,11 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from .common import FAIL, frame_count, metric, probe, read_rgb, result, stream
+from .common import FAIL, MISSING, frame_count, metric, probe, read_rgb, result, stream
 
 TOL = 0.03          # khung mục 4.C (nội bộ)
 DELTA_PX = 2.0      # sai số đầu mút tổng mỗi độ dài (px mặt nạ); v1.2 nâng từ 1,0 (xem đầu file), hiệu chuẩn selftest
+HEAD_4X = 100.0     # v1.3 (Q-δ): đầu < 100 px video thì mặt nạ bắt buộc ≥ 4×
 RAMP_MAX = 2.5      # độ rộng dải xám ở biên (px mặt nạ / px biên); render AA thật ≈ 1–2, phóng to xám ≈ s × (1–2)
 STEP = 12           # phải có mặt nạ cho mọi khung chia hết cho 12
 FID_MIN = 1.5       # độ khớp biên mặt nạ với cạnh ảnh render (nội bộ)
@@ -128,7 +131,8 @@ def _sheet(spec, parts_dir, repo):
     raise FileNotFoundError(f"Không thấy model sheet {spec['model_sheet']}")
 
 
-def check_c3(video, profile, parts_dir=None, repo="."):
+def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None):
+    """audit=True (run.py): bắt buộc kiểm toán ngẫu nhiên; gọi trực tiếp (selftest cũ) thì chỉ đo."""
     parts_dir = Path(parts_dir)
     spec = json.loads((parts_dir / "parts.json").read_text(encoding="utf-8"))
     if spec.get("no_character") is True:
@@ -225,6 +229,10 @@ def check_c3(video, profile, parts_dir=None, repo="."):
     ramp_max = max(ramps) if ramps else 0.0
     ms.append(metric("dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất", ramp_max, "<=", RAMP_MAX,
                      "px/px biên"))
+    small_head = min(head_px) < HEAD_4X
+    ms.append(metric(f"đầu < {HEAD_4X:g} px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+                     round(min(sx + sy), 4) if small_head else 4.0, ">=", 4.0 - SCALE_TOL * 4, "×",
+                     near_check=small_head))
     ms += [metric("biên trên |lệch| + U lớn nhất", upper, "<=", 100 * TOL, "%"),
           metric("bộ phận–khung lệch chắc chắn > 3%", sure_fail, "<=", 0),
           metric("bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)", unproven, "<=", 0),
@@ -243,9 +251,23 @@ def check_c3(video, profile, parts_dir=None, repo="."):
     if ramp_max > RAMP_MAX:
         notes.append("Biên mặt nạ là dải xám rộng: mặt nạ có vẻ được phóng to từ ảnh độ phân giải thấp hơn. "
                      "Render mặt nạ ở độ phân giải thật (nhị phân hoặc khử răng cưa ở chính độ phân giải đó).")
+    if small_head and min(sx + sy) < 4.0 - SCALE_TOL * 4:
+        notes.append(f"Đầu nhỏ nhất {min(head_px):.1f} px video < {HEAD_4X:g} px: bắt buộc mặt nạ 4× (Q-δ).")
     if unproven:
         notes.append("Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) "
                      "hoặc chọn khung có đầu lớn hơn để chứng minh.")
-    return result("C3", None, ms, notes, evidence=dict(
+    audit_ev = {}
+    if audit:
+        from . import audit as au
+        a_ms, a_notes, audit_ev, has_req = au.verify(video, parts_dir, repo, spec, load_mask, length_px,
+                                                     uncertainty, assets)
+        notes += a_notes
+        if not has_req:
+            st = FAIL if not all(m["ok"] for m in ms) else MISSING
+            return result("C3", st, ms, notes, evidence=dict(
+                do=rows[:300], do_khop_bien={str(k): (round(v, 2) if v is not None else None) for k, v in fids.items()},
+                khung_thieu=missing[:100], kiem_toan=None))
+        ms += a_ms
+    return result("C3", None, ms, notes, evidence=dict(kiem_toan=audit_ev,
         do=rows[:300], do_khop_bien={str(k): (round(v, 2) if v is not None else None) for k, v in fids.items()},
         khung_thieu=missing[:100]))

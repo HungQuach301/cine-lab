@@ -392,6 +392,8 @@ def cases(d):
     C += cases_v11.cases(d)
     import cases_v12  # thay đổi v1.2: J1 (3 khiếu nại), C3b
     C += cases_v12.cases(d)
+    import cases_v13  # thay đổi v1.3: J1 theo stem thoại, C3 4× khi đầu nhỏ, kiểm toán ngẫu nhiên
+    C += cases_v13.cases(d)
     return C
 
 
@@ -460,6 +462,18 @@ def e2e(d):
     (d / f"{name}.motion.json").write_text(json.dumps(mj))
     repo, man = asset_repo(d, False, "_e2e")
     shutil.copy(man, d / f"{name}.assets.json")
+    # v1.3: kiểm toán ngẫu nhiên C3 — P phát yêu cầu, xưởng render lại (ở đây: cùng bộ vẽ) và ghi log
+    from cinecheck import audit as au
+    req = au.issue(v, pd, "selftest-e2e")
+    for f in req["frames"]:
+        rr = au.audit_dir(v) / "rerender" / f"{f:05d}"
+        rr.mkdir(parents=True, exist_ok=True)
+        for k in fmasks:
+            shutil.copy(pd / "m" / f"{k}.png", rr / f"{k}.png")
+    scene = "shots/sh010/sh010.blend"
+    (au.audit_dir(v) / "render.log").write_text(
+        f"SCENE {scene} SHA256 {au.sha256_file(repo / scene)}\n"
+        + "".join(f"FRAME {f} CMD selftest figure(150, scale=2)\n" for f in req["frames"]))
     out = d / "e2e_report"
     p = subprocess.run([sys.executable, str(CHECKS / "run.py"), str(v), "--profile", "youtube",
                         "--repo", str(repo), "--out", str(out)], capture_output=True, text=True)

@@ -1,4 +1,4 @@
-# CINE LAB — BỘ LUẬT L1 v1.2 (phiên K)
+# CINE LAB — BỘ LUẬT L1 v1.3 (phiên K)
 
 Căn cứ: `docs/cine-lab/CINE-LAB-KHUNG-CHAT-LUONG.md` mục 1 và 4; `docs/cine-lab/CINE-LAB-BAI-HOC-BRIEF-D.md`.
 Nguyên tắc: đo từ file đã render; mỗi luật có test tự chứng minh; ngưỡng "nội bộ" là đề xuất, hiệu chuẩn sau bài thử.
@@ -7,6 +7,19 @@ v1.1 = v1 + 4 quyết định của chủ dự án (Q-C3, Q-P0, Q-G3b, Q-J1b), x
 Định nghĩa máy đọc nằm trong `cinecheck/registry.py`; báo cáo mỗi lần chạy chép lại định nghĩa và ngưỡng.
 
 v1.2 = v1.1 + 3 khiếu nại J1 được chủ dự án chấp nhận (27/09/2026) + Q-C3b (bịt lỗ hổng mặt nạ phóng to). Vẫn 16 luật, đều cấp Chặn; không nới ngưỡng nào.
+
+v1.3 = v1.2 + quyết định của chủ dự án về v1.2: Q-C3c = B (kiểm toán ngẫu nhiên), Q-δ = A (δ = 2; 4× khi đầu < 100 px), Q-J1c = phương án mới (chèn theo stem thoại). Không nới ngưỡng nào.
+
+### Thay đổi của v1.3
+
+| Căn cứ | Luật | Thay đổi | Ngưỡng | Test tự chứng minh (TRƯỢT / SẠCH) |
+|---|---|---|---|---|
+| Q-J1c | J1 | Có `<video>.stems/dialogue.*`: chữ ASR chỉ được giữ (và tính chèn nếu không khớp kịch bản) khi stem thoại có lời, tức ≥ 1 khung 10 ms > max(đỉnh − 35 dB, −60 dBFS) như J1b, trong [đầu chữ − 0,15 s, cuối chữ + 0,15 s]. Chữ rơi vào lúc stem thoại im bị bỏ và liệt kê. Không có stem: giữ quy tắc −60 dBFS của v1.2 (J1b khi đó báo THIẾU) | không đổi | kịch bản thiếu một câu có trong stem thoại (room tone −55 dBFS) / table read + room tone −55 dBFS trong mix, stem thoại im giữa câu; ca đơn vị: chữ bịa trong room tone bị quy tắc −60 giữ, quy tắc stem bỏ |
+| Lỗi phát hiện khi viết selftest Q-J1c | J1 | Ranh giới hai câu kề nhau = tâm đoạn lặng dài nhất (khung 50 ms ≤ min + 10 dB; năng lượng stem thoại nếu có, không thì mix) giữa lúc **bắt đầu** chữ neo cuối câu trước và chữ neo đầu câu sau. Lý do: khi mix có room tone, Whisper kéo mốc **kết thúc** chữ cuối câu 4 ("it") tới 139,84 s, nuốt chữ "Warm" đầu câu 5. Cách cắt ở điểm giữa của v1.2 làm mất lại "Warm", đúng lỗi của khiếu nại số 3 | không đổi | ca room tone trên (trước khi sửa: TRƯỢT, mất "warm"); mọi ca J1 v1.2 vẫn khớp |
+| Q-δ = A | C3 | Giữ δ = 2 px. Đầu < 100 px video ở bất kỳ khung mẫu nào thì hệ số mặt nạ đo được phải ≥ 4 | ≥ 4× khi đầu < 100 px | đầu 57 px, mặt nạ 2× / đầu 80 px, mặt nạ 4× |
+| Q-C3c = B | C3 | Kiểm toán ngẫu nhiên (`cinecheck/audit.py`, lệnh `checks/audit.py`). Phiên P phát yêu cầu: hạt giống lấy từ `secrets` của hệ điều hành, chọn 1–2 khung trong các khung có mặt nạ đầu, ghi `request.json` kèm SHA video và SHA bộ mặt nạ; lệnh từ chối phát lại. Xưởng render lại từ file cảnh đã khoá, kèm `render.log`. C3 đối chiếu (qua `run.py`) | video và bộ mặt nạ không đổi; log có SCENE (SHA khớp đĩa, thuộc scene_files) và FRAME…CMD cho mỗi khung; đủ mặt nạ render lại cùng cỡ; lệch tỷ lệ ≤ 1·U (δ = 2); khác điểm ảnh ≤ 0,02 × điểm ảnh biên (nội bộ). Chưa có yêu cầu: **THIẾU** | render lại không khớp: mặt nạ nộp là matte 1× phóng to bicubic rồi ngưỡng hoá (loại C3b không bắt được); thân dài hơn 2%; thiếu log; SHA file cảnh sai; thiếu dòng FRAME; thiếu mặt nạ render lại; mặt nạ sửa sau khi phát / render lại khớp, log đủ; chưa có yêu cầu → THIẾU; phát lại bị từ chối |
+
+**Về ngưỡng khác điểm ảnh 0,02 (vượt nguyên văn quyết định):** Quyết định Q-C3c nêu "lệch vượt dải nhiễu". Chỉ riêng tiêu chí đó không bắt được loại phóng to C3b không phát hiện được, vì sai số của loại này nằm trong dải U (đó chính là lý do chọn δ = 2). Phép so điểm ảnh bắt được nó: khảo sát v1.2 cho mặt nạ phóng to ở 4× lệch 5–10% điểm ảnh biên so với render thật, trong khi render lại cùng cách cho gần 0. Vì vậy K đặt thêm ngưỡng 0,02, xem quyết định Q-C3d.
 
 ### Thay đổi của v1.2
 
@@ -67,7 +80,14 @@ Thêm mục vào bảng = sửa luật: phiên K làm, chủ dự án duyệt, k
 | H1b | 4.H | `screen_tracks` (toạ độ khớp nhân vật chiếu qua máy quay) so với luồng quang học DIS trên file render, trung vị đĩa 4 px | mọi nhân vật có track; mỗi track khớp ≥ 90% cặp khung (nội bộ) | Chặn | khai easing nhưng render tuyến tính; thiếu track / track đúng |
 | C3 | 4.C | Mặt nạ bộ phận mỗi 12 khung; độ dài PCA; tỷ lệ so model sheet; nhiễu U = √((1 px/L)² + (1 px/L_đầu)²) hiệu chuẩn Monte Carlo; quyết định dải bảo vệ (ISO 14253-1); biên mặt nạ phải nằm trên cạnh ảnh render. **v1.1: thêm hệ số mặt nạ 2–4× (xem trên)** | 0 trượt chắc chắn (\|lệch\| − U > 3%); 0 không chứng minh được (\|lệch\| + U > 3%); độ khớp biên ≥ 1,5 (nội bộ) | Chặn | thân +6%; đầu 57 px (nhiễu vượt biên); mặt nạ lệch 20 px / đúng sheet đầu 146 px; thân +2% đầu 146 px; mô hình nhiễu phủ 100% sai số |
 
-Kết quả test tự chứng minh: `reports/checks-selftest/selftest.md` (v1.2: 81 ca đơn — 69 ca v1.1 giữ kỳ vọng, trong đó ca C3 "đầu 57 px, 4×" đổi thân +2% → +1,5% vì δ = 2 và ca hiệu chuẩn nhiễu dùng δ = 2; cộng 12 ca mới (7 J1, 5 C3). v1.1: 69 ca đơn — 51 ca v1 giữ nguyên kỳ vọng, trong đó 4 ca C3 chuyển mặt nạ 1× sang 2× và ca hiệu chuẩn nhiễu mở rộng ra s = 1, 2, 4; cộng 18 ca mới — và chạy đầu–cuối 16 luật qua `run.py`).
+Kết quả test tự chứng minh: `reports/checks-selftest/selftest.md` (v1.3: 96 ca đơn — 81 ca v1.2 giữ kỳ vọng, cộng 15 ca mới (3 J1, 12 C3); chạy đầu–cuối có thêm bước kiểm toán ngẫu nhiên. v1.2: 81 ca đơn — 69 ca v1.1 giữ kỳ vọng, trong đó ca C3 "đầu 57 px, 4×" đổi thân +2% → +1,5% vì δ = 2 và ca hiệu chuẩn nhiễu dùng δ = 2; cộng 12 ca mới (7 J1, 5 C3). v1.1: 69 ca đơn — 51 ca v1 giữ nguyên kỳ vọng, trong đó 4 ca C3 chuyển mặt nạ 1× sang 2× và ca hiệu chuẩn nhiễu mở rộng ra s = 1, 2, 4; cộng 18 ca mới — và chạy đầu–cuối 16 luật qua `run.py`).
+
+## Giới hạn đã biết của v1.3 (mới)
+
+1. **Log render lại là bản khai.** Máy chỉ kiểm được: log có đủ dòng; SHA file cảnh khớp; mặt nạ render lại khớp mặt nạ nộp. Xưởng vẫn có thể ghi lệnh không đúng thật. Muốn chặn tận gốc thì máy phải tự chạy lệnh render (quyết định Q-C3e).
+2. **Kiểm toán 1–2 khung là lấy mẫu**: gian lận chỉ ở một phần khung có xác suất bị lọt, ước tính bằng số khung được chọn / số khung mẫu.
+3. **Ngưỡng khác điểm ảnh 0,02 giả định render tất định.** Mặt nạ lấy từ pass có nhiễu lấy mẫu (ví dụ Cryptomatte với ít mẫu) có thể lệch nhẹ giữa hai lần render; nếu gặp thì khiếu nại để hiệu chuẩn.
+4. **J1 theo stem thoại tin rằng stem thoại chứa đúng và đủ lời thoại.** J1b kiểm tổng stem khớp mix, nhưng không biết lời nằm ở stem nào. Lời không có trong kịch bản mà để ở stem nền (M&E) thì J1 không tính chèn. Tiếng người nền (walla) ở M&E là hợp lệ; lời thoại thật thì không.
 
 ## Giới hạn đã biết của v1.2 (mới)
 
