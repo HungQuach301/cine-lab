@@ -30,7 +30,7 @@ Tuỳ chọn gỡ lỗi qua `--args` (không dùng khi render chính thức): `{
 | Trắng lạnh ánh điện (nguồn tràn cảnh 5) | `#d9e3ef` |
 | Hổ phách: đèn khí / đèn lồng / kính / lõi lửa / quầng | `#ffa04a` / `#ffb366` / `#ffb04a` / `#fff1cc` / `#ff9a3a`, `#ffd29a` |
 | Nhấn 1 — đỏ gạch, **chỉ áo len Cas** | `#a2412f` (quả bông `#b8452f`) |
-| Nhấn 2 — xanh rêu, **chỉ áo khoác Ida** | `#58663c` |
+| Nhấn 2 — xanh rêu, **chỉ áo khoác Ida** | `#34584c` (gần model sheet `#3f5552`; bản trước `#58663c` bị đèn hổ phách nhuộm thành vàng ô-liu nên đã bỏ) |
 
 Đỏ gạch và xanh rêu không dùng ở kiến trúc (thành phố chỉ chàm – tím – xương – hổ phách) để hai nhân vật là hai điểm màu duy nhất.
 
@@ -48,7 +48,7 @@ Tuỳ chọn gỡ lỗi qua `--args` (không dùng khi render chính thức): `{
 | Khung | 32 mẫu, `out/` (load 5,8–6,6) | 8 mẫu, `out8/` (load 6,2–6,6) | 8 mẫu, lần đo trước (load 7–8,8) |
 |---|---|---|---|
 | s1_opening | 29,4 s | 10,8 s | 14,3 s |
-| s5_shadows | 21,4 s | 9,2 s | 9,9 s |
+| s5_shadows (bản sửa P, load 5,6) | 19,6 s | 8,7 s | 9,9 s (bản trước: 21,4 / 9,2) |
 | Tham chiếu: `model-sheet` cas_pose_half_raised, 8 mẫu | — | 2,3 s (đo ngay sau, cùng tải) | lúc máy nhẹ hơn: 1,5 s |
 
 Quy đổi theo tham chiếu đo cùng lúc: s1 ≈ 4,7×, s5 ≈ 4,0× trang model sheet. Ước lượng chạy tuần tự: **s1 ~5–7 s, s5 ~4–6 s ở 8 mẫu → vượt ngưỡng 2,5 s/khung khoảng 2–3 lần.** Pass cuối cho mỗi khung grain thêm: 0,3–0,4 s.
@@ -66,6 +66,10 @@ Cách hạ (chưa làm hết): (a) 4 mẫu là đủ cho hướng này (3 vị t
 - Quầng đèn khí các phố xa không bị mái che (tắt kiểm tra độ sâu) nên vài chấm "nổi" trên mái; chấp nhận như sáng loang trong sương, nhưng không đúng tuyệt đối.
 - Chấm lưới và giấy là mẫu tĩnh theo khung: khi máy quay chạy sẽ thành "lưới dính màn hình"; phải gắn vào không gian vật thể hoặc chỉ dùng ở shot tĩnh.
 - Viền mực ở dải chân trời xa và mái xa vẫn hơi nhiều nét nhỏ.
+
+**Sửa theo nhận xét của P (s5, lần 2):**
+- *"Ida và Cas quay mặt về máy"*: đã kiểm, hai người **đã quay lưng** từ đầu (`root.rotation.y ≈ π`, mặt nhân vật là +z, máy ở +z nhìn về −z). Bằng chứng: `check/s5_tu_phia_may_quay_lung.png` (từ phía máy: thấy xẻ tà sau áo, búi tóc, gáy) và `check/s5_tu_phia_vach_thay_mat.png` (máy đặt sát vách nhìn ra: thấy mặt, mũi, mắt). Cái gây hiểu nhầm là **gáy Ida**: rig chung để da ở nửa sau sọ, búi tóc tròn sáng ở giữa nên đọc như khuôn mặt. Đã thêm lớp tóc phủ nửa sau sọ, màu tóc tối hơn, nét mực toả từ búi và vòng xoắn trong búi. Không đổi góc xoay, nên hình học bóng không đổi: phóng đại 1,5×, key : tràn đo lại **≈ 34 : 1**. Nếu ở cỡ nhỏ vẫn đọc nhầm, bước tiếp theo nên là sửa ở model sheet (tóc phủ gáy), không phải ở hướng mỹ thuật.
+- Áo Ida đưa về xanh rêu `#34584c`, vẫn là mảng tối trung bình; dưới đèn hổ phách lên màu xanh rêu ấm, nhận ra được là cùng nhân vật.
 
 **Chưa đúng brief / luật thế giới:**
 - Cảnh 5, **máy quay lùi xa hơn brief**: brief ghi sau đèn lồng ~1,5 m (tức 0,5 m ngoài miệng vòm); ở vị trí đó mép khung nằm trọn trong hốc (FOV ngang 66° chỉ phủ ±0,3 m ở miệng vòm), không thể thấy "phố trắng ở mép khung". Tôi đặt máy 1,35 m cao, **6,2 m sau đèn lồng (5,2 m ngoài miệng)**, FOV dọc 38°, ngước 3,5°: thấy vòm, mặt tiền trắng hai bên, dải đá phố dưới đáy. Cần chủ dự án chọn: giữ khung này, hay đổi hốc/đèn để đúng số đo brief.
