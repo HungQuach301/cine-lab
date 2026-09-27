@@ -170,8 +170,6 @@ function toon(hex, o = {}) {
   m.userData = { toon: true, id: o.id ?? MAT_ID++ };
   m.defines = { PAT: pat };
   if (o.vcol) m.defines.USE_ACOL = '';
-  for (const k of ['NOFOG', 'NOPAT']) if (DBG[k]) m.defines[k] = '';
-  if (DBG.NOPAT) m.defines.PAT = 0;
   const alb = C(hex);
   m.onBeforeCompile = (sh) => {
     sh.uniforms.uAlb = { value: alb }; sh.uniforms.uBun = { value: o.bun ?? new THREE.Vector3() };
@@ -200,9 +198,6 @@ function farToon(o = {}) {
       void main(){ vec4 wp = modelMatrix*vec4(position, 1.0); vN = normalize(mat3(modelMatrix)*normal); vCol = aCol;
         vec3 vd = wp.xyz - cameraPosition; float dd = length(vd); float fa = 1.0 - exp(-max(dd - uFog.y, 0.0)*uFog.x);
         vFog = vec4(mix(mix(skyCol(vd/dd), uSkyC, 0.86)*uFog.z, skyCol(vd/dd), smoothstep(700.0, 2600.0, dd)), fa);
-#ifdef NOVS
-vFog = vec4(0.0);
-#endif
  gl_Position = projectionMatrix*viewMatrix*wp; }`,
     fragmentShader: `varying vec3 vCol; varying vec3 vN; varying vec4 vFog; uniform vec3 uAlb, uHs, uHg, uDc, uDd, uCool, uWarm; uniform float uStep, uOff, uQlo, uQhi;
       void main(){ vec3 n = normalize(vN); vec3 E = mix(uHg, uHs, 0.5*n.y + 0.5) + uDc*max(dot(n, uDd), 0.0);
@@ -210,8 +205,6 @@ vFog = vec4(0.0);
         float qx = log2(max(L, 1e-6))/uStep + uOff; float q = floor(qx); float Lq = exp2((q + 0.5 - uOff)*uStep);
         float tt = clamp((q - uQlo)/(uQhi - uQlo), 0.0, 1.0);
         vec3 col = uAlb*vCol*mix(uCool, uWarm, tt)*hue*Lq; gl_FragColor = vec4(mix(col, vFog.rgb, vFog.a), 1.0); }` });
-  if (DBG.NOVS) m.defines = { NOVS: '' };
-  if (DBG.NOFS) m.fragmentShader = 'varying vec3 vCol; void main(){ gl_FragColor = vec4(vCol, 1.0); }';
   m.userData = { toon: true, id: MAT_ID++ };
   return m;
 }
@@ -590,8 +583,8 @@ function buildS5() {
 
   // Nhân vật: quay lưng về máy, cách vách ~1 m; Ida trái, Cas phải (theo hướng nhìn của máy).
   const mf = charMatFn();
-  const ida = buildCharacter(sheets.ida, { material: mf, detail: 28 }); ida.setPose(sheets.ida.poses.look_shadows);
-  const cas = buildCharacter(sheets.cas, { material: mf, detail: 28 }); cas.setPose(sheets.cas.poses.half_raised);
+  const ida = buildCharacter(sheets.ida, { material: mf, detail: DBG.det ?? 28 }); ida.setPose(sheets.ida.poses.look_shadows);
+  const cas = buildCharacter(sheets.cas, { material: mf, detail: DBG.det ?? 28 }); cas.setPose(sheets.cas.poses.half_raised);
   ida.root.position.set(-0.55, 0, 1.0); ida.root.rotation.y = Math.PI - 0.08;
   cas.root.position.set(0.50, 0, 1.0); cas.root.rotation.y = Math.PI + 0.10;
   // Chi tiết trang trí gắn khớp đầu (không đổi đường bao): lớp tóc phủ nửa sau sọ — nhìn từ lưng đọc rõ là gáy, không phải mặt.
@@ -896,9 +889,7 @@ function buildS1() {
     iron: toon('#ffffff', { vcol: true }), lampLit: glow('#ffffff', 3.2, { vcol: true }), lampOff: toon('#565c7a', { vcol: true }),
     panel: toon('#c9cbd6', { vcol: true }), dial: toon('#d4d2d8', { vcol: true }),
   };
-  if (DBG.cheap) for (const k of Object.keys(mats)) mats[k] = new THREE.MeshBasicMaterial({ color: 0x808080 });
   B.build(scene, mats);
-  if (DBG.stats) { let t = 0; scene.traverse((o) => { if (o.isMesh) t += o.geometry.attributes.position.count / 3; }); console.log('tris', t); }
 
   // --- quầng sáng (đèn phố Ostler + đèn khí rải rác khắp thành phố + cửa sổ) ---
   const halos = new Batch(), halosFar = new Batch();
