@@ -136,7 +136,7 @@ export function buildCharacter(sheet, opts = {}) {
     const eye = new THREE.Mesh(new THREE.SphereGeometry((isIda ? 0.045 : 0.055) * H, 10, 8), mat('eyes', '#1b1616', 'eyes'));
     eye.scale.set(1, isIda ? 0.55 : 1, 0.6); eye.position.set(sx * 0.17 * H, 0.60 * H, hd.width_side / 2 * H * 0.93); tag(eye, 'eyes'); headG.add(eye);
     const brow = new THREE.Mesh(new THREE.CapsuleGeometry(0.018 * H, 0.12 * H, 4, 8), mat('hair', isIda ? C.hair : '#5a4034', 'brow'));
-    brow.rotation.z = Math.PI / 2 - sx * (isIda ? 0.22 : 0.16); // đuôi mày cụp: hiền, buồn brow.position.set(sx * 0.17 * H, 0.70 * H, hd.width_side / 2 * H * 0.92); tag(brow, 'brow'); headG.add(brow);
+    brow.rotation.z = Math.PI / 2 - sx * (isIda ? 0.22 : 0.16); brow.position.set(sx * 0.17 * H, 0.70 * H, hd.width_side / 2 * H * 0.92); tag(brow, 'brow'); headG.add(brow); // đuôi mày cụp: hiền, buồn
     const earS = isIda ? 0.16 : P.ears.size_H;
     const ear = new THREE.Mesh(new THREE.SphereGeometry(0.5, 12, 8), mat('skin', C.skin, 'ear'));
     ear.scale.set(0.08 * H, earS * H, earS * 0.75 * H); ear.position.set(sx * hd.width_front / 2 * H * 0.98, 0.52 * H, -0.02 * H);
