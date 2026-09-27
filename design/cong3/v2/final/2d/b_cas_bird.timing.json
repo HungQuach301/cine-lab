@@ -1,0 +1,14 @@
+{
+ "page": "v2/page.js",
+ "frame": "b_cas_bird",
+ "W": 1920,
+ "H": 1080,
+ "samples": 8,
+ "frames": 1,
+ "setup_s": 3.506,
+ "render_frame_s": 4.397,
+ "page_reported_accum_ms": 21.800000000745058,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 8.514,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}
