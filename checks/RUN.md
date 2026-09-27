@@ -1,4 +1,10 @@
-# CHẠY LUẬT KIỂM L1 (v1) — hướng dẫn cho phiên xưởng
+# CHẠY LUẬT KIỂM L1 (v1.1) — hướng dẫn cho phiên xưởng
+
+**Điểm mới v1.1** (chi tiết ở mục 3.1, 3.6 và bảng mục 4):
+1. Mặt nạ C3 **bắt buộc** ở độ phân giải gấp 2–4 lần khung. Máy đo hệ số từ kích thước PNG.
+2. Chữ trong thế giới phim được gắn `"diegetic": true`: miễn G4, vẫn cần matte và vẫn qua P1.
+3. Master YouTube có grain phải có bitrate hình ≥ 30 Mbps.
+4. Ngưỡng J1b là ngưỡng nội bộ, chưa hiệu chuẩn.
 
 Phiên xưởng **chỉ đọc file này**. Không đọc, không sửa mã trong `checks/`. Khiếu nại về luật ghi vào `checks-appeal.md` ở gốc repo.
 
@@ -41,10 +47,10 @@ Với video `X.mp4`:
 | File | Dùng cho | Nội dung |
 |---|---|---|
 | `X.script.txt` | J1 | Lời thoại tiếng Anh đúng như kịch bản cho đoạn phim này. Mỗi câu một dòng; cho phép nhãn người nói `NAME:` đầu dòng; chỉ dẫn diễn xuất trong `[...]` hoặc `(...)` và dòng bắt đầu `#` bị bỏ qua. File rỗng = đoạn không có lời. |
-| `X.text/elements.json` + matte PNG | P0, P1, G4 | Mỗi phần tử chữ (tiêu đề, phụ đề, credit, **cả chữ trong thế giới phim như biển hiệu**) xuất một matte RGBA từ render (mục 3.1). Thư mục rỗng phần tử (`{"elements": []}`) = đoạn không có chữ. P0 chạy cả khi thiếu thư mục này: mọi chữ máy dò thấy trong hình mà không có matte đều trượt. |
+| `X.text/elements.json` + matte PNG | P0, P1, G4 (P0 dùng thêm `X.script.txt` nếu có) | Mỗi phần tử chữ (tiêu đề, phụ đề, credit, **cả chữ trong thế giới phim như biển hiệu**) xuất một matte RGBA từ render (mục 3.1). Thư mục rỗng phần tử (`{"elements": []}`) = đoạn không có chữ. P0 chạy cả khi thiếu thư mục này: mọi chữ máy dò thấy trong hình mà không có matte đều trượt. |
 | `X.motion.json` | H1, H1b | Chuyển động bake theo từng khung ở 24 fps (mục 3.2), **kèm `screen_tracks`** (mục 3.4). |
 | `X.stems/` | J1b | Stem thoại `dialogue.wav` và stem nền (M&E) xuất từ bản mix (mục 3.5). |
-| `X.parts/parts.json` + mặt nạ PNG | C3 | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung (mục 3.6). |
+| `X.parts/parts.json` + mặt nạ PNG | C3 | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung, **ở 2–4× độ phân giải khung** (mục 3.6). |
 | `X.assets.json` | O3 | Danh sách tài sản mà file cảnh thật sự nạp, xuất từ phần mềm dựng (mục 3.3). |
 
 Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `--stems`, `--parts`, `--assets`, `--library`.
@@ -54,7 +60,8 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 ```json
 {"elements": [
   {"id": "title", "first_frame": 0,  "last_frame": 47,  "matte": "title.png"},
-  {"id": "sub01", "first_frame": 48, "last_frame": 191, "matte": "sub01/%05d.png"}
+  {"id": "sub01", "first_frame": 48, "last_frame": 191, "matte": "sub01/%05d.png"},
+  {"id": "sign_inn", "first_frame": 60, "last_frame": 140, "matte": "sign_inn/%05d.png", "diegetic": true}
 ]}
 ```
 
@@ -62,6 +69,11 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 - Matte: PNG RGBA **đúng kích thước khung**, alpha thẳng, màu = màu **phần ruột nét chữ** (không gồm viền/bóng; viền và bóng được tính là nền khi đo tương phản).
 - Chữ tĩnh dùng một PNG; chữ chuyển động dùng chuỗi PNG theo số khung (`%05d`).
 - Máy đối chiếu matte với khung render: matte không khớp hình (lệch vị trí, sai màu) thì P1 và G4 trượt.
+- **`"diegetic": true`** (v1.1, boolean, không phải chuỗi) chỉ dành cho chữ **nằm trong thế giới phim**: biển hiệu, tên phố, nhãn chai, trang sách mà nhân vật nhìn thấy.
+  - Được miễn luật tương phản G4.
+  - **Vẫn bắt buộc có matte** (P0), **vẫn tính va chạm P1**, và vẫn kiểm matte khớp render.
+  - Tiêu đề, phụ đề, credit **không bao giờ** là diegetic. Máy đọc chữ trong matte diegetic và so với từng câu thoại của `X.script.txt` và với chữ của các phần tử không diegetic. Trùng thì **P0 TRƯỢT**.
+  - Có thể thêm `"text": "…"` cho phần tử không diegetic (nội dung chữ) để máy so chính xác hơn.
 
 ### 3.2 Dữ liệu chuyển động (`X.motion.json`)
 
@@ -119,30 +131,33 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 ```
 
 - Mặt nạ cho **mọi khung chia hết cho 12** (0, 12, 24…). Mỗi bộ phận một PNG, bộ phận = điểm ảnh ≥ 128 (xám hoặc alpha), cùng phép biến đổi với khung hình. Khung nhân vật không hiện: mặt nạ đầu rỗng.
-- `scale`: độ phân giải mặt nạ gấp mấy lần video. **Nên render mặt nạ ở scale 2–4**: ở đầu cao dưới ~100 px video, nhiễu đo ăn gần hết biên 3% và C3 báo "không chứng minh được".
+- **Bắt buộc (v1.1): render mặt nạ ở độ phân giải gấp 2–4 lần khung video** (ví dụ khung 1920×1080 → mặt nạ 3840×2160 hoặc 7680×4320). Cả chiều ngang và chiều dọc cùng hệ số; mọi mặt nạ cùng kích thước.
+- Máy **đo hệ số từ kích thước PNG**. Trường `scale` là tuỳ chọn; nếu ghi thì phải đúng hệ số đo, sai thì C3 trượt.
+- Mặt nạ phải **render thật** ở độ phân giải đó, trong cùng lần render với khung hình, bằng cách tăng độ phân giải cho pass mặt nạ. **Không** phóng to mặt nạ 1× lên. Máy kiểm vị trí biên mặt nạ trên lưới điểm ảnh: mặt nạ phóng to có biên nằm thẳng hàng theo lưới thô và C3 trượt.
+- Lý do: ở đầu cao dưới ~100 px video, mặt nạ 1× có nhiễu đo ăn gần hết biên 3% (C3 báo "không chứng minh được"). Mặt nạ 4× giảm nhiễu khoảng 4 lần.
 - `model_sheet`: đường dẫn tính từ thư mục `parts/` rồi từ gốc repo; bộ phận đo lấy từ `measured_parts` của sheet; độ dài đo từ đầu mút đến đầu mút dọc trục chính.
 - Nhiều nhân vật: một thư mục `parts` cho mỗi lần chạy (v1 kiểm một nhân vật mỗi file; báo P nếu shot có nhiều nhân vật chính). Shot không có nhân vật: `{"no_character": true}` (người duyệt xác nhận).
 - Máy đối chiếu biên mặt nạ với cạnh ảnh render: mặt nạ không khớp hình thì C3 trượt.
 
-## 4. Luật trong bộ v1 (đều cấp Chặn)
+## 4. Luật trong bộ v1.1 (đều cấp Chặn)
 
 | Mã | Luật | Profile |
 |---|---|---|
 | N1 | 24 fps CFR; không rơi/lặp khung theo PTS | mọi |
 | N2 | BT.709 đủ nhãn, dải limited (đo cả giá trị điểm ảnh) | mọi |
-| N3 | Codec, bitrate, 16:9, SAR 1:1 theo loại master | youtube, archive |
-| P0 | Máy dò chữ độc lập: mọi chữ trong hình phải có matte | mọi |
+| N3 | Codec, bitrate, 16:9, SAR 1:1 theo loại master. **v1.1: master YouTube có grain (σ ≥ 0,8 theo G3b) phải ≥ 30 Mbps** (1080p) | youtube, archive |
+| P0 | Máy dò chữ độc lập: mọi chữ trong hình phải có matte; chữ gắn diegetic không được trùng phụ đề/tiêu đề | mọi |
 | P1 | Không chữ đè chữ theo điểm ảnh nét | mọi |
-| G4 | Tương phản chữ ≥ 4,5:1 | mọi |
+| G4 | Tương phản chữ ≥ 4,5:1 (miễn phần tử `diegetic`) | mọi |
 | G3 | Không banding trên gradient | mọi |
 | G3b | Grain có, ổn định theo thời gian và giữa shot, chuyển động theo khung | mọi |
 | M1 | −14 LUFS ±1; true peak ≤ −1 dBTP | youtube |
 | M3 | Tương quan pha, tương thích mono | mọi |
 | J1 | ASR trên mix cuối: 100% từ kịch bản, WER ≤ 5% | mọi |
-| J1b | Lời rõ trên nhạc theo từng câu (stem), tổng stem khớp mix | mọi |
+| J1b | Lời rõ trên nhạc theo từng câu (stem), tổng stem khớp mix. Ngưỡng SII **nội bộ, chưa hiệu chuẩn** (hiệu chuẩn sau bài thử với 3–5 người nghe mù) nhưng vẫn cấp Chặn | mọi |
 | H1 | Không chuyển động tuyến tính ở bộ phận nhân vật | mọi |
 | H1b | Chuyển động khai báo khớp hình render (luồng quang học) | mọi |
-| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo) | mọi |
+| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo); mặt nạ 2–4× | mọi |
 | O3 | Tài sản lấy từ thư viện có SHA | mọi |
 
 Định nghĩa đo và ngưỡng đầy đủ có trong từng báo cáo (mục "Chi tiết từng luật").
@@ -150,5 +165,6 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 ## 5. Ghi chú vận hành
 
 - Thời gian đo thật (v1): mẫu 1080p24 dài 8 giây, profile youtube, chạy hết 16 luật trong ~60 giây trên máy 4 vCPU (H1b 12,6 s, C3 11,4 s, P0 7,0 s, J1 7,0 s). Bản dài hơn tăng gần tuyến tính theo thời lượng ở J1, J1b, P1, H1b (tối đa 480 cặp khung) và C3 (mỗi 12 khung); G3, G3b, N2, P0 lấy tối đa 240 khung/cặp. Lần chạy đầu tải mô hình ASR (~480 MB) từ Hugging Face; mô hình dò chữ của P0 đã nằm sẵn trong `checks/models/`.
+- v1.1: ở profile youtube, N3 dùng chung số đo grain với G3b (không giải mã hai lần). C3 với mặt nạ 4× đọc chậm hơn 1× khoảng 10–16 lần mỗi khung mẫu.
 - Kiểm tính toàn vẹn luật: `/opt/cine/bin/python checks/lock.py --verify` (in KHỚP/KHÔNG KHỚP).
 - Không thêm phần tử chỉ để vượt ngưỡng. Luật đo sai thì khiếu nại, không lách.

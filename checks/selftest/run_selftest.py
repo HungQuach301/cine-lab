@@ -388,11 +388,14 @@ def cases(d):
     add("O3", "tài sản bị sửa sau khoá + vẽ lại ngoài thư viện", FAIL, lambda: o3(True))
     import cases_v1  # luật mới v1: P0, G3b, J1b, H1b, C3
     C += cases_v1.cases(d)
+    import cases_v11  # thay đổi v1.1: C3 hệ số mặt nạ, diegetic (P0/G4/P1), N3 bitrate khi có grain
+    C += cases_v11.cases(d)
     return C
 
 
 def e2e(d):
-    """Mẫu tổng hợp sạch 1080p24 8 giây, master YouTube, chạy qua lệnh duy nhất run.py."""
+    """Mẫu tổng hợp sạch 1080p24 8 giây, master YouTube, chạy qua lệnh duy nhất run.py.
+    v1.1: mặt nạ C3 ở 2×; master có grain nên N3 đòi ≥ 30 Mbps (mẫu mã 40 Mbps)."""
     import cases_v1 as v1
     name = "e2e_clean"
     size = (1920, 1080)
@@ -404,13 +407,16 @@ def e2e(d):
     a = d / f"{name}.wav"; write_wav(a, mix)
     sd = d / f"{name}.stems"; sd.mkdir()
     write_wav(sd / "dialogue.wav", dia); write_wav(sd / "me.wav", bed)
-    fig, fmasks = v1.figure(150, size=size, cx=1500)
-    fa = np.stack([fmasks[k] for k in fmasks]).any(0)
+    ms = 2  # v1.1 (Q-C3): mặt nạ bộ phận render ở 2× khung
+    fig_hi, fmasks = v1.figure(150 * ms, size=(size[0] * ms, size[1] * ms), cx=1500 * ms, ss=4)
+    fig = v1.cv2.resize(fig_hi, size, interpolation=v1.cv2.INTER_AREA)
+    fa = v1.cv2.resize(np.stack([fmasks[k] for k in fmasks]).any(0).astype(np.float32), size,
+                       interpolation=v1.cv2.INTER_AREA) >= 0.5
     pd = d / f"{name}.parts"; (pd / "m").mkdir(parents=True)
     json.dump(v1.SHEET, open(pd / "sheet.json", "w"))
     for k, m in fmasks.items():
         Image.fromarray((m * 255).astype(np.uint8)).save(pd / "m" / f"{k}.png")
-    json.dump({"model_sheet": "sheet.json", "scale": 1,
+    json.dump({"model_sheet": "sheet.json", "scale": ms,
                "frames": {str(i): {k: f"m/{k}.png" for k in fmasks} for i in range(0, n, 12)}},
               open(pd / "parts.json", "w"))
     path = v1.h1b_path(n) * np.array([1.2, 1.0]) + np.array([-40, 380])

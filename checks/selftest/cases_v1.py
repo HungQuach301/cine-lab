@@ -241,8 +241,25 @@ def figure(H, size=(1280, 1080), scale_dev=None, jitter=(0.0, 0.0), ss=8, cx=Non
     return np.clip(frame, 0, 255).astype(np.uint8), {k: (m >= 0.5) for k, m in masks.items()}
 
 
-def c3_sample(d, name, H, scale_dev=None, mask_shift=0):
-    frame, masks = figure(H, scale_dev=scale_dev)
+def gen_ss(head_mask_px):
+    """Siêu lấy mẫu của bộ vẽ mẫu tổng hợp so với px mặt nạ: 8× (4× khi đầu > 300 px mặt nạ, để vừa bộ nhớ).
+    Khảo sát v1.1: bộ vẽ thô hơn (2×) tự nó sai tới 1,5·U — đó là lỗi bộ sinh mẫu, không phải của mặt nạ."""
+    return 8 if head_mask_px <= 300 else 4
+
+
+def c3_sample(d, name, H, scale_dev=None, mask_shift=0, s=1, upscale=False, declare=None, size=None):
+    """Khung 1× + mặt nạ ở hệ số s. s > 1: vẽ nhân vật ở s× rồi thu nhỏ ra khung (render mặt nạ độ phân
+    giải cao thật). upscale=True: vẽ ở 1× rồi phóng to mặt nạ lên s× (láng giềng gần nhất) — khai man.
+    declare: số 'scale' ghi vào parts.json (mặc định = s)."""
+    if size is None:  # khung vừa nhân vật (chiều chẵn cho H.264)
+        size = (max(640, (int(4.2 * H) + 80) // 2 * 2), (int(6.2 * H) + 80) // 2 * 2)
+    if s == 1 or upscale:
+        frame, masks = figure(H, size=size, scale_dev=scale_dev)
+        if upscale:
+            masks = {k: np.kron(m, np.ones((s, s), bool)) for k, m in masks.items()}
+    else:
+        fh, masks = figure(H * s, size=(size[0] * s, size[1] * s), scale_dev=scale_dev, ss=gen_ss(H * s))
+        frame = cv2.resize(fh, size, interpolation=cv2.INTER_AREA)
     v = d / f"{name}.mp4"
     base.encode_rgb([frame], v)
     pd = d / f"{name}.parts"
@@ -251,22 +268,26 @@ def c3_sample(d, name, H, scale_dev=None, mask_shift=0):
     fr = {}
     for k, m in masks.items():
         if mask_shift:
-            m = np.roll(m, mask_shift, 1)
+            m = np.roll(m, mask_shift * s, 1)
         Image.fromarray((m * 255).astype(np.uint8)).save(pd / "00000" / f"{k}.png")
         fr[k] = f"00000/{k}.png"
-    (pd / "parts.json").write_text(json.dumps({"model_sheet": "sheet.json", "scale": 1, "frames": {"0": fr}}))
+    (pd / "parts.json").write_text(json.dumps({"model_sheet": "sheet.json", "scale": s if declare is None else declare,
+                                               "frames": {"0": fr}}))
     return v, pd
 
 
-def c3_noise_model(n=60, heads=(40, 57, 100, 146)):
+def c3_noise_model(n=60, heads=(40, 57, 100, 146), scales=(1, 2, 4)):
     """Hiệu chuẩn nhiễu đo: vẽ nhân vật đúng sheet ở vị trí lệch dưới điểm ảnh ngẫu nhiên, đo tỷ lệ,
-    kiểm U(δ = 1 px) phủ mọi sai số thật. Trả kết quả kiểu luật để ghép vào bảng selftest."""
+    kiểm U(δ = 1 px mặt nạ) phủ mọi sai số thật. v1.1: lặp ở hệ số mặt nạ s = 1, 2, 4 (đầu H px video →
+    H·s px mặt nạ; bộ vẽ siêu lấy mẫu gen_ss so với px mặt nạ). Trả kết quả kiểu luật cho bảng selftest."""
     rng = np.random.default_rng(0)
     worst, cover, tot, rows = 0.0, 0, 0, {}
-    for H in heads:
+    for s_, H0 in [(s_, H0) for s_ in scales for H0 in heads]:
+        H = H0 * s_
         errs = []
-        for _ in range(n // len(heads)):
-            _, m = figure(H, size=(int(4.2 * H) + 80, int(6.2 * H) + 80), jitter=tuple(rng.uniform(0, 1, 2)), ss=8)
+        for _ in range(n // len(heads) if H <= 300 else 6):
+            _, m = figure(H, size=(int(4.2 * H) + 80, int(6.2 * H) + 80),
+                          jitter=tuple(rng.uniform(0, s_, 2)), ss=gen_ss(H))
             lh = length_px(m["head"])
             for p in ("torso", "upper_arm", "forearm", "thigh", "shin"):
                 lp = length_px(m[p])
@@ -276,7 +297,7 @@ def c3_noise_model(n=60, heads=(40, 57, 100, 146)):
                 tot += 1
                 errs.append(e)
                 worst = max(worst, e / u)
-        rows[H] = dict(sai_so_max_pct=round(100 * max(errs), 2), sai_so_p95_pct=round(100 * float(np.percentile(errs, 95)), 2))
+        rows[f"s{s_}_H{H0}"] = dict(sai_so_max_pct=round(100 * max(errs), 2), sai_so_p95_pct=round(100 * float(np.percentile(errs, 95)), 2))
     pct = 100.0 * cover / tot
     return result("C3", None, [metric("tỷ lệ sai số thật nằm trong U(δ=1 px)", pct, ">=", 100.0, "%", near_check=False),
                                metric("sai số / U lớn nhất", worst, "<=", 1.0)],
@@ -339,14 +360,17 @@ def cases(d):
     def c3(name, H, **kw):
         v, pd = c3_sample(d, name, H, **kw)
         return check_c3(v, "shot", pd, d)
-    add("C3", "đúng sheet, đầu 146 px", PASS, lambda: c3("c3_good", 146))
-    add("C3", "thân dài hơn sheet 6%, đầu 146 px", FAIL, lambda: c3("c3_torso6", 146, scale_dev={"torso": 1.06}))
+    # v1.1 (Q-C3): các ca v1 dùng mặt nạ 1× được chuyển sang mặt nạ 2× (cùng ý nghĩa); ca đầu 57 px giữ 1×.
+    add("C3", "đúng sheet, đầu 146 px (mặt nạ 2×)", PASS, lambda: c3("c3_good", 146, s=2))
+    add("C3", "thân dài hơn sheet 6%, đầu 146 px (mặt nạ 2×)", FAIL,
+        lambda: c3("c3_torso6", 146, scale_dev={"torso": 1.06}, s=2))
     add("C3", "thân dài hơn 2%, đầu 57 px: nhiễu đo vượt biên 3%, không chứng minh được (cả bộ phận đúng)", FAIL,
         lambda: c3("c3_small", 57, scale_dev={"torso": 1.02}))
-    add("C3", "thân dài hơn 2%, đầu 146 px: chứng minh được đạt", PASS,
-        lambda: c3("c3_small146", 146, scale_dev={"torso": 1.02}))
-    add("C3", "mặt nạ khai lệch 20 px so với render", FAIL, lambda: c3("c3_shift", 146, mask_shift=20))
-    add("C3", "hiệu chuẩn mô hình nhiễu U(δ=1 px), đầu 40–146 px", PASS, c3_noise_model)
+    add("C3", "thân dài hơn 2%, đầu 146 px: chứng minh được đạt (mặt nạ 2×)", PASS,
+        lambda: c3("c3_small146", 146, scale_dev={"torso": 1.02}, s=2))
+    add("C3", "mặt nạ khai lệch 20 px so với render (mặt nạ 2×)", FAIL,
+        lambda: c3("c3_shift", 146, mask_shift=20, s=2))
+    add("C3", "hiệu chuẩn mô hình nhiễu U(δ=1 px mặt nạ), đầu 40–146 px, s = 1, 2, 4", PASS, c3_noise_model)
     return C
 
 

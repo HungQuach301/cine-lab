@@ -33,10 +33,12 @@ RULES = {
         level=CHAN,
         measure="ffprobe đọc codec, profile, pix_fmt, kích thước, SAR; bitrate hình tính từ tổng "
                 "kích thước gói / thời lượng (không dùng số khai trong header). Bitrate âm đo từ gói "
-                "chỉ báo tham khảo: AAC dùng ít bit cho đoạn âm đơn giản nên không phản ánh chất lượng.",
+                "chỉ báo tham khảo: AAC dùng ít bit cho đoạn âm đơn giản nên không phản ánh chất lượng. "
+                "Profile youtube: dùng chung số đo grain của G3b (σ theo shot) để chọn ngưỡng bitrate.",
         threshold="youtube: H.264 High hoặc HEVC Main/Main10, yuv420p/yuv420p10le, 1920×1080 hoặc "
                   "3840×2160, bitrate hình đo ≥ 12 Mbps (1080p) / ≥ 45 Mbps (2160p) (nội bộ, trên mức "
-                  "khuyến nghị YouTube 8/35–45 Mbps); âm AAC-LC 48 kHz 2 kênh (bitrate âm chỉ báo tham khảo). "
+                  "khuyến nghị YouTube 8/35–45 Mbps); v1.1 (Q-G3b): khi G3b đo thấy grain (σ trung vị của một "
+                  "shot bất kỳ ≥ 0,8 mã) thì bitrate hình đo ≥ 30 Mbps (1080p; 2160p vẫn ≥ 45); âm AAC-LC 48 kHz 2 kênh (bitrate âm chỉ báo tham khảo). "
                   "archive: ProRes 422 HQ/4444/4444 XQ, DNxHR HQ/HQX/444 hoặc FFV1; âm PCM ≥ 24 bit "
                   "48 kHz; ≥ 1920×1080. Cả hai: tỷ lệ 16:9, SAR 1:1.",
         profiles=("youtube", "archive"),
@@ -62,9 +64,16 @@ RULES = {
                 "≥ 60% ký tự, độ tin ≥ 0,8, và độ đặc nét < 0,85 (trung vị diện tích/hộp bao của các thành phần "
                 "sau ngưỡng Otsu; ký tự đo được 0,4–0,7, ô cửa sổ ≈ 1,0) — loại cửa sổ, lưới, hoa văn. Vùng có matte = ≥ 50% diện tích "
                 "hộp nằm trong nét matte (alpha ≥ 0,02) của các phần tử đang hiện ở khung đó, nới 0,35 × "
-                "chiều cao hộp. Không cần matte để chạy: thiếu thư mục chữ thì mọi chữ dò được đều trượt.",
-        threshold="0 vùng chữ dò được mà không có matte (ngưỡng hộp 0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%: "
-                  "nội bộ).",
+                "chiều cao hộp. Không cần matte để chạy: thiếu thư mục chữ thì mọi chữ dò được đều trượt. "
+                "Ngoài khung lấy mẫu, mỗi phần tử chữ được đọc thêm ở khung giữa khoảng hiện. v1.1 (Q-P0): "
+                "phần tử 'diegetic': true (chữ trong thế giới phim) được tính là có matte; vùng chữ gán cho phần "
+                "tử diegetic (phủ nhiều nhất) được chuẩn hoá thành từ như J1 và so với: dòng thoại của "
+                "<video>.script.txt (phụ đề), chữ đọc được trong matte phần tử không diegetic (tiêu đề, phụ đề, "
+                "credit), trường 'text' khai cho phần tử không diegetic. Trùng = giống cả dòng ≥ 0,80 "
+                "(difflib, dòng ≥ 2 từ hoặc ≥ 6 ký tự) hoặc giống một đoạn liền ≥ 0,85 với ≥ 2 từ và ≥ 50% số "
+                "từ của dòng.",
+        threshold="0 vùng chữ dò được mà không có matte; 0 vùng chữ diegetic trùng phụ đề/tiêu đề (ngưỡng hộp "
+                  "0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%, giống 0,80/0,85: nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
     "G4": dict(
@@ -74,8 +83,10 @@ RULES = {
         measure="Với mỗi phần tử chữ, lấy tối đa 24 khung rải đều. Độ chói tương đối (WCAG, sRGB) "
                 "của chữ = trung vị trên lõi nét trong khung render. Nền = vành 2–6 px quanh nét "
                 "(trừ nét của mọi phần tử). Tính tỷ lệ tương phản từng điểm nền với chữ; lấy phân "
-                "vị 10 (90% điểm nền đạt). Lấy giá trị nhỏ nhất qua các khung.",
-        threshold="Phân vị 10 của tỷ lệ tương phản ≥ 4,5 ở mọi phần tử, mọi khung lấy mẫu.",
+                "vị 10 (90% điểm nền đạt). Lấy giá trị nhỏ nhất qua các khung. v1.1 (Q-P0): phần tử "
+                "'diegetic': true được miễn đo tương phản nhưng vẫn kiểm độ khớp matte–render như P1.",
+        threshold="Phân vị 10 của tỷ lệ tương phản ≥ 4,5 ở mọi phần tử không diegetic, mọi khung lấy mẫu; "
+                  "độ khớp matte–render ≥ 90% ở mọi phần tử.",
         profiles=("shot", "youtube", "archive"),
     ),
     "G3": dict(
@@ -149,7 +160,8 @@ RULES = {
                 "câu; SII rút gọn = Σ tầm quan trọng dải (ANSI S3.5, octave) × clip((SNR dải + 15)/30, 0, 1), "
                 "không tính lan truyền che lấp và ngưỡng nghe. Cửa sổ 0,5 s trượt 50 ms trong câu.",
         threshold="Sai lệch bao P95 ≤ 3 dB; |20·log10(a/b)| ≤ 1 dB; SII rút gọn mỗi câu ≥ 0,75; mọi cửa sổ "
-                  "0,5 s trong câu ≥ 0,45 (đều nội bộ; mốc 0,75/0,45 lấy theo cách diễn giải SII của ANSI S3.5).",
+                  "0,5 s trong câu ≥ 0,45. Ngưỡng nội bộ, CHƯA HIỆU CHUẨN (Q-J1b: giữ cấp Chặn; mốc 0,75/0,45 lấy "
+                  "theo cách diễn giải SII của ANSI S3.5; hiệu chuẩn sau bài thử với 3–5 người nghe mù, xem RULES.md).",
         profiles=("shot", "youtube", "archive"),
     ),
     "H1": dict(
@@ -183,16 +195,22 @@ RULES = {
         section="4.C — Nhân vật",
         title="Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
         level=CHAN,
-        measure="<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12 "
-                "(được phép render mặt nạ ở độ phân giải gấp 'scale' lần). Độ dài = bề dài chiếu lên trục chính "
+        measure="<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12. "
+                "v1.1 (Q-C3): mặt nạ bắt buộc ở độ phân giải gấp s = 2–4 lần khung; s đo từ kích thước PNG "
+                "(rộng/rộng và cao/cao phải bằng nhau, mọi mặt nạ cùng cỡ), trường 'scale' nếu có phải khớp s đo. "
+                "Chống phóng to mặt nạ thấp hơn: tập vị trí biên phân biệt (x chuyển tiếp ngang, y chuyển tiếp "
+                "dọc) quy về pha lưới s (k = round(s) ngăn); tỷ lệ dồn vào 1 pha phải ≤ 1/k + (1 − 1/k)/2 (s=2: 0,75; "
+                "s=3: 0,67; s=4: 0,625) với ≥ 40 vị trí (render thật ≈ 1/k; phóng to từ mặt nạ nhị phân ≈ 1,0). Độ dài = bề dài chiếu lên trục chính "
                 "PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model "
-                "sheet − 1. Nhiễu đo U = √((1 px/L_bộ phận)² + (1 px/L_đầu)²), hiệu chuẩn Monte Carlo trong "
-                "selftest (phủ 100% sai số ở đầu 40–146 px; M0 đo ~1,3% ở đầu 57 px). Quyết định kiểu "
+                "sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 1 px "
+                "mặt nạ; hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 (phủ 100% sai số ở đầu 40–146 px "
+                "video). Quyết định kiểu "
                 "ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = "
                 "không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh "
                 "ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
-        threshold="0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu "
-                  "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 nội bộ).",
+        threshold="Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; "
+                  "0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu "
+                  "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
     "O3": dict(

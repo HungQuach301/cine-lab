@@ -89,7 +89,7 @@ def main(argv=None):
         "N1": lambda: run_rule("N1", check_n1, video, prof),
         "N2": lambda: run_rule("N2", check_n2, video, prof),
         "N3": lambda: run_rule("N3", check_n3, video, prof),
-        "P0": lambda: run_rule("P0", check_p0, video, prof, text),
+        "P0": lambda: run_rule("P0", check_p0, video, prof, text, script if script and Path(script).exists() else None),
         "P1": lambda: need("P1", text, f"{video.stem}.text/elements.json", check_p1,
                            probe_file=text and text / "elements.json"),
         "G4": lambda: need("G4", text, f"{video.stem}.text/elements.json", check_g4,

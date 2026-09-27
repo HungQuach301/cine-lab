@@ -87,7 +87,29 @@ def shots(path):
     return [0] + [s[0].frame_num for s in sc[1:]] if sc else [0]
 
 
-def check_g3b(path, profile):
+_cache = {}
+
+
+def measure(path):
+    """Số đo grain theo shot, dùng chung cho G3b và N3 (v1.1: bitrate master khi có grain).
+    Nhớ đệm theo (đường dẫn, kích thước, mtime) để không giải mã hai lần trong một lần chạy."""
+    import os
+    st = os.stat(path)
+    key = (str(path), st.st_size, st.st_mtime_ns)
+    if key not in _cache:
+        _cache.clear()
+        _cache[key] = _measure(path)
+    return _cache[key]
+
+
+def grain_present(path):
+    """σ grain lớn nhất theo shot (trung vị trong shot), None nếu không đo được."""
+    m = measure(path)
+    meds = [x["sigma_trung_vi"] for x in m["stats"].values()]
+    return max(meds) if meds else None
+
+
+def _measure(path):
     starts = shots(path)
     rows = []
     for idx, a, b in _pairs(path):
@@ -106,9 +128,6 @@ def check_g3b(path, profile):
         if sig is not None:
             per.setdefault(shot_of(idx), []).append((idx, sig, c))
     unmeasured = sum(sig is None for _, sig, _ in rows)
-    if not per:
-        return result("G3b", "FAIL", notes=["Không khung nào có đủ khối phẳng trung tính để đo grain "
-                                           f"({len(rows)} cặp khung). Không chứng minh được grain."])
     stats = {}
     for k, v in per.items():
         s = np.array([x[1] for x in v])
@@ -116,6 +135,15 @@ def check_g3b(path, profile):
         stats[k] = dict(tu_khung=starts[k], so_khung_do=len(v), sigma_trung_vi=round(float(np.median(s)), 3),
                         cv=round(float(s.std() / s.mean()) if s.mean() > 0 else 0.0, 3),
                         tuong_quan_khung_ke=round(float(np.median(c)), 3))
+    return dict(starts=starts, rows=len(rows), unmeasured=unmeasured, stats=stats)
+
+
+def check_g3b(path, profile):
+    m = measure(path)
+    starts, stats, unmeasured = m["starts"], m["stats"], m["unmeasured"]
+    if not stats:
+        return result("G3b", "FAIL", notes=["Không khung nào có đủ khối phẳng trung tính để đo grain "
+                                           f"({m['rows']} khung đo). Không chứng minh được grain."])
     meds = [x["sigma_trung_vi"] for x in stats.values()]
     ratio = max(meds) / min(meds) if min(meds) > 0 else float("inf")
     ms = [metric("σ grain nhỏ nhất theo shot", min(meds), ">=", PRESENT_MIN, "mã 8 bit"),
@@ -124,7 +152,7 @@ def check_g3b(path, profile):
           metric("σ shot lớn nhất / nhỏ nhất", ratio, "<=", SHOT_RATIO_MAX),
           metric("tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
                  max(x["tuong_quan_khung_ke"] for x in stats.values()), "<=", FROZEN_MAX)]
-    notes = [f"{len(starts)} shot (PySceneDetect); {len(rows)} khung đo, {unmeasured} khung không đủ khối phẳng."]
+    notes = [f"{len(starts)} shot (PySceneDetect); {m['rows']} khung đo, {unmeasured} khung không đủ khối phẳng."]
     if len(stats) < len(starts):
         notes.append(f"{len(starts) - len(stats)} shot không đo được grain (không có khung đủ khối phẳng).")
     return result("G3b", None, ms, notes, evidence=dict(theo_shot=stats, shot_bat_dau=starts[:200]))

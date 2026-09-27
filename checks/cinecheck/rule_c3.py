@@ -2,12 +2,18 @@
 
 Thư mục <video>.parts/parts.json (xuất từ render, cùng phép biến đổi với khung hình):
   {"model_sheet": "bible/characters/hero.model.json",   # tính từ thư mục parts/ rồi từ gốc repo
-   "scale": 1,                                           # px mặt nạ / px video (render mặt nạ 2×, 4× được)
+   "scale": 4,                                           # tuỳ chọn; máy đo hệ số từ kích thước PNG
    "frames": {"0": {"head": "00000/head.png", "torso": "00000/torso.png", ...}, "12": {...}}}
 Mỗi mặt nạ: PNG, bộ phận ≥ 128 (kênh xám hoặc alpha). Khung mà mặt nạ đầu rỗng = nhân vật không hiện.
 Độ dài = bề dài chiếu lên trục chính (PCA) của tâm điểm ảnh + 1 px. Tỷ lệ = độ dài bộ phận / độ dài đầu.
-Nhiễu đo U = sqrt((δ/L_bộ_phận)² + (δ/L_đầu)²), δ = 1 px mặt nạ: hiệu chuẩn Monte Carlo (selftest) —
-phủ 100% sai số thật ở đầu 40–146 px. Quy tắc quyết định kiểu ISO 14253-1 (dải bảo vệ):
+v1.1 (Q-C3): mặt nạ BẮT BUỘC có độ phân giải gấp s = 2–4 lần khung video. s đo từ kích thước PNG
+(rộng mặt nạ / rộng video, cao mặt nạ / cao video; hai hệ số phải bằng nhau), không tin trường "scale";
+nếu có khai "scale" thì phải khớp số đo. Chống phóng to mặt nạ 1× lên: vị trí biên (x của chuyển tiếp
+ngang, y của chuyển tiếp dọc, lấy tập giá trị phân biệt) quy về pha lưới s; mặt nạ phóng to từ ảnh nhị
+phân thấp hơn có biên dồn vào 1 pha, mặt nạ render thật trải đều.
+Nhiễu đo U(s) = sqrt((δ/(s·L_bộ_phận))² + (δ/(s·L_đầu))²), L tính bằng px video, δ = 1 px MẶT NẠ:
+hiệu chuẩn Monte Carlo (selftest) ở s = 1, 2, 4 — phủ 100% sai số thật ở đầu 40–146 px video.
+Quy tắc quyết định kiểu ISO 14253-1 (dải bảo vệ):
   đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; còn lại = không chứng minh được.
 """
 import json
@@ -17,20 +23,29 @@ import cv2
 import numpy as np
 from PIL import Image
 
-from .common import FAIL, frame_count, metric, read_rgb, result
+from .common import FAIL, frame_count, metric, probe, read_rgb, result, stream
 
 TOL = 0.03          # khung mục 4.C (nội bộ)
 DELTA_PX = 1.0      # sai số đầu mút tổng mỗi độ dài (px mặt nạ), hiệu chuẩn trong selftest
 STEP = 12           # phải có mặt nạ cho mọi khung chia hết cho 12
 FID_MIN = 1.5       # độ khớp biên mặt nạ với cạnh ảnh render (nội bộ)
 SHIFT = 6
+SCALE_RANGE = (2.0, 4.0)  # Q-C3: mặt nạ gấp 2–4 lần khung
+SCALE_TOL = 0.005         # sai lệch tương đối cho phép giữa hệ số ngang/dọc và với số khai
+# tỷ lệ vị trí biên dồn vào 1 pha lưới s: trải đều ≈ 1/k, phóng to ≈ 1,0; ngưỡng = giữa hai mức (nội bộ)
+def phase_max(s):
+    k = max(1, int(round(s)))
+    return 1 / k + 0.5 * (1 - 1 / k)
+PHASE_MIN_POS = 40        # cần ≥ 40 vị trí biên phân biệt để kết luận pha
 
 
 def load_mask(p):
     im = Image.open(p)
-    a = np.asarray(im.convert("RGBA"))
-    m = a[..., 3] if im.mode in ("RGBA", "LA") or "transparency" in im.info else a[..., :3].max(-1)
-    return m >= 128
+    if im.mode == "L" and "transparency" not in im.info:
+        return np.asarray(im) >= 128
+    if im.mode in ("RGBA", "LA") or "transparency" in im.info:
+        return np.asarray(im.convert("RGBA"))[..., 3] >= 128
+    return np.asarray(im.convert("RGB")).max(-1) >= 128
 
 
 def length_px(m):
@@ -66,6 +81,23 @@ def fidelity(sil, frame):
     return on / max(np.median(off), 1e-6)
 
 
+def edge_positions(m):
+    """Tập vị trí biên phân biệt: x của chuyển tiếp theo hàng, y của chuyển tiếp theo cột."""
+    xs = np.unique(np.nonzero(m[:, 1:] != m[:, :-1])[1] + 1)
+    ys = np.unique(np.nonzero(m[1:, :] != m[:-1, :])[0] + 1)
+    return xs, ys
+
+
+def phase_share(positions, s):
+    """Tỷ lệ vị trí rơi vào pha đông nhất của lưới s (k = round(s) ngăn)."""
+    k = max(1, int(round(s)))
+    if len(positions) == 0:
+        return None
+    # pha = (x mod s)·k/s; cộng 1e-6 để x = s/3 không rơi nhầm ngăn 0 do làm tròn số thực
+    ph = np.floor(np.mod(np.asarray(positions, np.float64), s) * k / s + 1e-6).astype(int) % k
+    return float(np.bincount(ph, minlength=k).max() / len(ph))
+
+
 def _sheet(spec, parts_dir, repo):
     for base in (parts_dir, repo):
         p = Path(base) / spec["model_sheet"]
@@ -81,7 +113,9 @@ def check_c3(video, profile, parts_dir=None, repo="."):
         return result("C3", None, [metric("khai báo không có nhân vật", 1, "==", 1)],
                       notes=["parts.json khai báo shot không có nhân vật (no_character). Người duyệt xác nhận."])
     sheet, sheet_path = _sheet(spec, parts_dir, repo)
-    scale = float(spec.get("scale", 1))
+    v = stream(probe(video), "video")
+    vw, vh = int(v["width"]), int(v["height"])
+    declared = spec.get("scale")
     names = [p for p in sheet.get("measured_parts", [k for k, v in sheet.items()
                                                        if isinstance(v, dict) and "length" in v]) if p != "head"]
     want = {p: sheet[p]["length"] / sheet["head"]["length"] for p in names}
@@ -91,8 +125,18 @@ def check_c3(video, profile, parts_dir=None, repo="."):
     missing = sorted(required - set(frames))
     rgb = read_rgb(video, [k for k in frames if k < n])
     rows, fids, sure_fail, unproven, head_px = [], {}, 0, 0, []
+    sizes, xs_all, ys_all, scales = set(), [], [], []
     for k in sorted(frames):
         masks = {p: load_mask(parts_dir / f) for p, f in frames[k].items()}
+        for m in masks.values():
+            sizes.add(m.shape)
+        shp = next(iter(masks.values())).shape if masks else (vh, vw)
+        scale = shp[1] / vw
+        scales.append((shp[1] / vw, shp[0] / vh))
+        for m in masks.values():
+            ex, ey = edge_positions(m)
+            xs_all.append(ex)
+            ys_all.append(ey)
         if "head" not in masks or length_px(masks["head"]) is None:
             continue
         lh = length_px(masks["head"])
@@ -119,8 +163,8 @@ def check_c3(video, profile, parts_dir=None, repo="."):
             sil = np.zeros(next(iter(masks.values())).shape, bool)
             for m in masks.values():
                 sil |= m
-            if scale != 1:
-                h, w = rgb[k].shape[:2]
+            h, w = rgb[k].shape[:2]
+            if sil.shape != (h, w):
                 sil = cv2.resize(sil.astype(np.float32), (w, h), interpolation=cv2.INTER_AREA) >= 0.5
             if sil.shape == rgb[k].shape[:2]:
                 fids[k] = fidelity(sil, rgb[k])
@@ -128,17 +172,44 @@ def check_c3(video, profile, parts_dir=None, repo="."):
                 fids[k] = None
     if not rows:
         return result("C3", FAIL, notes=["Không khung nào có mặt nạ đầu: không đo được."])
+    sx = [a for a, _ in scales]
+    sy = [b for _, b in scales]
+    s_meas = float(np.median(sx))
+    uniform = len(sizes) == 1 and all(abs(a - b) <= SCALE_TOL * max(a, b) for a, b in scales)
+    in_range = SCALE_RANGE[0] - SCALE_TOL <= min(sx + sy) and max(sx + sy) <= SCALE_RANGE[1] + SCALE_TOL
+    decl_ok = declared is None or abs(float(declared) - s_meas) <= SCALE_TOL * s_meas
+    pos = np.concatenate([np.concatenate(xs_all) if xs_all else np.array([]),
+                          np.concatenate(ys_all) if ys_all else np.array([])])
+    share = phase_share(pos, s_meas) if s_meas >= 1.5 else None
     fv = [v for v in fids.values() if v is not None]
     worst_fid = min(fv) if fv else 0.0
     max_dev = max(abs(r["lech_pct"]) for r in rows if "lech_pct" in r) if any("lech_pct" in r for r in rows) else None
     upper = max([abs(r["lech_pct"]) + r["U_pct"] for r in rows if "lech_pct" in r], default=float("inf"))
-    ms = [metric("biên trên |lệch| + U lớn nhất", upper, "<=", 100 * TOL, "%"),
+    ms = [metric("hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)", round(min(sx + sy), 4), ">=",
+                 SCALE_RANGE[0], "×"),
+          metric("hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)", round(max(sx + sy), 4), "<=",
+                 SCALE_RANGE[1], "×"),
+          metric("mặt nạ cùng kích thước, hệ số ngang = dọc", uniform, "==", True),
+          metric("'scale' khai báo khớp hệ số đo (bỏ trống được)", decl_ok, "==", True)]
+    if share is not None:
+        ms.append(metric("vị trí biên phân biệt để kiểm pha lưới", len(pos), ">=", PHASE_MIN_POS, near_check=False))
+        ms.append(metric("vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)", share, "<=",
+                         round(phase_max(s_meas), 4)))
+    ms += [metric("biên trên |lệch| + U lớn nhất", upper, "<=", 100 * TOL, "%"),
           metric("bộ phận–khung lệch chắc chắn > 3%", sure_fail, "<=", 0),
           metric("bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)", unproven, "<=", 0),
           metric("khung mẫu (mỗi 12 khung) thiếu mặt nạ", len(missing), "<=", 0),
           metric("độ khớp biên mặt nạ–cạnh ảnh render thấp nhất", worst_fid, ">=", FID_MIN)]
-    notes = [f"Model sheet: {sheet_path.name}. Đầu cao {min(head_px):.1f}–{max(head_px):.1f} px video "
-             f"(mặt nạ ×{scale:g}). Lệch lớn nhất {max_dev}%."]
+    notes = [f"Model sheet: {sheet_path.name}. Mặt nạ {sorted(sizes)[0][1]}×{sorted(sizes)[0][0]} px trên khung "
+             f"{vw}×{vh} → hệ số đo ×{s_meas:.3g} (khai báo: {declared if declared is not None else 'không'}). "
+             f"Đầu cao {min(head_px):.1f}–{max(head_px):.1f} px video. Lệch lớn nhất {max_dev}%. "
+             f"{len(pos)} vị trí biên phân biệt; tỷ lệ dồn 1 pha "
+             f"{'—' if share is None else f'{share:.2f}'} (trải đều ≈ {1 / max(1, round(s_meas)):.2f})."]
+    if not in_range:
+        notes.append("Q-C3: mặt nạ phải render ở độ phân giải gấp 2–4 lần khung video (đo từ kích thước PNG).")
+    if share is not None and share > phase_max(s_meas):
+        notes.append("Biên mặt nạ nằm trên lưới thô: mặt nạ có vẻ được phóng to từ độ phân giải thấp hơn, "
+                     "không phải render ở hệ số khai. Render lại mặt nạ ở độ phân giải thật.")
     if unproven:
         notes.append("Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) "
                      "hoặc chọn khung có đầu lớn hơn để chứng minh.")

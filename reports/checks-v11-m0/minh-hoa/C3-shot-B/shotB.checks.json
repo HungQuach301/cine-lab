@@ -1,0 +1,181 @@
+{
+  "tool": "cinecheck 1.1.0",
+  "created_utc": "2026-09-27T03:07:08Z",
+  "file": "/tmp/tmp.fToFVBZMUJ/shotB.mp4",
+  "profile": "shot",
+  "verdict": "TRƯỢT",
+  "lock": {
+    "expected": "d97f9b017ea2efd89be98dbecfeeb0e3d57ff44f9cfe26172703da3f1b975c3f",
+    "actual": "d97f9b017ea2efd89be98dbecfeeb0e3d57ff44f9cfe26172703da3f1b975c3f",
+    "match": true
+  },
+  "inputs": {
+    "script": null,
+    "text": null,
+    "stems": null,
+    "parts": "/tmp/tmp.fToFVBZMUJ/shotB.parts",
+    "motion": null,
+    "assets": null,
+    "library": "/tmp/tmp.fToFVBZMUJ/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 0,
+    "FAIL": 1,
+    "MISSING": 0,
+    "N/A": 0,
+    "ERROR": 0
+  },
+  "near_threshold": [],
+  "results": [
+    {
+      "code": "C3",
+      "section": "4.C — Nhân vật",
+      "title": "Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
+      "level": "Chặn",
+      "measure": "<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12. v1.1 (Q-C3): mặt nạ bắt buộc ở độ phân giải gấp s = 2–4 lần khung; s đo từ kích thước PNG (rộng/rộng và cao/cao phải bằng nhau, mọi mặt nạ cùng cỡ), trường 'scale' nếu có phải khớp s đo. Chống phóng to mặt nạ thấp hơn: tập vị trí biên phân biệt (x chuyển tiếp ngang, y chuyển tiếp dọc) quy về pha lưới s (k = round(s) ngăn); tỷ lệ dồn vào 1 pha phải ≤ 1/k + (1 − 1/k)/2 (s=2: 0,75; s=3: 0,67; s=4: 0,625) với ≥ 40 vị trí (render thật ≈ 1/k; phóng to từ mặt nạ nhị phân ≈ 1,0). Độ dài = bề dài chiếu lên trục chính PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 1 px mặt nạ; hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 (phủ 100% sai số ở đầu 40–146 px video). Quyết định kiểu ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
+      "threshold_text": "Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; 0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          "value": 1.0,
+          "op": ">=",
+          "threshold": 2.0,
+          "unit": "×",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          "value": 1.0,
+          "op": "<=",
+          "threshold": 4.0,
+          "unit": "×",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "biên trên |lệch| + U lớn nhất",
+          "value": 1.83,
+          "op": "<=",
+          "threshold": 3.0,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung lệch chắc chắn > 3%",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          "value": 4.3996,
+          "op": ">=",
+          "threshold": 1.5,
+          "unit": "",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [
+        "Model sheet: model-sheet.json. Mặt nạ 1920×1080 px trên khung 1920×1080 → hệ số đo ×1 (khai báo: 1). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.84%. 757 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Q-C3: mặt nạ phải render ở độ phân giải gấp 2–4 lần khung video (đo từ kích thước PNG)."
+      ],
+      "evidence": {
+        "do": [
+          {
+            "khung": 0,
+            "bo_phan": "torso",
+            "ty_le": 1.9041,
+            "sheet": 1.9,
+            "lech_pct": 0.22,
+            "U_pct": 0.77,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "upper_arm",
+            "ty_le": 0.958,
+            "sheet": 0.95,
+            "lech_pct": 0.84,
+            "U_pct": 0.99,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "forearm",
+            "ty_le": 0.8559,
+            "sheet": 0.85,
+            "lech_pct": 0.7,
+            "U_pct": 1.05,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "thigh",
+            "ty_le": 1.2079,
+            "sheet": 1.2,
+            "lech_pct": 0.66,
+            "U_pct": 0.89,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "shin",
+            "ty_le": 1.1571,
+            "sheet": 1.15,
+            "lech_pct": 0.62,
+            "U_pct": 0.91,
+            "ket_qua": "đạt"
+          }
+        ],
+        "do_khop_bien": {
+          "0": 4.4
+        },
+        "khung_thieu": []
+      },
+      "seconds": 0.58
+    }
+  ]
+}

@@ -5,6 +5,7 @@ from .common import (FAIL, NA, metric, not_applicable, packets, probe, read_luma
 
 FPS = 24
 TOL_S = 0.0005
+GRAIN_MIN_MBPS = 30.0  # v1.1 (Q-G3b): master YouTube có grain (G3b σ ≥ 0,8) phải ≥ 30 Mbps (nội bộ)
 
 
 def check_n1(path, profile):
@@ -89,6 +90,15 @@ def check_n3(path, profile):
         ms.append(metric("kích thước", f"{w}x{h}", "==", "1920x1080 | 3840x2160")
                   | {"ok": (w, h) in ((1920, 1080), (3840, 2160))})
         need = 45.0 if h >= 2160 else 12.0
+        from .rule_g3b import PRESENT_MIN, grain_present
+        sig = grain_present(path)
+        if sig is not None and sig >= PRESENT_MIN:
+            need = max(need, GRAIN_MIN_MBPS)
+            notes.append(f"G3b đo có grain (σ lớn nhất theo shot {sig:.2f} ≥ {PRESENT_MIN} mã): master YouTube "
+                         f"phải ≥ {GRAIN_MIN_MBPS:g} Mbps để bộ mã giữ grain (Q-G3b).")
+        else:
+            notes.append("G3b không đo thấy grain (σ < 0,8 mã hoặc không đủ khối phẳng): áp ngưỡng bitrate thường. "
+                         f"σ lớn nhất theo shot: {'—' if sig is None else f'{sig:.2f}'}.")
         ms.append(metric("bitrate hình đo từ gói", vbr, ">=", need, "Mbps"))
         if a is None:
             ms.append(metric("luồng âm", "(không có)", "==", "aac") | {"ok": False})
