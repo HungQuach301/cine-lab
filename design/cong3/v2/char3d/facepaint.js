@@ -38,6 +38,7 @@ const mir = (pts) => pts.map(([x, y]) => [-x, y]);
 export const EXPR = {
   neutral:   { browIn: 0.000, browOut: 0.000, knit: 0.000, corner: 0.004, press: 0.2, chin: 0.0, wet: 0.0, lidDrop: 0.000, smile: 0.0, tear: 0 },
   sad_smile: { asym: 0.3, browIn: 0.040, browOut: -0.012, knit: 0.006, corner: 0.042, press: 0.6, chin: 0.0, wet: 0.6, lidDrop: 0.010, smile: 1.0, tear: 0 },
+  strained:  { asym: 0.15, browIn: 0.040, browOut: -0.004, knit: 0.028, corner: -0.012, press: 1.0, chin: 0.4, wet: 0.2, lidDrop: 0.000, smile: 0.0, tear: 0 },   // Cổng 4: gắng sức, lẩm bẩm "Not yet"
   choked:    { asym: 0.2, browIn: 0.055, browOut: -0.020, knit: 0.020, corner: -0.032, press: 1.0, chin: 1.0, wet: 1.0, lidDrop: 0.006, smile: 0.0, tear: 1 },
 };
 

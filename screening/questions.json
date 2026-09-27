@@ -1,0 +1,61 @@
+{
+ "film": "animatic.mp4",
+ "version": "Cổng 4 — animatic (previs), kịch bản nháp 2",
+ "duration": "2:30",
+ "language": "en",
+ "instructions_for_viewer": "Watch the video once, from start to finish, without pausing or rewinding. Use headphones or speakers at a comfortable volume. This is a rough early draft: the pictures and sound are unfinished. Then answer the questions below. There are no right or wrong answers.",
+ "instructions_for_host": [
+  "Không giới thiệu phim, không kể nội dung, không nói tên nhân vật trước khi xem.",
+  "Người xem xem một lần, không dừng, không tua lại. Trả lời ngay sau khi xem, không bàn với người khác.",
+  "Câu (c) hỏi theo mốc giờ; người xem được phép tua tới đúng mốc SAU khi đã trả lời (a) và (b), nhưng chỉ xem khung dừng (không phát).",
+  "Ghi nguyên văn câu trả lời; không diễn giải."
+ ],
+ "questions": [
+  {
+   "id": "a",
+   "type": "free_text",
+   "prompt": "Tell us the story in 2–3 sentences."
+  },
+  {
+   "id": "b",
+   "type": "timeline_marks",
+   "prompt": "Was there any moment where your attention drifted? Tick every segment where it did. If it never did, tick nothing.",
+   "segments": [
+    "0:00–0:10", "0:10–0:20", "0:20–0:30", "0:30–0:40", "0:40–0:50",
+    "0:50–1:00", "1:00–1:10", "1:10–1:20", "1:20–1:30", "1:30–1:40",
+    "1:40–1:50", "1:50–2:00", "2:00–2:10", "2:10–2:20", "2:20–2:30"
+   ],
+   "free_timestamps_prompt": "If you remember a more exact time, write it here (m:ss)."
+  },
+  {
+   "id": "c1",
+   "type": "free_text",
+   "timestamp": "0:40",
+   "prompt": "What did you feel at 0:40?"
+  },
+  {
+   "id": "c2",
+   "type": "free_text",
+   "timestamp": "1:50",
+   "prompt": "What did you feel at 1:50?"
+  },
+  {
+   "id": "c3",
+   "type": "free_text",
+   "timestamp": "2:07",
+   "prompt": "What did you feel at 2:07?"
+  },
+  {
+   "id": "d",
+   "type": "scale",
+   "prompt": "Would you watch another film by this maker?",
+   "scale": {"min": 1, "max": 5, "min_label": "Definitely not", "max_label": "Definitely yes"}
+  }
+ ],
+ "notes_for_owner": {
+  "c1": "Chủ dự án yêu cầu mốc 0:48 cho khoảnh khắc 'phố trắng'. Trong kịch bản nháp 2 và animatic này, sóng trắng lan xuống dốc từ 0:30, qua các ngọn bà vừa thắp ở 0:37–0:40, tới chính bà ở 0:40 (s13), và 0:42–0:44 là bà giơ tay trên nền không bóng (s14). Còn 0:48 là nhịp so hai mặt đồng hồ (s16–s17). Vì vậy câu hỏi đặt ở 0:40. Nếu muốn giữ 0:48, sửa trường timestamp và prompt của c1 (xem quyết định C trong reports/m1/CONG-4.md).",
+  "c2": "1:50 = đầu câu L4 (s37).",
+  "c3": "2:07 = Cas tự hơ tay đếm ba (s42, 2:07–2:10).",
+  "neutrality": "Câu hỏi không nêu nhân vật, sự kiện, cảm xúc hay chủ đề; câu (c) chỉ nêu mốc giờ."
+ }
+}
