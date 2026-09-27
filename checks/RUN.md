@@ -1,4 +1,10 @@
-# CHẠY LUẬT KIỂM L1 (v1.1) — hướng dẫn cho phiên xưởng
+# CHẠY LUẬT KIỂM L1 (v1.2) — hướng dẫn cho phiên xưởng
+
+**Điểm mới v1.2:**
+1. J1 kiểm theo từng câu thoại (mỗi dòng `X.script.txt` là một câu). Nên giữ mỗi lời thoại một dòng.
+2. J1 coi từ ghép và từ tách là một (goodnight = good night…), theo bảng trong RULES.md.
+3. J1 bỏ chữ ASR bịa trong đoạn im lặng số tuyệt đối. Báo cáo liệt kê những chữ bị bỏ.
+4. Mặt nạ C3 phải render thật ở 2–4×, nhị phân hoặc khử răng cưa **ở chính độ phân giải đó**. Mặt nạ phóng to còn biên xám mờ hoặc biên bậc thang thì TRƯỢT. Dải bảo vệ nhiễu đo rộng gấp đôi v1.1: shot đầu nhỏ cần mặt nạ 4× để chứng minh.
 
 **Điểm mới v1.1** (chi tiết ở mục 3.1, 3.6 và bảng mục 4):
 1. Mặt nạ C3 **bắt buộc** ở độ phân giải gấp 2–4 lần khung. Máy đo hệ số từ kích thước PNG.
@@ -153,7 +159,7 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 | G3b | Grain có, ổn định theo thời gian và giữa shot, chuyển động theo khung | mọi |
 | M1 | −14 LUFS ±1; true peak ≤ −1 dBTP | youtube |
 | M3 | Tương quan pha, tương thích mono | mọi |
-| J1 | ASR trên mix cuối: 100% từ kịch bản, WER ≤ 5% | mọi |
+| J1 | ASR trên mix cuối, theo từng câu: 100% từ kịch bản, WER ≤ 5% | mọi |
 | J1b | Lời rõ trên nhạc theo từng câu (stem), tổng stem khớp mix. Ngưỡng SII **nội bộ, chưa hiệu chuẩn** (hiệu chuẩn sau bài thử với 3–5 người nghe mù) nhưng vẫn cấp Chặn | mọi |
 | H1 | Không chuyển động tuyến tính ở bộ phận nhân vật | mọi |
 | H1b | Chuyển động khai báo khớp hình render (luồng quang học) | mọi |

@@ -141,9 +141,15 @@ RULES = {
         title="Mọi từ trong kịch bản nghe rõ trên bản mix cuối",
         level=CHAN,
         measure="faster-whisper small.en (revision ghim, int8, beam 5, nhiệt độ 0, không mồi bằng "
-                "kịch bản, không nối ngữ cảnh) chạy trên luồng âm của file, gộp mono 16 kHz. Chuẩn "
-                "hoá: chữ thường, bỏ dấu câu và dấu nháy, số → chữ. Căn Levenshtein kịch bản với "
-                "bản nghe. Từ bắt buộc = toàn bộ từ trong kịch bản thoại.",
+                "kịch bản, không nối ngữ cảnh, có mốc từng chữ) chạy trên luồng âm của file, gộp mono 16 kHz. Chuẩn "
+                "hoá: chữ thường, bỏ dấu câu, dấu nháy và gạch nối, số → chữ; v1.2: từ ghép/tách theo bảng COMPOUND "
+                "(goodnight = good night…, RULES.md) cho cả kịch bản và bản nghe. Từ bắt buộc = toàn bộ từ trong "
+                "kịch bản thoại. v1.2: (1) lượt ASR toàn file, căn Levenshtein với kịch bản để lấy mốc từng câu "
+                "(câu = dòng kịch bản); cửa sổ câu = mốc chữ đầu/cuối nới tối đa 2 s, không vượt điểm giữa khoảng "
+                "lặng với câu kề; cửa sổ > 28 s tách tại khoảng lặng lớn nhất. (2) ASR riêng từng cửa sổ câu, căn "
+                "với câu đó. (3) Chữ ASR nằm hoàn toàn trong im lặng số (mọi khung 50 ms chạm chữ có RMS < "
+                "−60 dBFS) bị bỏ, liệt kê trong báo cáo. (4) Chữ lượt toàn file nằm ngoài mọi cửa sổ câu (không "
+                "trong im lặng số) tính là chèn.",
         threshold="100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
@@ -202,13 +208,16 @@ RULES = {
                 "dọc) quy về pha lưới s (k = round(s) ngăn); tỷ lệ dồn vào 1 pha phải ≤ 1/k + (1 − 1/k)/2 (s=2: 0,75; "
                 "s=3: 0,67; s=4: 0,625) với ≥ 40 vị trí (render thật ≈ 1/k; phóng to từ mặt nạ nhị phân ≈ 1,0). Độ dài = bề dài chiếu lên trục chính "
                 "PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model "
-                "sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 1 px "
-                "mặt nạ; hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 (phủ 100% sai số ở đầu 40–146 px "
-                "video). Quyết định kiểu "
+                "sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 2 px "
+                "mặt nạ (v1.2; v1.1: 1 px); hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 và phủ cả sai số của "
+                "mặt nạ phóng to từ matte 1× khử răng cưa rồi ngưỡng hoá (loại không phát hiện được bằng ảnh). "
+                "v1.2 (C3b): dải xám ở biên (điểm ảnh mức 6–249 / điểm ảnh biên) ≤ 2,5 — mặt nạ phóng to còn giữ "
+                "mức xám thì trượt. Quyết định kiểu "
                 "ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = "
                 "không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh "
                 "ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
         threshold="Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; "
+                  "dải xám biên ≤ 2,5; "
                   "0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu "
                   "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ).",
         profiles=("shot", "youtube", "archive"),

@@ -390,6 +390,8 @@ def cases(d):
     C += cases_v1.cases(d)
     import cases_v11  # thay đổi v1.1: C3 hệ số mặt nạ, diegetic (P0/G4/P1), N3 bitrate khi có grain
     C += cases_v11.cases(d)
+    import cases_v12  # thay đổi v1.2: J1 (3 khiếu nại), C3b
+    C += cases_v12.cases(d)
     return C
 
 

@@ -11,8 +11,15 @@ v1.1 (Q-C3): mặt nạ BẮT BUỘC có độ phân giải gấp s = 2–4 lầ
 nếu có khai "scale" thì phải khớp số đo. Chống phóng to mặt nạ 1× lên: vị trí biên (x của chuyển tiếp
 ngang, y của chuyển tiếp dọc, lấy tập giá trị phân biệt) quy về pha lưới s; mặt nạ phóng to từ ảnh nhị
 phân thấp hơn có biên dồn vào 1 pha, mặt nạ render thật trải đều.
-Nhiễu đo U(s) = sqrt((δ/(s·L_bộ_phận))² + (δ/(s·L_đầu))²), L tính bằng px video, δ = 1 px MẶT NẠ:
+Nhiễu đo U(s) = sqrt((δ/(s·L_bộ_phận))² + (δ/(s·L_đầu))²), L tính bằng px video, δ = 2 px MẶT NẠ (v1.2; v1.1: 1):
 hiệu chuẩn Monte Carlo (selftest) ở s = 1, 2, 4 — phủ 100% sai số thật ở đầu 40–146 px video.
+v1.2 (Q-C3b): (1) mặt nạ xám (khử răng cưa) có dải chuyển tiếp biên rộng hơn RAMP_MAX px mặt nạ = phóng to
+từ ảnh thấp hơn còn giữ mức xám → trượt; (2) mặt nạ phóng to từ matte 1× có khử răng cưa rồi ngưỡng hoá bằng
+nhân mượt (song tuyến, bicubic, Lanczos) KHÔNG phân biệt được đáng tin với render thật bằng phân tích ảnh
+(khảo sát v1.2: chỉ số dựng lại từ 1× của hai loại chồng nhau trên hình đa giác). Thay vào đó δ được nâng lên
+2,0 px mặt nạ, đủ phủ sai số của cả loại này (tối đa 1,557·U(δ=1) trên ~770 mẫu, s = 2–4, đầu 40–146 px) và
+của mặt nạ thật ở mọi cỡ đầu (tối đa 1,21·U(δ=1): mô hình δ = 1 của v1.1 che thiếu khi khảo sát thêm cỡ đầu):
+mặt nạ phóng to không thể dẫn tới kết luận "đạt" sai.
 Quy tắc quyết định kiểu ISO 14253-1 (dải bảo vệ):
   đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; còn lại = không chứng minh được.
 """
@@ -26,7 +33,8 @@ from PIL import Image
 from .common import FAIL, frame_count, metric, probe, read_rgb, result, stream
 
 TOL = 0.03          # khung mục 4.C (nội bộ)
-DELTA_PX = 1.0      # sai số đầu mút tổng mỗi độ dài (px mặt nạ), hiệu chuẩn trong selftest
+DELTA_PX = 2.0      # sai số đầu mút tổng mỗi độ dài (px mặt nạ); v1.2 nâng từ 1,0 (xem đầu file), hiệu chuẩn selftest
+RAMP_MAX = 2.5      # độ rộng dải xám ở biên (px mặt nạ / px biên); render AA thật ≈ 1–2, phóng to xám ≈ s × (1–2)
 STEP = 12           # phải có mặt nạ cho mọi khung chia hết cho 12
 FID_MIN = 1.5       # độ khớp biên mặt nạ với cạnh ảnh render (nội bộ)
 SHIFT = 6
@@ -39,13 +47,27 @@ def phase_max(s):
 PHASE_MIN_POS = 40        # cần ≥ 40 vị trí biên phân biệt để kết luận pha
 
 
-def load_mask(p):
+def load_raw(p):
+    """Kênh mặt nạ uint8 (xám, alpha, hoặc max RGB)."""
     im = Image.open(p)
     if im.mode == "L" and "transparency" not in im.info:
-        return np.asarray(im) >= 128
+        return np.asarray(im)
     if im.mode in ("RGBA", "LA") or "transparency" in im.info:
-        return np.asarray(im.convert("RGBA"))[..., 3] >= 128
-    return np.asarray(im.convert("RGB")).max(-1) >= 128
+        return np.asarray(im.convert("RGBA"))[..., 3]
+    return np.asarray(im.convert("RGB")).max(-1)
+
+
+def load_mask(p):
+    return load_raw(p) >= 128
+
+
+def ramp_width(raw):
+    """Số điểm ảnh xám (6–249) trên mỗi điểm ảnh biên của mặt nạ ngưỡng hoá. Nhị phân: 0; AA thật ≈ 1–2."""
+    m = raw >= 128
+    b = int((m ^ cv2.erode(m.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)).sum())
+    if b == 0:
+        return None
+    return float(((raw > 5) & (raw < 250)).sum()) / b
 
 
 def length_px(m):
@@ -125,9 +147,14 @@ def check_c3(video, profile, parts_dir=None, repo="."):
     missing = sorted(required - set(frames))
     rgb = read_rgb(video, [k for k in frames if k < n])
     rows, fids, sure_fail, unproven, head_px = [], {}, 0, 0, []
-    sizes, xs_all, ys_all, scales = set(), [], [], []
+    sizes, xs_all, ys_all, scales, ramps = set(), [], [], [], []
     for k in sorted(frames):
-        masks = {p: load_mask(parts_dir / f) for p, f in frames[k].items()}
+        raws = {p: load_raw(parts_dir / f) for p, f in frames[k].items()}
+        for r_ in raws.values():
+            rw_ = ramp_width(r_)
+            if rw_ is not None:
+                ramps.append(rw_)
+        masks = {p: r_ >= 128 for p, r_ in raws.items()}
         for m in masks.values():
             sizes.add(m.shape)
         shp = next(iter(masks.values())).shape if masks else (vh, vw)
@@ -148,7 +175,7 @@ def check_c3(video, profile, parts_dir=None, repo="."):
                 continue
             lp = length_px(masks[p])
             dev = (lp / lh) / want[p] - 1
-            u = uncertainty(lp, lh)
+            u = uncertainty(lp, lh)  # δ = DELTA_PX
             if abs(dev) - u > TOL:
                 verdict = "trượt chắc chắn"
                 sure_fail += 1
@@ -195,6 +222,9 @@ def check_c3(video, profile, parts_dir=None, repo="."):
         ms.append(metric("vị trí biên phân biệt để kiểm pha lưới", len(pos), ">=", PHASE_MIN_POS, near_check=False))
         ms.append(metric("vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)", share, "<=",
                          round(phase_max(s_meas), 4)))
+    ramp_max = max(ramps) if ramps else 0.0
+    ms.append(metric("dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất", ramp_max, "<=", RAMP_MAX,
+                     "px/px biên"))
     ms += [metric("biên trên |lệch| + U lớn nhất", upper, "<=", 100 * TOL, "%"),
           metric("bộ phận–khung lệch chắc chắn > 3%", sure_fail, "<=", 0),
           metric("bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)", unproven, "<=", 0),
@@ -210,6 +240,9 @@ def check_c3(video, profile, parts_dir=None, repo="."):
     if share is not None and share > phase_max(s_meas):
         notes.append("Biên mặt nạ nằm trên lưới thô: mặt nạ có vẻ được phóng to từ độ phân giải thấp hơn, "
                      "không phải render ở hệ số khai. Render lại mặt nạ ở độ phân giải thật.")
+    if ramp_max > RAMP_MAX:
+        notes.append("Biên mặt nạ là dải xám rộng: mặt nạ có vẻ được phóng to từ ảnh độ phân giải thấp hơn. "
+                     "Render mặt nạ ở độ phân giải thật (nhị phân hoặc khử răng cưa ở chính độ phân giải đó).")
     if unproven:
         notes.append("Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) "
                      "hoặc chọn khung có đầu lớn hơn để chứng minh.")
