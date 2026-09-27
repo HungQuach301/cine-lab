@@ -5,10 +5,10 @@
  "H": 1000,
  "samples": 16,
  "frames": 1,
- "setup_s": 0.066,
- "render_frame_s": 1.283,
- "page_reported_accum_ms": 133.89999999850988,
+ "setup_s": 0.069,
+ "render_frame_s": 1.303,
+ "page_reported_accum_ms": 109.80000000074506,
  "finalize_per_extra_frame_s": null,
- "total_wall_s": 1.899,
+ "total_wall_s": 1.844,
  "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
 }

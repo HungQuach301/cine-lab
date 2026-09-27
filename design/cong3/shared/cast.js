@@ -148,6 +148,9 @@ export function buildCharacter(sheet, opts = {}) {
     bun.position.set(0, 0.62 * H, -hd.width_side / 2 * H * 0.95); tag(bun, 'hair'); headG.add(bun);
     const hairCap = new THREE.Mesh(new THREE.SphereGeometry(0.5, seg, seg / 2, 0, Math.PI * 2, 0, Math.PI * 0.40), mat('hair', C.hair, 'hair')); hairCap.rotation.x = -0.35; // chân tóc lùi khỏi trán
     hairCap.scale.set(hd.width_front * 1.04 * H, hd.length * 1.02 * H, hd.width_side * 1.04 * H); hairCap.position.y = hd.length * H / 2 + 0.01 * H; tag(hairCap, 'hair'); headG.add(hairCap);
+    // Tóc phủ kín nửa sau sọ (vòng 1: gáy trần + búi tròn sáng bị đọc nhầm thành khuôn mặt khi quay lưng — B, C phát hiện).
+    const backHair = new THREE.Mesh(new THREE.SphereGeometry(0.5, seg, seg / 2, Math.PI, Math.PI, 0, Math.PI * 0.80), mat('hair', C.hair, 'hair'));
+    backHair.scale.set(hd.width_front * 1.05 * H, hd.length * 1.03 * H, hd.width_side * 1.05 * H); backHair.position.y = hd.length * H / 2 + 0.01 * H; tag(backHair, 'hair'); headG.add(backHair);
     // Mũ phớt: vành hẹp, cụp trước; chóp có rãnh.
     const hat = new THREE.Group(); hat.position.y = 0.86 * H; hat.rotation.x = 0.08; headG.add(hat);
     const br = hs.brim_diameter_H / 2 * H;

@@ -58,12 +58,12 @@ File nộp: `scene.js` (trang render), `lib.js` (vật liệu thủ tục, tiệ
 
 | Khung | 32 mẫu `render_frame_s` | 8 mẫu `render_frame_s` | setup_s |
 |---|---|---|---|
-| s1_opening | TBD_S1_32 | TBD_S1_8 | TBD_SET |
-| s5_shadows | TBD_S5_32 | TBD_S5_8 | |
+| s1_opening | **224,6 s** | **58,3 s** (vượt ngân sách ~23×) | 31,7 / 34,6 s |
+| s5_shadows | **78,3 s** | **27,9 s** (vượt ngân sách ~11×) | 35,3 / 34,7 s |
 
 (Setup gồm dựng cả hai cảnh, PMREM, biên dịch shader, không tính vào khung.)
 
-**So với ngân sách ≤ 2,5 s/khung: VƯỢT RẤT XA** (xem tỷ lệ ở bảng). Đo tay khi tải máy thấp hơn: s5 khoảng 1,6 s/mẫu, s1 khoảng 6–9 s/mẫu ở 1080p. Nguyên nhân chính:
+**So với ngân sách ≤ 2,5 s/khung: VƯỢT RẤT XA** (xem tỷ lệ ở bảng). Pass cuối mỗi khung thêm (grain): ~0,27–0,28 s. Nguyên nhân chính:
 1. **s1:** khoảng 660 k tam giác × 3 lượt (chính + 2 shadow map) mỗi mẫu. Shader mặt tiền/mái thủ tục nặng, chạy trên toàn khung. Khoảng 1 200 sprite hào quang chồng lớp.
 2. **s5:** đèn điểm có bóng = 6 lượt cube shadow mỗi mẫu. Shader vôi/đá nhiều octave. RectAreaLight.
 3. SwiftShader tốn theo tam giác và fragment. Tôi đã gộp mesh nhân vật (hàng trăm draw call → khoảng 15) và cắt nhà ngoài khung.

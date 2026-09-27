@@ -1,0 +1,14 @@
+{
+ "page": "dir-B/scene.js",
+ "frame": "s1_opening",
+ "W": 1920,
+ "H": 1080,
+ "samples": 32,
+ "frames": 1,
+ "setup_s": 0.805,
+ "render_frame_s": 21.802,
+ "page_reported_accum_ms": 24.90000000037253,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 23.245,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}
