@@ -1,0 +1,496 @@
+{
+  "id": "CHR-cas-v1",
+  "name": "Cas (Casimir)",
+  "age": 10,
+  "status": "Cổng 3 vòng 1 — bản đề xuất của Claude, CHƯA duyệt",
+  "_doc": "Cùng quy ước với ida.json (H = chiều cao đầu, đo giữa hai tâm khớp). Cas cao 0,79 Ida.",
+  "unit": "H",
+  "H_m": 0.256,
+  "total_height_H": 5.0,
+  "_total_check": "head 1.00 + neck 0.22 + torso 1.48 + thigh 1.05 + shin 1.15 + ankle 0.10 = 5.00 H = 1.28 m (không mũ)",
+  "silhouette_keys": [
+    "Que củi: thân gầy, tay chân dài, khớp gối và khuỷu lộ",
+    "Mũ len có quả bông to trên đỉnh; hai tai vểnh rõ hai bên mũ",
+    "Áo len quá khổ: tay áo dài trùm tới đốt ngón, gấu áo xệ tới hông",
+    "Quần ngắn cũn lộ cổ chân; ủng to so với người",
+    "Tư thế đặc trưng: hai tay giơ cao đan ngón cái, xoè ngón thành cánh (chim bóng)"
+  ],
+  "parts": {
+    "head": {
+      "length": 1.0,
+      "width_front": 0.9,
+      "width_side": 0.98,
+      "id_color": "#ff0000"
+    },
+    "neck": {
+      "length": 0.22,
+      "width_front": 0.26
+    },
+    "torso": {
+      "length": 1.48,
+      "shoulder_width": 1.1,
+      "waist_width": 0.86,
+      "hip_width": 0.92,
+      "depth_ratio": 0.6,
+      "id_color": "#0000ff"
+    },
+    "upper_arm": {
+      "length": 0.92,
+      "width_front": 0.24,
+      "id_color": "#ffff00"
+    },
+    "forearm": {
+      "length": 0.82,
+      "width_front": 0.21,
+      "id_color": "#ff00ff"
+    },
+    "hand": {
+      "palm_length": 0.3,
+      "palm_width": 0.25,
+      "finger_length": 0.26,
+      "thumb_length": 0.2
+    },
+    "thigh": {
+      "length": 1.05,
+      "width_front": 0.27,
+      "id_color": "#00ffff"
+    },
+    "shin": {
+      "length": 1.15,
+      "width_front": 0.22,
+      "id_color": "#ff8000"
+    },
+    "foot": {
+      "length": 1.05,
+      "height": 0.34,
+      "width": 0.4
+    },
+    "ears": {
+      "size_H": 0.3,
+      "angle_out_deg": 38
+    },
+    "nose": {
+      "length": 0.12,
+      "note": "mũi nhỏ tròn"
+    }
+  },
+  "costume": {
+    "sweater": {
+      "hem_height_H": 2.25,
+      "sleeve_over_hand_H": 0.18,
+      "fit": "rộng 1,25× thân, vai xệ"
+    },
+    "trousers": {
+      "hem_above_ankle_H": 0.25
+    },
+    "cap": {
+      "height_H": 0.52,
+      "cuff_H": 0.16,
+      "bobble_diameter_H": 0.36
+    },
+    "boots": {
+      "style": "ủng to cổ thấp, mũi tròn"
+    }
+  },
+  "props": {
+    "paper_bird": {
+      "size_H": 0.35,
+      "note": "chim gấp từ vé tàu điện, trong túi áo — chưa dùng ở vòng 1"
+    }
+  },
+  "local_colors": {
+    "sweater": "#8a4a3c",
+    "cap": "#d6c9ae",
+    "bobble": "#a8483a",
+    "trousers": "#3a3d48",
+    "skin": "#e2bfa2",
+    "boots": "#2c2522"
+  },
+  "joints_default": {
+    "shoulder_offset_from_torso_top_H": 0.14,
+    "hip_joint_spacing_H": 0.46,
+    "shoulder_spacing_H": 0.92
+  },
+  "poses": {
+    "turnaround": {
+      "label": "Đứng thẳng (turnaround)",
+      "joints": {
+        "shoulder_L": [
+          0,
+          0,
+          7
+        ],
+        "shoulder_R": [
+          0,
+          0,
+          -7
+        ],
+        "elbow_L": [
+          -6,
+          0,
+          0
+        ],
+        "elbow_R": [
+          -6,
+          0,
+          0
+        ]
+      },
+      "hands": {
+        "L": {
+          "spread": 0.1,
+          "curl": 0.4
+        },
+        "R": {
+          "spread": 0.1,
+          "curl": 0.4
+        }
+      },
+      "props": []
+    },
+    "shadow_bird": {
+      "label": "C1 — Chim bóng: hai tay giơ cao trên đầu, lòng bàn tay hướng tường, ngón xoè ngang làm cánh, ngón cái dựng làm đầu (cảnh 4, 6)",
+      "scene": 4,
+      "joints": {
+        "spine": [
+          -4,
+          0,
+          0
+        ],
+        "neck": [
+          -14,
+          0,
+          0
+        ],
+        "shoulder_L": [
+          -150,
+          0,
+          -14
+        ],
+        "elbow_L": [
+          -22,
+          0,
+          0
+        ],
+        "wrist_L": [
+          90,
+          0,
+          90
+        ],
+        "shoulder_R": [
+          -150,
+          0,
+          14
+        ],
+        "elbow_R": [
+          -22,
+          0,
+          0
+        ],
+        "wrist_R": [
+          90,
+          0,
+          -90
+        ]
+      },
+      "hands": {
+        "L": {
+          "spread": 1.0,
+          "curl": 0.0,
+          "thumb_cross": true
+        },
+        "R": {
+          "spread": 1.0,
+          "curl": 0.0,
+          "thumb_cross": true
+        }
+      },
+      "props": []
+    },
+    "look_lantern": {
+      "label": "C2 — Hạ tay, quay nhìn đèn lồng, không xin (cảnh 4)",
+      "scene": 4,
+      "joints": {
+        "spine": [
+          4,
+          -12,
+          0
+        ],
+        "neck": [
+          10,
+          -34,
+          0
+        ],
+        "shoulder_L": [
+          6,
+          0,
+          4
+        ],
+        "elbow_L": [
+          -12,
+          0,
+          0
+        ],
+        "shoulder_R": [
+          10,
+          0,
+          -3
+        ],
+        "elbow_R": [
+          -10,
+          0,
+          0
+        ],
+        "hip_L": [
+          0,
+          0,
+          3
+        ],
+        "hip_R": [
+          0,
+          0,
+          -3
+        ]
+      },
+      "hands": {
+        "L": {
+          "spread": 0.0,
+          "curl": 0.7
+        },
+        "R": {
+          "spread": 0.0,
+          "curl": 0.7
+        }
+      },
+      "props": []
+    },
+    "hold_ladder": {
+      "label": "C3 — Giữ thang hai tay (cảnh 5)",
+      "scene": 5,
+      "joints": {
+        "spine": [
+          -8,
+          0,
+          0
+        ],
+        "neck": [
+          -30,
+          0,
+          0
+        ],
+        "shoulder_L": [
+          -62,
+          0,
+          10
+        ],
+        "elbow_L": [
+          -30,
+          0,
+          0
+        ],
+        "shoulder_R": [
+          -62,
+          0,
+          -10
+        ],
+        "elbow_R": [
+          -30,
+          0,
+          0
+        ],
+        "hip_L": [
+          -6,
+          0,
+          4
+        ],
+        "hip_R": [
+          8,
+          0,
+          -4
+        ],
+        "knee_R": [
+          10,
+          0,
+          0
+        ]
+      },
+      "hands": {
+        "L": {
+          "spread": 0.0,
+          "curl": 0.9
+        },
+        "R": {
+          "spread": 0.0,
+          "curl": 0.9
+        }
+      },
+      "props": []
+    },
+    "warm_hands_copy": {
+      "label": "C4 — Tự hơ tay trên đèn lồng, đếm ba (cảnh 5)",
+      "scene": 5,
+      "root_y_H": -0.95,
+      "joints": {
+        "spine": [
+          26,
+          0,
+          0
+        ],
+        "neck": [
+          -16,
+          0,
+          0
+        ],
+        "hip_L": [
+          -96,
+          0,
+          -10
+        ],
+        "knee_L": [
+          124,
+          0,
+          0
+        ],
+        "ankle_L": [
+          -22,
+          0,
+          0
+        ],
+        "hip_R": [
+          -96,
+          0,
+          10
+        ],
+        "knee_R": [
+          124,
+          0,
+          0
+        ],
+        "ankle_R": [
+          -22,
+          0,
+          0
+        ],
+        "shoulder_L": [
+          -58,
+          0,
+          10
+        ],
+        "elbow_L": [
+          -40,
+          0,
+          0
+        ],
+        "wrist_L": [
+          0,
+          0,
+          70
+        ],
+        "shoulder_R": [
+          -58,
+          0,
+          -10
+        ],
+        "elbow_R": [
+          -40,
+          0,
+          0
+        ],
+        "wrist_R": [
+          0,
+          0,
+          -70
+        ]
+      },
+      "hands": {
+        "L": {
+          "spread": 0.5,
+          "curl": 0.05
+        },
+        "R": {
+          "spread": 0.5,
+          "curl": 0.05
+        }
+      },
+      "props": [
+        "lantern_ground_front"
+      ]
+    },
+    "half_raised": {
+      "label": "C5 — Đứng cạnh Ida, tay nửa giơ, nhìn hai cái bóng trên vách (cảnh 5)",
+      "scene": 5,
+      "joints": {
+        "spine": [
+          -4,
+          0,
+          0
+        ],
+        "neck": [
+          -22,
+          0,
+          0
+        ],
+        "shoulder_L": [
+          -58,
+          0,
+          14
+        ],
+        "elbow_L": [
+          -48,
+          0,
+          0
+        ],
+        "wrist_L": [
+          0,
+          0,
+          20
+        ],
+        "shoulder_R": [
+          -40,
+          0,
+          -10
+        ],
+        "elbow_R": [
+          -62,
+          0,
+          0
+        ],
+        "wrist_R": [
+          0,
+          0,
+          -20
+        ],
+        "hip_L": [
+          0,
+          0,
+          3
+        ],
+        "hip_R": [
+          0,
+          0,
+          -3
+        ]
+      },
+      "hands": {
+        "L": {
+          "spread": 0.6,
+          "curl": 0.1
+        },
+        "R": {
+          "spread": 0.5,
+          "curl": 0.15
+        }
+      },
+      "props": []
+    }
+  },
+  "measured_parts": [
+    "head",
+    "torso",
+    "upper_arm",
+    "forearm",
+    "thigh",
+    "shin"
+  ],
+  "ratio_definition": "như ida.json"
+}

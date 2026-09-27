@@ -1,0 +1,14 @@
+{
+ "page": "model-sheet/sheet_page.js",
+ "frame": "cas_pose_look_lantern",
+ "W": 700,
+ "H": 1000,
+ "samples": 16,
+ "frames": 1,
+ "setup_s": 0.064,
+ "render_frame_s": 1.305,
+ "page_reported_accum_ms": 115.59999999962747,
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 1.867,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}
