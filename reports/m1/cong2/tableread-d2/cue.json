@@ -1,0 +1,98 @@
+{
+ "voice_id": "59pjz3MTZdh9U1AETKfW",
+ "model": "eleven_v3",
+ "stability": 0.5,
+ "seed": 101,
+ "film_s": 150.0,
+ "scenes": [
+  [
+   "1 The Round",
+   0,
+   26
+  ],
+  [
+   "2 Switch-on",
+   26,
+   44
+  ],
+  [
+   "3 The Race",
+   44,
+   68
+  ],
+  [
+   "4 The Wall",
+   68,
+   94
+  ],
+  [
+   "5 The Last Lamp",
+   94,
+   130
+  ],
+  [
+   "6 The Window",
+   130,
+   150
+  ]
+ ],
+ "normalize": "peak -3 dBFS",
+ "cues": [
+  {
+   "code": "L1",
+   "scene": "1 The Round",
+   "script_cue_s": 12.0,
+   "placed_s": 12.0,
+   "shifted_s": 0.0,
+   "dur_s": 2.16,
+   "end_s": 14.16,
+   "text_clean": "Evening, old street.",
+   "text_sent": "[softly] Evening, old street.",
+   "character_cost": "cached",
+   "latency_s": 1.87,
+   "fits_scene": true
+  },
+  {
+   "code": "L2",
+   "scene": "3 The Race",
+   "script_cue_s": 60.0,
+   "placed_s": 60.0,
+   "shifted_s": 0.0,
+   "dur_s": 2.88,
+   "end_s": 62.88,
+   "text_clean": "Not yet... not yet.",
+   "text_sent": "[under her breath, strained] Not yet... not yet.",
+   "character_cost": "cached",
+   "latency_s": 0.01,
+   "fits_scene": true
+  },
+  {
+   "code": "L3",
+   "scene": "4 The Wall",
+   "script_cue_s": 88.0,
+   "placed_s": 88.0,
+   "shifted_s": 0.0,
+   "dur_s": 2.3,
+   "end_s": 90.3,
+   "text_clean": "Go on, then.",
+   "text_sent": "[gently] Go on, then.",
+   "character_cost": "cached",
+   "latency_s": 0.01,
+   "fits_scene": true
+  },
+  {
+   "code": "L4",
+   "scene": "5 The Last Lamp",
+   "script_cue_s": 110.0,
+   "placed_s": 110.0,
+   "shifted_s": 0.0,
+   "dur_s": 14.08,
+   "end_s": 124.08,
+   "text_clean": "That's the last one, then. Goodnight, old street. You'll be brighter now. Just... keep a little dark for the ones who need it.",
+   "text_sent": "[softly] That's the last one, then. [sighs] Goodnight, old street. [voice breaking] You'll be brighter now. [whispers] Just... keep a little dark for the ones who need it.",
+   "character_cost": "cached",
+   "latency_s": 0.05,
+   "fits_scene": true
+  }
+ ]
+}

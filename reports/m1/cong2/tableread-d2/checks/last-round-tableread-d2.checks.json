@@ -1,0 +1,393 @@
+{
+  "tool": "cinecheck 0.1.0",
+  "created_utc": "2026-09-27T03:02:30Z",
+  "file": "/home/user/cine-lab/reports/m1/cong2/tableread-d2/last-round-tableread-d2.mp4",
+  "profile": "shot",
+  "verdict": "TRƯỢT",
+  "lock": {
+    "expected": "57dc729b855308462a96683d454bfc1a3b10d3c67532bef2a98d984d97a335ae",
+    "actual": "57dc729b855308462a96683d454bfc1a3b10d3c67532bef2a98d984d97a335ae",
+    "match": true
+  },
+  "inputs": {
+    "script": "/home/user/cine-lab/reports/m1/cong2/tableread-d2/last-round-tableread-d2.script.txt",
+    "text": null,
+    "motion": null,
+    "assets": null,
+    "library": "/home/user/cine-lab/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 4,
+    "FAIL": 1,
+    "MISSING": 4,
+    "N/A": 2,
+    "ERROR": 0
+  },
+  "near_threshold": [],
+  "results": [
+    {
+      "code": "N1",
+      "section": "4.N — Kỹ thuật file",
+      "title": "24 fps CFR; không rơi hay lặp khung theo PTS",
+      "level": "Chặn",
+      "measure": "ffprobe đọc PTS từng gói hình của luồng video đầu tiên, sắp xếp theo PTS, tính hiệu PTS kề nhau. Đồng thời đọc r_frame_rate và avg_frame_rate.",
+      "threshold_text": "r_frame_rate = avg_frame_rate = 24/1; 0 bước PTS lệch khỏi 1/24 s quá 0,5 ms; 0 PTS trùng; 0 khoảng hở.",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "r_frame_rate",
+          "value": 24.0,
+          "op": "==",
+          "threshold": 24.0,
+          "unit": "fps",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "avg_frame_rate",
+          "value": 24.0,
+          "op": "==",
+          "threshold": 24.0,
+          "unit": "fps",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "bước PTS lệch khỏi 1/24 s > 0,5 ms",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "bước",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "PTS trùng (lặp khung)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "khung",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "khoảng hở PTS (rơi khung)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "chỗ",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "so_khung": 3600
+      },
+      "seconds": 0.15
+    },
+    {
+      "code": "N2",
+      "section": "4.N — Kỹ thuật file",
+      "title": "BT.709 đủ 3 trường; dải limited — đo cả nhãn lẫn giá trị điểm ảnh",
+      "level": "Chặn",
+      "measure": "Nhãn: color_primaries, color_transfer, color_space phải là bt709; color_range là tv. Điểm ảnh: lấy mẫu luma (2 khung/giây, tối đa 240 khung), tính tỷ lệ mẫu nằm ngoài dải limited (8 bit: <16 hoặc >235; 10 bit: <64 hoặc >940).",
+      "threshold_text": "Đủ 4 nhãn đúng; tỷ lệ luma ngoài dải ≤ 0,5% (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "color_primaries",
+          "value": "bt709",
+          "op": "==",
+          "threshold": "bt709",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "color_transfer",
+          "value": "bt709",
+          "op": "==",
+          "threshold": "bt709",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "color_space",
+          "value": "bt709",
+          "op": "==",
+          "threshold": "bt709",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "color_range",
+          "value": "tv",
+          "op": "==",
+          "threshold": "tv",
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "luma ngoài dải limited",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.5,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "khung_lay_mau": 240,
+        "bit_depth": 8
+      },
+      "seconds": 9.04
+    },
+    {
+      "code": "N3",
+      "section": "4.N — Kỹ thuật file",
+      "title": "Codec và bitrate đúng loại master; khung 16:9, SAR 1:1",
+      "level": "Chặn",
+      "measure": "ffprobe đọc codec, profile, pix_fmt, kích thước, SAR; bitrate hình tính từ tổng kích thước gói / thời lượng (không dùng số khai trong header). Bitrate âm đo từ gói chỉ báo tham khảo: AAC dùng ít bit cho đoạn âm đơn giản nên không phản ánh chất lượng.",
+      "threshold_text": "youtube: H.264 High hoặc HEVC Main/Main10, yuv420p/yuv420p10le, 1920×1080 hoặc 3840×2160, bitrate hình đo ≥ 12 Mbps (1080p) / ≥ 45 Mbps (2160p) (nội bộ, trên mức khuyến nghị YouTube 8/35–45 Mbps); âm AAC-LC 48 kHz 2 kênh (bitrate âm chỉ báo tham khảo). archive: ProRes 422 HQ/4444/4444 XQ, DNxHR HQ/HQX/444 hoặc FFV1; âm PCM ≥ 24 bit 48 kHz; ≥ 1920×1080. Cả hai: tỷ lệ 16:9, SAR 1:1.",
+      "status": "N/A",
+      "metrics": [],
+      "notes": [
+        "Không áp cho profile 'shot'."
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "P1",
+      "section": "4.P — Chữ, tiêu đề, phụ đề",
+      "title": "Không chữ đè chữ, tính theo điểm ảnh nét chữ",
+      "level": "Chặn",
+      "measure": "Mỗi phần tử chữ có matte RGBA xuất từ render (checks/RUN.md mục 3). Nét chữ = alpha ≥ 0,5, nới 1 px. Ở mọi khung có ≥ 2 phần tử, đếm điểm ảnh thuộc ≥ 2 nét. Chống khai man: ở lõi nét (alpha ≥ 0,98, co 1 px) màu matte phải khớp màu khung render (lệch kênh ≤ 24/255) ở ≥ 90% điểm ảnh.",
+      "threshold_text": "0 điểm ảnh va chạm; độ khớp matte ≥ 90%.",
+      "status": "MISSING",
+      "metrics": [],
+      "notes": [
+        "Thiếu dữ liệu đầu vào: last-round-tableread-d2.text/elements.json"
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "G4",
+      "section": "4.G — Ánh sáng và màu",
+      "title": "Chữ tương phản ≥ 4,5:1 (WCAG AA), đo điểm ảnh",
+      "level": "Chặn",
+      "measure": "Với mỗi phần tử chữ, lấy tối đa 24 khung rải đều. Độ chói tương đối (WCAG, sRGB) của chữ = trung vị trên lõi nét trong khung render. Nền = vành 2–6 px quanh nét (trừ nét của mọi phần tử). Tính tỷ lệ tương phản từng điểm nền với chữ; lấy phân vị 10 (90% điểm nền đạt). Lấy giá trị nhỏ nhất qua các khung.",
+      "threshold_text": "Phân vị 10 của tỷ lệ tương phản ≥ 4,5 ở mọi phần tử, mọi khung lấy mẫu.",
+      "status": "MISSING",
+      "metrics": [],
+      "notes": [
+        "Thiếu dữ liệu đầu vào: last-round-tableread-d2.text/elements.json"
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "G3",
+      "section": "4.G — Ánh sáng và màu",
+      "title": "Không banding trên gradient",
+      "level": "Chặn",
+      "measure": "Luma ở độ sâu gốc, 2 khung/giây (tối đa 240 khung). Điểm banding = điểm nằm trong mảng phẳng tuyệt đối 5×5, và trong cửa sổ 95×95 quanh nó: (a) có ≥ 3 mức mảng phẳng khác nhau (bậc thang), (b) mọi bước nhảy giữa điểm kề ≤ 2 mã (không có cạnh cứng), (c) biên độ luma ≤ 24 mã. Diện tích banding = tỷ lệ điểm banding trên khung.",
+      "threshold_text": "Diện tích banding ≤ 0,2% khung ở mọi khung lấy mẫu (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "diện tích banding lớn nhất",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.2,
+          "unit": "% khung",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "khung_lay_mau": 240,
+        "bit_depth": 8,
+        "khung_te_nhat": null,
+        "khung_vuot_nguong": [],
+        "trung_binh_pct": 0.0
+      },
+      "seconds": 26.14
+    },
+    {
+      "code": "M1",
+      "section": "4.M — Mix và master",
+      "title": "Master YouTube: −14 LUFS ±1; true peak ≤ −1 dBTP",
+      "level": "Chặn",
+      "measure": "ffmpeg ebur128 (ITU-R BS.1770-4, cổng tuyệt đối −70 và tương đối −10 LU), peak=true (lấy mẫu vượt) trên luồng âm đầu tiên của file.",
+      "threshold_text": "Integrated trong [−15, −13] LUFS; true peak ≤ −1,0 dBTP.",
+      "status": "N/A",
+      "metrics": [],
+      "notes": [
+        "Không áp cho profile 'shot'."
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "M3",
+      "section": "4.M — Mix và master",
+      "title": "Tương quan pha và tương thích mono",
+      "level": "Chặn",
+      "measure": "Giải mã stereo 48 kHz float. Cửa sổ 400 ms không chồng; cửa sổ hoạt động khi RMS kênh lớn hơn ≥ −50 dBFS. (1) Hệ số tương quan L/R từng cửa sổ. (2) Mất mát khi gộp mono = độ ồn BS.1770 của (L+R)/2 phát cả 2 kênh trừ độ ồn stereo. (3) Mất công suất mono/stereo trên cửa sổ trượt 3 s. Phần 'lời rõ trên nhạc' của M3 được đo bởi J1 (ASR trên bản gộp mono của mix cuối).",
+      "threshold_text": "≤ 1% cửa sổ hoạt động có tương quan < −0,3; mất mát mono tích phân ≥ −3,0 dB; cửa sổ 3 s tệ nhất ≥ −6,0 dB (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "cửa sổ tương quan < −0,3",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "%",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "mất mát mono tích phân (BS.1770)",
+          "value": -0.0,
+          "op": ">=",
+          "threshold": -3.0,
+          "unit": "dB",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "mất mát mono cửa sổ 3 s tệ nhất",
+          "value": -0.0,
+          "op": ">=",
+          "threshold": -6.0,
+          "unit": "dB",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "tuong_quan_trung_vi": 1.0,
+        "tuong_quan_nho_nhat": 1.0,
+        "cua_so_te_nhat_giay": 122.4
+      },
+      "seconds": 9.2
+    },
+    {
+      "code": "J1",
+      "section": "4.J — Giọng",
+      "title": "Mọi từ trong kịch bản nghe rõ trên bản mix cuối",
+      "level": "Chặn",
+      "measure": "faster-whisper small.en (revision ghim, int8, beam 5, nhiệt độ 0, không mồi bằng kịch bản, không nối ngữ cảnh) chạy trên luồng âm của file, gộp mono 16 kHz. Chuẩn hoá: chữ thường, bỏ dấu câu và dấu nháy, số → chữ. Căn Levenshtein kịch bản với bản nghe. Từ bắt buộc = toàn bộ từ trong kịch bản thoại.",
+      "threshold_text": "100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "từ bắt buộc nghe đúng",
+          "value": 96.9697,
+          "op": ">=",
+          "threshold": 100.0,
+          "unit": "%",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "WER",
+          "value": 15.1515,
+          "op": "<=",
+          "threshold": 5.0,
+          "unit": "%",
+          "ok": false,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "so_tu_kich_ban": 33,
+        "thay": 1,
+        "mat": 0,
+        "chen": 4,
+        "tu_truot": [
+          {
+            "vi_tri": 15,
+            "tu": "goodnight",
+            "ngu_canh": "last one then goodnight old street youll"
+          }
+        ],
+        "ban_nghe": "Evening, Old Street  Thank you.  Not yet, not yet.  Go on then.  That's the last one, then. Good night, old street. You'll be brighter now. Just keep  a little dark for the ones who need it.  You",
+        "doan": [
+          [
+            0.0,
+            14.14,
+            "Evening, Old Street"
+          ],
+          [
+            14.14,
+            16.14,
+            "Thank you."
+          ],
+          [
+            44.14,
+            62.86,
+            "Not yet, not yet."
+          ],
+          [
+            74.14,
+            88.86,
+            "Go on then."
+          ],
+          [
+            104.14,
+            121.06,
+            "That's the last one, then. Good night, old street. You'll be brighter now. Just keep"
+          ],
+          [
+            121.06,
+            124.1,
+            "a little dark for the ones who need it."
+          ],
+          [
+            134.14,
+            136.14,
+            "You"
+          ]
+        ],
+        "mo_hinh": "Systran/faster-whisper-small.en@d1d751a5f8271d482d14ca55d9e2deeebbae577f"
+      },
+      "seconds": 8.85
+    },
+    {
+      "code": "H1",
+      "section": "4.H — Hoạt hình",
+      "title": "Không chuyển động tuyến tính ở bộ phận nhân vật",
+      "level": "Chặn",
+      "measure": "Dữ liệu chuyển động bake theo từng khung xuất từ phần mềm dựng (không phải khoá khai báo). Với mỗi kênh lớp 'character_part': tốc độ = chuẩn hiệu giá trị giữa 2 khung kề; đang chuyển động khi tốc độ > 2% tốc độ lớn nhất của kênh. Đoạn tuyến tính = chuỗi bước liên tiếp có mọi tốc độ trong ±3% trung bình chuỗi, và (a) dài ≥ 8 bước và bắt đầu ngay sau hoặc kết thúc ngay trước một lần đứng yên (khởi/dừng không easing), hoặc (b) dài ≥ 24 bước ở bất kỳ đâu.",
+      "threshold_text": "0 đoạn tuyến tính ở kênh bộ phận nhân vật. Kênh 'mechanical' được miễn nhưng phải có lý do và được liệt kê trong báo cáo.",
+      "status": "MISSING",
+      "metrics": [],
+      "notes": [
+        "Thiếu dữ liệu đầu vào: last-round-tableread-d2.motion.json"
+      ],
+      "evidence": {}
+    },
+    {
+      "code": "O3",
+      "section": "4.O — Liên tục và nhất quán",
+      "title": "Mọi tài sản lấy từ thư viện có SHA",
+      "level": "Chặn",
+      "measure": "Tính lại SHA-256 từ đĩa cho mọi tài sản trong danh sách dùng của shot và so với thư viện assets/LIBRARY.json. Quét thư mục làm việc của shot: mọi file media (mô hình, ảnh, âm, font) không nằm trong thư viện là tài sản ngoài thư viện (trừ thư mục render/, out/, cache/, frames/).",
+      "threshold_text": "0 tài sản lệch SHA; 0 tài sản không có trong thư viện; 0 file media lạ trong thư mục làm việc.",
+      "status": "MISSING",
+      "metrics": [],
+      "notes": [
+        "Thiếu dữ liệu đầu vào: thư viện /home/user/cine-lab/assets/LIBRARY.json"
+      ],
+      "evidence": {}
+    }
+  ]
+}

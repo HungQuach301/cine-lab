@@ -70,3 +70,57 @@ Gieo–gặt: hơ tay đếm ba (C1 → C5), chim bóng (C4 → C6), "old street
 
 ## 5. Điểm cần chủ dự án chọn
 Xem câu trả lời chat (phương án A/B/C kèm khuyến nghị). Lựa chọn sẽ được ghi vào `AUTHORSHIP.md`, rồi P sửa kịch bản thành bản nháp 2.
+
+---
+
+# NHÁP 2 (27/09/2026, sau quyết định Cổng 2 của chủ dự án)
+
+Quyết định (đã ghi vào `AUTHORSHIP.md`): 1C, 2B, 3B, 5A, 6B theo khuyến nghị; **4A khác khuyến nghị** (giữ cả 3 nhịp đồng hồ); sửa quang học cảnh 5 và 6; luật thế giới lên v0.2; 3 khiếu nại J1 được chấp nhận.
+
+## Beat sheet nháp 2 (6 cảnh, **2:30**)
+| # | Cảnh | Thời lượng | Giá trị (A2) | Hành động chính |
+|---|---|---|---|---|
+| 1 | The Round (0:00–0:26) | 26 s | Tối → sáng; yên ổn → bị đe doạ | Toàn cảnh cao lúc chạng vạng, đèn khí thành những tâm hổ phách; Ida thắp đèn, hơ tay đếm ba, mồi đèn lồng, "Evening, old street."; gõ vào kính đồng hồ bỏ túi; tiếng rơ-le |
+| 2 | Switch-on (0:26–0:44) | 18 s | Có bóng → mất bóng | Đồng hồ điện quảng trường sáng đầu tiên, chuông "ding"; làn sóng trắng lan xuống dốc; bóng Ida biến mất |
+| 3 | The Race (0:44–1:08) | 24 s | Tin mình kịp → biết mình trễ → vô ích | So đồng hồ bỏ túi với đồng hồ điện: hai kim nằm hai bên số 12, lệch 7 phút; Ida vội thắp 8, 9, 10 ("Not yet… not yet."); kịp thắp ngọn 11 và hơ tay đếm ba, Cas nhìn thấy |
+| 4 | The Wall (1:08–1:34) | 26 s | Kỳ diệu → mất → trở lại | Chim bóng tan khi cột điện cuối bật; Cas nhìn đèn lồng; Ida cầm đèn thấp sau tay cậu: "Go on, then."; chim to hơn, ấm hơn bay lại |
+| 5 | The Last Lamp (1:34–2:10) | 36 s | Níu giữ → buông tay (lựa chọn) | Trong hốc cửa khuất điện, hai bóng người trên vách vôi; Ida trèo lên ngọn khí cuối, nói lời tạm biệt, tắt van; trao đèn lồng; **Cas tự hơ tay đếm ba** |
+| 6 | The Window (2:10–2:30) | 20 s | Mất → tiếp nối; chống cự → chấp nhận | Toàn cảnh trắng, một ô vàng; trong ngõ khuất, bóng mờ của Ida trở lại; bà chỉnh đồng hồ tiến 7 phút cho khớp giờ quảng trường rồi đi; kết: chim bóng lớn bay trên tường phòng Cas |
+
+## Thoại nháp 2 (4 câu, chỉ Ida)
+| Mã | Mốc | Câu |
+|---|---|---|
+| L1 | 0:12 | *Evening, old street.* |
+| L2 | 1:00 | *Not yet... not yet.* |
+| L3 | 1:28 | *Go on, then.* |
+| L4 | 1:50 | *That's the last one, then. Goodnight, old street. You'll be brighter now. Just... keep a little dark for the ones who need it.* |
+
+## Table read nháp 2
+- `reports/m1/cong2/tableread-d2/last-round-tableread-d2.mp3`, 2:30. Câu thoại ở 0:12 · 1:00 · 1:28 · 1:50. Tổng thoại 21,4 s = 14% phim.
+- Take L1–L4 dùng lại từ nháp 1 (câu chữ không đổi, cùng giọng `59pjz3MTZdh9U1AETKfW`), nên **0 ký tự** mới. Mọi câu nằm gọn trong cảnh; L4 kết thúc ở 2:04,08, trùng lúc vặn van (2:04).
+- **J1: TRƯỢT** (từ bắt buộc 96,97%, WER 15,15%; 33 từ: 1 thay, 0 mất, 4 chèn). Nguyên nhân đúng như 2 khiếu nại đã được chấp nhận: "Goodnight" → "Good night"; Whisper bịa "Thank you" (14,1 s) và "You" (134,1 s) trong im lặng tuyệt đối. **Không có từ thoại nào bị mất.** Chờ phiên K sửa luật rồi chạy lại. Báo cáo: `tableread-d2/checks/`.
+
+## Tự rà nhóm A, B (nháp 2)
+| Mã | Đánh giá | Ghi chú |
+|---|---|---|
+| A1 | Đạt | Mô-típ đồng hồ giờ gắn với chủ đề: "giờ mới" = tiến bộ; chỉnh giờ = chấp nhận |
+| A2 | Đạt | Cảnh 3 giờ xoay thêm một giá trị riêng (tin mình kịp → biết mình trễ), bớt lặp với cảnh 2 |
+| A3 | Đạt | Lựa chọn ở cảnh 5 (tắt van, trao lửa); giá phải trả giữ nguyên theo 5A |
+| A4, A5 | Chưa đo | Cổng 4 |
+| B1 | Đạt; 1 câu cần lưu ý | Đã bỏ L5. L4 "You'll be brighter now" vẫn nói điều hình đã cho thấy, nhưng là câu chủ dự án chốt và mang nghĩa mỉa ngầm |
+| B3 | Đạt | L2 và L4 có ẩn ý |
+| B4 | Đạt | Table read nháp 1 và 2; mọi chỗ sửa đều ghi lại |
+
+## Rà quang học theo luật thế giới v0.2: mọi chỗ còn mâu thuẫn
+Đã sửa ngay trong nháp 2 (lỗi P tự phát hiện):
+1. Cảnh 4: chim bóng dưới đèn lồng ghi "small" → sửa thành **to hơn, mềm hơn** (tay ở giữa, đèn rất gần). Luật v0.1 cũng sai chỗ này, đã sửa ở v0.2 mục 3.2–3.3.
+2. Luật v0.1 điều kiện 3 ("tay gần tường hơn nguồn") chặn luôn chim bóng lớn ở cảnh kết (2B) → bỏ điều kiện này, thay bằng hình học phóng đại (mục 3.2).
+3. Cảnh 3: đồng hồ quảng trường "đứng đúng giờ" lúc đã trôi qua vài phút truyện → sửa thành hai kim nằm hai bên số 12.
+
+**Còn mở, cần chủ dự án chọn:**
+4. **Cảnh 5, sửa (a):** đèn lồng cách tường ~3 m không thể đạt 4 : 1 trên một bức tường đang bị đèn điện rọi (mục 3.4). Nháp 2 tạm đặt cảnh vào **hốc cửa bốc hàng khuất điện** → điểm chọn 7.
+5. **Cảnh 1, bóng lúc chạng vạng:** trời còn sáng thì ánh trời tràn làm bóng từ đèn khí yếu, chưa đạt 4 : 1. Kịch bản ghi "shadow falls long and soft" ngay từ 0:04 → điểm chọn 10.
+6. **Cảnh 6, phơi sáng trong ngõ:** muốn đạt 4 : 1 từ ánh cửa sổ tầng một, ngõ phải gần như tối đen, nên Ida cũng gần như không nhìn thấy. Đây là việc của ánh sáng ở Cổng 3/7 (rim nhẹ từ miệng ngõ, giữ tỷ lệ tại nền). Ghi lại, chưa cần chọn.
+7. **Bố cục cảnh 6:** cửa sổ nhà Cas trông ra ngõ, nhưng toàn cảnh cao phải thấy được ô cửa đó. Việc của layout ở Cổng 5; ghi lại.
+
+Không còn chỗ nào trong nháp 2 có bóng hiện dưới ánh điện tràn.
