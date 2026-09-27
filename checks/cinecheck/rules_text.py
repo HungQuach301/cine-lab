@@ -5,6 +5,8 @@
   {"elements": [{"id": "title", "first_frame": 0, "last_frame": 47,
                  "matte": "title.png" | "title/%05d.png"}]}
 Matte: PNG RGBA đúng kích thước khung, alpha thẳng, màu = màu nét chữ; chỉ số khung bắt đầu từ 0.
+v1.1 (Q-P0): phần tử có "diegetic": true (chữ trong thế giới phim) được miễn đo tương phản G4 nhưng vẫn
+phải khớp matte–render (P1, và độ khớp trong G4) và vẫn tính va chạm P1. P0 chặn việc lạm dụng nhãn.
 """
 import json
 from pathlib import Path
@@ -102,7 +104,7 @@ def check_p1(video, profile, text_dir=None):
     n = frame_count(video)
     if not els:
         return result("P1", PASS, notes=["elements.json rỗng: không có chữ theo matte xuất ra. "
-                                         "v0 chưa có máy dò chữ độc lập (xem quyết định trong RUN.md)."])
+                                         "Chữ không có matte do luật P0 (máy dò độc lập) bắt."])
     fid, _ = _fid_pass(els, n, video)
     worst_fid = min([v for v in fid.values() if v is not None], default=0.0)
     collisions, where = 0, []
@@ -146,7 +148,17 @@ def check_g4(video, profile, text_dir=None):
     per, worst = {}, float("inf")
     d2 = np.ones((5, 5), np.uint8)
     d6 = np.ones((13, 13), np.uint8)
+    exempt = [e["id"] for e in els if e.get("diegetic") is True]
+    notes = []
+    if exempt:
+        notes.append(f"Miễn đo tương phản (diegetic, Q-P0): {', '.join(exempt)}. Vẫn kiểm độ khớp matte–render; "
+                     "P0 kiểm nhãn diegetic không trùng phụ đề/tiêu đề.")
+    fid_m = metric("độ khớp matte–render thấp nhất", worst_fid, ">=", FIDELITY_MIN, "%")
+    if len(exempt) == len(els):
+        return result("G4", None, [fid_m], notes, evidence=dict(mien_diegetic=exempt, do_khop=fid))
     for e in els:
+        if e.get("diegetic") is True:
+            continue
         vals = []
         for i in _sample(e, n):
             if i not in frames:
@@ -171,7 +183,6 @@ def check_g4(video, profile, text_dir=None):
             per[e["id"]] = dict(ty_le_p10=round(v, 2), khung=i)
             worst = min(worst, v)
     if worst == float("inf"):
-        return result("G4", FAIL, notes=["Không đo được: không có lõi nét hoặc vành nền đủ điểm ảnh."])
-    ms = [metric("tương phản chữ/nền (P10) thấp nhất", worst, ">=", G4_MIN, ":1"),
-          metric("độ khớp matte–render thấp nhất", worst_fid, ">=", FIDELITY_MIN, "%")]
-    return result("G4", None, ms, evidence=dict(theo_phan_tu=per, do_khop=fid))
+        return result("G4", FAIL, notes=["Không đo được: không có lõi nét hoặc vành nền đủ điểm ảnh."] + notes)
+    ms = [metric("tương phản chữ/nền (P10) thấp nhất", worst, ">=", G4_MIN, ":1"), fid_m]
+    return result("G4", None, ms, notes, evidence=dict(theo_phan_tu=per, do_khop=fid, mien_diegetic=exempt))

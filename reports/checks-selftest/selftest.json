@@ -52,7 +52,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.2,
       "metrics": [
         [
           "r_frame_rate",
@@ -190,7 +190,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.4,
+      "seconds": 0.5,
       "metrics": [
         [
           "color_primaries",
@@ -282,7 +282,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 2.4,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -321,7 +321,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          14.0154,
+          13.9723,
           ">=",
           12.0,
           true
@@ -349,6 +349,7 @@
         ]
       ],
       "notes": [
+        "G3b không đo thấy grain (σ < 0,8 mã hoặc không đủ khối phẳng): áp ngưỡng bitrate thường. σ lớn nhất theo shot: 0.00.",
         "Bitrate âm đo từ gói: 240 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
       ]
     },
@@ -358,7 +359,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.8,
+      "seconds": 2.1,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -397,7 +398,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          3.0424,
+          3.0708,
           ">=",
           12.0,
           false
@@ -425,6 +426,7 @@
         ]
       ],
       "notes": [
+        "G3b không đo thấy grain (σ < 0,8 mã hoặc không đủ khối phẳng): áp ngưỡng bitrate thường. σ lớn nhất theo shot: 0.00.",
         "Bitrate âm đo từ gói: 128 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
       ]
     },
@@ -434,7 +436,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 2.3,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -558,7 +560,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.1,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -635,7 +637,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.8,
+      "seconds": 1.4,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -660,7 +662,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.0,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -685,7 +687,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 1.3,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -703,7 +705,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 3.8,
+      "seconds": 4.0,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -739,7 +741,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 1.2,
       "metrics": [
         [
           "integrated loudness",
@@ -769,7 +771,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.1,
       "metrics": [
         [
           "integrated loudness",
@@ -799,7 +801,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.0,
       "metrics": [
         [
           "cửa sổ tương quan < −0,3",
@@ -863,7 +865,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.1,
+      "seconds": 9.0,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -1052,6 +1054,2031 @@
       "notes": [
         "File cảnh của shot (được miễn quét, v1 sẽ đọc liên kết bên trong): shots/sh010/sh010.blend"
       ]
+    },
+    {
+      "code": "P0",
+      "sample": "tiêu đề + phụ đề, chỉ xuất matte tiêu đề (giới hạn 2 của v0)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 2.8,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          4,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 4 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua)."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "chữ trong hình, không có thư mục chữ",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.9,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          6,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 3 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua).",
+        "Không có matte chữ (thiếu <video>.text/ hoặc elements rỗng): mọi chữ dò được đều trượt."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "tiêu đề + phụ đề đủ matte, nền lưới cửa sổ sáng",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 2.9,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 4 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua)."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "không có chữ, nền lưới cửa sổ sáng, không thư mục chữ",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.8,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 3 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 12 (bỏ qua).",
+        "Không có matte chữ (thiếu <video>.text/ hoặc elements rỗng): mọi chữ dò được đều trượt."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "hồi quy: khung 204 của M0 a-2d-mb8, lưới cửa sổ bị đọc thành '88:18' (độ tin 0,86)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.6,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 2 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 6 (bỏ qua).",
+        "Vùng đọc ra chữ nhưng là khối đặc (độ đặc ≥ 0.85, cửa sổ/lưới), bị loại: 2 (liệt kê trong bằng chứng để người duyệt soi).",
+        "Không có matte chữ (thiếu <video>.text/ hoặc elements rỗng): mọi chữ dò được đều trượt."
+      ]
+    },
+    {
+      "code": "G3b",
+      "sample": "2 shot, grain động σ 1,8 đều",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 3.0,
+      "metrics": [
+        [
+          "σ grain nhỏ nhất theo shot",
+          1.496,
+          ">=",
+          0.8,
+          true
+        ],
+        [
+          "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
+          0.003,
+          "<=",
+          0.2,
+          true
+        ],
+        [
+          "σ shot lớn nhất / nhỏ nhất",
+          1.006,
+          "<=",
+          1.3,
+          true
+        ],
+        [
+          "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
+          0.002,
+          "<=",
+          0.5,
+          true
+        ]
+      ],
+      "notes": [
+        "2 shot (PySceneDetect); 8 khung đo, 0 khung không đủ khối phẳng."
+      ]
+    },
+    {
+      "code": "G3b",
+      "sample": "không grain",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.2,
+      "metrics": [
+        [
+          "σ grain nhỏ nhất theo shot",
+          0.066,
+          ">=",
+          0.8,
+          false
+        ],
+        [
+          "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
+          0.0,
+          "<=",
+          0.2,
+          true
+        ],
+        [
+          "σ shot lớn nhất / nhỏ nhất",
+          1.0,
+          "<=",
+          1.3,
+          true
+        ],
+        [
+          "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
+          1.0,
+          "<=",
+          0.5,
+          false
+        ]
+      ],
+      "notes": [
+        "2 shot (PySceneDetect); 8 khung đo, 0 khung không đủ khối phẳng."
+      ]
+    },
+    {
+      "code": "G3b",
+      "sample": "shot 2 grain σ 1,1 so với shot 1 σ 1,8",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 2.1,
+      "metrics": [
+        [
+          "σ grain nhỏ nhất theo shot",
+          1.006,
+          ">=",
+          0.8,
+          true
+        ],
+        [
+          "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
+          0.003,
+          "<=",
+          0.2,
+          true
+        ],
+        [
+          "σ shot lớn nhất / nhỏ nhất",
+          1.4871,
+          "<=",
+          1.3,
+          false
+        ],
+        [
+          "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
+          0.004,
+          "<=",
+          0.5,
+          true
+        ]
+      ],
+      "notes": [
+        "2 shot (PySceneDetect); 8 khung đo, 0 khung không đủ khối phẳng."
+      ]
+    },
+    {
+      "code": "G3b",
+      "sample": "grain đứng yên (cùng mẫu nhiễu mọi khung)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.0,
+      "metrics": [
+        [
+          "σ grain nhỏ nhất theo shot",
+          1.519,
+          ">=",
+          0.8,
+          true
+        ],
+        [
+          "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
+          0.009,
+          "<=",
+          0.2,
+          true
+        ],
+        [
+          "σ shot lớn nhất / nhỏ nhất",
+          1.0138,
+          "<=",
+          1.3,
+          true
+        ],
+        [
+          "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
+          0.993,
+          "<=",
+          0.5,
+          false
+        ]
+      ],
+      "notes": [
+        "2 shot (PySceneDetect); 8 khung đo, 0 khung không đủ khối phẳng."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "lời + nhạc nền −22 dB; stem cộng đúng mix",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 2.2,
+      "metrics": [
+        [
+          "sai lệch bao năng lượng tổng stem so với mix (P95)",
+          0.3501,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "chênh hệ số khớp thoại/nền",
+          0.0298,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất theo câu",
+          1.0,
+          ">=",
+          0.75,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
+          0.9929,
+          ">=",
+          0.45,
+          true
+        ]
+      ],
+      "notes": [
+        "Stem: dialogue.wav, me.wav. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 0.995, nền 0.991.",
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -39.8 dB."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "lời + nhạc nền, chuẩn −14 LUFS + limiter đỉnh −1,5 dBFS",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 2.1,
+      "metrics": [
+        [
+          "sai lệch bao năng lượng tổng stem so với mix (P95)",
+          0.6624,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "chênh hệ số khớp thoại/nền",
+          0.0538,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất theo câu",
+          1.0,
+          ">=",
+          0.75,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
+          0.9927,
+          ">=",
+          0.45,
+          true
+        ]
+      ],
+      "notes": [
+        "Stem: dialogue.wav, me.wav. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 2.161, nền 2.174.",
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -27.8 dB."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "ồn lấn lời +9 dB 1,7–4,2 s (mẫu J1 vẫn đoán đúng 17/18 từ)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 2.0,
+      "metrics": [
+        [
+          "sai lệch bao năng lượng tổng stem so với mix (P95)",
+          0.5938,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "chênh hệ số khớp thoại/nền",
+          0.1668,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất theo câu",
+          0.438,
+          ">=",
+          0.75,
+          false
+        ],
+        [
+          "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
+          0.2219,
+          ">=",
+          0.45,
+          false
+        ]
+      ],
+      "notes": [
+        "Stem: dialogue.wav, me.wav. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 0.993, nền 0.974.",
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -16.4 dB."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "stem thoại xuất to hơn trong mix 6 dB (khai man)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 2.0,
+      "metrics": [
+        [
+          "sai lệch bao năng lượng tổng stem so với mix (P95)",
+          0.3501,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "chênh hệ số khớp thoại/nền",
+          5.9702,
+          "<=",
+          1.0,
+          false
+        ],
+        [
+          "SII rút gọn thấp nhất theo câu",
+          1.0,
+          ">=",
+          0.75,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
+          0.9929,
+          ">=",
+          0.45,
+          true
+        ]
+      ],
+      "notes": [
+        "Stem: dialogue.wav, me.wav. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 0.499, nền 0.991.",
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -39.8 dB."
+      ]
+    },
+    {
+      "code": "J1b",
+      "sample": "mix có tiếng ồn 2,5 s không nằm trong stem nào",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 2.1,
+      "metrics": [
+        [
+          "sai lệch bao năng lượng tổng stem so với mix (P95)",
+          25.875,
+          "<=",
+          3.0,
+          false
+        ],
+        [
+          "chênh hệ số khớp thoại/nền",
+          0.1959,
+          "<=",
+          1.0,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất theo câu",
+          1.0,
+          ">=",
+          0.75,
+          true
+        ],
+        [
+          "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
+          0.9932,
+          ">=",
+          0.45,
+          true
+        ]
+      ],
+      "notes": [
+        "Stem: dialogue.wav, me.wav. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 0.897, nền 0.877.",
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -1.3 dB."
+      ]
+    },
+    {
+      "code": "H1b",
+      "sample": "track khai báo = chuyển động render (easing, cung)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 2.0,
+      "metrics": [
+        [
+          "nhân vật có kênh bộ phận nhưng không có screen track",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ],
+        [
+          "track không đo được cặp khung nào (toàn null/ngoài khung)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "1 track, 39 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
+      ]
+    },
+    {
+      "code": "H1b",
+      "sample": "khai báo easing nhưng render chạy tuyến tính",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.9,
+      "metrics": [
+        [
+          "nhân vật có kênh bộ phận nhưng không có screen track",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
+          43.6,
+          ">=",
+          90.0,
+          false
+        ],
+        [
+          "track không đo được cặp khung nào (toàn null/ngoài khung)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "1 track, 39 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
+      ]
+    },
+    {
+      "code": "H1b",
+      "sample": "có kênh bộ phận nhân vật nhưng không có screen track",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.5,
+      "metrics": [
+        [
+          "nhân vật có kênh bộ phận nhưng không có screen track",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
+          0.0,
+          ">=",
+          90.0,
+          false
+        ],
+        [
+          "track không đo được cặp khung nào (toàn null/ngoài khung)",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "0 track, 0 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển).",
+        "Không có screen_tracks: không đối chiếu được chuyển động khai báo với hình render."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "đúng sheet, đầu 146 px (mặt nạ 2×)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 6.6,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1856,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          0.89,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5779,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "thân dài hơn sheet 6%, đầu 146 px (mặt nạ 2×)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 6.4,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1846,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5092,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          6.36,
+          "<=",
+          3.0,
+          false
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          1,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.7278,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 5.98%. 1846 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "thân dài hơn 2%, đầu 57 px: nhiễu đo vượt biên 3%, không chứng minh được (cả bộ phận đúng)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.9,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          1.0,
+          ">=",
+          2.0,
+          false
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          1.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          3.92,
+          "<=",
+          3.0,
+          false
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          5,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          6.5209,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 640×432 px trên khung 640×432 → hệ số đo ×1 (khai báo: 1). Đầu cao 57.1–57.1 px video. Lệch lớn nhất 1.47%. 354 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Q-C3: mặt nạ phải render ở độ phân giải gấp 2–4 lần khung video (đo từ kích thước PNG).",
+        "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "thân dài hơn 2%, đầu 146 px: chứng minh được đạt (mặt nạ 2×)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 5.2,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1853,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5127,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          2.41,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5479,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 2.02%. 1853 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "mặt nạ khai lệch 20 px so với render (mặt nạ 2×)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 4.2,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1856,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          0.89,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          0.7328,
+          ">=",
+          1.5,
+          false
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 2). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "hiệu chuẩn mô hình nhiễu U(δ=1 px mặt nạ), đầu 40–146 px, s = 1, 2, 4",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 190.4,
+      "metrics": [
+        [
+          "tỷ lệ sai số thật nằm trong U(δ=1 px)",
+          100.0,
+          ">=",
+          100.0,
+          true
+        ],
+        [
+          "sai số / U lớn nhất",
+          0.9431,
+          "<=",
+          1.0,
+          true
+        ]
+      ],
+      "notes": [
+        "{\"s1_H40\": {\"sai_so_max_pct\": 2.45, \"sai_so_p95_pct\": 2.32}, \"s1_H57\": {\"sai_so_max_pct\": 1.84, \"sai_so_p95_pct\": 1.72}, \"s1_H100\": {\"sai_so_max_pct\": 0.99, \"sai_so_p95_pct\": 0.99}, \"s1_H146\": {\"sai_so_max_pct\": 0.76, \"sai_so_p95_pct\": 0.69}, \"s2_H40\": {\"sai_so_max_pct\": 1.38, \"sai_so_p95_pct\": 1.24}, \"s2_H57\": {\"sai_so_max_pct\": 0.98, \"sai_so_p95_pct\": 0.93}, \"s2_H100\": {\"sai_so_max_pct\": 0.55, \"sai_so_p95_pct\": 0.51}, \"s2_H146\": {\"sai_so_max_pct\": 0.36, \"sai_so_p95_pct\": 0.36}, \"s4_H40\": {\"sai_so_max_pct\": 0.74, \"sai_so_p95_pct\": 0.62}, \"s4_H57\": {\"sai_so_max_pct\": 0.51, \"sai_so_p95_pct\": 0.45}, \"s4_H100\": {\"sai_so_max_pct\": 0.25, \"sai_so_p95_pct\": 0.25}, \"s4_H146\": {\"sai_so_max_pct\": 0.25, \"sai_so_p95_pct\": 0.22}}"
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.1: đúng sheet đầu 146 px nhưng mặt nạ 1× (hệ số < 2)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.0,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          1.0,
+          ">=",
+          2.0,
+          false
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          1.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          1.74,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.3781,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 692×984 px trên khung 692×984 → hệ số đo ×1 (khai báo: 1). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.69%. 970 vị trí biên phân biệt; tỷ lệ dồn 1 pha — (trải đều ≈ 1.00).",
+        "Q-C3: mặt nạ phải render ở độ phân giải gấp 2–4 lần khung video (đo từ kích thước PNG)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.1: cùng ca đầu 57 px thân +2% nhưng mặt nạ 4×: nay chứng minh được đạt",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 11.0,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          4.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          4.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1497,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.2558,
+          "<=",
+          0.625,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          2.52,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          6.5782,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 2560×1728 px trên khung 640×432 → hệ số đo ×4 (khai báo: 4). Đầu cao 57.0–57.0 px video. Lệch lớn nhất 2.03%. 1497 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.1: đúng sheet, đầu 100 px, mặt nạ 3×",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 7.4,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          3.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          3.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1905,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.3396,
+          "<=",
+          0.6667,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          0.81,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.1726,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1920×2100 px trên khung 640×700 → hệ số đo ×3 (khai báo: 3). Đầu cao 100.0–100.0 px video. Lệch lớn nhất 0.33%. 1905 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.34 (trải đều ≈ 0.33)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.1: mặt nạ 1× phóng to lên 4× (láng giềng gần nhất), khai scale 4",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 2.3,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          4.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          4.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          970,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          1.0,
+          "<=",
+          0.625,
+          false
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          1.12,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.3781,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 2768×3936 px trên khung 692×984 → hệ số đo ×4 (khai báo: 4). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.86%. 970 vị trí biên phân biệt; tỷ lệ dồn 1 pha 1.00 (trải đều ≈ 0.25).",
+        "Biên mặt nạ nằm trên lưới thô: mặt nạ có vẻ được phóng to từ độ phân giải thấp hơn, không phải render ở hệ số khai. Render lại mặt nạ ở độ phân giải thật."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.1: mặt nạ thật 2× nhưng khai scale 4",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 3.6,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          false,
+          "==",
+          true,
+          false
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1856,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          0.89,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5779,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: 4). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+      ]
+    },
+    {
+      "code": "C3",
+      "sample": "v1.1: mặt nạ 2× không khai scale (máy tự đo)",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 4.9,
+      "metrics": [
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          2.0,
+          ">=",
+          2.0,
+          true
+        ],
+        [
+          "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          2.0,
+          "<=",
+          4.0,
+          true
+        ],
+        [
+          "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          true,
+          "==",
+          true,
+          true
+        ],
+        [
+          "vị trí biên phân biệt để kiểm pha lưới",
+          1856,
+          ">=",
+          40,
+          true
+        ],
+        [
+          "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          0.5113,
+          "<=",
+          0.75,
+          true
+        ],
+        [
+          "biên trên |lệch| + U lớn nhất",
+          0.89,
+          "<=",
+          3.0,
+          true
+        ],
+        [
+          "bộ phận–khung lệch chắc chắn > 3%",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          7.5779,
+          ">=",
+          1.5,
+          true
+        ]
+      ],
+      "notes": [
+        "Model sheet: sheet.json. Mặt nạ 1384×1968 px trên khung 692×984 → hệ số đo ×2 (khai báo: không). Đầu cao 146.0–146.0 px video. Lệch lớn nhất 0.36%. 1856 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.51 (trải đều ≈ 0.50)."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "v1.1: tiêu đề + biển hiệu diegetic 'ROSE AND CROWN' đủ matte, có kịch bản",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.2,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 4 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua).",
+        "Phần tử diegetic (miễn G4, vẫn phải có matte và qua P1): sign. Đã đọc 4 vùng chữ trong matte diegetic; so với 7 dòng phụ đề/tiêu đề tham chiếu."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "v1.1: phụ đề (trùng câu thoại trong kịch bản) gắn diegetic",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.3,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          4,
+          "<=",
+          0,
+          false
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 4 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua).",
+        "Phần tử diegetic (miễn G4, vẫn phải có matte và qua P1): sub. Đã đọc 4 vùng chữ trong matte diegetic; so với 7 dòng phụ đề/tiêu đề tham chiếu.",
+        "Chữ gắn nhãn diegetic nhưng trùng nội dung phụ đề/tiêu đề: nhãn diegetic không được dùng để né G4. Bỏ nhãn hoặc khiếu nại vào checks-appeal.md nếu đây thật là chữ trong thế giới phim."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "v1.1: chữ gắn diegetic trùng tiêu đề không diegetic (không có kịch bản)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.4,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          3,
+          "<=",
+          0,
+          false
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 5 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua).",
+        "Phần tử diegetic (miễn G4, vẫn phải có matte và qua P1): endcard. Đã đọc 3 vùng chữ trong matte diegetic; so với 2 dòng phụ đề/tiêu đề tham chiếu (không có <video>.script.txt: chỉ so với chữ không diegetic).",
+        "Chữ gắn nhãn diegetic nhưng trùng nội dung phụ đề/tiêu đề: nhãn diegetic không được dùng để né G4. Bỏ nhãn hoặc khiếu nại vào checks-appeal.md nếu đây thật là chữ trong thế giới phim."
+      ]
+    },
+    {
+      "code": "P0",
+      "sample": "v1.1: biển hiệu diegetic không xuất matte",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.4,
+      "metrics": [
+        [
+          "vùng chữ dò được không có matte",
+          4,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "chữ gắn diegetic trùng phụ đề/tiêu đề",
+          0,
+          "<=",
+          0,
+          true
+        ]
+      ],
+      "notes": [
+        "Lấy mẫu 4 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 0 (bỏ qua)."
+      ]
+    },
+    {
+      "code": "G4",
+      "sample": "v1.1: biển hiệu xám trên nền xám (~1,4:1) gắn diegetic + tiêu đề đạt tương phản",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 1.1,
+      "metrics": [
+        [
+          "tương phản chữ/nền (P10) thấp nhất",
+          6.302,
+          ">=",
+          4.5,
+          true
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": [
+        "Miễn đo tương phản (diegetic, Q-P0): sign. Vẫn kiểm độ khớp matte–render; P0 kiểm nhãn diegetic không trùng phụ đề/tiêu đề."
+      ]
+    },
+    {
+      "code": "G4",
+      "sample": "v1.1: cùng biển hiệu nhưng không gắn diegetic",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.4,
+      "metrics": [
+        [
+          "tương phản chữ/nền (P10) thấp nhất",
+          1.514,
+          ">=",
+          4.5,
+          false
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "G4",
+      "sample": "v1.1: nhãn diegetic sai kiểu (chuỗi \"true\") không được miễn",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.3,
+      "metrics": [
+        [
+          "tương phản chữ/nền (P10) thấp nhất",
+          1.514,
+          ">=",
+          4.5,
+          false
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "G4",
+      "sample": "v1.1: chỉ có chữ diegetic nhưng matte khai lệch 60 px so với render",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 0.9,
+      "metrics": [
+        [
+          "độ khớp matte–render thấp nhất",
+          0.0,
+          ">=",
+          90.0,
+          false
+        ]
+      ],
+      "notes": [
+        "Miễn đo tương phản (diegetic, Q-P0): sign. Vẫn kiểm độ khớp matte–render; P0 kiểm nhãn diegetic không trùng phụ đề/tiêu đề."
+      ]
+    },
+    {
+      "code": "P1",
+      "sample": "v1.1: biển hiệu diegetic tách rời phụ đề",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 0.9,
+      "metrics": [
+        [
+          "điểm ảnh nét chữ va chạm",
+          0,
+          "<=",
+          0,
+          true
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          100.0,
+          ">=",
+          90.0,
+          true
+        ]
+      ],
+      "notes": []
+    },
+    {
+      "code": "P1",
+      "sample": "v1.1: phụ đề đè lên biển hiệu diegetic",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 1.0,
+      "metrics": [
+        [
+          "điểm ảnh nét chữ va chạm",
+          90600,
+          "<=",
+          0,
+          false
+        ],
+        [
+          "độ khớp matte–render thấp nhất",
+          78.09,
+          ">=",
+          90.0,
+          false
+        ]
+      ],
+      "notes": [
+        "Matte không khớp khung render: số đo chữ không đáng tin, coi như trượt."
+      ]
+    },
+    {
+      "code": "N3",
+      "sample": "v1.1: YouTube 1080p có grain σ 2,5, H.264 14 Mbps (đạt ngưỡng cũ 12)",
+      "expect": "FAIL",
+      "got": "FAIL",
+      "ok": true,
+      "seconds": 7.1,
+      "metrics": [
+        [
+          "tỷ lệ khung",
+          1.7778,
+          "==",
+          1.7778,
+          true
+        ],
+        [
+          "SAR",
+          "1:1",
+          "==",
+          "1:1",
+          true
+        ],
+        [
+          "codec/profile hình",
+          "h264/High",
+          "==",
+          "h264/High | hevc/Main(10)",
+          true
+        ],
+        [
+          "pix_fmt",
+          "yuv420p",
+          "==",
+          "yuv420p | yuv420p10le",
+          true
+        ],
+        [
+          "kích thước",
+          "1920x1080",
+          "==",
+          "1920x1080 | 3840x2160",
+          true
+        ],
+        [
+          "bitrate hình đo từ gói",
+          15.81,
+          ">=",
+          30.0,
+          false
+        ],
+        [
+          "codec âm",
+          "aac/LC",
+          "==",
+          "aac/LC",
+          true
+        ],
+        [
+          "tần số lấy mẫu âm",
+          48000,
+          "==",
+          48000,
+          true
+        ],
+        [
+          "số kênh âm",
+          2,
+          "==",
+          2,
+          true
+        ]
+      ],
+      "notes": [
+        "G3b đo có grain (σ lớn nhất theo shot 1.23 ≥ 0.8 mã): master YouTube phải ≥ 30 Mbps để bộ mã giữ grain (Q-G3b).",
+        "Bitrate âm đo từ gói: 148 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
+      ]
+    },
+    {
+      "code": "N3",
+      "sample": "v1.1: YouTube 1080p có grain σ 2,5, H.264 36 Mbps",
+      "expect": "PASS",
+      "got": "PASS",
+      "ok": true,
+      "seconds": 7.6,
+      "metrics": [
+        [
+          "tỷ lệ khung",
+          1.7778,
+          "==",
+          1.7778,
+          true
+        ],
+        [
+          "SAR",
+          "1:1",
+          "==",
+          "1:1",
+          true
+        ],
+        [
+          "codec/profile hình",
+          "h264/High",
+          "==",
+          "h264/High | hevc/Main(10)",
+          true
+        ],
+        [
+          "pix_fmt",
+          "yuv420p",
+          "==",
+          "yuv420p | yuv420p10le",
+          true
+        ],
+        [
+          "kích thước",
+          "1920x1080",
+          "==",
+          "1920x1080 | 3840x2160",
+          true
+        ],
+        [
+          "bitrate hình đo từ gói",
+          41.9995,
+          ">=",
+          30.0,
+          true
+        ],
+        [
+          "codec âm",
+          "aac/LC",
+          "==",
+          "aac/LC",
+          true
+        ],
+        [
+          "tần số lấy mẫu âm",
+          48000,
+          "==",
+          48000,
+          true
+        ],
+        [
+          "số kênh âm",
+          2,
+          "==",
+          2,
+          true
+        ]
+      ],
+      "notes": [
+        "G3b đo có grain (σ lớn nhất theo shot 1.83 ≥ 0.8 mã): master YouTube phải ≥ 30 Mbps để bộ mã giữ grain (Q-G3b).",
+        "Bitrate âm đo từ gói: 148 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
+      ]
     }
   ],
   "rule_proven": {
@@ -1065,7 +3092,12 @@
     "M3": true,
     "J1": true,
     "H1": true,
-    "O3": true
+    "O3": true,
+    "P0": true,
+    "G3b": true,
+    "J1b": true,
+    "H1b": true,
+    "C3": true
   },
   "e2e": {
     "exit_code": 0,
@@ -1075,13 +3107,18 @@
       "N1": "PASS",
       "N2": "PASS",
       "N3": "PASS",
+      "P0": "PASS",
       "P1": "PASS",
       "G4": "PASS",
       "G3": "PASS",
+      "G3b": "PASS",
       "M1": "PASS",
       "M3": "PASS",
       "J1": "PASS",
+      "J1b": "PASS",
       "H1": "PASS",
+      "H1b": "PASS",
+      "C3": "PASS",
       "O3": "PASS"
     },
     "lock_match": true,
@@ -1089,14 +3126,20 @@
       {
         "code": "M1",
         "metric": "integrated loudness",
-        "value": -14.4,
+        "value": -14.5,
         "threshold": [
           -15.0,
           -13.0
         ]
+      },
+      {
+        "code": "C3",
+        "metric": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+        "value": 2.0,
+        "threshold": 2.0
       }
     ],
     "ok": true
   },
-  "sample_dir": "/tmp/claude-0/-home-user-cine-lab/5c76494b-21dd-5f88-95c3-d0dc59164c33/scratchpad/st4"
+  "sample_dir": "/tmp/claude-0/-home-user-cine-lab/03d8aa4f-3843-5a76-981b-e78d2ceba171/scratchpad/st4"
 }
