@@ -152,8 +152,10 @@ RULES = {
                 "lời (≥ 1 khung 10 ms > max(đỉnh − 35 dB, −60 dBFS), như J1b) trong [đầu chữ − 0,15 s, cuối chữ + 0,15 s]; "
                 "không có stem thì chữ nằm hoàn toàn trong im lặng số (mọi khung 50 ms chạm chữ có RMS < −60 dBFS) bị bỏ. "
                 "Chữ bị bỏ liệt kê trong báo cáo. (4) Chữ lượt toàn file nằm ngoài mọi cửa sổ câu (không "
-                "trong im lặng số) tính là chèn.",
-        threshold="100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ).",
+                "trong im lặng số) tính là chèn. v1.4: file không có luồng âm → kịch bản rỗng (sau chuẩn hoá không còn "
+                "từ) = '—' không áp dụng (như M3); kịch bản có lời = THIẾU.",
+        threshold="100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ). Không có luồng âm: kịch bản rỗng → —, có lời → "
+                  "THIẾU (không bao giờ ĐẠT).",
         profiles=("shot", "youtube", "archive"),
     ),
     "J1b": dict(
@@ -167,7 +169,8 @@ RULES = {
                 "(khung 10 ms > đỉnh − 35 dB và > −60 dBFS), tách khi lặng ≥ 350 ms, dài ≥ 300 ms. "
                 "(3) Mỗi câu: công suất 6 dải octave 250 Hz–8 kHz của a·thoại và b·nền (mono) trên khoảng "
                 "câu; SII rút gọn = Σ tầm quan trọng dải (ANSI S3.5, octave) × clip((SNR dải + 15)/30, 0, 1), "
-                "không tính lan truyền che lấp và ngưỡng nghe. Cửa sổ 0,5 s trượt 50 ms trong câu.",
+                "không tính lan truyền che lấp và ngưỡng nghe. Cửa sổ 0,5 s trượt 50 ms trong câu. v1.4: file không "
+                "có luồng âm → quyết theo <video>.script.txt, không cần stem: kịch bản rỗng = '—' (như M3), có lời = THIẾU.",
         threshold="Sai lệch bao P95 ≤ 3 dB; |20·log10(a/b)| ≤ 1 dB; SII rút gọn mỗi câu ≥ 0,75; mọi cửa sổ "
                   "0,5 s trong câu ≥ 0,45. Ngưỡng nội bộ, CHƯA HIỆU CHUẨN (Q-J1b: giữ cấp Chặn; mốc 0,75/0,45 lấy "
                   "theo cách diễn giải SII của ANSI S3.5; hiệu chuẩn sau bài thử với 3–5 người nghe mù, xem RULES.md).",
@@ -225,12 +228,25 @@ RULES = {
                 "mức xám thì trượt. Quyết định kiểu "
                 "ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = "
                 "không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh "
-                "ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
+                "ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng (mọi khung có nhân vật). "
+                "v1.4 (lược đồ, RUN.md 3.6): độ dài lấy từ cấp gốc {bộ phận: {length}}, nếu thiếu thì từ parts{} (một nguồn "
+                "cho mọi bộ phận, không trộn), và bảng c3_views {góc: {bộ phận: tỷ lệ/đầu hoặc null}}; sai định dạng = THIẾU "
+                "kèm thông báo. v1.4 (B-i, góc nhìn và tư thế): mẫu (khung × bộ phận) chỉ được so khi đo được: (a) máy tự "
+                "loại bộ phận/đầu chạm mép khung; (b) nếu parts.json có 'views' xuất từ render (mỗi khung view_deg, "
+                "elev_deg; mỗi bộ phận foreshorten, hidden, depth): góc 3D giữa hướng nhìn và góc c3_views gần nhất ≤ 30°, "
+                "|foreshorten − 1| ≤ 0,02 (co ngắn do tư thế so với turnaround), hidden ≤ 0,10 (bị vật ngoài thân che), "
+                "|depth − 1| ≤ 0,02 (phối cảnh); đầu không đạt thì cả khung không đo được; c3_views null = khuất ở góc đó. "
+                "So với số của góc gần nhất. Mặt nạ rỗng mà views khai không bị che = thiếu mặt nạ (lỗi). Không có 'views': "
+                "mọi mẫu so với góc 0° như v1.3. Mẫu không đo được được đếm và liệt kê; tỷ lệ mẫu đo được báo theo từng shot "
+                "(tách shot như G3b). Shot có nhân vật mà 0 mẫu đo được → CẦN NGƯỜI XEM. Kiểm toán: có 'views' thì xưởng "
+                "xuất lại views.json cho khung được chọn; lệch > 1° hoặc > 0,005 → trượt.",
         threshold="Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; "
                   "dải xám biên ≤ 2,5; đầu < 100 px thì ≥ 4×; kiểm toán ngẫu nhiên đạt (lệch ≤ 1·U, khác điểm ảnh ≤ 0,02, "
                   "log và SHA file cảnh khớp); "
                   "0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu "
-                  "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ).",
+                  "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ). v1.4: chỉ "
+                  "tính trên mẫu đo được (góc ≤ 30°: quyết định chủ dự án; foreshorten 0,02, hidden 0,10, depth 0,02: nội bộ); "
+                  "shot có nhân vật mà 0 mẫu đo được = CẦN NGƯỜI XEM (không ĐẠT).",
         profiles=("shot", "youtube", "archive"),
     ),
     "O3": dict(

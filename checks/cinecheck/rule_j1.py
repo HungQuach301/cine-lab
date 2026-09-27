@@ -13,6 +13,8 @@ v1.3 (Q-J1c): khi có <video>.stems/dialogue.* (bắt buộc theo J1b), một ch
 không khớp kịch bản) khi stem thoại có lời nói tại thời điểm đó: có ít nhất một khung 10 ms "có lời" (định nghĩa
 như J1b: năng lượng > max(đỉnh − 35 dB, −60 dBFS)) trong [đầu chữ − 0,15 s, cuối chữ + 0,15 s]. Chữ rơi vào đoạn
 stem thoại im lặng bị bỏ và liệt kê. Không có stem: giữ quy tắc im lặng số −60 dBFS của v1.2 (J1b khi đó báo THIẾU).
+
+v1.4 (khiếu nại Cổng 3): file không có luồng âm → kịch bản rỗng: "—" (không áp dụng, như M3); kịch bản có lời: THIẾU.
 """
 import re
 import subprocess
@@ -21,7 +23,7 @@ from pathlib import Path
 
 import numpy as np
 
-from .common import FAIL, metric, probe, result, stream
+from .common import FAIL, metric, no_audio, probe, result, stream
 
 MODEL_REPO = "Systran/faster-whisper-small.en"
 MODEL_REVISION = "d1d751a5f8271d482d14ca55d9e2deeebbae577f"
@@ -349,8 +351,8 @@ def _split_long(lo, hi, words):
 
 
 def check_j1(path, profile, script_path=None, stem_dir=None):
-    if stream(probe(path), "audio") is None:
-        return result("J1", FAIL, notes=["Không có luồng âm."])
+    if stream(probe(path), "audio") is None:  # v1.4: kịch bản rỗng → "—"; có lời → THIẾU
+        return no_audio("J1", script_path)
     ref = normalize(script_text(script_path))
     if not ref:
         return result("J1", None, [metric("số từ kịch bản", 0, ">=", 0)],

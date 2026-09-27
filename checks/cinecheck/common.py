@@ -8,6 +8,7 @@ import numpy as np
 from .registry import RULES
 
 PASS, FAIL, MISSING, NA = "PASS", "FAIL", "MISSING", "N/A"
+REVIEW = "REVIEW"  # v1.4: máy không đo được ở mẫu nào của một shot có nhân vật → người xem (không ĐẠT)
 NEAR_PCT = 0.05  # CLAUDE.md: chỉ số trong ±5% quanh ngưỡng phải nêu tên
 
 
@@ -52,6 +53,22 @@ def missing(code, what):
 
 def not_applicable(code, why):
     return result(code, NA, notes=[why])
+
+
+def no_audio(code, script_path):
+    """v1.4 (khiếu nại J1/J1b, Cổng 3): file không có luồng âm. Kịch bản rỗng (không lời) → "—" không áp dụng,
+    thống nhất với M3; kịch bản có lời hoặc không có kịch bản → THIẾU (không bao giờ ĐẠT)."""
+    from pathlib import Path
+    from .rule_j1 import normalize, script_text
+    if script_path is None or not Path(script_path).is_file():
+        return result(code, MISSING, notes=["Không có luồng âm và không có kịch bản thoại: không biết đoạn này có "
+                                            "lời hay không. Nộp <video>.script.txt (rỗng nếu không lời)."])
+    words = normalize(script_text(script_path))
+    if not words:
+        return result(code, NA, notes=["Không có luồng âm và kịch bản thoại rỗng (đoạn không lời): không áp dụng, "
+                                       "thống nhất với M3."])
+    return result(code, MISSING, notes=[f"Không có luồng âm nhưng kịch bản có {len(words)} từ: thiếu luồng âm, "
+                                        "không đo được. Không chèn luồng âm im lặng để lách (sẽ TRƯỢT vì thiếu từ)."])
 
 
 # ---------------------------------------------------------------- ffmpeg

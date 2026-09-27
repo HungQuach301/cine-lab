@@ -11,13 +11,13 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
 from cinecheck import VERSION  # noqa: E402
-from cinecheck.common import FAIL, MISSING, NA, PASS, missing, not_applicable, result  # noqa: E402
+from cinecheck.common import FAIL, MISSING, NA, PASS, REVIEW, missing, not_applicable, probe, result, stream  # noqa: E402
 from cinecheck.lockhash import read_lock, tree_hash  # noqa: E402
 from cinecheck.registry import CHAN, ORDER, RULES  # noqa: E402
 from cinecheck.report import write_reports  # noqa: E402
 
 ERROR = "ERROR"
-EXIT = {"ĐẠT": 0, "TRƯỢT": 1, "THIẾU DỮ LIỆU": 2, "LUẬT KHÔNG KHỚP LOCK": 3}
+EXIT = {"ĐẠT": 0, "TRƯỢT": 1, "THIẾU DỮ LIỆU": 2, "LUẬT KHÔNG KHỚP LOCK": 3, "CẦN NGƯỜI XEM": 5}
 
 
 def sidecar(video, suffix):
@@ -99,7 +99,9 @@ def main(argv=None):
         "M1": lambda: run_rule("M1", check_m1, video, prof),
         "M3": lambda: run_rule("M3", check_m3, video, prof),
         "J1": lambda: need("J1", script, f"{video.stem}.script.txt", check_j1, stems),
-        "J1b": lambda: need("J1b", stems, f"{video.stem}.stems/ (dialogue.* + stem nền)", check_j1b),
+        # v1.4: file không có luồng âm → J1b quyết theo kịch bản ("—" nếu rỗng, THIẾU nếu có lời), không cần stem
+        "J1b": lambda: (run_rule("J1b", check_j1b, video, prof, stems, script) if not has_audio else
+                        need("J1b", stems, f"{video.stem}.stems/ (dialogue.* + stem nền)", check_j1b, script)),
         "H1": lambda: need("H1", motion, f"{video.stem}.motion.json", check_h1),
         "H1b": lambda: need("H1b", motion, f"{video.stem}.motion.json", check_h1b),
         "C3": lambda: need("C3", parts, f"{video.stem}.parts/parts.json", check_c3, repo, True, assets,
@@ -109,6 +111,10 @@ def main(argv=None):
     }
     if text is not None:
         text = text if text.is_dir() else None
+    try:
+        has_audio = stream(probe(video), "audio") is not None
+    except Exception:  # ffprobe lỗi: để từng luật tự báo lỗi đo
+        has_audio = True
     results = []
     for code in ORDER:
         if only and code not in only:
@@ -128,6 +134,8 @@ def main(argv=None):
         verdict = "TRƯỢT"
     elif any(r["status"] == MISSING for r in blocking):
         verdict = "THIẾU DỮ LIỆU"
+    elif any(r["status"] == REVIEW for r in blocking):  # v1.4 (C3): không mẫu nào đo được ở một shot có nhân vật
+        verdict = "CẦN NGƯỜI XEM"
     else:
         verdict = "ĐẠT"
     near = [dict(code=r["code"], metric=m["name"], value=m["value"], threshold=m["threshold"])
@@ -140,7 +148,7 @@ def main(argv=None):
                     stems=str(stems) if stems else None, parts=str(parts) if parts else None,
                     motion=str(motion) if motion else None, assets=str(assets) if assets else None,
                     library=str(library)),
-        counts={s: sum(r["status"] == s for r in results) for s in (PASS, FAIL, MISSING, NA, ERROR)},
+        counts={s: sum(r["status"] == s for r in results) for s in (PASS, FAIL, MISSING, REVIEW, NA, ERROR)},
         near_threshold=near, results=results)
     out = Path(a.out) if a.out else repo / "reports" / "checks" / video.stem
     jp, mp = write_reports(report, out, video.stem)
