@@ -105,8 +105,9 @@ def cases(d):
         v, pd = v1.c3_sample(d, name, H, **kw)
         return check_c3(v, "shot", pd, d)
     add("C3", "v1.1: đúng sheet đầu 146 px nhưng mặt nạ 1× (hệ số < 2)", FAIL, lambda: c3("c3v11_1x", 146))
-    add("C3", "v1.1: cùng ca đầu 57 px thân +2% nhưng mặt nạ 4×: nay chứng minh được đạt", PASS,
-        lambda: c3("c3v11_small4x", 57, scale_dev={"torso": 1.02}, s=4))
+    # v1.2: δ nâng 1 → 2 px mặt nạ nên thân +2% ở đầu 57 px không còn chứng minh được ở 4×; ca đổi sang +1,5%.
+    add("C3", "v1.1: đầu 57 px (như shot A) thân +1,5%, mặt nạ 4×: chứng minh được đạt (v1.2: từ +2% đổi +1,5%)", PASS,
+        lambda: c3("c3v11_small4x", 57, scale_dev={"torso": 1.015}, s=4))
     add("C3", "v1.1: đúng sheet, đầu 100 px, mặt nạ 3×", PASS, lambda: c3("c3v11_3x", 100, s=3))
     add("C3", "v1.1: mặt nạ 1× phóng to lên 4× (láng giềng gần nhất), khai scale 4", FAIL,
         lambda: c3("c3v11_upscaled", 146, s=4, upscale=True))

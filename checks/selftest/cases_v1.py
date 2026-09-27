@@ -198,7 +198,7 @@ def _capsule(img, p1, p2, w, val, ss):
     cv2.circle(img, P2, int(w / 2 * ss * f), val, -1, shift=sh)
 
 
-def figure(H, size=(1280, 1080), scale_dev=None, jitter=(0.0, 0.0), ss=8, cx=None):
+def figure(H, size=(1280, 1080), scale_dev=None, jitter=(0.0, 0.0), ss=8, cx=None, soft=False):
     """Nhân vật que theo SHEET, đầu cao H px. scale_dev: {bộ phận: hệ số độ dài}. Trả (khung RGB, mặt nạ)."""
     scale_dev = scale_dev or {}
     L = {k: SHEET[k]["length"] * H * scale_dev.get(k, 1.0) for k in COLORS}
@@ -238,6 +238,8 @@ def figure(H, size=(1280, 1080), scale_dev=None, jitter=(0.0, 0.0), ss=8, cx=Non
     for k in ("thigh", "shin", "torso", "upper_arm", "forearm", "head"):
         a = masks[k][..., None]
         frame = frame * (1 - a) + np.array(COLORS[k], np.float32) * a
+    if soft:  # v1.2: mặt nạ khử răng cưa (độ phủ 0–1) thay vì ngưỡng hoá
+        return np.clip(frame, 0, 255).astype(np.uint8), masks
     return np.clip(frame, 0, 255).astype(np.uint8), {k: (m >= 0.5) for k, m in masks.items()}
 
 
@@ -247,16 +249,29 @@ def gen_ss(head_mask_px):
     return 8 if head_mask_px <= 300 else 4
 
 
-def c3_sample(d, name, H, scale_dev=None, mask_shift=0, s=1, upscale=False, declare=None, size=None):
+def c3_sample(d, name, H, scale_dev=None, mask_shift=0, s=1, upscale=False, declare=None, size=None,
+              aa_up=None, soft=False):
     """Khung 1× + mặt nạ ở hệ số s. s > 1: vẽ nhân vật ở s× rồi thu nhỏ ra khung (render mặt nạ độ phân
     giải cao thật). upscale=True: vẽ ở 1× rồi phóng to mặt nạ lên s× (láng giềng gần nhất) — khai man.
     declare: số 'scale' ghi vào parts.json (mặc định = s)."""
     if size is None:  # khung vừa nhân vật (chiều chẵn cho H.264)
         size = (max(640, (int(4.2 * H) + 80) // 2 * 2), (int(6.2 * H) + 80) // 2 * 2)
-    if s == 1 or upscale:
+    if aa_up is not None:  # v1.2: matte 1× khử răng cưa phóng to lên s× bằng nhân aa_up = (tên, giữ xám?)
+        fh, mh = figure(H * s, size=(size[0] * s, size[1] * s), scale_dev=scale_dev, ss=gen_ss(H * s), soft=True)
+        frame = cv2.resize(fh, size, interpolation=cv2.INTER_AREA)
+        kern = {"nearest": cv2.INTER_NEAREST, "linear": cv2.INTER_LINEAR, "cubic": cv2.INTER_CUBIC}[aa_up[0]]
+        masks = {}
+        for k, m in mh.items():
+            up = cv2.resize(cv2.resize(m, size, interpolation=cv2.INTER_AREA), (size[0] * s, size[1] * s),
+                            interpolation=kern)
+            masks[k] = np.clip(up, 0, 1) if aa_up[1] else up >= 0.5
+    elif s == 1 or upscale:
         frame, masks = figure(H, size=size, scale_dev=scale_dev)
         if upscale:
             masks = {k: np.kron(m, np.ones((s, s), bool)) for k, m in masks.items()}
+    elif soft:  # render thật ở s×, mặt nạ khử răng cưa (xám) ở chính độ phân giải s×
+        fh, masks = figure(H * s, size=(size[0] * s, size[1] * s), scale_dev=scale_dev, ss=gen_ss(H * s), soft=True)
+        frame = cv2.resize(fh, size, interpolation=cv2.INTER_AREA)
     else:
         fh, masks = figure(H * s, size=(size[0] * s, size[1] * s), scale_dev=scale_dev, ss=gen_ss(H * s))
         frame = cv2.resize(fh, size, interpolation=cv2.INTER_AREA)
@@ -269,7 +284,7 @@ def c3_sample(d, name, H, scale_dev=None, mask_shift=0, s=1, upscale=False, decl
     for k, m in masks.items():
         if mask_shift:
             m = np.roll(m, mask_shift * s, 1)
-        Image.fromarray((m * 255).astype(np.uint8)).save(pd / "00000" / f"{k}.png")
+        Image.fromarray(np.round(np.asarray(m, np.float32) * 255).astype(np.uint8)).save(pd / "00000" / f"{k}.png")
         fr[k] = f"00000/{k}.png"
     (pd / "parts.json").write_text(json.dumps({"model_sheet": "sheet.json", "scale": s if declare is None else declare,
                                                "frames": {"0": fr}}))
@@ -299,7 +314,7 @@ def c3_noise_model(n=60, heads=(40, 57, 100, 146), scales=(1, 2, 4)):
                 worst = max(worst, e / u)
         rows[f"s{s_}_H{H0}"] = dict(sai_so_max_pct=round(100 * max(errs), 2), sai_so_p95_pct=round(100 * float(np.percentile(errs, 95)), 2))
     pct = 100.0 * cover / tot
-    return result("C3", None, [metric("tỷ lệ sai số thật nằm trong U(δ=1 px)", pct, ">=", 100.0, "%", near_check=False),
+    return result("C3", None, [metric("tỷ lệ sai số thật nằm trong U(δ)", pct, ">=", 100.0, "%", near_check=False),
                                metric("sai số / U lớn nhất", worst, "<=", 1.0)],
                   notes=[json.dumps(rows, ensure_ascii=False)])
 
@@ -370,7 +385,8 @@ def cases(d):
         lambda: c3("c3_small146", 146, scale_dev={"torso": 1.02}, s=2))
     add("C3", "mặt nạ khai lệch 20 px so với render (mặt nạ 2×)", FAIL,
         lambda: c3("c3_shift", 146, mask_shift=20, s=2))
-    add("C3", "hiệu chuẩn mô hình nhiễu U(δ=1 px mặt nạ), đầu 40–146 px, s = 1, 2, 4", PASS, c3_noise_model)
+    add("C3", "hiệu chuẩn mô hình nhiễu U(δ mặt nạ; v1.2: δ = 2 px), đầu 40–146 px, s = 1, 2, 4", PASS,
+        c3_noise_model)
     return C
 
 

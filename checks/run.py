@@ -98,11 +98,11 @@ def main(argv=None):
         "G3b": lambda: run_rule("G3b", check_g3b, video, prof),
         "M1": lambda: run_rule("M1", check_m1, video, prof),
         "M3": lambda: run_rule("M3", check_m3, video, prof),
-        "J1": lambda: need("J1", script, f"{video.stem}.script.txt", check_j1),
+        "J1": lambda: need("J1", script, f"{video.stem}.script.txt", check_j1, stems),
         "J1b": lambda: need("J1b", stems, f"{video.stem}.stems/ (dialogue.* + stem nền)", check_j1b),
         "H1": lambda: need("H1", motion, f"{video.stem}.motion.json", check_h1),
         "H1b": lambda: need("H1b", motion, f"{video.stem}.motion.json", check_h1b),
-        "C3": lambda: need("C3", parts, f"{video.stem}.parts/parts.json", check_c3, repo,
+        "C3": lambda: need("C3", parts, f"{video.stem}.parts/parts.json", check_c3, repo, True, assets,
                            probe_file=parts and parts / "parts.json"),
         "O3": lambda: (missing("O3", f"thư viện {library}") if not library.exists() else
                        need("O3", assets, f"{video.stem}.assets.json", check_o3, library, repo)),

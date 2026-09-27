@@ -1,4 +1,21 @@
-# CHẠY LUẬT KIỂM L1 (v1.1) — hướng dẫn cho phiên xưởng
+# CHẠY LUẬT KIỂM L1 (v1.3) — hướng dẫn cho phiên xưởng
+
+**Điểm mới v1.3:**
+1. **Kiểm toán ngẫu nhiên mặt nạ C3** (mục 3.7):
+   - Sau khi nộp, phiên P chọn ngẫu nhiên 1–2 khung.
+   - Phiên xưởng render lại mặt nạ đúng các khung đó từ file cảnh đã khoá và nộp kèm log lệnh render.
+   - Chưa kiểm toán thì C3 báo THIẾU và shot không thể ĐẠT.
+2. **Đầu nhân vật cao dưới 100 px** trong khung ở bất kỳ khung mẫu nào thì mặt nạ **bắt buộc 4×**.
+3. **J1 dùng stem thoại** (bắt buộc theo J1b) để quyết chữ nào là chèn:
+   - Chữ ASR rơi vào lúc stem thoại im thì bị bỏ và được liệt kê trong báo cáo.
+   - Chữ ASR rơi vào lúc stem thoại có lời mà không có trong kịch bản thì tính là chèn.
+   - Vì vậy stem thoại phải chứa **mọi** lời thoại, và chỉ lời thoại.
+
+**Điểm mới v1.2:**
+1. J1 kiểm theo từng câu thoại (mỗi dòng `X.script.txt` là một câu). Nên giữ mỗi lời thoại một dòng.
+2. J1 coi từ ghép và từ tách là một (goodnight = good night…), theo bảng trong RULES.md.
+3. J1 bỏ chữ ASR bịa trong đoạn im lặng số tuyệt đối. Báo cáo liệt kê những chữ bị bỏ.
+4. Mặt nạ C3 phải render thật ở 2–4×, nhị phân hoặc khử răng cưa **ở chính độ phân giải đó**. Mặt nạ phóng to còn biên xám mờ hoặc biên bậc thang thì TRƯỢT. Dải bảo vệ nhiễu đo rộng gấp đôi v1.1: shot đầu nhỏ cần mặt nạ 4× để chứng minh.
 
 **Điểm mới v1.1** (chi tiết ở mục 3.1, 3.6 và bảng mục 4):
 1. Mặt nạ C3 **bắt buộc** ở độ phân giải gấp 2–4 lần khung. Máy đo hệ số từ kích thước PNG.
@@ -49,8 +66,9 @@ Với video `X.mp4`:
 | `X.script.txt` | J1 | Lời thoại tiếng Anh đúng như kịch bản cho đoạn phim này. Mỗi câu một dòng; cho phép nhãn người nói `NAME:` đầu dòng; chỉ dẫn diễn xuất trong `[...]` hoặc `(...)` và dòng bắt đầu `#` bị bỏ qua. File rỗng = đoạn không có lời. |
 | `X.text/elements.json` + matte PNG | P0, P1, G4 (P0 dùng thêm `X.script.txt` nếu có) | Mỗi phần tử chữ (tiêu đề, phụ đề, credit, **cả chữ trong thế giới phim như biển hiệu**) xuất một matte RGBA từ render (mục 3.1). Thư mục rỗng phần tử (`{"elements": []}`) = đoạn không có chữ. P0 chạy cả khi thiếu thư mục này: mọi chữ máy dò thấy trong hình mà không có matte đều trượt. |
 | `X.motion.json` | H1, H1b | Chuyển động bake theo từng khung ở 24 fps (mục 3.2), **kèm `screen_tracks`** (mục 3.4). |
-| `X.stems/` | J1b | Stem thoại `dialogue.wav` và stem nền (M&E) xuất từ bản mix (mục 3.5). |
-| `X.parts/parts.json` + mặt nạ PNG | C3 | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung, **ở 2–4× độ phân giải khung** (mục 3.6). |
+| `X.stems/` | J1b, J1 | Stem thoại `dialogue.wav` và stem nền (M&E) xuất từ bản mix (mục 3.5). |
+| `X.parts/parts.json` + mặt nạ PNG | C3 | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung, **ở 2–4× độ phân giải khung** (4× khi đầu < 100 px) (mục 3.6). |
+| `X.audit/` | C3 | Yêu cầu kiểm toán (P phát), mặt nạ render lại và `render.log` (mục 3.7). |
 | `X.assets.json` | O3 | Danh sách tài sản mà file cảnh thật sự nạp, xuất từ phần mềm dựng (mục 3.3). |
 
 Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `--stems`, `--parts`, `--assets`, `--library`.
@@ -138,8 +156,59 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 - `model_sheet`: đường dẫn tính từ thư mục `parts/` rồi từ gốc repo; bộ phận đo lấy từ `measured_parts` của sheet; độ dài đo từ đầu mút đến đầu mút dọc trục chính.
 - Nhiều nhân vật: một thư mục `parts` cho mỗi lần chạy (v1 kiểm một nhân vật mỗi file; báo P nếu shot có nhiều nhân vật chính). Shot không có nhân vật: `{"no_character": true}` (người duyệt xác nhận).
 - Máy đối chiếu biên mặt nạ với cạnh ảnh render: mặt nạ không khớp hình thì C3 trượt.
+- **v1.3:** đầu nhân vật cao dưới 100 px video ở bất kỳ khung mẫu nào thì mặt nạ **bắt buộc 4×** (2× hoặc 3× thì C3 trượt).
 
-## 4. Luật trong bộ v1.1 (đều cấp Chặn)
+### 3.7 Kiểm toán ngẫu nhiên mặt nạ C3 (`X.audit/`, v1.3)
+
+Mục đích: xác nhận mặt nạ đã nộp thật sự được render từ file cảnh đã khoá, ở đúng độ phân giải khai, chứ không phải phóng to hay vẽ tay. Xưởng **không biết trước** khung nào sẽ bị kiểm.
+
+**Bước 1: phiên xưởng nộp**
+- Nộp video, `X.parts/` và `X.assets.json` như thường lệ.
+- Từ lúc này **không sửa** video hay mặt nạ nữa. Máy so SHA-256; sửa sau khi phát yêu cầu thì TRƯỢT.
+
+**Bước 2: phiên P phát yêu cầu** (xưởng không tự chạy lệnh này):
+```bash
+/opt/cine/bin/python checks/audit.py issue <X.mp4>
+```
+- Máy lấy hạt giống ngẫu nhiên từ hệ điều hành và chọn 1–2 khung trong các khung có mặt nạ đầu.
+- Kết quả ghi vào `X.audit/request.json` (hạt giống, khung, giờ phát, SHA video, SHA bộ mặt nạ). Hạt giống được chép vào báo cáo C3.
+- Lệnh từ chối phát lại khi đã có yêu cầu, để không ai chọn lại khung cho có lợi.
+- P commit `request.json` rồi giao khung cho xưởng.
+
+**Bước 3: phiên xưởng xem khung phải render lại**
+```bash
+/opt/cine/bin/python checks/audit.py show <X.mp4>
+```
+
+**Bước 4: phiên xưởng render lại và nộp**
+- Render lại mặt nạ bộ phận **đúng các khung đó**, từ **file cảnh đã khoá** (file trong `scene_files` của `X.assets.json`), bằng **đúng cách** đã dùng cho mặt nạ nộp: cùng độ phân giải, cùng pass.
+- Đặt mặt nạ render lại vào:
+```
+X.audit/rerender/<khung 5 chữ số>/<bộ phận>.png     # ví dụ X.audit/rerender/00036/head.png
+```
+  Phải đủ mọi bộ phận có trong `parts.json` ở khung đó, cùng kích thước PNG.
+- Ghi `X.audit/render.log`. Dòng tự do được phép, nhưng bắt buộc có:
+```
+SCENE shots/sq01_sh010/sq01_sh010.blend SHA256 <sha256 của file cảnh, 64 hex>
+FRAME 36 CMD blender -b shots/sq01_sh010/sq01_sh010.blend -P tools/render_masks.py -- --frame 36 --scale 4
+```
+  - Có một dòng `FRAME … CMD …` cho **mỗi** khung được chọn, chép đúng lệnh đã chạy.
+  - Đường dẫn file cảnh tính từ gốc repo.
+
+**Bước 5: chạy lại `checks/run.py`.** C3 đối chiếu và **TRƯỢT** khi có một trong các lỗi sau:
+
+| Lỗi | Điều kiện trượt |
+|---|---|
+| Sửa sau khi phát yêu cầu | video hoặc bộ mặt nạ khác SHA lúc phát |
+| Log | thiếu `render.log`, thiếu dòng `SCENE`, hoặc thiếu dòng `FRAME … CMD` cho khung được chọn |
+| File cảnh | SHA trong log khác file cảnh trên đĩa, hoặc file cảnh không thuộc `scene_files` |
+| Không render lại được | thiếu mặt nạ render lại, hoặc khác kích thước với mặt nạ nộp |
+| Lệch tỷ lệ | tỷ lệ bộ phận/đầu của mặt nạ nộp lệch mặt nạ render lại quá 1 dải nhiễu U |
+| Lệch điểm ảnh | điểm ảnh khác nhau vượt 2% số điểm ảnh biên. Render lại cùng cách thì mặt nạ gần như trùng khít |
+
+Chưa có `request.json` thì C3 báo **THIẾU**, và kết luận không thể là ĐẠT.
+
+## 4. Luật trong bộ v1.3 (đều cấp Chặn)
 
 | Mã | Luật | Profile |
 |---|---|---|
@@ -153,11 +222,11 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
 | G3b | Grain có, ổn định theo thời gian và giữa shot, chuyển động theo khung | mọi |
 | M1 | −14 LUFS ±1; true peak ≤ −1 dBTP | youtube |
 | M3 | Tương quan pha, tương thích mono | mọi |
-| J1 | ASR trên mix cuối: 100% từ kịch bản, WER ≤ 5% | mọi |
+| J1 | ASR trên mix cuối, theo từng câu: 100% từ kịch bản, WER ≤ 5%; chèn chỉ tính khi stem thoại có lời | mọi |
 | J1b | Lời rõ trên nhạc theo từng câu (stem), tổng stem khớp mix. Ngưỡng SII **nội bộ, chưa hiệu chuẩn** (hiệu chuẩn sau bài thử với 3–5 người nghe mù) nhưng vẫn cấp Chặn | mọi |
 | H1 | Không chuyển động tuyến tính ở bộ phận nhân vật | mọi |
 | H1b | Chuyển động khai báo khớp hình render (luồng quang học) | mọi |
-| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo); mặt nạ 2–4× | mọi |
+| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo); mặt nạ 2–4× (4× khi đầu < 100 px); kiểm toán ngẫu nhiên | mọi |
 | O3 | Tài sản lấy từ thư viện có SHA | mọi |
 
 Định nghĩa đo và ngưỡng đầy đủ có trong từng báo cáo (mục "Chi tiết từng luật").
