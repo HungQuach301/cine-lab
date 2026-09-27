@@ -515,7 +515,6 @@
   "measured_parts": [
     "head",
     "torso",
-    "upper_arm",
     "forearm",
     "thigh",
     "shin"
@@ -525,39 +524,59 @@
     "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D",
     "no_carved_mouth_groove": true
   },
-  "_c3_doc": "Khoá cấp gốc head/torso/upper_arm/forearm/thigh/shin: bản sao parts[...] cho checks C3 (lược đồ như sheet M0: bộ phận ở cấp gốc). Cùng giá trị, sinh từ parts; sửa parts thì sinh lại.",
+  "_c3_doc": "B1 (Cổng 3 đợt vá A2+, chủ dự án chọn): khoá cấp gốc = độ dài NHÌN THẤY đo từ lưới 3D đã duyệt (không phải khung xương parts{}). Cách đo như checks C3 (RUN.md 3.6). Bảng mọi góc nhìn: c3_views. Bộ phận bị che theo thiết kế bị bỏ khỏi measured_parts: upper_arm",
   "head": {
     "length": 1.0,
-    "width_front": 0.9,
-    "width_side": 0.98,
-    "id_color": "#ff0000"
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "torso": {
-    "length": 1.48,
-    "shoulder_width": 1.1,
-    "waist_width": 0.86,
-    "hip_width": 0.92,
-    "depth_ratio": 0.6,
-    "id_color": "#0000ff"
-  },
-  "upper_arm": {
-    "length": 0.92,
-    "width_front": 0.24,
-    "id_color": "#ffff00"
+    "length": 1.669,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "forearm": {
-    "length": 0.82,
-    "width_front": 0.21,
-    "id_color": "#ff00ff"
+    "length": 0.945,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "thigh": {
-    "length": 1.05,
-    "width_front": 0.27,
-    "id_color": "#00ffff"
+    "length": 1.191,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "shin": {
-    "length": 1.15,
-    "width_front": 0.22,
-    "id_color": "#ff8000"
+    "length": 1.132,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+  },
+  "c3_views": {
+    "0°": {
+      "head": 1.0,
+      "torso": 1.669,
+      "upper_arm": 0.586,
+      "forearm": 0.945,
+      "thigh": 1.191,
+      "shin": 1.132
+    },
+    "45°": {
+      "head": 1.0,
+      "torso": 1.707,
+      "upper_arm": 0.211,
+      "forearm": 0.944,
+      "thigh": 1.176,
+      "shin": 1.116
+    },
+    "90°": {
+      "head": 1.0,
+      "torso": 1.661,
+      "upper_arm": null,
+      "forearm": null,
+      "thigh": null,
+      "shin": null
+    },
+    "-90°": {
+      "head": 1.0,
+      "torso": 1.654,
+      "upper_arm": 0.63,
+      "forearm": 0.937,
+      "thigh": 1.076,
+      "shin": 1.134
+    }
   }
 }

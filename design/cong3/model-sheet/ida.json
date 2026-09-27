@@ -731,48 +731,62 @@
     "head",
     "torso",
     "upper_arm",
-    "forearm",
-    "thigh",
-    "shin"
+    "forearm"
   ],
   "ratio_definition": "ratio(part) = length(part) / length(head), đo giữa hai tâm khớp; ngưỡng C3 = 3% (luật v1.1, có tính nhiễu đo; mặt nạ 2–4×)",
   "face": {
     "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D (v2/char3d/facepaint.js)",
     "no_carved_mouth_groove": true
   },
-  "_c3_doc": "Khoá cấp gốc head/torso/upper_arm/forearm/thigh/shin: bản sao parts[...] cho checks C3 (lược đồ như sheet M0: bộ phận ở cấp gốc). Cùng giá trị, sinh từ parts; sửa parts thì sinh lại.",
+  "_c3_doc": "B1 (Cổng 3 đợt vá A2+, chủ dự án chọn): khoá cấp gốc = độ dài NHÌN THẤY đo từ lưới 3D đã duyệt (không phải khung xương parts{}). Cách đo như checks C3 (RUN.md 3.6). Bảng mọi góc nhìn: c3_views. Bộ phận bị che theo thiết kế bị bỏ khỏi measured_parts: shin, thigh",
   "head": {
     "length": 1.0,
-    "width_front": 0.78,
-    "width_side": 0.92,
-    "id_color": "#ff0000"
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "torso": {
-    "length": 2.0,
-    "shoulder_width": 1.45,
-    "waist_width": 1.1,
-    "hip_width": 1.3,
-    "depth_ratio": 0.62,
-    "id_color": "#0000ff"
+    "length": 2.584,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "upper_arm": {
-    "length": 1.15,
-    "width_front": 0.34,
-    "id_color": "#ffff00"
+    "length": 1.55,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "forearm": {
-    "length": 1.0,
-    "width_front": 0.28,
-    "id_color": "#ff00ff"
+    "length": 0.963,
+    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
-  "thigh": {
-    "length": 1.45,
-    "width_front": 0.4,
-    "id_color": "#00ffff"
-  },
-  "shin": {
-    "length": 1.4,
-    "width_front": 0.3,
-    "id_color": "#ff8000"
+  "c3_views": {
+    "0°": {
+      "head": 1.0,
+      "torso": 2.584,
+      "upper_arm": 1.55,
+      "forearm": 0.963,
+      "thigh": null,
+      "shin": 0.284
+    },
+    "45°": {
+      "head": 1.0,
+      "torso": 2.332,
+      "upper_arm": 1.495,
+      "forearm": 0.921,
+      "thigh": null,
+      "shin": 0.284
+    },
+    "90°": {
+      "head": 1.0,
+      "torso": 2.138,
+      "upper_arm": null,
+      "forearm": null,
+      "thigh": null,
+      "shin": null
+    },
+    "-90°": {
+      "head": 1.0,
+      "torso": 2.153,
+      "upper_arm": 1.406,
+      "forearm": 1.008,
+      "thigh": null,
+      "shin": 0.275
+    }
   }
 }

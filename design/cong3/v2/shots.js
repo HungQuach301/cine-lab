@@ -7,6 +7,7 @@
 // Đơn vị mét, y lên. Đèn khí: lửa ở y ≈ 3,17 m (buildGasLamp height 3,4).
 import * as THREE from '../shared/node_modules/three/build/three.module.js';
 import { buildGasLamp } from '../shared/props.js';
+import { cobbleTex, groundPlane } from './street.js';
 import { buildLadder } from '../shared/cast.js';
 import { walkPose, WALK, WALK_CHILD } from '../shared/anim.js';
 import { limewashTex, flagTex, glowSprite, planarUV, rng, canvasTex, blotches } from '../dir-C/common.js';
@@ -44,17 +45,17 @@ function rowHouses(R, x0, x1, z, depthMin, colorBase, winChance, winColor) {
   }
   return g;
 }
-function addLamp(scene, pos, frame, { shadow = true, mapSize = 1024 } = {}) {
+function addLamp(scene, pos, frame, { shadow = true, mapSize = 1024, rotY = 0 } = {}) {
   const lamp = buildGasLamp({ height: 3.4, mat: (role, c) => role === 'flame' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#fff2d0').multiplyScalar(30) })
-    : role === 'glass' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffc070').multiplyScalar(2.6), transparent: true, opacity: 0.55, depthWrite: false }) : lamMat({ color: c }) });
-  lamp.position.copy(pos); scene.add(lamp); lamp.updateMatrixWorld(true);
+    : role === 'glass' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffc070').multiplyScalar(2.6), transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide }) : lamMat({ color: c }) });
+  lamp.position.copy(pos); lamp.rotation.y = rotY; scene.add(lamp); lamp.updateMatrixWorld(true);
   const fp = new THREE.Vector3(); lamp.userData.flame.getWorldPosition(fp);
   const L = new THREE.PointLight(GAS.color, GAS.cd * flickAt(frame), 0, 2); L.position.copy(fp);
   if (shadow) { L.castShadow = true; L.shadow.mapSize.set(mapSize, mapSize); L.shadow.bias = -0.0006; L.shadow.normalBias = 0.02; L.shadow.camera.near = 0.08; }
   scene.add(L);
   const gc = glowSprite('#ffc57a', 1.6, 0.6); gc.position.copy(fp); scene.add(gc);
   const gw = glowSprite('#ff9a4a', 0.22, 3.2); gw.position.copy(fp); scene.add(gw);
-  lamp.traverse((o) => { if (o.isMesh) { o.castShadow = o.material.type !== 'MeshBasicMaterial'; o.receiveShadow = true; } });
+  lamp.traverse((o) => { if (o.isMesh) { o.castShadow = o.castShadow && o.material.type !== 'MeshBasicMaterial'; o.receiveShadow = true; } });   // giữ cờ bóng của đạo cụ (props.js)
   return { lamp, L, fp };
 }
 const hal = (i, b) => { let f = 1, r = 0; while (i > 0) { f /= b; r += f * (i % b); i = Math.floor(i / b); } return r; };
@@ -73,18 +74,24 @@ export async function buildCloseIda(ida, mkChar, upd, frame = 0, dbg = {}) {
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), lamMat({ color: '#3a3240' })); ground.rotation.x = -Math.PI / 2; scene.add(ground);
   scene.add(new THREE.HemisphereLight('#7c78c0', '#2a2030', 0.55));
   const rim = new THREE.DirectionalLight('#9aa0e8', 0.55); rim.position.set(-3, 5, -6); scene.add(rim);          // trời sáng phía sau lưng Ida → viền lạnh
-  const lamps = [addLamp(scene, new THREE.Vector3(0, 0, 0), frame, { mapSize: dbg.mapSize ?? 1024 })];
+  const lamps = [addLamp(scene, new THREE.Vector3(0, 0, 0), frame, { mapSize: dbg.mapSize ?? 1024, rotY: dbg.lampRot ?? Math.PI / 4 })];   // V4: mặt kính (không trụ góc) hướng về mặt Ida
   const far = addLamp(scene, new THREE.Vector3(-9, 0, -8), frame, { shadow: false });                                // ngọn đèn xa, nhoè hậu cảnh
   // thang tựa cột, Ida đứng trên thang, mặt quay vào lồng đèn (+z → đèn ở z=+0,5 so với Ida)
   const lad = buildLadder(1.8, 0.34, 6, (r, c) => lamMat({ color: c }), '#8a6a45'); lad.position.set(0, 0, -0.85); lad.rotation.x = 0.36; scene.add(lad);
-  const ch = readyChar(mkChar(ida, { material: charMat, detail: 36 }), scene);
-  const pose = ida.poses.warm_hands_ladder; ch.setPose(pose); ch.joints.head.rotation.y += (dbg.headTurn ?? 0) * Math.PI / 180;   // cửa thử C′: quay đầu về phía máy (độ)
+  const ch = readyChar(mkChar(ida, { material: charMat, detail: 36, expr: dbg.expr }), scene);
+  const pose = ida.poses.warm_hands_ladder; ch.setPose(pose); ch.joints.head.rotation.y += (dbg.headTurn ?? 0) * Math.PI / 180; ch.joints.head.rotation.x += (dbg.headPitch ?? (dbg.face ? -12 : 0)) * Math.PI / 180;   // V5: khung biểu cảm ngẩng nhẹ để mày ra khỏi vành mũ   // cửa thử C′: quay đầu về phía máy (độ)
   ch.root.position.set(0, pose.root_y_m, -0.58); ch.root.updateMatrixWorld(true);
   // máy quay: ngang tầm mặt, lệch 40° về phải-trước, 60 mm (FOV dọc ~22°)
   const head = new THREE.Vector3(); ch.joints.head.getWorldPosition(head); head.y += 0.12;
   const cam = new THREE.PerspectiveCamera(17, 16 / 9, 0.05, 500);   // ~85 mm
-  const base = head.clone().add(new THREE.Vector3(1.55, 0.02, 1.35)); cam.position.copy(base); cam.lookAt(head.clone().add(new THREE.Vector3(0.14, -0.08, 0.22)));
-  const focusD = base.distanceTo(head), aperture = 0.018;                                                            // bán kính khẩu độ ~f/2,8 tương đương
+  let base = head.clone().add(new THREE.Vector3(1.55, 0.02, 1.35)); cam.position.copy(base); cam.lookAt(head.clone().add(new THREE.Vector3(0.14, -0.08, 0.22)));
+  if (dbg.face) {   // V5: khung kiểm biểu cảm — máy lệch 35° khỏi hướng mặt, ngang mắt, cách 1,0 m (không bị lồng đèn che)
+    const q = new THREE.Quaternion(); ch.joints.head.getWorldQuaternion(q); const fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q); fw.y = 0; fw.normalize();
+    const eye = head.clone().add(fw.clone().multiplyScalar(0.08)).add(new THREE.Vector3(0, dbg.faceY ?? -0.05, 0));
+    const dir = fw.clone().applyAxisAngle(Y, (dbg.faceYaw ?? -25) * Math.PI / 180);
+    base = eye.clone().addScaledVector(dir, dbg.faceDist ?? 1.0); base.y += dbg.camDrop ?? -0.06; cam.fov = 20; cam.updateProjectionMatrix(); cam.position.copy(base); cam.lookAt(eye);
+  }
+  const focusD = base.distanceTo(head), aperture = dbg.face ? 0.008 : 0.018;                                                            // bán kính khẩu độ ~f/2,8 tương đương
   const fwd = new THREE.Vector3(), right = new THREE.Vector3(), up = new THREE.Vector3(); cam.getWorldDirection(fwd); right.crossVectors(fwd, Y).normalize(); up.crossVectors(right, fwd);
   const focusP = base.clone().add(fwd.clone().multiplyScalar(focusD));
   const onSample = (i, n) => {
@@ -103,7 +110,7 @@ export async function buildCasBird(cas, mkChar, upd, frame = 0, dbg = {}) {
   const wallTex = limewashTex(41, { metres: 6, grime: true, brick: 0.06 });
   const wall = new THREE.Mesh(new THREE.PlaneGeometry(12, 7), lamMat({ color: '#ffffff', map: wallTex })); wall.position.set(0, 3.5, 0); wall.receiveShadow = true; planarUV(wall.geometry, X, Y, 6, [0.3, 0]); scene.add(wall);
   const plinth = new THREE.Mesh(new THREE.BoxGeometry(12, 0.42, 0.08), lamMat({ color: '#8d877f' })); plinth.position.set(0, 0.21, 0.04); plinth.receiveShadow = true; scene.add(plinth);
-  const ground = new THREE.Mesh(new THREE.PlaneGeometry(14, 12), lamMat({ color: '#ffffff', map: flagTex(7, { metres: 4 }) })); ground.rotation.x = -Math.PI / 2; ground.position.z = 6; planarUV(ground.geometry, X, Z, 4, [0, 0]); ground.receiveShadow = true; scene.add(ground);
+  scene.add(groundPlane(14, 12, lamMat({ color: '#ffffff', map: cobbleTex(7) }), 3, { cz: 6 }));   // A2+ (V2): đá lát, UV đúng trục
   scene.add(new THREE.HemisphereLight('#3a3c78', '#15121c', 0.30));
   const lamps = [addLamp(scene, new THREE.Vector3(...(dbg.lamp || [-2.2, 0, 4.2]))   /* v3 (5B): đèn lệch trái hơn → bóng chim tách khỏi bóng đầu */, frame, { mapSize: dbg.mapSize ?? 1024 })];
   // cột điện kiểu mới cạnh tường, CHƯA bật (tấm kính tối) — cảnh 4 trước khi khối cuối chuyển
@@ -133,7 +140,7 @@ export async function buildWalk(ida, mkChar, upd, who = 'ida') {
   const scene = new THREE.Scene(); const R = rng(53);
   scene.add(skyDome([[0, '#1d1f4a'], [0.6, '#3c3566'], [0.88, '#7a5a80'], [1, '#a8708a']]));
   scene.fog = new THREE.Fog('#4a4068', 14, 90);
-  const street = new THREE.Mesh(new THREE.PlaneGeometry(40, 12), lamMat({ color: '#ffffff', map: flagTex(3, { metres: 4 }) })); street.rotation.x = -Math.PI / 2; street.position.z = 1; planarUV(street.geometry, X, Z, 1.6, [0, 0]); street.receiveShadow = true; scene.add(street);
+  scene.add(groundPlane(40, 12, lamMat({ color: '#ffffff', map: cobbleTex(3) }), 3, { cz: 1 }));   // A2+ (V2): đá lát (lỗi cũ: planarUV(X, Z) trên mặt phẳng đã xoay → sọc 'ván gỗ')
   // mặt tiền dãy nhà sát phố (vôi), cửa sổ tối/ấm, cửa gỗ
   const fac = new THREE.Mesh(new THREE.PlaneGeometry(40, 6.2), lamMat({ color: '#ffffff', map: limewashTex(61, { metres: 8, grime: true, brick: 0.08, base: '#cfc6ba' }) })); fac.position.set(0, 3.1, -2.6);
   const eave = new THREE.Mesh(new THREE.BoxGeometry(40, 0.25, 0.5), lamMat({ color: '#2a2433' })); eave.position.set(0, 6.3, -2.45); scene.add(eave); planarUV(fac.geometry, X, Y, 8, [0, 0]); fac.receiveShadow = true; scene.add(fac);
@@ -163,4 +170,33 @@ export async function buildWalk(ida, mkChar, upd, who = 'ida') {
   const setFrame = (f) => { fNow = f; for (const l of lamps) l.L.intensity = GAS.cd * flickAt(f); setT(f / 24); if (upd) upd(ch, cam); };
   setFrame(0);
   return { scene, cam, onSample, setFrame, chars: [ch], paintP: { rNear: 3.0, rFar: 6.5, dNear: 3, dFar: 40, impScale: 0.4, stroke: 0.04, halation: 0.14, bloomWide: 0.06 } };
+}
+
+// ---------- trang đạo cụ: đèn khí (A2+, V4) ----------
+// Nền trung tính, ánh sáng phẳng dịu (hemisphere + key xiên) để đọc hình khối; ngọn lửa sáng. dbg.detail: cận lồng kính.
+export async function buildPropGasLamp(dbg = {}) {
+  const scene = new THREE.Scene(); scene.background = new THREE.Color('#bdb6ab');
+  scene.add(new THREE.HemisphereLight('#f4efe6', '#6a625a', 1.4));
+  const key = new THREE.DirectionalLight('#fff4e6', 1.6); key.position.set(3, 5, 4); scene.add(key);
+  const lamp = buildGasLamp({ height: 3.4, mat: (role, c) => role === 'flame' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#fff2d0').multiplyScalar(3) })
+    : role === 'glass' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffe2b0'), transparent: true, opacity: 0.35, depthWrite: false, side: THREE.DoubleSide })
+    : role === 'brass' ? lamMat({ color: '#b08a4a' }) : lamMat({ color: '#3a3d45' }) });
+  lamp.rotation.y = Math.PI / 5; scene.add(lamp);
+  const floor = new THREE.Mesh(new THREE.CircleGeometry(1.2, 32), lamMat({ color: '#9d968c' })); floor.rotation.x = -Math.PI / 2; scene.add(floor);
+  const cam = new THREE.PerspectiveCamera(dbg.detail ? 22 : 30, 16 / 9, 0.05, 100);
+  if (dbg.detail) { cam.position.set(1.35, 3.4, 1.9); cam.lookAt(0, 3.2, 0); } else { cam.position.set(4.2, 2.0, 6.4); cam.lookAt(0, 1.85, 0); }
+  return { scene, cam, onSample: null, chars: [], paintP: { rNear: 2.0, rFar: 3.0, dNear: 1, dFar: 20, impScale: 0.5, stroke: 0.02, halation: 0.02, bloomWide: 0.01 } };
+}
+
+// ---------- B1: đo model sheet từ lưới 3D đã duyệt ----------
+// Một nhân vật, tư thế turnaround, máy trực giao (không phối cảnh) nhìn chính diện (view 0) hoặc nghiêng (view 90). Chỉ dùng để xuất mặt nạ đo.
+export async function buildTurn(sheet, mkChar, upd, dbg = {}) {
+  const scene = new THREE.Scene(); scene.background = new THREE.Color('#000000');
+  scene.add(new THREE.HemisphereLight('#ffffff', '#444444', 1.2));
+  const ch = readyChar(mkChar(sheet, { material: charMat, detail: 36 }), scene);
+  ch.setPose(sheet.poses.turnaround); ch.root.rotation.y = (dbg.view ?? 0) * Math.PI / 180; ch.root.updateMatrixWorld(true);
+  if (upd) upd(ch, null);
+  const bb = new THREE.Box3().setFromObject(ch.root), c = bb.getCenter(new THREE.Vector3()), hh = (bb.max.y - bb.min.y) * 1.08;
+  const cam = new THREE.OrthographicCamera(-hh * 16 / 9 / 2, hh * 16 / 9 / 2, hh / 2, -hh / 2, 0.01, 50); cam.position.set(c.x, c.y, 10); cam.lookAt(c.x, c.y, 0);
+  return { scene, cam, onSample: null, chars: [ch], paintP: {} };
 }

@@ -1,0 +1,14 @@
+{
+ "page": "v2/page.js",
+ "frame": "d_s6_alley",
+ "W": 1920,
+ "H": 1080,
+ "samples": 3,
+ "frames": 24,
+ "setup_s": 8.115,
+ "render_frame_s": 3.114,
+ "page_reported_accum_ms": 35.89999999990687,
+ "finalize_per_extra_frame_s": 0.29917391304347823,
+ "total_wall_s": 19.205,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

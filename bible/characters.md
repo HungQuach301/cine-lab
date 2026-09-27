@@ -1,4 +1,4 @@
-# HỒ SƠ NHÂN VẬT — "Last Round" (v1.0 · chủ dự án đã duyệt ở Cổng 3 vòng 2 · **KHOÁ** từ Cổng 3 vòng 3; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
+# HỒ SƠ NHÂN VẬT — "Last Round" (v1.1 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+ · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
 
 Căn cứ: kịch bản chốt `scripts/last-round.fountain` (nháp 2), luật thế giới v0.3. Dùng cho rubric **C1** (người chấm phải nêu được 4 yếu tố từ phim, không đọc hồ sơ) và cho diễn xuất ở Cổng 6.
 
@@ -39,4 +39,19 @@ Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`
 | Mũ | Mũ phớt, **không nơ** trên băng mũ | **Giữ mũ len có quả bông** | 3B, 4A |
 | Mặt | Không khắc khe miệng/nếp nhăn vào hình học; khe môi, nếp nhăn, mi, đồi mồi là nét vẽ; chất da mờ (Lambert, không bóng) | như Ida; tàn nhang vẽ | C′, sửa L3 |
 | Chim bóng | — | Hai cổ tay **bắt chéo**, ngón cái là đầu chim, các ngón xoè là cánh | 5B |
+
+## Tỷ lệ đo được trên hình 3D đã duyệt (B1, đợt vá A2+ — dùng cho luật C3)
+Cách đo giống checks C3 (RUN.md 3.6): mặt nạ bộ phận **nhìn thấy**, render thật ở 4×, tư thế đứng thẳng (turnaround), máy trực giao; độ dài = bề dài theo trục chính PCA + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu (đầu = phần đầu nhìn thấy dưới mũ). Số ghi vào sheet = **góc chính diện 0°**. Khung xương dựng hình (`parts{}` trong sheet) không đổi. Số đo nguồn: `model-sheet/*.json` → `c3_views`.
+
+| Bộ phận | Ida 0° (sheet) | Ida 45° | Ida −90° | Cas 0° (sheet) | Cas 45° | Cas −90° |
+|---|---|---|---|---|---|---|
+| đầu | 1,000 | 1,000 | 1,000 | 1,000 | 1,000 | 1,000 |
+| thân (áo) | **2,584** | 2,332 | 2,153 | **1,669** | 1,707 | 1,654 |
+| cánh tay trên (tay áo) | **1,550** | 1,495 | 1,406 | *bỏ* (0,586) | 0,211 | 0,630 |
+| cẳng tay | **0,963** | 0,921 | 1,008 | **0,945** | 0,944 | 0,937 |
+| đùi | *bỏ* (bị che) | — | — | **1,191** | 1,176 | 1,076 |
+| cẳng chân | *bỏ* (0,284) | 0,284 | 0,275 | **1,132** | 1,116 | 1,134 |
+
+Bộ phận bị che theo thiết kế nên không đo: Ida — đùi và cẳng chân (váy dài + áo khoác); Cas — cánh tay trên (áo len rộng che, biến thiên 0,21–0,63 theo góc).
+**Giới hạn đã biết:** tỷ lệ phụ thuộc góc nhìn (thân Ida 2,15–2,58), nên C3 ở shot nghiêng/sau lưng có thể lệch > 3% dù nhân vật đúng thiết kế (RULES.md giới hạn 4: đo 2D).
 

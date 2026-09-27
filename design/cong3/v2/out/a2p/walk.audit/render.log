@@ -1,0 +1,3 @@
+SCENE design/cong3/v2/page.js SHA256 cb2e89e9c313539e51e54cde3c70b421ee024883aadeb9a6b14360efef5eca62
+FRAME 12 CMD node design/cong3/shared/export_sidecars.js --page v2/page.js --shot walk --video design/cong3/v2/out/a2p/walk.mp4 --parts 12 --scale 4 --args {"char":"3d"} --audit-dir design/cong3/v2/out/a2p/walk.audit/rerender
+FRAME 36 CMD node design/cong3/shared/export_sidecars.js --page v2/page.js --shot walk --video design/cong3/v2/out/a2p/walk.mp4 --parts 36 --scale 4 --args {"char":"3d"} --audit-dir design/cong3/v2/out/a2p/walk.audit/rerender

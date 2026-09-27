@@ -10,7 +10,7 @@ import { createDOF } from '../shared/dof.js';
 import { buildS5 } from './s5.js';
 import { buildS6 } from './s6.js';
 import { buildS1 } from './s1.js';
-import { buildCloseIda, buildCasBird, buildWalk } from './shots.js';
+import { buildCloseIda, buildCasBird, buildWalk, buildPropGasLamp, buildTurn } from './shots.js';
 
 const CHAR = { base: '../shared/cast.js', '3d': './char3d/cast3d.js', '2d': './char2d/cast2d.js' };
 // Grade hướng C (chép từ dir-C/scene.js để dùng chung, không đổi).
@@ -35,6 +35,9 @@ vec3 grade(vec3 c, vec2 uv){
   return c;
 }`;
 const GRADES = {
+  turn: { gCanvas: 0, gVig: 0, gLift: 0, gSat: 1, gShadowTint: [1, 1, 1], gHiTint: [1, 1, 1] },
+  prop_gaslamp: { gCanvas: 0.006, gVig: 0.12, gLift: 0.0, gSat: 1.0, gShadowTint: [1, 1, 1], gHiTint: [1, 1, 1] },
+  face_ida: { gCanvas: 0.012, gVig: 0.28, gLift: 0.02, gSat: 1.0, gShadowTint: [0.40, 0.32, 0.90], gHiTint: [1.0, 0.975, 0.93] },
   a_close_ida: { gCanvas: 0.012, gVig: 0.28, gLift: 0.02, gSat: 1.0, gShadowTint: [0.40, 0.32, 0.90], gHiTint: [1.0, 0.975, 0.93] },
   b_cas_bird: { gCanvas: 0.012, gVig: 0.30, gLift: 0.02, gSat: 1.0, gShadowTint: [0.30, 0.25, 0.85], gHiTint: [1.0, 0.98, 0.94] },
   s1_opening: { gCanvas: 0.012, gVig: 0.26, gLift: 0.02, gSat: 1.0, gShadowTint: [0.45, 0.35, 0.95], gHiTint: [1.0, 0.975, 0.93] },
@@ -46,9 +49,9 @@ const GRADES = {
   walk: { gCanvas: 0.012, gVig: 0.26, gLift: 0.02, gSat: 1.0, gShadowTint: [0.45, 0.35, 0.95], gHiTint: [1.0, 0.975, 0.93] },
 };
 // Phơi sáng theo shot (máy quay), cùng một thế giới đèn: cận mặt sát ngọn lửa phải đóng khẩu; cảnh đêm xa đèn phải mở khẩu.
-const EXPOSE = { s1_opening: 1.0, a_close_ida: 0.30, b_cas_bird: 2.6, c_s5_wide: 1.0, c_s5_medium: 1.0, d_s6_alley: 4.0, e_ending: 1.0, walk: 1.05, walk_cas: 1.05 };
-const S6_PAINT = { rNear: 3.0, rFar: 7.0, dNear: 1.5, dFar: 14, impScale: 0.4, stroke: 0.04, halation: 0.12, bloomWide: 0.06 };
-const END_PAINT = { rNear: 4.0, rFar: 8.0, dNear: 4, dFar: 40, impScale: 0.5, stroke: 0.04, halation: 0.10, bloomWide: 0.05 };
+const EXPOSE = { turn: 1.0, prop_gaslamp: 0.9, s1_opening: 1.0, face_ida: 0.12, a_close_ida: 0.30, b_cas_bird: 2.6, c_s5_wide: 1.0, c_s5_medium: 1.0, d_s6_alley: 4.0, e_ending: 1.0, walk: 1.05, walk_cas: 1.05 };
+const S6_PAINT = { rNear: 3.0, rFar: 6.0, dNear: 1.5, dFar: 14, impScale: 0.4, stroke: 0.04, halation: 0.12, bloomWide: 0.06, wob: 1.2 };   // V1/V3: wob nhỏ → cột, mép thẳng
+const END_PAINT = { rNear: 3.0, rFar: 6.0, dNear: 4, dFar: 40, impScale: 0.5, stroke: 0.04, halation: 0.10, bloomWide: 0.05, wob: 1.2 };
 const S5_PAINT_MED = { rNear: 3.0, rFar: 6.0, dNear: 1.2, dFar: 8, impScale: 0.4, stroke: 0.04, preAmp: 0.14, wob: 3.0 };   // trung cảnh: máy gần → nét nhỏ hơn
 const S5_PAINT = { rNear: 7.0, rFar: 9.0, dNear: 6, dFar: 12, impScale: 0.5, stroke: 0.045, preAmp: 0.16, wob: 3.5, preLen: 46, preWid: 6 };
 
@@ -56,6 +59,9 @@ let W, H, cfg, renderer, pipe, sheets, mod; const built = {};
 async function buildRaw(shot) {
   const mkChar = (sheet, opts) => mod.buildCharacter(sheet, opts), upd = mod.update || null;
   if (shot === 'a_close_ida') return buildCloseIda(sheets[0], mkChar, upd, 0, cfg.dbg || {});
+  if (shot === 'turn') return buildTurn(sheets[(cfg.dbg && cfg.dbg.who === 'cas') ? 1 : 0], mkChar, upd, cfg.dbg || {});
+  if (shot === 'prop_gaslamp') return buildPropGasLamp(cfg.dbg || {});
+  if (shot === 'face_ida') return buildCloseIda(sheets[0], mkChar, upd, 0, { ...(cfg.dbg || {}), face: true });
   if (shot === 'b_cas_bird') return buildCasBird(sheets[1], mkChar, upd, 0, cfg.dbg || {});
   if (shot === 'walk') return buildWalk(sheets[0], mkChar, upd);
   if (shot === 'walk_cas') return buildWalk(sheets[1], mkChar, upd, 'cas');

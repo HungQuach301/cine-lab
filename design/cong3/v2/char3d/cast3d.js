@@ -12,7 +12,7 @@ import * as THREE from '../../shared/node_modules/three/build/three.module.js';
 import { buildCharacter as baseBuild } from '../../shared/cast.js';
 import { ell, sph, cap, rbox, smin, smax, gauss, sstep, fbm, vnoise, sculpt, patch, tube, gridGeo, CpuSkin, len3 } from './sdf.js';
 import { paintMap, normalMap } from './tex3d.js';
-import { paintFace, faceUV } from './facepaint.js';
+import { paintFace, faceUV, EXPR } from './facepaint.js';
 
 // Phóng to bàn tay + ngón (không thuộc C3; trần cho phép 1,3×). Cas: tối đa để chim bóng thành hình cánh. Ida: vừa đủ cho cận cảnh.
 export const HAND_SCALE = { ida: 1.15, cas: 1.3 };
@@ -106,8 +106,8 @@ export function buildCharacter(sheet, opts = {}) {
       d = smin(d, ell(x, y, z, [0, 0.40, 0.09], [0.30, 0.34, 0.31]), 0.12);
       d = smin(d, sph(x, y, z, [0, 0.105, 0.25], 0.085), 0.10);
       d = smin(d, cap(ax, y, z, [0.26, 0.36, -0.02], [0.12, 0.11, 0.21], 0.055), 0.10);
-      d = smin(d, ell(ax, y, z, [0.215, 0.49, 0.25], [0.085, 0.05, 0.08]), 0.06);              // gò má cao
-      d += 0.008 * gauss(Math.hypot(ax - 0.23, y - 0.36), 0.05) * front(z, 0.15);             // má hóp dưới gò
+      d = smin(d, ell(ax, y, z, [0.215, 0.49, 0.25], [0.085, 0.05, 0.08]), 0.09);              // gò má cao (V5: hoà mềm hơn)
+      d += 0.003 * gauss(Math.hypot(ax - 0.23, y - 0.36), 0.06) * front(z, 0.15);             // má hóp dưới gò (V5: nông lại — bóng khối từng đọc thành vết bầm)
       d = smin(d, cap(ax, y, z, [0.02, 0.662, 0.39], [0.22, 0.652, 0.31], 0.035, 0.025), 0.05); // cung mày
       d = smax(d, -ell(ax, y, z, [E[0], E[1] + 0.008, 0.375], [0.092, 0.066, 0.07]), 0.04);     // hốc mắt
       const lid = sph(ax, y, z, E, ER + 0.008);
@@ -148,7 +148,8 @@ export function buildCharacter(sheet, opts = {}) {
   add(headG, sculpt(headSDF, { c: [0, 0.48, 0.02], r: [0.45, 0.6, 0.6], nu: R(112 * hq), nv: R(84 * hq), scale: H, uv: [6, 3], gradE: 0.002, warp: [0.4, 0.62], eps: 2e-5,
     color: aoCol(headSDF, 0.22, skinTone) }), 'skin', C.skin, 'head');
   { const hm = parts[parts.length - 1]; faceUV(hm.geometry, H);   // C′: mặt vẽ tay, UV chiếu trước trên chính lưới đầu → đi theo đầu, không trượt
-    hm.material = matFn('skin', C.skin, 'head', { map: paintFace(isIda, E), vertexColors: true }); }
+    const fm = paintFace(isIda, E, 7, opts.expr);
+    hm.material = matFn('skin', C.skin, 'head', { map: fm, vertexColors: true, emissive: new THREE.Color('#ffffff'), emissiveMap: fm.userData.glint, emissiveIntensity: opts.glint ?? 5.0 }); }
   // Nhãn cầu (màu đỉnh: lòng trắng xỉn, tròng, con ngươi) — nhìn hơi xuống.
   const eyeTex = (() => {   // tròng mắt vẽ trên canvas (UV cầu: +z ở u = 0,25, v = 0,5)
     const cv = document.createElement('canvas'); cv.width = 256; cv.height = 128; const g = cv.getContext('2d');
@@ -157,11 +158,15 @@ export function buildCharacter(sheet, opts = {}) {
     const gr = g.createRadialGradient(cx, cy, ri * 0.3, cx, cy, ri); gr.addColorStop(0, isIda ? '#4e5a62' : '#5a3a26'); gr.addColorStop(0.85, isIda ? '#3c464e' : '#3e2616'); gr.addColorStop(1, '#241c1a');
     g.fillStyle = gr; g.beginPath(); g.ellipse(cx, cy, ri, ri, 0, 0, Math.PI * 2); g.fill();
     g.fillStyle = '#0d0a0a'; g.beginPath(); g.arc(cx, cy, ri * 0.42, 0, Math.PI * 2); g.fill();
-    const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
+    const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
+    // V5: điểm sáng phản chiếu (catchlight) vẽ trên lớp phát sáng — mắt "búp bê" khi thiếu nó (kiểm mù lần 1)
+    const cc = document.createElement('canvas'); cc.width = 256; cc.height = 128; const c2 = cc.getContext('2d'); c2.fillStyle = '#000'; c2.fillRect(0, 0, 256, 128);
+    c2.fillStyle = '#fff'; c2.beginPath(); c2.ellipse(cx + ri * 0.3, cy - ri * 0.35, ri * 0.2, ri * 0.16, 0, 0, Math.PI * 2); c2.fill();
+    const tc = new THREE.CanvasTexture(cc); tc.colorSpace = THREE.SRGBColorSpace; t.userData = { glint: tc }; return t;
   })();
   for (const sx of [1, -1]) {
     const eg = new THREE.SphereGeometry(ER * H, R(20), R(14));
-    const e = new THREE.Mesh(ensureColor(eg), matFn('eyes', '#ffffff', 'eyes', { map: eyeTex, vertexColors: true }));
+    const e = new THREE.Mesh(ensureColor(eg), matFn('eyes', '#ffffff', 'eyes', { map: eyeTex, vertexColors: true, emissive: new THREE.Color('#ffffff'), emissiveMap: eyeTex.userData.glint, emissiveIntensity: (opts.glint ?? 5.0) * 3 }));
     e.userData.part = 'eyes'; e.castShadow = true; e.receiveShadow = true; headG.add(e); parts.push(e);
     e.position.set(sx * E[0] * H, E[1] * H, E[2] * H); e.rotation.set(isIda ? 0.1 : 0.04, -sx * 0.05, 0);
   }
@@ -179,9 +184,11 @@ export function buildCharacter(sheet, opts = {}) {
     return g;
   };
   function onFace(x, y) { let z = 0.9; for (let it = 0; it < 80; it++) { const v = headSDF(x, y, z); if (Math.abs(v) < 1e-5) break; z -= v * 0.7; } return z; }
-  const browCol = isIda ? C.hair : EXTRA_COLORS.cas_hair;
+  const browCol = isIda ? '#5e5552' : EXTRA_COLORS.cas_hair;   // V5: mày Ida xám đậm (sợi màu tóc bạc đè mất nét mày vẽ)
   for (const sx of [1, -1]) {
     const pts = isIda ? [[0.045, 0.655, 0.405], [0.12, 0.672, 0.395], [0.19, 0.664, 0.355], [0.235, 0.638, 0.315]] : [[0.055, 0.60, 0.43], [0.13, 0.607, 0.425], [0.215, 0.586, 0.39]];
+    const XP = EXPR[opts.expr] || EXPR.neutral;   // V5: lông mày sợi theo cùng biểu cảm với nét vẽ
+    pts.forEach((p, k) => { const t = k / (pts.length - 1); p[0] -= XP.knit * (1 - t); p[1] += XP.browIn * (1 - t) + XP.browOut * t; });
     const g = strandGeo(pts.map(([x, y]) => [sx * x * H, y * H, (onFace(x, y) + 0.003) * H]), (s) => { const t = Math.sin(Math.PI * Math.min(1, 0.25 + s)); return [(isIda ? 0.010 : 0.015) * H * t, 0.004 * H]; }, 6, 10);
     add(headG, g, 'hair', browCol, 'brow');
   }
