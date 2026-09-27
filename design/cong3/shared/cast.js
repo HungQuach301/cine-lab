@@ -290,7 +290,7 @@ function applyPose(ch, pose) {
     const h = hands[s];
     h.fingers.forEach((f, i) => {
       f.rotation.set(0, 0, 0);
-      f.rotation.x = (1.5 - i) * 0.30 * (hp.spread ?? 0.1);         // xoè trong mặt phẳng lòng bàn tay
+      f.rotation.x = -(1.5 - i) * 0.30 * (hp.spread ?? 0.1);        // xoè trong mặt phẳng lòng bàn tay (dấu âm: ngón 0 ở +z xoè về +z — sửa lỗi vòng 1, agent 3D phát hiện)
       f.rotation.z = -h.sx * (hp.curl ?? 0.4) * 1.45;                 // gập vào lòng bàn tay (lòng quay vào thân)
     });
     h.thumb.rotation.set(-0.5 - 0.6 * (hp.spread ?? 0.1), 0, -h.sx * (hp.curl ?? 0.4) * 0.9);
