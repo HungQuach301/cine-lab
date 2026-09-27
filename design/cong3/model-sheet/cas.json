@@ -524,7 +524,7 @@
     "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D",
     "no_carved_mouth_groove": true
   },
-  "_c3_doc": "B1 (Cổng 3 đợt vá A2+, chủ dự án chọn): khoá cấp gốc = độ dài NHÌN THẤY đo từ lưới 3D đã duyệt (không phải khung xương parts{}). Cách đo như checks C3 (RUN.md 3.6). Bảng mọi góc nhìn: c3_views. Bộ phận bị che theo thiết kế bị bỏ khỏi measured_parts: upper_arm",
+  "_c3_doc": "B1 (Cổng 3 đợt vá A2+, chủ dự án chọn): khoá cấp gốc = độ dài NHÌN THẤY đo từ lưới 3D đã duyệt (không phải khung xương parts{}). Cách đo như checks C3 (RUN.md 3.6). Bảng mọi góc nhìn: c3_views. Bộ phận bị che theo thiết kế bị bỏ khỏi measured_parts: upper_arm || v1.2 (Q-C3v A): thêm góc −45°, ±135°, 180°; lưới Cas không đổi nên 0°/45°/±90° giữ nguyên số v1.1. 90° cẳng tay = null (đo được 0,05 = mẩu cổ tay ló sau thân, không phải cẳng tay). Q-C3w A (đùi ở −75°): đùi đo 1,19 (−60°), 1,211 (−75°), 1,068 (−80°), 1,074 (−85°), 1,075 (−88°), 1,076 (−90°). Bậc −13% nằm giữa −75° và −80°: ở ≥ −80° CÁNH TAY buông che mép trước của đùi (xem mặt nạ so sánh trong reports/m1/CONG-4-V2.md), không phải gấu áo len. Số −90° đúng cho tư thế turnaround. Lệch +9–11% ở walk_cas (góc −71…−80°) là do tay vung khỏi đùi khi đi, tức che phụ thuộc tư thế, không phải sai sheet. Không đổi số; ghi làm giới hạn đã biết.",
   "head": {
     "length": 1.0,
     "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
@@ -562,6 +562,14 @@
       "thigh": 1.176,
       "shin": 1.116
     },
+    "-45°": {
+      "head": 1.0,
+      "torso": 1.708,
+      "upper_arm": 0.613,
+      "forearm": 0.929,
+      "thigh": 1.159,
+      "shin": 1.115
+    },
     "90°": {
       "head": 1.0,
       "torso": 1.661,
@@ -577,6 +585,30 @@
       "forearm": 0.937,
       "thigh": 1.076,
       "shin": 1.134
+    },
+    "135°": {
+      "head": 1.0,
+      "torso": 1.708,
+      "upper_arm": 0.574,
+      "forearm": 0.942,
+      "thigh": 1.039,
+      "shin": 1.126
+    },
+    "-135°": {
+      "head": 1.0,
+      "torso": 1.704,
+      "upper_arm": 0.635,
+      "forearm": 0.932,
+      "thigh": 1.189,
+      "shin": 1.122
+    },
+    "180°": {
+      "head": 1.0,
+      "torso": 1.656,
+      "upper_arm": 0.63,
+      "forearm": 0.944,
+      "thigh": 1.082,
+      "shin": 1.105
     }
   }
 }

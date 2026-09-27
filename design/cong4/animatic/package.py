@@ -12,11 +12,13 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
 W, H, FPS = 960, 540, 24
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
 FILL = (244, 241, 234)
-# Thẻ phụ đề: mốc theo đoạn lời đo trên stem thoại (dialogue.wav): L1 12,13–14,09; L2 60,14–62,89; L3 88,11–88,89;
-# L4 110,10–111,85 | 113,56–114,97 | 116,55–117,78 | 119,33–124,05.
-CARDS = [(12.0, 14.6, "Evening, old street."), (60.0, 63.2, "Not yet... not yet."), (88.0, 90.0, "Go on, then."),
-         (110.0, 112.6, "That's the last one, then."), (113.4, 115.8, "Goodnight, old street."), (116.4, 118.6, "You'll be brighter now."),
-         (119.2, 124.6, "Just... keep a little dark for the ones who need it.")]
+# Thẻ phụ đề: mốc tương đối so với đầu câu (đo trên stem thoại v1: L1 +0,13–2,09; L2 +0,14–2,89; L3 +0,11–0,89;
+# L4 +0,10–1,85 | +3,56–4,97 | +6,55–7,78 | +9,33–14,05). Đầu câu lấy từ film.js (EVENTS.DIALOGUE) — v2.
+EV = json.loads(subprocess.run(['node', os.path.join(REPO, 'design/cong4/animatic/render_film.js'), '--events', '--out', '/tmp'], capture_output=True, text=True, check=True).stdout)
+D, FILM_S = EV['DIALOGUE'], EV['FILM_S']
+CARDS = [(D['L1'] + a, D['L1'] + b, t) for a, b, t in [(0.0, 2.6, "Evening, old street.")]] + [(D['L2'], D['L2'] + 3.2, "Not yet... not yet."), (D['L3'], D['L3'] + 2.0, "Go on, then.")] + \
+        [(D['L4'] + a, D['L4'] + b, t) for a, b, t in [(0.0, 2.6, "That's the last one, then."), (3.4, 5.8, "Goodnight, old street."), (6.4, 8.6, "You'll be brighter now."),
+                                                     (9.2, 14.6, "Just... keep a little dark for the ones who need it.")]]
 
 def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
 
@@ -46,9 +48,9 @@ def main(rdir, adir):
         f0, f1 = int(round(a * FPS)), int(round(b * FPS)) - 1; nxt = f'[v{k}]'
         chain.append(f"{last}[{k}:v]overlay=0:0:enable='between(n,{f0},{f1})':shortest=0:eof_action=pass{nxt}"); last = nxt
     chain.append(f"{last}format=yuv420p[vout]")
-    # Trần gói chiếu mù < 50 MB (yêu cầu chủ dự án) → mã hoá 2 pass bitrate cố định (mặc định 2 350 kb/s hình + 192 kb/s tiếng ≈ 47,7 MB / 150 s).
+    # Trần gói chiếu mù < 50 MB (yêu cầu chủ dự án) → mã hoá 2 pass bitrate cố định (mặc định 2 350 kb/s hình + 192 kb/s tiếng ≈ 45 MB / 142,5 s).
     vbr = os.environ.get('VBR', '2350k'); passlog = os.path.join(od, 'x264pass')
-    common = ['-filter_complex', ';'.join(chain), '-map', '[vout]', '-t', '150', '-c:v', 'libx264', '-preset', 'slow', '-b:v', vbr, '-tune', 'grain', '-g', '48',
+    common = ['-filter_complex', ';'.join(chain), '-map', '[vout]', '-t', str(FILM_S), '-c:v', 'libx264', '-preset', 'slow', '-b:v', vbr, '-tune', 'grain', '-g', '48',
               '-x264-params', 'no-fast-pskip=1:deadzone-inter=0:deadzone-intra=0', '-passlogfile', passlog,
               '-color_range', 'tv', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-r', '24']
     if HQ:

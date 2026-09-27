@@ -74,6 +74,23 @@ export function buildClock() {
   return g;
 }
 
+// v2: trời ĐÊM có sao (canvas): đỉnh gần đen xanh, chân trời xanh đậm hửng ánh phố; sao nhỏ — dấu hiệu đêm rõ trong mọi shot sau khi điện bật.
+export function nightSky(seed = 23) {
+  const R = rng(seed), cv = document.createElement('canvas'); cv.width = 4096; cv.height = 2048; const g = cv.getContext('2d');
+  const gr = g.createLinearGradient(0, 0, 0, 2048); gr.addColorStop(0, '#04050c'); gr.addColorStop(0.55, '#0a0f24'); gr.addColorStop(0.85, '#18203f'); gr.addColorStop(1, '#2a3354');
+  g.fillStyle = gr; g.fillRect(0, 0, 4096, 2048);
+  for (let i = 0; i < 2600; i++) { const y = Math.pow(R(), 1.6) * 1800, x = R() * 4096, r = 0.45 + R() * (R() < 0.05 ? 1.1 : 0.5), a = 0.35 + R() * 0.65 * (1 - y / 2048);   // sao nhỏ (bản đầu to như bông tuyết ở tiêu cự dài)
+    g.fillStyle = `rgba(${220 + R() * 35 | 0},${225 + R() * 30 | 0},255,${a.toFixed(2)})`; g.beginPath(); g.arc(x, y, r, 0, Math.PI * 2); g.fill(); }
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
+  return new THREE.Mesh(new THREE.SphereGeometry(400, 48, 24, 0, Math.PI * 2, 0, Math.PI / 2 + 0.15), new THREE.MeshBasicMaterial({ map: t, side: THREE.BackSide, fog: false, depthWrite: false, color: new THREE.Color(1.6, 1.6, 1.6) }));
+}
+// Loá đèn điện: quầng lạnh rộng + vệt loá ngang (nguồn điện thấy được, gắt — khác hẳn đèn khí ấm)
+export function elecGlare(pos) {
+  const core = glowSprite('#f4f7ff', 0, 1.2), halo = glowSprite('#cfdcff', 0, 6.0), streak = glowSprite('#dbe4ff', 0, 1.0);
+  streak.scale.set(7.0, 0.22, 1); for (const sp of [core, halo, streak]) { sp.position.copy(pos); }
+  return { list: [core, halo, streak], set: (e) => { core.material.color.set('#f4f7ff').multiplyScalar(5.0 * e); halo.material.color.set('#cfdcff').multiplyScalar(0.45 * e); streak.material.color.set('#dbe4ff').multiplyScalar(1.4 * e); } };
+}
+
 // Dãy nhà (chép cách dựng của s6.buildStreet: nếp nhà 4–7 m, mặt tiền vữa/gạch vẽ, cửa sổ có khung, cửa gỗ, mái, ống khói).
 function houses(scene, x0, x1, z, face, seed, winKind, FT, matC, emit) {
   const Rh = rng(seed); let x = x0; const ry = face < 0 ? Math.PI : 0;
@@ -103,10 +120,10 @@ function houses(scene, x0, x1, z, face, seed, winKind, FT, matC, emit) {
 export function buildStreetSet(o = {}) {
   const scene = new THREE.Scene(), R = rng(401);
   const x0 = o.x0 ?? -12, x1 = o.x1 ?? 190;
-  const sky = paintedSky(o.sky === 'dusk' ? [[0, '#1d2150'], [0.55, '#3c3566'], [0.85, '#7a5a80'], [1, '#b07a8a']] : [[0, '#0e1230'], [0.55, '#1f2548'], [0.85, '#3a3f66'], [1, '#5a5f86']], { seed: 17, haze: '#b8a8c4', hazeA: 0.3 });
+  const sky = o.sky !== 'dusk' ? nightSky() : paintedSky(o.sky === 'dusk' ? [[0, '#1d2150'], [0.55, '#3c3566'], [0.85, '#7a5a80'], [1, '#b07a8a']] : [[0, '#0e1230'], [0.55, '#1f2548'], [0.85, '#3a3f66'], [1, '#5a5f86']], { seed: 17, haze: '#b8a8c4', hazeA: 0.3 });
   scene.add(sky);
-  scene.fog = new THREE.Fog(o.sky === 'dusk' ? '#4a4068' : '#262a48', 25, 140);
-  const hemi = new THREE.HemisphereLight(o.sky === 'dusk' ? '#5c5aa8' : '#3c4270', '#221b2a', o.sky === 'dusk' ? 0.35 : 0.22); scene.add(hemi);
+  scene.fog = new THREE.Fog(o.sky === 'dusk' ? '#4a4068' : '#0c1024', 25, 140);   // v2: sương đêm tối (xa là tối, không phải trắng như ban ngày)
+  const hemi = new THREE.HemisphereLight(o.sky === 'dusk' ? '#5c5aa8' : '#2c3260', '#120e18', o.sky === 'dusk' ? 0.35 : 0.16); scene.add(hemi);
   const whiteHemi = new THREE.HemisphereLight('#dfe6ff', '#8a8e9c', 0.0); scene.add(whiteHemi);   // ánh điện tràn phẳng (tăng theo số khối đã bật quanh máy)
   const matC = (c) => lamMat({ color: c });
   const emit = (k) => (tex) => new THREE.MeshBasicMaterial({ map: tex, color: new THREE.Color('#ffffff').multiplyScalar(k), fog: true });
@@ -120,7 +137,7 @@ export function buildStreetSet(o = {}) {
   // quảng trường (+x): khoảng đá lát rộng
   if (x1 > 165) scene.add(groundPlane(40, 40, cob, 3, { cx: 180, cz: 0, y: 0.005 }));
   // nhà hai bên; cửa sổ: chạng vạng → vài ô vàng; đêm → phần lớn tối, vài ô vàng
-  const winKind = (Rh) => (Rh() < (o.sky === 'dusk' ? 0.16 : 0.12) ? 'gold' : 'dark');
+  const winKind = (Rh) => (Rh() < (o.sky === 'dusk' ? 0.16 : 0.07) ? 'gold' : 'dark');   // v2: đêm — phần lớn cửa sổ tối
   houses(scene, Math.max(x0, -4), Math.min(x1, 162), -5.6, 1, 81, winKind, FT, matC, emit);
   houses(scene, Math.max(x0, -4), Math.min(x1, 162), 5.6, -1, 83, winKind, FT, matC, emit);
   // nhà kho cuối phố: tường vôi trắng chắn ngang (−x)
@@ -151,9 +168,9 @@ export function buildStreetSet(o = {}) {
     const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
     const E = electricLamp(6.2, matC, bulbM); E.group.position.set(x, 0.12, POST_Z); E.group.rotation.y = Math.PI / 2; scene.add(E.group);
     E.group.updateMatrixWorld(true); const hp = E.head.clone().applyMatrix4(E.group.matrixWorld);
-    const Lt = new THREE.PointLight(ELEC.color, 0, 34, 1.2); Lt.position.copy(hp); scene.add(Lt);   // không bóng (luật 2)
-    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl);
-    posts.push({ k, x, E, L: Lt, bulbM, gl, hp });
+    const Lt = new THREE.PointLight(ELEC.color, 0, o.sky === 'dusk' ? 34 : 20, o.sky === 'dusk' ? 1.2 : 1.4); Lt.position.copy(hp); scene.add(Lt);   // v2 đêm: vũng sáng có tầm (≈ 20 m) → góc ngọn 11 còn tối khi phố chính đã trắng   // không bóng (luật 2)
+    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl); const gz = elecGlare(hp); scene.add(...gz.list);
+    posts.push({ k, x, E, L: Lt, bulbM, gl, hp, gz });
   });
   // cột điện ở quảng trường (bật cùng đồng hồ)
   const squarePosts = [];
@@ -161,9 +178,9 @@ export function buildStreetSet(o = {}) {
     const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
     const E = electricLamp(6.2, matC, bulbM); E.group.position.set(px, 0, pz); E.group.rotation.y = pz > 0 ? Math.PI / 2 : -Math.PI / 2; scene.add(E.group);
     E.group.updateMatrixWorld(true); const hp = E.head.clone().applyMatrix4(E.group.matrixWorld);
-    const Lt = new THREE.PointLight(ELEC.color, 0, 34, 1.2); Lt.position.copy(hp); scene.add(Lt);
-    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl);
-    squarePosts.push({ E, L: Lt, bulbM, gl });
+    const Lt = new THREE.PointLight(ELEC.color, 0, o.sky === 'dusk' ? 34 : 20, o.sky === 'dusk' ? 1.2 : 1.4); Lt.position.copy(hp); scene.add(Lt);   // v2 đêm: vũng sáng có tầm (≈ 20 m) → góc ngọn 11 còn tối khi phố chính đã trắng
+    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl); const gz = elecGlare(hp); scene.add(...gz.list);
+    squarePosts.push({ E, L: Lt, bulbM, gl, gz, hp });
   }
   let clock = null;
   if (x1 > 165) { clock = buildClock(); clock.position.set(CLOCK.x, 0, CLOCK.z); clock.rotation.y = -Math.PI / 2; scene.add(clock); clock.userData.setHands(0, 0); }
@@ -177,11 +194,11 @@ export function buildStreetSet(o = {}) {
       l.gc.material.color.set('#ffc57a').multiplyScalar(1.6 * g); l.gw.material.color.set('#ff9a4a').multiplyScalar(0.22 * g); }
     let white = 0;
     for (const p of posts) { if (!p) continue; const e = st.post(p.k) ?? 0;
-      p.L.intensity = ELEC.cd * e; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); white = Math.max(white, e * (st.nearPost ? st.nearPost(p) : 1)); }
+      p.L.intensity = ELEC.cd * e; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); p.gz.set(e); white = Math.max(white, e * (st.nearPost ? st.nearPost(p) : 1)); }
     const sq = st.square ?? 0;
-    for (const p of squarePosts) { p.L.intensity = ELEC.cd * sq; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), sq); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * sq); }
+    for (const p of squarePosts) { p.L.intensity = ELEC.cd * sq; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), sq); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * sq); p.gz.set(sq); }
     if (clock) clock.userData.setOn(st.clock ?? 0);
-    whiteHemi.intensity = (st.whiteFill ?? white) * 0.9;
+    whiteHemi.intensity = (st.whiteFill ?? white) * 0.9;   // trắng tràn phẳng (mức v1). v2 thử 0,32 ban đêm → ở 0:40–0:42 bóng dài của đèn khí L7 còn nguyên, trái kịch bản; trả về 0,9. Dấu hiệu đêm nay do trời sao + sương tối
   }
   return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi };
 }

@@ -16,10 +16,11 @@ Mọi ảnh cũ **giữ làm tư liệu, không dùng làm chuẩn**:
 - vòng 3: các file trực tiếp trong `v2/out/`.
 
 ## Tài liệu khoá (SHA-256 trong `LOCK-THIET-KE.sha256`)
-- `bible/characters.md` v1.1 (tỷ lệ B1 cho C3)
-- `bible/world-rules.md` (có dòng đá lát)
+- `bible/characters.md` v1.2 (A1; tỷ lệ B1 8 góc cho C3 — khoá lại ở Cổng 4 vòng v2)
+- `bible/world-rules.md` v0.4 (đoạn cáp cuối, dấu hiệu đêm)
+- `model-sheet/ida.json`, `model-sheet/cas.json` (`c3_views` 8 góc; thêm vào khoá ở Cổng 4 vòng v2)
 - `bible/props/gas-lamp.md` và ảnh `bible/props/img/gas-lamp.png`
-- style frame `v2/out/a2p/*.png`, `*.mp4`
+- style frame `v2/out/a2p/*.png`, `*.mp4` (render bằng lưới v1.1: chưa có lọn tóc, hoa tai và cổ áo cao của A1)
 
 Kiểm lại: `sha256sum -c design/cong3/LOCK-THIET-KE.sha256` (chạy từ gốc repo).
 

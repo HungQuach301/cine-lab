@@ -63,3 +63,24 @@ Chỉ chủ dự án ghi hoặc xác nhận các dòng này.
 | 2026-09-27 | Cổng 3 đợt vá A2+ | **C2 + C4 có động cơ**: mặt biến dạng được, giữ lớp vẽ C′; **Ida tự đẩy mũ ra sau trước câu thoại 1:50** để lộ lông mày (biểu đạt của chủ dự án: cử chỉ có động cơ trong truyện). Loại: hất vành mũ ở mọi cận mặt; C3 (chỉ tăng nét vẽ) | Chủ dự án chọn — **khác khuyến nghị** (C4 thành cử chỉ có động cơ, chỉ một lần) | Phương án C của P | Chủ dự án (chat 27/09/2026) |
 | 2026-09-27 | Cổng 3 đợt vá A2+ | **B-i**: khiếu nại C3 theo tư thế và góc nhìn lên phiên K (K làm v1.4 song song, P không chờ). Loại: B-ii (chỉ nộp shot chuẩn), B-iii (chấp nhận trượt) | Chủ dự án chọn — theo khuyến nghị | — | Chủ dự án (chat 27/09/2026) |
 | 2026-09-27 | Cổng 3 đợt vá A2+ | Merge Cổng 3 vào main; ảnh `design/cong3/v2/out/a2p/` là **style frame chuẩn**; ảnh cũ giữ làm tư liệu. Khoá thiết kế bằng SHA (characters v1.1, world-rules, đèn khí, style frame a2p) | Chủ dự án duyệt | — | Chủ dự án (chat 27/09/2026) |
+
+### Cổng 4
+
+| Ngày | Cổng | Quyết định | Đóng góp biểu đạt của con người | Phần do AI đề xuất | Người duyệt |
+|---|---|---|---|---|---|
+| 2026-09-27 | Cổng 4 | **Chấm L3**: chủ dự án tự xem và chấm một mình; Claude bên ngoài chạy "AI mù" (subagent không ngữ cảnh, xem khung theo thời gian kèm phụ đề) chỉ để kiểm độ hiểu truyện. Loại: C1 (chiếu 3–5 người), C3 (bỏ qua chiếu) | Chủ dự án quyết một cách chấm mới — **khác mọi phương án Claude đề xuất**; chủ dự án tự đọc kết quả AI mù lần 1 và rút ra 8 lỗi kể chuyện (phố trắng đọc thành ban ngày, không rõ tắt hay thắp ngọn cuối, ba cái bóng, mặt Ida, đồng hồ không tiến, ba đoạn mất tập trung, Cas quá nhỏ ở 1:04) | Phương án C1/C2/C3 | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 4 | Sửa animatic cho rõ truyện (v2) rồi AI mù chạy lại. Loại: sang Cổng 5 ngay | Chủ dự án chọn; tự đặt 7 yêu cầu sửa (tiền đề đèn điện là quan trọng nhất; insert tắt ngọn cuối có nhịp dừng; đồng hồ giữ 3 nhịp nhưng giờ phải tiến, nhịp 2 trùng lúc điện bật; bóng cảnh 5 "hers, tall; his, small" đúng quang học; mặt Ida nhất quán; siết 3 đoạn; Cas 1:04 đọc được) | Animatic v1 | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 4 | **A1** cho cổng mặt: vài lọn tóc mềm thoát khỏi búi ở thái dương/gáy + đôi khuyên tai nhỏ bắt sáng; `bible/characters.md` lên v1.2, khoá lại SHA. Loại: A2 (giữ thiết kế), A3 (đổi kiểu tóc) | Chủ dự án chọn — theo khuyến nghị | Phương án A1–A3 | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 4 | **B1**: câu hỏi c1 giữ mốc 0:40. Loại: B2 (0:48), B3 (hỏi cả hai) | Chủ dự án chọn — theo khuyến nghị | — | Chủ dự án (chat 27/09/2026) |
+| 2026-09-27 | Cổng 4 | Luật C3 v1.4: merge `checks/v1.4` vào main (LOCK 289c6916…d3ad4f2). **Q-C3v A** (đo thêm −45°, ±135°, 180° cho Ida và Cas theo cách B1, khoá lại SHA sheet; bộ xuất thêm `views`); **Q-C3w A** (render Cas đứng ở −75°, đo đùi, kết luận lệch +11 %); **Q-C3r B** (shot C3 = CẦN NGƯỜI XEM giao agent cine-continuity lập tờ so sánh, chủ dự án chỉ duyệt shot bị đánh dấu); **Q-C3p A** (giữ ngưỡng phối cảnh 2 %) | Chủ dự án quyết 4 câu hỏi của phiên K | Phương án của phiên K | Chủ dự án (chat 27/09/2026) |
+
+### Cổng 4 — chỉ đạo sau khi xem animatic v1
+
+Nguyên văn của chủ dự án (đóng góp biểu đạt), 27/09/2026:
+- 0:40: "có thể hiểu được phố chuyển sang đèn điện trắng". Giữ ý đồ; vẫn làm mục 1 (trời đêm, nguồn sáng điện thấy được).
+- 1:50: "nên thể hiện kiểu góc phố cuối cùng từ tối sang bị chiếu sáng bởi ánh đèn điện, phù hợp với câu thoại".
+- 2:07: "Cas nên chọn 1 góc tối để huơ tay".
+
+| Ngày | Cổng | Quyết định | Đóng góp biểu đạt của con người | Phần do AI đề xuất | Người duyệt |
+|---|---|---|---|---|---|
+| 2026-09-27 | Cổng 4 v2 | Góc phố ngọn đèn thứ 11 còn tối tới câu thoại 1:50; đèn điện góc cuối "chớp hai lần rồi đứng trắng" quanh "You'll be brighter now"; 2:04 giữ nhịp tắt ngọn khí, "không gì thay đổi"; 2:07 Cas tự tìm một chỗ tối để hơ tay đếm ba | Ba chỉ đạo nguyên văn ở trên (ý đồ kể chuyện của chủ dự án) | P đề xuất dàn dựng cụ thể: cột phố chính cạnh nhà kho bật ở 1:16 (chim tan), góc ngọn 11 lùi sau góc nhà thuộc đoạn cáp cuối; shot rộng góc phố sáng trắng giữa câu L4; Cas mang đèn lồng vào hốc vòm tối cảnh 5 | Chủ dự án (chat 27/09/2026) |

@@ -192,9 +192,9 @@ export function buildCharacter(sheet, opts = {}) {
   // Nhãn cầu (màu đỉnh: lòng trắng xỉn, tròng, con ngươi) — nhìn hơi xuống.
   const eyeTex = (() => {   // tròng mắt vẽ trên canvas (UV cầu: +z ở u = 0,25, v = 0,5)
     const cv = document.createElement('canvas'); cv.width = 256; cv.height = 128; const g = cv.getContext('2d');
-    g.fillStyle = isIda ? '#8a7c72' : '#a8998e'; g.fillRect(0, 0, 256, 128);
+    g.fillStyle = isIda ? '#7a6e66' : '#a8998e'; g.fillRect(0, 0, 256, 128);   // v1.2: lòng trắng Ida xỉn hơn (bớt "mắt phát sáng" khi mặt tối)
     const cx = 64, cy = 64, ri = isIda ? 21 : 25;
-    const gr = g.createRadialGradient(cx, cy, ri * 0.3, cx, cy, ri); gr.addColorStop(0, isIda ? '#4e5a62' : '#5a3a26'); gr.addColorStop(0.85, isIda ? '#3c464e' : '#3e2616'); gr.addColorStop(1, '#241c1a');
+    const gr = g.createRadialGradient(cx, cy, ri * 0.3, cx, cy, ri); gr.addColorStop(0, isIda ? (C.eyes || '#5a4636') : '#5a3a26'); gr.addColorStop(0.85, isIda ? '#3f3128' : '#3e2616'); gr.addColorStop(1, '#241c1a');   // v1.2: tròng Ida nâu theo sheet (bản cũ xanh xám đọc thành mắt xanh)
     g.fillStyle = gr; g.beginPath(); g.ellipse(cx, cy, ri, ri, 0, 0, Math.PI * 2); g.fill();
     g.fillStyle = '#0d0a0a'; g.beginPath(); g.arc(cx, cy, ri * 0.42, 0, Math.PI * 2); g.fill();
     const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace;
@@ -246,6 +246,12 @@ export function buildCharacter(sheet, opts = {}) {
     const hinge = new THREE.Group(); hinge.position.set(sx * hd.width_front / 2 * H * 0.93, (isIda ? 0.56 : 0.50) * H, (isIda ? 0.08 : 0.06) * H); headG.add(hinge);
     hinge.rotation.set(0, -sx * earOut, -sx * 0.10);
     add(hinge, g, 'skin', C.skin, 'ear');
+    if (isIda) {   // A1 (Cổng 4, sheet v1.2): đôi khuyên tai nhỏ ở dái tai — hạt tròn kim loại, bắt ánh đèn (dấu hiệu nữ nhìn được từ trước)
+      const ringM = new THREE.MeshStandardMaterial({ color: '#c9a466', metalness: 0.85, roughness: 0.28, emissive: new THREE.Color('#5a4424'), emissiveIntensity: 0.25 });
+      const stud = new THREE.Mesh(new THREE.SphereGeometry(0.022 * H, 14, 10), ringM); stud.position.set(sx * 0.02 * H, -0.125 * H, -0.09 * H);
+      const drop = new THREE.Mesh(new THREE.SphereGeometry(0.03 * H, 14, 10), ringM); drop.position.set(sx * 0.022 * H, -0.172 * H, -0.09 * H);
+      for (const m of [stud, drop]) { m.userData.part = 'earring'; m.castShadow = false; m.receiveShadow = false; hinge.add(m); parts.push(m); }
+    }
   }
 
   // =============================== TÓC / MŨ ===============================
@@ -275,6 +281,11 @@ export function buildCharacter(sheet, opts = {}) {
       return smin(d, ell(x, y, z, [0, 0.52, -0.42], [0.2, 0.17, 0.13]), 0.06);
     };
     add(headG, sculpt(bunSDF, { c: bunC, r: [bunR, bunR, bunR], nu: R(40), nv: R(26), scale: H, uv: [3, 2], color: aoCol(bunSDF, 0.5) }), 'hair', C.hair, 'hair');
+    // A1 (Cổng 4, sheet v1.2): vài lọn tóc mềm thoát khỏi búi — 3 lọn mỗi bên thái dương buông cong trước tai, 2 lọn ở gáy.
+    const wisp = (pts, w) => strandGeo(pts.map(([x, y, z]) => [x * H, y * H, z * H]), (t) => [w * H * Math.sin(Math.PI * Math.min(1, 0.15 + t)), w * 0.7 * H], 5, 14);
+    for (const sx of [1, -1]) for (const [dy, dz, w] of [[0, 0, 0.011], [-0.035, 0.03, 0.009], [0.03, -0.035, 0.008]])
+      add(headG, wisp([[0.335, 0.67 + dy, 0.12 + dz], [0.372, 0.59 + dy, 0.17 + dz], [0.365, 0.51 + dy, 0.2 + dz], [0.382, 0.45 + dy, 0.17 + dz]].map(([x, y, z]) => [sx * x, y, z]), w), 'hair', C.hair, 'hair');
+    for (const sx of [1, -1]) add(headG, wisp([[sx * 0.09, 0.42, -0.33], [sx * 0.12, 0.33, -0.31], [sx * 0.105, 0.25, -0.28]], 0.012), 'hair', C.hair, 'hair');
     // Mũ phớt mềm: chóp có rãnh giữa và hai vết bóp trước; vành cụp trước, mép cuộn; băng mũ.
     const hs = sheet.costume.hat; const hat = new THREE.Group(); hat.position.y = 0.86 * H; hat.rotation.x = 0.08;
     const ch_ = hs.crown_height_H, rx0 = hd.width_front * 0.56, rz0 = rx0 * 1.12;
@@ -369,12 +380,12 @@ export function buildCharacter(sheet, opts = {}) {
     };
     add(joints.spine, sculpt(torsoSDF, { c: [0, 1.0, 0], r: [0.8, 1.3, 0.6], nu: R(76), nv: R(62), scale: H, uv: [5, 6], color: aoCol(torsoSDF, 0.5) }), 'coat', C.coat, 'torso');
     // Cổ áo đứng (0,35 H): vỏ ngoài + trong.
-    for (const [k, role] of [[1, 'coat'], [0.93, 'lining']]) add(joints.spine, tube({ y0: (tL + 0.30) * H, y1: (tL - 0.08) * H, nu: R(48), nv: 6,
-      rad: (s, ph) => [(0.225 + 0.02 * s + 0.01 * Math.cos(ph)) * k * H, 0, -0.01 * H] }), role, role === 'coat' ? C.coat : C.coat_lining, 'collar');
+    for (const [k, role] of [[1, 'coat'], [0.93, 'lining']]) add(joints.spine, tube({ y0: (tL + 0.44) * H, y1: (tL - 0.08) * H, nu: R(48), nv: 8,   // v1.2: cổ áo đứng tới sát cằm như hình model sheet (bản cũ 0,30 H lộ cổ dài → "cổ mảnh")
+      rad: (s, ph) => [(0.225 + 0.035 * s * s + 0.01 * Math.cos(ph)) * k * H, 0, -0.01 * H] }), role, role === 'coat' ? C.coat : C.coat_lining, 'collar');
     // Khăn quàng len quấn cổ hai vòng + đuôi buông trước ngực trái.
     const loop = (y0, tilt, r0) => { const pts = []; for (let i = 0; i <= 14; i++) { const a = 2 * Math.PI * i / 14; pts.push([Math.sin(a) * r0 * H, (y0 + tilt * Math.cos(a)) * H, (Math.cos(a) * r0 * 0.95 + 0.02) * H]); } return pts; };
     const scarfRad = (w, t) => (s, a) => [w * H * (1 + 0.18 * Math.sin(s * 47)), t * H];
-    for (const [y0, tilt, r0] of [[tL + 0.05, -0.05, 0.285], [tL + 0.16, -0.03, 0.265]]) {
+    for (const [y0, tilt, r0] of [[tL + 0.05, -0.05, 0.285], [tL + 0.17, -0.03, 0.272]]) {
       const pts = loop(y0, tilt, r0);
       add(joints.spine, strandGeo(pts, scarfRad(0.07, 0.042), R(8), R(44)), 'scarf', EXTRA_COLORS.ida_scarf, 'scarf');
     }

@@ -1,11 +1,11 @@
-"""Cổng 4 — ÂM TẠM cho animatic "Last Round" (150 s, 48 kHz stereo).
+"""Cổng 4 — ÂM TẠM cho animatic "Last Round" (v2: 142,5 s, 48 kHz stereo). Mọi mốc lấy từ film.js (render_film.js --events), không gõ tay.
 Chạy: /opt/cine/bin/python design/cong4/animatic/audio/mix.py <thư mục ra>
 Ghi: mix.flac (tổng), stems/dialogue.flac (CHỈ thoại), stems/amb.flac, stems/sfx.flac, stems/music.flac (FLAC 24-bit) — mix = tổng các stem đúng từng mẫu
 (cùng một hệ số chuẩn hoá, không limiter), để J1b đối chiếu. cues.json: mốc thoại, SFX, đoạn nhạc.
 
 Nguồn:
 - Thoại: take L1–L4 của table read nháp 2 (reports/m1/cong2/tableread-d2/lines, giọng voice_id 59pjz3MTZdh9U1AETKfW, eleven_v3, seed 101)
-  — bản chủ dự án đã nghe và duyệt ở Cổng 2. Đặt đúng mốc kịch bản 12,0 / 60,0 / 88,0 / 110,0 s.
+  — bản chủ dự án đã nghe và duyệt ở Cổng 2. Đặt ở đầu shot s05 / s22 / s31 / s37 (EVENTS.DIALOGUE).
 - Room tone, rè điện, "phụp", tách rơ-le, chuông, gõ kính, núm đồng hồ, van, bước chân: TỔNG HỢP BẰNG MÃ trong file này (không mẫu ngoài).
 - Nhạc: ACE-Step 1.5 bản thử M0 (reports/m0/music/theme-dit-1.flac) — NHẠC TẠM, chỉ dùng cho animatic, không phát hành.
 """
@@ -13,8 +13,11 @@ import json, os, sys
 import numpy as np, soundfile as sf, librosa, pyloudnorm as pyln
 from scipy.signal import butter, sosfilt
 
+import subprocess
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..'))
-SR, DUR = 48000, 150.0
+EV = json.loads(subprocess.run(['node', os.path.join(REPO, 'design/cong4/animatic/render_film.js'), '--events', '--out', '/tmp'], capture_output=True, text=True, check=True).stdout)
+T0, T1 = EV['T0'], EV['T1']
+SR, DUR = 48000, EV['FILM_S']
 N = int(SR * DUR)
 rng = np.random.default_rng(20260927)
 t_all = np.arange(N) / SR
@@ -78,20 +81,34 @@ def amb_track():
     c, w1, w2 = bp(brown(N), hi=900), bp(brown(N), hi=900), bp(brown(N), hi=900)
     tone = np.stack([c + 0.35 * w1, c + 0.35 * w2], 1) / 1.06   # M3: phần chung ở giữa + độ rộng nhẹ (bản trước: hai kênh độc lập → tương quan âm, mono kém)
     wind = bp(noise(N), 180, 700) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.07 * t_all + 1.0))
-    # mức room tone theo cảnh (dB)
-    rt = np.interp(t_all, [0, 26, 26.01, 94, 94.01, 104, 104.01, 134, 134.01, 145, 145.01, 150], [-34, -34, -36, -36, -42, -42, -36, -36, -42, -42, -48, -48])
+    # mức room tone theo cảnh (dB): cảnh 1 ngoài phố chạng vạng (có gió), cảnh 2–4 phố đêm, hốc cửa/ngõ kín hơn, phòng Cas rất kín
+    BAY = ['s33', 's34', 's42b', 's42']; ALLEY = ['s44', 's45', 's46', 's47']
+    rt = np.full(N, -36.0); rt[:int(T0['s09'] * SR)] = -34
+    for sid in BAY + ALLEY: rt[int(T0[sid] * SR):int(T1[sid] * SR)] = -42
+    rt[int(T0['s48'] * SR):] = -48
     out += tone * db(rt)[:, None] * 0.9
-    out[:, 0] += wind * db(-44) * (t_all < 26); out[:, 1] += wind * db(-44) * (t_all < 26)
-    # rè điện: 50 Hz + hài, điều biên chậm; mức theo mức điện "gần máy" (0…1) của từng đoạn
+    wmask = t_all < T0['s09']; out[:, 0] += wind * db(-44) * wmask; out[:, 1] += wind * db(-44) * wmask
+    # rè điện 50 Hz + hài: mức theo độ gần nguồn điện trong từng shot (0…1), nhảy bậc ở các lần bật (theo EVENTS)
     hum = sum(np.sin(2 * np.pi * 50 * k * t_all + k) / k for k in range(1, 7)) * (1 + 0.05 * np.sin(2 * np.pi * 0.3 * t_all))
     hum = hum + 0.15 * bp(noise(N), 3000, 6000)
-    K = [(0, 0), (26.3, 0), (26.6, 0.15), (30.2, 0.15), (30.6, 0.45), (38.2, 0.5), (38.6, 0.7), (40.05, 0.7), (40.4, 1.0), (44, 1.0), (52.4, 0.8), (54.0, 0.8), (54.4, 1.0),
-         (63, 0.7), (68, 0.3), (76.0, 0.3), (76.4, 1.0), (94, 1.0), (94.01, 0.3), (104, 0.3), (104.01, 0.9), (130, 0.9), (130.01, 0.6), (134, 0.6), (134.01, 0.2), (142, 0.2), (145, 0.7), (145.01, 0.03), (150, 0.03)]
-    lv = np.interp(t_all, [k[0] for k in K], [k[1] for k in K])
+    LV = {'s09': 0.15, 's09w': 0.1, 's10e': 0.2, 's10': 0.45, 's11': 0.4, 's12': 0.5, 's13': 0.7, 's14': 1.0, 's15': 1.0, 's19': 0.6, 's21': 1.0, 's22': 0.8,
+          's23': 0.35, 's24': 0.25, 's24c': 0.25, 's25': 0.25, 's26': 0.25, 's27': 0.25, 's28': 1.0, 's29': 0.9, 's30': 0.9, 's31': 0.8, 's32': 0.8, 's33': 0.3, 's34': 0.3,
+          's35': 0.35, 's36': 0.3, 's37': 0.3, 's37w': 0.35, 's38': 0.9, 's39': 0.9, 's40': 0.9, 's40w': 1.0, 's41': 0.9, 's42a': 1.0, 's42b': 0.6, 's42': 0.3,
+          's43': 0.6, 's44': 0.2, 's45': 0.2, 's45c': 0.5, 's46': 0.2, 's47': 0.5, 's48': 0.03}
+    lv = np.zeros(N)
+    for sid, v in LV.items(): lv[int(T0[sid] * SR):int(T1[sid] * SR)] = v
+    # bậc tăng khi nguồn điện trong/gần khung bật: (mốc, shot, mức sau khi bật)
+    SW = [(EV['SQUARE_ON'], 's10e', 0.75), (EV['POST_ON'][2], 's12', 0.75), (EV['REACH_IDA'], 's13', 1.0), (EV['POST_ON'][3], 's19', 1.0),
+          (EV['WALL_POST_ON'], 's27', 1.0), (EV['POST_ON'][5], 's37w', 1.0)]
+    for t0, sid, v in SW: lv[int(t0 * SR):int(T1[sid] * SR)] = v
+    lv[int(T1['s47'] * SR) - int(1.2 * SR):int(T1['s47'] * SR)] = np.linspace(0.5, 0.8, int(1.2 * SR))
+    lv = np.convolve(lv, np.ones(960) / 960, 'same')
     # tắt tiếng theo bậc "nhấp 2 lần rồi đứng" ở các lần bật
-    for t0 in [26.3, 30.2, 31.4, 33.2, 38.2, 40.05, 54.0, 57.5, 76.3]:
+    for t0 in [EV['CLOCK_ON'], EV['SQUARE_ON'], EV['POST_ON'][2], EV['REACH_IDA'], EV['POST_ON'][3], EV['WALL_POST_ON'], EV['POST_ON'][5]]:
         for a, b in [(0.08, 0.16), (0.26, 0.34)]: lv[int((t0 + a) * SR):int((t0 + b) * SR)] *= 0.3
-    muff = (t_all >= 94) & (t_all < 104) | (t_all >= 134) & (t_all < 142)
+    MUF = BAY + ALLEY
+    muff = np.zeros(N, bool)
+    for sid in MUF: muff[int(T0[sid] * SR):int(T1[sid] * SR)] = True
     h2 = np.where(muff, bp(hum, hi=400), hum) * lv * db(-30)
     out[:, 0] += h2; out[:, 1] += h2 * 0.95
     return out
@@ -105,7 +122,8 @@ def main(outdir):
     TEXT = {'L1': "Evening, old street.", 'L2': "Not yet... not yet.", 'L3': "Go on, then.",
             'L4': "That's the last one, then. Goodnight, old street. You'll be brighter now. Just... keep a little dark for the ones who need it."}
     meter = pyln.Meter(SR)
-    for code, t0 in [('L1', 12.0), ('L2', 60.0), ('L3', 88.0), ('L4', 110.0)]:
+    D = EV['DIALOGUE']
+    for code, t0 in [('L1', D['L1']), ('L2', D['L2']), ('L3', D['L3']), ('L4', D['L4'])]:
         y, _ = librosa.load(os.path.join(LD, f'{code}.mp3'), sr=SR, mono=True)
         idx = np.nonzero(np.abs(y) > db(-45))[0]; y = y[max(0, idx[0] - int(0.05 * SR)): idx[-1] + int(0.15 * SR)]
         L = meter.integrated_loudness(np.stack([y, y], 1)); y = limit(y * db(-20 - L), -7.0)       # mỗi câu về −20 LUFS, hạn đỉnh −7 dBFS (trước chuẩn hoá tổng)
@@ -113,33 +131,43 @@ def main(outdir):
         cues['dialogue'].append({'code': code, 'start_s': t0, 'dur_s': round(len(y) / SR, 2), 'text': TEXT[code]})
     # ---- SFX ----
     def add(name, x, t, pan=0.0, g=0.0): place(sfx, x, t, pan, db(g)); cues['sfx'].append({'sfx': name, 't': round(t, 2), 'gain_db': g})
-    for t0, g in [(9.2, -6), (52.4, -8), (55.4, -9), (62.95, -7), (65.0, -9)]: add('phup', sfx_phup(), t0, -0.2, g)   # L10 bắt lửa SAU câu "Not yet… not yet." (kịch bản)
-    add('relay_far', sfx_click(False), 24.3, 0.4, -26)
-    add('clock_on', sfx_click(True), 26.25, 0.0, -18); add('ding', sfx_ding(), 27.0, 0.0, -8)
-    for t0, g in [(30.15, -20), (31.35, -24), (33.15, -26), (38.15, -18), (40.0, -14), (53.95, -16), (57.45, -18), (76.0, -12), (76.25, -14)]: add('relay', sfx_click(True), t0, 0.3, g)
-    for t0 in [16.9, 17.3]: add('tap_glass', sfx_tap(), t0, 0.1, -14)
-    for a, b in [(16.0, 20.0), (48.5, 51.0), (139.0, 142.0)]:
+    G = EV['GAS_ON']
+    for i, g in [(4, -6), (8, -8), (10, -7), (11, -8)]: add('phup', sfx_phup(), G[str(i)], -0.2, g)   # L10 bắt lửa SAU câu "Not yet… not yet." (kịch bản)
+    add('phup_far', sfx_phup(), G['9'], -0.4, -20)
+    add('relay_far', sfx_click(False), EV['RELAY_1'], 0.4, -26)
+    add('clock_on', sfx_click(True), EV['CLOCK_ON'] - 0.05, 0.0, -18); add('ding', sfx_ding(), EV['DING'], 0.0, -8)
+    add('relay_square', sfx_click(True), EV['SQUARE_ON'] - 0.05, 0.1, -12); add('relay_square_2', sfx_click(True), EV['SQUARE_ON'] + 0.2, 0.1, -16)
+    for n in range(3): add('relay_city', sfx_click(False), T0['s10'] + 0.85 + n * 0.8, 0.3, -24 - 2 * n)
+    P = EV['POST_ON']
+    for t0, g in [(P[2], -16), (EV['REACH_IDA'], -14), (P[3], -15), (P[4], -22), (EV['WALL_POST_ON'], -12), (P[5], -9)]:
+        add('relay', sfx_click(True), t0 - 0.05, 0.3, g); add('relay_flicker', sfx_click(True), t0 + 0.2, 0.3, g - 4)
+    for b in [0.8, 1.2]: add('tap_glass', sfx_tap(), T0['s06'] + b, 0.1, -14)
+    for a, b in [(T0['s06'], T1['s06']), (T0['s09w'], T1['s09w']), (T0['s45'], T1['s46'])]:
         for tt in np.arange(a, b, 0.2): place(sfx, sfx_tick(), tt, 0.0, db(-40))
-        cues['sfx'].append({'sfx': 'watch_tick', 't': a, 'to': b, 'gain_db': -40})
-    for tt in np.arange(139.3, 141.2, 0.07): place(sfx, sfx_tick() * 1.6, tt, 0.05, db(-30))
-    cues['sfx'].append({'sfx': 'crown_ratchet', 't': 139.3, 'to': 141.2, 'gain_db': -30}); add('watch_snap', sfx_snap(), 141.6, 0.05, -16)
-    add('valve_off', sfx_valve(), 124.2, -0.1, -6)
-    for a, b, per, g in [(4.0, 8.5, 0.625, -22), (20.0, 24.0, 0.625, -22), (24.0, 26.0, 0.625, -32), (63.0, 64.1, 0.45, -20), (95.2, 97.8, 0.62, -24), (104.0, 105.6, 0.62, -22), (142.0, 145.0, 0.6, -24)]:
+        cues['sfx'].append({'sfx': 'watch_tick', 't': round(a, 2), 'to': round(b, 2), 'gain_db': -40})
+    for tt in np.arange(T0['s46'] + 0.3, T0['s46'] + 2.2, 0.07): place(sfx, sfx_tick() * 1.6, tt, 0.05, db(-30))
+    cues['sfx'].append({'sfx': 'crown_ratchet', 't': round(T0['s46'] + 0.3, 2), 'to': round(T0['s46'] + 2.2, 2), 'gain_db': -30}); add('watch_snap', sfx_snap(), T0['s46'] + 2.6, 0.05, -16)
+    add('valve_off', sfx_valve(), EV['VALVE'], -0.1, -6)
+    add('flame_out', sfx_snap() * 0.5, EV['L11_OFF'] - 0.02, -0.1, -18)
+    for a, b, per, g in [(T0['s02'], T1['s02'], 0.625, -22), (T0['s07'], T1['s07'], 0.625, -22), (T0['s08'], T1['s08'], 0.625, -32), (T0['s15'] + 0.8, T1['s15'], 0.5, -22),
+                         (T0['s23'], T0['s23'] + 1.1, 0.45, -20), (T0['s33'] + 1.2, T0['s33'] + 4.0, 0.62, -24), (T0['s35'], T0['s35'] + 2.4, 0.62, -22),
+                         (T0['s42b'], T0['s42b'] + 1.7, 0.42, -24), (T0['s47'], T1['s47'], 0.6, -24)]:
         for tt in np.arange(a, b, per): place(sfx, sfx_step() * (0.8 + 0.4 * rng.random()), tt, rng.uniform(-0.2, 0.2), db(g))
-        cues['sfx'].append({'sfx': 'footsteps', 't': a, 'to': b, 'gain_db': g})
+        cues['sfx'].append({'sfx': 'footsteps', 't': round(a, 2), 'to': round(b, 2), 'gain_db': g})
     # ---- nhạc tạm (ACE-Step M0) ----
     m, msr = sf.read(os.path.join(REPO, 'reports/m0/music/theme-dit-1.flac'), always_2d=True)
     if msr != SR: m = np.stack([librosa.resample(m[:, c], orig_sr=msr, target_sr=SR) for c in range(m.shape[1])], 1)
     if m.shape[1] == 1: m = np.repeat(m, 2, 1)
     Mm, Sm = (m[:, 0] + m[:, 1]) / 2, (m[:, 0] - m[:, 1]) / 2; m = np.stack([Mm + 0.35 * Sm, Mm - 0.35 * Sm], 1)   # M3: bản ACE-Step có đoạn ngược pha (tương quan tới −0,74) → thu hẹp độ rộng còn 35 %
     Lm = meter.integrated_loudness(m); m = limit(m * db(-30 - Lm), -9.0)                                  # nền nhạc ~ −30 LUFS (dưới thoại ~10 dB)
-    for src0, src1, film0, fi, fo in [(0.0, 24.0, 0.0, 2.0, 3.0), (24.0, 43.0, 91.0, 2.0, 2.0), (37.0, 60.0, 127.0, 2.0, 1.5)]:
+    mlen = len(m) / SR; e3 = min(mlen, 37.0 + DUR - T0['s42a'])
+    for src0, src1, film0, fi, fo in [(0.0, 24.0, 0.0, 2.0, 3.0), (24.0, 24.0 + T0['s37'] - T0['s32'], T0['s32'], 2.0, 2.0), (37.0, e3, T0['s42a'], 2.0, 3.5)]:
         seg = m[int(src0 * SR): int(src1 * SR)].copy(); n = len(seg); tt = np.arange(n) / SR
         g = np.minimum(1, tt / fi) * np.minimum(1, (n / SR - tt) / fo)
         i = int(film0 * SR); j = min(N, i + n); mus[i:j] += seg[: j - i] * g[: j - i, None]
         cues['music'].append({'src': 'reports/m0/music/theme-dit-1.flac', 'src_s': [src0, src1], 'film_s': [film0, round(film0 + (j - i) / SR, 2)], 'status': 'NHẠC TẠM'})
     # hạ nhạc 8 dB dưới L1
-    duck = np.ones(N); a, b = int(11.4 * SR), int(14.8 * SR); duck[a:b] = db(-8); duck = np.convolve(duck, np.ones(4800) / 4800, 'same'); mus *= duck[:, None]
+    duck = np.ones(N); a, b = int((D['L1'] - 0.6) * SR), int((D['L1'] + 2.8) * SR); duck[a:b] = db(-8); duck = np.convolve(duck, np.ones(4800) / 4800, 'same'); mus *= duck[:, None]
     # ---- ưu tiên lời: hạ nền (room tone, rè điện, SFX, nhạc) 8 dB khi có thoại (±0,25 s, vào/ra 0,15 s) ----
     act = np.abs(dia).max(1) > db(-45); from scipy.ndimage import maximum_filter1d, uniform_filter1d
     act = maximum_filter1d(act.astype(float), int(0.5 * SR)); dk = 1 - (1 - db(-8)) * uniform_filter1d(act, int(0.15 * SR))

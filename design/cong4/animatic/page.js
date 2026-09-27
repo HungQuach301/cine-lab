@@ -4,7 +4,7 @@
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 import { createPipeline, createRenderer } from '/cong3/shared/post.js';
 import { createPaint } from '/cong3/dir-C/paint.js';
-import { SHOTS } from './film.js';
+import { SHOTS, EVENTS } from './film.js';
 import { GRADE_WARM } from './sets.js';
 
 // Grade hướng C (chép từ v2/page.js — không đổi).
@@ -30,6 +30,7 @@ vec3 grade(vec3 c, vec2 uv){
 }`;
 
 window.listShots = () => SHOTS.map(({ build, ...m }) => m);
+window.listEvents = () => EVENTS;
 let W, H, cfg, renderer, pipe, sheets, mod, cur, shot;
 window.setup = async (c) => {
   cfg = c; W = c.W; H = c.H;
@@ -42,6 +43,9 @@ window.setup = async (c) => {
   shot = SHOTS.find((s) => s.id === c.shot); if (!shot) throw new Error('không có shot ' + c.shot);
   const ctx = { THREE, sheets, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, opts), upd: mod.update || null, dbg: c.dbg || {} };
   cur = await shot.build(ctx);
+  // chẩn đoán (chỉ dùng khi --dbg): ẩn một bộ phận / tắt phát sáng của nhân vật
+  if (c.dbg && (c.dbg.hide || c.dbg.noEmissive || c.dbg.front || c.dbg.noShadow)) for (const ch of Object.values(cur.named || {})) ch.root.traverse((o) => { if (!o.isMesh) return;
+    if (c.dbg.hide && o.userData.part === c.dbg.hide) o.visible = false; if (c.dbg.front && o.material) o.material.side = THREE.FrontSide; if (c.dbg.noShadow) o.receiveShadow = false; if (c.dbg.noEmissive && o.material && 'emissiveIntensity' in o.material) o.material.emissiveIntensity = 0; });
   cur.paint = createPaint(renderer, W, H, pipe, { ...(cur.paintP || {}) });
   const g = cur.grade || GRADE_WARM, u = pipe.outMat.uniforms;
   u.gCanvas.value = g.gCanvas; u.gVig.value = g.gVig; u.gLift.value = g.gLift; u.gSat.value = g.gSat; u.gShadowTint.value.set(...g.gShadowTint); u.gHiTint.value.set(...g.gHiTint);
@@ -85,4 +89,73 @@ window.frameMeta = () => {
     }
   }
   return out;
+};
+
+// ================= C3 (RUN.md 3.6, 3.6.2 — v1.4): mặt nạ bộ phận + views, từ CHÍNH trang render này =================
+// Cách tính theo công cụ tham chiếu reports/checks-v1.4/dryrun/k_views.js (phiên K) và exportParts của Cổng 3 (design/cong3/v2/page.js):
+// mặt nạ = phần NHÌN THẤY của bộ phận (vật liệu ID phẳng; mọi vật khác tô đen nhưng vẫn ghi độ sâu), render thật ở scale× khung.
+const PART_MAP = { head: ['head'], torso: ['torso'], upper_arm: ['upper_arm'], forearm: ['forearm'], thigh: ['thigh', 'thigh_skin'], shin: ['shin', 'shin_trouser'] };
+window.hasChar = (who) => !!(cur.named && cur.named[who] && cur.named[who].root.visible && cur.named[who].root.parent);
+window.exportC3 = async (f, scale, who = 'ida', side = 'L') => {
+  window.stepFrame(f);
+  const ch = cur.named[who], J = ch.joints, Hh = ch.H, S = side, D2R = Math.PI / 180, R2D = 180 / Math.PI, keys = Object.keys(PART_MAP);
+  const partOf = {}; for (const [k, v] of Object.entries(PART_MAP)) for (const t of v) partOf[t] = k;
+  cur.scene.updateMatrixWorld(true); cur.cam.updateMatrixWorld(true);
+  const Wp = (o, l = [0, 0, 0]) => o.localToWorld(new THREE.Vector3(...l));
+  const bones = () => ({ head: [Wp(J.head), Wp(J.head, [0, Hh, 0])], torso: [Wp(J.spine), Wp(J.neck)],
+    upper_arm: [Wp(J['shoulder_' + S]), Wp(J['elbow_' + S])], forearm: [Wp(J['elbow_' + S]), Wp(J['wrist_' + S])],
+    thigh: [Wp(J['hip_' + S]), Wp(J['knee_' + S])], shin: [Wp(J['knee_' + S]), Wp(J['ankle_' + S])] });
+  const toRoot = (v) => ch.root.worldToLocal(v.clone()); const now = bones();
+  const camW = cur.cam.getWorldPosition(new THREE.Vector3()), tc = now.torso[0].clone().add(now.torso[1]).multiplyScalar(0.5);
+  const c = toRoot(camW).sub(toRoot(tc)); const view = -Math.atan2(c.x, c.z) * R2D, elev = Math.atan2(c.y, Math.hypot(c.x, c.z)) * R2D;
+  const saved = Object.fromEntries(Object.entries(J).map(([k, j]) => [k, j.rotation.clone()]));
+  for (const j of Object.values(J)) j.rotation.set(0, 0, 0);
+  for (const [n, [x, y, z]] of Object.entries(ch.sheet.poses.turnaround.joints || {})) if (J[n]) J[n].rotation.set(x * D2R, y * D2R, z * D2R, 'XYZ');
+  ch.root.updateMatrixWorld(true); const ref = bones();
+  for (const [k, r] of Object.entries(saved)) J[k].rotation.copy(r); ch.root.updateMatrixWorld(true);
+  const fwd = cur.cam.getWorldDirection(new THREE.Vector3()), zc = (p) => p.clone().sub(camW).dot(fwd), zHead = zc(Wp(J.head, [0, 0.5 * Hh, 0]));
+  const v = new THREE.Vector3(), box = new THREE.Box3();
+  const black = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
+  const idMat = keys.map((k, i) => new THREE.MeshBasicMaterial({ color: new THREE.Color((i + 1) * 30 / 255, 0, 0), side: THREE.DoubleSide }));
+  const saveM = [], owner = new Map(), vis0 = new Map(), body = new Set(); ch.root.traverse((o) => { if (o.isMesh) body.add(o); });
+  cur.scene.traverse((o) => {
+    if (o.isSprite || o.isPoints || o.isLine) { saveM.push([o, 'v', o.visible]); o.visible = false; return; }
+    if (!o.isMesh) return; saveM.push([o, 'm', o.material]); saveM.push([o, 'v', o.visible]);
+    let vis = o.visible; for (let p = o.parent; p; p = p.parent) vis = vis && p.visible; vis0.set(o, vis);
+    const k = body.has(o) ? partOf[o.userData.part] : undefined; let ok = !!k;
+    if (ok && k !== 'head' && k !== 'torso') { o.geometry.computeBoundingBox(); box.copy(o.geometry.boundingBox).applyMatrix4(o.matrixWorld); box.getCenter(v); ch.root.worldToLocal(v); ok = (v.x > 0) === (S === 'L'); }
+    owner.set(o, ok ? k : null);
+  });
+  const bg = cur.scene.background, fog = cur.scene.fog; cur.scene.background = new THREE.Color(0); cur.scene.fog = null;
+  const sm = renderer.shadowMap.autoUpdate; renderer.shadowMap.autoUpdate = false;
+  const shot1 = (w, h, bodyOnly) => {
+    for (const [o, k] of owner) { o.material = k ? idMat[keys.indexOf(k)] : black; o.visible = vis0.get(o) && (!bodyOnly || body.has(o)); }
+    const rt = new THREE.WebGLRenderTarget(w, h, { depthBuffer: true }), px = new Uint8Array(w * h * 4);
+    renderer.setRenderTarget(rt); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(cur.scene, cur.cam);
+    renderer.readRenderTargetPixels(rt, 0, 0, w, h, px); renderer.setRenderTarget(null); rt.dispose(); return px;
+  };
+  const cnt = (px) => { const n = Object.fromEntries(keys.map((k) => [k, 0])); for (let j = 0; j < px.length; j += 4) { const id = Math.round(px[j] / 30); if (id >= 1 && id <= keys.length) n[keys[id - 1]]++; } return n; };
+  const visN = cnt(shot1(W, H, false)), alone = cnt(shot1(W, H, true));
+  const w = W * scale, h = H * scale, big = shot1(w, h, false);
+  renderer.shadowMap.autoUpdate = sm; cur.scene.background = bg; cur.scene.fog = fog;
+  for (let i = saveM.length - 1; i >= 0; i--) { const [o, k, val] = saveM[i]; if (k === 'v') o.visible = val; else o.material = val; }
+  const parts = {};
+  for (const k of keys) {
+    const [a, b] = now[k], mid = a.clone().add(b).multiplyScalar(0.5);
+    const P = (d) => d.clone().sub(fwd.clone().multiplyScalar(d.dot(fwd))).length();
+    const fs_ = P(now[k][1].clone().sub(now[k][0])) / Math.max(P(ref[k][1].clone().sub(ref[k][0])), 1e-9);
+    parts[k] = { foreshorten: +fs_.toFixed(4), hidden: alone[k] ? +Math.max(0, 1 - visN[k] / alone[k]).toFixed(4) : 1,
+      depth: +(zc(k === 'head' ? Wp(J.head, [0, 0.5 * Hh, 0]) : mid) / zHead).toFixed(4) };
+  }
+  const id = new Uint8Array(w * h);
+  for (let y = 0; y < h; y++) { const src = (h - 1 - y) * w * 4, dst = y * w; for (let x = 0; x < w; x++) id[dst + x] = Math.round(big[src + x * 4] / 30); }
+  const out = {}, count = {};
+  const cv = new OffscreenCanvas(w, h), g = cv.getContext('2d'), img = g.createImageData(w, h), d32 = new Uint32Array(img.data.buffer);
+  for (let i = 0; i < keys.length; i++) {
+    let n = 0; for (let j = 0; j < id.length; j++) { const on = id[j] === i + 1; d32[j] = on ? 0xffffffff : 0x00000000; n += on; }
+    g.putImageData(img, 0, 0); const ab = await (await cv.convertToBlob({ type: 'image/png' })).arrayBuffer();
+    let bin = ''; const u8 = new Uint8Array(ab); for (let j = 0; j < u8.length; j += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(j, j + 0x8000));
+    out[keys[i]] = btoa(bin); count[keys[i]] = n;
+  }
+  return { w, h, parts: out, count, views: { view_deg: +view.toFixed(2), elev_deg: +elev.toFixed(2), parts } };
 };

@@ -1,5 +1,5 @@
 // Driver render ANIMATIC Cổng 4. Mỗi shot một trang Chromium mới (không nhiễm chéo trạng thái giữa các bộ cảnh).
-// node design/cong4/animatic/render_film.js --out <thư mục> [--w 960 --h 540] [--only s01,s02] [--list] [--png-every 0] [--nopaint]
+// node design/cong4/animatic/render_film.js --out <thư mục> [--w 960 --h 540] [--only s01,s02] [--list] [--events] [--probe] [--meta-only] [--nopaint]
 // Ghi: <out>/video.mp4 (hình, chưa tiếng; x264 crf 16 — bản trung gian), <out>/shots/<id>.timing.json, <out>/motion/<id>.json,
 //      <out>/thumbs/<id>_{a,b,c}.png (đầu, giữa, cuối shot) ; --list: in bảng shot (JSON) rồi thoát.
 const { chromium } = require('/opt/pw/node_modules/playwright');
@@ -35,6 +35,7 @@ async function newPage(browser) {
   let page = await newPage(browser);
   const list = await page.evaluate(() => window.listShots());
   if (has('list')) { console.log(JSON.stringify(list, null, 1)); await browser.close(); return; }
+  if (has('events')) { console.log(JSON.stringify(await page.evaluate(() => window.listEvents()), null, 1)); await browser.close(); return; }
   await page.close();
   for (const d of ['shots', 'motion', 'thumbs']) fs.mkdirSync(path.join(out, d), { recursive: true });
   const todo = only.length ? list.filter((s) => only.includes(s.id)) : list;
@@ -45,7 +46,7 @@ async function newPage(browser) {
   const summary = [];
   for (const s of todo) {
     const a = Date.now(); page = await newPage(browser);
-    await page.evaluate(async (cfg) => { await window.setup(cfg); }, { W, H, shot: s.id, nopaint: has('nopaint') });
+    await page.evaluate(async (cfg) => { await window.setup(cfg); }, { W, H, shot: s.id, nopaint: has('nopaint'), dbg: JSON.parse(arg('dbg', '{}')) });
     const setup_s = (Date.now() - a) / 1000;
     const f0 = Math.round(s.t0 * 24), f1 = Math.round(s.t1 * 24), times = [], meta = [];
     const probe = has('probe'), fl = probe ? [f0, (f0 + f1) >> 1, f1 - 1] : null, metaOnly = has('meta-only');

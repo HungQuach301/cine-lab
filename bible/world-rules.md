@@ -1,6 +1,6 @@
-# LUẬT THẾ GIỚI — "Last Round" (v0.3, Cổng 3 · 27/09/2026)
+# LUẬT THẾ GIỚI — "Last Round" (v0.4, Cổng 4 vòng v2 · 27/09/2026)
 
-v0.3 = v0.2 + nắp đèn lồng chắn tia hướng lên (quyết định 5A, mục 4). v0.2 = v0.1 + hai sửa quang học của chủ dự án (cảnh 5, cảnh 6) + mặt đồng hồ điện công cộng + các hệ quả P rút ra khi rà kịch bản nháp 2 (đánh dấu **[P]**, chờ chủ dự án duyệt).
+v0.4 = v0.3 + lý do góc ngọn 11 còn tối tới giữa câu L4 (chỉ đạo chủ dự án sau khi xem animatic v1) + dấu hiệu đêm. v0.3 = v0.2 + nắp đèn lồng chắn tia hướng lên (quyết định 5A, mục 4). v0.2 = v0.1 + hai sửa quang học của chủ dự án (cảnh 5, cảnh 6) + mặt đồng hồ điện công cộng + các hệ quả P rút ra khi rà kịch bản nháp 2 (đánh dấu **[P]**, chờ chủ dự án duyệt).
 
 Căn cứ cho Cổng 3 (thiết kế, style frame, color script) và Cổng 7 (ánh sáng). Mọi shot phải tuân theo. Muốn đổi luật thì chủ dự án duyệt, rồi ghi vào `AUTHORSHIP.md`.
 
@@ -12,6 +12,11 @@ Căn cứ cho Cổng 3 (thiết kế, style frame, color script) và Cổng 7 (�
 - Nhà kho cuối phố có một **hốc cửa bốc hàng hình vòm, sâu ~4 m** **[P]**: vách trong trát vôi, khuất đèn điện (xem mục 3.4).
 - Nhà Cas: cửa sổ tầng một trông xuống một **con ngõ hẹp giữa hai nhà**, khuất đèn điện của phố.
 - Đêm chuyển đổi: dây điện đã kéo sẵn, các **cột điện kiểu mới** đứng xen giữa cột đèn khí. Chúng bật theo từng khối phố, từ quảng trường ở đầu phố lan về cuối phố, như một làn sóng. **Khối cuối cùng (cột điện cạnh tường nhà kho) bật muộn hơn một nhịp**: đó là khe thời gian để Ida thắp ngọn thứ 11.
+- **v0.4 — Đoạn cáp cuối (lý do góc ngọn 11 còn tối):** góc phố quanh ngọn 11, sát nhà kho, nằm trên **đoạn cáp cuối cùng** của tuyến. Đoạn này được đóng điện **sau cùng**, khi cả phố đã trắng (trong phim: giữa lời từ biệt của Ida, ngay quanh câu *"You'll be brighter now"*). Trước lúc đó:
+  - cột điện **phố chính** gần góc nhà kho đã bật và ánh tràn phủ mặt tường nhà kho nơi Cas làm chim (cảnh 4, 1:04 phim v2);
+  - góc ngọn 11 lùi sau góc nhà, ngoài tầm vũng sáng của cột đó (~20 m), nên vẫn tối, chỉ có quầng hổ phách của ngọn khí;
+  - khi đoạn cáp cuối đóng điện, cột góc **nhấp hai lần rồi đứng trắng**; trắng tràn vào góc, bóng dài và bóng tối biến mất.
+- **v0.4 — Đêm:** điện bật lúc 8:00 tối. Trời sau khi bật vẫn là **trời đêm xanh đen có sao**; ánh điện chỉ sáng mặt phố và mặt tiền, không làm sáng trời. Không có ánh hồng chân trời sau cảnh 1 (tránh đọc thành bình minh).
 
 ## 2. Hai loại ánh sáng (cốt lõi)
 | | Đèn khí (cũ) | Đèn điện (mới) |
