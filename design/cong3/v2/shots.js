@@ -66,6 +66,17 @@ function jitterLights(lights, i, n, radius) {
 function readyChar(ch, scene) { ch.root.traverse((o) => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } }); ch.root.userData.imp = 1; scene.add(ch.root); return ch; }
 
 // ---------------- a) cận mặt Ida ----------------
+// Cổng 4 (Việc 1): tư thế trên thang ngoài model sheet (sheet đã khoá) — ghép lên warm_hands_ladder (giữ chân trên bậc thang).
+//  ladder_rest: hai tay hạ, tay trái vịn thang, tay phải để gần van — tư thế nói câu 1:50.
+//  hat_push_a: tay trái (phía máy) chạm vành trước mũ (TRƯỚC cử chỉ). hat_push_b: vành đã đẩy lên, mũ ngả ra sau (SAU cử chỉ). Tay phải để dành cho van.
+export const IDA_POSES_C4 = {
+  ladder_rest: { joints: { shoulder_L: [-40, 0, 10], elbow_L: [-50, 0, 0], wrist_L: [0, 0, 10], shoulder_R: [-58, 0, -8], elbow_R: [-62, 0, 0], wrist_R: [0, 0, -10] },
+    hands: { L: { spread: 0.1, curl: 0.8 }, R: { spread: 0.1, curl: 0.45 } }, hat_back: 0.35 },
+  hat_push_a: { joints: { shoulder_R: [-58, 0, -8], elbow_R: [-62, 0, 0], wrist_R: [0, 0, -10], shoulder_L: [-80, 0, 35], elbow_L: [-120, 0, 0], wrist_L: [0, 0, 0] },
+    hands: { L: { spread: 0.2, curl: 0.35 }, R: { spread: 0.1, curl: 0.45 } }, hat_back: 0 },
+  hat_push_b: { joints: { shoulder_R: [-58, 0, -8], elbow_R: [-62, 0, 0], wrist_R: [0, 0, -10], shoulder_L: [-88, 0, 38], elbow_L: [-116, 0, 0], wrist_L: [0, 0, 0] },
+    hands: { L: { spread: 0.2, curl: 0.35 }, R: { spread: 0.1, curl: 0.45 } }, hat_back: 0.35 },
+};
 export async function buildCloseIda(ida, mkChar, upd, frame = 0, dbg = {}) {
   const scene = new THREE.Scene(); const R = rng(31);
   scene.add(skyDome([[0, '#2c2d5c'], [0.55, '#5b4a78'], [0.82, '#b0708a'], [1, '#d99a86']]));
@@ -78,8 +89,10 @@ export async function buildCloseIda(ida, mkChar, upd, frame = 0, dbg = {}) {
   const far = addLamp(scene, new THREE.Vector3(-9, 0, -8), frame, { shadow: false });                                // ngọn đèn xa, nhoè hậu cảnh
   // thang tựa cột, Ida đứng trên thang, mặt quay vào lồng đèn (+z → đèn ở z=+0,5 so với Ida)
   const lad = buildLadder(1.8, 0.34, 6, (r, c) => lamMat({ color: c }), '#8a6a45'); lad.position.set(0, 0, -0.85); lad.rotation.x = 0.36; scene.add(lad);
-  const ch = readyChar(mkChar(ida, { material: charMat, detail: 36, expr: dbg.expr }), scene);
-  const pose = ida.poses.warm_hands_ladder; ch.setPose(pose); ch.joints.head.rotation.y += (dbg.headTurn ?? 0) * Math.PI / 180; ch.joints.head.rotation.x += (dbg.headPitch ?? (dbg.face ? -12 : 0)) * Math.PI / 180;   // V5: khung biểu cảm ngẩng nhẹ để mày ra khỏi vành mũ   // cửa thử C′: quay đầu về phía máy (độ)
+  const ch = readyChar(mkChar(ida, { material: charMat, detail: 36, expr: dbg.expr, hatBack: dbg.hatBack, faceQ: dbg.faceQ, gaze: dbg.gaze }), scene);
+  const bp0 = ida.poses.warm_hands_ladder; let xp = dbg.pose ? (typeof dbg.pose === 'string' ? IDA_POSES_C4[dbg.pose] : dbg.pose) : null;
+  if (xp && dbg.hatBack != null) xp = { ...xp, hat_back: dbg.hatBack };
+  const pose = xp ? { ...bp0, ...xp, joints: { ...bp0.joints, ...(xp.joints || {}) }, hands: { ...bp0.hands, ...(xp.hands || {}) } } : bp0; ch.setPose(pose); ch.joints.head.rotation.y += (dbg.headTurn ?? 0) * Math.PI / 180; ch.joints.head.rotation.x += (dbg.headPitch ?? (dbg.face ? -12 : 0)) * Math.PI / 180;   // V5: khung biểu cảm ngẩng nhẹ để mày ra khỏi vành mũ   // cửa thử C′: quay đầu về phía máy (độ)
   ch.root.position.set(0, pose.root_y_m, -0.58); ch.root.updateMatrixWorld(true);
   // máy quay: ngang tầm mặt, lệch 40° về phải-trước, 60 mm (FOV dọc ~22°)
   const head = new THREE.Vector3(); ch.joints.head.getWorldPosition(head); head.y += 0.12;

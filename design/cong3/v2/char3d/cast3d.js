@@ -75,6 +75,7 @@ export function buildCharacter(sheet, opts = {}) {
   };
 
   const skin = new CpuSkin(root);
+  let hatPivot = null;
   const skinned = [];   // [mesh, weightFn]
 
   // =============================== ĐẦU ===============================
@@ -144,12 +145,50 @@ export function buildCharacter(sheet, opts = {}) {
   }
   // C′: má, mũi, môi, hốc mắt, mi, nếp nhăn, đồi mồi chuyển sang texture vẽ tay (facepaint.js); màu đỉnh chỉ giữ trán sáng vàng + AO.
   const skinTone = (x, y, z) => { const brow = gauss(y - 0.78, 0.12) * front(z, 0.1); return [1 + 0.02 * brow, 1 + 0.02 * brow, 1]; };
-  const hq = isIda ? 1 : 0.8;
+  const hq = isIda ? (opts.faceQ ?? 1) : 0.8;   // Cổng 4: cận mặt có thể tăng mật độ lưới đầu (biến dạng mịn)
   add(headG, sculpt(headSDF, { c: [0, 0.48, 0.02], r: [0.45, 0.6, 0.6], nu: R(112 * hq), nv: R(84 * hq), scale: H, uv: [6, 3], gradE: 0.002, warp: [0.4, 0.62], eps: 2e-5,
     color: aoCol(headSDF, 0.22, skinTone) }), 'skin', C.skin, 'head');
-  { const hm = parts[parts.length - 1]; faceUV(hm.geometry, H);   // C′: mặt vẽ tay, UV chiếu trước trên chính lưới đầu → đi theo đầu, không trượt
-    const fm = paintFace(isIda, E, 7, opts.expr);
-    hm.material = matFn('skin', C.skin, 'head', { map: fm, vertexColors: true, emissive: new THREE.Color('#ffffff'), emissiveMap: fm.userData.glint, emissiveIntensity: opts.glint ?? 5.0 }); }
+  // Cổng 4 (Việc 1): MẶT BIẾN DẠNG. UV chiếu trước gán ở tư thế trung tính, SAU ĐÓ dịch đỉnh theo biểu cảm → lớp vẽ C′ bám lưới
+  // (nét mày, mi, khoé miệng đi cùng khối da). Nét vẽ chỉ giữ phần không phải hình khối: ngấn nước, nước mắt, nếp cười, nếp cằm, nếp giữa mày.
+  const XP = EXPR[opts.expr] || EXPR.neutral, X0 = EXPR.neutral;
+  const exprDisp = (x, y, z) => {
+    const fm = sstep(0.1, 0.3, z); if (fm <= 0) return [0, 0, 0];
+    const ax = Math.abs(x), sx = x < 0 ? -1 : 1, gp = (cx, cy, r) => gauss(Math.hypot(ax - cx, y - cy), r), as = 1 + (XP.asym || 0) * sx;   // mặt thật lệch hai bên
+    const my = isIda ? 0.267 : 0.256, mw = isIda ? 0.098 : 0.066, dc = (XP.corner - X0.corner) * as, sm = XP.smile * as, pr = Math.max(0, XP.press - X0.press);
+    let dx = 0, dy = 0, dz = 0, k;
+    k = gp(mw, my, 0.042); dy += dc * k; dz -= 0.3 * Math.abs(dc) * k; dx += sx * 0.25 * Math.max(0, dc) * k;      // khoé miệng (cười: lên, ra ngoài)
+    k = gp(0.165, 0.40, 0.065); dy += 0.018 * sm * k; dz += 0.012 * sm * k;                                      // gò má nâng khi cười
+    k = gauss(ax, 0.045) * gauss(y - my - 0.022, 0.018); dy -= 0.005 * pr * k; dz -= 0.004 * pr * k;              // mím: môi trên vào
+    k = gauss(ax, 0.05) * gauss(y - my + 0.024, 0.02); dy += 0.006 * pr * k; dz -= 0.002 * pr * k;                // môi dưới lên
+    k = gp(0, 0.145, 0.055); dy += 0.012 * XP.chin * k; dz += 0.008 * XP.chin * k;                               // cằm đẩy lên (nghẹn)
+    k = gp(0.05, 0.66, 0.05); dy += XP.browIn * (2 - as) * k; dx -= sx * XP.knit * k; dz += 0.3 * XP.knit * k;               // đầu trong mày
+    k = gp(0.21, 0.645, 0.05); dy += XP.browOut * k;                                                              // đuôi mày
+    k = gauss(ax, 0.1) * gauss(y - 0.75, 0.06); dy += 0.5 * XP.browIn * k;                                        // trán giữa kéo lên theo
+    // mí: xoay quanh tâm nhãn cầu (giữ khoảng cách tới mắt, không để nhãn cầu xuyên mí); mí trên sụp, mí dưới nâng khi cười
+    const Y = y - E[1], Z = z - E[2], rr = Math.hypot(ax - E[0], Y, Z), shell = gauss(rr - ER - 0.01, 0.018) * gauss(ax - E[0], 0.07);
+    const th = (XP.lidDrop - X0.lidDrop) / ER * sstep(-0.005, 0.015, Y) * shell - 0.008 * sm / ER * sstep(0.005, -0.015, Y) * shell;
+    if (th) { const c = Math.cos(th), s_ = Math.sin(th); dy += (Y * c - Z * s_) - Y; dz += (Y * s_ + Z * c) - Z; }
+    return [dx * fm, dy * fm, dz * fm];
+  };
+  { const hm = parts[parts.length - 1], geo = hm.geometry; faceUV(geo, H);   // C′: mặt vẽ tay, UV chiếu trước trên chính lưới đầu → đi theo đầu, không trượt
+    if (opts.expr && opts.expr !== 'neutral') {
+      const pa = geo.attributes.position, nA = geo.attributes.normal, n0 = geo.clone(); n0.computeVertexNormals();
+      for (let i = 0; i < pa.count; i++) { const d = exprDisp(pa.getX(i) / H, pa.getY(i) / H, pa.getZ(i) / H); if (d[0] || d[1] || d[2]) pa.setXYZ(i, pa.getX(i) + d[0] * H, pa.getY(i) + d[1] * H, pa.getZ(i) + d[2] * H); }
+      const n1 = geo.clone(); n1.computeVertexNormals(); const a0 = n0.attributes.normal, a1 = n1.attributes.normal;   // pháp tuyến: gradient SDF + (lưới sau − lưới trước)
+      for (let i = 0; i < pa.count; i++) { const v = new THREE.Vector3(nA.getX(i) + a1.getX(i) - a0.getX(i), nA.getY(i) + a1.getY(i) - a0.getY(i), nA.getZ(i) + a1.getZ(i) - a0.getZ(i)).normalize(); nA.setXYZ(i, v.x, v.y, v.z); }
+      pa.needsUpdate = nA.needsUpdate = true; geo.computeBoundingSphere();
+    }
+    const fm = paintFace(isIda, E, 7, opts.expr, { mesh: true });
+    hm.material = matFn('skin', C.skin, 'head', { map: fm, vertexColors: true, emissive: new THREE.Color('#ffffff'), emissiveMap: fm.userData.glint, emissiveIntensity: opts.glint ?? 5.0 });
+    // Cổng 4: bỏ vệt tím ở má — nơi ánh sáng tới da nghiêng lạnh (trời, viền), đưa sắc ánh sáng về xám ấm; ánh đèn khí (ấm) không đổi.
+    const mat = hm.material, prev = mat.onBeforeCompile, warm = opts.skinWarm ?? 0.7;
+    mat.onBeforeCompile = (sh, r) => { if (prev) prev(sh, r);
+      sh.fragmentShader = sh.fragmentShader.replace('vec3 outgoingLight = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse + totalEmissiveRadiance;',
+        `vec3 dSk = reflectedLight.directDiffuse + reflectedLight.indirectDiffuse; vec3 alb = max(diffuseColor.rgb, vec3(1e-3)); vec3 eSk = dSk / alb;
+         float lSk = dot(eSk, vec3(0.2126, 0.7152, 0.0722)), cSk = smoothstep(0.0, 0.25, (eSk.b - eSk.r) / max(lSk, 1e-5));
+         eSk = mix(eSk, lSk * vec3(1.06, 1.0, 0.92), ${warm.toFixed(3)} * cSk);
+         vec3 outgoingLight = eSk * alb + totalEmissiveRadiance;`); };
+    const pk = mat.customProgramCacheKey?.bind(mat); mat.customProgramCacheKey = () => (pk ? pk() : '') + '|skinWarm' + warm; }
   // Nhãn cầu (màu đỉnh: lòng trắng xỉn, tròng, con ngươi) — nhìn hơi xuống.
   const eyeTex = (() => {   // tròng mắt vẽ trên canvas (UV cầu: +z ở u = 0,25, v = 0,5)
     const cv = document.createElement('canvas'); cv.width = 256; cv.height = 128; const g = cv.getContext('2d');
@@ -168,7 +207,7 @@ export function buildCharacter(sheet, opts = {}) {
     const eg = new THREE.SphereGeometry(ER * H, R(20), R(14));
     const e = new THREE.Mesh(ensureColor(eg), matFn('eyes', '#ffffff', 'eyes', { map: eyeTex, vertexColors: true, emissive: new THREE.Color('#ffffff'), emissiveMap: eyeTex.userData.glint, emissiveIntensity: (opts.glint ?? 5.0) * 3 }));
     e.userData.part = 'eyes'; e.castShadow = true; e.receiveShadow = true; headG.add(e); parts.push(e);
-    e.position.set(sx * E[0] * H, E[1] * H, E[2] * H); e.rotation.set(isIda ? 0.1 : 0.04, -sx * 0.05, 0);
+    e.position.set(sx * E[0] * H, E[1] * H, E[2] * H); e.rotation.set((isIda ? 0.1 : 0.04) + (opts.gaze?.[1] ?? 0), -sx * 0.05 + (opts.gaze?.[0] ?? 0), 0);   // Cổng 4: opts.gaze [ngang, dọc] (rad) — ánh mắt có điểm nhìn
   }
   // Lông mày: sợi thon dọc cung mày.
   const strandGeo = (pts, rad, nu, nv) => {
@@ -187,9 +226,8 @@ export function buildCharacter(sheet, opts = {}) {
   const browCol = isIda ? '#5e5552' : EXTRA_COLORS.cas_hair;   // V5: mày Ida xám đậm (sợi màu tóc bạc đè mất nét mày vẽ)
   for (const sx of [1, -1]) {
     const pts = isIda ? [[0.045, 0.655, 0.405], [0.12, 0.672, 0.395], [0.19, 0.664, 0.355], [0.235, 0.638, 0.315]] : [[0.055, 0.60, 0.43], [0.13, 0.607, 0.425], [0.215, 0.586, 0.39]];
-    const XP = EXPR[opts.expr] || EXPR.neutral;   // V5: lông mày sợi theo cùng biểu cảm với nét vẽ
-    pts.forEach((p, k) => { const t = k / (pts.length - 1); p[0] -= XP.knit * (1 - t); p[1] += XP.browIn * (1 - t) + XP.browOut * t; });
-    const g = strandGeo(pts.map(([x, y]) => [sx * x * H, y * H, (onFace(x, y) + 0.003) * H]), (s) => { const t = Math.sin(Math.PI * Math.min(1, 0.25 + s)); return [(isIda ? 0.010 : 0.015) * H * t, 0.004 * H]; }, 6, 10);
+    // Cổng 4: lông mày sợi dịch theo CÙNG trường biến dạng của lưới đầu (thay cho dịch tay theo EXPR)
+    const g = strandGeo(pts.map(([x, y]) => { const z = onFace(x, y) + 0.003, d = exprDisp(sx * x, y, z); return [(sx * x + d[0]) * H, (y + d[1]) * H, (z + d[2]) * H]; }), (s) => { const t = Math.sin(Math.PI * Math.min(1, 0.25 + s)); return [(isIda ? 0.010 : 0.015) * H * t, 0.004 * H]; }, 6, 10);
     add(headG, g, 'hair', browCol, 'brow');
   }
   // Tai: elip dẹt, lõm hố tai, vành cuộn.
@@ -238,8 +276,10 @@ export function buildCharacter(sheet, opts = {}) {
     };
     add(headG, sculpt(bunSDF, { c: bunC, r: [bunR, bunR, bunR], nu: R(40), nv: R(26), scale: H, uv: [3, 2], color: aoCol(bunSDF, 0.5) }), 'hair', C.hair, 'hair');
     // Mũ phớt mềm: chóp có rãnh giữa và hai vết bóp trước; vành cụp trước, mép cuộn; băng mũ.
-    const hs = sheet.costume.hat; const hat = new THREE.Group(); hat.position.y = 0.86 * H; hat.rotation.x = 0.08; headG.add(hat);
+    const hs = sheet.costume.hat; const hat = new THREE.Group(); hat.position.y = 0.86 * H; hat.rotation.x = 0.08;
     const ch_ = hs.crown_height_H, rx0 = hd.width_front * 0.56, rz0 = rx0 * 1.12;
+    // Cổng 4: bản lề mũ ở mép sau băng mũ → pose.hat_back (0–1) hất vành lên, mũ ngả ra sau (cử chỉ đẩy mũ trước câu thoại 1:50)
+    hatPivot = new THREE.Group(); hatPivot.position.set(0, 0.86 * H, -rz0 * H); headG.add(hatPivot); hatPivot.add(hat); hat.position.set(0, 0, rz0 * H);
     const crownSDF = (x, y, z) => {
       const f = 1 - 0.16 * sstep(0, ch_, y);
       const ds = (Math.hypot(x / (rx0 * f), z / (rz0 * f)) - 1) * rx0 * f;
@@ -570,8 +610,10 @@ export function buildCharacter(sheet, opts = {}) {
       F.tip.rotation.set(0, 0, hp_.thumb_cross ? 0 : -sx * (0.1 + curl * 0.6));
     }
   }
-  ch.setPose = (pose) => { baseSetPose(pose); fingerPose(pose); root.updateMatrixWorld(true); skin.update(); };
-  ch.hipY = ch.hipY; ch.handScale = HS; ch.cpuSkin = skin;
+  ch.setPose = (pose) => { baseSetPose(pose); fingerPose(pose);
+    if (hatPivot) { const t = pose.hat_back ?? opts.hatBack ?? 0; hatPivot.rotation.x = -0.34 * t; hatPivot.position.y = (0.86 + 0.015 * t) * H; }
+    root.updateMatrixWorld(true); skin.update(); };
+  ch.hatPivot = hatPivot; ch.hipY = ch.hipY; ch.handScale = HS; ch.cpuSkin = skin;
   ch.setPose(sheet.poses.turnaround);
   return ch;
 }
