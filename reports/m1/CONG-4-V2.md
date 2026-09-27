@@ -201,10 +201,23 @@ VERDICT: TRƯỢT
 **H1b:** vẫn trượt. Các track tay ở shot đi bộ (s02, s07) khớp 43–63%.
 
 ### 5.4 Q-C3r B — bảng so sánh cho người xem
-Đang chờ agent cine-continuity (xem `reports/m1/cong4/c3-nguoi-xem/BANG.md`). Kết quả chép vào mục 5.5 khi có.
+- Agent cine-continuity làm 21 ảnh so sánh: khung phim đặt cạnh hình model sheet ở góc gần nhất, kèm độ lệch từng bộ phận và lý do máy loại. Bảng: `reports/m1/cong4/c3-nguoi-xem/BANG.md`.
+- Giới hạn agent tự nêu: `MS-ida.png` còn là bản Cổng 3 vòng 1 (chưa có khăn, hoa tai, cổ áo cao), nên trang phục được so với bible v1.2.
 
-### 5.5 Shot bị cờ
-(điền sau)
+### 5.5 Shot bị cờ — chủ dự án chỉ cần xem 9 ảnh (8 shot phim)
+- **Nhóm màu, 6 ảnh.** Dưới đèn khí, mũ đọc nâu vàng và áo đọc xanh lá sáng, đảo quan hệ "mũ tối nhất" của sheet. Albedo không đổi; đây là ánh sáng và grade, cùng gốc với quyết định D.
+  - s03 (khung 228)
+  - s04 (khung 276)
+  - s05 (khung 360)
+  - s36 (khung 2268)
+  - s37 (khung 2412)
+  - s39 (khung 2520)
+- **Nhóm số đo, 3 ảnh.** Lệch > 10% ở bộ phận không che, không gập. Bằng mắt, agent vẫn đọc đúng là Ida.
+  - s08 (khung 588): cẳng tay +19,1%.
+  - s27 (khung 1536): thân −12,3%, còn khoảng −8,7% nếu trừ phối cảnh.
+  - s47 (khung 3252): thân +16,2%, cẳng tay +17,5%; đầu đọc nhỏ so với thân ở góc sau lưng; thang dựng gần đứng.
+- **Không cờ: 12 ảnh.** Thân bị cắt ở mép khung, bộ phận bị che hoặc gập, hoặc không có đầu trong hình. Mặt, hoa tai, khăn, tóc khớp bible v1.2.
+- **Gần ngưỡng góc 30°:** s34 cách hình "Sau lưng" 31°; s12 lệch 30,6°.
 
 ## 6. Thời gian và số lần làm lại
 Máy: 4 lõi CPU, Chromium/SwiftShader, 960×540, 1 mẫu.
@@ -278,6 +291,6 @@ Số lần làm lại theo nhiệm vụ:
 1. **Xem `screening/animatic.mp4` (2:22,5)** và duyệt ba chỉ đạo đã vào phim (mục 3).
 2. Chọn A (cổng mặt), B (kết), C (đọc đêm), D (mũ).
 3. Duyệt **luật thế giới v0.4** ("đoạn cáp cuối"), **kịch bản nháp 3**, **characters v1.2**; các file này đã khoá lại SHA.
-4. Xem các shot C3 bị cờ ở mục 5.5 (Q-C3r B).
+4. Xem 9 ảnh C3 bị cờ ở mục 5.5 (Q-C3r B) và xác nhận đúng model. Cân nhắc cho làm lại `MS-ida.png` theo v1.2 để các vòng sau có hình chuẩn.
 5. Quyết cách chấm L3 (chủ dự án chấm một mình, đã ghi): lịch chiếu gói chiếu mù v2 cho người thật.
 6. Ghi chú: 4 lần phát kiểm toán bị huỷ (mục 5.2). Nếu chủ dự án hoặc K thấy cần, K có thể phát lại lần 6 trên bản này.
