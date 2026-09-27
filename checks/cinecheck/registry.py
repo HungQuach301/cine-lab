@@ -52,6 +52,21 @@ RULES = {
         threshold="0 điểm ảnh va chạm; độ khớp matte ≥ 90%.",
         profiles=("shot", "youtube", "archive"),
     ),
+    "P0": dict(
+        section="4.P — Chữ, tiêu đề, phụ đề",
+        title="Máy dò chữ độc lập: mọi chữ trong hình phải có matte",
+        level=CHAN,
+        measure="Lấy mẫu 2 khung/giây (tối đa 240 khung) từ file render. Máy dò PP-OCRv4 det (DB, "
+                "ONNX ghim SHA trong checks/models/) tìm vùng nghi là chữ (điểm hộp ≥ 0,6); mô hình "
+                "nhận dạng PP-OCRv4 rec đọc từng vùng, chỉ giữ vùng đọc ra ≥ 2 ký tự Latin/số, chiếm "
+                "≥ 60% ký tự, độ tin ≥ 0,8, và độ đặc nét < 0,85 (trung vị diện tích/hộp bao của các thành phần "
+                "sau ngưỡng Otsu; ký tự đo được 0,4–0,7, ô cửa sổ ≈ 1,0) — loại cửa sổ, lưới, hoa văn. Vùng có matte = ≥ 50% diện tích "
+                "hộp nằm trong nét matte (alpha ≥ 0,02) của các phần tử đang hiện ở khung đó, nới 0,35 × "
+                "chiều cao hộp. Không cần matte để chạy: thiếu thư mục chữ thì mọi chữ dò được đều trượt.",
+        threshold="0 vùng chữ dò được mà không có matte (ngưỡng hộp 0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%: "
+                  "nội bộ).",
+        profiles=("shot", "youtube", "archive"),
+    ),
     "G4": dict(
         section="4.G — Ánh sáng và màu",
         title="Chữ tương phản ≥ 4,5:1 (WCAG AA), đo điểm ảnh",
@@ -72,6 +87,20 @@ RULES = {
                 "khác nhau (bậc thang), (b) mọi bước nhảy giữa điểm kề ≤ 2 mã (không có cạnh cứng), "
                 "(c) biên độ luma ≤ 24 mã. Diện tích banding = tỷ lệ điểm banding trên khung.",
         threshold="Diện tích banding ≤ 0,2% khung ở mọi khung lấy mẫu (nội bộ).",
+        profiles=("shot", "youtube", "archive"),
+    ),
+    "G3b": dict(
+        section="4.G — Ánh sáng và màu",
+        title="Grain cố định: có grain, ổn định theo thời gian và giữa các shot, chuyển động theo khung",
+        level=CHAN,
+        measure="Cặp khung kề (n, n+1) mỗi 12 khung (tối đa 240 cặp), luma quy về thang 8 bit. Phần dư "
+                "= luma − làm mờ Gauss σ=1,5. Khối 32×32 phẳng khi độ lệch chuẩn của ảnh làm mờ σ=2 ≤ 1,5 "
+                "mã và luma trung bình trong [40, 210]; khung cần ≥ 20 khối phẳng. σ grain của khung = "
+                "trung vị qua khối của 1,4826·MAD phần dư, đo ở cả khung n và n+1 (bắt grain dao động theo loại khung "
+                "mã hoá I/P/B). Shot tách bằng PySceneDetect ContentDetector "
+                "mặc định. Grain đứng yên đo bằng tương quan phần dư khung n với n+1 trên khối phẳng.",
+        threshold="Trung vị σ mỗi shot ≥ 0,8 mã 8 bit; CV của σ theo thời gian trong mỗi shot ≤ 0,20; "
+                  "σ shot lớn nhất / nhỏ nhất ≤ 1,30; tương quan khung kề ≤ 0,50 (đều nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
     "M1": dict(
@@ -107,6 +136,22 @@ RULES = {
         threshold="100% từ bắt buộc được nghe đúng; WER ≤ 5% (nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
+    "J1b": dict(
+        section="4.J/4.M — Giọng; Mix (M3: lời luôn nghe rõ trên nhạc)",
+        title="Lời rõ trên nhạc theo từng câu, đo từ stem thoại và stem nền",
+        level=CHAN,
+        measure="Thư mục <video>.stems/: dialogue.* và các stem nền (M&E), xuất từ bản mix. (1) Khớp tổng: "
+                "tìm lệch thời gian ±100 ms bằng tương quan chéo; bao năng lượng khung 100 ms × 7 dải octave "
+                "125 Hz–8 kHz; khớp không âm E_mix ≈ a²·E_thoại + b²·E_nền (sai số tương đối); sai lệch = "
+                "P95 của |10·log10(dự đoán/E_mix)| trên ô có năng lượng (bền với AAC và limiter nhẹ). (2) Câu = đoạn hoạt động của stem thoại "
+                "(khung 10 ms > đỉnh − 35 dB và > −60 dBFS), tách khi lặng ≥ 350 ms, dài ≥ 300 ms. "
+                "(3) Mỗi câu: công suất 6 dải octave 250 Hz–8 kHz của a·thoại và b·nền (mono) trên khoảng "
+                "câu; SII rút gọn = Σ tầm quan trọng dải (ANSI S3.5, octave) × clip((SNR dải + 15)/30, 0, 1), "
+                "không tính lan truyền che lấp và ngưỡng nghe. Cửa sổ 0,5 s trượt 50 ms trong câu.",
+        threshold="Sai lệch bao P95 ≤ 3 dB; |20·log10(a/b)| ≤ 1 dB; SII rút gọn mỗi câu ≥ 0,75; mọi cửa sổ "
+                  "0,5 s trong câu ≥ 0,45 (đều nội bộ; mốc 0,75/0,45 lấy theo cách diễn giải SII của ANSI S3.5).",
+        profiles=("shot", "youtube", "archive"),
+    ),
     "H1": dict(
         section="4.H — Hoạt hình",
         title="Không chuyển động tuyến tính ở bộ phận nhân vật",
@@ -119,6 +164,35 @@ RULES = {
                 "easing), hoặc (b) dài ≥ 24 bước ở bất kỳ đâu.",
         threshold="0 đoạn tuyến tính ở kênh bộ phận nhân vật. Kênh 'mechanical' được miễn nhưng "
                   "phải có lý do và được liệt kê trong báo cáo.",
+        profiles=("shot", "youtube", "archive"),
+    ),
+    "H1b": dict(
+        section="4.H — Hoạt hình",
+        title="Chuyển động khai báo khớp hình render (luồng quang học ở vùng nhân vật)",
+        level=CHAN,
+        measure="<video>.motion.json phải có 'screen_tracks': toạ độ điểm ảnh từng khung của khớp nhân vật, "
+                "chiếu từ rig bake qua máy quay render (null khi bị che). Luồng quang học DIS (OpenCV, preset "
+                "medium, tính ở ≤ 1280 px rộng) giữa khung n và n+1 của file render; tại mỗi điểm lấy trung vị "
+                "luồng trong đĩa bán kính 4 px. Cặp khung khớp khi |luồng − (p(n+1) − p(n))| ≤ max(1,5 px, "
+                "25% độ dài dịch chuyển). Tối đa 480 cặp khung rải đều.",
+        threshold="Mọi nhân vật có kênh 'character_part' có ≥ 1 screen track; mỗi track khớp ở ≥ 90% cặp "
+                  "khung đo (nội bộ).",
+        profiles=("shot", "youtube", "archive"),
+    ),
+    "C3": dict(
+        section="4.C — Nhân vật",
+        title="Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
+        level=CHAN,
+        measure="<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12 "
+                "(được phép render mặt nạ ở độ phân giải gấp 'scale' lần). Độ dài = bề dài chiếu lên trục chính "
+                "PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model "
+                "sheet − 1. Nhiễu đo U = √((1 px/L_bộ phận)² + (1 px/L_đầu)²), hiệu chuẩn Monte Carlo trong "
+                "selftest (phủ 100% sai số ở đầu 40–146 px; M0 đo ~1,3% ở đầu 57 px). Quyết định kiểu "
+                "ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = "
+                "không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh "
+                "ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
+        threshold="0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu "
+                  "mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
     "O3": dict(
@@ -135,4 +209,4 @@ RULES = {
     ),
 }
 
-ORDER = ["N1", "N2", "N3", "P1", "G4", "G3", "M1", "M3", "J1", "H1", "O3"]
+ORDER = ["N1", "N2", "N3", "P0", "P1", "G4", "G3", "G3b", "M1", "M3", "J1", "J1b", "H1", "H1b", "C3", "O3"]

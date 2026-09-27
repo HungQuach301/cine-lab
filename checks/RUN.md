@@ -1,4 +1,4 @@
-# CHẠY LUẬT KIỂM L1 — hướng dẫn cho phiên xưởng
+# CHẠY LUẬT KIỂM L1 (v1) — hướng dẫn cho phiên xưởng
 
 Phiên xưởng **chỉ đọc file này**. Không đọc, không sửa mã trong `checks/`. Khiếu nại về luật ghi vào `checks-appeal.md` ở gốc repo.
 
@@ -41,11 +41,13 @@ Với video `X.mp4`:
 | File | Dùng cho | Nội dung |
 |---|---|---|
 | `X.script.txt` | J1 | Lời thoại tiếng Anh đúng như kịch bản cho đoạn phim này. Mỗi câu một dòng; cho phép nhãn người nói `NAME:` đầu dòng; chỉ dẫn diễn xuất trong `[...]` hoặc `(...)` và dòng bắt đầu `#` bị bỏ qua. File rỗng = đoạn không có lời. |
-| `X.text/elements.json` + matte PNG | P1, G4 | Mỗi phần tử chữ (tiêu đề, phụ đề, credit) xuất một matte RGBA từ render (mục 3.1). Thư mục rỗng phần tử (`{"elements": []}`) = đoạn không có chữ. |
-| `X.motion.json` | H1 | Chuyển động bake theo từng khung ở 24 fps (mục 3.2). |
+| `X.text/elements.json` + matte PNG | P0, P1, G4 | Mỗi phần tử chữ (tiêu đề, phụ đề, credit, **cả chữ trong thế giới phim như biển hiệu**) xuất một matte RGBA từ render (mục 3.1). Thư mục rỗng phần tử (`{"elements": []}`) = đoạn không có chữ. P0 chạy cả khi thiếu thư mục này: mọi chữ máy dò thấy trong hình mà không có matte đều trượt. |
+| `X.motion.json` | H1, H1b | Chuyển động bake theo từng khung ở 24 fps (mục 3.2), **kèm `screen_tracks`** (mục 3.4). |
+| `X.stems/` | J1b | Stem thoại `dialogue.wav` và stem nền (M&E) xuất từ bản mix (mục 3.5). |
+| `X.parts/parts.json` + mặt nạ PNG | C3 | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung (mục 3.6). |
 | `X.assets.json` | O3 | Danh sách tài sản mà file cảnh thật sự nạp, xuất từ phần mềm dựng (mục 3.3). |
 
-Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `--assets`, `--library`.
+Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `--stems`, `--parts`, `--assets`, `--library`.
 
 ### 3.1 Matte chữ (`X.text/`)
 
@@ -87,26 +89,66 @@ Có thể chỉ đường dẫn khác bằng `--script`, `--text`, `--motion`, `
   `{"assets": [{"id": "CHR-hero-v1", "path": "assets/characters/hero_v1.blend", "sha256": "<64 hex>", "rights": "R-001"}]}`
 - Máy tính lại SHA-256 từ đĩa. Mọi file media trong `workdir` (trừ `render/`, `out/`, `cache/`, `frames/` và `scene_files`) không có trong thư viện đều bị tính là tài sản ngoài thư viện.
 
-## 4. Luật trong bộ v0 (đều cấp Chặn)
+### 3.4 Track màn hình (`screen_tracks` trong `X.motion.json`)
+
+```json
+{"fps": 24, "channels": [...],
+ "screen_tracks": [
+   {"id": "hero/head",   "first_frame": 0, "values": [[812.4, 330.1], [815.0, 331.2], null, ...]},
+   {"id": "hero/hand_R", "first_frame": 0, "values": [[...], ...]}]}
+```
+
+- Toạ độ **điểm ảnh của file video** (gốc trên–trái, x sang phải, y xuống), một điểm mỗi khung, là vị trí khớp nhân vật **sau mọi ràng buộc, chiếu qua máy quay render** (không phải khoá gốc). Chọn khớp nằm trên vùng có chi tiết (mép áo, bàn tay, mũ); tâm mảng màu phẳng cho luồng quang học yếu.
+- `null` khi điểm bị che hoặc ra khỏi khung. Tiền tố trước `/` là tên nhân vật: mỗi nhân vật có kênh `character_part` phải có ≥ 1 track. Nên xuất 2–4 track mỗi nhân vật.
+- Máy so dịch chuyển khai báo với luồng quang học trên hình render: khai một đằng, render một nẻo thì H1b trượt.
+
+### 3.5 Stem âm (`X.stems/`)
+
+- `dialogue.wav` (hoặc `.flac`): **chỉ thoại** (không nhạc, không tiếng động), 48 kHz, cùng điểm bắt đầu với luồng âm của video.
+- Mọi file âm khác trong thư mục (`me.wav`, hoặc `music.wav` + `sfx.wav` + `amb.wav`...) được cộng thành nền.
+- **Tổng các stem phải bằng mix trong file video** (sai lệch bao năng lượng P95 ≤ 3 dB; thoại và nền cùng hệ số ±1 dB). Xuất stem qua cùng bus master; limiter master nhẹ được chấp nhận. Stem thiếu âm hay khai to/nhỏ khác mix thì J1b trượt.
+- Đoạn không có lời: `dialogue.wav` im lặng.
+
+### 3.6 Mặt nạ bộ phận nhân vật (`X.parts/`)
+
+```json
+{"model_sheet": "bible/characters/hero.model.json",
+ "scale": 4,
+ "frames": {"0":  {"head": "00000/head.png", "torso": "00000/torso.png", "upper_arm": "00000/upper_arm.png", ...},
+            "12": {...}, "24": {...}}}
+```
+
+- Mặt nạ cho **mọi khung chia hết cho 12** (0, 12, 24…). Mỗi bộ phận một PNG, bộ phận = điểm ảnh ≥ 128 (xám hoặc alpha), cùng phép biến đổi với khung hình. Khung nhân vật không hiện: mặt nạ đầu rỗng.
+- `scale`: độ phân giải mặt nạ gấp mấy lần video. **Nên render mặt nạ ở scale 2–4**: ở đầu cao dưới ~100 px video, nhiễu đo ăn gần hết biên 3% và C3 báo "không chứng minh được".
+- `model_sheet`: đường dẫn tính từ thư mục `parts/` rồi từ gốc repo; bộ phận đo lấy từ `measured_parts` của sheet; độ dài đo từ đầu mút đến đầu mút dọc trục chính.
+- Nhiều nhân vật: một thư mục `parts` cho mỗi lần chạy (v1 kiểm một nhân vật mỗi file; báo P nếu shot có nhiều nhân vật chính). Shot không có nhân vật: `{"no_character": true}` (người duyệt xác nhận).
+- Máy đối chiếu biên mặt nạ với cạnh ảnh render: mặt nạ không khớp hình thì C3 trượt.
+
+## 4. Luật trong bộ v1 (đều cấp Chặn)
 
 | Mã | Luật | Profile |
 |---|---|---|
 | N1 | 24 fps CFR; không rơi/lặp khung theo PTS | mọi |
 | N2 | BT.709 đủ nhãn, dải limited (đo cả giá trị điểm ảnh) | mọi |
 | N3 | Codec, bitrate, 16:9, SAR 1:1 theo loại master | youtube, archive |
+| P0 | Máy dò chữ độc lập: mọi chữ trong hình phải có matte | mọi |
 | P1 | Không chữ đè chữ theo điểm ảnh nét | mọi |
 | G4 | Tương phản chữ ≥ 4,5:1 | mọi |
 | G3 | Không banding trên gradient | mọi |
+| G3b | Grain có, ổn định theo thời gian và giữa shot, chuyển động theo khung | mọi |
 | M1 | −14 LUFS ±1; true peak ≤ −1 dBTP | youtube |
 | M3 | Tương quan pha, tương thích mono | mọi |
 | J1 | ASR trên mix cuối: 100% từ kịch bản, WER ≤ 5% | mọi |
+| J1b | Lời rõ trên nhạc theo từng câu (stem), tổng stem khớp mix | mọi |
 | H1 | Không chuyển động tuyến tính ở bộ phận nhân vật | mọi |
+| H1b | Chuyển động khai báo khớp hình render (luồng quang học) | mọi |
+| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo) | mọi |
 | O3 | Tài sản lấy từ thư viện có SHA | mọi |
 
 Định nghĩa đo và ngưỡng đầy đủ có trong từng báo cáo (mục "Chi tiết từng luật").
 
 ## 5. Ghi chú vận hành
 
-- Thời gian đo thật: mẫu 1080p24 dài 8 giây, profile youtube, chạy hết 11 luật trong 16 giây trên máy 4 vCPU (J1 chạy ASR lâu nhất, ~4,5 giây). Bản dài hơn tăng gần tuyến tính theo thời lượng ở J1 và P1; G3 và N2 lấy tối đa 240 khung. Lần chạy đầu tải mô hình ASR (~480 MB) từ Hugging Face.
+- Thời gian đo thật (v1): mẫu 1080p24 dài 8 giây, profile youtube, chạy hết 16 luật trong ~60 giây trên máy 4 vCPU (H1b 12,6 s, C3 11,4 s, P0 7,0 s, J1 7,0 s). Bản dài hơn tăng gần tuyến tính theo thời lượng ở J1, J1b, P1, H1b (tối đa 480 cặp khung) và C3 (mỗi 12 khung); G3, G3b, N2, P0 lấy tối đa 240 khung/cặp. Lần chạy đầu tải mô hình ASR (~480 MB) từ Hugging Face; mô hình dò chữ của P0 đã nằm sẵn trong `checks/models/`.
 - Kiểm tính toàn vẹn luật: `/opt/cine/bin/python checks/lock.py --verify` (in KHỚP/KHÔNG KHỚP).
 - Không thêm phần tử chỉ để vượt ngưỡng. Luật đo sai thì khiếu nại, không lách.

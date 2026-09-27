@@ -102,7 +102,7 @@ def check_p1(video, profile, text_dir=None):
     n = frame_count(video)
     if not els:
         return result("P1", PASS, notes=["elements.json rỗng: không có chữ theo matte xuất ra. "
-                                         "v0 chưa có máy dò chữ độc lập (xem quyết định trong RUN.md)."])
+                                         "Chữ không có matte do luật P0 (máy dò độc lập) bắt."])
     fid, _ = _fid_pass(els, n, video)
     worst_fid = min([v for v in fid.values() if v is not None], default=0.0)
     collisions, where = 0, []

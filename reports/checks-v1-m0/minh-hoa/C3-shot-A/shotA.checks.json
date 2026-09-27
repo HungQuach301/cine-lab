@@ -1,0 +1,152 @@
+{
+  "tool": "cinecheck 1.0.0",
+  "created_utc": "2026-09-27T01:32:27Z",
+  "file": "/tmp/tmp.rQwW4NUeL8/shotA.mp4",
+  "profile": "shot",
+  "verdict": "TRƯỢT",
+  "lock": {
+    "expected": "b86c5d75f14abe5cba7b08c58c95c36e0c1fc49f73af030357f9cc95db7268f8",
+    "actual": "b86c5d75f14abe5cba7b08c58c95c36e0c1fc49f73af030357f9cc95db7268f8",
+    "match": true
+  },
+  "inputs": {
+    "script": null,
+    "text": null,
+    "stems": null,
+    "parts": "/tmp/tmp.rQwW4NUeL8/shotA.parts",
+    "motion": null,
+    "assets": null,
+    "library": "/tmp/tmp.rQwW4NUeL8/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 0,
+    "FAIL": 1,
+    "MISSING": 0,
+    "N/A": 0,
+    "ERROR": 0
+  },
+  "near_threshold": [
+    {
+      "code": "C3",
+      "metric": "biên trên |lệch| + U lớn nhất",
+      "value": 3.04,
+      "threshold": 3.0
+    }
+  ],
+  "results": [
+    {
+      "code": "C3",
+      "section": "4.C — Nhân vật",
+      "title": "Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
+      "level": "Chặn",
+      "measure": "<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12 (được phép render mặt nạ ở độ phân giải gấp 'scale' lần). Độ dài = bề dài chiếu lên trục chính PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model sheet − 1. Nhiễu đo U = √((1 px/L_bộ phận)² + (1 px/L_đầu)²), hiệu chuẩn Monte Carlo trong selftest (phủ 100% sai số ở đầu 40–146 px; M0 đo ~1,3% ở đầu 57 px). Quyết định kiểu ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng.",
+      "threshold_text": "0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 nội bộ).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "biên trên |lệch| + U lớn nhất",
+          "value": 3.04,
+          "op": "<=",
+          "threshold": 3.0,
+          "unit": "%",
+          "ok": false,
+          "near": true
+        },
+        {
+          "name": "bộ phận–khung lệch chắc chắn > 3%",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          "value": 1,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          "value": 2.413,
+          "op": ">=",
+          "threshold": 1.5,
+          "unit": "",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [
+        "Model sheet: model-sheet.json. Đầu cao 58.0–58.0 px video (mặt nạ ×1). Lệch lớn nhất 1.09%.",
+        "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh."
+      ],
+      "evidence": {
+        "do": [
+          {
+            "khung": 0,
+            "bo_phan": "torso",
+            "ty_le": 1.8793,
+            "sheet": 1.9,
+            "lech_pct": -1.09,
+            "U_pct": 1.95,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "upper_arm",
+            "ty_le": 0.9518,
+            "sheet": 0.95,
+            "lech_pct": 0.19,
+            "U_pct": 2.5,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "forearm",
+            "ty_le": 0.8517,
+            "sheet": 0.85,
+            "lech_pct": 0.2,
+            "U_pct": 2.66,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "thigh",
+            "ty_le": 1.1991,
+            "sheet": 1.2,
+            "lech_pct": -0.08,
+            "U_pct": 2.25,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "shin",
+            "ty_le": 1.1462,
+            "sheet": 1.15,
+            "lech_pct": -0.33,
+            "U_pct": 2.29,
+            "ket_qua": "đạt"
+          }
+        ],
+        "do_khop_bien": {
+          "0": 2.41
+        },
+        "khung_thieu": []
+      },
+      "seconds": 1.13
+    }
+  ]
+}

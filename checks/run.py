@@ -44,6 +44,8 @@ def main(argv=None):
     ap.add_argument("--text", help="thư mục matte chữ (mặc định <video>.text/)")
     ap.add_argument("--motion", help="dữ liệu chuyển động bake (mặc định <video>.motion.json)")
     ap.add_argument("--assets", help="danh sách tài sản dùng (mặc định <video>.assets.json)")
+    ap.add_argument("--stems", help="thư mục stem thoại + nền (mặc định <video>.stems/)")
+    ap.add_argument("--parts", help="thư mục mặt nạ bộ phận nhân vật (mặc định <video>.parts/)")
     ap.add_argument("--library", help="thư viện tài sản (mặc định <repo>/assets/LIBRARY.json)")
     ap.add_argument("--repo", default=str(HERE.parent), help="gốc repo (mặc định cha của checks/)")
     ap.add_argument("--out", help="thư mục báo cáo (mặc định <repo>/reports/checks/<tên file>/)")
@@ -59,11 +61,18 @@ def main(argv=None):
     text = Path(a.text) if a.text else sidecar(video, ".text")
     motion = Path(a.motion) if a.motion else sidecar(video, ".motion.json")
     assets = Path(a.assets) if a.assets else sidecar(video, ".assets.json")
+    stems = Path(a.stems) if a.stems else sidecar(video, ".stems")
+    parts = Path(a.parts) if a.parts else sidecar(video, ".parts")
     library = Path(a.library) if a.library else repo / "assets" / "LIBRARY.json"
     only = set(a.only.split(",")) if a.only else None
     prof = a.profile
 
+    from cinecheck.rule_c3 import check_c3
     from cinecheck.rule_g3 import check_g3
+    from cinecheck.rule_g3b import check_g3b
+    from cinecheck.rule_h1b import check_h1b
+    from cinecheck.rule_j1b import check_j1b
+    from cinecheck.rule_p0 import check_p0
     from cinecheck.rule_h1 import check_h1
     from cinecheck.rule_j1 import check_j1
     from cinecheck.rule_o3 import check_o3
@@ -80,15 +89,21 @@ def main(argv=None):
         "N1": lambda: run_rule("N1", check_n1, video, prof),
         "N2": lambda: run_rule("N2", check_n2, video, prof),
         "N3": lambda: run_rule("N3", check_n3, video, prof),
+        "P0": lambda: run_rule("P0", check_p0, video, prof, text),
         "P1": lambda: need("P1", text, f"{video.stem}.text/elements.json", check_p1,
                            probe_file=text and text / "elements.json"),
         "G4": lambda: need("G4", text, f"{video.stem}.text/elements.json", check_g4,
                            probe_file=text and text / "elements.json"),
         "G3": lambda: run_rule("G3", check_g3, video, prof),
+        "G3b": lambda: run_rule("G3b", check_g3b, video, prof),
         "M1": lambda: run_rule("M1", check_m1, video, prof),
         "M3": lambda: run_rule("M3", check_m3, video, prof),
         "J1": lambda: need("J1", script, f"{video.stem}.script.txt", check_j1),
+        "J1b": lambda: need("J1b", stems, f"{video.stem}.stems/ (dialogue.* + stem nền)", check_j1b),
         "H1": lambda: need("H1", motion, f"{video.stem}.motion.json", check_h1),
+        "H1b": lambda: need("H1b", motion, f"{video.stem}.motion.json", check_h1b),
+        "C3": lambda: need("C3", parts, f"{video.stem}.parts/parts.json", check_c3, repo,
+                           probe_file=parts and parts / "parts.json"),
         "O3": lambda: (missing("O3", f"thư viện {library}") if not library.exists() else
                        need("O3", assets, f"{video.stem}.assets.json", check_o3, library, repo)),
     }
@@ -122,6 +137,7 @@ def main(argv=None):
         file=str(video), profile=prof, verdict=verdict,
         lock=dict(expected=lock_want, actual=lock_got, match=lock_want == lock_got),
         inputs=dict(script=str(script) if script else None, text=str(text) if text else None,
+                    stems=str(stems) if stems else None, parts=str(parts) if parts else None,
                     motion=str(motion) if motion else None, assets=str(assets) if assets else None,
                     library=str(library)),
         counts={s: sum(r["status"] == s for r in results) for s in (PASS, FAIL, MISSING, NA, ERROR)},

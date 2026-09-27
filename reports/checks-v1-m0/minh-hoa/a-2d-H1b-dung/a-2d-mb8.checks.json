@@ -1,0 +1,161 @@
+{
+  "tool": "cinecheck 1.0.0",
+  "created_utc": "2026-09-27T01:32:12Z",
+  "file": "/tmp/tmp.rQwW4NUeL8/a-2d-mb8.mp4",
+  "profile": "shot",
+  "verdict": "ĐẠT",
+  "lock": {
+    "expected": "b86c5d75f14abe5cba7b08c58c95c36e0c1fc49f73af030357f9cc95db7268f8",
+    "actual": "b86c5d75f14abe5cba7b08c58c95c36e0c1fc49f73af030357f9cc95db7268f8",
+    "match": true
+  },
+  "inputs": {
+    "script": null,
+    "text": null,
+    "stems": null,
+    "parts": null,
+    "motion": "/tmp/tmp.rQwW4NUeL8/a-2d-mb8.motion.json",
+    "assets": null,
+    "library": "/home/user/cine-lab/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 2,
+    "FAIL": 0,
+    "MISSING": 0,
+    "N/A": 0,
+    "ERROR": 0
+  },
+  "near_threshold": [
+    {
+      "code": "H1b",
+      "metric": "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
+      "value": 91.1,
+      "threshold": 90.0
+    }
+  ],
+  "results": [
+    {
+      "code": "H1",
+      "section": "4.H — Hoạt hình",
+      "title": "Không chuyển động tuyến tính ở bộ phận nhân vật",
+      "level": "Chặn",
+      "measure": "Dữ liệu chuyển động bake theo từng khung xuất từ phần mềm dựng (không phải khoá khai báo). Với mỗi kênh lớp 'character_part': tốc độ = chuẩn hiệu giá trị giữa 2 khung kề; đang chuyển động khi tốc độ > 2% tốc độ lớn nhất của kênh. Đoạn tuyến tính = chuỗi bước liên tiếp có mọi tốc độ trong ±3% trung bình chuỗi, và (a) dài ≥ 8 bước và bắt đầu ngay sau hoặc kết thúc ngay trước một lần đứng yên (khởi/dừng không easing), hoặc (b) dài ≥ 24 bước ở bất kỳ đâu.",
+      "threshold_text": "0 đoạn tuyến tính ở kênh bộ phận nhân vật. Kênh 'mechanical' được miễn nhưng phải có lý do và được liệt kê trong báo cáo.",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "đoạn tuyến tính ở bộ phận nhân vật",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "đoạn",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kênh 'mechanical' thiếu lý do",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "kênh",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kênh có lớp không hợp lệ",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "kênh",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [],
+      "evidence": {
+        "kenh_kiem": 7,
+        "doan_tuyen_tinh": [],
+        "kenh_mien": [
+          {
+            "id": "lamplighter/root.loc",
+            "lop": "character_root",
+            "ly_do": ""
+          }
+        ],
+        "kenh_lop_la": [],
+        "kenh_mechanical_thieu_ly_do": []
+      },
+      "seconds": 0.02
+    },
+    {
+      "code": "H1b",
+      "section": "4.H — Hoạt hình",
+      "title": "Chuyển động khai báo khớp hình render (luồng quang học ở vùng nhân vật)",
+      "level": "Chặn",
+      "measure": "<video>.motion.json phải có 'screen_tracks': toạ độ điểm ảnh từng khung của khớp nhân vật, chiếu từ rig bake qua máy quay render (null khi bị che). Luồng quang học DIS (OpenCV, preset medium, tính ở ≤ 1280 px rộng) giữa khung n và n+1 của file render; tại mỗi điểm lấy trung vị luồng trong đĩa bán kính 4 px. Cặp khung khớp khi |luồng − (p(n+1) − p(n))| ≤ max(1,5 px, 25% độ dài dịch chuyển). Tối đa 480 cặp khung rải đều.",
+      "threshold_text": "Mọi nhân vật có kênh 'character_part' có ≥ 1 screen track; mỗi track khớp ở ≥ 90% cặp khung đo (nội bộ).",
+      "status": "PASS",
+      "metrics": [
+        {
+          "name": "nhân vật có kênh bộ phận nhưng không có screen track",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "nhân vật",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
+          "value": 91.1,
+          "op": ">=",
+          "threshold": 90.0,
+          "unit": "%",
+          "ok": true,
+          "near": true
+        },
+        {
+          "name": "track không đo được cặp khung nào (toàn null/ngoài khung)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "track",
+          "ok": true,
+          "near": false
+        }
+      ],
+      "notes": [
+        "2 track, 168 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
+      ],
+      "evidence": {
+        "theo_track": {
+          "lamplighter/head": {
+            "cap_khung": 168,
+            "khop_pct": 91.1,
+            "epe_trung_vi": 0.34,
+            "lech_lon_nhat": {
+              "khung": 192,
+              "epe": 5.3,
+              "khai": [
+                8.96,
+                -0.5
+              ],
+              "luong": [
+                3.66,
+                -0.57
+              ]
+            }
+          },
+          "lamplighter/chest": {
+            "cap_khung": 168,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.83,
+            "lech_lon_nhat": null
+          }
+        },
+        "nhan_vat_thieu_track": []
+      },
+      "seconds": 11.49
+    }
+  ]
+}

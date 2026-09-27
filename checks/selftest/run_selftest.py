@@ -386,16 +386,38 @@ def cases(d):
         return check_o3(None, "shot", man, repo / "assets/LIBRARY.json", repo)
     add("O3", "tài sản khớp SHA thư viện", PASS, lambda: o3(False))
     add("O3", "tài sản bị sửa sau khoá + vẽ lại ngoài thư viện", FAIL, lambda: o3(True))
+    import cases_v1  # luật mới v1: P0, G3b, J1b, H1b, C3
+    C += cases_v1.cases(d)
     return C
 
 
 def e2e(d):
     """Mẫu tổng hợp sạch 1080p24 8 giây, master YouTube, chạy qua lệnh duy nhất run.py."""
+    import cases_v1 as v1
     name = "e2e_clean"
     size = (1920, 1080)
-    mix = master(dialogue_mix(False), -14.0)
+    dia, bed = v1.dialogue_stems(False)
+    g = 10 ** ((-14.0 - pyloudnorm.Meter(SR).integrated_loudness(dia + bed)) / 20)
+    dia, bed = dia * g, bed * g
+    mix = v1.peak_limiter(dia + bed, -3.0)
     n = int(np.ceil(len(mix) / SR * 24))
     a = d / f"{name}.wav"; write_wav(a, mix)
+    sd = d / f"{name}.stems"; sd.mkdir()
+    write_wav(sd / "dialogue.wav", dia); write_wav(sd / "me.wav", bed)
+    fig, fmasks = v1.figure(150, size=size, cx=1500)
+    fa = np.stack([fmasks[k] for k in fmasks]).any(0)
+    pd = d / f"{name}.parts"; (pd / "m").mkdir(parents=True)
+    json.dump(v1.SHEET, open(pd / "sheet.json", "w"))
+    for k, m in fmasks.items():
+        Image.fromarray((m * 255).astype(np.uint8)).save(pd / "m" / f"{k}.png")
+    json.dump({"model_sheet": "sheet.json", "scale": 1,
+               "frames": {str(i): {k: f"m/{k}.png" for k in fmasks} for i in range(0, n, 12)}},
+              open(pd / "parts.json", "w"))
+    path = v1.h1b_path(n) * np.array([1.2, 1.0]) + np.array([-40, 380])
+    yy_, xx_ = np.mgrid[-28:29, -28:29]
+    disc = (xx_ ** 2 + yy_ ** 2) <= 28 ** 2
+    chk = (((xx_ + 28) // 7 + (yy_ + 28) // 7) % 2).astype(np.float32)
+    tex = np.stack([230 * chk + 20, 60 + 0 * chk, 40 + 180 * (1 - chk)], -1)
     rng = np.random.default_rng(11)
     yy = np.linspace(0, 1, size[1])[:, None, None]
     base = (np.array([14, 20, 38]) + yy * np.array([20, 18, 30]))
@@ -408,18 +430,26 @@ def e2e(d):
         dict(id="sub", first_frame=48, last_frame=n - 1, matte="sub.png")]}))
     frames = []
     for i in range(n):
-        f = np.broadcast_to(base, (size[1], size[0], 3)) + rng.normal(0, 1.2, (size[1], size[0], 1))
+        f = np.broadcast_to(base, (size[1], size[0], 3)).copy()
+        f[fa] = fig[fa]
+        xi, yi = (int(round(c)) for c in path[i])
+        f[yi - 28:yi + 29, xi - 28:xi + 29][disc] = tex[disc]
+        f = f + rng.normal(0, 2.0, (size[1], size[0], 1))
         im = Image.fromarray(np.clip(np.round(f), 0, 255).astype(np.uint8)).convert("RGBA")
         im = Image.alpha_composite(im, title if i < 48 else sub)
         frames.append(np.asarray(im.convert("RGB")))
     v = d / f"{name}.mp4"
-    vb = "14M"
+    vb = "40M"  # grain σ 2 cần bitrate cao; ở 14 Mbps x264 làm grain dao động theo khung I/P/B (G3b bắt)
     encode_rgb(frames, v, audio=a, vcodec=["-c:v", "libx264", "-profile:v", "high", "-preset", "veryfast",
                                            "-b:v", vb, "-minrate", vb, "-maxrate", vb, "-bufsize", vb,
                                            "-x264-params", "nal-hrd=cbr", "-tune", "grain"],
                extra=["-c:a", "aac", "-b:a", "384k", "-ar", SR, "-shortest"])
     shutil.copy(FIX / "speech_en.script.txt", d / f"{name}.script.txt")
     motion_json(d / f"{name}.motion.json")
+    mj = json.loads((d / f"{name}.motion.json").read_text())
+    mj["screen_tracks"] = [{"id": "hero/hand_R", "first_frame": 0,
+                            "values": [[round(float(x), 2), round(float(y), 2)] for x, y in np.round(path)]}]
+    (d / f"{name}.motion.json").write_text(json.dumps(mj))
     repo, man = asset_repo(d, False, "_e2e")
     shutil.copy(man, d / f"{name}.assets.json")
     out = d / "e2e_report"
