@@ -159,3 +159,68 @@ Thử nhanh ngoài hàng đợi: 50 thư mục thử (`/var/tmp/cine-out/W3/q`, 
 ## 10. Việc đang chờ
 - **P:** chọn lọn tóc 'temple'/'long'; nếu 'temple' thì cập nhật `c3_views` và khoá SHA; gửi 3 ảnh biểu cảm + ảnh s39 (sau khi W2 gắn facelight) cho kiểm mù lần 4; báo W2 API facelight.
 - **Chủ dự án:** duyệt hình cổ áo mới (mép cong theo hàm, nếp, lót tối) và cách dùng phơi sáng không cháy da cho cận mặt; câu chữ bible v1.4 (mục 5.3); ghi `AUTHORSHIP.md`.
+
+---
+
+# A3 — dựng lại nửa dưới mặt (sau kiểm mù lần 4 TRƯỢT tiêu chí "mặt nạ/búp bê")
+
+Căn cứ: `reports/m2/cong5/kiem-mu-mat/lan4.md` (h5, r2, t8: tuổi/giới/cảm xúc đạt; "mặt nạ/búp bê" 3/3). Chỉ đạo chủ dự án qua P: A3, không hạ tiêu chí, sau A3 chỉ 1 lần kiểm mù (3 ảnh dưới + khung s39 của layout).
+Đã merge `claude/cine-lab-m2-cong5-layout-24o5fp` (187d4ca, không xung đột). **Đính chính nhỏ cho biên bản lần 4:** ảnh A1 lần 4 ĐÃ dùng facelight `gas` + `expose:"auto"` (xem `design/cong5/mat/run_mat.sh`), nhưng vẫn là khung thử `face_ida` với đèn khí sát mặt và quầng sáng lớp vẽ mặc định — nên nhận xét "tự phát sáng" vẫn đúng. A3 đổi hẳn sang khung phim thật (mục A3.3).
+
+## A3.1 Ảnh (1920×1080, 3 mẫu)
+PNG (không commit): `design/cong5/mat/a3/{neutral,sad_smile,choked,nghieng}/face_ida.png`. JPEG: `reports/m2/cong5/w3/a3_{neutral,sad_smile,choked,nghieng}.jpg` (122–156 KB), `a3_so-sanh_lan4-tren_a3-duoi.jpg`, `a3_so-sanh_nghieng_s31.jpg` (s31 animatic v2 | s31 layout với đầu A3 | ảnh nghiêng A3).
+Lệnh: `bash design/cong5/mat/run_a3.sh design/cong5/mat/a3` — dựng **đúng shot s37 của layout** (bộ cuối phố, Ida trên thang ở L11, faceCam 85 mm, khung giữa shot f 2350) qua `design/cong5/mat/page_layout_fl.js`, chỉ ghi đè biểu cảm Ida; ảnh nghiêng = cùng khung, máy lệch 80°.
+
+## A3.2 Thay đổi theo 4 nhóm lời chê
+| Lời chê lần 4 | Thay đổi (file / chỗ) | Làm được? |
+|---|---|---|
+| **1. Mặt trứng úp ngược, cằm nhọn, hàm/má không khối, da sáp, nếp như vẽ** | `cast3d.js` `headSDF` nhánh `LOWER_FACE === 'a3'` (hằng `IDA_LOWER_FACE = 'a3'`, `opts.lowerFace` ghi đè; `'a1'` = bản cũ): xương hàm dưới (cành đứng + thân hàm, góc hàm), khối cơ nhai lấp thung lũng gò má–hàm, cằm rộng bo vuông + hõm môi–cằm, má xệ nhẹ dọc đường hàm, đệm mỡ má sát rãnh mũi–má (rãnh là ranh giới KHỐI). Hàm dưới rộng hơn cằm. Đã thử và bỏ: khối dưới cằm (đọc thành cằm đôi/cột cổ), hõm dưới gò má (đọc thành vết bầm). **Biến dạng** (`exprDisp`, nhánh A3): cười buồn — đệm má dồn lên–ra (+0,016/+0,014 H), má xệ nhấc; nghẹn — ụ cằm đẩy lên–ra, môi dưới bĩu, cơ hạ khoé kéo da dưới khoé xuống. **Da:** `facepaint.js` `paintBump` — bản đồ cao độ cùng vị trí nét nhăn (trán, chân chim, dưới mắt, mí, rãnh mũi–má, khoé miệng, dọc môi trên, cằm "da cam" khi nghẹn) + ~9 000 lỗ chân lông/gợn; gắn `bumpMap` (bumpScale 1,2) cho da mặt Ida A3; má hồng nhạt/rộng hơn | Có (hình học + biến dạng + cao độ da). Lưu ý bible C′ ghi "không khắc nếp nhăn vào hình học": A3 **không khắc rãnh**, chỉ thêm khối (xương, mô mềm); nếp nhăn vẫn là nét vẽ, nay có cao độ bump — cần chủ dự án xác nhận cách hiểu này |
+| **2. Không thấy cổ, cằm cắm vào cổ áo, mép "lượn sóng như cao su"** | Cổ áo nhánh A3 (`A3C`): mép thấp hơn (hai bên tL + 0,40 thay 0,50; trước ≈ ngay dưới cằm, khe SDF 0,015–0,05 H theo hướng) → dải bóng dưới đường hàm và một đoạn cổ ngắn lộ ra; trọng số theo đầu 0,75; **bỏ gợn sin**, thay 8 nếp GÃY hình chữ V thưa (dạ dày), mép cuộn dày 0,026 × 0,021 H. Cổ da trở lại màu da (0,82–0,96), bóng dưới hàm đậm hơn (che khuất 45 %) | Một phần: có khe bóng + đoạn cổ ngắn; **không** mở cổ dài hơn vì cổ sheet 0,30 H mảnh so với hàm A3 → lộ nhiều đọc thành "đầu to trên que" (đã thử, bỏ). Nếp gãy thấy rõ ở góc nghiêng, ít thấy ở chính diện |
+| **3. Mặt sáng rực như tự phát sáng** | Ảnh thử chiếu sáng **như phim**: shot s37 thật + `facelight.js` 'gas' + `fl.exposure()` + **quầng sáng lớp vẽ thấp** `FACE_PAINT = { halation: 0.04, bloomWide: 0.02 }` (mới, xuất từ `facelight.js`; quầng cam dưới vành mũ là nguồn chính của cảm giác "tự phát sáng"). Số đo khung mặt → cả khung: trung vị độ sáng **cả khung 0,019 (lần 4) → 0,154**; mặt 0,49 → 0,31; tỷ lệ mặt/cả khung ≈ **26× → 2×**; điểm ảnh cháy trong mặt 2,0–2,2 % → **0 %** | Có một phần. **Vành mũ đổ bóng lên trán: KHÔNG làm được trong s37 hiện tại** — ngọn L11 ngang tầm mắt, mũ đã đẩy ra sau (quyết định C4), ánh sáng luồn dưới vành. Đã thử bật bóng đèn khí: mặt không đổi đáng kể nhưng in bóng đầu khổng lồ lên tường sau (ám xanh do grade) → không dùng. Thử hạ Ida 0,2 m: tay đèn cắt ngang khung → không dùng. Xem đề xuất A3.5 |
+| **4. Tai không thấy; khuyên "dính má"; tóc mảng dẹt; mắt lệch** | Tai Ida vểnh 0,36 rad (0,18 cũ) → thấy mép tai từ chính diện; khuyên: nụ trên dái tai + móc mảnh + giọt thả tự do dưới dái (không đổ bóng — bóng giọt in vết tròn tối trên má); lọn tóc thái dương = bó 5 sợi tròn mảnh tách nhau (thay dải dẹt); `EXPR.asym` giảm một nửa (cười buồn 0,3→0,15, nghẹn 0,2→0,1, gắng 0,15→0,1) | Tai, khuyên, lọn tóc, lệch biểu cảm: **làm được**. Mũ tóc chính (mảng tóc dưới mũ) vẫn là khối liền có rãnh sợi — **không làm** trong A3 (cần dựng lại tóc) |
+
+## A3.3 Đề xuất cho W2/P để phim khớp ảnh thử (W3 không sửa file của họ)
+- s36/s37: `const fl = createFaceLight(st.scene, { mode: 'gas' })`, gọi `fl.update(ida, cam)` sau `ctl.update`, `exposure: () => fl.exposure()`, `paintP: { ...PAINT_CLOSE, ...FACE_PAINT }`.
+- s39: như trên với `mode: 'elec'`, `keyE: st.whiteHemi.intensity`.
+- Không bật bóng L11 trong faceShot (giữ `shadowLamps: []`).
+
+## A3.4 B1 (8 góc, `b1_measure.py`, sau A3 — đầu A3, lọn 'temple', tai vểnh, cổ áo A3)
+| Góc | Sheet v1.3 (thân / tay trên / cẳng tay / cẳng chân) | A3 | Lệch thân |
+|---|---|---|---|
+| **0°** | 2,667 / 1,600 / 0,994 / 0,293 | **2,589 / 1,553 / 0,964 / 0,284** | **−2,9 %** |
+| 45° | 2,314 / 1,483 / 0,914 / 0,282 | 2,235 / 1,432 / 0,883 / 0,272 | −3,4 % |
+| −45° | 2,315 / 1,466 / 1,299 / 0,282 | 2,233 / 1,414 / 1,253 / 0,272 | −3,5 % |
+| 90° | 2,137 | 2,140 | +0,1 % |
+| −90° | 2,153 / 1,408 / 1,009 / 0,275 | 2,154 / 1,407 / 1,009 / 0,275 | 0,0 % |
+| 135° | 2,386 / 1,465 / 0,825 / 0,272 | 2,355 / 1,446 / 0,814 / 0,269 | −1,3 % |
+| −135° | 2,354 / 1,455 / 1,087 / 0,270 | 2,324 / 1,436 / 1,072 / 0,267 | −1,3 % |
+| 180° | 2,510 / 1,578 / 1,193 / 0,284 | 2,452 / 1,540 / 1,164 / 0,277 | −2,3 % |
+Cas: không đổi. Nguyên nhân: đầu nhìn thấy dài hơn (hàm rộng, tai vểnh, lọn tóc không che mép) — đầu 0° 435,7 → 448,9 px, 45° 470 → 489 px. **Chỉ số trong ±5 % quanh ngưỡng 3 % của C3:** 0°, ±45°, 180° lệch 2,3–3,5 % → P cần cập nhật `c3_views` (P đã nói sẽ đo lại một lần sau A3; số trên sẵn để dùng).
+
+## A3.5 Việc cần P/chủ dự án quyết
+1. **Bóng vành mũ lên trán** (lời chê r2): cần đổi layout s37 (hạ Ida so với ngọn L11 và dời tay đèn khỏi khung) hoặc kéo vành mũ xuống trước câu thoại (đụng quyết định C4 "đẩy mũ ra sau"). W3 không tự quyết.
+2. Áp `FACE_PAINT` + `fl.exposure()` cho s36/s37/s39 (đổi độ sáng khung và cảm giác lớp vẽ ở cận mặt).
+3. Cách hiểu C′ với A3 (khối xương/mô mềm thật + nếp nhăn có cao độ bump, không khắc rãnh) — ghi AUTHORSHIP nếu duyệt; bible v1.4: "hàm dưới rộng hơn cằm, má xệ nhẹ; tai lộ; khuyên treo".
+4. `c3_views` mới (A3.4).
+
+## A3.6 Tự rà theo 4 nhóm lời chê (không phải kiểm mù)
+| Nhóm | Tự đánh giá | Còn lại / rủi ro |
+|---|---|---|
+| 1 Mặt/hàm/da | Hàm, góc hàm, cằm, má có khối và bóng khối thật; rãnh mũi–má sâu lên khi cười; cằm co khi nghẹn; da có gợn, nếp có rãnh | Mặt đầy/tròn hơn — có thể đọc "mặt to"; **một mảng bóng xám mềm ở má phải (trái khung)** là bóng khối thật nhưng có thể vẫn bị đọc là vết bầm; nếp dưới mắt vẽ hình chữ V (từ trước) có thể đọc lạ |
+| 2 Cổ/cổ áo | Có khe bóng dưới hàm, đoạn cổ ngắn, mép cổ áo dày, không gợn | Chính diện: cổ áo là một đai trơn (nếp gãy chỉ thấy ở góc nghiêng) |
+| 3 Ánh sáng | Không còn quầng cam, không cháy, cảnh quanh đọc được (tỷ lệ mặt/khung ~2×) | Mặt vẫn sáng nhất khung (đúng nguồn); **không có bóng vành mũ trên trán** |
+| 4 Tai/khuyên/tóc/mắt | Tai thấy từ chính diện, khuyên treo, lọn tóc là sợi, biểu cảm cân hơn | Tóc chính dưới mũ vẫn là khối liền |
+
+## A3.7 Thời gian thật (hàng đợi `/var/tmp/cine-queue/log.tsv`; `design/cong5/mat/a3/thoi-gian.txt`)
+| Việc | Chờ (s) | Chạy (s) |
+|---|---|---|
+| mat-a3 lần 1 (có bóng L11): neutral / sad_smile / choked / nghieng | 0 / 0 / 0 / 0 | 21,8 / 21,7 / 22,4 / 23,8 |
+| b1-a3-8goc | 0 | 277,6 |
+| **mat-a3 lần 2 (bản nộp)**: neutral / sad_smile / choked / nghieng | **1 009,7 / 1 955,7 / 486,8 / 447,3** (xếp sau W1/W2 canh1–6) | **18,6 / 18,6 / 18,3 / 20,3** |
+Chạy thật mỗi ảnh ≈ 18–20 s; tổng thời gian tường lần 2 ≈ 66 phút, gần hết là chờ khoá (khoá `flock` không theo thứ tự đến trước — việc W1/W2 xếp sau vẫn chen trước; P nên biết khi lập lịch). Thử nhanh ngoài hàng đợi (960×540, 1 mẫu, ≤ 12 s): khoảng 35 lần (studio `dev_page`, khung s37, s31/s39 probe).
+
+## A3.8 Số lần làm lại
+Hình đầu: 6 vòng (khối đầu → giảm cục → bỏ khối dưới cằm → hõm môi–cằm, thu má xệ/cằm → dời đệm má → thêm khối cơ nhai). Cổ áo: 4 vòng. Ánh sáng: 5 thử (bóng L11, hạ Ida, giới hạn tầm bóng — hỏng, quầng sáng, K = 3). Ảnh nộp: 2 lần render (lần 1 có bóng L11 → vết tròn do bóng khuyên trên má + bóng đầu lớn trên tường).
+
+## A3.9 File
+Sửa: `design/cong3/v2/char3d/cast3d.js` (A3: `IDA_LOWER_FACE`, hình đầu, biến dạng, cổ áo `A3C`, cổ, tai, khuyên, lọn tóc bó sợi, bump), `design/cong3/v2/char3d/facepaint.js` (`paintBump`, `EXPR.asym`, má hồng A3), `design/cong5/layout/facelight.js` (`FACE_PAINT`), `design/cong5/mat/page_layout_fl.js` (ghi đè biểu cảm, `charOpts`, `cam`, `K`, `paint`, `shadowKey`, `idaDy`, `hide` — chỉ để thử). Thêm: `design/cong5/mat/run_a3.sh`, `a3/*/face_ida.timing.json`, `a3/thoi-gian.txt`, JPEG A3. Không sửa `PLAN.md`, `bible/`, `ida.json`, `checks/`. `RIGHTS.md`: không có tài sản mới.
