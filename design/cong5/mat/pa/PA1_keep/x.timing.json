@@ -1,0 +1,24 @@
+{
+ "page": "cong5/mat/page_pa.js",
+ "frame": "x",
+ "W": 1920,
+ "H": 1080,
+ "samples": 3,
+ "frames": 1,
+ "setup_s": 2.366,
+ "render_frame_s": 26.769,
+ "page_reported_accum_ms": 2448.800000000745,
+ "page_prof_ms": {
+  "T": 105,
+  "f": 2520,
+  "exposure": 0.2861,
+  "cam": [
+   7.22,
+   2.96,
+   -3.81
+  ]
+ },
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 29.972,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

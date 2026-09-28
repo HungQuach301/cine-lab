@@ -1,6 +1,7 @@
 // W3 (Cổng 5) — trang THỬ facelight.js trên shot layout thật (không sửa file của P/W1/W2). Driver: design/cong5/mat/still.js.
 // --args {"shot":"s37","f":<khung phim toàn cục, mặc định giữa shot>,"fl":{"mode":"gas"|"lantern"|"elec", ...},"keyE":<số, tuỳ chọn>,"expose":"auto"|số,
 //         "expr":<biểu cảm Ida ghi đè>, "charOpts":{…ghi đè opts nhân vật Ida}, "shadowKey":1 (đèn khí gần mặt đổ bóng: vành mũ lên trán),
+//         "face":{kênh rig A-i: trọng số}, "vis":<khẩu hình A|E|O|MBP|FV|L>, "track":[{kênh…} theo khung — clip: khung thứ i dùng track[i], f = f0 + i],
 //         "cam":{"yaw":…,"dist":…,"y":…} (faceCam của common.js, vd. mặt nghiêng yaw −80), "K":<hệ số phơi sáng facelight>, "idaDy":<m, dời Ida theo chiều đứng — chỉ để thử đề xuất bố cục>, "hide":<part>, "hairColor":"#rrggbb"}
 // Dựng shot đúng như design/cong5/layout/page.js (cùng grade, lớp vẽ), rồi gắn facelight lên Ida sau mỗi update(). Không có "fl" = như layout hiện tại.
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
@@ -50,8 +51,11 @@ window.setup = async (c) => {
   u.gCanvas.value = g.gCanvas; u.gVig.value = g.gVig; u.gLift.value = g.gLift; u.gSat.value = g.gSat; u.gShadowTint.value.set(...g.gShadowTint); u.gHiTint.value.set(...g.gHiTint);
 };
 window.renderFrame = async (name, samples) => {
-  const f = cfg.f ?? Math.round((shot.t0 + shot.t1) / 2 * 24), T = f / 24, t = T - shot.t0;
+  const i = /^\d+$/.test(String(name)) ? +name : 0;
+  const f = (cfg.f ?? Math.round((shot.t0 + shot.t1) / 2 * 24)) + (cfg.track ? i : 0), T = f / 24, t = T - shot.t0;
   cur.update(t, T, f);
+  { const ida = cur.named.ida; if (ida.setFace && (cfg.face || cfg.vis || cfg.track)) { const R = await import('/cong3/v2/char3d/facerig.js');   // A-i: rig mặt
+      ida.setFace(R.mixW(R.FACE_PRESETS[cfg.expr] || {}, cfg.face || {}, R.VISEMES[cfg.vis] || {}, cfg.track ? cfg.track[Math.min(i, cfg.track.length - 1)] : {})); info.face = 1; } }
   if (cfg.idaDy) { const r = cur.named.ida.root; r.position.y += cfg.idaDy; r.updateMatrixWorld(true); cur.cam.position.y += cfg.idaDy; cur.cam.updateMatrixWorld(true); info.idaDy = cfg.idaDy; }   // thử: hạ Ida so với ngọn lửa (đề xuất cho W2)
   if (cfg.shadowKey && !info.shadowKey) { const ida = cur.named.ida; ida.root.updateMatrixWorld(true); const hp = new THREE.Vector3(); ida.joints.head.getWorldPosition(hp); let best = null, bd = 1e9;
     cur.scene.traverse((L) => { if (L.isPointLight && !L.userData.faceLight) { const d = L.position.distanceTo(hp); if (d < bd) { bd = d; best = L; } } });   // đèn điểm gần đầu nhất (khung đầu tiên sẽ cập nhật vị trí)
