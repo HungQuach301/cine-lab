@@ -1,6 +1,6 @@
 # CỬA MẶT IDA — A-i: KẾT QUẢ 2 VÒNG KIỂM MÙ VÀ 3 PHƯƠNG ÁN DÀN DỰNG LẠI 1:32–1:48
 
-Nhánh: `claude/cine-lab-m2-cong5-layout-24o5fp` (merge W3 @e2394c5). Ngày 28/09/2026.
+Nhánh: `claude/cine-lab-m2-cong5-layout-24o5fp` (merge W3 @e2394c5; mặc định 'aa' ở commit sau đó). Ngày 28/09/2026.
 - Quyết định gốc: AUTHORSHIP "Cổng 5 v2 — quyết định", dòng A: A-i.
 - Mã A-i nằm trong `design/cong3/v2/char3d/facerig.js`. `IDA_STYLE` mặc định là `'aa'`, nên layout đã đóng giữ nguyên A-α (characters v1.4). P đã render dò s02, s37, s39 trước và sau khi merge: lệch 0 px.
 - **Cổng 6 vẫn khoá** tới khi chủ dự án chọn lời giải.
