@@ -224,3 +224,25 @@ Hình đầu: 6 vòng (khối đầu → giảm cục → bỏ khối dưới c�
 
 ## A3.9 File
 Sửa: `design/cong3/v2/char3d/cast3d.js` (A3: `IDA_LOWER_FACE`, hình đầu, biến dạng, cổ áo `A3C`, cổ, tai, khuyên, lọn tóc bó sợi, bump), `design/cong3/v2/char3d/facepaint.js` (`paintBump`, `EXPR.asym`, má hồng A3), `design/cong5/layout/facelight.js` (`FACE_PAINT`), `design/cong5/mat/page_layout_fl.js` (ghi đè biểu cảm, `charOpts`, `cam`, `K`, `paint`, `shadowKey`, `idaDy`, `hide` — chỉ để thử). Thêm: `design/cong5/mat/run_a3.sh`, `a3/*/face_ida.timing.json`, `a3/thoi-gian.txt`, JPEG A3. Không sửa `PLAN.md`, `bible/`, `ida.json`, `checks/`. `RIGHTS.md`: không có tài sản mới.
+
+---
+
+# A-α — cách điệu mặt–cổ (quyết định chủ dự án sau Cổng 5; A3 không dùng, lưu ở `a3-ma-nguon.patch`)
+
+Làm theo từng bước; cuối mỗi bước 1 ảnh `neutral` (khung phim thật s37), P kiểm mù rồi gửi lại. Worktree đã `reset --hard` về nhánh tích hợp @633a217 (có A1 + layout + facelight trong s36/s37/s39 của W2 + làn nhanh hàng đợi).
+Công tắc: `IDA_STYLE = 'aa'` đầu `cast3d.js` (`opts.idaStyle: 'a1'` = bản A1 để so sánh).
+
+## Bước 1 — cổ lộ, cổ áo bẻ thấp mở, khăn thấp, tỷ lệ sọ–mũ
+Ảnh: `design/cong5/mat/aa/buoc1/neutral/face_ida.png` (JPEG: `reports/m2/cong5/w3/aa_buoc1_neutral.jpg`). Lệnh: `bash design/cong5/mat/run_aa.sh design/cong5/mat/aa/buoc1 neutral` — dựng đúng shot s37 như layout (facelight 'gas' × EK 2,0, PAINT_CLOSE của W2), chỉ ghi đè biểu cảm; không thêm đèn.
+
+| Mục | Thay đổi (file / chỗ) |
+|---|---|
+| Cổ lộ thật | `ida.json` (thử trong worktree): **`parts.neck.width_front` 0,30 → 0,46 H** (0,40 vẫn đọc "que" dưới đầu rộng 0,78 H). `cast3d.js` cổ: chân cổ loe ra vai (cơ thang, +0,07 H), gân cổ nhẹ hơn, bỏ lệch trước 0,03 H; màu đỉnh theo độ cao thật: tối sát dưới hàm (bóng hàm, 0,36) sáng dần xuống chân cổ (0,96). Mặt dưới hàm tối hơn (che khuất 0,50). Độ dài cổ giữ 0,30 H |
+| Cổ áo thấp, mở | Bỏ cổ áo đứng (nhánh A1 giữ nguyên để so sánh). Cổ áo **bẻ nằm rạp trên vai**: bám mặt thân áo (SDF thân), bán kính trong 0,235 → ngoài 0,43 H, mép trong dựng nhẹ quanh chân cổ, **mở chữ V trước ±0,42 rad**, hai lớp dạ (mặt + lót) + mép ngoài cuộn dày; không theo khớp đầu |
+| Khăn thấp | Hai vòng khăn hạ xuống chân cổ, lỏng hơn: (tL + 0,03, r 0,31) và (tL + 0,11, r 0,29), trước thấp hơn sau — che chỗ nối cổ–thân; đuôi và nút giữ nguyên |
+| Sọ–mũ | Mũ **ngồi thấp ôm đầu**: gốc mũ 0,86 → **0,80 H** (quanh vòng đầu rộng nhất), miệng mũ 0,56 → **0,52 × bề rộng đầu** (vừa đầu + tóc), vành trước cụp ít hơn (0,13 → 0,05) để không che mắt khi mũ không đẩy. Búi tóc giờ nằm ngay dưới vành sau (đỡ mũ). **Trán sát vành tối dần** (che khuất bởi vành, 0,38 ở y 0,70–0,80 H) |
+| Ánh sáng | `facelight.js` 'gas': under 0,12 → **0,04** (dội từ dưới từng xoá bóng hàm trên cổ) |
+
+Tự rà: cổ đọc là cổ (có bóng hàm, loe ra vai), khăn không còn quấn tới cằm, mũ ôm đầu và búi đỡ dưới vành; ở s05 (đèn khí phía trên) vành mũ **đổ bóng thật lên trán**. Còn lại: ở s37 ngọn L11 ngang tầm mắt và shot không bật bóng (file W2) → vành không đổ bóng thật, chỉ có tối che khuất; mặt vẫn sáng nhất khung (phơi sáng của shot × 2,0); mặt, da, tóc chưa đổi (bước 2).
+Thời gian (làn nhanh, chờ 0 s): 4 lần render (31,6 / 35,4 / 36,9 / 32,8 s) — làm lại 3 lần (under-fill, bóng dưới hàm, thang màu cổ đặt sai chỗ trong đầu). Thử nhanh ngoài hàng đợi ~14 lần (960×540, 1 mẫu).
+Chờ P: kiểm mù ảnh bước 1.
