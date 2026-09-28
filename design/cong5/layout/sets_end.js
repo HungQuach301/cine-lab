@@ -1,33 +1,42 @@
 // Cine Lab · Cổng 5 LAYOUT — CUỐI PHỐ OSTLER (V3). GÓI W2 giữ file này. W1 dùng qua buildStreetSet (x0 < 0) của sets.js, không sửa.
 // Lỗi V3 (chủ dự án): cuối phố là một tường trống (0:52 s23, 1:04 s27, 1:40 s37w). Bản này dựng CUỐI PHỐ có chiều sâu, không đổi luật thế giới:
-//   • nhà kho tường vôi (luật mục 1) — mặt dài có gờ mái, mái ngói đá đen, hai chòi thông gió trên nóc, cửa kéo hàng tầng trên + xà tời,
-//     cửa sổ cao có song; HỐC CỬA BỐC HÀNG hình vòm sâu 4 m ngay trên mặt tường (gieo cho cảnh 5);
-//   • GÓC NHÀ: mặt tường dừng ở một góc có thật; sau góc, một NGÕ CONG rẽ trái (phố cong — luật mục 1), hai dãy nhà theo cung;
-//   • hậu cảnh NHIỀU LỚP: 5 dải mái nhà xa (35–230 m) có ống khói, vài ô cửa sổ; giữa các lớp là SƯƠNG sáng lạnh của các phố đã bật điện
-//     (thành phố đã trắng sau 0:34 — luật mục 1 "sóng trắng"), nên mỗi lớp mái in bóng trên một lớp sương sáng hơn → chiều sâu không khí.
-// Không nguồn sáng mới nào chiếu lên nhân vật: sương là sprite cộng (không chiếu sáng), cửa sổ tự phát sáng yếu; ánh sáng cảnh giữ nguyên.
+//   • NHÀ KHO tường vôi hình chữ L (luật mục 1): MẶT CUỐI PHỐ (x = −5, chắn cuối phố) + HÔNG NAM chạy dọc phía bắc đoạn cuối phố (z = −8,1,
+//     lùi 2,5 m sau mặt tiền dãy bắc) = TƯỜNG CHIM (cảnh 4) có HỐC CỬA BỐC HÀNG vòm sâu 4 m (cảnh 5). Gờ mái + máng nước, mái ngói đá đen,
+//     chòi thông gió trên nóc, cửa kéo hàng tầng trên + xà tời, cửa sổ cao có song, ống thoát nước, gờ chân tường;
+//   • GÓC NGỌN 11: L11 (8; −3,9) đứng trước hông nhà kho, lùi 7 m sau góc căn nhà đầu dãy bắc (x = 15) — ngoài vũng sáng cột điện phố chính (luật v0.4);
+//   • PHỐ RẼ TRÁI: ở góc nam mặt cuối phố (z = +2), phố rẽ sang trái khung (về +z), CONG và DỐC XUỐNG (5 %), hai dãy nhà theo cung;
+//   • hậu cảnh NHIỀU LỚP: dải mái nhà xa (35–230 m) sau nhà kho và cuối phố rẽ, ống khói, vài ô cửa; SƯƠNG sáng lạnh sát mặt phố giữa các lớp
+//     (sprite cộng, không chiếu sáng, KHÔNG làm sáng trời — luật v0.4 "Đêm").
+// Không nguồn sáng mới nào chiếu lên nhân vật; ánh sáng cảnh giữ nguyên.
 //
-// HỆ TOẠ ĐỘ "NHÀ KHO" (cục bộ): mặt tường ở z = 0, nhìn ra +z; x chạy dọc mặt tường, +x = PHẢI màn hình khi đứng nhìn vào tường.
-// Góc nhà ở x = xL (trái); ngõ cong nằm sau góc (x < xL, đi về −z rồi rẽ trái về −x); hậu cảnh ở −z (sau nhà kho).
+// HỆ "TƯỜNG CHIM" (wall frame — cũng là hệ của bộ tường chim sets2.buildWallSet): hông nhà kho ở z = 0 nhìn +z (nam); x_w = x − 10,2; z_w = z + 8,1
+// (x, z: thế giới bộ phố). +x_w = PHẢI màn hình khi đứng nhìn vào tường chim. Trong hệ này: Cas (0,15; 0,95), L11 (−2,2; 4,2) — đúng bố cục b_cas_bird.
+// HỆ "NHÀ KHO" cục bộ của buildWarehouse: mặt tường z = 0 nhìn +z, x dọc tường.
 //
-// API (W1 dùng cho s23 qua buildStreetSet; W2 dùng cho bộ tường chim, bộ hốc cửa):
-//   buildStreetEnd(scene, o)            — gọi tự động bởi sets.js khi x0 < 0. Đặt nhà kho tại x = END.FACE_X (bộ phố), mặt nhìn +x.
-//                                          o: { sky, x0, x1, matC, FT, winKind, emit, houses } (sets.js truyền). Tuỳ chọn thêm:
-//                                          o.endOpts = { corner, bayX, far: true|false, fogGlow: 0…2 } (mặc định END).
-//                                          Trả endInfo = { group, warehouse, bayWorld: {x, z}, cornerWorld: {x, z}, toWorld(v) }.
-//   buildWarehouse(parent, kit, w)      — nhà kho ở hệ cục bộ. w = { xL, xR, H, bayX, bayHalf, spring, depth, faceMat, roof: true, bay: true }.
-//   buildLane(parent, kit, l)           — ngõ cong sau góc. l = { xL, W, R, seed }.
-//   buildFarCity(parent, l)             — 5 lớp mái xa + sương. l = { zs, span, seed, glow, winK }.
-//   makeKit(houses, { night })          — bộ vật liệu mặt tiền/cửa sổ như sets.js (cho các bộ không qua buildStreetSet).
+// ĐỊA LÝ CHỐT (thế giới bộ phố):
+//   mặt cuối phố x = −5, từ góc nam z = +2 tới góc trong z = −8,1; hông nam z = −8,1, từ x = −5 tới x = 15 (giáp đầu hồi căn đầu dãy bắc);
+//   dãy nhà bắc bắt đầu x = 15 (houseX0N); dãy nam giữ −4; sân trước hông (x −5 … 15, z −8,1 … −5,6) lát đá;
+//   Cas làm chim ở casSpot (10,35; −7,15): cách tường 0,95 m, cách L11 4,0 m; L11 cách tường 4,2 m;
+//   hốc cửa: tâm x = 2,2 (rộng 3,2 m, sâu 4 m) — cách chỗ Cas 8,15 m về bên TRÁI (nhìn vào tường), "a few steps along the wall".
+//
+// API:
+//   buildStreetEnd(scene, o)  — sets.js gọi khi x0 < 0 (TRƯỚC khi dựng hai dãy nhà). o: { sky, x0, x1, matC, FT, winKind, emit, houses, endOpts }.
+//       endOpts (tuỳ chọn) = { far: true|false, fogGlow: 0…2 }. Trả endInfo = { group, houseX0N, houseX0S, casSpot: [x, z], bayWorld: {x, z},
+//       cornerWorld: {x, z}, faceX, flankZ, toWorld(v_w) (hệ tường chim → thế giới) }.
+//   buildEndWallFrame(W, kit, o) — toàn bộ cuối phố trong hệ tường chim (nhóm W). o = { faceMat, far, fogGlow }.
+//   buildWarehouse(parent, kit, w) — một mặt nhà kho ở hệ cục bộ. w = { xL, xR, H, bayX, bayHalf, spring, depth, faceMat, roof, bay, side }.
+//   buildLane(parent, kit, l)      — phố rẽ cong, dốc (hệ cục bộ mặt cuối phố). l = { xL, W, R, slope, seed }.
+//   buildFarCity(parent, l)        — dải mái xa + sương. l = { zs, span, seed, glow, drop }.
+//   makeKit(houses, { night })     — bộ vật liệu mặt tiền/cửa sổ như sets.js.  wallFromWorld([x, z]) — đổi toạ độ; END — hằng số.
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
-import { limewashTex, glowSprite, planarUV, rng } from '/cong3/dir-C/common.js';
+import { limewashTex, glowSprite, planarUV, rng, flagTex } from '/cong3/dir-C/common.js';
 import { facadeTex, windowUnit, cobbleTex } from '/cong3/v2/street.js';
 
 const lamMat = (o) => new THREE.MeshLambertMaterial(o);
 const X = new THREE.Vector3(1, 0, 0), Y = new THREE.Vector3(0, 1, 0), Z = new THREE.Vector3(0, 0, 1);
-// Tham số mặc định (bộ phố): mặt nhà kho ở x = −5 (thế giới), góc nhà ở z = +2 (thế giới) → cục bộ xL = −2; hốc cửa tâm z = −4,6 (thế giới) → cục bộ 4,6.
-// Chỗ Cas làm chim (W1 s24/s24c đặt Cas ở z = −2,2 thế giới) nằm giữa góc nhà và hốc cửa: tường vôi trơn.
-export const END = { FACE_X: -5, xL: -2.0, xR: 34, H: 8.0, bayX: 4.6, bayHalf: 1.6, spring: 2.4, depth: 4.0, laneW: 6.0, laneR: 16 };
+export const END = { OFF_X: 10.2, FLANK_Z: -8.1, FACE_X: -5, cornerZ: 2.0, houseX0N: 15.0, houseX0S: -4, bayWorldX: 2.2, casSpot: [10.35, -7.15],
+  H: 8.0, bayHalf: 1.6, spring: 2.4, depth: 4.0, laneW: 6.0, laneR: 16, slope: 0.05 };
+export const wallFromWorld = ([x, z]) => [x - END.OFF_X, z - END.FLANK_Z];
 
 export function makeKit(houses, { night = true } = {}) {
   const matC = (c) => lamMat({ color: c });
@@ -49,7 +58,7 @@ const archShape = (cx, hw, sp) => { const s = new THREE.Shape(); s.moveTo(cx - h
 
 // ================= NHÀ KHO (cục bộ) =================
 export function buildWarehouse(parent, kit, w = {}) {
-  const { xL = END.xL, xR = END.xR, H = END.H, bayX = END.bayX, bayHalf = END.bayHalf, spring = END.spring, depth = END.depth } = w;
+  const { xL = -10, xR = 10, H = END.H, bayX = 0, bayHalf = END.bayHalf, spring = END.spring, depth = END.depth } = w;
   const g = new THREE.Group(); g.name = 'warehouse'; parent.add(g);
   const R = rng(w.seed ?? 211);
   const faceMat = w.faceMat || lamMat({ color: '#ffffff', map: limewashTex(41, { metres: 6, grime: true, brick: 0.06 }) });
@@ -64,23 +73,23 @@ export function buildWarehouse(parent, kit, w = {}) {
   // gờ chân tường (trừ lòng vòm)
   const plinth = (a, b) => { if (b - a > 0.05) box(b - a, 0.42, 0.08, stoneD, (a + b) / 2, 0.21, 0.04); };
   if (hasBay) { plinth(xL, bayX - bayHalf - 0.3); plinth(bayX + bayHalf + 0.3, xR); } else plinth(xL, xR);
-  // gờ mái + mái dốc (lên về −z) + nóc
+  // gờ mái + máng nước (gang) + mái dốc (lên về −z) + nóc
   box(xR - xL + 0.3, 0.32, 0.42, lamMat({ color: '#d8d2c6' }), (xL + xR) / 2, H - 0.16, 0.12);
+  const gut = add(new THREE.CylinderGeometry(0.07, 0.07, xR - xL + 0.3, 10), iron); gut.rotation.z = Math.PI / 2; gut.position.set((xL + xR) / 2, H + 0.05, 0.38);
   const run = 7.0, rise = 4.2, slope = Math.hypot(run, rise);
   if (w.roof !== false) {
     const roof = add(new THREE.PlaneGeometry(xR - xL + 0.4, slope), slate); roof.rotation.x = -Math.PI / 2 + Math.atan2(rise, run); roof.position.set((xL + xR) / 2, H + rise / 2, -run / 2 + 0.2);
-    // mặt hồi ở góc nhà (tam giác vôi) + tường bên
+    // mặt hồi ở góc nhà (tam giác vôi) + tường bên — cục bộ −x → −z; mặt nhìn −x
     const sideW = 14; const side = new THREE.Shape(); side.moveTo(0, 0); side.lineTo(0, H); side.lineTo(-run, H + rise); side.lineTo(-sideW, H); side.lineTo(-sideW, 0); side.lineTo(0, 0);
-    const sg = new THREE.ShapeGeometry(side); planarUV(sg, X, Y, 6, [1.1, 0]); const sm = add(sg, faceMat); sm.rotation.y = -Math.PI / 2; sm.position.set(xL, 0, 0);   // cục bộ −x → −z; mặt nhìn −x (về ngõ)
+    if (w.side !== false) { const sg = new THREE.ShapeGeometry(side); planarUV(sg, X, Y, 6, [1.1, 0]); const sm = add(sg, faceMat); sm.rotation.y = -Math.PI / 2; sm.position.set(xL, 0, 0); }
     const back = add(new THREE.PlaneGeometry(xR - xL + 0.4, Math.hypot(sideW - run, rise)), slate); back.rotation.x = -Math.PI / 2 - Math.atan2(rise, sideW - run); back.position.set((xL + xR) / 2, H + rise / 2, -run - (sideW - run) / 2);
     // hai chòi thông gió trên nóc (mái chóp) — bóng dáng nhà kho
-    for (const vx of [xL + (xR - xL) * 0.28, xL + (xR - xL) * 0.66]) {
+    for (const vx of [xL + (xR - xL) * 0.22, xL + (xR - xL) * 0.55]) {
       box(1.5, 1.3, 1.5, lamMat({ color: '#bdb6aa' }), vx, H + rise + 0.55, -run, true);
       for (let k = 0; k < 4; k++) box(1.52, 0.06, 0.02, iron, vx, H + rise + 0.3 + k * 0.22, -run + 0.76);   // nan chớp
       const cap = add(new THREE.ConeGeometry(1.25, 0.9, 4), slate, true); cap.rotation.y = Math.PI / 4; cap.position.set(vx, H + rise + 1.65, -run);
     }
-    // ống khói nhỏ ở đầu hồi
-    box(0.7, 1.8, 0.7, lamMat({ color: '#6a5a52' }), xL + 1.2, H + rise * 0.55 + 0.9, -run * 0.55, true);
+    if (w.side !== false) box(0.7, 1.8, 0.7, lamMat({ color: '#6a5a52' }), xL + 1.2, H + rise * 0.55 + 0.9, -run * 0.55, true);   // ống khói ở đầu hồi
   }
   // cửa kéo hàng tầng trên + xà tời (nhận diện nhà kho), không chữ
   const hx = hasBay ? bayX : (xL + xR) / 2;
@@ -95,8 +104,8 @@ export function buildWarehouse(parent, kit, w = {}) {
     u.position.set(x, H - 2.3, 0); g.add(u);
     for (const dx of [-0.2, 0, 0.2]) box(0.025, 1.1, 0.03, iron, x + dx, H - 2.3, 0.1);
   }
-  // ống thoát nước gang ở góc nhà và giữa tường
-  for (const px of [xL + 0.25, (xL + xR) / 2 + 3.1]) { const p = add(new THREE.CylinderGeometry(0.055, 0.055, H, 12), iron); p.position.set(px, H / 2, 0.1); }
+  // ống thoát nước gang: ở góc nhà và giữa tường
+  for (const px of [xL + 0.25, (xL + xR) / 2 + 3.1, xR - 0.25]) { const p = add(new THREE.CylinderGeometry(0.055, 0.055, H, 12), iron); p.position.set(px, H / 2, 0.1); }
   // HỐC CỬA BỐC HÀNG (vòm sâu `depth`): vòm đá cuốn + lòng hốc (vách trong, hai vách bên, vòm, nền đá) — không đèn trong hốc
   let bayInfo = null;
   if (hasBay) {
@@ -119,20 +128,25 @@ export function buildWarehouse(parent, kit, w = {}) {
   return { group: g, bay: bayInfo, xL, xR, H };
 }
 
-// ================= NGÕ CONG sau góc nhà (cục bộ) =================
-// Tâm ngõ bắt đầu ở (xL − W/2, 0), đi về −z rồi RẼ TRÁI (về −x) theo cung bán kính R — phố cong, không thấy điểm cuối.
+// ================= PHỐ RẼ (hệ cục bộ MẶT CUỐI PHỐ): sau góc nam, đi về −z rồi CONG TRÁI (về −x cục bộ = +z thế giới), DỐC XUỐNG =================
+// Tâm đường bắt đầu ở (xL − W/2, 0); tâm cung C = (xL − W/2 − R, 0). Mặt phố (dải cong) hạ theo chiều dài cung (slope); nhà hai bên hạ theo.
 export function buildLane(parent, kit, l = {}) {
-  const { xL = END.xL, W = END.laneW, R = END.laneR, seed = 57 } = l;
+  const { xL = -END.cornerZ, W = END.laneW, R = END.laneR, slope = END.slope, seed = 57 } = l;
   const g = new THREE.Group(); g.name = 'lane'; parent.add(g);
-  const C = new THREE.Vector3(xL - W / 2 - R, 0, 0);
-  const cob = lamMat({ color: '#ffffff', map: cobbleTex(13) });
-  { const gg = new THREE.PlaneGeometry(90, 90); gg.rotateX(-Math.PI / 2); gg.translate(xL - 45, -0.004, -45 + 6); planarUV(gg, X, Z, 3, [0, 0]); const m = new THREE.Mesh(gg, cob); m.receiveShadow = true; g.add(m); }
+  const C = new THREE.Vector2(xL - W / 2 - R, 0);
+  const P = (r, a) => new THREE.Vector3(C.x + r * Math.cos(a), 0, C.y - r * Math.sin(a));
+  const y = (a) => -slope * R * a;
+  { const n = 40, a1 = Math.PI / 2 + 0.9, pos = [], uv = [], idx = [];
+    for (let i = 0; i <= n; i++) { const a = a1 * i / n; for (const [k, r] of [[0, R - W / 2 - 1], [1, R + W / 2 + 1.2]]) { const p = P(r, a); pos.push(p.x, y(a) - 0.004, p.z); uv.push(k * (W + 2.2) / 3, R * a / 3); } }
+    for (let i = 0; i < n; i++) { const q = 2 * i; idx.push(q, q + 1, q + 2, q + 1, q + 3, q + 2); }
+    const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); geo.setIndex(idx); geo.computeVertexNormals();
+    const m = new THREE.Mesh(geo, lamMat({ color: '#ffffff', map: cobbleTex(13), side: THREE.DoubleSide })); m.receiveShadow = true; g.add(m); }
   const seg = (radius, a0, a1, faceIn, sd) => {
     const step = 6.5 / radius; let k = 0;
     for (let a = a0; a < a1 - 1e-3; a += step, k++) {
-      const am = Math.min(a + step / 2, a1), p = new THREE.Vector3(C.x + radius * Math.cos(am), 0, C.z - radius * Math.sin(am));
+      const am = Math.min(a + step / 2, a1), p = P(radius, am);
       const n = new THREE.Vector3(Math.cos(am), 0, -Math.sin(am)).multiplyScalar(faceIn ? -1 : 1);
-      const hg = new THREE.Group(); hg.position.copy(p); hg.rotation.y = Math.atan2(n.x, n.z); g.add(hg);
+      const hg = new THREE.Group(); hg.position.set(p.x, y(am), p.z); hg.rotation.y = Math.atan2(n.x, n.z); g.add(hg);
       kit.houses(hg, -3.35, 3.35, 0, 1, sd + k * 7, kit.winKind, kit.FT, kit.matC, kit.emit);
     }
   };
@@ -143,45 +157,66 @@ export function buildLane(parent, kit, l = {}) {
 
 // ================= HẬU CẢNH NHIỀU LỚP (cục bộ, về −z) =================
 // Mỗi lớp: một dải nhà (khối + mái hồi + ống khói) gộp một vật thể; vài ô cửa (ấm hiếm, lạnh nhiều hơn vì thành phố đã trắng).
-// Giữa hai lớp: sương sáng lạnh (sprite cộng, KHÔNG chiếu sáng) — ánh điện các phố xa hắt vào hơi nước.
+// Giữa hai lớp: sương sáng lạnh sát mặt phố (sprite cộng, KHÔNG chiếu sáng, không lên trời). drop = hạ nền theo khoảng cách (phố dốc xuống).
 export function buildFarCity(parent, l = {}) {
-  const zs = l.zs || [-34, -58, -92, -145, -230], span = l.span || [120, 160, 220, 300, 420], R = rng(l.seed ?? 907), glowK = l.glow ?? 1;
+  const zs = l.zs || [-34, -58, -92, -145, -230], span = l.span || [120, 160, 220, 300, 420], R = rng(l.seed ?? 907), glowK = l.glow ?? 1, drop = l.drop ?? 0.03;
   const g = new THREE.Group(); g.name = 'farCity'; parent.add(g);
   const cols = ['#3b3a48', '#34344a', '#2d2f46', '#282b44', '#23263f'];
   zs.forEach((z0, li) => {
-    const geos = [], wins = [], half = span[li] / 2; let x = -half;
+    const geos = [], wins = [], half = span[li] / 2; let x = -half; const y0 = drop * z0;
     while (x < half) {
       const w = 5 + R() * 8, h = 6 + R() * (li < 2 ? 8 : 12) + (R() < 0.08 ? 10 : 0), d = 8, zz = z0 - R() * 6;
-      const b = new THREE.BoxGeometry(w, h, d); b.translate(x + w / 2, h / 2, zz); geos.push(b);
+      const b = new THREE.BoxGeometry(w, h + 10, d); b.translate(x + w / 2, y0 + (h - 10) / 2, zz); geos.push(b);
       const rh = 1.5 + R() * 2.5, rs = new THREE.Shape(); rs.moveTo(-w / 2, 0); rs.lineTo(w / 2, 0); rs.lineTo(0, rh); rs.lineTo(-w / 2, 0);
-      if (R() < 0.6) { const rg = new THREE.ExtrudeGeometry(rs, { depth: d, bevelEnabled: false }); rg.translate(x + w / 2, h, zz - d / 2); geos.push(rg); }
-      else { const rg = new THREE.ExtrudeGeometry(rs, { depth: w, bevelEnabled: false }); rg.rotateY(Math.PI / 2); rg.translate(x + w / 2 - w / 2, h, zz); geos.push(rg); }
-      for (let c = 0, nc = R() < 0.8 ? 1 + (R() * 2 | 0) : 0; c < nc; c++) { const cg = new THREE.BoxGeometry(0.6, 1.6 + R(), 0.6); cg.translate(x + w * (0.2 + 0.6 * R()), h + rh * 0.6 + 0.6, zz + (R() - 0.5) * 3); geos.push(cg); }
-      if (li < 4) for (let k = 0, nw = (w / 2.5) | 0; k < nw; k++) for (let fy = 2.2; fy < h - 1; fy += 2.6) { const q = R(); if (q < 0.1) wins.push([x + 1.2 + k * 2.5, fy, zz + d / 2 + 0.05, q < 0.025 ? 'gold' : 'cold']); }
-      if (li === 1 && R() < 0.12) { const sp = new THREE.CylinderGeometry(0.0, 1.4, 9, 6); sp.translate(x + w / 2, h + 4.5, zz); geos.push(sp); }   // một chóp tháp thỉnh thoảng (không biểu tượng tôn giáo, không chữ)
+      if (R() < 0.6) { const rg = new THREE.ExtrudeGeometry(rs, { depth: d, bevelEnabled: false }); rg.translate(x + w / 2, y0 + h, zz - d / 2); geos.push(rg); }
+      else { const rg = new THREE.ExtrudeGeometry(rs, { depth: w, bevelEnabled: false }); rg.rotateY(Math.PI / 2); rg.translate(x, y0 + h, zz); geos.push(rg); }
+      for (let c = 0, nc = R() < 0.8 ? 1 + (R() * 2 | 0) : 0; c < nc; c++) { const cg = new THREE.BoxGeometry(0.6, 1.6 + R(), 0.6); cg.translate(x + w * (0.2 + 0.6 * R()), y0 + h + rh * 0.6 + 0.6, zz + (R() - 0.5) * 3); geos.push(cg); }
+      if (li < 4) for (let k = 0, nw = (w / 2.5) | 0; k < nw; k++) for (let fy = 2.2; fy < h - 1; fy += 2.6) { const q = R(); if (q < 0.1) wins.push([x + 1.2 + k * 2.5, y0 + fy, zz + d / 2 + 0.05, q < 0.025 ? 'gold' : 'cold']); }
+      if (li === 1 && R() < 0.12) { const sp = new THREE.CylinderGeometry(0.0, 1.4, 9, 6); sp.translate(x + w / 2, y0 + h + 4.5, zz); geos.push(sp); }   // chóp tháp thỉnh thoảng (không biểu tượng, không chữ)
       x += w + (R() < 0.25 ? 2 + R() * 6 : 0);
     }
-    const m = new THREE.Mesh(merge(geos), lamMat({ color: cols[li] })); m.receiveShadow = false; g.add(m);
+    const m = new THREE.Mesh(merge(geos), lamMat({ color: cols[li] })); g.add(m);
     if (wins.length) { const wg = []; for (const [wx, wy, wz, k] of wins) { const q = new THREE.PlaneGeometry(0.8, 1.1); q.translate(wx, wy, wz); wg.push([q, k]); }
       for (const kind of ['gold', 'cold']) { const list = wg.filter((v) => v[1] === kind).map((v) => v[0]); if (!list.length) continue;
-        const mm = new THREE.Mesh(merge(list), new THREE.MeshBasicMaterial({ color: new THREE.Color(kind === 'gold' ? '#ffb45c' : '#dfe6f4').multiplyScalar(kind === 'gold' ? 1.3 : 0.7), fog: true })); g.add(mm); } }
-    // sương sáng giữa lớp này và lớp sau: dải sprite thấp, lạnh
-    if (glowK > 0) for (let k = 0; k < 7; k++) { const s = glowSprite('#cdd6ee', 0.05 * glowK * (1 + li * 0.35), 30 + li * 14); s.position.set(-half + (k + 0.5) * span[li] / 7 + (R() - 0.5) * 8, 2 + li * 1.5, z0 - 10 - li * 6); s.scale.y *= 0.45; g.add(s); }
+        g.add(new THREE.Mesh(merge(list), new THREE.MeshBasicMaterial({ color: new THREE.Color(kind === 'gold' ? '#ffb45c' : '#dfe6f4').multiplyScalar(kind === 'gold' ? 1.3 : 0.7), fog: true }))); } }
+    if (glowK > 0) for (let k = 0; k < 7; k++) { const s = glowSprite('#cdd6ee', 0.05 * glowK * (1 + li * 0.35), 30 + li * 14); s.position.set(-half + (k + 0.5) * span[li] / 7 + (R() - 0.5) * 8, y0 + 2 + li * 1.2, z0 - 10 - li * 6); s.scale.y *= 0.4; g.add(s); }
   });
   return { group: g };
 }
 
-// ================= BỘ PHỐ: gắn cuối phố vào buildStreetSet (sets.js gọi) =================
+// ================= CUỐI PHỐ TRONG HỆ TƯỜNG CHIM (dùng chung: bộ phố dời nhóm; bộ tường chim đặt nhóm ở gốc) =================
+export function buildEndWallFrame(W, kit, o = {}) {
+  const e = END, fx = e.FACE_X - e.OFF_X, fz = -e.FLANK_Z;   // mặt cuối phố trong hệ tường: x_w = −15,2; góc trong z_w = 0
+  const faceMat = o.faceMat || lamMat({ color: '#ffffff', map: limewashTex(41, { metres: 6, grime: true, brick: 0.06 }) });
+  // (1) HÔNG NAM = tường chim + hốc cửa (hệ tường: z_w = 0), từ góc trong (x_w −15,2) tới đầu hồi căn đầu dãy bắc (x_w 1,8)
+  const flank = buildWarehouse(W, kit, { xL: fx, xR: e.houseX0N - e.OFF_X, H: e.H, bayX: e.bayWorldX - e.OFF_X, faceMat, side: false });
+  // (2) MẶT CUỐI PHỐ (chắn cuối phố, nhìn +x thế giới), góc nam ở z = cornerZ; không hốc cửa (hốc ở hông); phố rẽ sau góc nam
+  const E = new THREE.Group(); E.position.set(fx, 0, fz); E.rotation.y = Math.PI / 2; W.add(E);   // cục bộ x → −z thế giới
+  buildWarehouse(E, kit, { xL: -e.cornerZ, xR: -e.FLANK_Z, H: e.H, faceMat, bay: false, seed: 223 });
+  buildLane(E, kit, { xL: -e.cornerZ, W: e.laneW, R: e.laneR, slope: e.slope });
+  // (3) đầu hồi căn nhà đầu dãy bắc (x = 15), nhìn về −x (về sân trước hông nhà kho)
+  { const sh = new THREE.Shape(); sh.moveTo(0, 0); sh.lineTo(7, 0); sh.lineTo(7, 7.4); sh.lineTo(3.5, 10); sh.lineTo(0, 7.4); sh.lineTo(0, 0);
+    const geo = new THREE.ShapeGeometry(sh); planarUV(geo, X, Y, 6, [0.2, 0]); const m = new THREE.Mesh(geo, kit.FT[2]); m.rotation.y = -Math.PI / 2; m.position.set(e.houseX0N - e.OFF_X, 0, -5.6 + fz - 7); m.receiveShadow = true; W.add(m);
+    const u = windowUnit(0.82, 1.25, 'dark', kit.matC, kit.emit(1.0), 71); u.rotation.y = -Math.PI / 2; u.position.set(e.houseX0N - e.OFF_X, 4.3, -5.6 + fz - 3.5); W.add(u); }
+  // (4) sân trước hông: đá lát (x −5 … 12, z −8,1 … −5,6)
+  { const fg = new THREE.PlaneGeometry(e.houseX0N - e.FACE_X, 2.5 + 0.2); fg.rotateX(-Math.PI / 2); fg.translate((fx + e.houseX0N - e.OFF_X) / 2, 0.004, 1.25); planarUV(fg, X, Z, 3, [0, 0]);
+    const m = new THREE.Mesh(fg, lamMat({ color: '#ffffff', map: cobbleTex(9) })); m.receiveShadow = true; W.add(m); }
+  // (5) hậu cảnh: sau nhà kho (bắc + tây) và cuối phố rẽ (nam, dốc xuống)
+  if (o.far !== false) {
+    const B = new THREE.Group(); B.position.set(fx, 0, 0); B.rotation.y = Math.PI / 4; W.add(B); buildFarCity(B, { glow: o.fogGlow ?? 1 });   // sau góc nhà kho (tây-bắc)
+    const L = new THREE.Group(); L.rotation.y = Math.PI / 2; L.position.set(0, 0, 0); E.add(L); L.position.set(e.cornerZ - 10, 0, 0);
+    buildFarCity(L, { zs: [-40, -75, -130], span: [90, 140, 220], seed: 911, glow: o.fogGlow ?? 1, drop: 0.06 });   // cuối phố rẽ
+  }
+  return { flank };
+}
+
+// ================= BỘ PHỐ: gắn cuối phố vào buildStreetSet (sets.js gọi, trước khi dựng hai dãy nhà) =================
 export function buildStreetEnd(scene, o) {
-  const e = { ...END, ...(o.endOpts || {}) };
   const kit = { matC: o.matC, FT: o.FT, winKind: o.winKind, emit: o.emit, houses: o.houses };
-  // nhóm cục bộ: mặt tường (cục bộ z = 0, nhìn +z) → thế giới x = FACE_X nhìn +x; cục bộ +x → thế giới −z (bắc = phải màn hình khi nhìn xuôi dốc)
-  const G = new THREE.Group(); G.position.set(e.FACE_X, 0, 0); G.rotation.y = Math.PI / 2; scene.add(G);
-  const wh = buildWarehouse(G, kit, { xL: e.xL, xR: e.xR, H: e.H, bayX: e.bayX, bayHalf: e.bayHalf, spring: e.spring, depth: e.depth });
-  const lane = buildLane(G, kit, { xL: e.xL, W: e.laneW, R: e.laneR });
-  if (e.far !== false) buildFarCity(G, { glow: e.fogGlow ?? 1 });
-  G.updateMatrixWorld(true);
-  const toWorld = (v) => v.clone().applyMatrix4(G.matrixWorld);
-  const bw = toWorld(new THREE.Vector3(e.bayX, 0, 0)), cw = toWorld(new THREE.Vector3(e.xL, 0, 0));
-  return { group: G, warehouse: wh, lane, bayWorld: { x: bw.x, z: bw.z }, cornerWorld: { x: cw.x, z: cw.z }, toWorld };
+  const W = new THREE.Group(); W.position.set(END.OFF_X, 0, END.FLANK_Z); scene.add(W);
+  const r = buildEndWallFrame(W, kit, { far: o.endOpts?.far, fogGlow: o.endOpts?.fogGlow });
+  W.updateMatrixWorld(true);
+  const toWorld = (v) => v.clone().applyMatrix4(W.matrixWorld);
+  return { group: W, warehouse: r.flank, faceX: END.FACE_X, flankZ: END.FLANK_Z, houseX0N: END.houseX0N, houseX0S: END.houseX0S, casSpot: END.casSpot.slice(),
+    bayWorld: { x: END.bayWorldX, z: END.FLANK_Z }, cornerWorld: { x: END.FACE_X, z: END.cornerZ }, toWorld };
 }
