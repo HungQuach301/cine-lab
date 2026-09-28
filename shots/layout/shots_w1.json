@@ -570,13 +570,18 @@
   "t1": 55.5,
   "frames": 72,
   "characters": [
-   "ida"
+   "ida",
+   "cas"
   ],
   "key_action": "Ida hối hả vác thang tới L11 ở góc cuối phố (còn tối), dựng thang, trèo, thắp. Hổ phách.",
   "key_poses": [
    {
     "t": 0.0,
     "pose": "chạy bước ngắn vác thang (gait nhanh 0,9 s/chu kỳ)"
+   },
+   {
+    "t": 0.0,
+    "pose": "Cas: đứng yên ở chân tường chim (casSpot), nhìn về L11/Ida — nền, nhỏ (sửa N1)"
    },
    {
     "t": 1.1,

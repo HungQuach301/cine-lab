@@ -67,6 +67,7 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
   - 1,1–1,9 s: trèo;
   - 1,9 s: tay phải lên van; 2,5 s hai tay lên kính.
   - Đèn lồng cháy hông trái. Sào mồi: không thấy (xem chỗ hở).
+- **Cas (sửa N1, rà continuity P):** đứng yên ở casSpot (10,35; −7,15), chân tường chim, mặt về L11/Ida, tay trong tay áo. Nhỏ ở nền, ngay bên phải cột phố chính, trong bóng lớn của Ida trên tường sau khi L11 thắp — **không bị cột che**. Cậu đã có mặt từ đầu s23 (liên tục với s24, s24c). Bản giai đoạn C trước đó không dựng Cas trong s23.
 - **Màn hình:** Ida chạy vào chiều sâu, từ vũng trắng vào góc tối về cuối phố (giữa khung). L11 ở phải giữa khung.
 - **Máy (giai đoạn C):** cố định `S23_CAM`: (24,5; 1,5; 3,6) nhìn (4,5; 2,0; −1,8), 28 mm. Mặt vôi nhà kho 15,5 % khung.
 

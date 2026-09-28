@@ -271,3 +271,9 @@ Cách đo: vùng mũ chọn tay trên ảnh probe 960×540, lấy 60 % điểm �
 2. s23 Ida nhỏ ở đầu shot (cách máy khoảng 12 m) — đánh đổi để mặt vôi ≤ 20 %.
 3. Cột tường chim: sau 64,4 s chỉ bóng đèn + loá bật; PointLight mặc định tắt (`o.wallPostLight`) — W2/P cần quyết cho s35–s42a.
 4. `video_s08.mp4` phải thay đoạn s08 trong video nhóm 1 khi ghép (khung 552–599).
+
+### 11.5 Sửa N1 (rà continuity P, `reports/m2/cong5/continuity.md`)
+- Lỗi: s23 không dựng Cas (không phải bị cột che); s24 khung đầu có Cas ở casSpot → Cas "hiện ra" ở chỗ nối 1331 → 1332.
+- Sửa: thêm Cas đứng yên ở casSpot trong s23, nhìn về L11/Ida. Trên hình: nhỏ, bên phải cột phố chính, trong bóng Ida — không bị che.
+- Render lại riêng s23 qua hàng đợi (`lam-lai-s23-N1`): chờ 0,0 s, chạy 118,3 s, 72 khung. `timing_s23.json`, **`video_s23.mp4` thay đoạn s23 (khung 1260–1331) trong video nhóm 3**.
+- Ảnh trước/sau: `reports/m2/cong5/w1/N1_s23_truoc-sau.jpg`. Tổng làm lại giai đoạn C: 2 (s08, s23).
