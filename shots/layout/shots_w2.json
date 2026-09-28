@@ -520,10 +520,42 @@
   }
  },
  {
-  "id": "s38",
+  "id": "s39",
   "scene": 5,
   "t0": 101.6,
-  "t1": 103,
+  "t1": 106,
+  "frames": 106,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "L4 vế cuối, giọng vỡ, trong ánh trắng phẳng (khung ảnh 4 kiểm mù).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "choked, nhìn lên phố"
+   },
+   {
+    "t": 2.0,
+    "pose": "nghẹn — một giọt nước mắt"
+   }
+  ],
+  "difficulty": {
+   "level": 5,
+   "why": "Cảm xúc đỉnh phim, CU chính diện; mặt theo W3 (A3); giọt nước mắt."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "CU",
+   "mm": 85,
+   "angle": "ngang mắt, gần chính diện",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s38",
+  "scene": 5,
+  "t0": 106,
+  "t1": 107.4,
   "frames": 34,
   "characters": [
    "cas",
@@ -549,38 +581,6 @@
    "size": "MS",
    "mm": 50,
    "angle": "cao, chúc xuống (gần mắt Ida)",
-   "move": "tĩnh"
-  }
- },
- {
-  "id": "s39",
-  "scene": 5,
-  "t0": 103,
-  "t1": 107.4,
-  "frames": 106,
-  "characters": [
-   "ida"
-  ],
-  "key_action": "L4 vế cuối, giọng vỡ, trong ánh trắng phẳng (khung ảnh 4 kiểm mù).",
-  "key_poses": [
-   {
-    "t": 0.0,
-    "pose": "choked, nhìn lên phố"
-   },
-   {
-    "t": 2.0,
-    "pose": "nghẹn — một giọt nước mắt"
-   }
-  ],
-  "difficulty": {
-   "level": 5,
-   "why": "Cảm xúc đỉnh phim, CU chính diện; mặt theo W3 (A3); giọt nước mắt."
-  },
-  "package": "C6-W2-ida-mat",
-  "camera": {
-   "size": "CU",
-   "mm": 85,
-   "angle": "ngang mắt, gần chính diện",
    "move": "tĩnh"
   }
  },
@@ -736,26 +736,30 @@
   "characters": [
    "cas"
   ],
-  "key_action": "Cas mang đèn vào hốc cửa, quay lại nhìn ra vòm.",
+  "key_action": "Cas ôm đèn vào hốc cửa, quay ra vòm, ngồi xổm đặt đèn xuống nền (nối s42).",
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "đi (walk_cas) cầm đèn"
+    "pose": "đi, ôm đèn trước ngực (casHug)"
    },
    {
-    "t": 1.5,
-    "pose": "dừng giữa hốc"
+    "t": 1.1,
+    "pose": "quay ra vòm (yaw → 0 ở 1,5 s)"
    },
    {
-    "t": 2.0,
-    "pose": "quay người ra vòm (yaw −0,35)"
+    "t": 1.45,
+    "pose": "ngồi xổm → warm_hands_copy (2,0 s)"
+   },
+   {
+    "t": 1.6,
+    "pose": "hạ đèn xuống nền (−0,38; 3,10) tới 2,0 s"
    }
   ],
   "difficulty": {
    "level": 3,
-   "why": "Dáng đi trẻ + đèn treo đung đưa; ánh sáng di chuyển theo đèn."
+   "why": "Nối đi → quay → ngồi + đặt đèn trong 0,9 s; tư thế cuối trùng tư thế mở s42."
   },
-  "package": "C6-W2-hoc",
+  "package": "C6-W2-hoc-cua",
   "camera": {
    "size": "WS",
    "mm": 32,
@@ -823,7 +827,7 @@
   "t1": 124.5,
   "frames": 96,
   "characters": [],
-  "key_action": "Toàn cảnh thành phố trắng, một ô cửa hổ phách.",
+  "key_action": "Toàn cảnh thành phố trắng; máy đẩy rất chậm (dolly 12 m + 28 → 45 mm) về một ô cửa hổ phách (nhà Cas).",
   "key_poses": [],
   "difficulty": {
    "level": 1,
@@ -902,13 +906,49 @@
   }
  },
  {
-  "id": "s45c",
+  "id": "s46",
   "scene": 6,
   "t0": 129,
-  "t1": 130.5,
+  "t1": 132,
+  "frames": 72,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Vặn kim 9:53 → 10:00 (kim giờ ăn khớp), không gõ; đứng trước s45c (giờ trên hình chỉ tiến).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "9:53 giữ"
+   },
+   {
+    "t": 0.3,
+    "pose": "bắt đầu vặn"
+   },
+   {
+    "t": 2.2,
+    "pose": "kim tới 10:00, giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Insert tay + mặt đồng hồ; hai kim phải chỉ tiến, khớp nhau (không nắp trên hình)."
+  },
+  "package": "C6-W2-ngo",
+  "camera": {
+   "size": "CU (insert)",
+   "mm": 100,
+   "angle": "chúc nhẹ",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s45c",
+  "scene": 6,
+  "t0": 132,
+  "t1": 133.5,
   "frames": 36,
   "characters": [],
-  "key_action": "Mặt đồng hồ quảng trường: 10:00.",
+  "key_action": "POV: mặt đồng hồ quảng trường 10:00:00 — khớp giờ bà vừa vặn (sau s46).",
   "key_poses": [],
   "difficulty": {
    "level": 1,
@@ -919,42 +959,6 @@
    "size": "CU",
    "mm": 200,
    "angle": "tele, POV của Ida qua miệng ngõ",
-   "move": "tĩnh"
-  }
- },
- {
-  "id": "s46",
-  "scene": 6,
-  "t0": 130.5,
-  "t1": 133.5,
-  "frames": 72,
-  "characters": [
-   "ida"
-  ],
-  "key_action": "Vặn kim 9:53 → 10:00, gập đồng hồ, không gõ.",
-  "key_poses": [
-   {
-    "t": 0.3,
-    "pose": "ngón cái vặn núm"
-   },
-   {
-    "t": 2.2,
-    "pose": "kim tới 10:00"
-   },
-   {
-    "t": 2.6,
-    "pose": "gập nắp"
-   }
-  ],
-  "difficulty": {
-   "level": 4,
-   "why": "Insert tay: ngón cái + núm; gập nắp; không gõ (tương phản nhịp 1)."
-  },
-  "package": "C6-W2-ngo",
-  "camera": {
-   "size": "CU (insert)",
-   "mm": 100,
-   "angle": "chúc nhẹ",
    "move": "tĩnh"
   }
  },

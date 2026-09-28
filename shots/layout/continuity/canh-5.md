@@ -1,7 +1,8 @@
 # Continuity sheet — Cảnh 5 "Ngọn cuối" (1:20,00–2:00,50 · s33 → s42)
 
 Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CAS_BAY`, `casHug`, `placeBayLantern`), `sets2.js` (`addBayStreet`), `sets_end.js` (`END`).
-Bản v3 (rà continuity v2 — C5, N2, N3, N7, N9): mốc thời gian theo bảng thời gian hiện hành (s33 5,0 s; tổng phim 140,5 s); chỉ ghi những gì có trên hình. Ảnh 4 kiểm mù: khung toàn cục **2531** (khung 59 của s39).
+Bản v3 (rà continuity v2 — C5, N2, N3, N7, N9): mốc thời gian theo bảng thời gian hiện hành (s33 5,0 s; tổng phim 140,5 s); chỉ ghi những gì có trên hình. Ảnh 4 kiểm mù: khung toàn cục **2510** (khung 72 của s39, 104,58 s — chữ "dark").
+Bản v4 (Cổng 5 v2 — quyết định chủ dự án @e850c0f): **B-i** mọi shot là hàm thuần theo t (xem LAYOUT-W2 §0); **(c)** s39 (Ida) đứng TRƯỚC s38 (Cas) — câu "Just… keep a little dark for the ones who need it." bắt đầu trên mặt Ida; **(e)** người/bóng hốc vòm không sửa ở layout (Cổng 7).
 
 ## Quyết định đang áp dụng
 - **A2 (a):** s33 5,0 s. **A2 (b):** sau `L11_OFF`, kính L11 tối đục (#16181f, độ đục 0,85) ở s40w, s41, s42a — kính trống, không lửa, không quầng.
@@ -24,7 +25,7 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 |---|---|---|---|
 | s33, s34, s35 | 0 | 0 | |
 | s36 | 0 | 0,35 | tay trái đẩy vành: 0–0,35 s đưa tay, 0,35–1,05 s đẩy, 1,6 s hạ tay |
-| s37, s37w, s38, s39, s40, s40w | 0,35 | 0,35 | |
+| s37, s37w, s39, s38, s40, s40w | 0,35 | 0,35 | |
 | s41, s42a | 0,35 | 0,35 | |
 | s42b | — | — | Ida không có trong khung |
 | s42 | 0,35 | **0** | 1,9–2,2 s tay trái lên vành; **2,2–2,8 s kéo vành xuống (0,35 → 0)**; 2,8–3,0 s hạ tay, quay người +0,5 rad (rời khỏi vòm) |
@@ -44,6 +45,11 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 | Sự kiện | Mốc |
 |---|---|
 | L4 bắt đầu (đầu s37) | 93,00 (1:33,0) |
+| "Just…" (vế cuối L4) — lời thật từ L4 + 9,33 s (P); whisper: "Just" 9,68 | 102,33 (1:42,33) — trên **s39 (Ida)** |
+| "keep a little dark" (whisper 10,36–12,08) | 103,36–105,08 — s39 |
+| "for the ones" (whisper 12,08–13,00) | 105,08–106,00 — s39 |
+| **Cắt s39 → s38 (Cas phản ứng)** | **106,00 (1:46,0)** — giữa "…ones / who need it" |
+| "who need it." (whisper 13,00–14,00) | 106,00–107,00 — s38 |
 | P5 (cột góc, đoạn cáp cuối) bật — "…brighter…" | 99,20 (1:39,2), nhấp 2 lần, đứng 99,64 |
 | Ida gạt van (`VALVE`) | 107,70 (1:47,7) |
 | L11 tắt (`L11_OFF`) | 109,20 (1:49,2) |
@@ -85,15 +91,17 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 - **Đèn:** P5 bật 1:39,2 (nhấp 2, đứng 1:39,64) → trắng tràn góc (0,06 → 1,10); bóng dài tan; L11 nhạt về 0,35.
 - **Ida:** `faceRest` trên thang. **Cas:** giữ thang, ngửa.
 
-## s38 · 1:41,60–1:43,00 · MS 50 mm · tĩnh
-- **Máy:** (8,75; 2,45; −3,55), nhìn (8,0; 0,95; −5,0) — cao, gần mắt Ida.
-- **Cas:** `CAS_LAD`, `hold_ladder` + cổ −36°; hai tay trên hai thanh thang. Nhìn lên (Ida).
-- **Đèn:** trắng phẳng; L11 0,35.
-
-## s39 · 1:43,00–1:47,40 · CU 85 mm · tĩnh (khung ảnh 4 kiểm mù: khung 59)
+## s39 · 1:41,60–1:46,00 · CU 85 mm · tĩnh (khung ảnh 4 kiểm mù: khung 72 = toàn cục 2510)
+- **(c) Thứ tự mới:** s39 đứng trước s38 để câu cuối L4 BẮT ĐẦU trên mặt Ida ("Just…" 1:42,33 là 0,73 s sau đầu shot) và kéo qua "…keep a little dark for the ones".
 - **Máy:** `faceCam` cách 0,95 m, gần chính diện.
 - **Đèn:** trắng phẳng + L11 nhạt; `facelight` `elec`; phơi sáng × 0,8. Vành mũ đổ bóng lên trán; tường vôi sau lưng sáng xám.
 - **Ida:** choked, nhìn lên phố (phải khung).
+
+## s38 · 1:46,00–1:47,40 · MS 50 mm · tĩnh
+- **(c)** Cas phản ứng từ giữa câu ("…who need it." 1:46,0–1:47,0), rồi 0,4 s im trước insert van (s40).
+- **Máy:** (8,75; 2,45; −3,55), nhìn (8,0; 0,95; −5,0) — cao, gần mắt Ida.
+- **Cas:** `CAS_LAD`, `hold_ladder` + cổ −36°; hai tay trên hai thanh thang. Nhìn lên (Ida).
+- **Đèn:** trắng phẳng; L11 0,35.
 
 ## s40 · 1:47,40–1:50,00 · CU insert 50 mm
 - **Ida:** tay phải gạt van 0,3–0,9 s (1:47,7); lửa co, xanh, tắt ở 1,8 s (1:49,2); giữ im 0,8 s.

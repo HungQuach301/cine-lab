@@ -2,6 +2,7 @@
 
 Gói W2, Cổng 5, luật O1. Nguồn số: `design/cong5/layout/shots_w2.js` (hằng số `DX`, `CAS_W`, `IDA_W`, `IDA_K`, `LAN_T`, `LAN_K`, `CAS_S32`, `BIRD_CAM`), `sets2.js` (`WALL`), `sets_end.js` (`END`).
 Bản v3 (rà continuity v2 — N6, N9): mọi bảng dưới đã mang số sau A2/B1 (không còn phần "cộng 3,95 m"); chỉ ghi những gì có trên hình.
+Bản v4 (Cổng 5 v2 — B-i): mọi shot là hàm thuần theo t. Đèn lồng ở thắt lưng Ida nay luôn theo hướng người ở khung hiện tại (trước: khung đầu mỗi shot và khung đổi hướng lấy hướng của khung trước — s26 lệch 133 px mặt nạ). Không đổi dàn dựng cảnh 4.
 
 ## Quyết định đang áp dụng
 - **B1 (chủ dự án sau Cổng 5, AUTHORSHIP @2591e4d):** cột điện phố chính đặt TRONG SÂN trước hông nhà kho, chân (17,0; −5,9) bộ phố; tay vươn về tường; PointLight tầm **8,5 m**, suy giảm 1,2, không bóng. Góc L11 và hốc cửa ngoài tầm → **tối tới khi P5 bật (1:39,2)**. (P đề xuất (15,4; −6,2) — điểm đó nằm trong căn đầu dãy bắc cũ; W2 dời dãy bắc tới x = 18,5 và đặt cột ở (17,0; −5,9).)
