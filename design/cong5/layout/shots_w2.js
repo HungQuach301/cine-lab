@@ -333,7 +333,7 @@ S({ id: 's42b', scene: 5, size: 'WS', angle: 'ngang 1,3 m, ngoài vòm', mm: 32,
 const CAS_BAY = [-0.35, 2.55];   // máy trong hốc nhìn ra (+z): −x là PHẢI khung → Cas ở −x, Ida ở +x mép miệng vòm
 S({ id: 's42', scene: 5, size: 'MS', angle: 'thấp ngang vai, sau lưng Cas lệch phải, trong hốc nhìn ra vòm', mm: 40, move: 'tĩnh',
   why: 'Trả mô-típ: trong góc tối cậu tự chọn, không ai bảo, Cas đặt đèn xuống, hơ hai lòng tay trên kính đếm ba — đúng như bà. Qua vòm: phố trắng; Ida đứng ở miệng vòm nhìn vào, không nói. V1: dáng cậu, mũ len + quả bông in trên nền phố trắng; tay thấy từ sau-bên, đúng cỡ.', sound: 'lửa đèn lồng thở; nhạc tạm',
-  light: 'đèn lồng trên nền đá trước mặt Cas (nguồn duy nhất trong hốc, viền ấm quanh người cậu); ngoài vòm: điện phẳng', action: 'Cas ngồi xổm quay ra vòm, áp tay: một, hai, ba. Ida ở mép miệng vòm (trái khung) nhìn vào.',
+  light: 'đèn lồng trên nền đá trước mặt Cas (nguồn duy nhất trong hốc, viền ấm quanh người cậu); ngoài vòm: điện phẳng', action: 'Cas ngồi xổm quay ra vòm, áp tay: một, hai, ba. Ida ở mép miệng vòm (trái khung) nhìn vào; cuối shot bà kéo vành mũ lại (hết ca) rồi quay người đi.',
   async build(ctx) {
     const dbg = ctx.dbg || {};
     const r = await buildBaySet(ctx, {}); const p = P(ctx); for (const ch of [r.chIda, r.chCas]) ch.sheetRef = ch.sheet;
@@ -341,10 +341,17 @@ S({ id: 's42', scene: 5, size: 'MS', angle: 'thấp ngang vai, sau lưng Cas l�
     const wc = p.C.warm_hands_copy, wcIn = over(wc, { joints: { shoulder_L: [-66, 0, 10], shoulder_R: [-66, 0, -10], elbow_L: [-28, 0, 0], elbow_R: [-28, 0, 0] } });
     const hC = (wc.root_y_H ?? 0) * ctx.sheets.cas.H_m;
     placeBayLantern(r, CAS_BAY[0] - 0.03, CAS_BAY[1] + 0.55);
-    r.chIda.setPose(over(p.stand, { props: [], hat_back: HB, joints: { neck: [12, 0, 0] } })); r.chIda.root.position.set(...(dbg.ida || [1.25, 0, 5.25])); r.chIda.root.rotation.y = Math.PI - 0.25; r.chIda.root.updateMatrixWorld(true);
+    // Quyết định chủ dự án (AUTHORSHIP, world-rules v0.5): bà KÉO MŨ LẠI khi rời đi — cử chỉ khép "hết ca", đặt ở cuối s42 (bà ở miệng vòm, vừa thấy Cas
+    // tự đếm ba — khoảnh khắc buông tay; nền phố trắng sau lưng bà làm dáng tay–vành mũ in rõ). 0–1,9 s đứng nhìn (hat_back 0,35); 1,9–2,2 s tay trái lên vành;
+    // 2,2–2,8 s kéo vành xuống (0,35 → 0); 2,8–3,0 s hạ tay, bắt đầu quay người đi (yaw +0,5 rad, sang phải bà = rời khỏi vòm).
+    const iStand = over(p.stand, { props: [], hat_back: HB, joints: { neck: [12, 0, 0] } });
+    const iHand = (hb) => over(p.stand, { props: [], hat_back: hb, joints: { neck: [4, 0, 0], shoulder_L: [-86, 0, 34], elbow_L: [-118, 0, 0], wrist_L: [0, 0, 0] }, hands: { L: { spread: 0.2, curl: 0.35 } } });
+    const iPose = (t) => poseAt([[0, iStand], [1.9, iStand], [2.2, iHand(HB)], [2.8, iHand(0)], [3.0, over(p.stand, { props: [], hat_back: 0, joints: { neck: [0, 0, 0] } })]], t);
+    const IP = dbg.ida || [1.25, 0, 5.25];
     return { scene: r.scene, cam, onSample: r.onSample, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT_MED, grade: GRADE_S5, exposure: dbg.exp ?? 0.8,
       update(t) {
         let k = 0; for (const b of [0.6, 1.2, 1.8]) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
+        r.chIda.setPose(iPose(t)); r.chIda.root.position.set(...IP); r.chIda.root.rotation.y = Math.PI - 0.25 + 0.5 * ease((t - 2.75) / 0.25); r.chIda.root.updateMatrixWorld(true);
         r.chCas.setPose({ ...lerpPose(wc, wcIn, k), props: [] }); r.chCas.root.position.set(CAS_BAY[0], hC, CAS_BAY[1]); r.chCas.root.rotation.y = 0; r.chCas.root.updateMatrixWorld(true);
         if (ctx.upd) { ctx.upd(r.chIda, cam); ctx.upd(r.chCas, cam); } } };
   } });

@@ -133,16 +133,16 @@ Cùng một khung s40 trước/sau khi tắt lửa cho đúng cặp "nâu xám /
   - **Chưa đo** tỷ lệ diện tích vôi theo tiêu chí ≤ 20 % của W1 (ước lượng bằng mắt ≈ 20–25 %) → W1/P kiểm lại (R3).
 
 ## 6. Đề xuất gửi P / chủ dự án (hàng chờ, W2 không tự quyết)
-- **Q-W2-1 (địa lý cuối phố):** tường chim là **hông nam** nhà kho (song song phố), không phải mặt chắn cuối phố như kịch bản gợi ("Cuối phố là bức tường…").
+- **Q-W2-1 — ĐÃ DUYỆT (world-rules v0.5):** tường chim là **hông nam** nhà kho (song song phố), không phải mặt chắn cuối phố như kịch bản gợi ("Cuối phố là bức tường…").
   - Ưu: một địa lý thống nhất cho cảnh 3–5; Cas cách L11 4 m; hốc cửa "vài bước dọc tường"; s37w hết tường trống.
   - Nhược: đổi cách hiểu "cuối phố"; bible mục 1 nên ghi rõ "nhà kho ở cuối phố; tường chim là mặt nhà kho nhìn ra đoạn cuối phố".
   - Cần P sửa `bible/world-rules.md` (v0.5) nếu duyệt.
-- **Q-W2-2 (mũ Ida cảnh 6):** sau s36 bà đẩy vành mũ (C4); W2 giữ `hat_back` 0,35 tới hết cảnh 5. Cảnh 6 (2 giờ sau) đang để 0.
+- **Q-W2-2 — ĐÃ QUYẾT (chủ dự án):** bà kéo mũ lại khi rời đi; W2 dựng ở cuối s42 (2,2–2,8 s, 0,35 → 0), cảnh 6 giữ 0. Nội dung đề xuất gốc: sau s36 bà đẩy vành mũ (C4); W2 giữ `hat_back` 0,35 tới hết cảnh 5. Cảnh 6 (2 giờ sau) đang để 0.
   - Chọn: (a) giữ 0 (bà đã chỉnh lại mũ); (b) giữ 0,35 tới hết phim.
 - **Q-W2-3 (cột điện phố chính cảnh 4):** cột bật 1:04 đặt ở (13,5; −4,2) — chỉ có trong bộ tường chim; bộ phố của W1 không có cột này.
   - Đề xuất P thêm cột này vào `POST_X` hoặc `sets.js` (bật `WALL_POST_ON`), để s35–s42a thấy nó sáng.
   - Hoặc duyệt dùng P4 (x = 29) làm "cột phố chính cạnh nhà kho" và W2 dời cột trong bộ tường chim ra ngoài khung.
-- **Q-W2-4 (sprite sương sáng):** luật v0.4 "ánh điện không làm sáng trời". Sương W2 đặt sát mặt phố, không chạm trời. W1 đề xuất "quầng trắng hắt lên trời ở chân trời" — **W2 không làm** vì trái luật; chờ chủ dự án nếu muốn.
+- **Q-W2-4 — ĐÃ QUYẾT: không quầng trắng chân trời.** luật v0.4 "ánh điện không làm sáng trời". Sương W2 đặt sát mặt phố, không chạm trời. W1 đề xuất "quầng trắng hắt lên trời ở chân trời" — **W2 không làm** vì trái luật; chờ chủ dự án nếu muốn.
 
 ## 7. Rủi ro
 - **R1 (V2 còn lại):** bóng Cas vẫn là dáng một cậu bé (đúng kịch bản "his, small, standing right beside him"). Nay to hơn cậu 1,43×, lệch 0,40 m, mềm hơn. Cần kiểm mù lần 4 (giai đoạn D) để xác nhận hết đọc "hai cậu bé".

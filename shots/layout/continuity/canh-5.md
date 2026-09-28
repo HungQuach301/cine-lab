@@ -9,6 +9,21 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CA
   `CAS_LAD` = (8,0; −4,98): Cas đứng sau chân thang, mặt +z, hai tay trên hai thanh (x 8 ± 0,17, cao ≈ 0,9 m).
 - **Trục 180° cảnh 5:** Ida TRÁI, Cas PHẢI trong mọi shot hai người. s42 máy trong hốc nhìn ra (+z) nên đặt Ida ở +x, Cas ở −x để vẫn Ida trái, Cas phải.
 
+## Mũ Ida — `hat_back` đầu / cuối mỗi shot (quyết định chủ dự án, AUTHORSHIP; world-rules v0.5)
+Bà tự đẩy vành mũ ra sau trước lời từ biệt (s36, C4) và **kéo mũ lại khi rời đi** (cuối s42) — cử chỉ khép "hết ca".
+Chọn s42 thay vì s41: ở s41 bà đang trao đèn (hai tay bận, trao là nhịp chính); ở cuối s42 bà vừa thấy Cas tự đếm ba — khoảnh khắc buông tay,
+bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành mũ in rõ, và ngay sau đó bà quay người rời khỏi vòm (nối sang cảnh 6).
+
+| Shot | Đầu | Cuối | Ghi chú |
+|---|---|---|---|
+| s33, s34, s35 | 0 | 0 | |
+| s36 | 0 | 0,35 | tay trái đẩy vành: 0–0,35 s đưa tay, 0,35–1,05 s đẩy, 1,6 s hạ tay |
+| s37, s37w, s38, s39, s40, s40w | 0,35 | 0,35 | |
+| s41, s42a | 0,35 | 0,35 | |
+| s42b | — | — | Ida không có trong khung |
+| s42 | 0,35 | **0** | 1,9–2,2 s tay trái lên vành; **2,2–2,8 s kéo vành xuống (0,35 → 0)**; 2,8–3,0 s hạ tay, quay người +0,5 rad (rời khỏi vòm) |
+| s43 → s48 | 0 | 0 | cảnh 6 |
+
 ## Lịch (giây phim)
 | Sự kiện | Mốc |
 |---|---|
@@ -84,7 +99,7 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CA
 - **Máy:** (0,55; 0,66; 0,45), nhìn (−0,15; 0,75; 4,5) — sau lưng Cas lệch phải, thấp ngang vai.
 - **Đèn:** đèn lồng trên nền đá trước mặt Cas (−0,38; 3,10); ngoài vòm điện phẳng.
 - **Cas:** `CAS_BAY`, ngồi xổm (`warm_hands_copy`), **quay ra vòm** (yaw 0); nhịp đếm 0,6 / 1,2 / 1,8 s. Mũ len + quả bông in trên nền phố trắng (V1). **Phải khung.**
-- **Ida:** miệng vòm (1,25; 5,25), đứng nhìn vào, không đèn lồng. **Trái khung.**
+- **Ida:** miệng vòm (1,25; 5,25), đứng nhìn vào, không đèn lồng. **Trái khung.** Cuối shot kéo mũ lại (bảng mũ) rồi quay người đi.
 
 ## TRẠNG THÁI Ở KHUNG CUỐI s42 (2:02,50) → cảnh 6
 | Mục | Trạng thái |
@@ -93,4 +108,4 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CA
 | Cột điện | Toàn phố trắng, P5 sáng |
 | Đèn lồng | Của Cas (đặt trên nền hốc cửa) |
 | Ida | Không đèn lồng; thang còn tựa L11 (cảnh 6: bà vác thang — s47) |
-| Mũ Ida | `hat_back` 0,35 từ s36 tới hết cảnh 5 (s37, s37w, s38, s39, s40, s40w, s41, s42a, s42 đều 0,35). Cảnh 6 (2 giờ sau) về 0 — **chờ chủ dự án** (LAYOUT-W2.md, hàng chờ Q-W2-2) |
+| Mũ Ida | Kéo lại về `hat_back` 0 ở cuối s42 (2:01,70 → 2:02,30) — cảnh 6 giữ 0 (bảng mũ ở đầu file) |
