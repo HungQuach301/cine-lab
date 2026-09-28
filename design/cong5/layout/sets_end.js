@@ -30,11 +30,17 @@
 //   makeKit(houses, { night })     — bộ vật liệu mặt tiền/cửa sổ như sets.js.  wallFromWorld([x, z]) — đổi toạ độ; END — hằng số.
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 import { limewashTex, glowSprite, planarUV, rng, flagTex } from '/cong3/dir-C/common.js';
-import { facadeTex, windowUnit, cobbleTex } from '/cong3/v2/street.js';
+import { facadeTex, windowUnit, cobbleTex, electricLamp } from '/cong3/v2/street.js';
+import { elecGlare, ELEC } from './sets.js';   // chỉ dùng lúc gọi hàm (vòng import sets.js ↔ sets_end.js an toàn)
 
 const lamMat = (o) => new THREE.MeshLambertMaterial(o);
 const X = new THREE.Vector3(1, 0, 0), Y = new THREE.Vector3(0, 1, 0), Z = new THREE.Vector3(0, 0, 1);
-export const END = { OFF_X: 10.2, FLANK_Z: -8.1, FACE_X: -5, cornerZ: 2.0, houseX0N: 15.0, houseX0S: -4, bayWorldX: 2.2, casSpot: [10.35, -7.15],
+// B1 (quyết định chủ dự án sau Cổng 5, AUTHORSHIP @2591e4d): cột điện phố chính (bật 1:04,4) ĐẶT TRONG SÂN trước hông nhà kho, tầm vũng sáng ngắn;
+// chỗ Cas làm chim dời sang đông 3,95 m. Tường chim nằm trong vũng sáng của cột; góc L11 (cách đầu đèn ≈ 9,6 m) ngoài tầm → tối tới khi P5 bật.
+// Dãy bắc lùi tới x = 18,5 để sân đủ chỗ cho cột + máy (đầu hồi căn đầu dãy cách Cas 4,2 m).
+export const END = { OFF_X: 10.2, FLANK_Z: -8.1, FACE_X: -5, cornerZ: 2.0, houseX0N: 18.5, houseX0S: -4, bayWorldX: 2.2, casSpot: [14.3, -7.15],
+  wallPost: { x: 17.0, z: -5.9, range: 8.5, ry: Math.PI / 2 + 0.35, cd: 30 },   // cột: chân (17,0; −5,9); tay vươn về tường; PointLight tầm 8,5 m, suy giảm 1,2, không bóng (luật 2)
+  cobbleTile: 2.4,   // (c) đá lát: texture cobbleTex 3 m → trải trên 2,4 m ⇒ viên 0,09–0,14 m (TB ≈ 0,11 m ≈ 1/14,5 chiều cao Ida)
   H: 8.0, bayHalf: 1.6, spring: 2.4, depth: 4.0, laneW: 6.0, laneR: 16, slope: 0.05 };
 export const wallFromWorld = ([x, z]) => [x - END.OFF_X, z - END.FLANK_Z];
 
@@ -137,7 +143,7 @@ export function buildLane(parent, kit, l = {}) {
   const P = (r, a) => new THREE.Vector3(C.x + r * Math.cos(a), 0, C.y - r * Math.sin(a));
   const y = (a) => -slope * R * a;
   { const n = 40, a1 = Math.PI / 2 + 0.9, pos = [], uv = [], idx = [];
-    for (let i = 0; i <= n; i++) { const a = a1 * i / n; for (const [k, r] of [[0, R - W / 2 - 1], [1, R + W / 2 + 1.2]]) { const p = P(r, a); pos.push(p.x, y(a) - 0.004, p.z); uv.push(k * (W + 2.2) / 3, R * a / 3); } }
+    for (let i = 0; i <= n; i++) { const a = a1 * i / n; for (const [k, r] of [[0, R - W / 2 - 1], [1, R + W / 2 + 1.2]]) { const p = P(r, a); pos.push(p.x, y(a) - 0.004, p.z); uv.push(k * (W + 2.2) / END.cobbleTile, R * a / END.cobbleTile); } }
     for (let i = 0; i < n; i++) { const q = 2 * i; idx.push(q, q + 1, q + 2, q + 1, q + 3, q + 2); }
     const geo = new THREE.BufferGeometry(); geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); geo.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2)); geo.setIndex(idx); geo.computeVertexNormals();
     const m = new THREE.Mesh(geo, lamMat({ color: '#ffffff', map: cobbleTex(13), side: THREE.DoubleSide })); m.receiveShadow = true; g.add(m); }
@@ -199,15 +205,26 @@ export function buildEndWallFrame(W, kit, o = {}) {
     const geo = new THREE.ShapeGeometry(sh); planarUV(geo, X, Y, 6, [0.2, 0]); const m = new THREE.Mesh(geo, kit.FT[2]); m.rotation.y = -Math.PI / 2; m.position.set(e.houseX0N - e.OFF_X, 0, -5.6 + fz - 7); m.receiveShadow = true; W.add(m);
     const u = windowUnit(0.82, 1.25, 'dark', kit.matC, kit.emit(1.0), 71); u.rotation.y = -Math.PI / 2; u.position.set(e.houseX0N - e.OFF_X, 4.3, -5.6 + fz - 3.5); W.add(u); }
   // (4) sân trước hông: đá lát (x −5 … 12, z −8,1 … −5,6)
-  { const fg = new THREE.PlaneGeometry(e.houseX0N - e.FACE_X, 2.5 + 0.2); fg.rotateX(-Math.PI / 2); fg.translate((fx + e.houseX0N - e.OFF_X) / 2, 0.004, 1.25); planarUV(fg, X, Z, 3, [0, 0]);
+  { const fg = new THREE.PlaneGeometry(e.houseX0N - e.FACE_X, 2.5 + 0.2); fg.rotateX(-Math.PI / 2); fg.translate((fx + e.houseX0N - e.OFF_X) / 2, 0.004, 1.25); planarUV(fg, X, Z, END.cobbleTile, [0, 0]);
     const m = new THREE.Mesh(fg, lamMat({ color: '#ffffff', map: cobbleTex(9) })); m.receiveShadow = true; W.add(m); }
+  // (4b) B1: cột điện phố chính trong sân (hệ tường chim), tắt mặc định; post.set(e) bật (0…1) — bóng đèn, loá, PointLight tầm ngắn.
+  let post = null;
+  if (o.post !== false) {
+    const wp = e.wallPost, px = wp.x - e.OFF_X, pz = wp.z - e.FLANK_Z;
+    const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
+    const Ep = electricLamp(6.2, (c) => lamMat({ color: c }), bulbM); Ep.group.position.set(px, 0, pz); Ep.group.rotation.y = wp.ry; W.add(Ep.group);
+    Ep.group.updateMatrixWorld(true); const hp = Ep.head.clone().applyMatrix4(Ep.group.matrixWorld);
+    const Lp = new THREE.PointLight(ELEC.color, 0, wp.range, 1.2); Lp.position.copy(hp); W.add(Lp);
+    const gl = glowSprite('#dfe8ff', 0, 2.6); gl.position.copy(hp); W.add(gl); const gz = elecGlare(hp); W.add(...gz.list);
+    post = { group: Ep.group, light: Lp, head: hp, set: (k) => { Lp.intensity = wp.cd * k; bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), k); gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * k); gz.set(k); } };
+  }
   // (5) hậu cảnh: sau nhà kho (bắc + tây) và cuối phố rẽ (nam, dốc xuống)
   if (o.far !== false) {
     const B = new THREE.Group(); B.position.set(fx, 0, 0); B.rotation.y = Math.PI / 4; W.add(B); buildFarCity(B, { glow: o.fogGlow ?? 1 });   // sau góc nhà kho (tây-bắc)
     const L = new THREE.Group(); L.rotation.y = Math.PI / 2; L.position.set(0, 0, 0); E.add(L); L.position.set(e.cornerZ - 10, 0, 0);
     buildFarCity(L, { zs: [-40, -75, -130], span: [90, 140, 220], seed: 911, glow: o.fogGlow ?? 1, drop: 0.06 });   // cuối phố rẽ
   }
-  return { flank };
+  return { flank, post };
 }
 
 // ================= BỘ PHỐ: gắn cuối phố vào buildStreetSet (sets.js gọi, trước khi dựng hai dãy nhà) =================
@@ -217,6 +234,7 @@ export function buildStreetEnd(scene, o) {
   const r = buildEndWallFrame(W, kit, { far: o.endOpts?.far, fogGlow: o.endOpts?.fogGlow });
   W.updateMatrixWorld(true);
   const toWorld = (v) => v.clone().applyMatrix4(W.matrixWorld);
-  return { group: W, warehouse: r.flank, faceX: END.FACE_X, flankZ: END.FLANK_Z, houseX0N: END.houseX0N, houseX0S: END.houseX0S, casSpot: END.casSpot.slice(),
+  const wallPost = { x: END.wallPost.x, z: END.wallPost.z, range: END.wallPost.range, ry: END.wallPost.ry, set: r.post ? r.post.set : () => {}, group: r.post?.group, light: r.post?.light };
+  return { group: W, warehouse: r.flank, faceX: END.FACE_X, flankZ: END.FLANK_Z, houseX0N: END.houseX0N, houseX0S: END.houseX0S, casSpot: END.casSpot.slice(), wallPost,
     bayWorld: { x: END.bayWorldX, z: END.FLANK_Z }, cornerWorld: { x: END.FACE_X, z: END.cornerZ }, toWorld };
 }

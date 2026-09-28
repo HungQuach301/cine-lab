@@ -8,7 +8,7 @@ export const ORDER_W2 = [
   ['s30', 2.0, 'new'],
   ['s31', 3.0, 'new'],
   ['s32', 3.0, 'new'],
-  ['s33', 7.0, 'new'],
+  ['s33', 5.0, 'new'],   // (a) chủ dự án sau Cổng 5: rút cảnh rộng tĩnh 7,0 → 5,0 s (tổng phim 140,5 s)
   ['s34', 2.0, 'new'],
   ['s35', 4.0, 'new'],
   ['s36', 2.0, 'new'],

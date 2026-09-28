@@ -2,6 +2,10 @@
 
 Gói W2, Cổng 5, luật O1. Bộ cảnh: thành phố (s43, `buildCitySet 'night'` — bộ khoá s1), ngõ (s44–s47, bộ khoá s6 `buildS6 'alley'`), quảng trường (s45c, bộ phố W1), phòng Cas (s48, previs `buildRoomSet`). Quyết định chủ dự án **B1**: kết ở phòng Cas (s48), không thêm chim bóng trong hốc; **C1**: ánh trắng phẳng có trời sao.
 
+
+> **Cập nhật A2 (sau Cổng 5, quyết định chủ dự án):** s33 rút 7,0 → 5,0 s. **Mọi mốc từ 1:25,0 trở đi lùi 2,0 s** so với số ghi bên dưới (L4 1:33,0; P5 bật 1:39,2; gạt van 1:47,7; L11 tắt 1:49,2; hết phim 2:20,5 = 140,5 s). Ảnh 4 kiểm mù: khung toàn cục **2506** (khung 34 của s39).
+- **A2 (c):** đá lát ngõ lặp 1,25× (viên 0,09–0,14 m, TB 0,11 m); đo trên probe s46 ≈ 0,08 m ở nền sau đồng hồ.
+
 ## Mũ Ida
 `hat_back` = 0 ở đầu và cuối mọi shot cảnh 6 (s44, s45, s46, s47; s43/s45c/s48 không có Ida) — nối từ cuối s42 (kéo mũ lại).
 

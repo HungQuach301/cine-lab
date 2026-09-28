@@ -78,3 +78,16 @@ Rủi ro còn lại:
 - s42b: đèn nhìn nghiêng vẫn ở trước thân. Tư thế đã đồng nhất; nếu vẫn đọc là "chìa xa" thì cần đổi máy s42b.
 - N3 cần kiểm mù xác nhận.
 - s33: Ida vẫn chồng một phần lên mép bóng mình (khoảng 0,15 m).
+
+# Giai đoạn A2 — quyết định chủ dự án sau Cổng 5 (B1 + C2 (a)(b)(c)); chỉ probe, chưa render
+Đã merge nhánh tích hợp @633a217. Chi tiết và số đo: `shots/layout/LAYOUT-W2.md` mục 0. Ảnh trước/sau: `v2_B1_s25-s27-s35-s37w.jpg`, `v2_a_s33-s34.jpg`, `v2_b_s40-s40w-s41.jpg`, `v2_c_s30-s46-s38.jpg`.
+- **Probe:** 3 lần (p19: 22 shot, gồm W1 s23, s24, s24c; p20: s25, s27). Không render nặng.
+- **Tổng phim:** 140,5 s (s33 −2,0 s). Mốc sau 1:25,0 lùi 2,0 s. Ảnh 4 kiểm mù đổi sang khung toàn cục 2506.
+- **Cần render lại khi P mở giai đoạn C2** (tổng 1628 khung):
+  - s25–s32 (504 khung): B1, bộ tường;
+  - s33, s34 (168 khung): (a);
+  - s35, s36, s37, s37w, s38, s39, s40, s40w, s41, s42a (≈ 572 khung): B1 (vũng sáng cột); (b) ở s40w, s41, s42a;
+  - s42b, s42 (120 khung): thời gian dời, đá lát phố ngoài;
+  - s44–s47 (264 khung): (c) đá lát ngõ; cảnh 6 dời mốc.
+  - s43, s45c, s48 chỉ dời mốc, hình không đổi.
+- **Ước thời gian chạy:** bộ tường 2,45 s/khung, bộ phố/hốc 1,1 s/khung, ngõ 0,95 s/khung → ≈ 1234 + 185 + 630 + 100 + 250 ≈ **40 phút**, chưa kể thời gian chờ hàng đợi.

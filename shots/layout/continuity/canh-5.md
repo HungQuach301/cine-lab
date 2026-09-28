@@ -2,6 +2,12 @@
 
 Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CAS_BAY`, `placeBayLantern`), `sets2.js` (`addBayStreet`), `sets_end.js` (`END`).
 
+
+> **Cập nhật A2 (sau Cổng 5, quyết định chủ dự án):** s33 rút 7,0 → 5,0 s. **Mọi mốc từ 1:25,0 trở đi lùi 2,0 s** so với số ghi bên dưới (L4 1:33,0; P5 bật 1:39,2; gạt van 1:47,7; L11 tắt 1:49,2; hết phim 2:20,5 = 140,5 s). Ảnh 4 kiểm mù: khung toàn cục **2506** (khung 34 của s39).
+- **A2 (a):** s33 5,0 s, máy dolly 0,9 m + dịch ngang phải 0,6 m (thị sai người/bóng); phơi sáng s33, s34 1,0 → 1,5 (lưng Ida/Cas bắt ánh vàng đèn lồng, áo không chìm đen). Nhịp: đứng dậy 0–0,6 s; Ida đi 0,6–2,7 s; Cas đi 0,6–4,1 s; Ida ngửa nhìn 3,6 s; Cas nửa giơ tay 4,6 s.
+- **A2 (b):** sau L11_OFF, kính L11 tối đục (#16181f, độ đục 0,85) ở s40w, s41, s42a — kính trống, không lửa, không quầng.
+- **A2 B1:** cột điện phố chính trong sân SÁNG suốt các shot bộ phố cảnh 5 (vũng sáng tầm 8,5 m quanh (17,0; −5,9)); góc L11 ngoài vũng; bản cột cũ (13,5; −4,2) của W1 bị ẩn trong shot W2.
+
 ## Hệ toạ độ
 - **Bộ hốc cửa** (s33, s34, s42b, s42 — bộ khoá Cổng 3 `buildS5` + phố bọc ngoài `addBayStreet`): vách trong z_b = 0, miệng vòm z_b = 4, vòm rộng 3,2 m (x_b ±1,6).
   Đổi sang bộ phố: x = x_b + 2,2; z = z_b − 12,1. Ngoài vòm: sân lát 2,5 m, vỉa hè + lòng phố, dãy nam (z_b 17,7), dãy bắc bắt đầu x_b 12,8; L11 + thang ở (5,8; 8,2).
