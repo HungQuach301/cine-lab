@@ -246,3 +246,21 @@ Công tắc: `IDA_STYLE = 'aa'` đầu `cast3d.js` (`opts.idaStyle: 'a1'` = bả
 Tự rà: cổ đọc là cổ (có bóng hàm, loe ra vai), khăn không còn quấn tới cằm, mũ ôm đầu và búi đỡ dưới vành; ở s05 (đèn khí phía trên) vành mũ **đổ bóng thật lên trán**. Còn lại: ở s37 ngọn L11 ngang tầm mắt và shot không bật bóng (file W2) → vành không đổ bóng thật, chỉ có tối che khuất; mặt vẫn sáng nhất khung (phơi sáng của shot × 2,0); mặt, da, tóc chưa đổi (bước 2).
 Thời gian (làn nhanh, chờ 0 s): 4 lần render (31,6 / 35,4 / 36,9 / 32,8 s) — làm lại 3 lần (under-fill, bóng dưới hàm, thang màu cổ đặt sai chỗ trong đầu). Thử nhanh ngoài hàng đợi ~14 lần (960×540, 1 mẫu).
 Chờ P: kiểm mù ảnh bước 1.
+
+## Bước 2 — cách điệu mặt, da, tóc trắng (+ sửa theo kiểm mù bước 1, `kiem-mu-mat/aa-tung-buoc.md` g3)
+Ảnh: `design/cong5/mat/aa/buoc2/neutral/face_ida.png` (JPEG `reports/m2/cong5/w3/aa_buoc2_neutral.jpg`). Lệnh: `EK=1.3 bash design/cong5/mat/run_aa.sh design/cong5/mat/aa/buoc2 neutral` — shot s37 như layout, **chỉ khác hệ số phơi sáng EK 1,3 (layout W2 đang 2,0)**, xem đề xuất ánh sáng dưới.
+
+| Lời chê bước 1 / yêu cầu | Thay đổi |
+|---|---|
+| Mặt dài, nhọn, cằm "khiên"; giới tính trung tính | `headSDF` nhánh A-α: khối giữa mặt ngắn lại, **má đầy mềm liền gò má** (±0,155; 0,33; 0,21 / 0,10 × 0,14 × 0,10), **cằm tròn nhỏ và cao hơn** (tâm 0,155 H, đáy ≈ 0,06 H → nửa dưới mặt ngắn ~0,04 H), hoà rộng má–cằm (không nếp gãy). Không hàm vuông, không má bạnh |
+| Cổ to, dài "ma-nơ-canh" | `ida.json` (thử): cổ **0,46 → 0,40 H**; loe chân cổ 0,07 → 0,05; nếp cổ ngang rõ hơn; vòng khăn trên nâng lên tL + 0,145 → đoạn cổ lộ ngắn lại |
+| Tóc "dán", "đầu hói đội mũ", mũ lơ lửng | **Khối tóc bạc**: vỏ tóc bám mặt đầu thật (ở thái dương mặt nhô ra ngoài elip sọ → tóc từng nằm dưới da), dày 0,057 H, phồng thêm ở thái dương–trên tai (+0,05) và gáy (+0,03), giữ độ dày tới chân tóc (chải ra sau); đường chân tóc hạ ở thái dương tới đỉnh tai, nối liền búi; 3–4 lọn chải lớn trong khối. **Bỏ lọn dải dán** (A-α: lọn là một phần khối tóc). Sợi tóc mềm hơn (normal 0,9 → 0,35; gân sợi 0,0045 → 0,0025) |
+| Tóc trắng hơn (mục 4) | Màu gốc thử **#b9b3aa → #e2dfda** + **cách điệu "tóc bạc"** trong shader tóc Ida: ánh sáng tới tóc kéo 70 % về trung tính (giữ độ sáng), `opts.hairSilver`. Đo (25 % điểm ảnh tóc sáng nhất, 960×540): **s05** #b9b3aa: sRGB (206,137,68), hue 30°, S 0,58 → chỉ đổi màu #e2dfda: (225,167,98), S 0,68 → **#e2dfda + bạc: (204,174,157), hue 22°, L 0,71, S 0,31**; **s26** (100,64,53) S 0,31 → (133,89,65) S 0,34 → **(112,96,91) S 0,10**. Kết luận: chỉ đổi albedo KHÔNG đủ (ánh lửa hổ phách áp đảo); cần cả cách điệu shader |
+| Da nhựa, nếp nhăn nét bút, lông mày một nét, mảng tối trên má, môi vệt mỏng | `facepaint.js` (`o.aa`): **sắc độ** — ~90 loang ấm/lạnh/vàng mềm, thái dương và cằm hơi lạnh, trán vàng nhẹ, má hồng nhạt cao rộng, mũi ấm; vệt cọ cũ nhạt 60 %. **Ít nét**: trán 3 → 2 nếp mềm (α 0,22), chân chim 4 → 2 nét mềm, dưới mắt 2 → 1, bỏ nếp dọc môi trên, bỏ rãnh khoé miệng, bỏ lõi rãnh mũi–má. **Mày** dày mềm hai lớp (12 px + 7 px) + sợi 3D dày hơn. **Môi** đầy hơn (khối môi dưới lớn hơn, sáng giữa môi dưới, bóng dưới môi, khoé môi). Hết mảng tối trên má (má liền gò má, bỏ hõm) |
+| Mắt lệch, nhìn trống | Hai nhãn cầu **hội tụ** nhẹ (±0,025 rad; bản cũ phân kỳ 0,1 rad) |
+| Hoa tai lơ lửng, tai bị che | Tai vểnh 0,18 → 0,30 (lộ qua tóc); khuyên: nụ trên dái tai + móc + giọt treo dưới dái |
+| Mặt sáng rực | **Đề xuất cho W2: EK s36/s37 2,0 → 1,3.** Đo s37 (điểm ảnh mặt có kênh ≥ 250): EK 2,0 **22,9 %**; 1,4 3,2 %; 1,0 0 %. `facelight.js` under 0,04 (từ bước 1). Cột thang cháy sáng bên trái khung s37 là của layout (W2) — ghi lại, không sửa |
+
+Tự rà: mặt tròn–mềm, nửa dưới ngắn, cằm tròn nhỏ; tóc bạc là khối quanh đầu dưới vành, trắng dưới lửa; tai và khuyên treo thấy được; da có sắc độ, ít nét. Còn lại: đầu mày trái còn vài vệt nét ngắn (nếp mí + sợi mày); cổ vẫn là ống đều ở chính diện; mép tóc là một đường đều (hơi "mũ tóc"); mặt vẫn sáng nhất khung (nguồn thật sát mặt).
+Thời gian (làn nhanh, chờ 0 s): 2 lần render (32,7 / 29,8 s); làm lại 1 lần (nếp gãy má–cằm, nếp mí). Thử nhanh ngoài hàng đợi ~20 lần (studio + s37/s05/s26, đo màu tóc, đo EK).
+Chờ P: kiểm mù ảnh bước 2.

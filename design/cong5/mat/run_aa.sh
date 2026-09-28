@@ -8,7 +8,7 @@ set -u
 WT=/home/user/cine-lab/.claude/worktrees/agent-a83d4075f6a9542ef
 cd "$WT"; export PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
 O=${1:?}; shift; mkdir -p "$O"; NAMES=${@:-"neutral"}
-L='"shot":"s37"'
+L='"shot":"s37"'; [ -n "${EK:-}" ] && L="$L,\"dbg\":{\"ek\":$EK}"   # EK: thử hệ số phơi sáng của shot (mặc định của layout W2: 2,0)
 args() { case "$1" in
   neutral|sad_smile|choked) echo "{$L,\"expr\":\"$1\"}" ;;
   nghieng) echo "{$L,\"expr\":\"sad_smile\",\"cam\":{\"yaw\":-80,\"dist\":1.1,\"y\":-0.02}}" ;;   # mặt nghiêng (so với s31)

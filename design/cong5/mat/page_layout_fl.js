@@ -1,7 +1,7 @@
 // W3 (Cổng 5) — trang THỬ facelight.js trên shot layout thật (không sửa file của P/W1/W2). Driver: design/cong5/mat/still.js.
 // --args {"shot":"s37","f":<khung phim toàn cục, mặc định giữa shot>,"fl":{"mode":"gas"|"lantern"|"elec", ...},"keyE":<số, tuỳ chọn>,"expose":"auto"|số,
 //         "expr":<biểu cảm Ida ghi đè>, "charOpts":{…ghi đè opts nhân vật Ida}, "shadowKey":1 (đèn khí gần mặt đổ bóng: vành mũ lên trán),
-//         "cam":{"yaw":…,"dist":…,"y":…} (faceCam của common.js, vd. mặt nghiêng yaw −80), "K":<hệ số phơi sáng facelight>, "idaDy":<m, dời Ida theo chiều đứng — chỉ để thử đề xuất bố cục>, "hide":<part>}
+//         "cam":{"yaw":…,"dist":…,"y":…} (faceCam của common.js, vd. mặt nghiêng yaw −80), "K":<hệ số phơi sáng facelight>, "idaDy":<m, dời Ida theo chiều đứng — chỉ để thử đề xuất bố cục>, "hide":<part>, "hairColor":"#rrggbb"}
 // Dựng shot đúng như design/cong5/layout/page.js (cùng grade, lớp vẽ), rồi gắn facelight lên Ida sau mỗi update(). Không có "fl" = như layout hiện tại.
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 import { createPipeline, createRenderer } from '/cong3/shared/post.js';
@@ -37,11 +37,12 @@ window.setup = async (c) => {
   cfg = c; W = c.W; H = c.H;
   const mod = await import('/cong3/v2/char3d/cast3d.js');
   const [ida, cas] = await Promise.all(['/cong3/model-sheet/ida.json', '/cong3/model-sheet/cas.json'].map((p) => fetch(p).then((r) => r.json())));
+  if (c.hairColor) ida.local_colors.hair = c.hairColor;   // thử màu tóc (đo màu thấy được dưới lửa, trước/sau)
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;
   const uniforms = { gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
   pipe = createPipeline(renderer, W, H, { exposure: 1.0, gradeGLSL: GRADE, uniforms });
   shot = SHOTS.find((s) => s.id === c.shot); if (!shot) throw new Error('không có shot ' + c.shot);
-  cur = await shot.build({ THREE, sheets: { ida, cas }, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, sheet.id.startsWith('CHR-ida') ? { ...opts, ...(c.expr ? { expr: c.expr } : {}), ...(c.charOpts || {}) } : opts), upd: mod.update || null, dbg: {} });
+  cur = await shot.build({ THREE, sheets: { ida, cas }, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, sheet.id.startsWith('CHR-ida') ? { ...opts, ...(c.expr ? { expr: c.expr } : {}), ...(c.charOpts || {}) } : opts), upd: mod.update || null, dbg: c.dbg || {} });   // c.dbg: vd. {"ek":1.2} thử hệ số phơi sáng của shot
   if (c.hide) cur.named.ida.root.traverse((m) => { if (m.isMesh && m.userData.part === c.hide) m.visible = false; });   // chẩn đoán
   if (c.fl) fl = createFaceLight(cur.scene, c.fl);
   cur.paint = createPaint(renderer, W, H, pipe, { ...(cur.paintP || {}), ...(c.paint || {}) });   // c.paint: thử ghi đè tham số lớp vẽ (đề xuất cho P)
