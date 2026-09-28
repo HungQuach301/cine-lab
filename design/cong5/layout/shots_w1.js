@@ -294,9 +294,12 @@ S({ id: 's23', scene: 3, t0: 63.0, t1: 66.0, size: 'WS', angle: 'ngang, nhìn xu
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 60, shadowLamps: [11] }); const p = P(ctx); const lad = ladderAt(st.scene, 11);
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const C23 = (ctx.dbg && ctx.dbg.s23cam) || S23_CAM; const cam = camMM(C23.mm); cam.position.set(...C23.pos); cam.lookAt(...C23.look);   // dbg.s23cam: thử máy khi đo
     const fast = { cycle_s: 0.9, stride_m: 0.6, speed_mps: 1.3 };
+    // N1 (rà continuity P): Cas đã đứng ở chân tường chim từ trước (s24 thấy cậu ở đó) → có mặt trong s23, đứng yên, nhỏ ở nền, nhìn về L11/Ida.
+    const cas = makeChar(ctx, st.scene, 'cas', { detail: 16 }); const [cx, cz] = (st.endInfo && st.endInfo.casSpot) || CAS_SPOT;
     if (ctx.dbg && ctx.dbg.limeMask) limeMask(st);   // đo V3: tỷ lệ điểm ảnh mặt vôi trắng nhà kho (chỉ khi --dbg '{"limeMask":1}' --nopaint)
-    return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: ctx.dbg && ctx.dbg.limeMask ? 1.0 : expo(2.4, 1.8, (T) => gasLevel(11, T)),
+    return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_STREET, exposure: ctx.dbg && ctx.dbg.limeMask ? 1.0 : expo(2.4, 1.8, (T) => gasLevel(11, T)),
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.06 }), f);
+        cas.place(p.C.turnaround, cx, cz, yawTo(cx, cz, LAMP_X(11), ON_Z));
         lad.visible = t >= 1.1;   // W1: thang trên vai khi chạy (liên tục s15), dựng vào cột ở 1,1 s (tư thế then chốt Cổng 6: "dựng thang")
         if (t < 1.1) ida.place(walkPose(t, p.I.walk_ladder, { gait: fast }), valAt([[0, 14.2], [1.1, LAMP_X(11) + 0.2]], t), valAt([[0, WALK_Z], [1.1, FOOT_Z]], t), yawTo(14.2, WALK_Z, LAMP_X(11), FOOT_Z));
         else if (t < 1.9) { const u = (t - 1.1) / 0.8; ida.place(p.climb(u, p.valveLadder), LAMP_X(11), FOOT_Z + (ON_Z - FOOT_Z) * ease(u), 0); }
