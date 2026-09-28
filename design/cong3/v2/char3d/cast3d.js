@@ -407,11 +407,12 @@ export function buildCharacter(sheet, opts = {}) {
     for (const sx of [1, -1]) add(headG, wisp([[sx * 0.09, 0.42, -0.33], [sx * 0.12, 0.33, -0.31], [sx * 0.105, 0.25, -0.28]], 0.012), 'hair', C.hair, 'hair');
     }   // hết tóc (không 'bl')
     // Mũ phớt mềm: chóp có rãnh giữa và hai vết bóp trước; vành cụp trước, mép cuộn; băng mũ.
-    const hs = sheet.costume.hat; const hat = new THREE.Group(); const HAT_Y = AA ? 0.80 : 0.86; hat.position.y = HAT_Y * H; hat.rotation.x = 0.08;   // A-α: mũ ngồi thấp, ôm quanh vòng đầu rộng nhất (hết 'mũ đậu trên đỉnh sọ quả trứng')
-    const ch_ = hs.crown_height_H, rx0 = hd.width_front * (AA ? 0.52 : 0.56), rz0 = rx0 * 1.12;   // A-α: miệng mũ vừa đầu + tóc
+    const hs = sheet.costume.hat; const hat = new THREE.Group(); const HF = BL ? face.meta.hat : null, HAT_Y = HF ? HF.y : AA ? 0.80 : 0.86;   // 'bl' lượt 3: mũ đo theo khối tóc glb (meta.hat)
+    hat.position.y = HAT_Y * H; hat.rotation.x = 0.08;   // A-α: mũ ngồi thấp, ôm quanh vòng đầu rộng nhất (hết 'mũ đậu trên đỉnh sọ quả trứng')
+    const ch_ = hs.crown_height_H, rx0 = HF ? HF.rx : hd.width_front * (AA ? 0.52 : 0.56), rz0 = rx0 * 1.12;   // A-α: miệng mũ vừa đầu + tóc
     // Cổng 4: bản lề mũ ở mép sau băng mũ → pose.hat_back (0–1) hất vành lên, mũ ngả ra sau (cử chỉ đẩy mũ trước câu thoại 1:50)
     const HP = BL ? face.meta.hatHinge : [0, 0.59, -0.03];   // 'bl' (bản lề mũ mới, đã duyệt): bản lề ở tâm sọ của lưới glb
-    hatPivot = new THREE.Group(); hatPivot.position.set(0, (AIL ? HP[1] : HAT_Y) * H, (AIL ? HP[2] : -rz0) * H); headG.add(hatPivot); hatPivot.add(hat); hat.position.set(0, (AIL ? HAT_Y - HP[1] : 0) * H, (AIL ? -HP[2] : rz0) * H);   // A-i v2: bản lề mũ ở TÂM SỌ → khi đẩy vành ra sau mũ trượt trên đầu, băng mũ vẫn ép tóc (không hở, không lơ lửng)
+    hatPivot = new THREE.Group(); hatPivot.position.set(0, (AIL ? HP[1] : HAT_Y) * H, (AIL ? HP[2] : -rz0) * H); headG.add(hatPivot); hatPivot.add(hat); hat.position.set(0, (AIL ? HAT_Y - HP[1] : 0) * H, (AIL ? -HP[2] + (HF ? HF.cz : 0) : rz0) * H);   // A-i v2: bản lề mũ ở TÂM SỌ → khi đẩy vành ra sau mũ trượt trên đầu, băng mũ vẫn ép tóc (không hở, không lơ lửng)
     const crownSDF = (x, y, z) => {
       const f = 1 - 0.16 * sstep(0, ch_, y);
       const ds = (Math.hypot(x / (rx0 * f), z / (rz0 * f)) - 1) * rx0 * f;
@@ -545,7 +546,7 @@ export function buildCharacter(sheet, opts = {}) {
       for (let i = 0; i < NRIM; i++) { const ph = 2 * Math.PI * i / NRIM, a = aph(ph), r = clR(ph) + clFold(ph, 1) + 0.02, x = Math.sin(ph) * r, z = Math.cos(ph) * r - 0.01;
         const cap_ = CL.side - (CL.side - CL.back) * sstep(1.7, 2.9, a); let top = cap_;
         // nửa trước: điểm thấp nhất của đầu ở cùng x, trên mọi độ sâu từ mép trở ra trước (không để mép che ngang mặt khi nhìn gần chính diện); nửa sau: tia dọc
-        let low = 1e9; for (let zz = z - 0.04; zz < (a < 1.5 ? z + 0.32 : z - 0.03); zz += 0.012) for (let yh = -0.12; yh < Math.min(low, 0.62); yh += 0.005) if (headSDF(x, yh, zz) < CL.gap) { low = yh; break; }
+        let low = 1e9; for (let zz = z - 0.04; zz < (a < 1.5 ? z + 0.32 : z - 0.03); zz += 0.012) for (let yh = -0.12; yh < Math.min(low, 0.62); yh += 0.005) if ((BL && face.sdf ? face.sdf : headSDF)(x, yh, zz) < CL.gap) { low = yh; break; }
         if (low < 1e8) top = Math.min(cap_, tL + nL + low - 0.01 + CL.tuck * gauss(a, 0.45));   // hệ đầu: gốc ở (0, tL + nL, 0) hệ thân; ở trước mép luồn SAU cằm (cằm che mép)
         raw.push(Math.max(CL.low, top)); }
       // co (min ±16°) rồi làm mượt (Gauss ±24°): đường mép dâng đều từ dưới cằm lên góc hàm, không gãy khúc, và không vượt lên trên đường hàm

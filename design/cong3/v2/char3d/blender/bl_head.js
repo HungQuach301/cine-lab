@@ -30,7 +30,14 @@ export const idaBLReady = () => !!CACHE;
 
 // Da: PBR mờ (nhám 0,66, bóng gương 0,3) + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập) + giữ sắc ấm khi ánh lạnh + kéo 35 % ánh hổ phách về trung tính.
 function skinMaterial(opts) {
-  const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: opts.skinRough ?? 0.66, metalness: 0, envMapIntensity: 0 });
+  const bump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);   // lượt 3: vân da nhỏ (lỗ chân lông + nếp mịn), thủ tục
+    let sd = 7654321; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647); const b = new Float32Array(N * N).map(rnd);
+    const blur = (a, r) => { const o = new Float32Array(N * N), o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += a[y * N + ((x + k + N) % N)]; o[y * N + x] = t / (2 * r + 1); }
+      for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += o[((y + k + N) % N) * N + x]; o2[y * N + x] = t / (2 * r + 1); } return o2; };
+    const b1 = blur(b, 1), b4 = blur(b, 4);
+    for (let i = 0; i < N * N; i++) { const v = 128 + 170 * (b1[i] - 0.5) + 300 * (b4[i] - 0.5); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = Math.max(0, Math.min(255, v)); im.data[i * 4 + 3] = 255; }
+    g.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(6, 4); return t; })();
+  const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0, envMapIntensity: 0, bumpMap: bump, bumpScale: opts.skinBump ?? 1.4 });
   const warm = opts.skinWarm ?? 0.7, spec = opts.skinSpec ?? 0.3, neu = opts.skinNeutral ?? 0.35;
   const phys = THREE.ShaderChunk.lights_physical_pars_fragment
     .replace('reflectedLight.directDiffuse += irradiance * BRDF_Lambert( material.diffuseColor );',
@@ -40,13 +47,15 @@ function skinMaterial(opts) {
       'reflectedLight.directSpecular += ' + spec.toFixed(3) + ' * irradiance * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, material );');
   mat.onBeforeCompile = (sh) => {
     sh.fragmentShader = sh.fragmentShader.replace('#include <lights_physical_pars_fragment>', phys)
+      .replace('#include <roughnessmap_fragment>', '#include <roughnessmap_fragment>\n#if defined( USE_COLOR_ALPHA )\n  roughnessFactor = mix(0.45, 0.85, vColor.a);\n#else\n  roughnessFactor = 0.66;\n#endif')
+      .replace('#include <color_fragment>', '#include <color_fragment>\n#if defined( USE_COLOR_ALPHA )\n  diffuseColor.a = opacity;\n#endif')
       .replace('vec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;',
         `vec3 alb = max(diffuseColor.rgb, vec3(1e-3)); vec3 eSk = totalDiffuse / alb;
          float lSk = dot(eSk, vec3(0.2126, 0.7152, 0.0722)), cSk = smoothstep(0.0, 0.25, (eSk.b - eSk.r) / max(lSk, 1e-5));
          eSk = mix(eSk, lSk * vec3(1.06, 1.0, 0.92), ${warm.toFixed(3)} * cSk);
          eSk = mix(eSk, lSk * vec3(1.07, 1.0, 0.9), ${neu.toFixed(3)});
          vec3 outgoingLight = eSk * alb + totalSpecular + totalEmissiveRadiance;`); };
-  mat.customProgramCacheKey = () => '|blSkin' + warm + '|' + spec + '|' + neu;
+  mat.customProgramCacheKey = () => '|blSkin3' + warm + '|' + spec + '|' + neu;
   return mat;
 }
 function eyeMaterial(map, opts) {
@@ -102,7 +111,16 @@ export function buildIdaBL(p) {
     const items = [[new THREE.SphereGeometry(0.016, 14, 10), 0], [new THREE.CylinderGeometry(0.0035, 0.0035, 0.05, 6), -0.03], [new THREE.SphereGeometry(0.024, 14, 10), -0.068]];
     for (const [g, dy] of items) { const m = new THREE.Mesh(g, ringM); m.position.set(e[0], e[1] + dy, e[2]); m.userData.part = 'earring'; m.castShadow = false; m.receiveShadow = false; root.add(m); parts.push(m); } }
   let cur = {};
-  function setFace(w = {}) { cur = { ...w }; for (const r of morphables) r.apply(w); for (const g of subs) g.computeBoundingSphere(); }
+  const CORR = meta.correctives || {};   // lượt 3: shape key sửa lỗi — trọng số = tích các kênh 'mul' × max các kênh 'max' (vd. corr_mouth = frown × max(press, chinRaise))
+  const withCorr = (w) => { const o = { ...w }; for (const [k, c] of Object.entries(CORR)) { let v = 1; for (const a of c.mul || []) v *= Math.min(1, w[a] || 0); if (c.max) v *= Math.min(1, Math.max(0, ...c.max.map((a) => w[a] || 0))); for (const [a, L] of Object.entries(c.lim || {})) v *= Math.min(w[a] || 0, L) / L; if (v > 0) o[k] = v; } return o; };
+  function setFace(w = {}) { cur = { ...w }; const wc = withCorr(w); for (const r of morphables) r.apply(wc); for (const g of subs) g.computeBoundingSphere(); }
   setFace((meta.presets || {})[opts.expr] || {});   // biểu cảm dựng sẵn theo tên (như facerig.js)
-  return { head, neck, eyes, setFace, getFace: () => cur, skinMat, meta, keys: hr.keys, root };
+  let sdf = null;   // lượt 3: khoảng cách có dấu của da 'bl' (lưới 0,025 H, nội suy ba chiều) — cast3d dùng cho mép cổ áo/khăn
+  if (meta.sdf) { const { lo, h, n } = meta.sdf, bin = atob(meta.sdf.b64), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+    const G = new Float32Array(u8.buffer), at = (i, j, k) => G[(i * n[1] + j) * n[2] + k];
+    sdf = (x, y, z) => { const fx = (x - lo[0]) / h, fy = (y - lo[1]) / h, fz = (z - lo[2]) / h; if (fx < 0 || fy < 0 || fz < 0 || fx >= n[0] - 1 || fy >= n[1] - 1 || fz >= n[2] - 1) return 1;
+      const i = Math.floor(fx), j = Math.floor(fy), k = Math.floor(fz), a = fx - i, b = fy - j, c = fz - k; let v = 0;
+      for (let di = 0; di < 2; di++) for (let dj = 0; dj < 2; dj++) for (let dk = 0; dk < 2; dk++) v += (di ? a : 1 - a) * (dj ? b : 1 - b) * (dk ? c : 1 - c) * at(i + di, j + dj, k + dk);
+      return v; }; }
+  return { sdf, head, neck, eyes, setFace, getFace: () => cur, skinMat, meta, keys: hr.keys, root };
 }

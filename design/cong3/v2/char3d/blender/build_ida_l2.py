@@ -44,12 +44,12 @@ DETAIL = {   # target chi tiết (trọng số) — cách điệu tuổi 74 + nh
     'nose/nose-scale-vert-incr': 0.55, 'nose/nose-hump-incr': 0.55, 'nose/nose-point-down': 0.35, 'nose/nose-volume-incr': 0.35,
     'nose/nose-point-width-incr': 0.35, 'nose/nose-scale-depth-incr': 0.25, 'nose/nose-flaring-incr': 0.2,
     'eyes/l-eye-scale-incr': 0.7, 'eyes/r-eye-scale-incr': 0.7, 'eyes/l-eye-bag-incr': 0.3, 'eyes/r-eye-bag-incr': 0.3,
-    'eyes/l-eye-eyefold-down': 0.15, 'eyes/r-eye-eyefold-down': 0.15, 'eyes/l-eye-height2-incr': 0.5, 'eyes/r-eye-height2-incr': 0.5, 'eyes/l-eye-corner2-down': 0.25, 'eyes/r-eye-corner2-down': 0.25,
+    'eyes/l-eye-eyefold-down': 0.05, 'eyes/r-eye-eyefold-down': 0.05, 'eyes/l-eye-height2-incr': 0.85, 'eyes/r-eye-height2-incr': 0.85, 'eyes/l-eye-height1-incr': 0.5, 'eyes/r-eye-height1-incr': 0.5, 'eyes/l-eye-height3-incr': 0.5, 'eyes/r-eye-height3-incr': 0.5,   # L3: mí mở hơn (mắt thấy được ở góc nghiêng PA1) 'eyes/l-eye-corner2-down': 0.25, 'eyes/r-eye-corner2-down': 0.25,
     'ears/l-ear-lobe-incr': 0.7, 'ears/r-ear-lobe-incr': 0.7, 'ears/l-ear-scale-incr': 0.25, 'ears/r-ear-scale-incr': 0.25,
     'cheek/l-cheek-bones-incr': 0.35, 'cheek/r-cheek-bones-incr': 0.35, 'cheek/l-cheek-volume-incr': 0.2, 'cheek/r-cheek-volume-incr': 0.2,
     'mouth/mouth-upperlip-volume-decr': 0.25, 'mouth/mouth-angles-down': 0.12, 'mouth/mouth-scale-horiz-decr': 0.15,
     'chin/chin-width-decr': 0.3, 'chin/chin-height-decr': 0.2, 'chin/chin-prominent-incr': 0.15,
-    'head/head-round': 0.45, 'head/head-age-incr': 0.3, 'neck/neck-double-decr': 0.4,
+    'head/head-round': 0.45, 'head/head-age-incr': 0.75,   # L3: da/khối già hơn (lời chê 'da em bé') 'neck/neck-double-decr': 0.4,
 }
 for k, w in DETAIL.items():
     TargetService.load_target(hum, os.path.join(TG, k + '.target.gz'), weight=w, name='d_' + k.split('/')[-1])
@@ -123,9 +123,15 @@ Qs = Q * S3
 # cổ đưa ra trước (sheet: "cổ hơi đưa ra trước") cho tâm cổ trùng tâm khăn 4 vòng của cast3d (z ≈ 0) — gáy MPFB từng lòi ra sau khăn thành "vây"
 _zc = Qs[:body_n][(np.abs(Qs[:body_n, 1] + 0.2) < 0.03) & (np.abs(Qs[:body_n, 0]) < 0.1) & keep[:body_n]]
 ZN0 = 0.5 * (_zc[:, 2].max() + _zc[:, 2].min()); Qs[:, 2] += (0.0 - ZN0) * (1 - sstep(-0.30, -0.02, Qs[:, 1]))   # chỉ dưới đường cằm (cằm không bị kéo)
+# L3: da cổ LIỀN trong khăn — dưới cằm, bán kính quanh trục cổ bị kẹp ≤ 0,205 H (mép trong khăn 4 vòng ≈ 0,21–0,25 H) → không vây/khuyết lòi qua khăn
+_r = np.hypot(Qs[:, 0], Qs[:, 2]); _rc = 0.205
+_w = np.maximum(1 - sstep(-0.10, 0.02, Qs[:, 1]), (1 - sstep(0.04, 0.16, Qs[:, 1])) * sstep(0.06, -0.04, Qs[:, 2]))   # gáy + hai bên cổ tới y 0,16 (vây gáy lượt 2–3)
+_rn = np.where(_r > _rc, _rc + (_r - _rc) * 0.25, _r); _k = np.where(_r > 1e-6, 1 + (_rn / np.maximum(_r, 1e-6) - 1) * _w, 1.0)
+Qs[:, 0] *= _k; Qs[:, 2] *= _k
 log(f'tâm cổ z {ZN0:.3f} → 0'); log(f'cách điệu: sọ rộng {w_cr:.3f}→×{SX:.3f}, sâu {d_cr:.3f}→×{SZ:.3f}, cổ {w_neck:.3f}→×{SN:.3f}')
 U = {u: np.stack([d[:, 0], d[:, 2], -d[:, 1]], 1) / HL * S3 for u, d in UD.items()}   # đơn vị biểu cảm → hệ H (bỏ qua đạo hàm của S3: sai < 1 %)
 
+Qs[teeth, 2] -= 0.018   # L3: răng lùi vào trong (môi mím/cười nén từng để răng xuyên qua môi)
 # ---- mốc ----
 EL = Qs[eyeL]; ER_c = EL.mean(0); ER_r = float(np.linalg.norm(EL - ER_c, axis=1).mean())
 EC = Qs[eyeR].mean(0)
@@ -146,20 +152,20 @@ P0 = Qs[idx]
 CH_UNITS = {
     'browUp': {'eyebrows-left-up': 1, 'eyebrows-right-up': 1},
     'browDown': {'eyebrows-left-down': 1, 'eyebrows-right-down': 1},
-    'browInnerUp': {'eyebrows-left-inner-up': 1, 'eyebrows-right-inner-up': 1},
+    'browInnerUp': {'eyebrows-left-inner-up': 2.2, 'eyebrows-right-inner-up': 2.2},   # L3: đầu mày trong nhướng rõ (buồn)
     'browKnit': {'nose-compression': 0.6, 'eyebrows-left-down': 0.25, 'eyebrows-right-down': 0.25},
     'blink': {'eye-left-closure': 1, 'eye-right-closure': 1},
     'lidDrop': {'eye-left-closure': 0.35, 'eye-right-closure': 0.35},
-    'squint': {'eye-left-slit': 1, 'eye-right-slit': 1},
-    'cheekRaise': {'mouth-upward-retraction': 0.45, 'eye-left-slit': 0.3, 'eye-right-slit': 0.3},
-    'smile': {'mouth-corner-puller': 1},
-    'frown': {'mouth-depression': 0.6},   # đơn vị MPFB đủ 1,0 cộng press + chinRaise làm miệng gãy (khung s37 choked lần đầu) → hạ biên độ kênh
+    'squint': {'eye-left-slit': 0.6, 'eye-right-slit': 0.6},   # L3: mắt không thành khe ở PA1
+    'cheekRaise': {'eye-left-slit': 0.25, 'eye-right-slit': 0.25},   # L3: + khối má nâng THỦ TỤC (ch_delta); bỏ mouth-upward-retraction (nhấc môi trên → lộ răng, cười tươi)
+    'smile': {'mouth-corner-puller': 0.55, 'mouth-compression': 1.0, 'mouth-elevation': 0.35},   # L3: cười NÉN (môi khép, không lộ răng), không cười tươi
+    'frown': {'mouth-depression': 1},   # L3: về 1,0; miệng gãy khi cộng press + chinRaise sửa bằng shape key sửa lỗi corr_mouth
     'jawOpen': {'mouth-open': 1},
-    'press': {'mouth-compression': 0.6},
+    'press': {'mouth-compression': 1},
     'pucker': {'mouth-pursing': 1, 'mouth-protusion': 0.4},
     'wide': {'mouth-retraction': 1},
     'lowerLipIn': {'mouth-depression-retraction': 0.4, 'mouth-elevation': 0.5},
-    'chinRaise': {'mouth-elevation': 0.55},
+    'chinRaise': {'mouth-elevation': 1},
 }
 CHANNELS = list(CH_UNITS)
 VISEMES = {'A': {'jawOpen': 0.75, 'wide': 0.1}, 'E': {'jawOpen': 0.3, 'wide': 0.7}, 'O': {'jawOpen': 0.5, 'pucker': 0.9},
@@ -169,6 +175,9 @@ PRESETS = {'neutral': {}, 'sad_smile': {'smile': 1.0, 'cheekRaise': 0.9, 'browIn
            'choked': {'frown': 1.0, 'browInnerUp': 1.0, 'browKnit': 0.65, 'chinRaise': 1.0, 'press': 0.6, 'lidDrop': 0.25, 'squint': 0.2}}
 def ch_delta(ch):
     D = np.zeros_like(P0)
+    if ch == 'cheekRaise':   # má "táo" nâng lên–ra trước dưới mắt, không động tới môi
+        ax_ = np.abs(P0[:, 0]); k = np.exp(-((ax_ - abs(ER_c[0]) - 0.01) ** 2 + (P0[:, 1] - (ER_c[1] - 0.13)) ** 2) / 0.065 ** 2) * sstep(ER_c[2] - 0.15, ER_c[2] - 0.05, P0[:, 2])
+        D[:, 1] += 0.016 * k; D[:, 2] += 0.012 * k
     for u, w in CH_UNITS[ch].items(): D += w * U[u][idx]
     return D
 CHD = {c: ch_delta(c) for c in CHANNELS}
@@ -198,7 +207,8 @@ def mk_obj(name, P, faces, cols=None, uv=None, mat=None, loc=None):
     me = bpy.data.meshes.new(name); me.from_pydata(to_b(np.asarray(P)).tolist(), [], [list(map(int, f)) for f in faces]); me.update()
     me.polygons.foreach_set('use_smooth', np.ones(len(me.polygons), bool))
     if cols is not None:
-        a = me.color_attributes.new('Col', 'FLOAT_COLOR', 'POINT'); a.data.foreach_set('color', np.concatenate([cols, np.ones((len(P), 1))], 1).astype(np.float32).ravel()); me.color_attributes.active_color = a
+        c4 = cols if cols.shape[1] == 4 else np.concatenate([cols, np.ones((len(P), 1))], 1)
+        a = me.color_attributes.new('Col', 'FLOAT_COLOR', 'POINT'); a.data.foreach_set('color', c4.astype(np.float32).ravel()); me.color_attributes.active_color = a
     if uv is not None:
         uvl = me.uv_layers.new(name='UVMap'); li = np.zeros(len(me.loops), np.int32); me.loops.foreach_get('vertex_index', li); uvl.data.foreach_set('uv', np.asarray(uv, np.float32)[li].ravel())
     if mat is not None: me.materials.append(mat)
@@ -249,7 +259,15 @@ wr = (0.0030 * (gauss(y - (EY + 0.19) - 0.12 * ax * ax, 0.011) + gauss(y - (EY +
       + 0.0026 * (g2(ax, y, [(EX + 0.08, EY + 0.015), (EX + 0.13, EY + 0.035)], 0.0075) + g2(ax, y, [(EX + 0.085, EY - 0.003), (EX + 0.135, EY - 0.005)], 0.0075)
                   + g2(ax, y, [(EX + 0.078, EY - 0.022), (EX + 0.12, EY - 0.048)], 0.0075)) * sstep(E[2] - 0.2, E[2] - 0.1, z)   # chân chim
       + 0.0020 * g2(ax, y, [(0.018, EY + 0.065), (0.024, EY + 0.115)], 0.008))                                                      # nếp giữa mày
+nose_w = 0.055; MWc = 0.068
+wr = wr * 1.5 + 0.0034 * gauss(y - (EY + 0.27) - 0.12 * ax * ax, 0.011) * sstep(0.24, 0.06, ax)                                   # nếp trán thứ 3
+wr = wr + (0.0060 * g2(ax, y, [(nose_w, 0.5 * (EY + MY) - 0.01), (MWc + 0.01, MY + 0.02), (MWc + 0.015, MY - 0.01)], 0.012)          # rãnh mũi–má sâu
+           + 0.0040 * g2(ax, y, [(MWc, MY - 0.01), (MWc + 0.012, MY - 0.07), (MWc + 0.02, MY - 0.12)], 0.011)                          # rãnh khoé miệng – cằm (marionette)
+           + 0.0035 * g2(ax, y, [(EX - 0.06, EY - 0.06), (EX, EY - 0.075), (EX + 0.06, EY - 0.055)], 0.010)                          # rãnh dưới bọng mắt
+           + 0.0014 * sum(gauss(x - xx, 0.004) for xx in np.linspace(-0.05, 0.05, 7)) * gauss(y - (MY + 0.03), 0.012)                  # nếp dọc môi trên
+           ) * 1.0
 DISP = -wr * fzf
+DISP -= 0.0030 * (gauss(y + 0.05 - 0.2 * ax * ax, 0.012) + gauss(y + 0.12 - 0.2 * ax * ax, 0.012)) * sstep(-0.05, 0.08, z)          # nếp ngang cổ
 PS = PS + N * DISP[:, None]
 N = normals(PS, FS)
 
@@ -279,8 +297,12 @@ def skin_albedo(P, N):
     lip = sstep(0.022, 0.0, np.hypot(ax / 1.2, (y - MY) / 0.9) - 0.05) * sstep(MZ - 0.05, MZ - 0.02, z)
     r -= 0.02 * lip; g -= 0.24 * lip; b -= 0.18 * lip
     inner = sstep(MZ - 0.02, MZ - 0.06, z) * sstep(0.06, 0.03, ax) * sstep(0.05, 0.02, np.abs(y - MY))   # lòng miệng tối
-    mot = fbm(x * 9, y * 9, z * 9, 41, 3); spot = np.maximum(0, fbm(x * 24, y * 24, z * 24, 53, 2) - 0.2) * sstep(0.62, 0.8, y) * fz
-    r += 0.05 * mot; g -= 0.02 * mot; b -= 0.04 * mot; r -= 0.35 * spot; g -= 0.45 * spot; b -= 0.55 * spot
+    mot = fbm(x * 9, y * 9, z * 9, 41, 3); mot2 = fbm(x * 30, y * 30, z * 30, 47, 2)
+    spot = np.maximum(0, fbm(x * 16, y * 16, z * 16, 53, 2) - 0.12) * (sstep(0.55, 0.75, y) + 0.6 * gp(EX + 0.05, EY - 0.1, 0.08)) * sstep(E[2] - 0.35, E[2] - 0.15, z)
+    red = (0.35 * gp(EX + 0.03, EY - 0.12, 0.06) + 0.40 * gp(0, 0.5 * (EY + MY), 0.04)) * fz                                    # L3: má, mũi ửng
+    r += 0.10 * mot + 0.04 * mot2 + 0.10 * red; g -= 0.03 * mot + 0.03 * mot2 + 0.22 * red; b -= 0.07 * mot + 0.02 * mot2 + 0.18 * red
+    r -= 0.55 * spot; g -= 0.70 * spot; b -= 0.85 * spot                                                                             # L3: đốm tuổi rõ hơn
+    ueye = gp(EX, EY - 0.065, 0.028) * fz; r -= 0.10 * ueye; g -= 0.14 * ueye; b -= 0.04 * ueye                                     # quầng dưới mắt nâu tím
     occ = np.maximum(0.3 * sstep(-0.25, -0.8, N[:, 1]) * sstep(0.28, 0.08, y), 0.15 * sstep(0.10, -0.25, y))
     k = (1 - occ) * (1 - 0.85 * inner)
     col = np.stack([base[0] * r * k, base[1] * g * k, base[2] * b * k], 1)
@@ -288,15 +310,32 @@ def skin_albedo(P, N):
     th = np.arccos(np.clip(dy / np.maximum(np.sqrt(dx * dx + dy * dy + dz * dz), 1e-9), -1, 1)); ph = np.arctan2(dx, dz)
     s = sstep(0.06, -0.06, th - theta_max(ph))
     hair = hexlin(HAIR) * 0.80
-    return np.clip(col * (1 - s[:, None]) + hair[None] * s[:, None], 0, 1)
+    out = np.clip(col * (1 - s[:, None]) + hair[None] * s[:, None], 0, 1)
+    # nhám theo vùng → kênh alpha (three.js: roughness = mix(0.45, 0.85, a)): chữ T (trán, sống mũi) bóng nhẹ; má, cằm, cổ, tai mờ
+    tz = np.maximum(gp(0, EY + 0.15, 0.08), gauss(ax, 0.03) * sstep(MY, EY, y)) * fz
+    rough = np.clip(0.62 - 0.35 * tz + 0.15 * sstep(0.1, -0.1, y) + 0.15 * ear + 0.08 * mot2, 0.05, 1)
+    return np.concatenate([out, rough[:, None]], 1)
 
 _TH_PH = np.array([0.00, 0.45, 0.80, 1.05, 1.22, 1.38, 1.52, 1.68, 1.90, 2.30, 2.70, np.pi])
-_TH_TH = np.array([1.20, 1.30, 1.55, 1.70, 1.74, 1.70, 1.64, 1.70, 1.92, 2.30, 2.55, 2.60])   # chân tóc: trán dưới vành mũ; thái dương, trên tai, gáy lộ
+_TH_TH = np.array([1.30, 1.50, 1.68, 1.76, 1.78, 1.72, 1.66, 1.72, 1.94, 2.30, 2.55, 2.60])   # L3: tóc phủ thái dương (nhìn chính diện dưới vành mũ thấy tóc bạc)   # chân tóc: trán dưới vành mũ; thái dương, trên tai, gáy lộ
 def theta_max(ph):
     a = np.abs(ph); return np.interp(a, _TH_PH, _TH_TH) + 0.012 * np.sin(ph * 9.0) + 0.008 * np.sin(ph * 17.0 + 1.3)
 
+# L3: SHAPE KEY SỬA LỖI 'corr_mouth' — frown + press + chinRaise đủ 1,0 cho miệng gãy như vết rách → làm trơn vùng miệng của tổ hợp đó
+_Dc = SKD['frown'] + SKD['press'] + SKD['chinRaise']; _Pc = PS + _Dc
+_E = np.concatenate([FS[:, [0, 1]], FS[:, [1, 2]], FS[:, [2, 3]], FS[:, [3, 0]]]); _deg = np.bincount(_E.ravel(), minlength=len(PS)).astype(float)
+_mask = gauss(np.hypot(PS[:, 0] / 1.3, PS[:, 1] - MY), 0.07) * sstep(MZ - 0.10, MZ - 0.04, PS[:, 2]) * (~tvert)
+_S = _Pc.copy()
+for _ in range(14):
+    _acc = np.zeros_like(_S); np.add.at(_acc, _E[:, 0], _S[_E[:, 1]]); np.add.at(_acc, _E[:, 1], _S[_E[:, 0]])
+    _S = _S + 0.5 * _mask[:, None] * (_acc / np.maximum(_deg, 1)[:, None] - _S)
+SKD['corr_mouth'] = _S - _Pc
+log(f"corr_mouth: dịch tối đa {np.abs(SKD['corr_mouth']).max():.4f} H")
+# L3: 'corr_smile_lip' — khi CƯỜI với hàm hé ít (sad_smile: jawOpen 0,1), môi khép lại (cười nén, không lộ khe tối/răng): bù phần môi của jawOpen ≤ 0,12
+_lipm = gauss(np.hypot(PS[:, 0] / 1.6, PS[:, 1] - MY), 0.09) * sstep(MZ - 0.10, MZ - 0.04, PS[:, 2])
+SKD['corr_smile_lip'] = -0.12 * SKD['jawOpen'] * _lipm[:, None]
 COL = skin_albedo(PS, N)
-COL[tvert] = hexlin('#cfc4b2') * 0.9
+COL[tvert, :3] = hexlin('#cfc4b2') * 0.9
 head = mk_obj('ida_head', PS, FS, cols=COL, uv=np.stack([np.arctan2(PS[:, 0], PS[:, 2]) / (2 * np.pi) + 0.5, PS[:, 1]], 1),
               mat=mk_mat('bl_skin', None, rough=0.62, spec=0.22, sss=0.2))
 head.shape_key_add(name='Basis', from_mix=False)
@@ -315,6 +354,16 @@ def skin_radius(D):
         hit = bvh.ray_cast(far, -mathutils.Vector(d), 1.2)
         out[i] = 1.2 - hit[3] if hit[0] is not None else 0.3
     return out
+
+# L3: lưới khoảng cách có dấu của da 'bl' (cho mép cổ áo/khăn của cast3d tính theo đầu 'bl', không theo A-α)
+_lo = np.array([-0.5, -0.7, -0.6]); _hs = 0.025; _n = np.array([41, 73, 51])
+_G = np.stack(np.meshgrid(*[_lo[i] + _hs * np.arange(_n[i]) for i in range(3)], indexing='ij'), -1).reshape(-1, 3)
+_sd = np.zeros(len(_G), np.float32)
+for i, g in enumerate(to_b(_G)):
+    loc, nrm, _, dist = bvh.find_nearest(mathutils.Vector(g)); _sd[i] = dist if (mathutils.Vector(g) - loc).dot(nrm) > 0 else -dist
+import base64
+SDF_META = {'lo': _lo.tolist(), 'h': _hs, 'n': _n.tolist(), 'order': 'x-major (ix, iy, iz)', 'b64': base64.b64encode(_sd.tobytes()).decode()}
+log('lưới SDF da cho cổ áo xong')
 
 # ======================= MẮT =======================
 def iris_image():
@@ -403,11 +452,13 @@ for k, D in SKD.items():
 log('mày xong')
 
 # ======================= TÓC =======================
-HAT_Y, HAT_TILT, RX0, RZ0 = 0.80, 0.08, 0.78 * 0.52, 0.78 * 0.52 * 1.12
+HAT_Y, HAT_TILT, RX0, RZ0, HCZ, HAT_FIT = 0.80, 0.08, 0.78 * 0.52, 0.78 * 0.52 * 1.12, 0.0, False
+HAT_PUSH = 0.26   # = cast3d 'bl': hatPivot.rotation.x = −0,26·hat_back (bản lề ở tâm sọ HC)
+RPUSH = np.array([[1, 0, 0], [0, math.cos(HAT_PUSH), -math.sin(HAT_PUSH)], [0, math.sin(HAT_PUSH), math.cos(HAT_PUSH)]])   # hướng ở tư thế đẩy → hướng tương ứng ở tư thế nghỉ
 ct, st = math.cos(-HAT_TILT), math.sin(-HAT_TILT); RXm = np.array([[1, 0, 0], [0, ct, -st], [0, st, ct]])
 def sdir(th, ph): return np.stack([np.sin(th) * np.sin(ph), np.cos(th), np.sin(th) * np.cos(ph)], -1)
 def band_radius(D):
-    o = RXm @ (HC - np.array([0, HAT_Y, 0])); d = D @ RXm.T
+    o = RXm @ (HC - np.array([0, HAT_Y, HCZ])); d = D @ RXm.T
     A = d[:, 0] ** 2 / RX0 ** 2 + d[:, 2] ** 2 / RZ0 ** 2; B = 2 * (o[0] * d[:, 0] / RX0 ** 2 + o[2] * d[:, 2] / RZ0 ** 2); C = o[0] ** 2 / RX0 ** 2 + o[2] ** 2 / RZ0 ** 2 - 1
     r = (-B + np.sqrt(np.maximum(B * B - 4 * A * C, 0))) / (2 * np.maximum(A, 1e-9)); return r, o[1] + d[:, 1] * r
 _rs_cache = {}
@@ -415,14 +466,31 @@ def hair_radius(th, ph):
     th = np.asarray(th, float); ph = np.asarray(ph, float); D = sdir(th, ph).reshape(-1, 3); rs = skin_radius(D)
     tm = theta_max(ph).ravel(); thr = th.ravel(); aph = np.abs(ph).ravel()
     side = gauss(aph - 1.55, 0.55) * sstep(0.95, 1.3, thr); nape = gauss(aph - np.pi, 0.7) * sstep(1.6, 2.1, thr)
-    tap = np.clip((tm - thr) / 0.08, 0, 1) ** 0.5
-    rh = rs + (0.036 + 0.018 * side + 0.014 * nape) * tap
-    rb, yh = band_radius(D); win = sstep(-0.09, -0.03, yh) * sstep(0.16, 0.12, yh)
+    tap = np.clip((tm - thr) / 0.045, 0, 1) ** 0.35                                   # L3: tóc dày ngay sau chân tóc
+    rh = rs + (0.040 + 0.020 * side + 0.014 * nape) * tap
+    rb, yh = band_radius(D); win = sstep(-0.05, 0.0, yh) * sstep(0.17, 0.12, yh) * (thr < tm)
+    if HAT_FIT:
+        rh = rh + (np.clip(rb - 0.010, rs + 0.006, rh + 0.012) - rh) * win     # L3: băng mũ ÉP tóc (và tóc đầy tới băng, tối đa +0,012) → mũ tỳ lên tóc
+        rb2, yh2 = band_radius(D @ RPUSH.T); win2 = sstep(-0.06, 0.0, yh2) * sstep(0.17, 0.12, yh2) * (thr < tm)   # tư thế ĐẨY MŨ (s36→) : băng mũ quay quanh tâm sọ
+        rh = rh + (np.maximum(np.minimum(rh, rb2 - 0.010), rs + 0.004) - rh) * win2
     # (lượt 2: bỏ 'ép tóc theo băng mũ' — tạo gờ kiểu mũ bảo hiểm khi mũ đẩy ra sau; băng mũ tỳ lên tóc tự nhiên)
     rh = np.where(thr >= tm, rs - 0.002, rh)
     return rh.reshape(th.shape), rs.reshape(th.shape)
+def band_clamp(c):   # L3: dải tóc / sợi tơ nằm DƯỚI băng mũ (không thò ra thành 'viền ren' dưới băng)
+    if not HAT_FIT: return c
+    d_ = c - HC; r_ = np.linalg.norm(d_, axis=1); D_ = d_ / r_[:, None]; rb_, yh_ = band_radius(D_)
+    win_ = sstep(-0.06, 0.0, yh_) * sstep(0.17, 0.12, yh_); r_ = r_ + (np.minimum(r_, rb_ - 0.016) - r_) * win_
+    rb2, yh2 = band_radius(D_ @ RPUSH.T); w2 = sstep(-0.06, 0.0, yh2) * sstep(0.17, 0.12, yh2); r_ = r_ + (np.minimum(r_, rb2 - 0.016) - r_) * w2
+    return HC + D_ * r_[:, None]
 def hair_point(th, ph, off=0.0):
     rh, rs = hair_radius(th, ph); return HC + sdir(th, ph) * (rh + off)[..., None]
+# L3: MŨ NGỒI LÊN SỌ — đo mặt cắt khối tóc ở dải băng mũ (hệ mũ nghiêng 0,08), đặt miệng mũ = elip ôm tóc × 0,985 (ép nhẹ), tâm mũ theo tâm đầu
+_ph = np.linspace(-np.pi, np.pi, 181)[:-1]; _t = np.linspace(0.75, 1.75, 41); _PH, _TT = np.meshgrid(_ph, _t)
+_rh, _ = hair_radius(_TT, _PH); _P = HC + sdir(_TT, _PH) * _rh[..., None]; _L = (_P.reshape(-1, 3) - np.array([0, HAT_Y, 0])) @ RXm.T
+_m = (_L[:, 1] > 0.0) & (_L[:, 1] < 0.12)
+_zf, _zb = _L[_m, 2].max(), _L[_m, 2].min(); HCZ = 0.5 * (_zf + _zb); _rz = 0.5 * (_zf - _zb); _rx = np.abs(_L[_m, 0]).max()
+RX0 = max(_rx, _rz / 1.12) * 0.985; RZ0 = RX0 * 1.12; HAT_FIT = True
+log(f'mũ: tóc ở băng rộng {2 * _rx:.3f}, sâu {2 * _rz:.3f}, tâm z {HCZ:+.3f} → miệng mũ rx {RX0:.4f} rz {RZ0:.4f} (sheet 0,4056 / 0,4543)')
 log('vỏ tóc…')
 NU, NV = 150, 44
 phg = np.linspace(-np.pi, np.pi, NU + 1)[:-1]; tg = np.linspace(0, 1, NV + 1); PH, TT = np.meshgrid(phg, tg, indexing='xy')
@@ -435,7 +503,7 @@ csh = (0.80 + 0.04 * fbm(Psh[:, 0] * 20, Psh[:, 1] * 20, Psh[:, 2] * 20, 5, 2))[
 shell = mk_obj('ida_hair_shell', Psh, fsh, cols=csh, uv=np.stack([(PH.ravel() + np.pi) / (2 * np.pi) * 8, TH.ravel() * 2], 1), mat=mat_hair)
 def card(th0, ph0, th1, ph1, w0, bow, k, nrow=14, off0=0.002):
     t = np.linspace(0, 1, nrow); th = th0 + (th1 - th0) * t; ph = ph0 + (ph1 - ph0) * t
-    c = hair_point(th, ph, off0 + bow * np.sin(np.pi * t)); rad = c - HC; rad /= np.linalg.norm(rad, axis=1)[:, None]
+    c = band_clamp(hair_point(th, ph, off0 + bow * np.sin(np.pi * t))); rad = c - HC; rad /= np.linalg.norm(rad, axis=1)[:, None]
     tg_ = np.gradient(c, axis=0); tg_ /= np.maximum(np.linalg.norm(tg_, axis=1), 1e-9)[:, None]; bi = np.cross(tg_, rad); bi /= np.maximum(np.linalg.norm(bi, axis=1), 1e-9)[:, None]
     wv = w0 * (0.12 + 0.88 * np.sin(np.pi * np.clip(0.06 + 0.94 * t, 0, 1)) ** 0.8)
     Pc, Fc = strip(np.stack([c - bi * wv[:, None] * 0.5, c + rad * (0.18 * wv)[:, None], c + bi * wv[:, None] * 0.5], 1))
@@ -454,17 +522,17 @@ for sx in (1, -1):
     for i in range(36):
         ph0 = sx * (0.35 + 2.2 * i / 35 + (rng.random() - 0.5) * 0.08); th0 = theta_max(ph0) - 0.14 - 0.12 * rng.random()
         cards.append(card(th0, ph0, 1.58 + 0.12 * rng.random(), sx * (np.pi - 0.3 - 0.35 * rng.random()), 0.03 + 0.01 * rng.random(), 0.004, 0.92 + 0.12 * rng.random()))
-for i in range(28):
-    ph0 = -0.85 + 1.7 * i / 27 + (rng.random() - 0.5) * 0.03; sg = 1 if ph0 >= 0 else -1; th0 = theta_max(ph0) - 0.01 - 0.03 * rng.random()
+for i in range(44):
+    ph0 = -0.95 + 1.9 * i / 43 + (rng.random() - 0.5) * 0.03; sg = 1 if ph0 >= 0 else -1; th0 = theta_max(ph0) - 0.01 - 0.03 * rng.random()
     cards.append(card(th0, ph0, th0 - 0.6, ph0 * 1.3 + sg * 0.25, 0.024 + 0.01 * rng.random(), 0.003, 0.92 + 0.12 * rng.random()))
 Pcd, Fcd, Ccd, Ucd = merge(cards); mk_obj('ida_hair_cards', Pcd, Fcd, cols=Ccd, uv=Ucd, mat=mat_hair)
 fines = []
-for i in range(150):
-    ph = -2.55 + 5.1 * (i + rng.random() * 0.8) / 150; sg = 1 if ph >= 0 else -1; tm = theta_max(ph)
+for i in range(260):
+    ph = -2.55 + 5.1 * (i + rng.random() * 0.8) / 260; sg = 1 if ph >= 0 else -1; tm = theta_max(ph)
     ths, the = tm + 0.012 + 0.02 * rng.random(), tm - 0.07 - 0.06 * rng.random(); phe = ph + sg * (0.05 + 0.08 * (abs(ph) > 0.9)) + (rng.random() - 0.5) * 0.03
     t = np.linspace(0, 1, 8); th = ths + (the - ths) * t; pp = ph + (phe - ph) * t
     rh, rs = hair_radius(th, pp); r = np.maximum(rs + 0.0015, rh - 0.003) + 0.0012 * np.sin(np.pi * t)
-    c = HC + sdir(th, pp) * r[:, None]; rad = c - HC; rad /= np.linalg.norm(rad, axis=1)[:, None]
+    c = band_clamp(HC + sdir(th, pp) * r[:, None]); rad = c - HC; rad /= np.linalg.norm(rad, axis=1)[:, None]
     tg_ = np.gradient(c, axis=0); tg_ /= np.linalg.norm(tg_, axis=1)[:, None]; bi = np.cross(tg_, rad); bi /= np.linalg.norm(bi, axis=1)[:, None]
     wv = (0.0035 + 0.002 * rng.random()) * np.sin(np.pi * np.clip(0.08 + 0.9 * t, 0, 1))
     Pf, Ff = strip(np.stack([c - bi * wv[:, None] * 0.5, c + bi * wv[:, None] * 0.5], 1))
@@ -478,37 +546,50 @@ BR = (0.262, 0.232, 0.17)
 nape_pt = hair_point(np.array([1.95]), np.array([np.pi]))[0]
 Cb = nape_pt + av * BR[2] * 0.55
 Pm, Fm = sphere(1.0, 20, 32, 0.0)
-Pcore = Cb + Pm[:, 0:1] * BR[0] * e1 + Pm[:, 1:2] * BR[1] * e2 + Pm[:, 2:3] * BR[2] * av
+Pcore = (Cb - av * 0.07) + Pm[:, 0:1] * BR[0] * 0.84 * e1 + Pm[:, 1:2] * BR[1] * 0.84 * e2 + Pm[:, 2:3] * BR[2] * 0.75 * av   # L3: lõi lùi vào khối tóc, nằm dưới vòng xoắn (không lộ quả cầu trơn ở góc nghiêng)
 tri = Pcore[Fm[:, :3]]; n_ = np.cross(tri[:, 1] - tri[:, 0], tri[:, 2] - tri[:, 0])
 if np.median((n_ * (tri.mean(1) - Cb)).sum(1)) < 0: Fm = Fm[:, ::-1]
 bun_parts = [(Pcore, Fm, np.full((len(Pcore), 3), 0.78), np.zeros((len(Pcore), 2)))]
-for phase in (0.0, np.pi):
-    t = np.linspace(0, 1, 100); rr = 0.015 + 0.205 * t; ang = 2 * np.pi * 2.1 * t + phase
-    hh = 0.15 * np.sqrt(np.clip(1 - (rr / 0.245) ** 2, 0, 1)) - 0.02
-    c = Cb + (rr * np.cos(ang))[:, None] * e1 + (0.9 * rr * np.sin(ang))[:, None] * e2 + hh[:, None] * av
-    tg_ = np.gradient(c, axis=0); tg_ /= np.linalg.norm(tg_, axis=1)[:, None]; n1 = np.cross(tg_, av); n1 /= np.maximum(np.linalg.norm(n1, axis=1), 1e-9)[:, None]; n2 = np.cross(tg_, n1)
-    rows = []
-    for i_, ci in enumerate(c):
-        r_ = 0.052 * (1 - 0.5 * t[i_]) + 0.016; a_ = np.linspace(0, 2 * np.pi, 11)
-        rows.append(ci + np.cos(a_)[:, None] * n1[i_] * r_ + np.sin(a_)[:, None] * n2[i_] * r_ * 0.72)
-    Pt, Ft = strip(np.array(rows)); tri = Pt[Ft[:, :3]]; n_ = np.cross(tri[:, 1] - tri[:, 0], tri[:, 2] - tri[:, 0])
-    if np.median((n_ * (tri.mean(1) - np.repeat(c[:-1], 10, 0))).sum(1)) < 0: Ft = Ft[:, ::-1]
-    bun_parts.append((Pt, Ft, (0.9 + 0.1 * np.sin(np.linspace(0, 40, len(Pt))))[:, None] * np.ones((1, 3)), np.stack([np.tile(np.linspace(0, 1, 11), 100), np.repeat(t * 12, 11)], 1)))
+# L3: búi = lõi tối + 40 LỌN tóc quấn quanh lõi theo các vòng nghiêng khác nhau (như búi xoắn thật) → mọi góc đều thấy vân lọn, không còn quả cầu trơn
+Pcore = Cb + Pm[:, 0:1] * BR[0] * e1 + Pm[:, 1:2] * BR[1] * e2 + Pm[:, 2:3] * BR[2] * av
+bun_parts[0] = (Pcore, Fm, np.full((len(Pcore), 3), 0.5), np.zeros((len(Pcore), 2)))
+NL = 40; th = np.linspace(0, 2 * np.pi, 97)
+for kq in range(NL):
+    phi = 2 * np.pi * kq / NL + 0.12 * rng.random(); tilt = np.radians(50 + 30 * rng.random())
+    nrm = np.cos(tilt) * av + np.sin(tilt) * (np.cos(phi) * e1 + np.sin(phi) * e2)
+    u = np.cross(nrm, av); u /= np.linalg.norm(u); v = np.cross(nrm, u)
+    dirs = np.cos(th)[:, None] * u + np.sin(th)[:, None] * v
+    rad = 1 / np.sqrt((dirs @ e1 / BR[0]) ** 2 + (dirs @ e2 / BR[1]) ** 2 + (dirs @ av / BR[2]) ** 2)
+    c = Cb + dirs * (rad + 0.004 + 0.003 * rng.random() + 0.002 * np.sin(3 * th + kq))[:, None]
+    tg_ = np.gradient(c, axis=0); tg_ /= np.linalg.norm(tg_, axis=1)[:, None]; up = dirs - (dirs * tg_).sum(1)[:, None] * tg_; up /= np.linalg.norm(up, axis=1)[:, None]
+    bi = np.cross(tg_, up); w = (0.030 + 0.012 * rng.random()) * np.ones(len(th))
+    rows = np.stack([c - bi * (w / 2)[:, None], c + up * 0.004, c + bi * (w / 2)[:, None]], 1)
+    Pt, Ft = strip(rows); tri = Pt[Ft[:, :3]]; n_ = np.cross(tri[:, 1] - tri[:, 0], tri[:, 2] - tri[:, 0])
+    if np.median((n_ * np.repeat(up[:-1], 2, 0)).sum(1)) < 0: Ft = Ft[:, ::-1]
+    k = 0.82 + 0.18 * rng.random() + 0.05 * np.sin(np.linspace(0, 20 + kq, len(th)))
+    col = np.repeat(k, 3)[:, None] * np.tile([0.62, 1.0, 0.62], len(th))[:, None] * np.ones((1, 3))
+    bun_parts.append((Pt, Ft, col, np.stack([np.tile([0, 0.5, 1], len(th)), np.repeat(th * 3, 3)], 1)))
 Pbn, Fbn, Cbn, Ubn = merge(bun_parts); mk_obj('ida_bun', Pbn, Fbn, cols=Cbn, uv=Ubn, mat=mat_hair)
 log('tóc xong')
 
 # ---- hoa tai: điểm thấp nhất của dái tai mỗi bên ----
+# L3: dái tai = các đỉnh mà target MPFB 'ear-lobe-incr' dịch nhiều nhất (đúng giải phẫu), hoa tai ở điểm THẤP nhất của dái, ra ngoài 0,01 H
 EARRING = {}
-for sx, nm in ((1, 'L'), (-1, 'R')):
-    m = (sx * PS[:, 0] > 0.30) & (PS[:, 1] > 0.2) & (PS[:, 1] < 0.55) & (PS[:, 2] > -0.2) & (PS[:, 2] < 0.1)
-    j = np.nonzero(m)[0][np.argmin(PS[m, 1])]; EARRING[nm] = (PS[j] + np.array([sx * 0.006, 0.012, 0])).round(4).tolist()
+_kbs = hum.data.shape_keys.key_blocks; _b0 = np.zeros(len(BASE) * 3); _kbs[0].data.foreach_get('co', _b0)
+for lr in ('l', 'r'):
+    _a = np.zeros(len(BASE) * 3); _kbs['d_' + lr + '-ear-lobe-incr'].data.foreach_get('co', _a); _d = np.linalg.norm((_a - _b0).reshape(-1, 3), axis=1)
+    _top = np.argsort(_d)[-25:]; _pl = Qs[_top]; _low = _pl[np.argmin(_pl[:, 1])]
+    j = np.argmin(np.linalg.norm(PS - _low, axis=1)); sx = 1.0 if PS[j, 0] > 0 else -1.0
+    EARRING['L' if sx > 0 else 'R'] = (PS[j] + np.array([sx * 0.010, 0.004, 0.0])).round(4).tolist()
+log(f'hoa tai (dái tai): {EARRING}')
 
 meta = {'_doc': "Cửa mặt Ida lượt 2 (W4, MPFB2 CC0). Hệ đầu cast3d: đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt. Shape key = morph target glTF; "
                 "TÊN = kênh facerig.js (16) + vis_* (6 khẩu hình); preset = trọng số trên kênh. Kênh dựng từ expression unit của MPFB (CH_UNITS).",
         'mpfb': {'commit': '3edf9df0551765be43563d047888cf7877eb89b4', 'version': '2.0.17', 'age': AGE, 'macro': macro, 'detail': DETAIL},
         'stylize': {'SX': float(SX), 'SZ': float(SZ), 'SN': float(SN), 'head_len_m_mpfb': float(HL)},
         'eyes': {'L': ER_c.round(4).tolist(), 'R': EC.round(4).tolist(), 'r': round(ER_r * 0.97, 4)}, 'mouth': MOUTH.round(4).tolist(), 'jaw': JAW.round(4).tolist(),
-        'hatHinge': HC.tolist(), 'earring': EARRING, 'channels': CHANNELS, 'ch_units': CH_UNITS, 'visemes': VISEMES, 'presets': PRESETS,
+        'hatHinge': HC.tolist(), 'hat': {'y': HAT_Y, 'rx': round(float(RX0), 4), 'rz': round(float(RZ0), 4), 'cz': round(float(HCZ), 4), 'tilt': HAT_TILT},
+        'sdf': SDF_META, 'correctives': {'corr_mouth': {'mul': ['frown'], 'max': ['press', 'chinRaise']}, 'corr_smile_lip': {'mul': ['smile'], 'lim': {'jawOpen': 0.12}}}, 'earring': EARRING, 'channels': CHANNELS, 'ch_units': CH_UNITS, 'visemes': VISEMES, 'presets': PRESETS,
         'key_max_disp_H': {k: round(float(np.abs(D).max()), 4) for k, D in SKD.items()}}
 bpy.data.objects.remove(hum)
 meta['counts'] = {ob.name: len(ob.data.vertices) for ob in SC.objects if ob.type == 'MESH'}
