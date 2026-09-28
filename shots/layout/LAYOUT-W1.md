@@ -277,3 +277,41 @@ Cách đo: vùng mũ chọn tay trên ảnh probe 960×540, lấy 60 % điểm �
 - Sửa: thêm Cas đứng yên ở casSpot trong s23, nhìn về L11/Ida. Trên hình: nhỏ, bên phải cột phố chính, trong bóng Ida — không bị che.
 - Render lại riêng s23 qua hàng đợi (`lam-lai-s23-N1`): chờ 0,0 s, chạy 118,3 s, 72 khung. `timing_s23.json`, **`video_s23.mp4` thay đoạn s23 (khung 1260–1331) trong video nhóm 3**.
 - Ảnh trước/sau: `reports/m2/cong5/w1/N1_s23_truoc-sau.jpg`. Tổng làm lại giai đoạn C: 2 (s08, s23).
+
+## 12. Giai đoạn A2 (quyết định chủ dự án sau Cổng 5, AUTHORSHIP @2591e4d) — sửa + probe, CHƯA render đầy đủ
+Nền: merge nhánh tích hợp @633a217 rồi @0f60b36 (W2 A2). Chỉ probe (960×540, 3 khung/shot).
+
+### 12.1 B1 phía phố (s23, s24, s24c)
+- Cột phố chính nay do `sets_end.js` (W2) dựng ở **(17,0; −5,9)**, tầm 8,5 m, trả `endInfo.wallPost = {x, z, range, ry, set, group, light}`. `sets.js` **bỏ cột W1 cũ (13,5; −4,2)**, chỉ gọi `wallPost.set(e)` theo `WALL_POST_T` (= 64,4 s) — mọi shot W1 tắt. `o.wallPostLight === false` tắt ánh.
+- `casSpot` = **(14,3; −7,15)** (cách L11 ≈ 7,1 m). Dãy bắc bắt đầu x = 18,5. Nếu `sets_end.js` chưa trả `wallPost` thì `shots_w1.js` dùng dự phòng `B1_FALLBACK.casSpot`.
+
+| Shot | Trước (giai đoạn C) | Sau (A2) | Đo / đọc |
+|---|---|---|---|
+| s23 | máy (24,5; 1,5; 3,6) → (4,5; 2,0; −1,8); Cas (10,35) sau cột | **máy (27,0; 1,5; 3,8) → (4,5; 2,0; −1,5), 28 mm**; Cas ở chân tường, mép phải | mặt vôi (mặt nạ limeMask): máy cũ trên hình mới **22,5 %** → chốt **18,5 / 18,5 / 18,5 %**; thử K 21,1 %, L 13,0 % (Ida quá nhỏ) |
+| s24 | (15,5; 2,3; 2,5) → (8,5; 2,1; −5,0), 35 mm — với casSpot mới Cas ra ngoài/khuất | **(11,2; 2,1; 1,8) → (10,5; 1,8; −5,8), 30 mm** | tính chiếu: Ida u 0,22, Cas u 0,82 (tia tới Cas cắt mặt tiền ở x = 13,8 < 18,5 → không bị che); P5 sau máy. Thử (11; 2,3; 4,5) bị P5 che nửa khung — loại |
+| s24c | (cx − 0,03; 1,05; cz + 2,1) cố định | **3/4 trước Cas lệch −35° khỏi hướng nhìn về L11, 2,1 m** (tính theo casSpot) | Cas nhìn sang trái; mặt đọc được, ấm yếu hơn (L11 cách 7,1 m; phơi sáng giữ 4,5) |
+
+Ảnh: `reports/m2/cong5/w1/v2_B1_s23-s24c.jpg` (trái: trước; phải: A2).
+
+### 12.2 (c) Tỷ lệ đá lát theo người
+- Chiều cao Ida theo khung xương sheet: chân 0,3 + cẳng 1,4 + đùi 1,45 + thân 2,0 + cổ 0,3 + đầu 1,0 = 6,45 H × 0,258 m ≈ **1,66 m** (không tính mũ) → 1/11–1/16 = 0,104–0,151 m.
+- `sets.js`: `COBBLE_M = END.cobbleTile` (**2,4 m**, cùng W2 để khớp s38) — viên ngang 0,088–0,136 m (TB 0,112 m ≈ 1/14,8), hàng 0,084 m; `FLAG_M = 3,0 m` — đá phiến vỉa hè 0,34–0,71 m (trước 0,45–0,95 m, đọc "cuội to" cạnh người ở s14). Texture khoá (cobbleTex, flagTex) **không đổi**, chỉ đổi cách trải.
+- **Đo trên probe s07** (khung giữa; tự tương quan dải mặt đường ngay trước chân Ida, 111,5 px/m): **trước 16 px ≈ 0,144 m (1/11,6) → sau 14 px ≈ 0,126 m (1/13,2)**. Độ phân giải 1 px ≈ 9 mm nên số đo lệch lên so với TB thiết kế 0,112 m.
+- s06, s09w (insert 100–105 mm, lấy nét 0,32–0,42 m): viên đá đúng cỡ nhưng quá SẮC — ngoài đời nền cách 1–2 m nhoè với vòng nhoè ≈ 1/3 khung. Previs không có DOF → thêm `o.groundSoft` (lấy mẫu kết cấu nền 24 px/lần lặp khi dựng, KHÔNG sửa texture khoá) cho riêng s06, s09w = đưa nền ra khỏi nét. Thử đổi góc POV s09w (ngang hơn) thì tay áo che mặt đồng hồ → giữ góc cũ. Cổng 7 thay bằng DOF thật. P/chủ dự án có thể bác cách này — khi đó cần DOF ở `page.js`/pipeline (P).
+- Ảnh: `reports/m2/cong5/w1/v2_c_da-lat.jpg` (s14 c, s07 b, s09w b, s06 c).
+
+### 12.3 Đèn lồng (việc nhỏ 1, chủ dự án duyệt)
+- Tắt ở s02, s03, s04 đến 1,2 s; bắt lửa ở s04 1,2 s (11,7 s phim); cháy từ đó. Hàm `lanternLit()` (ẩn ngọn lửa, kính tối) — nhịp tay mồi là việc Cổng 6 (ghi ở `shots_w1.json` s03/s04). Ảnh: `v2_den-long_s02-s04.jpg`.
+- Máy mới s02, s15: chủ dự án **đã duyệt**.
+
+### 12.4 Shot W1 cần render lại (giai đoạn C2)
+**20 shot**: s02, s03, s04, s05, s06, s07, s08, s09w, s10e, s11, s12, s13, s14, s15, s19, s21, s22, s23, s24, s24c.
+- Đổi do A2 của W1: s02–s04 (đèn lồng), s06, s09w (nền nhoè), mọi shot thấy mặt phố (đá lát), s23–s24c (B1).
+- Không cần render lại: s01, s10 (bộ thành phố khoá), s09 (không thấy mặt phố, không Ida).
+- Mọi shot có Ida còn phải render lại vì mặt + tóc trắng của W3 — P nhắn giai đoạn C2.
+
+### 12.5 Rủi ro A2
+1. s24, s24c: Cas cách L11 7,1 m → mặt ấm yếu; s24 Cas nhỏ (≈ 90 px cao ở 960×540, đo trên probe). Chỉ nguồn thật (L11, P4 xa). Nếu cần rõ hơn: Cổng 7 thêm ánh cửa sổ ấm có thật ở nhà đầu dãy bắc (đề xuất, chưa làm).
+2. s23 mặt vôi 18,5 % (ngưỡng ~20 %): ngoài dải ±5 % (19–21 %) nhưng gần; nếu W2 đổi thêm hông kho phải đo lại.
+3. `groundSoft` là giả DOF cục bộ — có thể bị coi là đổi hình texture; phương án thay: DOF thật (P).
+4. Cột sân trước: `sets.js` gọi `set(e)` theo WALL_POST_T; shot W2 cảnh 5 gọi thêm `set(1)` sau đó (cùng kết quả sau 64,4 s). `buildStreetSet` trả `wallPostCtl` (không trả `wallPost`) vì `shots_w2.js` dòng 179 coi `st.wallPost` là cột W1 cũ và ẩn nó — đã kiểm `--meta-only` s35, s37w, s41, s45c chạy hết khung, không lỗi.

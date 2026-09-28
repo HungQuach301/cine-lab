@@ -36,7 +36,7 @@ function limeMask(st) {
 }
 setWallPostOn(WALL_POST_ON);   // Q-W2-3: cột tường chim (bộ phố) bật đúng mốc 1:04 của common.js
 // Máy s23 (V3, 0:52): cố định để W2 dựng cuối phố theo đúng khung này (28 mm: FOV dọc 46,4°, ngang 74,6°).
-export const S23_CAM = { pos: [24.5, 1.5, 3.6], look: [4.5, 2.0, -1.8], mm: 28 };   // giai đoạn C: lùi máy 5 m lên phố → mặt vôi nhà kho 29 % → 15,5 % khung (đo mặt nạ limeMask)
+export const S23_CAM = { pos: [27.0, 1.5, 3.8], look: [4.5, 2.0, -1.5], mm: 28 };   // A2: lùi thêm 2,5 m — cuối phố W2 A2 (dãy bắc từ x = 18,5) lộ hông kho dài hơn: mặt vôi 22,5 % → 18,5 % (máy giai đoạn C: 15,5 % với hình cũ)
 
 // ---------------- CẢNH 1 — Vòng đèn (0:00–0:25, 25 s) ----------------
 S({ id: 's01', scene: 1, t0: 0.0, t1: 4.0, size: 'EWS', angle: 'cao, chúc ~20°', mm: 28, move: 'dolly vào rất chậm',
@@ -325,7 +325,7 @@ S({ id: 's24', scene: 3, t0: 66.0, t1: 68.0, size: 'MS', angle: 'hơi cao, 3/4 t
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: [11] }); const p = P(ctx); ladderAt(st.scene, 11);
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 30 }); const cas = makeChar(ctx, st.scene, 'cas', { detail: 20 });
-    const cam = camMM(32); cam.position.set(12.8, 2.3, 4.6); cam.lookAt(11.0, 1.9, -6.0);   // A2 (B1): Ida (L11) trái (u ≈ 0,25), Cas ở sân trước hông phải (u ≈ 0,73); P5 (10,8; 3,9) ngoài khung (71°), tia tới Cas qua trước góc nhà x = 15   // giai đoạn C: Ida (L11) trái–giữa, Cas ở chân tường chim phải khung (casSpot W2)
+    const cam = camMM(30); cam.position.set(11.2, 2.1, 1.8); cam.lookAt(10.5, 1.8, -5.8);   // A2 (B1, W2 A2): Ida (L11) trái, Cas ở sân trước hông phải, gần hơn 3 m để Cas đọc được; P5 (10,8; 3,9) sau máy, tia tới Cas qua trước góc nhà x = 15   // giai đoạn C: Ida (L11) trái–giữa, Cas ở chân tường chim phải khung (casSpot W2)
     const [cx, cz] = casSpotOf(st);
     const beats = [0.2, 0.8, 1.4];
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_STREET, exposure: 1.6,

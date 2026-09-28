@@ -12,7 +12,7 @@ import { buildGasLamp } from '/cong3/shared/props.js';
 import { buildLadder } from '/cong3/shared/cast.js';
 import { cobbleTex, groundPlane, facadeTex, wallUV, windowUnit, electricLamp, paintedSky } from '/cong3/v2/street.js';
 import { limewashTex, flagTex, glowSprite, rng } from '/cong3/dir-C/common.js';
-import { buildStreetEnd } from './sets_end.js';
+import { buildStreetEnd, END } from './sets_end.js';
 
 export const GRADE_WARM = { gCanvas: 0.012, gVig: 0.26, gLift: 0.02, gSat: 1.0, gShadowTint: [0.45, 0.35, 0.95], gHiTint: [1.0, 0.975, 0.93] };
 export const GRADE_COLD = { gCanvas: 0.012, gVig: 0.24, gLift: 0.02, gSat: 0.95, gShadowTint: [0.30, 0.32, 0.90], gHiTint: [0.98, 0.995, 1.03] };
@@ -27,13 +27,13 @@ export const CLOCK = { x: 176, z: 0.5, h: 6.6 };
 // Mốc bật cột tường chim (giây phim) — shots_w1.js gán = common.WALL_POST_ON khi nạp (tránh vòng import sets ↔ common). null = luôn tắt.
 export let WALL_POST_T = null;
 // (c) Tỷ lệ đá lát theo người (quyết định chủ dự án sau Cổng 5): cobbleTex (Cổng 3, khoá) vẽ viên 0,11–0,17 m × hàng 0,105 m trên 3 m.
-// Trải lên nền với COBBLE_M = 2,6 m/lần lặp → viên ngang 0,095–0,147 m (TB 0,121 m ≈ 1/13,7 chiều cao Ida 1,66 m = 6,45 H), hàng 0,091 m.
+// Trải lên nền với COBBLE_M = 2,4 m/lần lặp (= END.cobbleTile của W2) → viên ngang 0,088–0,136 m (TB 0,112 m ≈ 1/14,8 chiều cao Ida 1,66 m = 6,45 H), hàng 0,084 m.
 // Đá phiến vỉa hè: flagTex vẽ tấm 0,45–0,95 m trên 4 m → FLAG_M = 3,0 m → tấm 0,34–0,71 m (hết đọc "cuội to" cạnh người).
 // W2: sets_end.js dùng cobbleTex riêng — nên trải theo cùng COBBLE_M để nền cuối phố khớp.
-export const COBBLE_M = 2.6, FLAG_M = 3.0;
+export const COBBLE_M = END.cobbleTile ?? 2.4, FLAG_M = 3.0;   // cùng cỡ W2 (sets_end END.cobbleTile) để khớp s38
 // B1 (quyết định chủ dự án sau Cổng 5): cột điện phố chính dời vào sân trước hông nhà kho, tầm vũng sáng ~6 m, khuất sau góc nhà khi nhìn từ phố.
 // Dùng endInfo.wallPost {x, z, range} nếu sets_end.js (W2) trả về; nếu chưa thì dùng số dự phòng của P.
-export const B1_FALLBACK = { wallPost: { x: 15.4, z: -6.2, range: 6 }, casSpot: [14.3, -7.15] };
+export const B1_FALLBACK = { casSpot: [14.3, -7.15] };   // chỉ dùng khi sets_end.js chưa trả wallPost (bản cũ)
 export const setWallPostOn = (t) => { WALL_POST_T = t; };
 const switchOnT = (d) => { if (d < 0) return 0; if (d < 0.08) return 1; if (d < 0.16) return 0; if (d < 0.26) return 1; if (d < 0.34) return 0.05; return Math.min(1, (d - 0.34) / 0.1); };   // = common.switchOn
 export const flickAt = (f) => 1 + 0.04 * (0.6 * Math.sin(f * 0.21) + 0.4 * Math.sin(f * 0.083 + 1.3));   // lửa thở ±4 % (luật 2)
@@ -263,19 +263,9 @@ export function buildStreetSet(o = {}) {
   // cột điện ở quảng trường (bật cùng đồng hồ)
   // Q-W2-3 (P): cột điện PHỐ CHÍNH cạnh góc nhà kho = cột bật lúc 1:04 (WALL_POST_ON) của bộ tường chim (sets2.WALL.post, hệ tường (3,3; 3,9)
   // → thế giới (13,5; −4,2), xoay π/2 + 0,35). Không thuộc POST_X (POST_X giữ nguyên). Chỉ dựng khi đoạn phố có cuối phố (endInfo).
-  // B1 (sau Cổng 5): cột dời vào sân trước hông nhà kho (endInfo.wallPost hoặc B1_FALLBACK), tầm sáng = range (~6 m) → góc L11 (cách ~8 m) ngoài vũng.
-  // PointLight bật theo cột (tầm ngắn, không đổ bóng, không vào trắng tràn toàn cục); o.wallPostLight === false để tắt ánh (giữ bóng đèn + loá).
-  let wallPost = null;
-  if (endInfo) {
-    const W = endInfo.wallPost || B1_FALLBACK.wallPost;
-    const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
-    const E = electricLamp(6.2, matC, bulbM);
-    E.group.position.set(W.x, 0.12, W.z); E.group.rotation.y = Math.PI / 2 + 0.35; scene.add(E.group);   // tay vươn về tường chim (−z), hơi về phía Cas (−x)
-    E.group.updateMatrixWorld(true); const hp = E.head.clone().applyMatrix4(E.group.matrixWorld);
-    const Lt = new THREE.PointLight(ELEC.color, 0, W.range ?? 6, 1.2); Lt.position.copy(hp); scene.add(Lt);
-    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl); const gz = elecGlare(hp); scene.add(...gz.list);
-    wallPost = { E, L: Lt, bulbM, gl, gz, hp, x: W.x, z: W.z, range: W.range ?? 6, fromEnd: !!endInfo.wallPost };
-  }
+  // B1 (W2 A2): cột điện phố chính trong sân trước hông nhà kho do sets_end.js DỰNG (endInfo.wallPost = {x, z, range, ry, set, group, light}).
+  // sets.js chỉ điều khiển bật/tắt theo WALL_POST_T (cột cũ W1 ở (13,5; −4,2) đã BỎ — tránh hai cột). o.wallPostLight === false: tắt ánh, giữ bóng đèn + loá.
+  const wallPost = endInfo && endInfo.wallPost && endInfo.wallPost.set ? endInfo.wallPost : null;
   const squarePosts = [];
   if (x1 > 150) for (const [px, pz] of [[166, 8], [166, -8], [188, 9], [188, -9]]) {
     const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
@@ -299,14 +289,13 @@ export function buildStreetSet(o = {}) {
     for (const p of posts) { if (!p) continue; const e = st.post(p.k) ?? 0;
       p.L.intensity = ELEC.cd * e; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); p.gz.set(e); white = Math.max(white, e * (st.nearPost ? st.nearPost(p) : 1)); }
     if (wallPost) { const e = st.wallPost !== undefined ? st.wallPost : (WALL_POST_T === null || f === undefined ? 0 : switchOnT(f / 24 - WALL_POST_T));
-      wallPost.L.intensity = o.wallPostLight === false ? 0 : ELEC.cd * e; wallPost.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e);
-      wallPost.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); wallPost.gz.set(e); }
+      wallPost.set(e); if (o.wallPostLight === false && wallPost.light) wallPost.light.intensity = 0; }
     const sq = st.square ?? 0;
     for (const p of squarePosts) { p.L.intensity = ELEC.cd * sq; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), sq); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * sq); p.gz.set(sq); }
     if (clock) clock.userData.setOn(st.clock ?? 0);
     whiteHemi.intensity = (st.whiteFill ?? white) * 0.9;   // trắng tràn phẳng (mức v1). v2 thử 0,32 ban đêm → ở 0:40–0:42 bóng dài của đèn khí L7 còn nguyên, trái kịch bản; trả về 0,9. Dấu hiệu đêm nay do trời sao + sương tối
   }
-  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth, wallPost };
+  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth, wallPostCtl: wallPost };   // KHÔNG trả `wallPost`: shots_w2 coi st.wallPost là cột W1 cũ (đã bỏ) và ẩn nó
 }
 
 // Vệt tối tiếp xúc (decal mờ dưới chân) — dùng cho mọi bộ ngoài phố.
