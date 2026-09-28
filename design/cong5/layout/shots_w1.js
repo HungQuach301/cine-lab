@@ -12,6 +12,14 @@ import { CLOCKS, CLOCK_ON, DIALOGUE, DING, FILM_S, FOOT_Z, GAS_ON, GRADE_ALLEY, 
 
 // Vị trí Cas ở cuối phố (s24, s24c): mặc định = bản Cổng 4; nếu sets_end.js (W2) trả endInfo.casSpot = [x, z] thì dùng vị trí đó
 // (chân tường nhà kho, trong quầng hổ phách L11 — xem shots/layout/LAYOUT-W1.md, "Yêu cầu gửi W2").
+
+// v3 (kiểm toán trạng thái ẩn): util.makeChar().place gọi setPose TRƯỚC khi đặt vị trí/hướng gốc → đèn lồng thắt lưng (xoay theo trọng lực
+// bằng hướng thế giới của hông) dùng hướng gốc của LẦN ĐẶT TRƯỚC. Render thẳng một khung (hướng gốc còn = 0) khác render nối tiếp ở mọi shot
+// Ida quay ≠ 0 (s02, s07, s08, s23). Sửa cục bộ: đặt vị trí + hướng gốc TRƯỚC rồi mới place → mỗi khung chỉ phụ thuộc chính nó.
+// (Đề xuất P sửa gốc trong util.js cho mọi gói.)
+function mkChar(...a) { const ch = makeChar(...a), place0 = ch.place;
+  ch.place = (pose, x, z, yaw, y0 = 0) => { ch.root.position.set(x, y0 + (pose.root_y_m ?? 0), z); ch.root.rotation.y = yaw; ch.root.updateMatrixWorld(true); place0(pose, x, z, yaw, y0); };
+  return ch; }
 const CAS_SPOT = [-1.2, -2.2];
 const S05_MODE = 'fl', S05_EK = 1.6;   // C2: facelight gas + phơi sáng fl.exposure() × 1,6 (mặt cháy 0,5 %, nền luma 69, tóc bạc) — LAYOUT-W1.md mục 13
 // B1 (sau Cổng 5): chỗ Cas dời sang đông ~4 m. Nếu sets_end.js đã trả endInfo.wallPost (W2 làm B1) thì tin endInfo.casSpot; nếu chưa thì dùng số dự phòng của P.
@@ -36,6 +44,20 @@ function limeMask(st) {
   st.scene.userData.limeMask = { face: face.size, B, W };
   st.scene.userData.blackenLater = () => st.scene.traverse((o) => { if (o.isMesh && !fixed.has(o)) o.material = B; if (o.isSprite) o.visible = false; });
 }
+
+// v3 (kiểm giờ đồng hồ trên hình): móc CHỈ ĐỌC góc kim của vật thể đồng hồ trong cảnh (đồng hồ bỏ túi 'watch'; đồng hồ quảng trường).
+// Không đổi hình. clockAudit(scene) → { watch: [phút°, giờ°] | null, square: [phút°, giờ°] | null } (độ theo chiều kim, 0 = 12 giờ).
+function clockAudit(scene) {
+  const out = { watch: null, square: null }; const deg = (m) => +(((-m.rotation.z * 180 / Math.PI) % 360 + 360) % 360).toFixed(3);
+  scene.traverse((o) => {
+    if (o.name === 'watch' && !out.watch) { const hs = o.children.filter((c) => c.isMesh && c.geometry.type === 'PlaneGeometry' && Math.abs(c.position.z - 0.0052) < 1e-6);
+      if (hs.length >= 2) out.watch = [deg(hs[hs.length - 2]), deg(hs[hs.length - 1])]; }
+    if (o.userData && o.userData.head && o.userData.setHands && !out.square) { const ps = o.userData.head.children.filter((c) => c.isGroup && c.children[0] && c.children[0].isMesh);
+      if (ps.length >= 2) out.square = [deg(ps[0].children[0]), deg(ps[1].children[0])]; }
+  });
+  return out;
+}
+const exposeClock = (scene) => { if (typeof window !== 'undefined') window.__w1clock = () => clockAudit(scene); };
 setWallPostOn(WALL_POST_ON);   // Q-W2-3: cột tường chim (bộ phố) bật đúng mốc 1:04 của common.js
 // Máy s23 (V3, 0:52): cố định để W2 dựng cuối phố theo đúng khung này (28 mm: FOV dọc 46,4°, ngang 74,6°).
 export const S23_CAM = { pos: [27.0, 1.5, 3.8], look: [4.5, 2.0, -1.5], mm: 28 };   // A2: lùi thêm 2,5 m — cuối phố W2 A2 (dãy bắc từ x = 18,5) lộ hông kho dài hơn: mặt vôi 22,5 % → 18,5 % (máy giai đoạn C: 15,5 % với hình cũ)
@@ -53,7 +75,7 @@ S({ id: 's02', scene: 1, t0: 4.0, t1: 8.5, size: 'WS', angle: 'ngang tầm mắt
   action: 'Ida vác thang đi từ phải sang trái về cột L4.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 85, x1: 200, shadowLamps: [3], fog: [30, 260] }); const p = P(ctx);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 });
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 });
     // W1: máy chéo lên phố (~23° về bắc so với trục phố): mặt tiền bắc lùi sâu bên trái, đèn L3–L1 đã thắp nối nhau về quảng trường,
     // mái + ống khói lớp sau và trời chạng vạng ở trên. Ida từ xa tiến về máy, trôi PHẢI → TRÁI trên khung (giữ hướng cảnh 1–3).
     const cam = camMM(35); cam.position.set(103.5, 1.45, 3.6); cam.lookAt(116.0, 2.6, -1.6);
@@ -67,7 +89,7 @@ S({ id: 's03', scene: 1, t0: 8.5, t1: 10.5, size: 'MS', angle: 'thấp, hất l�
   action: 'Ida lên nốt bậc thang, tay phải mở van; ngọn L4 bắt lửa.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 80, x1: 140, shadowLamps: [4] }); const p = P(ctx); ladderAt(st.scene, 4);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 28 });
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 28 });
     const cam = camMM(50); cam.position.set(103.2, 0.95, -0.2); cam.lookAt(106.0, 3.0, -4.3);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.0,
       update(t, T, f) { st.setState(stdState(T), f);
@@ -81,7 +103,7 @@ S({ id: 's04', scene: 1, t0: 10.5, t1: 12.0, size: 'WS', angle: 'cao, từ bên 
   action: 'Ida trên thang, hai tay đưa lên kính; bóng người + thang đổ dài lên tường nhà.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 80, x1: 200, shadowLamps: [4] }); const p = P(ctx); ladderAt(st.scene, 4);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 });
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 });
     const cam = camMM(28); cam.position.set(99.5, 5.2, 3.2); cam.lookAt(106.5, 1.2, -4.6);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.0,
       update(t, T, f) { st.setState(stdState(T), f); ida.place(poseAt([[0, p.valveLadder], [0.8, p.warmLadder]], t), LAMP_X(4), ON_Z, 0); lanternLit(ida, t >= 1.2); } };   // đèn lồng bắt lửa 1,2 s (nhịp tay: Cổng 6)
@@ -93,21 +115,25 @@ S({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 3
   action: 'Hai lòng tay áp gần kính: một, hai, ba (12,3 / 12,9 / 13,5); nói L1; hạ tay.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 90, x1: 125, shadowLamps: [4] }); const p = P(ctx); ladderAt(st.scene, 4);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 36, faceQ: 1.4, expr: 'neutral', glint: 0.6 });
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 36, faceQ: 1.4, expr: 'neutral', glint: 0.6 });
     const cam = camMM(85); let camSet = false;
     const beats = [12.3, 12.9, 13.5].map((b) => b - 12);
-    // C2 (mặt A-α của W3): 'fl' = facelight 'gas' (dội ấm vôi/đá + viền trời, nguồn có thật) + phơi sáng khoá theo fl.exposure() ở khung đầu;
+    // C2 (mặt A-α của W3): 'fl' = facelight 'gas' (dội ấm vôi/đá + viền trời, nguồn có thật) + phơi sáng khoá theo fl.exposure() tại KHUNG ĐẦU SHOT (v3: hàm thuần);
     // 'x04' = phơi sáng 0,42 × 0,4 (W3 đo). Mặc định chọn theo số đo trong LAYOUT-W1.md mục 13.
     const mode = (ctx.dbg && ctx.dbg.s05) || S05_MODE; const fl = mode === 'fl' ? createFaceLight(st.scene, { mode: 'gas' }) : null; let EXP = mode === 'x04' ? 0.42 * 0.4 : 0.42;
     const L4 = st.lamps.find((l) => l && l.i === 4);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: () => EXP,
-      update(t, T, f) { st.setState(stdState(T), f);
-        let k = 0; for (const b of beats) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
-        const pose = t < 2.4 ? lerpPose(p.warmLadder, p.warmLadderIn, k) : poseAt([[2.4, p.warmLadder], [3.1, p.restLadder]], t);
-        if (!camSet) { ida.place(p.warmLadder, LAMP_X(4), ON_Z, 0); const head = new THREE.Vector3(); ida.joints.head.getWorldPosition(head); head.y += 0.12;
-          cam.position.copy(head).add(new THREE.Vector3(-1.55, 0.02, 1.35)); cam.lookAt(head.clone().add(new THREE.Vector3(-0.14, -0.1, 0.22))); camSet = true; }   // W1: máy tĩnh (v2 trôi theo đầu)
-        ida.place(pose, LAMP_X(4), ON_Z, 0);
-        if (fl) { fl.update(ida, cam, { key: L4 && L4.L }); if (fl.__exp === undefined) { fl.__exp = fl.exposure() * ((ctx.dbg && ctx.dbg.ek) || S05_EK); EXP = fl.__exp; } } } };
+      update(t, T, f) {
+        // v3 (kiểm toán trạng thái ẩn): máy và phơi sáng KHOÁ được tính TƯỜNG MINH từ khung đầu shot (t = 0, f0), không phụ thuộc khung nào render trước.
+        if (!camSet) { const T0s = T - t, f0 = Math.round(T0s * 24);
+          ida.place(p.warmLadder, LAMP_X(4), ON_Z, 0); const head = new THREE.Vector3(); ida.joints.head.getWorldPosition(head); head.y += 0.12;
+          cam.position.copy(head).add(new THREE.Vector3(-1.55, 0.02, 1.35)); cam.lookAt(head.clone().add(new THREE.Vector3(-0.14, -0.1, 0.22))); camSet = true;   // máy tĩnh (tư thế cố định)
+          if (fl) { apply(0, T0s, f0); fl.update(ida, cam, { key: L4 && L4.L }); EXP = fl.exposure() * ((ctx.dbg && ctx.dbg.ek) || S05_EK); } }
+        apply(t, T, f); if (fl) fl.update(ida, cam, { key: L4 && L4.L }); } };
+    function apply(t, T, f) { st.setState(stdState(T), f);
+      let k = 0; for (const b of beats) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
+      const pose = t < 2.4 ? lerpPose(p.warmLadder, p.warmLadderIn, k) : poseAt([[2.4, p.warmLadder], [3.1, p.restLadder]], t);
+      ida.place(pose, LAMP_X(4), ON_Z, 0); }
   } });
 
 S({ id: 's06', scene: 1, t0: 16.0, t1: 20.0, size: 'CU (insert)', angle: 'chúc nhẹ, góc nhìn của Ida', mm: 100, move: 'tĩnh',
@@ -116,8 +142,9 @@ S({ id: 's06', scene: 1, t0: 16.0, t1: 20.0, size: 'CU (insert)', angle: 'chúc 
   action: 'Dưới chân thang, Ida mở đồng hồ bỏ túi (7:31 — giờ thật 7:38), gõ kính hai lần bằng móng tay, cất đi.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 95, x1: 118, shadowLamps: [], groundSoft: 24 }); const p = P(ctx); ladderAt(st.scene, 4);   // (c) nền nhoè thay DOF
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 30 }); const watch = watchInHand(st.scene);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 30 }); const watch = watchInHand(st.scene);
     const cam = camMM(100); const [mD, hD] = hands(CLOCKS.beat1.watch);
+    exposeClock(st.scene);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: 1.4,
       update(t, T, f) { st.setState(stdState(T), f);
         let tap = 0; for (const b of [0.8, 1.2]) tap = Math.max(tap, Math.exp(-(((t - b) / 0.07) ** 2)));
@@ -132,7 +159,7 @@ S({ id: 's07', scene: 1, t0: 20.0, t1: 24.0, size: 'WS', angle: 'ngang tầm m�
   action: 'Ida vác thang đi qua cột L5; bóng đổ ngang đá lát, xoay theo vị trí cột.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 60, x1: 130, shadowLamps: [5] }); const p = P(ctx);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.2,
       update(t, T, f) { st.setState(stdState(T), f); const x = 95.2 - WALK.speed_mps * t;
         ida.place(walkPose(t, p.I.walk_ladder), x, WALK_Z, -Math.PI / 2);
@@ -145,7 +172,7 @@ S({ id: 's08', scene: 1, t0: 24.0, t1: 26.0, size: 'WS (tele)', angle: 'ngang t�
   action: 'Ida đi về phía máy; xa sau lưng là quảng trường.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'dusk', x0: 55, x1: 200, shadowLamps: [], fog: [40, 330], farLit: 0 }); const p = P(ctx);   // W1: sương xa cho tele — quảng trường + dãy nhà xa đọc được
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 18 }); const cam = camMM(135); cam.position.set(58, 1.6, 0.6); cam.lookAt(176, 3.4, 0.2);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 18 }); const cam = camMM(135); cam.position.set(58, 1.6, 0.6); cam.lookAt(176, 3.4, 0.2);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.4,
       update(t, T, f) { st.setState(stdState(T), f); ida.place(walkPose(t, p.I.walk_ladder), 88.5 - WALK.speed_mps * t, WALK_Z + 0.6, -Math.PI / 2 - 0.12); } };
   } });
@@ -160,6 +187,7 @@ S({ id: 's09', scene: 2, size: 'MS', angle: 'thấp, hất lên cột đồng h�
     const cam = camMM(50); cam.position.set(169.2, 1.7, -3.4); cam.lookAt(176, 5.7, 0.5);   // W1: mái nhà quảng trường neo đáy khung
     const cl = new THREE.PointLight('#e8eeff', 0, 14, 1.5); cl.position.set(CLOCK.x - 0.6, CLOCK.h, CLOCK.z); st.scene.add(cl);
     const [mD, hD] = hands(CLOCKS.beat2.square);
+    exposeClock(st.scene);
     return { scene: st.scene, cam, named: {}, paintP: PAINT_STREET, exposure: 1.7,
       update(t, T, f) { const s0 = stdState(T); st.setState(s0, f); st.clock.userData.setHands(mD + 6 * Math.max(0, T - DING) / 60, hD); cl.intensity = 30 * s0.clock; } };
   } });
@@ -170,8 +198,9 @@ S({ id: 's09w', scene: 2, size: 'CU (insert)', angle: 'POV của Ida, tay giơ',
   action: 'Ida (dưới cột L6) giơ đồng hồ bỏ túi ngang tầm mắt: 7:53.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 55, x1: 110, shadowLamps: [], groundSoft: 24 }); const p = P(ctx);   // (c) nền nhoè thay DOF
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 28 }); const watch = watchInHand(st.scene); const cam = camMM(105);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 28 }); const watch = watchInHand(st.scene); const cam = camMM(105);
     const [mD, hD] = hands(CLOCKS.beat2.watch);
+    exposeClock(st.scene);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: 1.6,
       update(t, T, f) { st.setState(stdState(T), f); ida.place(p.watchRaise, LAMP_X(6) + 1.2, WALK_Z, -Math.PI / 2);
         const wp = new THREE.Vector3(0, -0.07, 0); ida.joints.wrist_R.localToWorld(wp);
@@ -202,7 +231,7 @@ S({ id: 's11', scene: 2, size: 'MS', angle: 'ngang, 3/4 trước-trái', mm: 50,
   action: 'Ida trên thang ở cột L7, quay đầu và vai về phía quảng trường.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 45, x1: 100, shadowLamps: [7] }); const p = P(ctx); ladderAt(st.scene, 7);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 28 }); const cam = camMM(50); cam.position.set(61.6, 2.5, -1.2); cam.lookAt(64.0, 2.9, -4.4);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 28 }); const cam = camMM(50); cam.position.set(61.6, 2.5, -1.2); cam.lookAt(64.0, 2.9, -4.4);
     const wf = whiteAt(64);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.2,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.3 * wf(T) }), f); ida.place(poseAt([[0, p.restLadder], [0.3, p.restLadder], [1.2, p.turnSquare]], t), LAMP_X(7), ON_Z, 0); } };
@@ -214,7 +243,7 @@ S({ id: 's12', scene: 2, size: 'WS (qua vai)', angle: 'cao ngang vai Ida, nhìn 
   action: 'Lưng/vai Ida tiền cảnh trái; phía xa bóng đèn điện bật, phố trắng dần.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 55, x1: 200, shadowLamps: [], fog: [30, 220] }); const p = P(ctx); ladderAt(st.scene, 7);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35); cam.position.set(62.3, 3.4, -5.0); cam.lookAt(100, 2.6, -1.0);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35); cam.position.set(62.3, 3.4, -5.0); cam.lookAt(100, 2.6, -1.0);
     const wf = whiteAt(85);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.2, wf),
       update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.5 * wf(T) }), f); ida.place(p.turnSquare, LAMP_X(7), ON_Z, 0); } };
@@ -226,7 +255,7 @@ S({ id: 's13', scene: 2, size: 'MS', angle: 'thấp nhẹ, 3/4 trước-phải',
   action: 'Trắng tràn lên người Ida; bà cúi nhìn xuống đá lát.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 45, x1: 100, shadowLamps: [7] }); const p = P(ctx); ladderAt(st.scene, 7);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 28 }); const cam = camMM(50); cam.position.set(66.8, 2.0, -1.0); cam.lookAt(64.0, 2.9, -4.4);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 28 }); const cam = camMM(50); cam.position.set(66.8, 2.0, -1.0); cam.lookAt(64.0, 2.9, -4.4);
     const wf = (T) => switchOn(T, REACH_IDA);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.1, wf),
       update(t, T, f) { st.setState({ ...stdState(T, { whiteFill: (T) => 1.2 * wf(T) }), gasLight: (i) => (i === 7 ? 1 - 0.85 * clamp01((T - REACH_IDA) / 0.5) : 1) }, f);   // W1: ánh L7 chìm trong trắng → bóng nhạt hết trong 0,5 s (luật 3.3)
@@ -240,7 +269,7 @@ S({ id: 's14', scene: 2, size: 'MS (chúc)', angle: 'cao, chúc xuống đá lá
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 45, x1: 90, shadowLamps: [] }); const p = P(ctx); ladderAt(st.scene, 7);   // W1: L7 chìm trong trắng → không bóng dài (luật 3.1, 3.3)
     const liftHigh = over(p.liftHand, { joints: { shoulder_L: [-62, 0, 34], elbow_L: [-12, 0, 0], wrist_L: [0, 0, -10] } });   // W1 cục bộ: tay trái giơ ra trước-ngang, lòng úp
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 24 }); const cam = camMM(28); cam.position.set(65.9, 4.5, -2.3); cam.lookAt(64.0, 1.4, -4.7);   // W1: từ phía đầu dốc, chúc ~50° — v2 cắt đầu Ida, lồng đèn che người
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 24 }); const cam = camMM(28); cam.position.set(65.9, 4.5, -2.3); cam.lookAt(64.0, 1.4, -4.7);   // W1: từ phía đầu dốc, chúc ~50° — v2 cắt đầu Ida, lồng đèn che người
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 1.1,
       update(t, T, f) { st.setState({ ...stdState(T, { whiteFill: () => 1.2 }), gasLight: (i) => (i === 7 ? 0.15 : 1) }, f); ida.place(poseAt([[0, p.lookDown], [0.4, p.lookDown], [1.1, liftHigh]], t), LAMP_X(7), ON_Z, 0); } };
   } });
@@ -254,7 +283,7 @@ S({ id: 's15', scene: 3, size: 'WS', angle: 'ngang tầm mắt', mm: 35, move: '
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 0, x1: 100, shadowLamps: [], fog: [12, 55] }); const p = P(ctx); const lad = ladderAt(st.scene, 7);   // sương gần: đoạn dốc dưới chìm tối (trắng tràn previs là toàn cục — Cổng 7 làm ánh theo khối)
     // W1: máy phía nam nhìn chéo XUÔI dốc: Ida trong trắng ở phải khung; trái khung là đoạn phố dưới còn tối (chưa điện, chưa thắp) — nơi bà sắp chạy tới.
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35); cam.position.set(69.5, 1.5, 3.4); cam.lookAt(60.0, 2.1, -4.0);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35); cam.position.set(69.5, 1.5, 3.4); cam.lookAt(60.0, 2.1, -4.0);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 1.15,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 1.1 }), f); lad.visible = t < 1.1;   // W1: thang lên vai ở 1,1 s → hết cảnh hai cái thang
         if (t < 0.8) { const u = 1 - t / 0.8; ida.place(p.climb(u, p.restLadder), LAMP_X(7), FOOT_Z + (ON_Z - FOOT_Z) * ease(u), 0); }
@@ -266,7 +295,7 @@ const lampShot = (id, i, cam0, why, extra = {}) => S({ id, scene: 3, size: 'WS',
   action: extra.action || `Ida trên thang ở L${i}: hổ phách nở, bóng dài; vài giây sau cột điện bật, trắng phủ, bóng tan trong 0,5 s.`,
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: Math.max(0, LAMP_X(i) - 30), x1: 200, shadowLamps: [i], fog: extra.fog }); const p = P(ctx); ladderAt(st.scene, i);   // W1: dựng tới quảng trường
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 24 }); const cam = camMM(extra.mm || 35); cam.position.set(...cam0[0]); cam.lookAt(...cam0[1]);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 24 }); const cam = camMM(extra.mm || 35); cam.position.set(...cam0[0]); cam.lookAt(...cam0[1]);
     const wf = whiteAt(LAMP_X(i));
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.15, wf),
       update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 1.1 * wf(T) }), f);
@@ -279,7 +308,7 @@ S({ id: 's21', scene: 3, t0: 58.0, t1: 60.0, size: 'MCU (tay)', angle: 'ngang, 3
   action: 'Ida trèo nhanh lên L10, sào mồi trượt khỏi tay (58,9), chụp lại (59,4).',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 0, x1: 50, shadowLamps: [] }); const p = P(ctx); ladderAt(st.scene, 10);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 32 }); const cam = camMM(85); cam.position.set(20.1, 3.1, -2.3); cam.lookAt(22.0, 3.0, -4.5);
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 32 }); const cam = camMM(85); cam.position.set(20.1, 3.1, -2.3); cam.lookAt(22.0, 3.0, -4.5);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: 1.1,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 1.0 }), f);
         const cu = 0.66 + 0.34 * t / 0.7;   // W1: bắt đầu ở bậc cao hơn (v2 bắt đầu 0,4 → khung đầu trống)
@@ -294,7 +323,7 @@ S({ id: 's22', scene: 3, t0: 60.0, t1: 63.0, size: 'MCU', angle: 'ngang mắt, 3
   action: 'Ida lẩm bẩm, mở van; lửa bắt ngay khi câu dứt; hổ phách chìm trong trắng.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 5, x1: 40, shadowLamps: [] }); const p = P(ctx); ladderAt(st.scene, 10);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 36, faceQ: 1.4, expr: 'strained', glint: 0.5 }); const cam = camMM(85); let camSet = false;
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 36, faceQ: 1.4, expr: 'strained', glint: 0.5 }); const cam = camMM(85); let camSet = false;
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: 0.8,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 1.0 }), f);
         // W1: tay phải trên van suốt shot; sào mồi chuyển sang tay trái NGOÀI KHUNG (liên tục s21 → s22, xem continuity canh-3.md).
@@ -310,10 +339,10 @@ S({ id: 's23', scene: 3, t0: 63.0, t1: 66.0, size: 'WS', angle: 'ngang, nhìn xu
   action: 'Ida hối hả tới L11, trèo, thắp. Hổ phách.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 60, shadowLamps: [11] }); const p = P(ctx); const lad = ladderAt(st.scene, 11);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const C23 = (ctx.dbg && ctx.dbg.s23cam) || S23_CAM; const cam = camMM(C23.mm); cam.position.set(...C23.pos); cam.lookAt(...C23.look);   // dbg.s23cam: thử máy khi đo
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 }); const C23 = (ctx.dbg && ctx.dbg.s23cam) || S23_CAM; const cam = camMM(C23.mm); cam.position.set(...C23.pos); cam.lookAt(...C23.look);   // dbg.s23cam: thử máy khi đo
     const fast = { cycle_s: 0.9, stride_m: 0.6, speed_mps: 1.3 };
     // N1 (rà continuity P): Cas đã đứng ở chân tường chim từ trước (s24 thấy cậu ở đó) → có mặt trong s23, đứng yên, nhỏ ở nền, nhìn về L11/Ida.
-    const cas = makeChar(ctx, st.scene, 'cas', { detail: 16 }); const [cx, cz] = casSpotOf(st);
+    const cas = mkChar(ctx, st.scene, 'cas', { detail: 16 }); const [cx, cz] = casSpotOf(st);
     if (ctx.dbg && ctx.dbg.limeMask) limeMask(st);   // đo V3: tỷ lệ điểm ảnh mặt vôi trắng nhà kho (chỉ khi --dbg '{"limeMask":1}' --nopaint)
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_STREET, exposure: ctx.dbg && ctx.dbg.limeMask ? 1.0 : expo(2.4, 1.8, (T) => gasLevel(11, T)),
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.06 }), f);
@@ -331,7 +360,7 @@ S({ id: 's24', scene: 3, t0: 66.0, t1: 68.0, size: 'MS', angle: 'hơi cao, 3/4 t
   action: 'Ida áp tay vào kính: một, hai, ba. Xa phía sau, Cas nhìn.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: [11] }); const p = P(ctx); ladderAt(st.scene, 11);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 30 }); const cas = makeChar(ctx, st.scene, 'cas', { detail: 20 });
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 30 }); const cas = mkChar(ctx, st.scene, 'cas', { detail: 20 });
     const cam = camMM(30); cam.position.set(11.2, 2.1, 1.8); cam.lookAt(10.5, 1.8, -5.8);   // A2 (B1, W2 A2): Ida (L11) trái, Cas ở sân trước hông phải, gần hơn 3 m để Cas đọc được; P5 (10,8; 3,9) sau máy, tia tới Cas qua trước góc nhà x = 15   // giai đoạn C: Ida (L11) trái–giữa, Cas ở chân tường chim phải khung (casSpot W2)
     const [cx, cz] = casSpotOf(st);
     const beats = [0.2, 0.8, 1.4];
@@ -347,7 +376,7 @@ S({ id: 's24c', scene: 3, size: 'MS', angle: 'ngang mắt Cas, 3/4 trước-ph�
   sound: 'lửa thở xa; im', light: 'đèn khí L11 (ấm, bên phải khung); góc tối', action: 'Cas đứng dựa tường vôi, nhìn về phía cột đèn (phải khung), tay giấu trong tay áo.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: [11] }); const p = P(ctx); ladderAt(st.scene, 11);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 18 }); const cas = makeChar(ctx, st.scene, 'cas', { detail: 34, expr: 'neutral' });
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 18 }); const cas = mkChar(ctx, st.scene, 'cas', { detail: 34, expr: 'neutral' });
     const [cx, cz] = casSpotOf(st);
     // A2 (B1): máy 3/4 trước Cas, lệch −35° khỏi hướng nhìn của cậu về L11, cách 2,1 m (tính theo casSpot — hướng tới L11 đổi khi Cas dời).
     const gx = LAMP_X(11) - cx, gz = ON_Z - cz, gl = Math.hypot(gx, gz), ga = -35 * Math.PI / 180, dx = (gx * Math.cos(ga) - gz * Math.sin(ga)) / gl, dz = (gx * Math.sin(ga) + gz * Math.cos(ga)) / gl;

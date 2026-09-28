@@ -74,6 +74,7 @@ Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_
 
 ## s06 · 0:16,00–0:19,00 · CU insert
 - **Thời điểm:** đồng hồ bỏ túi **7:31**. Giờ thật 7:38 (chậm 7 phút).
+  - **Đọc trên hình từng khung (v3, góc kim của vật thể render, khung 384–455):** kim phút 186,000° → 186,296° (7:31:00 → 7:31:03), kim giờ 225,5° (7 giờ 31). 72 khung, **0 lần lùi** — kim chỉ tiến (0,1°/s = 1 phút/phút phim).
 - **Đèn:** L1–L4 sáng. Thang vẫn tựa L4.
 - **Ida:**
   - vị trí: dưới chân thang (106,6; −3,0), quay 20° từ +z về +x;
