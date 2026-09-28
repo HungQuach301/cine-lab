@@ -1,6 +1,6 @@
 {
   "tool": "cinecheck 1.4.0",
-  "created_utc": "2026-09-28T07:40:10Z",
+  "created_utc": "2026-09-28T08:37:55Z",
   "file": "/home/user/cine-lab/design/cong5/layout/out/layout.mp4",
   "profile": "shot",
   "verdict": "TRƯỢT",
@@ -19,8 +19,8 @@
     "library": "/home/user/cine-lab/assets/LIBRARY.json"
   },
   "counts": {
-    "PASS": 11,
-    "FAIL": 3,
+    "PASS": 10,
+    "FAIL": 4,
     "MISSING": 0,
     "REVIEW": 0,
     "N/A": 2,
@@ -149,7 +149,7 @@
         },
         {
           "name": "luma ngoài dải limited",
-          "value": 0.0571,
+          "value": 0.0558,
           "op": "<=",
           "threshold": 0.5,
           "unit": "%",
@@ -162,7 +162,7 @@
         "khung_lay_mau": 225,
         "bit_depth": 8
       },
-      "seconds": 5.43
+      "seconds": 5.27
     },
     {
       "code": "N3",
@@ -185,15 +185,15 @@
       "level": "Chặn",
       "measure": "Lấy mẫu 2 khung/giây (tối đa 240 khung) từ file render. Máy dò PP-OCRv4 det (DB, ONNX ghim SHA trong checks/models/) tìm vùng nghi là chữ (điểm hộp ≥ 0,6); mô hình nhận dạng PP-OCRv4 rec đọc từng vùng, chỉ giữ vùng đọc ra ≥ 2 ký tự Latin/số, chiếm ≥ 60% ký tự, độ tin ≥ 0,8, và độ đặc nét < 0,85 (trung vị diện tích/hộp bao của các thành phần sau ngưỡng Otsu; ký tự đo được 0,4–0,7, ô cửa sổ ≈ 1,0) — loại cửa sổ, lưới, hoa văn. Vùng có matte = ≥ 50% diện tích hộp nằm trong nét matte (alpha ≥ 0,02) của các phần tử đang hiện ở khung đó, nới 0,35 × chiều cao hộp. Không cần matte để chạy: thiếu thư mục chữ thì mọi chữ dò được đều trượt. Ngoài khung lấy mẫu, mỗi phần tử chữ được đọc thêm ở khung giữa khoảng hiện. v1.1 (Q-P0): phần tử 'diegetic': true (chữ trong thế giới phim) được tính là có matte; vùng chữ gán cho phần tử diegetic (phủ nhiều nhất) được chuẩn hoá thành từ như J1 và so với: dòng thoại của <video>.script.txt (phụ đề), chữ đọc được trong matte phần tử không diegetic (tiêu đề, phụ đề, credit), trường 'text' khai cho phần tử không diegetic. Trùng = giống cả dòng ≥ 0,80 (difflib, dòng ≥ 2 từ hoặc ≥ 6 ký tự) hoặc giống một đoạn liền ≥ 0,85 với ≥ 2 từ và ≥ 50% số từ của dòng.",
       "threshold_text": "0 vùng chữ dò được mà không có matte; 0 vùng chữ diegetic trùng phụ đề/tiêu đề (ngưỡng hộp 0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%, giống 0,80/0,85: nội bộ).",
-      "status": "PASS",
+      "status": "FAIL",
       "metrics": [
         {
           "name": "vùng chữ dò được không có matte",
-          "value": 0,
+          "value": 1,
           "op": "<=",
           "threshold": 0,
           "unit": "vùng·khung",
-          "ok": true,
+          "ok": false,
           "near": false
         },
         {
@@ -207,12 +207,25 @@
         }
       ],
       "notes": [
-        "Lấy mẫu 233 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 164 (bỏ qua)."
+        "Lấy mẫu 233 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 160 (bỏ qua)."
       ],
       "evidence": {
-        "chu_khong_matte": [],
+        "chu_khong_matte": [
+          {
+            "khung": 1980,
+            "hop": [
+              351,
+              288,
+              616,
+              452
+            ],
+            "chu": "MA",
+            "do_tin": 0.86,
+            "phu_matte": 0.0
+          }
+        ],
         "vung_co_matte": 39,
-        "vung_bi_loai": 164,
+        "vung_bi_loai": 160,
         "vung_khoi_dac": [],
         "khung_lay_mau": 233,
         "phan_tu_may_do_khong_thay": [],
@@ -454,7 +467,7 @@
           }
         ]
       },
-      "seconds": 54.02
+      "seconds": 51.53
     },
     {
       "code": "P1",
@@ -497,7 +510,7 @@
           "sub07": 100.0
         }
       },
-      "seconds": 16.88
+      "seconds": 14.93
     },
     {
       "code": "G4",
@@ -510,7 +523,7 @@
       "metrics": [
         {
           "name": "tương phản chữ/nền (P10) thấp nhất",
-          "value": 14.6373,
+          "value": 14.6735,
           "op": ">=",
           "threshold": 4.5,
           "unit": ":1",
@@ -531,31 +544,31 @@
       "evidence": {
         "theo_phan_tu": {
           "sub01": {
-            "ty_le_p10": 17.17,
-            "khung": 291
+            "ty_le_p10": 17.14,
+            "khung": 288
           },
           "sub02": {
-            "ty_le_p10": 15.1,
-            "khung": 1261
+            "ty_le_p10": 14.97,
+            "khung": 1264
           },
           "sub03": {
-            "ty_le_p10": 16.8,
+            "ty_le_p10": 16.62,
             "khung": 1776
           },
           "sub04": {
-            "ty_le_p10": 16.61,
+            "ty_le_p10": 16.62,
             "khung": 2232
           },
           "sub05": {
-            "ty_le_p10": 16.72,
-            "khung": 2319
+            "ty_le_p10": 16.67,
+            "khung": 2316
           },
           "sub06": {
             "ty_le_p10": 16.38,
-            "khung": 2386
+            "khung": 2433
           },
           "sub07": {
-            "ty_le_p10": 14.64,
+            "ty_le_p10": 14.67,
             "khung": 2581
           }
         },
@@ -570,7 +583,7 @@
         },
         "mien_diegetic": []
       },
-      "seconds": 18.85
+      "seconds": 16.57
     },
     {
       "code": "G3",
@@ -599,7 +612,7 @@
         "khung_vuot_nguong": [],
         "trung_binh_pct": 0.0
       },
-      "seconds": 10.81
+      "seconds": 10.17
     },
     {
       "code": "G3b",
@@ -630,7 +643,7 @@
         },
         {
           "name": "σ shot lớn nhất / nhỏ nhất",
-          "value": 2.986,
+          "value": 2.9399,
           "op": "<=",
           "threshold": 1.3,
           "unit": "",
@@ -639,7 +652,7 @@
         },
         {
           "name": "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
-          "value": 0.844,
+          "value": 0.841,
           "op": "<=",
           "threshold": 0.5,
           "unit": "",
@@ -648,7 +661,7 @@
         }
       ],
       "notes": [
-        "56 shot (PySceneDetect); 390 khung đo, 58 khung không đủ khối phẳng.",
+        "56 shot (PySceneDetect); 391 khung đo, 57 khung không đủ khối phẳng.",
         "10 shot không đo được grain (không có khung đủ khối phẳng)."
       ],
       "evidence": {
@@ -656,51 +669,51 @@
           "4": {
             "tu_khung": 252,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.861,
-            "cv": 0.04,
-            "tuong_quan_khung_ke": 0.171
+            "sigma_trung_vi": 0.874,
+            "cv": 0.027,
+            "tuong_quan_khung_ke": 0.22
           },
           "5": {
             "tu_khung": 288,
             "so_khung_do": 12,
-            "sigma_trung_vi": 1.077,
-            "cv": 0.052,
-            "tuong_quan_khung_ke": 0.405
+            "sigma_trung_vi": 1.053,
+            "cv": 0.041,
+            "tuong_quan_khung_ke": 0.388
           },
           "6": {
             "tu_khung": 384,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.344,
-            "cv": 0.021,
-            "tuong_quan_khung_ke": 0.593
+            "sigma_trung_vi": 1.334,
+            "cv": 0.02,
+            "tuong_quan_khung_ke": 0.609
           },
           "7": {
             "tu_khung": 442,
             "so_khung_do": 2,
-            "sigma_trung_vi": 1.273,
-            "cv": 0.008,
-            "tuong_quan_khung_ke": 0.689
+            "sigma_trung_vi": 1.257,
+            "cv": 0.005,
+            "tuong_quan_khung_ke": 0.711
           },
           "8": {
             "tu_khung": 552,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.036,
-            "cv": 0.009,
-            "tuong_quan_khung_ke": 0.465
+            "sigma_trung_vi": 1.032,
+            "cv": 0.036,
+            "tuong_quan_khung_ke": 0.512
           },
           "9": {
             "tu_khung": 600,
             "so_khung_do": 10,
-            "sigma_trung_vi": 0.823,
-            "cv": 0.113,
-            "tuong_quan_khung_ke": 0.257
+            "sigma_trung_vi": 0.827,
+            "cv": 0.119,
+            "tuong_quan_khung_ke": 0.248
           },
           "10": {
             "tu_khung": 672,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.933,
-            "cv": 0.044,
-            "tuong_quan_khung_ke": 0.354
+            "sigma_trung_vi": 0.924,
+            "cv": 0.058,
+            "tuong_quan_khung_ke": 0.314
           },
           "11": {
             "tu_khung": 720,
@@ -712,268 +725,268 @@
           "15": {
             "tu_khung": 917,
             "so_khung_do": 4,
-            "sigma_trung_vi": 1.195,
-            "cv": 0.024,
-            "tuong_quan_khung_ke": 0.469
+            "sigma_trung_vi": 1.201,
+            "cv": 0.022,
+            "tuong_quan_khung_ke": 0.475
           },
           "16": {
             "tu_khung": 956,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.981,
-            "cv": 0.118,
-            "tuong_quan_khung_ke": 0.773
+            "sigma_trung_vi": 2.009,
+            "cv": 0.123,
+            "tuong_quan_khung_ke": 0.77
           },
           "17": {
             "tu_khung": 996,
             "so_khung_do": 6,
-            "sigma_trung_vi": 2.098,
-            "cv": 0.056,
+            "sigma_trung_vi": 2.105,
+            "cv": 0.051,
             "tuong_quan_khung_ke": 0.819
           },
           "19": {
             "tu_khung": 1080,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.997,
-            "cv": 0.118,
-            "tuong_quan_khung_ke": 0.218
+            "sigma_trung_vi": 0.973,
+            "cv": 0.117,
+            "tuong_quan_khung_ke": 0.221
           },
           "20": {
             "tu_khung": 1116,
             "so_khung_do": 2,
-            "sigma_trung_vi": 0.817,
-            "cv": 0.009,
-            "tuong_quan_khung_ke": 0.263
+            "sigma_trung_vi": 0.82,
+            "cv": 0.005,
+            "tuong_quan_khung_ke": 0.272
           },
           "21": {
             "tu_khung": 1140,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.634,
-            "cv": 0.095,
-            "tuong_quan_khung_ke": 0.629
+            "sigma_trung_vi": 1.642,
+            "cv": 0.097,
+            "tuong_quan_khung_ke": 0.621
           },
           "22": {
             "tu_khung": 1188,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.969,
-            "cv": 0.032,
-            "tuong_quan_khung_ke": 0.798
+            "sigma_trung_vi": 1.966,
+            "cv": 0.028,
+            "tuong_quan_khung_ke": 0.792
           },
           "23": {
             "tu_khung": 1260,
             "so_khung_do": 10,
-            "sigma_trung_vi": 0.953,
-            "cv": 0.06,
-            "tuong_quan_khung_ke": 0.378
+            "sigma_trung_vi": 0.938,
+            "cv": 0.054,
+            "tuong_quan_khung_ke": 0.392
           },
           "24": {
             "tu_khung": 1332,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.328,
-            "cv": 0.027,
-            "tuong_quan_khung_ke": 0.628
+            "sigma_trung_vi": 1.341,
+            "cv": 0.03,
+            "tuong_quan_khung_ke": 0.601
           },
           "25": {
             "tu_khung": 1380,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.514,
-            "cv": 0.083,
-            "tuong_quan_khung_ke": 0.684
+            "sigma_trung_vi": 1.522,
+            "cv": 0.086,
+            "tuong_quan_khung_ke": 0.667
           },
           "26": {
             "tu_khung": 1416,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.146,
-            "cv": 0.039,
-            "tuong_quan_khung_ke": 0.332
+            "sigma_trung_vi": 1.151,
+            "cv": 0.031,
+            "tuong_quan_khung_ke": 0.333
           },
           "27": {
             "tu_khung": 1488,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.927,
-            "cv": 0.036,
-            "tuong_quan_khung_ke": 0.377
+            "sigma_trung_vi": 0.949,
+            "cv": 0.054,
+            "tuong_quan_khung_ke": 0.409
           },
           "28": {
             "tu_khung": 1536,
             "so_khung_do": 1,
-            "sigma_trung_vi": 0.83,
+            "sigma_trung_vi": 0.845,
             "cv": 0.0,
-            "tuong_quan_khung_ke": 0.029
+            "tuong_quan_khung_ke": 0.028
           },
           "29": {
             "tu_khung": 1608,
             "so_khung_do": 6,
-            "sigma_trung_vi": 2.138,
-            "cv": 0.04,
-            "tuong_quan_khung_ke": 0.809
+            "sigma_trung_vi": 2.07,
+            "cv": 0.029,
+            "tuong_quan_khung_ke": 0.839
           },
           "30": {
             "tu_khung": 1656,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.973,
-            "cv": 0.054,
-            "tuong_quan_khung_ke": 0.704
+            "sigma_trung_vi": 1.934,
+            "cv": 0.041,
+            "tuong_quan_khung_ke": 0.732
           },
           "31": {
             "tu_khung": 1728,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.54,
-            "cv": 0.088,
-            "tuong_quan_khung_ke": 0.609
+            "sigma_trung_vi": 1.537,
+            "cv": 0.067,
+            "tuong_quan_khung_ke": 0.632
           },
           "32": {
             "tu_khung": 1776,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.115,
-            "cv": 0.031,
-            "tuong_quan_khung_ke": 0.446
+            "sigma_trung_vi": 1.13,
+            "cv": 0.043,
+            "tuong_quan_khung_ke": 0.458
           },
           "33": {
             "tu_khung": 1848,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.667,
-            "cv": 0.046,
-            "tuong_quan_khung_ke": 0.734
+            "sigma_trung_vi": 1.636,
+            "cv": 0.034,
+            "tuong_quan_khung_ke": 0.71
           },
           "34": {
             "tu_khung": 1920,
             "so_khung_do": 16,
-            "sigma_trung_vi": 0.994,
-            "cv": 0.066,
-            "tuong_quan_khung_ke": 0.285
+            "sigma_trung_vi": 1.279,
+            "cv": 0.053,
+            "tuong_quan_khung_ke": 0.209
           },
           "35": {
             "tu_khung": 2040,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.863,
-            "cv": 0.119,
-            "tuong_quan_khung_ke": 0.782
+            "sigma_trung_vi": 1.934,
+            "cv": 0.111,
+            "tuong_quan_khung_ke": 0.821
           },
           "36": {
             "tu_khung": 2088,
             "so_khung_do": 12,
-            "sigma_trung_vi": 0.911,
-            "cv": 0.027,
-            "tuong_quan_khung_ke": 0.442
+            "sigma_trung_vi": 0.902,
+            "cv": 0.015,
+            "tuong_quan_khung_ke": 0.439
           },
           "39": {
             "tu_khung": 2371,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.285,
-            "cv": 0.184,
-            "tuong_quan_khung_ke": 0.703
+            "sigma_trung_vi": 1.315,
+            "cv": 0.176,
+            "tuong_quan_khung_ke": 0.688
           },
           "40": {
             "tu_khung": 2438,
             "so_khung_do": 4,
-            "sigma_trung_vi": 0.964,
-            "cv": 0.071,
-            "tuong_quan_khung_ke": 0.499
+            "sigma_trung_vi": 0.931,
+            "cv": 0.057,
+            "tuong_quan_khung_ke": 0.474
           },
           "41": {
             "tu_khung": 2472,
             "so_khung_do": 14,
-            "sigma_trung_vi": 1.771,
-            "cv": 0.085,
-            "tuong_quan_khung_ke": 0.793
+            "sigma_trung_vi": 1.798,
+            "cv": 0.086,
+            "tuong_quan_khung_ke": 0.766
           },
           "42": {
             "tu_khung": 2578,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.331,
-            "cv": 0.094,
-            "tuong_quan_khung_ke": 0.653
+            "sigma_trung_vi": 1.316,
+            "cv": 0.106,
+            "tuong_quan_khung_ke": 0.642
           },
           "43": {
             "tu_khung": 2621,
             "so_khung_do": 2,
-            "sigma_trung_vi": 1.511,
-            "cv": 0.024,
-            "tuong_quan_khung_ke": 0.6
+            "sigma_trung_vi": 1.549,
+            "cv": 0.005,
+            "tuong_quan_khung_ke": 0.649
           },
           "44": {
             "tu_khung": 2640,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.699,
-            "cv": 0.117,
-            "tuong_quan_khung_ke": 0.759
+            "sigma_trung_vi": 1.673,
+            "cv": 0.125,
+            "tuong_quan_khung_ke": 0.778
           },
           "45": {
             "tu_khung": 2688,
             "so_khung_do": 4,
-            "sigma_trung_vi": 1.674,
-            "cv": 0.026,
-            "tuong_quan_khung_ke": 0.7
+            "sigma_trung_vi": 1.671,
+            "cv": 0.045,
+            "tuong_quan_khung_ke": 0.726
           },
           "46": {
             "tu_khung": 2724,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.786,
-            "cv": 0.041,
-            "tuong_quan_khung_ke": 0.753
+            "sigma_trung_vi": 1.775,
+            "cv": 0.025,
+            "tuong_quan_khung_ke": 0.712
           },
           "47": {
             "tu_khung": 2772,
-            "so_khung_do": 3,
-            "sigma_trung_vi": 1.331,
-            "cv": 0.075,
-            "tuong_quan_khung_ke": 0.259
+            "so_khung_do": 5,
+            "sigma_trung_vi": 1.344,
+            "cv": 0.079,
+            "tuong_quan_khung_ke": 0.516
           },
           "48": {
             "tu_khung": 2820,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.503,
-            "cv": 0.114,
-            "tuong_quan_khung_ke": 0.682
+            "sigma_trung_vi": 1.511,
+            "cv": 0.117,
+            "tuong_quan_khung_ke": 0.66
           },
           "49": {
             "tu_khung": 2892,
             "so_khung_do": 14,
-            "sigma_trung_vi": 1.04,
-            "cv": 0.079,
-            "tuong_quan_khung_ke": 0.175
+            "sigma_trung_vi": 1.017,
+            "cv": 0.068,
+            "tuong_quan_khung_ke": 0.212
           },
           "50": {
             "tu_khung": 2988,
             "so_khung_do": 4,
-            "sigma_trung_vi": 0.814,
-            "cv": 0.026,
-            "tuong_quan_khung_ke": 0.266
+            "sigma_trung_vi": 0.788,
+            "cv": 0.042,
+            "tuong_quan_khung_ke": 0.193
           },
           "51": {
             "tu_khung": 3048,
             "so_khung_do": 6,
-            "sigma_trung_vi": 2.005,
-            "cv": 0.117,
-            "tuong_quan_khung_ke": 0.819
+            "sigma_trung_vi": 1.95,
+            "cv": 0.11,
+            "tuong_quan_khung_ke": 0.837
           },
           "52": {
             "tu_khung": 3096,
             "so_khung_do": 4,
-            "sigma_trung_vi": 1.761,
-            "cv": 0.046,
-            "tuong_quan_khung_ke": 0.844
+            "sigma_trung_vi": 1.753,
+            "cv": 0.045,
+            "tuong_quan_khung_ke": 0.841
           },
           "53": {
             "tu_khung": 3132,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.044,
+            "sigma_trung_vi": 1.05,
             "cv": 0.038,
-            "tuong_quan_khung_ke": 0.419
+            "tuong_quan_khung_ke": 0.42
           },
           "54": {
             "tu_khung": 3204,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.851,
-            "cv": 0.024,
-            "tuong_quan_khung_ke": 0.225
+            "sigma_trung_vi": 0.846,
+            "cv": 0.01,
+            "tuong_quan_khung_ke": 0.212
           },
           "55": {
             "tu_khung": 3252,
             "so_khung_do": 14,
-            "sigma_trung_vi": 1.348,
-            "cv": 0.147,
-            "tuong_quan_khung_ke": 0.613
+            "sigma_trung_vi": 1.332,
+            "cv": 0.148,
+            "tuong_quan_khung_ke": 0.617
           }
         },
         "shot_bat_dau": [
@@ -1035,7 +1048,7 @@
           3252
         ]
       },
-      "seconds": 13.58
+      "seconds": 12.04
     },
     {
       "code": "M1",
@@ -1094,7 +1107,7 @@
         "tuong_quan_nho_nhat": 0.177,
         "cua_so_te_nhat_giay": 15.2
       },
-      "seconds": 4.67
+      "seconds": 4.56
     },
     {
       "code": "J1",
@@ -1374,7 +1387,7 @@
         ],
         "mo_hinh": "Systran/faster-whisper-small.en@d1d751a5f8271d482d14ca55d9e2deeebbae577f"
       },
-      "seconds": 70.25
+      "seconds": 32.09
     },
     {
       "code": "J1b",
@@ -1556,7 +1569,7 @@
           "nen": 0.9952
         }
       },
-      "seconds": 18.58
+      "seconds": 15.76
     },
     {
       "code": "H1",
@@ -2209,7 +2222,7 @@
         "kenh_lop_la": [],
         "kenh_mechanical_thieu_ly_do": []
       },
-      "seconds": 0.14
+      "seconds": 0.16
     },
     {
       "code": "H1b",
@@ -2249,130 +2262,130 @@
         }
       ],
       "notes": [
-        "106 track, 349 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
+        "106 track, 350 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
       ],
       "evidence": {
         "theo_track": {
           "ida/hand_L@s02": {
             "cap_khung": 16,
-            "khop_pct": 100.0,
+            "khop_pct": 87.5,
             "epe_trung_vi": 0.85,
-            "lech_lon_nhat": null
+            "lech_lon_nhat": {
+              "khung": 164,
+              "epe": 1.71,
+              "khai": [
+                -3.87,
+                0.5
+              ],
+              "luong": [
+                -2.73,
+                -0.77
+              ]
+            }
           },
           "ida/hand_R@s02": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.14,
+            "epe_trung_vi": 0.16,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s03": {
             "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.57,
+            "epe_trung_vi": 0.52,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s03": {
             "cap_khung": 7,
             "khop_pct": 85.7,
-            "epe_trung_vi": 0.6,
+            "epe_trung_vi": 0.67,
             "lech_lon_nhat": {
               "khung": 218,
-              "epe": 18.38,
+              "epe": 4.65,
               "khai": [
                 2.03,
                 -17.45
               ],
               "luong": [
-                -5.47,
-                -0.67
+                0.58,
+                -13.03
               ]
             }
           },
           "ida/head@s03": {
             "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.39,
+            "epe_trung_vi": 0.22,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s04": {
             "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.04,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s04": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s05": {
             "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.17,
+            "epe_trung_vi": 0.16,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s05": {
             "cap_khung": 10,
             "khop_pct": 90.0,
-            "epe_trung_vi": 0.32,
+            "epe_trung_vi": 0.3,
             "lech_lon_nhat": {
               "khung": 354,
-              "epe": 28.19,
+              "epe": 28.07,
               "khai": [
                 -3.25,
                 33.73
               ],
               "luong": [
-                1.55,
-                5.95
+                1.37,
+                6.04
               ]
             }
           },
           "ida/hand_L@s07": {
             "cap_khung": 14,
             "khop_pct": 64.3,
-            "epe_trung_vi": 1.35,
+            "epe_trung_vi": 1.43,
             "lech_lon_nhat": {
               "khung": 530,
-              "epe": 2.91,
+              "epe": 3.04,
               "khai": [
                 -6.97,
                 0.66
               ],
               "luong": [
-                -4.35,
-                1.95
+                -4.56,
+                2.52
               ]
             }
           },
           "ida/hand_R@s07": {
             "cap_khung": 7,
-            "khop_pct": 85.7,
-            "epe_trung_vi": 0.15,
-            "lech_lon_nhat": {
-              "khung": 530,
-              "epe": 1.66,
-              "khai": [
-                -1.53,
-                0.22
-              ],
-              "luong": [
-                -0.09,
-                1.05
-              ]
-            }
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.21,
+            "lech_lon_nhat": null
           },
           "ida/hand_L@s08": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.95,
+            "epe_trung_vi": 0.87,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s08": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.39,
+            "epe_trung_vi": 0.3,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s11": {
@@ -2384,7 +2397,7 @@
           "ida/hand_R@s11": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
           },
           "ida/head@s11": {
@@ -2420,148 +2433,159 @@
           "ida/hand_L@s15": {
             "cap_khung": 5,
             "khop_pct": 80.0,
-            "epe_trung_vi": 1.04,
+            "epe_trung_vi": 1.02,
             "lech_lon_nhat": {
               "khung": 1052,
-              "epe": 2.17,
+              "epe": 2.1,
               "khai": [
                 1.82,
                 6.26
               ],
               "luong": [
-                2.05,
-                8.41
+                2.12,
+                8.34
               ]
             }
           },
           "ida/hand_R@s15": {
             "cap_khung": 4,
             "khop_pct": 25.0,
-            "epe_trung_vi": 2.23,
+            "epe_trung_vi": 2.21,
             "lech_lon_nhat": {
               "khung": 1072,
-              "epe": 4.39,
+              "epe": 4.3,
               "khai": [
                 6.51,
                 -5.99
               ],
               "luong": [
-                3.71,
-                -2.61
+                3.77,
+                -2.68
               ]
             }
           },
           "ida/head@s15": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.16,
+            "epe_trung_vi": 0.18,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s19": {
             "cap_khung": 8,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.06,
+            "epe_trung_vi": 0.04,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s19": {
             "cap_khung": 3,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
-            "lech_lon_nhat": null
+            "khop_pct": 66.7,
+            "epe_trung_vi": 0.1,
+            "lech_lon_nhat": {
+              "khung": 1099,
+              "epe": 1.65,
+              "khai": [
+                0.42,
+                2.45
+              ],
+              "luong": [
+                0.75,
+                0.84
+              ]
+            }
           },
           "ida/head@s19": {
             "cap_khung": 8,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s21": {
             "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.29,
+            "epe_trung_vi": 0.37,
             "lech_lon_nhat": null
           },
           "ida/head@s22": {
             "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s23": {
             "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.09,
+            "epe_trung_vi": 0.05,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s23": {
             "cap_khung": 10,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.59,
+            "epe_trung_vi": 0.57,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s23": {
             "cap_khung": 7,
             "khop_pct": 85.7,
-            "epe_trung_vi": 0.23,
+            "epe_trung_vi": 0.26,
             "lech_lon_nhat": {
               "khung": 1296,
-              "epe": 1.56,
+              "epe": 1.77,
               "khai": [
                 -1.29,
                 -3.62
               ],
               "luong": [
-                -0.4,
-                -2.33
+                -0.2,
+                -2.23
               ]
             }
           },
           "ida/head@s23": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.2,
+            "epe_trung_vi": 0.29,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.04,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.17,
+            "epe_trung_vi": 0.18,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.18,
+            "epe_trung_vi": 0.2,
             "lech_lon_nhat": null
           },
           "ida/head@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s24c": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.06,
+            "epe_trung_vi": 0.11,
             "lech_lon_nhat": null
           },
           "cas/head@s24c": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s25": {
@@ -2572,8 +2596,8 @@
           },
           "cas/hand_R@s27": {
             "cap_khung": 10,
-            "khop_pct": 90.0,
-            "epe_trung_vi": 0.03,
+            "khop_pct": 80.0,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": {
               "khung": 1547,
               "epe": 160.28,
@@ -2590,7 +2614,7 @@
           "ida/hand_R@s27": {
             "cap_khung": 10,
             "khop_pct": 90.0,
-            "epe_trung_vi": 0.09,
+            "epe_trung_vi": 0.08,
             "lech_lon_nhat": {
               "khung": 1547,
               "epe": 7.01,
@@ -2607,7 +2631,7 @@
           "cas/hand_L@s28": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.23,
+            "epe_trung_vi": 0.19,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s30": {
@@ -2625,54 +2649,43 @@
           "ida/hand_L@s30": {
             "cap_khung": 1,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s30": {
             "cap_khung": 5,
-            "khop_pct": 80.0,
+            "khop_pct": 100.0,
             "epe_trung_vi": 0.13,
-            "lech_lon_nhat": {
-              "khung": 1750,
-              "epe": 2.44,
-              "khai": [
-                -3.85,
-                0.72
-              ],
-              "luong": [
-                -2.91,
-                -1.53
-              ]
-            }
+            "lech_lon_nhat": null
           },
           "ida/head@s30": {
             "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.18,
+            "epe_trung_vi": 0.17,
             "lech_lon_nhat": null
           },
           "ida/head@s31": {
             "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s32": {
             "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.24,
+            "epe_trung_vi": 0.19,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s32": {
             "cap_khung": 8,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.24,
+            "epe_trung_vi": 0.21,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s32": {
             "cap_khung": 10,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s32": {
@@ -2690,13 +2703,13 @@
           "cas/hand_L@s33": {
             "cap_khung": 15,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.39,
+            "epe_trung_vi": 0.38,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s33": {
             "cap_khung": 17,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.41,
+            "epe_trung_vi": 0.34,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s33": {
@@ -2708,140 +2721,129 @@
           "ida/hand_R@s33": {
             "cap_khung": 17,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.21,
+            "epe_trung_vi": 0.24,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s34": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s35": {
             "cap_khung": 8,
             "khop_pct": 75.0,
-            "epe_trung_vi": 0.74,
+            "epe_trung_vi": 0.89,
             "lech_lon_nhat": {
               "khung": 2170,
-              "epe": 2.29,
+              "epe": 2.25,
               "khai": [
                 -0.14,
                 -2.38
               ],
               "luong": [
-                0.04,
-                -0.1
+                0.03,
+                -0.14
               ]
             }
           },
           "cas/hand_R@s35": {
             "cap_khung": 8,
             "khop_pct": 75.0,
-            "epe_trung_vi": 0.6,
+            "epe_trung_vi": 0.46,
             "lech_lon_nhat": {
               "khung": 2157,
-              "epe": 2.22,
+              "epe": 2.43,
               "khai": [
                 2.07,
                 -1.13
               ],
               "luong": [
-                0.06,
-                -0.2
+                -0.2,
+                -0.26
               ]
             }
           },
           "cas/head@s35": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.24,
+            "epe_trung_vi": 0.13,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s35": {
             "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.27,
+            "epe_trung_vi": 0.22,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s35": {
             "cap_khung": 12,
             "khop_pct": 91.7,
-            "epe_trung_vi": 0.34,
+            "epe_trung_vi": 0.35,
             "lech_lon_nhat": {
               "khung": 2143,
-              "epe": 56.38,
+              "epe": 55.6,
               "khai": [
                 -24.23,
                 -50.56
               ],
               "luong": [
-                -2.56,
-                1.49
+                -3.5,
+                1.03
               ]
             }
           },
           "ida/head@s35": {
             "cap_khung": 4,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.14,
+            "epe_trung_vi": 0.16,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s36": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.43,
+            "epe_trung_vi": 0.25,
             "lech_lon_nhat": null
           },
           "ida/head@s36": {
             "cap_khung": 4,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.04,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": null
           },
           "ida/head@s37": {
             "cap_khung": 20,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.07,
+            "epe_trung_vi": 0.09,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s37w": {
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
+          },
+          "cas/hand_R@s37w": {
             "cap_khung": 10,
             "khop_pct": 90.0,
             "epe_trung_vi": 0.01,
             "lech_lon_nhat": {
               "khung": 2380,
-              "epe": 7.96,
+              "epe": 1.81,
               "khai": [
                 0.0,
                 0.0
               ],
               "luong": [
-                7.95,
-                0.36
-              ]
-            }
-          },
-          "cas/hand_R@s37w": {
-            "cap_khung": 10,
-            "khop_pct": 90.0,
-            "epe_trung_vi": 0.02,
-            "lech_lon_nhat": {
-              "khung": 2380,
-              "epe": 6.23,
-              "khai": [
-                0.0,
-                0.0
-              ],
-              "luong": [
-                4.78,
-                3.99
+                -0.7,
+                -1.67
               ]
             }
           },
           "ida/hand_L@s37w": {
             "cap_khung": 10,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s37w": {
@@ -2865,7 +2867,7 @@
           "cas/head@s38": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/head@s39": {
@@ -2877,24 +2879,24 @@
           "ida/hand_R@s40": {
             "cap_khung": 2,
             "khop_pct": 50.0,
-            "epe_trung_vi": 1.41,
+            "epe_trung_vi": 1.15,
             "lech_lon_nhat": {
               "khung": 2591,
-              "epe": 2.72,
+              "epe": 2.26,
               "khai": [
                 0.1,
                 -4.69
               ],
               "luong": [
-                2.49,
-                -3.4
+                2.1,
+                -3.63
               ]
             }
           },
           "cas/hand_L@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.0,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s40w": {
@@ -2906,37 +2908,37 @@
           "ida/hand_L@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.0,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
           },
           "ida/head@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s41": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s41": {
-            "cap_khung": 4,
+            "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.0,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s41": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/head@s41": {
@@ -2948,7 +2950,7 @@
           "cas/hand_L@s42": {
             "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.08,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s42": {
@@ -2957,14 +2959,14 @@
             "epe_trung_vi": 0.01,
             "lech_lon_nhat": {
               "khung": 2868,
-              "epe": 74.66,
+              "epe": 68.42,
               "khai": [
                 -8.15,
                 -68.06
               ],
               "luong": [
-                -9.53,
-                6.59
+                -0.12,
+                -0.11
               ]
             }
           },
@@ -2983,7 +2985,7 @@
           "cas/head@s42a": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.15,
+            "epe_trung_vi": 0.08,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s42a": {
@@ -2994,31 +2996,31 @@
           },
           "cas/hand_L@s42b": {
             "cap_khung": 3,
-            "khop_pct": 66.7,
-            "epe_trung_vi": 0.3,
-            "lech_lon_nhat": {
-              "khung": 2814,
-              "epe": 1.65,
-              "khai": [
-                5.65,
-                0.27
-              ],
-              "luong": [
-                4.0,
-                0.19
-              ]
-            }
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.45,
+            "lech_lon_nhat": null
           },
           "cas/hand_R@s42b": {
             "cap_khung": 2,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.46,
-            "lech_lon_nhat": null
+            "khop_pct": 50.0,
+            "epe_trung_vi": 2.09,
+            "lech_lon_nhat": {
+              "khung": 2814,
+              "epe": 3.51,
+              "khai": [
+                -3.47,
+                6.98
+              ],
+              "luong": [
+                -6.95,
+                7.41
+              ]
+            }
           },
           "ida/hand_L@s44": {
             "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.06,
+            "epe_trung_vi": 0.05,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s44": {
@@ -3030,36 +3032,36 @@
           "ida/hand_L@s45": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.17,
+            "epe_trung_vi": 0.09,
             "lech_lon_nhat": null
           },
           "ida/head@s45": {
             "cap_khung": 3,
             "khop_pct": 66.7,
-            "epe_trung_vi": 0.13,
+            "epe_trung_vi": 0.11,
             "lech_lon_nhat": {
               "khung": 3079,
-              "epe": 2.76,
+              "epe": 2.71,
               "khai": [
                 -7.31,
                 -2.73
               ],
               "luong": [
-                -6.64,
-                -5.41
+                -6.65,
+                -5.36
               ]
             }
           },
           "ida/hand_L@s47": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.29,
+            "epe_trung_vi": 0.41,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s47": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.24,
+            "epe_trung_vi": 0.2,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s48": {
@@ -3071,7 +3073,7 @@
         },
         "nhan_vat_thieu_track": []
       },
-      "seconds": 20.28
+      "seconds": 19.36
     },
     {
       "code": "C3",
@@ -3120,7 +3122,7 @@
         },
         {
           "name": "vị trí biên phân biệt để kiểm pha lưới",
-          "value": 251480,
+          "value": 251564,
           "op": ">=",
           "threshold": 40,
           "unit": "",
@@ -3165,7 +3167,7 @@
         },
         {
           "name": "bộ phận–khung lệch chắc chắn > 3%",
-          "value": 52,
+          "value": 51,
           "op": "<=",
           "threshold": 0,
           "unit": "",
@@ -3192,7 +3194,7 @@
         },
         {
           "name": "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
-          "value": 0.7364,
+          "value": 0.8063,
           "op": ">=",
           "threshold": 1.5,
           "unit": "",
@@ -3273,7 +3275,7 @@
         },
         {
           "name": "kiểm toán: views render lại lệch bản nộp — foreshorten, hidden, depth (lớn nhất)",
-          "value": 0.0,
+          "value": 0.0006,
           "op": "<=",
           "threshold": 0.005,
           "unit": "",
@@ -3291,7 +3293,7 @@
         },
         {
           "name": "kiểm toán: lệch tỷ lệ nộp/render lại, tính theo dải nhiễu U (lớn nhất)",
-          "value": 0.0,
+          "value": 0.1858,
           "op": "<=",
           "threshold": 1.0,
           "unit": "×U",
@@ -3300,11 +3302,11 @@
         },
         {
           "name": "kiểm toán: điểm ảnh khác nhau / điểm ảnh biên (lớn nhất)",
-          "value": 0.0,
+          "value": 0.0321,
           "op": "<=",
           "threshold": 0.02,
           "unit": "",
-          "ok": true,
+          "ok": false,
           "near": false
         },
         {
@@ -3318,12 +3320,12 @@
         }
       ],
       "notes": [
-        "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 5.5–393.7 px video. Lệch lớn nhất (mẫu đo được) 32.54%. 251480 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 5.5–393.7 px video. Lệch lớn nhất (mẫu đo được) 32.54%. 251564 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 104/585 (17.8%) trên 195 khung có nhân vật. Theo shot: shot 2 (khung 96–203): 16/27 (59.3%); shot 3 (khung 204–221): 0/6 (0%); shot 4 (khung 222–251): 0/6 (0%); shot 5 (khung 252–287): 0/9 (0%); shot 6 (khung 288–383): 0/24 (0%); shot 8 (khung 442–551): 8/24 (33.3%); shot 9 (khung 552–599): 0/12 (0%); shot 14 (khung 840–887): 4/12 (33.3%); shot 15 (khung 888–916): 0/9 (0%); shot 16 (khung 917–955): 1/9 (11.1%); shot 17 (khung 956–995): 1/9 (11.1%); shot 18 (khung 996–1043): 0/12 (0%); shot 19 (khung 1044–1079): 2/9 (22.2%); shot 20 (khung 1080–1115): 6/9 (66.7%); shot 21 (khung 1116–1139): 4/6 (66.7%); shot 22 (khung 1140–1187): 0/12 (0%); shot 23 (khung 1188–1259): 0/18 (0%); shot 24 (khung 1260–1331): 3/18 (16.7%); shot 25 (khung 1332–1379): 0/12 (0%); shot 28 (khung 1488–1535): 0/12 (0%); shot 29 (khung 1536–1607): 6/18 (33.3%); shot 32 (khung 1728–1775): 4/12 (33.3%); shot 33 (khung 1776–1847): 0/18 (0%); shot 34 (khung 1848–1919): 6/18 (33.3%); shot 35 (khung 1920–2039): 8/30 (26.7%); shot 36 (khung 2040–2087): 0/12 (0%); shot 37 (khung 2088–2183): 7/24 (29.2%); shot 38 (khung 2184–2231): 0/12 (0%); shot 39 (khung 2232–2370): 0/36 (0%); shot 40 (khung 2371–2437): 6/18 (33.3%); shot 42 (khung 2472–2577): 0/27 (0%); shot 43 (khung 2578–2620): 0/12 (0%); shot 44 (khung 2621–2639): 0/3 (0%); shot 45 (khung 2640–2687): 4/12 (33.3%); shot 46 (khung 2688–2723): 0/9 (0%); shot 47 (khung 2724–2771): 4/12 (33.3%); shot 49 (khung 2820–2891): 14/18 (77.8%); shot 51 (khung 2988–3047): 0/15 (0%); shot 52 (khung 3048–3095): 0/12 (0%); shot 55 (khung 3204–3251): 0/12 (0%).",
         "Không đo được: 481 mẫu bộ phận — gập: co ngắn do tư thế > 2%: 94; bị che > 10%: 143; chạm mép khung (bị cắt): 37; phối cảnh: độ sâu lệch đầu > 2%: 28; đầu cúi/ngẩng/nghiêng: co ngắn > 2%: 81; góc nhìn lệch > 30° mọi góc tham chiếu: 15; không có mặt nạ đầu (khuất hoặc ngoài khung): 21; đầu bị che > 10%: 18; đầu chạm mép khung (bị cắt): 6; khuất ở góc tham chiếu (c3_views ghi null): 38. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
         "Shot [3, 4, 5, 6, 9, 15, 18, 22, 23, 25, 28, 33, 36, 38, 39, 42, 43, 44, 46, 51, 52, 55]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT.",
         "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh.",
-        "Kiểm toán ngẫu nhiên: hạt giống 2162447375389782042, khung [696, 936], phát bởi P lúc 2026-09-28T07:32:10Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 9476883171053887317, khung [1332, 2148], phát bởi P lúc 2026-09-28T08:31:00Z."
       ],
       "evidence": {
         "do": [
@@ -3941,81 +3943,81 @@
             "khung": 1932,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.858,
+            "ty_le": 2.7665,
             "sheet": 2.752,
-            "lech_pct": 3.85,
-            "U_pct": 2.98,
+            "lech_pct": 0.53,
+            "U_pct": 2.95,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1932,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 180.0,
-            "ty_le": 1.7571,
+            "ty_le": 1.7336,
             "sheet": 1.75,
-            "lech_pct": 0.4,
-            "U_pct": 3.23,
+            "lech_pct": -0.93,
+            "U_pct": 3.2,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1932,
             "bo_phan": "forearm",
             "goc_tham_chieu": 180.0,
-            "ty_le": 1.277,
+            "ty_le": 1.2582,
             "sheet": 1.323,
-            "lech_pct": -3.48,
-            "U_pct": 3.57,
+            "lech_pct": -4.9,
+            "U_pct": 3.54,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1944,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.7071,
+            "ty_le": 2.7533,
             "sheet": 2.752,
-            "lech_pct": -1.63,
-            "U_pct": 2.88,
-            "ket_qua": "không chứng minh được"
+            "lech_pct": 0.05,
+            "U_pct": 2.91,
+            "ket_qua": "đạt"
           },
           {
             "khung": 1956,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.7308,
+            "ty_le": 2.6867,
             "sheet": 2.752,
-            "lech_pct": -0.77,
-            "U_pct": 3.13,
+            "lech_pct": -2.37,
+            "U_pct": 3.09,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1956,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 180.0,
-            "ty_le": 1.7228,
+            "ty_le": 1.6974,
             "sheet": 1.75,
-            "lech_pct": -1.56,
-            "U_pct": 3.4,
+            "lech_pct": -3.01,
+            "U_pct": 3.36,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1992,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.9486,
+            "ty_le": 2.9577,
             "sheet": 2.752,
-            "lech_pct": 7.14,
-            "U_pct": 3.84,
+            "lech_pct": 7.47,
+            "U_pct": 3.77,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1992,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 180.0,
-            "ty_le": 1.9081,
+            "ty_le": 1.8542,
             "sheet": 1.75,
-            "lech_pct": 9.03,
-            "U_pct": 4.11,
-            "ket_qua": "trượt chắc chắn"
+            "lech_pct": 5.95,
+            "U_pct": 4.05,
+            "ket_qua": "không chứng minh được"
           },
           {
             "khung": 2112,
@@ -6613,22 +6615,22 @@
           }
         ],
         "do_khop_bien": {
-          "96": 1.19,
-          "108": 1.18,
-          "120": 1.24,
+          "96": 1.2,
+          "108": 1.19,
+          "120": 1.25,
           "132": 1.27,
-          "144": 1.26,
-          "156": 1.29,
-          "168": 1.23,
-          "180": 1.33,
+          "144": 1.22,
+          "156": 1.3,
+          "168": 1.26,
+          "180": 1.36,
           "192": 1.32,
-          "204": 2.14,
-          "216": 1.42,
+          "204": 2.15,
+          "216": 1.33,
           "228": 1.83,
-          "240": 1.83,
-          "252": 1.12,
+          "240": 1.82,
+          "252": 1.11,
           "264": 1.09,
-          "276": 1.05,
+          "276": 1.07,
           "288": 1.75,
           "300": 1.68,
           "312": 1.64,
@@ -6636,194 +6638,194 @@
           "336": 1.78,
           "348": 1.79,
           "360": 1.98,
-          "372": 1.99,
+          "372": 1.98,
           "456": 1.61,
-          "468": 1.47,
-          "480": 1.63,
-          "492": 1.53,
-          "504": 2.11,
-          "516": 1.85,
-          "528": 1.77,
-          "540": 1.74,
-          "552": 0.97,
-          "564": 1.11,
-          "576": 1.31,
-          "588": 1.31,
+          "468": 1.5,
+          "480": 1.64,
+          "492": 1.55,
+          "504": 2.12,
+          "516": 1.87,
+          "528": 1.76,
+          "540": 1.75,
+          "552": 0.98,
+          "564": 1.12,
+          "576": 1.32,
+          "588": 1.3,
           "840": 1.75,
           "852": 1.76,
-          "864": 1.95,
+          "864": 1.96,
           "876": 1.97,
-          "888": 1.46,
-          "900": 1.46,
-          "912": 1.47,
-          "924": 1.49,
-          "936": 1.58,
+          "888": 1.45,
+          "900": 1.47,
+          "912": 1.48,
+          "924": 1.48,
+          "936": 1.56,
           "948": 1.95,
           "960": 2.08,
           "972": 2.1,
           "984": 1.89,
           "996": 1.28,
-          "1008": 1.26,
-          "1020": 1.72,
-          "1032": 1.75,
+          "1008": 1.28,
+          "1020": 1.74,
+          "1032": 1.76,
           "1044": 1.32,
           "1056": 1.37,
-          "1068": 1.44,
-          "1080": 1.14,
-          "1092": 1.24,
+          "1068": 1.43,
+          "1080": 1.13,
+          "1092": 1.25,
           "1104": 1.39,
-          "1116": 1.44,
-          "1128": 1.44,
-          "1140": 2.71,
-          "1152": 3.04,
-          "1164": 2.53,
-          "1176": 2.96,
+          "1116": 1.43,
+          "1128": 1.45,
+          "1140": 2.93,
+          "1152": 3.03,
+          "1164": 2.54,
+          "1176": 2.97,
           "1188": 2.99,
-          "1200": 2.98,
+          "1200": 2.99,
           "1212": 2.96,
           "1224": 2.97,
           "1236": 3.11,
-          "1248": 2.99,
-          "1260": 1.72,
-          "1272": 2.75,
-          "1284": 2.63,
+          "1248": 2.98,
+          "1260": 1.71,
+          "1272": 2.64,
+          "1284": 2.78,
           "1296": 0.81,
-          "1308": 1.09,
-          "1320": 1.18,
+          "1308": 1.1,
+          "1320": 1.19,
           "1332": 1.36,
-          "1344": 1.34,
+          "1344": 1.33,
           "1356": 1.36,
           "1368": 1.37,
           "1488": 1.94,
           "1500": 1.91,
-          "1512": 1.92,
+          "1512": 1.91,
           "1524": 1.92,
           "1536": 1.42,
           "1548": 1.39,
-          "1560": 1.27,
-          "1572": 1.38,
-          "1584": 1.47,
-          "1596": 1.51,
-          "1728": 1.48,
-          "1740": 1.73,
-          "1752": 1.51,
-          "1764": 1.37,
-          "1776": 1.94,
-          "1788": 1.93,
-          "1800": 1.93,
-          "1812": 1.93,
-          "1824": 2.42,
-          "1836": 2.4,
+          "1560": 1.31,
+          "1572": 1.35,
+          "1584": 1.33,
+          "1596": 1.48,
+          "1728": 1.5,
+          "1740": 1.75,
+          "1752": 1.5,
+          "1764": 1.38,
+          "1776": 1.95,
+          "1788": 1.95,
+          "1800": 1.95,
+          "1812": 1.94,
+          "1824": 2.41,
+          "1836": 2.41,
           "1848": 1.5,
           "1860": 1.5,
           "1872": 1.5,
           "1884": 1.5,
           "1896": 1.49,
-          "1908": 1.49,
-          "1920": 1.65,
-          "1932": 1.64,
-          "1944": 1.75,
-          "1956": 1.63,
-          "1968": 1.12,
-          "1980": 1.19,
-          "1992": 1.22,
-          "2004": 0.74,
-          "2016": 0.8,
-          "2028": 0.79,
-          "2040": 1.5,
-          "2052": 1.51,
-          "2064": 1.52,
-          "2076": 1.5,
-          "2088": 1.31,
-          "2100": 1.11,
-          "2112": 1.37,
-          "2124": 1.38,
-          "2136": 1.28,
-          "2148": 1.18,
+          "1908": 1.48,
+          "1920": 1.63,
+          "1932": 1.74,
+          "1944": 1.8,
+          "1956": 1.66,
+          "1968": 1.3,
+          "1980": 0.97,
+          "1992": 0.98,
+          "2004": 0.83,
+          "2016": 0.92,
+          "2028": 0.98,
+          "2040": 1.61,
+          "2052": 1.63,
+          "2064": 1.59,
+          "2076": 1.6,
+          "2088": 1.28,
+          "2100": 1.12,
+          "2112": 1.35,
+          "2124": 1.41,
+          "2136": 1.27,
+          "2148": 1.16,
           "2160": 1.32,
-          "2172": 1.09,
-          "2184": 2.0,
+          "2172": 1.08,
+          "2184": 2.02,
           "2196": 2.1,
-          "2208": 1.83,
+          "2208": 1.82,
           "2220": 1.75,
-          "2232": 2.37,
+          "2232": 2.36,
           "2244": 2.35,
           "2256": 2.33,
-          "2268": 2.33,
-          "2280": 2.34,
-          "2292": 2.23,
-          "2304": 2.32,
-          "2316": 2.12,
+          "2268": 2.34,
+          "2280": 2.31,
+          "2292": 2.22,
+          "2304": 2.33,
+          "2316": 2.11,
           "2328": 2.07,
-          "2340": 2.07,
+          "2340": 2.05,
           "2352": 2.09,
-          "2364": 2.1,
+          "2364": 2.11,
           "2376": 0.92,
-          "2388": 0.93,
-          "2400": 0.94,
-          "2412": 0.95,
-          "2424": 0.96,
-          "2436": 0.94,
+          "2388": 0.94,
+          "2400": 0.93,
+          "2412": 0.94,
+          "2424": 0.94,
+          "2436": 0.95,
           "2472": 1.83,
           "2484": 1.82,
           "2496": 1.82,
           "2508": 1.82,
           "2520": 1.82,
-          "2532": 1.83,
-          "2544": 1.83,
+          "2532": 1.82,
+          "2544": 1.82,
           "2556": 1.82,
-          "2568": 1.82,
+          "2568": 1.83,
           "2580": 1.47,
           "2592": 1.91,
           "2604": 2.09,
           "2616": 2.21,
-          "2628": 2.26,
-          "2640": 1.01,
-          "2652": 1.01,
-          "2664": 1.01,
-          "2676": 1.01,
-          "2688": 1.13,
-          "2700": 1.33,
-          "2712": 1.34,
-          "2724": 1.43,
-          "2736": 1.44,
-          "2748": 1.44,
-          "2760": 1.44,
-          "2820": 1.73,
-          "2832": 1.73,
+          "2628": 2.25,
+          "2640": 1.02,
+          "2652": 1.02,
+          "2664": 1.02,
+          "2676": 1.02,
+          "2688": 1.14,
+          "2700": 1.34,
+          "2712": 1.35,
+          "2724": 1.44,
+          "2736": 1.45,
+          "2748": 1.46,
+          "2760": 1.45,
+          "2820": 1.75,
+          "2832": 1.74,
           "2844": 1.73,
-          "2856": 1.74,
-          "2868": 1.63,
+          "2856": 1.72,
+          "2868": 1.64,
           "2880": 1.73,
           "2988": 1.71,
-          "3000": 1.71,
+          "3000": 1.72,
           "3012": 1.76,
-          "3024": 1.8,
+          "3024": 1.79,
           "3036": 1.8,
-          "3048": 2.53,
+          "3048": 2.52,
           "3060": 2.53,
-          "3072": 2.54,
+          "3072": 2.53,
           "3084": 2.69,
           "3204": 3.02,
-          "3216": 2.99,
+          "3216": 2.96,
           "3228": 2.45,
-          "3240": 2.83
+          "3240": 2.84
         },
         "khung_thieu": [],
         "kiem_toan": {
           "yeu_cau": {
             "version": 1,
-            "seed": "2162447375389782042",
+            "seed": "9476883171053887317",
             "frames": [
-              696,
-              936
+              1332,
+              2148
             ],
             "candidates": 281,
             "issued_by": "P",
-            "issued_utc": "2026-09-28T07:32:10Z",
+            "issued_utc": "2026-09-28T08:31:00Z",
             "video": "layout.mp4",
-            "video_sha256": "e404d00b9b3bdfb2a23728cbc171a3709afdea49d03f053933bf7f37895ae8a8",
-            "parts_sha256": "bc11f5f8285b6abc357949abf7563b9578ebe639836b230960c34dab3338af08"
+            "video_sha256": "78e662d1dcf884a3d56d0e9148f3ba4439ac7a2eef19d39436d57ee4b9def375",
+            "parts_sha256": "dd8fb4adf218593ae00fc221f3481f1ad0fce6fb39110da17b6e2e014e098a53"
           },
           "log_scene": [
             {
@@ -6870,8 +6872,8 @@
             },
             {
               "file": "design/cong5/layout/shots_w2.js",
-              "sha_log": "6113be60b1084302b45759a940e64934b51cef20f5175e133a24e97989517ba3",
-              "sha_dia": "6113be60b1084302b45759a940e64934b51cef20f5175e133a24e97989517ba3",
+              "sha_log": "1c6b45a2652b26b7a61c793b84ce620993b0d9e98da8395e33286e2235f23bdd",
+              "sha_dia": "1c6b45a2652b26b7a61c793b84ce620993b0d9e98da8395e33286e2235f23bdd",
               "trong_scene_files": true,
               "khop": true
             },
@@ -6884,8 +6886,8 @@
             },
             {
               "file": "design/cong5/layout/sets2.js",
-              "sha_log": "babae36ea313e8817a415a51101d31f016b6740efa4c613295d203bf9d9a608a",
-              "sha_dia": "babae36ea313e8817a415a51101d31f016b6740efa4c613295d203bf9d9a608a",
+              "sha_log": "83ae23c58ae39e066b73cd36018a1e00fab829e93c4f8da48b938697b9a2cee6",
+              "sha_dia": "83ae23c58ae39e066b73cd36018a1e00fab829e93c4f8da48b938697b9a2cee6",
               "trong_scene_files": true,
               "khop": true
             },
@@ -6912,63 +6914,118 @@
             }
           ],
           "log_lenh": {
-            "696": [
-              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 696,936 --scale 4"
+            "1332": [
+              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 1332,2148 --scale 4"
             ],
-            "936": [
-              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 696,936 --scale 4"
+            "2148": [
+              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 1332,2148 --scale 4"
             ]
           },
           "doi_chieu": [
             {
-              "khung": 696,
+              "khung": 1332,
               "bo_phan": "head",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 936,
-              "bo_phan": "head",
-              "khac_diem_anh_tren_bien": 0.0
-            },
-            {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "torso",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "upper_arm",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "forearm",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "thigh",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "shin",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "torso",
               "lech_ty_le_pct": 0.0,
-              "U_pct": 1.778
+              "U_pct": 2.343
             },
             {
-              "khung": 936,
+              "khung": 1332,
               "bo_phan": "upper_arm",
               "lech_ty_le_pct": 0.0,
-              "U_pct": 9.414
+              "U_pct": 3.286
             },
             {
-              "khung": 696,
+              "khung": 1332,
+              "bo_phan": "forearm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 2.837
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "head",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "torso",
+              "khac_diem_anh_tren_bien": 0.0321
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "upper_arm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "forearm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "thigh",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "shin",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "torso",
+              "lech_ty_le_pct": 0.838,
+              "U_pct": 4.51
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "upper_arm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 5.5
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "forearm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 5.27
+            },
+            {
+              "khung": 2148,
+              "bo_phan": "shin",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 9.461
+            },
+            {
+              "khung": 1332,
               "views_render_lai": "khớp",
               "views_lech": {
                 "goc": 0.0,
@@ -6976,17 +7033,17 @@
               }
             },
             {
-              "khung": 936,
+              "khung": 2148,
               "views_render_lai": "khớp",
               "views_lech": {
                 "goc": 0.0,
-                "ty_le": 0.0
+                "ty_le": 0.0006000000000000033
               }
             }
           ]
         }
       },
-      "seconds": 223.2
+      "seconds": 206.56
     },
     {
       "code": "O3",
@@ -7044,7 +7101,7 @@
         "thieu_file": [],
         "file_la": []
       },
-      "seconds": 0.13
+      "seconds": 0.12
     }
   ]
 }
