@@ -315,3 +315,39 @@ Nền: merge nhánh tích hợp @633a217 rồi @0f60b36 (W2 A2). Chỉ probe (96
 2. s23 mặt vôi 18,5 % (ngưỡng ~20 %): ngoài dải ±5 % (19–21 %) nhưng gần; nếu W2 đổi thêm hông kho phải đo lại.
 3. `groundSoft` là giả DOF cục bộ — có thể bị coi là đổi hình texture; phương án thay: DOF thật (P).
 4. Cột sân trước: `sets.js` gọi `set(e)` theo WALL_POST_T; shot W2 cảnh 5 gọi thêm `set(1)` sau đó (cùng kết quả sau 64,4 s). `buildStreetSet` trả `wallPostCtl` (không trả `wallPost`) vì `shots_w2.js` dòng 179 coi `st.wallPost` là cột W1 cũ và ẩn nó — đã kiểm `--meta-only` s35, s37w, s41, s45c chạy hết khung, không lỗi.
+
+## 13. Giai đoạn C2 — render đầy đủ 20 shot (mặt A-α W3, sheet v1.4, tóc bạc #e2dfda + shader)
+Nền: merge nhánh tích hợp @b378416. P duyệt nền nhoè s06/s09w cho layout (lấy nét thật ở Cổng 7).
+
+### 13.1 Phơi sáng cận mặt s05 (mặt mới)
+Đo trên probe khung a/b/c (960×540): "mặt cháy" = tỷ lệ điểm ảnh có kênh ≥ 250 trong khung mặt (x 380–540, y 110–230); nền = độ sáng TB tường trái (x 0–160, y 60–250); tóc = màu TB vùng tóc/búi.
+
+| Cách | Phơi sáng | Mặt cháy | Nền (luma) | Tóc (sRGB, bão hoà) |
+|---|---|---|---|---|
+| cũ (0,42) | 0,42 | 23,8–24,5 % | 104–106 | #582f1d, 0,66 (đọc nâu/vàng) |
+| × 0,4 (W3 đo) | 0,168 | 2,4 % | 55–56 | #2c150e, 0,67 (tối, vẫn cam) |
+| facelight 'gas' + `fl.exposure()` | tự tính | 0,0 % | 47–48 | #573c34, 0,39–0,40 |
+| **facelight 'gas' + `fl.exposure()` × 1,6 (CHỐT)** | tự tính ×1,6 (khoá ở khung đầu) | **0,5 %** | **69** | **#735449, 0,36 — đọc bạc** |
+
+- Nguồn: chỉ nguồn có thật (dội ấm vôi/đá + viền trời đêm, preset W3 'gas'; nguồn chính L4). Nền không tắt hẳn (luma 69 so với 55 của × 0,4); tóc hết đọc "vàng" (bão hoà 0,66 → 0,36).
+- s22 giữ nguyên (theo P).
+
+### 13.2 Render qua hàng đợi (nguồn: `/var/tmp/cine-queue/log.tsv`; 960×540, 24 fps, vào `/var/tmp/cine-out/W1/full/`)
+| Nhóm | Shot | Khung | Chờ (s) | Chạy (s) | s/khung render | s/khung cả dựng | timing |
+|---|---|---|---|---|---|---|---|
+| c2-canh1 | s02–s08 | 504 | 0,0 | 713,8 | 1,37 | 1,42 | `timing_s02-s03-s04-s05-s06-s07-s08.json` |
+| c2-canh2 | s09w, s10e, s11–s15 | 336 | 1 061,1 | 426,7 | 1,21 | 1,27 | `timing_s09w-s10e-s11-s12-s13-s14-s15.json` |
+| c2-canh3 | s19, s21–s24c | 336 | 0,0 | 491,4 | 1,40 | 1,46 | `timing_s19-s21-s22-s23-s24-s24c.json` |
+| **Tổng** | 20 shot | 1 176 | 1 061,1 | 1 631,9 | 1,33 | 1,39 | |
+
+- Lượt c2-canh3 đầu (xếp hàng 06:30:35) bị huỷ khi phiên W1 bị hệ thống dừng lúc đang chờ hàng (kiểm tra an toàn máy chủ không trả kết quả); không có dòng log, không khung nào render. Chạy lại 07:01:44, không phải chờ.
+- Video: `video_s02-…-s08.mp4`, `video_s09w-…-s15.mp4`, `video_s19-…-s24c.mp4` (thay các đoạn tương ứng của bản giai đoạn C; s01, s09, s10 giữ bản C).
+
+### 13.3 Duyệt thumbs a/b/c (60 khung) và làm lại
+- **0 lần làm lại.** Kiểm: s02–s04 đèn lồng tắt → s04 bắt lửa; s05 tóc bạc, mặt không cháy; s06, s09w nền nhoè (hết "chấm bi"); s14 không bóng dài; s15 một thang; s22 mặt mới không cháy (giữ phơi sáng); s23 Cas ở chân tường, cột sân trước tắt; s24 Ida trái / Cas phải; s24c Cas nhìn trái.
+- Ghi nhận (không làm lại): s11 phơi sáng 2,2 dưới L7 làm mũ + mặt rất sáng (đã đề xuất Cổng 7 hạ 1,5–1,7 ở mục 7); s24 Cas nhỏ; s24c mặt Cas ấm yếu.
+
+### 13.4 Rủi ro C2
+1. Mặt A-α chỉ kiểm bằng hình ở s05, s22 (cận); các shot rộng hơn chưa đo cháy mặt riêng.
+2. s11 (không trong phạm vi sửa C2) còn sáng quá dưới đèn khí gần.
+3. Bản cuối gồm nhiều video nhóm của C và C2 — P ghép theo `timing_*.json` mới nhất cho mỗi shot.
