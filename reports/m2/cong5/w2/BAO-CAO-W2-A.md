@@ -47,7 +47,7 @@ Tổng 2004 khung, chạy 2812 s, chờ 1562 s (theo `/var/tmp/cine-queue/log.ts
 - **Làm lại: 0 shot.** Đã xem thumbs a/b/c cả 29 shot; không lỗi mới so với probe giai đoạn A.
   - s32 thử phơi sáng 0,7 bằng probe: chim không rõ hơn đáng kể → giữ 1,0.
 - **Mũ Ida (quyết định chủ dự án):** bà kéo mũ lại ở cuối s42. Đã sửa **trước khi** nhóm canh5 chạy tới s42, nên không phải render lại.
-  - Bằng chứng: `s42_keo-mu_khung2926-2950.jpg` (khung toàn cục 2926, 2934, 2942, 2948).
+  - Bằng chứng: `s42_keo-mu_khung2914-2936.jpg` (khung toàn cục 2914, 2922, 2930, 2936 = 1,92 · 2,25 · 2,58 · 2,83 s trong s42).
   - Bảng `hat_back` từng shot: `continuity/canh-5.md`.
 - **Ảnh 4 kiểm mù:** khung toàn cục **2554** (106,40 s, khung 34 của s39), giữa cụm "keep a little dark…".
   - Mốc câu đo từ take L4: "Just…" 104,32–104,84 s; "keep a little dark for the ones who need it" 105,87–109,08 s.
