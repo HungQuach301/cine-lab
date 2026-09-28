@@ -1,6 +1,6 @@
 {
   "tool": "cinecheck 1.4.0",
-  "created_utc": "2026-09-28T04:26:31Z",
+  "created_utc": "2026-09-28T07:40:10Z",
   "file": "/home/user/cine-lab/design/cong5/layout/out/layout.mp4",
   "profile": "shot",
   "verdict": "TRƯỢT",
@@ -98,9 +98,9 @@
       ],
       "notes": [],
       "evidence": {
-        "so_khung": 3420
+        "so_khung": 3372
       },
-      "seconds": 0.17
+      "seconds": 0.19
     },
     {
       "code": "N2",
@@ -149,7 +149,7 @@
         },
         {
           "name": "luma ngoài dải limited",
-          "value": 0.0568,
+          "value": 0.0571,
           "op": "<=",
           "threshold": 0.5,
           "unit": "%",
@@ -159,10 +159,10 @@
       ],
       "notes": [],
       "evidence": {
-        "khung_lay_mau": 228,
+        "khung_lay_mau": 225,
         "bit_depth": 8
       },
-      "seconds": 5.36
+      "seconds": 5.43
     },
     {
       "code": "N3",
@@ -207,14 +207,14 @@
         }
       ],
       "notes": [
-        "Lấy mẫu 234 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 155 (bỏ qua)."
+        "Lấy mẫu 233 khung (≈ 2 khung/giây). Vùng máy dò nghi là chữ nhưng nhận dạng không xác nhận chữ Latin (cửa sổ, lưới, hoa văn): 164 (bỏ qua)."
       ],
       "evidence": {
         "chu_khong_matte": [],
-        "vung_co_matte": 38,
-        "vung_bi_loai": 155,
+        "vung_co_matte": 39,
+        "vung_bi_loai": 164,
         "vung_khoi_dac": [],
-        "khung_lay_mau": 234,
+        "khung_lay_mau": 233,
         "phan_tu_may_do_khong_thay": [],
         "diegetic_trung_phu_de": [],
         "chu_doc_trong_matte": [
@@ -309,34 +309,58 @@
             "chu": "Go on, then."
           },
           {
+            "khung": 2235,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2250,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2262,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
+            "khung": 2265,
+            "phan_tu": "sub04",
+            "diegetic": false,
+            "chu": "That's the last one, then."
+          },
+          {
             "khung": 2280,
             "phan_tu": "sub04",
             "diegetic": false,
             "chu": "That's the last one, then."
           },
           {
-            "khung": 2295,
-            "phan_tu": "sub04",
-            "diegetic": false,
-            "chu": "That's the last one, then."
-          },
-          {
-            "khung": 2310,
-            "phan_tu": "sub04",
-            "diegetic": false,
-            "chu": "That's the last one, then."
-          },
-          {
             "khung": 2325,
-            "phan_tu": "sub04",
+            "phan_tu": "sub05",
             "diegetic": false,
-            "chu": "That's the last one, then."
+            "chu": "Goodnight, old street."
           },
           {
             "khung": 2340,
-            "phan_tu": "sub04",
+            "phan_tu": "sub05",
             "diegetic": false,
-            "chu": "That's the last one, then."
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2342,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
+          },
+          {
+            "khung": 2355,
+            "phan_tu": "sub05",
+            "diegetic": false,
+            "chu": "Goodnight, old street."
           },
           {
             "khung": 2370,
@@ -345,55 +369,55 @@
             "chu": "Goodnight, old street."
           },
           {
-            "khung": 2385,
-            "phan_tu": "sub05",
-            "diegetic": false,
-            "chu": "Goodnight, old street."
-          },
-          {
-            "khung": 2390,
-            "phan_tu": "sub05",
-            "diegetic": false,
-            "chu": "Goodnight, old street."
-          },
-          {
             "khung": 2400,
-            "phan_tu": "sub05",
-            "diegetic": false,
-            "chu": "Goodnight, old street."
-          },
-          {
-            "khung": 2415,
-            "phan_tu": "sub05",
-            "diegetic": false,
-            "chu": "Goodnight, old street."
-          },
-          {
-            "khung": 2445,
             "phan_tu": "sub06",
             "diegetic": false,
             "chu": "You'll be brighter now."
           },
           {
-            "khung": 2459,
+            "khung": 2411,
+            "phan_tu": "sub06",
+            "diegetic": false,
+            "chu": "You'll be brighter now."
+          },
+          {
+            "khung": 2415,
+            "phan_tu": "sub06",
+            "diegetic": false,
+            "chu": "You'll be brighter now."
+          },
+          {
+            "khung": 2430,
             "phan_tu": "sub06",
             "diegetic": false,
             "chu": "You'll be brighter now."
           },
           {
             "khung": 2460,
-            "phan_tu": "sub06",
+            "phan_tu": "sub07",
             "diegetic": false,
-            "chu": "You'll be brighter now."
+            "chu": "Just... keep a little dark for the ones who need it."
           },
           {
             "khung": 2475,
-            "phan_tu": "sub06",
+            "phan_tu": "sub07",
             "diegetic": false,
-            "chu": "You'll be brighter now."
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2490,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
           },
           {
             "khung": 2505,
+            "phan_tu": "sub07",
+            "diegetic": false,
+            "chu": "Just... keep a little dark for the ones who need it."
+          },
+          {
+            "khung": 2517,
             "phan_tu": "sub07",
             "diegetic": false,
             "chu": "Just... keep a little dark for the ones who need it."
@@ -427,28 +451,10 @@
             "phan_tu": "sub07",
             "diegetic": false,
             "chu": "Just... keep a little dark for the ones who need it."
-          },
-          {
-            "khung": 2595,
-            "phan_tu": "sub07",
-            "diegetic": false,
-            "chu": "Just... keep a little dark for the ones who need it."
-          },
-          {
-            "khung": 2610,
-            "phan_tu": "sub07",
-            "diegetic": false,
-            "chu": "Just... keep a little dark for the ones who need it."
-          },
-          {
-            "khung": 2625,
-            "phan_tu": "sub07",
-            "diegetic": false,
-            "chu": "Just... keep a little dark for the ones who need it."
           }
         ]
       },
-      "seconds": 45.99
+      "seconds": 54.02
     },
     {
       "code": "P1",
@@ -491,7 +497,7 @@
           "sub07": 100.0
         }
       },
-      "seconds": 14.53
+      "seconds": 16.88
     },
     {
       "code": "G4",
@@ -504,7 +510,7 @@
       "metrics": [
         {
           "name": "tương phản chữ/nền (P10) thấp nhất",
-          "value": 14.7317,
+          "value": 14.6373,
           "op": ">=",
           "threshold": 4.5,
           "unit": ":1",
@@ -525,32 +531,32 @@
       "evidence": {
         "theo_phan_tu": {
           "sub01": {
-            "ty_le_p10": 16.9,
-            "khung": 296
+            "ty_le_p10": 17.17,
+            "khung": 291
           },
           "sub02": {
-            "ty_le_p10": 15.38,
-            "khung": 1195
+            "ty_le_p10": 15.1,
+            "khung": 1261
           },
           "sub03": {
-            "ty_le_p10": 15.61,
-            "khung": 1780
+            "ty_le_p10": 16.8,
+            "khung": 1776
           },
           "sub04": {
-            "ty_le_p10": 16.63,
-            "khung": 2312
+            "ty_le_p10": 16.61,
+            "khung": 2232
           },
           "sub05": {
-            "ty_le_p10": 16.64,
-            "khung": 2411
+            "ty_le_p10": 16.72,
+            "khung": 2319
           },
           "sub06": {
-            "ty_le_p10": 16.18,
-            "khung": 2481
+            "ty_le_p10": 16.38,
+            "khung": 2386
           },
           "sub07": {
-            "ty_le_p10": 14.73,
-            "khung": 2629
+            "ty_le_p10": 14.64,
+            "khung": 2581
           }
         },
         "do_khop": {
@@ -564,7 +570,7 @@
         },
         "mien_diegetic": []
       },
-      "seconds": 16.07
+      "seconds": 18.85
     },
     {
       "code": "G3",
@@ -587,13 +593,13 @@
       ],
       "notes": [],
       "evidence": {
-        "khung_lay_mau": 228,
+        "khung_lay_mau": 225,
         "bit_depth": 8,
         "khung_te_nhat": null,
         "khung_vuot_nguong": [],
         "trung_binh_pct": 0.0
       },
-      "seconds": 9.28
+      "seconds": 10.81
     },
     {
       "code": "G3b",
@@ -606,7 +612,7 @@
       "metrics": [
         {
           "name": "σ grain nhỏ nhất theo shot",
-          "value": 0.733,
+          "value": 0.716,
           "op": ">=",
           "threshold": 0.8,
           "unit": "mã 8 bit",
@@ -615,16 +621,16 @@
         },
         {
           "name": "biến thiên σ theo thời gian (CV) lớn nhất trong shot",
-          "value": 0.242,
+          "value": 0.184,
           "op": "<=",
           "threshold": 0.2,
           "unit": "",
-          "ok": false,
+          "ok": true,
           "near": false
         },
         {
           "name": "σ shot lớn nhất / nhỏ nhất",
-          "value": 2.8677,
+          "value": 2.986,
           "op": "<=",
           "threshold": 1.3,
           "unit": "",
@@ -633,7 +639,7 @@
         },
         {
           "name": "tương quan grain giữa 2 khung kề (trung vị, shot tệ nhất)",
-          "value": 0.828,
+          "value": 0.844,
           "op": "<=",
           "threshold": 0.5,
           "unit": "",
@@ -642,311 +648,332 @@
         }
       ],
       "notes": [
-        "55 shot (PySceneDetect); 396 khung đo, 58 khung không đủ khối phẳng.",
-        "12 shot không đo được grain (không có khung đủ khối phẳng)."
+        "56 shot (PySceneDetect); 390 khung đo, 58 khung không đủ khối phẳng.",
+        "10 shot không đo được grain (không có khung đủ khối phẳng)."
       ],
       "evidence": {
         "theo_shot": {
           "4": {
             "tu_khung": 252,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.881,
-            "cv": 0.033,
-            "tuong_quan_khung_ke": 0.222
+            "sigma_trung_vi": 0.861,
+            "cv": 0.04,
+            "tuong_quan_khung_ke": 0.171
           },
           "5": {
             "tu_khung": 288,
             "so_khung_do": 12,
-            "sigma_trung_vi": 1.37,
-            "cv": 0.059,
-            "tuong_quan_khung_ke": 0.543
+            "sigma_trung_vi": 1.077,
+            "cv": 0.052,
+            "tuong_quan_khung_ke": 0.405
           },
           "6": {
             "tu_khung": 384,
-            "so_khung_do": 10,
-            "sigma_trung_vi": 1.33,
-            "cv": 0.043,
-            "tuong_quan_khung_ke": 0.619
+            "so_khung_do": 8,
+            "sigma_trung_vi": 1.344,
+            "cv": 0.021,
+            "tuong_quan_khung_ke": 0.593
+          },
+          "7": {
+            "tu_khung": 442,
+            "so_khung_do": 2,
+            "sigma_trung_vi": 1.273,
+            "cv": 0.008,
+            "tuong_quan_khung_ke": 0.689
           },
           "8": {
             "tu_khung": 552,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.053,
-            "cv": 0.044,
-            "tuong_quan_khung_ke": 0.455
+            "sigma_trung_vi": 1.036,
+            "cv": 0.009,
+            "tuong_quan_khung_ke": 0.465
           },
           "9": {
             "tu_khung": 600,
             "so_khung_do": 10,
-            "sigma_trung_vi": 0.827,
-            "cv": 0.119,
+            "sigma_trung_vi": 0.823,
+            "cv": 0.113,
             "tuong_quan_khung_ke": 0.257
           },
           "10": {
             "tu_khung": 672,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.951,
-            "cv": 0.048,
-            "tuong_quan_khung_ke": 0.388
+            "sigma_trung_vi": 0.933,
+            "cv": 0.044,
+            "tuong_quan_khung_ke": 0.354
           },
           "11": {
             "tu_khung": 720,
             "so_khung_do": 4,
-            "sigma_trung_vi": 0.733,
-            "cv": 0.181,
-            "tuong_quan_khung_ke": 0.156
+            "sigma_trung_vi": 0.716,
+            "cv": 0.184,
+            "tuong_quan_khung_ke": 0.155
           },
           "15": {
             "tu_khung": 917,
             "so_khung_do": 4,
-            "sigma_trung_vi": 1.179,
-            "cv": 0.045,
-            "tuong_quan_khung_ke": 0.456
+            "sigma_trung_vi": 1.195,
+            "cv": 0.024,
+            "tuong_quan_khung_ke": 0.469
           },
           "16": {
             "tu_khung": 956,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.986,
-            "cv": 0.125,
-            "tuong_quan_khung_ke": 0.782
+            "sigma_trung_vi": 1.981,
+            "cv": 0.118,
+            "tuong_quan_khung_ke": 0.773
           },
           "17": {
             "tu_khung": 996,
             "so_khung_do": 6,
-            "sigma_trung_vi": 2.102,
-            "cv": 0.047,
-            "tuong_quan_khung_ke": 0.806
+            "sigma_trung_vi": 2.098,
+            "cv": 0.056,
+            "tuong_quan_khung_ke": 0.819
           },
           "19": {
             "tu_khung": 1080,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.974,
-            "cv": 0.042,
-            "tuong_quan_khung_ke": 0.251
+            "sigma_trung_vi": 0.997,
+            "cv": 0.118,
+            "tuong_quan_khung_ke": 0.218
           },
           "20": {
             "tu_khung": 1116,
             "so_khung_do": 2,
-            "sigma_trung_vi": 0.844,
-            "cv": 0.039,
-            "tuong_quan_khung_ke": 0.323
+            "sigma_trung_vi": 0.817,
+            "cv": 0.009,
+            "tuong_quan_khung_ke": 0.263
           },
           "21": {
             "tu_khung": 1140,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.648,
-            "cv": 0.103,
-            "tuong_quan_khung_ke": 0.622
+            "sigma_trung_vi": 1.634,
+            "cv": 0.095,
+            "tuong_quan_khung_ke": 0.629
           },
           "22": {
             "tu_khung": 1188,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.967,
-            "cv": 0.037,
-            "tuong_quan_khung_ke": 0.8
+            "sigma_trung_vi": 1.969,
+            "cv": 0.032,
+            "tuong_quan_khung_ke": 0.798
           },
           "23": {
             "tu_khung": 1260,
             "so_khung_do": 10,
-            "sigma_trung_vi": 0.883,
-            "cv": 0.09,
-            "tuong_quan_khung_ke": 0.281
+            "sigma_trung_vi": 0.953,
+            "cv": 0.06,
+            "tuong_quan_khung_ke": 0.378
           },
           "24": {
             "tu_khung": 1332,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.28,
-            "cv": 0.029,
-            "tuong_quan_khung_ke": 0.619
+            "sigma_trung_vi": 1.328,
+            "cv": 0.027,
+            "tuong_quan_khung_ke": 0.628
           },
           "25": {
             "tu_khung": 1380,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.096,
-            "cv": 0.038,
-            "tuong_quan_khung_ke": 0.635
+            "sigma_trung_vi": 1.514,
+            "cv": 0.083,
+            "tuong_quan_khung_ke": 0.684
           },
           "26": {
             "tu_khung": 1416,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.304,
-            "cv": 0.057,
-            "tuong_quan_khung_ke": 0.313
+            "sigma_trung_vi": 1.146,
+            "cv": 0.039,
+            "tuong_quan_khung_ke": 0.332
           },
           "27": {
             "tu_khung": 1488,
             "so_khung_do": 6,
-            "sigma_trung_vi": 0.74,
-            "cv": 0.043,
-            "tuong_quan_khung_ke": 0.426
+            "sigma_trung_vi": 0.927,
+            "cv": 0.036,
+            "tuong_quan_khung_ke": 0.377
+          },
+          "28": {
+            "tu_khung": 1536,
+            "so_khung_do": 1,
+            "sigma_trung_vi": 0.83,
+            "cv": 0.0,
+            "tuong_quan_khung_ke": 0.029
           },
           "29": {
             "tu_khung": 1608,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.104,
-            "cv": 0.023,
-            "tuong_quan_khung_ke": 0.422
+            "sigma_trung_vi": 2.138,
+            "cv": 0.04,
+            "tuong_quan_khung_ke": 0.809
           },
           "30": {
             "tu_khung": 1656,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.251,
-            "cv": 0.033,
-            "tuong_quan_khung_ke": 0.502
+            "sigma_trung_vi": 1.973,
+            "cv": 0.054,
+            "tuong_quan_khung_ke": 0.704
           },
           "31": {
             "tu_khung": 1728,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.046,
-            "cv": 0.052,
-            "tuong_quan_khung_ke": 0.396
+            "sigma_trung_vi": 1.54,
+            "cv": 0.088,
+            "tuong_quan_khung_ke": 0.609
           },
           "32": {
             "tu_khung": 1776,
             "so_khung_do": 10,
-            "sigma_trung_vi": 1.1,
-            "cv": 0.042,
-            "tuong_quan_khung_ke": 0.445
+            "sigma_trung_vi": 1.115,
+            "cv": 0.031,
+            "tuong_quan_khung_ke": 0.446
           },
           "33": {
             "tu_khung": 1848,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.04,
-            "cv": 0.04,
-            "tuong_quan_khung_ke": 0.362
+            "sigma_trung_vi": 1.667,
+            "cv": 0.046,
+            "tuong_quan_khung_ke": 0.734
           },
           "34": {
             "tu_khung": 1920,
-            "so_khung_do": 24,
-            "sigma_trung_vi": 1.206,
-            "cv": 0.072,
-            "tuong_quan_khung_ke": 0.281
+            "so_khung_do": 16,
+            "sigma_trung_vi": 0.994,
+            "cv": 0.066,
+            "tuong_quan_khung_ke": 0.285
           },
           "35": {
-            "tu_khung": 2088,
-            "so_khung_do": 6,
-            "sigma_trung_vi": 1.711,
-            "cv": 0.016,
-            "tuong_quan_khung_ke": 0.722
-          },
-          "36": {
-            "tu_khung": 2136,
-            "so_khung_do": 12,
-            "sigma_trung_vi": 0.873,
-            "cv": 0.025,
-            "tuong_quan_khung_ke": 0.36
-          },
-          "39": {
-            "tu_khung": 2419,
+            "tu_khung": 2040,
             "so_khung_do": 8,
-            "sigma_trung_vi": 1.196,
-            "cv": 0.242,
-            "tuong_quan_khung_ke": 0.64
-          },
-          "40": {
-            "tu_khung": 2486,
-            "so_khung_do": 4,
-            "sigma_trung_vi": 0.886,
-            "cv": 0.039,
-            "tuong_quan_khung_ke": 0.504
-          },
-          "41": {
-            "tu_khung": 2520,
-            "so_khung_do": 15,
-            "sigma_trung_vi": 1.864,
-            "cv": 0.074,
-            "tuong_quan_khung_ke": 0.819
-          },
-          "42": {
-            "tu_khung": 2626,
-            "so_khung_do": 9,
-            "sigma_trung_vi": 1.567,
-            "cv": 0.165,
-            "tuong_quan_khung_ke": 0.69
-          },
-          "43": {
-            "tu_khung": 2688,
-            "so_khung_do": 6,
-            "sigma_trung_vi": 1.704,
-            "cv": 0.041,
+            "sigma_trung_vi": 1.863,
+            "cv": 0.119,
             "tuong_quan_khung_ke": 0.782
           },
-          "44": {
-            "tu_khung": 2736,
+          "36": {
+            "tu_khung": 2088,
+            "so_khung_do": 12,
+            "sigma_trung_vi": 0.911,
+            "cv": 0.027,
+            "tuong_quan_khung_ke": 0.442
+          },
+          "39": {
+            "tu_khung": 2371,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 1.285,
+            "cv": 0.184,
+            "tuong_quan_khung_ke": 0.703
+          },
+          "40": {
+            "tu_khung": 2438,
             "so_khung_do": 4,
-            "sigma_trung_vi": 1.711,
-            "cv": 0.051,
-            "tuong_quan_khung_ke": 0.768
+            "sigma_trung_vi": 0.964,
+            "cv": 0.071,
+            "tuong_quan_khung_ke": 0.499
+          },
+          "41": {
+            "tu_khung": 2472,
+            "so_khung_do": 14,
+            "sigma_trung_vi": 1.771,
+            "cv": 0.085,
+            "tuong_quan_khung_ke": 0.793
+          },
+          "42": {
+            "tu_khung": 2578,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 1.331,
+            "cv": 0.094,
+            "tuong_quan_khung_ke": 0.653
+          },
+          "43": {
+            "tu_khung": 2621,
+            "so_khung_do": 2,
+            "sigma_trung_vi": 1.511,
+            "cv": 0.024,
+            "tuong_quan_khung_ke": 0.6
+          },
+          "44": {
+            "tu_khung": 2640,
+            "so_khung_do": 8,
+            "sigma_trung_vi": 1.699,
+            "cv": 0.117,
+            "tuong_quan_khung_ke": 0.759
           },
           "45": {
-            "tu_khung": 2772,
-            "so_khung_do": 6,
-            "sigma_trung_vi": 1.774,
-            "cv": 0.064,
-            "tuong_quan_khung_ke": 0.754
+            "tu_khung": 2688,
+            "so_khung_do": 4,
+            "sigma_trung_vi": 1.674,
+            "cv": 0.026,
+            "tuong_quan_khung_ke": 0.7
           },
           "46": {
-            "tu_khung": 2820,
+            "tu_khung": 2724,
             "so_khung_do": 6,
-            "sigma_trung_vi": 1.255,
-            "cv": 0.111,
-            "tuong_quan_khung_ke": 0.339
+            "sigma_trung_vi": 1.786,
+            "cv": 0.041,
+            "tuong_quan_khung_ke": 0.753
           },
           "47": {
-            "tu_khung": 2868,
-            "so_khung_do": 8,
-            "sigma_trung_vi": 1.504,
-            "cv": 0.031,
-            "tuong_quan_khung_ke": 0.651
+            "tu_khung": 2772,
+            "so_khung_do": 3,
+            "sigma_trung_vi": 1.331,
+            "cv": 0.075,
+            "tuong_quan_khung_ke": 0.259
           },
           "48": {
-            "tu_khung": 2940,
-            "so_khung_do": 14,
-            "sigma_trung_vi": 1.031,
-            "cv": 0.054,
-            "tuong_quan_khung_ke": 0.147
+            "tu_khung": 2820,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.503,
+            "cv": 0.114,
+            "tuong_quan_khung_ke": 0.682
           },
           "49": {
-            "tu_khung": 3036,
-            "so_khung_do": 2,
-            "sigma_trung_vi": 0.814,
-            "cv": 0.035,
-            "tuong_quan_khung_ke": 0.235
+            "tu_khung": 2892,
+            "so_khung_do": 14,
+            "sigma_trung_vi": 1.04,
+            "cv": 0.079,
+            "tuong_quan_khung_ke": 0.175
           },
           "50": {
-            "tu_khung": 3096,
-            "so_khung_do": 6,
-            "sigma_trung_vi": 2.014,
-            "cv": 0.084,
-            "tuong_quan_khung_ke": 0.718
+            "tu_khung": 2988,
+            "so_khung_do": 4,
+            "sigma_trung_vi": 0.814,
+            "cv": 0.026,
+            "tuong_quan_khung_ke": 0.266
           },
           "51": {
-            "tu_khung": 3144,
-            "so_khung_do": 4,
-            "sigma_trung_vi": 1.761,
-            "cv": 0.04,
-            "tuong_quan_khung_ke": 0.828
+            "tu_khung": 3048,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 2.005,
+            "cv": 0.117,
+            "tuong_quan_khung_ke": 0.819
           },
           "52": {
-            "tu_khung": 3180,
-            "so_khung_do": 10,
-            "sigma_trung_vi": 0.942,
-            "cv": 0.053,
-            "tuong_quan_khung_ke": 0.458
+            "tu_khung": 3096,
+            "so_khung_do": 4,
+            "sigma_trung_vi": 1.761,
+            "cv": 0.046,
+            "tuong_quan_khung_ke": 0.844
           },
           "53": {
-            "tu_khung": 3252,
-            "so_khung_do": 6,
-            "sigma_trung_vi": 0.852,
-            "cv": 0.014,
-            "tuong_quan_khung_ke": 0.203
+            "tu_khung": 3132,
+            "so_khung_do": 10,
+            "sigma_trung_vi": 1.044,
+            "cv": 0.038,
+            "tuong_quan_khung_ke": 0.419
           },
           "54": {
-            "tu_khung": 3300,
-            "so_khung_do": 16,
-            "sigma_trung_vi": 1.326,
-            "cv": 0.164,
-            "tuong_quan_khung_ke": 0.477
+            "tu_khung": 3204,
+            "so_khung_do": 6,
+            "sigma_trung_vi": 0.851,
+            "cv": 0.024,
+            "tuong_quan_khung_ke": 0.225
+          },
+          "55": {
+            "tu_khung": 3252,
+            "so_khung_do": 14,
+            "sigma_trung_vi": 1.348,
+            "cv": 0.147,
+            "tuong_quan_khung_ke": 0.613
           }
         },
         "shot_bat_dau": [
@@ -957,7 +984,7 @@
           252,
           288,
           384,
-          456,
+          442,
           552,
           600,
           672,
@@ -985,29 +1012,30 @@
           1776,
           1848,
           1920,
+          2040,
           2088,
-          2136,
+          2184,
           2232,
-          2280,
-          2419,
-          2486,
-          2520,
-          2626,
+          2371,
+          2438,
+          2472,
+          2578,
+          2621,
+          2640,
           2688,
-          2736,
+          2724,
           2772,
           2820,
-          2868,
-          2940,
-          3036,
+          2892,
+          2988,
+          3048,
           3096,
-          3144,
-          3180,
-          3252,
-          3300
+          3132,
+          3204,
+          3252
         ]
       },
-      "seconds": 11.76
+      "seconds": 13.58
     },
     {
       "code": "M1",
@@ -1043,7 +1071,7 @@
         },
         {
           "name": "mất mát mono tích phân (BS.1770)",
-          "value": -0.0344,
+          "value": -0.0377,
           "op": ">=",
           "threshold": -3.0,
           "unit": "dB",
@@ -1052,7 +1080,7 @@
         },
         {
           "name": "mất mát mono cửa sổ 3 s tệ nhất",
-          "value": -1.1654,
+          "value": -1.126,
           "op": ">=",
           "threshold": -6.0,
           "unit": "dB",
@@ -1063,10 +1091,10 @@
       "notes": [],
       "evidence": {
         "tuong_quan_trung_vi": 0.999,
-        "tuong_quan_nho_nhat": 0.168,
+        "tuong_quan_nho_nhat": 0.177,
         "cua_so_te_nhat_giay": 15.2
       },
-      "seconds": 4.34
+      "seconds": 4.67
     },
     {
       "code": "J1",
@@ -1088,7 +1116,7 @@
         },
         {
           "name": "WER",
-          "value": 0.0,
+          "value": 2.9412,
           "op": "<=",
           "threshold": 5.0,
           "unit": "%",
@@ -1097,7 +1125,7 @@
         }
       ],
       "notes": [
-        "7 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.flac' không có lời tại đó (Q-J1c): 2: '🎵Aaaaaaaaaaaaaa🎵' 27.8–29.2 s; 'You' 137.64–138.38 s.",
+        "7 câu thoại, ASR từng câu (cửa sổ theo căn kịch bản với lượt toàn file). Chữ ASR bị bỏ vì stem thoại 'dialogue.flac' không có lời tại đó (Q-J1c): 9: 'I' 45.42–46.82 s; 'don't' 46.82–48.22 s; 'know' 48.22–48.22 s; 'what' 48.22–48.22 s; 'to' 48.22–48.22 s; 'do' 48.22–48.22 s; 'with' 48.22–48.22 s; 'this.' 48.22–48.22 s; 'You' 135.6–137.0 s.",
         "Chữ lượt toàn file nằm ngoài mọi câu (tính chèn): 0.",
         "Chuẩn hoá ghép/tách theo bảng COMPOUND (RULES.md), áp cho cả kịch bản và bản nghe."
       ],
@@ -1105,19 +1133,19 @@
         "so_tu_kich_ban": 34,
         "thay": 0,
         "mat": 0,
-        "chen": 0,
+        "chen": 1,
         "tu_truot": [],
         "theo_cau": [
           {
             "cau": 1,
             "loi": "Evening, old street.",
             "cua_so": [
-              10.08,
-              16.24
+              10.0,
+              18.46
             ],
             "neo": [
-              12.08,
-              14.24
+              12.0,
+              16.46
             ],
             "nghe": "evening old street",
             "thay": 0,
@@ -1129,12 +1157,12 @@
             "cau": 2,
             "loi": "Not yet... not yet.",
             "cua_so": [
-              46.58,
-              53.98
+              47.16,
+              54.16
             ],
             "neo": [
-              48.58,
-              51.98
+              49.16,
+              52.16
             ],
             "nghe": "not yet not yet",
             "thay": 0,
@@ -1146,12 +1174,12 @@
             "cau": 3,
             "loi": "Go on, then.",
             "cua_so": [
-              71.16,
-              76.84
+              70.88,
+              76.8
             ],
             "neo": [
-              73.16,
-              74.84
+              72.88,
+              74.8
             ],
             "nghe": "go on then",
             "thay": 0,
@@ -1163,12 +1191,12 @@
             "cau": 4,
             "loi": "That's the last one, then.",
             "cua_so": [
-              92.74,
-              97.7
+              90.74,
+              95.65
             ],
             "neo": [
-              94.74,
-              96.68
+              92.74,
+              94.68
             ],
             "nghe": "thats the last one then",
             "thay": 0,
@@ -1180,12 +1208,12 @@
             "cau": 5,
             "loi": "Goodnight, old street.",
             "cua_so": [
-              97.7,
-              100.73
+              95.65,
+              98.73
             ],
             "neo": [
-              98.38,
-              99.78
+              96.3,
+              97.78
             ],
             "nghe": "good night old street",
             "thay": 0,
@@ -1197,12 +1225,12 @@
             "cau": 6,
             "loi": "You'll be brighter now.",
             "cua_so": [
-              100.73,
-              103.62
+              98.73,
+              100.73
             ],
             "neo": [
-              101.4,
-              102.76
+              99.38,
+              100.8
             ],
             "nghe": "youll be brighter now",
             "thay": 0,
@@ -1214,82 +1242,139 @@
             "cau": 7,
             "loi": "Just... keep a little dark for the ones who need it.",
             "cua_so": [
-              103.62,
-              111.38
+              100.73,
+              109.74
             ],
             "neo": [
-              104.26,
-              109.38
+              100.8,
+              107.74
             ],
-            "nghe": "just keep a little dark for the ones who need it",
+            "nghe": "so just keep a little dark for the ones who need it",
             "thay": 0,
             "mat": 0,
-            "chen": 0,
+            "chen": 1,
             "tu_truot": []
           }
         ],
         "chu_bo_vi_im_lang_so": [
           {
-            "bat_dau": 27.8,
-            "ket_thuc": 29.2,
-            "chu": "🎵Aaaaaaaaaaaaaa🎵",
+            "bat_dau": 45.42,
+            "ket_thuc": 46.82,
+            "chu": "I",
             "ly_do": "stem thoại im"
           },
           {
-            "bat_dau": 137.64,
-            "ket_thuc": 138.38,
+            "bat_dau": 46.82,
+            "ket_thuc": 48.22,
+            "chu": "don't",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 48.22,
+            "ket_thuc": 48.22,
+            "chu": "know",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 48.22,
+            "ket_thuc": 48.22,
+            "chu": "what",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 48.22,
+            "ket_thuc": 48.22,
+            "chu": "to",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 48.22,
+            "ket_thuc": 48.22,
+            "chu": "do",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 48.22,
+            "ket_thuc": 48.22,
+            "chu": "with",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 48.22,
+            "ket_thuc": 48.22,
+            "chu": "this.",
+            "ly_do": "stem thoại im"
+          },
+          {
+            "bat_dau": 135.6,
+            "ket_thuc": 137.0,
             "chu": "You",
             "ly_do": "stem thoại im"
           }
         ],
         "vung_im_lang_so": [],
         "chen_ngoai_cau": [],
-        "ban_nghe_toan_file": "🎵  🎵Evening Old Street🎵  🎵Aaaaaaaaaaaaaa🎵  Not yet. Not yet.  Go on then.  That's the last one, then. Good night, old street. You'll be brighter now. Just keep a  little dark for the ones who need it.  You",
+        "ban_nghe_toan_file": "🎵  🎵Evening Old Street🎵  🎵  I don't know what to do with this.  Not yet, not yet.  Go on then.  That's the last one, then.  Good night, old street.  You'll be brighter now.  Just keep a little dark for the ones who need it.  You",
         "doan_toan_file": [
           [
             0.0,
-            0.38,
+            0.4,
             "🎵"
           ],
           [
-            12.08,
-            14.24,
+            12.0,
+            16.46,
             "🎵Evening Old Street🎵"
           ],
           [
-            27.8,
-            29.2,
-            "🎵Aaaaaaaaaaaaaa🎵"
+            16.46,
+            18.24,
+            "🎵"
           ],
           [
-            48.58,
-            51.98,
-            "Not yet. Not yet."
+            45.42,
+            48.22,
+            "I don't know what to do with this."
           ],
           [
-            73.16,
-            74.84,
+            49.24,
+            52.16,
+            "Not yet, not yet."
+          ],
+          [
+            72.88,
+            74.8,
             "Go on then."
           ],
           [
-            94.74,
-            106.22,
-            "That's the last one, then. Good night, old street. You'll be brighter now. Just keep a"
+            92.74,
+            94.68,
+            "That's the last one, then."
           ],
           [
-            106.38,
-            109.38,
-            "little dark for the ones who need it."
+            96.3,
+            97.78,
+            "Good night, old street."
           ],
           [
-            137.64,
-            138.38,
+            99.38,
+            100.8,
+            "You'll be brighter now."
+          ],
+          [
+            100.8,
+            107.74,
+            "Just keep a little dark for the ones who need it."
+          ],
+          [
+            135.6,
+            137.0,
             "You"
           ]
         ],
         "mo_hinh": "Systran/faster-whisper-small.en@d1d751a5f8271d482d14ca55d9e2deeebbae577f"
       },
-      "seconds": 30.93
+      "seconds": 70.25
     },
     {
       "code": "J1b",
@@ -1302,7 +1387,7 @@
       "metrics": [
         {
           "name": "sai lệch bao năng lượng tổng stem so với mix (P95)",
-          "value": 0.189,
+          "value": 0.1889,
           "op": "<=",
           "threshold": 3.0,
           "unit": "dB",
@@ -1311,7 +1396,7 @@
         },
         {
           "name": "chênh hệ số khớp thoại/nền",
-          "value": 0.0157,
+          "value": 0.0182,
           "op": "<=",
           "threshold": 1.0,
           "unit": "dB",
@@ -1329,7 +1414,7 @@
         },
         {
           "name": "SII rút gọn thấp nhất cửa sổ 0,5 s trong câu",
-          "value": 0.8047,
+          "value": 0.8061,
           "op": ">=",
           "threshold": 0.45,
           "unit": "",
@@ -1339,7 +1424,7 @@
       ],
       "notes": [
         "Stem: dialogue.flac, amb.flac, music.flac, sfx.flac. Lệch thời gian mix–stem: 0.0 ms. Hệ số khớp: thoại 0.993, nền 0.995.",
-        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -37.7 dB."
+        "Phần dư dạng sóng sau khớp (tham khảo, chịu ảnh hưởng mã hoá AAC): -36.8 dB."
       ],
       "evidence": {
         "so_cau": 8,
@@ -1351,10 +1436,10 @@
             "sii_cua_so_min": 0.963,
             "cua_so_te_giay": 13.03,
             "snr_dai_db": [
-              37.5,
+              37.7,
               20.0,
-              31.3,
-              54.2,
+              31.0,
+              54.3,
               86.1,
               77.4
             ]
@@ -1363,103 +1448,103 @@
             "tu_giay": 49.63,
             "den_giay": 52.38,
             "sii": 1.0,
-            "sii_cua_so_min": 0.805,
+            "sii_cua_so_min": 0.806,
             "cua_so_te_giay": 50.48,
             "snr_dai_db": [
               19.7,
-              50.8,
-              65.7,
-              44.9,
+              49.3,
+              64.0,
+              45.2,
               28.9,
-              21.3
+              21.5
             ]
           },
           {
             "tu_giay": 74.06,
             "den_giay": 75.18,
             "sii": 1.0,
-            "sii_cua_so_min": 0.926,
+            "sii_cua_so_min": 0.927,
             "cua_so_te_giay": 74.66,
             "snr_dai_db": [
               23.6,
-              54.6,
-              66.1,
+              53.1,
+              64.5,
               44.0,
-              17.6,
-              19.4
+              17.7,
+              19.5
             ]
           },
           {
-            "tu_giay": 95.1,
-            "den_giay": 96.99,
+            "tu_giay": 93.1,
+            "den_giay": 94.99,
             "sii": 1.0,
             "sii_cua_so_min": 1.0,
-            "cua_so_te_giay": 95.1,
+            "cua_so_te_giay": 93.1,
             "snr_dai_db": [
-              29.2,
-              64.3,
-              70.9,
-              51.9,
-              39.6,
-              36.8
+              28.7,
+              62.5,
+              69.2,
+              51.7,
+              39.7,
+              37.0
             ]
           },
           {
-            "tu_giay": 98.56,
-            "den_giay": 100.06,
+            "tu_giay": 96.56,
+            "den_giay": 98.06,
             "sii": 1.0,
             "sii_cua_so_min": 1.0,
-            "cua_so_te_giay": 98.56,
+            "cua_so_te_giay": 96.56,
             "snr_dai_db": [
-              31.8,
-              62.3,
-              63.4,
-              57.0,
-              37.9,
-              35.9
+              31.2,
+              60.4,
+              61.6,
+              56.3,
+              37.8,
+              36.0
             ]
           },
           {
-            "tu_giay": 101.54,
-            "den_giay": 102.94,
+            "tu_giay": 99.54,
+            "den_giay": 100.94,
             "sii": 1.0,
-            "sii_cua_so_min": 0.975,
-            "cua_so_te_giay": 102.44,
+            "sii_cua_so_min": 0.974,
+            "cua_so_te_giay": 100.44,
             "snr_dai_db": [
-              22.7,
-              68.2,
-              71.6,
-              43.3,
+              22.2,
+              66.9,
+              69.9,
+              43.4,
               22.4,
               19.9
             ]
           },
           {
-            "tu_giay": 104.33,
-            "den_giay": 104.84,
+            "tu_giay": 102.33,
+            "den_giay": 102.84,
             "sii": 1.0,
             "sii_cua_so_min": 1.0,
-            "cua_so_te_giay": 104.33,
+            "cua_so_te_giay": 102.33,
             "snr_dai_db": [
-              15.6,
-              54.1,
-              62.3,
-              42.9,
+              16.3,
+              52.2,
+              60.4,
+              41.9,
               27.2,
-              24.5
+              24.7
             ]
           },
           {
-            "tu_giay": 105.87,
-            "den_giay": 109.05,
+            "tu_giay": 103.87,
+            "den_giay": 107.05,
             "sii": 1.0,
-            "sii_cua_so_min": 0.892,
-            "cua_so_te_giay": 106.97,
+            "sii_cua_so_min": 0.893,
+            "cua_so_te_giay": 104.97,
             "snr_dai_db": [
               16.2,
-              51.9,
-              64.4,
-              42.6,
+              50.5,
+              62.5,
+              42.7,
               25.5,
               22.7
             ]
@@ -1467,11 +1552,11 @@
         ],
         "lech_ms": 0.0,
         "he_so": {
-          "thoai": 0.9934,
+          "thoai": 0.9931,
           "nen": 0.9952
         }
       },
-      "seconds": 15.28
+      "seconds": 18.58
     },
     {
       "code": "H1",
@@ -2124,7 +2209,7 @@
         "kenh_lop_la": [],
         "kenh_mechanical_thieu_ly_do": []
       },
-      "seconds": 0.24
+      "seconds": 0.14
     },
     {
       "code": "H1b",
@@ -2146,7 +2231,7 @@
         },
         {
           "name": "tỷ lệ cặp khung khớp luồng quang học, track tệ nhất",
-          "value": 33.3,
+          "value": 25.0,
           "op": ">=",
           "threshold": 90.0,
           "unit": "%",
@@ -2155,7 +2240,7 @@
         },
         {
           "name": "track không đo được cặp khung nào (toàn null/ngoài khung)",
-          "value": 2,
+          "value": 5,
           "op": "<=",
           "threshold": 0,
           "unit": "track",
@@ -2164,312 +2249,301 @@
         }
       ],
       "notes": [
-        "105 track, 353 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
+        "106 track, 349 cặp khung đo. Khớp khi |luồng − khai báo| ≤ max(1.5 px, 25% × độ dài dịch chuyển)."
       ],
       "evidence": {
         "theo_track": {
           "ida/hand_L@s02": {
             "cap_khung": 16,
-            "khop_pct": 81.2,
-            "epe_trung_vi": 0.99,
-            "lech_lon_nhat": {
-              "khung": 144,
-              "epe": 5.59,
-              "khai": [
-                -0.2,
-                1.18
-              ],
-              "luong": [
-                -5.58,
-                -0.35
-              ]
-            }
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.85,
+            "lech_lon_nhat": null
           },
           "ida/hand_R@s02": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.14,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s03": {
-            "cap_khung": 5,
+            "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.57,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s03": {
             "cap_khung": 7,
             "khop_pct": 85.7,
-            "epe_trung_vi": 0.46,
+            "epe_trung_vi": 0.6,
             "lech_lon_nhat": {
-              "khung": 220,
-              "epe": 15.98,
+              "khung": 218,
+              "epe": 18.38,
               "khai": [
-                -4.89,
-                -18.92
+                2.03,
+                -17.45
               ],
               "luong": [
-                -2.38,
-                -3.14
+                -5.47,
+                -0.67
               ]
             }
           },
           "ida/head@s03": {
-            "cap_khung": 2,
+            "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.32,
+            "epe_trung_vi": 0.39,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s04": {
-            "cap_khung": 5,
+            "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.09,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s04": {
-            "cap_khung": 4,
+            "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.07,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s05": {
-            "cap_khung": 10,
+            "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.17,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s05": {
-            "cap_khung": 9,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.07,
-            "lech_lon_nhat": null
+            "cap_khung": 10,
+            "khop_pct": 90.0,
+            "epe_trung_vi": 0.32,
+            "lech_lon_nhat": {
+              "khung": 354,
+              "epe": 28.19,
+              "khai": [
+                -3.25,
+                33.73
+              ],
+              "luong": [
+                1.55,
+                5.95
+              ]
+            }
           },
           "ida/hand_L@s07": {
             "cap_khung": 14,
-            "khop_pct": 57.1,
-            "epe_trung_vi": 1.5,
+            "khop_pct": 64.3,
+            "epe_trung_vi": 1.35,
             "lech_lon_nhat": {
-              "khung": 502,
-              "epe": 5.39,
+              "khung": 530,
+              "epe": 2.91,
               "khai": [
-                3.01,
-                -0.58
+                -6.97,
+                0.66
               ],
               "luong": [
-                8.23,
-                0.79
+                -4.35,
+                1.95
               ]
             }
           },
           "ida/hand_R@s07": {
             "cap_khung": 7,
             "khop_pct": 85.7,
-            "epe_trung_vi": 0.24,
+            "epe_trung_vi": 0.15,
             "lech_lon_nhat": {
-              "khung": 529,
-              "epe": 2.81,
+              "khung": 530,
+              "epe": 1.66,
               "khai": [
-                -1.52,
-                0.76
+                -1.53,
+                0.22
               ],
               "luong": [
-                0.79,
-                2.35
+                -0.09,
+                1.05
               ]
             }
           },
           "ida/hand_L@s08": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.82,
+            "epe_trung_vi": 0.95,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s08": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.44,
+            "epe_trung_vi": 0.39,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s11": {
-            "cap_khung": 6,
+            "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s11": {
-            "cap_khung": 6,
+            "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/head@s11": {
-            "cap_khung": 2,
+            "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.51,
+            "epe_trung_vi": 0.07,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s13": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.08,
+            "epe_trung_vi": 0.11,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s13": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.07,
+            "epe_trung_vi": 0.17,
             "lech_lon_nhat": null
           },
           "ida/head@s13": {
             "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.32,
+            "epe_trung_vi": 0.07,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s14": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s15": {
             "cap_khung": 5,
             "khop_pct": 80.0,
-            "epe_trung_vi": 0.79,
+            "epe_trung_vi": 1.04,
             "lech_lon_nhat": {
               "khung": 1052,
-              "epe": 2.03,
+              "epe": 2.17,
               "khai": [
                 1.82,
                 6.26
               ],
               "luong": [
-                2.06,
-                8.27
+                2.05,
+                8.41
               ]
             }
           },
           "ida/hand_R@s15": {
-            "cap_khung": 3,
-            "khop_pct": 33.3,
-            "epe_trung_vi": 1.73,
+            "cap_khung": 4,
+            "khop_pct": 25.0,
+            "epe_trung_vi": 2.23,
             "lech_lon_nhat": {
-              "khung": 1052,
-              "epe": 2.71,
+              "khung": 1072,
+              "epe": 4.39,
               "khai": [
-                2.25,
-                7.55
+                6.51,
+                -5.99
               ],
               "luong": [
-                0.53,
-                5.46
+                3.71,
+                -2.61
               ]
             }
           },
           "ida/head@s15": {
-            "cap_khung": 1,
+            "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.26,
+            "epe_trung_vi": 0.16,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s19": {
-            "cap_khung": 9,
+            "cap_khung": 8,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s19": {
             "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.13,
+            "epe_trung_vi": 0.11,
             "lech_lon_nhat": null
           },
           "ida/head@s19": {
-            "cap_khung": 9,
+            "cap_khung": 8,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s21": {
-            "cap_khung": 7,
+            "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.17,
+            "epe_trung_vi": 0.29,
             "lech_lon_nhat": null
           },
           "ida/head@s22": {
-            "cap_khung": 2,
+            "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.06,
+            "epe_trung_vi": 0.05,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s23": {
-            "cap_khung": 10,
+            "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.07,
+            "epe_trung_vi": 0.09,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s23": {
-            "cap_khung": 7,
-            "khop_pct": 85.7,
-            "epe_trung_vi": 0.56,
-            "lech_lon_nhat": {
-              "khung": 1286,
-              "epe": 34.36,
-              "khai": [
-                -11.13,
-                -29.71
-              ],
-              "luong": [
-                6.72,
-                -0.35
-              ]
-            }
+            "cap_khung": 10,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.59,
+            "lech_lon_nhat": null
           },
           "ida/hand_R@s23": {
-            "cap_khung": 6,
-            "khop_pct": 83.3,
-            "epe_trung_vi": 0.09,
+            "cap_khung": 7,
+            "khop_pct": 85.7,
+            "epe_trung_vi": 0.23,
             "lech_lon_nhat": {
-              "khung": 1293,
-              "epe": 2.21,
+              "khung": 1296,
+              "epe": 1.56,
               "khai": [
-                -1.34,
-                -3.82
+                -1.29,
+                -3.62
               ],
               "luong": [
-                -0.44,
-                -1.8
+                -0.4,
+                -2.33
               ]
             }
           },
           "ida/head@s23": {
-            "cap_khung": 6,
+            "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.13,
+            "epe_trung_vi": 0.2,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.05,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.04,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.15,
+            "epe_trung_vi": 0.17,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s24": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.27,
+            "epe_trung_vi": 0.18,
             "lech_lon_nhat": null
           },
           "ida/head@s24": {
@@ -2481,13 +2555,13 @@
           "cas/hand_R@s24c": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "cas/head@s24c": {
-            "cap_khung": 2,
+            "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.6,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s25": {
@@ -2496,138 +2570,115 @@
             "epe_trung_vi": 0.07,
             "lech_lon_nhat": null
           },
-          "cas/hand_R@s25": {
-            "cap_khung": 1,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.04,
-            "lech_lon_nhat": null
-          },
           "cas/hand_R@s27": {
             "cap_khung": 10,
             "khop_pct": 90.0,
-            "epe_trung_vi": 0.06,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": {
               "khung": 1547,
-              "epe": 7.99,
+              "epe": 160.28,
               "khai": [
                 0.01,
                 0.0
               ],
               "luong": [
-                -6.69,
-                -4.36
+                157.27,
+                30.93
               ]
             }
           },
           "ida/hand_R@s27": {
             "cap_khung": 10,
             "khop_pct": 90.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.09,
             "lech_lon_nhat": {
               "khung": 1547,
-              "epe": 6.32,
+              "epe": 7.01,
               "khai": [
                 0.0,
                 0.0
               ],
               "luong": [
-                3.85,
-                -5.01
+                -6.04,
+                3.56
               ]
             }
           },
           "cas/hand_L@s28": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.1,
-            "lech_lon_nhat": null
-          },
-          "cas/hand_L@s29": {
-            "cap_khung": 1,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.33,
-            "lech_lon_nhat": null
-          },
-          "cas/hand_R@s29": {
-            "cap_khung": 1,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 21.29,
+            "epe_trung_vi": 0.23,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s30": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.04,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s30": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.05,
+            "lech_lon_nhat": null
+          },
+          "ida/hand_L@s30": {
+            "cap_khung": 1,
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.05,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s30": {
             "cap_khung": 5,
             "khop_pct": 80.0,
-            "epe_trung_vi": 0.22,
+            "epe_trung_vi": 0.13,
             "lech_lon_nhat": {
-              "khung": 1747,
-              "epe": 8.47,
+              "khung": 1750,
+              "epe": 2.44,
               "khai": [
-                13.43,
-                -3.64
+                -3.85,
+                0.72
               ],
               "luong": [
-                7.48,
-                2.39
+                -2.91,
+                -1.53
               ]
             }
           },
           "ida/head@s30": {
             "cap_khung": 3,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.18,
             "lech_lon_nhat": null
           },
           "ida/head@s31": {
-            "cap_khung": 10,
+            "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s32": {
             "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.26,
+            "epe_trung_vi": 0.24,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s32": {
             "cap_khung": 8,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.22,
+            "epe_trung_vi": 0.24,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s32": {
             "cap_khung": 10,
-            "khop_pct": 90.0,
-            "epe_trung_vi": 0.02,
-            "lech_lon_nhat": {
-              "khung": 1857,
-              "epe": 2.99,
-              "khai": [
-                0.0,
-                0.0
-              ],
-              "luong": [
-                2.93,
-                -0.6
-              ]
-            }
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.01,
+            "lech_lon_nhat": null
           },
           "ida/hand_R@s32": {
-            "cap_khung": 9,
+            "cap_khung": 10,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.03,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/head@s32": {
@@ -2637,127 +2688,160 @@
             "lech_lon_nhat": null
           },
           "cas/hand_L@s33": {
-            "cap_khung": 17,
+            "cap_khung": 15,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.28,
+            "epe_trung_vi": 0.39,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s33": {
-            "cap_khung": 23,
+            "cap_khung": 17,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.25,
+            "epe_trung_vi": 0.41,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s33": {
-            "cap_khung": 20,
+            "cap_khung": 15,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.18,
+            "epe_trung_vi": 0.22,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s33": {
-            "cap_khung": 24,
+            "cap_khung": 17,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.21,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s34": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.08,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s35": {
-            "cap_khung": 9,
-            "khop_pct": 66.7,
-            "epe_trung_vi": 0.71,
+            "cap_khung": 8,
+            "khop_pct": 75.0,
+            "epe_trung_vi": 0.74,
             "lech_lon_nhat": {
-              "khung": 2215,
-              "epe": 6.04,
+              "khung": 2170,
+              "epe": 2.29,
               "khai": [
-                -3.2,
-                -5.61
+                -0.14,
+                -2.38
               ],
               "luong": [
-                -0.16,
-                -0.39
+                0.04,
+                -0.1
               ]
             }
           },
           "cas/hand_R@s35": {
             "cap_khung": 8,
-            "khop_pct": 87.5,
-            "epe_trung_vi": 0.68,
+            "khop_pct": 75.0,
+            "epe_trung_vi": 0.6,
             "lech_lon_nhat": {
-              "khung": 2187,
-              "epe": 1.83,
+              "khung": 2157,
+              "epe": 2.22,
               "khai": [
-                4.98,
-                -0.14
+                2.07,
+                -1.13
               ],
               "luong": [
-                3.15,
-                -0.22
+                0.06,
+                -0.2
               ]
             }
           },
           "cas/head@s35": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.4,
+            "epe_trung_vi": 0.24,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s35": {
             "cap_khung": 6,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.19,
+            "epe_trung_vi": 0.27,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s35": {
             "cap_khung": 12,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.2,
-            "lech_lon_nhat": null
+            "khop_pct": 91.7,
+            "epe_trung_vi": 0.34,
+            "lech_lon_nhat": {
+              "khung": 2143,
+              "epe": 56.38,
+              "khai": [
+                -24.23,
+                -50.56
+              ],
+              "luong": [
+                -2.56,
+                1.49
+              ]
+            }
           },
           "ida/head@s35": {
             "cap_khung": 4,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.1,
+            "epe_trung_vi": 0.14,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s36": {
-            "cap_khung": 4,
+            "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.13,
+            "epe_trung_vi": 0.43,
             "lech_lon_nhat": null
           },
           "ida/head@s36": {
-            "cap_khung": 5,
+            "cap_khung": 4,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.04,
             "lech_lon_nhat": null
           },
           "ida/head@s37": {
             "cap_khung": 20,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.07,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s37w": {
             "cap_khung": 10,
-            "khop_pct": 100.0,
+            "khop_pct": 90.0,
             "epe_trung_vi": 0.01,
-            "lech_lon_nhat": null
+            "lech_lon_nhat": {
+              "khung": 2380,
+              "epe": 7.96,
+              "khai": [
+                0.0,
+                0.0
+              ],
+              "luong": [
+                7.95,
+                0.36
+              ]
+            }
           },
           "cas/hand_R@s37w": {
             "cap_khung": 10,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
-            "lech_lon_nhat": null
+            "khop_pct": 90.0,
+            "epe_trung_vi": 0.02,
+            "lech_lon_nhat": {
+              "khung": 2380,
+              "epe": 6.23,
+              "khai": [
+                0.0,
+                0.0
+              ],
+              "luong": [
+                4.78,
+                3.99
+              ]
+            }
           },
           "ida/hand_L@s37w": {
             "cap_khung": 10,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s37w": {
@@ -2781,7 +2865,7 @@
           "cas/head@s38": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "ida/head@s39": {
@@ -2792,48 +2876,59 @@
           },
           "ida/hand_R@s40": {
             "cap_khung": 2,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.46,
-            "lech_lon_nhat": null
+            "khop_pct": 50.0,
+            "epe_trung_vi": 1.41,
+            "lech_lon_nhat": {
+              "khung": 2591,
+              "epe": 2.72,
+              "khai": [
+                0.1,
+                -4.69
+              ],
+              "luong": [
+                2.49,
+                -3.4
+              ]
+            }
           },
           "cas/hand_L@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.0,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "ida/head@s40w": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.0,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s41": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.11,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "cas/hand_R@s41": {
-            "cap_khung": 3,
+            "cap_khung": 4,
             "khop_pct": 100.0,
             "epe_trung_vi": 0.0,
             "lech_lon_nhat": null
@@ -2841,35 +2936,35 @@
           "ida/hand_R@s41": {
             "cap_khung": 5,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.05,
             "lech_lon_nhat": null
           },
           "ida/head@s41": {
-            "cap_khung": 3,
+            "cap_khung": 4,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.0,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s42": {
             "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.05,
+            "epe_trung_vi": 0.08,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s42": {
             "cap_khung": 10,
             "khop_pct": 90.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": {
-              "khung": 2916,
-              "epe": 66.58,
+              "khung": 2868,
+              "epe": 74.66,
               "khai": [
                 -8.15,
                 -68.06
               ],
               "luong": [
-                9.33,
-                -3.81
+                -9.53,
+                6.59
               ]
             }
           },
@@ -2882,101 +2977,101 @@
           "ida/head@s42": {
             "cap_khung": 11,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.01,
+            "epe_trung_vi": 0.02,
             "lech_lon_nhat": null
           },
           "cas/head@s42a": {
             "cap_khung": 7,
-            "khop_pct": 85.7,
-            "epe_trung_vi": 0.02,
-            "lech_lon_nhat": {
-              "khung": 2806,
-              "epe": 2.02,
-              "khai": [
-                -4.1,
-                -0.02
-              ],
-              "luong": [
-                -6.12,
-                -0.12
-              ]
-            }
+            "khop_pct": 100.0,
+            "epe_trung_vi": 0.15,
+            "lech_lon_nhat": null
           },
           "ida/hand_R@s42a": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.02,
+            "epe_trung_vi": 0.01,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s42b": {
             "cap_khung": 3,
             "khop_pct": 66.7,
-            "epe_trung_vi": 0.14,
+            "epe_trung_vi": 0.3,
             "lech_lon_nhat": {
-              "khung": 2861,
-              "epe": 2.4,
+              "khung": 2814,
+              "epe": 1.65,
               "khai": [
-                6.37,
-                0.49
+                5.65,
+                0.27
               ],
               "luong": [
-                4.03,
-                -0.04
+                4.0,
+                0.19
               ]
             }
           },
           "cas/hand_R@s42b": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.51,
+            "epe_trung_vi": 0.46,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s44": {
-            "cap_khung": 8,
+            "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.08,
+            "epe_trung_vi": 0.06,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s44": {
-            "cap_khung": 8,
+            "cap_khung": 9,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.04,
+            "epe_trung_vi": 0.03,
             "lech_lon_nhat": null
           },
           "ida/hand_L@s45": {
-            "cap_khung": 6,
+            "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.12,
+            "epe_trung_vi": 0.17,
             "lech_lon_nhat": null
           },
           "ida/head@s45": {
-            "cap_khung": 2,
-            "khop_pct": 100.0,
-            "epe_trung_vi": 0.56,
-            "lech_lon_nhat": null
+            "cap_khung": 3,
+            "khop_pct": 66.7,
+            "epe_trung_vi": 0.13,
+            "lech_lon_nhat": {
+              "khung": 3079,
+              "epe": 2.76,
+              "khai": [
+                -7.31,
+                -2.73
+              ],
+              "luong": [
+                -6.64,
+                -5.41
+              ]
+            }
           },
           "ida/hand_L@s47": {
             "cap_khung": 7,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.34,
+            "epe_trung_vi": 0.29,
             "lech_lon_nhat": null
           },
           "ida/hand_R@s47": {
             "cap_khung": 2,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.21,
+            "epe_trung_vi": 0.24,
             "lech_lon_nhat": null
           },
           "cas/hand_L@s48": {
             "cap_khung": 14,
             "khop_pct": 100.0,
-            "epe_trung_vi": 0.14,
+            "epe_trung_vi": 0.13,
             "lech_lon_nhat": null
           }
         },
         "nhan_vat_thieu_track": []
       },
-      "seconds": 18.28
+      "seconds": 20.28
     },
     {
       "code": "C3",
@@ -3025,7 +3120,7 @@
         },
         {
           "name": "vị trí biên phân biệt để kiểm pha lưới",
-          "value": 261714,
+          "value": 251480,
           "op": ">=",
           "threshold": 40,
           "unit": "",
@@ -3034,7 +3129,7 @@
         },
         {
           "name": "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
-          "value": 0.2506,
+          "value": 0.2507,
           "op": "<=",
           "threshold": 0.625,
           "unit": "",
@@ -3061,7 +3156,7 @@
         },
         {
           "name": "biên trên |lệch| + U lớn nhất (mẫu đo được)",
-          "value": 38.27,
+          "value": 36.35,
           "op": "<=",
           "threshold": 3.0,
           "unit": "%",
@@ -3070,7 +3165,7 @@
         },
         {
           "name": "bộ phận–khung lệch chắc chắn > 3%",
-          "value": 44,
+          "value": 52,
           "op": "<=",
           "threshold": 0,
           "unit": "",
@@ -3079,7 +3174,7 @@
         },
         {
           "name": "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
-          "value": 76,
+          "value": 47,
           "op": "<=",
           "threshold": 0,
           "unit": "",
@@ -3097,7 +3192,7 @@
         },
         {
           "name": "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
-          "value": 0.65,
+          "value": 0.7364,
           "op": ">=",
           "threshold": 1.5,
           "unit": "",
@@ -3214,7 +3309,7 @@
         },
         {
           "name": "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
-          "value": 20,
+          "value": 22,
           "op": "<=",
           "threshold": 0,
           "unit": "",
@@ -3223,12 +3318,12 @@
         }
       ],
       "notes": [
-        "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 6.6–397.4 px video. Lệch lớn nhất (mẫu đo được) 34.51%. 261714 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Mẫu bộ phận đo được: 121/597 (20.3%) trên 199 khung có nhân vật. Theo shot: shot 2 (khung 96–203): 16/27 (59.3%); shot 3 (khung 204–221): 0/6 (0%); shot 4 (khung 222–251): 0/6 (0%); shot 5 (khung 252–287): 0/9 (0%); shot 6 (khung 288–383): 0/24 (0%); shot 8 (khung 456–551): 8/24 (33.3%); shot 9 (khung 552–599): 0/12 (0%); shot 14 (khung 840–887): 4/12 (33.3%); shot 15 (khung 888–916): 0/9 (0%); shot 16 (khung 917–955): 1/9 (11.1%); shot 17 (khung 956–995): 1/9 (11.1%); shot 18 (khung 996–1043): 0/12 (0%); shot 19 (khung 1044–1079): 2/9 (22.2%); shot 20 (khung 1080–1115): 6/9 (66.7%); shot 21 (khung 1116–1139): 4/6 (66.7%); shot 22 (khung 1140–1187): 0/12 (0%); shot 23 (khung 1188–1259): 0/18 (0%); shot 24 (khung 1260–1331): 3/18 (16.7%); shot 25 (khung 1332–1379): 4/12 (33.3%); shot 28 (khung 1488–1535): 0/12 (0%); shot 29 (khung 1536–1607): 18/18 (100%); shot 32 (khung 1728–1775): 4/12 (33.3%); shot 33 (khung 1776–1847): 0/18 (0%); shot 34 (khung 1848–1919): 6/18 (33.3%); shot 35 (khung 1920–2087): 9/42 (21.4%); shot 36 (khung 2088–2135): 0/12 (0%); shot 37 (khung 2136–2231): 7/24 (29.2%); shot 38 (khung 2232–2279): 0/12 (0%); shot 39 (khung 2280–2418): 0/36 (0%); shot 40 (khung 2419–2485): 6/18 (33.3%); shot 42 (khung 2520–2625): 0/27 (0%); shot 43 (khung 2626–2687): 0/15 (0%); shot 44 (khung 2688–2735): 4/12 (33.3%); shot 45 (khung 2736–2771): 0/9 (0%); shot 46 (khung 2772–2819): 4/12 (33.3%); shot 48 (khung 2868–2939): 14/18 (77.8%); shot 50 (khung 3036–3095): 0/15 (0%); shot 51 (khung 3096–3143): 0/12 (0%); shot 54 (khung 3252–3299): 0/12 (0%).",
-        "Không đo được: 476 mẫu bộ phận — gập: co ngắn do tư thế > 2%: 93; bị che > 10%: 143; chạm mép khung (bị cắt): 36; phối cảnh: độ sâu lệch đầu > 2%: 28; đầu cúi/ngẩng/nghiêng: co ngắn > 2%: 99; góc nhìn lệch > 30° mọi góc tham chiếu: 21; không có mặt nạ đầu (khuất hoặc ngoài khung): 6; đầu bị che > 10%: 18; đầu chạm mép khung (bị cắt): 6; khuất ở góc tham chiếu (c3_views ghi null): 26. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
-        "Shot [3, 4, 5, 6, 9, 15, 18, 22, 23, 28, 33, 36, 38, 39, 42, 43, 45, 50, 51, 54]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT.",
+        "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 5.5–393.7 px video. Lệch lớn nhất (mẫu đo được) 32.54%. 251480 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 104/585 (17.8%) trên 195 khung có nhân vật. Theo shot: shot 2 (khung 96–203): 16/27 (59.3%); shot 3 (khung 204–221): 0/6 (0%); shot 4 (khung 222–251): 0/6 (0%); shot 5 (khung 252–287): 0/9 (0%); shot 6 (khung 288–383): 0/24 (0%); shot 8 (khung 442–551): 8/24 (33.3%); shot 9 (khung 552–599): 0/12 (0%); shot 14 (khung 840–887): 4/12 (33.3%); shot 15 (khung 888–916): 0/9 (0%); shot 16 (khung 917–955): 1/9 (11.1%); shot 17 (khung 956–995): 1/9 (11.1%); shot 18 (khung 996–1043): 0/12 (0%); shot 19 (khung 1044–1079): 2/9 (22.2%); shot 20 (khung 1080–1115): 6/9 (66.7%); shot 21 (khung 1116–1139): 4/6 (66.7%); shot 22 (khung 1140–1187): 0/12 (0%); shot 23 (khung 1188–1259): 0/18 (0%); shot 24 (khung 1260–1331): 3/18 (16.7%); shot 25 (khung 1332–1379): 0/12 (0%); shot 28 (khung 1488–1535): 0/12 (0%); shot 29 (khung 1536–1607): 6/18 (33.3%); shot 32 (khung 1728–1775): 4/12 (33.3%); shot 33 (khung 1776–1847): 0/18 (0%); shot 34 (khung 1848–1919): 6/18 (33.3%); shot 35 (khung 1920–2039): 8/30 (26.7%); shot 36 (khung 2040–2087): 0/12 (0%); shot 37 (khung 2088–2183): 7/24 (29.2%); shot 38 (khung 2184–2231): 0/12 (0%); shot 39 (khung 2232–2370): 0/36 (0%); shot 40 (khung 2371–2437): 6/18 (33.3%); shot 42 (khung 2472–2577): 0/27 (0%); shot 43 (khung 2578–2620): 0/12 (0%); shot 44 (khung 2621–2639): 0/3 (0%); shot 45 (khung 2640–2687): 4/12 (33.3%); shot 46 (khung 2688–2723): 0/9 (0%); shot 47 (khung 2724–2771): 4/12 (33.3%); shot 49 (khung 2820–2891): 14/18 (77.8%); shot 51 (khung 2988–3047): 0/15 (0%); shot 52 (khung 3048–3095): 0/12 (0%); shot 55 (khung 3204–3251): 0/12 (0%).",
+        "Không đo được: 481 mẫu bộ phận — gập: co ngắn do tư thế > 2%: 94; bị che > 10%: 143; chạm mép khung (bị cắt): 37; phối cảnh: độ sâu lệch đầu > 2%: 28; đầu cúi/ngẩng/nghiêng: co ngắn > 2%: 81; góc nhìn lệch > 30° mọi góc tham chiếu: 15; không có mặt nạ đầu (khuất hoặc ngoài khung): 21; đầu bị che > 10%: 18; đầu chạm mép khung (bị cắt): 6; khuất ở góc tham chiếu (c3_views ghi null): 38. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "Shot [3, 4, 5, 6, 9, 15, 18, 22, 23, 25, 28, 33, 36, 38, 39, 42, 43, 44, 46, 51, 52, 55]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT.",
         "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh.",
-        "Kiểm toán ngẫu nhiên: hạt giống 2226881257325565179, khung [2964, 3276], phát bởi P lúc 2026-09-28T04:20:05Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 2162447375389782042, khung [696, 936], phát bởi P lúc 2026-09-28T07:32:10Z."
       ],
       "evidence": {
         "do": [
@@ -3236,209 +3331,209 @@
             "khung": 96,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.2866,
-            "sheet": 2.315,
-            "lech_pct": -1.23,
-            "U_pct": 4.18,
-            "ket_qua": "không chứng minh được"
+            "ty_le": 2.5302,
+            "sheet": 2.263,
+            "lech_pct": 11.81,
+            "U_pct": 4.33,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 108,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.0098,
-            "sheet": 2.315,
-            "lech_pct": -13.18,
-            "U_pct": 4.13,
+            "ty_le": 2.0509,
+            "sheet": 2.263,
+            "lech_pct": -9.37,
+            "U_pct": 4.27,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 108,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": -45.0,
-            "ty_le": 1.488,
-            "sheet": 1.466,
-            "lech_pct": 1.5,
-            "U_pct": 4.45,
+            "ty_le": 1.5444,
+            "sheet": 1.451,
+            "lech_pct": 6.44,
+            "U_pct": 4.57,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 120,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.5009,
-            "sheet": 2.315,
-            "lech_pct": 8.03,
+            "ty_le": 2.6059,
+            "sheet": 2.263,
+            "lech_pct": 15.15,
+            "U_pct": 3.95,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 120,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.4959,
+            "sheet": 1.451,
+            "lech_pct": 3.1,
+            "U_pct": 4.43,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 132,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.5031,
+            "sheet": 2.263,
+            "lech_pct": 10.61,
             "U_pct": 3.82,
             "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 120,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.4399,
-            "sheet": 1.466,
-            "lech_pct": -1.78,
-            "U_pct": 4.32,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 132,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.4801,
-            "sheet": 2.315,
-            "lech_pct": 7.13,
-            "U_pct": 3.72,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
             "khung": 132,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": -45.0,
-            "ty_le": 1.4627,
-            "sheet": 1.466,
-            "lech_pct": -0.22,
-            "U_pct": 4.18,
+            "ty_le": 1.5021,
+            "sheet": 1.451,
+            "lech_pct": 3.52,
+            "U_pct": 4.26,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 144,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.4726,
-            "sheet": 2.315,
-            "lech_pct": 6.81,
-            "U_pct": 3.58,
+            "ty_le": 2.5526,
+            "sheet": 2.263,
+            "lech_pct": 12.8,
+            "U_pct": 3.67,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 144,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": -45.0,
-            "ty_le": 1.4972,
-            "sheet": 1.466,
-            "lech_pct": 2.13,
-            "U_pct": 4.0,
+            "ty_le": 1.5378,
+            "sheet": 1.451,
+            "lech_pct": 5.98,
+            "U_pct": 4.07,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 156,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.349,
-            "sheet": 2.315,
-            "lech_pct": 1.47,
-            "U_pct": 3.44,
+            "ty_le": 2.3214,
+            "sheet": 2.263,
+            "lech_pct": 2.58,
+            "U_pct": 3.51,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 168,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3444,
-            "sheet": 2.315,
-            "lech_pct": 1.27,
-            "U_pct": 3.19,
-            "ket_qua": "không chứng minh được"
+            "ty_le": 2.4288,
+            "sheet": 2.263,
+            "lech_pct": 7.33,
+            "U_pct": 3.27,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 168,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": -45.0,
-            "ty_le": 1.4428,
-            "sheet": 1.466,
-            "lech_pct": -1.58,
-            "U_pct": 3.57,
+            "ty_le": 1.4845,
+            "sheet": 1.451,
+            "lech_pct": 2.31,
+            "U_pct": 3.64,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 180,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3462,
-            "sheet": 2.315,
-            "lech_pct": 1.35,
-            "U_pct": 3.0,
+            "ty_le": 2.3997,
+            "sheet": 2.263,
+            "lech_pct": 6.04,
+            "U_pct": 3.09,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 180,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": -45.0,
-            "ty_le": 1.3873,
-            "sheet": 1.466,
-            "lech_pct": -5.37,
-            "U_pct": 3.4,
+            "ty_le": 1.4337,
+            "sheet": 1.451,
+            "lech_pct": -1.19,
+            "U_pct": 3.48,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 192,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3383,
-            "sheet": 2.315,
-            "lech_pct": 1.01,
-            "U_pct": 2.87,
+            "ty_le": 2.3446,
+            "sheet": 2.263,
+            "lech_pct": 3.61,
+            "U_pct": 2.92,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 192,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": -45.0,
-            "ty_le": 1.3837,
-            "sheet": 1.466,
-            "lech_pct": -5.61,
-            "U_pct": 3.26,
+            "ty_le": 1.4068,
+            "sheet": 1.451,
+            "lech_pct": -3.05,
+            "U_pct": 3.3,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 456,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.2664,
-            "sheet": 2.153,
-            "lech_pct": 5.26,
-            "U_pct": 2.09,
+            "ty_le": 2.1857,
+            "sheet": 2.06,
+            "lech_pct": 6.1,
+            "U_pct": 2.08,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 468,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.3425,
-            "sheet": 2.153,
-            "lech_pct": 8.8,
-            "U_pct": 2.16,
+            "ty_le": 2.2434,
+            "sheet": 2.06,
+            "lech_pct": 8.9,
+            "U_pct": 2.17,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 480,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.3592,
-            "sheet": 2.153,
-            "lech_pct": 9.58,
-            "U_pct": 2.2,
+            "ty_le": 2.2911,
+            "sheet": 2.06,
+            "lech_pct": 11.22,
+            "U_pct": 2.21,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 492,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.373,
-            "sheet": 2.153,
-            "lech_pct": 10.22,
-            "U_pct": 2.19,
+            "ty_le": 2.2975,
+            "sheet": 2.06,
+            "lech_pct": 11.53,
+            "U_pct": 2.18,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 504,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.2703,
-            "sheet": 2.153,
-            "lech_pct": 5.45,
+            "ty_le": 2.223,
+            "sheet": 2.06,
+            "lech_pct": 7.91,
             "U_pct": 2.08,
             "ket_qua": "trượt chắc chắn"
           },
@@ -3446,49 +3541,49 @@
             "khung": 516,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.194,
-            "sheet": 2.153,
-            "lech_pct": 1.91,
-            "U_pct": 1.96,
+            "ty_le": 2.1118,
+            "sheet": 2.06,
+            "lech_pct": 2.51,
+            "U_pct": 1.97,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 528,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.2083,
-            "sheet": 2.153,
-            "lech_pct": 2.57,
-            "U_pct": 1.94,
+            "ty_le": 2.1512,
+            "sheet": 2.06,
+            "lech_pct": 4.43,
+            "U_pct": 1.93,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 540,
             "bo_phan": "torso",
             "goc_tham_chieu": -90.0,
-            "ty_le": 2.2538,
-            "sheet": 2.153,
-            "lech_pct": 4.68,
-            "U_pct": 2.0,
-            "ket_qua": "không chứng minh được"
+            "ty_le": 2.1686,
+            "sheet": 2.06,
+            "lech_pct": 5.27,
+            "U_pct": 1.99,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 840,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.6527,
-            "sheet": 2.314,
-            "lech_pct": 14.64,
-            "U_pct": 0.91,
+            "ty_le": 2.6599,
+            "sheet": 2.29,
+            "lech_pct": 16.15,
+            "U_pct": 0.9,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 852,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.6376,
-            "sheet": 2.314,
-            "lech_pct": 13.99,
+            "ty_le": 2.6519,
+            "sheet": 2.29,
+            "lech_pct": 15.8,
             "U_pct": 0.91,
             "ket_qua": "trượt chắc chắn"
           },
@@ -3496,29 +3591,29 @@
             "khung": 864,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.4861,
-            "sheet": 2.314,
-            "lech_pct": 7.44,
-            "U_pct": 0.91,
+            "ty_le": 2.4993,
+            "sheet": 2.29,
+            "lech_pct": 9.14,
+            "U_pct": 0.93,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 876,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.4911,
-            "sheet": 2.314,
-            "lech_pct": 7.65,
-            "U_pct": 0.91,
+            "ty_le": 2.5784,
+            "sheet": 2.29,
+            "lech_pct": 12.6,
+            "U_pct": 0.95,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 948,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.5389,
-            "sheet": 2.315,
-            "lech_pct": 9.67,
+            "ty_le": 2.5697,
+            "sheet": 2.263,
+            "lech_pct": 13.55,
             "U_pct": 1.02,
             "ket_qua": "trượt chắc chắn"
           },
@@ -3526,9 +3621,9 @@
             "khung": 960,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.5389,
-            "sheet": 2.315,
-            "lech_pct": 9.67,
+            "ty_le": 2.5697,
+            "sheet": 2.263,
+            "lech_pct": 13.55,
             "U_pct": 1.02,
             "ket_qua": "trượt chắc chắn"
           },
@@ -3536,911 +3631,741 @@
             "khung": 1044,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.4095,
-            "sheet": 2.315,
-            "lech_pct": 4.08,
-            "U_pct": 2.93,
+            "ty_le": 2.3828,
+            "sheet": 2.263,
+            "lech_pct": 5.29,
+            "U_pct": 2.89,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1056,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3004,
-            "sheet": 2.315,
-            "lech_pct": -0.63,
-            "U_pct": 2.94,
+            "ty_le": 2.1455,
+            "sheet": 2.263,
+            "lech_pct": -5.19,
+            "U_pct": 3.02,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1080,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.3551,
-            "sheet": 2.314,
-            "lech_pct": 1.77,
-            "U_pct": 2.85,
+            "ty_le": 2.3525,
+            "sheet": 2.29,
+            "lech_pct": 2.73,
+            "U_pct": 2.92,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1080,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 45.0,
-            "ty_le": 1.3578,
-            "sheet": 1.483,
-            "lech_pct": -8.44,
-            "U_pct": 3.26,
-            "ket_qua": "trượt chắc chắn"
+            "ty_le": 1.3917,
+            "sheet": 1.474,
+            "lech_pct": -5.58,
+            "U_pct": 3.31,
+            "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1092,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.3551,
-            "sheet": 2.314,
-            "lech_pct": 1.77,
-            "U_pct": 2.85,
+            "ty_le": 2.3525,
+            "sheet": 2.29,
+            "lech_pct": 2.73,
+            "U_pct": 2.92,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1092,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 45.0,
-            "ty_le": 1.3578,
-            "sheet": 1.483,
-            "lech_pct": -8.44,
-            "U_pct": 3.26,
-            "ket_qua": "trượt chắc chắn"
+            "ty_le": 1.3917,
+            "sheet": 1.474,
+            "lech_pct": -5.58,
+            "U_pct": 3.31,
+            "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1104,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.3011,
-            "sheet": 2.314,
-            "lech_pct": -0.56,
-            "U_pct": 2.86,
-            "ket_qua": "không chứng minh được"
+            "ty_le": 2.1492,
+            "sheet": 2.29,
+            "lech_pct": -6.15,
+            "U_pct": 2.96,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1104,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 45.0,
-            "ty_le": 0.9712,
-            "sheet": 1.483,
-            "lech_pct": -34.51,
-            "U_pct": 3.76,
+            "ty_le": 0.9943,
+            "sheet": 1.474,
+            "lech_pct": -32.54,
+            "U_pct": 3.81,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1116,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.3038,
-            "sheet": 2.314,
-            "lech_pct": -0.44,
-            "U_pct": 2.86,
-            "ket_qua": "không chứng minh được"
+            "ty_le": 2.1283,
+            "sheet": 2.29,
+            "lech_pct": -7.06,
+            "U_pct": 2.97,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1116,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 45.0,
-            "ty_le": 1.0752,
-            "sheet": 1.483,
-            "lech_pct": -27.5,
-            "U_pct": 3.58,
+            "ty_le": 1.1008,
+            "sheet": 1.474,
+            "lech_pct": -25.32,
+            "U_pct": 3.63,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1128,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.3038,
-            "sheet": 2.314,
-            "lech_pct": -0.44,
-            "U_pct": 2.86,
-            "ket_qua": "không chứng minh được"
+            "ty_le": 2.1283,
+            "sheet": 2.29,
+            "lech_pct": -7.06,
+            "U_pct": 2.97,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1128,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 45.0,
-            "ty_le": 1.0752,
-            "sheet": 1.483,
-            "lech_pct": -27.5,
-            "U_pct": 3.58,
+            "ty_le": 1.1008,
+            "sheet": 1.474,
+            "lech_pct": -25.32,
+            "U_pct": 3.63,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1296,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3675,
-            "sheet": 2.315,
-            "lech_pct": 2.27,
-            "U_pct": 6.95,
+            "ty_le": 2.3241,
+            "sheet": 2.263,
+            "lech_pct": 2.7,
+            "U_pct": 8.28,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1308,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.1652,
-            "sheet": 2.315,
-            "lech_pct": -6.47,
-            "U_pct": 7.06,
+            "ty_le": 2.2227,
+            "sheet": 2.263,
+            "lech_pct": -1.78,
+            "U_pct": 8.23,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1320,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.1641,
-            "sheet": 2.315,
-            "lech_pct": -6.52,
-            "U_pct": 7.06,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1332,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.4599,
-            "sheet": 2.315,
-            "lech_pct": 6.26,
-            "U_pct": 3.27,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1344,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.4745,
-            "sheet": 2.315,
-            "lech_pct": 6.89,
-            "U_pct": 3.27,
+            "ty_le": 1.8779,
+            "sheet": 2.263,
+            "lech_pct": -17.02,
+            "U_pct": 8.5,
             "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 1356,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.4599,
-            "sheet": 2.315,
-            "lech_pct": 6.26,
-            "U_pct": 3.27,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1368,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.4212,
-            "sheet": 2.315,
-            "lech_pct": 4.59,
-            "U_pct": 3.28,
-            "ket_qua": "không chứng minh được"
-          },
-          {
             "khung": 1536,
             "bo_phan": "torso",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 2.2492,
-            "sheet": 2.386,
-            "lech_pct": -5.73,
-            "U_pct": 3.29,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1536,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 1.3901,
-            "sheet": 1.465,
-            "lech_pct": -5.12,
-            "U_pct": 3.71,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1536,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 0.7337,
-            "sheet": 0.825,
-            "lech_pct": -11.06,
-            "U_pct": 5.09,
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8643,
+            "sheet": 2.034,
+            "lech_pct": -8.34,
+            "U_pct": 2.35,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1548,
             "bo_phan": "torso",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 2.2492,
-            "sheet": 2.386,
-            "lech_pct": -5.73,
-            "U_pct": 3.29,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1548,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 1.3901,
-            "sheet": 1.465,
-            "lech_pct": -5.12,
-            "U_pct": 3.71,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1548,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 0.7756,
-            "sheet": 0.825,
-            "lech_pct": -5.99,
-            "U_pct": 4.91,
-            "ket_qua": "không chứng minh được"
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8643,
+            "sheet": 2.034,
+            "lech_pct": -8.34,
+            "U_pct": 2.35,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1560,
             "bo_phan": "torso",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 2.2492,
-            "sheet": 2.386,
-            "lech_pct": -5.73,
-            "U_pct": 3.29,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1560,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 1.3901,
-            "sheet": 1.465,
-            "lech_pct": -5.12,
-            "U_pct": 3.71,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1560,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 0.7756,
-            "sheet": 0.825,
-            "lech_pct": -5.99,
-            "U_pct": 4.91,
-            "ket_qua": "không chứng minh được"
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8643,
+            "sheet": 2.034,
+            "lech_pct": -8.34,
+            "U_pct": 2.35,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1572,
             "bo_phan": "torso",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 2.2492,
-            "sheet": 2.386,
-            "lech_pct": -5.73,
-            "U_pct": 3.29,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1572,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 1.3901,
-            "sheet": 1.465,
-            "lech_pct": -5.12,
-            "U_pct": 3.71,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1572,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 0.7756,
-            "sheet": 0.825,
-            "lech_pct": -5.99,
-            "U_pct": 4.91,
-            "ket_qua": "không chứng minh được"
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8643,
+            "sheet": 2.034,
+            "lech_pct": -8.34,
+            "U_pct": 2.35,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1584,
             "bo_phan": "torso",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 2.2492,
-            "sheet": 2.386,
-            "lech_pct": -5.73,
-            "U_pct": 3.29,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1584,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 1.3901,
-            "sheet": 1.465,
-            "lech_pct": -5.12,
-            "U_pct": 3.71,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1584,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 0.7756,
-            "sheet": 0.825,
-            "lech_pct": -5.99,
-            "U_pct": 4.91,
-            "ket_qua": "không chứng minh được"
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8643,
+            "sheet": 2.034,
+            "lech_pct": -8.34,
+            "U_pct": 2.35,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1596,
             "bo_phan": "torso",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 2.2492,
-            "sheet": 2.386,
-            "lech_pct": -5.73,
-            "U_pct": 3.29,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1596,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 1.3901,
-            "sheet": 1.465,
-            "lech_pct": -5.12,
-            "U_pct": 3.71,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1596,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 135.0,
-            "ty_le": 0.7756,
-            "sheet": 0.825,
-            "lech_pct": -5.99,
-            "U_pct": 4.91,
-            "ket_qua": "không chứng minh được"
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8643,
+            "sheet": 2.034,
+            "lech_pct": -8.34,
+            "U_pct": 2.35,
+            "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1728,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.1264,
-            "sheet": 2.137,
-            "lech_pct": -0.5,
-            "U_pct": 1.26,
+            "ty_le": 2.0649,
+            "sheet": 2.034,
+            "lech_pct": 1.52,
+            "U_pct": 1.27,
             "ket_qua": "đạt"
           },
           {
             "khung": 1740,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.3593,
-            "sheet": 2.137,
-            "lech_pct": 10.4,
-            "U_pct": 1.5,
+            "ty_le": 2.3394,
+            "sheet": 2.034,
+            "lech_pct": 15.02,
+            "U_pct": 1.52,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1752,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.2412,
-            "sheet": 2.137,
-            "lech_pct": 4.87,
-            "U_pct": 1.43,
+            "ty_le": 2.262,
+            "sheet": 2.034,
+            "lech_pct": 11.21,
+            "U_pct": 1.46,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1764,
             "bo_phan": "torso",
             "goc_tham_chieu": 45.0,
-            "ty_le": 2.4351,
-            "sheet": 2.314,
-            "lech_pct": 5.23,
-            "U_pct": 1.47,
+            "ty_le": 2.5217,
+            "sheet": 2.29,
+            "lech_pct": 10.12,
+            "U_pct": 1.55,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1848,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.5451,
-            "sheet": 2.137,
-            "lech_pct": 19.1,
-            "U_pct": 1.37,
+            "ty_le": 2.5908,
+            "sheet": 2.034,
+            "lech_pct": 27.37,
+            "U_pct": 1.43,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1860,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.5451,
-            "sheet": 2.137,
-            "lech_pct": 19.1,
-            "U_pct": 1.37,
+            "ty_le": 2.5908,
+            "sheet": 2.034,
+            "lech_pct": 27.37,
+            "U_pct": 1.43,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1872,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.5451,
-            "sheet": 2.137,
-            "lech_pct": 19.1,
-            "U_pct": 1.37,
+            "ty_le": 2.5908,
+            "sheet": 2.034,
+            "lech_pct": 27.37,
+            "U_pct": 1.43,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1884,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.5451,
-            "sheet": 2.137,
-            "lech_pct": 19.1,
-            "U_pct": 1.37,
+            "ty_le": 2.5908,
+            "sheet": 2.034,
+            "lech_pct": 27.37,
+            "U_pct": 1.43,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1896,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.5451,
-            "sheet": 2.137,
-            "lech_pct": 19.1,
-            "U_pct": 1.37,
+            "ty_le": 2.5908,
+            "sheet": 2.034,
+            "lech_pct": 27.37,
+            "U_pct": 1.43,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1908,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 2.5451,
-            "sheet": 2.137,
-            "lech_pct": 19.1,
-            "U_pct": 1.37,
+            "ty_le": 2.5908,
+            "sheet": 2.034,
+            "lech_pct": 27.37,
+            "U_pct": 1.43,
             "ket_qua": "trượt chắc chắn"
           },
           {
             "khung": 1932,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.6409,
-            "sheet": 2.51,
-            "lech_pct": 5.22,
-            "U_pct": 2.77,
+            "ty_le": 2.858,
+            "sheet": 2.752,
+            "lech_pct": 3.85,
+            "U_pct": 2.98,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 1.7571,
+            "sheet": 1.75,
+            "lech_pct": 0.4,
+            "U_pct": 3.23,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 1.277,
+            "sheet": 1.323,
+            "lech_pct": -3.48,
+            "U_pct": 3.57,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1944,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.5772,
-            "sheet": 2.51,
-            "lech_pct": 2.68,
-            "U_pct": 2.75,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1944,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 180.0,
-            "ty_le": 1.6036,
-            "sheet": 1.578,
-            "lech_pct": 1.62,
-            "U_pct": 3.02,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1944,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 180.0,
-            "ty_le": 1.162,
-            "sheet": 1.193,
-            "lech_pct": -2.59,
-            "U_pct": 3.38,
+            "ty_le": 2.7071,
+            "sheet": 2.752,
+            "lech_pct": -1.63,
+            "U_pct": 2.88,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 1956,
             "bo_phan": "torso",
             "goc_tham_chieu": 180.0,
-            "ty_le": 2.561,
-            "sheet": 2.51,
-            "lech_pct": 2.03,
-            "U_pct": 2.75,
+            "ty_le": 2.7308,
+            "sheet": 2.752,
+            "lech_pct": -0.77,
+            "U_pct": 3.13,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 1968,
-            "bo_phan": "torso",
-            "goc_tham_chieu": 180.0,
-            "ty_le": 2.5975,
-            "sheet": 2.51,
-            "lech_pct": 3.49,
-            "U_pct": 2.93,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 1968,
+            "khung": 1956,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 180.0,
-            "ty_le": 1.6269,
-            "sheet": 1.578,
-            "lech_pct": 3.1,
-            "U_pct": 3.21,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2004,
-            "bo_phan": "torso",
-            "goc_tham_chieu": 180.0,
-            "ty_le": 2.553,
-            "sheet": 2.51,
-            "lech_pct": 1.71,
+            "ty_le": 1.7228,
+            "sheet": 1.75,
+            "lech_pct": -1.56,
             "U_pct": 3.4,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2004,
+            "khung": 1992,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.9486,
+            "sheet": 2.752,
+            "lech_pct": 7.14,
+            "U_pct": 3.84,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1992,
             "bo_phan": "upper_arm",
             "goc_tham_chieu": 180.0,
-            "ty_le": 1.6133,
-            "sheet": 1.578,
-            "lech_pct": 2.24,
-            "U_pct": 3.73,
+            "ty_le": 1.9081,
+            "sheet": 1.75,
+            "lech_pct": 9.03,
+            "U_pct": 4.11,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2112,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.5783,
+            "sheet": 1.571,
+            "lech_pct": 0.46,
+            "U_pct": 6.2,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 2.6698,
+            "sheet": 2.682,
+            "lech_pct": -0.46,
+            "U_pct": 5.03,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 0.9375,
+            "sheet": 0.976,
+            "lech_pct": -3.94,
+            "U_pct": 6.89,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 2.6846,
+            "sheet": 2.682,
+            "lech_pct": 0.1,
+            "U_pct": 4.82,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.5472,
+            "sheet": 1.571,
+            "lech_pct": -1.51,
+            "U_pct": 5.38,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 2160,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 0.0,
-            "ty_le": 1.5833,
-            "sheet": 1.6,
-            "lech_pct": -1.04,
-            "U_pct": 6.21,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.3708,
+            "sheet": 2.263,
+            "lech_pct": 4.77,
+            "U_pct": 4.49,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 2172,
             "bo_phan": "torso",
-            "goc_tham_chieu": 0.0,
-            "ty_le": 2.4829,
-            "sheet": 2.667,
-            "lech_pct": -6.9,
-            "U_pct": 4.91,
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.2056,
+            "sheet": 2.263,
+            "lech_pct": -2.54,
+            "U_pct": 4.36,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2172,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": 0.0,
-            "ty_le": 0.9053,
-            "sheet": 0.994,
-            "lech_pct": -8.92,
-            "U_pct": 6.78,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2184,
-            "bo_phan": "torso",
-            "goc_tham_chieu": 0.0,
-            "ty_le": 2.6431,
-            "sheet": 2.667,
-            "lech_pct": -0.9,
-            "U_pct": 4.88,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2184,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": 0.0,
-            "ty_le": 1.5618,
-            "sheet": 1.6,
-            "lech_pct": -2.39,
-            "U_pct": 5.42,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2208,
+            "khung": 2376,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.4327,
-            "sheet": 2.315,
-            "lech_pct": 5.08,
-            "U_pct": 4.37,
+            "ty_le": 2.3085,
+            "sheet": 2.263,
+            "lech_pct": 2.01,
+            "U_pct": 3.64,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2220,
+            "khung": 2388,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3671,
-            "sheet": 2.315,
-            "lech_pct": 2.25,
-            "U_pct": 4.4,
+            "ty_le": 2.3085,
+            "sheet": 2.263,
+            "lech_pct": 2.01,
+            "U_pct": 3.64,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2400,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.3085,
+            "sheet": 2.263,
+            "lech_pct": 2.01,
+            "U_pct": 3.64,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2412,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.3085,
+            "sheet": 2.263,
+            "lech_pct": 2.01,
+            "U_pct": 3.64,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 2424,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3145,
-            "sheet": 2.315,
-            "lech_pct": -0.02,
-            "U_pct": 3.5,
+            "ty_le": 2.3085,
+            "sheet": 2.263,
+            "lech_pct": 2.01,
+            "U_pct": 3.64,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 2436,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3145,
-            "sheet": 2.315,
-            "lech_pct": -0.02,
-            "U_pct": 3.5,
+            "ty_le": 2.3085,
+            "sheet": 2.263,
+            "lech_pct": 2.01,
+            "U_pct": 3.64,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2448,
+            "khung": 2640,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3145,
-            "sheet": 2.315,
-            "lech_pct": -0.02,
-            "U_pct": 3.5,
+            "ty_le": 2.1394,
+            "sheet": 2.263,
+            "lech_pct": -5.46,
+            "U_pct": 3.42,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2460,
+            "khung": 2652,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3145,
-            "sheet": 2.315,
-            "lech_pct": -0.02,
-            "U_pct": 3.5,
+            "ty_le": 2.1394,
+            "sheet": 2.263,
+            "lech_pct": -5.46,
+            "U_pct": 3.42,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2472,
+            "khung": 2664,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3145,
-            "sheet": 2.315,
-            "lech_pct": -0.02,
-            "U_pct": 3.5,
+            "ty_le": 2.1394,
+            "sheet": 2.263,
+            "lech_pct": -5.46,
+            "U_pct": 3.42,
             "ket_qua": "không chứng minh được"
           },
           {
-            "khung": 2484,
+            "khung": 2676,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3145,
-            "sheet": 2.315,
-            "lech_pct": -0.02,
-            "U_pct": 3.5,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2688,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2073,
-            "sheet": 2.315,
-            "lech_pct": -4.65,
-            "U_pct": 3.37,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2700,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2073,
-            "sheet": 2.315,
-            "lech_pct": -4.65,
-            "U_pct": 3.37,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2712,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2073,
-            "sheet": 2.315,
-            "lech_pct": -4.65,
-            "U_pct": 3.37,
+            "ty_le": 2.1394,
+            "sheet": 2.263,
+            "lech_pct": -5.46,
+            "U_pct": 3.42,
             "ket_qua": "không chứng minh được"
           },
           {
             "khung": 2724,
             "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2073,
-            "sheet": 2.315,
-            "lech_pct": -4.65,
-            "U_pct": 3.37,
-            "ket_qua": "không chứng minh được"
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8311,
+            "sheet": 2.034,
+            "lech_pct": -9.98,
+            "U_pct": 0.98,
+            "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 2772,
+            "khung": 2736,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 1.8897,
-            "sheet": 2.137,
-            "lech_pct": -11.57,
-            "U_pct": 0.97,
+            "ty_le": 1.8311,
+            "sheet": 2.034,
+            "lech_pct": -9.98,
+            "U_pct": 0.98,
             "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 2784,
+            "khung": 2748,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 1.8897,
-            "sheet": 2.137,
-            "lech_pct": -11.57,
-            "U_pct": 0.97,
+            "ty_le": 1.8311,
+            "sheet": 2.034,
+            "lech_pct": -9.98,
+            "U_pct": 0.98,
             "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 2796,
+            "khung": 2760,
             "bo_phan": "torso",
             "goc_tham_chieu": 90.0,
-            "ty_le": 1.8897,
-            "sheet": 2.137,
-            "lech_pct": -11.57,
-            "U_pct": 0.97,
+            "ty_le": 1.8311,
+            "sheet": 2.034,
+            "lech_pct": -9.98,
+            "U_pct": 0.98,
             "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 2808,
-            "bo_phan": "torso",
-            "goc_tham_chieu": 90.0,
-            "ty_le": 1.8897,
-            "sheet": 2.137,
-            "lech_pct": -11.57,
-            "U_pct": 0.97,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2868,
+            "khung": 2820,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.2398,
-            "sheet": 2.315,
-            "lech_pct": -3.25,
-            "U_pct": 1.26,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2868,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.3619,
-            "sheet": 1.466,
-            "lech_pct": -7.1,
-            "U_pct": 1.42,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2868,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.1987,
-            "sheet": 1.299,
-            "lech_pct": -7.72,
-            "U_pct": 1.49,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2880,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2398,
-            "sheet": 2.315,
-            "lech_pct": -3.25,
-            "U_pct": 1.26,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2880,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.3619,
-            "sheet": 1.466,
-            "lech_pct": -7.1,
-            "U_pct": 1.42,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2880,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.1987,
-            "sheet": 1.299,
-            "lech_pct": -7.72,
-            "U_pct": 1.49,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2892,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2398,
-            "sheet": 2.315,
-            "lech_pct": -3.25,
-            "U_pct": 1.26,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2892,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.3619,
-            "sheet": 1.466,
-            "lech_pct": -7.1,
-            "U_pct": 1.42,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2892,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.1987,
-            "sheet": 1.299,
-            "lech_pct": -7.72,
-            "U_pct": 1.49,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2904,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 2.2398,
-            "sheet": 2.315,
-            "lech_pct": -3.25,
-            "U_pct": 1.26,
-            "ket_qua": "không chứng minh được"
-          },
-          {
-            "khung": 2904,
-            "bo_phan": "upper_arm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.3619,
-            "sheet": 1.466,
-            "lech_pct": -7.1,
-            "U_pct": 1.42,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2904,
-            "bo_phan": "forearm",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.1987,
-            "sheet": 1.299,
-            "lech_pct": -7.72,
-            "U_pct": 1.49,
-            "ket_qua": "trượt chắc chắn"
-          },
-          {
-            "khung": 2916,
-            "bo_phan": "torso",
-            "goc_tham_chieu": -45.0,
-            "ty_le": 1.8668,
-            "sheet": 2.315,
-            "lech_pct": -19.36,
+            "ty_le": 2.4385,
+            "sheet": 2.263,
+            "lech_pct": 7.76,
             "U_pct": 1.3,
             "ket_qua": "trượt chắc chắn"
           },
           {
-            "khung": 2928,
+            "khung": 2820,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.4328,
+            "sheet": 1.451,
+            "lech_pct": -1.25,
+            "U_pct": 1.47,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2820,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.2611,
+            "sheet": 1.284,
+            "lech_pct": -1.78,
+            "U_pct": 1.54,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2832,
             "bo_phan": "torso",
             "goc_tham_chieu": -45.0,
-            "ty_le": 2.3685,
-            "sheet": 2.315,
-            "lech_pct": 2.31,
-            "U_pct": 1.26,
+            "ty_le": 2.4385,
+            "sheet": 2.263,
+            "lech_pct": 7.76,
+            "U_pct": 1.3,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2832,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.4328,
+            "sheet": 1.451,
+            "lech_pct": -1.25,
+            "U_pct": 1.47,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2832,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.2611,
+            "sheet": 1.284,
+            "lech_pct": -1.78,
+            "U_pct": 1.54,
             "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2844,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4385,
+            "sheet": 2.263,
+            "lech_pct": 7.76,
+            "U_pct": 1.3,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2844,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.4328,
+            "sheet": 1.451,
+            "lech_pct": -1.25,
+            "U_pct": 1.47,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2844,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.2611,
+            "sheet": 1.284,
+            "lech_pct": -1.78,
+            "U_pct": 1.54,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2856,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4385,
+            "sheet": 2.263,
+            "lech_pct": 7.76,
+            "U_pct": 1.3,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2856,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.4328,
+            "sheet": 1.451,
+            "lech_pct": -1.25,
+            "U_pct": 1.47,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2856,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.2611,
+            "sheet": 1.284,
+            "lech_pct": -1.78,
+            "U_pct": 1.54,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2868,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.0443,
+            "sheet": 2.263,
+            "lech_pct": -9.67,
+            "U_pct": 1.34,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2880,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.5449,
+            "sheet": 2.263,
+            "lech_pct": 12.46,
+            "U_pct": 1.3,
+            "ket_qua": "trượt chắc chắn"
           }
         ],
         "khong_do_duoc": [
@@ -5149,38 +5074,38 @@
           {
             "khung": 996,
             "bo_phan": "torso",
-            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
-            "chi_tiet": "lệch 34.3° so với -45° (view -41.9°, ngẩng 34.2°)"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 996,
             "bo_phan": "upper_arm",
-            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
-            "chi_tiet": "lệch 34.3° so với -45° (view -41.9°, ngẩng 34.2°)"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 996,
             "bo_phan": "forearm",
-            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
-            "chi_tiet": "lệch 34.3° so với -45° (view -41.9°, ngẩng 34.2°)"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 1008,
             "bo_phan": "torso",
-            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
-            "chi_tiet": "lệch 34.3° so với -45° (view -41.9°, ngẩng 34.2°)"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 1008,
             "bo_phan": "upper_arm",
-            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
-            "chi_tiet": "lệch 34.3° so với -45° (view -41.9°, ngẩng 34.2°)"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 1008,
             "bo_phan": "forearm",
-            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
-            "chi_tiet": "lệch 34.3° so với -45° (view -41.9°, ngẩng 34.2°)"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 1020,
@@ -5246,19 +5171,19 @@
             "khung": 1068,
             "bo_phan": "torso",
             "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "46%"
+            "chi_tiet": "53%"
           },
           {
             "khung": 1068,
             "bo_phan": "upper_arm",
             "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "46%"
+            "chi_tiet": "53%"
           },
           {
             "khung": 1068,
             "bo_phan": "forearm",
             "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "46%"
+            "chi_tiet": "53%"
           },
           {
             "khung": 1080,
@@ -5366,7 +5291,7 @@
             "khung": 1188,
             "bo_phan": "torso",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "37%"
+            "chi_tiet": "62%"
           },
           {
             "khung": 1188,
@@ -5384,7 +5309,7 @@
             "khung": 1200,
             "bo_phan": "torso",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "37%"
+            "chi_tiet": "62%"
           },
           {
             "khung": 1200,
@@ -5402,7 +5327,7 @@
             "khung": 1212,
             "bo_phan": "torso",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "37%"
+            "chi_tiet": "62%"
           },
           {
             "khung": 1212,
@@ -5420,7 +5345,7 @@
             "khung": 1224,
             "bo_phan": "torso",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "37%"
+            "chi_tiet": "62%"
           },
           {
             "khung": 1224,
@@ -5438,7 +5363,7 @@
             "khung": 1236,
             "bo_phan": "torso",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "37%"
+            "chi_tiet": "62%"
           },
           {
             "khung": 1236,
@@ -5456,7 +5381,7 @@
             "khung": 1248,
             "bo_phan": "torso",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "37%"
+            "chi_tiet": "62%"
           },
           {
             "khung": 1248,
@@ -5492,19 +5417,19 @@
             "khung": 1272,
             "bo_phan": "torso",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.967"
+            "chi_tiet": "foreshorten 0.968"
           },
           {
             "khung": 1272,
             "bo_phan": "upper_arm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.967"
+            "chi_tiet": "foreshorten 0.968"
           },
           {
             "khung": 1272,
             "bo_phan": "forearm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.967"
+            "chi_tiet": "foreshorten 0.968"
           },
           {
             "khung": 1284,
@@ -5528,85 +5453,109 @@
             "khung": 1296,
             "bo_phan": "upper_arm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.926"
+            "chi_tiet": "foreshorten 0.937"
           },
           {
             "khung": 1296,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.946"
+            "chi_tiet": "foreshorten 0.956"
           },
           {
             "khung": 1308,
             "bo_phan": "upper_arm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.960"
+            "chi_tiet": "foreshorten 0.965"
           },
           {
             "khung": 1308,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.943"
+            "chi_tiet": "foreshorten 0.954"
           },
           {
             "khung": 1320,
             "bo_phan": "upper_arm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.953"
+            "chi_tiet": "foreshorten 0.963"
           },
           {
             "khung": 1320,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.974"
+            "chi_tiet": "foreshorten 0.980"
+          },
+          {
+            "khung": 1332,
+            "bo_phan": "torso",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.961"
           },
           {
             "khung": 1332,
             "bo_phan": "upper_arm",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "11%"
+            "chi_tiet": "20%"
           },
           {
             "khung": 1332,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.716"
+            "chi_tiet": "foreshorten 0.393"
+          },
+          {
+            "khung": 1344,
+            "bo_phan": "torso",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.961"
           },
           {
             "khung": 1344,
             "bo_phan": "upper_arm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.654"
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "19%"
           },
           {
             "khung": 1344,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.720"
+            "chi_tiet": "foreshorten 0.405"
+          },
+          {
+            "khung": 1356,
+            "bo_phan": "torso",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.961"
           },
           {
             "khung": 1356,
             "bo_phan": "upper_arm",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "11%"
+            "chi_tiet": "20%"
           },
           {
             "khung": 1356,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.716"
+            "chi_tiet": "foreshorten 0.393"
+          },
+          {
+            "khung": 1368,
+            "bo_phan": "torso",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.961"
           },
           {
             "khung": 1368,
             "bo_phan": "upper_arm",
             "ly_do": "bị che > 10%",
-            "chi_tiet": "14%"
+            "chi_tiet": "21%"
           },
           {
             "khung": 1368,
             "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.704"
+            "chi_tiet": "foreshorten 0.362"
           },
           {
             "khung": 1488,
@@ -5618,7 +5567,7 @@
             "khung": 1488,
             "bo_phan": "upper_arm",
             "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
-            "chi_tiet": "depth 1.079"
+            "chi_tiet": "depth 1.052"
           },
           {
             "khung": 1488,
@@ -5636,7 +5585,7 @@
             "khung": 1500,
             "bo_phan": "upper_arm",
             "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
-            "chi_tiet": "depth 1.079"
+            "chi_tiet": "depth 1.052"
           },
           {
             "khung": 1500,
@@ -5654,7 +5603,7 @@
             "khung": 1512,
             "bo_phan": "upper_arm",
             "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
-            "chi_tiet": "depth 1.079"
+            "chi_tiet": "depth 1.052"
           },
           {
             "khung": 1512,
@@ -5672,13 +5621,85 @@
             "khung": 1524,
             "bo_phan": "upper_arm",
             "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
-            "chi_tiet": "depth 1.079"
+            "chi_tiet": "depth 1.052"
           },
           {
             "khung": 1524,
             "bo_phan": "forearm",
             "ly_do": "chạm mép khung (bị cắt)",
             "chi_tiet": ""
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
           },
           {
             "khung": 1728,
@@ -5927,322 +5948,226 @@
             "chi_tiet": "foreshorten 0.234"
           },
           {
-            "khung": 1932,
+            "khung": 1944,
             "bo_phan": "upper_arm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.977"
+            "chi_tiet": "foreshorten 0.873"
           },
           {
-            "khung": 1932,
-            "bo_phan": "forearm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.630"
-          },
-          {
-            "khung": 1956,
-            "bo_phan": "upper_arm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.861"
-          },
-          {
-            "khung": 1956,
+            "khung": 1944,
             "bo_phan": "forearm",
             "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
-            "chi_tiet": "depth 0.968"
+            "chi_tiet": "depth 0.969"
+          },
+          {
+            "khung": 1956,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.913"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.980"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.980"
           },
           {
             "khung": 1968,
             "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.980"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 1992,
+            "bo_phan": "forearm",
             "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.949"
+            "chi_tiet": "foreshorten 0.887"
           },
           {
-            "khung": 1980,
+            "khung": 2004,
             "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.979"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
-            "khung": 1980,
+            "khung": 2004,
             "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.979"
-          },
-          {
-            "khung": 1980,
-            "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.979"
-          },
-          {
-            "khung": 1992,
-            "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.979"
-          },
-          {
-            "khung": 1992,
-            "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.979"
-          },
-          {
-            "khung": 1992,
-            "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.979"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2004,
             "bo_phan": "forearm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.969"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2016,
             "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.884"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2016,
             "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.884"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2016,
             "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.884"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2028,
             "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2028,
             "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2028,
             "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "ly_do": "không có mặt nạ đầu (khuất hoặc ngoài khung)",
+            "chi_tiet": ""
           },
           {
             "khung": 2040,
             "bo_phan": "torso",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2040,
             "bo_phan": "upper_arm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2040,
             "bo_phan": "forearm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2052,
             "bo_phan": "torso",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2052,
             "bo_phan": "upper_arm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2052,
             "bo_phan": "forearm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2064,
             "bo_phan": "torso",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2064,
             "bo_phan": "upper_arm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2064,
             "bo_phan": "forearm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2076,
             "bo_phan": "torso",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2076,
             "bo_phan": "upper_arm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
+            "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2076,
             "bo_phan": "forearm",
             "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.826"
-          },
-          {
-            "khung": 2088,
-            "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
             "chi_tiet": "foreshorten 0.846"
           },
           {
             "khung": 2088,
+            "bo_phan": "torso",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
+          },
+          {
+            "khung": 2088,
             "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
           },
           {
             "khung": 2088,
             "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
           },
           {
             "khung": 2100,
             "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "44%"
           },
           {
             "khung": 2100,
             "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "44%"
           },
           {
             "khung": 2100,
             "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2112,
-            "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2112,
-            "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2112,
-            "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2124,
-            "bo_phan": "torso",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2124,
-            "bo_phan": "upper_arm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2124,
-            "bo_phan": "forearm",
-            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
-            "chi_tiet": "foreshorten 0.846"
-          },
-          {
-            "khung": 2136,
-            "bo_phan": "torso",
             "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "37%"
-          },
-          {
-            "khung": 2136,
-            "bo_phan": "upper_arm",
-            "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "37%"
-          },
-          {
-            "khung": 2136,
-            "bo_phan": "forearm",
-            "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "37%"
-          },
-          {
-            "khung": 2148,
-            "bo_phan": "torso",
-            "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "45%"
-          },
-          {
-            "khung": 2148,
-            "bo_phan": "upper_arm",
-            "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "45%"
-          },
-          {
-            "khung": 2148,
-            "bo_phan": "forearm",
-            "ly_do": "đầu bị che > 10%",
-            "chi_tiet": "45%"
-          },
-          {
-            "khung": 2160,
-            "bo_phan": "torso",
-            "ly_do": "bị che > 10%",
-            "chi_tiet": "30%"
-          },
-          {
-            "khung": 2160,
-            "bo_phan": "forearm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.908"
-          },
-          {
-            "khung": 2172,
-            "bo_phan": "upper_arm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.886"
-          },
-          {
-            "khung": 2184,
-            "bo_phan": "forearm",
-            "ly_do": "gập: co ngắn do tư thế > 2%",
-            "chi_tiet": "foreshorten 0.968"
-          },
-          {
-            "khung": 2196,
-            "bo_phan": "torso",
-            "ly_do": "bị che > 10%",
-            "chi_tiet": "12%"
+            "chi_tiet": "44%"
           }
         ],
         "theo_shot": [
@@ -6304,7 +6229,7 @@
           {
             "shot": 8,
             "khung": [
-              456,
+              442,
               551
             ],
             "khung_nhan_vat": 8,
@@ -6452,8 +6377,8 @@
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
-            "do_duoc": 4,
-            "ty_le_pct": 33.3
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
           },
           {
             "shot": 28,
@@ -6474,8 +6399,8 @@
             ],
             "khung_nhan_vat": 6,
             "mau": 18,
-            "do_duoc": 18,
-            "ty_le_pct": 100.0
+            "do_duoc": 6,
+            "ty_le_pct": 33.3
           },
           {
             "shot": 32,
@@ -6514,18 +6439,18 @@
             "shot": 35,
             "khung": [
               1920,
-              2087
+              2039
             ],
-            "khung_nhan_vat": 14,
-            "mau": 42,
-            "do_duoc": 9,
-            "ty_le_pct": 21.4
+            "khung_nhan_vat": 10,
+            "mau": 30,
+            "do_duoc": 8,
+            "ty_le_pct": 26.7
           },
           {
             "shot": 36,
             "khung": [
-              2088,
-              2135
+              2040,
+              2087
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
@@ -6535,8 +6460,8 @@
           {
             "shot": 37,
             "khung": [
-              2136,
-              2231
+              2088,
+              2183
             ],
             "khung_nhan_vat": 8,
             "mau": 24,
@@ -6546,8 +6471,8 @@
           {
             "shot": 38,
             "khung": [
-              2232,
-              2279
+              2184,
+              2231
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
@@ -6557,8 +6482,8 @@
           {
             "shot": 39,
             "khung": [
-              2280,
-              2418
+              2232,
+              2370
             ],
             "khung_nhan_vat": 12,
             "mau": 36,
@@ -6568,8 +6493,8 @@
           {
             "shot": 40,
             "khung": [
-              2419,
-              2485
+              2371,
+              2437
             ],
             "khung_nhan_vat": 6,
             "mau": 18,
@@ -6579,8 +6504,8 @@
           {
             "shot": 42,
             "khung": [
-              2520,
-              2625
+              2472,
+              2577
             ],
             "khung_nhan_vat": 9,
             "mau": 27,
@@ -6590,19 +6515,30 @@
           {
             "shot": 43,
             "khung": [
-              2626,
-              2687
+              2578,
+              2620
             ],
-            "khung_nhan_vat": 5,
-            "mau": 15,
+            "khung_nhan_vat": 4,
+            "mau": 12,
             "do_duoc": 0,
             "ty_le_pct": 0.0
           },
           {
             "shot": 44,
             "khung": [
-              2688,
-              2735
+              2621,
+              2639
+            ],
+            "khung_nhan_vat": 1,
+            "mau": 3,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 45,
+            "khung": [
+              2640,
+              2687
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
@@ -6610,10 +6546,10 @@
             "ty_le_pct": 33.3
           },
           {
-            "shot": 45,
+            "shot": 46,
             "khung": [
-              2736,
-              2771
+              2688,
+              2723
             ],
             "khung_nhan_vat": 3,
             "mau": 9,
@@ -6621,10 +6557,10 @@
             "ty_le_pct": 0.0
           },
           {
-            "shot": 46,
+            "shot": 47,
             "khung": [
-              2772,
-              2819
+              2724,
+              2771
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
@@ -6632,10 +6568,10 @@
             "ty_le_pct": 33.3
           },
           {
-            "shot": 48,
+            "shot": 49,
             "khung": [
-              2868,
-              2939
+              2820,
+              2891
             ],
             "khung_nhan_vat": 6,
             "mau": 18,
@@ -6643,10 +6579,10 @@
             "ty_le_pct": 77.8
           },
           {
-            "shot": 50,
+            "shot": 51,
             "khung": [
-              3036,
-              3095
+              2988,
+              3047
             ],
             "khung_nhan_vat": 5,
             "mau": 15,
@@ -6654,10 +6590,10 @@
             "ty_le_pct": 0.0
           },
           {
-            "shot": 51,
+            "shot": 52,
             "khung": [
-              3096,
-              3143
+              3048,
+              3095
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
@@ -6665,10 +6601,10 @@
             "ty_le_pct": 0.0
           },
           {
-            "shot": 54,
+            "shot": 55,
             "khung": [
-              3252,
-              3299
+              3204,
+              3251
             ],
             "khung_nhan_vat": 4,
             "mau": 12,
@@ -6677,221 +6613,217 @@
           }
         ],
         "do_khop_bien": {
-          "96": 1.13,
-          "108": 1.15,
-          "120": 1.19,
+          "96": 1.19,
+          "108": 1.18,
+          "120": 1.24,
           "132": 1.27,
-          "144": 1.07,
-          "156": 1.26,
-          "168": 1.39,
-          "180": 1.29,
-          "192": 1.41,
-          "204": 1.83,
-          "216": 1.34,
-          "228": 1.77,
-          "240": 1.77,
-          "252": 1.04,
-          "264": 0.98,
-          "276": 0.96,
-          "288": 1.83,
-          "300": 1.77,
-          "312": 1.77,
-          "324": 1.79,
-          "336": 1.83,
-          "348": 1.82,
-          "360": 2.09,
-          "372": 2.09,
-          "456": 1.58,
-          "468": 1.45,
-          "480": 1.49,
-          "492": 1.45,
-          "504": 1.92,
-          "516": 1.8,
-          "528": 1.7,
-          "540": 1.75,
-          "552": 1.02,
-          "564": 1.15,
-          "576": 1.32,
-          "588": 1.27,
-          "840": 1.73,
-          "852": 1.7,
-          "864": 1.83,
-          "876": 1.89,
-          "888": 1.66,
-          "900": 1.66,
-          "912": 1.65,
-          "924": 1.64,
+          "144": 1.26,
+          "156": 1.29,
+          "168": 1.23,
+          "180": 1.33,
+          "192": 1.32,
+          "204": 2.14,
+          "216": 1.42,
+          "228": 1.83,
+          "240": 1.83,
+          "252": 1.12,
+          "264": 1.09,
+          "276": 1.05,
+          "288": 1.75,
+          "300": 1.68,
+          "312": 1.64,
+          "324": 1.66,
+          "336": 1.78,
+          "348": 1.79,
+          "360": 1.98,
+          "372": 1.99,
+          "456": 1.61,
+          "468": 1.47,
+          "480": 1.63,
+          "492": 1.53,
+          "504": 2.11,
+          "516": 1.85,
+          "528": 1.77,
+          "540": 1.74,
+          "552": 0.97,
+          "564": 1.11,
+          "576": 1.31,
+          "588": 1.31,
+          "840": 1.75,
+          "852": 1.76,
+          "864": 1.95,
+          "876": 1.97,
+          "888": 1.46,
+          "900": 1.46,
+          "912": 1.47,
+          "924": 1.49,
           "936": 1.58,
-          "948": 1.83,
-          "960": 1.93,
-          "972": 2.09,
-          "984": 1.9,
-          "996": 1.37,
-          "1008": 1.37,
-          "1020": 1.81,
-          "1032": 1.85,
-          "1044": 1.48,
-          "1056": 1.49,
-          "1068": 1.43,
-          "1080": 1.15,
-          "1092": 1.25,
-          "1104": 1.32,
-          "1116": 1.36,
-          "1128": 1.36,
-          "1140": 1.8,
-          "1152": 3.05,
-          "1164": 2.52,
+          "948": 1.95,
+          "960": 2.08,
+          "972": 2.1,
+          "984": 1.89,
+          "996": 1.28,
+          "1008": 1.26,
+          "1020": 1.72,
+          "1032": 1.75,
+          "1044": 1.32,
+          "1056": 1.37,
+          "1068": 1.44,
+          "1080": 1.14,
+          "1092": 1.24,
+          "1104": 1.39,
+          "1116": 1.44,
+          "1128": 1.44,
+          "1140": 2.71,
+          "1152": 3.04,
+          "1164": 2.53,
           "1176": 2.96,
-          "1188": 3.2,
-          "1200": 3.17,
-          "1212": 3.17,
-          "1224": 3.14,
-          "1236": 3.37,
-          "1248": 3.05,
-          "1260": 1.6,
-          "1272": 2.09,
-          "1284": 2.59,
-          "1296": 0.65,
-          "1308": 1.08,
-          "1320": 1.2,
-          "1332": 1.23,
-          "1344": 1.23,
-          "1356": 1.23,
-          "1368": 1.22,
-          "1488": 2.07,
-          "1500": 2.09,
-          "1512": 2.09,
-          "1524": 2.11,
-          "1536": 1.24,
-          "1548": 1.34,
-          "1560": 1.5,
-          "1572": 1.49,
-          "1584": 1.48,
-          "1596": 1.49,
-          "1728": 2.02,
-          "1740": 1.91,
-          "1752": 1.7,
-          "1764": 1.69,
-          "1776": 2.29,
-          "1788": 2.28,
-          "1800": 2.28,
-          "1812": 2.28,
-          "1824": 2.76,
-          "1836": 2.74,
-          "1848": 1.85,
-          "1860": 1.85,
-          "1872": 1.85,
-          "1884": 1.86,
-          "1896": 1.85,
-          "1908": 1.85,
-          "1920": 1.69,
-          "1932": 1.85,
-          "1944": 1.65,
-          "1956": 1.71,
-          "1968": 1.5,
-          "1980": 1.38,
-          "1992": 1.17,
-          "2004": 1.34,
-          "2016": 1.12,
-          "2028": 1.09,
-          "2040": 1.0,
-          "2052": 1.0,
-          "2064": 0.92,
-          "2076": 1.03,
-          "2088": 1.67,
-          "2100": 1.66,
-          "2112": 1.73,
-          "2124": 1.68,
-          "2136": 1.26,
-          "2148": 1.12,
-          "2160": 1.39,
-          "2172": 1.38,
-          "2184": 1.25,
-          "2196": 1.12,
-          "2208": 1.43,
-          "2220": 1.06,
-          "2232": 2.28,
-          "2244": 2.2,
-          "2256": 2.23,
-          "2268": 2.23,
-          "2280": 2.56,
-          "2292": 2.55,
-          "2304": 2.54,
-          "2316": 2.54,
-          "2328": 2.51,
-          "2340": 2.53,
-          "2352": 2.6,
-          "2364": 2.4,
-          "2376": 2.31,
-          "2388": 2.28,
-          "2400": 2.25,
-          "2412": 2.23,
-          "2424": 1.0,
-          "2436": 1.01,
-          "2448": 1.04,
-          "2460": 1.05,
-          "2472": 1.05,
-          "2484": 1.06,
-          "2520": 2.16,
-          "2532": 2.18,
-          "2544": 2.18,
-          "2556": 2.17,
-          "2568": 2.18,
-          "2580": 2.18,
-          "2592": 2.18,
-          "2604": 2.18,
-          "2616": 2.19,
-          "2628": 1.62,
-          "2640": 2.28,
-          "2652": 2.37,
-          "2664": 2.5,
-          "2676": 2.67,
-          "2688": 1.3,
-          "2700": 1.3,
-          "2712": 1.29,
-          "2724": 1.28,
-          "2736": 1.26,
-          "2748": 1.42,
-          "2760": 1.42,
-          "2772": 1.77,
-          "2784": 1.77,
-          "2796": 1.77,
-          "2808": 1.78,
-          "2868": 1.83,
-          "2880": 1.82,
-          "2892": 1.83,
-          "2904": 1.82,
-          "2916": 1.73,
-          "2928": 1.87,
-          "3036": 1.72,
-          "3048": 1.76,
-          "3060": 1.8,
-          "3072": 1.84,
-          "3084": 1.79,
-          "3096": 2.61,
-          "3108": 2.61,
-          "3120": 2.62,
-          "3132": 2.81,
-          "3252": 2.69,
-          "3264": 2.76,
-          "3276": 2.39,
-          "3288": 2.81
+          "1188": 2.99,
+          "1200": 2.98,
+          "1212": 2.96,
+          "1224": 2.97,
+          "1236": 3.11,
+          "1248": 2.99,
+          "1260": 1.72,
+          "1272": 2.75,
+          "1284": 2.63,
+          "1296": 0.81,
+          "1308": 1.09,
+          "1320": 1.18,
+          "1332": 1.36,
+          "1344": 1.34,
+          "1356": 1.36,
+          "1368": 1.37,
+          "1488": 1.94,
+          "1500": 1.91,
+          "1512": 1.92,
+          "1524": 1.92,
+          "1536": 1.42,
+          "1548": 1.39,
+          "1560": 1.27,
+          "1572": 1.38,
+          "1584": 1.47,
+          "1596": 1.51,
+          "1728": 1.48,
+          "1740": 1.73,
+          "1752": 1.51,
+          "1764": 1.37,
+          "1776": 1.94,
+          "1788": 1.93,
+          "1800": 1.93,
+          "1812": 1.93,
+          "1824": 2.42,
+          "1836": 2.4,
+          "1848": 1.5,
+          "1860": 1.5,
+          "1872": 1.5,
+          "1884": 1.5,
+          "1896": 1.49,
+          "1908": 1.49,
+          "1920": 1.65,
+          "1932": 1.64,
+          "1944": 1.75,
+          "1956": 1.63,
+          "1968": 1.12,
+          "1980": 1.19,
+          "1992": 1.22,
+          "2004": 0.74,
+          "2016": 0.8,
+          "2028": 0.79,
+          "2040": 1.5,
+          "2052": 1.51,
+          "2064": 1.52,
+          "2076": 1.5,
+          "2088": 1.31,
+          "2100": 1.11,
+          "2112": 1.37,
+          "2124": 1.38,
+          "2136": 1.28,
+          "2148": 1.18,
+          "2160": 1.32,
+          "2172": 1.09,
+          "2184": 2.0,
+          "2196": 2.1,
+          "2208": 1.83,
+          "2220": 1.75,
+          "2232": 2.37,
+          "2244": 2.35,
+          "2256": 2.33,
+          "2268": 2.33,
+          "2280": 2.34,
+          "2292": 2.23,
+          "2304": 2.32,
+          "2316": 2.12,
+          "2328": 2.07,
+          "2340": 2.07,
+          "2352": 2.09,
+          "2364": 2.1,
+          "2376": 0.92,
+          "2388": 0.93,
+          "2400": 0.94,
+          "2412": 0.95,
+          "2424": 0.96,
+          "2436": 0.94,
+          "2472": 1.83,
+          "2484": 1.82,
+          "2496": 1.82,
+          "2508": 1.82,
+          "2520": 1.82,
+          "2532": 1.83,
+          "2544": 1.83,
+          "2556": 1.82,
+          "2568": 1.82,
+          "2580": 1.47,
+          "2592": 1.91,
+          "2604": 2.09,
+          "2616": 2.21,
+          "2628": 2.26,
+          "2640": 1.01,
+          "2652": 1.01,
+          "2664": 1.01,
+          "2676": 1.01,
+          "2688": 1.13,
+          "2700": 1.33,
+          "2712": 1.34,
+          "2724": 1.43,
+          "2736": 1.44,
+          "2748": 1.44,
+          "2760": 1.44,
+          "2820": 1.73,
+          "2832": 1.73,
+          "2844": 1.73,
+          "2856": 1.74,
+          "2868": 1.63,
+          "2880": 1.73,
+          "2988": 1.71,
+          "3000": 1.71,
+          "3012": 1.76,
+          "3024": 1.8,
+          "3036": 1.8,
+          "3048": 2.53,
+          "3060": 2.53,
+          "3072": 2.54,
+          "3084": 2.69,
+          "3204": 3.02,
+          "3216": 2.99,
+          "3228": 2.45,
+          "3240": 2.83
         },
         "khung_thieu": [],
         "kiem_toan": {
           "yeu_cau": {
             "version": 1,
-            "seed": "2226881257325565179",
+            "seed": "2162447375389782042",
             "frames": [
-              2964,
-              3276
+              696,
+              936
             ],
-            "candidates": 285,
+            "candidates": 281,
             "issued_by": "P",
-            "issued_utc": "2026-09-28T04:20:05Z",
+            "issued_utc": "2026-09-28T07:32:10Z",
             "video": "layout.mp4",
-            "video_sha256": "25d67d1dea37ca8c085d219057cda105ad1345b2266e03213f0f6a4593bcfc27",
-            "parts_sha256": "75977232a27aa99f6a5f4153af3c9bca9b26b70dfaf4d9a43f5500b06ac6d649"
+            "video_sha256": "e404d00b9b3bdfb2a23728cbc171a3709afdea49d03f053933bf7f37895ae8a8",
+            "parts_sha256": "bc11f5f8285b6abc357949abf7563b9578ebe639836b230960c34dab3338af08"
           },
           "log_scene": [
             {
@@ -6924,43 +6856,43 @@
             },
             {
               "file": "design/cong5/layout/order_w2.js",
-              "sha_log": "e0ffb02d0d89c9cc120a63687bba7250e4bcf4b18c793b2e55448c1b335dcf04",
-              "sha_dia": "e0ffb02d0d89c9cc120a63687bba7250e4bcf4b18c793b2e55448c1b335dcf04",
+              "sha_log": "129f4ce2c451650e585defdce55bbc9495c9122e88adae527be22725dbf9c0e3",
+              "sha_dia": "129f4ce2c451650e585defdce55bbc9495c9122e88adae527be22725dbf9c0e3",
               "trong_scene_files": true,
               "khop": true
             },
             {
               "file": "design/cong5/layout/shots_w1.js",
-              "sha_log": "02d36c8e0abbced1c5fbf04196f3991f2ab88199eaab9d83180dd91f87782c27",
-              "sha_dia": "02d36c8e0abbced1c5fbf04196f3991f2ab88199eaab9d83180dd91f87782c27",
+              "sha_log": "c89ad6974a8468f4bf94c7f9dbf4d21714cf0733edc42dab455e2bad671a77f8",
+              "sha_dia": "c89ad6974a8468f4bf94c7f9dbf4d21714cf0733edc42dab455e2bad671a77f8",
               "trong_scene_files": true,
               "khop": true
             },
             {
               "file": "design/cong5/layout/shots_w2.js",
-              "sha_log": "934f979e45a7da73b1776ee13754bbc80beb7a77a9b10f17142085774fab5655",
-              "sha_dia": "934f979e45a7da73b1776ee13754bbc80beb7a77a9b10f17142085774fab5655",
+              "sha_log": "6113be60b1084302b45759a940e64934b51cef20f5175e133a24e97989517ba3",
+              "sha_dia": "6113be60b1084302b45759a940e64934b51cef20f5175e133a24e97989517ba3",
               "trong_scene_files": true,
               "khop": true
             },
             {
               "file": "design/cong5/layout/sets.js",
-              "sha_log": "38fa7eeccffdea88fb514c4bedaf16c17d3cf0666578e90c376f172662ffb6df",
-              "sha_dia": "38fa7eeccffdea88fb514c4bedaf16c17d3cf0666578e90c376f172662ffb6df",
+              "sha_log": "8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62",
+              "sha_dia": "8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62",
               "trong_scene_files": true,
               "khop": true
             },
             {
               "file": "design/cong5/layout/sets2.js",
-              "sha_log": "5b58122c420fe738f94c1163286b8e51f2e711881cfbaecdc07e6277e90807ed",
-              "sha_dia": "5b58122c420fe738f94c1163286b8e51f2e711881cfbaecdc07e6277e90807ed",
+              "sha_log": "babae36ea313e8817a415a51101d31f016b6740efa4c613295d203bf9d9a608a",
+              "sha_dia": "babae36ea313e8817a415a51101d31f016b6740efa4c613295d203bf9d9a608a",
               "trong_scene_files": true,
               "khop": true
             },
             {
               "file": "design/cong5/layout/sets_end.js",
-              "sha_log": "f534b04810c9e3bf88325242d9580fffb597ea64e3a65daa115fe421011a2438",
-              "sha_dia": "f534b04810c9e3bf88325242d9580fffb597ea64e3a65daa115fe421011a2438",
+              "sha_log": "55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d",
+              "sha_dia": "55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d",
               "trong_scene_files": true,
               "khop": true
             },
@@ -6973,107 +6905,70 @@
             },
             {
               "file": "design/cong5/layout/facelight.js",
-              "sha_log": "772734174d101e51f2b7872a6a7549e2aed53d11d83fc266e74531b4df794436",
-              "sha_dia": "772734174d101e51f2b7872a6a7549e2aed53d11d83fc266e74531b4df794436",
+              "sha_log": "a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47",
+              "sha_dia": "a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47",
               "trong_scene_files": true,
               "khop": true
             }
           ],
           "log_lenh": {
-            "2964": [
-              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2964,3276 --scale 4"
+            "696": [
+              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 696,936 --scale 4"
             ],
-            "3276": [
-              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2964,3276 --scale 4"
+            "936": [
+              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 696,936 --scale 4"
             ]
           },
           "doi_chieu": [
             {
-              "khung": 2964,
+              "khung": 696,
               "bo_phan": "head",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2964,
-              "bo_phan": "torso",
-              "khac_diem_anh_tren_bien": 0.0
-            },
-            {
-              "khung": 2964,
-              "bo_phan": "upper_arm",
-              "khac_diem_anh_tren_bien": 0.0
-            },
-            {
-              "khung": 2964,
-              "bo_phan": "forearm",
-              "khac_diem_anh_tren_bien": 0.0
-            },
-            {
-              "khung": 2964,
-              "bo_phan": "thigh",
-              "khac_diem_anh_tren_bien": 0.0
-            },
-            {
-              "khung": 2964,
-              "bo_phan": "shin",
-              "khac_diem_anh_tren_bien": 0.0
-            },
-            {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "head",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "torso",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "upper_arm",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "forearm",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "thigh",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "shin",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "torso",
               "lech_ty_le_pct": 0.0,
-              "U_pct": 2.024
+              "U_pct": 1.778
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "bo_phan": "upper_arm",
               "lech_ty_le_pct": 0.0,
-              "U_pct": 2.221
+              "U_pct": 9.414
             },
             {
-              "khung": 3276,
-              "bo_phan": "forearm",
-              "lech_ty_le_pct": 0.0,
-              "U_pct": 2.568
-            },
-            {
-              "khung": 3276,
-              "bo_phan": "shin",
-              "lech_ty_le_pct": 0.0,
-              "U_pct": 6.195
-            },
-            {
-              "khung": 2964,
+              "khung": 696,
               "views_render_lai": "khớp",
               "views_lech": {
                 "goc": 0.0,
@@ -7081,7 +6976,7 @@
               }
             },
             {
-              "khung": 3276,
+              "khung": 936,
               "views_render_lai": "khớp",
               "views_lech": {
                 "goc": 0.0,
@@ -7091,7 +6986,7 @@
           ]
         }
       },
-      "seconds": 200.42
+      "seconds": 223.2
     },
     {
       "code": "O3",
@@ -7149,7 +7044,7 @@
         "thieu_file": [],
         "file_la": []
       },
-      "seconds": 0.06
+      "seconds": 0.13
     }
   ]
 }

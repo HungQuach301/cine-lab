@@ -2074,52 +2074,70 @@
   "3132": {
    "head": "03132/head.png",
    "torso": "03132/torso.png",
-   "upper_arm": "03132/upper_arm.png",
-   "forearm": "03132/forearm.png",
    "thigh": "03132/thigh.png",
    "shin": "03132/shin.png"
   },
   "3144": {
    "head": "03144/head.png",
    "torso": "03144/torso.png",
-   "upper_arm": "03144/upper_arm.png",
-   "forearm": "03144/forearm.png",
    "thigh": "03144/thigh.png",
    "shin": "03144/shin.png"
   },
   "3156": {
    "head": "03156/head.png",
    "torso": "03156/torso.png",
-   "upper_arm": "03156/upper_arm.png",
-   "forearm": "03156/forearm.png",
    "thigh": "03156/thigh.png",
    "shin": "03156/shin.png"
   },
   "3168": {
    "head": "03168/head.png",
    "torso": "03168/torso.png",
-   "upper_arm": "03168/upper_arm.png",
-   "forearm": "03168/forearm.png",
    "thigh": "03168/thigh.png",
    "shin": "03168/shin.png"
   },
   "3180": {
-   "head": "03180/head.png"
+   "head": "03180/head.png",
+   "torso": "03180/torso.png",
+   "thigh": "03180/thigh.png",
+   "shin": "03180/shin.png"
   },
   "3192": {
-   "head": "03192/head.png"
+   "head": "03192/head.png",
+   "torso": "03192/torso.png",
+   "thigh": "03192/thigh.png",
+   "shin": "03192/shin.png"
   },
   "3204": {
-   "head": "03204/head.png"
+   "head": "03204/head.png",
+   "torso": "03204/torso.png",
+   "upper_arm": "03204/upper_arm.png",
+   "forearm": "03204/forearm.png",
+   "thigh": "03204/thigh.png",
+   "shin": "03204/shin.png"
   },
   "3216": {
-   "head": "03216/head.png"
+   "head": "03216/head.png",
+   "torso": "03216/torso.png",
+   "upper_arm": "03216/upper_arm.png",
+   "forearm": "03216/forearm.png",
+   "thigh": "03216/thigh.png",
+   "shin": "03216/shin.png"
   },
   "3228": {
-   "head": "03228/head.png"
+   "head": "03228/head.png",
+   "torso": "03228/torso.png",
+   "upper_arm": "03228/upper_arm.png",
+   "forearm": "03228/forearm.png",
+   "thigh": "03228/thigh.png",
+   "shin": "03228/shin.png"
   },
   "3240": {
-   "head": "03240/head.png"
+   "head": "03240/head.png",
+   "torso": "03240/torso.png",
+   "upper_arm": "03240/upper_arm.png",
+   "forearm": "03240/forearm.png",
+   "thigh": "03240/thigh.png",
+   "shin": "03240/shin.png"
   },
   "3252": {
    "head": "03252/head.png",
@@ -2200,38 +2218,6 @@
    "forearm": "03360/forearm.png",
    "thigh": "03360/thigh.png",
    "shin": "03360/shin.png"
-  },
-  "3372": {
-   "head": "03372/head.png",
-   "torso": "03372/torso.png",
-   "upper_arm": "03372/upper_arm.png",
-   "forearm": "03372/forearm.png",
-   "thigh": "03372/thigh.png",
-   "shin": "03372/shin.png"
-  },
-  "3384": {
-   "head": "03384/head.png",
-   "torso": "03384/torso.png",
-   "upper_arm": "03384/upper_arm.png",
-   "forearm": "03384/forearm.png",
-   "thigh": "03384/thigh.png",
-   "shin": "03384/shin.png"
-  },
-  "3396": {
-   "head": "03396/head.png",
-   "torso": "03396/torso.png",
-   "upper_arm": "03396/upper_arm.png",
-   "forearm": "03396/forearm.png",
-   "thigh": "03396/thigh.png",
-   "shin": "03396/shin.png"
-  },
-  "3408": {
-   "head": "03408/head.png",
-   "torso": "03408/torso.png",
-   "upper_arm": "03408/upper_arm.png",
-   "forearm": "03408/forearm.png",
-   "thigh": "03408/thigh.png",
-   "shin": "03408/shin.png"
   }
  },
  "views": {
@@ -4990,7 +4976,7 @@
     },
     "torso": {
      "foreshorten": 1.0184,
-     "hidden": 0.0002,
+     "hidden": 0,
      "depth": 0.9885
     },
     "upper_arm": {
@@ -5026,7 +5012,7 @@
     },
     "torso": {
      "foreshorten": 1.0184,
-     "hidden": 0.0002,
+     "hidden": 0,
      "depth": 0.9885
     },
     "upper_arm": {
@@ -5057,12 +5043,12 @@
    "parts": {
     "head": {
      "foreshorten": 0.9581,
-     "hidden": 0,
+     "hidden": 0.0027,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1.0204,
-     "hidden": 0.005,
+     "hidden": 0,
      "depth": 1.0128
     },
     "upper_arm": {
@@ -5093,12 +5079,12 @@
    "parts": {
     "head": {
      "foreshorten": 0.9284,
-     "hidden": 0.0732,
+     "hidden": 0.0741,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1.0206,
-     "hidden": 0.0044,
+     "hidden": 0,
      "depth": 1.0174
     },
     "upper_arm": {
@@ -5129,12 +5115,12 @@
    "parts": {
     "head": {
      "foreshorten": 0.7162,
-     "hidden": 0,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 0.807,
-     "hidden": 0.1034,
+     "hidden": 0.1345,
      "depth": 1.1335
     },
     "upper_arm": {
@@ -5165,12 +5151,12 @@
    "parts": {
     "head": {
      "foreshorten": 0.7164,
-     "hidden": 0,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 0.807,
-     "hidden": 0.1034,
+     "hidden": 0.1345,
      "depth": 1.1335
     },
     "upper_arm": {
@@ -5206,7 +5192,7 @@
     },
     "torso": {
      "foreshorten": 0.807,
-     "hidden": 0.1027,
+     "hidden": 0.1312,
      "depth": 1.1329
     },
     "upper_arm": {
@@ -5242,7 +5228,7 @@
     },
     "torso": {
      "foreshorten": 0.807,
-     "hidden": 0.1028,
+     "hidden": 0.1314,
      "depth": 1.1328
     },
     "upper_arm": {
@@ -5278,7 +5264,7 @@
     },
     "torso": {
      "foreshorten": 0.9962,
-     "hidden": 0.0452,
+     "hidden": 0,
      "depth": 1.0041
     },
     "upper_arm": {
@@ -5345,12 +5331,12 @@
    "parts": {
     "head": {
      "foreshorten": 0.9999,
-     "hidden": 0.4557,
+     "hidden": 0.5306,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1.0003,
-     "hidden": 0.4624,
+     "hidden": 0.4592,
      "depth": 0.9992
     },
     "upper_arm": {
@@ -5710,7 +5696,7 @@
     },
     "torso": {
      "foreshorten": 0.9847,
-     "hidden": 0.3709,
+     "hidden": 0.6164,
      "depth": 1.0559
     },
     "upper_arm": {
@@ -5746,7 +5732,7 @@
     },
     "torso": {
      "foreshorten": 0.9847,
-     "hidden": 0.3709,
+     "hidden": 0.6164,
      "depth": 1.0559
     },
     "upper_arm": {
@@ -5782,7 +5768,7 @@
     },
     "torso": {
      "foreshorten": 0.9847,
-     "hidden": 0.3709,
+     "hidden": 0.6164,
      "depth": 1.0559
     },
     "upper_arm": {
@@ -5818,7 +5804,7 @@
     },
     "torso": {
      "foreshorten": 0.9847,
-     "hidden": 0.3709,
+     "hidden": 0.6164,
      "depth": 1.0559
     },
     "upper_arm": {
@@ -5854,7 +5840,7 @@
     },
     "torso": {
      "foreshorten": 0.9847,
-     "hidden": 0.3709,
+     "hidden": 0.6164,
      "depth": 1.0475
     },
     "upper_arm": {
@@ -5890,7 +5876,7 @@
     },
     "torso": {
      "foreshorten": 0.9847,
-     "hidden": 0.3709,
+     "hidden": 0.6164,
      "depth": 1.0391
     },
     "upper_arm": {
@@ -5916,1160 +5902,1196 @@
    }
   },
   "1260": {
-   "view_deg": -174.13,
-   "elev_deg": 2.41,
+   "view_deg": -178.44,
+   "elev_deg": 2.02,
    "parts": {
     "head": {
-     "foreshorten": 0.9665,
+     "foreshorten": 0.9672,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9885,
-     "hidden": 0,
-     "depth": 0.9913
-    },
-    "upper_arm": {
-     "foreshorten": 0.9731,
-     "hidden": 0,
-     "depth": 0.9931
-    },
-    "forearm": {
-     "foreshorten": 1.0076,
-     "hidden": 0,
-     "depth": 0.9907
-    },
-    "thigh": {
-     "foreshorten": 1.0002,
-     "hidden": 1,
-     "depth": 0.9891
-    },
-    "shin": {
-     "foreshorten": 0.9986,
-     "hidden": 1,
-     "depth": 0.9883
-    }
-   }
-  },
-  "1272": {
-   "view_deg": -175.02,
-   "elev_deg": 1.98,
-   "parts": {
-    "head": {
-     "foreshorten": 0.967,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9894,
+     "foreshorten": 0.989,
      "hidden": 0,
      "depth": 0.9929
     },
     "upper_arm": {
-     "foreshorten": 0.9942,
+     "foreshorten": 0.975,
      "hidden": 0,
-     "depth": 0.9959
+     "depth": 0.9948
     },
     "forearm": {
-     "foreshorten": 0.9946,
+     "foreshorten": 1.008,
      "hidden": 0,
-     "depth": 0.9963
+     "depth": 0.9929
     },
     "thigh": {
-     "foreshorten": 0.9917,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 0.9893
+     "depth": 0.9913
     },
     "shin": {
-     "foreshorten": 0.9716,
+     "foreshorten": 0.9987,
+     "hidden": 1,
+     "depth": 0.9908
+    }
+   }
+  },
+  "1272": {
+   "view_deg": -178.57,
+   "elev_deg": 1.71,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9677,
      "hidden": 0,
-     "depth": 0.9845
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9898,
+     "hidden": 0,
+     "depth": 0.994
+    },
+    "upper_arm": {
+     "foreshorten": 0.995,
+     "hidden": 0,
+     "depth": 0.9969
+    },
+    "forearm": {
+     "foreshorten": 0.9943,
+     "hidden": 0,
+     "depth": 0.9973
+    },
+    "thigh": {
+     "foreshorten": 0.992,
+     "hidden": 1,
+     "depth": 0.9912
+    },
+    "shin": {
+     "foreshorten": 0.9724,
+     "hidden": 0,
+     "depth": 0.9872
     }
    }
   },
   "1284": {
-   "view_deg": -175.97,
-   "elev_deg": 1.51,
+   "view_deg": -178.71,
+   "elev_deg": 1.34,
    "parts": {
     "head": {
-     "foreshorten": 0.9675,
+     "foreshorten": 0.9682,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9916,
+     "foreshorten": 0.9919,
      "hidden": 0,
-     "depth": 0.9947
+     "depth": 0.9954
     },
     "upper_arm": {
-     "foreshorten": 0.9068,
+     "foreshorten": 0.9107,
      "hidden": 0,
-     "depth": 0.9938
+     "depth": 0.9949
     },
     "forearm": {
-     "foreshorten": 1.0058,
+     "foreshorten": 1.007,
      "hidden": 0,
-     "depth": 0.9899
+     "depth": 0.9915
     },
     "thigh": {
-     "foreshorten": 0.9623,
+     "foreshorten": 0.9621,
      "hidden": 1,
-     "depth": 0.9963
+     "depth": 0.997
     },
     "shin": {
-     "foreshorten": 0.9897,
+     "foreshorten": 0.9894,
      "hidden": 1,
-     "depth": 1.0006
+     "depth": 1.0008
     }
    }
   },
   "1296": {
-   "view_deg": -63.29,
-   "elev_deg": -0.9,
+   "view_deg": -65.89,
+   "elev_deg": -0.8,
    "parts": {
     "head": {
-     "foreshorten": 0.9998,
+     "foreshorten": 0.9999,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9995,
+     "foreshorten": 0.9996,
      "hidden": 0,
-     "depth": 1.0008
+     "depth": 1.0006
     },
     "upper_arm": {
-     "foreshorten": 0.9256,
+     "foreshorten": 0.9371,
      "hidden": 0,
-     "depth": 0.9888
+     "depth": 0.9902
     },
     "forearm": {
-     "foreshorten": 0.9462,
+     "foreshorten": 0.9557,
      "hidden": 0,
-     "depth": 0.983
+     "depth": 0.9855
     },
     "thigh": {
-     "foreshorten": 0.994,
+     "foreshorten": 0.9953,
      "hidden": 1,
-     "depth": 0.996
+     "depth": 0.9963
     },
     "shin": {
-     "foreshorten": 0.9679,
+     "foreshorten": 0.9753,
      "hidden": 0,
-     "depth": 0.9973
+     "depth": 0.9974
     }
    }
   },
   "1308": {
-   "view_deg": -64.08,
-   "elev_deg": -3.33,
+   "view_deg": -66.61,
+   "elev_deg": -2.95,
    "parts": {
     "head": {
-     "foreshorten": 0.9998,
+     "foreshorten": 0.9999,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9995,
+     "foreshorten": 0.9996,
      "hidden": 0,
-     "depth": 1.0008
+     "depth": 1.0006
     },
     "upper_arm": {
-     "foreshorten": 0.9604,
+     "foreshorten": 0.9648,
      "hidden": 0,
-     "depth": 0.9896
+     "depth": 0.9908
     },
     "forearm": {
-     "foreshorten": 0.9432,
+     "foreshorten": 0.9536,
      "hidden": 0,
-     "depth": 0.9845
+     "depth": 0.9866
     },
     "thigh": {
-     "foreshorten": 0.9865,
+     "foreshorten": 0.9895,
      "hidden": 1,
-     "depth": 0.9954
+     "depth": 0.9959
     },
     "shin": {
-     "foreshorten": 0.9968,
+     "foreshorten": 0.9975,
      "hidden": 0,
-     "depth": 0.9945
+     "depth": 0.9952
     }
    }
   },
   "1320": {
-   "view_deg": -64.08,
-   "elev_deg": -3.33,
+   "view_deg": -66.61,
+   "elev_deg": -2.95,
    "parts": {
     "head": {
-     "foreshorten": 0.9998,
+     "foreshorten": 0.9999,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9995,
+     "foreshorten": 0.9996,
      "hidden": 0,
-     "depth": 1.0008
+     "depth": 1.0006
     },
     "upper_arm": {
-     "foreshorten": 0.9526,
-     "hidden": 0.0645,
-     "depth": 0.9894
+     "foreshorten": 0.9625,
+     "hidden": 0.0385,
+     "depth": 0.9907
     },
     "forearm": {
-     "foreshorten": 0.9736,
+     "foreshorten": 0.98,
      "hidden": 0,
-     "depth": 0.9847
+     "depth": 0.987
     },
     "thigh": {
-     "foreshorten": 0.9865,
+     "foreshorten": 0.9895,
      "hidden": 1,
-     "depth": 0.9954
+     "depth": 0.9959
     },
     "shin": {
-     "foreshorten": 0.9968,
+     "foreshorten": 0.9975,
      "hidden": 0,
-     "depth": 0.9945
+     "depth": 0.9952
     }
    }
   },
   "1332": {
-   "view_deg": -47.31,
-   "elev_deg": -1.5,
+   "view_deg": -27.23,
+   "elev_deg": -3.82,
    "parts": {
     "head": {
-     "foreshorten": 0.9966,
+     "foreshorten": 0.9931,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9808,
-     "hidden": 0.0027,
-     "depth": 1.008
+     "foreshorten": 0.9611,
+     "hidden": 0.0012,
+     "depth": 1.0182
     },
     "upper_arm": {
-     "foreshorten": 0.6491,
-     "hidden": 0.112,
-     "depth": 0.9822
+     "foreshorten": 0.2183,
+     "hidden": 0.2014,
+     "depth": 0.9839
     },
     "forearm": {
-     "foreshorten": 0.7155,
+     "foreshorten": 0.3929,
      "hidden": 0,
-     "depth": 0.962
+     "depth": 0.9423
     },
     "thigh": {
-     "foreshorten": 0.9199,
+     "foreshorten": 0.8525,
      "hidden": 1,
-     "depth": 1.0003
+     "depth": 1.013
     },
     "shin": {
-     "foreshorten": 0.9492,
-     "hidden": 0,
-     "depth": 0.9987
+     "foreshorten": 0.8984,
+     "hidden": 1,
+     "depth": 1.0101
     }
    }
   },
   "1344": {
-   "view_deg": -47.31,
-   "elev_deg": -1.5,
+   "view_deg": -27.23,
+   "elev_deg": -3.82,
    "parts": {
     "head": {
-     "foreshorten": 0.9966,
+     "foreshorten": 0.9931,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9808,
-     "hidden": 0.0054,
-     "depth": 1.008
+     "foreshorten": 0.9611,
+     "hidden": 0.0012,
+     "depth": 1.0182
     },
     "upper_arm": {
-     "foreshorten": 0.6538,
-     "hidden": 0.0952,
-     "depth": 0.9823
+     "foreshorten": 0.2426,
+     "hidden": 0.1944,
+     "depth": 0.984
     },
     "forearm": {
-     "foreshorten": 0.7203,
+     "foreshorten": 0.4046,
      "hidden": 0,
-     "depth": 0.9622
+     "depth": 0.9427
     },
     "thigh": {
-     "foreshorten": 0.9199,
+     "foreshorten": 0.8525,
      "hidden": 1,
-     "depth": 1.0003
+     "depth": 1.013
     },
     "shin": {
-     "foreshorten": 0.9492,
-     "hidden": 0,
-     "depth": 0.9987
+     "foreshorten": 0.8984,
+     "hidden": 1,
+     "depth": 1.0101
     }
    }
   },
   "1356": {
-   "view_deg": -47.31,
-   "elev_deg": -1.5,
+   "view_deg": -27.23,
+   "elev_deg": -3.82,
    "parts": {
     "head": {
-     "foreshorten": 0.9966,
+     "foreshorten": 0.9931,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9808,
-     "hidden": 0.0027,
-     "depth": 1.008
+     "foreshorten": 0.9611,
+     "hidden": 0.0012,
+     "depth": 1.0182
     },
     "upper_arm": {
-     "foreshorten": 0.6491,
-     "hidden": 0.112,
-     "depth": 0.9822
+     "foreshorten": 0.2183,
+     "hidden": 0.2014,
+     "depth": 0.9839
     },
     "forearm": {
-     "foreshorten": 0.7155,
+     "foreshorten": 0.3929,
      "hidden": 0,
-     "depth": 0.962
+     "depth": 0.9423
     },
     "thigh": {
-     "foreshorten": 0.9199,
+     "foreshorten": 0.8525,
      "hidden": 1,
-     "depth": 1.0003
+     "depth": 1.013
     },
     "shin": {
-     "foreshorten": 0.9492,
-     "hidden": 0,
-     "depth": 0.9987
+     "foreshorten": 0.8984,
+     "hidden": 1,
+     "depth": 1.0101
     }
    }
   },
   "1368": {
-   "view_deg": -47.31,
-   "elev_deg": -1.5,
+   "view_deg": -27.23,
+   "elev_deg": -3.82,
    "parts": {
     "head": {
-     "foreshorten": 0.9966,
+     "foreshorten": 0.9931,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9808,
+     "foreshorten": 0.9611,
      "hidden": 0,
-     "depth": 1.008
+     "depth": 1.0182
     },
     "upper_arm": {
-     "foreshorten": 0.6393,
-     "hidden": 0.1429,
-     "depth": 0.9821
+     "foreshorten": 0.1549,
+     "hidden": 0.2109,
+     "depth": 0.9836
     },
     "forearm": {
-     "foreshorten": 0.7035,
+     "foreshorten": 0.3623,
      "hidden": 0,
-     "depth": 0.9616
+     "depth": 0.9415
     },
     "thigh": {
-     "foreshorten": 0.9199,
+     "foreshorten": 0.8525,
      "hidden": 1,
-     "depth": 1.0003
+     "depth": 1.013
     },
     "shin": {
-     "foreshorten": 0.9492,
-     "hidden": 0,
-     "depth": 0.9987
+     "foreshorten": 0.8984,
+     "hidden": 1,
+     "depth": 1.0101
     }
    }
   },
   "1380": {
-   "view_deg": -105.25,
-   "elev_deg": -32.24,
+   "view_deg": -100.4,
+   "elev_deg": -16.05,
    "parts": {
     "head": {
-     "foreshorten": 0.9928,
+     "foreshorten": 0.9946,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9588,
+     "foreshorten": 0.9691,
      "hidden": 1,
-     "depth": 0.8602
+     "depth": 0.9719
     },
     "upper_arm": {
-     "foreshorten": 0.2673,
+     "foreshorten": 0.6298,
      "hidden": 1,
-     "depth": 1.0956
+     "depth": 0.9952
     },
     "forearm": {
-     "foreshorten": 0.4031,
+     "foreshorten": 0.6601,
      "hidden": 1,
-     "depth": 1.4005
+     "depth": 1.0521
     },
     "thigh": {
-     "foreshorten": 0.8557,
+     "foreshorten": 0.9019,
      "hidden": 1,
-     "depth": 0.8856
+     "depth": 0.965
     },
     "shin": {
-     "foreshorten": 0.8942,
+     "foreshorten": 0.9228,
      "hidden": 1,
-     "depth": 0.9041
+     "depth": 0.968
     }
    }
   },
   "1392": {
-   "view_deg": -105.25,
-   "elev_deg": -32.24,
+   "view_deg": -100.4,
+   "elev_deg": -16.05,
    "parts": {
     "head": {
-     "foreshorten": 0.9928,
+     "foreshorten": 0.9946,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9588,
+     "foreshorten": 0.9691,
      "hidden": 1,
-     "depth": 0.8602
+     "depth": 0.9719
     },
     "upper_arm": {
-     "foreshorten": 0.2673,
+     "foreshorten": 0.6298,
      "hidden": 1,
-     "depth": 1.0956
+     "depth": 0.9952
     },
     "forearm": {
-     "foreshorten": 0.4031,
+     "foreshorten": 0.6601,
      "hidden": 1,
-     "depth": 1.4005
+     "depth": 1.0521
     },
     "thigh": {
-     "foreshorten": 0.8557,
+     "foreshorten": 0.9019,
      "hidden": 1,
-     "depth": 0.8856
+     "depth": 0.965
     },
     "shin": {
-     "foreshorten": 0.8942,
+     "foreshorten": 0.9228,
      "hidden": 1,
-     "depth": 0.9041
+     "depth": 0.968
     }
    }
   },
   "1404": {
-   "view_deg": -105.25,
-   "elev_deg": -32.24,
+   "view_deg": -100.4,
+   "elev_deg": -16.05,
    "parts": {
     "head": {
-     "foreshorten": 0.9928,
+     "foreshorten": 0.9946,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9588,
+     "foreshorten": 0.9691,
      "hidden": 1,
-     "depth": 0.8602
+     "depth": 0.9719
     },
     "upper_arm": {
-     "foreshorten": 0.2673,
+     "foreshorten": 0.6298,
      "hidden": 1,
-     "depth": 1.0956
+     "depth": 0.9952
     },
     "forearm": {
-     "foreshorten": 0.4031,
+     "foreshorten": 0.6601,
      "hidden": 1,
-     "depth": 1.4005
+     "depth": 1.0521
     },
     "thigh": {
-     "foreshorten": 0.8557,
+     "foreshorten": 0.9019,
      "hidden": 1,
-     "depth": 0.8856
+     "depth": 0.965
     },
     "shin": {
-     "foreshorten": 0.8942,
+     "foreshorten": 0.9228,
      "hidden": 1,
-     "depth": 0.9041
+     "depth": 0.968
     }
    }
   },
   "1416": {
-   "view_deg": 26.46,
-   "elev_deg": 2.24,
+   "view_deg": 18.39,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9672
+     "depth": 1.0147
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6634
+     "depth": 1.1348
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5632
+     "depth": 1.168
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7752
+     "depth": 1.0882
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7371
+     "depth": 1.1014
     }
    }
   },
   "1428": {
-   "view_deg": 26.44,
-   "elev_deg": 2.24,
+   "view_deg": 18.39,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9673
+     "depth": 1.0147
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6646
+     "depth": 1.135
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5647
+     "depth": 1.1682
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.776
+     "depth": 1.0883
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.738
+     "depth": 1.1016
     }
    }
   },
   "1440": {
-   "view_deg": 26.36,
-   "elev_deg": 2.24,
+   "view_deg": 18.33,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.968
+     "depth": 1.0149
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6727
+     "depth": 1.1363
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5752
+     "depth": 1.1698
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7813
+     "depth": 1.0892
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7441
+     "depth": 1.1026
     }
    }
   },
   "1452": {
-   "view_deg": 26.14,
-   "elev_deg": 2.24,
+   "view_deg": 18.19,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 1.0154
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6929
+     "depth": 1.14
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6012
+     "depth": 1.1744
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7943
+     "depth": 1.0918
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7592
+     "depth": 1.1057
     }
    }
   },
   "1464": {
-   "view_deg": 25.71,
-   "elev_deg": 2.24,
+   "view_deg": 17.91,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9725
+     "depth": 1.0165
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7258
+     "depth": 1.1477
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6438
+     "depth": 1.1842
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.8156
+     "depth": 1.0972
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7839
+     "depth": 1.112
     }
    }
   },
   "1476": {
-   "view_deg": 24.99,
-   "elev_deg": 2.24,
+   "view_deg": 17.44,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9759
+     "depth": 1.0185
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7671
+     "depth": 1.1627
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6971
+     "depth": 1.2031
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.8423
+     "depth": 1.1077
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.8148
+     "depth": 1.1243
     }
    }
   },
   "1488": {
-   "view_deg": 34.31,
+   "view_deg": 14.99,
    "elev_deg": 14.36,
    "parts": {
     "head": {
-     "foreshorten": 1.0109,
+     "foreshorten": 1.0139,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0316
+     "depth": 1.0327
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0793
+     "depth": 1.0521
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0948
+     "depth": 1.0615
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0797
+     "depth": 1.0675
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0996
+     "depth": 1.0874
     }
    }
   },
   "1500": {
-   "view_deg": 34.31,
+   "view_deg": 14.99,
    "elev_deg": 14.36,
    "parts": {
     "head": {
-     "foreshorten": 1.0109,
+     "foreshorten": 1.0139,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0316
+     "depth": 1.0327
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0793
+     "depth": 1.0521
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0948
+     "depth": 1.0615
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0797
+     "depth": 1.0675
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0996
+     "depth": 1.0874
     }
    }
   },
   "1512": {
-   "view_deg": 34.31,
+   "view_deg": 14.99,
    "elev_deg": 14.36,
    "parts": {
     "head": {
-     "foreshorten": 1.0109,
+     "foreshorten": 1.0139,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0316
+     "depth": 1.0327
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0793
+     "depth": 1.0521
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0948
+     "depth": 1.0615
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0797
+     "depth": 1.0675
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0996
+     "depth": 1.0874
     }
    }
   },
   "1524": {
-   "view_deg": 34.31,
+   "view_deg": 14.99,
    "elev_deg": 14.36,
    "parts": {
     "head": {
-     "foreshorten": 1.0109,
+     "foreshorten": 1.0139,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0316
+     "depth": 1.0327
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0793
+     "depth": 1.0521
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0948
+     "depth": 1.0615
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0797
+     "depth": 1.0675
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0996
+     "depth": 1.0874
     }
    }
   },
   "1536": {
-   "view_deg": 139.63,
-   "elev_deg": -1.47,
+   "view_deg": 102.63,
+   "elev_deg": -1.57,
    "parts": {
     "head": {
-     "foreshorten": 1.0176,
+     "foreshorten": 1.0136,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 0.9862
+     "depth": 0.9823
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9962
+     "hidden": 1,
+     "depth": 1.0057
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9934
+     "hidden": 1,
+     "depth": 1.0027
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.979
+     "depth": 0.9773
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 0.9649
     }
    }
   },
   "1548": {
-   "view_deg": 139.63,
-   "elev_deg": -1.47,
+   "view_deg": 102.63,
+   "elev_deg": -1.57,
    "parts": {
     "head": {
-     "foreshorten": 1.0176,
+     "foreshorten": 1.0136,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 0.9862
+     "depth": 0.9823
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9962
+     "hidden": 1,
+     "depth": 1.0057
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9934
+     "hidden": 1,
+     "depth": 1.0027
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.979
+     "depth": 0.9773
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 0.9649
     }
    }
   },
   "1560": {
-   "view_deg": 139.63,
-   "elev_deg": -1.47,
+   "view_deg": 102.63,
+   "elev_deg": -1.57,
    "parts": {
     "head": {
-     "foreshorten": 1.0176,
+     "foreshorten": 1.0136,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 0.9862
+     "depth": 0.9823
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9962
+     "hidden": 1,
+     "depth": 1.0057
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9934
+     "hidden": 1,
+     "depth": 1.0027
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.979
+     "depth": 0.9773
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 0.9649
     }
    }
   },
   "1572": {
-   "view_deg": 139.63,
-   "elev_deg": -1.47,
+   "view_deg": 102.63,
+   "elev_deg": -1.57,
    "parts": {
     "head": {
-     "foreshorten": 1.0176,
+     "foreshorten": 1.0136,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 0.9862
+     "depth": 0.9823
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9962
+     "hidden": 1,
+     "depth": 1.0057
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9934
+     "hidden": 1,
+     "depth": 1.0027
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.979
+     "depth": 0.9773
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 0.9649
     }
    }
   },
   "1584": {
-   "view_deg": 139.63,
-   "elev_deg": -1.47,
+   "view_deg": 102.63,
+   "elev_deg": -1.57,
    "parts": {
     "head": {
-     "foreshorten": 1.0176,
+     "foreshorten": 1.0136,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 0.9862
+     "depth": 0.9823
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9962
+     "hidden": 1,
+     "depth": 1.0057
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9934
+     "hidden": 1,
+     "depth": 1.0027
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.979
+     "depth": 0.9773
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 0.9649
     }
    }
   },
   "1596": {
-   "view_deg": 139.63,
-   "elev_deg": -1.47,
+   "view_deg": 102.63,
+   "elev_deg": -1.57,
    "parts": {
     "head": {
-     "foreshorten": 1.0176,
+     "foreshorten": 1.0136,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 0.9862
+     "depth": 0.9823
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9962
+     "hidden": 1,
+     "depth": 1.0057
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9934
+     "hidden": 1,
+     "depth": 1.0027
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.979
+     "depth": 0.9773
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9697
+     "depth": 0.9649
     }
    }
   },
   "1608": {
-   "view_deg": 26.46,
-   "elev_deg": 2.24,
+   "view_deg": 18.39,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9672
+     "depth": 1.0147
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6634
+     "depth": 1.1348
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5632
+     "depth": 1.168
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7752
+     "depth": 1.0882
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7371
+     "depth": 1.1014
     }
    }
   },
   "1620": {
-   "view_deg": 26.46,
-   "elev_deg": 2.24,
+   "view_deg": 18.39,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9672
+     "depth": 1.0147
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6634
+     "depth": 1.1348
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5632
+     "depth": 1.168
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7752
+     "depth": 1.0882
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7371
+     "depth": 1.1014
     }
    }
   },
   "1632": {
-   "view_deg": 26.46,
-   "elev_deg": 2.24,
+   "view_deg": 18.39,
+   "elev_deg": 1.49,
    "parts": {
     "head": {
-     "foreshorten": 1.0001,
+     "foreshorten": 0.9996,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9672
+     "depth": 1.0147
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6634
+     "depth": 1.1348
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5632
+     "depth": 1.168
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7752
+     "depth": 1.0882
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7371
+     "depth": 1.1014
     }
    }
   },
   "1644": {
-   "view_deg": 26.46,
-   "elev_deg": 2.24,
+   "view_deg": 18.39,
+   "elev_deg": 1.49,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9996,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0147
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.1348
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.168
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0882
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.1014
+    }
+   }
+  },
+  "1656": {
+   "view_deg": 13.33,
+   "elev_deg": 0.41,
    "parts": {
     "head": {
      "foreshorten": 1.0001,
@@ -7079,243 +7101,207 @@
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.9672
+     "depth": 1.0036
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.6634
+     "depth": 1.0616
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.5632
+     "depth": 1.0732
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7752
+     "depth": 1.0342
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 0.7371
-    }
-   }
-  },
-  "1656": {
-   "view_deg": 18.83,
-   "elev_deg": 0.61,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0002,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.0193
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.5844
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.7185
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.3191
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.3457
+     "depth": 1.0369
     }
    }
   },
   "1668": {
-   "view_deg": 18.83,
-   "elev_deg": 0.61,
+   "view_deg": 13.33,
+   "elev_deg": 0.41,
    "parts": {
     "head": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.0001,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0193
+     "depth": 1.0036
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.5844
+     "depth": 1.0616
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.7185
+     "depth": 1.0732
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3191
+     "depth": 1.0342
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3457
+     "depth": 1.0369
     }
    }
   },
   "1680": {
-   "view_deg": 18.83,
-   "elev_deg": 0.61,
+   "view_deg": 13.33,
+   "elev_deg": 0.41,
    "parts": {
     "head": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.0001,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0193
+     "depth": 1.0036
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.5844
+     "depth": 1.0616
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.7185
+     "depth": 1.0732
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3191
+     "depth": 1.0342
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3457
+     "depth": 1.0369
     }
    }
   },
   "1692": {
-   "view_deg": 18.83,
-   "elev_deg": 0.61,
+   "view_deg": 13.33,
+   "elev_deg": 0.41,
    "parts": {
     "head": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.0001,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0193
+     "depth": 1.0036
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.5844
+     "depth": 1.0616
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.7185
+     "depth": 1.0732
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3191
+     "depth": 1.0342
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3457
+     "depth": 1.0369
     }
    }
   },
   "1704": {
-   "view_deg": 18.83,
-   "elev_deg": 0.61,
+   "view_deg": 13.33,
+   "elev_deg": 0.41,
    "parts": {
     "head": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.0001,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0193
+     "depth": 1.0036
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.5844
+     "depth": 1.0616
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.7185
+     "depth": 1.0732
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3191
+     "depth": 1.0342
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3457
+     "depth": 1.0369
     }
    }
   },
   "1716": {
-   "view_deg": 18.83,
-   "elev_deg": 0.61,
+   "view_deg": 13.33,
+   "elev_deg": 0.41,
    "parts": {
     "head": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.0001,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0193
+     "depth": 1.0036
     },
     "upper_arm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.5844
+     "depth": 1.0616
     },
     "forearm": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.7185
+     "depth": 1.0732
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3191
+     "depth": 1.0342
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.3457
+     "depth": 1.0369
     }
    }
   },
@@ -7932,44 +7918,8 @@
    }
   },
   "1932": {
-   "view_deg": 172.94,
-   "elev_deg": 2.66,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0052,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9884,
-     "hidden": 0,
-     "depth": 0.9917
-    },
-    "upper_arm": {
-     "foreshorten": 0.9773,
-     "hidden": 0,
-     "depth": 1.0007
-    },
-    "forearm": {
-     "foreshorten": 0.6302,
-     "hidden": 0,
-     "depth": 1.0193
-    },
-    "thigh": {
-     "foreshorten": 0.9991,
-     "hidden": 1,
-     "depth": 0.985
-    },
-    "shin": {
-     "foreshorten": 0.5017,
-     "hidden": 0,
-     "depth": 0.9618
-    }
-   }
-  },
-  "1944": {
-   "view_deg": 172.87,
-   "elev_deg": 2.66,
+   "view_deg": 172.76,
+   "elev_deg": 2.65,
    "parts": {
     "head": {
      "foreshorten": 1.0007,
@@ -7999,13 +7949,49 @@
     "shin": {
      "foreshorten": 0.9923,
      "hidden": 1,
-     "depth": 0.9912
+     "depth": 0.9913
+    }
+   }
+  },
+  "1944": {
+   "view_deg": 172.4,
+   "elev_deg": 2.61,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9807,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9961,
+     "hidden": 0,
+     "depth": 0.9898
+    },
+    "upper_arm": {
+     "foreshorten": 0.8727,
+     "hidden": 0,
+     "depth": 0.9811
+    },
+    "forearm": {
+     "foreshorten": 1.0043,
+     "hidden": 0,
+     "depth": 0.969
+    },
+    "thigh": {
+     "foreshorten": 0.9156,
+     "hidden": 1,
+     "depth": 0.9973
+    },
+    "shin": {
+     "foreshorten": 0.8818,
+     "hidden": 0,
+     "depth": 0.9958
     }
    }
   },
   "1956": {
-   "view_deg": 172.86,
-   "elev_deg": 2.58,
+   "view_deg": 172.38,
+   "elev_deg": 2.4,
    "parts": {
     "head": {
      "foreshorten": 0.9811,
@@ -8013,291 +7999,183 @@
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9969,
+     "foreshorten": 0.9968,
      "hidden": 0,
-     "depth": 0.9901
+     "depth": 0.9908
     },
     "upper_arm": {
-     "foreshorten": 0.8609,
+     "foreshorten": 0.9867,
      "hidden": 0,
-     "depth": 0.9806
+     "depth": 0.9973
     },
     "forearm": {
-     "foreshorten": 1.0031,
+     "foreshorten": 0.9127,
      "hidden": 0,
-     "depth": 0.9677
+     "depth": 1.0078
     },
     "thigh": {
-     "foreshorten": 0.8992,
+     "foreshorten": 0.9299,
      "hidden": 1,
-     "depth": 0.9989
+     "depth": 0.9789
     },
     "shin": {
-     "foreshorten": 0.967,
+     "foreshorten": 0.902,
      "hidden": 0,
-     "depth": 1.004
+     "depth": 0.9594
     }
    }
   },
   "1968": {
-   "view_deg": 173.27,
-   "elev_deg": 2.54,
+   "view_deg": 172.71,
+   "elev_deg": 2.25,
    "parts": {
     "head": {
-     "foreshorten": 0.9801,
+     "foreshorten": 0.9798,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.995,
+     "foreshorten": 0.9943,
      "hidden": 0,
-     "depth": 0.9899
+     "depth": 0.9909
     },
     "upper_arm": {
-     "foreshorten": 0.9976,
+     "foreshorten": 0.9002,
      "hidden": 0,
-     "depth": 0.9949
+     "depth": 0.9853
     },
     "forearm": {
-     "foreshorten": 0.9492,
+     "foreshorten": 1.0069,
      "hidden": 0,
-     "depth": 1.0022
+     "depth": 0.9766
     },
     "thigh": {
-     "foreshorten": 0.9589,
+     "foreshorten": 0.9487,
      "hidden": 1,
-     "depth": 0.9793
+     "depth": 0.9947
     },
     "shin": {
-     "foreshorten": 0.9367,
-     "hidden": 0,
-     "depth": 0.9637
+     "foreshorten": 0.9872,
+     "hidden": 1,
+     "depth": 1.005
     }
    }
   },
   "1980": {
-   "view_deg": 174.13,
-   "elev_deg": 2.35,
+   "view_deg": 172.28,
+   "elev_deg": 2.31,
    "parts": {
     "head": {
-     "foreshorten": 0.9787,
+     "foreshorten": 0.9786,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9919,
+     "foreshorten": 0.9916,
      "hidden": 0,
-     "depth": 0.9902
+     "depth": 0.9903
     },
     "upper_arm": {
-     "foreshorten": 0.9499,
+     "foreshorten": 0.9823,
      "hidden": 0,
-     "depth": 0.9877
+     "depth": 0.9904
     },
     "forearm": {
-     "foreshorten": 1.0098,
+     "foreshorten": 1.0057,
      "hidden": 0,
-     "depth": 0.9822
+     "depth": 0.9885
     },
     "thigh": {
-     "foreshorten": 0.9903,
+     "foreshorten": 0.9998,
      "hidden": 1,
-     "depth": 0.9894
+     "depth": 0.9861
     },
     "shin": {
-     "foreshorten": 0.9976,
+     "foreshorten": 0.9677,
      "hidden": 1,
-     "depth": 0.9939
+     "depth": 0.9805
     }
    }
   },
   "1992": {
-   "view_deg": 174.3,
-   "elev_deg": 2.27,
+   "view_deg": -177.71,
+   "elev_deg": 2.18,
    "parts": {
     "head": {
-     "foreshorten": 0.9789,
+     "foreshorten": 1.0092,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9923,
+     "foreshorten": 0.9998,
      "hidden": 0,
-     "depth": 0.9906
+     "depth": 1
     },
     "upper_arm": {
-     "foreshorten": 0.9372,
+     "foreshorten": 0.9959,
      "hidden": 0,
-     "depth": 0.9874
+     "depth": 0.9978
     },
     "forearm": {
-     "foreshorten": 1.0095,
+     "foreshorten": 0.8872,
      "hidden": 0,
-     "depth": 0.9811
+     "depth": 1.0066
     },
     "thigh": {
-     "foreshorten": 0.9822,
+     "foreshorten": 0.9999,
      "hidden": 1,
-     "depth": 0.991
+     "depth": 0.9985
     },
     "shin": {
-     "foreshorten": 0.9086,
-     "hidden": 0,
-     "depth": 0.9864
+     "foreshorten": 0.9999,
+     "hidden": 1,
+     "depth": 0.9981
     }
    }
   },
   "2004": {
-   "view_deg": -175.03,
-   "elev_deg": 2.16,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0055,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9981
-    },
-    "upper_arm": {
-     "foreshorten": 0.9998,
-     "hidden": 0,
-     "depth": 0.995
-    },
-    "forearm": {
-     "foreshorten": 0.9688,
-     "hidden": 0,
-     "depth": 0.9996
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 0.9965
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 0.9963
-    }
-   }
-  },
-  "2016": {
-   "view_deg": -168.62,
-   "elev_deg": 2.2,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8838,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9951,
-     "hidden": 0,
-     "depth": 1.015
-    },
-    "upper_arm": {
-     "foreshorten": 0.8372,
-     "hidden": 0,
-     "depth": 1.0167
-    },
-    "forearm": {
-     "foreshorten": 0.7356,
-     "hidden": 0,
-     "depth": 1.037
-    },
-    "thigh": {
-     "foreshorten": 0.9984,
-     "hidden": 1,
-     "depth": 1.014
-    },
-    "shin": {
-     "foreshorten": 0.9984,
-     "hidden": 1,
-     "depth": 1.0115
-    }
-   }
-  },
-  "2028": {
-   "view_deg": -168.67,
+   "view_deg": -171.91,
    "elev_deg": 2.23,
    "parts": {
     "head": {
-     "foreshorten": 0.8255,
-     "hidden": 0,
+     "foreshorten": 0.8279,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9932,
+     "foreshorten": 0.9933,
      "hidden": 0,
      "depth": 1.0181
     },
     "upper_arm": {
-     "foreshorten": 0.7787,
+     "foreshorten": 0.781,
      "hidden": 0,
-     "depth": 1.0208
+     "depth": 1.0209
     },
     "forearm": {
-     "foreshorten": 0.9252,
+     "foreshorten": 0.92,
      "hidden": 0,
-     "depth": 1.0383
+     "depth": 1.0386
     },
     "thigh": {
      "foreshorten": 0.9978,
      "hidden": 1,
-     "depth": 1.0173
+     "depth": 1.0174
     },
     "shin": {
      "foreshorten": 0.9978,
-     "hidden": 0,
-     "depth": 1.0143
+     "hidden": 1,
+     "depth": 1.0144
     }
    }
   },
-  "2040": {
-   "view_deg": -168.73,
+  "2016": {
+   "view_deg": -172.47,
    "elev_deg": 2.25,
    "parts": {
     "head": {
      "foreshorten": 0.8255,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9932,
-     "hidden": 0,
-     "depth": 1.0182
-    },
-    "upper_arm": {
-     "foreshorten": 0.7787,
-     "hidden": 0,
-     "depth": 1.021
-    },
-    "forearm": {
-     "foreshorten": 0.9252,
-     "hidden": 0,
-     "depth": 1.0387
-    },
-    "thigh": {
-     "foreshorten": 0.9978,
      "hidden": 1,
-     "depth": 1.0175
-    },
-    "shin": {
-     "foreshorten": 0.9978,
-     "hidden": 0,
-     "depth": 1.0145
-    }
-   }
-  },
-  "2052": {
-   "view_deg": -168.78,
-   "elev_deg": 2.27,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8255,
-     "hidden": 0,
      "depth": 1
     },
     "torso": {
@@ -8308,12 +8186,12 @@
     "upper_arm": {
      "foreshorten": 0.7787,
      "hidden": 0,
-     "depth": 1.0212
+     "depth": 1.0213
     },
     "forearm": {
      "foreshorten": 0.9252,
      "hidden": 0,
-     "depth": 1.039
+     "depth": 1.0391
     },
     "thigh": {
      "foreshorten": 0.9978,
@@ -8322,54 +8200,18 @@
     },
     "shin": {
      "foreshorten": 0.9978,
-     "hidden": 1,
+     "hidden": 0,
      "depth": 1.0146
     }
    }
   },
-  "2064": {
-   "view_deg": -168.83,
-   "elev_deg": 2.28,
+  "2028": {
+   "view_deg": -172.86,
+   "elev_deg": 2.27,
    "parts": {
     "head": {
      "foreshorten": 0.8255,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9932,
-     "hidden": 0,
-     "depth": 1.0185
-    },
-    "upper_arm": {
-     "foreshorten": 0.7787,
-     "hidden": 0,
-     "depth": 1.0214
-    },
-    "forearm": {
-     "foreshorten": 0.9252,
-     "hidden": 0,
-     "depth": 1.0393
-    },
-    "thigh": {
-     "foreshorten": 0.9978,
      "hidden": 1,
-     "depth": 1.0178
-    },
-    "shin": {
-     "foreshorten": 0.9978,
-     "hidden": 1,
-     "depth": 1.0147
-    }
-   }
-  },
-  "2076": {
-   "view_deg": -168.85,
-   "elev_deg": 2.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8255,
-     "hidden": 0,
      "depth": 1
     },
     "torso": {
@@ -8380,17 +8222,17 @@
     "upper_arm": {
      "foreshorten": 0.7787,
      "hidden": 0,
-     "depth": 1.0215
+     "depth": 1.0214
     },
     "forearm": {
      "foreshorten": 0.9252,
      "hidden": 0,
-     "depth": 1.0395
+     "depth": 1.0394
     },
     "thigh": {
      "foreshorten": 0.9978,
      "hidden": 1,
-     "depth": 1.0179
+     "depth": 1.0178
     },
     "shin": {
      "foreshorten": 0.9978,
@@ -8399,162 +8241,162 @@
     }
    }
   },
+  "2040": {
+   "view_deg": 159.3,
+   "elev_deg": 2.29,
+   "parts": {
+    "head": {
+     "foreshorten": 0.8458,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9988,
+     "hidden": 0,
+     "depth": 1.0452
+    },
+    "upper_arm": {
+     "foreshorten": 0.7389,
+     "hidden": 0,
+     "depth": 1.0797
+    },
+    "forearm": {
+     "foreshorten": 0.9064,
+     "hidden": 1,
+     "depth": 1.1325
+    },
+    "thigh": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0466
+    },
+    "shin": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0316
+    }
+   }
+  },
+  "2052": {
+   "view_deg": 159.3,
+   "elev_deg": 2.29,
+   "parts": {
+    "head": {
+     "foreshorten": 0.8458,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9988,
+     "hidden": 0,
+     "depth": 1.0452
+    },
+    "upper_arm": {
+     "foreshorten": 0.7389,
+     "hidden": 0,
+     "depth": 1.0797
+    },
+    "forearm": {
+     "foreshorten": 0.9064,
+     "hidden": 1,
+     "depth": 1.1325
+    },
+    "thigh": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0466
+    },
+    "shin": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0316
+    }
+   }
+  },
+  "2064": {
+   "view_deg": 159.3,
+   "elev_deg": 2.29,
+   "parts": {
+    "head": {
+     "foreshorten": 0.8458,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9988,
+     "hidden": 0,
+     "depth": 1.0452
+    },
+    "upper_arm": {
+     "foreshorten": 0.7389,
+     "hidden": 0,
+     "depth": 1.0797
+    },
+    "forearm": {
+     "foreshorten": 0.9064,
+     "hidden": 1,
+     "depth": 1.1325
+    },
+    "thigh": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0466
+    },
+    "shin": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0316
+    }
+   }
+  },
+  "2076": {
+   "view_deg": 159.3,
+   "elev_deg": 2.29,
+   "parts": {
+    "head": {
+     "foreshorten": 0.8458,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9988,
+     "hidden": 0,
+     "depth": 1.0452
+    },
+    "upper_arm": {
+     "foreshorten": 0.7389,
+     "hidden": 0,
+     "depth": 1.0797
+    },
+    "forearm": {
+     "foreshorten": 0.9064,
+     "hidden": 1,
+     "depth": 1.1325
+    },
+    "thigh": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0466
+    },
+    "shin": {
+     "foreshorten": 0.9941,
+     "hidden": 1,
+     "depth": 1.0316
+    }
+   }
+  },
   "2088": {
-   "view_deg": 159.3,
-   "elev_deg": 2.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8458,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9988,
-     "hidden": 0,
-     "depth": 1.0452
-    },
-    "upper_arm": {
-     "foreshorten": 0.7389,
-     "hidden": 0,
-     "depth": 1.0797
-    },
-    "forearm": {
-     "foreshorten": 0.9064,
-     "hidden": 1,
-     "depth": 1.1325
-    },
-    "thigh": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0466
-    },
-    "shin": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0316
-    }
-   }
-  },
-  "2100": {
-   "view_deg": 159.3,
-   "elev_deg": 2.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8458,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9988,
-     "hidden": 0,
-     "depth": 1.0452
-    },
-    "upper_arm": {
-     "foreshorten": 0.7389,
-     "hidden": 0,
-     "depth": 1.0797
-    },
-    "forearm": {
-     "foreshorten": 0.9064,
-     "hidden": 1,
-     "depth": 1.1325
-    },
-    "thigh": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0466
-    },
-    "shin": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0316
-    }
-   }
-  },
-  "2112": {
-   "view_deg": 159.3,
-   "elev_deg": 2.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8458,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9988,
-     "hidden": 0,
-     "depth": 1.0452
-    },
-    "upper_arm": {
-     "foreshorten": 0.7389,
-     "hidden": 0,
-     "depth": 1.0797
-    },
-    "forearm": {
-     "foreshorten": 0.9064,
-     "hidden": 1,
-     "depth": 1.1325
-    },
-    "thigh": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0466
-    },
-    "shin": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0316
-    }
-   }
-  },
-  "2124": {
-   "view_deg": 159.3,
-   "elev_deg": 2.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.8458,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9988,
-     "hidden": 0,
-     "depth": 1.0452
-    },
-    "upper_arm": {
-     "foreshorten": 0.7389,
-     "hidden": 0,
-     "depth": 1.0797
-    },
-    "forearm": {
-     "foreshorten": 0.9064,
-     "hidden": 1,
-     "depth": 1.1325
-    },
-    "thigh": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0466
-    },
-    "shin": {
-     "foreshorten": 0.9941,
-     "hidden": 1,
-     "depth": 1.0316
-    }
-   }
-  },
-  "2136": {
    "view_deg": 12.64,
    "elev_deg": 2.89,
    "parts": {
     "head": {
      "foreshorten": 0.9839,
-     "hidden": 0.3714,
+     "hidden": 0.3611,
      "depth": 1
     },
     "torso": {
      "foreshorten": 0.9976,
-     "hidden": 0.3474,
+     "hidden": 0.3235,
      "depth": 1.0046
     },
     "upper_arm": {
@@ -8579,18 +8421,18 @@
     }
    }
   },
-  "2148": {
+  "2100": {
    "view_deg": 12.73,
    "elev_deg": 2.86,
    "parts": {
     "head": {
      "foreshorten": 0.9846,
-     "hidden": 0.4474,
+     "hidden": 0.4359,
      "depth": 1
     },
     "torso": {
      "foreshorten": 0.999,
-     "hidden": 0.3316,
+     "hidden": 0.322,
      "depth": 1.0043
     },
     "upper_arm": {
@@ -8615,7 +8457,7 @@
     }
    }
   },
-  "2160": {
+  "2112": {
    "view_deg": 13.44,
    "elev_deg": 2.92,
    "parts": {
@@ -8626,7 +8468,7 @@
     },
     "torso": {
      "foreshorten": 1.0005,
-     "hidden": 0.2976,
+     "hidden": 0.2919,
      "depth": 1.0038
     },
     "upper_arm": {
@@ -8651,7 +8493,7 @@
     }
    }
   },
-  "2172": {
+  "2124": {
    "view_deg": 14.89,
    "elev_deg": 3.23,
    "parts": {
@@ -8687,7 +8529,7 @@
     }
    }
   },
-  "2184": {
+  "2136": {
    "view_deg": 15.43,
    "elev_deg": 3.45,
    "parts": {
@@ -8723,7 +8565,7 @@
     }
    }
   },
-  "2196": {
+  "2148": {
    "view_deg": -48.43,
    "elev_deg": 2.76,
    "parts": {
@@ -8734,7 +8576,7 @@
     },
     "torso": {
      "foreshorten": 0.9982,
-     "hidden": 0.1163,
+     "hidden": 0.1196,
      "depth": 1.0025
     },
     "upper_arm": {
@@ -8759,7 +8601,7 @@
     }
    }
   },
-  "2208": {
+  "2160": {
    "view_deg": -49.78,
    "elev_deg": -2.06,
    "parts": {
@@ -8795,7 +8637,7 @@
     }
    }
   },
-  "2220": {
+  "2172": {
    "view_deg": -50.46,
    "elev_deg": -4.5,
    "parts": {
@@ -8806,7 +8648,7 @@
     },
     "torso": {
      "foreshorten": 0.9982,
-     "hidden": 0.0068,
+     "hidden": 0,
      "depth": 1.0026
     },
     "upper_arm": {
@@ -8831,7 +8673,7 @@
     }
    }
   },
-  "2232": {
+  "2184": {
    "view_deg": -24.89,
    "elev_deg": 9.34,
    "parts": {
@@ -8842,7 +8684,7 @@
     },
     "torso": {
      "foreshorten": 0.9827,
-     "hidden": 0.3943,
+     "hidden": 0.3817,
      "depth": 1.0379
     },
     "upper_arm": {
@@ -8867,7 +8709,7 @@
     }
    }
   },
-  "2244": {
+  "2196": {
    "view_deg": -24.89,
    "elev_deg": 9.34,
    "parts": {
@@ -8878,7 +8720,7 @@
     },
     "torso": {
      "foreshorten": 0.9827,
-     "hidden": 0.3941,
+     "hidden": 0.3815,
      "depth": 1.0379
     },
     "upper_arm": {
@@ -8903,7 +8745,7 @@
     }
    }
   },
-  "2256": {
+  "2208": {
    "view_deg": -24.89,
    "elev_deg": 9.34,
    "parts": {
@@ -8914,7 +8756,7 @@
     },
     "torso": {
      "foreshorten": 0.9827,
-     "hidden": 0.3911,
+     "hidden": 0.3768,
      "depth": 1.0379
     },
     "upper_arm": {
@@ -8939,7 +8781,7 @@
     }
    }
   },
-  "2268": {
+  "2220": {
    "view_deg": -24.89,
    "elev_deg": 9.34,
    "parts": {
@@ -8950,7 +8792,7 @@
     },
     "torso": {
      "foreshorten": 0.9827,
-     "hidden": 0.3969,
+     "hidden": 0.3847,
      "depth": 1.0379
     },
     "upper_arm": {
@@ -8975,435 +8817,579 @@
     }
    }
   },
-  "2280": {
-   "view_deg": -24.56,
-   "elev_deg": 16.38,
+  "2232": {
+   "view_deg": -42.26,
+   "elev_deg": 16.55,
    "parts": {
     "head": {
-     "foreshorten": 0.9972,
+     "foreshorten": 0.9986,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9877,
+     "foreshorten": 0.9946,
      "hidden": 1,
-     "depth": 1.055
+     "depth": 1.0379
     },
     "upper_arm": {
-     "foreshorten": 0.8632,
+     "foreshorten": 0.8877,
      "hidden": 1,
-     "depth": 0.9024
+     "depth": 0.862
     },
     "forearm": {
-     "foreshorten": 0.3725,
+     "foreshorten": 0.6558,
      "hidden": 1,
-     "depth": 0.7335
+     "depth": 0.7165
     },
     "thigh": {
-     "foreshorten": 0.8367,
+     "foreshorten": 0.9007,
      "hidden": 1,
-     "depth": 0.9738
+     "depth": 0.9448
     },
     "shin": {
-     "foreshorten": 0.9498,
+     "foreshorten": 0.9734,
      "hidden": 1,
-     "depth": 0.9346
+     "depth": 0.9111
+    }
+   }
+  },
+  "2244": {
+   "view_deg": -42.26,
+   "elev_deg": 16.55,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9986,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9946,
+     "hidden": 1,
+     "depth": 1.0379
+    },
+    "upper_arm": {
+     "foreshorten": 0.8877,
+     "hidden": 1,
+     "depth": 0.8619
+    },
+    "forearm": {
+     "foreshorten": 0.6558,
+     "hidden": 1,
+     "depth": 0.7164
+    },
+    "thigh": {
+     "foreshorten": 0.9007,
+     "hidden": 1,
+     "depth": 0.9448
+    },
+    "shin": {
+     "foreshorten": 0.9734,
+     "hidden": 1,
+     "depth": 0.9111
+    }
+   }
+  },
+  "2256": {
+   "view_deg": -42.25,
+   "elev_deg": 16.58,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9986,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9947,
+     "hidden": 1,
+     "depth": 1.0379
+    },
+    "upper_arm": {
+     "foreshorten": 0.8877,
+     "hidden": 1,
+     "depth": 0.8616
+    },
+    "forearm": {
+     "foreshorten": 0.6558,
+     "hidden": 1,
+     "depth": 0.7158
+    },
+    "thigh": {
+     "foreshorten": 0.9007,
+     "hidden": 1,
+     "depth": 0.9446
+    },
+    "shin": {
+     "foreshorten": 0.9734,
+     "hidden": 1,
+     "depth": 0.9108
+    }
+   }
+  },
+  "2268": {
+   "view_deg": -42.23,
+   "elev_deg": 16.66,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9986,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9947,
+     "hidden": 1,
+     "depth": 1.038
+    },
+    "upper_arm": {
+     "foreshorten": 0.8876,
+     "hidden": 1,
+     "depth": 0.8607
+    },
+    "forearm": {
+     "foreshorten": 0.6558,
+     "hidden": 1,
+     "depth": 0.7141
+    },
+    "thigh": {
+     "foreshorten": 0.9006,
+     "hidden": 1,
+     "depth": 0.9441
+    },
+    "shin": {
+     "foreshorten": 0.9735,
+     "hidden": 1,
+     "depth": 0.91
+    }
+   }
+  },
+  "2280": {
+   "view_deg": -42.2,
+   "elev_deg": 16.82,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9987,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.9948,
+     "hidden": 1,
+     "depth": 1.0382
+    },
+    "upper_arm": {
+     "foreshorten": 0.8873,
+     "hidden": 1,
+     "depth": 0.859
+    },
+    "forearm": {
+     "foreshorten": 0.6557,
+     "hidden": 1,
+     "depth": 0.7108
+    },
+    "thigh": {
+     "foreshorten": 0.9004,
+     "hidden": 1,
+     "depth": 0.943
+    },
+    "shin": {
+     "foreshorten": 0.9737,
+     "hidden": 1,
+     "depth": 0.9084
     }
    }
   },
   "2292": {
-   "view_deg": -24.56,
-   "elev_deg": 16.38,
+   "view_deg": -42.15,
+   "elev_deg": 17.09,
    "parts": {
     "head": {
-     "foreshorten": 0.9972,
+     "foreshorten": 0.9987,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9877,
+     "foreshorten": 0.995,
      "hidden": 1,
-     "depth": 1.055
+     "depth": 1.0384
     },
     "upper_arm": {
-     "foreshorten": 0.8632,
+     "foreshorten": 0.887,
      "hidden": 1,
-     "depth": 0.9024
+     "depth": 0.8561
     },
     "forearm": {
-     "foreshorten": 0.3725,
+     "foreshorten": 0.6556,
      "hidden": 1,
-     "depth": 0.7335
+     "depth": 0.7051
     },
     "thigh": {
-     "foreshorten": 0.8367,
+     "foreshorten": 0.9,
      "hidden": 1,
-     "depth": 0.9737
+     "depth": 0.9411
     },
     "shin": {
-     "foreshorten": 0.9498,
+     "foreshorten": 0.974,
      "hidden": 1,
-     "depth": 0.9345
+     "depth": 0.9056
     }
    }
   },
   "2304": {
-   "view_deg": -24.55,
-   "elev_deg": 16.41,
+   "view_deg": -42.06,
+   "elev_deg": 17.5,
    "parts": {
     "head": {
-     "foreshorten": 0.9972,
+     "foreshorten": 0.9987,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9877,
+     "foreshorten": 0.9953,
      "hidden": 1,
-     "depth": 1.0551
+     "depth": 1.0388
     },
     "upper_arm": {
-     "foreshorten": 0.8632,
+     "foreshorten": 0.8864,
      "hidden": 1,
-     "depth": 0.9021
+     "depth": 0.8517
     },
     "forearm": {
-     "foreshorten": 0.3724,
+     "foreshorten": 0.6555,
      "hidden": 1,
-     "depth": 0.7329
+     "depth": 0.6963
     },
     "thigh": {
-     "foreshorten": 0.8367,
+     "foreshorten": 0.8994,
      "hidden": 1,
-     "depth": 0.9736
+     "depth": 0.9383
     },
     "shin": {
-     "foreshorten": 0.9499,
+     "foreshorten": 0.9744,
      "hidden": 1,
-     "depth": 0.9343
+     "depth": 0.9013
     }
    }
   },
   "2316": {
-   "view_deg": -24.55,
-   "elev_deg": 16.49,
+   "view_deg": -41.99,
+   "elev_deg": 17.88,
    "parts": {
     "head": {
-     "foreshorten": 0.9973,
+     "foreshorten": 0.9988,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9878,
+     "foreshorten": 0.9955,
      "hidden": 1,
-     "depth": 1.0553
+     "depth": 1.0391
     },
     "upper_arm": {
-     "foreshorten": 0.863,
+     "foreshorten": 0.8859,
      "hidden": 1,
-     "depth": 0.9015
+     "depth": 0.8475
     },
     "forearm": {
-     "foreshorten": 0.3723,
+     "foreshorten": 0.6554,
      "hidden": 1,
-     "depth": 0.7313
+     "depth": 0.6881
     },
     "thigh": {
-     "foreshorten": 0.8365,
+     "foreshorten": 0.8989,
      "hidden": 1,
-     "depth": 0.9732
+     "depth": 0.9355
     },
     "shin": {
-     "foreshorten": 0.95,
+     "foreshorten": 0.9748,
      "hidden": 1,
-     "depth": 0.9336
+     "depth": 0.8972
     }
    }
   },
   "2328": {
-   "view_deg": -24.54,
-   "elev_deg": 16.64,
+   "view_deg": -41.94,
+   "elev_deg": 18.13,
    "parts": {
     "head": {
-     "foreshorten": 0.9973,
+     "foreshorten": 0.9988,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9879,
+     "foreshorten": 0.9957,
      "hidden": 1,
-     "depth": 1.0556
+     "depth": 1.0392
     },
     "upper_arm": {
-     "foreshorten": 0.8628,
+     "foreshorten": 0.8855,
      "hidden": 1,
-     "depth": 0.9002
+     "depth": 0.8448
     },
     "forearm": {
-     "foreshorten": 0.372,
+     "foreshorten": 0.6553,
      "hidden": 1,
-     "depth": 0.7281
+     "depth": 0.6826
     },
     "thigh": {
-     "foreshorten": 0.8362,
+     "foreshorten": 0.8986,
      "hidden": 1,
-     "depth": 0.9725
+     "depth": 0.9337
     },
     "shin": {
-     "foreshorten": 0.9502,
+     "foreshorten": 0.9751,
      "hidden": 1,
-     "depth": 0.9322
+     "depth": 0.8945
     }
    }
   },
   "2340": {
-   "view_deg": -24.53,
-   "elev_deg": 16.91,
+   "view_deg": -41.91,
+   "elev_deg": 18.28,
    "parts": {
     "head": {
-     "foreshorten": 0.9973,
+     "foreshorten": 0.9988,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9882,
+     "foreshorten": 0.9958,
      "hidden": 1,
-     "depth": 1.0562
+     "depth": 1.0393
     },
     "upper_arm": {
-     "foreshorten": 0.8623,
+     "foreshorten": 0.8853,
      "hidden": 1,
-     "depth": 0.8981
+     "depth": 0.8431
     },
     "forearm": {
-     "foreshorten": 0.3716,
+     "foreshorten": 0.6552,
      "hidden": 1,
-     "depth": 0.7227
+     "depth": 0.6794
     },
     "thigh": {
-     "foreshorten": 0.8357,
+     "foreshorten": 0.8984,
      "hidden": 1,
-     "depth": 0.9711
+     "depth": 0.9326
     },
     "shin": {
-     "foreshorten": 0.9506,
+     "foreshorten": 0.9753,
      "hidden": 1,
-     "depth": 0.9299
+     "depth": 0.8928
     }
    }
   },
   "2352": {
-   "view_deg": -24.5,
-   "elev_deg": 17.31,
+   "view_deg": -41.89,
+   "elev_deg": 18.34,
    "parts": {
     "head": {
-     "foreshorten": 0.9974,
+     "foreshorten": 0.9988,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9885,
+     "foreshorten": 0.9959,
      "hidden": 1,
-     "depth": 1.057
+     "depth": 1.0394
     },
     "upper_arm": {
-     "foreshorten": 0.8616,
+     "foreshorten": 0.8852,
      "hidden": 1,
-     "depth": 0.8947
+     "depth": 0.8423
     },
     "forearm": {
-     "foreshorten": 0.371,
+     "foreshorten": 0.6552,
      "hidden": 1,
-     "depth": 0.7143
+     "depth": 0.6779
     },
     "thigh": {
-     "foreshorten": 0.8349,
+     "foreshorten": 0.8983,
      "hidden": 1,
-     "depth": 0.9691
+     "depth": 0.932
     },
     "shin": {
-     "foreshorten": 0.9512,
+     "foreshorten": 0.9754,
      "hidden": 1,
-     "depth": 0.9262
+     "depth": 0.892
     }
    }
   },
   "2364": {
-   "view_deg": -24.48,
-   "elev_deg": 17.68,
+   "view_deg": -41.89,
+   "elev_deg": 18.36,
    "parts": {
     "head": {
-     "foreshorten": 0.9974,
+     "foreshorten": 0.9988,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9889,
+     "foreshorten": 0.9959,
      "hidden": 1,
-     "depth": 1.0578
+     "depth": 1.0394
     },
     "upper_arm": {
-     "foreshorten": 0.861,
+     "foreshorten": 0.8852,
      "hidden": 1,
-     "depth": 0.8916
+     "depth": 0.8421
     },
     "forearm": {
-     "foreshorten": 0.3704,
+     "foreshorten": 0.6552,
      "hidden": 1,
-     "depth": 0.7066
+     "depth": 0.6774
     },
     "thigh": {
-     "foreshorten": 0.8342,
+     "foreshorten": 0.8982,
      "hidden": 1,
-     "depth": 0.9671
+     "depth": 0.9319
     },
     "shin": {
-     "foreshorten": 0.9517,
+     "foreshorten": 0.9754,
      "hidden": 1,
-     "depth": 0.9227
+     "depth": 0.8918
     }
    }
   },
   "2376": {
-   "view_deg": -24.47,
-   "elev_deg": 17.93,
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
    "parts": {
     "head": {
-     "foreshorten": 0.9974,
+     "foreshorten": 1.0009,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9891,
-     "hidden": 1,
-     "depth": 1.0583
+     "foreshorten": 1.0057,
+     "hidden": 0,
+     "depth": 0.9894
     },
     "upper_arm": {
-     "foreshorten": 0.8605,
-     "hidden": 1,
-     "depth": 0.8895
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
     },
     "forearm": {
-     "foreshorten": 0.37,
-     "hidden": 1,
-     "depth": 0.7014
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
     },
     "thigh": {
-     "foreshorten": 0.8337,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 0.9657
+     "depth": 0.9707
     },
     "shin": {
-     "foreshorten": 0.9521,
-     "hidden": 1,
-     "depth": 0.9204
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
   "2388": {
-   "view_deg": -24.46,
-   "elev_deg": 18.07,
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
    "parts": {
     "head": {
-     "foreshorten": 0.9975,
+     "foreshorten": 1.0009,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9892,
-     "hidden": 1,
-     "depth": 1.0585
+     "foreshorten": 1.0057,
+     "hidden": 0,
+     "depth": 0.9894
     },
     "upper_arm": {
-     "foreshorten": 0.8603,
-     "hidden": 1,
-     "depth": 0.8883
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
     },
     "forearm": {
-     "foreshorten": 0.3698,
-     "hidden": 1,
-     "depth": 0.6983
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
     },
     "thigh": {
-     "foreshorten": 0.8334,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 0.9649
+     "depth": 0.9707
     },
     "shin": {
-     "foreshorten": 0.9523,
-     "hidden": 1,
-     "depth": 0.9189
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
   "2400": {
-   "view_deg": -24.46,
-   "elev_deg": 18.14,
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
    "parts": {
     "head": {
-     "foreshorten": 0.9975,
+     "foreshorten": 1.0009,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9893,
-     "hidden": 1,
-     "depth": 1.0587
+     "foreshorten": 1.0057,
+     "hidden": 0,
+     "depth": 0.9894
     },
     "upper_arm": {
-     "foreshorten": 0.8601,
-     "hidden": 1,
-     "depth": 0.8877
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
     },
     "forearm": {
-     "foreshorten": 0.3697,
-     "hidden": 1,
-     "depth": 0.6968
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
     },
     "thigh": {
-     "foreshorten": 0.8333,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 0.9645
+     "depth": 0.9707
     },
     "shin": {
-     "foreshorten": 0.9524,
-     "hidden": 1,
-     "depth": 0.9183
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
   "2412": {
-   "view_deg": -24.46,
-   "elev_deg": 18.16,
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
    "parts": {
     "head": {
-     "foreshorten": 0.9975,
+     "foreshorten": 1.0009,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.9893,
-     "hidden": 1,
-     "depth": 1.0587
+     "foreshorten": 1.0057,
+     "hidden": 0,
+     "depth": 0.9894
     },
     "upper_arm": {
-     "foreshorten": 0.8601,
-     "hidden": 1,
-     "depth": 0.8875
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
     },
     "forearm": {
-     "foreshorten": 0.3696,
-     "hidden": 1,
-     "depth": 0.6964
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
     },
     "thigh": {
-     "foreshorten": 0.8332,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 0.9644
+     "depth": 0.9707
     },
     "shin": {
-     "foreshorten": 0.9525,
-     "hidden": 1,
-     "depth": 0.9181
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
@@ -9480,218 +9466,218 @@
    }
   },
   "2448": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
+   "view_deg": -40.84,
+   "elev_deg": -5.81,
    "parts": {
     "head": {
-     "foreshorten": 1.0009,
-     "hidden": 0,
+     "foreshorten": 0.9649,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
+     "foreshorten": 0.7875,
+     "hidden": 1,
+     "depth": 2.0002
     },
     "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
+     "foreshorten": 1.2541,
+     "hidden": 1,
+     "depth": 1.4976
     },
     "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
+     "foreshorten": 1.0209,
+     "hidden": 1,
+     "depth": 1.4228
     },
     "thigh": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.3319,
      "hidden": 1,
-     "depth": 0.9707
+     "depth": 2.5921
     },
     "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
+     "foreshorten": 0.6345,
+     "hidden": 1,
+     "depth": 3.1207
     }
    }
   },
   "2460": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
+   "view_deg": -40.84,
+   "elev_deg": -5.81,
    "parts": {
     "head": {
-     "foreshorten": 1.0009,
-     "hidden": 0,
+     "foreshorten": 0.9649,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
+     "foreshorten": 0.7875,
+     "hidden": 1,
+     "depth": 2.0002
     },
     "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
+     "foreshorten": 1.2541,
+     "hidden": 1,
+     "depth": 1.4976
     },
     "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
+     "foreshorten": 1.0209,
+     "hidden": 1,
+     "depth": 1.4228
     },
     "thigh": {
-     "foreshorten": 1.0002,
+     "foreshorten": 1.3319,
      "hidden": 1,
-     "depth": 0.9707
+     "depth": 2.5921
     },
     "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
+     "foreshorten": 0.6345,
+     "hidden": 1,
+     "depth": 3.1207
     }
    }
   },
   "2472": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
+   "view_deg": -24.44,
+   "elev_deg": 18.47,
    "parts": {
     "head": {
-     "foreshorten": 1.0009,
+     "foreshorten": 0.9975,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
+     "foreshorten": 0.9896,
+     "hidden": 1,
+     "depth": 1.0593
     },
     "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
+     "foreshorten": 0.8596,
+     "hidden": 1,
+     "depth": 0.8848
     },
     "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
+     "foreshorten": 0.3691,
+     "hidden": 1,
+     "depth": 0.6897
     },
     "thigh": {
-     "foreshorten": 1.0002,
+     "foreshorten": 0.8326,
      "hidden": 1,
-     "depth": 0.9707
+     "depth": 0.9626
     },
     "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
+     "foreshorten": 0.9529,
+     "hidden": 1,
+     "depth": 0.9149
     }
    }
   },
   "2484": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
+   "view_deg": -24.44,
+   "elev_deg": 18.47,
    "parts": {
     "head": {
-     "foreshorten": 1.0009,
+     "foreshorten": 0.9975,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
+     "foreshorten": 0.9896,
+     "hidden": 1,
+     "depth": 1.0593
     },
     "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
+     "foreshorten": 0.8596,
+     "hidden": 1,
+     "depth": 0.8848
     },
     "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
+     "foreshorten": 0.3691,
+     "hidden": 1,
+     "depth": 0.6897
     },
     "thigh": {
-     "foreshorten": 1.0002,
+     "foreshorten": 0.8326,
      "hidden": 1,
-     "depth": 0.9707
+     "depth": 0.9626
     },
     "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
+     "foreshorten": 0.9529,
+     "hidden": 1,
+     "depth": 0.9149
     }
    }
   },
   "2496": {
-   "view_deg": -40.84,
-   "elev_deg": -5.81,
+   "view_deg": -24.44,
+   "elev_deg": 18.47,
    "parts": {
     "head": {
-     "foreshorten": 0.9649,
-     "hidden": 1,
+     "foreshorten": 0.9975,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.7875,
+     "foreshorten": 0.9896,
      "hidden": 1,
-     "depth": 2.0002
+     "depth": 1.0593
     },
     "upper_arm": {
-     "foreshorten": 1.2541,
+     "foreshorten": 0.8596,
      "hidden": 1,
-     "depth": 1.4976
+     "depth": 0.8848
     },
     "forearm": {
-     "foreshorten": 1.0209,
+     "foreshorten": 0.3691,
      "hidden": 1,
-     "depth": 1.4228
+     "depth": 0.6897
     },
     "thigh": {
-     "foreshorten": 1.3319,
+     "foreshorten": 0.8326,
      "hidden": 1,
-     "depth": 2.5921
+     "depth": 0.9626
     },
     "shin": {
-     "foreshorten": 0.6345,
+     "foreshorten": 0.9529,
      "hidden": 1,
-     "depth": 3.1207
+     "depth": 0.9149
     }
    }
   },
   "2508": {
-   "view_deg": -40.84,
-   "elev_deg": -5.81,
+   "view_deg": -24.44,
+   "elev_deg": 18.47,
    "parts": {
     "head": {
-     "foreshorten": 0.9649,
-     "hidden": 1,
+     "foreshorten": 0.9975,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.7875,
+     "foreshorten": 0.9896,
      "hidden": 1,
-     "depth": 2.0002
+     "depth": 1.0593
     },
     "upper_arm": {
-     "foreshorten": 1.2541,
+     "foreshorten": 0.8596,
      "hidden": 1,
-     "depth": 1.4976
+     "depth": 0.8848
     },
     "forearm": {
-     "foreshorten": 1.0209,
+     "foreshorten": 0.3691,
      "hidden": 1,
-     "depth": 1.4228
+     "depth": 0.6897
     },
     "thigh": {
-     "foreshorten": 1.3319,
+     "foreshorten": 0.8326,
      "hidden": 1,
-     "depth": 2.5921
+     "depth": 0.9626
     },
     "shin": {
-     "foreshorten": 0.6345,
+     "foreshorten": 0.9529,
      "hidden": 1,
-     "depth": 3.1207
+     "depth": 0.9149
     }
    }
   },
@@ -9876,150 +9862,6 @@
    }
   },
   "2580": {
-   "view_deg": -24.44,
-   "elev_deg": 18.47,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9975,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9896,
-     "hidden": 1,
-     "depth": 1.0593
-    },
-    "upper_arm": {
-     "foreshorten": 0.8596,
-     "hidden": 1,
-     "depth": 0.8848
-    },
-    "forearm": {
-     "foreshorten": 0.3691,
-     "hidden": 1,
-     "depth": 0.6897
-    },
-    "thigh": {
-     "foreshorten": 0.8326,
-     "hidden": 1,
-     "depth": 0.9626
-    },
-    "shin": {
-     "foreshorten": 0.9529,
-     "hidden": 1,
-     "depth": 0.9149
-    }
-   }
-  },
-  "2592": {
-   "view_deg": -24.44,
-   "elev_deg": 18.47,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9975,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9896,
-     "hidden": 1,
-     "depth": 1.0593
-    },
-    "upper_arm": {
-     "foreshorten": 0.8596,
-     "hidden": 1,
-     "depth": 0.8848
-    },
-    "forearm": {
-     "foreshorten": 0.3691,
-     "hidden": 1,
-     "depth": 0.6897
-    },
-    "thigh": {
-     "foreshorten": 0.8326,
-     "hidden": 1,
-     "depth": 0.9626
-    },
-    "shin": {
-     "foreshorten": 0.9529,
-     "hidden": 1,
-     "depth": 0.9149
-    }
-   }
-  },
-  "2604": {
-   "view_deg": -24.44,
-   "elev_deg": 18.47,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9975,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9896,
-     "hidden": 1,
-     "depth": 1.0593
-    },
-    "upper_arm": {
-     "foreshorten": 0.8596,
-     "hidden": 1,
-     "depth": 0.8848
-    },
-    "forearm": {
-     "foreshorten": 0.3691,
-     "hidden": 1,
-     "depth": 0.6897
-    },
-    "thigh": {
-     "foreshorten": 0.8326,
-     "hidden": 1,
-     "depth": 0.9626
-    },
-    "shin": {
-     "foreshorten": 0.9529,
-     "hidden": 1,
-     "depth": 0.9149
-    }
-   }
-  },
-  "2616": {
-   "view_deg": -24.44,
-   "elev_deg": 18.47,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9975,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 0.9896,
-     "hidden": 1,
-     "depth": 1.0593
-    },
-    "upper_arm": {
-     "foreshorten": 0.8596,
-     "hidden": 1,
-     "depth": 0.8848
-    },
-    "forearm": {
-     "foreshorten": 0.3691,
-     "hidden": 1,
-     "depth": 0.6897
-    },
-    "thigh": {
-     "foreshorten": 0.8326,
-     "hidden": 1,
-     "depth": 0.9626
-    },
-    "shin": {
-     "foreshorten": 0.9529,
-     "hidden": 1,
-     "depth": 0.9149
-    }
-   }
-  },
-  "2628": {
    "view_deg": -5.44,
    "elev_deg": 23.77,
    "parts": {
@@ -10030,7 +9872,7 @@
     },
     "torso": {
      "foreshorten": 0.958,
-     "hidden": 1,
+     "hidden": 0,
      "depth": 1.0695
     },
     "upper_arm": {
@@ -10055,7 +9897,7 @@
     }
    }
   },
-  "2640": {
+  "2592": {
    "view_deg": -5.75,
    "elev_deg": 23.01,
    "parts": {
@@ -10091,7 +9933,7 @@
     }
    }
   },
-  "2652": {
+  "2604": {
    "view_deg": -6.49,
    "elev_deg": 22.33,
    "parts": {
@@ -10124,242 +9966,242 @@
      "foreshorten": 0.8983,
      "hidden": 1,
      "depth": 1.0441
+    }
+   }
+  },
+  "2616": {
+   "view_deg": -6.49,
+   "elev_deg": 22.33,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9928,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.958,
+     "hidden": 0,
+     "depth": 1.0692
+    },
+    "upper_arm": {
+     "foreshorten": 0.9167,
+     "hidden": 1,
+     "depth": 0.9703
+    },
+    "forearm": {
+     "foreshorten": 0.3876,
+     "hidden": 1,
+     "depth": 0.8707
+    },
+    "thigh": {
+     "foreshorten": 0.8896,
+     "hidden": 1,
+     "depth": 1.0475
+    },
+    "shin": {
+     "foreshorten": 0.8983,
+     "hidden": 1,
+     "depth": 1.0441
+    }
+   }
+  },
+  "2628": {
+   "view_deg": -6.49,
+   "elev_deg": 22.33,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9928,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 0.958,
+     "hidden": 0,
+     "depth": 1.0692
+    },
+    "upper_arm": {
+     "foreshorten": 0.9167,
+     "hidden": 1,
+     "depth": 0.9703
+    },
+    "forearm": {
+     "foreshorten": 0.3876,
+     "hidden": 1,
+     "depth": 0.8707
+    },
+    "thigh": {
+     "foreshorten": 0.8896,
+     "hidden": 1,
+     "depth": 1.0475
+    },
+    "shin": {
+     "foreshorten": 0.8983,
+     "hidden": 1,
+     "depth": 1.0441
+    }
+   }
+  },
+  "2640": {
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
+   "parts": {
+    "head": {
+     "foreshorten": 1.0009,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1.0057,
+     "hidden": 0,
+     "depth": 0.9894
+    },
+    "upper_arm": {
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
+    },
+    "forearm": {
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
+    },
+    "thigh": {
+     "foreshorten": 1.0002,
+     "hidden": 1,
+     "depth": 0.9707
+    },
+    "shin": {
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
+    }
+   }
+  },
+  "2652": {
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
+   "parts": {
+    "head": {
+     "foreshorten": 1.0009,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1.0057,
+     "hidden": 0,
+     "depth": 0.9894
+    },
+    "upper_arm": {
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
+    },
+    "forearm": {
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
+    },
+    "thigh": {
+     "foreshorten": 1.0002,
+     "hidden": 1,
+     "depth": 0.9707
+    },
+    "shin": {
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
   "2664": {
-   "view_deg": -6.49,
-   "elev_deg": 22.33,
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
    "parts": {
     "head": {
-     "foreshorten": 0.9928,
+     "foreshorten": 1.0009,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.958,
+     "foreshorten": 1.0057,
      "hidden": 0,
-     "depth": 1.0692
+     "depth": 0.9894
     },
     "upper_arm": {
-     "foreshorten": 0.9167,
-     "hidden": 1,
-     "depth": 0.9703
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
     },
     "forearm": {
-     "foreshorten": 0.3876,
-     "hidden": 1,
-     "depth": 0.8707
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
     },
     "thigh": {
-     "foreshorten": 0.8896,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 1.0475
+     "depth": 0.9707
     },
     "shin": {
-     "foreshorten": 0.8983,
-     "hidden": 1,
-     "depth": 1.0441
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
   "2676": {
-   "view_deg": -6.49,
-   "elev_deg": 22.33,
+   "view_deg": -58.03,
+   "elev_deg": -5.21,
    "parts": {
     "head": {
-     "foreshorten": 0.9928,
+     "foreshorten": 1.0009,
      "hidden": 0,
      "depth": 1
     },
     "torso": {
-     "foreshorten": 0.958,
+     "foreshorten": 1.0057,
      "hidden": 0,
-     "depth": 1.0692
+     "depth": 0.9894
     },
     "upper_arm": {
-     "foreshorten": 0.9167,
-     "hidden": 1,
-     "depth": 0.9703
+     "foreshorten": 0.9694,
+     "hidden": 0,
+     "depth": 0.9719
     },
     "forearm": {
-     "foreshorten": 0.3876,
-     "hidden": 1,
-     "depth": 0.8707
+     "foreshorten": 1.0356,
+     "hidden": 0,
+     "depth": 0.9623
     },
     "thigh": {
-     "foreshorten": 0.8896,
+     "foreshorten": 1.0002,
      "hidden": 1,
-     "depth": 1.0475
+     "depth": 0.9707
     },
     "shin": {
-     "foreshorten": 0.8983,
-     "hidden": 1,
-     "depth": 1.0441
+     "foreshorten": 1.011,
+     "hidden": 0,
+     "depth": 0.9625
     }
    }
   },
   "2688": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0009,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
-    },
-    "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
-    },
-    "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
-    },
-    "thigh": {
-     "foreshorten": 1.0002,
-     "hidden": 1,
-     "depth": 0.9707
-    },
-    "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
-    }
-   }
-  },
-  "2700": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0009,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
-    },
-    "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
-    },
-    "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
-    },
-    "thigh": {
-     "foreshorten": 1.0002,
-     "hidden": 1,
-     "depth": 0.9707
-    },
-    "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
-    }
-   }
-  },
-  "2712": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0009,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
-    },
-    "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
-    },
-    "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
-    },
-    "thigh": {
-     "foreshorten": 1.0002,
-     "hidden": 1,
-     "depth": 0.9707
-    },
-    "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
-    }
-   }
-  },
-  "2724": {
-   "view_deg": -58.03,
-   "elev_deg": -5.21,
-   "parts": {
-    "head": {
-     "foreshorten": 1.0009,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1.0057,
-     "hidden": 0,
-     "depth": 0.9894
-    },
-    "upper_arm": {
-     "foreshorten": 0.9694,
-     "hidden": 0,
-     "depth": 0.9719
-    },
-    "forearm": {
-     "foreshorten": 1.0356,
-     "hidden": 0,
-     "depth": 0.9623
-    },
-    "thigh": {
-     "foreshorten": 1.0002,
-     "hidden": 1,
-     "depth": 0.9707
-    },
-    "shin": {
-     "foreshorten": 1.011,
-     "hidden": 0,
-     "depth": 0.9625
-    }
-   }
-  },
-  "2736": {
    "view_deg": 56.89,
    "elev_deg": 3.89,
    "parts": {
     "head": {
      "foreshorten": 1,
-     "hidden": 0.2899,
+     "hidden": 0.2961,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 0.022,
+     "hidden": 0.0244,
      "depth": 1.0049
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0.1515,
+     "hidden": 0.1563,
      "depth": 1.0256
     },
     "forearm": {
@@ -10379,13 +10221,13 @@
     }
    }
   },
-  "2748": {
+  "2700": {
    "view_deg": 56.89,
    "elev_deg": 3.89,
    "parts": {
     "head": {
      "foreshorten": 0.99,
-     "hidden": 0.3179,
+     "hidden": 0.2788,
      "depth": 1
     },
     "torso": {
@@ -10395,7 +10237,7 @@
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0.125,
+     "hidden": 0.1304,
      "depth": 1.0277
     },
     "forearm": {
@@ -10412,478 +10254,478 @@
      "foreshorten": 1,
      "hidden": 1,
      "depth": 1.0219
+    }
+   }
+  },
+  "2712": {
+   "view_deg": 56.89,
+   "elev_deg": 3.89,
+   "parts": {
+    "head": {
+     "foreshorten": 0.99,
+     "hidden": 0.2788,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0069
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 0.1304,
+     "depth": 1.0277
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 0.08,
+     "depth": 1.0317
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0196
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0219
+    }
+   }
+  },
+  "2724": {
+   "view_deg": 72.82,
+   "elev_deg": -0.34,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9999,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0033
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0466
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0557
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0268
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0292
+    }
+   }
+  },
+  "2736": {
+   "view_deg": 72.82,
+   "elev_deg": -0.34,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9999,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0033
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0466
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0557
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0268
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0292
+    }
+   }
+  },
+  "2748": {
+   "view_deg": 72.82,
+   "elev_deg": -0.34,
+   "parts": {
+    "head": {
+     "foreshorten": 0.9999,
+     "hidden": 0,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0033
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0466
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 0,
+     "depth": 1.0557
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0268
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.0292
     }
    }
   },
   "2760": {
-   "view_deg": 56.89,
-   "elev_deg": 3.89,
+   "view_deg": 72.82,
+   "elev_deg": -0.34,
    "parts": {
     "head": {
-     "foreshorten": 0.99,
-     "hidden": 0.3179,
+     "foreshorten": 0.9999,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 0,
-     "depth": 1.0069
+     "depth": 1.0033
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0.125,
-     "depth": 1.0277
+     "hidden": 0,
+     "depth": 1.0466
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0.08,
-     "depth": 1.0317
+     "hidden": 0,
+     "depth": 1.0557
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0196
+     "depth": 1.0268
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0219
+     "depth": 1.0292
     }
    }
   },
   "2772": {
-   "view_deg": 72.82,
-   "elev_deg": -0.34,
+   "view_deg": 0,
+   "elev_deg": 0,
    "parts": {
     "head": {
-     "foreshorten": 0.9999,
-     "hidden": 0,
+     "foreshorten": 1,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0033
+     "hidden": 1,
+     "depth": 1
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0466
+     "hidden": 1,
+     "depth": 1
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0557
+     "hidden": 1,
+     "depth": 1
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0268
+     "depth": 1
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0292
+     "depth": 1
     }
    }
   },
   "2784": {
-   "view_deg": 72.82,
-   "elev_deg": -0.34,
+   "view_deg": 0,
+   "elev_deg": 0,
    "parts": {
     "head": {
-     "foreshorten": 0.9999,
-     "hidden": 0,
+     "foreshorten": 1,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0033
+     "hidden": 1,
+     "depth": 1
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0466
+     "hidden": 1,
+     "depth": 1
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0557
+     "hidden": 1,
+     "depth": 1
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0268
+     "depth": 1
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0292
+     "depth": 1
     }
    }
   },
   "2796": {
-   "view_deg": 72.82,
-   "elev_deg": -0.34,
+   "view_deg": 0,
+   "elev_deg": 0,
    "parts": {
     "head": {
-     "foreshorten": 0.9999,
-     "hidden": 0,
+     "foreshorten": 1,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0033
+     "hidden": 1,
+     "depth": 1
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0466
+     "hidden": 1,
+     "depth": 1
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0557
+     "hidden": 1,
+     "depth": 1
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0268
+     "depth": 1
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0292
+     "depth": 1
     }
    }
   },
   "2808": {
-   "view_deg": 72.82,
-   "elev_deg": -0.34,
+   "view_deg": 0,
+   "elev_deg": 0,
    "parts": {
     "head": {
-     "foreshorten": 0.9999,
-     "hidden": 0,
+     "foreshorten": 1,
+     "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0033
+     "hidden": 1,
+     "depth": 1
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0466
+     "hidden": 1,
+     "depth": 1
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0557
+     "hidden": 1,
+     "depth": 1
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0268
+     "depth": 1
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1.0292
+     "depth": 1
     }
    }
   },
   "2820": {
-   "view_deg": 0,
-   "elev_deg": 0,
+   "view_deg": -22.62,
+   "elev_deg": -4.29,
    "parts": {
     "head": {
-     "foreshorten": 1,
-     "hidden": 1,
+     "foreshorten": 0.9894,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0071
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0045
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 0.9988
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.0036
     },
     "shin": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0019
     }
    }
   },
   "2832": {
-   "view_deg": 0,
-   "elev_deg": 0,
+   "view_deg": -22.62,
+   "elev_deg": -4.29,
    "parts": {
     "head": {
-     "foreshorten": 1,
-     "hidden": 1,
+     "foreshorten": 0.9894,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0071
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0045
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 0.9988
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.0036
     },
     "shin": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0019
     }
    }
   },
   "2844": {
-   "view_deg": 0,
-   "elev_deg": 0,
+   "view_deg": -22.62,
+   "elev_deg": -4.29,
    "parts": {
     "head": {
-     "foreshorten": 1,
-     "hidden": 1,
+     "foreshorten": 0.9894,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0071
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0045
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 0.9988
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.0036
     },
     "shin": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0019
     }
    }
   },
   "2856": {
-   "view_deg": 0,
-   "elev_deg": 0,
+   "view_deg": -22.62,
+   "elev_deg": -4.29,
    "parts": {
     "head": {
-     "foreshorten": 1,
-     "hidden": 1,
+     "foreshorten": 0.9894,
+     "hidden": 0,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0071
     },
     "upper_arm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0045
     },
     "forearm": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 0.9988
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.0036
     },
     "shin": {
      "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "hidden": 0,
+     "depth": 1.0019
     }
    }
   },
   "2868": {
-   "view_deg": -22.62,
-   "elev_deg": -4.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9894,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0071
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0045
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9988
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.0036
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0019
-    }
-   }
-  },
-  "2880": {
-   "view_deg": -22.62,
-   "elev_deg": -4.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9894,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0071
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0045
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9988
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.0036
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0019
-    }
-   }
-  },
-  "2892": {
-   "view_deg": -22.62,
-   "elev_deg": -4.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9894,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0071
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0045
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9988
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.0036
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0019
-    }
-   }
-  },
-  "2904": {
-   "view_deg": -22.62,
-   "elev_deg": -4.29,
-   "parts": {
-    "head": {
-     "foreshorten": 0.9894,
-     "hidden": 0,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0071
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0045
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 0.9988
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1.0036
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 0,
-     "depth": 1.0019
-    }
-   }
-  },
-  "2916": {
    "view_deg": -22.62,
    "elev_deg": -4.29,
    "parts": {
@@ -10919,7 +10761,7 @@
     }
    }
   },
-  "2928": {
+  "2880": {
    "view_deg": -22.62,
    "elev_deg": -4.29,
    "parts": {
@@ -10952,6 +10794,150 @@
      "foreshorten": 1,
      "hidden": 0,
      "depth": 0.9957
+    }
+   }
+  },
+  "2892": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "2904": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "2916": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "2928": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
     }
    }
   },
@@ -11100,150 +11086,6 @@
    }
   },
   "2988": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3000": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3012": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3024": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3036": {
    "view_deg": 48.43,
    "elev_deg": -0.29,
    "parts": {
@@ -11279,7 +11121,7 @@
     }
    }
   },
-  "3048": {
+  "3000": {
    "view_deg": 48.41,
    "elev_deg": -0.29,
    "parts": {
@@ -11315,7 +11157,7 @@
     }
    }
   },
-  "3060": {
+  "3012": {
    "view_deg": 48.34,
    "elev_deg": -0.3,
    "parts": {
@@ -11351,7 +11193,7 @@
     }
    }
   },
-  "3072": {
+  "3024": {
    "view_deg": 48.26,
    "elev_deg": -0.31,
    "parts": {
@@ -11387,7 +11229,7 @@
     }
    }
   },
-  "3084": {
+  "3036": {
    "view_deg": 48.17,
    "elev_deg": -0.32,
    "parts": {
@@ -11423,7 +11265,7 @@
     }
    }
   },
-  "3096": {
+  "3048": {
    "view_deg": 34.46,
    "elev_deg": 0.96,
    "parts": {
@@ -11459,7 +11301,7 @@
     }
    }
   },
-  "3108": {
+  "3060": {
    "view_deg": 34.46,
    "elev_deg": 0.96,
    "parts": {
@@ -11495,7 +11337,7 @@
     }
    }
   },
-  "3120": {
+  "3072": {
    "view_deg": 34.46,
    "elev_deg": 0.96,
    "parts": {
@@ -11531,7 +11373,7 @@
     }
    }
   },
-  "3132": {
+  "3084": {
    "view_deg": 35.34,
    "elev_deg": 1.1,
    "parts": {
@@ -11567,7 +11409,7 @@
     }
    }
   },
-  "3144": {
+  "3096": {
    "view_deg": 0,
    "elev_deg": 0,
    "parts": {
@@ -11600,148 +11442,238 @@
      "foreshorten": 1,
      "hidden": 1,
      "depth": 1
+    }
+   }
+  },
+  "3108": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "3120": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "3132": {
+   "view_deg": -13.12,
+   "elev_deg": 30.21,
+   "parts": {
+    "head": {
+     "foreshorten": 1.0012,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7194
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.1199
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7419
+    }
+   }
+  },
+  "3144": {
+   "view_deg": -13.12,
+   "elev_deg": 30.21,
+   "parts": {
+    "head": {
+     "foreshorten": 1.0012,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7194
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.1199
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7419
     }
    }
   },
   "3156": {
-   "view_deg": 0,
-   "elev_deg": 0,
+   "view_deg": -13.12,
+   "elev_deg": 30.21,
    "parts": {
     "head": {
-     "foreshorten": 1,
+     "foreshorten": 1.0012,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "depth": 1.7194
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.1199
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.7419
     }
    }
   },
   "3168": {
-   "view_deg": 0,
-   "elev_deg": 0,
+   "view_deg": -13.12,
+   "elev_deg": 30.21,
    "parts": {
     "head": {
-     "foreshorten": 1,
+     "foreshorten": 1.0012,
      "hidden": 1,
      "depth": 1
     },
     "torso": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
+     "depth": 1.7194
     },
     "thigh": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.1199
     },
     "shin": {
      "foreshorten": 1,
      "hidden": 1,
-     "depth": 1
+     "depth": 1.7419
     }
    }
   },
   "3180": {
-   "view_deg": 28.59,
-   "elev_deg": 59.49,
+   "view_deg": -13.12,
+   "elev_deg": 30.21,
    "parts": {
     "head": {
-     "foreshorten": 1.211,
+     "foreshorten": 1.0012,
      "hidden": 1,
      "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7194
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.1199
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7419
     }
    }
   },
   "3192": {
-   "view_deg": 28.59,
-   "elev_deg": 59.49,
+   "view_deg": -13.12,
+   "elev_deg": 30.21,
    "parts": {
     "head": {
-     "foreshorten": 1.211,
+     "foreshorten": 1.0012,
      "hidden": 1,
      "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7194
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.1199
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1.7419
     }
    }
   },
   "3204": {
-   "view_deg": 28.59,
-   "elev_deg": 59.49,
-   "parts": {
-    "head": {
-     "foreshorten": 1.211,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3216": {
-   "view_deg": 28.59,
-   "elev_deg": 59.49,
-   "parts": {
-    "head": {
-     "foreshorten": 1.211,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3228": {
-   "view_deg": 28.59,
-   "elev_deg": 59.49,
-   "parts": {
-    "head": {
-     "foreshorten": 1.211,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3240": {
-   "view_deg": 28.59,
-   "elev_deg": 59.49,
-   "parts": {
-    "head": {
-     "foreshorten": 1.211,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3252": {
    "view_deg": 176.85,
    "elev_deg": 7.08,
    "parts": {
@@ -11777,7 +11709,7 @@
     }
    }
   },
-  "3264": {
+  "3216": {
    "view_deg": 177.21,
    "elev_deg": 6.1,
    "parts": {
@@ -11813,7 +11745,7 @@
     }
    }
   },
-  "3276": {
+  "3228": {
    "view_deg": 177.49,
    "elev_deg": 5.23,
    "parts": {
@@ -11849,7 +11781,7 @@
     }
    }
   },
-  "3288": {
+  "3240": {
    "view_deg": 177.72,
    "elev_deg": 4.75,
    "parts": {
@@ -11882,6 +11814,150 @@
      "foreshorten": 0.9971,
      "hidden": 1,
      "depth": 1.012
+    }
+   }
+  },
+  "3252": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "3264": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "3276": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    }
+   }
+  },
+  "3288": {
+   "view_deg": 0,
+   "elev_deg": 0,
+   "parts": {
+    "head": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "torso": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "upper_arm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "forearm": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "thigh": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
+    },
+    "shin": {
+     "foreshorten": 1,
+     "hidden": 1,
+     "depth": 1
     }
    }
   },
@@ -12066,150 +12142,6 @@
    }
   },
   "3360": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3372": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3384": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3396": {
-   "view_deg": 0,
-   "elev_deg": 0,
-   "parts": {
-    "head": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "torso": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "upper_arm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "forearm": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "thigh": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    },
-    "shin": {
-     "foreshorten": 1,
-     "hidden": 1,
-     "depth": 1
-    }
-   }
-  },
-  "3408": {
    "view_deg": 0,
    "elev_deg": 0,
    "parts": {
