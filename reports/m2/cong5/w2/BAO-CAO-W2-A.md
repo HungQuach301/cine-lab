@@ -91,3 +91,37 @@ Rủi ro còn lại:
   - s44–s47 (264 khung): (c) đá lát ngõ; cảnh 6 dời mốc.
   - s43, s45c, s48 chỉ dời mốc, hình không đổi.
 - **Ước thời gian chạy:** bộ tường 2,45 s/khung, bộ phố/hốc 1,1 s/khung, ngõ 0,95 s/khung → ≈ 1234 + 185 + 630 + 100 + 250 ≈ **40 phút**, chưa kể thời gian chờ hàng đợi.
+
+# Giai đoạn C2 — render đầy đủ với mặt Ida A-α (sheet v1.4)
+Đã merge nhánh tích hợp @b378416; P đã sửa lỗi cú pháp s46 của tôi. Bài học: sau lần sửa cuối phải probe lại (và `node --check`) trước khi commit.
+
+**Phơi sáng cận mặt:** theo bảng W3. Tỷ lệ cháy mặt đo trên probe là % điểm ảnh có kênh ≥ 250 trong vùng mặt.
+| Shot | Chỉnh | Cháy mặt |
+|---|---|---|
+| s31 | phơi sáng 1,0 → 0,45 | 0,07 % |
+| s36 | EK 2,0 → 1,3 | 0,52 % |
+| s37 | EK 2,0 → 1,3 | 0,61 % |
+| s39 | EK 1,0 → 0,8 | 0,15 % |
+
+- Các shot cận mặt đều ≤ 3 %. Nền không quá tối nên giữ nguyên bảng W3.
+- `shadowLamps: [11]` cho faceShot: **dùng**. Bóng vành mũ thật rơi lên trán. Nền sau L11 tối nên bóng đầu không lọt khung ở s36, s37, s39.
+- s37: máy lệch +10° (trước −10°). Thanh thang không còn sáng ở mép trái; chỉ còn một đoạn tối nhỏ ở góc dưới trái.
+
+**Render:** 3 nhóm qua hàng đợi, 1956 khung. Tất cả 29 shot đều render lại, vì mặt và tóc mới xuất hiện ở mọi shot có Ida và mốc thời gian đã dời. Số liệu từ `log.tsv`:
+| Nhóm | Khung | Chờ | Chạy | s/khung |
+|---|---|---|---|---|
+| c2-canh4 (s25–s32) | 504 | 713 s | 1067 s | 2,12 |
+| c2-canh5 (s33–s42) | 972 | 427 s | 1280 s | 1,32 |
+| c2-canh6 (s43–s48) | 480 | 0 s | 465 s | 0,97 |
+
+- Tệp timing ở `/var/tmp/cine-out/W2/full/`:
+  - `timing_s25-s26-s27-s28-s29-s30-s31-s32.json`
+  - `timing_s33-s34-s35-s36-s37-s37w-s38-s39-s40-s40w-s41-s42a-s42b-s42.json`
+  - `timing_s43-s44-s45-s45c-s46-s47-s48.json`
+- Bản render giai đoạn D (s27, s33, … theo mốc cũ) đã chuyển vào `full/cu_giai-doan-D/` để không lẫn khi ghép.
+- **Làm lại: 0.** Đã xem thumbs a/b/c cả 29 shot; không lỗi mới.
+
+**Ảnh 4 kiểm mù:** khung toàn cục **2531** (105,46 s, khung 59 của s39), giữa cụm "keep a little dark for the ones who need it" (103,87–107,08 s).
+- Trong video nhóm canh5 là khung thứ 611 (đếm từ 0).
+- Ảnh: `anh4_s39_khung2531.jpg`. Máy tĩnh, mặt gần chính diện, vành mũ đổ bóng lên trán.
+- Khung 2506 báo ở A2 cũng nằm trong câu (104,42 s) nhưng gần đầu cụm hơn.
