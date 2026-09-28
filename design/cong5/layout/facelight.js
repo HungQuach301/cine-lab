@@ -27,7 +27,7 @@
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 
 export const FACE_LIGHT_PRESETS = {
-  gas:     { fill: { color: '#d9ad8a', ratio: 0.20, dist: 1.0, elev: 12, side: 1 }, under: { color: '#b58068', ratio: 0.12, dist: 0.7 }, rim: { color: '#8c96d0', ratio: 0.22, dist: 0.8, elev: 40 } },
+  gas:     { fill: { color: '#d9ad8a', ratio: 0.20, dist: 1.0, elev: 12, side: 1 }, under: { color: '#b58068', ratio: 0.04, dist: 0.7 }, rim: { color: '#8c96d0', ratio: 0.22, dist: 0.8, elev: 40 } },
   lantern: { fill: { color: '#e0b48c', ratio: 0.45, dist: 1.0, elev: 38, side: 1 }, under: { color: '#b58068', ratio: 0.06, dist: 0.7 }, rim: { color: '#ffb872', ratio: 0.25, dist: 0.8, elev: 35 } },
   elec:    { fill: { color: '#e8ecf4', ratio: 0.12, dist: 1.0, elev: 20, side: -1 }, under: { color: '#bdb6b0', ratio: 0.08, dist: 0.7 }, rim: { color: '#ffb872', ratio: 0.0, dist: 0.8, elev: 30 } },
 };

@@ -50,17 +50,29 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   const X = o.mesh ? { ...XE, browIn: N0.browIn, browOut: N0.browOut, knit: N0.knit, corner: N0.corner, lidDrop: N0.lidDrop } : XE;
   const cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'); const R = rng(seed);
   g.fillStyle = '#ffffff'; g.fillRect(0, 0, N, N);
-  const both = (pts, ...a) => { stroke(g, R, pts, ...a); stroke(g, R, mir(pts), ...a); };
+  let symK = 0;   // bước 3 (A-α): nét đôi ĐỐI XỨNG thật (cùng dãy ngẫu nhiên hai bên) — rung ngẫu nhiên riêng từng bên làm hai mày/mắt khác nhau
+  const both = (pts, ...a) => { if (o.aa && isIda) { const k = 9000 + symK++; stroke(g, rng(k), pts, ...a); stroke(g, rng(k), mir(pts), ...a); } else { stroke(g, R, pts, ...a); stroke(g, R, mir(pts), ...a); } };
   const fill = (pts, color, alpha) => { g.fillStyle = `rgba(${color},${alpha})`; g.beginPath(); pts.forEach(([x, y], k) => (k ? g.lineTo(px(x), py(y)) : g.moveTo(px(x), py(y)))); g.closePath(); g.fill(); };
   // 1) Lớp da: vệt cọ rất nhạt theo cơ mặt (phá chất "sáp").
   for (let i = 0; i < 260; i++) {
     const x = (R() - 0.5) * 0.56, y = 0.18 + R() * 0.72, a = (x > 0 ? 1 : -1) * (0.4 + R() * 0.5), l = 0.03 + R() * 0.05;
-    const warm = R() < 0.6; stroke(g, R, [[x, y], [x + Math.cos(a) * l, y - Math.sin(a) * l * 0.6]], 5 + R() * 7, warm ? '214,160,140' : '190,160,160', 0.05 + R() * 0.05, 0.4);
+    const warm = R() < 0.6; stroke(g, R, [[x, y], [x + Math.cos(a) * l, y - Math.sin(a) * l * 0.6]], 5 + R() * 7, warm ? '214,160,140' : '190,160,160', (o.aa && isIda ? 0.4 : 1) * (0.05 + R() * 0.05), 0.4);   // A-α: vệt cọ nhạt hơn (từng thành vết xám trên má)
+  }
+  const AA = !!o.aa && isIda;   // A-α (bước 2): da có SẮC ĐỘ, ít nét nhăn, mày mềm dày, môi có hình
+  if (AA) {   // chuyển sắc ấm/lạnh: thái dương, cằm, quanh miệng hơi lạnh; trán vàng nhẹ; loang màu mềm (phá chất sáp)
+    for (let i = 0; i < 90; i++) { const x = (R() - 0.5) * 0.6, y = 0.12 + R() * 0.8, w = R();
+      blot(g, x, y, 0.04 + R() * 0.06, w < 0.45 ? '246,214,198' : w < 0.8 ? '226,216,222' : '244,230,204', 0.07 + R() * 0.06); }
+    for (const s of [1, -1]) blot(g, s * 0.30, 0.58, 0.09, '196,196,214', 0.22);        // thái dương lạnh
+    blot(g, 0, 0.12, 0.10, '204,198,208', 0.20);                                         // cằm hơi lạnh
+    blot(g, 0, 0.80, 0.14, '240,222,190', 0.14);                                         // trán vàng nhẹ
+    for (const s of [1, -1]) blot(g, s * 0.15, 0.51, 0.055, '196,160,168', 0.22);        // bước 3: quầng dưới mắt (tuổi) — sắc độ, không nét
+    const Rs = rng(seed + 55); for (let i = 0; i < 14; i++) { const sx = Rs() < 0.5 ? 1 : -1; blot(g, sx * (0.12 + Rs() * 0.2), 0.3 + Rs() * 0.5, 0.006 + Rs() * 0.007, '186,146,120', 0.14 + Rs() * 0.1); }   // đồi mồi nhạt
+    for (const s of [1, -1]) blot(g, s * 0.2, 0.26, 0.08, '222,184,176', 0.14);          // má chùng hơi sậm dưới
   }
   // 2) Sắc độ: má ấm thấp và rộng (V5: bỏ mảng tím hốc mắt — cộng bóng khối thành "vết bầm"), mũi đỏ nhẹ.
-  for (const s of [1, -1]) blot(g, s * (isIda ? 0.18 : 0.19), isIda ? 0.36 : 0.33, isIda ? 0.09 : 0.085, '226,130,124', isIda ? 0.34 : 0.26);
+  for (const s of [1, -1]) blot(g, s * (isIda ? (AA ? 0.17 : 0.18) : 0.19), isIda ? (AA ? 0.39 : 0.36) : 0.33, isIda ? (AA ? 0.11 : 0.09) : 0.085, AA ? '240,160,150' : '226,130,124', isIda ? (AA ? 0.30 : 0.34) : 0.26);   // A-α: má hồng nhạt, cao, rộng (không mảng tối)
   if (isIda) for (const s of [1, -1]) blot(g, s * 0.25, 0.47, 0.07, '246,210,190', 0.22);      // nâng sáng ấm vùng sau gò má
-  blot(g, 0, isIda ? 0.44 : 0.38, 0.045, '220,140,130', 0.16);
+  blot(g, 0, isIda ? 0.44 : 0.38, AA ? 0.06 : 0.045, AA ? '236,150,140' : '220,140,130', AA ? 0.24 : 0.16);   // mũi ấm
   // 3) Mắt: nét mi trên đậm (hạ theo lidDrop), mí dưới, nếp mí; Ida đuôi mắt cụp.
   const ex = E[0], ey = E[1] - X.lidDrop, er = isIda ? 0.06 : 0.066;
   both([[ex - er, ey + 0.004], [ex - er * 0.3, ey + (isIda ? 0.016 : 0.028)], [ex + er * 0.4, ey + (isIda ? 0.014 : 0.026)], [ex + er * 1.05, ey - (isIda ? 0.006 : 0.0)], [ex + er * 1.35, ey + (isIda ? 0.008 : 0.0)]], isIda ? 6.5 : 5, '40,24,24', 0.95, 0.12);
@@ -68,27 +80,32 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   if (X.wet > 0) { both([[ex - er * 0.7, ey - 0.03], [ex, ey - 0.037], [ex + er * 0.7, ey - 0.029]], 2.2, '200,110,110', 0.35 * X.wet, 0.1);   // viền mi dưới đỏ
     for (const s of [1, -1]) blot(g, s * (ex + er * 0.1), ey - 0.03, 0.006, '255,255,255', 0.6 * X.wet); }                               // ngấn nước
   if (isIda) {
-    both([[ex - er * 0.9, ey + 0.034], [ex, ey + 0.045], [ex + er, ey + 0.024]], 3.4, '118,78,72', 0.65, 0.2);                           // nếp da trên mí
-    for (const k of [0, 1]) both([[ex - er * 0.7, ey - 0.048 - k * 0.016], [ex, ey - 0.056 - k * 0.018], [ex + er * 0.8, ey - 0.044 - k * 0.014]], 2, '125,82,78', 0.55, 0.25);   // nếp dưới mắt (nét, không mảng)
-    for (const a of [-0.55, -0.25, 0.05, 0.35]) both([[ex + er * 1.05, ey - 0.004], [ex + er * 1.05 + 0.055 * Math.cos(a), ey - 0.004 + 0.055 * Math.sin(a)]], 1.8, '118,76,72', 0.7, 0.3);   // chân chim
+    both([[ex - er * 0.9, ey + 0.034], [ex, ey + 0.045], [ex + er, ey + 0.024]], AA ? 5 : 3.4, '118,78,72', AA ? 0.26 : 0.65, AA ? 0.08 : 0.2);        // nếp da trên mí
+    if (AA) { both([[ex - er * 0.6, ey - 0.05], [ex, ey - 0.058], [ex + er * 0.7, ey - 0.047]], 4, '150,104,98', 0.22, 0.3);          // A-α: một nếp dưới mắt, mềm
+      for (const a of [-0.3, 0.15]) both([[ex + er * 1.1, ey - 0.004], [ex + er * 1.1 + 0.045 * Math.cos(a), ey - 0.004 + 0.045 * Math.sin(a)]], 3, '140,96,90', 0.28, 0.3); }   // hai vết chân chim mềm
+    else for (const k of [0, 1]) both([[ex - er * 0.7, ey - 0.048 - k * 0.016], [ex, ey - 0.056 - k * 0.018], [ex + er * 0.8, ey - 0.044 - k * 0.014]], 2, '125,82,78', 0.55, 0.25);   // nếp dưới mắt (nét, không mảng)
+    if (!AA) for (const a of [-0.55, -0.25, 0.05, 0.35]) both([[ex + er * 1.05, ey - 0.004], [ex + er * 1.05 + 0.055 * Math.cos(a), ey - 0.004 + 0.055 * Math.sin(a)]], 1.8, '118,76,72', 0.7, 0.3);   // chân chim
   }
   // 4) Lông mày: cung mảnh có hình (Ida: xám bạc, cong nữ tính); biểu cảm nâng đầu trong / kéo vào.
   const bw = isIda ? '96,88,88' : '90,64,52';
   const browPts = (isIda ? [[0.045, 0.655], [0.12, 0.676], [0.19, 0.668], [0.235, 0.64]] : [[0.055, 0.60], [0.13, 0.607], [0.215, 0.586]]).map(([x, y], k, a) => {
     const t = k / (a.length - 1); return [x - X.knit * (1 - t), y + X.browIn * (1 - t) + X.browOut * t]; });
-  both(browPts, isIda ? 7 : 7, bw, 0.95, 0.3);
+  if (AA) { both(browPts, 12, '140,128,124', 0.55, 0.3); both(browPts.map(([x, y]) => [x, y - 0.004]), 7, '110,100,98', 0.6, 0.35); }   // A-α: mày dày, mềm (hai lớp, không một nét bút)
+  else both(browPts, isIda ? 7 : 7, bw, 0.95, 0.3);
   if (XE.knit > 0.003) for (const s of [1, -1]) stroke(g, R, [[s * 0.022, 0.655], [s * 0.026, 0.625]], 2, '140,95,88', 0.45 * XE.knit / 0.01, 0.2);   // nếp dọc giữa mày
   // 5) Mũi: bóng cánh mũi và lỗ mũi — vẽ, không khắc sâu.
   for (const s of [1, -1]) blot(g, s * 0.03, isIda ? 0.40 : 0.354, 0.016, '120,70,64', 0.45);
   // 6) Miệng: môi có hình (cung Cupid, môi dưới đầy hơn), khe môi mềm; mím (press) làm môi mỏng; khoé theo biểu cảm.
-  const my = isIda ? 0.267 : 0.256, mw = isIda ? 0.098 : 0.066, c = X.corner, thin = (1 - 0.55 * X.press) * (isIda ? 0.62 : 1);
+  const my = isIda ? 0.267 : 0.256, mw = isIda ? 0.098 : 0.066, c = X.corner, thin = (1 - 0.55 * X.press) * (isIda ? (o.aa ? 0.95 : 0.62) : 1);   // A-α: môi đầy hơn
   if (isIda) {
     fill([[-mw, my + c * 0.25], [-0.055, my + 0.014 * thin + c * 0.3], [-0.014, my + 0.02 * thin], [0, my + 0.016 * thin], [0.014, my + 0.02 * thin], [0.055, my + 0.014 * thin + c * 0.3], [mw, my + c * 0.25], [0, my + 0.002]], '160,88,90', 0.62);   // môi trên
     fill([[-mw * 0.92, my + c * 0.25], [0, my - 0.001], [mw * 0.92, my + c * 0.25], [0.06, my - 0.02 * thin + c * 0.3], [0, my - 0.026 * thin], [-0.06, my - 0.02 * thin + c * 0.3]], '172,100,100', 0.55);   // môi dưới
     stroke(g, R, [[-0.045, my - 0.02 * thin], [0, my - 0.027 * thin], [0.045, my - 0.02 * thin]], 2, '240,190,176', 0.35, 0.1);                  // sáng mép môi dưới
-    for (const x of [-0.035, -0.018, 0.018, 0.035]) stroke(g, R, [[x, my + 0.03], [x * 1.05, my + 0.05]], 1.5, '130,86,80', 0.5, 0.2);   // nếp dọc môi trên (tuổi)
+    if (!o.aa) for (const x of [-0.035, -0.018, 0.018, 0.035]) stroke(g, R, [[x, my + 0.03], [x * 1.05, my + 0.05]], 1.5, '130,86,80', 0.5, 0.2);   // nếp dọc môi trên (tuổi; A-α bỏ)
+    if (o.aa) { blot(g, 0, my - 0.016, 0.04, '255,236,226', 0.35); blot(g, 0, my - 0.03, 0.05, '150,96,96', 0.18); }   // A-α: môi dưới có khối (sáng giữa, bóng dưới môi)
   } else { blot(g, 0, my + 0.018, 0.058, '200,120,115', 0.28); blot(g, 0, my - 0.018, 0.05, '205,130,120', 0.30); }
-  stroke(g, R, [[-mw, my + c], [-mw * 0.45, my + 0.002 + c * 0.35], [0, my], [mw * 0.45, my + 0.002 + c * 0.35], [mw, my + c]], 3.4, '80,38,40', 0.8, 0.12);
+  stroke(g, R, [[-mw, my + c], [-mw * 0.45, my + 0.002 + c * 0.35], [0, my], [mw * 0.45, my + 0.002 + c * 0.35], [mw, my + c]], o.aa && isIda ? 3 : 3.4, '80,38,40', o.aa && isIda ? 0.62 : 0.8, 0.12);
+  if (o.aa && isIda) for (const s2 of [1, -1]) blot(g, s2 * (mw + 0.004), my + c, 0.012, '110,60,60', 0.35);   // khoé môi
   if (X.smile > 0) { both([[ex - er * 0.8, ey - 0.022], [ex, ey - 0.03], [ex + er * 0.9, ey - 0.02]], 3, '130,80,76', 0.55 * X.smile, 0.15);   // mí dưới nâng (cười thật)
     for (const s of [1, -1]) blot(g, s * 0.17, 0.43, 0.06, '205,120,112', 0.18 * X.smile); }                                                          // gò má nâng, ửng
   if (X.smile > 0) both([[mw - 0.004, my + c + 0.03], [mw + 0.012, my + c + 0.004], [mw + 0.006, my + c - 0.02]], 3, '130,82,76', 0.6 * X.smile, 0.15);   // ngoặc cười ở khoé   // nếp má khi cười
@@ -97,14 +114,14 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   // 7) Tuổi (Ida): nếp trán (biểu cảm buồn: cong lên giữa), rãnh mũi–má rõ, rãnh khoé miệng xuống cằm, đồi mồi. Cas: tàn nhang.
   if (isIda) {
     const lift = o.mesh ? XE.browIn : XE.browIn * 1.5;   // lưới đã nâng trán giữa 0,5·browIn
-    for (const yy of [0.735, 0.772, 0.808]) for (const s of [1, -1]) stroke(g, R, [[s * 0.02, yy + lift], [s * 0.12, yy + 0.004 + lift * 0.3], [s * 0.24, yy - 0.006]], 2.6, '130,88,82', 0.5, 0.3);
+    for (const yy of (AA ? [0.745, 0.79] : [0.735, 0.772, 0.808])) for (const s of [1, -1]) stroke(g, R, [[s * 0.02, yy + lift], [s * 0.12, yy + 0.004 + lift * 0.3], [s * 0.24, yy - 0.006]], AA ? 4 : 2.6, '130,88,82', AA ? 0.22 : 0.5, 0.3);   // A-α: 2 nếp trán mềm
     // Cổng 5 (W3, A1 mục 2): rãnh mũi–má và rãnh khoé miệng từng là HAI NÉT MẢNH, ĐẬM nối nhau ở khoé miệng → một vệt liền từ cánh mũi xuống cằm,
     // ở góc chính diện đọc thành "vết nứt" (kiểm mù lần 3, q9). Nay: rãnh mũi–má là DẢI BÓNG MỀM (cọ to, nhạt) dừng TRÊN khoé miệng, có vệt sáng
     // ấm ở phía má (má sệ phủ lên rãnh — khối, không phải đường); rãnh khoé miệng ngắn, nhạt, bắt đầu dưới khoé và tắt trước cằm → có khe giữa hai rãnh.
     both([[0.066, 0.435], [0.09, 0.37], [0.108, 0.318]], 11, '150,96,88', 0.26, 0.35);                       // rãnh mũi–má: dải bóng mềm
-    both([[0.072, 0.425], [0.094, 0.37], [0.109, 0.33]], 4, '130,84,78', 0.22, 0.25);                        //   lõi rãnh rất nhạt (vẫn đọc tuổi)
+    if (!AA) both([[0.072, 0.425], [0.094, 0.37], [0.109, 0.33]], 4, '130,84,78', 0.22, 0.25);                        //   lõi rãnh rất nhạt (A-α bỏ: chỉ dải bóng mềm)
     both([[0.095, 0.43], [0.12, 0.365], [0.134, 0.32]], 10, '250,222,204', 0.16, 0.35);                      //   má sệ phía ngoài rãnh bắt sáng
-    both([[mw + 0.014, my - 0.03], [0.106, 0.205], [0.108, 0.175]], 7, '150,100,92', 0.18, 0.35);           // rãnh khoé miệng: ngắn, nhạt, tắt trước cằm
+    if (!AA) both([[mw + 0.014, my - 0.03], [0.106, 0.205], [0.108, 0.175]], 7, '150,100,92', 0.18, 0.35);           // rãnh khoé miệng: ngắn, nhạt, tắt trước cằm (A-α bỏ)
     // tóc bạc chải ngược ở thái dương, lộ dưới vành mũ (nhân màu nên dùng xám lạnh)
     // Cổng 5 (W3): nét tóc vẽ chỉ còn sát chân tóc (y ≥ 0,70) — phần kéo xuống 0,6 chiếu lên má ở góc nghiêng, đọc như vết xước
     for (let k = 0; k < 16; k++) for (const s of [1, -1]) { const o = k * 0.006; stroke(g, R, [[s * (0.29 + o), 0.84], [s * (0.32 + o), 0.77], [s * (0.34 + o * 0.8), 0.71]], 2.2, '150,150,160', 0.3, 0.5); }
@@ -115,9 +132,18 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; t.needsUpdate = true;
   // Lớp phát sáng (emissive): texture nhân màu không làm sáng hơn da được → ánh ướt mi dưới, nước mắt vẽ ở đây (đen = không phát).
   const cg = document.createElement('canvas'); cg.width = cg.height = N; const gg = cg.getContext('2d'); gg.fillStyle = '#000'; gg.fillRect(0, 0, N, N);
-  if (X.wet > 0) for (const s2 of [1, -1]) stroke(gg, R, [[s2 * (ex - er * 0.6), ey - 0.031], [s2 * ex, ey - 0.036], [s2 * (ex + er * 0.6), ey - 0.03]], 2.2, '255,236,220', 0.8 * X.wet, 0.05);
+  const wetA = o.aa && isIda ? Math.max(X.wet, 0.4) : X.wet;   // bước 3: mí dưới luôn có viền ẩm nhẹ (mắt 'búp bê' khô)
+  if (wetA > 0) for (const s2 of [1, -1]) stroke(gg, R, [[s2 * (ex - er * 0.6), ey - 0.031], [s2 * ex, ey - 0.036], [s2 * (ex + er * 0.6), ey - 0.03]], 2.2, '255,236,220', 0.8 * wetA, 0.05);
   if (X.tear > 0) stroke(gg, R, [[-(ex - er * 0.55), ey - 0.04], [-(ex - er * 0.7), ey - 0.09], [-(ex - er * 0.6), ey - 0.15]], 3, '255,230,210', 0.55 * X.tear, 0.1);   // một giọt nước mắt má phải
   const tg = new THREE.CanvasTexture(cg); tg.colorSpace = THREE.SRGBColorSpace; tg.needsUpdate = true; t.userData = { glint: tg };
+  if (o.aa && isIda) {   // bước 3: cao độ da mịn (lỗ chân lông, gợn da mỏng tuổi già ở má–dưới mắt–cằm) — phá chất sáp, KHÔNG thêm nét nhăn
+    const cb = document.createElement('canvas'); cb.width = cb.height = N; const gb = cb.getContext('2d'); const Rb = rng(seed + 101);
+    gb.fillStyle = 'rgb(128,128,128)'; gb.fillRect(0, 0, N, N);
+    for (let i = 0; i < 12000; i++) { const x = (Rb() - 0.5) * 0.8, y = 0.02 + Rb() * 0.9, v = Rb() < 0.55 ? '0,0,0' : '255,255,255';
+      gb.fillStyle = `rgba(${v},${0.05 + Rb() * 0.07})`; gb.beginPath(); gb.arc(px(x), py(y), 0.8 + Rb() * 1.6, 0, Math.PI * 2); gb.fill(); }
+    for (let i = 0; i < 260; i++) { const sx = Rb() < 0.5 ? 1 : -1, x = sx * (0.05 + Rb() * 0.25), y = 0.08 + Rb() * 0.45, a = (Rb() - 0.5) * 0.8;   // gợn da mỏng (ngắn, mờ, theo chiều chảy xệ)
+      stroke(gb, Rb, [[x, y], [x + Math.sin(a) * 0.025, y - Math.cos(a) * 0.025]], 2, '0,0,0', 0.06, 0.3); }
+    const tb = new THREE.CanvasTexture(cb); tb.colorSpace = THREE.NoColorSpace; tb.needsUpdate = true; t.userData.bump = tb; }
   return t;
 }
 

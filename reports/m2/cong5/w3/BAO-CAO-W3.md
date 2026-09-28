@@ -224,3 +224,106 @@ Hình đầu: 6 vòng (khối đầu → giảm cục → bỏ khối dưới c�
 
 ## A3.9 File
 Sửa: `design/cong3/v2/char3d/cast3d.js` (A3: `IDA_LOWER_FACE`, hình đầu, biến dạng, cổ áo `A3C`, cổ, tai, khuyên, lọn tóc bó sợi, bump), `design/cong3/v2/char3d/facepaint.js` (`paintBump`, `EXPR.asym`, má hồng A3), `design/cong5/layout/facelight.js` (`FACE_PAINT`), `design/cong5/mat/page_layout_fl.js` (ghi đè biểu cảm, `charOpts`, `cam`, `K`, `paint`, `shadowKey`, `idaDy`, `hide` — chỉ để thử). Thêm: `design/cong5/mat/run_a3.sh`, `a3/*/face_ida.timing.json`, `a3/thoi-gian.txt`, JPEG A3. Không sửa `PLAN.md`, `bible/`, `ida.json`, `checks/`. `RIGHTS.md`: không có tài sản mới.
+
+---
+
+# A-α — cách điệu mặt–cổ (quyết định chủ dự án sau Cổng 5; A3 không dùng, lưu ở `a3-ma-nguon.patch`)
+
+Làm theo từng bước; cuối mỗi bước 1 ảnh `neutral` (khung phim thật s37), P kiểm mù rồi gửi lại. Worktree đã `reset --hard` về nhánh tích hợp @633a217 (có A1 + layout + facelight trong s36/s37/s39 của W2 + làn nhanh hàng đợi).
+Công tắc: `IDA_STYLE = 'aa'` đầu `cast3d.js` (`opts.idaStyle: 'a1'` = bản A1 để so sánh).
+
+## Bước 1 — cổ lộ, cổ áo bẻ thấp mở, khăn thấp, tỷ lệ sọ–mũ
+Ảnh: `design/cong5/mat/aa/buoc1/neutral/face_ida.png` (JPEG: `reports/m2/cong5/w3/aa_buoc1_neutral.jpg`). Lệnh: `bash design/cong5/mat/run_aa.sh design/cong5/mat/aa/buoc1 neutral` — dựng đúng shot s37 như layout (facelight 'gas' × EK 2,0, PAINT_CLOSE của W2), chỉ ghi đè biểu cảm; không thêm đèn.
+
+| Mục | Thay đổi (file / chỗ) |
+|---|---|
+| Cổ lộ thật | `ida.json` (thử trong worktree): **`parts.neck.width_front` 0,30 → 0,46 H** (0,40 vẫn đọc "que" dưới đầu rộng 0,78 H). `cast3d.js` cổ: chân cổ loe ra vai (cơ thang, +0,07 H), gân cổ nhẹ hơn, bỏ lệch trước 0,03 H; màu đỉnh theo độ cao thật: tối sát dưới hàm (bóng hàm, 0,36) sáng dần xuống chân cổ (0,96). Mặt dưới hàm tối hơn (che khuất 0,50). Độ dài cổ giữ 0,30 H |
+| Cổ áo thấp, mở | Bỏ cổ áo đứng (nhánh A1 giữ nguyên để so sánh). Cổ áo **bẻ nằm rạp trên vai**: bám mặt thân áo (SDF thân), bán kính trong 0,235 → ngoài 0,43 H, mép trong dựng nhẹ quanh chân cổ, **mở chữ V trước ±0,42 rad**, hai lớp dạ (mặt + lót) + mép ngoài cuộn dày; không theo khớp đầu |
+| Khăn thấp | Hai vòng khăn hạ xuống chân cổ, lỏng hơn: (tL + 0,03, r 0,31) và (tL + 0,11, r 0,29), trước thấp hơn sau — che chỗ nối cổ–thân; đuôi và nút giữ nguyên |
+| Sọ–mũ | Mũ **ngồi thấp ôm đầu**: gốc mũ 0,86 → **0,80 H** (quanh vòng đầu rộng nhất), miệng mũ 0,56 → **0,52 × bề rộng đầu** (vừa đầu + tóc), vành trước cụp ít hơn (0,13 → 0,05) để không che mắt khi mũ không đẩy. Búi tóc giờ nằm ngay dưới vành sau (đỡ mũ). **Trán sát vành tối dần** (che khuất bởi vành, 0,38 ở y 0,70–0,80 H) |
+| Ánh sáng | `facelight.js` 'gas': under 0,12 → **0,04** (dội từ dưới từng xoá bóng hàm trên cổ) |
+
+Tự rà: cổ đọc là cổ (có bóng hàm, loe ra vai), khăn không còn quấn tới cằm, mũ ôm đầu và búi đỡ dưới vành; ở s05 (đèn khí phía trên) vành mũ **đổ bóng thật lên trán**. Còn lại: ở s37 ngọn L11 ngang tầm mắt và shot không bật bóng (file W2) → vành không đổ bóng thật, chỉ có tối che khuất; mặt vẫn sáng nhất khung (phơi sáng của shot × 2,0); mặt, da, tóc chưa đổi (bước 2).
+Thời gian (làn nhanh, chờ 0 s): 4 lần render (31,6 / 35,4 / 36,9 / 32,8 s) — làm lại 3 lần (under-fill, bóng dưới hàm, thang màu cổ đặt sai chỗ trong đầu). Thử nhanh ngoài hàng đợi ~14 lần (960×540, 1 mẫu).
+Chờ P: kiểm mù ảnh bước 1.
+
+## Bước 2 — cách điệu mặt, da, tóc trắng (+ sửa theo kiểm mù bước 1, `kiem-mu-mat/aa-tung-buoc.md` g3)
+Ảnh: `design/cong5/mat/aa/buoc2/neutral/face_ida.png` (JPEG `reports/m2/cong5/w3/aa_buoc2_neutral.jpg`). Lệnh: `EK=1.3 bash design/cong5/mat/run_aa.sh design/cong5/mat/aa/buoc2 neutral` — shot s37 như layout, **chỉ khác hệ số phơi sáng EK 1,3 (layout W2 đang 2,0)**, xem đề xuất ánh sáng dưới.
+
+| Lời chê bước 1 / yêu cầu | Thay đổi |
+|---|---|
+| Mặt dài, nhọn, cằm "khiên"; giới tính trung tính | `headSDF` nhánh A-α: khối giữa mặt ngắn lại, **má đầy mềm liền gò má** (±0,155; 0,33; 0,21 / 0,10 × 0,14 × 0,10), **cằm tròn nhỏ và cao hơn** (tâm 0,155 H, đáy ≈ 0,06 H → nửa dưới mặt ngắn ~0,04 H), hoà rộng má–cằm (không nếp gãy). Không hàm vuông, không má bạnh |
+| Cổ to, dài "ma-nơ-canh" | `ida.json` (thử): cổ **0,46 → 0,40 H**; loe chân cổ 0,07 → 0,05; nếp cổ ngang rõ hơn; vòng khăn trên nâng lên tL + 0,145 → đoạn cổ lộ ngắn lại |
+| Tóc "dán", "đầu hói đội mũ", mũ lơ lửng | **Khối tóc bạc**: vỏ tóc bám mặt đầu thật (ở thái dương mặt nhô ra ngoài elip sọ → tóc từng nằm dưới da), dày 0,057 H, phồng thêm ở thái dương–trên tai (+0,05) và gáy (+0,03), giữ độ dày tới chân tóc (chải ra sau); đường chân tóc hạ ở thái dương tới đỉnh tai, nối liền búi; 3–4 lọn chải lớn trong khối. **Bỏ lọn dải dán** (A-α: lọn là một phần khối tóc). Sợi tóc mềm hơn (normal 0,9 → 0,35; gân sợi 0,0045 → 0,0025) |
+| Tóc trắng hơn (mục 4) | Màu gốc thử **#b9b3aa → #e2dfda** + **cách điệu "tóc bạc"** trong shader tóc Ida: ánh sáng tới tóc kéo 70 % về trung tính (giữ độ sáng), `opts.hairSilver`. Đo (25 % điểm ảnh tóc sáng nhất, 960×540): **s05** #b9b3aa: sRGB (206,137,68), hue 30°, S 0,58 → chỉ đổi màu #e2dfda: (225,167,98), S 0,68 → **#e2dfda + bạc: (204,174,157), hue 22°, L 0,71, S 0,31**; **s26** (100,64,53) S 0,31 → (133,89,65) S 0,34 → **(112,96,91) S 0,10**. Kết luận: chỉ đổi albedo KHÔNG đủ (ánh lửa hổ phách áp đảo); cần cả cách điệu shader |
+| Da nhựa, nếp nhăn nét bút, lông mày một nét, mảng tối trên má, môi vệt mỏng | `facepaint.js` (`o.aa`): **sắc độ** — ~90 loang ấm/lạnh/vàng mềm, thái dương và cằm hơi lạnh, trán vàng nhẹ, má hồng nhạt cao rộng, mũi ấm; vệt cọ cũ nhạt 60 %. **Ít nét**: trán 3 → 2 nếp mềm (α 0,22), chân chim 4 → 2 nét mềm, dưới mắt 2 → 1, bỏ nếp dọc môi trên, bỏ rãnh khoé miệng, bỏ lõi rãnh mũi–má. **Mày** dày mềm hai lớp (12 px + 7 px) + sợi 3D dày hơn. **Môi** đầy hơn (khối môi dưới lớn hơn, sáng giữa môi dưới, bóng dưới môi, khoé môi). Hết mảng tối trên má (má liền gò má, bỏ hõm) |
+| Mắt lệch, nhìn trống | Hai nhãn cầu **hội tụ** nhẹ (±0,025 rad; bản cũ phân kỳ 0,1 rad) |
+| Hoa tai lơ lửng, tai bị che | Tai vểnh 0,18 → 0,30 (lộ qua tóc); khuyên: nụ trên dái tai + móc + giọt treo dưới dái |
+| Mặt sáng rực | **Đề xuất cho W2: EK s36/s37 2,0 → 1,3.** Đo s37 (điểm ảnh mặt có kênh ≥ 250): EK 2,0 **22,9 %**; 1,4 3,2 %; 1,0 0 %. `facelight.js` under 0,04 (từ bước 1). Cột thang cháy sáng bên trái khung s37 là của layout (W2) — ghi lại, không sửa |
+
+Tự rà: mặt tròn–mềm, nửa dưới ngắn, cằm tròn nhỏ; tóc bạc là khối quanh đầu dưới vành, trắng dưới lửa; tai và khuyên treo thấy được; da có sắc độ, ít nét. Còn lại: đầu mày trái còn vài vệt nét ngắn (nếp mí + sợi mày); cổ vẫn là ống đều ở chính diện; mép tóc là một đường đều (hơi "mũ tóc"); mặt vẫn sáng nhất khung (nguồn thật sát mặt).
+Thời gian (làn nhanh, chờ 0 s): 2 lần render (32,7 / 29,8 s); làm lại 1 lần (nếp gãy má–cằm, nếp mí). Thử nhanh ngoài hàng đợi ~20 lần (studio + s37/s05/s26, đo màu tóc, đo EK).
+Chờ P: kiểm mù ảnh bước 2.
+
+## Bước 3 (cuối) — sửa theo kiểm mù bước 2 (v5) và bộ ảnh cuối
+Ảnh (1920×1080, 3 mẫu, shot s37 như layout, **EK 1,3**): `design/cong5/mat/aa/cuoi/{neutral,sad_smile,choked,nghieng}/face_ida.png`; JPEG `reports/m2/cong5/w3/aa_cuoi_{neutral,sad_smile,choked,nghieng}.jpg` (116–134 KB). Lệnh: `EK=1.3 bash design/cong5/mat/run_aa.sh design/cong5/mat/aa/cuoi neutral sad_smile choked nghieng`.
+
+| # | Lời chê v5 | Thay đổi | Làm được? |
+|---|---|---|---|
+| 1 | Cổ ống, cằm nối cổ gãy gọn | Khối dưới cằm (da chùng nhẹ) dốc mềm về sau–xuống vào cổ; má chùng nhẹ trên đường hàm; cổ **thon lên trên** (−0,022 H), đầu cổ chúi ra trước 0,035 H (dáng người già) nối vào khối dưới cằm; hai dải cơ cổ mờ, nếp ngang; khăn nâng lên (tL + 0,06 / 0,165) → đoạn cổ lộ ngắn | Có — nghiêng: cằm → dưới cằm → cổ liền một đường cong; chính diện: cổ ngắn, thon |
+| 2 | Da sáp/nhựa, má–cằm–cổ căng như người trẻ | Cao độ da (bumpMap 0,8): ~12 000 lỗ chân lông + 260 gợn da mỏng ngắn theo chiều chảy xệ (má, dưới mắt, cằm) — **không thêm nét bút**; quầng dưới mắt, đồi mồi nhạt, má chùng hơi sậm (sắc độ) | Có (mức vừa; da vẫn sạch vì cách điệu) |
+| 3 | Tóc khối cứng "giấy xếp nếp", mép quanh tai cắt thẳng | Gân sợi đều → gợn lọn không đều (fbm); mép tóc vòng lên quanh tai, phủ sau tai nối búi; mép hơi lởm chởm nhẹ và mỏng dần ở chân tóc; 16 sợi mềm mỗi bên bám mép thái dương–tai | Phần lớn; khối tóc vẫn đọc là "khối" ở ánh sáng mạnh |
+| 4 | Tai phải không thấy, khuyên lơ lửng | Tai vểnh 0,40 rad (0,30), tóc vòng lên quanh tai; khuyên nụ + móc + giọt treo ở dái tai | Tai gần thấy rõ; **tai xa bị đầu che ở góc s37 (đầu quay 35°) — không đổi được mà không đổi bố cục** |
+| 5 | Mũ lơ lửng, vành không đổ bóng lên trán | Tóc trước hạ xuống dưới băng mũ (mũ **tỳ lên tóc**, không còn khe da giữa vành và trán); dải trán sát vành tối (che khuất 0,38). s37: L11 ngang tầm mắt, mũ đẩy ra sau (C4) → **không có bóng vành thật**; ở s05 (đèn trên đầu) có bóng thật | Một phần — **đề xuất W2: faceShot `shadowLamps: [11]`** (bóng mũi/hàm/tóc thật; vành chỉ đổ bóng khi mũ không đẩy) |
+| 6 | Mắt, mày không cân | Nét vẽ đôi dùng **cùng dãy ngẫu nhiên hai bên** (trước đây rung riêng từng bên → hai mày/mắt khác nhau); **bỏ mày sợi 3D** (thành thanh xám, lệch mày vẽ khi nghẹn) — mày vẽ đi theo lưới biến dạng | Có (lệch còn lại do phối cảnh: đầu quay 35°) |
+| 7 | Mắt búp bê, thiếu ẩm | Tròng có vân và viền tối; đốm sáng phụ; **bóng mí trên đổ lên nhãn cầu** (màu đỉnh); mí dưới luôn có viền ẩm nhẹ | Có |
+| 8 | Cột gỗ cháy cam bên trái | Của layout s37 — **ghi cho W2**, không sửa | — |
+
+### B1 sau A-α (8 góc, `b1_measure.py`, @ bản cuối) — đề xuất `c3_views` Ida
+| Góc | Sheet v1.3 thân / tay trên / cẳng tay / cẳng chân | **A-α (đề xuất)** | Lệch thân |
+|---|---|---|---|
+| 0° | 2,667 / 1,600 / 0,994 / 0,293 | **2,682 / 1,571 / 0,976 / 0,288** | +0,6 % (tay −1,8 %) |
+| 45° | 2,314 / 1,483 / 0,914 / 0,282 | 2,290 / 1,474 / 0,909 / 0,281 | −1,0 % |
+| −45° | 2,315 / 1,466 / 1,299 / 0,282 | 2,263 / 1,451 / 1,284 / 0,279 | −2,2 % |
+| 90° | 2,137 | 2,034 | −4,8 % |
+| −90° | 2,153 / 1,408 / 1,009 / 0,275 | 2,060 / 1,398 / 1,000 / 0,270 | −4,3 % |
+| 135° | 2,386 / 1,465 / 0,825 / 0,272 | 2,558 / 1,592 / 0,897 / 0,295 | **+7,2 %** |
+| −135° | 2,354 / 1,455 / 1,087 / 0,270 | 2,528 / 1,583 / 1,183 / 0,295 | **+7,4 %** |
+| 180° | 2,510 / 1,578 / 1,193 / 0,284 | 2,752 / 1,750 / 1,323 / 0,316 | **+9,6 %** |
+Cas: không đổi ở mọi góc. Nguyên nhân: mũ ngồi thấp + khối tóc/búi che thêm đầu → phần đầu nhìn thấy (dưới mũ) ngắn đi ở góc sau (180°: 448 → 408 px) và dài ra ở góc nghiêng (±90°: tai vểnh, tóc phồng). **Chỉ số trong ±5 % quanh ngưỡng 3 % của C3:** 0°, ±45° (±2,2 %), ±90° (−4,3/−4,8 %) — cần cập nhật; ±135°, 180° lệch > 5 % → **bắt buộc cập nhật `c3_views`** trước khi chạy luật máy.
+
+### Đề xuất đổi `ida.json` (W3 đã sửa trong worktree các trường đánh dấu ✎ để thử; P sửa bản chính và khoá SHA)
+| Trường | Hiện (v1.3) | Đề xuất | Ghi chú |
+|---|---|---|---|
+| ✎ `parts.neck.width_front` | 0,30 | **0,40** | 0,46 đọc "cổ to"; độ dài 0,30 giữ |
+| ✎ `local_colors.hair` | #b9b3aa | **#e2dfda** | cùng cách điệu shader "tóc bạc" (70 %) trong `cast3d.js` (`opts.hairSilver`); chỉ đổi màu không đủ (đo bước 2) |
+| `costume.coat.collar` | "cổ đứng cao 0,35 H" | **"cổ bẻ thấp nằm trên vai, mở chữ V trước"** | hình dựng trong `cast3d.js` (A-α), số không đổi |
+| `costume.scarf.style` | "khăn len đan quấn cổ, một đuôi buông trước ngực" | + **"quấn thấp ở chân cổ, lỏng"** | |
+| `costume.hat` (mới) | — | `seat_H: 0.80`, `fit: 0.52` (miệng mũ / bề rộng đầu), `brim_droop_front` giảm | mũ ngồi thấp ôm đầu, tỳ lên tóc |
+| `costume.hair` (mới) | — | `style: "khối tóc bạc chải ra sau quanh đầu, lộ dưới vành ở thái dương–trên tai–gáy, nối búi; lọn thái dương là một phần khối tóc"` | thay 'temple' (lọn dải dán) |
+| `c3_views` (Ida) | bảng v1.2 | bảng trên | Cas giữ nguyên |
+
+### Câu chữ đề xuất cho `bible/characters.md` v1.4 (P sửa; chủ dự án duyệt, ghi AUTHORSHIP)
+- Dòng **"Mặt nữ tính (v1.2)"** → "**A-α (v1.4):** mặt tròn–mềm cách điệu (má đầy liền gò má cao, cằm tròn nhỏ, nửa dưới mặt ngắn, khối dưới cằm da chùng nhẹ), ít nét nhăn vẽ (2 nếp trán, 2 vết chân chim, 1 nếp dưới mắt, dải rãnh mũi–má mềm), da có sắc độ ấm/lạnh và kết cấu mịn; lông mày dày mềm; môi có khối. Tóc bạc #e2dfda là một khối chải ra sau quanh đầu, lộ dưới vành mũ ở thái dương, quanh tai và gáy, nối búi; tai lộ; hoa tai nụ + giọt treo ở dái tai (vàng cũ #c9a466). Cổ lộ một đoạn ngắn, thon lên trên (rộng 0,40 H). Cổ áo bẻ thấp nằm trên vai, mở chữ V trước; khăn quấn thấp ở chân cổ."
+- Dòng **Mũ**: thêm "ngồi thấp ôm đầu, tỳ lên tóc (không đậu trên đỉnh sọ)".
+- Dòng **Mặt**: "Không khắc khe miệng/nếp nhăn vào hình học" giữ nguyên (A-α không khắc rãnh; khối má/cằm/dưới cằm là hình khối, không phải nếp).
+- Ghi chú cách điệu ánh sáng: "Tóc Ida đọc bạc dưới mọi nguồn (shader kéo sắc ánh sáng về trung tính 70 %)".
+
+### Bảng phơi sáng / facelight đề xuất cho cận mặt (đo 960×540, 1 mẫu, khung giữa shot, bản mặt A-α; "cháy" = % điểm ảnh mặt có kênh ≥ 250)
+| Shot | Phơi sáng hiện tại | Cháy hiện tại | Đề xuất | Cháy sau | Ghi chú |
+|---|---|---|---|---|---|
+| s05 | 0,42 | 20,7 % | **× 0,4 → 0,17** | 2,2 % | đèn khí trên–trước, gần; nền 0,24 → 0,11 (tối hơn) — hoặc thêm facelight 'gas' và dùng `fl.exposure()` |
+| s22 | 0,80 | 0,0 % | giữ | 0,0 % | |
+| s26 | 3,4 (facelight 'gas') | 0,0 % | giữ | 0,0 % | mặt nhỏ trong khung (MS) |
+| s31 | 1,0 | 21,1 % | **× 0,45 → 0,45** | ~1 % (×0,5: 1,6 %; ×0,4: 0,1 %) | đèn lồng sát mặt + trắng; nền 0,73 → ~0,56 |
+| s36 | fl.exposure() × EK 2,0 | 16,1 % | **EK 1,3** | ~1,4 % | |
+| s37 | fl.exposure() × EK 2,0 | 20,3 % | **EK 1,3** | ~2,9 % (×0,65) | ảnh cuối dùng EK 1,3 |
+| s39 | fl.exposure() × EK (elec) | 3,7 % | **× 0,8** | 0,5 % | |
+Kèm: `facelight.js` 'gas' under 0,12 → 0,04 (bước 1, đã trong file); **faceShot s36/s37/s39: `shadowLamps: [11]`** (bóng thật); cột thang cháy sáng trái khung s37 (W2).
+
+### Tự rà cuối (4 nhóm lời chê)
+Nửa dưới mặt tròn–mềm, nữ, cằm nối cổ liền; da có kết cấu và sắc độ; tóc bạc là khối có lọn, quanh tai; tai gần và khuyên treo thấy được; mắt có chiều sâu và ẩm. Còn lại: mặt vẫn là vùng sáng nhất (nguồn thật sát mặt); không có bóng vành mũ thật ở s37; tai xa khuất; một mảnh tóc nhỏ lẻ ở gáy (góc nghiêng); tóc vẫn hơi "khối" dưới ánh mạnh.
+
+### Thời gian và làm lại (A-α bước 3)
+Làn nhanh, chờ 0 s: 2 ảnh thử (24,0 / 23,0 s) + lần 2 (≈ 23 s ×2) + bộ cuối lần 1 (23,5 / 22,8 / 22,7 / 23,1 s) + **bộ cuối nộp (23,1 / 22,9 / 23,3 / 23,1 s)**; B1 8 góc (hàng nặng) 321 s. Làm lại: 3 (mép tóc răng cưa + sợi dựng đứng; mảng hói sau tai; mày sợi 3D thành thanh xám khi nghẹn). Thử nhanh ngoài hàng đợi ~40 lần (studio, s37, bảng phơi sáng 7 shot × 4–6 mức). Lỗi công cụ tự sửa: `rng3` thiếu sau reset; số `bc` không có số 0 đầu làm JSON hỏng (bảng phơi sáng chạy lại).
+Tổng A-α: 3 bước, 8 lần render ảnh nộp/thử 1080p, ~75 lần thử nhanh.
