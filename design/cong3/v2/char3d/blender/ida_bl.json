@@ -1,0 +1,270 @@
+{
+ "_doc": "Cửa mặt Ida lượt 2 (W4, MPFB2 CC0). Hệ đầu cast3d: đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt. Shape key = morph target glTF; TÊN = kênh facerig.js (16) + vis_* (6 khẩu hình); preset = trọng số trên kênh. Kênh dựng từ expression unit của MPFB (CH_UNITS).",
+ "mpfb": {
+  "commit": "3edf9df0551765be43563d047888cf7877eb89b4",
+  "version": "2.0.17",
+  "age": 0.8769230769230769,
+  "macro": {
+   "gender": 0.0,
+   "age": 0.8769230769230769,
+   "muscle": 0.35,
+   "weight": 0.52,
+   "proportions": 0.5,
+   "height": 0.5,
+   "cupsize": 0.5,
+   "firmness": 0.5,
+   "race": {
+    "asian": 0.15,
+    "caucasian": 0.7,
+    "african": 0.15
+   }
+  },
+  "detail": {
+   "nose/nose-scale-vert-incr": 0.55,
+   "nose/nose-hump-incr": 0.55,
+   "nose/nose-point-down": 0.35,
+   "nose/nose-volume-incr": 0.35,
+   "nose/nose-point-width-incr": 0.35,
+   "nose/nose-scale-depth-incr": 0.25,
+   "nose/nose-flaring-incr": 0.2,
+   "eyes/l-eye-scale-incr": 0.7,
+   "eyes/r-eye-scale-incr": 0.7,
+   "eyes/l-eye-bag-incr": 0.3,
+   "eyes/r-eye-bag-incr": 0.3,
+   "eyes/l-eye-eyefold-down": 0.15,
+   "eyes/r-eye-eyefold-down": 0.15,
+   "eyes/l-eye-height2-incr": 0.5,
+   "eyes/r-eye-height2-incr": 0.5,
+   "eyes/l-eye-corner2-down": 0.25,
+   "eyes/r-eye-corner2-down": 0.25,
+   "ears/l-ear-lobe-incr": 0.7,
+   "ears/r-ear-lobe-incr": 0.7,
+   "ears/l-ear-scale-incr": 0.25,
+   "ears/r-ear-scale-incr": 0.25,
+   "cheek/l-cheek-bones-incr": 0.35,
+   "cheek/r-cheek-bones-incr": 0.35,
+   "cheek/l-cheek-volume-incr": 0.2,
+   "cheek/r-cheek-volume-incr": 0.2,
+   "mouth/mouth-upperlip-volume-decr": 0.25,
+   "mouth/mouth-angles-down": 0.12,
+   "mouth/mouth-scale-horiz-decr": 0.15,
+   "chin/chin-width-decr": 0.3,
+   "chin/chin-height-decr": 0.2,
+   "chin/chin-prominent-incr": 0.15,
+   "head/head-round": 0.45,
+   "head/head-age-incr": 0.3,
+   "neck/neck-double-decr": 0.4
+  }
+ },
+ "stylize": {
+  "SX": 1.0811751999214478,
+  "SZ": 1.0,
+  "SN": 0.9820442892779004,
+  "head_len_m_mpfb": 0.20580366530667105
+ },
+ "eyes": {
+  "L": [
+   0.1503,
+   0.4988,
+   0.2634
+  ],
+  "R": [
+   -0.1503,
+   0.4988,
+   0.2634
+  ],
+  "r": 0.0745
+ },
+ "mouth": [
+  0.0,
+  0.1978,
+  0.4268
+ ],
+ "jaw": [
+  0.0,
+  0.0923,
+  0.3359
+ ],
+ "hatHinge": [
+  0.0,
+  0.64,
+  -0.045
+ ],
+ "earring": {
+  "L": [
+   0.309,
+   0.212,
+   0.0709
+  ],
+  "R": [
+   -0.309,
+   0.212,
+   0.0709
+  ]
+ },
+ "channels": [
+  "browUp",
+  "browDown",
+  "browInnerUp",
+  "browKnit",
+  "blink",
+  "lidDrop",
+  "squint",
+  "cheekRaise",
+  "smile",
+  "frown",
+  "jawOpen",
+  "press",
+  "pucker",
+  "wide",
+  "lowerLipIn",
+  "chinRaise"
+ ],
+ "ch_units": {
+  "browUp": {
+   "eyebrows-left-up": 1,
+   "eyebrows-right-up": 1
+  },
+  "browDown": {
+   "eyebrows-left-down": 1,
+   "eyebrows-right-down": 1
+  },
+  "browInnerUp": {
+   "eyebrows-left-inner-up": 1,
+   "eyebrows-right-inner-up": 1
+  },
+  "browKnit": {
+   "nose-compression": 0.6,
+   "eyebrows-left-down": 0.25,
+   "eyebrows-right-down": 0.25
+  },
+  "blink": {
+   "eye-left-closure": 1,
+   "eye-right-closure": 1
+  },
+  "lidDrop": {
+   "eye-left-closure": 0.35,
+   "eye-right-closure": 0.35
+  },
+  "squint": {
+   "eye-left-slit": 1,
+   "eye-right-slit": 1
+  },
+  "cheekRaise": {
+   "mouth-upward-retraction": 0.45,
+   "eye-left-slit": 0.3,
+   "eye-right-slit": 0.3
+  },
+  "smile": {
+   "mouth-corner-puller": 1
+  },
+  "frown": {
+   "mouth-depression": 0.6
+  },
+  "jawOpen": {
+   "mouth-open": 1
+  },
+  "press": {
+   "mouth-compression": 0.6
+  },
+  "pucker": {
+   "mouth-pursing": 1,
+   "mouth-protusion": 0.4
+  },
+  "wide": {
+   "mouth-retraction": 1
+  },
+  "lowerLipIn": {
+   "mouth-depression-retraction": 0.4,
+   "mouth-elevation": 0.5
+  },
+  "chinRaise": {
+   "mouth-elevation": 0.55
+  }
+ },
+ "visemes": {
+  "A": {
+   "jawOpen": 0.75,
+   "wide": 0.1
+  },
+  "E": {
+   "jawOpen": 0.3,
+   "wide": 0.7
+  },
+  "O": {
+   "jawOpen": 0.5,
+   "pucker": 0.9
+  },
+  "MBP": {
+   "press": 1.0
+  },
+  "FV": {
+   "lowerLipIn": 1.0,
+   "jawOpen": 0.1
+  },
+  "L": {
+   "jawOpen": 0.4,
+   "wide": 0.25
+  }
+ },
+ "presets": {
+  "neutral": {},
+  "sad_smile": {
+   "smile": 1.0,
+   "cheekRaise": 0.9,
+   "browInnerUp": 0.45,
+   "browKnit": 0.1,
+   "squint": 0.55,
+   "jawOpen": 0.1
+  },
+  "strained": {
+   "press": 0.8,
+   "browKnit": 0.8,
+   "browDown": 0.3,
+   "chinRaise": 0.4
+  },
+  "choked": {
+   "frown": 1.0,
+   "browInnerUp": 1.0,
+   "browKnit": 0.65,
+   "chinRaise": 1.0,
+   "press": 0.6,
+   "lidDrop": 0.25,
+   "squint": 0.2
+  }
+ },
+ "key_max_disp_H": {
+  "browUp": 0.0232,
+  "browDown": 0.0273,
+  "browInnerUp": 0.0206,
+  "browKnit": 0.0068,
+  "blink": 0.0469,
+  "lidDrop": 0.0164,
+  "squint": 0.0174,
+  "cheekRaise": 0.0219,
+  "smile": 0.0531,
+  "frown": 0.0197,
+  "jawOpen": 0.155,
+  "press": 0.0216,
+  "pucker": 0.0857,
+  "wide": 0.0332,
+  "lowerLipIn": 0.0308,
+  "chinRaise": 0.0192,
+  "vis_A": 0.1162,
+  "vis_E": 0.0465,
+  "vis_O": 0.1179,
+  "vis_MBP": 0.0216,
+  "vis_FV": 0.035,
+  "vis_L": 0.062
+ },
+ "counts": {
+  "ida_head": 70444,
+  "ida_eye_L": 1320,
+  "ida_eye_R": 1320,
+  "ida_brows": 880,
+  "ida_hair_shell": 6750,
+  "ida_hair_cards": 10920,
+  "ida_hair_fine": 2400,
+  "ida_bun": 2872
+ }
+}
