@@ -8,7 +8,7 @@ A = os.path.join(REPO, 'design/cong5/layout'); V2 = '/var/tmp/cine-out/final'; o
 FB = W * H * 3
 EV = json.loads(subprocess.run(['node', os.path.join(A, 'render_film.js'), '--events', '--out', '/tmp'], capture_output=True, text=True, check=True).stdout)
 src = {}
-for tj in sorted([f for d in ('W1', 'W2', 'P') for f in glob.glob(f'/var/tmp/cine-out/{d}/**/timing_*.json', recursive=True) if '/probe' not in f], key=os.path.getmtime):   # bản render mới hơn của cùng shot thắng
+for tj in sorted([f for d in ('W1', 'W2', 'P') for f in glob.glob(f'/var/tmp/cine-out/{d}/full/timing_*.json')], key=os.path.getmtime):   # bản render mới hơn của cùng shot thắng
     T = json.load(open(tj)); k = 0
     for s in T['summary']: src[s['id']] = (T['mp4'], k, s['frames'], os.path.dirname(tj)); k += s['frames']
 
