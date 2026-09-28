@@ -12,7 +12,11 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Việc dời sang Cổng 7 (chủ dự án quyết, 28/09/2026)
 - **Người và bóng ở hốc vòm (1:18–1:26, s32–s34):** tiêu chí đo được — **mỗi người sáng hơn bóng của chính mình trên vách ít nhất X = 2,0 lần**, đo bằng trung vị luma hiển thị (Rec.709, mã 8 bit, sau grade) trên mặt nạ người (phần nhìn thấy) so với mặt nạ bóng của chính người đó trên vách, ở mọi khung mẫu (mỗi 12 khung). Căn cứ: luật thế giới 3.1 đòi key : tràn ≥ 4 : 1 tại mặt nhận bóng để bóng hiện; mặt người quay về đèn lồng nhận key trực tiếp, vùng bóng chỉ nhận tràn → tỷ lệ tuyến tính ≥ 4; qua đường cong hiển thị (gamma ~2,2) 4× tuyến tính ≈ 1,9× luma hiển thị, nên chọn **2,0** (≈ 4,6× tuyến tính) — đủ để mắt tách người khỏi bóng mà không phải thêm đèn giả. Bóng mặc định đo ở phần thân bóng (không tính đầu bóng mờ nhạt ở vùng vách tối dần, luật 4).
+- Từ rà continuity lần 3 (ghi nhận, không chặn): s43 điểm vàng chưa đọc ra hình ô cửa (G16); ánh nền s45 trắng / s45c trời đen (kiểm mù POV cảnh 6 nêu); kim đồng hồ quảng trường nhạt khi mặt loá (G8); màu mũ nâu đỏ dưới điện s39 (G7).
 - Hạ phơi sáng s11 (1,5–1,7); màu mũ nâu cam dưới đèn khí sát mặt (s05, s36, s40); lấy nét thật thay cho nền nhoè s06, s09w; ánh cửa sổ ấm có thật ở nhà đầu dãy bắc cho mặt Cas s24c.
+
+## Việc dời sang Cổng 6 (từ Cổng 5 v3)
+- Khẩu hình s39 câu cuối L4 (miệng chưa mấp máy; phụ thuộc cửa mặt A-i). Nhịp "gập đồng hồ" trong `bible/characters.md` — layout chưa có nắp đồng hồ: Cổng 6 dựng nắp hoặc P đề xuất sửa bible (chủ dự án duyệt). Tay trái s44/s45 (G5/G6), Ida xuống thang trong s40w (G10), mũ đội thẳng s40 (G2). s45: tay che nửa mặt 0–1,0 s; đồng hồ trong tay đọc rõ hơn.
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |
