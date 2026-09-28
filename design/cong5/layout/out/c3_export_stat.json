@@ -44,7 +44,7 @@
   "shot": "s02",
   "count": {
    "head": 1178,
-   "torso": 4433,
+   "torso": 4414,
    "upper_arm": 1527,
    "forearm": 1225,
    "thigh": 0,
@@ -434,7 +434,7 @@
   "shot": "s07",
   "count": {
    "head": 3981,
-   "torso": 9127,
+   "torso": 9066,
    "upper_arm": 7015,
    "forearm": 4897,
    "thigh": 0,
@@ -538,9 +538,9 @@
   "shot": "s08",
   "count": {
    "head": 2652,
-   "torso": 10522,
+   "torso": 10527,
    "upper_arm": 3899,
-   "forearm": 2108,
+   "forearm": 2000,
    "thigh": 0,
    "shin": 161
   },
@@ -969,9 +969,9 @@
   "shot": "s15",
   "count": {
    "head": 1099,
-   "torso": 3646,
+   "torso": 3642,
    "upper_arm": 3072,
-   "forearm": 1715,
+   "forearm": 1646,
    "thigh": 0,
    "shin": 0
   },
@@ -1179,7 +1179,7 @@
    "head": 181,
    "torso": 3415,
    "upper_arm": 827,
-   "forearm": 583,
+   "forearm": 609,
    "thigh": 0,
    "shin": 0
   },
@@ -1216,7 +1216,7 @@
   "shot": "s23",
   "count": {
    "head": 313,
-   "torso": 889,
+   "torso": 882,
    "upper_arm": 380,
    "forearm": 273,
    "thigh": 0,
@@ -1424,9 +1424,9 @@
   "shot": "s26",
   "count": {
    "head": 135018,
-   "torso": 450944,
+   "torso": 451061,
    "upper_arm": 111486,
-   "forearm": 39951,
+   "forearm": 39139,
    "thigh": 0,
    "shin": 0
   },
@@ -2074,9 +2074,9 @@
   "shot": "s35",
   "count": {
    "head": 364,
-   "torso": 1759,
+   "torso": 1760,
    "upper_arm": 373,
-   "forearm": 88,
+   "forearm": 84,
    "thigh": 0,
    "shin": 14
   },
@@ -2139,7 +2139,7 @@
   "shot": "s35",
   "count": {
    "head": 1051,
-   "torso": 2943,
+   "torso": 2942,
    "upper_arm": 1032,
    "forearm": 943,
    "thigh": 0,
@@ -2460,7 +2460,7 @@
   "view": -58.03
  },
  {
-  "f": 2448,
+  "f": 2544,
   "shot": "s38",
   "count": {
    "head": 0,
@@ -2473,7 +2473,7 @@
   "view": -40.84
  },
  {
-  "f": 2460,
+  "f": 2556,
   "shot": "s38",
   "count": {
    "head": 0,
@@ -2484,6 +2484,45 @@
    "shin": 0
   },
   "view": -40.84
+ },
+ {
+  "f": 2568,
+  "shot": "s38",
+  "count": {
+   "head": 0,
+   "torso": 0,
+   "upper_arm": 0,
+   "forearm": 0,
+   "thigh": 0,
+   "shin": 0
+  },
+  "view": -40.84
+ },
+ {
+  "f": 2448,
+  "shot": "s39",
+  "count": {
+   "head": 1646883,
+   "torso": 0,
+   "upper_arm": 0,
+   "forearm": 0,
+   "thigh": 0,
+   "shin": 0
+  },
+  "view": -24.44
+ },
+ {
+  "f": 2460,
+  "shot": "s39",
+  "count": {
+   "head": 1646883,
+   "torso": 0,
+   "upper_arm": 0,
+   "forearm": 0,
+   "thigh": 0,
+   "shin": 0
+  },
+  "view": -24.44
  },
  {
   "f": 2472,
@@ -2552,45 +2591,6 @@
  },
  {
   "f": 2532,
-  "shot": "s39",
-  "count": {
-   "head": 1646883,
-   "torso": 0,
-   "upper_arm": 0,
-   "forearm": 0,
-   "thigh": 0,
-   "shin": 0
-  },
-  "view": -24.44
- },
- {
-  "f": 2544,
-  "shot": "s39",
-  "count": {
-   "head": 1646883,
-   "torso": 0,
-   "upper_arm": 0,
-   "forearm": 0,
-   "thigh": 0,
-   "shin": 0
-  },
-  "view": -24.44
- },
- {
-  "f": 2556,
-  "shot": "s39",
-  "count": {
-   "head": 1646883,
-   "torso": 0,
-   "upper_arm": 0,
-   "forearm": 0,
-   "thigh": 0,
-   "shin": 0
-  },
-  "view": -24.44
- },
- {
-  "f": 2568,
   "shot": "s39",
   "count": {
    "head": 1646883,
@@ -3066,19 +3066,58 @@
   "view": 35.34
  },
  {
-  "f": 3096,
+  "f": 3168,
   "shot": "s45c",
   "empty": true
+ },
+ {
+  "f": 3180,
+  "shot": "s45c",
+  "empty": true
+ },
+ {
+  "f": 3192,
+  "shot": "s45c",
+  "empty": true
+ },
+ {
+  "f": 3096,
+  "shot": "s46",
+  "count": {
+   "head": 0,
+   "torso": 0,
+   "upper_arm": 0,
+   "forearm": 0,
+   "thigh": 0,
+   "shin": 0
+  },
+  "view": -13.12
  },
  {
   "f": 3108,
-  "shot": "s45c",
-  "empty": true
+  "shot": "s46",
+  "count": {
+   "head": 0,
+   "torso": 0,
+   "upper_arm": 0,
+   "forearm": 0,
+   "thigh": 0,
+   "shin": 0
+  },
+  "view": -13.12
  },
  {
   "f": 3120,
-  "shot": "s45c",
-  "empty": true
+  "shot": "s46",
+  "count": {
+   "head": 0,
+   "torso": 0,
+   "upper_arm": 0,
+   "forearm": 0,
+   "thigh": 0,
+   "shin": 0
+  },
+  "view": -13.12
  },
  {
   "f": 3132,
@@ -3108,45 +3147,6 @@
  },
  {
   "f": 3156,
-  "shot": "s46",
-  "count": {
-   "head": 0,
-   "torso": 0,
-   "upper_arm": 0,
-   "forearm": 0,
-   "thigh": 0,
-   "shin": 0
-  },
-  "view": -13.12
- },
- {
-  "f": 3168,
-  "shot": "s46",
-  "count": {
-   "head": 0,
-   "torso": 0,
-   "upper_arm": 0,
-   "forearm": 0,
-   "thigh": 0,
-   "shin": 0
-  },
-  "view": -13.12
- },
- {
-  "f": 3180,
-  "shot": "s46",
-  "count": {
-   "head": 0,
-   "torso": 0,
-   "upper_arm": 0,
-   "forearm": 0,
-   "thigh": 0,
-   "shin": 0
-  },
-  "view": -13.12
- },
- {
-  "f": 3192,
   "shot": "s46",
   "count": {
    "head": 0,

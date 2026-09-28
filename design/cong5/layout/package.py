@@ -19,6 +19,9 @@ D, FILM_S = EV['DIALOGUE'], EV['FILM_S']
 CARDS = [(D['L1'] + a, D['L1'] + b, t) for a, b, t in [(0.0, 2.6, "Evening, old street.")]] + [(D['L2'], D['L2'] + 3.2, "Not yet... not yet."), (D['L3'], D['L3'] + 2.0, "Go on, then.")] + \
         [(D['L4'] + a, D['L4'] + b, t) for a, b, t in [(0.0, 2.6, "That's the last one, then."), (3.4, 5.8, "Goodnight, old street."), (6.4, 8.6, "You'll be brighter now."),
                                                      (9.2, 14.6, "Just... keep a little dark for the ones who need it.")]]
+# v3 (continuity v3, G14): thẻ không vắt qua cắt vài khung — cắt rơi trong 0,5 s cuối thẻ thì thẻ kết thúc đúng tại cắt.
+CUTS = [sum(d for _, d, _ in EV['ORDER'][:i]) for i in range(1, len(EV['ORDER']))]
+CARDS = [(a, next((c for c in CUTS if b - 0.5 < c < b), b), t) for a, b, t in CARDS]
 
 def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
 
