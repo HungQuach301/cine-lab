@@ -13,13 +13,13 @@
 //      key   : nguồn chính trong truyện (PointLight của L11, của đèn lồng…). Bỏ trống → tự chọn đèn điểm/spot trong cảnh rọi mạnh nhất vào mặt.
 //      keyE  : (tuỳ chọn) độ rọi nguồn chính tại mặt nếu nguồn là ánh tràn phẳng (vd. whiteHemi.intensity ở s39). Cộng với phần của `key`.
 //      level : (tuỳ chọn) nhân chung 0…1 (vd. để tắt dần cùng nguồn).
-//   fl.exposure(target?)  → phơi sáng đề xuất để vùng da sáng nhất KHÔNG cháy (tính từ độ rọi tổng tại mặt; hiệu chỉnh ở face_ida, xem BAO-CAO-W3).
-//   fl.faceE()            → độ rọi đo được tại mặt ở lần update gần nhất { key, fill, under, rim, total } (đơn vị three.js: cd/m²·… = I/d²).
+//   fl.exposure(K?)       → phơi sáng đề xuất = K / độ rọi tổng tại mặt (K mặc định theo chế độ, FACE_EXPOSURE_K) để da sáng nhất KHÔNG cháy.
+//   fl.faceE()            → độ rọi tại mặt ở lần update gần nhất { key, fill, under, rim, total } (đơn vị three.js: I/d²; total = key + fill + under).
 //   fl.lights             → { fill, under, rim } (PointLight) để W2 ẩn/soi khi cần. fl.dispose() gỡ khỏi cảnh.
 //
 // Preset (tỷ lệ so với độ rọi nguồn chính tại mặt):
-//   gas     — L11 ngay trước mặt (s36, s37): dội ấm từ vôi tường + đá lát phía máy (fill 0,30), dội từ áo/khăn/đá lên cằm (under 0,14),
-//             viền lạnh của trời đêm sau lưng (rim 0,22). Key:fill ≈ 3:1 (≈ 1,6 stop) — đêm, còn bóng, nhưng nửa tối đọc được.
+//   gas     — L11 ngay trước mặt (s36, s37): dội ấm từ vôi tường + đá lát phía máy (fill 0,20), dội từ áo/khăn/đá lên cằm (under 0,12),
+//             viền lạnh của trời đêm sau lưng (rim 0,22). Key:(fill+under) ≈ 3:1 (≈ 1,6 stop) — đêm, còn bóng, nhưng nửa tối đọc được.
 //   lantern — đèn lồng thấp ở thắt lưng/tay (s26, s31): dội từ trên-trước (đèn khí L11 + vôi tường, fill 0,45), dưới nhẹ (0,06 — đèn lồng đã từ dưới),
 //             viền ấm của L11 sau lưng (0,25). Mục đích: mặt có khối từ trên xuống nên mắt không còn là chỗ sáng duy nhất.
 //   elec    — trắng phẳng của cột điện (s39): điện là nguồn phẳng không bóng (luật thế giới) → chỉ thêm khối rất nhẹ: fill lạnh trung tính
@@ -31,12 +31,13 @@ export const FACE_LIGHT_PRESETS = {
   lantern: { fill: { color: '#e0b48c', ratio: 0.45, dist: 1.0, elev: 38, side: 1 }, under: { color: '#b58068', ratio: 0.06, dist: 0.7 }, rim: { color: '#ffb872', ratio: 0.25, dist: 0.8, elev: 35 } },
   elec:    { fill: { color: '#e8ecf4', ratio: 0.12, dist: 1.0, elev: 20, side: -1 }, under: { color: '#bdb6b0', ratio: 0.08, dist: 0.7 }, rim: { color: '#ffb872', ratio: 0.0, dist: 0.8, elev: 30 } },
 };
-// Hiệu chỉnh phơi sáng (đo ở face_ida, 1920×1080, 3 mẫu, lớp vẽ C): uExp × E_mặt ≈ K cho da sáng nhất ~0,80 sau tone map (không cháy).
+// Hiệu chỉnh phơi sáng (đo ở face_ida, 1920×1080, 3 mẫu, lớp vẽ C, K = 4): độ sáng da p99,5 = 0,77, trung vị 0,49; điểm ảnh cháy (kênh ≥ 0,98)
+// trong khung mặt 2,4–2,7 % (lần 3, phơi sáng cố định 0,12: p99,5 = 0,87, cháy 28–29 %).
 export const FACE_EXPOSURE_K = { gas: 4.0, lantern: 4.0, elec: 6.0 };   // elec: trắng tràn chịu sáng hơn (giữ cảm giác trắng phẳng), vẫn không cháy da
 const CUT = 1.6;   // tầm đèn phụ = 1,6 × khoảng cách đặt (≤ 1,6 m) → không chạm tường/bộ cảnh sau lưng, chỉ vùng đầu–vai
 
 const Y = new THREE.Vector3(0, 1, 0);
-const _v = new THREE.Vector3(), _w = new THREE.Vector3(), _q = new THREE.Quaternion();
+const _w = new THREE.Vector3(), _q = new THREE.Quaternion();
 
 // Độ rọi (không tính cosθ) của một đèn tại điểm p — cùng mô hình suy giảm với three.js (decay 2, cửa sổ tầm `distance`).
 export function illuminanceAt(L, p) {

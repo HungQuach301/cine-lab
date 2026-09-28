@@ -18,6 +18,8 @@ import { paintFace, faceUV, EXPR } from './facepaint.js';
 export const HAND_SCALE = { ida: 1.15, cas: 1.3 };
 // Búi tóc Ida phóng 1,3× so với model sheet (0,42 H → 0,55 H) để đọc rõ trong silhouette nghiêng.
 export const BUN_SCALE = 1.3;
+// Cổng 5 (W3): lọn tóc bạc thái dương (A1) — 'temple' = ngắn, dày, ở thái dương (đề xuất W3); 'long' = bản v1.2 (buông tới má). opts.idaWisps ghi đè.
+export const IDA_WISPS = 'temple';
 // Màu thứ cấp mới (chi tiết được phép thêm để sửa lỗi đọc giới tính/tuổi) — chờ chủ dự án duyệt.
 export const EXTRA_COLORS = { ida_scarf: '#8e5c5a', ida_skirt: '#4a3a44', ida_stockings: '#3a3235', cas_hair: '#5a4034', lips_ida: '#b98a82', nail: '#ecd2c4' };
 
@@ -286,8 +288,14 @@ export function buildCharacter(sheet, opts = {}) {
     add(headG, sculpt(bunSDF, { c: bunC, r: [bunR, bunR, bunR], nu: R(40), nv: R(26), scale: H, uv: [3, 2], color: aoCol(bunSDF, 0.5) }), 'hair', C.hair, 'hair');
     // A1 (Cổng 4, sheet v1.2): vài lọn tóc mềm thoát khỏi búi — 3 lọn mỗi bên thái dương buông cong trước tai, 2 lọn ở gáy.
     const wisp = (pts, w) => strandGeo(pts.map(([x, y, z]) => [x * H, y * H, z * H]), (t) => [w * H * Math.sin(Math.PI * Math.min(1, 0.15 + t)), w * 0.7 * H], 5, 14);
-    for (const sx of [1, -1]) for (const [dy, dz, w] of [[0, 0, 0.011], [-0.035, 0.03, 0.009], [0.03, -0.035, 0.008]])
-      add(headG, wisp([[0.335, 0.67 + dy, 0.12 + dz], [0.372, 0.59 + dy, 0.17 + dz], [0.365, 0.51 + dy, 0.2 + dz], [0.382, 0.45 + dy, 0.17 + dz]].map(([x, y, z]) => [sx * x, y, z]), w), 'hair', C.hair, 'hair');
+    // Cổng 5 (W3): lọn ở THÁI DƯƠNG (đuôi dừng ở y ≈ 0,53 H, không buông xuống má), dày hơn (0,015–0,019 H), tách khỏi da — lọn mảnh dài áp sát má từng đọc như vết xước ở góc nghiêng
+    //   Hai phương án (P chọn — ĐỔI SỐ ĐO B1 0°, xem reports/m2/cong5/w3/BAO-CAO-W3.md): 'temple' (mặc định, ngắn ở thái dương) | 'long' (v1.2, buông tới má).
+    const wispMode = opts.idaWisps ?? IDA_WISPS;
+    const WISP_PTS = wispMode === 'long'
+      ? { w: [0.011, 0.009, 0.008], dy: [0, -0.035, 0.03], pts: [[0.335, 0.67, 0.12], [0.372, 0.59, 0.17], [0.365, 0.51, 0.2], [0.382, 0.45, 0.17]] }
+      : { w: [0.019, 0.016, 0.015], dy: [0, -0.03, 0.03], pts: [[0.338, 0.70, 0.12], [0.380, 0.64, 0.165], [0.394, 0.58, 0.19], [0.41, 0.535, 0.175]] };
+    for (const sx of [1, -1]) for (const [k, dz] of [[0, 0], [1, 0.03], [2, -0.035]])
+      add(headG, wisp(WISP_PTS.pts.map(([x, y, z]) => [sx * x, y + WISP_PTS.dy[k], z + dz]), WISP_PTS.w[k]), 'hair', C.hair, 'hair');
     for (const sx of [1, -1]) add(headG, wisp([[sx * 0.09, 0.42, -0.33], [sx * 0.12, 0.33, -0.31], [sx * 0.105, 0.25, -0.28]], 0.012), 'hair', C.hair, 'hair');
     // Mũ phớt mềm: chóp có rãnh giữa và hai vết bóp trước; vành cụp trước, mép cuộn; băng mũ.
     const hs = sheet.costume.hat; const hat = new THREE.Group(); hat.position.y = 0.86 * H; hat.rotation.x = 0.08;
@@ -403,18 +411,22 @@ export function buildCharacter(sheet, opts = {}) {
         let low = 1e9; for (let zz = z - 0.04; zz < (a < 1.5 ? z + 0.32 : z - 0.03); zz += 0.012) for (let yh = -0.12; yh < Math.min(low, 0.62); yh += 0.005) if (headSDF(x, yh, zz) < CL.gap) { low = yh; break; }
         if (low < 1e8) top = Math.min(cap_, tL + nL + low - 0.01 + CL.tuck * gauss(a, 0.45));   // hệ đầu: gốc ở (0, tL + nL, 0) hệ thân; ở trước mép luồn SAU cằm (cằm che mép)
         raw.push(Math.max(CL.low, top)); }
-      for (let i = 0; i < NRIM; i++) { let v = 0, ws = 0; for (let k = -4; k <= 4; k++) { const w = Math.exp(-k * k / 8); v += w * raw[(i + k + NRIM) % NRIM]; ws += w; } RIM[i] = v / ws; }
+      // co (min ±16°) rồi làm mượt (Gauss ±24°): đường mép dâng đều từ dưới cằm lên góc hàm, không gãy khúc, và không vượt lên trên đường hàm
+      const ero = raw.map((_, i) => { let m = 1e9; for (let k = -8; k <= 8; k++) m = Math.min(m, raw[(i + k + NRIM) % NRIM]); return m; });
+      for (let i = 0; i < NRIM; i++) { let v = 0, ws = 0; for (let k = -12; k <= 12; k++) { const w = Math.exp(-k * k / 40); v += w * ero[(i + k + NRIM) % NRIM]; ws += w; } RIM[i] = v / ws; }
       RIM[NRIM] = RIM[0]; if (opts.dbgRim) console.log("RIM", JSON.stringify(Array.from(RIM).filter((v, i) => i % 10 === 0).map((v) => +(v - tL).toFixed(3)))); }
-    const clTop = (ph) => { const u = ((ph / (2 * Math.PI)) % 1 + 1) % 1 * NRIM, i = Math.floor(u), f = u - i; return RIM[i] + (RIM[i + 1] - RIM[i]) * f + 0.2 * clFold(ph, 1); };   // mép gợn nhẹ theo nếp
+    const clTop = (ph) => { const u = ((ph / (2 * Math.PI)) % 1 + 1) % 1 * NRIM, i = Math.floor(u), f = u - i; return RIM[i] + (RIM[i + 1] - RIM[i]) * f + 0.1 * clFold(ph, 1); };   // mép gợn rất nhẹ theo nếp
     const clRad = (k) => (s, ph) => { const t = 1 - s, top = clTop(ph), y = CL.base + (top - CL.base) * t;
       const r = (CL.rb + (clR(ph) - CL.rb) * Math.pow(t, 1.4) + clFold(ph, t)) * k;
       return [r * H, 0, -0.01 * H, (y - (CL.side + (CL.base - CL.side) * s)) * H]; };   // dy: y thật − y tuyến tính của tube
+    // đường nối của ống (φ = 0 của tube) đặt ra SAU gáy: dựng với φ + π rồi xoay hình π quanh trục dọc (dz đổi dấu theo)
+    const back = (fn) => (s, ph) => { const v = fn(s, ph + Math.PI); if (v.length > 2) v[2] = -v[2]; return v; };
     const clCol = (s, ph) => { const t = 1 - s, f = clFold(ph, t) / Math.max(1e-3, t); const a = 1 - 14 * Math.max(0, -f) * t - 0.25 * (1 - sstep(0.0, 0.5, t)); return [a, a, a * 0.95 + 0.05]; };
-    const clLin = (s) => { const a = 0.35 + 0.45 * sstep(0.35, 0.0, s); return [a, a * 0.97, a * 0.95]; };   // lót: tối dần vào trong lòng cổ áo (bóng kín)
+    const clLin = (s) => { const a = 0.28 + 0.24 * sstep(0.35, 0.0, s); return [a, a * 0.96, a * 0.93]; };   // lót: tối, tối dần vào trong lòng cổ áo (bóng kín) — mép lót sáng từng đọc thành "lỗ"
     const collarMeshes = [];
     for (const [k, role] of [[1, 'coat'], [0.955, 'lining']]) collarMeshes.push(add(joints.spine, tube({ y0: CL.side * H, y1: CL.base * H, nu: R(96), nv: R(14), uv: [3, 1],
-      rad: clRad(k), color: role === 'coat' ? clCol : clLin }), role, role === 'coat' ? C.coat : C.coat_lining, 'collar'));
-    { const pts = []; for (let i = 0; i <= 96; i++) { const ph = 2 * Math.PI * i / 96, r = (clR(ph) + clFold(ph, 1)) * 0.978; pts.push([Math.sin(ph) * r * H, clTop(ph) * H, (Math.cos(ph) * r - 0.01) * H]); }
+      rad: back(clRad(k)), color: role === 'coat' ? (s, ph) => clCol(s, ph + Math.PI) : clLin }).rotateY(Math.PI), role, role === 'coat' ? C.coat : C.coat_lining, 'collar'));
+    { const pts = []; for (let i = 0; i <= 96; i++) { const ph = Math.PI + 2 * Math.PI * i / 96, r = (clR(ph) + clFold(ph, 1)) * 0.978; pts.push([Math.sin(ph) * r * H, clTop(ph) * H, (Math.cos(ph) * r - 0.01) * H]); }
       collarMeshes.push(add(joints.spine, strandGeo(pts, () => [0.022 * H, 0.017 * H], 6, R(120)), 'coat', C.coat, 'collar')); }   // mép cuộn
     // chuyển sang hệ gốc nghỉ + trọng số da (chân: thân; mép: 0,9 đầu)
     { root.updateMatrixWorld(true); const toRoot = new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(joints.spine.matrixWorld);
