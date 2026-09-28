@@ -327,3 +327,204 @@ Nửa dưới mặt tròn–mềm, nữ, cằm nối cổ liền; da có kết c
 ### Thời gian và làm lại (A-α bước 3)
 Làn nhanh, chờ 0 s: 2 ảnh thử (24,0 / 23,0 s) + lần 2 (≈ 23 s ×2) + bộ cuối lần 1 (23,5 / 22,8 / 22,7 / 23,1 s) + **bộ cuối nộp (23,1 / 22,9 / 23,3 / 23,1 s)**; B1 8 góc (hàng nặng) 321 s. Làm lại: 3 (mép tóc răng cưa + sợi dựng đứng; mảng hói sau tai; mày sợi 3D thành thanh xám khi nghẹn). Thử nhanh ngoài hàng đợi ~40 lần (studio, s37, bảng phơi sáng 7 shot × 4–6 mức). Lỗi công cụ tự sửa: `rng3` thiếu sau reset; số `bc` không có số 0 đầu làm JSON hỏng (bảng phơi sáng chạy lại).
 Tổng A-α: 3 bước, 8 lần render ảnh nộp/thử 1080p, ~75 lần thử nhanh.
+
+# A-i — mặt điêu khắc + rig biểu cảm (quyết định chủ dự án Cổng 5 v2: đảo C′; đích phong cách hiệu chuẩn nội bộ theo REF-SF / REF-SF-HC)
+
+Gốc: `e850c0f` (nhánh tích hợp `claude/cine-lab-m2-cong5-layout-24o5fp`, reset theo lệnh P). Đã đọc `kiem-mu-mat/lan4.md`, `lan5.md`, `lan6.md`, `aa-tung-buoc.md`, `hieu-chuan/HIEU-CHUAN.md`.
+Sprite Fright chỉ xem 2 khung trong scratchpad để hiệu chuẩn mức cách điệu (không lưu vào repo, không lấy hình/nhân vật nào). Không có tài sản mới → `RIGHTS.md` không đổi (mọi kết cấu mắt, da, tóc sinh bằng thủ tục trong mã).
+Giữ danh tính khoá: mũ phớt #262a33, búi + tóc bạc #e2dfda, khuyên tai #c9a466, khăn, tuổi 65–75, mắt #5a4636 (vòng rìa tròng).
+
+## A-i vòng 1
+
+### 1. Bộ nộp kiểm mù (P chạy kiểm; W3 không tự kiểm)
+| # | Ảnh 1920×1080, 3 mẫu | Khung | JPEG (≤ 300 KB) | PNG gốc (không commit) |
+|---|---|---|---|---|
+| 1 | neutral | s37, f 2302 (giữa shot), chỉ ghi đè biểu cảm | `reports/m2/cong5/w3/ai_v1_neutral.jpg` | `design/cong5/mat/ai/vong1/neutral/x.png` |
+| 2 | sad_smile | s37, f 2302 (biểu cảm gốc của s37) | `reports/m2/cong5/w3/ai_v1_sad_smile.jpg` | `…/vong1/sad_smile/x.png` |
+| 3 | choked | s37, f 2302, chỉ ghi đè biểu cảm | `reports/m2/cong5/w3/ai_v1_choked.jpg` | `…/vong1/choked/x.png` |
+| 4 | s39 chính diện | s39, f 2531 (khung P dùng ở lần 6), biểu cảm của layout (choked) | `reports/m2/cong5/w3/ai_v1_s39.jpg` | `…/vong1/s39/x.png` |
+| clip | 3 s, 72 khung, 24 fps, 1920×1080, 2 mẫu/khung, H.264 CRF 16 | s37 f 2266–2337 (máy đẩy vào thật của shot), rãnh `goodnight.js` | `reports/m2/cong5/w3/ai_v1_clip_goodnight.mp4` | khung PNG `…/vong1/clip/f0000–f0071.png` |
+
+Điều kiện dựng: đúng khung layout qua `design/cong5/mat/page_layout_fl.js` — cùng bộ cảnh, đèn (L11 đổ bóng như W2 đã bật), facelight của W3, phơi sáng `fl.exposure() × EK` theo `meta.ek` của W2 (s37 1,3; s39 0,8), lớp vẽ `PAINT_CLOSE`. Không thêm đèn, không đổi phơi sáng/lớp vẽ. Clip: biểu cảm của mọi khung lấy từ rãnh (không dùng preset của s37).
+Rãnh clip (`design/cong5/mat/goodnight.js`): nền "cười buồn dịu" (smile 0,5, cheekRaise 0,35, browInnerUp 0,55, squint 0,25); **chớp 1** khung 5–11, **"Good-night"** khung 15–48 (G 18 → "oo" 21–25 → d 28 → n 31 → "igh" 35–39 → i 42 → t 45 → khép môi 48), dư âm cười 56, **chớp 2** khung 62–68. Gợi ý 6 khung để cắt: 0, 8 (mắt nhắm), 22 ("oo"), 36 ("igh"), 45 ("t"), 64 (chớp 2).
+Kèm tham khảo (không thuộc bộ kiểm): `reports/m2/cong5/w3/ai_v1_rig_studio.jpg` — 7 khẩu hình (rest, A, E, O, MBP, FV, L) và 4 biểu cảm dưới đèn studio trung tính, không mũ.
+
+### 2. Thay đổi theo từng yêu cầu của chủ dự án
+**(a) Mặt điêu khắc — module mới `design/cong3/v2/char3d/facerig.js` (`aiHeadSDF`).** Mọi đặc điểm là KHỐI trong lưới (SDF → lưới hình sao 210×165 × hq, 1,4 ở cận mặt): gờ mày, hốc mắt, mí trên dày có đuôi cụp + da chùng trên mí, mí dưới, bọng dưới mắt + rãnh dưới bọng, sống mũi–gồ–đầu mũi–cánh mũi–lỗ mũi, gò má cao, má đầy, đệm má (ranh rãnh mũi–má là ranh giới khối), nhân trung (rãnh khối), **môi trên mỏng + môi dưới có khối, hợp bằng nối nhỏ → đường môi là rãnh chữ V hình học** (không vẽ), khoé miệng cụp nhẹ, hõm môi–cằm, đệm cằm, khối dưới cằm da chùng, má chùng trên đường hàm, nếp trán mềm, **cổ liền hàm** (phần cổ trên là cùng một lưới với đầu, lượn mềm từ hàm/dưới cằm; ống cổ của thân thu 0,85 nằm bên trong, chỉ lộ ở chân cổ). |x| trơn (ε 0,01 H) để hết nếp gãy pháp tuyến dọc đường giữa mặt.
+**Bỏ hoàn toàn nét vẽ trên đầu cứng:** Ida A-i không dùng `facepaint.js` (không nếp nhăn vẽ, không khe môi vẽ, không mi vẽ, không lớp phát sáng "glint"). Còn lại chỉ là màu đỉnh (sắc độ vùng, không nét).
+**(b) Rig biểu cảm** (morph tính trên CPU = blendshape; mọi pass kể cả G-buffer lớp vẽ thấy đúng hình), 16 kênh: `browUp, browDown, browInnerUp, browKnit, blink, lidDrop, squint, cheekRaise, smile, frown, jawOpen, press, pucker, wide, lowerLipIn, chinRaise`. Mí: xoay vỏ mí quanh tâm nhãn cầu (không xuyên mắt); khối mi và đường nước gắn trục quay tại tâm mắt, quay cùng mí. Hàm: xoay quanh bản lề gần tai (0,42 H; −0,03 H), chuyển mềm ở khoé–má (không "hàm rối gỗ"), vách trong môi lùi sâu khi mở → có hốc miệng; răng dưới theo hàm. Mày: 9 lọn sợi ngắn mỗi bên, dựng lại theo cùng trường biến dạng. API: `ch.setFace({kênh: w})`, `ch.FACE_PRESETS`, `ch.VISEMES`, `ch.mixW(…)`.
+**(c) Bộ khẩu hình cho Cổng 6** (`VISEMES`): A {jawOpen .75, wide .1}, E {jawOpen .3, wide .7}, O {jawOpen .5, pucker .9}, MBP {press 1}, FV {lowerLipIn 1, jawOpen .1}, L {jawOpen .4, wide .25}, rest {}.
+**(d) Biểu cảm dựng lại trên rig** (`FACE_PRESETS`): neutral {}; sad_smile {smile 1, cheekRaise .8, browInnerUp .6, browKnit .15, squint .45}; strained {press .8, browKnit .8, browDown .3, chinRaise .4}; choked {frown 1, browInnerUp 1, browKnit .65, chinRaise 1, press .6, lidDrop .25, squint .2}. Layout gọi đúng tên cũ → s36/s37/s39 và mọi shot có Ida dùng mặt mới mà không sửa file layout.
+**(e) Mắt:** nhãn cầu riêng, vật liệu vật lý có lớp ướt (clearcoat, nhám 0,06) → điểm sáng thật nhỏ gọn từ đèn cảnh, nền tròng nhám (không "bi thuỷ tinh"); tròng có vân mờ, con ngươi mép mềm, viền tròng tan vào lòng trắng; bóng mí trên đổ lên nhãn cầu; mi trên là khối mảnh tối ở mép mí; **đường nước** hồng ướt ở mí dưới; mí che nhãn cầu tự nhiên (mép mí trên che đỉnh tròng). **"Mắt đỏ, ma" dưới điện (s39):** đo được nguyên nhân — grade cảnh nâng vùng tối về ấm và lớp vẽ trộn điểm ảnh quanh, nên tròng nâu ấm (#5a4636 phủ toàn tròng) ra nâu đỏ. Sửa: tròng nâu XÁM lệch lạnh, #5a4636 của sheet chỉ còn ở vòng rìa; ánh sáng tới mắt kéo 65 % về trung tính (như tóc bạc). Kết quả đo ở mục 3.
+**(f) Da:** vật liệu PBR riêng (nhám 0,42 — ánh bóng da mềm ở mũi, trán, gò má, môi; Lambert cũ đọc thành sáp/đất sét) + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập, ranh sáng–tối ấm) + `skinWarm` cũ. Sắc độ bằng màu đỉnh: ấm má–mũi, **tai ấm hồng** (tai dùng chung vật liệu da mặt), **mát dưới mắt**, môi hồng xỉn, loang hồng nhẹ + vài đốm tuổi mờ ở trán/thái dương, che khuất dưới hàm, dưới vành mũ, **bóng tiếp xúc của tóc ở chân tóc** (mép tóc–da chuyển mềm).
+**(g) Tóc thành lọn:** nền khối tóc gợn lọn lớn (bỏ sọc mảnh) tối hơn 6 % làm khe; **79 lọn** dẹt thon hai đầu (22 + 14 mỗi bên, 7 lọn trước vén lên dưới mũ), khung tường minh (bề rộng nằm tiếp tuyến mặt tóc), mỗi lọn một sắc bạc, vân sợi dọc lọn; chân tóc trơn (bỏ răng cưa "giấy xé"). Bỏ sợi mép A-α và sợi tơ chân tóc thử ở vòng này (ở 1080p đọc thành "đường khâu").
+**(h) Khác:** miệng + cằm đưa ra trước 0,025 H (bản đầu nghiêng ra "móm"); má/hàm thu gọn (mặt tròn nữ, không hình quả lê); mũi, lỗ mũi tối (không đốm sáng "khuyên mũi").
+
+### 3. Tự đo (không phải kiểm mù)
+- **Độ sáng da** (hộp mặt, điểm ảnh da R > G > B; "cháy" = có kênh ≥ 250 — ở ánh hổ phách chủ yếu là kênh đỏ): neutral 3,9 %, sad_smile 3,6 %, choked 2,9 % (s37, EK 1,3 của layout; trung vị L 0,41–0,44, p99,5 0,81–0,82); s39 1,4 % (trung vị 0,60, p99,5 0,85). Không có ngưỡng khoá cho số này; ghi để P so với A-α (s37 ~2,9 % ở EK 1,3).
+- **Màu tròng ở s39 khung 2531** (vành r 10–28 px quanh tâm tròng, 1920×1080; lần 6: r 5–13 px ở bản 960): sắc 11°, bão hoà 0,59 / 0,50, L 0,37 / 0,36 — lần 6: sắc 13–14°, bão hoà 0,63 / 0,60, L 0,40 / 0,34. **Chỉ cải thiện ít.** Kiểm chứng: đổi tròng thành xanh lá thì ảnh ra vàng xanh → đường kết cấu đúng; phần nâu đỏ còn lại do grade cảnh nâng vùng tối về ấm + lớp vẽ trộn da quanh mắt vào tròng (tròng chỉ ~45 px). Phép đo có lẫn mép mí. Đề xuất (P/W2 quyết): loại mắt khỏi bán kính Kuwahara (mặt nạ "quan trọng" riêng cho mắt) — không phải file của W3.
+- **Kiểm đường nét vẽ:** Ida A-i không gọi `paintFace` (mã), không map/emissive vẽ trên đầu; mọi nếp, khe môi, mi là hình học hoặc khối lưới riêng.
+- **Thời gian dựng nhân vật** (trang studio, 960×540): dựng 5,2–6,3 s (bản A-α ~2,5 s — lưới đầu 331×260 ô ≈ 86,7 k đỉnh ở detail 36 / faceQ 1,4 + 16 kênh morph + 79 lọn tóc); render khung 1080p 3 mẫu ở layout 31–43 s (khi không phải chờ).
+- **B1 / C3:** CHƯA đo lại (P: chỉ đo 8 góc khi qua kiểm mù). Hình đầu đã đổi (miệng–cằm +0,025 H ra trước, cổ liền hàm, 79 lọn tóc phủ ngoài khối tóc) → `c3_views` Ida chắc chắn phải cập nhật trước khi chạy luật máy.
+- Chỉ số trong ±5 % quanh ngưỡng: không có chỉ số khoá nào được đo ở vòng này (C3/B1 chưa đo — xem trên).
+- Lệnh kiểm của phiên K: không được giao cho vòng này; W3 không chạy luật máy, không đọc `checks/`.
+
+### 4. Tự rà (không phải kiểm mù) theo lời chê lần 6
+| Lời chê lần 6 | A-i vòng 1 | Còn lại |
+|---|---|---|
+| đầu quả trứng/bóng đèn, mép mặt–tóc gọn như mặt nạ | mặt có khối gờ mày, gò má, má, rãnh mũi–má, cằm, dưới cằm; chân tóc trơn + bóng tiếp xúc; lọn tóc phủ mép | dưới vành mũ, trán vẫn là mảng sáng trơn |
+| tóc là vỏ khắc sọc | 79 lọn dẹt nhiều sắc bạc trên nền gợn lọn lớn | ở cỡ CU, lọn có thể đọc thành "lá/lông vũ" |
+| cổ cột, mũ nổi | cổ liền hàm (cùng lưới), bóng hàm đổ lên cổ | cổ vẫn dài (tỷ lệ sheet 0,30 H + khăn thấp A-α) |
+| da sáp, mắt thuỷ tinh | da PBR bóng mềm + bọc đỏ + loang/đốm; mắt lớp ướt nhỏ, nền nhám, mí che, đường nước | ánh hổ phách s37 vẫn làm mặt cam phẳng (ánh sáng layout, không đổi) |
+| mắt đỏ, ma dưới điện (s39) | tròng nâu xám lệch lạnh, ánh tới mắt kéo về trung tính | vẫn nâu đỏ nhẹ (đo ở trên) |
+| tai nhọn kiểu yêu tinh | đỉnh tai nằm dưới lọn tóc, lộ phần dưới + khuyên; tai cùng vật liệu da, ấm hồng | hình tai không đổi |
+| cột đèn cam cháy trái khung s37 | — (file W2) | W2 đã đổi máy +10°, khung vòng này không còn cột |
+
+### 5. Thời gian thật và số lần làm lại (vòng 1)
+- Bắt đầu A-i: sau reset về `e850c0f` (09:21 UTC, giờ commit của P) → nộp: xem cuối mục. Hàng đợi: 55 việc thử (29 studio `page_ai.js`, 25 khung layout 960×540, 1 thử driver clip), tổng chạy 1 174 s, đều làn nhanh.
+- **Tự báo lỗi quy trình:** 4 ảnh thử 1920×1080 (2–3 mẫu) chạy ở LÀN NHANH (theo `queue.sh`, still ≥ 1920×1080 hoặc ≥ 2 mẫu là việc NẶNG); 2 trong đó ghi "QUA-60S" (65,5 s; 70,0 s). Từ bộ nộp trở đi mọi việc nặng chạy làn nặng.
+- **Hủy một lượt nộp:** bộ nộp lần đầu (4 ảnh + clip) đã render xong 4 ảnh và 2 khung clip thì W3 tự dừng (kill tiến trình clip, mã 1 trong nhật ký, 59,8 s) vì thấy 3 lỗi ở ảnh 1080p: sợi tơ chân tóc đọc thành "đường khâu", nếp gãy dọc giữa cổ (|φ| không trơn), tròng đỏ. Sửa rồi render lại toàn bộ (ảnh lần đầu: `thoi-gian-lan1-huy.txt`).
+- Làm lại trong vòng (theo hạng mục): miệng 4 cách (khe khoét + khoét lỗ lưới → bỏ lỗ, răng trong môi → vách trong lùi khi mở → **đường môi là rãnh V giữa hai khối môi**); lọn tóc 2 (khung Frenet làm lọn dựng như lông vũ → khung tường minh); hàm 1 (dấu quay ngược: cằm đi lên); nếp gãy đường giữa mặt 1; mí trên 3 mức; nụ cười 3 lần; cổ 3 lần (ống to → ống thu + cầu nối → cổ liền hàm elip); tròng 3 lần; lỗ mũi 2.
+- **Bộ nộp (làn nặng, nhật ký hàng đợi):** chạy 31,1 / 30,2 / 30,9 / 32,2 s (neutral / sad_smile / choked / s39), chờ 766 / 61 / 0 / 367 s (sau render của W2); clip 72 khung: 731,4 s chạy (dựng 6,0 s; 9,9 s/khung trung bình, tối đa 23,6 s), chờ 778 s. Tệp: `design/cong5/mat/ai/vong1/thoi-gian.txt`, `…/clip/clip.timing.json`. Lượt huỷ: 33,7 + 34,8 + 33,9 + 43,6 + 59,8 s.
+- Kết thúc vòng 1: 11:33 UTC (≈ 2 giờ 12 phút tính từ giờ commit gốc `e850c0f`; giờ reset thật không ghi lại, muộn hơn một chút).
+
+### 6. Rủi ro
+1. **Ánh sáng layout quyết định nhiều hơn mặt:** s37 là đèn khí gần như chính diện, mặt ra một mảng cam phẳng (cháy kênh đỏ 3–4 %) — dễ vẫn bị gọi "mặt nạ" dù hình khối đã có. Đề xuất cho P/W2 (không tự sửa): nâng L11 lên ~15–20° so với mắt ở s36/s37 để có bóng mũi/vành mũ/cằm; hoặc EK 1,1.
+2. **Nửa dưới mặt nặng** (má chùng, đệm cằm, cổ liền hàm có yếm) — đọc "già" rõ nhưng có thể đọc thành "phúng phính/bĩu"; sad_smile là cười khép môi (có thể bị đọc thành "mím/bĩu").
+3. **Tóc lọn** ở cỡ CU có thể đọc thành "lá/lông vũ trắng" (ánh hổ phách làm tóc cháy trắng).
+4. **Mắt còn nâu đỏ nhẹ ở s39** (grade + lớp vẽ); nếu lời chê "mắt đỏ" lặp lại, cần P/W2 loại mắt khỏi Kuwahara.
+5. **Hiệu năng:** dựng Ida A-i 5–6 s/lần (A-α ~2,5 s); `setFace` mỗi khung tính lại vị trí + pháp tuyến ≈ 86,7 k đỉnh — CHƯA đo riêng (clip 9,9 s/khung ở 1080p 2 mẫu đã gồm cả `setFace`); cần đo khi Cổng 6 chạy khẩu hình cả phim.
+6. **Tương thích:** mọi shot có Ida giờ dùng đầu A-i (`IDA_STYLE = 'ai'`); `idaStyle: 'aa'` trả về bản A-α nguyên vẹn nếu cần so sánh/lùi. Hình đầu đổi → B1/C3 lệch chắc chắn (chưa đo).
+7. Quy trình: 4 ảnh thử 1080p chạy nhầm làn nhanh (đã nêu ở mục 5).
+
+### 7. File
+Mới: `design/cong3/v2/char3d/facerig.js` (đầu điêu khắc, rig, khẩu hình, mắt, mi, mày, da), `design/cong5/mat/page_ai.js` (trang studio thử rig), `design/cong5/mat/clip.js` (driver clip), `design/cong5/mat/goodnight.js` (rãnh chớp + khẩu hình), `design/cong5/mat/run_ai.sh` (bộ nộp mỗi vòng), ảnh/clip `reports/m2/cong5/w3/ai_v1_*`.
+Sửa: `design/cong3/v2/char3d/cast3d.js` (`IDA_STYLE = 'ai'`, nhánh đầu A-i, `ch.setFace`, lọn tóc, chân tóc trơn + bóng tiếp xúc, tai ấm cùng vật liệu da, cổ thân thu vào trong cổ liền hàm, |φ| trơn ở cổ), `design/cong5/mat/page_layout_fl.js` (`face`, `vis`, `track`), `design/cong5/mat/.gitignore`.
+Không sửa: `bible/`, `checks/`, `ida.json`, `PLAN.md`, file layout W1/W2 (`design/cong5/layout/*` không đổi), `facepaint.js`, `facelight.js`. `RIGHTS.md`: không có tài sản mới.
+
+### 8. Việc đang chờ
+- **P:** chạy kiểm mù vòng 1 (4 ảnh + 6 khung cắt từ clip, 2 khung đối chứng Sprite Fright); báo kết quả. Nếu TRƯỢT: W3 làm vòng 2 (vòng cuối). Nếu vòng 2 vẫn trượt: dừng mặt, viết 2–3 phương án dàn dựng lại 1:32–1:48 (s36–s40) kèm khung dò.
+- **P/W2 (đề xuất, W3 không sửa):** góc L11 ở s36/s37 (rủi ro 1); mặt nạ mắt riêng cho lớp vẽ (rủi ro 4).
+- **Chủ dự án:** duyệt hướng tạo hình A-i (mặt điêu khắc + rig, tóc lọn, cổ liền hàm, tròng nâu xám lệch lạnh với vòng #5a4636) — ghi AUTHORSHIP khi qua.
+- **Khi QUA:** W3 đề xuất `characters` v1.5 + model sheet (P sửa, khoá SHA); đo lại B1 8 góc → `c3_views`.
+
+## A-i vòng 2 (vòng CUỐI) — sửa theo `kiem-mu-mat/ai-vong1.md`
+
+Vòng 1 TRƯỢT (búp bê/mặt nạ/con rối: Ida 9/10, đối chứng 0/2; cười buồn không đọc ra). Khung, đèn, phơi sáng giữ y vòng 1 (s37 f 2302 'gas', s39 f 2531, clip s37 f 2266–2337); chỉ đổi nhân vật.
+
+### 1. Bộ nộp
+| # | Ảnh 1920×1080, 3 mẫu (làn nặng) | JPEG | PNG gốc |
+|---|---|---|---|
+| 1 | neutral (s37 f 2302) | `reports/m2/cong5/w3/ai_v2_neutral.jpg` | `design/cong5/mat/ai/vong2/neutral/x.png` |
+| 2 | sad_smile (s37 f 2302) | `reports/m2/cong5/w3/ai_v2_sad_smile.jpg` | `…/vong2/sad_smile/x.png` |
+| 3 | choked (s37 f 2302) | `reports/m2/cong5/w3/ai_v2_choked.jpg` | `…/vong2/choked/x.png` |
+| 4 | s39 f 2531 (biểu cảm layout) | `reports/m2/cong5/w3/ai_v2_s39.jpg` | `…/vong2/s39/x.png` |
+| clip | 3 s, 72 khung, 24 fps, 1920×1080, 2 mẫu, H.264 CRF 16, 7,7 MB | `reports/m2/cong5/w3/ai_v2_clip_goodnight.mp4` | `…/vong2/clip/f0000–f0071.png` |
+**6 chỉ số khung để cắt: 0, 8, 22, 36, 45, 64** (0 nghỉ; 8 nhắm mắt; 22 "oo"; 36 "igh"; 45 "t"; 64 chớp 2). Ghép tham khảo: `ai_v2_clip_6khung.jpg`; rig studio: `ai_v2_rig_studio.jpg`. Rãnh clip giữ nguyên `goodnight.js`.
+
+### 2. Sửa theo từng nhóm lời chê (số trong ngoặc = số ảnh bị nêu ở vòng 1)
+1. **Da nhựa/sáp, cam gắt, không nếp (10/10).** Nền da bớt bão hoà (màu đỉnh 0,93/1,0/1,06); vùng nóng (má, mũi, giữa mày, tai) và vùng lạnh (dưới mắt, thái dương, cằm–hàm) tách rõ hơn; ánh hổ phách tới da kéo 40 % về trung tính ấm (vật liệu, như tóc bạc — không đổi đèn); bóng gương giảm (nhám 0,42 → 0,58, cường độ 1,0 → 0,45); kết cấu da thủ tục (bumpMap lỗ chân lông + nếp mịn). Nếp tuổi bằng KHỐI: 3 rãnh chân chim mỗi bên, rãnh mũi–má sâu hơn (0,0035 → 0,006 H), 2 nếp trán, nếp giữa mày, 2 nếp da cổ, cơ ức–đòn–chũm. Số đo: bão hoà HSV trung vị vùng da neutral 0,788 → **0,707**, s39 0,511 → **0,469**; điểm da cháy (kênh ≥ 250): s37 2,9–3,9 % → **0,0 %**, s39 1,4 % → **0,0 %**.
+2. **Nửa dưới mặt phình/chảy, cằm quả lê, miệng cao su (9/10).** Dựng lại nửa dưới: khối hàm dưới–miệng liền với mặt giữa, **xương hàm có đường và góc hàm**, cằm nhỏ; **nửa dưới mặt ngắn lại** (mũi–miệng 0,10 H, miệng–cằm 0,19 H; cằm từ y 0,02 lên 0,11 H — đầu từ cằm tới đỉnh sọ còn ~0,89 H, xem rủi ro C3); môi nhỏ gọn (nửa rộng 0,074 → 0,062), khe môi là rãnh nông dần về khoé (không đầu nhọn sáng); má chùng/đệm má nhỏ lại; mũi bớt nhô 0,02 H.
+3. **Mặt như mặt nạ dán, ranh da–tóc sắc (7/10).** Khối tóc MỎNG dần tới chân tóc (không bậc cắt); 70 sợi tóc con mảnh nằm áp da mọc qua chân tóc; bóng tiếp xúc tóc trên da; nền tóc có vân sợi; cổ và hàm là cùng một lưới với sọ.
+4. **Cổ cột + mảng bóng răng cưa (8/10).** Nguyên nhân mảng răng cưa: **giao tuyến giữa ống cổ của thân và cổ của lưới đầu** (ống cổ thân lòi ra ngoài) — không phải bóng của đèn khí. Sửa trong code của W3: ống cổ thân thu 0,62 và bỏ nghiêng trước để nằm hẳn trong cổ lưới đầu; cổ lưới đầu rộng 0,43 H, sâu 0,40 H, có cơ ức–đòn–chũm và nếp da; phần cổ lộ ngắn lại nhờ vòng khăn thứ 3–4 (khăn cao sát dưới cằm). Không sửa `facelight.js` hay đèn.
+5. **Tóc dải giấy/đất nặn; mũ lơ lửng (8/10).** 103 lọn (30 + 18 mỗi bên, 7 lọn trước), mảnh hơn, tiết diện tròn hơn, 60 sợi con rời lọn; mũ: bản lề đẩy vành chuyển về TÂM SỌ → khi `hat_back` mũ trượt trên đầu, băng mũ luôn ép tóc; bóng tiếp xúc dưới băng mũ trên tóc (tối 35 %).
+6. **Mũi vẹo + chấm tròn dưới cánh mũi (7/10).** Nguồn chấm: **khối khoét lỗ mũi** (lỗ khoét + màu tối → chấm tròn). Đã xoá khoét; lỗ mũi chỉ còn tối mềm ở mặt dưới mũi. Bỏ khối "gồ mũi" (tạo chỗ lõm–gãy trên sống mũi); sống mũi là một nón thẳng, đối xứng.
+7. **Hoa tai lệch, treo cạnh má, không thấy tai (7/10).** Tai dời ra ngoài mép má (x 0,38 H, đỉnh ngang mày, dái ngang chân mũi), nhỏ lại (0,26 H), đỉnh tròn; tóc rẽ quanh tai; hoa tai treo đúng dái, hai bên đối xứng trong hệ đầu (lệch độ cao trong ảnh chỉ do tư thế đầu nghiêng của layout). Tìm được thêm một lỗi: ở vòng 1 tai + hoa tai nằm sau khối tóc/má nên đọc thành "hoa tai mọc ra từ má".
+8. **Hai mắt không cân, "lác" (4/10).** **Lỗi dấu:** nhãn cầu quay `rotation.y = +sx·0,025` → trục nhìn quay RA NGOÀI (phân kỳ) — lỗi có từ A-α. Sửa `−sx·0,03` (hội tụ).
+9. **Cười buồn đọc được.** Kênh `smile` dựng lại: cả đường môi cong lên về khoé (không chỉ một cục ở khoé), khoé kéo ra–lên–vào, má "táo" dồn lên dưới mắt, rãnh mũi–má sâu thêm, môi không bĩu; preset `sad_smile` = smile 1, cheekRaise 0,9, squint 0,55 (mí dưới nâng — mắt cười), browInnerUp 0,45 (mày trong vẫn nhướng), jawOpen 0,1 (môi hé).
+
+### 3. Tự xem trước khi nộp (không phải kiểm mù)
+Đạt theo mắt W3: cười buồn đọc ra cười; tai + hoa tai thấy được; cổ ngắn, không còn mảng răng cưa; mũi thẳng, không chấm; da hồng–ấm, có nếp chân chim. Còn lo: (a) khuôn mặt vẫn trơn ở cỡ CU dưới đèn khí chính diện (lớp vẽ Kuwahara làm mờ kết cấu da); (b) s39 nghẹn: má–hàm vẫn rộng ở ngang miệng, dễ bị đọc "phúng phính"; (c) tai bên gần máy ở s37 to/vểnh vì đầu quay 35°; (d) chân tóc ở trán dưới vành mũ vẫn là một đường; (e) vệt cam góc dưới trái (đèn lồng ngoài khung) — của layout, W3 không sửa.
+
+### 4. Đề xuất ánh sáng (P đưa chủ dự án — W3 không tự đổi)
+Đèn khí L11 gần như chính diện ở s36/s37 làm mặt thành một mảng sáng phẳng không bóng khối; đây vẫn là nguyên nhân lớn nhất của cảm giác "mặt nạ" còn lại theo đánh giá của W3. Phương án: nâng L11 lên ~15–20° và lệch ~25° so với trục máy (bóng mũi, bóng vành mũ lên trán, bóng cằm lên cổ). Ưu: khối mặt đọc ngay; nhược: đổi continuity ánh sáng cảnh 5; rủi ro: phải chạy lại luật máy C3/khung sáng.
+
+### 5. Thời gian thật và làm lại (vòng 2)
+- 11:50 → 13:00 UTC (≈ 1 giờ 10 phút). Thử: 65 việc làn nhanh (studio + layout 960×540), chạy 1 360 s. Bộ nộp làn nặng: ảnh 44,0 / 56,9 / 57,0 / 43,0 s (chờ 34 / 858 / 0 / 0 s — sau đóng gói của P); clip 797,5 s (10,8 s/khung, tối đa 25,6 s).
+- **Tự báo lỗi quy trình:** 1 ảnh thử 1920×1080 1 mẫu chạy làn nhanh (26,7 s, không quá 60 s nhưng theo `queue.sh` là việc nặng).
+- Làm lại: nửa dưới mặt 4 lần (khối hàm + cằm cầu → khối hàm dưới liền → đưa miệng ra trước/thu mũi → rút ngắn nửa dưới 0,09 H); khe môi 3 (bỏ khe → khe elip có đầu sáng → rãnh cộng mềm); nụ cười 3; tai 4 (dời hinge → tóc che → khoét tóc quanh tai → nhỏ/tròn; thử vành xoắn helix rồi bỏ); cổ 3; tóc con 2; roughnessMap thử rồi bỏ (da ướt bóng). Hai lỗi do chính W3 gây ra khi sửa và đã tự bắt: chú thích nuốt mất `headG.add(hinge)` (tai + hoa tai biến mất) và `eyes.push(e)`.
+
+### 6. Rủi ro
+1. **C3/B1:** cằm lên 0,09 H, tai dời, cổ lưới đầu, khăn cao → turnaround Ida đổi rõ; `c3_views` chắc chắn phải đo lại trước luật máy (chưa đo — chỉ đo khi qua).
+2. Khăn cao (4 vòng) đổi dáng trang phục so với sheet (khăn thấp A-α) — cần chủ dự án duyệt nếu giữ.
+3. Mũ: bản lề mới ở tâm sọ đổi cử chỉ đẩy mũ ở s36 (C4) — mũ ngả ít hơn bản cũ nhưng không hở; cần P xem s36.
+4. Nếu vòng 2 trượt: P giao phần dàn dựng lại 1:32–1:48.
+
+### 7. File
+Sửa: `design/cong3/v2/char3d/facerig.js` (hình khối nửa dưới, mũi, nếp tuổi, khe môi, kênh `smile`, preset `sad_smile`, hội tụ mắt, da: nền, vùng nóng/lạnh, trung tính hoá, bump), `design/cong3/v2/char3d/cast3d.js` (tóc mỏng dần + tóc con + sợi con + khoét quanh tai, 103 lọn, bóng tiếp xúc dưới mũ, bản lề mũ tâm sọ, tai: vị trí/cỡ/đỉnh tròn, ống cổ thân, khăn 4 vòng), `design/cong5/mat/run_ai.sh` (nhãn vòng `V`). Thêm: `design/cong5/mat/ai/vong2/*` (timing), `reports/m2/cong5/w3/ai_v2_*`. Không sửa `bible/`, `checks/`, `ida.json`, `PLAN.md`, file layout W1/W2, `facelight.js`. `RIGHTS.md`: không có tài sản mới.
+
+### 8. Việc đang chờ
+- **P:** kiểm mù vòng 2 (vòng cuối). Qua → W3 đề xuất characters v1.5 + model sheet, đo B1 8 góc → `c3_views`. Trượt → P giao dàn dựng lại 1:32–1:48.
+- **Chủ dự án:** đề xuất ánh sáng L11 (mục 4); khăn cao; bản lề mũ.
+
+# Dàn dựng lại câu cao trào L4 (1:32–1:48) — không dựa cận mặt chính diện (sau A-i vòng 2 TRƯỢT; dừng sửa mặt theo lệnh chủ dự án)
+
+## 0. Căn cứ và mốc cố định
+- Câu L4 (giọng đã khoá, `reports/m1/cong2/tableread-d2/lines/L4.mp3`, đặt ở 93,0 s). Mốc cụm từ đo bằng `ffmpeg silencedetect` (−38 dB, ≥ 0,18 s), giây phim:
+  "That's the last one, then." **93,0–96,0** · "Goodnight, old street." **96,6–98,7** · "You'll be brighter now." **99,5–101,0** · "Just…" **102,2–102,9** · "keep a little dark for the ones who need it." **103,9–107,05**.
+- Giữ nguyên: P5 (cột góc, đoạn cáp cuối) bật **99,2 s (1:39,2)** — nhấp 2 lần rồi đứng; L11 tắt **109,2 s (1:49,2)**; gạt van s40 (107,4); s38 Cas (101,6–103,0); câu cuối bắt đầu trên hình Ida.
+- Hiện trạng layout: s36 91,0–93,0 MCU chính diện (đẩy vành) · s37 93,0–98,8 CU chính diện · s37w 98,8–101,6 WS (P5 bật) · s38 101,6–103,0 MS Cas · s39 103,0–107,4 CU chính diện · s40 107,4–110,0 insert van.
+- Khung thử: `design/cong5/mat/page_pa.js` dựng ĐÚNG bộ cảnh của shot layout (`s37` = trước P5, facelight 'gas'; `s39` = sau P5, facelight 'elec'; sets, grade, lớp vẽ `PAINT_CLOSE`), chỉ ghi đè MÁY (và biểu cảm ở nhịp cuối = choked như s39). Không thêm đèn: nguồn duy nhất là L11, cột P5, cột phố chính, trời đêm (+ ánh dội facelight của chính layout). Định nghĩa từng khung: `design/cong5/mat/pa_frames.json`; chạy `design/cong5/mat/run_pa.sh`. Mặt A-α (`idaStyle: 'aa'`, bản khoá v1.4); 1 khung A-i cùng góc cho phương án khuyến nghị.
+- Khung (1920×1080, 3 mẫu, làn nặng; JPEG ≤ 300 KB): `reports/m2/cong5/w3/pa/PA{1,2,3}_{last,goodnight,brighter,keep}.jpg`, `reports/m2/cong5/w3/pa/PA1_goodnight_ai.jpg`; bảng tổng `reports/m2/cong5/w3/pa/PA_bang-tong.jpg`. Nhịp khung: last 94,5 · goodnight 97,5 · brighter 100,2 · keep 105,0.
+
+## PA1 — "Nghiêng dưới ngọn lửa" (profile, lửa trong khung làm key ngang–trước)
+Ý: giữ diễn xuất của mặt (vòng 2 đã đạt 4/4 cảm xúc) nhưng bỏ mặt phẳng chính diện; mặt là một đường nghiêng dựng khối bằng ngọn L11 ngay trước mũi, nhìn lên phố (phải khung — đúng hướng nhìn của s37 hiện tại).
+| id | Giây phim | Dài | Cỡ | Góc máy | Ống | Ánh sáng | Diễn |
+|---|---|---|---|---|---|---|---|
+| s36 | 91,0–93,0 | 2,0 | MCU | 3/4 nghiêng (yaw −60°), ngang mắt | 85 | L11 trước mặt | đẩy vành mũ (giữ động tác C4) |
+| s37a | 93,0–96,4 | 3,4 | MS | nghiêng 90° (phía phố), ngang mắt, tĩnh | 50 | L11 trong khung, trước–phải mặt | tay phải trên van; "That's the last one, then." |
+| s37b | 96,4–98,8 | 2,4 | CU | nghiêng 84°, đẩy vào rất chậm | 85 | L11 viền mũi–môi–cằm | cười buồn nghiêng; "Goodnight, old street." |
+| s37w | 98,8–100,6 | 1,8 | WS | giữ nguyên | 28 | P5 bật 99,2 (nhấp 2 lần) | "You'll be…" |
+| s37c | 100,6–101,6 | 1,0 | MS | như s37a | 50 | trắng phẳng; lửa nhạt | "…brighter now." — bà vẫn nhìn phố, lửa tái bên mặt |
+| s38 | 101,6–103,0 | 1,4 | MS | giữ nguyên (Cas) | 50 | trắng | "Just…" |
+| s39′ | 103,0–107,4 | 4,4 | CU | nghiêng 96° (hơi mất mặt), tĩnh | 85 | trắng phẳng | nghẹn; giọt nước mắt chạy trên má phía máy; "keep a little dark…" |
+| s40 | giữ | | | | | | gạt van |
+Khung: `PA1_last`, `PA1_goodnight`, `PA1_brighter` (= s37c), `PA1_keep`; so mặt: `PA1_goodnight_ai`.
+- **Ưu:** biểu cảm và khẩu hình vẫn thấy (môi, mắt, mày trong nghiêng) — Cổng 6 vẫn lip-sync được; nghiêng giấu đúng các chỗ bị chê nhiều nhất (bề rộng nửa dưới mặt, ranh tóc–trán hai bên, hai mắt/hai tai không cân, hoa tai); lửa trong khung cho khối mặt thật (không cần đổi đèn); ít đổi cấu trúc nhất.
+- **Nhược:** vẫn là cận mặt (dù nghiêng) → nguy cơ "búp bê" chưa hết; nghiêng A-α còn lộ nét vẽ mày/mi; tai và hoa tai phía máy là tâm điểm khung CU.
+- **Tác động:** thay s36 (góc), tách s37 thành s37a/s37b, rút s37w 2,8 → 1,8 s và thêm s37c 1,0 s, thay s39 (góc). P5 99,2, L11 tắt 109,2, s38, s40 giữ. Continuity ánh sáng cảnh 5 giữ (cùng nguồn, chỉ đổi hướng máy). Hướng nhìn: phải khung, như hiện tại.
+- **Rủi ro:** kiểm mù có thể vẫn gọi "búp bê" ở CU nghiêng; khung CU nghiêng ở s39′ dưới trắng phẳng ít khối hơn ở s37b.
+
+## PA2 — "Qua vai: bà nói với con phố" (máy sau lưng/qua vai, phố là người nghe)
+Ý: câu thoại là lời chào CON PHỐ — cho khán giả nhìn con phố qua vai bà; mặt chỉ còn mép má, mi, vành mũ. "Brighter" được thấy đúng từ chỗ bà đứng: góc tối trước mặt bà bị trắng tràn.
+| id | Giây phim | Dài | Cỡ | Góc máy | Ống | Ánh sáng | Diễn |
+|---|---|---|---|---|---|---|---|
+| s36 | 91,0–93,0 | 2,0 | MS | 3/4 sau (yaw −140°) | 40 | L11 viền mép mũ | đẩy vành mũ, thấy từ sau vai |
+| s37a | 93,0–96,4 | 3,4 | MCU | qua vai trái, sát búi tóc | 40 | L11 trên–phải khung; phố trắng xa | "That's the last one, then." |
+| s37b | 96,4–98,8 | 2,4 | MS | qua vai phải, cao ngang thang, nhìn dọc phố | 35 | góc tối hổ phách tiền cảnh, phố trắng hậu cảnh | tay rời van, đưa về phía phố (chào); "Goodnight, old street." |
+| s37c | 98,8–101,6 | 2,8 | MS | như s37b (thay s37w) | 35 | P5 bật 99,2: trắng tràn đá lát tiền cảnh, lửa tái | "You'll be brighter now." — tay khựng giữa chừng |
+| s38 | 101,6–103,0 | 1,4 | MS | giữ (Cas) | 50 | trắng | "Just…" |
+| s39′ | 103,0–107,4 | 4,4 | MCU | mất mặt 3/4 sau (yaw −128°) | 50 | trắng phẳng; viền ấm cuối của L11 | má, mi, vành mũ; vai sụp; "keep a little dark…" |
+| s40 | giữ | | | | | | |
+Khung: `PA2_last`, `PA2_goodnight`, `PA2_brighter`, `PA2_keep`.
+- **Ưu:** mặt gần như không thấy → không còn chỗ cho "mặt nạ"; khớp nghĩa câu nói (bà nói với phố, phố ở trong khung); "brighter" thành một thay đổi thấy tận mắt từ vị trí bà; khẩu hình gần như không cần.
+- **Nhược:** cảm xúc chuyển sang giọng + dáng (vai, tay) — kiểm mù có thể không đọc ra "nghẹn/cười buồn" từ một khung tĩnh; mất nhịp CU cảm xúc ở câu cuối; bỏ s37w (cú bóng đèn cột góc nhấp 2 lần theo chỉ đạo 1:50 v1 — bóng đèn P5 có thể nằm ngoài khung; nếu cần, giữ s37w 1,0 s trong s37c).
+- **Tác động:** thay s36, s37, s37w, s39; P5, L11, s38, s40 giữ. Ánh sáng giữ; hướng máy đảo (nhìn theo bà) → cần kiểm lại luật 180° với s38 (Cas nhìn lên, trái khung).
+- **Rủi ro:** tiêu chí "≥ 3/4 cảm xúc đúng" của kiểm mù khó đạt với mặt khuất; tay đưa về phía phố ở s37b là một cử chỉ mới cần chủ dự án duyệt.
+
+## PA3 — "Tay, lửa và vành mũ" (mặt khuất dưới vành; tay, van và ngọn lửa kể)
+Ý: nghề của bà là đôi tay trên van; từ trên cao, vành mũ che mặt, ngọn lửa và Cas (giữ thang, nhìn lên) cùng trong khung.
+| id | Giây phim | Dài | Cỡ | Góc máy | Ống | Ánh sáng | Diễn |
+|---|---|---|---|---|---|---|---|
+| s36 | 91,0–93,0 | 2,0 | CU | cao, sau–phải | 40 | L11 | tay trái đẩy vành mũ |
+| s37a | 93,0–95,6 | 2,6 | CU insert | ngang tay, phía phải bà | 50 | L11 | bàn tay phải đặt trên van, cằm mép khung; "That's the last one, then." |
+| s37b | 95,6–98,8 | 3,2 | MS | cao chúc xuống, sau–phải (qua lồng đèn) | 40 | lửa trong khung, vành mũ đổ bóng che mặt | Cas nhỏ dưới chân thang nhìn lên; "Goodnight, old street." |
+| s37w | 98,8–101,6 | 2,8 | WS | giữ nguyên | 28 | P5 bật 99,2 | "You'll be brighter now." (hoặc s37c = cùng góc s37b, trắng tràn đá lát — khung `PA3_brighter`) |
+| s38 | giữ | | | | | | "Just…" |
+| s39′ | 103,0–105,4 | 2,4 | MS | như s37b | 40 | trắng phẳng | vai sụp, đầu cúi; "keep a little dark…" |
+| s39i | 105,4–107,4 | 2,0 | CU insert | như s37a | 50 | trắng; lửa tái | tay siết van — nối thẳng s40 gạt van |
+| s40 | giữ | | | | | | |
+Khung: `PA3_last`, `PA3_goodnight`, `PA3_brighter`, `PA3_keep`.
+- **Ưu:** không còn mặt → rủi ro "mặt nạ" gần 0; đồ hoạ mạnh (lồng đèn, vành mũ, đá lát trắng); tay trên van nối tự nhiên sang s40 (ngọn cuối).
+- **Nhược:** cảm xúc chỉ còn giọng; cao trào của phim không có một khuôn mặt — xa người xem; góc cao làm nhân vật nhỏ, "bị nhìn xuống".
+- **Tác động:** thay s36, s37, s39 (thêm insert s39i); s37w (hoặc s37c), s38, s40 giữ; P5, L11 giữ.
+- **Rủi ro:** kiểm mù gần như chắc không đọc được cảm xúc từ khung tĩnh; ánh lồng đèn chiếm lớn khung ở góc cao (cháy sáng — nên hạ phơi sáng nếu chọn).
+
+## Khuyến nghị: **PA1**, lấy thêm từ PA2 cú "brighter" nhìn theo bà (tuỳ chủ dự án)
+Lý do: (1) vòng 2 cho thấy biểu cảm của rig đã đọc đúng 4/4 — thứ trượt là "mặt nạ/búp bê", gắn với mặt phẳng chính diện (bề rộng nửa dưới mặt, ranh tóc hai bên thái dương, hai mắt/hai tai/hoa tai không cân, ánh sáng phẳng). Nghiêng loại bỏ đúng các nguồn đó mà vẫn giữ diễn xuất; (2) ngọn L11 ngay trước mặt biến thành đèn chính NGANG khi máy ở nghiêng — có khối, không phải đổi đèn hay luật; (3) ít đổi cấu trúc nhất (P5, L11, s37w, s38, s40 giữ), vẫn lip-sync được ở Cổng 6. PA2/PA3 an toàn hơn về "mặt nạ" nhưng gần như chắc trượt tiêu chí cảm xúc và làm cao trào xa người xem.
+So mặt: `PA1_goodnight.jpg` (A-α) và `PA1_goodnight_ai.jpg` (A-i, cùng góc).
+
+## Thời gian thật và làm lại
+13:05 → 13:40 UTC (≈ 35 phút sau lệnh). Hàng đợi: 47 việc (34 thử làn nhanh 960×540 1 mẫu; 13 khung nộp làn nặng 1080p 3 mẫu, 24,7–36,8 s/khung, không chờ), tổng chạy 1 039 s. Làm lại: PA2 nhịp goodnight/brighter 1 (máy cao trên thang nhìn mất góc tối → qua vai phải sát tay); PA3 2 (máy cao phía trước bị lồng đèn che; khung tay thử 4 vị trí — 3 vị trí bị thanh thang/cột che); thử bóng Ida trên tường hông nhà kho (bỏ: độ phóng đại ≈ 7× → thành một mảng tròn không đọc ra người).
+File thêm: `design/cong5/mat/page_pa.js`, `design/cong5/mat/pa_frames.json`, `design/cong5/mat/run_pa.sh`, `design/cong5/mat/pa/thoi-gian.txt` + timing, `reports/m2/cong5/w3/pa/*.jpg`. Không sửa layout W1/W2, `facelight.js`, `bible/`, `checks/`. `RIGHTS.md`: không có tài sản mới.
+Việc chờ: P kiểm mù từng khung → chủ dự án chọn phương án (và duyệt cử chỉ mới nếu chọn PA2: tay đưa về phía phố).

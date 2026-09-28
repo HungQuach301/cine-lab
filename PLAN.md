@@ -6,7 +6,7 @@ Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Lời giải mặt Ida** (reports/m2/MAT-IDA-AI.md): A-i trượt 2 vòng; 3 phương án dàn dựng lại 1:32–1:48 có khung thử và kiểm mù. **Cổng 6 chỉ mở khi chủ dự án chọn.**
+1. **Lời giải mặt Ida — C chỉnh (đang làm):** gói nghiên cứu đầu Ida dựng bằng Blender, render bằng three.js (`IDA_STYLE='bl'`, mặc định vẫn 'aa'), MỘT vòng kiểm mù, tiêu chí không hạ → `reports/m2/MAT-IDA-BLENDER.md`. Trượt thì trình phương án lùi PA1 và so A-α / A-i / 'bl'. **Cổng 6 vẫn khoá.** Đã duyệt: nâng L11 (khung thử), khăn cao 4 vòng, bản lề mũ mới.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
@@ -37,7 +37,8 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 | M2 Cổng 5 layout (W1, W2, W3 + P) | P + 3 subagent + 2 agent rà | claude/cine-lab-m2-cong5-layout-24o5fp | Vòng v1 xong; xem vòng v2 | reports/m2/CONG-5.md |
 | M2 Cổng 5 vòng v2 (A-α, hiệu chuẩn, B1, a–d, continuity v2) | P + W1, W2, W3 + agent rà + 16 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | Xong; chủ dự án đã quyết (AUTHORSHIP "Cổng 5 v2 — quyết định") | reports/m2/CONG-5-V2.md |
 | M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 + agent rà + 1 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | **Cổng 5 ĐÃ ĐÓNG (A1) — merge vào main** | reports/m2/CONG-5-V3.md |
-| M2 Cửa mặt Ida A-i | W3 | claude/cine-lab-m2-cong5-layout-24o5fp (tích hợp khi đạt) | 2 vòng kiểm mù TRƯỢT; đang soạn phương án dàn dựng lại 1:32–1:48 | reports/m2/MAT-IDA-AI.md |
+| M2 Cửa mặt Ida A-i | W3 + 37 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp (merge e2394c5, IDA_STYLE 'aa') | 2 vòng TRƯỢT; chủ dự án chọn **C chỉnh** | reports/m2/MAT-IDA-AI.md |
+| M2 Cửa mặt Ida — Blender (C chỉnh) | W4 (worker mới) + P kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | Đang làm | reports/m2/MAT-IDA-BLENDER.md |
 | M1 Cổng 4 vòng v2: animatic 2:22,5 (52 shot), kịch bản nháp 3, luật thế giới v0.4, characters v1.2 (A1), C3 v1.4 (parts + views + kiểm toán) | P | claude/cine-lab-m1-cong4-animatic | **Đã merge vào main (5987bf3)** — Cổng 4 đóng | reports/m1/CONG-4-V2.md, shots/animatic/SHOTLIST.md, screening/animatic_v1_v2_diff.md |
 
 Quy ước file lớn Cổng 4: `design/cong4/animatic/out/animatic.mp4` (v2: 45,49 MB) nằm trong nhánh; mặt nạ C3 `out/animatic.parts/` (18 MB, PNG xám) cũng trong nhánh; video nhóm và video ghép trung gian `out/v2/*.mp4`, âm trung gian `out/v2/audio/` KHÔNG commit; `screening/animatic.mp4` là bản sao y từng byte. Bản trung gian `out/video.mp4` (187 MB) và đối chứng `out/hq/` (198 MB) KHÔNG commit (vượt giới hạn GitHub; tái tạo bằng `render_film.js` / `HQ=1 package.py`). Âm lưu FLAC 24-bit.
