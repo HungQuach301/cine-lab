@@ -1,5 +1,5 @@
-# Kiểm toán C3 (RUN.md 3.7) — phiên P render lại mặt nạ layout Cổng 5. Yêu cầu lần 2; lần 1 (hạt giống 5864998127796708074, khung 3192) huỷ vì video đổi sau khi sửa continuity — lưu reports/m2/cong5/c3-kiem-toan/request_huy_1.json.
-SCENE design/cong5/layout/page.js SHA256 3047eebfcc078762571945bb3901236355063adc86601dde4dcee8da21710608
+# Kiểm toán C3 (RUN.md 3.7) — phiên P render lại mặt nạ layout Cổng 5. Yêu cầu lần 3; lần 1 (5864998127796708074) huỷ vì video đổi, lần 2 (12016497369048562390) huỷ vì P sửa lỗi bộ xuất mặt nạ (vật che tô đen hai mặt làm rỗng mặt nạ s27) — xem reports/m2/cong5/c3-kiem-toan/.
+SCENE design/cong5/layout/page.js SHA256 1bd6c2de4a9d1799dff0c7e060cd8cc47f541e6ba55ecac03c6ac870b8ef5b37
 SCENE design/cong5/layout/film.js SHA256 2498bd65a78993e8674dcc0bac62d954936607d12c7ebc27b670b3f1ed97020a
 SCENE design/cong5/layout/common.js SHA256 a73228d73fa9bb6c1fff4b35897a24b1d6db9844ab3ec249efa763ab14283193
 SCENE design/cong5/layout/order_w1.js SHA256 c45176f2dff9d3f2f2342f973dbe7b57c710ddaec29f68c9c5e3470e96f5e139
@@ -11,4 +11,5 @@ SCENE design/cong5/layout/sets2.js SHA256 5b58122c420fe738f94c1163286b8e51f2e711
 SCENE design/cong5/layout/sets_end.js SHA256 f534b04810c9e3bf88325242d9580fffb597ea64e3a65daa115fe421011a2438
 SCENE design/cong5/layout/util.js SHA256 e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc
 SCENE design/cong5/layout/facelight.js SHA256 772734174d101e51f2b7872a6a7549e2aed53d11d83fc266e74531b4df794436
-FRAME 2844 CMD node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2844 --scale 4
+FRAME 2964 CMD node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2964,3276 --scale 4
+FRAME 3276 CMD node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2964,3276 --scale 4

@@ -1,6 +1,6 @@
 {
   "tool": "cinecheck 1.4.0",
-  "created_utc": "2026-09-28T03:54:25Z",
+  "created_utc": "2026-09-28T04:26:31Z",
   "file": "/home/user/cine-lab/design/cong5/layout/out/layout.mp4",
   "profile": "shot",
   "verdict": "TRƯỢT",
@@ -100,7 +100,7 @@
       "evidence": {
         "so_khung": 3420
       },
-      "seconds": 0.18
+      "seconds": 0.17
     },
     {
       "code": "N2",
@@ -162,7 +162,7 @@
         "khung_lay_mau": 228,
         "bit_depth": 8
       },
-      "seconds": 4.91
+      "seconds": 5.36
     },
     {
       "code": "N3",
@@ -448,7 +448,7 @@
           }
         ]
       },
-      "seconds": 77.76
+      "seconds": 45.99
     },
     {
       "code": "P1",
@@ -491,7 +491,7 @@
           "sub07": 100.0
         }
       },
-      "seconds": 14.08
+      "seconds": 14.53
     },
     {
       "code": "G4",
@@ -564,7 +564,7 @@
         },
         "mien_diegetic": []
       },
-      "seconds": 16.2
+      "seconds": 16.07
     },
     {
       "code": "G3",
@@ -593,7 +593,7 @@
         "khung_vuot_nguong": [],
         "trung_binh_pct": 0.0
       },
-      "seconds": 9.41
+      "seconds": 9.28
     },
     {
       "code": "G3b",
@@ -1007,7 +1007,7 @@
           3300
         ]
       },
-      "seconds": 11.73
+      "seconds": 11.76
     },
     {
       "code": "M1",
@@ -1066,7 +1066,7 @@
         "tuong_quan_nho_nhat": 0.168,
         "cua_so_te_nhat_giay": 15.2
       },
-      "seconds": 5.0
+      "seconds": 4.34
     },
     {
       "code": "J1",
@@ -1289,7 +1289,7 @@
         ],
         "mo_hinh": "Systran/faster-whisper-small.en@d1d751a5f8271d482d14ca55d9e2deeebbae577f"
       },
-      "seconds": 30.39
+      "seconds": 30.93
     },
     {
       "code": "J1b",
@@ -1471,7 +1471,7 @@
           "nen": 0.9952
         }
       },
-      "seconds": 15.84
+      "seconds": 15.28
     },
     {
       "code": "H1",
@@ -2124,7 +2124,7 @@
         "kenh_lop_la": [],
         "kenh_mechanical_thieu_ly_do": []
       },
-      "seconds": 0.21
+      "seconds": 0.24
     },
     {
       "code": "H1b",
@@ -2976,7 +2976,7 @@
         },
         "nhan_vat_thieu_track": []
       },
-      "seconds": 18.56
+      "seconds": 18.28
     },
     {
       "code": "C3",
@@ -3025,7 +3025,7 @@
         },
         {
           "name": "vị trí biên phân biệt để kiểm pha lưới",
-          "value": 259972,
+          "value": 261714,
           "op": ">=",
           "threshold": 40,
           "unit": "",
@@ -3034,7 +3034,7 @@
         },
         {
           "name": "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
-          "value": 0.2507,
+          "value": 0.2506,
           "op": "<=",
           "threshold": 0.625,
           "unit": "",
@@ -3070,7 +3070,7 @@
         },
         {
           "name": "bộ phận–khung lệch chắc chắn > 3%",
-          "value": 43,
+          "value": 44,
           "op": "<=",
           "threshold": 0,
           "unit": "",
@@ -3079,7 +3079,7 @@
         },
         {
           "name": "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
-          "value": 59,
+          "value": 76,
           "op": "<=",
           "threshold": 0,
           "unit": "",
@@ -3124,7 +3124,7 @@
         },
         {
           "name": "kiểm toán: có khung được chọn",
-          "value": 1,
+          "value": 2,
           "op": ">=",
           "threshold": 1,
           "unit": "",
@@ -3223,12 +3223,12 @@
         }
       ],
       "notes": [
-        "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 6.6–397.4 px video. Lệch lớn nhất (mẫu đo được) 34.51%. 259972 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
-        "Mẫu bộ phận đo được: 103/579 (17.8%) trên 193 khung có nhân vật. Theo shot: shot 2 (khung 96–203): 16/27 (59.3%); shot 3 (khung 204–221): 0/6 (0%); shot 4 (khung 222–251): 0/6 (0%); shot 5 (khung 252–287): 0/9 (0%); shot 6 (khung 288–383): 0/24 (0%); shot 8 (khung 456–551): 8/24 (33.3%); shot 9 (khung 552–599): 0/12 (0%); shot 14 (khung 840–887): 4/12 (33.3%); shot 15 (khung 888–916): 0/9 (0%); shot 16 (khung 917–955): 1/9 (11.1%); shot 17 (khung 956–995): 1/9 (11.1%); shot 18 (khung 996–1043): 0/12 (0%); shot 19 (khung 1044–1079): 2/9 (22.2%); shot 20 (khung 1080–1115): 6/9 (66.7%); shot 21 (khung 1116–1139): 4/6 (66.7%); shot 22 (khung 1140–1187): 0/12 (0%); shot 23 (khung 1188–1259): 0/18 (0%); shot 24 (khung 1260–1331): 3/18 (16.7%); shot 25 (khung 1332–1379): 4/12 (33.3%); shot 28 (khung 1488–1535): 0/12 (0%); shot 32 (khung 1728–1775): 4/12 (33.3%); shot 33 (khung 1776–1847): 0/18 (0%); shot 34 (khung 1848–1919): 6/18 (33.3%); shot 35 (khung 1920–2087): 9/42 (21.4%); shot 36 (khung 2088–2135): 0/12 (0%); shot 37 (khung 2136–2231): 7/24 (29.2%); shot 38 (khung 2232–2279): 0/12 (0%); shot 39 (khung 2280–2418): 0/36 (0%); shot 40 (khung 2419–2485): 6/18 (33.3%); shot 42 (khung 2520–2625): 0/27 (0%); shot 43 (khung 2626–2687): 0/15 (0%); shot 44 (khung 2688–2735): 4/12 (33.3%); shot 45 (khung 2736–2771): 0/9 (0%); shot 46 (khung 2772–2819): 4/12 (33.3%); shot 48 (khung 2868–2939): 14/18 (77.8%); shot 50 (khung 3036–3095): 0/15 (0%); shot 51 (khung 3096–3143): 0/12 (0%); shot 54 (khung 3252–3299): 0/12 (0%).",
+        "Model sheet: ida.json (độ dài: cấp gốc; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 6.6–397.4 px video. Lệch lớn nhất (mẫu đo được) 34.51%. 261714 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 121/597 (20.3%) trên 199 khung có nhân vật. Theo shot: shot 2 (khung 96–203): 16/27 (59.3%); shot 3 (khung 204–221): 0/6 (0%); shot 4 (khung 222–251): 0/6 (0%); shot 5 (khung 252–287): 0/9 (0%); shot 6 (khung 288–383): 0/24 (0%); shot 8 (khung 456–551): 8/24 (33.3%); shot 9 (khung 552–599): 0/12 (0%); shot 14 (khung 840–887): 4/12 (33.3%); shot 15 (khung 888–916): 0/9 (0%); shot 16 (khung 917–955): 1/9 (11.1%); shot 17 (khung 956–995): 1/9 (11.1%); shot 18 (khung 996–1043): 0/12 (0%); shot 19 (khung 1044–1079): 2/9 (22.2%); shot 20 (khung 1080–1115): 6/9 (66.7%); shot 21 (khung 1116–1139): 4/6 (66.7%); shot 22 (khung 1140–1187): 0/12 (0%); shot 23 (khung 1188–1259): 0/18 (0%); shot 24 (khung 1260–1331): 3/18 (16.7%); shot 25 (khung 1332–1379): 4/12 (33.3%); shot 28 (khung 1488–1535): 0/12 (0%); shot 29 (khung 1536–1607): 18/18 (100%); shot 32 (khung 1728–1775): 4/12 (33.3%); shot 33 (khung 1776–1847): 0/18 (0%); shot 34 (khung 1848–1919): 6/18 (33.3%); shot 35 (khung 1920–2087): 9/42 (21.4%); shot 36 (khung 2088–2135): 0/12 (0%); shot 37 (khung 2136–2231): 7/24 (29.2%); shot 38 (khung 2232–2279): 0/12 (0%); shot 39 (khung 2280–2418): 0/36 (0%); shot 40 (khung 2419–2485): 6/18 (33.3%); shot 42 (khung 2520–2625): 0/27 (0%); shot 43 (khung 2626–2687): 0/15 (0%); shot 44 (khung 2688–2735): 4/12 (33.3%); shot 45 (khung 2736–2771): 0/9 (0%); shot 46 (khung 2772–2819): 4/12 (33.3%); shot 48 (khung 2868–2939): 14/18 (77.8%); shot 50 (khung 3036–3095): 0/15 (0%); shot 51 (khung 3096–3143): 0/12 (0%); shot 54 (khung 3252–3299): 0/12 (0%).",
         "Không đo được: 476 mẫu bộ phận — gập: co ngắn do tư thế > 2%: 93; bị che > 10%: 143; chạm mép khung (bị cắt): 36; phối cảnh: độ sâu lệch đầu > 2%: 28; đầu cúi/ngẩng/nghiêng: co ngắn > 2%: 99; góc nhìn lệch > 30° mọi góc tham chiếu: 21; không có mặt nạ đầu (khuất hoặc ngoài khung): 6; đầu bị che > 10%: 18; đầu chạm mép khung (bị cắt): 6; khuất ở góc tham chiếu (c3_views ghi null): 26. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
         "Shot [3, 4, 5, 6, 9, 15, 18, 22, 23, 28, 33, 36, 38, 39, 42, 43, 45, 50, 51, 54]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT.",
         "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh.",
-        "Kiểm toán ngẫu nhiên: hạt giống 12016497369048562390, khung [2844], phát bởi P lúc 2026-09-28T03:47:21Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 2226881257325565179, khung [2964, 3276], phát bởi P lúc 2026-09-28T04:20:05Z."
       ],
       "evidence": {
         "do": [
@@ -3720,6 +3720,186 @@
             "sheet": 2.315,
             "lech_pct": 4.59,
             "U_pct": 3.28,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.2492,
+            "sheet": 2.386,
+            "lech_pct": -5.73,
+            "U_pct": 3.29,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.3901,
+            "sheet": 1.465,
+            "lech_pct": -5.12,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 0.7337,
+            "sheet": 0.825,
+            "lech_pct": -11.06,
+            "U_pct": 5.09,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.2492,
+            "sheet": 2.386,
+            "lech_pct": -5.73,
+            "U_pct": 3.29,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.3901,
+            "sheet": 1.465,
+            "lech_pct": -5.12,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 0.7756,
+            "sheet": 0.825,
+            "lech_pct": -5.99,
+            "U_pct": 4.91,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.2492,
+            "sheet": 2.386,
+            "lech_pct": -5.73,
+            "U_pct": 3.29,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.3901,
+            "sheet": 1.465,
+            "lech_pct": -5.12,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 0.7756,
+            "sheet": 0.825,
+            "lech_pct": -5.99,
+            "U_pct": 4.91,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.2492,
+            "sheet": 2.386,
+            "lech_pct": -5.73,
+            "U_pct": 3.29,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.3901,
+            "sheet": 1.465,
+            "lech_pct": -5.12,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 0.7756,
+            "sheet": 0.825,
+            "lech_pct": -5.99,
+            "U_pct": 4.91,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.2492,
+            "sheet": 2.386,
+            "lech_pct": -5.73,
+            "U_pct": 3.29,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.3901,
+            "sheet": 1.465,
+            "lech_pct": -5.12,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 0.7756,
+            "sheet": 0.825,
+            "lech_pct": -5.99,
+            "U_pct": 4.91,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.2492,
+            "sheet": 2.386,
+            "lech_pct": -5.73,
+            "U_pct": 3.29,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.3901,
+            "sheet": 1.465,
+            "lech_pct": -5.12,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 0.7756,
+            "sheet": 0.825,
+            "lech_pct": -5.99,
+            "U_pct": 4.91,
             "ket_qua": "không chứng minh được"
           },
           {
@@ -6287,6 +6467,17 @@
             "ty_le_pct": 0.0
           },
           {
+            "shot": 29,
+            "khung": [
+              1536,
+              1607
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 18,
+            "do_duoc": 18,
+            "ty_le_pct": 100.0
+          },
+          {
             "shot": 32,
             "khung": [
               1728,
@@ -6571,6 +6762,12 @@
           "1500": 2.09,
           "1512": 2.09,
           "1524": 2.11,
+          "1536": 1.24,
+          "1548": 1.34,
+          "1560": 1.5,
+          "1572": 1.49,
+          "1584": 1.48,
+          "1596": 1.49,
           "1728": 2.02,
           "1740": 1.91,
           "1752": 1.7,
@@ -6684,22 +6881,23 @@
         "kiem_toan": {
           "yeu_cau": {
             "version": 1,
-            "seed": "12016497369048562390",
+            "seed": "2226881257325565179",
             "frames": [
-              2844
+              2964,
+              3276
             ],
             "candidates": 285,
             "issued_by": "P",
-            "issued_utc": "2026-09-28T03:47:21Z",
+            "issued_utc": "2026-09-28T04:20:05Z",
             "video": "layout.mp4",
             "video_sha256": "25d67d1dea37ca8c085d219057cda105ad1345b2266e03213f0f6a4593bcfc27",
-            "parts_sha256": "25d4e369e4b178e35eadc8a8e6d13fb1acf7d4bf5a529cc94b65d5f543acab71"
+            "parts_sha256": "75977232a27aa99f6a5f4153af3c9bca9b26b70dfaf4d9a43f5500b06ac6d649"
           },
           "log_scene": [
             {
               "file": "design/cong5/layout/page.js",
-              "sha_log": "3047eebfcc078762571945bb3901236355063adc86601dde4dcee8da21710608",
-              "sha_dia": "3047eebfcc078762571945bb3901236355063adc86601dde4dcee8da21710608",
+              "sha_log": "1bd6c2de4a9d1799dff0c7e060cd8cc47f541e6ba55ecac03c6ac870b8ef5b37",
+              "sha_dia": "1bd6c2de4a9d1799dff0c7e060cd8cc47f541e6ba55ecac03c6ac870b8ef5b37",
               "trong_scene_files": true,
               "khop": true
             },
@@ -6782,43 +6980,108 @@
             }
           ],
           "log_lenh": {
-            "2844": [
-              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2844 --scale 4"
+            "2964": [
+              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2964,3276 --scale 4"
+            ],
+            "3276": [
+              "node design/cong5/layout/export_c3.js --audit-dir design/cong5/layout/out/layout.audit/rerender --frames 2964,3276 --scale 4"
             ]
           },
           "doi_chieu": [
             {
-              "khung": 2844,
+              "khung": 2964,
               "bo_phan": "head",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2844,
+              "khung": 2964,
               "bo_phan": "torso",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2844,
+              "khung": 2964,
               "bo_phan": "upper_arm",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2844,
+              "khung": 2964,
               "bo_phan": "forearm",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2844,
+              "khung": 2964,
               "bo_phan": "thigh",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2844,
+              "khung": 2964,
               "bo_phan": "shin",
               "khac_diem_anh_tren_bien": 0.0
             },
             {
-              "khung": 2844,
+              "khung": 3276,
+              "bo_phan": "head",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "torso",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "upper_arm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "forearm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "thigh",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "shin",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "torso",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 2.024
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "upper_arm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 2.221
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "forearm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 2.568
+            },
+            {
+              "khung": 3276,
+              "bo_phan": "shin",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 6.195
+            },
+            {
+              "khung": 2964,
+              "views_render_lai": "khớp",
+              "views_lech": {
+                "goc": 0.0,
+                "ty_le": 0.0
+              }
+            },
+            {
+              "khung": 3276,
               "views_render_lai": "khớp",
               "views_lech": {
                 "goc": 0.0,
@@ -6828,7 +7091,7 @@
           ]
         }
       },
-      "seconds": 195.76
+      "seconds": 200.42
     },
     {
       "code": "O3",

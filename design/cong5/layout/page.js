@@ -115,21 +115,28 @@ window.exportC3 = async (f, scale, who = 'ida', side = 'L') => {
   for (const [k, r] of Object.entries(saved)) J[k].rotation.copy(r); ch.root.updateMatrixWorld(true);
   const fwd = cur.cam.getWorldDirection(new THREE.Vector3()), zc = (p) => p.clone().sub(camW).dot(fwd), zHead = zc(Wp(J.head, [0, 0.5 * Hh, 0]));
   const v = new THREE.Vector3(), box = new THREE.Box3();
-  const black = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
+  // Cổng 5: vật che tô đen GIỮ ĐÚNG mặt hiển thị như ảnh render (FrontSide/BackSide/DoubleSide). Bản cũ tô đen hai mặt → mặt phẳng một mặt
+  // nằm giữa máy và nhân vật (máy đặt sau mặt tiền, vd s27) bị cắt mặt sau trong ảnh render nhưng lại che kín nhân vật trong mặt nạ.
+  const blacks = [THREE.FrontSide, THREE.BackSide, THREE.DoubleSide].map((sd) => new THREE.MeshBasicMaterial({ color: 0x000000, side: sd }));
+  const blackOf = (o) => { const m0 = Array.isArray(o.material) ? o.material[0] : o.material; return blacks[m0 && m0.side != null ? m0.side : 0]; };
+  const black = blacks[2];
   const idMat = keys.map((k, i) => new THREE.MeshBasicMaterial({ color: new THREE.Color((i + 1) * 30 / 255, 0, 0), side: THREE.DoubleSide }));
-  const saveM = [], owner = new Map(), vis0 = new Map(), body = new Set(); ch.root.traverse((o) => { if (o.isMesh) body.add(o); });
+  const saveM = [], owner = new Map(), vis0 = new Map(), body = new Set(), blackM = new Map(); ch.root.traverse((o) => { if (o.isMesh) body.add(o); });
   cur.scene.traverse((o) => {
     if (o.isSprite || o.isPoints || o.isLine) { saveM.push([o, 'v', o.visible]); o.visible = false; return; }
     if (!o.isMesh) return; saveM.push([o, 'm', o.material]); saveM.push([o, 'v', o.visible]);
     let vis = o.visible; for (let p = o.parent; p; p = p.parent) vis = vis && p.visible; vis0.set(o, vis);
     const k = body.has(o) ? partOf[o.userData.part] : undefined; let ok = !!k;
     if (ok && k !== 'head' && k !== 'torso') { o.geometry.computeBoundingBox(); box.copy(o.geometry.boundingBox).applyMatrix4(o.matrixWorld); box.getCenter(v); ch.root.worldToLocal(v); ok = (v.x > 0) === (S === 'L'); }
-    owner.set(o, ok ? k : null);
+    owner.set(o, ok ? k : null); if (!ok) blackM.set(o, blackOf(o));
+    // Cổng 5: vật trong suốt không thuộc nhân vật (tấm sương, kính, quầng) không che trong ảnh render → không được che trong mặt nạ (tô đen đục thì che oan, vd s27)
+    const m0 = Array.isArray(o.material) ? o.material[0] : o.material;
+    if (!ok && !body.has(o) && m0 && (m0.transparent || m0.depthWrite === false || (m0.opacity ?? 1) < 1)) vis0.set(o, false);
   });
   const bg = cur.scene.background, fog = cur.scene.fog; cur.scene.background = new THREE.Color(0); cur.scene.fog = null;
   const sm = renderer.shadowMap.autoUpdate; renderer.shadowMap.autoUpdate = false;
   const shot1 = (w, h, bodyOnly) => {
-    for (const [o, k] of owner) { o.material = k ? idMat[keys.indexOf(k)] : black; o.visible = vis0.get(o) && (!bodyOnly || body.has(o)); }
+    for (const [o, k] of owner) { o.material = k ? idMat[keys.indexOf(k)] : (blackM.get(o) || black); o.visible = vis0.get(o) && (!bodyOnly || body.has(o)); }
     const rt = new THREE.WebGLRenderTarget(w, h, { depthBuffer: true }), px = new Uint8Array(w * h * 4);
     renderer.setRenderTarget(rt); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(cur.scene, cur.cam);
     renderer.readRenderTargetPixels(rt, 0, 0, w, h, px); renderer.setRenderTarget(null); rt.dispose(); return px;
