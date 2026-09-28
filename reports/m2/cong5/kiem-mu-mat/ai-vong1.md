@@ -29,7 +29,7 @@ Tiêu chí đạt (chủ dự án, quyết định sau Cổng 5 v2): 4/4 ảnh �
 
 **Kết luận vòng 1: TRƯỢT.** Còn 1 vòng, là vòng cuối.
 
-## Lời chê gom nhóm (đếm trên 10 ảnh Ida)
+## Lời chê gom nhóm (đếm TAY trên 10 ảnh Ida; số đếm bằng máy chuẩn hơn, xem bảng ở `ai-vong2.md`)
 1. **Da nhựa hoặc sáp, không nếp, cam gắt: 10/10.** Tuổi chỉ đọc qua tóc bạc.
 2. **Nửa dưới mặt phình, méo, "chảy" (hàm, cằm hình quả lê, miệng như cao su): 9/10.**
 3. **Mặt như mặt nạ dán lên, ranh da với tóc cắt sắc ở trán và thái dương: 7/10.**

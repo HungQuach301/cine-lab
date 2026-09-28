@@ -38,20 +38,20 @@ Tiêu chí: 4/4 phụ nữ lớn tuổi; ≥ 3/4 cảm xúc đúng; số lần b
 
 **Kết luận: A-i TRƯỢT sau 2 vòng.** Theo lệnh chủ dự án, dừng sửa mặt và chuyển sang soạn phương án dàn dựng lại 1:32–1:48.
 
-## Lời chê gom nhóm (10 ảnh Ida), so với vòng 1
-| Nhóm | Vòng 1 | Vòng 2 |
+## Lời chê gom nhóm (10 ảnh Ida mỗi vòng), so với vòng 1
+Đếm bằng máy: số câu trả lời (trên 10) có khớp biểu thức từ khoá trên nguyên văn (script P, xấp xỉ, vì một từ khoá có thể trúng câu mang nghĩa khác). Số đếm tay ở `ai-vong1.md` lệch vài đơn vị so với bảng này; lấy bảng này làm số chuẩn.
+| Nhóm (từ khoá) | Vòng 1 | Vòng 2 |
 |---|---|---|
-| Nửa dưới mặt phình, méo, "chảy"; cằm quả lê | 9/10 | 9/10 |
-| Mặt như mặt nạ dán lên; ranh tóc sắc hoặc răng cưa | 7/10 | 8/10 |
-| Da nhựa hoặc sáp | 10/10 | 7/10 (nếp tuổi nay được nhắc ở 10/10) |
-| Tai dài như "xúc xích" hoặc "miếng thịt"; hoa tai lơ lửng cạnh má | 7/10 | 9/10 |
-| Lông mày nâu cam lệch màu tóc bạc | — | 7/10 (mới) |
-| Cổ nhỏ so với đầu | 8/10 | 7/10 |
-| Tóc như vỏ khắc, nét cọ, giấy xé | 8/10 | 8/10 |
-| Mắt không cân, lác | 4/10 | 3/10 |
-| Chấm dưới mũi | 7/10 | 0/10 ✔ |
-| Bóng răng cưa ở cổ | 8/10 | 0/10 ✔ |
-| Vệt đen môi trên đọc thành "ria mép" | — | 1/10 (mới, khung k22) |
+| Nửa dưới mặt phình / quả lê / "chảy" | 6 | 10 |
+| Da nhựa / sáp | 9 | 8 |
+| Ranh mặt–tóc: "mặt nạ dán", "dán lên", răng cưa, cắt ngang | 9 | 8 |
+| Cổ dài / mảnh / nhỏ / như que, cột, ống | 9 | 9 |
+| Tai dài, dẹt, lạ, như "xúc xích" hay "miếng thịt" | 1 | 6 |
+| Lông mày như vẽ hoặc dán, màu cam hoặc nâu vàng | 0 | 8 (mới) |
+| Mắt lác / lệch / không cân | 3 | 4 |
+| Chấm dưới mũi, "khuyên mũi", "cục u" | 5 | 0 ✔ |
+| Bóng răng cưa ở cổ | 6 | 0 ✔ |
+| "Ria mép" ở môi trên | 0 | 1 (mới, khung k22) |
 
 ## Nguyên văn
 ### anh_neutral — file mù `8254c057.jpg` — nguyên văn
