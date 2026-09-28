@@ -21,3 +21,9 @@ Báo cáo đầy đủ: `shots/layout/LAYOUT-W1.md`.
 | w2smoke (`--meta-only`) | s35, s37w, s45c | 32,3 s |
 
 Bản cuối của từng shot: probe2, trừ s05, s14, s22 lấy từ probe5.
+
+## Giai đoạn C
+- `tong-23-shot-giai-doan-C.jpg`: khung giữa 23 shot của bản render đầy đủ (s08 là bản làm lại). Ô cuối là mặt nạ mặt vôi s23 với máy giai đoạn A (29 %).
+- `s23_mat-voi-chot.jpg`: s23 bản cuối cạnh mặt nạ mặt vôi của máy chốt (15,5 %).
+- Thử máy s23 (mặt nạ + hình, không commit): `/var/tmp/cine-out/W1/s23try/{A..I}_{mask,img}`. Probe: `probe6` (máy cũ + cuối phố W2), `probe7` (máy chốt s23, s24, s24c), `lime` (mặt nạ máy cũ).
+- Số liệu hàng đợi và làm lại: `shots/layout/LAYOUT-W1.md` mục 11.

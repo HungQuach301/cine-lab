@@ -24,6 +24,10 @@ export const LAMP_Z = -3.9, POST_Z = 3.9, WALK_Z = -2.3;
 export const POST_IDX = [0.5, 2.5, 4.5, 6.5, 8.5, 9.8];    // như s1 (chỉ số đèn tính từ 0)
 export const POST_X = POST_IDX.map((s) => 8 + (10 - s) * 14);
 export const CLOCK = { x: 176, z: 0.5, h: 6.6 };
+// Mốc bật cột tường chim (giây phim) — shots_w1.js gán = common.WALL_POST_ON khi nạp (tránh vòng import sets ↔ common). null = luôn tắt.
+export let WALL_POST_T = null;
+export const setWallPostOn = (t) => { WALL_POST_T = t; };
+const switchOnT = (d) => { if (d < 0) return 0; if (d < 0.08) return 1; if (d < 0.16) return 0; if (d < 0.26) return 1; if (d < 0.34) return 0.05; return Math.min(1, (d - 0.34) / 0.1); };   // = common.switchOn
 export const flickAt = (f) => 1 + 0.04 * (0.6 * Math.sin(f * 0.21) + 0.4 * Math.sin(f * 0.083 + 1.3));   // lửa thở ±4 % (luật 2)
 
 export function charMat(role, color, part, extra = {}) {
@@ -176,7 +180,7 @@ function buildDepth(scene, o, xa, xb, matC, FT, winKind, emit) {
     // xoay −90°: cục bộ (a, z) → thế giới (x = −z, z = a); mặt tiền (+z cục bộ) nhìn về −x. Bắc (a < 0) cao hơn nam: sườn đồi.
     const far = new THREE.Group(); far.rotation.y = -Math.PI / 2; depth.add(far);
     [[214, 0.5, 511], [230, 3.0, 512], [250, 6.0, 513], [276, 9.5, 514], [310, 13.5, 515]].forEach(([X, up, sd], k) =>
-      massRow(far, { a0: -80 - 14 * k, a1: 60 + 10 * k, z: -X, base: (a) => hillY(X) + up - 0.05 * a, bend: (a) => -(0.0025 * a * a + 0.04 * a), seed: sd, hMin: 8, hMax: 11 + k, lit: night ? 0.05 : 0.09, mats: M }));
+      massRow(far, { a0: -80 - 14 * k, a1: 60 + 10 * k, z: -X, base: (a) => hillY(X) + up - 0.05 * a, bend: (a) => -(0.0025 * a * a + 0.04 * a), seed: sd, hMin: 8, hMax: 11 + k, lit: (night ? 0.05 : 0.09) * (o.farLit ?? 1), mats: M }));   // o.farLit: s08 tele = 0 (cửa sáng còn thấy khi khối nhà đã chìm vào sương → "ô cửa lơ lửng giữa trời")
   }
   return depth;
 }
@@ -244,6 +248,19 @@ export function buildStreetSet(o = {}) {
     posts.push({ k, x, E, L: Lt, bulbM, gl, hp, gz });
   });
   // cột điện ở quảng trường (bật cùng đồng hồ)
+  // Q-W2-3 (P): cột điện PHỐ CHÍNH cạnh góc nhà kho = cột bật lúc 1:04 (WALL_POST_ON) của bộ tường chim (sets2.WALL.post, hệ tường (3,3; 3,9)
+  // → thế giới (13,5; −4,2), xoay π/2 + 0,35). Không thuộc POST_X (POST_X giữ nguyên). Chỉ dựng khi đoạn phố có cuối phố (endInfo).
+  // Mặc định chỉ bóng đèn + loá bật (nguồn thấy được); PointLight chỉ bật khi o.wallPostLight = true (không tự đổi ánh sáng các shot W2 góc tối).
+  let wallPost = null;
+  if (endInfo && endInfo.toWorld) {
+    const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
+    const E = electricLamp(6.2, matC, bulbM); const wp = endInfo.toWorld(new THREE.Vector3(3.3, 0, 3.9));
+    E.group.position.set(wp.x, 0.12, wp.z); E.group.rotation.y = Math.PI / 2 + 0.35; scene.add(E.group);
+    E.group.updateMatrixWorld(true); const hp = E.head.clone().applyMatrix4(E.group.matrixWorld);
+    const Lt = new THREE.PointLight(ELEC.color, 0, 34, 1.2); Lt.position.copy(hp); scene.add(Lt);
+    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl); const gz = elecGlare(hp); scene.add(...gz.list);
+    wallPost = { E, L: Lt, bulbM, gl, gz, hp, x: wp.x, z: wp.z };
+  }
   const squarePosts = [];
   if (x1 > 150) for (const [px, pz] of [[166, 8], [166, -8], [188, 9], [188, -9]]) {
     const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
@@ -266,12 +283,15 @@ export function buildStreetSet(o = {}) {
     let white = 0;
     for (const p of posts) { if (!p) continue; const e = st.post(p.k) ?? 0;
       p.L.intensity = ELEC.cd * e; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); p.gz.set(e); white = Math.max(white, e * (st.nearPost ? st.nearPost(p) : 1)); }
+    if (wallPost) { const e = st.wallPost !== undefined ? st.wallPost : (WALL_POST_T === null || f === undefined ? 0 : switchOnT(f / 24 - WALL_POST_T));
+      wallPost.L.intensity = o.wallPostLight ? ELEC.cd * e : 0; wallPost.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e);
+      wallPost.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); wallPost.gz.set(e); }
     const sq = st.square ?? 0;
     for (const p of squarePosts) { p.L.intensity = ELEC.cd * sq; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), sq); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * sq); p.gz.set(sq); }
     if (clock) clock.userData.setOn(st.clock ?? 0);
     whiteHemi.intensity = (st.whiteFill ?? white) * 0.9;   // trắng tràn phẳng (mức v1). v2 thử 0,32 ban đêm → ở 0:40–0:42 bóng dài của đèn khí L7 còn nguyên, trái kịch bản; trả về 0,9. Dấu hiệu đêm nay do trời sao + sương tối
   }
-  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth };
+  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth, wallPost };
 }
 
 // Vệt tối tiếp xúc (decal mờ dưới chân) — dùng cho mọi bộ ngoài phố.

@@ -1,6 +1,7 @@
 // Cine Lab · Cổng 5 LAYOUT — GÓI W1: cảnh 1–3 (s01 → hết cảnh 3). Chỉ W1 sửa file này.
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 import { walkPose, WALK, WALK_CHILD } from '/cong3/shared/anim.js';
+import { setWallPostOn } from './sets.js';
 import { buildStreetSet, LAMP_X, LAMP_Z, WALK_Z, POST_X, CLOCK, ladderOf, buildWatch, lamMat, flickAt, GRADE_COLD } from './sets.js';
 import { buildCitySet, buildWallSet, buildBaySet, buildAlleySet, buildRoomSet } from './sets2.js';
 import { buildLantern } from '/cong3/shared/cast.js';
@@ -11,8 +12,20 @@ import { CLOCKS, CLOCK_ON, DIALOGUE, DING, FILM_S, FOOT_Z, GAS_ON, GRADE_ALLEY, 
 // Vị trí Cas ở cuối phố (s24, s24c): mặc định = bản Cổng 4; nếu sets_end.js (W2) trả endInfo.casSpot = [x, z] thì dùng vị trí đó
 // (chân tường nhà kho, trong quầng hổ phách L11 — xem shots/layout/LAYOUT-W1.md, "Yêu cầu gửi W2").
 const CAS_SPOT = [-1.2, -2.2];
+// Mặt nạ đo V3: mặt vôi nhà kho (ShapeGeometry có map, trong nhóm cuối phố, không phải vật liệu mặt tiền FT) → trắng; mọi thứ khác → đen (vẫn che khuất).
+function limeMask(st) {
+  const g = st.endInfo && st.endInfo.group; if (!g) return;
+  const face = new Set(); g.traverse((o) => { if (o.isMesh && o.geometry.type === 'ShapeGeometry' && o.material && o.material.map && o.material.color && o.material.color.getHex() === 0xffffff && o.material.map.image && o.material.map.image.width) face.add(o); });
+  const W = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide }), B = new THREE.MeshBasicMaterial({ color: 0x000000, side: THREE.DoubleSide });
+  const fixed = new Set(); st.scene.traverse((o) => { if (o.isSprite || o.isPoints) o.visible = false; if (o.isMesh) fixed.add(o); });
+  st.scene.fog = null; st.scene.background = new THREE.Color(0);
+  for (const o of fixed) o.material = face.has(o) ? W : B;
+  st.scene.userData.limeMask = { face: face.size, B, W };
+  st.scene.userData.blackenLater = () => st.scene.traverse((o) => { if (o.isMesh && !fixed.has(o)) o.material = B; if (o.isSprite) o.visible = false; });
+}
+setWallPostOn(WALL_POST_ON);   // Q-W2-3: cột tường chim (bộ phố) bật đúng mốc 1:04 của common.js
 // Máy s23 (V3, 0:52): cố định để W2 dựng cuối phố theo đúng khung này (28 mm: FOV dọc 46,4°, ngang 74,6°).
-export const S23_CAM = { pos: [19.5, 1.6, 2.8], look: [4.5, 2.5, -2.9], mm: 28 };
+export const S23_CAM = { pos: [24.5, 1.5, 3.6], look: [4.5, 2.0, -1.8], mm: 28 };   // giai đoạn C: lùi máy 5 m lên phố → mặt vôi nhà kho 29 % → 15,5 % khung (đo mặt nạ limeMask)
 
 // ---------------- CẢNH 1 — Vòng đèn (0:00–0:25, 25 s) ----------------
 S({ id: 's01', scene: 1, t0: 0.0, t1: 4.0, size: 'EWS', angle: 'cao, chúc ~20°', mm: 28, move: 'dolly vào rất chậm',
@@ -113,7 +126,7 @@ S({ id: 's08', scene: 1, t0: 24.0, t1: 26.0, size: 'WS (tele)', angle: 'ngang t�
   sound: 'rơ-le "tách" xa; room tone', light: 'đèn khí dọc phố; đồng hồ quảng trường còn tắt',
   action: 'Ida đi về phía máy; xa sau lưng là quảng trường.',
   async build(ctx) {
-    const st = buildStreetSet({ sky: 'dusk', x0: 55, x1: 200, shadowLamps: [], fog: [40, 330] }); const p = P(ctx);   // W1: sương xa cho tele — quảng trường + dãy nhà xa đọc được
+    const st = buildStreetSet({ sky: 'dusk', x0: 55, x1: 200, shadowLamps: [], fog: [40, 330], farLit: 0 }); const p = P(ctx);   // W1: sương xa cho tele — quảng trường + dãy nhà xa đọc được
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 18 }); const cam = camMM(135); cam.position.set(58, 1.6, 0.6); cam.lookAt(176, 3.4, 0.2);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.4,
       update(t, T, f) { st.setState(stdState(T), f); ida.place(walkPose(t, p.I.walk_ladder), 88.5 - WALK.speed_mps * t, WALK_Z + 0.6, -Math.PI / 2 - 0.12); } };
@@ -279,14 +292,16 @@ S({ id: 's23', scene: 3, t0: 63.0, t1: 66.0, size: 'WS', angle: 'ngang, nhìn xu
   action: 'Ida hối hả tới L11, trèo, thắp. Hổ phách.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 60, shadowLamps: [11] }); const p = P(ctx); const lad = ladderAt(st.scene, 11);
-    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(28); cam.position.set(S23_CAM.pos[0], S23_CAM.pos[1], S23_CAM.pos[2]); cam.lookAt(...S23_CAM.look);
+    const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 }); const C23 = (ctx.dbg && ctx.dbg.s23cam) || S23_CAM; const cam = camMM(C23.mm); cam.position.set(...C23.pos); cam.lookAt(...C23.look);   // dbg.s23cam: thử máy khi đo
     const fast = { cycle_s: 0.9, stride_m: 0.6, speed_mps: 1.3 };
-    return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.4, 1.8, (T) => gasLevel(11, T)),
+    if (ctx.dbg && ctx.dbg.limeMask) limeMask(st);   // đo V3: tỷ lệ điểm ảnh mặt vôi trắng nhà kho (chỉ khi --dbg '{"limeMask":1}' --nopaint)
+    return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: ctx.dbg && ctx.dbg.limeMask ? 1.0 : expo(2.4, 1.8, (T) => gasLevel(11, T)),
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.06 }), f);
         lad.visible = t >= 1.1;   // W1: thang trên vai khi chạy (liên tục s15), dựng vào cột ở 1,1 s (tư thế then chốt Cổng 6: "dựng thang")
         if (t < 1.1) ida.place(walkPose(t, p.I.walk_ladder, { gait: fast }), valAt([[0, 14.2], [1.1, LAMP_X(11) + 0.2]], t), valAt([[0, WALK_Z], [1.1, FOOT_Z]], t), yawTo(14.2, WALK_Z, LAMP_X(11), FOOT_Z));
         else if (t < 1.9) { const u = (t - 1.1) / 0.8; ida.place(p.climb(u, p.valveLadder), LAMP_X(11), FOOT_Z + (ON_Z - FOOT_Z) * ease(u), 0); }
-        else ida.place(poseAt([[1.9, p.valveLadder], [2.5, p.warmLadder]], t), LAMP_X(11), ON_Z, 0); } };
+        else ida.place(poseAt([[1.9, p.valveLadder], [2.5, p.warmLadder]], t), LAMP_X(11), ON_Z, 0);
+        if (st.scene.userData.blackenLater) st.scene.userData.blackenLater(); } };
   } });
 
 S({ id: 's24', scene: 3, t0: 66.0, t1: 68.0, size: 'MS', angle: 'hơi cao, 3/4 trước-phải', mm: 35, move: 'tĩnh',
@@ -296,7 +311,7 @@ S({ id: 's24', scene: 3, t0: 66.0, t1: 68.0, size: 'MS', angle: 'hơi cao, 3/4 t
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: [11] }); const p = P(ctx); ladderAt(st.scene, 11);
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 30 }); const cas = makeChar(ctx, st.scene, 'cas', { detail: 20 });
-    const cam = camMM(35); cam.position.set(14.5, 2.4, 3.0); cam.lookAt(6.0, 2.2, -2.3);
+    const cam = camMM(35); cam.position.set(15.5, 2.3, 2.5); cam.lookAt(8.5, 2.1, -5.0);   // giai đoạn C: Ida (L11) trái–giữa, Cas ở chân tường chim phải khung (casSpot W2)
     const [cx, cz] = (st.endInfo && st.endInfo.casSpot) || CAS_SPOT;
     const beats = [0.2, 0.8, 1.4];
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_STREET, exposure: 1.6,
@@ -313,7 +328,7 @@ S({ id: 's24c', scene: 3, size: 'MS', angle: 'ngang mắt Cas, 3/4 trước-ph�
     const st = buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: [11] }); const p = P(ctx); ladderAt(st.scene, 11);
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 18 }); const cas = makeChar(ctx, st.scene, 'cas', { detail: 34, expr: 'neutral' });
     const [cx, cz] = (st.endInfo && st.endInfo.casSpot) || CAS_SPOT;
-    const cam = camMM(50); cam.position.set(cx + 1.8, 1.0, cz + 1.0); cam.lookAt(cx, 0.9, cz);   // W1: máy bám vị trí Cas (3/4 trước-phải, ngang mắt cậu)
+    const cam = camMM(50); cam.position.set(cx - 0.03, 1.05, cz + 2.1); cam.lookAt(cx, 0.95, cz);   // giai đoạn C: 3/4 trước Cas (lệch 35° khỏi hướng nhìn về L11) — Cas nhìn sang TRÁI khung (về Ida), tường chim sau lưng
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: 4.5,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.05 }), f); ida.place(p.warmLadder, LAMP_X(11), ON_Z, 0);
         cas.place(over(p.C.turnaround, { joints: { neck: [-4, valAt([[0, -10], [0.6, -10], [1.3, 6]], t), 0] } }), cx, cz, yawTo(cx, cz, LAMP_X(11), ON_Z)); } };
