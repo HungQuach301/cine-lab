@@ -95,3 +95,11 @@ Nguyên văn của chủ dự án (đóng góp biểu đạt), 27/09/2026:
 | 2026-09-27 | Cổng 4 (đóng) | **B1**: giữ kết ở phòng Cas; không thêm chim bóng trong hốc. **Loại:** B2 (chim bóng trong hốc, bỏ phòng Cas) | Chủ dự án chọn — theo khuyến nghị | Phương án B1–B2 của P | Chủ dự án (chat 27/09/2026) |
 | 2026-09-27 | Cổng 4 (đóng) | **C1**: giữ ánh trắng phẳng có trời sao; tinh chỉnh ở Cổng 7. **Loại:** C2 (giảm trắng tràn ở khung có trời) | Chủ dự án chọn — theo khuyến nghị, hẹn tinh chỉnh ở Cổng 7 | Phương án C1–C2 của P | Chủ dự án (chat 27/09/2026) |
 | 2026-09-27 | Cổng 5 (giao việc) | Lỗi animatic v2 bắt buộc sửa ở layout: **V1** 2:00 (s42b) Cas mất mũ len, tay to bất thường, ngồi xổm méo; **V2** 1:28 (s31–s33) người và bóng lẫn nhau — tách bằng quang học thật, giữ "bóng bà cao, bóng cậu nhỏ"; **V3** cuối phố là tường trống (0:52, 1:04, 1:40) — cần phố cong, ngã rẽ, dãy nhà xa, sương, chiều sâu; **V4** 1:02 (s26) mặt Ida tối, mắt ánh cam, không nhận ra Ida | Chủ dự án nêu (qua rà độc lập) | — | Chủ dự án (chat 27/09/2026) |
+
+### Cổng 5
+
+| Ngày | Cổng | Quyết định | Đóng góp biểu đạt của con người | Phần do AI đề xuất | Người duyệt |
+|---|---|---|---|---|---|
+| 2026-09-28 | Cổng 5 (quyết định sớm) | **Cuối phố chính là hông nhà kho chữ L** (mái, hốc vòm, phố rẽ trái, dốc, nhiều lớp mái xa, sương): DUYỆT; ghi `bible/world-rules.md` **v0.5**, khoá lại SHA. **Loại:** "phố mở ra xa" | Chủ dự án duyệt hình khối cuối phố và chọn giữ nhà kho làm điểm dừng thị giác | Dựng khối nhà kho chữ L của W2 (Q-W2-1) | Chủ dự án (chat 28/09/2026) |
+| 2026-09-28 | Cổng 5 (quyết định sớm) | **Mũ Ida:** sau cử chỉ đẩy mũ (1:48), bà **kéo mũ lại khi rời đi** — cử chỉ khép lại "hết ca"; góc mũ liền mạch giữa các shot, ghi continuity cảnh 5–6. **Loại:** "giữ mũ hất ra sau tới hết phim" | Chủ dự án đặt một cử chỉ mới có ý nghĩa kể chuyện ("hết ca") | Hai phương án góc mũ cảnh 6 của W2 (Q-W2-2) | Chủ dự án (chat 28/09/2026) |
+| 2026-09-28 | Cổng 5 (quyết định sớm) | **Không có quầng trắng ở chân trời**; giữ luật v0.4 "ánh điện không làm sáng trời" (trời tối có sao giữ cho phim đọc ra ban đêm). **Loại:** quầng nhẹ ở cảnh toàn | Chủ dự án quyết và nêu lý do kể chuyện | Yêu cầu của W1, W2 ghi trái luật (Q-W2-4) | Chủ dự án (chat 28/09/2026) |
