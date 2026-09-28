@@ -1,8 +1,8 @@
-"""Cổng 4 — đóng gói ANIMATIC: phụ đề tiếng Anh cháy vào hình (kèm matte chữ cho P0/P1/G4), ghép âm tạm, file đi kèm cho checks, gói chiếu mù.
+"""Cổng 5 — đóng gói LAYOUT (chép cách đóng gói animatic Cổng 4): phụ đề tiếng Anh cháy vào hình (kèm matte chữ cho P0/P1/G4), ghép âm tạm, file đi kèm cho checks, gói chiếu mù.
 Chạy: /opt/cine/bin/python design/cong5/layout/package.py <thư mục render (video.mp4, motion/)> <thư mục âm (mix.flac, stems/)>
 Ghi:
-  design/cong5/layout/out/animatic.mp4  (+ .script.txt, .text/, .stems/, .motion.json, .assets.json)  ← bản chạy checks
-  screening/animatic.mp4                  (bản sao y từng byte của bản trên) + screening/questions.json
+  design/cong5/layout/out/layout.mp4  (+ .script.txt, .text/, .stems/, .motion.json, .assets.json)  ← bản chạy checks
+  screening/layout.mp4                    (bản sao y từng byte của bản trên) + screening/questions.json
 """
 import glob, hashlib, json, os, shutil, subprocess, sys
 import numpy as np
@@ -25,7 +25,7 @@ def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
 def main(rdir, adir):
     HQ = os.environ.get('HQ') == '1'   # bản đối chứng bitrate cao (CRF 14) để đo G3b không bị trần 50 MB — không nộp, không commit
     od = os.path.join(REPO, 'design/cong5/layout/out' + ('/hq' if HQ else '')); os.makedirs(od, exist_ok=True)
-    base = os.path.join(od, 'animatic_hq' if HQ else 'animatic')
+    base = os.path.join(od, 'layout_hq' if HQ else 'layout')
     # ---- phụ đề: ảnh cháy (ruột + viền đen 3 px) và matte (chỉ ruột nét, màu ruột) ----
     tdir = base + '.text'; shutil.rmtree(tdir, ignore_errors=True); os.makedirs(tdir)
     font = ImageFont.truetype(FONT, 30); els = []; burn = []
@@ -81,15 +81,15 @@ def main(rdir, adir):
             if all(v is None for v in vals): continue   # track không lúc nào thấy (khuất/ngoài khung) — không khai
             name, part = k.split('/', 1); tr.append({'id': f'{name}/{part}@{sid}', 'first_frame': f0, 'values': vals})
     json.dump({'fps': FPS, 'channels': ch, 'screen_tracks': tr}, open(base + '.motion.json', 'w'))
-    scene_files = [f'design/cong5/layout/{f}' for f in ['page.js', 'film.js', 'sets.js', 'sets2.js', 'util.js']]
+    scene_files = [f'design/cong5/layout/{f}' for f in ['page.js', 'film.js', 'common.js', 'order_w1.js', 'order_w2.js', 'shots_w1.js', 'shots_w2.js', 'sets.js', 'sets2.js', 'sets_end.js', 'util.js'] + (['facelight.js'] if os.path.exists(os.path.join(REPO, 'design/cong5/layout/facelight.js')) else [])]
     assets = ['reports/m1/cong2/tableread-d2/lines/L1.mp3', 'reports/m1/cong2/tableread-d2/lines/L2.mp3', 'reports/m1/cong2/tableread-d2/lines/L3.mp3',
               'reports/m1/cong2/tableread-d2/lines/L4.mp3', 'reports/m0/music/theme-dit-1.flac', 'design/cong3/model-sheet/ida.json', 'design/cong3/model-sheet/cas.json']
     json.dump({'workdir': 'design/cong5/layout', 'scene_files': scene_files, 'assets': assets}, open(base + '.assets.json', 'w'), indent=1)
     # ---- gói chiếu mù ----
     sc = os.path.join(REPO, 'screening'); os.makedirs(sc, exist_ok=True)
-    if not HQ: shutil.copyfile(base + '.mp4', os.path.join(sc, 'animatic.mp4'))
+    if not HQ: shutil.copyfile(base + '.mp4', os.path.join(sc, 'layout.mp4'))
     sz = os.path.getsize(base + '.mp4') / 1e6
-    print(json.dumps({'mp4': base + '.mp4', 'MB': round(sz, 2), 'sha256': sha(base + '.mp4'), 'screening_same': (not HQ) and sha(base + '.mp4') == sha(os.path.join(sc, 'animatic.mp4')),
+    print(json.dumps({'mp4': base + '.mp4', 'MB': round(sz, 2), 'sha256': sha(base + '.mp4'), 'screening_same': (not HQ) and sha(base + '.mp4') == sha(os.path.join(sc, 'layout.mp4')),
                       'channels': len(ch), 'tracks': len(tr), 'cards': len(CARDS)}))
 
 if __name__ == '__main__':

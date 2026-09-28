@@ -1,0 +1,674 @@
+[
+ {
+  "id": "s01",
+  "scene": 1,
+  "t0": 0,
+  "t1": 4,
+  "frames": 96,
+  "characters": [],
+  "key_action": "Toàn cảnh thành phố chạng vạng; chấm hổ phách đèn khí hiện dần; máy đẩy rất chậm.",
+  "key_poses": [],
+  "difficulty": {
+   "level": 1,
+   "why": "Không nhân vật; chỉ hoạt hoạ chấm đèn và máy (bộ s1 khoá)."
+  },
+  "package": "C6-W1-fx"
+ },
+ {
+  "id": "s02",
+  "scene": 1,
+  "t0": 4,
+  "t1": 8.5,
+  "frames": 108,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida vác thang đi từ xa (đầu dốc) tiến về máy, trôi phải → trái; đèn L1–L3 đã thắp sau lưng.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đi vác thang (walk_ladder), chu kỳ 1,25 s, tay phải giữ thang trên vai phải, tay trái vung"
+   },
+   {
+    "t": 4.5,
+    "pose": "vẫn đi — cắt giữa bước"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Chu kỳ đi có thang; hai tay bám thang/vung phải khớp (H1b trượt ở shot đi bộ Cổng 4)."
+  },
+  "package": "C6-W1-street"
+ },
+ {
+  "id": "s03",
+  "scene": 1,
+  "t0": 8.5,
+  "t1": 10.5,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida lên nốt bậc thang ở L4, tay phải mở van; \"phụp\" — L4 bắt lửa (9,2 s); hai tay đưa lên kính.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đang trèo, hai tay nắm thang"
+   },
+   {
+    "t": 0.55,
+    "pose": "tới bậc trên, chân khoá thang"
+   },
+   {
+    "t": 0.7,
+    "pose": "L4 bắt lửa (\"phụp\") — mặt sáng hổ phách"
+   },
+   {
+    "t": 0.75,
+    "pose": "tay phải vươn lên van (valveLadder)"
+   },
+   {
+    "t": 1.9,
+    "pose": "hai tay đưa lên kính (warmLadder)"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Trèo + mở van + tay tới kính trong 2 s; tiếp xúc tay–thang–van; góc thấp lộ rõ chân trên bậc."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s04",
+  "scene": 1,
+  "t0": 10.5,
+  "t1": 12,
+  "frames": 36,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Toàn cảnh cao từ bên kia phố: Ida trên thang, hai tay lên kính; bóng người + thang đổ dài trên mặt tiền.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "tay phải trên van"
+   },
+   {
+    "t": 0.8,
+    "pose": "hai tay lên kính (warmLadder)"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Ngắn, xa; chủ yếu giữ bóng đổ khớp tư thế."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s05",
+  "scene": 1,
+  "t0": 12,
+  "t1": 16,
+  "frames": 96,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Cận: hai lòng tay áp gần kính đếm một–hai–ba; thoại L1 \"Evening, old street.\"; hạ tay.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "bắt đầu L1 (12,0–14,16 s phim)"
+   },
+   {
+    "t": 0.3,
+    "pose": "đếm 1: hai lòng tay tiến sát kính"
+   },
+   {
+    "t": 0.9,
+    "pose": "đếm 2"
+   },
+   {
+    "t": 1.5,
+    "pose": "đếm 3"
+   },
+   {
+    "t": 2.4,
+    "pose": "bắt đầu hạ tay"
+   },
+   {
+    "t": 3.1,
+    "pose": "tay nghỉ trên thang (restLadder)"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Cận mặt + hai bàn tay; thoại L1 nhưng CHƯA có rig miệng (C′); mặt Ida chờ W3."
+  },
+  "package": "C6-W1-close"
+ },
+ {
+  "id": "s06",
+  "scene": 1,
+  "t0": 16,
+  "t1": 19,
+  "frames": 72,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Insert: dưới chân thang, đồng hồ bỏ túi 7:31; móng tay gõ kính hai lần; cất đi.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "tay phải ngửa cầm đồng hồ trước ngực, cúi nhìn (watchHold)"
+   },
+   {
+    "t": 0.8,
+    "pose": "gõ 1 (ngón trỏ trái)"
+   },
+   {
+    "t": 1.2,
+    "pose": "gõ 2"
+   },
+   {
+    "t": 2.3,
+    "pose": "bắt đầu cất đồng hồ"
+   },
+   {
+    "t": 2.9,
+    "pose": "đứng thẳng (turnaround)"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Insert tay: ngón gõ kính, đồng hồ bám lòng tay; máy bám đồng hồ."
+  },
+  "package": "C6-W1-close"
+ },
+ {
+  "id": "s07",
+  "scene": 1,
+  "t0": 19,
+  "t1": 23,
+  "frames": 96,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Dolly ngang theo Ida vác thang đi qua cột L5; bóng quét trên đá lát.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đi vác thang"
+   },
+   {
+    "t": 3.6,
+    "pose": "đi ngang cột L5 — bóng đổi phía"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Chu kỳ đi + máy dolly + bóng dài phải khớp chân."
+  },
+  "package": "C6-W1-street"
+ },
+ {
+  "id": "s08",
+  "scene": 1,
+  "t0": 23,
+  "t1": 25,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Tele: Ida nhỏ ở tiền cảnh đi về phía máy; xa sau là quảng trường và cột đồng hồ (chưa sáng); rơ-le \"tách\" xa.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đi vác thang, hơi chéo về máy"
+   },
+   {
+    "t": 0.3,
+    "pose": "(âm) rơ-le — bà không để ý, không đổi nhịp đi"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Nhân vật nhỏ; C3 cẳng tay lệch ở Cổng 4 (tele)."
+  },
+  "package": "C6-W1-street"
+ },
+ {
+  "id": "s09",
+  "scene": 2,
+  "t0": 25,
+  "t1": 28,
+  "frames": 72,
+  "characters": [],
+  "key_action": "Mặt đồng hồ quảng trường bật trắng đúng 8:00; chuông DING.",
+  "key_poses": [],
+  "difficulty": {
+   "level": 1,
+   "why": "Không nhân vật."
+  },
+  "package": "C6-W1-fx"
+ },
+ {
+  "id": "s09w",
+  "scene": 2,
+  "t0": 28,
+  "t1": 30,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "POV: Ida dưới L6 giơ đồng hồ bỏ túi ngang tầm mắt: 7:53.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "tay phải giơ đồng hồ ngang mắt (watchRaise), giữ yên"
+   },
+   {
+    "t": 2.0,
+    "pose": "giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Insert tay giữ yên nhưng thấy rõ ngón + đồng hồ; rung tay rất nhẹ (74 tuổi) nếu cần."
+  },
+  "package": "C6-W1-close"
+ },
+ {
+  "id": "s10e",
+  "scene": 2,
+  "t0": 30,
+  "t1": 32,
+  "frames": 48,
+  "characters": [],
+  "key_action": "Bóng đèn điện quảng trường nhấp hai lần rồi đứng trắng; đồng hồ ở hậu cảnh.",
+  "key_poses": [],
+  "difficulty": {
+   "level": 1,
+   "why": "Không nhân vật."
+  },
+  "package": "C6-W1-fx"
+ },
+ {
+  "id": "s10",
+  "scene": 2,
+  "t0": 32,
+  "t1": 35,
+  "frames": 72,
+  "characters": [],
+  "key_action": "Toàn cảnh đêm: sóng trắng lăn xuống dốc; khối cuối cạnh nhà kho còn hổ phách.",
+  "key_poses": [],
+  "difficulty": {
+   "level": 1,
+   "why": "Không nhân vật (bộ s1 khoá)."
+  },
+  "package": "C6-W1-fx"
+ },
+ {
+  "id": "s11",
+  "scene": 2,
+  "t0": 35,
+  "t1": 37,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida trên thang ở L7 quay đầu và vai về phía quảng trường (phải khung).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "tay nghỉ trên thang (restLadder)"
+   },
+   {
+    "t": 0.3,
+    "pose": "bắt đầu quay (nghe tiếng tách)"
+   },
+   {
+    "t": 1.2,
+    "pose": "thân xoay 28°, cổ 48° về +x (turnSquare), giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Một động tác quay đầu–vai."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s12",
+  "scene": 2,
+  "t0": 37,
+  "t1": 39.5,
+  "frames": 60,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Qua vai Ida: bóng đèn cột x = 85 nhấp hai lần rồi đứng; trắng nuốt L5, L6.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "giữ turnSquare (lưng/vai tiền cảnh)"
+   },
+   {
+    "t": 1.2,
+    "pose": "cột x = 85 bật — thở nhẹ, không động tác lớn"
+   }
+  ],
+  "difficulty": {
+   "level": 1,
+   "why": "Gần như tĩnh; chỉ hơi thở/vai."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s13",
+  "scene": 2,
+  "t0": 39.5,
+  "t1": 41.5,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Trắng tràn lên Ida (39,55 s); mặt đổi ấm → trắng phẳng; bà cúi nhìn xuống đá lát.",
+  "key_poses": [
+   {
+    "t": 0.05,
+    "pose": "trắng tới (nhấp 2 lần)"
+   },
+   {
+    "t": 0.5,
+    "pose": "bắt đầu cúi"
+   },
+   {
+    "t": 1.3,
+    "pose": "nhìn xuống (lookDown), giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Chuyển tư thế + chuyển sáng; bóng trên tường phải tan trong 0,5 s."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s14",
+  "scene": 2,
+  "t0": 41.5,
+  "t1": 43.5,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Máy cao chúc: Ida giơ tay trái; mặt đá không có bóng dài.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "nhìn xuống"
+   },
+   {
+    "t": 0.4,
+    "pose": "bắt đầu giơ tay trái"
+   },
+   {
+    "t": 1.1,
+    "pose": "tay trái giơ ra trước–ngang, lòng úp (tư thế cục bộ liftHigh), giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Tư thế giơ tay ở máy cao còn khó đọc (probe) — cần duyệt thành tư thế sheet."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s15",
+  "scene": 3,
+  "t0": 43.5,
+  "t1": 45,
+  "frames": 36,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida tụt nhanh xuống thang, nhấc thang lên vai, quay về phía dốc xuống (trái khung).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đang xuống thang, hai tay nắm"
+   },
+   {
+    "t": 0.8,
+    "pose": "chân chạm đá, đứng"
+   },
+   {
+    "t": 1.1,
+    "pose": "nhấc thang khỏi cột lên vai phải (đổi đạo cụ)"
+   },
+   {
+    "t": 1.4,
+    "pose": "quay 90° về −x, vào tư thế đi vác thang"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Xuống thang + nhặt thang lên vai + quay: bàn giao đạo cụ (thang tựa cột → thang trên vai) phải hoạt hoạ thật, previs chỉ đổi tức thì."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s19",
+  "scene": 3,
+  "t0": 45,
+  "t1": 47.5,
+  "frames": 60,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida trên thang ở L8: \"phụp\", bóng dài; cột x = 57 nhấp hai lần, đứng trắng, bóng tan trong 0,5 s.",
+  "key_poses": [
+   {
+    "t": 0.05,
+    "pose": "L8 bắt lửa"
+   },
+   {
+    "t": 0.5,
+    "pose": "tay phải rời van"
+   },
+   {
+    "t": 1.2,
+    "pose": "hai tay lên kính (warmLadder), giữ"
+   },
+   {
+    "t": 1.5,
+    "pose": "cột x = 57 bật; bóng tan tới 2,0 s"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Tư thế đơn giản; bóng phải khớp tư thế cho tới khi tan."
+  },
+  "package": "C6-W1-ladder"
+ },
+ {
+  "id": "s21",
+  "scene": 3,
+  "t0": 47.5,
+  "t1": 49.5,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida trèo nhanh lên L10, sào mồi trượt khỏi tay phải, chụp lại.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đang trèo bậc trên, tay phải cầm sào"
+   },
+   {
+    "t": 0.7,
+    "pose": "tới đỉnh, giơ sào (poleLadder)"
+   },
+   {
+    "t": 0.9,
+    "pose": "sào trượt — hai tay bung (poleFumble)"
+   },
+   {
+    "t": 1.3,
+    "pose": "chụp lại"
+   },
+   {
+    "t": 1.5,
+    "pose": "sào trong tay, giơ lại (poleLadder)"
+   }
+  ],
+  "difficulty": {
+   "level": 5,
+   "why": "Vật thể rời tay (sào 6 H) + chụp lại: cần mô phỏng/khoá tay chính xác; cận tay 85 mm lộ mọi lỗi tiếp xúc."
+  },
+  "package": "C6-W1-close"
+ },
+ {
+  "id": "s22",
+  "scene": 3,
+  "t0": 49.5,
+  "t1": 52.5,
+  "frames": 72,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Cận: Ida lẩm bẩm L2 \"Not yet... not yet.\", tay phải mở van; L10 bắt lửa ở khung cuối (ấm lên mặt).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "tay phải trên van, đầu nghiêng 30° (valveLadder); bắt đầu L2 (49,5–52,38 s phim)"
+   },
+   {
+    "t": 1.6,
+    "pose": "bắt đầu ngẩng nhìn lồng"
+   },
+   {
+    "t": 2.4,
+    "pose": "ngẩng, tay phải vặn nốt van"
+   },
+   {
+    "t": 2.95,
+    "pose": "L10 bắt lửa — mặt ấm"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Cận mặt, thoại L2, biểu cảm \"strained\"; chưa có rig miệng; mặt Ida chờ W3."
+  },
+  "package": "C6-W1-close"
+ },
+ {
+  "id": "s23",
+  "scene": 3,
+  "t0": 52.5,
+  "t1": 55.5,
+  "frames": 72,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida hối hả vác thang tới L11 ở góc cuối phố (còn tối), dựng thang, trèo, thắp. Hổ phách.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "chạy bước ngắn vác thang (gait nhanh 0,9 s/chu kỳ)"
+   },
+   {
+    "t": 1.1,
+    "pose": "tới chân cột, dựng thang vào cột (đổi đạo cụ)"
+   },
+   {
+    "t": 1.1,
+    "pose": "bắt đầu trèo"
+   },
+   {
+    "t": 1.9,
+    "pose": "tới bậc trên, tay phải lên van"
+   },
+   {
+    "t": 2.0,
+    "pose": "L11 bắt lửa"
+   },
+   {
+    "t": 2.5,
+    "pose": "hai tay lên kính"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Chạy + dựng thang + trèo trong 3 s ở toàn cảnh: nhiều bàn giao đạo cụ; dựng thang chưa có tư thế."
+  },
+  "package": "C6-W1-street"
+ },
+ {
+  "id": "s24",
+  "scene": 3,
+  "t0": 55.5,
+  "t1": 57.5,
+  "frames": 48,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida áp tay vào kính L11 đếm một–hai–ba; xa phía sau, Cas đứng ở chân tường nhìn bà.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Cas: đứng yên, tay giấu trong tay áo, nhìn Ida (thở)"
+   },
+   {
+    "t": 0.2,
+    "pose": "đếm 1"
+   },
+   {
+    "t": 0.8,
+    "pose": "đếm 2"
+   },
+   {
+    "t": 1.4,
+    "pose": "đếm 3"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Hai nhân vật; Cas ở nền phải đọc được (phụ thuộc vị trí casSpot của W2)."
+  },
+  "package": "C6-W1-street"
+ },
+ {
+  "id": "s24c",
+  "scene": 3,
+  "t0": 57.5,
+  "t1": 59,
+  "frames": 36,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cận trung Cas ở chân tường nhà kho, mặt ấm vì L11; cậu nhìn về phía cột đèn (phải khung).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Cas đứng, đầu quay −10° (nhìn hơi xuống/trái)"
+   },
+   {
+    "t": 0.6,
+    "pose": "bắt đầu quay đầu"
+   },
+   {
+    "t": 1.3,
+    "pose": "đầu +6°, nhìn thẳng về Ida/L11 (phải khung)"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Cận Cas: mắt, tay trong ống tay áo; chuyển động đầu nhỏ."
+  },
+  "package": "C6-W1-cas"
+ }
+]
