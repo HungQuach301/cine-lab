@@ -6,7 +6,7 @@ Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Cổng 5 vòng v3 (chốt layout)** — đang làm: B-i (s35 thuần theo thời gian + rà trạng thái ẩn), C-i (s43 máy đẩy), (c) câu cuối L4 bắt đầu trên hình Ida, (d) đồng hồ chỉ tiến, rà continuity lần 3, luật v1.4, xuất lại layout → báo "Cổng 5 sẵn sàng đóng". KHÔNG merge; Claude bên ngoài chạy AI mù, chủ dự án duyệt merge.
+1. **Cổng 5 vòng v3 (chốt layout)** — XONG, sẵn sàng đóng (reports/m2/CONG-5-V3.md; layout.mp4 SHA 34f058a7…); chờ chủ dự án chọn A/B, AI mù, duyệt merge. Đã làm: B-i (s35 thuần theo thời gian + rà trạng thái ẩn), C-i (s43 máy đẩy), (c) câu cuối L4 bắt đầu trên hình Ida, (d) đồng hồ chỉ tiến, rà continuity lần 3, luật v1.4, xuất lại layout → báo "Cổng 5 sẵn sàng đóng". KHÔNG merge; Claude bên ngoài chạy AI mù, chủ dự án duyệt merge.
 2. **Cửa mặt Ida — A-i** (W3, song song): mặt điêu khắc + rig + khẩu hình; tối đa 2 vòng kiểm mù có mẫu đối chứng; trượt thì trình 2–3 phương án dàn dựng lại 1:32–1:48. **Cổng 6 chỉ mở khi cửa mặt đạt.**
 3. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới.
 
@@ -31,8 +31,8 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 | M1 Cổng 4: cổng mặt Ida (biến dạng, đẩy mũ, kiểm mù) + animatic 2:30 (48 shot) + âm tạm + gói chiếu mù | P | claude/cine-lab-m1-cong4-animatic | Vòng v1 xong; xem vòng v2 | reports/m1/CONG-4.md |
 | M2 Cổng 5 layout (W1, W2, W3 + P) | P + 3 subagent + 2 agent rà | claude/cine-lab-m2-cong5-layout-24o5fp | Vòng v1 xong; xem vòng v2 | reports/m2/CONG-5.md |
 | M2 Cổng 5 vòng v2 (A-α, hiệu chuẩn, B1, a–d, continuity v2) | P + W1, W2, W3 + agent rà + 16 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | Xong; chủ dự án đã quyết (AUTHORSHIP "Cổng 5 v2 — quyết định") | reports/m2/CONG-5-V2.md |
-| M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 | claude/cine-lab-m2-cong5-layout-24o5fp | Đang làm | reports/m2/CONG-5-V3.md |
-| M2 Cửa mặt Ida A-i | W3 | claude/cine-lab-m2-cong5-layout-24o5fp (tích hợp khi đạt) | Đang làm | reports/m2/MAT-IDA-AI.md |
+| M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 + agent rà + 1 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | **Xong — Cổng 5 sẵn sàng đóng**, chờ AI mù + chủ dự án duyệt merge | reports/m2/CONG-5-V3.md |
+| M2 Cửa mặt Ida A-i | W3 | claude/cine-lab-m2-cong5-layout-24o5fp (tích hợp khi đạt) | 2 vòng kiểm mù TRƯỢT; đang soạn phương án dàn dựng lại 1:32–1:48 | reports/m2/MAT-IDA-AI.md |
 | M1 Cổng 4 vòng v2: animatic 2:22,5 (52 shot), kịch bản nháp 3, luật thế giới v0.4, characters v1.2 (A1), C3 v1.4 (parts + views + kiểm toán) | P | claude/cine-lab-m1-cong4-animatic | **Đã merge vào main (5987bf3)** — Cổng 4 đóng | reports/m1/CONG-4-V2.md, shots/animatic/SHOTLIST.md, screening/animatic_v1_v2_diff.md |
 
 Quy ước file lớn Cổng 4: `design/cong4/animatic/out/animatic.mp4` (v2: 45,49 MB) nằm trong nhánh; mặt nạ C3 `out/animatic.parts/` (18 MB, PNG xám) cũng trong nhánh; video nhóm và video ghép trung gian `out/v2/*.mp4`, âm trung gian `out/v2/audio/` KHÔNG commit; `screening/animatic.mp4` là bản sao y từng byte. Bản trung gian `out/video.mp4` (187 MB) và đối chứng `out/hq/` (198 MB) KHÔNG commit (vượt giới hạn GitHub; tái tạo bằng `render_film.js` / `HQ=1 package.py`). Âm lưu FLAC 24-bit.
