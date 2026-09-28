@@ -338,3 +338,170 @@ Ghi chú: ảnh khả thi dùng age 0,94 (khoảng 82 tuổi; thang MakeHuman 0,
   - chọn giữ tai MPFB hay tai lượt 1;
   - nếu đạt: quyết tỷ lệ đầu–thân và c3_views mới, characters v1.5, model sheet; ghi AUTHORSHIP.
 - **Nếu trượt:** không làm vòng 2; trình phương án lùi PA1 theo quyết định đã ghi, kèm bảng `L2_SO_goodnight_aa-ai-bl.jpg`.
+
+---
+
+# Lượt 3 — một lượt sửa mặt 'bl' theo quyết định chủ dự án "A′" (29/09/2026)
+
+Worktree W4, đã gộp nhánh tích hợp @e74b794. Chạy 21:56 → 22:45 UTC.
+
+## L3.0 Tóm tắt
+- **Qua điều kiện dừng.** So với lượt 2, cổ, mũ, búi và da đều đã sửa rõ rệt. Bằng chứng: ảnh 4 góc trước/sau và khung PA1_keep với L11 gốc (mục L3.2).
+- Đã làm đủ bộ khung với L11 gốc. Theo lệnh, không làm khung EEVEE PA1.
+- **Dò 'aa'** sau lần sửa .js cuối: **lệch 0 px** ở cả 9 thumbs.
+- Đã đo c3_views 'bl' mới 8 góc. Không sửa bible/ hay ida.json.
+- Không tự chạy kiểm mù.
+
+## L3.1 Ảnh 4 góc trước và sau
+- Trước (lượt 2): `reports/m2/cong5/w4/L2_eevee_4goc.jpg`.
+- Sau (lượt 3): `reports/m2/cong5/w4/L3_eevee_4goc.jpg`. Cùng cách dựng: lưới xuất từ khung PA1_goodnight, mũ thật, đèn studio.
+
+## L3.2 Danh sách sửa kèm bằng chứng
+
+### a. Lắp ráp
+| Mục | Sửa (ở `build_ida_l2.py`, `cast3d.js` nhánh 'bl', `bl_head.js`) | Bằng chứng |
+|---|---|---|
+| Da cổ liền, không khuyết | Dưới cằm, bán kính quanh trục cổ bị kẹp ≤ 0,205 H (mép trong khăn 4 vòng khoảng 0,21–0,25 H); ở gáy và hai bên cổ kẹp tới y 0,16. Cổ đưa vào tâm khăn. Mép cắt là elip nằm trong khăn | Hết "vây" da ở gáy (lượt 2 lộ ở `L2_BL_PA1_keep.jpg`, goodnight); xem `L3_BL_PA1_keep.jpg`, `L3_BL_PA1_goodnight.jpg`, 4 góc (góc 180°) |
+| Mép khăn, cổ áo theo 'bl' | glb mang lưới khoảng cách có dấu của da 'bl' (0,025 H; 41×73×51) trong `ida_bl.json`. `bl_head.js` nội suy ba chiều. `cast3d.js` dùng lưới này thay `headSDF` của A-α khi tính mép cổ áo | Mép cổ áo nằm dưới hàm 'bl' ở mọi khung PA1 và s37 |
+| Mũ ngồi lên sọ | Đo mặt cắt khối tóc ở dải băng mũ, trong hệ mũ nghiêng 0,08. Miệng mũ = elip ôm tóc × 0,985: rx 0,3798 / rz 0,4254 (sheet 0,4056 / 0,4543), tâm z −0,026. `cast3d.js` đọc `meta.hat` (chỉ nhánh 'bl'). Tóc dưới băng bị **ép** vào trong băng 0,010 H ở cả tư thế đội và tư thế đẩy mũ (bản lề 0,26 rad quanh tâm sọ). Dải tóc và sợi tơ bị kẹp dưới băng 0,016 H | Hết mũ lơ lửng và hết tóc thò thành "viền ren trắng" giữa băng và vành (một bản thử giữa lượt có lỗi này, đã sửa) |
+| Búi liền đầu, có vân lọn | Lõi tối + **40 lọn** quấn quanh lõi theo các vòng nghiêng khác nhau. Mỗi lọn một sắc, mép lọn tối nên thấy rãnh giữa lọn. Búi đặt theo mặt tóc ở gáy, lún 55 % bề dày | 4 góc: thấy vân lọn ở mọi góc, không còn quả cầu trơn ở góc nghiêng |
+| Chân tóc đủ dày, trán không hói | Vỏ tóc dày đủ ngay sau chân tóc (vùng mỏng dần 0,045 rad). Chân tóc hạ ở trán (θ 1,30) và thái dương (1,50–1,78). 260 sợi tơ, 44 dải tóc trước | `L3_BL_s37_neutral.jpg`: nhìn chính diện thấy tóc bạc dưới vành mũ ở hai thái dương |
+| Hoa tai ở dái tai | Dái tai lấy từ chính target MPFB `ear-lobe-incr` (25 đỉnh dịch nhiều nhất); hoa tai treo ở điểm thấp nhất của dái | Khung s37 và PA1: hoa tai treo ngay dưới dái |
+
+### b. Da già (thủ tục; không dùng da MPFB)
+- **Vì sao không dùng da MPFB:** repo MPFB chỉ có mặt nạ vùng nhỏ (`data/textures/mpfb_face.jpg` … 17–36 KB), không có bộ da người lớn tuổi. Không dùng tài sản mới nào, nên RIGHTS.md không đổi.
+- **Màu đỉnh:**
+  - loang hai tầng (fbm 9 và 30);
+  - má, mũi ửng đỏ;
+  - tai ấm;
+  - đốm tuổi rõ ở trán, thái dương, gò má;
+  - quầng nâu tím dưới mắt.
+- **Nếp tuổi bằng khối,** sâu hơn lượt 2:
+  - 3 nếp trán;
+  - chân chim ×1,5;
+  - rãnh mũi–má sâu;
+  - rãnh khoé miệng xuống cằm;
+  - rãnh dưới bọng mắt;
+  - nếp dọc môi trên;
+  - 2 nếp ngang cổ.
+- **Khối già:** target MPFB `head-age-incr` 0,3 → 0,75.
+- **three.js:**
+  - độ nhám thay đổi theo vùng (kênh alpha của màu đỉnh → roughness 0,45–0,85: chữ T bóng nhẹ; má, cổ, tai mờ);
+  - vân da nhỏ bằng bumpMap thủ tục.
+- **Bằng chứng:** `L3_BL_s37_neutral.jpg`, `L3_BL_PA1_*`, qua đèn khí và lớp vẽ Kuwahara. Nhìn gần thấy hạt da, đốm và ửng; da không còn trơn như sáp.
+
+### c. Mắt góc nghiêng
+- Mí mở hơn: target eye height1/2/3 tăng, eyefold-down 0,15 → 0,05.
+- `squint` = eye-slit ×0,6.
+- `cheekRaise` bỏ eye-slit ×0,3; thay bằng khối má nâng thủ tục cộng eye-slit ×0,25.
+- **Bằng chứng:**
+  - `L3_BL_s37_*`: tròng, con ngươi và điểm sáng rõ.
+  - `L3_BL_PA1_goodnight.jpg`: nhìn nghiêng thấy nhãn cầu, không còn là khe.
+  - Ở PA1_keep (máy −96°, hơi sau lưng, choked) mắt vẫn nhỏ vì góc máy.
+
+### d. Hiệu chỉnh biểu cảm
+- **frown, press, chinRaise về 1,0.** Miệng "gãy như vết rách" sửa bằng shape key sửa lỗi **`corr_mouth`**:
+  - tổ hợp frown + press + chinRaise được làm trơn vùng miệng (Laplace, 14 bước);
+  - trọng số lúc chạy = frown × max(press, chinRaise).
+  - `L3_BL_s37_choked.jpg`: miệng mím, cằm nhăn lên, mày nhíu, tức vẻ nén; không còn vết rách.
+- **sad_smile: cười nén + mày buồn.**
+  - Kênh `smile` = corner-puller 0,55 + compression 1,0 + mouth-elevation 0,35 (môi khép).
+  - Shape key sửa lỗi **`corr_smile_lip`** bù phần môi của jawOpen ≤ 0,12 khi cười, trọng số = smile × min(jawOpen, 0,12) / 0,12. Kết quả: môi khép, không lộ răng.
+  - `cheekRaise` không còn nhấc môi trên (bỏ mouth-upward-retraction, vì nó làm lộ răng thành cười tươi).
+  - `browInnerUp` = inner-up ×2,2.
+  - Bằng chứng: `L3_BL_PA1_goodnight.jpg`, `L3_BL_PA1_last.jpg`, bảng so sánh.
+- **Giới hạn đã biết** (tự xem, không phải kiểm mù): nhìn chính diện ở studio, sad_smile vẫn còn một khe môi mảnh. Việc đọc ra "cười buồn hay cười vui" chỉ kiểm mù trả lời được.
+- **Bảng kênh lượt 3** (khác lượt 2 ở các dòng dưới; các kênh còn lại giữ nguyên):
+
+| Kênh | Lượt 3 |
+|---|---|
+| browInnerUp | eyebrows inner-up ×2,2 |
+| squint | eye-slit ×0,6 |
+| cheekRaise | khối má thủ tục + eye-slit ×0,25 |
+| smile | corner-puller 0,55 + compression 1,0 + elevation 0,35 |
+| frown | mouth-depression ×1 |
+| press | mouth-compression ×1 |
+| chinRaise | mouth-elevation ×1 |
+| corr_mouth (sửa lỗi) | frown × max(press, chinRaise) |
+| corr_smile_lip (sửa lỗi) | smile × min(jawOpen, 0,12) / 0,12 |
+
+- 6 khẩu hình `vis_*` và 4 preset giữ nguyên định nghĩa.
+- Số đỉnh đầu: **70 688**. glb 12,0 MB, SHA-256 bắt đầu `31d13052db70f113`.
+
+### e. Đèn
+L11 **gốc** của layout ở mọi khung PA1. `page_l2.js` bỏ ghi đè khi không truyền `l11`; `run_l2.sh` dùng `L11=` (rỗng).
+
+## L3.3 c3_views 'bl' lượt 3
+8 góc, cùng cách `b1_measure.py`; số thô trong `reports/m2/cong5/w4/L3_c3_bl.json`; **không sửa ida.json**.
+
+| Góc | thân / tay trên / cẳng tay / cẳng chân | Sheet v1.4 (thân) | Lệch thân | Lượt 2 (thân) |
+|---|---|---|---|---|
+| 0° | 2,272 / 1,336 / 0,831 / 0,245 | 2,682 | **−15,3 %** | 2,229 |
+| 45° | 2,219 / 1,428 / 0,882 / 0,272 | 2,290 | −3,1 % | 2,181 |
+| −45° | 2,216 / 1,418 / 1,257 / 0,273 | 2,263 | −2,1 % | 2,172 |
+| 90° | 2,033 / — / — / — | 2,034 | −0,05 % | 1,807 |
+| −90° | 2,069 / 1,404 / 1,005 / 0,271 | 2,060 | +0,4 % | 1,850 |
+| 135° | 2,381 / 1,482 / 0,837 / 0,275 | 2,558 | **−6,9 %** | 2,020 |
+| −135° | 2,353 / 1,474 / 1,101 / 0,275 | 2,528 | **−6,9 %** | 1,997 |
+| 180° | 2,130 / 1,355 / 1,025 / 0,245 | 2,752 | **−22,6 %** | 2,079 |
+
+- ±90° đã về gần sheet, vì cổ gọn trong khăn nên phần "đầu nhìn thấy" ngắn lại.
+- 0° và 180° vẫn lệch lớn, vì tỷ lệ mặt MPFB (chủ dự án đã nhận).
+- **Chỉ số trong ±5 % quanh ngưỡng 3 %:** 45° (−3,1 %), −45° (−2,1 %), 90° (−0,05 %), −90° (+0,4 %). Lệch quá 5 %: 0°, ±135°, 180°.
+- P dùng bảng này để soạn characters v1.5.
+
+**Tác động tới Cas (chỉ ghi nhận; Cas không đổi):**
+- Đầu 'bl' vẫn dài đúng 1 H (cằm → đỉnh sọ) và H_m không đổi, nên chiều cao tuyệt đối của Ida và quan hệ cao thấp Ida–Cas ở cảnh hai người **không đổi**.
+- Cái đổi là tỷ lệ "thân / đầu nhìn thấy" của Ida (C3), do mặt MPFB có nửa dưới dài hơn và mũ ngồi thấp. Tỷ lệ của Cas giữ nguyên, nên ở khung hai người đầu Ida sẽ trông to hơn tương đối so với thân mình (khoảng 13–18 % ở chính diện và sau lưng) so với bản A-α.
+- Nếu chủ dự án muốn đồng bộ cách điệu, có hai hướng: (a) chấp nhận và ghi vào v1.5; (b) cho Cas cùng quy trình MPFB ở Cổng 6. Hướng (b) tốn một gói.
+
+## L3.4 Dò 'aa'
+- `render_film.js --only s37,s39,s02 --probe`, sau lần sửa .js cuối (22:3x UTC; `cast3d.js`, `bl_head.js`).
+- So với bản dò "trước" lúc 14:02: 9 thumbs, **lệch 0 px ở cả 9**.
+- Mọi file .js đã sửa đều qua `node --check`.
+
+## L3.5 Khung nộp (`reports/m2/cong5/w4/`, 1920×1080, 3 mẫu, làn nặng, L11 gốc)
+| Khung | File |
+|---|---|
+| PA1 'bl' | `L3_BL_PA1_last.jpg` (sad_smile theo s37) · `L3_BL_PA1_goodnight.jpg` (sad_smile) · `L3_BL_PA1_brighter.jpg` (choked theo s39) · `L3_BL_PA1_keep.jpg` (choked) |
+| s37 f2302 chính diện (đèn như vòng A-i) | `L3_BL_s37_neutral.jpg` · `L3_BL_s37_choked.jpg` |
+| Bảng so sánh | `L3_SO_goodnight_aa-ai-bl.jpg`: A-α / A-i / 'bl' lượt 2 / 'bl' lượt 3, cùng PA1_goodnight, L11 gốc |
+| 4 góc | `L3_eevee_4goc.jpg` (trước: `L2_eevee_4goc.jpg`) |
+| c3 | `L3_c3_bl.json` |
+
+Ô "'bl' lượt 2" render bằng glb lượt 2 (commit 4bed7a6), trên `cast3d.js` hiện tại. glb lượt 2 không có `meta.hat`, nên mũ dùng số đo cũ, đúng như lượt 2.
+
+## L3.6 Tự xem (không phải kiểm mù) — còn lại
+1. sad_smile nhìn chính diện ở studio còn khe môi mảnh. Ở PA1 (nghiêng) môi khép.
+2. Ở s37 choked, khoé miệng còn một mảng sáng nhỏ.
+3. PA1_keep (máy −96°): mắt nhỏ do góc máy.
+4. Tóc đọc thành vỏ có sọc ở cận cảnh; với mũ đội thì phần lớn bị che.
+5. Tay: ghi nhận cho Cổng 6, không sửa.
+
+## L3.7 Thời gian thật, số lần làm lại, hàng đợi, token
+| Bước | Giờ UTC | Thời gian |
+|---|---|---|
+| Gộp nhánh, đọc lệnh, kiểm kho da MPFB | 21:56 → 21:58 | 2 phút |
+| Sửa script (a–d), tích hợp js (mũ, SDF, corrective, da) | 21:58 → 22:04 | 6 phút |
+| Thử và sửa (cổ, mũ, búi, cười nén) | 22:04 → 22:26 | 22 phút |
+| Bộ khung, c3, 4 góc, dò 'aa' | 22:26 → 22:36 | 10 phút |
+| Báo cáo, commit | 22:36 → 22:45 | 9 phút |
+
+- **Làm lại:** 11 lượt dựng glb, mỗi lượt khoảng 6 s:
+  - cổ 2;
+  - mũ và tóc dưới băng 3;
+  - búi 3 (xoắn ốc → lõi lùi → quấn 40 lọn);
+  - cười nén 3.
+- Ảnh điều kiện dừng render 5 lần, mỗi lần sau một sửa; bản nộp là lần cuối.
+- **Hàng đợi** (`/var/tmp/cine-queue/log.tsv`, gói W4, từ 21:56): 36 việc, chờ 0 s, chạy tổng 732 s, mã 0 ở mọi việc.
+  - Làn nặng: 15 việc, 423 s, gồm 11 khung 17,8–25,0 s và đo c3 131 s.
+  - Làn nhanh: 21 việc, 309 s, gồm thử 960×540, studio, xuất glb, dò 'aa' 42,6 s.
+- EEVEE 4 góc (Blender, ngoài hàng đợi): 77–99 s mỗi lần.
+- **Token:** lượt 3 dùng khoảng 120 nghìn (hạn khoảng 300 nghìn).
+
+## L3.8 Việc đang chờ
+- **P:** chạy vòng kiểm mù với bộ khung L3.
+- **P / chủ dự án:**
+  - soạn characters v1.5 từ c3_views mục L3.3;
+  - quyết đồng bộ tỷ lệ với Cas (mục L3.3);
+  - nếu đạt: đưa 'bl' vào pipeline như mục L2.6, thêm `await preloadIdaBL()` ở trang render.
