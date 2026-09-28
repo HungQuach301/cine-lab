@@ -9,7 +9,8 @@
   - continuity: `shots/layout/continuity/canh-1.md`, `canh-2.md`, `canh-3.md`;
   - manifest Cổng 6: `shots/layout/shots_w1.json`;
   - ảnh probe: `reports/m2/cong5/w1/` (tờ tổng 23 shot và 9 ảnh trước/sau).
-- **Tình trạng:** giai đoạn A. Chỉ probe (3 khung/shot, 960×540), **chưa render đầy đủ**. Mặt Ida (W3) và cuối phố (`sets_end.js`, W2) chưa tích hợp.
+- **Giai đoạn C (mới nhất):** render đầy đủ 23 shot xong — xem mục 11.
+- **Tình trạng (giai đoạn A):** giai đoạn A. Chỉ probe (3 khung/shot, 960×540), **chưa render đầy đủ**. Mặt Ida (W3) và cuối phố (`sets_end.js`, W2) chưa tích hợp.
 
 ## 1. Tóm tắt
 - **23 shot, 59,0 s (1 416 khung), không đổi id, không thêm/bỏ shot.** Tổng phim giữ 2:22,5 (142,5 s, đo bằng `render_film.js --events`).
@@ -57,9 +58,9 @@ Tiêu cự là mm tương đương full-frame (FOV dọc = 2·atan(12/f)). Vị 
 | s19 | 45,0–47,5 | 2,5 | WS | 35 | (41; 1,7; 1,0) → (53; 3; −0,5) | tĩnh | L8 nở, bóng dài; P3 bật, bóng tan; **phố dựng tới quảng trường** | Ida T; trắng đuổi từ P |
 | s21 | 47,5–49,5 | 2,0 | MCU tay | 85 | (20,1; 3,1; −2,3) → (22; 3; −4,5) | tĩnh | trèo nhanh (**trong khung từ khung đầu**), tuột sào, chụp lại | 3/4, cột P |
 | s22 | 49,5–52,5 | 3,0 | MCU | 85 | faceCam lệch −12°, 1,2 m, đặt một lần | **tĩnh** (v2 trôi) | L2; tay phải trên van; L10 bắt lửa ở khung cuối | 3/4, bà nhìn lên lồng |
-| s23 | 52,5–55,5 | 3,0 | WS | 28 | **(19,5; 1,6; 2,8) → (4,5; 2,5; −2,9)** (`S23_CAM`) | tĩnh | Ida **vác thang** chạy tới L11, dựng thang, trèo, thắp; góc tối; P5 tắt | Ida chạy vào chiều sâu về cuối phố |
-| s24 | 55,5–57,5 | 2,0 | MS hơi cao | 35 | (14,5; 2,4; 3,0) → (6; 2,2; −2,3) | tĩnh | đếm ba lần 2; Cas ở nền (`casSpot`) | Ida P, Cas T |
-| s24c | 57,5–59,0 | 1,5 | MS | 50 | (cx + 1,8; 1,0; cz + 1,0) → (cx; 0,9; cz) | tĩnh | Cas ở chân tường, quay đầu về Ida / L11 | Cas T–giữa, nhìn sang P |
+| s23 | 52,5–55,5 | 3,0 | WS | 28 | **(24,5; 1,5; 3,6) → (4,5; 2,0; −1,8)** (`S23_CAM`, giai đoạn C) | tĩnh | Ida **vác thang** chạy từ vũng trắng vào góc tối, tới L11, dựng thang, trèo, thắp; P5 và cột tường chim tắt; mặt vôi nhà kho 15,5 % khung | Ida chạy vào chiều sâu, về cuối phố (giữa khung) |
+| s24 | 55,5–57,5 | 2,0 | MS hơi cao | 35 | **(15,5; 2,3; 2,5) → (8,5; 2,1; −5,0)** (giai đoạn C) | tĩnh | đếm ba lần 2; Cas nhỏ ở chân tường chim (casSpot W2); cột tường chim (tắt) ở tiền cảnh phải | Ida T–giữa, Cas P |
+| s24c | 57,5–59,0 | 1,5 | MS | 50 | **(cx − 0,03; 1,05; cz + 2,1) → (cx; 0,95; cz)** = (10,32; 1,05; −5,05) → (10,35; 0,95; −7,15) | tĩnh | 3/4 trước Cas; tường chim sau lưng, bóng Cas đổ phải; mặt ấm vì L11 | Cas giữa–trái, nhìn sang T (về Ida) |
 
 **Trục 180°.** Máy ở phía nam phố ở mọi shot, trừ s12. s12 đặt ngay trên trục nhìn dọc phố lên quảng trường (giống v2, qua vai). Ida đi P → T ở s02, s07, s15. Sóng trắng tới từ P (s12, s19) hoặc từ hậu cảnh.
 
@@ -85,7 +86,7 @@ Tiêu cự là mm tương đương full-frame (FOV dọc = 2·atan(12/f)). Vị 
 | s21 | Bắt đầu trèo ở bậc cao hơn | v2: 0,5 s đầu khung không có người |
 | s22 | Bỏ nhịp xoè hai tay cuối shot; tay phải giữ van tới khi lửa bắt | Liên tục sào mồi (s21 cầm sào tay phải → s22 sào ở tay trái ngoài khung) |
 | s23 | Ida vác thang khi chạy, dựng thang ở 1,1 s; máy cố định `S23_CAM` hơi lệch T | v2: chạy tay không trong khi thang đã tựa sẵn. Máy cố định để W2 dựng cuối phố đúng khung |
-| s24, s24c | Vị trí Cas đọc từ `endInfo.casSpot` (W2). Máy s24c bám Cas | Chờ W2 quyết địa lý nhà kho. Mặc định giữ vị trí v2 |
+| s24, s24c | Vị trí Cas đọc từ `endInfo.casSpot` (W2: (10,35; −7,15)). Giai đoạn C: máy s24 dựng lại để có cả Ida (T) và Cas (P); máy s24c 3/4 trước, Cas nhìn T | W2 đặt Cas ở phía +x của L11 → từ máy phía nam Cas ở PHẢI Ida (khớp quy ước cảnh 4–5 "Ida trái, Cas phải"). Máy giai đoạn A (14,5; 2,4; 3,0) để Cas ra ngoài khung (u = 1,09) |
 
 Không đổi: s01, s03, s06, s09w, s10, s11 (chỉ hưởng thay đổi bộ phố).
 
@@ -144,7 +145,7 @@ Probe hiện tại: tường vôi 24 × 11 m chắn ngang chiếm khoảng 30 % 
    - Cần: mái, máng / ống thoát nước, cửa bốc hàng, **hốc vòm sâu khoảng 4 m** (luật 1, cảnh 5), mép chân tường có bậc.
    - Mặt vôi trắng chiếm ≤ khoảng 20 % khung s23, và tối (góc tối: chỉ L11 và ánh xa).
 3. **Lớp xa** sau ngã rẽ: 2–3 lớp mái / ống khói hạ dần (xuống dốc).
-   - Vài ô cửa vàng; quầng trắng mờ của các phố đã có điện hắt lên trời đêm ở chân trời trái (không hồng; luật v0.4 "Đêm").
+   - Vài ô cửa vàng. ~~Quầng trắng mờ của các phố đã có điện hắt lên trời ở chân trời~~ — **rút lại**: chủ dự án quyết (world-rules v0.5 @5ec0985) KHÔNG có quầng trắng ở chân trời, kể cả cảnh toàn; trời tối có sao.
    - Sương tối (#0c1024) để lớp xa nhạt dần.
 4. **Góc L11 "lùi sau góc nhà"** (luật v0.4): nếu dời tường nhà kho, giữ L11 (x = 8, z = −3,9) và P5 (x = 10,8, z = +3,9) nguyên chỗ.
    - Nếu dãy nhà phố chính phải dừng sớm hơn x = −4, trả `endInfo.houseX0N/houseX0S`.
@@ -153,6 +154,24 @@ Probe hiện tại: tường vôi 24 × 11 m chắn ngang chiếm khoảng 30 % 
    - khớp với bộ tường cảnh 4 của W2 (L11 cách tường 4,2 m).
    - Ở vị trí mặc định (−1,2; −2,2), cách L11 9,4 m, Cas **không đọc được** trên probe s24.
 6. Giữ `endInfo.warehouseWall` (hoặc tương đương) nếu P cần cho C3 / luật máy.
+
+### 5b. Giai đoạn C — kết quả với `sets_end.js` của W2 (nhánh tích hợp ce40df1)
+- **Đo mặt vôi s23** (mặt nạ `limeMask`: mặt nhà kho dùng vật liệu vôi → trắng, mọi thứ khác đen nhưng vẫn che; `--nopaint`, ngưỡng độ sáng > 100/255, 3 khung a/b/c):
+
+| Máy s23 | Mặt vôi a / b / c |
+|---|---|
+| Giai đoạn A (19,5; 1,6; 2,8) → (4,5; 2,5; −2,9), 28 mm | 29,0 % / 29,4 % / 29,4 % — **vượt** ~20 % |
+| Thử B–H (6 phương án: xoay trái, chúc, 32–35 mm, lùi máy) | 10,0–30,0 % |
+| **Chốt (I): (24,5; 1,5; 3,6) → (4,5; 2,0; −1,8), 28 mm** | **15,4 % / 15,5 % / 15,4 %** |
+
+  - Nguyên nhân vượt ở máy cũ: dãy nhà bắc nay bắt đầu ở x = 15 (houseX0N), phần phải khung là hông nhà kho (tường chim) gần máy.
+  - Lùi máy 5 m lên phố: dãy nhà bắc (x ≥ 15) và dãy nam che bớt hông; phố đọc sâu từ vũng trắng (P4, x = 29) vào góc tối; mặt cuối phố + khe phố rẽ ở giữa khung.
+  - Đánh đổi: Ida nhỏ hơn ở đầu shot (khoảng 12 m tới máy). Không đổi hình học của W2.
+- **Q-W2-3 — cột điện phố chính bật lúc 1:04:** bộ tường chim đặt ở (3,3; 3,9) hệ tường → **thế giới (13,5; −4,2)** (`endInfo.toWorld`, chỉ tịnh tiến (10,2; −8,1)), xoay π/2 + 0,35.
+  - Chiếu vào khung: **s23 lọt khung** (u ≈ 0,74, suốt thân tới bóng đèn); **s24 lọt khung** (tiền cảnh phải, sau khi đổi máy); **s24c: sau máy** (không lọt).
+  - Đã thêm vào `sets.js` (`wallPost`, không thuộc `POST_X`, `POST_X` không đổi), dựng khi có cuối phố. Bật theo `switchOn` tại `WALL_POST_T`, do `shots_w1.js` gán = `common.WALL_POST_ON` (64,4 s) lúc nạp (tránh vòng import sets ↔ common). **Mọi shot W1 đều trước 64,4 s → cột tắt.**
+  - Sau 64,4 s (shot W2 dùng bộ phố: s35–s42a) cột **hiện bóng đèn sáng + loá**, nhưng **PointLight chỉ bật khi `o.wallPostLight = true`** — tôi không tự đổi ánh sáng các shot góc tối của W2. W2/P quyết có bật ánh không (góc L11 phải tối tới s37w).
+  - `st.wallPost` (0…1) ghi đè được nếu shot cần.
 
 ## 6. D2 — mũ Ida #262a33 trên probe (đo thật)
 Cách đo: vùng mũ chọn tay trên ảnh probe 960×540, lấy 60 % điểm ảnh tối nhất, trung vị sRGB (`hat.py` trong nhật ký phiên). Albedo sheet v1.3: #262a33 (sắc 222°, bão hoà 0,25).
@@ -214,3 +233,41 @@ Cách đo: vùng mũ chọn tay trên ảnh probe 960×540, lấy 60 % điểm �
 4. **Trắng tràn toàn cục** (mục 7.3). Sương gần ở s15 là giải pháp tạm cho layout.
 5. **Lớp nhà sau lặp khối đơn giản** (hộp + mái + ô cửa phẳng). Ở tele s08 đọc được như khối trong sương. Ở Cổng 7 có thể cần thêm chi tiết nếu khung hẹp hơn.
 6. **C3 / H1b** (Cổng 4): shot đi bộ s02, s07, s08 vẫn dùng chu kỳ đi cũ. Máy s02 mới làm Ida nhỏ hơn và chéo hơn, nên cần P chạy lại luật máy ở giai đoạn D.
+
+## 11. Giai đoạn C — render đầy đủ (960×540, 24 fps) sau khi tích hợp W2 A + W3 A1 (nhánh tích hợp ce40df1)
+- **Merge:** `claude/cine-lab-m2-cong5-layout-24o5fp` @ce40df1 vào worktree (fast-forward, không xung đột).
+- **Đổi mã giai đoạn C (trước khi render):**
+  - `S23_CAM` lùi 5 m lên phố → mặt vôi s23 **15,5 %** (máy cũ 29,4 %) — mục 5b;
+  - s24 dựng lại máy (Ida trái, Cas phải — theo casSpot W2); s24c máy 3/4 trước Cas, Cas nhìn sang trái;
+  - cột điện phố chính cạnh góc nhà kho (Q-W2-3) thêm vào `sets.js` (`wallPost`), tắt trước 64,4 s — mục 5b;
+  - chế độ đo `limeMask` (chỉ khi `--dbg '{"limeMask":1}'`), `dbg.s23cam` để thử máy; không ảnh hưởng render thường.
+- **Không đổi bảng ORDER** (59,0 s, 1 416 khung) trước và sau khi render.
+
+### 11.1 Hàng đợi (nguồn: `/var/tmp/cine-queue/log.tsv`)
+| Nhóm | Shot | Khung | Chờ (s) | Chạy (s) | s/khung (render) | s/khung (cả dựng) |
+|---|---|---|---|---|---|---|
+| canh1 | s01–s08 | 600 | 633,9 | 827,7 | 1,34 | 1,38 |
+| canh2 | s09–s14 | 444 | 1 138,0 | 486,8 | 1,05 | 1,10 |
+| canh3 | s15–s24c | 372 | 460,5 | 527,6 | 1,36 | 1,42 |
+| lam-lai-s08 | s08 | 48 | 0,0 | 76,9 | 1,50 | 1,59 |
+| **Tổng** | | 1 416 (+48 làm lại) | 2 232,4 | 1 919,0 | **1,26** (3 nhóm) | 1,30 |
+
+Đầu ra (không commit): `/var/tmp/cine-out/W1/full/` — `video_s01-…-s08.mp4`, `video_s09-…-s14.mp4`, `video_s15-…-s24c.mp4`, **`video_s08.mp4` (bản làm lại, THAY đoạn s08 trong video nhóm 1)**; `timing_*.json` (4 file), `shots/*.timing.json`, `motion/*.json`, `thumbs/`. Tổng video 74 MB.
+
+### 11.2 Duyệt thumbs a/b/c và làm lại
+- Duyệt cả 69 khung a/b/c. **1 lần làm lại: s08** — một ô cửa vàng của dãy nhà xa lơ lửng giữa trời (khối nhà đã chìm vào sương tele, cửa sáng thì chưa). Sửa: `o.farLit = 0` cho s08 (không tắt cửa ở shot khác). Đã render lại qua hàng đợi, hết lỗi.
+- Không lỗi khác. Ghi nhận không làm lại: s21 khung đầu mới thấy đỉnh mũ (chủ ý, trèo vào khung); s14 tay giơ còn nhỏ (rủi ro Cổng 6).
+
+### 11.3 Quyết định chủ dự án (world-rules v0.5 @5ec0985)
+1. Cuối phố = hông nhà kho chữ L của W2: **đã dùng** (s23, s24, s24c).
+2. **Không quầng trắng ở chân trời**, kể cả cảnh toàn: shot W1 không có ánh trời do điện. Đo trên thumbs bản cuối (sRGB trung bình vùng trời sát chân trời / mép trên):
+   - s10 (toàn cảnh, sau sóng): luma 23,4 (#0e173a) dải sát chân trời, 22,5 mép trên — không quầng;
+   - s12: 42,9 (#292755); s19 khung c: 31,1 (#131e4d); s23: 35,4 (#13235b).
+   - `nightSky` (sets.js) chỉ là gradient xanh đen → xanh đậm (#2a3354 ở chân trời), không phụ thuộc điện. Quầng sáng thấy ở cuối phố s19/s12 là loá đèn cột quảng trường ở độ cao đèn (nguồn thấy được), không phải trời.
+   - Yêu cầu "quầng trắng chân trời" tôi gửi W2 ở giai đoạn A (mục 5 ý 3) đã rút lại.
+
+### 11.4 Rủi ro giai đoạn C
+1. Cận mặt Ida (s05, s22; và s03, s11, s13 cỡ MS) render với mặt A1 đã TRƯỢT kiểm mù lần 4 — P sẽ render lại khi A3 xong.
+2. s23 Ida nhỏ ở đầu shot (cách máy khoảng 12 m) — đánh đổi để mặt vôi ≤ 20 %.
+3. Cột tường chim: sau 64,4 s chỉ bóng đèn + loá bật; PointLight mặc định tắt (`o.wallPostLight`) — W2/P cần quyết cho s35–s42a.
+4. `video_s08.mp4` phải thay đoạn s08 trong video nhóm 1 khi ghép (khung 552–599).
