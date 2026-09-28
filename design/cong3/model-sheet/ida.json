@@ -24,7 +24,7 @@
     },
     "neck": {
       "length": 0.3,
-      "width_front": 0.3
+      "width_front": 0.4
     },
     "torso": {
       "length": 2.0,
@@ -78,27 +78,33 @@
       "hem_height_H": 0.95,
       "hem_width_H": 2.1,
       "split": "xẻ tà sau từ hông; hai vạt trước bám theo đùi khi bước/ngồi",
-      "collar": "cổ đứng cao 0,35 H"
+      "collar": "v1.4 (A-α): cổ BẺ thấp nằm trên vai, mở chữ V phía trước, dạ hai lớp, mép cuộn dày (bỏ cổ đứng cao 0,35 H của v1.2)"
     },
     "hat": {
       "crown_height_H": 0.48,
       "brim_diameter_H": 1.36,
       "brim_droop_front_deg": 12,
       "bow": false,
-      "bow_note": "3B: KHÔNG nơ trên băng mũ"
+      "bow_note": "3B: KHÔNG nơ trên băng mũ",
+      "seat_H": 0.8,
+      "fit": 0.52,
+      "fit_note": "v1.4: mũ ngồi thấp ôm vòng đầu rộng nhất, tỳ lên tóc (gốc mũ 0,86 → 0,80 H; miệng mũ 0,56 → 0,52 × bề rộng đầu); vành trước cụp ít hơn"
     },
     "hair": {
       "bun_diameter_H": 0.42,
       "position": "sau gáy, dưới vành mũ",
       "bun_scale": 1.3,
-      "bun_note": "2A: búi 1,3× (đường kính hiệu dụng 0,546 H)"
+      "bun_note": "2A: búi 1,3× (đường kính hiệu dụng 0,546 H)",
+      "mass": "v1.4: khối tóc bạc chải ra sau quanh đầu (dày ~0,06 H), lộ ở thái dương, trên tai và gáy, nối liền búi; lọn thái dương là một phần của khối tóc (thay lọn \"temple\" dạng dải); mép tóc có sợi mềm",
+      "silver_shader": 0.7,
+      "silver_note": "cách điệu: ánh sáng tới tóc kéo 70 % về trung tính, giữ độ sáng — tóc đọc bạc dưới mọi nguồn"
     },
     "boots": {
       "style": "ủng thấp cổ, mũi tròn hẹp"
     },
     "scarf": {
       "color": "#8e5c5a",
-      "style": "khăn len đan quấn cổ, một đuôi buông trước ngực",
+      "style": "khăn len đan quấn THẤP ở chân cổ, lỏng, một đuôi buông trước ngực (v1.4)",
       "decision": "3B"
     },
     "skirt": {
@@ -135,16 +141,17 @@
     "_doc": "Màu gốc dưới ánh sáng trung tính (sRGB). Mỗi hướng mỹ thuật được phép chuyển bảng màu, nhưng giữ quan hệ sáng–tối: áo tối trung bình, mặt/tay sáng nhất, mũ tối nhất.",
     "coat": "#3f5552",
     "coat_lining": "#6b4a3a",
-    "hat": "#2b2a2a",
+    "hat": "#262a33",
     "skin": "#d8b49a",
-    "hair": "#b9b3aa",
+    "hair": "#e2dfda",
     "boots": "#2a2320",
     "ladder": "#8a6a45",
     "lantern_tin": "#8e8a80",
     "lantern_glass": "#ffc56b",
     "eyes": "#5a4636",
     "earrings": "#c9a466",
-    "_v1_2": "Cổng 4 (A1, chủ dự án duyệt 27/09/2026): thêm mắt nâu xám #5a4636 (bản cũ không ghi, lưới dùng xanh xám → đọc thành mắt xanh); mũ #2f2826 → #2b2a2a đen trung tính (bớt ngả nâu dưới đèn khí — kiểm bằng albedo); khuyên tai kim loại #c9a466"
+    "_v1_2": "Cổng 4 (A1, chủ dự án duyệt 27/09/2026): thêm mắt nâu xám #5a4636 (bản cũ không ghi, lưới dùng xanh xám → đọc thành mắt xanh); mũ #2f2826 → #2b2a2a đen trung tính (bớt ngả nâu dưới đèn khí — kiểm bằng albedo); khuyên tai kim loại #c9a466",
+    "_v1_3": "Cổng 4 đóng (D2, chủ dự án duyệt 27/09/2026): mũ #2b2a2a → xám xanh sẫm #262a33 — dưới lửa ra nâu xám, dưới điện ra đen xanh; bớt nhảy nâu ↔ đen. Loại D1 (giữ #2b2a2a), D3 (grade khử bão hoà)"
   },
   "joints_default": {
     "shoulder_offset_from_torso_top_H": 0.18,
@@ -747,45 +754,45 @@
     "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "torso": {
-    "length": 2.667,
+    "length": 2.682,
     "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "upper_arm": {
-    "length": 1.6,
+    "length": 1.571,
     "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "forearm": {
-    "length": 0.994,
+    "length": 0.976,
     "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "c3_views": {
     "0°": {
       "head": 1.0,
-      "torso": 2.667,
-      "upper_arm": 1.6,
-      "forearm": 0.994,
+      "torso": 2.682,
+      "upper_arm": 1.571,
+      "forearm": 0.976,
       "thigh": null,
-      "shin": 0.293
+      "shin": 0.288
     },
     "45°": {
       "head": 1.0,
-      "torso": 2.314,
-      "upper_arm": 1.483,
-      "forearm": 0.914,
+      "torso": 2.29,
+      "upper_arm": 1.474,
+      "forearm": 0.909,
       "thigh": null,
-      "shin": 0.282
+      "shin": 0.281
     },
     "-45°": {
       "head": 1.0,
-      "torso": 2.315,
-      "upper_arm": 1.466,
-      "forearm": 1.299,
+      "torso": 2.263,
+      "upper_arm": 1.451,
+      "forearm": 1.284,
       "thigh": null,
-      "shin": 0.282
+      "shin": 0.279
     },
     "90°": {
       "head": 1.0,
-      "torso": 2.137,
+      "torso": 2.034,
       "upper_arm": null,
       "forearm": null,
       "thigh": null,
@@ -793,35 +800,36 @@
     },
     "-90°": {
       "head": 1.0,
-      "torso": 2.153,
-      "upper_arm": 1.408,
-      "forearm": 1.009,
-      "thigh": null,
-      "shin": 0.275
-    },
-    "135°": {
-      "head": 1.0,
-      "torso": 2.386,
-      "upper_arm": 1.465,
-      "forearm": 0.825,
-      "thigh": null,
-      "shin": 0.272
-    },
-    "-135°": {
-      "head": 1.0,
-      "torso": 2.354,
-      "upper_arm": 1.455,
-      "forearm": 1.087,
+      "torso": 2.06,
+      "upper_arm": 1.398,
+      "forearm": 1.0,
       "thigh": null,
       "shin": 0.27
     },
+    "135°": {
+      "head": 1.0,
+      "torso": 2.558,
+      "upper_arm": 1.592,
+      "forearm": 0.897,
+      "thigh": null,
+      "shin": 0.295
+    },
+    "-135°": {
+      "head": 1.0,
+      "torso": 2.528,
+      "upper_arm": 1.583,
+      "forearm": 1.183,
+      "thigh": null,
+      "shin": 0.295
+    },
     "180°": {
       "head": 1.0,
-      "torso": 2.51,
-      "upper_arm": 1.578,
-      "forearm": 1.193,
+      "torso": 2.752,
+      "upper_arm": 1.75,
+      "forearm": 1.323,
       "thigh": null,
-      "shin": 0.284
+      "shin": 0.316
     }
-  }
+  },
+  "_v1_4": "Cổng 5 v2 (A-α, chủ dự án chọn 28/09/2026): cổ lộ width_front 0,30 → 0,40 H; tóc #b9b3aa → #e2dfda + shader tóc bạc; cổ áo bẻ thấp, khăn thấp, mũ ngồi thấp; mặt tròn–mềm cách điệu (facepaint/cast3d); B1 đo lại 8 góc → c3_views + độ dài 0°"
 }

@@ -1,0 +1,1029 @@
+[
+ {
+  "id": "s25",
+  "scene": 4,
+  "t0": 59,
+  "t1": 62,
+  "frames": 72,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cas làm chim bóng từ ngọn L11 trên tường chim (hông nhà kho).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Cas chim bóng 5B (sheet shadow_bird), cánh vỗ 1,0 Hz"
+   },
+   {
+    "t": 3.0,
+    "pose": "vẫn vỗ; máy dolly 0,3 m"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Tay 1,30× làm chim: ngón xoè, cổ tay bắt chéo, nhịp vỗ đều; bóng phải khớp tay."
+  },
+  "package": "C6-W2-chim",
+  "camera": {
+   "size": "MS",
+   "mm": 45,
+   "angle": "ngang ngực, 3/4 sau-phải Cas",
+   "move": "dolly vào rất chậm (0,3 m)"
+  }
+ },
+ {
+  "id": "s26",
+  "scene": 4,
+  "t0": 62,
+  "t1": 64,
+  "frames": 48,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida đứng xem ở phố chính cạnh L11, không gọi.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida đứng (turnaround + cổ 4°), mặt về Cas"
+   },
+   {
+    "t": 1.0,
+    "pose": "thở; mắt nhìn Cas (phải khung)"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Gần như tĩnh; diễn bằng mắt/hơi thở. Mặt Ida theo W3."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "MS",
+   "mm": 50,
+   "angle": "ngang mắt, 3/4 trước-phải Ida (máy phía +x đường Ida–Cas)",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s27",
+  "scene": 4,
+  "t0": 64,
+  "t1": 67,
+  "frames": 72,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cột điện phố chính bật; chim bóng tan trong ~11 khung; tay Cas vẫn vỗ.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Cas vỗ chim"
+   },
+   {
+    "t": 0.4,
+    "pose": "điện bật (nhấp 2 lần) — chim nhạt dần"
+   },
+   {
+    "t": 1.0,
+    "pose": "tay còn vỗ, tường trắng"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Toàn cảnh, nhân vật nhỏ; khó ở nhịp tắt bóng đúng 12 khung."
+  },
+  "package": "C6-W2-chim",
+  "camera": {
+   "size": "WS",
+   "mm": 21,
+   "angle": "thấp, sau-phải, hất lên",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s28",
+  "scene": 4,
+  "t0": 67,
+  "t1": 69,
+  "frames": 48,
+  "characters": [
+   "cas"
+  ],
+  "key_action": "Cas vỗ nhanh, mạnh vào tường trắng — không gì cả.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "vỗ 2,1 Hz biên độ 1,8×"
+   },
+   {
+    "t": 1.0,
+    "pose": "vỗ gấp, vai nhô"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Nhịp tay nhanh nhưng không máy móc (luật H1: có gia tốc)."
+  },
+  "package": "C6-W2-chim",
+  "camera": {
+   "size": "MS",
+   "mm": 45,
+   "angle": "ngang ngực, 3/4 sau-phải Cas",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s29",
+  "scene": 4,
+  "t0": 69,
+  "t1": 72,
+  "frames": 72,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cas hạ tay, quay lại, thấy bà, nhìn xuống đèn lồng; không xin.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "chim"
+   },
+   {
+    "t": 0.8,
+    "pose": "hạ tay → đứng"
+   },
+   {
+    "t": 1.9,
+    "pose": "xoay người về Ida (trái khung)"
+   },
+   {
+    "t": 2.0,
+    "pose": "cúi nhìn đèn lồng (cổ 16°)"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "MCU 85 mm: chuyển tay–thân–đầu nối tiếp, ánh mắt đổi đích (bà → đèn lồng)."
+  },
+  "package": "C6-W2-cas-mat",
+  "camera": {
+   "size": "MCU",
+   "mm": 85,
+   "angle": "ngang mắt Cas, 3/4 trước-phải",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s30",
+  "scene": 4,
+  "t0": 72,
+  "t1": 74,
+  "frames": 48,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida đi vào, tháo đèn lồng, quỳ một gối, đưa đèn xuống dưới tay Cas (cách tường 0,6 m).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida đi 0,7 s từ phố vào sân"
+   },
+   {
+    "t": 0.95,
+    "pose": "tay phải tháo đèn khỏi móc thắt lưng"
+   },
+   {
+    "t": 1.85,
+    "pose": "quỳ một gối (crouch_lantern + tay phải đưa đèn ra trước)"
+   },
+   {
+    "t": 2.0,
+    "pose": "đèn tới vị trí LAN_T"
+   }
+  ],
+  "difficulty": {
+   "level": 5,
+   "why": "Chuỗi đi → dừng → tháo đèn → quỳ trong 2 s; chuyển đạo cụ thắt lưng → tay; trọng tâm người già."
+  },
+  "package": "C6-W2-ida-than",
+  "camera": {
+   "size": "MS",
+   "mm": 35,
+   "angle": "ngang, sau-phải",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s31",
+  "scene": 4,
+  "t0": 74,
+  "t1": 77,
+  "frames": 72,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida quỳ, quay đầu về Cas, nói L3 \"Go on, then.\"",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "quỳ, đầu quay −24° về Cas"
+   },
+   {
+    "t": 0.1,
+    "pose": "bắt đầu thoại L3"
+   },
+   {
+    "t": 2.3,
+    "pose": "hết câu, cười buồn"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Cận thoại: khẩu hình L3 (Cổng 6/8), biểu cảm sad_smile; mặt theo W3."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "MCU",
+   "mm": 85,
+   "angle": "ngang mắt Ida (quỳ), 3/4 trước-phải, qua vai phải Cas",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s32",
+  "scene": 4,
+  "t0": 77,
+  "t1": 80,
+  "frames": 72,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cas bước tới, giơ tay vào quầng hổ phách; chim to, ấm, mềm hiện cao trên tường và bay.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Cas đứng quay về Ida"
+   },
+   {
+    "t": 0.7,
+    "pose": "quay lại tường, bước 0,1 m"
+   },
+   {
+    "t": 0.8,
+    "pose": "chim vươn tay (birdReach) vỗ 1,2 Hz, thân lắc ±10°"
+   },
+   {
+    "t": 3.0,
+    "pose": "chim bay"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Chim bóng mới từ đèn lồng thấp: tư thế cục bộ birdReach (vai −92°, khuỷu −12°); bóng phải đọc là chim."
+  },
+  "package": "C6-W2-chim",
+  "camera": {
+   "size": "WS",
+   "mm": 35,
+   "angle": "ngang, sau-phải",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s33",
+  "scene": 5,
+  "t0": 80,
+  "t1": 85,
+  "frames": 120,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Hốc cửa: Ida đặt đèn lồng, hai người bước vào; hai bóng, một cao một nhỏ.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida đứng lên từ tư thế quỳ (sau khi đặt đèn)"
+   },
+   {
+    "t": 0.6,
+    "pose": "Ida đi 2,1 s tới z 1,45"
+   },
+   {
+    "t": 0.6,
+    "pose": "Cas đi 3,5 s tới z 0,8"
+   },
+   {
+    "t": 3.6,
+    "pose": "Ida ngửa nhìn bóng (look_shadows)"
+   },
+   {
+    "t": 4.6,
+    "pose": "Cas nửa giơ tay (half_raised)"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Toàn cảnh; hai dáng đi (74 tuổi / 10 tuổi) cùng khung; dừng đúng dấu để bóng đúng cỡ."
+  },
+  "package": "C6-W2-hoc",
+  "camera": {
+   "size": "WS",
+   "mm": 32,
+   "angle": "ngang 1,35 m, \"tranh trong tranh\"",
+   "move": "dolly vào 0,9 m + dịch ngang trái 0,4 m (thị sai người/bóng)"
+  }
+ },
+ {
+  "id": "s34",
+  "scene": 5,
+  "t0": 85,
+  "t1": 87,
+  "frames": 48,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida ngửa nhìn bóng cao của mình; Cas cạnh bóng nhỏ hơn của cậu.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida look_shadows, Cas half_raised (giữ)"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Tĩnh; hơi thở, lửa thở."
+  },
+  "package": "C6-W2-hoc",
+  "camera": {
+   "size": "MS (nghiêng)",
+   "mm": 26,
+   "angle": "ngang ngực, từ phía phải, sau đèn lồng, thấy cả nền đá",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s35",
+  "scene": 5,
+  "t0": 87,
+  "t1": 91,
+  "frames": 96,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida đi từ phía hốc cửa tới L11, trèo thang lần cuối; Cas chạy theo giữ thang.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida đi (walk)"
+   },
+   {
+    "t": 2.3,
+    "pose": "bắt đầu trèo"
+   },
+   {
+    "t": 3.4,
+    "pose": "đứng trên thang (restLadder)"
+   },
+   {
+    "t": 0.0,
+    "pose": "Cas chạy 1,43 m/s"
+   },
+   {
+    "t": 3.0,
+    "pose": "Cas tới chân thang"
+   },
+   {
+    "t": 3.6,
+    "pose": "Cas giữ thang (hold_ladder)"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Trèo thang người già + trẻ chạy; tay Cas phải chạm hai thanh thang."
+  },
+  "package": "C6-W2-thang",
+  "camera": {
+   "size": "WS",
+   "mm": 28,
+   "angle": "ngang, xuôi dốc",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s36",
+  "scene": 5,
+  "t0": 91,
+  "t1": 93,
+  "frames": 48,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Ida tự đẩy vành mũ ra sau (C4).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "hat_push_a: tay trái lên vành"
+   },
+   {
+    "t": 1.05,
+    "pose": "hat_push_b: mũ ngả sau"
+   },
+   {
+    "t": 1.6,
+    "pose": "tay hạ, faceRest"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Tay chạm vành mũ đúng chỗ, mũ xoay theo bản lề hat_back; cận mặt."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "MCU",
+   "mm": 85,
+   "angle": "ngang mắt, gần chính diện",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s37",
+  "scene": 5,
+  "t0": 93,
+  "t1": 98.8,
+  "frames": 139,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "L4 vế đầu, cười buồn, trong hổ phách.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "faceRest, nhìn lên phố (phải khung)"
+   },
+   {
+    "t": 0.2,
+    "pose": "thoại L4 bắt đầu"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Cận thoại dài 5,8 s: khẩu hình + biểu cảm tinh; mặt theo W3."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "CU",
+   "mm": 85,
+   "angle": "ngang mắt, gần chính diện",
+   "move": "đẩy vào rất chậm"
+  }
+ },
+ {
+  "id": "s37w",
+  "scene": 5,
+  "t0": 98.8,
+  "t1": 101.6,
+  "frames": 67,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Cột góc P5 bật giữa câu L4; bóng dài tan.",
+  "key_poses": [
+   {
+    "t": 0.4,
+    "pose": "P5 nhấp 2 lần rồi đứng"
+   },
+   {
+    "t": 0.0,
+    "pose": "Ida trên thang, Cas giữ thang, ngửa nhìn"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Toàn cảnh; nhân vật gần tĩnh."
+  },
+  "package": "C6-W2-thang",
+  "camera": {
+   "size": "WS",
+   "mm": 28,
+   "angle": "ngang, từ lòng phố, hơi hất",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s39",
+  "scene": 5,
+  "t0": 101.6,
+  "t1": 106,
+  "frames": 106,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "L4 vế cuối, giọng vỡ, trong ánh trắng phẳng (khung ảnh 4 kiểm mù).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "choked, nhìn lên phố"
+   },
+   {
+    "t": 2.0,
+    "pose": "nghẹn — một giọt nước mắt"
+   }
+  ],
+  "difficulty": {
+   "level": 5,
+   "why": "Cảm xúc đỉnh phim, CU chính diện; mặt theo W3 (A3); giọt nước mắt."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "CU",
+   "mm": 85,
+   "angle": "ngang mắt, gần chính diện",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s38",
+  "scene": 5,
+  "t0": 106,
+  "t1": 107.4,
+  "frames": 34,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cas giữ thang, ngước nhìn bà trong ánh trắng.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "hold_ladder, cổ −36° (ngửa)"
+   },
+   {
+    "t": 1.0,
+    "pose": "chớp mắt, nín thở"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Phản ứng không lời; tay giữ đúng hai thanh thang."
+  },
+  "package": "C6-W2-cas-mat",
+  "camera": {
+   "size": "MS",
+   "mm": 50,
+   "angle": "cao, chúc xuống (gần mắt Ida)",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s40",
+  "scene": 5,
+  "t0": 107.4,
+  "t1": 110,
+  "frames": 62,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Tay phải gạt van; ngọn L11 co lại, xanh, tắt.",
+  "key_poses": [
+   {
+    "t": 0.3,
+    "pose": "tay gạt van (0,3–0,9 s)"
+   },
+   {
+    "t": 1.8,
+    "pose": "lửa tắt"
+   },
+   {
+    "t": 2.6,
+    "pose": "giữ im"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Insert tay + cần van khớp tiếp xúc (dịch gốc để lòng bàn tay nằm trên cần)."
+  },
+  "package": "C6-W2-thang",
+  "camera": {
+   "size": "CU (insert)",
+   "mm": 50,
+   "angle": "ngang lồng đèn, từ lòng phố",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s40w",
+  "scene": 5,
+  "t0": 110,
+  "t1": 112,
+  "frames": 48,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Không gì đổi: phố trắng y nguyên.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida restLadder, Cas giữ thang"
+   }
+  ],
+  "difficulty": {
+   "level": 1,
+   "why": "Tĩnh."
+  },
+  "package": "C6-W2-thang",
+  "camera": {
+   "size": "WS",
+   "mm": 28,
+   "angle": "ngang, từ lòng phố, hơi hất",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s41",
+  "scene": 5,
+  "t0": 112,
+  "t1": 113.5,
+  "frames": 36,
+  "characters": [
+   "ida",
+   "cas"
+  ],
+  "key_action": "Dưới chân thang Ida trao đèn lồng; Cas nhận bằng hai tay.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Ida cầm đèn tay phải"
+   },
+   {
+    "t": 0.5,
+    "pose": "chìa đèn (holdOut)"
+   },
+   {
+    "t": 0.7,
+    "pose": "Cas đón hai tay (casTake)"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Trao đạo cụ giữa hai nhân vật: quai đèn đổi tay, tiếp xúc tay–quai."
+  },
+  "package": "C6-W2-trao",
+  "camera": {
+   "size": "WS",
+   "mm": 28,
+   "angle": "ngang",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s42a",
+  "scene": 5,
+  "t0": 113.5,
+  "t1": 115.5,
+  "frames": 48,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cas ôm đèn lồng nhìn quanh phố trắng, rồi nhìn về hốc cửa.",
+  "key_poses": [
+   {
+    "t": 0.3,
+    "pose": "đầu quay trái 38°"
+   },
+   {
+    "t": 1.2,
+    "pose": "giữ"
+   },
+   {
+    "t": 1.6,
+    "pose": "quay phải −30°"
+   },
+   {
+    "t": 2.0,
+    "pose": "−45°: nhìn hốc cửa (trái khung)"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Diễn bằng hướng nhìn; đèn treo giữa hai cổ tay."
+  },
+  "package": "C6-W2-trao",
+  "camera": {
+   "size": "MS",
+   "mm": 45,
+   "angle": "ngang ngực Cas, 3/4 trước",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s42b",
+  "scene": 5,
+  "t0": 115.5,
+  "t1": 117.5,
+  "frames": 48,
+  "characters": [
+   "cas"
+  ],
+  "key_action": "Cas ôm đèn vào hốc cửa, quay ra vòm, ngồi xổm đặt đèn xuống nền (nối s42).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "đi, ôm đèn trước ngực (casHug)"
+   },
+   {
+    "t": 1.1,
+    "pose": "quay ra vòm (yaw → 0 ở 1,5 s)"
+   },
+   {
+    "t": 1.45,
+    "pose": "ngồi xổm → warm_hands_copy (2,0 s)"
+   },
+   {
+    "t": 1.6,
+    "pose": "hạ đèn xuống nền (−0,38; 3,10) tới 2,0 s"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Nối đi → quay → ngồi + đặt đèn trong 0,9 s; tư thế cuối trùng tư thế mở s42."
+  },
+  "package": "C6-W2-hoc-cua",
+  "camera": {
+   "size": "WS",
+   "mm": 32,
+   "angle": "ngang 1,3 m, ngoài vòm",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s42",
+  "scene": 5,
+  "t0": 117.5,
+  "t1": 120.5,
+  "frames": 72,
+  "characters": [
+   "cas",
+   "ida"
+  ],
+  "key_action": "Cas ngồi xổm quay ra vòm, hơ tay đếm ba; Ida ở miệng vòm nhìn vào.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "Cas warm_hands_copy (sheet C4)"
+   },
+   {
+    "t": 0.6,
+    "pose": "nhịp 1: áp tay"
+   },
+   {
+    "t": 1.2,
+    "pose": "nhịp 2"
+   },
+   {
+    "t": 1.8,
+    "pose": "nhịp 3"
+   },
+   {
+    "t": 1.9,
+    "pose": "Ida tay trái lên vành mũ"
+   },
+   {
+    "t": 2.2,
+    "pose": "Ida kéo vành mũ xuống (hat_back 0,35 → 0 tới 2,8 s)"
+   },
+   {
+    "t": 2.8,
+    "pose": "Ida hạ tay, quay người đi"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Trả mô-típ đếm ba (Cas) + cử chỉ kéo mũ khép \"hết ca\" (Ida, chủ dự án quyết định); hai hành động nối nhau trong 3 s."
+  },
+  "package": "C6-W2-hoc",
+  "camera": {
+   "size": "MS",
+   "mm": 40,
+   "angle": "thấp ngang vai, sau lưng Cas lệch phải, trong hốc nhìn ra vòm",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s43",
+  "scene": 6,
+  "t0": 120.5,
+  "t1": 124.5,
+  "frames": 96,
+  "characters": [],
+  "key_action": "Toàn cảnh thành phố trắng; máy đẩy rất chậm (dolly 12 m + 28 → 45 mm) về một ô cửa hổ phách (nhà Cas).",
+  "key_poses": [],
+  "difficulty": {
+   "level": 1,
+   "why": "Không nhân vật."
+  },
+  "package": "C6-W2-toan-canh",
+  "camera": {
+   "size": "EWS",
+   "mm": 28,
+   "angle": "cao (cùng khung mở đầu)",
+   "move": "dolly vào rất chậm"
+  }
+ },
+ {
+  "id": "s44",
+  "scene": 6,
+  "t0": 124.5,
+  "t1": 127,
+  "frames": 60,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida trong ngõ dưới ô cửa nhà Cas; bóng ngắn nhạt trên đá lát.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "look_shadows (tay đặt ngực, ngửa nhìn ô cửa)"
+   }
+  ],
+  "difficulty": {
+   "level": 2,
+   "why": "Gần tĩnh; hơi thở."
+  },
+  "package": "C6-W2-ngo",
+  "camera": {
+   "size": "WS",
+   "mm": 21,
+   "angle": "thấp, hất lên ô cửa",
+   "move": "đẩy vào chậm"
+  }
+ },
+ {
+  "id": "s45",
+  "scene": 6,
+  "t0": 127,
+  "t1": 129,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida cúi nhìn đồng hồ trong lòng tay (9:53, mặt số quay về bà), rồi quay đầu + vai nhìn qua vai về miệng ngõ — phía quảng trường (dẫn tới POV s45c).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "watchHold, cúi nhìn đồng hồ"
+   },
+   {
+    "t": 1.0,
+    "pose": "bắt đầu quay"
+   },
+   {
+    "t": 1.8,
+    "pose": "cổ quay 50°, thân xoay 20°, ngẩng nhẹ — nhìn phải khung, vào sâu"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Đồng hồ cùng vị trí/hướng như insert s46; quay đầu qua vai phải đọc là nhìn về quảng trường sau lưng."
+  },
+  "package": "C6-W2-ngo",
+  "camera": {
+   "size": "MS",
+   "mm": 50,
+   "angle": "ngang ngực, 3/4 trước-phải",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s46",
+  "scene": 6,
+  "t0": 129,
+  "t1": 132,
+  "frames": 72,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Vặn kim 9:53 → 10:00 (kim giờ ăn khớp), không gõ; đứng trước s45c (giờ trên hình chỉ tiến).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "9:53 giữ"
+   },
+   {
+    "t": 0.3,
+    "pose": "bắt đầu vặn"
+   },
+   {
+    "t": 2.2,
+    "pose": "kim tới 10:00, giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Insert tay + mặt đồng hồ; hai kim phải chỉ tiến, khớp nhau (không nắp trên hình)."
+  },
+  "package": "C6-W2-ngo",
+  "camera": {
+   "size": "CU (insert)",
+   "mm": 100,
+   "angle": "chúc nhẹ",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s45c",
+  "scene": 6,
+  "t0": 132,
+  "t1": 133.5,
+  "frames": 36,
+  "characters": [],
+  "key_action": "POV: mặt đồng hồ quảng trường 10:00:00 — khớp giờ bà vừa vặn (sau s46).",
+  "key_poses": [],
+  "difficulty": {
+   "level": 1,
+   "why": "Không nhân vật."
+  },
+  "package": "C6-W2-toan-canh",
+  "camera": {
+   "size": "CU",
+   "mm": 200,
+   "angle": "tele, POV của Ida qua miệng ngõ",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s47",
+  "scene": 6,
+  "t0": 133.5,
+  "t1": 135.5,
+  "frames": 48,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "Ida vác thang đi ra miệng ngõ; bóng mờ tan trong trắng.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "walk_ladder (chỉ thang, không đèn lồng)"
+   }
+  ],
+  "difficulty": {
+   "level": 3,
+   "why": "Dáng đi vác thang lưng thẳng; bóng mờ dần."
+  },
+  "package": "C6-W2-ngo",
+  "camera": {
+   "size": "WS",
+   "mm": 28,
+   "angle": "ngang, sau lưng Ida",
+   "move": "tĩnh"
+  }
+ },
+ {
+  "id": "s48",
+  "scene": 6,
+  "t0": 135.5,
+  "t1": 140.5,
+  "frames": 120,
+  "characters": [
+   "cas"
+  ],
+  "key_action": "Phòng Cas: chim to, mềm bay ngang tường; mờ về đen.",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "chim cao (vai −150°), thân lắc ±14°"
+   },
+   {
+    "t": 3.5,
+    "pose": "mờ dần"
+   },
+   {
+    "t": 5.0,
+    "pose": "đen"
+   }
+  ],
+  "difficulty": {
+   "level": 4,
+   "why": "Chim bóng lớn phải đọc là chim trên nền bóng đầu; nhịp vỗ chậm."
+  },
+  "package": "C6-W2-chim",
+  "camera": {
+   "size": "WS",
+   "mm": 28,
+   "angle": "ngang, sau lưng Cas",
+   "move": "tĩnh; mờ dần về đen (cuối shot, 1,5 s)"
+  }
+ }
+]

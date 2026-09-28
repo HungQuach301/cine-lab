@@ -1,4 +1,4 @@
-# HỒ SƠ NHÂN VẬT — "Last Round" (v1.2 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+; **v1.2: A1 + đo thêm góc (Cổng 4 vòng v2)** · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
+# HỒ SƠ NHÂN VẬT — "Last Round" (v1.4 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+; **v1.2: A1 + đo thêm góc (Cổng 4 vòng v2)** · **v1.3: D2 mũ Ida #262a33 (đóng Cổng 4)** · **v1.4: A-α mặt cách điệu, cổ lộ, cổ áo bẻ thấp, tóc bạc (Cổng 5 v2)** · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
 
 Căn cứ: kịch bản chốt `scripts/last-round.fountain` (nháp 2), luật thế giới v0.3. Dùng cho rubric **C1** (người chấm phải nêu được 4 yếu tố từ phim, không đọc hồ sơ) và cho diễn xuất ở Cổng 6.
 
@@ -35,9 +35,9 @@ Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`
 | Búi tóc | **1,3×** (đường kính hiệu dụng 0,546 H) | — | 2A |
 | Váy | Váy dài #4a3a44 lộ dưới vạt áo, gấu cách đất 0,42 H; tất tối #3a3235 | — | 3B |
 | Khăn | Khăn len #8e5c5a, một đuôi buông trước ngực | — | 3B |
-| Tóc | Búi sau gáy dưới vành mũ | Tóc #5a4034 lộ ở gáy và dưới vành mũ (để không đọc thành búi tóc bé gái) | 3B |
-| Mũ | Mũ phớt, **không nơ** trên băng mũ; **v1.2:** màu gốc trung tính #2b2a2a (albedo cố định, không chỉnh theo shot) | **Giữ mũ len có quả bông** | 3B, 4A; v1.2 |
-| Mặt nữ tính (v1.2) | **A1:** 3 lọn tóc bạc mềm ở mỗi thái dương + 2 lọn ở gáy; hoa tai nhỏ bắt sáng (nụ + giọt, vàng cũ #c9a466). Cổ áo đứng dựng cao tới cằm (khớp hình sheet; bỏ cổ trần dài) | — | A1 (Cổng 4) |
+| Tóc | Búi sau gáy dưới vành mũ. **v1.4:** khối tóc bạc chải ra sau quanh đầu (dày ~0,06 H), lộ ở thái dương, trên tai và gáy, nối liền búi; lọn thái dương là một phần của khối tóc (bỏ lọn "temple" dạng dải); mép tóc có sợi mềm. Màu gốc **#e2dfda** (v1.3: #b9b3aa) + cách điệu "tóc bạc" (ánh sáng tới tóc kéo 70 % về trung tính, giữ độ sáng) để dưới lửa hổ phách vẫn đọc tóc bạc | Tóc #5a4034 lộ ở gáy và dưới vành mũ (để không đọc thành búi tóc bé gái) | 3B; A-α (v1.4) |
+| Mũ | Mũ phớt, **không nơ** trên băng mũ; **v1.3 (D2):** màu gốc xám xanh sẫm **#262a33** (albedo cố định, không chỉnh theo shot; v1.2 là #2b2a2a). **v1.4:** mũ ngồi thấp ôm vòng đầu rộng nhất, tỳ lên tóc (không đậu trên đỉnh sọ) | **Giữ mũ len có quả bông** | 3B, 4A; v1.2; D2 (v1.3) |
+| Mặt nữ tính (v1.4) | **A-α:** mặt tròn–mềm cách điệu (má đầy liền gò má cao, cằm tròn nhỏ, nửa dưới mặt ngắn, khối dưới cằm da chùng nhẹ dốc mềm vào cổ); ít nét nhăn vẽ (2 nếp trán, 2 vết chân chim, 1 nếp dưới mắt, dải rãnh mũi–má mềm); da có sắc độ ấm/lạnh và kết cấu mịn (không nhẵn như sáp); lông mày dày mềm; môi có khối; mắt có viền ẩm. **Cổ lộ một đoạn ngắn** (bề ngang cổ 0,40 H; v1.3: 0,30 H), **cổ áo bẻ thấp nằm trên vai, mở chữ V**, **khăn quấn thấp** ở chân cổ (bỏ cổ đứng cao của v1.2). Hoa tai treo ở dái tai (nụ + móc + giọt, vàng cũ #c9a466). Cổng mặt: kiểm mù lần 6 vẫn trượt tiêu chí "búp bê" (xem reports/m2/CONG-5-V2.md) | — | A1 (Cổng 4); A-α (Cổng 5 v2) |
 | Mắt (v1.2) | Tròng nâu #5a4636, lòng trắng ngà tối #7a6e66; không tự phát sáng | như cũ | Cổng 4 v2 |
 | Mặt | Không khắc khe miệng/nếp nhăn vào hình học; khe môi, nếp nhăn, mi, đồi mồi là nét vẽ; chất da mờ (Lambert, không bóng) | như Ida; tàn nhang vẽ | C′, sửa L3 |
 | Chim bóng | — | Hai cổ tay **bắt chéo**, ngón cái là đầu chim, các ngón xoè là cánh | 5B |
@@ -45,14 +45,14 @@ Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`
 ## Tỷ lệ đo được trên hình 3D đã duyệt (B1, đợt vá A2+ — dùng cho luật C3)
 Cách đo giống checks C3 (RUN.md 3.6): mặt nạ bộ phận **nhìn thấy**, render thật ở 4×, tư thế đứng thẳng (turnaround), máy trực giao; độ dài = bề dài theo trục chính PCA + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu (đầu = phần đầu nhìn thấy dưới mũ). Số ghi vào sheet = **góc chính diện 0°**. Khung xương dựng hình (`parts{}` trong sheet) không đổi. Số đo nguồn: `model-sheet/*.json` → `c3_views`.
 
-**v1.2 (Q-C3v A):** đo lại sau A1 và cổ áo cao; thêm −45°, ±135°, 180°. Lưới Cas không đổi nên số Cas 0°/45°/±90° giữ nguyên. Ida 0°: cổ áo che cằm nên đầu nhìn thấy ngắn hơn, tỷ lệ 0° cao hơn v1.1 khoảng 3%.
+**v1.2 (Q-C3v A):** đo lại sau A1 và cổ áo cao; thêm −45°, ±135°, 180°. Lưới Cas không đổi nên số Cas 0°/45°/±90° giữ nguyên. Ida 0°: cổ áo che cằm nên đầu nhìn thấy ngắn hơn, tỷ lệ 0° cao hơn v1.1 khoảng 3%. **v1.4 (A-α, Cổng 5 v2):** đo lại 8 góc sau A-α (mũ ngồi thấp + khối tóc làm đầu nhìn thấy ở góc sau ngắn đi: 135°/180° thân +7…+10 % so với v1.3; ±90° −4…−5 %). Bảng Ida dưới đây là số v1.4.
 
 | Bộ phận | Ida 0° (sheet) | 45° | −45° | 90° | −90° | 135° | −135° | 180° |
 |---|---|---|---|---|---|---|---|---|
-| thân | **2,667** | 2,314 | 2,315 | 2,137 | 2,153 | 2,386 | 2,354 | 2,510 |
-| cánh tay trên | **1,600** | 1,483 | 1,466 | — | 1,408 | 1,465 | 1,455 | 1,578 |
-| cẳng tay | **0,994** | 0,914 | 1,299¹ | — | 1,009 | 0,825 | 1,087 | 1,193 |
-| cẳng chân (bỏ) | 0,293 | 0,282 | 0,282 | — | 0,275 | 0,272 | 0,270 | 0,284 |
+| thân | **2,682** | 2,290 | 2,263 | 2,034 | 2,060 | 2,558 | 2,528 | 2,752 |
+| cánh tay trên | **1,571** | 1,474 | 1,451 | — | 1,398 | 1,592 | 1,583 | 1,750 |
+| cẳng tay | **0,976** | 0,909 | 1,284¹ | — | 1,000 | 0,897 | 1,183 | 1,323 |
+| cẳng chân (bỏ) | **0,288** | 0,281 | 0,279 | — | 0,270 | 0,295 | 0,295 | 0,316 |
 
 | Bộ phận | Cas 0° (sheet) | 45° | −45° | 90° | −90° | 135° | −135° | 180° |
 |---|---|---|---|---|---|---|---|---|

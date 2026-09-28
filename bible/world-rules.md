@@ -1,12 +1,12 @@
-# LUẬT THẾ GIỚI — "Last Round" (v0.4, Cổng 4 vòng v2 · 27/09/2026)
+# LUẬT THẾ GIỚI — "Last Round" (v0.5, Cổng 5 · 28/09/2026)
 
-v0.4 = v0.3 + lý do góc ngọn 11 còn tối tới giữa câu L4 (chỉ đạo chủ dự án sau khi xem animatic v1) + dấu hiệu đêm. v0.3 = v0.2 + nắp đèn lồng chắn tia hướng lên (quyết định 5A, mục 4). v0.2 = v0.1 + hai sửa quang học của chủ dự án (cảnh 5, cảnh 6) + mặt đồng hồ điện công cộng + các hệ quả P rút ra khi rà kịch bản nháp 2 (đánh dấu **[P]**, chờ chủ dự án duyệt).
+v0.5 = v0.4 + hình khối cuối phố: nhà kho chữ L, tường chim là HÔNG nhà kho, phố rẽ trái (chủ dự án duyệt ở Cổng 5, mục 1); khẳng định trời không có quầng điện. v0.4 = v0.3 + lý do góc ngọn 11 còn tối tới giữa câu L4 (chỉ đạo chủ dự án sau khi xem animatic v1) + dấu hiệu đêm. v0.3 = v0.2 + nắp đèn lồng chắn tia hướng lên (quyết định 5A, mục 4). v0.2 = v0.1 + hai sửa quang học của chủ dự án (cảnh 5, cảnh 6) + mặt đồng hồ điện công cộng + các hệ quả P rút ra khi rà kịch bản nháp 2 (đánh dấu **[P]**, chờ chủ dự án duyệt).
 
 Căn cứ cho Cổng 3 (thiết kế, style frame, color script) và Cổng 7 (ánh sáng). Mọi shot phải tuân theo. Muốn đổi luật thì chủ dự án duyệt, rồi ghi vào `AUTHORSHIP.md`.
 
 ## 1. Thành phố
 - Thành phố hư cấu, không tên, không cờ, không chữ viết của nước nào. Kiến trúc gạch và thạch cao, mái dốc, ống khói; thời kỳ gợi đầu thế kỷ 20 nhưng không gắn năm nào.
-- Con phố của Ida: **Ostler Street**, một phố dốc nhẹ, cong, dài **11 cột đèn khí**. Cuối phố là bức tường gạch trắng vôi của một nhà kho (tường chim bóng).
+- Con phố của Ida: **Ostler Street**, một phố dốc nhẹ, cong, dài **11 cột đèn khí**. Cuối phố là **nhà kho chữ L** trát vôi trắng (mái, máng nước, cửa bốc hàng, cửa sổ cao). **v0.5:** phố chính không cụt vào một mặt tường phẳng: tới nhà kho, phố **rẽ trái** và **dốc xuống**, sau đó là **nhiều lớp mái xa** và **sương**; bức **tường chim bóng là hông nhà kho** nhìn ra đoạn cuối phố (không phải mặt chắn cuối phố). Hốc cửa bốc hàng nằm trên chính mặt hông này.
 - Quảng trường ở đầu phố có một **đồng hồ điện công cộng** trên cột sắt cao (~6 m): mặt tròn kính mờ phát sáng trắng, đường kính ~1,2 m, **12 vạch đen, không chữ số**, hai kim đen, kim phút dài gần chạm vành. Đồng hồ là thứ **sáng đầu tiên** của lưới điện mới, kèm một tiếng chuông điện đánh đúng giờ. Nhìn thấy được từ khắp Ostler Street và từ trên mái nhà.
 - Mặt phố Ostler và quảng trường: đá lát. *(Chủ dự án, Cổng 3 đợt vá A2+; kịch bản ghi "cobbles". Vỉa hè trước mặt tiền: đá phiến, có bó vỉa.)*
 - Nhà kho cuối phố có một **hốc cửa bốc hàng hình vòm, sâu ~4 m** **[P]**: vách trong trát vôi, khuất đèn điện (xem mục 3.4).
@@ -16,7 +16,7 @@ Căn cứ cho Cổng 3 (thiết kế, style frame, color script) và Cổng 7 (�
   - cột điện **phố chính** gần góc nhà kho đã bật và ánh tràn phủ mặt tường nhà kho nơi Cas làm chim (cảnh 4, 1:04 phim v2);
   - góc ngọn 11 lùi sau góc nhà, ngoài tầm vũng sáng của cột đó (~20 m), nên vẫn tối, chỉ có quầng hổ phách của ngọn khí;
   - khi đoạn cáp cuối đóng điện, cột góc **nhấp hai lần rồi đứng trắng**; trắng tràn vào góc, bóng dài và bóng tối biến mất.
-- **v0.4 — Đêm:** điện bật lúc 8:00 tối. Trời sau khi bật vẫn là **trời đêm xanh đen có sao**; ánh điện chỉ sáng mặt phố và mặt tiền, không làm sáng trời. Không có ánh hồng chân trời sau cảnh 1 (tránh đọc thành bình minh).
+- **v0.4 — Đêm:** điện bật lúc 8:00 tối. Trời sau khi bật vẫn là **trời đêm xanh đen có sao**; ánh điện chỉ sáng mặt phố và mặt tiền, không làm sáng trời. **v0.5 (chủ dự án khẳng định ở Cổng 5):** không có quầng trắng ở chân trời, kể cả ở cảnh toàn; trời tối có sao là điều giữ cho phim đọc ra ban đêm. Không có ánh hồng chân trời sau cảnh 1 (tránh đọc thành bình minh).
 
 ## 2. Hai loại ánh sáng (cốt lõi)
 | | Đèn khí (cũ) | Đèn điện (mới) |
