@@ -1,6 +1,8 @@
 #!/bin/bash
 # Hàng đợi render nặng Cổng 5 (phiên P giữ). Mỗi lúc CHỈ MỘT render nặng chạy trên máy 4 vCPU.
 # Dùng:  bash scripts/render/queue.sh <gói: W1|W2|W3|P> <nhãn ngắn> -- <lệnh...>
+#        LAN=nhanh bash scripts/render/queue.sh …  → LÀN NHANH cho việc < 60 s (ảnh tĩnh, kiểm toán 1 khung): khoá riêng fast.lock,
+#        không chờ sau render cả cảnh; mỗi lúc chỉ 1 việc nhanh. Việc > 60 s mà chạy làn nhanh thì nhật ký đánh dấu "QUA-60S".
 # Chạy nền:  nohup bash scripts/render/queue.sh W1 s02-s08 -- node design/cong5/layout/render_film.js --out ... > log 2>&1 & PID=$!
 #            while kill -0 $PID 2>/dev/null; do sleep 20; done      (bài học vòng chờ: chờ theo PID, không pgrep -f)
 # "Nặng" = render chuỗi khung (≥ 1 shot đầy đủ), still ≥ 1920×1080 hoặc ≥ 2 mẫu, mặt nạ C3 4×, đóng gói 2 pass, luật máy.
@@ -13,13 +15,15 @@ PKG=${1:?gói}; LABEL=${2:?nhãn}; shift 2; [ "${1:-}" = "--" ] && shift
 [ $# -gt 0 ] || { echo "thiếu lệnh" >&2; exit 2; }
 enq=$(date +%s.%N); enq_iso=$(date -Is)
 echo "[queue] $PKG/$LABEL xếp hàng lúc $enq_iso" >&2
-exec 9>"$Q/heavy.lock"
+LANE=${LAN:-nang}; LOCK="$Q/heavy.lock"; [ "$LANE" = "nhanh" ] && LOCK="$Q/fast.lock"
+exec 9>"$LOCK"
 flock 9
 st=$(date +%s.%N); st_iso=$(date -Is)
-echo "$PKG $LABEL $$ $st_iso" > "$Q/running"
+echo "$PKG $LABEL $$ $st_iso" > "$Q/running.$LANE"
 echo "[queue] $PKG/$LABEL bắt đầu $st_iso (chờ $(printf %.0f "$(echo "$st - $enq" | bc)") s)" >&2
 "$@"; rc=$?
-en=$(date +%s.%N); en_iso=$(date -Is); rm -f "$Q/running"
-printf '%s\t%s\t%s\t%s\t%s\t%.1f\t%.1f\t%s\t%s\t%s\n' "$PKG" "$LABEL" "$enq_iso" "$st_iso" "$en_iso" "$(echo "$st - $enq" | bc)" "$(echo "$en - $st" | bc)" "$rc" "$PWD" "$*" >> "$Q/log.tsv"
+en=$(date +%s.%N); en_iso=$(date -Is); rm -f "$Q/running.$LANE"
+run_s=$(echo "$en - $st" | bc); FLAG=""; [ "$LANE" = "nhanh" ] && [ "$(echo "$run_s > 60" | bc)" = 1 ] && FLAG=" QUA-60S"
+printf '%s\t%s\t%s\t%s\t%s\t%.1f\t%.1f\t%s\t%s\t%s\n' "$PKG" "$LABEL[$LANE]$FLAG" "$enq_iso" "$st_iso" "$en_iso" "$(echo "$st - $enq" | bc)" "$(echo "$en - $st" | bc)" "$rc" "$PWD" "$*" >> "$Q/log.tsv"
 echo "[queue] $PKG/$LABEL xong $en_iso, chạy $(printf %.0f "$(echo "$en - $st" | bc)") s, mã $rc" >&2
 exit $rc
