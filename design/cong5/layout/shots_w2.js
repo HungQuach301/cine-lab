@@ -7,8 +7,14 @@ import { buildStreetSet, LAMP_X, LAMP_Z, WALK_Z, POST_X, CLOCK, ladderOf, buildW
 import { buildCitySet, buildWallSet, buildBaySet, buildAlleySet, buildRoomSet } from './sets2.js';
 import { buildLantern } from '/cong3/shared/cast.js';
 import { U } from '/cong3/v2/s5.js';
-import { ease, easeIO, clamp01, fovOf, lerpPose, over, poseAt, valAt, camAt, makeChar, yawTo } from './util.js';
-import { createFaceLight } from './facelight.js';   // W3: ánh dội/viền cận mặt Ida từ nguồn có thật (không nguồn ngoài truyện)
+import { ease, easeIO, clamp01, fovOf, lerpPose, over, poseAt, valAt, camAt, makeChar as makeChar0, yawTo } from './util.js';
+import { createFaceLight } from './facelight.js';
+// B-i (Cổng 5 v2, quyết định chủ dự án): mọi shot W2 là hàm THUẦN theo t. Rig (shared/cast.js applyPose) tính đạo cụ treo (đèn lồng thắt lưng: hướng = nghịch đảo
+// hướng xương chậu THẾ GIỚI) theo ma trận gốc ĐANG CÓ; util.makeChar.place đặt gốc SAU setPose → đèn mang hướng gốc của KHUNG TRƯỚC (render thẳng một khung ≠ render nối tiếp;
+// khung đầu mỗi shot dùng hướng 0 của nhân vật mới dựng). Bản bọc: đặt gốc (vị trí + hướng) TRƯỚC, rồi mới gọi place gốc (setPose) — không phụ thuộc khung trước.
+const rootFirst = (ch, x, y, z, yaw) => { ch.root.position.set(x, y, z); ch.root.rotation.y = yaw; ch.root.updateMatrixWorld(true); };
+const makeChar = (...a) => { const ch = makeChar0(...a); const place0 = ch.place;
+  ch.place = (pose, x, z, yaw, y0 = 0) => { rootFirst(ch, x, y0 + (pose.root_y_m ?? 0), z, yaw); place0(pose, x, z, yaw, y0); }; return ch; };   // W3: ánh dội/viền cận mặt Ida từ nguồn có thật (không nguồn ngoài truyện)
 import { CLOCKS, CLOCK_ON, DIALOGUE, DING, FILM_S, FOOT_Z, GAS_ON, GRADE_ALLEY, GRADE_S5, L11_OFF, ON_Z, ORDER, P, PAINT_CLOSE, PAINT_STREET, PAINT_WALL, POST_ON, REACH_IDA, RELAY_1, S, S5_PAINT, S5_PAINT_MED, S6_PAINT, SHOTS, SQUARE_ON, SRC, T0, T1, VALVE, WALL_POST_ON, camMM, expo, faceCam, flameL11, gasLevel, hands, ladderAt, lanternLight, stdState, switchOn, watchInHand, whiteAt } from './common.js';
 
 const V3a = (v) => v.toArray().map((x) => +x.toFixed(3));
@@ -152,8 +158,8 @@ S({ id: 's33', scene: 5, size: 'WS', angle: 'ngang 1,35 m, "tranh trong tranh"',
         const zI = valAt([[0, 3.5], [0.6, 3.5], [2.7, B.ida[1]]], t), zC = valAt([[0, 3.9], [0.6, 3.9], [4.1, B.cas[1]]], t);
         const pI = t < 0.6 ? lerpPose(p.crouch, p.stand, ease(t / 0.6)) : t < 2.7 ? over(walkPose(t - 0.6, p.stand), { props: [] }) : poseAt([[2.7, over(p.stand, { props: [] })], [3.6, over(p.lookShadows, { props: [] })]], t);
         const pC = t < 0.6 ? p.C.turnaround : t < 4.1 ? walkPose(t - 0.6, p.C.turnaround, { gait: WALK_CHILD, bothArms: true }) : poseAt([[4.1, p.C.turnaround], [4.6, p.C.half_raised]], t);
-        r.chIda.setPose({ ...pI, props: [] }); keep(); r.chIda.root.position.set(B.ida[0], pI.root_y_m ?? 0, zI); r.chIda.root.rotation.y = Math.PI + 0.30 * clamp01((t - 2.5) / 0.8); r.chIda.root.updateMatrixWorld(true);
-        r.chCas.setPose(pC); keep(); r.chCas.root.position.set(B.cas[0], pC.root_y_m ?? 0, zC); r.chCas.root.rotation.y = Math.PI - 0.25 * clamp01((t - 3.9) / 0.7); r.chCas.root.updateMatrixWorld(true);
+        rootFirst(r.chIda, B.ida[0], pI.root_y_m ?? 0, zI, Math.PI + 0.30 * clamp01((t - 2.5) / 0.8)); r.chIda.setPose({ ...pI, props: [] }); keep(); r.chIda.root.position.set(B.ida[0], pI.root_y_m ?? 0, zI); r.chIda.root.updateMatrixWorld(true);
+        rootFirst(r.chCas, B.cas[0], pC.root_y_m ?? 0, zC, Math.PI - 0.25 * clamp01((t - 3.9) / 0.7)); r.chCas.setPose(pC); keep(); r.chCas.root.position.set(B.cas[0], pC.root_y_m ?? 0, zC); r.chCas.root.updateMatrixWorld(true);
         if (ctx.upd) { ctx.upd(r.chIda, cam); ctx.upd(r.chCas, cam); }
         // (a) thị sai: dolly vào 0,9 m + dịch ngang 0,4 m sang trái → người (cách máy ~8 m) trượt khỏi bóng của họ trên vách (~9 m).
         cam.position.copy(c0).add(new THREE.Vector3(-0.4 * ease(t / 5), 0, -0.9 * ease(t / 5))); } };   // dịch ngang TRÁI 0,4 m: Ida (gần máy hơn vách) trượt sang phải, xa khỏi bóng của bà
@@ -240,7 +246,7 @@ cornerWide('s37w', { why: 'CHỈ ĐẠO CHỦ DỰ ÁN (1:50 v1): ngay quanh "Yo
   action: 'Ida trên thang, Cas giữ thang; bóng đèn điện bật, bóng dài của hai người trên đá lát tan.' },
   (p, t, T, ida) => ida.place(p.faceRest(), LAMP_X(11), ON_Z, 0));
 S({ id: 's38', scene: 5, size: 'MS', angle: 'cao, chúc xuống (gần mắt Ida)', mm: 50, move: 'tĩnh',
-  why: 'Phản ứng của Cas: cậu giữ thang, ngước nhìn bà trong ánh trắng mới — người nghe câu nói thay khán giả.', sound: 'L4 tiếp (ngoài hình)',
+  why: 'Phản ứng của Cas: cậu giữ thang, ngước nhìn bà trong ánh trắng mới — người nghe câu nói thay khán giả. (c) Sau s39: cắt vào giữa "…ones who need it" (sau "for"), câu đã bắt đầu trên mặt Ida.', sound: 'L4 vế cuối "…ones who need it." (ngoài hình)',
   light: 'trắng phẳng (cột góc vừa bật); ấm rất yếu từ L11 trên cao', action: 'Cas giữ hai thanh thang, ngửa mặt nhìn lên.',
   async build(ctx) {
     const st = endStreet(); const p = P(ctx); ladderAt(st.scene, 11); const dbg = ctx.dbg || {};
@@ -411,7 +417,7 @@ alleyShot('s45', 137.0, 139.0, { size: 'MS', angle: 'ngang ngực, 3/4 trước-
     cam.fov = fovOf(50); cam.updateProjectionMatrix(); cam.position.copy(h).addScaledVector(dir, dbg.dist ?? 1.75); cam.position.y = h.y - (dbg.dy ?? 0.3); cam.lookAt(h.x, h.y - 0.22, h.z);   // máy thấp hơn mắt 0,3 m: thấy mặt dưới vành mũ khi bà cúi xem đồng hồ
     wf(ida, cam, ...hands(CLOCKS.beat3.watchFrom)); } }; });
 S({ id: 's45c', scene: 6, size: 'CU', angle: 'tele, POV của Ida qua miệng ngõ', mm: 200, move: 'tĩnh',
-  why: 'ĐỒNG HỒ NHỊP 3b — mặt đồng hồ điện trên nền trời đêm chỉ đúng 10:00 (cùng vị trí, cùng cỡ với nhịp 2a): giờ của thành phố.', sound: 'rè điện xa; tích tắc',
+  why: 'ĐỒNG HỒ NHỊP 3c — POV của Ida: mặt đồng hồ điện trên nền trời đêm chỉ đúng 10:00 (cùng vị trí, cùng cỡ với nhịp 2a): giờ của thành phố, khớp giờ bà vừa vặn (s46). (d) Sau s46: giờ trên hình chỉ tiến (10:00 → 10:00:0x).', sound: 'rè điện xa; tích tắc',
   light: 'mặt đồng hồ phát trắng; trời đêm', action: 'Mặt đồng hồ quảng trường: 10:00.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 140, x1: 200, shadowLamps: [] }); const cam = camMM(200); cam.position.set(150, 6.2, 0.4); cam.lookAt(CLOCK.x, CLOCK.h, CLOCK.z);
@@ -420,13 +426,13 @@ S({ id: 's45c', scene: 6, size: 'CU', angle: 'tele, POV của Ida qua miệng ng
       update(t, T, f) { st.setState(stdState(T), f); st.clock.userData.setHands(mD + 6 * t / 60, hD); } };
   } });
 alleyShot('s46', 139.0, 142.0, { size: 'CU (insert)', angle: 'chúc nhẹ', mm: 100, move: 'tĩnh', exposure: 6.0,
-  why: 'ĐỒNG HỒ NHỊP 3c (9B): bà vặn kim từ 9:53 lên đúng 10:00 — nhận giờ mới. Gập đồng hồ, KHÔNG gõ kính (ngược với nhịp 1).', sound: 'núm vặn lách cách; tách gập',
-  light: 'ánh cửa sổ ấm', action: 'Ngón cái vặn núm; kim phút chạy từ 9:53 lên 10:00; bàn tay khép lại.' },
+  why: 'ĐỒNG HỒ NHỊP 3b (9B): vừa ngẩng về phía quảng trường (cuối s45), bà vặn kim từ 9:53 lên đúng 10:00 — nhận giờ mới; KHÔNG gõ kính (ngược với nhịp 1). (d) Đặt TRƯỚC s45c để giờ trên hình chỉ tiến.', sound: 'núm vặn lách cách; tách gập',
+  light: 'ánh cửa sổ ấm', action: 'Kim phút và kim giờ cùng tiến từ 9:53 lên 10:00 (vặn núm 0,3–2,2 s), rồi giữ 10:00.' },
   (p, cam, r, dbg) => { let wf = null; const D = new THREE.Vector3(...(dbg.dir || [-0.6, 0.1, 0.8])); return { update(t, T, ida) {   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá)
     if (!wf) wf = watchInHand(ida.root.parent);
     ida.setPose(over(p.watchHold(0), { props: [] })); ida.root.updateMatrixWorld(true);
     cam.fov = fovOf(dbg.mm ?? 100); cam.updateProjectionMatrix();
-    const [m0, h0] = hands(CLOCKS.beat3.watchFrom); wf(ida, cam, valAt([[0, m0], [0.3, m0], [2.2, 360]], t), valAt([[0, h0], [2.2, 300]], t), D, dbg.dist ?? 0.32); } }; });
+    const [m0, h0] = hands(CLOCKS.beat3.watchFrom), mA = valAt([[0, m0], [0.3, m0], [2.2, 360]], t); wf(ida, cam, mA, h0 + (mA - m0) / 12, D, dbg.dist ?? 0.32); } }; });   // (d) kim giờ ăn khớp kim phút (1/12, như bánh răng thật): cả hai kim chỉ TIẾN, cùng lúc; 9:53 giữ 0–0,3 s, vặn 0,3–2,2 s, 10:00 giữ tới hết
 alleyShot('s47', 142.0, 145.0, { size: 'WS', angle: 'ngang, sau lưng Ida', mm: 28, move: 'tĩnh',
   why: 'Bà vác thang đi ra miệng ngõ; bóng mờ của bà mỏng dần rồi tan trong trắng (luật 3.5). Không còn đèn lồng ở thắt lưng (đã trao cho Cas ở s41).', sound: 'bước chân; thang; rè điện lớn dần ở miệng ngõ',
   light: 'ánh cửa sổ (sau lưng) → điện phẳng ở miệng ngõ', action: 'Ida vác thang đi từ dưới cửa sổ ra miệng ngõ.' },

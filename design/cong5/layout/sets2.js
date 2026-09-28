@@ -38,7 +38,7 @@ export async function buildCitySet(ctx, mode, tm = {}) {   // tm: { square, t0 }
     const s1 = glowSprite('#e8eeff', 0, 5.0), s2 = glowSprite('#dfe6ff', 0, 16); s1.position.set(...p); s2.position.set(...p); scene.add(s1, s2); return { L, s1, s2 }; });
   const faceOn = () => faces.forEach((f) => { f.material = new THREE.MeshBasicMaterial({ color: new THREE.Color('#f2f4ff').multiplyScalar(2.4) }); });
   let hemi = null; scene.traverse((o) => { if (o.isHemisphereLight) hemi = o; });
-  const cam0 = cam.position.clone(), look = new THREE.Vector3(10, 0, -71);
+  const cam0 = cam.position.clone(), look = new THREE.Vector3(10, 0, -71); let casWin = null; const fov0 = cam.fov * Math.PI / 180;   // casWin: tâm ô cửa nhà Cas (s43, chế độ night); fov0: góc dọc gốc (28 mm)
   if (mode === 'night' || mode === 'wave') {
     if (mode === 'night') faceOn();
     // trời đêm: thay trời chạng vạng bằng trời vẽ đêm; sương tối lạnh; đèn ráng chiều tắt
@@ -78,7 +78,7 @@ export async function buildCitySet(ctx, mode, tm = {}) {   // tm: { square, t0 }
       if (best >= 0) { for (let q = 0; q < 6; q++) col.setXYZ(best + q, 2.4, 1.05, 0.28); col.needsUpdate = true; console.log('W2 s43 ô cửa nhà Cas', best, JSON.stringify(cam0));
         c.set(0, 0, 0); for (let q = 0; q < 6; q++) c.add(new THREE.Vector3(pos.getX(best + q), pos.getY(best + q), pos.getZ(best + q))); c.multiplyScalar(1 / 6);
         const gg = glowSprite('#ff9a3c', 1.3, 3.2), gw = glowSprite('#ff8a3a', 0.4, 10); const cF = c.clone().add(cam0.clone().sub(c).normalize().multiplyScalar(0.6)); gg.position.copy(cF); gw.position.copy(cF); scene.add(gg, gw);
-        const n = c.clone().project(cam); console.log('W2 s43 ô cửa nhà Cas trên khung', ((n.x + 1) / 2).toFixed(3), ((1 - n.y) / 2).toFixed(3), c.distanceTo(cam0).toFixed(1)); } }
+        casWin = c.clone(); const n = c.clone().project(cam); console.log('W2 s43 ô cửa nhà Cas trên khung', ((n.x + 1) / 2).toFixed(3), ((1 - n.y) / 2).toFixed(3), c.distanceTo(cam0).toFixed(1)); } }
     }
   }
   const update = (t, T) => {
@@ -89,6 +89,13 @@ export async function buildCitySet(ctx, mode, tm = {}) {   // tm: { square, t0 }
       faceOn(); const sw = (t0) => sOn(T - t0);
       sqW.forEach((w) => setWhite(w, sw(tm.square ?? 30.2)));
       order.forEach((i, n) => setWhite(whites[i], tm.skipLast && n >= order.length - tm.skipLast ? 0 : sw((tm.t0 ?? 30) + 0.9 + n * 0.8)));   // v2: khối cuối (đoạn cáp cuối) chưa bật
+    } else if (casWin) {
+      // C-i (Cổng 5 v2, quyết định chủ dự án): máy đẩy RẤT CHẬM về ô cửa nhà Cas — dolly 12 m dọc tia máy → ô (tia đã kiểm không vướng tường/mái → ô luôn thấy)
+      // + tiêu cự 28 → 45 mm; hướng nhìn trôi dần về ô (70 %). Cỡ ô cuối shot ≈ 1,6 × 1,1 ≈ 1,75× đầu shot. Bản thử dolly 46 m hạ máy quá nhiều (mất khung mở đầu).
+      // Hàm thuần theo t; t = 0 đúng khung mở đầu (cam0, nhìn 'look', 28 mm). Không thêm nguồn.
+      const u = easeT(t / 4), d0 = cam0.distanceTo(casWin), zoom = 1 + ((tm.zoom ?? 45 / 28) - 1) * u;
+      cam.position.copy(cam0).lerp(casWin, (tm.dolly ?? 12) / d0 * u); cam.lookAt(look.clone().lerp(casWin, 0.7 * u));
+      cam.fov = 2 * Math.atan(Math.tan(fov0 / 2) / zoom) * 180 / Math.PI; cam.updateProjectionMatrix();
     } else { cam.position.copy(cam0).lerp(look, 0.04 * easeT(t / 4)); cam.lookAt(look); }
   };
   return { scene, cam, update, chars: [r.chIda], named: {}, paintP: { rNear: 3.0, rFar: 6.5, dNear: 30, dFar: 400, impScale: 0.4, stroke: 0.035, halation: 0.16, bloomWide: 0.07 } };

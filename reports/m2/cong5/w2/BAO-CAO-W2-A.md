@@ -163,3 +163,86 @@ Rủi ro còn lại:
 - N6: W1 s23–s24c cần giữ đèn hông sáng; hình W2 đã khớp. s26 vẫn ở mức hắt 0,012 (đèn khuất sau thân), không đổi mặt đã duyệt C2.
 
 **Đang chờ P / chủ dự án:** duyệt các mục v3; quyết định cỡ ô hổ phách s43 (rủi ro N8); ghép tệp timing mới.
+
+# Vòng v4 — chốt layout (Cổng 5 v2, quyết định chủ dự án @e850c0f: B-i, C-i, (c), (d); (e) dời Cổng 7)
+Đã merge nhánh tích hợp @e850c0f. Trình tự: sửa mã, `node --check`, kiểm trạng thái ẩn (mặt nạ C3), probe cả 29 shot sau lần sửa mã cuối, rồi render qua hàng đợi.
+
+## a) B-i — trạng thái ẩn
+**Nguyên nhân (s35 và cả gói W2).** `util.makeChar.place` gọi `setPose` TRƯỚC khi đặt gốc nhân vật. Rig (`shared/cast.js applyPose`) tính hướng đèn lồng thắt lưng theo ma trận gốc ĐANG CÓ, cụ thể là nghịch đảo hướng xương chậu trong hệ thế giới. Vì vậy ở mọi khung đổi hướng, đèn lấy hướng người của khung TRƯỚC. Ở khung đầu mỗi shot, đèn lấy hướng 0 của nhân vật vừa dựng. Hệ quả: render thẳng một khung khác render nối tiếp. s35 khung 2148 là khung đầu Ida trèo thang (hướng đổi từ lúc đi sang 0).
+
+**Sửa.** Trong `shots_w2.js`, bọc `makeChar`: đặt gốc (vị trí + hướng) TRƯỚC, rồi mới gọi `place` gốc. Không đụng `util.js` và `common.js`. s33 dựng bằng bộ khoá (gọi `setPose` trực tiếp) nên cũng được đổi sang đặt gốc trước. Các chỗ `setPose` trực tiếp khác (s42b, s42, s44–s47) không có đạo cụ phụ thuộc hướng gốc; kiểm ra 0 lệch.
+
+**Cách kiểm.** Chạy `export_c3.js --audit-dir … --scale 1`, làn nhanh, lô 4–5 shot. Mỗi shot lấy khung giữa F (bội 12), xuất thẳng (`--frames F`) và nối tiếp (`--frames F-12,F`), rồi so điểm ảnh 6 mặt nạ và `views.json`. Mặt nạ C3 chỉ có Ida. Với shot không có Ida, dùng kiểm thứ hai: probe (khung đầu/giữa/cuối, nhảy cóc) so với thumbnail bản render nối tiếp. Hai bản trùng từng điểm ảnh ở mọi shot không đổi nội dung.
+
+| Shot | Khung F | Ida trong khung | Lệch trước (px, ×1) | Lệch sau | Nguyên nhân | Sửa |
+|---|---|---|---|---|---|---|
+| s26 | 1512 | có (46 k px) | **133** | 0 | đèn lồng thắt lưng lấy hướng gốc cũ (khung đầu: hướng 0) | bọc `makeChar` |
+| s35 | 2136 | có | **2** | 0 | như trên (đi) | bọc `makeChar` |
+| s35 | 2148 (khung P kiểm toán) | có | **1** (×1; P đo ×4: 19 px, 3,21 %) | 0 | như trên (đổi hướng đi → trèo) | bọc `makeChar` |
+| s27, s30, s31, s32, s33, s34, s36, s37, s37w, s39, s40, s40w, s41, s42a, s42, s44, s45, s46, s47 | giữa shot | có | 0 | 0 | — | (s33: đặt gốc trước, phòng xa) |
+| s25, s28, s29, s38, s42b, s43, s45c, s48 | giữa shot | không (mặt nạ rỗng) | 0 | 0 | kiểm thêm: probe ≡ render (thumb a/b/c trùng điểm ảnh) | — |
+
+Sau sửa, probe cả 29 shot so với render: khác ở s26 (khung a), s35 (khung a) — đúng chỗ sửa. s39, s38, s46, s45c khác vì dời mốc (lửa, hạt theo khung). s43 khác vì máy mới. 22 shot còn lại trùng từng điểm ảnh, nên không render lại.
+
+### a2) So ảnh RGB (bổ sung theo P, nhánh tích hợp @04a738b — W1 cùng lỗi, cùng cách sửa)
+Mặt nạ C3 không chứa đèn lồng, nên P yêu cầu so ảnh RGB thô 960×540 (`renderFrame` + `finalize`). Lệch tính là điểm ảnh có kênh bất kỳ lệch > 2/255.
+- Công cụ `rgbaudit.js` nằm trong nhật ký phiên (`/var/tmp/cine-out/W2/tools/`), không thuộc repo. Chạy qua hàng đợi (rgb-moi, rgb-cu, rgb-cu2).
+- Mã cũ = cây `design/` ở ea7a318 (v3, trước sửa). Mã mới = v4.
+- Đã merge @04a738b (chỉ đổi tệp W1); cách sửa của W2 (bọc `makeChar` trong `shots_w2.js`) trùng cách `mkChar` của W1. Không sửa `util.js`.
+
+| Shot | Thẳng F vs nối tiếp F−12→F, TRƯỚC (px; max) | SAU | Khung đầu f0: mã cũ vs mới (px; max) | Render lại? |
+|---|---|---|---|---|
+| s26 | **301; 99** | 0; 0 | **299; 96** | **có** |
+| s35 | **145; 192** | 0; 0 | **198; 181** | **có** |
+| s30 (thêm khung 0,83 s: tháo đèn thắt lưng giữa lúc xoay; mã cũ nối tiếp vs mã mới thẳng) | 0 | 0 | 0 | không |
+| 22 shot còn lại có đo cả hai bản (s25, s27–s29, s31–s34, s36, s37, s37w, s40, s40w, s41, s42a, s42b, s42, s43, s44, s45, s47, s48) | 0 | 0 | 0 | không (vì lỗi này) |
+| s38, s39, s45c, s46 (dời mốc — không so bản cũ) | — | 0 | — | có (vì dời mốc) |
+
+Kết luận: 29/29 shot có ảnh thẳng = nối tiếp (0 điểm ảnh > 2/255). Chỉ s26, s35 có khung đầu đổi so với bản render đầy đủ cũ, và cả hai đã render lại.
+
+## b) C-i — s43 máy đẩy rất chậm
+- **Trước (v3):** máy lerp 4 % về điểm nhìn cố định. Ô hổ phách giữ cỡ ≈ 5 × 9 px (960 px), đọc được khi xem kỹ.
+- **Sau:** t = 0 đúng khung mở đầu. Trong 4 s: dolly 12 m dọc tia máy → ô (tia đã kiểm không vướng, ô luôn thấy), tiêu cự 28 → 45 mm, hướng nhìn trôi 70 % về ô. Lõi ô cuối shot ≈ 10 × 15 px, gần giữa khung. Không thêm nguồn.
+- Bản thử đầu (dolly 46 m, không zoom) hạ máy quá thấp, mất khung mở đầu; đã bỏ.
+
+## c) Câu "Just… keep a little dark for the ones who need it."
+- Đo trên stem `reports/m1/cong2/tableread-d2/lines/L4.mp3` bằng faster-whisper small.en (word timestamps). Tính từ đầu L4: Just 9,68 · keep 10,36 · a 11,04 · little 11,22 · dark 11,54 · for 12,08 · the 12,64 · ones 12,76 · who 13,00 · need 13,38 · it 13,66–14,00. Mốc phim với L4 = 93,0 s: lời thật từ 102,33 (P đo; whisper 102,68), "for" 105,08, hết câu 107,00.
+- **Trước:** s37w → **s38 (Cas) 101,6–103,0** → s39 (Ida) 103,0–107,4. Câu bắt đầu trên Cas.
+- **Sau:** `order_w2.js` đổi thứ tự s37w → **s39 (Ida) 101,6–106,0** → **s38 (Cas) 106,0–107,4** → s40. Câu bắt đầu 0,73 s sau khi vào mặt Ida. Cắt sang Cas ở **106,0 s (1:46,0)**, sau "for" và "the ones", đúng lúc vào "who need it". Tổng thời lượng, mốc thoại, P5 99,2 s, van 107,7 s, L11 tắt 109,2 s không đổi. Không đổi id; s37, s37w, s40 giữ nguyên chỗ.
+- Ảnh 4 kiểm mù đề xuất mới: khung toàn cục **2510** (104,58 s, khung 72 của s39, chữ "dark").
+
+## d) Đồng hồ cảnh 6 — chỉ tiến
+- **Đọc giờ trên hình (trước):** s45 9:53 (nhỏ, hai kim cùng quanh số 10) → s45c **10:00** → s46 mở ở **9:53** rồi lên 10:00. Người xem thấy 10:00 rồi 9:53 mà không có nhịp "đồng hồ bà chậm" đọc được, nên AI mù thấy thời gian chạy lùi.
+- **Cách dựng (sau):** thứ tự **s45 → s46 → s45c**.
+  - s45: bà xem đồng hồ mình, rồi ngẩng về phía quảng trường (ngoài hình).
+  - s46: insert, 9:53 giữ 0,3 s, vặn lên 10:00.
+  - s45c: POV quảng trường 10:00:00, xác nhận giờ bà vừa nhận.
+  - Giữ ý đồ 9B (vặn 9:53 → 10:00 = nhận giờ mới).
+- Kim giờ ở s46 nay ăn khớp kim phút (1/12). Trước đây kim giờ đi từ 0 s trong khi kim phút còn đứng tới 0,3 s.
+- Bảng giờ theo khung ghi ở `continuity/canh-6.md` mục (d): 9:53 → 9:53:44 → 9:55:35 → 9:57:25 → 9:59:16 → 10:00:00 → quảng trường 10:00:00–10:00:01. Đã kiểm bằng mắt trên khung a/b/c: s46 9:53 / ≈ 9:58 / 10:00, s45c 10:00.
+- Âm: `audio/mix.py` của P đặt tiếng núm và tiếng "tách" theo `T0['s46']`, tiếng tích tắc theo `T0['s45']…T1['s46']`, nên tự theo thứ tự mới. P cần trộn lại.
+- Sheet cũng bỏ chi tiết không có trên hình ("gập nắp"). "Tách" là âm, không phải hình.
+
+## e) Người/bóng hốc vòm
+Không sửa ở layout (dời Cổng 7 theo PLAN.md).
+
+## Render (qua hàng đợi, 960×540, 1 mẫu) và tệp
+| Nhãn | Shot | Khung | Chờ | Chạy |
+|---|---|---|---|---|
+| W2/v4 | s26 158 s · s35 149 s · s38 54 s · s39 273 s · s43 144 s · s45c 40 s · s46 110 s | 488 | 217 s (sau việc nặng của W1) | 932 s |
+- Tệp: `/var/tmp/cine-out/W2/full/timing_s26-s35-s39-s38-s43-s46-s45c.json` và `video_s26-s35-s39-s38-s43-s46-s45c.mp4` (26,3 MB). Trong mp4 và `summary`, shot xếp theo thứ tự định nghĩa (s26, s35, s38, s39, s43, s45c, s46). `assemble.py` cộng khung theo `summary` nên khớp.
+- 22 shot khác không render lại. Ảnh probe mã mới trùng từng điểm ảnh với thumbnail bản render cũ ở khung a/b/c, và kiểm RGB ở trên cho 0.
+- Kiểm trạng thái ẩn qua hàng đợi:
+  - Mặt nạ C3, làn nhanh: 16 lô trước sửa + 16 lô sau sửa, mỗi lô 24–73 s. Có lô vượt 60 s một chút (được đánh dấu QUA-60S), vì máy dùng chung.
+  - RGB, làn nặng: rgb-moi chạy 1313 s; rgb-cu chạy 367 s (lần đầu hỏng vì cây cũ thiếu liên kết `node_modules`); rgb-cu2 chạy 778 s.
+- Làm lại: 0 lần render đầy đủ. s43 thử 2 phương án máy trên probe (dolly 46 m bị loại).
+
+**Ảnh trước/sau:** `v4_b_s43.jpg`, `v4_c_s37w-s39-s38.jpg`, `v4_d_dong-ho.jpg`.
+
+**Rủi ro**
+- (c) Ở s39, miệng Ida không mấp máy trong lúc câu thoại chạy. Khẩu hình thuộc cửa mặt A-i. Cắt ở 106,0 s nằm đúng ranh "ones / who" (whisper). Nếu P muốn cắt sau hết câu (107,0 s) thì s38 chỉ còn 0,4 s, quá ngắn; khi đó nên chia s39.
+- (d) Âm tiếng núm, tiếng "tách" và tích tắc trong `audio/mix.py` tự theo `T0` mới, nhưng P cần trộn lại và nghe kiểm. POV s45c nay đứng sau insert chứ không ngay sau cái ngẩng đầu ở cuối s45. Nhịp nhìn → insert → POV cần kiểm mù lại.
+- (b) Cuối s43 máy đã đẩy khá sâu: khung cuối khác rõ khung mở đầu. Tuy vậy t = 0 vẫn đúng khung mở đầu.
+- Ảnh 4 kiểm mù đổi sang khung 2510 vì s39 dời lên 1,4 s.
+
+**Đang chờ P / chủ dự án:** ghép bằng tệp timing mới; trộn lại âm cảnh 6; duyệt thứ tự (c), (d); kiểm mù lần sau dùng khung ảnh 4 = 2510.

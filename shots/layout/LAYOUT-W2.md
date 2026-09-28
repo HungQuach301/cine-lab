@@ -15,7 +15,11 @@ Continuity: `continuity/canh-4.md`, `canh-5.md`, `canh-6.md`. Manifest Cổng 6:
 | **v3 N2/N7** | `casHug` chặt (vai −12°, khuỷu −112°) ở s41, s42a, s42b; s42b thêm nhịp quay ra vòm + ngồi xổm + đặt đèn xuống nền (1,45–2,0 s), tư thế cuối = tư thế mở s42. | — |
 | **v3 N8** | s43: mọi ô cửa khác kính lạnh; một ô hổ phách nhìn thấy (tia máy–ô không vướng), nền tối, gần giữa khung. | ô nhà Cas cách máy 130,9 m, khung (0,555; 0,453) |
 | **v3 N6** | Đèn lồng Ida cháy liên tục; s30 bỏ nhịp "mở cửa": hắt sáng tăng liên tục 0,012 → 3,0 (0,8–1,85 s), không bật cóc. | — |
-Ảnh: `reports/m2/cong5/w2/v2_B1_…`, `v2_a_…`, `v2_b_…`, `v2_c_…`, `v3_…`. Bảng dưới đã mang mốc hiện hành.
+| **v4 B-i** | Mọi shot W2 là hàm thuần theo t: bản bọc `makeChar` trong `shots_w2.js` đặt gốc (vị trí + hướng) TRƯỚC `setPose` (rig tính hướng đèn lồng thắt lưng theo ma trận gốc đang có → trước đây mang hướng của khung trước). s33 cũng đặt gốc trước. | mặt nạ C3 thẳng vs nối tiếp: s26 133 px → 0, s35 2 px (khung 2136) và 1 px (2148, ×1) → 0; ảnh RGB (> 2/255): s26 301 px (max 99) → 0, s35 145 px (max 192) → 0; 29/29 shot = 0 (cách sửa trùng `mkChar` của W1 @04a738b) |
+| **v4 C-i** | s43: dolly 12 m về ô cửa nhà Cas + 28 → 45 mm, nhìn trôi 70 % về ô. | lõi ô hổ phách ≈ 5 × 9 px → ≈ 10 × 15 px (960 px) |
+| **v4 (c)** | Thứ tự s39 (Ida) → s38 (Cas): câu cuối L4 bắt đầu trên mặt Ida; cắt sang Cas ở 106,0 s (giữa "…ones / who need it"). | s39 101,6–106,0; s38 106,0–107,4; tổng không đổi |
+| **v4 (d)** | Thứ tự s45 → s46 → s45c; kim giờ bỏ túi ăn khớp kim phút. Giờ trên hình chỉ tiến. | xem `continuity/canh-6.md` bảng (d) |
+Ảnh: `reports/m2/cong5/w2/v2_B1_…`, `v2_a_…`, `v2_b_…`, `v2_c_…`, `v3_…`, `v4_…`. Bảng dưới đã mang mốc hiện hành (v4).
 
 ## 1. Tóm tắt
 - **Thời lượng:** 29 shot, 81,5 s (1956 khung), tổng phim 140,5 s (2:20,5). Không đổi id; mốc thoại L3 1:14,0, L4 1:33,0; P5 bật 1:39,2; gạt van 1:47,7; L11 tắt 1:49,2.
@@ -43,19 +47,19 @@ Máy: vị trí → điểm nhìn (m). Hệ toạ độ: cảnh 4 = hệ tườn
 | s36 | 1:31,0–1:33,0 | MCU · 85 | `faceCam` 1,9 m | tĩnh | facelight `gas`, EK 1,3 (C2). |
 | s37 | 1:33,0–1:38,8 | CU · 85 | `faceCam` 1,10 → 0,97 m | đẩy vào rất chậm | như s36 (EK 1,3), máy lệch +10° (C2). |
 | s37w | 1:38,8–1:41,6 | WS · 28 | (17; 1,6; 1,2) → (8,8; 3,6; 0,6) | tĩnh | **V3:** hết tường trống: mặt cuối phố + phố rẽ ở giữa, hông + hốc cửa ở phải. |
-| s38 | 1:41,6–1:43,0 | MS · 50 | (8,75; 2,45; −3,55) → (8,0; 0,95; −5,0) | tĩnh | Cas ở `CAS_LAD` (8,0; −4,98): **hai tay trên hai thanh thang** (v2: tay lơ lửng). |
-| s39 | 1:43,0–1:47,4 | CU · 85 | `faceCam` 0,95 m | tĩnh | facelight `elec`; phơi sáng × 0,8 (C2). Vành mũ đổ bóng lên trán; tường xám sáng sau lưng. Giữ CU gần chính diện (ảnh 4 kiểm mù: khung toàn cục 2531). |
+| s39 | 1:41,6–1:46,0 | CU · 85 | `faceCam` 0,95 m | tĩnh | **(c) v4:** đứng TRƯỚC s38 — "Just…" (1:42,33) bắt đầu trên mặt Ida. facelight `elec`; phơi sáng × 0,8 (C2). Ảnh 4 kiểm mù: khung toàn cục 2510 (khung 72). |
+| s38 | 1:46,0–1:47,4 | MS · 50 | (8,75; 2,45; −3,55) → (8,0; 0,95; −5,0) | tĩnh | **(c) v4:** đứng SAU s39 — Cas phản ứng từ giữa câu ("…who need it."). Cas ở `CAS_LAD` (8,0; −4,98): hai tay trên hai thanh thang. |
 | s40 | 1:47,4–1:50,0 | CU insert · 50 | theo cần van | tĩnh | Nền thấy **hốc cửa ngay sau L11**. `hat_back` 0,35 (liên tục từ s36). |
 | s40w | 1:50,0–1:52,0 | WS · 28 | như s37w | tĩnh | `hat_back` 0,35. |
 | s41 | 1:52,0–1:53,5 | WS · 28 | (12,8; 1,5; 0,6) → (8,2; 1,2; −4,6) | tĩnh | Nền: hông nhà kho + hốc cửa. `hat_back` 0,35. **C3:** Ida (7,9; −4,4) trái, Cas (8,9; −4,6) phải; Cas ôm đèn (`casHug`). |
 | s42a | 1:53,5–1:55,5 | MS · 45 | (10,4; 1,0; −0,6) → (7,6; 0,9; −3,3) | tĩnh | Hốc cửa ở ngay nền (Cas nhìn về nó, trái khung). **C3:** Ida lùi ra (6,8; −2,5), trái khung. **N2:** Cas ôm đèn sát ngực. |
 | s42b | 1:55,5–1:57,5 | WS · 32 | (0,9; 1,25; 8,2) → (0,3; 1,1; 2,0) | tĩnh | Cas ôm đèn (`casHug`, như s41/s42a) đi vào `CAS_BAY` (−0,35; 2,55), quay ra vòm; **N7 (v3):** 1,45–2,0 s ngồi xổm, đặt đèn xuống nền (−0,38; 3,10) — tư thế cuối = tư thế mở s42. |
 | s42 | 1:57,5–2:00,5 | MS · 40 (v2: 32) | (0,55; 0,66; 0,45) → (−0,15; 0,75; 4,5) | tĩnh | **V1:** Cas quay ra vòm, máy sau lưng lệch phải; Ida trái (x +1,25 miệng vòm), Cas phải. Ngoài vòm là phố trắng (bộ khoá cũ: nền đen). |
-| s43 | 2:00,5–2:04,5 | EWS · 28 | bộ khoá s1 | dolly vào rất chậm | **C4:** trời đêm xanh đen có sao, không quầng chân trời. **N8 (v3):** ô cửa khác kính lạnh; một ô hổ phách nhìn thấy, nền tối, khung (0,555; 0,453). |
+| s43 | 2:00,5–2:04,5 | EWS · 28 → 45 | bộ khoá s1 | dolly 12 m + zoom chậm về ô cửa | **C4:** trời đêm xanh đen có sao. **N8:** một ô hổ phách nhìn thấy, nền tối. **C-i (v4):** dolly 12 m về ô + 28 → 45 mm → ô lớn dần (≈ 10 × 15 px cuối shot). |
 | s44 | 2:04,5–2:07,0 | WS · 21 | bộ khoá s6 + 0,5 m | đẩy vào | Ida không đạo cụ đèn lồng. |
 | s45 | 2:07,0–2:09,0 | MS · 50 | 3/4 trước-phải bà, 1,75 m, thấp hơn mắt 0,3 m | tĩnh | Thấy **đồng hồ trong tay + mặt dưới vành mũ** (v2: máy sau vai, không thấy đồng hồ). |
-| s45c | 2:09,0–2:10,5 | CU · 200 | (150; 6,2; 0,4) → mặt đồng hồ | tĩnh | Không đổi. |
-| s46 | 2:10,5–2:13,5 | CU insert · 100 | theo lòng bàn tay | tĩnh | A2 (c): máy hướng (−0,6; 0,1; 0,8) → nền là tường ngõ, không còn đá lát 'chấm bi'. |
+| s46 | 2:09,0–2:12,0 | CU insert · 100 | theo lòng bàn tay | tĩnh | **(d) v4:** đứng TRƯỚC s45c; 9:53 → 10:00, kim giờ ăn khớp kim phút (chỉ tiến). A2 (c): nền tường ngõ. |
+| s45c | 2:12,0–2:13,5 | CU · 200 | (150; 6,2; 0,4) → mặt đồng hồ | tĩnh | **(d) v4:** POV sau s46 — quảng trường 10:00:00, khớp giờ bà vừa vặn. |
 | s47 | 2:13,5–2:15,5 | WS · 28 | (0,1; 1,45; −2,6) → (0; 1,3; 6) | tĩnh | **Bỏ đèn lồng ở hông Ida** (đã trao ở s41; v2 vẫn còn). |
 | s48 | 2:15,5–2:20,5 | WS · 28 | (−1,45; 1,35; −1,55) → (0,45; 1,65; 1,6) | tĩnh; mờ về đen 1,5 s | Render mới. Cas vẫn gần đèn hơn vách (z −0,35; v2 −0,5), tay giơ cao (vai −150°, v2 −98°) → chim nằm TRÊN bóng đầu (v2: chim lẫn vào bóng đầu–thân). |
 
@@ -158,10 +162,12 @@ Cùng một khung s40 trước/sau khi tắt lửa cho đúng cặp "nâu xám /
   - Đề xuất P thêm cột này vào `POST_X` hoặc `sets.js` (bật `WALL_POST_ON`), để s35–s42a thấy nó sáng.
   - Hoặc duyệt dùng P4 (x = 29) làm "cột phố chính cạnh nhà kho" và W2 dời cột trong bộ tường chim ra ngoài khung.
 - **Q-W2-4 — ĐÃ QUYẾT: không quầng trắng chân trời.** luật v0.4 "ánh điện không làm sáng trời". Sương W2 đặt sát mặt phố, không chạm trời. W1 đề xuất "quầng trắng hắt lên trời ở chân trời" — **W2 không làm** vì trái luật; chờ chủ dự án nếu muốn.
-- **Q-W2-5 (mới, v3) — cỡ "một ô hổ phách" ở s43:** ô nhà Cas hiện cách máy 130,9 m, ≈ 6–8 px ở 960 px (≈ 12–16 px ở 1080p), có quầng nhỏ; đọc được khi xem kỹ. W2 không tự đổi khung.
+- **Q-W2-5 — ĐÃ QUYẾT (chủ dự án, AUTHORSHIP @e850c0f): C-i máy đẩy rất chậm** (đã dựng ở v4: dolly 12 m + 28 → 45 mm). Nội dung đề xuất gốc — cỡ "một ô hổ phách" ở s43: ô nhà Cas hiện cách máy 130,9 m, ≈ 6–8 px ở 960 px (≈ 12–16 px ở 1080p), có quầng nhỏ; đọc được khi xem kỹ. W2 không tự đổi khung.
   - (a) Giữ như v3. Ưu: đúng tinh thần EWS lặp khung mở đầu. Nhược: khán giả có thể không bắt được ô. Chi phí 0.
   - (b) Chọn ô gần hơn (30–80 m) trên mặt nhà không bị điện rọi. Ưu: ô to gấp 2–3 lần. Nhược: bộ khoá s1 hầu như không có mặt nhà gần mà nền tối (probe v3: ô 75 m nằm trên tường hồng bị rọi, tương phản kém). Chi phí: 1–2 probe + render s43 (≈ 110 s).
   - (c) Giữ ô, thêm dolly/zoom rất chậm về phía ô trong 4 s. Ưu: dẫn mắt. Nhược: đổi chuyển máy đã duyệt ("cùng khung mở đầu"). Chi phí như (b).
+
+- **(e) người/bóng hốc vòm (s33, s34, 1:18–1:26): không sửa ở layout** — dời Cổng 7 theo tiêu chí trong PLAN.md (quyết định chủ dự án).
 
 ## 7. Rủi ro
 - **R1 (V2 còn lại):** bóng Cas vẫn là dáng một cậu bé (đúng kịch bản "his, small, standing right beside him"). Nay to hơn cậu 1,36×, lệch phải 0,25 m, mềm hơn; bóng Ida lệch trái bà 0,77 m (v3). Cần kiểm mù lần 4 (giai đoạn D) để xác nhận hết đọc "hai cậu bé".
