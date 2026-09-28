@@ -70,6 +70,10 @@
    {
     "t": 1.9,
     "pose": "hai tay đưa lên kính (warmLadder)"
+   },
+   {
+    "t": 1.9,
+    "pose": "đèn lồng thắt lưng vẫn TẮT (mồi ở s04)"
    }
   ],
   "difficulty": {
@@ -96,11 +100,19 @@
    {
     "t": 0.8,
     "pose": "hai tay lên kính (warmLadder)"
+   },
+   {
+    "t": 0.9,
+    "pose": "tay phải hạ sào mồi (đầu đang cháy) về cửa đèn lồng hông trái, tay trái mở cửa đèn lồng"
+   },
+   {
+    "t": 1.2,
+    "pose": "đèn lồng bắt lửa; đóng cửa (tách)"
    }
   ],
   "difficulty": {
-   "level": 2,
-   "why": "Ngắn, xa; chủ yếu giữ bóng đổ khớp tư thế."
+   "level": 3,
+   "why": "Thêm nhịp mồi đèn lồng trên thang (tay + sào + cửa nhỏ) trong 1,5 s ở toàn cảnh; bóng phải khớp."
   },
   "package": "C6-W1-ladder"
  },
@@ -573,7 +585,7 @@
    "ida",
    "cas"
   ],
-  "key_action": "Ida hối hả vác thang tới L11 ở góc cuối phố (còn tối), dựng thang, trèo, thắp. Hổ phách.",
+  "key_action": "Ida hối hả vác thang tới L11 ở góc cuối phố (còn tối), dựng thang, trèo, thắp. Hổ phách. Cas đứng yên ở chân tường chim (casSpot (14,3; −7,15)), nhỏ ở mép phải.",
   "key_poses": [
    {
     "t": 0.0,

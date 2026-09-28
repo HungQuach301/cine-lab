@@ -29,7 +29,8 @@ P3–P5 tắt suốt cảnh 2. Mỗi lần bật: tối, sáng, tắt, sáng, r�
 - **Nguồn sáng:** L6 ấm trên tay. Cột điện chưa bật.
 - **Ida:**
   - vị trí: (79,2; −2,3), mặt −x;
-  - tay: **tay phải** giơ đồng hồ ngang tầm mắt; tay trái buông; đèn lồng cháy hông trái;
+  - tay: **tay phải** giơ đồng hồ ngang tầm mắt; tay trái buông; đèn lồng cháy hông trái (mồi từ s04);
+  - nền đá sau đồng hồ nhoè (groundSoft, thay DOF của insert 105 mm) — không còn đọc "chấm bi";
   - thang: không thấy trong khung. Liên tục: đang vác trên vai phải (s08 → s11).
 
 ## s10e · 0:30,00–0:32,00 · MS chèn, thấp

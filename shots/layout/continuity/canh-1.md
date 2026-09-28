@@ -15,7 +15,7 @@ Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_
   - váy #4a3a44, tất tối; hoa tai nhỏ; búi tóc dưới vành mũ.
 - **Đạo cụ Ida:**
   - thang gỗ ngắn (7 H): khi đi thì vác chéo vai phải, đầu chúc về trước; khi trèo thì tựa phía bắc cột;
-  - đèn lồng thiếc móc ở hông trái, **đang cháy** từ khung đầu s02;
+  - đèn lồng thiếc móc ở hông trái: **TẮT từ s02**; bà mồi lửa từ ngọn L4 ở **s04, khoảng 1,2 s (11,7 s phim)**, rồi **cháy** từ đó về sau (quyết định chủ dự án sau Cổng 5, theo kịch bản 0:12; nhịp tay mồi làm ở Cổng 6);
   - đồng hồ bỏ túi: trong túi, chỉ ra ở s06;
   - sào mồi: **không thấy trong cảnh 1** (xem mục "Chỗ hở" cuối trang).
 - Cas: không xuất hiện.
@@ -36,7 +36,7 @@ Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_
 - **Nguồn sáng:** trời chạng vạng, L3 (có bóng), L1–L2 ở xa, cửa sổ vàng.
 - **Ida:**
   - vị trí: đi từ x = 114,5 tới 110,5 (z = −2,3), mặt hướng −x;
-  - tay: tay phải giữ thang trên vai phải, tay trái vung theo bước; đèn lồng cháy ở hông trái.
+  - tay: tay phải giữ thang trên vai phải, tay trái vung theo bước; đèn lồng **tắt** ở hông trái.
 - **Màn hình:** Ida từ giữa khung trôi sang trái và lớn dần về máy (PHẢI → TRÁI). Máy nhìn chéo lên phố, quảng trường ở hậu cảnh giữa–phải.
 
 ## s03 · 0:08,50–0:10,50 · MS thấp
@@ -51,7 +51,7 @@ Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_
   - 0–0,55 s: hai tay nắm thang;
   - 0,75–1,3 s: tay phải mở van, tay trái nắm thang;
   - từ 1,9 s: hai tay đưa lên kính.
-  - Đèn lồng vẫn ở hông trái.
+  - Đèn lồng ở hông trái, **tắt**.
 - **Màn hình:** máy thấp phía nam hất lên. Ida ở giữa–phải khung, cột L4 bên phải bà.
 
 ## s04 · 0:10,50–0:12,00 · WS cao
@@ -59,6 +59,7 @@ Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_
 - **Nguồn sáng:** L4 có bóng dài của người + thang trên mặt tiền và đá lát.
 - **Ida:** trên thang L4 (106; −4,48; cao 1,55 m).
 - **Tay:** 0 s tay phải ở van; tới 0,8 s hai tay lên kính.
+- **Đèn lồng:** tắt tới 1,2 s; **bắt lửa ở 1,2 s** (11,7 s phim) — nhịp tay nghiêng sào mồi vào cửa đèn lồng, đóng cửa: tư thế Cổng 6.
 - **Màn hình:** máy cao bên kia phố (99,5; 5,2; 3,2). Phố lùi về phải tới quảng trường.
 
 ## s05 · 0:12,00–0:16,00 · MCU 85 mm
@@ -113,5 +114,5 @@ Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_
    - Kịch bản ghi bà "touches in the flame with her lighting pole" và mồi đèn lồng bằng sào.
    - s03 chỉ mở van.
    - Đề xuất cho P: định vị sào khi đi (ví dụ móc dọc thang) trong sheet đạo cụ.
-2. **Đèn lồng** cháy từ s02. Kịch bản đặt nhịp mồi đèn lồng ở L4 (0:12).
-   - Đây là lựa chọn sáng tạo, chờ chủ dự án (xem LAYOUT-W1.md, hàng chờ).
+2. **Đèn lồng:** chủ dự án đã quyết (sau Cổng 5): tắt từ s02, mồi ở L4 (s04 1,2 s) theo kịch bản. Layout đã đổi trạng thái lửa; nhịp tay làm ở Cổng 6.
+3. **Đá lát (c):** viên ngang 0,088–0,136 m (COBBLE_M 2,4 m, cùng W2), đá phiến vỉa hè 0,34–0,71 m (FLAG_M 3,0 m). s06: nền nhoè (groundSoft) thay DOF.

@@ -12,7 +12,7 @@ import { buildGasLamp } from '/cong3/shared/props.js';
 import { buildLadder } from '/cong3/shared/cast.js';
 import { cobbleTex, groundPlane, facadeTex, wallUV, windowUnit, electricLamp, paintedSky } from '/cong3/v2/street.js';
 import { limewashTex, flagTex, glowSprite, rng } from '/cong3/dir-C/common.js';
-import { buildStreetEnd } from './sets_end.js';
+import { buildStreetEnd, END } from './sets_end.js';
 
 export const GRADE_WARM = { gCanvas: 0.012, gVig: 0.26, gLift: 0.02, gSat: 1.0, gShadowTint: [0.45, 0.35, 0.95], gHiTint: [1.0, 0.975, 0.93] };
 export const GRADE_COLD = { gCanvas: 0.012, gVig: 0.24, gLift: 0.02, gSat: 0.95, gShadowTint: [0.30, 0.32, 0.90], gHiTint: [0.98, 0.995, 1.03] };
@@ -26,6 +26,14 @@ export const POST_X = POST_IDX.map((s) => 8 + (10 - s) * 14);
 export const CLOCK = { x: 176, z: 0.5, h: 6.6 };
 // Mốc bật cột tường chim (giây phim) — shots_w1.js gán = common.WALL_POST_ON khi nạp (tránh vòng import sets ↔ common). null = luôn tắt.
 export let WALL_POST_T = null;
+// (c) Tỷ lệ đá lát theo người (quyết định chủ dự án sau Cổng 5): cobbleTex (Cổng 3, khoá) vẽ viên 0,11–0,17 m × hàng 0,105 m trên 3 m.
+// Trải lên nền với COBBLE_M = 2,4 m/lần lặp (= END.cobbleTile của W2) → viên ngang 0,088–0,136 m (TB 0,112 m ≈ 1/14,8 chiều cao Ida 1,66 m = 6,45 H), hàng 0,084 m.
+// Đá phiến vỉa hè: flagTex vẽ tấm 0,45–0,95 m trên 4 m → FLAG_M = 3,0 m → tấm 0,34–0,71 m (hết đọc "cuội to" cạnh người).
+// W2: sets_end.js dùng cobbleTex riêng — nên trải theo cùng COBBLE_M để nền cuối phố khớp.
+export const COBBLE_M = END.cobbleTile ?? 2.4, FLAG_M = 3.0;   // cùng cỡ W2 (sets_end END.cobbleTile) để khớp s38
+// B1 (quyết định chủ dự án sau Cổng 5): cột điện phố chính dời vào sân trước hông nhà kho, tầm vũng sáng ~6 m, khuất sau góc nhà khi nhìn từ phố.
+// Dùng endInfo.wallPost {x, z, range} nếu sets_end.js (W2) trả về; nếu chưa thì dùng số dự phòng của P.
+export const B1_FALLBACK = { casSpot: [14.3, -7.15] };   // chỉ dùng khi sets_end.js chưa trả wallPost (bản cũ)
 export const setWallPostOn = (t) => { WALL_POST_T = t; };
 const switchOnT = (d) => { if (d < 0) return 0; if (d < 0.08) return 1; if (d < 0.16) return 0; if (d < 0.26) return 1; if (d < 0.34) return 0.05; return Math.min(1, (d - 0.34) / 0.1); };   // = common.switchOn
 export const flickAt = (f) => 1 + 0.04 * (0.6 * Math.sin(f * 0.21) + 0.4 * Math.sin(f * 0.083 + 1.3));   // lửa thở ±4 % (luật 2)
@@ -175,7 +183,7 @@ function buildDepth(scene, o, xa, xb, matC, FT, winKind, emit) {
     const east = new THREE.Group(); east.position.set(202, 0, 0); east.rotation.y = -Math.PI / 2; scene.add(east); houses(east, -20, 20, 0, 1, 89, winKind, FT, matC, emit);
     for (const [s, a, b] of [[1, -20, -5.6], [-1, 5.6, 20]]) { const g = new THREE.Group(); g.position.set(162, 0, 0); g.rotation.y = Math.PI / 2; scene.add(g); houses(g, a, b, 0, 1, 90 + s, winKind, FT, matC, emit); }
     const flag = lamMat({ color: '#ffffff', map: flagTex(13, { metres: 4 }) });   // vỉa hè quanh quảng trường
-    scene.add(groundPlane(40, 3.0, flag, 4, { cx: 182, cz: -18.5, y: 0.1 }), groundPlane(40, 3.0, flag, 4, { cx: 182, cz: 18.5, y: 0.1 }));
+    scene.add(groundPlane(40, 3.0, flag, FLAG_M, { cx: 182, cz: -18.5, y: 0.1 }), groundPlane(40, 3.0, flag, FLAG_M, { cx: 182, cz: 18.5, y: 0.1 }));
     // dãy nhà xa sau quảng trường: bậc lên đồi, xếp theo cung (phố cong tiếp về bắc) — các dãy dọc trục z, mặt nhìn về −x (về phố)
     // xoay −90°: cục bộ (a, z) → thế giới (x = −z, z = a); mặt tiền (+z cục bộ) nhìn về −x. Bắc (a < 0) cao hơn nam: sườn đồi.
     const far = new THREE.Group(); far.rotation.y = -Math.PI / 2; depth.add(far);
@@ -202,13 +210,18 @@ export function buildStreetSet(o = {}) {
   const emit = (k) => (tex) => new THREE.MeshBasicMaterial({ map: tex, color: new THREE.Color('#ffffff').multiplyScalar(k), fog: true });
   const FT = [0, 1, 2, 3].map((k) => lamMat({ color: '#ffffff', map: facadeTex(91 + k * 13, { metres: 6, base: ['#e7e2d6', '#e0dacd', '#e9e4da', '#dcd6ca'][k], courseAt: [3.2, 6.1] }) }));
   // nền: đá lát lòng phố + vỉa hè đá phiến + bó vỉa
-  const cob = lamMat({ color: '#ffffff', map: cobbleTex(9) }), flag = lamMat({ color: '#ffffff', map: flagTex(9, { metres: 4 }) });
+  const cobT = cobbleTex(9), flagT = flagTex(9, { metres: 4 });
+  // (c) o.groundSoft = px: nền nhoè thay DOF cho INSERT tiêu cự dài (s06, s09w). 100 mm lấy nét 0,32 m → nền cách 1–2 m có vòng nhoè ≈ 1/3 khung
+  // (quang học thật); previs không có DOF nên viên đá sắc nét đọc thành "chấm bi". Lấy mẫu kết cấu xuống px/lần lặp. Cổng 7 thay bằng DOF thật.
+  const soft = (t, px) => { const cv = document.createElement('canvas'); cv.width = cv.height = px; cv.getContext('2d').drawImage(t.image, 0, 0, px, px);
+    const n = new THREE.CanvasTexture(cv); n.colorSpace = THREE.SRGBColorSpace; n.wrapS = n.wrapT = THREE.RepeatWrapping; return n; };
+  const cob = lamMat({ color: '#ffffff', map: o.groundSoft ? soft(cobT, o.groundSoft) : cobT }), flag = lamMat({ color: '#ffffff', map: o.groundSoft ? soft(flagT, o.groundSoft) : flagT });   // (c): trải theo COBBLE_M, FLAG_M
   const L = x1 - x0, cx = (x0 + x1) / 2;
-  scene.add(groundPlane(L, 7.2, cob, 3, { cx, cz: 0 }));
-  for (const s of [-1, 1]) { scene.add(groundPlane(L, 2.0, flag, 4, { cx, cz: s * 4.6, y: 0.12 }));
+  scene.add(groundPlane(L, 7.2, cob, COBBLE_M, { cx, cz: 0 }));
+  for (const s of [-1, 1]) { scene.add(groundPlane(L, 2.0, flag, FLAG_M, { cx, cz: s * 4.6, y: 0.12 }));
     const kerb = new THREE.Mesh(new THREE.BoxGeometry(L, 0.14, 0.2), matC('#9d968c')); kerb.position.set(cx, 0.06, s * 3.65); kerb.receiveShadow = true; scene.add(kerb); }
   // quảng trường (+x): khoảng đá lát rộng
-  if (x1 > 150) scene.add(groundPlane(44, 40, cob, 3, { cx: 182, cz: 0, y: 0.005 }));   // W1: cổng 150 (trước 165) — mọi shot nhìn tới đầu phố đều thấy quảng trường
+  if (x1 > 150) scene.add(groundPlane(44, 40, cob, COBBLE_M, { cx: 182, cz: 0, y: 0.005 }));   // W1: cổng 150 (trước 165) — mọi shot nhìn tới đầu phố đều thấy quảng trường
   // nhà hai bên; cửa sổ: chạng vạng → vài ô vàng; đêm → phần lớn tối, vài ô vàng
   const winKind = (Rh) => (Rh() < (o.sky === 'dusk' ? 0.16 : 0.07) ? 'gold' : 'dark');   // v2: đêm — phần lớn cửa sổ tối
   // nhà kho cuối phố: tường vôi trắng chắn ngang (−x)
@@ -250,17 +263,9 @@ export function buildStreetSet(o = {}) {
   // cột điện ở quảng trường (bật cùng đồng hồ)
   // Q-W2-3 (P): cột điện PHỐ CHÍNH cạnh góc nhà kho = cột bật lúc 1:04 (WALL_POST_ON) của bộ tường chim (sets2.WALL.post, hệ tường (3,3; 3,9)
   // → thế giới (13,5; −4,2), xoay π/2 + 0,35). Không thuộc POST_X (POST_X giữ nguyên). Chỉ dựng khi đoạn phố có cuối phố (endInfo).
-  // Mặc định chỉ bóng đèn + loá bật (nguồn thấy được); PointLight chỉ bật khi o.wallPostLight = true (không tự đổi ánh sáng các shot W2 góc tối).
-  let wallPost = null;
-  if (endInfo && endInfo.toWorld) {
-    const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
-    const E = electricLamp(6.2, matC, bulbM); const wp = endInfo.toWorld(new THREE.Vector3(3.3, 0, 3.9));
-    E.group.position.set(wp.x, 0.12, wp.z); E.group.rotation.y = Math.PI / 2 + 0.35; scene.add(E.group);
-    E.group.updateMatrixWorld(true); const hp = E.head.clone().applyMatrix4(E.group.matrixWorld);
-    const Lt = new THREE.PointLight(ELEC.color, 0, 34, 1.2); Lt.position.copy(hp); scene.add(Lt);
-    const gl = glowSprite('#dfe8ff', 0.0, 2.6); gl.position.copy(hp); scene.add(gl); const gz = elecGlare(hp); scene.add(...gz.list);
-    wallPost = { E, L: Lt, bulbM, gl, gz, hp, x: wp.x, z: wp.z };
-  }
+  // B1 (W2 A2): cột điện phố chính trong sân trước hông nhà kho do sets_end.js DỰNG (endInfo.wallPost = {x, z, range, ry, set, group, light}).
+  // sets.js chỉ điều khiển bật/tắt theo WALL_POST_T (cột cũ W1 ở (13,5; −4,2) đã BỎ — tránh hai cột). o.wallPostLight === false: tắt ánh, giữ bóng đèn + loá.
+  const wallPost = endInfo && endInfo.wallPost && endInfo.wallPost.set ? endInfo.wallPost : null;
   const squarePosts = [];
   if (x1 > 150) for (const [px, pz] of [[166, 8], [166, -8], [188, 9], [188, -9]]) {
     const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
@@ -284,14 +289,13 @@ export function buildStreetSet(o = {}) {
     for (const p of posts) { if (!p) continue; const e = st.post(p.k) ?? 0;
       p.L.intensity = ELEC.cd * e; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); p.gz.set(e); white = Math.max(white, e * (st.nearPost ? st.nearPost(p) : 1)); }
     if (wallPost) { const e = st.wallPost !== undefined ? st.wallPost : (WALL_POST_T === null || f === undefined ? 0 : switchOnT(f / 24 - WALL_POST_T));
-      wallPost.L.intensity = o.wallPostLight ? ELEC.cd * e : 0; wallPost.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), e);
-      wallPost.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * e); wallPost.gz.set(e); }
+      wallPost.set(e); if (o.wallPostLight === false && wallPost.light) wallPost.light.intensity = 0; }
     const sq = st.square ?? 0;
     for (const p of squarePosts) { p.L.intensity = ELEC.cd * sq; p.bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), sq); p.gl.material.color.set('#dfe8ff').multiplyScalar(0.55 * sq); p.gz.set(sq); }
     if (clock) clock.userData.setOn(st.clock ?? 0);
     whiteHemi.intensity = (st.whiteFill ?? white) * 0.9;   // trắng tràn phẳng (mức v1). v2 thử 0,32 ban đêm → ở 0:40–0:42 bóng dài của đèn khí L7 còn nguyên, trái kịch bản; trả về 0,9. Dấu hiệu đêm nay do trời sao + sương tối
   }
-  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth, wallPost };
+  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth, wallPostCtl: wallPost };   // KHÔNG trả `wallPost`: shots_w2 coi st.wallPost là cột W1 cũ (đã bỏ) và ẩn nó
 }
 
 // Vệt tối tiếp xúc (decal mờ dưới chân) — dùng cho mọi bộ ngoài phố.
