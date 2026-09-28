@@ -9,7 +9,7 @@ import { cobbleTex, groundPlane, electricLamp, paintedSky, windowUnit } from '/c
 import { limewashTex, glowSprite, planarUV, rng } from '/cong3/dir-C/common.js';
 import { GAS, ELEC, lamMat, flickAt, contactBlob, nightSky, elecGlare, houses, ladderOf } from './sets.js';
 import { buildEndWallFrame, makeKit, END } from './sets_end.js';
-import { patch as patchS5 } from '/cong3/v2/s5.js';
+import { patch as patchS5, U } from '/cong3/v2/s5.js';
 import { rng as rngU } from '/cong3/dir-C/common.js';
 
 // ================= THÀNH PHỐ (s1) =================
@@ -63,12 +63,22 @@ export async function buildCitySet(ctx, mode, tm = {}) {   // tm: { square, t0 }
     // MỘT ô cửa vàng (nhà Cas): chọn một ô cửa thật của thành phố gần giữa khung (lưới cửa sổ gộp: mỗi ô 6 đỉnh)
     let winMesh = null; scene.traverse((o) => { if (o.isMesh && o.material && o.material.vertexColors && o.material.type === 'MeshBasicMaterial') winMesh = o; });
     if (winMesh) { const pos = winMesh.geometry.attributes.position, col = winMesh.geometry.attributes.color; cam.updateMatrixWorld(true);
-      let best = -1, bd = 1e9; const c = new THREE.Vector3();
+      let best = -1; const c = new THREE.Vector3(); const cand = []; const wW = [...whites, ...sqW].map((w) => w.L.position.clone()), wP = wW.map((w) => w.clone().project(cam));
       for (let k = 0; k + 5 < pos.count; k += 6) { c.set(0, 0, 0); for (let q = 0; q < 6; q++) c.add(new THREE.Vector3(pos.getX(k + q), pos.getY(k + q), pos.getZ(k + q))); c.multiplyScalar(1 / 6);
-        const d = c.distanceTo(cam0); if (d < 60 || d > 130) continue; const n = c.clone().project(cam); const e = Math.hypot(n.x - 0.12, n.y + 0.05); if (n.z < 1 && e < bd) { bd = e; best = k; } }
-      if (best >= 0) { for (let q = 0; q < 6; q++) col.setXYZ(best + q, 3.4, 1.9, 0.8); col.needsUpdate = true;
+        const d = c.distanceTo(cam0); if (d < 55 || d > 140) continue; const n = c.clone().project(cam); if (n.z >= 1 || Math.abs(n.x) > 0.8 || Math.abs(n.y) > 0.8) continue;
+        if (wP.some((w) => Math.hypot(w.x - n.x, w.y - n.y) < 0.1)) continue;   // xa chấm đèn điện trắng (không lẫn vào quầng trắng)
+        if (wW.some((w) => w.distanceTo(c) < 24)) continue;   // mặt nhà KHÔNG bị đèn điện rọi (≥ 24 m): nền tối để ô hổ phách nổi
+        cand.push([Math.hypot(n.x - 0.05, n.y - 0.02), k, c.clone(), d]); }
+      // v3 (N8): ô chọn ở v2 bị nhà phía trước che (không thấy trên khung) → chỉ nhận ô NHÌN THẤY: tia từ máy tới tâm ô không vướng tường/mái (mặt cửa hướng về máy).
+      cand.sort((a, b) => a[0] - b[0]); const occ = []; scene.traverse((o) => { if (o.isMesh && o !== winMesh && o.visible && o.geometry.attributes.position.count > 500) occ.push(o); });
+      const rc = new THREE.Raycaster(); for (const [, k, cc, d] of cand.slice(0, 200)) { rc.set(cam0, cc.clone().sub(cam0).normalize()); rc.far = d - 0.4; if (rc.intersectObjects(occ, false).length === 0) { best = k; break; } }
+      // Cổng 5 (continuity N8): mọi ô cửa khác tối lạnh; MỘT ô (nhà Cas) hổ phách sáng + quầng — đọc được 'một ô vàng giữa thành phố trắng' (luật v0.5 mục 5).
+      for (let i = 0; i < col.count; i += 6) { const L = 0.2126 * col.getX(i) + 0.7152 * col.getY(i) + 0.0722 * col.getZ(i); const dn = Math.hypot(pos.getX(i) - cam0.x, pos.getZ(i) - cam0.z); const k = dn < 70 ? 1.3 : L > 0.1 ? 0.55 : 0.2 + 2 * L;   // v3: kính lạnh — ô gần (< 70 m, mặt nhà bị điện rọi loá): ánh điện trắng lạnh trong nhà (ô tối bị quầng tường vôi ấm nhuộm hồng); ô xa từng sáng: trắng lạnh; ô xa tối: xanh xám
+        for (let q = 0; q < 6; q++) col.setXYZ(i + q, k * 0.7, k * 0.86, k * 1.5); }
+      if (best >= 0) { for (let q = 0; q < 6; q++) col.setXYZ(best + q, 2.4, 1.05, 0.28); col.needsUpdate = true; console.log('W2 s43 ô cửa nhà Cas', best, JSON.stringify(cam0));
         c.set(0, 0, 0); for (let q = 0; q < 6; q++) c.add(new THREE.Vector3(pos.getX(best + q), pos.getY(best + q), pos.getZ(best + q))); c.multiplyScalar(1 / 6);
-        const gg = glowSprite('#ffae5c', 1.2, 3.0); gg.position.copy(c); scene.add(gg); } }
+        const gg = glowSprite('#ff9a3c', 1.3, 3.2), gw = glowSprite('#ff8a3a', 0.4, 10); const cF = c.clone().add(cam0.clone().sub(c).normalize().multiplyScalar(0.6)); gg.position.copy(cF); gw.position.copy(cF); scene.add(gg, gw);
+        const n = c.clone().project(cam); console.log('W2 s43 ô cửa nhà Cas trên khung', ((n.x + 1) / 2).toFixed(3), ((1 - n.y) / 2).toFixed(3), c.distanceTo(cam0).toFixed(1)); } }
     }
   }
   const update = (t, T) => {
@@ -142,6 +152,9 @@ export async function buildBaySet(ctx, dbg = {}, o = {}) {
 // Địa lý (khớp bộ phố): hốc ở hông nhà kho, tâm x = 2,2 thế giới → hệ hốc: x_b = x − 2,2; z_b = z + 12,1. Trước vòm: sân lát 2,5 m, rồi vỉa hè + lòng phố;
 // dãy bắc (z_b 6,5, từ x_b 12,8 — đầu hồi nhìn −x), dãy nam bên kia phố (z_b 17,7, mặt nhìn −z); L11 + thang ở (5,8; 8,2) — o.l11On: lửa còn cháy (cảnh 5 trước 1:52).
 export function addBayStreet(scene, o = {}) {
+  // Cổng 5 (continuity C5): trước khi P5 bật (1:39,2) góc hốc cửa NGOÀI vũng sáng cột sân (≈ 14 m > 8,5 m) → ngoài vòm TỐI:
+  // o.dark = true: ánh điện phẳng uEo hạ về ánh trời đêm + ánh xa (×0,05); L11 (còn cháy) rọi mặt tiền bằng nguồn điểm ấm thật.
+  if (o.dark) { U.uEo.value.set('#d4e2f4').multiplyScalar(5.0 * 0.05); const fl = new THREE.PointLight('#ffae5c', 7.0, 0, 2); fl.position.set(5.8, 3.3, 8.2); scene.add(fl); scene.add(new THREE.HemisphereLight('#34408a', '#100e1a', 0.22)); }
   // Cổng 5 (continuity N4): bộ khoá s5 có một cột điện gang (x 3,45; z 4,9) cạnh vòm — không tồn tại ở địa lý chốt (s27, s35, s41 không có) → ẩn.
   scene.traverse((m) => { if (m.isMesh && Math.abs(m.position.x - 3.45) < 0.01 && Math.abs(m.position.z - 4.9) < 0.01) m.visible = false; });
   const P = (o) => patchS5(new THREE.MeshLambertMaterial(o));

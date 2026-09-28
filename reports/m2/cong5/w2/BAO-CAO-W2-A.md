@@ -125,3 +125,41 @@ Rủi ro còn lại:
 - Trong video nhóm canh5 là khung thứ 611 (đếm từ 0).
 - Ảnh: `anh4_s39_khung2531.jpg`. Máy tĩnh, mặt gần chính diện, vành mũ đổ bóng lên trán.
 - Khung 2506 báo ở A2 cũng nằm trong câu (104,42 s) nhưng gần đầu cụm hơn.
+
+# Giai đoạn continuity v3 — sửa theo rà continuity v2 (C5, N2, N3, N6, N7, N8, N9)
+Đã merge nhánh tích hợp @dee0bd3 (kèm báo cáo rà @67691da). Làm đúng trình tự P yêu cầu: `node --check` và probe sau lần sửa mã cuối, rồi mới render. Sau render chỉ sửa chữ mô tả trong `S({...})` (why/light/action/move); probe lại s33, s42b: ảnh trùng từng điểm ảnh với bản render.
+
+| Mục | Trước (v2) | Sau (v3) |
+|---|---|---|
+| **C5** (chặn) s33 | Ngoài vòm trắng phẳng: mặt tường quanh vòm TB (217, 217, 221) | `addBayStreet({dark})`: tràn điện xa × 0,05 (như s35), hổ phách L11 từ phải (nguồn điểm thật ở chỗ L11), trời lạnh 0,22. Mặt tường TB: trái (48, 46, 52), phải (91, 69, 61); trong hốc (146–166, 90–98, 44–46). Trong hốc vàng, ngoài vòm đêm lạnh tối. s34 dùng cùng ánh sáng; không thấy ngoài vòm. s42b, s42 (sau P5) giữ ngoài vòm trắng. |
+| **N3** s33 | Ida đứng chồng lên nửa phải bóng của bà | Quang học thật: đèn lồng dời từ x −0,05 sang 0,2; Cas từ 0,75 sang 0,9; máy dịch trái 0,4 m (trước: phải 0,6 m). Bóng Ida lệch trái bà 0,77 m (trước 0,53 m), ×1,94. Bóng Cas lệch phải 0,25 m, ×1,36. Trên khung c: đầu và vành mũ của bóng nằm trên-trái người, tách khỏi thân. |
+| **N2** s41 → s42b | s42a ôm ngực; s42b chìa ra trước, rồi xách bên hông | `casHug` chặt (vai −12°, khuỷu −112°): cổ tay trước ngực, đèn áp bụng. Dùng chung cho s41, s42a, s42b (khi đi). |
+| **N7** s42b → s42 | Cuối s42b đứng xách đèn, đầu s42 đã ngồi xổm với đèn trên nền | s42b: đi 0–1,3 s; quay ra vòm 1,1–1,5 s; ngồi xổm 1,45–2,0 s về `warm_hands_copy` (đúng tư thế mở s42); đặt đèn xuống nền 1,6–2,0 s tại (−0,38; 3,10), đúng chỗ đèn ở s42. Khung c: Cas ngồi, đèn trên nền, bóng lớn trên vách. |
+| **N6** s30 | "Mở cửa đèn" 0,012 → 0,8 bật cóc ở 0,95 s rồi lên 3,0 | P chọn đèn cháy liên tục. Hình s26/s27 để nguyên: kính đèn ở hông sáng, hông khuất máy. Chỉ s30 bị lệch trên hình vì vũng sáng bật cóc khi tháo đèn. Nay hắt sáng tăng liên tục 0,012 → 3,0 trong 0,8–1,85 s: đèn ra khỏi thân bà rồi hạ sát tường. Sheet bỏ mọi chữ "mở/đóng cửa". |
+| **N8** s43 | Ô được chọn bị nhà phía trước che; mặt tiền có hàng chục ô "nâu cam" (ô tối bị quầng tường vôi ấm nhuộm) | Ô cửa khác đều là kính lạnh: ô gần (< 70 m) trắng lạnh, ô xa từng sáng trắng lạnh, ô xa tối xanh xám. Một ô hổ phách được chọn theo điều kiện: nhìn thấy (tia máy–ô không vướng), xa chấm đèn điện trắng, mặt nhà ngoài tầm đèn điện (nền tối), cách máy 55–140 m. Ô được chọn cách máy 130,9 m, tại khung (0,555; 0,453). |
+| **N9** sheet | Số cũ sau A2 | `canh-4.md` viết lại bảng toạ độ theo B1: casSpot (14,3; −7,15), cột trong sân (17,0; −5,9), đầu hồi x 18,5, Cas → L11 7,1 m. Máy s25–s32 đã cộng DX. Bỏ "ống thoát nước" ở s25 (không có trên hình). Lịch đèn lồng theo N6. `canh-5.md`: 1:20,0–2:00,5; P5 1:39,2; L11 tắt 1:49,2; nhịp s33 5 s; bảng "ai giữ đèn lồng, cầm thế nào"; C5. `canh-6.md`: 2:00,5–2:20,5; L11 tắt 1:49,2; N8. `LAYOUT-W2.md`: §0 thêm các dòng v3; §1 140,5 s; §2 cột thời gian và máy; §5 `houseX0N` 18,5, `casSpot`, `wallPost`; §7 R1/R2/R6. `shots_w2.json` sinh lại (29 shot, 1956 khung). |
+
+**Render** (1 lệnh qua hàng đợi, 960×540, 1 mẫu). Chỉ render các shot đổi: s30, s33, s34, s41, s42a, s42b, s43. s42 không đổi mã nên không render lại.
+| Nhãn | Khung | Chờ | Chạy | Theo shot (s) |
+|---|---|---|---|---|
+| W2/cv3 | 444 | 0 s | 569 s | s30 131 · s33 112 · s34 55 · s41 46 · s42a 64 · s42b 49 · s43 110 |
+
+- Tệp mới ở `/var/tmp/cine-out/W2/full/`: `timing_s30-s33-s34-s41-s42a-s42b-s43.json` và `video_s30-s33-s34-s41-s42a-s42b-s43.mp4` (27,6 MB). Tệp timing mới hơn thắng khi ghép.
+- **Làm lại: 0.** Probe trung gian: 4 vòng cho s43 (chọn ô), 2 vòng cho s33 (mức tối). Kết quả probe cuối trùng bản render.
+
+**Lệnh kiểm của K** (`checks/run.py <video> --profile shot`, qua hàng đợi W2/cv3-kiem: chờ 0 s, chạy 18 s) trên video nhóm mới. Kết quả chép ở `reports/m2/cong5/w2/kiem-v3/`. Không sửa luật.
+- ĐẠT: N1, N2, P0, G3.
+- TRƯỢT: G3b (grain). σ shot lớn nhất / nhỏ nhất = 1,713 (ngưỡng ≤ 1,3); tương quan khung kề cao nhất 0,603 ở s34 (ngưỡng ≤ 0,5). s41 0,541 và s42a 0,538 cũng vượt. Đây là lỗi sẵn có của layout, chưa có khâu grain; bản ghép của P (`reports/checks/layout-cong5`) cũng trượt G3b. Việc này thuộc khâu hoàn thiện, không phải lỗi mới của v3.
+- Chỉ số trong ±5 % quanh ngưỡng: không có.
+- THIẾU (thiếu đầu vào, như bản ghép): P1, G4, J1, J1b, H1, H1b, C3, O3.
+
+**Ảnh trước/sau** (`reports/m2/cong5/w2/`): `v3_C5-N3_s33.jpg`, `v3_N2-N7_s42a-s42b-s42.jpg`, `v3_N6_s30.jpg`, `v3_N8_s43.jpg` (có ảnh phóng vùng ô cửa).
+
+**Rủi ro**
+- N8: ô hổ phách chỉ khoảng 6–8 px ở 960 px (12–16 px ở 1080p), cộng quầng nhỏ. Đọc được khi xem kỹ, nhưng ở EWS có thể vẫn nhỏ với khán giả. Nếu cần ô lớn hơn (chọn ô gần hơn hoặc thêm dolly vào ô) thì đó là quyết định khung hình. Đã ghi thành đề xuất Q-W2-5 trong `LAYOUT-W2.md` §6 (PLAN.md do P giữ), W2 không tự đổi.
+- N8: các ô gần (< 70 m) nay trắng lạnh, hoà vào mặt tường bị điện rọi loá. Mặt tiền gần gần như không còn thấy ô cửa.
+- C5: s33 dùng nguồn điểm ấm 7 cd ở chỗ L11 để thay ánh L11 của bộ phố. Mức này căn bằng mắt theo s35, chưa đo cùng máy với s35.
+- N3: s34 (máy riêng) vẫn có bóng Ida sau-phải bà, chạm mép thân. Báo cáo rà đã chấm s34 đạt; W2 không đổi máy s34.
+- N6: W1 s23–s24c cần giữ đèn hông sáng; hình W2 đã khớp. s26 vẫn ở mức hắt 0,012 (đèn khuất sau thân), không đổi mặt đã duyệt C2.
+
+**Đang chờ P / chủ dự án:** duyệt các mục v3; quyết định cỡ ô hổ phách s43 (rủi ro N8); ghép tệp timing mới.
