@@ -9,7 +9,7 @@ Continuity: `continuity/canh-4.md`, `canh-5.md`, `canh-6.md`. Manifest Cổng 6:
 | **B1** | Cột điện phố chính vào sân (17,0; −5,9), tầm 8,5 m; casSpot (14,3; −7,15); dãy bắc từ x = 18,5; bộ tường dời mọi dấu cảnh 4 +3,95 m; bỏ trắng tràn toàn cục. `endInfo.wallPost = {x, z, range, ry, set, group, light}`, `endInfo.casSpot`. | đầu đèn → tường chim 5,2 m (trong vũng); → lửa L11 9,5 m (ngoài tầm 8,5) |
 | **(a)** | s33 7,0 → 5,0 s (tổng phim 140,5 s); dolly 0,9 m + dịch ngang 0,6 m; phơi sáng s33/s34 1,5. | lệch tổng −2,0 s (trong ±5 s) |
 | **(b)** | Kính L11 sau khi tắt: tối đục ở s40w, s41, s42a. | vùng lồng đèn s40w: TB độ sáng 73,5 → 54,7 (/255) |
-| **(c)** | Đá lát bộ tường, hốc cửa (phố ngoài), phố rẽ, sân: trải 2,4 m/tile (trước 3 m); ngõ (bộ khoá s6) lặp 1,25×. | viên 0,09–0,14 m, TB 0,11 m ≈ 1/14,5 chiều cao Ida (1,62 m); s46 đo ≈ 0,08 m |
+| **(c)** | Đá lát bộ tường, hốc cửa (phố ngoài), phố rẽ, sân: trải 2,4 m/tile (trước 3 m); ngõ (bộ khoá s6) lặp 1,25×. | viên 0,09–0,14 m, TB 0,11 m ≈ 1/14,5 chiều cao Ida (1,62 m); s46: đổi máy (hướng (−0,6; 0,1; 0,8)) → nền là tường ngõ, không còn đá lát trong khung (`v2_c_s46.jpg`) |
 Ảnh: `reports/m2/cong5/w2/v2_B1_…`, `v2_a_…`, `v2_b_…`, `v2_c_…`. Từ 1:25,0 mọi mốc lùi 2,0 s.
 
 ## 1. Tóm tắt

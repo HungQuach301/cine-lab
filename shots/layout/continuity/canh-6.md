@@ -35,7 +35,7 @@ Gói W2, Cổng 5, luật O1. Bộ cảnh: thành phố (s43, `buildCitySet 'nig
 - Máy (150; 6,2; 0,4) nhìn mặt đồng hồ quảng trường (176; 6,6; 0,5). Mặt đồng hồ: 10:00 (kim phút chạy 6°/phút theo t).
 
 ## s46 · 2:12,50–2:15,50 · CU insert 100 mm
-- Máy theo lòng bàn tay phải, hướng (0,2; 0,8; 0,55), cách 0,32 m.
+- Máy theo lòng bàn tay phải, hướng **(−0,6; 0,1; 0,8)** (A2, chủ dự án: bỏ nền đá lát 'chấm bi'), cách 0,32 m, 100 mm: máy gần ngang, nền sau đồng hồ là **tường vôi ngõ** được ánh cửa sổ rọi; mặt đồng hồ sáng ấm, kim đọc rõ. Bản trước: hướng (0,2; 0,8; 0,55) chúc xuống, nền là đá lát. Ảnh: `reports/m2/cong5/w2/v2_c_s46.jpg`.
 - **Tay Ida:** ngón cái vặn núm; kim 9:53 → 10:00 (0,3–2,2 s); gập nắp; **không gõ kính**.
 
 ## s47 · 2:15,50–2:17,50 · WS 28 mm · tĩnh
