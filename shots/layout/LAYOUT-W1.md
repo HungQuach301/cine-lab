@@ -58,9 +58,9 @@ Tiêu cự là mm tương đương full-frame (FOV dọc = 2·atan(12/f)). Vị 
 | s19 | 45,0–47,5 | 2,5 | WS | 35 | (41; 1,7; 1,0) → (53; 3; −0,5) | tĩnh | L8 nở, bóng dài; P3 bật, bóng tan; **phố dựng tới quảng trường** | Ida T; trắng đuổi từ P |
 | s21 | 47,5–49,5 | 2,0 | MCU tay | 85 | (20,1; 3,1; −2,3) → (22; 3; −4,5) | tĩnh | trèo nhanh (**trong khung từ khung đầu**), tuột sào, chụp lại | 3/4, cột P |
 | s22 | 49,5–52,5 | 3,0 | MCU | 85 | faceCam lệch −12°, 1,2 m, đặt một lần | **tĩnh** (v2 trôi) | L2; tay phải trên van; L10 bắt lửa ở khung cuối | 3/4, bà nhìn lên lồng |
-| s23 | 52,5–55,5 | 3,0 | WS | 28 | **(24,5; 1,5; 3,6) → (4,5; 2,0; −1,8)** (`S23_CAM`, giai đoạn C) | tĩnh | Ida **vác thang** chạy từ vũng trắng vào góc tối, tới L11, dựng thang, trèo, thắp; P5 và cột tường chim tắt; mặt vôi nhà kho 15,5 % khung | Ida chạy vào chiều sâu, về cuối phố (giữa khung) |
-| s24 | 55,5–57,5 | 2,0 | MS hơi cao | 35 | **(15,5; 2,3; 2,5) → (8,5; 2,1; −5,0)** (giai đoạn C) | tĩnh | đếm ba lần 2; Cas nhỏ ở chân tường chim (casSpot W2); cột tường chim (tắt) ở tiền cảnh phải | Ida T–giữa, Cas P |
-| s24c | 57,5–59,0 | 1,5 | MS | 50 | **(cx − 0,03; 1,05; cz + 2,1) → (cx; 0,95; cz)** = (10,32; 1,05; −5,05) → (10,35; 0,95; −7,15) | tĩnh | 3/4 trước Cas; tường chim sau lưng, bóng Cas đổ phải; mặt ấm vì L11 | Cas giữa–trái, nhìn sang T (về Ida) |
+| s23 | 52,5–55,5 | 3,0 | WS | 28 | **(27,0; 1,5; 3,8) → (4,5; 2,0; −1,5)** (`S23_CAM`, A2) | tĩnh | Ida **vác thang** chạy từ vũng trắng vào góc tối, tới L11, dựng thang, trèo, thắp; Cas đứng ở chân tường chim (casSpot (14,3; −7,15)); P5 và cột sân trước (17,0; −5,9) tắt; mặt vôi 18,5 % | Ida chạy vào chiều sâu, về cuối phố (giữa khung) |
+| s24 | 55,5–57,5 | 2,0 | MS hơi cao | 30 | **(11,2; 2,1; 1,8) → (10,5; 1,8; −5,8)** (A2) | tĩnh | đếm ba lần 2; Cas nhỏ ở chân tường chim (casSpot (14,3; −7,15)); bóng Ida + thang trên tường | Ida T, Cas P |
+| s24c | 57,5–59,0 | 1,5 | MS | 50 | **3/4 trước Cas, lệch −35° khỏi hướng nhìn về L11, cách 2,1 m** → (14,3; 0,95; −7,15) (A2) | tĩnh | Cas ở chân tường chim; mặt ấm yếu (L11 cách 7,1 m); không có bóng Ida/thang | Cas giữa–trái, nhìn sang T (về Ida) |
 
 **Trục 180°.** Máy ở phía nam phố ở mọi shot, trừ s12. s12 đặt ngay trên trục nhìn dọc phố lên quảng trường (giống v2, qua vai). Ida đi P → T ở s02, s07, s15. Sóng trắng tới từ P (s12, s19) hoặc từ hậu cảnh.
 
@@ -86,7 +86,7 @@ Tiêu cự là mm tương đương full-frame (FOV dọc = 2·atan(12/f)). Vị 
 | s21 | Bắt đầu trèo ở bậc cao hơn | v2: 0,5 s đầu khung không có người |
 | s22 | Bỏ nhịp xoè hai tay cuối shot; tay phải giữ van tới khi lửa bắt | Liên tục sào mồi (s21 cầm sào tay phải → s22 sào ở tay trái ngoài khung) |
 | s23 | Ida vác thang khi chạy, dựng thang ở 1,1 s; máy cố định `S23_CAM` hơi lệch T | v2: chạy tay không trong khi thang đã tựa sẵn. Máy cố định để W2 dựng cuối phố đúng khung |
-| s24, s24c | Vị trí Cas đọc từ `endInfo.casSpot` (W2: (10,35; −7,15)). Giai đoạn C: máy s24 dựng lại để có cả Ida (T) và Cas (P); máy s24c 3/4 trước, Cas nhìn T | W2 đặt Cas ở phía +x của L11 → từ máy phía nam Cas ở PHẢI Ida (khớp quy ước cảnh 4–5 "Ida trái, Cas phải"). Máy giai đoạn A (14,5; 2,4; 3,0) để Cas ra ngoài khung (u = 1,09) |
+| s24, s24c | Vị trí Cas đọc từ `endInfo.casSpot` (W2 A2: (14,3; −7,15)). A2: máy s24 (11,2; 2,1; 1,8) 30 mm có cả Ida (T) và Cas (P); máy s24c 3/4 trước, Cas nhìn T | W2 đặt Cas ở phía +x của L11 → từ máy phía nam Cas ở PHẢI Ida (khớp quy ước cảnh 4–5 "Ida trái, Cas phải"). Giai đoạn C dùng casSpot (10,35; −7,15); B1 dời sang (14,3; −7,15) |
 
 Không đổi: s01, s03, s06, s09w, s10, s11 (chỉ hưởng thay đổi bộ phố).
 
