@@ -878,24 +878,24 @@
   "characters": [
    "ida"
   ],
-  "key_action": "Ida lấy đồng hồ (9:53), nhìn, rồi ngẩng về phía miệng ngõ.",
+  "key_action": "Ida cúi nhìn đồng hồ trong lòng tay (9:53, mặt số quay về bà), rồi quay đầu + vai nhìn qua vai về miệng ngõ — phía quảng trường (dẫn tới POV s45c).",
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "watchHold"
+    "pose": "watchHold, cúi nhìn đồng hồ"
    },
    {
     "t": 1.0,
-    "pose": "giữ"
+    "pose": "bắt đầu quay"
    },
    {
-    "t": 1.6,
-    "pose": "ngẩng đầu (cổ −14°)"
+    "t": 1.8,
+    "pose": "cổ quay 50°, thân xoay 20°, ngẩng nhẹ — nhìn phải khung, vào sâu"
    }
   ],
   "difficulty": {
    "level": 3,
-   "why": "Đồng hồ bám lòng bàn tay phải; ánh nhìn đổi đích."
+   "why": "Đồng hồ cùng vị trí/hướng như insert s46; quay đầu qua vai phải đọc là nhìn về quảng trường sau lưng."
   },
   "package": "C6-W2-ngo",
   "camera": {

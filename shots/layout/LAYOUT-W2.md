@@ -19,6 +19,7 @@ Continuity: `continuity/canh-4.md`, `canh-5.md`, `canh-6.md`. Manifest Cổng 6:
 | **v4 C-i** | s43: dolly 12 m về ô cửa nhà Cas + 28 → 45 mm, nhìn trôi 70 % về ô. | lõi ô hổ phách ≈ 5 × 9 px → ≈ 10 × 15 px (960 px) |
 | **v4 (c)** | Thứ tự s39 (Ida) → s38 (Cas): câu cuối L4 bắt đầu trên mặt Ida; cắt sang Cas ở 106,0 s (giữa "…ones / who need it"). | s39 101,6–106,0; s38 106,0–107,4; tổng không đổi |
 | **v4 (d)** | Thứ tự s45 → s46 → s45c; kim giờ bỏ túi ăn khớp kim phút. Giờ trên hình chỉ tiến. | xem `continuity/canh-6.md` bảng (d) |
+| **v5 N10/N12** | s45: cuối shot bà quay đầu 50° + vai 20° nhìn về miệng ngõ (phía quảng trường, phải khung, sâu) → dẫn tới POV s45c; đồng hồ đặt đúng như insert s46 (cùng hướng D46); máy tĩnh thật (tính từ tư thế gốc), lùi 1,75 → 2,0 m, tâm nhìn 0,12 m dưới đầu (trọn mũ). s44, s46, s45c không đổi. | RGB thẳng vs nối tiếp s45 (khung 3072, 3090): 0 px |
 Ảnh: `reports/m2/cong5/w2/v2_B1_…`, `v2_a_…`, `v2_b_…`, `v2_c_…`, `v3_…`, `v4_…`. Bảng dưới đã mang mốc hiện hành (v4).
 
 ## 1. Tóm tắt
@@ -57,7 +58,7 @@ Máy: vị trí → điểm nhìn (m). Hệ toạ độ: cảnh 4 = hệ tườn
 | s42 | 1:57,5–2:00,5 | MS · 40 (v2: 32) | (0,55; 0,66; 0,45) → (−0,15; 0,75; 4,5) | tĩnh | **V1:** Cas quay ra vòm, máy sau lưng lệch phải; Ida trái (x +1,25 miệng vòm), Cas phải. Ngoài vòm là phố trắng (bộ khoá cũ: nền đen). |
 | s43 | 2:00,5–2:04,5 | EWS · 28 → 45 | bộ khoá s1 | dolly 12 m + zoom chậm về ô cửa | **C4:** trời đêm xanh đen có sao. **N8:** một ô hổ phách nhìn thấy, nền tối. **C-i (v4):** dolly 12 m về ô + 28 → 45 mm → ô lớn dần (≈ 10 × 15 px cuối shot). |
 | s44 | 2:04,5–2:07,0 | WS · 21 | bộ khoá s6 + 0,5 m | đẩy vào | Ida không đạo cụ đèn lồng. |
-| s45 | 2:07,0–2:09,0 | MS · 50 | 3/4 trước-phải bà, 1,75 m, thấp hơn mắt 0,3 m | tĩnh | Thấy **đồng hồ trong tay + mặt dưới vành mũ** (v2: máy sau vai, không thấy đồng hồ). |
+| s45 | 2:07,0–2:09,0 | MS · 50 | 3/4 trước-phải bà, 2,0 m (v5; trước 1,75), thấp hơn mắt 0,3 m | tĩnh | **v5 (N10, N12):** cúi nhìn đồng hồ trong lòng tay (mặt số quay về bà, như insert s46), rồi 1,0–1,8 s quay đầu + vai nhìn về miệng ngõ (phải khung) → POV s45c sau insert. |
 | s46 | 2:09,0–2:12,0 | CU insert · 100 | theo lòng bàn tay | tĩnh | **(d) v4:** đứng TRƯỚC s45c; 9:53 → 10:00, kim giờ ăn khớp kim phút (chỉ tiến). A2 (c): nền tường ngõ. |
 | s45c | 2:12,0–2:13,5 | CU · 200 | (150; 6,2; 0,4) → mặt đồng hồ | tĩnh | **(d) v4:** POV sau s46 — quảng trường 10:00:00, khớp giờ bà vừa vặn. |
 | s47 | 2:13,5–2:15,5 | WS · 28 | (0,1; 1,45; −2,6) → (0; 1,3; 6) | tĩnh | **Bỏ đèn lồng ở hông Ida** (đã trao ở s41; v2 vẫn còn). |

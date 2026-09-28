@@ -84,7 +84,7 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 
 ## s37 · 1:33,00–1:38,80 · CU 85 mm · đẩy vào 1,10 → 0,97 m
 - **Đèn:** như s36 (EK 1,3; máy lệch +10°). **Thoại:** L4 vế đầu.
-- **Ida:** `faceRest` (`hat_back` 0,35), sad_smile, nhìn lên phố (phải khung).
+- **Ida:** `faceRest` (`hat_back` 0,35), sad_smile. Trên hình (N11): mặt 3/4 sang phải khung, **mắt nhìn xuống** (về phía Cas dưới chân thang), không nhìn lên phố.
 
 ## s37w · 1:38,80–1:41,60 · WS 28 mm · tĩnh
 - **Máy:** (17; 1,6; 1,2), nhìn (8,8; 3,6; 0,6). Khung: mặt cuối phố + phố rẽ (giữa-trái), hông + hốc cửa (phải), L11 + thang + hai người (phải), P5 (trái, bóng đèn trong khung).
@@ -95,7 +95,7 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 - **(c) Thứ tự mới:** s39 đứng trước s38 để câu cuối L4 BẮT ĐẦU trên mặt Ida ("Just…" 1:42,33 là 0,73 s sau đầu shot) và kéo qua "…keep a little dark for the ones".
 - **Máy:** `faceCam` cách 0,95 m, gần chính diện.
 - **Đèn:** trắng phẳng + L11 nhạt; `facelight` `elec`; phơi sáng × 0,8. Vành mũ đổ bóng lên trán; tường vôi sau lưng sáng xám.
-- **Ida:** choked, nhìn lên phố (phải khung).
+- **Ida:** choked. Trên hình (N11): mặt gần chính diện, **mắt nhìn xuống** (về Cas) — khớp s38 ngay sau: Cas ngước lên về phía bà (bà nhìn xuống, cậu nhìn lên).
 
 ## s38 · 1:46,00–1:47,40 · MS 50 mm · tĩnh
 - **(c)** Cas phản ứng từ giữa câu ("…who need it." 1:46,0–1:47,0), rồi 0,4 s im trước insert van (s40).
