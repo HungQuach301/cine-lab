@@ -7,25 +7,25 @@ Phiên P · nhánh `claude/cine-lab-m2-cong5-layout-24o5fp` · 28/09/2026 · **K
 - **V1–V4 đã sửa** (mục 2). D2 mũ #262a33 đã vào sheet v1.3 và vào hình.
 - **Cổng mặt Ida: CHƯA ĐẠT.** A1 trượt (kiểm mù lần 4), A3 trượt (lần 5) cùng một tiêu chí "mặt nạ/búp bê/ma-nơ-canh/con rối", 3/3 ảnh mỗi lần. Theo chỉ đạo: dừng, không hạ tiêu chí, báo kết quả (mục 3). Layout dùng mặt A1.
 - **Continuity:** rà toàn phim tìm 4 lỗi chặn + 5 nên sửa; đã sửa 3 chặn + 5 nên sửa, render lại 8 shot. **Còn 1 lỗi chặn (C2) cần chủ dự án chọn** (mục 4).
-- **Luật v1.4 trên video ghép (lần 2):** TRƯỢT — đạt 12, trượt G3b, H1b, C3; 2 N/A. Kiểm toán C3 ĐẠT (lệch 0 điểm ảnh). P0 lần 1 trượt vì máy dò đọc mắt Cas thành "56" → đã khiếu nại K (mục 5).
+- **Luật v1.4 trên video ghép (lần 3, bản cuối):** TRƯỢT — đạt 11, trượt G3b, H1b, C3; 2 N/A. Kiểm toán C3 ĐẠT (lệch 0 điểm ảnh). P0 lần 1 trượt vì máy dò đọc mắt Cas thành "56" → đã khiếu nại K; P tự tìm và sửa một lỗi bộ xuất mặt nạ C3 của chính P (s27 rỗng) (mục 5).
 - **Quyết định sớm của chủ dự án** (cuối phố nhà kho chữ L, kéo mũ lại khi rời đi, không quầng chân trời) đã vào phim, AUTHORSHIP và world-rules v0.5.
 
 ## 1. Tổ chức và số liệu thời gian (số đo thật)
 3 gói, 3 subagent cine-worker, mỗi gói một worktree; P giữ phần chung và là người duy nhất ghép. File chia theo gói (`design/cong5/layout/`): W1 `shots_w1.js`, `order_w1.js`, `sets.js`; W2 `shots_w2.js`, `order_w2.js`, `sets2.js`, `sets_end.js`; W3 `design/cong3/v2/char3d/*`, `facelight.js`; P `common.js`, `film.js`, `page.js`, `render_film.js`, `assemble.py`, `package.py`. Không có xung đột merge nào.
 
-**Hàng đợi render nặng** `scripts/render/queue.sh` (flock, mỗi lúc 1 việc nặng; nhật ký `reports/m2/cong5/queue-log.tsv`, 51 việc):
+**Hàng đợi render nặng** `scripts/render/queue.sh` (flock, mỗi lúc 1 việc nặng; nhật ký `reports/m2/cong5/queue-log.tsv`, 54 việc):
 
 | Gói | Việc nặng | Chờ hàng đợi | Chạy thật |
 |---|---|---|---|
 | W1 | 5 | 2 232 s | 2 037 s |
 | W2 | 4 | 1 562 s | 3 361 s |
 | W3 | 29 | 3 900 s | 1 609 s |
-| P | 13 | 0 s | 2 909 s |
-| **Tổng** | 51 | 7 694 s | **9 916 s (2 giờ 45 phút máy)** |
+| P | 16 | 0 s | 3 941 s |
+| **Tổng** | 54 | 7 694 s | **10 949 s (3 giờ 02 phút máy)** |
 
 - Render đầy đủ lần đầu: 3 420 khung trong 4 654 s chạy (**1,36 s/khung**, 1 tiến trình; animatic v2 là 2,1 s/khung/tiến trình khi chạy 3 tiến trình song song).
 - Render lại: 636 khung / 744 s (s08, s23, 7 shot sửa continuity) → hệ số làm lại khung **×1,19** (animatic v2: ×1,33).
-- Ghép 145–150 s; đóng gói 2 pass 225–228 s; mặt nạ C3 4× (285 khung) 652–694 s; luật máy 386–402 s mỗi lần.
+- Ghép 145–150 s; đóng gói 2 pass 225–228 s; mặt nạ C3 4× (285 khung) 652–694 s (3 lần); luật máy 374–402 s mỗi lần (3 lần).
 - Hàng đợi không chia lượt theo thứ tự đến (W3 báo): ảnh tĩnh 20 s của W3 có lúc chờ 1 956 s sau render cả cảnh. Lần sau nên dùng hàng đợi có thứ tự (ticket) hoặc làn riêng cho việc < 60 s.
 
 **Thời gian từng gói** (thời gian agent làm việc, theo đồng hồ):
@@ -41,7 +41,7 @@ Phiên P · nhánh `claude/cine-lab-m2-cong5-layout-24o5fp` · 28/09/2026 · **K
 | W3 | A1 (cổ áo, nếp mũi–má, facelight) | 59 phút | ảnh nộp render 3 lần; 9 vòng cổ áo, 4 vòng facelight |
 | W3 | A3 (nửa dưới mặt) | 98 phút | ảnh nộp render 2 lần; 6 vòng đầu, 4 vòng cổ áo |
 
-Đồng hồ toàn cổng: giao việc 23:54 → báo cáo ~04:10 (≈ 4 giờ 15 phút).
+Đồng hồ toàn cổng: giao việc 23:54 → báo cáo 04:35 (≈ 4 giờ 40 phút).
 
 ## 2. V1–V4 trước / sau
 | Lỗi | Nguyên nhân tìm được | Sửa | Sau (bằng chứng) |
@@ -94,8 +94,11 @@ Câu then chốt (nguyên văn):
 
 Chỗ nối W1 ↔ W2 (s24 → s24c → s25 → s26): **khớp** (Cas ở chân tường, nhìn trái; Ida xuống thang ngoài hình; đèn lồng hông trái; cột phố chính tắt đúng lịch). Chưa chạy lại toàn bộ rà sau khi sửa; P đã tự xem 8 khung sau sửa (s23, s26, s27, s34, s41, s42, s43, s39).
 
-## 5. Luật máy (checks v1.4, không sửa `checks/`)
-**Video ghép, lần 2** — `/opt/cine/bin/python checks/run.py design/cong5/layout/out/layout.mp4 --profile shot` → `reports/checks/layout-cong5/`:
+## 5. Luật máy (checks v1.4, không sửa `checks/`, không đọc mã `checks/`)
+Chạy 3 lần trên `design/cong5/layout/out/layout.mp4` (`/opt/cine/bin/python checks/run.py … --profile shot` → `reports/checks/layout-cong5/`):
+- Lần 1 (trước sửa continuity): P0 TRƯỢT (báo nhầm, dưới đây).
+- Lần 2 (sau sửa continuity, video mới SHA `25d67d1d…`).
+- **Lần 3 (bản cuối, cùng video)** sau khi P sửa lỗi bộ xuất mặt nạ C3 (mục 5.1):
 ```
 [   PASS] N1 24 fps CFR; không rơi hay lặp khung theo PTS
 [   PASS] N2 BT.709 đủ 3 trường; dải limited — đo cả nhãn lẫn giá trị điểm ảnh
@@ -115,19 +118,68 @@ Chỗ nối W1 ↔ W2 (s24 → s24c → s25 → s26): **khớp** (Cas ở chân 
 [   PASS] O3 Mọi tài sản lấy từ thư viện có SHA
 VERDICT: TRƯỢT
 ```
-- **P0:** lần 1 TRƯỢT — vùng duy nhất là mắt + lông mày Cas ở s42a (khung 2775) đọc "56", độ tin 0,84 (ngưỡng 0,8). Khiếu nại ghi `checks-appeal.md` (ảnh `reports/m2/cong5/khieu-nai/`). Lần 2 ĐẠT vì khung s42a đổi do sửa trục 180° (lý do dàn dựng, không phải để lách).
-- **G3b:** σ nhỏ nhất 0,733 (≥ 0,8 ✗), CV lớn nhất 0,242 (≤ 0,2 ✗), σ lớn/nhỏ 2,868 (≤ 1,3 ✗), tương quan khung kề 0,828 (≤ 0,5 ✗) — cùng gốc với Cổng 4 (lớp vẽ giữ cấu trúc).
-- **H1b:** track tệ nhất khớp 33,3 % (≥ 90 ✗); 2 track toàn null.
-- **C3:** kiểm toán lần 2 **ĐẠT** (hạt giống `12016497369048562390`, khung 2844, lệch điểm ảnh 0, views lệch 0°/0). Lần 1 (hạt giống `5864998127796708074`, khung 3192) huỷ vì video đổi sau sửa continuity — lưu `reports/m2/cong5/c3-kiem-toan/request_huy_1.json`. Đo: 43 mẫu trượt chắc chắn, 59 không chứng minh được, biên trên |lệch| + U lớn nhất 38,27 %, độ khớp biên thấp nhất 0,65 (≥ 1,5 ✗), **20 đoạn CẦN NGƯỜI XEM** (19 shot) → tờ so sánh ở mục 5.1. Mẫu trượt tập trung ở shot đi bộ/vác thang (s02, s07, s19) và Cas-Ida gần (s32, s42).
-- **Chỉ số trong ±5 % quanh ngưỡng (máy liệt kê):** C3 hệ số mặt nạ 4,0 (ngưỡng tối đa 4,0); C3 hệ số khi đầu < 100 px 4,0 (ngưỡng 3,98). Lần 1 có thêm G3b CV 0,205 (ngưỡng 0,2) và P0 độ tin 0,84 (ngưỡng 0,8).
+- **P0:** lần 1 vùng duy nhất là **mắt + lông mày Cas** ở s42a (khung 2775) đọc "56", độ tin 0,84 (ngưỡng 0,8 — sát ngưỡng). Không có chữ nào trong hình. Khiếu nại đã ghi `checks-appeal.md` (ảnh `reports/m2/cong5/khieu-nai/P0_khung2775_s42a.jpg`). Lần 2–3 ĐẠT vì khung s42a đổi khi sửa trục 180° (lý do dàn dựng, không phải để lách).
+- **G3b:** σ nhỏ nhất 0,733 (≥ 0,8 ✗), CV lớn nhất 0,242 (≤ 0,2 ✗), σ lớn/nhỏ 2,868 (≤ 1,3 ✗), tương quan khung kề 0,828 (≤ 0,5 ✗). Cùng gốc Cổng 4: lớp vẽ giữ cấu trúc giữa các khung; chưa xử lý ở layout.
+- **H1b:** track tệ nhất khớp 33,3 % (≥ 90 ✗); 2 track toàn null. Cùng gốc Cổng 4 (tư thế previs).
+- **C3:** kiểm toán lần 3 **ĐẠT** (hạt giống `2226881257325565179`, khung 2964, 3276; lệch điểm ảnh 0; views lệch 0°/0). Hai lần trước bị huỷ trước khi đối chiếu, hạt giống lưu `reports/m2/cong5/c3-kiem-toan/`: lần 1 `5864998127796708074` (video đổi sau sửa continuity), lần 2 `12016497369048562390` (P sửa bộ xuất mặt nạ). Đo: 44 mẫu trượt chắc chắn, 76 không chứng minh được, biên trên |lệch| + U lớn nhất 38,27 %, độ khớp biên thấp nhất 0,65 (≥ 1,5 ✗), **20 đoạn CẦN NGƯỜI XEM** (19 shot). Mẫu trượt tập trung ở shot đi/vác thang (s02, s07, s19), Cas–Ida gần (s32, s42, s42a).
+- **Chỉ số trong ±5 % quanh ngưỡng:** C3 hệ số mặt nạ 4,0 (ngưỡng tối đa 4,0); C3 hệ số khi đầu < 100 px 4,0 (ngưỡng 3,98); lần 1: P0 độ tin 0,84 (ngưỡng 0,8), G3b CV 0,205 (ngưỡng 0,2); shot mẫu s42: G3b tương quan 0,521 (ngưỡng 0,5).
 
-**Từng shot mẫu** (clip cắt từ video ghép, không file đi kèm → luật cần file đi kèm báo THIẾU): s05 cận mặt, s33 hốc cửa: N1, N2, P0, G3, **G3b ĐẠT**. s42 (V1): G3b TRƯỢT — tương quan khung kề **0,521** (ngưỡng ≤ 0,5, **sát ngưỡng**), CV 0,184.
+**Từng shot mẫu** (clip cắt từ video ghép, không file đi kèm → các luật cần file đi kèm báo THIẾU; `reports/checks/layout-cong5-mau/`): s05 (cận mặt), s33 (hốc cửa): N1, N2, P0, G3, **G3b ĐẠT**. s42 (V1): N1, N2, P0, G3 đạt; **G3b TRƯỢT** — tương quan khung kề **0,521** (ngưỡng ≤ 0,5, sát ngưỡng), CV 0,184.
 
-### 5.1 C3 — tờ so sánh cho người xem, và 3 shot bị cờ ở v2
-(điền sau khi agent cine-continuity nộp — xem `reports/m2/cong5/c3-nguoi-xem/BANG.md`)
+### 5.1 C3 — tờ so sánh cho người xem (Q-C3r B) và 3 shot bị cờ ở v2
+Agent cine-continuity lập `reports/m2/cong5/c3-nguoi-xem/BANG.md` (21 ảnh so sánh + 4 ảnh phủ mặt nạ). **Chủ dự án chỉ cần xem 3 shot CỜ:**
+
+| Shot | Cổng 4 v2 | Layout Cổng 5 | Còn cờ? |
+|---|---|---|---|
+| **s08** | cẳng tay +19,1 % | +21,5 / +17,5 / +19,3 % ở 3 khung hợp lệ (+14…+18 % sau hiệu chỉnh đầu). Hình gần như y hệt Cổng 4; bằng mắt vẫn đúng dáng | **Còn cờ** |
+| **s27** | thân −12,3 % | Lúc đầu mặt nạ rỗng dù Ida cao ~130 px → **lỗi bộ xuất của P** (vật che tô đen hai mặt; máy đặt sau một mặt phẳng một mặt). Đã sửa. Sau sửa: thân −5,7 %, tay trên −5,1 %, cẳng tay −6,0 % ("không chứng minh được"); 1 mẫu cẳng tay −11,1 % ở khung 1536 | **Cờ nhẹ** (lệch giảm một nửa) |
+| **s47** | thân +16,2 %, cẳng tay +17,5 % | Chỉ khung 3252 (thân +16,7 %, cẳng tay +16,4 %; đầu nhìn từ sau chỉ còn dải 29×15 px); 3 khung sau trong ±4,1 % | **Cờ nhẹ** — agent khuyến nghị chấp nhận nếu ảnh đúng dáng |
+
+- **Không cờ: 19/20 đoạn** (thân cắt mép, bộ phận che/gập, đầu co ngắn, góc lệch > 30°). Mũ, khăn, hoa tai, cổ áo, váy khớp bible v1.3. s34 số thô thân +36 % nhưng đầu chỉ là vệt 89 px cạnh bàn tay che mặt → không dùng làm chuẩn được, không cờ.
+- **So với Cổng 4:** hết cờ 6 shot (s03, s04, s05, s36, s37, s39 — cả nhóm màu mũ, nhờ D2). Không cờ mới. Để biết: ở s05, s36, s40 mũ dưới đèn khí sát mặt đọc **nâu cam**, sáng hơn áo — vượt mô tả "nâu xám" của D2 (xử lý ở Cổng 7 bằng ánh sáng, hoặc chủ dự án xác nhận).
+- Giới hạn: danh sách lý do loại của máy bị cắt ở 300 mục (tới khung 2196); lý do cho 8 đoạn sau đó agent suy từ `views`.
 
 ## 6. Quyết định cần chủ dự án
-(xem mục 6 trong bản cuối bên dưới)
+
+### A. Cổng mặt Ida chưa đạt sau A1 và A3 (chặn Cổng 6)
+| | **A-α — Vòng thiết kế lại vùng mặt–cổ theo hướng cách điệu (khuyến nghị)** | A-β — Bỏ C′ cho mặt: mặt điêu khắc hình khối đầy đủ + rig biểu cảm | A-γ — Đổi cách kiểm |
+|---|---|---|---|
+| Làm gì | Giữ C′ (mặt vẽ trên đầu 3D) nhưng: lộ một đoạn cổ thật (cổ áo thấp, mở; khăn quàng thấp), đổi tỷ lệ cổ trong sheet; bớt tả thực trên mặt (ít nét nhăn vẽ, khối má–hàm đơn giản, chất da có sắc độ thay vì nhẵn sáp); mỗi bước kiểm mù 1 ảnh để lái | Khắc nếp nhăn, khe môi, cằm, cổ vào hình học; biểu cảm bằng biến dạng lưới; cần rig miệng (cũng cần cho khẩu hình Cổng 6) | Kiểm trên clip chuyển động trong phim và/hoặc người xem thật thay cho ảnh tĩnh subagent |
+| Ưu | Đánh đúng hai lời chê lặp lại qua lần 3–5 ("đầu cắm lên cổ áo", "nét vẽ trên da sáp"); giữ đường ống hiện có | Giải quyết gốc "nét vẽ trên sáp"; có sẵn khẩu hình cho Cổng 6 | Nhanh |
+| Nhược | Đổi thiết kế đã khoá (trang phục cổ, tỷ lệ cổ) → characters v1.4, đo lại B1; vẫn có thể trượt | Đảo quyết định C′ của chủ dự án ở Cổng 3; lâu nhất | Là **nới tiêu chí** — chỉ chủ dự án được quyết; có thể che lỗi thật |
+| Tác động | 1 vòng thiết kế + kiểm mù 4 ảnh; render lại ~20 shot có mặt Ida cỡ MS trở lên (~30 phút máy, số đo 1,36 s/khung) | Lùi Cổng 6; phải khoá lại sheet và model sheet ảnh | Không render thêm |
+| Rủi ro | Trung bình | Thấp về kết quả, cao về lịch | Cao về chất lượng phim |
+
+### B. Lỗi continuity C2 còn chặn: góc tường chim sáng từ 1:04 nhưng cùng góc tối ở cảnh 5
+Gốc: cột phố chính (bật 1:04,4) chỉ cách L11 ~5,6 m trong địa lý chốt, trái luật v0.4 "góc ngọn 11 ngoài tầm vũng sáng (~20 m)". Phương án (W2 soạn, thời gian theo s/khung đo thật, chưa kể chờ):
+
+| | **B1 — Cột vào sân trước hông nhà kho, tầm sáng ngắn (~6 m); dời chỗ Cas sang đông 4 m (khuyến nghị)** | B2 — Chấp nhận góc sáng từ 1:04 (luật v0.6) | B3 — Dời tường chim + Cas sang tây hốc cửa |
+|---|---|---|---|
+| Ưu | Giữ luật v0.4 và nhịp "…brighter now" (góc chuyển tối → trắng đúng câu thoại — chỉ đạo của chủ dự án ở Cổng 4) | Rẻ nhất | Góc L11 xa cột > 10 m |
+| Nhược | Cas cách L11 6,4 m (mức W1 đặt ≤ 5 m), mặt Cas ở s24c tối hơn | Mất tương phản hổ phách trong lời từ biệt; đụng chỉ đạo 1:50 của chủ dự án | Hỏng s24c; đổi bố cục khung chuẩn b_cas_bird |
+| Tác động | Render lại s24, s24c, s25–s32, s35–s42a (~1 470 khung ≈ 40 phút máy) + rà continuity lại | s35–s37w (350 khung ≈ 8 phút) + sửa luật | s23–s24c, toàn cảnh 4, s33–s35 (≈ 45–50 phút); rủi ro nối lớn nhất |
+| Rủi ro | Thấp | Trung bình (kể chuyện) | Cao |
+
+### C. Đóng Cổng 5
+| | C1 — Duyệt layout ngay, C2 sửa theo B trong Cổng 6 | **C2 — Chọn B, P render lại + rà lại continuity + chạy AI mù ngoài trên `screening/layout.mp4` mới, rồi đóng (khuyến nghị)** | C3 — Làm lại layout một phần theo góp ý khi xem |
+|---|---|---|---|
+| Ưu | Nhanh | Đóng với 0 lỗi continuity chặn; AI mù xác nhận V2 ("hai cậu bé") trên bản cuối | Chủ dự án chỉnh bố cục trước khi khoá |
+| Nhược | Mang lỗi chặn sang Cổng 6 | Thêm ~1 giờ | Lâu hơn |
+| Tác động | — | ~40 phút máy + rà | Tuỳ góp ý |
+| Rủi ro | Trung bình | Thấp | Thấp |
+
+Việc nhỏ cần duyệt (ghi PLAN.md):
+1. Đèn lồng cháy sẵn từ s02 (như v2) hay mồi ở L4 như kịch bản (0:12)? (W1) — P khuyến nghị theo kịch bản: mồi ở L4, thêm một nhịp tay ở s03/s04 ở Cổng 6.
+2. Duyệt máy mới s02 (nhìn chéo lên phố) và s15 (nhìn xuôi dốc; hết lỗi hai cái thang). (W1)
+3. Lọn tóc thái dương 'temple' (đang dùng; làm tỷ lệ 0° đo được giảm 3,0 % so với `c3_views`) và câu chữ cổ áo A1 cho bible v1.4 — nên quyết cùng A.
+4. Mũ nâu cam dưới đèn khí sát mặt (s05, s36, s40) có nằm trong ý D2 không, hay để Cổng 7 hạ.
+5. Khiếu nại P0 (máy dò đọc mắt nhân vật thành chữ) — chuyển K.
+6. Quy trình: hàng đợi render nên có thứ tự/làn nhanh cho việc < 60 s (ảnh tĩnh W3 có lúc chờ 1 956 s).
 
 ## 7. Việc đang chờ chủ dự án
-(xem bản cuối)
+1. **Xem `screening/layout.mp4`** (2:22,5; 45,48 MB; trên nhánh `claude/cine-lab-m2-cong5-layout-24o5fp`) và cho Claude bên ngoài chạy AI mù.
+2. **Chọn A** (mặt Ida), **B** (C2 góc sáng), **C** (cách đóng Cổng 5).
+3. Xem 3 shot C3 cờ: **s08, s27, s47** (ảnh trong `reports/m2/cong5/c3-nguoi-xem/`).
+4. Duyệt 6 việc nhỏ ở mục 6.
+5. Phán quyết khiếu nại P0.
+Cổng 5 **chưa merge**. Nhánh đã push.

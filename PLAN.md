@@ -6,9 +6,10 @@ Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Cổng 5 (layout):** đang làm trên nhánh `claude/cine-lab-m2-cong5-layout-24o5fp`. KHÔNG merge trước khi chủ dự án duyệt.
-2. **Cổng mặt Ida** (gói W3): phải ĐẠT trước Cổng 6. A1 trước, trượt thì A3; không hạ tiêu chí.
-   - W3 A1 xong, chờ P/chủ dự án (xem `reports/m2/cong5/w3/BAO-CAO-W3.md` mục 5, 10): (a) lọn tóc thái dương 'temple' (đổi B1 0° −3 %, cập nhật `c3_views`) hay 'long' (v1.2); (b) hình cổ áo mới + câu chữ bible v1.4; (c) phơi sáng `fl.exposure()` cho cận mặt s36/s37/s39.
+1. **Cổng 5 (layout) — DỪNG, chờ duyệt** (`reports/m2/CONG-5.md`): xem `screening/layout.mp4`; chọn **A** (mặt Ida), **B** (continuity C2: góc sáng tường chim), **C** (cách đóng Cổng 5). KHÔNG merge trước khi duyệt.
+2. **Cổng mặt Ida KHÔNG ĐẠT** sau A1 (kiểm mù lần 4) và A3 (lần 5): cùng trượt tiêu chí "mặt nạ/búp bê/ma-nơ-canh/con rối" 3/3. Chặn Cổng 6. Chờ quyết định A.
+3. Xem 3 shot C3 cờ: s08, s27, s47 (`reports/m2/cong5/c3-nguoi-xem/BANG.md`).
+4. Việc nhỏ: đèn lồng cháy từ s02 hay mồi ở L4; máy mới s02, s15; lọn tóc 'temple' + câu chữ cổ áo bible v1.4; mũ nâu cam dưới đèn khí sát mặt (D2); khiếu nại P0 (chuyển K); hàng đợi render có thứ tự.
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |
@@ -21,6 +22,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 | M1 Cổng 3 vòng 2: hạ tầng 4 shot, 2 cách nhân vật (2 subagent), C2 mù, nhấp nháy | P + 2 subagent | claude/cine-lab-m1-cong3-v2 | Chờ chủ dự án chọn | reports/m1/CONG-3-VONG-2.md |
 | M1 Cổng 3 vòng 3 + đợt vá A2+ + khoá thiết kế | P | claude/cine-lab-m1-cong3-v3 | **Đã merge vào main (c21e5df)**; SHA khoá `design/cong3/LOCK-THIET-KE.sha256` | reports/m1/CONG-3-VONG-3.md, reports/m1/CONG-3-VA-A2PLUS.md |
 | M1 Cổng 4: cổng mặt Ida (biến dạng, đẩy mũ, kiểm mù) + animatic 2:30 (48 shot) + âm tạm + gói chiếu mù | P | claude/cine-lab-m1-cong4-animatic | Vòng v1 xong; xem vòng v2 | reports/m1/CONG-4.md |
+| M2 Cổng 5 layout (W1, W2, W3 + P) | P + 3 subagent + 2 agent rà | claude/cine-lab-m2-cong5-layout-24o5fp | **Chờ chủ dự án duyệt — KHÔNG merge** | reports/m2/CONG-5.md |
 | M1 Cổng 4 vòng v2: animatic 2:22,5 (52 shot), kịch bản nháp 3, luật thế giới v0.4, characters v1.2 (A1), C3 v1.4 (parts + views + kiểm toán) | P | claude/cine-lab-m1-cong4-animatic | **Đã merge vào main (5987bf3)** — Cổng 4 đóng | reports/m1/CONG-4-V2.md, shots/animatic/SHOTLIST.md, screening/animatic_v1_v2_diff.md |
 
 Quy ước file lớn Cổng 4: `design/cong4/animatic/out/animatic.mp4` (v2: 45,49 MB) nằm trong nhánh; mặt nạ C3 `out/animatic.parts/` (18 MB, PNG xám) cũng trong nhánh; video nhóm và video ghép trung gian `out/v2/*.mp4`, âm trung gian `out/v2/audio/` KHÔNG commit; `screening/animatic.mp4` là bản sao y từng byte. Bản trung gian `out/video.mp4` (187 MB) và đối chứng `out/hq/` (198 MB) KHÔNG commit (vượt giới hạn GitHub; tái tạo bằng `render_film.js` / `HQ=1 package.py`). Âm lưu FLAC 24-bit.
@@ -30,9 +32,9 @@ Nhánh tích hợp: `claude/cine-lab-m2-cong5-layout-24o5fp` (tạo từ main 59
 
 | Gói | Agent | Phạm vi shot | File được sửa (chỉ gói đó) | Đầu ra |
 |---|---|---|---|---|
-| **W1** | cine-worker, worktree | Cảnh 1–3: s01 → s24c | `shots_w1.js`, `order_w1.js`, `sets.js` (bộ phố, trừ phần cuối phố) | `shots/layout/continuity/canh-1..3.md`, `shots/layout/shots_w1.json`, render ở `/var/tmp/cine-out/W1/` |
-| **W2** | cine-worker, worktree | Cảnh 4–6 (kịch bản ghi cảnh 4–7): s25 → s48 | `shots_w2.js`, `order_w2.js`, `sets2.js`, `sets_end.js` (cuối phố: V3) | `shots/layout/continuity/canh-4..6.md`, `shots/layout/shots_w2.json`, render ở `/var/tmp/cine-out/W2/` |
-| **W3** | cine-worker, worktree | Mặt Ida (A1 → A3 nếu trượt) | `design/cong3/v2/char3d/*` (mặt, cổ áo), `design/cong5/mat/` | ảnh thử, đề xuất đổi sheet/bible gửi P |
+| **W1** | cine-worker, worktree | Cảnh 1–3: s01 → s24c — **xong (A, C, sửa N1)** | `shots_w1.js`, `order_w1.js`, `sets.js` (bộ phố, trừ phần cuối phố) | `shots/layout/continuity/canh-1..3.md`, `shots/layout/shots_w1.json`, render ở `/var/tmp/cine-out/W1/` |
+| **W2** | cine-worker, worktree | Cảnh 4–6 (kịch bản ghi cảnh 4–7): s25 → s48 — **xong (A, C, D sửa continuity); C2 chờ chủ dự án** | `shots_w2.js`, `order_w2.js`, `sets2.js`, `sets_end.js` (cuối phố: V3) | `shots/layout/continuity/canh-4..6.md`, `shots/layout/shots_w2.json`, render ở `/var/tmp/cine-out/W2/` |
+| **W3** | cine-worker, worktree | Mặt Ida (A1 → A3 nếu trượt) — **A1 trượt, A3 trượt; mã A3 lưu dạng patch, layout dùng A1** | `design/cong3/v2/char3d/*` (mặt, cổ áo), `design/cong5/mat/` | ảnh thử, đề xuất đổi sheet/bible gửi P |
 | P | phiên này | ghép, `common.js`, `film.js`, âm, đóng gói, luật máy, kiểm mù, báo cáo | `common.js`, `film.js`, `page.js`, `render_film.js`, `assemble.py`, `package.py`, bible/, sheet, SHA | `screening/layout.mp4`, `reports/m2/CONG-5.md` |
 
 Luật chung:
