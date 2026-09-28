@@ -2,6 +2,14 @@
 
 Gói W2, Cổng 5, luật O1. Nguồn số: `design/cong5/layout/shots_w2.js` (hằng số `CAS_W`, `IDA_W`, `IDA_K`, `LAN_T`, `CAS_S32`), `sets2.js` (`WALL`), `sets_end.js` (`END`, `wallFromWorld`).
 
+## Cập nhật A2 — B1 (quyết định chủ dự án sau Cổng 5, AUTHORSHIP @2591e4d)
+- **Cột điện phố chính** (bật 1:04,4) đặt TRONG SÂN trước hông nhà kho: chân (17,0; −5,9) bộ phố = (6,8; 2,2) hệ tường; tay vươn về tường; PointLight tầm **8,5 m**, suy giảm 1,2, không bóng. (P đề xuất (15,4; −6,2) — điểm đó nằm trong căn đầu dãy bắc cũ; W2 dời dãy bắc tới x = 18,5 và đặt cột ở (17,0; −5,9).)
+- **casSpot** dời sang đông: (14,3; −7,15) bộ phố = **(4,1; 0,95)** hệ tường. Mọi dấu cảnh 4 bám Cas (Cas, máy s25/s28/s29/s30/s32, IDA_K, LAN_T, CAS_S32) dời +3,95 m theo x.
+- Đầu đèn cột ở (6,54; 5,8; 1,48) hệ tường: cách tường chim sau lưng Cas 5,2 m (trong vũng, hệ số cửa sổ tầm 0,75); cách lửa L11 **9,5 m**, cách Ida trên thang ≥ 9,5 m → **ngoài tầm: góc L11 TỐI tới khi P5 bật**.
+- Bỏ trắng tràn toàn cục (whiteHemi 1,8) của bộ tường; tràn nền 0,054 = mức góc tối bộ phố. Chim L11 tan vì vũng sáng cột (key L11 tại tường ≈ 0,12 so với cột ≈ 2,2).
+- Dãy bắc bắt đầu x = 18,5 (đầu hồi cách Cas 4,2 m). Phơi sáng s25 2,6 → 3,6; s27 3,6 → 1,1 (L11 xa tường chim hơn).
+- Các bảng dưới là bản trước A2; toạ độ cảnh 4 cộng 3,95 m theo x cho mọi dấu bám Cas.
+
 ## Hệ toạ độ và địa lý (chốt ở Cổng 5)
 - Bộ cảnh 4 là **bộ tường chim** (`sets2.buildWallSet`). Hệ của nó = **hệ tường chim** của `sets_end.js`: tường = **hông nam nhà kho** ở z = 0, nhìn +z (nam).
 - Đổi sang toạ độ bộ phố của W1: x = x_w + 10,2; z = z_w − 8,1. Hai bộ cùng **một** địa lý (cùng hàm `buildEndWallFrame`).
