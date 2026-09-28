@@ -415,11 +415,11 @@ S({ id: 's45c', scene: 6, size: 'CU', angle: 'tele, POV của Ida qua miệng ng
 alleyShot('s46', 139.0, 142.0, { size: 'CU (insert)', angle: 'chúc nhẹ', mm: 100, move: 'tĩnh', exposure: 6.0,
   why: 'ĐỒNG HỒ NHỊP 3c (9B): bà vặn kim từ 9:53 lên đúng 10:00 — nhận giờ mới. Gập đồng hồ, KHÔNG gõ kính (ngược với nhịp 1).', sound: 'núm vặn lách cách; tách gập',
   light: 'ánh cửa sổ ấm', action: 'Ngón cái vặn núm; kim phút chạy từ 9:53 lên 10:00; bàn tay khép lại.' },
-  (p, cam) => { let wf = null; return { update(t, T, ida) {
+  (p, cam, r, dbg) => { let wf = null; const D = new THREE.Vector3(...(dbg.dir || [-0.6, 0.1, 0.8]));   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá) return { update(t, T, ida) {
     if (!wf) wf = watchInHand(ida.root.parent);
     ida.setPose(over(p.watchHold(0), { props: [] })); ida.root.updateMatrixWorld(true);
-    cam.fov = fovOf(100); cam.updateProjectionMatrix();
-    const [m0, h0] = hands(CLOCKS.beat3.watchFrom); wf(ida, cam, valAt([[0, m0], [0.3, m0], [2.2, 360]], t), valAt([[0, h0], [2.2, 300]], t), new THREE.Vector3(0.2, 0.8, 0.55), 0.32); } }; });
+    cam.fov = fovOf(dbg.mm ?? 100); cam.updateProjectionMatrix();
+    const [m0, h0] = hands(CLOCKS.beat3.watchFrom); wf(ida, cam, valAt([[0, m0], [0.3, m0], [2.2, 360]], t), valAt([[0, h0], [2.2, 300]], t), D, dbg.dist ?? 0.32); } }; });
 alleyShot('s47', 142.0, 145.0, { size: 'WS', angle: 'ngang, sau lưng Ida', mm: 28, move: 'tĩnh',
   why: 'Bà vác thang đi ra miệng ngõ; bóng mờ của bà mỏng dần rồi tan trong trắng (luật 3.5). Không còn đèn lồng ở thắt lưng (đã trao cho Cas ở s41).', sound: 'bước chân; thang; rè điện lớn dần ở miệng ngõ',
   light: 'ánh cửa sổ (sau lưng) → điện phẳng ở miệng ngõ', action: 'Ida vác thang đi từ dưới cửa sổ ra miệng ngõ.' },
