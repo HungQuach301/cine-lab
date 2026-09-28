@@ -8,6 +8,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 ## Hàng chờ chủ dự án duyệt
 1. **Cổng 5 (layout):** đang làm trên nhánh `claude/cine-lab-m2-cong5-layout-24o5fp`. KHÔNG merge trước khi chủ dự án duyệt.
 2. **Cổng mặt Ida** (gói W3): phải ĐẠT trước Cổng 6. A1 trước, trượt thì A3; không hạ tiêu chí.
+   - W3 A1 xong, chờ P/chủ dự án (xem `reports/m2/cong5/w3/BAO-CAO-W3.md` mục 5, 10): (a) lọn tóc thái dương 'temple' (đổi B1 0° −3 %, cập nhật `c3_views`) hay 'long' (v1.2); (b) hình cổ áo mới + câu chữ bible v1.4; (c) phơi sáng `fl.exposure()` cho cận mặt s36/s37/s39.
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |

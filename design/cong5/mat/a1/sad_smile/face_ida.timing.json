@@ -1,0 +1,24 @@
+{
+ "page": "cong5/mat/page_mat.js",
+ "frame": "face_ida",
+ "W": 1920,
+ "H": 1080,
+ "samples": 3,
+ "frames": 1,
+ "setup_s": 1.625,
+ "render_frame_s": 9.968,
+ "page_reported_accum_ms": 1158.6999999997206,
+ "page_prof_ms": {
+  "fl": {
+   "key": 49.81809195828152,
+   "fill": 9.963618391656304,
+   "under": 5.978171034993783,
+   "rim": 10.959980230821934,
+   "total": 65.7598813849316
+  },
+  "exposure": 0.060827360326056956
+ },
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 12.437,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

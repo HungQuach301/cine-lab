@@ -98,10 +98,16 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   if (isIda) {
     const lift = o.mesh ? XE.browIn : XE.browIn * 1.5;   // lưới đã nâng trán giữa 0,5·browIn
     for (const yy of [0.735, 0.772, 0.808]) for (const s of [1, -1]) stroke(g, R, [[s * 0.02, yy + lift], [s * 0.12, yy + 0.004 + lift * 0.3], [s * 0.24, yy - 0.006]], 2.6, '130,88,82', 0.5, 0.3);
-    both([[0.07, 0.43], [0.098, 0.34], [0.118 + c * 0.3, 0.275 + c]], 5, '120,76,72', 0.66, 0.22);          // rãnh mũi–má
-    both([[mw + 0.012, my + c - 0.006], [0.1, 0.19], [0.108, 0.13]], 3.6, '125,82,76', 0.55, 0.25);           // rãnh khoé miệng xuống cằm
+    // Cổng 5 (W3, A1 mục 2): rãnh mũi–má và rãnh khoé miệng từng là HAI NÉT MẢNH, ĐẬM nối nhau ở khoé miệng → một vệt liền từ cánh mũi xuống cằm,
+    // ở góc chính diện đọc thành "vết nứt" (kiểm mù lần 3, q9). Nay: rãnh mũi–má là DẢI BÓNG MỀM (cọ to, nhạt) dừng TRÊN khoé miệng, có vệt sáng
+    // ấm ở phía má (má sệ phủ lên rãnh — khối, không phải đường); rãnh khoé miệng ngắn, nhạt, bắt đầu dưới khoé và tắt trước cằm → có khe giữa hai rãnh.
+    both([[0.066, 0.435], [0.09, 0.37], [0.108, 0.318]], 11, '150,96,88', 0.26, 0.35);                       // rãnh mũi–má: dải bóng mềm
+    both([[0.072, 0.425], [0.094, 0.37], [0.109, 0.33]], 4, '130,84,78', 0.22, 0.25);                        //   lõi rãnh rất nhạt (vẫn đọc tuổi)
+    both([[0.095, 0.43], [0.12, 0.365], [0.134, 0.32]], 10, '250,222,204', 0.16, 0.35);                      //   má sệ phía ngoài rãnh bắt sáng
+    both([[mw + 0.014, my - 0.03], [0.106, 0.205], [0.108, 0.175]], 7, '150,100,92', 0.18, 0.35);           // rãnh khoé miệng: ngắn, nhạt, tắt trước cằm
     // tóc bạc chải ngược ở thái dương, lộ dưới vành mũ (nhân màu nên dùng xám lạnh)
-    for (let k = 0; k < 16; k++) for (const s of [1, -1]) { const o = k * 0.006; stroke(g, R, [[s * (0.29 + o), 0.84], [s * (0.33 + o), 0.72], [s * (0.36 + o * 0.6), 0.6]], 2.2, '150,150,160', 0.35, 0.5); }
+    // Cổng 5 (W3): nét tóc vẽ chỉ còn sát chân tóc (y ≥ 0,70) — phần kéo xuống 0,6 chiếu lên má ở góc nghiêng, đọc như vết xước
+    for (let k = 0; k < 16; k++) for (const s of [1, -1]) { const o = k * 0.006; stroke(g, R, [[s * (0.29 + o), 0.84], [s * (0.32 + o), 0.77], [s * (0.34 + o * 0.8), 0.71]], 2.2, '150,150,160', 0.3, 0.5); }
     for (const [sx, sy, sr] of [[0.24, 0.44, 0.006], [-0.2, 0.38, 0.005], [0.17, 0.3, 0.004]]) blot(g, sx, sy, sr, '170,130,110', 0.3);   // V5: đồi mồi nhỏ (đốm to đọc thành vết bầm)
   } else {
     for (let i = 0; i < 14; i++) { const s = R() < 0.5 ? 1 : -1; blot(g, s * (0.12 + R() * 0.12), 0.34 + R() * 0.1, 0.006 + R() * 0.004, '180,120,90', 0.35); }
