@@ -23,7 +23,7 @@ export const BUN_SCALE = 1.3;
 export const IDA_WISPS = 'temple';
 // Cổng 5 → A-α (quyết định chủ dự án sau Cổng 5): 'aa' = cổ lộ, cổ áo bẻ thấp mở, khăn thấp, mũ ôm đầu (bước 1); 'a1' = bản A1. opts.idaStyle ghi đè.
 // A-i (Cổng 5 v2, quyết định chủ dự án — đảo C′): 'ai' = thân/mũ/cổ như 'aa' + đầu ĐIÊU KHẮC có rig biểu cảm (facerig.js), bỏ mặt vẽ nét.
-export const IDA_STYLE = 'ai';
+export const IDA_STYLE = 'aa';   // A-i (facerig.js) chưa được duyệt — layout giữ A-α (characters v1.4); truyền idaStyle: 'ai' để thử
 // Màu thứ cấp mới (chi tiết được phép thêm để sửa lỗi đọc giới tính/tuổi) — chờ chủ dự án duyệt.
 export const EXTRA_COLORS = { ida_scarf: '#8e5c5a', ida_skirt: '#4a3a44', ida_stockings: '#3a3235', cas_hair: '#5a4034', lips_ida: '#b98a82', nail: '#ecd2c4' };
 
