@@ -273,20 +273,21 @@ export function buildCharacter(sheet, opts = {}) {
   }
   }   // hết nhánh đầu cũ (A1/A-α)
   // Tai: elip dẹt, lõm hố tai, vành cuộn.
-  const earH = isIda ? 0.30 : P.ears.size_H, earOut = isIda ? (AA ? 0.40 : 0.18) : P.ears.angle_out_deg * D2R;   // A-α: tai lộ qua tóc
+  const earH = isIda ? (AI ? 0.26 : 0.30) : P.ears.size_H, earOut = isIda ? (AI ? 0.1 : AA ? 0.40 : 0.18) : P.ears.angle_out_deg * D2R;   // A-α: tai lộ qua tóc
   for (const sx of [1, -1]) {
     const g = new THREE.SphereGeometry(1, R(22), R(18)); const pa = g.attributes.position;
     for (let i = 0; i < pa.count; i++) {
       let x = pa.getX(i), y = pa.getY(i), z = pa.getZ(i); const r = Math.hypot(y, z);
-      x *= 0.22; if (x > 0) x -= 0.32 * Math.max(0, 1 - (r / 0.78) ** 2) * (0.6 + 0.4 * sstep(-0.6, 0.3, y));   // hố tai
-      const wz = 0.62 + 0.18 * sstep(-0.8, 0.6, y) - (y < -0.5 ? 0.08 : 0);                                        // trên rộng, dái nhỏ
+      x *= AI ? 0.3 : 0.22; if (x > 0) x -= (AI ? 0.2 : 0.32) * Math.max(0, 1 - (r / 0.78) ** 2) * (0.6 + 0.4 * sstep(-0.6, 0.3, y));   // hố tai
+      const wz = AI ? 0.66 + 0.1 * sstep(-0.8, 0.4, y) - 0.12 * sstep(0.55, 1.0, y) : 0.62 + 0.18 * sstep(-0.8, 0.6, y) - (y < -0.5 ? 0.08 : 0);   // A-i: đỉnh tai TRÒN (không nhọn kiểu yêu tinh)                                        // trên rộng, dái nhỏ
       pa.setXYZ(i, x * earH * 0.5 * H, y * earH * 0.5 * H, z * wz * earH * 0.5 * H);
     }
     g.computeVertexNormals(); if (sx < 0) { g.scale(-1, 1, 1); const ix = g.index.array; for (let i = 0; i < ix.length; i += 3) { const t = ix[i + 1]; ix[i + 1] = ix[i + 2]; ix[i + 2] = t; } g.computeVertexNormals(); }
     // Bản lề tai ở mép trước (dính má) → mép sau vểnh ra ngoài theo góc model sheet (đọc được trong silhouette sau lưng).
     const wz0 = 0.8 * earH * 0.5; g.translate(0, 0, -wz0 * H);
-    const hinge = new THREE.Group(); hinge.position.set(sx * hd.width_front / 2 * H * 0.93, (isIda ? 0.56 : 0.50) * H, (isIda ? 0.08 : 0.06) * H); headG.add(hinge);
-    hinge.rotation.set(0, -sx * earOut, -sx * 0.10);
+    const hinge = new THREE.Group(); hinge.position.set(sx * (AI ? 0.38 : hd.width_front / 2 * 0.93) * H, (AI ? 0.52 : isIda ? 0.56 : 0.50) * H, (AI ? 0.06 : isIda ? 0.08 : 0.06) * H);   // A-i v2: tai ra ngoài mép má, đỉnh tai ngang mày, dái ngang chân mũi → nhìn thấy từ chính diện headG.add(hinge);
+    headG.add(hinge);
+    hinge.rotation.set(0, -sx * earOut, AI ? 0 : -sx * 0.10);
     const earM = add(hinge, g, 'skin', C.skin, 'ear');
     if (AI) { const ca = g.attributes.color; for (let i = 0; i < ca.count; i++) { const y = g.attributes.position.getY(i) / (earH * 0.5 * H); ca.setXYZ(i, 1.0, 0.86 + 0.04 * y, 0.84 + 0.04 * y); } earM.material = face.skinMat; }   // A-i: tai ấm hồng (máu dưới da mỏng), cùng vật liệu da mặt
     if (isIda) {   // A1 (Cổng 4, sheet v1.2): đôi khuyên tai nhỏ ở dái tai — hạt tròn kim loại, bắt ánh đèn (dấu hiệu nữ nhìn được từ trước)
@@ -320,13 +321,14 @@ export function buildCharacter(sheet, opts = {}) {
       if (AA) {   // A-α: KHỐI tóc bạc chải ra sau, phồng ở thái dương–trên tai–gáy (lộ dưới vành mũ, nối liền búi) — hết "đầu hói đội mũ"
         const side = gauss(Math.abs(ph) - 1.45, 0.55) * sstep(0.35, 0.75, th) , nape = gauss(Math.abs(ph) - 2.6, 0.6) * sstep(0.9, 1.4, th);
         const locks = 0.012 * Math.abs(Math.sin(ph * 9 + th * 3)) * side;   // 3–4 lọn chải lớn trong khối tóc thái dương
-        const thick = 0.012 + (0.045 + 0.05 * side + 0.03 * nape) * edge;   // bám mặt đầu THẬT (ở thái dương mặt nhô ra ngoài elip sọ → tóc từng nằm dưới da)
-        return Math.min(ell(x, y, z, hc, hr), headSDF(x, y, z)) - thick + strands + locks;
+        const thick = AI ? 0.003 + (0.045 + 0.025 * side + 0.03 * nape) * (1 - sstep(thMax(ph) - 0.26, thMax(ph) + 0.01, th)) : 0.012 + (0.045 + 0.05 * side + 0.03 * nape) * edge;   // A-i v2: tóc MỎNG dần tới chân tóc (không bậc cắt)   // bám mặt đầu THẬT (ở thái dương mặt nhô ra ngoài elip sọ → tóc từng nằm dưới da)
+        const hd0 = Math.min(ell(x, y, z, hc, hr), headSDF(x, y, z)) - thick + strands + locks;
+        return AI ? smax(hd0, -(ell(Math.abs(x), y, z, [0.4, 0.49, -0.04], [0.15, 0.14, 0.17]) - 0.004), 0.03) : hd0;   // A-i v2: tóc rẽ quanh TAI (tai + dái tai lộ, hoa tai treo đúng dái)
       }
       return ell(x, y, z, hc, hr) - (0.006 + 0.03 * edge) + strands;
     };
     add(headG, patch(hairSDF, { c: hc, t0: 0.75, nu: R(84), nv: R(24), phA: -Math.PI, phB: Math.PI, th: (u, ph) => thMax(ph), scale: H, uv: [8, 2],
-      color: (x, y, z, n, u, v) => { const k = (1 - 0.25 * sstep(0.7, 1, v)) * (AI ? 0.94 : 1); return [k, k, k * 1.02]; } }), 'hair', C.hair, 'hair', AI ? 'hairLock' : undefined);   // A-i: nền tối hơn (khe giữa các lọn)
+      color: (x, y, z, n, u, v) => { const k = (1 - 0.25 * sstep(0.7, 1, v)) * (AI ? 0.94 * (1 - 0.35 * sstep(0.68, 0.78, y)) : 1); return [k, k, k * 1.02]; } }), 'hair', C.hair, 'hair');   // A-i v2: nền tóc có vân sợi (vùng thái dương dưới vành chỉ có nền)   // A-i: nền tối hơn (khe giữa các lọn)
     if (AA) {   // bước 3: sợi/lọn mềm ở MÉP tóc thái dương và quanh tai (mép không cắt thẳng) — sợi tròn mảnh chải ra sau, bám mép khối tóc
       const eR = rng3(131), onHair = (th, ph) => { const dx = Math.sin(th) * Math.sin(ph), dy = Math.cos(th), dz = Math.sin(th) * Math.cos(ph);
         let lo = 0.1, hi = 0.9; for (let k = 0; k < 30; k++) { const m = 0.5 * (lo + hi); if (hairSDF(hc[0] + dx * m, hc[1] + dy * m, hc[2] + dz * m) < 0) lo = m; else hi = m; } return [hc[0] + dx * lo, hc[1] + dy * lo, hc[2] + dz * lo]; };
@@ -340,26 +342,37 @@ export function buildCharacter(sheet, opts = {}) {
           const cv = new THREE.CatmullRomCurve3(pts.map((p) => new THREE.Vector3(...p)), false, 'centripetal'), pos = new Float32Array((nu + 1) * (nv + 1) * 3), uv = new Float32Array((nu + 1) * (nv + 1) * 2);
           const C0 = new THREE.Vector3(...hc), nr = new THREE.Vector3(), b = new THREE.Vector3(); let k = 0;
           for (let j = 0; j <= nv; j++) { const s = j / nv, c = cv.getPointAt(s), t = cv.getTangentAt(s); nr.copy(c).sub(C0).normalize(); b.crossVectors(t, nr).normalize(); nr.crossVectors(b, t).normalize();
-            const [rw, rt] = rad(s); for (let i = 0; i <= nu; i++, k++) { const a = 2 * Math.PI * i / nu, cw = Math.cos(a) * rw, st = Math.sin(a) * rt * (Math.sin(a) > 0 ? 1 : 0.35);   // mặt dưới phẳng áp nền
+            const [rw, rt] = rad(s); for (let i = 0; i <= nu; i++, k++) { const a = 2 * Math.PI * i / nu, cw = Math.cos(a) * rw, st = Math.sin(a) * rt * (Math.sin(a) > 0 ? 1 : 0.6);   // mặt dưới phẳng áp nền
               pos.set([(c.x + b.x * cw + nr.x * st) * H, (c.y + b.y * cw + nr.y * st) * H, (c.z + b.z * cw + nr.z * st) * H], k * 3); uv.set([i / nu, s * 3], k * 2); } }
           const g = gridGeo(pos, null, uv, null, nu, nv), n0 = g.attributes.normal, mid = Math.round(nv / 2) * (nu + 1) + Math.round(nu / 4), cm = cv.getPointAt(Math.round(nv / 2) / nv);
           if ((pos[mid * 3] / H - cm.x) * n0.getX(mid) + (pos[mid * 3 + 1] / H - cm.y) * n0.getY(mid) + (pos[mid * 3 + 2] / H - cm.z) * n0.getZ(mid) < 0) { const ix = g.index.array; for (let i = 0; i < ix.length; i += 3) { const q = ix[i + 1]; ix[i + 1] = ix[i + 2]; ix[i + 2] = q; } g.computeVertexNormals(); }
           return g; };
         const lR = rng3(907), out = (p, o) => { const d = [p[0] - hc[0], p[1] - hc[1], p[2] - hc[2]], l = len3(...d); return p.map((v, k) => v + d[k] / l * o); };
+        const fineCol = (g) => { const q = g.attributes.position, c = new Float32Array(q.count * 3); for (let i = 0; i < q.count; i++) { const k = 0.95 * (1 - 0.35 * sstep(0.68, 0.78, q.getY(i) / H)); c.set([k, k, k], i * 3); } g.setAttribute('color', new THREE.BufferAttribute(c, 3)); return g; };
+        const fine = (pts, r) => add(headG, fineCol(strandGeo(pts.map(([x, y, z]) => [x * H, y * H, z * H]), (t) => { const e = r * H * (0.3 + 0.7 * Math.sin(Math.PI * Math.min(1, 0.15 + t * 0.85))); return [e, e]; }, 4, 10)), 'hair', C.hair, 'hair');
+        const onSkin = (th, ph) => { const dx = Math.sin(th) * Math.sin(ph), dy = Math.cos(th), dz = Math.sin(th) * Math.cos(ph);
+          let lo = 0.05, hi = 0.9; for (let k = 0; k < 30; k++) { const m = 0.5 * (lo + hi); if (headSDF(hc[0] + dx * m, hc[1] + dy * m, hc[2] + dz * m) < 0) lo = m; else hi = m; } return [hc[0] + dx * lo, hc[1] + dy * lo, hc[2] + dz * lo]; };
         const lock = (th0, ph0, th1, ph1, w, tk, bow) => {
           const pts = []; for (let k = 0; k <= 6; k++) { const t = k / 6, th = th0 + (th1 - th0) * t, ph = ph0 + (ph1 - ph0) * t; pts.push(out(onHair(th, ph), tk * 0.2 + bow * Math.sin(Math.PI * t))); }
           const g = lockGeo(pts, (s) => { const e = Math.sin(Math.PI * Math.min(1, 0.1 + s * 0.92)); return [w * (0.25 + 0.75 * e), tk * (0.4 + 0.6 * e)]; }, 8, 20);
           const kc = 0.9 + 0.16 * lR(), cw = (lR() - 0.5) * 0.04, n = g.attributes.position.count, col = new Float32Array(n * 3);
-          for (let i = 0; i < n; i++) { const ss = Math.floor(i / 9) / 20, kk = kc * (0.86 + 0.14 * Math.sin(Math.PI * ss)); col.set([kk * (1 + cw), kk, kk * (1 - cw)], i * 3); }   // mỗi lọn một sắc bạc; giữa lọn sáng hơn đầu lọn
+          const pp = g.attributes.position; for (let i = 0; i < n; i++) { const ss = Math.floor(i / 9) / 20, kk = kc * (0.86 + 0.14 * Math.sin(Math.PI * ss)) * (1 - 0.35 * sstep(0.68, 0.78, pp.getY(i) / H)); col.set([kk * (1 + cw), kk, kk * (1 - cw)], i * 3); }   // bóng tiếp xúc dưới băng mũ   // mỗi lọn một sắc bạc; giữa lọn sáng hơn đầu lọn
           g.setAttribute('color', new THREE.BufferAttribute(col, 3)); add(headG, g, 'hair', C.hair, 'hair'); };   // vân sợi (normalMap tóc) chạy dọc lọn
         for (const sx of [1, -1]) {
-          for (let i = 0; i < 22; i++) { const ph0 = sx * (0.55 + 2.35 * i / 21 + (lR() - 0.5) * 0.06), th0 = thMax(ph0) - 0.03 - 0.03 * lR();   // lớp dưới: từ chân tóc về búi
-            lock(th0, ph0, 1.62 + 0.12 * lR(), sx * (Math.PI - 0.25 - 0.35 * lR()), 0.03 + 0.01 * lR(), 0.006, 0.002 + 0.003 * lR()); }
-          for (let i = 0; i < 14; i++) { const ph0 = sx * (0.35 + 2.1 * i / 13 + (lR() - 0.5) * 0.08), th0 = thMax(ph0) - 0.2 - 0.12 * lR();     // lớp trên (phần lớn dưới mũ)
-            lock(th0, ph0, 1.5 + 0.12 * lR(), sx * (Math.PI - 0.35 - 0.3 * lR()), 0.036 + 0.01 * lR(), 0.007, 0.003 + 0.003 * lR()); }
+          for (let i = 0; i < 30; i++) { const ph0 = sx * (0.55 + 2.35 * i / 29 + (lR() - 0.5) * 0.05), th0 = Math.min(thMax(ph0) - 0.05 - 0.03 * lR(), 1.12 + 0.8 * (1 - gauss(Math.abs(ph0) - 1.45, 0.45))), th1 = (Math.abs(ph0) < 2.2 ? 1.3 : 1.45) + 0.12 * lR(), ph1 = sx * (Math.PI - 0.25 - 0.35 * lR());   // lớp dưới: từ gần chân tóc về búi
+            lock(th0, ph0, th1, ph1, 0.022 + 0.008 * lR(), 0.006, 0.002 + 0.003 * lR());
+            const f0 = 0.15 + 0.3 * lR(), f1 = f0 + 0.3 + 0.2 * lR(), o = (lR() - 0.5) * 0.05;   // sợi con rời lọn (mép mềm)
+            fine([0, 0.33, 0.67, 1].map((u) => { const t = f0 + (f1 - f0) * u; return out(onHair(th0 + (th1 - th0) * t + o * 0.3, ph0 + (ph1 - ph0) * t + o), 0.004 + 0.003 * Math.sin(Math.PI * u)); }), 0.0018 + 0.0008 * lR()); }
+          for (let i = 0; i < 18; i++) { const ph0 = sx * (0.35 + 2.1 * i / 17 + (lR() - 0.5) * 0.08), th0 = Math.min(thMax(ph0) - 0.14 - 0.06 * lR(), 1.05);     // lớp trên (phần lớn dưới mũ)
+            lock(th0, ph0, 1.5 + 0.12 * lR(), sx * (Math.PI - 0.35 - 0.3 * lR()), 0.03 + 0.008 * lR(), 0.007, 0.003 + 0.003 * lR()); }
         }
         for (let i = 0; i < 7; i++) { const ph0 = -0.6 + 1.2 * i / 6 + (lR() - 0.5) * 0.05, sgn = ph0 >= 0 ? 1 : -1, th0 = thMax(ph0) - 0.02;   // lọn trước: vén lên–sang bên, lẩn dưới băng mũ
           lock(th0, ph0, th0 - 0.4, ph0 + sgn * (0.5 + 0.25 * lR()), 0.034 + 0.01 * lR(), 0.008, 0.006); }
+        for (let i = 0; i < 70; i++) {   // TÓC CON ở chân tóc: sợi mảnh nằm áp da, mọc từ da (ngoài mép) chui vào khối tóc theo hướng chải → chân tóc thưa, không có đường cắt
+          const ph = -2.2 + 4.4 * (i + lR() * 0.8) / 70, th = thMax(ph), sg = ph >= 0 ? 1 : -1, back = Math.abs(ph) > 0.9 ? 1 : 0;
+          const a0 = onSkin(th + 0.012 + 0.02 * lR(), ph), a1 = onSkin(th - 0.005, ph + sg * 0.015), a2 = onHair(th - 0.05 - 0.03 * lR(), ph + sg * (0.03 + 0.05 * back) + (lR() - 0.5) * 0.03);
+          const up = (p, o) => out(p, o);
+          fine([up(a0, 0.0008), up(a1, 0.002), up(a2, -0.003)], 0.0009 + 0.0005 * lR()); }
       } }
     if (AI) {   // A-i: da sát chân tóc tối nhẹ (bóng tiếp xúc của tóc) — mép tóc–da chuyển mềm, không cắt gọn kiểu mặt nạ/tóc giả
       const g = face.head.geometry, q = g.attributes.position, ca = g.attributes.color;
@@ -391,7 +404,7 @@ export function buildCharacter(sheet, opts = {}) {
     const hs = sheet.costume.hat; const hat = new THREE.Group(); const HAT_Y = AA ? 0.80 : 0.86; hat.position.y = HAT_Y * H; hat.rotation.x = 0.08;   // A-α: mũ ngồi thấp, ôm quanh vòng đầu rộng nhất (hết 'mũ đậu trên đỉnh sọ quả trứng')
     const ch_ = hs.crown_height_H, rx0 = hd.width_front * (AA ? 0.52 : 0.56), rz0 = rx0 * 1.12;   // A-α: miệng mũ vừa đầu + tóc
     // Cổng 4: bản lề mũ ở mép sau băng mũ → pose.hat_back (0–1) hất vành lên, mũ ngả ra sau (cử chỉ đẩy mũ trước câu thoại 1:50)
-    hatPivot = new THREE.Group(); hatPivot.position.set(0, HAT_Y * H, -rz0 * H); headG.add(hatPivot); hatPivot.add(hat); hat.position.set(0, 0, rz0 * H);
+    hatPivot = new THREE.Group(); hatPivot.position.set(0, (AI ? 0.59 : HAT_Y) * H, (AI ? -0.03 : -rz0) * H); headG.add(hatPivot); hatPivot.add(hat); hat.position.set(0, (AI ? HAT_Y - 0.59 : 0) * H, (AI ? 0.03 : rz0) * H);   // A-i v2: bản lề mũ ở TÂM SỌ → khi đẩy vành ra sau mũ trượt trên đầu, băng mũ vẫn ép tóc (không hở, không lơ lửng)
     const crownSDF = (x, y, z) => {
       const f = 1 - 0.16 * sstep(0, ch_, y);
       const ds = (Math.hypot(x / (rx0 * f), z / (rz0 * f)) - 1) * rx0 * f;
@@ -455,8 +468,8 @@ export function buildCharacter(sheet, opts = {}) {
       const taper = AI ? 0.006 * sstep(0.05, nL, yy) + 0.012 : AA ? -0.022 * sstep(0.05, nL, yy) : 0;   // A-i: cổ đầy hơn, không thon lên (hết 'cột cổ' dưới hàm)
                                              // bước 3: cổ THON lên trên (không ống đều)
       const band = AA ? 0.007 * gauss((AI ? aph : Math.abs(ph)) - 0.28, 0.09) * sstep(0.0, 0.2, yy) * sstep(nL + 0.05, nL - 0.1, yy) : 0;   // hai dải cơ cổ mờ (da cổ tuổi già)
-      return [(nW * (1 + 0.1 * Math.cos(ph) ** 2) + tend * (AA ? 0.6 : 1) + ring + flare + taper + band + (isIda ? 0 : 0.01)) * (AI ? 0.85 : 1) * H, 0,   // A-i: ống cổ thân nằm TRONG cổ liền hàm của lưới đầu (chỉ lộ ở chân cổ)
-        (isIda ? (AA ? 0.035 * sstep(0.0, nL, yy) : 0.03) : 0.01) * H]; },   // bước 3: đầu cổ chúi nhẹ ra trước (dáng người già), nối khối dưới cằm
+      return [(nW * (1 + 0.1 * Math.cos(ph) ** 2) + tend * (AA ? 0.6 : 1) + ring + flare + taper + band + (isIda ? 0 : 0.01)) * (AI ? 0.62 : 1) * H, 0,   // A-i: ống cổ thân nằm TRONG cổ liền hàm của lưới đầu (chỉ lộ ở chân cổ)
+        (isIda ? (AI ? 0 : AA ? 0.035 * sstep(0.0, nL, yy) : 0.03) : 0.01) * H]; },   // bước 3: đầu cổ chúi nhẹ ra trước (dáng người già), nối khối dưới cằm
     // Cổng 5 (W3, A1): cổ Ida nằm trong lòng cổ áo đứng, dưới bóng cằm → da tối (che khuất); khe dưới cằm đọc là bóng, không phải "cột cổ" hồng
     color: isIda ? (AA ? (s, ph, x, y) => { const a = AI ? 0.3 + 0.62 * sstep(nL + 0.02, nL - 0.30, y / H) : 0.36 + 0.60 * sstep(nL - 0.02, nL - 0.20, y / H);   // A-i: bóng hàm trên cổ rộng hơn (cổ lùi vào dưới hàm, không 'cột' sáng đều)
            // theo độ cao thật: tối sát dưới hàm (bóng hàm), sáng dần xuống chân cổ
@@ -556,7 +569,7 @@ export function buildCharacter(sheet, opts = {}) {
     // Khăn quàng len quấn cổ hai vòng + đuôi buông trước ngực trái.
     const loop = (y0, tilt, r0) => { const pts = []; for (let i = 0; i <= 14; i++) { const a = 2 * Math.PI * i / 14; pts.push([Math.sin(a) * r0 * H, (y0 + tilt * Math.cos(a)) * H, (Math.cos(a) * r0 * 0.95 + 0.02) * H]); } return pts; };
     const scarfRad = (w, t) => (s, a) => [w * H * (1 + 0.18 * Math.sin(s * 47)), t * H];
-    for (const [y0, tilt, r0] of (AA ? [[tL + 0.06, -0.06, 0.30], [tL + 0.165, -0.04, 0.285]] : [[tL + 0.05, -0.05, 0.285], [tL + 0.17, -0.03, 0.272]])) {   // A-α: khăn quấn THẤP, lỏng, nằm trên cổ áo (che chỗ nối cổ–thân)
+    for (const [y0, tilt, r0] of (AI ? [[tL + 0.06, -0.06, 0.30], [tL + 0.155, -0.04, 0.285], [tL + 0.25, -0.03, 0.262], [tL + 0.325, -0.02, 0.255]] : AA ? [[tL + 0.06, -0.06, 0.30], [tL + 0.165, -0.04, 0.285]] : [[tL + 0.05, -0.05, 0.285], [tL + 0.17, -0.03, 0.272]])) {   // A-α: khăn quấn THẤP, lỏng, nằm trên cổ áo (che chỗ nối cổ–thân)
       const pts = loop(y0, tilt, r0);
       add(joints.spine, strandGeo(pts, scarfRad(0.07, 0.042), R(8), R(44)), 'scarf', EXTRA_COLORS.ida_scarf, 'scarf');
     }
@@ -793,7 +806,7 @@ export function buildCharacter(sheet, opts = {}) {
     }
   }
   ch.setPose = (pose) => { baseSetPose(pose); fingerPose(pose);
-    if (hatPivot) { const t = pose.hat_back ?? opts.hatBack ?? 0; hatPivot.rotation.x = -0.34 * t; hatPivot.position.y = ((AA ? 0.80 : 0.86) + 0.015 * t) * H; }
+    if (hatPivot) { const t = pose.hat_back ?? opts.hatBack ?? 0; hatPivot.rotation.x = -(AI ? 0.36 : 0.34) * t; if (!AI) hatPivot.position.y = ((AA ? 0.80 : 0.86) + 0.015 * t) * H; }
     root.updateMatrixWorld(true); skin.update(); };
   // A-i: rig mặt — ch.setFace({kênh: trọng số}); FACE_PRESETS (biểu cảm) và VISEMES (khẩu hình) trộn bằng mixW.
   ch.face = face; ch.setFace = face ? face.setFace : () => {}; ch.FACE_PRESETS = FACE_PRESETS; ch.VISEMES = VISEMES; ch.mixW = mixW;

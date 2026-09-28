@@ -1,0 +1,18 @@
+{
+ "page": "cong5/mat/page_layout_fl.js",
+ "frame": "x",
+ "W": 1920,
+ "H": 1080,
+ "samples": 3,
+ "frames": 1,
+ "setup_s": 8.408,
+ "render_frame_s": 32.929,
+ "page_reported_accum_ms": 3166.4000000003725,
+ "page_prof_ms": {
+  "exposure": 0.299567558411804,
+  "f": 2531
+ },
+ "finalize_per_extra_frame_s": null,
+ "total_wall_s": 42.362,
+ "note": "render_frame_s = tích luỹ mọi mẫu + pass cuối + readPixels của khung 0 (thời gian render thật một khung cuối cùng)"
+}

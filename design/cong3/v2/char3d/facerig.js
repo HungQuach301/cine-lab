@@ -11,7 +11,7 @@ import { ell, sph, cap, smin, smax, gauss, sstep, sculpt, fbm } from './sdf.js';
 
 export const AI_E = [0.148, 0.575, 0.292];   // tâm nhãn cầu
 export const AI_ER = 0.064;                   // bán kính nhãn cầu (cách điệu: lớn hơn A1 0,058)
-const MY = 0.266, MW = 0.07, MZ = 0.385;   // MZ: độ sâu tâm khe môi (A-i: miệng + cằm đưa ra trước 0,025 H — bản đầu lõm như người móm)                 // khe môi: độ cao, nửa bề rộng miệng
+const MY = 0.30, MW = 0.058, MZ = 0.39;   // vòng 2: nửa dưới mặt NGẮN lại (mũi–miệng 0,10 H, miệng–cằm 0,19 H; cằm ở 0,11 H)   // khe môi: độ cao, nửa bề rộng, độ sâu tâm (vòng 2: nhân trung ngắn lại, miệng nhỏ gọn)
 
 // ---------------- hình khối đầu (SDF) ----------------
 // Rãnh/gờ mềm theo đường gấp khúc chiếu trước (ax, y) — dùng cho nếp tuổi dạng KHỐI (rộng ≥ 0,01 H, không nét mảnh).
@@ -21,38 +21,44 @@ export const lipY = (x, y) => y + 0.7 * x * x;   // hệ môi uốn: khoé miệ
 export function aiHeadSDF(x, y, z) {
   const ax = Math.sqrt(x * x + 1e-4), E = AI_E, ER = AI_ER, fr = (z0) => sstep(z0, z0 + 0.1, z), yb = lipY(x, y);   // |x| TRƠN (ε = 0,01 H): hết nếp gãy pháp tuyến dọc đường giữa mặt
   let d = ell(x, y, z, [0, 0.59, -0.03], [0.385, 0.41, 0.44]);                                  // sọ (đỉnh ≈ 1,0 H)
-  d = smin(d, ell(x, y, z, [0, 0.41, 0.105], [0.30, 0.30, 0.31]), 0.12);                          // khối giữa mặt
-  d = smin(d, ell(ax, y, z, [0.15, 0.34, 0.21], [0.10, 0.13, 0.11]), 0.13);                      // má đầy mềm (cao — mặt nữ tròn)
-  d = smin(d, ell(x, y, z, [0, 0.155, 0.245], [0.085, 0.09, 0.09]), 0.12);                         // cằm tròn nhỏ
-  d = smin(d, sph(x, y, z, [0, 0.145, 0.28], 0.048), 0.05);                                       // đệm cằm
-  d = smin(d, ell(x, y, z, [0, 0.085, 0.11], [0.13, 0.07, 0.13]), 0.12);                          // khối dưới cằm (da chùng, nối cổ)
-  d = smin(d, ell(ax, y, z, [0.15, 0.2, 0.18], [0.045, 0.045, 0.045]), 0.08);
-  d = smin(d, ell(x, y, z, [0, -0.06, 0.035], [0.178, 0.27, 0.212]), 0.05);                                        // CỔ LIỀN HÀM: phần cổ trên là cùng một lưới với đầu (lượn mềm từ hàm/dưới cằm xuống), bọc ngoài ống cổ của thân                      // má chùng nhẹ trên đường hàm (tuổi)
+  d = smin(d, ell(x, y, z, [0, 0.42, 0.115], [0.29, 0.29, 0.31]), 0.12);                           // khối giữa mặt
+  d = smin(d, ell(ax, y, z, [0.15, 0.36, 0.20], [0.10, 0.12, 0.10]), 0.12);                       // má (cao, gọn)
+  // vòng 2: HÀM có đường và góc hàm (xương hàm dưới từ góc hàm dưới tai tới cằm), cằm nhỏ gọn — hết "quả lê / túi"
+  d = smin(d, cap(ax, y, z, [0.232, 0.27, -0.03], [0.06, 0.155, 0.215], 0.036, 0.03), 0.07);   // xương hàm
+  d = smin(d, ell(x, y, z, [0, 0.245, 0.225], [0.155, 0.14, 0.18]), 0.08);                            // khối hàm dưới–miệng (nối mặt giữa xuống cằm liền mạch — hết 'cằm treo')
+  d = smin(d, sph(x, y, z, [0, 0.17, 0.335], 0.043), 0.04);                                        // đệm cằm nhỏ
+  d = smin(d, ell(ax, y, z, [0.155, 0.22, 0.16], [0.04, 0.035, 0.04]), 0.06);                      // má chùng nhẹ trên hàm (tuổi)
+  // CỔ liền sọ (cùng lưới): cột cổ rộng (sheet 0,40 H), nằm SAU cằm → dưới hàm có nếp bóng; cơ ức–đòn–chũm; hai nếp da cổ
+  d = smin(d, ell(x, y, z, [0, -0.1, -0.01], [0.215, 0.36, 0.2]), 0.05);
+  d -= 0.009 * g2(ax, y, [[0.17, 0.34], [0.1, 0.1], [0.05, -0.24]], 0.028) * sstep(-0.12, 0.06, z) * sstep(0.26, 0.11, y);
+  d += 0.0025 * (gauss(y - 0.03 - 0.3 * ax * ax, 0.012) + gauss(y + 0.05 - 0.3 * ax * ax, 0.012)) * sstep(0.05, 0.14, z);
   d = smin(d, ell(ax, y, z, [0.215, 0.49, 0.25], [0.085, 0.05, 0.08]), 0.09);                     // gò má cao
-  d = smin(d, ell(ax, y, z, [0.13, 0.355, 0.30], [0.06, 0.08, 0.045]), 0.09);                     // đệm má (ngoài rãnh mũi–má)
-  d += (0.0035 * g2(ax, y, [[0.058, 0.43], [0.085, 0.36], [0.104, 0.3], [0.112, 0.27]], 0.021)       // RÃNH MŨI–MÁ: lõm phía trong…
-    - 0.003 * g2(ax, y, [[0.085, 0.42], [0.112, 0.35], [0.13, 0.29]], 0.024)) * fr(0.22);           // …gờ má phủ phía ngoài (nếp gấp là khối; dừng trên khoé miệng — không kéo xuống cằm kiểu 'hàm rối')
-  d += (0.0022 * g2(ax, y, [[0.075, 0.495], [0.13, 0.476], [0.19, 0.49]], 0.014)                   // rãnh dưới bọng mắt
+  d = smin(d, ell(ax, y, z, [0.135, 0.37, 0.285], [0.06, 0.07, 0.04]), 0.1);                    // đệm má (ngoài rãnh mũi–má)
+  d += (0.006 * g2(ax, y, [[0.056, 0.43], [0.082, 0.37], [0.096, 0.33], [0.098, 0.305]], 0.017)      // RÃNH MŨI–MÁ sâu hơn: lõm phía trong…
+    - 0.0025 * g2(ax, y, [[0.082, 0.42], [0.108, 0.36], [0.12, 0.33]], 0.024)) * fr(0.22);          // …gờ má phủ phía ngoài
+  d += 0.0015 * g2(ax, y, [[0.07, 0.285], [0.078, 0.25]], 0.012) * fr(0.2);                          // rãnh khoé miệng ngắn
+  d += (0.0024 * g2(ax, y, [[0.075, 0.495], [0.13, 0.476], [0.19, 0.49]], 0.013)                   // rãnh dưới bọng mắt
     - 0.0025 * g2(ax, y, [[0.09, 0.515], [0.145, 0.505], [0.195, 0.515]], 0.014)) * fr(0.25);        // bọng dưới mắt
-  d += 0.0025 * (gauss(y - 0.745 - 0.12 * ax * ax, 0.012) + gauss(y - 0.785 - 0.12 * ax * ax, 0.012)) * sstep(0.28, 0.08, ax) * fr(0.25);   // nếp trán mềm
+  d += 0.0028 * (g2(ax, y, [[0.228, 0.59], [0.275, 0.612]], 0.0075) + g2(ax, y, [[0.232, 0.572], [0.282, 0.57]], 0.0075)
+    + g2(ax, y, [[0.226, 0.552], [0.268, 0.525]], 0.0075)) * sstep(0.05, 0.15, z);                // VẾT CHÂN CHIM (3 rãnh khối)
+  d += 0.0036 * (gauss(y - 0.742 - 0.12 * ax * ax, 0.011) + gauss(y - 0.782 - 0.12 * ax * ax, 0.011)) * sstep(0.28, 0.08, ax) * fr(0.25);   // nếp trán
+  d += 0.0022 * g2(ax, y, [[0.018, 0.64], [0.024, 0.69]], 0.008) * fr(0.3);                         // nếp giữa mày
   d = smin(d, cap(ax, y, z, [0.02, 0.668, 0.385], [0.22, 0.656, 0.305], 0.04, 0.028), 0.05);      // gờ mày
   d = smax(d, -ell(ax, y, z, [E[0], E[1] + 0.008, 0.365], [0.10, 0.074, 0.075]), 0.04);            // hốc mắt
   const lid = sph(ax, y, z, E, ER + 0.012);
   d = smin(d, smax(lid, -(y - (E[1] + 0.025 - 0.035 * (ax - E[0]))), 0.012), 0.02);                // mí trên DÀY (khối), đuôi cụp
   d = smin(d, smax(lid, y - (E[1] - 0.037), 0.01), 0.012);                                         // mí dưới
   d = smin(d, cap(ax, y, z, [0.09, 0.628, 0.34], [0.215, 0.605, 0.30], 0.02), 0.03);                // da chùng trên mí (mí sụp tuổi: khối)
-  d = smin(d, cap(x, y, z, [0, 0.625, 0.37], [0, 0.47, 0.462], 0.028, 0.034), 0.04);                // sống mũi dài
-  d = smin(d, sph(x, y, z, [0, 0.535, 0.435], 0.03), 0.03);                                         // gồ mũi
-  d = smin(d, sph(x, y, z, [0, 0.438, 0.482], 0.036), 0.035);                                       // đầu mũi
-  d = smin(d, sph(x, y, z, [0, 0.415, 0.47], 0.03), 0.03);                                          // khoằm
-  d = smin(d, sph(ax, y, z, [0.045, 0.418, 0.43], 0.031), 0.03);                                    // cánh mũi
-  d = smax(d, -ell(ax, y, z, [0.026, 0.403, 0.45], [0.013, 0.008, 0.016]), 0.016);                 // lỗ mũi
-  // môi trên (mỏng — tuổi) + môi dưới có khối: hợp với nhau bằng nối NHỎ → đường môi là NẾP HÌNH HỌC (rãnh chữ V giữa hai khối), không khoét khe
-  const lips = smin(ell(x, yb, z, [0, MY + 0.018, MZ - 0.008], [0.074, 0.017, 0.029]), ell(x, yb, z, [0, MY - 0.02, MZ - 0.019], [0.064, 0.021, 0.031]), 0.004);
-  d = smin(d, lips, 0.05);
-  d += 0.004 * gauss(ax, 0.013) * gauss(y - 0.33, 0.026) * fr(0.35);                               // nhân trung (rãnh khối)
-  d = smax(d, -ell(x, yb, z, [0, MY, MZ + 0.03], [MW, 0.0012, 0.03]), 0.003);                       // khe môi nông ở mặt trước (sắc nét đường môi)
-  d += 0.006 * gauss(y - 0.195, 0.02) * gauss(ax, 0.07) * fr(0.2);                                 // hõm môi–cằm
+  d = smin(d, cap(x, y, z, [0, 0.63, 0.372], [0, 0.465, 0.44], 0.026, 0.031), 0.04);               // sống mũi THẲNG (vòng 2: bỏ gồ — đọc thành mũi gãy/vẹo)
+  d = smin(d, sph(x, y, z, [0, 0.44, 0.455], 0.034), 0.035);                                        // đầu mũi
+  d = smin(d, sph(x, y, z, [0, 0.418, 0.442], 0.028), 0.03);                                         // khoằm
+  d = smin(d, sph(ax, y, z, [0.042, 0.42, 0.41], 0.027), 0.03);                                    // cánh mũi (không khoét lỗ mũi: chấm tối đọc thành "khuyên mũi/cục u")
+  // môi nhỏ, gọn: môi trên mỏng + môi dưới; hợp bằng nối NHỎ → đường môi là rãnh chữ V hình học
+  const lips = smin(ell(x, yb, z, [0, MY + 0.015, MZ - 0.006], [0.062, 0.014, 0.025]), ell(x, yb, z, [0, MY - 0.017, MZ - 0.014], [0.054, 0.017, 0.026]), 0.004);
+  d = smin(d, lips, 0.045);
+  d += 0.006 * gauss(yb - MY, 0.0032) * sstep(MW + 0.006, MW - 0.018, ax) * fr(0.3);               // khe môi: rãnh hình học giữa hai môi, nông dần về khoé (không đầu nhọn sáng)
+  d += 0.0035 * gauss(ax, 0.012) * gauss(y - 0.355, 0.016) * fr(0.35);                              // nhân trung (rãnh khối, ngắn)
+  d += 0.0035 * gauss(y - 0.235, 0.016) * gauss(ax, 0.06) * fr(0.2);                                  // hõm môi–cằm
   return d;
 }
 
@@ -76,11 +82,17 @@ function channelDisp(ch, x, y, z) {
     case 'lidDrop': lidRot(0.30, 0); break;
     case 'squint': lidRot(0.12, -0.32); k = gp(0.2, 0.47, 0.06); dy += 0.006 * k; break;
     case 'cheekRaise': k = gp(0.15, 0.37, 0.07); dy += 0.018 * k; dz += 0.012 * k; lidRot(0, -0.15); break;
-    case 'smile': k = gp(MW, MY, 0.05); dy += 0.05 * k; dx += sx * 0.024 * k; dz -= 0.018 * k; k = gauss(ax, 0.06) * gauss(y - MY - 0.015, 0.02) * fm; dy += 0.004 * k; k = gp(0.14, 0.34, 0.06); dy += 0.02 * k; dz += 0.016 * k; k = gauss(ax, 0.05) * gauss(y - MY + 0.022, 0.02) * fm; dz -= 0.007 * k; dy += 0.003 * k; break;   // môi dưới kéo phẳng (không bĩu)
+    case 'smile': {   // vòng 2: CƯỜI đọc được — cả đường môi cong lên về khoé (không chỉ một cục ở khoé), khoé kéo ra–lên–vào má, má "táo" dồn lên dưới mắt, môi lùi nhẹ (không bĩu)
+      const yb = lipY(x, y), lz = gauss(yb - MY, 0.026) * sstep(MW + 0.05, MW + 0.005, ax) * fm, cu = Math.min(1, ax / MW) ** 2;
+      dy += 0.03 * lz * cu; dx += sx * 0.026 * lz * Math.sqrt(cu); dz -= 0.016 * lz * cu + 0.005 * lz;
+      k = gp(MW + 0.004, MY + 0.004, 0.03); dy += 0.014 * k; dx += sx * 0.012 * k; dz -= 0.01 * k;
+      k = gp(0.13, 0.40, 0.055); dy += 0.02 * k; dz += 0.018 * k;                                   // má táo
+      k = gp(0.105, 0.33, 0.035); dz += 0.006 * k;                                                  // rãnh mũi–má sâu thêm (gờ má phồng)
+      k = gauss(ax, 0.05) * gauss(y - MY + 0.02, 0.018) * fm; dz -= 0.006 * k; break; }             // môi dưới phẳng
     case 'frown': k = gp(MW, MY, 0.045); dy -= 0.036 * k; dz -= 0.004 * k; k = gp(MW + 0.015, MY - 0.05, 0.035); dy -= 0.01 * k; break;
     case 'jawOpen': {   // xoay hàm dưới quanh bản lề gần tai; chỉ phần dưới khe môi
       const yb = lipY(x, y), spread = 0.004 + 0.11 * sstep(0.045, 0.22, ax);   // giữa: tách gọn ở khe môi; khoé–má: chuyển mềm (má giãn, không 'hàm rối gỗ')
-      const w = sstep(MY + 0.002, MY - spread, yb) * sstep(-0.12, 0.05, z) * sstep(0.36, 0.26, ax) * sstep(-0.04, 0.08, y);   // cổ không theo hàm
+      const w = sstep(MY + 0.002, MY - spread, yb) * sstep(-0.12, 0.05, z) * sstep(0.36, 0.26, ax) * (1 - sstep(0.15, 0.05, y) * sstep(0.22, 0.12, z)) * (1 - sstep(0.1, 0.0, y));   // cổ (sau/dưới cằm) không theo hàm
       if (w) { const a = 0.24 * w, hy = 0.42, hz = -0.03, Y = y - hy, Z = z - hz, c = Math.cos(a), s = Math.sin(a);
         dy += (Y * c - Z * s) - Y; dz += (Y * s + Z * c) - Z; }   // quay quanh trục x (+a: cằm xuống–ra sau), như rotation.x = +a
       k = gauss(ax, 0.07) * gauss(y - MY - 0.02, 0.015) * fm; dy += 0.008 * k;   // môi trên nhích lên
@@ -90,7 +102,7 @@ function channelDisp(ch, x, y, z) {
     case 'pucker': k = gauss(ax, 0.08) * gauss(y - MY, 0.04) * fm; dz += 0.02 * k; dx -= sx * 0.014 * k * sstep(0, 0.06, ax); k = gp(MW, MY, 0.04) * fm; dx -= sx * 0.028 * k; dz += 0.008 * k; break;   // khoé miệng co vào → miệng tròn
     case 'wide': k = gp(MW, MY, 0.05); dx += sx * 0.018 * k; dz -= 0.006 * k; dy += 0.004 * k; break;
     case 'lowerLipIn': k = gauss(ax, 0.06) * gauss(y - MY + 0.024, 0.018) * fm; dy += 0.012 * k; dz -= 0.014 * k; break;
-    case 'chinRaise': k = gp(0, 0.15, 0.06); dy += 0.012 * k; dz += 0.008 * k; k = gauss(ax, 0.05) * gauss(y - MY + 0.03, 0.02); dz += 0.006 * k; break;
+    case 'chinRaise': k = gp(0, 0.17, 0.05); dy += 0.012 * k; dz += 0.008 * k; k = gauss(ax, 0.05) * gauss(y - MY + 0.03, 0.02); dz += 0.006 * k; break;
   }
   return (dx || dy || dz) ? [dx * (ch === 'jawOpen' ? 1 : fm), dy * (ch === 'jawOpen' ? 1 : fm), dz * (ch === 'jawOpen' ? 1 : fm)] : null;
 }
@@ -99,7 +111,7 @@ export function faceDisp(w, x, y, z) { let dx = 0, dy = 0, dz = 0; for (const [c
 // Biểu cảm (dựng lại trên rig) và khẩu hình.
 export const FACE_PRESETS = {
   neutral: {},
-  sad_smile: { smile: 1.0, cheekRaise: 0.8, browInnerUp: 0.6, browKnit: 0.15, squint: 0.45 },   // cười (khoé lên, má nâng, mí dưới nâng) + đầu trong mày nâng nhẹ = cười buồn
+  sad_smile: { smile: 1.0, cheekRaise: 0.9, browInnerUp: 0.45, browKnit: 0.1, squint: 0.55, jawOpen: 0.1 },   // môi hé nhẹ → thấy mép răng trên: nụ cười đọc rõ   // cười (khoé lên, má nâng, mí dưới nâng) + đầu trong mày nâng nhẹ = cười buồn
   strained: { press: 0.8, browKnit: 0.8, browDown: 0.3, chinRaise: 0.4 },
   choked: { frown: 1.0, browInnerUp: 1.0, browKnit: 0.65, chinRaise: 1.0, press: 0.6, lidDrop: 0.25, squint: 0.2 },
 };
@@ -117,14 +129,15 @@ export function buildIdaFace(p) {
   const tint = (x, y, z, n) => {
     const ax = Math.abs(x), gp = (cx, cy, r) => gauss(Math.hypot(ax - cx, y - cy), r), fz = sstep(0.1, 0.3, z);
     let r = 1, g = 1, b = 1;
-    const warm = (0.10 * gp(0.17, 0.37, 0.08) + 0.12 * gp(0, 0.44, 0.05)) * fz; r += warm * 0.2; g -= warm * 0.9; b -= warm * 1.0;       // má, mũi ấm hồng
-    const cool = 0.07 * gp(0.14, 0.50, 0.035) * fz; r -= cool * 0.7; g -= cool * 0.5; b -= cool * 0.2;                                // dưới mắt mát
+    r = 0.93; g = 1.0; b = 1.06;   // vòng 2: nền da BỚT bão hoà (#d8b49a × màu đỉnh ≈ #c9b4a3)
+    const warm = (0.16 * gp(0.17, 0.37, 0.075) + 0.2 * gp(0, 0.445, 0.045) + 0.08 * gp(0.05, 0.64, 0.05)) * fz; r += warm * 0.35; g -= warm * 0.75; b -= warm * 0.7;   // VÙNG NÓNG: má, mũi, giữa mày hồng đỏ
+    const cool = (0.14 * gp(0.14, 0.495, 0.035) + 0.1 * gp(0.3, 0.6, 0.07) + 0.08 * gp(0.1, 0.16, 0.07)) * fz; r -= cool * 0.9; g -= cool * 0.45; b += cool * 0.15;   // VÙNG LẠNH: dưới mắt, thái dương, cằm–hàm xám tím
     const yb = lipY(x, y), lip = sstep(0.018, 0.0, Math.hypot(ax / 1.15, (yb - MY) / 0.75) - 0.05) * fz; r -= 0.03 * lip; g -= 0.30 * lip; b -= 0.25 * lip;   // môi hồng xỉn (vùng, không nét)
-    const inner = sstep(0.009, 0.004, Math.abs(yb - MY)) * sstep(MZ + 0.03, MZ + 0.012, z) * sstep(MW + 0.008, MW - 0.004, ax);                        // vách trong môi tối dần
-    const nost = sstep(0.018, 0.003, ell(ax, y, z, [0.026, 0.403, 0.45], [0.013, 0.008, 0.016]));   // lòng lỗ mũi tối (không đốm sáng 'khuyên mũi')
+    const inner = sstep(0.008, 0.003, Math.abs(yb - MY)) * sstep(MZ + 0.05, MZ + 0.03, z) * sstep(MW + 0.008, MW - 0.004, ax);                        // vách trong môi tối dần
+    const nost = 0.6 * gauss(Math.hypot((ax - 0.026) / 1.6, y - 0.408), 0.009) * sstep(-0.1, -0.5, n[1]) * sstep(0.38, 0.41, z);   // lỗ mũi: chỉ tối mềm ở mặt dưới mũi (không khoét — chấm tròn đọc thành 'khuyên mũi')
     const mot = fbm(x * 9, y * 9, z * 9, 3, 41) * fz, spot = Math.max(0, fbm(x * 26, y * 26, z * 26, 2, 53) - 0.28) * sstep(0.55, 0.8, y) * fz;   // da không phẳng: loang hồng nhẹ + vài đốm tuổi mờ ở trán/thái dương
     r += 0.03 * mot; g -= 0.02 * mot; b -= 0.03 * mot; r -= 0.25 * spot; g -= 0.35 * spot; b -= 0.45 * spot;
-    const occ = Math.max(0.45 * sstep(-0.15, -0.75, n[1]) * sstep(0.34, 0.12, y), 0.3 * sstep(0.70, 0.80, y), 0.35 * sstep(0.12, 0.0, y) * sstep(-0.3, -0.05, y) * sstep(0.25, 0.1, z) + 0.1 * sstep(0.0, -0.3, y));   // cổ: tối dưới bóng hàm
+    const occ = Math.max(0.4 * sstep(-0.25, -0.8, n[1]) * sstep(0.34, 0.12, y) * sstep(0.34, 0.26, z), 0.3 * sstep(0.70, 0.80, y), 0.4 * sstep(0.18, 0.06, y) * sstep(-0.22, 0.0, y) * sstep(0.26, 0.12, z) + 0.12 * sstep(0.08, -0.22, y));   // cổ: tối dưới bóng hàm
     const k = (1 - occ) * (1 - 0.85 * inner) * (1 - 0.88 * nost);
     return [r * k, g * k * (1 - 0.4 * inner), b * k * (1 - 0.35 * inner)];   // vách trong môi: đỏ sẫm ướt
   };
@@ -136,13 +149,23 @@ export function buildIdaFace(p) {
   const JH = [0, 0.42, -0.03], jaw = new THREE.Group(); jaw.position.set(0, JH[1] * H, JH[2] * H); headG.add(jaw);
   { const arc = (yc, rr, zc, a) => { const pts = []; for (let i = 0; i <= 8; i++) { const t = -a + 2 * a * i / 8; pts.push([Math.sin(t) * rr * H, yc * H, (zc + Math.cos(t) * rr) * H]); } return pts; };
     const teethM = matFn('skin', '#cfc4b2', 'teeth', {});
-    const ut = new THREE.Mesh(strandGeo(arc(MY + 0.02, 0.05, MZ - 0.088, 0.75), () => [0.003 * H, 0.0075 * H], 6, 16), teethM); ut.userData.part = 'teeth'; headG.add(ut); parts.push(ut);
+    const ut = new THREE.Mesh(strandGeo(arc(MY + 0.009, 0.05, MZ - 0.084, 0.75), () => [0.003 * H, 0.0075 * H], 6, 16), teethM); ut.userData.part = 'teeth'; headG.add(ut); parts.push(ut);
     const lt = new THREE.Mesh(strandGeo(arc(MY - 0.02, 0.046, MZ - 0.09, 0.7), () => [0.003 * H, 0.0065 * H], 6, 16), teethM); lt.userData.part = 'teeth'; lt.position.set(0, -JH[1] * H, -JH[2] * H); jaw.add(lt); parts.push(lt); }
   // Da: Lambert + "bọc" ánh sáng theo kênh màu (đỏ lan sâu hơn qua ranh sáng tối — tán xạ dưới da giả lập) + giữ sắc ấm khi ánh lạnh.
   // Da (A-i): vật liệu PBR riêng (bóng da mềm: nhám 0,5 — ánh bóng nhẹ ở mũi, trán, gò má, môi; Lambert cũ đọc thành sáp/đất sét)
   //  + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập: ranh sáng–tối ấm, mềm) + giữ sắc ấm khi ánh lạnh (skinWarm như bản cũ).
-  const mat = new THREE.MeshStandardMaterial({ color: new THREE.Color(C.skin), roughness: opts.skinRough ?? 0.42, metalness: 0, vertexColors: true, map: head.material.map || null, envMapIntensity: 0 });
-  const warm = opts.skinWarm ?? 0.7, spec = opts.skinSpec ?? 1.0;
+  // vòng 2: kết cấu da (lỗ chân lông + nếp mịn ngẫu nhiên) làm bumpMap — phá mặt "nhựa trơn" (thủ tục, không phải ảnh)
+  const skinBump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);
+    let sd = 1234567; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647);
+    const base = new Float32Array(N * N); for (let i = 0; i < N * N; i++) base[i] = rnd();
+    const blur = (a, r) => { const o = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let s2 = 0, c = 0; for (let k = -r; k <= r; k++) { s2 += a[y * N + ((x + k + N) % N)]; c++; } o[y * N + x] = s2 / c; }
+      const o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let s2 = 0, c = 0; for (let k = -r; k <= r; k++) { s2 += o[((y + k + N) % N) * N + x]; c++; } o2[y * N + x] = s2 / c; } return o2; };
+    const b1 = blur(base, 1), b4 = blur(base, 5);
+    for (let i = 0; i < N * N; i++) { const v = 128 + 150 * (b1[i] - 0.5) + 260 * (b4[i] - 0.5); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = Math.max(0, Math.min(255, v)); im.data[i * 4 + 3] = 255; }
+    g.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(4, 4); return t; })();
+  const mat = new THREE.MeshStandardMaterial({ color: new THREE.Color(C.skin), roughness: opts.skinRough ?? 0.58, metalness: 0, vertexColors: true, map: head.material.map || null, envMapIntensity: 0,
+    bumpMap: skinBump, bumpScale: opts.skinBump ?? 1.2 });
+  const warm = opts.skinWarm ?? 0.7, spec = opts.skinSpec ?? 0.45;
   const phys = THREE.ShaderChunk.lights_physical_pars_fragment
     .replace('reflectedLight.directDiffuse += irradiance * BRDF_Lambert( material.diffuseColor );',
       `{ float nlW = dot( geometryNormal, directLight.direction ); vec3 wr = vec3( 0.34, 0.16, 0.11 );
@@ -156,8 +179,9 @@ export function buildIdaFace(p) {
         `vec3 alb = max(diffuseColor.rgb, vec3(1e-3)); vec3 eSk = totalDiffuse / alb;
          float lSk = dot(eSk, vec3(0.2126, 0.7152, 0.0722)), cSk = smoothstep(0.0, 0.25, (eSk.b - eSk.r) / max(lSk, 1e-5));
          eSk = mix(eSk, lSk * vec3(1.06, 1.0, 0.92), ${warm.toFixed(3)} * cSk);
+         eSk = mix(eSk, lSk * vec3(1.07, 1.0, 0.9), ${(opts.skinNeutral ?? 0.4).toFixed(3)});   // vòng 2: ánh hổ phách lên da kéo 40 % về trung tính ấm (như tóc bạc) — hết 'cam gắt'
          vec3 outgoingLight = eSk * alb + totalSpecular + totalEmissiveRadiance;`); };
-  mat.customProgramCacheKey = () => '|aiSkin' + warm + '|' + spec;
+  mat.customProgramCacheKey = () => '|aiSkin' + warm + '|' + spec + '|' + (opts.skinNeutral ?? 0.4);
   head.material = mat;
 
   // ---- morph CPU ----
@@ -194,7 +218,8 @@ export function buildIdaFace(p) {
     const eg = new THREE.SphereGeometry(ER * H, R(28), R(20));
     { const q = eg.attributes.position, col = new Float32Array(q.count * 3); for (let i = 0; i < q.count; i++) { const yy = q.getY(i) / (ER * H), a = 1 - 0.5 * sstep(0.15, 0.8, yy); col.set([a, a * 0.97, a * 0.97], i * 3); } eg.setAttribute('color', new THREE.BufferAttribute(col, 3)); }   // bóng mí trên trên nhãn cầu
     const e = new THREE.Mesh(eg, eyeMat); e.userData.part = 'eyes'; e.castShadow = true; e.receiveShadow = true; headG.add(e); parts.push(e);
-    e.position.set(sx * E[0] * H, E[1] * H, E[2] * H); e.rotation.set(0.1 + (opts.gaze?.[1] ?? 0), sx * 0.025 + (opts.gaze?.[0] ?? 0), 0); eyes.push(e);
+    e.position.set(sx * E[0] * H, E[1] * H, E[2] * H); e.rotation.set(0.1 + (opts.gaze?.[1] ?? 0), -sx * 0.03 + (opts.gaze?.[0] ?? 0), 0);   // vòng 2: HỘI TỤ thật (rotation.y > 0 quay trục nhìn về +x → mắt ở +x phải quay âm; bản trước phân kỳ = 'lác')
+    eyes.push(e);
   }
   // Khối mi trên (dày, tối) và đường nước mí dưới — gắn trục quay tại tâm nhãn cầu, quay theo mí khi chớp/nheo.
   const lidPivots = [];

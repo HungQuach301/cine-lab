@@ -17,13 +17,13 @@ for w in $WHAT; do case "$w" in
     for n in neutral sad_smile choked s39; do
       if [ "$n" = s39 ]; then A='{"shot":"s39","f":2531}'; else A="{\"shot\":\"s37\",\"expr\":\"$n\"}"; fi
       s=$(date +%s.%N)
-      bash scripts/render/queue.sh W3 "ai-v1-$n" -- timeout 900 node design/cong5/mat/still.js --page cong5/mat/page_layout_fl.js --frame x --out "$O/$n" --samples 3 --args "$A" 2>&1 | grep -iv "gpu stall" | grep -i "error\|queue" || true
+      bash scripts/render/queue.sh W3 "ai-${V:-v1}-$n" -- timeout 900 node design/cong5/mat/still.js --page cong5/mat/page_layout_fl.js --frame x --out "$O/$n" --samples 3 --args "$A" 2>&1 | grep -iv "gpu stall" | grep -i "error\|queue" || true
       echo "$n $(echo "$(date +%s.%N) - $s" | bc)" >> "$T"
     done ;;
   clip)
     TR=$(node design/cong5/mat/goodnight.js 72)
     s=$(date +%s.%N)
-    bash scripts/render/queue.sh W3 "ai-v1-clip" -- timeout 7200 node design/cong5/mat/clip.js --page cong5/mat/page_layout_fl.js --out "$O/clip" --frames 72 --samples 2 --args "{\"shot\":\"s37\",\"f\":2266,\"track\":$TR}" 2>&1 | grep -iv "gpu stall" | grep -i "error\|queue\|khung\|frame_s" || true
+    bash scripts/render/queue.sh W3 "ai-${V:-v1}-clip" -- timeout 7200 node design/cong5/mat/clip.js --page cong5/mat/page_layout_fl.js --out "$O/clip" --frames 72 --samples 2 --args "{\"shot\":\"s37\",\"f\":2266,\"track\":$TR}" 2>&1 | grep -iv "gpu stall" | grep -i "error\|queue\|khung\|frame_s" || true
     echo "clip $(echo "$(date +%s.%N) - $s" | bc)" >> "$T" ;;
 esac; done
 echo XONG >> "$T"

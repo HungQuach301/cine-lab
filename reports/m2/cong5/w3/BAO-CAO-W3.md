@@ -407,3 +407,52 @@ Không sửa: `bible/`, `checks/`, `ida.json`, `PLAN.md`, file layout W1/W2 (`de
 - **P/W2 (đề xuất, W3 không sửa):** góc L11 ở s36/s37 (rủi ro 1); mặt nạ mắt riêng cho lớp vẽ (rủi ro 4).
 - **Chủ dự án:** duyệt hướng tạo hình A-i (mặt điêu khắc + rig, tóc lọn, cổ liền hàm, tròng nâu xám lệch lạnh với vòng #5a4636) — ghi AUTHORSHIP khi qua.
 - **Khi QUA:** W3 đề xuất `characters` v1.5 + model sheet (P sửa, khoá SHA); đo lại B1 8 góc → `c3_views`.
+
+## A-i vòng 2 (vòng CUỐI) — sửa theo `kiem-mu-mat/ai-vong1.md`
+
+Vòng 1 TRƯỢT (búp bê/mặt nạ/con rối: Ida 9/10, đối chứng 0/2; cười buồn không đọc ra). Khung, đèn, phơi sáng giữ y vòng 1 (s37 f 2302 'gas', s39 f 2531, clip s37 f 2266–2337); chỉ đổi nhân vật.
+
+### 1. Bộ nộp
+| # | Ảnh 1920×1080, 3 mẫu (làn nặng) | JPEG | PNG gốc |
+|---|---|---|---|
+| 1 | neutral (s37 f 2302) | `reports/m2/cong5/w3/ai_v2_neutral.jpg` | `design/cong5/mat/ai/vong2/neutral/x.png` |
+| 2 | sad_smile (s37 f 2302) | `reports/m2/cong5/w3/ai_v2_sad_smile.jpg` | `…/vong2/sad_smile/x.png` |
+| 3 | choked (s37 f 2302) | `reports/m2/cong5/w3/ai_v2_choked.jpg` | `…/vong2/choked/x.png` |
+| 4 | s39 f 2531 (biểu cảm layout) | `reports/m2/cong5/w3/ai_v2_s39.jpg` | `…/vong2/s39/x.png` |
+| clip | 3 s, 72 khung, 24 fps, 1920×1080, 2 mẫu, H.264 CRF 16, 7,7 MB | `reports/m2/cong5/w3/ai_v2_clip_goodnight.mp4` | `…/vong2/clip/f0000–f0071.png` |
+**6 chỉ số khung để cắt: 0, 8, 22, 36, 45, 64** (0 nghỉ; 8 nhắm mắt; 22 "oo"; 36 "igh"; 45 "t"; 64 chớp 2). Ghép tham khảo: `ai_v2_clip_6khung.jpg`; rig studio: `ai_v2_rig_studio.jpg`. Rãnh clip giữ nguyên `goodnight.js`.
+
+### 2. Sửa theo từng nhóm lời chê (số trong ngoặc = số ảnh bị nêu ở vòng 1)
+1. **Da nhựa/sáp, cam gắt, không nếp (10/10).** Nền da bớt bão hoà (màu đỉnh 0,93/1,0/1,06); vùng nóng (má, mũi, giữa mày, tai) và vùng lạnh (dưới mắt, thái dương, cằm–hàm) tách rõ hơn; ánh hổ phách tới da kéo 40 % về trung tính ấm (vật liệu, như tóc bạc — không đổi đèn); bóng gương giảm (nhám 0,42 → 0,58, cường độ 1,0 → 0,45); kết cấu da thủ tục (bumpMap lỗ chân lông + nếp mịn). Nếp tuổi bằng KHỐI: 3 rãnh chân chim mỗi bên, rãnh mũi–má sâu hơn (0,0035 → 0,006 H), 2 nếp trán, nếp giữa mày, 2 nếp da cổ, cơ ức–đòn–chũm. Số đo: bão hoà HSV trung vị vùng da neutral 0,788 → **0,707**, s39 0,511 → **0,469**; điểm da cháy (kênh ≥ 250): s37 2,9–3,9 % → **0,0 %**, s39 1,4 % → **0,0 %**.
+2. **Nửa dưới mặt phình/chảy, cằm quả lê, miệng cao su (9/10).** Dựng lại nửa dưới: khối hàm dưới–miệng liền với mặt giữa, **xương hàm có đường và góc hàm**, cằm nhỏ; **nửa dưới mặt ngắn lại** (mũi–miệng 0,10 H, miệng–cằm 0,19 H; cằm từ y 0,02 lên 0,11 H — đầu từ cằm tới đỉnh sọ còn ~0,89 H, xem rủi ro C3); môi nhỏ gọn (nửa rộng 0,074 → 0,062), khe môi là rãnh nông dần về khoé (không đầu nhọn sáng); má chùng/đệm má nhỏ lại; mũi bớt nhô 0,02 H.
+3. **Mặt như mặt nạ dán, ranh da–tóc sắc (7/10).** Khối tóc MỎNG dần tới chân tóc (không bậc cắt); 70 sợi tóc con mảnh nằm áp da mọc qua chân tóc; bóng tiếp xúc tóc trên da; nền tóc có vân sợi; cổ và hàm là cùng một lưới với sọ.
+4. **Cổ cột + mảng bóng răng cưa (8/10).** Nguyên nhân mảng răng cưa: **giao tuyến giữa ống cổ của thân và cổ của lưới đầu** (ống cổ thân lòi ra ngoài) — không phải bóng của đèn khí. Sửa trong code của W3: ống cổ thân thu 0,62 và bỏ nghiêng trước để nằm hẳn trong cổ lưới đầu; cổ lưới đầu rộng 0,43 H, sâu 0,40 H, có cơ ức–đòn–chũm và nếp da; phần cổ lộ ngắn lại nhờ vòng khăn thứ 3–4 (khăn cao sát dưới cằm). Không sửa `facelight.js` hay đèn.
+5. **Tóc dải giấy/đất nặn; mũ lơ lửng (8/10).** 103 lọn (30 + 18 mỗi bên, 7 lọn trước), mảnh hơn, tiết diện tròn hơn, 60 sợi con rời lọn; mũ: bản lề đẩy vành chuyển về TÂM SỌ → khi `hat_back` mũ trượt trên đầu, băng mũ luôn ép tóc; bóng tiếp xúc dưới băng mũ trên tóc (tối 35 %).
+6. **Mũi vẹo + chấm tròn dưới cánh mũi (7/10).** Nguồn chấm: **khối khoét lỗ mũi** (lỗ khoét + màu tối → chấm tròn). Đã xoá khoét; lỗ mũi chỉ còn tối mềm ở mặt dưới mũi. Bỏ khối "gồ mũi" (tạo chỗ lõm–gãy trên sống mũi); sống mũi là một nón thẳng, đối xứng.
+7. **Hoa tai lệch, treo cạnh má, không thấy tai (7/10).** Tai dời ra ngoài mép má (x 0,38 H, đỉnh ngang mày, dái ngang chân mũi), nhỏ lại (0,26 H), đỉnh tròn; tóc rẽ quanh tai; hoa tai treo đúng dái, hai bên đối xứng trong hệ đầu (lệch độ cao trong ảnh chỉ do tư thế đầu nghiêng của layout). Tìm được thêm một lỗi: ở vòng 1 tai + hoa tai nằm sau khối tóc/má nên đọc thành "hoa tai mọc ra từ má".
+8. **Hai mắt không cân, "lác" (4/10).** **Lỗi dấu:** nhãn cầu quay `rotation.y = +sx·0,025` → trục nhìn quay RA NGOÀI (phân kỳ) — lỗi có từ A-α. Sửa `−sx·0,03` (hội tụ).
+9. **Cười buồn đọc được.** Kênh `smile` dựng lại: cả đường môi cong lên về khoé (không chỉ một cục ở khoé), khoé kéo ra–lên–vào, má "táo" dồn lên dưới mắt, rãnh mũi–má sâu thêm, môi không bĩu; preset `sad_smile` = smile 1, cheekRaise 0,9, squint 0,55 (mí dưới nâng — mắt cười), browInnerUp 0,45 (mày trong vẫn nhướng), jawOpen 0,1 (môi hé).
+
+### 3. Tự xem trước khi nộp (không phải kiểm mù)
+Đạt theo mắt W3: cười buồn đọc ra cười; tai + hoa tai thấy được; cổ ngắn, không còn mảng răng cưa; mũi thẳng, không chấm; da hồng–ấm, có nếp chân chim. Còn lo: (a) khuôn mặt vẫn trơn ở cỡ CU dưới đèn khí chính diện (lớp vẽ Kuwahara làm mờ kết cấu da); (b) s39 nghẹn: má–hàm vẫn rộng ở ngang miệng, dễ bị đọc "phúng phính"; (c) tai bên gần máy ở s37 to/vểnh vì đầu quay 35°; (d) chân tóc ở trán dưới vành mũ vẫn là một đường; (e) vệt cam góc dưới trái (đèn lồng ngoài khung) — của layout, W3 không sửa.
+
+### 4. Đề xuất ánh sáng (P đưa chủ dự án — W3 không tự đổi)
+Đèn khí L11 gần như chính diện ở s36/s37 làm mặt thành một mảng sáng phẳng không bóng khối; đây vẫn là nguyên nhân lớn nhất của cảm giác "mặt nạ" còn lại theo đánh giá của W3. Phương án: nâng L11 lên ~15–20° và lệch ~25° so với trục máy (bóng mũi, bóng vành mũ lên trán, bóng cằm lên cổ). Ưu: khối mặt đọc ngay; nhược: đổi continuity ánh sáng cảnh 5; rủi ro: phải chạy lại luật máy C3/khung sáng.
+
+### 5. Thời gian thật và làm lại (vòng 2)
+- 11:50 → 13:00 UTC (≈ 1 giờ 10 phút). Thử: 65 việc làn nhanh (studio + layout 960×540), chạy 1 360 s. Bộ nộp làn nặng: ảnh 44,0 / 56,9 / 57,0 / 43,0 s (chờ 34 / 858 / 0 / 0 s — sau đóng gói của P); clip 797,5 s (10,8 s/khung, tối đa 25,6 s).
+- **Tự báo lỗi quy trình:** 1 ảnh thử 1920×1080 1 mẫu chạy làn nhanh (26,7 s, không quá 60 s nhưng theo `queue.sh` là việc nặng).
+- Làm lại: nửa dưới mặt 4 lần (khối hàm + cằm cầu → khối hàm dưới liền → đưa miệng ra trước/thu mũi → rút ngắn nửa dưới 0,09 H); khe môi 3 (bỏ khe → khe elip có đầu sáng → rãnh cộng mềm); nụ cười 3; tai 4 (dời hinge → tóc che → khoét tóc quanh tai → nhỏ/tròn; thử vành xoắn helix rồi bỏ); cổ 3; tóc con 2; roughnessMap thử rồi bỏ (da ướt bóng). Hai lỗi do chính W3 gây ra khi sửa và đã tự bắt: chú thích nuốt mất `headG.add(hinge)` (tai + hoa tai biến mất) và `eyes.push(e)`.
+
+### 6. Rủi ro
+1. **C3/B1:** cằm lên 0,09 H, tai dời, cổ lưới đầu, khăn cao → turnaround Ida đổi rõ; `c3_views` chắc chắn phải đo lại trước luật máy (chưa đo — chỉ đo khi qua).
+2. Khăn cao (4 vòng) đổi dáng trang phục so với sheet (khăn thấp A-α) — cần chủ dự án duyệt nếu giữ.
+3. Mũ: bản lề mới ở tâm sọ đổi cử chỉ đẩy mũ ở s36 (C4) — mũ ngả ít hơn bản cũ nhưng không hở; cần P xem s36.
+4. Nếu vòng 2 trượt: P giao phần dàn dựng lại 1:32–1:48.
+
+### 7. File
+Sửa: `design/cong3/v2/char3d/facerig.js` (hình khối nửa dưới, mũi, nếp tuổi, khe môi, kênh `smile`, preset `sad_smile`, hội tụ mắt, da: nền, vùng nóng/lạnh, trung tính hoá, bump), `design/cong3/v2/char3d/cast3d.js` (tóc mỏng dần + tóc con + sợi con + khoét quanh tai, 103 lọn, bóng tiếp xúc dưới mũ, bản lề mũ tâm sọ, tai: vị trí/cỡ/đỉnh tròn, ống cổ thân, khăn 4 vòng), `design/cong5/mat/run_ai.sh` (nhãn vòng `V`). Thêm: `design/cong5/mat/ai/vong2/*` (timing), `reports/m2/cong5/w3/ai_v2_*`. Không sửa `bible/`, `checks/`, `ida.json`, `PLAN.md`, file layout W1/W2, `facelight.js`. `RIGHTS.md`: không có tài sản mới.
+
+### 8. Việc đang chờ
+- **P:** kiểm mù vòng 2 (vòng cuối). Qua → W3 đề xuất characters v1.5 + model sheet, đo B1 8 góc → `c3_views`. Trượt → P giao dàn dựng lại 1:32–1:48.
+- **Chủ dự án:** đề xuất ánh sáng L11 (mục 4); khăn cao; bản lề mũ.
