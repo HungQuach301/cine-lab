@@ -406,16 +406,25 @@ alleyShot('s44', 134.0, 137.0, { size: 'WS', angle: 'thấp, hất lên ô cửa
   light: 'đèn lồng trên bậu cửa sổ (qua ô kính); điện chỉ lọt miệng ngõ', action: 'Ida đứng dưới cửa sổ, ngửa nhìn ô vàng.' },
   (p, cam) => { const c0 = cam.position.clone(); return { update(t, T, ida) { ida.setPose({ ...p.lookShadows, props: [] }); ida.root.updateMatrixWorld(true); cam.position.copy(c0).add(new THREE.Vector3(0, 0, 0.5 * ease(t / 3))); } }; });
 // s45: máy 3/4 trước-phải bà (tính theo đầu + hướng mặt), thấy cả mặt đồng hồ trong tay và mặt bà ngẩng lên — bản v2 máy sau vai, không thấy đồng hồ.
+// Hướng nhìn cuối s45 (N10): [cúi/ngẩng cổ, quay cổ, xoay thân] (độ). Hướng đồng hồ insert s46 (N12, dùng chung s45).
+const S45_TURN = [-12, 50, 20], D46 = new THREE.Vector3(-0.6, 0.1, 0.8);
 alleyShot('s45', 137.0, 139.0, { size: 'MS', angle: 'ngang ngực, 3/4 trước-phải', mm: 50, move: 'tĩnh', exposure: 6.0,
-  why: 'ĐỒNG HỒ NHỊP 3a — hai giờ sau (10:00): bà lấy đồng hồ ra (9:53, vẫn chậm 7 phút), rồi ngẩng nhìn về phía mặt đồng hồ quảng trường trên mái.', sound: 'tích tắc; rè điện xa',
-  light: 'ánh cửa sổ ấm từ trên', action: 'Ida nhìn đồng hồ trong tay, rồi ngẩng nhìn về phía miệng ngõ.' },
-  (p, cam, r, dbg) => { let wf = null; return { update(t, T, ida) {
+  why: 'ĐỒNG HỒ NHỊP 3a — hai giờ sau (10:00): bà nhìn đồng hồ trong lòng tay (9:53, vẫn chậm 7 phút), rồi quay đầu và vai nhìn qua vai về miệng ngõ — phía quảng trường có đồng hồ điện (N10: dẫn tới POV s45c).', sound: 'tích tắc; rè điện xa',
+  light: 'ánh cửa sổ ấm từ trên; phố trắng ở miệng ngõ sau lưng bà (phải khung)', action: 'Ida cúi nhìn đồng hồ trong lòng bàn tay phải; 1,0–1,8 s quay đầu + vai về miệng ngõ (phải khung, sâu), ngẩng nhẹ.' },
+  (p, cam, r, dbg) => { let wf = null; const probe = new THREE.Object3D(); return { update(t, T, ida) {
     if (!wf) wf = watchInHand(ida.root.parent);
-    ida.setPose(poseAt([[0, over(p.watchHold(0), { props: [] })], [1.0, over(p.watchHold(0), { props: [] })], [1.6, over(p.watchHold(0), { props: [], joints: { neck: [-14, 0, 0] } })]], t)); ida.root.updateMatrixWorld(true);
+    // Máy TĨNH: tính từ tư thế gốc (watchHold, t = 0) — không bám đầu đang quay (bản trước máy trôi theo đầu khi bà ngẩng).
+    const base = over(p.watchHold(0), { props: [] }); ida.setPose(base); ida.root.updateMatrixWorld(true);
     const h = wpos(ida.joints.head), q = new THREE.Quaternion(); ida.root.getWorldQuaternion(q); const fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q); fw.y = 0; fw.normalize();
     const dir = fw.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), (dbg.yaw ?? -35) * Math.PI / 180);
-    cam.fov = fovOf(50); cam.updateProjectionMatrix(); cam.position.copy(h).addScaledVector(dir, dbg.dist ?? 1.75); cam.position.y = h.y - (dbg.dy ?? 0.3); cam.lookAt(h.x, h.y - 0.22, h.z);   // máy thấp hơn mắt 0,3 m: thấy mặt dưới vành mũ khi bà cúi xem đồng hồ
-    wf(ida, cam, ...hands(CLOCKS.beat3.watchFrom)); } }; });
+    cam.fov = fovOf(50); cam.updateProjectionMatrix(); cam.position.copy(h).addScaledVector(dir, dbg.dist ?? 2.0); cam.position.y = h.y - (dbg.dy ?? 0.3); cam.lookAt(h.x, h.y - (dbg.ly ?? 0.12), h.z);   // máy thấp hơn mắt 0,3 m: thấy mặt dưới vành mũ khi bà cúi xem đồng hồ. N10: lùi 1,75 → 2,0 m, tâm nhìn 0,22 → 0,12 m dưới đầu — trọn mũ + đường mắt khi bà quay nhìn miệng ngõ (bản trước cắt đỉnh mũ)
+    // N10 (rà continuity v3): miệng ngõ (phố trắng, quảng trường có đồng hồ) ở SAU LƯNG bà, phải khung. 1,0–1,8 s bà quay đầu + vai về miệng ngõ, ngẩng nhẹ —
+    // nhìn qua vai về phía quảng trường (bản trước ngẩng về phía máy = quay lưng lại quảng trường). Hàm thuần theo t.
+    const sp = base.joints.spine || [0, 0, 0], TN = dbg.turn || S45_TURN;
+    const look = over(base, { joints: { neck: [TN[0], TN[1], 0], spine: [sp[0], sp[1] + TN[2], sp[2]] } });
+    ida.setPose(poseAt([[0, base], [1.0, base], [1.8, look]], t)); ida.root.updateMatrixWorld(true);
+    // N12: đồng hồ đặt ĐÚNG như insert s46 (cùng hàm watchInHand, cùng hướng D46 và cự ly — vật thể ở cùng vị trí/hướng trong tay qua cắt MS → insert), không quay mặt về máy s45.
+    wf(ida, probe, ...hands(CLOCKS.beat3.watchFrom), D46, 0.32); } }; });
 S({ id: 's45c', scene: 6, size: 'CU', angle: 'tele, POV của Ida qua miệng ngõ', mm: 200, move: 'tĩnh',
   why: 'ĐỒNG HỒ NHỊP 3c — POV của Ida: mặt đồng hồ điện trên nền trời đêm chỉ đúng 10:00 (cùng vị trí, cùng cỡ với nhịp 2a): giờ của thành phố, khớp giờ bà vừa vặn (s46). (d) Sau s46: giờ trên hình chỉ tiến (10:00 → 10:00:0x).', sound: 'rè điện xa; tích tắc',
   light: 'mặt đồng hồ phát trắng; trời đêm', action: 'Mặt đồng hồ quảng trường: 10:00.',
@@ -428,7 +437,7 @@ S({ id: 's45c', scene: 6, size: 'CU', angle: 'tele, POV của Ida qua miệng ng
 alleyShot('s46', 139.0, 142.0, { size: 'CU (insert)', angle: 'chúc nhẹ', mm: 100, move: 'tĩnh', exposure: 6.0,
   why: 'ĐỒNG HỒ NHỊP 3b (9B): vừa ngẩng về phía quảng trường (cuối s45), bà vặn kim từ 9:53 lên đúng 10:00 — nhận giờ mới; KHÔNG gõ kính (ngược với nhịp 1). (d) Đặt TRƯỚC s45c để giờ trên hình chỉ tiến.', sound: 'núm vặn lách cách; tách gập',
   light: 'ánh cửa sổ ấm', action: 'Kim phút và kim giờ cùng tiến từ 9:53 lên 10:00 (vặn núm 0,3–2,2 s), rồi giữ 10:00.' },
-  (p, cam, r, dbg) => { let wf = null; const D = new THREE.Vector3(...(dbg.dir || [-0.6, 0.1, 0.8])); return { update(t, T, ida) {   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá)
+  (p, cam, r, dbg) => { let wf = null; const D = dbg.dir ? new THREE.Vector3(...dbg.dir) : D46; return { update(t, T, ida) {   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá)
     if (!wf) wf = watchInHand(ida.root.parent);
     ida.setPose(over(p.watchHold(0), { props: [] })); ida.root.updateMatrixWorld(true);
     cam.fov = fovOf(dbg.mm ?? 100); cam.updateProjectionMatrix();

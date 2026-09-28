@@ -246,3 +246,27 @@ Không sửa ở layout (dời Cổng 7 theo PLAN.md).
 - Ảnh 4 kiểm mù đổi sang khung 2510 vì s39 dời lên 1,4 s.
 
 **Đang chờ P / chủ dự án:** ghép bằng tệp timing mới; trộn lại âm cảnh 6; duyệt thứ tự (c), (d); kiểm mù lần sau dùng khung ảnh 4 = 2510.
+
+# Vòng v5 — rà continuity lần 3 (N10, N11, N12; không còn lỗi chặn)
+Đã merge nhánh tích hợp @5af72e0. Chỉ sửa s45 (`shots_w2.js`). Chỉ render lại s45.
+
+| Mục | Trước (v4) | Sau (v5) |
+|---|---|---|
+| **N12** đồng hồ s45 | Cùng mô hình `buildWatch` với s46/s06/s09w, nhưng s45 đặt riêng: đồng hồ trôi 9 cm trước lòng bàn tay dựng đứng, mặt quay ra máy s45, dưới ánh phố trắng → đọc thành vỏ vàng mảnh, khoen, mặt kem. | Đồng hồ đặt **đúng như insert s46**: cùng `watchInHand`, cùng hướng D46 (−0,6; 0,1; 0,8), cùng cự ly. Vật thể ở cùng vị trí/hướng trong tay qua cắt MS → insert. Mặt số quay về bà; máy s45 thấy vỏ nâu cam cạnh lòng bàn tay, cùng màu viền ở s46. Không đổi s46. |
+| **N10** hướng nhìn s45 | 1,0–1,6 s bà ngẩng về phía máy, tức quay lưng lại miệng ngõ. Máy bám đầu nên trôi khi bà ngẩng. | 1,0–1,8 s bà **quay đầu 50° + vai 20°, ngẩng nhẹ** → cuối shot nhìn nghiêng sang phải khung, vào sâu, về miệng ngõ (phía quảng trường, cùng hướng bà đi ra ở s47). Dẫn sang insert s46 rồi POV s45c. |
+| Máy s45 | 3/4 trước-phải, 1,75 m, tâm nhìn 0,22 m dưới đầu; cắt đỉnh mũ; tính theo đầu đang quay. | **Có đổi, lý do:** lùi 2,0 m, tâm nhìn 0,12 m dưới đầu để trọn mũ và đường mắt khi bà quay đầu (hướng nhìn là nội dung của shot). Máy tính từ tư thế gốc nên tĩnh thật. Vẫn cùng phía máy s44 (trước mặt bà) nên không vượt trục s44 → s45 → s46. |
+| **N11** sheet | `canh-5` s37/s39 ghi "nhìn lên phố (phải khung)"; `canh-6` s45 ghi "tay trái đỡ", "ngẩng nhìn về miệng ngõ". | `canh-5`: s37 mặt 3/4 phải, mắt nhìn xuống; s39 gần chính diện, mắt nhìn xuống — khớp Cas ngước lên ở s38. `canh-6` s45: tả đúng máy, địa lý, tay trái giơ riêng (G5/G6, Cổng 6), cú quay đầu, đồng hồ; bảng giờ ghi s45 chỉ thấy vỏ. Không sửa bible ("gập đồng hồ" — P ghi sang Cổng 6). |
+
+**Kiểm**
+- `node --check` sau lần sửa cuối.
+- Probe s44, s45, s46, s45c: s44, s46, s45c trùng từng điểm ảnh với bản render (khung a/b/c).
+- So ảnh RGB thẳng với nối tiếp ở s45, qua làn nhanh (rgb-s45: chờ 0 s, chạy 46 s): khung 3072 và 3090 (giữa lúc quay đầu) đều **0 px > 2/255, max 0**.
+
+**Render:** chỉ s45, qua hàng đợi W2/v5-s45: **chờ 0 s, chạy 73 s**, 48 khung. Tệp mới: `/var/tmp/cine-out/W2/full/timing_s45.json` và `video_s45.mp4`.
+
+**Ảnh:** `v5_N10-N12_s44-s45-s46-s45c.jpg` (hàng trên v4, hàng dưới v5: s44 cuối, s45 đầu, s45 cuối, s46 đầu, s45c).
+
+**Rủi ro**
+- Ở s45 không thấy mặt số: giờ 9:53 chỉ đọc ở insert. Đây là đánh đổi để giữ đồng hồ là một vật thể nhất quán.
+- Cú quay đầu qua vai đọc là "nhìn về phía sau, phải khung". Đồng hồ quảng trường nằm ngoài hình (khuất sau miệng ngõ), nên POV s45c vẫn cần kiểm mù xác nhận.
+- Tay trái giơ riêng và bàn tay che nửa mặt ở 0–1,0 s vẫn còn (G5/G6, Cổng 6).

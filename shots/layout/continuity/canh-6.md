@@ -5,6 +5,7 @@ Gói W2, Cổng 5, luật O1. Bộ cảnh: thành phố (s43, `buildCitySet 'nig
 
 Bản v3 (rà continuity v2 — N8, N9): mốc thời gian theo bảng thời gian hiện hành (s33 5,0 s; hết phim 2:20,5 = 140,5 s).
 Bản v4 (Cổng 5 v2 — quyết định chủ dự án @e850c0f): **C-i** s43 máy đẩy rất chậm về ô cửa nhà Cas; **(d)** thứ tự nhịp đồng hồ đổi thành s45 → **s46 → s45c** để giờ trên hình chỉ tiến; B-i hàm thuần theo t.
+Bản v5 (rà continuity v3 — N10, N11, N12): s45 bà quay nhìn về miệng ngõ (phía quảng trường) ở cuối shot; đồng hồ s45 đặt như insert s46; máy s45 lùi 0,25 m, trọn mũ.
 - **A2 (c):** đá lát ngõ lặp 1,25× (viên 0,09–0,14 m, TB 0,11 m); đo trên probe s46 ≈ 0,08 m ở nền sau đồng hồ.
 
 ## Mũ Ida
@@ -32,8 +33,10 @@ Bản v4 (Cổng 5 v2 — quyết định chủ dự án @e850c0f): **C-i** s43 
 
 ## s45 · 2:07,00–2:09,00 · MS 50 mm · tĩnh
 - Máy: tính theo đầu Ida — 3/4 trước-phải (lệch −35° khỏi hướng mặt), cách 1,75 m, thấp hơn mắt 0,3 m; nhìn xuống 0,22 m dưới đầu (thấy mặt dưới vành mũ + đồng hồ).
-- **Ida:** `watchHold` (tay phải cầm đồng hồ, tay trái đỡ); 1,0–1,6 s ngẩng (cổ −14°) nhìn về miệng ngõ (phía đồng hồ quảng trường, ngoài hình). Không đèn lồng.
-- **Đồng hồ bỏ túi:** 9:53 suốt shot (kim phút 318°, kim giờ 296,5°), mặt đồng hồ nhỏ trong lòng bàn tay phải (hai kim cùng chỉ quanh số 10 — chưa đọc rõ ở cỡ này).
+- **Máy (v5, N10):** vẫn 3/4 trước-phải bà (lệch −35°), thấp hơn mắt 0,3 m, 50 mm; lùi 1,75 → **2,0 m** và tâm nhìn 0,22 → **0,12 m** dưới đầu — trọn mũ và đường mắt (bản trước cắt đỉnh mũ). Máy **tĩnh** thật: tính từ tư thế gốc, không bám đầu đang quay. Cùng phía với máy s44 (trước mặt bà) → không vượt trục s44 → s45 → s46.
+- **Địa lý trên hình:** tường ngõ ấm ở trái khung; **miệng ngõ (phố trắng, phía quảng trường có đồng hồ) ở sau lưng bà, phải khung** — cùng hướng bà đi ra ở s47.
+- **Ida:** `watchHold`: tay phải cầm đồng hồ trong lòng bàn tay, mặt đồng hồ quay về bà; tay trái giơ riêng ngang vai (không đỡ đồng hồ — G5/G6, Cổng 6); 0–1,0 s cúi nhìn đồng hồ (bàn tay che nửa dưới mặt); **1,0–1,8 s quay đầu 50° + vai 20° về miệng ngõ, ngẩng nhẹ** — cuối shot bà nhìn nghiêng sang **phải khung, vào sâu** (phía quảng trường). Không đèn lồng. Dẫn sang insert s46 rồi POV s45c.
+- **Đồng hồ bỏ túi (v5, N12):** cùng mô hình (`buildWatch`) và **cùng vị trí/hướng trong tay như insert s46** (hướng D46 = (−0,6; 0,1; 0,8)) — mặt quay về phía bà, máy s45 thấy vỏ nâu cam cạnh lòng bàn tay (cùng màu viền ở s46), không thấy mặt số. Giờ 9:53 chỉ đọc ở insert s46. Bản trước: đồng hồ đặt riêng cho s45, mặt quay ra máy, trôi trước lòng bàn tay dựng đứng → đọc như vật khác (vỏ vàng mảnh, khoen, mặt kem).
 
 ## s46 · 2:09,00–2:12,00 · CU insert 100 mm — (d) đặt TRƯỚC s45c
 - Máy theo lòng bàn tay phải, hướng **(−0,6; 0,1; 0,8)** (A2, chủ dự án: bỏ nền đá lát 'chấm bi'), cách 0,32 m, 100 mm: máy gần ngang, nền sau đồng hồ là **tường vôi ngõ** được ánh cửa sổ rọi; mặt đồng hồ sáng ấm, kim đọc rõ.
@@ -46,7 +49,7 @@ Bản v4 (Cổng 5 v2 — quyết định chủ dự án @e850c0f): **C-i** s43 
 Đọc từ góc kim thật đặt trong `update` (hàm thuần theo t) và kiểm bằng mắt trên khung a/b/c của probe. Khung toàn cục (24 fps):
 | Shot | Khung | Giờ trên hình | Kim phút / kim giờ |
 |---|---|---|---|
-| s45 (bỏ túi, nhỏ) | 3048–3095 | 9:53 (không đổi) | 318° / 296,5° |
+| s45 (bỏ túi, MS) | 3048–3095 | 9:53 đặt trong mã; **mặt số quay về bà — trên hình chỉ thấy vỏ** (v5, N12) | 318° / 296,5° |
 | s46 (bỏ túi, insert) | 3096–3102 | 9:53:00 | 318° / 296,5° |
 | | 3108 | 9:53:44 | 322,4° / 296,9° |
 | | 3120 | 9:55:35 | 333,5° / 297,8° |
