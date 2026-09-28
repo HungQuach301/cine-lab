@@ -777,7 +777,7 @@
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "warm_hands_copy (sheet C4)"
+    "pose": "Cas warm_hands_copy (sheet C4)"
    },
    {
     "t": 0.6,
@@ -790,11 +790,23 @@
    {
     "t": 1.8,
     "pose": "nhịp 3"
+   },
+   {
+    "t": 1.9,
+    "pose": "Ida tay trái lên vành mũ"
+   },
+   {
+    "t": 2.2,
+    "pose": "Ida kéo vành mũ xuống (hat_back 0,35 → 0 tới 2,8 s)"
+   },
+   {
+    "t": 2.8,
+    "pose": "Ida hạ tay, quay người đi"
    }
   ],
   "difficulty": {
    "level": 4,
-   "why": "Trả mô-típ đếm ba: nhịp tay phải đọc được từ sau-bên; ngồi xổm trẻ con."
+   "why": "Trả mô-típ đếm ba (Cas) + cử chỉ kéo mũ khép \"hết ca\" (Ida, chủ dự án quyết định); hai hành động nối nhau trong 3 s."
   },
   "package": "C6-W2-hoc",
   "camera": {

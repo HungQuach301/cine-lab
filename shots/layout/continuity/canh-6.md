@@ -2,6 +2,9 @@
 
 Gói W2, Cổng 5, luật O1. Bộ cảnh: thành phố (s43, `buildCitySet 'night'` — bộ khoá s1), ngõ (s44–s47, bộ khoá s6 `buildS6 'alley'`), quảng trường (s45c, bộ phố W1), phòng Cas (s48, previs `buildRoomSet`). Quyết định chủ dự án **B1**: kết ở phòng Cas (s48), không thêm chim bóng trong hốc; **C1**: ánh trắng phẳng có trời sao.
 
+## Mũ Ida
+`hat_back` = 0 ở đầu và cuối mọi shot cảnh 6 (s44, s45, s46, s47; s43/s45c/s48 không có Ida) — nối từ cuối s42 (kéo mũ lại).
+
 ## Lịch
 | Mốc | Giá trị |
 |---|---|
@@ -16,7 +19,7 @@ Gói W2, Cổng 5, luật O1. Bộ cảnh: thành phố (s43, `buildCitySet 'nig
 
 ## s44 · 2:06,50–2:09,00 · WS 21 mm · đẩy vào 0,5 m
 - Máy: bộ khoá s6 (0,25; 1,0; −3,4) nhìn (−0,25; 2,3; 1,0) + dịch z 0,5 m.
-- **Ida:** đứng dưới cửa sổ (`look_shadows`: tay đặt ngực, ngửa nhìn ô cửa). **Không đèn lồng** (đã trao ở s41). Mũ `hat_back` 0 (xem hàng chờ Q-W2-2). Thang: ngoài hình (tựa tường ngõ — Cổng 6 cần đặt).
+- **Ida:** đứng dưới cửa sổ (`look_shadows`: tay đặt ngực, ngửa nhìn ô cửa). **Không đèn lồng** (đã trao ở s41). Mũ `hat_back` 0 (bà đã kéo mũ lại ở cuối s42 — quyết định chủ dự án). Thang: ngoài hình (tựa tường ngõ — Cổng 6 cần đặt).
 - Đèn: đèn lồng của Cas trên bậu (qua ô kính, spot có bóng); điện chỉ lọt miệng ngõ. Bóng Ida ngắn, nhạt trên đá lát, ngả xa tường (luật 3.5).
 
 ## s45 · 2:09,00–2:11,00 · MS 50 mm · tĩnh

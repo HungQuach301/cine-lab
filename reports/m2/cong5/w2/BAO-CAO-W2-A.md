@@ -32,3 +32,28 @@ Không có chỉ số luật máy nào được đo ở giai đoạn A.
   - Q-W2-1: tường chim là hông nhà kho;
   - Q-W2-2: mũ Ida ở cảnh 6;
   - Q-W2-4: quầng trắng chân trời.
+
+# Giai đoạn C — render đầy đủ (960×540, 1 mẫu, qua hàng đợi)
+Nhánh gốc: merge `claude/cine-lab-m2-cong5-layout-24o5fp` @ce40df1. ORDER không đổi. Đầu ra ở `/var/tmp/cine-out/W2/full/` (không commit).
+
+| Nhóm | Shot | Khung | Chờ (s) | Chạy (s) | s/khung (thật, gồm dựng) | Video |
+|---|---|---|---|---|---|---|
+| canh4 | s25–s32 | 504 | 241 | 1237 | 2,45 | `video_s25-…-s32.mp4` (28 MB) |
+| canh5 | s33–s42 | 1020 | 832 | 1128 | 1,11 | `video_s33-…-s42.mp4` (55 MB) |
+| canh6 | s43–s48 | 480 | 489 | 447 | 0,93 | `video_s43-…-s48.mp4` (26 MB) |
+
+Tổng 2004 khung, chạy 2812 s, chờ 1562 s (theo `/var/tmp/cine-queue/log.tsv`); trung bình 1,40 s/khung.
+
+- **Làm lại: 0 shot.** Đã xem thumbs a/b/c cả 29 shot; không lỗi mới so với probe giai đoạn A.
+  - s32 thử phơi sáng 0,7 bằng probe: chim không rõ hơn đáng kể → giữ 1,0.
+- **Mũ Ida (quyết định chủ dự án):** bà kéo mũ lại ở cuối s42. Đã sửa **trước khi** nhóm canh5 chạy tới s42, nên không phải render lại.
+  - Bằng chứng: `s42_keo-mu_khung2926-2950.jpg` (khung toàn cục 2926, 2934, 2942, 2948).
+  - Bảng `hat_back` từng shot: `continuity/canh-5.md`.
+- **Ảnh 4 kiểm mù:** khung toàn cục **2554** (106,40 s, khung 34 của s39), giữa cụm "keep a little dark…".
+  - Mốc câu đo từ take L4: "Just…" 104,32–104,84 s; "keep a little dark for the ones who need it" 105,87–109,08 s.
+  - Video nhóm: `/var/tmp/cine-out/W2/full/video_s33-s34-s35-s36-s37-s37w-s38-s39-s40-s40w-s41-s42a-s42b-s42.mp4`, khung thứ 634 (đếm từ 0).
+  - Ảnh: `anh4_s39_khung2554.jpg`. s39 máy tĩnh, mặt gần chính diện suốt shot (chưa có khẩu hình).
+- **Rủi ro:**
+  - các shot mặt Ida (s26, s31, s36, s37, s39, s40) sẽ render lại khi có A3;
+  - s31 có vệt sáng cứng từ đèn lồng trên má (cần xem lại khi có mặt A3);
+  - chim s32, s48 còn mờ (R4).
