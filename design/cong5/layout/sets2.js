@@ -7,7 +7,9 @@ import { buildGasLamp } from '/cong3/shared/props.js';
 import { buildLantern } from '/cong3/shared/cast.js';
 import { cobbleTex, groundPlane, electricLamp, paintedSky, windowUnit } from '/cong3/v2/street.js';
 import { limewashTex, glowSprite, planarUV, rng } from '/cong3/dir-C/common.js';
-import { GAS, ELEC, lamMat, flickAt, contactBlob, nightSky, elecGlare } from './sets.js';
+import { GAS, ELEC, lamMat, flickAt, contactBlob, nightSky, elecGlare, houses } from './sets.js';
+import { buildWarehouse, buildLane, buildFarCity, makeKit } from './sets_end.js';
+import { patch as patchS5 } from '/cong3/v2/s5.js';
 import { rng as rngU } from '/cong3/dir-C/common.js';
 
 // ================= THÀNH PHỐ (s1) =================
@@ -85,13 +87,27 @@ const sOn = (d) => { if (d < 0) return 0; if (d < 0.08) return 1; if (d < 0.16) 
 
 // ================= TƯỜNG CHIM BÓNG (cảnh 4) — chép bố cục b_cas_bird (Cổng 3) + Ida, đèn lồng, cột điện bật =================
 // Tường z = 0 (nhìn +z); Cas (0,15; 0; 0,95) quay vào tường; đèn khí L11 (−2,2; 0; 4,2); cột điện (2,6; 0; 1,6) tay vươn về tường.
-export function buildWallSet(ctx) {
+// Cổng 5 (V3): tường chim là mặt tường NHÀ KHO thật (sets_end.buildWarehouse, hệ cục bộ trùng hệ bộ này): góc nhà ở x = WALL.xL (trái),
+// hốc cửa bốc hàng ở x = WALL.bayX (phải Cas, gieo cảnh 5), gờ mái + mái + chòi thông gió; sau góc nhà là ngõ cong; sau nhà kho là 5 lớp mái xa + sương;
+// về phía máy (+z) là đầu phố Ostler đã trắng (hai dãy nhà lùi xa, sương). Thứ tự trái → phải khi nhìn vào tường (khớp bộ phố của W1):
+// góc nhà → chỗ Cas làm chim → hốc cửa. (Chênh còn lại, đã có từ animatic v2: ngọn L11 ở TRÁI Cas trong bộ này, ở PHẢI trong bộ phố — xem LAYOUT-W2.md.)
+export const WALL = { xL: -8.5, bayX: 6.2, H: 7.0 };
+export function buildWallSet(ctx, o = {}) {
   const scene = new THREE.Scene(); scene.background = new THREE.Color('#0d0c16');
   scene.add(nightSky(31));   // v2: trời đêm có sao (dấu hiệu đêm khi thấy đỉnh cột điện)
+  scene.fog = new THREE.Fog('#0c1024', 26, 150);   // như bộ phố: xa là tối xanh
   const wallTex = limewashTex(41, { metres: 6, grime: true, brick: 0.06 });
-  const wall = new THREE.Mesh(new THREE.PlaneGeometry(40, 7), lamMat({ color: '#ffffff', map: wallTex })); wall.position.set(0, 3.5, 0); wall.receiveShadow = true;   // v2: tường dài 40 m (toàn cảnh s27 không lộ mép bộ)
-  planarUV(wall.geometry, new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 1, 0), 6, [0.3, 0]); scene.add(wall);
-  const plinth = new THREE.Mesh(new THREE.BoxGeometry(40, 0.42, 0.08), lamMat({ color: '#8d877f' })); plinth.position.set(0, 0.21, 0.04); plinth.receiveShadow = true; scene.add(plinth);
+  const kit = makeKit(houses);
+  const wh = buildWarehouse(scene, kit, { xL: WALL.xL, xR: 34, H: WALL.H, bayX: WALL.bayX, faceMat: lamMat({ color: '#ffffff', map: wallTex }) });
+  buildLane(scene, kit, { xL: WALL.xL, W: 6.0, R: 16 });
+  buildFarCity(scene, { glow: 1 });
+  // đầu phố Ostler về phía máy (+z): hai dãy nhà (mặt tiền trắng phẳng — phố chính đã có điện), cột điện xa sáng
+  const litFT = [0, 1, 2, 3].map((k) => lamMat({ color: '#ffffff', map: kit.FT[k].map, emissive: new THREE.Color('#9aa2b8'), emissiveIntensity: 0.32, emissiveMap: kit.FT[k].map }));
+  const litKit = { ...kit, FT: litFT };
+  for (const [x, ry, a, b] of [[9.5, -Math.PI / 2, 10, 90], [-11.5, Math.PI / 2, -90, -3]]) { const gg = new THREE.Group(); gg.position.set(x, 0, 0); gg.rotation.y = ry; scene.add(gg); houses(gg, a, b, 0, 1, x > 0 ? 131 : 137, kit.winKind, litKit.FT, kit.matC, kit.emit); }
+  scene.add(groundPlane(60, 96, lamMat({ color: '#ffffff', map: cobbleTex(7) }), 3, { cz: 48, y: -0.003 }));
+  for (const z of [22, 50, 78]) { const s1 = glowSprite('#eef3ff', 1.2, 1.2), s2 = glowSprite('#cfdcff', 0.10, 9); s1.position.set(8.2, 6.0, z); s2.position.copy(s1.position); scene.add(s1, s2); }
+  for (let k = 0; k < 5; k++) { const s = glowSprite('#cdd6ee', 0.05, 26); s.scale.y *= 0.4; s.position.set(-1 + (k - 2) * 4, 2.5, 34 + k * 12); scene.add(s); }   // sương sáng lạnh cuối phố chính
   scene.add(groundPlane(40, 24, lamMat({ color: '#ffffff', map: cobbleTex(7) }), 3, { cz: 12 }));
   const hemi = new THREE.HemisphereLight('#3a3c78', '#15121c', 0.30); scene.add(hemi);
   const whiteHemi = new THREE.HemisphereLight('#dfe6ff', '#8a8e9c', 0); scene.add(whiteHemi);
@@ -110,19 +126,34 @@ export function buildWallSet(ctx) {
   const ez = elecGlare(hp); scene.add(...ez.list);
   // Đèn lồng của Ida: nguồn ấm nhỏ có bóng, bám điểm neo lửa của đèn lồng (cast.js)
   const lanL = new THREE.PointLight('#ffa050', 0, 0, 2); lanL.castShadow = true; lanL.shadow.mapSize.set(1024, 1024); lanL.shadow.bias = -0.0006; lanL.shadow.normalBias = 0.02; lanL.shadow.camera.near = 0.03; scene.add(lanL);
-  const setState = ({ gas = 1, elec = 0, lantern = 0, lanternPos = null }, f) => {
+  // Cổng 5 (luật 3.3): ánh tràn điện trên tường phải kéo tỷ lệ key (L11) : tràn về ≈ 1 : 1 → chim tan hẳn (v2: 0,8 + 0,35 còn để lại chim xám ở s28).
+  // fillK = 1 (mặc định, mọi shot cảnh 4 dùng cùng một mức — ánh sáng nhất quán giữa các shot); 0 = mức animatic v2 (chỉ để so sánh trước/sau).
+  const setState = ({ gas = 1, elec = 0, lantern = 0, lanternPos = null, fillK = 1 }, f) => {
     gasL.intensity = GAS.cd * gas * flickAt(f); gc.material.color.set('#ffc57a').multiplyScalar(1.6 * gas); gw.material.color.set('#ff9a4a').multiplyScalar(0.22 * gas);
-    eL.intensity = ELEC.cd * 0.35 * elec; bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), elec); eg.material.color.set('#dfe8ff').multiplyScalar(0.55 * elec); ez.set(elec);
-    whiteHemi.intensity = 0.8 * elec;
+    eL.intensity = ELEC.cd * (0.35 + 0.3 * fillK) * elec; bulbM.color.set('#9aa0b4').multiplyScalar(0.3).lerp(new THREE.Color('#eef3ff').multiplyScalar(9), elec); eg.material.color.set('#dfe8ff').multiplyScalar(0.55 * elec); ez.set(elec);
+    whiteHemi.intensity = (0.8 + 1.0 * fillK) * elec;
     lanL.intensity = lantern * 1.9 * flickAt(f + 40); if (lanternPos) lanL.position.copy(lanternPos);
   };
   return { scene, setState, fp };
 }
 
 // ================= HỐC CỬA (s5) và NGÕ (s6) =================
-export async function buildBaySet(ctx, dbg = {}) {
+export async function buildBaySet(ctx, dbg = {}, o = {}) {
   const r = await buildS5(ctx.sheets.ida, ctx.sheets.cas, dbg, ctx.mkChar, ctx.upd);
+  if (o.street !== false) addBayStreet(r.scene);
   return r;
+}
+// Cổng 5 (V3/s42): bộ hốc cửa Cổng 3 (khoá) chỉ có mặt tiền + nền đá → nhìn từ trong hốc ra vòm thấy nền đen. Bọc thêm PHỐ TRẮNG bên ngoài:
+// dãy nhà đối diện (z = 17, mặt nhìn −z), nền đá kéo dài, trời sao, bóng đèn cột điện xa. Vật liệu dùng patch của s5 → nhận ÁNH ĐIỆN PHẲNG
+// đúng như mặt tiền nhà kho (uEo, không bóng), không thêm nguồn sáng nào chiếu vào hốc.
+export function addBayStreet(scene) {
+  const P = (o) => patchS5(new THREE.MeshLambertMaterial(o));
+  const kit = makeKit(houses); const FT = kit.FT.map((m) => P({ color: '#ffffff', map: m.map })); const matC = (c) => P({ color: c });
+  houses(scene, -34, 34, 17.0, -1, 151, kit.winKind, FT, matC, kit.emit);
+  const g = new THREE.PlaneGeometry(80, 40); g.rotateX(-Math.PI / 2); g.translate(0, -0.002, 18 + 20); planarUV(g, new THREE.Vector3(1, 0, 0), new THREE.Vector3(0, 0, 1), 3, [0, 0]);
+  scene.add(new THREE.Mesh(g, P({ color: '#ffffff', map: cobbleTex(9) })));
+  scene.add(nightSky(29));
+  for (const x of [-9, 9]) { const s1 = glowSprite('#eef3ff', 1.4, 1.1), s2 = glowSprite('#cfdcff', 0.12, 7); s1.position.set(x, 6.3, 12.5); s2.position.copy(s1.position); scene.add(s1, s2); }
 }
 export async function buildAlleySet(ctx, dbg = {}) {
   const r = await buildS6(ctx.sheets.ida, ctx.sheets.cas, dbg, ctx.mkChar, ctx.upd, 'alley');
