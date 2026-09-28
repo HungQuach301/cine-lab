@@ -76,3 +76,26 @@ Khung: dựng đúng shot **s37 layout** (facelight 'gas', EK 1,3), 1920×1080, 
 **Kết luận: A-α TRƯỢT tiêu chí "búp bê".** Ảnh 4 (khung s39 của layout render lại với mặt A-α) chỉ gửi để tham khảo sau khi render — không đổi được kết luận.
 
 So với A1 (lần 4) và A3 (lần 5): tuổi, giới, cảm xúc tốt nhất từ trước tới nay (3/3 chắc chắn, 3/3 cảm xúc đúng, tóc đọc bạc trắng). Lời chê còn lại gom về 4 nhóm: (1) hình đầu–mặt "trứng/bóng đèn", nối mặt–tóc sắc như mặt nạ; (2) tóc là "vỏ khắc sọc"; (3) cổ mảnh như trụ, mũ lơ lửng không đổ bóng; (4) da nhẵn sáp, mắt thuỷ tinh.
+
+## Ảnh 4 — q2: khung chính diện câu thoại cuối (s39, khung toàn cục 2531 = 1:45,46, giữa "keep a little dark for the ones who need it"), layout render lại với mặt A-α, 960×540 — gửi 06:58 (tham khảo; kết luận đã chốt ở trên)
+Ảnh: `lan6_q2_s39_khung2531.jpg`. Nguyên văn:
+> Tôi chỉ mở đúng một file ảnh (q2.png), không đọc file nào khác. Dưới đây là cảm nhận của tôi với tư cách người xem bình thường.
+>
+> **Tuổi:** trông khoảng 70–80 tuổi. Tóc bạc trắng, trán có nếp nhăn, có rãnh nhăn từ mũi xuống khoé miệng, má hơi chảy xệ.
+>
+> **Giới tính:** nữ, một bà cụ. Tôi đoán vậy vì bà đeo khuyên tai vàng dạng hạt tròn thả dài, đội mũ rộng vành màu nâu sẫm và quàng khăn len đỏ.
+>
+> **Cảm xúc:** buồn, sầu não, có phần sắp khóc hoặc thất vọng, cam chịu. Chân mày nhíu và nhướng lên ở phía giữa trán, mí mắt sụp nặng, mắt nhìn xuống, khoé miệng trễ hẳn xuống, môi dưới hơi bĩu. Biểu cảm này đọc ra rất rõ và nhanh. Mắt hơi đỏ và ướt nên dễ hiểu là bà vừa khóc hoặc đang cố nén nước mắt.
+>
+> **Những điểm người xem có thể thấy lạ:**
+> 1. **Mắt đỏ:** tròng mắt màu đỏ cam, nhìn ra cảm giác như mắt đỏ ngầu hoặc hơi "ma quái" chứ không giống mắt người bình thường. Đây là chỗ dễ gây khó chịu nhất.
+> 2. **Tỉ lệ đầu và cổ:** mặt dài, cằm to và tròn, trong khi cổ lại rất mảnh và thẳng như cái trụ. Đầu trông như gắn lên cổ, giống con rối.
+> 3. **Tai:** vành tai phía trái khung hình (tai phải của nhân vật) nhọn và vểnh, hơi giống tai yêu tinh. Tai bên kia gần như không thấy rõ.
+> 4. **Tóc:** giống một khối trắng liền, nhìn như mũ bơi hay bộ tóc giả bó sát đầu, có vân sợi song song đều đặn nhưng không có độ phồng hay lọn tóc tự nhiên.
+> 5. **Mũ:** vành mũ có vẻ nằm lơ lửng trên tóc, chưa thấy rõ mũ ôm vào đầu. Ánh sáng cam rọi mạnh lên mép vành trái trông hơi gắt.
+> 6. **Da:** mịn và bóng như đất sét hoặc nhựa. Hợp với phong cách hoạt hình stop-motion, nhưng khiến phần nếp nhăn trông như vẽ hoặc khắc lên hơn là da thật.
+> 7. **Bố cục và bối cảnh:** vành mũ bị cắt ở mép trên khung hình. Cột gỗ bên trái mờ và không rõ là vật gì. Phông nền xám phẳng, có hạt nhiễu nhẹ, khá trống.
+>
+> **Tóm lại:** đây là một bà cụ đang rất buồn và có vẻ vừa khóc. Cảm xúc truyền tải tốt, nhưng mắt đỏ, cổ quá mảnh và tai nhọn là ba chỗ làm người xem khựng lại, dễ tạo cảm giác hơi rờn rợn hoặc giống búp bê.
+
+**Tổng 4 ảnh:** phụ nữ lớn tuổi **4/4** ✔; cảm xúc đúng **4/4** ✔ (ảnh 4 đích = nghẹn: "buồn, sầu não, có phần sắp khóc… cố nén nước mắt"); "mặt nạ/búp bê/con rối/ma-nơ-canh" **4/4 ảnh có** → **TRƯỢT**. Lỗi mới ở ảnh phim: tròng mắt đọc "đỏ cam… ma quái" dưới ánh điện (s39).
