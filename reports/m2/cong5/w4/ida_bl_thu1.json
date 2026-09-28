@@ -1,0 +1,149 @@
+{
+ "_doc": "Cửa mặt Ida — W4 'bl'. Hệ đầu cast3d (đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt). three.js: nhóm con của joints.head, scale = H. Shape key = morph target glTF, TÊN = kênh facerig.js (16) + vis_* (6 khẩu hình); preset = trọng số trên các kênh.",
+ "E": [
+  0.15,
+  0.575,
+  0.29
+ ],
+ "ER": 0.062,
+ "LID": 0.073,
+ "MY": 0.285,
+ "MW": 0.06,
+ "MZ": 0.392,
+ "jawHinge": [
+  0.0,
+  0.4,
+  -0.04
+ ],
+ "hatHinge": [
+  0.0,
+  0.6,
+  -0.05
+ ],
+ "earring": {
+  "L": [
+   0.36368,
+   0.38555,
+   -0.0051
+  ],
+  "R": [
+   -0.36368,
+   0.38555,
+   -0.0051
+  ]
+ },
+ "channels": [
+  "browUp",
+  "browDown",
+  "browInnerUp",
+  "browKnit",
+  "blink",
+  "lidDrop",
+  "squint",
+  "cheekRaise",
+  "smile",
+  "frown",
+  "jawOpen",
+  "press",
+  "pucker",
+  "wide",
+  "lowerLipIn",
+  "chinRaise"
+ ],
+ "visemes": {
+  "A": {
+   "jawOpen": 0.75,
+   "wide": 0.1
+  },
+  "E": {
+   "jawOpen": 0.3,
+   "wide": 0.7
+  },
+  "O": {
+   "jawOpen": 0.5,
+   "pucker": 0.9
+  },
+  "MBP": {
+   "press": 1.0
+  },
+  "FV": {
+   "lowerLipIn": 1.0,
+   "jawOpen": 0.1
+  },
+  "L": {
+   "jawOpen": 0.4,
+   "wide": 0.25
+  }
+ },
+ "presets": {
+  "neutral": {},
+  "sad_smile": {
+   "smile": 1.0,
+   "cheekRaise": 0.9,
+   "browInnerUp": 0.45,
+   "browKnit": 0.1,
+   "squint": 0.55,
+   "jawOpen": 0.1
+  },
+  "strained": {
+   "press": 0.8,
+   "browKnit": 0.8,
+   "browDown": 0.3,
+   "chinRaise": 0.4
+  },
+  "choked": {
+   "frown": 1.0,
+   "browInnerUp": 1.0,
+   "browKnit": 0.65,
+   "chinRaise": 1.0,
+   "press": 0.6,
+   "lidDrop": 0.25,
+   "squint": 0.2
+  }
+ },
+ "viseme_keys": {
+  "A": "vis_A",
+  "E": "vis_E",
+  "O": "vis_O",
+  "MBP": "vis_MBP",
+  "FV": "vis_FV",
+  "L": "vis_L"
+ },
+ "key_max_disp_H": {
+  "browUp": 0.030853363330706818,
+  "browDown": 0.019994638178139,
+  "browInnerUp": 0.04598494958976268,
+  "browKnit": 0.013990425371595677,
+  "blink": 0.0575986916577381,
+  "lidDrop": 0.02140008590956976,
+  "squint": 0.021760011406101187,
+  "cheekRaise": 0.01799610837317314,
+  "smile": 0.04362011949061479,
+  "frown": 0.03518721432416922,
+  "jawOpen": 0.10564432980824547,
+  "press": 0.006937451548730437,
+  "pucker": 0.03613399749786063,
+  "wide": 0.01798888619339648,
+  "lowerLipIn": 0.013788236681354269,
+  "chinRaise": 0.01196689996977774,
+  "vis_A": 0.0792332473561841,
+  "vis_E": 0.031693298942473636,
+  "vis_O": 0.05282216490412273,
+  "vis_MBP": 0.006937451548730437,
+  "vis_FV": 0.018424921056623314,
+  "vis_L": 0.04225773192329819
+ },
+ "counts": {
+  "ida_head": 156590,
+  "ida_ears": 12492,
+  "ida_eye_L": 1968,
+  "ida_eye_R": 1968,
+  "ida_lash": 300,
+  "ida_brows": 480,
+  "ida_hair_shell": 10260,
+  "ida_hair_cards": 15264,
+  "ida_hair_fine": 2720,
+  "ida_bun": 6620,
+  "ida_teeth": 52
+ }
+}
