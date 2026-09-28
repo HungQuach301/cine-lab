@@ -18,6 +18,7 @@ P3–P5 tắt suốt cảnh 2. Mỗi lần bật: tối, sáng, tắt, sáng, r�
 
 ## s09 · 0:25,00–0:28,00 · MS thấp hất lên
 - **Thời điểm:** đồng hồ quảng trường **8:00**. Kim phút nhích sau DING.
+  - **Đọc trên hình từng khung (v3, khung 600–671):** kim phút 0,000° → 0,196° (đứng 8:00:00 tới DING 26,0 s, rồi nhích), kim giờ 240,0°. 72 khung, **0 lần lùi**.
 - **Đèn:** mặt đồng hồ bật ở 25,3 s; đèn điện quảng trường còn tắt.
 - **Nguồn sáng:** mặt kính đồng hồ (điện đầu tiên), trời sao.
 - **Nhân vật:** không.
@@ -25,6 +26,7 @@ P3–P5 tắt suốt cảnh 2. Mỗi lần bật: tối, sáng, tắt, sáng, r�
 
 ## s09w · 0:28,00–0:30,00 · CU insert (POV)
 - **Thời điểm:** đồng hồ bỏ túi **7:53**, chậm 7 phút so với 8:00 của thành phố.
+  - **Đọc trên hình từng khung (v3, khung 672–719):** kim phút 318,000° → 318,196° (7:53:00 → 7:53:02), kim giờ 236,5°. 48 khung, **0 lần lùi**.
 - **Đèn:** L1–L6 sáng. Ida đứng dưới L6.
 - **Nguồn sáng:** L6 ấm trên tay. Cột điện chưa bật.
 - **Ida:**

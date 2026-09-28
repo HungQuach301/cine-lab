@@ -351,3 +351,35 @@ Nền: merge nhánh tích hợp @b378416. P duyệt nền nhoè s06/s09w cho lay
 1. Mặt A-α chỉ kiểm bằng hình ở s05, s22 (cận); các shot rộng hơn chưa đo cháy mặt riêng.
 2. s11 (không trong phạm vi sửa C2) còn sáng quá dưới đèn khí gần.
 3. Bản cuối gồm nhiều video nhóm của C và C2 — P ghép theo `timing_*.json` mới nhất cho mỗi shot.
+
+## 14. Vòng v3 chốt layout (quyết định chủ dự án @e850c0f)
+Nền: merge nhánh tích hợp @e850c0f.
+
+### 14.1 (a) Rà trạng thái ẩn — render THẲNG (trang mới, chỉ khung F) so với NỐI TIẾP (trang mới, F−12 rồi F), F = khung giữa shot
+Công cụ: so điểm ảnh RGB thô 960×540 của `renderFrame` + `finalize` (bắt cả phơi sáng, đạo cụ — mặt nạ C3 không có đèn lồng); thêm kiểm mặt nạ C3 `export_c3.js --audit-dir … --scale 1` cho 19 shot có Ida.
+
+| Shot | Lệch (px > 2/255; max) trước sửa | Nguyên nhân | Sửa | Sau sửa |
+|---|---|---|---|---|
+| s05 | 25 919 px (5,0 %); max 3 | `fl.exposure()` khoá ở KHUNG ĐẦU ĐƯỢC RENDER (bắt đầu giữa shot → giá trị khác) | tính tường minh trạng thái t = 0 (f0) của shot rồi khoá — hàm thuần | 0 |
+| s02 | 11 px; max 7 | `util.makeChar().place` gọi `setPose` trước khi đặt hướng gốc → đèn lồng thắt lưng xoay "theo trọng lực" bằng hướng của LẦN ĐẶT TRƯỚC (render thẳng: hướng 0) | `mkChar` cục bộ trong `shots_w1.js`: đặt vị trí + hướng gốc TRƯỚC rồi `place` (22 lời gọi) | 0 |
+| s07 | 221 px (0,04 %); max 15 | như s02 | như s02 | 0 |
+| s08 | 477 px (0,09 %); max 202 | như s02 | như s02 | 0 (max 1) |
+| s23 | 142 px (0,03 %); max 192 | như s02 | như s02 | 0 |
+| 18 shot còn lại (s01, s03, s04, s06, s09, s09w, s10e, s10, s11–s15, s19, s21, s22, s24, s24c) | 0 | — | — | 0 |
+
+- **Mặt nạ C3** (thẳng vs nối tiếp, 19 shot có Ida, sau sửa): 0 px lệch ở mọi bộ phận, `views.json` giống hệt (s09w chỉ có đầu).
+- **Ảnh hưởng tới bản render đầy đủ đã có** (render luôn bắt đầu từ f0 và nối tiếp): kiểm khung ĐẦU shot, mã cũ vs mới: s02 28 px (max 47), s07 4 px (max 6), s08 307 px (max 118), s23 257 px (max 143); s06, s09w, s15 0 px. s05: mã cũ render từ f0 → F **trùng từng byte** với mã mới (phơi sáng khoá đúng giá trị f0) → **không render lại s05**.
+- Render lại: **s02, s07, s08, s23** (khung đầu sai) và **s15** (Ida quay 90° lúc 0,8–1,4 s: đèn lồng trễ một khung ở mã cũ).
+- Đề xuất P: sửa gốc trong `util.js` (`ch.place`: đặt `root.position/rotation` trước `setPose`) — lỗi cùng loại có thể ở shot W2 có Ida quay ≠ 0 (s35 là ví dụ đã thấy).
+
+### 14.2 (b) Đồng hồ nhịp 1–2: đọc trên hình từng khung
+Móc chỉ đọc `clockAudit()` trong `shots_w1.js` đọc góc kim của vật thể đồng hồ đang render (đồng hồ bỏ túi `watch`, đồng hồ quảng trường) sau `stepFrame(f)` ở mọi khung; không đổi hình.
+
+| Shot | Khung | Giờ đầu → cuối | Kim phút (°) | Kim giờ (°) | Lần lùi |
+|---|---|---|---|---|---|
+| s06 (bỏ túi) | 384–455 (72) | 7:31:00 → 7:31:03 | 186,000 → 186,296 | 225,5 | 0 |
+| s09 (quảng trường) | 600–671 (72) | 8:00:00 → 8:00:02 | 0,000 → 0,196 | 240,0 | 0 |
+| s09w (bỏ túi) | 672–719 (48) | 7:53:00 → 7:53:02 | 318,000 → 318,196 | 236,5 | 0 |
+
+- Kim chỉ tiến ở cả ba shot; thumbs a/b/c đọc 7:31 · 8:00 · 7:53. Kim giờ không nhích trong 2–3 s (nhích 0,5°/phút → < 0,03°, không thấy được).
+- Ghi vào `continuity/canh-1.md` (s06) và `canh-2.md` (s09, s09w).
