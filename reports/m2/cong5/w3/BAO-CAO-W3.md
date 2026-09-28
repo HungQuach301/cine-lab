@@ -456,3 +456,75 @@ Sửa: `design/cong3/v2/char3d/facerig.js` (hình khối nửa dưới, mũi, n�
 ### 8. Việc đang chờ
 - **P:** kiểm mù vòng 2 (vòng cuối). Qua → W3 đề xuất characters v1.5 + model sheet, đo B1 8 góc → `c3_views`. Trượt → P giao dàn dựng lại 1:32–1:48.
 - **Chủ dự án:** đề xuất ánh sáng L11 (mục 4); khăn cao; bản lề mũ.
+
+# Dàn dựng lại câu cao trào L4 (1:32–1:48) — không dựa cận mặt chính diện (sau A-i vòng 2 TRƯỢT; dừng sửa mặt theo lệnh chủ dự án)
+
+## 0. Căn cứ và mốc cố định
+- Câu L4 (giọng đã khoá, `reports/m1/cong2/tableread-d2/lines/L4.mp3`, đặt ở 93,0 s). Mốc cụm từ đo bằng `ffmpeg silencedetect` (−38 dB, ≥ 0,18 s), giây phim:
+  "That's the last one, then." **93,0–96,0** · "Goodnight, old street." **96,6–98,7** · "You'll be brighter now." **99,5–101,0** · "Just…" **102,2–102,9** · "keep a little dark for the ones who need it." **103,9–107,05**.
+- Giữ nguyên: P5 (cột góc, đoạn cáp cuối) bật **99,2 s (1:39,2)** — nhấp 2 lần rồi đứng; L11 tắt **109,2 s (1:49,2)**; gạt van s40 (107,4); s38 Cas (101,6–103,0); câu cuối bắt đầu trên hình Ida.
+- Hiện trạng layout: s36 91,0–93,0 MCU chính diện (đẩy vành) · s37 93,0–98,8 CU chính diện · s37w 98,8–101,6 WS (P5 bật) · s38 101,6–103,0 MS Cas · s39 103,0–107,4 CU chính diện · s40 107,4–110,0 insert van.
+- Khung thử: `design/cong5/mat/page_pa.js` dựng ĐÚNG bộ cảnh của shot layout (`s37` = trước P5, facelight 'gas'; `s39` = sau P5, facelight 'elec'; sets, grade, lớp vẽ `PAINT_CLOSE`), chỉ ghi đè MÁY (và biểu cảm ở nhịp cuối = choked như s39). Không thêm đèn: nguồn duy nhất là L11, cột P5, cột phố chính, trời đêm (+ ánh dội facelight của chính layout). Định nghĩa từng khung: `design/cong5/mat/pa_frames.json`; chạy `design/cong5/mat/run_pa.sh`. Mặt A-α (`idaStyle: 'aa'`, bản khoá v1.4); 1 khung A-i cùng góc cho phương án khuyến nghị.
+- Khung (1920×1080, 3 mẫu, làn nặng; JPEG ≤ 300 KB): `reports/m2/cong5/w3/pa/PA{1,2,3}_{last,goodnight,brighter,keep}.jpg`, `reports/m2/cong5/w3/pa/PA1_goodnight_ai.jpg`; bảng tổng `reports/m2/cong5/w3/pa/PA_bang-tong.jpg`. Nhịp khung: last 94,5 · goodnight 97,5 · brighter 100,2 · keep 105,0.
+
+## PA1 — "Nghiêng dưới ngọn lửa" (profile, lửa trong khung làm key ngang–trước)
+Ý: giữ diễn xuất của mặt (vòng 2 đã đạt 4/4 cảm xúc) nhưng bỏ mặt phẳng chính diện; mặt là một đường nghiêng dựng khối bằng ngọn L11 ngay trước mũi, nhìn lên phố (phải khung — đúng hướng nhìn của s37 hiện tại).
+| id | Giây phim | Dài | Cỡ | Góc máy | Ống | Ánh sáng | Diễn |
+|---|---|---|---|---|---|---|---|
+| s36 | 91,0–93,0 | 2,0 | MCU | 3/4 nghiêng (yaw −60°), ngang mắt | 85 | L11 trước mặt | đẩy vành mũ (giữ động tác C4) |
+| s37a | 93,0–96,4 | 3,4 | MS | nghiêng 90° (phía phố), ngang mắt, tĩnh | 50 | L11 trong khung, trước–phải mặt | tay phải trên van; "That's the last one, then." |
+| s37b | 96,4–98,8 | 2,4 | CU | nghiêng 84°, đẩy vào rất chậm | 85 | L11 viền mũi–môi–cằm | cười buồn nghiêng; "Goodnight, old street." |
+| s37w | 98,8–100,6 | 1,8 | WS | giữ nguyên | 28 | P5 bật 99,2 (nhấp 2 lần) | "You'll be…" |
+| s37c | 100,6–101,6 | 1,0 | MS | như s37a | 50 | trắng phẳng; lửa nhạt | "…brighter now." — bà vẫn nhìn phố, lửa tái bên mặt |
+| s38 | 101,6–103,0 | 1,4 | MS | giữ nguyên (Cas) | 50 | trắng | "Just…" |
+| s39′ | 103,0–107,4 | 4,4 | CU | nghiêng 96° (hơi mất mặt), tĩnh | 85 | trắng phẳng | nghẹn; giọt nước mắt chạy trên má phía máy; "keep a little dark…" |
+| s40 | giữ | | | | | | gạt van |
+Khung: `PA1_last`, `PA1_goodnight`, `PA1_brighter` (= s37c), `PA1_keep`; so mặt: `PA1_goodnight_ai`.
+- **Ưu:** biểu cảm và khẩu hình vẫn thấy (môi, mắt, mày trong nghiêng) — Cổng 6 vẫn lip-sync được; nghiêng giấu đúng các chỗ bị chê nhiều nhất (bề rộng nửa dưới mặt, ranh tóc–trán hai bên, hai mắt/hai tai không cân, hoa tai); lửa trong khung cho khối mặt thật (không cần đổi đèn); ít đổi cấu trúc nhất.
+- **Nhược:** vẫn là cận mặt (dù nghiêng) → nguy cơ "búp bê" chưa hết; nghiêng A-α còn lộ nét vẽ mày/mi; tai và hoa tai phía máy là tâm điểm khung CU.
+- **Tác động:** thay s36 (góc), tách s37 thành s37a/s37b, rút s37w 2,8 → 1,8 s và thêm s37c 1,0 s, thay s39 (góc). P5 99,2, L11 tắt 109,2, s38, s40 giữ. Continuity ánh sáng cảnh 5 giữ (cùng nguồn, chỉ đổi hướng máy). Hướng nhìn: phải khung, như hiện tại.
+- **Rủi ro:** kiểm mù có thể vẫn gọi "búp bê" ở CU nghiêng; khung CU nghiêng ở s39′ dưới trắng phẳng ít khối hơn ở s37b.
+
+## PA2 — "Qua vai: bà nói với con phố" (máy sau lưng/qua vai, phố là người nghe)
+Ý: câu thoại là lời chào CON PHỐ — cho khán giả nhìn con phố qua vai bà; mặt chỉ còn mép má, mi, vành mũ. "Brighter" được thấy đúng từ chỗ bà đứng: góc tối trước mặt bà bị trắng tràn.
+| id | Giây phim | Dài | Cỡ | Góc máy | Ống | Ánh sáng | Diễn |
+|---|---|---|---|---|---|---|---|
+| s36 | 91,0–93,0 | 2,0 | MS | 3/4 sau (yaw −140°) | 40 | L11 viền mép mũ | đẩy vành mũ, thấy từ sau vai |
+| s37a | 93,0–96,4 | 3,4 | MCU | qua vai trái, sát búi tóc | 40 | L11 trên–phải khung; phố trắng xa | "That's the last one, then." |
+| s37b | 96,4–98,8 | 2,4 | MS | qua vai phải, cao ngang thang, nhìn dọc phố | 35 | góc tối hổ phách tiền cảnh, phố trắng hậu cảnh | tay rời van, đưa về phía phố (chào); "Goodnight, old street." |
+| s37c | 98,8–101,6 | 2,8 | MS | như s37b (thay s37w) | 35 | P5 bật 99,2: trắng tràn đá lát tiền cảnh, lửa tái | "You'll be brighter now." — tay khựng giữa chừng |
+| s38 | 101,6–103,0 | 1,4 | MS | giữ (Cas) | 50 | trắng | "Just…" |
+| s39′ | 103,0–107,4 | 4,4 | MCU | mất mặt 3/4 sau (yaw −128°) | 50 | trắng phẳng; viền ấm cuối của L11 | má, mi, vành mũ; vai sụp; "keep a little dark…" |
+| s40 | giữ | | | | | | |
+Khung: `PA2_last`, `PA2_goodnight`, `PA2_brighter`, `PA2_keep`.
+- **Ưu:** mặt gần như không thấy → không còn chỗ cho "mặt nạ"; khớp nghĩa câu nói (bà nói với phố, phố ở trong khung); "brighter" thành một thay đổi thấy tận mắt từ vị trí bà; khẩu hình gần như không cần.
+- **Nhược:** cảm xúc chuyển sang giọng + dáng (vai, tay) — kiểm mù có thể không đọc ra "nghẹn/cười buồn" từ một khung tĩnh; mất nhịp CU cảm xúc ở câu cuối; bỏ s37w (cú bóng đèn cột góc nhấp 2 lần theo chỉ đạo 1:50 v1 — bóng đèn P5 có thể nằm ngoài khung; nếu cần, giữ s37w 1,0 s trong s37c).
+- **Tác động:** thay s36, s37, s37w, s39; P5, L11, s38, s40 giữ. Ánh sáng giữ; hướng máy đảo (nhìn theo bà) → cần kiểm lại luật 180° với s38 (Cas nhìn lên, trái khung).
+- **Rủi ro:** tiêu chí "≥ 3/4 cảm xúc đúng" của kiểm mù khó đạt với mặt khuất; tay đưa về phía phố ở s37b là một cử chỉ mới cần chủ dự án duyệt.
+
+## PA3 — "Tay, lửa và vành mũ" (mặt khuất dưới vành; tay, van và ngọn lửa kể)
+Ý: nghề của bà là đôi tay trên van; từ trên cao, vành mũ che mặt, ngọn lửa và Cas (giữ thang, nhìn lên) cùng trong khung.
+| id | Giây phim | Dài | Cỡ | Góc máy | Ống | Ánh sáng | Diễn |
+|---|---|---|---|---|---|---|---|
+| s36 | 91,0–93,0 | 2,0 | CU | cao, sau–phải | 40 | L11 | tay trái đẩy vành mũ |
+| s37a | 93,0–95,6 | 2,6 | CU insert | ngang tay, phía phải bà | 50 | L11 | bàn tay phải đặt trên van, cằm mép khung; "That's the last one, then." |
+| s37b | 95,6–98,8 | 3,2 | MS | cao chúc xuống, sau–phải (qua lồng đèn) | 40 | lửa trong khung, vành mũ đổ bóng che mặt | Cas nhỏ dưới chân thang nhìn lên; "Goodnight, old street." |
+| s37w | 98,8–101,6 | 2,8 | WS | giữ nguyên | 28 | P5 bật 99,2 | "You'll be brighter now." (hoặc s37c = cùng góc s37b, trắng tràn đá lát — khung `PA3_brighter`) |
+| s38 | giữ | | | | | | "Just…" |
+| s39′ | 103,0–105,4 | 2,4 | MS | như s37b | 40 | trắng phẳng | vai sụp, đầu cúi; "keep a little dark…" |
+| s39i | 105,4–107,4 | 2,0 | CU insert | như s37a | 50 | trắng; lửa tái | tay siết van — nối thẳng s40 gạt van |
+| s40 | giữ | | | | | | |
+Khung: `PA3_last`, `PA3_goodnight`, `PA3_brighter`, `PA3_keep`.
+- **Ưu:** không còn mặt → rủi ro "mặt nạ" gần 0; đồ hoạ mạnh (lồng đèn, vành mũ, đá lát trắng); tay trên van nối tự nhiên sang s40 (ngọn cuối).
+- **Nhược:** cảm xúc chỉ còn giọng; cao trào của phim không có một khuôn mặt — xa người xem; góc cao làm nhân vật nhỏ, "bị nhìn xuống".
+- **Tác động:** thay s36, s37, s39 (thêm insert s39i); s37w (hoặc s37c), s38, s40 giữ; P5, L11 giữ.
+- **Rủi ro:** kiểm mù gần như chắc không đọc được cảm xúc từ khung tĩnh; ánh lồng đèn chiếm lớn khung ở góc cao (cháy sáng — nên hạ phơi sáng nếu chọn).
+
+## Khuyến nghị: **PA1**, lấy thêm từ PA2 cú "brighter" nhìn theo bà (tuỳ chủ dự án)
+Lý do: (1) vòng 2 cho thấy biểu cảm của rig đã đọc đúng 4/4 — thứ trượt là "mặt nạ/búp bê", gắn với mặt phẳng chính diện (bề rộng nửa dưới mặt, ranh tóc hai bên thái dương, hai mắt/hai tai/hoa tai không cân, ánh sáng phẳng). Nghiêng loại bỏ đúng các nguồn đó mà vẫn giữ diễn xuất; (2) ngọn L11 ngay trước mặt biến thành đèn chính NGANG khi máy ở nghiêng — có khối, không phải đổi đèn hay luật; (3) ít đổi cấu trúc nhất (P5, L11, s37w, s38, s40 giữ), vẫn lip-sync được ở Cổng 6. PA2/PA3 an toàn hơn về "mặt nạ" nhưng gần như chắc trượt tiêu chí cảm xúc và làm cao trào xa người xem.
+So mặt: `PA1_goodnight.jpg` (A-α) và `PA1_goodnight_ai.jpg` (A-i, cùng góc).
+
+## Thời gian thật và làm lại
+13:05 → 13:40 UTC (≈ 35 phút sau lệnh). Hàng đợi: 47 việc (34 thử làn nhanh 960×540 1 mẫu; 13 khung nộp làn nặng 1080p 3 mẫu, 24,7–36,8 s/khung, không chờ), tổng chạy 1 039 s. Làm lại: PA2 nhịp goodnight/brighter 1 (máy cao trên thang nhìn mất góc tối → qua vai phải sát tay); PA3 2 (máy cao phía trước bị lồng đèn che; khung tay thử 4 vị trí — 3 vị trí bị thanh thang/cột che); thử bóng Ida trên tường hông nhà kho (bỏ: độ phóng đại ≈ 7× → thành một mảng tròn không đọc ra người).
+File thêm: `design/cong5/mat/page_pa.js`, `design/cong5/mat/pa_frames.json`, `design/cong5/mat/run_pa.sh`, `design/cong5/mat/pa/thoi-gian.txt` + timing, `reports/m2/cong5/w3/pa/*.jpg`. Không sửa layout W1/W2, `facelight.js`, `bible/`, `checks/`. `RIGHTS.md`: không có tài sản mới.
+Việc chờ: P kiểm mù từng khung → chủ dự án chọn phương án (và duyệt cử chỉ mới nếu chọn PA2: tay đưa về phía phố).
