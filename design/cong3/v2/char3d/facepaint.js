@@ -50,7 +50,8 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   const X = o.mesh ? { ...XE, browIn: N0.browIn, browOut: N0.browOut, knit: N0.knit, corner: N0.corner, lidDrop: N0.lidDrop } : XE;
   const cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'); const R = rng(seed);
   g.fillStyle = '#ffffff'; g.fillRect(0, 0, N, N);
-  const both = (pts, ...a) => { stroke(g, R, pts, ...a); stroke(g, R, mir(pts), ...a); };
+  let symK = 0;   // bước 3 (A-α): nét đôi ĐỐI XỨNG thật (cùng dãy ngẫu nhiên hai bên) — rung ngẫu nhiên riêng từng bên làm hai mày/mắt khác nhau
+  const both = (pts, ...a) => { if (o.aa && isIda) { const k = 9000 + symK++; stroke(g, rng(k), pts, ...a); stroke(g, rng(k), mir(pts), ...a); } else { stroke(g, R, pts, ...a); stroke(g, R, mir(pts), ...a); } };
   const fill = (pts, color, alpha) => { g.fillStyle = `rgba(${color},${alpha})`; g.beginPath(); pts.forEach(([x, y], k) => (k ? g.lineTo(px(x), py(y)) : g.moveTo(px(x), py(y)))); g.closePath(); g.fill(); };
   // 1) Lớp da: vệt cọ rất nhạt theo cơ mặt (phá chất "sáp").
   for (let i = 0; i < 260; i++) {
@@ -64,6 +65,9 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
     for (const s of [1, -1]) blot(g, s * 0.30, 0.58, 0.09, '196,196,214', 0.22);        // thái dương lạnh
     blot(g, 0, 0.12, 0.10, '204,198,208', 0.20);                                         // cằm hơi lạnh
     blot(g, 0, 0.80, 0.14, '240,222,190', 0.14);                                         // trán vàng nhẹ
+    for (const s of [1, -1]) blot(g, s * 0.15, 0.51, 0.055, '196,160,168', 0.22);        // bước 3: quầng dưới mắt (tuổi) — sắc độ, không nét
+    const Rs = rng(seed + 55); for (let i = 0; i < 14; i++) { const sx = Rs() < 0.5 ? 1 : -1; blot(g, sx * (0.12 + Rs() * 0.2), 0.3 + Rs() * 0.5, 0.006 + Rs() * 0.007, '186,146,120', 0.14 + Rs() * 0.1); }   // đồi mồi nhạt
+    for (const s of [1, -1]) blot(g, s * 0.2, 0.26, 0.08, '222,184,176', 0.14);          // má chùng hơi sậm dưới
   }
   // 2) Sắc độ: má ấm thấp và rộng (V5: bỏ mảng tím hốc mắt — cộng bóng khối thành "vết bầm"), mũi đỏ nhẹ.
   for (const s of [1, -1]) blot(g, s * (isIda ? (AA ? 0.17 : 0.18) : 0.19), isIda ? (AA ? 0.39 : 0.36) : 0.33, isIda ? (AA ? 0.11 : 0.09) : 0.085, AA ? '240,160,150' : '226,130,124', isIda ? (AA ? 0.30 : 0.34) : 0.26);   // A-α: má hồng nhạt, cao, rộng (không mảng tối)
@@ -128,9 +132,18 @@ export function paintFace(isIda, E, seed = 7, expr = 'neutral', o = {}) {
   const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; t.needsUpdate = true;
   // Lớp phát sáng (emissive): texture nhân màu không làm sáng hơn da được → ánh ướt mi dưới, nước mắt vẽ ở đây (đen = không phát).
   const cg = document.createElement('canvas'); cg.width = cg.height = N; const gg = cg.getContext('2d'); gg.fillStyle = '#000'; gg.fillRect(0, 0, N, N);
-  if (X.wet > 0) for (const s2 of [1, -1]) stroke(gg, R, [[s2 * (ex - er * 0.6), ey - 0.031], [s2 * ex, ey - 0.036], [s2 * (ex + er * 0.6), ey - 0.03]], 2.2, '255,236,220', 0.8 * X.wet, 0.05);
+  const wetA = o.aa && isIda ? Math.max(X.wet, 0.4) : X.wet;   // bước 3: mí dưới luôn có viền ẩm nhẹ (mắt 'búp bê' khô)
+  if (wetA > 0) for (const s2 of [1, -1]) stroke(gg, R, [[s2 * (ex - er * 0.6), ey - 0.031], [s2 * ex, ey - 0.036], [s2 * (ex + er * 0.6), ey - 0.03]], 2.2, '255,236,220', 0.8 * wetA, 0.05);
   if (X.tear > 0) stroke(gg, R, [[-(ex - er * 0.55), ey - 0.04], [-(ex - er * 0.7), ey - 0.09], [-(ex - er * 0.6), ey - 0.15]], 3, '255,230,210', 0.55 * X.tear, 0.1);   // một giọt nước mắt má phải
   const tg = new THREE.CanvasTexture(cg); tg.colorSpace = THREE.SRGBColorSpace; tg.needsUpdate = true; t.userData = { glint: tg };
+  if (o.aa && isIda) {   // bước 3: cao độ da mịn (lỗ chân lông, gợn da mỏng tuổi già ở má–dưới mắt–cằm) — phá chất sáp, KHÔNG thêm nét nhăn
+    const cb = document.createElement('canvas'); cb.width = cb.height = N; const gb = cb.getContext('2d'); const Rb = rng(seed + 101);
+    gb.fillStyle = 'rgb(128,128,128)'; gb.fillRect(0, 0, N, N);
+    for (let i = 0; i < 12000; i++) { const x = (Rb() - 0.5) * 0.8, y = 0.02 + Rb() * 0.9, v = Rb() < 0.55 ? '0,0,0' : '255,255,255';
+      gb.fillStyle = `rgba(${v},${0.05 + Rb() * 0.07})`; gb.beginPath(); gb.arc(px(x), py(y), 0.8 + Rb() * 1.6, 0, Math.PI * 2); gb.fill(); }
+    for (let i = 0; i < 260; i++) { const sx = Rb() < 0.5 ? 1 : -1, x = sx * (0.05 + Rb() * 0.25), y = 0.08 + Rb() * 0.45, a = (Rb() - 0.5) * 0.8;   // gợn da mỏng (ngắn, mờ, theo chiều chảy xệ)
+      stroke(gb, Rb, [[x, y], [x + Math.sin(a) * 0.025, y - Math.cos(a) * 0.025]], 2, '0,0,0', 0.06, 0.3); }
+    const tb = new THREE.CanvasTexture(cb); tb.colorSpace = THREE.NoColorSpace; tb.needsUpdate = true; t.userData.bump = tb; }
   return t;
 }
 
