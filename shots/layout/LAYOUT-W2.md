@@ -23,8 +23,8 @@ Máy: vị trí → điểm nhìn (m). Hệ toạ độ: cảnh 4 = hệ tườn
 | s30 | 1:12,0–1:14,0 | MS · 35 | (2,6; 1,4; 4,0) → (−0,1; 0,8; 0,7) | tĩnh | Ida **đi vào khung** (0,7 s) rồi tháo đèn, quỳ (tư thế cục bộ `kneelHold`: đèn đưa ra trước). Đèn lồng không còn tự đổ bóng (vỏ đèn che ngọn lửa ở v2). |
 | s31 | 1:14,0–1:17,0 | MCU · 85 | đầu Ida + (1,6; 0,05; 1,25) | tĩnh | Máy lùi sang bên để đầu Cas không che mặt bà (probe v2-sửa: đầu Cas che nửa mặt). |
 | s32 | 1:17,0–1:20,0 | WS · 35 | (1,9; 1,35; 4,1) → (−0,25; 1,45; 0) | tĩnh | Đèn lồng ở (−0,22; 0,64; 0,60), dưới-sau tay Cas, thân Cas sau đèn → chim to (×≈2,4), ấm, mềm; Cas nhích 0,21 m, tư thế cục bộ `birdReach`. |
-| s33 | 1:20,0–1:27,0 | WS · 32 | bộ khoá (0,25; 1,35; 10,5 → 9,6) | dolly vào 0,9 m | **V2:** đèn lồng x −0,3; Ida (−0,7; 1,6), Cas (0,62; 0,9) — bóng mỗi người lệch ra ngoài. |
-| s34 | 1:27,0–1:29,0 | MS nghiêng · 30 | (1,3; 1,15; 3,6) → (−0,3; 1,5; 0,6) | tĩnh | **V2:** máy lùi, 35 → 30 mm; thứ tự trái → phải: Ida, bóng Ida, Cas, bóng Cas. |
+| s33 | 1:20,0–1:27,0 | WS · 32 | bộ khoá (0,25; 1,35; 10,5 → 9,6) | dolly vào 0,9 m | **V2 (sửa N3, giai đoạn D):** đèn lồng (−0,05; 3,0); Ida (−0,62; 1,45) ×1,94, Cas (0,75; 0,8) ×1,36; PCF 4. Ẩn cột gang của bộ khoá cạnh vòm (N4). |
+| s34 | 1:27,0–1:29,0 | MS nghiêng · 26 | (1,35; 1,15; 4,0) → (−0,2; 1,35; 0,4) | tĩnh | **V2 (N3):** thấy cả nền: bóng nối chân mỗi người; đỉnh bóng Ida (vành mũ) trong khung, trong vùng sáng. Trái → phải: Ida, bóng Ida, Cas, bóng Cas. |
 | s35 | 1:29,0–1:33,0 | WS · 28 | (16,5; 1,7; 2,6) → (5,5; 2,3; −3,8) | tĩnh | **V3:** cuối phố có khối; Ida đi ra từ phía hốc cửa (hông nhà kho). Cas chạy 1,43 m/s tới `CAS_LAD`. |
 | s36 | 1:33,0–1:35,0 | MCU · 85 | `faceCam` 1,9 m | tĩnh | facelight `gas`; phơi sáng = fl.exposure × 2 (≈ 0,17; v2 0,36 — da cháy). |
 | s37 | 1:35,0–1:40,8 | CU · 85 | `faceCam` 1,10 → 0,97 m | đẩy vào rất chậm | như s36 (≈ 0,16). |
@@ -33,11 +33,11 @@ Máy: vị trí → điểm nhìn (m). Hệ toạ độ: cảnh 4 = hệ tườn
 | s39 | 1:45,0–1:49,4 | CU · 85 | `faceCam` 0,95 m | tĩnh | facelight `elec` (keyE = whiteHemi 0,99); phơi sáng ≈ 0,36. Vành mũ đổ bóng lên trán; tường xám sáng sau lưng. Giữ CU gần chính diện (ảnh 4 kiểm mù). |
 | s40 | 1:49,4–1:52,0 | CU insert · 50 | theo cần van | tĩnh | Nền thấy **hốc cửa ngay sau L11**. `hat_back` 0,35 (liên tục từ s36). |
 | s40w | 1:52,0–1:54,0 | WS · 28 | như s37w | tĩnh | `hat_back` 0,35. |
-| s41 | 1:54,0–1:55,5 | WS · 28 | (12,8; 1,5; 0,6) → (8,2; 1,2; −4,6) | tĩnh | Nền: hông nhà kho + hốc cửa. `hat_back` 0,35. |
-| s42a | 1:55,5–1:57,5 | MS · 45 | (10,4; 1,0; −0,6) → (7,6; 0,9; −3,3) | tĩnh | Hốc cửa ở ngay nền (Cas nhìn về nó, trái khung). |
-| s42b | 1:57,5–1:59,5 | WS · 32 | (0,9; 1,25; 8,2) → (0,3; 1,1; 2,0) | tĩnh | Cas dừng ở `CAS_BAY` (−0,35; 2,55), **quay người ra vòm**. |
+| s41 | 1:54,0–1:55,5 | WS · 28 | (12,8; 1,5; 0,6) → (8,2; 1,2; −4,6) | tĩnh | Nền: hông nhà kho + hốc cửa. `hat_back` 0,35. **C3:** Ida (7,9; −4,4) trái, Cas (8,9; −4,6) phải; Cas ôm đèn (`casHug`). |
+| s42a | 1:55,5–1:57,5 | MS · 45 | (10,4; 1,0; −0,6) → (7,6; 0,9; −3,3) | tĩnh | Hốc cửa ở ngay nền (Cas nhìn về nó, trái khung). **C3:** Ida lùi ra (6,8; −2,5), trái khung. **N2:** Cas ôm đèn sát ngực. |
+| s42b | 1:57,5–1:59,5 | WS · 32 | (0,9; 1,25; 8,2) → (0,3; 1,1; 2,0) | tĩnh | Cas dừng ở `CAS_BAY` (−0,35; 2,55), **quay người ra vòm**. **N2:** cùng cách ôm đèn với s42a. |
 | s42 | 1:59,5–2:02,5 | MS · 40 (v2: 32) | (0,55; 0,66; 0,45) → (−0,15; 0,75; 4,5) | tĩnh | **V1:** Cas quay ra vòm, máy sau lưng lệch phải; Ida trái (x +1,25 miệng vòm), Cas phải. Ngoài vòm là phố trắng (bộ khoá cũ: nền đen). |
-| s43 | 2:02,5–2:06,5 | EWS · 28 | bộ khoá s1 | dolly vào rất chậm | Render mới (v2 tái dùng khung v1). Không đổi khung. |
+| s43 | 2:02,5–2:06,5 | EWS · 28 | bộ khoá s1 | dolly vào rất chậm | Render mới. **C4:** trời đêm xanh đen có sao (`nightSky`), sương xa tối — bỏ trời vẽ xám lilac, không quầng chân trời (v0.5). |
 | s44 | 2:06,5–2:09,0 | WS · 21 | bộ khoá s6 + 0,5 m | đẩy vào | Ida không đạo cụ đèn lồng. |
 | s45 | 2:09,0–2:11,0 | MS · 50 | 3/4 trước-phải bà, 1,75 m, thấp hơn mắt 0,3 m | tĩnh | Thấy **đồng hồ trong tay + mặt dưới vành mũ** (v2: máy sau vai, không thấy đồng hồ). |
 | s45c | 2:11,0–2:12,5 | CU · 200 | (150; 6,2; 0,4) → mặt đồng hồ | tĩnh | Không đổi. |
@@ -139,14 +139,14 @@ Cùng một khung s40 trước/sau khi tắt lửa cho đúng cặp "nâu xám /
   - Cần P sửa `bible/world-rules.md` (v0.5) nếu duyệt.
 - **Q-W2-2 — ĐÃ QUYẾT (chủ dự án):** bà kéo mũ lại khi rời đi; W2 dựng ở cuối s42 (2,2–2,8 s, 0,35 → 0), cảnh 6 giữ 0. Nội dung đề xuất gốc: sau s36 bà đẩy vành mũ (C4); W2 giữ `hat_back` 0,35 tới hết cảnh 5. Cảnh 6 (2 giờ sau) đang để 0.
   - Chọn: (a) giữ 0 (bà đã chỉnh lại mũ); (b) giữ 0,35 tới hết phim.
-- **Q-W2-3 (cột điện phố chính cảnh 4):** cột bật 1:04 đặt ở (13,5; −4,2) — chỉ có trong bộ tường chim; bộ phố của W1 không có cột này.
+- **Q-W2-3 — đã xử lý hình (W1 thêm cột vào bộ phố, thấy ở s23, s24).** Còn lại mâu thuẫn ÁNH SÁNG C2 (chờ chủ dự án, phương án ở báo cáo giai đoạn D). Nội dung đề xuất gốc: cột bật 1:04 đặt ở (13,5; −4,2).
   - Đề xuất P thêm cột này vào `POST_X` hoặc `sets.js` (bật `WALL_POST_ON`), để s35–s42a thấy nó sáng.
   - Hoặc duyệt dùng P4 (x = 29) làm "cột phố chính cạnh nhà kho" và W2 dời cột trong bộ tường chim ra ngoài khung.
 - **Q-W2-4 — ĐÃ QUYẾT: không quầng trắng chân trời.** luật v0.4 "ánh điện không làm sáng trời". Sương W2 đặt sát mặt phố, không chạm trời. W1 đề xuất "quầng trắng hắt lên trời ở chân trời" — **W2 không làm** vì trái luật; chờ chủ dự án nếu muốn.
 
 ## 7. Rủi ro
 - **R1 (V2 còn lại):** bóng Cas vẫn là dáng một cậu bé (đúng kịch bản "his, small, standing right beside him"). Nay to hơn cậu 1,43×, lệch 0,40 m, mềm hơn. Cần kiểm mù lần 4 (giai đoạn D) để xác nhận hết đọc "hai cậu bé".
-- **R2:** cột điện phố chính (Q-W2-3) chưa có trong bộ phố.
+- **R2 (cập nhật giai đoạn D):** cột phố chính đã có trong bộ phố (W1); ánh của nó ở cảnh 5 mâu thuẫn luật v0.4 → C2, chờ chủ dự án.
 - **R3:** tỷ lệ vôi ở s23 (tiêu chí W1 ≤ 20 %) chưa đo bằng số.
 - **R4:** chim s32 và s48 đọc là "bóng to, mềm" nhưng hình chim chưa gọn (tay đơn giản ở previs). Cổng 6 cần tư thế tay chim thật (ngón xoè, cổ tay chéo) cho nguồn thấp.
 - **R5:** thời gian render/khung tăng ở bộ tường chim (5,1 → 5,5–8 s/khung probe, máy dùng chung). Bộ phố cuối +20–30 % do hậu cảnh. Có `endOpts.far = false` cho shot không thấy xa.

@@ -7,7 +7,7 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CA
   Đổi sang bộ phố: x = x_b + 2,2; z = z_b − 12,1. Ngoài vòm: sân lát 2,5 m, vỉa hè + lòng phố, dãy nam (z_b 17,7), dãy bắc bắt đầu x_b 12,8; L11 + thang ở (5,8; 8,2).
 - **Bộ phố** (s35–s41, s42a): toạ độ W1. L11 (8; −3,9), thang tựa phía bắc cột (chân z −4,75), Ida trên thang (8; −4,48; gốc cao 1,55 m).
   `CAS_LAD` = (8,0; −4,98): Cas đứng sau chân thang, mặt +z, hai tay trên hai thanh (x 8 ± 0,17, cao ≈ 0,9 m).
-- **Trục 180° cảnh 5:** Ida TRÁI, Cas PHẢI trong mọi shot hai người. s42 máy trong hốc nhìn ra (+z) nên đặt Ida ở +x, Cas ở −x để vẫn Ida trái, Cas phải.
+- **Trục 180° cảnh 5:** Ida TRÁI, Cas PHẢI trong mọi shot hai người (s33, s34, s35, s37w, s40w, **s41, s42a — sửa C3**, s42). s42 máy trong hốc nhìn ra (+z) nên đặt Ida ở +x, Cas ở −x để vẫn Ida trái, Cas phải.
 
 ## Mũ Ida — `hat_back` đầu / cuối mỗi shot (quyết định chủ dự án, AUTHORSHIP; world-rules v0.5)
 Bà tự đẩy vành mũ ra sau trước lời từ biệt (s36, C4) và **kéo mũ lại khi rời đi** (cuối s42) — cử chỉ khép "hết ca".
@@ -35,19 +35,19 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 
 ## s33 · 1:20,00–1:27,00 · WS 32 mm · dolly vào 0,9 m
 - **Máy:** bộ khoá: (0,25; 1,35; 10,5) → z 9,6; ống kính dịch (tranh trong tranh).
-- **Đèn:** đèn lồng **trên nền đá** ở `BAY.lan` (−0,3; 3,0) — cách vách 3,0 m (nguồn duy nhất trong hốc, có bóng); ngoài vòm điện phẳng. L11 còn cháy (ngoài khung, bên phải).
-- **Ida:** 0–1,2 s đứng lên từ tư thế quỳ (vừa đặt đèn) ở (−0,7; 3,5); 1,2–3,2 s đi tới `BAY.ida` (−0,7; 1,6); 3,0–3,8 s quay nhẹ; 4,4 s ngửa nhìn bóng (`look_shadows`). **Không còn đèn lồng trên người** (đang trên nền).
-- **Cas:** 1,3–4,7 s đi từ (0,62; 3,9) tới `BAY.cas` (0,62; 0,9); 5,8 s nửa giơ tay (`half_raised`).
-- **Bóng (V2, quang học thật):** Ida ×2,14 → cao ≈ 3,5 m, tâm bóng x ≈ −1,16 (lệch trái bà 0,46 m); Cas ×1,43 → ≈ 1,9 m, tâm bóng x ≈ 1,02 (lệch phải cậu 0,40 m). Giữa hai bóng là vách sáng.
+- **Đèn:** đèn lồng **trên nền đá** ở `BAY.lan` (−0,05; 3,0) — cách vách 3,0 m (nguồn duy nhất trong hốc, có bóng); ngoài vòm điện phẳng. L11 còn cháy (ngoài khung, bên phải).
+- **Ida:** 0–1,2 s đứng lên từ tư thế quỳ (vừa đặt đèn) ở (−0,62; 3,5); 1,2–3,2 s đi tới `BAY.ida` (−0,62; 1,45); 3,0–3,8 s quay nhẹ; 4,4 s ngửa nhìn bóng (`look_shadows`). **Không còn đèn lồng trên người** (đang trên nền).
+- **Cas:** 1,3–4,7 s đi từ (0,75; 3,9) tới `BAY.cas` (0,75; 0,8); 5,8 s nửa giơ tay (`half_raised`).
+- **Bóng (V2, quang học thật — sửa N3):** Ida ×1,94 → cao ≈ 3,2 m (đỉnh bóng trong vùng vách được đèn rọi → vành mũ của bóng đọc được), tâm bóng x ≈ −1,15 (lệch trái bà 0,53 m); Cas ×1,36 → ≈ 1,8 m, tâm bóng x ≈ 1,04 (lệch phải cậu 0,29 m). Tỷ lệ 1,77. Nửa tối: PCF radius 4 (giả lập nguồn ~12 cm ở render 1 mẫu). Cột điện gang của bộ khoá s5 cạnh vòm đã ẩn (N4).
 - **Trang phục:** mũ Ida `hat_back` 0; mũ len Cas có quả bông.
 
-## s34 · 1:27,00–1:29,00 · MS nghiêng 30 mm · tĩnh
-- **Máy:** (1,3; 1,15; 3,6), nhìn (−0,3; 1,5; 0,6) — từ phía phải, sau đèn lồng.
+## s34 · 1:27,00–1:29,00 · MS nghiêng 26 mm · tĩnh
+- **Máy:** (1,35; 1,15; 4,0), nhìn (−0,2; 1,35; 0,4) — từ phía phải, sau đèn lồng; thấy cả nền đá: vệt bóng trên nền nối chân mỗi người với bóng của họ trên vách.
 - **Khung trái → phải:** Ida, bóng Ida (cao), Cas, bóng Cas (to hơn cậu, lệch phải).
 - **Ida / Cas:** giữ tư thế cuối s33. **Nhìn:** cả hai nhìn lên vách.
 
 ## s35 · 1:29,00–1:33,00 · WS 28 mm · tĩnh
-- **Máy:** (16,5; 1,7; 2,6), nhìn (5,5; 2,3; −3,8) — xuôi dốc. Khung: hông nhà kho + hốc cửa (trái), L11 + thang (giữa-phải), mặt cuối phố + phố rẽ (nền), dãy bắc (phải).
+- **Máy:** (16,5; 1,7; 2,6), nhìn (5,5; 2,3; −3,8) — xuôi dốc. Khung: hông nhà kho + hốc cửa (trái), L11 + thang (giữa-phải), mặt cuối phố + phố rẽ (nền), hông nhà kho ở mép phải (dãy bắc x ≥ 15 ngoài khung).
 - **Đèn:** góc TỐI: chỉ L11 (có bóng) + tràn 0,06; P5 tắt.
 - **Ida:** 0–2,3 s đi từ (5,7; −6,2) [phía hốc cửa, cắt nén] tới chân thang (8; −5,05); 2,3–3,4 s trèo; từ 3,4 s đứng trên thang (`restLadder`). Đèn lồng: bà **nhặt lại khi rời hốc (ngoài hình, giữa s34 và s35)** và móc ở **hông trái**, cháy — giữ tới s40; s41 tháo ra tay phải để trao.
 - **Cas:** 0–3,0 s chạy (1,43 m/s) từ (3,6; −4,6) tới `CAS_LAD`; 3,0–3,6 s chuyển sang giữ thang.
@@ -85,15 +85,15 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 
 ## s41 · 1:54,00–1:55,50 · WS 28 mm
 - **Máy:** (12,8; 1,5; 0,6), nhìn (8,2; 1,2; −4,6).
-- **Ida:** dưới chân thang (8,9; −4,6), đèn lồng **tay phải** (0 s) → chìa ra (0,5 s). **Cas:** (7,9; −4,4) đón bằng hai tay (0,7 s). Đạo cụ đổi chủ: đèn lồng → Cas (hai tay).
+- **Ida:** chân thang phía tây (7,9; −4,4), đèn lồng **tay phải** (0 s) → chìa ra (0,5 s). **Cas:** (8,9; −4,6) đón bằng hai tay, ôm sát ngực (`casHug`, 0,7 s). Đạo cụ đổi chủ: đèn lồng → Cas. **Ida TRÁI, Cas PHẢI** (sửa C3; bản đầu ngược).
 
 ## s42a · 1:55,50–1:57,50 · MS 45 mm
 - **Cas:** (7,6; −3,3), ôm đèn lồng giữa hai cổ tay; đầu quay trái 38° (0,8 s), phải −30° (1,6 s), −45° (2,0 s: nhìn hốc cửa — **trái khung**).
-- **Ida:** (8,9; −4,6), không đèn lồng, nhìn Cas.
+- **Ida:** (6,8; −2,5) — lùi ra lòng phố, **TRÁI khung** (sửa C3), không đèn lồng, nhìn Cas. **Cas:** (7,6; −3,3) ôm đèn sát ngực bằng hai tay (`casHug`, sửa N2).
 
 ## s42b · 1:57,50–1:59,50 · WS 32 mm (ngoài vòm)
 - **Máy:** (0,9; 1,25; 8,2), nhìn (0,3; 1,1; 2,0).
-- **Cas:** đi từ (1,9; 5,3) vào `CAS_BAY` (−0,35; 2,55) trong 1,5 s, đèn lồng treo giữa hai cổ tay (nguồn sáng đi theo); 1,3–2,0 s quay người ra vòm. **Mũ len + quả bông còn nguyên** (V1).
+- **Cas:** đi từ (1,9; 5,3) vào `CAS_BAY` (−0,35; 2,55) trong 1,5 s, đèn lồng ôm sát ngực, treo giữa hai cổ tay (`casHug`, cùng cách cầm với s42a — sửa N2; nguồn sáng đi theo); 1,3–2,0 s quay người ra vòm. **Mũ len + quả bông còn nguyên** (V1).
 
 ## s42 · 1:59,50–2:02,50 · MS 40 mm (trong hốc nhìn ra vòm)
 - **Máy:** (0,55; 0,66; 0,45), nhìn (−0,15; 0,75; 4,5) — sau lưng Cas lệch phải, thấp ngang vai.
