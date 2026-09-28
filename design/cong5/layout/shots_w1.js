@@ -5,6 +5,7 @@ import { setWallPostOn, B1_FALLBACK } from './sets.js';
 import { buildStreetSet, LAMP_X, LAMP_Z, WALK_Z, POST_X, CLOCK, ladderOf, buildWatch, lamMat, flickAt, GRADE_COLD } from './sets.js';
 import { buildCitySet, buildWallSet, buildBaySet, buildAlleySet, buildRoomSet } from './sets2.js';
 import { buildLantern } from '/cong3/shared/cast.js';
+import { createFaceLight } from './facelight.js';   // W3: dội/viền cận mặt từ nguồn có thật
 import { U } from '/cong3/v2/s5.js';
 import { ease, easeIO, clamp01, fovOf, lerpPose, over, poseAt, valAt, camAt, makeChar, yawTo } from './util.js';
 import { CLOCKS, CLOCK_ON, DIALOGUE, DING, FILM_S, FOOT_Z, GAS_ON, GRADE_ALLEY, GRADE_S5, L11_OFF, ON_Z, ORDER, P, PAINT_CLOSE, PAINT_STREET, PAINT_WALL, POST_ON, REACH_IDA, RELAY_1, S, S5_PAINT, S5_PAINT_MED, S6_PAINT, SHOTS, SQUARE_ON, SRC, T0, T1, VALVE, WALL_POST_ON, camMM, expo, faceCam, flameL11, gasLevel, hands, ladderAt, lanternLight, stdState, switchOn, watchInHand, whiteAt } from './common.js';
@@ -12,6 +13,7 @@ import { CLOCKS, CLOCK_ON, DIALOGUE, DING, FILM_S, FOOT_Z, GAS_ON, GRADE_ALLEY, 
 // Vị trí Cas ở cuối phố (s24, s24c): mặc định = bản Cổng 4; nếu sets_end.js (W2) trả endInfo.casSpot = [x, z] thì dùng vị trí đó
 // (chân tường nhà kho, trong quầng hổ phách L11 — xem shots/layout/LAYOUT-W1.md, "Yêu cầu gửi W2").
 const CAS_SPOT = [-1.2, -2.2];
+const S05_MODE = 'fl', S05_EK = 1.6;   // C2: facelight gas + phơi sáng fl.exposure() × 1,6 (mặt cháy 0,5 %, nền luma 69, tóc bạc) — LAYOUT-W1.md mục 13
 // B1 (sau Cổng 5): chỗ Cas dời sang đông ~4 m. Nếu sets_end.js đã trả endInfo.wallPost (W2 làm B1) thì tin endInfo.casSpot; nếu chưa thì dùng số dự phòng của P.
 const casSpotOf = (st) => { const e = st.endInfo; if (!e) return CAS_SPOT; return e.wallPost && e.casSpot ? e.casSpot : B1_FALLBACK.casSpot; };
 // Đèn lồng thắt lưng TẮT từ s02 tới lúc mồi ở L4 (kịch bản 0:12; quyết định chủ dự án sau Cổng 5). Nhịp tay mồi làm ở Cổng 6; layout chỉ đổi trạng thái lửa.
@@ -94,13 +96,18 @@ S({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 3
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 36, faceQ: 1.4, expr: 'neutral', glint: 0.6 });
     const cam = camMM(85); let camSet = false;
     const beats = [12.3, 12.9, 13.5].map((b) => b - 12);
-    return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: 0.42,
+    // C2 (mặt A-α của W3): 'fl' = facelight 'gas' (dội ấm vôi/đá + viền trời, nguồn có thật) + phơi sáng khoá theo fl.exposure() ở khung đầu;
+    // 'x04' = phơi sáng 0,42 × 0,4 (W3 đo). Mặc định chọn theo số đo trong LAYOUT-W1.md mục 13.
+    const mode = (ctx.dbg && ctx.dbg.s05) || S05_MODE; const fl = mode === 'fl' ? createFaceLight(st.scene, { mode: 'gas' }) : null; let EXP = mode === 'x04' ? 0.42 * 0.4 : 0.42;
+    const L4 = st.lamps.find((l) => l && l.i === 4);
+    return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: () => EXP,
       update(t, T, f) { st.setState(stdState(T), f);
         let k = 0; for (const b of beats) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
         const pose = t < 2.4 ? lerpPose(p.warmLadder, p.warmLadderIn, k) : poseAt([[2.4, p.warmLadder], [3.1, p.restLadder]], t);
         if (!camSet) { ida.place(p.warmLadder, LAMP_X(4), ON_Z, 0); const head = new THREE.Vector3(); ida.joints.head.getWorldPosition(head); head.y += 0.12;
           cam.position.copy(head).add(new THREE.Vector3(-1.55, 0.02, 1.35)); cam.lookAt(head.clone().add(new THREE.Vector3(-0.14, -0.1, 0.22))); camSet = true; }   // W1: máy tĩnh (v2 trôi theo đầu)
-        ida.place(pose, LAMP_X(4), ON_Z, 0); } };
+        ida.place(pose, LAMP_X(4), ON_Z, 0);
+        if (fl) { fl.update(ida, cam, { key: L4 && L4.L }); if (fl.__exp === undefined) { fl.__exp = fl.exposure() * ((ctx.dbg && ctx.dbg.ek) || S05_EK); EXP = fl.__exp; } } } };
   } });
 
 S({ id: 's06', scene: 1, t0: 16.0, t1: 20.0, size: 'CU (insert)', angle: 'chúc nhẹ, góc nhìn của Ida', mm: 100, move: 'tĩnh',
