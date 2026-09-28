@@ -415,7 +415,7 @@ S({ id: 's45c', scene: 6, size: 'CU', angle: 'tele, POV của Ida qua miệng ng
 alleyShot('s46', 139.0, 142.0, { size: 'CU (insert)', angle: 'chúc nhẹ', mm: 100, move: 'tĩnh', exposure: 6.0,
   why: 'ĐỒNG HỒ NHỊP 3c (9B): bà vặn kim từ 9:53 lên đúng 10:00 — nhận giờ mới. Gập đồng hồ, KHÔNG gõ kính (ngược với nhịp 1).', sound: 'núm vặn lách cách; tách gập',
   light: 'ánh cửa sổ ấm', action: 'Ngón cái vặn núm; kim phút chạy từ 9:53 lên 10:00; bàn tay khép lại.' },
-  (p, cam, r, dbg) => { let wf = null; const D = new THREE.Vector3(...(dbg.dir || [-0.6, 0.1, 0.8]));   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá) return { update(t, T, ida) {
+  (p, cam, r, dbg) => { let wf = null; const D = new THREE.Vector3(...(dbg.dir || [-0.6, 0.1, 0.8])); return { update(t, T, ida) {   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá)
     if (!wf) wf = watchInHand(ida.root.parent);
     ida.setPose(over(p.watchHold(0), { props: [] })); ida.root.updateMatrixWorld(true);
     cam.fov = fovOf(dbg.mm ?? 100); cam.updateProjectionMatrix();
