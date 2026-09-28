@@ -1,14 +1,30 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) và merge vào main · Cổng 6 KHOÁ tới khi chủ dự án chọn lời giải mặt Ida · Cổng 4 đã merge (5987bf3) · characters v1.3 (D2) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: gói đầu (Cas MPFB) đang làm; diễn hoạt CHỜ chủ dự án duyệt reports/m2/CONG-6-MO.md** · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Lời giải mặt Ida — A′ XONG, kiểm mù TRƯỢT tiêu chí cảm xúc** (PA1 'bl' L3: tuổi/giới 4/4, cảm xúc 2/4, búp bê/mặt nạ 0/4, đối chứng 0/2) → chờ chủ dự án chọn A (nhận 'bl', chấp nhận trượt) / B (đổi đích diễn) / C (lùi A-i/A-α); nháp characters v1.5 chờ duyệt (reports/m2/MAT-IDA-BLENDER-L3.md, reports/m2/cong5/characters-v1.5-NHAP.md). Cổng 6 vẫn khoá.
+1. **Mở Cổng 6** (reports/m2/CONG-6-MO.md): khoá v1.5 + C3 layout 'bl' + gói Cas MPFB (v1.6 nháp) + kế hoạch diễn hoạt → chủ dự án duyệt TRƯỚC khi bắt đầu diễn hoạt.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
+
+## Việc cho Cổng 6 — theo quyết định "Cửa mặt Ida (đóng)" 29/09/2026 (chỉ ghi, chưa làm)
+**a. Nhịp cười buồn đo trên CLIP CHUYỂN ĐỘNG CÓ TIẾNG** (s37: "That's the last one, then.", "Goodnight, old street."):
+- chủ dự án tự xem và chấm;
+- AI mù đọc bảng khung theo thời gian (mỗi 0,5 s trong nhịp, kèm phụ đề).
+- **Tiêu chí:** AI mù kể ra cả "cười" lẫn "buồn/tiếc".
+
+**b. Danh sách sửa:**
+- (1) Mắt khung chính diện: bớt bóng kiểu mắt búp bê, mí che bớt tròng, có viền nước.
+- (2) Mũ ôm đầu, không lơ lửng.
+- (3) Mắt đọc được khi quay nghiêng (máy PA1).
+- (4) Tay Ida dùng tay MPFB, cầm nắm cột và van đúng.
+
+**c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
+
+**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) → nháp characters v1.6 (Cas) chờ duyệt.
 
 ## Việc cho Cổng 6 (từ Cổng 5 — B1 và continuity lần 3)
 - **B1 cảnh 6:** làm rõ hướng mặt, hướng đầu của Ida ở s45 và đồng hồ trong tay (s45 → s46 → s45c giữ nguyên).
