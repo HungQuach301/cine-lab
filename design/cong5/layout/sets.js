@@ -116,15 +116,82 @@ export function houses(scene, x0, x1, z, face, seed, winKind, FT, matC, emit) {
   return wins;
 }
 
+// ================= CỔNG 5 (W1): CHIỀU SÂU — SƯỜN ĐỒI, LỚP NHÀ SAU, QUẢNG TRƯỜNG, DÃY NHÀ XA =================
+// Luật thế giới mục 1: Ostler là phố "dốc nhẹ, cong". Bản code giữ lòng phố thẳng, phẳng trong đoạn diễn (x = 0…160) để KHÔNG phá
+// hệ toạ độ chung (LAMP_X, LAMP_Z, POST_X, WALK_Z, ladderAt, vị trí nhân vật của W2). Dốc và cong được đọc qua cái bao quanh phố:
+//  • phố men sườn đồi: phía bắc (−z) là sườn lên → nhà lớp sau đứng trên thềm cao dần, mái + ống khói chồng lớp trên mái dãy trước;
+//    phía nam (+z) là sườn xuống → lớp sau thấp, chỉ lộ ở xa;
+//  • cả sườn lên dần về đầu dốc (+x, quảng trường), cùng độ dốc 3,5 % như s1 (groundY) → đường mái lớp sau dâng dần khi nhìn lên phố;
+//  • sau quảng trường, dãy nhà xa xếp bậc lên đồi theo một cung (phố tiếp tục cong về bắc) → nhìn lên phố không còn chân trời phẳng;
+//  • sương theo shot (o.fog) cho tele/toàn cảnh: lớp xa nhạt dần theo không khí.
+export const SLOPE = 0.035;
+export const hillY = (x) => SLOPE * (Math.min(x, 330) - 80);   // cao độ tương đối của sườn theo trục phố (x = 80 ≈ giữa phố)
+// Mái hai dốc (lăng trụ tam giác) dài L theo x cục bộ, sâu D theo z, cao h; đáy y = 0 (chép cách dựng mái của s1.roofGeo, bỏ mái chóp).
+function gableGeo(L, D, h, over = 0.25) {
+  const hx = L / 2 + over, hz = D / 2 + over;
+  const v = [-hx, 0, hz, hx, 0, hz, hx, h, 0, -hx, 0, hz, hx, h, 0, -hx, h, 0, hx, 0, -hz, -hx, 0, -hz, -hx, h, 0, hx, 0, -hz, -hx, h, 0, hx, h, 0,
+    -L / 2, 0, -D / 2, -L / 2, 0, D / 2, -L / 2, h, 0, L / 2, 0, D / 2, L / 2, 0, -D / 2, L / 2, h, 0];
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(v), 3)); g.computeVertexNormals(); return g;
+}
+// Một dãy khối nhà lớp sau dọc trục cục bộ x (a0 → a1), mặt tiền nhìn ra +z cục bộ; đặt vào `parent` (Group có thể xoay/dời).
+// base(a) = cao độ nền tại toạ độ a (m); bend(a) = lệch z theo a (tạo cung). Khối kéo dài xuống 12 m dưới nền (che khe hở sườn).
+function massRow(parent, { a0, a1, z = 0, base = () => 0, bend = () => 0, seed = 1, hMin = 7, hMax = 10.5, d = 7, lit = 0.08, mats }) {
+  const R = rng(seed); let a = a0;
+  while (a < a1 - 0.5) {
+    const w = Math.min(a1 - a, 4 + R() * 3.5), h = hMin + R() * (hMax - hMin), ca = a + w / 2, b = base(ca), zc = z + bend(ca), rot = Math.atan(-(bend(ca + 0.5) - bend(ca - 0.5)));
+    const g = new THREE.Group(); g.position.set(ca, b, zc); g.rotation.y = rot; parent.add(g);
+    const body = new THREE.Mesh(new THREE.BoxGeometry(w, h + 12, d), mats.wall[Math.floor(R() * mats.wall.length)]); body.position.set(0, (h - 12) / 2, -d / 2); g.add(body);
+    const rh = 2.2 + R() * 1.6, roof = new THREE.Mesh(gableGeo(w, d, rh), mats.roof[Math.floor(R() * mats.roof.length)]); roof.position.set(0, h, -d / 2); g.add(roof);
+    const nc = R() < 0.35 ? 2 : 1; for (let k = 0; k < nc; k++) { const ch = new THREE.Mesh(new THREE.BoxGeometry(0.55, 1.4 + R() * 0.9, 0.55), mats.chim); ch.position.set((R() - 0.5) * w * 0.7, h + rh * 0.55 + 0.5, -d * (0.25 + 0.5 * R())); g.add(ch);
+      if (R() < 0.5) { const pot = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.12, 0.45, 6), mats.pot); pot.position.set(ch.position.x + 0.1, ch.position.y + ch.geometry.parameters.height / 2 + 0.2, ch.position.z); g.add(pot); } }
+    for (let wy = 2.2; wy < h - 0.8; wy += 2.2) for (let wx = -w / 2 + 1.0; wx < w / 2 - 0.6; wx += 1.9) {   // ô cửa: tối (khung tối trên tường) hoặc vàng
+      const on = R() < lit, win = new THREE.Mesh(new THREE.PlaneGeometry(0.8, 1.2), on ? mats.winLit : mats.winDark); win.position.set(wx, wy, 0.02); g.add(win); }
+    a += w;
+  }
+}
+function depthMats(night) {
+  const L = (c) => new THREE.MeshLambertMaterial({ color: c });
+  return { wall: (night ? ['#8f8a86', '#9c958c', '#86807c', '#a39a8e'] : ['#b9ada4', '#c4b7a8', '#a99d98', '#c9bcaa']).map(L), roof: ['#2c2834', '#35303c', '#3b2f2e'].map(L),
+    chim: L('#6a5a52'), pot: L('#8a5a44'), winDark: L('#34343f'), winLit: new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffb35a').multiplyScalar(night ? 1.3 : 1.1) }) };
+}
+// Lớp sau hai bên phố + quảng trường có nhà bao + dãy nhà xa lên đồi sau quảng trường. xa, xb: đoạn phố đang dựng.
+function buildDepth(scene, o, xa, xb, matC, FT, winKind, emit) {
+  const night = o.sky !== 'dusk', M = depthMats(night), lo = Math.max(xa - 20, -4), hi = Math.min(xb + 20, 164);
+  const depth = new THREE.Group(); depth.name = 'depth'; scene.add(depth);
+  if (hi > lo) {
+    massRow(depth, { a0: lo, a1: hi, z: -13.6, base: (x) => 2.6 + hillY(x), seed: 501, hMin: 7, hMax: 10, lit: night ? 0.07 : 0.12, mats: M });    // bắc, thềm 1
+    massRow(depth, { a0: lo - 6, a1: hi + 6, z: -23.5, base: (x) => 6.4 + hillY(x), seed: 502, hMin: 7.5, hMax: 11, lit: night ? 0.06 : 0.1, mats: M });   // bắc, thềm 2
+    massRow(depth, { a0: lo - 10, a1: hi + 10, z: -34, base: (x) => 10.5 + hillY(x), seed: 503, hMin: 8, hMax: 12, lit: 0.05, mats: M });   // bắc, thềm 3 (đỉnh đồi)
+    const south = new THREE.Group(); south.rotation.y = Math.PI; depth.add(south);   // nam: mặt tiền nhìn về −z (về phố); a → −x sau khi xoay
+    massRow(south, { a0: -hi, a1: -lo, z: -13.6, base: (a) => -2.2 + hillY(-a), seed: 504, hMin: 7, hMax: 9.5, lit: night ? 0.07 : 0.12, mats: M });
+  }
+  if (xb > 150) {
+    // quảng trường (x 162…202, z ±20): nhà bao ba phía, mặt tiền chi tiết như phố (houses)
+    houses(scene, 162, 202, -20, 1, 85, winKind, FT, matC, emit); houses(scene, 162, 202, 20, -1, 87, winKind, FT, matC, emit);
+    const east = new THREE.Group(); east.position.set(202, 0, 0); east.rotation.y = -Math.PI / 2; scene.add(east); houses(east, -20, 20, 0, 1, 89, winKind, FT, matC, emit);
+    for (const [s, a, b] of [[1, -20, -5.6], [-1, 5.6, 20]]) { const g = new THREE.Group(); g.position.set(162, 0, 0); g.rotation.y = Math.PI / 2; scene.add(g); houses(g, a, b, 0, 1, 90 + s, winKind, FT, matC, emit); }
+    const flag = lamMat({ color: '#ffffff', map: flagTex(13, { metres: 4 }) });   // vỉa hè quanh quảng trường
+    scene.add(groundPlane(40, 3.0, flag, 4, { cx: 182, cz: -18.5, y: 0.1 }), groundPlane(40, 3.0, flag, 4, { cx: 182, cz: 18.5, y: 0.1 }));
+    // dãy nhà xa sau quảng trường: bậc lên đồi, xếp theo cung (phố cong tiếp về bắc) — các dãy dọc trục z, mặt nhìn về −x (về phố)
+    // xoay −90°: cục bộ (a, z) → thế giới (x = −z, z = a); mặt tiền (+z cục bộ) nhìn về −x. Bắc (a < 0) cao hơn nam: sườn đồi.
+    const far = new THREE.Group(); far.rotation.y = -Math.PI / 2; depth.add(far);
+    [[214, 0.5, 511], [230, 3.0, 512], [250, 6.0, 513], [276, 9.5, 514], [310, 13.5, 515]].forEach(([X, up, sd], k) =>
+      massRow(far, { a0: -80 - 14 * k, a1: 60 + 10 * k, z: -X, base: (a) => hillY(X) + up - 0.05 * a, bend: (a) => -(0.0025 * a * a + 0.04 * a), seed: sd, hMin: 8, hMax: 11 + k, lit: night ? 0.05 : 0.09, mats: M }));
+  }
+  return depth;
+}
+
 // ================= BỘ PHỐ OSTLER =================
 // o.sky: 'dusk' | 'night'; o.x0/x1: đoạn phố dựng (tiết kiệm); o.shadowLamps: chỉ số đèn khí có bóng (1–2 ngọn gần hành động);
 // o.shadowPosts: [] (đèn điện KHÔNG bóng — luật 2). Trả { scene, lamps[], posts[], clock, setState(stateFn, f) }.
+// Cổng 5 (W1): o.fog = [gần, xa] (m) — sương theo shot (tele/toàn cảnh cần xa hơn để lớp nhà xa còn đọc được); o.depth === false → bỏ lớp sau.
 export function buildStreetSet(o = {}) {
   const scene = new THREE.Scene(), R = rng(401);
   const x0 = o.x0 ?? -12, x1 = o.x1 ?? 190;
   const sky = o.sky !== 'dusk' ? nightSky() : paintedSky(o.sky === 'dusk' ? [[0, '#1d2150'], [0.55, '#3c3566'], [0.85, '#7a5a80'], [1, '#b07a8a']] : [[0, '#0e1230'], [0.55, '#1f2548'], [0.85, '#3a3f66'], [1, '#5a5f86']], { seed: 17, haze: '#b8a8c4', hazeA: 0.3 });
   scene.add(sky);
-  scene.fog = new THREE.Fog(o.sky === 'dusk' ? '#4a4068' : '#0c1024', 25, 140);   // v2: sương đêm tối (xa là tối, không phải trắng như ban ngày)
+  const [fogN, fogF] = o.fog || [25, 140];
+  scene.fog = new THREE.Fog(o.sky === 'dusk' ? '#4a4068' : '#0c1024', fogN, fogF);   // v2: sương đêm tối (xa là tối, không phải trắng như ban ngày)
   const hemi = new THREE.HemisphereLight(o.sky === 'dusk' ? '#5c5aa8' : '#2c3260', '#120e18', o.sky === 'dusk' ? 0.35 : 0.16); scene.add(hemi);
   const whiteHemi = new THREE.HemisphereLight('#dfe6ff', '#8a8e9c', 0.0); scene.add(whiteHemi);   // ánh điện tràn phẳng (tăng theo số khối đã bật quanh máy)
   const matC = (c) => lamMat({ color: c });
@@ -137,14 +204,18 @@ export function buildStreetSet(o = {}) {
   for (const s of [-1, 1]) { scene.add(groundPlane(L, 2.0, flag, 4, { cx, cz: s * 4.6, y: 0.12 }));
     const kerb = new THREE.Mesh(new THREE.BoxGeometry(L, 0.14, 0.2), matC('#9d968c')); kerb.position.set(cx, 0.06, s * 3.65); kerb.receiveShadow = true; scene.add(kerb); }
   // quảng trường (+x): khoảng đá lát rộng
-  if (x1 > 165) scene.add(groundPlane(40, 40, cob, 3, { cx: 180, cz: 0, y: 0.005 }));
+  if (x1 > 150) scene.add(groundPlane(44, 40, cob, 3, { cx: 182, cz: 0, y: 0.005 }));   // W1: cổng 150 (trước 165) — mọi shot nhìn tới đầu phố đều thấy quảng trường
   // nhà hai bên; cửa sổ: chạng vạng → vài ô vàng; đêm → phần lớn tối, vài ô vàng
   const winKind = (Rh) => (Rh() < (o.sky === 'dusk' ? 0.16 : 0.07) ? 'gold' : 'dark');   // v2: đêm — phần lớn cửa sổ tối
-  houses(scene, Math.max(x0, -4), Math.min(x1, 162), -5.6, 1, 81, winKind, FT, matC, emit);
-  houses(scene, Math.max(x0, -4), Math.min(x1, 162), 5.6, -1, 83, winKind, FT, matC, emit);
   // nhà kho cuối phố: tường vôi trắng chắn ngang (−x)
   // Cổng 5 (V3): phần CUỐI PHỐ (nhà kho, phố cong, ngã rẽ, dãy nhà xa, sương) nằm ở sets_end.js — GÓI W2 giữ. W1 chỉ gọi, không sửa.
+  // W1: gọi TRƯỚC khi dựng hai dãy nhà để sets_end.js có thể báo nơi dãy nhà phố chính dừng (endInfo.houseX0 / houseX0N / houseX0S, mặc định −4)
+  // và vị trí Cas (endInfo.casSpot = [x, z]) cho s24, s24c.
   const endInfo = x0 < 0 ? buildStreetEnd(scene, { ...o, x0, x1, matC, FT, winKind, emit, houses }) : null;
+  const hN = Math.max(x0, endInfo?.houseX0N ?? endInfo?.houseX0 ?? -4), hS = Math.max(x0, endInfo?.houseX0S ?? endInfo?.houseX0 ?? -4);
+  houses(scene, hN, Math.min(x1, 162), -5.6, 1, 81, winKind, FT, matC, emit);
+  houses(scene, hS, Math.min(x1, 162), 5.6, -1, 83, winKind, FT, matC, emit);
+  const depth = o.depth === false ? null : buildDepth(scene, o, Math.max(x0, Math.min(hN, hS)), x1, matC, FT, winKind, emit);   // Cổng 5 (W1): lớp sau, quảng trường, dãy nhà xa
   // đèn khí 11 ngọn (props.js), lồng kính quay mặt kính về lòng phố
   const glassOn = new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffc070').multiplyScalar(2.6), transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide });
   const lamps = [];
@@ -174,7 +245,7 @@ export function buildStreetSet(o = {}) {
   });
   // cột điện ở quảng trường (bật cùng đồng hồ)
   const squarePosts = [];
-  if (x1 > 165) for (const [px, pz] of [[166, 8], [166, -8], [188, 9], [188, -9]]) {
+  if (x1 > 150) for (const [px, pz] of [[166, 8], [166, -8], [188, 9], [188, -9]]) {
     const bulbM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#9aa0b4').multiplyScalar(0.3) });
     const E = electricLamp(6.2, matC, bulbM); E.group.position.set(px, 0, pz); E.group.rotation.y = pz > 0 ? Math.PI / 2 : -Math.PI / 2; scene.add(E.group);
     E.group.updateMatrixWorld(true); const hp = E.head.clone().applyMatrix4(E.group.matrixWorld);
@@ -183,13 +254,13 @@ export function buildStreetSet(o = {}) {
     squarePosts.push({ E, L: Lt, bulbM, gl, gz, hp });
   }
   let clock = null;
-  if (x1 > 165) { clock = buildClock(); clock.position.set(CLOCK.x, 0, CLOCK.z); clock.rotation.y = -Math.PI / 2; scene.add(clock); clock.userData.setHands(0, 0); }
+  if (x1 > 150) { clock = buildClock(); clock.position.set(CLOCK.x, 0, CLOCK.z); clock.rotation.y = -Math.PI / 2; scene.add(clock); clock.userData.setHands(0, 0); }
   // Vệt tối tiếp xúc dưới chân (luật 2: dưới ánh điện chỉ còn vệt mờ dưới chân) — gắn theo nhân vật trong film.js.
   // Trạng thái sáng theo khung: st = { gas: i → mức 0…1 (0 tắt, 1 sáng, 0,35 nhạt), post: k → 0…1, square: 0…1, flick: f }
   function setState(st, f) {
     const fl = flickAt(f);
     for (const l of lamps) { if (!l) continue; const g = st.gas(l.i) ?? 0;
-      l.L.intensity = GAS.cd * g * fl; l.flameM.color.set('#fff2d0').multiplyScalar(g > 0.01 ? 30 * g : 0.02);
+      l.L.intensity = GAS.cd * g * fl * (st.gasLight ? st.gasLight(l.i) : 1); l.flameM.color.set('#fff2d0').multiplyScalar(g > 0.01 ? 30 * g : 0.02);
       if (g > 0.01) l.glassM.color.set('#ffc070').multiplyScalar(0.3 + 2.3 * g); else l.glassM.color.set('#7c809a').multiplyScalar(0.12); l.glassM.opacity = g > 0.01 ? 0.55 : 0.5;
       l.gc.material.color.set('#ffc57a').multiplyScalar(1.6 * g); l.gw.material.color.set('#ff9a4a').multiplyScalar(0.22 * g); }
     let white = 0;
@@ -200,7 +271,7 @@ export function buildStreetSet(o = {}) {
     if (clock) clock.userData.setOn(st.clock ?? 0);
     whiteHemi.intensity = (st.whiteFill ?? white) * 0.9;   // trắng tràn phẳng (mức v1). v2 thử 0,32 ban đêm → ở 0:40–0:42 bóng dài của đèn khí L7 còn nguyên, trái kịch bản; trả về 0,9. Dấu hiệu đêm nay do trời sao + sương tối
   }
-  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo };
+  return { scene, lamps, posts, squarePosts, clock, setState, hemi, whiteHemi, endInfo, depth };
 }
 
 // Vệt tối tiếp xúc (decal mờ dưới chân) — dùng cho mọi bộ ngoài phố.
