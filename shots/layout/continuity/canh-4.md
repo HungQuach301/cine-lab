@@ -14,7 +14,7 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `design/cong5/layout/shots_w2.js` (h
 | Góc trong nhà kho (hông gặp mặt cuối phố) | (−15,2; 0) | (−5; −8,1) |
 | Đầu hồi căn đầu dãy bắc | x_w = 4,8 | x = 15 |
 | Mặt tiền dãy bắc / dãy nam | z_w = 2,5 / 13,7 | z = −5,6 / +5,6 |
-| Cột điện phố chính (bật 1:04) | (3,3; 3,9) | (13,5; −4,2) — **chỉ có ở bộ tường chim** (xem LAYOUT-W2.md, rủi ro R2) |
+| Cột điện phố chính (bật 1:04) | (3,3; 3,9) | (13,5; −4,2) — có ở **cả hai bộ** (W1 đã thêm vào bộ phố: thấy thân tối ở s23, s24; ánh của nó chưa có ở các shot bộ phố cảnh 5 — mâu thuẫn C2, chờ chủ dự án) |
 | Cột góc P5 (đoạn cáp cuối) | (0,6; 12,0) | (10,8; 3,9) — ngoài khung mọi shot cảnh 4 |
 
 - Khoảng cách: Cas → tường 0,95 m; Cas → L11 4,0 m; L11 → tường 4,2 m; Cas → hốc cửa 8,15 m (bên TRÁI Cas khi nhìn vào tường).
@@ -27,9 +27,9 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `design/cong5/layout/shots_w2.js` (h
 | L11 | vừa thắp (54,5 s), sáng đủ; nguồn ấm duy nhất của góc | Khớp |
 | Cột điện | Phố chính đã trắng; cột phố chính cạnh nhà kho **tắt tới 1:04,40**; P5 tắt | Khớp (P5 tắt) |
 | Ida | Vừa **xuống thang L11** (s25 ngoài hình), đứng ở phố chính `IDA_W` (−3,8; 7,3) → bộ phố (6,4; −0,8), cách L11 3,5 m | W1 để bà trên thang ở 0:59,00: cần một nhịp xuống thang ngoài hình trong s25 (3 s) — **P kiểm** |
-| Đạo cụ Ida | Đèn lồng **cháy**, ở **hông trái** (móc thắt lưng). Thang tựa L11 phía bắc. Sào mồi ngoài hình. Đồng hồ trong túi | Khớp |
+| Đạo cụ Ida | Đèn lồng **cháy**, ở **hông trái** (móc thắt lưng). **Thang tựa L11 phía bắc**: bộ tường chim đặt thang ở (−2,2; 3,35) nghiêng 0,36 rad (= `ladderAt(11)` bộ phố) — có mặt suốt cảnh 4 (sửa C1: s27 bản đầu thiếu thang). Sào mồi ngoài hình. Đồng hồ trong túi | Khớp |
 | Trang phục Ida | Mũ #262a33, `hat_back` = 0; khăn một đuôi trước ngực | Khớp |
-| Cas | Ở `casSpot`. **s24c: nhìn về L11 (phải khung)** → s25: đã quay vào tường, giơ tay làm chim | Chuyển hướng giữa hai shot (cắt) — hợp lý |
+| Cas | Ở `casSpot`. **s24c: nhìn về Ida / L11 (TRÁI khung)** → s25: đã quay vào tường, giơ tay làm chim | Khớp `canh-3.md` và hình; chuyển hướng qua cắt — hợp lý |
 | Trang phục Cas | Mũ len kem có quả bông đỏ, áo len đỏ quá khổ | Khớp |
 
 ## Lịch ánh sáng cảnh 4 (giây phim)

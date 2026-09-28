@@ -57,3 +57,24 @@ Tổng 2004 khung, chạy 2812 s, chờ 1562 s (theo `/var/tmp/cine-queue/log.ts
   - các shot mặt Ida (s26, s31, s36, s37, s39, s40) sẽ render lại khi có A3;
   - s31 có vệt sáng cứng từ đèn lồng trên má (cần xem lại khi có mặt A3);
   - chim s32, s48 còn mờ (R4).
+
+# Giai đoạn D — sửa lỗi continuity (báo cáo rà `reports/m2/cong5/continuity.md`)
+Đã merge nhánh tích hợp @c1479af. ORDER không đổi. Render lại 7 shot (516 khung) qua hàng đợi, một nhóm `sua-continuity`:
+- chờ 0 s, chạy 549 s, 1,06 s/khung;
+- `/var/tmp/cine-out/W2/full/timing_s27-s33-s34-s41-s42a-s42b-s43.json`, `video_s27-s33-s34-s41-s42a-s42b-s43.mp4`.
+Ảnh trước (trên) / sau (dưới): `D_C1_s27_thang.jpg`, `D_C3-N2_s41-s42a-s42b.jpg`, `D_C4_s43_troi.jpg`, `D_N3-N4_s33-s34.jpg`.
+
+| Lỗi | Sửa | Shot render lại |
+|---|---|---|
+| C1 thang mất ở s27 | Bộ tường chim đặt thang tựa phía bắc L11: (−2,2; 3,35), nghiêng 0,36 rad = `ladderAt(11)` của bộ phố. Thang có mặt suốt cảnh 4; ở các shot khác của cảnh 4 nó nằm ngoài khung. | s27 |
+| C3 nhảy trục ở s41, s42a | s41: Ida ở chân thang phía tây (7,9; −4,4), Cas phía đông (8,9; −4,6). s42a: Ida lùi ra lòng phố (6,8; −2,5). Cả hai shot: Ida trái, Cas phải, như s40w và s42. | s41, s42a |
+| C4 trời s43 | Bộ thành phố đêm dùng trời sao `nightSky` như s10, sương xa tối xanh; bỏ trời vẽ xám lilac. Dải trời trên cùng đo RGB (85, 98, 137) → **(13, 25, 68)**. | s43 |
+| N2 cách cầm đèn | Cas ôm đèn sát ngực bằng hai tay (`casHug`), cùng tư thế ở s41 (cuối), s42a, s42b. Ở s42b máy nhìn nghiêng nên đèn vẫn thấy ở phía trước thân (xem rủi ro). | s41, s42a, s42b |
+| N3 V2 | Đèn lồng (−0,05; 3,0). Ida (−0,62; 1,45): bóng ×1,94, đỉnh ≈ 3,2 m, nằm trong vùng vách được đèn rọi nên vành mũ của bóng hiện ra; lệch trái 0,53 m. Cas (0,75; 0,8): bóng ×1,36, ≈ 1,8 m. Tỷ lệ bóng bà / bóng cậu 1,77. Nửa tối: PCF radius 4, giả lập nguồn ~12 cm ở render 1 mẫu. s34 đổi 26 mm, thấy nền: vệt bóng nối chân mỗi người với bóng của họ trên vách. | s33, s34 |
+| N4 cột lạ ở s33 | Là cột điện gang của bộ khoá Cổng 3 s5 (x 3,45; z 4,9). Không có trong địa lý chốt → ẩn trong lớp bọc `addBayStreet`. | s33 (s42b cũng render lại) |
+| N5 tài liệu | Sửa `canh-4.md` (s24c nhìn **trái**; cột phố chính có ở cả hai bộ; thang), `canh-5.md` (trục s41/s42a, BAY mới, s34, s35 mép phải là hông nhà kho, cách cầm đèn), `LAYOUT-W2.md` (bảng shot, R2, Q-W2-3). | — |
+
+Rủi ro còn lại:
+- s42b: đèn nhìn nghiêng vẫn ở trước thân. Tư thế đã đồng nhất; nếu vẫn đọc là "chìa xa" thì cần đổi máy s42b.
+- N3 cần kiểm mù xác nhận.
+- s33: Ida vẫn chồng một phần lên mép bóng mình (khoảng 0,15 m).

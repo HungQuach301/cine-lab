@@ -7,7 +7,7 @@ import { buildGasLamp } from '/cong3/shared/props.js';
 import { buildLantern, buildLadder } from '/cong3/shared/cast.js';
 import { cobbleTex, groundPlane, electricLamp, paintedSky, windowUnit } from '/cong3/v2/street.js';
 import { limewashTex, glowSprite, planarUV, rng } from '/cong3/dir-C/common.js';
-import { GAS, ELEC, lamMat, flickAt, contactBlob, nightSky, elecGlare, houses } from './sets.js';
+import { GAS, ELEC, lamMat, flickAt, contactBlob, nightSky, elecGlare, houses, ladderOf } from './sets.js';
 import { buildEndWallFrame, makeKit, END } from './sets_end.js';
 import { patch as patchS5 } from '/cong3/v2/s5.js';
 import { rng as rngU } from '/cong3/dir-C/common.js';
@@ -49,8 +49,9 @@ export async function buildCitySet(ctx, mode, tm = {}) {   // tm: { square, t0 }
       scene.fog.color.setRGB(0.16, 0.18, 0.3); if (hemi) { hemi.color.set('#39406e'); hemi.groundColor.set('#15121c'); hemi.intensity = 0.55; }
     }
     if (mode === 'night') {
-    scene.add(paintedSky([[0, '#0b0f26'], [0.5, '#1a2040'], [0.82, '#343c62'], [1, '#6c7898']], { seed: 5, haze: '#c8d2e6', hazeA: 0.5 }));
-    scene.fog.color.setRGB(0.42, 0.46, 0.62); if (hemi) { hemi.color.set('#b8c2e0'); hemi.groundColor.set('#3a3a4a'); hemi.intensity = 1.1; }
+    // Cổng 5 (continuity C4, world-rules v0.5 — quyết định chủ dự án): trời đêm XANH ĐEN CÓ SAO như s10, KHÔNG quầng sáng chân trời; sương xa tối xanh.
+    scene.add(nightSky(5));
+    scene.fog.color.setRGB(0.05, 0.06, 0.14); if (hemi) { hemi.color.set('#8a94b8'); hemi.groundColor.set('#2a2a38'); hemi.intensity = 0.8; }
     // mọi chấm hổ phách thành trắng phẳng; kính đèn khí Ostler tắt; cửa sổ ấm → lạnh
     for (const s of sprites) { const c = s.material.color; if (c.r > c.b * 1.3) { const k = Math.max(c.r, c.g, c.b) * 0.55; s.material.color.setRGB(k * 0.9, k * 0.95, k); } }
     scene.traverse((o) => { if (o.isMesh && o.material && o.material.type === 'MeshBasicMaterial' && o.material.color && o.material.color.r > 3 && o.material.color.b < o.material.color.r * 0.5) o.material = new THREE.MeshBasicMaterial({ color: new THREE.Color('#3a3c4a') });
@@ -110,6 +111,8 @@ export function buildWallSet(ctx, o = {}) {
   const glassM = new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffc070').multiplyScalar(2.6), transparent: true, opacity: 0.55, depthWrite: false, side: THREE.DoubleSide });
   const lamp = buildGasLamp({ height: 3.4, mat: (role, c) => role === 'flame' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#fff2d0').multiplyScalar(30) }) : role === 'glass' ? glassM : lamMat({ color: c }) });
   lamp.position.set(-2.2, 0, 4.2); scene.add(lamp); lamp.updateMatrixWorld(true);
+  // Cổng 5 (continuity C1): thang của Ida tựa phía bắc cột L11 như bộ phố (ladderAt: chân z −4,75 → z_w 3,35; nghiêng 0,36 rad về cột) — có mặt suốt cảnh 4.
+  { const lad = ladderOf(); lad.position.set(-2.2, 0, 3.35); lad.rotation.x = 0.36; lad.traverse((m) => { if (m.isMesh) { m.castShadow = true; m.receiveShadow = true; } }); scene.add(lad); }
   lamp.traverse((m) => { if (m.isMesh) { m.castShadow = m.castShadow && m.material.type !== 'MeshBasicMaterial'; m.receiveShadow = true; } });
   const fp = new THREE.Vector3(); lamp.userData.flame.getWorldPosition(fp);
   const gasL = new THREE.PointLight(GAS.color, GAS.cd, 0, 2); gasL.position.copy(fp); gasL.castShadow = true; gasL.shadow.mapSize.set(1024, 1024); gasL.shadow.bias = -0.0006; gasL.shadow.normalBias = 0.02; gasL.shadow.camera.near = 0.08; scene.add(gasL);
@@ -145,6 +148,8 @@ export async function buildBaySet(ctx, dbg = {}, o = {}) {
 // Địa lý (khớp bộ phố): hốc ở hông nhà kho, tâm x = 2,2 thế giới → hệ hốc: x_b = x − 2,2; z_b = z + 12,1. Trước vòm: sân lát 2,5 m, rồi vỉa hè + lòng phố;
 // dãy bắc (z_b 6,5, từ x_b 12,8 — đầu hồi nhìn −x), dãy nam bên kia phố (z_b 17,7, mặt nhìn −z); L11 + thang ở (5,8; 8,2) — o.l11On: lửa còn cháy (cảnh 5 trước 1:52).
 export function addBayStreet(scene, o = {}) {
+  // Cổng 5 (continuity N4): bộ khoá s5 có một cột điện gang (x 3,45; z 4,9) cạnh vòm — không tồn tại ở địa lý chốt (s27, s35, s41 không có) → ẩn.
+  scene.traverse((m) => { if (m.isMesh && Math.abs(m.position.x - 3.45) < 0.01 && Math.abs(m.position.z - 4.9) < 0.01) m.visible = false; });
   const P = (o) => patchS5(new THREE.MeshLambertMaterial(o));
   const kit = makeKit(houses); const FT = kit.FT.map((m) => P({ color: '#ffffff', map: m.map })); const matC = (c) => P({ color: c });
   houses(scene, -34, 40, 17.7, -1, 83, kit.winKind, FT, matC, kit.emit);
