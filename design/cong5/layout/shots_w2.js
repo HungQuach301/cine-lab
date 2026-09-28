@@ -105,7 +105,7 @@ wallShot('s30', 86.0, 88.0, { size: 'MS', angle: 'ngang, sau-phải', mm: 35, mo
 wallShot('s31', 88.0, 91.0, { size: 'MCU', angle: 'ngang mắt Ida (quỳ), 3/4 trước-phải, qua vai phải Cas', mm: 85, move: 'tĩnh', idaExpr: 'sad_smile', idaDetail: 36,
   why: 'Lời mời, không dạy: bà đưa ánh sáng, cậu tự làm.', sound: 'THOẠI L3 "Go on, then." (đầu s31, 1:14,0 — DIALOGUE.L3)',
   light: 'đèn lồng ấm dưới mặt bà (≈ 0,6 m); trắng phẳng từ trên', action: 'Ida quỳ, đèn lồng thấp trong tay phải, quay đầu về Cas, nói L3.' },
-  (p, cam, ctx, dbg) => { const kn = kneelHold(p, ctx, { joints: { neck: [-8, -24, 0] } }); return { exposure: 1.0, update(t, T, { ida, cas }) {
+  (p, cam, ctx, dbg) => { const kn = kneelHold(p, ctx, { joints: { neck: [-8, -24, 0] } }); return { exposure: 0.45, update(t, T, { ida, cas }) {   // C2: bảng phơi sáng cận mặt W3 (cháy mặt 21 % → ~1 %)
     cas.place(over(p.C.turnaround, { joints: { neck: [22, 0, 0] } }), ...CAS_W, yawTo(...CAS_W, ...IDA_K));
     ida.place(kn, ...IDA_K, kneelYaw); lanternTo(ida, LAN_T);
     const h = wpos(ida.joints.head); h.y += 0.1; const o = dbg.co || [1.6, 0.05, 1.25]; cam.position.set(h.x + o[0], h.y + o[1], h.z + o[2]); cam.lookAt(h.x, h.y - 0.02, h.z); return { lantern: LAN_K }; } }; });
@@ -203,11 +203,12 @@ S({ id: 's35', scene: 5, size: 'WS', angle: 'ngang, xuôi dốc', mm: 28, move: 
         else cas.place(poseAt([[3.0, p.C.turnaround], [3.6, p.C.hold_ladder]], t), ...CAS_LAD, 0); } };
   } });
 
+let S37_YAW = 10;
 const faceShot = (id, meta, fn) => S({ id, scene: 5, ...meta,
   async build(ctx) {
-    const st = endStreet({ shadowLamps: [] }); const p = P(ctx); ladderAt(st.scene, 11);
+    const dbg0 = ctx.dbg || {}; const st = endStreet({ shadowLamps: (dbg0.shadow ?? meta.shadow ?? 1) ? [11] : [] }); const p = P(ctx); ladderAt(st.scene, 11);   // C2: L11 đổ bóng (bóng vành mũ thật trên mặt — đề xuất W3)
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 36, faceQ: 1.4, expr: meta.expr, gaze: [0.05, -0.04], glint: 0.45 }); const cas = makeChar(ctx, st.scene, 'cas', { detail: 20 });
-    const cam = camMM(meta.mm); const ctl = fn(p, cam); const dbg = ctx.dbg || {};
+    const cam = camMM(meta.mm); const dbg = ctx.dbg || {}; if (dbg.yaw !== undefined) S37_YAW = dbg.yaw; const ctl = fn(p, cam);
     // W3 facelight: gas (s36, s37 — L11 trước mặt) / elec (s39 — trắng phẳng; keyE = ánh tràn). Phơi sáng = fl.exposure() × EK (EK chốt theo probe, xem LAYOUT-W2.md).
     const fl = createFaceLight(st.scene, { mode: meta.fl || 'gas' }); const EK = dbg.ek ?? meta.ek ?? 1.0;
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: dbg.exp ?? (() => fl.exposure() * EK),
@@ -215,14 +216,14 @@ const faceShot = (id, meta, fn) => S({ id, scene: 5, ...meta,
         const fe = fl.update(ida, cam, meta.fl === 'elec' ? { keyE: st.whiteHemi.intensity } : {});
         if (dbg.log && f % 12 === 0) console.log(JSON.stringify({ id, faceE: fe, flExp: +fl.exposure().toFixed(3), whiteHemi: +st.whiteHemi.intensity.toFixed(3) })); } };
   } });
-faceShot('s36', { size: 'MCU', angle: 'ngang mắt, gần chính diện', mm: 85, move: 'tĩnh', expr: 'neutral', fl: 'gas', ek: 2.0,
+faceShot('s36', { size: 'MCU', angle: 'ngang mắt, gần chính diện', mm: 85, move: 'tĩnh', expr: 'neutral', fl: 'gas', ek: 1.3,
   why: 'Quyết định C4 của chủ dự án: bà TỰ đẩy vành mũ ra sau trước câu thoại — mặt thoáng ra cho lời từ biệt. Góc còn tối: mặt ấm một bên.', sound: 'vải dạ; hơi thở',
   light: 'đèn khí L11 ngay trước mặt (ấm) — góc chưa có điện', action: 'Tay trái đưa lên vành mũ (hat_push_a), đẩy vành lên, mũ ngả ra sau (hat_push_b).' },
   (p, cam) => ({ update(t, T, ida) { ida.place(poseAt([[0, p.hatA], [0.35, p.hatA], [1.05, p.hatB], [1.6, p.faceRest()]], t), LAMP_X(11), ON_Z, 0); faceCam(cam, ida, { dist: 1.9, y: -0.05, fov: fovOf(85) }); } }));
-faceShot('s37', { size: 'CU', angle: 'ngang mắt, gần chính diện', mm: 85, move: 'đẩy vào rất chậm', expr: 'sad_smile', fl: 'gas', ek: 2.0,
+faceShot('s37', { size: 'CU', angle: 'ngang mắt, gần chính diện', mm: 85, move: 'đẩy vào rất chậm', expr: 'sad_smile', fl: 'gas', ek: 1.3, yaw: 10,
   why: 'Lời từ biệt, vế đầu: cười buồn, còn trong hổ phách của ngọn cuối. Máy đẩy vào không nhận ra được.', sound: 'THOẠI L4 "That\'s the last one, then. Goodnight, old street."',
   light: 'đèn khí L11 (ấm) — góc chưa có điện', action: 'Ida nhìn lên phố (phải khung), tay đặt trên van.' },
-  (p, cam) => ({ update(t, T, ida) { ida.place(p.faceRest(), LAMP_X(11), ON_Z, 0); faceCam(cam, ida, { dist: valAt([[0, 1.1], [5.8, 0.97]], t), fov: fovOf(85) }); } }));
+  (p, cam) => ({ update(t, T, ida) { ida.place(p.faceRest(), LAMP_X(11), ON_Z, 0); faceCam(cam, ida, { yaw: S37_YAW, dist: valAt([[0, 1.1], [5.8, 0.97]], t), fov: fovOf(85) }); } }));   // C2: máy lệch +10° (v2 −10°) → thanh thang không lọt mép trái
 
 // Toàn cảnh góc ngọn cuối (s37w, s40w): cột điện góc (đoạn cáp cuối) ở trái khung, ngọn L11 + thang ở phải khung, cuối phố (nhà kho, hốc cửa, ngõ cong) ở giữa.
 const cornerWide = (id, meta, fn) => S({ id, scene: 5, size: 'WS', angle: 'ngang, từ lòng phố, hơi hất', mm: 28, move: 'tĩnh', ...meta,
@@ -249,7 +250,7 @@ S({ id: 's38', scene: 5, size: 'MS', angle: 'cao, chúc xuống (gần mắt Ida
       update(t, T, f) { st.setState(stdState(T, { whiteFill: cornerFill }), f); ida.place(p.faceRest(), LAMP_X(11), ON_Z, 0); cas.place(over(p.C.hold_ladder, { joints: { neck: [-36, 0, 0] } }), ...cp, 0);
         if (dbg.log && f % 12 === 0) console.log(JSON.stringify({ id: 's38', handL: V3a(wpos(cas.joints.wrist_L)), handR: V3a(wpos(cas.joints.wrist_R)) })); } };
   } });
-faceShot('s39', { size: 'CU', angle: 'ngang mắt, gần chính diện', mm: 85, move: 'tĩnh', expr: 'choked', fl: 'elec', ek: 1.0,
+faceShot('s39', { size: 'CU', angle: 'ngang mắt, gần chính diện', mm: 85, move: 'tĩnh', expr: 'choked', fl: 'elec', ek: 0.8,
   why: 'Vế cuối, giọng vỡ, nay trong ánh trắng phẳng: "keep a little dark for the ones who need it" — chủ đề phim trong một câu.', sound: 'THOẠI L4 "Just... keep a little dark for the ones who need it."',
   light: 'trắng phẳng (cột góc); L11 nhạt', action: 'Ida nghẹn, một giọt nước mắt; mắt vẫn nhìn lên phố.' },
   (p, cam) => ({ update(t, T, ida) { ida.place(p.faceRest(), LAMP_X(11), ON_Z, 0); faceCam(cam, ida, { dist: 0.95, fov: fovOf(85) }); } }));
