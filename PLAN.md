@@ -1,22 +1,27 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 (layout) · Cổng 4 ĐÃ ĐÓNG và merge vào main (5987bf3) · characters v1.3 (D2) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) và merge vào main · Cổng 6 KHOÁ tới khi chủ dự án chọn lời giải mặt Ida · Cổng 4 đã merge (5987bf3) · characters v1.3 (D2) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Cổng 5 vòng v3 (chốt layout)** — XONG, sẵn sàng đóng (reports/m2/CONG-5-V3.md; layout.mp4 SHA 34f058a7…); chờ chủ dự án chọn A/B, AI mù, duyệt merge. Đã làm: B-i (s35 thuần theo thời gian + rà trạng thái ẩn), C-i (s43 máy đẩy), (c) câu cuối L4 bắt đầu trên hình Ida, (d) đồng hồ chỉ tiến, rà continuity lần 3, luật v1.4, xuất lại layout → báo "Cổng 5 sẵn sàng đóng". KHÔNG merge; Claude bên ngoài chạy AI mù, chủ dự án duyệt merge.
-2. **Cửa mặt Ida — A-i** (W3, song song): mặt điêu khắc + rig + khẩu hình; tối đa 2 vòng kiểm mù có mẫu đối chứng; trượt thì trình 2–3 phương án dàn dựng lại 1:32–1:48. **Cổng 6 chỉ mở khi cửa mặt đạt.**
-3. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới.
+1. **Lời giải mặt Ida** (reports/m2/MAT-IDA-AI.md): A-i trượt 2 vòng; 3 phương án dàn dựng lại 1:32–1:48 có khung thử và kiểm mù. **Cổng 6 chỉ mở khi chủ dự án chọn.**
+2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
+Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
+
+## Việc cho Cổng 6 (từ Cổng 5 — B1 và continuity lần 3)
+- **B1 cảnh 6:** làm rõ hướng mặt, hướng đầu của Ida ở s45 và đồng hồ trong tay (s45 → s46 → s45c giữ nguyên).
+- Ghi nhận continuity lần 3 thuộc Cổng 6: **G2** mũ đội thẳng s40 (nhảy mũ s39 → s40); **G5/G6** tay s44 ("tay đặt ngực") và s45 (tay trái tách đồng hồ); **G10** Ida xuống thang trong s40w; **G11** s32 → s33 Ida quỳ → đứng (cho 0–0,6 s đứng dậy); **G13** thang trong ngõ ở s44 trước khi bà vác ở s47.
+- Khác: khẩu hình s39 câu cuối L4 (phụ thuộc lời giải mặt Ida); nhịp "gập đồng hồ" trong `bible/characters.md` — layout chưa có nắp: Cổng 6 dựng nắp hoặc P đề xuất sửa bible (chủ dự án duyệt); s45 tay che nửa mặt 0–1,0 s.
+
+## Việc cho Cổng 9 (danh sách sửa)
+- **Mô-típ đồng hồ:** Claude (AI mù bên ngoài) chê "the times don't add up" 3 lần liền. Kiểm lại giờ của hai loại đồng hồ (quảng trường và bỏ túi) đặt liền nhau (mốc hiện tại: s06 bỏ túi 7:31, s09 quảng trường 8:00, s09w bỏ túi 7:53, s46 bỏ túi 9:53 → 10:00, s45c quảng trường 10:00); soạn phương án **"chỉ giữ một loại đồng hồ"** để chủ dự án chọn ở Cổng 9.
 
 ## Việc dời sang Cổng 7 (chủ dự án quyết, 28/09/2026)
 - **Người và bóng ở hốc vòm (1:18–1:26, s32–s34):** tiêu chí đo được — **mỗi người sáng hơn bóng của chính mình trên vách ít nhất X = 2,0 lần**, đo bằng trung vị luma hiển thị (Rec.709, mã 8 bit, sau grade) trên mặt nạ người (phần nhìn thấy) so với mặt nạ bóng của chính người đó trên vách, ở mọi khung mẫu (mỗi 12 khung). Căn cứ: luật thế giới 3.1 đòi key : tràn ≥ 4 : 1 tại mặt nhận bóng để bóng hiện; mặt người quay về đèn lồng nhận key trực tiếp, vùng bóng chỉ nhận tràn → tỷ lệ tuyến tính ≥ 4; qua đường cong hiển thị (gamma ~2,2) 4× tuyến tính ≈ 1,9× luma hiển thị, nên chọn **2,0** (≈ 4,6× tuyến tính) — đủ để mắt tách người khỏi bóng mà không phải thêm đèn giả. Bóng mặc định đo ở phần thân bóng (không tính đầu bóng mờ nhạt ở vùng vách tối dần, luật 4).
-- Từ rà continuity lần 3 (ghi nhận, không chặn): s43 điểm vàng chưa đọc ra hình ô cửa (G16); ánh nền s45 trắng / s45c trời đen (kiểm mù POV cảnh 6 nêu); kim đồng hồ quảng trường nhạt khi mặt loá (G8); màu mũ nâu đỏ dưới điện s39 (G7).
+- Ghi nhận continuity lần 3 thuộc Cổng 7: **G1** kính đèn P5/cột sân trước tắt vẫn đọc đĩa xám sáng (s23); **G7** màu mũ nhảy theo nguồn sáng (s11–s13, s39 #311615, s42); **G8** kim/vạch đồng hồ quảng trường nhạt hoặc hồng nâu khi mặt loá (s09, s45c); **G9** quầng loá P5 phủ trời (s37w, s40w); **G12** tóc xám tối dưới vành mũ s45; **G16** s43 điểm vàng chưa đọc ra ô cửa; **G17** người/bóng s33 (tiêu chí X = 2,0 ở trên). Thêm: ánh nền s45 trắng / s45c trời đen (kiểm mù POV cảnh 6).
 - Hạ phơi sáng s11 (1,5–1,7); màu mũ nâu cam dưới đèn khí sát mặt (s05, s36, s40); lấy nét thật thay cho nền nhoè s06, s09w; ánh cửa sổ ấm có thật ở nhà đầu dãy bắc cho mặt Cas s24c.
-
-## Việc dời sang Cổng 6 (từ Cổng 5 v3)
-- Khẩu hình s39 câu cuối L4 (miệng chưa mấp máy; phụ thuộc cửa mặt A-i). Nhịp "gập đồng hồ" trong `bible/characters.md` — layout chưa có nắp đồng hồ: Cổng 6 dựng nắp hoặc P đề xuất sửa bible (chủ dự án duyệt). Tay trái s44/s45 (G5/G6), Ida xuống thang trong s40w (G10), mũ đội thẳng s40 (G2). s45: tay che nửa mặt 0–1,0 s; đồng hồ trong tay đọc rõ hơn.
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |
@@ -31,7 +36,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 | M1 Cổng 4: cổng mặt Ida (biến dạng, đẩy mũ, kiểm mù) + animatic 2:30 (48 shot) + âm tạm + gói chiếu mù | P | claude/cine-lab-m1-cong4-animatic | Vòng v1 xong; xem vòng v2 | reports/m1/CONG-4.md |
 | M2 Cổng 5 layout (W1, W2, W3 + P) | P + 3 subagent + 2 agent rà | claude/cine-lab-m2-cong5-layout-24o5fp | Vòng v1 xong; xem vòng v2 | reports/m2/CONG-5.md |
 | M2 Cổng 5 vòng v2 (A-α, hiệu chuẩn, B1, a–d, continuity v2) | P + W1, W2, W3 + agent rà + 16 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | Xong; chủ dự án đã quyết (AUTHORSHIP "Cổng 5 v2 — quyết định") | reports/m2/CONG-5-V2.md |
-| M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 + agent rà + 1 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | **Xong — Cổng 5 sẵn sàng đóng**, chờ AI mù + chủ dự án duyệt merge | reports/m2/CONG-5-V3.md |
+| M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 + agent rà + 1 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | **Cổng 5 ĐÃ ĐÓNG (A1) — merge vào main** | reports/m2/CONG-5-V3.md |
 | M2 Cửa mặt Ida A-i | W3 | claude/cine-lab-m2-cong5-layout-24o5fp (tích hợp khi đạt) | 2 vòng kiểm mù TRƯỢT; đang soạn phương án dàn dựng lại 1:32–1:48 | reports/m2/MAT-IDA-AI.md |
 | M1 Cổng 4 vòng v2: animatic 2:22,5 (52 shot), kịch bản nháp 3, luật thế giới v0.4, characters v1.2 (A1), C3 v1.4 (parts + views + kiểm toán) | P | claude/cine-lab-m1-cong4-animatic | **Đã merge vào main (5987bf3)** — Cổng 4 đóng | reports/m1/CONG-4-V2.md, shots/animatic/SHOTLIST.md, screening/animatic_v1_v2_diff.md |
 
