@@ -3,6 +3,15 @@
 Gói W2. Nguồn: `design/cong5/layout/shots_w2.js`, `sets2.js`, `sets_end.js` (`order_w2.js` không đổi). Kiểm bằng probe (3 khung/shot, 960×540, SwiftShader).
 Continuity: `continuity/canh-4.md`, `canh-5.md`, `canh-6.md`. Manifest Cổng 6: `shots_w2.json`. Ảnh trước/sau: `reports/m2/cong5/w2/`.
 
+## 0. Cập nhật A2 (quyết định chủ dự án sau Cổng 5)
+| Mục | Sửa | Số đo |
+|---|---|---|
+| **B1** | Cột điện phố chính vào sân (17,0; −5,9), tầm 8,5 m; casSpot (14,3; −7,15); dãy bắc từ x = 18,5; bộ tường dời mọi dấu cảnh 4 +3,95 m; bỏ trắng tràn toàn cục. `endInfo.wallPost = {x, z, range, ry, set, group, light}`, `endInfo.casSpot`. | đầu đèn → tường chim 5,2 m (trong vũng); → lửa L11 9,5 m (ngoài tầm 8,5) |
+| **(a)** | s33 7,0 → 5,0 s (tổng phim 140,5 s); dolly 0,9 m + dịch ngang 0,6 m; phơi sáng s33/s34 1,5. | lệch tổng −2,0 s (trong ±5 s) |
+| **(b)** | Kính L11 sau khi tắt: tối đục ở s40w, s41, s42a. | vùng lồng đèn s40w: TB độ sáng 73,5 → 54,7 (/255) |
+| **(c)** | Đá lát bộ tường, hốc cửa (phố ngoài), phố rẽ, sân: trải 2,4 m/tile (trước 3 m); ngõ (bộ khoá s6) lặp 1,25×. | viên 0,09–0,14 m, TB 0,11 m ≈ 1/14,5 chiều cao Ida (1,62 m); s46 đo ≈ 0,08 m |
+Ảnh: `reports/m2/cong5/w2/v2_B1_…`, `v2_a_…`, `v2_b_…`, `v2_c_…`. Từ 1:25,0 mọi mốc lùi 2,0 s.
+
 ## 1. Tóm tắt
 - **Thời lượng giữ nguyên:** 29 shot, 83,5 s (2004 khung), tổng phim 142,5 s (2:22,5). Không đổi id; mốc thoại L3 1:14,0, L4 1:35,0; P5 bật 1:41,2; L11 tắt 1:51,2.
 - **V1–V4 đã sửa bằng dàn dựng, máy, bối cảnh và quang học thật** — không đổi tỷ lệ sheet, không thêm nguồn ngoài truyện, không bóng giả (mục 3).
@@ -23,7 +32,7 @@ Máy: vị trí → điểm nhìn (m). Hệ toạ độ: cảnh 4 = hệ tườn
 | s30 | 1:12,0–1:14,0 | MS · 35 | (2,6; 1,4; 4,0) → (−0,1; 0,8; 0,7) | tĩnh | Ida **đi vào khung** (0,7 s) rồi tháo đèn, quỳ (tư thế cục bộ `kneelHold`: đèn đưa ra trước). Đèn lồng không còn tự đổ bóng (vỏ đèn che ngọn lửa ở v2). |
 | s31 | 1:14,0–1:17,0 | MCU · 85 | đầu Ida + (1,6; 0,05; 1,25) | tĩnh | Máy lùi sang bên để đầu Cas không che mặt bà (probe v2-sửa: đầu Cas che nửa mặt). |
 | s32 | 1:17,0–1:20,0 | WS · 35 | (1,9; 1,35; 4,1) → (−0,25; 1,45; 0) | tĩnh | Đèn lồng ở (−0,22; 0,64; 0,60), dưới-sau tay Cas, thân Cas sau đèn → chim to (×≈2,4), ấm, mềm; Cas nhích 0,21 m, tư thế cục bộ `birdReach`. |
-| s33 | 1:20,0–1:27,0 | WS · 32 | bộ khoá (0,25; 1,35; 10,5 → 9,6) | dolly vào 0,9 m | **V2 (sửa N3, giai đoạn D):** đèn lồng (−0,05; 3,0); Ida (−0,62; 1,45) ×1,94, Cas (0,75; 0,8) ×1,36; PCF 4. Ẩn cột gang của bộ khoá cạnh vòm (N4). |
+| s33 | 1:20,0–1:25,0 (A2) | WS · 32 | bộ khoá (0,25; 1,35; 10,5 → 9,6) | dolly vào 0,9 m | **V2 (sửa N3, giai đoạn D):** đèn lồng (−0,05; 3,0); Ida (−0,62; 1,45) ×1,94, Cas (0,75; 0,8) ×1,36; PCF 4. Ẩn cột gang của bộ khoá cạnh vòm (N4). |
 | s34 | 1:27,0–1:29,0 | MS nghiêng · 26 | (1,35; 1,15; 4,0) → (−0,2; 1,35; 0,4) | tĩnh | **V2 (N3):** thấy cả nền: bóng nối chân mỗi người; đỉnh bóng Ida (vành mũ) trong khung, trong vùng sáng. Trái → phải: Ida, bóng Ida, Cas, bóng Cas. |
 | s35 | 1:29,0–1:33,0 | WS · 28 | (16,5; 1,7; 2,6) → (5,5; 2,3; −3,8) | tĩnh | **V3:** cuối phố có khối; Ida đi ra từ phía hốc cửa (hông nhà kho). Cas chạy 1,43 m/s tới `CAS_LAD`. |
 | s36 | 1:33,0–1:35,0 | MCU · 85 | `faceCam` 1,9 m | tĩnh | facelight `gas`; phơi sáng = fl.exposure × 2 (≈ 0,17; v2 0,36 — da cháy). |

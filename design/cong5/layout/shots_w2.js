@@ -18,17 +18,18 @@ const wpos = (o) => o.getWorldPosition(new THREE.Vector3());
 // Bộ tường chim (sets2.buildWallSet, Cổng 5): tường = mặt nhà kho z = 0, cùng địa lý bộ phố (sets_end.wallFromWorld): Cas ở sân lõm bắc (0,15; 0,95) = casSpot;
 // L11 (−2,2; 4,2) = L11 bộ phố; hốc cửa x = 5,4 (phải Cas); đầu hồi nhà đầu dãy bắc z = 5 (x −0,5 … 6,5); phố chính ở x < −0,5; góc nhà + phố rẽ ở x ≈ −12; cột điện (2,6; 1,9).
 // Luật 180° cảnh 4: đường Ida–Cas; máy luôn ở phía +x của đường này (sau-phải hai người) → Ida TRÁI, Cas PHẢI; Ida nhìn sang PHẢI khung về Cas.
-const CAS_W = [0.15, 0.95], CAS_YAW = Math.PI + 0.15;
+// B1: Cas dời sang đông 3,95 m (casSpot bộ phố (14,3; −7,15) → hệ tường (4,1; 0,95)); mọi máy / dấu cảnh 4 bám Cas dời theo DX.
+const DX = 3.95, CAS_W = [0.15 + DX, 0.95], CAS_YAW = Math.PI + 0.15;
 // V4 (s26): Ida đứng xem ở IDA_W — cách ngọn L11 3,5 m (góc ngẩng tới ngọn lửa ≈ 25°, dưới đường che của vành mũ) và L11 gần như CHÍNH TRƯỚC mặt bà
 // (lệch ≈ 4° so với hướng bà nhìn Cas) → ngọn L11 là key trước lên mặt; máy 3/4 ở phía +x đường Ida–Cas (đúng trục 180°).
 // Bản v2 đặt bà (−0,6; 5,2), L11 ở sau-bên (1,9 m, góc ngẩng ≈ 40°): vành mũ che hết mặt, tròng mắt vẫn bắt ánh → "mắt phát sáng", mặt tối.
 const IDA_W = [-3.8, 7.3];
 // Đèn lồng trong tay Ida quỳ (s31–s32): THẤP (≈ 0,75 m, dưới tay Cas), SAU tay cậu, TRƯỚC bụng cậu, cách tường 0,62 m (≤ 0,7 m — luật 3.3).
 // Thân và đầu Cas ở SAU đèn (z ≥ 0,7) → không đổ bóng lên tường; chỉ hai bàn tay (z ≈ 0,35–0,45) ở giữa đèn và tường → chỉ có chim.
-const LAN_T = [-0.22, 0.75, 0.6];
+const LAN_T = [-0.22 + DX, 0.75, 0.6];
 const LAN_K = 3.0;   // mức đèn lồng trong tay (s30 tăng dần tới mức này khi mở cửa đèn; s31, s32 giữ nguyên — cùng một nguồn)
 // s32: Cas nhích 0,1 m (z 0,95 → 0,85) và vươn tay ra trước (birdReach) → cổ tay z ≈ 0,4: tay GIỮA đèn (0,62) và tường → chim ×≈2,5–3, cao ≈ 1,9–2,3 m.
-const CAS_S32 = [0.15, 0.74];
+const CAS_S32 = [0.15 + DX, 0.74];
 // Tư thế cục bộ: chim bóng (sheet 5B) nhưng hai cánh tay vươn ra trước nhiều hơn (vai −92° thay −123°, khuỷu −12° thay −50°) — giữ bắt chéo cổ tay, ngón cái đầu chim.
 const birdReach = (b) => over(b, { joints: { shoulder_L: [-92, b.joints.shoulder_L[1], b.joints.shoulder_L[2]], shoulder_R: [-92, b.joints.shoulder_R[1], b.joints.shoulder_R[2]], elbow_L: [-12, 0, 0], elbow_R: [-12, 0, 0] } });
 const kneelOf = (p, ctx, o = {}) => over({ ...p.crouch, root_y_m: (p.crouch.root_y_H ?? 0) * ctx.sheets.ida.H_m }, o);
@@ -56,13 +57,13 @@ const wallShot = (id, t0, t1, meta, fn) => S({ id, scene: 4, t0, t1, ...meta,
         if (dbg.log && (f % 12 === 0)) console.log(JSON.stringify({ id, t: +t.toFixed(2), lan: V3a(lp), ida: V3a(ida.root.position), idaHead: V3a(wpos(ida.joints.head)), handL: V3a(wpos(cas.joints.wrist_L)), handR: V3a(wpos(cas.joints.wrist_R)), casHead: V3a(wpos(cas.joints.head)) }));
       } };
   } });
-const BIRD_CAM = [[2.2, 1.3, 3.6], [0.3, 1.1, 0]];
+const BIRD_CAM = [[2.2 + DX, 1.3, 3.6], [0.3 + DX, 1.1, 0]];
 const idaWatch = (p) => over(p.stand, { joints: { neck: [4, 0, 0] } });
 wallShot('s25', 68.0, 73.0, { size: 'MS', angle: 'ngang ngực, 3/4 sau-phải Cas', mm: 45, move: 'dolly vào rất chậm (0,3 m)',
   why: 'Giới thiệu Cas bằng việc cậu làm: chim bóng từ đèn khí L11 (khung style frame b_cas_bird).', sound: 'lửa thở; vải sột soạt; im',
   light: 'đèn khí L11 (key, có bóng) — cột điện cạnh tường còn tắt', action: 'Cas giơ hai tay làm chim; chim vỗ cánh chậm trên tường vôi.' },
-  (p, cam) => ({ update(t, T, { ida, cas }) { cas.place(p.bird(t, 1.0), ...CAS_W, CAS_YAW); ida.place(idaWatch(p), ...IDA_W, yawTo(...IDA_W, ...CAS_W));
-    camAt(cam, [[0, BIRD_CAM[0], BIRD_CAM[1]], [5, [2.0, 1.3, 3.3], BIRD_CAM[1]]], t); } }));
+  (p, cam) => ({ exposure: 3.6, update(t, T, { ida, cas }) { cas.place(p.bird(t, 1.0), ...CAS_W, CAS_YAW); ida.place(idaWatch(p), ...IDA_W, yawTo(...IDA_W, ...CAS_W));   // B1: L11 cách tường chim 7 m → tường tối hơn, phơi sáng 2,6 → 3,6
+    camAt(cam, [[0, BIRD_CAM[0], BIRD_CAM[1]], [5, [2.0 + DX, 1.3, 3.3], BIRD_CAM[1]]], t); } }));
 wallShot('s26', 73.0, 76.0, { size: 'MS', angle: 'ngang mắt, 3/4 trước-phải Ida (máy phía +x đường Ida–Cas)', mm: 50, move: 'tĩnh', idaExpr: 'neutral', idaDetail: 32, idaGlint: 0.02, faceLight: 'gas',
   why: 'Ida xuống thang, đứng xem, không gọi. Đèn lồng ở thắt lưng vẫn cháy (gieo cho 1:26). V4: mặt bà đọc được — ngọn L11 ở trước-phải bà là key thật; sau lưng bà là đầu phố Ostler đã trắng (chiều sâu).', sound: 'lửa thở',
   light: 'đèn khí L11 (key trước mặt bà, ngẩng ≈ 25°); đèn lồng thắt lưng (rất yếu); nền: mặt tiền phố chính đã trắng', action: 'Ida đứng cách cột L11 vài bước, nhìn Cas (phải khung).' },
@@ -73,8 +74,8 @@ wallShot('s27', 76.0, 80.0, { size: 'WS', angle: 'thấp, sau-phải, hất lên
   why: 'Cột điện PHỐ CHÍNH cạnh góc nhà kho bật: bóng đèn thấy trong khung, nhấp hai lần rồi đứng trắng trên nền trời đêm có sao. Trắng phủ tường; chim nhạt dần trong ~11 khung (luật 3.3) — tay vẫn còn, chỉ mất bóng. V3: thấy cả nhà kho (gờ mái, cửa sổ cao, cửa kéo hàng, hốc cửa bên phải), góc nhà + ngõ cong bên trái, mái xa sau nhà kho.',
   sound: 'rơ-le "tách"; bóng đèn rít; rè điện', light: 'cột điện cạnh tường bật — trắng phẳng; đèn khí L11 còn nhưng chìm',
   action: 'Bóng đèn điện bật; chim bóng xám dần rồi mất; tay Cas vẫn vỗ. Ida đứng xem ở trái khung.' },
-  (p, cam, ctx, dbg) => ({ exposure: (t, T) => 2.6 - 1.5 * switchOn(T, WALL_POST_ON), update(t, T, { ida, cas }) { cas.place(p.bird(t + 8, 1.0), ...CAS_W, CAS_YAW);
-    ida.place(idaWatch(p), ...IDA_W, yawTo(...IDA_W, ...CAS_W)); cam.position.set(...(dbg.cp || [-2.8, 0.85, 14.0])); cam.lookAt(...(dbg.cl || [0.3, 3.0, 1.0])); } }));
+  (p, cam, ctx, dbg) => ({ exposure: (t, T) => 3.6 - 2.5 * switchOn(T, WALL_POST_ON), update(t, T, { ida, cas }) { cas.place(p.bird(t + 8, 1.0), ...CAS_W, CAS_YAW);
+    ida.place(idaWatch(p), ...IDA_W, yawTo(...IDA_W, ...CAS_W)); cam.position.set(...(dbg.cp || [-1.0, 0.85, 13.0])); cam.lookAt(...(dbg.cl || [1.2, 3.0, 1.0])); } }));   // B1: máy từ vỉa hè nam: Ida (trái), L11 + thang, Cas, cột trong sân (phải)
 wallShot('s28', 80.0, 83.0, { size: 'MS', angle: 'ngang ngực, 3/4 sau-phải Cas', mm: 45, move: 'tĩnh',
   why: 'Cas vỗ mạnh hơn vào bức tường trống — không gì cả (luật 3.3: key : tràn ≈ 1 : 1, không còn bóng).', sound: 'rè điện; vải', light: 'trắng phẳng',
   action: 'Cas vỗ tay nhanh, mạnh; tường trắng trơn.' },
@@ -86,9 +87,9 @@ wallShot('s29', 83.0, 86.0, { size: 'MCU', angle: 'ngang mắt Cas, 3/4 trước
     const yaw = valAt([[0, CAS_YAW], [0.9, CAS_YAW], [1.9, yawTo(...CAS_W, ...IDA_W)]], t);
     cas.place(poseAt([[0, p.bird(0, 1)], [0.8, p.C.turnaround], [2.0, over(p.C.turnaround, { joints: { neck: [16, 0, 0] } })]], t), ...CAS_W, yaw);
     ida.place(idaWatch(p), ...IDA_W, yawTo(...IDA_W, ...CAS_W));
-    cam.position.set(1.7, 1.1, 2.8); cam.lookAt(0.1, 1.05, 1.0); } }));
+    cam.position.set(1.7 + DX, 1.1, 2.8); cam.lookAt(0.1 + DX, 1.05, 1.0); } }));
 // s30 → s32: Ida tới đứng bên trái Cas (cắt nén thời gian), tháo đèn lồng, quỳ một gối; đèn lồng hạ xuống dưới hai cánh tay cậu, cách tường 0,62 m.
-const IDA_K = [-0.75, 0.75], kneelYaw = yawTo(-0.75, 0.75, LAN_T[0], LAN_T[2]);
+const IDA_K = [-0.75 + DX, 0.75], kneelYaw = yawTo(-0.75 + DX, 0.75, LAN_T[0], LAN_T[2]);
 // Tư thế cục bộ (không có trong sheet): quỳ một gối (crouch_lantern) + tay phải đưa đèn lồng ra trước, ngang hông cậu bé.
 const kneelHold = (p, ctx, o = {}) => kneelOf(p, ctx, { joints: { spine: [8, 0, 0], shoulder_R: [-88, 0, -6], elbow_R: [-6, 0, 0], ...(o.joints || {}) } });
 wallShot('s30', 86.0, 88.0, { size: 'MS', angle: 'ngang, sau-phải', mm: 35, move: 'tĩnh', idaDetail: 28,
@@ -98,9 +99,9 @@ wallShot('s30', 86.0, 88.0, { size: 'MS', angle: 'ngang, sau-phải', mm: 35, mo
     return { exposure: 1.0, update(t, T, { ida, cas }) {
     cas.place(over(p.C.turnaround, { joints: { neck: [22, 0, 0] } }), ...CAS_W, yawTo(...CAS_W, ...IDA_K));
     const pose = t < 0.7 ? over(walkPose(t, p.stand), { props: ['lantern_belt'] }) : poseAt([[0.7, over(p.stand, { joints: { neck: [10, 0, 0] } })], [0.95, standL], [1.05, standL], [1.85, kn]], t);
-    ida.place(pose, valAt([[0, -1.3], [0.7, IDA_K[0]]], t), valAt([[0, 1.85], [0.7, IDA_K[1]]], t), valAt([[0, yawTo(-1.3, 1.85, ...IDA_K)], [0.7, yawTo(-1.3, 1.85, ...IDA_K)], [1.3, kneelYaw]], t));
+    ida.place(pose, valAt([[0, -1.3 + DX], [0.7, IDA_K[0]]], t), valAt([[0, 1.85], [0.7, IDA_K[1]]], t), valAt([[0, yawTo(-1.3 + DX, 1.85, ...IDA_K)], [0.7, yawTo(-1.3 + DX, 1.85, ...IDA_K)], [1.3, kneelYaw]], t));
     if (t > 1.2) { const lan = ida.props.lantern; if (lan && lan.parent) { const k = ease((t - 1.2) / 0.65); lan.updateMatrixWorld(true); const a = wpos(lan.userData.lightAnchor); lanternTo(ida, [a.x + (LAN_T[0] - a.x) * k, 0, a.z + (LAN_T[2] - a.z) * k]); } }
-    cam.position.set(2.6, 1.4, 4.0); cam.lookAt(-0.1, 0.8, 0.7); return { lantern: t < 0.95 ? 0.012 : 0.8 + (LAN_K - 0.8) * ease((t - 1.0) / 0.9) }; } }; });
+    cam.position.set(2.6 + DX, 1.4, 4.0); cam.lookAt(-0.1 + DX, 0.8, 0.7); return { lantern: t < 0.95 ? 0.012 : 0.8 + (LAN_K - 0.8) * ease((t - 1.0) / 0.9) }; } }; });
 wallShot('s31', 88.0, 91.0, { size: 'MCU', angle: 'ngang mắt Ida (quỳ), 3/4 trước-phải, qua vai phải Cas', mm: 85, move: 'tĩnh', idaExpr: 'sad_smile', idaDetail: 36,
   why: 'Lời mời, không dạy: bà đưa ánh sáng, cậu tự làm.', sound: 'THOẠI L3 "Go on, then." (đầu s31, 1:14,0 — DIALOGUE.L3)',
   light: 'đèn lồng ấm dưới mặt bà (≈ 0,6 m); trắng phẳng từ trên', action: 'Ida quỳ, đèn lồng thấp trong tay phải, quay đầu về Cas, nói L3.' },
@@ -115,7 +116,7 @@ wallShot('s32', 91.0, 94.0, { size: 'WS', angle: 'ngang, sau-phải', mm: 35, mo
     const bird = p.bird(t, 1.2); const sw = Math.sin(t * 0.9) * 10;
     const cz = valAt([[0, CAS_W[1]], [0.2, CAS_W[1]], [0.9, CAS_S32[1]]], t);
     cas.place(poseAt([[0, over(p.C.turnaround, { joints: { neck: [22, 0, 0] } })], [0.8, over(birdReach(bird), { joints: { spine: [-4, sw, 0] } })]], t), CAS_W[0], cz, valAt([[0, yawTo(...CAS_W, ...IDA_K)], [0.7, CAS_YAW]], t));
-    ida.place(kn, ...IDA_K, kneelYaw); lanternTo(ida, LAN_T); cam.position.set(...(dbg.cp || [1.9, 1.35, 4.1])); cam.lookAt(...(dbg.cl || [-0.25, 1.45, 0])); return { lantern: dbg.lk ?? LAN_K }; } }; });
+    ida.place(kn, ...IDA_K, kneelYaw); lanternTo(ida, LAN_T); cam.position.set(...(dbg.cp || [1.9 + DX, 1.35, 4.1])); cam.lookAt(...(dbg.cl || [-0.25 + DX, 1.45, 0])); return { lantern: dbg.lk ?? LAN_K }; } }; });
 
 // ---------------- CẢNH 5 — Ngọn cuối ----------------
 // V2 (1:20–1:29, s33–s34): bản v2 để Cas SÁT vách (0,45 m) → bóng cậu ×1,18 gần bằng người, rìa sắc, đứng ngay sau lưng cậu → AI mù đọc "hai cậu bé".
@@ -135,7 +136,7 @@ function placeBayLantern(r, x, z) {   // dời đèn lồng + nguồn sáng (spo
   const d = r.flameP.clone().sub(old); r.scene.traverse((o) => { if (o.isSprite && o.position.distanceTo(old) < 0.6) o.position.add(d); });
   r.spot.position.copy(r.flameP); U.uLP.value.copy(r.flameP); U.uLDir.value.copy(r.spot.target.position).sub(r.flameP).normalize(); r.spot.updateMatrixWorld();
 }
-S({ id: 's33', scene: 5, size: 'WS', angle: 'ngang 1,35 m, "tranh trong tranh"', mm: 32, move: 'dolly vào chậm (0,9 m)',
+S({ id: 's33', scene: 5, size: 'WS', angle: 'ngang 1,35 m, "tranh trong tranh"', mm: 32, move: 'dolly vào 0,9 m + dịch ngang phải 0,6 m (thị sai người/bóng)',
   why: 'Hình trung tâm (7A, khung style frame c_s5_wide): trong hốc cửa khuất điện, đèn lồng dưới đất; Ida dừng gần đèn nên bóng bà vươn CAO (×2,14), Cas đi tới gần vách nên bóng cậu NHỎ hơn bóng bà (×1,43), lệch sang phải cậu — người và bóng tách nhau. Ngoài vòm phố trắng không bóng.',
   sound: 'nhạc tạm; bước chân vào hốc; rè điện xa', light: 'đèn lồng trên nền đá (nguồn thấp, có bóng); ngoài vòm: điện phẳng',
   action: 'Ida đặt đèn lồng, hai người bước vào; Ida dừng giữa hốc, Cas đi tới gần vách; hai bóng một cao một nhỏ.',
@@ -144,15 +145,17 @@ S({ id: 's33', scene: 5, size: 'WS', angle: 'ngang 1,35 m, "tranh trong tranh"',
     for (const ch of [r.chIda, r.chCas]) { ch.sheetRef = ch.sheet; }
     const B = { ...BAY, ...(dbg.bay || {}) }; placeBayLantern(r, ...B.lan); r.spot.shadow.radius = dbg.pcf ?? 4;
     const keep = () => { if (!r.lan.parent) r.scene.add(r.lan); };
-    return { scene: r.scene, cam, onSample: r.onSample, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT, grade: GRADE_S5, exposure: 1.0,
+    return { scene: r.scene, cam, onSample: r.onSample, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT, grade: GRADE_S5, exposure: dbg.exp ?? 1.5,
       update(t) {
-        const zI = valAt([[0, 3.5], [1.2, 3.5], [3.2, B.ida[1]]], t), zC = valAt([[0, 3.9], [1.3, 3.9], [4.7, B.cas[1]]], t);
-        const pI = t < 1.2 ? lerpPose(p.crouch, p.stand, ease(t / 1.2)) : t < 3.2 ? over(walkPose(t - 1.2, p.stand), { props: [] }) : poseAt([[3.2, over(p.stand, { props: [] })], [4.4, over(p.lookShadows, { props: [] })]], t);
-        const pC = t < 1.3 ? p.C.turnaround : t < 4.7 ? walkPose(t - 1.3, p.C.turnaround, { gait: WALK_CHILD, bothArms: true }) : poseAt([[4.7, p.C.turnaround], [5.8, p.C.half_raised]], t);
-        r.chIda.setPose({ ...pI, props: [] }); keep(); r.chIda.root.position.set(B.ida[0], pI.root_y_m ?? 0, zI); r.chIda.root.rotation.y = Math.PI + 0.30 * clamp01((t - 3.0) / 0.8); r.chIda.root.updateMatrixWorld(true);
-        r.chCas.setPose(pC); keep(); r.chCas.root.position.set(B.cas[0], pC.root_y_m ?? 0, zC); r.chCas.root.rotation.y = Math.PI - 0.25 * clamp01((t - 4.5) / 0.8); r.chCas.root.updateMatrixWorld(true);
+        // (a) s33 rút 7,0 → 5,0 s: đứng dậy 0–0,6 s, Ida đi 0,6–2,7 s, Cas đi 0,6–4,1 s (3,1 m, 0,88 m/s), tư thế cuối 3,6 / 4,6 s.
+        const zI = valAt([[0, 3.5], [0.6, 3.5], [2.7, B.ida[1]]], t), zC = valAt([[0, 3.9], [0.6, 3.9], [4.1, B.cas[1]]], t);
+        const pI = t < 0.6 ? lerpPose(p.crouch, p.stand, ease(t / 0.6)) : t < 2.7 ? over(walkPose(t - 0.6, p.stand), { props: [] }) : poseAt([[2.7, over(p.stand, { props: [] })], [3.6, over(p.lookShadows, { props: [] })]], t);
+        const pC = t < 0.6 ? p.C.turnaround : t < 4.1 ? walkPose(t - 0.6, p.C.turnaround, { gait: WALK_CHILD, bothArms: true }) : poseAt([[4.1, p.C.turnaround], [4.6, p.C.half_raised]], t);
+        r.chIda.setPose({ ...pI, props: [] }); keep(); r.chIda.root.position.set(B.ida[0], pI.root_y_m ?? 0, zI); r.chIda.root.rotation.y = Math.PI + 0.30 * clamp01((t - 2.5) / 0.8); r.chIda.root.updateMatrixWorld(true);
+        r.chCas.setPose(pC); keep(); r.chCas.root.position.set(B.cas[0], pC.root_y_m ?? 0, zC); r.chCas.root.rotation.y = Math.PI - 0.25 * clamp01((t - 3.9) / 0.7); r.chCas.root.updateMatrixWorld(true);
         if (ctx.upd) { ctx.upd(r.chIda, cam); ctx.upd(r.chCas, cam); }
-        cam.position.copy(c0).add(new THREE.Vector3(0, 0, -0.9 * ease(t / 7))); } };
+        // (a) thị sai: dolly vào 0,9 m + dịch ngang 0,6 m sang phải → người (cách máy ~8 m) trượt khỏi bóng của họ trên vách (~9 m).
+        cam.position.copy(c0).add(new THREE.Vector3(0.6 * ease(t / 5), 0, -0.9 * ease(t / 5))); } };
   } });
 
 S({ id: 's34', scene: 5, size: 'MS (nghiêng)', angle: 'ngang ngực, từ phía phải, sau đèn lồng, thấy cả nền đá', mm: 26, move: 'tĩnh',
@@ -164,12 +167,20 @@ S({ id: 's34', scene: 5, size: 'MS (nghiêng)', angle: 'ngang ngực, từ phía
     const r = await buildBaySet(ctx, { medium: { pos: dbg.cp || [1.35, 1.15, 4.0], look: dbg.cl || [-0.2, 1.35, 0.4], fov: fovOf(dbg.mm ?? 26) } }, { l11On: true }); r.spot.shadow.radius = dbg.pcf ?? 4; [r.chIda, r.chCas].forEach((c) => tameGlint(c)); for (const ch of [r.chIda, r.chCas]) ch.sheetRef = ch.sheet;
     const B = { ...BAY, ...(dbg.bay || {}) }; placeBayLantern(r, ...B.lan);
     r.chIda.root.position.set(B.ida[0], 0, B.ida[1]); r.chCas.root.position.set(B.cas[0], 0, B.cas[1]); for (const ch of [r.chIda, r.chCas]) ch.root.updateMatrixWorld(true);
-    return { scene: r.scene, cam: r.cam, onSample: r.onSample, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT_MED, grade: GRADE_S5, exposure: 1.0, update() {} };
+    return { scene: r.scene, cam: r.cam, onSample: r.onSample, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT_MED, grade: GRADE_S5, exposure: dbg.exp ?? 1.5, update() {} };
   } });
 
 // Bộ phố cuối (góc ngọn 11): cột góc (POST_ON[5], đoạn cáp cuối) tắt tới giữa câu L4 → góc chỉ có hổ phách + bóng dài; sau đó trắng tràn.
 // Cuối phố (V3): sets_end.buildStreetEnd — nhà kho chữ L: mặt cuối phố x = −5 (phố rẽ trái sau góc nam z = +2), hông nam z = −8,1 = tường chim + hốc cửa (x = 2,2).
-const endStreet = (o = {}) => buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: o.shadowLamps || [] });
+// B1: cột điện phố chính trong sân (sets_end) SÁNG suốt cảnh 5 (bật từ 1:04,4); ẩn bản cột cũ W1 dựng ở (13,5; −4,2) nếu còn (st.wallPost) — tránh hai cột.
+// (b) L11 sau khi tắt: kính trống TỐI (độ đục 0,85, xám đen) — bản kính mờ 0,5 trên nền tường trắng đọc thành 'còn sáng'.
+function endStreet(o = {}) {
+  const st = buildStreetSet({ sky: 'night', x0: -12, x1: 30, shadowLamps: o.shadowLamps || [] });
+  if (st.wallPost) { st.wallPost.E.group.visible = false; st.wallPost.gl.visible = false; for (const g of st.wallPost.gz.list) g.visible = false; st.wallPost.L.visible = false; }
+  const set0 = st.setState, l11 = st.lamps[10];
+  st.setState = (s, f) => { set0(s, f); st.endInfo?.wallPost?.set(1); if (l11 && (s.gas(11) ?? 0) <= 0.01) { l11.glassM.color.set('#16181f'); l11.glassM.opacity = 0.85; } };
+  return st;
+}
 const cornerFill = (T) => 0.06 + 1.04 * switchOn(T, POST_ON[5]);
 // Mũ Ida: từ s36 (C4, bà tự đẩy vành) tới hết cảnh 5 giữ hat_back = 0,35 (= faceRest) — liên tục qua s37w … s42.
 const HB = 0.35;
