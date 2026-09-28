@@ -6,11 +6,13 @@ Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Cổng 5 vòng v2 — DỪNG, chờ duyệt** (`reports/m2/CONG-5-V2.md`): xem `screening/layout.mp4` (2:20,5); chọn **A** (hướng mặt Ida sau A1/A3/A-α đều trượt tiêu chí búp bê), **B** (lỗi phụ thuộc thứ tự render s35 làm trượt kiểm toán C3), **C** (ô cửa hổ phách s43 quá nhỏ), **D** (cách đóng Cổng 5). KHÔNG merge.
-2. Xác nhận hiệu chuẩn phép kiểm mặt (0/4 tham chiếu bị gọi búp bê → giữ tiêu chí cũ).
-3. Duyệt characters v1.4 (A-α) — đã khoá SHA theo chỉ đạo.
-4. Duyệt nền nhoè s06, s09w (thay lấy nét thật tới Cổng 7).
-5. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới.
+1. **Cổng 5 vòng v3 (chốt layout)** — đang làm: B-i (s35 thuần theo thời gian + rà trạng thái ẩn), C-i (s43 máy đẩy), (c) câu cuối L4 bắt đầu trên hình Ida, (d) đồng hồ chỉ tiến, rà continuity lần 3, luật v1.4, xuất lại layout → báo "Cổng 5 sẵn sàng đóng". KHÔNG merge; Claude bên ngoài chạy AI mù, chủ dự án duyệt merge.
+2. **Cửa mặt Ida — A-i** (W3, song song): mặt điêu khắc + rig + khẩu hình; tối đa 2 vòng kiểm mù có mẫu đối chứng; trượt thì trình 2–3 phương án dàn dựng lại 1:32–1:48. **Cổng 6 chỉ mở khi cửa mặt đạt.**
+3. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới.
+
+## Việc dời sang Cổng 7 (chủ dự án quyết, 28/09/2026)
+- **Người và bóng ở hốc vòm (1:18–1:26, s32–s34):** tiêu chí đo được — **mỗi người sáng hơn bóng của chính mình trên vách ít nhất X = 2,0 lần**, đo bằng trung vị luma hiển thị (Rec.709, mã 8 bit, sau grade) trên mặt nạ người (phần nhìn thấy) so với mặt nạ bóng của chính người đó trên vách, ở mọi khung mẫu (mỗi 12 khung). Căn cứ: luật thế giới 3.1 đòi key : tràn ≥ 4 : 1 tại mặt nhận bóng để bóng hiện; mặt người quay về đèn lồng nhận key trực tiếp, vùng bóng chỉ nhận tràn → tỷ lệ tuyến tính ≥ 4; qua đường cong hiển thị (gamma ~2,2) 4× tuyến tính ≈ 1,9× luma hiển thị, nên chọn **2,0** (≈ 4,6× tuyến tính) — đủ để mắt tách người khỏi bóng mà không phải thêm đèn giả. Bóng mặc định đo ở phần thân bóng (không tính đầu bóng mờ nhạt ở vùng vách tối dần, luật 4).
+- Hạ phơi sáng s11 (1,5–1,7); màu mũ nâu cam dưới đèn khí sát mặt (s05, s36, s40); lấy nét thật thay cho nền nhoè s06, s09w; ánh cửa sổ ấm có thật ở nhà đầu dãy bắc cho mặt Cas s24c.
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |
@@ -24,7 +26,9 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 | M1 Cổng 3 vòng 3 + đợt vá A2+ + khoá thiết kế | P | claude/cine-lab-m1-cong3-v3 | **Đã merge vào main (c21e5df)**; SHA khoá `design/cong3/LOCK-THIET-KE.sha256` | reports/m1/CONG-3-VONG-3.md, reports/m1/CONG-3-VA-A2PLUS.md |
 | M1 Cổng 4: cổng mặt Ida (biến dạng, đẩy mũ, kiểm mù) + animatic 2:30 (48 shot) + âm tạm + gói chiếu mù | P | claude/cine-lab-m1-cong4-animatic | Vòng v1 xong; xem vòng v2 | reports/m1/CONG-4.md |
 | M2 Cổng 5 layout (W1, W2, W3 + P) | P + 3 subagent + 2 agent rà | claude/cine-lab-m2-cong5-layout-24o5fp | Vòng v1 xong; xem vòng v2 | reports/m2/CONG-5.md |
-| M2 Cổng 5 vòng v2 (A-α, hiệu chuẩn, B1, a–d, continuity v2) | P + W1, W2, W3 + agent rà + 16 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | **Chờ chủ dự án duyệt — KHÔNG merge** | reports/m2/CONG-5-V2.md |
+| M2 Cổng 5 vòng v2 (A-α, hiệu chuẩn, B1, a–d, continuity v2) | P + W1, W2, W3 + agent rà + 16 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | Xong; chủ dự án đã quyết (AUTHORSHIP "Cổng 5 v2 — quyết định") | reports/m2/CONG-5-V2.md |
+| M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 | claude/cine-lab-m2-cong5-layout-24o5fp | Đang làm | reports/m2/CONG-5-V3.md |
+| M2 Cửa mặt Ida A-i | W3 | claude/cine-lab-m2-cong5-layout-24o5fp (tích hợp khi đạt) | Đang làm | reports/m2/MAT-IDA-AI.md |
 | M1 Cổng 4 vòng v2: animatic 2:22,5 (52 shot), kịch bản nháp 3, luật thế giới v0.4, characters v1.2 (A1), C3 v1.4 (parts + views + kiểm toán) | P | claude/cine-lab-m1-cong4-animatic | **Đã merge vào main (5987bf3)** — Cổng 4 đóng | reports/m1/CONG-4-V2.md, shots/animatic/SHOTLIST.md, screening/animatic_v1_v2_diff.md |
 
 Quy ước file lớn Cổng 4: `design/cong4/animatic/out/animatic.mp4` (v2: 45,49 MB) nằm trong nhánh; mặt nạ C3 `out/animatic.parts/` (18 MB, PNG xám) cũng trong nhánh; video nhóm và video ghép trung gian `out/v2/*.mp4`, âm trung gian `out/v2/audio/` KHÔNG commit; `screening/animatic.mp4` là bản sao y từng byte. Bản trung gian `out/video.mp4` (187 MB) và đối chứng `out/hq/` (198 MB) KHÔNG commit (vượt giới hạn GitHub; tái tạo bằng `render_film.js` / `HQ=1 package.py`). Âm lưu FLAC 24-bit.
