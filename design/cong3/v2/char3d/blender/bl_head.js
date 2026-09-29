@@ -8,7 +8,8 @@
 import * as THREE from '../../../shared/node_modules/three/build/three.module.js';
 
 export const BL_URL = new URL('./ida_bl.glb', import.meta.url).href;
-let CACHE = null;
+export const CAS_BL_URL = new URL('./cas_bl.glb', import.meta.url).href;   // Cổng 6 (W4): đầu Cas MPFB
+const CACHES = {};
 
 async function loadGLTFLoader() {
   const base = new URL('../../../shared/node_modules/three/', import.meta.url).href, threeURL = base + 'build/three.module.js';
@@ -19,14 +20,17 @@ async function loadGLTFLoader() {
   return (await import(blobURL(gl))).GLTFLoader;
 }
 
-export async function preloadIdaBL(url = BL_URL) {
-  if (CACHE && CACHE.url === url) return CACHE;
+async function preloadBL(kind, url) {
+  if (CACHES[kind] && CACHES[kind].url === url) return CACHES[kind];
   const GLTFLoader = await loadGLTFLoader();
   const [gltf, meta] = await Promise.all([new GLTFLoader().loadAsync(url), fetch(url.replace(/\.glb$/, '.json')).then((r) => r.json())]);
-  CACHE = { url, gltf, meta };
-  return CACHE;
+  CACHES[kind] = { url, gltf, meta };
+  return CACHES[kind];
 }
-export const idaBLReady = () => !!CACHE;
+export const preloadIdaBL = (url = BL_URL) => preloadBL('ida', url);
+export const preloadCasBL = (url = CAS_BL_URL) => preloadBL('cas', url);
+export const idaBLReady = () => !!CACHES.ida;
+export const casBLReady = () => !!CACHES.cas;
 
 // Da: PBR mờ (nhám 0,66, bóng gương 0,3) + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập) + giữ sắc ấm khi ánh lạnh + kéo 35 % ánh hổ phách về trung tính.
 function skinMaterial(opts) {
@@ -69,11 +73,14 @@ function eyeMaterial(map, opts) {
 }
 
 // p = { H, headG, parts, C, opts, hairMat }
-export function buildIdaBL(p) {
-  if (!CACHE) throw new Error("idaStyle 'bl': cần await preloadIdaBL() trước buildCharacter");
+export const buildIdaBL = (p) => buildBL(p, 'ida');
+export const buildCasBL = (p) => buildBL(p, 'cas');
+function buildBL(p, kind) {
+  const CACHE = CACHES[kind];
+  if (!CACHE) throw new Error(kind + "Style 'bl': cần await preload" + (kind === 'ida' ? 'Ida' : 'Cas') + "BL() trước buildCharacter");
   const { H, headG, parts, opts, hairMat } = p, meta = CACHE.meta;
-  const root = new THREE.Group(); root.name = 'ida_bl'; root.scale.setScalar(H); headG.add(root);
-  const src = {}; CACHE.gltf.scene.traverse((o) => { if (o.isMesh) src[o.name] = o; });
+  const root = new THREE.Group(); root.name = kind + '_bl'; root.scale.setScalar(H); headG.add(root);
+  const src = {}; CACHE.gltf.scene.traverse((o) => { if (o.isMesh) src[o.name.replace(/^(ida|cas)_/, 'x_')] = o; });
   const reg = (m, part) => { m.userData.part = part; m.castShadow = true; m.receiveShadow = true; parts.push(m); return m; };
   const morphables = [];
   const skinMat = skinMaterial(opts);
@@ -93,21 +100,21 @@ export function buildIdaBL(p) {
     morphables.push(r); return r;
   };
   // ĐẦU + CỔ: cùng thuộc tính đỉnh, hai chỉ số → hai lưới (part 'head' cho đo C3; 'neck' dưới đường cằm)
-  const hr = rigged(src.ida_head), hg = hr.geo, ix = hg.index.array, py = hg.attributes.position.array, hi = [], ni = [];
+  const hr = rigged(src.x_head), hg = hr.geo, ix = hg.index.array, py = hg.attributes.position.array, hi = [], ni = [];
   for (let t = 0; t < ix.length; t += 3) { const a = ix[t], b = ix[t + 1], c = ix[t + 2], yc = (py[a * 3 + 1] + py[b * 3 + 1] + py[c * 3 + 1]) / 3; (yc < -0.02 ? ni : hi).push(a, b, c); }
   const sub = (idx) => { const g = new THREE.BufferGeometry(); for (const [k, v] of Object.entries(hg.attributes)) g.setAttribute(k, v); g.setIndex(idx); g.computeBoundingSphere(); return g; };
   const head = reg(new THREE.Mesh(sub(hi), skinMat), 'head'); root.add(head);
   const neck = reg(new THREE.Mesh(sub(ni), skinMat), 'neck'); root.add(neck);
   const subs = [head.geometry, neck.geometry];
   // mày (rig), tóc, búi
-  const br = rigged(src.ida_brows); const brows = reg(new THREE.Mesh(br.geo, hairMat), 'brow'); root.add(brows);
-  for (const n of ['ida_hair_shell', 'ida_hair_cards', 'ida_hair_fine', 'ida_bun']) if (src[n]) { const m = reg(new THREE.Mesh(src[n].geometry.clone(), hairMat), 'hair'); m.position.copy(src[n].position); root.add(m); }
+  const br = rigged(src.x_brows); const brows = reg(new THREE.Mesh(br.geo, hairMat), 'brow'); root.add(brows);
+  for (const n of ['x_hair_shell', 'x_hair_cards', 'x_hair_fine', 'x_bun']) if (src[n]) { const m = reg(new THREE.Mesh(src[n].geometry.clone(), hairMat), 'hair'); m.position.copy(src[n].position); root.add(m); }
   // mắt: nhãn cầu riêng (tròng + giác mạc bắt sáng thật), hội tụ đã nướng trong lưới; opts.gaze [ngang, dọc] (rad)
-  const eyeMat = eyeMaterial(src.ida_eye_L.material.map, opts), eyes = [];
-  for (const n of ['ida_eye_L', 'ida_eye_R']) { const m = reg(new THREE.Mesh(src[n].geometry.clone(), eyeMat), 'eyes'); m.position.copy(src[n].position); m.rotation.set(opts.gaze?.[1] ?? 0, opts.gaze?.[0] ?? 0, 0); root.add(m); eyes.push(m); }
+  const eyeMat = eyeMaterial(src.x_eye_L.material.map, opts), eyes = [];
+  for (const n of ['x_eye_L', 'x_eye_R']) { const m = reg(new THREE.Mesh(src[n].geometry.clone(), eyeMat), 'eyes'); m.position.copy(src[n].position); m.rotation.set(opts.gaze?.[1] ?? 0, opts.gaze?.[0] ?? 0, 0); root.add(m); eyes.push(m); }
   // hoa tai treo ở dái tai (nụ + móc + giọt), vàng cũ #c9a466 — như cast3d A-α
   const ringM = new THREE.MeshStandardMaterial({ color: '#c9a466', metalness: 0.85, roughness: 0.28, emissive: new THREE.Color('#5a4424'), emissiveIntensity: 0.25 });
-  for (const s of ['L', 'R']) { const e = meta.earring[s]; if (!e) continue;
+  for (const s of ['L', 'R']) { const e = (meta.earring || {})[s]; if (!e) continue;
     const items = [[new THREE.SphereGeometry(0.016, 14, 10), 0], [new THREE.CylinderGeometry(0.0035, 0.0035, 0.05, 6), -0.03], [new THREE.SphereGeometry(0.024, 14, 10), -0.068]];
     for (const [g, dy] of items) { const m = new THREE.Mesh(g, ringM); m.position.set(e[0], e[1] + dy, e[2]); m.userData.part = 'earring'; m.castShadow = false; m.receiveShadow = false; root.add(m); parts.push(m); } }
   let cur = {};
