@@ -18,7 +18,10 @@ from sdfnp import sstep, gauss
 argv = sys.argv[sys.argv.index('--') + 1:]
 MP, OUT = argv[0], os.path.abspath(argv[1]); os.makedirs(OUT, exist_ok=True)
 T0 = time.time(); log = lambda *a: print(f'[than {time.time() - T0:6.1f}s]', *a, flush=True)
-PRM = dict(BIND_SH=24.0, BIND_EL=20.0, LIFT=0.5, G_ARM=1.0, G_LEG=0.82, SW=0.011, SW_BELLY=0.012, SL=0.010, TR=0.010, SMOOTH=70)
+PRM = dict(BIND_SH=24.0, BIND_EL=20.0, LIFT=0.5, G_ARM=1.0, G_LEG=0.82, SW=0.016, SW_BELLY=0.012, SL=0.012, TR=0.010, SMOOTH=110,
+           # W4T lượt 2 (chủ dự án 29/09/2026): tay theo tỷ lệ MPFB (độ dài NHÌN THẤY, H; đo trên người MPFB nam 10 tuổi, quy về chiều cao sheet),
+           # gấu áo hạ và buông (phủ qua cạp quần), quần ống thẳng rộng (bán kính TR_R m), đũng mượt; áo nới, ngực mượt.
+           UA_V=-1, FA_V=-1, HEM_DROP=0.15, HEM_FLARE=0.005, HIP2PELVIS=0.6, TR_R=0.046, TR_RZ=0.92, TR_SMOOTH=40, CROTCH_SMOOTH=40, CHEST_SMOOTH=120, SEAT_SMOOTH=150)
 for a in argv[2:]:
     k, v = a.split('='); PRM[k] = float(v)
 
@@ -74,11 +77,14 @@ def Rx(a): c, s = math.cos(a), math.sin(a); return np.array([[1, 0, 0], [0, c, -
 def Rz(a): c, s = math.cos(a), math.sin(a); return np.array([[c, -s, 0], [s, c, 0], [0, 0, 1]])
 D2R = math.pi / 180
 BIND = {'shoulder_L': [0, 0, PRM['BIND_SH']], 'shoulder_R': [0, 0, -PRM['BIND_SH']], 'elbow_L': [-PRM['BIND_EL'], 0, 0], 'elbow_R': [-PRM['BIND_EL'], 0, 0]}   # độ, Euler XYZ như applyPose
-JW = {}; JR = {}
-for n in JN:
-    e = BIND.get(n, [0, 0, 0]); Rl = Rx(e[0] * D2R) @ Rz(e[2] * D2R)
-    if PAR[n] is None: JW[n] = np.array(OFF[n], float); JR[n] = Rl
-    else: JW[n] = JW[PAR[n]] + JR[PAR[n]] @ np.array(OFF[n], float); JR[n] = JR[PAR[n]] @ Rl
+def build_joints():
+    JW = {}; JR = {}
+    for n in JN:
+        e = BIND.get(n, [0, 0, 0]); Rl = Rx(e[0] * D2R) @ Rz(e[2] * D2R)
+        if PAR[n] is None: JW[n] = np.array(OFF[n], float); JR[n] = Rl
+        else: JW[n] = JW[PAR[n]] + JR[PAR[n]] @ np.array(OFF[n], float); JR[n] = JR[PAR[n]] @ Rl
+    return JW, JR
+JW, JR = build_joints()
 
 # ---------------- 3. uốn hình MPFB → cast3d ----------------
 def rot_between(a, b):
@@ -96,6 +102,19 @@ def torso_tf(V):
     out[:, 1] += PRM['LIFT'] * gap * lat * vert
     return out
 GAP_SH = JW['shoulder_L'][1] - (TORSO_C[1] + (BH['upperarm01.L'][1] - p_m[1]) * SY)
+# W4T lượt 2: TAY THEO TỶ LỆ MPFB. Độ dài nhìn thấy = độ dài xương MPFB × (chiều cao sheet / chiều cao MPFB); khớp vai cast3d cao hơn gốc cánh tay
+# (khớp vai giải phẫu, sau khi nâng vai) (1 − LIFT)·GAP_SH, nên độ dài KHỚP tay trên = nhìn thấy + phần đó. Không đổi khớp vai, thân, chân.
+k_h = SHEET['total_height_H'] * H / (P0[:, 1].max() - P0[:, 1].min())
+ua_m = np.linalg.norm(BH['lowerarm01.L'] - BH['upperarm01.L']) * k_h; fa_m = np.linalg.norm(BH['wrist.L'] - BH['lowerarm01.L']) * k_h
+if PRM['UA_V'] < 0: PRM['UA_V'] = round(float(ua_m / H), 4)   # −1 = lấy từ MPFB; 0 = giữ sheet v1.4
+if PRM['FA_V'] < 0: PRM['FA_V'] = round(float(fa_m / H), 4)
+if PRM['UA_V'] > 0: ua = PRM['UA_V'] + (1 - PRM['LIFT']) * GAP_SH / H
+if PRM['FA_V'] > 0: fa = PRM['FA_V']
+for s in 'LR': OFF[f'elbow_{s}'] = [0, -ua * H, 0]; OFF[f'wrist_{s}'] = [0, -fa * H, 0]
+JW, JR = build_joints()
+ARM = {'upper_arm': round(float(ua), 4), 'forearm': round(float(fa), 4), 'upper_arm_visible': PRM['UA_V'], 'forearm_visible': PRM['FA_V'],
+       'mpfb_m': {'upper_arm': round(float(ua_m), 4), 'forearm': round(float(fa_m), 4), 'k_height': round(float(k_h), 4)}, 'sheet_v14': {'upper_arm': PT['upper_arm']['length'], 'forearm': PT['forearm']['length']}}
+log('tay MPFB: xương (m, quy chiều cao)', ARM['mpfb_m'], '→ khớp cast3d (H)', ARM['upper_arm'], ARM['forearm'])
 def seg_tf(a, b, A, B, g):
     dm = b - a; Lm = np.linalg.norm(dm); dm = dm / Lm; Lc = np.linalg.norm(B - A); R = rot_between(dm, B - A)
     def f(V):
@@ -155,7 +174,9 @@ def vnormals(Vx, Fq):
     return n / np.maximum(1e-12, np.linalg.norm(n, axis=1))[:, None]
 NB = vnormals(V, F)
 dom = np.argmax(WJ, 1); dn = np.array(JN)[dom]
-hemY = SHEET['costume']['sweater']['hem_height_H'] * H
+cen = (np.abs(V[:, 0]) < 0.006) & (V[:, 1] > 0.3) & np.isin(dn, ['pelvis', 'spine']); crotchY = float(V[cen, 1].min())   # đáy đũng: điểm thấp nhất đường giữa thuộc chậu (đùi trong chạm nhau thuộc hông, không tính)
+hemY = max((SHEET['costume']['sweater']['hem_height_H'] - PRM['HEM_DROP']) * H, crotchY + 0.02)   # W4T lượt 2: gấu áo hạ, phủ qua cạp quần
+log('đáy đũng y', round(crotchY, 4), '→ gấu áo y', round(hemY, 4), f"({hemY / H:.3f} H; sheet {SHEET['costume']['sweater']['hem_height_H']} H)")
 trHemY = (0.10 + SHEET['costume']['trousers']['hem_above_ankle_H']) * H
 neckY = JW['neck'][1]
 def along(s, Vx, j0, j1):   # tham số dọc đoạn (m) từ khớp j0 về phía j1
@@ -200,26 +221,30 @@ def edge_proj(Vs, W, bd):
         elif abs(y - trHemY) < 0.035: out[v, 1] = trHemY
         elif abs(y - (neckY + 0.012)) < 0.03: out[v, 1] = min(y, neckY + 0.012)
     return out
-def shell(sel, thick_fn, fold_fn, it):
-    idx, fq = sub(sel); Vs = V[idx].copy(); Ns = NB[idx]; W = WJ[idx]
+def shell(sel, thick_fn, fold_fn, it, Wm=None, shape_fn=None, post_fn=None):
+    idx, fq = sub(sel); Vs = V[idx].copy(); Ns = NB[idx]; W = (WJ if Wm is None else Wm)[idx]
     Vs = Vs + Ns * thick_fn(Vs, W)[:, None]
     bd = boundary(len(Vs), fq)
     Vs = edge_proj(Vs, W, bd)
+    if shape_fn is not None: Vs = shape_fn(Vs, W, fq, bd)
     Vs = smooth(Vs, fq, it, fix=bd)                                   # bỏ chi tiết cơ thể (vải phủ qua); mép giữ nguyên (không co)
     Ns = vnormals(Vs, fq); fd = fold_fn(Vs, W); fd[bd] *= 0.3; Vs = Vs + Ns * fd[:, None]
+    if post_fn is not None: Vs = post_fn(Vs, W, fq, bd)                # sau nếp: vải căng bắc cầu (không để làm mượt/nếp tạo rãnh ở đường giữa)
     return dict(idx=idx, F=fq, V=Vs, W=W, fold=fd, bd=bd)
 
 rng = np.random.default_rng(7)
 def sw_thick(Vs, W):
     y = (Vs[:, 1] - JW['pelvis'][1]) / H                              # hệ H từ khớp hông
     t = PRM['SW'] + PRM['SW_BELLY'] * sstep(1.0, 0.25, y) * sstep(-0.1, 0.25, y)   # chùng dần xuống bụng (len rủ), gấu ôm lại
-    t = t - 0.006 * sstep(0.10, 0.0, y)                               # bo gấu ôm hông
+    yh = (Vs[:, 1] - hemY) / H
+    t = t + PRM['HEM_FLARE'] * sstep(0.35, 0.0, yh)                   # W4T lượt 2: gấu buông, loe nhẹ (bỏ bo gấu ôm hông của lượt 1)
     armw = W[:, [JI[k] for k in ('shoulder_L', 'elbow_L', 'wrist_L', 'shoulder_R', 'elbow_R', 'wrist_R')]].sum(1)
     return t * (1 - armw) + PRM['SL'] * armw
 def sw_fold(Vs, W):
     f = np.zeros(len(Vs)); y = (Vs[:, 1] - JW['pelvis'][1]) / H; ph = np.arctan2(Vs[:, 0], Vs[:, 2])
     tor = W[:, [JI['spine'], JI['pelvis']]].sum(1)
-    f += tor * 0.0035 * np.sin(ph * 7 + 1.3 * np.sin(y * 5)) * sstep(0.9, 0.2, y) * sstep(-0.05, 0.15, y)   # rủ dọc nhẹ trên gấu
+    ctr = 1 - 0.85 * (gauss(np.abs(ph) - np.pi, 0.45) + gauss(ph, 0.45))   # W4T lượt 2: không đặt rãnh nếp ở giữa lưng/giữa ngực (lượt 1: rãnh giữa lưng dưới đọc thành khe mông)
+    f += tor * 0.0035 * ctr * np.sin(ph * 7 + 1.3 * np.sin(y * 5)) * sstep(0.9, 0.2, y) * sstep(-0.05, 0.15, y)   # rủ dọc nhẹ trên gấu
     f += tor * 0.0025 * np.sin(y * 34 + 2 * np.sin(ph * 3)) * sstep(0.55, 0.15, y)                          # chùng ngang trên bo gấu
     for s in 'LR':
         e = JW[f'elbow_{s}']; d = np.linalg.norm(Vs - e, axis=1)
@@ -231,9 +256,66 @@ def sw_fold(Vs, W):
     return f
 for s_ in 'LR':   # tay áo là vải: không xoắn theo cổ tay → trọng số wrist dồn về khuỷu (măng sét gắn khuỷu ở cast3d)
     WJ[sw_v, JI[f'elbow_{s_}']] += WJ[sw_v, JI[f'wrist_{s_}']]; WJ[sw_v, JI[f'wrist_{s_}']] = 0
-sw = shell(sw_v, sw_thick, sw_fold, PRM['SMOOTH'])
-tr = shell(tr_v, lambda Vs, W: np.full(len(Vs), PRM['TR']) + 0.004 * sstep(JW['knee_L'][1] + 0.05, JW['knee_L'][1] - 0.1, Vs[:, 1]),
-           lambda Vs, W: 0.003 * np.sin(Vs[:, 1] * 120 + 2 * np.arctan2(Vs[:, 0] - np.sign(Vs[:, 0]) * hipX * H, Vs[:, 2])) * sstep(JW['knee_L'][1] + 0.08, JW['knee_L'][1] - 0.02, Vs[:, 1]), 20)
+WS_ = WJ.copy()   # áo: gấu treo theo chậu (hông → chậu HIP2PELVIS), không kéo theo đùi — không đổi trọng số của quần
+for s_ in 'LR':
+    mv = WS_[sw_v, JI[f'hip_{s_}']] * PRM['HIP2PELVIS']; WS_[sw_v, JI['pelvis']] += mv; WS_[sw_v, JI[f'hip_{s_}']] -= mv
+BR_N = [0, 0.0]
+def bridge(Vs, sel, sgn, step=0.008):
+    # vải căng BẮC CẦU qua chỗ lõm giữa hai khối (khe mông sau lưng, rãnh giữa hai cơ ngực): mỗi lát ngang, nối hai đỉnh nhô nhất
+    # (mỗi bên x) bằng đường thẳng; đỉnh nằm giữa mà lõm hơn đường nối thì đẩy ra tới đường nối. sgn = −1: phía sau (z âm), +1: phía trước.
+    out = Vs.copy(); ys = Vs[sel, 1]
+    if not sel.any(): return out
+    for y0 in np.arange(ys.min(), ys.max() + step, step):
+        m = sel & (np.abs(Vs[:, 1] - y0) < step * 0.75)
+        L = m & (Vs[:, 0] > 0.01); R = m & (Vs[:, 0] < -0.01)
+        if L.sum() < 3 or R.sum() < 3: continue
+        iL = np.nonzero(L)[0][np.argmax(sgn * Vs[L, 2])]; iR = np.nonzero(R)[0][np.argmax(sgn * Vs[R, 2])]
+        xL, zL, xR, zR = Vs[iL, 0], Vs[iL, 2], Vs[iR, 0], Vs[iR, 2]
+        mid = m & (Vs[:, 0] < xL) & (Vs[:, 0] > xR)
+        zl = zR + (Vs[mid, 0] - xR) / max(1e-6, xL - xR) * (zL - zR)
+        idx = np.nonzero(mid)[0]; push = sgn * (zl - Vs[idx, 2]) > 0
+        out[idx[push], 2] = zl[push]; BR_N[0] += int(push.sum()); BR_N[1] = max(BR_N[1], float((sgn * (zl - Vs[idx, 2]))[push].max()) if push.any() else 0)
+    return out
+def sw_shape(Vs, W, fq, bd):
+    # W4T lượt 2: ngực/lưng trên — len phủ qua, không in cơ ngực: làm mượt thêm vùng ngực–bả vai (giữ nách, vai, tay áo)
+    armw = W[:, [JI[k] for k in ('shoulder_L', 'elbow_L', 'wrist_L', 'shoulder_R', 'elbow_R', 'wrist_R')]].sum(1)
+    reg = (Vs[:, 1] > JW['spine'][1] + 0.08) & (Vs[:, 1] < JW['shoulder_L'][1] - 0.01) & (armw < 0.2) & (np.abs(Vs[:, 0]) < shX * H * 0.85)
+    Vs = smooth(Vs, fq, PRM['CHEST_SMOOTH'], fix=bd | ~reg)
+    # gấu áo buông qua hông/mông: không in khe mông, không ôm mông — làm mượt mạnh vùng dưới eo (giữ mép gấu)
+    reg2 = (Vs[:, 1] < JW['pelvis'][1] + 0.09) & (armw < 0.2)
+    Vs = bridge(Vs, reg2 & (Vs[:, 2] < 0.0), -1.0)                                           # khe mông
+    Vs = bridge(Vs, reg & (Vs[:, 2] > 0.0), 1.0)                                             # rãnh giữa ngực
+    return smooth(Vs, fq, PRM['SEAT_SMOOTH'], fix=bd | ~reg2)
+def sw_post(Vs, W, fq, bd):
+    # Làm mượt nhiều vòng (umbrella) trên lưới MPFB mật độ không đều làm đỉnh trượt tiếp tuyến → rãnh 1 cm ở giữa lưng dưới/xương cùng
+    # (đọc thành khe mông/ rãnh sống lưng). Bắc cầu lại SAU khi làm mượt: cả lưng (dưới vai) và rãnh giữa ngực; rồi mượt nhẹ vùng đó.
+    armw = W[:, [JI[k] for k in ('shoulder_L', 'elbow_L', 'wrist_L', 'shoulder_R', 'elbow_R', 'wrist_R')]].sum(1)
+    body = (armw < 0.2) & (Vs[:, 1] < JW['shoulder_L'][1] - 0.02) & (np.abs(Vs[:, 0]) < shX * H * 0.85)
+    Vs = bridge(Vs, body & (Vs[:, 2] < 0.0), -1.0, step=0.006)
+    Vs = bridge(Vs, body & (Vs[:, 2] > 0.0) & (Vs[:, 1] > JW['spine'][1] + 0.08), 1.0, step=0.006)
+    return smooth(Vs, fq, 12, fix=bd | ~body)
+sw = shell(sw_v, sw_thick, sw_fold, PRM['SMOOTH'], Wm=WS_, shape_fn=sw_shape, post_fn=sw_post)
+log('bắc cầu: đỉnh đẩy', BR_N[0], 'đẩy max (m)', round(BR_N[1], 4))
+def tr_shape(Vs, W, fq, bd):
+    # W4T lượt 2: ỐNG QUẦN THẲNG, RỘNG — mỗi ống: bán kính (elip, sâu TR_RZ) tối thiểu TR_R quanh trục chân (x = ±hipX·H, z = 0 ở tư thế bind);
+    # vải không bám bắp chân/đầu gối. Trên đáy đũng giữ dáng mông/hông. Rồi làm mượt riêng vùng đũng (không lộ hình háng).
+    out = Vs.copy(); sx = np.where(Vs[:, 0] >= 0, 1.0, -1.0); ax = sx * hipX * H
+    dx = Vs[:, 0] - ax; dz = Vs[:, 2]; r = np.hypot(dx, dz / PRM['TR_RZ']); ph = np.arctan2(dz / PRM['TR_RZ'], dx)
+    k = sstep(crotchY + 0.035, crotchY - 0.02, Vs[:, 1])                  # 0 trên đũng → 1 dưới đũng
+    rn = np.maximum(r, PRM['TR_R'])
+    rn = r + k * (rn - r)
+    out[:, 0] = ax + rn * np.cos(ph); out[:, 2] = rn * np.sin(ph) * PRM['TR_RZ']
+    reg = (np.abs(Vs[:, 0]) < hipX * H * 1.1) & (Vs[:, 1] > crotchY - 0.05) & (Vs[:, 1] < crotchY + 0.07)
+    fixm = bd | ~reg
+    out = smooth(out, fq, PRM['CROTCH_SMOOTH'], fix=fixm)
+    return out
+def tr_fold(Vs, W):
+    kn = JW['knee_L'][1]; ph = np.arctan2(Vs[:, 2], Vs[:, 0] - np.sign(Vs[:, 0]) * hipX * H)
+    f = 0.003 * np.sin(Vs[:, 1] * 120 + 2 * ph) * sstep(kn + 0.08, kn - 0.02, Vs[:, 1]) * sstep(kn - 0.12, kn - 0.02, Vs[:, 1])   # nếp gối
+    f += 0.0022 * np.sin(ph * 5 + 3 * Vs[:, 1]) * sstep(crotchY - 0.02, kn, Vs[:, 1])                                               # rủ dọc ống
+    f += 0.003 * np.sin((Vs[:, 1] - trHemY) * 160 + ph) * sstep(trHemY + 0.07, trHemY + 0.01, Vs[:, 1])                          # nếp chùng trên gấu
+    return f
+tr = shell(tr_v, lambda Vs, W: np.full(len(Vs), PRM['TR']), tr_fold, PRM['TR_SMOOTH'], shape_fn=tr_shape)
 sk_idx, sk_F = sub(sk_v); sk = dict(idx=sk_idx, F=sk_F, V=V[sk_idx], W=WJ[sk_idx], fold=np.zeros(len(sk_idx)), bd=boundary(len(sk_idx), sk_F))
 log('vỏ: áo', len(sw['V']), 'quần', len(tr['V']), 'da ống chân', len(sk['V']))
 
@@ -278,9 +360,29 @@ for s in 'LR':
     # hệ khớp khuỷu ở BIND: trục −y của khớp = d; bán kính trung bình + tâm lệch (m)
     cuff[s] = {'r': float(r.mean()), 'rmax': float(r.max())}
 log('miệng tay áo', cuff)
-out = {'version': 'w4t-1', 'H': H, 'joints': JN, 'bind': BIND, 'prm': PRM, 'meta': {'cuff': cuff}, 'meshes': []}
+out = {'version': 'w4t-2', 'H': H, 'joints': JN, 'bind': BIND, 'prm': PRM, 'arm': ARM, 'meta': {'cuff': cuff, 'hemY': hemY, 'crotchY': crotchY}, 'meshes': []}
 for role, D in (('sweater', sw), ('trousers', tr), ('skin', sk)):
     Vx, T, Wx, fold = subdivide(D, role)
+    if role == 'sweater':   # bắc cầu lần cuối trên lưới đã chia (Catmull-Clark lưới thô lại tạo rãnh ~5 mm ở xương cùng)
+        aw = Wx[:, [JI[k] for k in ('shoulder_L', 'elbow_L', 'wrist_L', 'shoulder_R', 'elbow_R', 'wrist_R')]].sum(1)
+        bm = (aw < 0.2) & (Vx[:, 1] < JW['shoulder_L'][1] - 0.02) & (np.abs(Vx[:, 0]) < shX * H * 0.85)
+        Vx = bridge(Vx, bm & (Vx[:, 2] < 0.0), -1.0, step=0.004)
+        # còn rãnh hẹp (≤ 1 cm) đúng đường giữa: lấp cục bộ — mỗi đỉnh dải |x| < 2 cm lấy z sau nhất trong bán kính 6 mm (mặt phẳng x–y)
+        cz = np.nonzero(bm & (Vx[:, 2] < -0.03) & (np.abs(Vx[:, 0]) < 0.02))[0]; nb = np.nonzero(bm & (Vx[:, 2] < -0.03) & (np.abs(Vx[:, 0]) < 0.03))[0]
+        zc = Vx[cz, 2].copy()
+        for k, v in enumerate(cz):
+            d = np.hypot(Vx[nb, 0] - Vx[v, 0], Vx[nb, 1] - Vx[v, 1]); zc[k] = min(zc[k], Vx[nb[d < 0.006], 2].min())
+        log('lấp rãnh giữa lưng: đỉnh', int((zc < Vx[cz, 2] - 1e-5).sum()), 'sâu nhất (mm)', round(float(1000 * (Vx[cz, 2] - zc).max()), 1))
+        Vx[cz, 2] = zc
+        # NGỰC: len phủ trơn, không in cơ ngực/núm — khớp MỘT mặt đa thức trơn z(x, y) (bậc 4 theo x, 3 theo y; bình phương tối thiểu)
+        # cho mặt trước vùng ngực, thay z bằng mặt khớp với trọng số giảm dần ra mép vùng (không tạo bậc).
+        y_lo, y_hi, xw = JW['spine'][1] + 0.06, JW['shoulder_L'][1] - 0.005, shX * H * 0.75
+        fr = np.nonzero(bm & (Vx[:, 2] > 0.02) & (Vx[:, 1] > y_lo - 0.04) & (Vx[:, 1] < y_hi + 0.02) & (np.abs(Vx[:, 0]) < xw + 0.02))[0]
+        xs_, ys_ = Vx[fr, 0] / 0.1, (Vx[fr, 1] - (y_lo + y_hi) / 2) / 0.1
+        A = np.stack([xs_ ** i * ys_ ** j for i in range(5) for j in range(4)], 1); cf = np.linalg.lstsq(A, Vx[fr, 2], rcond=None)[0]
+        wt = sstep(xw + 0.01, xw - 0.03, np.abs(Vx[fr, 0])) * sstep(y_lo - 0.03, y_lo, Vx[fr, 1]) * sstep(y_hi + 0.01, y_hi - 0.02, Vx[fr, 1])
+        dz = wt * (A @ cf - Vx[fr, 2]); log('ngực trơn: đỉnh', len(fr), 'đổi max (mm)', round(float(1000 * np.abs(dz).max()), 1))
+        Vx[fr, 2] += dz
     Nx = tri_normals(Vx, T)
     # AO thủ tục: thung lũng nếp tối (fold âm), khe dưới nách, gấu
     ao = 1 - 9 * np.clip(-fold, 0, None)

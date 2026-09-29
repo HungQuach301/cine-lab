@@ -16,7 +16,7 @@ import { paintFace, faceUV, EXPR } from './facepaint.js';
 import { buildIdaFace, aiHeadSDF, FACE_PRESETS, VISEMES, mixW } from './facerig.js';
 import { buildIdaBL, preloadIdaBL, idaBLReady, buildCasBL, preloadCasBL, casBLReady, skinMaterial as blSkinMaterial } from './blender/bl_head.js';
 import { buildHandsBL, preloadHandsBL, handsBLReady } from './blender/hands_bl.js';
-import { buildCasBodyBL, preloadCasBodyBL, casBodyBLReady } from './blender/body_bl.js';
+import { buildCasBodyBL, preloadCasBodyBL, casBodyBLReady, casBodyArm } from './blender/body_bl.js';
 export { preloadIdaBL, idaBLReady, preloadCasBL, casBLReady, preloadHandsBL, handsBLReady, preloadCasBodyBL, casBodyBLReady };   // W4 'bl': nạp trước glb (bất đồng bộ) rồi mới buildCharacter
 
 // Phóng to bàn tay + ngón (không thuộc C3; trần cho phép 1,3×). Cas: tối đa để chim bóng thành hình cánh. Ida: vừa đủ cho cận cảnh.
@@ -30,6 +30,8 @@ export const CAS_STYLE = 'v14';
 // Cổng 6 (gói W4T): THÂN Cas 'bl' (áo len cổ lật cao, quần, da ống chân từ lưới thân MPFB CC0, cách A: giữ rig/tư thế). Chỉ có hiệu lực khi Cas 'bl'.
 // Mặc định GIỮ thân cũ ('v14'); bật: opts.casBody = 'bl' hoặc globalThis.CINE_CAS_BODY = 'bl' (nhớ await preloadCasBodyBL()).
 export const CAS_BODY = 'v14';
+// W4T lượt 2 (chủ dự án 29/09/2026, mục e): da tay MPFB ('bl'): cuộn sáng mềm sát đèn lồng (cả Ida và Cas) + màu da tay Cas ấm hơn — không trắng như găng.
+export const HAND_SKIN = { neutral: 0.35, knee: 0.4, cap: 0.8, cas: '#cf9878', ida: '#d8b49a' };   // Cas: da tay ấm, bão hoà hơn (lượt 1 '#e2bfa2' đọc thành găng xám dưới đèn lồng)
 // Búi tóc Ida phóng 1,3× so với model sheet (0,42 H → 0,55 H) để đọc rõ trong silhouette nghiêng.
 export const BUN_SCALE = 1.3;
 // Cổng 5 (W3): lọn tóc bạc thái dương (A1) — 'temple' = ngắn, dày, ở thái dương (đề xuất W3); 'long' = bản v1.2 (buông tới má). opts.idaWisps ghi đè.
@@ -52,6 +54,11 @@ function defaultMaterial(role, color, part, extra = {}) {
 const phiOf = (x, z) => Math.atan2(x, z);
 
 export function buildCharacter(sheet, opts = {}) {
+  {   // W4T lượt 2 (chủ dự án 29/09/2026): Cas thân 'bl' → tay theo tỷ lệ MPFB (độ dài khớp trong cas_body_bl.json). Chỉ khi cờ bật; mặc định giữ sheet.
+    const arm = !sheet.id.startsWith('CHR-ida') && (opts.casStyle ?? globalThis.CINE_CAS_STYLE ?? CAS_STYLE) === 'bl'
+      && (opts.casBody ?? globalThis.CINE_CAS_BODY ?? CAS_BODY) === 'bl' && casBodyBLReady() ? casBodyArm() : null;
+    if (arm) sheet = { ...sheet, parts: { ...sheet.parts, upper_arm: { ...sheet.parts.upper_arm, length: arm.upper_arm }, forearm: { ...sheet.parts.forearm, length: arm.forearm } } };
+  }
   const ch = baseBuild(sheet, opts);
   const H = sheet.H_m, P = sheet.parts, C = sheet.local_colors, J = sheet.joints_default;
   const isIda = sheet.id.startsWith('CHR-ida');
@@ -692,13 +699,14 @@ export function buildCharacter(sheet, opts = {}) {
     if (!BODY) add(joints.spine, sculpt(torsoSDF, { c: [0, 0.7, 0], r: [0.8, 1.0, 0.55], nu: R(72), nv: R(58), scale: H, uv: [9, 4], color: aoCol(torsoSDF, 0.5) }), 'sweater', C.sweater, 'torso');
     if (!BLC) add(joints.spine, tube({ y0: (tL + 0.08) * H, y1: (tL - 0.1) * H, nu: R(48), nv: 6, rad: (s, ph) => [(0.19 + 0.015 * Math.sin(Math.PI * s) + 0.004 * Math.abs(Math.sin(ph * 30))) * H, 0, 0.0] }), 'sweater', C.sweater, 'collar', 'rib');
     else {   // Cổng 6 (quyết định chủ dự án "Cas A+", nháp v1.6 mục 5): CỔ LẬT CAO — ống cổ 0,20 H từ chân cổ, phần lật gập 0,09 H, Ø ngoài ≈ 0,40 H; cùng màu/vân len áo
-      const TOP = tL + 0.20, FOLD = TOP - 0.09, RS = 0.186, RF = 0.200, rib = (ph) => 0.004 * Math.abs(Math.sin(ph * 30)), rise = (ph) => 0.055 * sstep(0.3, -0.9, Math.cos(ph));   // sau gáy ống cổ dâng theo đường gáy (che da gáy)
+      const TOP = tL + 0.20, FOLD = TOP - 0.09, RS = 0.186, RF = 0.200, rib = (ph) => 0.004 * Math.abs(Math.sin(ph * 30)), rise = (ph) => (BODY ? 0.085 : 0.055) * sstep(0.3, -0.9, Math.cos(ph));   // sau gáy ống cổ dâng theo đường gáy (che da gáy)
+      const bk = (ph) => (BODY ? 0.03 : 0) * sstep(0.3, -0.9, Math.cos(ph));   // W4T lượt 2 (thân 'bl'): nới sau gáy — da gáy MPFB (r 5,9 cm) nằm sát/ngoài ống cổ, xuyên thành đốm và mép lởm chởm
       const fold = (ph, t) => 0.006 * Math.sin(ph * 5 + 0.7) * t + 0.004 * Math.sin(ph * 11 + 2.1) * t;   // nếp mềm ở mép lật
       const tn = [];
-      tn.push(add(joints.spine, tube({ y0: TOP * H, y1: (tL - 0.08) * H, nu: R(56), nv: R(10), rad: (ss, ph) => [(RS + rib(ph) - 0.01 * sstep(0.7, 1.0, ss)) * H, 0, 0.005 * H, rise(ph) * (1 - ss) * H] }), 'sweater', C.sweater, 'collar', 'rib'));
-      tn.push(add(joints.spine, tube({ y0: (TOP + 0.012) * H, y1: FOLD * H, nu: R(56), nv: R(8), rad: (ss, ph) => [(RF + 0.006 * Math.sin(Math.PI * ss) + fold(ph, ss) + rib(ph)) * H, 0, 0.005 * H, rise(ph) * H],
+      tn.push(add(joints.spine, tube({ y0: TOP * H, y1: (tL - 0.08) * H, nu: R(56), nv: R(10), rad: (ss, ph) => [(RS + bk(ph) * sstep(0.85, 0.45, ss) + rib(ph) - 0.01 * sstep(0.7, 1.0, ss)) * H, 0, 0.005 * H, rise(ph) * (1 - ss) * H] }), 'sweater', C.sweater, 'collar', 'rib'));
+      tn.push(add(joints.spine, tube({ y0: (TOP + 0.012) * H, y1: FOLD * H, nu: R(56), nv: R(8), rad: (ss, ph) => [(RF + bk(ph) + 0.006 * Math.sin(Math.PI * ss) + fold(ph, ss) + rib(ph)) * H, 0, 0.005 * H, rise(ph) * H],
         color: (ss) => { const a = 1 - 0.22 * sstep(0.75, 1.0, ss); return [a, a, a * 0.97]; } }), 'sweater', C.sweater, 'collar', 'rib'));
-      const ring = (y, r, tr, n) => { const pts = []; for (let i = 0; i <= n; i++) { const ph = 2 * Math.PI * i / n; const rr = r + fold(ph, 1); pts.push([Math.sin(ph) * rr * H, (y + rise(ph)) * H, (Math.cos(ph) * rr + 0.005) * H]); } return strandGeo(pts, () => [tr * H, tr * H], 8, R(96)); };
+      const ring = (y, r, tr, n) => { const pts = []; for (let i = 0; i <= n; i++) { const ph = 2 * Math.PI * i / n; const rr = r + bk(ph) + fold(ph, 1); pts.push([Math.sin(ph) * rr * H, (y + rise(ph)) * H, (Math.cos(ph) * rr + 0.005) * H]); } return strandGeo(pts, () => [tr * H, tr * H], 8, R(96)); };
       tn.push(add(joints.spine, ring(TOP + 0.004, (RS + RF) / 2, 0.02, 64), 'sweater', C.sweater, 'collar', 'rib'));      // mép gập tròn trên cùng
       tn.push(add(joints.spine, ring(FOLD + 0.004, RF + 0.004, 0.009, 64), 'sweater', C.sweater, 'collar', 'rib'));        // mép dưới phần lật
       // da CPU: chân theo thân, phần trên theo khớp cổ (cổ cúi/ngửa thì ống cổ đi theo, không hở, không xuyên cằm)
@@ -771,7 +779,7 @@ export function buildCharacter(sheet, opts = {}) {
   const fingerJ = {};
   let handsBL = null;
   if (HB) { for (const s of ['L', 'R']) ch.hands[s].hand.scale.setScalar(HS);
-    handsBL = buildHandsBL({ ch, who: isIda ? 'ida' : 'cas', H, HS, skinHex: isIda ? '#d8b49a' : '#e2bfa2', material: blSkinMaterial(opts), parts }); }
+    handsBL = buildHandsBL({ ch, who: isIda ? 'ida' : 'cas', H, HS, skinHex: isIda ? HAND_SKIN.ida : HAND_SKIN.cas, material: blSkinMaterial({ skinNeutral: HAND_SKIN.neutral, skinKnee: HAND_SKIN.knee, skinCap: HAND_SKIN.cap, ...opts }), parts }); }
   if (!HB) for (const s of ['L', 'R']) {
     const sx = s === 'L' ? 1 : -1, h = ch.hands[s]; h.hand.scale.setScalar(HS);
     const pl = hp.palm_length, pw = hp.palm_width, th = isIda ? 0.10 : 0.105;
@@ -881,7 +889,7 @@ export function buildCharacter(sheet, opts = {}) {
   let bodyBL = null;
   if (BODY) bodyBL = buildCasBodyBL({ root, joints, add, colors: { sweater: C.sweater, trousers: C.trousers, skin: C.skin } });
   if (bodyBL) for (const s of ['L', 'R']) {   // W4T: MĂNG SÉT LEN ôm miệng tay áo (gắn khuỷu như tay áo), lót trong khép về cổ tay → không lộ lòng tay áo tối
-    const el = joints['elbow_' + s], fa = P.forearm.length * H, cr = (bodyBL.meta.cuff?.[s]?.r ?? 0.029) + 0.003, ov = 0.07 * H;
+    const el = joints['elbow_' + s], fa = P.forearm.length * H, cr = (bodyBL.meta.cuff?.[s]?.r ?? 0.029) + (bodyBL.meta.hemY ? 0.009 : 0.003), ov = (bodyBL.meta.hemY ? 0.09 : 0.07) * H;   // W4T lượt 2: măng sét rộng + dài hơn — trùm hết cuống cổ tay MPFB (lượt 1 lộ tấm da dẹt như cổ găng)
     add(el, tube({ y0: -fa + 0.012, y1: -fa - ov, nu: R(40), nv: R(8), rad: (ss, ph) => [cr * (1 - 0.06 * ss) + 0.0012 * Math.abs(Math.sin(ph * 14)) + 0.0015 * Math.sin(Math.PI * ss)] }), 'sweater', C.sweater, 'sleeve_cuff', 'rib');
     add(el, tube({ y0: -fa - ov, y1: -fa - ov + 0.012, nu: R(40), nv: 3, rad: (ss) => [cr * (0.94 - 0.2 * ss)],
       color: (ss) => { const a = 0.75 - 0.3 * ss; return [a, a * 0.95, a * 0.93]; } }), 'sweater', C.sweater, 'sleeve_cuff', 'rib');
