@@ -6,12 +6,13 @@
 # Chạy nền (khoảng 3 giờ với v16):  nohup bash scripts/p/layout_full.sh v17 > /var/tmp/cine-out/v17.log 2>&1 &
 # Bước: render (render_film.js toàn phim, ~8 400 s ở v16) · tron-am (audio/mix.py; tự chạy khi thiếu /var/tmp/cine-out/audio/mix.flac) · ghep (assemble.py) · dong-goi (package.py, LAYOUT_TAG) · mat-na (export_c3.js ×4 + đổi xám)
 #       · bong (export_sil.js) · kiem-toan (audit.py issue + render lại C3 + bóng + render.log) · luat (checks/run.py --profile shot)
+#       · c3-cas (Cổng 6 W2: C3 lượt Cas — scripts/p/c3_hai_nv.sh <X> 0 <số khung> cas → <X>.cas.parts, <X>.cas.audit, reports/checks/layout-<TAG>-c3-cas/)
 # LƯU Ý:
 #  - render_film.js không có --only ghi timing.json; assemble.py chỉ đọc timing_*.json (bản mới nhất của cùng shot thắng) → đổi tên ngay sau render.
 #  - Mặt nạ C3 xuất RGBA; đổi sang L (kênh alpha) trước khi chạy luật. KHÔNG đổi các PNG bóng (sil/, silhouette.png).
 #  - P KHÔNG sửa checks/; chỉ chạy checks/audit.py và checks/run.py. Luật trượt: báo, không sửa hình để lách.
 set -e
-TAG=${1:?cần TAG, vd. v17}; BUOC=${BUOC:-render,ghep,dong-goi,mat-na,bong,kiem-toan,luat}
+TAG=${1:?cần TAG, vd. v17}; BUOC=${BUOC:-render,ghep,dong-goi,mat-na,bong,kiem-toan,luat,c3-cas}
 has() { [[ ",$BUOC," == *",$1,"* ]]; }
 cd "$(dirname "$0")/../.."
 Q="bash scripts/render/queue.sh P"
@@ -56,4 +57,8 @@ open(X+'.audit/render.log','w').write('\n'.join(L)+'\n')
 PY
 fi
 has luat && { $Q $TAG-luat-may -- /opt/cine/bin/python checks/run.py $X.mp4 --profile shot --out reports/checks/layout-$TAG || true; }
+if has c3-cas; then
+  NF=$(ffprobe -v error -count_packets -select_streams v:0 -show_entries stream=nb_read_packets -of csv=p=0 $X.mp4)
+  bash scripts/p/c3_hai_nv.sh $X 0 $NF cas
+fi
 echo "$TAG-XONG"

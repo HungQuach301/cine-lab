@@ -15,6 +15,12 @@ ffmpeg -hide_banner -filters 2>/dev/null | grep -q ebur128 && ok "ffmpeg ebur128
   && ok "Python chính: faster-whisper, pyloudnorm, opencv, scenedetect, elevenlabs, librosa" || ko "Python chính" "thiếu gói trong /opt/cine"
 [ -x "$CINE_BPY" ] && $CINE_BPY -c "import bpy; print(bpy.app.version_string)" >/tmp/bpyv 2>/dev/null \
   && ok "Blender bpy $(tail -1 /tmp/bpyv)" || ko "bpy" "chưa cài hoặc thiếu thư viện hệ thống"
+# three.js cho trang render: không nằm trong git; container mới phải chạy npm ci (xem setup.sh bước 5)
+SH="$(cd "$(dirname "$0")/../.." && pwd)/design/cong3/shared"
+TV=$(node -p "require('$SH/node_modules/three/package.json').version" 2>/dev/null)
+LV=$(node -p "require('$SH/package-lock.json').packages['node_modules/three'].version" 2>/dev/null)
+[ -n "$TV" ] && [ "$TV" = "$LV" ] && ok "three.js $TV (design/cong3/shared/node_modules, khớp package-lock)" \
+  || ko "three.js" "thiếu hoặc lệch package-lock (có: ${TV:-không}, lock: $LV) — chạy: (cd design/cong3/shared && npm ci)"
 ls /opt/pw-browsers 2>/dev/null | grep -q chromium && ok "Chromium (Playwright)" || ko "Chromium" "chưa tải — kiểm tên miền playwright"
 
 # Mạng

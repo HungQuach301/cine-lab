@@ -59,6 +59,17 @@ P4=$!
 
 wait $P2; R2=$?; wait $P3; R3=$?; wait $P4; R4=$?
 
+# 5) three.js cho trang render (design/cong3/shared/node_modules — KHÔNG nằm trong git).
+#    Luôn dùng `npm ci` theo package-lock.json (three 0.180.0, đúng mã integrity), không dùng `npm install`.
+#    Setup script có thể chạy trước khi repo được clone: không thấy repo thì bỏ qua; verify.sh báo FAIL kèm lệnh chạy tay.
+R5=skip
+for REPO in "${CINE_REPO:-}" /home/user/cine-lab; do
+  if [ -n "$REPO" ] && [ -f "$REPO/design/cong3/shared/package-lock.json" ]; then
+    ( cd "$REPO/design/cong3/shared" && retry npm ci --no-audit --no-fund ) && R5=0 || R5=1
+    break
+  fi
+done
+
 # Biến môi trường cho mọi phiên
 cat > /etc/profile.d/cine.sh <<'EOF'
 export PLAYWRIGHT_BROWSERS_PATH=/opt/pw-browsers
@@ -68,7 +79,7 @@ export HF_HOME=/opt/hf-cache
 EOF
 mkdir -p /opt/hf-cache && chmod 777 /opt/hf-cache
 
-echo "== RESULT apt=$R1 py=$R2 playwright=$R3 bpy=$R4 (0 = OK)"
+echo "== RESULT apt=$R1 py=$R2 playwright=$R3 bpy=$R4 three=$R5 (0 = OK)"
 echo "== CINE setup end $(date -u +%FT%TZ)"
 # Luôn thoát 0 để cache được lưu; lỗi từng phần do scripts/env/verify.sh phát hiện.
 exit 0

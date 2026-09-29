@@ -1,17 +1,18 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **characters v1.5.1 (Ida) + v1.6 (Cas) KHOÁ 29/09/2026** (LOCK-THIẾT-KẾ 34 tệp); mặc định Ida 'bl' v1.5.1, Cas 'bl' + thân + tay MPFB · Cổng 6: W1/W2 CHƯA mở; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **characters v1.5.1 (Ida) + v1.6 (Cas) KHOÁ 29/09/2026** (LOCK-THIẾT-KẾ 34 tệp); mặc định Ida 'bl' v1.5.1, Cas 'bl' + thân + tay MPFB · Cổng 6 diễn hoạt: **W2 đang chạy (một mình), W1 CHƯA mở** · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
+0. **Cổng 6 — diễn hoạt: W2 ĐANG CHẠY (mở 29/09/2026, một mình; W1 CHƯA mở)** — chỉ thị và quyết định: AUTHORSHIP "Cổng 6 — diễn hoạt". Nhịp: khôi phục môi trường (npm ci, dò lệch 0 px) → sửa bộ xuất C3 cho cả Cas (`export_c3.js --who`, `scripts/p/c3_hai_nv.sh`; khiếu nại "C3 một nhân vật" chờ K trong checks-appeal.md) → **W2** (hạn ~1,5 triệu token, tối đa 2 vòng) → P: luật v1.5 (C3 Ida + Cas), kiểm mù 10 dải + 2 đối chứng, cine-continuity cảnh 4–6 → báo cáo `reports/m2/CONG-6-W2.md` → **DỪNG**.
 1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
 2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
 3. **Cổng 6 nhân vật XONG (29/09/2026):** khoá v1.5.1 + v1.6 (2f05a4b; LOCK-THIẾT-KẾ 34/34), layout-v16 + luật v1.5 (P0 ĐẠT; C3/H1b/G3b trượt như v15), **merge main 3c40f03**. Báo cáo reports/m2/CONG-6-KHOA.md. **Kế hoạch W1/W2** (reports/m2/cong6/KE-HOACH-W1-W2.md) **CHỜ chủ dự án quyết mở**. Kiểm mù: **10 khung** mỗi lần (chủ dự án chốt khi bàn giao). Việc chờ quyết: C3 cho Cas (hiện luật chỉ đo Ida). **Bàn giao phiên P: PLAN-HANDOFF-P.md.**
    - **Quyết định 29/09/2026:** lượt 3 = sửa tham số (gấu áo nâng một phần, ống quần nới, tay nắm quai đèn lồng s41/s42a), **không kiểm mù**; chủ dự án xem ảnh (reports/m2/CONG-6-THAN-3.md) rồi duyệt khoá. Khi duyệt: khoá v1.5.1 + v1.6 một lần (sai lệch chấp nhận: chân/tay có thể còn bị chê ở khung tĩnh, kiểm lại trên clip W1/W2), mặc định Cas 'bl' + thân + tay mới, layout-v16 kèm silhouettes, luật v1.5, merge main (tài sản phải có trên main cho worktree W1/W2).
-   - **Cách chấm kiểm mù từ W1/W2:** ≥ 6 khung; ĐẠT khi tỉ lệ khung HÌNH có từ khoá ≤ nhiễu nền đối chứng (2/20) và không lời chê cùng chỗ lặp ≥ 2 khung; đối chứng chạy mỗi lần.
-2. ~~Khiếu nại P0 (2 lần báo nhầm) chờ K~~ — **đã phán quyết và sửa ở checks v1.5** (checks-appeal.md). Không còn khiếu nại chờ.
+   - **Cách chấm kiểm mù từ W1/W2:** **10 khung mỗi lần, được phép 1 khung trúng** (AUTHORSHIP "Cổng 6 — bàn giao P" và "Cổng 6 — diễn hoạt"), cộng 2 đối chứng chạy mỗi lần; ĐẠT khi ≤ 1/10 khung (cột HÌNH; ở W2 cả cột TƯ THẾ) có từ khoá và không lời chê cùng chỗ lặp ≥ 2 khung. Nhiễu nền đối chứng hiện 2/20.
+4. ~~Khiếu nại P0 (2 lần báo nhầm) chờ K~~ — **đã phán quyết và sửa ở checks v1.5** (checks-appeal.md). **Khiếu nại mới (29/09/2026): C3 chỉ đọc một nhân vật mỗi thư mục parts — chờ K/chủ dự án.**
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
 ## Việc cho Cổng 6 — theo quyết định "Cửa mặt Ida (đóng)" 29/09/2026 (chỉ ghi, chưa làm)
