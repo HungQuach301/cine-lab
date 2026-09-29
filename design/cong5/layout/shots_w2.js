@@ -443,7 +443,7 @@ pa1Shot('s39', { size: 'CU', angle: 'nghiêng 96° (phía phố), ngang mắt', 
 // s40 — Cổng 6: QUYẾT ĐỊNH CỐ ĐỊNH (chủ dự án 29/09/2026): mặt Ida CHÌM VÀO BÓNG TỐI đúng lúc L11 tắt (L11_OFF = 109,2 s), không lộ mặt chính diện dưới ánh sáng.
 // Dàn dựng (không thêm/bớt đèn): máy ở phía phố (+x, như PA1) ngang lồng đèn → cần van (tay trái bà, MPFB, nắm thật bằng reachGrip) ở tiền cảnh, ngọn lửa trong lồng,
 // mặt bà NGHIÊNG (≈ 90°) bên phải lồng, được chính ngọn lửa rọi. Lửa co lại, ngả xanh (108,3–109,2); cùng lúc bà cúi đầu và quay mặt khỏi máy (108,75 → 109,2):
-// ở 109,2 lửa tắt, kính lồng thành tối đục, mặt bà nằm dưới vành mũ, quay đi — trên hình chỉ còn vành mũ, búi tóc tối. Máy giữ im 0,8 s.
+// ở 109,2 lửa tắt, kính lồng thành tối đục, mặt bà cúi 30° + quay 72° khỏi máy (thấy vành mũ, búi tóc, tai), quay đi — trên hình chỉ còn vành mũ, búi tóc tối. Máy giữ im 0,8 s.
 // G2: mũ giữ hat_back 0,35 như s39 (bản Cổng 5 đầu thẳng nhìn trước → đọc thành "mũ đội thẳng").
 S({ id: 's40', scene: 5, size: 'CU (insert)', angle: 'ngang lồng đèn, từ lòng phố (phía phố, +x)', mm: 50, move: 'tĩnh',
   why: 'NGỌN CUỐI (AI mù v1: "thắp hay tắt?"): tay bà gạt van; lửa co lại, ngả xanh, tắt; mặt bà chìm vào bóng tối đúng lúc lửa tắt (quyết định cố định Cổng 6); máy giữ im 0,8 s trên lồng kính tối. Rõ là TẮT.', sound: 'van kim loại; lửa xì nhỏ dần; "phụt" tắt; im',
@@ -460,11 +460,11 @@ S({ id: 's40', scene: 5, size: 'CU (insert)', angle: 'ngang lồng đèn, từ l
         const u = clamp01((T - VALVE) / 0.6); lever.rotation.z = -0.5 + 1.2 * ease(u); lever.updateMatrixWorld(true);
         const k = ease((T - (L11_OFF - 0.45)) / 0.45);   // cúi + quay mặt đi: 108,75 → 109,2 (xong ĐÚNG lúc lửa tắt)
         const b = Math.sin(2 * Math.PI * T / 4.2);
-        const pose = addJ(over(p.faceRest(HB, 0), { hands: { L: { spread: 0.1, curl: 0.85 }, R: { spread: 0.1, curl: 0.45 } } }), { neck: [-10 + 34 * k - 0.3 * b, -38 * k, 0], spine: [0.7 * b + 3 * k, -6 * k, 0] });
+        const pose = addJ(over(p.faceRest(HB, 0), { hands: { L: { spread: 0.1, curl: 0.85 }, R: { spread: 0.1, curl: 0.45 } } }), { neck: [-10 + 30 * k - 0.3 * b, -72 * k, 0], spine: [0.7 * b + 3 * k, -14 * k, 0] });
         ida.place(pose, LAMP_X(11), ON_Z1, 0);
         // tay trái nắm cần van (hộp 0,10 × 0,012 m): trục = trục x cục bộ của cần, điểm nắm 3 cm ngoài tâm cần; cần xoay → tay xoay theo (IK mỗi khung)
         const ax = new THREE.Vector3(1, 0, 0).transformDirection(lever.matrixWorld), pt = lever.localToWorld(new THREE.Vector3(0.025, 0, 0));
-        const preL = +(ida.gripPoint('L').distanceTo(pt) - 0.009).toFixed(4); const gL = gripAt(ida, 'L', { point: pt.toArray(), axis: ax.toArray(), radius: 0.009 });
+        const preL = +(ida.gripPoint('L').distanceTo(pt) - 0.009).toFixed(4); const gL = gripK(ida, 'L', { point: pt.toArray(), axis: ax.toArray(), radius: 0.009 }, 1 - ease((T - (VALVE + 0.62)) / 0.4), true) ?? -1;   // gạt xong (108,3) tay buông cần, hạ về tư thế nghỉ (108,32–108,72) — không vặn cổ tay theo cần
         face(mixW(wAt(TR.expr, T), { blink: blinkAt(T, TR.blinks) + blinkAt(T, [[107.55, 1.4]]) }), [0, valAt([[107.4, -0.12], [108.7, -0.1], [109.2, 0.3]], T)]);   // nhìn ngọn lửa, rồi cụp mắt theo đầu
         const [kf, bl] = flameL11(T); flame.scale.copy(fs0).multiplyScalar(Math.max(kf, 0.001)); flame.visible = kf > 0.01;
         l11.flameM.color.set('#fff2d0').multiplyScalar(30 * Math.max(kf, 0.2)).lerp(blue.clone().multiplyScalar(8), bl);
