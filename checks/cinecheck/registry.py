@@ -71,9 +71,16 @@ RULES = {
                 "<video>.script.txt (phụ đề), chữ đọc được trong matte phần tử không diegetic (tiêu đề, phụ đề, "
                 "credit), trường 'text' khai cho phần tử không diegetic. Trùng = giống cả dòng ≥ 0,80 "
                 "(difflib, dòng ≥ 2 từ hoặc ≥ 6 ký tự) hoặc giống một đoạn liền ≥ 0,85 với ≥ 2 từ và ≥ 50% số "
-                "từ của dòng.",
+                "từ của dòng. v1.5 (2 khiếu nại Cổng 5, chủ dự án chấp nhận 29/09/2026: nhân vật đọc thành chữ): vùng chữ "
+                "không matte được miễn khi đủ cả: (1) chuỗi ≤ 3 ký tự (không kể khoảng trắng); (2) khung có mặt nạ nhân vật "
+                "trong <video>.parts/ (mặt nạ bộ phận C3 của đúng khung và/hoặc 'silhouettes', RUN.md 3.6.3), hợp lại, quy "
+                "về cỡ khung; (3) mặt nạ nới 2 px chạm hộp chữ; (4) độ khớp biên cục bộ (biên mặt nạ trong hộp nới 16 px; "
+                "cạnh ảnh trên biên / trung vị 8 hướng dịch ±6 px, như C3) ≥ 1,5 với ≥ 20 điểm biên; (5) phản chứng: xoá "
+                "nhân vật (cv2.inpaint Telea bán kính 5 trên mặt nạ nới 2 px) rồi đọc lại đúng hộp, không còn chữ Latin "
+                "(cùng tiêu chí trên). Vùng được miễn liệt kê trong bằng chứng.",
         threshold="0 vùng chữ dò được mà không có matte; 0 vùng chữ diegetic trùng phụ đề/tiêu đề (ngưỡng hộp "
-                  "0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%, giống 0,80/0,85: nội bộ).",
+                  "0,6, độ tin 0,8, độ đặc 0,85, độ phủ 50%, giống 0,80/0,85: nội bộ). v1.5: miễn ≤ 3 ký tự (chủ dự án); "
+                  "độ khớp biên cục bộ ≥ 1,5 (FID_MIN của C3); nới 2 px, hộp nới 16 px, 20 điểm biên, inpaint 5 (nội bộ).",
         profiles=("shot", "youtube", "archive"),
     ),
     "G4": dict(
@@ -239,7 +246,13 @@ RULES = {
                 "So với số của góc gần nhất. Mặt nạ rỗng mà views khai không bị che = thiếu mặt nạ (lỗi). Không có 'views': "
                 "mọi mẫu so với góc 0° như v1.3. Mẫu không đo được được đếm và liệt kê; tỷ lệ mẫu đo được báo theo từng shot "
                 "(tách shot như G3b). Shot có nhân vật mà 0 mẫu đo được → CẦN NGƯỜI XEM. Kiểm toán: có 'views' thì xưởng "
-                "xuất lại views.json cho khung được chọn; lệch > 1° hoặc > 0,005 → trượt.",
+                "xuất lại views.json cho khung được chọn; lệch > 1° hoặc > 0,005 → trượt. v1.5 (trục đầu): model sheet khai "
+                "c3_head_axis: 'doc' = độ dài đầu là bề dài chiếu mặt nạ đầu lên trục dọc thân (vectơ đơn vị từ tâm mặt nạ "
+                "thân tới tâm mặt nạ đầu cùng khung; thiếu thân: phương dọc ảnh) + 1 px; 'pca' (mặc định) = trục chính như "
+                "v1.4; giá trị khác = THIẾU. Khung có trục chính đầu lệch trục dọc > 45° (đầu rộng hơn cao) được liệt kê. "
+                "Kiểm toán dùng cùng cách đo. 'silhouettes' (bóng nhân vật cho P0) nằm trong SHA bộ mặt nạ; phiếu kiểm "
+                "toán chọn thêm 1 khung trong các khung chỉ có bóng (sil_frames); khung được chọn có bóng thì render lại "
+                "silhouette.png, so như mặt nạ bộ phận.",
         threshold="Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; "
                   "dải xám biên ≤ 2,5; đầu < 100 px thì ≥ 4×; kiểm toán ngẫu nhiên đạt (lệch ≤ 1·U, khác điểm ảnh ≤ 0,02, "
                   "log và SHA file cảnh khớp); "

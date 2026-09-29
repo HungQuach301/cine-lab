@@ -11,6 +11,10 @@ Quy trình:
    render lại, hoặc mặt nạ nộp lệch mặt nạ render lại vượt dải nhiễu (tỷ lệ) hay vượt ngưỡng khớp điểm ảnh.
 4. v1.4: parts.json có 'views' (góc nhìn, gập, che, độ sâu) thì xưởng xuất lại views của các khung được chọn vào
    <video>.audit/rerender/<khung 5 chữ số>/views.json (cùng lược đồ một mục của 'views'); lệch bản nộp → TRƯỢT.
+5. v1.5: parts.json có 'silhouettes' (bóng nhân vật cho P0) thì bộ này nằm trong SHA bộ mặt nạ; máy chọn thêm 1 khung
+   ngẫu nhiên trong các khung CHỈ có 'silhouettes' (khung P0 lấy mẫu không trùng khung C3) vào 'sil_frames'. Mọi khung
+   được chọn có mục 'silhouettes' thì xưởng render lại <video>.audit/rerender/<khung 5 chữ số>/silhouette.png; so như
+   mặt nạ bộ phận (thiếu → TRƯỢT; khác điểm ảnh > 0,02 × biên → TRƯỢT), và log có dòng FRAME … CMD cho khung đó.
 
 Log bắt buộc (mỗi mục một dòng, thêm dòng tự do được):
   SCENE <đường dẫn file cảnh tính từ gốc repo> SHA256 <64 hex>
@@ -42,6 +46,9 @@ def parts_digest(parts_dir):
     files = {"parts.json"}
     for fr in spec.get("frames", {}).values():
         files.update(fr.values())
+    sil = spec.get("silhouettes")  # v1.5
+    if isinstance(sil, dict):
+        files.update(v for v in sil.values() if isinstance(v, str))
     lines = [f"{sha256_file(parts_dir / f)}  {f}" for f in sorted(files)]
     return hashlib.sha256("".join(l + "\n" for l in lines).encode()).hexdigest()
 
@@ -64,6 +71,10 @@ def issue(video, parts_dir, issued_by="P", seed=None):
     rng = np.random.default_rng(seed)
     k = min(len(cands), int(rng.integers(N_FRAMES[0], N_FRAMES[1] + 1)))
     frames = sorted(int(x) for x in rng.choice(cands, size=k, replace=False))
+    # v1.5: thêm 1 khung trong các khung chỉ có bóng nhân vật (rút SAU, không đổi khung C3 của một hạt giống)
+    sil = spec.get("silhouettes") if isinstance(spec.get("silhouettes"), dict) else {}
+    sil_only = sorted(int(x) for x in sil if str(x).isdigit() and int(x) not in set(cands))
+    sil_frames = [int(rng.choice(sil_only))] if sil_only else []
     ad = audit_dir(video)
     req = ad / "request.json"
     if req.exists():
@@ -72,6 +83,8 @@ def issue(video, parts_dir, issued_by="P", seed=None):
     body = dict(version=1, seed=str(seed), frames=frames, candidates=len(cands), issued_by=issued_by,
                 issued_utc=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 video=Path(video).name, video_sha256=sha256_file(video), parts_sha256=parts_digest(parts_dir))
+    if sil:
+        body.update(sil_frames=sil_frames, sil_candidates=len(sil_only))
     req.write_text(json.dumps(body, indent=1, ensure_ascii=False), encoding="utf-8")
     return body
 
@@ -93,7 +106,7 @@ def _boundary(m):
     return int((m ^ cv2.erode(m.astype(np.uint8), np.ones((3, 3), np.uint8)).astype(bool)).sum())
 
 
-def verify(video, parts_dir, repo, spec, load_mask, length_px, uncertainty, assets=None):
+def verify(video, parts_dir, repo, spec, load_mask, lengths, uncertainty, assets=None):
     """Đối chiếu kiểm toán. Trả (metrics_rows, notes, evidence, có_yêu_cầu)."""
     from .common import metric
     ad = audit_dir(video)
@@ -103,7 +116,9 @@ def verify(video, parts_dir, repo, spec, load_mask, length_px, uncertainty, asse
                     f"`checks/audit.py issue {Path(video).name}`."], {}, False
     req = json.loads(req_p.read_text(encoding="utf-8"))
     frames = [int(f) for f in req.get("frames", [])]
-    ms, notes, ev = [], [f"Kiểm toán ngẫu nhiên: hạt giống {req.get('seed')}, khung {frames}, phát bởi "
+    sil_frames = [int(f) for f in req.get("sil_frames", [])]  # v1.5: khung chỉ có bóng nhân vật
+    ms, notes, ev = [], [f"Kiểm toán ngẫu nhiên: hạt giống {req.get('seed')}, khung {frames}"
+                         + (f", khung bóng nhân vật {sil_frames}" if sil_frames else "") + f", phát bởi "
                          f"{req.get('issued_by')} lúc {req.get('issued_utc')}."], dict(yeu_cau=req)
     ms.append(metric("kiểm toán: video không đổi sau khi phát yêu cầu", sha256_file(video) == req.get("video_sha256"),
                      "==", True))
@@ -127,13 +142,17 @@ def verify(video, parts_dir, repo, spec, load_mask, length_px, uncertainty, asse
         scene_ok &= ok
     ms.append(metric("kiểm toán: log có dòng SCENE, SHA-256 khớp file cảnh trên đĩa", scene_ok, "==", True))
     ms.append(metric("kiểm toán: khung được chọn không có dòng FRAME … CMD trong log",
-                     sum(1 for f in frames if f not in cmds), "<=", 0))
+                     sum(1 for f in frames + sil_frames if f not in cmds), "<=", 0))
     ev.update(log_scene=scene_rows, log_lenh={str(k): v for k, v in cmds.items()})
     # đối chiếu mặt nạ
     missing, worst_ratio, worst_xor, rows = 0, 0.0, 0.0, []
-    for f in frames:
-        sub = spec["frames"].get(str(f), {})
-        for part, rel in sub.items():
+    sil = spec.get("silhouettes") if isinstance(spec.get("silhouettes"), dict) else {}
+    for f in frames + sil_frames:
+        sub = spec["frames"].get(str(f), {}) if f in frames else {}
+        pairs_ = list(sub.items())
+        if isinstance(sil.get(str(f)), str):  # v1.5: bóng nhân vật (P0) render lại như mặt nạ bộ phận
+            pairs_.append(("silhouette", sil[str(f)]))
+        for part, rel in pairs_:
             rp = ad / "rerender" / f"{f:05d}" / f"{part}.png"
             if not rp.is_file():
                 missing += 1
@@ -149,12 +168,14 @@ def verify(video, parts_dir, repo, spec, load_mask, length_px, uncertainty, asse
             worst_xor = max(worst_xor, xr)
             rows.append(dict(khung=f, bo_phan=part, khac_diem_anh_tren_bien=round(xr, 4)))
         if "head" in sub and all((ad / "rerender" / f"{f:05d}" / f"{p}.png").is_file() for p in sub):
-            hs, hr = length_px(load_mask(parts_dir / sub["head"])), length_px(load_mask(ad / "rerender" / f"{f:05d}" / "head.png"))
+            # v1.5: độ dài theo cùng cách C3 (đầu đo theo trục gần trục dọc thân), cả bộ nộp lẫn bộ render lại
+            Ls = lengths({p: load_mask(parts_dir / rel) for p, rel in sub.items()})
+            Lr = lengths({p: load_mask(ad / "rerender" / f"{f:05d}" / f"{p}.png") for p in sub})
+            hs, hr = Ls["head"], Lr["head"]
             for part, rel in sub.items():
                 if part == "head" or hs is None or hr is None:
                     continue
-                ls_ = length_px(load_mask(parts_dir / rel))
-                lr = length_px(load_mask(ad / "rerender" / f"{f:05d}" / f"{part}.png"))
+                ls_, lr = Ls[part], Lr[part]
                 if ls_ is None or lr is None:
                     continue
                 d = abs((ls_ / hs) / (lr / hr) - 1)
