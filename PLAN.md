@@ -6,7 +6,8 @@ Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Mở Cổng 6** (reports/m2/CONG-6-MO.md): khoá v1.5 + C3 layout 'bl' + gói Cas MPFB (v1.6 nháp) + kế hoạch diễn hoạt → chủ dự án duyệt TRƯỚC khi bắt đầu diễn hoạt.
+1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (đang làm) → DỪNG → chờ duyệt → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
+2. Phiên K: checks v1.5 làm song song (P không sửa checks/, không merge checks/v1.5 khi chưa duyệt).
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
@@ -22,9 +23,13 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 - (3) Mắt đọc được khi quay nghiêng (máy PA1).
 - (4) Tay Ida dùng tay MPFB, cầm nắm cột và van đúng.
 
+**c′. Quyết định cố định (29/09/2026):** **s22 (W1)**: xoay Ida sang 3/4 (> 30°), giữ MCU. **s40 (W2)**: mặt Ida chìm vào bóng tối đúng lúc L11 tắt (1:49,2) — quyết định cố định. Đã ghi vào shots_w1.json / shots_w2.json (trường `cong6`).
+
 **c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Phải đổi cỡ nếu chưa sửa mắt: s22 (MCU), s36 (MCU), s37 (CU), s39 (CU), s40 (CU insert)**; s36–s39 đã thuộc dàn dựng lại PA1. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
 
-**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) — XONG, kiểm mù nhẹ TRƯỢT (Cas "búp bê" 2/2, lệch phong cách 1/2); nháp v1.6 chờ duyệt; mặc định Cas v1.4.
+**e. Gói W4 nhân vật (đang làm):** mắt Ida + Cas; mũ ôm đầu (mũ phớt Ida, mũ len Cas, tóc gáy Cas); tay MPFB Ida + Cas (Ida nắm cột và van, Cas cầm đèn lồng); **Cas cổ áo len lật cao** (P soạn số cổ vào nháp v1.6); nghiên cứu khả thi thân MPFB (chỉ báo cáo). Sau đó kiểm mù 6 subagent.
+
+**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) — XONG; chủ dự án chọn **A+** (nhận Cas 'bl' làm nền, cổ áo lật cao), kiểm mù nhẹ TRƯỢT (Cas "búp bê" 2/2, lệch phong cách 1/2); nháp v1.6 chờ duyệt; mặc định Cas v1.4.
 
 ## Việc cho Cổng 6 (từ Cổng 5 — B1 và continuity lần 3)
 - **B1 cảnh 6:** làm rõ hướng mặt, hướng đầu của Ida ở s45 và đồng hồ trong tay (s45 → s46 → s45c giữ nguyên).
