@@ -1,7 +1,7 @@
 # Báo cáo phiên K — checks v1.5
 
 Ngày: 29/09/2026 · Nhánh: `checks/v1.5` (từ `main` cce7fb2) · Phạm vi sửa: `checks/`, `checks-appeal.md`, `reports/checks-v1.5/`.
-LOCK cũ: `289c6916…d4f2` (v1.4.0) → **LOCK mới: `LOCKHASH`** (v1.5.0).
+LOCK cũ: `289c6916…d4f2` (v1.4.0) → **LOCK mới: `8d55b6ad…`** (v1.5.0).
 
 ## 1. Tóm tắt
 
@@ -10,7 +10,7 @@ LOCK cũ: `289c6916…d4f2` (v1.4.0) → **LOCK mới: `LOCKHASH`** (v1.5.0).
 | 1. P0 báo nhầm nhân vật thành chữ (2 khiếu nại, chủ dự án chấp nhận) | Đã sửa. Hai khung khiếu nại hết báo nhầm; chữ thật ≥ 4 ký tự trên áo, "56" trên tường, "56" chạm mép đầu và mặt nạ giả đều vẫn TRƯỢT |
 | 2. C3 trục đầu lật (Cas 'bl' 0°/180°) | Đã sửa bằng trường khai `c3_head_axis` trong model sheet: `"doc"` đo đầu theo trục dọc thân, không lật; mặc định `"pca"` giữ đúng v1.4 |
 | Phát hiện thêm | Đầu **Ida 'bl'** cũng rộng hơn cao ở cả 8 góc: `c3_views` Ida đang khoá là số theo **bề ngang** đầu. Cần chủ dự án quyết (Q-C3h) |
-| Selftest | SELFTEST_TONG (toàn bộ ca cũ giữ kết quả) |
+| Selftest | **142/142 khớp** (121 ca cũ + 21 ca mới); chạy đầu–cuối qua run.py: ĐẠT, LOCK khớp (toàn bộ ca cũ giữ kết quả) |
 | Chạy thử layout-v15 | P0: 0 → 0 vùng. C3: v1.4 và v1.5 giống hệt từng mẫu (298 mẫu đo được) |
 | Ngưỡng | Không đổi ngưỡng nào đã có. Ngưỡng mới đều nội bộ, nêu ở mục 2.3 |
 
@@ -129,7 +129,9 @@ K chạy lại chính công cụ turnaround của P (`c3_cas.py` ở nhánh layo
 
 ## 4. Selftest toàn bộ
 
-SELFTEST_CHITIET
+- **142/142 ca đơn khớp kỳ vọng**: 121 ca của v1–v1.4 giữ nguyên kỳ vọng và kết quả (gồm mọi ca C3 cũ và 4 ca P0 cũ, trong đó ca hồi quy M0 "88:18"), cộng 21 ca mới (11 P0, 10 C3).
+- Chạy đầu–cuối 16 luật bằng `run.py` (profile youtube): mẫu sạch ĐẠT (exit 0), LOCK khớp; mẫu bẩn exit 1 như kỳ vọng.
+- Thời gian: 19 phút 32 giây (4 vCPU).
 
 Kết quả đầy đủ: `reports/checks-selftest/selftest.md` và `.json`.
 
@@ -179,21 +181,21 @@ Bóng nhân vật K render cho 233 khung mẫu của layout-v15 (`dryrun/sil/lay
 
 - P0, s33 khung 1980: độ khớp biên cục bộ **1,61** so với ngưỡng 1,5 (+7,3%, ngoài ±5% nhưng gần; nêu để người duyệt biết). Nếu render lại bóng làm số này xuống < 1,5 thì "MA" lại TRƯỢT.
 - C3 layout-v15: như báo cáo P trước (hệ số mặt nạ 4 = ngưỡng 4; 4 ≥ 3,98). Không có chỉ số mới sát ngưỡng.
-- Selftest: CAS_SAT_NGUONG
+- Selftest: không có ca mới nào có chỉ số v1.5 trong ±5% quanh ngưỡng; các ca sát giới hạn là chủ ý ("CAFE" đúng 4 ký tự).
 
 ## 7. LOCK
 
 - Cũ: `289c6916363f44f2c7a11967b8cd67a3b3aadcb100577f632cf518252d3ad4f2` (v1.4.0).
-- **Mới: `LOCKHASH_FULL`** (v1.5.0). Kiểm: `/opt/cine/bin/python checks/lock.py --verify`.
+- **Mới: `8d55b6ad389dcbd2c40366bb16eed730106edef3ffee6c565e5ce786bd2aa65b`** (v1.5.0). Kiểm: `/opt/cine/bin/python checks/lock.py --verify`.
 - File đổi trong `checks/`: `RULES.md`, `RUN.md`, `audit.py`, `cinecheck/__init__.py`, `cinecheck/audit.py`, `cinecheck/registry.py`, `cinecheck/rule_c3.py`, `cinecheck/rule_p0.py`, `run.py`, `selftest/run_selftest.py`; mới: `selftest/cases_v15.py`, 4 file mẫu trong `selftest/fixtures/` (2 khung khiếu nại 204–241 KB, 2 bóng nhân vật).
 
 ## 8. Token
 
-Ước tính theo bộ đếm ngữ cảnh của phiên: khoảng TOKEN_DUNG token đã dùng (từ 15 triệu còn TOKEN_CON). Đây là số của bộ đếm phiên, không phải hoá đơn API. Phần nặng là đọc mã luật, chạy công cụ và đọc kết quả; render (bóng nhân vật 233 khung: 4 phút 37 giây; turnaround Cas, Ida: 2 phút 32 giây mỗi nhân vật) và chạy thử (15 phút 55 giây) tốn thời gian máy, không tốn token.
+Ước tính theo bộ đếm ngữ cảnh của phiên: khoảng 389000 token đã dùng (từ 15 triệu còn 14 611 000). Đây là số của bộ đếm phiên, không phải hoá đơn API. Phần nặng là đọc mã luật, chạy công cụ và đọc kết quả; render (bóng nhân vật 233 khung: 4 phút 37 giây; turnaround Cas, Ida: 2 phút 32 giây mỗi nhân vật) và chạy thử (15 phút 55 giây) tốn thời gian máy, không tốn token.
 
 ## 9. Việc đang chờ chủ dự án
 
-1. **Duyệt checks v1.5** (nhánh `checks/v1.5`, LOCK `LOCKHASH`). P merge sau khi duyệt. K dừng ở đây.
+1. **Duyệt checks v1.5** (nhánh `checks/v1.5`, LOCK `8d55b6ad…`). P merge sau khi duyệt. K dừng ở đây.
 2. **Q-P0c**: xác nhận cách hiểu "vùng OCR nằm phần lớn trong mặt nạ" = phản chứng (xoá nhân vật thì hết chữ) + mặt nạ chạm hộp + khớp hình cục bộ (mục 2.3). Nếu chủ dự án muốn tỷ lệ diện tích thì khiếu nại "MA" không sửa được.
 3. **Q-C3h**: Ida giữ 'pca' (sheet khoá hiện tại, kết quả không đổi) hay P đo lại `ida.json` theo 'doc' (phải khoá lại sheet, tác động theo shot ở mục 5.2)? Khuyến nghị của K: **giữ 'pca' cho Ida lúc này**; Cas v1.6 đo `c3_views` theo 'doc' trước khi khoá.
 4. Việc cho P khi v1.5 được duyệt: xuất `silhouettes` cho khung P0 (công cụ tham chiếu `k_sil.js`); `checks/audit.py show` giờ in cả khung bóng cần render lại.
