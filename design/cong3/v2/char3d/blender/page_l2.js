@@ -40,6 +40,7 @@ window.setup = async (c) => {
   if ((c.charOpts?.idaStyle ?? 'bl') === 'bl') await mod.preloadIdaBL(c.glb ? new URL(c.glb, location.href).href : undefined);   // "glb": thử bản glb khác (đường dẫn tính từ design/)
   const charOpts = { idaStyle: 'bl', ...(c.charOpts || {}) };
   if (c.handsStyle) { globalThis.CINE_HANDS_STYLE = c.handsStyle; if (c.handsStyle === 'bl') await mod.preloadHandsBL(); }   // Cổng 6: tay MPFB
+  if (c.casBody) { globalThis.CINE_CAS_BODY = c.casBody; if (c.casBody === 'bl') await mod.preloadCasBodyBL(); }   // Cổng 6 (W4T): thân Cas MPFB
   if (c.casStyle) { globalThis.CINE_CAS_STYLE = c.casStyle; if (c.casStyle === 'bl') await mod.preloadCasBL(c.casGlb ? new URL(c.casGlb, location.href).href : undefined); }   // Cổng 6: Cas 'bl'
   const [ida, cas] = await Promise.all(['/cong3/model-sheet/ida.json', '/cong3/model-sheet/cas.json'].map((p) => fetch(p).then((r) => r.json())));
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -102,6 +103,7 @@ window.renderFrame = async (name, samples) => {
   else if (c && c.joint) { const who = cur.named[c.who || 'ida'], j = new THREE.Vector3(); who.joints[c.joint].getWorldPosition(j);   // máy xem gần theo khớp (thử tay)
     cam.fov = fovOf(c.mm ?? 50); cam.position.copy(j).add(new THREE.Vector3(...(c.off || [0.4, 0.1, 0.4]))); cam.lookAt(j.clone().add(new THREE.Vector3(...(c.lookOff || [0, 0, 0])))); cam.updateProjectionMatrix(); }
   else if (c && c.pos) { cam.fov = fovOf(c.mm ?? 35); cam.position.set(...c.pos); cam.lookAt(new THREE.Vector3(...c.look)); cam.updateProjectionMatrix(); }
+  if (cfg.pose) for (const [who, pn] of Object.entries(cfg.pose)) { const ch = cur.named[who]; if (ch) { ch.setPose(ch.sheet.poses[pn]); ch.root.updateMatrixWorld(true); } }   // W4T: khung thử tư thế sheet (vd. {"cas":"turnaround"}), chỉ trang thử
   // Cổng 6 (W4): khung thử tay MPFB — "grips": [{who, s, auto:1} (nắm trụ gần nhất) | {who, lantern:1} (quai đèn lồng vào nắm tay)]
   const gripLog = []; if (cfg.grips) { info.grips = gripLog; for (const g of cfg.grips) { const ch = cur.named[g.who]; if (!ch) continue;
     if (g.lantern) { const lan = []; cur.scene.traverse((o) => { if (o.name === 'lantern') lan.push(o); }); const L = lan[0]; if (!L) continue;

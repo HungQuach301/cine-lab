@@ -38,6 +38,7 @@ window.setup = async (c) => {
   if (mod.preloadIdaBL && (globalThis.CINE_IDA_STYLE ?? mod.IDA_STYLE) === 'bl') await mod.preloadIdaBL();   // v1.5: glb đầu Ida 'bl' nạp trước (GLTFLoader bất đồng bộ)
   if (mod.preloadCasBL && (globalThis.CINE_CAS_STYLE ?? mod.CAS_STYLE) === 'bl') await mod.preloadCasBL();   // Cổng 6 (W4): glb đầu Cas 'bl' khi cờ bật
   if (mod.preloadHandsBL && (globalThis.CINE_HANDS_STYLE ?? mod.HANDS_STYLE) === 'bl') await mod.preloadHandsBL();   // Cổng 6 (W4): tay MPFB khi cờ bật
+  if (mod.preloadCasBodyBL && (globalThis.CINE_CAS_BODY ?? mod.CAS_BODY) === 'bl') await mod.preloadCasBodyBL();   // Cổng 6 (W4T): thân Cas MPFB khi cờ bật
   const [ida, cas] = await Promise.all(['/cong3/model-sheet/ida.json', '/cong3/model-sheet/cas.json'].map((p) => fetch(p).then((r) => r.json())));
   sheets = { ida, cas };
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;
