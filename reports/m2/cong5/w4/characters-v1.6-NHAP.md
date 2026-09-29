@@ -49,3 +49,10 @@ Số thô: `reports/m2/cong5/w4/CAS_c3_bl.json`.
 1. Chủ dự án duyệt hình Cas MPFB (ảnh `CAS_eevee_4goc.jpg`, 4 khung `CAS_K*.jpg`), sau kiểm mù của P.
 2. P/K quyết cách đo C3 0°/180° cho Cas (mục 2).
 3. Nếu duyệt: đặt `CAS_STYLE='bl'` làm mặc định, khoá cas.json v1.6 (c3_views + `face`/`cap`), ghi AUTHORSHIP.
+
+## 5. Cổ áo len lật cao (P soạn theo quyết định chủ dự án "Cas A+", 29/09/2026). CHƯA DUYỆT
+| Hạng mục | v1.4 | v1.6 (đề xuất) |
+|---|---|---|
+| Cổ áo len | cổ tròn rộng, hở, lộ cổ 0,22 H | **cổ lật cao (turtleneck):** ống cổ cao **0,20 H** tính từ chân cổ, che gần hết phần cổ lộ (0,22 H); mép trên cách cằm khoảng 0,02–0,04 H ở tư thế đứng thẳng. Phần **lật gập xuống 0,09 H**. Đường kính ngoài khoảng **0,40 H** (cổ 0,26 H + len dày khoảng 0,07 H mỗi bên); ôm vừa, không bó. Cùng màu, cùng vân len với thân áo; nếp gấp mềm ở mép lật |
+| Số đo cổ (sheet) | length 0,22, width_front 0,26 H | Giữ khung xương; phần cổ nhìn thấy còn khoảng 0,02–0,04 H. Mặt nạ C3 "đầu" không đổi cách đo (đầu = phần nhìn thấy dưới mũ, trên cổ áo) |
+| Lý do | lời chê kiểm mù "cổ như cái que", "cổ cò" (2/2 khung Cas) | Chủ dự án đổi thiết kế; đề xuất của Claude (rà độc lập bên ngoài) |
