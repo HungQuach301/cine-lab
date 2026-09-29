@@ -101,3 +101,10 @@ Tràn điện trên tường sau 64,84: vũng sáng cột trong sân (tầm 8,5 
 | Cas | Đứng sát tường, tay làm chim |
 | Đèn | Cột điện trong sân sáng; L11 cháy (chìm); P5 tắt |
 | s33 cần | Ida **đặt đèn lồng xuống nền** trong hốc cửa (12 m bên trái) — cắt nén: hai người đã đi tới hốc; góc hốc cửa **tối** (ngoài vũng cột sân) |
+
+
+## Cổng 6 · W2 v1 — diễn hoạt (29/09/2026)
+Không đổi dàn dựng, máy, ánh sáng cảnh 4. Thêm:
+- **Tư thế đứng tự nhiên (việc e):** Ida đứng xem (s25–s28) và Cas đứng (s29 sau 0,8 s, s30, s31, đầu s32): dồn trọng tâm một chân (chậu nghiêng 3°, gối chân kia chùng 10°), thân bù nghiêng, thở (chu kỳ 3,8 s bà / 3,0 s cậu), dao động trọng tâm 7 s. Không đổi vị trí gốc.
+- **Chim bóng với tay MPFB (s25, s27, s28; nối s29):** vai nâng thêm 8°, khuỷu duỗi thêm 14° (bù tâm lòng tay MPFB lệch ≈ 6,4 cm về cổ tay). Đo s25 (60,5 s): tâm lòng tay cao 1,216 → 1,241 m, cách tường 0,81 → 0,80 m. Nhịp vỗ, cổ tay bắt chéo, ngón cái đầu chim giữ nguyên. s32 (`birdReach`, tay giữa đèn lồng và tường) và s48 không bù.
+- **s31 — L3 "Go on, then." (74,05–75,25):** khẩu hình 6 viseme (miệng đi trước tiếng 0,04 s); trước lời: dịu; sau lời (75,4): cười buồn nhẹ, mí sụp, mắt hạ xuống tay cậu; gật nhẹ ở "then"; chớp 75,45 và 76,6 (chậm). Máy tĩnh thật (tính từ tư thế gốc — Cổng 5 máy bám đầu).

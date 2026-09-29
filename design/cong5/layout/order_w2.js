@@ -12,7 +12,10 @@ export const ORDER_W2 = [
   ['s34', 2.0, 'new'],
   ['s35', 4.0, 'new'],
   ['s36', 2.0, 'new'],
-  ['s37', 5.8, 'new'],
+  // Cổng 6 (PA1, chủ dự án): tách s37 (93,0–98,8) thành s37 MS nghiêng 90° "That's the last one, then." + nhịp cười buồn (93,0–96,4)
+  // và s37b CU nghiêng 90° đẩy chậm "Goodnight, old street." + nhịp cười buồn (96,4–98,8). Giữ id 's37' cho phần đầu (DIALOGUE.L4 = T0.s37). Tổng 5,8 s không đổi.
+  ['s37', 3.4, 'new'],
+  ['s37b', 2.4, 'new'],
   ['s37w', 2.8, 'new'],
   // (c) Cổng 5 v2 (chủ dự án): câu "Just… keep a little dark for the ones who need it." BẮT ĐẦU trên hình Ida → s39 (Ida CU) trước s38 (Cas).
   // L4 = 93,0 s; lời "Just" từ L4 + 9,33 s = 102,33 (whisper: 9,68); "for" L4 + 12,08 = 105,08; hết câu L4 + 14,00 = 107,00.
