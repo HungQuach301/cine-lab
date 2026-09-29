@@ -7,7 +7,8 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
 1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
-2. Phiên K: checks v1.5 làm song song (P không sửa checks/, không merge checks/v1.5 khi chưa duyệt).
+2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
+3. **Gói thân Cas MPFB (cách A, W4) đang làm, TRƯỚC W1/W2**; khoá v1.5.1 + v1.6 một lần sau gói thân và đo C3 (reports/m2/CONG-6-THAN.md).
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 

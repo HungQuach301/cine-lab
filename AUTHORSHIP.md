@@ -160,3 +160,12 @@ Các dòng trước đây ghi lỗi/yêu cầu là "Chủ dự án (qua rà đ�
 | 2026-09-29 | Cổng 6 (mở) | **Duyệt kế hoạch Cổng 6** (CONG-6-MO.md mục 4) với nhịp: **gói W4 nhân vật trước, rồi DỪNG** → (chờ duyệt) W1 + W2 → kiểm. **Mở phiên K ngay** (checks v1.5 làm song song; P không sửa checks/, không merge checks/v1.5 khi chưa duyệt) | Chủ dự án quyết nhịp chạy và mở K | Kế hoạch và ước tính token của P | Chủ dự án (chat 29/09/2026) |
 | 2026-09-29 | Cổng 6 (mở) | (1) Lệch phong cách còn nằm giữa đầu MPFB và thân/tay thô (áo Cas phồng như bóng bay, tay như găng hộp) → cần **nghiên cứu khả thi thân MPFB** (chỉ báo cáo, không thay vào phim); (2) đề xuất cổ áo lật cao cho Cas; (3) đề xuất cách xử lý s22 và s40 | Claude (rà độc lập bên ngoài) phát hiện; chủ dự án duyệt và giao sửa | — | Chủ dự án (chat 29/09/2026) |
 
+### Cổng 6 — nhân vật
+
+| Ngày | Cổng | Quyết định | Đóng góp biểu đạt của con người | Phần do AI đề xuất | Người duyệt |
+|---|---|---|---|---|---|
+| 2026-09-29 | Cổng 6 (nhân vật) | **Duyệt checks v1.5** (LOCK 8d55b6ad…; P merge vào main 08c07dd sau `lock.py --verify` KHỚP) | Chủ dự án duyệt | Phiên K soạn checks v1.5 | Chủ dự án (chat 29/09/2026) |
+| 2026-09-29 | Cổng 6 (nhân vật) | **Q-P0c:** đồng ý cách hiểu "phần lớn trong mặt nạ" = phản chứng (xoá nhân vật thì hết chữ) + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h:** Ida giữ trục đầu 'pca'; Cas v1.6 đo theo 'doc' | Chủ dự án quyết cách hiểu luật | Câu hỏi và đề xuất của phiên K | Chủ dự án (chat 29/09/2026) |
+| 2026-09-29 | Cổng 6 (nhân vật) | **Làm gói thân MPFB cho Cas (cách A) TRƯỚC W1 và W2.** **Khoá v1.5.1 (Ida) và v1.6 (Cas) MỘT LẦN**, sau gói thân và sau khi đo C3. **Loại:** B (chấp nhận lệch phong cách, mở W1/W2 ngay), C (cách điệu bớt đầu Ida) | Chủ dự án chọn A và quyết thời điểm khoá | Phương án Q1–Q4 của P; nghiên cứu thân MPFB của W4 | Chủ dự án (chat 29/09/2026) |
+| 2026-09-29 | Cổng 6 (nhân vật) | (1) Mối nối cổ tay MPFB đen, lởm chởm (thấy rõ ở cả Ida lẫn Cas); (2) không khoá v1.6 trước gói thân để tránh khoá hai lần; (3) Ida v1.5.1 phải đo C3 với mũ hạ thấp trước khi khoá | Claude (rà độc lập bên ngoài) phát hiện; chủ dự án duyệt và giao sửa | — | Chủ dự án (chat 29/09/2026) |
+
