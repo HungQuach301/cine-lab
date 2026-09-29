@@ -389,7 +389,7 @@ const pa1Shot = (id, meta) => S({ id, scene: 5, size: meta.size, angle: meta.ang
     const cam = camMM(meta.mm); const fl = createFaceLight(st.scene, { mode: meta.fl || 'gas' }); const EK = dbg.ek ?? meta.ek ?? 1.0;
     const face = faceRig(ida), TR = IDA5(DIALOGUE.L4), V = ida.VISEMES || {}, VG = valveOf(st);
     let C = null;   // máy tĩnh: mắt + hướng tính MỘT lần từ tư thế gốc (không phụ thuộc khung trước — cùng kết quả ở mọi khung)
-    const camBase = () => { ida.place(meta.pose(p, meta.T0 ?? 0, 0), LAMP_X(11), ON_Z1, 0); const head = wpos(ida.joints.head); head.y += 0.12;
+    const camBase = () => { ida.place((meta.camPose || meta.pose)(p, meta.T0 ?? 0, 0), LAMP_X(11), ON_Z1, 0); const head = wpos(ida.joints.head); head.y += 0.12;
       const q = ida.joints.head.getWorldQuaternion(new THREE.Quaternion()); const fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q); fw.y = 0; fw.normalize();
       const eye = head.clone().addScaledVector(fw, 0.08); eye.y += dbg.cy ?? meta.cy ?? -0.05; return { eye, dir: fw.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), (dbg.yaw ?? meta.yaw) * Math.PI / 180) }; };
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: dbg.exp ?? (() => fl.exposure() * EK),
@@ -400,7 +400,7 @@ const pa1Shot = (id, meta) => S({ id, scene: 5, size: meta.size, angle: meta.ang
         ida.place(meta.pose(p, T, t), LAMP_X(11), ON_Z1, 0);
         const preL = +(ida.gripPoint('L').distanceTo(new THREE.Vector3(...VG.point)) - VG.radius).toFixed(4);
         const gL = meta.valve === false ? null : meta.valveK ? gripK(ida, 'L', VG, meta.valveK(t), true) : gripAt(ida, 'L', VG);
-        face(mixW(wAt(TR.expr, T), mouthAt(TR.lip, T, V, meta.lipAmp ?? 0.85), { blink: blinkAt(T, TR.blinks) }), valAt(TR.gaze, T));
+        face(mixW(wAt(TR.expr, T), mouthAt(TR.lip, T, V, meta.lipAmp ?? 0.85), { blink: blinkAt(T, TR.blinks) }), (() => { const g = valAt(TR.gaze, T), a = meta.gazeAdd ? meta.gazeAdd(T) : [0, 0]; return [g[0] + a[0], g[1] + a[1]]; })());
         const fe = fl.update(ida, cam, meta.fl === 'elec' ? { keyE: st.whiteHemi.intensity } : {});
         if (dbg.log && f % 12 === 0) console.log(JSON.stringify({ id, T: +T.toFixed(2), preL_m: preL, gripL_m: gL === null ? null : +gL.toFixed(4), faceE: fe, flExp: +fl.exposure().toFixed(3) })); } };
   } });
@@ -446,7 +446,7 @@ S({ id: 's38', scene: 5, size: 'MS', angle: 'cao, chúc xuống (gần mắt Ida
     const cp = dbg.cas || CAS_LAD; const cf = faceRig(cas);
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: 1.1,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: cornerFill }), f); ida.place(idaTop(p, T, { turn: 25, nodX: 12 }), LAMP_X(11), ON_Z1, 0);
-        cas.place(casLadPose(p, T, -36), ...cp, CAS_LYAW); const gr = casHold(cas, lad);
+        cas.place(over(casLadPose(p, T, -36), { joints: { neck: [-46, -24, 0], spine: [-10, 0, 0] } }), ...cp, CAS_LYAW); const gr = casHold(cas, lad);   // v2 (N4): cậu quay đầu 24° + ngửa 46° về phía bà (trái-trên của cậu)
         cf({ blink: blinkAt(T, [106.62]), browInnerUp: 0.35 * ease((T - 106.3) / 0.6) }, [0, -0.12]);   // chớp mắt (1,0 s nhịp sheet ≈ 106,6), đầu trong mày nâng dần khi nghe hết câu; nhìn lên bà
         if (dbg.log && f % 12 === 0) console.log(JSON.stringify({ id: 's38', preCas_m: PRE_GRIP.cas, grip_m: gr.map((e) => e === null ? null : +e.toFixed(4)), handL: V3a(wpos(cas.joints.wrist_L)), handR: V3a(wpos(cas.joints.wrist_R)) })); } };
   } });
@@ -455,7 +455,12 @@ S({ id: 's38', scene: 5, size: 'MS', angle: 'cao, chúc xuống (gần mắt Ida
 pa1Shot('s39', { size: 'CU', angle: 'nghiêng 96° (phía phố), ngang mắt', mm: 85, move: 'tĩnh', fl: 'elec', ek: 0.8, yaw: 96, dist: 1.05, lookDy: -0.02, drop: 0.03, lipAmp: 1.15, T0: 0,   // v2 (A3): khẩu hình biên độ 0,7 → 1,15 (đọc được ở CU nghiêng)
   why: 'PA1: vế cuối, giọng vỡ, trong ánh trắng phẳng: "keep a little dark for the ones who need it" — chủ đề phim trong một câu. Mặt nghiêng, cúi về phía Cas.', sound: 'THOẠI L4 "Just... keep a little dark for the ones who need it."',
   light: 'trắng phẳng (cột góc); L11 nhạt', action: 'Ida nghẹn, cúi nhìn xuống Cas; "Just…" — nuốt — "keep a little dark for the ones…"; tay trái vẫn trên van.',
-  pose: (p, T) => idaTop(p, T, { turn: 25, nodX: 12 + 2 * ease((T - 103.0) / 0.5) - 2 * ease((T - 103.6) / 0.4) }) });
+  // v2 (N4, Đ6 xác nhận máy +x): Cas ở PHẢI-DƯỚI, sau lưng bà (8,40; −4,62; mặt cậu ≈ 1,1 m). Bà quay đầu về phía cậu (cổ 25° → 52°, về phía máy) và cúi 24°, mắt liếc
+  // phải-xuống (+0,15; +0,1 rad) → ánh mắt đi về phía Cas; s38 cậu ngước về phía bà (ngược lại) → qua cắt 106,0 hai người nhìn nhau. Máy vẫn tính từ tư thế gốc cũ (cổ 25°, cúi 12°)
+  // → mặt bà quay về máy thêm 27°: còn cách chính diện ≈ 69°.
+  camPose: (p, T) => idaTop(p, T, { turn: 25, nodX: 12 }),
+  gazeAdd: () => [0.15, 0.1],
+  pose: (p, T) => idaTop(p, T, { turn: 52, nodX: 24 + 2 * ease((T - 103.0) / 0.5) - 2 * ease((T - 103.6) / 0.4) }) });
 
 // s40 — Cổng 6: QUYẾT ĐỊNH CỐ ĐỊNH (chủ dự án 29/09/2026): mặt Ida CHÌM VÀO BÓNG TỐI đúng lúc L11 tắt (L11_OFF = 109,2 s), không lộ mặt chính diện dưới ánh sáng.
 // Dàn dựng (không thêm/bớt đèn): máy ở phía phố (+x, như PA1) ngang lồng đèn → cần van (tay trái bà, MPFB, nắm thật bằng reachGrip) ở tiền cảnh, ngọn lửa trong lồng,
@@ -626,7 +631,7 @@ S({ id: 's42b', scene: 5, size: 'WS', angle: 'ngang 1,3 m, ngoài vòm', mm: 32,
         r.chCas.setPose(pose); r.chCas.root.position.set(x, hCr * u, z); r.chCas.root.rotation.y = t < 1.1 ? yawTo(0.7, 4.4, ...CAS_BAY) : valAt([[1.1, yawTo(0.7, 4.4, ...CAS_BAY)], [1.5, 0]], t); r.chCas.root.updateMatrixWorld(true);
         if (ctx.upd) ctx.upd(r.chCas, cam);
         if (r.lan.parent !== r.scene) r.scene.add(r.lan); hangFromHands(r.lan, r.chCas, h);
-        if (u > 0) { const tgt = new THREE.Vector3(CAS_BAY[0] - 0.03, 0, CAS_BAY[1] + 0.55); const k = ease((t - 1.6) / 0.4); r.lan.position.lerp(tgt, k); r.lan.updateMatrixWorld(true); }
+        if (u > 0) { const tgt = new THREE.Vector3(CAS_BAY[0] - 0.03, 0, CAS_BAY[1] + 0.38);   /* v2 Đ3 (chủ dự án duyệt): đèn 0,55 → 0,38 m trước mặt Cas */ const k = ease((t - 1.6) / 0.4); r.lan.position.lerp(tgt, k); r.lan.updateMatrixWorld(true); }
         // Cổng 6 (d): hai tay MPFB NẮM hai bên vòng quai (IK điểm) khi ôm đi và khi hạ đèn; buông 1,75–2,0 s → tư thế cuối = tư thế mở s42 (tay mở, hơ).
         const kr = 1 - ease((t - 1.75) / 0.25); let gr = null, pre = null; if (r.chCas.reachGrip && kr > 0) { const G = ringG(r.chCas, r.lan, h); pre = ['L', 'R'].map((sd) => +(r.chCas.gripPoint(sd).distanceTo(new THREE.Vector3(...G[sd].point)) - G[sd].radius).toFixed(4)); gr = [gripK(r.chCas, 'L', G.L, kr, true), gripK(r.chCas, 'R', G.R, kr, true)]; }
         if ((ctx.dbg || {}).log && Math.round(t * 24) % 6 === 0) console.log(JSON.stringify({ id: 's42b', t: +t.toFixed(2), pre_m: pre, grip_m: gr?.map((e) => e === null ? null : +e.toFixed(4)) }));
@@ -652,7 +657,7 @@ S({ id: 's42', scene: 5, size: 'MS', angle: 'thấp ngang vai, sau lưng Cas l�
     const cam = r.cam; cam.shiftY = 0; [r.chIda, r.chCas].forEach((c) => tameGlint(c)); cam.fov = fovOf(dbg.mm ?? 40); cam.position.set(...(dbg.cp || [0.55, 0.66, 0.45])); cam.lookAt(...(dbg.cl || [-0.15, 0.75, 4.5])); cam.updateProjectionMatrix();
     const wc = p.C.warm_hands_copy, wcIn = over(wc, { joints: { shoulder_L: [-66, 0, 10], shoulder_R: [-66, 0, -10], elbow_L: [-28, 0, 0], elbow_R: [-28, 0, 0] } });
     const hC = (wc.root_y_H ?? 0) * ctx.sheets.cas.H_m;
-    placeBayLantern(r, CAS_BAY[0] - 0.03, CAS_BAY[1] + 0.55); const LH = r.lanternH;
+    placeBayLantern(r, CAS_BAY[0] - 0.03, CAS_BAY[1] + 0.38); const LH = r.lanternH;   // v2 Đ3: 0,55 → 0,38 m
     // Quyết định chủ dự án (AUTHORSHIP, world-rules v0.5): bà KÉO MŨ LẠI khi rời đi — cử chỉ khép "hết ca", đặt ở cuối s42 (bà ở miệng vòm, vừa thấy Cas
     // tự đếm ba — khoảnh khắc buông tay; nền phố trắng sau lưng bà làm dáng tay–vành mũ in rõ). 0–1,9 s đứng nhìn (hat_back 0,35); 1,9–2,2 s tay trái lên vành;
     // 2,2–2,8 s kéo vành xuống (0,35 → 0); 2,8–3,0 s hạ tay, bắt đầu quay người đi (yaw +0,5 rad, sang phải bà = rời khỏi vòm).
@@ -666,9 +671,9 @@ S({ id: 's42', scene: 5, size: 'MS', angle: 'thấp ngang vai, sau lưng Cas l�
         r.chIda.setPose(settle(iPose(t), t, { side: -1, k: 0.8 })); r.chIda.root.position.set(...IP); r.chIda.root.rotation.y = Math.PI - 0.25 + 0.5 * ease((t - 2.75) / 0.25); r.chIda.root.updateMatrixWorld(true);
         r.chCas.setPose({ ...lerpPose(wc, wcIn, k), props: [] }); r.chCas.root.position.set(CAS_BAY[0], hC, CAS_BAY[1]); r.chCas.root.rotation.y = 0; r.chCas.root.updateMatrixWorld(true);
         // Cổng 6 (d): mỗi nhịp đếm, LÒNG TAY áp về hai mặt kính đèn lồng (tay MPFB, IK điểm, trộn 0,8 × nhịp k): tâm lòng tay → mặt kính 4 cm (hơ, không chạm), lòng quay vào kính, ngón duỗi.
-        const lanC = new THREE.Vector3(r.lan.position.x, r.lan.position.y + 0.4 * LH, r.lan.position.z), hw = 0.28 * LH + 0.04;
+        const lanC = new THREE.Vector3(r.lan.position.x, r.lan.position.y + 0.4 * LH, r.lan.position.z), hw = 0.28 * LH + 0.015;   // v2 Đ3: lòng tay áp sát mặt kính 1,5 cm
         const pre = ['L', 'R'].map((sd, i) => +(r.chCas.gripPoint(sd).distanceTo(lanC.clone().add(new THREE.Vector3(i ? -hw : hw, 0, 0)))).toFixed(4));
-        let gw = null; if (k > 0.02 && r.chCas.reachGrip) gw = [gripK(r.chCas, 'L', { point: lanC.toArray(), axis: [0, 1, 0], radius: hw, out: [1, 0, 0] }, 0.8 * k, true), gripK(r.chCas, 'R', { point: lanC.toArray(), axis: [0, 1, 0], radius: hw, out: [-1, 0, 0] }, 0.8 * k, true)];
+        let gw = null; if (k > 0.02 && r.chCas.reachGrip) gw = [gripK(r.chCas, 'L', { point: lanC.toArray(), axis: [0, 1, 0], radius: hw, out: [1, 0, 0] }, k, true), gripK(r.chCas, 'R', { point: lanC.toArray(), axis: [0, 1, 0], radius: hw, out: [-1, 0, 0] }, k, true)];
         if (dbg.log && Math.round(t * 24) % 6 === 0) console.log(JSON.stringify({ id: 's42', t: +t.toFixed(2), k: +k.toFixed(2), palmToGlassFK_m: pre, afterIK_m: gw?.map((e) => e === null ? null : +e.toFixed(4)) }));
         if (ctx.upd) { ctx.upd(r.chIda, cam); ctx.upd(r.chCas, cam); } } };
   } });
