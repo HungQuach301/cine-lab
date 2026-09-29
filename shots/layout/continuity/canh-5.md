@@ -156,7 +156,7 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 | s37w | 98,8–101,6 | WS · 28 | như Cổng 5 | Ida tay trái nắm van; Cas cạnh chân thang, hai tay nắm thanh |
 | s39 | 101,6–106,0 | CU · 85 | nghiêng **96°**, 0,95 m, tĩnh | nghẹn, cúi 12° nhìn xuống Cas; "Just…" 102,32; nuốt 103,2–103,6; "keep a little dark for the ones" 103,86–106,0 |
 | s38 | 106,0–107,4 | MS · 50 | (8,75; 2,45; −3,55) → (8,36; 0,95; −4,60) | Cas nắm thanh (IK), ngửa, chớp 106,62, mày trong nâng dần |
-| s40 | 107,4–110,0 | CU insert · 50 | phía phố, ngang lồng đèn | tay trái nắm **cần van** (IK điểm) gạt 107,7–108,3; 108,75 → **109,20** bà cúi 34° + quay mặt 38° khỏi máy — **mặt chìm dưới vành mũ đúng lúc lửa tắt**; kính tối đục |
+| s40 | 107,4–110,0 | CU insert · 50 | phía phố, ngang lồng đèn | tay trái nắm **cần van** (IK điểm) gạt 107,7–108,3; (v2, N1/N14 — số thật) 109,08 → 109,32 bà cúi 16° + quay mặt 80° khỏi máy (thân 16°); mặt còn thấy ở khung 2620 (109,17, quay 26°), **khuất ở khung 2621 (109,21) = khung lửa tắt**; kính tối đục (v1: 108,75 → 109,20, cúi 30°, quay 72°, khuất từ 108,94) |
 | s40w | 110,0–112,0 | WS · 28 | như s37w | **G10:** 0–0,35 s tay rời van; 0,35–1,55 s xuống thang; 1,55–2,0 s chạm đất, quay về Cas, đèn sang tay phải. Cas buông thang 1,55–1,9 s |
 | s41 | 112,0–113,5 | WS · 28 | nhìn (8,2; 1,15; −4,9) | Ida (7,95; −5,00), Cas (8,50; −4,85) — **cách 0,57 m** (Cổng 5: 1,02 m); trao như bảng đèn lồng |
 | s42a | 113,5–115,5 | MS · 45 | như Cổng 5 | Ida **nhìn xuống Cas**: cổ 24° + thân 4° + nhãn cầu 0,12 rad |
@@ -166,3 +166,15 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 **Vị trí Cas giữ thang (G10):** `CAS_LAD` (8,40; −4,62), hướng −0,6 rad, cạnh chân thang phía **đông**; tay phải nắm thanh đông ở 1,00 m, tay trái ở 0,74 m. Lối trèo (mặt dưới thang, −z) trống → bà xuống thang không xuyên qua cậu. Áp dụng s35 (từ 3,05 s), s36–s40w.
 **Ida trên thang:** gốc (8,0; 1,55; −4,38) (Cổng 5: z −4,48) — nhích sát cột 0,1 m để tay trái tới van (vai → thân van ≈ 0,5 m).
 **Mũ (G2):** hat_back 0,35 liên tục s36 (sau 1,05 s) → s42 (2,2 s).
+
+
+## Cổng 6 · W2 v2 (rà continuity + kiểm mù layout-v17)
+| Mục | Sửa v2 |
+|---|---|
+| N1 s40 | xem bảng trên: mặt khuất ở khung 2621 (lửa tắt); cúi giảm 30° → 16° (mũ không còn "lơ lửng") |
+| N2 s40w → s41 | cuối s40w: Cas buông thang, bước tới `CAS_41` (8,50; −4,85), quay về bà; bà ở `IDA_41` (7,95; −5,00) cầm đèn tay phải nhấc về phía cậu (`IDA_LIFT`) = đúng tư thế mở s41 |
+| N3 s40w | xuống TỪNG BẬC: 4 bậc × 0,3 s (75 % đi, 25 % dừng), thân thẳng nghiêng vào thang 5°, chân so le; tay nắm hai thanh (IK) khi gốc < 0,9 m |
+| N5 s42b | Ida đứng ở miệng vòm (1,25; 5,25) trong khung, dõi theo cậu (quay 0,35 rad trong 1,4 s) — nối s42 |
+| N6 s33 | quỳ có hạ gốc (`kneelOf`) → đứng dậy thấy được 0–0,7 s; đi từ 0,7 s |
+| N8 s37b/s39 | tay trái nắm ống khí thấp hơn 0,12 m dưới tâm van → ra khỏi khung CU; s39 máy hạ 0,12 → 0,03 m |
+| N4 | không sửa (gắn Đ6, chờ chủ dự án) |
