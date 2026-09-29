@@ -14,11 +14,15 @@ import { ell, sph, cap, rbox, smin, smax, gauss, sstep, fbm, vnoise, sculpt, pat
 import { paintMap, normalMap } from './tex3d.js';
 import { paintFace, faceUV, EXPR } from './facepaint.js';
 import { buildIdaFace, aiHeadSDF, FACE_PRESETS, VISEMES, mixW } from './facerig.js';
-import { buildIdaBL, preloadIdaBL, idaBLReady, buildCasBL, preloadCasBL, casBLReady } from './blender/bl_head.js';
-export { preloadIdaBL, idaBLReady, preloadCasBL, casBLReady };   // W4 'bl': nạp trước glb (bất đồng bộ) rồi mới buildCharacter
+import { buildIdaBL, preloadIdaBL, idaBLReady, buildCasBL, preloadCasBL, casBLReady, skinMaterial as blSkinMaterial } from './blender/bl_head.js';
+import { buildHandsBL, preloadHandsBL, handsBLReady } from './blender/hands_bl.js';
+export { preloadIdaBL, idaBLReady, preloadCasBL, casBLReady, preloadHandsBL, handsBLReady };   // W4 'bl': nạp trước glb (bất đồng bộ) rồi mới buildCharacter
 
 // Phóng to bàn tay + ngón (không thuộc C3; trần cho phép 1,3×). Cas: tối đa để chim bóng thành hình cánh. Ida: vừa đủ cho cận cảnh.
 export const HAND_SCALE = { ida: 1.15, cas: 1.3 };
+// Cổng 6 (W4 gói nhân vật): 'bl' = bàn tay MPFB2 (CC0; blender/hands_bl.js) gắn vào khớp cổ tay của rig, ngón nắm có va chạm (ôm cột/van/quai đèn).
+// Mặc định GIỮ tay cũ ('v14'); bật: opts.handsStyle = 'bl' hoặc globalThis.CINE_HANDS_STYLE = 'bl' (nhớ await preloadHandsBL() trước buildCharacter).
+export const HANDS_STYLE = 'v14';
 // Cổng 6 (W4): 'bl' = đầu/cổ/tóc/tai/mắt/mày Cas từ glb MPFB (blender/cas_bl.glb), mũ len có quả bông của cast3d giữ nguyên (đo lại miệng mũ).
 // Mặc định GIỮ bản cũ ('v14') tới khi chủ dự án duyệt; truyền casStyle:'bl' hoặc globalThis.CINE_CAS_STYLE='bl' để thử.
 export const CAS_STYLE = 'v14';
@@ -50,6 +54,7 @@ export function buildCharacter(sheet, opts = {}) {
   const STY = isIda ? (opts.idaStyle ?? globalThis.CINE_IDA_STYLE ?? IDA_STYLE) : null;   // W4: trang khung thử/đo có thể đặt globalThis.CINE_IDA_STYLE (không đặt → IDA_STYLE)
   const BL = STY === 'bl', AA = STY === 'aa' || STY === 'ai' || BL, AI = STY === 'ai', AIL = AI || BL;
   const CSTY = isIda ? null : (opts.casStyle ?? globalThis.CINE_CAS_STYLE ?? CAS_STYLE), BLC = CSTY === 'bl';   // Cas 'bl' (Cổng 6)   // AIL: phần thân/mũ/khăn dùng chung của 'ai' và 'bl'
+  const HB = (opts.handsStyle ?? globalThis.CINE_HANDS_STYLE ?? HANDS_STYLE) === 'bl';   // Cổng 6: tay MPFB
   const q = Math.max(0.55, Math.min(1.15, (opts.detail ?? 28) / 32));   // hệ số độ mịn lưới theo gợi ý của cảnh
   const R = (n) => Math.max(6, Math.round(n * q));
   const matFn = opts.material ?? defaultMaterial;
@@ -414,7 +419,7 @@ export function buildCharacter(sheet, opts = {}) {
     // Mũ phớt mềm: chóp có rãnh giữa và hai vết bóp trước; vành cụp trước, mép cuộn; băng mũ.
     const hs = sheet.costume.hat; const hat = new THREE.Group(); const HF = BL ? face.meta.hat : null, HAT_Y = HF ? HF.y : AA ? 0.80 : 0.86;   // 'bl' lượt 3: mũ đo theo khối tóc glb (meta.hat)
     hat.position.y = HAT_Y * H; hat.rotation.x = 0.08;   // A-α: mũ ngồi thấp, ôm quanh vòng đầu rộng nhất (hết 'mũ đậu trên đỉnh sọ quả trứng')
-    const ch_ = hs.crown_height_H, rx0 = HF ? HF.rx : hd.width_front * (AA ? 0.52 : 0.56), rz0 = rx0 * 1.12;   // A-α: miệng mũ vừa đầu + tóc
+    const ch_ = hs.crown_height_H, rx0 = HF ? HF.rx : hd.width_front * (AA ? 0.52 : 0.56), rz0 = HF && HF.rz ? HF.rz : rx0 * 1.12;   // Cổng 6: 'bl' dùng rz đo riêng (json v1.5: rz = rx·1,12 → không đổi)   // A-α: miệng mũ vừa đầu + tóc
     // Cổng 4: bản lề mũ ở mép sau băng mũ → pose.hat_back (0–1) hất vành lên, mũ ngả ra sau (cử chỉ đẩy mũ trước câu thoại 1:50)
     const HP = BL ? face.meta.hatHinge : [0, 0.59, -0.03];   // 'bl' (bản lề mũ mới, đã duyệt): bản lề ở tâm sọ của lưới glb
     hatPivot = new THREE.Group(); hatPivot.position.set(0, (AIL ? HP[1] : HAT_Y) * H, (AIL ? HP[2] : -rz0) * H); headG.add(hatPivot); hatPivot.add(hat); hat.position.set(0, (AIL ? HAT_Y - HP[1] : 0) * H, (AIL ? -HP[2] + (HF ? HF.cz : 0) : rz0) * H);   // A-i v2: bản lề mũ ở TÂM SỌ → khi đẩy vành ra sau mũ trượt trên đầu, băng mũ vẫn ép tóc (không hở, không lơ lửng)
@@ -425,19 +430,46 @@ export function buildCharacter(sheet, opts = {}) {
       return smax(smax(ds + 0.04 * gauss(Math.hypot(Math.abs(x) - 0.2, z - 0.32), 0.09) * sstep(ch_ * 0.3, ch_, y), y - ch_ + dent, 0.1), -(y + 0.03), 0.02);
     };
     add(hat, sculpt(crownSDF, { c: [0, ch_ * 0.45, 0], r: [rx0, ch_, rz0], nu: R(60), nv: R(28), scale: H, uv: [4, 2], color: aoCol(crownSDF, 0.5) }), 'hat', C.hat, 'hat');
-    const br = hs.brim_diameter_H / 2, r0 = rx0 * 0.98, nb = R(72), nr = R(7);
+    const ASP = rz0 / rx0, br = hs.brim_diameter_H / 2, r0 = rx0 * 0.98, nb = R(72), nr = R(7);
     const bpos = [], buv = [];
-    const brimY = (x, z) => { const r = Math.hypot(x, z / 1.12); const f = Math.max(0, (r - r0) / (br - r0)); const fr = 0.5 + 0.5 * (z / Math.max(1e-6, Math.hypot(x, z))); return -f * f * (0.03 + (AA ? 0.05 : 0.13) * fr * fr) + 0.012 * Math.sin(3 * Math.atan2(x, z)) * f; };   // A-α: vành trước cụp ít hơn (mũ đã thấp, không che mắt)
-    for (let j = 0; j <= nr; j++) for (let i = 0; i <= nb; i++) { const a = 2 * Math.PI * i / nb - Math.PI, r = r0 + (br - r0) * j / nr; const x = Math.sin(a) * r, z = Math.cos(a) * r * 1.12; bpos.push(x * H, brimY(x, z) * H, z * H); buv.push(i / nb * 6, j / nr); }
+    const brimY = (x, z) => { const r = Math.hypot(x, z / ASP); const f = Math.max(0, (r - r0) / (br - r0)); const fr = 0.5 + 0.5 * (z / Math.max(1e-6, Math.hypot(x, z))); return -f * f * (0.03 + (AA ? 0.05 : 0.13) * fr * fr) + 0.012 * Math.sin(3 * Math.atan2(x, z)) * f; };   // A-α: vành trước cụp ít hơn (mũ đã thấp, không che mắt)
+    for (let j = 0; j <= nr; j++) for (let i = 0; i <= nb; i++) { const a = 2 * Math.PI * i / nb - Math.PI, r = r0 + (br - r0) * j / nr; const x = Math.sin(a) * r, z = Math.cos(a) * r * ASP; bpos.push(x * H, brimY(x, z) * H, z * H); buv.push(i / nb * 6, j / nr); }
     const bg = gridGeo(new Float32Array(bpos), null, new Float32Array(buv), null, nb, nr); add(hat, bg, 'hat', C.hat, 'hat');
-    const rim = []; for (let i = 0; i <= 48; i++) { const a = 2 * Math.PI * i / 48 - Math.PI, x = Math.sin(a) * br, z = Math.cos(a) * br * 1.12; rim.push([x * H, (brimY(x, z) - 0.004) * H, z * H]); }
+    const rim = []; for (let i = 0; i <= 48; i++) { const a = 2 * Math.PI * i / 48 - Math.PI, x = Math.sin(a) * br, z = Math.cos(a) * br * ASP; rim.push([x * H, (brimY(x, z) - 0.004) * H, z * H]); }
     add(hat, strandGeo(rim, () => [0.016 * H, 0.012 * H], 5, R(64)), 'hat', C.hat, 'hat');
     const band = tube({ y0: 0.12 * H, y1: 0.0, nu: R(64), nv: 3, rad: (s, ph) => [Math.hypot(Math.sin(ph) * rx0, Math.cos(ph) * rz0) * 1.018 * H] });
     add(hat, band, 'boots', C.boots, 'hat');
     add(hat, sculpt((x, y, z) => ell(x, y, z, [0, 0, 0], [0.02, 0.06, 0.09]), { c: [0, 0, 0], r: [0.03, 0.06, 0.09], nu: 12, nv: 8, scale: H }), 'boots', C.boots, 'hat').position.set(rx0 * 1.02 * H, 0.06 * H, -0.12 * H);
   } else {
     // Mũ len: vòm có sọc đan, gấp mép, quả bông cao, tròn, xù len.
-    const cs = sheet.costume.cap; const capG = new THREE.Group(); const CF = BLC ? face.meta.cap : null; capG.position.y = (CF ? CF.y : 0.69) * H; if (CF) capG.position.z = (CF.cz + 0.02) * H; headG.add(capG);   // Cas 'bl': miệng mũ len đo theo đầu+tóc glb
+    const cs = sheet.costume.cap;
+    if (BLC && face.sdf) {   // Cổng 6 (W4): MŨ LEN ÔM SỌ — vỏ cách da đầu glb một lớp tóc + len (0,052 H), chùng nhẹ ở đỉnh; gấu nghiêng (trước ngang trên mày, sau phủ chẩm, hai bên chạm đỉnh tai)
+      const capG = new THREE.Group(); headG.add(capG); const sd_ = face.meta.sdf, YT = sd_.lo[1] + (sd_.n[1] - 2) * sd_.h, CZ = -0.03;
+      const sdfH = (x, y, z) => (y > YT ? face.sdf(x, YT, z) + (y - YT) : face.sdf(x, y, z));   // trên mép lưới SDF: nối dài theo phương đứng (đỉnh mũ không bị cắt phẳng)
+      const yCuff = (z) => 0.60 + 0.085 * Math.max(-1, Math.min(1, z / 0.42));
+      const off = (y) => 0.052 + 0.03 * sstep(0.80, 1.02, y);
+      const capSDF = (x, y, z) => smax(sdfH(x, y, z) - off(y) + 0.004 * Math.abs(Math.sin(Math.atan2(x, z - CZ) * 26)), yCuff(z) - y, 0.02);
+      add(capG, sculpt(capSDF, { c: [0, 0.74, CZ], r: [0.62, 0.5, 0.66], nu: R(72), nv: R(34), scale: H, uv: [9, 3], gradE: 0.004, color: aoCol(capSDF, 0.4) }), 'cap', C.cap, 'cap');
+      // tóc (vỏ, chùm, sợi tơ của glb) nằm TRONG mũ: đỉnh nào trên gấu mà vượt vỏ mũ − 0,012 H thì kéo về tâm sọ (không xuyên len)
+      for (const m of face.root.children) { if (m.userData.part !== 'hair' || !m.geometry) continue; const pa = m.geometry.attributes.position, o = m.position; let moved = 0;
+        for (let i = 0; i < pa.count; i++) { const x = pa.getX(i) + o.x, y = pa.getY(i) + o.y, z = pa.getZ(i) + o.z; if (y < yCuff(z) - 0.005 || sdfH(x, y, z) <= off(y) - 0.012) continue;
+          const cy = 0.64; let a = 0, b = 1; for (let k = 0; k < 10; k++) { const t = 0.5 * (a + b), X = x * (1 - t), Y = cy + (y - cy) * (1 - t), Z = CZ + (z - CZ) * (1 - t); if (sdfH(X, Y, Z) > off(Y) - 0.012) a = t; else b = t; }
+          pa.setXYZ(i, x * (1 - b) - o.x, cy + (y - cy) * (1 - b) - o.y, CZ + (z - CZ) * (1 - b) - o.z); moved++; }
+        if (moved) { pa.needsUpdate = true; m.geometry.computeVertexNormals(); m.geometry.computeBoundingSphere(); } }
+      const hugR = (ph, y) => { const dx = Math.sin(ph), dz = Math.cos(ph); let r = 0.12; for (; r < 0.75; r += 0.01) if (sdfH(dx * r, y, CZ + dz * r) > off(y)) break;
+        let a = r - 0.01, b = r; for (let k = 0; k < 8; k++) { const m = 0.5 * (a + b); if (sdfH(dx * m, y, CZ + dz * m) > off(y)) b = m; else a = m; } return 0.5 * (a + b); };
+      const cuffH = cs.cuff_H * 0.95;
+      const cuff = tube({ y0: 0, y1: 0, nu: R(72), nv: R(8), rad: (ss, ph) => { const zc = CZ + Math.cos(ph) * 0.4, yb = yCuff(zc) - 0.012, y = yb + (1 - ss) * cuffH, bb = Math.sin(Math.PI * ss);
+        return [(hugR(ph, Math.max(y, yb + 0.02)) + 0.014 + 0.012 * Math.pow(bb, 0.6) + 0.005 * Math.abs(Math.sin(ph * 36)) * bb) * H, 0, CZ * H, y * H]; } });
+      add(capG, cuff, 'cap', C.cap, 'cap', 'rib');
+      let yTop = 1.25; for (; yTop > 0.8; yTop -= 0.005) if (capSDF(0, yTop, CZ) < 0) break;
+      const bobR = cs.bobble_diameter_H / 2;
+      const bobSDF = (x, y, z) => { const n1 = fbm(x * 30, y * 30, z * 30, 2, 11), n2 = vnoise(x * 70, y * 70, z * 70, 17); return len3(x, y, z) - bobR - 0.028 * Math.max(0, n1) - 0.012 * n2 + 0.01 * Math.abs(n1); };
+      const bob = add(capG, sculpt(bobSDF, { c: [0, 0, 0], r: [bobR, bobR, bobR], nu: R(44), nv: R(30), scale: H, uv: [3, 2], color: aoCol(bobSDF, 0.6) }), 'bobble', C.bobble, 'bobble');
+      bob.position.set(0, (yTop + bobR * 0.8) * H, CZ * H);
+      add(capG, tube({ y0: (yTop + bobR * 0.3) * H, y1: (yTop - 0.02) * H, nu: R(20), nv: 5, rad: (ss, ph) => [(0.035 + 0.02 * ss * ss + 0.005 * Math.abs(Math.sin(ph * 8))) * H, 0, CZ * H] }), 'cap', C.cap, 'cap', 'rib');
+    } else {
+    const capG = new THREE.Group(); const CF = BLC ? face.meta.cap : null; capG.position.y = (CF ? CF.y : 0.69) * H; if (CF) capG.position.z = (CF.cz + 0.02) * H; headG.add(capG);   // Cas 'bl': miệng mũ len đo theo đầu+tóc glb
     const cr = CF ? [CF.rx, cs.height_H * 0.92, CF.rz] : [hd.width_front * 0.555, cs.height_H * 0.92, hd.width_side * 0.545];
     const capSDF = (x, y, z) => {
       const ph = Math.atan2(x, z); const ribs = 0.006 * Math.abs(Math.sin(ph * 26));
@@ -459,6 +491,7 @@ export function buildCharacter(sheet, opts = {}) {
     bob.position.y = (cr[1] + bobR * 0.95) * H;
     // chỗ túm len dưới quả bông (eo thắt) → quả bông tách khỏi vòm, đọc là quả bông mũ, không phải búi tóc
     add(capG, tube({ y0: (cr[1] + bobR * 0.35) * H, y1: (cr[1] - 0.06) * H, nu: R(20), nv: 5, rad: (ss, ph) => [(0.045 + 0.05 * ss * ss + 0.006 * Math.abs(Math.sin(ph * 8))) * H] }), 'cap', C.cap, 'cap', 'rib');
+    }   // hết mũ len cũ
     // Tóc ngắn: gáy + thái dương, mép lởm chởm. ('bl': tóc nằm trong glb)
     if (!BLC) {
     const hc = [0, 0.57, -0.04], hr = [0.45, 0.43, 0.48];
@@ -638,7 +671,25 @@ export function buildCharacter(sheet, opts = {}) {
       return d + swFold(x, y, z);
     };
     add(joints.spine, sculpt(torsoSDF, { c: [0, 0.7, 0], r: [0.8, 1.0, 0.55], nu: R(72), nv: R(58), scale: H, uv: [9, 4], color: aoCol(torsoSDF, 0.5) }), 'sweater', C.sweater, 'torso');
-    add(joints.spine, tube({ y0: (tL + 0.08) * H, y1: (tL - 0.1) * H, nu: R(48), nv: 6, rad: (s, ph) => [(0.19 + 0.015 * Math.sin(Math.PI * s) + 0.004 * Math.abs(Math.sin(ph * 30))) * H, 0, 0.0] }), 'sweater', C.sweater, 'collar', 'rib');
+    if (!BLC) add(joints.spine, tube({ y0: (tL + 0.08) * H, y1: (tL - 0.1) * H, nu: R(48), nv: 6, rad: (s, ph) => [(0.19 + 0.015 * Math.sin(Math.PI * s) + 0.004 * Math.abs(Math.sin(ph * 30))) * H, 0, 0.0] }), 'sweater', C.sweater, 'collar', 'rib');
+    else {   // Cổng 6 (quyết định chủ dự án "Cas A+", nháp v1.6 mục 5): CỔ LẬT CAO — ống cổ 0,20 H từ chân cổ, phần lật gập 0,09 H, Ø ngoài ≈ 0,40 H; cùng màu/vân len áo
+      const TOP = tL + 0.20, FOLD = TOP - 0.09, RS = 0.186, RF = 0.200, rib = (ph) => 0.004 * Math.abs(Math.sin(ph * 30)), rise = (ph) => 0.055 * sstep(0.3, -0.9, Math.cos(ph));   // sau gáy ống cổ dâng theo đường gáy (che da gáy)
+      const fold = (ph, t) => 0.006 * Math.sin(ph * 5 + 0.7) * t + 0.004 * Math.sin(ph * 11 + 2.1) * t;   // nếp mềm ở mép lật
+      const tn = [];
+      tn.push(add(joints.spine, tube({ y0: TOP * H, y1: (tL - 0.08) * H, nu: R(56), nv: R(10), rad: (ss, ph) => [(RS + rib(ph) - 0.01 * sstep(0.7, 1.0, ss)) * H, 0, 0.005 * H, rise(ph) * (1 - ss) * H] }), 'sweater', C.sweater, 'collar', 'rib'));
+      tn.push(add(joints.spine, tube({ y0: (TOP + 0.012) * H, y1: FOLD * H, nu: R(56), nv: R(8), rad: (ss, ph) => [(RF + 0.006 * Math.sin(Math.PI * ss) + fold(ph, ss) + rib(ph)) * H, 0, 0.005 * H, rise(ph) * H],
+        color: (ss) => { const a = 1 - 0.22 * sstep(0.75, 1.0, ss); return [a, a, a * 0.97]; } }), 'sweater', C.sweater, 'collar', 'rib'));
+      const ring = (y, r, tr, n) => { const pts = []; for (let i = 0; i <= n; i++) { const ph = 2 * Math.PI * i / n; const rr = r + fold(ph, 1); pts.push([Math.sin(ph) * rr * H, (y + rise(ph)) * H, (Math.cos(ph) * rr + 0.005) * H]); } return strandGeo(pts, () => [tr * H, tr * H], 8, R(96)); };
+      tn.push(add(joints.spine, ring(TOP + 0.004, (RS + RF) / 2, 0.02, 64), 'sweater', C.sweater, 'collar', 'rib'));      // mép gập tròn trên cùng
+      tn.push(add(joints.spine, ring(FOLD + 0.004, RF + 0.004, 0.009, 64), 'sweater', C.sweater, 'collar', 'rib'));        // mép dưới phần lật
+      // da CPU: chân theo thân, phần trên theo khớp cổ (cổ cúi/ngửa thì ống cổ đi theo, không hở, không xuyên cằm)
+      root.updateMatrixWorld(true); const toRoot = new THREE.Matrix4().copy(root.matrixWorld).invert().multiply(joints.spine.matrixWorld);
+      const bSp = skin.bone(joints.spine), bNk = skin.bone(joints.neck), sp0 = new THREE.Vector3(); joints.spine.getWorldPosition(sp0); root.worldToLocal(sp0);
+      for (const m of tn) { joints.spine.remove(m); m.geometry.applyMatrix4(toRoot); root.add(m);
+        const pa = m.geometry.attributes.position, W = [];
+        for (let v = 0; v < pa.count; v++) { const yy = (pa.getY(v) - sp0.y) / H, w = 0.85 * sstep(tL + 0.01, TOP, yy); W.push(w > 1e-4 ? [[bSp, 1 - w], [bNk, w]] : [[bSp, 1]]); }
+        skinned.push([m, W]); }
+    }
     // Đáy quần (mông) dưới gấu áo len.
     const seat = (x, y, z) => ell(x, y, z, [0, -0.04, -0.02], [0.42, 0.22, 0.28]);
     add(joints.pelvis, sculpt(seat, { c: [0, -0.04, -0.02], r: [0.42, 0.22, 0.28], nu: R(40), nv: R(20), scale: H }), 'trousers', C.trousers, 'pelvis');
@@ -696,7 +747,10 @@ export function buildCharacter(sheet, opts = {}) {
   // =============================== BÀN TAY ===============================
   const hp = P.hand, HS = hp.scale ?? (isIda ? HAND_SCALE.ida : HAND_SCALE.cas);   // model sheet (2A) thắng hằng số
   const fingerJ = {};
-  for (const s of ['L', 'R']) {
+  let handsBL = null;
+  if (HB) { for (const s of ['L', 'R']) ch.hands[s].hand.scale.setScalar(HS);
+    handsBL = buildHandsBL({ ch, who: isIda ? 'ida' : 'cas', H, HS, skinHex: isIda ? '#d8b49a' : '#e2bfa2', material: blSkinMaterial(opts), parts }); }
+  if (!HB) for (const s of ['L', 'R']) {
     const sx = s === 'L' ? 1 : -1, h = ch.hands[s]; h.hand.scale.setScalar(HS);
     const pl = hp.palm_length, pw = hp.palm_width, th = isIda ? 0.10 : 0.105;
     const palmSDF = (x, y, z) => {
@@ -807,6 +861,7 @@ export function buildCharacter(sheet, opts = {}) {
 
   // ---- tư thế: gốc applyPose → ngón 3 khớp → da CPU ----
   function fingerPose(pose) {
+    if (handsBL) { handsBL.setPose(pose); return; }
     for (const s of ['L', 'R']) {
       const hp_ = (pose.hands || {})[s] || { spread: 0.1, curl: 0.4 }, F = fingerJ[s], sx = F.sx, curl = hp_.curl ?? 0.4, spread = hp_.spread ?? 0.1;
       F.fj.forEach(({ base, pip, dip }, i) => {
@@ -826,6 +881,49 @@ export function buildCharacter(sheet, opts = {}) {
   // A-i: rig mặt — ch.setFace({kênh: trọng số}); FACE_PRESETS (biểu cảm) và VISEMES (khẩu hình) trộn bằng mixW.
   ch.face = face; ch.setFace = face ? face.setFace : () => {}; ch.FACE_PRESETS = FACE_PRESETS; ch.VISEMES = VISEMES; ch.mixW = mixW;
   ch.hatPivot = hatPivot; ch.hipY = ch.hipY; ch.handScale = HS; ch.cpuSkin = skin;
+  if (handsBL) {   // tay MPFB: giải nắm lúc cảnh cập nhật ma trận (trước khi vẽ) — vị trí đạo cụ/cột đã chốt cho khung
+    const umw = root.updateMatrixWorld.bind(root); let busy = false;
+    root.updateMatrixWorld = (force) => { umw(force); if (!busy) { busy = true; try { handsBL.update(root); } finally { busy = false; } } };
+    ch.handsBL = handsBL;
+  }
+  // NẮM VẬT HÌNH TRỤ (cột đèn, thân van, quai đèn lồng): IK 2 xương vai–khuỷu đưa tâm lòng bàn tay tới mặt trụ, xoay cổ tay cho lòng tay
+  // úp vào trục, ngón vuông góc trục (rồi tay MPFB tự gập ngón tới khi chạm). Gọi SAU place()/setPose của khung; chỉ đổi khớp tay s.
+  // g = { point: [x,y,z] (điểm trên trục, thế giới), axis: [x,y,z], radius (m) }. Dùng cho diễn hoạt Cổng 6 (W1/W2) và khung thử W4.
+  ch.reachGrip = (s, g) => {
+    const sh = joints['shoulder_' + s], el = joints['elbow_' + s], wr = joints['wrist_' + s], sx = s === 'L' ? 1 : -1;
+    const A = new THREE.Vector3(...g.axis).normalize(), C0 = new THREE.Vector3(...g.point);
+    const wq = (o) => o.getWorldQuaternion(new THREE.Quaternion()), wp = (o) => o.getWorldPosition(new THREE.Vector3());
+    for (let it = 0; it < 4; it++) {
+      root.updateMatrixWorld(true);
+      const G = ch.gripPoint(s), Wp = wp(wr), S = wp(sh), E = wp(el);
+      // hướng từ trục tới tay (vuông góc trục) → lòng tay úp vào trục
+      const Cp = C0.clone().addScaledVector(A, G.clone().sub(C0).dot(A)); const out = G.clone().sub(Cp); out.addScaledVector(A, -out.dot(A)); if (out.lengthSq() < 1e-8) out.set(sx, 0, 0); out.normalize();
+      const T = Cp.clone().addScaledVector(out, g.radius - 0.002 * HS);
+      // xoay cổ tay: trục x cục bộ = −sx·(về phía trục) ; z (phía ngón cái) = ±trục ; y = z × x
+      const toAx = out.clone().negate(), xw = toAx.clone().multiplyScalar(-sx);
+      const zc = new THREE.Vector3(0, 0, 1).applyQuaternion(wq(wr)); const zw = A.clone().multiplyScalar(zc.dot(A) >= 0 ? 1 : -1);
+      const yw = new THREE.Vector3().crossVectors(zw, xw).normalize(); zw.crossVectors(xw, yw).normalize();
+      const Qd = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(xw, yw, zw));
+      wr.quaternion.copy(wq(el).invert().multiply(Qd));
+      root.updateMatrixWorld(true);
+      const G2 = ch.gripPoint(s), Wt = T.clone().sub(G2.clone().sub(wp(wr)));   // cổ tay đích = đích − (nắm − cổ tay)
+      // khuỷu: góc trong theo định lý cos
+      const a = E.distanceTo(S), b = wp(wr).distanceTo(E), d = Math.min(a + b - 1e-4, Math.max(Math.abs(a - b) + 1e-4, Wt.distanceTo(S)));
+      const cur = Math.acos(Math.max(-1, Math.min(1, S.clone().sub(E).normalize().dot(wp(wr).sub(E).normalize())))), want = Math.acos(Math.max(-1, Math.min(1, (a * a + b * b - d * d) / (2 * a * b))));
+      let ax = new THREE.Vector3().crossVectors(S.clone().sub(E), wp(wr).sub(E)); if (ax.lengthSq() < 1e-10) ax.set(1, 0, 0).applyQuaternion(wq(el)); ax.normalize();
+      const qE = new THREE.Quaternion().setFromAxisAngle(ax, want - cur);   // mở/gập quanh trục khuỷu (thế giới)
+      el.quaternion.copy(wq(el.parent).invert().multiply(qE).multiply(wq(el)));
+      wr.quaternion.copy(wq(el).invert().multiply(Qd));
+      root.updateMatrixWorld(true);
+      const W2 = wp(wr), qS = new THREE.Quaternion().setFromUnitVectors(W2.clone().sub(S).normalize(), Wt.clone().sub(S).normalize());
+      sh.quaternion.copy(wq(sh.parent).invert().multiply(qS).multiply(wq(sh)));
+      root.updateMatrixWorld(true); wr.quaternion.copy(wq(el).invert().multiply(Qd));
+    }
+    root.updateMatrixWorld(true); skin.update(); if (handsBL) { for (const k of ['L', 'R']) handsBL.sides[k].key = ''; root.updateMatrixWorld(true); }
+    const Gf = ch.gripPoint(s).sub(C0); return Gf.addScaledVector(A, -Gf.dot(A)).length() - g.radius;   // khoảng cách điểm nắm → mặt trụ (m)
+  };
+  // điểm nắm (thế giới) — tâm lòng bàn tay; để treo đạo cụ (đèn lồng) vào nắm tay
+  ch.gripPoint = (s, target = new THREE.Vector3()) => handsBL ? handsBL.gripPoint(s, target) : target.set(0, -P.hand.palm_length * 0.6 * H, 0).applyMatrix4(joints['wrist_' + s].matrixWorld);
   ch.setPose(sheet.poses.turnaround);
   return ch;
 }

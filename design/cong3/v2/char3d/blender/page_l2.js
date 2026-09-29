@@ -39,6 +39,7 @@ window.setup = async (c) => {
   const mod = await import('/cong3/v2/char3d/cast3d.js');
   if ((c.charOpts?.idaStyle ?? 'bl') === 'bl') await mod.preloadIdaBL(c.glb ? new URL(c.glb, location.href).href : undefined);   // "glb": thử bản glb khác (đường dẫn tính từ design/)
   const charOpts = { idaStyle: 'bl', ...(c.charOpts || {}) };
+  if (c.handsStyle) { globalThis.CINE_HANDS_STYLE = c.handsStyle; if (c.handsStyle === 'bl') await mod.preloadHandsBL(); }   // Cổng 6: tay MPFB
   if (c.casStyle) { globalThis.CINE_CAS_STYLE = c.casStyle; if (c.casStyle === 'bl') await mod.preloadCasBL(c.casGlb ? new URL(c.casGlb, location.href).href : undefined); }   // Cổng 6: Cas 'bl'
   const [ida, cas] = await Promise.all(['/cong3/model-sheet/ida.json', '/cong3/model-sheet/cas.json'].map((p) => fetch(p).then((r) => r.json())));
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -98,13 +99,30 @@ window.renderFrame = async (name, samples) => {
   cur.update(t, T, f);
   const cam = cur.cam, c = cfg.cam;
   if (c && c.rel) faceCam(cam, cur.named.ida, { fov: fovOf(c.mm ?? 85), ...c.rel });
+  else if (c && c.joint) { const who = cur.named[c.who || 'ida'], j = new THREE.Vector3(); who.joints[c.joint].getWorldPosition(j);   // máy xem gần theo khớp (thử tay)
+    cam.fov = fovOf(c.mm ?? 50); cam.position.copy(j).add(new THREE.Vector3(...(c.off || [0.4, 0.1, 0.4]))); cam.lookAt(j.clone().add(new THREE.Vector3(...(c.lookOff || [0, 0, 0])))); cam.updateProjectionMatrix(); }
   else if (c && c.pos) { cam.fov = fovOf(c.mm ?? 35); cam.position.set(...c.pos); cam.lookAt(new THREE.Vector3(...c.look)); cam.updateProjectionMatrix(); }
+  // Cổng 6 (W4): khung thử tay MPFB — "grips": [{who, s, auto:1} (nắm trụ gần nhất) | {who, lantern:1} (quai đèn lồng vào nắm tay)]
+  const gripLog = []; if (cfg.grips) { info.grips = gripLog; for (const g of cfg.grips) { const ch = cur.named[g.who]; if (!ch) continue;
+    if (g.lantern) { const lan = []; cur.scene.traverse((o) => { if (o.name === 'lantern') lan.push(o); }); const L = lan[0]; if (!L) continue;
+      const a = ch.gripPoint('L'), b = ch.gripPoint('R'), tgt = g.s ? ch.gripPoint(g.s) : a.clone().add(b).multiplyScalar(0.5);
+      L.updateMatrixWorld(true); const ring = new THREE.Vector3(0, L.userData.handleY + (g.dy ?? 0), 0).applyMatrix4(L.matrixWorld), dlt = tgt.clone().sub(ring);
+      const anc = L.userData.lightAnchor.getWorldPosition(new THREE.Vector3());
+      cur.scene.traverse((o) => { if (o.isPointLight && o.getWorldPosition(new THREE.Vector3()).distanceTo(anc) < 0.08) o.position.add(dlt); });
+      L.position.add(dlt); L.updateMatrixWorld(true); gripLog.push({ lantern: dlt.toArray().map((v) => +v.toFixed(3)) }); continue; }
+    const G = ch.gripPoint(g.s); let best = null;
+    cur.scene.traverseVisible((o) => { if (!o.isMesh || o.geometry.type !== 'CylinderGeometry') return; const pr = o.geometry.parameters; if (pr.height < (g.minH ?? 0.2)) return;
+      o.updateWorldMatrix(true, false); const c = new THREE.Vector3().setFromMatrixPosition(o.matrixWorld), ax = new THREE.Vector3(0, 1, 0).transformDirection(o.matrixWorld);
+      const t = G.clone().sub(c).dot(ax); if (Math.abs(t) > pr.height / 2) return; const rr = pr.radiusBottom + (pr.radiusTop - pr.radiusBottom) * (t / pr.height + 0.5);
+      const dd = G.clone().sub(c).addScaledVector(ax, -t).length() - rr; if (!best || dd < best.dd) best = { dd, point: c.toArray(), axis: ax.toArray(), radius: rr }; });
+    if (best && best.dd < (g.maxD ?? 0.45)) { const err = ch.reachGrip(g.s, best); gripLog.push({ who: g.who, s: g.s, d0: +best.dd.toFixed(3), r: +best.radius.toFixed(3), err: +err.toFixed(3) }); } } }
   cam.updateMatrixWorld(true);
   const l11 = cfg.l11 ? moveL11(cam, cfg.l11) : null;
   const u = pipe.outMat.uniforms, e0 = typeof cur.exposure === 'function' ? cur.exposure(t, T) : (cur.exposure ?? 1.0);
   u.uExp.value = typeof cfg.exp === 'number' ? cfg.exp : e0 * (cfg.expMul ?? 1);
-  info = { T, f, exposure: +u.uExp.value.toFixed(4), cam: cam.position.toArray().map((v) => +v.toFixed(2)), l11, face: cur.named.ida.face?.getFace?.() };
+  info = { grips: gripLog, T, f, exposure: +u.uExp.value.toFixed(4), cam: cam.position.toArray().map((v) => +v.toFixed(2)), l11, face: cur.named.ida.face?.getFace?.() };
   if (cfg.export) info.export = await exportIda(cam);
+  cur.scene.updateMatrixWorld(); info.hands = {}; for (const [k, ch] of Object.entries(cur.named)) if (ch.handsBL) info.hands[k] = { L: ch.handsBL.sides.L.dbg, R: ch.handsBL.sides.R.dbg };
   const ms = pipe.accumulate(cur.scene, cam, samples, cur.onSample || null);
   cur.paint.apply(cur.scene, cam);
   return { accum_ms: ms, prof_ms: info };
