@@ -3,6 +3,11 @@
 Nền: characters v1.5.1 (Ida) và v1.6 (Cas) đã khoá. Mặc định: Ida 'bl' v1.5.1, Cas 'bl', thân MPFB, tay MPFB.
 Tài sản phải có trên `main` trước khi mở, vì worktree của phiên xưởng tạo từ `main`.
 
+**Đã kiểm (29/09/2026):**
+- main @3c40f03 có đủ tài sản. Worktree sạch tạo từ main dò s24c và s42a: 6 ảnh nhỏ, lệch 0 px so với nhánh P.
+- **Lưu ý:** `design/cong3/shared/node_modules` (three.js) **không nằm trong git**. Mỗi worktree W1/W2 phải liên kết tới thư mục của repo chính trước khi render: `ln -s /home/user/cine-lab/design/cong3/shared/node_modules design/cong3/shared/node_modules`. Lệnh này phải ghi trong lệnh giao gói. Thao tác trên chính worktree của gói, không đụng nhánh khác.
+- **Render chậm hơn:** toàn phim v16 mất 8 386 s, gần gấp đôi v15 (4 325 s), do da CPU của thân và tay MPFB. W1/W2 nên dùng `--only` cho shot mình làm, và dành làn nặng cho P.
+
 ## 1. Tổ chức
 | Gói | Phạm vi | Nhánh / worktree | Ghi chú |
 |---|---|---|---|
@@ -50,6 +55,7 @@ Mỗi gói có điều kiện dừng và hạn token riêng (mục 5).
 | 9 | **Mắt cận chính diện**: s22 MCU, s36 MCU, s37 CU, s39 CU, s40 CU. Kiểm lại với mắt v1.5.1 | W1 (s22), W2 | PLAN Cổng 6 c |
 | 10 | **Van đồng ở PA1**: Ida nắm van bằng tay MPFB (`reachGrip`), gạt van s40 | W2 | PLAN Cổng 6 b(4) |
 | 11 | Sai lệch đã chấp nhận, kiểm lại trên clip: vai áo Cas phồng tròn; tay Cas thô khi nhìn gần (không có shot cận; phát sinh thì sửa riêng shot); mép cổ tay áo Ida răng cưa nhẹ (s41); chân/tay có thể bị chê ở khung tĩnh | W2 (+ W1 phần Ida) | AUTHORSHIP khoá |
+| 12a | **C3 trên layout hiện chỉ đo Ida.** Bộ xuất mặt nạ C3 xuất một nhân vật mỗi khung, nên mọi số sheet trong kết quả đều từ ida.json; Cas chưa được C3 đo. Cần K xác nhận có phải đo cả Cas (c3_views 'doc' v1.6) không, hoặc P sửa bộ xuất cho hai nhân vật. **Chủ dự án quyết** | P/K | Kết quả luật layout-v16 |
 | 12 | Tồn đọng từ Cổng 5 (PLAN): B1 cảnh 6 (hướng mặt Ida s45, đồng hồ); G2 mũ s39 → s40; G5/G6 tay s44, s45; G10 Ida xuống thang s40w; G11 s32 → s33 quỳ → đứng; khẩu hình câu cuối L4 s39; nắp đồng hồ | W1/W2 theo shot | PLAN "Việc cho Cổng 6 (từ Cổng 5)" |
 
 ## 4. Việc chuyển Cổng 7 (không làm ở Cổng 6)
