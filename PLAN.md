@@ -1,12 +1,16 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: gói đầu (Cas MPFB) đang làm; diễn hoạt CHỜ chủ dự án duyệt reports/m2/CONG-6-MO.md** · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **characters v1.5.1 (Ida) + v1.6 (Cas) KHOÁ 29/09/2026** (LOCK-THIẾT-KẾ 34 tệp); mặc định Ida 'bl' v1.5.1, Cas 'bl' + thân + tay MPFB · Cổng 6: W1/W2 CHƯA mở; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Mở Cổng 6** (reports/m2/CONG-6-MO.md): khoá v1.5 + C3 layout 'bl' + gói Cas MPFB (v1.6 nháp) + kế hoạch diễn hoạt → chủ dự án duyệt TRƯỚC khi bắt đầu diễn hoạt.
+1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
+2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
+3. **Gói thân Cas lượt 2 (W4T2, P làm; merge 0c62b9f): qua điều kiện dừng, kiểm mù TRƯỢT** (HÌNH 1/3 ở Cas: "chân… nhỏ so với thân… búp bê"; đối chứng 1/2 "mặt nạ"; lệch phong cách 0/2; TƯ THẾ 1 câu giao W1/W2). **KHÔNG khoá, không đổi mặc định, không layout-v16. CHỜ chủ dự án quyết** (reports/m2/CONG-6-THAN-2.md). W1/W2 chưa mở.
+   - **Quyết định 29/09/2026:** lượt 3 = sửa tham số (gấu áo nâng một phần, ống quần nới, tay nắm quai đèn lồng s41/s42a), **không kiểm mù**; chủ dự án xem ảnh (reports/m2/CONG-6-THAN-3.md) rồi duyệt khoá. Khi duyệt: khoá v1.5.1 + v1.6 một lần (sai lệch chấp nhận: chân/tay có thể còn bị chê ở khung tĩnh, kiểm lại trên clip W1/W2), mặc định Cas 'bl' + thân + tay mới, layout-v16 kèm silhouettes, luật v1.5, merge main (tài sản phải có trên main cho worktree W1/W2).
+   - **Cách chấm kiểm mù từ W1/W2:** ≥ 6 khung; ĐẠT khi tỉ lệ khung HÌNH có từ khoá ≤ nhiễu nền đối chứng (2/20) và không lời chê cùng chỗ lặp ≥ 2 khung; đối chứng chạy mỗi lần.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
@@ -22,9 +26,13 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 - (3) Mắt đọc được khi quay nghiêng (máy PA1).
 - (4) Tay Ida dùng tay MPFB, cầm nắm cột và van đúng.
 
-**c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
+**c′. Quyết định cố định (29/09/2026):** **s22 (W1)**: xoay Ida sang 3/4 (> 30°), giữ MCU. **s40 (W2)**: mặt Ida chìm vào bóng tối đúng lúc L11 tắt (1:49,2) — quyết định cố định. Đã ghi vào shots_w1.json / shots_w2.json (trường `cong6`).
 
-**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) → nháp characters v1.6 (Cas) chờ duyệt.
+**c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Phải đổi cỡ nếu chưa sửa mắt: s22 (MCU), s36 (MCU), s37 (CU), s39 (CU), s40 (CU insert)**; s36–s39 đã thuộc dàn dựng lại PA1. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
+
+**e. Gói W4 nhân vật — XONG (reports/m2/CONG-6-W4.md), chờ duyệt Q1–Q4:** mắt Ida + Cas; mũ ôm đầu (mũ phớt Ida, mũ len Cas, tóc gáy Cas); tay MPFB Ida + Cas (Ida nắm cột và van, Cas cầm đèn lồng); **Cas cổ áo len lật cao** (P soạn số cổ vào nháp v1.6); nghiên cứu khả thi thân MPFB (chỉ báo cáo). Sau đó kiểm mù 6 subagent.
+
+**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) — XONG; chủ dự án chọn **A+** (nhận Cas 'bl' làm nền, cổ áo lật cao), kiểm mù nhẹ TRƯỢT (Cas "búp bê" 2/2, lệch phong cách 1/2); nháp v1.6 chờ duyệt; mặc định Cas v1.4.
 
 ## Việc cho Cổng 6 (từ Cổng 5 — B1 và continuity lần 3)
 - **B1 cảnh 6:** làm rõ hướng mặt, hướng đầu của Ida ở s45 và đồng hồ trong tay (s45 → s46 → s45c giữ nguyên).
@@ -38,6 +46,7 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 - **Người và bóng ở hốc vòm (1:18–1:26, s32–s34):** tiêu chí đo được — **mỗi người sáng hơn bóng của chính mình trên vách ít nhất X = 2,0 lần**, đo bằng trung vị luma hiển thị (Rec.709, mã 8 bit, sau grade) trên mặt nạ người (phần nhìn thấy) so với mặt nạ bóng của chính người đó trên vách, ở mọi khung mẫu (mỗi 12 khung). Căn cứ: luật thế giới 3.1 đòi key : tràn ≥ 4 : 1 tại mặt nhận bóng để bóng hiện; mặt người quay về đèn lồng nhận key trực tiếp, vùng bóng chỉ nhận tràn → tỷ lệ tuyến tính ≥ 4; qua đường cong hiển thị (gamma ~2,2) 4× tuyến tính ≈ 1,9× luma hiển thị, nên chọn **2,0** (≈ 4,6× tuyến tính) — đủ để mắt tách người khỏi bóng mà không phải thêm đèn giả. Bóng mặc định đo ở phần thân bóng (không tính đầu bóng mờ nhạt ở vùng vách tối dần, luật 4).
 - Ghi nhận continuity lần 3 thuộc Cổng 7: **G1** kính đèn P5/cột sân trước tắt vẫn đọc đĩa xám sáng (s23); **G7** màu mũ nhảy theo nguồn sáng (s11–s13, s39 #311615, s42); **G8** kim/vạch đồng hồ quảng trường nhạt hoặc hồng nâu khi mặt loá (s09, s45c); **G9** quầng loá P5 phủ trời (s37w, s40w); **G12** tóc xám tối dưới vành mũ s45; **G16** s43 điểm vàng chưa đọc ra ô cửa; **G17** người/bóng s33 (tiêu chí X = 2,0 ở trên). Thêm: ánh nền s45 trắng / s45c trời đen (kiểm mù POV cảnh 6).
 - Hạ phơi sáng s11 (1,5–1,7); màu mũ nâu cam dưới đèn khí sát mặt (s05, s36, s40); lấy nét thật thay cho nền nhoè s06, s09w; ánh cửa sổ ấm có thật ở nhà đầu dãy bắc cho mặt Cas s24c.
+- **Đèn lồng của Cas chưa chiếu sáng ra xung quanh** (mặt đường, tường, người bên cạnh), kiểm mù W4T 3/3 khung nhắc (Claude rà độc lập bên ngoài phát hiện; chủ dự án duyệt và giao, 29/09/2026).
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |

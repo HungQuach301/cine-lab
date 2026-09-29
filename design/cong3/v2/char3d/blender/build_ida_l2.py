@@ -156,8 +156,8 @@ CH_UNITS = {
     'browKnit': {'nose-compression': 0.6, 'eyebrows-left-down': 0.25, 'eyebrows-right-down': 0.25},
     'blink': {'eye-left-closure': 1, 'eye-right-closure': 1},
     'lidDrop': {'eye-left-closure': 0.35, 'eye-right-closure': 0.35},
-    'squint': {'eye-left-slit': 0.6, 'eye-right-slit': 0.6},   # L3: mắt không thành khe ở PA1
-    'cheekRaise': {'eye-left-slit': 0.25, 'eye-right-slit': 0.25},   # L3: + khối má nâng THỦ TỤC (ch_delta); bỏ mouth-upward-retraction (nhấc môi trên → lộ răng, cười tươi)
+    'squint': {'eye-left-slit': 0.35, 'eye-right-slit': 0.35},   # Cổng 6: mí trên đã hạ sẵn (nướng eye-closure) → nheo nhẹ hơn để PA1 nghiêng không thành khe (0,6 → 0,35)   # L3: mắt không thành khe ở PA1
+    'cheekRaise': {'eye-left-slit': 0.12, 'eye-right-slit': 0.12},   # Cổng 6: 0,25 → 0,12 (như squint)   # L3: + khối má nâng THỦ TỤC (ch_delta); bỏ mouth-upward-retraction (nhấc môi trên → lộ răng, cười tươi)
     'smile': {'mouth-corner-puller': 0.55, 'mouth-compression': 1.0, 'mouth-elevation': 0.35},   # L3: cười NÉN (môi khép, không lộ răng), không cười tươi
     'frown': {'mouth-depression': 1},   # L3: về 1,0; miệng gãy khi cộng press + chinRaise sửa bằng shape key sửa lỗi corr_mouth
     'jawOpen': {'mouth-open': 1},
@@ -237,6 +237,9 @@ bpy.data.objects.remove(head)
 fl = np.zeros(sum(len(p.vertices) for p in me_sub.polygons), np.int64); me_sub.polygons.foreach_get('vertices', fl)
 FS = fl.reshape(-1, 4) if len(fl) == 4 * len(me_sub.polygons) else None
 log(f'đầu sau subdivision: {len(PS)} đỉnh, {len(me_sub.polygons)} mặt')
+# Cổng 6 (W4 gói nhân vật): MÍ — nướng eye-slit (mí dưới chạm đáy tròng) + eye-closure (mí trên che 1/4 bán kính tròng) vào trung tính
+from eyelid import fix_lids
+LIDS = fix_lids(PS, [list(p.vertices) for p in me_sub.polygons], SKD, [ER_c, EC], ER_r, log, slit_k=0.35)
 
 # ---- răng: tách khỏi da (khối riêng, vật liệu ngà) ----
 tsub = None
@@ -294,6 +297,9 @@ def skin_albedo(P, N):
     rim = gauss(er - ER_r * 1.08, 0.008) * fz
     r += 0.02 * rim; g -= 0.05 * rim; b -= 0.04 * rim                                         # viền mí hồng
     lash = gauss(er - ER_r * 1.04, 0.006) * sstep(EY - 0.005, EY + 0.02, y) * fz            # chân mi trên (tối) — đi theo mí khi chớp
+    r -= 0.45 * lash; g -= 0.48 * lash; b -= 0.45 * lash                                       # Cổng 6: chân mi trên tối thật sự (trước đây tính mà không dùng) — mép mí có nét
+    wl = gauss(er - ER_r * 1.02, 0.007) * sstep(EY - 0.2 * ER_r, EY - 0.45 * ER_r, y) * fz      # Cổng 6: VIỀN NƯỚC mí dưới (hồng, ướt: nhám thấp)
+    r += 0.06 * wl; g -= 0.16 * wl; b -= 0.10 * wl
     lip = sstep(0.022, 0.0, np.hypot(ax / 1.2, (y - MY) / 0.9) - 0.05) * sstep(MZ - 0.05, MZ - 0.02, z)
     r -= 0.02 * lip; g -= 0.24 * lip; b -= 0.18 * lip
     inner = sstep(MZ - 0.02, MZ - 0.06, z) * sstep(0.06, 0.03, ax) * sstep(0.05, 0.02, np.abs(y - MY))   # lòng miệng tối
@@ -314,6 +320,7 @@ def skin_albedo(P, N):
     # nhám theo vùng → kênh alpha (three.js: roughness = mix(0.45, 0.85, a)): chữ T (trán, sống mũi) bóng nhẹ; má, cằm, cổ, tai mờ
     tz = np.maximum(gp(0, EY + 0.15, 0.08), gauss(ax, 0.03) * sstep(MY, EY, y)) * fz
     rough = np.clip(0.62 - 0.35 * tz + 0.15 * sstep(0.1, -0.1, y) + 0.15 * ear + 0.08 * mot2, 0.05, 1)
+    rough = rough * (1 - 0.95 * np.clip(wl, 0, 1))                                             # viền nước: bóng ướt
     return np.concatenate([out, rough[:, None]], 1)
 
 _TH_PH = np.array([0.00, 0.45, 0.80, 1.05, 1.22, 1.38, 1.52, 1.68, 1.90, 2.30, 2.70, np.pi])
@@ -452,7 +459,7 @@ for k, D in SKD.items():
 log('mày xong')
 
 # ======================= TÓC =======================
-HAT_Y, HAT_TILT, RX0, RZ0, HCZ, HAT_FIT = 0.80, 0.08, 0.78 * 0.52, 0.78 * 0.52 * 1.12, 0.0, False
+HAT_Y, HAT_TILT, RX0, RZ0, HCZ, HAT_FIT = float(os.environ.get('HAT_Y', 0.775)), 0.08, 0.78 * 0.52, 0.78 * 0.52 * 1.12, 0.0, False
 HAT_PUSH = 0.26   # = cast3d 'bl': hatPivot.rotation.x = −0,26·hat_back (bản lề ở tâm sọ HC)
 RPUSH = np.array([[1, 0, 0], [0, math.cos(HAT_PUSH), -math.sin(HAT_PUSH)], [0, math.sin(HAT_PUSH), math.cos(HAT_PUSH)]])   # hướng ở tư thế đẩy → hướng tương ứng ở tư thế nghỉ
 ct, st = math.cos(-HAT_TILT), math.sin(-HAT_TILT); RXm = np.array([[1, 0, 0], [0, ct, -st], [0, st, ct]])
@@ -482,6 +489,11 @@ def band_clamp(c):   # L3: dải tóc / sợi tơ nằm DƯỚI băng mũ (khôn
     win_ = sstep(-0.06, 0.0, yh_) * sstep(0.17, 0.12, yh_); r_ = r_ + (np.minimum(r_, rb_ - 0.016) - r_) * win_
     rb2, yh2 = band_radius(D_ @ RPUSH.T); w2 = sstep(-0.06, 0.0, yh2) * sstep(0.17, 0.12, yh2); r_ = r_ + (np.minimum(r_, rb2 - 0.016) - r_) * w2
     return HC + D_ * r_[:, None]
+def brim_ao(P, C):   # Cổng 6: bóng tiếp xúc dưới vành/băng mũ trên tóc (che khuất thật: vành chắn ánh trời) — không phải đèn
+    if not HAT_FIT or C is None: return C
+    yl = ((np.asarray(P) - np.array([0, HAT_Y, HCZ])) @ RXm.T)[:, 1]
+    k = 1 - 0.6 * sstep(-0.10, -0.004, yl) * sstep(0.03, 0.0, yl)
+    C = np.array(C, float); C[:, :3] *= k[:, None]; return C
 def hair_point(th, ph, off=0.0):
     rh, rs = hair_radius(th, ph); return HC + sdir(th, ph) * (rh + off)[..., None]
 # L3: MŨ NGỒI LÊN SỌ — đo mặt cắt khối tóc ở dải băng mũ (hệ mũ nghiêng 0,08), đặt miệng mũ = elip ôm tóc × 0,985 (ép nhẹ), tâm mũ theo tâm đầu
@@ -489,7 +501,7 @@ _ph = np.linspace(-np.pi, np.pi, 181)[:-1]; _t = np.linspace(0.75, 1.75, 41); _P
 _rh, _ = hair_radius(_TT, _PH); _P = HC + sdir(_TT, _PH) * _rh[..., None]; _L = (_P.reshape(-1, 3) - np.array([0, HAT_Y, 0])) @ RXm.T
 _m = (_L[:, 1] > 0.0) & (_L[:, 1] < 0.12)
 _zf, _zb = _L[_m, 2].max(), _L[_m, 2].min(); HCZ = 0.5 * (_zf + _zb); _rz = 0.5 * (_zf - _zb); _rx = np.abs(_L[_m, 0]).max()
-RX0 = max(_rx, _rz / 1.12) * 0.985; RZ0 = RX0 * 1.12; HAT_FIT = True
+RX0 = _rx * 0.975; RZ0 = _rz * 0.975; HAT_FIT = True   # Cổng 6: miệng mũ ôm tóc theo CẢ hai trục (trước: tỷ lệ cố định 1,12 → hở một trục); ép 2,5 %
 log(f'mũ: tóc ở băng rộng {2 * _rx:.3f}, sâu {2 * _rz:.3f}, tâm z {HCZ:+.3f} → miệng mũ rx {RX0:.4f} rz {RZ0:.4f} (sheet 0,4056 / 0,4543)')
 log('vỏ tóc…')
 NU, NV = 150, 44
@@ -500,7 +512,7 @@ fsh = np.array([[i * NU + j, i * NU + (j + 1) % NU, (i + 1) * NU + (j + 1) % NU,
 tri = Psh[fsh[:, :3]]; n_ = np.cross(tri[:, 1] - tri[:, 0], tri[:, 2] - tri[:, 0])
 if np.median((n_ * (tri.mean(1) - HC)).sum(1)) < 0: fsh = fsh[:, ::-1]
 csh = (0.80 + 0.04 * fbm(Psh[:, 0] * 20, Psh[:, 1] * 20, Psh[:, 2] * 20, 5, 2))[:, None] * np.ones((1, 3))
-shell = mk_obj('ida_hair_shell', Psh, fsh, cols=csh, uv=np.stack([(PH.ravel() + np.pi) / (2 * np.pi) * 8, TH.ravel() * 2], 1), mat=mat_hair)
+shell = mk_obj('ida_hair_shell', Psh, fsh, cols=brim_ao(Psh, csh), uv=np.stack([(PH.ravel() + np.pi) / (2 * np.pi) * 8, TH.ravel() * 2], 1), mat=mat_hair)
 def card(th0, ph0, th1, ph1, w0, bow, k, nrow=14, off0=0.002):
     t = np.linspace(0, 1, nrow); th = th0 + (th1 - th0) * t; ph = ph0 + (ph1 - ph0) * t
     c = band_clamp(hair_point(th, ph, off0 + bow * np.sin(np.pi * t))); rad = c - HC; rad /= np.linalg.norm(rad, axis=1)[:, None]
@@ -525,7 +537,7 @@ for sx in (1, -1):
 for i in range(44):
     ph0 = -0.95 + 1.9 * i / 43 + (rng.random() - 0.5) * 0.03; sg = 1 if ph0 >= 0 else -1; th0 = theta_max(ph0) - 0.01 - 0.03 * rng.random()
     cards.append(card(th0, ph0, th0 - 0.6, ph0 * 1.3 + sg * 0.25, 0.024 + 0.01 * rng.random(), 0.003, 0.92 + 0.12 * rng.random()))
-Pcd, Fcd, Ccd, Ucd = merge(cards); mk_obj('ida_hair_cards', Pcd, Fcd, cols=Ccd, uv=Ucd, mat=mat_hair)
+Pcd, Fcd, Ccd, Ucd = merge(cards); mk_obj('ida_hair_cards', Pcd, Fcd, cols=brim_ao(Pcd, Ccd), uv=Ucd, mat=mat_hair)
 fines = []
 for i in range(260):
     ph = -2.55 + 5.1 * (i + rng.random() * 0.8) / 260; sg = 1 if ph >= 0 else -1; tm = theta_max(ph)
@@ -539,7 +551,10 @@ for i in range(260):
     tri = Pf[Ff[:, :3]]; n_ = np.cross(tri[:, 1] - tri[:, 0], tri[:, 2] - tri[:, 0])
     if np.median((n_ * (tri.mean(1) - HC)).sum(1)) < 0: Ff = Ff[:, ::-1]
     fines.append((Pf, Ff, np.full((len(Pf), 3), 0.95), np.stack([np.tile([0, 1], 8), np.repeat(t, 2)], 1)))
-Pfi, Ffi, Cfi, Ufi = merge(fines); mk_obj('ida_hair_fine', Pfi, Ffi, cols=Cfi, uv=Ufi, mat=mat_hair)
+_ylr = lambda P_: ((np.asarray(P_) - np.array([0, HAT_Y, HCZ])) @ RXm.T)[:, 1]
+_nf = len(fines); fines = [f for f in fines if not (-0.11 < _ylr(f[0][:2]).mean() < 0.03)]   # Cổng 6: bỏ sợi tơ mọc ngay dưới băng mũ (thành 'viền diềm' trắng xù dưới vành)
+log(f'sợi tơ: bỏ {_nf - len(fines)} / {_nf} sợi dưới băng mũ')
+Pfi, Ffi, Cfi, Ufi = merge(fines); mk_obj('ida_hair_fine', Pfi, Ffi, cols=brim_ao(Pfi, Cfi), uv=Ufi, mat=mat_hair)
 # ---- búi LIỀN ĐẦU: tâm búi đặt theo mặt tóc ở gáy (dưới vành mũ), lún 45 % bề dày vào khối tóc ----
 av = np.array([0.0, -0.25, -1.0]); av /= np.linalg.norm(av); e1 = np.array([1.0, 0, 0]); e2 = np.cross(av, e1); e2 /= np.linalg.norm(e2)
 BR = (0.262, 0.232, 0.17)
@@ -583,7 +598,7 @@ for lr in ('l', 'r'):
     EARRING['L' if sx > 0 else 'R'] = (PS[j] + np.array([sx * 0.010, 0.004, 0.0])).round(4).tolist()
 log(f'hoa tai (dái tai): {EARRING}')
 
-meta = {'_doc': "Cửa mặt Ida lượt 2 (W4, MPFB2 CC0). Hệ đầu cast3d: đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt. Shape key = morph target glTF; "
+meta = {'lids': LIDS, '_doc': "Cửa mặt Ida lượt 2 (W4, MPFB2 CC0). Hệ đầu cast3d: đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt. Shape key = morph target glTF; "
                 "TÊN = kênh facerig.js (16) + vis_* (6 khẩu hình); preset = trọng số trên kênh. Kênh dựng từ expression unit của MPFB (CH_UNITS).",
         'mpfb': {'commit': '3edf9df0551765be43563d047888cf7877eb89b4', 'version': '2.0.17', 'age': AGE, 'macro': macro, 'detail': DETAIL},
         'stylize': {'SX': float(SX), 'SZ': float(SZ), 'SN': float(SN), 'head_len_m_mpfb': float(HL)},
@@ -593,10 +608,10 @@ meta = {'_doc': "Cửa mặt Ida lượt 2 (W4, MPFB2 CC0). Hệ đầu cast3d: 
         'key_max_disp_H': {k: round(float(np.abs(D).max()), 4) for k, D in SKD.items()}}
 bpy.data.objects.remove(hum)
 meta['counts'] = {ob.name: len(ob.data.vertices) for ob in SC.objects if ob.type == 'MESH'}
-json.dump(meta, open(os.path.join(OUT, 'ida_bl.json'), 'w'), indent=1, ensure_ascii=False)
+json.dump(meta, open(os.path.join(OUT, os.environ.get('BL_NAME', 'ida_bl') + '.json'), 'w'), indent=1, ensure_ascii=False)
 for ob in SC.objects: ob.select_set(ob.type == 'MESH')
-bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, 'ida_bl.glb'), export_format='GLB', use_selection=True, export_yup=True, export_apply=False,
+bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, os.environ.get('BL_NAME', 'ida_bl') + '.glb'), export_format='GLB', use_selection=True, export_yup=True, export_apply=False,
                           export_morph=True, export_morph_normal=False, export_vertex_color='ACTIVE', export_normals=True, export_texcoords=True,
                           export_materials='EXPORT', export_animations=False)
-log(f"glb {os.path.getsize(os.path.join(OUT, 'ida_bl.glb')) / 1e6:.1f} MB; đỉnh {meta['counts']}")
+log(f"glb {os.path.getsize(os.path.join(OUT, os.environ.get('BL_NAME', 'ida_bl') + '.glb')) / 1e6:.1f} MB; đỉnh {meta['counts']}")
 if BLEND: bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(BLEND), compress=True); log('lưu ' + BLEND)

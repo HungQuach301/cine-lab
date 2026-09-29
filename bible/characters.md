@@ -1,4 +1,4 @@
-# HỒ SƠ NHÂN VẬT — "Last Round" (v1.4 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+; **v1.2: A1 + đo thêm góc (Cổng 4 vòng v2)** · **v1.3: D2 mũ Ida #262a33 (đóng Cổng 4)** · **v1.4: A-α mặt cách điệu, cổ lộ, cổ áo bẻ thấp, tóc bạc (Cổng 5 v2)** · **v1.5: Ida mặt 'bl' — đầu/cổ/tóc/tai từ lưới MPFB2 CC0, tỷ lệ đầu MPFB, khăn cao 4 vòng, bản lề mũ mới (Cửa mặt Ida, 29/09/2026)** · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md)
+# HỒ SƠ NHÂN VẬT — "Last Round" (v1.4 · chủ dự án đã duyệt ở Cổng 3 vòng 2; B1 đo lại theo hình 3D ở đợt vá A2+; **v1.2: A1 + đo thêm góc (Cổng 4 vòng v2)** · **v1.3: D2 mũ Ida #262a33 (đóng Cổng 4)** · **v1.4: A-α mặt cách điệu, cổ lộ, cổ áo bẻ thấp, tóc bạc (Cổng 5 v2)** · **v1.5: Ida mặt 'bl' — đầu/cổ/tóc/tai từ lưới MPFB2 CC0, tỷ lệ đầu MPFB, khăn cao 4 vòng, bản lề mũ mới (Cửa mặt Ida, 29/09/2026)** · **KHOÁ**; đổi phải qua chủ dự án và ghi AUTHORSHIP.md · **v1.5.1: Ida mắt, mũ ngồi thấp 0,025 H, tay MPFB** · **v1.6: Cas MPFB — đầu, thân, áo len cổ lật cao, quần ống thẳng, tay theo tỷ lệ MPFB (khoá 29/09/2026)**)
 
 Căn cứ: kịch bản chốt `scripts/last-round.fountain` (nháp 2), luật thế giới v0.3. Dùng cho rubric **C1** (người chấm phải nêu được 4 yếu tố từ phim, không đọc hồ sơ) và cho diễn xuất ở Cổng 6.
 
@@ -32,6 +32,12 @@ Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`
 |---|---|---|---|
 | Cách dựng | Thân 3D, tay 3D. **v1.5:** đầu, cổ, tóc, tai, mắt, mày, búi, hoa tai của Ida từ **lưới người MPFB2** (tài sản lõi CC0, RIGHTS W4-MPFB-A), dựng trong Blender bằng script `design/cong3/v2/char3d/blender/build_ida_l2.py` → `ida_bl.glb`, render trong three.js (`IDA_STYLE='bl'`). (v1.4 trở về trước: mặt vẽ tay trên texture phủ đầu 3D, C′) | Thân 3D, tay 3D, mặt vẽ tay (C′). **Cas: chờ gói MPFB, sẽ lên v1.6** | C′; v1.5 (Ida) |
 | Bàn tay | **1,15×** số đo gốc | **1,30×** (trần cho phép) | 2A |
+| Bàn tay (v1.5.1 / v1.6) | **Lưới bàn tay MPFB2** (nữ 74 tuổi, ngón thon; CC0, RIGHTS W4-MPFB-A3), giữ HAND_SCALE 1,15; 16 xương ngón, nắm có va chạm; cổ tay cắt phẳng + nắp, lót măng sét khép | **Lưới bàn tay MPFB2** (nam 10 tuổi), giữ HAND_SCALE 1,30; da tay #cf9878, cuộn sáng mềm sát đèn lồng; măng sét len trùm cổ tay 0,09 H | v1.5.1/v1.6 |
+| Cách dựng Cas (v1.6) | — | Đầu, cổ, tóc, tai, mắt, mày từ **lưới người MPFB2** (nam 10 tuổi; `build_cas_bl.py` → `cas_bl.glb`), cùng luật cách điệu và hệ tỷ lệ đầu với Ida v1.5 (cằm → đỉnh sọ = 1 H; tâm mắt z 0,26 H). **Thân, áo len, quần, da ống chân từ lưới thân MPFB2** uốn về khung cast3d (`build_cas_body_bl.py` → `cas_body_bl.json`, da CPU, giữ rig và tư thế). Mũ len quả bông giữ hình, ôm sọ | v1.6 |
+| Tay Cas (v1.6) | — | **Theo tỷ lệ MPFB** (quyết định của chủ dự án): khớp tay trên **0,7643 H**, cẳng tay **0,7009 H** (v1.4: 0,92 / 0,82; tầm với ngắn hơn 15,8 %) | v1.6 |
+| Áo len, quần Cas (v1.6) | — | **Cổ lật cao**: ống 0,20 H, phần lật 0,09 H, Ø ngoài 0,40 H; sau gáy dâng 0,085 H, nới 0,03 H. Áo theo khối thân, lệch 1,6 cm, **gấu 2,17 H** buông, phủ qua cạp quần; ngực, lưng phủ trơn. **Quần ống thẳng**, bán kính tối thiểu 5,1 cm, nếp gối, gấu thẳng cách mắt cá 0,25 H | v1.6 |
+| Mắt, mũ Ida (v1.5.1) | Mí trên 0,27 R, chân mi tối, viền nước mí dưới, điểm sáng mềm (clearcoat 0,45); **mũ ngồi thấp 0,025 H** (miệng mũ y 0,775, đo hai trục rx 0,3893 / rz 0,4172 H); bỏ 57 sợi tơ dưới băng | Mắt như Ida (mí 0,27 R) | v1.5.1/v1.6 |
+| Sai lệch đã chấp nhận (khoá 29/09/2026) | Mép cổ tay áo có răng cưa nhẹ (s41) | Vai áo phồng tròn; bàn tay còn thô khi nhìn gần (không có shot cận tay); s41 phải duỗi hết tay mới chạm đèn (W2 đặt gần Ida hơn); chân/tay có thể còn bị chê ở khung tĩnh | Kiểm lại trên clip W1/W2 |
 | Búi tóc | **1,3×** (đường kính hiệu dụng 0,546 H) | — | 2A |
 | Váy | Váy dài #4a3a44 lộ dưới vạt áo, gấu cách đất 0,42 H; tất tối #3a3235 | — | 3B |
 | Khăn | Khăn len #8e5c5a, một đuôi buông trước ngực. **v1.5: khăn cao 4 vòng** sát dưới cằm; mép khăn và cổ áo tính theo lưới đầu 'bl' | — | 3B; v1.5 |
@@ -40,7 +46,7 @@ Nguồn số: `design/cong3/model-sheet/ida.json`, `cas.json` (trường `scale`
 | Mặt (v1.5, 'bl') | **Người nữ MPFB khoảng 74 tuổi** (age 0,877; `head-age-incr` 0,75) + 33 target chi tiết (mũi dài hơi khoằm, mắt to, dái tai dài, gò má cao, môi mỏng, cằm nhỏ); **tỷ lệ mặt MPFB** (mắt khoảng 0,50 H); nếp tuổi bằng khối (3 nếp trán, chân chim, rãnh mũi–má, rãnh khoé miệng, nếp môi trên, nếp cổ); da loang hai tầng, đốm tuổi, độ nhám theo vùng 0,45–0,85; **tai MPFB liền lưới**, hoa tai ở điểm thấp nhất dái tai; mắt nhãn cầu có tròng và điểm sáng. **Biểu cảm:** shape key 16 kênh cùng tên `CHANNELS` của facerig.js + 6 khẩu hình `vis_A/E/O/MBP/FV/L` + 4 preset (neutral, sad_smile, strained, choked), corrective `corr_mouth`, `corr_smile_lip` (expression unit CC0 của MPFB). **Sai lệch chủ dự án đã chấp nhận (29/09/2026):** cảm xúc 2/4 trên ảnh tĩnh PA1 (cười buồn đọc thành cười ấm); 1 câu "da như đất sét hoặc sáp, hơi giống tượng" sát biên; khung chính diện bị gọi "búp bê" 2/2 → **chưa sửa mắt thì không dùng cận mặt chính diện**; nhịp cười buồn đo lại trên clip có tiếng ở Cổng 6 (reports/m2/MAT-IDA-BLENDER-L3.md) | — | A′ → A (Cửa mặt Ida) |
 | Mặt nữ tính (v1.4, thay bởi v1.5) | **A-α:** mặt tròn–mềm cách điệu (má đầy liền gò má cao, cằm tròn nhỏ, nửa dưới mặt ngắn, khối dưới cằm da chùng nhẹ dốc mềm vào cổ); ít nét nhăn vẽ (2 nếp trán, 2 vết chân chim, 1 nếp dưới mắt, dải rãnh mũi–má mềm); da có sắc độ ấm/lạnh và kết cấu mịn (không nhẵn như sáp); lông mày dày mềm; môi có khối; mắt có viền ẩm. **Cổ lộ một đoạn ngắn** (bề ngang cổ 0,40 H; v1.3: 0,30 H), **cổ áo bẻ thấp nằm trên vai, mở chữ V**, **khăn quấn thấp** ở chân cổ (bỏ cổ đứng cao của v1.2). Hoa tai treo ở dái tai (nụ + móc + giọt, vàng cũ #c9a466). Cổng mặt: kiểm mù lần 6 vẫn trượt tiêu chí "búp bê" (xem reports/m2/CONG-5-V2.md) | — | A1 (Cổng 4); A-α (Cổng 5 v2) |
 | Mắt (v1.2) | Tròng nâu #5a4636, lòng trắng ngà tối #7a6e66; không tự phát sáng | như cũ | Cổng 4 v2 |
-| Mặt | Ida v1.5: hình học điêu khắc (lưới MPFB), không nét vẽ; (v1.4: khe môi, nếp nhăn, mi, đồi mồi là nét vẽ; da Lambert) | Không khắc khe miệng/nếp nhăn vào hình học; nét vẽ; da mờ; tàn nhang vẽ (chờ v1.6) | C′, sửa L3; v1.5 |
+| Mặt | Ida v1.5: hình học điêu khắc (lưới MPFB), không nét vẽ; (v1.4: khe môi, nếp nhăn, mi, đồi mồi là nét vẽ; da Lambert) | Không khắc khe miệng/nếp nhăn vào hình học; nét vẽ; da mờ; **v1.6: đầu 'bl' MPFB (hình học điêu khắc, rig 16 kênh như Ida), tàn nhang bằng màu đỉnh** | C′, sửa L3; v1.5 |
 | Chim bóng | — | Hai cổ tay **bắt chéo**, ngón cái là đầu chim, các ngón xoè là cánh | 5B |
 
 ## Tỷ lệ đo được trên hình 3D đã duyệt (B1, đợt vá A2+ — dùng cho luật C3)
@@ -55,18 +61,20 @@ Cách đo giống checks C3 (RUN.md 3.6): mặt nạ bộ phận **nhìn thấy*
 | cẳng tay | **0,831** | 0,882 | 1,257¹ | — | 1,005 | 0,837 | 1,101 | 1,025 |
 | cẳng chân (bỏ) | **0,245** | 0,272 | 0,273 | — | 0,271 | 0,275 | 0,275 | 0,245 |
 
-**Cas:** số v1.4 dưới đây giữ nguyên; **chờ gói MPFB, sẽ lên v1.6** (đồng bộ tỷ lệ đầu–thân với Ida v1.5).
+**Cas v1.6 (khoá 29/09/2026)**: đo từ lưới 'bl' đã duyệt (W4T lượt 3; `c3_w4t.py`, mặt nạ nhìn thấy 4×, turnaround, trực giao). **Đầu đo theo 'doc'** (`c3_head_axis: "doc"`, Q-C3h: chiếu lên trục tâm thân → tâm đầu + 1 px); bộ phận khác PCA + 1 px. Ida giữ 'pca'. Số v1.4 của Cas (thân 0° 1,669…) không còn dùng.
 
-| Bộ phận | Cas 0° (sheet) | 45° | −45° | 90° | −90° | 135° | −135° | 180° |
+| Bộ phận | Cas 0° (sheet) | 45° | -45° | 90° | -90° | 135° | -135° | 180° |
 |---|---|---|---|---|---|---|---|---|
-| thân | **1,669** | 1,707 | 1,708 | 1,661 | 1,654 | 1,708 | 1,704 | 1,656 |
-| cánh tay trên (bỏ) | 0,586 | 0,211 | 0,613 | — | 0,630 | 0,574 | 0,635 | 0,630 |
-| cẳng tay | **0,945** | 0,944 | 0,929 | —² | 0,937 | 0,942 | 0,932 | 0,944 |
-| đùi | **1,191** | 1,176 | 1,159 | — | 1,076³ | 1,039 | 1,189 | 1,082 |
-| cẳng chân | **1,132** | 1,116 | 1,115 | — | 1,134 | 1,126 | 1,122 | 1,105 |
+| thân | **2,618** | 2,706 | 2,700 | 2,723 | 2,725 | 2,803 | 2,871 | 3,886 |
+| cánh tay trên | **1,564** | 1,608 | 1,548 | — | 1,540 | 1,554 | 1,636 | 2,280 |
+| cẳng tay | **1,051** | 1,047 | 1,087 | — | 1,114 | 1,132 | 1,162 | 1,634 |
+| đùi | **1,604** | 1,697 | 1,620 | 1,633 | 1,688 | 1,672 | 1,651 | 2,376 |
+| cẳng chân | **1,464** | 1,443 | 1,604 | 1,384 | 1,620 | 1,599 | 1,654 | 2,278 |
+
+Nguồn: `reports/m2/cong6/w4t3/W4T3_c3_cas_doc.json`. Tay khuất sau thân ở 90° ghi null. **Ida v1.5.1**: đo lại với mũ hạ, thân lệch ≤ 0,14 % so với bảng Ida ở trên, nên bảng Ida giữ nguyên.
 
 ¹ Tay phải cầm đèn đưa ra trước trong tư thế turnaround. ² Đo được 0,05 = mẩu cổ tay ló sau thân; ghi null. ³ **Q-C3w:** đùi Cas 1,19 (−60°), 1,211 (−75°), 1,068 (−80°), 1,076 (−90°). Bậc −13% giữa −75° và −80° là do **cánh tay buông che mép trước đùi**, không phải gấu áo len; số −90° đúng. Ở dáng đi (walk_cas, −71…−80°) tay vung khỏi đùi nên đùi dài hơn 9–11%. Che phụ thuộc tư thế: đã biết, không đổi số.
 
-Bộ phận bị che theo thiết kế nên không đo: Ida — đùi và cẳng chân (váy dài + áo khoác); Cas — cánh tay trên (áo len rộng che, biến thiên 0,21–0,63 theo góc).
+Bộ phận bị che theo thiết kế nên không đo: Ida — đùi và cẳng chân (váy dài + áo khoác); Cas v1.4 — cánh tay trên (áo len rộng che, biến thiên 0,21–0,63 theo góc); **v1.6 đo được cánh tay trên** (áo theo khối tay).
 **Giới hạn đã biết:** tỷ lệ phụ thuộc góc nhìn (thân Ida 2,15–2,58), nên C3 ở shot nghiêng/sau lưng có thể lệch > 3% dù nhân vật đúng thiết kế (RULES.md giới hạn 4: đo 2D).
 

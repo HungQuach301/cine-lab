@@ -297,7 +297,8 @@ S({ id: 's41', scene: 5, size: 'WS', angle: 'ngang', mm: 28, move: 'tĩnh',
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 1.1 }), f);
         // Cổng 5 (continuity C3): Ida TRÁI, Cas PHẢI như s40w / s42 — Ida xuống thang đứng phía tây chân thang (7,9), Cas bước ra phía đông (8,9).
         ida.place(poseAt([[0, over(p.stand, { props: ['lantern_hand_R'], hat_back: HB })], [0.5, over(p.holdOut, { hat_back: HB })]], t), 7.9, -4.4, yawTo(7.9, -4.4, 8.9, -4.6));
-        cas.place(poseAt([[0, p.C.turnaround], [0.7, casHug(p)]], t), 8.9, -4.6, yawTo(8.9, -4.6, 7.9, -4.4)); lan(ida, f); } };
+        cas.place(poseAt([[0, p.C.turnaround], [0.7, casHug(p)]], t), 8.9, -4.6, yawTo(8.9, -4.6, 7.9, -4.4)); lan(ida, f);
+        if (t >= 0.7 && cas.handsBL) { let L = null; ida.root.traverse((o) => { if (!L && o.name === 'lantern') L = o; }); if (L) gripRing(cas, L, L.userData.height, { move: false, ang: 65 }); } } };   // W4T lượt 3: Cas nắm hai bên vòng quai khi Ida trao
   } });
 
 // Bộ s5/s6 dựng nhân vật với glint mặc định (5,0 — hợp phơi sáng 0,12 của Cổng 3); ở phơi sáng animatic ~1,0 mắt thành phát sáng → hạ về mức makeChar.
@@ -306,6 +307,23 @@ const tameGlint = (ch, k = 0.12) => ch.root.traverse((o) => { if (o.isMesh && o.
 const lanternProp = (ctx) => buildLantern(ctx.sheets.ida.props.lantern.height_H * ctx.sheets.ida.H_m, (r, c) => r === 'flame' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#fff0c8').multiplyScalar(20) }) : r === 'glass' ? new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffc56b').multiplyScalar(3), transparent: true, opacity: 0.7, depthWrite: false }) : lamMat({ color: c }));
 function hangFromHands(lan, ch, h) { const a = new THREE.Vector3(), b = new THREE.Vector3(); ch.joints.wrist_L.getWorldPosition(a); ch.joints.wrist_R.getWorldPosition(b);
   lan.position.copy(a.add(b).multiplyScalar(0.5)).add(new THREE.Vector3(0, -h - 0.03, 0)); lan.updateMatrixWorld(true); }
+// Cổng 6 (W4T lượt 3, chủ dự án 29/09/2026): tay MPFB NẮM QUAI THẬT — ngón gập quanh vòng quai (tay 'bl' mới có; tay cũ giữ cách treo giữa hai cổ tay).
+// Vòng quai (buildLantern): xuyến bán kính 0,12 h, ống 0,018 h, tâm ở 1,06 h, nằm trong mặt phẳng XY cục bộ. Hai tay nắm hai điểm chéo trên của vòng (±ang so với đỉnh),
+// trục nắm = tiếp tuyến vòng tại đó; IK hai xương (ch.reachGrip). move=true: dời đèn cho vòng nằm giữa hai nắm tay (Cas tự cầm); false: đèn đứng yên (Ida đang cầm, s41).
+function gripRing(ch, lan, h, { move = true, ang = 45 } = {}) {
+  if (!ch.handsBL || !ch.reachGrip) return false;
+  const q = ch.root.getWorldQuaternion(new THREE.Quaternion()), right = new THREE.Vector3(1, 0, 0).applyQuaternion(q), up = new THREE.Vector3(0, 1, 0), r = 0.12 * h, a = ang * Math.PI / 180;
+  if (move) { const gL = ch.gripPoint('L'), gR = ch.gripPoint('R'), C = gL.add(gR).multiplyScalar(0.5).addScaledVector(up, -r * Math.cos(a));
+    lan.quaternion.copy(q); lan.position.copy(C).addScaledVector(up, -1.06 * h); lan.updateMatrixWorld(true); }
+  lan.updateMatrixWorld(true);
+  const C = new THREE.Vector3(0, 1.06 * h, 0).applyMatrix4(lan.matrixWorld), rx = new THREE.Vector3(1, 0, 0).transformDirection(lan.matrixWorld), sgnL = rx.dot(right) >= 0 ? 1 : -1;
+  const err = {};
+  for (const [s, sg] of [['L', sgnL], ['R', -sgnL]]) {
+    const pt = C.clone().addScaledVector(rx, sg * r * Math.sin(a)).addScaledVector(up, r * Math.cos(a)), ax = rx.clone().multiplyScalar(Math.cos(a)).addScaledVector(up, -sg * Math.sin(a)).normalize();
+    err[s] = ch.reachGrip(s, { point: pt.toArray(), axis: ax.toArray(), radius: 0.018 * h });
+  }
+  return err;
+}
 // Cổng 5 (continuity N2): Cas ÔM đèn lồng sát ngực (hai tay, đèn treo giữa hai cổ tay) — cùng một cách cầm ở s41 (cuối), s42a, s42b (v2: casTake chìa xa, nhìn nghiêng đọc thành một tay).
 const casHug = (p) => over(p.casTake, { joints: { shoulder_L: [-12, 0, -18], elbow_L: [-112, 0, 0], shoulder_R: [-12, 0, 18], elbow_R: [-112, 0, 0] } });   // v2 (N2): khuỷu gập sát, cổ tay trước ngực — đèn áp bụng, nhìn nghiêng không còn 'chìa ra'
 const IDA_42A = [6.8, -2.5];
@@ -324,7 +342,7 @@ S({ id: 's42a', scene: 5, size: 'MS', angle: 'ngang ngực Cas, 3/4 trước', m
         ida.place(over(p.stand, { props: [], hat_back: HB, joints: { neck: [18, 0, 0] } }), ...IDA_42A, yawTo(...IDA_42A, 7.6, -3.3));   // C3: Ida TRÁI khung
         const nk = valAt([[0, 0], [0.3, 0], [0.8, 38], [1.2, 38], [1.6, -30], [2.0, -45]], t);
         cas.place(over(casHug(p), { joints: { neck: [4, nk, 0] } }), 7.6, -3.3, yawTo(7.6, -3.3, 10.4, -0.6));
-        hangFromHands(lanObj, cas, h); lanObj.userData.lightAnchor.getWorldPosition(lanL.position); lanL.intensity = 1.2 * flickAt(f + 17); } };
+        hangFromHands(lanObj, cas, h); gripRing(cas, lanObj, h); lanObj.userData.lightAnchor.getWorldPosition(lanL.position); lanL.intensity = 1.2 * flickAt(f + 17); } };
   } });
 
 S({ id: 's42b', scene: 5, size: 'WS', angle: 'ngang 1,3 m, ngoài vòm', mm: 32, move: 'tĩnh',
