@@ -1,0 +1,4415 @@
+{
+  "tool": "cinecheck 1.5.0",
+  "created_utc": "2026-09-29T13:26:28Z",
+  "file": "/home/user/cine-lab/design/cong5/layout/out/layout-v16.cas.mp4",
+  "profile": "shot",
+  "verdict": "TRƯỢT",
+  "lock": {
+    "expected": "8d55b6ad389dcbd2c40366bb16eed730106edef3ffee6c565e5ce786bd2aa65b",
+    "actual": "8d55b6ad389dcbd2c40366bb16eed730106edef3ffee6c565e5ce786bd2aa65b",
+    "match": true
+  },
+  "inputs": {
+    "script": null,
+    "text": null,
+    "stems": null,
+    "parts": "/home/user/cine-lab/design/cong5/layout/out/layout-v16.cas.parts",
+    "motion": null,
+    "assets": "/home/user/cine-lab/design/cong5/layout/out/layout-v16.cas.assets.json",
+    "library": "/home/user/cine-lab/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 0,
+    "FAIL": 1,
+    "MISSING": 0,
+    "REVIEW": 0,
+    "N/A": 0,
+    "ERROR": 0
+  },
+  "near_threshold": [
+    {
+      "code": "C3",
+      "metric": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+      "value": 4.0,
+      "threshold": 4.0
+    },
+    {
+      "code": "C3",
+      "metric": "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+      "value": 4.0,
+      "threshold": 3.98
+    }
+  ],
+  "results": [
+    {
+      "code": "C3",
+      "section": "4.C — Nhân vật",
+      "title": "Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
+      "level": "Chặn",
+      "measure": "<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12. v1.1 (Q-C3): mặt nạ bắt buộc ở độ phân giải gấp s = 2–4 lần khung; s đo từ kích thước PNG (rộng/rộng và cao/cao phải bằng nhau, mọi mặt nạ cùng cỡ), trường 'scale' nếu có phải khớp s đo. Chống phóng to mặt nạ thấp hơn: tập vị trí biên phân biệt (x chuyển tiếp ngang, y chuyển tiếp dọc) quy về pha lưới s (k = round(s) ngăn); tỷ lệ dồn vào 1 pha phải ≤ 1/k + (1 − 1/k)/2 (s=2: 0,75; s=3: 0,67; s=4: 0,625) với ≥ 40 vị trí (render thật ≈ 1/k; phóng to từ mặt nạ nhị phân ≈ 1,0). Độ dài = bề dài chiếu lên trục chính PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 2 px mặt nạ (v1.2; v1.1: 1 px); hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 và phủ cả sai số của mặt nạ phóng to từ matte 1× khử răng cưa rồi ngưỡng hoá (loại không phát hiện được bằng ảnh). v1.3 (Q-δ): đầu < 100 px video ở khung mẫu bất kỳ thì hệ số mặt nạ ≥ 4. v1.3 (Q-C3c) kiểm toán ngẫu nhiên: phiên P chạy checks/audit.py issue (hạt giống từ secrets, 1–2 khung trong khung mẫu, ghi <video>.audit/request.json kèm SHA video và SHA bộ mặt nạ); xưởng render lại mặt nạ các khung đó từ file cảnh đã khoá vào <video>.audit/rerender/ và ghi render.log (SCENE <file> SHA256 <hex>; FRAME <n> CMD <lệnh>). Đối chiếu: video và bộ mặt nạ không đổi sau khi phát; log đủ, SHA file cảnh khớp đĩa (và thuộc scene_files nếu có assets.json); đủ mặt nạ render lại cùng cỡ; lệch tỷ lệ bộ phận/đầu nộp so với render lại ≤ 1·U (δ = 2); điểm ảnh khác nhau / điểm ảnh biên ≤ 0,02. Chưa có yêu cầu = THIẾU. v1.2 (C3b): dải xám ở biên (điểm ảnh mức 6–249 / điểm ảnh biên) ≤ 2,5 — mặt nạ phóng to còn giữ mức xám thì trượt. Quyết định kiểu ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng (mọi khung có nhân vật). v1.4 (lược đồ, RUN.md 3.6): độ dài lấy từ cấp gốc {bộ phận: {length}}, nếu thiếu thì từ parts{} (một nguồn cho mọi bộ phận, không trộn), và bảng c3_views {góc: {bộ phận: tỷ lệ/đầu hoặc null}}; sai định dạng = THIẾU kèm thông báo. v1.4 (B-i, góc nhìn và tư thế): mẫu (khung × bộ phận) chỉ được so khi đo được: (a) máy tự loại bộ phận/đầu chạm mép khung; (b) nếu parts.json có 'views' xuất từ render (mỗi khung view_deg, elev_deg; mỗi bộ phận foreshorten, hidden, depth): góc 3D giữa hướng nhìn và góc c3_views gần nhất ≤ 30°, |foreshorten − 1| ≤ 0,02 (co ngắn do tư thế so với turnaround), hidden ≤ 0,10 (bị vật ngoài thân che), |depth − 1| ≤ 0,02 (phối cảnh); đầu không đạt thì cả khung không đo được; c3_views null = khuất ở góc đó. So với số của góc gần nhất. Mặt nạ rỗng mà views khai không bị che = thiếu mặt nạ (lỗi). Không có 'views': mọi mẫu so với góc 0° như v1.3. Mẫu không đo được được đếm và liệt kê; tỷ lệ mẫu đo được báo theo từng shot (tách shot như G3b). Shot có nhân vật mà 0 mẫu đo được → CẦN NGƯỜI XEM. Kiểm toán: có 'views' thì xưởng xuất lại views.json cho khung được chọn; lệch > 1° hoặc > 0,005 → trượt. v1.5 (trục đầu): model sheet khai c3_head_axis: 'doc' = độ dài đầu là bề dài chiếu mặt nạ đầu lên trục dọc thân (vectơ đơn vị từ tâm mặt nạ thân tới tâm mặt nạ đầu cùng khung; thiếu thân: phương dọc ảnh) + 1 px; 'pca' (mặc định) = trục chính như v1.4; giá trị khác = THIẾU. Khung có trục chính đầu lệch trục dọc > 45° (đầu rộng hơn cao) được liệt kê. Kiểm toán dùng cùng cách đo. 'silhouettes' (bóng nhân vật cho P0) nằm trong SHA bộ mặt nạ; phiếu kiểm toán chọn thêm 1 khung trong các khung chỉ có bóng (sil_frames); khung được chọn có bóng thì render lại silhouette.png, so như mặt nạ bộ phận.",
+      "threshold_text": "Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; dải xám biên ≤ 2,5; đầu < 100 px thì ≥ 4×; kiểm toán ngẫu nhiên đạt (lệch ≤ 1·U, khác điểm ảnh ≤ 0,02, log và SHA file cảnh khớp); 0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ). v1.4: chỉ tính trên mẫu đo được (góc ≤ 30°: quyết định chủ dự án; foreshorten 0,02, hidden 0,10, depth 0,02: nội bộ); shot có nhân vật mà 0 mẫu đo được = CẦN NGƯỜI XEM (không ĐẠT).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          "value": 4.0,
+          "op": ">=",
+          "threshold": 2.0,
+          "unit": "×",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          "value": 4.0,
+          "op": "<=",
+          "threshold": 4.0,
+          "unit": "×",
+          "ok": true,
+          "near": true
+        },
+        {
+          "name": "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "vị trí biên phân biệt để kiểm pha lưới",
+          "value": 134368,
+          "op": ">=",
+          "threshold": 40,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          "value": 0.2513,
+          "op": "<=",
+          "threshold": 0.625,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 2.5,
+          "unit": "px/px biên",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          "value": 4.0,
+          "op": ">=",
+          "threshold": 3.98,
+          "unit": "×",
+          "ok": true,
+          "near": true
+        },
+        {
+          "name": "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          "value": 22.47,
+          "op": "<=",
+          "threshold": 3.0,
+          "unit": "%",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung lệch chắc chắn > 3%",
+          "value": 35,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          "value": 98,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          "value": 1.0221,
+          "op": ">=",
+          "threshold": 1.5,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: video không đổi sau khi phát yêu cầu",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: bộ mặt nạ nộp không đổi sau khi phát yêu cầu",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: có khung được chọn",
+          "value": 1,
+          "op": ">=",
+          "threshold": 1,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: có render.log",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: log có dòng SCENE, SHA-256 khớp file cảnh trên đĩa",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: khung được chọn không có dòng FRAME … CMD trong log",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: views.json render lại thiếu hoặc sai định dạng",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: views render lại lệch bản nộp — góc nhìn, góc ngẩng (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "°",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: views render lại lệch bản nộp — foreshorten, hidden, depth (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.005,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: mặt nạ render lại thiếu hoặc khác kích thước",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: lệch tỷ lệ nộp/render lại, tính theo dải nhiễu U (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "×U",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: điểm ảnh khác nhau / điểm ảnh biên (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.02,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          "value": 7,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": false,
+          "near": false
+        }
+      ],
+      "notes": [
+        "Model sheet: cas.json (độ dài: cấp gốc; đầu đo theo 'doc'; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 4.2–304.0 px video. Lệch lớn nhất (mẫu đo được) 19.11%. 134368 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 141/565 (25.0%) trên 113 khung có nhân vật. Theo shot: shot 24 (khung 1260–1331): 30/30 (100%); shot 25 (khung 1332–1379): 20/20 (100%); shot 26 (khung 1380–1415): 3/15 (20%); shot 27 (khung 1416–1487): 0/30 (0%); shot 29 (khung 1536–1607): 18/30 (60%); shot 30 (khung 1608–1655): 0/20 (0%); shot 31 (khung 1656–1727): 1/30 (3.3%); shot 32 (khung 1728–1775): 16/20 (80%); shot 33 (khung 1776–1847): 0/30 (0%); shot 34 (khung 1848–1919): 2/30 (6.7%); shot 35 (khung 1920–2039): 10/50 (20%); shot 36 (khung 2040–2087): 0/20 (0%); shot 37 (khung 2088–2183): 12/40 (30%); shot 40 (khung 2371–2437): 6/30 (20%); shot 42 (khung 2544–2577): 0/15 (0%); shot 45 (khung 2640–2687): 4/20 (20%); shot 46 (khung 2688–2723): 8/15 (53.3%); shot 47 (khung 2724–2771): 8/20 (40%); shot 48 (khung 2772–2819): 3/20 (15%); shot 49 (khung 2820–2891): 0/30 (0%); shot 56 (khung 3252–3371): 0/50 (0%).",
+        "Không đo được: 424 mẫu bộ phận — phối cảnh: độ sâu lệch đầu > 2%: 23; chạm mép khung (bị cắt): 13; bị che > 10%: 42; đầu cúi/ngẩng/nghiêng: co ngắn > 2%: 210; gập: co ngắn do tư thế > 2%: 81; đầu chạm mép khung (bị cắt): 30; đầu bị che > 10%: 10; góc nhìn lệch > 30° mọi góc tham chiếu: 15. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân (thân→đầu), không lật. 67 khung có đầu rộng hơn cao (trục chính sẽ lật).",
+        "Shot [27, 30, 33, 36, 42, 49, 56]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT.",
+        "Có số đo nằm trong dải nhiễu quanh 3%: render mặt nạ ở độ phân giải cao hơn (scale 2–4) hoặc chọn khung có đầu lớn hơn để chứng minh.",
+        "Kiểm toán ngẫu nhiên: hạt giống 3605333491331794803, khung [456], phát bởi P lúc 2026-09-29T13:21:38Z."
+      ],
+      "evidence": {
+        "do": [
+          {
+            "khung": 1260,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.7142,
+            "sheet": 2.871,
+            "lech_pct": -5.46,
+            "U_pct": 7.5,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1260,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5303,
+            "sheet": 1.636,
+            "lech_pct": -6.46,
+            "U_pct": 8.4,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1260,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.112,
+            "sheet": 1.162,
+            "lech_pct": -4.31,
+            "U_pct": 9.46,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1260,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6275,
+            "sheet": 1.651,
+            "lech_pct": -1.42,
+            "U_pct": 8.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1260,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5542,
+            "sheet": 1.654,
+            "lech_pct": -6.04,
+            "U_pct": 8.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1272,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.7142,
+            "sheet": 2.871,
+            "lech_pct": -5.46,
+            "U_pct": 7.5,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1272,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5303,
+            "sheet": 1.636,
+            "lech_pct": -6.46,
+            "U_pct": 8.4,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1272,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.112,
+            "sheet": 1.162,
+            "lech_pct": -4.31,
+            "U_pct": 9.46,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1272,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6275,
+            "sheet": 1.651,
+            "lech_pct": -1.42,
+            "U_pct": 8.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1272,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5542,
+            "sheet": 1.654,
+            "lech_pct": -6.04,
+            "U_pct": 8.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1284,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.7142,
+            "sheet": 2.871,
+            "lech_pct": -5.46,
+            "U_pct": 7.5,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1284,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5303,
+            "sheet": 1.636,
+            "lech_pct": -6.46,
+            "U_pct": 8.4,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1284,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.112,
+            "sheet": 1.162,
+            "lech_pct": -4.31,
+            "U_pct": 9.46,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1284,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6275,
+            "sheet": 1.651,
+            "lech_pct": -1.42,
+            "U_pct": 8.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1284,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5542,
+            "sheet": 1.654,
+            "lech_pct": -6.04,
+            "U_pct": 8.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1296,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.7142,
+            "sheet": 2.871,
+            "lech_pct": -5.46,
+            "U_pct": 7.5,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1296,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5303,
+            "sheet": 1.636,
+            "lech_pct": -6.46,
+            "U_pct": 8.4,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1296,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.112,
+            "sheet": 1.162,
+            "lech_pct": -4.31,
+            "U_pct": 9.46,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1296,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6275,
+            "sheet": 1.651,
+            "lech_pct": -1.42,
+            "U_pct": 8.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1296,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5542,
+            "sheet": 1.654,
+            "lech_pct": -6.04,
+            "U_pct": 8.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1308,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.7142,
+            "sheet": 2.871,
+            "lech_pct": -5.46,
+            "U_pct": 7.5,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1308,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5303,
+            "sheet": 1.636,
+            "lech_pct": -6.46,
+            "U_pct": 8.4,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1308,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.112,
+            "sheet": 1.162,
+            "lech_pct": -4.31,
+            "U_pct": 9.46,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1308,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6275,
+            "sheet": 1.651,
+            "lech_pct": -1.42,
+            "U_pct": 8.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1308,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5542,
+            "sheet": 1.654,
+            "lech_pct": -6.04,
+            "U_pct": 8.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1320,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.7142,
+            "sheet": 2.871,
+            "lech_pct": -5.46,
+            "U_pct": 7.5,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1320,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5303,
+            "sheet": 1.636,
+            "lech_pct": -6.46,
+            "U_pct": 8.4,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1320,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.112,
+            "sheet": 1.162,
+            "lech_pct": -4.31,
+            "U_pct": 9.46,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1320,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6275,
+            "sheet": 1.651,
+            "lech_pct": -1.42,
+            "U_pct": 8.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1320,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5542,
+            "sheet": 1.654,
+            "lech_pct": -6.04,
+            "U_pct": 8.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1332,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.9966,
+            "sheet": 2.7,
+            "lech_pct": 10.98,
+            "U_pct": 4.24,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1332,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6974,
+            "sheet": 1.548,
+            "lech_pct": 9.65,
+            "U_pct": 4.67,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1332,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.1696,
+            "sheet": 1.087,
+            "lech_pct": 7.6,
+            "U_pct": 5.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1332,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.7239,
+            "sheet": 1.62,
+            "lech_pct": 6.42,
+            "U_pct": 4.65,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1332,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6701,
+            "sheet": 1.604,
+            "lech_pct": 4.12,
+            "U_pct": 4.69,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1344,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.9966,
+            "sheet": 2.7,
+            "lech_pct": 10.98,
+            "U_pct": 4.24,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1344,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6974,
+            "sheet": 1.548,
+            "lech_pct": 9.65,
+            "U_pct": 4.67,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1344,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.1696,
+            "sheet": 1.087,
+            "lech_pct": 7.6,
+            "U_pct": 5.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1344,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.7239,
+            "sheet": 1.62,
+            "lech_pct": 6.42,
+            "U_pct": 4.65,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1344,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6701,
+            "sheet": 1.604,
+            "lech_pct": 4.12,
+            "U_pct": 4.69,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1356,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.9966,
+            "sheet": 2.7,
+            "lech_pct": 10.98,
+            "U_pct": 4.24,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1356,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6974,
+            "sheet": 1.548,
+            "lech_pct": 9.65,
+            "U_pct": 4.67,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1356,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.1696,
+            "sheet": 1.087,
+            "lech_pct": 7.6,
+            "U_pct": 5.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1356,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.7239,
+            "sheet": 1.62,
+            "lech_pct": 6.42,
+            "U_pct": 4.65,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1356,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6701,
+            "sheet": 1.604,
+            "lech_pct": 4.12,
+            "U_pct": 4.69,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1368,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.9966,
+            "sheet": 2.7,
+            "lech_pct": 10.98,
+            "U_pct": 4.24,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1368,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6974,
+            "sheet": 1.548,
+            "lech_pct": 9.65,
+            "U_pct": 4.67,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1368,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.1696,
+            "sheet": 1.087,
+            "lech_pct": 7.6,
+            "U_pct": 5.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1368,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.7239,
+            "sheet": 1.62,
+            "lech_pct": 6.42,
+            "U_pct": 4.65,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1368,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6701,
+            "sheet": 1.604,
+            "lech_pct": 4.12,
+            "U_pct": 4.69,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1380,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.6307,
+            "sheet": 2.7,
+            "lech_pct": -2.56,
+            "U_pct": 0.56,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1392,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.6307,
+            "sheet": 2.7,
+            "lech_pct": -2.56,
+            "U_pct": 0.56,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1404,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.6099,
+            "sheet": 2.7,
+            "lech_pct": -3.34,
+            "U_pct": 0.55,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 3.0188,
+            "sheet": 2.871,
+            "lech_pct": 5.15,
+            "U_pct": 9.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.7397,
+            "sheet": 1.651,
+            "lech_pct": 5.37,
+            "U_pct": 10.41,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.8137,
+            "sheet": 1.654,
+            "lech_pct": 9.66,
+            "U_pct": 10.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 3.0188,
+            "sheet": 2.871,
+            "lech_pct": 5.15,
+            "U_pct": 9.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.7397,
+            "sheet": 1.651,
+            "lech_pct": 5.37,
+            "U_pct": 10.41,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.8137,
+            "sheet": 1.654,
+            "lech_pct": 9.66,
+            "U_pct": 10.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 3.0188,
+            "sheet": 2.871,
+            "lech_pct": 5.15,
+            "U_pct": 9.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.7397,
+            "sheet": 1.651,
+            "lech_pct": 5.37,
+            "U_pct": 10.41,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.8137,
+            "sheet": 1.654,
+            "lech_pct": 9.66,
+            "U_pct": 10.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 3.0188,
+            "sheet": 2.871,
+            "lech_pct": 5.15,
+            "U_pct": 9.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.7397,
+            "sheet": 1.651,
+            "lech_pct": 5.37,
+            "U_pct": 10.41,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.8137,
+            "sheet": 1.654,
+            "lech_pct": 9.66,
+            "U_pct": 10.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 3.0188,
+            "sheet": 2.871,
+            "lech_pct": 5.15,
+            "U_pct": 9.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.7397,
+            "sheet": 1.651,
+            "lech_pct": 5.37,
+            "U_pct": 10.41,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.8137,
+            "sheet": 1.654,
+            "lech_pct": 9.66,
+            "U_pct": 10.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 3.0188,
+            "sheet": 2.871,
+            "lech_pct": 5.15,
+            "U_pct": 9.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.7397,
+            "sheet": 1.651,
+            "lech_pct": 5.37,
+            "U_pct": 10.41,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.8137,
+            "sheet": 1.654,
+            "lech_pct": 9.66,
+            "U_pct": 10.3,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1692,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6346,
+            "sheet": 1.548,
+            "lech_pct": 5.59,
+            "U_pct": 0.44,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1728,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.9099,
+            "sheet": 2.871,
+            "lech_pct": 1.35,
+            "U_pct": 1.64,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 1728,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.1849,
+            "sheet": 1.162,
+            "lech_pct": 1.97,
+            "U_pct": 2.02,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1728,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5144,
+            "sheet": 1.651,
+            "lech_pct": -8.28,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1728,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5298,
+            "sheet": 1.654,
+            "lech_pct": -7.51,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1740,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.9099,
+            "sheet": 2.871,
+            "lech_pct": 1.35,
+            "U_pct": 1.64,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 1740,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.1849,
+            "sheet": 1.162,
+            "lech_pct": 1.97,
+            "U_pct": 2.02,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1740,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5144,
+            "sheet": 1.651,
+            "lech_pct": -8.28,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1740,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5298,
+            "sheet": 1.654,
+            "lech_pct": -7.51,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1752,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.9099,
+            "sheet": 2.871,
+            "lech_pct": 1.35,
+            "U_pct": 1.64,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 1752,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.1849,
+            "sheet": 1.162,
+            "lech_pct": 1.97,
+            "U_pct": 2.02,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1752,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5144,
+            "sheet": 1.651,
+            "lech_pct": -8.28,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1752,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5298,
+            "sheet": 1.654,
+            "lech_pct": -7.51,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1764,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.9099,
+            "sheet": 2.871,
+            "lech_pct": 1.35,
+            "U_pct": 1.64,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 1764,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.1849,
+            "sheet": 1.162,
+            "lech_pct": 1.97,
+            "U_pct": 2.02,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1764,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5144,
+            "sheet": 1.651,
+            "lech_pct": -8.28,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1764,
+            "bo_phan": "shin",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5298,
+            "sheet": 1.654,
+            "lech_pct": -7.51,
+            "U_pct": 1.85,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1860,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 2.9465,
+            "sheet": 2.803,
+            "lech_pct": 5.12,
+            "U_pct": 1.52,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1860,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 135.0,
+            "ty_le": 1.6443,
+            "sheet": 1.672,
+            "lech_pct": -1.65,
+            "U_pct": 1.69,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1920,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 3.7371,
+            "sheet": 3.886,
+            "lech_pct": -3.83,
+            "U_pct": 4.0,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1920,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.1644,
+            "sheet": 2.28,
+            "lech_pct": -5.07,
+            "U_pct": 4.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1920,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 1.5433,
+            "sheet": 1.634,
+            "lech_pct": -5.55,
+            "U_pct": 4.61,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1920,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.1661,
+            "sheet": 2.376,
+            "lech_pct": -8.84,
+            "U_pct": 4.26,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1920,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.1724,
+            "sheet": 2.278,
+            "lech_pct": -4.64,
+            "U_pct": 4.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 3.763,
+            "sheet": 3.886,
+            "lech_pct": -3.16,
+            "U_pct": 4.0,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.1645,
+            "sheet": 2.28,
+            "lech_pct": -5.07,
+            "U_pct": 4.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 1.5439,
+            "sheet": 1.634,
+            "lech_pct": -5.51,
+            "U_pct": 4.61,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.1042,
+            "sheet": 2.376,
+            "lech_pct": -11.44,
+            "U_pct": 4.28,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 1932,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 180.0,
+            "ty_le": 2.1894,
+            "sheet": 2.278,
+            "lech_pct": -3.89,
+            "U_pct": 4.25,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2088,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 3.0737,
+            "sheet": 2.706,
+            "lech_pct": 13.59,
+            "U_pct": 7.91,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2088,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 1.0645,
+            "sheet": 1.047,
+            "lech_pct": 1.67,
+            "U_pct": 10.32,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2088,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 1.786,
+            "sheet": 1.697,
+            "lech_pct": 5.24,
+            "U_pct": 8.62,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2100,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 3.0498,
+            "sheet": 2.706,
+            "lech_pct": 12.71,
+            "U_pct": 7.89,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2100,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 1.6759,
+            "sheet": 1.608,
+            "lech_pct": 4.22,
+            "U_pct": 8.73,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2112,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 2.8911,
+            "sheet": 2.706,
+            "lech_pct": 6.84,
+            "U_pct": 7.31,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 2.8564,
+            "sheet": 2.706,
+            "lech_pct": 5.56,
+            "U_pct": 6.69,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 45.0,
+            "ty_le": 1.3195,
+            "sheet": 1.443,
+            "lech_pct": -8.56,
+            "U_pct": 7.92,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2160,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.8427,
+            "sheet": 2.7,
+            "lech_pct": 5.28,
+            "U_pct": 5.62,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2160,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.5975,
+            "sheet": 1.548,
+            "lech_pct": 3.2,
+            "U_pct": 6.26,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2160,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.0947,
+            "sheet": 1.087,
+            "lech_pct": 0.71,
+            "U_pct": 7.19,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2160,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 1.6644,
+            "sheet": 1.62,
+            "lech_pct": 2.74,
+            "U_pct": 6.19,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2376,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2388,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2400,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2412,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2424,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2436,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2640,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2652,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2664,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2676,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -45.0,
+            "ty_le": 2.4519,
+            "sheet": 2.7,
+            "lech_pct": -9.19,
+            "U_pct": 3.69,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2688,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.8502,
+            "sheet": 2.871,
+            "lech_pct": -0.72,
+            "U_pct": 3.37,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2688,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5953,
+            "sheet": 1.636,
+            "lech_pct": -2.49,
+            "U_pct": 3.75,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2688,
+            "bo_phan": "forearm",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.1692,
+            "sheet": 1.162,
+            "lech_pct": 0.62,
+            "U_pct": 4.18,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2688,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6569,
+            "sheet": 1.651,
+            "lech_pct": 0.36,
+            "U_pct": 3.71,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2700,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.9017,
+            "sheet": 2.871,
+            "lech_pct": 1.07,
+            "U_pct": 3.34,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2700,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.5694,
+            "sheet": 1.651,
+            "lech_pct": -4.94,
+            "U_pct": 3.74,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2712,
+            "bo_phan": "torso",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 2.947,
+            "sheet": 2.871,
+            "lech_pct": 2.65,
+            "U_pct": 3.51,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2712,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": -135.0,
+            "ty_le": 1.6515,
+            "sheet": 1.651,
+            "lech_pct": 0.03,
+            "U_pct": 3.88,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2724,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.5733,
+            "sheet": 1.604,
+            "lech_pct": -1.91,
+            "U_pct": 1.34,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2724,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.4417,
+            "sheet": 1.464,
+            "lech_pct": -1.53,
+            "U_pct": 1.37,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2736,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.5723,
+            "sheet": 1.604,
+            "lech_pct": -1.98,
+            "U_pct": 1.34,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2736,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.4407,
+            "sheet": 1.464,
+            "lech_pct": -1.59,
+            "U_pct": 1.37,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2748,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.5749,
+            "sheet": 1.604,
+            "lech_pct": -1.81,
+            "U_pct": 1.34,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2748,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.4431,
+            "sheet": 1.464,
+            "lech_pct": -1.43,
+            "U_pct": 1.38,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2760,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.5746,
+            "sheet": 1.604,
+            "lech_pct": -1.83,
+            "U_pct": 1.34,
+            "ket_qua": "không chứng minh được"
+          },
+          {
+            "khung": 2760,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.4428,
+            "sheet": 1.464,
+            "lech_pct": -1.45,
+            "U_pct": 1.38,
+            "ket_qua": "đạt"
+          },
+          {
+            "khung": 2808,
+            "bo_phan": "upper_arm",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.2652,
+            "sheet": 1.564,
+            "lech_pct": -19.11,
+            "U_pct": 3.36,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2808,
+            "bo_phan": "thigh",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.735,
+            "sheet": 1.604,
+            "lech_pct": 8.17,
+            "U_pct": 3.04,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 2808,
+            "bo_phan": "shin",
+            "goc_tham_chieu": 0.0,
+            "ty_le": 1.6307,
+            "sheet": 1.464,
+            "lech_pct": 11.39,
+            "U_pct": 3.09,
+            "ket_qua": "trượt chắc chắn"
+          }
+        ],
+        "khong_do_duoc": [
+          {
+            "khung": 1380,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.967"
+          },
+          {
+            "khung": 1380,
+            "bo_phan": "forearm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.961"
+          },
+          {
+            "khung": 1380,
+            "bo_phan": "thigh",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1380,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1392,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.967"
+          },
+          {
+            "khung": 1392,
+            "bo_phan": "forearm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.961"
+          },
+          {
+            "khung": 1392,
+            "bo_phan": "thigh",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1392,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1404,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.967"
+          },
+          {
+            "khung": 1404,
+            "bo_phan": "forearm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.961"
+          },
+          {
+            "khung": 1404,
+            "bo_phan": "thigh",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1404,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1416,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1416,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1416,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1416,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1416,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1428,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1428,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1428,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1428,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1428,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1440,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1440,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1440,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1440,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1440,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1452,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1452,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1452,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1452,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1452,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1464,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1464,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1464,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1464,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1464,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1476,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.917"
+          },
+          {
+            "khung": 1476,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.917"
+          },
+          {
+            "khung": 1476,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.917"
+          },
+          {
+            "khung": 1476,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.917"
+          },
+          {
+            "khung": 1476,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.917"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.412"
+          },
+          {
+            "khung": 1536,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.927"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.412"
+          },
+          {
+            "khung": 1548,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.927"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.412"
+          },
+          {
+            "khung": 1560,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.927"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.412"
+          },
+          {
+            "khung": 1572,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.927"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.412"
+          },
+          {
+            "khung": 1584,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.927"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.412"
+          },
+          {
+            "khung": 1596,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.927"
+          },
+          {
+            "khung": 1608,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1608,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1608,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1608,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1608,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1620,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1620,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1620,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1620,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1620,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1632,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1632,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1632,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1632,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1632,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1644,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1644,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1644,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1644,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1644,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.918"
+          },
+          {
+            "khung": 1656,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.943"
+          },
+          {
+            "khung": 1656,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.943"
+          },
+          {
+            "khung": 1656,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.943"
+          },
+          {
+            "khung": 1656,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.943"
+          },
+          {
+            "khung": 1656,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.943"
+          },
+          {
+            "khung": 1668,
+            "bo_phan": "torso",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1668,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.905"
+          },
+          {
+            "khung": 1668,
+            "bo_phan": "forearm",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1668,
+            "bo_phan": "thigh",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1668,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1680,
+            "bo_phan": "torso",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1680,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 1.032"
+          },
+          {
+            "khung": 1680,
+            "bo_phan": "forearm",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1680,
+            "bo_phan": "thigh",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1680,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1692,
+            "bo_phan": "torso",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1692,
+            "bo_phan": "forearm",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1692,
+            "bo_phan": "thigh",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1692,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1704,
+            "bo_phan": "torso",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1704,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.948"
+          },
+          {
+            "khung": 1704,
+            "bo_phan": "forearm",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1704,
+            "bo_phan": "thigh",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1704,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1716,
+            "bo_phan": "torso",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1716,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.948"
+          },
+          {
+            "khung": 1716,
+            "bo_phan": "forearm",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1716,
+            "bo_phan": "thigh",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1716,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1728,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.977"
+          },
+          {
+            "khung": 1740,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.977"
+          },
+          {
+            "khung": 1752,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.977"
+          },
+          {
+            "khung": 1764,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.977"
+          },
+          {
+            "khung": 1776,
+            "bo_phan": "torso",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1776,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1776,
+            "bo_phan": "forearm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1776,
+            "bo_phan": "thigh",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1776,
+            "bo_phan": "shin",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1788,
+            "bo_phan": "torso",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1788,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1788,
+            "bo_phan": "forearm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1788,
+            "bo_phan": "thigh",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1788,
+            "bo_phan": "shin",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1800,
+            "bo_phan": "torso",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1800,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1800,
+            "bo_phan": "forearm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1800,
+            "bo_phan": "thigh",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1800,
+            "bo_phan": "shin",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1812,
+            "bo_phan": "torso",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1812,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1812,
+            "bo_phan": "forearm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1812,
+            "bo_phan": "thigh",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1812,
+            "bo_phan": "shin",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1824,
+            "bo_phan": "torso",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1824,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1824,
+            "bo_phan": "forearm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1824,
+            "bo_phan": "thigh",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1824,
+            "bo_phan": "shin",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1836,
+            "bo_phan": "torso",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1836,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1836,
+            "bo_phan": "forearm",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1836,
+            "bo_phan": "thigh",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1836,
+            "bo_phan": "shin",
+            "ly_do": "đầu chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1848,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.965"
+          },
+          {
+            "khung": 1848,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.965"
+          },
+          {
+            "khung": 1848,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.965"
+          },
+          {
+            "khung": 1848,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.965"
+          },
+          {
+            "khung": 1848,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.965"
+          },
+          {
+            "khung": 1860,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.785"
+          },
+          {
+            "khung": 1860,
+            "bo_phan": "forearm",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 1860,
+            "bo_phan": "shin",
+            "ly_do": "chạm mép khung (bị cắt)",
+            "chi_tiet": ""
+          },
+          {
+            "khung": 1872,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1872,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1872,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1872,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1872,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1884,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1884,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1884,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1884,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1884,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1896,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1896,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1896,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1896,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1896,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.938"
+          },
+          {
+            "khung": 1908,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1908,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1908,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1908,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1908,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.939"
+          },
+          {
+            "khung": 1944,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 1944,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 1944,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 1944,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 1944,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 1956,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1956,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1956,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1956,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1956,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1968,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1980,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1992,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1992,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1992,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1992,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 1992,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 2004,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 2004,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 2004,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 2004,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 2004,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.960"
+          },
+          {
+            "khung": 2016,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 2016,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 2016,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 2016,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 2016,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.961"
+          },
+          {
+            "khung": 2028,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.910"
+          },
+          {
+            "khung": 2028,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.910"
+          },
+          {
+            "khung": 2028,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.910"
+          },
+          {
+            "khung": 2028,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.910"
+          },
+          {
+            "khung": 2028,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.910"
+          },
+          {
+            "khung": 2040,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2040,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2040,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2040,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2040,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2052,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2052,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2052,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2052,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2052,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2064,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2064,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2064,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2064,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2064,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2076,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2076,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2076,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2076,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2076,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.955"
+          },
+          {
+            "khung": 2088,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.975"
+          },
+          {
+            "khung": 2088,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "26%"
+          },
+          {
+            "khung": 2100,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.947"
+          },
+          {
+            "khung": 2100,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.968"
+          },
+          {
+            "khung": 2100,
+            "bo_phan": "shin",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.953"
+          },
+          {
+            "khung": 2112,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.943"
+          },
+          {
+            "khung": 2112,
+            "bo_phan": "forearm",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 2112,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.976"
+          },
+          {
+            "khung": 2112,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "18%"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "upper_arm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.914"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "forearm",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "100%"
+          },
+          {
+            "khung": 2124,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.944"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "torso",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "forearm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "thigh",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
+          },
+          {
+            "khung": 2136,
+            "bo_phan": "shin",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "36%"
+          },
+          {
+            "khung": 2148,
+            "bo_phan": "torso",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "93%"
+          },
+          {
+            "khung": 2148,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "93%"
+          },
+          {
+            "khung": 2148,
+            "bo_phan": "forearm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "93%"
+          },
+          {
+            "khung": 2148,
+            "bo_phan": "thigh",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "93%"
+          },
+          {
+            "khung": 2148,
+            "bo_phan": "shin",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "93%"
+          },
+          {
+            "khung": 2160,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "17%"
+          },
+          {
+            "khung": 2172,
+            "bo_phan": "torso",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.941"
+          },
+          {
+            "khung": 2172,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.941"
+          },
+          {
+            "khung": 2172,
+            "bo_phan": "forearm",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.941"
+          },
+          {
+            "khung": 2172,
+            "bo_phan": "thigh",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.941"
+          },
+          {
+            "khung": 2172,
+            "bo_phan": "shin",
+            "ly_do": "đầu cúi/ngẩng/nghiêng: co ngắn > 2%",
+            "chi_tiet": "foreshorten 0.941"
+          },
+          {
+            "khung": 2376,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2376,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2376,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2376,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2388,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2388,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2388,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2388,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2400,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2400,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2400,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2400,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2412,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2412,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2412,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2412,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2424,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2424,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2424,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2424,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2436,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2436,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2436,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2436,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2544,
+            "bo_phan": "torso",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2544,
+            "bo_phan": "upper_arm",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2544,
+            "bo_phan": "forearm",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2544,
+            "bo_phan": "thigh",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2544,
+            "bo_phan": "shin",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2556,
+            "bo_phan": "torso",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2556,
+            "bo_phan": "upper_arm",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2556,
+            "bo_phan": "forearm",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2556,
+            "bo_phan": "thigh",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2556,
+            "bo_phan": "shin",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2568,
+            "bo_phan": "torso",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2568,
+            "bo_phan": "upper_arm",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2568,
+            "bo_phan": "forearm",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2568,
+            "bo_phan": "thigh",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2568,
+            "bo_phan": "shin",
+            "ly_do": "góc nhìn lệch > 30° mọi góc tham chiếu",
+            "chi_tiet": "lệch 48.2° so với -45° (view -27.25°, ngẩng 45.61°)"
+          },
+          {
+            "khung": 2640,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2640,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2640,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2640,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          },
+          {
+            "khung": 2652,
+            "bo_phan": "upper_arm",
+            "ly_do": "phối cảnh: độ sâu lệch đầu > 2%",
+            "chi_tiet": "depth 0.978"
+          },
+          {
+            "khung": 2652,
+            "bo_phan": "forearm",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 1.055"
+          },
+          {
+            "khung": 2652,
+            "bo_phan": "thigh",
+            "ly_do": "gập: co ngắn do tư thế > 2%",
+            "chi_tiet": "foreshorten 0.979"
+          },
+          {
+            "khung": 2652,
+            "bo_phan": "shin",
+            "ly_do": "bị che > 10%",
+            "chi_tiet": "14%"
+          }
+        ],
+        "theo_shot": [
+          {
+            "shot": 24,
+            "khung": [
+              1260,
+              1331
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 30,
+            "ty_le_pct": 100.0
+          },
+          {
+            "shot": 25,
+            "khung": [
+              1332,
+              1379
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 20,
+            "ty_le_pct": 100.0
+          },
+          {
+            "shot": 26,
+            "khung": [
+              1380,
+              1415
+            ],
+            "khung_nhan_vat": 3,
+            "mau": 15,
+            "do_duoc": 3,
+            "ty_le_pct": 20.0
+          },
+          {
+            "shot": 27,
+            "khung": [
+              1416,
+              1487
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 29,
+            "khung": [
+              1536,
+              1607
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 18,
+            "ty_le_pct": 60.0
+          },
+          {
+            "shot": 30,
+            "khung": [
+              1608,
+              1655
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 31,
+            "khung": [
+              1656,
+              1727
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 1,
+            "ty_le_pct": 3.3
+          },
+          {
+            "shot": 32,
+            "khung": [
+              1728,
+              1775
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 16,
+            "ty_le_pct": 80.0
+          },
+          {
+            "shot": 33,
+            "khung": [
+              1776,
+              1847
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 34,
+            "khung": [
+              1848,
+              1919
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 2,
+            "ty_le_pct": 6.7
+          },
+          {
+            "shot": 35,
+            "khung": [
+              1920,
+              2039
+            ],
+            "khung_nhan_vat": 10,
+            "mau": 50,
+            "do_duoc": 10,
+            "ty_le_pct": 20.0
+          },
+          {
+            "shot": 36,
+            "khung": [
+              2040,
+              2087
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 37,
+            "khung": [
+              2088,
+              2183
+            ],
+            "khung_nhan_vat": 8,
+            "mau": 40,
+            "do_duoc": 12,
+            "ty_le_pct": 30.0
+          },
+          {
+            "shot": 40,
+            "khung": [
+              2371,
+              2437
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 6,
+            "ty_le_pct": 20.0
+          },
+          {
+            "shot": 42,
+            "khung": [
+              2544,
+              2577
+            ],
+            "khung_nhan_vat": 3,
+            "mau": 15,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 45,
+            "khung": [
+              2640,
+              2687
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 4,
+            "ty_le_pct": 20.0
+          },
+          {
+            "shot": 46,
+            "khung": [
+              2688,
+              2723
+            ],
+            "khung_nhan_vat": 3,
+            "mau": 15,
+            "do_duoc": 8,
+            "ty_le_pct": 53.3
+          },
+          {
+            "shot": 47,
+            "khung": [
+              2724,
+              2771
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 8,
+            "ty_le_pct": 40.0
+          },
+          {
+            "shot": 48,
+            "khung": [
+              2772,
+              2819
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 20,
+            "do_duoc": 3,
+            "ty_le_pct": 15.0
+          },
+          {
+            "shot": 49,
+            "khung": [
+              2820,
+              2891
+            ],
+            "khung_nhan_vat": 6,
+            "mau": 30,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 56,
+            "khung": [
+              3252,
+              3371
+            ],
+            "khung_nhan_vat": 10,
+            "mau": 50,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          }
+        ],
+        "do_khop_bien": {
+          "1260": 1.28,
+          "1272": 1.35,
+          "1284": 1.39,
+          "1296": 1.35,
+          "1308": 1.38,
+          "1320": 1.46,
+          "1332": 1.78,
+          "1344": 1.81,
+          "1356": 1.74,
+          "1368": 1.78,
+          "1380": 2.41,
+          "1392": 2.39,
+          "1404": 2.32,
+          "1416": 2.38,
+          "1428": 2.45,
+          "1440": 2.41,
+          "1452": 2.35,
+          "1464": 2.36,
+          "1476": 2.42,
+          "1536": 1.59,
+          "1548": 1.64,
+          "1560": 1.69,
+          "1572": 1.69,
+          "1584": 1.68,
+          "1596": 1.67,
+          "1608": 2.38,
+          "1620": 2.33,
+          "1632": 2.37,
+          "1644": 2.37,
+          "1656": 2.92,
+          "1668": 2.98,
+          "1680": 2.75,
+          "1692": 2.09,
+          "1704": 2.51,
+          "1716": 2.52,
+          "1728": 2.08,
+          "1740": 2.12,
+          "1752": 2.23,
+          "1764": 2.26,
+          "1776": 2.58,
+          "1788": 2.57,
+          "1800": 2.57,
+          "1812": 2.57,
+          "1824": 2.55,
+          "1836": 2.56,
+          "1848": 2.25,
+          "1860": 3.33,
+          "1872": 3.94,
+          "1884": 3.97,
+          "1896": 4.07,
+          "1908": 3.92,
+          "1920": 2.56,
+          "1932": 2.52,
+          "1944": 2.61,
+          "1956": 2.62,
+          "1968": 1.63,
+          "1980": 1.36,
+          "1992": 1.57,
+          "2004": 1.71,
+          "2016": 1.72,
+          "2028": 1.7,
+          "2040": 2.21,
+          "2052": 2.18,
+          "2064": 2.19,
+          "2076": 2.22,
+          "2088": 1.38,
+          "2100": 1.18,
+          "2112": 1.24,
+          "2124": 1.33,
+          "2136": 1.02,
+          "2148": 1.7,
+          "2160": 1.41,
+          "2172": 1.35,
+          "2376": 1.17,
+          "2388": 1.42,
+          "2400": 1.62,
+          "2412": 1.61,
+          "2424": 1.59,
+          "2436": 1.6,
+          "2544": 1.92,
+          "2556": 1.94,
+          "2568": 1.94,
+          "2640": 1.59,
+          "2652": 1.61,
+          "2664": 1.61,
+          "2676": 1.61,
+          "2688": 1.71,
+          "2700": 1.58,
+          "2712": 1.71,
+          "2724": 1.61,
+          "2736": 1.62,
+          "2748": 1.66,
+          "2760": 1.58,
+          "2772": 3.61,
+          "2784": 2.99,
+          "2796": 3.19,
+          "2808": 1.17,
+          "2820": 2.94,
+          "2832": 3.05,
+          "2844": 2.99,
+          "2856": 2.93,
+          "2868": 3.0,
+          "2880": 2.94,
+          "3252": 1.75,
+          "3264": 1.97,
+          "3276": 2.04,
+          "3288": 2.02,
+          "3300": 2.07,
+          "3312": 2.03,
+          "3324": 2.04,
+          "3336": 1.93,
+          "3348": 1.71,
+          "3360": 1.6
+        },
+        "khung_thieu": [],
+        "dau_rong_hon_cao": [
+          {
+            "khung": 1332,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.9,
+            "dau_theo_truc_doc": 12.4
+          },
+          {
+            "khung": 1344,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.9,
+            "dau_theo_truc_doc": 12.4
+          },
+          {
+            "khung": 1356,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.9,
+            "dau_theo_truc_doc": 12.4
+          },
+          {
+            "khung": 1368,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.9,
+            "dau_theo_truc_doc": 12.4
+          },
+          {
+            "khung": 1380,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 126.9,
+            "dau_theo_truc_doc": 96.3
+          },
+          {
+            "khung": 1392,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 126.9,
+            "dau_theo_truc_doc": 96.3
+          },
+          {
+            "khung": 1404,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 131.1,
+            "dau_theo_truc_doc": 97.2
+          },
+          {
+            "khung": 1668,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 190.5,
+            "dau_theo_truc_doc": 123.5
+          },
+          {
+            "khung": 1680,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 190.5,
+            "dau_theo_truc_doc": 125.0
+          },
+          {
+            "khung": 1692,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 198.3,
+            "dau_theo_truc_doc": 133.3
+          },
+          {
+            "khung": 1704,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 170.4,
+            "dau_theo_truc_doc": 126.1
+          },
+          {
+            "khung": 1716,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 170.4,
+            "dau_theo_truc_doc": 126.1
+          },
+          {
+            "khung": 1728,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 47.1,
+            "dau_theo_truc_doc": 32.3
+          },
+          {
+            "khung": 1740,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 47.1,
+            "dau_theo_truc_doc": 32.3
+          },
+          {
+            "khung": 1752,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 47.1,
+            "dau_theo_truc_doc": 32.3
+          },
+          {
+            "khung": 1764,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 47.1,
+            "dau_theo_truc_doc": 32.3
+          },
+          {
+            "khung": 1872,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 58.3,
+            "dau_theo_truc_doc": 23.5
+          },
+          {
+            "khung": 1884,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 58.5,
+            "dau_theo_truc_doc": 23.1
+          },
+          {
+            "khung": 1896,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 58.5,
+            "dau_theo_truc_doc": 23.1
+          },
+          {
+            "khung": 1908,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 58.3,
+            "dau_theo_truc_doc": 23.5
+          },
+          {
+            "khung": 1920,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 29.7,
+            "dau_theo_truc_doc": 12.9
+          },
+          {
+            "khung": 1932,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 29.8,
+            "dau_theo_truc_doc": 12.9
+          },
+          {
+            "khung": 1944,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 29.5,
+            "dau_theo_truc_doc": 13.4
+          },
+          {
+            "khung": 1956,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 29.0,
+            "dau_theo_truc_doc": 13.2
+          },
+          {
+            "khung": 1968,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 27.3,
+            "dau_theo_truc_doc": 12.5
+          },
+          {
+            "khung": 1980,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 24.0,
+            "dau_theo_truc_doc": 10.9
+          },
+          {
+            "khung": 1992,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 22.0,
+            "dau_theo_truc_doc": 10.1
+          },
+          {
+            "khung": 2004,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 21.7,
+            "dau_theo_truc_doc": 9.9
+          },
+          {
+            "khung": 2016,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 21.8,
+            "dau_theo_truc_doc": 9.7
+          },
+          {
+            "khung": 2028,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 22.5,
+            "dau_theo_truc_doc": 8.1
+          },
+          {
+            "khung": 2088,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 10.4,
+            "dau_theo_truc_doc": 6.6
+          },
+          {
+            "khung": 2100,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 10.6,
+            "dau_theo_truc_doc": 6.7
+          },
+          {
+            "khung": 2112,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 10.7,
+            "dau_theo_truc_doc": 7.2
+          },
+          {
+            "khung": 2124,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 11.7,
+            "dau_theo_truc_doc": 7.9
+          },
+          {
+            "khung": 2136,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 12.9,
+            "dau_theo_truc_doc": 8.6
+          },
+          {
+            "khung": 2148,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 13.8,
+            "dau_theo_truc_doc": 4.2
+          },
+          {
+            "khung": 2160,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 13.5,
+            "dau_theo_truc_doc": 9.4
+          },
+          {
+            "khung": 2172,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 13.0,
+            "dau_theo_truc_doc": 11.3
+          },
+          {
+            "khung": 2376,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2388,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2400,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2412,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2424,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2436,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2544,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 130.7,
+            "dau_theo_truc_doc": 93.8
+          },
+          {
+            "khung": 2556,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 130.7,
+            "dau_theo_truc_doc": 93.8
+          },
+          {
+            "khung": 2568,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 130.7,
+            "dau_theo_truc_doc": 93.8
+          },
+          {
+            "khung": 2640,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2652,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2664,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2676,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 17.9,
+            "dau_theo_truc_doc": 14.6
+          },
+          {
+            "khung": 2712,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 20.1,
+            "dau_theo_truc_doc": 15.0
+          },
+          {
+            "khung": 2724,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 71.5,
+            "dau_theo_truc_doc": 44.3
+          },
+          {
+            "khung": 2736,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 70.5,
+            "dau_theo_truc_doc": 44.3
+          },
+          {
+            "khung": 2748,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 62.8,
+            "dau_theo_truc_doc": 44.2
+          },
+          {
+            "khung": 2760,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 65.0,
+            "dau_theo_truc_doc": 44.2
+          },
+          {
+            "khung": 2796,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 31.1,
+            "dau_theo_truc_doc": 19.1
+          },
+          {
+            "khung": 2808,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 33.2,
+            "dau_theo_truc_doc": 19.0
+          },
+          {
+            "khung": 2820,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 99.5,
+            "dau_theo_truc_doc": 54.8
+          },
+          {
+            "khung": 2832,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 99.5,
+            "dau_theo_truc_doc": 54.8
+          },
+          {
+            "khung": 2844,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 99.5,
+            "dau_theo_truc_doc": 54.8
+          },
+          {
+            "khung": 2856,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 99.5,
+            "dau_theo_truc_doc": 54.8
+          },
+          {
+            "khung": 2868,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 99.5,
+            "dau_theo_truc_doc": 54.8
+          },
+          {
+            "khung": 2880,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 99.5,
+            "dau_theo_truc_doc": 54.8
+          },
+          {
+            "khung": 3252,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 70.2,
+            "dau_theo_truc_doc": 58.9
+          },
+          {
+            "khung": 3348,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 68.6,
+            "dau_theo_truc_doc": 57.5
+          },
+          {
+            "khung": 3360,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 69.5,
+            "dau_theo_truc_doc": 58.2
+          }
+        ],
+        "kiem_toan": {
+          "yeu_cau": {
+            "version": 1,
+            "seed": "3605333491331794803",
+            "frames": [
+              456
+            ],
+            "candidates": 281,
+            "issued_by": "P",
+            "issued_utc": "2026-09-29T13:21:38Z",
+            "video": "layout-v16.cas.mp4",
+            "video_sha256": "9a429b2259c18221001e2b69fb264e3439877197d8a6ba0b1f88c8498a81b742",
+            "parts_sha256": "9efb6595f62fd52e4f4b6d078ed58d48dea2636cb7708c268f63d4c16a7208fa"
+          },
+          "log_scene": [
+            {
+              "file": "design/cong5/layout/page.js",
+              "sha_log": "d21b7bdeecb2de141f4b5609867fb07ba5abf3e73e6b3d2ccac31acff3644149",
+              "sha_dia": "d21b7bdeecb2de141f4b5609867fb07ba5abf3e73e6b3d2ccac31acff3644149",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/film.js",
+              "sha_log": "2498bd65a78993e8674dcc0bac62d954936607d12c7ebc27b670b3f1ed97020a",
+              "sha_dia": "2498bd65a78993e8674dcc0bac62d954936607d12c7ebc27b670b3f1ed97020a",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/common.js",
+              "sha_log": "a73228d73fa9bb6c1fff4b35897a24b1d6db9844ab3ec249efa763ab14283193",
+              "sha_dia": "a73228d73fa9bb6c1fff4b35897a24b1d6db9844ab3ec249efa763ab14283193",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/order_w1.js",
+              "sha_log": "c45176f2dff9d3f2f2342f973dbe7b57c710ddaec29f68c9c5e3470e96f5e139",
+              "sha_dia": "c45176f2dff9d3f2f2342f973dbe7b57c710ddaec29f68c9c5e3470e96f5e139",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/order_w2.js",
+              "sha_log": "1f3ce1bc25daa3f12373de901b20f40637f7b0c336c46cbae26a8bb3f51868fc",
+              "sha_dia": "1f3ce1bc25daa3f12373de901b20f40637f7b0c336c46cbae26a8bb3f51868fc",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/shots_w1.js",
+              "sha_log": "80b025b5efe3e334f456867b4e57294219f98362109d13a55ff33e323145a095",
+              "sha_dia": "80b025b5efe3e334f456867b4e57294219f98362109d13a55ff33e323145a095",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/shots_w2.js",
+              "sha_log": "a07902829a7baec2f0ad13807ac5bf1254b8e20e7cc529b3788e7808ef359ed0",
+              "sha_dia": "a07902829a7baec2f0ad13807ac5bf1254b8e20e7cc529b3788e7808ef359ed0",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/sets.js",
+              "sha_log": "8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62",
+              "sha_dia": "8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/sets2.js",
+              "sha_log": "12300e909cec665bc79346d917d385b0af5a7e8a5dc24487fd0d8b218a15fd91",
+              "sha_dia": "12300e909cec665bc79346d917d385b0af5a7e8a5dc24487fd0d8b218a15fd91",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/sets_end.js",
+              "sha_log": "55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d",
+              "sha_dia": "55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/util.js",
+              "sha_log": "e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc",
+              "sha_dia": "e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/facelight.js",
+              "sha_log": "a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47",
+              "sha_dia": "a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47",
+              "trong_scene_files": true,
+              "khop": true
+            }
+          ],
+          "log_lenh": {
+            "456": [
+              "node design/cong5/layout/export_c3.js --who cas --audit-dir design/cong5/layout/out/layout-v16.cas.audit/rerender --frames 456 --offset 0 --scale 4"
+            ]
+          },
+          "doi_chieu": [
+            {
+              "khung": 456,
+              "bo_phan": "head",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 456,
+              "bo_phan": "torso",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 456,
+              "bo_phan": "upper_arm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 456,
+              "bo_phan": "forearm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 456,
+              "bo_phan": "thigh",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 456,
+              "bo_phan": "shin",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 456,
+              "views_render_lai": "khớp",
+              "views_lech": {
+                "goc": 0.0,
+                "ty_le": 0.0
+              }
+            }
+          ]
+        }
+      },
+      "seconds": 281.43
+    }
+  ]
+}
