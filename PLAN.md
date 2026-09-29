@@ -1,14 +1,30 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) và merge vào main · Cổng 6 KHOÁ tới khi chủ dự án chọn lời giải mặt Ida · Cổng 4 đã merge (5987bf3) · characters v1.3 (D2) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: gói đầu (Cas MPFB) đang làm; diễn hoạt CHỜ chủ dự án duyệt reports/m2/CONG-6-MO.md** · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 
 ## Hàng chờ chủ dự án duyệt
-1. **Lời giải mặt Ida** (reports/m2/MAT-IDA-AI.md): A-i trượt 2 vòng; 3 phương án dàn dựng lại 1:32–1:48 có khung thử và kiểm mù. **Cổng 6 chỉ mở khi chủ dự án chọn.**
+1. **Mở Cổng 6** (reports/m2/CONG-6-MO.md): khoá v1.5 + C3 layout 'bl' + gói Cas MPFB (v1.6 nháp) + kế hoạch diễn hoạt → chủ dự án duyệt TRƯỚC khi bắt đầu diễn hoạt.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
+
+## Việc cho Cổng 6 — theo quyết định "Cửa mặt Ida (đóng)" 29/09/2026 (chỉ ghi, chưa làm)
+**a. Nhịp cười buồn đo trên CLIP CHUYỂN ĐỘNG CÓ TIẾNG** (s37: "That's the last one, then.", "Goodnight, old street."):
+- chủ dự án tự xem và chấm;
+- AI mù đọc bảng khung theo thời gian (mỗi 0,5 s trong nhịp, kèm phụ đề).
+- **Tiêu chí:** AI mù kể ra cả "cười" lẫn "buồn/tiếc".
+
+**b. Danh sách sửa:**
+- (1) Mắt khung chính diện: bớt bóng kiểu mắt búp bê, mí che bớt tròng, có viền nước.
+- (2) Mũ ôm đầu, không lơ lửng.
+- (3) Mắt đọc được khi quay nghiêng (máy PA1).
+- (4) Tay Ida dùng tay MPFB, cầm nắm cột và van đúng.
+
+**c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
+
+**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) → nháp characters v1.6 (Cas) chờ duyệt.
 
 ## Việc cho Cổng 6 (từ Cổng 5 — B1 và continuity lần 3)
 - **B1 cảnh 6:** làm rõ hướng mặt, hướng đầu của Ida ở s45 và đồng hồ trong tay (s45 → s46 → s45c giữ nguyên).
@@ -37,7 +53,8 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 | M2 Cổng 5 layout (W1, W2, W3 + P) | P + 3 subagent + 2 agent rà | claude/cine-lab-m2-cong5-layout-24o5fp | Vòng v1 xong; xem vòng v2 | reports/m2/CONG-5.md |
 | M2 Cổng 5 vòng v2 (A-α, hiệu chuẩn, B1, a–d, continuity v2) | P + W1, W2, W3 + agent rà + 16 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | Xong; chủ dự án đã quyết (AUTHORSHIP "Cổng 5 v2 — quyết định") | reports/m2/CONG-5-V2.md |
 | M2 Cổng 5 vòng v3 (chốt layout) | P + W1, W2 + agent rà + 1 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | **Cổng 5 ĐÃ ĐÓNG (A1) — merge vào main** | reports/m2/CONG-5-V3.md |
-| M2 Cửa mặt Ida A-i | W3 | claude/cine-lab-m2-cong5-layout-24o5fp (tích hợp khi đạt) | 2 vòng kiểm mù TRƯỢT; đang soạn phương án dàn dựng lại 1:32–1:48 | reports/m2/MAT-IDA-AI.md |
+| M2 Cửa mặt Ida A-i | W3 + 37 subagent kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp (merge e2394c5, IDA_STYLE 'aa') | 2 vòng TRƯỢT; chủ dự án chọn **C chỉnh** | reports/m2/MAT-IDA-AI.md |
+| M2 Cửa mặt Ida — Blender (C chỉnh) | W4 (worker mới) + P kiểm mù | claude/cine-lab-m2-cong5-layout-24o5fp | L1 dừng; L2 trượt; L3 (A′) trượt tiêu chí cảm xúc 2/4 (búp bê 0/4) — chờ chủ dự án chọn A/B/C | reports/m2/MAT-IDA-BLENDER.md, -L2.md, -L3.md |
 | M1 Cổng 4 vòng v2: animatic 2:22,5 (52 shot), kịch bản nháp 3, luật thế giới v0.4, characters v1.2 (A1), C3 v1.4 (parts + views + kiểm toán) | P | claude/cine-lab-m1-cong4-animatic | **Đã merge vào main (5987bf3)** — Cổng 4 đóng | reports/m1/CONG-4-V2.md, shots/animatic/SHOTLIST.md, screening/animatic_v1_v2_diff.md |
 
 Quy ước file lớn Cổng 4: `design/cong4/animatic/out/animatic.mp4` (v2: 45,49 MB) nằm trong nhánh; mặt nạ C3 `out/animatic.parts/` (18 MB, PNG xám) cũng trong nhánh; video nhóm và video ghép trung gian `out/v2/*.mp4`, âm trung gian `out/v2/audio/` KHÔNG commit; `screening/animatic.mp4` là bản sao y từng byte. Bản trung gian `out/video.mp4` (187 MB) và đối chứng `out/hq/` (198 MB) KHÔNG commit (vượt giới hạn GitHub; tái tạo bằng `render_film.js` / `HQ=1 package.py`). Âm lưu FLAC 24-bit.

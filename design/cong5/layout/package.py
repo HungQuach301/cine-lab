@@ -28,7 +28,8 @@ def sha(p): return hashlib.sha256(open(p, 'rb').read()).hexdigest()
 def main(rdir, adir):
     HQ = os.environ.get('HQ') == '1'   # bản đối chứng bitrate cao (CRF 14) để đo G3b không bị trần 50 MB — không nộp, không commit
     od = os.path.join(REPO, 'design/cong5/layout/out' + ('/hq' if HQ else '')); os.makedirs(od, exist_ok=True)
-    base = os.path.join(od, 'layout_hq' if HQ else 'layout')
+    TAG = os.environ.get('LAYOUT_TAG', '')   # v1.5: bản dựng thử với nhân vật mới (vd '-v15') — không ghi đè layout.mp4 Cổng 5, không chép sang screening/
+    base = os.path.join(od, ('layout_hq' if HQ else 'layout') + TAG)
     # ---- phụ đề: ảnh cháy (ruột + viền đen 3 px) và matte (chỉ ruột nét, màu ruột) ----
     tdir = base + '.text'; shutil.rmtree(tdir, ignore_errors=True); os.makedirs(tdir)
     font = ImageFont.truetype(FONT, 30); els = []; burn = []
@@ -90,9 +91,9 @@ def main(rdir, adir):
     json.dump({'workdir': 'design/cong5/layout', 'scene_files': scene_files, 'assets': assets}, open(base + '.assets.json', 'w'), indent=1)
     # ---- gói chiếu mù ----
     sc = os.path.join(REPO, 'screening'); os.makedirs(sc, exist_ok=True)
-    if not HQ: shutil.copyfile(base + '.mp4', os.path.join(sc, 'layout.mp4'))
+    if not HQ and not TAG: shutil.copyfile(base + '.mp4', os.path.join(sc, 'layout.mp4'))
     sz = os.path.getsize(base + '.mp4') / 1e6
-    print(json.dumps({'mp4': base + '.mp4', 'MB': round(sz, 2), 'sha256': sha(base + '.mp4'), 'screening_same': (not HQ) and sha(base + '.mp4') == sha(os.path.join(sc, 'layout.mp4')),
+    print(json.dumps({'mp4': base + '.mp4', 'MB': round(sz, 2), 'sha256': sha(base + '.mp4'), 'screening_same': (not HQ) and (not TAG) and sha(base + '.mp4') == sha(os.path.join(sc, 'layout.mp4')),
                       'channels': len(ch), 'tracks': len(tr), 'cards': len(CARDS)}))
 
 if __name__ == '__main__':

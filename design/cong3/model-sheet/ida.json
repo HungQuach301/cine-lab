@@ -88,7 +88,14 @@
       "bow_note": "3B: KHÔNG nơ trên băng mũ",
       "seat_H": 0.8,
       "fit": 0.52,
-      "fit_note": "v1.4: mũ ngồi thấp ôm vòng đầu rộng nhất, tỳ lên tóc (gốc mũ 0,86 → 0,80 H; miệng mũ 0,56 → 0,52 × bề rộng đầu); vành trước cụp ít hơn"
+      "fit_note": "v1.4: mũ ngồi thấp ôm vòng đầu rộng nhất, tỳ lên tóc (gốc mũ 0,86 → 0,80 H; miệng mũ 0,56 → 0,52 × bề rộng đầu); vành trước cụp ít hơn",
+      "bl_fit": {
+        "mouth_rx_H": 0.3798,
+        "mouth_rz_H": 0.4254,
+        "center_z_H": -0.026,
+        "source": "meta.hat của ida_bl.json (đo theo khối tóc glb)"
+      },
+      "hinge_v1_5": "bản lề ở tâm sọ lưới glb (meta.hatHinge); ngả tối đa 0,26 rad khi đẩy mũ (v1.4/A-i 0,34/0,36)"
     },
     "hair": {
       "bun_diameter_H": 0.42,
@@ -112,7 +119,8 @@
       "hem_above_ground_H": 0.42,
       "style": "váy dài dưới vạt áo khoác, tất tối #3a3235",
       "decision": "3B"
-    }
+    },
+    "scarf_v1_5": "khăn cao 4 vòng sát dưới cằm; mép khăn/cổ áo tính theo lưới đầu bl (SDF trong glb)"
   },
   "props": {
     "ladder": {
@@ -745,8 +753,28 @@
   ],
   "ratio_definition": "ratio(part) = length(part) / length(head), đo giữa hai tâm khớp; ngưỡng C3 = 3% (luật v1.1, có tính nhiễu đo; mặt nạ 2–4×)",
   "face": {
-    "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D (v2/char3d/facepaint.js)",
-    "no_carved_mouth_groove": true
+    "method": "v1.5 'bl': đầu/cổ/tóc/tai/mắt/mày/búi/hoa tai từ lưới người MPFB2 (tài sản lõi CC0, RIGHTS W4-MPFB-A) dựng bằng Blender (design/cong3/v2/char3d/blender/build_ida_l2.py → ida_bl.glb + ida_bl.json), render three.js qua blender/bl_head.js; IDA_STYLE='bl'",
+    "no_carved_mouth_groove": false,
+    "mpfb": {
+      "version": "2.0.17",
+      "commit": "3edf9df0551765be43563d047888cf7877eb89b4",
+      "age": 0.877,
+      "head_age_incr": 0.75,
+      "detail_targets": 33,
+      "eye_height_H": 0.5
+    },
+    "rig": {
+      "shape_keys": "16 kênh = CHANNELS của facerig.js + vis_A/E/O/MBP/FV/L + corr_mouth, corr_smile_lip",
+      "presets": [
+        "neutral",
+        "sad_smile",
+        "strained",
+        "choked"
+      ]
+    },
+    "ears": "MPFB liền lưới; hoa tai ở điểm thấp nhất dái tai (ear-lobe-incr)",
+    "accepted_deviations_2026_09_29": "cảm xúc 2/4 ảnh tĩnh PA1 (cười buồn → cười ấm); 1 câu \"da như đất sét hoặc sáp, hơi giống tượng\"; chính diện \"búp bê\" 2/2 → chưa sửa mắt thì không cận mặt chính diện",
+    "v1_4_method": "C′: mặt vẽ tay trên texture chiếu trước (facepaint.js) — thay bởi v1.5"
   },
   "_c3_doc": "B1 (Cổng 3 đợt vá A2+, chủ dự án chọn): khoá cấp gốc = độ dài NHÌN THẤY đo từ lưới 3D đã duyệt (không phải khung xương parts{}). Cách đo như checks C3 (RUN.md 3.6). Bảng mọi góc nhìn: c3_views. Bộ phận bị che theo thiết kế bị bỏ khỏi measured_parts: shin, thigh || v1.2 (Cổng 4 vòng v2, chủ dự án duyệt A1 + Q-C3v A): đo lại sau A1 (lọn tóc, hoa tai) và cổ áo đứng dựng cao tới cằm; thêm góc −45°, ±135°, 180°. Góc 0°: cổ áo che cằm nên độ dài đầu nhìn thấy ngắn hơn (435,7 px so với 472,6 px ở 45°), tỷ lệ 0° tăng ~3% so với v1.1 (thân 2,584 → 2,667). Cẳng tay −45° = 1,299 vì tay phải cầm đèn ra trước (tư thế turnaround), không phải lỗi đo.",
   "head": {
@@ -754,45 +782,45 @@
     "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
   },
   "torso": {
-    "length": 2.682,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 2.272,
+    "basis": "v1.5 ('bl'): B1 đo từ lưới 'bl' (MPFB2) — mặt nạ nhìn thấy, 4×, turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu (reports/m2/cong5/w4/L3_c3_bl.json)"
   },
   "upper_arm": {
-    "length": 1.571,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 1.336,
+    "basis": "v1.5 ('bl'): B1 đo từ lưới 'bl' (MPFB2) — mặt nạ nhìn thấy, 4×, turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu (reports/m2/cong5/w4/L3_c3_bl.json)"
   },
   "forearm": {
-    "length": 0.976,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 0.831,
+    "basis": "v1.5 ('bl'): B1 đo từ lưới 'bl' (MPFB2) — mặt nạ nhìn thấy, 4×, turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu (reports/m2/cong5/w4/L3_c3_bl.json)"
   },
   "c3_views": {
     "0°": {
       "head": 1.0,
-      "torso": 2.682,
-      "upper_arm": 1.571,
-      "forearm": 0.976,
+      "torso": 2.272,
+      "upper_arm": 1.336,
+      "forearm": 0.831,
       "thigh": null,
-      "shin": 0.288
+      "shin": 0.245
     },
     "45°": {
       "head": 1.0,
-      "torso": 2.29,
-      "upper_arm": 1.474,
-      "forearm": 0.909,
+      "torso": 2.219,
+      "upper_arm": 1.428,
+      "forearm": 0.882,
       "thigh": null,
-      "shin": 0.281
+      "shin": 0.272
     },
     "-45°": {
       "head": 1.0,
-      "torso": 2.263,
-      "upper_arm": 1.451,
-      "forearm": 1.284,
+      "torso": 2.216,
+      "upper_arm": 1.418,
+      "forearm": 1.257,
       "thigh": null,
-      "shin": 0.279
+      "shin": 0.273
     },
     "90°": {
       "head": 1.0,
-      "torso": 2.034,
+      "torso": 2.033,
       "upper_arm": null,
       "forearm": null,
       "thigh": null,
@@ -800,36 +828,37 @@
     },
     "-90°": {
       "head": 1.0,
-      "torso": 2.06,
-      "upper_arm": 1.398,
-      "forearm": 1.0,
+      "torso": 2.069,
+      "upper_arm": 1.404,
+      "forearm": 1.005,
       "thigh": null,
-      "shin": 0.27
+      "shin": 0.271
     },
     "135°": {
       "head": 1.0,
-      "torso": 2.558,
-      "upper_arm": 1.592,
-      "forearm": 0.897,
+      "torso": 2.381,
+      "upper_arm": 1.482,
+      "forearm": 0.837,
       "thigh": null,
-      "shin": 0.295
+      "shin": 0.275
     },
     "-135°": {
       "head": 1.0,
-      "torso": 2.528,
-      "upper_arm": 1.583,
-      "forearm": 1.183,
+      "torso": 2.353,
+      "upper_arm": 1.474,
+      "forearm": 1.101,
       "thigh": null,
-      "shin": 0.295
+      "shin": 0.275
     },
     "180°": {
       "head": 1.0,
-      "torso": 2.752,
-      "upper_arm": 1.75,
-      "forearm": 1.323,
+      "torso": 2.13,
+      "upper_arm": 1.355,
+      "forearm": 1.025,
       "thigh": null,
-      "shin": 0.316
+      "shin": 0.245
     }
   },
-  "_v1_4": "Cổng 5 v2 (A-α, chủ dự án chọn 28/09/2026): cổ lộ width_front 0,30 → 0,40 H; tóc #b9b3aa → #e2dfda + shader tóc bạc; cổ áo bẻ thấp, khăn thấp, mũ ngồi thấp; mặt tròn–mềm cách điệu (facepaint/cast3d); B1 đo lại 8 góc → c3_views + độ dài 0°"
+  "_v1_4": "Cổng 5 v2 (A-α, chủ dự án chọn 28/09/2026): cổ lộ width_front 0,30 → 0,40 H; tóc #b9b3aa → #e2dfda + shader tóc bạc; cổ áo bẻ thấp, khăn thấp, mũ ngồi thấp; mặt tròn–mềm cách điệu (facepaint/cast3d); B1 đo lại 8 góc → c3_views + độ dài 0°",
+  "_v1_5": "Cửa mặt Ida (chủ dự án chọn A kèm điều kiện, 29/09/2026): mặt 'bl' MPFB2 CC0; tỷ lệ đầu MPFB; tai MPFB; khăn cao 4 vòng; bản lề mũ mới; c3_views đo lại 8 góc (thân 0° 2,682 → 2,272). Cas chờ gói MPFB (v1.6)."
 }

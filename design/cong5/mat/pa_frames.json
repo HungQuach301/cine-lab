@@ -1,0 +1,15 @@
+{
+  "_doc": "W3 · Cổng 5 v2 — khung thử phương án dàn dựng lại câu L4 (1:32–1:48). Mỗi khung: tên = phương-án_nhịp; args cho design/cong5/mat/page_pa.js (bộ cảnh + đèn + grade + lớp vẽ của shot layout 'shot' ở giây phim T; chỉ ghi đè máy/biểu cảm). Nhịp (L4 bắt đầu 93,0): last 94,5 'That's the last one, then.' · goodnight 97,5 'Goodnight, old street.' · brighter 100,2 'You'll be brighter now.' (cột góc P5 bật 99,2) · keep 105,0 'Just… keep a little dark for the ones who need it.' Mặt A-α (idaStyle 'aa'); tên có hậu tố _ai = cùng args, mặt A-i. shot s37 = facelight 'gas' (trước P5), s39 = facelight 'elec' (sau P5).",
+  "PA1_last":      { "shot": "s37", "T": 94.5,  "cam": { "rel": { "yaw": -90, "dist": 1.7, "y": -0.12, "drop": 0 }, "mm": 50 } },
+  "PA1_goodnight": { "shot": "s37", "T": 97.5,  "cam": { "rel": { "yaw": -84, "dist": 0.95, "y": -0.05, "drop": 0 }, "mm": 85 } },
+  "PA1_brighter":  { "shot": "s39", "T": 100.2, "cam": { "rel": { "yaw": -90, "dist": 1.7, "y": -0.12, "drop": 0 }, "mm": 50 } },
+  "PA1_keep":      { "shot": "s39", "T": 105.0, "expr": "choked", "cam": { "rel": { "yaw": -96, "dist": 0.95, "y": -0.05, "drop": 0 }, "mm": 85 } },
+  "PA2_last":      { "shot": "s37", "T": 94.5,  "cam": { "rel": { "yaw": -140, "dist": 1.25, "y": 0.02, "drop": 0.02 }, "mm": 40 } },
+  "PA2_goodnight": { "shot": "s37", "T": 97.5,  "cam": { "joint": "wrist_R", "off": [-0.9, 0.35, -0.2], "lookOff": [0, 0.25, 0.1], "mm": 35 } },
+  "PA2_brighter":  { "shot": "s39", "T": 100.2, "cam": { "joint": "wrist_R", "off": [-0.9, 0.35, -0.2], "lookOff": [0, 0.25, 0.1], "mm": 35 } },
+  "PA2_keep":      { "shot": "s39", "T": 105.0, "expr": "choked", "cam": { "rel": { "yaw": -128, "dist": 1.0, "y": -0.02, "drop": 0 }, "mm": 50 } },
+  "PA3_last":      { "shot": "s37", "T": 94.5,  "cam": { "joint": "wrist_R", "off": [-0.42, 0.08, 0.3], "lookOff": [0.03, 0.12, 0.1], "mm": 50 } },
+  "PA3_goodnight": { "shot": "s37", "T": 97.5,  "cam": { "joint": "head", "off": [-0.55, 0.75, 0.55], "lookOff": [0.05, -0.25, 0.15], "mm": 40 } },
+  "PA3_brighter":  { "shot": "s39", "T": 100.2, "cam": { "joint": "head", "off": [-0.55, 0.75, 0.55], "lookOff": [0.05, -0.25, 0.15], "mm": 40 } },
+  "PA3_keep":      { "shot": "s39", "T": 105.0, "expr": "choked", "cam": { "joint": "head", "off": [-0.55, 0.75, 0.55], "lookOff": [0.05, -0.25, 0.15], "mm": 40 } }
+}
