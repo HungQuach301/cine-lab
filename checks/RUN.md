@@ -1,4 +1,15 @@
-# CHẠY LUẬT KIỂM L1 (v1.4) — hướng dẫn cho phiên xưởng
+# CHẠY LUẬT KIỂM L1 (v1.5) — hướng dẫn cho phiên xưởng
+
+**Điểm mới v1.5** (2 khiếu nại P0 Cổng 5 được chủ dự án chấp nhận; việc C3 chủ dự án giao):
+1. **P0: nhân vật bị đọc thành chữ** ("56" ở mắt Cas, "MA" ở dáng hai nhân vật). Chuỗi **≤ 3 ký tự** nằm trên nhân vật không còn tính là "chữ không matte", nếu `X.parts/` có mặt nạ nhân vật cho **đúng khung đó** (mục 3.6.3).
+   - Máy kiểm: mặt nạ chạm hộp chữ; mặt nạ khớp cạnh ảnh ngay quanh hộp chữ; và **xoá nhân vật khỏi khung rồi đọc lại thì hết chữ**.
+   - **Chữ thật vẫn bị bắt**: từ 4 ký tự trở lên (kể cả in trên áo, trên tấm biển nhân vật cầm), và chữ ngắn không nằm trên nhân vật.
+   - Để máy biết nhân vật ở đâu tại mọi khung P0 lấy mẫu, xuất **`silhouettes`** (bóng mọi nhân vật) vào `parts.json`. Khung P0 lấy mẫu khác khung C3 (mục 3.6.3).
+   - Báo cáo P0 liệt kê vùng được miễn (`vung_nhan_vat_mien`) và chữ ngắn ở khung chưa có mặt nạ (`chu_ngan_khong_mat_na`).
+2. **C3: trục đầu** (mục 3.6.1). Đầu nhìn thấy **rộng hơn cao** (mũ che đỉnh, tai vểnh) làm trục chính PCA nằm ngang, nên "độ dài đầu" thành bề ngang. Model sheet khai **`"c3_head_axis": "doc"`** để đo đầu theo **trục dọc thân** (không lật). Không khai = `"pca"`, như v1.4.
+   - `c3_views` phải được đo **bằng đúng cách đã khai**. Đổi sang `"doc"` nghĩa là đo lại cả bảng `c3_views`.
+   - Lưu ý: đầu Ida 'bl' và Cas 'bl' đều rộng hơn cao ở cả 8 góc turnaround; `c3_views` hiện tại của Ida là số theo bề ngang.
+3. **Kiểm toán** (mục 3.7): `silhouettes` nằm trong SHA bộ mặt nạ; phiếu kiểm toán chọn thêm 1 khung chỉ có bóng; khung được chọn có bóng thì render lại cả `silhouette.png`.
 
 **Điểm mới v1.4** (3 khiếu nại Cổng 3 được chủ dự án chấp nhận):
 1. **File không có luồng âm** (khung phong cách, chưa làm âm): J1 và J1b quyết theo `X.script.txt`.
@@ -80,7 +91,7 @@ Với video `X.mp4`:
 | `X.text/elements.json` + matte PNG | P0, P1, G4 (P0 dùng thêm `X.script.txt` nếu có) | Mỗi phần tử chữ (tiêu đề, phụ đề, credit, **cả chữ trong thế giới phim như biển hiệu**) xuất một matte RGBA từ render (mục 3.1). Thư mục rỗng phần tử (`{"elements": []}`) = đoạn không có chữ. P0 chạy cả khi thiếu thư mục này: mọi chữ máy dò thấy trong hình mà không có matte đều trượt. |
 | `X.motion.json` | H1, H1b | Chuyển động bake theo từng khung ở 24 fps (mục 3.2), **kèm `screen_tracks`** (mục 3.4). |
 | `X.stems/` | J1b, J1 | Stem thoại `dialogue.wav` và stem nền (M&E) xuất từ bản mix (mục 3.5). |
-| `X.parts/parts.json` + mặt nạ PNG | C3 | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung, **ở 2–4× độ phân giải khung** (4× khi đầu < 100 px), kèm `views` (v1.4) (mục 3.6). |
+| `X.parts/parts.json` + mặt nạ PNG | C3, P0 (v1.5) | Mặt nạ từng bộ phận nhân vật xuất từ render, mỗi 12 khung, **ở 2–4× độ phân giải khung** (4× khi đầu < 100 px), kèm `views` (v1.4) (mục 3.6). v1.5: thêm `silhouettes` (bóng mọi nhân vật ở các khung P0 lấy mẫu) để P0 không đọc nhân vật thành chữ (mục 3.6.3). |
 | `X.audit/` | C3 | Yêu cầu kiểm toán (P phát), mặt nạ render lại và `render.log` (mục 3.7). |
 | `X.assets.json` | O3 | Danh sách tài sản mà file cảnh thật sự nạp, xuất từ phần mềm dựng (mục 3.3). |
 
@@ -197,6 +208,19 @@ Góc nhìn theo quy ước lúc đo sheet: 0° = nhân vật nhìn thẳng vào 
 
 Sheet thiếu độ dài, sai kiểu số, khoá góc không đọc được, hay `c3_views` mâu thuẫn cấp gốc thì C3 báo **THIẾU** với dòng "Sai định dạng (RUN.md mục 3.6): …" nêu đúng trường sai.
 
+**v1.5 — cách đo độ dài đầu: `c3_head_axis`**
+
+| Giá trị | Độ dài đầu | Khi nào dùng |
+|---|---|---|
+| `"pca"` (mặc định khi không khai) | Bề dài chiếu lên **trục chính PCA** của mặt nạ đầu + 1 px, như v1.4 | Sheet cũ đo theo trục chính (ví dụ `ida.json` hiện tại). Kết quả giữ nguyên như v1.4 |
+| `"doc"` | Bề dài chiếu các điểm ảnh mặt nạ đầu lên **trục dọc thân** + 1 px. Trục dọc thân = vectơ đơn vị từ **tâm mặt nạ thân** tới **tâm mặt nạ đầu** của cùng khung (tâm = trung bình toạ độ điểm ảnh). Khung không có mặt nạ thân: phương dọc ảnh | Đầu nhìn thấy rộng hơn cao ở một góc nào đó. Liên tục, không lật, đi theo nhân vật khi máy nghiêng |
+
+- Bộ phận khác luôn đo theo trục chính PCA (không đổi).
+- **`c3_views` và độ dài cấp gốc phải đo bằng đúng cách đã khai**, trên cùng loại mặt nạ nhìn thấy 4× ở tư thế turnaround. Khai `"doc"` mà giữ số đo theo trục chính thì mọi shot sẽ lệch.
+- Vì sao cần: trục chính PCA của đầu **lật ngang** khi đầu nhìn thấy rộng hơn cao, và **nhảy bậc** khi trục chính gần 45° so với trục dọc. Số đo thật (turnaround 4×, công cụ `c3_bl.py`/`c3_cas.py`): Cas 'bl' 0° rộng 782 × cao 481 px mặt nạ, ±135° trục chính lệch 42°; Ida 'bl' 0° rộng 527 × cao 350 px.
+- Báo cáo C3 liệt kê khung có trục chính đầu lệch trục dọc thân > 45° (`dau_rong_hon_cao`), kèm độ dài theo trục chính và theo trục dọc (px video). Với `"pca"`, có ghi chú khuyên đo lại theo `"doc"`.
+- Giá trị khác `"pca"`/`"doc"` → C3 **THIẾU** (sai định dạng).
+
 #### 3.6.2 Góc nhìn và tư thế: `views` (v1.4)
 
 Xuất từ **chính lần render mặt nạ** (cùng cảnh, máy quay, tư thế), một mục cho **mọi** khung trong `frames`:
@@ -239,6 +263,35 @@ Phải có mục cho `head` và mọi bộ phận đo có mặt nạ ở khung �
 - **Shot có nhân vật mà không mẫu nào đo được → C3 = CẦN NGƯỜI XEM.** Không khai `views` sai để lách: kiểm toán ngẫu nhiên render lại cả `views` (mục 3.7).
 - Không có `views`: mọi mẫu so với góc 0° như v1.3 (chỉ loại mẫu bị cắt khung). Đây là cách chặt nhất, không phải cách lách.
 
+#### 3.6.3 Bóng nhân vật cho P0: `silhouettes` (v1.5)
+
+P0 đọc chữ ở các khung lấy mẫu. Nếu máy đọc một phần nhân vật thành chữ ngắn (mắt thành "56", hai dáng người thành "MA"), P0 cần biết nhân vật nằm ở đâu **trong đúng khung đó**.
+
+```json
+{"model_sheet": "...", "scale": 4, "frames": {"0": {...}, "12": {...}}, "views": {...},
+ "silhouettes": {"0": "sil/00000.png", "15": "sil/00015.png", "30": "sil/00030.png"}}
+```
+
+- Mỗi khung **một PNG**: bóng **mọi nhân vật** trong khung (thân, quần áo, tóc, mũ), phần **nhìn thấy** sau khi bị cảnh che, cùng phép biến đổi với khung hình. Nhân vật = điểm ảnh ≥ 128 (xám, hoặc alpha nếu PNG có alpha; **nền phải trong suốt hoặc đen**, không để alpha 255 ở nền).
+- **Không gồm đạo cụ cầm tay** (đèn lồng, tấm biển, sách). Chữ trên đạo cụ là chữ trong thế giới phim.
+- Kích thước: bằng khung hoặc bội số của khung (1×–4×, ngang = dọc). Máy quy về cỡ khung.
+- Render thật từ cảnh (như mặt nạ C3), không vẽ tay. Công cụ tham chiếu (cách làm trên trang three.js của phim): `reports/checks-v1.5/dryrun/k_sil.js`.
+- **Khung nào cần:** mọi khung P0 lấy mẫu có nhân vật. P0 lấy khung 0, b, 2b, … và khung cuối, với **b = 12** nếu ⌊n / 12⌋ ≤ 240 (n = số khung), còn không thì **b = ⌈n / 240⌉** (layout 3 372 khung → b = 15); cộng khung giữa của mỗi phần tử chữ trong `X.text/elements.json` (⌊(first + last) / 2⌋). Danh sách khung đã lấy mẫu có trong bằng chứng P0 (`ds_khung_lay_mau`).
+- Máy cũng dùng mặt nạ bộ phận C3 (`frames`) của đúng khung đó nếu có. Mặt nạ C3 chỉ có một nhân vật và thiếu tay phải, chân phải, mũ, nên không thay được `silhouettes`.
+- Khung P0 có chữ ngắn không matte mà không có mặt nạ nhân vật: báo cáo P0 liệt kê khung đó. Nếu đó là nhân vật, xuất `silhouettes` cho khung đó rồi chạy lại. Nếu là chữ thật, thêm matte.
+
+**P0 miễn một vùng chữ không matte khi đủ cả năm điều kiện:**
+
+| Điều kiện | Ngưỡng |
+|---|---|
+| Chuỗi đọc được ngắn | ≤ 3 ký tự, không kể khoảng trắng (chủ dự án) |
+| Khung có mặt nạ nhân vật | `silhouettes` và/hoặc mặt nạ C3 của đúng khung |
+| Mặt nạ chạm hộp chữ | mặt nạ nới 2 px có điểm trong hộp |
+| Mặt nạ khớp hình ngay quanh hộp chữ | độ khớp biên (như C3) chỉ tính trên biên mặt nạ trong hộp nới 16 px ≥ 1,5, với ≥ 20 điểm biên |
+| Thứ máy đọc thành chữ nằm trên nhân vật | xoá nhân vật khỏi khung (tô lại từ nền quanh) rồi đọc lại đúng hộp đó: **không còn** chữ Latin |
+
+Chữ thật trên tường cạnh nhân vật vẫn đọc được sau khi xoá nhân vật, nên vẫn TRƯỢT. Mặt nạ vẽ thêm để che chữ không khớp cạnh ảnh ở chỗ đó, nên vẫn TRƯỢT. Chữ từ 4 ký tự trở lên luôn TRƯỢT nếu không có matte.
+
 ### 3.7 Kiểm toán ngẫu nhiên mặt nạ C3 (`X.audit/`, v1.3)
 
 Mục đích: xác nhận mặt nạ đã nộp thật sự được render từ file cảnh đã khoá, ở đúng độ phân giải khai, chứ không phải phóng to hay vẽ tay. Xưởng **không biết trước** khung nào sẽ bị kiểm.
@@ -269,6 +322,7 @@ X.audit/rerender/<khung 5 chữ số>/<bộ phận>.png     # ví dụ X.audit/r
 ```
   Phải đủ mọi bộ phận có trong `parts.json` ở khung đó, cùng kích thước PNG.
 - **v1.4:** `parts.json` có `views` thì xuất lại `views` của đúng khung đó vào `X.audit/rerender/<khung 5 chữ số>/views.json` (cùng lược đồ một mục của `views`). Lệch bản nộp quá 1° (góc nhìn, góc ngẩng) hoặc quá 0,005 (foreshorten, hidden, depth) thì C3 TRƯỢT.
+- **v1.5:** `parts.json` có `silhouettes` thì phiếu kiểm toán có thêm `sil_frames`: 1 khung ngẫu nhiên trong các khung **chỉ** có `silhouettes` (không có mặt nạ C3). Với **mọi** khung được chọn (cả `frames` và `sil_frames`) có mục `silhouettes`, render lại bóng nhân vật vào `X.audit/rerender/<khung 5 chữ số>/silhouette.png`, cùng cách và cùng kích thước bản nộp, và ghi dòng `FRAME … CMD …` cho khung đó. `checks/audit.py show` in đủ danh sách.
 - Ghi `X.audit/render.log`. Dòng tự do được phép, nhưng bắt buộc có:
 ```
 SCENE shots/sq01_sh010/sq01_sh010.blend SHA256 <sha256 của file cảnh, 64 hex>
@@ -288,17 +342,18 @@ FRAME 36 CMD blender -b shots/sq01_sh010/sq01_sh010.blend -P tools/render_masks.
 | Lệch tỷ lệ | tỷ lệ bộ phận/đầu của mặt nạ nộp lệch mặt nạ render lại quá 1 dải nhiễu U |
 | Lệch điểm ảnh | điểm ảnh khác nhau vượt 2% số điểm ảnh biên. Render lại cùng cách thì mặt nạ gần như trùng khít |
 | `views` (v1.4) | thiếu `views.json` render lại, sai định dạng, hoặc lệch bản nộp quá 1° / 0,005 |
+| `silhouettes` (v1.5) | sửa sau khi phát (nằm trong SHA bộ mặt nạ); thiếu `silhouette.png` render lại, khác kích thước, hoặc khác điểm ảnh vượt 2% số điểm ảnh biên |
 
 Chưa có `request.json` thì C3 báo **THIẾU**, và kết luận không thể là ĐẠT.
 
-## 4. Luật trong bộ v1.4 (đều cấp Chặn)
+## 4. Luật trong bộ v1.5 (đều cấp Chặn)
 
 | Mã | Luật | Profile |
 |---|---|---|
 | N1 | 24 fps CFR; không rơi/lặp khung theo PTS | mọi |
 | N2 | BT.709 đủ nhãn, dải limited (đo cả giá trị điểm ảnh) | mọi |
 | N3 | Codec, bitrate, 16:9, SAR 1:1 theo loại master. **v1.1: master YouTube có grain (σ ≥ 0,8 theo G3b) phải ≥ 30 Mbps** (1080p) | youtube, archive |
-| P0 | Máy dò chữ độc lập: mọi chữ trong hình phải có matte; chữ gắn diegetic không được trùng phụ đề/tiêu đề | mọi |
+| P0 | Máy dò chữ độc lập: mọi chữ trong hình phải có matte; chữ gắn diegetic không được trùng phụ đề/tiêu đề. v1.5: chuỗi ≤ 3 ký tự nằm trên nhân vật (mục 3.6.3) được miễn | mọi |
 | P1 | Không chữ đè chữ theo điểm ảnh nét | mọi |
 | G4 | Tương phản chữ ≥ 4,5:1 (miễn phần tử `diegetic`) | mọi |
 | G3 | Không banding trên gradient | mọi |
@@ -309,7 +364,7 @@ Chưa có `request.json` thì C3 báo **THIẾU**, và kết luận không thể
 | J1b | Lời rõ trên nhạc theo từng câu (stem), tổng stem khớp mix. Ngưỡng SII **nội bộ, chưa hiệu chuẩn** (hiệu chuẩn sau bài thử với 3–5 người nghe mù) nhưng vẫn cấp Chặn. v1.4: không có luồng âm → như J1 | mọi |
 | H1 | Không chuyển động tuyến tính ở bộ phận nhân vật | mọi |
 | H1b | Chuyển động khai báo khớp hình render (luồng quang học) | mọi |
-| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo); mặt nạ 2–4× (4× khi đầu < 100 px); kiểm toán ngẫu nhiên. v1.4: chỉ so ở mẫu đo được theo góc nhìn/tư thế (`views`, `c3_views`); shot không có mẫu đo được = CẦN NGƯỜI XEM | mọi |
+| C3 | Tỷ lệ bộ phận nhân vật đúng model sheet (có tính nhiễu đo); mặt nạ 2–4× (4× khi đầu < 100 px); kiểm toán ngẫu nhiên. v1.4: chỉ so ở mẫu đo được theo góc nhìn/tư thế (`views`, `c3_views`); shot không có mẫu đo được = CẦN NGƯỜI XEM. v1.5: `c3_head_axis` (đầu theo trục dọc thân) | mọi |
 | O3 | Tài sản lấy từ thư viện có SHA | mọi |
 
 Định nghĩa đo và ngưỡng đầy đủ có trong từng báo cáo (mục "Chi tiết từng luật").

@@ -24,6 +24,11 @@ v1.3: (Q-δ) đầu nhân vật cao < 100 px video ở bất kỳ khung mẫu n�
 nhiên (cinecheck/audit.py) khi chạy qua run.py: thiếu yêu cầu kiểm toán → THIẾU; đối chiếu trượt → TRƯỢT.
 Quy tắc quyết định kiểu ISO 14253-1 (dải bảo vệ):
   đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; còn lại = không chứng minh được.
+v1.5 (trục đầu, RUN.md 3.6): đầu nhìn thấy có thể rộng hơn cao (mũ che đỉnh, tai vểnh; Cas 'bl' 0°/180°: rộng 782,
+cao 481 px mặt nạ); khi đó trục chính PCA lật ngang và "độ dài đầu" thành bề ngang, và nhảy bậc khi trục chính quanh
+45° (Cas ±135°: 42°). Model sheet khai 'c3_head_axis': 'doc' = độ dài đầu là bề dài chiếu mặt nạ đầu lên trục dọc thân
+(vectơ đơn vị từ tâm mặt nạ thân tới tâm mặt nạ đầu cùng khung; thiếu thân: phương dọc ảnh), liên tục, không lật;
+'pca' (mặc định khi không khai) = trục chính như v1.4. c3_views phải đo bằng đúng cách đã khai. Bộ phận khác: trục chính.
 """
 import json
 import math
@@ -55,6 +60,8 @@ VIEW_MAX = 30.0     # góc 3D giữa hướng nhìn và góc tham chiếu gần 
 FORESHORT_MAX = 0.02  # co ngắn do tư thế: |độ dài chiếu xương bây giờ / ở tư thế turnaround − 1| (nội bộ)
 HIDDEN_MAX = 0.10   # tỷ lệ điểm ảnh bộ phận bị vật ngoài thân nhân vật che (nội bộ)
 DEPTH_MAX = 0.02    # phối cảnh: |khoảng cách máy→giữa bộ phận / máy→tâm đầu − 1| (nội bộ; K thêm, xem RULES.md)
+UP = np.array([0.0, 1.0])  # v1.5: phương dọc ảnh (trục dọc dự phòng)
+HEAD_AXES = ("pca", "doc")  # v1.5: cách đo độ dài đầu khai trong model sheet 'c3_head_axis' (mặc định 'pca' = v1.4)
 
 
 def load_raw(p):
@@ -80,15 +87,55 @@ def ramp_width(raw):
     return float(((raw > 5) & (raw < 250)).sum()) / b
 
 
-def length_px(m):
+def _pca(m):
     ys, xs = np.nonzero(m)
     if len(xs) < 5:
         return None
     P = np.stack([xs, ys], 1).astype(np.float64)
     P -= P.mean(0)
-    _, v = np.linalg.eigh(np.cov(P.T))
-    a = P @ v[:, 1]
+    w, v = np.linalg.eigh(np.cov(P.T))  # trị riêng tăng dần: v[:, 1] là trục chính
+    return P, w, v
+
+
+def length_px(m, ref=None):
+    """Bề dài chiếu các điểm ảnh lên trục chính PCA + 1 px. ref (v1.5, đầu ở cách đo 'doc'): chiếu lên chính ref."""
+    r = _pca(m)
+    if r is None:
+        return None
+    P, _, v = r
+    a = P @ (v[:, 1] if ref is None else np.asarray(ref, np.float64))
     return float(a.max() - a.min() + 1)
+
+
+def body_axis(masks):
+    """v1.5: trục dọc thân trên ảnh = vectơ đơn vị từ tâm mặt nạ thân tới tâm mặt nạ đầu (không ngưỡng, không phụ
+    thuộc thân thuôn hay bè). Thiếu thân hoặc đầu → phương dọc ảnh. Trả (vectơ, nguồn)."""
+    h, t = masks.get("head"), masks.get("torso")
+    if h is None or t is None or h.sum() < 5 or t.sum() < 5:
+        return UP, "dọc ảnh"
+    hy, hx = np.nonzero(h)
+    ty, tx = np.nonzero(t)
+    d = np.array([hx.mean() - tx.mean(), hy.mean() - ty.mean()])
+    n = float(np.hypot(*d))
+    if n < 1.0:
+        return UP, "dọc ảnh"
+    return d / n, "thân→đầu"
+
+
+def head_flipped(head, ref):
+    """v1.5: trục chính của mặt nạ đầu lệch trục dọc thân > 45° (đầu rộng hơn cao): cách 'pca' đo bề ngang."""
+    r = _pca(head)
+    if r is None:
+        return False
+    v = r[2]
+    return abs(float(v[:, 0] @ ref)) > abs(float(v[:, 1] @ ref)) + 1e-9
+
+
+def lengths(masks, head_axis="pca"):
+    """Độ dài mọi bộ phận của một khung (px mặt nạ). head_axis (v1.5, khai trong model sheet 'c3_head_axis'):
+    'pca' = trục chính như v1.4; 'doc' = đầu đo theo trục dọc thân (thân→đầu). Bộ phận khác luôn theo trục chính."""
+    ref = body_axis(masks)[0] if head_axis == "doc" else None
+    return {p: length_px(m, ref if p == "head" else None) for p, m in masks.items()}
 
 
 def uncertainty(lp, lh, delta=DELTA_PX):
@@ -215,7 +262,10 @@ def sheet_model(sheet):
         lack = {lbl: [k for k in need if not _has_len(d, k)] for lbl, d in (("cấp gốc", sheet), ("parts{}", nested))}
         raise FormatError("không tìm thấy độ dài bộ phận. Cần {bộ phận: {\"length\": số}} cho 'head' và mọi bộ phận "
                           f"trong measured_parts, ở cấp gốc hoặc trong parts{{}}, hoặc bảng c3_views. Thiếu: {lack}.")
-    return names, base, src, refs
+    head_axis = sheet.get("c3_head_axis", "pca")
+    if head_axis not in HEAD_AXES:
+        raise FormatError(f"c3_head_axis phải là 'pca' hoặc 'doc' (gặp {head_axis!r}).")
+    return names, base, src, refs, head_axis
 
 
 def load_sheet(spec, parts_dir, repo):
@@ -297,7 +347,7 @@ def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None)
             return result("C3", None, [metric("khai báo không có nhân vật", 1, "==", 1)],
                           notes=["parts.json khai báo shot không có nhân vật (no_character). Người duyệt xác nhận."])
         sheet, sheet_path = load_sheet(spec, parts_dir, repo)
-        names, base, src, refs = sheet_model(sheet)
+        names, base, src, refs, head_axis = sheet_model(sheet)
         fr_raw = spec.get("frames")
         if not isinstance(fr_raw, dict) or not fr_raw:
             raise FormatError("parts.json thiếu 'frames' {khung: {bộ phận: đường dẫn PNG}}.")
@@ -330,7 +380,7 @@ def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None)
     rgb = read_rgb(video, [k for k in frames if k < n])
     rows, skipped, fids, sure_fail, unproven, head_px = [], [], {}, 0, 0, []
     sizes, xs_all, ys_all, scales, ramps = set(), [], [], [], []
-    char_frames, measured_by_frame, total_by_frame = [], {}, {}
+    char_frames, measured_by_frame, total_by_frame, flips = [], {}, {}, []
     for k in sorted(frames):
         raws = {p: load_raw(parts_dir / f) for p, f in frames[k].items()}
         for r_ in raws.values():
@@ -365,8 +415,13 @@ def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None)
         def skip(p, why, detail=""):
             skipped.append(dict(khung=k, bo_phan=p, ly_do=why, chi_tiet=detail))
 
-        lens = {p: length_px(m) for p, m in masks.items()}
+        lens = lengths(masks, head_axis)
         lh = lens.get("head")
+        if lh is not None:
+            ref, ref_src = body_axis(masks)
+            if head_flipped(masks["head"], ref):  # v1.5: trục chính đầu lệch trục dọc > 45°
+                flips.append(dict(khung=k, truc_doc=ref_src, dau_truc_chinh=round(length_px(masks["head"]) / scale, 1),
+                                  dau_theo_truc_doc=round(length_px(masks["head"], ref) / scale, 1)))
         if lh is None:
             if present:
                 for p in names:
@@ -491,7 +546,7 @@ def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None)
     tot_all = sum(total_by_frame.values())
     got_all = sum(measured_by_frame.values())
     sizes_s = sorted(sizes)[0]
-    notes = [f"Model sheet: {sheet_path.name} (độ dài: {src or 'chỉ c3_views'}; "
+    notes = [f"Model sheet: {sheet_path.name} (độ dài: {src or 'chỉ c3_views'}; đầu đo theo '{head_axis}'; "
              f"góc tham chiếu: {', '.join(f'{a:g}°' for a in sorted(refs)) if views is not None else '0° (không có views)'}). "
              f"Mặt nạ {sizes_s[1]}×{sizes_s[0]} px trên khung {vw}×{vh} → hệ số đo ×{s_meas:.3g} "
              f"(khai báo: {declared if declared is not None else 'không'}). "
@@ -509,6 +564,14 @@ def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None)
         notes.append(f"Không đo được: {len(skipped)} mẫu bộ phận — "
                      + "; ".join(f"{k}: {v}" for k, v in why.items()) + ". Danh sách đầy đủ trong bằng chứng "
                      "'khong_do_duoc'.")
+    if head_axis == "doc":
+        notes.append("v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân "
+                     f"(thân→đầu), không lật. {len(flips)} khung có đầu rộng hơn cao (trục chính sẽ lật).")
+    elif flips:
+        notes.append(f"v1.5 (trục đầu): {len(flips)}/{len(head_px)} khung có mặt nạ đầu rộng hơn cao (trục chính lệch trục "
+                     "dọc thân > 45°): cách 'pca' (mặc định, như v1.4) đo bề ngang đầu ở các khung này, và số nhảy bậc khi "
+                     "trục chính quanh 45°. Nên đo lại c3_views theo 'doc' và khai c3_head_axis = 'doc' (RUN.md 3.6.1). "
+                     "Danh sách trong bằng chứng 'dau_rong_hon_cao' (px video).")
     if views is None:
         notes.append("parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. "
                      "Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).")
@@ -532,12 +595,12 @@ def check_c3(video, profile, parts_dir=None, repo=".", audit=False, assets=None)
                      "hoặc chọn khung có đầu lớn hơn để chứng minh.")
     ev = dict(do=rows[:300], khong_do_duoc=skipped[:300], theo_shot=per_shot,
               do_khop_bien={str(k): (round(v, 2) if v is not None else None) for k, v in fids.items()},
-              khung_thieu=missing[:100])
+              khung_thieu=missing[:100], dau_rong_hon_cao=flips[:300])
     hard_ok = all(m["ok"] for m in ms)
     if audit:
         from . import audit as au
-        a_ms, a_notes, audit_ev, has_req = au.verify(video, parts_dir, repo, spec, load_mask, length_px,
-                                                     uncertainty, assets)
+        a_ms, a_notes, audit_ev, has_req = au.verify(video, parts_dir, repo, spec, load_mask,
+                                                     lambda ms_: lengths(ms_, head_axis), uncertainty, assets)
         notes += a_notes
         ev["kiem_toan"] = audit_ev or None
         if not has_req:

@@ -396,6 +396,8 @@ def cases(d):
     C += cases_v13.cases(d)
     import cases_v14  # thay đổi v1.4: J1/J1b không có luồng âm, C3 lược đồ sheet + góc nhìn/tư thế (CẦN NGƯỜI XEM)
     C += cases_v14.cases(d)
+    import cases_v15  # thay đổi v1.5: P0 nhân vật đọc thành chữ (2 khiếu nại Cổng 5), C3 trục đầu, kiểm toán silhouettes
+    C += cases_v15.cases(d)
     return C
 
 
