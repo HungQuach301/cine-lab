@@ -359,7 +359,9 @@ S({ id: 's35', scene: 5, size: 'WS', angle: 'ngang, xuôi dốc', mm: 28, move: 
 // phía xa, thân bà che (không đặt lên cột phía sau: lời chê "mẩu tay sau cột" của PA1 cũ).
 const ON_Z1 = ON_Z + 0.1;   // bà đứng nhích sát cột 0,1 m trên thang (tầm với tới van: vai → thân van ≈ 0,5 m, trong tầm tay 0,61 m)
 function valveOf(st) { const v = st.lamps[10].lamp.userData.parts.valve; v.updateMatrixWorld(true); const a = v.localToWorld(new THREE.Vector3(0, -0.02, 0)), b = v.localToWorld(new THREE.Vector3(0, 0.02, 0));
-  return { point: a.clone().lerp(b, 0.5).toArray(), axis: b.sub(a).normalize().toArray(), radius: 0.028 }; }
+  // Cổng 6: nắm ỐNG KHÍ đứng (Ø 0,028 m) ngay dưới thân van — ngón ôm quanh ống, lòng tay che thân van đồng (nắm thân van ngang: ngón vướng ống, xoè thẳng).
+  const pipeA = new THREE.Vector3(0, 1, 0).transformDirection(v.parent.matrixWorld), c = a.clone().lerp(b, 0.5).addScaledVector(pipeA, -0.045);
+  return { point: c.toArray(), axis: pipeA.toArray(), radius: 0.014 }; }
 // Tư thế gốc trên thang cho PA1: faceRest (mũ 0,35, cổ quay về phố) + thở. nodX: gật/cúi thêm; turn: quay cổ.
 const idaTop = (p, T, { hb = HB, turn = 35, nodX = 0, arms = {} } = {}) => { const b = Math.sin(2 * Math.PI * T / 4.2);
   const base = p.faceRest(hb, turn); return addJ(over(base, { joints: arms, hands: { L: { spread: 0.1, curl: 0.8 }, R: { spread: 0.1, curl: 0.45 } } }), { spine: [0.7 * b, 0, 0], neck: [nodX - 0.3 * b, 0, 0], shoulder_L: [0, 0, 0.6 * b], shoulder_R: [0, 0, -0.6 * b] }); };
@@ -395,7 +397,7 @@ pa1Shot('s37', { size: 'MCU', angle: 'nghiêng 90° (phía phố), ngang mắt',
   why: 'PA1: lời từ biệt vế đầu trong hổ phách của ngọn cuối, mặt nghiêng, lửa trong khung. Sau "then." bà cười buồn, mắt chùng xuống, dừng một nhịp.', sound: 'THOẠI L4 "That\'s the last one, then."',
   light: 'đèn khí L11 trong khung, ngang–trước mặt — góc chưa có điện', action: 'Tay trái nắm van; nói "That\'s the last one, then."; cười buồn, mắt nhìn xuống, lặng một nhịp.',
   pose: (p, T) => idaTop(p, T, { nodX: NOD(T) }) });
-pa1Shot('s37b', { size: 'CU', angle: 'nghiêng 90° (phía phố), ngang mắt', mm: 85, move: 'đẩy vào rất chậm (1,10 → 0,95 m)', fl: 'gas', ek: 2.0, yaw: 90, dist: (t) => valAt([[0, 1.1], [2.4, 0.95]], t), lookDy: 0.05, T0: 0,
+pa1Shot('s37b', { size: 'CU', angle: 'nghiêng 90° (phía phố), ngang mắt', mm: 85, move: 'đẩy vào rất chậm (1,10 → 0,95 m)', fl: 'gas', ek: 2.0, yaw: 90, dist: (t) => valAt([[0, 1.1], [2.4, 0.95]], t), lookDy: 0.02, T0: 0,
   why: 'PA1: CU "Goodnight" đẩy vào chậm — bà ngẩng nhìn con phố lần cuối, chào, rồi cười buồn, mắt chùng, dừng.', sound: 'THOẠI L4 "Goodnight, old street."',
   light: 'đèn khí L11 viền mũi–môi–cằm — góc chưa có điện', action: 'Ngẩng nhìn phố; "Goodnight, old street."; cười buồn, mắt chùng xuống, lặng.',
   pose: (p, T) => idaTop(p, T, { nodX: NOD(T) }) });
@@ -433,7 +435,7 @@ S({ id: 's38', scene: 5, size: 'MS', angle: 'cao, chúc xuống (gần mắt Ida
   } });
 // s39 (PA1): câu cuối CU NGHIÊNG 96° (hơi mất mặt) dưới ánh trắng — BẮT ĐẦU trên hình Ida ("Just…" 102,32), cắt sang Cas (s38) ở 106,0 giữa "…ones / who need it".
 // Bà cúi nhìn xuống Cas ở chân thang (N11: bà nhìn xuống, cậu ngước lên ở s38). Cổ quay 25° (ít hơn 35°: đầu hướng về chân thang), cúi 12°.
-pa1Shot('s39', { size: 'CU', angle: 'nghiêng 96° (phía phố), ngang mắt', mm: 85, move: 'tĩnh', fl: 'elec', ek: 0.8, yaw: 96, dist: 0.95, lookDy: 0.05, T0: 0,
+pa1Shot('s39', { size: 'CU', angle: 'nghiêng 96° (phía phố), ngang mắt', mm: 85, move: 'tĩnh', fl: 'elec', ek: 0.8, yaw: 96, dist: 1.05, lookDy: 0.02, T0: 0,
   why: 'PA1: vế cuối, giọng vỡ, trong ánh trắng phẳng: "keep a little dark for the ones who need it" — chủ đề phim trong một câu. Mặt nghiêng, cúi về phía Cas.', sound: 'THOẠI L4 "Just... keep a little dark for the ones who need it."',
   light: 'trắng phẳng (cột góc); L11 nhạt', action: 'Ida nghẹn, cúi nhìn xuống Cas; "Just…" — nuốt — "keep a little dark for the ones…"; tay trái vẫn trên van.',
   pose: (p, T) => idaTop(p, T, { turn: 25, nodX: 12 + 2 * ease((T - 103.0) / 0.5) - 2 * ease((T - 103.6) / 0.4) }) });
