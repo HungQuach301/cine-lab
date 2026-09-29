@@ -8,10 +8,10 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 ## Hàng chờ chủ dự án duyệt
 1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
 2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
-3. **Gói thân Cas lượt 2 (W4T2, P làm; merge 0c62b9f): qua điều kiện dừng, kiểm mù TRƯỢT** (HÌNH 1/3 ở Cas: "chân… nhỏ so với thân… búp bê"; đối chứng 1/2 "mặt nạ"; lệch phong cách 0/2; TƯ THẾ 1 câu giao W1/W2). **KHÔNG khoá, không đổi mặc định, không layout-v16. CHỜ chủ dự án quyết** (reports/m2/CONG-6-THAN-2.md). W1/W2 chưa mở.
+3. **Cổng 6 nhân vật XONG (29/09/2026):** khoá v1.5.1 + v1.6 (2f05a4b; LOCK-THIẾT-KẾ 34/34), layout-v16 + luật v1.5 (P0 ĐẠT; C3/H1b/G3b trượt như v15), **merge main 3c40f03**. Báo cáo reports/m2/CONG-6-KHOA.md. **Kế hoạch W1/W2** (reports/m2/cong6/KE-HOACH-W1-W2.md) **CHỜ chủ dự án quyết mở**. Kiểm mù: **10 khung** mỗi lần (chủ dự án chốt khi bàn giao). Việc chờ quyết: C3 cho Cas (hiện luật chỉ đo Ida). **Bàn giao phiên P: PLAN-HANDOFF-P.md.**
    - **Quyết định 29/09/2026:** lượt 3 = sửa tham số (gấu áo nâng một phần, ống quần nới, tay nắm quai đèn lồng s41/s42a), **không kiểm mù**; chủ dự án xem ảnh (reports/m2/CONG-6-THAN-3.md) rồi duyệt khoá. Khi duyệt: khoá v1.5.1 + v1.6 một lần (sai lệch chấp nhận: chân/tay có thể còn bị chê ở khung tĩnh, kiểm lại trên clip W1/W2), mặc định Cas 'bl' + thân + tay mới, layout-v16 kèm silhouettes, luật v1.5, merge main (tài sản phải có trên main cho worktree W1/W2).
    - **Cách chấm kiểm mù từ W1/W2:** ≥ 6 khung; ĐẠT khi tỉ lệ khung HÌNH có từ khoá ≤ nhiễu nền đối chứng (2/20) và không lời chê cùng chỗ lặp ≥ 2 khung; đối chứng chạy mỗi lần.
-2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
+2. ~~Khiếu nại P0 (2 lần báo nhầm) chờ K~~ — **đã phán quyết và sửa ở checks v1.5** (checks-appeal.md). Không còn khiếu nại chờ.
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
 ## Việc cho Cổng 6 — theo quyết định "Cửa mặt Ida (đóng)" 29/09/2026 (chỉ ghi, chưa làm)
