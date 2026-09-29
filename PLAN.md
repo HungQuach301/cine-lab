@@ -8,7 +8,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 ## Hàng chờ chủ dự án duyệt
 1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
 2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
-3. **Gói thân Cas MPFB (W4T, merge f8c7455): kiểm mù TRƯỢT** (2/3 khung Cas có từ khoá, cả hai chỉ vào thân: quần bó "búp bê", dáng đứng "ma-nơ-canh"; lệch phong cách 0/2). **KHÔNG khoá, không đổi mặc định, không layout-v16. CHỜ chủ dự án chọn A/B/C** (reports/m2/CONG-6-THAN.md mục 4). W1/W2 chưa mở.
+3. **Gói thân Cas: chủ dự án chọn A (29/09/2026).** W4T lượt 2 (quần, eo, áo, gáy, tay Cas theo tỷ lệ MPFB, vật liệu tay) → đo lại C3 'doc' → P kiểm mù 5 subagent, **chấm tách HÌNH và TƯ THẾ** (lời chê tư thế giao W1/W2) → đạt thì khoá v1.5.1 + v1.6 một lần, layout-v16, merge main; trượt thì DỪNG. Báo cáo reports/m2/CONG-6-THAN-2.md. W1/W2 chưa mở.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
@@ -44,6 +44,7 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 - **Người và bóng ở hốc vòm (1:18–1:26, s32–s34):** tiêu chí đo được — **mỗi người sáng hơn bóng của chính mình trên vách ít nhất X = 2,0 lần**, đo bằng trung vị luma hiển thị (Rec.709, mã 8 bit, sau grade) trên mặt nạ người (phần nhìn thấy) so với mặt nạ bóng của chính người đó trên vách, ở mọi khung mẫu (mỗi 12 khung). Căn cứ: luật thế giới 3.1 đòi key : tràn ≥ 4 : 1 tại mặt nhận bóng để bóng hiện; mặt người quay về đèn lồng nhận key trực tiếp, vùng bóng chỉ nhận tràn → tỷ lệ tuyến tính ≥ 4; qua đường cong hiển thị (gamma ~2,2) 4× tuyến tính ≈ 1,9× luma hiển thị, nên chọn **2,0** (≈ 4,6× tuyến tính) — đủ để mắt tách người khỏi bóng mà không phải thêm đèn giả. Bóng mặc định đo ở phần thân bóng (không tính đầu bóng mờ nhạt ở vùng vách tối dần, luật 4).
 - Ghi nhận continuity lần 3 thuộc Cổng 7: **G1** kính đèn P5/cột sân trước tắt vẫn đọc đĩa xám sáng (s23); **G7** màu mũ nhảy theo nguồn sáng (s11–s13, s39 #311615, s42); **G8** kim/vạch đồng hồ quảng trường nhạt hoặc hồng nâu khi mặt loá (s09, s45c); **G9** quầng loá P5 phủ trời (s37w, s40w); **G12** tóc xám tối dưới vành mũ s45; **G16** s43 điểm vàng chưa đọc ra ô cửa; **G17** người/bóng s33 (tiêu chí X = 2,0 ở trên). Thêm: ánh nền s45 trắng / s45c trời đen (kiểm mù POV cảnh 6).
 - Hạ phơi sáng s11 (1,5–1,7); màu mũ nâu cam dưới đèn khí sát mặt (s05, s36, s40); lấy nét thật thay cho nền nhoè s06, s09w; ánh cửa sổ ấm có thật ở nhà đầu dãy bắc cho mặt Cas s24c.
+- **Đèn lồng của Cas chưa chiếu sáng ra xung quanh** (mặt đường, tường, người bên cạnh), kiểm mù W4T 3/3 khung nhắc (Claude rà độc lập bên ngoài phát hiện; chủ dự án duyệt và giao, 29/09/2026).
 
 ## Bảng gói việc
 | Gói | Phiên/agent | Nhánh | Trạng thái | Báo cáo |
