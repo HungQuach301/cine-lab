@@ -22,9 +22,9 @@ Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng
 - (3) Mắt đọc được khi quay nghiêng (máy PA1).
 - (4) Tay Ida dùng tay MPFB, cầm nắm cột và van đúng.
 
-**c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
+**c. Shot có Ida quay chính diện / gần chính diện (≤ 30°):** bảng ở reports/m2/CONG-6-MO.md mục 3. **Phải đổi cỡ nếu chưa sửa mắt: s22 (MCU), s36 (MCU), s37 (CU), s39 (CU), s40 (CU insert)**; s36–s39 đã thuộc dàn dựng lại PA1. **Chưa sửa xong mắt (b1) thì các shot này không dùng cận mặt**; bảng đó ghi shot nào phải đổi cỡ cảnh.
 
-**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) → nháp characters v1.6 (Cas) chờ duyệt.
+**d. Gói đầu Cổng 6:** Cas đi quy trình MPFB (W4) — XONG, kiểm mù nhẹ TRƯỢT (Cas "búp bê" 2/2, lệch phong cách 1/2); nháp v1.6 chờ duyệt; mặc định Cas v1.4.
 
 ## Việc cho Cổng 6 (từ Cổng 5 — B1 và continuity lần 3)
 - **B1 cảnh 6:** làm rõ hướng mặt, hướng đầu của Ida ở s45 và đồng hồ trong tay (s45 → s46 → s45c giữ nguyên).
