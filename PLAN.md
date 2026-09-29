@@ -1,6 +1,6 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: gói đầu (Cas MPFB) đang làm; diễn hoạt CHỜ chủ dự án duyệt reports/m2/CONG-6-MO.md** · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: gói thân Cas kiểm mù TRƯỢT — CHỜ chủ dự án quyết (CONG-6-THAN.md)**; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
@@ -8,7 +8,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 ## Hàng chờ chủ dự án duyệt
 1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
 2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
-3. **Gói thân Cas MPFB (cách A, W4) đang làm, TRƯỚC W1/W2**; khoá v1.5.1 + v1.6 một lần sau gói thân và đo C3 (reports/m2/CONG-6-THAN.md).
+3. **Gói thân Cas MPFB (W4T, merge f8c7455): kiểm mù TRƯỢT** (2/3 khung Cas có từ khoá, cả hai chỉ vào thân: quần bó "búp bê", dáng đứng "ma-nơ-canh"; lệch phong cách 0/2). **KHÔNG khoá, không đổi mặc định, không layout-v16. CHỜ chủ dự án chọn A/B/C** (reports/m2/CONG-6-THAN.md mục 4). W1/W2 chưa mở.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
