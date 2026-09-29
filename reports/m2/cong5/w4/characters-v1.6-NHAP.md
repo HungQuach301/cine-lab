@@ -57,35 +57,36 @@ Số thô: `reports/m2/cong5/w4/CAS_c3_bl.json`.
 | Số đo cổ (sheet) | length 0,22, width_front 0,26 H | Giữ khung xương; phần cổ nhìn thấy còn khoảng 0,02–0,04 H. Mặt nạ C3 "đầu" không đổi cách đo (đầu = phần nhìn thấy dưới mũ, trên cổ áo) |
 | Lý do | lời chê kiểm mù "cổ như cái que", "cổ cò" (2/2 khung Cas) | Chủ dự án đổi thiết kế; đề xuất của Claude (rà độc lập bên ngoài) |
 
-## 6. Thân MPFB, tay theo tỷ lệ MPFB (W4T lượt 1 + lượt 2, 29/09/2026). CHƯA DUYỆT — P soạn
+## 6. Thân MPFB, tay theo tỷ lệ MPFB (W4T lượt 1 + 2 + 3, 29/09/2026). CHƯA DUYỆT — P soạn
 Quyết định chủ dự án (AUTHORSHIP "Cổng 6 — nhân vật", 29/09/2026): **tay Cas rút về tỷ lệ MPFB**; sửa thân một lượt sau kiểm mù lượt 1.
 
-| Hạng mục | v1,4 (sheet) | v1,6 (đề xuất) |
+| Hạng mục | v1.4 (sheet) | v1.6 (đề xuất) |
 |---|---|---|
 | Tay trên (độ dài KHỚP cast3d) | 0,92 H | **0,7643 H** (19,6 cm): phần nhìn thấy 0,6849 H (17,5 cm) + (1 − LIFT)·khe vai (khớp vai cast3d cao hơn khớp giải phẫu) |
 | Cẳng tay | 0,82 H | **0,7009 H** (17,9 cm) |
 | Nguồn số | sheet | xương MPFB nam 10 tuổi (upperarm01→lowerarm01, lowerarm01→wrist) × (chiều cao sheet 5,0 H = 1,28 m / chiều cao MPFB 1,289 m = 0,9931) |
 | Tầm với khi duỗi thẳng (vai → cổ tay) | 1,74 H | 1,465 H (ngắn hơn 15,8 %) |
-| Gấu áo len | 2,25 H từ đất, bo ôm hông | **2,10 H**, buông, loe nhẹ; phủ qua cạp quần (đáy đũng 0,517 m, gấu 0,538 m) |
+| Gấu áo len | 2,25 H từ đất, bo ôm hông | **2,17 H** (lượt 3; lượt 2 là 2,10 H), buông, loe nhẹ; phủ qua cạp quần (đáy đũng 0,517 m, gấu 0,556 m); không hở ở s42a và s25 (giơ tay cao nhất) |
 | Áo len | lệch 1,1 cm (bụng +1,2) | lệch 1,6 cm (bụng +1,2), tay áo 1,2 cm; ngực và lưng phủ trơn (không in cơ ngực, núm, rãnh sống lưng, khe mông) |
-| Quần | vỏ bám chân (lệch 1,0 cm) | **ống thẳng, rộng**: bán kính tối thiểu 4,6 cm quanh trục chân (sâu 0,92), nếp gối, rủ dọc, nếp chùng trên gấu; đũng làm mượt (không lộ háng); gấu thẳng cách mắt cá 0,25 H |
+| Quần | vỏ bám chân (lệch 1,0 cm) | **ống thẳng, rộng**: bán kính tối thiểu 5,1 cm quanh trục chân (lượt 3; lượt 2 là 4,6 cm) (sâu 0,92), nếp gối, rủ dọc, nếp chùng trên gấu; đũng làm mượt (không lộ háng); gấu thẳng cách mắt cá 0,25 H |
 | Măng sét | 0,07 H, bán kính miệng tay áo + 0,3 cm | 0,09 H, + 0,9 cm (trùm hết cuống cổ tay MPFB) |
 | Cổ lật cao, sau gáy | dâng 0,055 H | dâng 0,085 H, nới sau gáy 0,03 H (thu dần về chân cổ): da gáy không xuyên cổ áo |
+| Tay nắm quai đèn lồng (s41, s42a; layout, chỉ khi tay 'bl') | treo đèn giữa hai cổ tay | hai tay nắm hai điểm chéo trên vòng quai (IK `reachGrip`, ngón gập quanh ống quai) |
 | Da tay MPFB ('bl', Ida và Cas) | — | cuộn sáng mềm (ngưỡng 0,4, trần 0,8); màu da tay Cas #cf9878 (lượt 1 #e2bfa2). Da tay Ida chỉ đổi cuộn sáng, màu giữ #d8b49a |
 
-### c3_views Cas v1,6 — `"c3_head_axis": "doc"` (đo W4T lượt 2: `c3_w4t.py`, trang `page_turn_w4t.js`, mặt nạ nhìn thấy 4×, turnaround, trực giao)
+### c3_views Cas v1.6 — `"c3_head_axis": "doc"` (đo W4T lượt 3: `c3_w4t.py`, trang `page_turn_w4t.js`, mặt nạ nhìn thấy 4×, turnaround, trực giao)
 | Góc | thân | tay trên | cẳng tay | đùi | cẳng chân | đầu doc (px, 4×) |
 |---|---|---|---|---|---|---|
-| 0° | 2,723 | 1,564 | 1,053 | 1,494 | 1,461 | 487,0 |
-| 45° | 2,814 | 1,607 | 1,047 | 1,587 | 1,457 | 478,8 |
-| -45° | 2,809 | 1,548 | 1,087 | 1,527 | 1,608 | 479,7 |
-| 90° | 2,832 | — | — | 0,986 | 1,395 | 475,1 |
-| -90° | 2,832 | 1,537 | 1,112 | 1,581 | 1,618 | 475,1 |
-| 135° | 2,931 | 1,563 | 1,138 | 1,592 | 1,613 | 465,1 |
-| -135° | 2,990 | 1,639 | 1,164 | 1,546 | 1,657 | 456,4 |
-| 180° | 4,045 | 2,261 | 1,635 | 2,209 | 2,272 | 328,1 |
+| 0° | 2,618 | 1,564 | 1,051 | 1,604 | 1,464 | 487,0 |
+| 45° | 2,706 | 1,608 | 1,047 | 1,697 | 1,443 | 478,7 |
+| -45° | 2,700 | 1,548 | 1,087 | 1,620 | 1,604 | 479,6 |
+| 90° | 2,723 | — | — | 1,633 | 1,384 | 474,2 |
+| -90° | 2,725 | 1,540 | 1,114 | 1,688 | 1,620 | 474,1 |
+| 135° | 2,803 | 1,554 | 1,132 | 1,672 | 1,599 | 467,8 |
+| -135° | 2,871 | 1,636 | 1,162 | 1,651 | 1,654 | 457,1 |
+| 180° | 3,886 | 2,280 | 1,634 | 2,376 | 2,278 | 328,3 |
 
-Số thô: `reports/m2/cong6/w4t2/W4T2_c3_cas_doc.json`. Khi khoá: `c3_views` = bảng trên (head 1,0), `measured_parts` = thân, tay trên, cẳng tay, đùi, cẳng chân; độ dài cấp gốc = góc 0°.
+Số thô: `reports/m2/cong6/w4t3/W4T3_c3_cas_doc.json`. Khi khoá: `c3_views` = bảng trên (head 1,0), `measured_parts` = thân, tay trên, cẳng tay, đùi, cẳng chân; độ dài cấp gốc = góc 0°.
 ```json
-{"0\u00b0": {"head": 1.0, "torso": 2.723, "upper_arm": 1.564, "forearm": 1.053, "thigh": 1.494, "shin": 1.461}, "45\u00b0": {"head": 1.0, "torso": 2.814, "upper_arm": 1.607, "forearm": 1.047, "thigh": 1.587, "shin": 1.457}, "-45\u00b0": {"head": 1.0, "torso": 2.809, "upper_arm": 1.548, "forearm": 1.087, "thigh": 1.527, "shin": 1.608}, "90\u00b0": {"head": 1.0, "torso": 2.832, "upper_arm": null, "forearm": null, "thigh": 0.986, "shin": 1.395}, "-90\u00b0": {"head": 1.0, "torso": 2.832, "upper_arm": 1.537, "forearm": 1.112, "thigh": 1.581, "shin": 1.618}, "135\u00b0": {"head": 1.0, "torso": 2.931, "upper_arm": 1.563, "forearm": 1.138, "thigh": 1.592, "shin": 1.613}, "-135\u00b0": {"head": 1.0, "torso": 2.99, "upper_arm": 1.639, "forearm": 1.164, "thigh": 1.546, "shin": 1.657}, "180\u00b0": {"head": 1.0, "torso": 4.045, "upper_arm": 2.261, "forearm": 1.635, "thigh": 2.209, "shin": 2.272}}
+{"0\u00b0": {"head": 1.0, "torso": 2.618, "upper_arm": 1.564, "forearm": 1.051, "thigh": 1.604, "shin": 1.464}, "45\u00b0": {"head": 1.0, "torso": 2.706, "upper_arm": 1.608, "forearm": 1.047, "thigh": 1.697, "shin": 1.443}, "-45\u00b0": {"head": 1.0, "torso": 2.7, "upper_arm": 1.548, "forearm": 1.087, "thigh": 1.62, "shin": 1.604}, "90\u00b0": {"head": 1.0, "torso": 2.723, "upper_arm": null, "forearm": null, "thigh": 1.633, "shin": 1.384}, "-90\u00b0": {"head": 1.0, "torso": 2.725, "upper_arm": 1.54, "forearm": 1.114, "thigh": 1.688, "shin": 1.62}, "135\u00b0": {"head": 1.0, "torso": 2.803, "upper_arm": 1.554, "forearm": 1.132, "thigh": 1.672, "shin": 1.599}, "-135\u00b0": {"head": 1.0, "torso": 2.871, "upper_arm": 1.636, "forearm": 1.162, "thigh": 1.651, "shin": 1.654}, "180\u00b0": {"head": 1.0, "torso": 3.886, "upper_arm": 2.28, "forearm": 1.634, "thigh": 2.376, "shin": 2.278}}
 ```

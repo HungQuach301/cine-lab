@@ -21,7 +21,7 @@ T0 = time.time(); log = lambda *a: print(f'[than {time.time() - T0:6.1f}s]', *a,
 PRM = dict(BIND_SH=24.0, BIND_EL=20.0, LIFT=0.5, G_ARM=1.0, G_LEG=0.82, SW=0.016, SW_BELLY=0.012, SL=0.012, TR=0.010, SMOOTH=110,
            # W4T lượt 2 (chủ dự án 29/09/2026): tay theo tỷ lệ MPFB (độ dài NHÌN THẤY, H; đo trên người MPFB nam 10 tuổi, quy về chiều cao sheet),
            # gấu áo hạ và buông (phủ qua cạp quần), quần ống thẳng rộng (bán kính TR_R m), đũng mượt; áo nới, ngực mượt.
-           UA_V=-1, FA_V=-1, HEM_DROP=0.15, HEM_FLARE=0.005, HIP2PELVIS=0.6, TR_R=0.046, TR_RZ=0.92, TR_SMOOTH=40, CROTCH_SMOOTH=40, CHEST_SMOOTH=120, SEAT_SMOOTH=150)
+           UA_V=-1, FA_V=-1, HEM_DROP=0.08, HEM_FLARE=0.005, HIP2PELVIS=0.6, TR_R=0.051, TR_RZ=0.92, TR_SMOOTH=40, CROTCH_SMOOTH=40, CHEST_SMOOTH=120, SEAT_SMOOTH=150)
 for a in argv[2:]:
     k, v = a.split('='); PRM[k] = float(v)
 
