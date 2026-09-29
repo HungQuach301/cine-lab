@@ -14,11 +14,14 @@ import { ell, sph, cap, rbox, smin, smax, gauss, sstep, fbm, vnoise, sculpt, pat
 import { paintMap, normalMap } from './tex3d.js';
 import { paintFace, faceUV, EXPR } from './facepaint.js';
 import { buildIdaFace, aiHeadSDF, FACE_PRESETS, VISEMES, mixW } from './facerig.js';
-import { buildIdaBL, preloadIdaBL, idaBLReady } from './blender/bl_head.js';
-export { preloadIdaBL, idaBLReady };   // W4 'bl': nạp trước glb (bất đồng bộ) rồi mới buildCharacter
+import { buildIdaBL, preloadIdaBL, idaBLReady, buildCasBL, preloadCasBL, casBLReady } from './blender/bl_head.js';
+export { preloadIdaBL, idaBLReady, preloadCasBL, casBLReady };   // W4 'bl': nạp trước glb (bất đồng bộ) rồi mới buildCharacter
 
 // Phóng to bàn tay + ngón (không thuộc C3; trần cho phép 1,3×). Cas: tối đa để chim bóng thành hình cánh. Ida: vừa đủ cho cận cảnh.
 export const HAND_SCALE = { ida: 1.15, cas: 1.3 };
+// Cổng 6 (W4): 'bl' = đầu/cổ/tóc/tai/mắt/mày Cas từ glb MPFB (blender/cas_bl.glb), mũ len có quả bông của cast3d giữ nguyên (đo lại miệng mũ).
+// Mặc định GIỮ bản cũ ('v14') tới khi chủ dự án duyệt; truyền casStyle:'bl' hoặc globalThis.CINE_CAS_STYLE='bl' để thử.
+export const CAS_STYLE = 'v14';
 // Búi tóc Ida phóng 1,3× so với model sheet (0,42 H → 0,55 H) để đọc rõ trong silhouette nghiêng.
 export const BUN_SCALE = 1.3;
 // Cổng 5 (W3): lọn tóc bạc thái dương (A1) — 'temple' = ngắn, dày, ở thái dương (đề xuất W3); 'long' = bản v1.2 (buông tới má). opts.idaWisps ghi đè.
@@ -45,7 +48,8 @@ export function buildCharacter(sheet, opts = {}) {
   const H = sheet.H_m, P = sheet.parts, C = sheet.local_colors, J = sheet.joints_default;
   const isIda = sheet.id.startsWith('CHR-ida');
   const STY = isIda ? (opts.idaStyle ?? globalThis.CINE_IDA_STYLE ?? IDA_STYLE) : null;   // W4: trang khung thử/đo có thể đặt globalThis.CINE_IDA_STYLE (không đặt → IDA_STYLE)
-  const BL = STY === 'bl', AA = STY === 'aa' || STY === 'ai' || BL, AI = STY === 'ai', AIL = AI || BL;   // AIL: phần thân/mũ/khăn dùng chung của 'ai' và 'bl'
+  const BL = STY === 'bl', AA = STY === 'aa' || STY === 'ai' || BL, AI = STY === 'ai', AIL = AI || BL;
+  const CSTY = isIda ? null : (opts.casStyle ?? globalThis.CINE_CAS_STYLE ?? CAS_STYLE), BLC = CSTY === 'bl';   // Cas 'bl' (Cổng 6)   // AIL: phần thân/mũ/khăn dùng chung của 'ai' và 'bl'
   const q = Math.max(0.55, Math.min(1.15, (opts.detail ?? 28) / 32));   // hệ số độ mịn lưới theo gợi ý của cảnh
   const R = (n) => Math.max(6, Math.round(n * q));
   const matFn = opts.material ?? defaultMaterial;
@@ -197,6 +201,7 @@ export function buildCharacter(sheet, opts = {}) {
   let face = null;
   if (AI) face = buildIdaFace({ H, R, hq, headG, add, parts, matFn, C, opts, strandGeo, aoCol });   // A-i: đầu điêu khắc + rig + mắt + mi + mày
   else if (BL) face = buildIdaBL({ H, headG, parts, C, opts, hairMat: M('hair', C.hair, 'hair') });   // W4 'bl': đầu + cổ + tai + mắt + mày + tóc + búi + hoa tai từ glb
+  else if (BLC) face = buildCasBL({ H, headG, parts, C, opts, hairMat: M('hair', EXTRA_COLORS.cas_hair, 'hair') });   // Cas 'bl': đầu MPFB
   else {
   add(headG, sculpt(headSDF, { c: [0, 0.48, 0.02], r: [0.45, 0.6, 0.6], nu: R(112 * hq), nv: R(84 * hq), scale: H, uv: [6, 3], gradE: 0.002, warp: [0.4, 0.62], eps: 2e-5,
     color: aoCol(headSDF, 0.22, skinTone) }), 'skin', C.skin, 'head');
@@ -278,7 +283,7 @@ export function buildCharacter(sheet, opts = {}) {
   }   // hết nhánh đầu cũ (A1/A-α)
   // Tai: elip dẹt, lõm hố tai, vành cuộn.
   const earH = isIda ? (AI ? 0.26 : 0.30) : P.ears.size_H, earOut = isIda ? (AI ? 0.1 : AA ? 0.40 : 0.18) : P.ears.angle_out_deg * D2R;   // A-α: tai lộ qua tóc
-  if (!BL) for (const sx of [1, -1]) {   // 'bl': tai nằm trong lưới glb
+  if (!BL && !BLC) for (const sx of [1, -1]) {   // 'bl': tai nằm trong lưới glb
     const g = new THREE.SphereGeometry(1, R(22), R(18)); const pa = g.attributes.position;
     for (let i = 0; i < pa.count; i++) {
       let x = pa.getX(i), y = pa.getY(i), z = pa.getZ(i); const r = Math.hypot(y, z);
@@ -432,8 +437,8 @@ export function buildCharacter(sheet, opts = {}) {
     add(hat, sculpt((x, y, z) => ell(x, y, z, [0, 0, 0], [0.02, 0.06, 0.09]), { c: [0, 0, 0], r: [0.03, 0.06, 0.09], nu: 12, nv: 8, scale: H }), 'boots', C.boots, 'hat').position.set(rx0 * 1.02 * H, 0.06 * H, -0.12 * H);
   } else {
     // Mũ len: vòm có sọc đan, gấp mép, quả bông cao, tròn, xù len.
-    const cs = sheet.costume.cap; const capG = new THREE.Group(); capG.position.y = 0.69 * H; headG.add(capG);
-    const cr = [hd.width_front * 0.555, cs.height_H * 0.92, hd.width_side * 0.545];
+    const cs = sheet.costume.cap; const capG = new THREE.Group(); const CF = BLC ? face.meta.cap : null; capG.position.y = (CF ? CF.y : 0.69) * H; if (CF) capG.position.z = (CF.cz + 0.02) * H; headG.add(capG);   // Cas 'bl': miệng mũ len đo theo đầu+tóc glb
+    const cr = CF ? [CF.rx, cs.height_H * 0.92, CF.rz] : [hd.width_front * 0.555, cs.height_H * 0.92, hd.width_side * 0.545];
     const capSDF = (x, y, z) => {
       const ph = Math.atan2(x, z); const ribs = 0.006 * Math.abs(Math.sin(ph * 26));
       const t = Math.max(0, y) / cr[1], taper = 1 - 0.22 * t * t;                                   // vòm hơi thuôn về đỉnh (mũ len, không tròn như sọ)
@@ -454,7 +459,8 @@ export function buildCharacter(sheet, opts = {}) {
     bob.position.y = (cr[1] + bobR * 0.95) * H;
     // chỗ túm len dưới quả bông (eo thắt) → quả bông tách khỏi vòm, đọc là quả bông mũ, không phải búi tóc
     add(capG, tube({ y0: (cr[1] + bobR * 0.35) * H, y1: (cr[1] - 0.06) * H, nu: R(20), nv: 5, rad: (ss, ph) => [(0.045 + 0.05 * ss * ss + 0.006 * Math.abs(Math.sin(ph * 8))) * H] }), 'cap', C.cap, 'cap', 'rib');
-    // Tóc ngắn: gáy + thái dương, mép lởm chởm.
+    // Tóc ngắn: gáy + thái dương, mép lởm chởm. ('bl': tóc nằm trong glb)
+    if (!BLC) {
     const hc = [0, 0.57, -0.04], hr = [0.45, 0.43, 0.48];
     const thMax = (ph) => { const c = Math.cos(ph); return (c > 0 ? 1.55 - 0.62 * c : 1.55 + 0.85 * Math.pow(-c, 1.1)) + 0.05 * Math.sin(ph * 23); };
     const hairSDF = (x, y, z) => {
@@ -465,6 +471,7 @@ export function buildCharacter(sheet, opts = {}) {
     };
     add(headG, patch(hairSDF, { c: hc, t0: 0.8, nu: R(80), nv: R(22), phA: -Math.PI, phB: Math.PI, th: (u, ph) => thMax(ph), scale: H, uv: [8, 2],
       color: (x, y, z, n, u, v) => { const k = 1 - 0.3 * sstep(0.75, 1, v); return [k, k, k]; } }), 'hair', EXTRA_COLORS.cas_hair, 'hair');
+    }
   }
 
   // =============================== CỔ ===============================
@@ -476,7 +483,7 @@ export function buildCharacter(sheet, opts = {}) {
       const taper = AI ? 0.006 * sstep(0.05, nL, yy) + 0.012 : AA ? -0.022 * sstep(0.05, nL, yy) : 0;   // A-i: cổ đầy hơn, không thon lên (hết 'cột cổ' dưới hàm)
                                              // bước 3: cổ THON lên trên (không ống đều)
       const band = AA ? 0.007 * gauss((AI ? aph : Math.abs(ph)) - 0.28, 0.09) * sstep(0.0, 0.2, yy) * sstep(nL + 0.05, nL - 0.1, yy) : 0;   // hai dải cơ cổ mờ (da cổ tuổi già)
-      return [(nW * (1 + 0.1 * Math.cos(ph) ** 2) + tend * (AA ? 0.6 : 1) + ring + flare + taper + band + (isIda ? 0 : 0.01)) * (AIL ? 0.62 : 1) * H, 0,   // A-i: ống cổ thân nằm TRONG cổ liền hàm của lưới đầu (chỉ lộ ở chân cổ)
+      return [(nW * (1 + 0.1 * Math.cos(ph) ** 2) + tend * (AA ? 0.6 : 1) + ring + flare + taper + band + (isIda ? 0 : 0.01)) * (AIL || BLC ? 0.62 : 1) * H, 0,   // A-i: ống cổ thân nằm TRONG cổ liền hàm của lưới đầu (chỉ lộ ở chân cổ)
         (isIda ? (AIL ? 0 : AA ? 0.035 * sstep(0.0, nL, yy) : 0.03) : 0.01) * H]; },   // bước 3: đầu cổ chúi nhẹ ra trước (dáng người già), nối khối dưới cằm
     // Cổng 5 (W3, A1): cổ Ida nằm trong lòng cổ áo đứng, dưới bóng cằm → da tối (che khuất); khe dưới cằm đọc là bóng, không phải "cột cổ" hồng
     color: isIda ? (AA ? (s, ph, x, y) => { const a = AI ? 0.3 + 0.62 * sstep(nL + 0.02, nL - 0.30, y / H) : 0.36 + 0.60 * sstep(nL - 0.02, nL - 0.20, y / H);   // A-i: bóng hàm trên cổ rộng hơn (cổ lùi vào dưới hàm, không 'cột' sáng đều)

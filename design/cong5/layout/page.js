@@ -36,6 +36,7 @@ window.setup = async (c) => {
   cfg = c; W = c.W; H = c.H;
   mod = await import('/cong3/v2/char3d/cast3d.js');
   if (mod.preloadIdaBL && (globalThis.CINE_IDA_STYLE ?? mod.IDA_STYLE) === 'bl') await mod.preloadIdaBL();   // v1.5: glb đầu Ida 'bl' nạp trước (GLTFLoader bất đồng bộ)
+  if (mod.preloadCasBL && (globalThis.CINE_CAS_STYLE ?? mod.CAS_STYLE) === 'bl') await mod.preloadCasBL();   // Cổng 6 (W4): glb đầu Cas 'bl' khi cờ bật
   const [ida, cas] = await Promise.all(['/cong3/model-sheet/ida.json', '/cong3/model-sheet/cas.json'].map((p) => fetch(p).then((r) => r.json())));
   sheets = { ida, cas };
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;

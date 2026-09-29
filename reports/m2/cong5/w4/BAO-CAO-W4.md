@@ -505,3 +505,135 @@ L11 **gốc** của layout ở mọi khung PA1. `page_l2.js` bỏ ghi đè khi k
   - soạn characters v1.5 từ c3_views mục L3.3;
   - quyết đồng bộ tỷ lệ với Cas (mục L3.3);
   - nếu đạt: đưa 'bl' vào pipeline như mục L2.6, thêm `await preloadIdaBL()` ở trang render.
+
+---
+
+# Cas MPFB — gói đầu Cổng 6 (quyết định chủ dự án 29/09/2026)
+
+- Worktree W4, đã gộp nhánh tích hợp @7f25bac (Ida v1.5 khoá, mặc định `IDA_STYLE='bl'`).
+- Chạy 23:03 (28/09) → 00:55 (29/09) UTC. Phần lớn thời gian là chờ làn nặng, vì P đang render lại toàn bộ layout.
+
+## C.0 Tóm tắt
+- **Đầu, cổ, tóc, tai, mắt, mày của Cas** dựng từ lưới MPFB2 (cùng repo @3edf9df0, tài sản lõi CC0). Lưới đầu **68 770 đỉnh**; glb 11,2 MB, SHA-256 bắt đầu `82a349d2cfbac519`.
+- **Mũ len có quả bông giữ nguyên**; chỉ đo lại miệng mũ theo đầu + tóc. Thân và áo giữ nguyên.
+- **Qua điều kiện dừng:** `CAS_eevee_4goc.jpg` cho thấy một cậu bé đọc được, mũ len ôm đầu, tóc nâu lộ dưới gấu và ở gáy, tàn nhang và má ửng, mắt có tròng.
+- **Cờ `CAS_STYLE`:** mặc định giữ `'v14'` (bản cũ); `'bl'` bật qua `casStyle:'bl'` hoặc `globalThis.CINE_CAS_STYLE='bl'`.
+- **Dò layout mặc định** s02, s24c, s42 (có Cas) và s37 (Ida), trước và sau khi sửa .js: 12 thumbs, **lệch 0 px**.
+- Đủ 4 khung nộp (Ida 'bl' + Cas 'bl'), c3_views Cas 8 góc và nháp v1.6. Không tự kiểm mù.
+
+## C.1 Quyền tài sản
+- Không dùng tệp MPFB nào ngoài phạm vi W4-MPFB-A (base.obj + targets, cùng commit).
+- Đã ghi **W4-MPFB-A2** vào RIGHTS.md **trước khi dựng**. Dòng này mở rộng phạm vi dùng cho Cas (macrodetails nam/trẻ em, cùng các nhóm target).
+- Không dùng da MPFB (repo không có), không có tài sản mới khác.
+
+## C.2 Cách dựng (`design/cong3/v2/char3d/blender/build_cas_bl.py`, 6 s mỗi lượt)
+- **Người MPFB:** nam, 10 tuổi (age 0,169), cơ 0,5, cân 0,45. Cộng 16 target chi tiết:
+  - mắt to, mở rộng;
+  - mũi nhỏ, hếch;
+  - má phính;
+  - tai vểnh (ear-wing 0,5, thay cho sheet 38°);
+  - đầu tròn, cằm nhỏ.
+- **Đồng bộ tỷ lệ với Ida v1.5:**
+  - Cùng hệ đầu: cằm → đỉnh sọ = 1 H; tâm nhãn cầu z 0,26 H như Ida.
+  - Cùng luật cách điệu: đích = sheet Cas × tỷ lệ đích Ida (0,735/0,78 ngang; 0,88/0,92 sâu), kẹp 1,0–1,2 / 1,0–1,15.
+  - Kết quả: sọ ×1,163 (Ida ×1,081), sâu ×1,003 (Ida ×1,000), cổ ×0,70 về 0,26 H theo sheet.
+  - Tâm mắt y 0,493 H (Ida 0,508), bán kính nhãn cầu 0,080 H (Ida 0,075).
+- **Cổ:**
+  - cắt elip ngắn (tới y −0,36) nằm trong cổ áo len (bán kính trong khoảng 0,19 H);
+  - kẹp r ≤ 0,15 H dưới y −0,10 và ở gáy;
+  - cổ dời vào trục thân;
+  - ống cổ của thân thu ×0,62, nằm trong cổ glb.
+- **Mũ len:** đo mặt cắt đầu + tóc ở gấu mũ, được rx 0,454 / rz 0,475 H, tâm z −0,075 (sheet 0,4995 / 0,5341). `cast3d.js` đọc `meta.cap` chỉ khi `'bl'`. Tóc bị ép nằm trong mũ, không xuyên len.
+- **Tóc:** #5a4034; vỏ ngắn 0,022–0,030 H; 170 chùm ngắn thò dưới gấu (mái, thái dương, trên tai, gáy); 120 sợi tơ.
+- **Da:** màu đỉnh #e2bfa2; loang; má và mũi ửng lạnh; **tàn nhang** trên sống mũi và gò má; độ nhám theo vùng (alpha màu đỉnh); vân da bằng bump. Không nếp tuổi.
+- **Mắt:** nhãn cầu riêng, tròng có điểm sáng (clearcoat), hội tụ.
+
+**Bảng shape key** (cùng tên và cùng định nghĩa kênh với Ida v1.5 lượt 3; glb: morph target; three.js: CPU):
+
+| Nhóm | Tên |
+|---|---|
+| 16 kênh | browUp, browDown, browInnerUp, browKnit, blink, lidDrop, squint, cheekRaise, smile, frown, jawOpen, press, pucker, wide, lowerLipIn, chinRaise |
+| 6 khẩu hình | vis_A, vis_E, vis_O, vis_MBP, vis_FV, vis_L |
+| Sửa lỗi (miệng ở mức 1,0) | corr_mouth = frown × max(press, chinRaise); corr_smile_lip = smile × min(jawOpen, 0,12) / 0,12 |
+| Preset | neutral, sad_smile, strained, choked (layout chỉ gọi Cas `neutral`) |
+
+Biên độ tối đa (H): jawOpen 0,162 · smile 0,069 · blink 0,050 · browInnerUp 0,049 · pucker 0,092 · vis_A 0,121 · vis_O 0,127 (đủ số trong `cas_bl.json`).
+
+## C.3 Mã
+- **`blender/bl_head.js`:**
+  - bộ nạp và dựng chung cho hai nhân vật (`preloadIdaBL` / `preloadCasBL`, `buildIdaBL` / `buildCasBL`);
+  - tên lưới theo tiền tố;
+  - bỏ qua hoa tai khi glb không có.
+- **`cast3d.js`:**
+  - thêm `CAS_STYLE='v14'` (mặc định), `casStyle` và `globalThis.CINE_CAS_STYLE`;
+  - nhánh 'bl' cho Cas: đầu glb, bỏ tai và tóc thủ tục, ống cổ thu, miệng mũ len theo `meta.cap`.
+  - Nhánh Ida và bản mặc định không đổi.
+- **`design/cong5/layout/page.js`:** chỉ thêm **một dòng** nạp trước glb Cas khi cờ bật (P cho phép).
+- **Trang thử, đo** (không sửa trang gốc):
+  - `page_l2.js`: thêm `casStyle`, `exportWho`;
+  - `page_c3_cas.js`, `c3_cas.py`.
+- `node --check` đạt ở mọi file .js.
+- **Dò mặc định:**
+  - "trước" lúc 23:03, trước mọi sửa; "sau" lúc 00:45, sau lần sửa .js cuối;
+  - `render_film --only s02,s24c,s42,s37 --probe`: 12 thumbs, **tổng lệch 0 px**. Có thêm một lần dò sau giữa chừng lúc 23:44, cũng 0 px.
+
+## C.4 Khung nộp cho kiểm mù (1920×1080, 3 mẫu, làn nặng, layout thật, Ida 'bl' + Cas 'bl')
+| File | Shot | Giây phim | Nội dung | Biểu cảm |
+|---|---|---|---|---|
+| `CAS_K1_nghieng.jpg` | s24c (MS) | 58,2 | Cas dựa tường vôi, đầu quay 3/4 về phía cột đèn | Cas neutral (layout) |
+| `CAS_K2_chinhdien.jpg` | s38 (MS) | 106,7 | Cas giữ thang, ngửa mặt nhìn lên, gần chính diện từ trên xuống | Cas neutral |
+| `CAS_K3_hai-nguoi.jpg` | s42a (MS) | 114,5 | Ida (trái) và Cas cầm đèn lồng, cả hai thấy mặt | Ida theo layout; Cas neutral |
+| `CAS_K4_hai-nguoi.jpg` | s41 (WS) | 112,8 | Ida chìa đèn lồng, Cas đón; khung rộng để so tỷ lệ hai người | theo layout |
+
+Kèm `CAS_eevee_4goc.jpg`: 4 góc EEVEE, lưới xuất từ khung s42, mũ len thật, đèn studio.
+
+Đã xem thử các shot khác và loại: s28 (Cas quay lưng); s41 là khung rộng nhỏ nhưng vẫn giữ làm K4 vì cho thấy tỷ lệ hai người; s42 (Cas ngược sáng thành bóng đen); s24 (Cas quá xa); s26 (không có Cas).
+
+## C.5 c3_views Cas 'bl'
+Chi tiết và cách đọc: `reports/m2/cong5/w4/characters-v1.6-NHAP.md`, mục 2.
+
+| Góc | thân / cẳng tay / đùi / cẳng chân | v1.4 thân | Lệch thân |
+|---|---|---|---|
+| 0° | 1,379 / 0,781 / 0,984 / 0,935 | 1,669 | −17,4 % ² |
+| 45° | 1,711 / 0,946 / 1,179 / 1,119 | 1,707 | +0,2 % |
+| −45° | 1,715 / 0,933 / 1,163 / 1,119 | 1,708 | +0,4 % |
+| 90° | 1,724 / — / — / — | 1,661 | +3,8 % |
+| −90° | 1,732 / 0,981 / 1,126 / 1,187 | 1,654 | +4,7 % |
+| 135° | 1,811 / 0,999 / 1,102 / 1,195 | 1,708 | +6,0 % |
+| −135° | 1,821 / 0,996 / 1,271 / 1,199 | 1,704 | +6,9 % |
+| 180° | 1,370 / 0,781 / 0,895 / 0,914 | 1,656 | −17,3 % ² |
+
+- ² Ở 0°/180°, đầu nhìn thấy dưới mũ len rộng hơn cao (782 × 481 px, do tai vểnh), nên trục PCA lật sang ngang. Đo theo bề dọc thì thân/đầu = 2,229 (0°), 2,704 (180°). Cần P/K quyết cách đo.
+- **Trong ±5 % quanh ngưỡng 3 %:** ±45°, 90° (+3,8 %), −90° (+4,7 %).
+
+## C.6 Rủi ro
+1. **C3 Cas 0°/180°:** phép đo PCA lật trục vì tai vểnh; phải quyết trước khi khoá cas.json v1.6.
+2. **Gáy:** kẹp cổ vào trong cổ áo tạo vài nếp dọc nhỏ ở gáy, thấy ở góc 180° của ảnh 4 góc. Ở các khung layout đã xem, gáy không lộ rõ.
+3. **Cổ trông dài và mảnh** ở K1: đúng số sheet (cổ 0,22 × 0,26 H), cổ áo len xa dưới cằm. Nếu chủ dự án muốn cổ ngắn hơn thì phải sửa sheet hoặc cổ áo, ngoài phạm vi gói.
+4. **Tóc Cas** đọc thành vỏ trơn ở gáy khi nhìn gần sau lưng; chùm tóc chỉ rõ ở mép gấu mũ.
+5. **Ảnh EEVEE:** lưới đầu xuất thành hai mảnh (head/neck) nên có một đường mờ dưới cằm. three.js không có đường này vì pháp tuyến dùng chung.
+6. **Tay:** ghi nhận cho Cổng 6, không sửa.
+
+## C.7 Thời gian thật, số lần làm lại, hàng đợi, token
+| Bước | Giờ UTC | Thời gian |
+|---|---|---|
+| Gộp nhánh, dò "trước", đọc sheet Cas, ghi RIGHTS | 23:03 → 23:07 | 4 phút |
+| Viết build_cas_bl.py, tích hợp js, dựng và sửa (hệ đầu, cổ) | 23:07 → 23:18 | 11 phút |
+| Ảnh 4 góc (3 lần), chọn shot | 23:18 → 23:23 | 5 phút |
+| Chờ làn nặng (P render lại layout), dò 0 px | 23:23 → 00:44 | 81 phút chờ |
+| Báo cáo, nháp v1.6, commit | 00:44 → 00:55 | 11 phút |
+
+- **Làm lại:** 5 lượt dựng glb:
+  - hệ đầu 1: tâm z tính sai vì lát y 0,75 → neo theo tâm mắt;
+  - cổ 3: lát tâm cổ −0,2 trúng ngực → −0,10; cắt cổ ngắn; kẹp trước cổ.
+  - Ảnh 4 góc render 3 lần.
+- **Hàng đợi** (`/var/tmp/cine-queue/log.tsv`, gói W4, từ 23:03): 20 việc, mã 0.
+  - Làn nặng: 5 việc (4 khung 13,7–21,7 s; c3 124,5 s), **chờ tổng 4 599 s**, vì P render lại toàn bộ.
+  - Làn nhanh: 15 việc, 412 s (xuất lưới, thử khung, 3 lần dò 62–78 s, gắn cờ QUA-60S như các lượt dò trước).
+- EEVEE 4 góc chạy ngoài hàng đợi, khoảng 105 s mỗi lần.
+- **Token:** gói này dùng khoảng 95 nghìn (hạn khoảng 300 nghìn).
+
+## C.8 Việc đang chờ
+- **P:** kiểm mù 4 khung `CAS_K*.jpg`; soạn characters v1.6 từ nháp.
+- **P/K:** cách đo C3 Cas 0°/180°.
+- **Chủ dự án:** duyệt hình Cas MPFB; nếu duyệt, đổi mặc định `CAS_STYLE='bl'` và ghi AUTHORSHIP.
