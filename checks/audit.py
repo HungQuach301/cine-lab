@@ -22,7 +22,8 @@ if a.cmd == "issue":
     parts = Path(a.parts) if a.parts else v.with_name(v.stem + ".parts")
     body = issue(v, parts, a.by)
     print(json.dumps(body, indent=1, ensure_ascii=False))
-    print(f"Đã ghi {audit_dir(v) / 'request.json'}. Giao phiên xưởng render lại khung {body['frames']}.")
+    print(f"Đã ghi {audit_dir(v) / 'request.json'}. Giao phiên xưởng render lại khung {body['frames']}"
+          + (f" và bóng nhân vật khung {body['sil_frames']}" if body.get("sil_frames") else "") + ".")
 else:
     req = audit_dir(v) / "request.json"
     if not req.is_file():
@@ -32,4 +33,7 @@ else:
     print(f"Khung phải render lại: {body['frames']} (hạt giống {body['seed']}).")
     for f in body["frames"]:
         print(f"  mặt nạ → {d}/rerender/{f:05d}/<bộ phận>.png   (đủ các bộ phận như parts.json khung {f})")
-    print(f"  log    → {d}/render.log  (dòng 'SCENE <file cảnh> SHA256 <hex>' và 'FRAME <khung> CMD <lệnh>')")
+    for f in body.get("sil_frames", []):  # v1.5
+        print(f"  bóng   → {d}/rerender/{f:05d}/silhouette.png   (khung chỉ có 'silhouettes', RUN.md 3.6.3)")
+    print("  v1.5: khung nào có mục 'silhouettes' trong parts.json thì render lại cả silhouette.png vào thư mục khung đó.")
+    print(f"  log    → {d}/render.log  (dòng 'SCENE <file cảnh> SHA256 <hex>' và 'FRAME <khung> CMD <lệnh>' cho mọi khung trên)")
