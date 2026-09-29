@@ -169,3 +169,42 @@ window.exportC3 = async (f, scale, who = 'ida', side = 'L') => {
   }
   return { w, h, parts: out, count, views: { view_deg: +view.toFixed(2), elev_deg: +elev.toFixed(2), parts } };
 };
+
+// checks v1.5 (RUN.md 3.6.3): BÓNG MỌI NHÂN VẬT cho P0 — phần NHÌN THẤY của mọi lưới thuộc cây nhân vật (cur.named: thân, quần áo, tóc, mũ)
+// tô trắng; mọi vật khác tô đen nhưng vẫn ghi độ sâu (che như ảnh render, giữ mặt hiển thị); vật trong suốt không thuộc nhân vật không che;
+// vật cầm tay KHÔNG tính (userData.prop hoặc tên chứa 'prop'). Cùng cách với công cụ tham chiếu của K (reports/checks-v1.5/dryrun/k_sil.js).
+window.exportSil = async (f, sc = 1) => {
+  window.stepFrame(f);
+  const named = Object.entries(cur.named || {}).filter(([, ch]) => ch && ch.root && ch.root.visible && ch.root.parent);
+  const body = new Set(), who = {};
+  for (const [n, ch] of named) ch.root.traverse((o) => {
+    if (!o.isMesh) return;
+    if (o.userData && (o.userData.prop || /prop/i.test(o.name || ''))) return;
+    body.add(o); who[n] = (who[n] || 0) + 1;
+  });
+  cur.scene.updateMatrixWorld(true); cur.cam.updateMatrixWorld(true);
+  const blacks = [THREE.FrontSide, THREE.BackSide, THREE.DoubleSide].map((sd) => new THREE.MeshBasicMaterial({ color: 0x000000, side: sd }));
+  const white = new THREE.MeshBasicMaterial({ color: 0xffffff, side: THREE.DoubleSide });
+  const save = [];
+  cur.scene.traverse((o) => {
+    if (o.isSprite || o.isPoints || o.isLine) { save.push([o, 'v', o.visible]); o.visible = false; return; }
+    if (!o.isMesh) return; save.push([o, 'm', o.material]);
+    const m0 = Array.isArray(o.material) ? o.material[0] : o.material;
+    if (body.has(o)) { o.material = white; return; }
+    if (m0 && (m0.transparent || m0.depthWrite === false || (m0.opacity ?? 1) < 1)) { save.push([o, 'v', o.visible]); o.visible = false; return; }
+    o.material = blacks[m0 && m0.side != null ? m0.side : 0];
+  });
+  const bg = cur.scene.background, fog = cur.scene.fog; cur.scene.background = new THREE.Color(0); cur.scene.fog = null;
+  const sm = renderer.shadowMap.autoUpdate; renderer.shadowMap.autoUpdate = false;
+  const w = W * sc, h = H * sc, rt = new THREE.WebGLRenderTarget(w, h, { depthBuffer: true }), px = new Uint8Array(w * h * 4);
+  renderer.setRenderTarget(rt); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(cur.scene, cur.cam);
+  renderer.readRenderTargetPixels(rt, 0, 0, w, h, px); renderer.setRenderTarget(null); rt.dispose();
+  renderer.shadowMap.autoUpdate = sm; cur.scene.background = bg; cur.scene.fog = fog;
+  for (let i = save.length - 1; i >= 0; i--) { const [o, k, v] = save[i]; if (k === 'v') o.visible = v; else o.material = v; }
+  const cv = new OffscreenCanvas(w, h), g = cv.getContext('2d'), img = g.createImageData(w, h), d32 = new Uint32Array(img.data.buffer);
+  let n = 0;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const on = px[((h - 1 - y) * w + x) * 4] >= 128; d32[y * w + x] = on ? 0xffffffff : 0x00000000; n += on; }
+  g.putImageData(img, 0, 0); const ab = await (await cv.convertToBlob({ type: 'image/png' })).arrayBuffer();
+  let bin = ''; const u8 = new Uint8Array(ab); for (let j = 0; j < u8.length; j += 0x8000) bin += String.fromCharCode.apply(null, u8.subarray(j, j + 0x8000));
+  return { png: btoa(bin), px: n, who };
+};
