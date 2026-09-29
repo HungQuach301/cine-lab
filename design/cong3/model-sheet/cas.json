@@ -2,7 +2,7 @@
   "id": "CHR-cas-v1",
   "name": "Cas (Casimir)",
   "age": 10,
-  "status": "Cổng 3 vòng 1 — bản đề xuất của Claude, CHƯA duyệt",
+  "status": "v1.6 KHOÁ (chủ dự án duyệt 29/09/2026 sau khi xem ảnh W4T3): Cas 'bl' — đầu/cổ/tóc/tai/mắt MPFB2 CC0, thân + áo len cổ lật cao + quần + tay MPFB; c3_head_axis 'doc'",
   "_doc": "Cùng quy ước với ida.json (H = chiều cao đầu, đo giữa hai tâm khớp). Cas cao 0,79 Ida.",
   "unit": "H",
   "H_m": 0.256,
@@ -35,12 +35,12 @@
       "id_color": "#0000ff"
     },
     "upper_arm": {
-      "length": 0.92,
+      "length": 0.7643,
       "width_front": 0.24,
       "id_color": "#ffff00"
     },
     "forearm": {
-      "length": 0.82,
+      "length": 0.7009,
       "width_front": 0.21,
       "id_color": "#ff00ff"
     },
@@ -78,12 +78,25 @@
   },
   "costume": {
     "sweater": {
-      "hem_height_H": 2.25,
+      "hem_height_H": 2.17,
       "sleeve_over_hand_H": 0.18,
-      "fit": "rộng 1,25× thân, vai xệ"
+      "fit": "v1.6: áo len theo khối thân MPFB, lệch 1,6 cm (bụng +1,2), gấu buông loe nhẹ, ngực/lưng phủ trơn",
+      "collar": {
+        "type": "cổ lật cao",
+        "tube_H": 0.2,
+        "fold_H": 0.09,
+        "outer_diameter_H": 0.4,
+        "nape_rise_H": 0.085,
+        "nape_ease_H": 0.03
+      },
+      "cuff": {
+        "over_wrist_H": 0.09,
+        "note": "măng sét len trùm cuống cổ tay MPFB"
+      }
     },
     "trousers": {
-      "hem_above_ankle_H": 0.25
+      "hem_above_ankle_H": 0.25,
+      "cut": "v1.6: ống thẳng, bán kính tối thiểu 5,1 cm quanh trục chân (sâu 0,92), nếp gối, gấu thẳng; đũng mượt"
     },
     "cap": {
       "height_H": 0.52,
@@ -515,100 +528,157 @@
   "measured_parts": [
     "head",
     "torso",
+    "upper_arm",
     "forearm",
     "thigh",
     "shin"
   ],
   "ratio_definition": "như ida.json",
   "face": {
-    "method": "C′: mặt vẽ tay trên texture chiếu trước, phủ lên khối đầu 3D",
-    "no_carved_mouth_groove": true
+    "method": "v1.6 'bl': đầu/cổ/tóc/tai/mắt/mày từ lưới người MPFB2 (CC0), rig 16 kênh như Ida v1.5; blender/build_cas_bl.py → cas_bl.glb",
+    "no_carved_mouth_groove": false,
+    "cap": {
+      "y": 0.69,
+      "rx": 0.454,
+      "rz": 0.4822,
+      "cz": -0.0678
+    },
+    "lids": {
+      "slit": 0.0,
+      "closure": 0.0445,
+      "before_R": [
+        0.3,
+        0.45
+      ],
+      "after_R": [
+        0.27,
+        0.45
+      ],
+      "target_R": [
+        0.27,
+        0.478
+      ],
+      "iris_R": 0.44
+    }
   },
   "_c3_doc": "B1 (Cổng 3 đợt vá A2+, chủ dự án chọn): khoá cấp gốc = độ dài NHÌN THẤY đo từ lưới 3D đã duyệt (không phải khung xương parts{}). Cách đo như checks C3 (RUN.md 3.6). Bảng mọi góc nhìn: c3_views. Bộ phận bị che theo thiết kế bị bỏ khỏi measured_parts: upper_arm || v1.2 (Q-C3v A): thêm góc −45°, ±135°, 180°; lưới Cas không đổi nên 0°/45°/±90° giữ nguyên số v1.1. 90° cẳng tay = null (đo được 0,05 = mẩu cổ tay ló sau thân, không phải cẳng tay). Q-C3w A (đùi ở −75°): đùi đo 1,19 (−60°), 1,211 (−75°), 1,068 (−80°), 1,074 (−85°), 1,075 (−88°), 1,076 (−90°). Bậc −13% nằm giữa −75° và −80°: ở ≥ −80° CÁNH TAY buông che mép trước của đùi (xem mặt nạ so sánh trong reports/m1/CONG-4-V2.md), không phải gấu áo len. Số −90° đúng cho tư thế turnaround. Lệch +9–11% ở walk_cas (góc −71…−80°) là do tay vung khỏi đùi khi đi, tức che phụ thuộc tư thế, không phải sai sheet. Không đổi số; ghi làm giới hạn đã biết.",
   "head": {
     "length": 1.0,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "basis": "v1.6 (W4T lượt 3): đo từ lưới 'bl' đã duyệt (c3_w4t.py, trang page_turn_w4t.js; mặt nạ nhìn thấy 4×, turnaround, trực giao); đầu theo 'doc' (chiếu lên trục tâm thân → tâm đầu + 1 px), bộ phận khác PCA + 1 px"
   },
   "torso": {
-    "length": 1.669,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 2.618,
+    "basis": "v1.6 (W4T lượt 3): đo từ lưới 'bl' đã duyệt (c3_w4t.py, trang page_turn_w4t.js; mặt nạ nhìn thấy 4×, turnaround, trực giao); đầu theo 'doc' (chiếu lên trục tâm thân → tâm đầu + 1 px), bộ phận khác PCA + 1 px"
   },
   "forearm": {
-    "length": 0.945,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 1.051,
+    "basis": "v1.6 (W4T lượt 3): đo từ lưới 'bl' đã duyệt (c3_w4t.py, trang page_turn_w4t.js; mặt nạ nhìn thấy 4×, turnaround, trực giao); đầu theo 'doc' (chiếu lên trục tâm thân → tâm đầu + 1 px), bộ phận khác PCA + 1 px"
   },
   "thigh": {
-    "length": 1.191,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 1.604,
+    "basis": "v1.6 (W4T lượt 3): đo từ lưới 'bl' đã duyệt (c3_w4t.py, trang page_turn_w4t.js; mặt nạ nhìn thấy 4×, turnaround, trực giao); đầu theo 'doc' (chiếu lên trục tâm thân → tâm đầu + 1 px), bộ phận khác PCA + 1 px"
   },
   "shin": {
-    "length": 1.132,
-    "basis": "B1 đo từ lưới 3D đã duyệt (mặt nạ nhìn thấy, 4×), tư thế turnaround, máy trực giao chính diện; ratio = bề dài trục chính PCA / đầu"
+    "length": 1.464,
+    "basis": "v1.6 (W4T lượt 3): đo từ lưới 'bl' đã duyệt (c3_w4t.py, trang page_turn_w4t.js; mặt nạ nhìn thấy 4×, turnaround, trực giao); đầu theo 'doc' (chiếu lên trục tâm thân → tâm đầu + 1 px), bộ phận khác PCA + 1 px"
   },
   "c3_views": {
     "0°": {
       "head": 1.0,
-      "torso": 1.669,
-      "upper_arm": 0.586,
-      "forearm": 0.945,
-      "thigh": 1.191,
-      "shin": 1.132
+      "torso": 2.618,
+      "upper_arm": 1.564,
+      "forearm": 1.051,
+      "thigh": 1.604,
+      "shin": 1.464
     },
     "45°": {
       "head": 1.0,
-      "torso": 1.707,
-      "upper_arm": 0.211,
-      "forearm": 0.944,
-      "thigh": 1.176,
-      "shin": 1.116
+      "torso": 2.706,
+      "upper_arm": 1.608,
+      "forearm": 1.047,
+      "thigh": 1.697,
+      "shin": 1.443
     },
     "-45°": {
       "head": 1.0,
-      "torso": 1.708,
-      "upper_arm": 0.613,
-      "forearm": 0.929,
-      "thigh": 1.159,
-      "shin": 1.115
+      "torso": 2.7,
+      "upper_arm": 1.548,
+      "forearm": 1.087,
+      "thigh": 1.62,
+      "shin": 1.604
     },
     "90°": {
       "head": 1.0,
-      "torso": 1.661,
+      "torso": 2.723,
       "upper_arm": null,
       "forearm": null,
-      "thigh": null,
-      "shin": null
+      "thigh": 1.633,
+      "shin": 1.384
     },
     "-90°": {
       "head": 1.0,
-      "torso": 1.654,
-      "upper_arm": 0.63,
-      "forearm": 0.937,
-      "thigh": 1.076,
-      "shin": 1.134
+      "torso": 2.725,
+      "upper_arm": 1.54,
+      "forearm": 1.114,
+      "thigh": 1.688,
+      "shin": 1.62
     },
     "135°": {
       "head": 1.0,
-      "torso": 1.708,
-      "upper_arm": 0.574,
-      "forearm": 0.942,
-      "thigh": 1.039,
-      "shin": 1.126
+      "torso": 2.803,
+      "upper_arm": 1.554,
+      "forearm": 1.132,
+      "thigh": 1.672,
+      "shin": 1.599
     },
     "-135°": {
       "head": 1.0,
-      "torso": 1.704,
-      "upper_arm": 0.635,
-      "forearm": 0.932,
-      "thigh": 1.189,
-      "shin": 1.122
+      "torso": 2.871,
+      "upper_arm": 1.636,
+      "forearm": 1.162,
+      "thigh": 1.651,
+      "shin": 1.654
     },
     "180°": {
       "head": 1.0,
-      "torso": 1.656,
-      "upper_arm": 0.63,
-      "forearm": 0.944,
-      "thigh": 1.082,
-      "shin": 1.105
+      "torso": 3.886,
+      "upper_arm": 2.28,
+      "forearm": 1.634,
+      "thigh": 2.376,
+      "shin": 2.278
     }
+  },
+  "c3_head_axis": "doc",
+  "upper_arm": {
+    "length": 1.564,
+    "basis": "v1.6 (W4T lượt 3): đo từ lưới 'bl' đã duyệt (c3_w4t.py, trang page_turn_w4t.js; mặt nạ nhìn thấy 4×, turnaround, trực giao); đầu theo 'doc' (chiếu lên trục tâm thân → tâm đầu + 1 px), bộ phận khác PCA + 1 px"
+  },
+  "_v1_6": {
+    "date": "2026-09-29",
+    "decision": "AUTHORSHIP 'Cổng 6 — nhân vật': A+ cổ lật cao; gói đầu MPFB (W4, W4N); thân MPFB (W4T lượt 1–3); tay theo tỷ lệ MPFB; duyệt khoá sau ảnh W4T3",
+    "arm": {
+      "upper_arm_joint_H": 0.7643,
+      "forearm_joint_H": 0.7009,
+      "upper_arm_visible_H": 0.6849,
+      "forearm_visible_H": 0.7009,
+      "v1_4": {
+        "upper_arm": 0.92,
+        "forearm": 0.82
+      },
+      "source": "xương MPFB nam 10 tuổi × (1,28 m / 1,289 m)"
+    },
+    "accepted_deviations": [
+      "vai áo len phồng tròn",
+      "bàn tay còn thô khi nhìn gần (không có shot cận tay; phát sinh thì sửa riêng shot)",
+      "s41: Cas duỗi hết tay mới chạm đèn — W2 đặt gần Ida hơn",
+      "chân/tay có thể còn bị chê ở khung tĩnh — kiểm lại trên clip W1/W2"
+    ],
+    "assets": [
+      "design/cong3/v2/char3d/blender/cas_bl.glb",
+      "design/cong3/v2/char3d/blender/cas_bl.json",
+      "design/cong3/v2/char3d/blender/cas_body_bl.json",
+      "design/cong3/v2/char3d/blender/hands_bl.json"
+    ],
+    "c3_source": "reports/m2/cong6/w4t3/W4T3_c3_cas_doc.json"
   }
 }

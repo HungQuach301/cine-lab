@@ -7,7 +7,7 @@
 // morph GPU bị gỡ. Pháp tuyến: N0 (glb) + (N(lưới biến dạng) − N(lưới gốc)) → không lộ đường nối UV.
 import * as THREE from '../../../shared/node_modules/three/build/three.module.js';
 
-export const BL_URL = new URL('./ida_bl_v151.glb', import.meta.url).href;   // Cổng 6 (W4): v1.5.1 đề xuất (mắt, mũ); ida_bl.glb v1.5 khoá SHA giữ nguyên
+export const BL_URL = new URL('./ida_bl_v151.glb', import.meta.url).href;   // v1.5.1 KHOÁ 29/09/2026 (mắt, mũ); ida_bl.glb v1.5 khoá SHA giữ nguyên
 export const CAS_BL_URL = new URL('./cas_bl.glb', import.meta.url).href;   // Cổng 6 (W4): đầu Cas MPFB
 const CACHES = {};
 

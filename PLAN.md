@@ -1,6 +1,6 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: thân Cas lượt 2 kiểm mù TRƯỢT — CHỜ chủ dự án quyết (CONG-6-THAN-2.md)**; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **characters v1.5.1 (Ida) + v1.6 (Cas) KHOÁ 29/09/2026** (LOCK-THIẾT-KẾ 34 tệp); mặc định Ida 'bl' v1.5.1, Cas 'bl' + thân + tay MPFB · Cổng 6: W1/W2 CHƯA mở; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.

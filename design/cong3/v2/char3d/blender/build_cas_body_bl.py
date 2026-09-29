@@ -20,8 +20,8 @@ MP, OUT = argv[0], os.path.abspath(argv[1]); os.makedirs(OUT, exist_ok=True)
 T0 = time.time(); log = lambda *a: print(f'[than {time.time() - T0:6.1f}s]', *a, flush=True)
 PRM = dict(BIND_SH=24.0, BIND_EL=20.0, LIFT=0.5, G_ARM=1.0, G_LEG=0.82, SW=0.016, SW_BELLY=0.012, SL=0.012, TR=0.010, SMOOTH=110,
            # W4T lượt 2 (chủ dự án 29/09/2026): tay theo tỷ lệ MPFB (độ dài NHÌN THẤY, H; đo trên người MPFB nam 10 tuổi, quy về chiều cao sheet),
-           # gấu áo hạ và buông (phủ qua cạp quần), quần ống thẳng rộng (bán kính TR_R m), đũng mượt; áo nới, ngực mượt.
-           UA_V=-1, FA_V=-1, HEM_DROP=0.08, HEM_FLARE=0.005, HIP2PELVIS=0.6, TR_R=0.051, TR_RZ=0.92, TR_SMOOTH=40, CROTCH_SMOOTH=40, CHEST_SMOOTH=120, SEAT_SMOOTH=150)
+           # gấu áo theo sheet v1.6 (2,17 H; HEM_DROP chỉ để thử) buông (phủ qua cạp quần), quần ống thẳng rộng (bán kính TR_R m), đũng mượt; áo nới, ngực mượt.
+           UA_V=-1, FA_V=-1, HEM_DROP=0.0, HEM_FLARE=0.005, HIP2PELVIS=0.6, TR_R=0.051, TR_RZ=0.92, TR_SMOOTH=40, CROTCH_SMOOTH=40, CHEST_SMOOTH=120, SEAT_SMOOTH=150)
 for a in argv[2:]:
     k, v = a.split('='); PRM[k] = float(v)
 
@@ -113,7 +113,7 @@ if PRM['FA_V'] > 0: fa = PRM['FA_V']
 for s in 'LR': OFF[f'elbow_{s}'] = [0, -ua * H, 0]; OFF[f'wrist_{s}'] = [0, -fa * H, 0]
 JW, JR = build_joints()
 ARM = {'upper_arm': round(float(ua), 4), 'forearm': round(float(fa), 4), 'upper_arm_visible': PRM['UA_V'], 'forearm_visible': PRM['FA_V'],
-       'mpfb_m': {'upper_arm': round(float(ua_m), 4), 'forearm': round(float(fa_m), 4), 'k_height': round(float(k_h), 4)}, 'sheet_v14': {'upper_arm': PT['upper_arm']['length'], 'forearm': PT['forearm']['length']}}
+       'mpfb_m': {'upper_arm': round(float(ua_m), 4), 'forearm': round(float(fa_m), 4), 'k_height': round(float(k_h), 4)}, 'sheet': {'upper_arm': PT['upper_arm']['length'], 'forearm': PT['forearm']['length']}, 'v1_4': {'upper_arm': 0.92, 'forearm': 0.82}}
 log('tay MPFB: xương (m, quy chiều cao)', ARM['mpfb_m'], '→ khớp cast3d (H)', ARM['upper_arm'], ARM['forearm'])
 def seg_tf(a, b, A, B, g):
     dm = b - a; Lm = np.linalg.norm(dm); dm = dm / Lm; Lc = np.linalg.norm(B - A); R = rot_between(dm, B - A)

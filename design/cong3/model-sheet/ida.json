@@ -2,7 +2,7 @@
   "id": "CHR-ida-v1",
   "name": "Ida Marrow",
   "age": 74,
-  "status": "Cổng 3 vòng 1 — bản đề xuất của Claude, CHƯA duyệt",
+  "status": "v1.5.1 KHOÁ (chủ dự án duyệt 29/09/2026): Ida 'bl' — mắt (mí 0,27 R, chân mi, viền nước, điểm sáng mềm), mũ ngồi thấp 0,025 H (miệng mũ đo hai trục), tay MPFB; c3_views v1.5 giữ (đo lại lệch ≤ 0,14 % thân)",
   "_doc": "Model sheet dữ liệu. Đơn vị H = chiều cao đầu (cằm → đỉnh sọ, không tính mũ). Toạ độ nhân vật: y lên, mặt hướng +z, đơn vị mét khi dựng (H_m). Quy ước đo C3: độ dài bộ phận = khoảng cách giữa HAI TÂM KHỚP (không tính phần bo ở đầu mút); mặt nạ bộ phận chỉ tô phần giữa hai tâm khớp. Độ rộng ghi theo góc nhìn chính diện (front) và nghiêng (side).",
   "unit": "H",
   "H_m": 0.258,
@@ -860,5 +860,33 @@
     }
   },
   "_v1_4": "Cổng 5 v2 (A-α, chủ dự án chọn 28/09/2026): cổ lộ width_front 0,30 → 0,40 H; tóc #b9b3aa → #e2dfda + shader tóc bạc; cổ áo bẻ thấp, khăn thấp, mũ ngồi thấp; mặt tròn–mềm cách điệu (facepaint/cast3d); B1 đo lại 8 góc → c3_views + độ dài 0°",
-  "_v1_5": "Cửa mặt Ida (chủ dự án chọn A kèm điều kiện, 29/09/2026): mặt 'bl' MPFB2 CC0; tỷ lệ đầu MPFB; tai MPFB; khăn cao 4 vòng; bản lề mũ mới; c3_views đo lại 8 góc (thân 0° 2,682 → 2,272). Cas chờ gói MPFB (v1.6)."
+  "_v1_5": "Cửa mặt Ida (chủ dự án chọn A kèm điều kiện, 29/09/2026): mặt 'bl' MPFB2 CC0; tỷ lệ đầu MPFB; tai MPFB; khăn cao 4 vòng; bản lề mũ mới; c3_views đo lại 8 góc (thân 0° 2,682 → 2,272). Cas chờ gói MPFB (v1.6).",
+  "_v1_5_1": {
+    "date": "2026-09-29",
+    "head_glb": "design/cong3/v2/char3d/blender/ida_bl_v151.glb",
+    "head_meta": "design/cong3/v2/char3d/blender/ida_bl_v151.json",
+    "hat": {
+      "y": 0.775,
+      "rx": 0.3893,
+      "rz": 0.4172,
+      "cz": -0.0344,
+      "tilt": 0.08
+    },
+    "eyes": {
+      "upper_lid_R": 0.27,
+      "lower_lid_R": 0.47,
+      "blink_eye_closure": 0.862,
+      "squint_eye_slit": 0.35,
+      "cheekRaise_eye_slit": 0.12,
+      "clearcoat": 0.45,
+      "clearcoat_rough": 0.2,
+      "rough": 0.5
+    },
+    "hands": "MPFB2 (nữ 74 tuổi, ngón thon), HAND_SCALE 1,15, nắm có va chạm; cổ tay cắt phẳng + nắp; lót măng sét khép (hands_bl.json)",
+    "c3_check": "reports/m2/cong6/w4t/W4T_c3_ida_v151_pca.json (thân lệch ≤ 0,14 %; mọi bộ phận ≤ 0,74 %) — c3_views v1.5 giữ nguyên, c3_head_axis mặc định pca",
+    "accepted_deviations": [
+      "mép cổ tay áo khoác có răng cưa nhẹ (s41) — kiểm lại trên clip W1/W2"
+    ],
+    "source": "reports/m2/cong6/w4/characters-v1.5.1-DE-XUAT.md"
+  }
 }

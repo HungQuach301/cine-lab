@@ -23,13 +23,13 @@ export { preloadIdaBL, idaBLReady, preloadCasBL, casBLReady, preloadHandsBL, han
 export const HAND_SCALE = { ida: 1.15, cas: 1.3 };
 // Cổng 6 (W4 gói nhân vật): 'bl' = bàn tay MPFB2 (CC0; blender/hands_bl.js) gắn vào khớp cổ tay của rig, ngón nắm có va chạm (ôm cột/van/quai đèn).
 // Mặc định GIỮ tay cũ ('v14'); bật: opts.handsStyle = 'bl' hoặc globalThis.CINE_HANDS_STYLE = 'bl' (nhớ await preloadHandsBL() trước buildCharacter).
-export const HANDS_STYLE = 'v14';
+export const HANDS_STYLE = 'bl';   // v1.5.1/v1.6 (khoá 29/09/2026): mặc định tay MPFB ('v14' = tay cũ)
 // Cổng 6 (W4): 'bl' = đầu/cổ/tóc/tai/mắt/mày Cas từ glb MPFB (blender/cas_bl.glb), mũ len có quả bông của cast3d giữ nguyên (đo lại miệng mũ).
 // Mặc định GIỮ bản cũ ('v14') tới khi chủ dự án duyệt; truyền casStyle:'bl' hoặc globalThis.CINE_CAS_STYLE='bl' để thử.
-export const CAS_STYLE = 'v14';
+export const CAS_STYLE = 'bl';   // v1.6 (khoá 29/09/2026): mặc định Cas MPFB ('v14' = Cas v1.4)
 // Cổng 6 (gói W4T): THÂN Cas 'bl' (áo len cổ lật cao, quần, da ống chân từ lưới thân MPFB CC0, cách A: giữ rig/tư thế). Chỉ có hiệu lực khi Cas 'bl'.
 // Mặc định GIỮ thân cũ ('v14'); bật: opts.casBody = 'bl' hoặc globalThis.CINE_CAS_BODY = 'bl' (nhớ await preloadCasBodyBL()).
-export const CAS_BODY = 'v14';
+export const CAS_BODY = 'bl';   // v1.6 (khoá 29/09/2026): mặc định thân MPFB ('v14' = thân SDF v1.4)
 // W4T lượt 2 (chủ dự án 29/09/2026, mục e): da tay MPFB ('bl'): cuộn sáng mềm sát đèn lồng (cả Ida và Cas) + màu da tay Cas ấm hơn — không trắng như găng.
 export const HAND_SKIN = { neutral: 0.35, knee: 0.4, cap: 0.8, cas: '#cf9878', ida: '#d8b49a' };   // Cas: da tay ấm, bão hoà hơn (lượt 1 '#e2bfa2' đọc thành găng xám dưới đèn lồng)
 // Búi tóc Ida phóng 1,3× so với model sheet (0,42 H → 0,55 H) để đọc rõ trong silhouette nghiêng.
