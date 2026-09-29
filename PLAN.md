@@ -1,6 +1,6 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: gói thân Cas kiểm mù TRƯỢT — CHỜ chủ dự án quyết (CONG-6-THAN.md)**; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
+## Mốc hiện tại: M2 — Cổng 5 ĐÃ ĐÓNG (A1, 28/09/2026) · Cửa mặt Ida ĐÓNG (A kèm điều kiện, 29/09/2026): **characters v1.5 khoá**, mặc định `IDA_STYLE='bl'` · **Cổng 6: thân Cas lượt 2 kiểm mù TRƯỢT — CHỜ chủ dự án quyết (CONG-6-THAN-2.md)**; diễn hoạt chưa mở · Cổng 4 đã merge (5987bf3) · checks v1.4 (LOCK 289c6916…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
@@ -8,7 +8,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
 ## Hàng chờ chủ dự án duyệt
 1. **Cổng 6 — MỞ (29/09/2026), kế hoạch duyệt** (CONG-6-MO.md mục 4). Nhịp: **gói W4 nhân vật (XONG) → DỪNG (đang chờ duyệt CONG-6-W4.md) → W1 + W2 → kiểm.** W1/W2 CHƯA mở, chưa diễn hoạt. Báo cáo gói W4: reports/m2/CONG-6-W4.md.
 2. **checks v1.5 ĐÃ DUYỆT và merge vào main (08c07dd, LOCK 8d55b6ad…).** Q-P0c: "phần lớn trong mặt nạ" = phản chứng + mặt nạ chạm hộp + khớp biên cục bộ. **Q-C3h: Ida giữ `c3_head_axis` 'pca'; Cas v1.6 khai 'doc' và đo c3_views theo 'doc'.** Khâu render xuất `silhouettes` (RUN.md 3.6.3) cho mọi khung P0 lấy mẫu. **Theo dõi s33:** độ khớp biên cục bộ P0 1,61 (ngưỡng 1,5) — render lại mà dưới 1,5 thì báo, không sửa hình để lách.
-3. **Gói thân Cas: chủ dự án chọn A (29/09/2026).** W4T lượt 2 (quần, eo, áo, gáy, tay Cas theo tỷ lệ MPFB, vật liệu tay) → đo lại C3 'doc' → P kiểm mù 5 subagent, **chấm tách HÌNH và TƯ THẾ** (lời chê tư thế giao W1/W2) → đạt thì khoá v1.5.1 + v1.6 một lần, layout-v16, merge main; trượt thì DỪNG. Báo cáo reports/m2/CONG-6-THAN-2.md. W1/W2 chưa mở.
+3. **Gói thân Cas lượt 2 (W4T2, P làm; merge 0c62b9f): qua điều kiện dừng, kiểm mù TRƯỢT** (HÌNH 1/3 ở Cas: "chân… nhỏ so với thân… búp bê"; đối chứng 1/2 "mặt nạ"; lệch phong cách 0/2; TƯ THẾ 1 câu giao W1/W2). **KHÔNG khoá, không đổi mặc định, không layout-v16. CHỜ chủ dự án quyết** (reports/m2/CONG-6-THAN-2.md). W1/W2 chưa mở.
 2. Khiếu nại P0 (2 lần báo nhầm) chờ K lần mở tới (không chặn: P0 đạt ở layout v3).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
