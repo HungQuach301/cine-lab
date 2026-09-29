@@ -21,7 +21,7 @@ QUY TRÌNH
 DẢI KHUNG (Cổng 6 W2, chủ dự án 29/09/2026 — AUTHORSHIP "Cổng 6 — diễn hoạt"):
  dai <video> <t0> <t1> <ra.jpg> [bước=0.5] [rộng=480]: dải khung cách nhau <bước> s của một đoạn (thường một shot), lưới 4 cột,
       mỗi ô ghi mốc tương đối "0,0 s", "0,5 s"… (không lộ tên shot). Phụ đề lấy nguyên từ video (đã in trong khung).
- doi-chung-dai <thư mục>: 2 dải đối chứng Sprite Fright quanh 104,5 s và 332 s (cùng bước, cùng lưới) — KHÔNG commit.
+ doi-chung-dai <thư mục>: 2 dải đối chứng Sprite Fright, mỗi dải trọn một shot chứa mốc 104,5 s / 332 s (cùng bước, cùng lưới) — KHÔNG commit.
  chuan-bi-dai <thư mục vòng> <nhãn>=<ảnh> ...: như chuan-bi, câu hỏi y hệt + " Nhân vật cảm thấy gì trong đoạn này?".
  chon <hạt giống hex> <số> <shot,…>: chọn ngẫu nhiên có hạt giống (ghi hạt giống vào báo cáo).
 """
@@ -91,7 +91,8 @@ def dai(video, t0, t1, out, buoc='0.5', rong='480'):
 
 def doi_chung_dai(out):
     doi_chung(out)
-    for t in (104.5, 332.0): dai(SF, t - 2.0, t + 2.0, f'{out}/sf_dai_{t:g}.jpg')
+    # trọn MỘT shot quanh mốc cũ (ranh giới shot dò bằng ffmpeg scene + xem ảnh, 29/09/2026): Ellie 104,0–106,3 s; Victoria 330,9–332,08 s
+    for t, a, b in ((104.5, 104.0, 106.3), (332.0, 330.9, 332.08)): dai(SF, a, b, f'{out}/sf_dai_{t:g}.jpg')
 
 def chuan_bi_dai(rd, items):
     os.makedirs(rd, exist_ok=True); rd = os.path.abspath(rd)
