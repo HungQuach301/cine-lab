@@ -7,7 +7,7 @@
 // morph GPU bị gỡ. Pháp tuyến: N0 (glb) + (N(lưới biến dạng) − N(lưới gốc)) → không lộ đường nối UV.
 import * as THREE from '../../../shared/node_modules/three/build/three.module.js';
 
-export const BL_URL = new URL('./ida_bl.glb', import.meta.url).href;
+export const BL_URL = new URL('./ida_bl_v151.glb', import.meta.url).href;   // Cổng 6 (W4): v1.5.1 đề xuất (mắt, mũ); ida_bl.glb v1.5 khoá SHA giữ nguyên
 export const CAS_BL_URL = new URL('./cas_bl.glb', import.meta.url).href;   // Cổng 6 (W4): đầu Cas MPFB
 const CACHES = {};
 
@@ -33,7 +33,7 @@ export const idaBLReady = () => !!CACHES.ida;
 export const casBLReady = () => !!CACHES.cas;
 
 // Da: PBR mờ (nhám 0,66, bóng gương 0,3) + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập) + giữ sắc ấm khi ánh lạnh + kéo 35 % ánh hổ phách về trung tính.
-function skinMaterial(opts) {
+export function skinMaterial(opts) {
   const bump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);   // lượt 3: vân da nhỏ (lỗ chân lông + nếp mịn), thủ tục
     let sd = 7654321; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647); const b = new Float32Array(N * N).map(rnd);
     const blur = (a, r) => { const o = new Float32Array(N * N), o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += a[y * N + ((x + k + N) % N)]; o[y * N + x] = t / (2 * r + 1); }
@@ -62,13 +62,19 @@ function skinMaterial(opts) {
   mat.customProgramCacheKey = () => '|blSkin3' + warm + '|' + spec + '|' + neu;
   return mat;
 }
-function eyeMaterial(map, opts) {
-  const m = new THREE.MeshPhysicalMaterial({ map, roughness: 0.4, metalness: 0, clearcoat: 1.0, clearcoatRoughness: 0.05, envMapIntensity: 0 });
-  const en = opts.eyeNeutral ?? 0.6;
-  m.onBeforeCompile = (sh) => { sh.fragmentShader = sh.fragmentShader.replace('vec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;',
+// Cổng 6 (W4 gói nhân vật): mắt bớt "búp bê" — điểm sáng mềm, nhỏ (clearcoat 0,45, nhám 0,2; trước 1,0 / 0,05 = đốm trắng gắt);
+// bóng mí + góc mắt đổ lên nhãn cầu (che khuất, theo vị trí trên nhãn cầu — không phải đèn). opts.eyeCoat / eyeCoatRough / eyeAO ghi đè.
+function eyeMaterial(map, opts, R = 1) {
+  const m = new THREE.MeshPhysicalMaterial({ map, roughness: 0.5, metalness: 0, clearcoat: opts.eyeCoat ?? 0.45, clearcoatRoughness: opts.eyeCoatRough ?? 0.2, envMapIntensity: 0 });
+  const en = opts.eyeNeutral ?? 0.6, ao = opts.eyeAO ?? 1.0;
+  m.onBeforeCompile = (sh) => {
+    sh.vertexShader = 'varying vec3 vEyeP;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvEyeP = position;');
+    sh.fragmentShader = 'varying vec3 vEyeP;\n' + sh.fragmentShader.replace('vec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;',
     `vec3 albE = max(diffuseColor.rgb, vec3(1e-3)); vec3 eE = totalDiffuse / albE; float lE = dot(eE, vec3(0.2126, 0.7152, 0.0722));
-     vec3 outgoingLight = mix(eE, vec3(lE), ${en.toFixed(3)}) * albE + totalSpecular + totalEmissiveRadiance;`); };
-  m.customProgramCacheKey = () => '|blEye' + en;
+     float eyU = vEyeP.y / ${R.toFixed(5)}, eyX = abs(vEyeP.x) / ${R.toFixed(5)};
+     float aoE = 1.0 - ${ao.toFixed(3)} * (0.55 * smoothstep(0.0, 0.55, eyU) + 0.25 * smoothstep(0.5, 0.95, eyX)); aoE = max(aoE, 0.3);
+     vec3 outgoingLight = mix(eE, vec3(lE), ${en.toFixed(3)}) * albE * aoE + totalSpecular * mix(1.0, aoE, 0.8) + totalEmissiveRadiance;`); };
+  m.customProgramCacheKey = () => '|blEye6' + en + '|' + ao + '|' + R.toFixed(5);
   return m;
 }
 
@@ -110,7 +116,7 @@ function buildBL(p, kind) {
   const br = rigged(src.x_brows); const brows = reg(new THREE.Mesh(br.geo, hairMat), 'brow'); root.add(brows);
   for (const n of ['x_hair_shell', 'x_hair_cards', 'x_hair_fine', 'x_bun']) if (src[n]) { const m = reg(new THREE.Mesh(src[n].geometry.clone(), hairMat), 'hair'); m.position.copy(src[n].position); root.add(m); }
   // mắt: nhãn cầu riêng (tròng + giác mạc bắt sáng thật), hội tụ đã nướng trong lưới; opts.gaze [ngang, dọc] (rad)
-  const eyeMat = eyeMaterial(src.x_eye_L.material.map, opts), eyes = [];
+  src.x_eye_L.geometry.computeBoundingSphere(); const eyeMat = eyeMaterial(src.x_eye_L.material.map, opts, src.x_eye_L.geometry.boundingSphere.radius), eyes = [];
   for (const n of ['x_eye_L', 'x_eye_R']) { const m = reg(new THREE.Mesh(src[n].geometry.clone(), eyeMat), 'eyes'); m.position.copy(src[n].position); m.rotation.set(opts.gaze?.[1] ?? 0, opts.gaze?.[0] ?? 0, 0); root.add(m); eyes.push(m); }
   // hoa tai treo ở dái tai (nụ + móc + giọt), vàng cũ #c9a466 — như cast3d A-α
   const ringM = new THREE.MeshStandardMaterial({ color: '#c9a466', metalness: 0.85, roughness: 0.28, emissive: new THREE.Color('#5a4424'), emissiveIntensity: 0.25 });

@@ -227,6 +227,9 @@ bpy.data.objects.remove(head)
 fl = np.zeros(sum(len(p.vertices) for p in me_sub.polygons), np.int64); me_sub.polygons.foreach_get('vertices', fl)
 FS = fl.reshape(-1, 4) if len(fl) == 4 * len(me_sub.polygons) else None
 log(f'đầu sau subdivision: {len(PS)} đỉnh, {len(me_sub.polygons)} mặt')
+# Cổng 6 (W4 gói nhân vật): MÍ — nướng eye-slit (mí dưới chạm đáy tròng) + eye-closure (mí trên che 1/4 bán kính tròng) vào trung tính
+from eyelid import fix_lids
+LIDS = fix_lids(PS, [list(p.vertices) for p in me_sub.polygons], SKD, [ER_c, EC], ER_r, log)
 
 # ---- răng: tách khỏi da (khối riêng, vật liệu ngà) ----
 tsub = None
@@ -284,6 +287,9 @@ def skin_albedo(P, N):
     rim = gauss(er - ER_r * 1.08, 0.008) * fz
     r += 0.02 * rim; g -= 0.05 * rim; b -= 0.04 * rim                                         # viền mí hồng
     lash = gauss(er - ER_r * 1.04, 0.006) * sstep(EY - 0.005, EY + 0.02, y) * fz            # chân mi trên (tối) — đi theo mí khi chớp
+    r -= 0.45 * lash; g -= 0.48 * lash; b -= 0.45 * lash                                       # Cổng 6: chân mi trên tối thật sự (trước đây tính mà không dùng) — mép mí có nét
+    wl = gauss(er - ER_r * 1.02, 0.007) * sstep(EY - 0.2 * ER_r, EY - 0.45 * ER_r, y) * fz      # Cổng 6: VIỀN NƯỚC mí dưới (hồng, ướt: nhám thấp)
+    r += 0.06 * wl; g -= 0.16 * wl; b -= 0.10 * wl
     lip = sstep(0.022, 0.0, np.hypot(ax / 1.2, (y - MY) / 0.9) - 0.05) * sstep(MZ - 0.05, MZ - 0.02, z)
     r -= 0.02 * lip; g -= 0.24 * lip; b -= 0.18 * lip
     inner = sstep(MZ - 0.02, MZ - 0.06, z) * sstep(0.06, 0.03, ax) * sstep(0.05, 0.02, np.abs(y - MY))   # lòng miệng tối
@@ -305,10 +311,12 @@ def skin_albedo(P, N):
     # nhám theo vùng → kênh alpha (three.js: roughness = mix(0.45, 0.85, a)): chữ T (trán, sống mũi) bóng nhẹ; má, cằm, cổ, tai mờ
     tz = np.maximum(gp(0, EY + 0.15, 0.08), gauss(ax, 0.03) * sstep(MY, EY, y)) * fz
     rough = np.clip(0.62 - 0.35 * tz + 0.15 * sstep(0.1, -0.1, y) + 0.15 * ear + 0.08 * mot2, 0.05, 1)
+    rough = rough * (1 - 0.95 * np.clip(wl, 0, 1))                                             # viền nước: bóng ướt
     return np.concatenate([out, rough[:, None]], 1)
 
 _TH_PH = np.array([0.00, 0.45, 0.80, 1.05, 1.22, 1.38, 1.52, 1.68, 1.90, 2.30, 2.70, np.pi])
-_TH_TH = np.array([1.30, 1.50, 1.68, 1.76, 1.78, 1.72, 1.66, 1.72, 1.94, 2.30, 2.55, 2.60])   # L3: tóc phủ thái dương (nhìn chính diện dưới vành mũ thấy tóc bạc)   # chân tóc: trán dưới vành mũ; thái dương, trên tai, gáy lộ
+_TH_TH = np.array([1.45, 1.55, 1.68, 1.76, 1.78, 1.72, 1.70, 1.80, 2.15, 2.45, 2.75, 2.85])   # Cổng 6: mái thấp hơn (lộ dưới gấu mũ ôm sọ); SAU TAI + GÁY tóc phủ kín (hết vệt da lộ sau đầu)
+_TH_TH_OLD = np.array([1.30, 1.50, 1.68, 1.76, 1.78, 1.72, 1.66, 1.72, 1.94, 2.30, 2.55, 2.60])   # L3: tóc phủ thái dương (nhìn chính diện dưới vành mũ thấy tóc bạc)   # chân tóc: trán dưới vành mũ; thái dương, trên tai, gáy lộ
 def theta_max(ph):
     a = np.abs(ph); return np.interp(a, _TH_PH, _TH_TH) + 0.012 * np.sin(ph * 9.0) + 0.008 * np.sin(ph * 17.0 + 1.3)
 
@@ -523,7 +531,7 @@ log('tóc xong')
 
 # ---- hoa tai: điểm thấp nhất của dái tai mỗi bên ----
 EARRING = {}
-meta = {'_doc': "Cas MPFB (W4, Cổng 6, MPFB2 CC0). Hệ đầu cast3d: đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt. Shape key = morph target glTF; "
+meta = {'lids': LIDS, '_doc': "Cas MPFB (W4, Cổng 6, MPFB2 CC0). Hệ đầu cast3d: đơn vị H; y = 0 cằm, 1 đỉnh sọ; +z mặt. Shape key = morph target glTF; "
                 "TÊN = kênh facerig.js (16) + vis_* (6 khẩu hình); preset = trọng số trên kênh. Kênh dựng từ expression unit của MPFB (CH_UNITS).",
         'mpfb': {'commit': '3edf9df0551765be43563d047888cf7877eb89b4', 'version': '2.0.17', 'age': AGE, 'macro': macro, 'detail': DETAIL},
         'stylize': {'SX': float(SX), 'SZ': float(SZ), 'SN': float(SN), 'head_len_m_mpfb': float(HL)},
@@ -533,10 +541,10 @@ meta = {'_doc': "Cas MPFB (W4, Cổng 6, MPFB2 CC0). Hệ đầu cast3d: đơn v
         'key_max_disp_H': {k: round(float(np.abs(D).max()), 4) for k, D in SKD.items()}}
 bpy.data.objects.remove(hum)
 meta['counts'] = {ob.name: len(ob.data.vertices) for ob in SC.objects if ob.type == 'MESH'}
-json.dump(meta, open(os.path.join(OUT, 'cas_bl.json'), 'w'), indent=1, ensure_ascii=False)
+json.dump(meta, open(os.path.join(OUT, os.environ.get('BL_NAME', 'cas_bl') + '.json'), 'w'), indent=1, ensure_ascii=False)
 for ob in SC.objects: ob.select_set(ob.type == 'MESH')
-bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, 'cas_bl.glb'), export_format='GLB', use_selection=True, export_yup=True, export_apply=False,
+bpy.ops.export_scene.gltf(filepath=os.path.join(OUT, os.environ.get('BL_NAME', 'cas_bl') + '.glb'), export_format='GLB', use_selection=True, export_yup=True, export_apply=False,
                           export_morph=True, export_morph_normal=False, export_vertex_color='ACTIVE', export_normals=True, export_texcoords=True,
                           export_materials='EXPORT', export_animations=False)
-log(f"glb {os.path.getsize(os.path.join(OUT, 'cas_bl.glb')) / 1e6:.1f} MB; đỉnh {meta['counts']}")
+log(f"glb {os.path.getsize(os.path.join(OUT, os.environ.get('BL_NAME', 'cas_bl') + '.glb')) / 1e6:.1f} MB; đỉnh {meta['counts']}")
 if BLEND: bpy.ops.wm.save_as_mainfile(filepath=os.path.abspath(BLEND), compress=True); log('lưu ' + BLEND)
