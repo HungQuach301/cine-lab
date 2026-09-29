@@ -655,7 +655,7 @@ S({ id: 's42', scene: 5, size: 'MS', angle: 'thấp ngang vai, sau lưng Cas l�
     const dbg = ctx.dbg || {};
     const r = await buildBaySet(ctx, {}); const p = P(ctx); for (const ch of [r.chIda, r.chCas]) ch.sheetRef = ch.sheet;
     const cam = r.cam; cam.shiftY = 0; [r.chIda, r.chCas].forEach((c) => tameGlint(c)); cam.fov = fovOf(dbg.mm ?? 40); cam.position.set(...(dbg.cp || [0.55, 0.66, 0.45])); cam.lookAt(...(dbg.cl || [-0.15, 0.75, 4.5])); cam.updateProjectionMatrix();
-    const wc = p.C.warm_hands_copy, wcIn = over(wc, { joints: { shoulder_L: [-66, 0, 10], shoulder_R: [-66, 0, -10], elbow_L: [-28, 0, 0], elbow_R: [-28, 0, 0] } });
+    const wc = p.C.warm_hands_copy, wcIn = over(wc, { joints: { spine: [56, 0, 0], neck: [-38, 0, 0], shoulder_L: [-66, 0, 10], shoulder_R: [-66, 0, -10], elbow_L: [-28, 0, 0], elbow_R: [-28, 0, 0] } });
     const hC = (wc.root_y_H ?? 0) * ctx.sheets.cas.H_m;
     placeBayLantern(r, CAS_BAY[0] - 0.03, CAS_BAY[1] + 0.38); const LH = r.lanternH;   // v2 Đ3: 0,55 → 0,38 m
     // Quyết định chủ dự án (AUTHORSHIP, world-rules v0.5): bà KÉO MŨ LẠI khi rời đi — cử chỉ khép "hết ca", đặt ở cuối s42 (bà ở miệng vòm, vừa thấy Cas
