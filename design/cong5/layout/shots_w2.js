@@ -685,7 +685,7 @@ alleyShot('s45', 137.0, 139.0, { size: 'MS', angle: 'ngang ngực, 3/4 trước-
     const base = watchLow(p); ida.setPose(base); ida.root.updateMatrixWorld(true);
     const h = wpos(ida.joints.head), q = new THREE.Quaternion(); ida.root.getWorldQuaternion(q); const fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q); fw.y = 0; fw.normalize();
     const dir = fw.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), (dbg.yaw ?? -35) * Math.PI / 180);
-    cam.fov = fovOf(50); cam.updateProjectionMatrix(); cam.position.copy(h).addScaledVector(dir, dbg.dist ?? 2.0); cam.position.y = h.y - (dbg.dy ?? 0.3); cam.lookAt(h.x, h.y - (dbg.ly ?? 0.12), h.z);   // máy thấp hơn mắt 0,3 m: thấy mặt dưới vành mũ khi bà cúi xem đồng hồ. N10: lùi 1,75 → 2,0 m, tâm nhìn 0,22 → 0,12 m dưới đầu — trọn mũ + đường mắt khi bà quay nhìn miệng ngõ (bản trước cắt đỉnh mũ)
+    cam.fov = fovOf(50); cam.updateProjectionMatrix(); cam.position.copy(h).addScaledVector(dir, dbg.dist ?? 2.0); cam.position.y = h.y - (dbg.dy ?? 0.3); cam.lookAt(h.x, h.y - (dbg.ly ?? 0.03), h.z);   // máy thấp hơn mắt 0,3 m: thấy mặt dưới vành mũ khi bà cúi xem đồng hồ. N10: lùi 1,75 → 2,0 m, tâm nhìn 0,22 → 0,12 m dưới đầu — trọn mũ + đường mắt khi bà quay nhìn miệng ngõ (bản trước cắt đỉnh mũ)
     // N10 (rà continuity v3): miệng ngõ (phố trắng, quảng trường có đồng hồ) ở SAU LƯNG bà, phải khung. 1,0–1,8 s bà quay đầu + vai về miệng ngõ, ngẩng nhẹ —
     // nhìn qua vai về phía quảng trường (bản trước ngẩng về phía máy = quay lưng lại quảng trường). Hàm thuần theo t.
     const sp = base.joints.spine || [0, 0, 0], TN = dbg.turn || S45_TURN;
@@ -712,10 +712,10 @@ alleyShot('s46', 139.0, 142.0, { size: 'CU (insert)', angle: 'chúc nhẹ', mm: 
   light: 'ánh cửa sổ ấm', action: 'Kim phút và kim giờ cùng tiến từ 9:53 lên 10:00 (vặn núm 0,3–2,2 s), rồi giữ 10:00.' },
   (p, cam, r, dbg) => { let wf = null, watch = null; const D = dbg.dir ? new THREE.Vector3(...dbg.dir) : D46; return { update(t, T, ida) {   // A2: máy gần ngang, lệch về phía tường ngõ → nền là tường vôi, không còn đá lát (v1: [0,2; 0,8; 0,55] nhìn chúc xuống nền đá)
     if (!wf) { wf = watchInHand(ida.root.parent); watch = ida.root.parent.children[ida.root.parent.children.length - 1]; }
-    ida.setPose(watchLow(p)); ida.root.updateMatrixWorld(true);
+    ida.setPose(over(p.watchHold(0), { props: [] })); ida.root.updateMatrixWorld(true);   // Cổng 6: insert giữ đúng tư thế/khung đã duyệt (A2 c: nền tường ngõ) — watchLow đổi nền sau đồng hồ thành áo
     cam.fov = fovOf(dbg.mm ?? 100); cam.updateProjectionMatrix();
     const [m0, h0] = hands(CLOCKS.beat3.watchFrom), mA = valAt([[0, m0], [0.3, m0], [2.2, 360]], t); wf(ida, cam, mA, h0 + (mA - m0) / 12, D, dbg.dist ?? 0.32);
-    if (watch && !dbg.noCup) gripAt(ida, 'L', cupG(ida, watch)); } }; });   // Cổng 6 G6: tay trái đỡ dưới đồng hồ như s45 (nối cắt)   // (d) kim giờ ăn khớp kim phút (1/12, như bánh răng thật): cả hai kim chỉ TIẾN, cùng lúc; 9:53 giữ 0–0,3 s, vặn 0,3–2,2 s, 10:00 giữ tới hết
+    if (watch && dbg.cup) gripAt(ida, 'L', cupG(ida, watch)); } }; });   // Cổng 6: KHÔNG đỡ tay trái ở insert — thử v1: lòng tay trái chắn trọn máy 0,32 m (khung tối). Giữ khung Cổng 5.   // (d) kim giờ ăn khớp kim phút (1/12, như bánh răng thật): cả hai kim chỉ TIẾN, cùng lúc; 9:53 giữ 0–0,3 s, vặn 0,3–2,2 s, 10:00 giữ tới hết
 alleyShot('s47', 142.0, 145.0, { size: 'WS', angle: 'ngang, sau lưng Ida', mm: 28, move: 'tĩnh',
   why: 'Bà vác thang đi ra miệng ngõ; bóng mờ của bà mỏng dần rồi tan trong trắng (luật 3.5). Không còn đèn lồng ở thắt lưng (đã trao cho Cas ở s41).', sound: 'bước chân; thang; rè điện lớn dần ở miệng ngõ',
   light: 'ánh cửa sổ (sau lưng) → điện phẳng ở miệng ngõ', action: 'Ida vác thang đi từ dưới cửa sổ ra miệng ngõ.' },
