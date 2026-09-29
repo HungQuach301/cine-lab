@@ -14,6 +14,8 @@ export async function preloadCasBodyBL(url = BODY_URL) {
   return CACHE;
 }
 export const casBodyBLReady = () => !!CACHE;
+// W4T lượt 2: độ dài KHỚP tay Cas (H) theo tỷ lệ MPFB, ghi trong tệp thân (null nếu tệp cũ) — cast3d đổi sheet TRƯỚC khi dựng khung, chỉ khi thân 'bl'.
+export const casBodyArm = () => CACHE?.j?.arm ?? null;
 const dec = (b, T) => { const s = atob(b), u = new Uint8Array(s.length); for (let i = 0; i < s.length; i++) u[i] = s.charCodeAt(i); return new T(u.buffer); };
 
 // p = { root, joints, add(parent, geo, role, color, part, texRole) → mesh, colors: {sweater, trousers, skin} }

@@ -42,7 +42,7 @@ export function skinMaterial(opts) {
     for (let i = 0; i < N * N; i++) { const v = 128 + 170 * (b1[i] - 0.5) + 300 * (b4[i] - 0.5); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = Math.max(0, Math.min(255, v)); im.data[i * 4 + 3] = 255; }
     g.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(6, 4); return t; })();
   const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0, envMapIntensity: 0, bumpMap: bump, bumpScale: opts.skinBump ?? 1.4 });
-  const warm = opts.skinWarm ?? 0.7, spec = opts.skinSpec ?? 0.3, neu = opts.skinNeutral ?? 0.35;
+  const warm = opts.skinWarm ?? 0.7, spec = opts.skinSpec ?? 0.3, neu = opts.skinNeutral ?? 0.35, knee = opts.skinKnee ?? 0, cap = opts.skinCap ?? 1.8;   // skinKnee > 0: cuộn sáng (chỉ tay 'bl')
   const phys = THREE.ShaderChunk.lights_physical_pars_fragment
     .replace('reflectedLight.directDiffuse += irradiance * BRDF_Lambert( material.diffuseColor );',
       `{ float nlW = dot( geometryNormal, directLight.direction ); vec3 wr = vec3( 0.30, 0.14, 0.10 );
@@ -57,9 +57,11 @@ export function skinMaterial(opts) {
         `vec3 alb = max(diffuseColor.rgb, vec3(1e-3)); vec3 eSk = totalDiffuse / alb;
          float lSk = dot(eSk, vec3(0.2126, 0.7152, 0.0722)), cSk = smoothstep(0.0, 0.25, (eSk.b - eSk.r) / max(lSk, 1e-5));
          eSk = mix(eSk, lSk * vec3(1.06, 1.0, 0.92), ${warm.toFixed(3)} * cSk);
-         eSk = mix(eSk, lSk * vec3(1.07, 1.0, 0.9), ${neu.toFixed(3)});
+         eSk = mix(eSk, lSk * vec3(1.07, 1.0, 0.9), ${neu.toFixed(3)});${knee > 0 ? `
+         { float lK = dot(eSk, vec3(0.2126, 0.7152, 0.0722)), xK = max(lK - ${knee.toFixed(3)}, 0.0);   // W4T lượt 2 (tay): cuộn sáng mềm giữ màu đèn — da sát đèn lồng không cháy trắng
+           eSk *= (${knee.toFixed(3)} + xK / (1.0 + xK / ${(cap - knee).toFixed(3)})) / max(lK, 1e-5) * step(${knee.toFixed(3)}, lK) + (1.0 - step(${knee.toFixed(3)}, lK)); }` : ''}
          vec3 outgoingLight = eSk * alb + totalSpecular + totalEmissiveRadiance;`); };
-  mat.customProgramCacheKey = () => '|blSkin3' + warm + '|' + spec + '|' + neu;
+  mat.customProgramCacheKey = () => '|blSkin3' + warm + '|' + spec + '|' + neu + '|' + knee + '|' + cap;
   return mat;
 }
 // Cổng 6 (W4 gói nhân vật): mắt bớt "búp bê" — điểm sáng mềm, nhỏ (clearcoat 0,45, nhám 0,2; trước 1,0 / 0,05 = đốm trắng gắt);
