@@ -314,7 +314,7 @@ S({ id: 's34', scene: 5, size: 'MS (nghiêng)', angle: 'ngang ngực, từ phía
     // Sửa bằng hướng đầu: bà nhìn bóng mình rồi quay đầu 40° về phía Cas (phải khung) — mặt nghiêng thấy được, búi lui ra sau; thở. facelight 'lantern' (đèn lồng dưới nền là nguồn thật).
     const p = P(ctx), fl = createFaceLight(r.scene, { mode: 'lantern' }), face = faceRig(r.chIda);
     return { scene: r.scene, cam: r.cam, onSample: r.onSample, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT_MED, grade: GRADE_S5, exposure: dbg.exp ?? 1.5, update(t, T) {
-      const k = ease((t - 0.3) / 0.9); r.chIda.setPose(settle(over(p.lookShadows, { props: [], joints: { neck: [-30 + 18 * k, -40 * k, 0] } }), T, { side: 1, k: 0.8, legs: false }));
+      const k = ease((t - 0.3) / 0.9); r.chIda.setPose(settle(over(p.lookShadows, { props: [], joints: { neck: [-30 + 18 * k, -58 * k, 0], spine: [0, -8 * k, 0] } }), T, { side: 1, k: 0.8, legs: false }));
       r.chIda.root.updateMatrixWorld(true); if (ctx.upd) ctx.upd(r.chIda, r.cam);
       face({ smile: 0.4 * k, browInnerUp: 0.3, blink: blinkAt(T, [T0.s34 + 1.3]) }, [0, 0]); fl.update(r.chIda, r.cam); } };
   } });
