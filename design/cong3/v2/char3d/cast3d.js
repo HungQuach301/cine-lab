@@ -454,7 +454,21 @@ export function buildCharacter(sheet, opts = {}) {
       const yCuff = (z) => 0.60 + 0.085 * Math.max(-1, Math.min(1, z / 0.42));
       const off = (y) => 0.052 + 0.03 * sstep(0.80, 1.02, y);
       const capSDF = (x, y, z) => smax(sdfH(x, y, z) - off(y) + 0.004 * Math.abs(Math.sin(Math.atan2(x, z - CZ) * 26)), yCuff(z) - y, 0.02);
-      add(capG, sculpt(capSDF, { c: [0, 0.74, CZ], r: [0.62, 0.5, 0.66], nu: R(72), nv: R(34), scale: H, uv: [9, 3], gradE: 0.004, color: aoCol(capSDF, 0.4) }), 'cap', C.cap, 'cap');
+      { const nuC = R(72), nvC = R(34), capM = add(capG, sculpt((x, y, z) => 0.35 * capSDF(x, y, z), {   // W4T: dò tia bước ngắn (trường nối dài không phải khoảng cách thật → bước dài vượt vỏ trúng mặt trong)
+         c: [0, 0.74, CZ], r: [0.62, 0.5, 0.66], nu: nuC, nv: nvC, scale: H, uv: [9, 3], gradE: 0.004, color: aoCol(capSDF, 0.4) }), 'cap', C.cap, 'cap');
+        // W4T (sửa "khe đen trên đỉnh mũ len"): vài tia dò mặt vỏ mũ trúng MẶT TRONG (vùng trường nối dài trên mép lưới SDF) → vòm thụt,
+        // lộ khe tối. Sửa trên lưới tia: bán kính tia nào thấp hơn trung vị 5×5 lân cận quá 0,012 H thì kéo về trung vị (2 lượt), rồi tính lại pháp tuyến.
+        const g = capM.geometry, pa = g.attributes.position, c0 = [0, 0.74 * H, CZ * H], W_ = nuC + 1, rr = new Float32Array(pa.count), dir = new Float32Array(pa.count * 3);
+        for (let v = 0; v < pa.count; v++) { const x = pa.getX(v) - c0[0], y = pa.getY(v) - c0[1], z = pa.getZ(v) - c0[2], r = Math.hypot(x, y, z) || 1; rr[v] = r; dir.set([x / r, y / r, z / r], v * 3); }
+        let fixed = 0; const near = new Set();
+        for (let pass = 0; pass < 2; pass++) { const r0 = Float32Array.from(rr);
+          for (let j = 0; j <= nvC; j++) for (let i = 0; i <= nuC; i++) { const nb = [];
+            for (let dj = -2; dj <= 2; dj++) for (let di = -2; di <= 2; di++) { const jj = j + dj; if (jj < 0 || jj > nvC) continue; const ii = ((i + di) % nuC + nuC) % nuC; nb.push(r0[jj * W_ + ii]); }
+            nb.sort((a_, b_) => a_ - b_); const med = nb[nb.length >> 1], v = j * W_ + i;
+            if (r0[v] < med - 0.012 * H) { rr[v] = med; fixed++; for (let dj = -2; dj <= 2; dj++) for (let di = -2; di <= 2; di++) { const jj = j + dj; if (jj >= 0 && jj <= nvC) near.add(jj * W_ + ((i + di) % nuC + nuC) % nuC); } } } }
+        for (let v = 0; v < pa.count; v++) pa.setXYZ(v, c0[0] + dir[v * 3] * rr[v], c0[1] + dir[v * 3 + 1] * rr[v], c0[2] + dir[v * 3 + 2] * rr[v]);
+        if (fixed) { const n0 = Float32Array.from(g.attributes.normal.array); g.computeVertexNormals(); const na = g.attributes.normal.array;   // pháp tuyến mới chỉ quanh chỗ sửa (giữ gradient SDF và đường nối lưới)
+          for (let v = 0; v < pa.count; v++) if (!near.has(v)) { na[v * 3] = n0[v * 3]; na[v * 3 + 1] = n0[v * 3 + 1]; na[v * 3 + 2] = n0[v * 3 + 2]; } pa.needsUpdate = true; } capM.userData.capFixed = fixed; }
       // tóc (vỏ, chùm, sợi tơ của glb) nằm TRONG mũ: đỉnh nào trên gấu mà vượt vỏ mũ − 0,012 H thì kéo về tâm sọ (không xuyên len)
       for (const m of face.root.children) { if (m.userData.part !== 'hair' || !m.geometry) continue; const pa = m.geometry.attributes.position, o = m.position; let moved = 0;
         for (let i = 0; i < pa.count; i++) { const x = pa.getX(i) + o.x, y = pa.getY(i) + o.y, z = pa.getZ(i) + o.z; if (y < yCuff(z) - 0.005 || sdfH(x, y, z) <= off(y) - 0.012) continue;
@@ -741,6 +755,8 @@ export function buildCharacter(sheet, opts = {}) {
     if (isIda) {
       add(el, tube({ y0: (-fa + 0.16) * H, y1: (-fa - 0.02) * H, nu: R(30), nv: 4, rad: (ss) => [(rF + 0.035 + 0.01 * ss) * H] }), 'coat', C.coat, 'sleeve_cuff');
       add(el, tube({ y0: (-fa - 0.02) * H, y1: (-fa + 0.10) * H, nu: R(30), nv: 2, rad: () => [(rF + 0.012) * H] }), 'lining', C.coat_lining, 'sleeve_cuff');
+      if (HB) add(el, tube({ y0: (-fa - 0.015) * H, y1: (-fa + 0.05) * H, nu: R(30), nv: 4, rad: (ss) => [(rF + 0.012) * H * (1 - 0.42 * ss)],   // W4T: lót khép về cổ tay (tay MPFB) → không lộ lòng măng sét tối
+        color: (ss) => { const a = 0.8 - 0.25 * ss; return [a, a, a]; } }), 'lining', C.coat_lining, 'sleeve_cuff');
     } else {
       const ov = sheet.costume.sweater.sleeve_over_hand_H;
       const rr = (ss) => (rF + 0.03 + 0.012 * Math.sin(ss * Math.PI)) * H;

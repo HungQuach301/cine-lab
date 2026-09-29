@@ -18,7 +18,7 @@ from sdfnp import sstep, gauss
 argv = sys.argv[sys.argv.index('--') + 1:]
 MP, OUT = argv[0], os.path.abspath(argv[1]); os.makedirs(OUT, exist_ok=True)
 T0 = time.time(); log = lambda *a: print(f'[than {time.time() - T0:6.1f}s]', *a, flush=True)
-PRM = dict(BIND_SH=24.0, BIND_EL=20.0, LIFT=0.5, G_ARM=1.0, G_LEG=0.82, SW=0.011, SW_BELLY=0.012, SL=0.010, TR=0.010, SMOOTH=40)
+PRM = dict(BIND_SH=24.0, BIND_EL=20.0, LIFT=0.5, G_ARM=1.0, G_LEG=0.82, SW=0.011, SW_BELLY=0.012, SL=0.010, TR=0.010, SMOOTH=70)
 for a in argv[2:]:
     k, v = a.split('='); PRM[k] = float(v)
 
@@ -267,7 +267,7 @@ def tri_normals(Vx, T):
     n = np.zeros_like(Vx); fn = np.cross(Vx[T[:, 1]] - Vx[T[:, 0]], Vx[T[:, 2]] - Vx[T[:, 0]])
     for k in range(3): np.add.at(n, T[:, k], fn)
     return n / np.maximum(1e-12, np.linalg.norm(n, axis=1))[:, None]
-PARTOF = {'sweater': {'pelvis': 'torso', 'spine': 'torso', 'neck': 'torso', 'head': 'torso', 'shoulder': 'upper_arm', 'elbow': 'forearm', 'wrist': 'forearm'},
+PARTOF = {'sweater': {'pelvis': 'torso', 'spine': 'torso', 'hip': 'torso', 'neck': 'torso', 'head': 'torso', 'shoulder': 'upper_arm', 'elbow': 'forearm', 'wrist': 'forearm'},
           'trousers': {'pelvis': 'trouser_seat', 'spine': 'trouser_seat', 'hip': 'thigh', 'knee': 'shin_trouser', 'ankle': 'shin_trouser'},
           'skin': {'knee': 'shin', 'ankle': 'shin', 'hip': 'shin'}}
 cuff = {}
@@ -291,8 +291,10 @@ for role, D in (('sweater', sw), ('trousers', tr), ('skin', sk)):
     # tách theo bộ phận C3 (mỗi tam giác theo khớp trội trung bình) — pháp tuyến dùng chung nên không lộ đường nối
     fj = np.argmax(Wx[T].mean(1), 1); fam = np.array([JN[j].split('_')[0] for j in fj])
     pmap = PARTOF[role]; fpart = np.array([pmap.get(a, role) for a in fam])
-    for part in np.unique(fpart):
-        Tp = T[fpart == part]; iv = np.unique(Tp); rm = -np.ones(len(Vx), int); rm[iv] = np.arange(len(iv)); Tl = rm[Tp]
+    # mỗi bên một lưới (mặt nạ C3 chọn bộ phận theo bên L/R bằng tâm hộp bao của lưới)
+    fside = np.where(Vx[T].mean(1)[:, 0] >= 0, 'L', 'R'); fkey = np.array([p_ if p_ in ('torso', 'trouser_seat') else p_ + '|' + s_ for p_, s_ in zip(fpart, fside)])
+    for key in np.unique(fkey):
+        part = key.split('|')[0]; Tp = T[fkey == key]; iv = np.unique(Tp); rm = -np.ones(len(Vx), int); rm[iv] = np.arange(len(iv)); Tl = rm[Tp]
         Vp, Np, Cp, Wp = Vx[iv], Nx[iv], col[iv], Wx[iv]
         # UV (m × UVK): thân/quần/da — quanh trục dọc (đường nối sau lưng/ trong đùi); tay áo — quanh trục tay (đường nối mặt dưới)
         UVK = 14.0

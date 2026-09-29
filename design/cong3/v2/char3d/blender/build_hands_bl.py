@@ -74,15 +74,33 @@ def build(who):
         # đoạn cổ tay: đỉnh cẳng tay trong 0,05 m sau khớp cổ tay (nằm trong măng sét) đi cứng theo xương wrist
         along = (P - w0) @ d
         near = (hand_w < 0.5) & (along > -0.05) & (along < 0.01) & (np.linalg.norm((P - w0) - np.outer(along, d), axis=1) < 0.06)
-        keep = hand_w >= 0.12                                                      # cổ tay liền (trọng số tay ≥ 0,12); mép nằm trong măng sét
-        idx = np.nonzero(keep)[0]; remap = -np.ones(nV, int); remap[idx] = np.arange(len(idx))
+        # W4T (sửa "mảng đen lởm chởm ở cổ tay"): cắt cổ tay bằng MẶT PHẲNG vuông trục cẳng tay (3 cm sau khớp), không theo ngưỡng
+        # trọng số (mép răng cưa); rồi BỊT miệng ống bằng nắp da lõm nhẹ → không còn lỗ tối nhìn xuyên vào trong bàn tay
+        rad_ = np.linalg.norm((P - w0) - np.outer(along, d), axis=1)
+        keep = (along >= -0.03) & (rad_ < 0.07) & (sx * P[:, 0] > 0.15)
         F = [f for f in faces if all(keep[list(f)])]
+        used = np.unique(np.array([i for f in F for i in f])); keep[:] = False; keep[used] = True
+        idx = np.nonzero(keep)[0]; remap = -np.ones(nV, int); remap[idx] = np.arange(len(idx))
+        Fl = [tuple(remap[list(f)]) for f in F]
+        eg = {}
+        for f in Fl:
+            for k in range(len(f)): e = tuple(sorted((f[k], f[(k + 1) % len(f)]))); eg[e] = eg.get(e, 0) + 1
+        bde = {}   # cạnh biên có hướng (giữ chiều mặt) → nắp quay đúng pháp tuyến ra ngoài
+        for f in Fl:
+            for k in range(len(f)):
+                a_, b_ = f[k], f[(k + 1) % len(f)]
+                if eg[tuple(sorted((a_, b_)))] == 1: bde[a_] = b_
+        Pk = P[idx]; ring = [v for v in bde if (Pk[v] - w0) @ d < -0.02]
+        if ring:
+            cidx = len(Pk); cen = Pk[ring].mean(0) + d * 0.004
+            Pk = np.r_[Pk, cen[None]]; Fl += [(bde[v], v, cidx) for v in ring if bde[v] in ring]
+            idx = np.r_[idx, -1]
         # đối tượng tạm để chia Catmull-Clark (trọng số nội suy theo)
-        mesh = bpy.data.meshes.new('h'); mesh.from_pydata(P[idx].tolist(), [], [tuple(remap[list(f)]) for f in F]); mesh.update()
+        mesh = bpy.data.meshes.new('h'); mesh.from_pydata(Pk.tolist(), [], Fl); mesh.update()
         ob = bpy.data.objects.new('h_' + who + s, mesh); bpy.context.scene.collection.objects.link(ob)
         vg = {n: ob.vertex_groups.new(name=n) for n in names}
         for j, i in enumerate(idx):
-            ws = {n: Wt.get(i, {}).get(n, 0) for n in names}; t = sum(ws.values())
+            ws = {n: Wt.get(int(i), {}).get(n, 0) for n in names} if i >= 0 else {}; t = sum(ws.values())
             if t < 1e-6: ws = {'wrist.' + s: 1.0}; t = 1.0
             for n, w in ws.items():
                 if w > 1e-4: vg[n].add([j], w / t, 'REPLACE')
