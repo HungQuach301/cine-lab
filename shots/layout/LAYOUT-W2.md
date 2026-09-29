@@ -22,8 +22,18 @@ Continuity: `continuity/canh-4.md`, `canh-5.md`, `canh-6.md`. Manifest Cổng 6:
 | **v5 N10/N12** | s45: cuối shot bà quay đầu 50° + vai 20° nhìn về miệng ngõ (phía quảng trường, phải khung, sâu) → dẫn tới POV s45c; đồng hồ đặt đúng như insert s46 (cùng hướng D46); máy tĩnh thật (tính từ tư thế gốc), lùi 1,75 → 2,0 m, tâm nhìn 0,12 m dưới đầu (trọn mũ). s44, s46, s45c không đổi. | RGB thẳng vs nối tiếp s45 (khung 3072, 3090): 0 px |
 Ảnh: `reports/m2/cong5/w2/v2_B1_…`, `v2_a_…`, `v2_b_…`, `v2_c_…`, `v3_…`, `v4_…`. Bảng dưới đã mang mốc hiện hành (v4).
 
+## 0b. Cổng 6 — DIỄN HOẠT, W2 vòng 1 (AUTHORSHIP "Cổng 6 — diễn hoạt", 29/09/2026)
+Báo cáo đầy đủ: `reports/m2/cong6/w2/BAO-CAO-W2-V1.md`. Mã: `shots_w2.js` (khối "CỔNG 6 · W2"), `order_w2.js`. Không sửa mã dùng chung, tài sản khoá, bible, checks.
+| Việc | Sửa | Số đo chính |
+|---|---|---|
+| **(a) PA1 s36–s39** | Máy phía phố (+x), tĩnh thật (tính 1 lần từ tư thế gốc). s36 MCU 85 mm **60°**; s37 MCU 50 mm **90°** (L11 trong khung); **s37b mới** CU 85 mm **90°** đẩy 1,10 → 0,95 m ("Goodnight"); s39 CU 85 mm **96°** (câu cuối bắt đầu trên hình Ida, cắt sang s38 ở 106,0 như cũ). Không còn cận chính diện ở cao trào. Tay trái Ida **nắm thân van** (tay MPFB, IK điểm) — van không còn lộ thành "mẩu tay". | tách s37 5,8 s → s37 3,4 s + s37b 2,4 s (giữ id s37: `DIALOGUE.L4 = T0.s37`); tổng phim 140,5 s không đổi |
+| **(b) s40** | Quyết định cố định: mặt chìm vào bóng tối **đúng 109,20**. Máy phía phố ngang lồng đèn; mặt nghiêng chỉ được ngọn lửa rọi; 108,75 → 109,20 bà cúi 34° + quay mặt 38° khỏi máy; kính tối đục ở 109,20. Tay trái nắm cần van (IK điểm), gạt 107,7–108,3. | xem báo cáo §2 |
+| **(c) mặt + khẩu hình** | 16 kênh + 6 viseme theo mốc đo trên tệp take (bao năng lượng −38 dB + onset + faster-whisper). Hai nhịp **cười buồn** (95,0–96,4; 98,1–98,8): khoé môi lên, má nâng ít, mày trong nâng, mí sụp, mắt nhìn xuống, cúi đầu, dừng. Chớp mắt theo nhịp; thở. L3 ở s31. | xem báo cáo §3 |
+| **(d) 12 shot cầm nắm** | IK tay MPFB: thanh thang (s35, s37w, s38, s40w), van/cần van (PA1, s40), vòng quai (s41, s42a, s42b), mặt kính (s42), bù chim (s25, s27, s28). Hàm `gripAt` (IK tới MỘT ĐIỂM) viết trong `shots_w2.js`: `reachGrip` dùng chung trượt dọc trục với vật ngắn (đo s40: 0,18 m). | bảng trước/sau ở báo cáo §4 |
+| **(e) đứng tự nhiên + continuity** | `settle`: dồn trọng tâm, lệch hông 3°, gối chùng, thở. G2 mũ s39 → s40 (0,35); G5 s44 tay áp ngực; G6/B1 s45 đồng hồ hạ ngang ngực + tay trái đỡ; G10 bà xuống thang trong s40w, **Cas giữ thang cạnh chân thang phía đông** (8,40; −4,62); G11 (s33 đã có 0–0,6 s đứng dậy từ Cổng 5 v3); G13 thang tựa vách ngõ ở s44/s45. | continuity canh-4/5/6 mục "Cổng 6" |
+
 ## 1. Tóm tắt
-- **Thời lượng:** 29 shot, 81,5 s (1956 khung), tổng phim 140,5 s (2:20,5). Không đổi id; mốc thoại L3 1:14,0, L4 1:33,0; P5 bật 1:39,2; gạt van 1:47,7; L11 tắt 1:49,2.
+- **Thời lượng:** 30 shot (Cổng 6: thêm s37b), 81,5 s (1956 khung), tổng phim 140,5 s (2:20,5). Không đổi id; mốc thoại L3 1:14,0, L4 1:33,0; P5 bật 1:39,2; gạt van 1:47,7; L11 tắt 1:49,2.
 - **V1–V4 đã sửa bằng dàn dựng, máy, bối cảnh và quang học thật** — không đổi tỷ lệ sheet, không thêm nguồn ngoài truyện, không bóng giả (mục 3).
 - **Địa lý cuối phố chốt một lần cho cả hai bộ cảnh** (bộ phố W1 và bộ tường chim W2): nhà kho chữ L. Tường chim là **hông nam** nhà kho, có hốc cửa bốc hàng; mặt cuối phố chắn cuối phố; phố rẽ trái, cong, dốc xuống. Sau B1: `casSpot` (14,3; −7,15) — Cas cách tường 0,95 m, cách L11 7,1 m; L11 cách tường 4,2 m → `casSpot` cho s24/s24c của W1.
 - **D2:** mũ #262a33 đo trên probe: dưới lửa **nâu xám**, dưới điện **đen xanh** (mục 4).
@@ -45,14 +55,15 @@ Máy: vị trí → điểm nhìn (m). Hệ toạ độ: cảnh 4 = hệ tườn
 | s33 | 1:20,0–1:25,0 | WS · 32 | bộ khoá (0,25; 1,35; 10,5) → +(−0,4; 0; −0,9) | dolly vào 0,9 m | **V2/N3 (v3):** đèn lồng (0,2; 3,0); Ida (−0,62; 1,45) ×1,94, bóng lệch trái 0,77 m; Cas (0,9; 0,8) ×1,36, bóng lệch phải 0,25 m; PCF 4. **C5 (v3):** ngoài vòm góc tối lạnh (P5 chưa bật). Ẩn cột gang cạnh vòm (N4). |
 | s34 | 1:25,0–1:27,0 | MS nghiêng · 26 | (1,35; 1,15; 4,0) → (−0,2; 1,35; 0,4) | tĩnh | **V2:** thấy cả nền: bóng nối chân mỗi người. Trái → phải: Ida, bóng Ida, Cas, bóng Cas. `BAY` v3; ánh sáng C5 (không thấy ngoài vòm). |
 | s35 | 1:27,0–1:31,0 | WS · 28 | (16,5; 1,7; 2,6) → (5,5; 2,3; −3,8) | tĩnh | **V3:** cuối phố có khối; Ida đi ra từ phía hốc cửa (hông nhà kho). Cas chạy 1,43 m/s tới `CAS_LAD`. |
-| s36 | 1:31,0–1:33,0 | MCU · 85 | `faceCam` 1,9 m | tĩnh | facelight `gas`, EK 1,3 (C2). |
-| s37 | 1:33,0–1:38,8 | CU · 85 | `faceCam` 1,10 → 0,97 m | đẩy vào rất chậm | như s36 (EK 1,3), máy lệch +10° (C2). |
+| s36 | 1:31,0–1:33,0 | MCU · 85 | 3/4 nghiêng 60° (phía phố), 1,9 m | tĩnh | **Cổng 6 PA1:** 3/4 60° (Cổng 5: gần chính diện). Tay trái đẩy vành rồi nắm van (1,55–2,0 s). facelight `gas`, EK 1,3. |
+| s37 | 1:33,0–1:36,4 | MCU · 50 | nghiêng 90° (phía phố), 1,35 m; L11 trong khung | tĩnh | **Cổng 6 PA1:** tách từ s37 cũ (CU chính diện 5,8 s). "That's the last one, then." + nhịp cười buồn. EK 2,2. |
+| s37b | 1:36,4–1:38,8 | CU · 85 | nghiêng 90°, 1,10 → 0,95 m | đẩy vào rất chậm | **Cổng 6 PA1 (shot mới):** "Goodnight, old street." + nhịp cười buồn. EK 2,0. |
 | s37w | 1:38,8–1:41,6 | WS · 28 | (17; 1,6; 1,2) → (8,8; 3,6; 0,6) | tĩnh | **V3:** hết tường trống: mặt cuối phố + phố rẽ ở giữa, hông + hốc cửa ở phải. |
-| s39 | 1:41,6–1:46,0 | CU · 85 | `faceCam` 0,95 m | tĩnh | **(c) v4:** đứng TRƯỚC s38 — "Just…" (1:42,33) bắt đầu trên mặt Ida. facelight `elec`; phơi sáng × 0,8 (C2). Ảnh 4 kiểm mù: khung toàn cục 2510 (khung 72). |
-| s38 | 1:46,0–1:47,4 | MS · 50 | (8,75; 2,45; −3,55) → (8,0; 0,95; −5,0) | tĩnh | **(c) v4:** đứng SAU s39 — Cas phản ứng từ giữa câu ("…who need it."). Cas ở `CAS_LAD` (8,0; −4,98): hai tay trên hai thanh thang. |
-| s40 | 1:47,4–1:50,0 | CU insert · 50 | theo cần van | tĩnh | Nền thấy **hốc cửa ngay sau L11**. `hat_back` 0,35 (liên tục từ s36). |
-| s40w | 1:50,0–1:52,0 | WS · 28 | như s37w | tĩnh | `hat_back` 0,35. |
-| s41 | 1:52,0–1:53,5 | WS · 28 | (12,8; 1,5; 0,6) → (8,2; 1,2; −4,6) | tĩnh | Nền: hông nhà kho + hốc cửa. `hat_back` 0,35. **C3:** Ida (7,9; −4,4) trái, Cas (8,9; −4,6) phải; Cas ôm đèn (`casHug`). |
+| s39 | 1:41,6–1:46,0 | CU · 85 | nghiêng 96° (phía phố), 0,95 m | tĩnh | **Cổng 6 PA1:** CU nghiêng (Cổng 5: chính diện). Câu cuối bắt đầu trên hình Ida ("Just…" 1:42,32); cúi nhìn xuống Cas. facelight `elec`, EK 0,8. |
+| s38 | 1:46,0–1:47,4 | MS · 50 | (8,75; 2,45; −3,55) → (8,36; 0,95; −4,60) | tĩnh | **Cổng 6:** Cas ở `CAS_LAD` mới (8,40; −4,62) cạnh chân thang phía đông, hai tay nắm thanh (IK). |
+| s40 | 1:47,4–1:50,0 | CU insert · 50 | phía phố, ngang lồng đèn | tĩnh | **Cổng 6 (cố định):** mặt chìm vào bóng tối đúng 1:49,20 (cúi + quay đi dưới vành mũ); tay trái nắm cần van (IK). `hat_back` 0,35. |
+| s40w | 1:50,0–1:52,0 | WS · 28 | như s37w | tĩnh | **Cổng 6 G10:** bà xuống thang trong shot; Cas buông thang khi bà chạm đất. |
+| s41 | 1:52,0–1:53,5 | WS · 28 | (12,8; 1,5; 0,6) → (8,2; 1,15; −4,9) | tĩnh | **Cổng 6:** Ida (7,95; −5,00) trái, Cas (8,50; −4,85) phải — cách 0,57 m; trao đèn có nắm quai (IK) và đổi tay. |
 | s42a | 1:53,5–1:55,5 | MS · 45 | (10,4; 1,0; −0,6) → (7,6; 0,9; −3,3) | tĩnh | Hốc cửa ở ngay nền (Cas nhìn về nó, trái khung). **C3:** Ida lùi ra (6,8; −2,5), trái khung. **N2:** Cas ôm đèn sát ngực. |
 | s42b | 1:55,5–1:57,5 | WS · 32 | (0,9; 1,25; 8,2) → (0,3; 1,1; 2,0) | tĩnh | Cas ôm đèn (`casHug`, như s41/s42a) đi vào `CAS_BAY` (−0,35; 2,55), quay ra vòm; **N7 (v3):** 1,45–2,0 s ngồi xổm, đặt đèn xuống nền (−0,38; 3,10) — tư thế cuối = tư thế mở s42. |
 | s42 | 1:57,5–2:00,5 | MS · 40 (v2: 32) | (0,55; 0,66; 0,45) → (−0,15; 0,75; 4,5) | tĩnh | **V1:** Cas quay ra vòm, máy sau lưng lệch phải; Ida trái (x +1,25 miệng vòm), Cas phải. Ngoài vòm là phố trắng (bộ khoá cũ: nền đen). |

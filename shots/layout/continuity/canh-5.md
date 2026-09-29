@@ -2,6 +2,7 @@
 
 Gói W2, Cổng 5, luật O1. Nguồn số: `shots_w2.js` (`BAY`, `CAS_LAD`, `CAS_BAY`, `casHug`, `placeBayLantern`), `sets2.js` (`addBayStreet`), `sets_end.js` (`END`).
 Bản v3 (rà continuity v2 — C5, N2, N3, N7, N9): mốc thời gian theo bảng thời gian hiện hành (s33 5,0 s; tổng phim 140,5 s); chỉ ghi những gì có trên hình. Ảnh 4 kiểm mù: khung toàn cục **2510** (khung 72 của s39, 104,58 s — chữ "dark").
+**Bản Cổng 6 W2 v1 (29/09/2026 — AUTHORSHIP "Cổng 6 — diễn hoạt"):** PA1 "nghiêng dưới ngọn lửa" cho s36–s39 (tách s37 → **s37 + s37b**, giữ id s37 cho phần đầu); s40 mặt Ida chìm vào bóng tối đúng 109,20; Cas giữ thang **cạnh chân thang phía đông** (G10); bà xuống thang trong s40w; trao đèn s41 ở khoảng cách 0,57 m; tay MPFB nắm van, cần van, thanh thang, vòng quai bằng IK. Chi tiết: mục "Cổng 6" cuối tệp.
 Bản v4 (Cổng 5 v2 — quyết định chủ dự án @e850c0f): **B-i** mọi shot là hàm thuần theo t (xem LAYOUT-W2 §0); **(c)** s39 (Ida) đứng TRƯỚC s38 (Cas) — câu "Just… keep a little dark for the ones who need it." bắt đầu trên mặt Ida; **(e)** người/bóng hốc vòm không sửa ở layout (Cổng 7).
 
 ## Quyết định đang áp dụng
@@ -25,7 +26,7 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 |---|---|---|---|
 | s33, s34, s35 | 0 | 0 | |
 | s36 | 0 | 0,35 | tay trái đẩy vành: 0–0,35 s đưa tay, 0,35–1,05 s đẩy, 1,6 s hạ tay |
-| s37, s37w, s39, s38, s40, s40w | 0,35 | 0,35 | |
+| s37, s37b, s37w, s39, s38, s40, s40w | 0,35 | 0,35 | Cổng 6 G2: s40 giữ 0,35 như s39 (không còn "mũ thẳng") |
 | s41, s42a | 0,35 | 0,35 | |
 | s42b | — | — | Ida không có trong khung |
 | s42 | 0,35 | **0** | 1,9–2,2 s tay trái lên vành; **2,2–2,8 s kéo vành xuống (0,35 → 0)**; 2,8–3,0 s hạ tay, quay người +0,5 rad (rời khỏi vòm) |
@@ -35,8 +36,9 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 | Shot | Chủ | Cách cầm / vị trí |
 |---|---|---|
 | s33, s34 | — | trên nền đá hốc cửa, `BAY.lan` (0,2; 3,0) |
-| s35 → s40w | Ida | móc **hông trái**, cháy (nhặt lại khi rời hốc — ngoài hình, giữa s34 và s35) |
-| s41 | Ida → Cas | Ida tay phải (0 s) → chìa ra (0,5 s); Cas đón bằng hai tay, **ôm sát ngực** (`casHug`, 0,7 s) |
+| s35 → s40w (1,8 s) | Ida | móc **hông trái**, cháy (nhặt lại khi rời hốc — ngoài hình, giữa s34 và s35) |
+| s40w 1,8–2,0 s | Ida | tháo khỏi móc, sang **tay phải** (Cổng 6 — nối s41) |
+| s41 | Ida → Cas | Cổng 6: Ida tay phải (0 s) → chìa ngắn (0,45 s, khuỷu gập); Cas nắm hai bên vòng quai (IK, 0,35–0,75 s); Ida buông 0,85 s; Cas kéo về ôm sát ngực (1,35 s) |
 | s42a | Cas | `casHug`: hai khuỷu gập sát, hai cổ tay trước ngực, đèn áp bụng |
 | s42b | Cas | `casHug` khi đi (0–1,45 s); 1,6–2,0 s hạ đèn xuống nền trước mặt (−0,38; 3,10) |
 | s42 | Cas | trên nền đá trước mặt Cas (−0,38; 3,10) |
@@ -45,6 +47,12 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 | Sự kiện | Mốc |
 |---|---|
 | L4 bắt đầu (đầu s37) | 93,00 (1:33,0) |
+| Cổng 6 — "That's the last one, then." (đo trên tệp take: bao năng lượng −38 dB + onset) | 93,09–95,01 — s37 (MCU nghiêng) |
+| Cổng 6 — nhịp cười buồn 1 (cười, mắt chùng, dừng) | 95,0–96,4 — s37 |
+| Cắt s37 → s37b | 96,40 |
+| Cổng 6 — "Goodnight, old street." | 96,55–98,06 — s37b (CU nghiêng, đẩy chậm) |
+| Cổng 6 — nhịp cười buồn 2 | 98,1–98,8 — s37b |
+| "You'll be brighter now." | 99,54–100,97 — s37w (ngoài hình mặt) |
 | "Just…" (vế cuối L4) — lời thật từ L4 + 9,33 s (P); whisper: "Just" 9,68 | 102,33 (1:42,33) — trên **s39 (Ida)** |
 | "keep a little dark" (whisper 10,36–12,08) | 103,36–105,08 — s39 |
 | "for the ones" (whisper 12,08–13,00) | 105,08–106,00 — s39 |
@@ -135,3 +143,26 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 | Đèn lồng | Của Cas (đặt trên nền hốc cửa) |
 | Ida | Không đèn lồng; thang còn tựa L11 (cảnh 6: bà vác thang — s47) |
 | Mũ Ida | Kéo lại về `hat_back` 0 ở cuối s42 (1:59,70 → 2:00,30) — cảnh 6 giữ 0 |
+
+
+## Cổng 6 · W2 v1 — diễn hoạt (29/09/2026)
+**Trục 180°:** mọi máy PA1 (s36, s37, s37b, s39) và s40 ở phía **+x (phía phố)**, cùng phía máy s37w/s38/s40w/s41 → Ida nhìn sang **TRÁI khung** ở cả CU lẫn WS (Cổng 5: CU chính diện, bà nhìn phải khung — ngược hướng màn hình với s37w).
+
+| Shot | Thời gian | Cỡ · mm | Máy (so với hướng MẶT bà) | Diễn / tay |
+|---|---|---|---|---|
+| s36 | 91,0–93,0 | MCU · 85 | 3/4 nghiêng **60°**, 1,9 m, tĩnh | đẩy vành mũ (0–1,05 s); 1,55–2,0 s tay trái hạ xuống **nắm thân van** (IK trộn); hít vào trước lời |
+| s37 | 93,0–96,4 | MCU · 50 | nghiêng **90°**, 1,35 m, tĩnh; ngọn L11 trong khung | tay trái nắm van; "That's the last one, then." (khẩu hình); **95,0–96,4 cười buồn + mắt chùng + dừng** (chớp chậm 95,75) |
+| s37b | 96,4–98,8 | CU · 85 | nghiêng **90°**, đẩy 1,10 → 0,95 m | ngẩng mắt lên phố; "Goodnight, old street."; **98,1–98,8 cười buồn + mắt chùng + dừng** |
+| s37w | 98,8–101,6 | WS · 28 | như Cổng 5 | Ida tay trái nắm van; Cas cạnh chân thang, hai tay nắm thanh |
+| s39 | 101,6–106,0 | CU · 85 | nghiêng **96°**, 0,95 m, tĩnh | nghẹn, cúi 12° nhìn xuống Cas; "Just…" 102,32; nuốt 103,2–103,6; "keep a little dark for the ones" 103,86–106,0 |
+| s38 | 106,0–107,4 | MS · 50 | (8,75; 2,45; −3,55) → (8,36; 0,95; −4,60) | Cas nắm thanh (IK), ngửa, chớp 106,62, mày trong nâng dần |
+| s40 | 107,4–110,0 | CU insert · 50 | phía phố, ngang lồng đèn | tay trái nắm **cần van** (IK điểm) gạt 107,7–108,3; 108,75 → **109,20** bà cúi 34° + quay mặt 38° khỏi máy — **mặt chìm dưới vành mũ đúng lúc lửa tắt**; kính tối đục |
+| s40w | 110,0–112,0 | WS · 28 | như s37w | **G10:** 0–0,35 s tay rời van; 0,35–1,55 s xuống thang; 1,55–2,0 s chạm đất, quay về Cas, đèn sang tay phải. Cas buông thang 1,55–1,9 s |
+| s41 | 112,0–113,5 | WS · 28 | nhìn (8,2; 1,15; −4,9) | Ida (7,95; −5,00), Cas (8,50; −4,85) — **cách 0,57 m** (Cổng 5: 1,02 m); trao như bảng đèn lồng |
+| s42a | 113,5–115,5 | MS · 45 | như Cổng 5 | Ida **nhìn xuống Cas**: cổ 24° + thân 4° + nhãn cầu 0,12 rad |
+| s42b | 115,5–117,5 | WS · 32 | như Cổng 5 | hai tay nắm vòng quai (IK) tới 1,75 s, buông tới 2,0 s |
+| s42 | 117,5–120,5 | MS · 40 | như Cổng 5 | mỗi nhịp đếm lòng tay Cas về hai mặt kính (4 cm, trộn 0,8) |
+
+**Vị trí Cas giữ thang (G10):** `CAS_LAD` (8,40; −4,62), hướng −0,6 rad, cạnh chân thang phía **đông**; tay phải nắm thanh đông ở 1,00 m, tay trái ở 0,74 m. Lối trèo (mặt dưới thang, −z) trống → bà xuống thang không xuyên qua cậu. Áp dụng s35 (từ 3,05 s), s36–s40w.
+**Ida trên thang:** gốc (8,0; 1,55; −4,38) (Cổng 5: z −4,48) — nhích sát cột 0,1 m để tay trái tới van (vai → thân van ≈ 0,5 m).
+**Mũ (G2):** hat_back 0,35 liên tục s36 (sau 1,05 s) → s42 (2,2 s).
