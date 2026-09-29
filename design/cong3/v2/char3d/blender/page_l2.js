@@ -39,6 +39,7 @@ window.setup = async (c) => {
   const mod = await import('/cong3/v2/char3d/cast3d.js');
   if ((c.charOpts?.idaStyle ?? 'bl') === 'bl') await mod.preloadIdaBL(c.glb ? new URL(c.glb, location.href).href : undefined);   // "glb": thử bản glb khác (đường dẫn tính từ design/)
   const charOpts = { idaStyle: 'bl', ...(c.charOpts || {}) };
+  if (c.casStyle) { globalThis.CINE_CAS_STYLE = c.casStyle; if (c.casStyle === 'bl') await mod.preloadCasBL(c.casGlb ? new URL(c.casGlb, location.href).href : undefined); }   // Cổng 6: Cas 'bl'
   const [ida, cas] = await Promise.all(['/cong3/model-sheet/ida.json', '/cong3/model-sheet/cas.json'].map((p) => fetch(p).then((r) => r.json())));
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;
   const uniforms = { gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
@@ -73,7 +74,7 @@ async function exportIda(cam) {
   const base = '/cong3/shared/node_modules/three/', threeURL = new URL(base + 'build/three.module.js', location.href).href;
   const src = (await (await fetch(base + 'examples/jsm/exporters/GLTFExporter.js')).text()).replace(/from\s*'three'/g, `from '${threeURL}'`);
   const { GLTFExporter } = await import(URL.createObjectURL(new Blob([src], { type: 'text/javascript' })));
-  const ida = cur.named.ida.root; ida.updateMatrixWorld(true);
+  const who = cur.named[cfg.exportWho || 'ida'], ida = who.root; ida.updateMatrixWorld(true);   // exportWho: 'ida' | 'cas'
   const grp = new THREE.Group(); const swaps = [];
   ida.traverse((o) => { if (!o.isMesh || !o.visible) return;
     const g = o.geometry.clone(); g.applyMatrix4(o.matrixWorld); for (const k of Object.keys(g.attributes)) if (!['position', 'normal', 'color', 'uv'].includes(k)) g.deleteAttribute(k);
@@ -89,7 +90,7 @@ async function exportIda(cam) {
     lights.push({ type: o.type, pos: p.toArray(), color: o.color.toArray(), intensity: o.intensity, distance: o.distance ?? 0, decay: o.decay ?? 2, face: !!o.userData.faceLight,
       ground: o.groundColor ? o.groundColor.toArray() : null, castShadow: !!o.castShadow,
       dir: o.isDirectionalLight || o.isSpotLight ? o.target.getWorldPosition(new THREE.Vector3()).sub(p).normalize().toArray() : null, angle: o.angle ?? null }); } });
-  return { glb_b64: b64, head: { matrixWorld: cur.named.ida.joints.head.matrixWorld.toArray(), H: cur.named.ida.H }, cam: { matrixWorld: cam.matrixWorld.toArray(), fov: cam.fov, aspect: cam.aspect }, lights, bg: cur.scene.background?.isColor ? cur.scene.background.toArray() : null };
+  return { glb_b64: b64, head: { matrixWorld: who.joints.head.matrixWorld.toArray(), H: who.H }, cam: { matrixWorld: cam.matrixWorld.toArray(), fov: cam.fov, aspect: cam.aspect }, lights, bg: cur.scene.background?.isColor ? cur.scene.background.toArray() : null };
 }
 
 window.renderFrame = async (name, samples) => {
