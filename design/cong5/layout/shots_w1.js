@@ -468,7 +468,7 @@ S1({ id: 's11', scene: 2, size: 'MS', angle: 'ngang, 3/4 trước-trái', mm: 50
     const wf = whiteAt(64), G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.2,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.3 * wf(T) }), f); ida.place(breathe(poseAt([[0, p.restLadder], [0.3, p.restLadder], [1.2, p.turnSquare]], t), T, 3.6), LAMP_X(7), ON_Z, 0);
-        topHands(ida, G, { R: 1, L: 1, LB: ease(clamp01((t - 0.35) / 0.8)) }); } };   // Cổng 6: phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 15–19 cm)
+        topHands(ida, G, { R: 1, L: 1, LB: ease(clamp01((t - 0.35) / 0.8)) }); } };   // Cổng 6: phải nắm thanh móc, trái nắm thân cột rồi (0,35–1,15 s, khi quay vai) chuyển sang nhánh trái thanh móc — thân cột ngoài tầm với 3 cm khi thân quay (trước: tay lơ lửng cách 15–19 cm)
   } });
 
 S1({ id: 's12', scene: 2, size: 'WS (qua vai)', angle: 'cao ngang vai Ida, nhìn lên phố', mm: 35, move: 'tĩnh',
@@ -480,7 +480,7 @@ S1({ id: 's12', scene: 2, size: 'WS (qua vai)', angle: 'cao ngang vai Ida, nhìn
     const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35); cam.position.set(62.3, 3.4, -5.0); cam.lookAt(100, 2.6, -1.0);
     const wf = whiteAt(85), G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.2, wf),
-      update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.5 * wf(T) }), f); ida.place(breathe(p.turnSquare, T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, LB: 1 }); } };   // Cổng 6: thở; hai tay nắm cột
+      update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.5 * wf(T) }), f); ida.place(breathe(p.turnSquare, T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, LB: 1 }); } };   // Cổng 6: thở; hai tay nắm hai nhánh thanh móc
   } });
 
 S1({ id: 's13', scene: 2, size: 'MS', angle: 'thấp nhẹ, 3/4 trước-phải', mm: 50, move: 'tĩnh',
@@ -493,7 +493,7 @@ S1({ id: 's13', scene: 2, size: 'MS', angle: 'thấp nhẹ, 3/4 trước-phải'
     const wf = (T) => switchOn(T, REACH_IDA), G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.1, wf),
       update(t, T, f) { st.setState({ ...stdState(T, { whiteFill: (T) => 1.2 * wf(T) }), gasLight: (i) => (i === 7 ? 1 - 0.85 * clamp01((T - REACH_IDA) / 0.5) : 1) }, f);   // W1: ánh L7 chìm trong trắng → bóng nhạt hết trong 0,5 s (luật 3.3)
-        ida.place(breathe(poseAt([[0, p.turnSquare], [0.5, p.turnSquare], [1.3, p.lookDown]], t), T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, L: 1, LB: 1 - ease(clamp01((t - 0.5) / 0.8)) }); } };   // Cổng 6: hai tay nắm cột
+        ida.place(breathe(poseAt([[0, p.turnSquare], [0.5, p.turnSquare], [1.3, p.lookDown]], t), T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, L: 1, LB: 1 - ease(clamp01((t - 0.5) / 0.8)) }); } };   // Cổng 6: phải nắm thanh móc; trái từ nhánh thanh móc về thân cột khi cúi (0,5–1,3 s)
   } });
 
 S1({ id: 's14', scene: 2, size: 'MS (chúc)', angle: 'cao, chúc xuống đá lát', mm: 28, move: 'tĩnh',
