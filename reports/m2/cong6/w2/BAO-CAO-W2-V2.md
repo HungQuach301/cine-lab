@@ -44,18 +44,35 @@ Mục tiêu 0,015 m (áp sát); đạt 2,6–3,4 cm — tay "hơ" sát kính. Kh
 ## 5. Không làm (theo lệnh)
 Đ4 (nắp đồng hồ — chủ dự án chọn gập ngoài hình), Đ5 (nước mắt); việc Cổng 7: s40 cảnh không tối khi đèn tắt, đèn lồng không hắt sáng quanh, tóc/búi như mũ len, da "đất sét". Vòng tối đồng tâm s42b → đề xuất Cổng 7.
 
-## 6. Render hiện hành (`/var/tmp/cine-out/W2/`, 960×540, không tiếng — mp4 lẻ mới hơn thắng)
-Xem mục 9 (điền sau khi render xong).
+## 6. Render hiện hành (`/var/tmp/cine-out/W2/`, 960×540, không tiếng; `timing_*.json` cạnh mỗi mp4)
+| Shot | MP4 hiện hành |
+|---|---|
+| s25–s32 | `video_s25-s26-s27-s28-s29-s30-s31-s32.mp4` (v2, 30/09 02:00) |
+| s33, s34 | `video_s33-s34.mp4` (v2) |
+| s35 | `video_s33-s34-s35-s37w-s38-s40w.mp4` (v1 — không đổi ở v2) |
+| s36, s37, s37b, s37w, s40 | `video_s36-s37-s37b-s37w-s39-s40.mp4` (v2; **s39 trong tệp này cũ**) |
+| s39, s38, s42 | `video_s39-s38-s42.mp4` cho s39, s38 (v2); **s42 → `video_s42.mp4`** (v2, cúi theo nhịp) |
+| s40w, s41 | `video_s40w-s41.mp4` (v2) |
+| s42a | `video_s42a-s42b.mp4` (v2; **s42b trong tệp này cũ**) |
+| s42b | `video_s42b.mp4` (v2, tắt quầng khi ôm đèn) |
+| s43, s44, s46, s45c, s48 | `video_s43-s44-s45-s46-s45c-s47-s48.mp4` (v1 — s46 lấy bản `video_s45-s46.mp4` v1; s44/s43/s45c/s48 không đổi) |
+| s45, s47 | `video_s45-s47.mp4` (v2) |
+Các mp4 cũ hơn (`video_s36-s37-s37b-s39-s40.mp4`, `video_s39.mp4`, `video_s40.mp4`, `video_s41-s42a-s42b-s42.mp4`, `video_s42a.mp4`) là bản v1, bị thay.
 
 ## 7. Bảng khung 0,5 s (vòng 2)
-`reports/m2/cong6/w2/bang-khung_{s32,s34,s37,s37b,s38,s39,s40,s40w,s41,s42,s42a,s42b,s45}_v2.jpg`.
+`reports/m2/cong6/w2/bang-khung_{s32,s34,s37,s37b,s38,s39,s40,s40w,s41,s42,s42a,s42b,s45}_v2.jpg` (13 tệp, mỗi tệp < 200 KB). s40: khung 2619/2620/2621 kiểm riêng trên mp4 (mục 2, N1).
 
 ## 8. Rủi ro
 - s39 góc dưới-trái còn đầu ngón tay (101,6–103,6 s) khi bà cúi.
 - s34 mặt bà vẫn nhỏ (WS 26 mm, ≈ 40 px ở 1920): hết "mảng trắng" nhưng chưa chắc hết "mặt nạ" ở kiểm mù.
 - s42 dáng cúi 56° nhìn từ sau lưng có thể đọc là "khom" hơn là "hơ tay".
-- Render chậm do IK (s41 ≈ 20 s/khung).
+- Render chậm do IK (s41 ≈ 24 s/khung, s42a ≈ 33 s/khung).
+- s45: đồng hồ trong lòng tay nhỏ (≈ 10 px ở 960), tay đọc là tay nhưng mặt số chỉ thấy ở insert s46.
+- s42b: vệt tối lớn trên vách hốc là bóng của chính Cas từ đèn lồng áp ngực (nguồn thật); vòng tròn nhỏ trên tường ngoài vòm là chi tiết bộ cảnh (ngoài phạm vi).
 - Container khởi động lại hai lần trong vòng 2 (render nhóm bị ngắt) — đã render lại.
 
-## 9. Token, thời gian
-(điền khi nộp)
+## 9. Token, thời gian, lệch 0 px
+- Thời gian thật vòng 2: 29/09 22:26 → 30/09 ≈ 02:10 UTC (≈ 3,7 giờ; gồm container khởi động lại lần 2 ≈ 23:35 và các lần render lại).
+- Token: bộ đếm công cụ ≈ 135 nghìn cho vòng 2 (ngữ cảnh tích luỹ cả W2 ≈ 635 nghìn khi nộp; hạn vòng 2 ≈ 700 nghìn, tổng W2 ≤ 1,5 triệu).
+- Lệch 0 px ngoài phạm vi (s02, s24c) sau mọi sửa v2: **6 ảnh; lệch 0** (`/var/tmp/cine-out/W2/lech0/sau3`).
+- Chỉ số sát ngưỡng: không chạy luật (P chạy). Tổng phim 140,5 s (đúng mốc).
