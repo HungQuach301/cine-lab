@@ -76,3 +76,6 @@ Chuỗi người xem thấy: 9:53 → 9:53 … 10:00 → 10:00 — không lần 
 - **B1 + G6 — s45 (chỉ s45) hướng mặt, hướng đầu, đồng hồ:** đồng hồ hạ xuống ngang ngực (tư thế `watchLow`: vai phải −22°, khuỷu −84°; Cổng 5: tay phải lên cằm → che nửa mặt 0–1,0 s, đồng hồ khuất); lòng tay trái **đỡ dưới** đồng hồ (IK điểm; Cổng 5: tay trái tách, giơ ngang vai). 0–1,0 s bà cúi (cổ 30°), mắt nhìn vào mặt số; 0,85 s mắt đi trước sang phải; 1,0–1,8 s đầu + vai quay về miệng ngõ (như v5), chớp 1,12 s. Máy tĩnh như v5.
 - **s46:** GIỮ khung và tư thế đã duyệt (Cổng 5 v4, A2 c). Thử v1 với `watchLow` + tay trái đỡ: lòng tay chắn trọn máy insert 0,32 m (khung tối) → bỏ.
 - **Nắp đồng hồ ("gập đồng hồ", bible):** CHƯA dựng — mô hình `buildWatch` nằm trong `sets.js` (ngoài phạm vi W2). Đề xuất ở báo cáo W2 v1.
+
+- **v2 (N10/A4/A5) s45:** tay trái THẢ LỎNG bên hông (v1 IK đỡ đồng hồ → hai tay che kín, ngón xoắn); đồng hồ nằm trong lòng tay phải, mặt số ngửa về mắt bà, thấy từ đầu shot; quay đầu 0,9–1,95 s, cổ 42°, thân 18° (v1 1,0–1,8 s, 50°).
+- **v2 (N9) s47:** thang vẫn nghiêng 28° theo sheet, xoay chéo ra ngoài vai phải 0,5 rad → từ sau lưng đọc là thang vác chéo bên phải bà, không cắt qua mũ/gáy.

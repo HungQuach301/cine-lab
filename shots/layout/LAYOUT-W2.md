@@ -32,6 +32,8 @@ Báo cáo đầy đủ: `reports/m2/cong6/w2/BAO-CAO-W2-V1.md`. Mã: `shots_w2.j
 | **(d) 12 shot cầm nắm** | IK tay MPFB: thanh thang (s35, s37w, s38, s40w), van/cần van (PA1, s40), vòng quai (s41, s42a, s42b), mặt kính (s42), bù chim (s25, s27, s28). Hàm `gripAt` (IK tới MỘT ĐIỂM) viết trong `shots_w2.js`: `reachGrip` dùng chung trượt dọc trục với vật ngắn (đo s40: 0,18 m). | bảng trước/sau ở báo cáo §4 |
 | **(e) đứng tự nhiên + continuity** | `settle`: dồn trọng tâm, lệch hông 3°, gối chùng, thở. G2 mũ s39 → s40 (0,35); G5 s44 tay áp ngực; G6/B1 s45 đồng hồ hạ ngang ngực + tay trái đỡ; G10 bà xuống thang trong s40w, **Cas giữ thang cạnh chân thang phía đông** (8,40; −4,62); G11 (s33 đã có 0–0,6 s đứng dậy từ Cổng 5 v3); G13 thang tựa vách ngõ ở s44/s45. | continuity canh-4/5/6 mục "Cổng 6" |
 
+**W2 vòng 2 (sau kiểm mù + continuity layout-v17):** báo cáo `reports/m2/cong6/w2/BAO-CAO-W2-V2.md`. s37 MCU 60 mm 1,30 m (EK 2,8), cười buồn rõ hơn; s39 khẩu hình ×1,15; s40 mặt khuất ở khung lửa tắt (2621); s40w xuống từng bậc, nối s41; s41 đèn không co; s42a/s41 chuyển động đọc được; s42b có Ida ở miệng vòm; s33 đứng dậy thấy được; s32/s34 hướng đầu; s45 đồng hồ trong lòng tay, tay trái thả lỏng; s47 thang chéo vai.
+
 ## 1. Tóm tắt
 - **Thời lượng:** 30 shot (Cổng 6: thêm s37b), 81,5 s (1956 khung), tổng phim 140,5 s (2:20,5). Không đổi id; mốc thoại L3 1:14,0, L4 1:33,0; P5 bật 1:39,2; gạt van 1:47,7; L11 tắt 1:49,2.
 - **V1–V4 đã sửa bằng dàn dựng, máy, bối cảnh và quang học thật** — không đổi tỷ lệ sheet, không thêm nguồn ngoài truyện, không bóng giả (mục 3).
