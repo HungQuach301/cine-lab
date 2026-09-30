@@ -8,7 +8,7 @@ Nhánh P: `ccr-af7a498d-ss3snk`. Gói W2: `cong6-w2-v1` @3dc9148 → `cong6-w2-v
 - **Clip W2 có tiếng tạm:** `screening/w2-cong6-v18.mp4` (81,5 s, 28,5 MB). **Chủ dự án đã tự xem và chấm (30/09): "còn lại okay", kể cả nhịp cười buồn**; một lỗi cột đèn điện 1:03–1:05 → lượt sửa nhỏ W2-v3 (mục 7).
 - **Kiểm mù 10 dải + 2 đối chứng:** vòng 1 TRƯỢT (2/10 "mặt nạ" s32, s34, lặp cùng chỗ; s37 nhịp 1 thiếu "cười") → vòng 2 **TRƯỢT 2/10** (s39 "con rối", s41 "đồ chơi"; không lặp cùng chỗ; s37 nhịp 1 có "nụ cười buồn", sát biên). Nhiễu nền đối chứng cộng dồn **4/24 = 16,7 %**. Theo chỉ thị: **không làm vòng 3**.
 - **Continuity:** vòng 1: chặn 1 (N1 s40), nên sửa 9 → vòng 2: N1 **đạt**; lỗi mới **chặn 1 (M5 s42b Cas trong suốt — nguồn ở bộ hốc, ngoài phạm vi W2)**, nên sửa 5 (M1–M4, M6), còn mở N3, N7, N9 (một phần).
-- **Luật v1.5 (layout-v18):** xem mục 2 (điền khi pipeline xong).
+- **Luật v1.5 (layout-v18):** P0 ĐẠT; C3 (Ida và Cas), H1b, G3b TRƯỢT như trước W2 (mục 2). G3b CV 0,19 sát ngưỡng 0,2.
 - **C3 lượt Cas:** P phát hiện mức trượt lớn ở s42a/s42b **là hình sai thật** (cánh tay trên bị khối áo len nuốt khi ôm đèn), không phải co ngắn phối cảnh như W2 báo → **không chuyển K**; trình chủ dự án (mục 5).
 
 ## 1. Việc P đã làm trước W2 (29/09)
@@ -19,8 +19,18 @@ Nhánh P: `ccr-af7a498d-ss3snk`. Gói W2: `cong6-w2-v1` @3dc9148 → `cong6-w2-v
 | C3 cả hai nhân vật | `export_c3.js --who ida|cas --offset`; `scripts/p/c3_hai_nv.sh` (luật đọc MỘT nhân vật mỗi thư mục parts → lượt Cas trên `<X>.cas.mp4` liên kết cứng). Mặt nạ Ida sau sửa khớp v16 từng điểm ảnh. **Khiếu nại "C3 một nhân vật" chờ K** (`checks-appeal.md`). Mốc v16 lượt Cas: 21 shot có Cas, đo được 141/565, lệch lớn nhất 19,11 %, 7 shot cần người xem |
 | Kiểm mù dạng dải | `kiem_mu.py dai / doi-chung-dai / chuan-bi-dai / chon`; đối chứng lấy trọn một shot (Ellie 104,0–106,3 s; Victoria 330,9–332,08 s) |
 
-## 2. Luật checks v1.5
-*(điền sau khi pipeline v18 xong)*
+## 2. Luật checks v1.5 (LOCK 8d55b6ad… KHỚP; P không sửa checks/)
+| Luật | v16 (trước W2) | v17 (W2 v1) | **v18 (W2 v2)** |
+|---|---|---|---|
+| N1, N2, P1, G4, G3, M3, J1, J1b, H1, O3 | ĐẠT | ĐẠT | **ĐẠT** |
+| **P0** | ĐẠT | ĐẠT | **ĐẠT** (0 vùng chữ không matte) |
+| G3b | TRƯỢT (CV 0,216) | TRƯỢT (CV 0,191) | **TRƯỢT** — σ nhỏ nhất 0,724 (≥ 0,8), σ lớn/nhỏ 2,92 (≤ 1,3), tương quan 0,89 (≤ 0,5); **CV 0,19 (ngưỡng ≤ 0,2): sát ngưỡng −5 %** |
+| H1b | TRƯỢT (3 track không đo được) | TRƯỢT (4) | **TRƯỢT** (track tệ nhất 0 %; 6 track không đo được) |
+| **C3 lượt Ida** | 5 đạt · 54 trượt chắc · 46 KCM | 8 · 52 · 44 | **6 · 58 · 48**; 21 shot cần người xem; lệch lớn nhất s19 (W1) cánh tay trên −30,2 %, s32 thân +27 % (bà ngẩng nhìn chim, v2). Đổi v17 → v18: s42a ĐẠT → TRƯỢT, s42b — → TRƯỢT, s41 TRƯỢT → KCM, s34 — → KCM |
+| **C3 lượt Cas** (`c3_hai_nv.sh`, khiếu nại chờ K) | đo được 141/565; lệch lớn nhất 19,11 %; 7 shot cần người xem | 34 trượt chắc; 5 đạt; 99 KCM; 9 shot cần người xem | **34 trượt chắc · 5 đạt · 97 KCM; 136/565 đo được; 9 shot cần người xem**; trượt lớn nhất: s42a cánh tay trên −38,6 %, s42b −30,3 %, s35 đùi −21,2 % (xem mục 5: hình sai thật) |
+| Kiểm toán C3 (Ida, Cas) | ĐẠT | ĐẠT | **ĐẠT** |
+Chỉ số trong ±5 % quanh ngưỡng (v18): C3 hệ số mặt nạ 4 (ngưỡng ≤ 4); C3 hệ số khi đầu nhỏ 4 (≥ 3,98); **G3b CV 0,19 (≤ 0,2)**.
+Thời gian pipeline v18 (máy dùng chung, 4 vCPU): mặt nạ C3 Ida 1 834 s, bóng 935 s, luật 490 s, C3 Cas 1 392 s + luật 220 s. Report: `reports/checks/layout-v18/`, `reports/checks/layout-v18-c3-cas/`.
 
 ## 3. Kiểm mù (nguyên văn: `reports/m2/cong6/w2/kiem-mu/NGUYEN-VAN.md` vòng 1, `kiem-mu-v2/NGUYEN-VAN.md` vòng 2 — gồm cả đối chứng)
 | | Vòng 1 (v17) | Vòng 2 (v18) |
