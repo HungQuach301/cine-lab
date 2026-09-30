@@ -654,7 +654,7 @@ S1({ id: 's24c', scene: 3, size: 'MS', angle: 'ngang mắt Cas, 3/4 trước-ph�
     const CL = casLeanSpot(st), [cx, cz] = [CL.x, CL.z], dbg = ctx.dbg || {};   // Cổng 6: chỗ dựa tường (cùng x casSpot, cách tường CAS_LEAN.d)
     // A2 (B1): máy 3/4 trước Cas, lệch −35° khỏi hướng nhìn của cậu về L11, cách 2,1 m (tính theo casSpot — hướng tới L11 đổi khi Cas dời).
     const gx = LAMP_X(11) - cx, gz = ON_Z - cz, gl = Math.hypot(gx, gz), ga = -35 * Math.PI / 180, dx = (gx * Math.cos(ga) - gz * Math.sin(ga)) / gl, dz = (gx * Math.sin(ga) + gz * Math.cos(ga)) / gl;
-    const cam = camMM(50); cam.position.set(cx + 2.1 * dx, 1.05, cz + 2.1 * dz); cam.lookAt(cx, 0.95, cz);   // giai đoạn C: 3/4 trước Cas (lệch 35° khỏi hướng nhìn về L11) — Cas nhìn sang TRÁI khung (về Ida), tường chim sau lưng
+    const cam = camMM(50); cam.position.set(cx + 2.1 * dx, 1.05, cz + 2.1 * dz); cam.lookAt(cx, 0.95, cz); cam.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), (dbg.pan ?? 9) * Math.PI / 180);   // W1-v2: lia 9° → Cas lệch phải, khoảng trống phía cậu nhìn (trái)   // giai đoạn C: 3/4 trước Cas (lệch 35° khỏi hướng nhìn về L11) — Cas nhìn sang TRÁI khung (về Ida), tường chim sau lưng
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: 4.5,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.05 }), f); ida.place(p.warmLadder, LAMP_X(11), ON_Z, 0);
         cas.place(casLeanPose(p, T, [-9, CL.neckY + valAt([[0, -10], [0.6, -10], [1.3, 6]], t), 5]), cx, cz, CL.yaw);
