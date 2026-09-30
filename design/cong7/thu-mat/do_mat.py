@@ -73,3 +73,11 @@ if __name__ == '__main__':
     if c == 'do': print(json.dumps(do(sys.argv[2], sys.argv[3]), ensure_ascii=False))
     elif c == 'ghep': ghep(*sys.argv[2:7])
     elif c == 'lech': lech(*sys.argv[2:4])
+    elif c == 'bang':   # bang <trước> <sau> <ra.json>: trung bình từng shot; s03 tính riêng các khung SAU khi L4 bắt lửa (khung ≥ 228)
+        R = {}
+        for s in ('s03', 's05', 's22'):
+            for nh, d in (('truoc', sys.argv[2]), ('sau', sys.argv[3])):
+                j = do(d, s); ok = [v for f, v in j['khung'].items() if 'L_tb' in v and (s != 's03' or int(f) >= 228)]
+                R[f'{s}/{nh}'] = {k: round(float(np.mean([r[k] for r in ok])), 2) for k in ok[0] if k != 'px'}; R[f'{s}/{nh}']['khung'] = len(ok)
+                print(s, nh, R[f'{s}/{nh}'])
+        json.dump(R, open(sys.argv[4], 'w'), ensure_ascii=False, indent=1)
