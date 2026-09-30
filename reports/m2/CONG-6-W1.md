@@ -7,7 +7,7 @@ Main trước khi mở W1: **`00a4ead`** (merge W2 đã đóng). Nhánh P: `ccr-
 - **W1 v1 xong** (B1 + B2), **gói B3–B4 xong**. Tổng phim giữ **140,5 s**, 53 shot, không đổi id/thời lượng. Lệch 0 px ở shot không đổi: W1 102 ảnh / 34 shot, B3–B4 63 ảnh — **0**. P dò lại mọi shot đổi từ mã đã merge: W1 57/57 khung (PSNR ≥ 36,7 dB), B3–B4 36/36 (≥ 37,2 dB) khớp mp4 nộp.
 - **Kiểm mù W1: TRƯỢT** — cột HÌNH 2/10 (s05 "con rối", s22 "búp bê" ×2), lặp cùng vị trí (mặt Ida cỡ cận); TƯ THẾ 1/10 (s24c "ma-nơ-canh"). Nhiễu nền cộng dồn 5/26 = 19,2 %. **Theo chỉ thị: DỪNG, không làm lượt sửa W1.**
 - **Continuity W1 + nối W1–W2:** chặn 0 · nên sửa 7 (L1–L7) · ghi nhận 9. B4 (M1, M3, M5, N7, bắp tay Cas) **đạt** trên hình; B3 không còn cột điện trong khung cảnh 4.
-- **Luật máy toàn phim (layout-v20):** mục 3 (điền khi pipeline xong).
+- **Luật máy toàn phim (layout-v20):** P0 ĐẠT; C3/H1b/G3b TRƯỢT như trước; C3 Cas cải thiện (s42a hết trượt); mới: C3 Ida s23, s19 và Cas s24c ở tư thế W1 v1 (mục 3).
 - Clip: `screening/w1-cong6-v20.mp4` (s01–s24c, 59 s, 19,2 MB); `screening/canh4-s42b-truoc-sau.mp4` (trái v19, phải v20; cảnh 4 + s42b, 12,7 MB).
 
 ## 1. Bảng việc
@@ -38,8 +38,16 @@ Main trước khi mở W1: **`00a4ead`** (merge W2 đã đóng). Nhánh P: `ccr-
 | Đối chứng / nhiễu nền | Victoria trúng lần thứ 3 ("búp bê" về miệng); cộng dồn **5/26 = 19,2 %** |
 Lời chê không có từ khoá, chỉ đúng chỗ thật: s05 bàn tay vỡ hình; s06 đầu xuyên đồng hồ; s13 tay xuyên cột, mặt thành "khối nâu"; s15 xuống thang ~1 s "như trượt hoặc rơi"; s03 leo nhanh bất thường; ánh sáng đèn bật tràn quá mạnh (Cổng 7).
 
-## 3. Luật checks v1.5 toàn phim (layout-v20)
-*(điền khi pipeline xong)*
+## 3. Luật checks v1.5 toàn phim (layout-v20; LOCK 8d55b6ad… KHỚP; P không sửa checks/)
+| Luật | v19 (W2 đóng) | **v20 (W1 v1 + B3–B4)** | Ghi chú |
+|---|---|---|---|
+| N1, N2, P1, G4, G3, M3, J1, J1b, H1, O3 | ĐẠT | **ĐẠT** | — |
+| **P0** | ĐẠT | **ĐẠT** | không lỗi mới |
+| G3b | TRƯỢT (CV 0,202) | **TRƯỢT** | CV 0,186 (≤ 0,2 — sát ngưỡng −7 %, ngoài ±5 %); σ lớn/nhỏ 3,16; tương quan 0,896. Layout chưa có grain (Cổng 7) |
+| H1b | TRƯỢT (5 track không đo được) | **TRƯỢT** (7) | — |
+| **C3 lượt Ida** | 6 · 58 · 48 | **6 · 60 · 46**; 20 shot cần người xem | **Mới (tư thế W1 v1): s23 khung 1308 cẳng tay +45,8 % (góc −45°), s19 khung 1128 cánh tay trên −37,7 % (45°)** → giao W1-v2 kiểm hình sai thật hay co ngắn |
+| **C3 lượt Cas** | 5 · 34 · 97 | **4 đạt · 28 trượt chắc · 108 KCM**; 140/565 đo được; 9 shot cần người xem | **s42a hết trượt** (tư thế ôm mới B4); s42b còn cẳng tay −15,0 % (2 mẫu, trước cánh tay trên −30,3 %); **s24 hết trượt; mới s24c cánh tay trên −6,8 % (7 mẫu, tư thế dựa tường W1 v1)** → gộp vào W1-v2 mục g; s35 đùi −21,2 %, s30, s33 như cũ. Kiểm toán hạt giống 10690660413225912379, khung [2376] ĐẠT |
+Chỉ số ±5 %: C3 hệ số mặt nạ 4 (≤ 4), hệ số khi đầu nhỏ 4 (≥ 3,98). Pipeline v20: mặt nạ C3 Ida 1 861 s; luật 455 s; C3 Cas + luật ≈ 2 000 s.
 
 ## 4. Continuity (`shots/layout/continuity/RA-W1-V1.md` + ảnh `reports/m2/cong6/w1/ra-continuity/`)
 | Mã | Shot | Lỗi | Mức |
