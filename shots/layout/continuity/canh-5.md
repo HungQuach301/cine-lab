@@ -178,3 +178,8 @@ bà đứng ở miệng vòm trên nền phố trắng nên dáng tay–vành m�
 | N6 s33 | quỳ có hạ gốc (`kneelOf`) → đứng dậy thấy được 0–0,7 s; đi từ 0,7 s |
 | N8 s37b/s39 | tay trái nắm ống khí thấp hơn 0,12 m dưới tâm van → ra khỏi khung CU; s39 máy hạ 0,12 → 0,03 m |
 | N4 | không sửa (gắn Đ6, chờ chủ dự án) |
+
+## B3–B4 (30/09/2026)
+- **s39 (M3):** bà buông van suốt vế cuối (tay nghỉ dưới khung CU) — hết mảng da "cuống tay" ở góc khung; van đồng vẫn thấy.
+- **Ôm đèn (s41 cuối, s42a, s42b):** tư thế `casHug` mới — vai đưa trước 34°, dang 14°, khuỷu −78° (v2: −12°, khép −18°, −112°). Đo s42a (114,5 s): khuỷu cách trục thân sang bên 1,5–3,2 cm → 6,0–7,1 cm, ra trước −1,0…−1,7 cm → +8,8 cm; tâm vòng quai trước cổ 0,187 → 0,270 m. Cánh tay trên nằm ngoài khối áo len.
+- **s42b (M1, M5):** máy (3,6; 1,3; 7,4) → nhìn (−0,1; 1,05; 2,4) — cùng phía đường Ida–Cas với s42a/s42 → Ida TRÁI (miệng vòm), Cas PHẢI (vào hốc). Quầng sprite của đèn lồng tắt suốt shot (bật lại ở 1,9 s phủ lên Cas đang ngồi xổm → "trong suốt").

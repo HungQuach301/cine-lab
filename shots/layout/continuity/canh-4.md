@@ -111,3 +111,7 @@ Không đổi dàn dựng, máy, ánh sáng cảnh 4. Thêm:
 
 - **v2 (N7):** đèn lồng ở hông **thấy cháy** ở s25–s32: kính + lửa của đạo cụ tự sáng (cùng vật liệu đèn lồng của Cas); mức hắt lên tường/nền không đổi (0,012 ở hông).
 - **v2 (A1) s32:** bà ngẩng nhìn chim (cổ thêm 12°), mắt ngước, cười nhẹ, chớp 77,45 và 79,3 — mặt không còn tĩnh xám.
+
+## B3–B4 (chủ dự án 30/09/2026, luật thế giới v0.6)
+- **Hướng ánh điện cảnh 4 (B3):** cột sân (sets_end `wallPost`) KHÔNG xuất hiện ở mọi shot s25–s32; chính nguồn PointLight của cột đặt ở mé đường ĐỐI DIỆN dãy đèn khí — (7,2; 6,2; 12,2) hệ tường chim (vỉa hè nam, hàng POST_Z), như s27 v3. Mức: s27 × 2,7 (đã duyệt v19); s25, s26, s28–s32 × 0,85 — độ sáng mặt tường giữ gần như cũ (s28: 137 → 143 và 151 → 146 /255; s32: 147 → 150, 180 → 177, 153 → 161). Nhịp bật 64,4 s giữ nguyên (chim nhạt dần như cũ ở s27).
+- **N7:** s27 đèn móc hông trái lùi ra sau 9 cm (vẫn ở hông) → ló khỏi thân bà, kính sáng thấy được; s30 bà đi vào đã cầm đèn ở tay phải (phía máy) — kính cháy thấy từ khung đầu (tháo khỏi móc: ngoài hình giữa s29 và s30).
