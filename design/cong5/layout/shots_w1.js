@@ -342,10 +342,11 @@ S1({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 
         apply(t, T, f); if (fl) fl.update(ida, cam, { key: L4 && L4.L }); } };
     function apply(t, T, f) { st.setState(stdState(T), f);
       let k = 0; for (const b of beats) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
-      const wH = { hands: S05.hands }, wA = over(p.warmLadder, wH), wB = over(p.warmLadderIn, wH);
-      const pose = t < 2.4 ? lerpPose(wA, wB, k) : poseAt([[2.4, wA], [3.1, p.restLadder]], t);
+      // W1-v3 (a): tay s05 riêng (không đụng S05.hands của s24): ngón khép, khum tự nhiên (xoè 0, gập 0,62 — thử 0,42: ngón vẫn bị va chạm tay MPFB giữ gần thẳng, đọc "vuốt" như v2 xoè 0,3); tay về thanh móc nắm hẳn (gập 0,85).
+      const H05 = { L: { spread: 0.0, curl: 0.62 }, R: { spread: 0.0, curl: 0.62 } }, wH = { hands: H05 }, wA = over(p.warmLadder, wH), wB = over(p.warmLadderIn, wH), rL = over(p.restLadder, { hands: { L: { spread: 0.05, curl: 0.85 }, R: { spread: 0.05, curl: 0.85 } } });
+      const pose = t < 2.4 ? lerpPose(wA, wB, k) : poseAt([[2.4, wA], [3.1, rL]], t);
       ida.place(breathe(pose, T, 3.8, 0.8), LAMP_X(4), ON_Z, 0);
-      const kr = ease(clamp01((t - 2.6) / 0.5)); if (kr > 0) topHands(ida, G, { R: kr, L: kr });   // Cổng 6: hạ tay → phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 11–19 cm)
+      const kr = ease(clamp01((t - 2.6) / 0.5)); if (kr > 0) topHands(ida, G, { R: kr, L: kr, Ry: 2.2, Ly: 2.3 });   // W1-v3: tay nghỉ nắm THÂN CỘT thấp (dưới mép khung) — v2 nắm thanh móc ngay mép dưới khung, đọc "bàn tay rời trôi" 3,0–3,5 s   // Cổng 6: hạ tay → phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 11–19 cm)
       face(mixW(richLip(wAt(expr, T), mouthAt(lip, T, V, 0.62)), { blink: blinkAt(T, blinks) }), valAt(gaze, t)); }   // W1-v2: biên độ 0,75 → 0,62, 'old' bớt chu môi (kiểm mù: "miệng méo khi nói 1,0–1,5 s")
   } });
 
