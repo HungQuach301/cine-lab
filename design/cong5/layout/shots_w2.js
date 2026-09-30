@@ -648,7 +648,7 @@ S({ id: 's42b', scene: 5, size: 'WS', angle: 'ngang 1,3 m, ngoài vòm', mm: 32,
   async build(ctx) {
     const dbg42b = ctx.dbg || {}; const r = await buildBaySet(ctx, {}); const p = P(ctx);
     r.chCas.sheetRef = r.chCas.sheet; [r.chIda, r.chCas].forEach((c) => tameGlint(c)); r.chIda.sheetRef = r.chIda.sheet;   // v2 (N5): Ida ĐỨNG ở miệng vòm trong khung (như mở s42) — bản v1 ẩn bà nên máy nhìn qua chỗ bà đứng mà không thấy
-    const cam = r.cam; cam.shiftY = 0.05; cam.position.set(...(dbg42b.cp || [3.6, 1.3, 7.4])); cam.lookAt(...(dbg42b.cl || [-0.1, 1.05, 2.4]));   /* B4 (M1): máy sang phía +x của đường Ida–Cas (cùng phía máy s42a/s42) → Ida TRÁI, Cas PHẢI; v2 (0,9; 1,25; 8,2) ở phía đối diện */ cam.updateProjectionMatrix();
+    const cam = r.cam; cam.shiftY = 0.05; cam.position.set(...(dbg42b.cp || [3.6, 1.3, 7.4])); cam.lookAt(...(dbg42b.cl || [-1.1, 1.05, 3.2]));   /* B4 (M1): máy sang phía +x của đường Ida–Cas (cùng phía máy s42a/s42) → Ida TRÁI, Cas PHẢI; v2 (0,9; 1,25; 8,2) ở phía đối diện */ cam.updateProjectionMatrix();
     const h = r.lanternH; const f0 = r.flameP.clone();
     const glows = []; r.scene.traverse((o) => { if (o.isSprite && o.position.distanceTo(f0) < 0.4) glows.push([o, o.position.clone().sub(f0)]); });
     const cur = f0.clone();
