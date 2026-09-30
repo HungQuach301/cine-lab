@@ -57,7 +57,7 @@ Tiêu cự là mm tương đương full-frame (FOV dọc = 2·atan(12/f)). Vị 
 | s15 | 43,5–45,0 | 1,5 | WS | 35 | **(69,5; 1,5; 3,4) → (60; 2,1; −4,0)** | tĩnh | **mới:** nhìn xuôi dốc. Tụt thang, nhấc thang lên vai (1,1 s), quay; đoạn dưới tối (sương `[12, 55]`) | Ida P, quay sang T |
 | s19 | 45,0–47,5 | 2,5 | WS | 35 | (41; 1,7; 1,0) → (53; 3; −0,5) | tĩnh | L8 nở, bóng dài; P3 bật, bóng tan; **phố dựng tới quảng trường** | Ida T; trắng đuổi từ P |
 | s21 | 47,5–49,5 | 2,0 | MCU tay | 85 | (20,1; 3,1; −2,3) → (22; 3; −4,5) | tĩnh | trèo nhanh (**trong khung từ khung đầu**), tuột sào, chụp lại | 3/4, cột P |
-| s22 | 49,5–52,5 | 3,0 | MCU | 85 | faceCam lệch −12°, 1,2 m, đặt một lần | **tĩnh** (v2 trôi) | L2; tay phải trên van; L10 bắt lửa ở khung cuối | 3/4, bà nhìn lên lồng |
+| s22 | 49,5–52,5 | 3,0 | MCU | 85 | faceCam lệch **+45°** (Cổng 6; Cổng 5: −12°), 1,2 m, đặt một lần | **tĩnh** (v2 trôi) | L2; tay phải trên van; L10 bắt lửa ở khung cuối | 3/4, bà nhìn lên lồng |
 | s23 | 52,5–55,5 | 3,0 | WS | 28 | **(27,0; 1,5; 3,8) → (4,5; 2,0; −1,5)** (`S23_CAM`, A2) | tĩnh | Ida **vác thang** chạy từ vũng trắng vào góc tối, tới L11, dựng thang, trèo, thắp; Cas đứng ở chân tường chim (casSpot (14,3; −7,15)); P5 và cột sân trước (17,0; −5,9) tắt; mặt vôi 18,5 % | Ida chạy vào chiều sâu, về cuối phố (giữa khung) |
 | s24 | 55,5–57,5 | 2,0 | MS hơi cao | 30 | **(11,2; 2,1; 1,8) → (10,5; 1,8; −5,8)** (A2) | tĩnh | đếm ba lần 2; Cas nhỏ ở chân tường chim (casSpot (14,3; −7,15)); bóng Ida + thang trên tường | Ida T, Cas P |
 | s24c | 57,5–59,0 | 1,5 | MS | 50 | **3/4 trước Cas, lệch −35° khỏi hướng nhìn về L11, cách 2,1 m** → (14,3; 0,95; −7,15) (A2) | tĩnh | Cas ở chân tường chim; mặt ấm yếu (L11 cách 7,1 m); không có bóng Ida/thang | Cas giữa–trái, nhìn sang T (về Ida) |
@@ -383,3 +383,12 @@ Móc chỉ đọc `clockAudit()` trong `shots_w1.js` đọc góc kim của vật
 
 - Kim chỉ tiến ở cả ba shot; thumbs a/b/c đọc 7:31 · 8:00 · 7:53. Kim giờ không nhích trong 2–3 s (nhích 0,5°/phút → < 0,03°, không thấy được).
 - Ghi vào `continuity/canh-1.md` (s06) và `canh-2.md` (s09, s09w).
+
+## 15. Cổng 6 — DIỄN HOẠT W1 v1 (30/09/2026; AUTHORSHIP "Cổng 6 — diễn hoạt", MỞ W1)
+Nhánh `cong6-w1-v1` (từ main `00a4ead`). Báo cáo đầy đủ + số đo: `reports/m2/cong6/w1/BAO-CAO-W1-V1.md`.
+- **Không đổi:** id, thứ tự, thời lượng shot (`order_w1.js`), máy các shot trừ s22, mốc sự kiện, `sets.js`, `sets_end.js`, mã dùng chung. Tổng phim 140,5 s.
+- **Mã (chỉ `shots_w1.js`):** bản sao trong gói các kỹ thuật W2 — `settle` (đứng tự nhiên), `gripAt`/`gripK` (IK tay MPFB tới một điểm), mặt 16 kênh + 6 viseme (`faceRig`, `lipKeys`, `mouthAt`, `richLip`, `blinkAt`); thêm `breathe` (thở trên thang), `lampGrips` (van = ống khí dưới van, thanh móc thang, thân cột), `topHands`, `climbHands`, `railG`, `shoulderLadderG`, `lanternDoorG`, `watchInPalm`, `casLeanSpot/casLeanPose/casWallHand`, `hideWallPost` (B2). Đo tiếp xúc chỉ khi `--dbg '{"meas":1}'` (bọc `S1`, không đổi hình).
+- **s22:** máy lệch **45°** khỏi hướng mặt (đo 42,2–46,5°; Cổng 5: 7,0–11,3°), MCU 85 mm, 1,2 m, tĩnh — bảng mục 2 dòng s22 nay là "faceCam lệch +45° (phía phố)".
+- **s23 (B2):** cột điện tường chim ẩn khỏi khung; PointLight dời (17,4; 6,2; 4,1). P5 (10,8; +3,9) giữ.
+- **Cas s23/s24/s24c:** dựa lưng tường chim ở (14,3; −7,90) (Cổng 5: casSpot (14,3; −7,15)).
+- **Ảnh hưởng tới W2:** không (lệch 0 px 30 shot W2 + s01, s09, s10e, s10). Nối s24c → s25: Cas đổi chỗ 0,75 m qua cắt (xem continuity canh-3).

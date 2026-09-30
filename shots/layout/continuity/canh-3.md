@@ -2,6 +2,16 @@
 
 Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm có sao. Cảnh 3 là montage nén thời gian: mỗi shot có nhịp "nở hổ phách → trắng phủ" riêng (SHOTLIST v2).
 
+## Cổng 6 W1 v1 (30/09/2026) — diễn hoạt, thay/ bổ sung cho các mục bên dưới
+Không đổi thời lượng, mốc sự kiện, trạng thái đèn. Đổi:
+- **s15:** tụt thang — hai tay nắm thanh thang (so le); chạm đất: đứng dồn chân, thở gấp; 1,1 s thang lên vai → tay phải nắm thanh thang trên vai.
+- **s19:** tay phải trên van (nắm ống khí dưới van) tới 0,5 s, tay trái nắm thân cột; 0,5–1,0 s buông lên kính.
+- **s21:** tay trái (tay không cầm sào) nắm thanh thang khi trèo → thân cột khi lên đỉnh; buông 0,8–0,9 s (sào trượt), nắm lại 1,4–1,6 s. Sào: tay phải như cũ.
+- **s22 (quyết định cố định của chủ dự án):** **máy 3/4 — lệch 45° khỏi hướng mặt**, phía phố (+x); vẫn MCU 85 mm, 1,2 m, tĩnh. Nền: mặt tiền dãy bắc (xám trắng dưới điện), trời đêm ở mép trái. Bà nhìn sang **TRÁI** khung (về lồng/van). Tay phải nắm ống khí ngay dưới van — gần như ngoài khung (chỉ góc dưới trái thấy chút đồng). Khẩu hình L2 lẩm bẩm; ngước nhìn lồng 1,5–2,4 s.
+- **s23 — B2 (chỉ đạo chủ dự án, luật thế giới v0.6):** **cột điện tường chim (17,0; −5,9) KHÔNG còn trong khung** (ẩn trong shot: thân, bóng đèn, quầng, loá). PointLight của cột (tắt tới 64,4 s) dời sang vỉa hè NAM ngoài khung (17,4; 6,2; 4,1) — cùng chỗ W2 dùng ở s27. **Cột phố chính P5 (10,8; +3,9) mé nam giữ nguyên** (đúng luật: đối diện dãy đèn khí). **Dựng thang** 0,85–1,1 s (thang rời vai, xoay + trượt vào chỗ tựa cột; không còn đổi tức thì). Trèo: hai tay nắm thanh; 1,9–2,05 s tay phải trên van; 2,05–2,5 s lên kính.
+- **Cas s23, s24, s24c — DỰA LƯNG VÀO TƯỜNG CHIM:** chỗ đứng **(14,3; −7,90)**, cách mặt tường **0,20 m** (Cổng 5: casSpot (14,3; −7,15), cách tường 0,95 m), cách L11 ≈ 7,5 m. Thân quay −25° (mặt ra phố, lệch về L11), cổ quay nốt về L11/Ida; dồn chân phải, thở; **lòng tay phải áp phẳng lên mặt vôi cạnh hông** (cao 0,62 m, lệch 0,13 m sang phải thân, ngón chúc xuống); tay trái buông. s24c: đầu quay −10° → +6° (0,6 → 1,3 s) như cũ, cộng thêm phần cổ về L11.
+- **Nối s24c → s25 (W2):** ở s25 Cas đứng ở CAS_W — cách tường 0,95 m, mặt vào tường làm chim. Nay thành: dựa tường (s24c) → cắt → đã bước ra 0,75 m, quay vào tường, giơ tay (s25). Hướng người vốn đã đổi qua cắt (Cổng 5); nay thêm đổi chỗ 0,75 m. P/continuity chấm; nếu không nhận thì W1 đặt lại Cas ở casSpot trong s23/s24 và chỉ dựa tường ở s24c với bước ra cuối shot (không đủ 1,5 s để diễn — xem báo cáo W1).
+
 ## Lịch (giây phim)
 | Sự kiện | Mốc |
 |---|---|
@@ -62,7 +72,7 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
   - góc L11 **tối**: P5 tắt, ngoài vũng P4 (x = 29, cách khoảng 21 m);
   - L11 thắp ở 54,5 s;
   - phố quanh máy và sau lưng máy (+x) đã trắng (P4);
-  - cột điện phố chính (B1, W2 A2): trong **sân trước hông nhà kho (17,0; −5,9)**, tầm sáng 8,5 m, do `sets_end.js` dựng — **TẮT** (bật 64,4 s), thân tối ở mép phải khung.
+  - cột điện phố chính (B1, W2 A2): trong **sân trước hông nhà kho (17,0; −5,9)**, tầm sáng 8,5 m, do `sets_end.js` dựng — **TẮT** (bật 64,4 s). ~~thân tối ở mép phải khung~~ → **Cổng 6 B2: ẩn khỏi khung s23** (xem đầu tệp).
 - **Ida:**
   - 0–1,1 s: chạy (bước 0,9 s/chu kỳ) **vác thang trên vai phải** từ (14,2; −2,3) tới chân cột L11 (8,2; −5,05);
   - 1,1 s: dựng thang vào cột (thang tựa hiện ra, thang trên vai biến mất);
@@ -103,7 +113,7 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
 | Ida | Trên thang L11 (8; −4,48; gốc cao 1,55 m), mặt về lồng đèn (+z), hai tay ngang kính sau lần đếm ba |
 | Đạo cụ Ida | Thang tựa phía bắc cột L11. Đèn lồng **SÁNG** ở hông trái (liên tục từ s04, tới khi tháo ở s30). Sào mồi: ngoài hình (lần cuối thấy ở s21, tay phải). Đồng hồ trong túi |
 | Trang phục Ida | Mũ #262a33, `hat_back` = 0; khăn một đuôi trước ngực |
-| Cas | Đứng ở chân tường chim (casSpot (14,3; −7,15)), mặt về Ida / L11, tay trong tay áo, mũ len có quả bông |
+| Cas | **Cổng 6:** dựa lưng vào tường chim ở (14,3; −7,90) (cách tường 0,20 m), mặt về Ida / L11, lòng tay phải áp tường cạnh hông, tay trái buông; mũ len có quả bông |
 | Hướng màn hình | **Ida / L11 trái, Cas phải** (s24). Cas nhìn sang TRÁI (s24c). Khớp quy ước cảnh 4–5 (Ida trái, Cas phải) |
 | Việc s25 (W2) cần nối | Ida **xuống thang** trước s26 ("Ida xuống thang, đứng xem"). Đèn lồng còn sáng. Cas quay mặt vào tường làm chim bóng từ L11 |
 
