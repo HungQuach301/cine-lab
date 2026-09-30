@@ -63,5 +63,14 @@ Container khởi động lại **4 lần** trong gói (mất render/lệnh nền
 4. `setup.sh` dán vào môi trường (sau W2, cùng ghim phiên bản gói).
 5. **W1 chưa mở.**
 
-## 8. Rà cột đèn điện toàn phim
-*(điền sau khi `scripts/p/do_cot_dien.js` chạy xong)*
+## 8. Rà cột đèn điện toàn phim (chủ dự án 30/09/2026; luật thế giới v0.6)
+Máy: `scripts/p/do_cot_dien.js` — mỗi shot 3 khung (đầu/giữa/cuối), tìm thân cột điện (street.js `electricLamp`) và cột đèn khí (`buildGasLamp`), chiếu 9 điểm dọc thân, **có kiểm che khuất** bằng tia từ máy. Dữ liệu: `reports/m2/cong6/w2/cot-dien/do_cot_dien.jsonl` (53 shot, 159 khung).
+| Shot (gói) | Cột điện thấy trong khung (x; z thế giới) | Đèn khí thấy | Mé đường | Kết luận |
+|---|---|---|---|---|
+| s02, s08, s12, s19 (W1) | phố chính z = **+3,9** (mé nam) | z = −3,9 (mé bắc) | đối diện | **đúng luật** |
+| s10e (W1) | quảng trường (166; ±8), (188; −9) | không | — | quảng trường, không có dãy đèn khí trong khung — ghi nhận |
+| **s23 (W1)** | (10,8; +3,9) mé nam **và (17,0; −5,9) cột tường chim — mé bắc** | (8; −3,9) L11 mé bắc | **cột (17,0; −5,9) CÙNG MÉ** với đèn khí | **VI PHẠM** — chỉ liệt kê, để W1 |
+| **s27 (W2)** | (6,8; 2,2) hệ tường chim = **cột tường chim (17,0; −5,9)** | L11 | **cùng mé** | **VI PHẠM** — sửa ở W2-v3 |
+| s37w, s40w (W2) | (10,8; +3,9) mé nam | (8; −3,9) L11 | đối diện | đúng luật |
+| 44 shot còn lại | không thấy cột điện | | | — |
+- Gốc duy nhất: **cột điện tường chim** (B1 Cổng 5, dựng trong `sets_end.js`, sân trước hông nhà kho, mé bắc). Sửa gốc (dời cột sang mé nam) trong `sets_end.js` sẽ đổi luôn **s23 của W1** → trái lệnh "cảnh 1–3 chỉ liệt kê" và lệch 0 px. Vì vậy W2-v3 chỉ xử lý **s27 trong `shots_w2.js`**; việc dời cột gốc + s23 ghi cho W1 (chủ dự án quyết khi mở W1).
