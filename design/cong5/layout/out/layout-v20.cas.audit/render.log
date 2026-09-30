@@ -1,0 +1,14 @@
+# Kiểm toán C3 (RUN.md 3.7) — phiên P render lại mặt nạ cas của layout-v20.cas
+SCENE design/cong5/layout/page.js SHA256 d21b7bdeecb2de141f4b5609867fb07ba5abf3e73e6b3d2ccac31acff3644149
+SCENE design/cong5/layout/film.js SHA256 2498bd65a78993e8674dcc0bac62d954936607d12c7ebc27b670b3f1ed97020a
+SCENE design/cong5/layout/common.js SHA256 a73228d73fa9bb6c1fff4b35897a24b1d6db9844ab3ec249efa763ab14283193
+SCENE design/cong5/layout/order_w1.js SHA256 c45176f2dff9d3f2f2342f973dbe7b57c710ddaec29f68c9c5e3470e96f5e139
+SCENE design/cong5/layout/order_w2.js SHA256 666a7b4401c081ac3e5d3d2a853883bbed5ddc2164b83ee4d3950200c75d0e58
+SCENE design/cong5/layout/shots_w1.js SHA256 f02d73ba94a1c96caf3cac3ecfb0753f98da89146043604e7ab176c9e7cef8df
+SCENE design/cong5/layout/shots_w2.js SHA256 288ffefa9b9224e98ffc171f7b3f27e0b99ba2ec0bcd0fcbc88bfd043626e7b3
+SCENE design/cong5/layout/sets.js SHA256 8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62
+SCENE design/cong5/layout/sets2.js SHA256 12300e909cec665bc79346d917d385b0af5a7e8a5dc24487fd0d8b218a15fd91
+SCENE design/cong5/layout/sets_end.js SHA256 55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d
+SCENE design/cong5/layout/util.js SHA256 e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc
+SCENE design/cong5/layout/facelight.js SHA256 a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47
+FRAME 2376 CMD node design/cong5/layout/export_c3.js --who cas --audit-dir design/cong5/layout/out/layout-v20.cas.audit/rerender --frames 2376 --offset 0 --scale 4

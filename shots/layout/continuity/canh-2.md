@@ -2,6 +2,12 @@
 
 Gói W1, Cổng 5, luật O1. Quy ước toạ độ, trang phục, đạo cụ chung như `canh-1.md`. Trời: **đêm xanh đen có sao** từ s09 (luật thế giới v0.4). Cửa sổ khoảng 7 % sáng vàng.
 
+## Cổng 6 W1 v1 (30/09/2026) — diễn hoạt, thay/ bổ sung cho các mục bên dưới
+Không đổi máy, thời lượng, lịch điện. s09, s10e, s10 (không nhân vật) không đổi (lệch 0 px).
+- **s09w:** đồng hồ nằm **trong lòng tay phải MPFB** (Cổng 5 lệch 7,9 cm); máy cách đồng hồ giữ 0,33 m. Bà đứng dồn chân phải, thở nhẹ; tay giữ yên. Giờ 7:53 như cũ.
+- **s11, s12, s13:** suốt shot **tay phải nắm thanh móc thang** (IK; Cổng 5: tay lơ lửng cách vật 15–19 cm). **Tay trái:** nắm thân cột L7 khi đứng thẳng; khi quay vai về quảng trường (turnSquare) chuyển sang **nhánh trái thanh móc** (s11 0,35–1,15 s; cả s12); khi cúi (s13 0,5–1,3 s) về lại thân cột. Thở.
+- **s14:** tay phải giữ thanh móc; **tay trái rời thân cột 0,35–0,7 s** rồi **giơ ngang ra bên** (liftHigh mới: dạng vai 75°, gập 40°; Cổng 5 "ra trước–ngang" đọc thành tay buông cạnh hông từ máy cao), lòng úp, trên vỉa hè — không có bóng dài.
+
 ## Lịch điện (giây phim, `common.js`)
 | Sự kiện | Mốc |
 |---|---|

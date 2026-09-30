@@ -962,6 +962,37 @@ export function buildCharacter(sheet, opts = {}) {
     root.updateMatrixWorld(true); skin.update(); if (handsBL) { for (const k of ['L', 'R']) handsBL.sides[k].key = ''; root.updateMatrixWorld(true); }
     const Gf = ch.gripPoint(s).sub(C0); return Gf.addScaledVector(A, -Gf.dot(A)).length() - g.radius;   // khoảng cách điểm nắm → mặt trụ (m)
   };
+  // Cổng 6 (Đ1, P giao W1-v2 30/09/2026): NẮM / ÁP TẠI MỘT ĐIỂM. reachGrip chiếu điểm nắm lên ĐƯỜNG TRỤC vô hạn → với vật ngắn (thân van, cần van,
+  // vòng quai) tay trượt dọc trục ra khỏi vật. gripAt giữ nguyên IK 2 xương + xoay cổ tay của reachGrip nhưng CỐ ĐỊNH đích: tâm lòng tay tới g.point
+  // (+ g.radius theo hướng g.out, mặc định từ tâm trục về vai). g.zFix: giữ chiều trục cổ tay = g.axis (áp phẳng: quyết ngón chỉ lên/xuống).
+  // Trả khoảng cách tâm lòng tay → g.point trừ g.radius (m). Bản gốc: gripAt trong shots_w2.js (W2) / shots_w1.js (W1) — nay hai gói gọi bản này.
+  ch.gripAt = (s, g) => {
+    const sh = joints['shoulder_' + s], el = joints['elbow_' + s], wr = joints['wrist_' + s], sx = s === 'L' ? 1 : -1;
+    const A = new THREE.Vector3(...g.axis).normalize(), C0 = new THREE.Vector3(...g.point);
+    const wq = (o) => o.getWorldQuaternion(new THREE.Quaternion()), wp = (o) => o.getWorldPosition(new THREE.Vector3());
+    root.updateMatrixWorld(true);
+    const out = g.out ? new THREE.Vector3(...g.out) : wp(sh).sub(C0); out.addScaledVector(A, -out.dot(A)); if (out.lengthSq() < 1e-8) out.set(sx, 0, 0); out.normalize();
+    const T = C0.clone().addScaledVector(out, g.radius - 0.002 * HS);
+    const xw = out.clone().negate().multiplyScalar(-sx);
+    for (let it = 0; it < 4; it++) {
+      root.updateMatrixWorld(true);
+      const S = wp(sh), E = wp(el);
+      const zc = new THREE.Vector3(0, 0, 1).applyQuaternion(wq(wr)); const zw = g.zFix ? A.clone() : A.clone().multiplyScalar(zc.dot(A) >= 0 ? 1 : -1);
+      const yw = new THREE.Vector3().crossVectors(zw, xw).normalize(); zw.crossVectors(xw, yw).normalize();
+      const Qd = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(xw, yw, zw));
+      wr.quaternion.copy(wq(el).invert().multiply(Qd)); root.updateMatrixWorld(true);
+      const G2 = ch.gripPoint(s), Wt = T.clone().sub(G2.clone().sub(wp(wr)));
+      const a = E.distanceTo(S), b = wp(wr).distanceTo(E), d = Math.min(a + b - 1e-4, Math.max(Math.abs(a - b) + 1e-4, Wt.distanceTo(S)));
+      const cur = Math.acos(Math.max(-1, Math.min(1, S.clone().sub(E).normalize().dot(wp(wr).sub(E).normalize())))), want = Math.acos(Math.max(-1, Math.min(1, (a * a + b * b - d * d) / (2 * a * b))));
+      let ax = new THREE.Vector3().crossVectors(S.clone().sub(E), wp(wr).sub(E)); if (ax.lengthSq() < 1e-10) ax.set(1, 0, 0).applyQuaternion(wq(el)); ax.normalize();
+      const qE = new THREE.Quaternion().setFromAxisAngle(ax, want - cur); el.quaternion.copy(wq(el.parent).invert().multiply(qE).multiply(wq(el)));
+      wr.quaternion.copy(wq(el).invert().multiply(Qd)); root.updateMatrixWorld(true);
+      const W2 = wp(wr), qS = new THREE.Quaternion().setFromUnitVectors(W2.clone().sub(S).normalize(), Wt.clone().sub(S).normalize());
+      sh.quaternion.copy(wq(sh.parent).invert().multiply(qS).multiply(wq(sh))); root.updateMatrixWorld(true); wr.quaternion.copy(wq(el).invert().multiply(Qd));
+    }
+    root.updateMatrixWorld(true); ch.cpuSkin?.update(); if (ch.handsBL) { for (const k of ['L', 'R']) ch.handsBL.sides[k].key = ''; root.updateMatrixWorld(true); }
+    return ch.gripPoint(s).distanceTo(C0) - g.radius;
+  };
   // điểm nắm (thế giới) — tâm lòng bàn tay; để treo đạo cụ (đèn lồng) vào nắm tay
   ch.gripPoint = (s, target = new THREE.Vector3()) => handsBL ? handsBL.gripPoint(s, target) : target.set(0, -P.hand.palm_length * 0.6 * H, 0).applyMatrix4(joints['wrist_' + s].matrixWorld);
   ch.setPose(sheet.poses.turnaround);

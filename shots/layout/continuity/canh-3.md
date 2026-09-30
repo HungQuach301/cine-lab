@@ -2,6 +2,16 @@
 
 Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm có sao. Cảnh 3 là montage nén thời gian: mỗi shot có nhịp "nở hổ phách → trắng phủ" riêng (SHOTLIST v2).
 
+## Cổng 6 W1 v1 (30/09/2026) — diễn hoạt, thay/ bổ sung cho các mục bên dưới
+Không đổi thời lượng, mốc sự kiện, trạng thái đèn. Đổi:
+- **s15:** tụt thang — hai tay nắm thanh thang (so le); chạm đất: đứng dồn chân, thở gấp; 1,1 s thang lên vai → tay phải nắm thanh thang trên vai.
+- **s19:** tay phải trên van (nắm ống khí dưới van) tới 0,5 s, tay trái nắm thân cột; 0,5–1,0 s buông lên kính.
+- **s21:** tay trái (tay không cầm sào) nắm thanh thang khi trèo → thân cột khi lên đỉnh; buông 0,8–0,9 s (sào trượt), nắm lại 1,4–1,6 s. Sào: tay phải như cũ.
+- **s22 (quyết định cố định của chủ dự án):** **máy 3/4 — lệch 45° khỏi hướng mặt**, phía phố (+x); vẫn MCU 85 mm, 1,2 m, tĩnh. Nền: mặt tiền dãy bắc (xám trắng dưới điện), trời đêm ở mép trái. Bà nhìn sang **TRÁI** khung (về lồng/van). Tay phải nắm ống khí ngay dưới van — gần như ngoài khung (chỉ góc dưới trái thấy chút đồng). Khẩu hình L2 lẩm bẩm; ngước nhìn lồng 1,5–2,4 s.
+- **s23 — B2 (chỉ đạo chủ dự án, luật thế giới v0.6):** **cột điện tường chim (17,0; −5,9) KHÔNG còn trong khung** (ẩn trong shot: thân, bóng đèn, quầng, loá). PointLight của cột (tắt tới 64,4 s) dời sang vỉa hè NAM ngoài khung (17,4; 6,2; 4,1) — cùng chỗ W2 dùng ở s27. **Cột phố chính P5 (10,8; +3,9) mé nam giữ nguyên** (đúng luật: đối diện dãy đèn khí). **Dựng thang** 0,85–1,1 s (thang rời vai, xoay + trượt vào chỗ tựa cột; không còn đổi tức thì). Trèo: hai tay nắm thanh; 1,9–2,05 s tay phải trên van; 2,05–2,5 s lên kính.
+- **Cas s23, s24, s24c — DỰA LƯNG VÀO TƯỜNG CHIM** (W1-v2 thay v1): chỗ đứng **(14,3; −7,94)**, cách mặt tường **0,16 m** (Cổng 5: casSpot (14,3; −7,15), cách tường 0,95 m), cách L11 ≈ 7,5 m. Thân quay −25° (mặt ra phố, lệch về L11), cổ quay nốt về L11/Ida; vai + lưng tựa tường (ngả 6°), gối phải co, bàn chân phải gác chân tường; dồn chân trái, thở, chớp (57,62 / 58,62 s); **hai lòng tay áp tường sau hông** (cao 0,60 m, ±0,10 m, ngón chúc xuống; IK). s24c: đầu quay −10° → +6° (0,6 → 1,3 s) như cũ, cộng thêm phần cổ về L11.
+- **Nối s24c → s25 (W2):** ở s25 Cas đứng ở CAS_W — cách tường 0,95 m, mặt vào tường làm chim. Nay thành (chủ dự án duyệt 30/09/2026): dựa tường 0,16 m (s24c) → cắt → đã bước ra 0,75 m, quay vào tường, giơ tay (s25). Hướng người vốn đã đổi qua cắt (Cổng 5); nay thêm đổi chỗ 0,75 m. P/continuity chấm; nếu không nhận thì W1 đặt lại Cas ở casSpot trong s23/s24 và chỉ dựa tường ở s24c với bước ra cuối shot (không đủ 1,5 s để diễn — xem báo cáo W1).
+
 ## Lịch (giây phim)
 | Sự kiện | Mốc |
 |---|---|
@@ -62,7 +72,7 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
   - góc L11 **tối**: P5 tắt, ngoài vũng P4 (x = 29, cách khoảng 21 m);
   - L11 thắp ở 54,5 s;
   - phố quanh máy và sau lưng máy (+x) đã trắng (P4);
-  - cột điện phố chính (B1, W2 A2): trong **sân trước hông nhà kho (17,0; −5,9)**, tầm sáng 8,5 m, do `sets_end.js` dựng — **TẮT** (bật 64,4 s), thân tối ở mép phải khung.
+  - cột điện phố chính (B1, W2 A2): trong **sân trước hông nhà kho (17,0; −5,9)**, tầm sáng 8,5 m, do `sets_end.js` dựng — **TẮT** (bật 64,4 s). ~~thân tối ở mép phải khung~~ → **Cổng 6 B2: ẩn khỏi khung s23** (xem đầu tệp).
 - **Ida:**
   - 0–1,1 s: chạy (bước 0,9 s/chu kỳ) **vác thang trên vai phải** từ (14,2; −2,3) tới chân cột L11 (8,2; −5,05);
   - 1,1 s: dựng thang vào cột (thang tựa hiện ra, thang trên vai biến mất);
@@ -78,7 +88,7 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
 - **Ida:** trên thang L11 (8; −4,48; cao 1,55 m).
   - **Tay:** hai lòng tay đếm ở 55,7 / 56,3 / 56,9 s.
 - **Cas:** đứng ở `casSpot`, hướng mặt về L11, tay giấu trong tay áo.
-  - `casSpot` (B1, W2 A2): **(14,3; −7,15)**, cách tường chim 0,95 m, cách L11 ≈ 7,1 m (mặt Cas tối hơn; nguồn: L11 hổ phách, ánh P4 xa).
+  - `casSpot` (B1, W2 A2): **(14,3; −7,15)**, cách tường chim 0,95 m — số Cổng 5; **W1-v2: Cas dựa tường ở (14,3; −7,94), cách tường 0,16 m**, cách L11 ≈ 7,6 m (nguồn: L11 hổ phách, ánh P4 xa).
   - Mũ len có quả bông, áo len quá khổ. **Không thấy bóng Cas** trên tường (L11 cách 7,1 m, ánh yếu).
 - **Bóng trên tường chim:** bóng lớn của Ida + thang (nguồn L11) ở trái–giữa khung (khung 1350 bản cuối).
 - **Màn hình (giai đoạn C):** Ida **trái–giữa** khung; Cas **phải**, nhỏ ở chân tường. Cas nhìn sang trái (về Ida).
@@ -91,19 +101,19 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
   - đầu quay từ −10° (0,6 s) sang +6° (1,3 s), nhìn về Ida / L11 — **sang TRÁI khung**;
   - tay giấu trong tay áo.
 - **Ida:** trên thang L11, tư thế hơ tay (`warmLadder`), ngoài khung (sau máy, bên trái). **Không có bóng của bà hay thang trong khung.**
-- **Máy (A2):** 3/4 trước Cas, lệch −35° khỏi hướng nhìn của cậu về L11, cách 2,1 m (tính theo casSpot) nhìn (14,3; 0,95; −7,15), 50 mm.
+- **Máy (A2; W1-v2 lia thêm 9° để Cas lệch phải, khoảng trống phía cậu nhìn):** 3/4 trước Cas, lệch −35° khỏi hướng nhìn của cậu về L11, cách 2,1 m (W1-v2: tính theo chỗ dựa tường (14,3; −7,94)) nhìn (14,3; 0,95; −7,94), 50 mm.
 
 ## TRẠNG THÁI Ở KHUNG CUỐI s24c (0:59,00) → nối s25 (W2, cảnh 4)
 | Mục | Trạng thái |
 |---|---|
 | Giờ | Thành phố khoảng 8:0x (đồng hồ quảng trường đã sáng từ 25,3 s). Đồng hồ bỏ túi khoảng 7:5x (chậm 7 phút), trong túi |
 | Đèn khí | **L1–L11 đều sáng.** L1–L10 chìm trong trắng. **L11 hổ phách**, nguồn ấm duy nhất ở góc cuối phố |
-| Cột điện | P0–P4 và quảng trường sáng; **P5 (cột góc, x = 10,8) TẮT**; **cột phố chính trong sân trước (17,0; −5,9) TẮT** (bật 64,4 s, s27; tầm 8,5 m) |
+| Cột điện | P0–P4 và quảng trường sáng; **P5 (cột góc, x = 10,8) TẮT**; cột tường chim (17,0; −5,9) TẮT và **không xuất hiện trong khung** (s23 ẩn; nguồn sáng của nó ở vỉa hè nam (17,4; 6,2; 4,1), bật 64,4 s) |
 | Nguồn sáng góc cuối phố | Chỉ L11 (có bóng). Trắng tràn khoảng 0,05 |
 | Ida | Trên thang L11 (8; −4,48; gốc cao 1,55 m), mặt về lồng đèn (+z), hai tay ngang kính sau lần đếm ba |
 | Đạo cụ Ida | Thang tựa phía bắc cột L11. Đèn lồng **SÁNG** ở hông trái (liên tục từ s04, tới khi tháo ở s30). Sào mồi: ngoài hình (lần cuối thấy ở s21, tay phải). Đồng hồ trong túi |
 | Trang phục Ida | Mũ #262a33, `hat_back` = 0; khăn một đuôi trước ngực |
-| Cas | Đứng ở chân tường chim (casSpot (14,3; −7,15)), mặt về Ida / L11, tay trong tay áo, mũ len có quả bông |
+| Cas | **W1-v2:** dựa lưng vào tường chim ở (14,3; −7,94) (cách tường 0,16 m), mặt về Ida / L11, hai lòng tay áp tường sau hông; mũ len có quả bông |
 | Hướng màn hình | **Ida / L11 trái, Cas phải** (s24). Cas nhìn sang TRÁI (s24c). Khớp quy ước cảnh 4–5 (Ida trái, Cas phải) |
 | Việc s25 (W2) cần nối | Ida **xuống thang** trước s26 ("Ida xuống thang, đứng xem"). Đèn lồng còn sáng. Cas quay mặt vào tường làm chim bóng từ L11 |
 
@@ -113,5 +123,5 @@ Gói W1, Cổng 5, luật O1. Quy ước chung như `canh-1.md`. Trời: đêm c
    - s23 chạy vác thang, không thấy sào.
    - Cần sheet đạo cụ quy định chỗ để sào khi đi/chạy (đề xuất: móc dọc thang).
 2. **Montage nén thời gian.** L9 thắp ngoài hình. Khoảng cách L8 (s19) → L10 (s21) → L11 (s23) được lược.
-3. **Vị trí Cas và tường nhà kho** do `sets_end.js` (W2) quyết (A2, B1): casSpot **(14,3; −7,15)**, cách tường chim 0,95 m, cách L11 ≈ 7,1 m; L11 cách tường 4,2 m; cột sân trước (17,0; −5,9).
+3. **Vị trí Cas và tường nhà kho** do `sets_end.js` (W2) quyết (A2, B1): casSpot **(14,3; −7,15)**, cách tường chim 0,95 m (Cổng 5; W1-v2 Cas dựa tường cách 0,16 m ở s23–s24c), cách L11 ≈ 7,1 m; L11 cách tường 4,2 m; cột sân trước (17,0; −5,9).
    - Giai đoạn A ghi "Cas trái, Ida phải"; giai đoạn C đổi thành **Ida trái, Cas phải** theo địa lý W2 (thay thế ghi chép cũ).

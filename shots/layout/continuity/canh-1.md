@@ -2,6 +2,14 @@
 
 Gói W1, Cổng 5 (layout), luật O1. Nguồn số: `design/cong5/layout/shots_w1.js`, `common.js` (lịch sự kiện), `sets.js` (toạ độ bộ phố). Mốc lấy từ `render_film.js --events`.
 
+## Cổng 6 W1 v1 (30/09/2026) — diễn hoạt, thay/ bổ sung cho các mục bên dưới
+Không đổi máy, thời lượng, mốc sự kiện, trạng thái đèn/đèn lồng của cảnh 1. Chỉ đổi tay, tư thế, mặt:
+- **s02, s07, s08:** tay phải MPFB **nắm thanh thang trên vai** (IK điểm; Cổng 5 hở 15,6 cm).
+- **s03:** trèo — hai tay nắm hai thanh thang, so le; bậc cuối — **tay phải nắm thanh móc thang** (bên phải cột, x − 0,2), **tay trái nắm thân cột** (y 2,40 m); 0,55–0,75 s tay phải sang **van** (nắm ống khí ngay dưới thân van 6 cm — lòng tay áp dưới van); 1,3–1,9 s buông lên kính.
+- **s04 — nhịp mồi đèn lồng:** 0–0,6 s tay phải rời van lên kính; 0,85–1,1 s **tay trái hạ xuống cửa đèn lồng** hông trái, bà cúi nhìn; tay phải giữ thanh móc; **1,2 s đèn bắt lửa** (như cũ); 1,25–1,45 s tay trái về kính. Sào mồi vẫn không thấy.
+- **s05:** khẩu hình L1 (môi–má–cằm), nét cười ấm nhẹ; mắt nhìn ngọn lửa, ngước lên lồng ở "old street"; chớp 13,0 · 14,45 · 15,55 s. Hạ tay 2,6–3,1 s → **tay phải nắm thanh móc, trái nắm thân cột** (Cổng 5: tay lơ lửng).
+- **s06:** đứng tự nhiên (dồn chân trái, lệch hông, thở). **Lòng tay phải MPFB áp dưới đáy đồng hồ** (IK); đồng hồ và máy insert giữ đúng vị trí Cổng 5. Kim: như cũ (7:31).
+
 ## Quy ước chung cho cả cảnh
 - **Toạ độ bộ phố (m):** trục phố là x. Quảng trường, đồng hồ ở +x (PHẢI màn hình); nhà kho ở −x (TRÁI). Máy luôn ở phía nam (z > đường đi của Ida).
   - Đèn khí Ln: x = 8 + (11 − n)·14, z = −3,9 (bó vỉa bắc). L1 148 · L2 134 · L3 120 · L4 106 · L5 92 · L6 78 · L7 64 · L8 50 · L9 36 · L10 22 · L11 8.

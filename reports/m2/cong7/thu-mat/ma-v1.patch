@@ -1,0 +1,477 @@
+diff --git a/design/cong3/v2/char3d/blender/bl_head.js b/design/cong3/v2/char3d/blender/bl_head.js
+index 990fe67..87fd8d2 100644
+--- a/design/cong3/v2/char3d/blender/bl_head.js
++++ b/design/cong3/v2/char3d/blender/bl_head.js
+@@ -34,6 +34,7 @@ export const casBLReady = () => !!CACHES.cas;
+ 
+ // Da: PBR mờ (nhám 0,66, bóng gương 0,3) + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập) + giữ sắc ấm khi ánh lạnh + kéo 35 % ánh hổ phách về trung tính.
+ export function skinMaterial(opts) {
++  if (opts.thuMatV1) return skinMaterialV1(opts);   // Cổng 7 THỬ MẶT V1 (nhánh thu-mat): chỉ da đầu/cổ Ida khi cờ CINE_THU_MAT chứa 'v1'
+   const bump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);   // lượt 3: vân da nhỏ (lỗ chân lông + nếp mịn), thủ tục
+     let sd = 7654321; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647); const b = new Float32Array(N * N).map(rnd);
+     const blur = (a, r) => { const o = new Float32Array(N * N), o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += a[y * N + ((x + k + N) % N)]; o[y * N + x] = t / (2 * r + 1); }
+@@ -67,7 +68,9 @@ export function skinMaterial(opts) {
+ // Cổng 6 (W4 gói nhân vật): mắt bớt "búp bê" — điểm sáng mềm, nhỏ (clearcoat 0,45, nhám 0,2; trước 1,0 / 0,05 = đốm trắng gắt);
+ // bóng mí + góc mắt đổ lên nhãn cầu (che khuất, theo vị trí trên nhãn cầu — không phải đèn). opts.eyeCoat / eyeCoatRough / eyeAO ghi đè.
+ function eyeMaterial(map, opts, R = 1) {
+-  const m = new THREE.MeshPhysicalMaterial({ map, roughness: 0.5, metalness: 0, clearcoat: opts.eyeCoat ?? 0.45, clearcoatRoughness: opts.eyeCoatRough ?? 0.2, envMapIntensity: 0 });
++  const THU = /v1/.test(globalThis.CINE_THU_MAT || '');   // Cổng 7 THỬ MẶT V1: giác mạc ướt phản chiếu MÔI TRƯỜNG THẬT của cảnh (envMap chụp tại đầu, gắn bởi cong7/thu-mat/v1.js)
++  const m = new THREE.MeshPhysicalMaterial({ map, roughness: 0.5, metalness: 0, clearcoat: THU ? 1.0 : (opts.eyeCoat ?? 0.45), clearcoatRoughness: THU ? 0.04 : (opts.eyeCoatRough ?? 0.2), envMapIntensity: 0 });
++  if (THU) m.userData.thuMat = 'eye';
+   const en = opts.eyeNeutral ?? 0.6, ao = opts.eyeAO ?? 1.0;
+   m.onBeforeCompile = (sh) => {
+     sh.vertexShader = 'varying vec3 vEyeP;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvEyeP = position;');
+@@ -75,8 +78,11 @@ function eyeMaterial(map, opts, R = 1) {
+     `vec3 albE = max(diffuseColor.rgb, vec3(1e-3)); vec3 eE = totalDiffuse / albE; float lE = dot(eE, vec3(0.2126, 0.7152, 0.0722));
+      float eyU = vEyeP.y / ${R.toFixed(5)}, eyX = abs(vEyeP.x) / ${R.toFixed(5)};
+      float aoE = 1.0 - ${ao.toFixed(3)} * (0.55 * smoothstep(0.0, 0.55, eyU) + 0.25 * smoothstep(0.5, 0.95, eyX)); aoE = max(aoE, 0.3);
+-     vec3 outgoingLight = mix(eE, vec3(lE), ${en.toFixed(3)}) * albE * aoE + totalSpecular * mix(1.0, aoE, 0.8) + totalEmissiveRadiance;`); };
+-  m.customProgramCacheKey = () => '|blEye6' + en + '|' + ao + '|' + R.toFixed(5);
++     vec3 outgoingLight = mix(eE, vec3(lE), ${en.toFixed(3)}) * albE * aoE + totalSpecular * ${THU ? 'aoE * 0.5' : 'mix(1.0, aoE, 0.8)'} + totalEmissiveRadiance;`);
++    // V1: lớp ướt (clearcoat) cũng bị mí trên + hàng mi che: phản chiếu môi trường tối dần lên phía mí (dải tối của mí trên trên giác mạc)
++    if (THU) sh.fragmentShader = sh.fragmentShader.replace('( clearcoatSpecularDirect + clearcoatSpecularIndirect ) * material.clearcoat',
++      '( clearcoatSpecularDirect * mix( 1.0, aoE, 0.6 ) + clearcoatSpecularIndirect * aoE * aoE ) * material.clearcoat'); };
++  m.customProgramCacheKey = () => '|blEye6' + en + '|' + ao + '|' + R.toFixed(5) + (THU ? '|thu1' : '');
+   return m;
+ }
+ 
+@@ -91,7 +97,8 @@ function buildBL(p, kind) {
+   const src = {}; CACHE.gltf.scene.traverse((o) => { if (o.isMesh) src[o.name.replace(/^(ida|cas)_/, 'x_')] = o; });
+   const reg = (m, part) => { m.userData.part = part; m.castShadow = true; m.receiveShadow = true; parts.push(m); return m; };
+   const morphables = [];
+-  const skinMat = skinMaterial(opts);
++  const THU = kind === 'ida' && /v1/.test(globalThis.CINE_THU_MAT || '');   // Cổng 7 THỬ MẶT: cờ tắt → vật liệu cũ, 0 px
++  const skinMat = skinMaterial(THU ? { ...opts, thuMatV1: true } : opts);
+   // Chuẩn bị một lưới có rig (CPU): trả { geo (đủ chỉ số, không vào cảnh), apply(w) }
+   const rigged = (o) => {
+     const g = o.geometry.clone(), names = o.morphTargetDictionary || {}, rel = g.morphTargetsRelative;
+@@ -139,3 +146,84 @@ function buildBL(p, kind) {
+       return v; }; }
+   return { sdf, head, neck, eyes, setFace, getFace: () => cur, skinMat, meta, keys: hr.keys, root };
+ }
++
++// ================= Cổng 7 THỬ MẶT V1 (nhánh thu-mat; chỉ bật khi globalThis.CINE_THU_MAT chứa 'v1') =================
++// Da đầu/cổ Ida: (1) khuếch tán bọc HẸP lệch đỏ (tán xạ ở ranh sáng–tối, không bọc độ sáng như sáp); (2) xuyên sáng (translucency) theo
++// "bề dày" vùng — tai, cánh/chóp mũi, mí — khi nguồn thật ở sau/bên; (3) bóng gương hai thùy, nhám theo vùng (chữ T bóng hơn má) + phản xạ
++// môi trường thật của cảnh (envMap do v1.js chụp tại đầu, Fresnel → ánh "sheen" ở góc sượt); (4) biến thiên màu da theo vùng và loang nhỏ
++// thủ tục (má/mũi/tai hồng hơn, quanh mắt tối–lạnh hơn, mức vừa); (5) cuộn sáng da mềm (uKnee > 0) cho shot có nguồn rất gần mặt.
++// Hình khối KHÔNG đổi (chỉ vật liệu). Hệ toạ độ lưới: đơn vị H, y = 0 cằm, +z mặt (ida_bl_v151.json).
++export const THU_V1 = { wr: [0.2, 0.06, 0.04], wrPow: 1.5, sat: 0.82, pink: 0.55, cool: 0.6, mott: 1.0, rough: [0.42, 0.78], spec: 0.75, lobe2: 0.12,
++  trans: 0.55, envDiff: 0.3, neutral: 0.3, warm: 0.7 };
++function skinMaterialV1(opts) {
++  const P = { ...THU_V1, ...(globalThis.CINE_THU_V1 || {}) }, f = (v) => Number(v).toFixed(4), v3 = (a) => `vec3(${a.map(f).join(', ')})`;
++  const bump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);
++    let sd = 7654321; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647); const b = new Float32Array(N * N).map(rnd);
++    const blur = (a, r) => { const o = new Float32Array(N * N), o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += a[y * N + ((x + k + N) % N)]; o[y * N + x] = t / (2 * r + 1); }
++      for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += o[((y + k + N) % N) * N + x]; o2[y * N + x] = t / (2 * r + 1); } return o2; };
++    const b1 = blur(b, 1), b4 = blur(b, 4);
++    for (let i = 0; i < N * N; i++) { const v = 128 + 170 * (b1[i] - 0.5) + 300 * (b4[i] - 0.5); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = Math.max(0, Math.min(255, v)); im.data[i * 4 + 3] = 255; }
++    g.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(6, 4); return t; })();
++  const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0, envMapIntensity: 1, bumpMap: bump, bumpScale: opts.skinBump ?? 1.4 });
++  const U = { uKnee: { value: 0 }, uCap: { value: 1.8 }, uTrans: { value: P.trans } }; mat.userData.thuMat = 'skin'; mat.userData.U = U;
++  const phys = THREE.ShaderChunk.lights_physical_pars_fragment
++    .replace('reflectedLight.directDiffuse += irradiance * BRDF_Lambert( material.diffuseColor );',
++      `{ float nlW = dot( geometryNormal, directLight.direction ); vec3 wr = ${v3(P.wr)};
++        vec3 dW = pow( clamp( ( vec3( nlW ) + wr ) / ( 1.0 + wr ), 0.0, 1.0 ), vec3( ${f(P.wrPow)} ) );
++        reflectedLight.directDiffuse += dW * directLight.color * BRDF_Lambert( material.diffuseColor );
++        float trV = pow( clamp( dot( geometryViewDir, -normalize( directLight.direction + geometryNormal * 0.35 ) ), 0.0, 1.0 ), 3.0 ) + 0.3 * clamp( -nlW, 0.0, 1.0 );
++        gTrans += uTrans * gThick * trV * directLight.color * vec3( 1.0, 0.30, 0.17 ); }`)
++    .replace('reflectedLight.directSpecular += irradiance * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, material );',
++      `{ PhysicalMaterial m2 = material; m2.roughness = max( 0.22, material.roughness * 0.65 );
++        reflectedLight.directSpecular += ${f(P.spec)} * irradiance * ( ${f(1 - P.lobe2)} * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, material ) + ${f(P.lobe2)} * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, m2 ) ); }`);
++  const maps = THREE.ShaderChunk.lights_fragment_maps.replace('iblIrradiance += getIBLIrradiance( geometryNormal );', `iblIrradiance += ${f(P.envDiff)} * getIBLIrradiance( geometryNormal );`);
++  if (phys === THREE.ShaderChunk.lights_physical_pars_fragment || maps === THREE.ShaderChunk.lights_fragment_maps) console.warn('thu-mat V1: không vá được chunk');
++  const PRE = `varying vec3 vObjP; uniform float uKnee, uCap, uTrans; vec3 gTrans = vec3( 0.0 ); float gThick = 0.0;
++    float tmH( vec3 p ) { p = fract( p * 0.3183099 + 0.1 ); p *= 17.0; return fract( p.x * p.y * p.z * ( p.x + p.y + p.z ) ); }
++    float tmN( vec3 x ) { vec3 i = floor( x ), q = fract( x ); q = q * q * ( 3.0 - 2.0 * q );
++      return mix( mix( mix( tmH( i ), tmH( i + vec3( 1, 0, 0 ) ), q.x ), mix( tmH( i + vec3( 0, 1, 0 ) ), tmH( i + vec3( 1, 1, 0 ) ), q.x ), q.y ),
++                  mix( mix( tmH( i + vec3( 0, 0, 1 ) ), tmH( i + vec3( 1, 0, 1 ) ), q.x ), mix( tmH( i + vec3( 0, 1, 1 ) ), tmH( i + vec3( 1, 1, 1 ) ), q.x ), q.y ), q.z ); }
++`;
++  mat.onBeforeCompile = (sh) => {
++    Object.assign(sh.uniforms, U);
++    sh.vertexShader = 'varying vec3 vObjP;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvObjP = transformed;');
++    sh.fragmentShader = PRE + sh.fragmentShader.replace('#include <lights_physical_pars_fragment>', phys).replace('#include <lights_fragment_maps>', maps)
++      .replace('#include <color_fragment>', `#include <color_fragment>
++  #if defined( USE_COLOR_ALPHA )
++    diffuseColor.a = opacity;
++  #endif
++  vec3 tp = vObjP; float tax = abs( tp.x );
++  float tEar = smoothstep( 0.37, 0.40, tax ) * smoothstep( 0.20, 0.27, tp.y ) * smoothstep( 0.62, 0.54, tp.y ) * smoothstep( 0.15, 0.02, tp.z );
++  float tNose = smoothstep( 0.075, 0.03, tax ) * smoothstep( 0.43, 0.49, tp.z ) * smoothstep( 0.27, 0.31, tp.y ) * smoothstep( 0.50, 0.44, tp.y );
++  float tDe = length( vec3( tax, tp.y, tp.z ) - vec3( 0.1463, 0.5085, 0.2593 ) ) - 0.0731;
++  float tLid = smoothstep( 0.035, 0.004, tDe ) * step( 0.26, tp.z );
++  float tOrb = smoothstep( 0.07, 0.012, tDe ) * smoothstep( 0.18, 0.28, tp.z ) * ( 1.0 - 0.5 * smoothstep( 0.5, 0.56, tp.y ) );
++  float tChk = exp( -pow( length( vec2( tax - 0.21, tp.y - 0.33 ) ) / 0.085, 2.0 ) ) * smoothstep( 0.12, 0.28, tp.z );
++  gThick = max( max( tEar, 0.55 * tNose ), 0.35 * tLid );
++  float tm1 = tmN( tp * 17.0 ), tm2 = tmN( tp * 53.0 + 7.1 ), tm3 = tmN( tp * 150.0 + 3.3 );
++  { vec3 c = diffuseColor.rgb; float lc = dot( c, vec3( 0.2126, 0.7152, 0.0722 ) ); c = mix( vec3( lc ), c, ${f(P.sat)} );
++    c *= 1.0 + ${f(P.mott)} * ( 0.08 * ( tm1 - 0.5 ) + 0.05 * ( tm2 - 0.5 ) );
++    c *= vec3( 1.0 + 0.05 * ${f(P.mott)} * ( tm2 - 0.5 ), 1.0 - 0.03 * ${f(P.mott)} * ( tm2 - 0.5 ), 1.0 - 0.05 * ${f(P.mott)} * ( tm2 - 0.5 ) );
++    c *= mix( vec3( 1.0 ), vec3( 1.07, 0.92, 0.91 ), clamp( 0.9 * tEar + 0.8 * tNose + 0.35 * tChk, 0.0, 1.0 ) * ${f(P.pink)} );
++    c *= mix( vec3( 1.0 ), vec3( 0.84, 0.85, 0.94 ), tOrb * ${f(P.cool)} );
++    float tSp = smoothstep( 0.80, 0.9, tm3 ) * smoothstep( 0.52, 0.75, tp.y ) * smoothstep( 0.1, 0.3, tp.z ); c *= 1.0 - 0.14 * tSp * vec3( 0.85, 1.0, 1.15 );
++    diffuseColor.rgb = c; }`)
++      .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>
++  #if defined( USE_COLOR_ALPHA )
++    roughnessFactor = mix( ${f(P.rough[0])}, ${f(P.rough[1])}, vColor.a );
++  #else
++    roughnessFactor = 0.6;
++  #endif
++  roughnessFactor = clamp( roughnessFactor * ( 1.0 + 0.3 * ( tm2 - 0.5 ) ) + 0.1 * tEar, 0.2, 0.95 );`)
++      .replace('vec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;',
++        `vec3 alb = max( diffuseColor.rgb, vec3( 1e-3 ) ); vec3 eSk = totalDiffuse / alb;
++         float lSk = dot( eSk, vec3( 0.2126, 0.7152, 0.0722 ) ), cSk = smoothstep( 0.0, 0.25, ( eSk.b - eSk.r ) / max( lSk, 1e-5 ) );
++         eSk = mix( eSk, lSk * vec3( 1.06, 1.0, 0.92 ), ${f(P.warm)} * cSk );
++         eSk = mix( eSk, lSk * vec3( 1.07, 1.0, 0.9 ), ${f(P.neutral)} );
++         eSk += gTrans;
++         if ( uKnee > 0.0 ) { float lK = dot( eSk, vec3( 0.2126, 0.7152, 0.0722 ) ), xK = max( lK - uKnee, 0.0 );
++           if ( lK > uKnee ) eSk *= ( uKnee + xK / ( 1.0 + xK / ( uCap - uKnee ) ) ) / lK; }
++         vec3 outgoingLight = eSk * alb + totalSpecular + totalEmissiveRadiance;`); };
++  mat.customProgramCacheKey = () => '|thuV1|' + JSON.stringify(P);
++  return mat;
++}
+diff --git a/design/cong5/layout/page.js b/design/cong5/layout/page.js
+index bea0845..1761454 100644
+--- a/design/cong5/layout/page.js
++++ b/design/cong5/layout/page.js
+@@ -31,9 +31,10 @@ vec3 grade(vec3 c, vec2 uv){
+ 
+ window.listShots = () => SHOTS.map(({ build, ...m }) => m);
+ window.listEvents = () => EVENTS;
+-let W, H, cfg, renderer, pipe, sheets, mod, cur, shot;
++let W, H, cfg, renderer, pipe, sheets, mod, cur, shot, thu = null;
+ window.setup = async (c) => {
+   cfg = c; W = c.W; H = c.H;
++  globalThis.CINE_THU_MAT = (c.dbg && c.dbg.thuMat) || null;   // Cổng 7 THỬ MẶT (nhánh thu-mat): cờ biến thể da/mắt/vi chuyển động; không đặt → null → 0 px
+   mod = await import('/cong3/v2/char3d/cast3d.js');
+   if (mod.preloadIdaBL && (globalThis.CINE_IDA_STYLE ?? mod.IDA_STYLE) === 'bl') await mod.preloadIdaBL();   // v1.5: glb đầu Ida 'bl' nạp trước (GLTFLoader bất đồng bộ)
+   if (mod.preloadCasBL && (globalThis.CINE_CAS_STYLE ?? mod.CAS_STYLE) === 'bl') await mod.preloadCasBL();   // Cổng 6 (W4): glb đầu Cas 'bl' khi cờ bật
+@@ -47,6 +48,8 @@ window.setup = async (c) => {
+   shot = SHOTS.find((s) => s.id === c.shot); if (!shot) throw new Error('không có shot ' + c.shot);
+   const ctx = { THREE, sheets, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, opts), upd: mod.update || null, dbg: c.dbg || {} };
+   cur = await shot.build(ctx);
++  thu = globalThis.CINE_THU_MAT ? (await import('/cong7/thu-mat/' + globalThis.CINE_THU_MAT.replace(/[^a-z0-9]/g, '') + '.js')).install({ THREE, renderer, cur, shot, dbg: c.dbg || {} }) : null;   // Cổng 7 THỬ MẶT
++  window.__cine = { THREE, get cur() { return cur; }, get renderer() { return renderer; }, get pipe() { return pipe; } };   // Cổng 7 THỬ MẶT: đo mặt nạ mặt (không vẽ gì)
+   // chẩn đoán (chỉ dùng khi --dbg): ẩn một bộ phận / tắt phát sáng của nhân vật
+   if (c.dbg && (c.dbg.hide || c.dbg.noEmissive || c.dbg.front || c.dbg.noShadow)) for (const ch of Object.values(cur.named || {})) ch.root.traverse((o) => { if (!o.isMesh) return;
+     if (c.dbg.hide && o.userData.part === c.dbg.hide) o.visible = false; if (c.dbg.front && o.material) o.material.side = THREE.FrontSide; if (c.dbg.noShadow) o.receiveShadow = false; if (c.dbg.noEmissive && o.material && 'emissiveIntensity' in o.material) o.material.emissiveIntensity = 0; });
+@@ -60,6 +63,7 @@ window.renderFrame = async (fGlobal) => {
+   const T = fGlobal / 24, t = T - shot.t0;
+   cur.update(t, T, fGlobal);
+   pipe.outMat.uniforms.uExp.value = typeof cur.exposure === 'function' ? cur.exposure(t, T) : (cur.exposure ?? 1.0);
++  if (thu) thu.frame(t, T, fGlobal, pipe.outMat.uniforms.uExp);   // Cổng 7 THỬ MẶT (cờ tắt → thu = null)
+   const ms = pipe.accumulate(cur.scene, cur.cam, 1, cur.onSample || null);
+   if (!cfg.nopaint) cur.paint.apply(cur.scene, cur.cam); else cur.paint.bypass();
+   return { accum_ms: ms };
+diff --git a/design/cong7/thu-mat/do_mat.py b/design/cong7/thu-mat/do_mat.py
+new file mode 100644
+index 0000000..789eef4
+--- /dev/null
++++ b/design/cong7/thu-mat/do_mat.py
+@@ -0,0 +1,83 @@
++"""Cổng 7 THỬ MẶT — đo da mặt trong mặt nạ (frames.js --mask) và ghép ảnh trước/sau.
++  do <thư mục> <shot>                     : bảng số đo từng khung dải + trung bình (JSON ra stdout)
++  ghep <trước> <sau> <shot> <khung> <ra.jpg> : ảnh trước | sau cả khung (hàng trên) + cận mặt phóng to (hàng dưới)
++  lech <a.png> <b.png>                    : số điểm ảnh khác nhau (kiểm 0 px)
++Số đo (trong mặt nạ da mặt nhìn thấy, sRGB 8 bit sau toàn bộ đường ống):
++  chay_pct   : % điểm ảnh có kênh ≥ 250 (cháy)       trang_pct: % điểm ảnh cả ba kênh ≥ 235 (trắng bệch)
++  L_tb, L_p5, L_p95 : độ sáng CIE L*                  tuongphan: L_p95 − L_p5 (độ trải sáng–tối trên mặt, đơn vị L*)
++  a_tb, b_tb, C_tb  : sắc CIELAB trung bình (a đỏ, b vàng, C = độ bão hoà)   C_sd: độ lệch chuẩn C (biến thiên màu da)
++"""
++import glob, json, os, sys
++import numpy as np
++from PIL import Image, ImageDraw
++
++
++def lab(rgb):
++    c = rgb / 255.0; c = np.where(c <= 0.04045, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
++    M = np.array([[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]])
++    xyz = c @ M.T / np.array([0.95047, 1.0, 1.08883])
++    f = np.where(xyz > 0.008856, np.cbrt(xyz), 7.787 * xyz + 16 / 116)
++    return np.stack([116 * f[:, 1] - 16, 500 * (f[:, 0] - f[:, 1]), 200 * (f[:, 1] - f[:, 2])], 1)
++
++
++def do_frame(png, mpng):
++    im = np.asarray(Image.open(png).convert('RGB')).astype(float); m = np.asarray(Image.open(mpng).convert('L')) > 127
++    # co mặt nạ 1 px (mép khử răng cưa trộn nền)
++    m2 = m.copy(); m2[1:, :] &= m[:-1, :]; m2[:-1, :] &= m[1:, :]; m2[:, 1:] &= m[:, :-1]; m2[:, :-1] &= m[:, 1:]
++    p = im[m2]; n = len(p)
++    if n < 50: return {'px': int(n)}
++    L = lab(p); C = np.hypot(L[:, 1], L[:, 2])
++    return {'px': int(n), 'chay_pct': round(100 * float((p >= 250).any(1).mean()), 2), 'trang_pct': round(100 * float((p >= 235).all(1).mean()), 2),
++            'L_tb': round(float(L[:, 0].mean()), 1), 'L_p5': round(float(np.percentile(L[:, 0], 5)), 1), 'L_p95': round(float(np.percentile(L[:, 0], 95)), 1),
++            'tuongphan': round(float(np.percentile(L[:, 0], 95) - np.percentile(L[:, 0], 5)), 1),
++            'a_tb': round(float(L[:, 1].mean()), 1), 'b_tb': round(float(L[:, 2].mean()), 1), 'C_tb': round(float(C.mean()), 1), 'C_sd': round(float(C.std()), 2)}
++
++
++def do(d, shot):
++    rows = {}
++    for png in sorted(glob.glob(f'{d}/{shot}_f*.png')):
++        if png.endswith('_mask.png'): continue
++        f = int(png.rsplit('_f', 1)[1][:-4]); rows[f] = do_frame(png, png[:-4] + '_mask.png')
++    keys = [k for k in next(iter(rows.values())).keys() if k != 'px']
++    ok = [r for r in rows.values() if 'L_tb' in r]
++    tb = {k: round(float(np.mean([r[k] for r in ok])), 2) for k in keys} if ok else {}
++    return {'shot': shot, 'khung': rows, 'trung_binh': tb}
++
++
++def bbox(mpng, pad=0.35):
++    m = np.asarray(Image.open(mpng).convert('L')) > 127; ys, xs = np.nonzero(m)
++    if len(xs) < 20: return None
++    x0, x1, y0, y1 = xs.min(), xs.max(), ys.min(), ys.max(); w, h = x1 - x0, y1 - y0; s = max(w, h) * (1 + 2 * pad); cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
++    return (int(cx - s / 2), int(cy - s / 2), int(cx + s / 2), int(cy + s / 2))
++
++
++def ghep(a_dir, b_dir, shot, f, out, la='hiện hành', lb='biến thể'):
++    A = Image.open(f'{a_dir}/{shot}_f{f}.png').convert('RGB'); B = Image.open(f'{b_dir}/{shot}_f{f}.png').convert('RGB')
++    bb = bbox(f'{a_dir}/{shot}_f{f}_mask.png') or (0, 0, A.width, A.height)
++    Z = 540
++    ca, cb = A.crop(bb).resize((Z, Z), Image.LANCZOS), B.crop(bb).resize((Z, Z), Image.LANCZOS)
++    o = Image.new('RGB', (1920 + 6, 540 + 6 + Z), (20, 20, 20)); o.paste(A, (0, 0)); o.paste(B, (966, 0))
++    o.paste(ca, (960 - Z, 546)); o.paste(cb, (966, 546)); d = ImageDraw.Draw(o)
++    from PIL import ImageFont; fnt = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 16)
++    for x, t in ((4, la), (970, lb)): d.rectangle([x, 4, x + 9 * len(t) + 14, 26], fill=(0, 0, 0)); d.text((x + 5, 6), t, fill=(255, 255, 255), font=fnt)
++    o.save(out, quality=90); print(out)
++
++
++def lech(a, b):
++    A = np.asarray(Image.open(a).convert('RGB')).astype(int); B = np.asarray(Image.open(b).convert('RGB')).astype(int)
++    print(json.dumps({'px_khac': int((A != B).any(2).sum()), 'max': int(abs(A - B).max())}))
++
++
++if __name__ == '__main__':
++    c = sys.argv[1]
++    if c == 'do': print(json.dumps(do(sys.argv[2], sys.argv[3]), ensure_ascii=False))
++    elif c == 'ghep': ghep(*sys.argv[2:7])
++    elif c == 'lech': lech(*sys.argv[2:4])
++    elif c == 'bang':   # bang <trước> <sau> <ra.json>: trung bình từng shot; s03 tính riêng các khung SAU khi L4 bắt lửa (khung ≥ 228)
++        R = {}
++        for s in ('s03', 's05', 's22'):
++            for nh, d in (('truoc', sys.argv[2]), ('sau', sys.argv[3])):
++                j = do(d, s); ok = [v for f, v in j['khung'].items() if 'L_tb' in v and (s != 's03' or int(f) >= 228)]
++                R[f'{s}/{nh}'] = {k: round(float(np.mean([r[k] for r in ok])), 2) for k in ok[0] if k != 'px'}; R[f'{s}/{nh}']['khung'] = len(ok)
++                print(s, nh, R[f'{s}/{nh}'])
++        json.dump(R, open(sys.argv[4], 'w'), ensure_ascii=False, indent=1)
+diff --git a/design/cong7/thu-mat/dong_goi.py b/design/cong7/thu-mat/dong_goi.py
+new file mode 100644
+index 0000000..1c6cac2
+--- /dev/null
++++ b/design/cong7/thu-mat/dong_goi.py
+@@ -0,0 +1,35 @@
++"""Cổng 7 THỬ MẶT — cháy phụ đề vào mp4 từng shot (y hệt thẻ của package.py: DejaVuSans 30, hộp tối, viền 2 px) rồi lập dải kiểm mù.
++Chạy: /opt/cine/bin/python design/cong7/thu-mat/dong_goi.py <thư mục render (s03.mp4…)> <thư mục báo cáo reports/m2/cong7/thu-mat/V1>
++Mốc thẻ theo layout-v21.text/elements.json (khung phim): L1 288–349, L2 1188–1259. Mốc shot trong phim: s03 8,5–10,5; s05 12,0–16,0; s22 49,5–52,5.
++"""
++import os, subprocess, sys
++from PIL import Image, ImageDraw, ImageFont
++
++W, H = 960, 540
++FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'; FILL = (244, 241, 234)
++SHOTS = {'s03': (8.5, 10.5, None), 's05': (12.0, 16.0, (288, 349, 'Evening, old street.')), 's22': (49.5, 52.5, (1188, 1259, 'Not yet... not yet.'))}
++
++
++def card(txt, out):
++    font = ImageFont.truetype(FONT, 30); full = Image.new('RGBA', (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(full)
++    tw = d.textlength(txt, font=font); x, y = (W - tw) / 2, H - 46 - 30
++    l, t, r, bt = d.textbbox((x, y), txt, font=font); d.rounded_rectangle((l - 14, t - 9, r + 14, bt + 10), radius=6, fill=(12, 12, 14, 228))
++    d.text((x, y), txt, font=font, fill=FILL + (255,), stroke_width=2, stroke_fill=(10, 10, 12, 255)); full.save(out)
++
++
++def main(rd, od):
++    os.makedirs(od, exist_ok=True)
++    for s, (t0, t1, sub) in SHOTS.items():
++        src = os.path.join(rd, f'{s}.mp4'); dst = os.path.join(od, f'{s}.mp4')
++        if sub:
++            f0, f1, txt = sub; png = os.path.join(rd, f'{s}_card.png'); card(txt, png); a, b = f0 - round(t0 * 24), f1 - round(t0 * 24)
++            vf = f"[0:v][1:v]overlay=0:0:enable='between(n,{a},{b})':shortest=0:eof_action=pass,format=yuv420p[v]"
++            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-loop', '1', '-framerate', '24', '-i', png, '-filter_complex', vf, '-map', '[v]', '-frames:v', str(round((t1 - t0) * 24)),
++                            '-c:v', 'libx264', '-preset', 'medium', '-crf', '16', '-color_range', 'tv', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-r', '24', dst], check=True)
++        else:
++            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-c:v', 'libx264', '-preset', 'medium', '-crf', '16', '-pix_fmt', 'yuv420p', dst], check=True)
++        subprocess.run([sys.executable, os.path.join(os.path.dirname(__file__), '../../../scripts/p/kiem_mu.py'), 'dai', dst, '0', f'{t1 - t0:.2f}', os.path.join(od, f'dai_{s}.jpg')], check=True)
++
++
++if __name__ == '__main__':
++    main(sys.argv[1], sys.argv[2])
+diff --git a/design/cong7/thu-mat/frames.js b/design/cong7/thu-mat/frames.js
+new file mode 100644
+index 0000000..f6aedc6
+--- /dev/null
++++ b/design/cong7/thu-mat/frames.js
+@@ -0,0 +1,91 @@
++// Cine Lab · Cổng 7 THỬ MẶT (nhánh thu-mat, không merge) — driver render theo shot, dựa trên page.js của layout (cùng đường ống, cùng lớp vẽ).
++// node design/cong7/thu-mat/frames.js --shot s22 --out <thư mục> [--dbg '{"thuMat":"v1"}'] [--all] [--frames 1440,1452] [--dai] [--mask] [--w 960 --h 540]
++//   --all    : render trọn shot → <out>/<shot>.mp4 (x264 crf 14 như render_film.js, chưa phụ đề)
++//   --dai    : các khung của dải kiểm mù (bước 0,5 s từ đầu shot) → <out>/<shot>_f<khung>.png
++//   --frames : danh sách khung phim toàn cục (thay cho --dai)
++//   --mask   : kèm mặt nạ DA MẶT nhìn thấy (bộ phận 'head' của Ida; mọi vật khác tô đen nhưng vẫn che) → <out>/<shot>_f<khung>_mask.png
++// Ghi <out>/<shot>.timing.json: giây mỗi khung (render + finalize, không tính mặt nạ).
++const { chromium } = require('/opt/pw/node_modules/playwright');
++const { spawn, spawnSync } = require('child_process');
++const fs = require('fs'), path = require('path');
++const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
++const has = (k) => process.argv.includes('--' + k);
++const ROOT = path.resolve(__dirname, '../..');
++const W = +arg('w', 960), H = +arg('h', 540), out = path.resolve(arg('out', 'out')), SHOT = arg('shot');
++const dbg = JSON.parse(arg('dbg', '{}'));
++
++async function newPage(browser) {
++  const page = await browser.newPage({ viewport: { width: 800, height: 600 } });
++  page.on('console', (m) => { const t = m.text(); if (!/GPU stall|GL Driver|THREE.WebGLRenderer/.test(t)) console.error('[page]', t); });
++  page.on('pageerror', (e) => console.error('[pageerror]', e.message));
++  await page.route('http://cine.local/**', (route) => {
++    const p = path.join(ROOT, decodeURIComponent(new URL(route.request().url()).pathname));
++    const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : 'text/html';
++    if (!fs.existsSync(p)) return route.fulfill({ status: 404, body: 'not found ' + p });
++    route.fulfill({ status: 200, contentType: type, body: fs.readFileSync(p) });
++  });
++  await page.route('http://cine.local/thu-mat.html', (route) => route.fulfill({ status: 200, contentType: 'text/html',
++    body: '<!doctype html><html><body style="margin:0"><script type="module" src="/cong5/layout/page.js"></script></body></html>' }));
++  await page.goto('http://cine.local/thu-mat.html');
++  await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 });
++  return page;
++}
++
++// Mặt nạ da mặt: render lại cảnh (đã đặt trạng thái khung) bằng vật liệu phẳng: 'head' của Ida trắng, vật khác đen (vẫn ghi độ sâu).
++const MASK_FN = () => {
++  const { THREE, cur, renderer } = window.__cine, scene = cur.scene, ida = cur.named && cur.named.ida; if (!ida) return null;
++  const inIda = (o) => { for (let q = o; q; q = q.parent) if (q === ida.root) return true; return false; };
++  const white = new THREE.MeshBasicMaterial({ color: 0xffffff }), black = new THREE.MeshBasicMaterial({ color: 0x000000 });
++  const saved = [], vis = [];
++  scene.traverse((o) => {
++    if (!(o.isMesh || o.isLine || o.isPoints || o.isSprite)) return;
++    if (!o.isMesh || (o.material && (Array.isArray(o.material) ? o.material.some((m) => m.transparent) : o.material.transparent))) { vis.push([o, o.visible]); o.visible = false; return; }
++    saved.push([o, o.material]); o.material = o.userData.part === 'head' && inIda(o) ? white : black; });
++  const bg = scene.background, fog = scene.fog; scene.background = new THREE.Color(0); scene.fog = null;
++  const w = renderer.domElement.width, h = renderer.domElement.height;
++  const rt = new THREE.WebGLRenderTarget(w, h); const oldRT = renderer.getRenderTarget(), tm = renderer.toneMapping;
++  renderer.toneMapping = THREE.NoToneMapping; renderer.setRenderTarget(rt); renderer.clear(); renderer.render(scene, cur.cam);
++  const px = new Uint8Array(w * h * 4); renderer.readRenderTargetPixels(rt, 0, 0, w, h, px);
++  renderer.setRenderTarget(oldRT); renderer.toneMapping = tm; rt.dispose();
++  for (const [o, m] of saved) o.material = m; for (const [o, v] of vis) o.visible = v; scene.background = bg; scene.fog = fog;
++  let s = ''; const CH = 0x8000; const m1 = new Uint8Array(w * h); for (let i = 0; i < w * h; i++) m1[i] = px[i * 4] > 127 ? 255 : 0;
++  for (let i = 0; i < m1.length; i += CH) s += String.fromCharCode.apply(null, m1.subarray(i, i + CH));
++  return { w, h, b64: btoa(s) };
++};
++
++(async () => {
++  fs.mkdirSync(out, { recursive: true });
++  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--js-flags=--max-old-space-size=8192'] });
++  const page = await newPage(browser);
++  const a = Date.now();
++  const r = await page.evaluate(async (cfg) => await window.setup(cfg), { W, H, shot: SHOT, nopaint: false, dbg });
++  const setup_s = (Date.now() - a) / 1000;
++  const f0 = Math.round(r.t0 * 24), f1 = Math.round(r.t1 * 24);
++  const dai = []; for (let t = 0; t < (r.t1 - r.t0) - 1e-6; t += 0.5) dai.push(f0 + Math.round(t * 24));
++  const pick = arg('frames') ? arg('frames').split(',').map(Number) : dai;
++  const all = has('all'), todo = all ? Array.from({ length: f1 - f0 }, (_, i) => f0 + i) : pick;
++  let ff = null;
++  if (all) ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-framerate', '24', '-i', '-',
++    '-vf', 'vflip,scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int,format=yuv420p', '-c:v', 'libx264', '-preset', 'medium', '-crf', '14', '-tune', 'grain',
++    '-g', '48', '-color_range', 'tv', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709', '-r', '24', path.join(out, `${SHOT}.mp4`)], { stdio: ['pipe', 'inherit', 'inherit'] });
++  const times = [];
++  for (const f of todo) {
++    const b = Date.now();
++    await page.evaluate(async (f) => await window.renderFrame(f), f);
++    const b64 = await page.evaluate((f) => window.finalize(f), f);
++    times.push((Date.now() - b) / 1000);
++    const buf = Buffer.from(b64, 'base64');
++    if (ff && !ff.stdin.write(buf)) await new Promise((res) => ff.stdin.once('drain', res));
++    if (pick.includes(f)) {
++      spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-i', '-', '-vf', 'vflip', '-frames:v', '1', path.join(out, `${SHOT}_f${f}.png`)], { input: buf });
++      if (has('mask')) { const m = await page.evaluate(MASK_FN);
++        if (m) spawnSync('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'gray', '-s', `${m.w}x${m.h}`, '-i', '-', '-vf', 'vflip', '-frames:v', '1', path.join(out, `${SHOT}_f${f}_mask.png`)], { input: Buffer.from(m.b64, 'base64') }); }
++    }
++  }
++  if (ff) { ff.stdin.end(); await new Promise((res) => ff.on('close', res)); }
++  await browser.close();
++  const mean = times.reduce((x, y) => x + y, 0) / times.length;
++  const rec = { shot: SHOT, dbg, W, H, frames: todo.length, dai, setup_s, per_frame_s: { mean: +mean.toFixed(3), max: +Math.max(...times).toFixed(3) }, times };
++  fs.writeFileSync(path.join(out, `${SHOT}.timing.json`), JSON.stringify(rec, null, 1));
++  console.log(JSON.stringify({ shot: SHOT, frames: todo.length, per_frame_s: rec.per_frame_s, setup_s }));
++})().catch((e) => { console.error(e); process.exit(1); });
+diff --git a/design/cong7/thu-mat/v1.js b/design/cong7/thu-mat/v1.js
+new file mode 100644
+index 0000000..8adad08
+--- /dev/null
++++ b/design/cong7/thu-mat/v1.js
+@@ -0,0 +1,79 @@
++// Cine Lab · Cổng 7 THỬ MẶT — BIẾN THỂ V1 (three.js trong đường ống hiện có). Nhánh thu-mat, KHÔNG merge.
++// Bật: page.js setup({ dbg: { thuMat: 'v1' } }) → globalThis.CINE_THU_MAT = 'v1' (vật liệu da/mắt V1 trong bl_head.js) + install() dưới đây.
++// Không bật → không nạp file này, không đổi gì (0 px).
++//
++// Mỗi khung (gọi SAU cur.update và sau khi page.js đặt uExp):
++//  1. ÁNH DỘI TỪ NGUỒN CÓ THẬT: chụp môi trường cảnh (CubeCamera 128 px tại tâm đầu Ida, ẩn chính Ida) → PMREM → envMap cho da và giác mạc.
++//     Không thêm đèn: chỉ là ánh của chính tường vôi, khăn, lồng đèn, trời… trong cảnh. Da nhận 30 % phần khuếch tán (đèn phụ facelight đã
++//     có phần dội chính) + phản xạ gương đủ (Fresnel → ánh ướt ở góc sượt); giác mạc phản chiếu đủ → điểm sáng đúng vị trí nguồn thật.
++//     Chụp lại MỖI khung (hàm thuần theo khung: không trạng thái ẩn giữa các khung).
++//  2. PHƠI SÁNG / CUỘN SÁNG DA theo shot (bảng SHOT): s03 hạ phơi sáng sau khi L4 bắt lửa (thích nghi 0,4 s) + cuộn sáng da mềm.
++//  3. VI CHUYỂN ĐỘNG MẶT trên kênh facerig có sẵn (không đổi hình khối): liếc/saccade, mí theo hướng nhìn, mày trôi chậm + nhấn theo lời,
++//     má–mắt cùng miệng khi nói, thở (môi hé theo nhịp khi im), chớp bổ sung không đều (một phần chớp nửa). Cộng lên trọng số của shot.
++export const SHOT = {
++  s03: { expo: { at: 9.2, dur: 0.4, k: 0.5 }, knee: 0.4, cap: 1.0, blinks: [[8.95, 1], [10.15, 0.55]] },
++  s05: { blinks: [[12.42, 0.5]] },
++  s22: {},
++};
++
++function rng(seed) { let s = 0; for (const c of seed) s = (s * 31 + c.charCodeAt(0)) >>> 0; s = s || 1; return () => ((s = (s * 16807) % 2147483647) / 2147483647); }
++const sstep = (a, b, x) => { const t = Math.max(0, Math.min(1, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
++const blinkCurve = (T, b, s = 1) => { const d = T - b; return d < 0 ? 0 : d < 0.07 ? d / 0.07 : d < 0.1 ? 1 : d < 0.24 ? 1 - (d - 0.1) / 0.14 : 0; };
++// nhiễu 1D mượt (giá trị ngẫu nhiên tại mắt lưới 1/f s, nội suy cosin), theo hạt giống
++function noise1(seed, freq) { const r = rng(seed), v = Array.from({ length: 512 }, () => r() * 2 - 1);
++  return (T) => { const x = T * freq, i = Math.floor(x), f = x - i, u = (1 - Math.cos(Math.PI * f)) / 2, a = v[((i % 512) + 512) % 512], b = v[(((i + 1) % 512) + 512) % 512]; return a + (b - a) * u; }; }
++
++export function install({ THREE, renderer, cur, shot, dbg = {} }) {
++  const ida = cur.named && cur.named.ida; if (!ida) return null;
++  const cfg = { ...(SHOT[shot.id] || {}), ...(dbg.thuShot || {}) }, noEnv = !!dbg.thuNoEnv, noMotion = !!dbg.thuNoMotion;
++  const mats = []; ida.root.traverse((o) => { if (o.isMesh && o.material && o.material.userData && o.material.userData.thuMat && !mats.includes(o.material)) mats.push(o.material); });
++  const skin = mats.find((m) => m.userData.thuMat === 'skin');
++  if (skin && cfg.knee) { skin.userData.U.uKnee.value = cfg.knee; skin.userData.U.uCap.value = cfg.cap ?? 1.8; }
++  // ---- 1. môi trường thật tại đầu ----
++  const cubeRT = new THREE.WebGLCubeRenderTarget(128, { type: THREE.HalfFloatType }), cubeCam = new THREE.CubeCamera(0.05, 400, cubeRT);
++  const pmrem = new THREE.PMREMGenerator(renderer); let envRT = null;
++  function captureEnv() {
++    const H = ida.H, head = ida.joints.head; head.updateWorldMatrix(true, false);
++    const c = head.localToWorld(new THREE.Vector3(0, 0.5 * H, 0.15 * H)); cubeCam.position.copy(c);
++    const vis = ida.root.visible; ida.root.visible = false;
++    const prevRT = renderer.getRenderTarget(), tm = renderer.toneMapping; renderer.toneMapping = THREE.NoToneMapping;
++    cubeCam.update(renderer, cur.scene); ida.root.visible = vis;
++    envRT = pmrem.fromCubemap(cubeRT.texture, envRT); renderer.setRenderTarget(prevRT); renderer.toneMapping = tm;
++    for (const m of mats) { if (m.envMap !== envRT.texture) { m.envMap = envRT.texture; m.needsUpdate = true; } m.envMapIntensity = 1; }
++  }
++  // ---- 3. vi chuyển động ----
++  const face = ida.face, eyes = (face && face.eyes) || [];
++  let base = {}; const orig = ida.setFace; if (face && !noMotion) ida.setFace = (w) => { base = { ...(w || {}) }; };
++  if (face && face.getFace) base = { ...face.getFace() };
++  const r = rng('thu-mat-' + shot.id), sac = [];
++  { let T = shot.t0 + 0.15 + r() * 0.3; while (T < shot.t1) { sac.push([T, (r() * 2 - 1) * 0.035, (r() * 2 - 1) * 0.015]); T += 0.3 + r() * 0.85; } }   // 0,3–1,15 s; ±2°/±0,9°
++  const nBrow = noise1('brow' + shot.id, 0.7), nBrow2 = noise1('brow2' + shot.id, 0.45), nSm = noise1('sm' + shot.id, 0.35);
++  const blinks = [...(cfg.blinks || [])];
++  let eyeLast = null;
++  function motion(T) {
++    // saccade: bước nhảy nhanh 2 khung giữa các điểm dừng
++    let yaw = 0, pit = 0; for (let i = 0; i < sac.length; i++) { const [ts, y, p] = sac[i]; const u = sstep(ts, ts + 2 / 24, T); if (u <= 0) break;
++      const py = i ? sac[i - 1][1] : 0, pp = i ? sac[i - 1][2] : 0; yaw = py + (y - py) * u; pit = pp + (p - pp) * u; }
++    // mắt: bỏ lệch khung trước nếu không ai đặt lại (shot không có faceRig), rồi cộng lệch mới
++    if (eyes.length) { if (eyeLast && eyes.every((e, i) => Math.abs(e.rotation.x - eyeLast[i][0]) < 1e-9 && Math.abs(e.rotation.y - eyeLast[i][1]) < 1e-9)) eyes.forEach((e, i) => { e.rotation.x -= eyeLast[i][2]; e.rotation.y -= eyeLast[i][3]; });
++      eyes.forEach((e) => { e.rotation.x += pit; e.rotation.y += yaw; }); eyeLast = eyes.map((e) => [e.rotation.x, e.rotation.y, pit, yaw]); }
++    if (!face || noMotion) return;
++    const gzP = eyes.length ? eyes[0].rotation.x : 0;   // + = nhìn xuống
++    const w = { ...base }, add = (k, v) => { w[k] = (w[k] || 0) + v; };
++    const mouthE = Math.min(1, (base.jawOpen || 0) * 2 + 0.5 * ((base.pucker || 0) + (base.wide || 0)));
++    add('lidDrop', 0.45 * Math.max(0, gzP - 0.02));                                 // mí trên theo mắt nhìn xuống
++    add('browInnerUp', 0.05 * Math.max(0, nBrow(T)) + 0.06 * mouthE); add('browUp', 0.04 * Math.max(0, nBrow2(T)) + 0.05 * mouthE); add('browDown', 0.04 * Math.max(0, -nBrow2(T)));
++    add('cheekRaise', 0.12 * mouthE); add('squint', 0.06 * mouthE + 0.03 * Math.max(0, nSm(T))); add('smile', 0.03 * nSm(T));
++    if (mouthE < 0.05) add('jawOpen', 0.02 + 0.02 * Math.sin(2 * Math.PI * (T - shot.t0) / 3.4));   // thở: môi hé theo nhịp khi im
++    let bk = 0; for (const [b, s] of blinks) bk = Math.max(bk, s * blinkCurve(T, b)); if (bk > 0) w.blink = Math.max(w.blink || 0, bk);
++    const o = {}; for (const [k, v] of Object.entries(w)) { const c = Math.max(0, Math.min(1, v)); if (c > 0.004) o[k] = +c.toFixed(3); }
++    orig(o);
++  }
++  return {
++    frame(t, T, f, uExp) {
++      if (cfg.expo) uExp.value *= 1 - (1 - cfg.expo.k) * sstep(cfg.expo.at, cfg.expo.at + cfg.expo.dur, T);
++      motion(T);
++      if (!noEnv) captureEnv();
++    },
++  };
++}
