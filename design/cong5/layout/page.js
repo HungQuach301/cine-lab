@@ -34,6 +34,7 @@ window.listEvents = () => EVENTS;
 let W, H, cfg, renderer, pipe, sheets, mod, cur, shot;
 window.setup = async (c) => {
   cfg = c; W = c.W; H = c.H;
+  globalThis.CINE_THU_MAT = (c.dbg && c.dbg.thuMat) || null;   // Cổng 7 THỬ MẶT (nhánh thu-mat): cờ biến thể da/mắt/vi chuyển động; không đặt → null → 0 px
   mod = await import('/cong3/v2/char3d/cast3d.js');
   if (mod.preloadIdaBL && (globalThis.CINE_IDA_STYLE ?? mod.IDA_STYLE) === 'bl') await mod.preloadIdaBL();   // v1.5: glb đầu Ida 'bl' nạp trước (GLTFLoader bất đồng bộ)
   if (mod.preloadCasBL && (globalThis.CINE_CAS_STYLE ?? mod.CAS_STYLE) === 'bl') await mod.preloadCasBL();   // Cổng 6 (W4): glb đầu Cas 'bl' khi cờ bật
@@ -47,6 +48,7 @@ window.setup = async (c) => {
   shot = SHOTS.find((s) => s.id === c.shot); if (!shot) throw new Error('không có shot ' + c.shot);
   const ctx = { THREE, sheets, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, opts), upd: mod.update || null, dbg: c.dbg || {} };
   cur = await shot.build(ctx);
+  window.__cine = { THREE, get cur() { return cur; }, get renderer() { return renderer; }, get pipe() { return pipe; } };   // Cổng 7 THỬ MẶT: đo mặt nạ mặt (không vẽ gì)
   // chẩn đoán (chỉ dùng khi --dbg): ẩn một bộ phận / tắt phát sáng của nhân vật
   if (c.dbg && (c.dbg.hide || c.dbg.noEmissive || c.dbg.front || c.dbg.noShadow)) for (const ch of Object.values(cur.named || {})) ch.root.traverse((o) => { if (!o.isMesh) return;
     if (c.dbg.hide && o.userData.part === c.dbg.hide) o.visible = false; if (c.dbg.front && o.material) o.material.side = THREE.FrontSide; if (c.dbg.noShadow) o.receiveShadow = false; if (c.dbg.noEmissive && o.material && 'emissiveIntensity' in o.material) o.material.emissiveIntensity = 0; });
