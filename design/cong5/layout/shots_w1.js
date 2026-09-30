@@ -159,7 +159,7 @@ function faceRig(ch) {
 // + faster-whisper small.en (mốc từ); mix.py đặt câu ở đầu shot (lệch 0,000 s) → giây phim = DIALOGUE.Lk + giây trong tệp.
 // L1 "Evening, old street." (2,16 s): "Evening" 0,15–0,95 · "old" 1,00–1,30 · "street." 1,35–2,05.
 // L2 "Not yet... not yet." (2,88 s): "Not" 0,15–0,35 · "yet..." 0,50–0,72 (hơi thở 0,85–0,95) · "not" 1,55–1,80 · "yet." 1,95–2,50 (bật "t" 2,75).
-const LIP_L1 = [[0.15, 0.95, [[0, 'E'], [0.26, 'FV'], [0.4, 'E'], [0.62, 'L'], [0.78, 'E'], [0.93, 'L']]], [1.0, 1.3, [[0, 'O'], [0.55, 'O'], [0.85, 'L']]],
+const LIP_L1 = [[0.15, 0.95, [[0, 'E'], [0.26, 'FV'], [0.4, 'E'], [0.62, 'L'], [0.78, 'E'], [0.93, 'L']]], [1.0, 1.3, [[0, 'O'], [0.45, 'L'], [0.85, 'L']]],
   [1.35, 2.05, [[0, 'E'], [0.2, 'L'], [0.32, 'O'], [0.5, 'E'], [0.8, 'E'], [0.95, 'L']]]];
 const LIP_L2 = [[0.15, 0.35, [[0, 'L'], [0.35, 'A'], [0.9, 'L']]], [0.5, 0.72, [[0, 'E'], [0.5, 'E'], [0.92, 'L']]],
   [1.55, 1.8, [[0, 'L'], [0.35, 'A'], [0.9, 'L']]], [1.95, 2.5, [[0, 'E'], [0.45, 'E'], [0.9, 'L']]]];
@@ -321,7 +321,7 @@ S1({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 
     // Cổng 6 — L1 "Evening, old street." (12,0–14,16): lời chào ấm với con phố — nét cười nhẹ, mày trong hơi nâng; mắt nhìn ngọn lửa giữa hai lòng tay,
     // ngước lên lồng kính ở "old street"; chớp giữa hai vế và khi hạ tay. Miệng nói: môi–má–cằm cùng động (richLip), biên độ 0,75.
     const face = faceRig(ida), V = ida.VISEMES || {}, G = lampGrips(st, 4), L1 = DIALOGUE.L1, lip = lipKeys(LIP_L1, L1);
-    const X_WARM = { smile: 0.28, cheekRaise: 0.12, browInnerUp: 0.18, lidDrop: 0.12 };
+    const X_WARM = { smile: 0.28, cheekRaise: 0.12, browInnerUp: 0.18, lidDrop: 0.22 };   // W1-v2: mí che bớt tròng (0,12 → 0,22)
     const expr = [[L1 - 0.3, { ...X_WARM, smile: 0.15 }], [L1 + 0.9, X_WARM], [L1 + 2.2, { ...X_WARM, smile: 0.4, cheekRaise: 0.2 }], [L1 + 3.0, { ...X_WARM, smile: 0.3 }], [L1 + 4.0, { ...X_WARM, smile: 0.22, lidDrop: 0.18 }]];
     const gaze = [[0, [0, 0.12]], [0.95, [0, 0.12]], [1.25, [0, -0.06]], [2.3, [0, -0.04]], [2.8, [0, 0.14]], [4, [0, 0.14]]];
     const blinks = [L1 + 1.0, L1 + 2.45, [L1 + 3.55, 1.2]];
@@ -346,7 +346,7 @@ S1({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 
       const pose = t < 2.4 ? lerpPose(wA, wB, k) : poseAt([[2.4, wA], [3.1, p.restLadder]], t);
       ida.place(breathe(pose, T, 3.8, 0.8), LAMP_X(4), ON_Z, 0);
       const kr = ease(clamp01((t - 2.6) / 0.5)); if (kr > 0) topHands(ida, G, { R: kr, L: kr });   // Cổng 6: hạ tay → phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 11–19 cm)
-      face(mixW(richLip(wAt(expr, T), mouthAt(lip, T, V, 0.75)), { blink: blinkAt(T, blinks) }), valAt(gaze, t)); }
+      face(mixW(richLip(wAt(expr, T), mouthAt(lip, T, V, 0.62)), { blink: blinkAt(T, blinks) }), valAt(gaze, t)); }   // W1-v2: biên độ 0,75 → 0,62, 'old' bớt chu môi (kiểm mù: "miệng méo khi nói 1,0–1,5 s")
   } });
 
 S1({ id: 's06', scene: 1, t0: 16.0, t1: 20.0, size: 'CU (insert)', angle: 'chúc nhẹ, góc nhìn của Ida', mm: 100, move: 'tĩnh',
