@@ -7,7 +7,7 @@ Phiên xưởng W1 · nhánh `cong6-w1-v1` (worktree từ main `00a4ead`) · 30/
 ## 0. Tóm tắt
 - **s22 (quyết định cố định):** máy lệch **45°** khỏi hướng mặt (đo 42,2–46,5° suốt shot; Cổng 5: 7,0–11,3°), **giữ MCU 85 mm**, 1,2 m, tĩnh. Mắt v1.5.1: mí che bớt tròng (lidDrop 0,2), glint 0,5 → 0,35, không còn nhìn thẳng máy. Khẩu hình L2 lẩm bẩm.
 - **Khẩu hình + biểu cảm L1 (s05), L2 (s22):** 16 kênh + 6 viseme, mốc đo trên tệp take; miệng nói có môi–má–cằm cùng động (richLip của W2 v3).
-- **Cầm nắm theo tay MPFB (IK điểm):** thang trên vai (s02, s07, s08, s15, s23), thanh thang khi trèo/tụt (s03, s15, s21, s23), van (s03, s04, s19, s22, s23), thanh móc thang + thân cột khi nghỉ (s03, s05, s11–s15, s21), đồng hồ (s06, s09w), cửa đèn lồng (s04). Trước: lòng tay cách vật 7,8–44 cm; sau: −2,3 mm … +2,5 cm (bảng §3).
+- **Cầm nắm theo tay MPFB (IK điểm):** thang trên vai (s02, s07, s08, s15, s23), thanh thang khi trèo/tụt (s03, s15, s21, s23), van (s03, s04, s19, s22, s23), thanh móc thang + thân cột khi nghỉ (s03, s05, s11–s15, s21), đồng hồ (s06, s09w), cửa đèn lồng (s04). Trước: lòng tay cách vật 7,8–55 cm (tư thế FK); sau: −2,3 mm … +2,5 cm (bảng §3).
 - **s24c Cas dựa tường:** lòng tay phải MPFB áp phẳng lên mặt vôi (IK điểm, +2,6 mm); cậu dựa lưng vào tường chim. Trước: lòng tay cách mặt tường 0,82 m (phải) / 1,09 m (trái).
 - **B2 s23:** cột điện tường chim (17,0; −5,9) **không còn trong khung**; PointLight của cột dời sang vỉa hè nam ngoài khung; cột P5 (10,8; +3,9) mé nam giữ nguyên.
 - **Đứng tự nhiên:** Ida s06, s09w, s15 (settle); thở trên thang mọi shot thang; Cas s23, s24, s24c (dồn chân, thở, dựa tường).
@@ -34,9 +34,54 @@ Phiên xưởng W1 · nhánh `cong6-w1-v1` (worktree từ main `00a4ead`) · 30/
 - Bảng khung: `bang-khung_s22.jpg`.
 
 ## 3. Cầm nắm — tâm lòng tay MPFB (`ch.gripPoint`) → mặt vật (m)
-Đo bằng `--dbg '{"meas":1}'` (bọc `S1` trong `shots_w1.js`, không đổi hình), mỗi 3 khung. "Trước" = tư thế FK của shot (= tư thế Cổng 5 + thở) — khoảng cách tới CÙNG đích; "Sau" = sau IK. Chỉ tính khung tay đã nắm hẳn (trọng số IK ≥ 0,99); khung đang chuyển (trộn) không tính. Âm −0,0023 = lòng tay úp sát mặt vật (như W2).
+Đo bằng `--dbg '{"meas":1}'` (bọc `S1` trong `shots_w1.js`, không đổi hình), mỗi 3 khung. "Trước" = tư thế FK của shot (= tư thế Cổng 5 + thở) — khoảng cách tới CÙNG đích; "Sau" = sau IK. Chỉ tính khung tay đã nắm hẳn (trọng số IK ≥ 0,99); khung đang chuyển (trộn) không tính. Âm −0,0023 = lòng tay úp sát mặt vật (như W2). Khi một tay nắm chồng hai đích trong cùng khung (s11, s13: thân cột rồi nhánh thanh móc), cột "Trước" là khoảng cách FK tới đích ĐẦU.
 
-__GRIP_TABLE__
+| Shot | Tay | Vật | Giây shot (nắm hẳn) | Trước — tư thế FK (m), trung vị [min–max] | Sau IK (m) [min…max] | Khung mẫu |
+|---|---|---|---|---|---|---|
+| s02 | Ida P | thang trên vai | 0,00–4,46 | 0,161 [0,161–0,161] | -0,0023…-0,0023 | 37 |
+| s03 | Ida T | thanh thang | 0,00–0,00 | 0,316 [0,316–0,316] | +0,0192…+0,0192 | 1 |
+| s03 | Ida P | thanh thang | 0,00–0,00 | 0,444 [0,444–0,444] | +0,0192…+0,0192 | 1 |
+| s03 | Ida T | thân cột | 0,50–1,25 | 0,214 [0,210–0,216] | -0,0023…-0,0023 | 7 |
+| s03 | Ida P | thanh móc | 0,50–0,50 | 0,155 [0,155–0,155] | +0,0210…+0,0210 | 1 |
+| s03 | Ida P | van | 0,75–1,25 | 0,280 [0,279–0,283] | -0,0023…-0,0023 | 5 |
+| s05 | Ida T | thân cột | 3,12–3,96 | 0,212 [0,208–0,214] | -0,0023…-0,0023 | 8 |
+| s05 | Ida P | thanh móc | 3,12–3,96 | 0,154 [0,151–0,156] | +0,0147…+0,0198 | 8 |
+| s06 | Ida P | đồng hồ | 0,00–2,25 | 0,078 [0,078–0,078] | -0,0023…-0,0023 | 19 |
+| s07 | Ida P | thang trên vai | 0,00–3,96 | 0,161 [0,161–0,161] | -0,0023…-0,0023 | 33 |
+| s08 | Ida P | thang trên vai | 0,00–1,96 | 0,161 [0,161–0,161] | -0,0023…-0,0023 | 17 |
+| s14 | Ida T | thân cột | 0,00–0,38 | 0,205 [0,203–0,207] | -0,0023…-0,0023 | 4 |
+| s14 | Ida P | thanh móc | 0,00–1,96 | 0,148 [0,146–0,154] | +0,0166…+0,0252 | 17 |
+| s15 | Ida T | thân cột | 0,00–0,00 | 0,208 [0,208–0,208] | -0,0023…-0,0023 | 1 |
+| s15 | Ida P | thanh móc | 0,00–0,00 | 0,152 [0,152–0,152] | +0,0192…+0,0192 | 1 |
+| s15 | Ida T | thanh thang | 0,38–0,75 | 0,300 [0,223–0,344] | -0,0023…+0,0063 | 4 |
+| s15 | Ida P | thanh thang | 0,38–0,75 | 0,360 [0,220–0,472] | -0,0023…-0,0001 | 4 |
+| s15 | Ida P | thang trên vai | 1,25–1,46 | 0,162 [0,140–0,162] | -0,0023…-0,0023 | 3 |
+| s19 | Ida T | thân cột | 0,00–0,50 | 0,212 [0,208–0,215] | -0,0023…-0,0023 | 5 |
+| s19 | Ida P | van | 0,00–0,50 | 0,356 [0,355–0,357] | -0,0023…-0,0023 | 5 |
+| s21 | Ida T | thân cột | 0,50–1,96 | 0,208 [0,208–0,220] | -0,0023…-0,0023 | 7 |
+| s22 | Ida P | van | 0,00–2,96 | 0,357 [0,354–0,371] | -0,0023…-0,0023 | 25 |
+| s04 | Ida T | thân cột | 0,00–0,00 | 0,208 [0,208–0,208] | -0,0023…-0,0023 | 1 |
+| s04 | Ida P | van | 0,00–0,00 | 0,355 [0,355–0,355] | -0,0023…-0,0023 | 1 |
+| s04 | Ida P | thanh móc | 1,00–1,25 | 0,206 [0,206–0,207] | +0,0052…+0,0073 | 2 |
+| s04 | Ida T | cửa đèn lồng | 1,25–1,25 | 0,837 [0,837–0,837] | -0,0023…-0,0023 | 1 |
+| s12 | Ida T | thanh móc | 0,00–2,46 | 0,389 [0,384–0,397] | -0,0023…-0,0023 | 11 |
+| s12 | Ida P | thanh móc | 0,00–2,46 | 0,223 [0,218–0,226] | -0,0023…-0,0023 | 11 |
+| s11 | Ida T | thân cột | 0,00–0,25 | 0,201 [0,201–0,201] | -0,0023…-0,0023 | 3 |
+| s11 | Ida P | thanh móc | 0,00–1,96 | 0,211 [0,127–0,221] | -0,0023…+0,0252 | 17 |
+| s11 | Ida T | thanh móc | 1,12–1,96 | 0,450 [0,446–0,451] | -0,0023…-0,0023 | 8 |
+| s13 | Ida T | thanh móc | 0,00–0,50 | 0,447 [0,444–0,449] | -0,0023…-0,0023 | 5 |
+| s13 | Ida P | thanh móc | 0,00–1,96 | 0,156 [0,133–0,222] | -0,0023…+0,0198 | 17 |
+| s13 | Ida T | thân cột | 1,38–1,96 | 0,211 [0,208–0,215] | -0,0023…-0,0023 | 6 |
+| s23 | Cas P | tường | 0,00–2,96 | 0,200 [0,197–0,202] | +0,0026…+0,0026 | 25 |
+| s23 | Ida P | thang trên vai | 0,00–0,75 | 0,161 [0,161–0,161] | -0,0023…-0,0023 | 7 |
+| s23 | Ida T | thanh thang | 1,12–1,50 | 0,304 [0,240–0,352] | -0,0023…-0,0023 | 4 |
+| s23 | Ida P | thanh thang | 1,12–1,50 | 0,428 [0,321–0,552] | -0,0023…+0,0077 | 4 |
+| s23 | Ida T | thân cột | 1,88–2,00 | 0,207 [0,203–0,210] | -0,0023…-0,0023 | 2 |
+| s23 | Ida P | van | 1,88–2,00 | 0,353 [0,352–0,354] | -0,0023…-0,0023 | 2 |
+| s24c | Cas P | tường | 0,00–1,46 | 0,202 [0,198–0,202] | +0,0026…+0,0026 | 13 |
+| s24 | Cas P | tường | 0,00–1,96 | 0,199 [0,197–0,202] | +0,0026…+0,0026 | 17 |
+
+- Khung đang chuyển (trộn IK, trọng số < 1 — không tính vào bảng), theo (shot, tay): {('s03', 'Ida T'): 7, ('s03', 'Ida P'): 8, ('s05', 'Ida T'): 4, ('s05', 'Ida P'): 4, ('s06', 'Ida P'): 3, ('s14', 'Ida T'): 2, ('s15', 'Ida T'): 2, ('s15', 'Ida P'): 3, ('s19', 'Ida T'): 3, ('s19', 'Ida P'): 3, ('s21', 'Ida T'): 6, ('s04', 'Ida T'): 3, ('s04', 'Ida P'): 3, ('s11', 'Ida T'): 6, ('s13', 'Ida T'): 6, ('s23', 'Ida P'): 7, ('s23', 'Ida T'): 5}
 
 - Tâm lòng tay còn +1,5…+2,5 cm tới thanh móc thang ở s05, s11, s13, s14 (tay phải): IK hết tầm với (thanh ở 0,58 m trước ngực, cánh tay gần duỗi thẳng). Ngón vẫn ôm thanh (bộ tay MPFB gập ngón tới khi chạm) — trên MS 50 mm đọc là đang nắm. Muốn 0 thì phải dời bà sát cột 0,1 m như W2 (`ON_Z1`) — đổi bố cục đã duyệt, không làm.
 - Đo cũ (Cổng 5, trước khi sửa, gần nhất trong mọi vật): s06 đồng hồ 9,2 cm; s09w đồng hồ 7,9 cm → sau **3,0 cm** (đồng hồ đặt trên lòng tay, dày ngón + vỏ); s21 sào 2,2 cm (không sửa).
@@ -50,9 +95,9 @@ __GRIP_TABLE__
 |---|---|---|
 | Chỗ đứng (bộ phố) | casSpot (14,3; −7,15), cách mặt tường 0,95 m | **(14,3; −7,90)**, cách mặt tường **0,20 m** (lưng tựa tường) |
 | Hướng | mặt về L11 | thân −25° (ra phố, lệch về L11), cổ quay nốt về L11/Ida |
-| Tay | trong tay áo, lòng tay cách mặt tường **0,82 m (phải) / 1,09 m (trái)** | **lòng tay phải áp phẳng lên mặt vôi** cạnh hông, cao 0,56 m, ngón chúc xuống — IK điểm: **+0,0026 m** (FK trước IK ở chỗ mới: 0,17–0,18 m); tay trái buông |
+| Tay | trong tay áo, lòng tay cách mặt tường **0,82 m (phải) / 1,09 m (trái)** | **lòng tay phải áp phẳng lên mặt vôi** cạnh hông, cao 0,62 m, lệch 0,13 m sang phải thân, ngón chúc xuống — IK điểm: tâm lòng tay cách điểm đích **+2,6 mm**, cách mặt phẳng tường **−3 mm** (úp sát; FK trước IK ở chỗ mới: 0,20 m); tay trái buông |
 | Cách L11 | ≈ 7,1 m | ≈ 7,5 m |
-- Thử (probe, loại): tay áp tường ngang vai với tường ở bên phải cậu → từ máy s24c đọc thành "vẫy tay chào"; ngón hướng lên cạnh hông → đọc là "xoè tay". Chốt: lưng tựa tường, lòng tay áp tường ngón chúc xuống; bóng cậu sát người trên tường (đọc được "sát tường").
+- Thử (probe, loại): tay áp tường ngang vai với tường ở bên phải cậu → từ máy s24c đọc thành "vẫy tay chào"; ngón hướng lên cạnh hông → "xoè tay"; áp cách hông 0,2 m, ngón xoè → "chìa tay ra" (đã render một lượt, thay ở lượt `c6v1-cas`). Chốt: lưng tựa tường, lòng tay áp tường ngón chúc xuống; bóng cậu sát người trên tường (đọc được "sát tường").
 - `gripAt` bản W1 thêm `zFix` (chiều trục cố định) để quyết ngón chúc xuống khi áp phẳng — chỉ trong `shots_w1.js`.
 
 **B2 s23 (chỉ đạo chủ dự án, luật v0.6):**
@@ -70,10 +115,48 @@ Mốc đo trên chính tệp take (`reports/m1/cong2/tableread-d2/lines/L1.mp3`,
 - Whisper đặt "old" ở 1,22 s và "not" (lần 2) ở 1,38 s; bao năng lượng + onset cho 1,00 và 1,55 — tôi dùng bao năng lượng (whisper lệch ≤ 0,2 s ở từ ngắn).
 
 ## 6. Kiểm clip (mục 11 phần Ida, tự xem bảng khung — chưa kiểm mù)
-__CLIP_NOTES__
+Tự xem bảng khung 0,5 s + thumbs a/b/c của mọi shot đã đổi (960×540). Không phải kiểm mù.
+- **s02, s07, s08:** tay phải nằm trên thanh thang suốt shot (trước: hở 16 cm — thấy ở khối bóng người). Chu kỳ đi giữ nguyên (H1b ngoài phạm vi).
+- **s03, s04, s19, s23:** tay trên van → lên kính; khi nghỉ tay nằm trên cột/thanh móc. s04 nhịp mồi đèn lồng nhỏ ở 28 mm (R6).
+- **s05:** miệng động theo L1 có môi và má; nét cười nhẹ. **Ghi nhận (không phải lỗi mới):** vệt tối trên hai lòng tay khi áp gần kính (có từ Cổng 5, bóng khung lồng/ngọn lửa lên tay) — ánh sáng, để Cổng 7.
+- **s06:** đồng hồ nằm trong lòng tay (hết "lơ lửng trên ngón"). Nhịp gõ kính của tay trái không thấy trong khung insert — như Cổng 5 (R5).
+- **s09w:** đồng hồ trong lòng tay, ngón phía sau đồng hồ, đọc 7:53.
+- **s11–s13:** hai tay trên thanh móc/thân cột, không còn tay lơ lửng. **s14:** tay trái giơ ngang ra trên vỉa hè — đọc được từ máy cao (Cổng 5: như tay buông).
+- **s15:** tụt thang hai tay trên thanh, thang lên vai 1,1 s (đổi thang vẫn tức thì ở đây — chỉ tay được sửa).
+- **s21:** tay trái trên thanh/thân cột; sào tay phải như cũ.
+- **s22:** xem §2 và `s22_truoc-sau.jpg`.
+- **s23:** cột điện tường chim không còn; Ida nhỏ (≈ 12 m) nên nhịp dựng thang (0,85–1,1 s) khó thấy ở 960 px. Cas nhỏ ở chân tường phải khung.
+- **s24c:** bóng Cas nằm sát người trên tường (đọc "đứng sát tường"); tay phải cạnh hông áp tường — từ máy 3/4 trước đọc là tay buông sát hông, **không rõ là đang chạm tường** (R7).
+- **Chân/tay ở khung tĩnh (mục 11):** không thấy xuyên vật lớn; chân trên bậc thang giữ như Cổng 5 (không đo). Mép cổ tay áo Ida (răng cưa, s41) không thuộc W1.
 
 ## 7. Thời lượng, render, lệch 0 px
-__RENDER_TABLE__
+**Thời lượng:** không đổi id/thứ tự/thời lượng. W1 = 23 shot, 1 416 khung, 59,0 s; tổng phim 140,5 s (`render_film.js --events`: FILM_S = 140,5). Shot đã render lại (19): s02 108 · s03 48 · s04 36 · s05 96 · s06 72 · s07 96 · s08 48 · s09w 48 · s11 48 · s12 60 · s13 48 · s14 48 · s15 36 · s19 60 · s21 48 · s22 72 · s23 72 · s24 48 · s24c 36 = 1 176 khung. Không đổi: s01, s09, s10e, s10 (không nhân vật).
+
+**Render (hàng đợi nặng, 960×540, 24 fps; nguồn `/var/tmp/cine-queue/log.tsv`):**
+| Nhãn | Shot | Khung | Chờ (s) | Chạy (s) | s/khung render |
+|---|---|---|---|---|---|
+| c6v1-canh1 | s02–s08 | 504 | 1 362,8 | 1 690,9 | 1,53–4,68 (TB ≈ 3,3) |
+| c6v1-canh2 | s09w, s11–s14 | 252 | 514,1 | 794,5 | 2,08–4,01 |
+| c6v1-canh3 | s15, s19, s21–s24c | 372 | 1 187,7 | 1 834,5 | 2,19–7,97 |
+| c6v1-s14 (làm lại: tay giơ mới) | s14 | 48 | 4 149,1 | 99,4 | 1,89 |
+| c6v1-cas (làm lại: tay Cas trên tường) | s23, s24, s24c | 156 | 0,0 | 1 398,0 | 8,19–9,39 |
+| **Tổng** | | 1 332 | 7 213,7 | 5 817,3 | |
+- Lượt `c6v1-canh3` đầu tiên bị hệ thống dừng khi đang CHỜ khoá (lệnh chờ nền hết hạn 2 giờ lúc W2 giữ làn nặng) — không có dòng log, không khung nào render; xếp hàng lại 11:0x.
+- Chậm hơn Cổng 5 C2 (1,33 s/khung) vì IK tay MPFB (mỗi lần nắm 4 vòng lặp cập nhật tay) và mặt nhân vật: s23 7,97–9,39 s/khung (Ida + Cas đều IK).
+
+**MP4 hiện hành theo shot** (`/var/tmp/cine-out/W1/`, không tiếng, mỗi tệp có `timing_*.json` cùng tên; `shots/<id>.timing.json`, `thumbs/<id>_{a,b,c}.jpg` là bản cuối):
+| Shot | MP4 hiện hành |
+|---|---|
+| s02, s03, s04, s05, s06, s07, s08 | `video_s02-s03-s04-s05-s06-s07-s08.mp4` |
+| s09w, s11, s12, s13 | `video_s09w-s11-s12-s13-s14.mp4` (**s14 trong tệp này là bản cũ**) |
+| s14 | `video_s14.mp4` |
+| s15, s19, s21, s22 | `video_s15-s19-s21-s22-s23-s24-s24c.mp4` (**s23, s24, s24c trong tệp này là bản cũ**) |
+| s23, s24, s24c | `video_s23-s24-s24c.mp4` |
+| s01, s09, s10e, s10 | không đổi — dùng bản Cổng 5 (P đang giữ) |
+
+**Lệch 0 px (shot không đổi):** gốc tạo TRƯỚC khi sửa: `bash scripts/p/do_lech_0px.sh /var/tmp/cine-out/W1/lech0/goc <53 shot>` (159 ảnh, 08:22–08:48). So sau khi sửa (mã cuối trừ lượt đổi tay Cas — chỉ s23/s24/s24c, không thuộc nhóm so): `…/lech0/sau2` với 34 shot s01, s09, s10e, s10 + 30 shot W2 (s25…s48) → **102 ảnh; lệch 0**. Lần so đầu (`…/lech0/sau`, mã commit ef3d69e) cũng 102 ảnh; lệch 0. `sets.js` không đổi.
+
+**Chỉ số ±5 % quanh ngưỡng:** không chạy luật (P chạy). Số tự đo gần ngưỡng: góc mặt s22 42,2–46,5° (ngưỡng > 30°, ngoài dải ±5 %). Tổng phim 140,5 s đúng mốc.
 
 ## 8. Đề xuất (P chuyển chủ dự án / P xử lý mã dùng chung) — W1 không tự làm
 - **Đ1 (mã dùng chung, như W2 Đ1):** đưa `gripAt` (IK tới một điểm, có `zFix` cho áp phẳng) vào `cast3d` thay bản sao trong `shots_w1.js` và `shots_w2.js`.
@@ -86,9 +169,13 @@ __RENDER_TABLE__
 - R1: tay phải hụt thanh móc 1,5–2,5 cm ở s05, s11, s13, s14 (§3).
 - R2: s24c → s25 đổi chỗ Cas 0,75 m (Đ4).
 - R3: kiểm mù chưa chạy — cột TƯ THẾ (settle trên đất chỉ 3 shot; trên thang chỉ thở) có thể vẫn bị chê "cứng" ở khung tĩnh MS/WS.
-- R4: IK nhiều tay làm render chậm hơn Cổng 5 (1,33 → xem §7 s/khung).
+- R4: IK nhiều tay làm render chậm hơn Cổng 5 (1,33 → 1,5–9,4 s/khung, §7).
 - R5: s06 nhịp gõ kính (tay trái) vẫn không đọc rõ trên insert — như Cổng 5 (§6).
 - R6: s04 nhịp mồi đèn lồng ở toàn cảnh cao 28 mm, 0,35 s — nhỏ, khó đọc.
+- R7: s24c tay Cas áp tường cạnh hông — đo chạm (−3 mm) nhưng trên khung 3/4 trước đọc là tay buông sát hông; "dựa tường" đọc chủ yếu nhờ lưng + bóng sát tường.
+- R8: s14 đổi tư thế giơ tay (tư thế cục bộ liftHigh) — thay đổi dàn dựng nhỏ ngoài danh sách việc; P/chủ dự án có thể bác (trả về bằng `--dbg '{"lift":[-62,0,34,-12]}'` để so).
 
 ## 10. Token, thời gian
-__TOKENS__
+- Thời gian thật: 08:13 → ≈ 12:30 UTC 30/09/2026 (≈ 4,3 giờ; chờ khoá hàng đợi nặng cộng dồn 7 214 s — các lượt chờ chồng nhau — chủ yếu sau render W2 cảnh 4 và s39/s41).
+- Token: bộ đếm công cụ ≈ 500 nghìn ngữ cảnh tích luỹ khi viết báo cáo (hạn vòng 1 ≈ 800 nghìn; hạn gói ≈ 1,0 triệu).
+- Mọi ảnh trong thư mục này < 200 KB.

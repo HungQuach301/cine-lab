@@ -190,14 +190,14 @@ const LIP_L2 = [[0.15, 0.35, [[0, 'L'], [0.35, 'A'], [0.9, 'L']]], [0.5, 0.72, [
 // Cas DỰA TƯỜNG CHIM (s23, s24, s24c — action s24c "Cas đứng dựa tường vôi"): Cổng 5 để cậu cách tường 0,95 m, tay trong tay áo → tay không thể chạm tường
 // (W4T2: lòng tay MPFB lệch 7,0 cm "tay không còn chạm tường"). Cổng 6: cậu đứng sát tường hơn (cách mặt tường CAS_LEAN.d m, cùng x với casSpot), mặt vẫn về L11/Ida,
 // dồn trọng tâm sang chân phía tường, nghiêng người về tường; lòng tay phải MPFB ÁP lên mặt vôi (IK điểm, ngón hướng lên), tay trái vẫn trong tay áo.
-// Thử (probe): tay áp tường ngang vai với tường bên phải cậu → đọc thành "vẫy tay chào" từ máy s24c → bỏ. Chốt: LƯNG tựa tường (mặt ra phố, thân quay về L11
+// Thử (probe): tay áp tường ngang vai với tường bên phải cậu → đọc thành "vẫy tay chào"; áp cạnh hông cách 0,2 m, ngón xoè → "chìa tay ra" → bỏ. Chốt: LƯNG tựa tường (mặt ra phố, thân quay về L11
 // bodyYaw, cổ quay nốt), hai vai ngả nhẹ ra sau; lòng tay phải áp phẳng lên tường cạnh hông (ngón chúc xuống).
-const CAS_LEAN = { d: 0.2, y: 0.56, side: 0.2, back: 4, bodyYaw: -25 };
+const CAS_LEAN = { d: 0.2, y: 0.62, side: 0.13, back: 4, bodyYaw: -25 };
 function casLeanSpot(st) { const [cx, cz] = casSpotOf(st), fz = (st.endInfo && st.endInfo.flankZ) ?? -8.1, z = fz + CAS_LEAN.d;
   const yL = yawTo(cx, z, LAMP_X(11), ON_Z), body = CAS_LEAN.bodyYaw * Math.PI / 180;
   return { x: cx, z, wallZ: fz, spot0: [cx, cz], yaw: body, neckY: (yL - body) * 180 / Math.PI }; }
 function casLeanPose(p, T, neck = [0, 0, 0]) {
-  const b = settle(over(p.C.turnaround, { joints: { neck }, hands: { R: { spread: 0.3, curl: 0.1 } } }), T, { side: -1, k: 0.6, br: 3.0, ph: 1.3 });
+  const b = settle(over(p.C.turnaround, { joints: { neck }, hands: { R: { spread: 0.12, curl: 0.2 } } }), T, { side: -1, k: 0.6, br: 3.0, ph: 1.3 });
   return addJ(b, { spine: [-CAS_LEAN.back, 0, 0] });
 }
 function casWallHand(cas, L, k = 1) {   // lòng tay phải áp phẳng lên tường cạnh hông phải, cao CAS_LEAN.y
