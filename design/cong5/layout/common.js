@@ -124,11 +124,13 @@ export function lanternLight(scene, shadow = false, I = 1.6) {
 }
 // Đồng hồ bỏ túi bám lòng bàn tay phải, mặt quay về máy.
 // Insert: máy đặt theo hướng `dir` cách lòng bàn tay `dist` m; đồng hồ nằm trước ngón tay (3,5 cm về phía máy), mặt quay về máy.
-export function watchInHand(scene) {
+// Đ2 (W1-v2, 30/09/2026): o.grip = true → đặt theo TÂM LÒNG TAY MPFB (ch.gripPoint('R')), nhích o.lift m (mặc định 0,09) về phía máy.
+// Mặc định (không có o) GIỮ cách đặt cũ theo lòng tay sheet ở cổ tay — shot W2 đã duyệt (s45, s46, s45c) không đổi điểm ảnh; bật o.grip cho W2 cần duyệt riêng.
+export function watchInHand(scene, o = {}) {
   const w = buildWatch(); scene.add(w);
-  return (ch, cam, minDeg, hourDeg, dir = null, dist = 0.3) => { const H = ch.H, p = new THREE.Vector3(0, -ch.sheetRef.parts.hand.palm_length * H * 0.55, 0); ch.joints.wrist_R.localToWorld(p);
+  return (ch, cam, minDeg, hourDeg, dir = null, dist = 0.3) => { const H = ch.H, p = o.grip && ch.gripPoint ? ch.gripPoint('R', new THREE.Vector3()) : new THREE.Vector3(0, -ch.sheetRef.parts.hand.palm_length * H * 0.55, 0); if (!(o.grip && ch.gripPoint)) ch.joints.wrist_R.localToWorld(p);
     if (dir) { cam.position.copy(p).addScaledVector(dir.clone().normalize(), dist); cam.lookAt(p); }
-    w.position.copy(p).addScaledVector(cam.position.clone().sub(p).normalize(), 0.09); w.lookAt(cam.position); w.userData.setHands(minDeg, hourDeg); };
+    w.position.copy(p).addScaledVector(cam.position.clone().sub(p).normalize(), o.grip ? (o.lift ?? 0.09) : 0.09); w.lookAt(cam.position); w.userData.setHands(minDeg, hourDeg); };
 }
 export const camMM = (mm) => new THREE.PerspectiveCamera(fovOf(mm), 16 / 9, 0.03, 900);
 
