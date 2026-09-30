@@ -205,7 +205,7 @@ function lanternDoorG(ch) { const lan = ch.props && ch.props.lantern; if (!lan |
   const a = wpos(lan.userData.lightAnchor), q = ch.root.getWorldQuaternion(new THREE.Quaternion()), fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q);
   return { point: a.addScaledVector(fw, 0.06).toArray(), axis: [0, 1, 0], radius: 0.01, out: fw.toArray(), tag: 'cửa đèn lồng' }; }
 const CAS_SPOT = [-1.2, -2.2];
-const S22 = { yaw: -62, glint: 0.2, lip: 0.85, pan: 4, dist: 1.25, cy: 0.0 };   // W1-v2 (d, h): cùng phía máy s21 (−x); mặt 3/4 ≈ 60°; lia trái 4° đẩy thân cột ra mép phải; glint 0,2; khẩu hình 0,85 (v1 0,6: "miệng hầu như không đổi hình")
+const S22 = { hb: -0.35, nk: -8, yaw: -62, glint: 0.2, lip: 0.85, pan: 4, dist: 1.25, cy: 0.0 };   // W1-v2 (d, h): cùng phía máy s21 (−x); mặt 3/4 ≈ 60°; lia trái 4° đẩy thân cột ra mép phải; glint 0,2; khẩu hình 0,85 (v1 0,6: "miệng hầu như không đổi hình")
 // v1:    // Cổng 6: s22 3/4 — máy lệch 45° khỏi hướng mặt, phía phố (−40° bị thân cột che nửa mặt); ánh mắt dịu (glint 0,5 → 0,35); lẩm bẩm: biên độ khẩu hình 0,6
 // W1-v2 (h, a): s05 dàn dựng như PA1 (W2 s36–s39): máy nghiêng S05.yaw° khỏi hướng mặt, key = ngọn L4 ngay trước mặt, nửa mặt phía máy chìm; lòng tay khép nhẹ
 // (sheet warm_hands_ladder xoè 0,9 → tay MPFB nhìn cạnh thành "vuốt/sừng").
@@ -586,7 +586,8 @@ S1({ id: 's22', scene: 3, t0: 60.0, t1: 63.0, size: 'MCU', angle: 'ngang mắt, 
         // W1: tay phải trên van suốt shot; sào mồi chuyển sang tay trái NGOÀI KHUNG (liên tục s21 → s22, xem continuity canh-3.md).
         // v2 kết bằng hai lòng tay xoè (warmLadder) — mâu thuẫn với tay trái đang cầm sào → bỏ; giữ tay trên van tới khi lửa bắt.
         const hv = { R: { spread: 0.05, curl: 0.88 }, L: p.LH.L };   // Cổng 6: ngón ôm thân van (curl 0,6 của sheet với tay MPFB → hai ngón duỗi thẳng)
-        const v0 = over(p.valveLadder, { joints: { neck: [-4, 30, 0] }, hands: hv }), v1 = over(p.valveLadder, { joints: { neck: [-14, 26, 0], elbow_R: [-52, 0, 0] }, hands: hv });
+        const HBk = (ctx.dbg && ctx.dbg.hb) ?? S22.hb, NK = (ctx.dbg && ctx.dbg.nk) ?? S22.nk;   // W1-v3 (b): mũ đội sụp trước (hat_back âm → vành chúc, che chân tóc), ngẩng ít hơn
+        const v0 = over(p.valveLadder, { joints: { neck: [-4, 30, 0] }, hands: hv, hat_back: HBk }), v1 = over(p.valveLadder, { joints: { neck: [NK, 26, 0], elbow_R: [-52, 0, 0] }, hands: hv, hat_back: HBk });
         if (!camSet) { ida.place(v0, LAMP_X(10), ON_Z, 0); faceCam(cam, ida, { yaw: dbg.yaw ?? S22.yaw, dist: dbg.dist ?? S22.dist, fov: fovOf(85), y: dbg.cy ?? S22.cy }); cam.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), (dbg.pan ?? S22.pan) * Math.PI / 180); camSet = true; }   // máy tĩnh (S22.pan: lia ngang để thử; lia trái 3,5° đưa tay + ống van vào khung thì đọc thành khối đồng che góc trái → chốt 0)
         ida.place(breathe(poseAt([[0, v0], [1.6, v0], [2.4, v1]], t), T, 2.6, 1.3), LAMP_X(10), ON_Z, 0);   // thở gấp (chạy đua)
         const gV = gripK(ida, 'R', G.valve, 1);   // Cổng 6: tay phải MPFB nắm thân van (IK điểm)
