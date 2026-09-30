@@ -502,7 +502,9 @@ S1({ id: 's14', scene: 2, size: 'MS (chúc)', angle: 'cao, chúc xuống đá l�
   action: 'Ida giơ tay trái lên; nền đá không có bóng.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 45, x1: 90, shadowLamps: [] }); const p = P(ctx); ladderAt(st.scene, 7);   // W1: L7 chìm trong trắng → không bóng dài (luật 3.1, 3.3)
-    const liftHigh = over(p.liftHand, { joints: { shoulder_L: [-62, 0, 34], elbow_L: [-12, 0, 0], wrist_L: [0, 0, -10] } });   // W1 cục bộ: tay trái giơ ra trước-ngang, lòng úp
+    // Cổng 6: tay trái giơ NGANG ra bên (dạng 75°, gập vai 40°) thay "ra trước–ngang" (−62, 0, 34): từ máy cao chúc, tay ra trước bị co ngắn, đọc thành tay buông cạnh hông (probe)
+    const LH = (ctx.dbg && ctx.dbg.lift) || [-40, 0, 75, -8];
+    const liftHigh = over(p.liftHand, { joints: { shoulder_L: LH.slice(0, 3), elbow_L: [LH[3], 0, 0], wrist_L: [0, 0, -10] } });   // W1 cục bộ: tay trái giơ ra trước-ngang, lòng úp
     const ida = mkChar(ctx, st.scene, 'ida', { detail: 24 }); const cam = camMM(28); cam.position.set(65.9, 4.5, -2.3); cam.lookAt(64.0, 1.4, -4.7);   // W1: từ phía đầu dốc, chúc ~50° — v2 cắt đầu Ida, lồng đèn che người
     const G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 1.1,
