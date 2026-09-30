@@ -612,12 +612,13 @@ S({ id: 's42b', scene: 5, size: 'WS', angle: 'ngang 1,3 m, ngoài vòm', mm: 32,
   why: 'Cas ôm đèn lồng rời phố trắng, bước qua vòm vào hốc cửa khuất điện (nơi hai cái bóng đứng lúc trước): ánh hổ phách đi theo cậu vào trong bóng tối; quay ra vòm, ngồi xổm, đặt đèn xuống nền (nối s42). Cậu vẫn đội mũ len.', sound: 'bước chân trẻ con; rè điện xa dần',
   light: 'ngoài vòm: điện phẳng; trong hốc: chỉ đèn lồng Cas mang theo', action: 'Cas ôm đèn đi từ phố vào vòm (0–1,3 s), quay ra vòm (1,1–1,5 s), ngồi xổm và đặt đèn xuống nền trước mặt (1,45–2,0 s) — tư thế cuối = tư thế mở s42 (N7).',
   async build(ctx) {
-    const r = await buildBaySet(ctx, {}); const p = P(ctx); r.chCas.sheetRef = r.chCas.sheet; [r.chIda, r.chCas].forEach((c) => tameGlint(c)); r.chIda.sheetRef = r.chIda.sheet;   // v2 (N5): Ida ĐỨNG ở miệng vòm trong khung (như mở s42) — bản v1 ẩn bà nên máy nhìn qua chỗ bà đứng mà không thấy
+    const dbg42b = ctx.dbg || {}; const r = await buildBaySet(ctx, {}); const p = P(ctx);
+    r.chCas.sheetRef = r.chCas.sheet; [r.chIda, r.chCas].forEach((c) => tameGlint(c)); r.chIda.sheetRef = r.chIda.sheet;   // v2 (N5): Ida ĐỨNG ở miệng vòm trong khung (như mở s42) — bản v1 ẩn bà nên máy nhìn qua chỗ bà đứng mà không thấy
     const cam = r.cam; cam.shiftY = 0.05; cam.position.set(0.9, 1.25, 8.2); cam.lookAt(0.3, 1.1, 2.0); cam.updateProjectionMatrix();
     const h = r.lanternH; const f0 = r.flameP.clone();
     const glows = []; r.scene.traverse((o) => { if (o.isSprite && o.position.distanceTo(f0) < 0.4) glows.push([o, o.position.clone().sub(f0)]); });
     const cur = f0.clone();
-    const moveLamp = () => { r.lan.userData.lightAnchor.getWorldPosition(cur); r.spot.position.copy(cur); U.uLP.value.copy(cur); r.spot.updateMatrixWorld(); for (const [o, d] of glows) o.position.copy(cur).add(d); };
+    let hugK = 1; const moveLamp = () => { r.lan.userData.lightAnchor.getWorldPosition(cur); r.spot.position.copy(cur); U.uLP.value.copy(cur); r.spot.updateMatrixWorld(); for (const [o, d] of glows) { o.position.copy(cur).add(d); o.visible = !dbg42b.glow ? hugK <= 0 : true; } };   // v2 (A5): quầng sprite của đèn lồng phủ lên thân Cas khi cậu ôm đèn → cậu 'gần như trong suốt' (1,5 s); tắt quầng khi đèn áp ngực, bật lại khi đèn đặt xuống nền
     const carry = casHug(p); const hCr = (p.C.warm_hands_copy.root_y_H ?? 0) * ctx.sheets.cas.H_m;
     return { scene: r.scene, cam, onSample: (i, n, j) => { r.onSample(i, n, j); moveLamp(); }, named: { ida: r.chIda, cas: r.chCas }, paintP: S5_PAINT, grade: GRADE_S5, exposure: 1.0,
       update(t) {
@@ -633,7 +634,7 @@ S({ id: 's42b', scene: 5, size: 'WS', angle: 'ngang 1,3 m, ngoài vòm', mm: 32,
         if (r.lan.parent !== r.scene) r.scene.add(r.lan); hangFromHands(r.lan, r.chCas, h);
         if (u > 0) { const tgt = new THREE.Vector3(CAS_BAY[0] - 0.03, 0, CAS_BAY[1] + 0.38);   /* v2 Đ3 (chủ dự án duyệt): đèn 0,55 → 0,38 m trước mặt Cas */ const k = ease((t - 1.6) / 0.4); r.lan.position.lerp(tgt, k); r.lan.updateMatrixWorld(true); }
         // Cổng 6 (d): hai tay MPFB NẮM hai bên vòng quai (IK điểm) khi ôm đi và khi hạ đèn; buông 1,75–2,0 s → tư thế cuối = tư thế mở s42 (tay mở, hơ).
-        const kr = 1 - ease((t - 1.75) / 0.25); let gr = null, pre = null; if (r.chCas.reachGrip && kr > 0) { const G = ringG(r.chCas, r.lan, h); pre = ['L', 'R'].map((sd) => +(r.chCas.gripPoint(sd).distanceTo(new THREE.Vector3(...G[sd].point)) - G[sd].radius).toFixed(4)); gr = [gripK(r.chCas, 'L', G.L, kr, true), gripK(r.chCas, 'R', G.R, kr, true)]; }
+        hugK = t < 1.9 ? 1 : 0; const kr = 1 - ease((t - 1.75) / 0.25); let gr = null, pre = null; if (r.chCas.reachGrip && kr > 0) { const G = ringG(r.chCas, r.lan, h); pre = ['L', 'R'].map((sd) => +(r.chCas.gripPoint(sd).distanceTo(new THREE.Vector3(...G[sd].point)) - G[sd].radius).toFixed(4)); gr = [gripK(r.chCas, 'L', G.L, kr, true), gripK(r.chCas, 'R', G.R, kr, true)]; }
         if ((ctx.dbg || {}).log && Math.round(t * 24) % 6 === 0) console.log(JSON.stringify({ id: 's42b', t: +t.toFixed(2), pre_m: pre, grip_m: gr?.map((e) => e === null ? null : +e.toFixed(4)) }));
         moveLamp(); } };
   } });
