@@ -1,6 +1,8 @@
-// Xuất mặt nạ C3 + views (RUN.md 3.6, 3.6.2, v1.4) cho ANIMATIC, từ CHÍNH trang render (page.js + film.js), nhân vật Ida.
-// node design/cong5/layout/export_c3.js --parts-dir <X.parts> [--scale 4] [--frames 0,12,...]  → <X.parts>/parts.json + <khung 5 số>/<bộ phận>.png
-// node design/cong5/layout/export_c3.js --audit-dir <X.audit/rerender> --frames 1236[,…] [--scale 4]  → render lại khung được chọn (mục 3.7 bước 4)
+// Xuất mặt nạ C3 + views (RUN.md 3.6, 3.6.2, v1.4) cho ANIMATIC, từ CHÍNH trang render (page.js + film.js), MỘT nhân vật mỗi lần chạy (--who, mặc định ida).
+// Cổng 6 W2 (chủ dự án 29/09/2026: C3 phải đo cả Cas): --who cas → mặt nạ Cas, model_sheet cas.json. RUN.md 3.6: luật đọc MỘT nhân vật mỗi thư mục parts,
+// nên Cas xuất vào thư mục riêng (<X>.cas.parts) và chạy luật lượt riêng (scripts/p/layout_full.sh, bước *-cas). --who ida cho kết quả y hệt bản trước.
+// node design/cong5/layout/export_c3.js --parts-dir <X.parts> [--who ida|cas] [--scale 4] [--frames 0,12,...]  → <X.parts>/parts.json + <khung 5 số>/<bộ phận>.png
+// node design/cong5/layout/export_c3.js --audit-dir <X.audit/rerender> --frames 1236[,…] [--who ida|cas] [--scale 4]  → render lại khung được chọn (mục 3.7 bước 4)
 // Mọi khung chia hết cho 12 của phim đều có mục; khung Ida không hiện (shot không có Ida hoặc Ida ẩn): mặt nạ rỗng (đầu rỗng).
 // Shot 'v1:' (tái dùng khung v1): không còn nhân vật Ida trong khung (s01 thành phố, s43 thành phố, s48 phòng Cas) → mặt nạ rỗng.
 const { chromium } = require('/opt/pw/node_modules/playwright');
@@ -8,6 +10,10 @@ const fs = require('fs'), path = require('path'), zlib = require('zlib');
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(__dirname, '../..');
 const W = 960, H = 540, scale = +arg('scale', 4), auditDir = arg('audit-dir', null), pdir = path.resolve(auditDir || arg('parts-dir'));
+const WHO = arg('who', 'ida'), SHEET = { ida: 'design/cong3/model-sheet/ida.json', cas: 'design/cong3/model-sheet/cas.json' }[WHO];
+if (!SHEET) { console.error('--who phải là ida hoặc cas'); process.exit(2); }
+// --offset N: khung phim f ghi thành khung f − N (đo một CLIP cắt từ phim bắt đầu ở khung N; N chia hết cho 12). Mặc định 0.
+const OFF = +arg('offset', 0);
 const KEYS = ['head', 'torso', 'upper_arm', 'forearm', 'thigh', 'shin'];
 // Khung Ida không có trong khung: mọi bộ phận khai che hoàn toàn (hidden = 1) → máy tính là không đo được; góc không có nghĩa (ghi 0).
 const EMPTY_VIEW = { view_deg: 0, elev_deg: 0, parts: Object.fromEntries(KEYS.map((k) => [k, { foreshorten: 1, hidden: 1, depth: 1 }])) };
@@ -44,24 +50,24 @@ async function newPage(browser) {
   for (const s of list) {
     const f0 = Math.round(s.t0 * 24), f1 = Math.round(s.t1 * 24), fl = want.filter((f) => f >= f0 && f < f1); if (!fl.length) continue;
     let has = false;
-    if (s.src === 'new') { page = await newPage(browser); await page.evaluate(async (cfg) => { await window.setup(cfg); }, { W, H, shot: s.id }); has = await page.evaluate(() => window.hasChar('ida')); }
+    if (s.src === 'new') { page = await newPage(browser); await page.evaluate(async (cfg) => { await window.setup(cfg); }, { W, H, shot: s.id }); has = await page.evaluate((w) => window.hasChar(w), WHO); }
     for (const f of fl) {
-      const fd = String(f).padStart(5, '0'); fs.mkdirSync(path.join(pdir, fd), { recursive: true }); frames[String(f)] = {};
+      const fk = String(f - OFF), fd = fk.padStart(5, '0'); fs.mkdirSync(path.join(pdir, fd), { recursive: true }); frames[fk] = {};
       if (has) {
-        const r = await page.evaluate(async ([f, sc]) => await window.exportC3(f, sc, 'ida', 'L'), [f, scale]);
-        for (const k of KEYS) { fs.writeFileSync(path.join(pdir, fd, k + '.png'), Buffer.from(r.parts[k], 'base64')); frames[String(f)][k] = `${fd}/${k}.png`; }
+        const r = await page.evaluate(async ([f, sc, w]) => await window.exportC3(f, sc, w, 'L'), [f, scale, WHO]);
+        for (const k of KEYS) { fs.writeFileSync(path.join(pdir, fd, k + '.png'), Buffer.from(r.parts[k], 'base64')); frames[fk][k] = `${fd}/${k}.png`; }
         // bộ phận nằm sau mặt phẳng máy quay (depth ≤ 0, chỉ xảy ra ở insert rất gần như s09w, s46) thì không có mặt nạ: bỏ khỏi views (RUN.md 3.6.2 chỉ bắt buộc head + bộ phận có mặt nạ)
-        for (const k of Object.keys(r.views.parts)) if (k !== 'head' && r.views.parts[k].depth <= 0 && r.count[k] === 0) { delete r.views.parts[k]; delete frames[String(f)][k]; fs.unlinkSync(path.join(pdir, fd, k + '.png')); }
-        views[String(f)] = r.views; if (auditDir) fs.writeFileSync(path.join(pdir, fd, 'views.json'), JSON.stringify(r.views, null, 1));
+        for (const k of Object.keys(r.views.parts)) if (k !== 'head' && r.views.parts[k].depth <= 0 && r.count[k] === 0) { delete r.views.parts[k]; delete frames[fk][k]; fs.unlinkSync(path.join(pdir, fd, k + '.png')); }
+        views[fk] = r.views; if (auditDir) fs.writeFileSync(path.join(pdir, fd, 'views.json'), JSON.stringify(r.views, null, 1));
         stat.push({ f, shot: s.id, count: r.count, view: r.views.view_deg }); console.error(`${s.id} khung ${f}: đầu ${r.count.head} px, góc ${r.views.view_deg}°`);
-      } else { for (const k of KEYS) { fs.writeFileSync(path.join(pdir, fd, k + '.png'), empty); frames[String(f)][k] = `${fd}/${k}.png`; }
-        views[String(f)] = EMPTY_VIEW; if (auditDir) fs.writeFileSync(path.join(pdir, fd, 'views.json'), JSON.stringify(EMPTY_VIEW, null, 1));
+      } else { for (const k of KEYS) { fs.writeFileSync(path.join(pdir, fd, k + '.png'), empty); frames[fk][k] = `${fd}/${k}.png`; }
+        views[fk] = EMPTY_VIEW; if (auditDir) fs.writeFileSync(path.join(pdir, fd, 'views.json'), JSON.stringify(EMPTY_VIEW, null, 1));
         stat.push({ f, shot: s.id, empty: true }); }
     }
     if (s.src === 'new') await page.close();
   }
   await browser.close();
-  if (!auditDir) fs.writeFileSync(path.join(pdir, 'parts.json'), JSON.stringify({ model_sheet: 'design/cong3/model-sheet/ida.json', scale, side: 'L', frames, views }, null, 1));
-  fs.writeFileSync(path.join(pdir, auditDir ? 'rerender_stat.json' : '../c3_export_stat.json'), JSON.stringify(stat, null, 1));
-  console.log(JSON.stringify({ frames: Object.keys(frames).length, with_ida: stat.filter((x) => !x.empty).length }));
+  if (!auditDir) fs.writeFileSync(path.join(pdir, 'parts.json'), JSON.stringify({ model_sheet: SHEET, scale, side: 'L', frames, views }, null, 1));
+  fs.writeFileSync(path.join(pdir, auditDir ? (WHO === 'ida' ? 'rerender_stat.json' : `rerender_stat_${WHO}.json`) : (WHO === 'ida' ? '../c3_export_stat.json' : `../c3_export_stat_${WHO}.json`)), JSON.stringify(stat, null, 1));
+  console.log(JSON.stringify({ who: WHO, frames: Object.keys(frames).length, ['with_' + WHO]: stat.filter((x) => !x.empty).length }));
 })().catch((e) => { console.error(e); process.exit(1); });

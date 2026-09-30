@@ -30,7 +30,8 @@
    "mm": 45,
    "angle": "ngang ngực, 3/4 sau-phải Cas",
    "move": "dolly vào rất chậm (0,3 m)"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Tay MPFB: vai nâng thêm 8°, khuỷu duỗi thêm 14° → tâm lòng tay cao hơn 2,5 cm, gần tường hơn 1 cm (bù lệch 6,4 cm của tay MPFB)."
  },
  {
   "id": "s26",
@@ -63,7 +64,8 @@
    "mm": 50,
    "angle": "ngang mắt, 3/4 trước-phải Ida (máy phía +x đường Ida–Cas)",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Tư thế đứng tự nhiên: dồn trọng tâm, lệch hông, thở (settle)."
  },
  {
   "id": "s27",
@@ -132,7 +134,8 @@
    "mm": 45,
    "angle": "ngang ngực, 3/4 sau-phải Cas",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Tay MPFB: vai nâng thêm 8°, khuỷu duỗi thêm 14° → tâm lòng tay cao hơn 2,5 cm, gần tường hơn 1 cm (bù lệch 6,4 cm của tay MPFB)."
  },
  {
   "id": "s29",
@@ -173,7 +176,8 @@
    "mm": 85,
    "angle": "ngang mắt Cas, 3/4 trước-phải",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Tư thế đứng tự nhiên: dồn trọng tâm, lệch hông, thở (settle)."
  },
  {
   "id": "s30",
@@ -214,7 +218,8 @@
    "mm": 35,
    "angle": "ngang, sau-phải",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Tư thế đứng tự nhiên: dồn trọng tâm, lệch hông, thở (settle)."
  },
  {
   "id": "s31",
@@ -251,7 +256,8 @@
    "mm": 85,
    "angle": "ngang mắt Ida (quỳ), 3/4 trước-phải, qua vai phải Cas",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Khẩu hình L3 \"Go on, then.\" (6 viseme, 74,05–75,25) + cười buồn nhẹ sau lời, mắt hạ xuống; máy tĩnh (tính từ tư thế gốc)."
  },
  {
   "id": "s32",
@@ -292,7 +298,8 @@
    "mm": 35,
    "angle": "ngang, sau-phải",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Tư thế đứng tự nhiên: dồn trọng tâm, lệch hông, thở (settle)."
  },
  {
   "id": "s33",
@@ -415,7 +422,8 @@
    "mm": 28,
    "angle": "ngang, xuôi dốc",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Cas chạy tới cạnh chân thang phía đông, nắm thanh (IK, trộn 3,05–3,6 s)."
  },
  {
   "id": "s36",
@@ -427,7 +435,7 @@
    "ida",
    "cas"
   ],
-  "key_action": "Ida tự đẩy vành mũ ra sau (C4).",
+  "key_action": "Ida tự đẩy vành mũ ra sau (C4); nhìn ngọn lửa cuối, hít một hơi trước lời.",
   "key_poses": [
    {
     "t": 0.0,
@@ -440,6 +448,10 @@
    {
     "t": 1.6,
     "pose": "tay hạ, faceRest"
+   },
+   {
+    "t": 1.55,
+    "pose": "hít vào (ngực nâng), ngẩng nhẹ trước lời"
    }
   ],
   "difficulty": {
@@ -450,41 +462,96 @@
   "camera": {
    "size": "MCU",
    "mm": 85,
-   "angle": "ngang mắt, gần chính diện",
+   "angle": "3/4 nghiêng 60° so với hướng mặt, phía phố (+x), ngang mắt",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): PA1 — máy 3/4 nghiêng 60° (không còn gần chính diện); ngọn L11 gốc trong khung; máy tĩnh tính từ tư thế gốc."
  },
  {
   "id": "s37",
   "scene": 5,
   "t0": 93,
-  "t1": 98.8,
-  "frames": 139,
+  "t1": 96.4,
+  "frames": 82,
   "characters": [
    "ida"
   ],
-  "key_action": "L4 vế đầu, cười buồn, trong hổ phách.",
+  "key_action": "L4 vế đầu \"That's the last one, then.\" trong hổ phách; sau lời: cười buồn, mắt chùng xuống, dừng một nhịp (95,0–96,4).",
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "faceRest, nhìn lên phố (phải khung)"
+    "pose": "trên thang, tay trái NẮM thân van (tay MPFB, IK điểm), mặt nghiêng nhìn lên phố (trái khung)"
    },
    {
-    "t": 0.2,
-    "pose": "thoại L4 bắt đầu"
+    "t": 0.09,
+    "pose": "thoại L4 \"That's the last one, then.\" (khẩu hình 6 viseme, 93,09–95,01)"
+   },
+   {
+    "t": 2.4,
+    "pose": "cười buồn nở: khoé môi lên, má nâng ít, đầu trong mày nâng, mí sụp, mắt nhìn xuống, cúi 6°"
+   },
+   {
+    "t": 2.75,
+    "pose": "chớp chậm (×2,2)"
+   },
+   {
+    "t": 3.4,
+    "pose": "hết nhịp dừng"
    }
   ],
   "difficulty": {
    "level": 4,
-   "why": "Cận thoại dài 5,8 s: khẩu hình + biểu cảm tinh; mặt theo W3."
+   "why": "Nhịp cười buồn phải đọc là buồn (không cười vui) ở góc nghiêng; khẩu hình khớp tiếng."
+  },
+  "package": "C6-W2-ida-mat",
+  "camera": {
+   "size": "MCU",
+   "mm": 50,
+   "angle": "nghiêng 90° so với hướng mặt, phía phố (+x), ngang mắt; ngọn L11 trong khung",
+   "move": "tĩnh"
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): PA1 — tách s37 cũ (93,0–98,8 CU chính diện) thành s37 (93,0–96,4) + s37b (96,4–98,8); giữ id s37 cho phần đầu (DIALOGUE.L4 = T0.s37). Không còn cận mặt chính diện."
+ },
+ {
+  "id": "s37b",
+  "scene": 5,
+  "t0": 96.4,
+  "t1": 98.8,
+  "frames": 58,
+  "characters": [
+   "ida"
+  ],
+  "key_action": "CU \"Goodnight, old street.\" đẩy vào chậm: bà ngẩng nhìn con phố lần cuối, chào; rồi cười buồn, mắt chùng, dừng (98,1–98,8).",
+  "key_poses": [
+   {
+    "t": 0.0,
+    "pose": "ngẩng mắt lên phố (trái khung)"
+   },
+   {
+    "t": 0.15,
+    "pose": "thoại \"Goodnight, old street.\" (96,55–98,06)"
+   },
+   {
+    "t": 1.7,
+    "pose": "cười buồn: khoé môi lên, mày trong nâng, mí sụp, mắt nhìn xuống, cúi 7°"
+   },
+   {
+    "t": 2.4,
+    "pose": "giữ"
+   }
+  ],
+  "difficulty": {
+   "level": 5,
+   "why": "Cận nghiêng: khẩu hình + nhịp cười buồn (có cười, mắt chùng, dừng) — chủ dự án chấm trên clip có tiếng."
   },
   "package": "C6-W2-ida-mat",
   "camera": {
    "size": "CU",
    "mm": 85,
-   "angle": "ngang mắt, gần chính diện",
-   "move": "đẩy vào rất chậm"
-  }
+   "angle": "nghiêng 90° so với hướng mặt, phía phố (+x), ngang mắt",
+   "move": "đẩy vào rất chậm (1,10 → 0,95 m)"
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): PA1 — shot mới tách từ s37."
  },
  {
   "id": "s37w",
@@ -499,12 +566,12 @@
   "key_action": "Cột góc P5 bật giữa câu L4; bóng dài tan.",
   "key_poses": [
    {
-    "t": 0.4,
-    "pose": "P5 nhấp 2 lần rồi đứng"
+    "t": 0.0,
+    "pose": "Ida trên thang, tay trái nắm van (IK); Cas cạnh chân thang phía đông, hai tay nắm thanh đông (IK), ngửa nhìn"
    },
    {
-    "t": 0.0,
-    "pose": "Ida trên thang, Cas giữ thang, ngửa nhìn"
+    "t": 0.4,
+    "pose": "P5 nhấp 2 lần rồi đứng"
    }
   ],
   "difficulty": {
@@ -517,7 +584,8 @@
    "mm": 28,
    "angle": "ngang, từ lòng phố, hơi hất",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Cas dời sang cạnh chân thang phía đông (8,44; −4,80) — lối trèo trống cho G10; tay MPFB nắm thanh thang."
  },
  {
   "id": "s39",
@@ -528,28 +596,37 @@
   "characters": [
    "ida"
   ],
-  "key_action": "L4 vế cuối, giọng vỡ, trong ánh trắng phẳng (khung ảnh 4 kiểm mù).",
+  "key_action": "L4 vế cuối, giọng vỡ, trong ánh trắng phẳng; mặt nghiêng cúi nhìn xuống Cas.",
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "choked, nhìn lên phố"
+    "pose": "nghẹn (frown, mày trong nâng, cằm run), cúi 12°, mắt nhìn xuống Cas"
    },
    {
-    "t": 2.0,
-    "pose": "nghẹn — một giọt nước mắt"
+    "t": 0.72,
+    "pose": "\"Just…\" (102,32–102,88)"
+   },
+   {
+    "t": 1.6,
+    "pose": "nuốt (cằm nâng + mím), chớp chậm"
+   },
+   {
+    "t": 2.26,
+    "pose": "\"keep a little dark for the ones\" (103,86–106,0)"
    }
   ],
   "difficulty": {
    "level": 5,
-   "why": "Cảm xúc đỉnh phim, CU chính diện; mặt theo W3 (A3); giọt nước mắt."
+   "why": "Cảm xúc đỉnh phim; CU nghiêng 96°; khẩu hình câu cuối."
   },
   "package": "C6-W2-ida-mat",
   "camera": {
    "size": "CU",
    "mm": 85,
-   "angle": "ngang mắt, gần chính diện",
+   "angle": "nghiêng 96° so với hướng mặt, phía phố (+x), ngang mắt",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): PA1 — câu cuối CU nghiêng, bắt đầu trên hình Ida, cắt sang Cas ở 106,0. Giọt nước mắt: chưa dựng (không có tài sản)."
  },
  {
   "id": "s38",
@@ -565,11 +642,15 @@
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "hold_ladder, cổ −36° (ngửa)"
+    "pose": "Cas cạnh chân thang phía đông, hai tay nắm thanh (IK), cổ −36° (ngửa)"
    },
    {
-    "t": 1.0,
-    "pose": "chớp mắt, nín thở"
+    "t": 0.62,
+    "pose": "chớp mắt"
+   },
+   {
+    "t": 0.3,
+    "pose": "mày trong nâng dần"
    }
   ],
   "difficulty": {
@@ -580,9 +661,10 @@
   "camera": {
    "size": "MS",
    "mm": 50,
-   "angle": "cao, chúc xuống (gần mắt Ida)",
+   "angle": "cao, chúc ≈ 53° (gần mắt Ida), 3/4 trước Cas",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Máy dời theo vị trí Cas mới: (8,35; 2,4; −3,75) → (8,42; 0,95; −4,85)."
  },
  {
   "id": "s40",
@@ -593,15 +675,23 @@
   "characters": [
    "ida"
   ],
-  "key_action": "Tay phải gạt van; ngọn L11 co lại, xanh, tắt.",
+  "key_action": "Tay trái gạt cần van; ngọn L11 co lại, xanh, tắt; mặt bà chìm vào bóng tối đúng lúc lửa tắt.",
   "key_poses": [
    {
+    "t": 0.0,
+    "pose": "tay trái NẮM cần van (IK điểm), mặt nghiêng nhìn ngọn lửa"
+   },
+   {
     "t": 0.3,
-    "pose": "tay gạt van (0,3–0,9 s)"
+    "pose": "gạt van (0,3–0,9 s)"
+   },
+   {
+    "t": 1.68,
+    "pose": "bắt đầu quay mặt khỏi máy (109,08)"
    },
    {
     "t": 1.8,
-    "pose": "lửa tắt"
+    "pose": "lửa tắt (109,2) — mặt dưới vành mũ, quay đi, không còn thấy"
    },
    {
     "t": 2.6,
@@ -616,10 +706,10 @@
   "camera": {
    "size": "CU (insert)",
    "mm": 50,
-   "angle": "ngang lồng đèn, từ lòng phố",
+   "angle": "ngang lồng đèn, từ phía phố (+x): cần van tiền cảnh, lồng + lửa, mặt bà nghiêng bên phải",
    "move": "tĩnh"
   },
-  "cong6": "Cổng 6 (chủ dự án 29/09/2026, quyết định CỐ ĐỊNH): mặt Ida chìm vào bóng tối đúng lúc L11 tắt (1:49,2) — không lộ mặt chính diện dưới ánh sáng."
+  "cong6": "Cổng 6 (chủ dự án 29/09/2026, quyết định CỐ ĐỊNH): mặt Ida chìm vào bóng tối đúng lúc L11 tắt (1:49,2) — không lộ mặt chính diện dưới ánh sáng. W2 v1: dựng bằng diễn + máy (không đổi đèn): mặt nghiêng chỉ được ngọn lửa rọi; W2 v2: 109,08 → 109,32 cúi 16° + quay mặt 80°; mặt khuất ở khung 2621 (109,21) cùng khung lửa tắt, kính tối đục."
  },
  {
   "id": "s40w",
@@ -631,16 +721,28 @@
    "ida",
    "cas"
   ],
-  "key_action": "Không gì đổi: phố trắng y nguyên.",
+  "key_action": "Không gì đổi: phố trắng y nguyên. Bà xuống thang lần cuối (G10); Cas giữ thang rồi buông.",
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "Ida restLadder, Cas giữ thang"
+    "pose": "Ida trên thang (restLadder), Cas nắm thanh thang"
+   },
+   {
+    "t": 0.35,
+    "pose": "bắt đầu xuống (đảo nhịp trèo)"
+   },
+   {
+    "t": 1.55,
+    "pose": "chạm đất; Cas buông thang (1,55–1,9)"
+   },
+   {
+    "t": 1.95,
+    "pose": "bà quay về Cas, đèn lồng sang tay phải"
    }
   ],
   "difficulty": {
-   "level": 1,
-   "why": "Tĩnh."
+   "level": 3,
+   "why": "Xuống thang người già; chuyển đèn lồng thắt lưng → tay."
   },
   "package": "C6-W2-thang",
   "camera": {
@@ -648,7 +750,8 @@
    "mm": 28,
    "angle": "ngang, từ lòng phố, hơi hất",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): G10 — bà xuống thang trong shot."
  },
  {
   "id": "s41",
@@ -664,15 +767,23 @@
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "Ida cầm đèn tay phải"
+    "pose": "Ida (7,95; −5,00) cầm đèn tay phải; Cas (8,50; −4,85) — cách 0,57 m"
    },
    {
-    "t": 0.5,
-    "pose": "chìa đèn (holdOut)"
+    "t": 0.45,
+    "pose": "Ida chìa đèn ngắn (khuỷu gập 42°)"
    },
    {
-    "t": 0.7,
-    "pose": "Cas đón hai tay (casTake)"
+    "t": 0.35,
+    "pose": "Cas đưa hai tay, nắm hai bên vòng quai (IK điểm, trộn tới 0,75 s)"
+   },
+   {
+    "t": 0.85,
+    "pose": "Ida buông; đèn sang tay Cas (đạo cụ riêng, cùng vị trí/hướng)"
+   },
+   {
+    "t": 1.35,
+    "pose": "Cas ôm đèn sát ngực (casHug)"
    }
   ],
   "difficulty": {
@@ -685,7 +796,8 @@
    "mm": 28,
    "angle": "ngang",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Việc 3: Cas đứng gần (0,57 m; Cổng 5: 1,02 m) — không phải duỗi hết tay."
  },
  {
   "id": "s42a",
@@ -714,6 +826,10 @@
    {
     "t": 2.0,
     "pose": "−45°: nhìn hốc cửa (trái khung)"
+   },
+   {
+    "t": 0.0,
+    "pose": "Ida nhìn XUỐNG Cas: cổ cúi 24°, thân 4°, nhãn cầu cúi 0,12 rad — tia nhìn vào mặt/đèn trước ngực cậu"
    }
   ],
   "difficulty": {
@@ -726,7 +842,8 @@
    "mm": 45,
    "angle": "ngang ngực Cas, 3/4 trước",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Việc 4: ánh mắt Ida không còn đi qua trên đầu Cas."
  },
  {
   "id": "s42b",
@@ -766,7 +883,8 @@
    "mm": 32,
    "angle": "ngang 1,3 m, ngoài vòm",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Hai tay Cas nắm vòng quai (IK điểm) khi ôm đi và khi hạ đèn; buông 1,75–2,0 s → tư thế mở s42."
  },
  {
   "id": "s42",
@@ -819,7 +937,8 @@
    "mm": 40,
    "angle": "thấp ngang vai, sau lưng Cas lệch phải, trong hốc nhìn ra vòm",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): Mỗi nhịp đếm lòng tay Cas (MPFB) áp về hai mặt kính đèn lồng (IK điểm, 2 cm ngoài mặt kính)."
  },
  {
   "id": "s43",
@@ -855,7 +974,7 @@
   "key_poses": [
    {
     "t": 0.0,
-    "pose": "look_shadows (tay đặt ngực, ngửa nhìn ô cửa)"
+    "pose": "look_shadows; lòng tay trái ÁP lên ngực (IK điểm, G5); thở; ngước nhìn ô cửa"
    }
   ],
   "difficulty": {
@@ -868,7 +987,8 @@
    "mm": 21,
    "angle": "thấp, hất lên ô cửa",
    "move": "đẩy vào chậm"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): G5 tay đặt ngực; G13 thang tựa vách phải ngõ (z 2,2) — thấy ở s44/s45 trước khi bà vác ở s47."
  },
  {
   "id": "s45",
@@ -904,7 +1024,8 @@
    "mm": 50,
    "angle": "ngang ngực, 3/4 trước-phải",
    "move": "tĩnh"
-  }
+  },
+  "cong6": "Cổng 6 W2 v1 (29/09/2026): G6: tay trái đỡ cạnh đồng hồ (IK điểm; không còn tách, không che nửa mặt 0–1,0 s). B1: mắt cúi vào mặt số, rồi mắt dẫn đầu quay về miệng ngõ (0,85–1,8 s), chớp khi quay."
  },
  {
   "id": "s46",

@@ -17,6 +17,13 @@ QUY TRÌNH
       - ĐẠT khi tỉ lệ khung có từ khoá cột HÌNH ≤ nhiễu nền đối chứng (2/20 = 10 % tới 29/09/2026) VÀ không có lời chê cùng
         một chỗ lặp ≥ 2 khung. Lời chê trúng chỗ thật vẫn phải sửa. Mỗi lần kiểm ≥ 6 khung (P đề xuất 10) + 2 đối chứng.
       - Cập nhật nhiễu nền: cộng số lượt đối chứng có từ khoá chỉ vào nhân vật / tổng lượt đối chứng.
+
+DẢI KHUNG (Cổng 6 W2, chủ dự án 29/09/2026 — AUTHORSHIP "Cổng 6 — diễn hoạt"):
+ dai <video> <t0> <t1> <ra.jpg> [bước=0.5] [rộng=480]: dải khung cách nhau <bước> s của một đoạn (thường một shot), lưới 4 cột,
+      mỗi ô ghi mốc tương đối "0,0 s", "0,5 s"… (không lộ tên shot). Phụ đề lấy nguyên từ video (đã in trong khung).
+ doi-chung-dai <thư mục>: 2 dải đối chứng Sprite Fright, mỗi dải trọn một shot chứa mốc 104,5 s / 332 s (cùng bước, cùng lưới) — KHÔNG commit.
+ chuan-bi-dai <thư mục vòng> <nhãn>=<ảnh> ...: như chuan-bi, câu hỏi y hệt + " Nhân vật cảm thấy gì trong đoạn này?".
+ chon <hạt giống hex> <số> <shot,…>: chọn ngẫu nhiên có hạt giống (ghi hạt giống vào báo cáo).
 """
 import hashlib, json, os, re, secrets, shutil, subprocess, sys, urllib.request
 
@@ -62,6 +69,42 @@ def nguyen_van(rd, out, tasks, pairs):
         L.append(f"### {mp[f]} — file mù `{f}` — nguyên văn\n"); L.append('\n'.join('> ' + x if x else '>' for x in txt.strip().split('\n')) + '\n')
     open(out, 'w').write('\n'.join(L)); print('ghi', out)
 
+HOI_DAI = " Nhân vật cảm thấy gì trong đoạn này?"
+
+def dai(video, t0, t1, out, buoc='0.5', rong='480'):
+    from PIL import Image, ImageDraw, ImageFont
+    t0, t1, b, W = float(t0), float(t1), float(buoc), int(rong)
+    ts = []; t = t0
+    while t < t1 - 1e-6: ts.append(round(t, 3)); t += b
+    ims = []
+    for t in ts:
+        r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t:.3f}', '-i', video, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)
+        import io; im = Image.open(io.BytesIO(r.stdout)).convert('RGB'); ims.append(im.resize((W, round(W * im.height / im.width))))
+    C = 4; R = (len(ims) + C - 1) // C; w, h = ims[0].size; pad = 6
+    sheet = Image.new('RGB', (C * w + (C + 1) * pad, R * h + (R + 1) * pad), (24, 24, 24)); d = ImageDraw.Draw(sheet)
+    try: f = ImageFont.truetype('/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf', 18)
+    except Exception: f = ImageFont.load_default()
+    for i, (im, t) in enumerate(zip(ims, ts)):
+        x = pad + (i % C) * (w + pad); y = pad + (i // C) * (h + pad); sheet.paste(im, (x, y))
+        lab = f"{t - t0:.1f} s".replace('.', ','); d.rectangle([x, y, x + 64, y + 24], fill=(0, 0, 0)); d.text((x + 5, y + 2), lab, fill=(255, 255, 255), font=f)
+    sheet.save(out, quality=90); print(out, len(ims), 'khung', sheet.size)
+
+def doi_chung_dai(out):
+    doi_chung(out)
+    # trọn MỘT shot quanh mốc cũ (ranh giới shot dò bằng ffmpeg scene + xem ảnh, 29/09/2026): Ellie 104,0–106,3 s; Victoria 330,9–332,08 s
+    for t, a, b in ((104.5, 104.0, 106.3), (332.0, 330.9, 332.08)): dai(SF, a, b, f'{out}/sf_dai_{t:g}.jpg')
+
+def chuan_bi_dai(rd, items):
+    os.makedirs(rd, exist_ok=True); rd = os.path.abspath(rd)
+    with open(rd + '/map.tsv', 'w') as m:
+        for it in items:
+            lab, src = it.split('=', 1); name = secrets.token_hex(4) + os.path.splitext(src)[1]
+            shutil.copy(src, f'{rd}/{name}'); m.write(f'{lab}\t{name}\n')
+            print(f'--- {lab} → {name}\n' + MO.format(p=f'{rd}/{name}') + (HOI_N if 'hai-nguoi' in lab else HOI_1) + HOI_DAI + '\n')
+
+def chon(seed, n, shots):
+    import random; L = shots.split(','); r = random.Random(int(seed, 16)); print(','.join(sorted(r.sample(L, int(n)), key=L.index)))
+
 def dem(md):
     t = open(md).read(); n = 0
     for s in re.split(r'^### ', t, flags=re.M)[1:]:
@@ -76,4 +119,8 @@ if __name__ == '__main__':
     elif c == 'chuan-bi': chuan_bi(sys.argv[2], sys.argv[3:])
     elif c == 'nguyen-van': nguyen_van(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5:])
     elif c == 'dem': dem(sys.argv[2])
+    elif c == 'dai': dai(*sys.argv[2:])
+    elif c == 'doi-chung-dai': doi_chung_dai(sys.argv[2])
+    elif c == 'chuan-bi-dai': chuan_bi_dai(sys.argv[2], sys.argv[3:])
+    elif c == 'chon': chon(*sys.argv[2:5])
     else: print(__doc__)

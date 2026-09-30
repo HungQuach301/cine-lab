@@ -1,0 +1,749 @@
+{
+  "tool": "cinecheck 1.5.0",
+  "created_utc": "2026-09-29T12:40:57Z",
+  "file": "/tmp/claude-0/-home-user-cine-lab/73852ab1-27f0-5a2d-8192-ce0ef5f9850a/scratchpad/c3thu/c3thu-s41-s42a.mp4",
+  "profile": "shot",
+  "verdict": "TRƯỢT",
+  "lock": {
+    "expected": "8d55b6ad389dcbd2c40366bb16eed730106edef3ffee6c565e5ce786bd2aa65b",
+    "actual": "8d55b6ad389dcbd2c40366bb16eed730106edef3ffee6c565e5ce786bd2aa65b",
+    "match": true
+  },
+  "inputs": {
+    "script": null,
+    "text": null,
+    "stems": null,
+    "parts": "/tmp/claude-0/-home-user-cine-lab/73852ab1-27f0-5a2d-8192-ce0ef5f9850a/scratchpad/c3thu/c3thu-s41-s42a.parts",
+    "motion": null,
+    "assets": "/tmp/claude-0/-home-user-cine-lab/73852ab1-27f0-5a2d-8192-ce0ef5f9850a/scratchpad/c3thu/c3thu-s41-s42a.assets.json",
+    "library": "/home/user/cine-lab/assets/LIBRARY.json"
+  },
+  "counts": {
+    "PASS": 0,
+    "FAIL": 1,
+    "MISSING": 0,
+    "REVIEW": 0,
+    "N/A": 0,
+    "ERROR": 0
+  },
+  "near_threshold": [
+    {
+      "code": "C3",
+      "metric": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+      "value": 4.0,
+      "threshold": 4.0
+    },
+    {
+      "code": "C3",
+      "metric": "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+      "value": 4.0,
+      "threshold": 3.98
+    }
+  ],
+  "results": [
+    {
+      "code": "C3",
+      "section": "4.C — Nhân vật",
+      "title": "Đúng model: tỷ lệ bộ phận so với model sheet, có tính nhiễu đo",
+      "level": "Chặn",
+      "measure": "<video>.parts/parts.json: mặt nạ từng bộ phận xuất từ render cho mọi khung chia hết cho 12. v1.1 (Q-C3): mặt nạ bắt buộc ở độ phân giải gấp s = 2–4 lần khung; s đo từ kích thước PNG (rộng/rộng và cao/cao phải bằng nhau, mọi mặt nạ cùng cỡ), trường 'scale' nếu có phải khớp s đo. Chống phóng to mặt nạ thấp hơn: tập vị trí biên phân biệt (x chuyển tiếp ngang, y chuyển tiếp dọc) quy về pha lưới s (k = round(s) ngăn); tỷ lệ dồn vào 1 pha phải ≤ 1/k + (1 − 1/k)/2 (s=2: 0,75; s=3: 0,67; s=4: 0,625) với ≥ 40 vị trí (render thật ≈ 1/k; phóng to từ mặt nạ nhị phân ≈ 1,0). Độ dài = bề dài chiếu lên trục chính PCA của tâm điểm ảnh + 1 px; tỷ lệ = độ dài bộ phận / độ dài đầu; lệch = tỷ lệ / tỷ lệ model sheet − 1. Nhiễu đo U(s) = √((δ/(s·L_bộ phận))² + (δ/(s·L_đầu))²), L theo px video, δ = 2 px mặt nạ (v1.2; v1.1: 1 px); hiệu chuẩn Monte Carlo trong selftest ở s = 1, 2, 4 và phủ cả sai số của mặt nạ phóng to từ matte 1× khử răng cưa rồi ngưỡng hoá (loại không phát hiện được bằng ảnh). v1.3 (Q-δ): đầu < 100 px video ở khung mẫu bất kỳ thì hệ số mặt nạ ≥ 4. v1.3 (Q-C3c) kiểm toán ngẫu nhiên: phiên P chạy checks/audit.py issue (hạt giống từ secrets, 1–2 khung trong khung mẫu, ghi <video>.audit/request.json kèm SHA video và SHA bộ mặt nạ); xưởng render lại mặt nạ các khung đó từ file cảnh đã khoá vào <video>.audit/rerender/ và ghi render.log (SCENE <file> SHA256 <hex>; FRAME <n> CMD <lệnh>). Đối chiếu: video và bộ mặt nạ không đổi sau khi phát; log đủ, SHA file cảnh khớp đĩa (và thuộc scene_files nếu có assets.json); đủ mặt nạ render lại cùng cỡ; lệch tỷ lệ bộ phận/đầu nộp so với render lại ≤ 1·U (δ = 2); điểm ảnh khác nhau / điểm ảnh biên ≤ 0,02. Chưa có yêu cầu = THIẾU. v1.2 (C3b): dải xám ở biên (điểm ảnh mức 6–249 / điểm ảnh biên) ≤ 2,5 — mặt nạ phóng to còn giữ mức xám thì trượt. Quyết định kiểu ISO 14253-1: đạt khi |lệch| + U ≤ 3%; trượt chắc chắn khi |lệch| − U > 3%; giữa hai mức = không chứng minh được. Chống khai man: biên bóng nhân vật (hợp các mặt nạ) phải nằm trên cạnh ảnh render: độ lớn cạnh trên biên / trung vị trên biên dịch ±6 px theo 8 hướng (mọi khung có nhân vật). v1.4 (lược đồ, RUN.md 3.6): độ dài lấy từ cấp gốc {bộ phận: {length}}, nếu thiếu thì từ parts{} (một nguồn cho mọi bộ phận, không trộn), và bảng c3_views {góc: {bộ phận: tỷ lệ/đầu hoặc null}}; sai định dạng = THIẾU kèm thông báo. v1.4 (B-i, góc nhìn và tư thế): mẫu (khung × bộ phận) chỉ được so khi đo được: (a) máy tự loại bộ phận/đầu chạm mép khung; (b) nếu parts.json có 'views' xuất từ render (mỗi khung view_deg, elev_deg; mỗi bộ phận foreshorten, hidden, depth): góc 3D giữa hướng nhìn và góc c3_views gần nhất ≤ 30°, |foreshorten − 1| ≤ 0,02 (co ngắn do tư thế so với turnaround), hidden ≤ 0,10 (bị vật ngoài thân che), |depth − 1| ≤ 0,02 (phối cảnh); đầu không đạt thì cả khung không đo được; c3_views null = khuất ở góc đó. So với số của góc gần nhất. Mặt nạ rỗng mà views khai không bị che = thiếu mặt nạ (lỗi). Không có 'views': mọi mẫu so với góc 0° như v1.3. Mẫu không đo được được đếm và liệt kê; tỷ lệ mẫu đo được báo theo từng shot (tách shot như G3b). Shot có nhân vật mà 0 mẫu đo được → CẦN NGƯỜI XEM. Kiểm toán: có 'views' thì xưởng xuất lại views.json cho khung được chọn; lệch > 1° hoặc > 0,005 → trượt. v1.5 (trục đầu): model sheet khai c3_head_axis: 'doc' = độ dài đầu là bề dài chiếu mặt nạ đầu lên trục dọc thân (vectơ đơn vị từ tâm mặt nạ thân tới tâm mặt nạ đầu cùng khung; thiếu thân: phương dọc ảnh) + 1 px; 'pca' (mặc định) = trục chính như v1.4; giá trị khác = THIẾU. Khung có trục chính đầu lệch trục dọc > 45° (đầu rộng hơn cao) được liệt kê. Kiểm toán dùng cùng cách đo. 'silhouettes' (bóng nhân vật cho P0) nằm trong SHA bộ mặt nạ; phiếu kiểm toán chọn thêm 1 khung trong các khung chỉ có bóng (sil_frames); khung được chọn có bóng thì render lại silhouette.png, so như mặt nạ bộ phận.",
+      "threshold_text": "Hệ số mặt nạ/khung đo được trong [2, 4], ngang = dọc, khớp số khai; pha biên ≤ 1/k + (1 − 1/k)/2; dải xám biên ≤ 2,5; đầu < 100 px thì ≥ 4×; kiểm toán ngẫu nhiên đạt (lệch ≤ 1·U, khác điểm ảnh ≤ 0,02, log và SHA file cảnh khớp); 0 bộ phận–khung trượt chắc chắn; 0 bộ phận–khung không chứng minh được; 0 khung mẫu thiếu mặt nạ; độ khớp biên ≥ 1,5 (ngưỡng 3% theo khung mục 4.C, nội bộ; 1,5 và ngưỡng pha nội bộ). v1.4: chỉ tính trên mẫu đo được (góc ≤ 30°: quyết định chủ dự án; foreshorten 0,02, hidden 0,10, depth 0,02: nội bộ); shot có nhân vật mà 0 mẫu đo được = CẦN NGƯỜI XEM (không ĐẠT).",
+      "status": "FAIL",
+      "metrics": [
+        {
+          "name": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
+          "value": 4.0,
+          "op": ">=",
+          "threshold": 2.0,
+          "unit": "×",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (lớn nhất)",
+          "value": 4.0,
+          "op": "<=",
+          "threshold": 4.0,
+          "unit": "×",
+          "ok": true,
+          "near": true
+        },
+        {
+          "name": "mặt nạ cùng kích thước, hệ số ngang = dọc",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "'scale' khai báo khớp hệ số đo (bỏ trống được)",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "vị trí biên phân biệt để kiểm pha lưới",
+          "value": 4210,
+          "op": ">=",
+          "threshold": 40,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "vị trí biên dồn vào 1 pha lưới (phóng to từ mặt nạ thấp hơn)",
+          "value": 0.2561,
+          "op": "<=",
+          "threshold": 0.625,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "dải xám ở biên mặt nạ (phóng to còn giữ mức xám), lớn nhất",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 2.5,
+          "unit": "px/px biên",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "đầu < 100 px video thì mặt nạ ≥ 4× (Q-δ): hệ số đo khi đầu nhỏ",
+          "value": 4.0,
+          "op": ">=",
+          "threshold": 3.98,
+          "unit": "×",
+          "ok": true,
+          "near": true
+        },
+        {
+          "name": "biên trên |lệch| + U lớn nhất (mẫu đo được)",
+          "value": 9.74,
+          "op": "<=",
+          "threshold": 3.0,
+          "unit": "%",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung lệch chắc chắn > 3%",
+          "value": 4,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "bộ phận–khung không chứng minh được ≤ 3% (nhiễu đo)",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "khung mẫu (mỗi 12 khung) thiếu mặt nạ",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "độ khớp biên mặt nạ–cạnh ảnh render thấp nhất",
+          "value": 1.2129,
+          "op": ">=",
+          "threshold": 1.5,
+          "unit": "",
+          "ok": false,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: video không đổi sau khi phát yêu cầu",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: bộ mặt nạ nộp không đổi sau khi phát yêu cầu",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: có khung được chọn",
+          "value": 2,
+          "op": ">=",
+          "threshold": 1,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: có render.log",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: log có dòng SCENE, SHA-256 khớp file cảnh trên đĩa",
+          "value": true,
+          "op": "==",
+          "threshold": true,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: khung được chọn không có dòng FRAME … CMD trong log",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: views.json render lại thiếu hoặc sai định dạng",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: views render lại lệch bản nộp — góc nhìn, góc ngẩng (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "°",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: views render lại lệch bản nộp — foreshorten, hidden, depth (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.005,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: mặt nạ render lại thiếu hoặc khác kích thước",
+          "value": 0,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: lệch tỷ lệ nộp/render lại, tính theo dải nhiễu U (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 1.0,
+          "unit": "×U",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "kiểm toán: điểm ảnh khác nhau / điểm ảnh biên (lớn nhất)",
+          "value": 0.0,
+          "op": "<=",
+          "threshold": 0.02,
+          "unit": "",
+          "ok": true,
+          "near": false
+        },
+        {
+          "name": "shot có nhân vật mà không mẫu nào đo được (→ CẦN NGƯỜI XEM, không ĐẠT)",
+          "value": 1,
+          "op": "<=",
+          "threshold": 0,
+          "unit": "",
+          "ok": false,
+          "near": false
+        }
+      ],
+      "notes": [
+        "Model sheet: ida.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: -135°, -90°, -45°, 0°, 45°, 90°, 135°, 180°). Mặt nạ 3840×2160 px trên khung 960×540 → hệ số đo ×4 (khai báo: 4). Đầu cao 19.3–57.1 px video. Lệch lớn nhất (mẫu đo được) 8.74%. 4210 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.26 (trải đều ≈ 0.25).",
+        "Mẫu bộ phận đo được: 4/21 (19.0%) trên 7 khung có nhân vật. Theo shot: shot 1 (khung 0–35): 0/9 (0%); shot 2 (khung 36–83): 4/12 (33.3%).",
+        "Không đo được: 17 mẫu bộ phận — đầu bị che > 10%: 9; khuất ở góc tham chiếu (c3_views ghi null): 8. Danh sách đầy đủ trong bằng chứng 'khong_do_duoc'.",
+        "v1.5 (trục đầu): 7/7 khung có mặt nạ đầu rộng hơn cao (trục chính lệch trục dọc thân > 45°): cách 'pca' (mặc định, như v1.4) đo bề ngang đầu ở các khung này, và số nhảy bậc khi trục chính quanh 45°. Nên đo lại c3_views theo 'doc' và khai c3_head_axis = 'doc' (RUN.md 3.6.1). Danh sách trong bằng chứng 'dau_rong_hon_cao' (px video).",
+        "Shot [1]: có nhân vật nhưng không mẫu nào đo được. C3 = CẦN NGƯỜI XEM: người duyệt so nhân vật với model sheet bằng mắt; máy không cho ĐẠT.",
+        "Kiểm toán ngẫu nhiên: hạt giống 7893580849893953820, khung [0, 72], phát bởi P lúc 2026-09-29T12:39:49Z."
+      ],
+      "evidence": {
+        "do": [
+          {
+            "khung": 36,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8553,
+            "sheet": 2.033,
+            "lech_pct": -8.74,
+            "U_pct": 1.0,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 48,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8553,
+            "sheet": 2.033,
+            "lech_pct": -8.74,
+            "U_pct": 1.0,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 60,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8553,
+            "sheet": 2.033,
+            "lech_pct": -8.74,
+            "U_pct": 1.0,
+            "ket_qua": "trượt chắc chắn"
+          },
+          {
+            "khung": 72,
+            "bo_phan": "torso",
+            "goc_tham_chieu": 90.0,
+            "ty_le": 1.8553,
+            "sheet": 2.033,
+            "lech_pct": -8.74,
+            "U_pct": 1.0,
+            "ket_qua": "trượt chắc chắn"
+          }
+        ],
+        "khong_do_duoc": [
+          {
+            "khung": 0,
+            "bo_phan": "torso",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "26%"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "26%"
+          },
+          {
+            "khung": 0,
+            "bo_phan": "forearm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "26%"
+          },
+          {
+            "khung": 12,
+            "bo_phan": "torso",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "28%"
+          },
+          {
+            "khung": 12,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "28%"
+          },
+          {
+            "khung": 12,
+            "bo_phan": "forearm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "28%"
+          },
+          {
+            "khung": 24,
+            "bo_phan": "torso",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "28%"
+          },
+          {
+            "khung": 24,
+            "bo_phan": "upper_arm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "28%"
+          },
+          {
+            "khung": 24,
+            "bo_phan": "forearm",
+            "ly_do": "đầu bị che > 10%",
+            "chi_tiet": "28%"
+          },
+          {
+            "khung": 36,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 36,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 48,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 48,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 60,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 60,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 72,
+            "bo_phan": "upper_arm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          },
+          {
+            "khung": 72,
+            "bo_phan": "forearm",
+            "ly_do": "khuất ở góc tham chiếu (c3_views ghi null)",
+            "chi_tiet": "90°"
+          }
+        ],
+        "theo_shot": [
+          {
+            "shot": 1,
+            "khung": [
+              0,
+              35
+            ],
+            "khung_nhan_vat": 3,
+            "mau": 9,
+            "do_duoc": 0,
+            "ty_le_pct": 0.0
+          },
+          {
+            "shot": 2,
+            "khung": [
+              36,
+              83
+            ],
+            "khung_nhan_vat": 4,
+            "mau": 12,
+            "do_duoc": 4,
+            "ty_le_pct": 33.3
+          }
+        ],
+        "do_khop_bien": {
+          "0": 1.21,
+          "12": 1.35,
+          "24": 1.35,
+          "36": 1.51,
+          "48": 1.51,
+          "60": 1.52,
+          "72": 1.51
+        },
+        "khung_thieu": [],
+        "dau_rong_hon_cao": [
+          {
+            "khung": 0,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.3,
+            "dau_theo_truc_doc": 14.1
+          },
+          {
+            "khung": 12,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.3,
+            "dau_theo_truc_doc": 13.6
+          },
+          {
+            "khung": 24,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 19.3,
+            "dau_theo_truc_doc": 13.6
+          },
+          {
+            "khung": 36,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 57.1,
+            "dau_theo_truc_doc": 44.0
+          },
+          {
+            "khung": 48,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 57.1,
+            "dau_theo_truc_doc": 44.0
+          },
+          {
+            "khung": 60,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 57.1,
+            "dau_theo_truc_doc": 44.0
+          },
+          {
+            "khung": 72,
+            "truc_doc": "thân→đầu",
+            "dau_truc_chinh": 57.1,
+            "dau_theo_truc_doc": 44.0
+          }
+        ],
+        "kiem_toan": {
+          "yeu_cau": {
+            "version": 1,
+            "seed": "7893580849893953820",
+            "frames": [
+              0,
+              72
+            ],
+            "candidates": 7,
+            "issued_by": "P",
+            "issued_utc": "2026-09-29T12:39:49Z",
+            "video": "c3thu-s41-s42a.mp4",
+            "video_sha256": "c8ec71a9ce778683c2d696bfe40010a9609f5ee8ca2f09bf8d305d4bff7a37d7",
+            "parts_sha256": "592ee3ec2a59148dfef88b7aefe6417a5496d5aa86a5d62666bde80444bb3a4b"
+          },
+          "log_scene": [
+            {
+              "file": "design/cong5/layout/page.js",
+              "sha_log": "d21b7bdeecb2de141f4b5609867fb07ba5abf3e73e6b3d2ccac31acff3644149",
+              "sha_dia": "d21b7bdeecb2de141f4b5609867fb07ba5abf3e73e6b3d2ccac31acff3644149",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/film.js",
+              "sha_log": "2498bd65a78993e8674dcc0bac62d954936607d12c7ebc27b670b3f1ed97020a",
+              "sha_dia": "2498bd65a78993e8674dcc0bac62d954936607d12c7ebc27b670b3f1ed97020a",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/common.js",
+              "sha_log": "a73228d73fa9bb6c1fff4b35897a24b1d6db9844ab3ec249efa763ab14283193",
+              "sha_dia": "a73228d73fa9bb6c1fff4b35897a24b1d6db9844ab3ec249efa763ab14283193",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/order_w1.js",
+              "sha_log": "c45176f2dff9d3f2f2342f973dbe7b57c710ddaec29f68c9c5e3470e96f5e139",
+              "sha_dia": "c45176f2dff9d3f2f2342f973dbe7b57c710ddaec29f68c9c5e3470e96f5e139",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/order_w2.js",
+              "sha_log": "1f3ce1bc25daa3f12373de901b20f40637f7b0c336c46cbae26a8bb3f51868fc",
+              "sha_dia": "1f3ce1bc25daa3f12373de901b20f40637f7b0c336c46cbae26a8bb3f51868fc",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/shots_w1.js",
+              "sha_log": "80b025b5efe3e334f456867b4e57294219f98362109d13a55ff33e323145a095",
+              "sha_dia": "80b025b5efe3e334f456867b4e57294219f98362109d13a55ff33e323145a095",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/shots_w2.js",
+              "sha_log": "a07902829a7baec2f0ad13807ac5bf1254b8e20e7cc529b3788e7808ef359ed0",
+              "sha_dia": "a07902829a7baec2f0ad13807ac5bf1254b8e20e7cc529b3788e7808ef359ed0",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/sets.js",
+              "sha_log": "8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62",
+              "sha_dia": "8996a0b7597c784349571bf5cdc203bf255f8a19b98def44e5125c86ff665d62",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/sets2.js",
+              "sha_log": "12300e909cec665bc79346d917d385b0af5a7e8a5dc24487fd0d8b218a15fd91",
+              "sha_dia": "12300e909cec665bc79346d917d385b0af5a7e8a5dc24487fd0d8b218a15fd91",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/sets_end.js",
+              "sha_log": "55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d",
+              "sha_dia": "55a916c8fbcea4d13ddf94a696548ddad7eb4d3ac16103627d66c2105ab5c93d",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/util.js",
+              "sha_log": "e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc",
+              "sha_dia": "e518e72f7bc32cd7254ba32f3cd7cf7bc9f9727441c99a179f0cd122c2b23ccc",
+              "trong_scene_files": true,
+              "khop": true
+            },
+            {
+              "file": "design/cong5/layout/facelight.js",
+              "sha_log": "a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47",
+              "sha_dia": "a99ba7523e5a4f1d99e79fe309080b55401912c361ce65a310eb65472a901c47",
+              "trong_scene_files": true,
+              "khop": true
+            }
+          ],
+          "log_lenh": {
+            "0": [
+              "node design/cong5/layout/export_c3.js --who ida --audit-dir c3thu_tmp/c3thu-s41-s42a.audit/rerender --frames 2688,2760 --offset 2688 --scale 4"
+            ],
+            "72": [
+              "node design/cong5/layout/export_c3.js --who ida --audit-dir c3thu_tmp/c3thu-s41-s42a.audit/rerender --frames 2688,2760 --offset 2688 --scale 4"
+            ]
+          },
+          "doi_chieu": [
+            {
+              "khung": 0,
+              "bo_phan": "head",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 0,
+              "bo_phan": "torso",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 0,
+              "bo_phan": "upper_arm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 0,
+              "bo_phan": "forearm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 0,
+              "bo_phan": "thigh",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 0,
+              "bo_phan": "shin",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 0,
+              "bo_phan": "torso",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 2.849
+            },
+            {
+              "khung": 0,
+              "bo_phan": "upper_arm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 3.226
+            },
+            {
+              "khung": 0,
+              "bo_phan": "forearm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 3.675
+            },
+            {
+              "khung": 72,
+              "bo_phan": "head",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 72,
+              "bo_phan": "torso",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 72,
+              "bo_phan": "upper_arm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 72,
+              "bo_phan": "forearm",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 72,
+              "bo_phan": "thigh",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 72,
+              "bo_phan": "shin",
+              "khac_diem_anh_tren_bien": 0.0
+            },
+            {
+              "khung": 72,
+              "bo_phan": "torso",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 0.995
+            },
+            {
+              "khung": 72,
+              "bo_phan": "upper_arm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 22.297
+            },
+            {
+              "khung": 72,
+              "bo_phan": "forearm",
+              "lech_ty_le_pct": 0.0,
+              "U_pct": 9.965
+            },
+            {
+              "khung": 0,
+              "views_render_lai": "khớp",
+              "views_lech": {
+                "goc": 0.0,
+                "ty_le": 0.0
+              }
+            },
+            {
+              "khung": 72,
+              "views_render_lai": "khớp",
+              "views_lech": {
+                "goc": 0.0,
+                "ty_le": 0.0
+              }
+            }
+          ]
+        }
+      },
+      "seconds": 10.51
+    }
+  ]
+}
