@@ -205,11 +205,12 @@ function lanternDoorG(ch) { const lan = ch.props && ch.props.lantern; if (!lan |
   const a = wpos(lan.userData.lightAnchor), q = ch.root.getWorldQuaternion(new THREE.Quaternion()), fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q);
   return { point: a.addScaledVector(fw, 0.06).toArray(), axis: [0, 1, 0], radius: 0.01, out: fw.toArray(), tag: 'cửa đèn lồng' }; }
 const CAS_SPOT = [-1.2, -2.2];
-const S22 = { yaw: -62, glint: 0.2, lip: 0.85, pan: 4, dist: 1.25, cy: 0.0 };   // W1-v2 (d, h): cùng phía máy s21 (−x); mặt 3/4 ≈ 60°; lia trái 4° đẩy thân cột ra mép phải; glint 0,2; khẩu hình 0,85 (v1 0,6: "miệng hầu như không đổi hình")
+const S22 = { hb: -0.35, nk: -8, yaw: -62, glint: 0.2, lip: 0.85, pan: 4, dist: 1.25, cy: 0.0 };   // W1-v2 (d, h): cùng phía máy s21 (−x); mặt 3/4 ≈ 60°; lia trái 4° đẩy thân cột ra mép phải; glint 0,2; khẩu hình 0,85 (v1 0,6: "miệng hầu như không đổi hình")
 // v1:    // Cổng 6: s22 3/4 — máy lệch 45° khỏi hướng mặt, phía phố (−40° bị thân cột che nửa mặt); ánh mắt dịu (glint 0,5 → 0,35); lẩm bẩm: biên độ khẩu hình 0,6
 // W1-v2 (h, a): s05 dàn dựng như PA1 (W2 s36–s39): máy nghiêng S05.yaw° khỏi hướng mặt, key = ngọn L4 ngay trước mặt, nửa mặt phía máy chìm; lòng tay khép nhẹ
 // (sheet warm_hands_ladder xoè 0,9 → tay MPFB nhìn cạnh thành "vuốt/sừng").
 const S05 = { yaw: -80, dist: 2.1, cy: -0.02, drop: -0.02, pan: -5, tilt: 2, glint: 0.2, hands: { L: { spread: 0.3, curl: 0.3 }, R: { spread: 0.3, curl: 0.3 } } };
+const S24 = { a: -118, b: -130 };   // W1-v3 (d): gập vai khi dang / khi áp kính
 const S06 = { reach: 0.118, hover: 0.07, touch: 0.012, shR: [-40, 0, 10], elR: -104 };   // W1-v2: tay trái gõ kính — tâm lòng tay cách tâm đồng hồ 10 cm ngang (đầu ngón tới mép trong mặt kính), lơ lửng 5 cm, chạm ở 1,8 cm
 const S05_MODE = 'fl', S05_EK = 1.6;   // C2: facelight gas + phơi sáng fl.exposure() × 1,6 (mặt cháy 0,5 %, nền luma 69, tóc bạc) — LAYOUT-W1.md mục 13
 // B1 (sau Cổng 5): chỗ Cas dời sang đông ~4 m. Nếu sets_end.js đã trả endInfo.wallPost (W2 làm B1) thì tin endInfo.casSpot; nếu chưa thì dùng số dự phòng của P.
@@ -342,10 +343,11 @@ S1({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 
         apply(t, T, f); if (fl) fl.update(ida, cam, { key: L4 && L4.L }); } };
     function apply(t, T, f) { st.setState(stdState(T), f);
       let k = 0; for (const b of beats) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
-      const wH = { hands: S05.hands }, wA = over(p.warmLadder, wH), wB = over(p.warmLadderIn, wH);
-      const pose = t < 2.4 ? lerpPose(wA, wB, k) : poseAt([[2.4, wA], [3.1, p.restLadder]], t);
+      // W1-v3 (a): tay s05 riêng (không đụng S05.hands của s24): ngón khép, khum tự nhiên (xoè 0, gập 0,62 — thử 0,42: ngón vẫn bị va chạm tay MPFB giữ gần thẳng, đọc "vuốt" như v2 xoè 0,3); tay về thanh móc nắm hẳn (gập 0,85).
+      const H05 = { L: { spread: 0.0, curl: 0.62 }, R: { spread: 0.0, curl: 0.62 } }, wH = { hands: H05 }, wA = over(p.warmLadder, wH), wB = over(p.warmLadderIn, wH), rL = over(p.restLadder, { hands: { L: { spread: 0.05, curl: 0.85 }, R: { spread: 0.05, curl: 0.85 } } });
+      const pose = t < 2.4 ? lerpPose(wA, wB, k) : poseAt([[2.4, wA], [3.1, rL]], t);
       ida.place(breathe(pose, T, 3.8, 0.8), LAMP_X(4), ON_Z, 0);
-      const kr = ease(clamp01((t - 2.6) / 0.5)); if (kr > 0) topHands(ida, G, { R: kr, L: kr });   // Cổng 6: hạ tay → phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 11–19 cm)
+      const kr = ease(clamp01((t - 2.6) / 0.5)); if (kr > 0) topHands(ida, G, { R: kr, L: kr, Ry: 2.2, Ly: 2.3 });   // W1-v3: tay nghỉ nắm THÂN CỘT thấp (dưới mép khung) — v2 nắm thanh móc ngay mép dưới khung, đọc "bàn tay rời trôi" 3,0–3,5 s   // Cổng 6: hạ tay → phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 11–19 cm)
       face(mixW(richLip(wAt(expr, T), mouthAt(lip, T, V, 0.62)), { blink: blinkAt(T, blinks) }), valAt(gaze, t)); }   // W1-v2: biên độ 0,75 → 0,62, 'old' bớt chu môi (kiểm mù: "miệng méo khi nói 1,0–1,5 s")
   } });
 
@@ -585,7 +587,8 @@ S1({ id: 's22', scene: 3, t0: 60.0, t1: 63.0, size: 'MCU', angle: 'ngang mắt, 
         // W1: tay phải trên van suốt shot; sào mồi chuyển sang tay trái NGOÀI KHUNG (liên tục s21 → s22, xem continuity canh-3.md).
         // v2 kết bằng hai lòng tay xoè (warmLadder) — mâu thuẫn với tay trái đang cầm sào → bỏ; giữ tay trên van tới khi lửa bắt.
         const hv = { R: { spread: 0.05, curl: 0.88 }, L: p.LH.L };   // Cổng 6: ngón ôm thân van (curl 0,6 của sheet với tay MPFB → hai ngón duỗi thẳng)
-        const v0 = over(p.valveLadder, { joints: { neck: [-4, 30, 0] }, hands: hv }), v1 = over(p.valveLadder, { joints: { neck: [-14, 26, 0], elbow_R: [-52, 0, 0] }, hands: hv });
+        const HBk = (ctx.dbg && ctx.dbg.hb) ?? S22.hb, NK = (ctx.dbg && ctx.dbg.nk) ?? S22.nk;   // W1-v3 (b): mũ đội sụp trước (hat_back âm → vành chúc, che chân tóc), ngẩng ít hơn
+        const v0 = over(p.valveLadder, { joints: { neck: [-4, 30, 0] }, hands: hv, hat_back: HBk }), v1 = over(p.valveLadder, { joints: { neck: [NK, 26, 0], elbow_R: [-52, 0, 0] }, hands: hv, hat_back: HBk });
         if (!camSet) { ida.place(v0, LAMP_X(10), ON_Z, 0); faceCam(cam, ida, { yaw: dbg.yaw ?? S22.yaw, dist: dbg.dist ?? S22.dist, fov: fovOf(85), y: dbg.cy ?? S22.cy }); cam.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), (dbg.pan ?? S22.pan) * Math.PI / 180); camSet = true; }   // máy tĩnh (S22.pan: lia ngang để thử; lia trái 3,5° đưa tay + ống van vào khung thì đọc thành khối đồng che góc trái → chốt 0)
         ida.place(breathe(poseAt([[0, v0], [1.6, v0], [2.4, v1]], t), T, 2.6, 1.3), LAMP_X(10), ON_Z, 0);   // thở gấp (chạy đua)
         const gV = gripK(ida, 'R', G.valve, 1);   // Cổng 6: tay phải MPFB nắm thân van (IK điểm)
@@ -636,11 +639,12 @@ S1({ id: 's24', scene: 3, t0: 66.0, t1: 68.0, size: 'MS', angle: 'hơi cao, 3/4 
     const beats = [0.2, 0.8, 1.4];
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_STREET, exposure: 1.6,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.05 }), f);
-        let k = 0; for (const b of beats) k = Math.max(k, Math.exp(-(((t - b) / 0.16) ** 2)));
+        // W1-v3 (d, L4): ba nhịp TÁCH BẠCH có dừng: mỗi nhịp khép 0,12 s → GIỮ áp kính 0,12 s → mở 0,18 s, giữa hai nhịp tay dang yên ≈ 0,18 s (v2: gauss 0,16 s liền mạch).
+        let k = 0; for (const b of beats) { const d = t - b; k = Math.max(k, d < -0.15 || d > 0.27 ? 0 : d < -0.03 ? ease((d + 0.15) / 0.12) : d < 0.09 ? 1 : 1 - ease((d - 0.09) / 0.18)); }
         // W1-v2 (f, L4): nhịp đếm ba đọc được — mỗi nhịp hai lòng tay DANG ra hai bên (vai dạng ±24°) rồi KHÉP áp vào hai mặt kính (±−4°, nâng 14°) — chuyển động NGANG khung (máy s24 nhìn trước mặt bà: v1 và thử đẩy tay tới trước đều dọc trục máy, không thấy)
         // (v1: warmLadder ↔ warmLadderIn dịch ≤ 3 px ở 30 mm). Lòng tay khép nhẹ như s05 (S05.hands).
-        const cA = over(p.warmLadder, { hands: S05.hands, joints: { shoulder_L: [-86, 0, 24], shoulder_R: [-86, 0, -24], elbow_L: [-44, 0, 0], elbow_R: [-44, 0, 0] } });
-        const cB = over(p.warmLadderIn, { hands: S05.hands, joints: { shoulder_L: [-100, 0, -4], shoulder_R: [-100, 0, 4], elbow_L: [-30, 0, 0], elbow_R: [-30, 0, 0] } });
+        const cA = over(p.warmLadder, { hands: S05.hands, joints: { shoulder_L: [S24.a, 0, 24], shoulder_R: [S24.a, 0, -24], elbow_L: [-40, 0, 0], elbow_R: [-40, 0, 0] } });   // W1-v3: lòng tay nâng lên ngang lồng kính L11 (v2 thấp hơn đáy lồng 40–47 px)
+        const cB = over(p.warmLadderIn, { hands: S05.hands, joints: { shoulder_L: [S24.b, 0, -4], shoulder_R: [S24.b, 0, 4], elbow_L: [-26, 0, 0], elbow_R: [-26, 0, 0] } });
         ida.place(breathe(lerpPose(cA, cB, k), T, 3.2), LAMP_X(11), ON_Z, 0);
         cas.place(casLeanPose(p, T, [0, CL.neckY, 0]), cx, cz, CL.yaw); casWallHand(cas, CL); } };
   } });
@@ -657,8 +661,8 @@ S1({ id: 's24c', scene: 3, size: 'MS', angle: 'ngang mắt Cas, 3/4 trước-ph�
     const cam = camMM(50); cam.position.set(cx + 2.1 * dx, 1.05, cz + 2.1 * dz); cam.lookAt(cx, 0.95, cz); cam.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), (dbg.pan ?? 9) * Math.PI / 180);   // W1-v2: lia 9° → Cas lệch phải, khoảng trống phía cậu nhìn (trái)   // giai đoạn C: 3/4 trước Cas (lệch 35° khỏi hướng nhìn về L11) — Cas nhìn sang TRÁI khung (về Ida), tường chim sau lưng
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: 4.5,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.05 }), f); ida.place(p.warmLadder, LAMP_X(11), ON_Z, 0);
-        cas.place(casLeanPose(p, T, [-9, CL.neckY + valAt([[0, -10], [0.6, -10], [1.3, 6]], t), 5]), cx, cz, CL.yaw);
-        cf({ blink: blinkAt(T, [57.62, [58.62, 1.2]]) }, [valAt([[0, -0.05], [0.55, -0.05], [1.1, 0.06]], t), 0.02]);   // W1-v2 (g): chớp mắt; mắt dẫn trước đầu khi quay về Ida; đầu ngả tựa tường (cổ −9°, nghiêng 5°)
+        cas.place(casLeanPose(p, T, [(ctx.dbg && ctx.dbg.cnx) ?? 10, CL.neckY + valAt([[0, -10], [0.6, -10], [1.3, 6]], t), 3]), cx, cz, CL.yaw);
+        cf({ blink: blinkAt(T, [57.62, [58.62, 1.2]]) }, [valAt([[0, -0.05], [0.55, -0.05], [1.1, 0.06]], t), 0.02]);   // W1-v2 (g): chớp mắt; mắt dẫn trước đầu khi quay về Ida; W1-v3 (c): đầu CÚI nhẹ (cổ +10°, nghiêng 3°) thay ngả −9° — quả bông mũ không lún vào tường (K2), cằm khép lên cổ áo (hết khe cổ)
         const gw = casWallHand(cas, CL); if (dbg.log && f % 6 === 0) console.log(JSON.stringify({ s24c: +t.toFixed(2), wall: gw === null ? null : +gw.toFixed(4) })); } };
   } });
 
