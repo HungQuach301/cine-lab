@@ -4,6 +4,10 @@ Gói W2, Cổng 5, luật O1. Nguồn số: `design/cong5/layout/shots_w2.js` (h
 Bản v3 (rà continuity v2 — N6, N9): mọi bảng dưới đã mang số sau A2/B1 (không còn phần "cộng 3,95 m"); chỉ ghi những gì có trên hình.
 Bản v4 (Cổng 5 v2 — B-i): mọi shot là hàm thuần theo t. Đèn lồng ở thắt lưng Ida nay luôn theo hướng người ở khung hiện tại (trước: khung đầu mỗi shot và khung đổi hướng lấy hướng của khung trước — s26 lệch 133 px mặt nạ). Không đổi dàn dựng cảnh 4.
 
+## Cập nhật hiện trạng (W1-v2, 30/09/2026 — thay các số cũ bên dưới khi mâu thuẫn)
+- **Cột điện tường chim (17,0; −5,9) KHÔNG xuất hiện trong khung nào của cảnh 3–4** (luật thế giới v0.6: cột điện ở mé đường đối diện dãy đèn khí): ẩn trong shot ở s23 (W1 B2) và s27 (W2-v3). Nguồn sáng của cột đặt ở **vỉa hè nam, ngoài khung: (7,2; 6,2; 12,2) hệ tường chim = (17,4; 6,2; 4,1) bộ phố**, cho MỌI shot cảnh 4 (s25–s32, gói B3 của W2); bật 1:04,4 như cũ. Mọi câu "cột trong sân / cột điện + bóng đèn trong khung / vũng sáng cột trong sân (tầm 8,5 m)" bên dưới là số cũ.
+- **Cas ở s23, s24, s24c (W1):** dựa lưng vào tường chim ở (14,3; −7,94) bộ phố = (4,1; 0,16) hệ tường (cách mặt tường **0,16 m**), hai lòng tay áp tường sau hông. Cảnh 4 (s25 →) Cas ở `CAS_W` (4,1; 0,95), cách tường 0,95 m: **đổi chỗ 0,75 m qua cắt s24c → s25** (chủ dự án đã duyệt, 30/09/2026) cùng lúc quay vào tường.
+
 ## Quyết định đang áp dụng
 - **B1 (chủ dự án sau Cổng 5, AUTHORSHIP @2591e4d):** cột điện phố chính đặt TRONG SÂN trước hông nhà kho, chân (17,0; −5,9) bộ phố; tay vươn về tường; PointLight tầm **8,5 m**, suy giảm 1,2, không bóng. Góc L11 và hốc cửa ngoài tầm → **tối tới khi P5 bật (1:39,2)**. (P đề xuất (15,4; −6,2) — điểm đó nằm trong căn đầu dãy bắc cũ; W2 dời dãy bắc tới x = 18,5 và đặt cột ở (17,0; −5,9).)
 - **N6 (P chọn, rà continuity v2):** đèn lồng của Ida **cháy liên tục** từ s23 tới lúc tháo ở s30; **không có nhịp mở/đóng cửa đèn**. Ở thắt lưng (hông trái) kính đèn sáng, nhưng hắt lên tường và nền rất yếu (mức 0,012) vì đèn treo thấp ở hông khuất sau thân và vạt áo bà. s30 chỉ là nhịp **tháo đèn**: hắt sáng tăng liên tục (không bật cóc) khi đèn ra khỏi thân bà và hạ sát tường.
@@ -35,7 +39,7 @@ Bản v4 (Cổng 5 v2 — B-i): mọi shot là hàm thuần theo t. Đèn lồng
 | Ida | Đã **xuống thang L11** (ngoài hình), đứng ở `IDA_W` | W1 để bà trên thang ở 0:59,00: nhịp xuống thang ngoài hình — **P kiểm** |
 | Đạo cụ Ida | Đèn lồng **cháy liên tục** (N6), ở **hông trái** (móc thắt lưng). **Thang tựa L11 phía bắc**: (−2,2; 3,35) nghiêng 0,36 rad (= `ladderAt(11)` bộ phố) — có mặt suốt cảnh 4. Đồng hồ trong túi | Khớp (W1 s23–s24c: đèn hông trái sáng) |
 | Trang phục Ida | Mũ #262a33, `hat_back` = 0; khăn một đuôi trước ngực | Khớp |
-| Cas | Ở `casSpot`. **s24c: nhìn về Ida / L11 (TRÁI khung)** → s25: đã quay vào tường, giơ tay làm chim | Khớp; chuyển hướng qua cắt |
+| Cas | **s24c: dựa lưng tường (0,16 m), nhìn về Ida / L11 (TRÁI khung)** → s25: ở `CAS_W` (0,95 m), đã quay vào tường, giơ tay làm chim | Đổi chỗ 0,75 m + hướng qua cắt (đã duyệt) |
 | Trang phục Cas | Mũ len kem có quả bông đỏ, áo len đỏ quá khổ | Khớp |
 
 ## Lịch ánh sáng cảnh 4 (giây phim)
