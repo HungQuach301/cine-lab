@@ -2,7 +2,7 @@
 
 Người rà: agent continuity (chỉ báo lỗi, không sửa). Ngày 30/09/2026. Nhánh P (đã merge W2 vòng 2). Không đọc mã trong `checks/`.
 Căn cứ: `bible/characters.md`, `bible/world-rules.md`, `design/cong3/model-sheet/ida.json`, `cas.json`, `shots/layout/continuity/canh-4.md`, `canh-5.md`, `canh-6.md`, `shots/layout/continuity/RA-W2-V1.md`, `reports/m2/cong6/w2/BAO-CAO-W2-V2.md`, AUTHORSHIP.md mục "Cổng 6 — diễn hoạt" (Đ3–Đ6, 30/09/2026).
-Hình: mp4 hiện hành theo bảng BAO-CAO-W2-V2 §6 (mp4 lẻ mới hơn thắng: `video_s42.mp4`, `video_s42b.mp4`; s39/s38 lấy từ `video_s39-s38-s42.mp4`, s45/s47 từ `video_s45-s47.mp4`), thumbs s24c của W1. Ảnh bằng chứng tự trích ở `/tmp/claude-0/cont-w2v2/` (tạm, không commit; tên tệp ghi trong từng dòng).
+Hình: mp4 hiện hành theo bảng BAO-CAO-W2-V2 §6 (mp4 lẻ mới hơn thắng: `video_s42.mp4`, `video_s42b.mp4`; s39/s38 lấy từ `video_s39-s38-s42.mp4`, s45/s47 từ `video_s45-s47.mp4`), thumbs s24c của W1. Ảnh bằng chứng tự trích ở `reports/m2/cong6/w2/ra-continuity-v2/` (tạm, không commit; tên tệp ghi trong từng dòng).
 Quy ước: "khung" = khung toàn cục 24 fps = giây phim × 24.
 
 > Ghi chú đường dẫn: lệnh giao yêu cầu nộp `shots/layout/continuity/RA-W2-V2.md`; cấu hình phiên này chỉ cho phép ghi `reports/continuity.md` và cấm sửa tệp khác, nên báo cáo nằm ở đây (thay nội dung cũ). P chép sang nếu cần.
