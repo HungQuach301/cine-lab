@@ -17,3 +17,15 @@ Bảng khung 0,5 s trước/sau: `reports/m2/cong6/w2/sua-v3/{s27,s37b,s39,s45}_
 **Ghi chú:** s25, s26, s28–s32 vẫn nhận ánh từ vị trí cột cũ (cùng mé L11, cột ngoài khung các shot đó) — không tự sửa lan rộng; nếu cần đồng bộ hướng ánh cả cảnh 4 thì là việc riêng (P/W1 cùng xử lý với s23).
 
 **Token, thời gian:** bộ đếm công cụ ≈ 40 nghìn cho lượt v3 (hạn 150 nghìn). Thời gian thật 05:51 → ≈ 06:40 UTC 30/09/2026 (≈ 50 phút, phần lớn là render + dò lệch).
+
+## Luật v19 (P, 30/09/2026 — layout-v19 = W2-v3 ghép toàn phim; checks v1.5, LOCK 8d55b6ad… KHỚP)
+P dò lại 4 shot đổi từ mã đã merge (fbbb955): khớp mp4 W2 nộp, PSNR ≥ 37,6 dB. Clip: `screening/w2-cong6-v19.mp4` (81,5 s, 28,6 MB).
+| Luật | v18 (W2 v2) | **v19 (W2-v3)** | Ghi chú |
+|---|---|---|---|
+| N1, N2, P1, G4, G3, M3, J1, J1b, H1, O3 | ĐẠT | **ĐẠT** | — |
+| **P0** | ĐẠT | **ĐẠT** | 0 vùng chữ không matte |
+| G3b | TRƯỢT | **TRƯỢT** | σ nhỏ nhất, σ lớn/nhỏ 2,99, tương quan 0,877 như trước. **CV lớn nhất 0,202 (ngưỡng ≤ 0,2; v18 0,19) — sát ngưỡng**, ở đoạn từ khung 2371 = **s37w, shot v3 KHÔNG đổi**: cùng nguồn render ở v18 và v19, khác nhau chỉ do mã hoá lại (PSNR 41,2 dB) → dao động đo, không phải lỗi mới. Layout chưa có grain (Cổng 7) |
+| H1b | TRƯỢT (6 track không đo được) | **TRƯỢT** (5) | — |
+| C3 lượt Ida | 6 · 58 · 48 | **6 · 58 · 48** | không shot nào đổi kết quả (`so_sanh_c3.py v18 v19`) |
+| C3 lượt Cas | 5 đạt · 34 trượt chắc · 97 KCM | **5 · 34 · 97** | cùng shot, cùng mức (s42a −38,6 %, s42b −30,3 %, s35 −21,2 %); kiểm toán hạt giống 4555010625961363773, khung [1608, 2448] ĐẠT |
+**Kết luận: luật v19 sạch — không có lỗi mới do lượt v3.** Chỉ số ±5 %: G3b CV 0,202; C3 hệ số mặt nạ 4 (≤ 4), hệ số khi đầu nhỏ 4 (≥ 3,98).
