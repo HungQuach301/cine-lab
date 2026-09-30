@@ -40,33 +40,7 @@ const addJ = (pose, add) => { const joints = { ...(pose.joints || {}) }; for (co
 // vòng quai đèn lồng) tay trượt dọc trục, ra khỏi vật (đo s40: lòng tay cách cần van 0,18 m dù hàm trả −2,3 mm). Bản này (viết trong gói W2, không sửa mã dùng chung)
 // giữ nguyên thuật toán IK 2 xương + xoay cổ tay của reachGrip nhưng CỐ ĐỊNH đích: tâm trục = g.point; lòng tay úp vào trục từ phía vai (hoặc g.out).
 // Trả khoảng cách tâm lòng tay → mặt vật (m) đo 3D thật.
-function gripAt(ch, s, g) {
-  const J = ch.joints, sh = J['shoulder_' + s], el = J['elbow_' + s], wr = J['wrist_' + s], sx = s === 'L' ? 1 : -1, root = ch.root, HS = ch.handScale ?? 1;
-  const A = new THREE.Vector3(...g.axis).normalize(), C0 = new THREE.Vector3(...g.point);
-  const wq = (o) => o.getWorldQuaternion(new THREE.Quaternion()), wp = (o) => o.getWorldPosition(new THREE.Vector3());
-  root.updateMatrixWorld(true);
-  const out = g.out ? new THREE.Vector3(...g.out) : wp(sh).sub(C0); out.addScaledVector(A, -out.dot(A)); if (out.lengthSq() < 1e-8) out.set(sx, 0, 0); out.normalize();
-  const T = C0.clone().addScaledVector(out, g.radius - 0.002 * HS);
-  const xw = out.clone().negate().multiplyScalar(-sx);
-  for (let it = 0; it < 4; it++) {
-    root.updateMatrixWorld(true);
-    const S = wp(sh), E = wp(el);
-    const zc = new THREE.Vector3(0, 0, 1).applyQuaternion(wq(wr)); const zw = A.clone().multiplyScalar(zc.dot(A) >= 0 ? 1 : -1);
-    const yw = new THREE.Vector3().crossVectors(zw, xw).normalize(); zw.crossVectors(xw, yw).normalize();
-    const Qd = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(xw, yw, zw));
-    wr.quaternion.copy(wq(el).invert().multiply(Qd)); root.updateMatrixWorld(true);
-    const G2 = ch.gripPoint(s), Wt = T.clone().sub(G2.clone().sub(wp(wr)));
-    const a = E.distanceTo(S), b = wp(wr).distanceTo(E), d = Math.min(a + b - 1e-4, Math.max(Math.abs(a - b) + 1e-4, Wt.distanceTo(S)));
-    const cur = Math.acos(Math.max(-1, Math.min(1, S.clone().sub(E).normalize().dot(wp(wr).sub(E).normalize())))), want = Math.acos(Math.max(-1, Math.min(1, (a * a + b * b - d * d) / (2 * a * b))));
-    let ax = new THREE.Vector3().crossVectors(S.clone().sub(E), wp(wr).sub(E)); if (ax.lengthSq() < 1e-10) ax.set(1, 0, 0).applyQuaternion(wq(el)); ax.normalize();
-    const qE = new THREE.Quaternion().setFromAxisAngle(ax, want - cur); el.quaternion.copy(wq(el.parent).invert().multiply(qE).multiply(wq(el)));
-    wr.quaternion.copy(wq(el).invert().multiply(Qd)); root.updateMatrixWorld(true);
-    const W2 = wp(wr), qS = new THREE.Quaternion().setFromUnitVectors(W2.clone().sub(S).normalize(), Wt.clone().sub(S).normalize());
-    sh.quaternion.copy(wq(sh.parent).invert().multiply(qS).multiply(wq(sh))); root.updateMatrixWorld(true); wr.quaternion.copy(wq(el).invert().multiply(Qd));
-  }
-  root.updateMatrixWorld(true); ch.cpuSkin?.update(); if (ch.handsBL) { for (const k of ['L', 'R']) ch.handsBL.sides[k].key = ''; root.updateMatrixWorld(true); }
-  return ch.gripPoint(s).distanceTo(C0) - g.radius;
-}
+function gripAt(ch, s, g) { return ch.gripAt(s, g); }   // Đ1 (W1-v2, 30/09/2026): thuật toán chuyển vào cast3d.js (ch.gripAt) — không đổi tham số, không đổi kết quả
 // (c) MẶT: trọng số 16 kênh shape key ('bl' v1.5.1) theo khoá thời gian; khẩu hình từ 6 VISEMES; chớp mắt; hướng nhìn = xoay nhãn cầu.
 // v3 (s39, chủ dự án): khi nói, MÔI – MÁ – CẰM cùng động, không chỉ hàm (AI mù v2: "chỉ có hàm cử động… như con rối"; "miệng méo… hàm dưới như rách").
 // Nguyên nhân méo: hàm mở tới 0,86 (A × 1,15) cộng frown 0,7 + chinRaise 0,5 + press của nét nghẹn và shape key sửa corr_mouth (frown × press/chinRaise) → môi dưới kéo xuống
