@@ -186,6 +186,24 @@ function casWallHand(cas, L, k = 1) {   // hai lòng tay áp phẳng lên tườ
     const d = gripK(cas, s, { point: pt, axis: [zx, 0, 0], zFix: true, radius: 0.0, out: [0, 0, 1], tag: 'tường' }, k); if (s === 'R') e = d; }
   return e;
 }
+// B2 (chỉ đạo chủ dự án 30/09/2026, luật thế giới v0.6 — cột điện luôn ở mé đường ĐỐI DIỆN dãy đèn khí): cột điện tường chim (sets_end wallPost,
+// thế giới (17,0; −5,9), CÙNG mé bắc với L11) KHÔNG xuất hiện trong khung s23. Chỉ ẩn trong shot (không sửa sets_end.js — dùng chung cảnh 4):
+// thân cột + bóng đèn + quầng + loá (mọi vật ≤ 1,6 m quanh đầu đèn). PointLight của cột dời sang vỉa hè NAM, ngoài khung — cùng chỗ W2 dùng ở s27:
+// (7,2; 6,2; 12,2) hệ tường chim = thế giới (17,4; 6,2; 4,1). Ở s23 (52,5–55,5 s) cột còn TẮT (bật 64,4 s) → không có ánh; mức sáng: Cổng 7.
+const B2_LIGHT_W = [17.4, 6.2, 4.1];
+function hideWallPost(st) {
+  const wp = st.endInfo && st.endInfo.wallPost; if (!wp || !wp.group) return null; const Lp = wp.light;
+  const hw = Lp ? Lp.getWorldPosition(new THREE.Vector3()) : null, hidden = [wp.group];
+  if (hw) st.scene.traverse((o) => { if (o === Lp || !(o.isSprite || o.isMesh)) return; if (o.getWorldPosition(new THREE.Vector3()).distanceTo(hw) < 1.6) hidden.push(o); });
+  for (const o of hidden) o.visible = false;
+  if (Lp) { const pw = new THREE.Vector3(...B2_LIGHT_W); Lp.parent.updateMatrixWorld(true); Lp.parent.worldToLocal(pw); Lp.position.copy(pw); Lp.distance = 0; Lp.updateMatrixWorld(true); }
+  return { hidden: hidden.length, post: [wp.x, wp.z], light: B2_LIGHT_W };
+}
+// (W1 v1 có watchInPalm cục bộ — W1-v2 Đ2: s09w dùng common.watchInHand(scene, { grip: true, lift: 0.03 }), cùng phép tính.)
+// Đèn lồng thắt lưng (hông trái): điểm tay trái chạm cửa đèn (mồi lửa ở s04) — mặt trước đèn, ngang giữa kính.
+function lanternDoorG(ch) { const lan = ch.props && ch.props.lantern; if (!lan || !lan.parent) return null; lan.updateMatrixWorld(true);
+  const a = wpos(lan.userData.lightAnchor), q = ch.root.getWorldQuaternion(new THREE.Quaternion()), fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q);
+  return { point: a.addScaledVector(fw, 0.06).toArray(), axis: [0, 1, 0], radius: 0.01, out: fw.toArray(), tag: 'cửa đèn lồng' }; }
 const CAS_SPOT = [-1.2, -2.2];
 const S22 = { yaw: -62, glint: 0.2, lip: 0.85, pan: 4, dist: 1.25, cy: 0.0 };   // W1-v2 (d, h): cùng phía máy s21 (−x); mặt 3/4 ≈ 60°; lia trái 4° đẩy thân cột ra mép phải; glint 0,2; khẩu hình 0,85 (v1 0,6: "miệng hầu như không đổi hình")
 // v1:    // Cổng 6: s22 3/4 — máy lệch 45° khỏi hướng mặt, phía phố (−40° bị thân cột che nửa mặt); ánh mắt dịu (glint 0,5 → 0,35); lẩm bẩm: biên độ khẩu hình 0,6
@@ -406,7 +424,7 @@ S1({ id: 's09w', scene: 2, size: 'CU (insert)', angle: 'POV của Ida, tay giơ'
   action: 'Ida (dưới cột L6) giơ đồng hồ bỏ túi ngang tầm mắt: 7:53.',
   async build(ctx) {
     const st = buildStreetSet({ sky: 'night', x0: 55, x1: 110, shadowLamps: [], groundSoft: 24 }); const p = P(ctx);   // (c) nền nhoè thay DOF
-    const ida = mkChar(ctx, st.scene, 'ida', { detail: 28 }); const watch = watchInPalm(st.scene); const cam = camMM(105);   // Cổng 6: đồng hồ trong lòng tay MPFB
+    const ida = mkChar(ctx, st.scene, 'ida', { detail: 28 }); const watch = watchInHand(st.scene, { grip: true, lift: 0.03 }); const cam = camMM(105);   // Cổng 6: đồng hồ trong lòng tay MPFB
     const [mD, hD] = hands(CLOCKS.beat2.watch);
     exposeClock(st.scene);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_CLOSE, exposure: 1.6,
