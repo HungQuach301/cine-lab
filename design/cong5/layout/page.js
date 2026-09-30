@@ -31,7 +31,7 @@ vec3 grade(vec3 c, vec2 uv){
 
 window.listShots = () => SHOTS.map(({ build, ...m }) => m);
 window.listEvents = () => EVENTS;
-let W, H, cfg, renderer, pipe, sheets, mod, cur, shot;
+let W, H, cfg, renderer, pipe, sheets, mod, cur, shot, thu = null;
 window.setup = async (c) => {
   cfg = c; W = c.W; H = c.H;
   globalThis.CINE_THU_MAT = (c.dbg && c.dbg.thuMat) || null;   // Cổng 7 THỬ MẶT (nhánh thu-mat): cờ biến thể da/mắt/vi chuyển động; không đặt → null → 0 px
@@ -48,6 +48,7 @@ window.setup = async (c) => {
   shot = SHOTS.find((s) => s.id === c.shot); if (!shot) throw new Error('không có shot ' + c.shot);
   const ctx = { THREE, sheets, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, opts), upd: mod.update || null, dbg: c.dbg || {} };
   cur = await shot.build(ctx);
+  thu = globalThis.CINE_THU_MAT ? (await import('/cong7/thu-mat/' + globalThis.CINE_THU_MAT.replace(/[^a-z0-9]/g, '') + '.js')).install({ THREE, renderer, cur, shot, dbg: c.dbg || {} }) : null;   // Cổng 7 THỬ MẶT
   window.__cine = { THREE, get cur() { return cur; }, get renderer() { return renderer; }, get pipe() { return pipe; } };   // Cổng 7 THỬ MẶT: đo mặt nạ mặt (không vẽ gì)
   // chẩn đoán (chỉ dùng khi --dbg): ẩn một bộ phận / tắt phát sáng của nhân vật
   if (c.dbg && (c.dbg.hide || c.dbg.noEmissive || c.dbg.front || c.dbg.noShadow)) for (const ch of Object.values(cur.named || {})) ch.root.traverse((o) => { if (!o.isMesh) return;
@@ -62,6 +63,7 @@ window.renderFrame = async (fGlobal) => {
   const T = fGlobal / 24, t = T - shot.t0;
   cur.update(t, T, fGlobal);
   pipe.outMat.uniforms.uExp.value = typeof cur.exposure === 'function' ? cur.exposure(t, T) : (cur.exposure ?? 1.0);
+  if (thu) thu.frame(t, T, fGlobal, pipe.outMat.uniforms.uExp);   // Cổng 7 THỬ MẶT (cờ tắt → thu = null)
   const ms = pipe.accumulate(cur.scene, cur.cam, 1, cur.onSample || null);
   if (!cfg.nopaint) cur.paint.apply(cur.scene, cur.cam); else cur.paint.bypass();
   return { accum_ms: ms };

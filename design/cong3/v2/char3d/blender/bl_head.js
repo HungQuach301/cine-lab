@@ -34,6 +34,7 @@ export const casBLReady = () => !!CACHES.cas;
 
 // Da: PBR mờ (nhám 0,66, bóng gương 0,3) + khuếch tán "bọc" lệch đỏ (tán xạ dưới da giả lập) + giữ sắc ấm khi ánh lạnh + kéo 35 % ánh hổ phách về trung tính.
 export function skinMaterial(opts) {
+  if (opts.thuMatV1) return skinMaterialV1(opts);   // Cổng 7 THỬ MẶT V1 (nhánh thu-mat): chỉ da đầu/cổ Ida khi cờ CINE_THU_MAT chứa 'v1'
   const bump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);   // lượt 3: vân da nhỏ (lỗ chân lông + nếp mịn), thủ tục
     let sd = 7654321; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647); const b = new Float32Array(N * N).map(rnd);
     const blur = (a, r) => { const o = new Float32Array(N * N), o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += a[y * N + ((x + k + N) % N)]; o[y * N + x] = t / (2 * r + 1); }
@@ -67,7 +68,9 @@ export function skinMaterial(opts) {
 // Cổng 6 (W4 gói nhân vật): mắt bớt "búp bê" — điểm sáng mềm, nhỏ (clearcoat 0,45, nhám 0,2; trước 1,0 / 0,05 = đốm trắng gắt);
 // bóng mí + góc mắt đổ lên nhãn cầu (che khuất, theo vị trí trên nhãn cầu — không phải đèn). opts.eyeCoat / eyeCoatRough / eyeAO ghi đè.
 function eyeMaterial(map, opts, R = 1) {
-  const m = new THREE.MeshPhysicalMaterial({ map, roughness: 0.5, metalness: 0, clearcoat: opts.eyeCoat ?? 0.45, clearcoatRoughness: opts.eyeCoatRough ?? 0.2, envMapIntensity: 0 });
+  const THU = /v1/.test(globalThis.CINE_THU_MAT || '');   // Cổng 7 THỬ MẶT V1: giác mạc ướt phản chiếu MÔI TRƯỜNG THẬT của cảnh (envMap chụp tại đầu, gắn bởi cong7/thu-mat/v1.js)
+  const m = new THREE.MeshPhysicalMaterial({ map, roughness: 0.5, metalness: 0, clearcoat: THU ? 1.0 : (opts.eyeCoat ?? 0.45), clearcoatRoughness: THU ? 0.04 : (opts.eyeCoatRough ?? 0.2), envMapIntensity: 0 });
+  if (THU) m.userData.thuMat = 'eye';
   const en = opts.eyeNeutral ?? 0.6, ao = opts.eyeAO ?? 1.0;
   m.onBeforeCompile = (sh) => {
     sh.vertexShader = 'varying vec3 vEyeP;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvEyeP = position;');
@@ -75,8 +78,11 @@ function eyeMaterial(map, opts, R = 1) {
     `vec3 albE = max(diffuseColor.rgb, vec3(1e-3)); vec3 eE = totalDiffuse / albE; float lE = dot(eE, vec3(0.2126, 0.7152, 0.0722));
      float eyU = vEyeP.y / ${R.toFixed(5)}, eyX = abs(vEyeP.x) / ${R.toFixed(5)};
      float aoE = 1.0 - ${ao.toFixed(3)} * (0.55 * smoothstep(0.0, 0.55, eyU) + 0.25 * smoothstep(0.5, 0.95, eyX)); aoE = max(aoE, 0.3);
-     vec3 outgoingLight = mix(eE, vec3(lE), ${en.toFixed(3)}) * albE * aoE + totalSpecular * mix(1.0, aoE, 0.8) + totalEmissiveRadiance;`); };
-  m.customProgramCacheKey = () => '|blEye6' + en + '|' + ao + '|' + R.toFixed(5);
+     vec3 outgoingLight = mix(eE, vec3(lE), ${en.toFixed(3)}) * albE * aoE + totalSpecular * ${THU ? 'aoE * 0.5' : 'mix(1.0, aoE, 0.8)'} + totalEmissiveRadiance;`);
+    // V1: lớp ướt (clearcoat) cũng bị mí trên + hàng mi che: phản chiếu môi trường tối dần lên phía mí (dải tối của mí trên trên giác mạc)
+    if (THU) sh.fragmentShader = sh.fragmentShader.replace('( clearcoatSpecularDirect + clearcoatSpecularIndirect ) * material.clearcoat',
+      '( clearcoatSpecularDirect * mix( 1.0, aoE, 0.6 ) + clearcoatSpecularIndirect * aoE * aoE ) * material.clearcoat'); };
+  m.customProgramCacheKey = () => '|blEye6' + en + '|' + ao + '|' + R.toFixed(5) + (THU ? '|thu1' : '');
   return m;
 }
 
@@ -91,7 +97,8 @@ function buildBL(p, kind) {
   const src = {}; CACHE.gltf.scene.traverse((o) => { if (o.isMesh) src[o.name.replace(/^(ida|cas)_/, 'x_')] = o; });
   const reg = (m, part) => { m.userData.part = part; m.castShadow = true; m.receiveShadow = true; parts.push(m); return m; };
   const morphables = [];
-  const skinMat = skinMaterial(opts);
+  const THU = kind === 'ida' && /v1/.test(globalThis.CINE_THU_MAT || '');   // Cổng 7 THỬ MẶT: cờ tắt → vật liệu cũ, 0 px
+  const skinMat = skinMaterial(THU ? { ...opts, thuMatV1: true } : opts);
   // Chuẩn bị một lưới có rig (CPU): trả { geo (đủ chỉ số, không vào cảnh), apply(w) }
   const rigged = (o) => {
     const g = o.geometry.clone(), names = o.morphTargetDictionary || {}, rel = g.morphTargetsRelative;
@@ -138,4 +145,85 @@ function buildBL(p, kind) {
       for (let di = 0; di < 2; di++) for (let dj = 0; dj < 2; dj++) for (let dk = 0; dk < 2; dk++) v += (di ? a : 1 - a) * (dj ? b : 1 - b) * (dk ? c : 1 - c) * at(i + di, j + dj, k + dk);
       return v; }; }
   return { sdf, head, neck, eyes, setFace, getFace: () => cur, skinMat, meta, keys: hr.keys, root };
+}
+
+// ================= Cổng 7 THỬ MẶT V1 (nhánh thu-mat; chỉ bật khi globalThis.CINE_THU_MAT chứa 'v1') =================
+// Da đầu/cổ Ida: (1) khuếch tán bọc HẸP lệch đỏ (tán xạ ở ranh sáng–tối, không bọc độ sáng như sáp); (2) xuyên sáng (translucency) theo
+// "bề dày" vùng — tai, cánh/chóp mũi, mí — khi nguồn thật ở sau/bên; (3) bóng gương hai thùy, nhám theo vùng (chữ T bóng hơn má) + phản xạ
+// môi trường thật của cảnh (envMap do v1.js chụp tại đầu, Fresnel → ánh "sheen" ở góc sượt); (4) biến thiên màu da theo vùng và loang nhỏ
+// thủ tục (má/mũi/tai hồng hơn, quanh mắt tối–lạnh hơn, mức vừa); (5) cuộn sáng da mềm (uKnee > 0) cho shot có nguồn rất gần mặt.
+// Hình khối KHÔNG đổi (chỉ vật liệu). Hệ toạ độ lưới: đơn vị H, y = 0 cằm, +z mặt (ida_bl_v151.json).
+export const THU_V1 = { wr: [0.2, 0.06, 0.04], wrPow: 1.5, sat: 0.82, pink: 0.55, cool: 0.6, mott: 1.0, rough: [0.42, 0.78], spec: 0.75, lobe2: 0.12,
+  trans: 0.55, envDiff: 0.3, neutral: 0.3, warm: 0.7 };
+function skinMaterialV1(opts) {
+  const P = { ...THU_V1, ...(globalThis.CINE_THU_V1 || {}) }, f = (v) => Number(v).toFixed(4), v3 = (a) => `vec3(${a.map(f).join(', ')})`;
+  const bump = (() => { const N = 512, cv = document.createElement('canvas'); cv.width = cv.height = N; const g = cv.getContext('2d'), im = g.createImageData(N, N);
+    let sd = 7654321; const rnd = () => ((sd = (sd * 16807) % 2147483647) / 2147483647); const b = new Float32Array(N * N).map(rnd);
+    const blur = (a, r) => { const o = new Float32Array(N * N), o2 = new Float32Array(N * N); for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += a[y * N + ((x + k + N) % N)]; o[y * N + x] = t / (2 * r + 1); }
+      for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) { let t = 0; for (let k = -r; k <= r; k++) t += o[((y + k + N) % N) * N + x]; o2[y * N + x] = t / (2 * r + 1); } return o2; };
+    const b1 = blur(b, 1), b4 = blur(b, 4);
+    for (let i = 0; i < N * N; i++) { const v = 128 + 170 * (b1[i] - 0.5) + 300 * (b4[i] - 0.5); im.data[i * 4] = im.data[i * 4 + 1] = im.data[i * 4 + 2] = Math.max(0, Math.min(255, v)); im.data[i * 4 + 3] = 255; }
+    g.putImageData(im, 0, 0); const t = new THREE.CanvasTexture(cv); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(6, 4); return t; })();
+  const mat = new THREE.MeshStandardMaterial({ color: 0xffffff, vertexColors: true, roughness: 1, metalness: 0, envMapIntensity: 1, bumpMap: bump, bumpScale: opts.skinBump ?? 1.4 });
+  const U = { uKnee: { value: 0 }, uCap: { value: 1.8 }, uTrans: { value: P.trans } }; mat.userData.thuMat = 'skin'; mat.userData.U = U;
+  const phys = THREE.ShaderChunk.lights_physical_pars_fragment
+    .replace('reflectedLight.directDiffuse += irradiance * BRDF_Lambert( material.diffuseColor );',
+      `{ float nlW = dot( geometryNormal, directLight.direction ); vec3 wr = ${v3(P.wr)};
+        vec3 dW = pow( clamp( ( vec3( nlW ) + wr ) / ( 1.0 + wr ), 0.0, 1.0 ), vec3( ${f(P.wrPow)} ) );
+        reflectedLight.directDiffuse += dW * directLight.color * BRDF_Lambert( material.diffuseColor );
+        float trV = pow( clamp( dot( geometryViewDir, -normalize( directLight.direction + geometryNormal * 0.35 ) ), 0.0, 1.0 ), 3.0 ) + 0.3 * clamp( -nlW, 0.0, 1.0 );
+        gTrans += uTrans * gThick * trV * directLight.color * vec3( 1.0, 0.30, 0.17 ); }`)
+    .replace('reflectedLight.directSpecular += irradiance * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, material );',
+      `{ PhysicalMaterial m2 = material; m2.roughness = max( 0.22, material.roughness * 0.65 );
+        reflectedLight.directSpecular += ${f(P.spec)} * irradiance * ( ${f(1 - P.lobe2)} * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, material ) + ${f(P.lobe2)} * BRDF_GGX( directLight.direction, geometryViewDir, geometryNormal, m2 ) ); }`);
+  const maps = THREE.ShaderChunk.lights_fragment_maps.replace('iblIrradiance += getIBLIrradiance( geometryNormal );', `iblIrradiance += ${f(P.envDiff)} * getIBLIrradiance( geometryNormal );`);
+  if (phys === THREE.ShaderChunk.lights_physical_pars_fragment || maps === THREE.ShaderChunk.lights_fragment_maps) console.warn('thu-mat V1: không vá được chunk');
+  const PRE = `varying vec3 vObjP; uniform float uKnee, uCap, uTrans; vec3 gTrans = vec3( 0.0 ); float gThick = 0.0;
+    float tmH( vec3 p ) { p = fract( p * 0.3183099 + 0.1 ); p *= 17.0; return fract( p.x * p.y * p.z * ( p.x + p.y + p.z ) ); }
+    float tmN( vec3 x ) { vec3 i = floor( x ), q = fract( x ); q = q * q * ( 3.0 - 2.0 * q );
+      return mix( mix( mix( tmH( i ), tmH( i + vec3( 1, 0, 0 ) ), q.x ), mix( tmH( i + vec3( 0, 1, 0 ) ), tmH( i + vec3( 1, 1, 0 ) ), q.x ), q.y ),
+                  mix( mix( tmH( i + vec3( 0, 0, 1 ) ), tmH( i + vec3( 1, 0, 1 ) ), q.x ), mix( tmH( i + vec3( 0, 1, 1 ) ), tmH( i + vec3( 1, 1, 1 ) ), q.x ), q.y ), q.z ); }
+`;
+  mat.onBeforeCompile = (sh) => {
+    Object.assign(sh.uniforms, U);
+    sh.vertexShader = 'varying vec3 vObjP;\n' + sh.vertexShader.replace('#include <begin_vertex>', '#include <begin_vertex>\nvObjP = transformed;');
+    sh.fragmentShader = PRE + sh.fragmentShader.replace('#include <lights_physical_pars_fragment>', phys).replace('#include <lights_fragment_maps>', maps)
+      .replace('#include <color_fragment>', `#include <color_fragment>
+  #if defined( USE_COLOR_ALPHA )
+    diffuseColor.a = opacity;
+  #endif
+  vec3 tp = vObjP; float tax = abs( tp.x );
+  float tEar = smoothstep( 0.37, 0.40, tax ) * smoothstep( 0.20, 0.27, tp.y ) * smoothstep( 0.62, 0.54, tp.y ) * smoothstep( 0.15, 0.02, tp.z );
+  float tNose = smoothstep( 0.075, 0.03, tax ) * smoothstep( 0.43, 0.49, tp.z ) * smoothstep( 0.27, 0.31, tp.y ) * smoothstep( 0.50, 0.44, tp.y );
+  float tDe = length( vec3( tax, tp.y, tp.z ) - vec3( 0.1463, 0.5085, 0.2593 ) ) - 0.0731;
+  float tLid = smoothstep( 0.035, 0.004, tDe ) * step( 0.26, tp.z );
+  float tOrb = smoothstep( 0.07, 0.012, tDe ) * smoothstep( 0.18, 0.28, tp.z ) * ( 1.0 - 0.5 * smoothstep( 0.5, 0.56, tp.y ) );
+  float tChk = exp( -pow( length( vec2( tax - 0.21, tp.y - 0.33 ) ) / 0.085, 2.0 ) ) * smoothstep( 0.12, 0.28, tp.z );
+  gThick = max( max( tEar, 0.55 * tNose ), 0.35 * tLid );
+  float tm1 = tmN( tp * 17.0 ), tm2 = tmN( tp * 53.0 + 7.1 ), tm3 = tmN( tp * 150.0 + 3.3 );
+  { vec3 c = diffuseColor.rgb; float lc = dot( c, vec3( 0.2126, 0.7152, 0.0722 ) ); c = mix( vec3( lc ), c, ${f(P.sat)} );
+    c *= 1.0 + ${f(P.mott)} * ( 0.08 * ( tm1 - 0.5 ) + 0.05 * ( tm2 - 0.5 ) );
+    c *= vec3( 1.0 + 0.05 * ${f(P.mott)} * ( tm2 - 0.5 ), 1.0 - 0.03 * ${f(P.mott)} * ( tm2 - 0.5 ), 1.0 - 0.05 * ${f(P.mott)} * ( tm2 - 0.5 ) );
+    c *= mix( vec3( 1.0 ), vec3( 1.07, 0.92, 0.91 ), clamp( 0.9 * tEar + 0.8 * tNose + 0.35 * tChk, 0.0, 1.0 ) * ${f(P.pink)} );
+    c *= mix( vec3( 1.0 ), vec3( 0.84, 0.85, 0.94 ), tOrb * ${f(P.cool)} );
+    float tSp = smoothstep( 0.80, 0.9, tm3 ) * smoothstep( 0.52, 0.75, tp.y ) * smoothstep( 0.1, 0.3, tp.z ); c *= 1.0 - 0.14 * tSp * vec3( 0.85, 1.0, 1.15 );
+    diffuseColor.rgb = c; }`)
+      .replace('#include <roughnessmap_fragment>', `#include <roughnessmap_fragment>
+  #if defined( USE_COLOR_ALPHA )
+    roughnessFactor = mix( ${f(P.rough[0])}, ${f(P.rough[1])}, vColor.a );
+  #else
+    roughnessFactor = 0.6;
+  #endif
+  roughnessFactor = clamp( roughnessFactor * ( 1.0 + 0.3 * ( tm2 - 0.5 ) ) + 0.1 * tEar, 0.2, 0.95 );`)
+      .replace('vec3 outgoingLight = totalDiffuse + totalSpecular + totalEmissiveRadiance;',
+        `vec3 alb = max( diffuseColor.rgb, vec3( 1e-3 ) ); vec3 eSk = totalDiffuse / alb;
+         float lSk = dot( eSk, vec3( 0.2126, 0.7152, 0.0722 ) ), cSk = smoothstep( 0.0, 0.25, ( eSk.b - eSk.r ) / max( lSk, 1e-5 ) );
+         eSk = mix( eSk, lSk * vec3( 1.06, 1.0, 0.92 ), ${f(P.warm)} * cSk );
+         eSk = mix( eSk, lSk * vec3( 1.07, 1.0, 0.9 ), ${f(P.neutral)} );
+         eSk += gTrans;
+         if ( uKnee > 0.0 ) { float lK = dot( eSk, vec3( 0.2126, 0.7152, 0.0722 ) ), xK = max( lK - uKnee, 0.0 );
+           if ( lK > uKnee ) eSk *= ( uKnee + xK / ( 1.0 + xK / ( uCap - uKnee ) ) ) / lK; }
+         vec3 outgoingLight = eSk * alb + totalSpecular + totalEmissiveRadiance;`); };
+  mat.customProgramCacheKey = () => '|thuV1|' + JSON.stringify(P);
+  return mat;
 }
