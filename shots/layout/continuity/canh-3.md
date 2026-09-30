@@ -101,7 +101,7 @@ Không đổi thời lượng, mốc sự kiện, trạng thái đèn. Đổi:
   - đầu quay từ −10° (0,6 s) sang +6° (1,3 s), nhìn về Ida / L11 — **sang TRÁI khung**;
   - tay giấu trong tay áo.
 - **Ida:** trên thang L11, tư thế hơ tay (`warmLadder`), ngoài khung (sau máy, bên trái). **Không có bóng của bà hay thang trong khung.**
-- **Máy (A2):** 3/4 trước Cas, lệch −35° khỏi hướng nhìn của cậu về L11, cách 2,1 m (W1-v2: tính theo chỗ dựa tường (14,3; −7,94)) nhìn (14,3; 0,95; −7,94), 50 mm.
+- **Máy (A2; W1-v2 lia thêm 9° để Cas lệch phải, khoảng trống phía cậu nhìn):** 3/4 trước Cas, lệch −35° khỏi hướng nhìn của cậu về L11, cách 2,1 m (W1-v2: tính theo chỗ dựa tường (14,3; −7,94)) nhìn (14,3; 0,95; −7,94), 50 mm.
 
 ## TRẠNG THÁI Ở KHUNG CUỐI s24c (0:59,00) → nối s25 (W2, cảnh 4)
 | Mục | Trạng thái |
