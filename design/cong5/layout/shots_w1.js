@@ -659,8 +659,8 @@ S1({ id: 's24c', scene: 3, size: 'MS', angle: 'ngang mắt Cas, 3/4 trước-ph�
     const cam = camMM(50); cam.position.set(cx + 2.1 * dx, 1.05, cz + 2.1 * dz); cam.lookAt(cx, 0.95, cz); cam.rotateOnWorldAxis(new THREE.Vector3(0, 1, 0), (dbg.pan ?? 9) * Math.PI / 180);   // W1-v2: lia 9° → Cas lệch phải, khoảng trống phía cậu nhìn (trái)   // giai đoạn C: 3/4 trước Cas (lệch 35° khỏi hướng nhìn về L11) — Cas nhìn sang TRÁI khung (về Ida), tường chim sau lưng
     return { scene: st.scene, cam, named: { ida, cas }, paintP: PAINT_CLOSE, exposure: 4.5,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: () => 0.05 }), f); ida.place(p.warmLadder, LAMP_X(11), ON_Z, 0);
-        cas.place(casLeanPose(p, T, [-9, CL.neckY + valAt([[0, -10], [0.6, -10], [1.3, 6]], t), 5]), cx, cz, CL.yaw);
-        cf({ blink: blinkAt(T, [57.62, [58.62, 1.2]]) }, [valAt([[0, -0.05], [0.55, -0.05], [1.1, 0.06]], t), 0.02]);   // W1-v2 (g): chớp mắt; mắt dẫn trước đầu khi quay về Ida; đầu ngả tựa tường (cổ −9°, nghiêng 5°)
+        cas.place(casLeanPose(p, T, [(ctx.dbg && ctx.dbg.cnx) ?? 10, CL.neckY + valAt([[0, -10], [0.6, -10], [1.3, 6]], t), 3]), cx, cz, CL.yaw);
+        cf({ blink: blinkAt(T, [57.62, [58.62, 1.2]]) }, [valAt([[0, -0.05], [0.55, -0.05], [1.1, 0.06]], t), 0.02]);   // W1-v2 (g): chớp mắt; mắt dẫn trước đầu khi quay về Ida; W1-v3 (c): đầu CÚI nhẹ (cổ +10°, nghiêng 3°) thay ngả −9° — quả bông mũ không lún vào tường (K2), cằm khép lên cổ áo (hết khe cổ)
         const gw = casWallHand(cas, CL); if (dbg.log && f % 6 === 0) console.log(JSON.stringify({ s24c: +t.toFixed(2), wall: gw === null ? null : +gw.toFixed(4) })); } };
   } });
 
