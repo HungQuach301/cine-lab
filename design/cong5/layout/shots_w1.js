@@ -46,8 +46,8 @@ function measContacts(scene, chs) {
   return out;
 }
 // Bọc S: nếu dbg.meas thì in số đo tiếp xúc mỗi khung được cập nhật (render hoặc stepFrame). Không có cờ → trả nguyên shot (không đổi hình).
-const S1 = (o) => S({ ...o, async build(ctx) { const r = await o.build(ctx); if (!(ctx.dbg && ctx.dbg.meas)) return r; const up = r.update;
-  return { ...r, update(t, T, f) { up.call(r, t, T, f); console.log(JSON.stringify({ meas: o.id, t: +t.toFixed(3), T: +T.toFixed(3), f, ...measContacts(r.scene, r.named || {}) })); } }; } });
+const S1 = (o) => S({ ...o, async build(ctx) { const r = await o.build(ctx); if (!(ctx.dbg && ctx.dbg.meas)) return r; const up = r.update; GRIPLOG.on = true;
+  return { ...r, update(t, T, f) { GRIPLOG.rows = []; up.call(r, t, T, f); console.log(JSON.stringify({ meas: o.id, t: +t.toFixed(3), T: +T.toFixed(3), f, ...measContacts(r.scene, r.named || {}), grips: GRIPLOG.rows })); } }; } });
 // =====================================================================================================================
 // CỔNG 6 · W1 — DIỄN HOẠT cảnh 1–3 (AUTHORSHIP "Cổng 6 — diễn hoạt", MỞ W1 30/09/2026). Cách làm theo W2 (shots_w2.js, không sửa tệp đó):
 // settle (đứng tự nhiên), gripAt (IK tay MPFB tới MỘT điểm), mặt 16 kênh + 6 viseme (setFace/VISEMES), mốc thoại đo trên tệp take.
@@ -97,9 +97,11 @@ function gripAt(ch, s, g) {
   return ch.gripPoint(s).distanceTo(C0) - g.radius;
 }
 // IK có trộn (k = 0 giữ FK, 1 = nắm hẳn; slerp vai–khuỷu–cổ tay) → vào/ra nắm mượt.
+const GRIPLOG = { on: false, rows: [] };   // chỉ để ghi số đo (dbg.meas): khoảng cách tâm lòng tay → mặt vật TRƯỚC (tư thế FK) và SAU IK, theo nhãn đích
 function gripK(ch, s, g, k = 1) {
   if (!g || k <= 0.001 || !ch.gripPoint) return null; const J = ['shoulder_', 'elbow_', 'wrist_'].map((n) => ch.joints[n + s]), q0 = J.map((j) => j.quaternion.clone());
-  const e = gripAt(ch, s, g); if (k >= 0.999) return e;
+  const pre = GRIPLOG.on ? ch.gripPoint(s, new THREE.Vector3()).distanceTo(new THREE.Vector3(...g.point)) - g.radius : 0;
+  const e = gripAt(ch, s, g); if (GRIPLOG.on) GRIPLOG.rows.push({ who: (ch.who || '') + s, tag: g.tag || '?', k: +k.toFixed(2), pre: +pre.toFixed(4), post: +e.toFixed(4) }); if (k >= 0.999) return e;
   J.forEach((j, i) => { const q1 = j.quaternion.clone(); j.quaternion.copy(q0[i]).slerp(q1, k); }); ch.root.updateMatrixWorld(true); ch.cpuSkin?.update();
   if (ch.handsBL) { for (const x of ['L', 'R']) ch.handsBL.sides[x].key = ''; ch.root.updateMatrixWorld(true); } return e;
 }
@@ -110,9 +112,9 @@ function lampGrips(st, i) {
   const vc = wpos(v), va = new THREE.Vector3(0, 1, 0).transformDirection(v.matrixWorld);
   return {
     // "van": nắm ỐNG KHÍ đứng (Ø 0,028) ngay dưới thân van 6 cm — lòng tay áp sát thân van (như W2 s36–s40: nắm ngang thân van thì ngón vướng ống, duỗi thẳng — thấy ở probe s22).
-    valve: { point: vc.clone().addScaledVector(Y, -0.06).toArray(), axis: Y.toArray(), radius: 0.014 }, valveBody: { point: vc.toArray(), axis: va.toArray(), radius: 0.028 },
-    bar: (dx) => ({ point: P0.clone().addScaledVector(X, dx).addScaledVector(Y, ud.parts.armY).toArray(), axis: X.toArray(), radius: 0.02 }),
-    post: (y) => ({ point: P0.clone().addScaledVector(Y, y).toArray(), axis: Y.toArray(), radius: 0.0375 + 0.0175 * clamp01((ud.height - 0.45 - y) / (ud.height - 1.1)) }),
+    valve: { point: vc.clone().addScaledVector(Y, -0.06).toArray(), axis: Y.toArray(), radius: 0.014, tag: 'van' }, valveBody: { point: vc.toArray(), axis: va.toArray(), radius: 0.028 },
+    bar: (dx) => ({ point: P0.clone().addScaledVector(X, dx).addScaledVector(Y, ud.parts.armY).toArray(), axis: X.toArray(), radius: 0.02, tag: 'thanh móc' }),
+    post: (y) => ({ point: P0.clone().addScaledVector(Y, y).toArray(), axis: Y.toArray(), radius: 0.0375 + 0.0175 * clamp01((ud.height - 0.45 - y) / (ud.height - 1.1)), tag: 'thân cột' }),
     X, Y, P0,
   };
 }
@@ -120,8 +122,9 @@ function lampGrips(st, i) {
 // w = { R: k nắm nghỉ tay phải, V: k nắm van tay phải (chồng sau R), L: k nắm nghỉ tay trái }. Trả số đo (m) để ghi báo cáo.
 function topHands(ida, G, w) {
   if (!G) return {}; const o = {}, dx = -0.2 * Math.sign(G.X.x || 1);
-  if (w.L) o.L = gripK(ida, 'L', G.post(2.4), w.L);
-  if (w.R) o.R = gripK(ida, 'R', G.bar(dx), w.R);
+  if (w.L) o.L = gripK(ida, 'L', G.post(w.Ly ?? 2.4), w.L);
+  if (w.LB) o.LB = gripK(ida, 'L', G.bar(-dx), w.LB);   // LB: tay trái nắm nhánh trái thanh móc (khi thân quay về +x — thân cột ngoài tầm với 3–4 cm); chồng sau L để chuyển mượt
+  if (w.R) o.R = gripK(ida, 'R', w.Ry ? G.post(w.Ry) : G.bar(dx * (w.Rdx ?? 1)), w.R);
   if (w.V) o.V = gripK(ida, 'R', G.valve, w.V);
   return o;
 }
@@ -135,10 +138,10 @@ function climbHands(ida, lad, G, u, top = { R: 1, L: 1 }) {
 }
 // Đích nắm trên thanh dọc thang (hộp 0,027 × 0,041 ≈ trụ bán kính 0,018): xs = +1 / −1 thanh; y = độ cao THẾ GIỚI (thang tựa) hoặc tham số dọc thanh 0…1,8 (at: 'len').
 function railG(lad, xs, y, at = 'world') { lad.updateMatrixWorld(true); const up = new THREE.Vector3(0, 1, 0).transformDirection(lad.matrixWorld); const o = lad.localToWorld(new THREE.Vector3(xs * 0.17, 0, 0));
-  const p = at === 'len' ? o.addScaledVector(up, y) : o.addScaledVector(up, (y - o.y) / up.y); return { point: p.toArray(), axis: up.toArray(), radius: 0.018 }; }
+  const p = at === 'len' ? o.addScaledVector(up, y) : o.addScaledVector(up, (y - o.y) / up.y); return { point: p.toArray(), axis: up.toArray(), radius: 0.018, tag: 'thanh thang' }; }
 // Tay phải giữ thang trên vai: chiếu tâm lòng tay hiện tại lên trục thanh gần nhất rồi nắm tại điểm đó (tay không trượt dọc thanh, chỉ khép vào thanh).
 function shoulderLadderG(ch, s = 'R') { const lad = ch.props && ch.props.ladder; if (!lad || !lad.parent) return null; lad.updateMatrixWorld(true);
-  const gp = ch.gripPoint(s, new THREE.Vector3()), q = lad.worldToLocal(gp.clone()), xs = q.x >= 0 ? 1 : -1; return railG(lad, xs, Math.max(0.1, Math.min(1.7, q.y)), 'len'); }
+  const gp = ch.gripPoint(s, new THREE.Vector3()), q = lad.worldToLocal(gp.clone()), xs = q.x >= 0 ? 1 : -1; return { ...railG(lad, xs, Math.max(0.1, Math.min(1.7, q.y)), 'len'), tag: 'thang trên vai' }; }
 // MẶT: trọng số 16 kênh theo khoá thời gian; khẩu hình 6 VISEMES; chớp; hướng nhìn = xoay nhãn cầu (= W2).
 const mixW = (...ws) => { const o = {}; for (const w of ws) for (const [k, v] of Object.entries(w || {})) o[k] = (o[k] || 0) + v; return o; };
 const wLerp = (a, b, u) => { const o = {}; for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) o[k] = (a[k] || 0) + ((b[k] || 0) - (a[k] || 0)) * u; return o; };
@@ -201,7 +204,7 @@ function casWallHand(cas, L, k = 1) {   // lòng tay phải áp phẳng lên tư
   const r = wpos(cas.root), q = cas.root.getWorldQuaternion(new THREE.Quaternion()), rt = new THREE.Vector3(-1, 0, 0).applyQuaternion(q);
   const pt = [r.x + CAS_LEAN.side * rt.x, CAS_LEAN.y, L.wallZ]; cas.__wall = [pt[0], pt[2], 0, 1];
   const zx = -Math.sign(rt.x || -1);   // tay phải: trục cổ tay z = ± x thế giới sao cho ngón CHÚC XUỐNG (xw = −out, ngón = −y, z = x × y)
-  return gripK(cas, 'R', { point: pt, axis: [zx, 0, 0], zFix: true, radius: 0.0, out: [0, 0, 1] }, k);
+  return gripK(cas, 'R', { point: pt, axis: [zx, 0, 0], zFix: true, radius: 0.0, out: [0, 0, 1], tag: 'tường' }, k);
 }
 // B2 (chỉ đạo chủ dự án 30/09/2026, luật thế giới v0.6 — cột điện luôn ở mé đường ĐỐI DIỆN dãy đèn khí): cột điện tường chim (sets_end wallPost,
 // thế giới (17,0; −5,9), CÙNG mé bắc với L11) KHÔNG xuất hiện trong khung s23. Chỉ ẩn trong shot (không sửa sets_end.js — dùng chung cảnh 4):
@@ -227,7 +230,7 @@ function watchInPalm(scene) {
 // Đèn lồng thắt lưng (hông trái): điểm tay trái chạm cửa đèn (mồi lửa ở s04) — mặt trước đèn, ngang giữa kính.
 function lanternDoorG(ch) { const lan = ch.props && ch.props.lantern; if (!lan || !lan.parent) return null; lan.updateMatrixWorld(true);
   const a = wpos(lan.userData.lightAnchor), q = ch.root.getWorldQuaternion(new THREE.Quaternion()), fw = new THREE.Vector3(0, 0, 1).applyQuaternion(q);
-  return { point: a.addScaledVector(fw, 0.06).toArray(), axis: [0, 1, 0], radius: 0.01, out: fw.toArray() }; }
+  return { point: a.addScaledVector(fw, 0.06).toArray(), axis: [0, 1, 0], radius: 0.01, out: fw.toArray(), tag: 'cửa đèn lồng' }; }
 const CAS_SPOT = [-1.2, -2.2];
 const S22 = { yaw: 45, glint: 0.35, lip: 0.6, pan: 0 };   // Cổng 6: s22 3/4 — máy lệch 45° khỏi hướng mặt, phía phố (−40° bị thân cột che nửa mặt); ánh mắt dịu (glint 0,5 → 0,35); lẩm bẩm: biên độ khẩu hình 0,6
 const S05_MODE = 'fl', S05_EK = 1.6;   // C2: facelight gas + phơi sáng fl.exposure() × 1,6 (mặt cháy 0,5 %, nền luma 69, tóc bạc) — LAYOUT-W1.md mục 13
@@ -324,7 +327,7 @@ S1({ id: 's04', scene: 1, t0: 10.5, t1: 12.0, size: 'WS', angle: 'cao, từ bên
       update(t, T, f) { st.setState(stdState(T), f);
         ida.place(breathe(poseAt([[0, p.valveLadder], [0.8, p.warmLadder], [0.9, look], [1.3, look], [1.5, p.warmLadder]], t), T, 3.0), LAMP_X(4), ON_Z, 0); lanternLit(ida, t >= 1.2);
         const kv = 1 - ease(clamp01(t / 0.6)), kd = ease(clamp01((t - 0.85) / 0.25)) * (1 - ease(clamp01((t - 1.25) / 0.2))), kb = ease(clamp01((t - 0.8) / 0.2)) * (1 - ease(clamp01((t - 1.3) / 0.2)));
-        topHands(ida, G, { V: kv, L: kv }); if (kb > 0) topHands(ida, G, { R: kb }); if (kd > 0) gripK(ida, 'L', lanternDoorG(ida), kd); } };
+        topHands(ida, G, { V: kv, L: kv }); if (kb > 0) topHands(ida, G, { R: kb, Rdx: 0.5 }); if (kd > 0) gripK(ida, 'L', lanternDoorG(ida), kd); } };
   } });
 
 S1({ id: 's05', scene: 1, t0: 12.0, t1: 16.0, size: 'MCU', angle: 'ngang mắt, 3/4 trước-trái', mm: 85, move: 'tĩnh (khung style frame a_close_ida)',
@@ -380,7 +383,7 @@ S1({ id: 's06', scene: 1, t0: 16.0, t1: 20.0, size: 'CU (insert)', angle: 'chúc
         const pose = t < 2.3 ? p.watchHold(tap) : lerpPose(p.watchHold(0), p.stand, ease((t - 2.3) / 0.6));
         ida.place(settle(pose, T, { side: 1, k: 0.8, br: 3.6 }), LAMP_X(4) + 0.6, LAMP_Z + 0.9, 0.35);   // Cổng 6: đứng tự nhiên (dồn chân trái, lệch hông, thở)
         const dir = new THREE.Vector3(-0.15, 0.8, 0.6).normalize(); watch(ida, cam, mD + 6 * t / 60, hD, dir, 0.32);
-        if (wObj) { const ax = new THREE.Vector3().crossVectors(dir, new THREE.Vector3(0, 1, 0)).normalize(); gripK(ida, 'R', { point: wObj.position.toArray(), axis: ax.toArray(), radius: 0.014, out: dir.clone().negate().toArray() }, 1 - ease(clamp01((t - 2.3) / 0.35))); } } };
+        if (wObj) { const ax = new THREE.Vector3().crossVectors(dir, new THREE.Vector3(0, 1, 0)).normalize(); gripK(ida, 'R', { point: wObj.position.toArray(), axis: ax.toArray(), radius: 0.014, out: dir.clone().negate().toArray(), tag: 'đồng hồ' }, 1 - ease(clamp01((t - 2.3) / 0.35))); } } };
   } });
 
 S1({ id: 's07', scene: 1, t0: 20.0, t1: 24.0, size: 'WS', angle: 'ngang tầm mắt', mm: 35, move: 'dolly ngang theo Ida (phải→trái)',
@@ -465,7 +468,7 @@ S1({ id: 's11', scene: 2, size: 'MS', angle: 'ngang, 3/4 trước-trái', mm: 50
     const wf = whiteAt(64), G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: 2.2,
       update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.3 * wf(T) }), f); ida.place(breathe(poseAt([[0, p.restLadder], [0.3, p.restLadder], [1.2, p.turnSquare]], t), T, 3.6), LAMP_X(7), ON_Z, 0);
-        topHands(ida, G, { R: 1, L: 1 }); } };   // Cổng 6: phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 15–19 cm)
+        topHands(ida, G, { R: 1, L: 1, LB: ease(clamp01((t - 0.35) / 0.8)) }); } };   // Cổng 6: phải nắm thanh móc, trái nắm thân cột (trước: tay lơ lửng cách 15–19 cm)
   } });
 
 S1({ id: 's12', scene: 2, size: 'WS (qua vai)', angle: 'cao ngang vai Ida, nhìn lên phố', mm: 35, move: 'tĩnh',
@@ -477,7 +480,7 @@ S1({ id: 's12', scene: 2, size: 'WS (qua vai)', angle: 'cao ngang vai Ida, nhìn
     const ida = mkChar(ctx, st.scene, 'ida', { detail: 22 }); const cam = camMM(35); cam.position.set(62.3, 3.4, -5.0); cam.lookAt(100, 2.6, -1.0);
     const wf = whiteAt(85), G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.2, wf),
-      update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.5 * wf(T) }), f); ida.place(breathe(p.turnSquare, T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, L: 1 }); } };   // Cổng 6: thở; hai tay nắm cột
+      update(t, T, f) { st.setState(stdState(T, { whiteFill: (T) => 0.5 * wf(T) }), f); ida.place(breathe(p.turnSquare, T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, LB: 1 }); } };   // Cổng 6: thở; hai tay nắm cột
   } });
 
 S1({ id: 's13', scene: 2, size: 'MS', angle: 'thấp nhẹ, 3/4 trước-phải', mm: 50, move: 'tĩnh',
@@ -490,7 +493,7 @@ S1({ id: 's13', scene: 2, size: 'MS', angle: 'thấp nhẹ, 3/4 trước-phải'
     const wf = (T) => switchOn(T, REACH_IDA), G = lampGrips(st, 7);
     return { scene: st.scene, cam, named: { ida }, paintP: PAINT_STREET, exposure: expo(2.2, 1.1, wf),
       update(t, T, f) { st.setState({ ...stdState(T, { whiteFill: (T) => 1.2 * wf(T) }), gasLight: (i) => (i === 7 ? 1 - 0.85 * clamp01((T - REACH_IDA) / 0.5) : 1) }, f);   // W1: ánh L7 chìm trong trắng → bóng nhạt hết trong 0,5 s (luật 3.3)
-        ida.place(breathe(poseAt([[0, p.turnSquare], [0.5, p.turnSquare], [1.3, p.lookDown]], t), T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, L: 1 }); } };   // Cổng 6: hai tay nắm cột
+        ida.place(breathe(poseAt([[0, p.turnSquare], [0.5, p.turnSquare], [1.3, p.lookDown]], t), T, 3.6), LAMP_X(7), ON_Z, 0); topHands(ida, G, { R: 1, L: 1, LB: 1 - ease(clamp01((t - 0.5) / 0.8)) }); } };   // Cổng 6: hai tay nắm cột
   } });
 
 S1({ id: 's14', scene: 2, size: 'MS (chúc)', angle: 'cao, chúc xuống đá lát', mm: 28, move: 'tĩnh',
