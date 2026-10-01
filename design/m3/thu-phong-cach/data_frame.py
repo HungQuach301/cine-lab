@@ -207,9 +207,9 @@ def panel_map_v2(seed=11, tsize=84):
     text(d, (46 * K, 124 * K), 'Illustrative data', 44 * K, INK)
     im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
 
-def panel_chart_v2(seed=23):
+def panel_chart_v2(seed=23, tsize=84):
     W, H, K = 1080, 780, 2; im = Image.new('RGB', (W * K, H * K), CREAM); d = ImageDraw.Draw(im)
-    text(d, (40 * K, 22 * K), 'LAMPLIGHTERS', 84 * K, INK)
+    text(d, (40 * K, 22 * K), 'LAMPLIGHTERS', tsize * K, INK)
     text(d, (W * K - 40 * K, 20 * K), '14\u21921', 120 * K, INK, 'ra')
     YR = [(1890, 14), (1905, 9), (1920, 1)]; x0, y0, bw, gap, top = 90 * K, 600 * K, 230 * K, 90 * K, 230 * K
     d.line([(60 * K, y0), (W * K - 50 * K, y0)], fill=INK, width=6 * K)
@@ -221,7 +221,7 @@ def panel_chart_v2(seed=23):
     im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
 
 def panels_v3():   # M2.0: tiêu đề bản đồ 100 px; tấm biểu đồ giữ như v2
-    panel_map_v2(tsize=100).save(f'{HERE}/data/panel_map_v3.png'); panel_chart_v2().save(f'{HERE}/data/panel_chart_v3.png'); print('ghi tấm v3')
+    panel_map_v2(tsize=100).save(f'{HERE}/data/panel_map_v3.png'); panel_chart_v2(tsize=66).save(f'{HERE}/data/panel_chart_v3.png'); print('ghi tấm v3')
 
 def panels_v2():
     panel_map_v2().save(f'{HERE}/data/panel_map_v2.png'); panel_chart_v2().save(f'{HERE}/data/panel_chart_v2.png'); print('ghi tấm v2')
