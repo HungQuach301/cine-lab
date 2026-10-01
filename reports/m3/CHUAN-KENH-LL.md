@@ -89,7 +89,8 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
 - Mức tham chiếu đo thật ở animatic v3:
   - trung gian H.264 crf 10 yuv444p (đồ hoạ) ≈ 160 MB/phút;
   - FFV1 1080p ≈ 2,3 GB/phút (không dùng);
-  - master crf 16 ≈ 63 MB/phút;
+  - master crf 16 ≈ 63 MB/phút (lát cắt), **≈ 85 MB/phút cả tập** (animatic v3: 840,7 MB / 9:56,6);
+  - trung gian cảnh truyện H.264 crf 10 ≈ 520–600 MB/phút;
   - bản xem 720p 3 Mb/s ≈ 23 MB/phút.
 
 ### 6.2 Theo từng khối
