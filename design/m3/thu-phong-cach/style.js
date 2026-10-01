@@ -72,7 +72,7 @@ function nMaterial() {
 
 export function install(o) {
   if (o.style === 'b3') return installB3(o);
-  if (o.style === 'b3v2') return installB3v2(o, { common, gMaterial, B3_CAM, HDR });   // B3 v2 (sửa sau kiểm mù Mốc 1) — tệp riêng, B3 v1/B1 không đổi
+  if (o.style === 'b3v2' || o.style === 'b3v3') return installB3v2(o, { common, gMaterial, B3_CAM, HDR });   // B3 v2 (sửa sau kiểm mù Mốc 1) — tệp riêng, B3 v1/B1 không đổi
   if (o.style === 'b1') return installB1(o);
   throw new Error('dbg.style không hợp lệ: ' + o.style);
 }

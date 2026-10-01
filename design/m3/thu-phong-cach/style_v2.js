@@ -9,12 +9,13 @@ import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 
 export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
   const { renderer, pipe, cur, W, H } = o, dbg = o.dbg || {};
-  const C = common({ ...o, camTable: B3_CAM });
+  const V3 = o.style === 'b3v3';   // M2.0: s22 máy mới thấy cột điện mé đối diện ở rìa phải khung (world-rules v0.6)
+  const C = common({ ...o, camTable: V3 ? { ...B3_CAM, s22: { mm: 28, pos: [12.0, 1.4, -1.0], look: [24.0, 3.2, -4.0] } } : B3_CAM });
   const S = W / 960, GS = W >= 1920 ? 1 : 2;
   const gRT = new THREE.WebGLRenderTarget(W * GS, H * GS, { ...C.fOpt, depthBuffer: true });
   const gM = [gMaterial(0), gMaterial(1), gMaterial(2)];
   const hA = C.rt(W / 2, H / 2), hB = C.rt(W / 2, H / 2), qA = C.rt(W / 8, H / 8), qB = C.rt(W / 8, H / 8), outRT = C.rt(W, H);
-  const P = Object.assign({ step: 0.55, soft: 0.24, dith: 0.28, flatK: 0.55, sat: 0.85, shK: 0.45, shLen: 9.0, edgeK: 0.25, papK: 0.07, eLo: -2.2, eHi: 0.6, rimK: 1.0, formK: 0.03 }, dbg.b3 || {});
+  const P = Object.assign({ step: 0.55, soft: V3 ? 0.32 : 0.24, dith: V3 ? 0.4 : 0.28, flatK: 0.55, sat: 0.85, shK: 0.45, shLen: 9.0, edgeK: 0.25, papK: 0.07, eLo: -2.2, eHi: 0.6, rimK: 1.0, formK: 0.03 }, dbg.b3 || {});
   const down = C.mk(`uniform sampler2D tSrc; uniform vec2 px; void main(){ vec3 s = vec3(0.0);
       for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++) s += texture(tSrc, vUv + vec2(i,j)*px).rgb; o = vec4(s/9.0, 1.0); }`,
     { tSrc: { value: null }, px: { value: new THREE.Vector2() } });
@@ -22,7 +23,7 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
       void main(){ vec4 s = vec4(0.0); float ws = 0.0;
         for (int k=-6; k<=6; k++){ float x = float(k); float w = exp(-0.5*x*x/(sig*sig)); s += texture(tSrc, vUv + dir*x) * w; ws += w; }
         o = s/ws; }`, { tSrc: { value: null }, dir: { value: new THREE.Vector2() }, sig: { value: 1.0 } });
-  const sty = C.mk(`uniform sampler2D tSrc, tBlur, tBig, tG; uniform vec2 px, camOff; uniform float S, fpx, uExp;
+  const FS = `uniform sampler2D tSrc, tBlur, tBig, tG; uniform vec2 px, camOff; uniform float S, fpx, uExp;
     uniform float step_, soft, dith, flatK, sat, shK, shLen, edgeK, papK, eLo, eHi, rimK, formK;
     float zAt(vec2 uv){ float z = texture(tG, uv).r; return z > 0.0 ? z : 1.0e4; }
     float stair(float e){ float x = e / step_; float b = floor(x); return step_ * (b + smoothstep(0.5 - soft, 0.5 + soft, fract(x))); }
@@ -68,9 +69,39 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
       float k = floor(clamp(log2(z / 1.25) * 1.1, 0.0, 9.0));
       vec2 tp = fp + camOff * fpx / min(z, 400.0) / S + vec2(k * 37.0, k * 91.0);
       c *= 1.0 + papK * (paper(tp) - 0.5) * 2.0 * (1.0 - dat);
-      o = vec4(max(c, 0.0), 1.0); }`,
+      o = vec4(max(c, 0.0), 1.0); }`;
+
+  // ---- B3 v3 (M2.0, cờ 'b3v3'): sửa trên nền v2 bằng thay chuỗi shader — v2 giữ nguyên byte
+  let FS3 = FS;
+  if (V3) {
+    const rep = (a, b) => { if (!FS3.includes(a)) throw new Error('v3: không thấy đoạn ' + a.slice(0, 40)); FS3 = FS3.replace(a, b); };
+    // (1) nhoè rộng có mặt nạ: điểm ảnh nhân vật không kéo tối ánh nền (hết quầng ≈ 10 px quanh bóng)
+    rep('big = texture(tBig, vUv).rgb;', 'big = texture(tBig, vUv).rgb / max(texture(tBig, vUv).a, 0.02);');
+    // (2) bóng ĐẶC: mực phẳng + MỘT viền mảnh (≈ 1,6 px ở 960) ở phía nguồn sáng (hướng = gradient ánh nhoè rộng)
+    const a0 = FS3.indexOf('      if (ch > 0.01) {'), a1 = FS3.indexOf('        c = mix(c, sil, clamp(ch, 0.0, 1.0));');
+    FS3 = FS3.slice(0, a0) + `      if (ch > 0.01) {
+        vec4 bx1 = texture(tBig, vUv + vec2(14.0, 0.0) * S * px), bx0 = texture(tBig, vUv - vec2(14.0, 0.0) * S * px);
+        vec4 by1 = texture(tBig, vUv + vec2(0.0, 14.0) * S * px), by0 = texture(tBig, vUv - vec2(0.0, 14.0) * S * px);
+        vec2 gr = vec2(lum(bx1.rgb / max(bx1.a, 0.02)) - lum(bx0.rgb / max(bx0.a, 0.02)), lum(by1.rgb / max(by1.a, 0.02)) - lum(by0.rgb / max(by0.a, 0.02)));
+        vec2 ld = gr / max(length(gr), 1e-7);
+        float rim = clamp(1.0 - texture(tG, uvw + ld * 1.6 * S * px).g, 0.0, 1.0) * smoothstep(0.0, 0.08, length(gr) / Lg);
+        float env = smoothstep(-3.0, 0.3, log2(Lg * uExp));
+        vec3 ink = vec3(0.0105, 0.0085, 0.0135) / uExp;
+        vec3 sil = mix(ink, (big / Lg) * Lg * 1.4 * tint, clamp(rimK * rim * env, 0.0, 1.0));
+` + FS3.slice(a1);
+    // (3) chống phân dải: dither mạnh hơn + hạt tĩnh nhân (giấy) — cố định theo điểm ảnh, không nhấp nháy
+    rep('o = vec4(max(c, 0.0), 1.0); }', 'c *= 1.0 + 0.035 * (h21(gl_FragCoord.xy * 0.913 + 5.0) + h21(gl_FragCoord.xy * 1.71 + 29.0) - 1.0);\n      o = vec4(max(c, 0.0), 1.0); }');
+  }
+  const sty = C.mk(FS3,
     { tSrc: { value: null }, tBlur: { value: hA.texture }, tBig: { value: qA.texture }, tG: { value: gRT.texture }, px: { value: new THREE.Vector2(1 / W, 1 / H) }, camOff: { value: new THREE.Vector2() },
       S: { value: S }, fpx: { value: 0 }, uExp: { value: 1 }, ...Object.fromEntries(['step', 'soft', 'dith', 'flatK', 'sat', 'shK', 'shLen', 'edgeK', 'papK', 'eLo', 'eHi', 'rimK', 'formK'].map((k) => [k === 'step' ? 'step_' : k, { value: P[k] }])) });
+  // v3: nhoè rộng có mặt nạ (chuẩn hoá theo trọng số: rgb·w, a = w; w = 1 − mặt nạ nhân vật)
+  const mA = C.rt(W / 2, H / 2);
+  const downM = C.mk(`uniform sampler2D tSrc, tG; uniform vec2 px; void main(){ vec3 s = vec3(0.0); float ws = 0.0;
+      for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++) { vec2 q = vUv + vec2(i,j)*px; float w = 1.0 - clamp(texture(tG, q).g, 0.0, 1.0); s += texture(tSrc, q).rgb * w; ws += w; } o = vec4(s/9.0, ws/9.0); }`,
+    { tSrc: { value: null }, tG: { value: gRT.texture }, px: { value: new THREE.Vector2(1 / W, 1 / H) } });
+  const downA = C.mk(`uniform sampler2D tSrc; uniform vec2 px; void main(){ vec4 s = vec4(0.0);
+      for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++) s += texture(tSrc, vUv + vec2(i,j)*px); o = s/9.0; }`, { tSrc: { value: null }, px: { value: new THREE.Vector2(2 / W, 2 / H) } });
   const u = pipe.outMat.uniforms; u.gCanvas.value = 0;
   // (c) s22: nguồn ánh điện có hướng — cột x = 29 mé đối diện đổ bóng; ánh tràn bán cầu giảm
   const sc = cur.scene; let hemiW = null, post = null;
@@ -95,7 +126,8 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
       blur.uniforms.tSrc.value = hA.texture; blur.uniforms.dir.value.set(2 / W, 0); C.run(blur, hB);
       blur.uniforms.tSrc.value = hB.texture; blur.uniforms.dir.value.set(0, 2 / H); C.run(blur, hA);
       // nhoè rộng (≈ chiếu sáng): 1/8 độ phân giải, σ 3 → ≈ 24 px ảnh đầy
-      down.uniforms.tSrc.value = hA.texture; down.uniforms.px.value.set(2 / W, 2 / H); C.run(down, qA);
+      if (V3) { downM.uniforms.tSrc.value = pipe.accRT.texture; C.run(downM, mA); downA.uniforms.tSrc.value = mA.texture; C.run(downA, qA); }
+      else { down.uniforms.tSrc.value = hA.texture; down.uniforms.px.value.set(2 / W, 2 / H); C.run(down, qA); }
       blur.uniforms.sig.value = 3.0;
       blur.uniforms.tSrc.value = qA.texture; blur.uniforms.dir.value.set(8 / W, 0); C.run(blur, qB);
       blur.uniforms.tSrc.value = qB.texture; blur.uniforms.dir.value.set(0, 8 / H); C.run(blur, qA);

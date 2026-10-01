@@ -27,7 +27,7 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
     const p = P(ctx);
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 });
     const place = (pose, x, z, yaw) => { ida.root.position.set(x, pose.root_y_m ?? 0, z); ida.root.rotation.y = yaw; ida.root.updateMatrixWorld(true); ida.place(pose, x, z, yaw); };
-    const V2 = !!(ctx.dbg && ctx.dbg.style === 'b3v2');   // B3 v2: tấm chữ lớn, vũng sáng mềm từ đèn lồng, đèn lồng đung đưa, thở
+    const V3 = !!(ctx.dbg && ctx.dbg.style === 'b3v3'), V2 = V3 || !!(ctx.dbg && ctx.dbg.style === 'b3v2');   // V3 (M2.0): tấm tiêu đề lớn hơn + rọi mạnh hơn   // B3 v2: tấm chữ lớn, vũng sáng mềm từ đèn lồng, đèn lồng đung đưa, thở
     const lamp = lanternLight(st.scene, false, V2 ? 6 : LP.lightI);   // quầng gần (người, đá lát)
     // vũng sáng "soi": đèn rọi từ đèn lồng tới điểm trên tường (cách điệu: đèn lồng có chụp phản quang) — bóng đổ mạnh của cột đèn, người
     const spot = V2 ? new THREE.SpotLight("#ffb060", 0, 0, 0.56, 1.0, 2) : new THREE.SpotLight("#ffb060", 0, 0, 0.38, 0.5, 2); spot.castShadow = true; spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0005; spot.shadow.camera.near = 0.1;
@@ -37,7 +37,7 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
     // tấm giấy dán tường (Lambert: chỉ sáng khi ánh đèn lồng chạm)
     const loader = new THREE.TextureLoader();
     for (const pn of LP.panels) {
-      const tex = await loader.loadAsync('/m3/thu-phong-cach/data/' + (V2 ? pn.file.replace('.png', '_v2.png') : pn.file)); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
+      const tex = await loader.loadAsync('/m3/thu-phong-cach/data/' + (V2 ? pn.file.replace('.png', V3 ? '_v3.png' : '_v2.png') : pn.file)); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
       const m = new THREE.Mesh(new THREE.PlaneGeometry(pn.w, pn.h), new THREE.MeshLambertMaterial({ map: tex, alphaTest: 0.5 }));
       m.position.set(pn.x, pn.y, WALL_Z); m.receiveShadow = true; m.userData.tpcData = 1; st.scene.add(m);
     }
@@ -66,6 +66,6 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
         lamp(ida, f, 1);
         const lan = ida.props.lantern; lan.updateMatrixWorld(true); (lan.userData.lightAnchor || lan).getWorldPosition(lp);
         spot.position.copy(lp); spot.target.position.set(valAt(V2 ? LP.aimV2 : LP.aim, t), lp.y + (V2 ? 0.75 : 0.35), WALL_Z); spot.target.updateMatrixWorld(true);
-        spot.intensity = LP.spotI * ease(clamp01((t - 0.3) / 1.2)) * (1 + 0.03 * Math.sin(f * 0.37));
+        spot.intensity = LP.spotI * (V3 ? 1.35 : 1) * ease(clamp01((t - 0.3) / 1.2)) * (1 + 0.03 * Math.sin(f * 0.37));
       } };
   } };

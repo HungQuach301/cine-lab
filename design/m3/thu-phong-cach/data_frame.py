@@ -191,9 +191,9 @@ def frame_b3(out, cy=300, fall=1.6):
 
 
 # ---------------------------------------------------------------- B3 v2: tấm trong cảnh, chữ LỚN (đọc được ở 720p trong đoạn 20 s)
-def panel_map_v2(seed=11):
+def panel_map_v2(seed=11, tsize=84):
     W, H, K = 1200, 780, 2; im = Image.new('RGB', (W * K, H * K), CREAM); d = ImageDraw.Draw(im)
-    text(d, (44 * K, 22 * K), 'OLD TOWN, 1905', 84 * K, INK)
+    text(d, (44 * K, 22 * K), 'OLD TOWN, 1905', tsize * K, INK)
     S = [[(60, 330), (700, 330)], [(170, 330), (250, 640)], [(400, 330), (470, 640)], [(60, 480), (400, 480)], [(560, 330), (600, 640)]]
     d.line([(0, 690 * K), (300 * K, 650 * K), (700 * K, 700 * K), (1200 * K, 660 * K)], fill=RIVER, width=50 * K, joint='curve')
     for ln in S: d.line([(x * K, y * K) for x, y in ln], fill=INK, width=22 * K)
@@ -219,6 +219,9 @@ def panel_chart_v2(seed=23):
         text(d, (x + bw / 2, y0 - hh - 14 * K), str(v), 80 * K, INK, 'ms'); text(d, (x + bw / 2, y0 + 14 * K), str(yr), 60 * K, INK, 'mt')
     text(d, (W * K - 40 * K, 760 * K), 'Illustrative data', 48 * K, INK, 'rs')
     im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
+
+def panels_v3():   # M2.0: tiêu đề bản đồ 100 px; tấm biểu đồ giữ như v2
+    panel_map_v2(tsize=100).save(f'{HERE}/data/panel_map_v3.png'); panel_chart_v2().save(f'{HERE}/data/panel_chart_v3.png'); print('ghi tấm v3')
 
 def panels_v2():
     panel_map_v2().save(f'{HERE}/data/panel_map_v2.png'); panel_chart_v2().save(f'{HERE}/data/panel_chart_v2.png'); print('ghi tấm v2')
@@ -282,6 +285,7 @@ if __name__ == '__main__':
     elif c == 'b3': frame_b3(sys.argv[2])
     elif c == 'b1': frame_b1(sys.argv[2])
     elif c == 'panels_v2': panels_v2()
+    elif c == 'panels_v3': panels_v3()
     elif c == 'b3v2': frame_b3v2(sys.argv[2])
     elif c == 'contrast': contrast(sys.argv[2])
     else: print(__doc__)
