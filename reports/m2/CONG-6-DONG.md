@@ -89,7 +89,7 @@ P đề xuất xử lý nhóm này trong lượt render Cổng 7, khi các shot 
    - container khởi động lại ≥ 6 lần, nên mọi bước dài phải chạy tách nền và commit ngay.
 
 ## 6. Chuyển hướng (01/10/2026)
-- Chủ dự án quyết không hoàn thiện Last Round thành phim nghệ thuật riêng, mà phát triển kênh lai: truyện cách điệu + số liệu, tên tạm **Lamplight**.
+- Chủ dự án quyết không hoàn thiện Last Round thành phim nghệ thuật riêng, mà phát triển kênh lai: truyện cách điệu + số liệu, tên tạm **Last Lamplighters**.
 - Làm tập thử có tiêu chí dừng (AUTHORSHIP "Định hướng", 01/10/2026). Tài sản Last Round được dùng lại cho cảnh truyện.
 - Mốc tiếp theo: bài thử phong cách (B1 toon + viền nét, B3 2.5D cắt giấy) và kịch bản tập thử "The Last Lamplighters".
 

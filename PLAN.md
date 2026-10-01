@@ -1,6 +1,6 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: **Cổng 6 ĐÃ ĐÓNG 01/10/2026** (main, layout-v22 = `screening/layout.mp4`, `reports/m2/CONG-6-DONG.md`) · **CHUYỂN HƯỚNG (01/10/2026): kênh lai Lamplight (tên tạm)** — Mốc 1 BÀI THỬ PHONG CÁCH (B1 toon + viền nét; B3 2.5D cắt giấy; nhánh `thu-phong-cach` từ main, bật bằng cờ, `reports/m3/THU-PHONG-CACH.md`) + GÓI KỊCH BẢN TẬP THỬ "The Last Lamplighters" (`reports/m3/KICH-BAN-TAP-THU.md`) chạy song song · THỬ MẶT 2 DỪNG (bỏ hướng A) · Cổng 7 không mở · chưa mở kênh · checks v1.5 (LOCK 8d55b6ad…)
+## Mốc hiện tại: **Cổng 6 ĐÃ ĐÓNG 01/10/2026** (main, layout-v22 = `screening/layout.mp4`, `reports/m2/CONG-6-DONG.md`) · **CHUYỂN HƯỚNG (01/10/2026): kênh lai **Last Lamplighters** (chủ dự án chọn tên 01/10/2026; trục nghề xưa ↔ nghề hôm nay dưới AI)** — Mốc 1 BÀI THỬ PHONG CÁCH (B1 toon + viền nét; B3 2.5D cắt giấy; nhánh `thu-phong-cach` từ main, bật bằng cờ, `reports/m3/THU-PHONG-CACH.md`) + GÓI KỊCH BẢN TẬP THỬ "The Last Lamplighters" (`reports/m3/KICH-BAN-TAP-THU.md`) chạy song song · THỬ MẶT 2 DỪNG (bỏ hướng A) · Cổng 7 không mở · chưa mở kênh · checks v1.5 (LOCK 8d55b6ad…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
@@ -14,6 +14,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
    - **Cách chấm kiểm mù từ W1/W2:** **10 khung mỗi lần, được phép 1 khung trúng** (AUTHORSHIP "Cổng 6 — bàn giao P" và "Cổng 6 — diễn hoạt"), cộng 2 đối chứng chạy mỗi lần; ĐẠT khi ≤ 1/10 khung (cột HÌNH; ở W2 cả cột TƯ THẾ) có từ khoá và không lời chê cùng chỗ lặp ≥ 2 khung. Nhiễu nền đối chứng hiện 2/20.
 4. ~~Khiếu nại P0 (2 lần báo nhầm) chờ K~~ — **đã phán quyết và sửa ở checks v1.5** (checks-appeal.md). **Khiếu nại mới (29/09/2026): C3 chỉ đọc một nhân vật mỗi thư mục parts — chờ K/chủ dự án.**
 5. **Cổng 7 THỬ MẶT (30/09/2026; nhánh cục bộ `thu-mat` @5db04fe, KHÔNG merge; bản vá `reports/m2/cong7/thu-mat/ma-v1.patch`):** V1 (three.js: da tán xạ giả, phơi sáng theo shot, ánh dội môi trường, mắt ướt, vi chuyển động) xong; V2 EEVEE dừng trước khi dựng (hạn token). **Kiểm mù V1 TRƯỢT 3/3** (s03 "mặt nạ" do đỏ cam, s05 "búp bê/đất nặn", s22 "sáp/búp bê" kèm "hói", tai to). `reports/m2/cong7/THU-MAT.md` §10. **Chờ chủ dự án quyết:** (A) giữ V1 làm nền vật liệu Cổng 7, có sửa (trần bão hoà da, phơi sáng s05, tai); (B) mở cửa thiết kế mặt/tóc Ida (nếp nhăn tuổi bằng normal map, chân tóc thái dương, cỡ tai; mở khoá v1.5.1); (C) dàn dựng tránh MCU tĩnh s22.
+6. **Tồn đọng kênh Last Lamplighters:** chưa tra nhãn hiệu USPTO (và EUIPO/UKIPO) cho tên kênh "Last Lamplighters" — làm trước khi mở kênh.
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
 ## Việc cho Cổng 6 — theo quyết định "Cửa mặt Ida (đóng)" 29/09/2026 (chỉ ghi, chưa làm)

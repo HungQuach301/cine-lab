@@ -1,4 +1,4 @@
-# KỊCH BẢN TẬP THỬ — Lamplight · "The Last Lamplighters"
+# KỊCH BẢN TẬP THỬ — Last Lamplighters · "The Last Lamplighters"
 
 Gói việc: KỊCH BẢN TẬP THỬ (P giao theo chỉ thị chủ dự án 01/10/2026) · Người viết: phiên biên kịch – nghiên cứu · Ngày tra nguồn: 01/10/2026 · Trạng thái: **nháp 1, chờ chủ dự án duyệt**. Không sửa mã, không render, không commit.
 
@@ -24,13 +24,13 @@ Gói việc: KỊCH BẢN TẬP THỬ (P giao theo chỉ thị chủ dự án 01
 
 **Rủi ro**
 - *Độ chính xác.* Môi trường chặn WebFetch và curl tới gần hết các trang, nên mọi số liệu được kiểm qua **bản tóm tắt kết quả tìm kiếm**, chưa đọc toàn văn. Nên kiểm lại toàn văn ít nhất 3 số neo và mục 7 trước khi khoá lời dẫn. Số neo 1 500 là số năm 2015, nên lời dẫn nói "about 1,500… last time anyone counted publicly" và không khẳng định là số hiện tại.
-- *Bản quyền.* Không trích nguyên văn nguồn nào; lời dẫn diễn đạt lại. Nếu dùng ảnh hay tranh tư liệu (như bản khắc Rowlandson ở Met, báo cũ trên Chronicling America, ảnh Carnavalet), phải kiểm giấy phép từng tấm và ghi vào `RIGHTS.md`. Đề xuất vẽ lại theo phong cách riêng thay vì dùng ảnh gốc. Tên "Lamplight" và hình người thắp đèn cần tra nhãn hiệu trước khi lập kênh (chưa làm).
+- *Bản quyền.* Không trích nguyên văn nguồn nào; lời dẫn diễn đạt lại. Nếu dùng ảnh hay tranh tư liệu (như bản khắc Rowlandson ở Met, báo cũ trên Chronicling America, ảnh Carnavalet), phải kiểm giấy phép từng tấm và ghi vào `RIGHTS.md`. Đề xuất vẽ lại theo phong cách riêng thay vì dùng ảnh gốc. Tên "Last Lamplighters" và hình người thắp đèn cần tra nhãn hiệu trước khi lập kênh (chưa làm).
 - *Người thật.* Chỉ nêu tên người lịch sử có nguồn: Winsor, Rembrandt Peale, Yablochkov và nhà kinh tế James Bessen (người đang sống; chỉ dẫn kết quả nghiên cứu đã công bố). Không nêu tên nhân viên British Gas đang làm việc.
 - *Hư cấu lẫn với thật.* Lời dẫn nói rõ hai lần rằng Ida và thành phố không tên là hư cấu.
 
 **Ước thời lượng.** Lời dẫn **1 352 từ** (đếm bằng máy), tương đương **khoảng 9 phút 00 giây** ở 150 từ/phút. Cộng thoại Ida, thẻ tựa và các nhịp lặng (khoảng 50 giây), tổng là **khoảng 9 phút 50 giây**, nằm trong khung 8–10 phút. Lưu ý: 9:50 cách trần 10 phút 1,7%, nằm trong vùng ±5% quanh ngưỡng. Nếu giọng đọc chậm hơn 150 từ/phút, cắt đoạn 09 (25 giây) trước. Theo từng phần: mở truyện 0:45 · lịch sử 1807–1880 (02–05) 3:45 · tắt đèn (06–07) 1:25 · London hôm nay (08–09) 1:20 · kết truyện 1:00 · Bessen 0:58 · câu hỏi 0:37.
 
-**Đang chờ chủ dự án:** (a) duyệt ba số neo; (b) duyệt việc dùng Ida và Cas cùng hai câu thoại trong khung kênh mới, ghi vào `AUTHORSHIP.md`; (c) quyết định có cần kiểm toàn văn nguồn (phiên có mạng mở) trước khi thu giọng hay không; (d) duyệt tên tạm "Lamplight".
+**Đang chờ chủ dự án:** (a) duyệt ba số neo; (b) duyệt việc dùng Ida và Cas cùng hai câu thoại trong khung kênh mới, ghi vào `AUTHORSHIP.md`; (c) quyết định có cần kiểm toàn văn nguồn (phiên có mạng mở) trước khi thu giọng hay không; (d) duyệt tên tạm "Last Lamplighters".
 
 ---
 
@@ -149,7 +149,7 @@ Gói việc: KỊCH BẢN TẬP THỬ (P giao theo chỉ thị chủ dự án 01
 > The jobs that lasted were the ones that kept changing what they were for.
 
 ### 12 · [STORY + DATA] The question · ~0:37 (9:13–9:50)
-**Visual:** Toàn cảnh thành phố không tên lúc bình minh, đèn trắng tắt hàng loạt. Một ô cửa sổ hổ phách vẫn sáng. Ba số neo hiện lần cuối, chữ nhỏ, xếp dọc: 40,000 · 1,500 & 5 · 1 in 270. Thẻ kết kênh *Lamplight*.
+**Visual:** Toàn cảnh thành phố không tên lúc bình minh, đèn trắng tắt hàng loạt. Một ô cửa sổ hổ phách vẫn sáng. Ba số neo hiện lần cuối, chữ nhỏ, xếp dọc: 40,000 · 1,500 & 5 · 1 in 270. Thẻ kết kênh *Last Lamplighters*.
 
 > Forty thousand lamps became fifteen hundred, and a team of five. Out of two hundred and seventy jobs, one disappeared outright.
 > Those are the numbers worth remembering: forty thousand, fifteen hundred and five, and one in two hundred and seventy.
@@ -254,7 +254,7 @@ Tổng: **25 nguồn**. Nguồn chính thống: bảo tàng [1][15], cơ quan nh
 | 09 DATA | 0:25 | — | Bản đồ châu Âu (có thể tách từ bản đồ đoạn 04) |
 | 10 STORY | 1:00 | Đèn thứ mười một, Cas giữ thang, tắt ngọn cuối, trao đèn lồng, toàn cảnh thành phố trắng với một cửa sổ hổ phách, chỉnh đồng hồ thêm 7 phút | Không |
 | 11 SHORTS | 0:58 | — | **Lưới 270 biểu tượng nghề**, một ô tắt (thang máy); bản dọc 9:16 |
-| 12 STORY+DATA | 0:37 | Toàn cảnh thành phố, cửa sổ hổ phách; câu "Evening, old street." (giọng đã có) | Thẻ tổng kết 3 số neo; thẻ kết kênh Lamplight |
+| 12 STORY+DATA | 0:37 | Toàn cảnh thành phố, cửa sổ hổ phách; câu "Evening, old street." (giọng đã có) | Thẻ tổng kết 3 số neo; thẻ kết kênh Last Lamplighters |
 | **Tổng** | **~9:50** | Khoảng 4:27 dùng lại tài sản cũ (đoạn 01, 03, 05, 10, 12) | Khoảng 5:23 cần đồ hoạ hoặc bản đồ mới |
 
 Ghi chú thêm:
@@ -264,4 +264,4 @@ Ghi chú thêm:
 - **Biểu đồ** ở đoạn 07, 08, 11 phải dùng cùng thang và cùng bảng màu (hổ phách cho khí, trắng lạnh cho điện), dựng theo skill `dataviz`.
 - **Shorts.** Đoạn 11 có 57 giây lời; bản Short dọc nên bỏ câu cuối ("The jobs that lasted…") để còn khoảng 52 giây. Đoạn 08 và 11 viết để tự đứng được: không cần ngữ cảnh trước, có số neo trong 5 giây đầu ở dạng chữ lớn. Đoạn 02 (đèn khí đầu tiên, 1807) có thể làm Short thứ ba nếu cắt còn khoảng 45 giây.
 
-*Phần chưa làm:* kiểm toàn văn nguồn (bị chặn mạng); tra nhãn hiệu tên "Lamplight".
+*Phần chưa làm:* kiểm toàn văn nguồn (bị chặn mạng); tra nhãn hiệu tên "Last Lamplighters".
