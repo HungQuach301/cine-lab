@@ -31,9 +31,10 @@ vec3 grade(vec3 c, vec2 uv){
 
 window.listShots = () => SHOTS.map(({ build, ...m }) => m);
 window.listEvents = () => EVENTS;
-let W, H, cfg, renderer, pipe, sheets, mod, cur, shot;
+let W, H, cfg, renderer, pipe, sheets, mod, cur, shot, sty = null;
 window.setup = async (c) => {
   cfg = c; W = c.W; H = c.H;
+  const STY = c.dbg && c.dbg.style ? await import('/m3/thu-phong-cach/style.js') : null;   // M3 THỬ PHONG CÁCH (nhánh thu-phong-cach): cờ dbg.style 'b3' | 'b1'; không đặt → null → 0 px
   mod = await import('/cong3/v2/char3d/cast3d.js');
   if (mod.preloadIdaBL && (globalThis.CINE_IDA_STYLE ?? mod.IDA_STYLE) === 'bl') await mod.preloadIdaBL();   // v1.5: glb đầu Ida 'bl' nạp trước (GLTFLoader bất đồng bộ)
   if (mod.preloadCasBL && (globalThis.CINE_CAS_STYLE ?? mod.CAS_STYLE) === 'bl') await mod.preloadCasBL();   // Cổng 6 (W4): glb đầu Cas 'bl' khi cờ bật
@@ -44,7 +45,7 @@ window.setup = async (c) => {
   renderer = createRenderer(W, H); renderer.shadowMap.type = THREE.PCFShadowMap;
   const uniforms = { gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
   pipe = createPipeline(renderer, W, H, { exposure: 1.0, gradeGLSL: GRADE, uniforms });
-  shot = SHOTS.find((s) => s.id === c.shot); if (!shot) throw new Error('không có shot ' + c.shot);
+  shot = SHOTS.find((s) => s.id === c.shot) || (STY ? STY.extraShot(c.shot) : null); if (!shot) throw new Error('không có shot ' + c.shot);
   const ctx = { THREE, sheets, W, H, mkChar: (sheet, opts) => mod.buildCharacter(sheet, opts), upd: mod.update || null, dbg: c.dbg || {} };
   cur = await shot.build(ctx);
   // chẩn đoán (chỉ dùng khi --dbg): ẩn một bộ phận / tắt phát sáng của nhân vật
@@ -53,6 +54,7 @@ window.setup = async (c) => {
   cur.paint = createPaint(renderer, W, H, pipe, { ...(cur.paintP || {}) });
   const g = cur.grade || GRADE_WARM, u = pipe.outMat.uniforms;
   u.gCanvas.value = g.gCanvas; u.gVig.value = g.gVig; u.gLift.value = g.gLift; u.gSat.value = g.gSat; u.gShadowTint.value.set(...g.gShadowTint); u.gHiTint.value.set(...g.gHiTint);
+  sty = STY ? STY.install({ THREE, renderer, pipe, cur, shot, W, H, style: c.dbg.style, dbg: c.dbg }) : null;   // M3 THỬ PHONG CÁCH
   return { t0: shot.t0, t1: shot.t1 };
 };
 // name = khung phim toàn cục (số nguyên). Trả thời gian tích luỹ.
@@ -60,8 +62,10 @@ window.renderFrame = async (fGlobal) => {
   const T = fGlobal / 24, t = T - shot.t0;
   cur.update(t, T, fGlobal);
   pipe.outMat.uniforms.uExp.value = typeof cur.exposure === 'function' ? cur.exposure(t, T) : (cur.exposure ?? 1.0);
+  if (sty) sty.frame(t, T, fGlobal);   // M3 THỬ PHONG CÁCH (cờ tắt → sty = null)
   const ms = pipe.accumulate(cur.scene, cur.cam, 1, cur.onSample || null);
-  if (!cfg.nopaint) cur.paint.apply(cur.scene, cur.cam); else cur.paint.bypass();
+  if (!cfg.nopaint && !(sty && sty.noPaint)) cur.paint.apply(cur.scene, cur.cam); else cur.paint.bypass();
+  if (sty) sty.post();   // M3 THỬ PHONG CÁCH
   return { accum_ms: ms };
 };
 window.finalize = (f) => pipe.finalize(f);
