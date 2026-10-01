@@ -8,7 +8,7 @@ Tài liệu chuẩn của kênh. Áp cho kịch bản v3, lát cắt M2.2a và m
 ## 1. Trục kênh
 - **Nội dung chính:** nghề nghiệp trước công nghệ và AI.
 - **Yếu tố dẫn truyện:** con người, góc phố, ánh đèn (Ida, Cas, người thắp đèn). Người thắp đèn là **mẫu hình đầu tiên**: mở tập và dẫn truyện, không phải đối tượng so số liệu với nghề hôm nay.
-- Truyện có thật, không cận mặt người, 2.5D tiết chế, tiếng Anh, 16:9, 24 fps, tập 8–10 phút (trần 10:00).
+- Truyện có thật, không cận mặt người, 2.5D tiết chế, tiếng Anh, 16:9, 24 fps, tập 8–11 phút: **trần 11:00** (chủ dự án nâng từ 10:00 ngày 01/10/2026; giữ nội dung, đọc Bill tốc độ thật, không tăng tốc giọng).
 
 ## 2. Tỷ lệ trên tổng thời lượng tập
 | Phần | Tỷ lệ | Ở tập 9:30 | Nội dung |

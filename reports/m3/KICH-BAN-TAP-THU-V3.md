@@ -2,7 +2,7 @@
 
 - **Gói việc:** KỊCH BẢN V3, P giao theo quyết định chủ dự án 01/10/2026.
 - **Người viết:** phiên biên kịch – nghiên cứu. **Ngày tra nguồn:** 01/10/2026.
-- **Trạng thái:** nháp 3, **chờ chủ dự án duyệt**. Chỉ văn bản: không sửa mã, không đọc `checks/`, không commit, không gọi ElevenLabs.
+- **Trạng thái:** **v3.1 — chủ dự án duyệt v3 (6fde4c8) ngày 01/10/2026**, kèm 2 sửa câu ở đoạn 14 (xem §12). Trần thời lượng tập nâng lên **11:00** (đọc Bill tốc độ thật). Chỉ văn bản: không sửa mã, không đọc `checks/`, không commit, không gọi ElevenLabs.
 - Bản v2 giữ nguyên tại `reports/m3/KICH-BAN-TAP-THU-V2.md`. Luật áp dụng: `reports/m3/CHUAN-KENH-LL.md` (§2 tỷ lệ, §3 so sánh tương xứng, §4 nguồn).
 
 Khẩu hiệu kênh (gợi ý, giữ từ v2): *Every era has its last lamplighters.*
@@ -269,8 +269,8 @@ Khẩu hiệu kênh (gợi ý, giữ từ v2): *Every era has its last lamplight
 
 > To compare speeds fairly, put them on the same clock: change over ten years.
 > Elevator operators, counted by the census: down almost a fifth in the 1950s, then by half in the 1960s. Word processors and typists, projected by the Bureau: down about a third over the next ten years.
-> One is history, the other a forecast. The census counted people; the Bureau counts jobs. But the size is similar.
-> So what is different this time? The elevator was one machine replacing one job in one kind of building. AI reaches into many office and knowledge jobs at once: writing, answering, checking, coding. The pattern is old. The reach is new. One forecast, one technology, and it names call centres, insurance offices and law firms.
+> One is history, the other a forecast. The census counted people; the Bureau counts jobs. But the size is of the same order.
+> So what is different this time? The elevator was one machine replacing one job in one kind of building. AI reaches into many office and knowledge jobs at once: writing, answering, checking, coding. The pattern is old. The reach is new. One forecast, one technology, and its case studies run from call centres to insurance offices to law firms.
 
 ### 15 · [TODAY] Why these jobs
 **Visual:**
@@ -668,3 +668,19 @@ Some jobs end. Some change. Some are new.
 - **G1 nối ba mốc khác hệ phân loại** (1950 theo phân loại 1950; 1960 và 1970 theo phân loại của năm đó; mục 14 dùng 94 nghìn cho 1950 theo phân loại 1960). Lát cắt giữ 97 → 77 → 37, nhưng thêm chú thích nhỏ trên hình: "occupation definitions revised in 1960 and 1970". Phép so tốc độ ở đoạn 14 đã dùng đúng cặp cùng phân loại (94 → 77, 77 → 37).
 - **Đoạn 14, câu cuối** ("…it names call centres, insurance offices and law firms"): MLR 02/2025 có nghiên cứu tình huống nghề luật, nhưng dự báo luật sư **tăng** +5,2 %. Câu "names… law firms" dễ đọc thành "AI làm giảm việc ở hãng luật". P đề xuất sửa ở animatic v3: "…and its case studies run from call centres to insurance offices to law firms". Câu này không nằm trong lát cắt; chờ chủ dự án duyệt.
 - **Số BLS 2025–35** dùng theo ghi chú "đã đọc toàn văn (Claude, 01/10/2026)" của v2. Hôm nay bls.gov trả 403 và Wayback bị ngắt, nên phiên này không đọc lại được. K đối chiếu ở M2.3, kèm HSUS tr. 141 và 144 (số đọc từ ảnh quét).
+
+---
+
+## 12. v3.1 — sửa theo duyệt của chủ dự án (01/10/2026)
+Chủ dự án duyệt v3 (commit `6fde4c8`): mạch và tỷ lệ 19,0/36,4/44,6 %; bộ số neo mới; cảnh kết "Ida thắp ngọn đèn thứ hai cho người vận hành thang máy"; cách so % thay đổi trong 10 năm giữa người (điều tra dân số) và việc làm (BLS).
+
+| # | Đoạn | v3 | v3.1 |
+|---|---|---|---|
+| 1 | 14, câu cuối | "One forecast, one technology, and it names call centres, insurance offices and law firms." | "One forecast, one technology, and its case studies run from call centres to insurance offices to law firms." |
+| 2 | 14 | "But the size is similar." | "But the size is of the same order." |
+
+- **Trần thời lượng:** chủ dự án nâng trần tập lên **11:00**. Giữ nội dung, đọc Bill tốc độ thật, không tăng tốc giọng. Animatic v3 thu Bill thật cho toàn tập và đo thời lượng thật.
+  - Mốc đo: lát cắt (đoạn 10–13, 188 từ) đọc thật dài 91,01 s, tức ≈ 124 từ/phút. Công thức 141,2 từ/phút của mục 4 ước 79,9 s, thấp hơn thật ≈ 12 %.
+  - Nếu cả tập chậm như vậy thì tập dài ≈ 10:30, vẫn dưới trần 11:00.
+- **Lát cắt M2.2a:** được dài tới ≈ 95 s; không cắt lời dẫn. Hai câu sửa đều ở đoạn 14, nằm ngoài lát cắt, nên không cần thu lại.
+- Mục 4 (bảng thời lượng ước theo 141,2 từ/phút) và các dòng "trần 10:00" ở mục 1 giữ nguyên để đối chiếu. Số chuẩn từ nay là trần 11:00.
