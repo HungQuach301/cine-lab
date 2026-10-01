@@ -193,7 +193,7 @@ def frame_b3(out, cy=300, fall=1.6):
 # ---------------------------------------------------------------- B3 v2: tấm trong cảnh, chữ LỚN (đọc được ở 720p trong đoạn 20 s)
 def panel_map_v2(seed=11):
     W, H, K = 1200, 780, 2; im = Image.new('RGB', (W * K, H * K), CREAM); d = ImageDraw.Draw(im)
-    text(d, (44 * K, 30 * K), 'OLD TOWN, 1905', 64 * K, INK)
+    text(d, (44 * K, 22 * K), 'OLD TOWN, 1905', 84 * K, INK)
     S = [[(60, 330), (700, 330)], [(170, 330), (250, 640)], [(400, 330), (470, 640)], [(60, 480), (400, 480)], [(560, 330), (600, 640)]]
     d.line([(0, 690 * K), (300 * K, 650 * K), (700 * K, 700 * K), (1200 * K, 660 * K)], fill=RIVER, width=50 * K, joint='curve')
     for ln in S: d.line([(x * K, y * K) for x, y in ln], fill=INK, width=22 * K)
@@ -204,12 +204,12 @@ def panel_map_v2(seed=11):
             d.ellipse([x - r, y - r, x + r, y + r], fill=AMBER, outline=INK, width=3 * K)
     text(d, (1160 * K, 150 * K), '46', 230 * K, INK, 'ra')
     text(d, (1160 * K, 400 * K), 'gas lamps', 64 * K, INK, 'ra')
-    text(d, (46 * K, 110 * K), 'Illustrative data', 44 * K, INK)
+    text(d, (46 * K, 124 * K), 'Illustrative data', 44 * K, INK)
     im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
 
 def panel_chart_v2(seed=23):
     W, H, K = 1080, 780, 2; im = Image.new('RGB', (W * K, H * K), CREAM); d = ImageDraw.Draw(im)
-    text(d, (40 * K, 30 * K), 'LAMPLIGHTERS', 64 * K, INK)
+    text(d, (40 * K, 22 * K), 'LAMPLIGHTERS', 84 * K, INK)
     text(d, (W * K - 40 * K, 20 * K), '14\u21921', 120 * K, INK, 'ra')
     YR = [(1890, 14), (1905, 9), (1920, 1)]; x0, y0, bw, gap, top = 90 * K, 600 * K, 230 * K, 90 * K, 230 * K
     d.line([(60 * K, y0), (W * K - 50 * K, y0)], fill=INK, width=6 * K)
