@@ -26,16 +26,17 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
     const p = P(ctx);
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 });
     const place = (pose, x, z, yaw) => { ida.root.position.set(x, pose.root_y_m ?? 0, z); ida.root.rotation.y = yaw; ida.root.updateMatrixWorld(true); ida.place(pose, x, z, yaw); };
-    const lamp = lanternLight(st.scene, false, LP.lightI);   // quầng gần (người, đá lát)
+    const V2 = !!(ctx.dbg && ctx.dbg.style === 'b3v2');   // B3 v2: tấm chữ lớn, vũng sáng mềm từ đèn lồng, đèn lồng đung đưa, thở
+    const lamp = lanternLight(st.scene, false, V2 ? 10 : LP.lightI);   // quầng gần (người, đá lát)
     // vũng sáng "soi": đèn rọi từ đèn lồng tới điểm trên tường (cách điệu: đèn lồng có chụp phản quang) — bóng đổ mạnh của cột đèn, người
-    const spot = new THREE.SpotLight("#ffb060", 0, 0, 0.38, 0.5, 2); spot.castShadow = true; spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0005; spot.shadow.camera.near = 0.1;
+    const spot = V2 ? new THREE.SpotLight("#ffb060", 0, 0, 0.66, 1.0, 2) : new THREE.SpotLight("#ffb060", 0, 0, 0.38, 0.5, 2); spot.castShadow = true; spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0005; spot.shadow.camera.near = 0.1;
     st.scene.add(spot, spot.target); const lp = new THREE.Vector3();
     if (ida.props.lantern) ida.props.lantern.traverse((m) => { if (m.isMesh) m.castShadow = false; });   // nguồn sáng nằm trong đèn lồng: vỏ đèn không được che chính nó
 
     // tấm giấy dán tường (Lambert: chỉ sáng khi ánh đèn lồng chạm)
     const loader = new THREE.TextureLoader();
     for (const pn of LP.panels) {
-      const tex = await loader.loadAsync('/m3/thu-phong-cach/data/' + pn.file); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
+      const tex = await loader.loadAsync('/m3/thu-phong-cach/data/' + (V2 ? pn.file.replace('.png', '_v2.png') : pn.file)); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
       const m = new THREE.Mesh(new THREE.PlaneGeometry(pn.w, pn.h), new THREE.MeshLambertMaterial({ map: tex, alphaTest: 0.5 }));
       m.position.set(pn.x, pn.y, WALL_Z); m.receiveShadow = true; m.userData.tpcData = 1; st.scene.add(m);
     }
@@ -54,8 +55,13 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
           place(w, x, ZI, Math.PI / 2);
         } else {
           const yaw = Math.PI / 2 + (Math.PI / 2) * ease(clamp01((t - LP.tTurn[0]) / (LP.tTurn[1] - LP.tTurn[0])));
-          place(poseAt(keys, t), LP.walk[1], ZI, yaw);
+          let pz = poseAt(keys, t);
+          if (V2) { const b = Math.sin(2 * Math.PI * t / 3.4), sp = pz.joints.spine || [0, 0, 0], sr = pz.joints.shoulder_R || [0, 0, 0];   // thở + tay giữ đèn hơi chao
+            pz = over(pz, { joints: { spine: [sp[0] + 1.4 * b, sp[1], sp[2]], shoulder_R: [sr[0] + 1.5 * Math.sin(2 * Math.PI * t / 2.3), sr[1], sr[2]] } }); }
+          place(pz, LP.walk[1], ZI, yaw);
         }
+        if (V2 && ida.props.lantern) { const L = ida.props.lantern; if (L.userData.rz0 === undefined) { L.userData.rz0 = L.rotation.z; L.userData.rx0 = L.rotation.x; }
+          const a = t < LP.tWalk ? 1 : 0.45; L.rotation.z = L.userData.rz0 + 0.10 * a * Math.sin(2 * Math.PI * 0.85 * t); L.rotation.x = L.userData.rx0 + 0.05 * a * Math.sin(2 * Math.PI * 0.85 * t + 1.1); }   // đèn lồng đung đưa
         lamp(ida, f, 1);
         const lan = ida.props.lantern; lan.updateMatrixWorld(true); (lan.userData.lightAnchor || lan).getWorldPosition(lp);
         spot.position.copy(lp); spot.target.position.set(valAt(LP.aim, t), lp.y + 0.35, WALL_Z); spot.target.updateMatrixWorld(true);

@@ -131,13 +131,13 @@ def panels():
 def stair(v, n):  # bậc thang (posterize) giá trị 0..1
     return np.floor(v * n + 0.5) / n
 
-def frame_b3(out):
+def frame_b3(out, cy=300, fall=1.6):
     W, H = 1920, 1080; K = 2; w, h = W * K, H * K
     yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
     # trời + vũng sáng ấm bậc thang quanh ngọn đèn (giữa-trên)
     sky = np.zeros((H, W, 3), np.float32) + np.array(NAVY, np.float32)
-    cx, cy = 1012, 300; r = np.hypot((xx - cx) / 1.15, (yy - cy)) / 820
-    pool = stair(np.clip(1 - r, 0, 1) ** 1.6, 5)
+    cx = 1012; r = np.hypot((xx - cx) / 1.15, (yy - cy)) / 820
+    pool = stair(np.clip(1 - r, 0, 1) ** fall if fall != 1.0 else 1.0 / (1.0 + (r * 4.2) ** 2), 5)
     warm = np.array([150, 92, 46], np.float32)
     bg = sky + pool[..., None] * (warm - sky * 0.4) * 0.85
     img = Image.fromarray(np.clip(bg, 0, 255).astype(np.uint8))
@@ -188,6 +188,47 @@ def frame_b3(out):
     d.rectangle([1500, 1000, 1860, 1052], fill=(20, 22, 34))
     text(d, (1846, 1042), 'Illustrative data', 30, (241, 228, 198), 'rs')
     img.convert('RGB').save(out); print('ghi', out)
+
+
+# ---------------------------------------------------------------- B3 v2: tấm trong cảnh, chữ LỚN (đọc được ở 720p trong đoạn 20 s)
+def panel_map_v2(seed=11):
+    W, H, K = 1200, 780, 2; im = Image.new('RGB', (W * K, H * K), CREAM); d = ImageDraw.Draw(im)
+    text(d, (44 * K, 30 * K), 'OLD TOWN, 1905', 64 * K, INK)
+    S = [[(60, 330), (700, 330)], [(170, 330), (250, 640)], [(400, 330), (470, 640)], [(60, 480), (400, 480)], [(560, 330), (600, 640)]]
+    d.line([(0, 690 * K), (300 * K, 650 * K), (700 * K, 700 * K), (1200 * K, 660 * K)], fill=RIVER, width=50 * K, joint='curve')
+    for ln in S: d.line([(x * K, y * K) for x, y in ln], fill=INK, width=22 * K)
+    for ln in S: d.line([(x * K, y * K) for x, y in ln], fill=(214, 198, 160), width=10 * K)
+    for (a, b), n in zip(S, [11, 9, 8, 7, 5]):
+        for i in range(n):
+            u = (i + 0.5) / n; x, y = (a[0] + (b[0] - a[0]) * u) * K, (a[1] + (b[1] - a[1]) * u) * K; r = 10 * K
+            d.ellipse([x - r, y - r, x + r, y + r], fill=AMBER, outline=INK, width=3 * K)
+    text(d, (1160 * K, 150 * K), '46', 230 * K, INK, 'ra')
+    text(d, (1160 * K, 400 * K), 'gas lamps', 64 * K, INK, 'ra')
+    text(d, (1160 * K, 750 * K), 'Illustrative data', 48 * K, INK, 'rs')
+    im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
+
+def panel_chart_v2(seed=23):
+    W, H, K = 1080, 780, 2; im = Image.new('RGB', (W * K, H * K), CREAM); d = ImageDraw.Draw(im)
+    text(d, (40 * K, 30 * K), 'LAMPLIGHTERS', 64 * K, INK)
+    text(d, (W * K - 40 * K, 20 * K), '14\u21921', 120 * K, INK, 'ra')
+    YR = [(1890, 14), (1905, 9), (1920, 1)]; x0, y0, bw, gap, top = 90 * K, 600 * K, 230 * K, 90 * K, 230 * K
+    d.line([(60 * K, y0), (W * K - 50 * K, y0)], fill=INK, width=6 * K)
+    for i, (yr, v) in enumerate(YR):
+        x = x0 + i * (bw + gap); hh = (y0 - top - 70 * K) * v / 14
+        d.rectangle([x, y0 - hh, x + bw, y0], fill=AMBER, outline=INK, width=6 * K)
+        text(d, (x + bw / 2, y0 - hh - 14 * K), str(v), 80 * K, INK, 'ms'); text(d, (x + bw / 2, y0 + 14 * K), str(yr), 60 * K, INK, 'mt')
+    text(d, (W * K - 40 * K, 760 * K), 'Illustrative data', 48 * K, INK, 'rs')
+    im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
+
+def panels_v2():
+    panel_map_v2().save(f'{HERE}/data/panel_map_v2.png'); panel_chart_v2().save(f'{HERE}/data/panel_chart_v2.png'); print('ghi tấm v2')
+
+def frame_b3v2(out):
+    """Khung dữ liệu B3 v2: quầng đèn GIẢM DẦN liên tục từ ngọn đèn trong khung (không vành bậc), dither chống phân dải."""
+    global stair
+    s0 = stair; stair = lambda v, n: v + (np.random.default_rng(3).random(v.shape).astype(np.float32) - 0.5) / 255.0   # bỏ bậc, thêm dither
+    try: frame_b3(out, cy=286, fall=1.0)
+    finally: stair = s0
 
 def frame_b1(out):
     """B1: mảng phẳng toon + viền nét đậm (không kết cấu giấy, không mép xé)."""
@@ -240,5 +281,7 @@ if __name__ == '__main__':
     if c == 'panels': panels()
     elif c == 'b3': frame_b3(sys.argv[2])
     elif c == 'b1': frame_b1(sys.argv[2])
+    elif c == 'panels_v2': panels_v2()
+    elif c == 'b3v2': frame_b3v2(sys.argv[2])
     elif c == 'contrast': contrast(sys.argv[2])
     else: print(__doc__)

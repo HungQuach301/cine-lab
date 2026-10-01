@@ -7,6 +7,7 @@
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 import { fovOf } from '/cong5/layout/util.js';
 import { LAMP_SHOT } from './lamp_shot.js';
+import { installB3v2 } from './style_v2.js';
 
 export const EXTRA = [LAMP_SHOT];
 export const extraShot = (id) => EXTRA.find((s) => s.id === id) || null;
@@ -71,6 +72,7 @@ function nMaterial() {
 
 export function install(o) {
   if (o.style === 'b3') return installB3(o);
+  if (o.style === 'b3v2') return installB3v2(o, { common, gMaterial, B3_CAM, HDR });   // B3 v2 (sửa sau kiểm mù Mốc 1) — tệp riêng, B3 v1/B1 không đổi
   if (o.style === 'b1') return installB1(o);
   throw new Error('dbg.style không hợp lệ: ' + o.style);
 }
