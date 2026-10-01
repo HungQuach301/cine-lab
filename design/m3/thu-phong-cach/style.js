@@ -16,8 +16,8 @@ export const extraShot = (id) => EXTRA.find((s) => s.id === id) || null;
 //  s05 MCU 3/4 trước (mặt) → MS nghiêng hẳn (profile) từ phía −x: bóng nghiêng Ida + hai lòng tay trước lồng kính sáng.
 //  s22 MCU 3/4 (mặt) → MWS thấp từ lòng phố phía −x: bóng Ida đen trên mặt tiền trắng ánh điện; L10 bắt lửa cuối shot.
 export const B3_CAM = {
-  s03: { mm: 35, pos: [111.6, 1.15, 0.9], look: [106.0, 2.5, -4.4] },
-  s05: { mm: 40, pos: [102.4, 2.55, -4.05], look: [106.0, 2.7, -4.3] },
+  s03: { mm: 40, pos: [110.6, 1.15, 0.4], look: [106.0, 2.45, -4.4] },
+  s05: { mm: 35, pos: [101.4, 2.4, -3.6], look: [106.2, 2.6, -4.45] },
   s22: { mm: 35, pos: [16.2, 1.0, -0.2], look: [22.0, 2.5, -4.6] },
 };
 // B1: giữ máy gốc (cờ chỉ đổi shader + hậu kỳ).
@@ -112,14 +112,14 @@ function installB3(o) {
   const gRT = new THREE.WebGLRenderTarget(W * GS, H * GS, { ...C.fOpt, depthBuffer: true });
   const gM = [gMaterial(0), gMaterial(1), gMaterial(2)];
   const hA = C.rt(W / 2, H / 2), hB = C.rt(W / 2, H / 2), outRT = C.rt(W, H);
-  const P = Object.assign({ step: 0.85, soft: 0.07, e0: -0.2, detK: 0.22, sat: 0.82, shK: 0.55, shLen: 9.0, edgeK: 0.35, papK: 0.075, inkK: 1.0, eLo: -2.2, eHi: 0.6, rimK: 0.85 }, dbg.b3 || {});
+  const P = Object.assign({ step: 0.85, soft: 0.07, e0: -0.2, detK: 0.32, sat: 0.82, shK: 0.55, shLen: 9.0, edgeK: 0.35, papK: 0.10, inkK: 1.0, eLo: -2.2, eHi: 0.6, rimK: 0.85 }, dbg.b3 || {});
   const down = C.mk(`uniform sampler2D tSrc; uniform vec2 px; void main(){ vec3 s = vec3(0.0);
       for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++) s += texture(tSrc, vUv + vec2(i,j)*px).rgb; o = vec4(s/9.0, 1.0); }`,
     { tSrc: { value: null }, px: { value: new THREE.Vector2(1 / W, 1 / H) } });
   const blur = C.mk(`uniform sampler2D tSrc; uniform vec2 dir; uniform float sig;
       void main(){ vec4 s = vec4(0.0); float ws = 0.0;
         for (int k=-6; k<=6; k++){ float x = float(k); float w = exp(-0.5*x*x/(sig*sig)); s += texture(tSrc, vUv + dir*x) * w; ws += w; }
-        o = s/ws; }`, { tSrc: { value: null }, dir: { value: new THREE.Vector2() }, sig: { value: 2.6 } });
+        o = s/ws; }`, { tSrc: { value: null }, dir: { value: new THREE.Vector2() }, sig: { value: P.blur ?? 1.0 } });
   const sty = C.mk(`uniform sampler2D tSrc, tBlur, tG; uniform vec2 px, camOff; uniform float S, fpx, uExp;
     uniform float step_, soft, e0, detK, sat, shK, shLen, edgeK, papK, inkK, eLo, eHi, rimK;
     float zAt(vec2 uv){ float z = texture(tG, uv).r; return z > 0.0 ? z : 1.0e4; }
@@ -145,12 +145,12 @@ function installB3(o) {
       if (dat > 0.5) c = src * gain * tint;                                          // tấm số liệu: giữ nét chữ, chỉ bậc thang ánh sáng
       // nhân vật thành bóng cắt giấy: mực tối; mép được ánh đèn chạm giữ một viền sáng ấm
       if (ch > 0.01) {
-        float m = 1.0; for (int i = 0; i < 6; i++) { float a = float(i) * 1.0472; m = min(m, texture(tG, uvw + vec2(cos(a), sin(a)) * 2.6 * S * px).g); }
+        float m = 1.0; for (int i = 0; i < 6; i++) { float a = float(i) * 1.0472; m = min(m, texture(tG, uvw + vec2(cos(a), sin(a)) * 1.7 * S * px).g); }
         float rim = 1.0 - smoothstep(0.2, 0.9, m);
         float lit = smoothstep(-1.2, 0.6, log2(max(Ls * uExp, 1e-6)));
         vec3 ink = vec3(0.0105, 0.0085, 0.0135) * inkK, warm = vec3(0.060, 0.030, 0.014);
         vec3 sil = mix(ink, warm, 0.35 * lit) / uExp;
-        sil = mix(sil, flatC * 0.95, rimK * rim * lit);
+        sil = mix(sil, vec3(1.0, 0.62, 0.30) * lum(flatC) * 1.15, rimK * rim * lit);
         c = mix(c, sil, clamp(ch, 0.0, 1.0));
       }
       // bóng đổ giấy: lớp gần hơn ở phía trên-trái → đổ bóng mềm xuống-phải lên lớp sau
