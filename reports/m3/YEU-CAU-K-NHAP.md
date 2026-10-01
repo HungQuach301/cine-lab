@@ -29,4 +29,21 @@ P không đọc mã `checks/`. Mọi mô tả dưới đây dựa trên `checks/
    - P0/P1/G4: vùng an toàn chữ cho giao diện Shorts (lề trên, dưới, phải bị nút che). Có cần luật vùng an toàn mới không?
 2. Shorts cắt từ master 16:9: C3 và H1b chạy trên bản cắt hay chỉ trên master?
 
-**Cách gửi khi được phép:** P ghi mục 1–2 vào `checks-appeal.md` (mục "Yêu cầu mới, 2026-10"), chờ K phán quyết và khoá bản checks mới. Trong lúc chờ, M2 chạy luật bằng profile youtube cho master.
+## 3. Luật đo judder (thêm 01/10/2026, theo CHUAN-KENH-LL §5.2; gửi ở M2.3)
+**Hiện trạng**
+- Chủ dự án phát hiện animatic M2.1 giật. Công cụ của P `scripts/p/judder.py` (framemd5 khung giải mã) đo được **799 đoạn đứng hình 2–12 khung, 16,96 % thời lượng**. Số này khớp số đo của Claude (rà độc lập bên ngoài).
+- Chuẩn kênh đặt mục tiêu 0. Đứng yên có chủ ý phải dài ≥ 1 s và ghi trong bảng shot.
+
+**Câu hỏi cho K**
+1. K có đưa phép đo này vào `checks/` thành luật chính thức không (profile `shot` và `youtube`)? K tự viết hay lấy định nghĩa của `scripts/p/judder.py`:
+   - đoạn ≥ 2 khung liên tiếp có framemd5 trùng nhau;
+   - đoạn dài 2–12 khung ngoài vùng tĩnh khai báo thì tính là lỗi;
+   - đoạn 13–23 khung báo riêng;
+   - đoạn ≥ 24 khung coi là cố ý.
+2. Đo khớp tuyệt đối (framemd5) hay so gần đúng (ví dụ |chênh| trung bình ≤ 0,5/255 trên ảnh xám thu nhỏ) để bắt khung "gần như đứng" do nén?
+3. Vùng tĩnh có chủ ý khai ở đâu (cột trong bảng shot, hay tệp đi kèm video) để luật đọc được?
+4. Có thêm chỉ tiêu nhịp cập nhật không (ví dụ không giây nào có < 12 khung mới khi đang chuyển động)?
+
+**P đề xuất** (K quyết): luật mới, mặc định so tuyệt đối; ngưỡng lỗi = 0; vùng tĩnh khai trong bảng shot.
+
+**Cách gửi khi được phép:** P ghi mục 1–3 vào `checks-appeal.md` (mục "Yêu cầu mới, 2026-10"), chờ K phán quyết và khoá bản checks mới. Trong lúc chờ, M2 chạy luật bằng profile youtube cho master.
