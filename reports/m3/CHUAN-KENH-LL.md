@@ -54,6 +54,10 @@ Chủ dự án đặt luật; Claude cụ thể hoá thành 6 điểm; chủ d�
   - chuyển cảnh giữa các thẻ có chủ ý (biến hình, trượt, lật giấy);
   - giấy có chút lay, bóng, ánh đèn rọi.
 - Một ngôn ngữ hình với bộ mẫu B3. Tương phản chữ **≥ 4,5:1**.
+- **Không khung đồ hoạ nào đứng trống quá 3 s khi lời dẫn đang nói** (chủ dự án, 01/10/2026, sau lỗi L1 của lát cắt). Lấp bằng hình gắn đúng lời dẫn; **hình không đi trước lời**.
+- **Số trên hình và lời đọc phải khớp** (cùng gốc, cùng phân loại); đổi phân loại thì ngắt đường và ghi chú (lỗi L2).
+- Nhãn, thẻ chữ không đè ô thu nhỏ hay mép biểu đồ (L3). Ghép hai đợt dự báo trên một khung: vạch ngăn rõ, nhãn đợt, dòng nguồn riêng (L4).
+- **Kiểm mù màu:** mọi khung số phải phân biệt được các nhóm khi mô phỏng deuteranopia, protanopia, tritanopia (không dựa riêng vào màu; dùng thêm gạch chéo/nét/nhãn).
 - Cảnh truyện B3 chỉ dùng làm khung mở, chuyển, kết.
 
 ### 5.2 Chuyển động
