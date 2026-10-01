@@ -110,7 +110,10 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
       if (x.isPointLight && x.color.getHexString() === 'e3eaff' && Math.abs(x.position.x - 29) < 3) post = x; });
     if (post) { post.castShadow = true; post.shadow.mapSize.set(1024, 1024); post.shadow.bias = -0.0006; post.shadow.normalBias = 0.02; post.shadow.camera.near = 0.2; }
   }
-  let cam0 = null; const right = new THREE.Vector3(), up = new THREE.Vector3(), d = new THREE.Vector3();
+  // v3: gốc neo kết cấu giấy = máy ở KHUNG ĐẦU SHOT (tính tường minh), không phụ thuộc khung nào render trước (render từng đoạn vẫn khớp)
+  let cam0 = null;
+  if (V3) { cur.update(0, o.shot.t0, Math.round(o.shot.t0 * 24)); C.applyCam(); cur.cam.updateMatrixWorld(true); cam0 = cur.cam.position.clone(); }
+  const right = new THREE.Vector3(), up = new THREE.Vector3(), d = new THREE.Vector3();
   return {
     noPaint: true,
     frame(t, T, f) { C.applyCam(); if (dbg.exp) u.uExp.value *= dbg.exp;
