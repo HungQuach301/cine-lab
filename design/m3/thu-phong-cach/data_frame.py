@@ -177,8 +177,12 @@ def frame_b3(out):
     img = Image.alpha_composite(img, stick(panel_map(860, 560, 11), 70, 300, 1.2))
     img = Image.alpha_composite(img, stick(panel_chart(760, 560, 23), 1090, 320, -0.9))
     d = ImageDraw.Draw(img)
-    text(d, (72, 64), 'The Last Lamplighters', 64, (241, 228, 198))
-    text(d, (74, 150), 'How the Old Town went dark, then bright', 32, (241, 228, 198))
+    # kênh "Last Lamplighters" (chủ dự án chọn 01/10/2026) — khẩu hiệu gợi ý của P
+    text(d, (74, 52), 'LAST LAMPLIGHTERS', 28, LAMP)
+    text(d, (72, 96), 'Old Town, 1890\u20131920', 64, (241, 228, 198))
+    text(d, (74, 182), 'Every era has its last lamplighters', 32, (241, 228, 198))
+    d.rectangle([60, 960, 1010, 1052], fill=(20, 22, 34))
+    text(d, (74, 1006), 'Then: 14 lamplighters became 1.  Now: which jobs are next?', 30, (241, 228, 198), 'lm')
     d.rectangle([1500, 1000, 1860, 1052], fill=(20, 22, 34))
     text(d, (1846, 1042), 'Illustrative data', 30, (241, 228, 198), 'rs')
     img.convert('RGB').save(out); print('ghi', out)
@@ -217,7 +221,7 @@ def contrast(png):
     def dark(x0, y0, x1, y1): a = im[y0:y1, x0:x1].reshape(-1, 3).astype(int); i = np.argsort(a.sum(1))[: max(1, len(a) // 200)]; return tuple(int(v) for v in np.median(a[i], axis=0))
     def light(x0, y0, x1, y1): a = im[y0:y1, x0:x1].reshape(-1, 3).astype(int); i = np.argsort(-a.sum(1))[: max(1, len(a) // 200)]; return tuple(int(v) for v in np.median(a[i], axis=0))
     rows = []
-    for name, box in [('Tiêu đề (chữ sáng / nền trời)', (60, 50, 760, 200)), ('Nhãn "Illustrative data" (khung dưới phải)', (1500, 1000, 1860, 1052)),
+    for name, box in [('Tiêu đề (chữ sáng / nền trời)', (60, 40, 760, 220)), ('Dòng Then/Now (chữ sáng / nền mực)', (60, 960, 1010, 1052)), ('Nhãn "Illustrative data" (khung dưới phải)', (1500, 1000, 1860, 1052)),
                       ('Chữ bản đồ (mực / giấy)', (100, 330, 900, 820)), ('Chữ biểu đồ (mực / giấy)', (1110, 340, 1830, 860))]:
         x0, y0, x1, y1 = box; bgm = med(*box)
         fg = light(*box) if L(bgm) < 0.18 else dark(*box)
