@@ -96,6 +96,7 @@ def panel_map(W_=1200, H_=780, seed=11, style='b3'):
     text(d, (1160 * K, 160 * K), 'gas lamps', 28 * K, INK, 'ra')
     text(d, (1160 * K, 740 * K), 'Illustrative data', 24 * K, INK, 'rs')
     im = im.resize((W_, H_), Image.LANCZOS)
+    if style == 'b1': return im   # B1: mảng phẳng, không hạt giấy, mép thẳng
     im = paperize(im, seed)
     im.putalpha(deckle(W_, H_, seed + 5)); return im
 
@@ -116,6 +117,7 @@ def panel_chart(W_=1080, H_=780, seed=23, style='b3'):
     text(d, (W * K - 40 * K, 34 * K), '14 → 1', 84 * K, INK, 'ra')
     text(d, (W * K - 40 * K, 740 * K), 'Illustrative data', 24 * K, INK, 'rs')
     im = im.resize((W_, H_), Image.LANCZOS)
+    if style == 'b1': return im   # B1: mảng phẳng, không hạt giấy, mép thẳng
     im = paperize(im, seed)
     im.putalpha(deckle(W_, H_, seed + 5)); return im
 
@@ -202,10 +204,14 @@ def frame_b1(out):
     def box(p, x, y):
         q = p.convert('RGB'); bw, bh = q.size; img.paste(q.resize((bw * K, bh * K)), (x * K, y * K)); d.rectangle([x * K, y * K, (x + bw) * K, (y + bh) * K], outline=(10, 10, 14), width=8 * K)
     def flat(fn, W_, H_, seed):
-        p = fn(W_, H_, seed); a = np.asarray(p.convert('RGB'), np.float32); a = np.round(a / 24) * 24; return Image.fromarray(np.clip(a, 0, 255).astype(np.uint8))
+        return fn(W_, H_, seed, 'b1')
     box(flat(panel_map, 860, 560, 11), 70, 300); box(flat(panel_chart, 760, 560, 23), 1090, 320)
-    text(d, (72 * K, 64 * K), 'The Last Lamplighters', 64 * K, (241, 228, 198))
-    text(d, (74 * K, 150 * K), 'How the Old Town went dark, then bright', 32 * K, (241, 228, 198))
+    d.rectangle([56 * K, 36 * K, 800 * K, 236 * K], fill=(24, 30, 52), outline=(8, 8, 12), width=6 * K)   # ô chữ toon
+    text(d, (74 * K, 52 * K), 'LAST LAMPLIGHTERS', 28 * K, LAMP)
+    text(d, (72 * K, 96 * K), 'Old Town, 1890\u20131920', 64 * K, (241, 228, 198))
+    text(d, (74 * K, 182 * K), 'Every era has its last lamplighters', 32 * K, (241, 228, 198))
+    d.rectangle([60 * K, 960 * K, 1010 * K, 1052 * K], fill=(20, 22, 34), outline=(8, 8, 12), width=6 * K)
+    text(d, (74 * K, 1006 * K), 'Then: 14 lamplighters became 1.  Now: which jobs are next?', 30 * K, (241, 228, 198), 'lm')
     d.rectangle([1500 * K, 1000 * K, 1860 * K, 1052 * K], fill=(20, 22, 34))
     text(d, (1846 * K, 1042 * K), 'Illustrative data', 30 * K, (241, 228, 198), 'rs')
     img.resize((W, H), Image.LANCZOS).save(out); print('ghi', out)
