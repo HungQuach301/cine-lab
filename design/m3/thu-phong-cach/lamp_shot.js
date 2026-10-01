@@ -64,7 +64,7 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
           const a = t < LP.tWalk ? 1 : 0.45; L.rotation.z = L.userData.rz0 + 0.10 * a * Math.sin(2 * Math.PI * 0.85 * t); L.rotation.x = L.userData.rx0 + 0.05 * a * Math.sin(2 * Math.PI * 0.85 * t + 1.1); }   // đèn lồng đung đưa
         lamp(ida, f, 1);
         const lan = ida.props.lantern; lan.updateMatrixWorld(true); (lan.userData.lightAnchor || lan).getWorldPosition(lp);
-        spot.position.copy(lp); spot.target.position.set(valAt(LP.aim, t), lp.y + 0.35, WALL_Z); spot.target.updateMatrixWorld(true);
+        spot.position.copy(lp); spot.target.position.set(valAt(LP.aim, t), lp.y + (V2 ? 0.75 : 0.35), WALL_Z); spot.target.updateMatrixWorld(true);
         spot.intensity = LP.spotI * ease(clamp01((t - 0.3) / 1.2)) * (1 + 0.03 * Math.sin(f * 0.37));
       } };
   } };

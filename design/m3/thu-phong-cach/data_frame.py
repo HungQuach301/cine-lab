@@ -204,7 +204,7 @@ def panel_map_v2(seed=11):
             d.ellipse([x - r, y - r, x + r, y + r], fill=AMBER, outline=INK, width=3 * K)
     text(d, (1160 * K, 150 * K), '46', 230 * K, INK, 'ra')
     text(d, (1160 * K, 400 * K), 'gas lamps', 64 * K, INK, 'ra')
-    text(d, (1160 * K, 750 * K), 'Illustrative data', 48 * K, INK, 'rs')
+    text(d, (46 * K, 110 * K), 'Illustrative data', 44 * K, INK)
     im = im.resize((W, H), Image.LANCZOS); im = paperize(im, seed, k=0.05, fib=0.03); im.putalpha(deckle(W, H, seed + 5)); return im
 
 def panel_chart_v2(seed=23):
