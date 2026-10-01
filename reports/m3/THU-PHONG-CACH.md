@@ -236,5 +236,48 @@ Xưởng không sửa PLAN.md. Đề nghị P đưa các mục sau vào hàng ch
   - số liệu minh hoạ (46 đèn, 14 → 1 người thắp đèn).
 - Ghi các quyết định đã duyệt vào AUTHORSHIP.md.
 
-## 9. Kiểm mù
-*(Để trống cho P.)*
+## 9. Kiểm mù (P điền, 01/10/2026)
+
+**Cách chạy**
+- 8 dải biến thể (mỗi biến thể 3 dải Last Round + 1 dải dữ liệu / đoạn 20 s) và 2 đối chứng Sprite Fright dùng chung.
+- Mỗi dải do một subagent MỚI (general-purpose) chấm.
+- Câu hỏi nguyên văn như các vòng trước, **thêm** "Chấm chất lượng hình ảnh 1–10 so với phim hoạt hình chuyên nghiệp, nêu một lý do." (hỏi cả đối chứng). Hai dải dữ liệu hỏi thêm "Bạn nhớ được những số liệu nào?".
+- Nguyên văn: `thu-phong-cach/kiem-mu/NGUYEN-VAN.md`. Tên mù: `kiem-mu/map.tsv`.
+- Token: 44,0–46,6 nghìn mỗi dải; 10 dải = **449,7 nghìn** (hạn 450 nghìn; sát ngưỡng, −0,06 %, trong ±5 %).
+
+**Kết quả**
+| Dải | Từ khoá chê (máy đếm) | Điểm 1–10 | Lời chê chính (rút gọn) |
+|---|---|---|---|
+| B3 s03 | 0 | 5 | đèn bật như "bật công tắc"; quầng sáng loang lổ "như vết bẩn hay vân giấy"; nhân vật chìm vào nền tối; bóng thang to, đặc. Khen: "phong cách cắt giấy nhất quán" |
+| B3 s05 | 0 | 5 | bóng tiền cảnh "khối đen phẳng… như hình cắt dán", không được đèn hắt sáng; gần như đứng yên 3 s; người thắp đèn lẫn vào tường. Khen: bảng màu tím/vàng |
+| B3 s22 | 0 | 5 | đèn cạnh nhân vật tối mà tường có mảng sáng hình nón "không rõ từ đâu"; gần như không chuyển động; khung hơi xê dịch |
+| B3 dữ liệu + 20 s | 0 | 4 | vùng sáng quá to, xa đèn lồng; nhân vật tan vào tối ở 14–18 s; viền sáng phân tầng (banding); thẻ kết đổi phong cách |
+| B1 s03 | 0 | 5 | ánh sáng nhảy gắt, cả tường sáng đều "như ban ngày"; mặt cháy; bóng lạ |
+| B1 s05 | 0 | 5 | tay áo dài bất thường, tay nhảy vị trí; mặt "đơ", chỉ có môi cử động; ánh sáng chưa "chạm" nhân vật |
+| B1 s22 | 0 | **4** | **mặt: đổ bóng "vỡ thành các mảng loang lổ"** như vết bẩn hay vết bầm; răng "nhọn lởm chởm… như răng nanh"; "tư thế cứng, giống tượng" |
+| B1 dữ liệu + 20 s | 0 | 5 | vệt sáng elip viền sắc "như đèn sân khấu"; nhân vật quá nhỏ; cột cuối biểu đồ đổi màu |
+| Đối chứng Ellie (104) | 0 | 8 | ánh sáng ấm, chất liệu "gần phim chiếu rạp" |
+| Đối chứng Victoria (332) | **"mặt nạ"** | 5 | mi mắt dính khối "giống mặt nạ"; da "như nhựa" |
+
+| Tổng hợp | B3 | B1 | Đối chứng |
+|---|---|---|---|
+| Dải có từ khoá chê (búp bê / mặt nạ / sáp / con rối / rẻ tiền…) | **0/4** | **0/4** | 1/2 |
+| Lặp lời chê cùng chỗ | **ánh sáng đèn: quầng/vùng sáng không khớp nguồn, bật đột ngột** (4/4 dải); **nhân vật chìm vào nền tối / bóng phẳng không được chiếu** (4/4) | ánh sáng nhảy hoặc không khớp nguồn (3/4); mặt và miệng ở cỡ cận (s22; s05 "đơ") | — |
+| Điểm trung bình | **4,75** | **4,75** | 6,5 (8 và 5) |
+| Nhớ số liệu (dải dữ liệu) | **đủ**: 46 đèn, 14 → 1, cả 6 phố và 6 năm; nhận ra "Illustrative data" | **đủ** (như B3) | — |
+
+**Đọc kết quả (P)**
+1. **Hết lời chê "búp bê / mặt nạ / sáp"** ở cả hai biến thể. Đây là lần đầu từ Cổng 6. Với B3 là do bỏ mặt (nhân vật thành bóng). Với B1, s22 vẫn lộ mặt và bị chê "loang lổ", "răng nanh", "tượng", tức là không có từ khoá nhưng vẫn là lỗi mặt cận.
+2. **Điểm chất lượng còn thấp: 4,75/10 cho cả hai**, so với đối chứng 6,5 (Ellie 8). Tiêu chí tập thử của chủ dự án là chủ dự án chấm ≥ 8/10; người xem mù hiện chấm thấp hơn nhiều.
+   - Gốc lặp lại nhất là **ánh sáng**: vùng sáng không khớp nguồn đèn, bật như công tắc, banding.
+   - Kế đến là **nhân vật quá tối hoặc bất động** (B3: bóng phẳng không được hắt sáng, không viền ngược sáng; xưởng đã tự nêu rủi ro này ở §6 và đề xuất thêm viền ngược sáng).
+3. **Số liệu được nhớ rất tốt:** cả hai người xem dải dữ liệu chép lại đủ 46 đèn, 14 → 1 và câu kết. Tiêu chí (4) "nhớ ≥ 2 số liệu" đạt rõ trên hai dải này.
+4. **Hạn chế của phép thử:** dải khung tĩnh cách 0,5–2 s chấm "đứng yên" nặng tay. Các shot Last Round vốn ít chuyển động, và chuyển động mượt không thấy được trên tờ ghép.
+
+**Đề xuất (chờ chủ dự án quyết)**
+- **Chọn B3 làm hướng phần truyện** (không còn mặt nên không còn rủi ro "búp bê"), kèm một lượt sửa nhỏ nhắm đúng hai lời chê lặp:
+  - (a) ánh sáng có lý: vùng sáng bám nguồn đèn, có thời gian "bắt lửa" khoảng 0,3–0,5 s, bỏ banding ở viền;
+  - (b) bóng nhân vật có viền ngược sáng hoặc ánh hắt ấm từ đèn, cùng một chuyển động thở hoặc tay nhỏ;
+  - ước ≈ 40–80 nghìn token, rồi kiểm mù lại 4 dải B3 + 2 đối chứng (≈ 270 nghìn).
+- Đồ hoạ số liệu: giữ ngôn ngữ B3 nhưng bỏ "đèn pha" elip, cho chữ và số ổn định một phong cách với thẻ kết.
+- **B1 không đề xuất cho phần truyện** vì mặt cận vẫn lộ lỗi.
