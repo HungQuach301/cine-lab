@@ -28,7 +28,7 @@ Chủ dự án duyệt đóng W1 có điều kiện luật v22 sạch (AUTHORSHI
   - s24 ba nhịp tách bạch, tay ngang lồng kính.
   - Báo cáo `cong6/w1/SUA-W1-V3.md`. Clip `screening/w1-cong6-v22.mp4`.
 - **Lệch 0 px:** mọi lượt W1 đều dò toàn phim (53 shot); chỉ shot cố ý đổi mới đổi pixel, **W2 0 px** trong mọi lượt.
-- **Gốc lỗi mặt Ida** (thái dương không tóc, thiếu nếp nhăn tuổi, tai to): mở gói THỬ MẶT 2 (Cổng 7 chuẩn bị). Không áp vào phim khi chưa khoá v1.5.2.
+- **Gốc lỗi mặt Ida** (thái dương không tóc, thiếu nếp nhăn tuổi, tai to): gói THỬ MẶT 2 đã mở rồi **dừng ngày 01/10/2026** do chủ dự án chuyển hướng (§6). Phần đã làm lưu ở `reports/m2/cong7/thu-mat-2/ma-dung-do.patch`, không áp vào phim.
 
 ## 3. Luật máy v22 toàn phim (checks v1.5, LOCK `8d55b6ad…` khớp; P không sửa checks/)
 | Luật | v21 | **v22** | Ghi chú |
@@ -54,7 +54,7 @@ Báo cáo đầy đủ: `reports/checks/layout-v22/`, `reports/checks/layout-v22
 | Thân Cas phồng (vai "bướu", "ống phồng") | kiểm mù vòng 2, chủ dự án | giữ sai lệch; xem lại ở Cổng 7 |
 | Grain (G3b) | luật | Cổng 7 |
 | H1b (track không đo được, khớp luồng) | luật | Cổng 7; cần K xem cách đo khi tay che đầu |
-| Mặt Ida cận (búp bê/sáp/mặt nạ) | kiểm mù W1 v1, v2 | THỬ MẶT 2 → khoá v1.5.2 (chủ dự án duyệt) |
+| Mặt Ida cận (búp bê/sáp/mặt nạ) | kiểm mù W1 v1, v2; THỬ MẶT V1 | **không sửa tiếp** — chủ dự án bỏ hướng mặt bán tả thực (§6) |
 | Tiếng tách gập nắp đồng hồ (Đ4) | chủ dự án | Cổng 8 |
 
 **Tồn đọng nhỏ ghi nhận (chưa giao; đóng W1 không kèm):**
@@ -68,7 +68,32 @@ Báo cáo đầy đủ: `reports/checks/layout-v22/`, `reports/checks/layout-v22
 
 P đề xuất xử lý nhóm này trong lượt render Cổng 7, khi các shot liên quan phải render lại.
 
-## 5. Token và thời gian (số công cụ báo)
+## 5. Bài học chính
+1. **Mặt người bán tả thực dựng bằng mã không qua được kiểm mù sau 3 vòng.**
+   - Kiểm mù W1 v1, W1 v2 và THỬ MẶT V1 đều trượt ở cùng chỗ: mặt Ida cỡ cận bị đọc "búp bê / sáp / mặt nạ / con rối".
+   - Diễn hoạt và dàn dựng (PA1: tránh chính diện, mí che, key từ đèn) đã giảm lời chê, nhưng không hết.
+   - Vật liệu và ánh sáng (V1) đổi được số đo (s03 mặt cháy sáng 86,9 % → 3,5 %) nhưng không đổi được cách người xem đọc: lời chê chuyển sang màu da, rồi sang hình khối (thái dương "hói", không nếp nhăn tuổi, tai to).
+   - Mỗi vòng sửa tốn ≈ 0,15–0,5 triệu token cho xưởng, cộng ≈ 0,5 triệu cho kiểm mù.
+2. **Kiểm mù bằng dải khung tĩnh rất nhạy với mặt và hình khối, nhưng kém với chuyển động.**
+   - Vi chuyển động mặt, nhịp diễn và tiếng không được đo.
+   - Nhiễu nền đối chứng (Sprite Fright) ổn định ở 16–19 %, nên ngưỡng "≤ 1/10" vẫn có ≈ 0,4–0,5 xác suất trượt oan với nhân vật tốt.
+3. **Cái đã chạy tốt:**
+   - nhân vật ở cỡ trung–xa hoặc thành bóng;
+   - ánh đèn khí làm mảng ấm;
+   - ngôn ngữ cảnh phố;
+   - đường ống máy: luật v1.5, dò lệch 0 px toàn phim, kiểm toán C3.
+   - Đây là cơ sở cho hướng mới: không cận mặt người, hoạt hình tiết chế 2.5D.
+4. **Chi phí và nhịp:**
+   - một vòng sửa + kiểm cho 1/3 phim tốn ≈ 1–1,5 triệu token;
+   - pipeline luật toàn phim ≈ 1,7 giờ máy mỗi phiên bản;
+   - container khởi động lại ≥ 6 lần, nên mọi bước dài phải chạy tách nền và commit ngay.
+
+## 6. Chuyển hướng (01/10/2026)
+- Chủ dự án quyết không hoàn thiện Last Round thành phim nghệ thuật riêng, mà phát triển kênh lai: truyện cách điệu + số liệu, tên tạm **Lamplight**.
+- Làm tập thử có tiêu chí dừng (AUTHORSHIP "Định hướng", 01/10/2026). Tài sản Last Round được dùng lại cho cảnh truyện.
+- Mốc tiếp theo: bài thử phong cách (B1 toon + viền nét, B3 2.5D cắt giấy) và kịch bản tập thử "The Last Lamplighters".
+
+## 7. Token và thời gian (số công cụ báo)
 | Gói | Token | Thời gian thật |
 |---|---|---|
 | W2 vòng 1 + vòng 2 | ≈ 641 nghìn tích luỹ | ≈ 11,4 giờ (gồm ≈ 3,2 giờ mất do container khởi động lại) |
