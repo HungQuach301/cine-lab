@@ -1,0 +1,1892 @@
+diff --git a/design/m3/ep01/history/do_khoi.sh b/design/m3/ep01/history/do_khoi.sh
+new file mode 100644
+index 0000000..8d6e4b7
+--- /dev/null
++++ b/design/m3/ep01/history/do_khoi.sh
+@@ -0,0 +1,39 @@
++#!/bin/bash
++# Cine Lab · ep01 HISTORY — render một đoạn (một khối) bằng 2 tiến trình song song → trung gian H.264 crf 10 yuv444p (concat copy) → judder → xoá tệp tạm.
++# Luật đĩa CHUAN-KENH-LL §6 (P chuyển 01/10/2026): ghi mức cần ước + df trước khối, mức đĩa đỉnh theo khối vào TIEN-DO.md; dừng khi trống < 6 GB.
++# bash do_khoi.sh NN [thư mục tấm nền]   → /var/tmp/cine-out/ep01/sec/NN.mkv + NN.timing.json + NN.judder.json
++set -e
++D=$(cd "$(dirname "$0")" && pwd); NN=$1; PLATE=$2
++TD=/var/tmp/cine-out/ep01/history/TIEN-DO.md
++O=/var/tmp/cine-out/ep01/sec; T=/var/tmp/cine-out/ep01/history/tmp_$NN; K=/var/tmp/cine-out/ep01/history/khung; mkdir -p $O $T $K
++N=$(python3 -c "import json;s=[x for x in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan'] if x['n']=='$NN'][0];print(s['khung'][1]-s['khung'][0])")
++AV=$(df --output=avail -k / | tail -1); CAN=$(( N * 160 / 1440 + 1 ))
++echo "- khối $NN ($(date +%H:%M)): cần ước ≈ ${CAN} MB (160 MB/phút × $N khung), cộng ≈ ${CAN} MB tạm khi ghép; df trống $(( AV / 1024 )) MB" >> $TD
++if [ $AV -lt 6000000 ]; then echo "  DỪNG: đĩa trống < 6 GB, chờ P" >> $TD; echo "đĩa trống < 6 GB ($AV kB), dừng"; exit 2; fi
++H=$(( N / 2 )); PNG=${PNGS:-}
++S=$(date +%s)
++PA=(); [ -n "$PLATE" ] && PA=(--plate "$PLATE")
++( mn=$AV; while sleep 5; do a=$(df --output=avail -k / | tail -1); [ $a -lt $mn ] && mn=$a; echo $mn > $T/min_avail; done ) & SAMP=$!
++node $D/render.js --sec $NN --out $T/a.mkv --from 0 --to $H "${PA[@]}" --png "$PNG" --pngdir $K > $T/log_a.txt 2>&1 &
++P1=$!
++node $D/render.js --sec $NN --out $T/b.mkv --from $H --to $N "${PA[@]}" --png "$PNG" --pngdir $K > $T/log_b.txt 2>&1 &
++P2=$!
++wait $P1 $P2 || true
++if grep -q "No space left" $T/log_*.txt; then echo "  LỖI khối $NN: No space left on device — dừng ghi, báo P" >> $TD; kill $SAMP; exit 3; fi
++printf "file '%s'\nfile '%s'\n" $T/a.mkv $T/b.mkv > $T/list.txt
++ffmpeg -v error -y -f concat -safe 0 -i $T/list.txt -c copy $O/$NN.mkv
++kill $SAMP 2>/dev/null || true
++python3 - <<EOF
++import json
++a=json.load(open('$T/a.mkv.timing.json')); b=json.load(open('$T/b.mkv.timing.json')); ts=a['times']+b['times']
++json.dump({'sec':'$NN','frames':len(ts),'wall_s':$(( $(date +%s) - S )),'per_frame_s':{'mean':round(sum(ts)/len(ts),3),'max':round(max(ts),3)},'times':ts},open('$O/$NN.timing.json','w'))
++print('timing', len(ts), round(sum(ts)/len(ts),3), round(max(ts),3))
++EOF
++rm -f $T/a.mkv $T/b.mkv $K/s${NN}_f*.png   # xoá trung gian tạm + PNG khung của khối
++MN=$(cat $T/min_avail 2>/dev/null || echo $AV)
++NF=$(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 $O/$NN.mkv)
++echo "frames_mkv $NF / $N"
++python3 /home/user/cine-lab/scripts/p/judder.py $O/$NN.mkv --json $O/$NN.judder.json > /dev/null || true
++J=$(python3 -c "import json;d=json.load(open('$O/$NN.judder.json'));print(d['loi'],d['giu_co_y_ge_1s'])")
++echo "  khối $NN xong ($(date +%H:%M)): $NF/$N khung, judder (loi, giu≥1s) = $J; tệp $(( $(stat -c %s $O/$NN.mkv) / 1048576 )) MB; đĩa trống thấp nhất trong khối $(( MN / 1024 )) MB" >> $TD
++echo "judder $J"
+diff --git a/design/m3/ep01/history/do_sec.sh b/design/m3/ep01/history/do_sec.sh
+new file mode 100644
+index 0000000..22b36c7
+--- /dev/null
++++ b/design/m3/ep01/history/do_sec.sh
+@@ -0,0 +1,25 @@
++#!/bin/bash
++# Cine Lab · ep01 HISTORY — render một đoạn bằng 2 tiến trình song song, ghép H.264 crf 10 (concat copy), gộp timing, chạy judder.
++# bash do_sec.sh NN [thư mục tấm nền]   → /var/tmp/cine-out/ep01/sec/NN.mkv + NN.timing.json + NN.judder.json
++set -e
++AV=$(df --output=avail -k /var/tmp | tail -1); df -h / | tail -1; [ $AV -lt 3000000 ] && { echo "đĩa còn < 3 GB ($AV kB), dừng"; exit 2; }
++D=$(cd "$(dirname "$0")" && pwd); NN=$1; PLATE=$2
++O=/var/tmp/cine-out/ep01/sec; T=/var/tmp/cine-out/ep01/history/tmp_$NN; mkdir -p $O $T /var/tmp/cine-out/ep01/history/khung
++N=$(python3 -c "import json;s=[x for x in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan'] if x['n']=='$NN'][0];print(s['khung'][1]-s['khung'][0])")
++H=$(( N / 2 )); PNG=${PNGS:-}
++S=$(date +%s)
++PA=(); [ -n "$PLATE" ] && PA=(--plate "$PLATE")
++node $D/render.js --sec $NN --out $T/a.mkv --from 0 --to $H "${PA[@]}" --png "$PNG" --pngdir /var/tmp/cine-out/ep01/history/khung > $T/log_a.txt 2>&1 &
++node $D/render.js --sec $NN --out $T/b.mkv --from $H --to $N "${PA[@]}" --png "$PNG" --pngdir /var/tmp/cine-out/ep01/history/khung > $T/log_b.txt 2>&1 &
++wait
++printf "file '%s'\nfile '%s'\n" $T/a.mkv $T/b.mkv > $T/list.txt
++ffmpeg -v error -y -f concat -safe 0 -i $T/list.txt -c copy $O/$NN.mkv
++python3 - <<EOF
++import json
++a=json.load(open('$T/a.mkv.timing.json')); b=json.load(open('$T/b.mkv.timing.json')); ts=a['times']+b['times']
++json.dump({'sec':'$NN','frames':len(ts),'wall_s':$(( $(date +%s) - S )),'per_frame_s':{'mean':round(sum(ts)/len(ts),3),'max':round(max(ts),3)},'times':ts},open('$O/$NN.timing.json','w'))
++print('timing', len(ts), round(sum(ts)/len(ts),3), round(max(ts),3))
++EOF
++rm -f $T/a.mkv $T/b.mkv   # tiết kiệm đĩa dùng chung
++echo "frames_mkv $(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 $O/$NN.mkv) / $N"
++python3 /home/user/cine-lab/scripts/p/judder.py $O/$NN.mkv --json $O/$NN.judder.json | tail -5 || true
+diff --git a/design/m3/ep01/history/khung.py b/design/m3/ep01/history/khung.py
+new file mode 100644
+index 0000000..4690c41
+--- /dev/null
++++ b/design/m3/ep01/history/khung.py
+@@ -0,0 +1,14 @@
++"""Cine Lab · ep01 HISTORY — rút khung từ clip đoạn và ghép bảng xem (½ cỡ, 2 cột).
++/opt/cine/bin/python khung.py NN 2.5,14.2,... out.jpg [--full]"""
++import io, subprocess, sys
++from PIL import Image
++NN, ts, out = sys.argv[1], [float(x) for x in sys.argv[2].split(',')], sys.argv[3]
++full = '--full' in sys.argv
++ims = []
++for t in ts:
++    r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t}', '-i', f'/var/tmp/cine-out/ep01/sec/{NN}.mkv', '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)
++    im = Image.open(io.BytesIO(r.stdout)).convert('RGB'); ims.append(im if full else im.resize((960, 540)))
++w, h = ims[0].size; cols = 1 if full else 2
++g = Image.new('RGB', (w * cols, h * ((len(ims) + cols - 1) // cols)))
++for i, im in enumerate(ims): g.paste(im, ((i % cols) * w, (i // cols) * h))
++g.save(out, quality=82)
+diff --git a/design/m3/ep01/history/lib.js b/design/m3/ep01/history/lib.js
+new file mode 100644
+index 0000000..e5ba485
+--- /dev/null
++++ b/design/m3/ep01/history/lib.js
+@@ -0,0 +1,178 @@
++// Cine Lab · ep01 HISTORY — thư viện đồ hoạ dùng chung, tách từ lát cắt M2.2a (design/m3/lat-cat/dohoa.js, đã duyệt làm chuẩn kênh).
++// Ngôn ngữ B3 giữ nguyên: giấy ngà có vân + mép răng cưa, bóng đổ theo ánh rọi, ánh đèn rọi ấm lướt chậm, giấy lay rất nhẹ, bụi trong ánh rọi,
++// canvas2D vẽ lại MỖI khung (t = khung/24 tất định), motion blur khung con trong cửa sổ nhanh.
++// Mỗi đoạn là một tệp sec/NN.js đặt window.SEC = { n, frames, blur: [[t0,t1]…], frame(g, t) }. render.js nạp lib.js rồi sec/NN.js.
++// Font DejaVu (RIGHTS C4-F1, M2-F-DejaVuSans-Bold, M2-F-DejaVuSerif-Bold).
++'use strict';
++const W = 1920, H = 1080, FPS = 24;
++const cv = document.getElementById('c'), X = cv.getContext('2d');
++const COLD_T = '#2b405c';
++const INK = '#211a17', INK2 = '#4a3f36', CREAM = '#ecdfbe', AMBER = '#c47026', AMBER_L = '#d99a52', COLD = '#3f5a7a', NAVY = '#141a2e', COLDW = '#eef3ff', OCHRE = '#6b3a12';
++const SEPIA = '#5b4330';   // mực nâu bản đồ
++const SANS = '"DejaVu Sans"', SERIFB = '"DejaVu Serif"';
++const font = (px, kind = 'sans', bold = false) => `${bold ? 'bold ' : ''}${px}px ${kind === 'serif' ? SERIFB : SANS}`;
++const SX = 150, SY = 90, SW = 1620, SH = 900;   // tấm giấy chuẩn (toạ độ khung)
++
++// ---------- tiện ích thời gian ----------
++const cl = (u) => Math.max(0, Math.min(1, u));
++const sm = (u) => { u = cl(u); return u * u * u * (u * (u * 6 - 15) + 10); };
++const eo = (u) => { u = cl(u); return 1 - Math.pow(1 - u, 3); };
++const ei = (u) => { u = cl(u); return u * u * u; };
++const pr = (t, a, b) => cl((t - a) / (b - a));
++const lerp = (a, b, u) => a + (b - a) * u;
++function rng(seed) { let s = seed >>> 0 || 1; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
++function mixC(a, b, u) { const p = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return `rgb(${A.map((x, i) => Math.round(lerp(x, B[i], cl(u)))).join(',')})`; }
++
++// ---------- giấy ----------
++function paperTex(w, h, seed) {
++  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d'); const R = rng(seed);
++  g.fillStyle = CREAM; g.fillRect(0, 0, w, h);
++  const id = g.getImageData(0, 0, w, h), d = id.data;
++  for (let i = 0; i < d.length; i += 4) { const n = (R() - 0.5) * 9; d[i] += n; d[i + 1] += n; d[i + 2] += n * 0.8; }
++  g.putImageData(id, 0, 0);
++  const nf = Math.round(1400 * w * h / (1620 * 900));
++  for (let i = 0; i < nf; i++) { const x = R() * w, y = R() * h, L = 6 + R() * 26, a = R() * Math.PI;
++    g.strokeStyle = `rgba(${R() < 0.5 ? '120,95,60' : '255,250,235'},${0.05 + R() * 0.07})`; g.lineWidth = 0.6 + R() * 0.8;
++    g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a) * L * 0.5 + (R() - 0.5) * 4, y + Math.sin(a) * L * 0.5 + (R() - 0.5) * 4, x + Math.cos(a) * L, y + Math.sin(a) * L); g.stroke(); }
++  for (let i = 0; i < 26; i++) { const x = R() * w, y = R() * h, r = 40 + R() * 160, gr = g.createRadialGradient(x, y, 0, x, y, r);
++    gr.addColorStop(0, `rgba(150,110,60,${0.025 + R() * 0.03})`); gr.addColorStop(1, 'rgba(150,110,60,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); }
++  const e = g.createLinearGradient(0, 0, 0, h); e.addColorStop(0, 'rgba(90,60,30,0.10)'); e.addColorStop(0.06, 'rgba(90,60,30,0)'); e.addColorStop(0.94, 'rgba(90,60,30,0)'); e.addColorStop(1, 'rgba(90,60,30,0.12)'); g.fillStyle = e; g.fillRect(0, 0, w, h);
++  const e2 = g.createLinearGradient(0, 0, w, 0); e2.addColorStop(0, 'rgba(90,60,30,0.10)'); e2.addColorStop(0.04, 'rgba(90,60,30,0)'); e2.addColorStop(0.96, 'rgba(90,60,30,0)'); e2.addColorStop(1, 'rgba(90,60,30,0.10)'); g.fillStyle = e2; g.fillRect(0, 0, w, h);
++  return c;
++}
++function edgePath(w, h, seed) { const R = rng(seed), p = []; const step = 18;
++  for (let x = 0; x <= w; x += step) p.push([x, (R() - 0.5) * 2.2]);
++  for (let y = 0; y <= h; y += step) p.push([w + (R() - 0.5) * 2.2, y]);
++  for (let x = w; x >= 0; x -= step) p.push([x, h + (R() - 0.5) * 2.2]);
++  for (let y = h; y >= 0; y -= step) p.push([(R() - 0.5) * 2.2, y]); return p; }
++const TEX = {};
++function paper(w, h, seed) { const k = `${w}x${h}:${seed}`; return TEX[k] || (TEX[k] = { tex: paperTex(w, h, seed), edge: edgePath(w, h, seed + 3) }); }
++const BG = (() => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const R = rng(77);
++  const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#171b2b'); gr.addColorStop(1, '#0d0f19'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
++  for (let i = 0; i < 5000; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '0,0,0' : '120,110,140'},${0.04 + R() * 0.05})`; g.fillRect(R() * W, R() * H, 1 + R() * 2, 1 + R() * 2); }
++  return c; })();
++function hatchPat(color, bg, lw = 3.2) { const c = document.createElement('canvas'); c.width = c.height = 14; const g = c.getContext('2d');
++  g.fillStyle = bg; g.fillRect(0, 0, 14, 14); g.strokeStyle = color; g.lineWidth = lw;
++  for (const o of [-14, 0, 14]) { g.beginPath(); g.moveTo(o, 14); g.lineTo(o + 14, 0); g.stroke(); } return X.createPattern(c, 'repeat'); }
++
++// ---------- chữ ----------
++function text(g, s, x, y, f, color, align = 'left', base = 'alphabetic') { g.font = f; g.fillStyle = color; g.textAlign = align; g.textBaseline = base; g.fillText(s, x, y); }
++function textA(g, s, x, y, f, color, a, align = 'left', base = 'alphabetic') { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); text(g, s, x, y, f, color, align, base); g.restore(); }
++// chữ hiện bằng "mực thấm" từ trái sang phải (clip), a = tiến độ 0..1
++function textWipe(g, s, x, y, f, color, a, align = 'left', base = 'alphabetic') { if (a <= 0) return; g.save(); g.font = f; const w = g.measureText(s).width;
++  const x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x; g.beginPath(); g.rect(x0 - 4, y - 400, (w + 30) * sm(a), 800); g.clip();
++  g.globalAlpha *= cl(a * 3); text(g, s, x, y, f, color, align, base); g.restore(); }
++function wrap(g, s, maxW, f) { g.font = f; if (g.measureText(s).width <= maxW) return [s]; const w = s.split(' '); let a = '', out = [];
++  for (const x of w) { const n = a ? a + ' ' + x : x; if (g.measureText(n).width > maxW && a) { out.push(a); a = x; } else a = n; } out.push(a); return out; }
++function tag(g, s, x, y, fill, color, f, a = 1, dash = false, align = 'left') { if (a <= 0) return 0; g.save(); g.globalAlpha *= cl(a); g.font = f; const w = g.measureText(s).width + 28, h = 38;
++  const x0 = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x; g.fillStyle = fill; g.fillRect(x0, y - h / 2, w, h); if (dash) { g.setLineDash([8, 5]); g.strokeStyle = color; g.lineWidth = 2; g.strokeRect(x0 + 3, y - h / 2 + 3, w - 6, h - 6); g.setLineDash([]); }
++  text(g, s, x0 + 14, y + 1, f, color, 'left', 'middle'); g.restore(); return w; }
++// nhãn ACTUAL: khung viền mực, nét liền (như G1 lát cắt)
++function actualTag(g, s, xr, y, a, px = 22) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.font = font(px, 'sans', true); const w = g.measureText(s).width + 28;
++  g.lineWidth = 2; g.strokeStyle = INK; g.strokeRect(xr - w, y - 20, w, 40); text(g, s, xr - 14, y + 1, font(px, 'sans', true), INK, 'right', 'middle'); g.restore(); }
++function srcLine(g, s, y, a, x = 60) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); text(g, s, x, y, font(20), INK2); g.restore(); }
++
++// ---------- ánh rọi, lay, bụi ----------
++let lightFn = (t) => [960 + 360 * Math.sin(2 * Math.PI * t / 23 + 0.6), 470 + 110 * Math.sin(2 * Math.PI * t / 31)];
++const DUST = (() => { const R = rng(4242); return Array.from({ length: 46 }, () => [R(), R(), R(), R(), R()]); })();
++// tấm giấy: o = { x, y, w, h, seed, alpha, rot (biên độ lay), content(g, t), flipU, ph (pha lay riêng) }
++function drawCard(g, t, o) {
++  const [lx, ly] = lightFn(t), w = o.w || SW, h = o.h || SH, x = o.x === undefined ? SX : o.x, y = o.y === undefined ? SY : o.y, ra = o.rot === undefined ? 1 : o.rot, ph = o.ph || 0;
++  const P = paper(w, h, o.seed || 11);
++  const rot = ra * (0.0021 * Math.sin(2 * Math.PI * t / 7.3 + ph) + 0.0012 * Math.sin(2 * Math.PI * t / 4.1 + 1 + ph)) + (o.tilt || 0);
++  const dx = ra * 1.6 * Math.sin(2 * Math.PI * t / 5.1 + 0.3 + ph), dy = ra * 1.1 * Math.sin(2 * Math.PI * t / 6.7 + 2 + ph);
++  g.save(); g.globalAlpha = o.alpha === undefined ? 1 : o.alpha;
++  g.translate(x + dx + w / 2, y + dy + h / 2); g.rotate(rot); if (o.scale) g.scale(o.scale, o.scale); g.translate(-w / 2, -h / 2);
++  if (o.flipU !== undefined) g.scale(Math.max(0.001, o.flipU), 1);
++  const e = P.edge;
++  g.save(); g.shadowColor = 'rgba(0,0,0,0.62)'; g.shadowBlur = 38; g.shadowOffsetX = (x + w / 2 - lx) * 0.03 + 10; g.shadowOffsetY = (y + h / 2 - ly) * 0.03 + 16;
++  g.beginPath(); e.forEach(([px, py], i) => (i ? g.lineTo(px, py) : g.moveTo(px, py))); g.closePath(); g.fillStyle = CREAM; g.fill(); g.restore();
++  g.save(); g.beginPath(); e.forEach(([px, py], i) => (i ? g.lineTo(px, py) : g.moveTo(px, py))); g.closePath(); g.clip(); g.drawImage(P.tex, 0, 0);
++  if (o.content) o.content(g, t);
++  if (o.flipU !== undefined) { g.fillStyle = `rgba(30,20,10,${0.45 * (1 - o.flipU)})`; g.fillRect(0, 0, w, h); }
++  g.restore(); g.restore();
++}
++function drawLight(g, t, a) {
++  const [lx, ly] = lightFn(t);
++  g.save(); g.globalCompositeOperation = 'multiply'; const v = g.createRadialGradient(lx, ly, 260, lx, ly, 1250);
++  v.addColorStop(0, 'rgba(255,255,255,1)'); v.addColorStop(1, `rgba(${Math.round(255 - 120 * a)},${Math.round(255 - 125 * a)},${Math.round(255 - 110 * a)},1)`); g.fillStyle = v; g.fillRect(0, 0, W, H);
++  g.globalCompositeOperation = 'lighter'; const s = g.createRadialGradient(lx, ly, 0, lx, ly, 700);
++  s.addColorStop(0, `rgba(60,38,12,${0.55 * a})`); s.addColorStop(1, 'rgba(60,38,12,0)'); g.fillStyle = s; g.fillRect(0, 0, W, H); g.restore();
++}
++function drawDust(g, t, a) { if (a <= 0) return; const [lx, ly] = lightFn(t); g.save(); g.globalCompositeOperation = 'lighter';
++  for (const [r1, r2, r3, r4, r5] of DUST) { const x = lx - 700 + 1400 * ((r1 + 0.012 * (0.5 + r4) * t) % 1), y = ly - 420 + 840 * ((r2 + 0.006 * (0.4 + r5) * t + 0.02 * Math.sin(t * (0.3 + r3) + r1 * 9)) % 1);
++    const d = Math.hypot(x - lx, y - ly) / 700, al = a * (0.10 + 0.16 * r3) * Math.max(0, 1 - d * d), rad = 1.2 + 2.4 * r4;
++    if (al <= 0.004) continue; const gr = g.createRadialGradient(x, y, 0, x, y, rad * 2); gr.addColorStop(0, `rgba(255,214,160,${al})`); gr.addColorStop(1, 'rgba(255,214,160,0)'); g.fillStyle = gr; g.fillRect(x - rad * 2, y - rad * 2, rad * 4, rad * 4); }
++  g.restore(); }
++// quầng sáng cộng (đèn)
++function glow(g, x, y, r, rgb, a) { if (a <= 0.003) return; g.save(); g.globalCompositeOperation = 'lighter'; const gr = g.createRadialGradient(x, y, 0, x, y, r);
++  gr.addColorStop(0, `rgba(${rgb},${a})`); gr.addColorStop(0.35, `rgba(${rgb},${a * 0.38})`); gr.addColorStop(1, `rgba(${rgb},0)`); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); g.restore(); }
++const RGB_AMB = '255,178,90', RGB_WHT = '225,236,255';
++
++// ---------- biểu tượng ----------
++// đèn khí (cột + lồng kính + ngọn lửa); s = tỉ lệ (cao ≈ 150 s), lit 0..1
++function gasLampIcon(g, x, y, s, a, lit = 1, col = OCHRE) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.translate(x, y); g.scale(s, s);
++  g.strokeStyle = col; g.fillStyle = col; g.lineWidth = 3.4; g.lineJoin = 'round';
++  g.fillRect(-4, 40, 8, 104); g.fillRect(-14, 136, 28, 8);   // cột + đế
++  g.beginPath(); g.moveTo(-20, 32); g.lineTo(20, 32); g.stroke();   // tay ngang (thang tựa)
++  g.beginPath(); g.moveTo(-15, 30); g.lineTo(-22, -4); g.lineTo(22, -4); g.lineTo(15, 30); g.closePath(); g.stroke();   // lồng kính
++  g.beginPath(); g.moveTo(-26, -4); g.lineTo(0, -22); g.lineTo(26, -4); g.closePath(); g.fill();   // mũ
++  g.fillRect(-3, -30, 6, 9);
++  if (lit > 0) { g.fillStyle = `rgba(232,150,60,${0.85 * lit})`; g.beginPath(); g.moveTo(0, 22); g.quadraticCurveTo(-8, 12, 0, 1); g.quadraticCurveTo(8, 12, 0, 22); g.fill(); }
++  g.restore(); }
++// cửa xếp thang máy có tay gạt; close 0..1 (cửa kéo khép), btn 0..1 (tay gạt → hàng nút)
++function liftGateIcon(g, x, y, s, a, close = 0, btn = 0, col = OCHRE) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.translate(x, y); g.scale(s, s);
++  g.strokeStyle = col; g.fillStyle = col; g.lineWidth = 3.4; g.lineJoin = 'round';
++  g.strokeRect(-46, -20, 92, 164);   // khung buồng
++  g.fillRect(-52, -30, 104, 10);
++  const open = 1 - sm(close), xr = lerp(40, -40 + 80 * 0.95, 0) , w = lerp(16, 80, 1 - open);   // phần cửa xếp phủ từ trái
++  const n = 6; g.lineWidth = 2.4;
++  for (let i = 0; i < n; i++) { const xa = -40 + (w / n) * i, xb = -40 + (w / n) * (i + 1); g.beginPath(); g.moveTo(xa, -14); g.lineTo(xb, 138); g.moveTo(xb, -14); g.lineTo(xa, 138); g.stroke(); }
++  g.beginPath(); g.moveTo(-40 + w, -14); g.lineTo(-40 + w, 138); g.stroke();
++  // tay gạt (núm tròn + cần) mờ dần, hàng nút hiện dần
++  g.save(); g.translate(64, 60); g.globalAlpha *= 1 - sm(btn); g.beginPath(); g.arc(0, 0, 12, 0, 7); g.stroke(); g.rotate(-0.7 + 1.2 * sm(close)); g.fillRect(-2.5, -34, 5, 34); g.beginPath(); g.arc(0, -36, 5, 0, 7); g.fill(); g.restore();
++  g.save(); g.globalAlpha *= sm(btn); g.strokeRect(54, 20, 20, 84); for (let i = 0; i < 4; i++) { g.beginPath(); g.arc(64, 32 + i * 20, 5.5, 0, 7); g.fill(); } g.restore();
++  g.restore(); }
++
++// ---------- bóng người (silhouette, không mặt) ----------
++// người đứng/leo: x,y = chân; hgt = cao (px); arm = góc tay nâng (rad, 0 = buông); col = màu bóng
++function person(g, x, y, hgt, o = {}) { const k = hgt / 170, col = o.col || '#1a1410'; g.save(); g.translate(x, y); g.scale(k * (o.flip ? -1 : 1), k); g.fillStyle = col; g.strokeStyle = col; g.lineCap = 'round'; g.lineJoin = 'round';
++  const step = o.step || 0;   // dáng bước chân
++  g.lineWidth = 15; g.beginPath(); g.moveTo(-6, -84); g.lineTo(-10 - 12 * step, 0); g.moveTo(6, -84); g.lineTo(10 + 12 * step, 0); g.stroke();   // chân
++  g.beginPath(); g.moveTo(-20, -84); g.lineTo(-18, -142); g.quadraticCurveTo(0, -150, 18, -142); g.lineTo(20, -84); g.closePath(); g.fill();   // thân / áo khoác
++  if (o.coat) { g.beginPath(); g.moveTo(-22, -86); g.lineTo(-26, -40); g.lineTo(26, -40); g.lineTo(22, -86); g.fill(); }
++  g.beginPath(); g.arc(0, -156, 12, 0, 7); g.fill();   // đầu (không mặt)
++  if (o.hat === 'cap') { g.beginPath(); g.ellipse(0, -165, 14, 6, 0, 0, 7); g.fill(); g.fillRect(-2, -166, 20, 4); }
++  if (o.hat === 'top') { g.fillRect(-11, -186, 22, 22); g.fillRect(-17, -167, 34, 4); }
++  if (o.hat === 'helmet') { g.beginPath(); g.ellipse(0, -164, 15, 9, 0, Math.PI, 0); g.fill(); g.fillRect(-17, -166, 34, 4); }
++  if (o.hat === 'police') { g.beginPath(); g.moveTo(-14, -164); g.lineTo(-11, -184); g.lineTo(11, -184); g.lineTo(14, -164); g.fill(); g.fillRect(-18, -166, 36, 4); }
++  const sh = [0, -138], a1 = o.arm === undefined ? 0.2 : o.arm, a2 = o.arm2 === undefined ? -0.15 : o.arm2;   // tay
++  g.lineWidth = 11; g.beginPath(); g.moveTo(...sh); const e1 = [sh[0] + Math.sin(a1) * 62, sh[1] + Math.cos(a1) * 62]; g.lineTo(...e1); g.stroke();
++  g.beginPath(); g.moveTo(...sh); const e2 = [sh[0] + Math.sin(a2) * 62, sh[1] + Math.cos(a2) * 62]; g.lineTo(...e2); g.stroke();
++  if (o.pole) { g.lineWidth = 4; g.beginPath(); g.moveTo(e1[0] - Math.sin(a1) * 30, e1[1] - Math.cos(a1) * 30); g.lineTo(e1[0] + Math.sin(a1) * o.pole, e1[1] + Math.cos(a1) * o.pole); g.stroke(); }
++  if (o.vest) { g.fillStyle = o.vest; g.fillRect(-16, -128, 32, 7); g.fillRect(-16, -108, 32, 7); }   // dải phản quang
++  g.restore(); return { hand: [x + (o.flip ? -1 : 1) * Math.sin(a1) * 62 * k, y + (-138 + Math.cos(a1) * 62) * k] }; }
++// thang tựa: chân (x0,y0) → đỉnh (x1,y1)
++function ladder(g, x0, y0, x1, y1, wd, col, lw = 3) { const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy), nx = -dy / L * wd / 2, ny = dx / L * wd / 2;
++  g.save(); g.strokeStyle = col; g.lineWidth = lw; g.lineCap = 'round'; g.beginPath(); g.moveTo(x0 + nx, y0 + ny); g.lineTo(x1 + nx, y1 + ny); g.moveTo(x0 - nx, y0 - ny); g.lineTo(x1 - nx, y1 - ny);
++  const n = Math.max(2, Math.round(L / (wd * 0.9))); for (let i = 1; i < n; i++) { const u = i / n; g.moveTo(x0 + dx * u + nx, y0 + dy * u + ny); g.lineTo(x0 + dx * u - nx, y0 + dy * u - ny); } g.stroke(); g.restore(); }
++
++// ---------- khung ----------
++let PLATE = null;
++window.setPlate = async (url) => { if (!url) { PLATE = null; return; } const im = new Image(); im.src = url; await im.decode(); PLATE = im; };
++function frameAt(g, t) {
++  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0);
++  window.SEC.frame(g, t);
++  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0);
++  // chuyển đoạn: mờ từ / về nền tối trong FI khung đầu, FO khung cuối (không khung nào đen hẳn → không giữ khung)
++  const S = window.SEC, fi = S.fadeIn === undefined ? 6 : S.fadeIn, fo = S.fadeOut === undefined ? 6 : S.fadeOut, fr = t * FPS, N = S.frames;
++  let k = 0; if (fi > 0 && fr < fi) k = Math.max(k, 1 - sm((fr + 1) / (fi + 1))); if (fo > 0 && fr > N - 1 - fo) k = Math.max(k, sm((fr - (N - 1 - fo)) / (fo + 1)));
++  if (k > 0) { g.fillStyle = `rgba(3,4,8,${k})`; g.fillRect(0, 0, W, H); }
++}
++const ACC = document.createElement('canvas'); ACC.width = W; ACC.height = H; const AX = ACC.getContext('2d');
++window.drawFrame = (f) => {
++  const t = f / FPS, fast = (window.SEC.blur || []).some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
++  if (N === 1) { frameAt(X, t); return; }
++  for (let k = 0; k < N; k++) { frameAt(AX, t + ((k + 0.5) / N - 0.5) * 0.5 / FPS); X.globalCompositeOperation = 'source-over'; X.globalAlpha = 1 / (k + 1); X.setTransform(1, 0, 0, 1, 0, 0); X.drawImage(ACC, 0, 0); }
++  X.globalAlpha = 1;
++};
+diff --git a/design/m3/ep01/history/moc_tu.py b/design/m3/ep01/history/moc_tu.py
+new file mode 100644
+index 0000000..216c392
+--- /dev/null
++++ b/design/m3/ep01/history/moc_tu.py
+@@ -0,0 +1,23 @@
++"""Cine Lab · ep01 HISTORY — in mốc từng từ của lời dẫn, tính theo giây TƯƠNG ĐỐI đầu đoạn (t = vo_offset + mốc ký tự).
++python3 moc_tu.py NN [--json out.json]"""
++import json, sys
++R = '/home/user/cine-lab/reports/m3/m2-2b/'
++n = sys.argv[1]
++tl = [s for s in json.load(open(R + 'timeline-v3.json'))['doan'] if s['n'] == n][0]
++a = json.load(open(R + f'vo/bill-{n}.align.json'))
++ch, st, en = a['characters'], a['character_start_times_seconds'], a['character_end_times_seconds']
++words, cur = [], None
++for c, s, e in zip(ch, st, en):
++    if c.isspace():
++        if cur: words.append(cur); cur = None
++        continue
++    if cur is None: cur = [c, s, e]
++    else: cur[0] += c; cur[2] = e
++if cur: words.append(cur)
++off = tl['vo_offset']
++out = [[w, round(s + off, 3), round(e + off, 3)] for w, s, e in words]
++if '--json' in sys.argv:
++    json.dump({'n': n, 'dur': tl['dur'], 'khung': tl['khung'], 'words': out}, open(sys.argv[sys.argv.index('--json') + 1], 'w'), ensure_ascii=False)
++else:
++    print(n, 'dur', round(tl['dur'], 3), 'khung', tl['khung'])
++    print(' '.join(f'{w}@{s:.2f}' for w, s, e in out))
+diff --git a/design/m3/ep01/history/render.js b/design/m3/ep01/history/render.js
+new file mode 100644
+index 0000000..9169a71
+--- /dev/null
++++ b/design/m3/ep01/history/render.js
+@@ -0,0 +1,47 @@
++// Cine Lab · ep01 HISTORY — trình điều khiển render (tách từ lat-cat/dohoa_render.js): nạp lib.js + sec/NN.js trong Chromium, vẽ từng khung, H.264 crf 10 yuv444p (P đổi hợp đồng 01/10/2026: đĩa đầy với FFV1).
++// node render.js --sec 02 --out <tệp.mkv> [--from 0 --to N] [--plate <thư mục %04d.png>] [--png 0,100,...] [--pngdir d]
++// Khung là khung CỤC BỘ của đoạn (0 … frames−1). Ghi <out>.timing.json (giây/khung: vẽ + lấy điểm ảnh).
++const { chromium } = require('/opt/pw/node_modules/playwright');
++const { spawn } = require('child_process');
++const fs = require('fs'), path = require('path');
++const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
++const SEC = arg('sec'), OUT = path.resolve(arg('out', '/var/tmp/cine-out/ep01/history/xem/x.mkv')), PLATE = arg('plate', null);
++const PNGS = (arg('png', '') || '').split(',').filter(Boolean).map(Number), PNGDIR = arg('pngdir', path.dirname(OUT));
++(async () => {
++  const browser = await chromium.launch({ args: ['--disable-gpu', '--font-render-hinting=none', '--force-color-profile=srgb'] });
++  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
++  page.on('pageerror', (e) => console.error('[pageerror]', e.message)); page.on('console', (m) => console.error('[page]', m.text()));
++  await page.route('http://dohoa.local/**', (route) => { const u = decodeURIComponent(new URL(route.request().url()).pathname);
++    if (u === '/index.html') return route.fulfill({ status: 200, contentType: 'text/html; charset=utf-8', body: '<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c" width="1920" height="1080"></canvas><script src="/lib.js"></script><script src="/sec.js"></script></body></html>' });
++    if (u === '/lib.js') return route.fulfill({ status: 200, contentType: 'text/javascript; charset=utf-8', body: fs.readFileSync(path.join(__dirname, 'lib.js')) });
++    if (u === '/sec.js') return route.fulfill({ status: 200, contentType: 'text/javascript; charset=utf-8', body: fs.readFileSync(path.join(__dirname, 'sec', SEC + '.js')) });
++    if (u.startsWith('/plate/') && PLATE) { const p = path.join(PLATE, path.basename(u)); if (fs.existsSync(p)) return route.fulfill({ status: 200, contentType: 'image/png', body: fs.readFileSync(p) }); }
++    route.fulfill({ status: 404, body: 'nf' }); });
++  await page.goto('http://dohoa.local/index.html'); await page.waitForFunction(() => window.SEC && window.SEC.ready === true);
++  const N = await page.evaluate(() => window.SEC.frames), F0 = +arg('from', 0), F1 = +arg('to', N);
++  const plateRange = await page.evaluate(() => window.SEC.plate || null);   // [khung0, khung1) cục bộ dùng tấm nền; tấm nền đánh số từ 0000
++  const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);   // xem thử: chỉ xuất PNG các khung này
++  if (ONLY.length) { fs.mkdirSync(PNGDIR, { recursive: true });
++    for (const f of ONLY) { if (plateRange) { const inR = f >= plateRange[0] && f < plateRange[1]; const pi = Math.min(plateRange[2] - 1, Math.max(0, f - plateRange[0]));
++        await page.evaluate(async (u) => await window.setPlate(u), PLATE && inR ? `/plate/${String(pi).padStart(4, '0')}.png` : null); }
++      await page.evaluate((f) => window.drawFrame(f), f); const b = await page.screenshot({ type: 'jpeg', quality: 85 }); fs.writeFileSync(path.join(PNGDIR, `s${SEC}_f${String(f).padStart(4, '0')}.jpg`), b); }
++    await browser.close(); return; }
++  const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1920x1080', '-framerate', '24', '-i', '-',
++    '-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
++  const times = [];
++  for (let f = F0; f < F1; f++) {
++    const b = Date.now();
++    if (plateRange) { const inR = f >= plateRange[0] && f < plateRange[1]; const pi = Math.min(plateRange[2] - 1, Math.max(0, f - plateRange[0]));
++      await page.evaluate(async (u) => await window.setPlate(u), PLATE && inR ? `/plate/${String(pi).padStart(4, '0')}.png` : null); }
++    const b64 = await page.evaluate((f) => { window.drawFrame(f); const d = document.getElementById('c').getContext('2d').getImageData(0, 0, 1920, 1080).data;
++      let s = ''; const CH = 0x8000; for (let i = 0; i < d.length; i += CH) s += String.fromCharCode.apply(null, d.subarray(i, i + CH)); return btoa(s); }, f);
++    const buf = Buffer.from(b64, 'base64'); times.push((Date.now() - b) / 1000);
++    if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
++    if (PNGS.includes(f)) { const p = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1920x1080', '-i', '-', '-frames:v', '1', path.join(PNGDIR, `s${SEC}_f${f}.png`)]); p.stdin.end(buf); }
++    if ((f - F0) % 100 === 0) console.error(`[render ${SEC}] ${f}/${F1} ${times[times.length - 1].toFixed(2)} s`);
++  }
++  ff.stdin.end(); await new Promise((r) => ff.on('close', r)); await browser.close();
++  const mean = times.reduce((a, b) => a + b, 0) / times.length;
++  fs.writeFileSync(OUT + '.timing.json', JSON.stringify({ sec: SEC, from: F0, to: F1, frames: times.length, per_frame_s: { mean: +mean.toFixed(3), max: +Math.max(...times).toFixed(3) }, times }, null, 0));
++  console.log(JSON.stringify({ sec: SEC, from: F0, to: F1, mean: +mean.toFixed(3), max: +Math.max(...times).toFixed(3) }));
++})().catch((e) => { console.error(e); process.exit(1); });
+diff --git a/design/m3/ep01/history/sec/02.js b/design/m3/ep01/history/sec/02.js
+new file mode 100644
+index 0000000..341f150
+--- /dev/null
++++ b/design/m3/ep01/history/sec/02.js
+@@ -0,0 +1,149 @@
++// Đoạn 02 · [HISTORY] Title + "Pall Mall, 1807" — 769 khung (32,04 s). Lời dẫn bắt đầu 4,00 s (thẻ tựa 4 s không lời).
++// Bản đồ London CÁCH ĐIỆU, vẽ thủ tục (mạng phố mọc nhánh tất định, sông uốn); không dựa trên bản đồ có bản quyền nào.
++// Số chỉ là nhãn bản đồ (không biểu đồ so sánh). Mốc từ: moc_tu.py 02.
++'use strict';
++const T02 = { london: 4.00, y1807: 4.82, street: 6.59, pall: 7.53, row: 8.66, burning: 9.43, lit: 10.79, first: 12.67, idea: 15.41, spread: 15.95,
++  y1820: 17.40, forty: 19.50, two15: 22.23, every: 25.20, one: 25.78, person: 27.23, dusk: 28.79, dawn: 29.97 };
++const MC = [810, 470];   // tâm bản đồ (toạ độ tấm)
++// sông (đường tâm) — uốn kiểu cách điệu
++const RIVER = (() => { const k = [[-40, 700], [200, 650], [420, 600], [600, 560], [760, 545], [880, 585], [960, 660], [1080, 720], [1260, 690], [1420, 630], [1680, 610]]; const out = [];
++  for (let i = 0; i < k.length - 1; i++) for (let s = 0; s < 12; s++) { const u = s / 12, a = k[Math.max(0, i - 1)], b = k[i], c = k[i + 1], d = k[Math.min(k.length - 1, i + 2)];
++    const cr = (p0, p1, p2, p3) => 0.5 * (2 * p1 + (-p0 + p2) * u + (2 * p0 - 5 * p1 + 4 * p2 - p3) * u * u + (-p0 + 3 * p1 - 3 * p2 + p3) * u * u * u); out.push([cr(a[0], b[0], c[0], d[0]), cr(a[1], b[1], c[1], d[1])]); }
++  out.push(k[k.length - 1]); return out; })();
++function riverDist(x, y) { let best = 1e9; for (let i = 0; i < RIVER.length - 1; i++) { const [ax, ay] = RIVER[i], [bx, by] = RIVER[i + 1], dx = bx - ax, dy = by - ay, u = cl(((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy));
++  best = Math.min(best, Math.hypot(x - ax - dx * u, y - ay - dy * u)); } return best; }
++const PM = [[690, 452], [742, 449], [796, 446], [850, 442]];   // Pall Mall (tây → đông), bắc khúc sông
++// mạng phố: mọc nhánh tất định từ hai đầu Pall Mall; mỗi đoạn mang d0 = khoảng cách theo mạng tới Pall Mall
++const NET = (() => { const R = rng(1807), segs = [], occ = new Map(), cell = 13, key = (x, y) => `${Math.floor(x / cell)},${Math.floor(y / cell)}`;
++  const mark = (x, y, id) => occ.set(key(x, y), id);
++  const inside = (x, y) => ((x - MC[0]) / 790) ** 2 + ((y - MC[1]) / 420) ** 2 < 1 && x > 20 && x < 1600 && y > 20 && y < 880;
++  PM.forEach(([x, y]) => mark(x, y, -1));
++  const tips = [{ x: 850, y: 442, a: -0.05, d: 0, dep: 0 }, { x: 690, y: 452, a: Math.PI + 0.06, d: 0, dep: 0 }, { x: 742, y: 449, a: -Math.PI / 2 - 0.1, d: 52, dep: 1 }, { x: 796, y: 446, a: Math.PI / 2 + 0.2, d: 106, dep: 1, bridge: true }, { x: 742, y: 449, a: Math.PI / 2 - 0.25, d: 52, dep: 1, bridge: true }, { x: 850, y: 442, a: -Math.PI / 2 + 0.3, d: 0, dep: 1 }];
++  while (tips.length && segs.length < 800) { const tp = tips.shift(); let { x, y, a, d } = tp; const pts = [[x, y]], nst = 3 + Math.floor(R() * 5), id = segs.length; let ok = true, len = 0;
++    for (let s = 0; s < nst; s++) { a += (R() - 0.5) * 0.24; const st = 22 + R() * 10, nx = x + Math.cos(a) * st, ny = y + Math.sin(a) * st;
++      if (!inside(nx, ny)) { ok = false; break; }
++      const rd = riverDist(nx, ny); if (rd < 30) { const rdx = riverDist(x + Math.cos(a) * 80, y + Math.sin(a) * 80); if (!(tp.bridge && rdx > 34)) { ok = false; break; } }
++      const k = key(nx, ny), o = occ.get(k); if (o !== undefined && o !== id) { pts.push([nx, ny]); len += st; ok = false; break; }
++      pts.push([nx, ny]); len += st; x = nx; y = ny; mark(x, y, id); }
++    if (pts.length < 2) continue;
++    segs.push({ pts, d0: d, len, dep: tp.dep });
++    if (!ok || tp.dep > 14) continue;
++    const nb = R() < 0.55 ? 2 : R() < 0.6 ? 1 : 3;
++    for (let b = 0; b < nb; b++) { const turn = b === 0 && nb > 1 ? (R() - 0.5) * 0.3 : (R() < 0.5 ? -1 : 1) * (1.05 + R() * 0.6);
++      tips.push({ x, y, a: a + turn, d: d + len, dep: tp.dep + 1, bridge: R() < 0.45 }); } }
++  let dmax = 0; segs.forEach((s) => (dmax = Math.max(dmax, s.d0 + s.len)));
++  // điểm đèn dọc phố, mỗi ~30 px
++  const lamps = []; segs.forEach((s) => { let acc = 0, nextL = 14; for (let i = 1; i < s.pts.length; i++) { const [ax, ay] = s.pts[i - 1], [bx, by] = s.pts[i], L = Math.hypot(bx - ax, by - ay);
++    while (nextL <= acc + L) { const u = (nextL - acc) / L; lamps.push([ax + (bx - ax) * u, ay + (by - ay) * u, s.d0 + nextL]); nextL += 30; } acc += L; } });
++  return { segs, dmax, lamps }; })();
++// đèn được chọn cho cận cảnh cuối đoạn (đèn ở khoảng 60 % bán kính mạng, phía đông bắc)
++const LP = NET.lamps.reduce((b, l) => (Math.hypot(l[0] - 1120, l[1] - 300) < Math.hypot(b[0] - 1120, b[1] - 300) ? l : b), NET.lamps[0]);
++// quầng sáng dựng sẵn (nhanh hơn gradient từng đèn)
++const GLOW = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
++  gr.addColorStop(0, 'rgba(255,170,80,0.9)'); gr.addColorStop(0.3, 'rgba(240,140,50,0.35)'); gr.addColorStop(1, 'rgba(220,120,40,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); return c; })();
++
++// máy quay trong bản đồ: điểm (cx, cy) về giữa tấm, tỉ lệ s
++const PMc = [770, 447];
++const CAMK = [[0, 1, 810, 470], [6.59, 1.02, 806, 466], [8.4, 1.9, PMc[0], PMc[1] - 10], [15.41, 2.05, PMc[0] + 6, PMc[1] - 12], [18.2, 1.0, 810, 470], [25.2, 1.045, 812, 468], [27.2, 2.6, LP[0] + 30, LP[1] + 12], [32.1, 2.72, LP[0] + 34, LP[1] + 14]];
++const MOVE = [[6.59, 8.4], [15.41, 18.2], [25.2, 27.2]];   // các đoạn máy chạy có easing; ngoài đoạn này máy trôi tuyến tính rất chậm
++function cam(t) { let i = 0; while (i < CAMK.length - 2 && t >= CAMK[i + 1][0]) i++; const a = CAMK[i], b = CAMK[i + 1]; let u = pr(t, a[0], b[0]);
++  if (MOVE.some(([m0]) => Math.abs(m0 - a[0]) < 1e-6)) u = sm(u);
++  const s = Math.exp(lerp(Math.log(a[1]), Math.log(b[1]), u)); return { s, cx: lerp(a[2], b[2], u), cy: lerp(a[3], b[3], u) }; }
++const toS = (c, x, y) => [SW / 2 + (x - c.cx) * c.s, SH / 2 + (y - c.cy) * c.s];
++function poly(g, pts, upto) {   // vẽ đường gấp khúc tới độ dài upto
++  g.beginPath(); g.moveTo(...pts[0]); let acc = 0;
++  for (let i = 1; i < pts.length; i++) { const [ax, ay] = pts[i - 1], [bx, by] = pts[i], L = Math.hypot(bx - ax, by - ay);
++    if (acc + L >= upto) { const u = (upto - acc) / L; g.lineTo(ax + (bx - ax) * u, ay + (by - ay) * u); break; } g.lineTo(bx, by); acc += L; } g.stroke(); }
++
++function sheet02(g, t) {
++  // ---- thẻ tựa (0–4 s, không lời) ----
++  const tOut = 1 - sm(pr(t, 3.3, 3.95));
++  if (tOut > 0) { g.save(); g.globalAlpha *= tOut; const z = 1 + 0.025 * sm(pr(t, 0, 4)); g.translate(SW / 2, SH / 2); g.scale(z, z); g.translate(-SW / 2, -SH / 2);
++    const lit = sm(pr(t, 0.35, 1.3)); gasLampIcon(g, SW / 2, 196, 1.05, sm(pr(t, 0.15, 0.9)), lit);
++    textWipe(g, 'THE LAST LAMPLIGHTERS', SW / 2, 500, font(88, 'serif', true), INK, pr(t, 0.6, 2.0), 'center');
++    g.strokeStyle = OCHRE; g.lineWidth = 2.5; const rw = 520 * sm(pr(t, 1.4, 2.6)); g.beginPath(); g.moveTo(SW / 2 - rw, 548); g.lineTo(SW / 2 + rw, 548); g.stroke();
++    g.restore();
++    if (lit > 0) { const fl = 0.85 + 0.08 * Math.sin(t * 13.1) + 0.05 * Math.sin(t * 7.3); glow(g, SW / 2, 196 + 14, 90, RGB_AMB, 0.42 * lit * fl * tOut); }
++  }
++  if (t < 3.9) return;
++  // ---- bản đồ ----
++  const c = cam(t), inkA = sm(pr(t, T02.london - 0.05, T02.london + 0.6)), rev = 1250 * sm(pr(t, T02.london - 0.05, T02.london + 1.5));
++  const dawnOff = sm(pr(t, T02.dawn, T02.dawn + 1.2));   // bình minh: đèn tắt
++  g.save(); g.globalAlpha *= inkA;
++  g.save(); g.beginPath(); g.arc(SW / 2, SH / 2, Math.max(1, rev), 0, 7); g.clip();
++  g.save(); g.translate(SW / 2, SH / 2); g.scale(c.s, c.s); g.translate(-c.cx, -c.cy);
++  const lw = (px) => px / Math.pow(c.s, 0.55);
++  // sông: dải rửa mực + gợn
++  g.lineCap = 'round'; g.lineJoin = 'round';
++  g.strokeStyle = 'rgba(91,67,48,0.16)'; g.lineWidth = 50; g.beginPath(); RIVER.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke();
++  for (const off of [-25, 25]) { g.strokeStyle = 'rgba(91,67,48,0.75)'; g.lineWidth = lw(2.2); g.beginPath();
++    RIVER.forEach((p, i) => { const q = RIVER[Math.min(i + 1, RIVER.length - 1)], r0 = RIVER[Math.max(i - 1, 0)], dx = q[0] - r0[0], dy = q[1] - r0[1], L = Math.hypot(dx, dy) || 1; const pt = [p[0] - dy / L * off, p[1] + dx / L * off]; i ? g.lineTo(...pt) : g.moveTo(...pt); }); g.stroke(); }
++  g.strokeStyle = 'rgba(91,67,48,0.35)'; g.lineWidth = lw(1.3);
++  for (let i = 2; i < RIVER.length - 2; i += 3) { const [x, y] = RIVER[i], ph = Math.sin(t * 0.9 + i) * 3; g.beginPath(); g.moveTo(x - 10 + ph, y - 6); g.quadraticCurveTo(x + ph, y - 10, x + 10 + ph, y - 6); g.stroke(); }
++  // phố mực nâu
++  g.strokeStyle = 'rgba(91,67,48,0.62)'; g.lineWidth = lw(2.1);
++  for (const s of NET.segs) { g.beginPath(); s.pts.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke(); }
++  // Pall Mall: phố đậm hơn
++  g.strokeStyle = SEPIA; g.lineWidth = lw(5); g.beginPath(); PM.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke();
++  // ánh hổ phách lan theo mạng (1820s) — như rễ cây
++  const r = NET.dmax * 1.02 * eo(pr(t, T02.spread, 24.2)) * (0.0 + 1);
++  const amb = 1 - 0.7 * dawnOff;
++  if (t >= T02.spread) { g.strokeStyle = `rgba(214,128,44,${0.9 * amb})`; g.lineWidth = lw(3.0);
++    for (const s of NET.segs) { const up = r - s.d0; if (up <= 0) continue; poly(g, s.pts, Math.min(s.len, up)); } }
++  // Pall Mall hổ phách vẽ dần (1807)
++  const pmU = sm(pr(t, T02.pall, T02.pall + 1.0));
++  if (pmU > 0) { g.strokeStyle = `rgba(206,118,36,${amb})`; g.lineWidth = lw(7); poly(g, PM, 160 * pmU); }
++  g.restore();
++  // đèn (toạ độ tấm, cỡ không phóng theo máy để giữ nét)
++  g.save(); g.globalCompositeOperation = 'lighter';
++  const flick = (i) => 0.86 + 0.1 * Math.sin(t * (5 + (i % 7)) + i) ;
++  // hàng đèn Pall Mall
++  const nPM = 9; for (let i = 0; i < nPM; i++) { const u = (i + 0.5) / nPM, x = lerp(PM[0][0], PM[3][0], u), y = lerp(PM[0][1], PM[3][1], u) - 0;
++    const on = pr(t, T02.row + i * 0.08, T02.row + i * 0.08 + 0.3); if (on <= 0) continue; const [sx, sy] = toS(c, x, y + 0.5);
++    const litU = lerp(0.35, 1, sm(pr(t, T02.burning, T02.lit + 0.3))) * amb; const R0 = 22 * Math.pow(c.s, 0.5) * litU;
++    g.globalAlpha = on * flick(i); g.drawImage(GLOW, sx - R0, sy - R0, 2 * R0, 2 * R0); }
++  if (t >= T02.spread) for (let i = 0; i < NET.lamps.length; i++) { const [x, y, d] = NET.lamps[i]; const on = cl((r - d) / 40); if (on <= 0) continue; const [sx, sy] = toS(c, x, y);
++    if (sx < -40 || sx > SW + 40 || sy < -40 || sy > SH + 40) continue; const R0 = 13 * Math.pow(c.s, 0.6); g.globalAlpha = on * flick(i) * 0.8 * amb; g.drawImage(GLOW, sx - R0, sy - R0, 2 * R0, 2 * R0); }
++  g.restore();
++  g.restore();   // clip
++  // ---- chữ trên bản đồ (toạ độ tấm) ----
++  // ô tựa bản đồ: LONDON + năm
++  g.save(); const ca = sm(pr(t, T02.london, T02.london + 0.5)); g.globalAlpha *= ca; g.fillStyle = 'rgba(236,223,190,0.93)'; g.fillRect(52, 40, 330, 128); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(58, 46, 318, 116); g.strokeRect(63, 51, 308, 106);
++  text(g, 'LONDON', 84, 104, font(52, 'serif', true), INK);
++  const yA = pr(t, T02.y1807, T02.y1807 + 0.4) * (1 - pr(t, T02.idea, T02.idea + 0.5)), yB = pr(t, T02.y1820, T02.y1820 + 0.4);
++  textA(g, '1807', 86, 146, font(30, 'sans', true), OCHRE, yA); textA(g, '1820s', 86, 146, font(30, 'sans', true), OCHRE, yB);
++  g.restore();
++  // nhãn Pall Mall + 1807 cạnh đường
++  if (t >= T02.pall) { const [ax, ay] = toS(c, PM[0][0], PM[0][1]), [bx, by] = toS(c, PM[3][0], PM[3][1]), la = pr(t, T02.pall, T02.pall + 0.4) * (1 - pr(t, T02.idea, T02.idea + 0.7));
++    g.save(); g.globalAlpha *= la; g.translate((ax + bx) / 2, (ay + by) / 2 - 38); g.rotate(Math.atan2(by - ay, bx - ax));
++    g.fillStyle = 'rgba(236,223,190,0.88)'; g.font = font(34, 'serif', true); const w = g.measureText('Pall Mall').width; g.fillRect(-w / 2 - 10, -30, w + 20, 40); text(g, 'Pall Mall', 0, 0, font(34, 'serif', true), INK, 'center', 'alphabetic');
++    g.restore();
++    const ya = pr(t, T02.pall + 0.45, T02.pall + 0.85) * (1 - pr(t, T02.idea, T02.idea + 0.7)); tag(g, '1807', bx + 22, by + 2, OCHRE, CREAM, font(26, 'sans', true), ya); }
++  // chú thích: the first gas-lit street
++  if (t >= T02.first) { const [bx, by] = toS(c, PM[2][0], PM[2][1]), fa = pr(t, T02.first, T02.first + 0.6) * (1 - pr(t, T02.idea, T02.idea + 0.7));
++    g.save(); g.globalAlpha *= fa; g.strokeStyle = OCHRE; g.lineWidth = 2.2; g.beginPath(); g.moveTo(bx + 4, by + 22); g.quadraticCurveTo(bx + 30, by + 120, bx + 110, by + 150 * sm(pr(t, T02.first, T02.first + 0.6))); g.stroke(); g.restore();
++    g.save(); g.globalAlpha *= fa; g.fillStyle = 'rgba(236,223,190,0.9)'; g.font = font(32, 'serif', true); const w = g.measureText('the first gas-lit street').width; g.fillRect(bx + 106, by + 128, w + 20, 46); g.restore();
++    textWipe(g, 'the first gas-lit street', bx + 116, by + 162, font(32, 'serif', true), OCHRE, pr(t, T02.first, T02.first + 0.9) * (1 - pr(t, T02.idea, T02.idea + 0.7))); }
++  // dải nhãn 1820s · 40,000+ lamps · 215 miles
++  { const a1 = pr(t, T02.y1820, T02.y1820 + 0.4), a2 = pr(t, T02.forty, T02.forty + 0.4), a3 = pr(t, T02.two15, T02.two15 + 0.4), fade = 1 - pr(t, T02.every, T02.every + 0.8);
++    if (a1 > 0 && fade > 0) { g.save(); g.globalAlpha *= fade; const f = font(40, 'sans', true); g.font = f; const parts = ['1820s', ' · ', '40,000+ lamps', ' · ', '215 miles']; const ws = parts.map((p) => g.measureText(p).width), tw = ws.reduce((a, b) => a + b, 0);
++      const x0 = SW - 70 - tw, y0 = 812; g.globalAlpha *= a1; g.fillStyle = 'rgba(236,223,190,0.94)'; g.fillRect(x0 - 24, y0 - 46, tw + 48, 68); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(x0 - 18, y0 - 40, tw + 36, 56); g.globalAlpha /= a1;
++      let x = x0; const al = [a1, a2, a2, a3, a3]; parts.forEach((p, i) => { textA(g, p, x, y0, f, i === 0 ? OCHRE : INK, al[i]); x += ws[i]; }); g.restore(); } }
++  // cận cảnh: một ngọn đèn cần một người — cột đèn + bóng người thắp đèn (mực nâu), mặt trời lặn / mọc
++  if (t >= T02.one) { const [sx, sy] = toS(c, LP[0], LP[1]), k = c.s / 2.6, a = pr(t, T02.one, T02.one + 0.6);
++    gasLampIcon(g, sx, sy - 8 * k, 0.62 * k, a, 1 - dawnOff, SEPIA);
++    const pa = pr(t, T02.person, T02.person + 0.6); if (pa > 0) { g.save(); g.globalAlpha *= pa; ladder(g, sx + 70 * k, sy + 88 * k, sx + 14 * k, sy + 18 * k, 20 * k, SEPIA, 2.6);
++      const climb = sm(pr(t, T02.person, T02.dusk)); person(g, sx + lerp(66, 52, climb) * k, sy + lerp(88, 66, climb) * k, 96 * k, { col: SEPIA, arm: lerp(2.3, 2.75, climb), arm2: 0.5, pole: 30, hat: 'cap' }); g.restore(); }
++    // mặt trời: lặn lúc "dusk", mọc lúc "dawn"
++    const ha = pr(t, T02.dusk, T02.dusk + 0.4); if (ha > 0) { const hx = sx + 250 * k, hy = sy + 40 * k, sunY = hy - 18 + 40 * sm(pr(t, T02.dusk, T02.dusk + 1.0)) - 52 * sm(pr(t, T02.dawn, T02.dawn + 1.0));
++      g.save(); g.globalAlpha *= ha; g.beginPath(); g.rect(hx - 80, hy - 120, 160, 120); g.clip(); g.strokeStyle = OCHRE; g.lineWidth = 3; g.beginPath(); g.arc(hx, sunY, 24, 0, 7); g.stroke();
++      for (let i = 0; i < 8; i++) { const an = i * Math.PI / 4 + t * 0.1; g.beginPath(); g.moveTo(hx + Math.cos(an) * 32, sunY + Math.sin(an) * 32); g.lineTo(hx + Math.cos(an) * 44, sunY + Math.sin(an) * 44); g.stroke(); } g.restore();
++      g.save(); g.globalAlpha *= ha; g.strokeStyle = SEPIA; g.lineWidth = 2.5; g.beginPath(); g.moveTo(hx - 80, hy); g.lineTo(hx + 80, hy); g.stroke(); g.restore(); }
++    // quầng của ngọn đèn được chọn
++    const fl = 0.85 + 0.08 * Math.sin(t * 11.3); glow(g, sx, sy - 8 * k + 5 * k, 70 * k, RGB_AMB, 0.5 * a * (1 - dawnOff) * fl * (0.6 + 0.4 * sm(pr(t, T02.dusk, T02.dusk + 0.6)))); }
++  // nguồn
++  srcLine(g, 'Sources: London Remembers · English Heritage · Wikipedia, “19th-century London”', 872, sm(pr(t, T02.y1820, T02.y1820 + 0.6)) * (1 - pr(t, T02.every, T02.every + 0.8)));
++  g.restore();
++}
++window.SEC = { n: '02', frames: 769, blur: [[6.59, 8.4], [15.41, 18.2], [25.2, 27.2]], ready: true,
++  frame(g, t) { g.drawImage(BG, 0, 0); drawCard(g, t, { seed: 11, content: sheet02 }); drawLight(g, t, 1); drawDust(g, t, 1); } };
+diff --git a/design/m3/ep01/history/sec/03.js b/design/m3/ep01/history/sec/03.js
+new file mode 100644
+index 0000000..3e57e7f
+--- /dev/null
++++ b/design/m3/ep01/history/sec/03.js
+@@ -0,0 +1,78 @@
++// Đoạn 03 · [HISTORY] The round — 637 khung (26,54 s).
++// Đồ hoạ tuyến đèn gấp khúc (chấm đèn bật lần lượt theo đường đi, không ghi số) → "cửa sổ cảnh" trong tấm giấy chiếu tấm nền s03 của xưởng STORY
++// (bóng người thắp đèn vô danh trên tường, 288 khung ≈ 12 s) → mưa / sương / sương giá → về tuyến đèn lặp lại → góc: đèn khí + "one task, repeated" (giữ tới đoạn 08).
++'use strict';
++const T03 = { that: 0.60, round: 2.48, dozens: 3.50, lamps: 4.14, fixed: 4.98, route: 5.33, lit: 5.99, dusk: 6.39, put: 7.00, dawn: 7.57, inb: 8.71, cleaned: 9.97, glass: 10.38,
++  reported: 11.11, broken: 11.69, rain: 13.24, fog: 13.89, frost: 14.53, had: 16.02, litB: 16.45, it: 17.33, almost: 18.18, one: 19.68, task: 20.02, repeated: 20.96, remember: 22.23, matters: 23.79, later: 24.32 };
++const PLATE0 = 206, PLATEN = 288;   // khung cục bộ bắt đầu chiếu tấm nền; số khung tấm nền
++const ROUTE03 = [[150, 700], [430, 700], [430, 470], [760, 470], [760, 690], [1060, 690], [1060, 330], [1390, 330], [1390, 610], [1500, 610]];
++const RLEN = (() => { let s = 0; for (let i = 1; i < ROUTE03.length; i++) s += Math.hypot(ROUTE03[i][0] - ROUTE03[i - 1][0], ROUTE03[i][1] - ROUTE03[i - 1][1]); return s; })();
++function along(d) { let acc = 0; for (let i = 1; i < ROUTE03.length; i++) { const [ax, ay] = ROUTE03[i - 1], [bx, by] = ROUTE03[i], L = Math.hypot(bx - ax, by - ay); if (acc + L >= d) { const u = (d - acc) / L; return [ax + (bx - ax) * u, ay + (by - ay) * u]; } acc += L; } return ROUTE03[ROUTE03.length - 1]; }
++const LAMPS03 = (() => { const out = []; for (let d = 30; d < RLEN - 10; d += 56) { const p = along(d); out.push({ d, p }); } return out; })();   // ≈ 50 đèn ("dozens")
++const SIDE03 = (() => { const R = rng(303), out = []; for (let i = 0; i < 22; i++) { const d = R() * RLEN, p = along(d), a = R() < 0.5 ? 0 : Math.PI / 2, L = 60 + R() * 120, s = R() < 0.5 ? -1 : 1;
++  out.push([p, [p[0] + Math.cos(a) * L * s, p[1] + Math.sin(a) * L * s]]); } return out; })();
++const CORNER03 = [96, 64, 0.42];
++function routeSheet(g, t, a) { if (a <= 0) return; g.save(); g.globalAlpha *= a;
++  // phố (mực nâu): đường đi + nhánh
++  g.lineCap = 'round'; g.strokeStyle = 'rgba(91,67,48,0.5)'; g.lineWidth = 2; for (const [p, q] of SIDE03) { g.beginPath(); g.moveTo(...p); g.lineTo(...q); g.stroke(); }
++  const sa = sm(pr(t, T03.that, T03.that + 1.4)); g.strokeStyle = 'rgba(91,67,48,0.7)'; g.lineWidth = 22; g.globalAlpha *= 0.35 * sa + 0.0; g.beginPath(); ROUTE03.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke(); g.globalAlpha /= (0.35 * sa) || 1;
++  // vòng thắp đèn (hổ phách, nét liền) vẽ dần từ "round"
++  const ru = sm(pr(t, T03.round, T03.dozens + 0.4)); if (ru > 0) { g.strokeStyle = OCHRE; g.lineWidth = 4; g.lineJoin = 'round'; g.beginPath(); g.moveTo(...ROUTE03[0]); const L = RLEN * ru; let acc = 0;
++    for (let i = 1; i < ROUTE03.length; i++) { const d = Math.hypot(ROUTE03[i][0] - ROUTE03[i - 1][0], ROUTE03[i][1] - ROUTE03[i - 1][1]); if (acc + d >= L) { g.lineTo(...along(L)); break; } g.lineTo(...ROUTE03[i]); acc += d; } g.stroke();
++    if (ru >= 1) { const [ex, ey] = ROUTE03[ROUTE03.length - 1]; g.fillStyle = OCHRE; g.beginPath(); g.moveTo(ex + 16, ey); g.lineTo(ex - 4, ey - 11); g.lineTo(ex - 4, ey + 11); g.closePath(); g.fill(); } }
++  // đèn: hiện (dozens), sáng theo người đi (dusk), tắt (dawn); lặp nhanh ("repeated")
++  const walkL = RLEN * sm(pr(t, T03.lit, T03.put)), walkD = RLEN * sm(pr(t, T03.put, T03.inb));
++  const loop = t > T03.almost ? ((t - T03.almost) / 1.5) : -1;
++  for (const L of LAMPS03) { const app = pr(t, T03.dozens + (L.d / RLEN) * 1.6, T03.dozens + (L.d / RLEN) * 1.6 + 0.25); if (app <= 0) continue;
++    let lit = t < T03.put ? cl((walkL - L.d) / 30) : 1 - cl((walkD - L.d) / 30);
++    if (loop >= 0) { const ph = (loop - L.d / RLEN) % 1; lit = ph < 0 ? 0 : ph < 0.5 ? 1 : 0; lit *= 1 - sm(pr(t, T03.remember + 1.2, T03.later + 0.6)); }
++    g.save(); g.globalAlpha *= app; g.fillStyle = lit > 0.5 ? AMBER : 'rgba(74,63,54,0.85)'; g.beginPath(); g.arc(...L.p, lit > 0.5 ? 7 : 5.5, 0, 7); g.fill();
++    if (lit <= 0.5) { g.strokeStyle = INK2; g.lineWidth = 1.5; g.stroke(); } g.restore(); if (lit > 0) glow(g, ...L.p, 26, RGB_AMB, 0.5 * lit * a * app); }
++  // người thắp đèn (chấm có vòng) đi theo vòng lúc thắp / lúc tắt
++  if (t > T03.lit && t < T03.inb + 0.3) { const p = along(t < T03.put ? walkL : walkD); g.save(); g.globalAlpha *= 1 - pr(t, T03.inb, T03.inb + 0.3); g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.arc(...p, 13, 0, 7); g.stroke(); g.fillStyle = INK; g.beginPath(); g.arc(...p, 5, 0, 7); g.fill(); g.restore(); }
++  // mặt trời: lặn lúc "dusk", mọc lúc "dawn"
++  const ha = pr(t, T03.dusk, T03.dusk + 0.4) * (1 - pr(t, T03.inb, T03.inb + 0.5)); if (ha > 0) { const hx = 1400, hy = 150, sy = hy - 20 + 42 * sm(pr(t, T03.dusk, T03.dusk + 0.9)) - 54 * sm(pr(t, T03.dawn, T03.dawn + 0.9));
++    g.save(); g.globalAlpha *= ha; g.save(); g.beginPath(); g.rect(hx - 90, hy - 130, 180, 130); g.clip(); g.strokeStyle = OCHRE; g.lineWidth = 3; g.beginPath(); g.arc(hx, sy, 26, 0, 7); g.stroke();
++    for (let i = 0; i < 8; i++) { const an = i * Math.PI / 4; g.beginPath(); g.moveTo(hx + Math.cos(an) * 34, sy + Math.sin(an) * 34); g.lineTo(hx + Math.cos(an) * 46, sy + Math.sin(an) * 46); g.stroke(); } g.restore();
++    g.strokeStyle = SEPIA; g.lineWidth = 2.5; g.beginPath(); g.moveTo(hx - 90, hy); g.lineTo(hx + 90, hy); g.stroke(); g.restore(); }
++  g.restore(); }
++// cửa sổ cảnh: tấm nền trong khung giấy có mép xé
++const WIN = { x: 170, y: 95, w: 1280, h: 720 };
++const WEDGE = edgePath(WIN.w, WIN.h, 333);
++function plateWindow(g, t) {
++  const open = sm(pr(t, T03.inb, T03.inb + 0.9)), close = sm(pr(t, T03.it, T03.it + 0.9)), u = open * (1 - close); if (u <= 0.001 || !PLATE) return;
++  const from = LAMPS03[18].p, cx = lerp(from[0], WIN.x + WIN.w / 2, u), cy = lerp(from[1], WIN.y + WIN.h / 2, u), s = lerp(0.03, 1, u);
++  g.save(); g.translate(cx, cy); g.scale(s, s); g.translate(-WIN.w / 2, -WIN.h / 2);
++  g.save(); g.shadowColor = 'rgba(0,0,0,0.6)'; g.shadowBlur = 30; g.shadowOffsetX = 8; g.shadowOffsetY = 12; g.beginPath(); WEDGE.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.fillStyle = '#0b0d16'; g.fill(); g.restore();
++  g.save(); g.beginPath(); WEDGE.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.clip();
++  g.drawImage(PLATE, 0, 0, WIN.w, WIN.h);
++  // thời tiết: mưa (Rain), sương (fog), sương giá (frost)
++  const ra = pr(t, T03.rain, T03.rain + 0.4); if (ra > 0) { const R = rng(13); g.strokeStyle = `rgba(200,210,235,${0.35 * ra})`; g.lineWidth = 1.6; g.beginPath();
++    for (let i = 0; i < 160; i++) { const x = R() * (WIN.w + 200) - 100, sp = 900 + R() * 500, y = ((R() * WIN.h + t * sp) % (WIN.h + 80)) - 40; g.moveTo(x, y); g.lineTo(x - 9, y + 34); } g.stroke(); }
++  const fa = pr(t, T03.fog, T03.fog + 0.8); if (fa > 0) { for (let i = 0; i < 7; i++) { const x = ((i * 260 + t * 22) % (WIN.w + 400)) - 200, y = 380 + (i % 3) * 110, r = 260; const gr = g.createRadialGradient(x, y, 0, x, y, r);
++    gr.addColorStop(0, `rgba(170,180,205,${0.22 * fa})`); gr.addColorStop(1, 'rgba(170,180,205,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); } }
++  const fr = sm(pr(t, T03.frost, T03.frost + 1.2)); if (fr > 0) { const R = rng(77); g.strokeStyle = `rgba(225,235,250,${0.55 * fr})`; g.lineWidth = 1.4;
++    for (let k = 0; k < 4; k++) { const cx0 = k % 2 ? WIN.w : 0, cy0 = k > 1 ? WIN.h : 0; for (let i = 0; i < 26; i++) { const an = R() * Math.PI / 2 + [0, Math.PI / 2, -Math.PI / 2, Math.PI][k], L = (40 + R() * 150) * fr;
++      const x0 = cx0 + Math.cos(an) * 6, y0 = cy0 + Math.sin(an) * 6; g.beginPath(); g.moveTo(x0, y0); g.lineTo(x0 + Math.cos(an) * L, y0 + Math.sin(an) * L); g.moveTo(x0 + Math.cos(an) * L * 0.6, y0 + Math.sin(an) * L * 0.6);
++      g.lineTo(x0 + Math.cos(an + 0.5) * L * 0.85, y0 + Math.sin(an + 0.5) * L * 0.85); g.stroke(); } } }
++  g.restore(); g.strokeStyle = 'rgba(236,223,190,0.9)'; g.lineWidth = 3; g.beginPath(); WEDGE.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.stroke();
++  g.restore(); }
++// phiếu báo đèn hỏng (reported the broken ones)
++function reportSlip(g, t) { const a = pr(t, T03.reported, T03.reported + 0.5) * (1 - sm(pr(t, T03.rain - 0.2, T03.rain + 0.4))); if (a <= 0) return;
++  g.save(); g.globalAlpha *= a; g.translate(1300 + (1 - eo(a)) * 40, 560); g.rotate(0.05); g.shadowColor = 'rgba(0,0,0,0.5)'; g.shadowBlur = 16; g.shadowOffsetY = 6; g.fillStyle = '#efe4c8'; g.fillRect(0, 0, 260, 200); g.shadowBlur = 0; g.shadowOffsetY = 0;
++  g.fillStyle = 'rgba(60,50,40,0.35)'; for (let i = 0; i < 5; i++) g.fillRect(70, 30 + i * 32, 160 - (i % 2) * 40, 7);
++  for (let i = 0; i < 5; i++) { gasLampIcon(g, 36, 22 + i * 32, 0.13, 1, 0, SEPIA); }
++  const b = pr(t, T03.broken, T03.broken + 0.4); if (b > 0) { g.strokeStyle = '#7a1e10'; g.lineWidth = 4; g.beginPath(); g.moveTo(18, 84); g.lineTo(18 + 36 * b, 84 + 30 * b); g.moveTo(54, 84); g.lineTo(54 - 36 * b, 84 + 30 * b); g.stroke(); }
++  g.restore(); }
++function sheet03(g, t) {
++  const back = 1 - 0.75 * sm(pr(t, T03.inb, T03.inb + 0.8)) * (1 - sm(pr(t, T03.it, T03.it + 0.9)));
++  routeSheet(g, t, back * (1 - 0.55 * sm(pr(t, T03.later, T03.later + 1.2))));
++  // góc: đèn khí + "one task, repeated" (giữ sang đoạn 08, cùng vị trí)
++  gasLampIcon(g, CORNER03[0], CORNER03[1], CORNER03[2], pr(t, T03.remember, T03.remember + 0.6), 1);
++  textWipe(g, 'one task, repeated', SW - 60, SH - 44, font(28, 'serif', true), OCHRE, pr(t, T03.one, T03.repeated + 0.4), 'right');
++  const ul = sm(pr(t, T03.matters, T03.later + 0.3)); if (ul > 0) { g.save(); g.font = font(28, 'serif', true); const w = g.measureText('one task, repeated').width; g.strokeStyle = OCHRE; g.lineWidth = 2.2; g.beginPath(); g.moveTo(SW - 60 - w, SH - 34); g.lineTo(SW - 60 - w + w * ul, SH - 34); g.stroke(); g.restore(); }
++}
++window.SEC = { n: '03', frames: 637, plate: [PLATE0, PLATE0 + PLATEN, PLATEN], blur: [[T03.inb, T03.inb + 0.9], [T03.it, T03.it + 0.9]], ready: true,
++  frame(g, t) { g.drawImage(BG, 0, 0); drawCard(g, t, { seed: 29, content: (gg, tt) => { sheet03(gg, tt); } }); drawLight(g, t, 1); drawDust(g, t, 1);
++    // cửa sổ cảnh và phiếu nằm trên tấm giấy (toạ độ tấm → khung)
++    g.save(); g.translate(SX, SY); plateWindow(g, t); reportSlip(g, t); g.restore(); } };
+diff --git a/design/m3/ep01/history/sec/05.js b/design/m3/ep01/history/sec/05.js
+new file mode 100644
+index 0000000..8796e45
+--- /dev/null
++++ b/design/m3/ep01/history/sec/05.js
+@@ -0,0 +1,98 @@
++// Đoạn 05 · [HISTORY] The white wave — 589 khung (24,54 s).
++// Phần 1: đèn khí hổ phách cạnh đèn hồ quang trắng; bản đồ đại lộ Opéra 1878 CÁCH ĐIỆU (vẽ tay thủ tục), 64 chấm trắng bật lần lượt (dọc + quanh đại lộ).
++// Phần 2: dải phố cách điệu, chấm hổ phách đổi dần sang trắng từ đại lộ chính vào phố nhỏ; đường "vòng thắp đèn" ngắn lại.
++// Mù màu: đèn khí = chấm đặc nhỏ; đèn điện = vòng tròn trắng có viền lạnh, to hơn (khác hình, không chỉ khác màu).
++'use strict';
++const T05 = { then: 0.60, diff: 1.26, light: 2.17, in1878: 3.19, y1878: 3.34, paris: 4.69, strung: 5.16, s64: 5.66, electric: 6.61, along: 8.12, around: 8.84, avenue: 9.41,
++  they: 11.12, nobody: 11.71, ladder: 12.58, it: 13.54, tide: 14.0, notA: 15.25, white: 16.95, main: 17.84, few: 19.13, side: 19.95, every: 21.35, round: 21.61, shorter: 22.66 };
++// ---- bản đồ Opéra (toạ độ tấm) ----
++const AV0 = [560, 330], AV1 = [1230, 720];   // Opéra (tây bắc) → Théâtre-Français (đông nam)
++const AVd = [AV1[0] - AV0[0], AV1[1] - AV0[1]], AVL = Math.hypot(...AVd), AVu = [AVd[0] / AVL, AVd[1] / AVL], AVn = [-AVu[1], AVu[0]];
++const avP = (s, o) => [AV0[0] + AVu[0] * s + AVn[0] * o, AV0[1] + AVu[1] * s + AVn[1] * o];
++const SIDE05 = (() => { const R = rng(1878), out = []; for (let i = 0; i < 9; i++) { const s = 90 + i * (AVL - 180) / 8 + (R() - 0.5) * 30, a = (R() - 0.5) * 0.7 + Math.PI / 2;
++  const c = avP(s, 0), L1 = 140 + R() * 160, L2 = 140 + R() * 160, d = [Math.cos(Math.atan2(AVu[1], AVu[0]) + a), Math.sin(Math.atan2(AVu[1], AVu[0]) + a)];
++  out.push([[c[0] - d[0] * L1, c[1] - d[1] * L1], [c[0] + d[0] * L2, c[1] + d[1] * L2]]); } return out; })();
++const LAMPS64 = (() => { const out = []; for (let i = 0; i < 24; i++) { const s = 60 + i * (AVL - 120) / 23; out.push({ p: avP(s, -26), k: i * 2 }); out.push({ p: avP(s, 26), k: i * 2 + 1 }); }
++  for (let i = 0; i < 8; i++) { const a = i / 8 * 2 * Math.PI; out.push({ p: [AV0[0] - 10 + Math.cos(a) * 92, AV0[1] - 20 + Math.sin(a) * 70], k: 48 + i }); }
++  for (let i = 0; i < 8; i++) { const a = i / 8 * 2 * Math.PI + 0.3; out.push({ p: [AV1[0] + 20 + Math.cos(a) * 80, AV1[1] + 18 + Math.sin(a) * 62], k: 56 + i }); } return out; })();
++function whiteLamp(g, x, y, a, r = 7) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); const gr = g.createRadialGradient(x, y, 0, x, y, r * 4.5); gr.addColorStop(0, 'rgba(150,180,225,0.45)'); gr.addColorStop(1, 'rgba(150,180,225,0)');
++  g.fillStyle = gr; g.fillRect(x - r * 5, y - r * 5, r * 10, r * 10); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); g.strokeStyle = COLD; g.lineWidth = 2.4; g.stroke(); g.restore(); }
++function amberLamp(g, x, y, a, r = 4.5) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); const gr = g.createRadialGradient(x, y, 0, x, y, r * 4); gr.addColorStop(0, 'rgba(230,140,50,0.38)'); gr.addColorStop(1, 'rgba(230,140,50,0)');
++  g.fillStyle = gr; g.fillRect(x - r * 4, y - r * 4, r * 8, r * 8); g.fillStyle = AMBER; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); g.restore(); }
++// đèn hồ quang (cột + quả cầu kính)
++function arcLampIcon(g, x, y, s, a, lit) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.translate(x, y); g.scale(s, s); g.fillStyle = COLD; g.strokeStyle = COLD; g.lineWidth = 3.4;
++  g.fillRect(-4, 14, 8, 130); g.fillRect(-15, 136, 30, 8); g.beginPath(); g.moveTo(-12, 14); g.lineTo(12, 14); g.lineTo(6, 4); g.lineTo(-6, 4); g.closePath(); g.fill();
++  g.fillStyle = `rgba(255,255,255,${0.6 + 0.4 * lit})`; g.beginPath(); g.ellipse(0, -18, 20, 24, 0, 0, 7); g.fill(); g.stroke(); g.fillRect(-2, -48, 4, 8); g.restore(); }
++
++function part1(g, t, a) {
++  if (a <= 0) return; g.save(); g.globalAlpha *= a;
++  // mở: đèn khí + đèn hồ quang (một kiểu ánh sáng khác)
++  const iconOut = 1 - sm(pr(t, T05.in1878 - 0.1, T05.in1878 + 0.6));
++  if (iconOut > 0) { const fl = 0.9 + 0.07 * Math.sin(t * 9.3); gasLampIcon(g, 650, 300, 1.7, iconOut, 1); glow(g, 650, 320, 120, RGB_AMB, 0.4 * fl * iconOut);
++    const wa = pr(t, T05.diff, T05.diff + 0.6) * iconOut, wl = sm(pr(t, T05.light, T05.light + 0.6)); arcLampIcon(g, 970, 300, 1.7, wa, wl);
++    if (wl > 0) { g.save(); g.globalAlpha *= wa; const gr = g.createRadialGradient(970, 270, 0, 970, 270, 260); gr.addColorStop(0, `rgba(120,160,215,${0.28 * wl})`); gr.addColorStop(1, 'rgba(120,160,215,0)'); g.fillStyle = gr; g.fillRect(700, 0, 560, 560); g.restore(); } }
++  // bản đồ
++  const ma = sm(pr(t, T05.in1878, T05.in1878 + 0.9)); if (ma <= 0) { g.restore(); return; }
++  const z = lerp(1, 1.0, 0) * (1 + 0.6 * sm(pr(t, T05.they, T05.ladder))) * (1 - 0.0), foc = avP(AVL * 0.55, 26);
++  const zz = 1 + 0.55 * sm(pr(t, T05.they, T05.nobody + 0.6)) + 0.02 * pr(t, 3, 13.5);
++  g.save(); g.globalAlpha *= ma; g.translate(SW / 2, SH / 2); g.scale(zz, zz); g.translate(-lerp(SW / 2, foc[0], sm(pr(t, T05.they, T05.nobody + 0.6))), -lerp(SH / 2, foc[1], sm(pr(t, T05.they, T05.nobody + 0.6))));
++  g.lineCap = 'round'; g.strokeStyle = 'rgba(91,67,48,0.55)'; g.lineWidth = 2; const R = rng(64);
++  for (let k = -6; k <= 6; k++) { if (k === 0) continue; const o = k * 105 + (R() - 0.5) * 30, s0 = -500 + R() * 300, s1 = AVL + 200 + R() * 300, j = (R() - 0.5) * 30;   // phố song song đại lộ (lưới lệch kiểu Haussmann)
++    g.beginPath(); g.moveTo(...avP(s0, o)); g.lineTo(...avP(s1, o + j)); g.stroke(); }
++  for (let k = -5; k <= 12; k++) { const s = k * 115 + (R() - 0.5) * 40, o0 = -620 + R() * 200, o1 = 620 - R() * 200; if (s > 40 && s < AVL - 40 && R() < 0.6) continue; g.beginPath(); g.moveTo(...avP(s, o0)); g.lineTo(...avP(s + (R() - 0.5) * 60, o1)); g.stroke(); }
++  g.strokeStyle = 'rgba(91,67,48,0.75)'; g.lineWidth = 2.6; for (const [p, q] of SIDE05) { g.beginPath(); g.moveTo(...p); g.lineTo(...q); g.stroke(); }
++  // đại lộ: hai mép
++  g.strokeStyle = SEPIA; g.lineWidth = 3.2; for (const o of [-14, 14]) { g.beginPath(); g.moveTo(...avP(-40, o)); g.lineTo(...avP(AVL + 40, o)); g.stroke(); }
++  // nhà hát (khối cách điệu) + quảng trường
++  g.save(); g.translate(AV0[0] - 60, AV0[1] - 120); g.rotate(-0.15); g.fillStyle = 'rgba(91,67,48,0.22)'; g.strokeStyle = SEPIA; g.lineWidth = 2.5; g.fillRect(-70, -40, 140, 80); g.strokeRect(-70, -40, 140, 80);
++  g.beginPath(); g.arc(0, -40, 34, Math.PI, 0); g.stroke(); g.restore();
++  g.strokeStyle = 'rgba(91,67,48,0.6)'; g.lineWidth = 2; g.beginPath(); g.ellipse(AV1[0] + 20, AV1[1] + 18, 62, 46, 0, 0, 7); g.stroke();
++  // 64 đèn hồ quang bật lần lượt: dọc đại lộ (từ "sixty-four"), quanh hai quảng trường (từ "around")
++  for (const L of LAMPS64) { const t0 = L.k < 48 ? T05.s64 + (L.k / 47) * (T05.around - 0.2 - T05.s64) : T05.around + ((L.k - 48) / 15) * 0.9; whiteLamp(g, ...L.p, pr(t, t0, t0 + 0.25), 6.5); }
++  // thang: hiện ở "ladder" rồi rơi khỏi khung (không ai cần thang)
++  const la = pr(t, T05.ladder, T05.ladder + 0.25), lo = sm(pr(t, T05.ladder + 0.35, T05.ladder + 1.0)); if (la > 0 && lo < 1) { g.save(); g.globalAlpha *= la * (1 - lo);
++    g.translate(foc[0] + 18, foc[1] + 30 + lo * 80); g.rotate(0.35 + lo * 0.9); ladder(g, 0, 70, 0, -10, 16, INK2, 3); g.restore(); }
++  g.restore();
++  // chữ (không phóng theo máy)
++  g.save(); g.globalAlpha *= ma; g.fillStyle = 'rgba(236,223,190,0.93)'; g.fillRect(52, 40, 300, 128); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(58, 46, 288, 116); g.strokeRect(63, 51, 278, 106); g.restore();
++  textA(g, 'PARIS', 84, 104, font(52, 'serif', true), INK, ma * pr(t, T05.paris, T05.paris + 0.4)); textA(g, '1878', 86, 146, font(30, 'sans', true), OCHRE, ma * pr(t, T05.y1878, T05.y1878 + 0.4));
++  const ta = 1 - sm(pr(t, T05.they, T05.they + 0.5));
++  if (t >= T05.s64) { g.save(); g.globalAlpha *= ta; textWipe(g, '64', 1250, 210, font(96, 'sans', true), INK, pr(t, T05.s64, T05.s64 + 0.4)); textWipe(g, 'electric arc lamps', 1254, 252, font(30, 'sans', true), INK2, pr(t, T05.electric, T05.electric + 0.8)); g.restore(); }
++  if (t >= T05.avenue) { const p = avP(AVL * 0.35, -60); g.save(); g.globalAlpha *= ma * pr(t, T05.avenue, T05.avenue + 0.4) * ta; g.translate(...p); g.rotate(Math.atan2(AVu[1], AVu[0]));
++    g.fillStyle = 'rgba(236,223,190,0.9)'; g.font = font(30, 'serif', true); const w = g.measureText('Avenue de l’Opéra').width; g.fillRect(-w / 2 - 10, -28, w + 20, 40); text(g, 'Avenue de l’Opéra', 0, 0, font(30, 'serif', true), INK, 'center'); g.restore(); }
++  srcLine(g, 'Source: ETHW, “Jablochkoff Candles in Paris”', 872, ma * (1 - sm(pr(t, T05.it, T05.it + 0.6))));
++  g.restore();
++}
++// ---- dải phố cách điệu ----
++const STRIP = (() => { const R = rng(505), lamps = [], streets = []; const Y0 = 470;
++  streets.push([[110, Y0], [1510, Y0]]); for (let x = 180; x <= 1500; x += 60) lamps.push({ p: [x, Y0 - 18], main: true, d: 0, x });
++  const xs = [250, 420, 590, 760, 930, 1100, 1270, 1430];
++  xs.forEach((x, i) => { for (const dir of [-1, 1]) { const L = 160 + R() * 200, bend = (R() - 0.5) * 60; streets.push([[x, Y0], [x + bend, Y0 + dir * L]]);
++    for (let s = 50; s < L; s += 52) { const u = s / L; lamps.push({ p: [x + bend * u + 14, Y0 + dir * s], main: false, d: s, x, dir }); } } });
++  // thứ tự đổi màu: đại lộ (từ giữa ra), rồi phố nhỏ theo khoảng cách tới đại lộ; ~60 % phố nhỏ đổi trước khi hết đoạn
++  lamps.forEach((l) => { l.r = R(); if (l.main) l.tc = T05.white + Math.abs(l.x - 810) / 700 * 1.6 + (l.x === 780 || l.x === 840 ? 0 : 0.25); else l.tc = T05.few + (l.d / 380) * 7.5 + l.r * 2.5; });
++  const first = lamps.filter((l) => l.main).reduce((b, l) => (Math.abs(l.x - 810) < Math.abs(b.x - 810) ? l : b)); first.tc = T05.white;
++  // vòng thắp đèn: đi dọc đại lộ, rẽ vào từng phố nhỏ rồi quay ra (răng lược)
++  const route = (keep) => { const pts = []; const mains = lamps.filter((l) => l.main);
++    for (const m of mains) { if (keep(m)) pts.push(m.p); for (const x of xs) if (Math.abs(m.x - x) < 30 && m.x <= x) for (const dir of [-1, 1]) { const sl = lamps.filter((l) => !l.main && l.x === x && l.dir === dir && keep(l)); if (!sl.length) continue;
++      pts.push([x, Y0 - 4]); sl.forEach((l) => pts.push([l.p[0] - 22, l.p[1]])); pts.push([x - 4, Y0 - 4]); } } return pts; };
++  return { lamps, streets, Y0, xs, route }; })();
++const TEND = 24.0;
++const ROUTE_FULL = STRIP.route(() => true), ROUTE_END = STRIP.route((l) => !(l.tc < TEND - 0.6));
++function polyLen(P) { let s = 0; for (let i = 1; i < P.length; i++) s += Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); return s; }
++function drawRoute(g, P, a, prog = 1) { if (a <= 0 || P.length < 2) return; g.save(); g.globalAlpha *= cl(a); g.strokeStyle = OCHRE; g.lineWidth = 3.6; g.lineJoin = 'round'; g.lineCap = 'round';
++  const L = polyLen(P) * prog; g.beginPath(); g.moveTo(...P[0]); let acc = 0; for (let i = 1; i < P.length; i++) { const d = Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]); if (acc + d >= L) { const u = (L - acc) / d; g.lineTo(lerp(P[i - 1][0], P[i][0], u), lerp(P[i - 1][1], P[i][1], u)); break; } g.lineTo(...P[i]); acc += d; } g.stroke(); g.restore(); }
++function part2(g, t, a) {
++  if (a <= 0) return; g.save(); g.globalAlpha *= a;
++  g.lineCap = 'round'; g.strokeStyle = SEPIA; for (const [p, q] of STRIP.streets) { const main = p[1] === q[1]; g.lineWidth = main ? 5 : 2.6; g.beginPath(); g.moveTo(...p); g.lineTo(...q); g.stroke(); }
++  // vòng thắp đèn: đầy đủ tới "every", rồi rút ngắn chỉ còn qua đèn khí còn lại (tới "shorter")
++  const sh = sm(pr(t, T05.every, T05.shorter + 0.3)); drawRoute(g, ROUTE_FULL, (1 - sh) * 0.85, sm(pr(t, T05.it, T05.tide + 1.2))); drawRoute(g, ROUTE_END, sh * 0.85);
++  for (const l of STRIP.lamps) { const c = sm(pr(t, l.tc, l.tc + 0.5)); amberLamp(g, ...l.p, 1 - c); whiteLamp(g, ...l.p, c, 6.5); }
++  // đêm nối đêm: trăng lưỡi liềm hiện dần (không phải một đêm)
++  const nn = Math.max(0, (t - T05.notA) / 0.55); for (let i = 0; i < Math.min(16, Math.ceil(nn)); i++) { const ap = cl(nn - i); const x = 1540 - i * 46, y = 74;
++    g.save(); g.globalAlpha *= ap * 0.9; g.fillStyle = INK2; g.beginPath(); g.arc(x, y, 13, 0, 7); g.fill(); g.fillStyle = '#e6d8b6'; g.beginPath(); g.arc(x + 6, y - 4, 12, 0, 7); g.fill(); g.restore(); }
++  g.restore();
++}
++function sheet05(g, t) { const x = sm(pr(t, T05.it - 0.1, T05.it + 0.7)); part1(g, t, 1 - x); part2(g, t, x); }
++window.SEC = { n: '05', frames: 589, blur: [], ready: true,
++  frame(g, t) { g.drawImage(BG, 0, 0); drawCard(g, t, { seed: 29, content: sheet05 }); drawLight(g, t, 1); drawDust(g, t, 1); } };
+diff --git a/design/m3/ep01/history/sec/06.js b/design/m3/ep01/history/sec/06.js
+new file mode 100644
+index 0000000..4809899
+--- /dev/null
++++ b/design/m3/ep01/history/sec/06.js
+@@ -0,0 +1,74 @@
++// Đoạn 06 · [HISTORY] New York, April 1907 — 659 khung (27,46 s).
++// Bản đồ Manhattan CÁCH ĐIỆU (đảo dài xoay chéo + lưới phố thủ tục), đèn hổ phách tắt thành từng mảng.
++// Trang báo VẼ LẠI theo phong cách riêng (không chèn bản quét, không tên báo thật; cột chữ là vạch không đọc được), tiêu đề diễn đạt lại.
++// Bóng cảnh sát leo cột với que diêm, cỡ xa, trong ô tròn trên bản đồ. Cuối đoạn: đèn trắng (điện) thay dần, mỗi năm một ít.
++'use strict';
++const T06 = { in: 0.60, april: 0.84, ny: 2.32, lamp: 2.83, went: 3.55, strike: 4.01, union: 4.69, recog: 5.04, pay: 6.56, parts: 7.74, dark: 8.89, police: 9.91, light: 11.73,
++  some: 12.99, climbing: 13.34, matches: 14.57, within: 15.79, week: 16.46, men: 17.25, back: 17.62, work: 17.98, aStrike: 19.13, cant: 21.05, without: 21.59, every: 23.09, year: 23.39, more: 24.97, them: 25.79 };
++const MAN = { c: [830, 440], ang: -0.5, L: 1400, Wd: 250 };   // đảo: tâm, góc trục dài, dài, rộng
++const ca = Math.cos(MAN.ang), sa = Math.sin(MAN.ang);
++const mP = (u, v) => [MAN.c[0] + ca * u - sa * v, MAN.c[1] + sa * u + ca * v];   // u dọc đảo (−L/2 nam → +L/2 bắc), v ngang
++const halfW = (u) => { const k = (u + MAN.L / 2) / MAN.L; return MAN.Wd / 2 * (k < 0.08 ? 0.35 + 0.65 * k / 0.08 : k > 0.9 ? 1 - 0.5 * (k - 0.9) / 0.1 : 1) * (1 + 0.12 * Math.sin(k * 9)); };
++const OUTLINE = (() => { const a = [], b = []; for (let i = 0; i <= 60; i++) { const u = -MAN.L / 2 + MAN.L * i / 60; a.push(mP(u, -halfW(u))); b.push(mP(u, halfW(u))); } return a.concat(b.reverse()); })();
++const LAMPS06 = (() => { const R = rng(1907), out = []; for (let u = -MAN.L / 2 + 30; u < MAN.L / 2 - 20; u += 26) for (let v = -110; v <= 110; v += 44) { if (Math.abs(v) > halfW(u) - 12) continue;
++  out.push({ u, v, p: mP(u, v), r: R() }); } return out; })();
++const PATCH = [[-380, 20, 120], [-60, -40, 110], [250, 30, 130], [520, -20, 100]];   // mảng tối (u, v, bán kính)
++LAMPS06.forEach((l) => { l.patch = PATCH.findIndex(([u, v, r]) => Math.hypot(l.u - u, l.v - v) < r); l.wt = T06.every + 0.2 + Math.pow(l.r, 1.4) * 9; });   // đèn trắng thay dần (≈ 30 % tới cuối đoạn)
++const COP = LAMPS06.reduce((b, l) => (Math.hypot(l.u - (-60), l.v - (-40)) < Math.hypot(b.u - (-60), b.v - (-40)) ? l : b), LAMPS06[0]);   // cột cảnh sát thắp lại
++function lampState(l, t) {   // trả [hổ phách 0..1, trắng 0..1]
++  let on = 1; if (l.patch >= 0) { const t0 = T06.parts + 0.6 + l.patch * 0.3 + l.r * 0.4; on = 1 - sm(pr(t, t0, t0 + 0.5)); const tb = T06.men + l.r * 0.9; on = Math.max(on, sm(pr(t, tb, tb + 0.4)));
++    if (l === COP) on = Math.max(on, sm(pr(t, T06.matches + 0.2, T06.matches + 0.6))); else if (l.r < 0.18) { const tp = T06.light + l.r * 3; on = Math.max(on, 0.85 * sm(pr(t, tp, tp + 0.4))); } }
++  const w = sm(pr(t, l.wt, l.wt + 0.5)); const pulse = 1 + 0.35 * Math.sin(Math.PI * pr(t, T06.cant, T06.without + 0.6)); return [on * (1 - w) * pulse, w]; }
++function sheet06(g, t) {
++  const ma = sm(pr(t, T06.in, T06.in + 0.8)); g.save(); g.globalAlpha *= ma;
++  // nước quanh đảo (gợn), đảo, lưới phố
++  g.strokeStyle = 'rgba(91,67,48,0.25)'; g.lineWidth = 1.4; for (let i = 0; i < 40; i++) { const R = rng(i + 7), x = R() * SW, y = R() * SH, ph = Math.sin(t * 0.8 + i) * 4; g.beginPath(); g.moveTo(x - 14 + ph, y); g.quadraticCurveTo(x + ph, y - 5, x + 14 + ph, y); g.stroke(); }
++  g.beginPath(); OUTLINE.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.closePath(); g.fillStyle = 'rgba(221,205,170,0.9)'; g.fill(); g.strokeStyle = SEPIA; g.lineWidth = 3; g.stroke();
++  g.save(); g.clip(); g.strokeStyle = 'rgba(91,67,48,0.45)'; g.lineWidth = 1.3;
++  for (let v = -132; v <= 132; v += 44) { g.beginPath(); g.moveTo(...mP(-MAN.L / 2, v)); g.lineTo(...mP(MAN.L / 2, v)); g.stroke(); }
++  for (let u = -MAN.L / 2; u <= MAN.L / 2; u += 26) { g.beginPath(); g.moveTo(...mP(u, -150)); g.lineTo(...mP(u, 150)); g.stroke(); }
++  g.strokeStyle = 'rgba(91,67,48,0.6)'; g.lineWidth = 2.4; g.beginPath(); for (let i = 0; i <= 40; i++) { const u = -MAN.L / 2 + 120 + i * 30, p = mP(u, -120 + i * 6); i ? g.lineTo(...p) : g.moveTo(...p); } g.stroke();   // một đại lộ chéo
++  // mảng tối: phủ xám xanh nhẹ lên vùng đèn tắt
++  PATCH.forEach(([u, v, r], k) => { const t0 = T06.parts + 0.6 + k * 0.3, d = sm(pr(t, t0, t0 + 0.6)) * (1 - sm(pr(t, T06.men, T06.men + 1.0))); if (d <= 0) return; const [x, y] = mP(u, v);
++    const gr = g.createRadialGradient(x, y, 0, x, y, r * 1.2); gr.addColorStop(0, `rgba(30,34,52,${0.62 * d})`); gr.addColorStop(1, 'rgba(40,45,65,0)'); g.fillStyle = gr; g.fillRect(x - r * 1.3, y - r * 1.3, r * 2.6, r * 2.6); });
++  g.restore();
++  for (const l of LAMPS06) { const [a, w] = lampState(l, t); if (a > 0.01) { glow(g, ...l.p, 13, RGB_AMB, 0.45 * Math.min(1, a)); g.fillStyle = AMBER; g.globalAlpha = ma * Math.min(1, a); g.beginPath(); g.arc(...l.p, 3.4, 0, 7); g.fill(); g.globalAlpha = ma; }
++    else if (w < 0.01) { g.fillStyle = 'rgba(60,50,45,0.55)'; g.beginPath(); g.arc(...l.p, 2.6, 0, 7); g.fill(); }
++    if (w > 0) { g.save(); g.globalAlpha *= w; g.fillStyle = '#fff'; g.strokeStyle = COLD; g.lineWidth = 2; g.beginPath(); g.arc(...l.p, 5.2, 0, 7); g.fill(); g.stroke(); g.restore(); } }
++  g.restore();
++  // ô tựa
++  g.save(); g.globalAlpha *= ma; g.fillStyle = 'rgba(236,223,190,0.93)'; g.fillRect(52, 40, 380, 128); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(58, 46, 368, 116); g.strokeRect(63, 51, 358, 106); g.restore();
++  textA(g, 'NEW YORK', 84, 104, font(50, 'serif', true), INK, pr(t, T06.ny, T06.ny + 0.4)); textA(g, 'April 1907', 86, 146, font(30, 'sans', true), OCHRE, pr(t, T06.april, T06.april + 0.4));
++  // cảnh sát leo cột với que diêm (ô tròn, cỡ xa)
++  const va = pr(t, T06.police, T06.police + 0.6) * (1 - sm(pr(t, T06.within, T06.within + 0.7))); if (va > 0) { const [cx0, cy0] = COP.p, cx = 1180, cy = 560, R0 = 190 * eo(va);
++    g.save(); g.globalAlpha *= va; g.strokeStyle = INK2; g.lineWidth = 2; g.beginPath(); g.moveTo(cx0, cy0); g.lineTo(cx - R0 * 0.8, cy - R0 * 0.6); g.stroke();
++    g.fillStyle = '#e9dcbc'; g.beginPath(); g.arc(cx, cy, R0, 0, 7); g.fill(); g.lineWidth = 3; g.strokeStyle = SEPIA; g.stroke(); g.clip();
++    const lit = sm(pr(t, T06.matches + 0.2, T06.matches + 0.6)); gasLampIcon(g, cx + 20, cy - 120, 1.0, 1, lit, SEPIA);
++    const cl1 = sm(pr(t, T06.climbing, T06.climbing + 1.0)); const fx = cx - 4, fy = lerp(cy + 150, cy + 40, cl1);
++    const h = person(g, fx, fy, 130, { col: '#2a221c', hat: 'police', coat: true, arm: lerp(2.6, 2.9, cl1), arm2: lerp(0.4, 2.2, cl1) });
++    const ma2 = pr(t, T06.matches, T06.matches + 0.15); if (ma2 > 0) glow(g, h.hand[0], h.hand[1], 26, RGB_AMB, 0.7 * ma2 * (1 - lit * 0.6));
++    if (lit > 0) glow(g, cx + 20, cy - 100, 80, RGB_AMB, 0.4 * lit); g.restore();
++    textA(g, 'police lighting the lamps', cx, cy + R0 + 34, font(24, 'serif', true), INK, pr(t, T06.light, T06.light + 0.5) * va, 'center'); }
++  // một tuần: 7 vạch ngày
++  const wa = pr(t, T06.within, T06.within + 0.4) * (1 - sm(pr(t, T06.aStrike, T06.aStrike + 0.6))); if (wa > 0) { g.save(); g.globalAlpha *= wa; for (let i = 0; i < 7; i++) { const a = sm(pr(t, T06.within + i * 0.1, T06.within + i * 0.1 + 0.3)); const x = 1180 + i * 46, y = 700;
++      g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(x, y, 36, 36); if (a > 0) { g.fillStyle = `rgba(107,58,18,${0.75 * a})`; g.fillRect(x + 5, y + 5, 26 * a, 26); } }
++    textA(g, 'about a week', 1180, 770, font(24, 'serif', true), INK, pr(t, T06.week - 0.3, T06.week + 0.2), 'left', 'top');
++    textA(g, 'back at work', 1180, 806, font(24, 'serif', true), OCHRE, pr(t, T06.back, T06.back + 0.4), 'left', 'top'); g.restore(); }
++  srcLine(g, 'Sources: The Sun (NY), 25 Apr 1907 · New-York Tribune, 29 Apr 1907 · The Evening World, 30 Apr 1907', 872, ma);
++}
++// trang báo vẽ lại (không tên báo thật; chữ thân là vạch)
++function news(g, t) { const w = 720, h = 690;
++  g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(30, 40); g.lineTo(w - 30, 40); g.moveTo(30, 98); g.lineTo(w - 30, 98); g.stroke(); g.lineWidth = 1.2; g.beginPath(); g.moveTo(30, 104); g.lineTo(w - 30, 104); g.stroke();
++  for (let i = 0; i < 9; i++) { g.fillStyle = 'rgba(33,26,23,0.55)'; g.fillRect(60 + i * 68, 58, 40, 24); }   // đầu báo trang trí (không chữ)
++  text(g, 'NEW YORK · APRIL 1907', w / 2, 128, font(18, 'sans', true), INK2, 'center', 'middle');
++  textWipe(g, 'LAMPLIGHTERS', w / 2, 214, font(70, 'serif', true), INK, pr(t, T06.strike - 0.05, T06.strike + 0.5), 'center');
++  textWipe(g, 'STRIKE', w / 2, 290, font(70, 'serif', true), INK, pr(t, T06.strike + 0.15, T06.strike + 0.6), 'center');
++  textA(g, 'Men demand union recognition', w / 2, 340, font(26, 'serif'), INK2, pr(t, T06.union, T06.union + 0.4), 'center');
++  textA(g, 'and better pay', w / 2, 374, font(26, 'serif'), INK2, pr(t, T06.pay - 0.3, T06.pay + 0.1), 'center');
++  const R = rng(25); g.fillStyle = 'rgba(60,50,40,0.28)'; for (let c = 0; c < 4; c++) for (let r = 0; r < 14; r++) { const x = 34 + c * 166, y = 410 + r * 19, ww = 140 - (r % 5 === 4 ? 60 * R() : 6 * R()); g.fillRect(x, y, ww, 6); }
++  g.strokeStyle = 'rgba(33,26,23,0.35)'; g.lineWidth = 1; for (let c = 1; c < 4; c++) { g.beginPath(); g.moveTo(26 + c * 166, 404); g.lineTo(26 + c * 166, 676); g.stroke(); } }
++window.SEC = { n: '06', frames: 659, blur: [[T06.went, T06.went + 0.7], [T06.parts - 0.2, T06.parts + 0.6]], ready: true,
++  frame(g, t) { g.drawImage(BG, 0, 0); drawCard(g, t, { seed: 11, content: sheet06 });
++    const nin = sm(pr(t, T06.went, T06.went + 0.7)), nout = sm(pr(t, T06.parts - 0.2, T06.parts + 0.6));
++    if (nin > 0 && nout < 1) drawCard(g, t, { x: 1040 + (1 - nin) * 1000 + nout * 1000, y: 170, w: 720, h: 690, seed: 61, tilt: -0.035, ph: 0.8, content: news });
++    drawLight(g, t, 1); drawDust(g, t, 1); } };
+diff --git a/design/m3/ep01/history/sec/07.js b/design/m3/ep01/history/sec/07.js
+new file mode 100644
+index 0000000..b2b2504
+--- /dev/null
++++ b/design/m3/ep01/history/sec/07.js
+@@ -0,0 +1,127 @@
++// Đoạn 07 · [HISTORY] [SHORTS S1] "London's last lamplighters" — 782 khung (32,58 s).
++// Covent Garden ban đêm, 2.5D CẮT GIẤY, 4 lớp parallax (trời + mái xa · mặt tiền chợ/phố + đèn · mặt đường · tiền cảnh cột đèn khí + lan can), máy trượt ngang chậm.
++// Đèn khí hổ phách giữa đèn LED trắng. Người thắp đèn hiện đại HƯ CẤU (áo phản quang, thang nhôm), cỡ xa, lên dây đồng hồ.
++// Chữ to "5 lamplighters"; dòng nhỏ "~1,100 gas lamps · British Gas, 2023". Không biểu đồ, không so với số nào khác (luật so sánh điểm 3).
++'use strict';
++const T07 = { here: 0.60, london: 3.22, gas: 4.27, lamps: 4.99, covent: 5.92, mall: 7.52, palaces: 8.96, theatres: 9.90, british: 11.19, gasW: 11.58, eleven: 13.75, y2023: 15.37,
++  that: 16.77, five: 17.67, five2: 18.90, lamplighters: 19.33, they: 20.48, fire: 21.25, most: 22.83, clockwork: 24.37, timers: 24.91, every: 25.91, two: 26.42, weeks: 26.66,
++  someone: 27.15, climbs: 27.56, wind: 28.31, clock: 28.72, check: 29.44, lamp: 29.88 };
++const camX = (t) => 30 + t * 13;
++// hạt giấy (một lần) — phủ soft-light cho cảm giác cắt giấy
++const GRAIN = (() => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const id = g.createImageData(W, H), d = id.data, R = rng(707);
++  for (let i = 0; i < d.length; i += 4) { const n = 128 + (R() - 0.5) * 70; d[i] = d[i + 1] = d[i + 2] = n; d[i + 3] = 255; } g.putImageData(id, 0, 0); return c; })();
++const jig = (pts, seed, a = 1.6) => { const R = rng(seed); return pts.map(([x, y]) => [x + (R() - 0.5) * a, y + (R() - 0.5) * a]); };
++function fillPoly(g, pts, col, sh = true) { g.save(); if (sh) { g.shadowColor = 'rgba(0,0,0,0.55)'; g.shadowBlur = 22; g.shadowOffsetX = 7; g.shadowOffsetY = 9; } g.fillStyle = col; g.beginPath(); pts.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.closePath(); g.fill(); g.restore(); }
++// ---- lớp xa: mái nhà ----
++const ROOF = (() => { const R = rng(31), pts = [[-200, 1080], [-200, 470]]; let x = -200; const win = [];
++  while (x < 2600) { const w = 90 + R() * 160, h = 360 + R() * 120; pts.push([x, h]); if (R() < 0.5) { pts.push([x + w * 0.3, h]); pts.push([x + w * 0.3, h - 30 - R() * 20]); pts.push([x + w * 0.38, h - 30 - R() * 20]); pts.push([x + w * 0.38, h]); }
++    pts.push([x + w, h]); for (let k = 0; k < 3; k++) if (R() < 0.5) win.push([x + 10 + R() * (w - 30), h + 30 + R() * 140, R()]); x += w; }
++  pts.push([2600, 1080]); return { pts: jig(pts, 3), win }; })();
++// ---- lớp giữa: chợ Covent Garden (vòm + cột + trán tường) và phố ----
++const MIDX0 = 120;
++const HALL = (() => { const out = { x0: MIDX0, x1: MIDX0 + 1500, base: 770, top: 520 }; out.arches = []; for (let i = 0; i < 12; i++) out.arches.push(MIDX0 + 40 + i * 120); return out; })();
++const LIGHTS = [{ x: 60, kind: 'led' }, { x: 420, kind: 'gas' }, { x: 700, kind: 'led' }, { x: 980, kind: 'gas', hero: false }, { x: 1300, kind: 'gas', hero: true }, { x: 1600, kind: 'led' }, { x: 1880, kind: 'gas' }, { x: 2160, kind: 'led' }, { x: 2440, kind: 'gas' }];
++const HERO = LIGHTS.find((l) => l.hero);
++function midLayer(g, t, ox, gasK) {
++  g.save(); g.translate(ox, 0);
++  // nhà phố hai bên chợ
++  const R = rng(55); for (const [x0, w, h] of [[-300, 400, 430], [1640, 300, 410], [1960, 360, 450], [2340, 380, 420]]) { fillPoly(g, jig([[x0, 790], [x0, h], [x0 + w, h], [x0 + w, 790]], x0 + 9), '#232a40');
++    for (let r = 0; r < 4; r++) for (let c = 0; c < Math.floor(w / 70); c++) { const lit = R() < 0.35; g.fillStyle = lit ? 'rgba(232,186,110,0.55)' : 'rgba(10,12,20,0.75)'; g.fillRect(x0 + 24 + c * 70, h + 34 + r * 80, 30, 46); } }
++  // chợ: khối + mái + trán tường giữa
++  const { x0, x1, base, top } = HALL; fillPoly(g, jig([[x0, base + 20], [x0, top], [x1, top], [x1, base + 20]], 77), '#2a3048');
++  fillPoly(g, jig([[x0 - 20, top + 6], [x0 - 20, top - 24], [x1 + 20, top - 24], [x1 + 20, top + 6]], 78), '#313852');
++  const cx = (x0 + x1) / 2; fillPoly(g, jig([[cx - 260, top - 24], [cx, top - 150], [cx + 260, top - 24]], 79), '#313852');
++  g.fillStyle = '#1b2033'; g.beginPath(); g.arc(cx, top - 66, 34, 0, 7); g.fill();   // ô tròn trán tường
++  // vòm (cắt thủng: tối bên trong, vài vòm có ánh hàng quán)
++  HALL.arches.forEach((ax, i) => { g.fillStyle = '#10131e'; g.beginPath(); g.moveTo(ax, base); g.lineTo(ax, top + 110); g.arc(ax + 40, top + 110, 40, Math.PI, 0); g.lineTo(ax + 80, base); g.closePath(); g.fill();
++    if (i % 3 !== 1) { const gr = g.createLinearGradient(0, top + 80, 0, base); gr.addColorStop(0, 'rgba(230,170,90,0.10)'); gr.addColorStop(1, 'rgba(230,170,90,0.32)'); g.fillStyle = gr; g.fill(); } });
++  // mặt đường (lát đá): gradient + vệt đá
++  g.restore();
++  // đèn đường (trên lớp giữa)
++  for (const L of LIGHTS) { const x = L.x + ox; if (x < -200 || x > W + 200) continue;
++    if (L.kind === 'led') { g.fillStyle = '#151a29'; g.fillRect(x - 5, 470, 10, 300); g.fillRect(x - 5, 470, 70, 10); g.fillStyle = '#e8f0ff'; g.fillRect(x + 30, 480, 34, 6);
++      g.save(); g.globalCompositeOperation = 'lighter'; const gr = g.createRadialGradient(x + 47, 490, 0, x + 47, 600, 300); gr.addColorStop(0, 'rgba(210,225,255,0.30)'); gr.addColorStop(1, 'rgba(210,225,255,0)'); g.fillStyle = gr;
++      g.beginPath(); g.moveTo(x + 32, 486); g.lineTo(x - 120, 800); g.lineTo(x + 220, 800); g.lineTo(x + 62, 486); g.closePath(); g.fill(); g.restore(); glow(g, x + 47, 484, 60, RGB_WHT, 0.55); }
++    else { g.fillStyle = '#151a29'; g.fillRect(x - 4, 590, 8, 180); g.fillRect(x - 14, 584, 28, 8); g.fillRect(x - 20, 590, 40, 4);
++      g.beginPath(); g.moveTo(x - 13, 584); g.lineTo(x - 17, 548); g.lineTo(x + 17, 548); g.lineTo(x + 13, 584); g.closePath(); g.fillStyle = '#151a29'; g.fill();
++      const fl = 0.88 + 0.07 * Math.sin(t * 8.3 + L.x) + 0.04 * Math.sin(t * 13.1 + L.x * 0.3), k = gasK * fl * (L.hero ? 1 + 0.35 * Math.sin(Math.PI * pr(t, T07.check, T07.lamp + 0.5)) : 1);
++      g.fillStyle = `rgba(255,${Math.round(170 + 30 * k)},90,${0.75 + 0.2 * k})`; g.fillRect(x - 11, 552, 22, 30); glow(g, x, 566, 110, RGB_AMB, 0.5 * k); glow(g, x, 700, 150, '255,160,70', 0.10 * k);
++      g.fillStyle = '#151a29'; g.beginPath(); g.moveTo(x - 20, 548); g.lineTo(x, 532); g.lineTo(x + 20, 548); g.closePath(); g.fill(); } }
++}
++function ground(g, t, ox) { const gr = g.createLinearGradient(0, 770, 0, H); gr.addColorStop(0, '#1a1e2c'); gr.addColorStop(1, '#0c0e16'); g.fillStyle = gr; g.fillRect(0, 770, W, H - 770);
++  g.save(); g.translate(ox, 0); g.strokeStyle = 'rgba(120,120,140,0.10)'; g.lineWidth = 1.5; for (let r = 0; r < 9; r++) { const y = 785 + r * r * 4 + r * 10; g.beginPath(); for (let x = -200; x < 2700; x += 26 + r * 3) { g.moveTo(x + (r % 2) * 12, y); g.lineTo(x + 18 + r * 2 + (r % 2) * 12, y); } g.stroke(); } g.restore();
++  // vũng sáng
++  for (const L of LIGHTS) { const x = L.x + ox * 1.0; g.save(); g.globalCompositeOperation = 'lighter'; const c = L.kind === 'led' ? '200,215,245' : '255,160,70'; const gr2 = g.createRadialGradient(x + (L.kind === 'led' ? 47 : 0), 800, 0, x, 800, 220);
++    gr2.addColorStop(0, `rgba(${c},0.16)`); gr2.addColorStop(1, `rgba(${c},0)`); g.fillStyle = gr2; g.fillRect(x - 260, 760, 520, 200); g.restore(); } }
++// ---- tiền cảnh: cột đèn khí lớn + lan can ----
++function fgLayer(g, t, ox) { g.save(); g.translate(ox, 0); const x = 1500;
++  fillPoly(g, jig([[x - 16, 1100], [x - 12, 300], [x + 12, 300], [x + 16, 1100]], 91), '#07080d'); fillPoly(g, jig([[x - 40, 300], [x - 52, 196], [x + 52, 196], [x + 40, 300]], 92), '#07080d');
++  fillPoly(g, jig([[x - 64, 196], [x, 150], [x + 64, 196]], 93), '#07080d'); fillPoly(g, jig([[x - 70, 330], [x + 70, 330], [x + 70, 344], [x - 70, 344]], 94), '#07080d');
++  g.restore(); const fl = 0.9 + 0.06 * Math.sin(t * 9.7); g.fillStyle = `rgba(255,190,105,${0.85})`; g.fillRect(x + ox - 36, 206, 72, 88); glow(g, x + ox, 250, 260, RGB_AMB, 0.42 * fl);
++  g.save(); g.translate(ox, 0); g.fillStyle = '#07080d'; g.fillRect(x - 44, 204, 6, 92); g.fillRect(x + 38, 204, 6, 92); g.fillRect(x - 3, 204, 6, 92);
++  for (let px = -300; px < 3200; px += 34) g.fillRect(px, 960, 7, 140); g.fillRect(-300, 952, 3500, 12); g.fillRect(-300, 1040, 3500, 10); g.restore(); }
++// ---- người thắp đèn hiện đại (hư cấu) ----
++function worker(g, t, ox) { if (t < T07.they) return; const hx = HERO.x + ox, base = 772;
++  const walk = sm(pr(t, T07.they, T07.most - 0.3)), x = lerp(hx + 330, hx + 36, walk), step = Math.sin(t * 7) * (walk < 1 ? 0.5 : 0) * (1 - walk);
++  const climb = sm(pr(t, T07.climbs, T07.wind - 0.05)), lean = sm(pr(t, T07.someone, T07.climbs));
++  g.save(); g.globalAlpha *= pr(t, T07.they, T07.they + 0.5);
++  // thang nhôm: vác vai → dựng vào cột
++  if (lean <= 0) { g.save(); g.translate(x - 2, base - 92); g.rotate(-0.08); ladder(g, -60, 0, 70, 0, 14, '#9aa3ad', 3); g.restore(); }
++  else ladder(g, lerp(x + 30, hx + 40, lean), base, lerp(x + 30, hx + 8, lean), lerp(base - 90, 572, lean), 16, '#9aa3ad', 3);
++  const fy = base - climb * 120, fx = lerp(x, hx + 30, lean) - climb * 10;
++  const wind = pr(t, T07.wind, T07.check), armA = wind > 0 && wind < 1 ? 2.75 + 0.25 * Math.sin(t * 12) : lerp(0.3, 2.6, climb);
++  person(g, fx, fy, 104, { col: '#0d0f17', arm: armA, arm2: lerp(-0.2, 2.2, climb), hat: 'helmet', step });
++  // áo phản quang: thân vàng chanh + hai dải bạc
++  const k = 104 / 170; g.fillStyle = '#c3cc3c'; g.fillRect(fx - 17 * k, fy - 140 * k, 34 * k, 50 * k); g.fillStyle = '#e6ecf0'; g.fillRect(fx - 17 * k, fy - 124 * k, 34 * k, 4); g.fillRect(fx - 17 * k, fy - 104 * k, 34 * k, 4);
++  g.restore(); }
++// ---- ô đồng hồ hẹn giờ + lịch 14 ngày ----
++function timerInset(g, t) { const a = pr(t, T07.clockwork, T07.clockwork + 0.5); if (a <= 0) return; const cx = 1500, cy = 330, R0 = 150 * eo(a);
++  g.save(); g.globalAlpha *= a; g.shadowColor = 'rgba(0,0,0,0.6)'; g.shadowBlur = 24; g.shadowOffsetY = 10; g.fillStyle = CREAM; g.beginPath(); g.arc(cx, cy, R0, 0, 7); g.fill(); g.shadowBlur = 0; g.shadowOffsetY = 0;
++  g.strokeStyle = SEPIA; g.lineWidth = 3; g.stroke(); g.lineWidth = 2;
++  for (let i = 0; i < 24; i++) { const an = i / 24 * 2 * Math.PI; g.beginPath(); g.moveTo(cx + Math.cos(an) * R0 * 0.86, cy + Math.sin(an) * R0 * 0.86); g.lineTo(cx + Math.cos(an) * R0 * (i % 6 ? 0.8 : 0.74), cy + Math.sin(an) * R0 * (i % 6 ? 0.8 : 0.74)); g.stroke(); }
++  // bánh răng quay (máy cơ)
++  const gear = (gx, gy, r, n, rot) => { g.save(); g.translate(gx, gy); g.rotate(rot); g.fillStyle = 'rgba(107,58,18,0.75)'; g.beginPath(); for (let i = 0; i < n * 2; i++) { const an = i / (n * 2) * 2 * Math.PI, rr = i % 2 ? r : r * 0.82; g.lineTo(Math.cos(an) * rr, Math.sin(an) * rr); } g.closePath(); g.fill();
++    g.fillStyle = CREAM; g.beginPath(); g.arc(0, 0, r * 0.3, 0, 7); g.fill(); g.restore(); };
++  const wk = pr(t, T07.wind, T07.check); gear(cx - 34 * eo(a), cy + 30 * eo(a), 34 * eo(a), 10, t * 0.4 + wk * 6); gear(cx + 28 * eo(a), cy + 46 * eo(a), 22 * eo(a), 7, -t * 0.62 - wk * 9);
++  const ha = -Math.PI / 2 + t * 0.12 + wk * 2.2; g.strokeStyle = INK; g.lineWidth = 5; g.lineCap = 'round'; g.beginPath(); g.moveTo(cx, cy); g.lineTo(cx + Math.cos(ha) * R0 * 0.62, cy + Math.sin(ha) * R0 * 0.62); g.stroke();
++  g.fillStyle = INK; g.beginPath(); g.arc(cx, cy, 7, 0, 7); g.fill(); g.restore();
++  plate(g, cx - 235, cy + R0 + 8, 470, pr(t, T07.every, T07.every + 0.4) > 0 ? 136 : 48, a);
++  textA(g, 'clockwork timer', cx, cy + R0 + 38, font(26, 'serif', true), CREAM, a, 'center');
++  // 14 ô ngày, ô cuối = lên dây
++  const ca = pr(t, T07.every, T07.every + 0.4); if (ca > 0) { g.save(); g.globalAlpha *= ca; for (let i = 0; i < 14; i++) { const x = cx - 7 * 30 + (i % 7) * 60 - 0, y = cy + R0 + 64 + Math.floor(i / 7) * 0;
++      const xx = cx - 205 + i * 30, f = sm(pr(t, T07.two - 0.2 + i * 0.03, T07.two + i * 0.03)); g.strokeStyle = CREAM; g.lineWidth = 2; g.strokeRect(xx, cy + R0 + 62, 24, 24);
++      if (f > 0) { g.fillStyle = i === 13 ? `rgba(255,178,90,${f})` : `rgba(236,223,190,${0.45 * f})`; g.fillRect(xx + 4, cy + R0 + 66, 16, 16); } }
++    g.restore(); textA(g, 'every two weeks', cx, cy + R0 + 124, font(24, 'serif', true), CREAM, pr(t, T07.weeks, T07.weeks + 0.3), 'center'); } }
++// ---- chữ ----
++function plate(g, x, y, w, h, a) { if (a <= 0) return; g.save(); g.globalAlpha *= a; g.fillStyle = 'rgba(8,9,15,0.72)'; g.fillRect(x, y, w, h); g.restore(); }
++function texts(g, t) {
++  // địa danh
++  const pa = pr(t, T07.london, T07.london + 0.4) * (1 - sm(pr(t, T07.british - 0.3, T07.british + 0.2)));
++  if (pa > 0) { const f = font(32, 'serif', true); g.font = f; const parts = [['London: ', T07.london], ['Covent Garden', T07.covent], [' · The Mall', T07.mall], [' · palaces', T07.palaces], [' & theatres', T07.theatres]];
++    let tw = 0; parts.forEach(([s]) => (tw += g.measureText(s).width)); plate(g, 70, 960, tw + 50, 64, pa); let x = 95; parts.forEach(([s, t0]) => { textA(g, s, x, 1004, f, CREAM, pa * pr(t, t0, t0 + 0.4)); x += g.measureText(s).width; }); }
++  // ~1,100 gas lamps · British Gas, 2023
++  const sa = pr(t, T07.gasW, T07.gasW + 0.4); if (sa > 0) { const f = font(34, 'sans', true); g.font = f; const parts = [['~1,100 gas lamps', T07.eleven, AMBER_L], [' · ', T07.eleven, CREAM], ['British Gas, ', T07.gasW, CREAM], ['2023', T07.y2023, CREAM]];
++    let tw = 0; parts.forEach(([s]) => (tw += g.measureText(s).width)); plate(g, 70, 960, tw + 50, 64, sa); let x = 95; parts.forEach(([s, t0, c]) => { textA(g, s, x, 1005, f, c, pr(t, t0, t0 + 0.4)); x += g.measureText(s).width; }); }
++  // 5 lamplighters
++  const fa = pr(t, T07.five, T07.five + 0.4); if (fa > 0) { const out = 1 - 0.0 * pr(t, 31, 32); g.save(); g.globalAlpha *= out; plate(g, 70, 70, 690, 150, fa);
++    g.save(); g.globalAlpha *= fa; g.translate(0, (1 - eo(fa)) * 12); text(g, '5', 100, 190, font(130, 'serif', true), AMBER_L, 'left'); g.restore();
++    textWipe(g, 'lamplighters', 200, 182, font(78, 'serif', true), CREAM, pr(t, T07.lamplighters, T07.lamplighters + 0.7)); g.restore(); }
++}
++function frame07(g, t) {
++  const c = camX(t);
++  const sky = g.createLinearGradient(0, 0, 0, H); sky.addColorStop(0, '#0b0f1e'); sky.addColorStop(0.6, '#1a2036'); sky.addColorStop(1, '#141826'); g.fillStyle = sky; g.fillRect(0, 0, W, H);
++  // sao mờ + mái xa (lớp 1, hệ số 0,2)
++  const R = rng(9); for (let i = 0; i < 70; i++) { const x = ((R() * 2400 - c * 0.08) % 2400 + 2400) % 2400 - 200, y = R() * 380; g.fillStyle = `rgba(220,225,255,${0.15 + 0.25 * R() * (0.8 + 0.2 * Math.sin(t * 2 + i))})`; g.fillRect(x, y, 2, 2); }
++  g.save(); g.translate(-c * 0.2, 0); fillPoly(g, ROOF.pts, '#181e33'); for (const [x, y, r] of ROOF.win) { g.fillStyle = `rgba(230,180,110,${0.18 + 0.2 * r})`; g.fillRect(x, y, 14, 20); } g.restore();
++  // lớp 2: mặt tiền + đèn (0,55); lớp 3: mặt đường (0,8); lớp 4: tiền cảnh (1,5)
++  const gasK = 0.75 + 0.25 * sm(pr(t, T07.gas, T07.lamps + 0.4));
++  ground(g, t, -c * 0.8); midLayer(g, t, -c * 0.55, gasK); worker(g, t, -c * 0.55);
++  // sương nhẹ giữa lớp
++  g.save(); g.globalCompositeOperation = 'lighter'; for (let i = 0; i < 8; i++) { const x = ((i * 330 + t * 9) % 2400) - 240, y = 700 + (i % 3) * 30, rx = 260; const gr = g.createRadialGradient(x, y, 0, x, y, rx); gr.addColorStop(0, 'rgba(120,130,170,0.05)'); gr.addColorStop(1, 'rgba(120,130,170,0)'); g.fillStyle = gr; g.fillRect(x - rx, y - rx, 2 * rx, 2 * rx); } g.restore();
++  fgLayer(g, t, -c * 1.5);
++  g.save(); g.globalCompositeOperation = 'soft-light'; g.globalAlpha = 0.35; g.drawImage(GRAIN, 0, 0); g.restore();
++  // mở cảnh từ tối (0–0,9 s)
++  const op = 1 - sm(pr(t, 0, 0.9)); if (op > 0) { g.fillStyle = `rgba(3,4,8,${op * 0.85})`; g.fillRect(0, 0, W, H); }
++  timerInset(g, t); texts(g, t);
++}
++window.SEC = { n: '07', frames: 782, blur: [], ready: true, frame: frame07 };
+diff --git a/design/m3/ep01/history/sec/08.js b/design/m3/ep01/history/sec/08.js
+new file mode 100644
+index 0000000..9982f67
+--- /dev/null
++++ b/design/m3/ep01/history/sec/08.js
+@@ -0,0 +1,156 @@
++// Đoạn 08 · [HISTORY] From lamps to lifts: "One job in 270" — 1138 khung (47,42 s).
++// Phần 1: đèn khí ở góc (nối đoạn 03) ra giữa, vòng "một nhiệm vụ lặp lại" → mặt đồng hồ (máy nhận trọn), rồi về góc biến hình thành cửa xếp thang máy.
++// Phần 2 (Đồ hoạ A): chuỗi điều tra dân số người vận hành thang máy, THỰC TẾ (nét liền, ACTUAL), trục 0–100k.
++//   Sửa L2 (GIAO-VIEC-CHUNG luật 4, KICH-BAN §6.1): NGẮT ĐƯỜNG ở chỗ đổi phân loại + ghi chú.
++//   Mảnh A 1900–1950: 13, 25, 41, 68, 87, 97 (1950 = cột "1950 classification"; 1900–1940 một cột).
++//   Mảnh B "1960 classification": 1950 = 94 → 1960 = 77.   Mảnh C "1970 classification": 1960 = 77 → 1970 = 37 (14+).
++// Phần 3 (Đồ hoạ B): lưới 270 ô nghề (Bessen); ô chao, co, đổi màu nhưng đứng nguyên; chỉ ô thang máy tắt hẳn. "1 in ~270".
++'use strict';
++const T08 = { lamp: 0.60, task: 4.21, rep: 5.33, machine: 8.09, whole: 8.76, next: 10.14, indoors: 11.05, census: 12.50, thirteen: 14.88, elev: 15.94, y1900: 17.21,
++  and1: 18.43, hundred: 19.25, y1950: 20.39, then: 21.94, elevs: 22.37, run: 23.49, by1970: 25.17, thirty7: 26.43, left: 27.87, econ: 28.74, james: 29.59,
++  followed: 30.47, two70: 31.18, occ: 32.50, c1950: 34.04, y2010: 35.80, many: 37.53, shrank: 37.89, changed: 38.66, only: 39.84, one: 40.18, disap: 40.47,
++  autom: 42.07, theElev: 43.31, oper: 44.04 };
++const A08 = [[1900, 13], [1910, 25], [1920, 41], [1930, 68], [1940, 87], [1950, 97]];
++const B08 = [[1950, 94], [1960, 77]], C08 = [[1960, 77], [1970, 37]];
++const X8 = (yr) => 270 + (yr - 1900) * 13, YB8 = 700, YT8 = 200, Y8 = (v) => YB8 - v / 100 * (YB8 - YT8);
++const SRC08 = 'Source: U.S. Census · persons · Historical Statistics of the U.S., Series D 233–682';
++const SRCB = 'Source: J. Bessen (2016), “How Computer Automation Affects Occupations”';
++const CORNER = [96, 64, 0.42];   // vị trí + tỉ lệ biểu tượng góc (giống cuối đoạn 03)
++
++// vẽ đường gấp khúc theo tiến độ u (theo trục x), trả điểm đầu
++function polyU(g, P, u) { if (u <= 0) return P[0]; const xs = P[0][0], xe = P[P.length - 1][0], xh = lerp(xs, xe, u); g.beginPath(); g.moveTo(...P[0]); let hp = P[0];
++  for (let i = 1; i < P.length; i++) { if (P[i][0] <= xh) { g.lineTo(...P[i]); hp = P[i]; } else { const v = (xh - P[i - 1][0]) / (P[i][0] - P[i - 1][0]); hp = [lerp(P[i - 1][0], P[i][0], v), lerp(P[i - 1][1], P[i][1], v)]; g.lineTo(...hp); break; } }
++  g.stroke(); return hp; }
++function marker(g, x, y, kind, a, r = 10) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.fillStyle = AMBER; g.strokeStyle = OCHRE; g.lineWidth = 2.5; g.beginPath();
++  if (kind === 'sq') g.rect(x - r * 0.85, y - r * 0.85, r * 1.7, r * 1.7); else if (kind === 'di') { g.moveTo(x, y - r * 1.15); g.lineTo(x + r * 1.15, y); g.lineTo(x, y + r * 1.15); g.lineTo(x - r * 1.15, y); g.closePath(); } else g.arc(x, y, r, 0, 7);
++  g.fill(); g.stroke(); g.restore(); }
++
++function part1(g, t) {   // đèn → vòng nhiệm vụ → đồng hồ → về góc, biến hình
++  const go = sm(pr(t, T08.lamp, T08.lamp + 1.3)), back = sm(pr(t, T08.indoors + 0.9, T08.census + 0.2));
++  const cx = lerp(CORNER[0], 560, go), cy = lerp(CORNER[1], 330, go), s = lerp(CORNER[2], 1.7, go);
++  const px = lerp(cx, CORNER[0], back), py = lerp(cy, CORNER[1], back), ps = lerp(s, CORNER[2] * 1.25, back);
++  const morph = sm(pr(t, T08.indoors, T08.indoors + 0.9));
++  const ringC = [560, 330 + 112 * 1.7 * 0.55], R = 250, ringA = 1 - sm(pr(t, T08.next, T08.next + 0.7));
++  // vòng nhiệm vụ (mũi tên vòng), dấu lặp chạy quanh
++  const ru = sm(pr(t, T08.task, T08.task + 1.0));
++  if (ru > 0 && ringA > 0) { g.save(); g.globalAlpha *= ringA; const a0 = -Math.PI / 2 + 0.25, a1 = a0 + (2 * Math.PI - 0.5) * ru;
++    const face = sm(pr(t, T08.whole, T08.whole + 0.7)); if (face > 0) { g.fillStyle = `rgba(63,90,122,${0.13 * face})`; g.beginPath(); g.arc(...ringC, R, 0, 7); g.fill(); }
++    g.strokeStyle = mixC(OCHRE, COLD, face); g.lineWidth = 7; g.lineCap = 'round'; g.beginPath(); g.arc(...ringC, R, a0, a1); g.stroke();
++    if (ru > 0.98) { const ax = ringC[0] + Math.cos(a1) * R, ay = ringC[1] + Math.sin(a1) * R, tg = a1 + Math.PI / 2; g.fillStyle = g.strokeStyle; g.beginPath(); g.moveTo(ax + Math.cos(tg) * 22, ay + Math.sin(tg) * 22);
++      g.lineTo(ax + Math.cos(tg + 2.4) * 18, ay + Math.sin(tg + 2.4) * 18); g.lineTo(ax + Math.cos(tg - 2.4) * 18, ay + Math.sin(tg - 2.4) * 18); g.closePath(); g.fill(); }
++    // vạch giờ + kim (máy móc nhận việc)
++    const tk = sm(pr(t, T08.machine, T08.machine + 0.6)); if (tk > 0) { g.strokeStyle = COLD; g.lineWidth = 4; for (let i = 0; i < 12; i++) { const an = i * Math.PI / 6, r0 = R - 18 - 14 * tk; if (i / 12 > tk + 0.02) continue;
++        g.beginPath(); g.moveTo(ringC[0] + Math.cos(an) * (R - 16), ringC[1] + Math.sin(an) * (R - 16)); g.lineTo(ringC[0] + Math.cos(an) * r0, ringC[1] + Math.sin(an) * r0); g.stroke(); }
++      const ha = -Math.PI / 2 + (t - T08.machine) * 1.6; g.lineWidth = 6; g.globalAlpha *= tk; g.beginPath(); g.moveTo(...ringC); g.lineTo(ringC[0] + Math.cos(ha) * (R - 50), ringC[1] + Math.sin(ha) * (R - 50)); g.stroke();
++      g.lineWidth = 8; g.beginPath(); g.moveTo(...ringC); g.lineTo(ringC[0] + Math.cos(ha / 12 - 1) * (R - 110), ringC[1] + Math.sin(ha / 12 - 1) * (R - 110)); g.stroke(); g.fillStyle = COLD; g.beginPath(); g.arc(...ringC, 10, 0, 7); g.fill(); }
++    g.restore();
++    // hai dấu hoàng hôn / bình minh chạy quanh vòng (lặp lại mỗi ngày)
++    const ra = pr(t, T08.rep, T08.rep + 0.5) * ringA * (1 - sm(pr(t, T08.machine, T08.machine + 0.8))); if (ra > 0) { for (const [ph, fill] of [[0, AMBER], [Math.PI, INK2]]) { const an = -Math.PI / 2 + ph + (t - T08.rep) * 1.25;
++      g.save(); g.globalAlpha *= ra; g.fillStyle = fill; g.beginPath(); g.arc(ringC[0] + Math.cos(an) * R, ringC[1] + Math.sin(an) * R, 13, 0, 7); g.fill(); g.restore(); } } }
++  // đèn (mờ khi biến hình) + cửa thang máy
++  const fl = 0.9 + 0.07 * Math.sin(t * 9.1);
++  gasLampIcon(g, px, py, ps, 1 - morph, 1); glow(g, px, py + 12 * ps, 60 * ps, RGB_AMB, 0.45 * fl * (1 - morph));
++  const close = sm(pr(t, T08.elevs, T08.run + 0.1)), btn = sm(pr(t, T08.run, T08.run + 0.7));
++  liftGateIcon(g, px, py + 20 * ps * (1 - morph), ps * lerp(0.6, 0.85, morph), morph, close, btn);
++}
++function corner03Text(g, t, a) { textA(g, 'one task, repeated', SW - 60, SH - 44, font(28, 'serif', true), OCHRE, a, 'right'); }
++
++function chartA(g, t) {
++  const ax = sm(pr(t, T08.census, T08.census + 1.2));
++  actualTag(g, 'ACTUAL · U.S. Census · persons', 1560, 62, pr(t, T08.census, T08.census + 0.5));
++  textWipe(g, 'Elevator operators, United States', 170, 85, font(46, 'serif', true), INK, pr(t, T08.elev, T08.elev + 0.9));
++  if (ax > 0) { g.save(); g.globalAlpha *= ax;
++    for (let v = 0; v <= 100; v += 25) { const y = Y8(v); g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.22)'; g.lineWidth = v === 0 ? 3.5 : 1.4; g.beginPath(); g.moveTo(X8(1900) - 60, y); g.lineTo(lerp(X8(1900) - 60, X8(1970) + 40, sm(ax * 1.2 - v / 500)), y); g.stroke();
++      text(g, v === 0 ? '0' : v + 'k', X8(1900) - 76, y, font(22), INK2, 'right', 'middle'); }
++    g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(X8(1900) - 60, YB8); g.lineTo(X8(1900) - 60, YB8 - (YB8 - YT8) * ax); g.stroke();
++    for (let yr = 1900; yr <= 1970; yr += 10) text(g, String(yr), X8(yr), YB8 + 14, font(22, 'sans', true), INK, 'center', 'top');
++    g.restore(); }
++  srcLine(g, SRC08, 868, ax);
++  // điểm 1900
++  marker(g, X8(1900), Y8(13), 'ci', pr(t, T08.thirteen, T08.thirteen + 0.3));
++  textA(g, '13k', X8(1900) + 2, Y8(13) - 22, font(28, 'sans', true), INK, pr(t, T08.thirteen, T08.thirteen + 0.3), 'center', 'bottom');
++  // mảnh A
++  const uA = pr(t, T08.and1, T08.y1950 - 0.04), PA = A08.map(([y, v]) => [X8(y), Y8(v)]);
++  g.save(); g.strokeStyle = AMBER; g.lineWidth = 6; g.lineCap = 'round'; g.lineJoin = 'round'; const hA = polyU(g, PA, uA); g.restore();
++  A08.slice(1).forEach(([y, v], i) => { const a = cl((hA[0] - X8(y)) / 8 + 1); marker(g, X8(y), Y8(v), 'ci', a, i === A08.length - 2 ? 10 : 7); });
++  const l97 = uA >= 1 ? pr(t, T08.y1950 - 0.04, T08.y1950 + 0.3) : 0; textA(g, '97k', X8(1950) - 16, Y8(97) - 14, font(28, 'sans', true), INK, l97, 'right', 'bottom');
++  // ngắt phân loại: vạch mảnh + ghi chú
++  const brk = (yr, s1, a) => { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.strokeStyle = 'rgba(33,26,23,0.45)'; g.lineWidth = 1.6; g.beginPath(); g.moveTo(X8(yr), YT8 - 52); g.lineTo(X8(yr), YB8); g.stroke();
++    text(g, s1, X8(yr) + 7, YT8 - 34, font(17, 'sans', true), INK2, 'left'); text(g, 'classification', X8(yr) + 7, YT8 - 13, font(16), INK2, 'left'); g.restore(); };
++  const bA = pr(t, T08.then, T08.then + 0.5), cA = pr(t, T08.by1970, T08.by1970 + 0.5);
++  brk(1950, '1960', bA); brk(1960, '1970', cA);
++  // mảnh B (phân loại 1960): 94 → 77
++  marker(g, X8(1950), Y8(94), 'sq', bA, 9);
++  textA(g, '94k', X8(1950) - 16, Y8(94) + 12, font(24, 'sans', true), INK, bA, 'right', 'top');
++  const uB = sm(pr(t, T08.then + 0.4, T08.run + 0.2)), PB = B08.map(([y, v]) => [X8(y), Y8(v)]), gap = 13;
++  const PBg = [[PB[0][0] + gap * 0.8, PB[0][1] + gap * 0.5], [PB[1][0] - gap * 0.8, PB[1][1] - gap * 0.5]];
++  if (uB > 0) { g.save(); g.strokeStyle = AMBER; g.lineWidth = 6; g.lineCap = 'round'; polyU(g, PBg, uB); g.restore(); }
++  marker(g, PB[1][0], PB[1][1], 'sq', uB >= 1 ? 1 : 0, 9);
++  textA(g, '77k', PB[1][0] - 14, PB[1][1] - 14, font(24, 'sans', true), INK, uB >= 1 ? pr(t, T08.run + 0.2, T08.run + 0.5) : 0, 'right', 'bottom');
++  // mảnh C (phân loại 1970): 77 → 37
++  const uC = sm(pr(t, T08.by1970 + 0.2, T08.thirty7)), PC = C08.map(([y, v]) => [X8(y), Y8(v)]);
++  const dx = PC[1][0] - PC[0][0], dy = PC[1][1] - PC[0][1], L = Math.hypot(dx, dy), PCg = [[PC[0][0] + dx / L * 16, PC[0][1] + dy / L * 16], [PC[1][0] - dx / L * 13, PC[1][1] - dy / L * 13]];
++  marker(g, PC[0][0] + 10, PC[0][1] + 18, 'di', 0);   // (không vẽ: 77 trùng điểm 1960)
++  if (uC > 0) { g.save(); g.strokeStyle = AMBER; g.lineWidth = 6; g.lineCap = 'round'; polyU(g, PCg, uC); g.restore(); }
++  marker(g, PC[1][0], PC[1][1], 'di', uC >= 1 ? 1 : 0, 10);
++  textA(g, '37k', PC[1][0] + 18, PC[1][1] - 16, font(28, 'sans', true), INK, uC >= 1 ? pr(t, T08.thirty7, T08.thirty7 + 0.3) : 0, 'left', 'bottom');
++  textA(g, 'Line breaks where census job definitions changed', X8(1900) - 60, YB8 + 62, font(21), INK2, bA);
++  // số lớn bên phải: đầu đường mảnh A (13k → 97k), rồi 37k
++  const k13 = pr(t, T08.thirteen, T08.thirteen + 0.4), kOut = 1 - pr(t, T08.by1970, T08.by1970 + 0.4);
++  if (k13 > 0 && kOut > 0) { g.save(); g.globalAlpha *= k13 * kOut; const v = uA > 0 ? Math.round(lerp(13, 97, eo(uA))) : 13; const head = uA <= 0 ? 13 : v;
++    text(g, head + 'k', 1330, 470, font(104, 'sans', true), OCHRE, 'left'); textA(g, uA >= 1 ? '1950' : uA > 0 ? '1900 → 1950' : '1900', 1336, 512, font(26), INK2, uA > 0 ? 1 : pr(t, T08.y1900, T08.y1900 + 0.3)); g.restore(); }
++  const k37 = pr(t, T08.thirty7, T08.thirty7 + 0.4); if (k37 > 0) { g.save(); g.globalAlpha *= k37; text(g, '37k', 1330, 470, font(104, 'sans', true), OCHRE, 'left'); text(g, '1970', 1336, 512, font(26), INK2, 'left'); g.restore(); }
++}
++
++// ---------- Đồ hoạ B: lưới 270 ô ----------
++const GC = 18, GR = 15, GX = 250, GY = 160, CW = 52, CH = 42, LIFT = [7, 11];   // hàng, cột của ô thang máy
++const TILES = (() => { const R = rng(270), out = []; for (let r = 0; r < GR; r++) for (let c = 0; c < GC; c++) { const lift = r === LIFT[0] && c === LIFT[1];
++  const u = R(); out.push({ r, c, lift, glyph: lift ? -1 : Math.floor(R() * 8), shrink: !lift && u < 0.4, change: !lift && u >= 0.4 && u < 0.75, ph: R() * 6.28, d: R() }); } return out; })();
++function glyph(g, k, x, y, s, col) { g.save(); g.translate(x, y); g.scale(s, s); g.strokeStyle = col; g.fillStyle = col; g.lineWidth = 2.2; g.lineCap = 'round'; g.beginPath();
++  switch (k) { case 0: g.arc(0, 0, 8, 0, 7); g.moveTo(0, -8); g.lineTo(0, 8); break;   // bánh răng đơn giản
++    case 1: g.moveTo(-9, 8); g.lineTo(9, -8); g.moveTo(5, -9); g.lineTo(10, -4); break;   // bút
++    case 2: g.rect(-9, -6, 18, 12); g.moveTo(-9, -6); g.lineTo(0, 1); g.lineTo(9, -6); break;   // thư
++    case 3: g.moveTo(-8, 8); g.lineTo(-8, -2); g.lineTo(0, -9); g.lineTo(8, -2); g.lineTo(8, 8); g.closePath(); break;   // nhà
++    case 4: g.moveTo(-9, -4); g.lineTo(9, -4); g.moveTo(-6, -4); g.lineTo(-6, 8); g.moveTo(6, -4); g.lineTo(6, 8); g.moveTo(-9, -8); g.lineTo(9, -8); break;   // bàn
++    case 5: g.moveTo(0, -9); g.lineTo(0, 9); g.moveTo(-9, 0); g.lineTo(9, 0); break;   // chữ thập
++    case 6: g.rect(-7, -9, 14, 18); g.moveTo(-4, -4); g.lineTo(4, -4); g.moveTo(-4, 1); g.lineTo(4, 1); break;   // sổ
++    default: g.moveTo(-9, 6); g.lineTo(-3, -2); g.lineTo(2, 3); g.lineTo(9, -7); }   // đường đi
++  g.stroke(); g.restore(); }
++function gridB(g, t) {
++  textA(g, 'James Bessen, economist', 250, 76, font(30, 'serif', true), INK, pr(t, T08.james, T08.james + 0.5));
++  const occA = pr(t, T08.two70, T08.two70 + 0.5);
++  textA(g, 'about 270 occupations', 250, 122, font(26, 'sans', true), INK2, pr(t, T08.occ, T08.occ + 0.4));
++  textA(g, '1950 census', 250, 812, font(26, 'sans', true), INK, pr(t, T08.c1950, T08.c1950 + 0.4));
++  if (t >= T08.y2010) { const a = pr(t, T08.y2010, T08.y2010 + 0.4); g.save(); g.globalAlpha *= a; g.strokeStyle = INK; g.lineWidth = 2.5; const x0 = 420, x1 = lerp(420, 560, sm(a)); g.beginPath(); g.moveTo(x0, 803); g.lineTo(x1, 803); g.stroke();
++    g.beginPath(); g.moveTo(x1, 803); g.lineTo(x1 - 10, 797); g.lineTo(x1 - 10, 809); g.closePath(); g.fillStyle = INK; g.fill(); g.restore(); textA(g, '2010', 574, 812, font(26, 'sans', true), INK, a); }
++  srcLine(g, SRCB, 868, pr(t, T08.followed, T08.followed + 0.5));
++  const sway = pr(t, T08.many, T08.many + 0.6), shr = sm(pr(t, T08.shrank, T08.shrank + 0.9)), chg = sm(pr(t, T08.changed, T08.changed + 0.9));
++  const off = sm(pr(t, T08.disap, T08.disap + 0.9)), hi = pr(t, T08.only, T08.only + 0.4);
++  for (const T of TILES) { const appear = sm(pr(t, T08.two70 + (T.c + T.r) / (GC + GR) * 1.1, T08.two70 + (T.c + T.r) / (GC + GR) * 1.1 + 0.4)); if (appear <= 0) continue;
++    const cx = GX + T.c * CW + CW / 2, cy = GY + T.r * CH + CH / 2;
++    let sc = appear * (T.shrink ? lerp(1, 0.66, shr) : 1); const rot = sway * 0.07 * Math.sin(t * 1.7 + T.ph);
++    g.save(); g.translate(cx, cy); g.rotate(rot); g.scale(sc, sc);
++    if (T.lift) { const fillA = 1 - off; g.fillStyle = `rgba(217,154,82,${0.3 * fillA})`; g.fillRect(-CW / 2 + 4, -CH / 2 + 4, CW - 8, CH - 8);
++      g.strokeStyle = mixC(OCHRE, '#9a8a74', off); g.lineWidth = 2; g.strokeRect(-CW / 2 + 4, -CH / 2 + 4, CW - 8, CH - 8);
++      if (fillA > 0) { g.globalAlpha *= fillA; liftGateIcon(g, 0, -11, 0.13, 1, 1, 1); } }
++    else { const col = T.change ? mixC(OCHRE, COLD, chg) : OCHRE; g.fillStyle = T.change ? `rgba(${Math.round(lerp(217, 120, chg))},${Math.round(lerp(154, 150, chg))},${Math.round(lerp(82, 190, chg))},0.26)` : 'rgba(217,154,82,0.26)';
++      g.fillRect(-CW / 2 + 4, -CH / 2 + 4, CW - 8, CH - 8); g.strokeStyle = col; g.lineWidth = 1.4; g.strokeRect(-CW / 2 + 4, -CH / 2 + 4, CW - 8, CH - 8);
++      glyph(g, T.glyph, 0, 0, 1, col); if (T.change && chg > 0) { g.rotate(0); g.fillStyle = col; g.beginPath(); g.arc(CW / 2 - 10, -CH / 2 + 10, 3.4 * chg, 0, 7); g.fill(); } }
++    g.restore(); }
++  // ô thang máy: vòng đánh dấu + nhãn
++  const lx = GX + LIFT[1] * CW + CW / 2, ly = GY + LIFT[0] * CH + CH / 2;
++  if (hi > 0) { g.save(); g.globalAlpha *= hi; g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.ellipse(lx, ly, 44 + 8 * (1 - eo(hi)), 34 + 8 * (1 - eo(hi)), 0, 0, 7); g.stroke(); g.restore(); }
++  const ta = pr(t, T08.theElev + 0.15, T08.theElev + 0.6); if (ta > 0) { g.save(); g.globalAlpha *= ta; g.strokeStyle = INK; g.lineWidth = 2; g.beginPath(); g.moveTo(lx + 40, ly + 26); g.lineTo(lx + 120, ly + 150); g.stroke(); g.restore();
++    tag(g, 'Elevator operator', lx + 96, ly + 172, 'rgba(236,223,190,0.96)', INK, font(26, 'sans', true), ta); g.save(); g.globalAlpha *= ta; g.strokeStyle = INK; g.lineWidth = 2; g.font = font(26, 'sans', true); g.strokeRect(lx + 96, ly + 153, g.measureText('Elevator operator').width + 28, 38); g.restore(); }
++  // 1 in ~270
++  const oa = pr(t, T08.one, T08.one + 0.5); if (oa > 0) { g.save(); g.globalAlpha *= oa; g.translate(0, (1 - eo(oa)) * 14); text(g, '1 in ~270', 1235, 400, font(70, 'serif', true), INK, 'left'); g.restore(); }
++}
++
++function frame08(g, t) {
++  g.drawImage(BG, 0, 0);
++  const out = sm(pr(t, T08.econ - 0.1, T08.econ + 0.8)), inn = sm(pr(t, T08.econ + 0.2, T08.james + 0.4));
++  if (out < 1) drawCard(g, t, { seed: 29, x: SX - out * 1900, content: (gg, tt) => { part1(gg, tt); corner03Text(gg, tt, 1 - pr(tt, T08.next, T08.next + 0.7)); if (tt >= T08.census) chartA(gg, tt); } });
++  if (inn > 0) drawCard(g, t, { seed: 11, x: SX + (1 - inn) * 1900, ph: 1.3, content: gridB });
++  drawLight(g, t, 1); drawDust(g, t, 1);
++}
++window.SEC = { n: '08', frames: 1138, blur: [[T08.econ - 0.1, T08.james + 0.45], [T08.lamp, T08.lamp + 1.3], [T08.indoors + 0.9, T08.census + 0.2]], ready: true, frame: frame08 };
+diff --git a/design/m3/ep01/history/sec/09.js b/design/m3/ep01/history/sec/09.js
+new file mode 100644
+index 0000000..ce94c1f
+--- /dev/null
++++ b/design/m3/ep01/history/sec/09.js
+@@ -0,0 +1,79 @@
++// Đoạn 09 · [HISTORY] The office of 1970 — 664 khung (27,67 s).
++// Hai bảng nhỏ, MỖI BẢNG TRỤC RIÊNG TỪ 0, chữ to "DIFFERENT SCALES" (không so độ lớn giữa hai bảng). Cột đặc = THỰC TẾ (ACTUAL).
++// Số theo KICH-BAN §6.1 "giá trị dùng trên hình": 1900–1940 cột duy nhất; 1950 phân loại 1950; 1960 phân loại 1960; 1970 14+.
++// Phía sau: bóng văn phòng 1970 (hàng bàn, đèn bàn, đèn ống trần), người chỉ là bóng ngồi quay lưng, không mặt.
++'use strict';
++const T09 = { same: 0.60, census: 1.09, tel: 3.91, nineteen: 6.08, y1900: 7.40, four: 9.45, y1970a: 11.54, steno: 13.29, counted: 16.17, hundred: 18.50, nearly: 20.26, fourM: 20.64,
++  in1970: 22.30, y1970: 22.48, those: 23.90, jobs: 24.67, modern: 25.35, office: 25.77 };
++const YRS = [1900, 1910, 1920, 1930, 1940, 1950, 1960, 1970];
++const TEL = [19, 98, 190, 249, 214, 375, 372, 421];          // nghìn
++const STE = [134, 387, 786, 1097, 1223, 1661, 2313, 3920];   // nghìn
++const CW9 = 800, CH9 = 650;
++// bóng văn phòng 1970 (vẽ mỗi khung, parallax nhẹ)
++const DESKS = (() => { const out = []; [[640, 0.55], [760, 0.75], [930, 1.0]].forEach(([y, s], row) => { const n = row === 2 ? 5 : row === 1 ? 6 : 7;
++  for (let i = 0; i < n; i++) out.push({ x: 960 + (i - (n - 1) / 2) * 330 * s, y, s, row, seat: (i + row) % 3 !== 1, k: out.length }); }); return out; })();
++function office(g, t, lampOn, bright) {
++  const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#262d45'); gr.addColorStop(0.47, '#2b3350'); gr.addColorStop(0.5, '#141826'); gr.addColorStop(1, '#0d0f18'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
++  const pan = -18 + t * 1.3;   // máy trượt chậm sang phải
++  // tường sau: cửa sổ (phố đêm)
++  g.save(); g.translate(pan * 0.3, 0); for (let i = 0; i < 9; i++) { const x = 140 + i * 200; g.fillStyle = 'rgba(40,52,80,0.55)'; g.fillRect(x, 300, 150, 190);
++    g.strokeStyle = 'rgba(8,10,16,0.9)'; g.lineWidth = 6; g.strokeRect(x, 300, 150, 190); g.beginPath(); g.moveTo(x + 75, 300); g.lineTo(x + 75, 490); g.moveTo(x, 395); g.lineTo(x + 150, 395); g.stroke();
++    for (let j = 0; j < 5; j++) { const R = rng(i * 13 + j + 1); g.fillStyle = `rgba(230,200,140,${0.10 + 0.15 * R()})`; g.fillRect(x + 10 + R() * 120, 330 + R() * 140, 6, 8); } } g.restore();
++  g.fillStyle = 'rgba(6,7,12,0.85)'; g.fillRect(0, 500, W, 18);
++  // đèn ống trần (phối cảnh)
++  g.save(); g.translate(pan * 0.5, 0); for (let r = 0; r < 3; r++) { const y = [60, 150, 230][r], s = [1.0, 0.75, 0.55][r]; for (let i = -3; i <= 3; i++) { const x = 960 + i * 300 * s;
++    g.fillStyle = `rgba(200,215,235,${(0.22 + 0.12 * bright) * (1.2 - r * 0.25)})`; g.fillRect(x - 90 * s, y, 180 * s, 12 * s); } } g.restore();
++  // hàng bàn (xa → gần), ghế, máy chữ, đèn bàn, bóng người ngồi quay lưng
++  for (const d of DESKS) { const px = d.x + pan * (0.6 + 0.5 * d.s), s = d.s, col = `rgb(${Math.round(5 + 10 * (1 - s))},${Math.round(6 + 10 * (1 - s))},${Math.round(10 + 14 * (1 - s))})`;
++    g.save(); g.translate(px, d.y); g.scale(s, s); g.fillStyle = col;
++    g.fillRect(-130, -40, 260, 22); g.fillRect(-122, -18, 18, 90); g.fillRect(104, -18, 18, 90); g.fillRect(40, -18, 70, 70);   // mặt bàn, chân, hộc
++    g.fillRect(-50, -66, 90, 26); g.fillRect(-40, -78, 70, 12);   // máy chữ
++    // đèn bàn cổ ngỗng
++    g.strokeStyle = col; g.lineWidth = 6; g.beginPath(); g.moveTo(90, -40); g.lineTo(80, -110); g.lineTo(40, -138); g.stroke(); g.beginPath(); g.moveTo(22, -150); g.lineTo(62, -128); g.lineTo(46, -112); g.closePath(); g.fill();
++    if (d.seat) { person(g, -20, 70, 150, { col, arm: 2.6, arm2: 2.4 }); g.fillStyle = col; g.fillRect(-60, 0, 80, 14); }
++    g.restore();
++    const on = cl((lampOn * 1.15 - d.k / DESKS.length * 0.6) / 0.5); if (on > 0) { const lx = px + 42 * s, ly = d.y - 118 * s, fl = 0.92 + 0.05 * Math.sin(t * 7 + d.k);
++      glow(g, lx, ly + 40 * s, 170 * s, RGB_AMB, 0.42 * on * fl); g.save(); g.globalCompositeOperation = 'lighter'; g.fillStyle = `rgba(255,170,80,${0.10 * on})`; g.beginPath(); g.moveTo(lx - 6 * s, ly); g.lineTo(lx - 80 * s, d.y - 40 * s); g.lineTo(lx + 60 * s, d.y - 40 * s); g.closePath(); g.fill(); g.restore(); } }
++  }
++// một bảng cột
++function panel(g, t, o) {
++  const { title, sub, data, vmax, ticks, fmtT, fmtV, tl } = o, x0 = 120, x1 = 760, yB = 520, yT = 196, slot = (x1 - x0) / 8, bw = 46, Y = (v) => yB - v / vmax * (yB - yT);
++  textWipe(g, title, 36, 64, font(34, 'serif', true), INK, pr(t, tl.title, tl.title + 0.8));
++  if (sub) textA(g, sub, 36, 102, font(23), INK2, pr(t, tl.sub, tl.sub + 0.4));
++  actualTag(g, 'ACTUAL · U.S. Census · persons', CW9 - 30, 146, pr(t, tl.tag, tl.tag + 0.4), 18);
++  const ax = sm(pr(t, tl.axis, tl.axis + 1.0));
++  if (ax > 0) { g.save(); g.globalAlpha *= ax; for (const v of ticks) { const y = Y(v); g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.22)'; g.lineWidth = v === 0 ? 3 : 1.3;
++      g.beginPath(); g.moveTo(x0, y); g.lineTo(lerp(x0, x1, sm(ax * 1.3 - v / vmax * 0.3)), y); g.stroke(); text(g, fmtT(v), x0 - 12, y, font(19), INK2, 'right', 'middle'); }
++    g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, yB); g.lineTo(x0, yB - (yB - yT) * ax); g.stroke();
++    YRS.forEach((yr, i) => text(g, String(yr), x0 + slot * (i + 0.5), yB + 12, font(18, 'sans', true), INK, 'center', 'top'));
++    // phân loại đổi: vạch mảnh trước cột 1960 và 1970 + chú thích
++    g.strokeStyle = 'rgba(33,26,23,0.42)'; g.lineWidth = 1.5; for (const i of [6, 7]) { const x = x0 + slot * i; g.beginPath(); g.moveTo(x, yT - 10); g.lineTo(x, yB + 6); g.stroke(); }
++    text(g, 'Census job definitions revised in 1960 and 1970', x0, yB + 48, font(17), INK2); g.restore(); }
++  textA(g, 'Source: U.S. Census · Historical Statistics of the U.S., Series D 233–682', 36, CH9 - 26, font(16), INK2, ax);
++  // cột đặc mọc dần
++  data.forEach((v, i) => { const t0 = tl.bars[i], u = sm(pr(t, t0, t0 + (i === 7 ? 1.1 : 0.55))); if (u <= 0) return; const x = x0 + slot * (i + 0.5) - bw / 2, h = (yB - Y(v)) * u;
++    g.fillStyle = AMBER; g.fillRect(x, yB - h, bw, h); g.strokeStyle = OCHRE; g.lineWidth = 2; g.strokeRect(x + 1, yB - h + 1, bw - 2, h - 2);
++    if (i === 0 || i === 7) { const s = fmtV(v * (i === 7 ? eo(pr(t, t0, t0 + 1.1)) : 1)); text(g, s, x + bw / 2, yB - h - 10, font(24, 'sans', true), INK, 'center', 'bottom'); } });
++  // nhấn cột 1970
++  const hi = pr(t, T09.y1970, T09.y1970 + 0.4); if (hi > 0) { const x = x0 + slot * 7.5, y = Y(data[7]); g.save(); g.globalAlpha *= hi; g.strokeStyle = INK; g.lineWidth = 3; const p = 10 + 6 * (1 - eo(hi));
++    g.strokeRect(x - bw / 2 - p, y - 44 - p, bw + 2 * p, yB - y + 44 + 2 * p); g.restore(); }
++}
++const PL = { title: 'Telephone operators', data: TEL, vmax: 450, ticks: [0, 100, 200, 300, 400], fmtT: (v) => v ? v + 'k' : '0', fmtV: (v) => Math.round(v) + 'k',
++  tl: { title: T09.tel, tag: T09.census, axis: T09.census + 0.1, bars: [T09.nineteen, 7.6, 7.85, 8.1, 8.35, 8.6, 8.85, T09.four] } };
++const PR = { title: 'Stenographers, typists & secretaries', sub: '(counted together)', data: STE, vmax: 4200, ticks: [0, 1000, 2000, 3000, 4000], fmtT: (v) => v ? v / 1000 + 'M' : '0',
++  fmtV: (v) => v >= 1000 ? (v / 1000).toFixed(2) + 'M' : Math.round(v) + 'k',
++  tl: { title: T09.steno, sub: T09.counted, tag: T09.steno + 0.4, axis: T09.steno + 0.3, bars: [T09.hundred, 19.35, 19.55, 19.75, 19.95, 20.15, 20.35, T09.fourM] } };
++function frame09(g, t) {
++  const lampOn = pr(t, T09.jobs, T09.office + 0.9);
++  office(g, t, lampOn, sm(pr(t, T09.those, T09.office)));
++  const down = sm(pr(t, T09.those, T09.those + 1.4));
++  const inL = sm(pr(t, T09.same, T09.same + 0.9)), inR = sm(pr(t, T09.steno - 0.25, T09.steno + 0.5));
++  const yC = 300 + down * 225, sc = lerp(1, 0.6, down);
++  drawCard(g, t, { x: 100 - down * 160, y: yC + (1 - inL) * 820, w: CW9, h: CH9, seed: 41, scale: sc, tilt: -0.004, content: (gg, tt) => panel(gg, tt, PL) });
++  if (inR > 0) drawCard(g, t, { x: 1020 + down * 160, y: yC + (1 - inR) * 820, w: CW9, h: CH9, seed: 43, ph: 2.1, scale: sc, tilt: 0.004, content: (gg, tt) => panel(gg, tt, PR) });
++  // DIFFERENT SCALES (chữ sáng trên nền tối, trên hai bảng)
++  const ds = pr(t, T09.steno + 0.3, T09.steno + 0.9) * (1 - 0.0 * down); if (ds > 0) { g.save(); g.globalAlpha *= ds; g.translate(0, (1 - eo(ds)) * 10 + down * 500);
++    g.fillStyle = 'rgba(8,10,18,0.72)'; g.fillRect(960 - 330, 160, 660, 92); text(g, 'DIFFERENT SCALES', 960, 207, font(56, 'sans', true), CREAM, 'center', 'middle'); g.restore(); }
++  drawLight(g, t, 0.75); drawDust(g, t, 0.8);
++}
++window.SEC = { n: '09', frames: 664, blur: [[T09.same, T09.same + 0.9], [T09.steno - 0.25, T09.steno + 0.5]], ready: true, frame: frame09 };
+diff --git a/design/m3/ep01/history/sfx_cue.py b/design/m3/ep01/history/sfx_cue.py
+new file mode 100644
+index 0000000..c1ba76b
+--- /dev/null
++++ b/design/m3/ep01/history/sfx_cue.py
+@@ -0,0 +1,21 @@
++"""Cine Lab · ep01 HISTORY — ghi cue SFX từng đoạn vào /var/tmp/cine-out/ep01/sfx/<NN>.json (P mix).
++Chỉ dùng lại M2-SFX-1/2/3 (CC0, RIGHTS.md). at_abs = t0 đoạn (timeline-v3) + giây cục bộ của sự kiện hình."""
++import json
++TL = {s['n']: s for s in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan']}
++D = '/var/tmp/cine-out/m22a/sfx/'
++FLIP, HISS, SLIDE = (D + '320149.mp3', 3.55, 0.85, 'M2-SFX-1'), (D + '159386.mp3', 2.0, None, 'M2-SFX-2'), (D + '470189.mp3', 0.0, 0.37, 'M2-SFX-3')
++CUES = {   # (tệp, giây cục bộ, gain dB, độ dài nếu đổi, ghi chú)
++ '02': [(HISS, 0.35, -19.0, 3.4, 'đèn khí xì nhẹ khi đèn thẻ tựa bật (mờ ra trước lời)'), (FLIP, 3.35, -12.0, None, 'thẻ tựa → bản đồ')],
++ '03': [(SLIDE, 8.71, 0.0, None, 'cửa sổ cảnh mở'), (SLIDE, 17.33, -2.0, None, 'cửa sổ cảnh đóng')],
++ '05': [(HISS, 0.6, -20.0, 2.6, 'đèn khí cạnh đèn hồ quang'), (FLIP, 13.45, -12.0, None, 'bản đồ Opéra → dải phố')],
++ '06': [(SLIDE, 3.55, 2.0, None, 'trang báo trượt vào'), (SLIDE, 7.55, 0.0, None, 'trang báo trượt ra')],
++ '07': [(HISS, 4.2, -21.0, 4.0, 'đèn khí Covent Garden sáng lên')],
++ '08': [(SLIDE, 11.05, -2.0, None, 'đèn → cửa thang máy (vào nhà)'), (SLIDE, 28.64, 2.0, None, 'đồ hoạ A trượt ra, lưới 270 ô vào')],
++ '09': [(SLIDE, 0.6, 0.0, None, 'bảng trái vào'), (SLIDE, 13.04, 0.0, None, 'bảng phải vào')],
++}
++for n, cs in CUES.items():
++    out = []
++    for (f, ss, dur0, rid), at, g, dur, note in cs:
++        out.append(dict(file=f, src_ss=ss, dur=dur if dur else dur0, at_abs=round(TL[n]['t0'] + at, 3), gain_db=g, fade_ms=8 if f.endswith('470189.mp3') or f.endswith('320149.mp3') else 400, rights=rid, note=note))
++    json.dump(out, open(f'/var/tmp/cine-out/ep01/sfx/{n}.json', 'w'), ensure_ascii=False, indent=1)
++    print(n, len(out))
+diff --git a/design/m3/ep01/history/tong_hop.py b/design/m3/ep01/history/tong_hop.py
+new file mode 100644
+index 0000000..726aa9e
+--- /dev/null
++++ b/design/m3/ep01/history/tong_hop.py
+@@ -0,0 +1,11 @@
++"""Cine Lab · ep01 HISTORY — tổng hợp số đo cuối gói: số khung, mã hoá, judder, giây/khung, dung lượng."""
++import json, os, subprocess
++S = '/var/tmp/cine-out/ep01/sec/'
++tl = {s['n']: s for s in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan']}
++allt = []
++for n in ['02', '03', '05', '06', '07', '08', '09']:
++    k = tl[n]['khung']; need = k[1] - k[0]
++    nf = subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=codec_name,pix_fmt,width,height,r_frame_rate,nb_read_frames', '-of', 'csv=p=0', S + n + '.mkv'], capture_output=True, text=True).stdout.strip()
++    j = json.load(open(S + n + '.judder.json')); tm = json.load(open(S + n + '.timing.json')); allt += tm['times']
++    print(n, 'cần', need, '|', nf, '| judder loi', j['loi'], 'giu>=1s', j['giu_co_y_ge_1s'], 'giu13-23', j['giu_ngan_13_23'], '| s/khung', tm['per_frame_s'], 'wall', tm.get('wall_s'), '| MB', os.path.getsize(S + n + '.mkv') // 1048576)
++print('tổng khung', len(allt), 'TB', round(sum(allt) / len(allt), 3), 'max', round(max(allt), 3))
+diff --git a/design/m3/ep01/history/tuong_phan_boxes.json b/design/m3/ep01/history/tuong_phan_boxes.json
+new file mode 100644
+index 0000000..b58402b
+--- /dev/null
++++ b/design/m3/ep01/history/tuong_phan_boxes.json
+@@ -0,0 +1,643 @@
++{
++ "02": [
++  [
++   2.5,
++   "02 thẻ tựa THE LAST LAMPLIGHTERS",
++   [
++    270,
++    510,
++    1650,
++    600
++   ],
++   "dark"
++  ],
++  [
++   9.6,
++   "02 ô tựa LONDON",
++   [
++    236,
++    150,
++    500,
++    200
++   ],
++   "dark"
++  ],
++  [
++   9.6,
++   "02 năm 1807 (ô tựa, nâu)",
++   [
++    236,
++    206,
++    320,
++    236
++   ],
++   "dark"
++  ],
++  [
++   9.6,
++   "02 nhãn Pall Mall",
++   [
++    870,
++    486,
++    1040,
++    530
++   ],
++   "dark"
++  ],
++  [
++   9.6,
++   "02 thẻ 1807 (nền nâu)",
++   [
++    1136,
++    534,
++    1230,
++    566
++   ],
++   "light"
++  ],
++  [
++   14.2,
++   "02 chú thích the first gas-lit street",
++   [
++    1112,
++    690,
++    1504,
++    730
++   ],
++   "dark"
++  ],
++  [
++   23.3,
++   "02 dải nhãn 1820s · 40,000+ lamps · 215 miles",
++   [
++    920,
++    864,
++    1700,
++    910
++   ],
++   "dark"
++  ],
++  [
++   23.3,
++   "02 năm 1820s (ô tựa, nâu)",
++   [
++    236,
++    206,
++    330,
++    236
++   ],
++   "dark"
++  ],
++  [
++   23.3,
++   "02 dòng nguồn",
++   [
++    208,
++    940,
++    1040,
++    966
++   ],
++   "dark"
++  ]
++ ],
++ "08": [
++  [
++   6.0,
++   "08 one task, repeated (nâu, góc)",
++   [
++    1422,
++    918,
++    1714,
++    952
++   ],
++   "dark"
++  ],
++  [
++   20.6,
++   "08 tiêu đề",
++   [
++    320,
++    136,
++    1180,
++    186
++   ],
++   "dark"
++  ],
++  [
++   20.6,
++   "08 nhãn ACTUAL",
++   [
++    1300,
++    136,
++    1704,
++    170
++   ],
++   "dark"
++  ],
++  [
++   20.6,
++   "08 số lớn 97k (nâu)",
++   [
++    1480,
++    480,
++    1696,
++    570
++   ],
++   "dark"
++  ],
++  [
++   20.6,
++   "08 nhãn trục 100k",
++   [
++    290,
++    278,
++    346,
++    302
++   ],
++   "dark"
++  ],
++  [
++   20.6,
++   "08 dòng nguồn",
++   [
++    212,
++    940,
++    1020,
++    964
++   ],
++   "dark"
++  ],
++  [
++   27.5,
++   "08 ghi chú 1960 classification",
++   [
++    1076,
++    242,
++    1184,
++    280
++   ],
++   "dark"
++  ],
++  [
++   27.5,
++   "08 nhãn 94k",
++   [
++    1004,
++    332,
++    1054,
++    354
++   ],
++   "dark"
++  ],
++  [
++   27.5,
++   "08 chú thích ngắt đường",
++   [
++    360,
++    834,
++    886,
++    856
++   ],
++   "dark"
++  ],
++  [
++   27.5,
++   "08 số lớn 37k",
++   [
++    1484,
++    476,
++    1692,
++    564
++   ],
++   "dark"
++  ],
++  [
++   44.5,
++   "08 thẻ Elevator operator",
++   [
++    1108,
++    722,
++    1360,
++    754
++   ],
++   "dark"
++  ],
++  [
++   44.5,
++   "08 chữ 1 in ~270",
++   [
++    1386,
++    430,
++    1760,
++    500
++   ],
++   "dark"
++  ],
++  [
++   44.5,
++   "08 about 270 occupations",
++   [
++    400,
++    188,
++    734,
++    216
++   ],
++   "dark"
++  ],
++  [
++   44.5,
++   "08 1950 census",
++   [
++    400,
++    880,
++    580,
++    904
++   ],
++   "dark"
++  ]
++ ],
++ "09": [
++  [
++   22.0,
++   "09 DIFFERENT SCALES (chữ sáng)",
++   [
++    660,
++    176,
++    1260,
++    230
++   ],
++   "light"
++  ],
++  [
++   22.0,
++   "09 tiêu đề trái",
++   [
++    136,
++    336,
++    524,
++    370
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 tiêu đề phải",
++   [
++    1056,
++    334,
++    1750,
++    372
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 (counted together)",
++   [
++    1056,
++    380,
++    1274,
++    404
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 nhãn ACTUAL trái",
++   [
++    524,
++    428,
++    868,
++    460
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 nhãn 421k",
++   [
++    788,
++    478,
++    856,
++    504
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 nhãn 3.92M",
++   [
++    1696,
++    482,
++    1780,
++    506
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 nhãn trục 4M",
++   [
++    1096,
++    496,
++    1128,
++    518
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 năm trục x trái",
++   [
++    234,
++    828,
++    884,
++    848
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 chú thích phân loại trái",
++   [
++    222,
++    852,
++    632,
++    872
++   ],
++   "dark"
++  ],
++  [
++   22.0,
++   "09 dòng nguồn trái",
++   [
++    138,
++    908,
++    706,
++    928
++   ],
++   "dark"
++  ]
++ ],
++ "05": [
++  [
++   9.5,
++   "05 số 64",
++   [
++    1404,
++    230,
++    1530,
++    300
++   ],
++   "dark"
++  ],
++  [
++   9.5,
++   "05 electric arc lamps",
++   [
++    1404,
++    316,
++    1704,
++    346
++   ],
++   "dark"
++  ],
++  [
++   9.5,
++   "05 ô tựa PARIS",
++   [
++    236,
++    150,
++    412,
++    196
++   ],
++   "dark"
++  ],
++  [
++   9.5,
++   "05 năm 1878 (nâu)",
++   [
++    236,
++    206,
++    320,
++    236
++   ],
++   "dark"
++  ],
++  [
++   9.5,
++   "05 dòng nguồn",
++   [
++    208,
++    940,
++    656,
++    962
++   ],
++   "dark"
++  ],
++  [
++   10.5,
++   "05 nhãn Avenue de l’Opéra (xoay)",
++   [
++    840,
++    410,
++    1110,
++    580
++   ],
++   "dark"
++  ]
++ ],
++ "06": [
++  [
++   6.9,
++   "06 tiêu đề báo LAMPLIGHTERS",
++   [
++    1070,
++    330,
++    1720,
++    390
++   ],
++   "dark"
++  ],
++  [
++   6.9,
++   "06 dòng phụ báo",
++   [
++    1190,
++    484,
++    1606,
++    516
++   ],
++   "dark"
++  ],
++  [
++   6.9,
++   "06 ô tựa NEW YORK",
++   [
++    236,
++    156,
++    556,
++    200
++   ],
++   "dark"
++  ],
++  [
++   6.9,
++   "06 April 1907 (nâu)",
++   [
++    236,
++    212,
++    410,
++    242
++   ],
++   "dark"
++  ],
++  [
++   6.9,
++   "06 dòng nguồn",
++   [
++    212,
++    944,
++    1240,
++    966
++   ],
++   "dark"
++  ],
++  [
++   14.6,
++   "06 police lighting the lamps",
++   [
++    1160,
++    852,
++    1500,
++    876
++   ],
++   "dark"
++  ],
++  [
++   17.5,
++   "06 about a week",
++   [
++    1330,
++    856,
++    1510,
++    880
++   ],
++   "dark"
++  ],
++  [
++   18.6,
++   "06 back at work (nâu)",
++   [
++    1326,
++    892,
++    1500,
++    924
++   ],
++   "dark"
++  ]
++ ],
++ "07": [
++  [
++   8.0,
++   "07 địa danh London: Covent Garden · The Mall",
++   [
++    94,
++    976,
++    700,
++    1008
++   ],
++   "light"
++  ],
++  [
++   16.0,
++   "07 ~1,100 gas lamps (hổ phách nhạt)",
++   [
++    96,
++    976,
++    436,
++    1008
++   ],
++   "light"
++  ],
++  [
++   16.0,
++   "07 British Gas, 2023",
++   [
++    472,
++    976,
++    800,
++    1008
++   ],
++   "light"
++  ],
++  [
++   20.0,
++   "07 số 5 (hổ phách nhạt)",
++   [
++    104,
++    90,
++    184,
++    190
++   ],
++   "light"
++  ],
++  [
++   20.0,
++   "07 lamplighters",
++   [
++    200,
++    110,
++    756,
++    190
++   ],
++   "light"
++  ],
++  [
++   28.5,
++   "07 clockwork timer",
++   [
++    1380,
++    496,
++    1620,
++    520
++   ],
++   "light"
++  ],
++  [
++   28.5,
++   "07 every two weeks",
++   [
++    1390,
++    584,
++    1610,
++    608
++   ],
++   "light"
++  ]
++ ],
++ "03": [
++  [
++   22.0,
++   "03 one task, repeated (nâu, góc)",
++   [
++    1420,
++    918,
++    1712,
++    952
++   ],
++   "dark"
++  ],
++  [
++   25.5,
++   "03 one task, repeated (cuối đoạn)",
++   [
++    1420,
++    918,
++    1712,
++    952
++   ],
++   "dark"
++  ]
++ ]
++}
+\ No newline at end of file
+diff --git a/design/m3/ep01/history/tuong_phan_hist.py b/design/m3/ep01/history/tuong_phan_hist.py
+new file mode 100644
+index 0000000..7d96468
+--- /dev/null
++++ b/design/m3/ep01/history/tuong_phan_hist.py
+@@ -0,0 +1,27 @@
++"""Cine Lab · ep01 HISTORY — đo tương phản chữ TRÊN CHÍNH clip đoạn (cách đo của design/m3/lat-cat/tuong_phan.py, tỉ lệ WCAG).
++Chữ tối trên nền sáng: chữ = trung vị 3 % điểm tối nhất, nền = trung vị 40 % điểm sáng nhất trong ô; chữ sáng trên nền tối: ngược lại.
++/opt/cine/bin/python tuong_phan_hist.py NN [ảnh ghép ô.png]  → in từng ô + JSON min; ô định nghĩa trong BOXES (giây cục bộ, toạ độ khung 1920×1080).
++"""
++import io, json, subprocess, sys
++import numpy as np
++from PIL import Image
++NN = sys.argv[1]; v = f'/var/tmp/cine-out/ep01/sec/{NN}.mkv'
++def lin(c): c = c / 255.0; return np.where(c <= 0.03928, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
++def L(rgb): r, g, b = lin(np.array(rgb, float)); return 0.2126 * r + 0.7152 * g + 0.0722 * b
++def ratio(a, b): la, lb = L(a), L(b); return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
++BOXES = json.load(open(__file__.replace('tuong_phan_hist.py', 'tuong_phan_boxes.json')))[NN]
++res, crops = [], []
++for t, name, b, kind in BOXES:
++    r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t}', '-i', v, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)
++    im = Image.open(io.BytesIO(r.stdout)).convert('RGB'); bb = tuple(b)
++    a = np.asarray(im.crop(bb)).reshape(-1, 3).astype(int); o = np.argsort(a.sum(1)); n = len(o)
++    lo, hi = a[o[: max(1, n * 3 // 100)]], a[o[-n * 40 // 100:]]
++    if kind == 'light': lo, hi = a[o[: n * 40 // 100]], a[o[-max(1, n * 3 // 100):]]
++    fg = np.median(lo if kind == 'dark' else hi, axis=0); bg = np.median(hi if kind == 'dark' else lo, axis=0)
++    q = ratio(fg, bg); res.append(dict(t=t, name=name, ratio=round(float(q), 2))); crops.append(im.crop(bb))
++    print(f'{t:6.2f}s  {q:5.2f}:1  {name}')
++print(json.dumps({'doan': NN, 'min': min(x['ratio'] for x in res), 'min_ten': min(res, key=lambda x: x['ratio'])['name'], 'o': res}, ensure_ascii=False))
++if len(sys.argv) > 2:
++    Wd = max(c.width for c in crops); Hh = sum(c.height + 4 for c in crops); g = Image.new('RGB', (Wd, Hh), (255, 0, 255)); y = 0
++    for c in crops: g.paste(c, (0, y)); y += c.height + 4
++    g.save(sys.argv[2])
