@@ -33,7 +33,7 @@
 
 ## Hợp đồng đầu ra
 - **Mỗi đoạn một tệp** `/var/tmp/cine-out/ep01/sec/<NN>.mkv`:
-  - FFV1, 1920×1080, 24 fps, không tiếng;
+  - ~~FFV1~~ → **H.264 gần không mất** `-c:v libx264 -preset medium -crf 10 -pix_fmt yuv444p -g 48` (đổi lúc 12:40 vì đĩa đầy: FFV1 ≈ 1,2 GB / 31 s), 1920×1080, 24 fps, không tiếng;
   - **đúng số khung** khung1 − khung0 của đoạn;
   - kèm `<NN>.timing.json` (giây/khung).
 - **Chuyển đoạn:** clip tự làm 4–8 khung đầu và cuối (mờ từ/về nền tối, hoặc biến hình liền). **Không được có ≥ 2 khung giống hệt nhau** ở bất kỳ đâu, kể cả khung đen.
@@ -66,3 +66,9 @@
 - Dòng RIGHTS đề xuất.
 - Chỉ số trong ±5 % quanh ngưỡng.
 - Token tự ước; commit cuối.
+
+## Sửa đổi 12:40 — đĩa
+- Đĩa phiên đầy lúc 12:38. P đã dọn FFV1 lát cắt và 2 worktree cũ (còn ≈ 12 GB cho 3 gói).
+- Clip đoạn dùng H.264 crf 10 yuv444p, không FFV1.
+- Tấm nền PNG giữ tới khi gói nhận ghép xong; P xoá.
+- Mỗi gói tự xoá tệp làm việc của mình; kiểm `df -h /` trước render dài, báo P nếu còn < 3 GB.
