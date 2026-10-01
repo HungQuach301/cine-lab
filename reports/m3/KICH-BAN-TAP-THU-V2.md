@@ -6,6 +6,8 @@ Khẩu hiệu kênh (gợi ý): *Every era has its last lamplighters.*
 
 ---
 
+> **Ghi chú chủ dự án (01/10/2026):** các số BLS — bảng "Fastest declining occupations" 2025–35 (Table 1.5), bài MLR 2025 về AI trong dự báo, và bản tin Employment Projections (ecopro, 27/08/2026) — đã được **Claude (rà độc lập bên ngoài) đọc toàn văn ngày 01/10/2026**. Trạng thái nguồn: **"đã đọc toàn văn (Claude)"**. Không cần tải bản gốc vào repo.
+
 ## 1. Tóm tắt cho chủ dự án (tiếng Việt)
 
 **Mạch truyện.** Giữ khung v1: Ida và Cas (nhân vật hư cấu, đã được duyệt cho kênh mới) mở tập trên phố Ostler với câu *"Evening, old street."*; truyện hư cấu đan với lịch sử thật, người kể nói rõ Ida là hư cấu. Diễn tiến: (1) Pall Mall 1807, đến thập niên 1820 London có hơn 40 000 đèn khí; (2) một vòng thắp đèn; (3) Baltimore 1817; (4) "làn sóng trắng" của đèn điện, *"Not yet… not yet."*; (5) đình công của người thắp đèn New York tháng 4/1907, **nay kiểm bằng báo gốc, bỏ mọi con số không kiểm được**; (6) các thành phố tắt đèn khí; (7) London hôm nay: khoảng 1 500 đèn (2015) và khoảng 1 100 đèn theo British Gas (2023), **vẫn là 5 người thắp đèn**; (8) Ida tắt ngọn đèn cuối, trao đèn lồng cho Cas.
@@ -218,19 +220,19 @@ Cột "Cách kiểm": **toàn văn** = đã mở và đọc văn bản đầy đ
 | D19–D20 | Düsseldorf, Berlin | — | — | Đã bỏ khỏi kịch bản | — |
 | D21 | **NEO** — Bessen | 1 trong ~270 (nguồn: 271) nghề chi tiết năm 1950, theo tới 2010: chỉ người vận hành thang máy | [24] | Toàn văn (bản NBER SI 2016 qua Wayback) | Cao |
 | D22 | Telegraph operators mất vì lỗi thời công nghệ, không phải tự động hoá | định tính | [24] | Toàn văn | Cao |
-| D23 | **NEO** — word processors and typists | −34,4 % (40,4 nghìn → 26,5 nghìn), 2025–35 | [25] | Toàn văn (bảng 1.5, bản Wayback 16/9/2026; "Last modified August 27, 2026") | Cao (là dự báo) |
-| D24 | Telephone operators | −27,6 %; 3,5 nghìn việc năm 2025 | [25] | Toàn văn | Cao (là dự báo) |
-| D25 | Switchboard operators, including answering service | −26,0 % | [25] | Toàn văn | Cao (là dự báo) |
-| D26 | Data entry keyers | −25,5 % | [25] | Toàn văn | Cao (là dự báo) |
-| D27 | Telemarketers | −21,4 % | [25] | Toàn văn | Cao (là dự báo) |
-| D28 | Kỳ dự báo và ngày công bố | 2025–35; công bố 27/8/2026 (USDL-26-1422) | [25][26] | Toàn văn (Wayback) | Cao |
-| D29 | Nhóm hành chính văn phòng; lý do | −4,0 %; "automation tools, including those powered by AI" | [26] | Toàn văn | Cao |
-| D30 | Nghề tăng (2025–35) | nurse practitioners +41,0 %; solar PV installers +36,5 %; data scientists +34,6 %; wind turbine service technicians +29,5 % | [26] | Toàn văn | Cao (là dự báo). Lời dẫn nói "about thirty percent or more": 29,5 % làm tròn thành 30 % |
-| D31 | Tổng việc làm Mỹ 2025–35 | +3,5 %; **chỉ làm bối cảnh**, lời dẫn đã bỏ câu này để giữ thời lượng | [25][26] | Toàn văn | Cao |
-| D32 | MLR: customer service representatives | −5,0 % (**kỳ 2023–33**) | [27] | Toàn văn (bản phản chiếu FRASER của bài MLR 2/2025) | Cao |
-| D33 | MLR: claims adjusters, examiners, and investigators | −4,4 % (2023–33); **chỉ trên hình**, lời dẫn đã bỏ để giữ thời lượng | [27] | Toàn văn | Cao |
-| D34 | MLR: insurance appraisers, auto damage | −9,2 % (2023–33) | [27] | Toàn văn | Cao |
-| D35 | MLR: software developers | +17,9 % (2023–33) | [27] | Toàn văn | Cao |
+| D23 | **NEO** — word processors and typists | −34,4 % (40,4 nghìn → 26,5 nghìn), 2025–35 | [25] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao (là dự báo) |
+| D24 | Telephone operators | −27,6 %; 3,5 nghìn việc năm 2025 | [25] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao (là dự báo) |
+| D25 | Switchboard operators, including answering service | −26,0 % | [25] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao (là dự báo) |
+| D26 | Data entry keyers | −25,5 % | [25] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao (là dự báo) |
+| D27 | Telemarketers | −21,4 % | [25] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao (là dự báo) |
+| D28 | Kỳ dự báo và ngày công bố | 2025–35; công bố 27/8/2026 (USDL-26-1422) | [25][26] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
+| D29 | Nhóm hành chính văn phòng; lý do | −4,0 %; "automation tools, including those powered by AI" | [26] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
+| D30 | Nghề tăng (2025–35) | nurse practitioners +41,0 %; solar PV installers +36,5 %; data scientists +34,6 %; wind turbine service technicians +29,5 % | [26] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao (là dự báo). Lời dẫn nói "about thirty percent or more": 29,5 % làm tròn thành 30 % |
+| D31 | Tổng việc làm Mỹ 2025–35 | +3,5 %; **chỉ làm bối cảnh**, lời dẫn đã bỏ câu này để giữ thời lượng | [25][26] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
+| D32 | MLR: customer service representatives | −5,0 % (**kỳ 2023–33**) | [27] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
+| D33 | MLR: claims adjusters, examiners, and investigators | −4,4 % (2023–33); **chỉ trên hình**, lời dẫn đã bỏ để giữ thời lượng | [27] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
+| D34 | MLR: insurance appraisers, auto damage | −9,2 % (2023–33) | [27] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
+| D35 | MLR: software developers | +17,9 % (2023–33) | [27] | Đã đọc toàn văn (Claude, 01/10/2026); xưởng đọc qua Wayback/FRASER | Cao |
 | D36 | Stanford: người 22–25 tuổi ở nghề phơi nhiễm AI cao | thấp hơn ~19 % so với mức lẽ ra có; dữ liệu tới 6/2026; chủ yếu do tuyển ít đi; người nhiều kinh nghiệm không có khoảng cách tương tự; mô tả, chưa phải nhân quả | [28] | Toàn văn trang tóm lược chính thức (12/8/2026); **PDF bài đầy đủ [29] chưa đọc** | Trung bình–cao (chính tác giả nói chưa xác lập nhân quả, số liệu ADP có thể không đại diện toàn nền kinh tế) |
 
 **Chỉ số sát ngưỡng ±5 %:** tổng thời lượng ước 9:31 cách trần 10:00 là 4,8 %; phần kết 2:36 (lời dẫn) vượt khung 2:30 là 4 %. Cả hai đã nêu ở mục 1.
@@ -267,9 +269,9 @@ Cột "Cách kiểm": **toàn văn** = đã mở và đọc văn bản đầy đ
 | [22] | *The Evening World* (New York), 30/04/1907, tr. 4 — "Lamplighters strike over" (Chronicling America, LOC) | https://www.loc.gov/resource/sn83030193/1907-04-30/ed-1/?sp=4 | Toàn văn (OCR, nhiễu) |
 | [23] | *The Evening World*, 25/04/1907, tr. 9 — bài về kế hoạch của Welsbach và cảnh sát giữ đèn sáng (Chronicling America, LOC) | https://www.loc.gov/resource/sn83030193/1907-04-25/ed-1/?sp=9 | Toàn văn (OCR nhiễu; chỉ đọc rõ tiêu đề) |
 | [24] | Bessen, J. (2016), *How Computer Automation Affects Occupations: Technology, Jobs, and Skills*, BU School of Law, Law & Economics WP 15-49; bản NBER Summer Institute 2016 | https://conference.nber.org/confer/2016/SI2016/PRIT/Bessen.pdf (đọc qua https://web.archive.org/web/20260922003107/https://conference.nber.org/confer/2016/SI2016/PRIT/Bessen.pdf) · https://scholarship.law.bu.edu/cgi/viewcontent.cgi?article=1811&context=faculty_scholarship | Toàn văn (qua Wayback) |
-| [25] | U.S. Bureau of Labor Statistics, Employment Projections — Table 1.5 "Fastest declining occupations, 2025 and projected 2035" (last modified 27/08/2026) | https://www.bls.gov/emp/tables/fastest-declining-occupations.htm (đọc qua https://web.archive.org/web/20260916080704/https://www.bls.gov/emp/tables/fastest-declining-occupations.htm) | Toàn văn (qua Wayback; bls.gov trả 403 cho cả curl kèm User-Agent trình duyệt và WebFetch) |
-| [26] | U.S. Bureau of Labor Statistics, News Release USDL-26-1422 "Employment Projections — 2025–2035" (27/08/2026) | https://www.bls.gov/news.release/ecopro.nr0.htm (đọc qua https://web.archive.org/web/20260927000643/https://www.bls.gov/news.release/ecopro.nr0.htm) | Toàn văn (qua Wayback) |
-| [27] | Machovec, C., Rieley, M. J. & Rolen, E., "Incorporating AI impacts in BLS employment projections: occupational case studies", *Monthly Labor Review*, BLS, 02/2025 | https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm (đọc qua bản phản chiếu https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf) | Toàn văn (qua FRASER) |
+| [25] | U.S. Bureau of Labor Statistics, Employment Projections — Table 1.5 "Fastest declining occupations, 2025 and projected 2035" (last modified 27/08/2026) | https://www.bls.gov/emp/tables/fastest-declining-occupations.htm (đọc qua https://web.archive.org/web/20260916080704/https://www.bls.gov/emp/tables/fastest-declining-occupations.htm) | Toàn văn (qua Wayback; bls.gov trả 403 cho cả curl kèm User-Agent trình duyệt và WebFetch)  — **đã đọc toàn văn (Claude, 01/10/2026)** |
+| [26] | U.S. Bureau of Labor Statistics, News Release USDL-26-1422 "Employment Projections — 2025–2035" (27/08/2026) | https://www.bls.gov/news.release/ecopro.nr0.htm (đọc qua https://web.archive.org/web/20260927000643/https://www.bls.gov/news.release/ecopro.nr0.htm) | Toàn văn (qua Wayback)  — **đã đọc toàn văn (Claude, 01/10/2026)** |
+| [27] | Machovec, C., Rieley, M. J. & Rolen, E., "Incorporating AI impacts in BLS employment projections: occupational case studies", *Monthly Labor Review*, BLS, 02/2025 | https://www.bls.gov/opub/mlr/2025/article/incorporating-ai-impacts-in-bls-employment-projections.htm (đọc qua bản phản chiếu https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf) | Toàn văn (qua FRASER)  — **đã đọc toàn văn (Claude, 01/10/2026)** |
 | [28] | Stanford Digital Economy Lab (12/08/2026) — "No Widespread Displacement, but the AI Employment Gap for Young Workers Has Widened to 19%" (tóm lược bản sửa 8/2026 của "Canaries in the Coal Mine?", Brynjolfsson, Chandar, Chen) | https://digitaleconomy.stanford.edu/news/canariesaug26/ | Toàn văn |
 | [29] | Brynjolfsson, E., Chandar, B. & Chen, R., "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence", bản 8/2026 (PDF) | https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf · trang bài: https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/ | Chưa đọc PDF (dùng [28]) |
 | [30] | Deutsche Stiftung Denkmalschutz (08/12/2023) — "Düsseldorf will 14.000 denkmalgeschützte Laternen zerstören" | https://www.denkmalschutz.de/pressemitteilung/duesseldorf-will-14000-denkmalgeschuetzte-laternen-zerstoeren.html | Toàn văn (chỉ để giải thích việc bỏ đoạn 09) |

@@ -4,6 +4,9 @@
 
 Gói việc: KHUNG SERIES (P giao theo chỉ thị chủ dự án 01/10/2026) · Người viết: phiên biên tập nội dung · Ngày tra nguồn: **01/10/2026** · Trạng thái: **nháp 1, chờ chủ dự án duyệt**. Chỉ có văn bản: không sửa mã, không đọc `checks/`, không commit.
 
+
+> **Ghi chú chủ dự án (01/10/2026):** các số BLS — bảng "Fastest declining occupations" 2025–35 (Table 1.5), bài MLR 2025 về AI trong dự báo, và bản tin Employment Projections (ecopro, 27/08/2026) — đã được **Claude (rà độc lập bên ngoài) đọc toàn văn ngày 01/10/2026**. Trạng thái nguồn: **"đã đọc toàn văn (Claude)"**. Không cần tải bản gốc vào repo.
+
 ---
 
 ## 0. Tóm tắt cho chủ dự án
@@ -13,7 +16,7 @@ Gói việc: KHUNG SERIES (P giao theo chỉ thị chủ dự án 01/10/2026) ·
 - **Hạn chế lớn nhất.** `bls.gov` chặn mọi lối (curl có User-Agent trả 403; WebFetch báo "EGRESS_BLOCKED"). Vì vậy:
   - Số BLS chu kỳ **2025–35** (đã công bố 27/08/2026) chỉ kiểm được qua **bài USA TODAY ngày 01/09/2026** (đọc toàn văn). Bài đó trích BLS nhưng không phải bảng gốc.
   - Số BLS về AI lấy từ bài **MLR 02/2025** (đọc toàn văn bản PDF lưu ở FRASER của Fed St. Louis). Bài này thuộc chu kỳ **2023–33**, cũ hơn chu kỳ hiện hành hai vòng.
-  - Trước khi khoá lời dẫn của tập có số BLS, cần một phiên vào được bls.gov để đối chiếu bảng gốc.
+  - ~~Trước khi khoá lời dẫn của tập có số BLS, cần một phiên vào được bls.gov để đối chiếu bảng gốc.~~ **Đã xong:** Claude (rà độc lập bên ngoài) đọc toàn văn bảng 2025–35, MLR 2025 và bản tin ecopro ngày 01/10/2026. Riêng BLS OOH "Graphic Designers" [S16] vẫn chỉ qua tóm tắt.
 - **Đang chờ chủ dự án:**
   - (a) duyệt 6 tiêu đề và thứ tự tập;
   - (b) duyệt quy ước "Ida thắp một ngọn đèn cho mỗi nghề", ghi vào `AUTHORSHIP.md`;
@@ -129,7 +132,7 @@ Quy ước: [Sn] trỏ tới danh mục nguồn ở mục 6. **"Đọc toàn vă
 **Rủi ro.**
 - *Nhạy cảm:* trung bình. Nhập liệu là nghề lương thấp, có nhiều người lớn tuổi. Không châm biếm.
 - *Xung đột lợi ích:* phim làm bằng Claude và trích số của Anthropic. Lời dẫn phải nói "Anthropic, the company behind the AI model used to make this film" để minh bạch, và nên cân bằng bằng một nguồn độc lập.
-- *Độ chắc:* số 811 000 gộp tốc ký với đánh máy, nên không được nói "811,000 typists" trơn. Tiêu đề Short 1 phải đổi thành "811,000 stenographers and typists" hoặc dùng chữ "clerks". Số BLS 2025–35 cần kiểm bảng gốc.
+- *Độ chắc:* số 811 000 gộp tốc ký với đánh máy, nên không được nói "811,000 typists" trơn. Tiêu đề Short 1 phải đổi thành "811,000 stenographers and typists" hoặc dùng chữ "clerks". Số BLS 2025–35 đã đọc toàn văn (Claude, 01/10/2026); trước đây cần kiểm bảng gốc.
 
 ### Tập 4 — "The Hand That Drew It"
 
@@ -215,7 +218,7 @@ Quy ước: [Sn] trỏ tới danh mục nguồn ở mục 6. **"Đọc toàn vă
 **Rủi ro.**
 - *Nhạy cảm:* thấp đến trung bình. Có thể chạm tới người từng bị từ chối bồi thường. Không bàn về tranh chấp bồi thường cụ thể và không nêu tên hãng bảo hiểm.
 - *Pháp lý:* không đưa lời khuyên về khiếu nại bảo hiểm.
-- *Độ chắc:* số thuộc chu kỳ 2023–33. Cần kiểm bản 2025–35 trên bls.gov (chưa kiểm được).
+- *Độ chắc:* số thuộc chu kỳ 2023–33 (MLR 2025, đã đọc toàn văn — Claude, 01/10/2026). Bản 2025–35 cho riêng nghề này chưa tra.
 
 ---
 
