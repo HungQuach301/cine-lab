@@ -76,3 +76,39 @@ Chủ dự án đặt luật; Claude cụ thể hoá thành 6 điểm; chủ d�
 - **−14 LUFS tích hợp, true peak ≤ −1 dBTP.** Nhạc hạ 10–14 dB khi có lời. Không méo, không cụt chữ, không click.
 - Ghi số dư ElevenLabs trước và sau mỗi lượt đọc.
 - Nhạc và SFX: CC0 hoặc CC BY do người làm, ghi `RIGHTS.md`. Không nhạc AI, không NC/ND, không YouTube Audio Library.
+
+## 6. Đĩa và bàn giao
+Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree + trung gian FFV1). Claude (rà độc lập bên ngoài) đề xuất.
+
+### 6.1 Ngân sách đĩa
+- **Trước mỗi đợt render, ghi vào PLAN:**
+  - mức cần = Σ(phút × MB/phút trung gian) + master + bản xem (+ tấm nền PNG đang giữ, + âm thanh làm việc);
+  - mức trống thực tế (`df`).
+  - **Mức trống ≥ 1,5 × mức cần**, nếu không thì chia khối nhỏ hơn.
+- **Hạn mức đĩa** của phiên = đã dùng + còn trống theo `df` lúc mở phiên. "Đĩa trống 15 %" tính trên hạn mức này, không tính trên kích thước ổ ảo.
+- Mức tham chiếu đo thật ở animatic v3:
+  - trung gian H.264 crf 10 yuv444p (đồ hoạ) ≈ 160 MB/phút;
+  - FFV1 1080p ≈ 2,3 GB/phút (không dùng);
+  - master crf 16 ≈ 63 MB/phút;
+  - bản xem 720p 3 Mb/s ≈ 23 MB/phút.
+
+### 6.2 Theo từng khối
+1. Render.
+2. Ghép trung gian H.264 gần không mất (`-c:v libx264 -crf 10 -pix_fmt yuv444p`).
+3. Đo judder trên trung gian.
+4. **Xoá khung PNG của khối.**
+- **Giữ trung gian** để khi sửa chỉ render lại shot bị sửa. Chỉ xoá trung gian khi cả tập đã ghép master và đo đạt.
+- **Tối đa 3 worktree cùng lúc**; gỡ ngay sau khi gộp.
+- **Dừng nhận việc render mới** khi đĩa trống < 15 % hạn mức hoặc < 3 GB.
+- Báo cáo ghi **mức đĩa đỉnh theo khối**.
+
+### 6.3 Bản xem và bàn giao
+- **Không dùng GitHub Release** (bên rà độc lập không tải được qua API).
+- **Bản xem duyệt:** 720p 24 fps H.264 ~3 Mb/s, **chia 3 phần, mỗi phần ≤ 90 MB, cắt ở ranh giới đoạn**.
+  - Tên: `screening/<tập>-p1.mp4`, `-p2.mp4`, `-p3.mp4`.
+- Bỏ bản xem 1080p nén thấp.
+- **Master crf 16 để ngoài git**; ghi SHA-256 vào báo cáo.
+
+### 6.4 Đo chất lượng
+- **Judder đo trên master hoặc trung gian**, không đo trên bản nén. Đo lại trên 3 phần bản xem để đối chiếu; lệch thì nêu tên đoạn.
+- **Loudness đo trên tệp cuối có tiếng.**
