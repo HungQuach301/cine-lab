@@ -1,6 +1,6 @@
 # PLAN — Bảng điều phối (phiên P duy trì)
 
-## Mốc hiện tại: M2 — **Cổng 6 (diễn hoạt) ĐÃ ĐÓNG 01/10/2026** (main `8c392fd`, layout-v22 = `screening/layout.mp4`, `reports/m2/CONG-6-DONG.md`) · **THỬ MẶT 2 đang chạy** (nhánh riêng `thu-mat-2` từ main; không áp vào phim; chờ chủ dự án duyệt model sheet rồi mới khoá characters v1.5.2) · **Cổng 7 CHƯA mở** · characters v1.5.1 (Ida) + v1.6 (Cas) khoá · checks v1.5 (LOCK 8d55b6ad…)
+## Mốc hiện tại: **Cổng 6 ĐÃ ĐÓNG 01/10/2026** (main, layout-v22 = `screening/layout.mp4`, `reports/m2/CONG-6-DONG.md`) · **CHUYỂN HƯỚNG (01/10/2026): kênh lai Lamplight (tên tạm)** — Mốc 1 BÀI THỬ PHONG CÁCH (B1 toon + viền nét; B3 2.5D cắt giấy; nhánh `thu-phong-cach` từ main, bật bằng cờ, `reports/m3/THU-PHONG-CACH.md`) + GÓI KỊCH BẢN TẬP THỬ "The Last Lamplighters" (`reports/m3/KICH-BAN-TAP-THU.md`) chạy song song · THỬ MẶT 2 DỪNG (bỏ hướng A) · Cổng 7 không mở · chưa mở kênh · checks v1.5 (LOCK 8d55b6ad…)
 
 Quy ước nhánh: mọi nhánh làm việc tạo từ `main` (đã hợp nhất M0 + checks/v0 ngày 27/09/2026, LOCK KHỚP `57dc729b…`). Chỉ P merge vào `main`.
 Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
