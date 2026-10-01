@@ -13,6 +13,7 @@ const X0 = 60.0, ZI = -2.9, WALL_Z = -5.45;
 export const LP = {
   walk: [55.6, X0], tWalk: 3.6, tTurn: [3.6, 4.6], lightI: 2, spotI: 46,
   // điểm vũng sáng trên tường theo thời gian (x): theo người đi → tấm bản đồ → tấm biểu đồ
+  aimV2: [[0, 56.2], [3.6, 59.6], [5.0, 59.6], [7.2, 56.9], [11.2, 56.7], [13.9, 61.8], [17.6, 62.1], [20, 62.0]],   // B3 v2: vũng sáng phủ cả tiêu đề tấm bản đồ
   aim: [[0, 56.2], [3.6, 59.6], [5.0, 59.6], [7.2, 57.7], [11.2, 57.4], [13.9, 61.8], [17.6, 62.1], [20, 62.0]],
   // khoá máy: [t, vị trí, điểm nhìn, fov] — trượt ngang chậm + đẩy vào nhẹ (parallax giữa Ida, cột đèn, mặt tiền)
   cam: [[0, [58.6, 1.35, 2.6], [59.4, 2.7, -5.4], fovOf(28)], [20, [60.9, 1.35, 1.8], [60.4, 2.75, -5.4], fovOf(28)]],
@@ -64,7 +65,7 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
           const a = t < LP.tWalk ? 1 : 0.45; L.rotation.z = L.userData.rz0 + 0.10 * a * Math.sin(2 * Math.PI * 0.85 * t); L.rotation.x = L.userData.rx0 + 0.05 * a * Math.sin(2 * Math.PI * 0.85 * t + 1.1); }   // đèn lồng đung đưa
         lamp(ida, f, 1);
         const lan = ida.props.lantern; lan.updateMatrixWorld(true); (lan.userData.lightAnchor || lan).getWorldPosition(lp);
-        spot.position.copy(lp); spot.target.position.set(valAt(LP.aim, t), lp.y + (V2 ? 0.75 : 0.35), WALL_Z); spot.target.updateMatrixWorld(true);
+        spot.position.copy(lp); spot.target.position.set(valAt(V2 ? LP.aimV2 : LP.aim, t), lp.y + (V2 ? 0.75 : 0.35), WALL_Z); spot.target.updateMatrixWorld(true);
         spot.intensity = LP.spotI * ease(clamp01((t - 0.3) / 1.2)) * (1 + 0.03 * Math.sin(f * 0.37));
       } };
   } };

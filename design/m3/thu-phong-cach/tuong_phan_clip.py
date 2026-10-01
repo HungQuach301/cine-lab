@@ -7,7 +7,7 @@ import numpy as np
 from PIL import Image
 sys.path.insert(0, __import__('os').path.dirname(__file__)); from data_frame import ratio
 v = sys.argv[1]
-BOX = [(10.0, "số \"46\" + \"gas lamps\" (tấm bản đồ)", (465, 300, 575, 375)), (10.0, "chữ \"OLD TOWN, 1905\"", (200, 268, 400, 300)),
+BOX = [(10.0, "số \"46\" + \"gas lamps\" (tấm bản đồ)", (465, 300, 575, 375)), (10.0, "chữ \"OLD TOWN, 1905\"", (200, 268, 400, 300)), (8.0, "chữ \"OLD TOWN, 1905\"", (200, 268, 400, 300)), (12.0, "chữ \"OLD TOWN, 1905\"", (200, 268, 400, 300)),
        (15.0, 'số trên cột "14", "9" + năm (tấm biểu đồ)', (660, 300, 980, 470)), (15.0, 'số "14→1"', (880, 265, 990, 305)), (15.0, 'chữ "LAMPLIGHTERS"', (690, 268, 880, 300))]
 for t, name, b in BOX:
     r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t}', '-i', v, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)

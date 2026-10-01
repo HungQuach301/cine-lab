@@ -70,7 +70,7 @@
 | Phép so | Khung | Kết quả |
 |---|---|---|
 | Tắt cờ: page.js gốc ebdacde vs nhánh (sau mọi sửa v2) | s03 f222, s05 f324, s22 f1224 | **0 px** |
-| Cờ B1: bản Mốc 1 vs sau v2 | s05 f324; lp20 f240 (720p, hai lần: sau sửa v2 đầu và sau sửa nhắm đèn) | **0 px** |
+| Cờ B1: bản Mốc 1 vs sau v2 | s05 f324; lp20 f240 (720p, kiểm 3 lần: sau sửa v2 đầu, sau sửa nhắm đèn, sau bản cuối) | **0 px** |
 | Cờ B3 v1: bản Mốc 1 vs sau v2 | s22 f1224 | **0 px** |
 
 ## 4. Số đo
@@ -81,7 +81,7 @@
 | s03 960×540 | 2,65 · 2,11 | 2,36 · 1,84 | 2,30 · 1,75 |
 | s05 960×540 | 1,81 · 1,65 | 1,36 · 1,19 | 1,32 · 1,17 |
 | s22 960×540 | 1,57 · 1,43 | 0,96 · 0,85 | 1,31 · 1,19 (thêm bóng của đèn cột điện) |
-| lp20 1280×720 | — | 1,54 · 1,42 | xem `../do/b3v2-lp20.timing.json` (lượt đầu 1,64 · 1,50) |
+| lp20 1280×720 | — | 1,54 · 1,42 | 1,59 · 1,47 |
 
 - Khung 1080 đơn lẻ: 8,6–11,5 s, gồm khởi động khung đầu.
 - B3 v2 vẫn nhanh hơn v22 ở cả ba shot.
@@ -89,7 +89,21 @@
 ### 4.2 Tương phản chữ
 **Đoạn 20 s:** đo trong vùng sáng, chữ = trung vị 3 % điểm tối nhất, nền = trung vị 40 % điểm sáng nhất của ô. Kết quả đầy đủ ở `tuong-phan-clip.txt`.
 - Lượt clip đầu: "46" 5,3:1; số trên cột 8,3:1. Tiêu đề tấm ("OLD TOWN, 1905", "14→1") chỉ 2,9:1 vì nằm ở mép vũng sáng.
-- Đã nhắm đèn cao hơn rồi render lại; số đo lượt cuối ở bảng dưới.
+- Đã thêm hai lượt sửa: nhắm đèn cao hơn và lệch sang trái, tiêu đề tấm 64 → 84 px. Số đo bản cuối:
+
+| Thời điểm · nhóm chữ | Tương phản | Đánh giá |
+|---|---|---|
+| 10,0 s · "46" + "gas lamps" | 5,1:1 | ĐẠT |
+| 15,0 s · số trên cột + năm | 8,3:1 | ĐẠT |
+| 15,0 s · "14→1" | 5,4:1 | ĐẠT |
+| 15,0 s · "LAMPLIGHTERS" | 7,0:1 | ĐẠT |
+| 8,0 / 10,0 / 12,0 s · "OLD TOWN, 1905" | 3,8 / 4,1 / 4,2:1 | **TRƯỢT** (mép trên-trái vũng sáng) |
+
+- **"OLD TOWN, 1905" vẫn dưới ngưỡng.** Vũng hổ phách chỉ đưa giấy tới độ sáng tương đối ≈ 0,14, và nét chữ mảnh bị khử răng cưa.
+- Cách sửa (chưa làm, vì giữ hạn token):
+  - hạ tiêu đề vào giữa tấm, hoặc tăng đèn rọi ≈ +40 %;
+  - hoặc chuyển tiêu đề sang dạng mực trên nền giấy sáng dán riêng.
+- Số "46" (5,1:1) và "14→1" (5,4:1) cao hơn ngưỡng 13–20 %. Tiêu đề 4,1–4,2:1 thấp hơn ngưỡng 7–9 %, ngay ngoài vùng ±5 % nhưng gần; tôi nêu tên ở đây theo luật.
 
 **Khung dữ liệu v2** (`tuong-phan-khung.txt`):
 | Nhóm chữ | Tương phản |
@@ -103,6 +117,7 @@
 - **Quầng nhẹ quanh bóng nhân vật:** ánh nhoè rộng bị bóng tối kéo xuống ngay sát mép, tạo vành sáng mờ ≈ 10 px. Trông như mép giấy, nhưng có thể bị đọc là "hào quang". Cách sửa: loại điểm ảnh nhân vật khỏi bước nhoè rộng (≈ 10 nghìn token).
 - **s05:** bóng Ida đổ lớn trên tường vẫn là một mảng tối lớn bên trái khung (đúng nguồn L4, nhưng bố cục nặng).
 - **Tấm số liệu thấy mờ ngoài vũng sáng ở 0 s** (ánh trời đêm): chủ ý giữ, để người xem biết có "gì đó" trên tường trước khi đèn tới.
+- **Tiêu đề tấm bản đồ trong clip 3,8–4,2:1** (§4.2).
 - **Ánh trắng s22:** hệ số 0,22 và phơi sáng × 1,7 chỉnh cho riêng s22. Shot ánh điện khác trong tập cần chỉnh cùng cách (tham số `dbg.hemiK`, `dbg.s22exp`).
 
 ## 6. Token
@@ -112,11 +127,11 @@
 |---|---|
 | Mã v2 (style_v2, lp20, tấm v2, khung dữ liệu v2) | ≈ 20 nghìn |
 | 3 lượt thử + xem ảnh | ≈ 20 nghìn |
-| Render, đóng gói, 0 px, đo, sửa nhắm đèn | ≈ 25 nghìn |
+| Render, đóng gói, 0 px, đo, 3 lượt sửa clip (nhắm đèn, chữ tiêu đề) | ≈ 35 nghìn |
 | Báo cáo | ≈ 10 nghìn |
-| **Tổng lượt v2** | **≈ 75 nghìn** (hạn 120 nghìn) |
+| **Tổng lượt v2** | **≈ 90 nghìn** (hạn 120 nghìn) |
 
-**Quy ra phim:** 9 s Last Round + 20 s clip + 1 khung dữ liệu ≈ 0,5 phút, tức ≈ 0,15 triệu token/phút cho một lượt sửa toàn bộ. Nằm trong mức "≤ 0,3 triệu/phút"; không có chỉ số nào nằm trong ±5 % quanh ngưỡng.
+**Quy ra phim:** 9 s Last Round + 20 s clip + 1 khung dữ liệu ≈ 0,5 phút, tức ≈ 0,18 triệu token/phút cho một lượt sửa toàn bộ. Nằm trong mức "≤ 0,3 triệu/phút"; không có chỉ số nào nằm trong ±5 % quanh ngưỡng.
 
 ## 7. Việc chờ chủ dự án
 Đề nghị P đưa vào hàng chờ PLAN.md:
