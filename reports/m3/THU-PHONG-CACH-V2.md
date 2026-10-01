@@ -139,5 +139,47 @@
 - duyệt cách sửa s22 (ánh điện đổ bóng từ cột mé đối diện);
 - duyệt tấm chữ đơn giản hoá trong đoạn 20 s (3 cột thay 6).
 
-## 8. Kiểm mù
-*(Để trống cho P.)*
+## 8. Kiểm mù (P điền, 01/10/2026)
+
+**Cách chạy**
+- 4 dải B3 v2, mỗi dải một subagent MỚI, câu hỏi như Mốc 1 (kèm câu chấm 1–10; dải dữ liệu thêm câu nhớ số liệu). Nguyên văn: `thu-phong-cach/kiem-mu-v2/NGUYEN-VAN.md`; tên mù: `map.tsv`.
+- **Đối chứng dùng lại kết quả Mốc 1** (cùng 2 dải Sprite Fright, cùng câu hỏi, cùng ngày): Ellie 8, Victoria 5 ("mặt nạ").
+  - Lý do: 6 subagent tốn ≈ 270 nghìn token, vượt hạn kiểm mù 200 nghìn. Đây là sai lệch so với chỉ thị "4 dải + 2 đối chứng", P ghi rõ.
+- Token: 4 dải = **180,1 nghìn** (hạn 200 nghìn).
+
+**Kết quả**
+| Dải | B3 (Mốc 1) | **B3 v2** | Lời chê B3 v2 (rút gọn) |
+|---|---|---|---|
+| s03 | 5 | **5** | ánh sáng vẫn "bật như công tắc" (0,5 s → 1,0 s); **nhân vật "như bóng ma… nửa trong suốt"** ở 0,0–0,5 s; bóng trên tường to và lệch; tường trái tách cứng với vùng sáng |
+| s05 | 5 | **4** | **người thắp đèn "trong suốt như bóng ma"**; bóng tiền cảnh vẫn "phẳng tuyệt đối… như lỗ cắt dán"; quầng đèn **vẫn có vòng đồng tâm (banding)**; nửa dưới đen kịt; gần như bất động |
+| s22 | 5 | **4** | "đèn ngay cạnh cô không sáng, vậy mà tường bị rọi trắng gắt như có đèn pha… nguồn sáng tạo ra bóng không thấy ở đâu"; bóng thang không khớp vật thật; người và bóng đen phẳng như nhau |
+| Dữ liệu + 20 s | 4 | **5** | biểu đồ in lên tường "giống slide thuyết trình"; quầng sáng ở tường chứ không ở đèn lồng; đèn lồng "viền sáng rỗng" ở 0 s; thẻ kết "khác phong cách"; chữ nhỏ mờ. **Nhớ số liệu: đủ** (46 đèn; 14 → 1; cả 6 năm; câu kết) |
+| **Trung bình** | 4,75 | **4,50** | |
+
+**Chấm theo tiêu chí của chủ dự án**
+| Tiêu chí | Kết quả | |
+|---|---|---|
+| 0 lời chê "búp bê / mặt nạ / sáp / rẻ tiền" lặp cùng chỗ | 0/4 dải có các từ này (máy chỉ bắt "khác phong cách", nói về thẻ kết) | **ĐẠT** |
+| Điểm TB không thấp hơn 4,75 | **4,50** (−5,3 %, sát ngoài ±5 %) | **CHƯA ĐẠT** |
+
+**Đọc kết quả (P)**
+1. **Hai sửa có tác dụng:**
+   - dải dữ liệu 4 → 5 điểm; số liệu vẫn được nhớ đủ;
+   - lời chê "vết ố / loang lổ" trên tường không còn.
+2. **Sửa (b) gây lỗi mới lặp lại: "bóng ma, nửa trong suốt"** ở 2/4 dải (s03, s05). Gốc là "khối thân mờ không dùng màu da" cùng quầng ≈ 10 px quanh bóng mà xưởng đã nêu rủi ro ở §7. Bóng chính ở tiền cảnh s05 vẫn đọc "phẳng như cắt dán", tức viền sáng chưa thấy ở cỡ dải 480 px.
+3. **s22 (c) đúng luật thế giới nhưng người xem đọc là vô lý.** Nguồn sáng (cột điện mé đối diện) nằm ngoài khung, còn đèn khí ngay cạnh thì tắt. Người xem không thấy nguồn, nên đọc là "đèn pha không rõ từ đâu". Cần cho thấy nguồn: một mẩu cột điện hoặc quầng lạnh ở mép khung, hoặc một cú máy thiết lập trước đó.
+4. **Banding còn ở s05** dù đã dither, có thể do nén JPEG của dải.
+5. **Hạn chế đo:**
+   - mỗi dải chỉ một người chấm, nên dao động ±1 điểm là nhiễu thường gặp (Mốc 1: cùng biến thể, điểm 4–5);
+   - chênh 4,75 → 4,50 tương đương 1 điểm trên 4 dải, khó phân biệt với nhiễu;
+   - dải khung tĩnh chấm "bất động" nặng tay.
+
+**Đề xuất (chờ chủ dự án quyết)**
+- **(A) Một lượt sửa ngắn ≈ 30–50 nghìn token:**
+  - bỏ "khối thân mờ" và quầng 10 px; bóng phải ĐẶC, chỉ viền sáng mảnh 1–2 px phía đèn;
+  - s22 cho thấy nguồn điện lạnh ở mép khung, hợp world-rules v0.6 (cột ở mé đối diện);
+  - tăng dither hoặc grain ở quầng s05;
+  - tiêu đề "OLD TOWN, 1905" đạt 4,5:1.
+  - Kiểm mù lại 4 dải ≈ 180 nghìn token.
+- **(B) Chấp nhận B3 v1/v2 làm nền**, để chủ dự án chấm bằng mắt trên khung 1080 (tiêu chí 1 là điểm của chủ dự án), và dồn sửa vào lúc làm tập thử.
+- P nghiêng về (A), vì lỗi "bóng ma" là lỗi mới do chính lượt v2 tạo ra và có cách sửa rõ.
