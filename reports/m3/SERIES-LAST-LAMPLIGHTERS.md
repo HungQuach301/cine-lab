@@ -117,7 +117,7 @@ Quy ước: [Sn] trỏ tới danh mục nguồn ở mục 6. **"Đọc toàn vă
 |---|---|---|---|
 | 3.1 | Số người làm tốc ký và đánh máy ở Mỹ: **112 000** (1900) → **811 000** (1930). Tỉ lệ nữ tăng từ 77% lên **96%**. | Early Office Museum, bảng dẫn Kwolek-Folland (1994) [S9]; Davies, *Woman's Place Is at the Typewriter*, chương 4 [S10] | Đọc toàn văn cả hai. [S9] là nguồn thứ cấp dẫn sách. [S10] xác nhận ý "trên 95% năm 1930". Độ chắc: trung bình đến cao. |
 | 3.2 | BLS 2025–35: nghề xử lý văn bản và đánh máy (word processors and typists) giảm **34,4%** (40 400 → 26 500) và đứng đầu danh sách các nghề giảm nhanh nhất. Nghề nhập liệu (data entry keyers) giảm 25,5% (131 800 → 98 200). | USA TODAY 01/09/2026 trích BLS [S1] | Đọc toàn văn bài báo. **Bảng BLS gốc chưa đọc** (403). Bài báo vừa ghi 34,3% vừa ghi 34,4%. |
-| 3.3 | Trong dữ liệu Claude đầu năm 2025: **57%** tác vụ là tăng cường (AI làm cùng người) và **43%** là tự động hoá (AI làm thay). | Anthropic Economic Index, 10/02/2025 [S12] | Đọc toàn văn. Dữ liệu của chính Anthropic (xem rủi ro). |
+| ~~3.3~~ | Trong dữ liệu Claude đầu năm 2025: **57%** tác vụ là tăng cường (AI làm cùng người) và **43%** là tự động hoá (AI làm thay). | Anthropic Economic Index, 10/02/2025 [S12] | Đọc toàn văn. Dữ liệu của chính Anthropic (xem rủi ro). — **BỎ (chủ dự án 01/10/2026: không trích Anthropic Economic Index, tránh xung đột lợi ích); thay bằng số liệu nguồn độc lập khi viết tập** |
 
 **Cảnh truyện.** Một phòng đánh máy nhìn từ ban công: các hàng bàn, bóng lưng người ngồi, ánh đèn bàn ấm. Âm thanh chủ đạo là tiếng gõ và tiếng chuông xuống dòng. Ida mang thư tới cửa, chỉ thấy bóng. Sau đó căn phòng trống dần: từng ngọn đèn bàn tắt, còn lại một màn hình con trỏ nhấp nháy, nơi chữ tự hiện ra. Cas gõ một chữ duy nhất bằng tay.
 
@@ -175,7 +175,7 @@ Quy ước: [Sn] trỏ tới danh mục nguồn ở mục 6. **"Đọc toàn vă
 |---|---|---|---|
 | 5.1 | Việc làm của lao động **22–25 tuổi** trong các nghề phơi nhiễm AI thấp hơn **19%** so với mức lẽ ra đạt được nếu tăng theo nhóm ít phơi nhiễm. Lao động nhiều kinh nghiệm không có khoảng chênh tương tự. Nguyên nhân chủ yếu là tuyển ít người trẻ hơn, không phải sa thải nhiều hơn. Các tác giả nói rõ đây là **chỉ báo sớm, mang tính mô tả, không phải ước lượng nhân quả**, và họ **không thấy bằng chứng về thay thế việc làm trên diện rộng toàn nền kinh tế**. | Brynjolfsson, Chandar, Chen, "Canaries in the Coal Mine?", bản sửa 12/08/2026, dữ liệu ADP tới 06/2026 [S3] | Đọc toàn văn **trang công bố** (tóm tắt của tác giả). PDF chưa đọc. |
 | 5.2 | Người lao động được dự kiến thấy khoảng **39%** kỹ năng hiện có thay đổi hoặc lỗi thời trong 2025–2030. | WEF *Future of Jobs 2025* [S11] | Đọc trực tiếp bản PDF gốc, phần liên quan |
-| 5.3 | Khoảng **36%** nghề có dùng AI cho ít nhất 1/4 số tác vụ; chỉ khoảng **4%** dùng AI cho ít nhất 3/4 số tác vụ. | Anthropic Economic Index [S12] | Đọc toàn văn. Số đầu năm 2025, đo trên Claude. |
+| ~~5.3~~ | Khoảng **36%** nghề có dùng AI cho ít nhất 1/4 số tác vụ; chỉ khoảng **4%** dùng AI cho ít nhất 3/4 số tác vụ. | Anthropic Economic Index [S12] | Đọc toàn văn. Số đầu năm 2025, đo trên Claude. — **BỎ (chủ dự án 01/10/2026: không trích Anthropic Economic Index, tránh xung đột lợi ích); thay bằng số liệu nguồn độc lập khi viết tập** |
 
 **Cảnh truyện.** Nối thẳng từ tập thử. Cas vác thang theo Ida, học cách mở nắp đèn, học nghe tiếng khí, học chỉnh đồng hồ. Đây là kiểu học nghề bằng cách làm việc nhỏ trước. Chuyển cảnh: những việc nhỏ ấy, như vác thang hay mở nắp, nay có máy làm, nên Cas phải tìm bậc thang đầu tiên khác. Kết: Ida đưa sào cho Cas thắp ngọn đèn khó nhất. Ý của cảnh: việc học thì vẫn còn, nhưng bậc đầu đã đổi chỗ.
 
@@ -289,7 +289,7 @@ Tổng khoảng **7–8 phiên mỗi tập**. Tập 1 gần như đã có kịch
 3. **Không đưa lời khuyên** tài chính, pháp lý, y tế hay nghề nghiệp cho từng cá nhân. Cuối tập chỉ trỏ tới nguồn dữ liệu.
 4. **Nói rõ phạm vi của mỗi số:** quốc gia (phần lớn là Mỹ; WEF là toàn cầu), loại số (thực tế, dự báo hay khảo sát), chu kỳ (ví dụ 2023–33 hay 2025–35), và năm của số. Nghiên cứu tương quan phải nói "not causal".
 5. **Tách bạch hư cấu và thật.** Ida, Cas và phố Ostler là hư cấu, và lời dẫn nói rõ điều đó trong mỗi tập. Không vẽ người thật.
-6. **Minh bạch về AI.** Nêu rõ phim dùng AI ở khâu nào. Khi trích Anthropic Economic Index thì phải nêu xung đột lợi ích.
+6. **Minh bạch về AI.** Nêu rõ phim dùng AI ở khâu nào. **Không trích Anthropic Economic Index** (chủ dự án quyết 01/10/2026, tránh xung đột lợi ích).
 7. **Không trích nguyên văn dài.** Lời dẫn diễn đạt lại; tên nguồn hiện trên khung.
 
 ### 4.4 Rủi ro chung
@@ -331,7 +331,7 @@ Tổng khoảng **7–8 phiên mỗi tập**. Tập 1 gần như đã có kịch
 | S9 | Early Office Museum, "Gender & the Office" (bảng dẫn Kwolek-Folland 1994, tr. 30) | https://www.officemuseum.com/office_gender.htm | Đọc toàn văn |
 | S10 | M. W. Davies, *Woman's Place Is at the Typewriter: Office Work and Office Workers 1870–1930*, Temple University Press, chương 4 | https://temple.manifoldapp.org/read/untitled-a3dba793-4797-49f5-bcd7-2d03fccbc425/section/a69a8a8b-1b3c-4ed4-a2eb-6a9f80eed4f7 | Đọc toàn văn chương |
 | S11 | World Economic Forum, *Future of Jobs Report 2025*, 01/2025 | https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf | Đọc trực tiếp bản PDF gốc, các phần liên quan (290 trang, không đọc hết) |
-| S12 | Anthropic, "The Anthropic Economic Index", 10/02/2025 | https://www.anthropic.com/news/the-anthropic-economic-index | Đọc toàn văn. Trang chỉ số (https://www.anthropic.com/economic-index, cập nhật 26/06/2026) tải dữ liệu bằng JS nên chưa đọc được. |
+| S12 | Anthropic, "The Anthropic Economic Index", 10/02/2025 | https://www.anthropic.com/news/the-anthropic-economic-index | Đọc toàn văn. Trang chỉ số (https://www.anthropic.com/economic-index, cập nhật 26/06/2026) tải dữ liệu bằng JS nên chưa đọc được. — **không dùng (chủ dự án 01/10/2026)** |
 | S13 | NPR, "Remembering When Driverless Elevators Drew Skepticism", 31/07/2015 | https://www.npr.org/2015/07/31/427990392/remembering-when-driverless-elevators-drew-skepticism | Đọc toàn văn |
 | S14 | Wikipedia, "Gas lighting" | https://en.wikipedia.org/wiki/Gas_lighting | Đọc toàn văn mục liên quan |
 | S15 | Wikipedia, "Elevator Strikes" | https://en.wikipedia.org/wiki/Elevator_Strikes | Đọc toàn văn |
