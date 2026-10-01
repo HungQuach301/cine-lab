@@ -14,7 +14,7 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
   const gRT = new THREE.WebGLRenderTarget(W * GS, H * GS, { ...C.fOpt, depthBuffer: true });
   const gM = [gMaterial(0), gMaterial(1), gMaterial(2)];
   const hA = C.rt(W / 2, H / 2), hB = C.rt(W / 2, H / 2), qA = C.rt(W / 8, H / 8), qB = C.rt(W / 8, H / 8), outRT = C.rt(W, H);
-  const P = Object.assign({ step: 0.55, soft: 0.24, dith: 0.5, flatK: 0.55, sat: 0.85, shK: 0.45, shLen: 9.0, edgeK: 0.25, papK: 0.07, eLo: -2.2, eHi: 0.6, rimK: 1.0, formK: 0.22 }, dbg.b3 || {});
+  const P = Object.assign({ step: 0.55, soft: 0.24, dith: 0.28, flatK: 0.55, sat: 0.85, shK: 0.45, shLen: 9.0, edgeK: 0.25, papK: 0.07, eLo: -2.2, eHi: 0.6, rimK: 1.0, formK: 0.10 }, dbg.b3 || {});
   const down = C.mk(`uniform sampler2D tSrc; uniform vec2 px; void main(){ vec3 s = vec3(0.0);
       for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++) s += texture(tSrc, vUv + vec2(i,j)*px).rgb; o = vec4(s/9.0, 1.0); }`,
     { tSrc: { value: null }, px: { value: new THREE.Vector2() } });
@@ -55,7 +55,7 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
         float env = smoothstep(-3.0, 0.3, log2(Lg * uExp));                               // ánh quanh mép (đèn trong khung)
         vec3 envC = big / Lg;
         vec3 ink = vec3(0.0105, 0.0085, 0.0135) / uExp;
-        vec3 form = src * formK + ink;                                                     // nếp áo, khối thân (mờ)
+        vec3 form = ink * (1.0 + formK * 30.0 * sqrt(clamp(lum(bl) * uExp, 0.0, 1.0)) * vec3(1.0, 0.9, 0.8));                         // khối thân mờ (độ sáng nhoè, không màu da → không lộ nét mặt)
         vec3 rimC = envC * max(Lg, 0.05 / uExp) * 1.25 * tint;
         vec3 sil = mix(form, rimC, clamp(rimK * (rim + rim2 * (1.0 - rim)) * (0.25 + 0.75 * env), 0.0, 1.0));
         c = mix(c, sil, clamp(ch, 0.0, 1.0));

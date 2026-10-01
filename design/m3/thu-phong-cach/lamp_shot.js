@@ -27,9 +27,9 @@ export const LAMP_SHOT = { id: 'lp20', scene: 0, t0: 0, t1: 20, size: 'MWS', ang
     const ida = makeChar(ctx, st.scene, 'ida', { detail: 22 });
     const place = (pose, x, z, yaw) => { ida.root.position.set(x, pose.root_y_m ?? 0, z); ida.root.rotation.y = yaw; ida.root.updateMatrixWorld(true); ida.place(pose, x, z, yaw); };
     const V2 = !!(ctx.dbg && ctx.dbg.style === 'b3v2');   // B3 v2: tấm chữ lớn, vũng sáng mềm từ đèn lồng, đèn lồng đung đưa, thở
-    const lamp = lanternLight(st.scene, false, V2 ? 10 : LP.lightI);   // quầng gần (người, đá lát)
+    const lamp = lanternLight(st.scene, false, V2 ? 6 : LP.lightI);   // quầng gần (người, đá lát)
     // vũng sáng "soi": đèn rọi từ đèn lồng tới điểm trên tường (cách điệu: đèn lồng có chụp phản quang) — bóng đổ mạnh của cột đèn, người
-    const spot = V2 ? new THREE.SpotLight("#ffb060", 0, 0, 0.66, 1.0, 2) : new THREE.SpotLight("#ffb060", 0, 0, 0.38, 0.5, 2); spot.castShadow = true; spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0005; spot.shadow.camera.near = 0.1;
+    const spot = V2 ? new THREE.SpotLight("#ffb060", 0, 0, 0.56, 1.0, 2) : new THREE.SpotLight("#ffb060", 0, 0, 0.38, 0.5, 2); spot.castShadow = true; spot.shadow.mapSize.set(1024, 1024); spot.shadow.bias = -0.0005; spot.shadow.camera.near = 0.1;
     st.scene.add(spot, spot.target); const lp = new THREE.Vector3();
     if (ida.props.lantern) ida.props.lantern.traverse((m) => { if (m.isMesh) m.castShadow = false; });   // nguồn sáng nằm trong đèn lồng: vỏ đèn không được che chính nó
 
