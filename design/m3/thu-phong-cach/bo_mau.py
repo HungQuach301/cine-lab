@@ -111,9 +111,9 @@ def d_num(out):
         else: f.rect([x, y, x + s - 6, y + s * 1.4 - 8], BLUE)
     f.text((1130, 760), 'Elevator operator', 40, INK, 'sansb')
     f.text((1130, 815), 'the one job automated away', 32, INK)
-    f.text((96, 300), '1 in 270', 200, AMBER, 'serifb')
-    f.text((100, 560), 'occupations in the 1950 U.S. Census', 40, PAPER)
-    f.text((100, 615), 'was later eliminated by automation', 40, PAPER)
+    f.text((96, 300), '1 of ~270', 150, AMBER, 'serifb')   # M2.1 (e): câu chủ dự án duyệt
+    f.text((100, 560), 'Only 1 of ~270 occupations was', 40, PAPER)
+    f.text((100, 615), 'eliminated mainly by automation', 40, PAPER)
     src(f, 'Source: J. Bessen (2016), NBER · 271 occupations listed'); return f.save(out)
 
 def d_col(out):

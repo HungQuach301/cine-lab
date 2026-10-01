@@ -40,7 +40,7 @@ async function newPage(browser) {
   const r = await page.evaluate(async (cfg) => await window.setup(cfg), { W, H, shot: SHOT, nopaint: has('nopaint'), dbg });
   const setup_s = (Date.now() - a) / 1000;
   const f0 = Math.round(r.t0 * 24), f1 = Math.round(r.t1 * 24);
-  const pick = arg('frames') ? arg('frames').split(',').map(Number) : [];
+  const pick = arg('frames') ? arg('frames').split(',').map(Number) : has('mid') ? [(f0 + f1) >> 1] : [];   // --mid: khung giữa shot (M2.1 animatic)
   const all = has('all'), todo = all ? Array.from({ length: f1 - f0 }, (_, i) => f0 + i) : pick;
   let ff = null;
   if (all) ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-framerate', '24', '-i', '-',
