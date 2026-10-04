@@ -11,3 +11,84 @@
 | 2026-09-28 (P, Cổng 5 layout) | P0 | **Báo nhầm: mặt nhân vật đọc thành chữ.** Trên `design/cong5/layout/out/layout.mp4`, vùng duy nhất bị tính "chữ không matte" là khung 2775 (s42a), hộp [469, 196, 494, 208] đọc "56", độ tin 0,84 (sát ngưỡng 0,8). Hộp nằm đúng trên **hai mắt và lông mày của Cas** (mặt 3D, không có chữ nào trong hình; luật thế giới mục 6 cấm chữ đọc được). Bộ lọc độ đặc nét loại cửa sổ nhưng không loại cặp mắt tròn tối trên nền da. Đề nghị K: (a) loại vùng nằm trong mặt nạ nhân vật (`X.parts/` đã có mặt nạ đầu, mỗi 12 khung) hoặc (b) nâng độ tin cho chuỗi toàn số ≤ 2 ký tự, hoặc (c) cho P khai vùng loại trừ có kiểm lại bằng người xem. P không sửa hình để lách luật | `reports/m2/cong5/khieu-nai/P0_khung2775_s42a.jpg`; `reports/checks/layout-cong5/layout.checks.md` mục P0 | **Chủ dự án CHẤP NHẬN** (chat 29/09/2026). **Đã sửa ở checks v1.5** (LOCK 8d55b6ad…): K chọn (a) có điều kiện — vùng chữ không matte được miễn khi chuỗi ≤ 3 ký tự, khung có mặt nạ nhân vật trong `X.parts/` (mặt nạ C3 hoặc `silhouettes` mới, bóng mọi nhân vật, RUN.md 3.6.3), mặt nạ chạm hộp chữ, mặt nạ khớp cạnh ảnh ngay quanh hộp (độ khớp biên cục bộ ≥ 1,5), và xoá nhân vật khỏi khung rồi đọc lại thì hết chữ (phản chứng). Không chọn (b) (nâng độ tin cho chuỗi số: không phân biệt được mắt với số thật) và (c) (vùng loại trừ khai tay). Khung này: hộp "56" nằm 100% trên đầu Cas, độ khớp cục bộ 2,32, đọc lại sau khi xoá: rỗng → miễn. Selftest: khung thật (khớp từng điểm ảnh bản gốc) không mặt nạ → TRƯỢT, có bóng → ĐẠT; "BAKERY"/"CAFE" in trên áo Cas → TRƯỢT; "56" trên tường → TRƯỢT; "56" chạm mép đầu Cas → TRƯỢT; mặt nạ giả che "56" → TRƯỢT. **P cần:** xuất `silhouettes` cho các khung P0 lấy mẫu (công cụ tham chiếu `reports/checks-v1.5/dryrun/k_sil.js`). Chi tiết: `reports/checks-v1.5/BAO-CAO.md` |
 | 2026-09-28 (P, Cổng 5 v2 layout) | P0 | **Báo nhầm lần 2 cùng loại:** trên `layout.mp4` v2 bản cuối (SHA `78e662d1…`), vùng duy nhất bị tính "chữ không matte" là khung 1980 (s33), hộp [351, 288, 616, 452] đọc "MA", độ tin 0,86 (ngưỡng 0,8). Hộp bao **hai nhân vật đứng trong hốc cửa** (Ida và Cas, dáng thẳng đứng) — không có chữ nào trong hình. Cùng gốc với khiếu nại 2026-09-28 (mắt Cas đọc "56"). Đề nghị như trên (loại vùng thuộc mặt nạ nhân vật trong `X.parts/`) | `reports/m2/cong5/khieu-nai/P0_khung1980_s33.jpg`; `reports/checks/layout-cong5/layout.checks.md` mục P0 | **Chủ dự án CHẤP NHẬN** (chat 29/09/2026). **Đã sửa ở checks v1.5** (LOCK 8d55b6ad…): cùng cách sửa với khiếu nại "56" ở trên. Khung này: hộp "MA" 266 × 165 px, phần lớn là tường giữa hai người (mặt nạ hai nhân vật phủ 16% hộp), nên K không đo "phần lớn" bằng diện tích mà bằng phản chứng: xoá Ida và Cas thì máy không còn đọc ra chữ (độ tin 0); độ khớp biên cục bộ 1,61 (ngưỡng 1,5) → miễn. Selftest: khung thật không mặt nạ → TRƯỢT, có bóng → ĐẠT. **Chủ dự án cần xác nhận** cách hiểu "phần lớn trong mặt nạ" = phản chứng (Q-P0c trong báo cáo). Chi tiết: `reports/checks-v1.5/BAO-CAO.md` **Chủ dự án xác nhận Q-P0c (chat 29/09/2026).** |
 | 2026-09-29 (P, Cổng 6 W2; chủ dự án giao: C3 phải đo cả Cas) | C3 (một nhân vật mỗi thư mục `parts`) | **Không phải luật đo sai, mà luật chỉ đọc MỘT nhân vật mỗi lần chạy.** RUN.md 3.6: "`parts.json` có một `model_sheet`; một thư mục parts cho mỗi lần chạy (v1 kiểm một nhân vật mỗi file; báo P nếu shot có nhiều nhân vật chính)". Phim có hai nhân vật chính (Ida, Cas) ở 21 shot (đo trên layout-v16: `reports/checks/layout-v16-c3-cas/`, Cas đo được 141/565 mẫu, lệch lớn nhất 19,11 %, 7 shot cần người xem); từ Cổng 3 tới layout-v16, C3 chỉ đo Ida, Cas chưa từng được đo. P **không sửa checks/**, làm theo đúng câu "một thư mục parts cho mỗi lần chạy": `export_c3.js --who cas` xuất mặt nạ Cas (model_sheet cas.json, trục đầu 'doc') vào `<X>.cas.parts`, rồi chạy `audit.py issue` và `run.py --only C3` trên `<X>.cas.mp4`. Tệp này là **liên kết cứng** tới `<X>.mp4`: `audit.py` giải liên kết mềm về tệp gốc nên ghi đè `<X>.audit`. **Đề nghị K chọn một:** (a) xác nhận cách hai lượt này hợp lệ, kể cả liên kết cứng và `--only C3` cho lượt Cas; hoặc (b) cho `parts.json` khai nhiều nhân vật (ví dụ `characters: {ida: {model_sheet, frames, views}, cas: {…}}`), C3 báo theo từng nhân vật, kiểm toán chọn khung của từng nhân vật; hoặc (c) `audit.py`/`run.py` nhận `--audit` như `--parts` | Chạy thử 2 shot có cả hai nhân vật (s41 + s42a, cắt từ layout-v16, khung 2688–2771): `reports/checks/c3thu-s41-s42a-c3-ida/` (Ida: TRƯỢT như v16, thân −8,74 % ở 90°, s41 cần người xem) và `reports/checks/c3thu-s41-s42a-c3-cas/` (Cas: 0 mẫu trượt chắc, 4 đạt, 12 không chứng minh được vì đầu Cas chỉ cao 15–44 px; kiểm toán ĐẠT). Mã: `design/cong5/layout/export_c3.js` (`--who`, `--offset`), `scripts/p/c3_hai_nv.sh` | Chờ K / chủ dự án |
+
+
+## Yêu cầu mới, 2026-10 (P gửi 04/10/2026 theo quyết định chủ dự án; chờ K phán quyết và khoá bản checks mới)
+
+Nguồn: `reports/m3/YEU-CAU-K-NHAP.md`. Bảy mục:
+
+## 1. C3 cho nhân vật dạng bóng (silhouette)
+**Hiện trạng**
+- C3 so tỉ lệ bộ phận (đầu, thân, cánh tay trên, cẳng tay, đùi, ống chân) với model sheet `ida.json` / `cas.json`, đo trên mặt nạ bộ phận.
+- Phong cách B3 của kênh mới biến Ida (và Cas) thành **bóng đặc, chỉ một viền sáng mảnh**, không có mặt.
+- Lưới, rig và diễn hoạt giữ nguyên Last Round, nên mặt nạ bộ phận vẫn xuất được. Nhưng trên hình, ranh giới giữa các bộ phận trong bóng không thấy được.
+
+**Câu hỏi cho K**
+1. Với nhân vật bóng, C3 đo trên mặt nạ hình học (vẫn xuất được) có còn đúng nghĩa không? Hay cần đổi chỉ tiêu sang **đường viền ngoài**: tỉ lệ cao/rộng của bóng, tỉ lệ đầu/thân theo đường viền, độ khớp mép bóng với mặt nạ?
+2. Có cần một model sheet riêng cho dạng bóng không, ví dụ `ida-bong.json`: đường viền chuẩn ở 4 góc, tỉ lệ đầu–mũ–thân? Nếu cần, ai lập và khoá: chủ dự án duyệt, K khoá SHA?
+3. Viền sáng 1–2 px có ảnh hưởng tới phép đo "độ khớp biên mặt nạ–cạnh ảnh render" (hiện trượt ở mức 0,79–1,0, ngưỡng ≥ 1,5) không?
+
+**P đề xuất** (K quyết): giữ C3 trên mặt nạ hình học để chặn lỗi rig (kéo, lún), và thêm chỉ tiêu đường viền cho dạng bóng. Không hạ ngưỡng.
+
+### 2. Profile luật cho Shorts 9:16
+**Hiện trạng:** `run.py --profile shot|youtube|archive`. Profile `youtube` kiểm N3 khung 16:9 và SAR 1:1, M1 −14 LUFS ±1, true peak ≤ −1 dBTP.
+
+**Nhu cầu:** Shorts 1080×1920, 24 fps, < 60 s, có chữ trên màn hình và phụ đề cháy (`KE-HOACH-TAP-THU.md` §6).
+
+**Câu hỏi cho K**
+1. Thêm profile `shorts`, với các điểm khác profile youtube:
+   - N3: khung 9:16, 1080×1920, SAR 1:1; codec và bitrate theo khuyến nghị YouTube Shorts;
+   - thời lượng < 60 s (luật mới hoặc thuộc N3);
+   - M1: giữ −14 LUFS?
+   - P0/P1/G4: vùng an toàn chữ cho giao diện Shorts (lề trên, dưới, phải bị nút che). Có cần luật vùng an toàn mới không?
+2. Shorts cắt từ master 16:9: C3 và H1b chạy trên bản cắt hay chỉ trên master?
+
+### 3. Luật đo judder (thêm 01/10/2026, theo CHUAN-KENH-LL §5.2; gửi ở M2.3)
+**Hiện trạng**
+- Chủ dự án phát hiện animatic M2.1 giật. Công cụ của P `scripts/p/judder.py` (framemd5 khung giải mã) đo được **799 đoạn đứng hình 2–12 khung, 16,96 % thời lượng**. Số này khớp số đo của Claude (rà độc lập bên ngoài).
+- Chuẩn kênh đặt mục tiêu 0. Đứng yên có chủ ý phải dài ≥ 1 s và ghi trong bảng shot.
+
+**Câu hỏi cho K**
+1. K có đưa phép đo này vào `checks/` thành luật chính thức không (profile `shot` và `youtube`)? K tự viết hay lấy định nghĩa của `scripts/p/judder.py`:
+   - đoạn ≥ 2 khung liên tiếp có framemd5 trùng nhau;
+   - đoạn dài 2–12 khung ngoài vùng tĩnh khai báo thì tính là lỗi;
+   - đoạn 13–23 khung báo riêng;
+   - đoạn ≥ 24 khung coi là cố ý.
+2. Đo khớp tuyệt đối (framemd5) hay so gần đúng (ví dụ |chênh| trung bình ≤ 0,5/255 trên ảnh xám thu nhỏ) để bắt khung "gần như đứng" do nén?
+3. Vùng tĩnh có chủ ý khai ở đâu (cột trong bảng shot, hay tệp đi kèm video) để luật đọc được?
+4. Có thêm chỉ tiêu nhịp cập nhật không (ví dụ không giây nào có < 12 khung mới khi đang chuyển động)?
+
+**P đề xuất** (K quyết): luật mới, mặc định so tuyệt đối; ngưỡng lỗi = 0; vùng tĩnh khai trong bảng shot.
+
+### 4. Luật phát hiện máy xuyên hình học (thêm 01/10/2026 sau animatic v3; gửi ở M2.3)
+**Hiện trạng**
+- Ở animatic v3, lỗi trôi máy cộng dồn làm máy xuyên vào khối nhà: đoạn 01 7,7–9,9 s; đoạn 04 khoảng 14 s. Đồng hồ quảng trường trôi khỏi khung 3,5 s.
+- **Judder không bắt được** lỗi này vì khung vẫn thay đổi liên tục. P chỉ phát hiện khi xem khung bằng mắt.
+
+**Câu hỏi cho K**
+1. Có thêm luật tự động không? Ví dụ một trong hai cách:
+   - xuất kèm độ sâu từ driver render, rồi đo tỷ lệ điểm ảnh có độ sâu sát mặt phẳng gần (> x % khung) trong ≥ 3 khung liền;
+   - đo tỷ lệ khung một màu phẳng (> 60 % diện tích) ngoài vùng chuyển cảnh.
+2. Có thêm luật "chủ thể bắt buộc ra khỏi khung" không? Ví dụ đồng hồ, đèn hoặc nhân vật khai trong bảng shot mà không còn trong khung.
+
+**P đề xuất** (K quyết): luật độ sâu cho cảnh three.js; driver xuất kèm độ sâu thu nhỏ.
+
+### 5. Kiểm chéo số HSUS từ bản quét (thêm 04/10/2026)
+**Hiện trạng**
+- Đoạn 08, 09, khối 10–13 và đoạn 14 dùng 24 giá trị từ HSUS Series D 233–682, tr. 140–145 [32]. PDF là ảnh quét, không có lớp chữ.
+- P đọc từng hàng bằng mắt trên ảnh dựng ở 220–400 dpi. Chưa có người thứ hai đọc lại.
+
+**Yêu cầu K:** K đọc độc lập 24 giá trị (thang máy 1900–1970 theo hai phân loại 1950/1960/1970; trực tổng đài; tốc ký–đánh máy–thư ký) từ bản quét và đối chiếu với bảng §6.1 kịch bản v3.1. Lệch giá trị nào thì báo P sửa hình trước G2.
+
+### 6. Kiểm lại số BLS 2025–35 (thêm 04/10/2026)
+**Hiện trạng**
+- Số BLS Table 1.5 và USDL-26-1422 được đọc toàn văn ngày 01/10/2026 qua Wayback (bls.gov trả 403 từ máy này).
+- Các số trên hình: −34,4 %, −27,6 %, −26,0 %, −25,5 %, −21,4 %, −4,0 %; nhóm tăng +41,0 / +36,5 / +34,6 %.
+
+**Yêu cầu K:** K kiểm lại từng số trên bảng gốc (đường dẫn trực tiếp hoặc Wayback) và ghi ngày đọc.
+
+### 7. Luật nguồn số: không dùng Wikipedia làm nguồn chính (thêm 04/10/2026, CHUAN-KENH §7)
+**Hiện trạng:** số "1820s · 40 000 đèn · 215 dặm" từng dựa trên Wikipedia và hai trang web. Claude (rà độc lập) phát hiện; ở M2.2 phim đã bỏ số này.
+
+**Đề xuất cho K:** mỗi số trên hình hoặc trong lời dẫn phải có ít nhất một nguồn chính là sách, báo cáo, bài học thuật hoặc văn bản gốc đọc được toàn văn, có ghi trang. Wikipedia, trang tổng hợp hoặc blog chỉ được dùng để dẫn đường. K quyết cách kiểm (danh sách nguồn có trường `loai_nguon` và `trang`).
+

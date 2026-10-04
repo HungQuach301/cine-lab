@@ -59,4 +59,23 @@ P không đọc mã `checks/`. Mọi mô tả dưới đây dựa trên `checks/
 
 **P đề xuất** (K quyết): luật độ sâu cho cảnh three.js; driver xuất kèm độ sâu thu nhỏ.
 
-**Cách gửi khi được phép:** P ghi mục 1–4 vào `checks-appeal.md` (mục "Yêu cầu mới, 2026-10"), chờ K phán quyết và khoá bản checks mới. Trong lúc chờ, M2 chạy luật bằng profile youtube cho master.
+## 5. Kiểm chéo số HSUS từ bản quét (thêm 04/10/2026)
+**Hiện trạng**
+- Đoạn 08, 09, khối 10–13 và đoạn 14 dùng 24 giá trị từ HSUS Series D 233–682, tr. 140–145 [32]. PDF là ảnh quét, không có lớp chữ.
+- P đọc từng hàng bằng mắt trên ảnh dựng ở 220–400 dpi. Chưa có người thứ hai đọc lại.
+
+**Yêu cầu K:** K đọc độc lập 24 giá trị (thang máy 1900–1970 theo hai phân loại 1950/1960/1970; trực tổng đài; tốc ký–đánh máy–thư ký) từ bản quét và đối chiếu với bảng §6.1 kịch bản v3.1. Lệch giá trị nào thì báo P sửa hình trước G2.
+
+## 6. Kiểm lại số BLS 2025–35 (thêm 04/10/2026)
+**Hiện trạng**
+- Số BLS Table 1.5 và USDL-26-1422 được đọc toàn văn ngày 01/10/2026 qua Wayback (bls.gov trả 403 từ máy này).
+- Các số trên hình: −34,4 %, −27,6 %, −26,0 %, −25,5 %, −21,4 %, −4,0 %; nhóm tăng +41,0 / +36,5 / +34,6 %.
+
+**Yêu cầu K:** K kiểm lại từng số trên bảng gốc (đường dẫn trực tiếp hoặc Wayback) và ghi ngày đọc.
+
+## 7. Luật nguồn số: không dùng Wikipedia làm nguồn chính (thêm 04/10/2026, CHUAN-KENH §7)
+**Hiện trạng:** số "1820s · 40 000 đèn · 215 dặm" từng dựa trên Wikipedia và hai trang web. Claude (rà độc lập) phát hiện; ở M2.2 phim đã bỏ số này.
+
+**Đề xuất cho K:** mỗi số trên hình hoặc trong lời dẫn phải có ít nhất một nguồn chính là sách, báo cáo, bài học thuật hoặc văn bản gốc đọc được toàn văn, có ghi trang. Wikipedia, trang tổng hợp hoặc blog chỉ được dùng để dẫn đường. K quyết cách kiểm (danh sách nguồn có trường `loai_nguon` và `trang`).
+
+**Cách gửi khi được phép:** P ghi mục 1–7 vào `checks-appeal.md` (mục "Yêu cầu mới, 2026-10"), chờ K phán quyết và khoá bản checks mới. Trong lúc chờ, M2 chạy luật bằng profile youtube cho master.
