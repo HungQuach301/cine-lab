@@ -3,29 +3,47 @@
 P soạn ngày 04/10/2026, sau khi chủ dự án duyệt cổng G2. Cổng G3 (bấm phát hành) do chủ dự án làm.
 Tên nút ghi theo giao diện YouTube Studio tiếng Anh. YouTube có thể đổi chỗ nút; nếu không thấy đúng chỗ, tìm theo tên.
 
-## 0. Lấy tệp
-**Release GitHub `ll-ep01-v1` chưa tạo được.** GitHub trả HTTP 403: "Creating, editing, or deleting releases is not permitted for this session type." Đây là giới hạn của loại phiên Claude Code, không phải do thiếu quyền repo.
+## 0. Lấy tệp (nhánh `release-ll-ep01-v1`, Git LFS)
+- **Nơi lấy:** gói tải lên nằm trên nhánh **`release-ll-ep01-v1`** của repo `HungQuach301/cine-lab` (public). Nhánh chỉ có 9 tệp của gói, `SHA256SUMS.txt` và `.gitattributes`. Commit `4a66386`.
+  - Master và 3 Short đi qua **Git LFS**.
+  - P đã tải ngược cả 10 tệp từ đúng các link "tải thẳng" bên dưới và chạy `sha256sum -c` vào ngày 04/10/2026: **cả 10 OK**. Vì vậy không cần cắt master thành mảnh.
+- GitHub Release không tạo được trong loại phiên này (HTTP 403); nhánh LFS thay cho Release.
+- Trang nhánh: https://github.com/HungQuach301/cine-lab/tree/release-ll-ep01-v1
 
-Các tệp đã sẵn sàng ở `/var/tmp/cine-out/ep01/release/` trên máy phiên, kèm `SHA256SUMS.txt`:
-
-| Tệp | Dùng cho | SHA-256 | Có trong git? |
+| Tệp | Dùng cho | Link | SHA-256 |
 |---|---|---|---|
-| `ll-ep01-v1-master-1080p.mp4` (852,9 MB) | video chính | `9c3825387345ec0af6c035ec3f94809644ca7767d1ecbafcaed4710480113942` | **Không** (quá lớn) |
-| `ll-ep01-short-S1.mp4` | Short 1 | `b13b66c7…c2c0e3` | `screening/` |
-| `ll-ep01-short-S2.mp4` | Short 2 | `253bda06…0a0eb6` | `screening/` |
-| `ll-ep01-short-S3.mp4` | Short 3 | `233eef54…3f606` | `screening/` |
-| `ll-ep01-thumb-T3.jpg` (1280×720, 141 KB) | thumbnail chính | `e7f5e7a9…a6f24e` | `reports/m3/m2-3/thumb/T3-con-5.jpg` |
-| `ll-ep01-thumb-T1.jpg` (1280×720, 196 KB) | thumbnail thử A/B | `323c0d41…2ec2a653` | `reports/m3/m2-3/thumb/T1-den-bung.jpg` |
-| `ll-ep01.en.srt` | phụ đề tiếng Anh | `e737c18c…cf4fb` | `reports/m3/m2-3/` |
-| `ll-ep01-youtube-description.txt` | tiêu đề và mô tả video chính | `59f4ab5c…021267` | `reports/m3/m2-3/` |
-| `ll-ep01-shorts-text.txt` | tiêu đề và mô tả 3 Short | `3eaf2982…b1218` | `reports/m3/m2-3/` |
+| `ll-ep01-v1-master-1080p.mp4` | video chính (852,9 MB, LFS) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-v1-master-1080p.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-v1-master-1080p.mp4) | `9c3825387345ec0af6c035ec3f94809644ca7767d1ecbafcaed4710480113942` |
+| `ll-ep01-short-S1.mp4` | Short 1 (7,3 MB, LFS) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-short-S1.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-short-S1.mp4) | `b13b66c7442041c218b5c0ec6eb6cf58cefe96a4e6d53e51ce81d35e49c2c0e3` |
+| `ll-ep01-short-S2.mp4` | Short 2 (21,9 MB, LFS) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-short-S2.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-short-S2.mp4) | `253bda06c2692525d9080be30f2e2ab0f420e523dc99f459a77d42a7798a0eb6` |
+| `ll-ep01-short-S3.mp4` | Short 3 (29,4 MB, LFS) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-short-S3.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-short-S3.mp4) | `233eef545c0878fa4338ae4689fb66c029e0a407b9f13da73e051d760d13f606` |
+| `ll-ep01-thumb-T3.jpg` | thumbnail chính | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-thumb-T3.jpg) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-thumb-T3.jpg) | `e7f5e7a918a90678da83c49054e704c0331bc15ab5862cc73bc157b922a6f24e` |
+| `ll-ep01-thumb-T1.jpg` | thumbnail thử A/B | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-thumb-T1.jpg) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-thumb-T1.jpg) | `323c0d4124a344790859d19f120bed365f449e0d7614989d59072d918ec2a653` |
+| `ll-ep01.en.srt` | phụ đề tiếng Anh | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01.en.srt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01.en.srt) | `e737c18c8477e9fc1df0218e77fb119d0744b2e34bdcb8e1bf7446f09c6cf4fb` |
+| `ll-ep01-youtube-description.txt` | tiêu đề và mô tả video chính | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-youtube-description.txt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-youtube-description.txt) | `59f4ab5c91e513ce2befd6bbc4b321d9704ebcfe36f5cb1526a93aacb9021267` |
+| `ll-ep01-shorts-text.txt` | tiêu đề và mô tả 3 Short | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/ll-ep01-shorts-text.txt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/ll-ep01-shorts-text.txt) | `3eaf298203f06e3ad3f3ae45924ed2289f8a6e95c5a353285f353be92ba1b218` |
+| `SHA256SUMS.txt` | danh sách SHA-256 của 9 tệp trên | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep01-v1/SHA256SUMS.txt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep01-v1/SHA256SUMS.txt) | `—` |
 
-- SHA đầy đủ của mọi tệp có trong `reports/m3/m2-3/SHA256SUMS-ll-ep01-v1.txt`.
+**Cách tải từng tệp:**
+- **Tải thẳng (nhanh nhất):** bấm link "tải thẳng", trình duyệt tải ngay. Với tệp LFS, GitHub tự chuyển sang `media.githubusercontent.com`, nên tải được bản gốc chứ không phải tệp con trỏ LFS.
+- **Từ trang tệp:** mở link "trang tệp", bấm nút **Download raw file** (biểu tượng mũi tên xuống ↓ ở góc trên phải khung xem tệp, cạnh nút "Copy raw file").
+  - Với master 852,9 MB, GitHub báo không xem trước được, nhưng nút Download raw file vẫn có (hoặc bấm liên kết **"View raw"**).
+- **Không dùng** nút **Code → Download ZIP** của nhánh. ZIP chỉ chứa tệp con trỏ LFS (~130 byte) thay cho video.
+- **Tải cả nhánh bằng dòng lệnh** (cần cài Git LFS):
 
-- Master 1080p **chưa có đường tải về máy anh/chị**. Cần chủ dự án chọn cách lấy (xem phần cuối). Sau khi tải về, kiểm SHA trên máy:
-  - macOS/Linux: `shasum -a 256 ll-ep01-v1-master-1080p.mp4`
-  - Windows: `certutil -hashfile ll-ep01-v1-master-1080p.mp4 SHA256`
-  - Kết quả phải đúng `9c3825387345ec0af6c035ec3f94809644ca7767d1ecbafcaed4710480113942`.
+  ```
+  git lfs install
+  git clone --branch release-ll-ep01-v1 --single-branch https://github.com/HungQuach301/cine-lab.git ll-ep01-v1
+  ```
+
+**Kiểm SHA sau khi tải**, chạy trong thư mục chứa các tệp:
+- **macOS** (Terminal): `shasum -a 256 -c SHA256SUMS.txt`. Mọi dòng phải có `OK`.
+- **Windows** (PowerShell): `Get-FileHash .\ll-ep01-v1-master-1080p.mp4 -Algorithm SHA256`. Giá trị phải bằng `9C3825387345EC0AF6C035EC3F94809644CA7767D1ECBAFCAED4710480113942` (PowerShell in chữ hoa). Làm tương tự cho từng tệp, đối chiếu cột SHA-256 ở bảng trên.
+- **Windows** (cmd): `certutil -hashfile ll-ep01-v1-master-1080p.mp4 SHA256`.
+- **Nếu lệch SHA:** tải lại tệp đó; không đăng tệp lệch.
+
+**Lưu ý:**
+- Repo để **public** theo quyết định chủ dự án ngày 04/10/2026, nên ai có link cũng tải được gói này trước ngày phát hành.
+- GitHub tính băng thông LFS: tài khoản miễn phí có hạn mức tải hằng tháng, mỗi lần tải master tốn ≈ 0,85 GB. Sau khi đăng xong, có thể xoá nhánh này. P không tự xoá.
 
 ## 1. Tải video chính lên
 1. Mở studio.youtube.com, đăng nhập đúng kênh Last Lamplighters.
@@ -72,8 +90,8 @@ Các tệp đã sẵn sàng ở `/var/tmp/cine-out/ep01/release/` trên máy phi
   - không có người thật bị làm giả;
   - giọng kể là giọng thư viện ElevenLabs, không nhái người thật;
   - nhạc do người sáng tác (Kevin MacLeod).
-- **Khuyến nghị của P:** chọn **No**. Minh bạch đã có ở đoạn "How this film was made" trong mô tả.
-- **Phương án thận trọng:** chọn **Yes** nếu anh/chị muốn có nhãn. Theo trang chính sách, bật nhãn không giới hạn người xem và không ảnh hưởng điều kiện kiếm tiền. Quyết định là của chủ dự án ở G3.
+- **Quyết định chủ dự án (04/10/2026, AUTHORSHIP): chọn No.** (P đã đề xuất No.) Minh bạch đã có ở đoạn "How this film was made" trong mô tả.
+- Giữ đoạn "How this film was made" trong mô tả, như tiết lộ tự nguyện.
 - **Kiểm lại trang chính sách ngay trước khi bấm Publish,** vì YouTube có thể đổi quy định.
 
 ## 4. Phụ đề
@@ -123,15 +141,8 @@ Các tệp đã sẵn sàng ở `/var/tmp/cine-out/ep01/release/` trên máy phi
 - Kết quả Test & compare: ghi bản thắng vào AUTHORSHIP và chuẩn kênh.
 - Nếu K (`checks-appeal.md`) phát hiện lệch số HSUS hoặc BLS sau khi đăng: sửa theo quy trình đính chính (ghim bình luận và sửa mô tả). Chỉ tải lại video nếu số sai nằm trên hình.
 
-## Cần chủ dự án quyết trước G3
-1. **Cách lấy master 852,9 MB về máy**, vì Release không tạo được trong loại phiên này:
-   - (a) chủ dự án tự tạo Release `ll-ep01-v1` trên github.com, còn P giữ tệp trên máy phiên. Nhưng máy phiên không đẩy tệp ra được, nên cách này chỉ khả thi nếu có đường tải khác;
-   - (b) P đẩy master lên một nhánh git riêng bằng Git LFS (cần bật LFS cho repo);
-   - (c) dùng bản xem 720p ba phần đã có trong git. **Không nên** dùng cho YouTube vì chất lượng thấp;
-   - (d) chủ dự án cấp một đích lưu trữ khác (ví dụ Google Drive).
-   - P không tự chọn đường nào khi chưa có quyết định.
-2. **Repo `HungQuach301/cine-lab` đang ở chế độ PUBLIC**, không phải private (GitHub API: `"visibility": "public"`).
-   - Release tạo trên repo này sẽ công khai; chỉ dạng **draft** mới riêng tư.
-   - Các bản xem `screening/*.mp4` (720p cả tập và 3 Short) đã nằm công khai trên nhánh `ccr-a27221d7-0iwsne`.
-   - Nếu muốn giữ phim kín tới ngày phát hành: đổi repo sang Private (Settings → General → Danger Zone → Change visibility).
-3. Lựa chọn "Altered content" (mục 3): P khuyến nghị **No**.
+## Trạng thái các quyết định trước G3 (cập nhật 04/10/2026)
+1. **Cách lấy tệp:** nhánh `release-ll-ep01-v1` qua Git LFS (mục 0). Đã kiểm SHA sau khi đẩy.
+2. **Repo giữ PUBLIC:** chủ dự án chấp nhận rủi ro lộ phim trước ngày phát hành.
+3. **Altered content: No.** Giữ đoạn "How this film was made".
+4. **Còn lại cho G3:** chủ dự án tải tệp, kiểm SHA, làm theo mục 1–6 và bấm Schedule hoặc Publish.
