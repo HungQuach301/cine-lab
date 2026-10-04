@@ -1,6 +1,6 @@
 diff --git a/design/m3/ep01/history/do_khoi.sh b/design/m3/ep01/history/do_khoi.sh
 new file mode 100644
-index 0000000..8d6e4b7
+index 0000000..67792ab
 --- /dev/null
 +++ b/design/m3/ep01/history/do_khoi.sh
 @@ -0,0 +1,39 @@
@@ -11,8 +11,8 @@ index 0000000..8d6e4b7
 +set -e
 +D=$(cd "$(dirname "$0")" && pwd); NN=$1; PLATE=$2
 +TD=/var/tmp/cine-out/ep01/history/TIEN-DO.md
-+O=/var/tmp/cine-out/ep01/sec; T=/var/tmp/cine-out/ep01/history/tmp_$NN; K=/var/tmp/cine-out/ep01/history/khung; mkdir -p $O $T $K
-+N=$(python3 -c "import json;s=[x for x in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan'] if x['n']=='$NN'][0];print(s['khung'][1]-s['khung'][0])")
++O=${OUTDIR:-/var/tmp/cine-out/ep01/sec}; T=/var/tmp/cine-out/ep01/history/tmp_$NN; K=/var/tmp/cine-out/ep01/history/khung; mkdir -p $O $T $K
++N=$(python3 -c "import json;s=[x for x in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v4.json'))['doan'] if x['n']=='$NN'][0];print(s['khung'][1]-s['khung'][0])")
 +AV=$(df --output=avail -k / | tail -1); CAN=$(( N * 160 / 1440 + 1 ))
 +echo "- khối $NN ($(date +%H:%M)): cần ước ≈ ${CAN} MB (160 MB/phút × $N khung), cộng ≈ ${CAN} MB tạm khi ghép; df trống $(( AV / 1024 )) MB" >> $TD
 +if [ $AV -lt 6000000 ]; then echo "  DỪNG: đĩa trống < 6 GB, chờ P" >> $TD; echo "đĩa trống < 6 GB ($AV kB), dừng"; exit 2; fi
@@ -96,7 +96,7 @@ index 0000000..4690c41
 +g.save(out, quality=82)
 diff --git a/design/m3/ep01/history/lib.js b/design/m3/ep01/history/lib.js
 new file mode 100644
-index 0000000..e5ba485
+index 0000000..8409560
 --- /dev/null
 +++ b/design/m3/ep01/history/lib.js
 @@ -0,0 +1,178 @@
@@ -172,7 +172,7 @@ index 0000000..e5ba485
 +// nhãn ACTUAL: khung viền mực, nét liền (như G1 lát cắt)
 +function actualTag(g, s, xr, y, a, px = 22) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.font = font(px, 'sans', true); const w = g.measureText(s).width + 28;
 +  g.lineWidth = 2; g.strokeStyle = INK; g.strokeRect(xr - w, y - 20, w, 40); text(g, s, xr - 14, y + 1, font(px, 'sans', true), INK, 'right', 'middle'); g.restore(); }
-+function srcLine(g, s, y, a, x = 60) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); text(g, s, x, y, font(20), INK2); g.restore(); }
++function srcLine(g, s, y, a, x = 60) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); text(g, s, x, y, font(26), INK2); g.restore(); }   // M2.2: 26 px (chữ hoa ≈ 19 px ở 1080p ≥ 18 px)
 +
 +// ---------- ánh rọi, lay, bụi ----------
 +let lightFn = (t) => [960 + 360 * Math.sin(2 * Math.PI * t / 23 + 0.6), 470 + 110 * Math.sin(2 * Math.PI * t / 31)];
@@ -280,17 +280,17 @@ index 0000000..e5ba485
 +};
 diff --git a/design/m3/ep01/history/moc_tu.py b/design/m3/ep01/history/moc_tu.py
 new file mode 100644
-index 0000000..216c392
+index 0000000..71ff6a0
 --- /dev/null
 +++ b/design/m3/ep01/history/moc_tu.py
 @@ -0,0 +1,23 @@
 +"""Cine Lab · ep01 HISTORY — in mốc từng từ của lời dẫn, tính theo giây TƯƠNG ĐỐI đầu đoạn (t = vo_offset + mốc ký tự).
 +python3 moc_tu.py NN [--json out.json]"""
-+import json, sys
++import json, sys, os
 +R = '/home/user/cine-lab/reports/m3/m2-2b/'
 +n = sys.argv[1]
-+tl = [s for s in json.load(open(R + 'timeline-v3.json'))['doan'] if s['n'] == n][0]
-+a = json.load(open(R + f'vo/bill-{n}.align.json'))
++tl = [s for s in json.load(open(R + os.environ.get('TL','timeline-v4.json')))['doan'] if s['n'] == n][0]
++a = json.load(open(R + os.environ.get('ALIGN', f'vo/bill-{n}.align.json')))
 +ch, st, en = a['characters'], a['character_start_times_seconds'], a['character_end_times_seconds']
 +words, cur = [], None
 +for c, s, e in zip(ch, st, en):
@@ -362,40 +362,47 @@ index 0000000..9169a71
 +})().catch((e) => { console.error(e); process.exit(1); });
 diff --git a/design/m3/ep01/history/sec/02.js b/design/m3/ep01/history/sec/02.js
 new file mode 100644
-index 0000000..341f150
+index 0000000..e9c674c
 --- /dev/null
 +++ b/design/m3/ep01/history/sec/02.js
-@@ -0,0 +1,149 @@
+@@ -0,0 +1,157 @@
 +// Đoạn 02 · [HISTORY] Title + "Pall Mall, 1807" — 769 khung (32,04 s). Lời dẫn bắt đầu 4,00 s (thẻ tựa 4 s không lời).
-+// Bản đồ London CÁCH ĐIỆU, vẽ thủ tục (mạng phố mọc nhánh tất định, sông uốn); không dựa trên bản đồ có bản quyền nào.
++// Bản đồ London CÁCH ĐIỆU, vẽ thủ tục (mạng phố mọc nhánh tất định); không dựa trên bản đồ có bản quyền nào.
++// M2.2: sông Thames vẽ ĐÚNG DÁNG giản lược từ toạ độ cầu công khai (Wandsworth → Westminster → City → Tower → vòng Isle of Dogs → Blackwall), 100 px/km, gốc Trafalgar Sq.
++// M2.2: lời dẫn mới (bill-02-m22): bỏ dải "1820s · 40,000+ lamps · 215 miles" và "1820s" trong ô tựa; nguồn chỉ còn London Remembers · English Heritage.
 +// Số chỉ là nhãn bản đồ (không biểu đồ so sánh). Mốc từ: moc_tu.py 02.
 +'use strict';
-+const T02 = { london: 4.00, y1807: 4.82, street: 6.59, pall: 7.53, row: 8.66, burning: 9.43, lit: 10.79, first: 12.67, idea: 15.41, spread: 15.95,
-+  y1820: 17.40, forty: 19.50, two15: 22.23, every: 25.20, one: 25.78, person: 27.23, dusk: 28.79, dawn: 29.97 };
++const T02 = { london: 4.00, y1807: 4.84, street: 7.01, pall: 7.65, row: 8.79, burning: 9.58, lit: 11.15, first: 13.02, idea: 16.02, spread: 16.56,
++  within: 17.98, ran: 20.25, across: 21.93, ldn: 22.32, every: 23.59, one: 23.86, person: 25.22, dusk: 26.75, dawn: 28.64 };   // moc_tu.py 02 (ALIGN=bill-02-m22, timeline v4)
 +const MC = [810, 470];   // tâm bản đồ (toạ độ tấm)
-+// sông (đường tâm) — uốn kiểu cách điệu
-+const RIVER = (() => { const k = [[-40, 700], [200, 650], [420, 600], [600, 560], [760, 545], [880, 585], [960, 660], [1080, 720], [1260, 690], [1420, 630], [1680, 610]]; const out = [];
++// sông Thames (đường tâm) — km (đông, nam) tính từ Trafalgar Sq → toạ độ tấm
++const KM = (x, y) => [480 + 100 * x, 330 + 100 * y];
++const RIVER = (() => { const k = [[-4.9, 4.9], [-4.16, 4.73], [-3.4, 3.2], [-3.03, 2.89], [-2.2, 2.75], [-1.5, 2.6], [-0.6, 2.45], [0.07, 2.22], [0.31, 1.5], [0.43, 0.8], [0.53, 0.19], [0.78, -0.08], [1.65, -0.18],
++  [2.8, 0.01], [3.66, 0.28], [4.73, 0.44], [5.7, 0.25], [6.5, 0.12], [7.0, 0.45], [7.0, 1.2], [7.2, 2.15], [7.7, 2.6], [8.3, 2.67], [8.95, 2.35], [9.3, 1.6], [9.25, 0.55], [9.6, 0.15], [10.2, 0.6], [10.6, 1.25], [11.6, 1.4]].map(([x, y]) => KM(x, y)); const out = [];
 +  for (let i = 0; i < k.length - 1; i++) for (let s = 0; s < 12; s++) { const u = s / 12, a = k[Math.max(0, i - 1)], b = k[i], c = k[i + 1], d = k[Math.min(k.length - 1, i + 2)];
 +    const cr = (p0, p1, p2, p3) => 0.5 * (2 * p1 + (-p0 + p2) * u + (2 * p0 - 5 * p1 + 4 * p2 - p3) * u * u + (-p0 + 3 * p1 - 3 * p2 + p3) * u * u * u); out.push([cr(a[0], b[0], c[0], d[0]), cr(a[1], b[1], c[1], d[1])]); }
 +  out.push(k[k.length - 1]); return out; })();
 +function riverDist(x, y) { let best = 1e9; for (let i = 0; i < RIVER.length - 1; i++) { const [ax, ay] = RIVER[i], [bx, by] = RIVER[i + 1], dx = bx - ax, dy = by - ay, u = cl(((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy));
 +  best = Math.min(best, Math.hypot(x - ax - dx * u, y - ay - dy * u)); } return best; }
-+const PM = [[690, 452], [742, 449], [796, 446], [850, 442]];   // Pall Mall (tây → đông), bắc khúc sông
++const PM = [[-0.73, 0.36], [-0.5, 0.25], [-0.27, 0.14], [-0.05, 0.03]].map(([x, y]) => KM(x, y));   // Pall Mall (St James's → Trafalgar), bắc khúc Westminster
++const PMA = Math.atan2(PM[3][1] - PM[0][1], PM[3][0] - PM[0][0]), PML = Math.hypot(PM[3][0] - PM[0][0], PM[3][1] - PM[0][1]);
 +// mạng phố: mọc nhánh tất định từ hai đầu Pall Mall; mỗi đoạn mang d0 = khoảng cách theo mạng tới Pall Mall
 +const NET = (() => { const R = rng(1807), segs = [], occ = new Map(), cell = 13, key = (x, y) => `${Math.floor(x / cell)},${Math.floor(y / cell)}`;
 +  const mark = (x, y, id) => occ.set(key(x, y), id);
 +  const inside = (x, y) => ((x - MC[0]) / 790) ** 2 + ((y - MC[1]) / 420) ** 2 < 1 && x > 20 && x < 1600 && y > 20 && y < 880;
 +  PM.forEach(([x, y]) => mark(x, y, -1));
-+  const tips = [{ x: 850, y: 442, a: -0.05, d: 0, dep: 0 }, { x: 690, y: 452, a: Math.PI + 0.06, d: 0, dep: 0 }, { x: 742, y: 449, a: -Math.PI / 2 - 0.1, d: 52, dep: 1 }, { x: 796, y: 446, a: Math.PI / 2 + 0.2, d: 106, dep: 1, bridge: true }, { x: 742, y: 449, a: Math.PI / 2 - 0.25, d: 52, dep: 1, bridge: true }, { x: 850, y: 442, a: -Math.PI / 2 + 0.3, d: 0, dep: 1 }];
-+  while (tips.length && segs.length < 800) { const tp = tips.shift(); let { x, y, a, d } = tp; const pts = [[x, y]], nst = 3 + Math.floor(R() * 5), id = segs.length; let ok = true, len = 0;
++  const P0 = PM[0], P1 = PM[1], P2 = PM[2], P3 = PM[3], dS = PML / 3;
++  const tips = [{ x: P3[0], y: P3[1], a: PMA + 0.1, d: 0, dep: 0 }, { x: P0[0], y: P0[1], a: Math.PI + PMA, d: 0, dep: 0 }, { x: P1[0], y: P1[1], a: -Math.PI / 2 - 0.1, d: dS, dep: 1 }, { x: P2[0], y: P2[1], a: Math.PI / 2 + 0.2, d: 2 * dS, dep: 1, bridge: true }, { x: P1[0], y: P1[1], a: Math.PI / 2 - 0.25, d: dS, dep: 1, bridge: true }, { x: P3[0], y: P3[1], a: -Math.PI / 2 + 0.3, d: 0, dep: 1 }, { x: P3[0], y: P3[1], a: 0.5, d: 0, dep: 1 }];
++  while (tips.length && segs.length < 1100) { const tp = tips.shift(); let { x, y, a, d } = tp; const pts = [[x, y]], nst = 3 + Math.floor(R() * 5), id = segs.length; let ok = true, len = 0, why = '';
 +    for (let s = 0; s < nst; s++) { a += (R() - 0.5) * 0.24; const st = 22 + R() * 10, nx = x + Math.cos(a) * st, ny = y + Math.sin(a) * st;
 +      if (!inside(nx, ny)) { ok = false; break; }
-+      const rd = riverDist(nx, ny); if (rd < 30) { const rdx = riverDist(x + Math.cos(a) * 80, y + Math.sin(a) * 80); if (!(tp.bridge && rdx > 34)) { ok = false; break; } }
++      const rd = riverDist(nx, ny); if (rd < 30) { const rdx = riverDist(x + Math.cos(a) * 80, y + Math.sin(a) * 80); if (!(tp.bridge && rdx > 34)) { ok = false; why = 'river'; break; } }
 +      const k = key(nx, ny), o = occ.get(k); if (o !== undefined && o !== id) { pts.push([nx, ny]); len += st; ok = false; break; }
 +      pts.push([nx, ny]); len += st; x = nx; y = ny; mark(x, y, id); }
 +    if (pts.length < 2) continue;
 +    segs.push({ pts, d0: d, len, dep: tp.dep });
-+    if (!ok || tp.dep > 14) continue;
++    if (why === 'river' && tp.dep < 26) { for (const sg of [-1, 1]) tips.push({ x, y, a: a + sg * (1.25 + R() * 0.4), d: d + len, dep: tp.dep + 1, bridge: R() < 0.3 }); continue; }   // M2.2: gặp sông thì rẽ dọc bờ (mạng không chết sớm)
++    if (!ok || tp.dep > 26) continue;
 +    const nb = R() < 0.55 ? 2 : R() < 0.6 ? 1 : 3;
 +    for (let b = 0; b < nb; b++) { const turn = b === 0 && nb > 1 ? (R() - 0.5) * 0.3 : (R() < 0.5 ? -1 : 1) * (1.05 + R() * 0.6);
 +      tips.push({ x, y, a: a + turn, d: d + len, dep: tp.dep + 1, bridge: R() < 0.45 }); } }
@@ -405,15 +412,15 @@ index 0000000..341f150
 +    while (nextL <= acc + L) { const u = (nextL - acc) / L; lamps.push([ax + (bx - ax) * u, ay + (by - ay) * u, s.d0 + nextL]); nextL += 30; } acc += L; } });
 +  return { segs, dmax, lamps }; })();
 +// đèn được chọn cho cận cảnh cuối đoạn (đèn ở khoảng 60 % bán kính mạng, phía đông bắc)
-+const LP = NET.lamps.reduce((b, l) => (Math.hypot(l[0] - 1120, l[1] - 300) < Math.hypot(b[0] - 1120, b[1] - 300) ? l : b), NET.lamps[0]);
++const LP = NET.lamps.reduce((b, l) => (Math.hypot(l[0] - 900, l[1] - 210) + (riverDist(l[0], l[1]) < 70 ? 1e4 : 0) < Math.hypot(b[0] - 900, b[1] - 210) + (riverDist(b[0], b[1]) < 70 ? 1e4 : 0) ? l : b), NET.lamps[0]);
 +// quầng sáng dựng sẵn (nhanh hơn gradient từng đèn)
 +const GLOW = (() => { const c = document.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'); const gr = g.createRadialGradient(32, 32, 0, 32, 32, 32);
 +  gr.addColorStop(0, 'rgba(255,170,80,0.9)'); gr.addColorStop(0.3, 'rgba(240,140,50,0.35)'); gr.addColorStop(1, 'rgba(220,120,40,0)'); g.fillStyle = gr; g.fillRect(0, 0, 64, 64); return c; })();
 +
 +// máy quay trong bản đồ: điểm (cx, cy) về giữa tấm, tỉ lệ s
-+const PMc = [770, 447];
-+const CAMK = [[0, 1, 810, 470], [6.59, 1.02, 806, 466], [8.4, 1.9, PMc[0], PMc[1] - 10], [15.41, 2.05, PMc[0] + 6, PMc[1] - 12], [18.2, 1.0, 810, 470], [25.2, 1.045, 812, 468], [27.2, 2.6, LP[0] + 30, LP[1] + 12], [32.1, 2.72, LP[0] + 34, LP[1] + 14]];
-+const MOVE = [[6.59, 8.4], [15.41, 18.2], [25.2, 27.2]];   // các đoạn máy chạy có easing; ngoài đoạn này máy trôi tuyến tính rất chậm
++const PMc = [(PM[0][0] + PM[3][0]) / 2, (PM[0][1] + PM[3][1]) / 2];
++const CAMK = [[0, 1, 810, 470], [7.01, 1.02, 806, 466], [8.8, 2.1, PMc[0] + 60, PMc[1] + 40], [16.02, 2.25, PMc[0] + 66, PMc[1] + 38], [18.6, 1.0, 810, 470], [23.59, 1.045, 812, 468], [25.6, 2.6, LP[0] + 30, LP[1] + 12], [32.1, 2.72, LP[0] + 34, LP[1] + 14]];
++const MOVE = [[7.01, 8.8], [16.02, 18.6], [23.59, 25.6]];   // các đoạn máy chạy có easing; ngoài đoạn này máy trôi tuyến tính rất chậm
 +function cam(t) { let i = 0; while (i < CAMK.length - 2 && t >= CAMK[i + 1][0]) i++; const a = CAMK[i], b = CAMK[i + 1]; let u = pr(t, a[0], b[0]);
 +  if (MOVE.some(([m0]) => Math.abs(m0 - a[0]) < 1e-6)) u = sm(u);
 +  const s = Math.exp(lerp(Math.log(a[1]), Math.log(b[1]), u)); return { s, cx: lerp(a[2], b[2], u), cy: lerp(a[3], b[3], u) }; }
@@ -423,6 +430,9 @@ index 0000000..341f150
 +  for (let i = 1; i < pts.length; i++) { const [ax, ay] = pts[i - 1], [bx, by] = pts[i], L = Math.hypot(bx - ax, by - ay);
 +    if (acc + L >= upto) { const u = (upto - acc) / L; g.lineTo(ax + (bx - ax) * u, ay + (by - ay) * u); break; } g.lineTo(bx, by); acc += L; } g.stroke(); }
 +
++function mapLabel(g, s, x, y, a, align, ital) {   // nhãn địa danh: chữ serif mực đậm trên thẻ giấy kem (cỡ cố định theo màn hình)
++  if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); const f = (ital ? 'italic ' : '') + font(32, 'serif', true); g.font = f; const w = g.measureText(s).width, x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x;
++  g.fillStyle = 'rgba(236,223,190,0.92)'; g.fillRect(x0 - 10, y - 30, w + 20, 42); g.fillStyle = INK; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillText(s, x0, y); g.restore(); }
 +function sheet02(g, t) {
 +  // ---- thẻ tựa (0–4 s, không lời) ----
 +  const tOut = 1 - sm(pr(t, 3.3, 3.95));
@@ -454,13 +464,13 @@ index 0000000..341f150
 +  // Pall Mall: phố đậm hơn
 +  g.strokeStyle = SEPIA; g.lineWidth = lw(5); g.beginPath(); PM.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke();
 +  // ánh hổ phách lan theo mạng (1820s) — như rễ cây
-+  const r = NET.dmax * 1.02 * eo(pr(t, T02.spread, 24.2)) * (0.0 + 1);
++  const r = NET.dmax * 1.02 * eo(pr(t, T02.spread, T02.ldn + 0.5));   // lan theo câu mới: "spread fast … street after street across London"
 +  const amb = 1 - 0.7 * dawnOff;
 +  if (t >= T02.spread) { g.strokeStyle = `rgba(214,128,44,${0.9 * amb})`; g.lineWidth = lw(3.0);
 +    for (const s of NET.segs) { const up = r - s.d0; if (up <= 0) continue; poly(g, s.pts, Math.min(s.len, up)); } }
 +  // Pall Mall hổ phách vẽ dần (1807)
 +  const pmU = sm(pr(t, T02.pall, T02.pall + 1.0));
-+  if (pmU > 0) { g.strokeStyle = `rgba(206,118,36,${amb})`; g.lineWidth = lw(7); poly(g, PM, 160 * pmU); }
++  if (pmU > 0) { g.strokeStyle = `rgba(206,118,36,${amb})`; g.lineWidth = lw(7); poly(g, PM, PML * pmU); }
 +  g.restore();
 +  // đèn (toạ độ tấm, cỡ không phóng theo máy để giữ nét)
 +  g.save(); g.globalCompositeOperation = 'lighter';
@@ -478,8 +488,8 @@ index 0000000..341f150
 +  // ô tựa bản đồ: LONDON + năm
 +  g.save(); const ca = sm(pr(t, T02.london, T02.london + 0.5)); g.globalAlpha *= ca; g.fillStyle = 'rgba(236,223,190,0.93)'; g.fillRect(52, 40, 330, 128); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(58, 46, 318, 116); g.strokeRect(63, 51, 308, 106);
 +  text(g, 'LONDON', 84, 104, font(52, 'serif', true), INK);
-+  const yA = pr(t, T02.y1807, T02.y1807 + 0.4) * (1 - pr(t, T02.idea, T02.idea + 0.5)), yB = pr(t, T02.y1820, T02.y1820 + 0.4);
-+  textA(g, '1807', 86, 146, font(30, 'sans', true), OCHRE, yA); textA(g, '1820s', 86, 146, font(30, 'sans', true), OCHRE, yB);
++  const yA = pr(t, T02.y1807, T02.y1807 + 0.4) * (1 - pr(t, T02.idea, T02.idea + 0.5));
++  textA(g, '1807', 86, 146, font(30, 'sans', true), '#4f2a0c', yA);   // M2.2: nâu đậm hơn (đo 4,24:1 lúc toàn cảnh với OCHRE)
 +  g.restore();
 +  // nhãn Pall Mall + 1807 cạnh đường
 +  if (t >= T02.pall) { const [ax, ay] = toS(c, PM[0][0], PM[0][1]), [bx, by] = toS(c, PM[3][0], PM[3][1]), la = pr(t, T02.pall, T02.pall + 0.4) * (1 - pr(t, T02.idea, T02.idea + 0.7));
@@ -492,11 +502,9 @@ index 0000000..341f150
 +    g.save(); g.globalAlpha *= fa; g.strokeStyle = OCHRE; g.lineWidth = 2.2; g.beginPath(); g.moveTo(bx + 4, by + 22); g.quadraticCurveTo(bx + 30, by + 120, bx + 110, by + 150 * sm(pr(t, T02.first, T02.first + 0.6))); g.stroke(); g.restore();
 +    g.save(); g.globalAlpha *= fa; g.fillStyle = 'rgba(236,223,190,0.9)'; g.font = font(32, 'serif', true); const w = g.measureText('the first gas-lit street').width; g.fillRect(bx + 106, by + 128, w + 20, 46); g.restore();
 +    textWipe(g, 'the first gas-lit street', bx + 116, by + 162, font(32, 'serif', true), OCHRE, pr(t, T02.first, T02.first + 0.9) * (1 - pr(t, T02.idea, T02.idea + 0.7))); }
-+  // dải nhãn 1820s · 40,000+ lamps · 215 miles
-+  { const a1 = pr(t, T02.y1820, T02.y1820 + 0.4), a2 = pr(t, T02.forty, T02.forty + 0.4), a3 = pr(t, T02.two15, T02.two15 + 0.4), fade = 1 - pr(t, T02.every, T02.every + 0.8);
-+    if (a1 > 0 && fade > 0) { g.save(); g.globalAlpha *= fade; const f = font(40, 'sans', true); g.font = f; const parts = ['1820s', ' · ', '40,000+ lamps', ' · ', '215 miles']; const ws = parts.map((p) => g.measureText(p).width), tw = ws.reduce((a, b) => a + b, 0);
-+      const x0 = SW - 70 - tw, y0 = 812; g.globalAlpha *= a1; g.fillStyle = 'rgba(236,223,190,0.94)'; g.fillRect(x0 - 24, y0 - 46, tw + 48, 68); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(x0 - 18, y0 - 40, tw + 36, 56); g.globalAlpha /= a1;
-+      let x = x0; const al = [a1, a2, a2, a3, a3]; parts.forEach((p, i) => { textA(g, p, x, y0, f, i === 0 ? OCHRE : INK, al[i]); x += ws[i]; }); g.restore(); } }
++  // nhãn địa danh (Thames, Westminster): hiện ở toàn cảnh, ẩn khi máy vào Pall Mall / ngọn đèn
++  { const la = sm(pr(t, T02.london + 0.4, T02.london + 1.0)) * (1 - sm(pr(t, T02.street, T02.street + 0.5))) + sm(pr(t, T02.idea + 1.6, T02.idea + 2.4)) * (1 - sm(pr(t, T02.every, T02.every + 0.5)));
++    if (la > 0) { mapLabel(g, 'Thames', ...toS(c, ...KM(2.25, 0.5)), la, 'center', true); mapLabel(g, 'Westminster', ...toS(c, ...KM(0.15, 1.05)), la, 'right', false); } }
 +  // cận cảnh: một ngọn đèn cần một người — cột đèn + bóng người thắp đèn (mực nâu), mặt trời lặn / mọc
 +  if (t >= T02.one) { const [sx, sy] = toS(c, LP[0], LP[1]), k = c.s / 2.6, a = pr(t, T02.one, T02.one + 0.6);
 +    gasLampIcon(g, sx, sy - 8 * k, 0.62 * k, a, 1 - dawnOff, SEPIA);
@@ -510,10 +518,10 @@ index 0000000..341f150
 +    // quầng của ngọn đèn được chọn
 +    const fl = 0.85 + 0.08 * Math.sin(t * 11.3); glow(g, sx, sy - 8 * k + 5 * k, 70 * k, RGB_AMB, 0.5 * a * (1 - dawnOff) * fl * (0.6 + 0.4 * sm(pr(t, T02.dusk, T02.dusk + 0.6)))); }
 +  // nguồn
-+  srcLine(g, 'Sources: London Remembers · English Heritage · Wikipedia, “19th-century London”', 872, sm(pr(t, T02.y1820, T02.y1820 + 0.6)) * (1 - pr(t, T02.every, T02.every + 0.8)));
++  srcLine(g, 'Sources: London Remembers · English Heritage', 872, sm(pr(t, T02.pall + 0.5, T02.pall + 1.1)) * (1 - pr(t, T02.idea, T02.idea + 0.7)));
 +  g.restore();
 +}
-+window.SEC = { n: '02', frames: 769, blur: [[6.59, 8.4], [15.41, 18.2], [25.2, 27.2]], ready: true,
++window.SEC = { n: '02', frames: 769, blur: [[7.01, 8.8], [16.02, 18.6], [23.59, 25.6]], ready: true,
 +  frame(g, t) { g.drawImage(BG, 0, 0); drawCard(g, t, { seed: 11, content: sheet02 }); drawLight(g, t, 1); drawDust(g, t, 1); } };
 diff --git a/design/m3/ep01/history/sec/03.js b/design/m3/ep01/history/sec/03.js
 new file mode 100644
@@ -601,10 +609,10 @@ index 0000000..3e57e7f
 +    g.save(); g.translate(SX, SY); plateWindow(g, t); reportSlip(g, t); g.restore(); } };
 diff --git a/design/m3/ep01/history/sec/05.js b/design/m3/ep01/history/sec/05.js
 new file mode 100644
-index 0000000..8796e45
+index 0000000..6f5f677
 --- /dev/null
 +++ b/design/m3/ep01/history/sec/05.js
-@@ -0,0 +1,98 @@
+@@ -0,0 +1,133 @@
 +// Đoạn 05 · [HISTORY] The white wave — 589 khung (24,54 s).
 +// Phần 1: đèn khí hổ phách cạnh đèn hồ quang trắng; bản đồ đại lộ Opéra 1878 CÁCH ĐIỆU (vẽ tay thủ tục), 64 chấm trắng bật lần lượt (dọc + quanh đại lộ).
 +// Phần 2: dải phố cách điệu, chấm hổ phách đổi dần sang trắng từ đại lộ chính vào phố nhỏ; đường "vòng thắp đèn" ngắn lại.
@@ -631,6 +639,33 @@ index 0000000..8796e45
 +  g.fillRect(-4, 14, 8, 130); g.fillRect(-15, 136, 30, 8); g.beginPath(); g.moveTo(-12, 14); g.lineTo(12, 14); g.lineTo(6, 4); g.lineTo(-6, 4); g.closePath(); g.fill();
 +  g.fillStyle = `rgba(255,255,255,${0.6 + 0.4 * lit})`; g.beginPath(); g.ellipse(0, -18, 20, 24, 0, 0, 7); g.fill(); g.stroke(); g.fillRect(-2, -48, 4, 8); g.restore(); }
 +
++// ---- M2.2: địa lý Paris giản lược (toạ độ cầu/điểm mốc công khai; Opéra Garnier = (620,170); 0,3 px/m; bắc lên trên) ----
++const GEO_AV0 = [620, 170], GEO_AV1 = [717, 453], AVM = [(GEO_AV0[0] + GEO_AV1[0]) / 2, (GEO_AV0[1] + GEO_AV1[1]) / 2];
++const F05 = Math.hypot(GEO_AV1[0] - GEO_AV0[0], GEO_AV1[1] - GEO_AV0[1]) / AVL, ROT05 = Math.atan2(GEO_AV1[1] - GEO_AV0[1], GEO_AV1[0] - GEO_AV0[0]) - Math.atan2(AVu[1], AVu[0]);
++const A05 = (p) => { const dx = (p[0] - AV0[0]) * F05, dy = (p[1] - AV0[1]) * F05, c = Math.cos(ROT05), s = Math.sin(ROT05); return [GEO_AV0[0] + c * dx - s * dy, GEO_AV0[1] + s * dx + c * dy]; };
++const SEINE_W = [[-60, 438], [145, 446], [222, 440], [360, 446], [470, 515], [563, 580], [660, 610], [750, 626], [805, 642]];   // Alma → Concorde → Pont Royal → Pont des Arts → mũi tây Île de la Cité
++const SEINE_E = [[805, 642], [900, 698], [1000, 750], [1100, 802], [1200, 848], [1300, 888], [1440, 945], [1720, 1060]];   // quanh hai đảo (lòng sông rộng)
++const ISLE = (a, b, w) => { const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy), nx = -dy / L, ny = dx / L, up = [], dn = [];
++  for (let i = 0; i <= 16; i++) { const u = i / 16, h = w / 2 * Math.pow(Math.sin(Math.PI * u), 0.6) * (u < 0.5 ? 0.85 + 0.3 * u : 1), x = a[0] + dx * u, y = a[1] + dy * u; up.push([x + nx * h, y + ny * h]); dn.push([x - nx * h, y - ny * h]); }
++  return up.concat(dn.reverse()); };
++const CITE = ISLE([842, 662], [1112, 803], 58), STLOUIS = ISLE([1138, 816], [1292, 887], 44);   // Île de la Cité, Île Saint-Louis
++const RIVOLI = [[391, 383], [651, 487], [959, 636], [1156, 683]], GRANDS = [[464, 237], [620, 178], [805, 183], [1113, 247], [1311, 337], [1400, 380]], SGERM = [[330, 600], [560, 690], [780, 760], [960, 850], [1060, 930]];
++function pline(g, pts) { g.beginPath(); pts.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke(); }
++function drawParisGeo(g, t, cs) {
++  g.lineCap = 'round'; g.lineJoin = 'round'; const lw = (px) => px / Math.pow(cs, 0.6);
++  // sông: hai lượt nét (mép mực rồi lòng sông màu giấy rửa mực) để nhánh quanh đảo nhập liền với dòng chính
++  const SE = SEINE_W.concat(SEINE_E.slice(1)), isl = (p) => { g.beginPath(); p.forEach((q, i) => (i ? g.lineTo(...q) : g.moveTo(...q))); g.closePath(); };
++  for (const [col, ex] of [['rgba(91,67,48,0.75)', 2 * lw(2.2)], ['rgb(212,196,165)', 0]]) { g.strokeStyle = col;
++    g.lineWidth = 34 + ex; pline(g, SE); g.lineWidth = 60 + ex; isl(CITE); g.stroke(); isl(STLOUIS); g.stroke(); }
++  for (const P of [CITE, STLOUIS]) { isl(P); g.fillStyle = 'rgba(232,216,182,1)'; g.fill(); g.strokeStyle = SEPIA; g.lineWidth = lw(2.4); g.stroke(); }
++  // phố lớn (mực nhạt): Rivoli, Grands Boulevards, bờ trái Saint-Germain
++  g.strokeStyle = 'rgba(91,67,48,0.5)'; g.lineWidth = lw(2.4); pline(g, RIVOLI); pline(g, GRANDS); pline(g, SGERM);
++  // Louvre (khối dài song song sông + sân vuông phía đông)
++  g.save(); g.translate(690, 553); g.rotate(0.24); g.fillStyle = 'rgba(91,67,48,0.25)'; g.strokeStyle = SEPIA; g.lineWidth = lw(2.2); g.fillRect(-80, -12, 140, 24); g.strokeRect(-80, -12, 140, 24);
++  g.strokeRect(60, -22, 44, 44); g.restore();
++}
++function mapLabel05(g, s, x, y, a, align, ital) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.font = (ital ? 'italic ' : '') + font(32, 'serif', true); const w = g.measureText(s).width, x0 = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x;
++  g.fillStyle = 'rgba(236,223,190,0.92)'; g.fillRect(x0 - 10, y - 30, w + 20, 42); g.fillStyle = INK; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; g.fillText(s, x0, y); g.restore(); }
 +function part1(g, t, a) {
 +  if (a <= 0) return; g.save(); g.globalAlpha *= a;
 +  // mở: đèn khí + đèn hồ quang (một kiểu ánh sáng khác)
@@ -640,9 +675,14 @@ index 0000000..8796e45
 +    if (wl > 0) { g.save(); g.globalAlpha *= wa; const gr = g.createRadialGradient(970, 270, 0, 970, 270, 260); gr.addColorStop(0, `rgba(120,160,215,${0.28 * wl})`); gr.addColorStop(1, 'rgba(120,160,215,0)'); g.fillStyle = gr; g.fillRect(700, 0, 560, 560); g.restore(); } }
 +  // bản đồ
 +  const ma = sm(pr(t, T05.in1878, T05.in1878 + 0.9)); if (ma <= 0) { g.restore(); return; }
-+  const z = lerp(1, 1.0, 0) * (1 + 0.6 * sm(pr(t, T05.they, T05.ladder))) * (1 - 0.0), foc = avP(AVL * 0.55, 26);
-+  const zz = 1 + 0.55 * sm(pr(t, T05.they, T05.nobody + 0.6)) + 0.02 * pr(t, 3, 13.5);
-+  g.save(); g.globalAlpha *= ma; g.translate(SW / 2, SH / 2); g.scale(zz, zz); g.translate(-lerp(SW / 2, foc[0], sm(pr(t, T05.they, T05.nobody + 0.6))), -lerp(SH / 2, foc[1], sm(pr(t, T05.they, T05.nobody + 0.6))));
++  // M2.2: máy theo toạ độ ĐỊA LÝ (GEO, px tấm, 0,3 px/m, gốc Opéra Garnier): toàn cảnh sông Seine + Île de la Cité (≥ 2 s) rồi vào đại lộ; "they" phóng tiếp vào foc.
++  const u1 = sm(pr(t, T05.paris + 0.3, T05.paris + 1.3)), u2 = sm(pr(t, T05.they, T05.nobody + 0.6)), foc = A05(avP(AVL * 0.55, 26));
++  const cs = 0.95 * Math.pow(2.0 / 0.95, u1) * (1 + 0.55 * u2) * (1 + 0.02 * pr(t, 3, 13.5)), ccx = lerp(lerp(790, AVM[0], u1), foc[0], u2), ccy = lerp(lerp(560, AVM[1], u1), foc[1], u2);
++  const P05 = (p) => [SW / 2 + (p[0] - ccx) * cs, SH / 2 + (p[1] - ccy) * cs];
++  g.save(); g.globalAlpha *= ma; g.translate(SW / 2, SH / 2); g.scale(cs, cs); g.translate(-ccx, -ccy);
++  drawParisGeo(g, t, cs);
++  { const nb = SEINE_W.map(([x, y]) => [x, y - 20]).concat(SEINE_E.slice(1).map(([x, y]) => [x, y - 50])); g.beginPath(); g.moveTo(-200, -200); g.lineTo(1800, -200); g.lineTo(1800, nb[nb.length - 1][1]); for (let i = nb.length - 1; i >= 0; i--) g.lineTo(...nb[i]); g.lineTo(-200, nb[0][1]); g.closePath(); g.clip(); }   // lưới phố quanh đại lộ chỉ ở bờ bắc
++  g.translate(...GEO_AV0); g.rotate(ROT05); g.scale(F05, F05); g.translate(-AV0[0], -AV0[1]);   // khung đại lộ cũ → địa lý
 +  g.lineCap = 'round'; g.strokeStyle = 'rgba(91,67,48,0.55)'; g.lineWidth = 2; const R = rng(64);
 +  for (let k = -6; k <= 6; k++) { if (k === 0) continue; const o = k * 105 + (R() - 0.5) * 30, s0 = -500 + R() * 300, s1 = AVL + 200 + R() * 300, j = (R() - 0.5) * 30;   // phố song song đại lộ (lưới lệch kiểu Haussmann)
 +    g.beginPath(); g.moveTo(...avP(s0, o)); g.lineTo(...avP(s1, o + j)); g.stroke(); }
@@ -658,15 +698,18 @@ index 0000000..8796e45
 +  for (const L of LAMPS64) { const t0 = L.k < 48 ? T05.s64 + (L.k / 47) * (T05.around - 0.2 - T05.s64) : T05.around + ((L.k - 48) / 15) * 0.9; whiteLamp(g, ...L.p, pr(t, t0, t0 + 0.25), 6.5); }
 +  // thang: hiện ở "ladder" rồi rơi khỏi khung (không ai cần thang)
 +  const la = pr(t, T05.ladder, T05.ladder + 0.25), lo = sm(pr(t, T05.ladder + 0.35, T05.ladder + 1.0)); if (la > 0 && lo < 1) { g.save(); g.globalAlpha *= la * (1 - lo);
-+    g.translate(foc[0] + 18, foc[1] + 30 + lo * 80); g.rotate(0.35 + lo * 0.9); ladder(g, 0, 70, 0, -10, 16, INK2, 3); g.restore(); }
++    g.translate(avP(AVL * 0.55, 26)[0] + 18, avP(AVL * 0.55, 26)[1] + 30 + lo * 80); g.rotate(0.35 + lo * 0.9); ladder(g, 0, 70, 0, -10, 16, INK2, 3); g.restore(); }
 +  g.restore();
 +  // chữ (không phóng theo máy)
 +  g.save(); g.globalAlpha *= ma; g.fillStyle = 'rgba(236,223,190,0.93)'; g.fillRect(52, 40, 300, 128); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(58, 46, 288, 116); g.strokeRect(63, 51, 278, 106); g.restore();
 +  textA(g, 'PARIS', 84, 104, font(52, 'serif', true), INK, ma * pr(t, T05.paris, T05.paris + 0.4)); textA(g, '1878', 86, 146, font(30, 'sans', true), OCHRE, ma * pr(t, T05.y1878, T05.y1878 + 0.4));
 +  const ta = 1 - sm(pr(t, T05.they, T05.they + 0.5));
 +  if (t >= T05.s64) { g.save(); g.globalAlpha *= ta; textWipe(g, '64', 1250, 210, font(96, 'sans', true), INK, pr(t, T05.s64, T05.s64 + 0.4)); textWipe(g, 'electric arc lamps', 1254, 252, font(30, 'sans', true), INK2, pr(t, T05.electric, T05.electric + 0.8)); g.restore(); }
-+  if (t >= T05.avenue) { const p = avP(AVL * 0.35, -60); g.save(); g.globalAlpha *= ma * pr(t, T05.avenue, T05.avenue + 0.4) * ta; g.translate(...p); g.rotate(Math.atan2(AVu[1], AVu[0]));
-+    g.fillStyle = 'rgba(236,223,190,0.9)'; g.font = font(30, 'serif', true); const w = g.measureText('Avenue de l’Opéra').width; g.fillRect(-w / 2 - 10, -28, w + 20, 40); text(g, 'Avenue de l’Opéra', 0, 0, font(30, 'serif', true), INK, 'center'); g.restore(); }
++  if (t >= T05.avenue) { const p = P05(A05(avP(AVL * 0.5, 0))); g.save(); g.globalAlpha *= ma * pr(t, T05.avenue, T05.avenue + 0.4) * ta;
++    g.font = font(30, 'serif', true); const w = g.measureText('Avenue de l’Opéra').width; g.fillStyle = 'rgba(236,223,190,0.9)'; g.fillRect(p[0] - w - 70, p[1] - 28, w + 20, 40); text(g, 'Avenue de l’Opéra', p[0] - 60, p[1], font(30, 'serif', true), INK, 'right'); g.restore(); }
++  // nhãn địa danh (cỡ cố định theo màn hình): Opéra; Seine, Louvre chỉ ở toàn cảnh
++  { const la = sm(pr(t, T05.in1878 + 0.3, T05.in1878 + 0.9)), lw = la * (1 - sm(pr(t, T05.paris + 0.3, T05.paris + 0.8))), lo = la * (1 - sm(pr(t, T05.they, T05.they + 0.5)));
++    mapLabel05(g, 'Seine', ...P05([255, 500]), ma * lw, 'center', true); mapLabel05(g, 'Louvre', ...P05([700, 528]), ma * lw, 'center', false); mapLabel05(g, 'Opéra', ...P05([600, 112]), ma * lo, 'right', false); }
 +  srcLine(g, 'Source: ETHW, “Jablochkoff Candles in Paris”', 872, ma * (1 - sm(pr(t, T05.it, T05.it + 0.6))));
 +  g.restore();
 +}
@@ -705,10 +748,10 @@ index 0000000..8796e45
 +  frame(g, t) { g.drawImage(BG, 0, 0); drawCard(g, t, { seed: 29, content: sheet05 }); drawLight(g, t, 1); drawDust(g, t, 1); } };
 diff --git a/design/m3/ep01/history/sec/06.js b/design/m3/ep01/history/sec/06.js
 new file mode 100644
-index 0000000..4809899
+index 0000000..b6be29c
 --- /dev/null
 +++ b/design/m3/ep01/history/sec/06.js
-@@ -0,0 +1,74 @@
+@@ -0,0 +1,90 @@
 +// Đoạn 06 · [HISTORY] New York, April 1907 — 659 khung (27,46 s).
 +// Bản đồ Manhattan CÁCH ĐIỆU (đảo dài xoay chéo + lưới phố thủ tục), đèn hổ phách tắt thành từng mảng.
 +// Trang báo VẼ LẠI theo phong cách riêng (không chèn bản quét, không tên báo thật; cột chữ là vạch không đọc được), tiêu đề diễn đạt lại.
@@ -719,9 +762,17 @@ index 0000000..4809899
 +const MAN = { c: [830, 440], ang: -0.5, L: 1400, Wd: 250 };   // đảo: tâm, góc trục dài, dài, rộng
 +const ca = Math.cos(MAN.ang), sa = Math.sin(MAN.ang);
 +const mP = (u, v) => [MAN.c[0] + ca * u - sa * v, MAN.c[1] + sa * u + ca * v];   // u dọc đảo (−L/2 nam → +L/2 bắc), v ngang
-+const halfW = (u) => { const k = (u + MAN.L / 2) / MAN.L; return MAN.Wd / 2 * (k < 0.08 ? 0.35 + 0.65 * k / 0.08 : k > 0.9 ? 1 - 0.5 * (k - 0.9) / 0.1 : 1) * (1 + 0.12 * Math.sin(k * 9)); };
-+const OUTLINE = (() => { const a = [], b = []; for (let i = 0; i <= 60; i++) { const u = -MAN.L / 2 + MAN.L * i / 60; a.push(mP(u, -halfW(u))); b.push(mP(u, halfW(u))); } return a.concat(b.reverse()); })();
-+const LAMPS06 = (() => { const R = rng(1907), out = []; for (let u = -MAN.L / 2 + 30; u < MAN.L / 2 - 20; u += 26) for (let v = -110; v <= 110; v += 44) { if (Math.abs(v) > halfW(u) - 12) continue;
++// M2.2: đường bờ Manhattan giản lược theo địa lý công khai: mũi nam nhọn (Battery), phình Lower East Side, bờ tây thẳng (Hudson), thu hẹp ở Harlem River / Inwood.
++// bề rộng tính bằng km từ trục (tây = phía Hudson, v < 0; đông = phía East River, v > 0) theo km dọc đảo k (0 = Battery → 21,6 = Inwood); 1400 px / 21,6 km.
++const KK = [0, 0.3, 1, 2, 3, 4, 6, 9, 12, 14, 15.5, 18, 20, 21.6], KW = [0, 0.45, 0.9, 1.2, 1.3, 1.35, 1.4, 1.3, 1.2, 1.1, 1.0, 0.9, 0.6, 0.12], KE = [0, 0.35, 0.8, 1.6, 2.1, 1.8, 1.4, 1.3, 1.5, 1.4, 0.6, 0.45, 0.4, 0.1];
++const PXK = MAN.L / 21.6, kOf = (u) => (u + MAN.L / 2) / PXK;
++const itp = (A, k) => { k = Math.max(0, Math.min(21.6, k)); let i = 0; while (i < KK.length - 2 && k > KK[i + 1]) i++; const u = sm((k - KK[i]) / (KK[i + 1] - KK[i])); return lerp(A[i], A[i + 1], u) * PXK; };
++const westW = (u) => itp(KW, kOf(u)), eastW = (u) => itp(KE, kOf(u)), halfW = (u) => Math.min(westW(u), eastW(u));
++const OUTLINE = (() => { const a = [], b = []; for (let i = 0; i <= 120; i++) { const u = -MAN.L / 2 + MAN.L * i / 120; a.push(mP(u, -westW(u))); b.push(mP(u, eastW(u))); } return a.concat(b.reverse()); })();
++// bờ đối diện: New Jersey (bên kia Hudson ≈ 1,3 km) và Brooklyn/Queens (bên kia East River ≈ 0,8 km; Bronx qua Harlem River ≈ 0,25 km)
++const NJ = (() => { const o = []; for (let i = 0; i <= 60; i++) { const u = -MAN.L / 2 - 60 + (MAN.L + 160) * i / 60; o.push(mP(u, -westW(Math.max(-MAN.L / 2 + 120, u)) - 1.3 * PXK)); } return o; })();
++const BK = (() => { const o = []; for (let i = 0; i <= 60; i++) { const u = -MAN.L / 2 + 40 + (MAN.L + 80) * i / 60, k = kOf(u); o.push(mP(u, eastW(Math.max(-MAN.L / 2 + 140, u)) + (k < 14 ? 0.8 : 0.8 - 0.55 * sm((k - 14) / 1.5)) * PXK)); } return o; })();
++const LAMPS06 = (() => { const R = rng(1907), out = []; for (let u = -MAN.L / 2 + 30; u < MAN.L / 2 - 20; u += 26) for (let v = -110; v <= 110; v += 44) { if (v < -westW(u) + 12 || v > eastW(u) - 12) continue;
 +  out.push({ u, v, p: mP(u, v), r: R() }); } return out; })();
 +const PATCH = [[-380, 20, 120], [-60, -40, 110], [250, 30, 130], [520, -20, 100]];   // mảng tối (u, v, bán kính)
 +LAMPS06.forEach((l) => { l.patch = PATCH.findIndex(([u, v, r]) => Math.hypot(l.u - u, l.v - v) < r); l.wt = T06.every + 0.2 + Math.pow(l.r, 1.4) * 9; });   // đèn trắng thay dần (≈ 30 % tới cuối đoạn)
@@ -730,15 +781,20 @@ index 0000000..4809899
 +  let on = 1; if (l.patch >= 0) { const t0 = T06.parts + 0.6 + l.patch * 0.3 + l.r * 0.4; on = 1 - sm(pr(t, t0, t0 + 0.5)); const tb = T06.men + l.r * 0.9; on = Math.max(on, sm(pr(t, tb, tb + 0.4)));
 +    if (l === COP) on = Math.max(on, sm(pr(t, T06.matches + 0.2, T06.matches + 0.6))); else if (l.r < 0.18) { const tp = T06.light + l.r * 3; on = Math.max(on, 0.85 * sm(pr(t, tp, tp + 0.4))); } }
 +  const w = sm(pr(t, l.wt, l.wt + 0.5)); const pulse = 1 + 0.35 * Math.sin(Math.PI * pr(t, T06.cant, T06.without + 0.6)); return [on * (1 - w) * pulse, w]; }
++const BWAY = (() => { const o = []; for (let i = 0; i <= 44; i++) { const u = -MAN.L / 2 + 40 + i * 30, k = i / 44; o.push(mP(u, k < 0.15 ? 4 : 4 - 99 * sm((k - 0.15) / 0.85))); } return o; })();
++function mapLabel06(g, s, x, y, a, rot, ital) { if (a <= 0) return; g.save(); g.globalAlpha *= cl(a); g.translate(x, y); g.rotate(rot); g.font = (ital ? 'italic ' : '') + font(32, 'serif', true); const w = g.measureText(s).width;
++  g.fillStyle = 'rgba(236,223,190,0.92)'; g.fillRect(-w / 2 - 10, -30, w + 20, 42); g.fillStyle = INK; g.textAlign = 'center'; g.textBaseline = 'alphabetic'; g.fillText(s, 0, 0); g.restore(); }
 +function sheet06(g, t) {
 +  const ma = sm(pr(t, T06.in, T06.in + 0.8)); g.save(); g.globalAlpha *= ma;
 +  // nước quanh đảo (gợn), đảo, lưới phố
 +  g.strokeStyle = 'rgba(91,67,48,0.25)'; g.lineWidth = 1.4; for (let i = 0; i < 40; i++) { const R = rng(i + 7), x = R() * SW, y = R() * SH, ph = Math.sin(t * 0.8 + i) * 4; g.beginPath(); g.moveTo(x - 14 + ph, y); g.quadraticCurveTo(x + ph, y - 5, x + 14 + ph, y); g.stroke(); }
++  for (const [sh, far] of [[NJ, -900], [BK, 900]]) { g.beginPath(); sh.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.lineTo(...mP(MAN.L, far)); g.lineTo(...mP(-MAN.L, far)); g.closePath();
++    g.fillStyle = 'rgba(160,135,100,0.22)'; g.fill(); g.strokeStyle = 'rgba(91,67,48,0.55)'; g.lineWidth = 2; g.beginPath(); sh.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke(); }
 +  g.beginPath(); OUTLINE.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.closePath(); g.fillStyle = 'rgba(221,205,170,0.9)'; g.fill(); g.strokeStyle = SEPIA; g.lineWidth = 3; g.stroke();
 +  g.save(); g.clip(); g.strokeStyle = 'rgba(91,67,48,0.45)'; g.lineWidth = 1.3;
 +  for (let v = -132; v <= 132; v += 44) { g.beginPath(); g.moveTo(...mP(-MAN.L / 2, v)); g.lineTo(...mP(MAN.L / 2, v)); g.stroke(); }
 +  for (let u = -MAN.L / 2; u <= MAN.L / 2; u += 26) { g.beginPath(); g.moveTo(...mP(u, -150)); g.lineTo(...mP(u, 150)); g.stroke(); }
-+  g.strokeStyle = 'rgba(91,67,48,0.6)'; g.lineWidth = 2.4; g.beginPath(); for (let i = 0; i <= 40; i++) { const u = -MAN.L / 2 + 120 + i * 30, p = mP(u, -120 + i * 6); i ? g.lineTo(...p) : g.moveTo(...p); } g.stroke();   // một đại lộ chéo
++  g.strokeStyle = 'rgba(91,67,48,0.6)'; g.lineWidth = 2.4; g.beginPath(); BWAY.forEach((p, i) => (i ? g.lineTo(...p) : g.moveTo(...p))); g.stroke();   // Broadway: từ mũi nam chạy chéo qua lưới, lệch dần về phía tây
 +  // mảng tối: phủ xám xanh nhẹ lên vùng đèn tắt
 +  PATCH.forEach(([u, v, r], k) => { const t0 = T06.parts + 0.6 + k * 0.3, d = sm(pr(t, t0, t0 + 0.6)) * (1 - sm(pr(t, T06.men, T06.men + 1.0))); if (d <= 0) return; const [x, y] = mP(u, v);
 +    const gr = g.createRadialGradient(x, y, 0, x, y, r * 1.2); gr.addColorStop(0, `rgba(30,34,52,${0.62 * d})`); gr.addColorStop(1, 'rgba(40,45,65,0)'); g.fillStyle = gr; g.fillRect(x - r * 1.3, y - r * 1.3, r * 2.6, r * 2.6); });
@@ -747,9 +803,12 @@ index 0000000..4809899
 +    else if (w < 0.01) { g.fillStyle = 'rgba(60,50,45,0.55)'; g.beginPath(); g.arc(...l.p, 2.6, 0, 7); g.fill(); }
 +    if (w > 0) { g.save(); g.globalAlpha *= w; g.fillStyle = '#fff'; g.strokeStyle = COLD; g.lineWidth = 2; g.beginPath(); g.arc(...l.p, 5.2, 0, 7); g.fill(); g.stroke(); g.restore(); } }
 +  g.restore();
++  // nhãn địa danh (M2.2)
++  { const la = ma * sm(pr(t, T06.in + 0.4, T06.in + 1.0)); mapLabel06(g, 'Manhattan', ...mP(90, 12), la, MAN.ang, false);
++    mapLabel06(g, 'Hudson River', ...mP(60, -westW(60) - 0.65 * PXK + 12), la, MAN.ang, true); mapLabel06(g, 'Broadway', ...mP(-430, -38), la, MAN.ang, false); }
 +  // ô tựa
 +  g.save(); g.globalAlpha *= ma; g.fillStyle = 'rgba(236,223,190,0.93)'; g.fillRect(52, 40, 380, 128); g.strokeStyle = SEPIA; g.lineWidth = 2; g.strokeRect(58, 46, 368, 116); g.strokeRect(63, 51, 358, 106); g.restore();
-+  textA(g, 'NEW YORK', 84, 104, font(50, 'serif', true), INK, pr(t, T06.ny, T06.ny + 0.4)); textA(g, 'April 1907', 86, 146, font(30, 'sans', true), OCHRE, pr(t, T06.april, T06.april + 0.4));
++  textA(g, 'NEW YORK', 84, 104, font(50, 'serif', true), INK, pr(t, T06.ny, T06.ny + 0.4)); textA(g, 'April 1907', 86, 146, font(30, 'sans', true), '#4f2a0c', pr(t, T06.april, T06.april + 0.4));
 +  // cảnh sát leo cột với que diêm (ô tròn, cỡ xa)
 +  const va = pr(t, T06.police, T06.police + 0.6) * (1 - sm(pr(t, T06.within, T06.within + 0.7))); if (va > 0) { const [cx0, cy0] = COP.p, cx = 1180, cy = 560, R0 = 190 * eo(va);
 +    g.save(); g.globalAlpha *= va; g.strokeStyle = INK2; g.lineWidth = 2; g.beginPath(); g.moveTo(cx0, cy0); g.lineTo(cx - R0 * 0.8, cy - R0 * 0.6); g.stroke();
@@ -759,19 +818,19 @@ index 0000000..4809899
 +    const h = person(g, fx, fy, 130, { col: '#2a221c', hat: 'police', coat: true, arm: lerp(2.6, 2.9, cl1), arm2: lerp(0.4, 2.2, cl1) });
 +    const ma2 = pr(t, T06.matches, T06.matches + 0.15); if (ma2 > 0) glow(g, h.hand[0], h.hand[1], 26, RGB_AMB, 0.7 * ma2 * (1 - lit * 0.6));
 +    if (lit > 0) glow(g, cx + 20, cy - 100, 80, RGB_AMB, 0.4 * lit); g.restore();
-+    textA(g, 'police lighting the lamps', cx, cy + R0 + 34, font(24, 'serif', true), INK, pr(t, T06.light, T06.light + 0.5) * va, 'center'); }
++    textA(g, 'police lighting the lamps', cx, cy + R0 + 34, font(26, 'serif', true), INK, pr(t, T06.light, T06.light + 0.5) * va, 'center'); }
 +  // một tuần: 7 vạch ngày
 +  const wa = pr(t, T06.within, T06.within + 0.4) * (1 - sm(pr(t, T06.aStrike, T06.aStrike + 0.6))); if (wa > 0) { g.save(); g.globalAlpha *= wa; for (let i = 0; i < 7; i++) { const a = sm(pr(t, T06.within + i * 0.1, T06.within + i * 0.1 + 0.3)); const x = 1180 + i * 46, y = 700;
 +      g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(x, y, 36, 36); if (a > 0) { g.fillStyle = `rgba(107,58,18,${0.75 * a})`; g.fillRect(x + 5, y + 5, 26 * a, 26); } }
-+    textA(g, 'about a week', 1180, 770, font(24, 'serif', true), INK, pr(t, T06.week - 0.3, T06.week + 0.2), 'left', 'top');
-+    textA(g, 'back at work', 1180, 806, font(24, 'serif', true), OCHRE, pr(t, T06.back, T06.back + 0.4), 'left', 'top'); g.restore(); }
++    textA(g, 'about a week', 1180, 770, font(26, 'serif', true), INK, pr(t, T06.week - 0.3, T06.week + 0.2), 'left', 'top');
++    textA(g, 'back at work', 1180, 806, font(26, 'serif', true), '#4f2a0c', pr(t, T06.back, T06.back + 0.4), 'left', 'top'); g.restore(); }
 +  srcLine(g, 'Sources: The Sun (NY), 25 Apr 1907 · New-York Tribune, 29 Apr 1907 · The Evening World, 30 Apr 1907', 872, ma);
 +}
 +// trang báo vẽ lại (không tên báo thật; chữ thân là vạch)
 +function news(g, t) { const w = 720, h = 690;
 +  g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(30, 40); g.lineTo(w - 30, 40); g.moveTo(30, 98); g.lineTo(w - 30, 98); g.stroke(); g.lineWidth = 1.2; g.beginPath(); g.moveTo(30, 104); g.lineTo(w - 30, 104); g.stroke();
 +  for (let i = 0; i < 9; i++) { g.fillStyle = 'rgba(33,26,23,0.55)'; g.fillRect(60 + i * 68, 58, 40, 24); }   // đầu báo trang trí (không chữ)
-+  text(g, 'NEW YORK · APRIL 1907', w / 2, 128, font(18, 'sans', true), INK2, 'center', 'middle');
++  text(g, 'NEW YORK · APRIL 1907', w / 2, 128, font(26, 'sans', true), INK2, 'center', 'middle');
 +  textWipe(g, 'LAMPLIGHTERS', w / 2, 214, font(70, 'serif', true), INK, pr(t, T06.strike - 0.05, T06.strike + 0.5), 'center');
 +  textWipe(g, 'STRIKE', w / 2, 290, font(70, 'serif', true), INK, pr(t, T06.strike + 0.15, T06.strike + 0.6), 'center');
 +  textA(g, 'Men demand union recognition', w / 2, 340, font(26, 'serif'), INK2, pr(t, T06.union, T06.union + 0.4), 'center');
@@ -1080,10 +1139,10 @@ index 0000000..9982f67
 +window.SEC = { n: '08', frames: 1138, blur: [[T08.econ - 0.1, T08.james + 0.45], [T08.lamp, T08.lamp + 1.3], [T08.indoors + 0.9, T08.census + 0.2]], ready: true, frame: frame08 };
 diff --git a/design/m3/ep01/history/sec/09.js b/design/m3/ep01/history/sec/09.js
 new file mode 100644
-index 0000000..ce94c1f
+index 0000000..b4a4795
 --- /dev/null
 +++ b/design/m3/ep01/history/sec/09.js
-@@ -0,0 +1,79 @@
+@@ -0,0 +1,84 @@
 +// Đoạn 09 · [HISTORY] The office of 1970 — 664 khung (27,67 s).
 +// Hai bảng nhỏ, MỖI BẢNG TRỤC RIÊNG TỪ 0, chữ to "DIFFERENT SCALES" (không so độ lớn giữa hai bảng). Cột đặc = THỰC TẾ (ACTUAL).
 +// Số theo KICH-BAN §6.1 "giá trị dùng trên hình": 1900–1940 cột duy nhất; 1950 phân loại 1950; 1960 phân loại 1960; 1970 14+.
@@ -1124,29 +1183,34 @@ index 0000000..ce94c1f
 +// một bảng cột
 +function panel(g, t, o) {
 +  const { title, sub, data, vmax, ticks, fmtT, fmtV, tl } = o, x0 = 120, x1 = 760, yB = 520, yT = 196, slot = (x1 - x0) / 8, bw = 46, Y = (v) => yB - v / vmax * (yB - yT);
++  // M2.2: trước khi hai bảng thu còn 60 %, mờ mọi chữ nhỏ; chỉ giữ tên ngắn + số 1970 cỡ lớn (≥ 18 px chữ hoa ở 1080p sau thu)
++  const kS = 1 - sm(pr(t, T09.those - 0.8, T09.those - 0.1)), kB = sm(pr(t, T09.those - 0.6, T09.those + 0.1));
++  g.save(); g.globalAlpha *= kS;
 +  textWipe(g, title, 36, 64, font(34, 'serif', true), INK, pr(t, tl.title, tl.title + 0.8));
 +  if (sub) textA(g, sub, 36, 102, font(23), INK2, pr(t, tl.sub, tl.sub + 0.4));
 +  actualTag(g, 'ACTUAL · U.S. Census · persons', CW9 - 30, 146, pr(t, tl.tag, tl.tag + 0.4), 18);
++  g.restore();
++  textA(g, o.short, 36, 84, font(52, 'serif', true), INK, kB);
 +  const ax = sm(pr(t, tl.axis, tl.axis + 1.0));
 +  if (ax > 0) { g.save(); g.globalAlpha *= ax; for (const v of ticks) { const y = Y(v); g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.22)'; g.lineWidth = v === 0 ? 3 : 1.3;
-+      g.beginPath(); g.moveTo(x0, y); g.lineTo(lerp(x0, x1, sm(ax * 1.3 - v / vmax * 0.3)), y); g.stroke(); text(g, fmtT(v), x0 - 12, y, font(19), INK2, 'right', 'middle'); }
++      g.beginPath(); g.moveTo(x0, y); g.lineTo(lerp(x0, x1, sm(ax * 1.3 - v / vmax * 0.3)), y); g.stroke(); textA(g, fmtT(v), x0 - 12, y, font(19), INK2, kS, 'right', 'middle'); }
 +    g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, yB); g.lineTo(x0, yB - (yB - yT) * ax); g.stroke();
-+    YRS.forEach((yr, i) => text(g, String(yr), x0 + slot * (i + 0.5), yB + 12, font(18, 'sans', true), INK, 'center', 'top'));
++    YRS.forEach((yr, i) => textA(g, String(yr), x0 + slot * (i + 0.5), yB + 12, font(18, 'sans', true), INK, kS, 'center', 'top'));
 +    // phân loại đổi: vạch mảnh trước cột 1960 và 1970 + chú thích
 +    g.strokeStyle = 'rgba(33,26,23,0.42)'; g.lineWidth = 1.5; for (const i of [6, 7]) { const x = x0 + slot * i; g.beginPath(); g.moveTo(x, yT - 10); g.lineTo(x, yB + 6); g.stroke(); }
-+    text(g, 'Census job definitions revised in 1960 and 1970', x0, yB + 48, font(17), INK2); g.restore(); }
-+  textA(g, 'Source: U.S. Census · Historical Statistics of the U.S., Series D 233–682', 36, CH9 - 26, font(16), INK2, ax);
++    g.save(); g.globalAlpha *= kS; text(g, 'Census job definitions revised in 1960 and 1970', x0, yB + 48, font(17), INK2); g.restore(); g.restore(); }
++  textA(g, 'Source: U.S. Census · Historical Statistics of the U.S., Series D 233–682', 36, CH9 - 26, font(16), INK2, ax * kS);
 +  // cột đặc mọc dần
 +  data.forEach((v, i) => { const t0 = tl.bars[i], u = sm(pr(t, t0, t0 + (i === 7 ? 1.1 : 0.55))); if (u <= 0) return; const x = x0 + slot * (i + 0.5) - bw / 2, h = (yB - Y(v)) * u;
 +    g.fillStyle = AMBER; g.fillRect(x, yB - h, bw, h); g.strokeStyle = OCHRE; g.lineWidth = 2; g.strokeRect(x + 1, yB - h + 1, bw - 2, h - 2);
-+    if (i === 0 || i === 7) { const s = fmtV(v * (i === 7 ? eo(pr(t, t0, t0 + 1.1)) : 1)); text(g, s, x + bw / 2, yB - h - 10, font(24, 'sans', true), INK, 'center', 'bottom'); } });
++    if (i === 0 || i === 7) { const s = fmtV(v * (i === 7 ? eo(pr(t, t0, t0 + 1.1)) : 1)); textA(g, s, x + bw / 2, yB - h - 10, font(24, 'sans', true), INK, kS, 'center', 'bottom'); if (i === 7) textA(g, s, x + bw + 10, yB - h - 62, font(52, 'sans', true), INK, kB, 'right', 'bottom'); /* M2.2: số lớn trên ô nhấn 1970, không đè mép ô */ } });
 +  // nhấn cột 1970
 +  const hi = pr(t, T09.y1970, T09.y1970 + 0.4); if (hi > 0) { const x = x0 + slot * 7.5, y = Y(data[7]); g.save(); g.globalAlpha *= hi; g.strokeStyle = INK; g.lineWidth = 3; const p = 10 + 6 * (1 - eo(hi));
 +    g.strokeRect(x - bw / 2 - p, y - 44 - p, bw + 2 * p, yB - y + 44 + 2 * p); g.restore(); }
 +}
-+const PL = { title: 'Telephone operators', data: TEL, vmax: 450, ticks: [0, 100, 200, 300, 400], fmtT: (v) => v ? v + 'k' : '0', fmtV: (v) => Math.round(v) + 'k',
++const PL = { title: 'Telephone operators', short: 'Phone operators', data: TEL, vmax: 450, ticks: [0, 100, 200, 300, 400], fmtT: (v) => v ? v + 'k' : '0', fmtV: (v) => Math.round(v) + 'k',
 +  tl: { title: T09.tel, tag: T09.census, axis: T09.census + 0.1, bars: [T09.nineteen, 7.6, 7.85, 8.1, 8.35, 8.6, 8.85, T09.four] } };
-+const PR = { title: 'Stenographers, typists & secretaries', sub: '(counted together)', data: STE, vmax: 4200, ticks: [0, 1000, 2000, 3000, 4000], fmtT: (v) => v ? v / 1000 + 'M' : '0',
++const PR = { title: 'Stenographers, typists & secretaries', short: 'Typists & secretaries', sub: '(counted together)', data: STE, vmax: 4200, ticks: [0, 1000, 2000, 3000, 4000], fmtT: (v) => v ? v / 1000 + 'M' : '0',
 +  fmtV: (v) => v >= 1000 ? (v / 1000).toFixed(2) + 'M' : Math.round(v) + 'k',
 +  tl: { title: T09.steno, sub: T09.counted, tag: T09.steno + 0.4, axis: T09.steno + 0.3, bars: [T09.hundred, 19.35, 19.55, 19.75, 19.95, 20.15, 20.35, T09.fourM] } };
 +function frame09(g, t) {
@@ -1165,18 +1229,18 @@ index 0000000..ce94c1f
 +window.SEC = { n: '09', frames: 664, blur: [[T09.same, T09.same + 0.9], [T09.steno - 0.25, T09.steno + 0.5]], ready: true, frame: frame09 };
 diff --git a/design/m3/ep01/history/sfx_cue.py b/design/m3/ep01/history/sfx_cue.py
 new file mode 100644
-index 0000000..c1ba76b
+index 0000000..eac8122
 --- /dev/null
 +++ b/design/m3/ep01/history/sfx_cue.py
 @@ -0,0 +1,21 @@
 +"""Cine Lab · ep01 HISTORY — ghi cue SFX từng đoạn vào /var/tmp/cine-out/ep01/sfx/<NN>.json (P mix).
-+Chỉ dùng lại M2-SFX-1/2/3 (CC0, RIGHTS.md). at_abs = t0 đoạn (timeline-v3) + giây cục bộ của sự kiện hình."""
-+import json
-+TL = {s['n']: s for s in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan']}
++Chỉ dùng lại M2-SFX-1/2/3 (CC0, RIGHTS.md). at_abs = t0 đoạn (timeline-v4, M2.2) + giây cục bộ của sự kiện hình."""
++import json, sys
++TL = {s['n']: s for s in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v4.json'))['doan']}
 +D = '/var/tmp/cine-out/m22a/sfx/'
 +FLIP, HISS, SLIDE = (D + '320149.mp3', 3.55, 0.85, 'M2-SFX-1'), (D + '159386.mp3', 2.0, None, 'M2-SFX-2'), (D + '470189.mp3', 0.0, 0.37, 'M2-SFX-3')
 +CUES = {   # (tệp, giây cục bộ, gain dB, độ dài nếu đổi, ghi chú)
-+ '02': [(HISS, 0.35, -19.0, 3.4, 'đèn khí xì nhẹ khi đèn thẻ tựa bật (mờ ra trước lời)'), (FLIP, 3.35, -12.0, None, 'thẻ tựa → bản đồ')],
++ '02': [(HISS, 0.35, -19.0, 3.4, 'đèn khí xì nhẹ khi đèn thẻ tựa bật (mờ ra trước lời)'), (FLIP, 3.35, -12.0, None, 'thẻ tựa → bản đồ'), (HISS, 8.79, -22.0, 2.0, 'M2.2: hàng đèn Pall Mall bật ("a row of lamps")'), (HISS, 16.56, -24.0, 2.6, 'M2.2: mạng phố bắt đầu sáng lan ("spread")')],
 + '03': [(SLIDE, 8.71, 0.0, None, 'cửa sổ cảnh mở'), (SLIDE, 17.33, -2.0, None, 'cửa sổ cảnh đóng')],
 + '05': [(HISS, 0.6, -20.0, 2.6, 'đèn khí cạnh đèn hồ quang'), (FLIP, 13.45, -12.0, None, 'bản đồ Opéra → dải phố')],
 + '06': [(SLIDE, 3.55, 2.0, None, 'trang báo trượt vào'), (SLIDE, 7.55, 0.0, None, 'trang báo trượt ra')],
@@ -1184,11 +1248,11 @@ index 0000000..c1ba76b
 + '08': [(SLIDE, 11.05, -2.0, None, 'đèn → cửa thang máy (vào nhà)'), (SLIDE, 28.64, 2.0, None, 'đồ hoạ A trượt ra, lưới 270 ô vào')],
 + '09': [(SLIDE, 0.6, 0.0, None, 'bảng trái vào'), (SLIDE, 13.04, 0.0, None, 'bảng phải vào')],
 +}
-+for n, cs in CUES.items():
++for n, cs in [(k, v) for k, v in CUES.items() if len(sys.argv) < 2 or k in sys.argv[1:]]:   # M2.2: python3 sfx_cue.py 02
 +    out = []
 +    for (f, ss, dur0, rid), at, g, dur, note in cs:
 +        out.append(dict(file=f, src_ss=ss, dur=dur if dur else dur0, at_abs=round(TL[n]['t0'] + at, 3), gain_db=g, fade_ms=8 if f.endswith('470189.mp3') or f.endswith('320149.mp3') else 400, rights=rid, note=note))
-+    json.dump(out, open(f'/var/tmp/cine-out/ep01/sfx/{n}.json', 'w'), ensure_ascii=False, indent=1)
++    json.dump(out, open(f'/var/tmp/cine-out/ep01/sfx4/{n}.json', 'w'), ensure_ascii=False, indent=1)
 +    print(n, len(out))
 diff --git a/design/m3/ep01/history/tong_hop.py b/design/m3/ep01/history/tong_hop.py
 new file mode 100644
@@ -1857,9 +1921,565 @@ index 0000000..b58402b
 + ]
 +}
 \ No newline at end of file
+diff --git a/design/m3/ep01/history/tuong_phan_boxes_m22.json b/design/m3/ep01/history/tuong_phan_boxes_m22.json
+new file mode 100644
+index 0000000..7a92b3b
+--- /dev/null
++++ b/design/m3/ep01/history/tuong_phan_boxes_m22.json
+@@ -0,0 +1,549 @@
++{
++"02": [
++[
++2.5,
++"02 thẻ tựa THE LAST LAMPLIGHTERS",
++[
++270,
++510,
++1650,
++600
++],
++"dark"
++],
++[
++5.5,
++"02 ô tựa LONDON",
++[
++236,
++150,
++500,
++200
++],
++"dark"
++],
++[
++5.5,
++"02 năm 1807 (ô tựa, nâu)",
++[
++236,
++206,
++320,
++236
++],
++"dark"
++],
++[
++5.5,
++"02 nhãn Thames (mới)",
++[
++790,
++420,
++920,
++462
++],
++"dark"
++],
++[
++5.5,
++"02 nhãn Westminster (mới)",
++[
++420,
++474,
++655,
++514
++],
++"dark"
++],
++[
++10.5,
++"02 nhãn Pall Mall (xoay)",
++[
++720,
++370,
++900,
++470
++],
++"dark"
++],
++[
++10.5,
++"02 thẻ 1807 (nền nâu)",
++[
++916,
++402,
++1012,
++436
++],
++"light"
++],
++[
++14.5,
++"02 chú thích the first gas-lit street",
++[
++956,
++574,
++1344,
++612
++],
++"dark"
++],
++[
++12.0,
++"02 dòng nguồn (mới)",
++[
++204,
++936,
++834,
++968
++],
++"dark"
++],
++[
++21.5,
++"02 nhãn Thames lúc mạng sáng",
++[
++790,
++420,
++920,
++462
++],
++"dark"
++],
++[
++21.5,
++"02 nhãn Westminster lúc mạng sáng",
++[
++420,
++474,
++655,
++514
++],
++"dark"
++]
++],
++"05": [
++[
++4.6,
++"05 nhãn Seine (mới)",
++[
++392,
++446,
++514,
++494
++],
++"dark"
++],
++[
++4.6,
++"05 nhãn Louvre (mới)",
++[
++802,
++474,
++944,
++518
++],
++"dark"
++],
++[
++4.6,
++"05 nhãn Opéra lúc toàn cảnh (mới)",
++[
++664,
++82,
++782,
++124
++],
++"dark"
++],
++[
++9.5,
++"05 ô tựa PARIS",
++[
++232,
++150,
++416,
++200
++],
++"dark"
++],
++[
++9.5,
++"05 năm 1878 (nâu)",
++[
++232,
++206,
++322,
++236
++],
++"dark"
++],
++[
++9.5,
++"05 số 64",
++[
++1400,
++226,
++1536,
++306
++],
++"dark"
++],
++[
++9.5,
++"05 electric arc lamps",
++[
++1400,
++312,
++1710,
++348
++],
++"dark"
++],
++[
++9.5,
++"05 dòng nguồn (26 px)",
++[
++204,
++936,
++796,
++966
++],
++"dark"
++],
++[
++10.5,
++"05 nhãn Avenue de l’Opéra",
++[
++588,
++508,
++904,
++548
++],
++"dark"
++],
++[
++10.5,
++"05 nhãn Opéra lúc vào đại lộ",
++[
++708,
++104,
++828,
++140
++],
++"dark"
++]
++],
++"06": [
++[
++2.5,
++"06 nhãn Hudson River (xoay, mới)",
++[
++860,
++320,
++1095,
++470
++],
++"dark"
++],
++[
++2.5,
++"06 nhãn Manhattan (xoay, mới)",
++[
++960,
++425,
++1160,
++550
++],
++"dark"
++],
++[
++2.5,
++"06 nhãn Broadway (xoay, mới)",
++[
++490,
++630,
++670,
++750
++],
++"dark"
++],
++[
++6.9,
++"06 tiêu đề báo LAMPLIGHTERS",
++[
++1070,
++330,
++1720,
++390
++],
++"dark"
++],
++[
++6.9,
++"06 dòng phụ báo",
++[
++1190,
++484,
++1606,
++516
++],
++"dark"
++],
++[
++6.9,
++"06 đầu báo NEW YORK · APRIL 1907 (26 px)",
++[
++1212,
++282,
++1572,
++314
++],
++"dark"
++],
++[
++6.9,
++"06 ô tựa NEW YORK",
++[
++236,
++156,
++556,
++200
++],
++"dark"
++],
++[
++6.9,
++"06 April 1907 (nâu)",
++[
++236,
++212,
++410,
++242
++],
++"dark"
++],
++[
++6.9,
++"06 dòng nguồn (26 px)",
++[
++204,
++936,
++1550,
++968
++],
++"dark"
++],
++[
++14.6,
++"06 police lighting the lamps (26 px)",
++[
++1140,
++846,
++1520,
++880
++],
++"dark"
++],
++[
++17.5,
++"06 about a week (26 px)",
++[
++1326,
++852,
++1530,
++884
++],
++"dark"
++],
++[
++18.6,
++"06 back at work (nâu, 26 px)",
++[
++1322,
++888,
++1530,
++926
++],
++"dark"
++]
++],
++"09": [
++[
++22.0,
++"09 DIFFERENT SCALES (chữ sáng)",
++[
++660,
++176,
++1260,
++230
++],
++"light"
++],
++[
++22.0,
++"09 tiêu đề trái",
++[
++136,
++336,
++524,
++370
++],
++"dark"
++],
++[
++22.0,
++"09 tiêu đề phải",
++[
++1056,
++334,
++1750,
++372
++],
++"dark"
++],
++[
++22.0,
++"09 (counted together)",
++[
++1056,
++380,
++1274,
++404
++],
++"dark"
++],
++[
++22.0,
++"09 nhãn ACTUAL trái",
++[
++524,
++428,
++868,
++460
++],
++"dark"
++],
++[
++22.0,
++"09 nhãn 421k",
++[
++788,
++478,
++856,
++504
++],
++"dark"
++],
++[
++22.0,
++"09 nhãn 3.92M",
++[
++1696,
++482,
++1780,
++506
++],
++"dark"
++],
++[
++22.0,
++"09 nhãn trục 4M",
++[
++1096,
++496,
++1128,
++518
++],
++"dark"
++],
++[
++22.0,
++"09 năm trục x trái",
++[
++234,
++828,
++884,
++848
++],
++"dark"
++],
++[
++22.0,
++"09 chú thích phân loại trái",
++[
++222,
++852,
++632,
++872
++],
++"dark"
++],
++[
++22.0,
++"09 dòng nguồn trái",
++[
++138,
++908,
++706,
++928
++],
++"dark"
++],
++[
++27.0,
++"09 thu nhỏ · tên ngắn trái Phone operators",
++[
++116,
++676,
++416,
++716
++],
++"dark"
++],
++[
++27.0,
++"09 thu nhỏ · số 421k",
++[
++462,
++706,
++560,
++748
++],
++"dark"
++],
++[
++27.0,
++"09 thu nhỏ · tên ngắn phải Typists & secretaries",
++[
++1356,
++674,
++1730,
++714
++],
++"dark"
++],
++[
++27.0,
++"09 thu nhỏ · số 3.92M",
++[
++1670,
++708,
++1794,
++750
++],
++"dark"
++],
++[
++27.0,
++"09 thu nhỏ · DIFFERENT SCALES (chữ sáng)",
++[
++656,
++676,
++1264,
++730
++],
++"light"
++]
++]
++}
+\ No newline at end of file
 diff --git a/design/m3/ep01/history/tuong_phan_hist.py b/design/m3/ep01/history/tuong_phan_hist.py
 new file mode 100644
-index 0000000..7d96468
+index 0000000..146cc80
 --- /dev/null
 +++ b/design/m3/ep01/history/tuong_phan_hist.py
 @@ -0,0 +1,27 @@
@@ -1867,14 +2487,14 @@ index 0000000..7d96468
 +Chữ tối trên nền sáng: chữ = trung vị 3 % điểm tối nhất, nền = trung vị 40 % điểm sáng nhất trong ô; chữ sáng trên nền tối: ngược lại.
 +/opt/cine/bin/python tuong_phan_hist.py NN [ảnh ghép ô.png]  → in từng ô + JSON min; ô định nghĩa trong BOXES (giây cục bộ, toạ độ khung 1920×1080).
 +"""
-+import io, json, subprocess, sys
++import io, json, os, subprocess, sys
 +import numpy as np
 +from PIL import Image
-+NN = sys.argv[1]; v = f'/var/tmp/cine-out/ep01/sec/{NN}.mkv'
++NN = sys.argv[1]; v = os.environ.get('SECDIR', '/var/tmp/cine-out/ep01/sec') + f'/{NN}.mkv'   # M2.2: SECDIR=/var/tmp/cine-out/ep01/sec-m22
 +def lin(c): c = c / 255.0; return np.where(c <= 0.03928, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
 +def L(rgb): r, g, b = lin(np.array(rgb, float)); return 0.2126 * r + 0.7152 * g + 0.0722 * b
 +def ratio(a, b): la, lb = L(a), L(b); return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
-+BOXES = json.load(open(__file__.replace('tuong_phan_hist.py', 'tuong_phan_boxes.json')))[NN]
++BOXES = json.load(open(os.environ.get('BOXES') or __file__.replace('tuong_phan_hist.py', 'tuong_phan_boxes.json')))[NN]   # M2.2: BOXES=tuong_phan_boxes_m22.json
 +res, crops = [], []
 +for t, name, b, kind in BOXES:
 +    r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t}', '-i', v, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)
