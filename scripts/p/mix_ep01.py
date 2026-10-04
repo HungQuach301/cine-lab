@@ -52,6 +52,7 @@ def add_seg(a, b):
     seg.append([a, b])
 
 for d in TL['doan']:
+    if not d.get('vo_file'): continue   # đoạn không lời (ví dụ đoạn móc 00)
     a0 = d['t0'] + d['vo_offset']
     x = dec(d['vo_file'], 1, VO_AF)[:, 0]
     al_p = P(d['vo_file']).replace('.mp3', '.align.json')
