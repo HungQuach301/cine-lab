@@ -1,0 +1,700 @@
+diff --git a/design/m3/ep01/story/bg.sh b/design/m3/ep01/story/bg.sh
+new file mode 100644
+index 0000000..6a93e55
+--- /dev/null
++++ b/design/m3/ep01/story/bg.sh
+@@ -0,0 +1,7 @@
++#!/bin/bash
++# Chạy render nền: [VID=<tệp.mkv>] [DBG=<json>] bg.sh <shot> <thư mục> <f0> <f1> [start]  → log ở /var/tmp/cine-out/ep01/story/log/<shot>_<f0>.log, in PID.
++cd "$(dirname "$0")/../../../.."
++mkdir -p /var/tmp/cine-out/ep01/story/log "$2"
++setsid nohup node design/m3/ep01/story/render.js --shot "$1" --dir "$2" --f0 "$3" --f1 "$4" --start "${5:-$3}" ${VID:+--vid "$VID"} ${DBG:+--dbg "$DBG"} > "/var/tmp/cine-out/ep01/story/log/$1_$3.log" 2>&1 < /dev/null &
++echo $!
++disown
+diff --git a/design/m3/ep01/story/chuoi.sh b/design/m3/ep01/story/chuoi.sh
+new file mode 100644
+index 0000000..17fed81
+--- /dev/null
++++ b/design/m3/ep01/story/chuoi.sh
+@@ -0,0 +1,10 @@
++#!/bin/bash
++# Chạy tuần tự nhiều shot, mỗi shot ghi thẳng một clip H.264 (render.js --vid, không PNG — tiết kiệm đĩa).
++# chuoi.sh <thư mục clip> <tên log> "shot[:f0:f1] shot ..."  → <thư mục>/<shot>.mkv (+ timing.*.json); chạy nền: setsid nohup … & disown
++cd "$(dirname "$0")/../../../.."
++D=$1; mkdir -p "$D" /var/tmp/cine-out/ep01/story/log
++for x in $3; do IFS=: read -r s f0 f1 <<< "$x"
++  node design/m3/ep01/story/render.js --shot "$s" --dir "$D" ${f0:+--f0 $f0 --f1 $f1} --vid "$D/$s${f0:+_$f0}.mkv" \
++    > "/var/tmp/cine-out/ep01/story/log/$2_$s${f0:+_$f0}.log" 2>&1
++  echo "$s $(tail -1 /var/tmp/cine-out/ep01/story/log/$2_$s${f0:+_$f0}.log)"
++done
+diff --git a/design/m3/ep01/story/ghep_doan.py b/design/m3/ep01/story/ghep_doan.py
+new file mode 100644
+index 0000000..1ff3627
+--- /dev/null
++++ b/design/m3/ep01/story/ghep_doan.py
+@@ -0,0 +1,31 @@
++"""Ghép một đoạn từ các clip shot → /var/tmp/cine-out/ep01/sec-m22/<NN>.mkv (H.264 crf 10 yuv444p, -g 48, 24 fps, không tiếng).
++Mờ từ nền tối 6 khung đầu, mờ về nền tối 6 khung cuối (mỗi khung một mức → không khung trùng). Kiểm số khung, ghi <NN>.timing.json, chạy judder.
++python ghep_doan.py <NN> <khung mong đợi> <clip1.mkv> <clip2.mkv> ..."""
++import glob, json, os, subprocess, sys
++NN, EXP, CL = sys.argv[1], int(sys.argv[2]), sys.argv[3:]
++OUT = f'/var/tmp/cine-out/ep01/sec-m22/{NN}.mkv'; os.makedirs(os.path.dirname(OUT), exist_ok=True)   # M2.2: không ghi đè sec/ (bản đã duyệt)
++def nfr(p):
++    r = subprocess.run(['ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0', '-show_entries', 'stream=nb_read_frames', '-of', 'csv=p=0', p], capture_output=True, text=True)
++    return int(r.stdout.strip())
++counts = [nfr(c) for c in CL]
++tot = sum(counts)
++assert tot == EXP, f'tổng khung {tot} != {EXP}: {counts}'
++inp = sum((['-i', c] for c in CL), [])
++fc = ''.join(f'[{i}:v]setpts=PTS-STARTPTS[v{i}];' for i in range(len(CL))) + ''.join(f'[v{i}]' for i in range(len(CL))) + \
++     f'concat=n={len(CL)}:v=1:a=0,fps=24,fade=t=in:s=0:n=6:color=0x0a0c18,fade=t=out:s={EXP - 6}:n=6:color=0x0a0c18,format=yuv444p[o]'
++subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', *inp, '-filter_complex', fc, '-map', '[o]', '-an', '-c:v', 'libx264', '-preset', 'medium',
++                '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], check=True)
++n = nfr(OUT); assert n == EXP, f'{OUT}: {n} khung != {EXP}'
++# giây/khung từ timing.*.json của từng clip (bỏ khung đầu mỗi tiến trình: nạp shader)
++shots = {}
++for c in CL:
++    d = os.path.dirname(c); s = os.path.basename(c)[:-4]
++    for j in glob.glob(os.path.join(d, 'timing.*.json')):
++        r = json.load(open(j))
++        if r['shot'] == s.split('_')[0] and os.path.basename(r.get('vid') or c) == os.path.basename(c):
++            t = r['times'][1:] or r['times']
++            shots[s] = {'khung': r['frames'], 'mean': round(sum(t) / len(t), 2), 'max': round(max(t), 2), 'setup_s': r['setup_s']}
++json.dump({'doan': NN, 'khung': n, 'clip': [os.path.basename(c) for c in CL], 'khung_moi_clip': counts, 'giay_moi_khung': shots}, open(OUT[:-4] + '.timing.json', 'w'), ensure_ascii=False, indent=1)
++j = subprocess.run(['python3', '/home/user/cine-lab/scripts/p/judder.py', OUT], capture_output=True, text=True)
++open(OUT[:-4] + '.judder.json', 'w').write(j.stdout)
++print(json.dumps({'out': OUT, 'khung': n, 'MB': round(os.path.getsize(OUT) / 1e6, 1)}), j.stdout[-600:], j.stderr[-400:])
+diff --git a/design/m3/ep01/story/kiem_png.py b/design/m3/ep01/story/kiem_png.py
+new file mode 100644
+index 0000000..f34ecc9
+--- /dev/null
++++ b/design/m3/ep01/story/kiem_png.py
+@@ -0,0 +1,19 @@
++"""Kiểm thư mục PNG tấm nền: số khung, cỡ, giải mã được, khung kề trùng (md5 điểm ảnh), giây/khung từ timing.*.json.
++python3 kiem_png.py <thư mục> <số khung mong đợi>"""
++import hashlib, json, os, sys, glob
++from PIL import Image
++d, n = sys.argv[1], int(sys.argv[2])
++fs = [os.path.join(d, '%04d.png' % i) for i in range(n)]
++miss = [f for f in fs if not os.path.exists(f)]
++hs, bad = [], []
++for f in fs:
++    if f in miss: hs.append(None); continue
++    im = Image.open(f); im.load()
++    if im.size != (1920, 1080): bad.append(f)
++    hs.append(hashlib.md5(im.tobytes()).hexdigest())
++dup = [i for i in range(n - 1) if hs[i] and hs[i] == hs[i + 1]]
++ts = []
++for j in glob.glob(os.path.join(d, 'timing.*.json')):
++    ts += json.load(open(j))['times'][1:]   # bỏ khung đầu mỗi tiến trình (nạp shader)
++print(json.dumps({'dir': d, 'expect': n, 'missing': len(miss), 'badsize': len(bad), 'dup_adjacent': dup,
++                  'sec_per_frame': {'mean': round(sum(ts) / max(1, len(ts)), 2), 'max': round(max(ts or [0]), 2)}}))
+diff --git a/design/m3/ep01/story/nen.sh b/design/m3/ep01/story/nen.sh
+new file mode 100644
+index 0000000..03e48d5
+--- /dev/null
++++ b/design/m3/ep01/story/nen.sh
+@@ -0,0 +1,5 @@
++#!/bin/bash
++# nen.sh <thư mục clip> <tên log> "shot ..." — chạy chuoi.sh nền, in PID.
++setsid nohup bash "$(dirname "$0")/chuoi.sh" "$@" > "/var/tmp/cine-out/ep01/story/log/$2.chuoi.log" 2>&1 < /dev/null &
++echo $!
++disown
+diff --git a/design/m3/ep01/story/office.js b/design/m3/ep01/story/office.js
+new file mode 100644
+index 0000000..813b80a
+--- /dev/null
++++ b/design/m3/ep01/story/office.js
+@@ -0,0 +1,67 @@
++// Cine Lab · ep01 STORY — khối văn phòng hậu cảnh v2 (chủ dự án yêu cầu, 01/10/2026), dùng cho br10 (khối 10–13) và đoạn 19.
++// Thay "một tấm lưới đều 64 × 40 m" của lát cắt bằng BA khối ở ba độ sâu, thấp hơn, xa hơn, không phủ kín trời:
++//   A gần (x −38, z −10, cao 19 m), B giữa (x −78, z +11, cao 28 m), C xa (x −132, z −1, cao 56 m) — lệch ngang để khối xa lộ giữa hai khối gần.
++// Cửa sổ (tất định theo hạt giống, hàm liên tục của t):
++//   - mật độ sáng khác nhau theo tầng (mỗi tầng một xác suất 0,08–0,9; vài tầng gần như tắt), cụm cột ít đèn (phòng trống);
++//   - ≈ 7 % ô ấm (đèn bàn), còn lại trắng lạnh với độ sáng lệch ±18 %;
++//   - ≈ 4,5 % ô "sống": bật/tắt chậm bằng smoothstep của sin chu kỳ 5–11 s (không nhảy bậc).
++// Sương theo độ sâu do THREE.Fog của shot (khối càng xa càng chìm); mặt bên tối + gờ mái giữ khối.
++import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
++
++export const BLOCKS = [
++  { id: 'A', x: -38, z: -10, w: 16, h: 19, d: 14, cols: 9, rows: 6, seed: 11 },
++  { id: 'B', x: -78, z: 11, w: 18, h: 28, d: 16, cols: 10, rows: 9, seed: 23 },
++  { id: 'C', x: -132, z: -1, w: 28, h: 56, d: 18, cols: 15, rows: 13, seed: 37 },
++];
++const sm = (a, b, x) => { const u = Math.max(0, Math.min(1, (x - a) / (b - a))); return u * u * (3 - 2 * u); };
++
++function makeBlock(B) {
++  let s = B.seed * 7919; const R = () => (s = (s * 16807) % 2147483647) / 2147483647;
++  const TW = 512, TH = Math.round(512 * B.h / B.w);
++  const cv = document.createElement('canvas'); cv.width = TW; cv.height = TH; const g = cv.getContext('2d');
++  const floorP = Array.from({ length: B.rows }, () => { const r = R(); return r < 0.18 ? 0.08 : r < 0.45 ? 0.35 : 0.55 + 0.35 * R(); });
++  const colDark = Array.from({ length: B.cols }, () => (R() < 0.22 ? 0.55 + 0.4 * R() : 1));
++  const wins = [];
++  for (let r = 0; r < B.rows; r++) for (let c = 0; c < B.cols; c++) {
++    const p = floorP[r] * colDark[c], on = R() < p, warm = R() < 0.07, k = 0.82 + 0.36 * R();
++    const live = R() < 0.045, per = 5 + 6 * R(), ph = 6.283 * R();
++    wins.push({ r, c, on, warm, k, live, per, ph });
++  }
++  const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
++  const cw = TW / B.cols, rh = TH / B.rows;
++  function draw(t) {
++    g.fillStyle = '#20222b'; g.fillRect(0, 0, TW, TH);
++    for (const w of wins) {
++      let a = w.on ? 1 : 0;
++      if (w.live) a = sm(-0.35, 0.35, Math.sin(6.283 * t / w.per + w.ph));
++      const off = [52, 56, 68], lit = w.warm ? [255, 214, 150] : [226, 236, 255];
++      const col = lit.map((v, i) => Math.min(255, Math.round(off[i] + (v * w.k - off[i]) * a)));
++      g.fillStyle = `rgb(${col[0]},${col[1]},${col[2]})`;
++      g.fillRect(w.c * cw + cw * 0.17, w.r * rh + rh * 0.22, cw * 0.66, rh * 0.56);
++    }
++    for (let r = 0; r <= B.rows; r++) { g.fillStyle = '#16181f'; g.fillRect(0, r * rh - 2, TW, 4); }
++    tex.needsUpdate = true;
++  }
++  draw(0);
++  const grp = new THREE.Group();
++  const face = new THREE.Mesh(new THREE.PlaneGeometry(B.w, B.h), new THREE.MeshBasicMaterial({ map: tex, color: new THREE.Color('#ffffff').multiplyScalar(1.1), fog: true }));
++  face.position.set(B.x, B.h / 2, B.z); face.rotation.y = Math.PI / 2; grp.add(face);
++  const body = new THREE.Mesh(new THREE.BoxGeometry(B.d, B.h, B.w), new THREE.MeshLambertMaterial({ color: '#1c1e27' }));
++  body.position.set(B.x - B.d / 2 - 0.01, B.h / 2, B.z); grp.add(body);
++  const cap = new THREE.Mesh(new THREE.BoxGeometry(B.d + 0.6, 0.8, B.w + 0.6), new THREE.MeshLambertMaterial({ color: '#15171d' }));
++  cap.position.set(B.x - B.d / 2, B.h + 0.4, B.z); grp.add(cap);
++  const plinth = new THREE.Mesh(new THREE.BoxGeometry(B.d + 1, 24, B.w + 1), new THREE.MeshLambertMaterial({ color: '#14161c' }));   // chân khối: khối đứng trên đất, không lơ lửng
++  plinth.position.set(B.x - B.d / 2, -12, B.z); grp.add(plinth);
++  return { grp, draw, B, wins };
++}
++
++// Trả { blocks, update(t), stats() }. Gọi update(t) mỗi khung.
++export function buildOffices(scene, opts = {}) {
++  const blocks = (opts.blocks || BLOCKS).map((b) => makeBlock({ ...b, x: b.x + (opts.dx || 0) }));
++  for (const b of blocks) scene.add(b.grp);
++  const ground = new THREE.Mesh(new THREE.PlaneGeometry(420, 300).rotateX(-Math.PI / 2), new THREE.MeshLambertMaterial({ color: '#15171f' }));   // nền tối sau cuối phố (hết dải trời dưới chân khối)
++  ground.position.set(-200 + (opts.dx || 0), -2.5, 0); scene.add(ground);
++  const spill = new THREE.PointLight('#e3eaff', 22, 40, 1.4); spill.position.set(-32 + (opts.dx || 0), 10, -8); scene.add(spill);
++  return { blocks, update(t) { for (const b of blocks) b.draw(t); },
++    stats() { return blocks.map((b) => ({ id: b.B.id, n: b.wins.length, on: b.wins.filter((w) => w.on).length, warm: b.wins.filter((w) => w.warm && w.on).length, live: b.wins.filter((w) => w.live).length })); } };
++}
+diff --git a/design/m3/ep01/story/render.js b/design/m3/ep01/story/render.js
+new file mode 100644
+index 0000000..df3c4e8
+--- /dev/null
++++ b/design/m3/ep01/story/render.js
+@@ -0,0 +1,54 @@
++// Cine Lab · ep01 STORY — driver render chuỗi PNG theo shot (dựa trên design/m3/thu-phong-cach/frames.js, cùng page.js / style b3v3).
++// node design/m3/ep01/story/render.js --shot br10 --dir <thư mục PNG> [--f0 0 --f1 180] [--start 0] [--dbg '{"style":"b3v3"}'] [--w 1920 --h 1080]
++//   Khung f0..f1−1 (khung toàn cục của shot; shot ep01 có t0 = 0) → <dir>/%04d.png đánh số từ --start (mặc định 0).
++//   Ghi <dir>/timing.<f0>-<f1>.json: giây/khung (render + finalize), mean/max.
++const { chromium } = require('/opt/pw/node_modules/playwright');
++const { spawn } = require('child_process');
++const fs = require('fs'), path = require('path');
++const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
++const ROOT = path.resolve(__dirname, '../../..');
++const W = +arg('w', 1920), H = +arg('h', 1080), SHOT = arg('shot'), DIR = path.resolve(arg('dir'));
++const dbg = JSON.parse(arg('dbg', '{"style":"b3v3","b3":{"rimAll":1}}'));   // rimAll: viền tách bóng 2,75 px (CHUAN-KENH-LL §5.3)
++const VID = arg('vid', null);   // --vid <tệp.mkv>: ghi thẳng H.264 crf 8 yuv444p (P 01/10: không FFV1, tiết kiệm đĩa) thay cho PNG
++
++(async () => {
++  fs.mkdirSync(DIR, { recursive: true });
++  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--js-flags=--max-old-space-size=8192'] });
++  const page = await browser.newPage({ viewport: { width: 800, height: 600 } });
++  page.on('console', (m) => { const t = m.text(); if (!/GPU stall|GL Driver|THREE.WebGLRenderer/.test(t)) console.error('[page]', t); });
++  page.on('pageerror', (e) => console.error('[pageerror]', e.message));
++  await page.route('http://cine.local/**', (route) => {
++    const u = decodeURIComponent(new URL(route.request().url()).pathname), p = path.join(ROOT, u);
++    const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : 'text/html';
++    if (!fs.existsSync(p)) return route.fulfill({ status: 404, body: 'not found ' + p });
++    route.fulfill({ status: 200, contentType: type, body: fs.readFileSync(p) });
++  });
++  await page.route('http://cine.local/tpc.html', (route) => route.fulfill({ status: 200, contentType: 'text/html',
++    body: '<!doctype html><html><body style="margin:0"><script type="module" src="/cong5/layout/page.js"></script></body></html>' }));
++  await page.goto('http://cine.local/tpc.html');
++  await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 });
++  const a = Date.now();
++  const r = await page.evaluate(async (cfg) => await window.setup(cfg), { W, H, shot: SHOT, nopaint: false, dbg });
++  const setup_s = (Date.now() - a) / 1000;
++  const F0 = Math.round(r.t0 * 24), F1 = Math.round(r.t1 * 24);
++  const f0 = +arg('f0', F0), f1 = +arg('f1', F1), start = +arg('start', f0 - F0);
++  const outA = VID ? ['-vf', 'vflip,format=yuv444p', '-c:v', 'libx264', '-preset', 'medium', '-crf', '8', '-g', '48', '-r', '24', VID]
++    : ['-vf', 'vflip', '-start_number', String(start), path.join(DIR, '%04d.png')];
++  const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-framerate', '24', '-i', '-', ...outA], { stdio: ['pipe', 'inherit', 'inherit'] });
++  const times = [];
++  for (let f = f0; f < f1; f++) {
++    const b = Date.now();
++    await page.evaluate(async (f) => await window.renderFrame(f), f);
++    const b64 = await page.evaluate((f) => window.finalize(f), f);
++    times.push((Date.now() - b) / 1000);
++    const buf = Buffer.from(b64, 'base64');
++    if (!ff.stdin.write(buf)) await new Promise((res) => ff.stdin.once('drain', res));
++    if (times.length % 24 === 0) console.log(`[${SHOT}] ${f + 1 - f0}/${f1 - f0} mean ${(times.reduce((x, y) => x + y, 0) / times.length).toFixed(2)} s`);
++  }
++  ff.stdin.end(); await new Promise((res) => ff.on('close', res));
++  await browser.close();
++  const mean = times.reduce((x, y) => x + y, 0) / Math.max(1, times.length);
++  const rec = { shot: SHOT, vid: VID, dbg, W, H, f0, f1, start, frames: times.length, setup_s, per_frame_s: { mean: +mean.toFixed(3), max: +Math.max(...times).toFixed(3) }, times };
++  fs.writeFileSync(path.join(DIR, `timing.${SHOT}.${f0}-${f1}.json`), JSON.stringify(rec, null, 1));
++  console.log(JSON.stringify({ shot: SHOT, frames: times.length, per_frame_s: rec.per_frame_s, setup_s }));
++})().catch((e) => { console.error(e); process.exit(1); });
+diff --git a/design/m3/ep01/story/shots.js b/design/m3/ep01/story/shots.js
+new file mode 100644
+index 0000000..7c02ee3
+--- /dev/null
++++ b/design/m3/ep01/story/shots.js
+@@ -0,0 +1,245 @@
++// Cine Lab · ep01 STORY — shot của tập thử (đoạn 01, tấm nền 03, 04, 19). Nạp qua style.js → EXTRA (chỉ khi dbg.style có giá trị).
++// Cách làm: BỌC shot Last Round (film.js) — dựng nguyên bộ/rig, rồi
++//   (1) ánh xạ thời gian tin = map(t) (tuyến tính từng khúc, luôn tăng → mỗi khung một trạng thái, không khung trùng);
++//   (2) máy mới cỡ trung–xa, chuyển động chậm có easing (smootherstep), hoặc giữ máy gốc + trôi chậm;
++//   (3) sương mũ hai theo độ sâu, hạt bụi trong vùng sáng của ngọn đèn đang cháy, quầng rung (flickAt(f) của bộ phố, f = khung thật);
++//   (4) 'anon': người thắp đèn VÔ DANH dựng trên rig Ida — mũ chóp cao vành rộng + áo khoác dài vạt loe (dáng khác Ida);
++//   (5) sào mồi: thanh nối từ tay trái, đầu sào có than hồng, chạm sát đầu đèn trong khoảng 'pole';
++//   (6) tách bóng khỏi tường: viền sáng 2,75 px quanh toàn bộ bóng (style_v2 b3v3, tham số b3.rimAll — render.js bật mặc định).
++import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
++import { SHOTS } from '/cong5/layout/film.js';
++import { buildStreetSet, LAMP_X, LAMP_Z, flickAt } from '/cong5/layout/sets.js';
++import { buildCitySet } from '/cong5/layout/sets2.js';
++import { glowSprite } from '/cong3/dir-C/common.js';
++import { fovOf } from '/cong5/layout/util.js';
++import { P } from '/cong5/layout/common.js';
++import { buildOffices } from './office.js';
++
++const ss = (u) => { u = Math.max(0, Math.min(1, u)); return u * u * u * (u * (u * 6 - 15) + 10); };
++const pw = (keys, t) => { if (t <= keys[0][0]) return keys[0][1]; for (let i = 0; i < keys.length - 1; i++) { const [a, x] = keys[i], [b, y] = keys[i + 1]; if (t <= b) return x + (y - x) * (t - a) / (b - a); } return keys[keys.length - 1][1]; };
++const V = (a) => new THREE.Vector3(...a);
++
++// src: shot Last Round; dur: giây; map: [[t, tin]...]; cam: { mm, p0, p1, l0, l1 } | null (máy gốc + trôi 'drift' m);
++// dust: chỉ số đèn có hạt bụi; anon: người vô danh; pole: [tin0, tin1] sào chạm; offices: dx; cas: [x, z, yaw] dời Cas.
++const CAM03 = { mm: 36, p0: [112.0, 1.2, 1.5], p1: [110.7, 1.4, 0.6], l0: [106.0, 2.5, -4.4], l1: [106.0, 2.75, -4.4] };
++const MAP03 = [[0, 0], [2.0, 0.55], [2.8, 0.7], [4.3, 1.3], [7.0, 1.95]];
++export const EP01_CFG = {
++  p03a: { src: 's03', dur: 7.0, map: MAP03, anon: 1, pole: [0.42, 0.78], dust: 4, cam: CAM03 },
++  p03b: { src: 's04', dur: 5.0, map: [[0, 0], [5.0, 1.5]], anon: 1, dust: 4,
++    cam: { mm: 28, p0: [99.0, 5.6, 3.5], p1: [100.1, 5.1, 3.0], l0: [106.5, 1.5, -4.6], l1: [106.3, 1.85, -4.6] } },
++  e01a: { src: 's01', dur: 6.0, map: [[0, 0], [6.0, 4.0]], cam: null, drift: 0, keepFog: 1 },
++  e01b: { src: 's02', dur: 5.0, map: [[0, 0], [5.0, 4.4]], cam: null, drift: 0.5 },
++  e01c: { src: 's03', dur: 7.0, map: MAP03, pole: [0.42, 0.78], dust: 4, cam: CAM03 },
++  e01d: { src: 's04', dur: 6.0, map: [[0, 0], [6.0, 1.5]], dust: 4,
++    cam: { mm: 28, p0: [99.0, 5.6, 3.5], p1: [100.2, 5.0, 3.0], l0: [106.5, 1.5, -4.6], l1: [106.3, 1.9, -4.6] } },
++  e01e: { src: 's05', dur: 7.0, map: [[0, 0], [7.0, 3.9]], dust: 4,
++    cam: { mm: 35, p0: [98.9, 2.3, -3.1], p1: [99.8, 2.45, -3.35], l0: [106.2, 2.65, -4.45], l1: [106.2, 2.8, -4.45] } },
++  e01f: { src: 's24', dur: 5.0, map: [[0, 0], [5.0, 1.95]], dust: 11,
++    cam: { mm: 32, p0: [13.6, 2.4, 4.2], p1: [12.6, 2.6, 3.6], l0: [8.0, 3.0, -4.6], l1: [8.0, 3.2, -4.6] } },
++  e01g: { src: 's43', dur: 5.333333, map: [[0, 0], [5.333333, 4.0]], cam: null, drift: 0 },
++  e04a: { src: 's22', dur: 5.0, map: [[0, 0], [5.0, 2.95]], s22: 1,
++    cam: { mm: 28, p0: [11.4, 1.4, -0.6], p1: [12.3, 1.5, -1.05], l0: [24.0, 3.2, -4.0], l1: [24.0, 3.35, -4.1] } },
++  e04b: { src: 's09w', dur: 3.0, map: [[0, 0], [3.0, 1.9]], cam: null, drift: 0, mm: 70 },   // M2.2 (3.3): 105 mm + trôi 0,12 → 70 mm, không trôi: mặt đồng hồ không chạm mép
++  e04c: { src: 's09', dur: 4.5, map: [[0, 0], [4.5, 2.4]], cam: null, drift: 0.5 },
++  e04d: { src: 's19', dur: 3.25, map: [[0, 0], [3.25, 2.0]], cam: null, drift: 0.5 },
++  e19a: { src: 's23', dur: 7.5, dusk: 1, map: [[0, 0], [7.5, 2.95]], offices: 0, dust: 10,   // M2.2 (3.4): cỡ xa 28 mm → trung/cận trung, cùng phía trục với e19b
++    cam: { mm: 35, p0: [14.0, 1.7, 1.4], p1: [11.6, 2.3, 0.2], l0: [10.0, 1.6, -2.6], l1: [8.1, 3.0, -3.9] } },
++  e19b: { src: 's24', dur: 7.5, dusk: 1, map: [[0, 0], [7.5, 1.95]], offices: 0, dust: 11, casLadder: { x: 8.52, z: -4.6, yaw: -Math.PI / 2, gR: [8.17, 0.70, -4.53], gL: [8.17, 0.92, -4.45], axis: [0, 0.936, 0.352] },
++    cam: { mm: 30, p0: [14.2, 2.3, 4.4], p1: [13.0, 2.6, 3.7], l0: [8.0, 3.2, -4.6], l1: [8.0, 3.5, -4.6] } },
++};
++
++function anonymise(ch) {
++  const J = ch.joints, H = ch.H, mat = new THREE.MeshLambertMaterial({ color: '#2a2622', side: THREE.DoubleSide });
++  ch.root.traverse((o) => { if (o.isMesh && /hair|bun|braid|hat|scarf/i.test(o.userData.part || o.name || '')) o.visible = false; });
++  const brim = new THREE.Mesh(new THREE.CylinderGeometry(0.78 * H, 0.78 * H, 0.06 * H, 28), mat); brim.position.set(0, 0.92 * H, 0.02 * H);
++  const crown = new THREE.Mesh(new THREE.CylinderGeometry(0.42 * H, 0.47 * H, 0.95 * H, 24), mat); crown.position.set(0, 1.42 * H, 0.02 * H);
++  J.head.add(brim, crown);
++  const coat = new THREE.Mesh(new THREE.CylinderGeometry(0.62 * H, 1.05 * H, 3.0 * H, 24, 1, true), mat); coat.position.set(0, -1.15 * H, 0); J.spine.add(coat);
++  for (const m of [brim, crown, coat]) { m.castShadow = true; m.receiveShadow = true; m.userData.part = 'anon'; }
++}
++
++function poleOf(scene) {
++  const m = new THREE.Mesh(new THREE.CylinderGeometry(0.014, 0.018, 1, 8), new THREE.MeshLambertMaterial({ color: '#3a2c1e' })); m.castShadow = true; scene.add(m);
++  const ember = new THREE.Mesh(new THREE.SphereGeometry(0.035, 10, 8), new THREE.MeshBasicMaterial({ color: new THREE.Color('#ffb060').multiplyScalar(2.2) })); scene.add(ember);
++  const d = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0);
++  return { m, ember, set(a, b) { d.subVectors(b, a); m.scale.set(1, d.length(), 1); m.position.copy(a).addScaledVector(d, 0.5); m.quaternion.setFromUnitVectors(up, d.normalize()); ember.position.copy(b); } };
++}
++
++function dustAt(scene, c, N = 360, seed = 77) {
++  let s = seed; const R = () => (s = (s * 16807) % 2147483647) / 2147483647; const seeds = [];
++  for (let i = 0; i < N; i++) seeds.push([R(), R(), R(), R(), R()]);
++  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N * 3), 3));
++  const dot = document.createElement('canvas'); dot.width = dot.height = 32; const dg = dot.getContext('2d'); const gr = dg.createRadialGradient(16, 16, 0, 16, 16, 16);
++  gr.addColorStop(0, 'rgba(255,220,160,1)'); gr.addColorStop(1, 'rgba(255,200,130,0)'); dg.fillStyle = gr; dg.fillRect(0, 0, 32, 32);
++  const pts = new THREE.Points(g, new THREE.PointsMaterial({ size: 0.03, map: new THREE.CanvasTexture(dot), transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, color: new THREE.Color('#ffd49a').multiplyScalar(1.5), fog: false }));
++  pts.userData.noG = 1; pts.frustumCulled = false; scene.add(pts);
++  return (t) => { const a = g.attributes.position.array;
++    for (let i = 0; i < N; i++) { const [r1, r2, r3, r4, r5] = seeds[i], rr = 0.2 + 1.4 * Math.cbrt(r1), th = 6.283 * r2, ph = Math.acos(2 * r3 - 1), w = 0.15 + 0.25 * r4, p0 = 6.283 * r5;
++      a[i * 3] = c.x + rr * Math.sin(ph) * Math.cos(th) + 0.16 * Math.sin(w * t + p0);
++      a[i * 3 + 1] = c.y + rr * Math.cos(ph) * 0.8 + ((3 * r5) % 1.4) - 0.7 + (0.05 + 0.06 * r4) * t;
++      a[i * 3 + 2] = c.z + rr * Math.sin(ph) * Math.sin(th) + 0.16 * Math.cos(0.8 * w * t + p0); }
++    g.attributes.position.needsUpdate = true; };
++}
++
++function wrap(id, cfg) {
++  return { id, scene: 'ep01', t0: 0, t1: cfg.dur, size: 'ep01', move: cfg.cam ? 'máy mới chậm' : 'máy gốc + trôi', why: `ep01 ${id} ← ${cfg.src}`,
++    async build(ctx) {
++      const src = SHOTS.find((s) => s.id === cfg.src); if (!src) throw new Error('ep01: không có shot ' + cfg.src);
++      const inner = await src.build(ctx), sc = inner.scene, cam = inner.cam, ida = inner.named && inner.named.ida;
++      if (cfg.anon && ida) anonymise(ida);
++      const pole = cfg.pole && ida ? poleOf(sc) : null;
++      const off = cfg.offices !== undefined ? buildOffices(sc, { dx: cfg.offices }) : null;
++      if (!cfg.keepFog) sc.fog = new THREE.FogExp2(sc.fog ? sc.fog.color.clone() : new THREE.Color('#323a5c'), cfg.fogK ?? 0.009);   // keepFog: toàn cảnh thành phố giữ sương tuyến tính gốc (mũ hai 0,009 phủ kín nhà xa, trời đen)
++      if (cfg.dusk) duskify(sc);
++      const dust = cfg.dust ? dustAt(sc, new THREE.Vector3(LAMP_X(cfg.dust), 3.6, LAMP_Z + 0.2)) : null;
++      let hemiW = null, post = null;
++      if (cfg.s22) sc.traverse((x) => { if (x.isHemisphereLight && x.color.getHexString() === 'dfe6ff') hemiW = x;
++        if (x.isPointLight && x.color.getHexString() === 'e3eaff' && Math.abs(x.position.x - 29) < 3) post = x; });
++      if (post) { post.castShadow = true; post.shadow.mapSize.set(1024, 1024); post.shadow.bias = -0.0006; post.shadow.normalBias = 0.02; post.shadow.camera.near = 0.2; }
++      cam.far = Math.max(cam.far || 0, 1000); cam.aspect = 16 / 9;   // STORY-2: không hạ far của bộ thành phố (trời s01 xa hơn 1000 m → đen)
++      const right = new THREE.Vector3(), fw = new THREE.Vector3(), wl = new THREE.Vector3(), wr = new THREE.Vector3(), up = new THREE.Vector3(0.25, 1.5, 0.45), tip = new THREE.Vector3(0.05, 0.45, 0.12);
++      let curTin = 0, poses = null, gripE = null, basePos = null, lastSet = null;
++      return { ...inner, cam,
++        exposure: () => { const e = typeof inner.exposure === 'function' ? inner.exposure(curTin, src.t0 + curTin) : (inner.exposure ?? 1); return e * (hemiW ? 1.7 : 1); },
++        update(t, T, f) {
++          const tin = pw(cfg.map, t); curTin = tin;
++          inner.update(tin, src.t0 + tin, f);
++          if (hemiW) hemiW.intensity *= 0.22;
++          if (off) off.update(t);
++          if (cfg.cas && inner.named && inner.named.cas) { const r = inner.named.cas.root; r.position.x = cfg.cas[0]; r.position.z = cfg.cas[1]; r.rotation.y = cfg.cas[2]; }
++          // STORY-2 (rủi ro c): Cas GIỮ CHÂN THANG — đứng thẳng (tư thế p.stand) cạnh thanh dọc phải của thang L11, quay mặt về thang (−x),
++          // hai lòng tay nắm thanh dọc ở hai độ cao (IK ch.gripAt, như gripK của W1). Thay tư thế dựa tường + tay áp tường của s24.
++          if (cfg.casLadder && inner.named && inner.named.cas) { const c = inner.named.cas, k = cfg.casLadder; poses = poses || P(ctx);
++            c.place(poses.stand, k.x, k.z, k.yaw); c.root.updateMatrixWorld(true);
++            if (c.gripAt) { gripE = [c.gripAt('R', { point: k.gR, axis: k.axis, radius: 0.02, tag: 'thang' }), c.gripAt('L', { point: k.gL, axis: k.axis, radius: 0.02, tag: 'thang' })]; c.root.updateMatrixWorld(true); c.cpuSkin?.update(); }
++            if (f === 0 || f === undefined) console.log('Cas giữ thang: lòng tay → thanh (m)', JSON.stringify(gripE)); }
++          const u = ss(t / cfg.dur);
++          if (cfg.cam) { const k = cfg.cam; cam.fov = fovOf(k.mm); cam.position.lerpVectors(V(k.p0), V(k.p1), u); cam.lookAt(V(k.l0).lerp(V(k.l1), u)); }
++          else {   // P sửa (01/10/2026): trôi máy tính từ vị trí GỐC của khung, không cộng dồn qua các khung (máy tĩnh của shot nguồn
++                   // không tự đặt lại vị trí mỗi khung → bản trước trôi xa dần, xuyên tường ở e01b, e04d; đồng hồ trôi khỏi khung ở e04c)
++            if (lastSet && cam.position.equals(lastSet)) cam.position.copy(basePos);
++            basePos = cam.position.clone();
++            cam.updateMatrixWorld(true); right.setFromMatrixColumn(cam.matrixWorld, 0); cam.getWorldDirection(fw);
++            if (cfg.mm) cam.fov = fovOf(cfg.mm);   // M2.2: đổi tiêu cự máy gốc
++            const d = cfg.drift ?? 0.5; cam.position.addScaledVector(right, d * (u - 0.5)).addScaledVector(fw, 0.4 * d * u); lastSet = cam.position.clone(); }
++          cam.updateProjectionMatrix(); cam.updateMatrixWorld(true);
++          if (pole) { ida.joints.wrist_L.getWorldPosition(wl); ida.joints.wrist_R.getWorldPosition(wr);
++            const [a, b] = cfg.pole, k = ss((tin - a) / 0.12) * (1 - ss((tin - b) / 0.15));
++            pole.set(wl, wl.clone().add(up).lerp(wr.clone().add(tip), k)); pole.ember.visible = tin < b + 0.1; }
++          if (dust) dust(t);
++        } };
++    } };
++}
++
++// đoạn 19 · 8 s không lời: hai ngọn đèn cuối phố (L10 đã cháy, L11 vừa thắp) dưới khối văn phòng; máy đẩy rất chậm, không nhân vật.
++const E19C = { id: 'e19c', scene: 'ep01', t0: 0, t1: 8.0, size: 'MWS', move: 'đẩy chậm', why: 'ep01 19: 8 s lặng — hai đốm hổ phách',
++  async build(ctx) {
++    const st = buildStreetSet({ sky: 'night', x0: 0, x1: 40, shadowLamps: [10, 11], fog: [30, 150] }), sc = st.scene; duskify(sc);
++    const off = buildOffices(sc, { dx: -8 });
++    sc.fog = new THREE.FogExp2('#3a3462', 0.008);
++    const d10 = dustAt(sc, new THREE.Vector3(LAMP_X(10), 3.6, LAMP_Z + 0.2), 300, 31), d11 = dustAt(sc, new THREE.Vector3(LAMP_X(11), 3.6, LAMP_Z + 0.2), 300, 57);
++    const cam = new THREE.PerspectiveCamera(fovOf(32), 16 / 9, 0.1, 1000);
++    return { scene: sc, cam, named: {}, exposure: 1.15,
++      update(t, T, f) { st.setState({ gas: (i) => (i >= 10 ? 1 : 0), post: () => 0, square: 0, clock: 0, whiteFill: 0 }, f); off.update(t);
++        const u = ss(t / 8);
++        cam.position.lerpVectors(V([31.0, 1.6, 2.6]), V([27.6, 2.1, 1.6]), u); cam.lookAt(V([12.0, 3.4, -3.6]).lerp(V([13.0, 4.4, -3.4]), u)); cam.updateMatrixWorld(true);
++        d10(t); d11(t); } };
++  } };
++
++
++// STORY-2 · CHẠNG VẠNG MUỘN cho đoạn 19 (kịch bản v3.1 §3: "Phố Ostler lúc chạng vạng"). Bộ phố/thành phố đêm có trời vẽ nightSky (cầu R 400, BackSide):
++// thay bản đồ trời bằng dải chạng vạng muộn (xanh chàm → tím → hồng tro ở chân trời, sao thưa), sương và ánh trời tán xạ ấm–tím hơn.
++function duskTex() {
++  const cv = document.createElement('canvas'); cv.width = 2048; cv.height = 1024; const g = cv.getContext('2d');
++  const gr = g.createLinearGradient(0, 0, 0, 1024); gr.addColorStop(0, '#0f1436'); gr.addColorStop(0.5, '#232755'); gr.addColorStop(0.78, '#4a3f6e'); gr.addColorStop(0.92, '#7c5878'); gr.addColorStop(1, '#a8707a');
++  g.fillStyle = gr; g.fillRect(0, 0, 2048, 1024);
++  let sd = 991; const R = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
++  for (let i = 0; i < 90; i++) { const y = Math.pow(R(), 2.2) * 600, x = R() * 2048; g.fillStyle = `rgba(230,232,255,${(0.25 + 0.5 * R() * (1 - y / 700)).toFixed(2)})`; g.beginPath(); g.arc(x, y, 0.5 + 0.5 * R(), 0, 6.283); g.fill(); }
++  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
++}
++export function duskify(sc, o = {}) {
++  let n = 0; const tex = duskTex();
++  sc.traverse((x) => { if (x.isMesh && x.geometry.type === 'SphereGeometry' && (x.geometry.parameters.radius || 0) >= 300 && x.material && x.material.side === THREE.BackSide && x.material.map) { x.material.map = tex; x.material.color.setScalar(o.sky ?? 1.25); x.material.needsUpdate = true; n++; }
++    if (x.isHemisphereLight && x.color.getHexString() !== 'dfe6ff') { x.color.set('#5a58a0'); x.intensity = Math.max(x.intensity, o.hemi ?? 0.3); } });
++  if (sc.fog) sc.fog.color.set(o.fog ?? '#3a3462');
++  return n;
++}
++
++// đoạn 19 · toàn cảnh trên cao lúc chạng vạng: thành phố trắng (bộ s43 'night' — đèn điện khắp nơi, cửa sổ lạnh) dưới trời chạng vạng muộn,
++// HAI đốm hổ phách = hai ngọn đèn khí cạnh nhau trên một phố gần giữa khung (chọn hai cặp chấm đèn kề nhau 8–30 m, thấy được từ máy: tia không vướng nhà).
++// Ô cửa hổ phách nhà Cas của s43 trả về lạnh để khung chỉ có đúng hai đốm ấm. Máy đẩy rất chậm về hai đốm, 28 → 38 mm.
++const E19D = { id: 'e19d', scene: 'ep01', t0: 0, t1: 254 / 24, size: 'EWS', move: 'đẩy rất chậm', why: 'ep01 19: thành phố trắng, hai đốm hổ phách (chạng vạng)',
++  async build(ctx) {
++    const c = await buildCitySet(ctx, 'night'), sc = c.scene, cam = c.cam; duskify(sc, { sky: 1.15, hemi: 0.8, fog: '#2a2850' });
++    cam.updateMatrixWorld(true); const cam0 = cam.position.clone(), look = new THREE.Vector3(10, 0, -71), fov0 = cam.fov;
++    const spr = []; sc.traverse((o) => { if (o.isSprite) spr.push(o); });
++    // ô cửa nhà Cas: quầng cam → ẩn; ô kính hổ phách → lạnh
++    for (const s of spr) { const k = s.material.color; if (k.r > k.b * 1.3) s.visible = false; }
++    sc.traverse((o) => { if (o.isMesh && o.material && o.material.vertexColors && o.material.type === 'MeshBasicMaterial') { const col = o.geometry.attributes.color;
++      for (let i = 0; i < col.count; i++) if (col.getX(i) > 2 && col.getZ(i) < 0.5) col.setXYZ(i, 0.9, 1.1, 1.9); col.needsUpdate = true; } });
++    // ứng viên: chấm lõi 1,5 m (đèn khí các phố, đã thành trắng)
++    const occ = []; sc.traverse((o) => { if (o.isMesh && o.visible && o.geometry.attributes.position && o.geometry.attributes.position.count > 500) occ.push(o); });
++    const rc = new THREE.Raycaster(), cores = spr.filter((s) => s.visible && Math.abs(s.scale.x - 1.5) < 0.01);
++    let nIn = 0; const vis = (p) => { const n = p.clone().project(cam); if (n.z >= 1 || Math.abs(n.x) > 0.6 || Math.abs(n.y) > 0.55) return null; nIn++; const d = p.distanceTo(cam0); rc.set(cam0, p.clone().sub(cam0).normalize()); rc.far = d - 3.0; return rc.intersectObjects(occ, false).length ? null : n; };
++    const ok = cores.map((s) => [s, vis(s.position)]).filter((x) => x[1]);
++    let best = null;
++    for (let i = 0; i < ok.length; i++) for (let j = i + 1; j < ok.length; j++) { const d = ok[i][0].position.distanceTo(ok[j][0].position); if (d < 8 || d > 30) continue;
++      const m = Math.hypot((ok[i][1].x + ok[j][1].x) / 2 - 0.02, (ok[i][1].y + ok[j][1].y) / 2 + 0.05), sep = Math.hypot(ok[i][1].x - ok[j][1].x, ok[i][1].y - ok[j][1].y);
++      const sc_ = m + (sep < 0.03 ? 1 : 0); if (!best || sc_ < best[0]) best = [sc_, ok[i][0], ok[j][0]]; }
++    // v2 (thử 1): cặp chấm đèn khí xa (z ≈ −230 m) chỉ còn 2–3 px → không đọc được. Nay đặt hai ngọn trên MẶT PHỐ giữa khung bằng tia từ máy:
++    // thử từng cặp điểm khung (u, v) → điểm chạm phải là mặt đất (pháp tuyến hướng lên), hai điểm cách nhau 8–30 m; ngọn đèn cao 3,6 m trên điểm chạm.
++    const amber = []; let tgt = look.clone(), hits = null;
++    const occ2 = []; sc.traverse((o) => { if (o.isMesh && o.visible && !o.isSprite) occ2.push(o); });
++    const hitAt = (u, v) => { rc.setFromCamera(new THREE.Vector2(2 * u - 1, 1 - 2 * v), cam); rc.far = 2000; const h = rc.intersectObjects(occ2, false)[0];
++      if (!h || !h.face) return null; const nW = h.face.normal.clone().transformDirection(h.object.matrixWorld); return nW.y > 0.75 ? h.point.clone() : null; };
++    for (const [a, b] of [[[0.462, 0.575], [0.488, 0.665]], [[0.47, 0.60], [0.49, 0.66]], [[0.46, 0.55], [0.475, 0.60]], [[0.44, 0.62], [0.47, 0.70]], [[0.5, 0.58], [0.52, 0.64]], [[0.42, 0.66], [0.45, 0.74]]]) {
++      const A = hitAt(...a), B = hitAt(...b); if (A && B && A.distanceTo(B) > 12 && A.distanceTo(B) < 34) { hits = [A, B]; break; } }
++    if (hits) { tgt = hits[0].clone().add(hits[1]).multiplyScalar(0.5);
++      for (const h of hits) { const q = h.clone().add(new THREE.Vector3(0, 3.6, 0)); for (const o of spr) if (o.visible && o.position.distanceTo(q) < 6) o.visible = false;
++        const a = glowSprite('#ffb45e', 2.6, 3.4), b = glowSprite('#ff9a48', 0.5, 16); a.material.depthTest = false; b.material.depthTest = false; a.position.copy(q); b.position.copy(q); sc.add(a, b);
++        const L = new THREE.PointLight('#ffae5c', 0, 18, 1.4); L.position.copy(q); sc.add(L); amber.push([a, b, L]); }
++      console.log('E19D hai đốm (mặt phố)', JSON.stringify(hits), 'cách', hits[0].distanceTo(hits[1]).toFixed(1), 'máy', cam0.distanceTo(tgt).toFixed(1)); }
++    else if (best) { tgt = best[1].position.clone().add(best[2].position).multiplyScalar(0.5);
++      for (const s of [best[1], best[2]]) { for (const o of spr) if (o.position.distanceTo(s.position) < 0.05) o.visible = false;
++        const a = glowSprite('#ffb45e', 2.6, 2.6), b = glowSprite('#ff9a48', 0.5, 14); a.position.copy(s.position); b.position.copy(s.position); sc.add(a, b); amber.push([a, b, null]); }
++      console.log('E19D hai đốm (cặp chấm đèn)', JSON.stringify(best[1].position), JSON.stringify(best[2].position)); }
++    else console.log('E19D: KHÔNG tìm được chỗ đặt hai đốm');
++    const dur = 254 / 24;
++    return { ...c, named: {}, exposure: 1.05,
++      update(t, T, f) { c.update(Math.min(4, t * 4 / dur), T);
++        const u = ss(t / dur), d0 = cam0.distanceTo(tgt), zoom = 1 + (38 / 28 - 1) * u;
++        cam.position.copy(cam0).lerp(tgt, 8 / d0 * u); cam.lookAt(look.clone().lerp(tgt, 0.45 * u));
++        cam.fov = 2 * Math.atan(Math.tan(fov0 * Math.PI / 360) / zoom) * 180 / Math.PI; cam.updateProjectionMatrix(); cam.updateMatrixWorld(true);
++        amber.forEach(([a, b, L], k) => { const fl = flickAt(f + 37 * k); a.material.color.set('#ffb45e').multiplyScalar(3.0 * fl); b.material.color.set('#ff9a48').multiplyScalar(0.5 * (0.5 + 0.5 * fl)); if (L) L.intensity = 60 * fl; }); } };
++  } };
++
++// STORY-2 · đoạn 01: shot phố KHÔNG nhân vật (rút khung có nhân vật, giờ máy). Bộ phố chạng vạng (sky 'dusk' như s02–s05), đèn khí lit(i) đã thắp,
++// cột điện chưa bật; sương mũ hai theo độ sâu, hạt bụi ở các ngọn đang cháy trong dust[], quầng thở flickAt(f). Máy: p0→p1, nhìn l0→l1, smootherstep.
++const streetShot = (id, o) => ({ id, scene: 'ep01', t0: 0, t1: o.dur, size: o.size || 'WS', move: 'máy chậm', why: 'ep01 01 không nhân vật: ' + o.why,
++  async build() {
++    const st = buildStreetSet({ sky: o.sky || 'dusk', x0: o.x0 ?? 60, x1: o.x1 ?? 160, shadowLamps: o.shadow || [4], fog: o.fog || [30, 220] }), sc = st.scene;
++    sc.fog = new THREE.FogExp2('#4a4068', o.fogK ?? 0.012); if (o.sky === 'night') duskify(sc, { fog: '#3e3866' });   // trời vẽ chạng vạng (painted) nhìn về −x lộ các tấm mù hình chữ nhật → dùng trời chạng vạng muộn của đoạn 19
++    const dusts = (o.dust || []).map((i, k) => dustAt(sc, new THREE.Vector3(LAMP_X(i), 3.6, LAMP_Z + 0.2), 300, 31 + 26 * k));
++    const cam = new THREE.PerspectiveCamera(fovOf(o.mm || 32), 16 / 9, 0.1, 1000), k = o.cam;
++    return { scene: sc, cam, named: {}, exposure: o.exposure ?? 2.0,
++      update(t, T, f) { st.setState({ gas: (i) => (o.lit(i) ? 1 : 0), post: () => 0, square: 0, clock: 0, whiteFill: 0 }, f);
++        const u = ss(t / o.dur); cam.position.lerpVectors(V(k.p0), V(k.p1), u); cam.lookAt(V(k.l0).lerp(V(k.l1), u)); cam.updateMatrixWorld(true);
++        dusts.forEach((d) => d(t)); } };
++  } });
++const LIT3 = (i) => i <= 3, LIT4 = (i) => i <= 4;
++const E01_NOCHAR = [
++  // (dự phòng, không dùng trong bản cắt) · "for more than a century, someone in a city like this walked out at dusk": cao từ bên kia phố, cẩu hạ chậm; L1–L3 đã cháy, L4 còn tối (chỗ bà sắp tới)
++  streetShot('e01n1', { dur: 114 / 24, lit: LIT3, dust: [3], mm: 30, why: 'phố chạng vạng, đèn đã thắp nối về quảng trường',
++    cam: { p0: [117.5, 7.2, 8.2], p1: [115.8, 6.0, 7.2], l0: [110.0, 2.8, -4.0], l1: [109.0, 2.5, -4.0] } }),
++  // thay e01e (s05 bọc, 24–31 s) · "But her job was real. This channel is about jobs like hers": ngọn L4 vừa thắp, cỡ trung, bụi trong quầng; máy trôi ngang chậm (thị sai: cột, mặt tiền, phố sâu)
++  streetShot('e01n2', { dur: 7.0, lit: LIT4, dust: [4], mm: 40, size: 'MS', why: 'ngọn đèn vừa thắp — nghề có thật',
++    cam: { p0: [102.6, 2.6, 0.2], p1: [103.6, 2.75, -0.3], l0: [106.0, 3.55, -3.9], l1: [106.0, 3.6, -3.9] } }),
++  // thay e01f (s24 bọc, 31–36 s) · "the work people do, and what happens to it when machines learn to do it": ngang mắt nhìn lên phố — hàng đèn khí cháy lùi về quảng trường, cột điện CHƯA bật đứng tiền cảnh phải
++  streetShot('e01n3', { dur: 5.0, lit: LIT4, dust: [4], mm: 30, x1: 200, fog: [30, 260], why: 'hàng đèn khí và cột điện chưa bật',
++    cam: { p0: [97.0, 1.55, 2.6], p1: [98.6, 1.65, 2.3], l0: [150.0, 3.2, -1.2], l1: [150.0, 3.3, -1.6] } }),
++  // thay e01g (s43 đêm trắng, 36–41,33 s) · "Tonight, she starts with her own.": từ ngọn L4 nhìn xuôi phố về nhà kho, các đèn phía trước còn tối — vòng của bà đang chờ
++  streetShot('e01n4', { dur: 128 / 24, lit: LIT4, dust: [4], mm: 30, x0: 24, x1: 130, fog: [30, 200], fogK: 0.008, sky: 'night', exposure: 2.2, why: 'phố phía trước chưa thắp',
++    cam: { p0: [110.5, 1.7, 1.6], p1: [108.6, 1.8, 1.0], l0: [60.0, 2.6, -2.0], l1: [60.0, 2.8, -2.4] } }),
++];
++
++export const EP01_SHOTS = [...Object.entries(EP01_CFG).map(([id, cfg]) => wrap(id, cfg)), E19C, E19D, ...E01_NOCHAR];
+diff --git a/design/m3/ep01/story/the_ket.py b/design/m3/ep01/story/the_ket.py
+new file mode 100644
+index 0000000..203323d
+--- /dev/null
++++ b/design/m3/ep01/story/the_ket.py
+@@ -0,0 +1,103 @@
++"""Cine Lab · ep01 STORY — thẻ kết đoạn 19 (6 s = 144 khung), ghi thẳng H.264 crf 8 yuv444p.
++Kịch bản v3.1 §3 đoạn 19: hai dòng ngắt có chủ ý, căn giữa, dòng dài nhất ≤ 80 % rộng, trong vùng an toàn 90 %; dòng nhỏ dưới; tương phản ≥ 4,5:1.
++Nền: trời chạng vạng muộn (cùng dải màu cảnh 19), giấy hạt B3 đổi mỗi khung, quầng hổ phách thở ±4 % ở đáy (ngọn đèn), hạt bụi bay lên trong quầng.
++Chuyển động: chữ hiện dần 0–0,9 s và trôi lên 10 px + phóng 1,000 → 1,012 suốt 6 s (điểm ảnh con, nội suy bicubic); 6 khung cuối mờ về nền tối (không tới đen tuyệt đối).
++Font: DejaVu Serif Bold (M2-F-DejaVuSerif-Bold), DejaVu Sans (C4-F1).
++python the_ket.py <ra.mkv> [--png <khung.png> <chỉ số khung>]  → in JSON số đo (bề rộng dòng, vùng an toàn, tương phản)."""
++import json, math, subprocess, sys
++import numpy as np
++from PIL import Image, ImageDraw, ImageFont
++
++W, H, N = 1920, 1080, 144
++L1, L2 = 'Who are the last lamplighters', 'of our time?'
++SUB = 'Last Lamplighters · Every era has its last lamplighters.'
++FT = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', 80)
++FS = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 32)
++TXT, SUBC = (242, 232, 213), (200, 190, 176)
++
++def lum(c):
++    c = [x / 255 for x in c]; c = [x / 12.92 if x <= 0.04045 else ((x + 0.055) / 1.055) ** 2.4 for x in c]
++    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
++
++def contrast(a, b):
++    la, lb = sorted([lum(a), lum(b)], reverse=True); return (la + 0.05) / (lb + 0.05)
++
++# nền tĩnh (gradient + quầng tĩnh tính một lần), hạt và quầng thở tính mỗi khung
++yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
++top, mid, bot = np.array([15, 20, 54], np.float32), np.array([30, 30, 66], np.float32), np.array([52, 40, 72], np.float32)
++v = (yy / H)[..., None]
++base = np.where(v < 0.6, top + (mid - top) * (v / 0.6), mid + (bot - mid) * ((v - 0.6) / 0.4))
++vig = 1 - 0.28 * (((xx - W / 2) / (W / 2)) ** 2 + ((yy - H / 2) / (H / 2)) ** 2)[..., None] * 0.5
++base = base * vig
++glow_c = np.array([255, 170, 90], np.float32)
++gd = np.sqrt(((xx - W / 2) / 700) ** 2 + ((yy - (H + 120)) / 420) ** 2)
++glow = np.exp(-gd ** 2 * 2.2)[..., None]
++
++# lớp chữ, vẽ một lần ở 2× rồi biến hình mỗi khung
++S = 2
++def text_layer():
++    im = Image.new('L', (W * S, H * S), 0); d = ImageDraw.Draw(im)
++    ft = ImageFont.truetype(FT.path, FT.size * S); fs = ImageFont.truetype(FS.path, FS.size * S)
++    b1, b2, bs = d.textbbox((0, 0), L1, font=ft), d.textbbox((0, 0), L2, font=ft), d.textbbox((0, 0), SUB, font=fs)
++    lh = int(FT.size * S * 1.15)
++    y1 = H * S // 2 - lh - 30 * S
++    d.text(((W * S - (b1[2] - b1[0])) // 2 - b1[0], y1), L1, font=ft, fill=255)
++    d.text(((W * S - (b2[2] - b2[0])) // 2 - b2[0], y1 + lh), L2, font=ft, fill=255)
++    sub = Image.new('L', (W * S, H * S), 0); ds = ImageDraw.Draw(sub)
++    ys = y1 + 2 * lh + 70 * S
++    ds.text(((W * S - (bs[2] - bs[0])) // 2 - bs[0], ys), SUB, font=fs, fill=255)
++    meas = {'dong1_px': (b1[2] - b1[0]) / S, 'dong2_px': (b2[2] - b2[0]) / S, 'dong_nho_px': (bs[2] - bs[0]) / S,
++            'ty_le_dong_dai_nhat': round((b1[2] - b1[0]) / S / W, 3), 'y_tren': y1 / S, 'y_duoi': (ys + bs[3]) / S}
++    return im, sub, meas
++
++def warp(im, k, dy):
++    # phóng k quanh tâm khung + dịch dy (px ảnh ra); ảnh nguồn 2×; nội suy bicubic → điểm ảnh con
++    a = S / k; c = W * S / 2 - a * W / 2; f = H * S / 2 - a * (H / 2 + dy)
++    return np.asarray(im.transform((W, H), Image.AFFINE, (a, 0, c, 0, a, f), resample=Image.BICUBIC), np.float32) / 255
++
++ss = lambda u: (lambda u: u * u * u * (u * (u * 6 - 15) + 10))(min(1, max(0, u)))
++
++def frame(i, tl, sl, rng):
++    t = i / 24
++    fl = 1 + 0.04 * (0.6 * math.sin(i * 0.21) + 0.4 * math.sin(i * 0.083 + 1.3))
++    img = base + glow * glow_c * 0.30 * fl
++    # hạt bụi trong quầng (hạt bay lên chậm, mỗi hạt một pha)
++    for p in DUST:
++        x = p[0] + 14 * math.sin(p[3] * t + p[4]); y = p[1] - p[2] * t
++        r2 = ((x - W / 2) / 700) ** 2 + ((y - (H + 120)) / 420) ** 2
++        a = 0.9 * math.exp(-r2 * 2.2) * p[5]
++        x0, y0 = int(x), int(y)
++        if 1 <= x0 < W - 2 and 1 <= y0 < H - 2 and a > 0.02:
++            fx, fy = x - x0, y - y0
++            for dx, dy_, w in ((0, 0, (1 - fx) * (1 - fy)), (1, 0, fx * (1 - fy)), (0, 1, (1 - fx) * fy), (1, 1, fx * fy)):
++                img[y0 + dy_, x0 + dx] += np.array([255, 214, 160], np.float32) * a * w
++    k = 1 + 0.012 * ss(t / 6); dy = -10 * ss(t / 6)
++    at = ss(t / 0.9); asub = ss((t - 0.5) / 0.9)
++    m1 = warp(tl, k, dy)[..., None] * at; m2 = warp(sl, k, dy)[..., None] * asub
++    img = img * (1 - m1) + np.array(TXT, np.float32) * m1
++    img = img * (1 - m2) + np.array(SUBC, np.float32) * m2
++    img = img + rng.normal(0, 2.2, (H, W, 1)).astype(np.float32)   # hạt giấy, mới mỗi khung
++    if i >= N - 6: img = img * (1 - 0.8 * ((i - (N - 7)) / 6))     # mờ về nền tối, khung cuối còn 20 %
++    return np.clip(img, 0, 255).astype(np.uint8)
++
++R0 = np.random.default_rng(19)
++DUST = [(W / 2 + R0.normal(0, 420), H - R0.uniform(-40, 380), R0.uniform(6, 18), R0.uniform(0.2, 0.6), R0.uniform(0, 6.28), R0.uniform(0.3, 1)) for _ in range(140)]
++
++if __name__ == '__main__':
++    out = sys.argv[1]
++    tl, sl, meas = text_layer()
++    meas['vung_an_toan_90'] = {'x': [96, 1824], 'y': [54, 1026]}
++    meas['trong_vung_an_toan'] = (W - meas['dong1_px']) / 2 >= 96 and meas['y_tren'] >= 54 and meas['y_duoi'] <= 1026
++    rng = np.random.default_rng(7)
++    if '--png' in sys.argv:
++        i = int(sys.argv[sys.argv.index('--png') + 2]); Image.fromarray(frame(i, tl, sl, rng)).save(sys.argv[sys.argv.index('--png') + 1])
++    else:
++        ff = subprocess.Popen(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-framerate', '24', '-i', '-',
++                               '-vf', 'format=yuv444p', '-c:v', 'libx264', '-preset', 'medium', '-crf', '8', '-g', '48', out], stdin=subprocess.PIPE)
++        for i in range(N): ff.stdin.write(frame(i, tl, sl, rng).tobytes())
++        ff.stdin.close(); ff.wait()
++    # tương phản lý thuyết: chữ trên màu nền sáng nhất sau chữ (nền + quầng tối đa tại vùng chữ)
++    bgmax = tuple(int(x) for x in (base[int(meas['y_duoi']) - 5, W // 2] + glow[int(meas['y_duoi']) - 5, W // 2] * glow_c * 0.30 * 1.04))
++    meas['nen_sang_nhat_sau_dong_nho'] = bgmax
++    meas['tuong_phan_dong_lon'] = round(contrast(TXT, bgmax), 2); meas['tuong_phan_dong_nho'] = round(contrast(SUBC, bgmax), 2)
++    print(json.dumps(meas, ensure_ascii=False))
+diff --git a/design/m3/lat-cat/story_shot.js b/design/m3/lat-cat/story_shot.js
+index 9c23c4b..084c29f 100644
+--- a/design/m3/lat-cat/story_shot.js
++++ b/design/m3/lat-cat/story_shot.js
+@@ -3,13 +3,14 @@
+ // Bộ phố đêm Last Round (buildStreetSet), cuối phố Ostler: ngọn đèn khí của Ida (L10) cháy ở TIỀN CẢNH, mọi ngọn khác tắt.
+ // Máy nâng chậm (crane up, easing) để lộ khối văn phòng cửa sổ trắng lạnh ở HẬU CẢNH, sau cuối phố.
+ // Chiều sâu (cờ của shot, mặc định bật; dbg.br10 = { fog:0, dust:0, halo:0 } để tắt từng phần):
+-//  - ≥ 3 lớp parallax: (1) cột đèn L10 + quầng ở 8 m; (2) hai dãy mặt tiền phố 6–26 m; (3) khối văn phòng 70 m + trời.
++//  - ≥ 3 lớp parallax: (1) cột đèn L10 + quầng ở 8 m; (2) hai dãy mặt tiền phố 6–26 m; (3) ba khối văn phòng 70 / 100 / 150 m + trời (ep01 v2).
+ //  - sương theo độ sâu: THREE.Fog sáng hơn (10–95 m) + lớp sương trôi 2D ở bộ ghép.
+ //  - quầng đèn rung nhẹ: biên độ ≈ 3 % (tổng hai sin 0,55 Hz + 1,3 Hz), không nhảy bậc.
+ //  - hạt bụi/sương trôi trong vùng sáng của L10 (Points, vị trí là hàm liên tục của t → tất định).
+ import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
+ import { buildStreetSet, LAMP_X } from '/cong5/layout/sets.js';
+ import { ease, fovOf } from '/cong5/layout/util.js';
++import { buildOffices } from '/m3/ep01/story/office.js';
+ 
+ export const BR = {
+   lamp: 10, t1: 7.5,
+@@ -38,15 +39,12 @@ export const BR10_SHOT = { id: 'br10', scene: 10, t0: 0, t1: BR.t1, size: 'WS',
+     const st = buildStreetSet({ sky: 'night', x0: 4, x1: 46, shadowLamps: [BR.lamp], fog: [30, 150] });
+     const sc = st.scene;
+     // (3) hậu cảnh: khối văn phòng, mặt quay về +x (về phía máy), cửa sổ trắng lạnh
+-    const O = BR.office, ot = officeTex();
+-    const face = new THREE.Mesh(new THREE.PlaneGeometry(O.w, O.h), new THREE.MeshBasicMaterial({ map: ot, color: new THREE.Color('#ffffff').multiplyScalar(1.1), fog: true }));
+-    face.position.set(O.x, O.h / 2, 0); face.rotation.y = Math.PI / 2; sc.add(face);
+-    const body = new THREE.Mesh(new THREE.BoxGeometry(O.d, O.h, O.w), new THREE.MeshLambertMaterial({ color: '#1c1e27' })); body.position.set(O.x - O.d / 2 - 0.01, O.h / 2, 0); sc.add(body);
+-    const spill = new THREE.PointLight('#e3eaff', 30, 40, 1.4); spill.position.set(O.x + 6, 16, 0); sc.add(spill);   // ánh điện hắt nhẹ lên đầu hồi xa
++    // (3) hậu cảnh v2 (ep01, chủ dự án 01/10/2026): ba khối văn phòng ở ba độ sâu, cửa sổ không đều, vài ô bật/tắt chậm (design/m3/ep01/story/office.js)
++    const OFF = buildOffices(sc);
+     // sương theo độ sâu: tấm dọc vuông góc trục nhìn, xa hơn → đặc hơn
+     // sương theo độ sâu (cờ fog): sương tuyến tính sáng hơn bộ phố gốc → tiền cảnh rõ, mặt tiền mờ dần, khối văn phòng chìm ≈ 40 %.
+     // (Tấm sương 3D thử trước bị lớp B3 vẽ thành sọc ngang → bỏ; lớp sương trôi 2D đặt ở bộ ghép, design/m3/lat-cat/dohoa.html.)
+-    if (F.fog) sc.fog = new THREE.Fog('#323a5c', 10, 140);
++    if (F.fog) sc.fog = new THREE.FogExp2('#323a5c', 0.008);   // ep01: sương mũ hai theo độ sâu — mặt tiền 26 m ≈ 4 %, khối A 68 m ≈ 26 %, B 108 m ≈ 53 %, C 162 m ≈ 81 %
+     const hazes = [];
+     // hạt bụi/sương trong vùng sáng của L10
+     const L = st.lamps[BR.lamp - 1]; const fp = L.fp.clone();
+@@ -61,13 +59,14 @@ export const BR10_SHOT = { id: 'br10', scene: 10, t0: 0, t1: BR.t1, size: 'WS',
+       pts = new THREE.Points(g, new THREE.PointsMaterial({ size: 0.035, map: dt, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, color: new THREE.Color('#ffd49a').multiplyScalar(1.6), sizeAttenuation: true, fog: false }));
+       pts.userData.noG = 1; pts.frustumCulled = false; sc.add(pts);
+     }
+-    const cam = new THREE.PerspectiveCamera(fovOf(35), ctx.W / ctx.H, 0.1, 400);
++    const cam = new THREE.PerspectiveCamera(fovOf(35), ctx.W / ctx.H, 0.1, 1000);   // ep01: far 400 cắt vòm trời (r = 400) thành vòm đen khi hậu cảnh thấp
+     const p0 = new THREE.Vector3(...BR.cam0.pos), p1 = new THREE.Vector3(...BR.cam1.pos), l0 = new THREE.Vector3(...BR.cam0.look), l1 = new THREE.Vector3(...BR.cam1.look);
+     const pp = new THREE.Vector3(), ll = new THREE.Vector3(), v = new THREE.Vector3();
+     const gc0 = L.gc.material.color.clone(), gw0 = L.gw.material.color.clone();
+     return { scene: sc, cam, named: {}, exposure: 1.15,
+       update(t, T, f) {
+         st.setState({ gas: (i) => (i === BR.lamp ? 1 : 0), post: () => 0, square: 0, clock: 0, whiteFill: 0.0 }, f);
++        OFF.update(t);
+         // máy: nâng chậm, easing hai đầu (smootherstep), toạ độ liên tục
+         const u0 = Math.max(0, Math.min(1, t / BR.t1)), u = u0 * u0 * u0 * (u0 * (u0 * 6 - 15) + 10);
+         pp.lerpVectors(p0, p1, u); ll.lerpVectors(l0, l1, ease(Math.min(1, u0 * 1.05)));
+diff --git a/design/m3/thu-phong-cach/style.js b/design/m3/thu-phong-cach/style.js
+index eeaef2e..be8a24a 100644
+--- a/design/m3/thu-phong-cach/style.js
++++ b/design/m3/thu-phong-cach/style.js
+@@ -10,7 +10,8 @@ import { LAMP_SHOT } from './lamp_shot.js';
+ import { installB3v2 } from './style_v2.js';
+ import { BR10_SHOT } from '../lat-cat/story_shot.js';   // M2.2a lát cắt: shot cảnh truyện G0 (chỉ chạy khi gọi --shot br10)
+ 
+-export const EXTRA = [LAMP_SHOT, BR10_SHOT];
++import { EP01_SHOTS } from '../ep01/story/shots.js';   // ep01 STORY (đoạn 01, tấm nền 03, 04, 19)
++export const EXTRA = [LAMP_SHOT, BR10_SHOT, ...EP01_SHOTS];
+ export const extraShot = (id) => EXTRA.find((s) => s.id === id) || null;
+ 
+ // B3: đổi cỡ cảnh/máy để tránh cận mặt (lý do ghi trong reports/m3/THU-PHONG-CACH.md).
+diff --git a/design/m3/thu-phong-cach/style_v2.js b/design/m3/thu-phong-cach/style_v2.js
+index 32b2037..569594d 100644
+--- a/design/m3/thu-phong-cach/style_v2.js
++++ b/design/m3/thu-phong-cach/style_v2.js
+@@ -15,7 +15,7 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
+   const gRT = new THREE.WebGLRenderTarget(W * GS, H * GS, { ...C.fOpt, depthBuffer: true });
+   const gM = [gMaterial(0), gMaterial(1), gMaterial(2)];
+   const hA = C.rt(W / 2, H / 2), hB = C.rt(W / 2, H / 2), qA = C.rt(W / 8, H / 8), qB = C.rt(W / 8, H / 8), outRT = C.rt(W, H);
+-  const P = Object.assign({ step: 0.55, soft: V3 ? 0.32 : 0.24, dith: V3 ? 0.4 : 0.28, flatK: 0.55, sat: 0.85, shK: 0.45, shLen: 9.0, edgeK: 0.25, papK: 0.07, eLo: -2.2, eHi: 0.6, rimK: 1.0, formK: 0.03 }, dbg.b3 || {});
++  const P = Object.assign({ step: 0.55, soft: V3 ? 0.32 : 0.24, dith: V3 ? 0.4 : 0.28, flatK: 0.55, sat: 0.85, shK: 0.45, shLen: 9.0, edgeK: 0.25, papK: 0.07, eLo: -2.2, eHi: 0.6, rimK: 1.0, formK: 0.03, rimAll: 0, rimPx: 2.75 }, dbg.b3 || {});
+   const down = C.mk(`uniform sampler2D tSrc; uniform vec2 px; void main(){ vec3 s = vec3(0.0);
+       for (int j=-1;j<=1;j++) for (int i=-1;i<=1;i++) s += texture(tSrc, vUv + vec2(i,j)*px).rgb; o = vec4(s/9.0, 1.0); }`,
+     { tSrc: { value: null }, px: { value: new THREE.Vector2() } });
+@@ -89,12 +89,21 @@ export function installB3v2(o, { common, gMaterial, B3_CAM, HDR }) {
+         vec3 ink = vec3(0.0105, 0.0085, 0.0135) / uExp;
+         vec3 sil = mix(ink, (big / Lg) * Lg * 1.4 * tint, clamp(rimK * rim * env, 0.0, 1.0));
+ ` + FS3.slice(a1);
++    // (4) ep01 (CHUAN-KENH-LL §5.3, lỗi bóng s03/s05 chìm vào tường): viền sáng quanh TOÀN BỘ bóng, dày rimPx điểm ảnh ảnh đầy
++    //     (không nhân S), sáng hơn nền quanh mép ít nhất một bậc (×2 = 1 stop > bậc 0,55 stop), sàn tối thiểu 0,07 tuyến tính. rimAll = 0 → tắt (0 px).
++    rep('uniform float step_, soft,', 'uniform float rimAll, rimPx; uniform float step_, soft,');
++    rep('        c = mix(c, sil, clamp(ch, 0.0, 1.0));', `        if (rimAll > 0.0) { float mc = 1.0;
++          for (int i = 0; i < 12; i++) { float a = float(i) * 0.5236; mc = min(mc, texture(tG, vUv + vec2(cos(a), sin(a)) * rimPx * px).g); }
++          float edgeC = 1.0 - smoothstep(0.2, 0.8, mc);
++          vec3 rimA = (big / Lg) * max(Lg * 2.0, 0.07 / uExp) * mix(vec3(1.0), tint, 0.5);
++          sil = mix(sil, rimA, rimAll * edgeC); }
++        c = mix(c, sil, clamp(ch, 0.0, 1.0));`);
+     // (3) chống phân dải: dither mạnh hơn + hạt tĩnh nhân (giấy) — cố định theo điểm ảnh, không nhấp nháy
+     rep('o = vec4(max(c, 0.0), 1.0); }', 'c *= 1.0 + 0.035 * (h21(gl_FragCoord.xy * 0.913 + 5.0) + h21(gl_FragCoord.xy * 1.71 + 29.0) - 1.0);\n      o = vec4(max(c, 0.0), 1.0); }');
+   }
+   const sty = C.mk(FS3,
+     { tSrc: { value: null }, tBlur: { value: hA.texture }, tBig: { value: qA.texture }, tG: { value: gRT.texture }, px: { value: new THREE.Vector2(1 / W, 1 / H) }, camOff: { value: new THREE.Vector2() },
+-      S: { value: S }, fpx: { value: 0 }, uExp: { value: 1 }, ...Object.fromEntries(['step', 'soft', 'dith', 'flatK', 'sat', 'shK', 'shLen', 'edgeK', 'papK', 'eLo', 'eHi', 'rimK', 'formK'].map((k) => [k === 'step' ? 'step_' : k, { value: P[k] }])) });
++      S: { value: S }, fpx: { value: 0 }, uExp: { value: 1 }, ...Object.fromEntries(['step', 'soft', 'dith', 'flatK', 'sat', 'shK', 'shLen', 'edgeK', 'papK', 'eLo', 'eHi', 'rimK', 'formK', 'rimAll', 'rimPx'].map((k) => [k === 'step' ? 'step_' : k, { value: P[k] }])) });
+   // v3: nhoè rộng có mặt nạ (chuẩn hoá theo trọng số: rgb·w, a = w; w = 1 − mặt nạ nhân vật)
+   const mA = C.rt(W / 2, H / 2);
+   const downM = C.mk(`uniform sampler2D tSrc, tG; uniform vec2 px; void main(){ vec3 s = vec3(0.0); float ws = 0.0;
