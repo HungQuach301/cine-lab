@@ -113,3 +113,16 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
 ### 6.4 Đo chất lượng
 - **Judder đo trên master hoặc trung gian**, không đo trên bản nén. Đo lại trên 3 phần bản xem để đối chiếu; lệch thì nêu tên đoạn.
 - **Loudness đo trên tệp cuối có tiếng.**
+
+## 7. Chính sách 3 cổng (chủ dự án duyệt 04/10/2026)
+- P chỉ **dừng chờ chủ dự án** ở 3 cổng:
+  - **G1:** duyệt đề tài và kịch bản;
+  - **G2:** duyệt bản dựng cuối (và chọn tiêu đề/thumbnail);
+  - **G3:** bấm phát hành.
+- Mọi việc khác P tự làm theo chuẩn kênh này, ghi AUTHORSHIP với ghi chú "theo chính sách 3 cổng".
+- **Ngoại lệ, phải dừng hỏi:**
+  - vượt trần token của mốc quá 25 %;
+  - đổi nội dung kịch bản đã duyệt;
+  - nguồn số không xác minh được;
+  - rủi ro pháp lý hoặc bản quyền.
+- **Nguồn số:** không dùng Wikipedia hay trang tổng hợp làm nguồn chính cho số trên hình; nguồn chính là sách, báo cáo hoặc bài học thuật đọc được toàn văn, ghi trang.
