@@ -92,3 +92,17 @@ Nguồn: `reports/m3/YEU-CAU-K-NHAP.md`. Bảy mục:
 
 **Đề xuất cho K:** mỗi số trên hình hoặc trong lời dẫn phải có ít nhất một nguồn chính là sách, báo cáo, bài học thuật hoặc văn bản gốc đọc được toàn văn, có ghi trang. Wikipedia, trang tổng hợp hoặc blog chỉ được dùng để dẫn đường. K quyết cách kiểm (danh sách nguồn có trường `loai_nguon` và `trang`).
 
+
+### 8. Bộ kiểm nhà máy `scripts/ll/qc.sh` — đề nghị K xét khoá thành luật (thêm 04/10/2026, Mốc B)
+**Hiện trạng:** P viết bộ kiểm một lệnh cho các tập dựng bằng thư viện `scripts/ll/lib/` (báo cáo `reports/m3/MOC-B-NHA-MAY.md` §3). Đây là luật làm việc của P, **không** nằm trong `checks/`, P không sửa `checks/`. Mục kiểm và ngưỡng ghi ở đầu `scripts/ll/qc.py`:
+- Q1 judder 2–12 khung (framemd5) = 0; Q2 khung gần trùng kẹp giữa chuyển động (|chênh| ≤ 0,1 mức xám, trung vị 6 khung hai bên > 0,5) = 0;
+- Q3 máy xuyên hình học: log khoảng cách máy–lớp gần của cảnh 2.5D ≤ 0,05 → lỗi; khung có > 85 % ô 16×16 phẳng ngoài vùng mờ (trừ thẻ kết) → nghi;
+- Q4 −14 ± 1 LUFS, TP ≤ −1 dBTP (master, Shorts; 3 phần bản xem ±2 LU để đối chiếu);
+- Q5 tương phản ≥ 4,5:1 **đo trên điểm ảnh thật** (nền = trung vị viền hộp chữ; chữ = phân vị 5 %/95 % trong hộp) ở mỗi 12 khung; Q6 chữ hoa ≥ 18 px (16:9) / 30 px (9:16) ở mọi khung mẫu, kể cả khi tấm giấy thu nhỏ;
+- Q7 shot có số dự báo phải hiện chữ PROJECTION, có số thực tế phải hiện ACTUAL; Q8 nguồn đọc toàn văn, không Wikipedia/Wikimedia làm nguồn chính, số trên hình có cụm đọc trong lời đoạn;
+- Q9 số khung trung gian = timeline, master = tổng; Q10 mỗi phần bản xem ≤ 90 MB, Short ≤ 60 s; Q11 không quá 3 s liền không có nội dung mới khi lời đang nói (cảnh truyện toàn khung miễn).
+
+**Đề nghị K:**
+1. Xét khoá Q1–Q11 (hoặc phần K chọn) vào `checks/` như luật kênh Last Lamplighters cho tập nhà máy; gộp với yêu cầu 2 (Shorts), 3 (judder), 4 (máy xuyên), 7 (nguồn) ở trên.
+2. Xác nhận cách đo Q5 trên điểm ảnh (khác cách đo theo màu khai báo ở tập 1).
+3. Q3 bản ảnh (khung phẳng) là heuristic, có thể báo nhầm với cảnh nền đơn sắc: K chọn ngưỡng hoặc bỏ.

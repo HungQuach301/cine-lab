@@ -34,6 +34,7 @@ Video > 30 MB: đẩy lên nhánh git, không gửi qua giao diện.
     - **Trần token:** B2 thư viện mẫu 400 nghìn · B3 bộ kiểm 150 nghìn · tập 2 tổng ≤ 1,2 triệu (tập 1: 2,16 triệu).
     - **Bước:** B1 ghi chính sách → B2 `scripts/ll/lib/` + `build.sh` (một `episode.yaml` → render + mix + ghép) → B3 `scripts/ll/qc.sh` (bảng ĐẠT/TRƯỢT, gửi K qua `checks-appeal.md`) → B4 tập 2: kịch bản v1 + `episode.yaml` → **DỪNG G1** → sản xuất bằng thư viện (thử Sonnet vs Opus một đoạn đồ hoạ) → bản xem 720p 3 phần ≤ 90 MB, master Git LFS trên `release-ll-ep02-v1` → **DỪNG G2**.
     - Báo cáo: `reports/m3/MOC-B-NHA-MAY.md` (B1–B3), `reports/m3/TAP2-G1.md`, báo cáo G2 tập 2.
+    - **04/10/2026: B1–B3 XONG** (`reports/m3/MOC-B-NHA-MAY.md`; thư viện `scripts/ll/`, demo qc 18/18 ĐẠT; token B1–B3 ≈ 0,25 triệu / 0,55; gửi K mục 8). **B4: kịch bản v1 tập 2 "Hello, Central" — DỪNG ở G1** (`reports/m3/TAP2-G1.md`): chờ duyệt đề tài/kịch bản, chọn tiêu đề (đề xuất C), quyết thời lượng ≈ 5:50 (A giữ / B tra thêm nguồn).
 Hạn mức: chủ dự án chọn **giữ tốc độ**; vẫn ghi token từng gói.
 
 ## Việc cho Cổng 6 — theo quyết định "Cửa mặt Ida (đóng)" 29/09/2026 (chỉ ghi, chưa làm)
