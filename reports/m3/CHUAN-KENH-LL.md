@@ -126,3 +126,11 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
   - nguồn số không xác minh được;
   - rủi ro pháp lý hoặc bản quyền.
 - **Nguồn số:** không dùng Wikipedia hay trang tổng hợp làm nguồn chính cho số trên hình; nguồn chính là sách, báo cáo hoặc bài học thuật đọc được toàn văn, ghi trang.
+- **Nhắc lại và mở rộng (chủ dự án, 04/10/2026, mở Mốc B):** chính sách 3 cổng áp cho **mọi tập từ tập 2** và cho Mốc B (đóng gói nhà máy). Bốn ngoại lệ phải hỏi giữ nguyên như trên (trần token mốc > 25 %; đổi kịch bản đã duyệt; nguồn số không xác minh được; rủi ro pháp lý/bản quyền).
+
+## 8. Nguyên tắc tốc độ (chủ dự án, 04/10/2026)
+- **Không cần quá hoàn hảo.** Chấp nhận sai sót nhỏ; không làm thêm vòng sửa không cần thiết.
+- **Ưu tiên tốc độ và tiết kiệm token.** Một vòng sửa chỉ mở khi `scripts/ll/qc.sh` báo TRƯỢT một mục chuẩn kênh, hoặc khi lỗi làm sai nội dung (số, nguồn, nghĩa).
+- Lỗi nhỏ không chặn: ghi "hàng chờ" trong báo cáo, sửa gộp vào lần chạm tiếp theo của mẫu.
+- Mỗi báo cáo mốc ghi **token thực** và so với trần của mốc.
+- **Nhà máy (Mốc B):** mỗi tập mới dựng bằng thư viện mẫu `scripts/ll/lib/` từ một tệp `episode.yaml`, một lệnh `scripts/ll/build.sh`; kiểm bằng một lệnh `scripts/ll/qc.sh` (bảng ĐẠT/TRƯỢT). Luật của `qc.sh` là luật làm việc của P; luật khoá vẫn do K giữ trong `checks/` (gửi qua `checks-appeal.md`).
