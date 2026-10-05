@@ -257,7 +257,7 @@ shorts:
       - {tpl: text, at: "@everyone-0.3", in: slide, p: {lines: [{s: "everyone expected tellers", px: 56, at: "@everyone"}, {s: "to disappear", px: 56, at: "@disappear"}, {s: "they did not", px: 64, at: "@did"}], src: [BES15]}}
       - {tpl: bars, at: "@economist-0.3", in: slide, p: {title: "Tellers per urban branch", beats: [{s: "economist James Bessen", at: "@economist"}, {s: "1988 → 2004", at: "@1988"}, {s: "an average urban branch", at: "@average"}], unit: "", max: 25,
            bars: [{label: "1988", num: br20, at: "@twenty"}, {label: "2004", num: br13, at: "@thirteen"}]}}
-      - {tpl: text, at: "@branches-0.3", in: flip, p: {lines: [{s: "cheaper to run", px: 56, at: "@cheaper"}, {s: "more branches", px: 56, at: "@opened"}, {s: "fewer tellers per branch", px: 44, at: "@fewer"}, {s: "a new job:", px: 48, at: "@new"},
+      - {tpl: text, at: "@branches-0.3", in: flip, p: {lines: [{s: "cheaper to run", px: 56, at: "@cheaper"}, {s: "more branches", px: 56, at: "@opened"}, {s: "fewer tellers per branch", px: 44, at: "@fewer#2"}, {s: "a new job:", px: 48, at: "@new"},
                                                           {s: "talking to customers", px: 48, at: "@talking"}, {s: "not counting cash", px: 48, at: "@counting"}], src: [BES15]}}
   - id: S2
     hook: "Bank tellers: 13% fewer by 2035?"
