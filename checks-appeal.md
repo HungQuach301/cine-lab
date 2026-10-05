@@ -110,3 +110,8 @@ Nguồn: `reports/m3/YEU-CAU-K-NHAP.md`. Bảy mục:
 ### 8b. Bổ sung mục 8 (05/10/2026, khi dựng tập 2)
 - **Q11 bản dài đổi định nghĩa** cho đúng luật kênh §5.1 ("không khung đồ hoạ nào **đứng trống** quá 3 s khi lời dẫn đang nói", lỗi L1 tập 1): đếm khung chưa có dữ liệu hay chữ gắn lời (chỉ tựa/trục/nguồn/biểu tượng). Bản cũ "không có nội dung mới > 3 s" chặt hơn luật, báo cả lúc biểu đồ đã đủ số; nay chỉ áp cho **Shorts** (yêu cầu Mốc B). Đề nghị K xác nhận hai định nghĩa.
 - Q5 có thêm dữ kiện: góc tối của ánh rọi B3 làm chữ nhỏ ở mép giấy xuống 4,1–4,4:1; P giảm độ tối góc ≈ 17 % và đặt nhãn trục trên nền giấy.
+
+### 8c. Thêm Q12 — thumbnail trong lề an toàn (05/10/2026, theo G2 tập 2)
+- G2 tập 2: thumbnail T1 bị cắt chữ S của "OPERATORS" ở mép phải. Chủ dự án giao thêm mục qc.
+- **Q12:** ảnh 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh (64 px ngang, 36 px dọc), không chạm. Hộp lấy từ `.boxes.json` do `scripts/ll/thumb.py` ghi; thiếu tệp này thì TRƯỢT.
+- Đề nghị K xét khoá cùng Q1–Q11.

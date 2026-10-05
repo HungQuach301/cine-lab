@@ -131,3 +131,22 @@ Bốn lỗi qc bắt được trong lúc sản xuất, đều đã sửa trướ
    - T2: thẻ so sánh + "Then −16% · Next −5%?".
    - P đề xuất T1, thử A/B với T2.
 4. **Sau G2:** xoá trung gian, rồi tới G3 (bấm phát hành theo cách của tập 1).
+
+---
+
+## 10. Sau G2 — chuẩn bị G3 (05/10/2026)
+**Chủ dự án duyệt G2:** bản cuối 9:01,38 nguyên trạng và S1–S3; không render lại; T1 chính, A/B T2. Sai lệch đã chấp nhận ghi AUTHORSHIP: cột 2025 hiện ngắn; nhãn sát trục; S1 chữ đứng 3,04 s; thẻ 50–80 % đếm qua số trung gian.
+
+| Việc | Kết quả |
+|---|---|
+| Sửa T1 (cắt chữ S của "OPERATORS") | dựng lại bằng `scripts/ll/thumb.py`: tự thu cỡ (dòng 1 còn 48 px), mọi hộp chữ trong lề an toàn 5 %; T2 kiểm cùng lề |
+| qc Q12 thumbnail (mới) | **T1 ĐẠT, T2 ĐẠT** (`reports/m3/ep02/qc-g3.md`) |
+| `bignum` khoảng số | không đếm; hiện thẳng chữ (thử trên khung đoạn 06, phim không render lại) |
+| Nhánh `release-ll-ep02-v1` | commit `0334728`: thumbnail mới + `.boxes.json` + `SHA256SUMS.txt` mới |
+| Kiểm SHA sau khi đẩy | tải ngược **11/11 tệp** từ link công khai (LFS qua media.githubusercontent.com), `sha256sum -c`: **cả 11 OK** |
+| Hướng dẫn đăng | `reports/m3/HUONG-DAN-DANG-TAP2.md` (theo khung tập 1) |
+| Altered content | **No** (AUTHORSHIP 05/10/2026) |
+| Xoá trung gian | `/var/tmp/cine-out` 3,6 GB → 0,52 GB; chỉ giữ master và Shorts ngoài git để đối chiếu |
+| Token phần này | ≈ 25 nghìn (bộ đếm phiên P); tổng tập 2 ≈ 0,43 triệu / 1,2 triệu |
+
+**DỪNG ở G3.** Chờ chủ dự án tải gói từ nhánh `release-ll-ep02-v1`, kiểm SHA, làm theo hướng dẫn và bấm Schedule hoặc Publish.

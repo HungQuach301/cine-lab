@@ -12,6 +12,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q8 nguồn: đọc toàn văn, không Wikipedia/Wikimedia làm nguồn chính, số khớp lời (ll.py check)
   Q9 số khung trung gian = timeline; master = tổng khung
   Q10 bản xem: mỗi phần ≤ 90 MB; Short ≤ 60 s
+  Q12 thumbnail: 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh, không chạm (scripts/ll/thumb.py ghi .boxes.json)
   Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
@@ -144,6 +145,13 @@ for k, L in logs.items():
             if run > 72 and sp[f - run:f].any(): still.append(f'{k} {(f - run) / 24:.1f}s ({run / 24:.1f} s)')
             run = 0
 row('Q11', 'Khung trống > 3 s khi có lời (bản dài) · chữ đứng > 3 s (Shorts)', not still, len(still), 0, note='; '.join(still[:8]))
+
+# Q12 thumbnail: chữ không chạm/vượt lề an toàn 5 %
+import thumb  # noqa: E402
+TH = E.get('thumbs') or sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(EP)), 'phat-hanh', '*thumb*.jpg')))
+for f in TH:
+    e = thumb.check(f if os.path.isabs(f) else os.path.join(REPO, f))
+    row('Q12', f'Thumbnail lề an toàn {os.path.basename(f)}', not e, len(e), '0 (lề 5 %)', note='; '.join(e[:3]))
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']

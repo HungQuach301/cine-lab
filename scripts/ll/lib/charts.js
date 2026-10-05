@@ -137,9 +137,11 @@ TPL.quote = (p) => ({ kind: 'card', content(g, t, w, h) {
 // ---- thẻ số lớn: p = { value, text, prefix, suffix, d, caption, kind, at, dur, icon, sub } ----
 TPL.bignum = (p) => ({ kind: 'card', content(g, t, w, h) {
   const ex = header(g, t, p, w); if (!p.kind) p.kind = (p.nums && p.nums[0] && p.nums[0].kind) || 'actual';   // loại số lấy từ số khai báo (sửa lỗi Short S2: −5,3 % dự báo) footer(g, t, p, w, h);
-  const at = p.at === undefined ? p.t0 + 0.6 : p.at, u = rv(t, at, p.dur || 1.6), v = p.value * eo(u);
+  // khoảng số (p.range, value là mảng, hoặc chữ dạng "50–80…"): KHÔNG đếm qua số trung gian, hiện thẳng chữ (G2 tập 2)
+  const isRange = p.range || Array.isArray(p.value) || /\d\s*[–-]\s*\d/.test(p.text || '');
+  const at = p.at === undefined ? p.t0 + 0.6 : p.at, u = isRange ? (rv(t, at, 0.5) > 0 ? 1 : 0) : rv(t, at, p.dur || 1.6), v = isRange ? 0 : p.value * eo(u);
   if (p.icon) icon(g, p.icon, w / 2, h * 0.36, 1.1 * K, rvH(t, p.t0 + 0.3, 0.6));
-  if (u > 0) text(g, u >= 1 && p.text ? p.text : (p.prefix || '') + (v < 0 ? M : '') + fmtN(Math.abs(v), p.d === undefined ? (Number.isInteger(p.value) ? 0 : 1) : p.d) + (p.suffix || ''), w / 2, h * (p.icon ? 0.62 : 0.55), 150 * K, p.kind === 'projection' ? '#22364f' : BROWN, { align: 'center', kind: 'serif' });
+  if (u > 0) text(g, (u >= 1 || isRange) && p.text ? p.text : (p.prefix || '') + (v < 0 ? M : '') + fmtN(Math.abs(v), p.d === undefined ? (Number.isInteger(p.value) ? 0 : 1) : p.d) + (p.suffix || ''), w / 2, h * (p.icon ? 0.62 : 0.55), 150 * K, p.kind === 'projection' ? '#22364f' : BROWN, { align: 'center', kind: 'serif', a: isRange ? rv(t, at, 0.5) : 1 });
   kindTag(g, p.kind, w / 2, h * (p.icon ? 0.62 : 0.55) + 60 * K, 24 * K, rv(t, at + 0.2, 0.5), 'center');
   if (p.caption) para(g, p.caption, w / 2, h * (p.icon ? 0.62 : 0.55) + 140 * K, w - 4 * PAD, 34 * K, INK, { align: 'center', a: rv(t, p.capAt || at + 0.6, 0.6) });
 } });

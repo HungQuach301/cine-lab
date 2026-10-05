@@ -59,3 +59,8 @@ shorts:
 - `bignum` lấy loại số (ACTUAL/PROJECTION) từ `nums` khi không khai `kind`.
 - `build.sh` dừng hẳn nếu một đoạn render lỗi (không ghép trên trung gian cũ).
 - Bẫy mốc: `"@many"` khớp lần xuất hiện ĐẦU TIÊN của từ (kể cả "Many" ở câu trước); dùng `#2` hoặc từ khác.
+
+## Bổ sung sau G2 tập 2 (05/10/2026)
+- `bignum` với **khoảng số** (`range: true`, `value: [a, b]`, hoặc `text` dạng "50–80…"): không đếm qua số trung gian, hiện thẳng chữ (hoà vào 0,5 s).
+- `thumb.py`: thumbnail 1280×720 từ một khung nền + các dòng chữ; tự thu cỡ để mọi hộp chữ nằm trong **lề an toàn 5 %** mỗi cạnh; ghi `<ảnh>.boxes.json`. Ví dụ dùng: `reports/m3/ep02/phat-hanh/make_thumb.py`.
+- qc **Q12**: mọi thumbnail (`thumbs:` trong đặc tả, hoặc `phat-hanh/*thumb*.jpg` cạnh đặc tả) phải 1280×720 và không có hộp chữ chạm/vượt lề 5 %.

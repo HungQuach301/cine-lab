@@ -1,21 +1,12 @@
 #!/opt/cine/bin/python
-"""Thumbnail tập 2 (1280×720) từ khung trung gian + chữ lớn. python make_thumb.py <out_dir> <thư mục ra>"""
-import subprocess, sys, os
-from PIL import Image, ImageDraw, ImageFont, ImageFilter
-O, D = sys.argv[1], sys.argv[2]; os.makedirs(D, exist_ok=True)
-SB, SR = '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
-def frame(seg, t):
-    p = f'{D}/_f.png'; subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(t), '-i', f'{O}/sec/{seg}.mkv', '-frames:v', '1', '-vf', 'scale=1280:720', p], check=True)
-    return Image.open(p).convert('RGB')
-def card(im, lines, pos='left'):
-    d = ImageDraw.Draw(im, 'RGBA'); y = 70
-    for s, px, col, f in lines:
-        F = ImageFont.truetype(f, px); w = d.textlength(s, font=F); x = 60 if pos == 'left' else (1280 - w) / 2
-        d.rectangle([x - 18, y - 10, x + w + 18, y + px + 14], fill=(20, 26, 46, 215)); d.text((x, y), s, font=F, fill=col); y += px + 34
-    return im
+"""Thumbnail tập 2 (1280×720) từ khung trung gian, dựng bằng scripts/ll/thumb.py (lề an toàn 5 %).
+python make_thumb.py <thư mục ra> <khung T1 .png> <khung T2 .png>   (khung lấy từ trung gian trước khi xoá: 00 @4,0 s; 11 @40,0 s)"""
+import sys
+sys.path.insert(0, __file__.rsplit('/reports/', 1)[0] + '/scripts/ll')
+from PIL import Image
+import thumb
+D, f1, f2 = sys.argv[1:4]
 CREAM, AMB = (236, 223, 190), (232, 160, 80)
-# T1: phòng tổng đài + câu hỏi
-im = frame('00', 4.0); card(im, [('AUTOMATION HURT THE OPERATORS.', 56, CREAM, SB), ('NOT THE NEXT GENERATION.', 56, CREAM, SB), ('WHAT ABOUT US?', 72, AMB, SB)]).save(f'{D}/ll-ep02-thumb-T1.jpg', quality=90)
-# T2: thẻ so sánh −16,1 % / −5,3 %
-im = frame('11', 40.0); card(im, [('THEN −16%  ·  NEXT −5%?', 66, CREAM, SB)], 'center').save(f'{D}/ll-ep02-thumb-T2.jpg', quality=90)
-os.remove(f'{D}/_f.png'); print('ok')
+thumb.make(Image.open(f1), [('AUTOMATION HURT THE OPERATORS.', 56, CREAM, 'serif'), ('NOT THE NEXT GENERATION.', 56, CREAM, 'serif'), ('WHAT ABOUT US?', 72, AMB, 'serif')], f'{D}/ll-ep02-thumb-T1.jpg')
+thumb.make(Image.open(f2), [('THEN −16%  ·  NEXT −5%?', 66, CREAM, 'serif')], f'{D}/ll-ep02-thumb-T2.jpg', align='center')
+print('ok')
