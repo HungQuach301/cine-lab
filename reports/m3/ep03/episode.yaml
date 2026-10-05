@@ -31,7 +31,7 @@ sources:
 
 numbers:
   tel50: {v: 65000, text: "65,000", kind: actual, year: 1950, unit: people, src: HSUS, say: "sixty-five thousand", note: "1960 classification, 14+; đã đối chiếu (Claude)"}
-  tel60b: {v: 131000, text: "131,000", kind: actual, year: 1960, unit: people, src: HSUS, note: "1960 classification, 14+"}
+  tel60b: {v: 131000, text: "131,000", kind: actual, year: 1960, unit: people, src: HSUS, note: "1960 classification, 14+; đã đối chiếu (Claude)"}
   tel60: {v: 135000, text: "135,000", kind: actual, year: 1960, unit: people, src: HSUS, say: "one hundred thirty-five thousand", note: "1970 classification, 16+; đã đối chiếu (Claude)"}
   tel70: {v: 253000, text: "253,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "two hundred fifty-three thousand", note: "1970, 16+; 14+ = 254"}
   tel_hist: {v: 87, text: "+87%", kind: actual, unit: '%', src: HSUS, say: "eighty-seven percent", note: "tính: (253 − 135) / 135 = +87,4 %"}
@@ -83,9 +83,10 @@ segments:
       - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TELLER'S WINDOW", px: 84}, {s: "Last Lamplighters · Episode 3", px: 34, serif: false}]}}
       - {tpl: line, at: "@1950-0.6", in: slide, p: {title: "Bank tellers, United States", subtitle: "census counts · two occupation classifications", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "before cash machines: the postwar boom", at: "@postwar"}],
            ylabel: "tellers", yfmt: k, xr: [1950, 1970], xticks: [1950, 1960, 1970], ymax: 300000, at: "@1950", dur: 14,
-           series: [{name: "1960 classification", points: [[1950, 65000], [1960, 131000]], labels: [0], ltext: ["65,000", ""]},
-                    {name: "1970 classification", points: [[1960, 135000], [1970, 253000]], labels: [0, 1], ltext: ["135,000", "253,000"], at: "@newer"}],
-           note: "Census changed its occupation classification in 1970: two separate lines", noteAt: "@newer", nums: [{num: tel50}, {num: tel70}]}}
+           series: [{points: [[1950, 65000], [1960, 131000]], labels: [0, 1], ltext: ["65,000", "131,000 (1960 classification)"], lpos: ["", "below"]},
+                    {points: [[1960, 135000], [1970, 253000]], labels: [0, 1], ltext: ["135,000 (1970 classification)", "253,000"], at: "@newer"}],
+           marks: [{x: 1960, label: "classification changes", at: "@newer"}],
+           note: "1950–60: 1960 classification · 1960–70: 1970 classification — not one continuous series", noteAt: "@newer", nums: [{num: tel50}, {num: tel70}]}}
 
   - id: "03"
     part: HISTORY

@@ -24,6 +24,8 @@ sources:
           read: fulltext, pages: "p. 3 (PDF 13); P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
   OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", title: "Occupational Outlook Handbook, 1990–91 Edition: Typists, Word Processors, and Data Entry Keyers",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "PDF pp. 294–295; P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
+  EP: {short: "BLS, Employment Projections 2025–2035 (USDL-26-1422)", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
+       read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
   NZ: {short: "Noy & Zhang, MIT working paper (2023)", title: "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence (working paper, 2 Mar 2023)",
        url: "https://economics.mit.edu/sites/default/files/inline-files/Noy_Zhang_1.pdf", read: fulltext, pages: "pp. 1, 3–4 (PDF)", accessed: 2026-10-05}
 
@@ -53,6 +55,7 @@ numbers:
   se35: {v: 3440300, text: "3,440,300", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHS, say: "three point four million"}
   se_chg: {v: -2, text: "−2%", kind: projection, period: 2025–35, unit: '%', src: OOHS, say: "two percent"}
   mt_old: {v: -4.9, text: "−4.9%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "four point nine percent"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
   nz_time: {v: -37, text: "−37%", kind: actual, unit: '%', src: NZ, say: "thirty-seven percent"}
 
 segments:
@@ -119,12 +122,12 @@ segments:
     part: HISTORY
     vo: >-
       The computer came for the office in two waves. In 1960, the BLS studied twenty offices that had just installed one.
-      Of about two thousand eight hundred employees whose work was directly affected, about a third had been moved to other jobs within a year, and only nine people had been laid off.
+      Of about two thousand eight hundred employees affected, only nine had been laid off a year later. Most were moved, or stayed put.
       The first machines went for the routine records: posting, checking, filing, computing. Only a small share of the affected workers did correspondence, stenographic, or secretarial work.
       The typing pool was spared, for a while. The second wave sat on every desk. By 1988, typists, word processors, and data entry keyers held about one point four million jobs,
       and the BLS wrote: with the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists.
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "the computer comes for the office", at: "@computer"}, {s: "wave one: 1960", at: "@1960"}], lines: [{s: "20 offices · ≈2,800 employees affected", px: 46, at: "@thousand"}, {s: "≈ one-third moved to other jobs in a year", px: 34, serif: false, at: "@third"},
+      - {tpl: text, at: 0, p: {beats: [{s: "the computer comes for the office", at: "@computer"}, {s: "wave one: 1960", at: "@1960"}], lines: [{s: "20 offices · ≈2,800 employees affected", px: 46, at: "@thousand"}, {s: "most moved, or stayed put", px: 34, serif: false, at: "@moved"},
                                                           {s: "only 9 laid off", px: 46, at: "@nine"}, {s: "first targets: routine records", px: 34, serif: false, at: "@posting"}, {s: "the typing pool: spared, for a while", px: 34, serif: false, at: "@spared", color: "#4f2a0c"}], nums: [{num: b60emp}, {num: b60laid}], src: [B1276]}}
       - {tpl: bignum, at: "@second-0.4", in: slide, p: {title: "Typists, word processors & data entry keyers, U.S.", beats: [{s: "wave two: a computer on every desk", at: "@second"}], value: 1416000, text: "1,416,000", at: "@one", caption: "jobs in 1988 (BLS)", nums: [{num: typ88}]}}
       - {tpl: quote, at: "@wrote-0.4", in: flip, p: {text: "With the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists, word processors, and data entry keyers.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@proliferation", src: [OOH90]}}
@@ -173,6 +176,7 @@ segments:
       The clearest case is the one closest to the old stenographer, who turned spoken words into typed pages.
       Medical transcriptionists do that work today, for doctors. In its January 2026 review, the BLS projected their employment to decline four point nine percent
       from 2024 to 2034, and it named the reason: AI technology can recognize speech and transcribe audio.
+      That comes from an earlier projection cycle than the other numbers, and it is a forecast, not the end of the job.
     shots:
       - {tpl: text, at: 0, p: {beats: [{s: "the clearest case", at: "@clearest"}, {s: "closest to the old stenographer", at: "@stenographer"}], lines: [{s: "spoken words → typed pages", px: 56, at: "@spoken"}, {s: "medical transcriptionists, today", px: 38, serif: false, at: "@medical"}], src: [MLR26]}}
       - {tpl: bignum, at: "@review-0.4", in: slide, p: {title: "Medical transcriptionists, projection cycle 2024–34", beats: [{s: "BLS, Monthly Labor Review, January 2026", at: "@review"}], value: -4.9, text: "−4.9%", suffix: "%", d: 1, at: "@nine",
@@ -197,17 +201,17 @@ segments:
   - id: "11"
     part: TODAY
     vo: >-
-      So here is the comparison, on the same scale: change over ten years. From 1960 to 1970, stenographers, typists, and secretaries grew sixty-nine percent.
-      From 2025 to 2035, the BLS projects secretaries and administrative assistants to decline about two percent.
-      The two groups are close, not identical: today, typists are counted separately, and their decline is far steeper.
-      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
-      But the differences matter. The typewriter created the pool; the computer and AI are taking the typing away from it.
-      And one of these numbers is history. The other is only a forecast.
+      So here is the comparison, on the same scale: one source, one period, 2025 to 2035. Word processors and typists: down thirty-four percent.
+      Data entry keyers: down twenty-five point five percent. Secretaries and administrative assistants: down about two percent. All jobs together: up three point five percent.
+      Not the same technology as the typewriter. The same pattern: a repetitive human task, taken over by an automated system.
+      The more a job is pure typing, the steeper the projected fall. The more it is organizing, judging and dealing with people, the smaller.
+      The typewriter created the pool; the computer and AI are taking the typing away from it. And all four of these numbers are forecasts, not counts.
     shots:
-      - {tpl: compare, at: 0, p: {title: "Change over ten years", beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "change over ten years", at: "@ten"}], unit: '%', mid: "not the same technology — the same pattern", midAt: "@pattern",
-           left: {title: "Stenographers, typists & secretaries", years: "1960–1970 · counted", icon: typewriter, num: st_chg, at: "@1960", d: 0},
-           right: {title: "Secretaries & admin. assistants", years: "2025–2035 · projected", icon: chat, num: se_chg, at: "@2025", d: 0},
-           diff: ["close groups, not identical", "typists today: −34.4% (2025–35)", "a forecast, not a count"], diffAt: "@identical"}}
+      - {tpl: bars, at: 0, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 40, d: 1, beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}],
+           bars: [{label: "word processors\n& typists", num: wp_chg, at: "@word"}, {label: "data entry\nkeyers", num: de_chg, at: "@data"}, {label: "secretaries &\nadmin. assistants", num: se_chg, at: "@secretaries"}, {label: "all\noccupations", num: all_chg, at: "@all"}],
+           note: "not the same technology — the same pattern", noteAt: "@pattern"}}
+      - {tpl: text, at: "@more-0.4", in: slide, p: {lines: [{s: "more pure typing → steeper projected fall", px: 40, serif: false, at: "@more"}, {s: "more organizing, judging, people → smaller", px: 40, serif: false, at: "@organizing"},
+                                                          {s: "forecasts, not counts", px: 38, serif: false, at: "@forecasts", color: "#4f2a0c"}], src: [T15, OOHS, EP]}}
 
   - id: "12"
     part: TODAY
@@ -225,7 +229,7 @@ segments:
     part: STORY
     vo: >-
       Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
-      Every era has its last lamplighters. Some of them sat in the typing pool.
+      Every era has its last lamplighters. Some of them sat in the typing pool, and millions still keep an office running.
     vo_offset: 3.0
     min_dur: 28
     tail: 2.0

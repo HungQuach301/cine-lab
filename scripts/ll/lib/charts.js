@@ -93,7 +93,7 @@ TPL.line = (p) => ({ kind: 'card', content(g, t, w, h) {
     (s.labels || []).forEach((ix) => { const q = s.points[ix]; if (!q || q[0] > xcut + 1e-9) return; const la = rv(t, at + dur * (q[0] - xa) / (xb - xa), 0.4);
       g.save(); g.fillStyle = INK; g.globalAlpha *= la; g.beginPath(); g.arc(px(q[0]), py(q[1]), 7, 0, 7); g.fill(); g.restore();
       const s2 = (s.ltext && s.ltext[ix]) || (p.yfmt === 'k' && q[1] >= 1000 ? fmtN(q[1] / 1000, q[1] < 10000 ? 1 : 0) + 'k' : fmtV(q[1], p.unit, 0));
-      const right = px(q[0]) > R - 160 * K; text(g, s2, px(q[0]) + (right ? -14 : 14), py(q[1]) - 18 * K, 32 * K, INK, { a: la, kind: 'serif', align: right ? 'right' : 'left' }); });
+      const right = px(q[0]) > R - 160 * K, below = s.lpos && s.lpos[ix] === 'below'; text(g, s2, px(q[0]) + (right ? -14 : 14), py(q[1]) + (below ? 40 : -18) * K, 32 * K, INK, { a: la, kind: 'serif', align: right ? 'right' : 'left' }); });
     if (s.name) { const end = path[path.length - 1]; text(g, s.name, Math.min(px(end[0]) + 16, R - 10), py(end[1]) + 40 * K, 26 * K, s.color || OCHRE, { a: rv(t, at + 0.4, 0.5), align: px(end[0]) > R - 240 ? 'right' : 'left' }); }
     // nhãn loại số liệu theo vùng
     if (pf < Infinity) { const xp = Math.max(xa, pf); kindTag(g, 'actual', px(xp) - 12, T + 10, 22 * K, rv(t, at + 0.3, 0.5), 'right');
