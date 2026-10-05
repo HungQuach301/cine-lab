@@ -1,4 +1,4 @@
-# Last Lamplighters · Tập 5 "The Claims Desk" (phương án 5A, chủ dự án chọn 05/10/2026) — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề A; phương án 5B — bỏ thẻ so sánh số, so sánh định tính; thẻ kết "Next: The Hand That Drew It").
+# Last Lamplighters · Tập 5 "The Claims Desk" (v4, HÌNH v2 — chủ dự án 06/10/2026) (phương án 5A, chủ dự án chọn 05/10/2026) — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề A; phương án 5B — bỏ thẻ so sánh số, so sánh định tính; thẻ kết "Next: The Hand That Drew It").
 # Hai vế là HAI NGHỀ KHÁC NHAU trong cùng quy trình bồi thường: nhân viên văn phòng bảo hiểm (1954–63) ↔ giám định viên / thẩm định thiệt hại xe (2025–35).
 # Nguồn: reports/m3/ep05/NGUON-TAP5.md (mục 1–4 và PHỤ LỤC 5A). Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026.
 # KHÔNG dùng: 4,2 % → 2,4 %/năm (không ghi khoảng năm); số 1954 suy ra; số đọc từ biểu đồ 3–4 của Bulletin.
@@ -58,7 +58,7 @@ segments:
     tail: 0.6
     fadeIn: 0
     shots:
-      - {tpl: office, at: 0, p: {light: 0.3, cam: [{t: 0, x: 0, z: 0.03}, {t: 4, x: -40, z: 0.06}, {t: 8, x: -80, z: 0.09}, {t: 12, x: -110, z: 0.12}, {t: 18, x: -130, z: 0.14}],
+      - {tpl: inspect, at: 0, p: {era: 2025, walk: [0.5, 6], flash: ["@photo", "@photo+0.6"], estimate: "@prices+0.4", cam: [{t: 0, x: 0, z: 0.02}, {t: 4, x: -30, z: 0.05}, {t: 8, x: -60, z: 0.08}, {t: 12, x: -80, z: 0.1}, {t: 18, x: -100, z: 0.12}],
            cap: [{s: "Who decides what a damaged car is worth?", at: "@who"}, {s: "1966: judgment cannot be computerized (BLS)", at: "@1966"},
                  {s: "today: software prices the wreck from a photo", at: "@today"}, {num: ap_chg, s: "auto damage appraisers, projected 2025–35", at: "@nine"}]}}
 
@@ -74,7 +74,8 @@ segments:
       - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE CLAIMS DESK", px: 84}, {s: "Last Lamplighters · Episode 5", px: 34, serif: false}]}}
       - {tpl: street, at: 3.0, in: fade, p: {lamps: [{x: 260}, {x: 860, lit: "@works+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [3.2, "@works+0.5"], lights: [1]}, warm: 0.6, windows: 0.9,
                                  cam: [{t: 3, x: 0, z: 0}, {t: 7, x: -100, z: 0.02}, {t: "@building", x: -260, z: 0.06}]}}
-      - {tpl: rows, at: "@each-0.4", in: fade, p: {variant: typing, rows: 3, per: 6, cam: [{t: "@each", x: 40, z: 0}, {t: "@question", x: 0, z: 0.05}, {t: "@worth+1.2", x: -40, z: 0.1}, {t: "@worth+5", x: -70, z: 0.13}]}}
+      - {tpl: desk, at: "@each-0.4", in: fade, p: {eras: [{era: 1963, at: "@each-0.4", label: " "}], accent: "#b6462c", cam: [{t: "@each", x: 60, z: 0.0}, {t: "@question", x: 20, z: 0.04}, {t: "@worth+1.2", x: -20, z: 0.08}, {t: "@worth+5", x: -50, z: 0.11}],
+           cap: [{s: "each file is a claim", at: "@each"}, {s: "what happened, and what is it worth?", at: "@question"}]}}
 
   - id: "02"
     part: HISTORY
@@ -84,7 +85,8 @@ segments:
       Then a new machine arrived at head office: the electronic computer.
     min_dur: 26
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 6, cam: [{t: 0, x: 60, z: 0.08}, {t: 6, x: 20, z: 0.05}, {t: 12, x: -20, z: 0.03}, {t: 18, x: -60, z: 0.01}, {t: 26, x: -90, z: 0.0}],
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d27894.jpg, rid: LOC-8d27894, credit: "Insurance office, Baltimore, 1943 · Library of Congress, FSA/OWI (no known restrictions)",
+           cam: [{t: 0, x: 40, z: 0.0}, {t: 6, x: 10, z: 0.04}, {t: 12, x: -20, z: 0.08}, {t: 18, x: -40, z: 0.11}, {t: 26, x: -60, z: 0.14}],
            cap: [{s: "Behind every claim: a small army of clerks", at: "@army"}, {s: "premiums to bill · policies to update · claims to pay", at: "@premiums"},
                  {num: ins64, s: "employees of U.S. insurance carriers, 1964 — most in office work", at: "@eight"}, {s: "then: the electronic computer", at: "@electronic"}]}}
 
@@ -98,10 +100,11 @@ segments:
       So did the policy evaluation clerks, who calculated the cash values of policies using rate books and manual calculators.
       Among seventeen life insurers that adopted computers earliest, growth in office staff slowed from six point eight percent to one point six percent over consecutive three-year periods.
     shots:
-      - {tpl: office, at: 0, p: {light: 0.6, cam: [{t: 0, x: 0, z: 0.0}, {t: 5, x: -40, z: 0.04}], cap: [{s: "BLS study, 1966: what the computer did to insurance offices", at: "@1966"}]}}
-      - {tpl: bars, at: "@six-1.0", in: fade, p: {title: "People working in insurance computer units", subtitle: "U.S. insurance carriers", beats: [{s: "company computer units", at: "@units"}],
-           bars: [{label: "1954", num: edp54, at: "@six"}, {label: "1963", num: edp63, at: "@sixteen"}]}}
-      - {tpl: rows, at: "@routine-0.4", in: fade, p: {variant: typing, rows: 3, per: 6, dim: ["@routine", "@machine"], cam: [{t: "@routine", x: 0, z: 0.02}, {t: "@premium", x: -40, z: 0.06}, {t: "@rate", x: -80, z: 0.1}],
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/usnwr-89395.jpg, rid: LOC-89395, credit: "An IBM computer room, New Haven, 1967 · Library of Congress, U.S. News & World Report Collection (no known restrictions)",
+           cam: [{t: 0, x: 0, z: 0.0}, {t: 5, x: -40, z: 0.06}], cap: [{s: "BLS study, 1966: what the computer did to insurance offices", at: "@1966"}]}}
+      - {tpl: isotype, at: "@six-1.0", in: fade, p: {title: "People working in insurance computer units", subtitle: "U.S. insurance carriers", unit: 1000, unitName: "people", per: 16,
+           groups: [{label: "1954", num: edp54, at: "@six"}, {label: "1963", num: edp63, at: "@sixteen"}], cap: [{s: "company computer units soared", at: "@soared"}]}}
+      - {tpl: desk, at: "@routine-0.4", in: fade, p: {eras: [{era: 1963, at: "@routine-0.4", label: "1963"}], accent: "#b6462c", cam: [{t: "@routine", x: 0, z: 0.02}, {t: "@premium", x: -40, z: 0.06}, {t: "@rate", x: -80, z: 0.1}],
            cap: [{num: rec, s: "of surveyed companies: routine record keeping declined (1963)", at: "@twothirds"}, {s: "premium billing went to the machine", at: "@premium"},
                  {s: "policy evaluation clerks: rate books and manual calculators", at: "@rate"}]}}
       - {tpl: bars, at: "@six#2-1.0", in: fade, p: {title: "Office staff growth, 17 early-computer life insurers", subtitle: "change over three-year periods", unit: '%', max: 10, d: 1, beats: [{s: "17 life insurers, earliest computers", at: "@seventeen"}],
@@ -115,10 +118,10 @@ segments:
       Field offices could send an approved claim amount to head office by wire, and a machine printed the check.
       The judgment, deciding what a claim was worth, stayed with people.
     shots:
-      - {tpl: office, at: 0, p: {light: 0.4, cam: [{t: 0, x: -40, z: 0.06}, {t: 5, x: 0, z: 0.03}, {t: 10, x: 40, z: 0.0}],
+      - {tpl: desk, at: 0, p: {eras: [{era: 1963, at: 0, label: "1963"}], accent: "#b6462c", cam: [{t: 0, x: -40, z: 0.06}, {t: 5, x: 0, z: 0.03}, {t: 10, x: 40, z: 0.0}],
            cap: [{s: "What about the claims desk?", at: "@claims"}, {s: "reserves for unpaid claims, then claims processing", at: "@reserves"}]}}
       - {tpl: quote, at: "@noticed-0.4", in: slide, p: {beats: [{s: "what the BLS noticed", at: "@noticed"}], text: "…intended to improve the company's loss record rather than to save clerical man-hours.", who: "U.S. Bureau of Labor Statistics", where: "Bulletin 1468, 1966", at: "@intended", src: [B1468]}}
-      - {tpl: office, at: "@field-0.4", in: fade, p: {light: 0.8, cam: [{t: "@field", x: 0, z: 0.02}, {t: "@printed", x: -50, z: 0.06}, {t: "@judgment", x: -90, z: 0.1}],
+      - {tpl: desk, at: "@field-0.4", in: fade, p: {eras: [{era: 1963, at: "@field-0.4", label: "1963"}], accent: "#b6462c", cam: [{t: "@field", x: 0, z: 0.02}, {t: "@printed", x: -50, z: 0.06}, {t: "@judgment", x: -90, z: 0.1}],
            cap: [{s: "field office → approved amount by wire", at: "@field"}, {s: "a machine prints the check", at: "@printed"}, {s: "the judgment stays with people", at: "@judgment"}]}}
 
   - id: "05"
@@ -129,10 +132,11 @@ segments:
       Few people were laid off as a direct result. The BLS pointed to high turnover among young clerical workers, a growing industry, and some new computer jobs.
       And it drew a line: jobs requiring some judgment and decision making, jobs that cannot be computerized, would remain.
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 6, cam: [{t: 0, x: 0, z: 0.1}, {t: 5, x: -30, z: 0.12}], cap: [{s: "Office jobs did not collapse", at: "@collapse"}, {s: "207 surveyed companies, 1954–1963", at: "@surveyed"}]}}
-      - {tpl: bignum, at: "@thirtyone-1.2", in: fade, p: {title: "Office employment, 207 surveyed insurance companies", value: 31.5, text: "+31.5%", suffix: "%", d: 1, at: "@thirtyone",
-           caption: "January 1954 to January 1963 (nine years)", capAt: "@nine", nums: [{num: off_chg}]}}
-      - {tpl: rows, at: "@few-0.4", in: fade, p: {variant: typing, rows: 3, per: 6, cam: [{t: "@few", x: 30, z: 0.04}, {t: "@turnover", x: 0, z: 0.07}, {t: "@line", x: -30, z: 0.1}],
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8c01946.jpg, rid: LOC-8c01946, credit: "Insurance office, Dayton, Washington, 1941 · Library of Congress, FSA/OWI (no known restrictions)",
+           cam: [{t: 0, x: 0, z: 0.02}, {t: 5, x: -30, z: 0.07}], cap: [{s: "Office jobs did not collapse", at: "@collapse"}, {s: "207 surveyed companies, 1954–1963", at: "@surveyed"}]}}
+      - {tpl: sign, at: "@thirtyone-1.2", in: fade, p: {num: off_chg, caption: "office employment, 207 surveyed insurers, 1954–63 (nine years)", at: "@thirtyone", capAt: "@nine", wall: plaster,
+           cam: [{t: "@thirtyone-1.2", x: 0, z: 0.0}, {t: "@nine", x: -30, z: 0.03}]}}
+      - {tpl: desk, at: "@few-0.4", in: fade, p: {eras: [{era: 1963, at: "@few-0.4", label: "1963"}], accent: "#b6462c", cam: [{t: "@few", x: 30, z: 0.04}, {t: "@turnover", x: 0, z: 0.07}, {t: "@line", x: -30, z: 0.1}],
            cap: [{s: "few laid off as a direct result", at: "@few"}, {s: "turnover · a growing industry · new computer jobs", at: "@turnover"}]}}
       - {tpl: quote, at: "@line-0.4", in: flip, p: {beats: [{s: "the BLS drew a line", at: "@line"}], text: "…jobs requiring some judgment and decision making—jobs that cannot be computerized…", who: "U.S. Bureau of Labor Statistics", where: "Bulletin 1468, 1966", at: "@requiring", src: [B1468]}}
 
@@ -144,11 +148,11 @@ segments:
       Material damage adjusters, it said, inspect automobile damage and use the latest computerized estimating equipment to prepare estimates of the damage.
       The machine now did the arithmetic of a repair. But a person still walked around the car, looked at the dent, and decided what it was worth.
     shots:
-      - {tpl: office, at: 0, p: {light: 1.0, cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -40, z: 0.04}, {t: 12, x: -80, z: 0.08}],
+      - {tpl: desk, at: 0, p: {eras: [{era: 1988, at: 0, label: "1988"}], accent: "#b6462c", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -40, z: 0.04}, {t: 12, x: -80, z: 0.08}],
            cap: [{s: "Late 1980s: the computer reaches the adjuster", at: "@late"}, {s: "BLS Occupational Outlook Handbook, 1990–91", at: "@handbook"},
                  {s: "terminals on the desk", at: "@terminals"}, {s: "portable computers in the field", at: "@portable"}]}}
       - {tpl: quote, at: "@material-0.4", in: slide, p: {beats: [{s: "material damage adjusters", at: "@material"}, {s: "computerized estimating equipment", at: "@computerized"}], text: "Material damage adjusters inspect automobile damage and use the latest computerized estimating equipment to prepare estimates of the damage.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@inspect", src: [OOH90]}}
-      - {tpl: street, at: "@machine-0.4", in: fade, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], warm: 0.5, windows: 0.6, cam: [{t: "@machine", x: -100, z: 0.03}, {t: "@person", x: -180, z: 0.05}, {t: "@worth+1", x: -240, z: 0.07}],
+      - {tpl: inspect, at: "@machine-0.4", in: fade, p: {era: 1988, walk: ["@machine", "@walked+1"], flash: ["@looked", "@looked+0.8"], cam: [{t: "@machine", x: -40, z: 0.03}, {t: "@person", x: -80, z: 0.05}, {t: "@worth+1", x: -120, z: 0.07}],
            cap: [{s: "the machine: the arithmetic of a repair", at: "@arithmetic"}, {s: "a person: what it was worth", at: "@person"}]}}
 
   - id: "06"
@@ -162,7 +166,7 @@ segments:
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@lit+1"]}, warm: 0.4, windows: 0.3,
                                  cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: "@lit+1", x: -300, z: 0.05}]}}
-      - {tpl: office, at: "@someone-0.4", in: fade, p: {light: "@photo", cam: [{t: "@someone", x: 0, z: 0}, {t: "@sixty", x: -40, z: 0.04}, {t: "@do+1.5", x: -80, z: 0.08}, {t: "@do+5", x: -110, z: 0.1}]}}
+      - {tpl: desk, at: "@someone-0.4", in: fade, p: {eras: [{era: 2025, at: "@someone-0.4", label: " "}], accent: "#b6462c", cam: [{t: "@someone", x: 0, z: 0}, {t: "@sixty", x: -40, z: 0.04}, {t: "@do+1.5", x: -80, z: 0.08}, {t: "@do+5", x: -110, z: 0.1}]}}
 
   - id: "07"
     part: TODAY
@@ -171,9 +175,11 @@ segments:
       The BLS projects about three hundred fifty-five thousand by 2035, a decline of five percent, while all jobs together grow three point five percent.
       Its reason is plain: computer software can evaluate photographs of damaged property and calculate an estimated claim amount.
     shots:
-      - {tpl: office, at: 0, p: {light: 0.5, cam: [{t: 0, x: 0, z: 0.05}, {t: 6, x: -40, z: 0.08}, {t: 12, x: -80, z: 0.11}, {t: 18, x: -110, z: 0.13}],
-           cap: [{s: "That part is now changing", at: "@changing"}, {s: "claims adjusters decide what a claim is worth", at: "@decide"}, {s: "about 376,100 of them in 2025", at: "@seventysix"},
-                 {num: ca_chg, s: "claims adjusters, projected change 2025–35", at: "@decline"}, {num: all_chg, s: "all occupations, projected 2025–35", at: "@grow"}]}}
+      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2025"}], accent: "#b6462c", cam: [{t: 0, x: 0, z: 0.05}, {t: 6, x: -40, z: 0.08}],
+           cap: [{s: "That part is now changing", at: "@changing"}, {s: "claims adjusters decide what a claim is worth", at: "@decide"}]}}
+      - {tpl: isotype, at: "@seventysix-1.0", in: fade, p: {title: "Claims adjusters, examiners & investigators, U.S.", subtitle: "employment, 2025 and projected 2035", unit: 20000, unitName: "workers", per: 20,
+           groups: [{label: "2025", num: ca25, at: "@seventysix"}, {label: "2035 (projected)", num: ca35, at: "@fiftyfive"}],
+           cap: [{num: ca_chg, s: "projected change, 2025–35", at: "@decline"}, {num: all_chg, s: "all occupations, projected 2025–35", at: "@grow"}]}}
       - {tpl: quote, at: "@reason-0.4", in: slide, p: {beats: [{s: "its reason is plain", at: "@reason"}], text: "…computer software can evaluate photographs of damaged property and calculate an estimated claim amount.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@software", src: [OOHC]}}
 
   - id: "08"
@@ -183,7 +189,7 @@ segments:
       The BLS projects about twelve thousand four hundred by 2035: down nine percent, almost twice the decline for adjusters.
       In its 2025 article on AI, the BLS described the shift: once photographs are taken, the analysis and initial payout estimates, traditionally prepared by an adjuster, can be autogenerated by AI.
     shots:
-      - {tpl: street, at: 0, p: {lamps: [{x: 260, lit: 0}, {x: 860, lit: 0}, {x: 1460}, {x: 2060}], warm: 0.5, windows: 0.5, cam: [{t: 0, x: -300, z: 0.02}, {t: 6, x: -360, z: 0.05}, {t: 12, x: -420, z: 0.08}, {t: 18, x: -480, z: 0.1}],
+      - {tpl: inspect, at: 0, p: {era: 2025, walk: [0.5, 5], flash: ["@wrecked", "@estimate"], estimate: "@twelve", cam: [{t: 0, x: -20, z: 0.02}, {t: 6, x: -50, z: 0.05}, {t: 12, x: -80, z: 0.08}, {t: 18, x: -100, z: 0.1}],
            cap: [{s: "A small job, a sharper change", at: "@small"}, {s: "auto damage appraisers estimate repair costs", at: "@auto"}, {s: "about 13,500 of them in 2025", at: "@thirteen"},
                  {num: ap_chg, s: "projected change, 2025–35 — almost twice the adjusters'", at: "@down"}]}}
       - {tpl: quote, at: "@article-0.4", in: slide, p: {beats: [{s: "BLS, Monthly Labor Review, 2025", at: "@article"}, {s: "once photographs are taken", at: "@photographs"}], text: "Once photographs are taken, the analysis and initial payout estimates, traditionally prepared by an adjuster, can be autogenerated by AI.", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@once", src: [MLR25]}}
@@ -197,9 +203,9 @@ segments:
       so it tells us about intent, not about how many claims a machine already prices.
     shots:
       - {tpl: quote, at: 0, p: {beats: [{s: "how widely is AI used?", at: "@widely"}, {s: "hard numbers are scarce", at: "@scarce"}, {s: "BLS, January 2026", at: "@january"}], text: "Claims adjusters, examiners, and investigators can use AI tools to assess photographs of property damage, which improves efficiency in generating payout estimates.", who: "BLS", where: "Monthly Labor Review, January 2026", at: "@gently", src: [MLR26]}}
-      - {tpl: bignum, at: "@eightyeight-1.2", in: fade, p: {title: "U.S. auto insurers and AI / machine learning", beats: [{s: "a survey by state insurance regulators (NAIC)", at: "@eightyeight"}], value: 88, text: "88%", suffix: "%", at: "@eightyeight",
-           caption: "of 193 insurers: use, plan to use, or plan to explore (2022)", capAt: "@plan", nums: [{num: naic}]}}
-      - {tpl: office, at: "@accident-0.4", in: fade, p: {light: 0.7, cam: [{t: "@accident", x: 0, z: 0.03}, {t: "@counts", x: -40, z: 0.06}, {t: "@intent", x: -80, z: 0.09}],
+      - {tpl: sign, at: "@eightyeight-1.2", in: fade, p: {num: naic, caption: "of 193 U.S. auto insurers use, plan to use, or plan to explore AI/ML (NAIC, 2022)", at: "@eightyeight", capAt: "@plan", wall: brick,
+           cam: [{t: "@eightyeight-1.2", x: 0, z: 0.0}, {t: "@plan", x: -30, z: 0.03}]}}
+      - {tpl: desk, at: "@accident-0.4", in: fade, p: {eras: [{era: 2025, at: "@accident-0.4", label: "2025"}], accent: "#b6462c", cam: [{t: "@accident", x: 0, z: 0.03}, {t: "@counts", x: -40, z: 0.06}, {t: "@intent", x: -80, z: 0.09}],
            cap: [{s: "accident image analysis: one of the claims uses", at: "@accident"}, {s: "plans as well as practice", at: "@counts"}, {s: "intent, not a count of claims", at: "@intent"}]}}
 
   - id: "10"
@@ -212,10 +218,11 @@ segments:
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
       But the differences matter. Back then, the machine stopped at judgment. Now it starts there.
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 6, dim: [10, 30], cam: [{t: 0, x: 0, z: 0.04}, {t: 8, x: -40, z: 0.07}, {t: 16, x: -80, z: 0.1}, {t: 24, x: -110, z: 0.12}],
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8b28380.jpg, rid: LOC-8b28380, credit: "An automobile accident, U.S. 40, Maryland, 1936 · Library of Congress, FSA/OWI (no known restrictions)",
+           cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -40, z: 0.06}, {t: 16, x: -80, z: 0.1}, {t: 24, x: -110, z: 0.13}],
            cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "not the same job — the same claims desk", at: "@job"}, {s: "two jobs, two kinds of number: not side by side", at: "@side"},
                  {s: "1966: the line at judgment", at: "@1966"}, {s: "the computer keeps the records; people decide the worth", at: "@records"}]}}
-      - {tpl: office, at: "@today-0.4", in: fade, p: {light: 0.9, cam: [{t: "@today", x: 0, z: 0.0}, {t: "@pattern", x: -50, z: 0.04}, {t: "@stopped", x: -90, z: 0.08}],
+      - {tpl: inspect, at: "@today-0.4", in: fade, p: {era: 2025, walk: ["@today", "@pattern"], flash: ["@photographs"], estimate: "@calculate", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@pattern", x: -50, z: 0.04}, {t: "@stopped", x: -90, z: 0.08}],
            cap: [{s: "today: software estimates the claim from photos", at: "@today"}, {s: "not the same technology — the same pattern", at: "@pattern"},
                  {s: "then it stopped at judgment; now it starts there", at: "@stopped"}], src: [B1468, OOHC]}}
 
@@ -227,7 +234,8 @@ segments:
       Whether that is enough work for the people who do this job today is something no projection can settle. That is what we will be watching.
     min_dur: 24
     shots:
-      - {tpl: office, at: 0, p: {light: "@watching", cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}],
+      - {tpl: desk, at: 0, p: {eras: [{era: 1963, at: 0, label: "1963"}, {era: 1988, at: "@long", label: "1988"}, {era: 2025, at: "@moving", label: "2025"}], accent: "#b6462c",
+           cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}],
            cap: [{s: "1966: judgment cannot be computerized", at: "@1966"}, {s: "today: the line is moving", at: "@moving"}, {s: "left for people: the hard cases?", at: "@hard"},
                  {s: "no projection can settle it", at: "@projection"}]}}
 
