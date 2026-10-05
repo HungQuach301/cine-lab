@@ -161,3 +161,18 @@ Số trong ngoặc ở hàng đầu (−34,4%; 40.400 → 26.500) là số do ch
 - Giao Claude (Cowork) xác minh bảng BLS ở trên; cho đến lúc đó không đưa số 2025–35 vào kịch bản.
 - Một người đối chiếu bằng mắt hàng 347 trên PDF HSUS (tr. 141) trước khi khoá.
 - Quyết định có tra tiếp mốc IBM MT/ST 1964 và nguồn Census/BLS sau 1970 hay không.
+
+## PHỤ LỤC 1970–2000
+
+**Kết quả: KHÔNG TÌM ĐƯỢC** số toàn văn cho typists/secretaries/stenographers/word processors/data entry keyers ở Mỹ giai đoạn 1970–2000. Không có số nào được ghi vào đây.
+
+Đã thử (5/5 lượt tải, đã hết hạn mức của gói):
+1. FRASER API tìm kiếm (`/api/search`): HTTP 401, cần khoá API.
+2. `.../bls_mlr/bls_mlr_19830101.pdf`: 404.
+3. Trang tiêu đề MLR `fraser.stlouisfed.org/title/monthly-labor-review-82`: HTTP 200 (3,4 MB) nhưng danh sách số báo nạp động, không có liên kết PDF theo năm trong HTML tĩnh.
+4. `.../mlr/mlr_198307.pdf`: 404.
+5. `.../bls_mlr/bls_mlr_19830701.pdf`: 404.
+
+Kết luận: quy ước tên tệp các số MLR thập niên 1980–90 trên FRASER chưa xác định được; các số gần đây dùng `bls_mlr_YYYYMMDD.pdf` nhưng các ngày đoán cho 1983 không tồn tại. Không có câu trích về máy xử lý văn bản thay đánh máy.
+
+Việc còn lại (chờ chủ dự án duyệt hạn mức mới): cấp thêm lượt tải, hoặc cung cấp URL cụ thể một số MLR/Census 1980–2000 (ví dụ bài về clerical employment và office automation), hoặc khoá API FRASER. Chuỗi HSUS đến 1970 (mục 1) vẫn là nguồn Census duy nhất đã có.

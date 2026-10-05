@@ -1,0 +1,251 @@
+# Last Lamplighters · Tập 4 "The Typing Pool" — đặc tả nhà máy v1 (hồ sơ G1 lô 3–5, 05/10/2026).
+# Kiểm: ll.py check · Ước: ll.py est. Nguồn: reports/m3/ep04/NGUON-TAP4.md. Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026.
+# HSUS D 347 và D 186/D 220: đọc bằng mắt trên ảnh quét (ảnh cắt hsus-d347-tr141-300dpi.png), chờ Claude kiểm ở G1.
+# Không nối chuỗi khác phân loại thành một đường; không đặt 3 914 nghìn (HSUS, nhóm rộng) cạnh 26 500 (BLS 43-9022, mã hẹp).
+id: ll-ep04
+title: "TBD at G1 (see LO-3-5-G1.md §4.3)"
+out: /var/tmp/cine-out/ll-ep04
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "13", xfade: 3}
+
+sources:
+  HSUS: {short: "U.S. Census Bureau, Historical Statistics of the U.S. (1975), Series D", title: "Historical Statistics of the United States, Colonial Times to 1970, Part 1, Series D 182–232 and D 233–682",
+         url: "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p1-chD.pdf", read: fulltext,
+         pages: "pp. 125 (notes), 139–141 (PDF 19–21); row 347, rows 186/220 — ảnh quét, đối chiếu bằng mắt, chờ Claude kiểm ảnh ở G1", accessed: 2026-10-05}
+  T15: {short: "BLS, Employment Projections 2025–35, Table 1.5", title: "Table 1.5 Fastest declining occupations, 2025 and projected 2035", url: "https://www.bls.gov/emp/tables/fastest-declining-occupations.htm",
+        read: fulltext, pages: "table rows 43-9022, 43-9021 (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  OOHS: {short: "BLS, Occupational Outlook Handbook (2025–35): Secretaries", title: "Secretaries and Administrative Assistants",
+         url: "https://www.bls.gov/ooh/office-and-administrative-support/secretaries-and-administrative-assistants.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 5 (text), p. 7 (Table 2)", accessed: 2026-10-05}
+  NZ: {short: "Noy & Zhang, MIT working paper (2023)", title: "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence (working paper, 2 Mar 2023)",
+       url: "https://economics.mit.edu/sites/default/files/inline-files/Noy_Zhang_1.pdf", read: fulltext, pages: "pp. 1, 3–4 (PDF)", accessed: 2026-10-05}
+
+numbers:
+  st1900: {v: 134000, text: "134,000", kind: actual, year: 1900, unit: people, src: HSUS, say: "one hundred thirty-four thousand", note: "1950 classification; 1900 'approximations only'"}
+  st1910: {v: 387000, text: "387,000", kind: actual, year: 1910, unit: people, src: HSUS}
+  st1920: {v: 786000, text: "786,000", kind: actual, year: 1920, unit: people, src: HSUS}
+  st1930: {v: 1097000, text: "1,097,000", kind: actual, year: 1930, unit: people, src: HSUS, say: "one point one million"}
+  st1940: {v: 1223000, text: "1,223,000", kind: actual, year: 1940, unit: people, src: HSUS}
+  st1950: {v: 1661000, text: "1,661,000", kind: actual, year: 1950, unit: people, src: HSUS, say: "one point seven million"}
+  st60a: {v: 2316000, text: "2,316,000", kind: actual, year: 1960, unit: people, src: HSUS, say: "two point three million", note: "1970 classification"}
+  st70: {v: 3914000, text: "3,914,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "three point nine million", note: "1970, 16+"}
+  st_chg: {v: 69, text: "+69%", kind: actual, unit: '%', src: HSUS, say: "sixty-nine percent", note: "tính: (3 914 − 2 316) / 2 316 = +69,0 %"}
+  cw1900: {v: 212000, text: "212,000", kind: actual, year: 1900, unit: people, src: HSUS, say: "two hundred twelve thousand", note: "D 220, women clerical"}
+  cw1970: {v: 10461000, text: "10,461,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "ten and a half million"}
+  cw_share: {v: 74, text: "74%", kind: actual, year: 1970, unit: '%', src: HSUS, say: "three in four", note: "tính: 10 461 / 14 208 = 73,6 %"}
+  wp25: {v: 40400, text: "40,400", kind: actual, year: 2025, unit: people, src: T15, say: "forty thousand"}
+  wp35: {v: 26500, text: "26,500", kind: projection, period: 2025–35, year: 2035, unit: people, src: T15, say: "twenty-six thousand"}
+  wp_chg: {v: -34.4, text: "−34.4%", kind: projection, period: 2025–35, unit: '%', src: T15, say: "thirty-four percent"}
+  de25: {v: 131800, text: "131,800", kind: actual, year: 2025, unit: people, src: T15, say: "one hundred thirty-two thousand"}
+  de35: {v: 98200, text: "98,200", kind: projection, period: 2025–35, year: 2035, unit: people, src: T15, say: "ninety-eight thousand"}
+  de_chg: {v: -25.5, text: "−25.5%", kind: projection, period: 2025–35, unit: '%', src: T15, say: "twenty-five point five percent"}
+  se25: {v: 3515600, text: "3,515,600", kind: actual, year: 2025, unit: people, src: OOHS, say: "three point five million"}
+  se35: {v: 3440300, text: "3,440,300", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHS, say: "three point four million"}
+  se_chg: {v: -2, text: "−2%", kind: projection, period: 2025–35, unit: '%', src: OOHS, say: "two percent"}
+  mt_old: {v: -4.9, text: "−4.9%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "four point nine percent"}
+  nz_time: {v: -37, text: "−37%", kind: actual, unit: '%', src: NZ, say: "thirty-seven percent"}
+
+segments:
+  - id: "00"
+    part: STORY
+    dur: 6
+    fadeIn: 0
+    shots:
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [2.2, 4.6], screen: 3.6, cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -60, z: 0.12}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the lamplighter passes an office block. On the third floor, the windows are full of green desk lamps, row after row,
+      and a sound comes down to the street: keys striking, a small bell, the slap of a carriage return. Dozens of hands, one rhythm.
+      This was the typing pool.
+    vo_offset: 4.0
+    min_dur: 40
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [0.5, "@passes"], lights: [1]}, warm: 0.6, windows: 0.9,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@floor", x: -260, z: 0.06}]}}
+      - {tpl: rows, at: "@sound-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, cam: [{t: "@sound", x: 40, z: 0}, {t: "@pool+1.5", x: -40, z: 0.1}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      The typewriter made a new kind of job almost overnight. Letters, contracts, invoices, all of it now had to be typed, and someone had to take it down first in shorthand.
+      In 1900, the U.S. census counted about one hundred thirty-four thousand stenographers, typists, and secretaries. By 1930, about one point one million.
+      By 1950, about one point seven million. The census itself warns that the 1900 figures are approximations, and that definitions shifted from count to count.
+      So read the early line as a shape, not a precise measure. And the shape is a boom.
+    min_dur: 30
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TYPING POOL", px: 84}, {s: "Last Lamplighters · Episode 4", px: 34, serif: false}]}}
+      - {tpl: line, at: "@1900-0.6", in: slide, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1950 occupation classification", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "1900 figures: approximations only", at: "@approximations"}],
+           ylabel: "workers", yfmt: k, xr: [1900, 1950], xticks: [1900, 1910, 1920, 1930, 1940, 1950], ymax: 2000000, at: "@1900", dur: 14,
+           series: [{points: [[1900, 134000], [1910, 387000], [1920, 786000], [1930, 1097000], [1940, 1223000], [1950, 1661000]], labels: [0, 3, 5], ltext: ["134,000", "", "", "1,097,000", "", "1,661,000"]}],
+           nums: [{num: st1900}, {num: st1930}, {num: st1950}]}}
+
+  - id: "03"
+    part: HISTORY
+    vo: >-
+      Most of those new jobs went to women. Across all clerical work, the census counted about two hundred twelve thousand women in 1900.
+      By 1970, about ten and a half million. By then, women held nearly three in four of all clerical jobs.
+      For millions of women, the office was the first door into paid work outside the home, and the typewriter was the key that opened it.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Women in clerical work, U.S.", subtitle: "census counts, all clerical occupations", beats: [{s: "most of the new jobs went to women", at: "@most"}],
+           bars: [{label: "1900", num: cw1900, at: "@twelve"}, {label: "1970", num: cw1970, at: "@half"}], note: "1970: women held 74% of clerical jobs (10.46 of 14.21 million)", noteAt: "@three", nums: [{num: cw_share}]}}
+      - {tpl: text, at: "@millions-0.4", in: slide, p: {lines: [{s: "the first door into paid office work", px: 48, at: "@millions"}, {s: "the typewriter: the key that opened it", px: 38, serif: false, at: "@key"}], src: [HSUS]}}
+
+  - id: "04"
+    part: HISTORY
+    vo: >-
+      And the pool kept filling. After the war, offices grew, paperwork grew, and so did the people who typed it.
+      The census changed its job categories again in 1970, so the next decade is drawn as its own line. On the 1970 basis,
+      stenographers, typists, and secretaries numbered about two point three million in 1960, and about three point nine million in 1970.
+      That is up sixty-nine percent in ten years. At its peak, the typing pool was one of the largest workforces in the country.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1970 occupation classification", beats: [{s: "the pool kept filling", at: "@pool"}, {s: "after the war: more offices, more paperwork", at: "@war"}, {s: "a new classification in 1970: a separate line", at: "@categories"}],
+           bars: [{label: "1960", num: st60a, at: "@1960"}, {label: "1970", num: st70, at: "@1970#2"}], note: "+69% in ten years (1960–1970)", noteAt: "@sixtynine", nums: [{num: st_chg}]}}
+
+  # Đoạn 05: chừa chỗ cho số 1970–2000 (gói tra nhỏ đang chạy). Nếu không có nguồn toàn văn: giữ lời dưới đây, KHÔNG nêu số và không khẳng định máy xử lý văn bản làm giảm nghề.
+  - id: "05"
+    part: HISTORY
+    vo: >-
+      Then the machine on the desk began to change, and the people who once handed their letters to the pool began to type their own.
+      Here our record runs thin. We could not find a full, verifiable count for the decades after 1970,
+      so we will not put a number on how fast the pool drained. But we can see where it ended up.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "the machine on the desk changes", at: "@machine"}], lines: [{s: "people began to type their own", px: 46, at: "@own"},
+                                                          {s: "after 1970: no count we could verify", px: 38, serif: false, at: "@thin", color: "#4f2a0c"}]}}
+
+  - id: "06"
+    part: STORY
+    vo: >-
+      The lamplighter walks on. The third-floor windows are dark now, except for one screen, its cursor blinking.
+      No bells, no carriage returns. Somewhere in the building, words still appear on a page. Fewer hands are typing them.
+    vo_offset: 2.5
+    min_dur: 26
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@blinking+1"]}, warm: 0.4, windows: 0.3,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@blinking+1", x: -300, z: 0.05}]}}
+      - {tpl: rows, at: "@bells-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@bells", "@page"], screen: "@words", cam: [{t: "@bells", x: 0, z: 0}, {t: "@them+1.5", x: -80, z: 0.12}]}}
+
+  - id: "07"
+    part: TODAY
+    vo: >-
+      Today, the job title that grew out of the typing pool, word processors and typists, is one of the fastest-declining occupations on the BLS list.
+      It is projected to shrink from about forty thousand jobs in 2025 to about twenty-six thousand in 2035. That is down thirty-four percent.
+      Data entry keyers, the people who type information into systems, are projected to fall twenty-five point five percent,
+      from about one hundred thirty-two thousand to about ninety-eight thousand. Both are projections, not counts.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Word processors and typists, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the job title that grew out of the typing pool", at: "@title"}, {s: "one of the fastest-declining occupations", at: "@fastestdeclining"}],
+           bars: [{label: "2025", num: wp25, at: "@forty"}, {label: "2035 (projected)", num: wp35, at: "@twentysix"}], note: "Projected change, 2025–35: −34.4%", noteAt: "@down", nums: [{num: wp_chg}]}}
+      - {tpl: bars, at: "@data-0.4", in: slide, p: {title: "Data entry keyers, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "data entry keyers", at: "@data"}, {s: "typing information into systems", at: "@information"}],
+           bars: [{label: "2025", num: de25, at: "@thirtytwo"}, {label: "2035 (projected)", num: de35, at: "@ninetyeight"}], note: "Projected change, 2025–35: −25.5%", noteAt: "@both", nums: [{num: de_chg}]}}
+
+  - id: "08"
+    part: TODAY
+    vo: >-
+      The largest descendant of the typing pool is much bigger. In 2025, there were about three point five million secretaries and administrative assistants.
+      The BLS projects a decline of about two percent by 2035, to about three point four million. Its explanation is direct:
+      technology, including artificial intelligence systems and digital tools, enables staff to prepare their own documents.
+      The boss who once dictated a letter now writes it, with a machine helping.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Secretaries and administrative assistants, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the largest descendant of the typing pool", at: "@largest"}],
+           bars: [{label: "2025", num: se25, at: "@five"}, {label: "2035 (projected)", num: se35, at: "@four"}], note: "Projected change, 2025–35: −2%", noteAt: "@decline", nums: [{num: se_chg}]}}
+      - {tpl: quote, at: "@explanation-0.4", in: slide, p: {text: "Technology, including artificial intelligence (AI) systems and digital tools, enables staff… to prepare their own documents…", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@technology", src: [OOHS]}}
+
+  - id: "09"
+    part: TODAY
+    vo: >-
+      The clearest case is the one closest to the old stenographer, who turned spoken words into typed pages.
+      Medical transcriptionists do that work today, for doctors. In its January 2026 review, the BLS projected their employment to decline four point nine percent
+      from 2024 to 2034, and it named the reason: AI technology can recognize speech and transcribe audio.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "the clearest case", at: "@clearest"}, {s: "closest to the old stenographer", at: "@stenographer"}], lines: [{s: "spoken words → typed pages", px: 56, at: "@spoken"}, {s: "medical transcriptionists, today", px: 38, serif: false, at: "@medical"}], src: [MLR26]}}
+      - {tpl: bignum, at: "@review-0.4", in: slide, p: {title: "Medical transcriptionists, projection cycle 2024–34", beats: [{s: "BLS, Monthly Labor Review, January 2026", at: "@review"}], value: -4.9, text: "−4.9%", suffix: "%", d: 1, at: "@nine",
+           caption: "because AI technology can recognize speech and transcribe audio (BLS)", capAt: "@reason", nums: [{num: mt_old}]}}
+
+  - id: "10"
+    part: TODAY
+    vo: >-
+      What does AI do to writing work itself? In a 2023 experiment, MIT economists Shakked Noy and Whitney Zhang gave four hundred forty-four college-educated professionals
+      short writing tasks: press releases, short reports, delicate emails. Half of them, chosen at random, could use ChatGPT.
+      Those with the tool finished about thirty-seven percent faster, ten minutes off an average of twenty-seven, and graders rated their work higher.
+      The weakest writers gained the most. In the authors' words, the tool substantially compresses the productivity distribution.
+      The study measured tasks, not jobs. And these were professionals writing for themselves, not typists.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "AI and writing work", at: "@writing"}, {s: "an experiment, 2023", at: "@experiment"}, {s: "Shakked Noy & Whitney Zhang, MIT", at: "@economists"}],
+           lines: [{s: "444 college-educated professionals", px: 50, at: "@collegeeducated"}, {s: "press releases · reports · emails", px: 34, serif: false, at: "@press"}, {s: "half, at random, could use ChatGPT", px: 34, serif: false, at: "@random"}], src: [NZ]}}
+      - {tpl: bignum, at: "@finished-0.4", in: slide, p: {title: "Time to finish a writing task, with the AI tool", value: -37, text: "−37%", suffix: "%", at: "@thirtyseven", caption: "10 minutes off an average of 27; quality rated higher",
+           capAt: "@graders", nums: [{num: nz_time}]}}
+      - {tpl: quote, at: "@weakest-0.4", in: flip, p: {beats: [{s: "the weakest writers gained the most", at: "@weakest"}], text: "ChatGPT substantially compresses the productivity distribution, reducing inequality.", who: "Shakked Noy & Whitney Zhang", where: "MIT working paper, 2023", at: "@words", src: [NZ]}}
+      - {tpl: text, at: "@study-0.4", in: flip, p: {lines: [{s: "tasks, not jobs", px: 60, at: "@measured"}, {s: "professionals, not typists", px: 46, at: "@professionals"}], src: [NZ]}}
+
+  - id: "11"
+    part: TODAY
+    vo: >-
+      So here is the comparison, on the same scale: change over ten years. From 1960 to 1970, stenographers, typists, and secretaries grew sixty-nine percent.
+      From 2025 to 2035, the BLS projects secretaries and administrative assistants to decline about two percent.
+      The two groups are close, not identical: today, typists are counted separately, and their decline is far steeper.
+      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
+      But the differences matter. The typewriter created the pool; the computer and AI are taking the typing away from it.
+      And one of these numbers is history. The other is only a forecast.
+    shots:
+      - {tpl: compare, at: 0, p: {title: "Change over ten years", beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "change over ten years", at: "@ten"}], unit: '%', mid: "not the same technology — the same pattern", midAt: "@pattern",
+           left: {title: "Stenographers, typists & secretaries", years: "1960–1970 · counted", icon: typewriter, num: st_chg, at: "@1960", d: 0},
+           right: {title: "Secretaries & admin. assistants", years: "2025–2035 · projected", icon: chat, num: se_chg, at: "@2025", d: 0},
+           diff: ["close groups, not identical", "typists today: −34.4% (2025–35)", "a forecast, not a count"], diffAt: "@identical"}}
+
+  - id: "12"
+    part: TODAY
+    vo: >-
+      The typing pool was more than a room of machines. For generations of women, it was a door into the working world.
+      The question now is less whether typing survives. It is whether the next door is there for people starting out,
+      and whether the work that grows around AI is open to them. Nobody can count that yet. That is what we will be watching.
+    min_dur: 26
+    shots:
+      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "A door, not just a room", px: 64, at: "@typing"}, {s: "1900–1970: millions of women into office work", px: 34, serif: false, at: "@generations"},
+                                                         {s: "Today: is the next door there?", px: 34, serif: false, at: "@next"}, {s: "Nobody can count that yet.", px: 34, serif: false, at: "@nobody"}], src: [HSUS, OOHS]}}
+      - {tpl: office, at: "@watching-1.5", in: fade, p: {light: "@watching", cam: [{t: "@watching-1.5", x: 0, z: 0}, {t: "@watching+4", x: -90, z: 0.06}]}}
+
+  - id: "13"
+    part: STORY
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
+      Every era has its last lamplighters. Some of them sat in the typing pool.
+    vo_offset: 3.0
+    min_dur: 28
+    tail: 2.0
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: "@pool+2", x: -520, z: 0.07}]}}
+      - {tpl: endcard, at: "@pool+0.8", in: fade, p: {line: "Last Lamplighters · Episode 4", next: "Next: The Claims Desk"}}
+
+shorts:
+  - id: S1
+    hook: "Stenographers, typists & secretaries: 134,000 to 3.9 million"
+    vo: >-
+      In 1900, the U.S. census counted about one hundred thirty-four thousand stenographers, typists, and secretaries. By 1970, on a newer census basis, about three point nine million.
+      Most of them were women. The typewriter built one of the largest workforces in America. Today, the job title word processors and typists is projected to shrink thirty-four percent by 2035.
+    shots:
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 4}}
+      - {tpl: text, at: "@1900-0.3", in: slide, p: {lines: [{s: "1900: 134,000", px: 64, at: "@thirtyfour"}, {s: "1970: 3.9 million", px: 64, at: "@three"}, {s: "census counts; categories changed in between", px: 40, at: "@newer"}], src: [HSUS]}}
+      - {tpl: bignum, at: "@today-0.3", in: flip, p: {title: "Word processors & typists, 2025–35", value: -34.4, text: "−34.4%", suffix: "%", d: 1, at: "@shrink", caption: "projected (BLS)", nums: [{num: wp_chg}]}}
+  - id: S2
+    hook: "The job AI names directly: medical transcription"
+    vo: >-
+      The old stenographer turned spoken words into typed pages. Medical transcriptionists still do that, for doctors. The Bureau of Labor Statistics projects their employment to decline
+      four point nine percent from 2024 to 2034, and it names the reason: AI technology can recognize speech and transcribe audio.
+    shots:
+      - {tpl: text, at: 0, p: {lines: [{s: "spoken words → typed pages", px: 60, at: "@spoken"}, {s: "medical transcriptionists", px: 48, at: "@medical"}], src: [MLR26]}}
+      - {tpl: bignum, at: "@projects-0.3", in: slide, p: {title: "Medical transcriptionists, 2024–34", value: -4.9, text: "−4.9%", suffix: "%", d: 1, at: "@nine", caption: "because AI can recognize speech and transcribe audio (BLS)", capAt: "@reason", nums: [{num: mt_old}]}}
+  - id: S3
+    hook: "37% faster with AI — but not typists"
+    vo: >-
+      In a 2023 MIT experiment, four hundred forty-four professionals did short writing tasks. Half could use ChatGPT. They finished about thirty-seven percent faster, and their work was rated higher.
+      But the study measured tasks, not jobs, and these were professionals, not typists.
+    shots:
+      - {tpl: text, at: 0, p: {lines: [{s: "444 professionals", px: 60, at: "@professionals"}, {s: "half could use ChatGPT", px: 48, at: "@half"}], src: [NZ]}}
+      - {tpl: bignum, at: "@finished-0.3", in: slide, p: {title: "Time to finish", value: -37, text: "−37%", suffix: "%", at: "@thirtyseven", caption: "tasks, not jobs", capAt: "@tasks", nums: [{num: nz_time}]}}

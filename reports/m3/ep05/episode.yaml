@@ -1,0 +1,232 @@
+# Last Lamplighters · Tập 5 "The Claims Desk" (phương án 5A, chủ dự án chọn 05/10/2026) — đặc tả nhà máy v1 (hồ sơ G1 lô 3–5).
+# Hai vế là HAI NGHỀ KHÁC NHAU trong cùng quy trình bồi thường: nhân viên văn phòng bảo hiểm (1954–63) ↔ giám định viên / thẩm định thiệt hại xe (2025–35).
+# Nguồn: reports/m3/ep05/NGUON-TAP5.md (mục 1–4 và PHỤ LỤC 5A). Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026.
+# KHÔNG dùng: 4,2 % → 2,4 %/năm (không ghi khoảng năm); số 1954 suy ra; số đọc từ biểu đồ 3–4 của Bulletin.
+id: ll-ep05
+title: "TBD at G1 (see LO-3-5-G1.md §5.3)"
+out: /var/tmp/cine-out/ll-ep05
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "13", xfade: 3}
+
+sources:
+  B1468: {short: "BLS Bulletin 1468 (1966)", title: "Impact of Office Automation in the Insurance Industry", url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1468_1966.pdf",
+          read: fulltext, pages: "pp. 1–2, 4, 18, 35 (Table 8), 38 (Table 10), 39, 45 (print; PDF = print + 8)", accessed: 2026-10-05}
+  OOHC: {short: "BLS, Occupational Outlook Handbook (2025–35): Claims Adjusters", title: "Claims Adjusters, Appraisers, Examiners, and Investigators",
+         url: "https://www.bls.gov/ooh/business-and-financial/claims-adjusters-appraisers-examiners-and-investigators.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 5", accessed: 2026-10-05}
+  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF pp. 3–4", accessed: 2026-10-05}
+  NAIC: {short: "NAIC, Artificial Intelligence (topic page)", title: "Artificial Intelligence — insurance topics", url: "https://content.naic.org/insurance-topics/artificial-intelligence",
+         read: fulltext, pages: "survey section (auto insurers, Dec 2022)", accessed: 2026-10-05}
+  EP: {short: "BLS, Employment Projections 2025–2035 (USDL-26-1422)", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
+       read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
+
+numbers:
+  ins64: {v: 884700, text: "884,700", kind: actual, year: 1964, unit: people, src: B1468, say: "eight hundred eighty-five thousand"}
+  edp54: {v: 600, text: "600", kind: actual, year: 1954, unit: people, src: B1468, say: "six hundred"}
+  edp63: {v: 16000, text: "16,000", kind: actual, year: 1963, unit: people, src: B1468, say: "sixteen thousand"}
+  early1: {v: 6.8, text: "+6.8%", kind: actual, unit: '%', src: B1468, say: "six point eight percent", note: "1956–59, Bảng 9, 17 hãng nhân thọ"}
+  early2: {v: 1.6, text: "+1.6%", kind: actual, unit: '%', src: B1468, say: "one point six percent", note: "1959–62, Bảng 9"}
+  rec: {v: 66.5, text: "two-thirds", kind: actual, year: 1963, unit: '% of firms', src: B1468, say: "two-thirds"}
+  off63: {v: 365911, text: "365,911", kind: actual, year: 1963, unit: people, src: B1468, say: "three hundred sixty-six thousand"}
+  off_chg: {v: 31.5, text: "+31.5%", kind: actual, unit: '%', src: B1468, say: "thirty-one point five percent", note: "1954–63, 9 năm, Bảng 8"}
+  ca25: {v: 376100, text: "376,100", kind: actual, year: 2025, unit: people, src: OOHC, say: "three hundred seventy-six thousand"}
+  ca35: {v: 355500, text: "355,500", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHC, say: "three hundred fifty-five thousand"}
+  ca_chg: {v: -5, text: "−5%", kind: projection, period: 2025–35, unit: '%', src: OOHC, say: "five percent"}
+  ap25: {v: 13500, text: "13,500", kind: actual, year: 2025, unit: people, src: OOHC, say: "thirteen thousand five hundred"}
+  ap35: {v: 12400, text: "12,400", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHC, say: "twelve thousand four hundred"}
+  ap_chg: {v: -9, text: "−9%", kind: projection, period: 2025–35, unit: '%', src: OOHC, say: "nine percent"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
+  naic: {v: 88, text: "88%", kind: actual, year: 2022, unit: '% of insurers', src: NAIC, say: "eighty-eight percent"}
+
+segments:
+  - id: "00"
+    part: STORY
+    dur: 6
+    fadeIn: 0
+    shots:
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 6, dim: [2.2, 4.6], screen: 3.6, cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -60, z: 0.12}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the lamplighter works down a street of offices. In one building, an insurance company keeps its lights on late.
+      On every floor, people sit with files: a dented car, a flooded kitchen, a fire in a shop. Each file is a claim.
+      Each claim is a question: what happened, and what is it worth?
+    vo_offset: 4.0
+    min_dur: 40
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860, lit: "@works+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [0.5, "@works"], lights: [1]}, warm: 0.6, windows: 0.9,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@building", x: -260, z: 0.06}]}}
+      - {tpl: rows, at: "@floor-0.4", in: fade, p: {variant: typing, rows: 3, per: 6, cam: [{t: "@floor", x: 40, z: 0}, {t: "@worth+1.5", x: -40, z: 0.1}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      Behind every claim, there used to be a small army of clerks. In the 1950s, insurance was paperwork on an enormous scale: premiums to bill, policies to update, claims to record and pay.
+      In 1964, U.S. insurance carriers employed about eight hundred eighty-five thousand people, and most of them did office work.
+      Then a new machine arrived at head office: the electronic computer.
+    min_dur: 30
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE CLAIMS DESK", px: 84}, {s: "Last Lamplighters · Episode 5", px: 34, serif: false}]}}
+      - {tpl: bignum, at: "@1964-0.6", in: slide, p: {title: "Employees of U.S. insurance carriers", beats: [{s: "U.S. insurance carriers, 1964", at: "@1964"}], value: 884700, text: "884,700", at: "@eight", caption: "1964 · 70–75% in office work (BLS, 1966)", nums: [{num: ins64}]}}
+
+  - id: "03"
+    part: HISTORY
+    vo: >-
+      In 1966, the Bureau of Labor Statistics published a study of what the computer was doing to insurance offices.
+      Employment in company computer units soared, from about six hundred people in 1954 to about sixteen thousand by 1963.
+      And the routine work began to move. Routine clerical record keeping declined in two-thirds of the companies surveyed.
+      Jobs like premium billing, tasks which formerly required large numbers of clerks handling files, went to the machine.
+      So did the policy evaluation clerks, who calculated the cash values of policies using rate books and manual calculators.
+      Among seventeen life insurers that adopted computers earliest, growth in office staff slowed from six point eight percent to one point six percent over consecutive three-year periods.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "People working in insurance computer units", subtitle: "U.S. insurance carriers", beats: [{s: "BLS study, 1966", at: "@1966"}, {s: "what the computer did to insurance offices", at: "@computer"}],
+           bars: [{label: "1954", num: edp54, at: "@six"}, {label: "1963", num: edp63, at: "@sixteen"}]}}
+      - {tpl: bignum, at: "@routine-0.4", in: slide, p: {title: "Routine clerical record keeping", beats: [{s: "the routine work began to move", at: "@routine"}], value: 66.5, text: "two-thirds", at: "@twothirds", caption: "of surveyed companies reported a decline (as of 1963)", nums: [{num: rec}]}}
+      - {tpl: quote, at: "@jobs-0.4", in: flip, p: {beats: [{s: "premium billing", at: "@premium"}], text: "…tasks which formerly required large numbers of clerks handling files.", who: "U.S. Bureau of Labor Statistics", where: "Bulletin 1468, 1966", at: "@tasks", src: [B1468]}}
+      - {tpl: bars, at: "@seventeen-0.4", in: slide, p: {title: "Office staff growth, 17 early-computer life insurers", subtitle: "change over three-year periods", unit: '%', max: 10, d: 1, beats: [{s: "rate books and manual calculators", at: "@rate"}, {s: "17 life insurers, earliest computers", at: "@seventeen"}],
+           bars: [{label: "1956–59", num: early1, at: "@slowed"}, {label: "1959–62", num: early2, at: "@periods"}]}}
+
+  - id: "04"
+    part: HISTORY
+    vo: >-
+      What about the claims desk itself? The computer reached it too: companies used it to keep reserves for unpaid claims and then to process the claims.
+      But the BLS noticed something. On claims, the computer was intended to improve the company's loss record, rather than to save clerical man-hours.
+      Field offices could send an approved claim amount to head office by wire, and a machine printed the check.
+      The judgment, deciding what a claim was worth, stayed with people.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "the claims desk", at: "@claims"}], lines: [{s: "reserves for unpaid claims", px: 46, at: "@reserves"}, {s: "then claims processing", px: 46, at: "@process"}], src: [B1468]}}
+      - {tpl: quote, at: "@noticed-0.4", in: slide, p: {beats: [{s: "what the BLS noticed", at: "@noticed"}], text: "…intended to improve the company's loss record rather than to save clerical man-hours.", who: "U.S. Bureau of Labor Statistics", where: "Bulletin 1468, 1966", at: "@intended", src: [B1468]}}
+      - {tpl: text, at: "@field-0.4", in: flip, p: {lines: [{s: "field office → approved amount by wire", px: 44, at: "@field"}, {s: "a machine prints the check", px: 44, at: "@printed"}, {s: "the judgment stays with people", px: 38, serif: false, at: "@judgment", color: "#4f2a0c"}], src: [B1468]}}
+
+  - id: "05"
+    part: HISTORY
+    vo: >-
+      And office jobs did not collapse. In two hundred seven companies surveyed, office employment reached about three hundred sixty-six thousand by January 1963,
+      up thirty-one point five percent over nine years, though it grew more slowly than before.
+      Few people were laid off as a direct result. The BLS pointed to high turnover among young clerical workers, a growing industry, and some new computer jobs.
+      And it drew a line: jobs requiring some judgment and decision making, jobs that cannot be computerized, would remain.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "Office employment, 207 surveyed insurance companies", beats: [{s: "office jobs did not collapse", at: "@collapse"}], value: 31.5, text: "+31.5%", suffix: "%", d: 1, at: "@thirtyone",
+           caption: "January 1954 to January 1963 (nine years) · 365,911 in 1963", nums: [{num: off_chg}, {num: off63}]}}
+      - {tpl: text, at: "@few-0.4", in: slide, p: {lines: [{s: "few laid off as a direct result", px: 46, at: "@few"}, {s: "turnover · industry growth · new computer jobs", px: 34, serif: false, at: "@turnover"}], src: [B1468]}}
+      - {tpl: quote, at: "@line-0.4", in: flip, p: {text: "…jobs requiring some judgment and decision making—jobs that cannot be computerized…", who: "U.S. Bureau of Labor Statistics", where: "Bulletin 1468, 1966", at: "@requiring", src: [B1468]}}
+
+  - id: "06"
+    part: STORY
+    vo: >-
+      The lamplighter walks on. Up in the insurance building, the clerks' floors went quiet long ago. One office is still lit:
+      someone looks at a photo of a dented car on a screen. For sixty years, that was the part the machine could not do.
+    vo_offset: 2.5
+    min_dur: 26
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@lit+1"]}, warm: 0.4, windows: 0.3,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@lit+1", x: -300, z: 0.05}]}}
+      - {tpl: office, at: "@someone-0.4", in: fade, p: {light: "@photo", cam: [{t: "@someone", x: 0, z: 0}, {t: "@do+1.5", x: -80, z: 0.08}]}}
+
+  - id: "07"
+    part: TODAY
+    vo: >-
+      That part is now changing. Claims adjusters, examiners, and investigators decide what a claim is worth. In 2025, there were about three hundred seventy-six thousand of them.
+      The BLS projects about three hundred fifty-five thousand by 2035, a decline of five percent, while all jobs together grow three point five percent.
+      Its reason is plain: computer software can evaluate photographs of damaged property and calculate an estimated claim amount.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Claims adjusters, examiners & investigators, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the part that is changing now", at: "@changing"}, {s: "deciding what a claim is worth", at: "@decide"}],
+           bars: [{label: "2025", num: ca25, at: "@seventysix"}, {label: "2035 (projected)", num: ca35, at: "@fiftyfive"}], note: "Projected change, 2025–35: −5% (all occupations: +3.5%)", noteAt: "@decline", nums: [{num: ca_chg}, {num: all_chg}]}}
+      - {tpl: quote, at: "@reason-0.4", in: slide, p: {text: "…computer software can evaluate photographs of damaged property and calculate an estimated claim amount.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@software", src: [OOHC]}}
+
+  - id: "08"
+    part: TODAY
+    vo: >-
+      For one small job, the change is sharper. Auto damage appraisers look at wrecked cars and estimate repair costs. There were about thirteen thousand five hundred of them in 2025.
+      The BLS projects about twelve thousand four hundred by 2035: down nine percent, almost twice the decline for adjusters.
+      In its 2025 article on AI, the BLS described the shift: once photographs are taken, the analysis and initial payout estimates, traditionally prepared by an adjuster, can be autogenerated by AI.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Insurance appraisers, auto damage, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "a small job, a sharper change", at: "@small"}, {s: "auto damage appraisers", at: "@auto"}, {s: "they estimate repair costs", at: "@estimate"}],
+           bars: [{label: "2025", num: ap25, at: "@thirteen"}, {label: "2035 (projected)", num: ap35, at: "@twelve"}], note: "Projected change, 2025–35: −9%", noteAt: "@down", nums: [{num: ap_chg}]}}
+      - {tpl: quote, at: "@article-0.4", in: slide, p: {beats: [{s: "BLS, Monthly Labor Review, 2025", at: "@article"}], text: "Once photographs are taken, the analysis and initial payout estimates, traditionally prepared by an adjuster, can be autogenerated by AI.", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@once", src: [MLR25]}}
+
+  - id: "09"
+    part: TODAY
+    vo: >-
+      How widely is this used? Hard numbers are scarce. The BLS's January 2026 review put it more gently: adjusters can use AI tools to assess photographs of property damage, which improves efficiency in generating payout estimates.
+      In a survey by state insurance regulators, released in 2022, eighty-eight percent of one hundred ninety-three auto insurers said they use,
+      plan to use, or plan to explore AI and machine learning. Accident image analysis was one of the claims uses. That counts plans as well as practice,
+      so it tells us about intent, not about how many claims a machine already prices.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "how widely is AI used?", at: "@widely"}], text: "Claims adjusters, examiners, and investigators can use AI tools to assess photographs of property damage, which improves efficiency in generating payout estimates.", who: "BLS", where: "Monthly Labor Review, January 2026", at: "@gently", src: [MLR26]}}
+      - {tpl: bignum, at: "@survey-0.4", in: slide, p: {title: "U.S. auto insurers and AI / machine learning", beats: [ {s: "a survey by state insurance regulators (NAIC)", at: "@survey"}], value: 88, text: "88%", suffix: "%", at: "@eightyeight",
+           caption: "of 193 insurers: use, plan to use, or plan to explore (2022)", capAt: "@plan", nums: [{num: naic}]}}
+      - {tpl: text, at: "@counts-0.4", in: slide, p: {lines: [{s: "accident image analysis", px: 50, at: "@accident"}, {s: "plans as well as practice", px: 44, at: "@counts"}, {s: "intent, not a count of claims", px: 34, serif: false, at: "@intent", color: "#4f2a0c"}], src: [NAIC]}}
+
+  - id: "10"
+    part: TODAY
+    vo: >-
+      So here is the comparison, with a caution. Not the same job: the same claims desk. In the 1950s, the machine took the clerks' record keeping,
+      and office employment in surveyed companies still grew thirty-one point five percent over nine years.
+      Today, software is reaching the adjuster's judgment itself, and the BLS projects a decline of five percent from 2025 to 2035.
+      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
+      But the differences matter. These are two different jobs. Back then, the machine stopped at judgment. Now it starts there.
+      And one of these numbers is history. The other is only a forecast.
+    shots:
+      - {tpl: compare, at: 0, p: {title: "The same claims desk, two jobs", beats: [{s: "the comparison", at: "@comparison"}, {s: "a comparison, with a caution", at: "@caution"}, {s: "not the same job — the same claims desk", at: "@desk"}], unit: '%', mid: "not the same technology — the same pattern", midAt: "@pattern",
+           left: {title: "Insurance office workers", years: "1954–1963 · 9 years · counted", icon: typewriter, num: off_chg, at: "@1950s", d: 1},
+           right: {title: "Claims adjusters", years: "2025–2035 · 10 years · projected", icon: chat, num: ca_chg, at: "@2025", d: 0},
+           diff: ["two different jobs", "then: stopped at judgment; now: reaches it", "a forecast, not a count"], diffAt: "@differences"}}
+
+  - id: "11"
+    part: TODAY
+    vo: >-
+      In 1966, the BLS drew its line at judgment and decision making. That line held for a long time. It is the line that is now moving.
+      What is left for people may be the hard cases: the disputed claim, the unclear photo, the customer who needs someone to explain.
+      Whether that is enough work for the people who do this job today is something no projection can settle. That is what we will be watching.
+    min_dur: 26
+    shots:
+      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "The line at judgment", px: 64, at: "@1966"}, {s: "1966: judgment cannot be computerized.", px: 34, serif: false, at: "@decision"},
+                                                         {s: "Today: the line is moving.", px: 34, serif: false, at: "@moving"}, {s: "Left for people: the hard cases?", px: 34, serif: false, at: "@hard"}], src: [B1468, OOHC]}}
+      - {tpl: office, at: "@watching-1.5", in: fade, p: {light: "@watching", cam: [{t: "@watching-1.5", x: 0, z: 0}, {t: "@watching+4", x: -90, z: 0.06}]}}
+
+  - id: "12"
+    part: STORY
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
+      Every era has its last lamplighters. Some of them sat at the claims desk.
+    vo_offset: 3.0
+    min_dur: 28
+    tail: 2.0
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: "@desk+2", x: -520, z: 0.07}]}}
+      - {tpl: endcard, at: "@desk+0.8", in: fade, p: {line: "Last Lamplighters · Episode 5", next: "Next: chosen at G1"}}
+
+shorts:
+  - id: S1
+    hook: "Software that prices a wrecked car"
+    vo: >-
+      Auto damage appraisers estimate what it costs to fix a wrecked car. The Bureau of Labor Statistics projects their jobs to fall about nine percent by 2035.
+      Its reason: computer software can evaluate photographs of damaged property and calculate an estimated claim amount. It is a projection, not a count.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "Auto damage appraisers, 2025–35", beats: [{s: "estimating repair costs", at: "@estimate"}], value: -9, text: "−9%", suffix: "%", at: "@nine", caption: "projected (BLS)", nums: [{num: ap_chg}]}}
+      - {tpl: quote, at: "@reason-0.3", in: slide, p: {text: "…computer software can evaluate photographs of damaged property and calculate an estimated claim amount.", who: "BLS", at: "@software", src: [OOHC]}}
+  - id: S2
+    hook: "1966: the computer couldn't judge. 2026?"
+    vo: >-
+      In 1966, the Bureau of Labor Statistics studied computers in insurance offices. Routine record keeping declined in two-thirds of the companies, but few people were laid off,
+      and jobs requiring judgment and decision making would remain. Today, the BLS says AI can produce the initial payout estimate from photographs. The line is moving.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "Routine record keeping, 1963", beats: [{s: "computers in insurance offices", at: "@computers"}], value: 66.5, text: "two-thirds", at: "@twothirds", caption: "of companies reported a decline", nums: [{num: rec}]}}
+      - {tpl: text, at: "@today-0.3", in: slide, p: {lines: [{s: "1966: judgment stays with people", px: 52, at: "@judgment"}, {s: "today: AI drafts the payout estimate", px: 52, at: "@initial"}], src: [B1468, MLR25]}}
+  - id: S3
+    hook: "88% of auto insurers — use, plan, or explore AI"
+    vo: >-
+      In a survey by state insurance regulators, eighty-eight percent of one hundred ninety-three auto insurers said they use, plan to use, or plan to explore AI and machine learning.
+      That counts plans as well as practice. It tells us about intent, not about how many claims a machine already prices.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "U.S. auto insurers and AI", beats: [{s: "state insurance regulators (NAIC), 2022", at: "@survey"}], value: 88, text: "88%", suffix: "%", at: "@eightyeight", caption: "use, plan to use, or plan to explore", capAt: "@plan", nums: [{num: naic}]}}
+      - {tpl: text, at: "@counts-0.3", in: slide, p: {lines: [{s: "plans as well as practice", px: 56, at: "@counts"}, {s: "intent, not a count", px: 56, at: "@intent"}], src: [NAIC]}}
