@@ -61,3 +61,4 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 36 | Thẻ chữ thuần thay được bằng cảnh + chú thích đè (`cap`) | tập 4: 7 thẻ text/bars → cảnh | — | dùng `cap` trước khi thêm thẻ giấy; thẻ số vào ngay trước số (≤ 1,5 s) |
 | 37 | Số phụ đọc trong lời, không lên hình | tập 4: 27 → 15 số trên hình | — | 3 số neo (`anchors`) + số đi kèm |
 | 38 | Hoãn tiến trình nền khi phiên/máy khởi động lại | tập 4 lượt 1 mất giữa render | tiến trình `&` không được harness theo dõi | chạy build bằng công cụ nền của harness, không dùng `&` |
+| 39 | Băm đoạn lỗi (thư mục `lib/preview` lọt vào danh sách tệp) → băm rỗng → `build.sh` "giữ" trung gian CŨ của đặc tả trước | tập 4: đoạn 00–05 suýt ghép từ bản trước luật nhịp | băm đọc mọi mục trong `lib/` | băm chỉ đọc `lib/*.js`; băm rỗng = lỗi, không bao giờ "giữ" |

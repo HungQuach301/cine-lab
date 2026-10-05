@@ -83,3 +83,4 @@ Danh sách trắng: ảnh/phim do chính phủ liên bang Mỹ tạo ra (NARA, c
 
 | Mã | Tệp | Nguồn (URL) | Tình trạng quyền (nguyên văn trang nguồn) | Ngày tải | Dùng ở |
 |---|---|---|---|---|---|
+| LOC-8d03493 | `assets/ll/archive/fsa-8d03493.jpg` (1024×786, bản "v" của LoC) | https://www.loc.gov/pictures/item/2017829788/ (ảnh: https://tile.loc.gov/storage-services/service/pnp/fsa/8d03000/8d03400/8d03493v.jpg) | "No known restrictions. For information, see U.S. Farm Security Administration/Office of War Information Black & White Photographs" | 2026-10-05 | test thư viện v2 (`scripts/ll/tests`), lát cắt v2 |

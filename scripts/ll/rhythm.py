@@ -14,7 +14,7 @@ Q18 thẻ trống: shot số liệu (bars/line/compare/bignum) phải có số �
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(__file__)); import ll
 
-FULL = {'street', 'office', 'rows', 'endcard', 'teller'}
+FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive'}   # v2 (05/10/2026): cảnh toàn khung
 DATA = {'bars', 'line', 'compare', 'bignum'}
 CONTENT_KEYS = ('at', 'noteAt', 'midAt', 'diffAt', 'capAt')
 

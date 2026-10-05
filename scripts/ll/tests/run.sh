@@ -7,9 +7,12 @@ set -u; T=$(cd "$(dirname "$0")" && pwd); LL=$T/..; PY=/opt/cine/bin/python; O=/
 mkdir -p $O/f
 $PY $LL/ll.py check $T/tpl.yaml > /dev/null || { echo "TRƯỢT check: tpl.yaml phải ĐẠT"; fail=1; }
 for b in $T/bad/*.yaml; do $PY $LL/ll.py check $b > /dev/null 2>&1 && { echo "TRƯỢT check: $(basename $b) phải bị bắt"; fail=1; }; done
-ASR=0 $PY $LL/ll.py prep $T/tpl.yaml > /dev/null || { echo "TRƯỢT prep"; exit 1; }
-segs=$($PY -c "import json;[print(s['id']) for s in json.load(open('$O/timeline.json'))['segments']]")
-for s in $segs; do node $LL/render.js --tl $O/timeline.json --seg $s --out $O/f/$s.mkv --only 90 --jpgdir $O/f > /dev/null 2>&1 & done; wait
+for Y in tpl tpl2; do   # tpl: thư viện v1; tpl2: thư viện HÌNH v2 (isotype, stack, sign, desk, archive)
+  OY=/var/tmp/cine-out/ll-test$([ $Y = tpl2 ] && echo 2); ASR=0 $PY $LL/ll.py prep $T/$Y.yaml > /dev/null || { echo "TRƯỢT prep $Y"; exit 1; }
+  segs=$($PY -c "import json;[print(s['id']) for s in json.load(open('$OY/timeline.json'))['segments']]")
+  for s in $segs; do node $LL/render.js --tl $OY/timeline.json --seg $s --out $O/f/$s.mkv --only 90 --jpgdir $O/f > /dev/null 2>&1 & done; wait
+done
+$PY $LL/rights_check.py $T/tpl2.yaml > /dev/null || { echo "TRƯỢT rights: tpl2 phải ĐẠT"; fail=1; }
 $PY - "$T" "$O" "$NGUONG" "${1:-}" <<'P' || fail=1
 import sys, os, glob, numpy as np
 from PIL import Image
@@ -20,7 +23,7 @@ for f in sorted(glob.glob(f'{O}/f/*_f00090.jpg')):
     d = np.abs(np.asarray(im, float) - np.asarray(Image.open(ref).convert('L'), float)).mean()
     if d > thr: print(f'TRƯỢT ảnh {k}: lệch {d:.2f} > {thr}'); bad = 1
 n = len(glob.glob(f'{O}/f/*_f00090.jpg'))
-print(f'ảnh: {n} mẫu'); sys.exit(bad or (n < 13))
+print(f'ảnh: {n} mẫu'); sys.exit(bad or (n < 19))
 P
 # (3) build dừng khi render lỗi: đặc tả có mẫu không tồn tại
 TESTS=0 ASR=0 bash $LL/build.sh $T/bad-render.yaml prep render > /dev/null 2>&1; r=$?

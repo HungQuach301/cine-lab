@@ -1,0 +1,18 @@
+# Test thư viện HÌNH v2 (dùng từ tập 6): mỗi mẫu một đoạn 4 s; khung 90 so với ref/<đoạn>.png.
+id: ll-test2
+out: /var/tmp/cine-out/ll-test2
+voice: {id: none}
+sources:
+  T: {short: "Test source", url: "https://example.org/test", read: fulltext, accessed: 2026-10-05}
+numbers:
+  a: {v: 3914000, text: "3.9 million", kind: actual, year: 1970, unit: people, src: T}
+  b: {v: 26500, text: "26,500", kind: projection, period: 2025–35, year: 2035, unit: people, src: T}
+  pb: {v: -34.4, text: "−34.4%", kind: projection, period: 2025–35, unit: '%', src: T}
+segments:
+  - {id: isotype, part: TODAY, dur: 4, shots: [{tpl: isotype, at: 0, p: {title: "Isotype test", unit: 250000, groups: [{label: "1970", num: a, at: 0.2}, {label: "2035 (projected)", value: 1000000, text: "1.0 million", kind: projection, at: 1.2}], src: [T]}}]}
+  - {id: stack, part: TODAY, dur: 4, shots: [{tpl: stack, at: 0, p: {title: "Stack test", obj: files, per: 5, unit: '%', bars: [{label: "typists", num: pb, at: 0.2}, {label: "all jobs", value: 3.5, kind: projection, at: 0.8}], src: [T]}}]}
+  - {id: stack-atm, part: TODAY, dur: 4, shots: [{tpl: stack, at: 0, p: {title: "ATMs", obj: atm, s: 0.7, per: 100000, bars: [{label: "2015", value: 400000, text: "400,000+", kind: actual, at: 0.2}], src: [T]}}]}
+  - {id: sign, part: TODAY, dur: 4, shots: [{tpl: sign, at: 0, p: {num: pb, caption: "word processors & typists, 2025–35", at: 0.3, src: [T]}}]}
+  - {id: desk, part: HISTORY, dur: 4, shots: [{tpl: desk, at: 0, p: {eras: [{era: 1920, at: 0}, {era: 1988, at: 2.6}], accent: "#b6462c"}}]}
+  - {id: archive, part: HISTORY, dur: 4, shots: [{tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d03493.jpg, rid: LOC-8d03493, credit: "Library of Congress, FSA/OWI Collection (no known restrictions)",
+       cam: [{t: 0, x: 0, z: 0.0}, {t: 4, x: -60, z: 0.08}], cap: [{s: "typists, Forest Products Laboratory, 1940s", at: 0.5}]}}]}

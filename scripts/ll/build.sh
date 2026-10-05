@@ -22,9 +22,9 @@ has prep && { $PY $LL/ll.py prep "$EP" | tee $O/prep.json; }
 # Luật nhịp Q14–Q18 (chủ dự án 05/10/2026) đo trên timeline trước khi render; RHYTHM=0 để bỏ (tập ≤ 3 không áp)
 if [ "${RHYTHM:-1}" = 1 ] && has render; then $PY $LL/rhythm.py "$EP" | tee $O/rhythm.txt || { echo "Luật nhịp TRƯỢT — sửa đặc tả trước khi render"; exit 6; }; fi
 segs() { $PY -c "import json;[print(s['id']) for s in json.load(open('$TL'))['$1']]"; }
-hash_of() { $PY -c "import json,hashlib,sys;t=json.load(open('$TL'));s=[x for x in t['$1'] if x['id']=='$2'][0];print(hashlib.sha1(json.dumps(s,sort_keys=True).encode()+open('$LL/render.js','rb').read()+b''.join(open('$LL/lib/'+f,'rb').read() for f in sorted(__import__('os').listdir('$LL/lib')))).hexdigest())"; }
+hash_of() { $PY -c "import json,hashlib,sys;t=json.load(open('$TL'));s=[x for x in t['$1'] if x['id']=='$2'][0];print(hashlib.sha1(json.dumps(s,sort_keys=True).encode()+open('$LL/render.js','rb').read()+b''.join(open('$LL/lib/'+f,'rb').read() for f in sorted(__import__('os').listdir('$LL/lib')) if f.endswith('.js'))).hexdigest())"; }
 render_one() { # $1 kind (segments|shorts) $2 id $3 out
-  local h=$(hash_of $1 $2); [ -f $3 ] && [ "$(cat $3.hash 2>/dev/null)" = "$h" ] && { echo "giữ $2"; return; }
+  local h=$(hash_of $1 $2); [ -n "$h" ] || { echo "LỖI băm đoạn $2"; touch $O/render.failed; return; }; [ -f $3 ] && [ "$(cat $3.hash 2>/dev/null)" = "$h" ] && { echo "giữ $2"; return; }
   local flag=--seg; [ $1 = shorts ] && flag=--short
   if node $LL/render.js --tl $TL $flag $2 --out $3 2>>$O/render-$2.err; then echo $h > $3.hash; python3 $REPO/scripts/p/judder.py $3 --json $3.judder.json > /dev/null || true
   else echo "LỖI render $2 (xem $O/render-$2.err)"; touch $O/render.failed; fi

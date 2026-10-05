@@ -15,6 +15,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q12 thumbnail: 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh, không chạm (scripts/ll/thumb.py ghi .boxes.json)
   Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
   Q14–Q18 luật nhịp (scripts/ll/rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
+  Q19 hồ sơ quyền tư liệu phạm vi công cộng (scripts/ll/rights_check.py)
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
@@ -26,7 +27,7 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
-FULL = {'street', 'office', 'rows', 'endcard'}
+FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive'}
 rows = []
 
 
@@ -196,6 +197,11 @@ if E.get('hook') or E.get('anchors'):
     for k, r in rhythm.measure(E, TL).items(): row(k, NAMES[k], r['ok'], r['val'], '', note=r.get('note', ''))
 else:
     row('Q14–18', 'Luật nhịp', True, 'không áp (tập ≤ 3)', '')
+
+# Q19 hồ sơ quyền tư liệu phạm vi công cộng (rights_check.py; chủ dự án 05/10/2026): thiếu thì Chặn
+import rights_check  # noqa: E402
+_rb, _ra = rights_check.check(E, TL)
+row('Q19', 'Hồ sơ quyền tư liệu (danh sách trắng, RIGHTS, ≤ 20 %)', not _rb, len(_rb), 0, note='; '.join(_rb[:4]) or (f'tư liệu {_ra:.1f} s' if _ra else 'không dùng tư liệu'))
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']

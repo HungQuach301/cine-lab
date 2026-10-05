@@ -26,6 +26,21 @@ Mỗi mẫu có: ảnh xem trước (khung test `tests/tpl.yaml`, `preview/<mẫ
 | `rows` teller (`TPL.teller`) | ![](preview/teller.jpg) | `per`, `dim`, `screen` (ATM), `look` (ô giữa ngẩng lên), `customer{at, nervous}` | nhãn ATM ≥ 4,5:1 (nền `#0c1a2b`, chữ đậm, quầng ≤ 0,2) | 3 |
 | `endcard` | ![](preview/endcard.jpg) | `line`, `next` | thẻ kết hẹn tập sau | 1–5 |
 
+## Thư viện HÌNH v2 (`props.js`, `v2.js`; chủ dự án 05/10/2026 — dùng từ tập 6)
+Mọi mẫu v2 là **cảnh toàn khung** (không tính vào tỷ lệ thẻ giấy Q16) và nhận chú thích đè `cap` (số lớn + nhãn ACTUAL/PROJECTION + dòng nguồn).
+
+| Mẫu | Xem trước | Tham số chính | Tiêu chí nhận | Tập đã dùng |
+|---|---|---|---|---|
+| `isotype` | ![](preview/isotype.jpg) | `unit` (mỗi hình = N người), `unitName`, `groups[{label, num/value/text, at, kind}]`, `title/subtitle`, `src`, `cam` | hình hiện lần lượt; dự báo = hình viền đứt + PROJECTION; ghi "each figure = …" | lát cắt v2 |
+| `stack` | ![](preview/stack.jpg) | `obj` (files, typewriter, atm, terminal, laptop, ledger, car, switchboard), `per`, `bars[{label, num/value, at, kind}]`, `s` | **dùng cho số đếm** (không dùng cho % giảm); ghi "each … = …"; số lẻ không làm tròn | lát cắt v2 |
+| `stack` (ATM) | ![](preview/stack-atm.jpg) | như trên, `obj: atm` | — | — |
+| `sign` | ![](preview/sign.jpg) | `num/value/text`, `caption/capAt`, `at` (sơn dần), `kind`, `wall: brick/plaster` | một số neo mỗi biển | — |
+| `desk` | ![](preview/desk.jpg) | `eras[{era: 1900/1920/1950/1965/1975/1988/2025, at, label}]`, `accent` (khăn quàng nhận diện) | nhân vật vô danh xuyên suốt; đạo cụ đúng thời kỳ | — |
+| `archive` | ![](preview/archive.jpg) | `img`, `rid` (mã dòng RIGHTS), `credit`, `cam` (Ken Burns), `tone` | chỉ nguồn danh sách trắng; ≤ 20 % tập; luôn chuyển động máy + phủ tông B3; qc Q19 chặn khi thiếu hồ sơ | lát cắt v2 (LOC-8d03493) |
+
+- Đạo cụ cắt giấy (`PROP.*`): typewriter, terminal, laptop, ledger, files, atm, counter, switchboard, car (`dent`), phone. Nhân vật: `worker(g, x, y, h, {era, accent})`.
+- Ảnh tư liệu: `render.js` nạp sẵn vào `window.IMGS` (data URI) và chờ giải mã. Ảnh hiện có: `assets/ll/archive/` (mỗi tệp một dòng RIGHTS).
+
 ## Đã trượt — không dùng lại
 | Cách làm | Trượt ở | Thay bằng |
 |---|---|---|
@@ -40,3 +55,5 @@ Mỗi mẫu có: ảnh xem trước (khung test `tests/tpl.yaml`, `preview/<mẫ
 | Thẻ `compare` xưa ↔ nay khác kỳ/khác cơ chế | tập 3 (+87 % 1960–70 ↔ −13 %), tập 4 (+69 % ↔ −2 %), tập 5 (bỏ ở G1) | thẻ `bars` cùng nguồn, cùng kỳ; lịch sử làm bối cảnh |
 | Mốc `@từ` trùng lần xuất hiện đầu | tập 2 "@many", tập 3 "@fewer", tập 4 "@tasks" | `#2` hoặc từ khác; `ll.py est` |
 | Thumbnail không lề | tập 2 T1 cắt chữ | `thumb.py` lề 5 %, qc Q12 |
+| Phim chủ yếu thẻ giấy kem, đổi hình thưa | tập 3 (giấy 75 %, quãng tĩnh 21 s) | `cap` trên cảnh, mẫu v2, qc Q14–Q18 |
+| Làm tròn số lẻ trên hình (3,5 % → "4 %") | thử v2 lần đầu | `fmtBig` giữ 1 chữ số lẻ khi số không nguyên |

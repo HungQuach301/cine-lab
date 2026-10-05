@@ -1,0 +1,99 @@
+# Lát cắt v1: ba đoạn đầu tập 4 theo đặc tả trước luật nhịp (commit 6964fb9), thư viện v1.
+# Last Lamplighters · Tập 4 "The Typing Pool" — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề C; câu chưa có nguồn ở đoạn 05 thay bằng câu BLS ở đoạn 08).
+# Kiểm: ll.py check · Ước: ll.py est. Nguồn: reports/m3/ep04/NGUON-TAP4.md. Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026.
+# HSUS D 347: "đã đối chiếu (Claude)" trên ảnh cắt hsus-d347-tr141-300dpi.png (05/10/2026). D 186/D 220: đọc bằng mắt (gói nguồn), cùng bảng.
+# Không nối chuỗi khác phân loại thành một đường; không đặt 3 914 nghìn (HSUS, nhóm rộng) cạnh 26 500 (BLS 43-9022, mã hẹp).
+id: ll-cut-v1
+title: "Lát cắt ll-cut-v1"
+out: /var/tmp/cine-out/ll-cut-v1
+vo_dir: reports/m3/v2-lat-cat/vo
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "13", xfade: 3}
+
+sources:
+  HSUS: {short: "U.S. Census Bureau, Historical Statistics of the U.S. (1975), Series D", title: "Historical Statistics of the United States, Colonial Times to 1970, Part 1, Series D 182–232 and D 233–682",
+         url: "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p1-chD.pdf", read: fulltext,
+         pages: "pp. 125 (notes), 139–141 (PDF 19–21); row 347 đã đối chiếu (Claude) 05/10/2026; rows 186/220 đọc bằng mắt — ảnh quét", accessed: 2026-10-05}
+  T15: {short: "BLS, Employment Projections 2025–35, Table 1.5", title: "Table 1.5 Fastest declining occupations, 2025 and projected 2035", url: "https://www.bls.gov/emp/tables/fastest-declining-occupations.htm",
+        read: fulltext, pages: "table rows 43-9022, 43-9021 (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  OOHS: {short: "BLS, Occupational Outlook Handbook (2025–35): Secretaries", title: "Secretaries and Administrative Assistants",
+         url: "https://www.bls.gov/ooh/office-and-administrative-support/secretaries-and-administrative-assistants.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 5 (text), p. 7 (Table 2)", accessed: 2026-10-05}
+  B1276: {short: "BLS Bulletin 1276 (1960)", title: "Adjustments to the Introduction of Office Automation", url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1276_1960.pdf",
+          read: fulltext, pages: "p. 3 (PDF 13); P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
+  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", title: "Occupational Outlook Handbook, 1990–91 Edition: Typists, Word Processors, and Data Entry Keyers",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "PDF pp. 294–295; P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
+  EP: {short: "BLS, Employment Projections 2025–2035 (USDL-26-1422)", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
+       read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
+  NZ: {short: "Noy & Zhang, MIT working paper (2023)", title: "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence (working paper, 2 Mar 2023)",
+       url: "https://economics.mit.edu/sites/default/files/inline-files/Noy_Zhang_1.pdf", read: fulltext, pages: "pp. 1, 3–4 (PDF)", accessed: 2026-10-05}
+
+numbers:
+  st1900: {v: 134000, text: "134,000", kind: actual, year: 1900, unit: people, src: HSUS, say: "one hundred thirty-four thousand", note: "1950 classification; 1900 'approximations only'"}
+  st1910: {v: 387000, text: "387,000", kind: actual, year: 1910, unit: people, src: HSUS}
+  st1920: {v: 786000, text: "786,000", kind: actual, year: 1920, unit: people, src: HSUS}
+  st1930: {v: 1097000, text: "1,097,000", kind: actual, year: 1930, unit: people, src: HSUS, say: "one point one million"}
+  st1940: {v: 1223000, text: "1,223,000", kind: actual, year: 1940, unit: people, src: HSUS}
+  st1950: {v: 1661000, text: "1,661,000", kind: actual, year: 1950, unit: people, src: HSUS, say: "one point seven million"}
+  st60a: {v: 2316000, text: "2,316,000", kind: actual, year: 1960, unit: people, src: HSUS, say: "two point three million", note: "1970 classification"}
+  st70: {v: 3914000, text: "3,914,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "three point nine million", note: "1970, 16+"}
+  st_chg: {v: 69, text: "+69%", kind: actual, unit: '%', src: HSUS, say: "sixty-nine percent", note: "tính: (3 914 − 2 316) / 2 316 = +69,0 %"}
+  cw1900: {v: 212000, text: "212,000", kind: actual, year: 1900, unit: people, src: HSUS, say: "two hundred twelve thousand", note: "D 220, women clerical"}
+  cw1970: {v: 10461000, text: "10,461,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "ten and a half million"}
+  cw_share: {v: 74, text: "74%", kind: actual, year: 1970, unit: '%', src: HSUS, say: "three in four", note: "tính: 10 461 / 14 208 = 73,6 %"}
+  b60emp: {v: 2800, text: "≈2,800", kind: actual, year: 1959, unit: people, src: B1276, say: "two thousand eight hundred"}
+  b60laid: {v: 9, text: "9", kind: actual, year: 1959, unit: people, src: B1276, say: "only nine"}
+  typ88: {v: 1416000, text: "1,416,000", kind: actual, year: 1988, unit: people, src: OOH90, say: "one point four million"}
+  wp25: {v: 40400, text: "40,400", kind: actual, year: 2025, unit: people, src: T15, say: "forty thousand"}
+  wp35: {v: 26500, text: "26,500", kind: projection, period: 2025–35, year: 2035, unit: people, src: T15, say: "twenty-six thousand"}
+  wp_chg: {v: -34.4, text: "−34.4%", kind: projection, period: 2025–35, unit: '%', src: T15, say: "thirty-four percent"}
+  de25: {v: 131800, text: "131,800", kind: actual, year: 2025, unit: people, src: T15, say: "one hundred thirty-two thousand"}
+  de35: {v: 98200, text: "98,200", kind: projection, period: 2025–35, year: 2035, unit: people, src: T15, say: "ninety-eight thousand"}
+  de_chg: {v: -25.5, text: "−25.5%", kind: projection, period: 2025–35, unit: '%', src: T15, say: "twenty-five point five percent"}
+  se25: {v: 3515600, text: "3,515,600", kind: actual, year: 2025, unit: people, src: OOHS, say: "three point five million"}
+  se35: {v: 3440300, text: "3,440,300", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHS, say: "three point four million"}
+  se_chg: {v: -2, text: "−2%", kind: projection, period: 2025–35, unit: '%', src: OOHS, say: "two percent"}
+  mt_old: {v: -4.9, text: "−4.9%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "four point nine percent"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
+  nz_time: {v: -37, text: "−37%", kind: actual, unit: '%', src: NZ, say: "thirty-seven percent"}
+
+segments:
+  - id: "00"
+    part: STORY
+    dur: 6
+    fadeIn: 0
+    shots:
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [2.2, 4.6], screen: 3.6, cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -60, z: 0.12}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the lamplighter passes an office block. On the third floor, the windows are full of green desk lamps, row after row,
+      and a sound comes down to the street: keys striking, a small bell, the slap of a carriage return. Dozens of hands, one rhythm.
+      This was the typing pool.
+    vo_offset: 4.0
+    min_dur: 40
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [0.5, "@passes"], lights: [1]}, warm: 0.6, windows: 0.9,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@floor", x: -260, z: 0.06}]}}
+      - {tpl: rows, at: "@sound-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, cam: [{t: "@sound", x: 40, z: 0}, {t: "@pool+1.5", x: -40, z: 0.1}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      The typewriter made a new kind of job almost overnight. Letters, contracts, invoices, all of it now had to be typed, and someone had to take it down first in shorthand.
+      In 1900, the U.S. census counted about one hundred thirty-four thousand stenographers, typists, and secretaries. By 1930, about one point one million.
+      By 1950, about one point seven million. The census itself warns that the 1900 figures are approximations, and that definitions shifted from count to count.
+      So read the early line as a shape, not a precise measure. And the shape is a boom.
+    min_dur: 30
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TYPING POOL", px: 84}, {s: "Last Lamplighters · Episode 4", px: 34, serif: false}]}}
+      - {tpl: line, at: "@1900-0.6", in: slide, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1950 occupation classification", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "1900 figures: approximations only", at: "@approximations"}],
+           ylabel: "workers", yfmt: k, xr: [1900, 1950], xticks: [1900, 1910, 1920, 1930, 1940, 1950], ymax: 2000000, at: "@1900", dur: 14,
+           series: [{points: [[1900, 134000], [1910, 387000], [1920, 786000], [1930, 1097000], [1940, 1223000], [1950, 1661000]], labels: [0, 3, 5], ltext: ["134,000", "", "", "1,097,000", "", "1,661,000"]}],
+           nums: [{num: st1900}, {num: st1930}, {num: st1950}]}}
+

@@ -17,10 +17,14 @@ const SAMPLE = +arg('sample', 12);
   const browser = await chromium.launch({ args: ['--disable-gpu', '--font-render-hinting=none', '--force-color-profile=srgb'] });
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; }); page.on('console', (m) => console.error('[page]', m.text()));
-  const libs = ['core', 'charts', 'map', 'scenes', 'shot'].map((n) => fs.readFileSync(path.join(LIB, n + '.js'), 'utf8')).join('\n;\n');
+  const libs = ['core', 'charts', 'map', 'scenes', 'props', 'v2', 'shot'].map((n) => fs.readFileSync(path.join(LIB, n + '.js'), 'utf8')).join('\n;\n');
+  // ảnh tư liệu (mẫu archive): nạp sẵn thành data URI, chờ giải mã xong mới vẽ
+  const imgs = [...new Set((JSON.stringify(spec).match(/"img":"([^"]+)"/g) || []).map((m) => m.slice(7, -1)))];
+  const REPO = path.join(__dirname, '..', '..');
+  const imgjs = imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>
-<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};</script><script>${libs}</script></body></html>`;
-  await page.setContent(html); await page.evaluate(() => document.fonts.ready);
+<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};${imgjs}</script><script>${libs}</script></body></html>`;
+  await page.setContent(html); await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(Object.values(window.IMGS).map((i) => i.decode())));
   const N = spec.frames, F0 = +arg('from', 0), F1 = Math.min(N, +arg('to', N));
   const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   if (ONLY.length) { const d = arg('jpgdir', path.dirname(OUT)); fs.mkdirSync(d, { recursive: true });
