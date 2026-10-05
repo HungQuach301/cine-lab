@@ -11,14 +11,23 @@ const K = LL.fmt === '9x16' ? 1.62 : 1;   // hệ số cỡ chữ theo khổ (26
 const PAD = LL.fmt === '9x16' ? 40 : 70;
 
 function header(g, t, p, w) {   // trả độ dôi (px) khi tựa phải xuống dòng (khổ dọc)
-  const u = rv(t, p.t0 + 0.1, 0.8), V = LL.fmt === '9x16', px = (V ? 40 : 50) * K, lh = px * 1.15;
+  const u = rvH(t, p.t0 + 0.1, 0.8), V = LL.fmt === '9x16', px = (V ? 40 : 50) * K, lh = px * 1.15;
   const L = wrap(g, p.title || '', w - 2 * PAD - (V ? 0 : 260), px, 'serif'), ex = (L.length - 1) * lh;
   L.forEach((l, i) => textWipe(g, l, PAD, 92 * K + i * lh, px, INK, cl(u * L.length - i), { kind: 'serif' }));
-  if (p.subtitle) text(g, p.subtitle, PAD, 92 * K + ex + 50 * K, 28 * K, INK2, { a: rv(t, p.t0 + 0.5, 0.6) });
+  beatLine(g, t, p, PAD, 92 * K + ex + 50 * K, 28 * K);
   g.save(); g.strokeStyle = OCHRE; g.lineWidth = 2.5; g.beginPath(); g.moveTo(PAD, 92 * K + ex + 18 * K); g.lineTo(PAD + (w - 2 * PAD) * sm(u), 92 * K + ex + 18 * K); g.stroke(); g.restore();
   return ex;
 }
-function footer(g, t, p, w, h) { if (!p.src) return; const L = wrap(g, p.src, w - 2 * PAD, MINPX); L.forEach((l, i) => srcLine(g, l, PAD, h - 30 - (L.length - 1 - i) * MINPX * 1.2, rv(t, p.t0 + 0.4, 0.6))); }
+// dòng phụ đề đổi theo lời: p.subtitle (sườn) rồi p.beats [{ s, at }] (nội dung gắn lời, hoà qua 0,4 s)
+function beatLine(g, t, p, x, y, px, align = 'left') {
+  const B = (p.beats || []).filter((b) => t >= b.at), cur = B[B.length - 1], prev = B[B.length - 2];
+  if (!cur) { if (p.subtitle) text(g, p.subtitle, x, y, px, INK2, { a: rvH(t, p.t0 + 0.5, 0.6), align }); return; }
+  const u = rv(t, cur.at, 0.4), old = prev ? prev.s : p.subtitle;
+  if (old && u < 1) text(g, old, x, y, px, INK2, { a: 1 - u, align });
+  text(g, cur.s, x, y, px, BROWN, { a: u, align });
+}
+function footH(g, p, w) { return p.src ? (wrap(g, p.src, w - 2 * PAD, MINPX).length - 1) * MINPX * 1.2 : 0; }
+function footer(g, t, p, w, h) { if (!p.src) return; const L = wrap(g, p.src, w - 2 * PAD, MINPX); L.forEach((l, i) => srcLine(g, l, PAD, h - 30 - (L.length - 1 - i) * MINPX * 1.2, rvH(t, p.t0 + 0.4, 0.6))); }
 function niceMax(v) { const e = Math.pow(10, Math.floor(Math.log10(v))), m = v / e; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 5 ? 5 : 10) * e; }
 const fmtV = (v, unit, d) => unit === '%' ? fmtP(v, d === undefined ? 1 : d) : fmtN(v, d || 0);
 
@@ -27,13 +36,13 @@ TPL.bars = (p) => ({ kind: 'card', content(g, t, w, h) {
   const ex = header(g, t, p, w); footer(g, t, p, w, h);
   const B = p.bars, vmax = Math.max(...B.map((b) => Math.max(0, b.value))), vmin = Math.min(0, ...B.map((b) => b.value));
   const top = (p.max || niceMax(Math.max(vmax, -vmin) * 1.08));
-  const y0 = 92 * K + 140 * K + ex, y1 = h - (p.note ? 175 : 130) * (LL.fmt === '9x16' ? 2 : 1), span = y1 - y0;
+  const y0 = 92 * K + 140 * K + ex, y1 = h - footH(g, p, w) - (p.note ? 175 : 130) * (LL.fmt === '9x16' ? 2 : 1), span = y1 - y0;
   const neg = vmin < 0, pos = vmax > 0, zy = neg && pos ? y0 + span * (top / (top + top)) : neg ? y0 + 40 : y1;
   const sc = (neg && pos ? span / 2 : span - 40) / top;
   const x0 = PAD + 20, x1 = w - PAD - 20, n = B.length, cw = (x1 - x0) / n, bw = Math.min(cw * 0.56, 240);
   // vạch 0 + lưới mờ
-  g.save(); g.strokeStyle = INK; g.lineWidth = 2.5; g.globalAlpha *= rv(t, p.t0 + 0.2, 0.6); g.beginPath(); g.moveTo(x0, zy); g.lineTo(x1, zy); g.stroke(); g.restore();
-  text(g, '0', x0 - 10, zy, 26 * K, INK, { align: 'right', base: 'middle', a: rv(t, p.t0 + 0.2, 0.6) });
+  g.save(); g.strokeStyle = INK; g.lineWidth = 2.5; g.globalAlpha *= rvH(t, p.t0 + 0.2, 0.6); g.beginPath(); g.moveTo(x0, zy); g.lineTo(x1, zy); g.stroke(); g.restore();
+  tag(g, '0', x0 - 6, zy, 26 * K, 'rgba(243,232,204,0.95)', INK, { align: 'right', a: rvH(t, p.t0 + 0.2, 0.6) });   // nền giấy sáng: nhãn 0 không chìm vào góc tối của ánh rọi
   const kinds = new Set(B.map((b) => b.kind));
   B.forEach((b, i) => {
     const at = b.at === undefined ? p.t0 + 0.8 + i * 0.7 : b.at, u = rv(t, at, 0.9), e = eo(u), cx = x0 + cw * (i + 0.5);
@@ -50,8 +59,8 @@ TPL.bars = (p) => ({ kind: 'card', content(g, t, w, h) {
       if (kinds.size > 1 || p.kindEach) kindTag(g, b.kind, cx, b.value >= 0 ? vy - 52 * K : vy + 34 * K, 22 * K, rv(t, at + 0.3, 0.4), 'center'); }
     if (b.icon) icon(g, b.icon, cx, (b.value >= 0 ? zy + 110 * K : y0 - 20) , 0.6 * K, la);
   });
-  if (kinds.size === 1 && !p.kindEach) kindTag(g, [...kinds][0], w - PAD, LL.fmt === '9x16' ? 92 * K + ex + 56 * K : 92 * K - 12 * K, 22 * K, rv(t, p.t0 + 0.6, 0.5), 'right');
-  if (p.note) para(g, p.note, PAD, h - 82, w - 2 * PAD, 26 * K, INK2, { a: rv(t, p.noteAt || p.t0 + 1.5, 0.6) });
+  if (kinds.size === 1 && !p.kindEach) kindTag(g, [...kinds][0], w - PAD, LL.fmt === '9x16' ? 92 * K + ex + 56 * K : 92 * K - 12 * K, 22 * K, rvH(t, p.t0 + 0.6, 0.5), 'right');
+  if (p.note) para(g, p.note, PAD, h - 82 - footH(g, p, w), w - 2 * PAD, 26 * K, INK2, { a: rv(t, p.noteAt || p.t0 + 1.5, 0.6) });
 } });
 
 // ---- đường: p = { title, subtitle, unit, xr: [x0, x1], ymax, series: [{ name, points: [[x, y]], proj_from, color, labels: [chỉ số điểm] }], at, dur, marks: [{ x, label, at }], src } ----
@@ -59,9 +68,9 @@ TPL.line = (p) => ({ kind: 'card', content(g, t, w, h) {
   const ex = header(g, t, p, w); footer(g, t, p, w, h);
   const all = p.series.flatMap((s) => s.points), ymax = p.ymax || niceMax(Math.max(...all.map((q) => q[1])) * 1.08);
   const [xa, xb] = p.xr || [Math.min(...all.map((q) => q[0])), Math.max(...all.map((q) => q[0]))];
-  const L = PAD + 120 * K, R = w - PAD - 40 * K, T = 92 * K + 150 * K + ex, B = h - 130 * (LL.fmt === '9x16' ? 2 : 1);
+  const L = PAD + 120 * K, R = w - PAD - 40 * K, T = 92 * K + 150 * K + ex, B = h - footH(g, p, w) - 130 * (LL.fmt === '9x16' ? 2 : 1);
   const px = (x) => L + (R - L) * (x - xa) / (xb - xa), py = (y) => B - (B - T) * y / ymax;
-  const ax = rv(t, p.t0 + 0.2, 0.7);
+  const ax = rvH(t, p.t0 + 0.2, 0.7);
   g.save(); g.globalAlpha *= ax; g.strokeStyle = INK; g.lineWidth = 2.5; g.beginPath(); g.moveTo(L, T - 10); g.lineTo(L, B); g.lineTo(R, B); g.stroke();
   g.strokeStyle = 'rgba(33,26,23,0.18)'; g.lineWidth = 1.5; g.restore();
   for (let k = 0; k <= 4; k++) { const v = ymax * k / 4, y = py(v);
@@ -102,7 +111,7 @@ TPL.compare = (p) => ({ kind: 'card', content(g, t, w, h) {
   const ex = header(g, t, p, w); footer(g, t, p, w, h);
   const V = LL.fmt === '9x16', cols = V ? [[PAD, 260 * K, w - 2 * PAD], [PAD, 260 * K + (h - 420 * K) / 2, w - 2 * PAD]] : [[PAD, 230, (w - 3 * PAD) / 2], [w / 2 + PAD / 2, 230, (w - 3 * PAD) / 2]];
   [p.left, p.right].forEach((s, i) => { const [x, y, cw] = cols[i], at = s.at === undefined ? p.t0 + 0.8 + i * 1.6 : s.at, a = rv(t, at, 0.6);
-    if (a <= 0) return; const ch = V ? (h - 520 * K) / 2 : h - 420;
+    if (a <= 0) return; const ch = (V ? (h - 520 * K) / 2 : h - 420) - footH(g, p, w);
     g.save(); g.globalAlpha *= a; g.strokeStyle = 'rgba(33,26,23,0.5)'; g.lineWidth = 2; g.strokeRect(x, y + (1 - eo(a)) * 20, cw, ch); g.restore();
     icon(g, s.icon, x + 90 * K, y + 100 * K, 0.9 * K, a);
     text(g, s.title, x + 180 * K, y + 80 * K, 34 * K, INK, { a, kind: 'serif' });
@@ -113,13 +122,13 @@ TPL.compare = (p) => ({ kind: 'card', content(g, t, w, h) {
       kindTag(g, s.kind, x + cw - 30 * K, y + ch - (V ? 90 : 130) * K, 22 * K, va, 'right'); }
     if (s.note) para(g, s.note, x + 40 * K, y + ch - (V ? 24 : 50) * K, cw - 80 * K, 24 * K, INK2, { a: rv(t, at + 1.0, 0.6) }); });
   if (p.mid) { const a = rv(t, p.midAt || p.t0 + 3.5, 0.6); tag(g, p.mid, w / 2, V ? h / 2 + 20 : 200, 28 * K, '#f3e8cc', INK, { a, border: true, align: 'center' }); }
-  (p.diff || []).forEach((d, i) => text(g, '≠ ' + d, PAD + (V ? 0 : i * (w - 2 * PAD) / Math.max(1, p.diff.length)), h - 82 - (V ? (p.diff.length - 1 - i) * 52 : 0), 26 * K, BROWN, { a: rv(t, (p.diffAt || p.t0 + 5) + i * 0.5, 0.5) }));
+  (p.diff || []).forEach((d, i) => text(g, '≠ ' + d, PAD + (V ? 0 : i * (w - 2 * PAD) / Math.max(1, p.diff.length)), h - 82 - footH(g, p, w) - (V ? (p.diff.length - 1 - i) * 52 : 0), 26 * K, BROWN, { a: rv(t, (p.diffAt || p.t0 + 5) + i * 0.5, 0.5) }));
 } });
 
 // ---- trích dẫn: p = { text, who, where, at } ----
 TPL.quote = (p) => ({ kind: 'card', content(g, t, w, h) {
-  footer(g, t, p, w, h); const at = p.at === undefined ? p.t0 + 0.4 : p.at, dur = p.dur || Math.max(1.5, p.text.length / 40);
-  text(g, '“', PAD + 10, 230 * K, 180 * K, AMBER, { kind: 'serif', a: rv(t, p.t0, 0.5), deco: true });
+  footer(g, t, p, w, h); if (p.beats) beatLine(g, t, p, w / 2, 90 * K, 30 * K, 'center'); const at = p.at === undefined ? p.t0 + 0.4 : p.at, dur = p.dur || Math.max(1.5, p.text.length / 40);
+  text(g, '“', PAD + 10, 230 * K, 180 * K, AMBER, { kind: 'serif', a: rvH(t, p.t0, 0.5), deco: true });
   const yE = para(g, p.text, PAD + 120 * K, 230 * K, w - 2 * PAD - 160 * K, 46 * K, INK, { kind: 'serif', lh: 64 * K, u: rv(t, at, dur), wipe: true });
   if (p.who) text(g, '— ' + p.who, PAD + 120 * K, yE + 90 * K, 30 * K, INK2, { a: rv(t, at + dur, 0.5) });
   if (p.where) text(g, p.where, PAD + 120 * K, yE + 134 * K, 26 * K, INK2, { a: rv(t, at + dur + 0.2, 0.5) });
@@ -127,9 +136,9 @@ TPL.quote = (p) => ({ kind: 'card', content(g, t, w, h) {
 
 // ---- thẻ số lớn: p = { value, text, prefix, suffix, d, caption, kind, at, dur, icon, sub } ----
 TPL.bignum = (p) => ({ kind: 'card', content(g, t, w, h) {
-  const ex = header(g, t, p, w); footer(g, t, p, w, h);
+  const ex = header(g, t, p, w); if (!p.kind) p.kind = (p.nums && p.nums[0] && p.nums[0].kind) || 'actual';   // loại số lấy từ số khai báo (sửa lỗi Short S2: −5,3 % dự báo) footer(g, t, p, w, h);
   const at = p.at === undefined ? p.t0 + 0.6 : p.at, u = rv(t, at, p.dur || 1.6), v = p.value * eo(u);
-  if (p.icon) icon(g, p.icon, w / 2, h * 0.36, 1.1 * K, rv(t, p.t0 + 0.3, 0.6));
+  if (p.icon) icon(g, p.icon, w / 2, h * 0.36, 1.1 * K, rvH(t, p.t0 + 0.3, 0.6));
   if (u > 0) text(g, u >= 1 && p.text ? p.text : (p.prefix || '') + (v < 0 ? M : '') + fmtN(Math.abs(v), p.d === undefined ? (Number.isInteger(p.value) ? 0 : 1) : p.d) + (p.suffix || ''), w / 2, h * (p.icon ? 0.62 : 0.55), 150 * K, p.kind === 'projection' ? '#22364f' : BROWN, { align: 'center', kind: 'serif' });
   kindTag(g, p.kind, w / 2, h * (p.icon ? 0.62 : 0.55) + 60 * K, 24 * K, rv(t, at + 0.2, 0.5), 'center');
   if (p.caption) para(g, p.caption, w / 2, h * (p.icon ? 0.62 : 0.55) + 140 * K, w - 4 * PAD, 34 * K, INK, { align: 'center', a: rv(t, p.capAt || at + 0.6, 0.6) });
@@ -137,9 +146,10 @@ TPL.bignum = (p) => ({ kind: 'card', content(g, t, w, h) {
 
 // ---- thẻ chữ / tựa: p = { lines: [{ s, px, at, serif, color }], lamp, align } ----
 TPL.text = (p) => ({ kind: 'card', content(g, t, w, h) {
-  footer(g, t, p, w, h);
-  const n = p.lines.length, lh = p.lh || 80 * K, y0 = h / 2 - (n - 1) * lh / 2 + (p.lamp ? 90 * K : 0);
-  if (p.lamp) { const lit = rv(t, p.t0 + 0.3, 0.9); gasLampIcon(g, w / 2, y0 - 330 * K, 1.0 * K, rv(t, p.t0, 0.6), lit); if (lit > 0) glow(g, w / 2, y0 - 320 * K, 90 * K, RGB_AMB, 0.4 * lit); }
-  p.lines.forEach((l, i) => { const at = l.at === undefined ? p.t0 + 0.4 + i * 0.6 : l.at;
-    textWipe(g, l.s, p.align === 'left' ? PAD : w / 2, y0 + i * lh, (l.px || 48) * K, l.color || INK, rv(t, at, 0.9), { align: p.align || 'center', kind: l.serif === false ? 'sans' : 'serif' }); });
+  footer(g, t, p, w, h); if (p.beats) beatLine(g, t, p, w / 2, 90 * K, 30 * K, 'center');
+  const sz = p.lines.map((l) => (l.px || 48) * K), gap = p.lh ? p.lh - 48 * K : 34 * K, tot = sz.reduce((a, b) => a + b + gap, -gap);
+  let y = h / 2 - tot / 2 + sz[0] * 0.75 + (p.lamp ? 90 * K : 0);
+  if (p.lamp) { const lit = rv(t, p.t0 + 0.3, 0.9); gasLampIcon(g, w / 2, y - 330 * K, 1.0 * K, rvH(t, p.t0, 0.6), lit); if (lit > 0) glow(g, w / 2, y - 320 * K, 90 * K, RGB_AMB, 0.4 * lit); }
+  p.lines.forEach((l, i) => { const at = l.at === undefined ? p.t0 + 0.4 + i * 0.6 : l.at; if (i) y += sz[i - 1] * 0.25 + gap + sz[i] * 0.75;
+    textWipe(g, l.s, p.align === 'left' ? PAD : w / 2, y, sz[i], l.color || INK, rv(t, at, 0.9), { align: p.align || 'center', kind: l.serif === false ? 'sans' : 'serif' }); });
 } });

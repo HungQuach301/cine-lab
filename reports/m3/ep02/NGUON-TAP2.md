@@ -128,3 +128,24 @@ Lưu ý:
 2. Duyệt cách xử lý lệch số giữa Richmond Fed (178,000, 1920) và Feigenbaum & Gross (134,630 + 5,740, 1920).
 3. Đối chiếu bằng trình duyệt các số BLS 2025–35 (OOH, Table 1.5) vì đọc qua WebFetch, trước khi khoá vào kịch bản.
 4. Ghi các nguồn vào `RIGHTS.md` nếu có dùng trích dẫn hoặc biểu đồ lấy từ các nguồn này.
+
+---
+
+## 6. Bổ sung sau G1 (P, 05/10/2026; vòng tra trần 80 nghìn token)
+
+### 6a. BLS 2025–35, CSR (chủ dự án giao)
+- https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm — 2 666 000 (2025) → 2 524 100 (2035), −5,3 % (BLS làm tròn −5 %). **Đã xác minh (Claude, 05/10/2026)**: chủ dự án ghi ở G1; P không vào được bls.gov (403). **Dự báo.**
+
+### 6b. Brynjolfsson, Li & Raymond, "Generative AI at Work", NBER w31161 (tháng 4/2023, sửa 11/2023)
+- PDF: https://www.nber.org/system/files/working_papers/w31161/w31161.pdf — **đọc toàn văn** (pdftotext).
+- Tóm tắt (tr. bìa): "data from 5,179 customer support agents. Access to the tool increases productivity, as measured by issues resolved per hour, by 14% on average, including a 34% improvement for novice and low-skilled workers but with minimal impact on experienced and highly skilled workers."
+- Tr. 2: "treated agents with two months of tenure perform just as well as untreated agents with more than six months of tenure."
+- Tr. 3: "a substantial decrease in worker attrition, which is driven by the retention of newer workers." · "our paper is not designed to shed light on the aggregate employment or wage effects of generative AI tools. Firms may respond to increasing productivity among novice workers by hiring more of them, de-skilling positions, or seeking to develop more powerful AI systems that can replace lower-skill workers entirely."
+- Tr. 9: một công ty phần mềm Fortune 500; nhân viên phần lớn làm ở **Philippines** (một nhóm nhỏ ở Mỹ) → **khác địa lý với BLS: không đặt chung khung với số BLS** (luật so sánh, điểm 3). Số là ước lượng thống kê trong một công ty (thực tế, không phải dự báo).
+- Bản QJE 2025 không đọc; dùng bản NBER.
+
+### 6c. Brynjolfsson, Chandar & Chen, "Canaries in the Coal Mine? Six Facts…", bản tháng 8/2026
+- PDF: https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf — **đọc toàn văn** (dữ liệu ADP tới 6/2026).
+- Tóm tắt: "(1) We find no evidence of widespread, economy-wide job displacement. (2) However, employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap. … (4) It operates primarily through reduced hiring of young workers rather than increased separations." · "early, descriptive indicators … rather than causal estimates".
+- Table A.6 (PDF tr. 56): **Customer Service Representatives** xếp **thứ 2** theo số việc làm ADP trong nhóm phơi nhiễm AI cao nhất (Quintile 5, tháng 10/2022).
+- Không dùng số riêng cho CSR trẻ (chỉ có hình B.3/H.2, cỡ mẫu nhỏ 30–63 người).

@@ -28,11 +28,11 @@ const SAMPLE = +arg('sample', 12);
     await browser.close(); return; }
   const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', '24', '-i', '-',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
-  const act = [], cam = [], texts = []; const t0 = Date.now();
+  const act = [], fill = [], cam = [], texts = []; const t0 = Date.now();
   for (let f = F0; f < F1; f++) {
     const r = await page.evaluate(([f, smp]) => {
       LL.tlog = smp ? [] : null; window.drawFrame(f);
-      const c = document.getElementById('c'), out = { act: LL.act ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
+      const c = document.getElementById('c'), out = { act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
       if (smp) { const g = c.getContext('2d'), lum = (r, g2, b) => [r, g2, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
         const parse = (s) => { if (s[0] === '#') return [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16)); const m = s.match(/[\d.]+/g).map(Number); return m.slice(0, 3); };
         out.text = LL.tlog.filter((e) => e.alpha >= 0.95).map((e) => { const [x0, y0, x1, y1] = e.box, X0 = Math.max(0, x0 - 5), Y0 = Math.max(0, y0 - 5), X1 = Math.min(c.width - 1, x1 + 5), Y1 = Math.min(c.height - 1, y1 + 5);
@@ -44,12 +44,12 @@ const SAMPLE = +arg('sample', 12);
           I.sort((a, b) => a - b); const ft = !I.length ? nom : nom < bg ? I[Math.floor(I.length * 0.05)] : I[Math.floor(I.length * 0.95)];   // màu chữ đo trên điểm ảnh (đã qua ánh rọi)
           return { s: e.s, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean); }
       return out; }, [f, f % SAMPLE === 0]);
-    act.push(r.act); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text });
+    act.push(r.act); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text });
     if (!ff.stdin.write(Buffer.from(r.img, 'base64'))) await new Promise((res) => ff.stdin.once('drain', res));
     if ((f - F0) % 120 === 0) console.error(`[render ${SEG || SH}] ${f}/${F1} ${((Date.now() - t0) / 1000 / (f - F0 + 1)).toFixed(2)} s/khung`);
   }
   ff.stdin.end(); await new Promise((res) => ff.on('close', res));
   const raised = await page.evaluate(() => LL.stat); await browser.close();
-  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), cam, raised, text: texts }));
+  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), fill: fill.join(''), cam, raised, text: texts }));
   console.log(JSON.stringify({ id: SEG || SH, frames: F1 - F0, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3) }));
 })().catch((e) => { console.error(e); process.exit(1); });

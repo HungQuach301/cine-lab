@@ -52,3 +52,10 @@ shorts:
 - Cỡ chữ tối thiểu ở mọi trạng thái: `text()` đọc ma trận biến đổi, tự nâng cỡ khi tấm giấy thu nhỏ; qc đo lại trên khung.
 - Phố/sông đúng lịch sử: mạng phố không vượt nước; chỉ vẽ cầu có năm xây ≤ năm bản đồ (London: London Bridge 1209, Westminster 1750, Blackfriars 1769, Battersea 1771, Vauxhall 1816, Waterloo 1817, Southwark 1819, Tower 1894).
 - Shorts: cùng mẫu chạy khổ 9:16 (chữ ≥ 42 px); SFX tự sinh ở mỗi chuyển thẻ; qc Q11 bắt chữ đứng > 3 s.
+
+## Bổ sung khi dựng tập 2 (05/10/2026)
+- `beats: [{s, at}]` trên mọi thẻ có tựa (và `text`, `quote`): dòng phụ đề đổi theo lời, neo vào từ. Dùng để lấp khung trống bằng chữ gắn đúng lời, không phải phần tử trang trí.
+- `rv()` = nội dung (đánh dấu khung "có dữ liệu"); `rvH()` = khung sườn (tựa, trục, nguồn, biểu tượng). qc Q11 bản dài đo khung trống theo `fill` trong log render; Shorts đo chữ đứng theo `act`.
+- `bignum` lấy loại số (ACTUAL/PROJECTION) từ `nums` khi không khai `kind`.
+- `build.sh` dừng hẳn nếu một đoạn render lỗi (không ghép trên trung gian cũ).
+- Bẫy mốc: `"@many"` khớp lần xuất hiện ĐẦU TIÊN của từ (kể cả "Many" ở câu trước); dùng `#2` hoặc từ khác.

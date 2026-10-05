@@ -20,10 +20,12 @@ hash_of() { $PY -c "import json,hashlib,sys;t=json.load(open('$TL'));s=[x for x 
 render_one() { # $1 kind (segments|shorts) $2 id $3 out
   local h=$(hash_of $1 $2); [ -f $3 ] && [ "$(cat $3.hash 2>/dev/null)" = "$h" ] && { echo "giữ $2"; return; }
   local flag=--seg; [ $1 = shorts ] && flag=--short
-  node $LL/render.js --tl $TL $flag $2 --out $3 2>>$O/render-$2.err && echo $h > $3.hash && python3 $REPO/scripts/p/judder.py $3 --json $3.judder.json > /dev/null || true
+  if node $LL/render.js --tl $TL $flag $2 --out $3 2>>$O/render-$2.err; then echo $h > $3.hash; python3 $REPO/scripts/p/judder.py $3 --json $3.judder.json > /dev/null || true
+  else echo "LỖI render $2 (xem $O/render-$2.err)"; touch $O/render.failed; fi
 }
-if has render; then disk "trước render"
-  for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"; fi
+if has render; then disk "trước render"; rm -f $O/render.failed
+  for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"
+  [ -f $O/render.failed ] && { echo "Có đoạn render lỗi — dừng, không ghép"; exit 3; }; fi
 if has mix; then $PY $LL/mix.py $TL $O/mix.wav; fi
 if has ghep; then
   $PY - "$TL" "$O" <<'E'

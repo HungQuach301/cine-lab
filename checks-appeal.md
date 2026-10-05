@@ -106,3 +106,7 @@ Nguồn: `reports/m3/YEU-CAU-K-NHAP.md`. Bảy mục:
 1. Xét khoá Q1–Q11 (hoặc phần K chọn) vào `checks/` như luật kênh Last Lamplighters cho tập nhà máy; gộp với yêu cầu 2 (Shorts), 3 (judder), 4 (máy xuyên), 7 (nguồn) ở trên.
 2. Xác nhận cách đo Q5 trên điểm ảnh (khác cách đo theo màu khai báo ở tập 1).
 3. Q3 bản ảnh (khung phẳng) là heuristic, có thể báo nhầm với cảnh nền đơn sắc: K chọn ngưỡng hoặc bỏ.
+
+### 8b. Bổ sung mục 8 (05/10/2026, khi dựng tập 2)
+- **Q11 bản dài đổi định nghĩa** cho đúng luật kênh §5.1 ("không khung đồ hoạ nào **đứng trống** quá 3 s khi lời dẫn đang nói", lỗi L1 tập 1): đếm khung chưa có dữ liệu hay chữ gắn lời (chỉ tựa/trục/nguồn/biểu tượng). Bản cũ "không có nội dung mới > 3 s" chặt hơn luật, báo cả lúc biểu đồ đã đủ số; nay chỉ áp cho **Shorts** (yêu cầu Mốc B). Đề nghị K xác nhận hai định nghĩa.
+- Q5 có thêm dữ kiện: góc tối của ánh rọi B3 làm chữ nhỏ ở mép giấy xuống 4,1–4,4:1; P giảm độ tối góc ≈ 17 % và đặt nhãn trục trên nền giấy.

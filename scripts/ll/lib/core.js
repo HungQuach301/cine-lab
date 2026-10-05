@@ -33,8 +33,11 @@ const eo = (u) => { u = cl(u); return 1 - Math.pow(1 - u, 3); };
 const ei = (u) => { u = cl(u); return u * u * u; };
 const pr = (t, a, b) => cl((t - a) / (b - a));
 const lerp = (a, b, u) => a + (b - a) * u;
-LL.act = false;
-const rv = (t, a, d = 0.6) => { const u = cl((t - a) / d); if (u > 0 && u < 1) LL.act = true; return u; };
+LL.act = false; LL.fill = false;
+// rv: nội dung (dữ liệu, chữ gắn lời) hiện ra → đánh dấu LL.act khi đang chuyển, LL.fill khi đã thấy (khung không còn "trống")
+const rv = (t, a, d = 0.6) => { const u = cl((t - a) / d); if (u > 0 && u < 1) LL.act = true; if (u > 0) LL.fill = true; return u; };
+// rvH: khung sườn (tựa, trục, nguồn, biểu tượng) — không tính là nội dung
+const rvH = (t, a, d = 0.6) => cl((t - a) / d);
 function rng(seed) { let s = seed >>> 0 || 1; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
 function mixC(a, b, u) { const p = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return `rgb(${A.map((x, i) => Math.round(lerp(x, B[i], cl(u)))).join(',')})`; }
 const fmtN = (v, d = 0) => (v < 0 ? M : '') + Math.abs(Number(v)).toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
@@ -111,7 +114,7 @@ function tag(g, s, x, y, px, fill, color, o = {}) { const a = o.a === undefined 
   text(g, s, x0 + p * 0.45, y + 1, p, color, { base: 'middle', raw: true }); g.restore(); return w; }
 // nhãn loại số liệu: ACTUAL nét liền viền mực; PROJECTION nét đứt nền xanh lạnh
 function kindTag(g, kind, x, y, px, a = 1, align = 'left', label) {
-  if (kind === 'projection') return tag(g, label || 'PROJECTION', x, y, px, 'rgba(63,90,122,0.16)', '#22364f', { a, dash: true, align });
+  if (kind === 'projection') return tag(g, label || 'PROJECTION', x, y, px, 'rgba(243,236,218,0.95)', '#16253a', { a, dash: true, align });
   return tag(g, label || 'ACTUAL', x, y, px, null, INK, { a, border: true, align }); }
 // dòng nguồn (cỡ tối thiểu tự nâng)
 function srcLine(g, s, x, y, a = 1, px) { text(g, s, x, y, px || MINPX, INK2, { a, bold: true }); }
@@ -140,7 +143,7 @@ function drawCard(g, t, o) {
 function drawLight(g, t, a = 1) {
   const [lx, ly] = LL.light(t), R = Math.max(W, H);
   g.save(); g.globalCompositeOperation = 'multiply'; const v = g.createRadialGradient(lx, ly, R * 0.135, lx, ly, R * 0.65);
-  v.addColorStop(0, '#fff'); v.addColorStop(1, `rgb(${Math.round(255 - 120 * a)},${Math.round(255 - 125 * a)},${Math.round(255 - 110 * a)})`); g.fillStyle = v; g.fillRect(0, 0, W, H);
+  v.addColorStop(0, '#fff'); v.addColorStop(1, `rgb(${Math.round(255 - 100 * a)},${Math.round(255 - 105 * a)},${Math.round(255 - 92 * a)})`); g.fillStyle = v; g.fillRect(0, 0, W, H);
   g.globalCompositeOperation = 'lighter'; const s = g.createRadialGradient(lx, ly, 0, lx, ly, R * 0.36);
   s.addColorStop(0, `rgba(60,38,12,${0.55 * a})`); s.addColorStop(1, 'rgba(60,38,12,0)'); g.fillStyle = s; g.fillRect(0, 0, W, H); g.restore(); }
 function drawDust(g, t, a = 1) { if (a <= 0) return; const [lx, ly] = LL.light(t); g.save(); g.globalCompositeOperation = 'lighter';
@@ -177,6 +180,7 @@ const ICONS = {
     g.strokeStyle = col; g.lineWidth = 4; g.strokeRect(-26, -46, 52, 32); g.restore(); },
   person: (g, s, a, col) => person(g, 0, 60 * s, 120 * s, { col }),
 };
+// biểu tượng là khung sườn: gọi với a = rvH(...)
 function icon(g, name, x, y, s, a = 1, col = OCHRE) { if (a <= 0 || !ICONS[name]) return; g.save(); g.globalAlpha *= cl(a); g.translate(x, y); ICONS[name](g, s, a, col); g.restore(); }
 
 // ---------- bóng người (không mặt) ----------
@@ -217,7 +221,7 @@ function frameAt(g, t) {
 }
 const ACC = document.createElement('canvas'); ACC.width = W; ACC.height = H; const AX = ACC.getContext('2d');
 window.drawFrame = (f) => {
-  LL.act = false; LL.camNear = Infinity; const t = f / FPS, fast = (LL.SEG.blur || []).some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
+  LL.act = false; LL.fill = false; LL.camNear = Infinity; const t = f / FPS, fast = (LL.SEG.blur || []).some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
   if (N === 1) { frameAt(X, t); return; }
   const keep = LL.tlog; for (let k = 0; k < N; k++) { LL.tlog = k === N - 1 ? keep : null; frameAt(AX, t + ((k + 0.5) / N - 0.5) * 0.5 / FPS); X.globalCompositeOperation = 'source-over'; X.globalAlpha = 1 / (k + 1); X.setTransform(1, 0, 0, 1, 0, 0); X.drawImage(ACC, 0, 0); }
   X.globalAlpha = 1;

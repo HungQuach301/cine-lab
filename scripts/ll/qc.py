@@ -12,7 +12,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q8 nguồn: đọc toàn văn, không Wikipedia/Wikimedia làm nguồn chính, số khớp lời (ll.py check)
   Q9 số khung trung gian = timeline; master = tổng khung
   Q10 bản xem: mỗi phần ≤ 90 MB; Short ≤ 60 s
-  Q11 chữ đứng: không quá 3 s liền không có nội dung mới khi lời đang nói (shot đồ hoạ; cảnh truyện toàn khung miễn)
+  Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
 import glob, json, os, re, subprocess, sys
@@ -125,24 +125,25 @@ row('Q9', 'Số khung khớp timeline', not fb and (mf is None or mf == TL['tong
 for f in sorted(glob.glob(f"{O}/{E['id']}-{V}-p?.mp4")):
     mb = os.path.getsize(f) / 1e6; row('Q10', f'Dung lượng {os.path.basename(f)}', mb <= 90, f'{mb:.1f} MB', '≤ 90 MB', near=nearv(round(mb, 1), 90, 'MB'))
 for s in TL['shorts']: row('Q10', f"Thời lượng Short {s['id']}", s['t1'] <= 60, f"{s['t1']:.2f} s", '≤ 60 s', near=nearv(round(s['t1'], 2), 60, 's'))
-# Q11
+# Q11 — bản dài: khung đồ hoạ TRỐNG (chưa có dữ liệu/chữ gắn lời, chỉ tựa/trục/nguồn) > 3 s khi đang có lời (luật kênh §5.1, lỗi L1 tập 1)
+#        Shorts: chặt hơn — không quá 3 s liền không có nội dung mới khi đang có lời (yêu cầu Mốc B)
 still = []
 for k, L in logs.items():
-    sg = next(s for s in TL['segments'] + TL['shorts'] if s['id'] == k); A = [c == '1' for c in L['act']]
+    sg = next(s for s in TL['segments'] + TL['shorts'] if s['id'] == k); short = L['fmt'] == '9x16'
+    A = [c == '1' for c in (L['act'] if short or 'fill' not in L else L['fill'])]
     for sh in sg['shots']:
         if sh['tpl'] in FULL:
             for f in range(int(sh['t0'] * 24), min(len(A), int(sh['t1'] * 24))): A[f] = True
     sp = np.zeros(len(A), bool)
     for a, b in sg['speech']: sp[int(a * 24):int(b * 24) + 13] = True
-    run, start = 0, 0
-    for f in range(len(A)):
-        if not A[f] and sp[f]: run += 1; start = start if run > 1 else f
-        elif not A[f] and run: run += 0   # khoảng nghỉ giữa câu không cắt chuỗi
+    run = 0
+    for f in range(len(A) + 1):
+        if f < len(A) and not A[f]:
+            run += 1
         else:
-            if run > 72: still.append(f'{k} {start / 24:.1f}s ({run / 24:.1f} s)')
+            if run > 72 and sp[f - run:f].any(): still.append(f'{k} {(f - run) / 24:.1f}s ({run / 24:.1f} s)')
             run = 0
-    if run > 72: still.append(f'{k} {start / 24:.1f}s ({run / 24:.1f} s)')
-row('Q11', 'Chữ đứng > 3 s khi đang có lời', not still, len(still), 0, note='; '.join(still[:8]))
+row('Q11', 'Khung trống > 3 s khi có lời (bản dài) · chữ đứng > 3 s (Shorts)', not still, len(still), 0, note='; '.join(still[:8]))
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']
