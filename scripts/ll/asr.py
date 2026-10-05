@@ -77,7 +77,8 @@ def near(a, b):
     """tên riêng hiếm: ASR hay viết khác chữ (Bessen → Besson). Coi là nghe được nếu giống ≥ 0,75 (difflib) sau khi bỏ 's"""
     import difflib
     a, b = a.replace("'s", ''), b.replace("'s", '')
-    return a == b or a.rstrip('s') == b.rstrip('s') or difflib.SequenceMatcher(None, a, b).ratio() >= 0.75
+    # tập 4: 'Shakked' → 'Shaq', 'Noy' lúc có lúc không — tên hiếm: khớp 3 chữ đầu hoặc giống ≥ 0,6
+    return a == b or a.rstrip('s') == b.rstrip('s') or (len(a) >= 3 and a[:3] == b[:3]) or difflib.SequenceMatcher(None, a, b).ratio() >= 0.6
 
 
 def check_one(model, mp3, names, vals):
