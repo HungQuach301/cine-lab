@@ -1,7 +1,7 @@
 # PLAN tập 04  (≤ 1 trang; P cập nhật sau mỗi bước)
 
-**Trạng thái:** G2 chờ chủ dự án (reports/m3/TAP4-G2.md)
-**Việc tiếp:** sau G2: G3 (hướng dẫn đăng, xoá trung gian) → tập 5.
+**Trạng thái:** G3 — chủ dự án tự đăng theo HUONG-DAN-DANG-TAP4.md (release-ll-ep04-v1 @ ab9d3bb, 9/9 SHA OK)
+**Việc tiếp:** sau 48 giờ / 7 ngày: điền KHAN-GIA.md.
 **Quyết định đã có (chủ dự án):** 05/10 — G1: tiêu đề C; câu BLS OOH Secretaries; đoạn 05 (Bulletin 1276, OOH 1990–91) duyệt.
 **Trần:** token 0,5 triệu/tập · kiểm mù ~50 nghìn · đĩa trống ≥ 1,5 × mức cần
 
