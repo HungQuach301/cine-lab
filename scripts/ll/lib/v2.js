@@ -84,3 +84,19 @@ TPL.archive = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
   else text(g, `missing image ${p.img}`, W / 2, H / 2, 40, '#ff8080', { align: 'center' });
   const v = g.createRadialGradient(W / 2, H * 0.5, H * 0.3, W / 2, H * 0.5, H * 0.95); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.7)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
   if (p.credit) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, CREAM, { align: 'right' }); } } }; };
+
+// ---- inspect: giám định xe hỏng ngoài trời. p = { era: 1988|2025, flash: [t…] (chụp ảnh), estimate: t (2025: khung ước tính tự hiện trên điện thoại), amount: "$2,340", walk: [t0, t1], cam } ----
+TPL.inspect = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z);
+  sky(g, t, 0.35); const P2 = lay(c, 2.4); for (let i = 0; i < 6; i++) { const [x0, y0] = P2(-100 + i * 380, H * 0.28 - (i % 3) * 40), [x1] = P2(240 + i * 380, H); g.fillStyle = 'rgba(30,30,44,0.9)'; g.fillRect(x0, y0, x1 - x0, H * 0.5); }
+  const Pf = lay(c, 1.2), [fx0, fy0] = Pf(-200, H * 0.8), [fx1] = Pf(W + 200, H); cut(g, (q) => q.rect(fx0, fy0, fx1 - fx0, H), '#2b2a30', { blur: 10 });
+  const P = lay(c, 1.25), [cx, cy] = P(W * 0.42, H * 0.83); PROP.car(g, cx, cy, 2.6, { dent: true, color: '#56657a' });
+  const w0 = (p.walk || [p.t0, p.t0 + 4])[0], w1 = (p.walk || [p.t0, p.t0 + 4])[1], u = sm(pr(t, w0, w1)); if (u > 0 && u < 1) LL.act = true;
+  const [wx, wy] = P(lerp(W * 0.86, W * 0.72, u), H * 0.86), fl = Math.max(0, ...(p.flash || []).map((f) => (t >= f && t < f + 0.5) ? 1 - (t - f) / 0.5 : 0));
+  if (fl > 0) LL.act = true;
+  const r = worker(g, wx, wy, 360, { seated: false, era: p.era, accent: p.accent, step: 0.3 * Math.sin(t * 5) * (u > 0 && u < 1 ? 1 : 0), arm: 2.4, arm2: -0.3, flip: true });
+  if (p.era >= 2025) { PROP.phone(g, r.hand[0] - 10, r.hand[1] + 30, 0.8); if (fl) glow(g, r.hand[0] - 10, r.hand[1] - 20, 200, '255,250,235', 0.6 * fl); }
+  else PROP.camera(g, r.hand[0] - 10, r.hand[1] + 20, 0.9, { flash: fl });
+  if (p.estimate !== undefined) { const a = rv(t, p.estimate, 0.8); if (a > 0) { const bx = W * 0.58, by = H * 0.18; g.save(); g.globalAlpha *= a;
+    cut(g, (q) => rr(q, bx, by, 520, 230, 14), '#101a2a', { blur: 18 }); text(g, 'AUTOMATED ESTIMATE', bx + 30, by + 56, 26, '#9fc4ec', { a });
+    text(g, p.amount || 'estimate ready', bx + 30, by + 140, 72, CREAM, { kind: 'serif', a }); text(g, 'from photos · draft for review', bx + 30, by + 196, 24, 'rgba(236,223,190,0.85)', { a }); g.restore(); } }
+  fog(g, H * 0.98, 0.14, '60,50,60'); } }; };

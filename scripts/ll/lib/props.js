@@ -43,10 +43,18 @@ const PROP = {
     cut(g, (q) => { q.moveTo(-28, -72); q.lineTo(-4, -72); q.lineTo(-4, -52); q.lineTo(-48, -52); q.closePath(); q.moveTo(4, -72); q.lineTo(36, -72); q.lineTo(58, -52); q.lineTo(4, -52); q.closePath(); }, '#9fb3c8', { blur: 0 });
     if (o.dent) { g.strokeStyle = PAPER.ink; g.lineWidth = 3; g.beginPath(); g.moveTo(70, -40); g.lineTo(82, -30); g.lineTo(76, -22); g.lineTo(90, -16); g.stroke(); }
     for (const wx of [-66, 66]) cut(g, (q) => q.arc(wx, -14, 18, 0, 7), PAPER.ink, { blur: 4 }); g.restore(); },
+  camera(g, x, y, s, o = {}) { g.save(); g.translate(x, y); g.scale(s, s);   // máy ảnh của giám định viên (1980s: máy phim; 2025: điện thoại — dùng PROP.phone)
+    cut(g, (q) => rr(q, -40, -52, 80, 52, 6), PAPER.ink); cut(g, (q) => rr(q, -14, -62, 28, 12, 3), PAPER.ink, { blur: 4 }); cut(g, (q) => q.arc(0, -26, 17, 0, 7), PAPER.steel, { blur: 4 });
+    g.fillStyle = '#1a2a40'; g.beginPath(); g.arc(0, -26, 10, 0, 7); g.fill(); if (o.flash) glow(g, 22, -50, 160, '255,250,235', 0.7 * o.flash); g.restore(); },
+  claimform(g, x, y, s, o = {}) { g.save(); g.translate(x, y); g.scale(s, s);   // hồ sơ bồi thường: bìa kẹp + mẫu đơn có ô
+    cut(g, (q) => rr(q, -46, -128, 92, 128, 4), PAPER.ochre); cut(g, (q) => rr(q, -40, -120, 80, 114, 2), PAPER.cream, { blur: 4 });
+    g.strokeStyle = 'rgba(60,40,25,0.6)'; g.lineWidth = 2; for (let i = 0; i < 6; i++) { g.strokeRect(-32, -110 + i * 17, 14, 11); g.beginPath(); g.moveTo(-12, -104 + i * 17); g.lineTo(30, -104 + i * 17); g.stroke(); }
+    if (o.stamp) { g.save(); g.globalAlpha *= o.stamp; g.strokeStyle = '#8a2a1a'; g.lineWidth = 4; g.strokeRect(-20, -46, 52, 26); g.fillStyle = '#8a2a1a'; g.font = 'bold 15px "DejaVu Sans"'; g.fillText('PAID', -12, -27); g.restore(); }
+    cut(g, (q) => rr(q, -14, -134, 28, 12, 3), PAPER.steel, { blur: 3 }); g.restore(); },
   phone(g, x, y, s) { g.save(); g.translate(x, y); g.scale(s, s); cut(g, (q) => rr(q, -22, -84, 44, 84, 7), PAPER.ink); cut(g, (q) => rr(q, -18, -78, 36, 66, 3), '#1a2a40', { edge: false, blur: 0 }); g.restore(); },
 };
 // nhân vật vô danh xuyên suốt tập ("người làm nghề"): bóng người + khăn quàng màu nhấn cố định để nhận ra qua các thời kỳ; era chọn đạo cụ và mũ
-const ERA = { 1900: { hat: 'bowler', prop: 'ledger' }, 1920: { hat: 'cap', prop: 'typewriter' }, 1950: { prop: 'typewriter' }, 1965: { prop: 'switchboard' }, 1975: { prop: 'counter' }, 1988: { prop: 'terminal' }, 2025: { prop: 'laptop' } };
+const ERA = { 1900: { hat: 'bowler', prop: 'ledger' }, 1920: { hat: 'cap', prop: 'typewriter' }, 1950: { prop: 'typewriter' }, 1963: { prop: 'claimform' }, 1965: { prop: 'switchboard' }, 1975: { prop: 'counter' }, 1988: { prop: 'terminal' }, 2025: { prop: 'laptop' } };
 function worker(g, x, y, h, o = {}) {
   const e = ERA[o.era] || {}; const r = person(g, x, y, h, Object.assign({ seated: o.seated !== false, hat: o.hat === undefined ? e.hat : o.hat, col: '#120e0f', rim: 'rgba(255,200,140,0.75)', armLen: 0.8, arm: 0.6, arm2: -0.55 }, o));
   const k = h / 170, acc = o.accent || '#b6462c';   // khăn quàng: dấu nhận diện cố định của nhân vật

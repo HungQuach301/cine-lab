@@ -28,7 +28,7 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
-FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive'}
+FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect'}
 rows = []
 
 

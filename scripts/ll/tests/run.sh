@@ -26,7 +26,7 @@ for f in sorted(glob.glob(f'{O}/f/*_f00090.jpg')):
     d = np.abs(np.asarray(im, float) - np.asarray(Image.open(ref).convert('L'), float)).mean()
     if d > thr: print(f'TRƯỢT ảnh {k}: lệch {d:.2f} > {thr}'); bad = 1
 n = len(glob.glob(f'{O}/f/*_f00090.jpg'))
-print(f'ảnh: {n} mẫu'); sys.exit(bad or (n < 20))
+print(f'ảnh: {n} mẫu'); sys.exit(bad or (n < 23))
 P
 # (3) build dừng khi render lỗi: đặc tả có mẫu không tồn tại
 TESTS=0 ASR=0 bash $LL/build.sh $T/bad-render.yaml prep render > /dev/null 2>&1; r=$?
