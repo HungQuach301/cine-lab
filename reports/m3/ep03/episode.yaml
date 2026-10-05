@@ -123,7 +123,7 @@ segments:
       Bessen's point is not that machines never cost jobs. It is that when a machine takes one task, the job can survive if people move to the tasks that are left.
       The machine did not end the job. It changed what the job was for.
     shots:
-      - {tpl: quote, at: 0, p: {beats: [{s: "counting cash mattered less", at: "@counting"}, {s: "talking to customers mattered more", at: "@talking"}], text: "Tellers became an important part of the 'relationship banking team.'", who: "James Bessen", where: "IMF Finance & Development, March 2015", at: "@words", src: [BES15]}}
+      - {tpl: quote, at: 0, p: {beats: [{s: "the job itself changed", at: "@job"}, {s: "counting cash mattered less", at: "@counting"}, {s: "talking to customers mattered more", at: "@talking"}], text: "Tellers became an important part of the 'relationship banking team.'", who: "James Bessen", where: "IMF Finance & Development, March 2015", at: "@words", src: [BES15]}}
       - {tpl: bignum, at: "@census-0.4", in: slide, p: {title: "Full-time-equivalent bank tellers, after 2000", beats: [{s: "census and survey data", at: "@survey"}], value: 2.0, text: "+2.0% a year", suffix: "% a year", d: 1, at: "@two", caption: "faster than the labor force as a whole (Bessen)", nums: [{num: fte}]}}
 
   - id: "06"
@@ -252,21 +252,28 @@ shorts:
       and a new job: talking to customers instead of counting cash.
     shots:
       - {tpl: rows, at: 0, p: {variant: teller, rows: 1, per: 4, screen: "@machines", screenLabel: "ATM"}}
-      - {tpl: bars, at: "@found-0.3", in: slide, p: {title: "Tellers per urban branch", beats: [{s: "an average urban branch", at: "@average"}], unit: "", max: 25, bars: [{label: "1988", num: br20, at: "@twenty"}, {label: "2004", num: br13, at: "@thirteen"}]}}
-      - {tpl: text, at: "@cheaper-0.3", in: flip, p: {lines: [{s: "more branches", px: 64, at: "@opened"}, {s: "a new job:", px: 48, at: "@new"}, {s: "talking to customers", px: 48, at: "@talking"}], src: [BES15]}}
+      - {tpl: text, at: "@everyone-0.3", in: slide, p: {lines: [{s: "everyone expected tellers", px: 56, at: "@everyone"}, {s: "to disappear", px: 56, at: "@disappear"}, {s: "they did not", px: 64, at: "@did"}], src: [BES15]}}
+      - {tpl: bars, at: "@economist-0.3", in: slide, p: {title: "Tellers per urban branch", beats: [{s: "economist James Bessen", at: "@economist"}, {s: "1988 → 2004", at: "@1988"}, {s: "an average urban branch", at: "@average"}], unit: "", max: 25,
+           bars: [{label: "1988", num: br20, at: "@twenty"}, {label: "2004", num: br13, at: "@thirteen"}]}}
+      - {tpl: text, at: "@branches-0.3", in: flip, p: {lines: [{s: "cheaper to run", px: 56, at: "@cheaper"}, {s: "more branches", px: 56, at: "@opened"}, {s: "a new job:", px: 48, at: "@new"},
+                                                          {s: "talking to customers", px: 48, at: "@talking"}, {s: "not counting cash", px: 48, at: "@counting"}], src: [BES15]}}
   - id: S2
     hook: "Bank tellers: 13% fewer by 2035?"
     vo: >-
       In 2025, about three hundred thirty-nine thousand Americans worked as bank tellers. The Bureau of Labor Statistics projects about two hundred ninety-five thousand by 2035,
       a decline of thirteen percent. Its reasons: online and mobile banking, enhanced ATMs, video kiosks. It is a projection, not a count.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Bank tellers, U.S.", beats: [{s: "Americans working as bank tellers", at: "@americans"}, {s: "BLS projection", at: "@projects"}], kindEach: true, bars: [{label: "2025", num: tel25, at: "@three"}, {label: "2035\n(projected)", num: tel35, at: "@ninetyfive"}]}}
-      - {tpl: text, at: "@reasons-0.3", in: slide, p: {lines: [{s: "online and mobile banking", px: 52, at: "@online"}, {s: "enhanced ATMs", px: 52, at: "@enhanced"}, {s: "video kiosks", px: 52, at: "@video"}, {s: "a projection, not a count", px: 42, at: "@projection"}], src: [OOHT]}}
+      - {tpl: bars, at: 0, p: {title: "Bank tellers, U.S.", beats: [{s: "2025", at: "@2025"}, {s: "Americans working as bank tellers", at: "@americans"}, {s: "BLS projection", at: "@bureau"}, {s: "by 2035", at: "@2035"}, {s: "a decline of 13%", at: "@decline"}],
+           kindEach: true, bars: [{label: "2025", num: tel25, at: "@three"}, {label: "2035\n(projected)", num: tel35, at: "@ninetyfive"}]}}
+      - {tpl: text, at: "@reasons-0.3", in: slide, p: {lines: [{s: "online and mobile banking", px: 52, at: "@online"}, {s: "enhanced ATMs", px: 52, at: "@enhanced"}, {s: "video kiosks", px: 52, at: "@video"},
+                                                          {s: "a projection,", px: 42, at: "@projection"}, {s: "not a count", px: 42, at: "@count"}], src: [OOHT]}}
   - id: S3
     hook: "AI and the essence of a credit rating"
     vo: >-
       What does AI change inside a bank? In 2025, economists at the Bureau of Labor Statistics wrote that AI can synthesize large amounts of data and reach big-picture conclusions,
       and that these tasks are the essence of a credit rating. In that projection, credit analyst jobs were set to decline three point nine percent from 2023 to 2033.
     shots:
-      - {tpl: quote, at: 0, p: {beats: [{s: "What does AI change inside a bank?", at: "@what"}], text: "AI can synthesize large amounts of data and reach big-picture conclusions, and, indeed, these tasks are the essence of a credit rating.", who: "BLS economists, Monthly Labor Review", at: "@synthesize", src: [MLR25]}}
-      - {tpl: bignum, at: "@projection-0.3", in: slide, p: {title: "Credit analysts, 2023–33", value: -3.9, text: "−3.9%", suffix: "%", d: 1, at: "@nine", caption: "projected decline (2023–33 cycle)", nums: [{num: ca_old}]}}
+      - {tpl: text, at: 0, p: {lines: [{s: "What does AI change", px: 60, at: "@what"}, {s: "inside a bank?", px: 60, at: "@inside"}, {s: "BLS economists, 2025", px: 44, at: "@economists"}], src: [MLR25]}}
+      - {tpl: quote, at: "@synthesize-0.4", in: slide, p: {beats: [{s: "large amounts of data", at: "@large"}, {s: "big-picture conclusions", at: "@bigpicture"}], text: "AI can synthesize large amounts of data and reach big-picture conclusions…", who: "BLS economists", at: "@synthesize", src: [MLR25]}}
+      - {tpl: quote, at: "@these-0.4", in: flip, p: {beats: [{s: "the essence of a credit rating", at: "@essence"}], text: "…these tasks are the essence of a credit rating.", who: "Monthly Labor Review, Feb 2025", at: "@these", src: [MLR25]}}
+      - {tpl: bignum, at: "@projection-0.3", in: slide, p: {title: "Credit analysts", beats: [{s: "credit analyst jobs", at: "@analyst"}, {s: "2023–33 projection cycle", at: "@2023"}], value: -3.9, text: "−3.9%", suffix: "%", d: 1, at: "@nine", caption: "projected decline (2023–33)", nums: [{num: ca_old}]}}
