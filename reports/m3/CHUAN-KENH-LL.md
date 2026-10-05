@@ -134,3 +134,24 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
 - Lỗi nhỏ không chặn: ghi "hàng chờ" trong báo cáo, sửa gộp vào lần chạm tiếp theo của mẫu.
 - Mỗi báo cáo mốc ghi **token thực** và so với trần của mốc.
 - **Nhà máy (Mốc B):** mỗi tập mới dựng bằng thư viện mẫu `scripts/ll/lib/` từ một tệp `episode.yaml`, một lệnh `scripts/ll/build.sh`; kiểm bằng một lệnh `scripts/ll/qc.sh` (bảng ĐẠT/TRƯỢT). Luật của `qc.sh` là luật làm việc của P; luật khoá vẫn do K giữ trong `checks/` (gửi qua `checks-appeal.md`).
+
+## 9. Hấp dẫn và giữ chân (chủ dự án, 05/10/2026; áp từ tập 4)
+- **Chẩn đoán tập 3** (Claude đo trên bản xem; `rhythm.py` đo lại trên timeline):
+  - khoảng 75 % thời lượng là thẻ giấy kem;
+  - trung bình khoảng 24 s mới đổi hình rõ; khoảng 29 % gần như tĩnh;
+  - tựa phim ở khoảng 0:52–1:00; 30 s đầu không có móc câu.
+- **Luật nhịp (qc, tự động, Chặn).** Đo bằng `scripts/ll/rhythm.py` trên timeline: trước render (`build.sh`, mã 6) và trong `qc.py`.
+  - **Q14 móc câu:**
+    - trước 0:15 có một mâu thuẫn hoặc câu hỏi bằng lời **và** bằng hình (shot đồ hoạ hoặc chú thích đè cảnh);
+    - tựa phim ≤ 0:20;
+    - câu hỏi mở đầu được trả lời ở cuối (`hook: {answer: <đoạn>, keys: [...]}`).
+  - **Q15 đổi hình:** không quãng nào > 8 s không có phần tử mới (cắt, mốc máy quay, phần tử hiện thêm); trung bình ≤ 6 s.
+  - **Q16 thẻ giấy:** ≤ 55 % thời lượng (tập 4–5); ≤ 40 % từ tập 6 (`rhythm.paper_max`).
+  - **Q17 mật độ số:** ≤ 2 số mới trên hình mỗi phút (trung bình). Mỗi tập khai **3 số neo** (`anchors`); số khác chỉ đi kèm. Số phụ đọc trong lời, không lên hình.
+  - **Q18 thẻ trống:** thẻ số liệu không đứng chỉ có tựa/trục quá 1,5 s trước khi số xuất hiện (thẻ vào ngay trước số, phần dẫn đặt ở cảnh có chú thích).
+  - Trượt thì P tự sửa trước G2. Báo cáo G2 ghi số đo Q14–Q18. K khoá Q14–Q18 ở lần mở tới.
+- **Công cụ (thư viện):** `cap` = chú thích, số lớn kèm nhãn ACTUAL/PROJECTION và dòng nguồn, đè lên cảnh toàn khung (`street`, `office`, `rows`, `teller`). Dùng để thay thẻ giấy chỉ có chữ.
+- **Tư liệu phạm vi công cộng** (chủ dự án cho phép 05/10/2026, có giới hạn; đổi quyết định cũ "chỉ Opus dựng hình bằng mã"):
+  - chỉ nguồn trong danh sách trắng: ảnh/phim của chính phủ Mỹ (NARA, các bộ ngành), hoặc Library of Congress ghi "No known restrictions";
+  - tối đa khoảng 20 % thời lượng; luôn có chuyển động máy và phủ tông B3;
+  - mỗi ảnh có dòng `RIGHTS.md` (URL, tình trạng quyền, ngày tải); qc kiểm đủ hồ sơ quyền, thiếu thì Chặn.

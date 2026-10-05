@@ -57,3 +57,7 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 32 | Chỉ viết thành script khi một việc đã làm tay từ 3 lần | — | tránh tự động hoá sớm | luật thư viện (chủ dự án, 05/10); `scripts/ll/lib/README.md` |
 | 33 | Test thư viện trước mỗi lần build | 13 mẫu, lệch lặp lại < 0,3 mức xám; check bắt 4 đặc tả sai; build dừng mã 3 khi render lỗi | sửa lib làm hỏng mẫu khác mà không biết | `scripts/ll/tests/run.sh`, gọi đầu `build.sh` (TESTS=0 để bỏ) |
 | 34 | Mỗi tập một PLAN ≤ 1 trang + mẫu lệnh | — | PLAN gốc 120 dòng lịch sử | `playbook/prompts/`, `playbook/PLAN-TAP-MAU.md`; lịch sử ở `reports/archive/` |
+| 35 | Phim quá nhiều thẻ giấy, ít đổi hình, mở đầu chậm | tập 3: giấy 75 %, quãng tĩnh dài nhất 21 s, tựa 0:52; tập 4 (trước sửa): giấy 80 %, 3,1 số/phút, tựa 0:46 | mẫu kênh dựa vào thẻ số; cảnh truyện chỉ ở mở/kết | CHUAN-KENH §9, qc Q14–Q18 (`rhythm.py`), chặn trước render; tập 4 sau sửa: giấy 32 %, 1,75 số/phút, tựa 0:18,6 |
+| 36 | Thẻ chữ thuần thay được bằng cảnh + chú thích đè (`cap`) | tập 4: 7 thẻ text/bars → cảnh | — | dùng `cap` trước khi thêm thẻ giấy; thẻ số vào ngay trước số (≤ 1,5 s) |
+| 37 | Số phụ đọc trong lời, không lên hình | tập 4: 27 → 15 số trên hình | — | 3 số neo (`anchors`) + số đi kèm |
+| 38 | Hoãn tiến trình nền khi phiên/máy khởi động lại | tập 4 lượt 1 mất giữa render | tiến trình `&` không được harness theo dõi | chạy build bằng công cụ nền của harness, không dùng `&` |
