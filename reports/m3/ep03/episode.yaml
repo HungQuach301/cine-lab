@@ -255,7 +255,7 @@ shorts:
       - {tpl: text, at: "@everyone-0.3", in: slide, p: {lines: [{s: "everyone expected tellers", px: 56, at: "@everyone"}, {s: "to disappear", px: 56, at: "@disappear"}, {s: "they did not", px: 64, at: "@did"}], src: [BES15]}}
       - {tpl: bars, at: "@economist-0.3", in: slide, p: {title: "Tellers per urban branch", beats: [{s: "economist James Bessen", at: "@economist"}, {s: "1988 → 2004", at: "@1988"}, {s: "an average urban branch", at: "@average"}], unit: "", max: 25,
            bars: [{label: "1988", num: br20, at: "@twenty"}, {label: "2004", num: br13, at: "@thirteen"}]}}
-      - {tpl: text, at: "@branches-0.3", in: flip, p: {lines: [{s: "cheaper to run", px: 56, at: "@cheaper"}, {s: "more branches", px: 56, at: "@opened"}, {s: "a new job:", px: 48, at: "@new"},
+      - {tpl: text, at: "@branches-0.3", in: flip, p: {lines: [{s: "cheaper to run", px: 56, at: "@cheaper"}, {s: "more branches", px: 56, at: "@opened"}, {s: "fewer tellers per branch", px: 44, at: "@fewer"}, {s: "a new job:", px: 48, at: "@new"},
                                                           {s: "talking to customers", px: 48, at: "@talking"}, {s: "not counting cash", px: 48, at: "@counting"}], src: [BES15]}}
   - id: S2
     hook: "Bank tellers: 13% fewer by 2035?"
@@ -263,7 +263,7 @@ shorts:
       In 2025, about three hundred thirty-nine thousand Americans worked as bank tellers. The Bureau of Labor Statistics projects about two hundred ninety-five thousand by 2035,
       a decline of thirteen percent. Its reasons: online and mobile banking, enhanced ATMs, video kiosks. It is a projection, not a count.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Bank tellers, U.S.", beats: [{s: "2025", at: "@2025"}, {s: "Americans working as bank tellers", at: "@americans"}, {s: "BLS projection", at: "@bureau"}, {s: "by 2035", at: "@2035"}, {s: "a decline of 13%", at: "@decline"}],
+      - {tpl: bars, at: 0, p: {title: "Bank tellers, U.S.", beats: [{s: "2025", at: "@2025"}, {s: "Americans working as bank tellers", at: "@americans"}, {s: "Bureau of Labor Statistics", at: "@bureau"}, {s: "BLS projects", at: "@projects"}, {s: "by 2035", at: "@2035"}, {s: "a decline of 13%", at: "@decline"}],
            kindEach: true, bars: [{label: "2025", num: tel25, at: "@three"}, {label: "2035\n(projected)", num: tel35, at: "@ninetyfive"}]}}
       - {tpl: text, at: "@reasons-0.3", in: slide, p: {lines: [{s: "online and mobile banking", px: 52, at: "@online"}, {s: "enhanced ATMs", px: 52, at: "@enhanced"}, {s: "video kiosks", px: 52, at: "@video"},
                                                           {s: "a projection,", px: 42, at: "@projection"}, {s: "not a count", px: 42, at: "@count"}], src: [OOHT]}}

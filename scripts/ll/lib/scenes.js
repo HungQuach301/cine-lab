@@ -107,8 +107,8 @@ TPL.teller = (p) => { const cam = camOf(p), per = p.per || 6, R0 = rng(1970), J 
     // máy ATM ở tường phải
     if (p.screen !== undefined) { const a = rv(t, p.screen, 1.2), [ax0, ay0] = P(W * 0.86, H * 0.5), [ax1, ay1] = P(W * 0.97, H * 0.74);
       g.fillStyle = '#1d1a1c'; g.fillRect(ax0 - 10, ay0 - 14, ax1 - ax0 + 20, ay1 - ay0 + 60);
-      if (a > 0) { g.save(); g.globalAlpha = a * (0.9 + 0.1 * Math.sin(t * 3)); g.fillStyle = '#16304a'; g.fillRect(ax0, ay0, ax1 - ax0, ay1 - ay0); g.restore(); glow(g, (ax0 + ax1) / 2, (ay0 + ay1) / 2, 260 * sc, '120,170,230', 0.35 * a);
-        text(g, p.screenLabel || 'ATM', (ax0 + ax1) / 2, (ay0 + ay1) / 2, 30, '#d6e6f8', { align: 'center', base: 'middle', a }); LL.act = LL.act || a < 1; } }
+      if (a > 0) { g.save(); g.globalAlpha = a * (0.9 + 0.1 * Math.sin(t * 3)); g.fillStyle = '#0c1a2b'; g.fillRect(ax0, ay0, ax1 - ax0, ay1 - ay0); g.restore(); glow(g, (ax0 + ax1) / 2, (ay0 + ay1) / 2, 260 * sc, '120,170,230', 0.2 * a);
+        text(g, p.screenLabel || 'ATM', (ax0 + ax1) / 2, (ay0 + ay1) / 2, 30, '#f2f7ff', { align: 'center', base: 'middle', a, bold: true }); LL.act = LL.act || a < 1; } }
     // lớp gần: khách trước ô giữa
     if (p.customer) { const ca = rv(t, p.customer.at, 0.8), P1 = lay(c, 1.0), xm = cx0 + (mid + 0.5) * (cx1 - cx0) / per;
       if (ca > 0) { const nv = p.customer.nervous ? 1 : 0, sway = nv * 6 * Math.sin(t * 2.3), [qx, qy] = P1(W / 2 + (xm - W / 2) / 1.0 + sway, H * 1.04);
