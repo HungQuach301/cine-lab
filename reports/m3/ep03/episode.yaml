@@ -64,7 +64,7 @@ segments:
       It never closes. It never needs a lunch break. Inside, behind the counter, there were once people at every window.
       Tonight, only a few of those windows are lit.
     vo_offset: 4.0
-    min_dur: 40
+    min_dur: 46
     tail: 1.5
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860, lit: "@round+0.5"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [0.5, "@round"], lights: [1]}, warm: 0.6, windows: 0.5,
@@ -76,17 +76,16 @@ segments:
     vo: >-
       For most of the twentieth century, banking meant a person at a window. The teller counted your cash, checked your signature,
       and wrote the deposit in your passbook. It was careful, repetitive work, and after the Second World War there was more and more of it.
-      In 1950, the U.S. census counted about sixty-five thousand bank tellers. By 1960, about twice as many.
-      The census then changed how it sorted jobs, so the next decade is a separate line: about one hundred thirty-five thousand bank tellers in 1960,
-      and about two hundred fifty-three thousand by 1970. That is up about eighty-seven percent in ten years.
+      In 1950, the U.S. census counted about sixty-five thousand bank tellers. By 1970, on a newer census basis, about two hundred fifty-three thousand.
+      That growth came before cash machines, in the long postwar boom.
     min_dur: 30
     shots:
       - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TELLER'S WINDOW", px: 84}, {s: "Last Lamplighters · Episode 3", px: 34, serif: false}]}}
-      - {tpl: line, at: "@1950-0.6", in: slide, p: {title: "Bank tellers, United States", subtitle: "census counts · two occupation classifications", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "the census changed how it sorted jobs", at: "@changed"}],
+      - {tpl: line, at: "@1950-0.6", in: slide, p: {title: "Bank tellers, United States", subtitle: "census counts · two occupation classifications", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "before cash machines: the postwar boom", at: "@postwar"}],
            ylabel: "tellers", yfmt: k, xr: [1950, 1970], xticks: [1950, 1960, 1970], ymax: 300000, at: "@1950", dur: 14,
            series: [{name: "1960 classification", points: [[1950, 65000], [1960, 131000]], labels: [0], ltext: ["65,000", ""]},
-                    {name: "1970 classification", points: [[1960, 135000], [1970, 253000]], labels: [0, 1], ltext: ["135,000", "253,000"], at: "@separate"}],
-           note: "+87% in ten years (1960–1970, 1970 classification), before cash machines spread", noteAt: "@eightyseven", nums: [{num: tel50}, {num: tel60}, {num: tel70}, {num: tel_hist}]}}
+                    {name: "1970 classification", points: [[1960, 135000], [1970, 253000]], labels: [0, 1], ltext: ["135,000", "253,000"], at: "@newer"}],
+           note: "Census changed its occupation classification in 1970: two separate lines", noteAt: "@newer", nums: [{num: tel50}, {num: tel70}]}}
 
   - id: "03"
     part: HISTORY
@@ -132,7 +131,7 @@ segments:
       The lamplighter crosses the square. Most of the bank's windows are dark now, but the screen by the door still glows.
       The work has moved again: from the counter, to the phone, to an app, and now to software that reads, scores, and answers.
     vo_offset: 2.5
-    min_dur: 26
+    min_dur: 30
     tail: 1.5
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@glows+1"]}, warm: 0.4, windows: 0.4,
@@ -166,7 +165,8 @@ segments:
     vo: >-
       Behind the loan officer sits the credit analyst, who studies the numbers behind a loan. In a 2025 article on artificial intelligence, BLS economists wrote that
       AI can synthesize large amounts of data and reach big-picture conclusions, and that these tasks are the essence of a credit rating.
-      In that earlier projection, for 2023 to 2033, credit analyst jobs were set to decline three point nine percent.
+      In that article's projection, an earlier one for 2023 to 2033, credit analyst jobs were set to decline three point nine percent.
+      It belongs to a different projection cycle from the other numbers.
     shots:
       - {tpl: quote, at: 0, p: {beats: [{s: "behind the loan officer", at: "@behind"}, {s: "the credit analyst: the numbers behind a loan", at: "@analyst"}, {s: "BLS economists, Monthly Labor Review, 2025", at: "@article"}],
            text: "AI can synthesize large amounts of data and reach big-picture conclusions, and, indeed, these tasks are the essence of a credit rating.", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@synthesize", src: [MLR25]}}
@@ -177,12 +177,12 @@ segments:
     part: TODAY
     vo: >-
       Does the software actually judge credit better? Economists at the Federal Reserve Bank of Philadelphia tested a machine-learning model on U.S. credit bureau records.
-      In every year from 2004 to 2019, it predicted defaults better than a traditional statistical model. Under their assumptions, the difference was worth about two percent in profit.
-      It is a test of models, not a count of jobs. But it shows why banks are moving the scoring to machines.
+      In every year from 2004 to 2019, it predicted defaults better than a traditional statistical model.
+      It is a test of models, not a count of jobs. It shows the scoring is getting better. It does not show what happens to the people who did it.
     shots:
       - {tpl: text, at: 0, p: {beats: [{s: "does software judge credit better?", at: "@judge"}, {s: "Federal Reserve Bank of Philadelphia", at: "@federal"}],
            lines: [{s: "machine learning vs. a traditional model", px: 46, at: "@tested"}, {s: "U.S. credit bureau records", px: 34, serif: false, at: "@records"},
-                   {s: "better default predictions, every year 2004–2019", px: 38, serif: false, at: "@every"}, {s: "≈ 2% profit difference, under the authors' assumptions", px: 34, serif: false, at: "@assumptions"},
+                   {s: "better default predictions, every year 2004–2019", px: 38, serif: false, at: "@every"},
                    {s: "a test of models, not a count of jobs", px: 34, serif: false, at: "@test", color: "#4f2a0c"}], src: [PF]}}
 
   # Đoạn 11 — Claude soạn theo câu hỏi nghề; chủ dự án duyệt nguyên văn (05/10/2026). Góc nhìn, không phải số liệu. Hình: quầy giao dịch, giao dịch viên ngẩng lên nhìn khách lo lắng (bóng 2.5D, không cận mặt).
@@ -206,10 +206,11 @@ segments:
     vo: >-
       So here is the comparison, on the same scale: one source, one period, 2025 to 2035. Bank tellers: down about thirteen percent.
       Loan officers: up about one percent. All jobs together: up three point five percent.
+      For tellers, the BLS points to online banking and machines, not to AI alone.
       Not the same technology as the ATM. The same pattern: a repetitive human task, taken over by an automated system.
       The ATM took over the cash. Software now takes on more of the paperwork and the scoring.
       But the differences matter. Back then, cheaper branches meant more branches, and more tellers. Now the BLS expects fewer branches.
-      And all three of these numbers are forecasts, not counts.
+      And all three of these numbers are forecasts for one decade. The ATM story is history. We set them side by side for the pattern, not for the arithmetic.
     shots:
       - {tpl: bars, at: 0, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 15, d: 1, beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}],
            bars: [{label: "bank tellers", num: tel_chg, at: "@tellers"}, {label: "loan officers", num: lo_chg, at: "@loan"}, {label: "all occupations", num: all_chg, at: "@all"}],
@@ -220,23 +221,24 @@ segments:
   - id: "13"
     part: TODAY
     vo: >-
-      The teller's story is the hopeful one in this series. A machine took over the most repetitive task, and for decades the job grew anyway,
+      The teller's story is the more hopeful kind. A machine took over the most repetitive task, and for decades the job grew anyway,
       because people did more of what the machine could not: advice, trust, a face at the window.
-      Whether that happens again with AI is an open question. It depends on whether banks find new work for people faster than software takes the old work away.
+      But that came with a condition. Cheaper branches meant more branches. That condition may not hold now.
+      With AI, it is an open question. It depends on whether banks create new work faster than software takes the old work away.
       That is what we will be watching.
     min_dur: 26
     shots:
-      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "The hopeful case", px: 64, at: "@hopeful"}, {s: "The ATM took the cash; the job grew anyway.", px: 34, serif: false, at: "@grew"},
-                                                         {s: "People did what the machine could not.", px: 34, serif: false, at: "@people"}, {s: "With AI: an open question.", px: 34, serif: false, at: "@open"}], src: [BES15, OOHT]}}
+      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "The more hopeful case", px: 64, at: "@hopeful"}, {s: "The ATM took the cash; the job grew anyway.", px: 34, serif: false, at: "@grew"},
+                                                         {s: "People did what the machine could not.", px: 34, serif: false, at: "@people"}, {s: "The condition: more branches. Not now.", px: 34, serif: false, at: "@condition"}, {s: "With AI: an open question.", px: 34, serif: false, at: "@open"}], src: [BES15, OOHT]}}
       - {tpl: office, at: "@watching-1.5", in: fade, p: {light: "@watching", cam: [{t: "@watching-1.5", x: 0, z: 0}, {t: "@watching+4", x: -90, z: 0.06}]}}
 
   - id: "14"
     part: STORY
     vo: >-
       Back on the corner, the lamplighter reaches the last post. The glass opens, the flame takes. Across the street, the little screen glows, patient as ever.
-      Every era has its last lamplighters. Some of them stood behind a bank window.
+      Every era has its last lamplighters. Some of them stood behind a bank window, and many still do.
     vo_offset: 3.0
-    min_dur: 30
+    min_dur: 34
     tail: 2.0
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,

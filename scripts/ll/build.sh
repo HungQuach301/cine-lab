@@ -1,7 +1,7 @@
 #!/bin/bash
 # Last Lamplighters · nhà máy — MỘT LỆNH cho một tập: đặc tả → lời → render → mix → ghép master + bản xem 3 phần + Shorts.
 #   bash scripts/ll/build.sh <episode.yaml> [bước…]      bước: prep render mix ghep shorts (mặc định: tất cả)
-#   Biến: J=3 (số đoạn render song song), ONLY="02 05" (chỉ render các đoạn này), V=v1 (hậu tố tên tệp)
+#   Biến: J=3 (số đoạn render song song), ONLY="02 05" (chỉ render các đoạn này), V=v1 (hậu tố tên tệp), ASR=0 (bỏ kiểm ASR)
 # Ra (ngoài git, thư mục out của đặc tả, mặc định /var/tmp/cine-out/<id>):
 #   sec/<id>.mkv (+ .log.json, .hash) · mix.wav · <id>-<V>-master.mp4 (crf 16) · <id>-<V>-p1/p2/p3.mp4 (720p ≈ 3 Mb/s, ≤ 90 MB, cắt ở ranh giới đoạn)
 #   shorts/<S>.mp4 (1080×1920) · build.json (số khung, thời gian, đĩa)
@@ -14,6 +14,8 @@ mkdir -p $O/sec $O/shorts $O/pass; TL=$O/timeline.json
 disk() { local a=$(df --output=avail -k / | tail -1); echo "$(date +%H:%M) $1: đĩa trống $((a/1024)) MB" >> $O/build.log; [ $a -gt 3000000 ] || { echo "đĩa trống < 3 GB — dừng"; exit 2; }; }
 has() { [[ " $STEPS " == *" $1 "* ]]; }
 T0=$(date +%s)
+# ASR (mục B5, 05/10/2026): nghe lại từng đoạn lời bằng faster-whisper; thiếu số/tên riêng → tự thu lại đoạn đó (≤ 2 lần) rồi mới prep. ASR=0 để bỏ qua.
+has prep && [ "${ASR:-1}" = 1 ] && { set +e; $PY $LL/asr.py "$EP" > $O/asr.log 2>&1; r=$?; set -e; tail -1 $O/asr.log; [ $r = 0 ] || { echo "ASR trượt sau 2 lần thu lại — dừng (xem $O/asr.json)"; exit 4; }; }
 has prep && { $PY $LL/ll.py prep "$EP" | tee $O/prep.json; }
 segs() { $PY -c "import json;[print(s['id']) for s in json.load(open('$TL'))['$1']]"; }
 hash_of() { $PY -c "import json,hashlib,sys;t=json.load(open('$TL'));s=[x for x in t['$1'] if x['id']=='$2'][0];print(hashlib.sha1(json.dumps(s,sort_keys=True).encode()+open('$LL/render.js','rb').read()+b''.join(open('$LL/lib/'+f,'rb').read() for f in sorted(__import__('os').listdir('$LL/lib')))).hexdigest())"; }
