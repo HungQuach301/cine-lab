@@ -62,3 +62,5 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 37 | Số phụ đọc trong lời, không lên hình | tập 4: 27 → 15 số trên hình | — | 3 số neo (`anchors`) + số đi kèm |
 | 38 | Hoãn tiến trình nền khi phiên/máy khởi động lại | tập 4 lượt 1 mất giữa render | tiến trình `&` không được harness theo dõi | chạy build bằng công cụ nền của harness, không dùng `&` |
 | 39 | Băm đoạn lỗi (thư mục `lib/preview` lọt vào danh sách tệp) → băm rỗng → `build.sh` "giữ" trung gian CŨ của đặc tả trước | tập 4: đoạn 00–05 suýt ghép từ bản trước luật nhịp | băm đọc mọi mục trong `lib/` | băm chỉ đọc `lib/*.js`; băm rỗng = lỗi, không bao giờ "giữ" |
+| 40 | Nhãn mặc định của mẫu lọt sang tập khác | tập 4: màn hình phòng đánh máy hiện "AUTOMATED VOICE" (nhãn của tập 2) ở 4 đoạn; P thấy khi rà khung tổng quan | `rows.screenLabel` mặc định theo tập 2 | luôn khai `screenLabel` khi dùng `screen`; rà `khung-g2.jpg` trước G2 |
+| 41 | `pkill -f`/`pgrep -f` theo chuỗi lệnh giết luôn shell của P (lần 2) | tập 4 | chuỗi tìm nằm trong chính lệnh shell | dừng tiến trình bằng PID lấy từ `ps` có lọc `grep -v $$`, hoặc để tiến trình chạy hết |

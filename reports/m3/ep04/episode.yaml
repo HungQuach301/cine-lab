@@ -73,7 +73,7 @@ segments:
     tail: 0.6
     fadeIn: 0
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: ["@today", "@percent"], screen: "@percent",
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: ["@today", "@percent"], screen: "@percent", screenLabel: "WORD PROCESSOR",
            cam: [{t: 0, x: 0, z: 0.02}, {t: 4, x: -40, z: 0.06}, {t: 8, x: -70, z: 0.1}, {t: 12, x: -90, z: 0.13}, {t: 18, x: -110, z: 0.16}],
            cap: [{s: "What happened to the typing pool?", at: "@what"}, {num: st70, s: "stenographers, typists & secretaries, U.S., 1970", at: "@three"}, {num: wp_chg, s: "word processors & typists, projected 2025–35", at: "@thirtyfour"},
                  {s: "Who gets the next door?", at: "@who"}]}}
@@ -161,7 +161,7 @@ segments:
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@blinking+1"]}, warm: 0.4, windows: 0.3,
                                  cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: "@blinking+1", x: -300, z: 0.05}]}}
-      - {tpl: rows, at: "@bells-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@bells", "@page"], screen: "@words", cam: [{t: "@bells", x: 0, z: 0}, {t: "@somewhere", x: -40, z: 0.06}, {t: "@them+1.5", x: -80, z: 0.12}]}}
+      - {tpl: rows, at: "@bells-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@bells", "@page"], screen: "@words", screenLabel: "WORD PROCESSOR", cam: [{t: "@bells", x: 0, z: 0}, {t: "@somewhere", x: -40, z: 0.06}, {t: "@them+1.5", x: -80, z: 0.12}]}}
 
   - id: "07"
     part: TODAY
@@ -171,7 +171,7 @@ segments:
       Data entry keyers, the people who type information into systems, are projected to fall twenty-five point five percent,
       from about one hundred thirty-two thousand to about ninety-eight thousand. Both are projections, not counts.
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [0, 1], screen: 1.2, cam: [{t: 0, x: 0, z: 0.05}, {t: 6, x: -40, z: 0.09}, {t: 12, x: -70, z: 0.12}],
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [0, 1], screen: 1.2, screenLabel: "WORD PROCESSOR", cam: [{t: 0, x: 0, z: 0.05}, {t: 6, x: -40, z: 0.09}, {t: 12, x: -70, z: 0.12}],
            cap: [{s: "Today: the job that grew out of the typing pool", at: "@title"}, {s: "word processors & typists: one of the fastest-declining jobs", at: "@fastestdeclining"},
                  {s: "projected, 2025 to 2035", at: "@projected"}, {s: "about 40,000 jobs in 2025", at: "@forty"}]}}
       - {tpl: bars, at: "@thirtyfour-1.0", in: fade, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS", unit: '%', max: 40, d: 1, beats: [{s: "data entry keyers", at: "@data"}, {s: "typing information into systems", at: "@information"}],
@@ -230,7 +230,7 @@ segments:
       The more a job is pure typing, the steeper the projected fall. The more it is organizing, judging and dealing with people, the smaller.
       The typewriter created the pool; the computer and AI are taking the typing away from it. And all four of these numbers are forecasts, not counts.
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [0, 0.5], screen: 0.3, cam: [{t: 0, x: 0, z: 0.1}, {t: 6, x: -40, z: 0.13}],
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [0, 0.5], screen: 0.3, screenLabel: "WORD PROCESSOR", cam: [{t: 0, x: 0, z: 0.1}, {t: 6, x: -40, z: 0.13}],
            cap: [{s: "The comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}]}}
       - {tpl: bars, at: "@word-1.0", in: fade, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 40, d: 1,
            bars: [{label: "word processors\n& typists", num: wp_chg, at: "@word"}, {label: "data entry\nkeyers", num: de_chg, at: "@data"}, {label: "secretaries &\nadmin. assistants", num: se_chg, at: "@secretaries"}, {label: "all\noccupations", num: all_chg, at: "@all"}],
