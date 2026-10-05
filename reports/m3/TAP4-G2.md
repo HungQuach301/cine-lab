@@ -89,7 +89,8 @@
 | Q16 thẻ giấy | 50,0 % | **3,4 %** (tư liệu LoC + isotype thay cảnh hàng ghế + đường) |
 | Q17 | 1,96/phút | 3,39/phút. Lát cắt 90 s dồn cả móc câu lẫn 3 số lịch sử; luật tính trung bình trên cả tập |
 | Q18 | 0 | 0 |
-- Video lát cắt: xem mục 7 (đang/đã render, ngoài git, `/var/tmp/cine-out/ll-cut-v*/`). Chủ dự án xem ở G2 tập 6 theo chỉ đạo.
+- Video lát cắt (720p): `screening/ll-v2-lat-cat-v1.mp4` (1:32,0) và `screening/ll-v2-lat-cat-v2.mp4` (1:28,6). Chủ dự án xem ở G2 tập 6 theo chỉ đạo; không cần duyệt riêng.
+- Bước ghép bản xem 3 phần lỗi với lát cắt v1, vì 3 đoạn không chia được 3 phần cân. Đã ghép tay video v1; ghi hàng chờ cho `build.sh` (tập ngắn).
 
 ## 5. Token, ElevenLabs, giờ máy, đĩa
 | Phần | Token | Nguồn số |
