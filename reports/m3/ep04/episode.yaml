@@ -1,9 +1,9 @@
-# Last Lamplighters · Tập 4 "The Typing Pool" — đặc tả nhà máy v1 (hồ sơ G1 lô 3–5, 05/10/2026).
+# Last Lamplighters · Tập 4 "The Typing Pool" — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề C; câu chưa có nguồn ở đoạn 05 thay bằng câu BLS ở đoạn 08).
 # Kiểm: ll.py check · Ước: ll.py est. Nguồn: reports/m3/ep04/NGUON-TAP4.md. Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026.
-# HSUS D 347 và D 186/D 220: đọc bằng mắt trên ảnh quét (ảnh cắt hsus-d347-tr141-300dpi.png), chờ Claude kiểm ở G1.
+# HSUS D 347: "đã đối chiếu (Claude)" trên ảnh cắt hsus-d347-tr141-300dpi.png (05/10/2026). D 186/D 220: đọc bằng mắt (gói nguồn), cùng bảng.
 # Không nối chuỗi khác phân loại thành một đường; không đặt 3 914 nghìn (HSUS, nhóm rộng) cạnh 26 500 (BLS 43-9022, mã hẹp).
 id: ll-ep04
-title: "TBD at G1 (see LO-3-5-G1.md §4.3)"
+title: "The Typewriter Opened a Door for Millions of Women. Who Gets the Next One?"
 out: /var/tmp/cine-out/ll-ep04
 voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
 music:
@@ -13,7 +13,7 @@ music:
 sources:
   HSUS: {short: "U.S. Census Bureau, Historical Statistics of the U.S. (1975), Series D", title: "Historical Statistics of the United States, Colonial Times to 1970, Part 1, Series D 182–232 and D 233–682",
          url: "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p1-chD.pdf", read: fulltext,
-         pages: "pp. 125 (notes), 139–141 (PDF 19–21); row 347, rows 186/220 — ảnh quét, đối chiếu bằng mắt, chờ Claude kiểm ảnh ở G1", accessed: 2026-10-05}
+         pages: "pp. 125 (notes), 139–141 (PDF 19–21); row 347 đã đối chiếu (Claude) 05/10/2026; rows 186/220 đọc bằng mắt — ảnh quét", accessed: 2026-10-05}
   T15: {short: "BLS, Employment Projections 2025–35, Table 1.5", title: "Table 1.5 Fastest declining occupations, 2025 and projected 2035", url: "https://www.bls.gov/emp/tables/fastest-declining-occupations.htm",
         read: fulltext, pages: "table rows 43-9022, 43-9021 (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
   OOHS: {short: "BLS, Occupational Outlook Handbook (2025–35): Secretaries", title: "Secretaries and Administrative Assistants",
@@ -111,11 +111,10 @@ segments:
   - id: "05"
     part: HISTORY
     vo: >-
-      Then the machine on the desk began to change, and the people who once handed their letters to the pool began to type their own.
-      Here our record runs thin. We could not find a full, verifiable count for the decades after 1970,
+      After 1970, the machine on the desk kept changing. Here our record runs thin. We could not find a full, verifiable count for the decades after 1970,
       so we will not put a number on how fast the pool drained. But we can see where it ended up.
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "the machine on the desk changes", at: "@machine"}], lines: [{s: "people began to type their own", px: 46, at: "@own"},
+      - {tpl: text, at: 0, p: {beats: [{s: "the machine on the desk changes", at: "@machine"}], lines: [{s: "after 1970: the machine on the desk keeps changing", px: 42, at: "@changing"},
                                                           {s: "after 1970: no count we could verify", px: 38, serif: false, at: "@thin", color: "#4f2a0c"}]}}
 
   - id: "06"
@@ -149,12 +148,12 @@ segments:
     vo: >-
       The largest descendant of the typing pool is much bigger. In 2025, there were about three point five million secretaries and administrative assistants.
       The BLS projects a decline of about two percent by 2035, to about three point four million. Its explanation is direct:
-      technology, including artificial intelligence systems and digital tools, enables staff to prepare their own documents.
+      technology, including artificial intelligence systems and digital tools, enables staff in many organizations to prepare their own documents without the help of secretaries.
       The boss who once dictated a letter now writes it, with a machine helping.
     shots:
       - {tpl: bars, at: 0, p: {title: "Secretaries and administrative assistants, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the largest descendant of the typing pool", at: "@largest"}],
            bars: [{label: "2025", num: se25, at: "@five"}, {label: "2035 (projected)", num: se35, at: "@four"}], note: "Projected change, 2025–35: −2%", noteAt: "@decline", nums: [{num: se_chg}]}}
-      - {tpl: quote, at: "@explanation-0.4", in: slide, p: {text: "Technology, including artificial intelligence (AI) systems and digital tools, enables staff… to prepare their own documents…", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@technology", src: [OOHS]}}
+      - {tpl: quote, at: "@explanation-0.4", in: slide, p: {text: "Technology, including artificial intelligence (AI) systems and digital tools, enables staff in many organizations to prepare their own documents without the help of secretaries.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@technology", src: [OOHS]}}
 
   - id: "09"
     part: TODAY

@@ -1,10 +1,10 @@
-# Last Lamplighters · Tập 3 "The Teller's Window" — đặc tả nhà máy v1 (hồ sơ G1 lô 3–5, 05/10/2026).
+# Last Lamplighters · Tập 3 "The Teller's Window" — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề A; bỏ thẻ +87 % ↔ −13 %; thẻ so sánh cùng nguồn cùng kỳ BLS 2025–35; đoạn 11 lời chủ dự án duyệt).
 # Kiểm: /opt/cine/bin/python scripts/ll/ll.py check reports/m3/ep03/episode.yaml · Ước: ll.py est (tốc độ Bill thật 2,214 từ/s).
-# Nguồn: reports/m3/ep03/NGUON-TAP3.md. Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026. HSUS: đọc bằng mắt trên ảnh quét (ảnh cắt hsus-d355-tr141-300dpi.png).
+# Nguồn: reports/m3/ep03/NGUON-TAP3.md. Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026. HSUS D355: "đã đối chiếu (Claude)" trên ảnh cắt hsus-d355-tr141-300dpi.png (05/10/2026).
 # KHÔNG dùng: chuỗi tellers 1980–2010 (không có nguồn toàn văn); số đọc từ biểu đồ của Bessen; Fuster et al. (chưa đọc toàn văn).
 # Cần thêm vào thư viện sau G1: rows variant "teller" (quầy giao dịch + màn hình ATM ở tường). Hiện mẫu rơi về variant typing.
 id: ll-ep03
-title: "TBD at G1 (see LO-3-5-G1.md §3.3)"
+title: "The ATM Didn't Kill the Bank Teller. Will AI?"
 out: /var/tmp/cine-out/ll-ep03
 voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
 music:
@@ -14,7 +14,7 @@ music:
 sources:
   HSUS: {short: "U.S. Census Bureau, Historical Statistics of the U.S. (1975), Series D 355", title: "Historical Statistics of the United States, Colonial Times to 1970, Part 1, Series D 233–682",
          url: "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p1-chD.pdf", read: fulltext,
-         pages: "p. 141 (PDF 21), row 355 'Bank tellers' — ảnh quét, đối chiếu bằng mắt (P + gói nguồn), chờ Claude kiểm ảnh ở G1", accessed: 2026-10-05}
+         pages: "p. 141 (PDF 21), row 355 'Bank tellers' — ảnh quét; đã đối chiếu (Claude), 05/10/2026", accessed: 2026-10-05}
   BES15: {short: "Bessen, IMF Finance & Development, March 2015", title: "Toil and Technology", url: "https://www.imf.org/external/pubs/ft/fandd/2015/03/pdf/bessen.pdf", read: fulltext, pages: "p. 17", accessed: 2026-10-05}
   BES16: {short: "Bessen, How Computer Automation Affects Occupations (2016)", title: "How Computer Automation Affects Occupations: Technology, Jobs, and Skills (BU Law WP 15-49; NBER SI 2016 version)",
           url: "https://conference.nber.org/confer/2016/SI2016/PRIT/Bessen.pdf", read: fulltext, pages: "p. 6 and note 7", accessed: 2026-10-05}
@@ -30,9 +30,9 @@ sources:
        url: "https://www.philadelphiafed.org/-/media/frbp/assets/working-papers/2022/wp22-39.pdf", read: fulltext, pages: "PDF p. 18", accessed: 2026-10-05}
 
 numbers:
-  tel50: {v: 65000, text: "65,000", kind: actual, year: 1950, unit: people, src: HSUS, say: "sixty-five thousand", note: "1960 classification, 14+; đối chiếu bằng mắt"}
+  tel50: {v: 65000, text: "65,000", kind: actual, year: 1950, unit: people, src: HSUS, say: "sixty-five thousand", note: "1960 classification, 14+; đã đối chiếu (Claude)"}
   tel60b: {v: 131000, text: "131,000", kind: actual, year: 1960, unit: people, src: HSUS, note: "1960 classification, 14+"}
-  tel60: {v: 135000, text: "135,000", kind: actual, year: 1960, unit: people, src: HSUS, say: "one hundred thirty-five thousand", note: "1970 classification, 16+; đối chiếu bằng mắt"}
+  tel60: {v: 135000, text: "135,000", kind: actual, year: 1960, unit: people, src: HSUS, say: "one hundred thirty-five thousand", note: "1970 classification, 16+; đã đối chiếu (Claude)"}
   tel70: {v: 253000, text: "253,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "two hundred fifty-three thousand", note: "1970, 16+; 14+ = 254"}
   tel_hist: {v: 87, text: "+87%", kind: actual, unit: '%', src: HSUS, say: "eighty-seven percent", note: "tính: (253 − 135) / 135 = +87,4 %"}
   atm: {v: 400000, text: "400,000+", kind: actual, year: 2015, unit: machines, src: BES15, say: "four hundred thousand"}
@@ -156,12 +156,10 @@ segments:
     vo: >-
       The machines are also moving further up the counter, to the people who decide who gets credit. Loan officer jobs are projected to grow only about one percent,
       from two hundred eighty-three thousand to two hundred eighty-six thousand, as branches close and loan processing becomes more automated.
-      Most firms, the BLS notes, already use underwriting software. For comparison, all jobs together are projected to grow three point five percent.
+      Most firms, the BLS notes, already use underwriting software.
     shots:
       - {tpl: bars, at: 0, p: {title: "Loan officers, United States", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "further up the counter: who gets credit", at: "@further"}],
-           bars: [{label: "2025", num: lo25, at: "@eightythree"}, {label: "2035 (projected)", num: lo35, at: "@eightysix"}], note: "Most firms use underwriting software (BLS)", noteAt: "@underwriting"}}
-      - {tpl: bars, at: "@comparison-0.4", in: slide, p: {title: "Projected change, 2025–35", subtitle: "employment, U.S.", unit: '%', max: 5, d: 1, beats: [{s: "compared with all jobs", at: "@comparison"}],
-           bars: [{label: "loan officers", num: lo_chg, echo: true, at: "@comparison"}, {label: "all occupations", num: all_chg, at: "@point"}]}}
+           bars: [{label: "2025", num: lo25, at: "@eightythree"}, {label: "2035 (projected)", num: lo35, at: "@eightysix"}], note: "Most firms use underwriting software (BLS)", noteAt: "@underwriting", nums: [{num: lo_chg}]}}
 
   - id: "09"
     part: TODAY
@@ -187,29 +185,37 @@ segments:
                    {s: "better default predictions, every year 2004–2019", px: 38, serif: false, at: "@every"}, {s: "≈ 2% profit difference, under the authors' assumptions", px: 34, serif: false, at: "@assumptions"},
                    {s: "a test of models, not a count of jobs", px: 34, serif: false, at: "@test", color: "#4f2a0c"}], src: [PF]}}
 
-  # Đoạn 11: chờ góc nhìn nghề của chủ dự án (3 câu hỏi mở, LO-3-5-G1 §3.2). Ghi AUTHORSHIP là đóng góp của chủ dự án. Lời tạm để ước thời lượng.
+  # Đoạn 11 — Claude soạn theo câu hỏi nghề; chủ dự án duyệt nguyên văn (05/10/2026). Góc nhìn, không phải số liệu. Hình: quầy giao dịch, giao dịch viên ngẩng lên nhìn khách lo lắng (bóng 2.5D, không cận mặt).
   - id: "11"
     part: TODAY
-    todo: owner
     vo: >-
-      What does that look like from inside a bank? Placeholder for the producer's account from banking work: which tasks went to machines first,
-      which still need a person, and where judgment still sits with people. This paragraph will be rewritten from the producer's answers at G1.
+      Ask someone who has worked in banking, and the line looks like this. Machines took the routine: cash, statements, transfers.
+      Models now score a loan in seconds. But a model answers one question — how risky is this? People still answer another — should we lend, and on what terms?
+      And sometimes the most important thing a teller does is notice that something is wrong: a customer, nervous, sending money to a stranger.
+      The machine processes the request. A person asks why.
+    vo_offset: 1.0
+    tail: 1.5
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "inside a bank", at: "@what"}], lines: [{s: "What still needs a person?", px: 60, at: "@person"}]}}
+      - {tpl: text, at: 0, p: {beats: [{s: "A banker's view", at: "@ask"}], lines: [{s: "A banker's view", px: 60, at: "@ask"}, {s: "a perspective, not data", px: 30, serif: false, at: "@ask", color: "#4f2a0c"},
+                                                          {s: "machines: cash, statements, transfers", px: 38, serif: false, at: "@routine"}, {s: "a model: how risky is this?", px: 38, serif: false, at: "@risky"},
+                                                          {s: "people: should we lend, and on what terms?", px: 38, serif: false, at: "@lend"}]}}
+      - {tpl: rows, at: "@sometimes-0.4", in: fade, p: {variant: teller, rows: 1, per: 3, look: "@notice", customer: {nervous: true, at: "@customer"}, cam: [{t: "@sometimes", x: 0, z: 0.04}, {t: "@why+1.5", x: -40, z: 0.14}]}}
 
   - id: "12"
     part: TODAY
     vo: >-
-      So here is the comparison, on the same scale: bank tellers, change over ten years. From 1960 to 1970, before cash machines spread, teller jobs grew about eighty-seven percent.
-      From 2025 to 2035, the BLS projects a decline of about thirteen percent.
-      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system. The ATM took over the cash. Software now takes on the paperwork and the scoring.
+      So here is the comparison, on the same scale: one source, one period, 2025 to 2035. Bank tellers: down about thirteen percent.
+      Loan officers: up about one percent. All jobs together: up three point five percent.
+      Not the same technology as the ATM. The same pattern: a repetitive human task, taken over by an automated system.
+      The ATM took over the cash. Software now takes on more of the paperwork and the scoring.
       But the differences matter. Back then, cheaper branches meant more branches, and more tellers. Now the BLS expects fewer branches.
-      And one of these numbers is history. The other is only a forecast.
+      And all three of these numbers are forecasts, not counts.
     shots:
-      - {tpl: compare, at: 0, p: {title: "Bank tellers: change over ten years", beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "change over ten years", at: "@ten"}], unit: '%', mid: "not the same technology — the same pattern", midAt: "@pattern",
-           left: {title: "Bank tellers", years: "1960–1970 · counted", icon: person, num: tel_hist, at: "@1960", d: 0},
-           right: {title: "Bank tellers", years: "2025–2035 · projected", icon: person, num: tel_chg, at: "@2025", d: 0},
-           diff: ["then: more branches", "now: fewer branches", "a forecast, not a count"], diffAt: "@differences"}}
+      - {tpl: bars, at: 0, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 15, d: 1, beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}],
+           bars: [{label: "bank tellers", num: tel_chg, at: "@tellers"}, {label: "loan officers", num: lo_chg, at: "@loan"}, {label: "all occupations", num: all_chg, at: "@all"}],
+           note: "not the same technology — the same pattern", noteAt: "@pattern"}}
+      - {tpl: text, at: "@differences-0.4", in: slide, p: {lines: [{s: "then: cheaper branches → more branches, more tellers", px: 38, serif: false, at: "@back"}, {s: "now: BLS expects fewer branches", px: 38, serif: false, at: "@fewer"},
+                                                          {s: "forecasts, not counts", px: 38, serif: false, at: "@forecasts", color: "#4f2a0c"}], src: [BES15, OOHL]}}
 
   - id: "13"
     part: TODAY

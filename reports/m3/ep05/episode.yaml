@@ -1,9 +1,9 @@
-# Last Lamplighters · Tập 5 "The Claims Desk" (phương án 5A, chủ dự án chọn 05/10/2026) — đặc tả nhà máy v1 (hồ sơ G1 lô 3–5).
+# Last Lamplighters · Tập 5 "The Claims Desk" (phương án 5A, chủ dự án chọn 05/10/2026) — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề A; phương án 5B — bỏ thẻ so sánh số, so sánh định tính; thẻ kết "Next: The Hand That Drew It").
 # Hai vế là HAI NGHỀ KHÁC NHAU trong cùng quy trình bồi thường: nhân viên văn phòng bảo hiểm (1954–63) ↔ giám định viên / thẩm định thiệt hại xe (2025–35).
 # Nguồn: reports/m3/ep05/NGUON-TAP5.md (mục 1–4 và PHỤ LỤC 5A). Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026.
 # KHÔNG dùng: 4,2 % → 2,4 %/năm (không ghi khoảng năm); số 1954 suy ra; số đọc từ biểu đồ 3–4 của Bulletin.
 id: ll-ep05
-title: "TBD at G1 (see LO-3-5-G1.md §5.3)"
+title: "In 1966, Computers Couldn't Judge an Insurance Claim. Now Software Prices the Wreck"
 out: /var/tmp/cine-out/ll-ep05
 voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
 music:
@@ -168,17 +168,19 @@ segments:
   - id: "10"
     part: TODAY
     vo: >-
-      So here is the comparison, with a caution. Not the same job: the same claims desk. In the 1950s, the machine took the clerks' record keeping,
-      and office employment in surveyed companies still grew thirty-one point five percent over nine years.
-      Today, software is reaching the adjuster's judgment itself, and the BLS projects a decline of five percent from 2025 to 2035.
+      So here is the comparison, with a caution. Not the same job: the same claims desk.
+      We will not set these numbers side by side. One is a survey of office workers over nine years; the other is a forecast for a single occupation.
+      What we can compare is the line. In 1966, the BLS drew it at judgment and decision making: the computer kept the records, and people decided what a claim was worth.
+      Today, the BLS says software can evaluate photographs of damaged property and calculate an estimated claim amount.
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
-      But the differences matter. These are two different jobs. Back then, the machine stopped at judgment. Now it starts there.
-      And one of these numbers is history. The other is only a forecast.
+      But the differences matter. Back then, the machine stopped at judgment. Now it starts there.
     shots:
-      - {tpl: compare, at: 0, p: {title: "The same claims desk, two jobs", beats: [{s: "the comparison", at: "@comparison"}, {s: "a comparison, with a caution", at: "@caution"}, {s: "not the same job — the same claims desk", at: "@desk"}], unit: '%', mid: "not the same technology — the same pattern", midAt: "@pattern",
-           left: {title: "Insurance office workers", years: "1954–1963 · 9 years · counted", icon: typewriter, num: off_chg, at: "@1950s", d: 1},
-           right: {title: "Claims adjusters", years: "2025–2035 · 10 years · projected", icon: chat, num: ca_chg, at: "@2025", d: 0},
-           diff: ["two different jobs", "then: stopped at judgment; now: reaches it", "a forecast, not a count"], diffAt: "@differences"}}
+      - {tpl: text, at: 0, p: {beats: [{s: "the comparison, with a caution", at: "@comparison"}, {s: "not the same job — the same claims desk", at: "@job"}],
+           lines: [{s: "two jobs, two kinds of number", px: 50, at: "@side"}, {s: "1954–63: office workers, 207 firms, a survey count", px: 34, serif: false, at: "@survey"},
+                   {s: "2025–35: one occupation, a projection", px: 34, serif: false, at: "@forecast"}], src: [B1468, OOHC]}}
+      - {tpl: text, at: "@line-0.4", in: slide, p: {lines: [{s: "1966: the line at judgment", px: 52, at: "@1966"}, {s: "computer keeps the records; people decide the worth", px: 34, serif: false, at: "@records"},
+                   {s: "today: software estimates the claim from photos", px: 40, at: "@today"}, {s: "not the same technology — the same pattern", px: 34, serif: false, at: "@pattern", color: "#4f2a0c"},
+                   {s: "then it stopped at judgment; now it starts there", px: 34, serif: false, at: "@stopped"}], src: [B1468, OOHC]}}
 
   - id: "11"
     part: TODAY
@@ -203,7 +205,7 @@ segments:
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
                                  cam: [{t: 0, x: -200, z: 0.02}, {t: "@desk+2", x: -520, z: 0.07}]}}
-      - {tpl: endcard, at: "@desk+0.8", in: fade, p: {line: "Last Lamplighters · Episode 5", next: "Next: chosen at G1"}}
+      - {tpl: endcard, at: "@desk+0.8", in: fade, p: {line: "Last Lamplighters · Episode 5", next: "Next: The Hand That Drew It"}}
 
 shorts:
   - id: S1
