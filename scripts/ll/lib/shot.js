@@ -16,7 +16,7 @@
     const x = v ? W / 2 : 140, al = v ? 'center' : 'left';
     if (big) { text(g, c.text, x, y0 + (v ? 110 : 95), v ? 120 : 104, CREAM, { a, kind: 'serif', bold: true, align: al }); if (c.kind) tag(g, c.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', v ? W / 2 - 80 : x, y0 + (v ? 150 : 130), v ? 30 : 24, 'rgba(243,236,218,0.95)', c.kind === 'projection' ? '#16253a' : INK, { a, dash: c.kind === 'projection', border: c.kind !== 'projection', align: 'left' }); }
     if (c.s) text(g, c.s, x, y0 + (big ? (v ? 230 : 200) : (v ? 120 : 110)), big ? (v ? 46 : 38) : (v ? 54 : 46), CREAM, { a, kind: big ? 'sans' : 'serif', align: al, bold: !big });
-    const srcl = c.src || s.p.src;   // dải chú thích che dòng nguồn của mẫu → vẽ lại nguồn trên dải if (srcl) text(g, srcl, x, H - (v ? 120 : 34), v ? 30 : 20, 'rgba(236,223,190,0.85)', { a, align: al }); }
+    const srcl = c.src || s.p.src; /* dải chú thích che dòng nguồn của mẫu → vẽ lại nguồn trên dải */ if (srcl) text(g, srcl, x, H - (v ? 120 : 34), v ? 30 : 20, 'rgba(236,223,190,0.85)', { a, align: al }); }
   const one = (g, s, t, extra) => { if (s.T.kind === 'full') { g.save(); s.T.full(g, t); g.restore(); caps(g, s, t); } else desk(g, t, [cardOf(s, t, extra)]); };
   function hook(g, t) { if (!S.hook) return; const a = rv(t, 0.15, 0.6); g.save(); g.fillStyle = 'rgba(20,26,46,0.0)';
     const L = wrap(g, S.hook, W - 160, 52); L.forEach((l, i) => text(g, l, W / 2, 120 + i * 64, 52, CREAM, { align: 'center', kind: 'serif', a })); g.restore(); }
