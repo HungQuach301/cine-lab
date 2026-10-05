@@ -19,6 +19,8 @@ if [ "${TESTS:-1}" = 1 ] && has render; then bash $LL/tests/run.sh > $O/tests.lo
 # ASR (mục B5, 05/10/2026): nghe lại từng đoạn lời bằng faster-whisper; thiếu số/tên riêng → tự thu lại đoạn đó (≤ 2 lần) rồi mới prep. ASR=0 để bỏ qua.
 has prep && [ "${ASR:-1}" = 1 ] && { set +e; $PY $LL/asr.py "$EP" > $O/asr.log 2>&1; r=$?; set -e; tail -1 $O/asr.log; [ $r = 0 ] || { echo "ASR trượt sau 2 lần thu lại — dừng (xem $O/asr.json)"; exit 4; }; }
 has prep && { $PY $LL/ll.py prep "$EP" | tee $O/prep.json; }
+# Luật nhịp Q14–Q18 (chủ dự án 05/10/2026) đo trên timeline trước khi render; RHYTHM=0 để bỏ (tập ≤ 3 không áp)
+if [ "${RHYTHM:-1}" = 1 ] && has render; then $PY $LL/rhythm.py "$EP" | tee $O/rhythm.txt || { echo "Luật nhịp TRƯỢT — sửa đặc tả trước khi render"; exit 6; }; fi
 segs() { $PY -c "import json;[print(s['id']) for s in json.load(open('$TL'))['$1']]"; }
 hash_of() { $PY -c "import json,hashlib,sys;t=json.load(open('$TL'));s=[x for x in t['$1'] if x['id']=='$2'][0];print(hashlib.sha1(json.dumps(s,sort_keys=True).encode()+open('$LL/render.js','rb').read()+b''.join(open('$LL/lib/'+f,'rb').read() for f in sorted(__import__('os').listdir('$LL/lib')))).hexdigest())"; }
 render_one() { # $1 kind (segments|shorts) $2 id $3 out

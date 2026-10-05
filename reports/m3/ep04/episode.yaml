@@ -3,6 +3,9 @@
 # HSUS D 347: "đã đối chiếu (Claude)" trên ảnh cắt hsus-d347-tr141-300dpi.png (05/10/2026). D 186/D 220: đọc bằng mắt (gói nguồn), cùng bảng.
 # Không nối chuỗi khác phân loại thành một đường; không đặt 3 914 nghìn (HSUS, nhóm rộng) cạnh 26 500 (BLS 43-9022, mã hẹp).
 id: ll-ep04
+hook: {answer: "12", keys: [next, door]}
+anchors: [st70, typ88, wp_chg]
+rhythm: {paper_max: 55}
 title: "The Typewriter Opened a Door for Millions of Women. Who Gets the Next One?"
 out: /var/tmp/cine-out/ll-ep04
 voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
@@ -59,26 +62,34 @@ numbers:
   nz_time: {v: -37, text: "−37%", kind: actual, unit: '%', src: NZ, say: "thirty-seven percent"}
 
 segments:
+  # 00 — móc câu (Q14, chủ dự án 05/10/2026): số neo 3,9 triệu (1970) ↔ −34,4 % (2025–35); câu hỏi được trả lời ở đoạn 12 ("the next door").
   - id: "00"
     part: STORY
-    dur: 6
+    vo: >-
+      What happened to the typing pool? In 1970, about three point nine million Americans were stenographers, typists, or secretaries.
+      Today, typing for a living is projected to shrink thirty-four percent. Who gets the next door?
+    vo_offset: 0.6
+    tail: 0.6
     fadeIn: 0
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [2.2, 4.6], screen: 3.6, cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -60, z: 0.12}]}}
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: ["@today", "@percent"], screen: "@percent",
+           cam: [{t: 0, x: 0, z: 0.02}, {t: 4, x: -40, z: 0.06}, {t: 8, x: -70, z: 0.1}, {t: 12, x: -90, z: 0.13}, {t: 18, x: -110, z: 0.16}],
+           cap: [{s: "What happened to the typing pool?", at: "@what"}, {num: st70, s: "stenographers, typists & secretaries, U.S., 1970", at: "@three"}, {num: wp_chg, s: "word processors & typists, projected 2025–35", at: "@thirtyfour"},
+                 {s: "Who gets the next door?", at: "@who"}]}}
 
   - id: "01"
     part: STORY
     vo: >-
-      At dusk, the lamplighter passes an office block. On the third floor, the windows are full of green desk lamps, row after row,
-      and a sound comes down to the street: keys striking, a small bell, the slap of a carriage return. Dozens of hands, one rhythm.
-      This was the typing pool.
-    vo_offset: 4.0
-    min_dur: 40
-    tail: 1.5
+      At dusk, the lamplighter passes an office block. On the third floor, rows of green desk lamps, and a sound comes down to the street:
+      keys striking, a small bell, the slap of a carriage return. This was the typing pool.
+    vo_offset: 3.4
+    min_dur: 24
+    tail: 1.2
     shots:
-      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [0.5, "@passes"], lights: [1]}, warm: 0.6, windows: 0.9,
-                                 cam: [{t: 0, x: 0, z: 0}, {t: "@floor", x: -260, z: 0.06}]}}
-      - {tpl: rows, at: "@sound-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, cam: [{t: "@sound", x: 40, z: 0}, {t: "@pool+1.5", x: -40, z: 0.1}]}}
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TYPING POOL", px: 84}, {s: "Last Lamplighters · Episode 4", px: 34, serif: false}]}}
+      - {tpl: street, at: 3.0, in: fade, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [3.2, "@passes+0.5"], lights: [1]}, warm: 0.6, windows: 0.9,
+                                 cam: [{t: 3, x: 0, z: 0}, {t: 7, x: -90, z: 0.02}, {t: "@floor", x: -260, z: 0.06}]}}
+      - {tpl: rows, at: "@sound-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, cam: [{t: "@sound", x: 40, z: 0}, {t: "@bell", x: 0, z: 0.05}, {t: "@pool+1.2", x: -40, z: 0.1}]}}
 
   - id: "02"
     part: HISTORY
@@ -89,8 +100,10 @@ segments:
       So read the early line as a shape, not a precise measure. And the shape is a boom.
     min_dur: 30
     shots:
-      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TYPING POOL", px: 84}, {s: "Last Lamplighters · Episode 4", px: 34, serif: false}]}}
-      - {tpl: line, at: "@1900-0.6", in: slide, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1950 occupation classification", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "1900 figures: approximations only", at: "@approximations"}],
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, cam: [{t: 0, x: 60, z: 0.08}, {t: 5, x: 0, z: 0.03}, {t: 10, x: -60, z: 0.0}],
+           cap: [{s: "The typewriter: a new kind of job", at: "@typewriter"}, {s: "letters · contracts · invoices · shorthand", at: "@letters"}]}}
+      - {tpl: line, at: "@1900-1.0", in: fade, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1950 occupation classification",
+           beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "1930: about 1.1 million", at: "@1930"}, {s: "1950: about 1.7 million", at: "@1950"}, {s: "1900 figures: approximations only", at: "@approximations"}, {s: "a shape, not a precise measure", at: "@shape"}],
            ylabel: "workers", yfmt: k, xr: [1900, 1950], xticks: [1900, 1910, 1920, 1930, 1940, 1950], ymax: 2000000, at: "@1900", dur: 14,
            series: [{points: [[1900, 134000], [1910, 387000], [1920, 786000], [1930, 1097000], [1940, 1223000], [1950, 1661000]], labels: [0, 3, 5], ltext: ["134,000", "", "", "1,097,000", "", "1,661,000"]}],
            nums: [{num: st1900}, {num: st1930}, {num: st1950}]}}
@@ -102,9 +115,9 @@ segments:
       By 1970, about ten and a half million. By then, women held nearly three in four of all clerical jobs.
       For millions of women, the office was the first door into paid work outside the home, and the typewriter was the key that opened it.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Women in clerical work, U.S.", subtitle: "census counts, all clerical occupations", beats: [{s: "most of the new jobs went to women", at: "@most"}],
-           bars: [{label: "1900", num: cw1900, at: "@twelve"}, {label: "1970", num: cw1970, at: "@half"}], note: "1970: women held 74% of clerical jobs (10.46 of 14.21 million)", noteAt: "@three", nums: [{num: cw_share}]}}
-      - {tpl: text, at: "@millions-0.4", in: slide, p: {lines: [{s: "the first door into paid office work", px: 48, at: "@millions"}, {s: "the typewriter: the key that opened it", px: 38, serif: false, at: "@key"}], src: [HSUS]}}
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, cam: [{t: 0, x: -60, z: 0.02}, {t: 6, x: -20, z: 0.07}, {t: 12, x: 20, z: 0.11}, {t: 20, x: 50, z: 0.15}, {t: 28, x: 70, z: 0.18}],
+           cap: [{s: "Most of the new jobs went to women", at: "@most"}, {num: cw1970, s: "women in clerical work, U.S., 1970", at: "@half"}, {num: cw_share, s: "of all clerical jobs held by women, 1970", at: "@three"},
+                 {s: "the first door into paid office work", at: "@millions"}, {s: "the typewriter: the key that opened it", at: "@key"}]}}
 
   - id: "04"
     part: HISTORY
@@ -114,10 +127,11 @@ segments:
       stenographers, typists, and secretaries numbered about two point three million in 1960, and about three point nine million in 1970.
       That is up sixty-nine percent in ten years. At its peak, the typing pool was one of the largest workforces in the country.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1970 occupation classification", beats: [{s: "the pool kept filling", at: "@pool"}, {s: "after the war: more offices, more paperwork", at: "@war"}, {s: "a new classification in 1970: a separate line", at: "@categories"}],
-           bars: [{label: "1960", num: st60a, at: "@1960"}, {label: "1970", num: st70, at: "@1970#2"}], note: "+69% in ten years (1960–1970)", noteAt: "@sixtynine", nums: [{num: st_chg}]}}
+      - {tpl: office, at: 0, p: {light: 0.5, cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -40, z: 0.03}, {t: 12, x: -80, z: 0.06}, {t: 20, x: -110, z: 0.09}, {t: 30, x: -140, z: 0.12}],
+           cap: [{s: "The pool kept filling", at: "@pool"}, {s: "after the war: more offices, more paperwork", at: "@war"}, {s: "1970: a new census classification", at: "@categories"},
+                 {num: st70, s: "stenographers, typists & secretaries, 1970", at: "@three"}, {num: st_chg, s: "in ten years, 1960–1970 (1970 classification)", at: "@sixtynine"},
+                 {s: "one of the largest workforces in the country", at: "@peak"}]}}
 
-  # Đoạn 05 (G1-B, 05/10/2026): BLS Bulletin 1276 (1960) và OOH 1990–91 thay cho đoạn "record runs thin". Câu "a little over [?] percent" của 1276 bị nhiễu OCR → không dùng số đó.
   - id: "05"
     part: HISTORY
     vo: >-
@@ -127,10 +141,13 @@ segments:
       The typing pool was spared, for a while. The second wave sat on every desk. By 1988, typists, word processors, and data entry keyers held about one point four million jobs,
       and the BLS wrote: with the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists.
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "the computer comes for the office", at: "@computer"}, {s: "wave one: 1960", at: "@1960"}], lines: [{s: "20 offices · ≈2,800 employees affected", px: 46, at: "@thousand"}, {s: "most moved, or stayed put", px: 34, serif: false, at: "@moved"},
-                                                          {s: "only 9 laid off", px: 46, at: "@nine"}, {s: "first targets: routine records", px: 34, serif: false, at: "@posting"}, {s: "the typing pool: spared, for a while", px: 34, serif: false, at: "@spared", color: "#4f2a0c"}], nums: [{num: b60emp}, {num: b60laid}], src: [B1276]}}
-      - {tpl: bignum, at: "@second-0.4", in: slide, p: {title: "Typists, word processors & data entry keyers, U.S.", beats: [{s: "wave two: a computer on every desk", at: "@second"}], value: 1416000, text: "1,416,000", at: "@one", caption: "jobs in 1988 (BLS)", nums: [{num: typ88}]}}
-      - {tpl: quote, at: "@wrote-0.4", in: flip, p: {text: "With the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists, word processors, and data entry keyers.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@proliferation", src: [OOH90]}}
+      - {tpl: office, at: 0, p: {light: 0.2, cam: [{t: 0, x: 40, z: 0.02}, {t: 7, x: 0, z: 0.05}, {t: 14, x: -40, z: 0.08}, {t: 21, x: -80, z: 0.1}],
+           cap: [{s: "The computer comes for the office: two waves", at: "@computer"}, {s: "wave one, 1960: twenty offices with a new computer", at: "@twenty"},
+                 {num: b60laid, s: "laid off a year later, of ≈2,800 affected", at: "@nine"}, {s: "first targets: posting, checking, filing, computing", at: "@posting"},
+                 {s: "only a small share did correspondence or stenography", at: "@small"}, {s: "the typing pool: spared, for a while", at: "@spared"}, {s: "wave two: a computer on every desk", at: "@second"}]}}
+      - {tpl: bignum, at: "@point-1.2", in: fade, p: {title: "Typists, word processors & data entry keyers, U.S.", beats: [{s: "wave two: a computer on every desk", at: "@point"}], value: 1416000, text: "1,416,000", at: "@point", caption: "jobs in 1988 (BLS)", nums: [{num: typ88}]}}
+      - {tpl: quote, at: "@wrote-0.4", in: flip, p: {text: "With the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists, word processors, and data entry keyers.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@proliferation", src: [OOH90],
+           beats: [{s: "BLS, 1990–91", at: "@wrote"}, {s: "personal computers throughout the economy", at: "@economy"}, {s: "work formerly done by typists", at: "@formerly"}]}}
 
   - id: "06"
     part: STORY
@@ -142,8 +159,8 @@ segments:
     tail: 1.5
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@blinking+1"]}, warm: 0.4, windows: 0.3,
-                                 cam: [{t: 0, x: 0, z: 0}, {t: "@blinking+1", x: -300, z: 0.05}]}}
-      - {tpl: rows, at: "@bells-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@bells", "@page"], screen: "@words", cam: [{t: "@bells", x: 0, z: 0}, {t: "@them+1.5", x: -80, z: 0.12}]}}
+                                 cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: "@blinking+1", x: -300, z: 0.05}]}}
+      - {tpl: rows, at: "@bells-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@bells", "@page"], screen: "@words", cam: [{t: "@bells", x: 0, z: 0}, {t: "@somewhere", x: -40, z: 0.06}, {t: "@them+1.5", x: -80, z: 0.12}]}}
 
   - id: "07"
     part: TODAY
@@ -153,10 +170,11 @@ segments:
       Data entry keyers, the people who type information into systems, are projected to fall twenty-five point five percent,
       from about one hundred thirty-two thousand to about ninety-eight thousand. Both are projections, not counts.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Word processors and typists, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the job title that grew out of the typing pool", at: "@title"}, {s: "one of the fastest-declining occupations", at: "@fastestdeclining"}],
-           bars: [{label: "2025", num: wp25, at: "@forty"}, {label: "2035 (projected)", num: wp35, at: "@twentysix"}], note: "Projected change, 2025–35: −34.4%", noteAt: "@down", nums: [{num: wp_chg}]}}
-      - {tpl: bars, at: "@data-0.4", in: slide, p: {title: "Data entry keyers, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "data entry keyers", at: "@data"}, {s: "typing information into systems", at: "@information"}],
-           bars: [{label: "2025", num: de25, at: "@thirtytwo"}, {label: "2035 (projected)", num: de35, at: "@ninetyeight"}], note: "Projected change, 2025–35: −25.5%", noteAt: "@both", nums: [{num: de_chg}]}}
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [0, 1], screen: 1.2, cam: [{t: 0, x: 0, z: 0.05}, {t: 6, x: -40, z: 0.09}, {t: 12, x: -70, z: 0.12}],
+           cap: [{s: "Today: the job that grew out of the typing pool", at: "@title"}, {s: "word processors & typists: one of the fastest-declining jobs", at: "@fastestdeclining"},
+                 {s: "projected, 2025 to 2035", at: "@projected"}, {s: "about 40,000 jobs in 2025", at: "@forty"}]}}
+      - {tpl: bars, at: "@thirtyfour-1.0", in: fade, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS", unit: '%', max: 40, d: 1, beats: [{s: "data entry keyers", at: "@data"}, {s: "typing information into systems", at: "@information"}],
+           bars: [{label: "word processors\n& typists", num: wp_chg, at: "@thirtyfour"}, {label: "data entry\nkeyers", num: de_chg, at: "@twentyfive"}], note: "Both are projections, not counts.", noteAt: "@both"}}
 
   - id: "08"
     part: TODAY
@@ -166,9 +184,11 @@ segments:
       technology, including artificial intelligence systems and digital tools, enables staff in many organizations to prepare their own documents without the help of secretaries.
       The boss who once dictated a letter now writes it, with a machine helping.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Secretaries and administrative assistants, U.S.", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the largest descendant of the typing pool", at: "@largest"}],
-           bars: [{label: "2025", num: se25, at: "@five"}, {label: "2035 (projected)", num: se35, at: "@four"}], note: "Projected change, 2025–35: −2%", noteAt: "@decline", nums: [{num: se_chg}]}}
-      - {tpl: quote, at: "@explanation-0.4", in: slide, p: {text: "Technology, including artificial intelligence (AI) systems and digital tools, enables staff in many organizations to prepare their own documents without the help of secretaries.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@technology", src: [OOHS]}}
+      - {tpl: office, at: 0, p: {light: 0.0, cam: [{t: 0, x: 0, z: 0.04}, {t: 6, x: -50, z: 0.07}, {t: 12, x: -90, z: 0.1}],
+           cap: [{s: "The largest descendant of the typing pool", at: "@largest"}, {s: "secretaries & admin. assistants: about 3.5 million (2025)", at: "@secretaries"},
+                 {num: se_chg, s: "projected change, 2025–35", at: "@decline"}]}}
+      - {tpl: quote, at: "@explanation-0.4", in: slide, p: {text: "Technology, including artificial intelligence (AI) systems and digital tools, enables staff in many organizations to prepare their own documents without the help of secretaries.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook", at: "@technology", src: [OOHS],
+           beats: [{s: "its explanation is direct", at: "@explanation"}, {s: "AI systems and digital tools", at: "@digital"}, {s: "staff prepare their own documents", at: "@prepare"}, {s: "the boss now writes the letter", at: "@boss"}, {s: "with a machine helping", at: "@machine"}]}}
 
   - id: "09"
     part: TODAY
@@ -178,9 +198,10 @@ segments:
       from 2024 to 2034, and it named the reason: AI technology can recognize speech and transcribe audio.
       That comes from an earlier projection cycle than the other numbers, and it is a forecast, not the end of the job.
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "the clearest case", at: "@clearest"}, {s: "closest to the old stenographer", at: "@stenographer"}], lines: [{s: "spoken words → typed pages", px: 56, at: "@spoken"}, {s: "medical transcriptionists, today", px: 38, serif: false, at: "@medical"}], src: [MLR26]}}
-      - {tpl: bignum, at: "@review-0.4", in: slide, p: {title: "Medical transcriptionists, projection cycle 2024–34", beats: [{s: "BLS, Monthly Labor Review, January 2026", at: "@review"}], value: -4.9, text: "−4.9%", suffix: "%", d: 1, at: "@nine",
-           caption: "because AI technology can recognize speech and transcribe audio (BLS)", capAt: "@reason", nums: [{num: mt_old}]}}
+      - {tpl: office, at: 0, p: {light: 1.0, cam: [{t: 0, x: -60, z: 0.08}, {t: 7, x: -20, z: 0.05}, {t: 14, x: 20, z: 0.03}, {t: 22, x: 60, z: 0.0}],
+           cap: [{s: "The clearest case: spoken words → typed pages", at: "@clearest"}, {s: "medical transcriptionists, today", at: "@medical"}, {s: "BLS review, January 2026", at: "@january"},
+                 {num: mt_old, s: "projected, 2024–34 (an earlier cycle)", at: "@nine"}, {s: "because AI can recognize speech and transcribe audio (BLS)", at: "@reason"},
+                 {s: "an earlier projection cycle than the other numbers", at: "@earlier"}, {s: "a forecast, not the end of the job", at: "@forecast"}]}}
 
   - id: "10"
     part: TODAY
@@ -191,9 +212,10 @@ segments:
       The weakest writers gained the most. In the authors' words, the tool substantially compresses the productivity distribution.
       The study measured tasks, not jobs. And these were professionals writing for themselves, not typists.
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "AI and writing work", at: "@writing"}, {s: "an experiment, 2023", at: "@experiment"}, {s: "Shakked Noy & Whitney Zhang, MIT", at: "@economists"}],
-           lines: [{s: "444 college-educated professionals", px: 50, at: "@collegeeducated"}, {s: "press releases · reports · emails", px: 34, serif: false, at: "@press"}, {s: "half, at random, could use ChatGPT", px: 34, serif: false, at: "@random"}], src: [NZ]}}
-      - {tpl: bignum, at: "@finished-0.4", in: slide, p: {title: "Time to finish a writing task, with the AI tool", value: -37, text: "−37%", suffix: "%", at: "@thirtyseven", caption: "10 minutes off an average of 27; quality rated higher",
+      - {tpl: office, at: 0, p: {light: 0.6, cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -40, z: 0.04}, {t: 12, x: -80, z: 0.08}, {t: 18, x: -110, z: 0.11}],
+           cap: [{s: "What does AI do to writing work?", at: "@writing"}, {s: "an experiment, 2023: Shakked Noy & Whitney Zhang, MIT", at: "@economists"},
+                 {s: "444 college-educated professionals, short writing tasks", at: "@collegeeducated"}, {s: "half, chosen at random, could use ChatGPT", at: "@random"}]}}
+      - {tpl: bignum, at: "@thirtyseven-1.2", in: fade, p: {title: "Time to finish a writing task, with the AI tool", value: -37, text: "−37%", suffix: "%", at: "@thirtyseven", caption: "10 minutes off an average of 27; quality rated higher",
            capAt: "@graders", nums: [{num: nz_time}]}}
       - {tpl: quote, at: "@weakest-0.4", in: flip, p: {beats: [{s: "the weakest writers gained the most", at: "@weakest"}], text: "ChatGPT substantially compresses the productivity distribution, reducing inequality.", who: "Shakked Noy & Whitney Zhang", where: "MIT working paper, 2023", at: "@words", src: [NZ]}}
       - {tpl: text, at: "@study-0.4", in: flip, p: {lines: [{s: "tasks, not jobs", px: 60, at: "@measured"}, {s: "professionals, not typists", px: 46, at: "@professionals"}], src: [NZ]}}
@@ -207,11 +229,13 @@ segments:
       The more a job is pure typing, the steeper the projected fall. The more it is organizing, judging and dealing with people, the smaller.
       The typewriter created the pool; the computer and AI are taking the typing away from it. And all four of these numbers are forecasts, not counts.
     shots:
-      - {tpl: bars, at: 0, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 40, d: 1, beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}],
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 7, dim: [0, 0.5], screen: 0.3, cam: [{t: 0, x: 0, z: 0.1}, {t: 6, x: -40, z: 0.13}],
+           cap: [{s: "The comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}]}}
+      - {tpl: bars, at: "@word-1.0", in: fade, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 40, d: 1,
            bars: [{label: "word processors\n& typists", num: wp_chg, at: "@word"}, {label: "data entry\nkeyers", num: de_chg, at: "@data"}, {label: "secretaries &\nadmin. assistants", num: se_chg, at: "@secretaries"}, {label: "all\noccupations", num: all_chg, at: "@all"}],
            note: "not the same technology — the same pattern", noteAt: "@pattern"}}
       - {tpl: text, at: "@more-0.4", in: slide, p: {lines: [{s: "more pure typing → steeper projected fall", px: 40, serif: false, at: "@more"}, {s: "more organizing, judging, people → smaller", px: 40, serif: false, at: "@organizing"},
-                                                          {s: "forecasts, not counts", px: 38, serif: false, at: "@forecasts", color: "#4f2a0c"}], src: [T15, OOHS, EP]}}
+                                                          {s: "the typewriter created the pool", px: 36, serif: false, at: "@created"}, {s: "the computer and AI take the typing away", px: 36, serif: false, at: "@taking"}, {s: "forecasts, not counts", px: 38, serif: false, at: "@forecasts", color: "#4f2a0c"}], src: [T15, OOHS, EP]}}
 
   - id: "12"
     part: TODAY
@@ -221,9 +245,9 @@ segments:
       and whether the work that grows around AI is open to them. Nobody can count that yet. That is what we will be watching.
     min_dur: 26
     shots:
-      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "A door, not just a room", px: 64, at: "@typing"}, {s: "1900–1970: millions of women into office work", px: 34, serif: false, at: "@generations"},
-                                                         {s: "Today: is the next door there?", px: 34, serif: false, at: "@next"}, {s: "Nobody can count that yet.", px: 34, serif: false, at: "@nobody"}], src: [HSUS, OOHS]}}
-      - {tpl: office, at: "@watching-1.5", in: fade, p: {light: "@watching", cam: [{t: "@watching-1.5", x: 0, z: 0}, {t: "@watching+4", x: -90, z: 0.06}]}}
+      - {tpl: office, at: 0, p: {light: "@watching", cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 26, x: -100, z: 0.07}],
+           cap: [{s: "A door, not just a room", at: "@typing"}, {s: "1900–1970: millions of women into office work", at: "@generations"},
+                 {s: "Today: is the next door there?", at: "@next"}, {s: "Nobody can count that yet.", at: "@nobody"}], src: [HSUS, OOHS]}}
 
   - id: "13"
     part: STORY
@@ -231,11 +255,11 @@ segments:
       Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
       Every era has its last lamplighters. Some of them sat in the typing pool, and millions still keep an office running.
     vo_offset: 3.0
-    min_dur: 28
+    min_dur: 22
     tail: 2.0
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
-                                 cam: [{t: 0, x: -200, z: 0.02}, {t: "@pool+2", x: -520, z: 0.07}]}}
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: 4, x: -280, z: 0.03}, {t: "@glass", x: -340, z: 0.04}, {t: "@flame", x: -400, z: 0.05}, {t: "@every", x: -460, z: 0.06}, {t: "@pool+2", x: -520, z: 0.07}]}}
       - {tpl: endcard, at: "@pool+0.8", in: fade, p: {line: "Last Lamplighters · Episode 4", next: "Next: The Claims Desk"}}
 
 shorts:

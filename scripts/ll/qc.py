@@ -14,6 +14,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q10 bản xem: mỗi phần ≤ 90 MB; Short ≤ 60 s
   Q12 thumbnail: 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh, không chạm (scripts/ll/thumb.py ghi .boxes.json)
   Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
+  Q14–Q18 luật nhịp (scripts/ll/rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
@@ -187,6 +188,14 @@ def q13():
             if all(N[k]['kind'] == 'projection' for k in hit) and not PM.search(txt): bad.append(f'{where}: "{raw}" là số dự báo nhưng thiếu dấu hiệu dự báo')
     row('Q13', 'Số trên tiêu đề/thumbnail/mô tả/Shorts truy được về numbers + nhãn dự báo', not bad, len(bad), 0, note='; '.join(bad[:6]))
 q13()
+
+# Q14–Q18 luật nhịp (rhythm.py; chủ dự án 05/10/2026). Áp từ tập 4: đặc tả không khai `hook` (tập ≤ 3) thì ghi "không áp".
+import rhythm  # noqa: E402
+if E.get('hook') or E.get('anchors'):
+    NAMES = {'Q14': 'Móc câu < 0:15, tựa ≤ 0:20, trả lời ở cuối', 'Q15': 'Đổi hình: quãng ≤ 8 s, TB ≤ 6 s', 'Q16': 'Tỷ lệ thẻ giấy', 'Q17': 'Mật độ số ≤ 2/phút + 3 số neo', 'Q18': 'Thẻ trống ≤ 1,5 s trước số'}
+    for k, r in rhythm.measure(E, TL).items(): row(k, NAMES[k], r['ok'], r['val'], '', note=r.get('note', ''))
+else:
+    row('Q14–18', 'Luật nhịp', True, 'không áp (tập ≤ 3)', '')
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']

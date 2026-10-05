@@ -8,7 +8,16 @@
   const off = document.createElement('canvas'); off.width = W; off.height = H; const OX = off.getContext('2d');
   const cardOf = (s, t, extra = {}) => Object.assign({ seed: 11 + shots.indexOf(s) * 7, content: (g, tt, w, h) => s.T.content(g, tt, w, h),
     scale: 1 + 0.025 * sm(pr(t, s.t0, s.t1)), ph: shots.indexOf(s) * 1.7 }, extra);
-  const one = (g, s, t, extra) => { if (s.T.kind === 'full') { g.save(); s.T.full(g, t); g.restore(); } else desk(g, t, [cardOf(s, t, extra)]); };
+  // chú thích đè lên cảnh toàn khung (luật nhịp 05/10/2026: bớt thẻ giấy): p.cap = [{ s, at, num?/n?, kind? }] — hiện mục mới nhất, dải tối dưới đáy
+  function caps(g, s, t) { const C = (s.p && s.p.cap) || []; let k = -1; C.forEach((c, i) => { if (t >= c.at) k = i; }); if (k < 0) return;
+    const c = C[k], a = rv(t, c.at, 0.5), big = c.text !== undefined && c.text !== null, v = LL.fmt === '9x16';
+    const y0 = H * (v ? 0.62 : 0.70); g.save(); const gr = g.createLinearGradient(0, y0 - 40, 0, H); gr.addColorStop(0, 'rgba(12,10,12,0)'); gr.addColorStop(0.35, `rgba(12,10,12,${0.78 * a})`); gr.addColorStop(1, `rgba(12,10,12,${0.88 * a})`);
+    g.fillStyle = gr; g.fillRect(0, y0 - 40, W, H - y0 + 40); g.restore();
+    const x = v ? W / 2 : 140, al = v ? 'center' : 'left';
+    if (big) { text(g, c.text, x, y0 + (v ? 110 : 95), v ? 120 : 104, CREAM, { a, kind: 'serif', bold: true, align: al }); if (c.kind) tag(g, c.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', v ? W / 2 - 80 : x, y0 + (v ? 150 : 130), v ? 30 : 24, 'rgba(243,236,218,0.95)', c.kind === 'projection' ? '#16253a' : INK, { a, dash: c.kind === 'projection', border: c.kind !== 'projection', align: 'left' }); }
+    if (c.s) text(g, c.s, x, y0 + (big ? (v ? 230 : 200) : (v ? 120 : 110)), big ? (v ? 46 : 38) : (v ? 54 : 46), CREAM, { a, kind: big ? 'sans' : 'serif', align: al, bold: !big });
+    const srcl = c.src || (big && s.p.src); if (srcl) text(g, srcl, x, H - (v ? 120 : 34), v ? 30 : 20, 'rgba(236,223,190,0.85)', { a, align: al }); }
+  const one = (g, s, t, extra) => { if (s.T.kind === 'full') { g.save(); s.T.full(g, t); g.restore(); caps(g, s, t); } else desk(g, t, [cardOf(s, t, extra)]); };
   function hook(g, t) { if (!S.hook) return; const a = rv(t, 0.15, 0.6); g.save(); g.fillStyle = 'rgba(20,26,46,0.0)';
     const L = wrap(g, S.hook, W - 160, 52); L.forEach((l, i) => text(g, l, W / 2, 120 + i * 64, 52, CREAM, { align: 'center', kind: 'serif', a })); g.restore(); }
   LL.SEG = { frames: S.frames, blur: S.blur || shots.flatMap((s) => s.T.blur || []), fadeIn: S.fadeIn, fadeOut: S.fadeOut, frame(g, t) {
