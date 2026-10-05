@@ -152,3 +152,63 @@ Cặp thay thế (chưa đọc toàn văn số nào trong lượt này; chỉ l�
 
 - Chủ dự án duyệt: giữ cặp này (kèm nhãn "chưa đủ luật") hay đổi sang claims-processing clerks.
 - Cowork: xác minh danh sách BLS ở trên bằng trình duyệt; tìm chuỗi Census/HSUS cho "insurance adjusters" 1950–70.
+
+---
+
+## PHỤ LỤC 5A — Cặp đã chọn: nhân viên văn phòng bảo hiểm thời máy tính đầu tiên (1954–64) ↔ giám định viên với AI hôm nay
+
+Ngày truy cập: 2026-10-05. Nguồn: **BLS Bulletin 1468 (1966)**, https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1468_1966.pdf, **đọc toàn văn** các chương 1, 2, 5, 6 (không đọc hết phụ lục). Quy ước trang: ghi "tr. in (PDF)"; trang PDF = trang in + 8 (số trang nằm đầu trang trong OCR).
+Địa lý/loại: Mỹ; **mẫu khảo sát gửi thư** của các hãng bảo hiểm (SIC 63), số do hãng tự báo, không phải điều tra dân số.
+
+### A. Số NGƯỜI làm văn phòng, hai mốc cách ~10 năm
+
+| Số | Số liệu | Trích dẫn | Trang in (PDF) |
+|---|---|---|---|
+| A1 | Việc làm văn phòng, 207 hãng khảo sát (hãng có đủ số 4 năm): **365.911 (tháng 1/1963)**; tăng **31,5%** trong 1954–63 (9 năm, đo bằng số tháng 1). Số 1954 không in; chỉ suy ra ≈ 278.000 (365.911 / 1,315). **Đây là số suy ra của tôi, không dùng như số in.** | "Office employment in surveyed companies increased by 32 percent between 1954 and 1963, totaling nearly 366,000 in January 1963." | 34 (42) |
+| A2 | Chia theo mỗi 3 năm (tất cả hãng khảo sát): +12,2% (1954–57), +8,2% (1957–60), +8,4% (1960–63), +31,5% (1954–63) | (Bảng 8) | 35 (43) |
+| A3 | Hãng có ≥ 5 năm EDP (54 hãng, 215.473 nhân viên văn phòng 1/1963): +13,1%, +8,2%, +7,3%; +31,3% cả kỳ. Hãng < 5 năm EDP (127 hãng, 136.594): +10,7%, +10,2%, +10,6%; +35,0% | (Bảng 8) | 35 (43) |
+| A4 | Cả ngành (không chỉ khảo sát): 884.700 nhân viên hãng bảo hiểm 1964; +~32% 1954–64; 70–75% làm văn phòng | "In 1964, the number of employees of insurance carriers averaged 884,700." (xem mục 4 ở trên) | 1–2 (9–10) |
+| A5 | 17 hãng bảo hiểm nhân thọ dùng EDP sớm nhất (1954–56), ~98.000 nhân viên văn phòng: hồ sơ hiệu lực +3,5% / +3,7% (1956–59 / 1959–62); nhân viên văn phòng +6,8% / **+1,6%**; hồ sơ trên mỗi nhân viên −3,1% / +2,1% | (Bảng 9) | 37 (45) |
+| A6 | Cơ cấu nghề (tỷ trọng việc làm văn phòng, 206 hãng có máy tính): nhân viên văn thư tổng hợp **62%**; thư ký/đánh máy 7%; keypunch 2%; vận hành máy bảng kê 1%; nhân viên EDP 1%; còn 27% quản lý/chuyên môn/kỹ thuật/giám sát | (Bảng 11, cột cuối + ghi chú) | 40 (48) |
+
+Kiểm lại "4,2% → 2,4%/năm" (tr. in 5, PDF 13):
+- Câu in: "the annual rate of growth in office employment in surveyed companies declined from 4.2 percent to 2.4 percent a year" (tóm tắt, chương 1). Câu này **không ghi khoảng năm** và nằm **chỉ ở phần tóm tắt**; chương 5 và Bảng 8 **không in con số 4,2 hay 2,4**.
+- Đo trên: **việc làm văn phòng của hãng khảo sát**, so sánh trước và sau khi hoàn tất chuyển sang EDP. Tóm tắt nói tiếp: hãng lắp máy tính gần đây hơn có tốc độ không đổi.
+- Đối chiếu của tôi (suy luận, không phải câu in): Bảng 8, hãng ≥ 5 năm EDP, 13,1% (1954–57) và 7,3% (1960–63), chia cho 3 năm ≈ 4,4% và 2,4%/năm. Chỉ khớp xấp xỉ. **Không dùng 4,2/2,4 với khoảng năm cụ thể**; nếu cần, dùng Bảng 8 (A2/A3) vì có năm rõ.
+- Bulletin cảnh báo khó tách tác động EDP khỏi sáp nhập, đổi loại hợp đồng... (tr. in 34, PDF 42): "Although precise measurement of the impact of EDP is not possible". Cách đọc đúng: **việc làm văn phòng vẫn tăng**, chỉ tăng chậm hơn.
+
+### B. Việc nào được máy làm thay, việc nào chưa, và người làm ra sao
+
+| Số | Nội dung | Trích dẫn | Trang in (PDF) |
+|---|---|---|---|
+| B1 | Việc khối lượng lớn, lặp lại, tập trung tại trụ sở: lập hoá đơn phí, kế toán phí, hoa hồng đại lý | "tasks which formerly required large numbers of clerks handling files" (rút gọn từ: "premium billing and premium accounting--tasks which formerly required large numbers of clerks handling files") | 16 (24) |
+| B2 | **Bồi thường (claims)**: xử lý bồi thường là 1 trong 22 ứng dụng; hãng bảo hiểm tài sản (xe, thương mại) đã tin học hoá "reserve for unpaid claims" trước, rồi "claims processing". **Mục đích không phải tiết kiệm nhân công** | "intended to improve the company's loss record rather than to save clerical man-hours" | 18 (26) |
+| B3 | Bồi thường tại hiện trường: phòng ban hiện trường có quyền chi trả gửi số tiền đã duyệt về trụ sở qua đường truyền; máy kế toán in séc | "Field offices which have the power to settle claims may use the transmission system to communicate the authorized claim amount" | 22 (30) |
+| B4 | Việc thường lệ bị giảm ở phần lớn hãng: máy bảng kê (**69,5%** hãng báo giảm), ghi sổ thường lệ (**66,5%**), máy tính toán (**53,2%**); giám sát 16,7%; keypunch **12,4%** giảm / **48,5%** tăng | (Bảng 10, "as of 1963") | 38 (46) |
+| B5 | Việc "tính giá trị theo sách giá + máy tính tay" (gần nhất với thao tác tra sổ giá): "policy evaluation clerks who calculate cash surrender and loan values of policies, using rate books and manual calculators" thuộc nhóm tĩnh/giảm | "policy evaluation clerks who calculate cash surrender and loan values of policies, using rate books and manual calculators" | 41 (49) |
+| B6 | Việc máy **chưa** làm được | "jobs requiring some judgment and decision making--jobs that cannot be computerized, or that involve individualized response to policyholders--will remain constant" | 45 (53) |
+| B7 | Người làm ra sao: ít người bị sa thải trực tiếp; giảm bằng nghỉ việc tự nhiên (attrition) và chuyển việc; một số người vận hành máy bảng kê được đào tạo lại làm vận hành console và lập trình | "few individuals in the insurance industry were laid off as a direct result of the introduction of EDP" | 39 (47) |
+| B8 | Lý do không phải sa thải | "high rate of turnover among young women clerical employees, industry growth, and the creation of some new EDP jobs" | 39 (47) |
+| B9 | Dự báo nhân viên văn phòng 1965–75 chỉ +5–10%; cơ hội cho nữ sinh trung học giảm | "Office employment will probably increase only 5 to 10 percent over the next decade (1965-75)." | 6 (14) |
+| B10 | Nhân viên giám sát là nhóm khó điều chỉnh nhất (ít nghỉ việc, lớn tuổi) | "adjustments for supervisors (particularly older employees) probably constituted one of the more difficult personnel problems" | 39 (47) |
+
+Lưu ý:
+- **Bulletin không có số lượng theo nghề cho "claims clerks" hay "adjusters"**. Phần bồi thường chỉ có mô tả (B2, B3). Các biểu đồ 3–4 (ứng dụng theo hãng, tr. in 16–17) là đồ thị, văn bản OCR không đọc được số; **không dùng**.
+- B4 là **% số hãng** báo giảm việc làm, **không phải % số người**. Đừng viết "66,5% nhân viên mất việc".
+- Hãng tự khai; Bulletin nói số liệu năng suất "highly tentative" (tr. in 4).
+- Từ "attrition và chuyển việc" là kết luận từ phỏng vấn/nghiên cứu khác (tr. in 39), không phải số đếm.
+
+### C. Chuỗi số theo nghề Mỹ 1950–70 ("insurance adjusters, examiners", "claims clerks")
+
+**Không có** trong các nguồn đọc được ở đợt này. Đã thử: (1) Census 1970 PC(2)-7A (https://www2.census.gov/library/publications/decennial/1970/pc-2-7a/42045403v2p7a7b.pdf; 22 trang PDF) — chỉ có danh mục phân loại nghề, **không có số lượng** (dòng "Insurance adjusters, examiners, and investigators" ở PDF tr. 20 chỉ là chỉ mục); (2) tìm OOH 1960–70 và HSUS trên FRASER — tìm ra trang mục lục nhưng không lấy được PDF. Còn thiếu: Census 1950/1960 Detailed Characteristics hoặc Bảng của PC(2)-7A với số nghề 1960–70, hoặc OOH 1966–72 (Bulletin 1450/1550/1650/1700).
+
+### D. Đánh giá lại điểm 1 và 2 cho cặp 5A
+
+| Điểm | Kết quả | Lý do |
+|---|---|---|
+| 1. Cùng cơ chế "một nhiệm vụ lặp lại của con người được hệ thống tự động đảm nhận" | **ĐẠT có điều kiện** | Hai vế là **hai nghề khác nhau** trong cùng quy trình bồi thường. Vế xưa: nhiệm vụ lặp lại bằng tay (ghi sổ, tính theo sách giá, lập hoá đơn) được máy tính đảm nhận (B1, B5; số B4). Vế nay: bước "xem ảnh, ước lượng thiệt hại" được AI đảm nhận (MLR 1/2026 tr. PDF 5). Khác biệt phải nêu: vế xưa là **ghi chép/tính toán có quy tắc**; vế nay là **nhận dạng ảnh và ước tính**, một phần là phán đoán. Bồi thường thời 1963 chỉ tin học hoá phần kế toán/ghi hồ sơ (B2, B3), **chưa** thay phán đoán (B6). Không được nói "máy tính thời đó đã thay giám định viên". |
+| 2. Cùng thước đo (số người, % đổi) | **ĐẠT một phần; còn lệch** | Có số người và % thật cho vế xưa: 365.911 nhân viên văn phòng tại 207 hãng (1/1963), +31,5% 1954–63 (A1–A2). Vế nay: số người và % dự báo của BLS (−4,4% 2023–33; −5,1% 2024–34; chờ xác minh số gốc). Lệch: (a) vế xưa là **mẫu 207 hãng**, **nhân viên văn phòng nói chung**, đo **tăng** (+31,5%), vế nay là **một nghề (13-1031)**, đo **dự báo giảm**; (b) chưa có số theo nghề của vế xưa. Nếu muốn cùng thước: dùng "% thay đổi 10 năm của số người làm" cho cả hai vế, gắn nhãn **"nhóm nghề văn phòng ngành bảo hiểm 1954–63" vs "một nghề giám định 2024–34"**, và nói rõ khác loại. Tránh so trực tiếp 31,5% với −5,1%. |
+
+Điểm 3–6 giữ nhận xét ở trên, trừ điểm 6: vế xưa 1954–63 là **9 năm** (Bảng 8), **không tròn 10**; vế ngành 1954–64 (A4) tròn 10 năm nhưng không theo nghề.
+
+Việc đang chờ chủ dự án: duyệt cách đặt hai vế (khác nghề, cùng quy trình) kèm nhãn khác biệt ở điểm 1–2. Việc chờ Cowork: số BLS gốc; số Census/OOH theo nghề 1950–70 nếu muốn thước theo nghề.
