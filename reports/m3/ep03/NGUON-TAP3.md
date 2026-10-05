@@ -126,3 +126,65 @@ Không đọc được từ môi trường này (bls.gov 403). Chưa có số n�
 | OOH tellers, số "Employment" lịch sử | cùng URL OOH tellers | Số tellers ~2010 và năm gần nhất, nếu có bản lưu hợp lệ, để dựng "giảm sau 2010" |
 
 Việc đang chờ chủ dự án: duyệt danh sách số dùng được ở trên, cho phép Cowork xác minh BLS, và quyết định có cần một nghiên cứu độc lập về AI trong ngân hàng (BIS 1244 hoặc nguồn khác, cần tải lại bản toàn văn).
+
+---
+
+# PHỤ LỤC — Vòng bổ sung (2026-10-05): chuỗi giao dịch viên theo bảng và nghiên cứu ML tín dụng ở Mỹ
+
+Vòng này dùng thêm 5 lượt tải (tổng cộng tệp này: 15). Mục cũ ở trên không đổi.
+
+## 5. Census — Historical Statistics of the United States, Colonial Times to 1970, Part 1, Chapter D (Labor), Series D 233–682
+
+- Tiêu đề bảng: "Detailed Occupation of the Economically Active Population: 1900 to 1970". Đơn vị: nghìn người, 14 tuổi trở lên (riêng cột 1970 có thêm bản 16 tuổi trở lên).
+- URL (kiểm, tải được): https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p1-chD.pdf (62 trang PDF).
+- Trạng thái: **đọc bảng (không phải toàn văn chương)**. PDF là bản quét hình, không có lớp chữ, và môi trường không có OCR. Tôi dựng lại trang chứa hàng "Bank tellers" (series 355) và **đọc bằng mắt** ở độ phân giải 300 dpi. Tôi **không đọc** chú thích cuối bảng và phần giải thích số liệu. Số vì thế cần đối chiếu lại bản gốc trước khi khoá.
+- Vị trí: trang in 141, trang PDF 21 của tệp chương. Nhóm "Clerical and kindred workers" (series 337), hàng 355 "Bank tellers".
+
+| Cột (cách phân loại) | Nghìn người | Ghi chú |
+|---|---|---|
+| 1970, 16 tuổi trở lên | **253** | phân loại 1970 |
+| 1970, 14 tuổi trở lên | **254** | phân loại 1970 |
+| 1960, theo phân loại 1970 | **135** | cùng phân loại với số 1970, so sánh được |
+| 1960, theo phân loại 1960 | **131** | |
+| 1950, theo phân loại 1960 | **65** | |
+| 1950, theo phân loại 1950 | **32** | trong bảng, ô này nằm cạnh dấu ngoặc nhóm (3.178 là tổng nhóm), nên định nghĩa 1950 rộng hơn hoặc gộp; **không dùng một mình** |
+| 1900–1940 | không có số riêng | hàng gộp trong nhóm, không tách được |
+
+Điểm cần lưu ý:
+- Trong bản quét, số bị xếp lệch nửa dòng so với nhãn hàng. Tôi ghép số vào nhãn bằng cách đối chiếu các nghề lân cận có số đã biết (ví dụ Telephone operators 1970 khoảng 420 nghìn). Mức chắc chắn: cao, nhưng chưa phải bằng OCR hay chữ số.
+- **Ngắt chuỗi:** số 1950, 1960, 1970 dùng các phân loại khác nhau (1950, 1960, 1970). Chuỗi sạch duy nhất theo bảng: **1960 (135) → 1970 (253), cùng phân loại 1970**, tức khoảng gấp 1,9 lần. Không nối 32 (1950, phân loại 1950) với 253.
+- Tuổi: 14+ (1970: 254) khác 16+ (1970: 253), chênh 1 nghìn.
+- Đơn vị là **người** (economically active population), khác chuỗi FTE của Bessen (mục 2). Bessen vẽ khoảng 190 nghìn FTE cho 1970 trên biểu đồ; HSUS cho 253 nghìn người. Hai số khác loại, **không đặt chung**.
+- Không có nguồn cùng loại cho 1980–2010: Bessen (Census/ACS FTE) chỉ có biểu đồ; MLR/FRASER cho tellers theo năm: **không tìm được**. Câu "giao dịch viên đi ngang 1980–2010" xuất hiện trong kết quả tìm kiếm nhưng từ trang BLS (bị 403, chưa đọc). **Không dùng.** Đưa vào danh sách CHỜ XÁC MINH (OEWS/OOH tellers chuỗi năm).
+
+## 6. Meursault, Moulton, Santucci & Schor — "One Threshold Doesn't Fit All: Tailoring Machine Learning Predictions of Consumer Default for Lower-Income Areas" (Philadelphia Fed WP 22-39)
+
+- Tác giả: Vitaly Meursault, Daniel Moulton, Larry Santucci, Nathan Schor (Federal Reserve Bank of Philadelphia). Đăng 11/2022, sửa 10/2024 (bản đọc).
+- URL: https://www.philadelphiafed.org/-/media/frbp/assets/working-papers/2022/wp22-39.pdf
+- Trạng thái: **đọc các phần liên quan (tóm tắt, mở đầu, phương pháp, kết quả chính)**, đã tải toàn bộ 76 trang; không đọc hết phụ lục. Địa lý: **Mỹ**, dữ liệu hồ sơ tín dụng (credit bureau) người tiêu dùng, 2000–2021 (tr. in 17: kết quả theo năm 2004–2019).
+
+| Số | Số liệu | Trích dẫn | Trang PDF |
+|---|---|---|---|
+| 6a | Mô hình ML (XGBoost) dự báo vỡ nợ tốt hơn mô hình logistic ở mọi năm 2004–2019 (đo bằng ROC AUC; chỉ có hình, không có số AUC trong chữ) | "in all periods, XGBoost performs better than a logistic model." | 18 |
+| 6b | Chênh lệch lợi nhuận: ML hơn logistic **khoảng 2%** "under a set of assumptions" (Section 4.6) | "it corresponds to a 2 percent profit difference under a set of assumptions" | 18 |
+| 6c | Với ngưỡng duy nhất, người vay đáng tin ở khu vực thu nhập thấp–trung bình có khả năng được xếp "đáng tin" thấp hơn khoảng **9 điểm phần trăm** | "a creditworthy LMI tract consumer is about 9 percentage points less likely to be classified as creditworthy than a creditworthy non-LMI tract consumer." | 6 |
+
+Điểm cần lưu ý:
+- **Đây là nghiên cứu về độ chính xác và công bằng của mô hình chấm điểm tín dụng bằng ML, không phải nghiên cứu việc làm.** Không có số về loan officers hay credit analysts mất việc. Chỉ dùng để nói: ML chấm điểm tín dụng chính xác hơn mô hình truyền thống (đo thật, Mỹ), nhưng "2%" là kết quả mô phỏng theo giả định của tác giả, không phải lợi nhuận ngân hàng thực.
+- 6c là về công bằng, không nên đưa vào phim về nghề.
+- Đây là working paper Fed, chưa phản biện (bản đọc). Ý kiến tác giả không phải quan điểm của Fed Philadelphia hay Fed (ghi trong miễn trừ).
+
+## Số cố ý không dùng (bổ sung)
+
+- Fuster, Goldsmith-Pinkham, Ramadorai & Walther (J. Finance 2022): **không đọc được toàn văn**. Bản Semantic Scholar tải về thực chất là bộ slide của người bình luận (Tobias Berg, 9/2020), **không phải bài gốc**; Wiley và SSRN trả HTML. Tôi không dùng bất kỳ số nào từ slide đó (ví dụ "PD 1,6% → 1,9%").
+- Số 253 nghìn (1970) ghép với số FTE của Bessen: không ghép (khác loại).
+- Số 32 nghìn (1950, phân loại 1950): không dùng, định nghĩa không rõ (xem mục 5).
+
+## Cập nhật số dùng được (thêm vào bảng tổng hợp)
+
+| # | Số | Loại | Năm | Nguồn khoá | Trang |
+|---|---|---|---|---|---|
+| C1 | Bank tellers: **135 nghìn (1960) → 253 nghìn (1970)**, cùng phân loại 1970, 16+ (14+: 254) | Thực tế (Census, người) | 1960, 1970 | HSUS Series D 355 | in 141 (PDF 21); đọc bằng mắt từ bản quét, cần đối chiếu |
+| C2 | ML (XGBoost) dự báo vỡ nợ tốt hơn logistic; chênh lợi nhuận khoảng 2% (mô phỏng, theo giả định) | Thực tế/mô phỏng (Mỹ, dữ liệu tín dụng) | 2004–2019 | Philadelphia Fed WP 22-39 | 18 |
+
+Việc đang chờ chủ dự án: (1) cho phép Cowork đối chiếu bản gốc HSUS (hàng 355, trang in 141) và BLS tellers; (2) quyết định có chấp nhận C2 như bằng chứng "ML hiệu quả trong tín dụng" (không phải bằng chứng về việc làm), hay tìm tiếp một nghiên cứu về việc làm hoặc chatbot/gian lận ngân hàng.
