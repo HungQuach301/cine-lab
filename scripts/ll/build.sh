@@ -14,6 +14,8 @@ mkdir -p $O/sec $O/shorts $O/pass; TL=$O/timeline.json
 disk() { local a=$(df --output=avail -k / | tail -1); echo "$(date +%H:%M) $1: đĩa trống $((a/1024)) MB" >> $O/build.log; [ $a -gt 3000000 ] || { echo "đĩa trống < 3 GB — dừng"; exit 2; }; }
 has() { [[ " $STEPS " == *" $1 "* ]]; }
 T0=$(date +%s)
+# Test thư viện trước mỗi lần build (NHÀ MÁY v1.1 mục 6; TESTS=0 để bỏ)
+if [ "${TESTS:-1}" = 1 ] && has render; then bash $LL/tests/run.sh > $O/tests.log 2>&1 || { tail -5 $O/tests.log; echo "Test thư viện TRƯỢT — dừng"; exit 5; }; fi
 # ASR (mục B5, 05/10/2026): nghe lại từng đoạn lời bằng faster-whisper; thiếu số/tên riêng → tự thu lại đoạn đó (≤ 2 lần) rồi mới prep. ASR=0 để bỏ qua.
 has prep && [ "${ASR:-1}" = 1 ] && { set +e; $PY $LL/asr.py "$EP" > $O/asr.log 2>&1; r=$?; set -e; tail -1 $O/asr.log; [ $r = 0 ] || { echo "ASR trượt sau 2 lần thu lại — dừng (xem $O/asr.json)"; exit 4; }; }
 has prep && { $PY $LL/ll.py prep "$EP" | tee $O/prep.json; }
