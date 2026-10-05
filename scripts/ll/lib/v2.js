@@ -19,7 +19,7 @@ function v2Head(g, t, p) { if (p.title) text(g, p.title, 110, 96, 46, CREAM, { k
 
 // ---- isotype: hàng hình người, mỗi hình = p.unit người. p = { title, subtitle, unit, groups: [{ label, value/num, at, kind }], cam, src } ----
 TPL.isotype = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z); diorama(g, t, c);
-  const G = p.groups || [], rowH = Math.min(220, (H * 0.62) / Math.max(1, G.length)), per = p.per || 20;
+  const G = p.groups || [], capOn = !!(p.cap && p.cap.length), span = (capOn ? H * 0.70 - 60 : H * 0.92) - 250, rowH = Math.min(220, span / Math.max(1, G.length)), per = p.per || 20;   // có chú thích: hàng hình dừng trên dải chú thích (lỗi lát cắt v2)
   G.forEach((gp, gi) => { const n = Math.max(1, Math.round(Math.abs(gp.value) / (p.unit || 1))), y = 250 + gi * rowH + rowH * 0.78, a0 = gp.at === undefined ? p.t0 + 0.5 : gp.at, proj = gp.kind === 'projection';
     const ha = rvH(t, a0 - 0.3, 0.4); text(g, gp.label || '', 110, y - rowH * 0.62, 30, CREAM, { a: ha });
     const step = Math.min(64, (W - 620) / per), h = Math.min(rowH * 0.62, step * 1.9);
@@ -28,7 +28,7 @@ TPL.isotype = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
       g.save(); g.globalAlpha *= a;
       if (proj) { g.save(); person(g, x, yy + dy, h, { col: 'rgba(0,0,0,0)', rim: null }); g.restore(); g.strokeStyle = '#c9d6e6'; g.setLineDash([5, 4]); g.lineWidth = 2.2; g.beginPath(); g.arc(x, yy + dy - h * 0.92, h * 0.07, 0, 7); g.rect(x - h * 0.11, yy + dy - h * 0.83, h * 0.22, h * 0.5); g.stroke(); }
       else person(g, x, yy + dy, h, { col: gi % 2 ? PAPER.ochre : PAPER.cream, rim: null });
-      g.restore(); }
+      g.restore(); LL.zones.push([x - h * 0.15, yy + dy - h, x + h * 0.15, yy + dy]); }
     const va = rv(t, a0 + 0.04 * n, 0.5); text(g, gp.text || fmtBig(gp.value, p.unitLabel), W - 110, y - rowH * 0.2, 72, CREAM, { kind: 'serif', a: va, align: 'right' }); if (gp.kind) lightTag(g, gp.kind, W - 110, y + 12, 22, va, 'right'); });
   if (p.unit) text(g, `each figure = ${fmtN(p.unit)} ${p.unitName || 'people'}`, W - 110, 140, 24, 'rgba(236,223,190,0.85)', { align: 'right', a: rvH(t, p.t0 + 0.5, 0.6) });
   v2Head(g, t, p); fog(g, H * 0.98, 0.12, '60,50,46'); } }; };

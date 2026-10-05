@@ -11,7 +11,7 @@
   // chú thích đè lên cảnh toàn khung (luật nhịp 05/10/2026: bớt thẻ giấy): p.cap = [{ s, at, num?/n?, kind? }] — hiện mục mới nhất, dải tối dưới đáy
   function caps(g, s, t) { const C = (s.p && s.p.cap) || []; let k = -1; C.forEach((c, i) => { if (t >= c.at) k = i; }); if (k < 0) return;
     const c = C[k], a = rv(t, c.at, 0.5), big = c.text !== undefined && c.text !== null, v = LL.fmt === '9x16';
-    const y0 = H * (v ? 0.62 : 0.70); g.save(); const gr = g.createLinearGradient(0, y0 - 40, 0, H); gr.addColorStop(0, 'rgba(12,10,12,0)'); gr.addColorStop(0.35, `rgba(12,10,12,${0.78 * a})`); gr.addColorStop(1, `rgba(12,10,12,${0.88 * a})`);
+    const y0 = H * (v ? 0.62 : 0.70); if (a > 0.05 && (LL.zones || []).some((z) => z[3] > y0 - 40 && z[1] < H && z[2] > 0 && z[0] < W)) LL.hit = 1; g.save(); const gr = g.createLinearGradient(0, y0 - 40, 0, H); gr.addColorStop(0, 'rgba(12,10,12,0)'); gr.addColorStop(0.35, `rgba(12,10,12,${0.78 * a})`); gr.addColorStop(1, `rgba(12,10,12,${0.88 * a})`);
     g.fillStyle = gr; g.fillRect(0, y0 - 40, W, H - y0 + 40); g.restore();
     const x = v ? W / 2 : 140, al = v ? 'center' : 'left';
     if (big) { text(g, c.text, x, y0 + (v ? 110 : 95), v ? 120 : 104, CREAM, { a, kind: 'serif', bold: true, align: al }); if (c.kind) tag(g, c.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', v ? W / 2 - 80 : x, y0 + (v ? 150 : 130), v ? 30 : 24, 'rgba(243,236,218,0.95)', c.kind === 'projection' ? '#16253a' : INK, { a, dash: c.kind === 'projection', border: c.kind !== 'projection', align: 'left' }); }

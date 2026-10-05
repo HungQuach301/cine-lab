@@ -15,6 +15,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q12 thumbnail: 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh, không chạm (scripts/ll/thumb.py ghi .boxes.json)
   Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
   Q14–Q18 luật nhịp (scripts/ll/rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
+  Q20 va chạm chữ–hình: chú thích không đè vùng hình đã khai (log render 'hit')
   Q19 hồ sơ quyền tư liệu phạm vi công cộng (scripts/ll/rights_check.py)
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
@@ -198,6 +199,9 @@ if E.get('hook') or E.get('anchors'):
 else:
     row('Q14–18', 'Luật nhịp', True, 'không áp (tập ≤ 3)', '')
 
+# Q20 va chạm chữ–hình: chú thích đè vùng hình đã khai (isotype…), đếm từ log render
+_hits = {k: L.get('hit', '').count('1') for k, L in logs.items() if L.get('hit', '').count('1')}
+row('Q20', 'Chú thích không đè hình (isotype…)', not _hits, sum(_hits.values()), 0, note=str(_hits) if _hits else '')
 # Q19 hồ sơ quyền tư liệu phạm vi công cộng (rights_check.py; chủ dự án 05/10/2026): thiếu thì Chặn
 import rights_check  # noqa: E402
 _rb, _ra = rights_check.check(E, TL)

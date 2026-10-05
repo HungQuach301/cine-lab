@@ -223,7 +223,7 @@ function frameAt(g, t) {
 }
 const ACC = document.createElement('canvas'); ACC.width = W; ACC.height = H; const AX = ACC.getContext('2d');
 window.drawFrame = (f) => {
-  LL.act = false; LL.fill = false; LL.camNear = Infinity; const t = f / FPS, fast = (LL.SEG.blur || []).some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
+  LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; /* zones: vùng hình (isotype…) chữ không được đè; hit: chú thích va vào */ const t = f / FPS, fast = (LL.SEG.blur || []).some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
   if (N === 1) { frameAt(X, t); return; }
   const keep = LL.tlog; for (let k = 0; k < N; k++) { LL.tlog = k === N - 1 ? keep : null; frameAt(AX, t + ((k + 0.5) / N - 0.5) * 0.5 / FPS); X.globalCompositeOperation = 'source-over'; X.globalAlpha = 1 / (k + 1); X.setTransform(1, 0, 0, 1, 0, 0); X.drawImage(ACC, 0, 0); }
   X.globalAlpha = 1;

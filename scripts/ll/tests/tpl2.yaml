@@ -10,6 +10,8 @@ numbers:
   pb: {v: -34.4, text: "−34.4%", kind: projection, period: 2025–35, unit: '%', src: T}
 segments:
   - {id: isotype, part: TODAY, dur: 4, shots: [{tpl: isotype, at: 0, p: {title: "Isotype test", unit: 250000, groups: [{label: "1970", num: a, at: 0.2}, {label: "2035 (projected)", value: 1000000, text: "1.0 million", kind: projection, at: 1.2}], src: [T]}}]}
+  - {id: isotype-cap, part: TODAY, dur: 4, shots: [{tpl: isotype, at: 0, p: {title: "Isotype + caption", unit: 100000, groups: [{label: "1900", value: 134000, text: "134,000", kind: actual, at: 0.1}, {label: "1930", value: 1097000, text: "1.1 million", kind: actual, at: 0.3}, {label: "1950", value: 1661000, text: "1.7 million", kind: actual, at: 0.5}],
+       cap: [{s: "a shape, not a precise measure", at: 1.0}], src: [T]}}]}
   - {id: stack, part: TODAY, dur: 4, shots: [{tpl: stack, at: 0, p: {title: "Stack test", obj: files, per: 5, unit: '%', bars: [{label: "typists", num: pb, at: 0.2}, {label: "all jobs", value: 3.5, kind: projection, at: 0.8}], src: [T]}}]}
   - {id: stack-atm, part: TODAY, dur: 4, shots: [{tpl: stack, at: 0, p: {title: "ATMs", obj: atm, s: 0.7, per: 100000, bars: [{label: "2015", value: 400000, text: "400,000+", kind: actual, at: 0.2}], src: [T]}}]}
   - {id: sign, part: TODAY, dur: 4, shots: [{tpl: sign, at: 0, p: {num: pb, caption: "word processors & typists, 2025–35", at: 0.3, src: [T]}}]}
