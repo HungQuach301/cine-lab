@@ -1,7 +1,7 @@
 # PLAN tập 03  (≤ 1 trang; P cập nhật sau mỗi bước)
 
-**Trạng thái:** G2 duyệt (05/10); sửa biểu đồ HSUS D355 → G3: chủ dự án tự đăng
-**Việc tiếp:** 1. render lại đoạn 02, ghép, qc, cập nhật SHA nhánh release. 2. xoá trung gian. 3. HUONG-DAN-DANG-TAP3.md.
+**Trạng thái:** G3 — chủ dự án tự đăng theo HUONG-DAN-DANG-TAP3.md (release-ll-ep03-v1 @ a26b828, 9/9 SHA OK)
+**Việc tiếp:** sau 48 giờ / 7 ngày: điền KHAN-GIA.md từ ảnh YouTube Studio.
 **Quyết định đã có (chủ dự án):** 05/10 — G1: tiêu đề A, thẻ so sánh BLS 2025–35, đoạn 11 lời chủ dự án. 05/10 — G2: bản cuối 9:04,5, S1–S3, T1 chính (A/B T2); sửa biểu đồ HSUS không cần G2 lại.
 **Trần:** token 0,5 triệu/tập · kiểm mù ~50 nghìn · đĩa trống ≥ 1,5 × mức cần
 
