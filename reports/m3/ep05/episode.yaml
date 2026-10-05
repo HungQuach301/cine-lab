@@ -53,14 +53,14 @@ segments:
     part: STORY
     vo: >-
       Who decides what a damaged car is worth? In 1966, government economists said judgment could not be computerized.
-      Today, software prices the wreck from a photo, and auto damage appraisers are projected to shrink nine percent.
+      Today, software can draft the estimate for a wreck from a photo, and auto damage appraisers are projected to shrink nine percent.
     vo_offset: 0.6
     tail: 0.6
     fadeIn: 0
     shots:
-      - {tpl: inspect, at: 0, p: {era: 2025, walk: [0.5, 6], flash: ["@photo", "@photo+0.6"], estimate: "@prices+0.4", cam: [{t: 0, x: 0, z: 0.02}, {t: 4, x: -30, z: 0.05}, {t: 8, x: -60, z: 0.08}, {t: 12, x: -80, z: 0.1}, {t: 18, x: -100, z: 0.12}],
+      - {tpl: inspect, at: 0, p: {era: 2025, walk: [0.5, 6], flash: ["@photo", "@photo+0.6"], estimate: "@draft+0.6", cam: [{t: 0, x: 0, z: 0.02}, {t: 4, x: -30, z: 0.05}, {t: 8, x: -60, z: 0.08}, {t: 12, x: -80, z: 0.1}, {t: 18, x: -100, z: 0.12}],
            cap: [{s: "Who decides what a damaged car is worth?", at: "@who"}, {s: "1966: judgment cannot be computerized (BLS)", at: "@1966"},
-                 {s: "today: software prices the wreck from a photo", at: "@today"}, {num: ap_chg, s: "auto damage appraisers, projected 2025–35", at: "@nine"}]}}
+                 {s: "today: software drafts the estimate from a photo", at: "@today"}, {num: ap_chg, s: "auto damage appraisers, projected 2025–35", at: "@nine"}]}}
 
   - id: "01"
     part: STORY
@@ -98,7 +98,6 @@ segments:
       And the routine work began to move. Routine clerical record keeping declined in two-thirds of the companies surveyed.
       Jobs like premium billing, tasks which formerly required large numbers of clerks handling files, went to the machine.
       So did the policy evaluation clerks, who calculated the cash values of policies using rate books and manual calculators.
-      Among seventeen life insurers that adopted computers earliest, growth in office staff slowed from six point eight percent to one point six percent over consecutive three-year periods.
     shots:
       - {tpl: archive, at: 0, p: {img: assets/ll/archive/usnwr-89395.jpg, rid: LOC-89395, credit: "An IBM computer room, New Haven, 1967 · Library of Congress, U.S. News & World Report Collection (no known restrictions)",
            cam: [{t: 0, x: 0, z: 0.0}, {t: 5, x: -40, z: 0.06}], cap: [{s: "BLS study, 1966: what the computer did to insurance offices", at: "@1966"}]}}
@@ -107,8 +106,6 @@ segments:
       - {tpl: desk, at: "@routine-0.4", in: fade, p: {eras: [{era: 1963, at: "@routine-0.4", label: "1963"}], accent: "#b6462c", cam: [{t: "@routine", x: 0, z: 0.02}, {t: "@premium", x: -40, z: 0.06}, {t: "@rate", x: -80, z: 0.1}],
            cap: [{num: rec, s: "of surveyed companies: routine record keeping declined (1963)", at: "@twothirds"}, {s: "premium billing went to the machine", at: "@premium"},
                  {s: "policy evaluation clerks: rate books and manual calculators", at: "@rate"}]}}
-      - {tpl: bars, at: "@six#2-1.0", in: fade, p: {title: "Office staff growth, 17 early-computer life insurers", subtitle: "change over three-year periods", unit: '%', max: 10, d: 1, beats: [{s: "17 life insurers, earliest computers", at: "@seventeen"}],
-           bars: [{label: "1956–59", num: early1, at: "@six#2"}, {label: "1959–62", num: early2, at: "@periods"}]}}
 
   - id: "04"
     part: HISTORY
@@ -159,14 +156,14 @@ segments:
     part: STORY
     vo: >-
       The lamplighter walks on. Up in the insurance building, the clerks' floors went quiet long ago. One office is still lit:
-      someone looks at a photo of a dented car on a screen. For sixty years, that was the part the machine could not do.
+      someone looks at a photo of a dented car on a screen. For decades, a person still had to look at the car.
     vo_offset: 2.5
     min_dur: 29
     tail: 1.5
     shots:
       - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@lit+1"]}, warm: 0.4, windows: 0.3,
                                  cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: "@lit+1", x: -300, z: 0.05}]}}
-      - {tpl: desk, at: "@someone-0.4", in: fade, p: {eras: [{era: 2025, at: "@someone-0.4", label: " "}], accent: "#b6462c", cam: [{t: "@someone", x: 0, z: 0}, {t: "@sixty", x: -40, z: 0.04}, {t: "@do+1.5", x: -80, z: 0.08}, {t: "@do+5", x: -110, z: 0.1}]}}
+      - {tpl: desk, at: "@someone-0.4", in: fade, p: {eras: [{era: 2025, at: "@someone-0.4", label: " "}], accent: "#b6462c", cam: [{t: "@someone", x: 0, z: 0}, {t: "@decades", x: -40, z: 0.04}, {t: "@car#2+1.5", x: -80, z: 0.08}, {t: "@car#2+5", x: -110, z: 0.1}]}}
 
   - id: "07"
     part: TODAY
@@ -216,15 +213,15 @@ segments:
       What we can compare is the line. In 1966, the BLS drew it at judgment and decision making: the computer kept the records, and people decided what a claim was worth.
       Today, the BLS says software can evaluate photographs of damaged property and calculate an estimated claim amount.
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
-      But the differences matter. Back then, the machine stopped at judgment. Now it starts there.
+      But the differences matter. Back then, the machine kept the records. Now software drafts the first estimate, the step that once needed a person's eye. The final call, so far, still sits with people.
     shots:
       - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8b28380.jpg, rid: LOC-8b28380, credit: "An automobile accident, U.S. 40, Maryland, 1936 · Library of Congress, FSA/OWI (no known restrictions)",
            cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -40, z: 0.06}, {t: 16, x: -80, z: 0.1}, {t: 24, x: -110, z: 0.13}],
            cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "not the same job — the same claims desk", at: "@job"}, {s: "two jobs, two kinds of number: not side by side", at: "@side"},
                  {s: "1966: the line at judgment", at: "@1966"}, {s: "the computer keeps the records; people decide the worth", at: "@records"}]}}
-      - {tpl: inspect, at: "@today-0.4", in: fade, p: {era: 2025, walk: ["@today", "@pattern"], flash: ["@photographs"], estimate: "@calculate", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@pattern", x: -50, z: 0.04}, {t: "@stopped", x: -90, z: 0.08}],
+      - {tpl: inspect, at: "@today-0.4", in: fade, p: {era: 2025, walk: ["@today", "@pattern"], flash: ["@photographs"], estimate: "@calculate", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@pattern", x: -50, z: 0.04}, {t: "@drafts", x: -90, z: 0.08}, {t: "@final", x: -110, z: 0.1}],
            cap: [{s: "today: software estimates the claim from photos", at: "@today"}, {s: "not the same technology — the same pattern", at: "@pattern"},
-                 {s: "then it stopped at judgment; now it starts there", at: "@stopped"}], src: [B1468, OOHC]}}
+                 {s: "then: the records · now: the first estimate", at: "@drafts"}, {s: "the final call, so far: still people", at: "@final"}], src: [B1468, OOHC]}}
 
   - id: "11"
     part: TODAY
