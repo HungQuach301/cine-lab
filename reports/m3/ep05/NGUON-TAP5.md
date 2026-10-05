@@ -212,3 +212,55 @@ Lưu ý:
 Điểm 3–6 giữ nhận xét ở trên, trừ điểm 6: vế xưa 1954–63 là **9 năm** (Bảng 8), **không tròn 10**; vế ngành 1954–64 (A4) tròn 10 năm nhưng không theo nghề.
 
 Việc đang chờ chủ dự án: duyệt cách đặt hai vế (khác nghề, cùng quy trình) kèm nhãn khác biệt ở điểm 1–2. Việc chờ Cowork: số BLS gốc; số Census/OOH theo nghề 1950–70 nếu muốn thước theo nghề.
+
+---
+
+## PHỤ LỤC G1-B (bổ sung thời lượng)
+
+Nguồn đã tải đợt này (3 lượt; không dùng Wikipedia, báo chí, PR hãng):
+
+| Nguồn | Kết quả |
+|---|---|
+| 1. BLS Bulletin 1276 (5/1960), https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1276_1960.pdf | Tải được, có chữ. **Có bảo hiểm trong mẫu** (7/20 văn phòng) nhưng **không có** số theo nghề, không có mục giám định/bồi thường. |
+| 2. OOH 1976–77, .../bls_1875_1976.pdf | **404**. Không đoán URL khác. |
+| 3. OOH 1990–91 (BLS Bulletin 2350, 4/1990), .../bls_2350_1990.pdf | Tải được, có chữ (506 trang PDF). Mục "Adjusters, Investigators, and Collectors". |
+
+Quy ước trang: OOH 1990, trang PDF = trang in + 11. Bulletin 1276, trang PDF = trang in + 10.
+
+### G1-B.1 OOH 1990–91 (số liệu thực tế năm 1988; dự báo đến 2000)
+
+| # | Số / mô tả | Năm, loại | Đơn vị, định nghĩa | Trang in (PDF) | Trích |
+|---|---|---|---|---|---|
+| G1 | 961.000 việc làm | 1988, **thực tế** | việc làm; nhóm "adjusters, investigators, and collectors" (gồm cả thu nợ, nhân viên phúc lợi; **không** riêng giám định) | 246 (257) | "Adjusters, investigators, and collectors held about 961,000 jobs in 1988." |
+| G2 | Cơ cấu: adjustment clerks 24%; insurance policy processing clerks 18%; bill and account collectors 16%; **insurance adjusters, examiners, and investigators 15%**; **insurance claims clerks 11%**; welfare eligibility workers 9%; property and casualty insurance claims examiners 3%; all other 4% | 1988, thực tế | % của 961.000. Nhãn của 3% và 4% suy từ thứ tự bảng; bản chữ trích ra mất nhãn 2 dòng cuối, cần xem lại trang ảnh (PDF 257) | 246 (257) | (bảng "employment distribution by detailed occupation") |
+| G3 | ~144.000 (giám định, giám định viên bồi thường, điều tra) và ~106.000 (nhân viên bồi thường) | 1988, **suy ra** | 15% và 11% x 961.000, làm tròn. **Số tự tính, không phải số BLS in**; phải gắn nhãn "ước tính từ tỷ lệ". | 246 (257) | không có trích trực tiếp |
+| G4 | Máy tính trong nghề giám định | 1990 (mô tả) | mô tả việc | 244 (255) | "Claim representatives are making greater use of computers to keep records of clients and actions taken in various claims. Many have computer terminals on their desks, and a growing number use portable lap-top computers" |
+| G5 | Giám định thiệt hại xe dùng máy ước tính | 1990 (mô tả) | "material damage adjusters" | 244 (255) | "Material damage adjusters inspect automobile damage and use the latest computerized estimating equipment to prepare estimates of the damage." |
+| G6 | Trung tâm bồi thường lái xe vào | 1990 (mô tả) | claim center | 244 (255) | "Many companies centralize this operation in a drive-in claims center, where the cost of repair is determined and a check is issued immediately." |
+| G7 | Giám định viên trong nhà / qua điện thoại xử lý khiếu nại nhỏ | 1990 (mô tả) | inside/telephone adjusters | 244 (255) | "minor claims filed by automobile or homeowner policyholders are usually handled by 'inside adjusters' or 'telephone adjusters.'" |
+| G8 | Nhân viên xử lý/bồi thường văn phòng dùng máy tính nhiều | 1990 (mô tả) | insurance processing clerks | 244 (255) | "Like claim representatives, insurance processing clerks use computers extensively in their work." |
+| G9 | Dự báo việc làm đến năm 2000 (OOH 1990–91) | **dự báo** | đợt dự báo BLS đến 2000, in 4/1990 | 247 (258) | "Employment of claim representatives is expected to grow faster than average"; "Employment of insurance processing clerks is expected to grow more slowly than average due to the greater use of word processors, personal computers, and other automated office equipment." |
+| G10 | Claim clerks ít bị ảnh hưởng hơn policy processing clerks | **dự báo** | lý do: tiếp xúc con người | 247 (258) | "claim clerks have much more interpersonal contact, which cannot be automated." |
+| G11 | Kỹ năng máy tính ngày càng quan trọng | 1990 (mô tả) | yêu cầu tuyển dụng | 246 (257); 247 (258) | "Knowledge of computer applications is increasingly important." / "Employers increasingly view experience with computers as an asset." |
+| G12 | Lương trung vị 1988: inside adjuster $22.300; outside adjuster $24.800; claim examiner $29.900 | 1988, thực tế (khảo sát công ty bảo hiểm tài sản, trách nhiệm) | USD/năm, đô la danh nghĩa | 248 (259) | "inside adjusters earned a median salary of $22,300 a year in 1988" |
+
+Ghi chú G1-B.1:
+- Đây là nhóm nghề rộng. Chỉ nêu "961.000" khi gắn nhãn đúng nhóm; số riêng giám định phải ghi "ước tính từ tỷ lệ" (G3).
+- Không có số cho "auto damage appraisers" riêng. Mục "Real Estate Agents, Brokers, and Appraisers" của OOH 1990 là **thẩm định bất động sản**, không dùng.
+- Chưa tìm thấy trong mục này: ảnh số trong giám định xe. G5 chỉ nói "computerized estimating equipment".
+
+### G1-B.2 Bulletin 1276 (1960): bảo hiểm trong mẫu
+
+| # | Số | Năm, loại | Định nghĩa | Trang in (PDF) | Trích |
+|---|---|---|---|---|---|
+| H1 | 7 trong 20 văn phòng khảo sát là bảo hiểm | 1954–56 lắp máy; khảo sát xuất bản 5/1960; thực tế | văn phòng (không phải số người) | 7 (17) | "Seven were in insurance." |
+| H2 | Văn phòng bảo hiểm lớn: 141.000 hoá đơn phí trong 4 ngày trước máy; sau máy 200.000 hoá đơn trong 2 ngày, giảm 64% thời gian đơn vị | thực tế, một hãng tự khai | thời gian trên mỗi hoá đơn | 11 (21) | "processed 141,000 premium billings in 4 days before electronic data processing. With the computer, 2 days are required to process 200,000 billings" |
+| H3 | Hãng bảo hiểm tiết kiệm $215.000 tiền thuê/năm cho 104 máy đục thẻ; bớt 2,5 triệu thẻ/tháng | thực tế, một hãng tự khai | USD/năm | 12 (22) | "savings amounting to $215,000 in annual rentals for 104 punchcard machines" |
+| H4 | Nhân viên vận hành máy bảng kê 23 năm thâm niên chuyển xuống việc văn thư, lương giữ nguyên | giai thoại, một hãng | một trường hợp | 25 (35) | "a tabulating machine operator with 23 years' service at one insurance company was transferred to a routine clerical position classified at several grades lower. No change was made in the salary paid." |
+
+Ghi chú G1-B.2: Bulletin 1276 **không** có phần bồi thường riêng, không có số theo nghề. Số H2–H4 là hãng tự khai (xem lưu ý tự khai ở mục B). Trích H3 và H4 cần đối chiếu chính tả trên trang ảnh vì chữ OCR có lỗi (đã chỉnh khoảng trắng).
+
+### G1-B.3 Khoảng trống còn lại
+
+- OOH 1976–77: **404**, chưa có số việc làm năm gốc 1974–75 cho giám định; chuỗi 1950–70 vẫn thiếu như mục C.
+- Việc đang chờ chủ dự án: duyệt cách dùng G3 (số suy ra, có nhãn) và quyết định có cần thêm URL OOH 1976 (hoặc OOH 1970/1980) do chủ dự án cung cấp hay không.

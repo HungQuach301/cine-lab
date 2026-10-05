@@ -20,6 +20,10 @@ sources:
          url: "https://www.bls.gov/ooh/office-and-administrative-support/secretaries-and-administrative-assistants.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
   MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 5 (text), p. 7 (Table 2)", accessed: 2026-10-05}
+  B1276: {short: "BLS Bulletin 1276 (1960)", title: "Adjustments to the Introduction of Office Automation", url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1276_1960.pdf",
+          read: fulltext, pages: "p. 3 (PDF 13); P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
+  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", title: "Occupational Outlook Handbook, 1990–91 Edition: Typists, Word Processors, and Data Entry Keyers",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "PDF pp. 294–295; P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
   NZ: {short: "Noy & Zhang, MIT working paper (2023)", title: "Experimental Evidence on the Productivity Effects of Generative Artificial Intelligence (working paper, 2 Mar 2023)",
        url: "https://economics.mit.edu/sites/default/files/inline-files/Noy_Zhang_1.pdf", read: fulltext, pages: "pp. 1, 3–4 (PDF)", accessed: 2026-10-05}
 
@@ -36,6 +40,9 @@ numbers:
   cw1900: {v: 212000, text: "212,000", kind: actual, year: 1900, unit: people, src: HSUS, say: "two hundred twelve thousand", note: "D 220, women clerical"}
   cw1970: {v: 10461000, text: "10,461,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "ten and a half million"}
   cw_share: {v: 74, text: "74%", kind: actual, year: 1970, unit: '%', src: HSUS, say: "three in four", note: "tính: 10 461 / 14 208 = 73,6 %"}
+  b60emp: {v: 2800, text: "≈2,800", kind: actual, year: 1959, unit: people, src: B1276, say: "two thousand eight hundred"}
+  b60laid: {v: 9, text: "9", kind: actual, year: 1959, unit: people, src: B1276, say: "only nine"}
+  typ88: {v: 1416000, text: "1,416,000", kind: actual, year: 1988, unit: people, src: OOH90, say: "one point four million"}
   wp25: {v: 40400, text: "40,400", kind: actual, year: 2025, unit: people, src: T15, say: "forty thousand"}
   wp35: {v: 26500, text: "26,500", kind: projection, period: 2025–35, year: 2035, unit: people, src: T15, say: "twenty-six thousand"}
   wp_chg: {v: -34.4, text: "−34.4%", kind: projection, period: 2025–35, unit: '%', src: T15, say: "thirty-four percent"}
@@ -107,15 +114,20 @@ segments:
       - {tpl: bars, at: 0, p: {title: "Stenographers, typists & secretaries, U.S.", subtitle: "census counts, 1970 occupation classification", beats: [{s: "the pool kept filling", at: "@pool"}, {s: "after the war: more offices, more paperwork", at: "@war"}, {s: "a new classification in 1970: a separate line", at: "@categories"}],
            bars: [{label: "1960", num: st60a, at: "@1960"}, {label: "1970", num: st70, at: "@1970#2"}], note: "+69% in ten years (1960–1970)", noteAt: "@sixtynine", nums: [{num: st_chg}]}}
 
-  # Đoạn 05: chừa chỗ cho số 1970–2000 (gói tra nhỏ đang chạy). Nếu không có nguồn toàn văn: giữ lời dưới đây, KHÔNG nêu số và không khẳng định máy xử lý văn bản làm giảm nghề.
+  # Đoạn 05 (G1-B, 05/10/2026): BLS Bulletin 1276 (1960) và OOH 1990–91 thay cho đoạn "record runs thin". Câu "a little over [?] percent" của 1276 bị nhiễu OCR → không dùng số đó.
   - id: "05"
     part: HISTORY
     vo: >-
-      After 1970, the machine on the desk kept changing. Here our record runs thin. We could not find a full, verifiable count for the decades after 1970,
-      so we will not put a number on how fast the pool drained. But we can see where it ended up.
+      The computer came for the office in two waves. In 1960, the BLS studied twenty offices that had just installed one.
+      Of about two thousand eight hundred employees whose work was directly affected, about a third had been moved to other jobs within a year, and only nine people had been laid off.
+      The first machines went for the routine records: posting, checking, filing, computing. Only a small share of the affected workers did correspondence, stenographic, or secretarial work.
+      The typing pool was spared, for a while. The second wave sat on every desk. By 1988, typists, word processors, and data entry keyers held about one point four million jobs,
+      and the BLS wrote: with the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists.
     shots:
-      - {tpl: text, at: 0, p: {beats: [{s: "the machine on the desk changes", at: "@machine"}], lines: [{s: "after 1970: the machine on the desk keeps changing", px: 42, at: "@changing"},
-                                                          {s: "after 1970: no count we could verify", px: 38, serif: false, at: "@thin", color: "#4f2a0c"}]}}
+      - {tpl: text, at: 0, p: {beats: [{s: "the computer comes for the office", at: "@computer"}, {s: "wave one: 1960", at: "@1960"}], lines: [{s: "20 offices · ≈2,800 employees affected", px: 46, at: "@thousand"}, {s: "≈ one-third moved to other jobs in a year", px: 34, serif: false, at: "@third"},
+                                                          {s: "only 9 laid off", px: 46, at: "@nine"}, {s: "first targets: routine records", px: 34, serif: false, at: "@posting"}, {s: "the typing pool: spared, for a while", px: 34, serif: false, at: "@spared", color: "#4f2a0c"}], nums: [{num: b60emp}, {num: b60laid}], src: [B1276]}}
+      - {tpl: bignum, at: "@second-0.4", in: slide, p: {title: "Typists, word processors & data entry keyers, U.S.", beats: [{s: "wave two: a computer on every desk", at: "@second"}], value: 1416000, text: "1,416,000", at: "@one", caption: "jobs in 1988 (BLS)", nums: [{num: typ88}]}}
+      - {tpl: quote, at: "@wrote-0.4", in: flip, p: {text: "With the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists, word processors, and data entry keyers.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@proliferation", src: [OOH90]}}
 
   - id: "06"
     part: STORY

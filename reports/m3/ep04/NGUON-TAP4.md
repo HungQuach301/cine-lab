@@ -176,3 +176,25 @@ Số trong ngoặc ở hàng đầu (−34,4%; 40.400 → 26.500) là số do ch
 Kết luận: quy ước tên tệp các số MLR thập niên 1980–90 trên FRASER chưa xác định được; các số gần đây dùng `bls_mlr_YYYYMMDD.pdf` nhưng các ngày đoán cho 1983 không tồn tại. Không có câu trích về máy xử lý văn bản thay đánh máy.
 
 Việc còn lại (chờ chủ dự án duyệt hạn mức mới): cấp thêm lượt tải, hoặc cung cấp URL cụ thể một số MLR/Census 1980–2000 (ví dụ bài về clerical employment và office automation), hoặc khoá API FRASER. Chuỗi HSUS đến 1970 (mục 1) vẫn là nguồn Census duy nhất đã có.
+
+## PHỤ LỤC G1-B (bổ sung thời lượng)
+
+Nguồn: FRASER, BLS. Tải 4 URL (4/6 lượt). Số đều ghi theo bản in và trang PDF.
+
+**Tình trạng URL.** (1) bls_1276_1960: tải được, có lớp chữ. (2) bls_1241_1958: tải được (tiêu đề thật là "Automation and Employment Opportunities for Office Workers", 24 trang), lớp chữ OCR rất kém, chưa trích được số đáng tin. (3) bls_1875_1976 (OOH 1976–77): **404**, không thử URL khác. (4) bls_2350_1990: tải được (506 trang), có lớp chữ.
+
+**G1-B-1. Bulletin 1276 (1960), thực tế (khảo sát 20 văn phòng đã lắp máy tính điện tử cỡ lớn; không có năm khảo sát rõ trong đoạn trích).**
+- Khoảng 2.800 nhân viên trong các đơn vị bị ảnh hưởng trực tiếp; sau 1 năm, việc làm ở đơn vị đó giảm khoảng 25%; chỉ 9 người bị sa thải.
+- Chỉ hơn 4% làm việc thư tín, tốc ký, thư ký.
+- Trang in 3, trang PDF 13. Trích: "Only a little over 4 percent were engaged in the less routine clerical jobs such as correspondence, stenographic, and secretarial work." (OCR: số "4" bị nhiễu thành "h", đã đối chiếu với ngữ cảnh "a little over 80 percent" của đoạn trước; cần kiểm bằng mắt trên ảnh trang trước khi dùng cuối.)
+- Thiếu hụt thị trường lao động lúc lắp máy: chủ yếu thợ đánh máy có kinh nghiệm, tốc ký, thợ máy tính bảng (lập bảng). Nằm quanh dòng 620 của văn bản trích; chưa xác định trang PDF/in.
+
+**G1-B-2. OOH 1990–91 (Bulletin 2350), việc làm năm gốc 1988 (thực tế); dự báo đến 2000 (đợt dự báo 1988–2000).**
+- Typists, word processors, and data entry keyers: 1.416.000 việc làm năm 1988. Trang in 283, trang PDF 294. Trích: "Typists, word processors, and data entry keyers held 1,416,000 jobs in 1988 and were employed in every sector of the economy."
+- Dự báo: giảm đến 2000. Trang in 283, PDF 294. Trích: "Employment ... is expected to decline through the year 2000 despite the 'information explosion' ... significant productivity improvements ... due to the widespread use of automated office equipment."
+- Máy tính cá nhân làm thay việc đánh máy. Trang in 284, PDF 295. Trích: "With the proliferation of personal computers throughout the economy, more and more workers are performing work formerly done by typists, word processors, and data entry keyers."
+- Secretaries: 3.373.000 việc làm năm 1988. Trang in 277, PDF 288. Trích: "Secretaries held 3,373,000 jobs in 1988, making this one of the largest occupations in the U.S. economy." Dự báo cùng trang: tăng "about as fast as the average" đến 2000.
+- Số in trang suy ra từ đầu trang 295 (in "284"); chưa kiểm số in của PDF 288 trực tiếp (suy từ độ lệch 11).
+- Định nghĩa nghề: chưa trích mục "Nature of the work"; chỉ dùng được số như tổng nhóm OOH.
+
+**Còn thiếu cho G1-B:** mốc 1976 (404) và số liệu 1950–75; số 1958 (Bulletin 1241) cần OCR lại hoặc đọc ảnh. Chờ chủ dự án duyệt thêm lượt hoặc URL.

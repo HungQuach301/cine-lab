@@ -59,7 +59,7 @@ TPL.office = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { 
   const v = g.createRadialGradient(W / 2, H / 2, H * 0.4, W / 2, H / 2, H); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.5)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
 } }; };
 // ---- phòng hàng ghế nhìn từ sau lưng (tổng đài / phòng đánh máy): p = { variant: 'switchboard'|'typing', rows: 3, per: 7, cam, dim: [t0,t1] (đèn bàn tắt dần), screen: t (màn hình con trỏ/sóng âm hiện) } ----
-TPL.rows = (p) => { const cam = camOf(p), V = p.variant || 'switchboard', R0 = rng(V === 'switchboard' ? 1878 : 1930), JK = Array.from({ length: 400 }, () => [R0(), R0(), R0()]);
+TPL.rows = (p) => { if (p.variant === 'teller') return TPL.teller(p); const cam = camOf(p), V = p.variant || 'switchboard', R0 = rng(V === 'switchboard' ? 1878 : 1930), JK = Array.from({ length: 400 }, () => [R0(), R0(), R0()]);
   return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z);
     const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#2a2026'); gr.addColorStop(1, '#120e12'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
     const dim = p.dim ? pr(t, p.dim[0], p.dim[1]) : 0; if (dim > 0 && dim < 1) LL.act = true;
@@ -85,6 +85,39 @@ TPL.rows = (p) => { const cam = camOf(p), V = p.variant || 'switchboard', R0 = r
       g.restore(); text(g, p.screenLabel || 'AUTOMATED VOICE', W / 2, H * 0.53, 30, '#cfe0f5', { align: 'center', a }); LL.act = LL.act || a < 1; } }
     const v = g.createRadialGradient(W / 2, H * 0.55, H * 0.35, W / 2, H * 0.55, H * 1.05); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.6)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
   } }; };
+// ---- quầy giao dịch ngân hàng nhìn từ sảnh (tập 3): p = { per: 6 ô cửa, cam, dim: [t0,t1] (đèn ô cửa tắt dần từ trái), screen: t (máy ATM ở tường phải sáng), screenLabel,
+//      look: t (giao dịch viên ô giữa ngẩng lên), customer: { at: t, nervous } (khách đứng trước ô giữa, bồn chồn) } — bóng 2.5D, không mặt ----
+TPL.teller = (p) => { const cam = camOf(p), per = p.per || 6, R0 = rng(1970), J = Array.from({ length: 64 }, () => [R0(), R0(), R0()]), mid = Math.floor((per - 1) / 2);
+  return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z);
+    const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#2b2321'); gr.addColorStop(1, '#130f0e'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    const dim = p.dim ? pr(t, p.dim[0], p.dim[1]) : 0; if (dim > 0 && dim < 1) LL.act = true;
+    // lớp xa: tường đá có cột và cửa sổ vòm
+    const Pb = lay(c, 3.2); for (let i = 0; i < 7; i++) { const [x0, y0] = Pb(-120 + i * 340, H * 0.06), [x1, y1] = Pb(-60 + i * 340, H * 0.62); g.fillStyle = 'rgba(70,58,52,0.55)'; g.fillRect(x0, y0, x1 - x0, y1 - y0);
+      const [w0, v0] = Pb(20 + i * 340, H * 0.1), [w1, v1] = Pb(200 + i * 340, H * 0.36); g.fillStyle = 'rgba(110,125,165,0.16)'; g.fillRect(w0, v0, w1 - w0, v1 - v0); }
+    // lớp giữa: quầy với các ô cửa, đèn bàn, giao dịch viên
+    const P = lay(c, 1.6), sc = 1 / 1.6, [cx0, cy0] = P(-80, H * 0.44), [cx1, cy1] = P(W + 80, H * 0.86);
+    for (let k = 0; k < per; k++) { const on = 1 - cl(dim * per - k), xa = cx0 + (k + 0.08) * (cx1 - cx0) / per, xb = cx0 + (k + 0.92) * (cx1 - cx0) / per, wy = cy0 + (cy1 - cy0) * 0.05, wy1 = cy0 + (cy1 - cy0) * 0.52;
+      g.fillStyle = mixC('#3b2f26', '#5a4632', on * 0.6); g.fillRect(xa, wy, xb - xa, wy1 - wy);
+      if (on > 0.02) glow(g, (xa + xb) / 2, wy1 - 20 * sc, 150 * sc, RGB_AMB, 0.45 * on);
+      if (on > 0.3) { const lift = (p.look !== undefined && k === mid) ? pr(t, p.look, p.look + 0.9) : 0; if (lift > 0 && lift < 1) LL.act = true;
+        person(g, (xa + xb) / 2 + (J[k][0] - 0.5) * 30 * sc, wy1 + 70 * sc, 260 * sc, { seated: true, bun: J[k][1] < 0.5, lift, arm: 2.2 + 0.2 * Math.sin(t * (0.8 + J[k][2]) + k), arm2: -2.0 - 0.15 * Math.sin(t * 1.1 + k * 3), armLen: 0.55, col: '#0d0a0b', rim: `rgba(255,190,120,${0.8 * on})` }); }
+      g.strokeStyle = 'rgba(30,22,16,0.9)'; g.lineWidth = 3 * sc + 1; for (let b = 1; b < 7; b++) { const x = xa + b * (xb - xa) / 7; g.beginPath(); g.moveTo(x, wy); g.lineTo(x, wy1 - 30 * sc); g.stroke(); }
+      g.strokeStyle = 'rgba(150,120,80,0.5)'; g.lineWidth = 2; g.strokeRect(xa, wy, xb - xa, wy1 - wy); }
+    g.fillStyle = '#2a1e17'; g.fillRect(cx0, cy0 + (cy1 - cy0) * 0.52, cx1 - cx0, (cy1 - cy0) * 0.5); g.fillStyle = 'rgba(190,150,100,0.25)'; g.fillRect(cx0, cy0 + (cy1 - cy0) * 0.52, cx1 - cx0, 4);
+    // máy ATM ở tường phải
+    if (p.screen !== undefined) { const a = rv(t, p.screen, 1.2), [ax0, ay0] = P(W * 0.86, H * 0.5), [ax1, ay1] = P(W * 0.97, H * 0.74);
+      g.fillStyle = '#1d1a1c'; g.fillRect(ax0 - 10, ay0 - 14, ax1 - ax0 + 20, ay1 - ay0 + 60);
+      if (a > 0) { g.save(); g.globalAlpha = a * (0.9 + 0.1 * Math.sin(t * 3)); g.fillStyle = '#16304a'; g.fillRect(ax0, ay0, ax1 - ax0, ay1 - ay0); g.restore(); glow(g, (ax0 + ax1) / 2, (ay0 + ay1) / 2, 260 * sc, '120,170,230', 0.35 * a);
+        text(g, p.screenLabel || 'ATM', (ax0 + ax1) / 2, (ay0 + ay1) / 2, 30, '#d6e6f8', { align: 'center', base: 'middle', a }); LL.act = LL.act || a < 1; } }
+    // lớp gần: khách trước ô giữa
+    if (p.customer) { const ca = rv(t, p.customer.at, 0.8), P1 = lay(c, 1.0), xm = cx0 + (mid + 0.5) * (cx1 - cx0) / per;
+      if (ca > 0) { const nv = p.customer.nervous ? 1 : 0, sway = nv * 6 * Math.sin(t * 2.3), [qx, qy] = P1(W / 2 + (xm - W / 2) / 1.0 + sway, H * 1.04);
+        g.save(); g.globalAlpha = ca; person(g, qx, qy, 430, { coat: true, arm: -0.5 + nv * (0.9 + 0.08 * Math.sin(t * 5.1)), arm2: -0.1 - nv * 0.25 * Math.abs(Math.sin(t * 1.7)), step: nv * 0.08 * Math.sin(t * 1.9), flip: true, col: '#0a0809', rim: 'rgba(255,200,140,0.75)' }); g.restore();
+        if (ca < 1 || nv) LL.act = true; } }
+    fog(g, H * 0.98, 0.18, '60,50,46');
+    const v = g.createRadialGradient(W / 2, H * 0.55, H * 0.35, W / 2, H * 0.55, H * 1.05); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.6)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
+  } }; };
+
 // ---- thẻ kết (16:9 và 9:16): p = { title, line, next } ----
 TPL.endcard = (p) => { const PT = (() => { const R = rng(9090); return Array.from({ length: 40 }, () => [R(), R(), R(), R()]); })();
   return { kind: 'full', full(g, t) { const u = t - p.t0; g.fillStyle = NAVY; g.fillRect(0, 0, W, H);

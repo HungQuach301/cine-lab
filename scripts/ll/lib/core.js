@@ -184,7 +184,7 @@ const ICONS = {
 function icon(g, name, x, y, s, a = 1, col = OCHRE) { if (a <= 0 || !ICONS[name]) return; g.save(); g.globalAlpha *= cl(a); g.translate(x, y); ICONS[name](g, s, a, col); g.restore(); }
 
 // ---------- bóng người (không mặt) ----------
-// x,y = chân; hgt = cao px; o: { arm, arm2 (rad), step, hat: cap|top|bowler, coat, flip, pole, col, seated, rim }
+// x,y = chân; hgt = cao px; o: { arm, arm2 (rad), step, hat: cap|top|bowler, coat, flip, pole, col, seated, rim, lift (0..1 ngẩng đầu) }
 function person(g, x, y, hgt, o = {}) { const k = hgt / 170, col = o.col || '#1a1410'; g.save(); g.translate(x, y); g.scale(k * (o.flip ? -1 : 1), k); g.fillStyle = col; g.strokeStyle = col; g.lineCap = 'round'; g.lineJoin = 'round';
   if (o.rim) { g.shadowColor = o.rim; g.shadowBlur = 2.75 / k; }
   const step = o.step || 0;
@@ -193,7 +193,9 @@ function person(g, x, y, hgt, o = {}) { const k = hgt / 170, col = o.col || '#1a
   g.beginPath(); g.moveTo(-20, -84); g.lineTo(-18, -142); g.quadraticCurveTo(0, -150, 18, -142); g.lineTo(20, -84); g.closePath(); g.fill();
   if (o.coat) { g.beginPath(); g.moveTo(-22, -86); g.lineTo(-27, -36); g.lineTo(27, -36); g.lineTo(22, -86); g.fill(); }
   if (o.bun) { g.beginPath(); g.arc(0, -168, 9, 0, 7); g.fill(); }
+  const lf = o.lift || 0; if (lf) g.translate(2 * lf, -7 * lf);   // ngẩng đầu (tập 3: giao dịch viên nhìn lên)
   g.beginPath(); g.arc(0, -156, 12, 0, 7); g.fill();
+  if (lf) g.translate(-2 * lf, 7 * lf);
   if (o.hat === 'cap') { g.beginPath(); g.ellipse(0, -165, 14, 6, 0, 0, 7); g.fill(); g.fillRect(-2, -166, 20, 4); }
   if (o.hat === 'top') { g.fillRect(-11, -188, 22, 24); g.fillRect(-19, -167, 38, 4); }
   if (o.hat === 'bowler') { g.beginPath(); g.ellipse(0, -166, 13, 11, 0, Math.PI, 0); g.fill(); g.fillRect(-18, -167, 36, 4); }

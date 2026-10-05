@@ -13,6 +13,8 @@ music:
 sources:
   B1468: {short: "BLS Bulletin 1468 (1966)", title: "Impact of Office Automation in the Insurance Industry", url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1468_1966.pdf",
           read: fulltext, pages: "pp. 1–2, 4, 18, 35 (Table 8), 38 (Table 10), 39, 45 (print; PDF = print + 8)", accessed: 2026-10-05}
+  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", title: "Occupational Outlook Handbook, 1990–91 Edition: Adjusters, Investigators, and Collectors",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "PDF p. 255; P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
   OOHC: {short: "BLS, Occupational Outlook Handbook (2025–35): Claims Adjusters", title: "Claims Adjusters, Appraisers, Examiners, and Investigators",
          url: "https://www.bls.gov/ooh/business-and-financial/claims-adjusters-appraisers-examiners-and-investigators.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
   MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
@@ -116,6 +118,20 @@ segments:
            caption: "January 1954 to January 1963 (nine years) · 365,911 in 1963", nums: [{num: off_chg}, {num: off63}]}}
       - {tpl: text, at: "@few-0.4", in: slide, p: {lines: [{s: "few laid off as a direct result", px: 46, at: "@few"}, {s: "turnover · industry growth · new computer jobs", px: 34, serif: false, at: "@turnover"}], src: [B1468]}}
       - {tpl: quote, at: "@line-0.4", in: flip, p: {text: "…jobs requiring some judgment and decision making—jobs that cannot be computerized…", who: "U.S. Bureau of Labor Statistics", where: "Bulletin 1468, 1966", at: "@requiring", src: [B1468]}}
+
+  # Đoạn 05b (G1-B, 05/10/2026): OOH 1990–91. Không dùng số 961 000 (nhóm rộng, gồm thu nợ) hay số suy từ tỷ lệ.
+  - id: "05b"
+    part: HISTORY
+    vo: >-
+      By the late 1980s, the computer had reached the adjuster's desk too. The government's 1990 handbook of occupations described claim representatives
+      who kept records of clients and claims on computer terminals, and a growing number who carried portable lap-top computers on assignment.
+      Material damage adjusters, it said, inspect automobile damage and use the latest computerized estimating equipment to prepare estimates of the damage.
+      The machine now did the arithmetic of a repair. But a person still walked around the car, looked at the dent, and decided what it was worth.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "late 1980s: the computer reaches the adjuster", at: "@late"}, {s: "BLS Occupational Outlook Handbook, 1990–91", at: "@handbook"}],
+           lines: [{s: "terminals on the desk", px: 46, at: "@terminals"}, {s: "lap-top computers in the field", px: 46, at: "@lap-top"}], src: [OOH90]}}
+      - {tpl: quote, at: "@material-0.4", in: slide, p: {beats: [{s: "material damage adjusters", at: "@material"}], text: "Material damage adjusters inspect automobile damage and use the latest computerized estimating equipment to prepare estimates of the damage.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@inspect", src: [OOH90]}}
+      - {tpl: text, at: "@machine-0.4", in: flip, p: {lines: [{s: "the machine: the arithmetic of a repair", px: 44, at: "@arithmetic"}, {s: "a person: what it was worth", px: 44, at: "@person", color: "#4f2a0c"}], src: [OOH90]}}
 
   - id: "06"
     part: STORY
