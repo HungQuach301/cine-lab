@@ -59,6 +59,7 @@ numbers:
   se_chg: {v: -2, text: "−2%", kind: projection, period: 2025–35, unit: '%', src: OOHS, say: "two percent"}
   mt_old: {v: -4.9, text: "−4.9%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "four point nine percent"}
   all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
+  nz_n: {v: 444, text: "444", kind: actual, unit: people, src: NZ, say: "four hundred forty-four"}
   nz_time: {v: -37, text: "−37%", kind: actual, unit: '%', src: NZ, say: "thirty-seven percent"}
 
 segments:
@@ -269,22 +270,30 @@ shorts:
       In 1900, the U.S. census counted about one hundred thirty-four thousand stenographers, typists, and secretaries. By 1970, on a newer census basis, about three point nine million.
       Most of them were women. The typewriter built one of the largest workforces in America. Today, the job title word processors and typists is projected to shrink thirty-four percent by 2035.
     shots:
-      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 4}}
-      - {tpl: text, at: "@1900-0.3", in: slide, p: {lines: [{s: "1900: 134,000", px: 64, at: "@thirtyfour"}, {s: "1970: 3.9 million", px: 64, at: "@three"}, {s: "census counts; categories changed in between", px: 40, at: "@newer"}], src: [HSUS]}}
-      - {tpl: bignum, at: "@today-0.3", in: flip, p: {title: "Word processors & typists, 2025–35", value: -34.4, text: "−34.4%", suffix: "%", d: 1, at: "@shrink", caption: "projected (BLS)", nums: [{num: wp_chg}]}}
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 4, cam: [{t: 0, x: 0, z: 0.02}, {t: 4, x: -30, z: 0.06}, {t: 9, x: -60, z: 0.1}],
+           cap: [{s: "1900: U.S. census", at: "@census"}, {s: "≈134,000", at: "@thousand"}, {s: "stenographers · typists · secretaries", at: "@stenographers"}]}}
+      - {tpl: rows, at: "@by-0.3", in: fade, p: {variant: typing, rows: 3, per: 6, cam: [{t: "@by", x: 40, z: 0.04}, {t: "@women", x: 0, z: 0.08}, {t: "@america", x: -40, z: 0.12}],
+           cap: [{s: "1970, newer census basis", at: "@newer"}, {num: st70, s: "stenographers, typists & secretaries", at: "@three"}, {s: "most of them women", at: "@most"},
+                 {s: "one of America's largest workforces", at: "@largest"}]}}
+      - {tpl: office, at: "@today-0.3", in: fade, p: {light: 0.3, cam: [{t: "@today", x: 0, z: 0.02}, {t: "@projected", x: -40, z: 0.05}],
+           cap: [{s: "today: word processors & typists", at: "@title"}, {num: wp_chg, s: "projected, 2025–35", at: "@shrink"}, {s: "by 2035 (BLS)", at: "@2035"}]}}
   - id: S2
     hook: "The job AI names directly: medical transcription"
     vo: >-
       The old stenographer turned spoken words into typed pages. Medical transcriptionists still do that, for doctors. The Bureau of Labor Statistics projects their employment to decline
       four point nine percent from 2024 to 2034, and it names the reason: AI technology can recognize speech and transcribe audio.
     shots:
-      - {tpl: text, at: 0, p: {lines: [{s: "spoken words → typed pages", px: 60, at: "@spoken"}, {s: "medical transcriptionists", px: 48, at: "@medical"}], src: [MLR26]}}
-      - {tpl: bignum, at: "@projects-0.3", in: slide, p: {title: "Medical transcriptionists, 2024–34", value: -4.9, text: "−4.9%", suffix: "%", d: 1, at: "@nine", caption: "because AI can recognize speech and transcribe audio (BLS)", capAt: "@reason", nums: [{num: mt_old}]}}
+      - {tpl: rows, at: 0, p: {variant: typing, rows: 3, per: 4, cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -40, z: 0.08}],
+           cap: [{s: "the old stenographer", at: "@stenographer"}, {s: "spoken words → typed pages", at: "@spoken"}]}}
+      - {tpl: office, at: "@medical-0.3", in: fade, p: {light: 0.8, cam: [{t: "@medical", x: 0, z: 0.03}, {t: "@reason", x: -50, z: 0.08}],
+           cap: [{s: "medical transcriptionists", at: "@medical"}, {s: "for doctors", at: "@doctors"}, {s: "Bureau of Labor Statistics", at: "@bureau"}, {num: mt_old, s: "projected, 2024–34", at: "@four"},
+                 {s: "the reason, in BLS words:", at: "@names"}, {s: "AI can recognize speech", at: "@recognize"}, {s: "…and transcribe audio", at: "@transcribe"}]}}
   - id: S3
     hook: "37% faster with AI — but not typists"
     vo: >-
       In a 2023 MIT experiment, four hundred forty-four professionals did short writing tasks. Half could use ChatGPT. They finished about thirty-seven percent faster, and their work was rated higher.
       But the study measured tasks, not jobs, and these were professionals, not typists.
     shots:
-      - {tpl: text, at: 0, p: {lines: [{s: "444 professionals", px: 60, at: "@professionals"}, {s: "half could use ChatGPT", px: 48, at: "@half"}], src: [NZ]}}
-      - {tpl: bignum, at: "@finished-0.3", in: slide, p: {title: "Time to finish", value: -37, text: "−37%", suffix: "%", at: "@thirtyseven", caption: "tasks, not jobs", capAt: "@tasks", nums: [{num: nz_time}]}}
+      - {tpl: office, at: 0, p: {light: 0.6, cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -40, z: 0.06}, {t: 12, x: -80, z: 0.1}, {t: 20, x: -110, z: 0.13}],
+           cap: [{s: "MIT experiment, 2023", at: "@mit"}, {s: "444 professionals", at: "@fortyfour"}, {s: "short writing tasks", at: "@writing"}, {s: "half could use ChatGPT", at: "@half"},
+                 {num: nz_time, s: "time to finish, with the tool", at: "@thirtyseven"}, {s: "work rated higher", at: "@rated"}, {s: "but: tasks, not jobs", at: "@measured"}, {s: "professionals, not typists", at: "@professionals#2"}]}}
