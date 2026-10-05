@@ -173,6 +173,7 @@ def q13():
     bad = []
     for where, txt in items:
         t = txt.replace('−', '-').replace('–', '-')
+        t = re.sub(r'\b(\d{4})-(\d{2})\b', r'\1', t)   # đợt dự báo '2023–33': phần sau là năm rút gọn
         for m in re.finditer(r'(?<![\w.])(-|\+)?((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)(\s*%| ?million| ?percent)?', t):
             raw, v, suf = m.group(0).strip(), float(m.group(2).replace(',', '')), (m.group(3) or '').strip()
             if 'million' in suf: v *= 1e6
