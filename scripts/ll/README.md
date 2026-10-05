@@ -64,3 +64,8 @@ shorts:
 - `bignum` với **khoảng số** (`range: true`, `value: [a, b]`, hoặc `text` dạng "50–80…"): không đếm qua số trung gian, hiện thẳng chữ (hoà vào 0,5 s).
 - `thumb.py`: thumbnail 1280×720 từ một khung nền + các dòng chữ; tự thu cỡ để mọi hộp chữ nằm trong **lề an toàn 5 %** mỗi cạnh; ghi `<ảnh>.boxes.json`. Ví dụ dùng: `reports/m3/ep02/phat-hanh/make_thumb.py`.
 - qc **Q12**: mọi thumbnail (`thumbs:` trong đặc tả, hoặc `phat-hanh/*thumb*.jpg` cạnh đặc tả) phải 1280×720 và không có hộp chữ chạm/vượt lề 5 %.
+
+## Bổ sung lô tập 3–5 (05/10/2026)
+- `ll.py est <yaml>`: ước **trước khi thu lời** (không gọi mạng): thời lượng từng đoạn và tỷ lệ STORY/HISTORY/TODAY theo **tốc độ đọc thật của Bill** (`BILL_WPS` = 2,214 từ/s, đo 1 062 từ / 479,6 s trên 15 đoạn tập 2; thử lại trên tập 2: ước 9:03,2, thật 9:01,4). Giải thử mọi mốc `@từ` (bắt lỗi mốc trước khi tốn ký tự ElevenLabs).
+- Cùng lệnh báo **khung đồ hoạ có thể đứng trống > 3 s**: shot `bars/line/compare/bignum/text/quote` mà nội dung gắn lời đầu tiên (`at`, `beats`, `noteAt`…) đến sau đầu shot hơn 2,5 s (ngưỡng 3 s trừ sai số ước 0,5 s). qc Q11 vẫn là phép đo thật sau render.
+- Hai bài học khác của tập 2 đã có sẵn trong mẫu từ G3 tập 2: `bignum` khoảng số hiện thẳng; `thumb.py` + qc Q12 lề an toàn 5 %.

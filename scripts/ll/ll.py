@@ -3,6 +3,8 @@
 
   ll.py prep <episode.yaml>        kiểm đặc tả → thu lời Bill (ElevenLabs, có cache) → giải mốc "@từ" → <out>/timeline.json, sfx, phụ đề .srt
   ll.py check <episode.yaml>       chỉ kiểm đặc tả (không gọi mạng); in lỗi, mã thoát 1 nếu có lỗi
+  ll.py est <episode.yaml>         ước trước khi thu lời (không gọi mạng): thời lượng từng đoạn, tỷ lệ STORY/HISTORY/TODAY theo
+                                   tốc độ đọc thật của Bill (BILL_WPS, đo tập 2), mọi mốc "@từ" giải được, và khung đồ hoạ có thể đứng trống > 3 s
 
 Đặc tả (xem scripts/ll/README.md): id, title, out, voice, music, sources, numbers, segments[{id, part, vo, shots[{tpl, at, in, p}]}], shorts[...].
 Luật kiểm sẵn ở đây (chặn trước khi render):
@@ -17,6 +19,9 @@ import yaml
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 FPS = 24
 DATA_TPL = {'bars', 'line', 'compare', 'bignum'}
+GFX_TPL = DATA_TPL | {'text', 'quote'}
+BILL_WPS = 2.214   # từ/giây lời Bill đo trên 15 đoạn tập 2 (1 062 từ / 479,6 s), tốc độ 1,00
+BLANK_MAX = 3.0    # luật kênh §5.1: khung đồ hoạ không đứng trống quá 3 s khi đang có lời
 P = lambda p: p if os.path.isabs(p) else os.path.join(REPO, p)
 
 
@@ -67,6 +72,44 @@ def check(E):
                 p = sh['p']; u = [N.get(p[s].get('num'), {}).get('unit') for s in ('left', 'right') if 'num' in p[s]]
                 if len(set(u)) > 1: err.append(f'{sg["id"]}/compare: hai vế khác đơn vị {u} (luật so sánh tương xứng điểm 2)')
     return err, warn
+
+
+# ---------- ước trước khi thu lời (rút kinh nghiệm tập 2) ----------
+def fake_words(text, off=0.0):
+    ws = text.split(); return [(norm(w), off * 0 + i / BILL_WPS, (i + 1) / BILL_WPS, w) for i, w in enumerate(ws)]
+
+
+def ats_in(x, acc, skip=('cam',)):
+    """mọi giá trị 'at' / 'noteAt' / 'midAt' / 'diffAt' / 'capAt' trong p (bỏ quỹ đạo máy) = lúc nội dung gắn lời hiện ra"""
+    if isinstance(x, dict):
+        for k, v in x.items():
+            if k in skip: continue
+            if k in ('at', 'noteAt', 'midAt', 'diffAt', 'capAt') and isinstance(v, (int, float)): acc.append(float(v))
+            else: ats_in(v, acc, skip)
+    elif isinstance(x, list):
+        for v in x: ats_in(v, acc, skip)
+    return acc
+
+
+def est(E):
+    N, S = E.get('numbers', {}), E.get('sources', {})
+    rows, parts, warn, t_abs = [], {}, [], 0.0
+    for sg in E['segments']:
+        off = float(sg.get('vo_offset', 0.8 if sg.get('vo') else 0)); W = fake_words(sg.get('vo') or '')
+        vlen = W[-1][2] if W else 0
+        dur = max(float(sg.get('min_dur', 0)), off + vlen + float(sg.get('tail', 1.0))) if W else float(sg.get('dur', 6))
+        try: shots, _ = build_seg(E, sg, W, off, dur)
+        except SystemExit as e: warn.append(f'{sg["id"]}: {e}'); shots = []
+        for sh in shots:
+            if sh['tpl'] not in GFX_TPL: continue
+            if sh['tpl'] == 'text' and any('at' not in l for l in sh['p'].get('lines', [])): continue   # thẻ tựa: chữ hiện ngay
+            first = min([a for a in ats_in(sh['p'], []) if a >= sh['t0'] - 0.01] or [sh['t1']])
+            speaking = W and first > off and sh['t0'] < off + vlen
+            gap = first - max(sh['t0'], off) if speaking else 0
+            if gap > BLANK_MAX - 0.5: warn.append(f'{sg["id"]}/{sh["tpl"]}@{sh["t0"]:.1f}s: ước {gap:.1f} s chưa có nội dung gắn lời (ngưỡng {BLANK_MAX} s, ước sai ±0,5 s) — thêm beats hoặc neo sớm hơn')
+        parts[sg.get('part')] = parts.get(sg.get('part'), 0) + dur
+        rows.append((sg['id'], sg.get('part'), len(W), round(dur, 1))); t_abs += dur
+    return rows, {k: round(100 * v / t_abs, 1) for k, v in parts.items()}, t_abs, warn
 
 
 # ---------- lời Bill ----------
@@ -211,3 +254,8 @@ if __name__ == '__main__':
     if cmd == 'check':
         e, w = check(load(path)); [print('CẢNH BÁO', x) for x in w]; [print('LỖI', x) for x in e]; print('ĐẠT' if not e else 'TRƯỢT'); sys.exit(1 if e else 0)
     elif cmd == 'prep': prep(path)
+    elif cmd == 'est':
+        rows, ty, T, w = est(load(path))
+        for r in rows: print(f'  {r[0]:>4} {r[1]:<8} {r[2]:>4} từ  {r[3]:>6.1f} s')
+        print(f'TỔNG ≈ {int(T // 60)}:{T % 60:04.1f} ({sum(r[2] for r in rows)} từ, {BILL_WPS} từ/s)  tỷ lệ {ty}')
+        [print('CẢNH BÁO', x) for x in w]
