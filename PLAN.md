@@ -9,7 +9,7 @@
 |---|---|---|
 | 2 "Hello, Central" | G3: chủ dự án đăng | `reports/m3/HUONG-DAN-DANG-TAP2.md` |
 | 3 "The Teller's Window" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP3.md`) | `reports/m3/ep03/PLAN.md` |
-| 4 "The Typing Pool" | đang sản xuất → G2 | `reports/m3/ep04/PLAN.md` |
+| 4 "The Typing Pool" | G2 chờ (`reports/m3/TAP4-G2.md`) | `reports/m3/ep04/PLAN.md` |
 | 5 "The Claims Desk" | chờ sau tập 4 | (tạo khi bắt đầu) |
 
 ## Luật làm việc
