@@ -23,8 +23,8 @@ def _ats(x, acc):
     if isinstance(x, dict):
         for k, v in x.items():
             if k == 'cam' and isinstance(v, list): acc += [c['t'] for c in v if isinstance(c.get('t'), (int, float))]
-            elif k in CONTENT_KEYS + ('lit', 'screen', 'look') and isinstance(v, (int, float)): acc.append(float(v))
-            elif k in ('dim', 'walk') and isinstance(v, list): acc += [float(a) for a in v if isinstance(a, (int, float))]
+            elif k in CONTENT_KEYS + ('lit', 'screen', 'look', 'estimate') and isinstance(v, (int, float)): acc.append(float(v))
+            elif k in ('dim', 'walk', 'flash') and isinstance(v, list): acc += [float(a) for a in v if isinstance(a, (int, float))]
             else: _ats(v, acc)
     elif isinstance(x, list):
         for v in x: _ats(v, acc)
