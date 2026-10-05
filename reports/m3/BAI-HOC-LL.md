@@ -53,3 +53,7 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 28 | Sonnet làm tốt tra nguồn, trượt Q11 khi dựng shot | tập 2: Opus 64,5 nghìn ĐẠT, Sonnet 60,0 nghìn TRƯỢT | — | Sonnet tra nguồn, Opus dựng shot |
 | 29 | Kiểm mù bắt được chỗ lời hiểu sai | tập 3: 3/3 nêu "hopeful" quá đà, 3/3 nêu đoạn 02 dày số | P đọc quen nên không thấy | kiểm mù trước khi thu giọng; sửa điểm ≥ 2/3 |
 | 30 | Bản xem tổng quan lấy khung ở 70 % shot có thể rơi vào lúc chưa hiện số | tập 3 khung-g2 đoạn 04 | số neo muộn trong shot dài | xem khung cuối shot khi rà; cân nhắc neo số sớm hơn |
+| 31 | Kiểm mù: chi phí chủ yếu là **nạp ngữ cảnh subagent**, không phải đọc lời | tập 3: 3 subagent = 141 nghìn; tập 4: 1 subagent 3 vai = 47,3 nghìn | mỗi subagent ≈ 45 nghìn chi phí nền | **1 subagent Sonnet, 3 vai, trần ~50 nghìn/tập; chỉ đưa lời kịch bản (một tệp), không đưa repo** (chủ dự án, 05/10) |
+| 32 | Chỉ viết thành script khi một việc đã làm tay từ 3 lần | — | tránh tự động hoá sớm | luật thư viện (chủ dự án, 05/10); `scripts/ll/lib/README.md` |
+| 33 | Test thư viện trước mỗi lần build | 13 mẫu, lệch lặp lại < 0,3 mức xám; check bắt 4 đặc tả sai; build dừng mã 3 khi render lỗi | sửa lib làm hỏng mẫu khác mà không biết | `scripts/ll/tests/run.sh`, gọi đầu `build.sh` (TESTS=0 để bỏ) |
+| 34 | Mỗi tập một PLAN ≤ 1 trang + mẫu lệnh | — | PLAN gốc 120 dòng lịch sử | `playbook/prompts/`, `playbook/PLAN-TAP-MAU.md`; lịch sử ở `reports/archive/` |

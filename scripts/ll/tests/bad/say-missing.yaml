@@ -1,0 +1,4 @@
+id: bad3
+sources: {S: {short: "S", url: "https://example.org", read: fulltext, accessed: 2026-10-05}}
+numbers: {a: {v: 13, text: "13", kind: actual, unit: people, src: S, say: "thirteen"}}
+segments: [{id: "01", part: TODAY, vo: "Twelve people.", shots: [{tpl: bignum, at: 0, p: {num: a}}]}]

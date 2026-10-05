@@ -1,0 +1,6 @@
+# Đặc tả hợp lệ nhưng mẫu không tồn tại → render lỗi → build.sh phải dừng mã 3.
+id: ll-test-bad
+out: /var/tmp/cine-out/ll-test-bad
+sources: {}
+numbers: {}
+segments: [{id: x, part: STORY, dur: 1, shots: [{tpl: khong_co_mau_nay, at: 0, p: {}}]}]

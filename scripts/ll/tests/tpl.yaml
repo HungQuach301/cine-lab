@@ -1,0 +1,25 @@
+# Test thư viện: mỗi mẫu một đoạn 4 s, không lời; khung 90 (3,75 s) so với ảnh tham chiếu ref/<đoạn>.png.
+id: ll-test
+out: /var/tmp/cine-out/ll-test
+voice: {id: none}
+sources:
+  T: {short: "Test source", url: "https://example.org/test", read: fulltext, accessed: 2026-10-05}
+numbers:
+  a: {v: 120, text: "120", kind: actual, year: 2020, unit: people, src: T}
+  b: {v: 90, text: "90", kind: projection, period: 2025–35, year: 2035, unit: people, src: T}
+  pa: {v: -16, text: "−16%", kind: actual, unit: '%', src: T}
+  pb: {v: -5, text: "−5%", kind: projection, period: 2025–35, unit: '%', src: T}
+segments:
+  - {id: street, part: STORY, dur: 4, shots: [{tpl: street, at: 0, p: {lamps: [{x: 300, lit: 1}, {x: 900}], lighter: {from: 200, to: 700, walk: [0, 3], lights: [0]}}}]}
+  - {id: office, part: STORY, dur: 4, shots: [{tpl: office, at: 0, p: {light: 0.5}}]}
+  - {id: switchboard, part: STORY, dur: 4, shots: [{tpl: rows, at: 0, p: {variant: switchboard, rows: 2, per: 5, screen: 1}}]}
+  - {id: typing, part: STORY, dur: 4, shots: [{tpl: rows, at: 0, p: {variant: typing, rows: 2, per: 5}}]}
+  - {id: teller, part: STORY, dur: 4, shots: [{tpl: rows, at: 0, p: {variant: teller, per: 4, screen: 0.5, look: 1, customer: {at: 0.5, nervous: true}}}]}
+  - {id: text, part: HISTORY, dur: 4, shots: [{tpl: text, at: 0, p: {lines: [{s: "TEST CARD", px: 80, at: 0.2}, {s: "a second line", px: 36, serif: false, at: 0.6}], src: [T]}}]}
+  - {id: bars, part: HISTORY, dur: 4, shots: [{tpl: bars, at: 0, p: {title: "Bars", kindEach: true, bars: [{label: "2020", num: a, at: 0.3}, {label: "2035", num: b, at: 0.8}]}}]}
+  - {id: line, part: HISTORY, dur: 4, shots: [{tpl: line, at: 0, p: {title: "Line", yfmt: k, xr: [1950, 1970], ymax: 300000, at: 0.2, dur: 1.5, series: [{points: [[1950, 65000], [1960, 131000]], labels: [0, 1], ltext: ["65,000", "131,000"], lpos: ["", "below"]}, {points: [[1960, 135000], [1970, 253000]], labels: [1]}], marks: [{x: 1960, label: "classification changes", at: 0.5}], src: [T]}}]}
+  - {id: bignum, part: TODAY, dur: 4, shots: [{tpl: bignum, at: 0, p: {title: "Big number", num: a, at: 0.3, caption: "caption"}}]}
+  - {id: range, part: TODAY, dur: 4, shots: [{tpl: bignum, at: 0, p: {title: "Range", value: [50, 80], text: "50–80% fewer", at: 0.3, kind: actual, src: [T]}}]}
+  - {id: compare, part: TODAY, dur: 4, shots: [{tpl: compare, at: 0, p: {title: "Compare", unit: '%', left: {title: "Then", years: "1930–40", num: pa, at: 0.3}, right: {title: "Now", years: "2025–35", num: pb, at: 0.6}, diff: ["a", "b"], diffAt: 1}}]}
+  - {id: quote, part: TODAY, dur: 4, shots: [{tpl: quote, at: 0, p: {text: "A short quotation for the test.", who: "Someone", at: 0.3, src: [T]}}]}
+  - {id: endcard, part: STORY, dur: 4, shots: [{tpl: endcard, at: 0, p: {line: "Last Lamplighters · Test", next: "Next: Test"}}]}
