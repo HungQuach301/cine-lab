@@ -57,6 +57,7 @@ E
         -af "afade=t=in:d=0.03,afade=t=out:st=$(echo "$DD - 0.06" | bc -l):d=0.06" -c:v libx264 -preset slow -b:v 2800k -maxrate 3600k -bufsize 7200k -pass $p -passlogfile $O/pass/x$k -profile:v high -g 48 $COL -r 24 -fps_mode cfr -c:a aac -b:a 128k -ar 48000 -movflags +faststart -t $DD \
         $( [ $p = 1 ] && echo "-an -f mp4" ) $OUTP; done; done
   sha256sum $O/$ID-$V-*.mp4 > $O/SHA256SUMS.txt; disk "sau ghép"
+  $PY $LL/khan_gia.py "$EP" > /dev/null   # mục B9: KHAN-GIA.md theo mốc đoạn thật
 fi
 if has shorts; then for s in $(segs shorts); do render_one shorts $s $O/shorts/$s.mkv
   $PY $LL/mix.py $TL $O/shorts/$s.wav --short $s

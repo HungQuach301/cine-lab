@@ -52,3 +52,4 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 27 | 3 cổng là đủ | tập 2: 3 lần chủ dự án chạm | — | CHUAN-KENH §7 |
 | 28 | Sonnet làm tốt tra nguồn, trượt Q11 khi dựng shot | tập 2: Opus 64,5 nghìn ĐẠT, Sonnet 60,0 nghìn TRƯỢT | — | Sonnet tra nguồn, Opus dựng shot |
 | 29 | Kiểm mù bắt được chỗ lời hiểu sai | tập 3: 3/3 nêu "hopeful" quá đà, 3/3 nêu đoạn 02 dày số | P đọc quen nên không thấy | kiểm mù trước khi thu giọng; sửa điểm ≥ 2/3 |
+| 30 | Bản xem tổng quan lấy khung ở 70 % shot có thể rơi vào lúc chưa hiện số | tập 3 khung-g2 đoạn 04 | số neo muộn trong shot dài | xem khung cuối shot khi rà; cân nhắc neo số sớm hơn |
