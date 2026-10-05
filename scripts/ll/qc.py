@@ -14,6 +14,8 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q10 bản xem: mỗi phần ≤ 90 MB; Short ≤ 60 s
   Q12 thumbnail: 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh, không chạm (scripts/ll/thumb.py ghi .boxes.json)
   Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
+  Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
+      số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
 import glob, json, os, re, subprocess, sys
@@ -152,6 +154,38 @@ TH = E.get('thumbs') or sorted(glob.glob(os.path.join(os.path.dirname(os.path.ab
 for f in TH:
     e = thumb.check(f if os.path.isabs(f) else os.path.join(REPO, f))
     row('Q12', f'Thumbnail lề an toàn {os.path.basename(f)}', not e, len(e), '0 (lề 5 %)', note='; '.join(e[:3]))
+
+# Q13 số ở các bề mặt phát hành truy được về numbers + đúng nhãn dự báo
+def q13():
+    N = E.get('numbers', {}); vo = ' '.join((x.get('vo') or '') for x in E.get('segments', []) + E.get('shorts', []))
+    years = set(int(y) for y in re.findall(r'\b(1[89]\d\d|20\d\d)\b', vo + ' ' + json.dumps(N, ensure_ascii=False)))
+    PM = re.compile(r'project|forecast|expect|\bby 20\d\d|\?|\(proj', re.I)
+    items = [('tiêu đề', E.get('title') or '')] + [(f"hook {sh['id']}", sh.get('hook', '')) for sh in E.get('shorts', [])]
+    D = os.path.join(os.path.dirname(os.path.abspath(EP)), 'phat-hanh')
+    for f in TH:
+        b = f'{f if os.path.isabs(f) else os.path.join(REPO, f)}.boxes.json'
+        if os.path.exists(b): items.append((os.path.basename(f), ' '.join(x['s'] for x in json.load(open(b))['boxes'])))
+    for f in glob.glob(os.path.join(D, '*description*.txt')):
+        t = open(f).read(); m = re.search(r'DESCRIPTION\n(.*?)\n(?:Chapters|Sources)\n', t, re.S)
+        items += [(os.path.basename(f), x) for x in re.split(r'(?<=[.!?])\s+', m.group(1) if m else '')]
+    for f in glob.glob(os.path.join(D, '*shorts-text*.txt')):
+        items += [(os.path.basename(f), ln.split('#')[0]) for ln in open(f) if ln.strip() and not re.match(r'(Source|Music|Narration)', ln)]
+    bad = []
+    for where, txt in items:
+        t = txt.replace('−', '-').replace('–', '-')
+        for m in re.finditer(r'(?<![\w.])(-|\+)?((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)(\s*%| ?million| ?percent)?', t):
+            raw, v, suf = m.group(0).strip(), float(m.group(2).replace(',', '')), (m.group(3) or '').strip()
+            if 'million' in suf: v *= 1e6
+            if not suf and v == int(v) and 1800 <= v <= 2100 and ',' not in m.group(2):
+                if int(v) not in years: bad.append(f'{where}: năm {raw} không có trong lời/số')
+                continue
+            if not suf and v < 10 and ',' not in m.group(2): continue   # đếm nhỏ ("3 jobs"), số thứ tự
+            hit = [k for k, n in N.items() if abs(abs(v) - abs(float(n['v']))) <= max(0.051 * abs(float(n['v'])) if 'million' in suf else 0.5, 1e-9)
+                   and (('%' in suf or 'percent' in suf) == (n.get('unit', '').startswith('%')) or 'million' in suf)]
+            if not hit: bad.append(f'{where}: "{raw}" không truy được về numbers'); continue
+            if all(N[k]['kind'] == 'projection' for k in hit) and not PM.search(txt): bad.append(f'{where}: "{raw}" là số dự báo nhưng thiếu dấu hiệu dự báo')
+    row('Q13', 'Số trên tiêu đề/thumbnail/mô tả/Shorts truy được về numbers + nhãn dự báo', not bad, len(bad), 0, note='; '.join(bad[:6]))
+q13()
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']

@@ -9,6 +9,9 @@ Nghiên cứu và sản xuất phim ngắn hoạt hình phong cách hoá **chu�
   - `CINE-LAB-KHUNG-CHAT-LUONG.md`: 11 cổng và tiêu chuẩn
   - `CINE-LAB-KE-HOACH-TRIEN-KHAI.md`: mốc M0–M4 và tổ chức nhiều phiên
 
+## Bài học (Last Lamplighters)
+- Mọi phiên P đọc `reports/m3/BAI-HOC-LL.md` khi khởi động. Không đọc lại báo cáo cũ (chủ dự án, 05/10/2026).
+
 ## Cách làm việc
 - Báo cáo bằng **tiếng Việt**, văn phong chuyên nghiệp. Nội dung phim viết bằng tiếng Anh.
 - Kế hoạch theo **mốc và bước nhỏ**, không theo tuần hay ngày. Mỗi đề xuất nêu ưu, nhược, tác động, rủi ro.
