@@ -100,7 +100,7 @@ TPL.teller = (p) => { const cam = camOf(p), per = p.per || 6, R0 = rng(1970), J 
       g.fillStyle = mixC('#3b2f26', '#5a4632', on * 0.6); g.fillRect(xa, wy, xb - xa, wy1 - wy);
       if (on > 0.02) glow(g, (xa + xb) / 2, wy1 - 20 * sc, 150 * sc, RGB_AMB, 0.45 * on);
       if (on > 0.3) { const lift = (p.look !== undefined && k === mid) ? pr(t, p.look, p.look + 0.9) : 0; if (lift > 0 && lift < 1) LL.act = true;
-        person(g, (xa + xb) / 2 + (J[k][0] - 0.5) * 30 * sc, wy1 + 70 * sc, 260 * sc, { seated: true, bun: J[k][1] < 0.5, lift, arm: 2.2 + 0.2 * Math.sin(t * (0.8 + J[k][2]) + k), arm2: -2.0 - 0.15 * Math.sin(t * 1.1 + k * 3), armLen: 0.55, col: '#0d0a0b', rim: `rgba(255,190,120,${0.8 * on})` }); }
+        person(g, (xa + xb) / 2 + (J[k][0] - 0.5) * 30 * sc, wy1 + 330 * sc, 560 * sc, { seated: true, bun: J[k][1] < 0.5, lift, arm: 0.55 + 0.12 * Math.sin(t * (0.8 + J[k][2]) + k), arm2: -0.5 - 0.1 * Math.sin(t * 1.1 + k * 3), armLen: 0.8, col: '#0d0a0b', rim: `rgba(255,190,120,${0.8 * on})` }); }
       g.strokeStyle = 'rgba(30,22,16,0.9)'; g.lineWidth = 3 * sc + 1; for (let b = 1; b < 7; b++) { const x = xa + b * (xb - xa) / 7; g.beginPath(); g.moveTo(x, wy); g.lineTo(x, wy1 - 30 * sc); g.stroke(); }
       g.strokeStyle = 'rgba(150,120,80,0.5)'; g.lineWidth = 2; g.strokeRect(xa, wy, xb - xa, wy1 - wy); }
     g.fillStyle = '#2a1e17'; g.fillRect(cx0, cy0 + (cy1 - cy0) * 0.52, cx1 - cx0, (cy1 - cy0) * 0.5); g.fillStyle = 'rgba(190,150,100,0.25)'; g.fillRect(cx0, cy0 + (cy1 - cy0) * 0.52, cx1 - cx0, 4);
@@ -112,7 +112,7 @@ TPL.teller = (p) => { const cam = camOf(p), per = p.per || 6, R0 = rng(1970), J 
     // lớp gần: khách trước ô giữa
     if (p.customer) { const ca = rv(t, p.customer.at, 0.8), P1 = lay(c, 1.0), xm = cx0 + (mid + 0.5) * (cx1 - cx0) / per;
       if (ca > 0) { const nv = p.customer.nervous ? 1 : 0, sway = nv * 6 * Math.sin(t * 2.3), [qx, qy] = P1(W / 2 + (xm - W / 2) / 1.0 + sway, H * 1.04);
-        g.save(); g.globalAlpha = ca; person(g, qx, qy, 430, { coat: true, arm: -0.5 + nv * (0.9 + 0.08 * Math.sin(t * 5.1)), arm2: -0.1 - nv * 0.25 * Math.abs(Math.sin(t * 1.7)), step: nv * 0.08 * Math.sin(t * 1.9), flip: true, col: '#0a0809', rim: 'rgba(255,200,140,0.75)' }); g.restore();
+        g.save(); g.globalAlpha = ca; person(g, qx, qy, 560, { coat: true, arm: -0.5 + nv * (0.9 + 0.08 * Math.sin(t * 5.1)), arm2: -0.1 - nv * 0.25 * Math.abs(Math.sin(t * 1.7)), step: nv * 0.08 * Math.sin(t * 1.9), flip: true, col: '#0a0809', rim: 'rgba(255,200,140,0.75)' }); g.restore();
         if (ca < 1 || nv) LL.act = true; } }
     fog(g, H * 0.98, 0.18, '60,50,46');
     const v = g.createRadialGradient(W / 2, H * 0.55, H * 0.35, W / 2, H * 0.55, H * 1.05); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.6)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
