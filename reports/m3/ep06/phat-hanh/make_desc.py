@@ -3,7 +3,7 @@
 import json, sys
 tl = json.load(open(sys.argv[1]))
 CH = {'00': 'A hand, or a machine?', '01': 'The print shop', '02': 'Hot type', '03': 'Cold type and paste-up', '04': 'The composing room, 1988',
-      '05': 'The work moved', '06': 'The drawing board', '07': 'Can the BLS see it coming?', '08': 'Graphic designers today', '09': 'One freelance platform',
+      '05': 'The work moved', '06': 'A window still lit', '07': 'Can the BLS see it coming?', '08': 'Graphic designers today', '09': 'One freelance platform',
       '10': 'Same pattern, different hands', '11': 'The hand that decides', '12': 'The last lamp'}
 mm = lambda s: f'{int(s // 60)}:{int(s % 60):02d}'
 chap = '\n'.join(f"{mm(s['t0'])} {CH[s['id']]}" for s in tl['segments'])
@@ -30,11 +30,14 @@ Photographs: Library of Congress, Prints & Photographs Division — FSA/OWI Coll
 Projections are forecasts, not counts. The freelancing study counts job posts on one platform, not jobs.
 
 Music
-"Immersed" and "Reawakening" by Kevin MacLeod (incompetech.com)
+"Reawakening", "Gymnopedie No. 1" and "Clean Soul" by Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
+"Gymnopedie No. 1" composed by Erik Satie (1888, public domain), performed by Kevin MacLeod.
+
+Sound effects (Freesound, CC0): simongray, kyles, Yuval, khenshom, artem_uanety, Jess_Weddle_6121, shelbyshark, OwlStorm, clairinski, Atrius1
 
 How this film was made
-Written, animated and edited with AI tools (Claude by Anthropic) under the direction of the channel's human author, who approved every creative decision. Narration is a synthetic voice (ElevenLabs library voice, not a real person). Animation is stylised; archival photographs are historical and credited on screen.
+Written, animated and edited with AI tools (Claude by Anthropic) under the direction of the channel's human author, who approved every creative decision. Narration is a synthetic voice (ElevenLabs library voice, not a real person). Animation is stylised (3D and 2D scenes built for this film); archival photographs are historical and credited on screen.
 '''
 open(sys.argv[2], 'w').write(txt); print(chap)
