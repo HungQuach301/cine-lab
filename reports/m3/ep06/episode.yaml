@@ -30,11 +30,11 @@ heroes:
   case_close:  {hero: ep06/cellar, variant: b}
   case_line:   {hero: ep06/cellar, variant: b, opt: {done: 9.0, grade: warm}}
   case_end:    {hero: ep06/cellar, variant: b, opt: {grade: warm}}
-  lino_row:    {hero: ep06/linotype, variant: a}
-  lino_high:   {hero: ep06/linotype, variant: b}
+  lino_row:    {hero: ep06/linotype, variant: a, opt: {exposure: 1.35}}   # sáng hơn (Q31: phòng máy quá tối)
+  lino_high:   {hero: ep06/linotype, variant: b, opt: {exposure: 1.35}}
   wall_push:   {hero: ep06/drafts, variant: a}
   wall_back:   {hero: ep06/drafts, variant: b}
-  s_lino:      {hero: ep06/linotype, variant: a, size: [1080, 1920]}
+  s_lino:      {hero: ep06/linotype, variant: a, opt: {exposure: 1.35}, size: [1080, 1920]}
   s_wall:      {hero: ep06/drafts, variant: a, size: [1080, 1920]}
 
 
@@ -130,7 +130,8 @@ segments:
          sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: "@rows", src_ss: 12.0, dur: 3.2, gain_db: -14, fade_ms: 600}]}
       - {tpl: archive, at: "@compositors-0.3", p: {img: assets/ll/archive/fsa-8d22748.jpg, rid: LOC-8d22748, focus: [0.45, 0.62], credit: "Page make-up, NYT, 1942 · Library of Congress",
            cam: [{t: "@compositors", x: 0, z: 0.03}, {t: "@pages+1", x: 30, z: 0.09}], cap: [{s: "compositors fit the lines of lead into pages", at: "@compositors"}]}}
-      - {tpl: quote, at: "@later-0.4", in: slide, p: {beats: [{s: "the BLS, 1990", at: "@later"}], text: "…this printing method is well along the road to extinction.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@well", src: [OOH90]}}
+      - {tpl: plate, at: "@later-0.4", in: fade, p: {hero: lino_row, off: 140, cap: [{s: "the BLS, 1990:", at: "@later", src: [OOH90]}, {s: "“…well along the road to extinction”", at: "@well", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: "@later", src_ss: 20.0, dur: 6.0, gain_db: -15, fade_ms: 1500}]}
 
   - id: "03"
     part: HISTORY
@@ -174,10 +175,10 @@ segments:
            cap: [{s: "BLS outlook to 2000: little or no change", at: "@expected", src: [OOH90]}, {s: "despite a growing printing industry", at: "@despite"}, {s: "computers take over much of the typing", at: "@typing", src: [OOH90]}]}}
       - {tpl: plate, at: "@training-0.4", in: fade, p: {hero: case_close, off: 140, cap: [{s: "the training changed too", at: "@training"}, {s: "in the past: an apprenticeship", at: "@apprenticeship", src: [OOH90]}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…most learned on the job", at: "@job"}]},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@apprenticeship", src_ss: 9.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
-      - {tpl: rows, at: "@newspapers#2-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@terminal", "@already+1.0"], cam: [{t: "@newspapers#2", x: 0, z: 0.0}, {t: "@already+1", x: -40, z: 0.05}],
-           cap: [{s: "at newspapers: reporters and editors format pages", at: "@reporters", src: [OOH90]}, {s: "at a desktop terminal", at: "@terminal"}]},
+      - {tpl: rows, at: "@newspapers#2-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@terminal", "@disappear"], cam: [{t: "@newspapers#2", x: 0, z: 0.0}, {t: "@already", x: -30, z: 0.04}, {t: "@disappear+1", x: -60, z: 0.08}],
+           cap: [{s: "at newspapers: reporters and editors format pages", at: "@reporters", src: [OOH90]}, {s: "at a desktop terminal", at: "@terminal"},
+                 {s: "BLS, 1990: “…already eliminated many typesetting and composition jobs”", at: "@already", src: [OOH90]}, {s: "“…and more are certain to disappear”", at: "@certain", src: [OOH90]}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@reporters", src_ss: 4.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
-      - {tpl: quote, at: "@already+0.8", in: slide, p: {beats: [{s: "BLS, 1990", at: "@already+0.9"}], text: "…has already eliminated many typesetting and composition jobs, and more are certain to disappear in the years ahead.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@already", src: [OOH90]}}
 
   - id: "05"
     part: HISTORY
@@ -235,8 +236,10 @@ segments:
       They fell by nearly nine in ten, to only nine thousand two hundred by 2023.
       But for a brand-new technology like generative AI, the BLS changes its projections only when its research provides clear evidence.
     shots:
-      - {tpl: filmstrip, at: 0, p: {fade: 999, seed: 29, cam: [{t: 0, x: 0, z: 0.0}, {t: "@fell", x: -60, z: 0.06}],
-           cap: [{s: "Can the BLS see it coming?", at: "@coming", src: []}, {s: "early 2000s: digital cameras replace film", at: "@digital", src: [MLR25]}, {s: "BLS projected: photo processing workers decline", at: "@projected", src: [MLR25]}]},
+      - {tpl: plate, at: 0, p: {hero: wall_back, off: 200, cap: [{s: "Can the BLS see it coming?", at: "@coming", src: []}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: 0.5, src_ss: 32.0, dur: 2.5, gain_db: -13, fade_ms: 400}]}
+      - {tpl: filmstrip, at: "@once-0.3", in: fade, p: {fade: 999, seed: 29, cam: [{t: "@once", x: 0, z: 0.0}, {t: "@fell", x: -60, z: 0.06}],
+           cap: [{s: "once, it did: early 2000s, digital cameras replace film", at: "@digital", src: [MLR25]}, {s: "BLS projected: photo processing workers decline", at: "@projected", src: [MLR25]}]},
          sfx: [{file: assets/ll/sfx/camera-shutter.mp3, at: "@digital", src_ss: 0.5, dur: 1.2, gain_db: -8, fade_ms: 60}]}
       - {tpl: filmstrip, at: "@fell-0.4", in: cut, p: {fade: "@nine", keep: 0.11, seed: 31, cam: [{t: "@fell", x: 80, z: 0.2}, {t: "@2023+0.5", x: 40, z: 0.24}], cap: [{s: "nearly nine in ten gone", at: "@nine", src: [MLR25]}]}}
       - {tpl: sign, at: "@only-0.4", in: fade, p: {num: ph23, at: "@thousand", wall: plaster, cam: [{t: "@only", x: 0, z: 0.0}, {t: "@2023+0.8", x: -30, z: 0.03}],
@@ -297,7 +300,10 @@ segments:
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
       But the differences matter. Back then, the machine took the keystrokes, and there came to be more designers. This time, it reaches for the drawing itself, and the BLS projects fewer designers. So far, that is a forecast and a drop in job posts, not yet a count of jobs lost.
     shots:
-      - {tpl: text, at: 0, p: {lines: [{s: "The comparison, with a caution", px: 58, at: "@comparison"}, {s: "not side by side:", px: 36, serif: false, at: "@side"}, {s: "a count from 1988", px: 36, serif: false, at: "@count"}, {s: "a forecast", px: 36, serif: false, at: "@forecast"}, {s: "one platform's job posts", px: 36, serif: false, at: "@single"}]}}
+      - {tpl: plate, at: 0, p: {hero: lino_high, off: 150, cap: [{s: "the comparison, with a caution", at: "@comparison"}, {s: "not side by side:", at: "@side"}, {s: "a count from 1988", at: "@count", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.3, src_ss: 24.0, dur: 5.0, gain_db: -17, fade_ms: 1200}]}
+      - {tpl: plate, at: "@forecast-0.3", in: fade, p: {hero: wall_push, off: 250, cap: [{s: "a forecast, 2025–35", at: "@forecast", src: [OOHGD]}]}}
+      - {tpl: jobboard, at: "@single-0.3", in: fade, p: {drop: 999, seed: 29, mood: cold, cam: [{t: "@single", x: 40, z: 0.16}, {t: "@pattern", x: 10, z: 0.2}], cap: [{s: "one platform's job posts", at: "@single", src: [DHZ]}]}}
       - {tpl: diptych, at: "@pattern-0.4", in: fade, p: {split: "@today-0.2", left: {hero: case_close, i: 60, fx: 0.5}, right: {hero: wall_push, i: 300, fx: 0.5},
            cap: [{s: "what we can compare is the pattern", at: "@pattern"}, {s: "then: the computer sets the type; the designer takes the tool", at: "@then", src: [BES16]}, {s: "today: software drafts the first image", at: "@today", src: [MLR26]}, {s: "the designer, handed the tool again", at: "@handed"}]}}
       - {tpl: plate, at: "@technology-0.6", in: fade, p: {hero: case_close, off: 200, cap: [{s: "not the same technology — the same pattern", at: "@technology"}, {s: "a repetitive human task, taken over by an automated system", at: "@repetitive"}]},

@@ -51,16 +51,18 @@ def q31(O, tl, video):
             nm = f'T{k:02d}_{j}.jpg'; grab(video, max(0, c + dt), os.path.join(O, nm), 640); names.append(nm)
         subprocess.run(['ffmpeg', '-v', 'error', '-y'] + sum([['-i', os.path.join(O, x)] for x in names], []) + ['-filter_complex', f'hstack={len(names)}', os.path.join(O, f'T{k:02d}.jpg')], check=True)
         for x in names: os.remove(os.path.join(O, x))
-        said = ' '.join(w for t, w in words if c - 6 <= t <= c + 6)
-        txt.append(f'T{k:02d} (cut at {int(c // 60)}:{c % 60:04.1f}; frames at −2.5, −1.5, −0.5, +0.5, +1.5, +2.5 s): narration around the cut: "{said}"')
+        said = ' '.join(w for t, w in words if c - 2.5 <= t <= c + 2.5)   # đúng cửa sổ khung (bài học Q31 tập 6 v2: ±6 s làm người xem tưởng lời rơi vào khung khác)
+        txt.append(f'T{k:02d} (cut at {int(c // 60)}:{c % 60:04.1f}; frames at −2.5, −1.5, −0.5, +0.5, +1.5, +2.5 s): narration spoken within ±2.5 s of the cut: "{said}"')
     D = T['tong_s']; strip = []
     for i, t in enumerate(range(2, int(D), 4)):
         nm = f'S{i:03d}.jpg'; grab(video, t, os.path.join(O, nm), 320); strip.append(nm)
     rows = [strip[i:i + 8] for i in range(0, len(strip), 8)]   # 8 khung một dải
     for i, row in enumerate(rows):
-        while len(row) < 8: row.append(row[-1])
+        if len(row) < 8:   # độn bằng khung đen, không lặp khung cuối (lặp khung bị đọc thành 'cảnh đứng')
+            blk = os.path.join(O, 'BLACK.jpg'); subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', 'color=black:s=320x180', '-frames:v', '1', blk], check=True)
+            while len(row) < 8: row.append('BLACK.jpg')
         subprocess.run(['ffmpeg', '-v', 'error', '-y'] + sum([['-i', os.path.join(O, x)] for x in row], []) + ['-filter_complex', 'hstack=8', os.path.join(O, f'R{i:02d}.jpg')], check=True)
-    for x in strip: os.remove(os.path.join(O, x))
+    for x in strip + (['BLACK.jpg'] if os.path.exists(os.path.join(O, 'BLACK.jpg')) else []): os.remove(os.path.join(O, x))
     open(os.path.join(O, 'transitions.txt'), 'w').write('\n'.join(txt) + f'\n\nOverview strips R00…R{len(rows) - 1:02d}: one frame every 4 s from 0:02, 8 frames per strip, left to right, strips in order.\n')
 
 
