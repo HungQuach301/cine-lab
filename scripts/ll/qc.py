@@ -17,6 +17,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q14–Q18 luật nhịp (scripts/ll/rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
   Q20 va chạm chữ–hình: chú thích không đè vùng hình đã khai (log render 'hit')
   Q19 hồ sơ quyền tư liệu phạm vi công cộng (scripts/ll/rights_check.py)
+  Q22 chữ tràn khung: hộp chữ ở khung mẫu nằm trong khung, cách mép trái/phải ≥ 8 px (scripts/ll/overflow_check.py)
   Q21 gán nguồn trên hình: dòng nguồn đang hiện chứa nguồn của mọi số/câu đang hiện; câu có số/năm/cơ quan phải khai num/src (scripts/ll/src_check.py)
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
@@ -211,6 +212,10 @@ row('Q19', 'Hồ sơ quyền tư liệu (danh sách trắng, RIGHTS, ≤ 20 %)',
 import src_check  # noqa: E402
 _sb = src_check.check(E, TL)
 row('Q21', 'Dòng nguồn khớp số/câu đang hiện', not _sb, len(_sb), 0, note='; '.join(_sb[:4]))
+# Q22 chữ tràn khung (chủ dự án duyệt 06/10/2026)
+import overflow_check  # noqa: E402
+_ob = overflow_check.check(logs)
+row('Q22', 'Chữ nằm trong khung (lề ≥ 8 px)', not _ob, len(_ob), 0, note='; '.join(_ob[:3]))
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']

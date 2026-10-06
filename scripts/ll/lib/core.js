@@ -84,7 +84,12 @@ const effScale = (g) => { const m = g.getTransform(); return Math.sqrt(Math.abs(
 function fitPx(g, px) { const s = effScale(g) || 1; if (px * s >= MINPX - 0.01) return px; LL.stat.raised++; LL.stat.rmax = Math.max(LL.stat.rmax, MINPX / s - px); return MINPX / s; }
 function text(g, s, x, y, px, color, o = {}) {
   s = String(s); if (!s) return 0; const a = o.a === undefined ? 1 : o.a; if (a <= 0.01) return 0;
-  const p = o.raw ? px : fitPx(g, px); const f = font(p, o.kind || 'sans', o.bold !== false);
+  let p = o.raw ? px : fitPx(g, px);
+  /* chữ phủ trên khung (ma trận đơn vị) quá rộng → thu cỡ cho vừa lề 40 px, không dưới MINPX (chủ dự án duyệt 06/10/2026, từ tập 6; qc Q22 đo phần còn tràn) */
+  if (!o.deco && !o.nofit) { const m = g.getTransform(); if (m.a === 1 && m.d === 1 && !m.b && !m.c && !m.e && !m.f) { g.save(); g.font = font(p, o.kind || 'sans', o.bold !== false); const w0 = g.measureText(s).width; g.restore();
+    const al = o.align || 'left', M = 40, room = al === 'center' ? 2 * Math.min(x - M, W - M - x) : al === 'right' ? x - M : W - M - x;
+    if (room > 0 && w0 > room) { const q = Math.max(MINPX, p * room / w0); if (q < p) { p = q; LL.stat.fit = (LL.stat.fit || 0) + 1; } } } }
+  const f = font(p, o.kind || 'sans', o.bold !== false);
   g.save(); g.globalAlpha *= cl(a); g.font = f; g.fillStyle = color; g.textAlign = o.align || 'left'; g.textBaseline = o.base || 'alphabetic';
   if (o.italic) g.font = 'italic ' + f;
   g.fillText(s, x, y); const w = g.measureText(s).width;

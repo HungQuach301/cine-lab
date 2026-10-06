@@ -259,7 +259,7 @@ shorts:
     shots:
       - {tpl: inspect, at: 0, p: {era: 2025, walk: [0.5, 4], flash: ["@wrecked", "@photographs"], estimate: "@calculate", cam: [{t: 0, x: 0, z: 0.03}, {t: 8, x: -40, z: 0.08}, {t: 16, x: -70, z: 0.12}, {t: 22, x: -90, z: 0.14}],
            cap: [{s: "auto damage appraisers", at: "@auto"}, {s: "what it costs to fix a wrecked car", at: "@costs"}, {s: "BLS projection", at: "@bureau", src: [OOHC]}, {num: ap_chg, s: "jobs, projected 2025–35", at: "@nine"},
-                 {s: "its reason:", at: "@reason"}, {s: "software evaluates photographs", at: "@evaluate"}, {s: "…and calculates an estimated claim", at: "@calculate"}, {s: "a projection, not a count", at: "@projection"}]}}
+                 {s: "its reason:", at: "@reason"}, {s: "software evaluates photographs", at: "@evaluate"}, {s: "…and calculates a claim estimate", at: "@calculate"}, {s: "a projection, not a count", at: "@projection"}]}}
   - id: S2
     hook: "1966: the computer couldn't judge. 2026?"
     vo: >-
@@ -267,11 +267,11 @@ shorts:
     shots:
       - {tpl: desk, at: 0, p: {eras: [{era: 1963, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#b6462c", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 24, x: -80, z: 0.12}],
            cap: [{s: "BLS study of insurance offices", at: "@studied", src: [B1468]}, {num: rec, s: "of companies: routine record keeping fell", at: "@twothirds"}, {s: "few people laid off", at: "@few"},
-                 {s: "judgment and decision making would remain", at: "@judgment"}, {s: "today: AI drafts the initial payout estimate", at: "@initial"}, {s: "the line is moving", at: "@line"}]}}
+                 {s: "judgment stays with people", at: "@judgment"}, {s: "now: AI drafts the first estimate", at: "@initial"}, {s: "the line is moving", at: "@line"}]}}
   - id: S3
     hook: "88% of auto insurers — use, plan, or explore AI"
     vo: >-
       In a survey by state insurance regulators, eighty-eight percent of one hundred ninety-three auto insurers said they use, plan to use, or plan to explore AI and machine learning. That counts plans as well as practice. It tells us about intent, not about how many claims a machine already prices.
     shots:
       - {tpl: sign, at: 0, p: {num: naic, at: "@eightyeight", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.03}],
-           cap: [{s: "of 193 U.S. auto insurers (NAIC, 2022)", at: "@insurers", src: [NAIC]}, {s: "use, plan to use, or plan to explore AI", at: "@use"}, {s: "plans as well as practice", at: "@counts"}, {s: "intent, not a count of claims", at: "@intent"}]}}
+           cap: [{s: "of 193 auto insurers (NAIC, 2022)", at: "@insurers", src: [NAIC]}, {s: "use, plan, or explore AI", at: "@use"}, {s: "plans as well as practice", at: "@counts"}, {s: "intent, not a count of claims", at: "@intent"}]}}

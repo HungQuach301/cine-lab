@@ -14,6 +14,7 @@ for Y in tpl tpl2; do   # tpl: thư viện v1; tpl2: thư viện HÌNH v2 (isoty
 done
 $PY $LL/rights_check.py $T/tpl2.yaml > /dev/null || { echo "TRƯỢT rights: tpl2 phải ĐẠT"; fail=1; }
 $PY $LL/src_check.py --self-test > /dev/null || { echo "TRƯỢT src_check: tự kiểm gán nguồn"; fail=1; }
+$PY $LL/overflow_check.py --self-test > /dev/null || { echo "TRƯỢT overflow_check: tự kiểm chữ tràn khung"; fail=1; }
 # (4) va chạm chữ–hình: chú thích không được đè hàng hình isotype (lỗi lát cắt v2, chủ dự án 06/10/2026) — render trọn đoạn, đọc log 'hit'
 rm -f $O/iso-cap.mkv*; node $LL/render.js --tl /var/tmp/cine-out/ll-test2/timeline.json --seg isotype-cap --out $O/iso-cap.mkv > /dev/null 2>&1
 $PY -c "import json,sys;L=json.load(open('$O/iso-cap.mkv.log.json'));n=L.get('hit','').count('1');print('va chạm chữ–hình:',n,'khung');sys.exit(1 if n or 'hit' not in L else 0)" || { echo "TRƯỢT va chạm chữ–hình (isotype + cap)"; fail=1; }

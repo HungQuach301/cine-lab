@@ -101,7 +101,7 @@ TPL.inspect = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
   const r = worker(g, wx, wy, 360, { seated: false, era: p.era, accent: p.accent, step: 0.3 * Math.sin(t * 5) * (u > 0 && u < 1 ? 1 : 0), arm: 2.4, arm2: -0.3, flip: true });
   if (p.era >= 2025) { PROP.phone(g, r.hand[0] - 10, r.hand[1] + 30, 0.8); if (fl) glow(g, r.hand[0] - 10, r.hand[1] - 20, 200, '255,250,235', 0.6 * fl); }
   else PROP.camera(g, r.hand[0] - 10, r.hand[1] + 20, 0.9, { flash: fl });
-  if (p.estimate !== undefined) { const a = rv(t, p.estimate, 0.8); if (a > 0) { const bx = W * 0.58, by = H * 0.18; g.save(); g.globalAlpha *= a;
-    cut(g, (q) => rr(q, bx, by, 520, 230, 14), '#101a2a', { blur: 18 }); text(g, 'AUTOMATED ESTIMATE', bx + 30, by + 56, 26, '#9fc4ec', { a });
-    text(g, p.amount || 'estimate ready', bx + 30, by + 140, 72, CREAM, { kind: 'serif', a }); text(g, 'from photos · draft for review', bx + 30, by + 196, 24, 'rgba(236,223,190,0.85)', { a }); g.restore(); } }
+  if (p.estimate !== undefined) { const a = rv(t, p.estimate, 0.8); if (a > 0) { const v = LL.fmt === '9x16', bx = v ? W * 0.08 : W * 0.58, by = H * (v ? 0.1 : 0.18), bw = v ? W * 0.84 : 520, k = v ? 1.3 : 1; g.save(); g.globalAlpha *= a;   /* 9:16: hộp rộng theo khung (Q22) */
+    cut(g, (q) => rr(q, bx, by, bw, 230 * k, 14), '#101a2a', { blur: 18 }); text(g, 'AUTOMATED ESTIMATE', bx + 30, by + 56 * k, 26, '#9fc4ec', { a });
+    text(g, p.amount || 'estimate ready', bx + 30, by + 140 * k, 72, CREAM, { kind: 'serif', a }); text(g, 'from photos · draft for review', bx + 30, by + 196 * k, 24, 'rgba(236,223,190,0.85)', { a }); g.restore(); } }
   fog(g, H * 0.98, 0.14, '60,50,60'); alive(g, t); } }; };
