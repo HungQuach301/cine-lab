@@ -1,0 +1,254 @@
+# Last Lamplighters · Tập 7 "When Computers Were People" — đặc tả nhà máy v1 (G1 lô 6–8, 06/10/2026), HÌNH v2 từ đầu. Thẻ đề tài T1 (topics/queue.md).
+# Cặp nghề: "máy tính người" (nhân viên tính toán bằng tay, NACA/NASA 1935–1970) ↔ lập trình viên / phát triển phần mềm với AI (2023–34; người trẻ 22–25 tuổi, 2022–26).
+# Nguồn: reports/m3/ep07/NGUON-TAP7.md. Mọi số đọc toàn văn (nasa.gov, FRASER, Stanford DEL).
+# So sánh: ĐỊNH TÍNH (như tập 5, phương án 5B). Số NASA là số của MỘT phòng thí nghiệm, không đặt cạnh số việc làm toàn quốc.
+# KHÔNG dùng: số BLS 2025–35 cho computer programmers (bls.gov chặn P; CHỜ XÁC MINH, xem NGUON); tên phim/sách thương mại về các nữ "computer".
+# Thư viện cần thêm (một lượt, đầu tập): PROP calculator (máy tính cơ Friden/Marchant + giấy kẻ ô), ERA 1944 → calculator.
+id: ll-ep07
+hook: {answer: "11", keys: [name, programmers]}
+anchors: [c46, sd_chg, can]
+rhythm: {paper_max: 40}
+title: "When Computers Were People: The Job a Machine Took Its Name From"
+out: /var/tmp/cine-out/ll-ep07
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "12", xfade: 3}
+
+sources:
+  NASA1: {short: "NASA History: Langley's Computers, 1935–1970", short9: "NASA History", title: "When the Computer Wore a Skirt: Langley's Computers, 1935–1970",
+          url: "https://www.nasa.gov/history/langleys-computers-1935-1970/", read: fulltext, pages: "web article (P đọc toàn văn 06/10/2026)", accessed: 2026-10-06}
+  NASA2: {short: "NASA JPL: When Computers Were Human", short9: "NASA JPL", title: "When Computers Were Human",
+          url: "https://www.nasa.gov/centers-and-facilities/jpl/when-computers-were-human/", read: fulltext, pages: "web article", accessed: 2026-10-06}
+  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", short9: "BLS Outlook Handbook 1990–91", title: "Occupational Outlook Handbook, 1990–91 Edition: Computer Programmers",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "print pp. 215–216 (Computer Programmers)", accessed: 2026-10-06}
+  NASA3: {short: "NASA: From Computers to Leaders, Women at NASA Langley", short9: "NASA", title: "From Computers to Leaders: Women at NASA Langley",
+          url: "https://www.nasa.gov/general/from-computers-to-leaders-women-at-nasa-langley/", read: fulltext, pages: "web article", accessed: 2026-10-06}
+  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", short9: "BLS Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF p. 2 (Computer occupations, Table 1)", accessed: 2026-10-06}
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", short9: "BLS Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 1 (total +3.1 %), table 15-1252 Software developers", accessed: 2026-10-06}
+  CAN: {short: "Brynjolfsson, Chandar & Chen, Canaries in the Coal Mine? (Aug 2026)", short9: "Stanford Digital Economy Lab, 2026", title: "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence (August 2026 update)",
+        url: "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf", read: fulltext, pages: "pp. 1–2 (abstract, introduction)", accessed: 2026-10-06}
+
+numbers:
+  c42: {v: 75, text: "75", kind: actual, year: 1942, unit: people, src: NASA1, say: "seventy-five"}
+  c46: {v: 400, text: "about 400", kind: actual, year: 1946, unit: people, src: NASA1, say: "about four hundred"}
+  prog88: {v: 519000, text: "519,000", kind: actual, year: 1988, unit: jobs, src: OOH90, say: "five hundred nineteen thousand"}
+  sd23_chg: {v: 17.9, text: "+17.9%", kind: projection, period: 2023–33, unit: '%', src: MLR25, say: "seventeen point nine percent"}
+  sd24: {v: 1693800, text: "1.69 million", kind: actual, year: 2024, unit: jobs, src: MLR26, say: "one point six nine million"}
+  sd34: {v: 1961400, text: "1.96 million", kind: projection, period: 2024–34, year: 2034, unit: jobs, src: MLR26, say: "one point nine six million"}
+  sd_chg: {v: 15.8, text: "+15.8%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "fifteen point eight percent"}
+  all_chg: {v: 3.1, text: "+3.1%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "three point one percent"}
+  can: {v: -19, text: "−19%", kind: actual, year: 2026, unit: '% vs. less-exposed peers', src: CAN, say: "nineteen percent", note: "22–25 tuổi, nghề phơi nhiễm AI, so với nhịp của nhóm ít phơi nhiễm; dữ liệu ADP đến 6/2026"}
+
+segments:
+  # 00 — móc câu (Q14): nghề mà máy lấy tên. Trả lời ở đoạn 11 (name, programmers).
+  - id: "00"
+    part: STORY
+    vo: >-
+      What happens to a job when a machine takes its name? In the 1940s, a computer was a person with a pencil.
+      Today, young workers in AI-exposed jobs have fallen nineteen percent behind their peers.
+    vo_offset: 0.6
+    tail: 0.6
+    fadeIn: 0
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1944, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#6a4c8c", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.06}, {t: 10, x: -60, z: 0.09}, {t: 16, x: -90, z: 0.12}],
+           cap: [{s: "What happens to a job when a machine takes its name?", at: "@what", src: []}, {s: "1940s: a computer was a person", at: "@1940s", src: [NASA1]},
+                 {s: "today: the youngest workers in AI-exposed jobs", at: "@today", src: [CAN]}, {num: can, s: "employment, ages 22–25, vs. less-exposed peers (2026)", at: "@nineteen"}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the lamplighter passes a research laboratory by an airfield. The engineers have gone home, but one long room is still lit.
+      Rows of women sit with pencils, slide rules, and machines that clatter when they multiply.
+    vo_offset: 3.4
+    min_dur: 27
+    tail: 1.2
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "WHEN COMPUTERS WERE PEOPLE", px: 76}, {s: "Last Lamplighters · Episode 7", px: 34, serif: false}]}}
+      - {tpl: street, at: 3.0, in: fade, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [3.2, "@passes+0.5"], lights: [1]}, warm: 0.6, windows: 0.7,
+                                 cam: [{t: 3, x: 0, z: 0}, {t: 7, x: -100, z: 0.02}, {t: "@engineers", x: -240, z: 0.06}]}}
+      - {tpl: desk, at: "@rows-0.4", in: fade, p: {eras: [{era: 1944, at: "@rows-0.4", label: " "}], accent: "#6a4c8c", cam: [{t: "@rows", x: 60, z: 0.0}, {t: "@slide", x: 20, z: 0.04}, {t: "@multiply+1.2", x: -20, z: 0.08}, {t: "@multiply+5", x: -50, z: 0.11}],
+           cap: [{s: "pencils · slide rules · calculating machines", at: "@pencils"}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      Before electronic computers, the word computer meant a person. It was a job title: someone who performed mathematical equations and calculations by hand.
+      In 1935, the aeronautical laboratory at Langley, Virginia, started a computer pool with five women. They read the data from wind tunnel tests, calculated, and plotted the results,
+      using slide rules, magnifying glasses, and calculating machines that could multiply and take square roots.
+      It was work the engineers had once done themselves: essential, but time-consuming.
+    shots:
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d10672.jpg, rid: LOC-8d10672, focus: [0.5, 0.45], credit: "Office worker computing figures, Lititz, Pa., 1942 · Library of Congress",
+           cam: [{t: 0, x: 40, z: 0.0}, {t: 6, x: 10, z: 0.04}, {t: 12, x: -20, z: 0.08}],
+           cap: [{s: "before electronic computers: a computer was a person", at: "@before", src: [NASA1]}, {s: "a job title", at: "@title"}, {s: "calculations by hand", at: "@hand"}]}}
+      - {tpl: desk, at: "@1935-0.4", in: fade, p: {eras: [{era: 1944, at: "@1935-0.4", label: "1935"}], accent: "#6a4c8c", cam: [{t: "@1935", x: 0, z: 0.02}, {t: "@five", x: -20, z: 0.04}, {t: "@wind", x: -40, z: 0.06}, {t: "@magnifying", x: -80, z: 0.1}, {t: "@roots+1", x: -100, z: 0.12}],
+           cap: [{s: "Langley, Virginia, 1935: a computer pool of five women", at: "@1935", src: [NASA1]}, {s: "wind tunnel data: read, calculate, plot", at: "@wind"},
+                 {s: "slide rules · magnifying glasses · calculating machines", at: "@magnifying"}, {s: "work the engineers once did themselves", at: "@engineers"}]}}
+
+  - id: "03"
+    part: HISTORY
+    vo: >-
+      The work grew with the war. A 1942 report counted seventy-five women computers at the laboratory; many were former high school teachers.
+      By 1946, the head of computing had trained about four hundred women and placed them across the laboratory.
+      Black women were hired as computers too, but under segregation they worked in a separate section, the West Area Computers, with separate dining rooms and bathrooms.
+      It was also a way into aeronautical research for women, at a time when most were not being hired as engineers. The pay was much better than most jobs open to women at the time. And the computers did more in a morning than an engineer alone could finish in a day.
+    shots:
+      - {tpl: isotype, at: 0, p: {title: "Women computers at the Langley laboratory", subtitle: "one laboratory, not a national count", unit: 10, unitName: "women", per: 20,
+           groups: [{label: "1942 (report)", num: c42, at: "@seventyfive"}, {label: "by 1946 (trained)", num: c46, at: "@four"}],
+           cap: [{s: "the work grew with the war", at: "@war", src: [NASA1]}, {s: "many were former teachers", at: "@teachers"}]}}
+      - {tpl: desk, at: "@black-0.4", in: fade, p: {eras: [{era: 1944, at: "@black-0.4", label: "1944"}], accent: "#6a4c8c", cam: [{t: "@black", x: 0, z: 0.02}, {t: "@segregation", x: -30, z: 0.05}, {t: "@time", x: -50, z: 0.07}, {t: "@pay", x: -60, z: 0.08}, {t: "@pay+4.5", x: -75, z: 0.09}, {t: "@morning", x: -90, z: 0.1}, {t: "@day+1", x: -110, z: 0.12}],
+           cap: [{s: "segregation: the West Area Computers", at: "@segregation", src: [NASA1]}, {s: "separate dining rooms and bathrooms", at: "@separate#2"},
+                 {s: "a way into aeronautical research", at: "@aeronautical"}, {s: "pay: better than most jobs open to women", at: "@pay"}, {s: "more in a morning than an engineer in a day", at: "@morning"}]}}
+
+  - id: "04"
+    part: HISTORY
+    vo: >-
+      Then the machine arrived that would take their name. In 1947, the agency acquired a huge electronic computer, and it got its own computing group.
+      With the first electronic computers, the human computers took on programming duties as well. At the Jet Propulsion Laboratory in California, a team of women computers went on to become some of the earliest computer programmers.
+      One of their main tasks was computing the planned paths of spacecraft. After Sputnik, the laboratory built Explorer 1, which in 1958 became the first American satellite.
+      At first, JPL notes, the machines were fast, but not nearly as reliable as the people.
+    shots:
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/usnwr-89395.jpg, rid: LOC-89395, focus: [0.5, 0.55], credit: "IBM computer room, New Haven, 1967 · Library of Congress",
+           cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -30, z: 0.04}, {t: 12, x: -60, z: 0.08}, {t: 18, x: -80, z: 0.11}, {t: 24, x: -100, z: 0.13}, {t: 30, x: -110, z: 0.14}, {t: 36, x: -120, z: 0.15}, {t: 42, x: -130, z: 0.16}],
+           cap: [{s: "the machine that took their name", at: "@machine", src: [NASA1]}, {s: "1947: a huge electronic computer", at: "@1947", src: [NASA1]}, {s: "human computers take on programming", at: "@programming"},
+                 {s: "JPL: some of the earliest programmers", at: "@earliest", src: [NASA2]}, {s: "computing the paths of spacecraft", at: "@paths"}, {s: "1958: Explorer 1", at: "@explorer", src: [NASA2]}, {s: "at first: fast machines, less reliable than people", at: "@reliable", src: [NASA2]}]}}
+
+  - id: "05"
+    part: HISTORY
+    vo: >-
+      Programming became a large occupation of its own. By 1988, computer programmers held five hundred nineteen thousand jobs.
+      In its 1990 handbook, the BLS made a forecast that sounds familiar. Employment would not grow as rapidly as in the past, because improved software and programming techniques simplify or eliminate some programming tasks.
+      And on artificial intelligence, it wrote: AI principles and languages will become just additional tools available to programmers.
+      It also warned that competition had increased for entry level positions.
+    shots:
+      - {tpl: sign, at: 0, p: {num: prog88, caption: "computer programmer jobs, United States, 1988", at: "@nineteen", capAt: "@jobs", wall: plaster,
+           cam: [{t: 0, x: 0, z: 0.0}, {t: 4, x: -20, z: 0.02}, {t: "@1988", x: -40, z: 0.04}],
+           cap: [{s: "programming: a large occupation of its own", at: "@occupation", src: [OOH90]}]}}
+      - {tpl: quote, at: "@handbook-0.4", in: slide, p: {beats: [{s: "the BLS, 1990: a familiar forecast", at: "@handbook"}, {s: "not as rapidly as in the past", at: "@rapidly"}],
+           text: "…improved software and programming techniques simplify or eliminate some programming tasks.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@improved", src: [OOH90]}}
+      - {tpl: quote, at: "@artificial-0.4", in: flip, p: {beats: [{s: "and on artificial intelligence", at: "@artificial"}, {s: "a warning: entry level", at: "@warned"}],
+           text: "AI principles and languages will…become just additional tools available to programmers.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@principles", src: [OOH90]}}
+
+  - id: "06"
+    part: STORY
+    vo: >-
+      The lamplighter walks on. The laboratory window goes dark. Across the street, in a tall office building, one desk is still lit:
+      a young programmer watches lines of code appear on a screen, faster than anyone could type them.
+    vo_offset: 2.5
+    min_dur: 27
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@lit+1"]}, warm: 0.4, windows: 0.4,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: 8, x: -200, z: 0.035}, {t: "@lit+1", x: -300, z: 0.05}]}}
+      - {tpl: desk, at: "@young-0.4", in: fade, p: {eras: [{era: 2025, at: "@young-0.4", label: " "}], accent: "#6a4c8c",
+           cam: [{t: "@young", x: 0, z: 0}, {t: "@code", x: -40, z: 0.04}, {t: "@faster", x: -80, z: 0.08}, {t: "@faster+5", x: -110, z: 0.1}]}}
+
+  - id: "07"
+    part: TODAY
+    vo: >-
+      Today the tool writes code. In 2025, BLS economists wrote that software developers can use generative AI to develop, test, and document code.
+      They called the effect on the occupation highly uncertain. AI is well suited to the work, but cheaper software could raise demand for it, and someone has to build and maintain the AI systems themselves.
+      Their projection for software developers, 2023 to 2033: growth of seventeen point nine percent.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "today the tool writes code", at: "@tool"}, {s: "BLS economists, 2025", at: "@economists"}, {s: "develop · test · document", at: "@develop"}, {s: "highly uncertain", at: "@uncertain"}],
+           text: "Software developers can use GenAI to develop, test, and document code…", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@software", src: [MLR25]}}
+      - {tpl: desk, at: "@suited-0.4", in: fade, p: {eras: [{era: 2025, at: "@suited-0.4", label: "2025"}], accent: "#6a4c8c", cam: [{t: "@suited", x: 0, z: 0.03}, {t: "@cheaper", x: -30, z: 0.06}, {t: "@maintain", x: -60, z: 0.09}, {t: "@projection", x: -80, z: 0.1}],
+           cap: [{s: "AI is well suited to the work…", at: "@suited", src: [MLR25]}, {s: "…but cheaper software could raise demand", at: "@cheaper"}, {s: "someone builds and maintains the AI", at: "@maintain"},
+                 {num: sd23_chg, s: "software developers, projected 2023–33", at: "@seventeen"}]}}
+
+  - id: "08"
+    part: TODAY
+    vo: >-
+      The newest BLS projections, from January 2026, say the same. Software developers held about one point six nine million jobs in 2024.
+      The projection for 2034 is one point nine six million, growth of fifteen point eight percent, compared with three point one percent for all jobs.
+      On these forecasts, this is one of the fastest-growing jobs in the country, not a vanishing one.
+    shots:
+      - {tpl: isotype, at: 0, p: {title: "Software developers, United States", subtitle: "employment, 2024 and projected 2034", unit: 100000, unitName: "jobs", per: 20,
+           groups: [{label: "2024", num: sd24, at: "@six"}, {label: "2034 (projected)", num: sd34, at: "@nine#2"}],
+           cap: [{s: "BLS projections, January 2026", at: "@newest", src: [MLR26]}]}}
+      - {tpl: bars, at: "@fifteen-1.2", in: slide, p: {title: "Projected job growth, 2024–34", subtitle: "same source, same period: BLS", unit: '%', max: 18, kindEach: true,
+           beats: [{s: "a growing job, on these forecasts", at: "@fastestgrowing"}],
+           bars: [{label: "Software developers", num: sd_chg, at: "@fifteen"}, {label: "All occupations", num: all_chg, at: "@three"}]}}
+
+  - id: "09"
+    part: TODAY
+    vo: >-
+      But forecasts are not the whole picture. Economists at Stanford studied payroll records for millions of workers from the payroll company ADP.
+      Overall employment is still robust. But employment of workers aged twenty-two to twenty-five in AI-exposed jobs, such as software development and customer service, now stands nineteen percent below where it would be had it kept pace with less-exposed peers.
+      In plain numbers, employment of that age group in the most exposed jobs fell about eleven percent from late 2022 to mid 2026, while in the least exposed jobs it grew about ten percent.
+      Experienced workers show no such gap. The authors tested other explanations, such as interest rates, remote work, and the tech sector, and the pattern broadly held. And the change comes mostly from fewer young people being hired, not from people being let go.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2026"}], accent: "#6a4c8c", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.05}, {t: 10, x: -60, z: 0.08}, {t: 16, x: -80, z: 0.1}],
+           cap: [{s: "forecasts are not the whole picture", at: "@forecasts"}, {s: "Stanford: payroll records for millions of workers", at: "@payroll", src: [CAN]}, {s: "overall employment: still robust", at: "@robust"}]}}
+      - {tpl: sign, at: "@nineteen-1.2", in: fade, p: {num: can, caption: "employment, ages 22–25, AI-exposed jobs, vs. less-exposed peers", at: "@nineteen", capAt: "@pace", wall: brick,
+           cam: [{t: "@nineteen-1.2", x: 0, z: 0.0}, {t: "@pace", x: -30, z: 0.03}, {t: "@eleven", x: -40, z: 0.04}, {t: "@ten", x: -45, z: 0.045}, {t: "@experienced", x: -50, z: 0.05}, {t: "@tested", x: -55, z: 0.055}, {t: "@sector", x: -60, z: 0.06}, {t: "@hired", x: -70, z: 0.07}],
+           cap: [{s: "in plain numbers: −11% vs. +10% (most vs. least exposed, ages 22–25)", at: "@plain", src: [CAN]}, {s: "experienced workers: no such gap", at: "@experienced", src: [CAN]}, {s: "other explanations tested: the pattern broadly held", at: "@tested"}, {s: "fewer young people hired, not more let go", at: "@hired"}]}}
+
+  - id: "10"
+    part: TODAY
+    vo: >-
+      So here is the comparison, with a caution. The numbers from Langley count one laboratory; the numbers today count a whole country. We will not set them side by side.
+      What we can compare is the pattern. Then, the electronic computer took over the arithmetic, and the people who did it moved up to programming the machine.
+      Today, AI tools can develop, test, and document code, and the people who write software work alongside them.
+      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
+      But the differences matter. Back then, the new machine needed new people to program it. This time, the change shows up first at the bottom of the ladder, where people learn the job.
+    shots:
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/usnwr-89395.jpg, rid: LOC-89395, focus: [0.5, 0.55], credit: "IBM computer room, New Haven, 1967 · Library of Congress",
+           cam: [{t: 0, x: -80, z: 0.12}, {t: 8, x: -50, z: 0.09}, {t: 16, x: -20, z: 0.06}, {t: 24, x: 0, z: 0.04}],
+           cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "one laboratory vs. a whole country: not side by side", at: "@laboratory"}, {s: "what we can compare is the pattern", at: "@pattern"},
+                 {s: "then: the machine takes the arithmetic…", at: "@arithmetic", src: [NASA1]}, {s: "…people move up to programming it", at: "@moved"}]}}
+      - {tpl: desk, at: "@today#2-0.4", in: fade, p: {eras: [{era: 2025, at: "@today#2-0.4", label: "2025"}], accent: "#6a4c8c", cam: [{t: "@today#2", x: 0, z: 0.0}, {t: "@same", x: -40, z: 0.04}, {t: "@differences", x: -80, z: 0.08}, {t: "@ladder", x: -110, z: 0.1}],
+           cap: [{s: "today: AI tools develop, test, document code", at: "@tools", src: [MLR25]}, {s: "people work alongside them", at: "@alongside"}, {s: "not the same technology — the same pattern", at: "@technology"},
+                 {s: "but the differences matter", at: "@differences"}, {s: "then: new machines needed new people", at: "@needed"}, {s: "now: the bottom of the ladder first", at: "@bottom", src: [CAN]}]}}
+
+  - id: "11"
+    part: TODAY
+    vo: >-
+      What happens to a job when a machine takes its name? Many of the computers became programmers, and some became engineers. For them, the work did not disappear; it climbed.
+      The question now is where the first rung comes from, for the young people who would once have learned the job by doing the simple parts of it.
+      No projection can settle that yet. That is what we will be watching.
+    min_dur: 26
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1944, at: 0, label: "1944"}, {era: 1988, at: "@programmers", label: "1988"}, {era: 2025, at: "@question", label: "2025"}], accent: "#6a4c8c",
+           cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}],
+           cap: [{s: "computers became programmers; some, engineers", at: "@became", src: [NASA2, NASA3]}, {s: "the work climbed", at: "@climbed"}, {s: "where does the first rung come from?", at: "@rung"},
+                 {s: "no projection can settle it yet", at: "@projection"}]}}
+
+  - id: "12"
+    part: STORY
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
+      Every era has its last lamplighters. Some of them were called computers.
+    vo_offset: 3.0
+    min_dur: 24
+    tail: 2.0
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: 4, x: -280, z: 0.03}, {t: "@glass", x: -340, z: 0.04}, {t: "@flame", x: -400, z: 0.05}, {t: "@every", x: -460, z: 0.06}, {t: "@computers+2", x: -520, z: 0.07}]}}
+      - {tpl: endcard, at: "@computers+0.8", in: fade, p: {line: "Last Lamplighters · Episode 7", next: "Next: The Translator's Desk"}}
+
+shorts:
+  - id: S1
+    hook: "A 'computer' used to be a person"
+    vo: >-
+      Before electronic computers, the word computer meant a person. In 1935, a government aeronautics lab started a computer pool with five women. By 1946, it had trained about four hundred. When electronic computers arrived, the human computers took on programming duties.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1944, at: 0, label: " "}, {era: 1988, at: "@electronic#2-0.3", label: " "}], accent: "#6a4c8c", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 22, x: -80, z: 0.12}],
+           cap: [{s: "a computer was a person", at: "@person", src: [NASA1]}, {s: "1935: a pool of five women", at: "@1935", src: [NASA1]}, {num: c46, s: "trained by 1946", at: "@four"},
+                 {s: "then: the human computers took on programming", at: "@programming"}]}}
+  - id: S2
+    hook: "1990: 'AI will be just another tool for programmers'"
+    vo: >-
+      In 1990, the Bureau of Labor Statistics wrote that AI principles and languages would become just additional tools available to programmers. It also expected improved software to simplify or eliminate some programming tasks. Thirty-six years later, that is the question again.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1988, at: 0, label: " "}, {era: 2025, at: "@thirtysix-0.3", label: " "}], accent: "#6a4c8c", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}],
+           cap: [{s: "BLS, 1990", at: "@1990", src: [OOH90]}, {s: "AI: just additional tools for programmers", at: "@principles"}, {s: "software simplifies some programming tasks", at: "@simplify"}, {s: "the question, again", at: "@question"}]}}
+  - id: S3
+    hook: "Young workers in AI-exposed jobs: −19%"
+    vo: >-
+      Stanford economists studied payroll data for millions of workers. Employment of twenty-two to twenty-five year olds in AI-exposed jobs now stands nineteen percent below where it would be had it kept pace with less-exposed peers. Experienced workers show no such gap.
+    shots:
+      - {tpl: sign, at: 0, p: {num: can, at: "@nineteen", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.03}],
+           cap: [{s: "payroll data, millions of workers", at: "@payroll", src: [CAN]}, {s: "ages 22–25, AI-exposed jobs", at: "@twentytwo", src: [CAN]}, {s: "vs. less-exposed peers", at: "@pace"}, {s: "experienced workers: no gap", at: "@experienced"}]}}

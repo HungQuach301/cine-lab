@@ -80,3 +80,11 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 55 | Shorts 9:16: dòng nguồn và chú thích dài tràn hai mép; hộp ước tính đặt theo toạ độ 16:9 | tập 5 S1–S3: qc **Q22** mới bắt 10 chỗ (G2 đã duyệt mà không thấy) | nhãn nguồn dài; mẫu đặt vị trí cố định theo 16:9 | nhãn `short9` cho Shorts; thư viện tự thu cỡ chữ phủ trên khung (≥ MINPX); `inspect` có bố cục 9:16; Q22 đọc hộp chữ trong log render |
 | 56 | Số token "ước" trong báo cáo G2 thấp hơn thực tế nhiều lần | tổng kết lô 3–5: log phiên cho 1,2–2,8 triệu đầu vào mới mỗi tập so với ước 0,24–0,3 triệu | ước theo cảm giác, chỉ gần với token sinh ra | đo bằng trường `usage` trong log phiên (khử trùng theo mã tin nhắn), báo cả sinh ra / đầu vào mới / đọc cache |
 | 57 | Luật mới quét lại tập cũ tìm ra lỗi cùng loại ngoài chỗ được giao sửa | Q21 tập 5: 5 đoạn thiếu dòng nguồn ngoài đoạn mở đầu | lỗi hệ thống, không phải lỗi một chỗ | khi thêm luật qc, chạy trên mọi tập đang mở; nêu rõ phạm vi mở rộng trong báo cáo |
+
+## Lô 6–8 (G1)
+| # | Bài học | Số đo | Nguyên nhân | Luật hiện hành |
+|---|---|---|---|---|
+| 58 | Đo nhịp Q14–Q19 và Q21 được ngay ở G1 trên timeline ước (lời giả lập 2,214 từ/s) | thử trên tập 5: tựa ước 19,2 s / thật 19,8 s; giấy 14,3 / 15,5 %; số 1,29 / 1,29 phút⁻¹. Lô 6–8: bắt 3 tựa > 20 s, 14 quãng > 8 s, 1 thẻ trống, 18 câu chưa khai nguồn trước khi viết xong | `rhythm.py` chỉ chạy sau `prep` (cần lời thật) | đo trên timeline ước trước G1; đề xuất gộp vào `ll.py est` (LO-6-8-G1 §6.8) |
+| 59 | Mốc `@từ` với số đọc nhiều chữ và từ có gạch nối | "@twohundredsixteen" không khớp ("two hundred sixteen" là 3 từ); "paste-up" → "pasteup"; "platform's" ≠ "platform"; "@today" khớp "today" ở câu trước | `norm()` tách theo khoảng trắng, bỏ dấu gạch, giữ dấu nháy | neo vào từ cuối của số ("@sixteen"); dùng `#n`; chạy `ll.py est` sau mỗi lần sửa lời |
+| 60 | Kiểm nguồn trước khi chọn đề tài loại sớm thẻ yếu | 5 thẻ: 1 thẻ thiếu nguồn thứ hai (drafters: bls.gov chặn), 1 thẻ trượt điểm 1 (người học việc không phải nhiệm vụ bị tự động hoá) | — | `topics/queue.md`: 5 tiêu chí × 0–2 điểm (chủ dự án, lệnh lô 6–8) |
+| 61 | LoC JSON tìm kiếm không có trường quyền; trang `loc.gov/item/…` (HTML) trả 403 | — | — | lọc theo bộ (FSA/OWI, USN&WR), đọc `rights_advisory` qua `loc.gov/item/<id>/?fo=json` |
