@@ -139,3 +139,10 @@ qc.py gọi luật khoá cho Q7, Q12–Q25 và thêm dòng LOCK. Phần còn l�
 - **Q-L23b. Hai chỗ tìm thấy ở tập đã đăng.** **A (khuyến nghị):** không sửa video đã đăng; ghi vào BAI-HOC; luật áp từ tập 6. **B:** sửa chữ hook Short S1 tập 4 (phải render lại Short) và mô tả liên quan.
 - **Q-L20. Bắt buộc ghi `zones` từ tập 6?** **A (khuyến nghị):** có. P thêm `zones` vào log render (render.js, `LL.zones`). Ưu: đo độc lập, bắt được cả chữ không thuộc dải chú thích. Nhược: P sửa thư viện một lần. **B:** chỉ dựa cờ `hit`.
 - **Q-L13. Bỏ "?" khỏi dấu hiệu dự báo?** **A (khuyến nghị, đang khoá):** bỏ. Bốn tập đã đăng vẫn ĐẠT. **B:** giữ như P.
+
+**Chủ dự án DUYỆT checks LL v2 (chat 06/10/2026):** VERSION 1.6.0, LOCK `0973478b6493722f3812862238c0d31752ef8062102711299e8adefc13b63908`. Claude tính lại LOCK: KHỚP; selftest 52/52.
+- **Q-L23a = A:** "cùng đối tượng" là cùng họ nguồn (cùng cơ quan phát hành), cùng loại, cùng kỳ. Đúng như bản đã khoá, không đổi luật.
+- **Q-L23b = A:** không sửa video đã đăng (thẻ so sánh đoạn 11 tập 2; hook Short S1 tập 4). P ghi hai chỗ này vào BAI-HOC. Q23 áp từ tập 6.
+- **Q-L20 = A:** từ tập 6, P ghi `zones` vào log render (render.js, `LL.zones`) cho đoạn có isotype. Thiếu thì Q20 TRƯỢT (đã có trong bản khoá).
+- **Q-L13 = A:** bỏ "?" khỏi dấu hiệu dự báo. Đúng như bản đã khoá.
+Không đổi `checks/`, không đổi LOCK. Phiên K kết thúc.
