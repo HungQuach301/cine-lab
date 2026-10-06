@@ -66,3 +66,6 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 41 | `pkill -f`/`pgrep -f` theo chuỗi lệnh giết luôn shell của P (lần 2) | tập 4 | chuỗi tìm nằm trong chính lệnh shell | dừng tiến trình bằng PID lấy từ `ps` có lọc `grep -v $$`, hoặc để tiến trình chạy hết |
 | 42 | Chú thích `//` chèn bằng sed/replace vào giữa dòng JS nuốt phần còn lại của dòng | 2 lần (core.js, shot.js) — thư viện hỏng, render lỗi | dòng mã dài một dòng | chỉ dùng `/* … */` khi chèn chú thích giữa dòng; test thư viện bắt được (đã chặn build mã 5) |
 | 43 | Test dùng tệp kết quả cũ có thể báo ĐẠT giả | khung `--only` và log `iso-cap` của lần trước | không xoá đầu ra trước khi chạy | xoá đầu ra trước mỗi lần test |
+| 44 | Mẫu cảnh không có chuyển động nền liên tục → giữ khung 2–12 khung khi máy quay giảm tốc tới dừng | tập 5 lượt 1: Q1 = 221 (mẫu v2: archive, desk, sign, inspect, isotype) | máy quay easing → vận tốc ≈ 0 ở cuối, cảnh tĩnh tuyệt đối | mọi mẫu cảnh gọi `alive()` (bụi trong ánh đèn + hạt phim đổi mỗi khung); qc Q1 bắt |
+| 45 | True peak phần bản xem vượt dù master đạt | tập 5 phần 1: +0,4 dBTP (master −1,5) | mã hoá lại AAC 2 lượt + cắt đoạn | bản xem: volume −1,2 dB + alimiter 0,82 |
+| 46 | Mẫu "sơn dần" ghi chữ khi chưa hiện → đo tương phản 1:1 | tập 5 Short S3 khung 0 | chữ vẽ trong vùng cắt rộng 0 vẫn được ghi log | không gọi text khi alpha = 0 |

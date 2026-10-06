@@ -58,7 +58,7 @@ E
   for k in p1 p2 p3; do read SS DD RG < $O/$k.range
     for p in 1 2; do OUTP=/dev/null; [ $p = 2 ] && OUTP=$O/$ID-$V-$k.mp4
       ffmpeg -v error -y -f concat -safe 0 -i $O/list-$k.txt -ss $SS -t $DD -i $O/mix.wav -map 0:v -map 1:a -vf "scale=1280:720:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p" \
-        -af "volume=-0.6dB,afade=t=in:d=0.03,afade=t=out:st=$(echo "$DD - 0.06" | bc -l):d=0.06" -c:v libx264 -preset slow -b:v 2800k -maxrate 3600k -bufsize 7200k -pass $p -passlogfile $O/pass/x$k -profile:v high -g 48 $COL -r 24 -fps_mode cfr -c:a aac -b:a 128k -ar 48000 -movflags +faststart -t $DD \
+        -af "volume=-1.2dB,alimiter=limit=0.82:level=0,afade=t=in:d=0.03,afade=t=out:st=$(echo "$DD - 0.06" | bc -l):d=0.06" -c:v libx264 -preset slow -b:v 2800k -maxrate 3600k -bufsize 7200k -pass $p -passlogfile $O/pass/x$k -profile:v high -g 48 $COL -r 24 -fps_mode cfr -c:a aac -b:a 128k -ar 48000 -movflags +faststart -t $DD \
         $( [ $p = 1 ] && echo "-an -f mp4" ) $OUTP; done; done
   sha256sum $O/$ID-$V-*.mp4 > $O/SHA256SUMS.txt; disk "sau ghép"
   $PY $LL/khan_gia.py "$EP" > /dev/null   # mục B9: KHAN-GIA.md theo mốc đoạn thật

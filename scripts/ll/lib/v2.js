@@ -2,6 +2,9 @@
 // Mọi mẫu ở đây là cảnh TOÀN KHUNG (kind 'full'): không tính vào tỷ lệ thẻ giấy (Q16); nhận chú thích đè `cap` như các cảnh khác.
 // Cần: core.js, scenes.js (camOf, lay, fog), props.js (PROP, cut, worker, PAPER).
 
+// "sống": bụi trong ánh đèn + hạt phim đổi theo từng khung, để cảnh không bao giờ đứng hình 2–12 khung khi máy quay chậm/dừng (qc Q1, tập 5)
+function alive(g, t, a = 1) { drawDust(g, t, 0.7 * a); const f = Math.round(t * 24), R = rng(1 + (f % 997)); g.save(); g.globalAlpha = 0.035 * a; g.fillStyle = '#fff';
+  for (let i = 0; i < 260; i++) g.fillRect(R() * W, R() * H, 2, 2); g.globalAlpha = 0.03 * a; g.fillStyle = '#000'; for (let i = 0; i < 260; i++) g.fillRect(R() * W, R() * H, 2, 2); g.restore(); }
 // phông diorama chung: tường tối, sàn giấy, đèn ấm, bụi
 function diorama(g, t, c, o = {}) {
   const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, o.top || '#1c1a26'); gr.addColorStop(1, o.bot || '#120e10'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
@@ -31,7 +34,7 @@ TPL.isotype = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
       g.restore(); LL.zones.push([x - h * 0.15, yy + dy - h, x + h * 0.15, yy + dy]); }
     const va = rv(t, a0 + 0.04 * n, 0.5); text(g, gp.text || fmtBig(gp.value, p.unitLabel), W - 110, y - rowH * 0.2, 72, CREAM, { kind: 'serif', a: va, align: 'right' }); if (gp.kind) lightTag(g, gp.kind, W - 110, y + 12, 22, va, 'right'); });
   if (p.unit) text(g, `each figure = ${fmtN(p.unit)} ${p.unitName || 'people'}`, W - 110, 140, 24, 'rgba(236,223,190,0.85)', { align: 'right', a: rvH(t, p.t0 + 0.5, 0.6) });
-  v2Head(g, t, p); fog(g, H * 0.98, 0.12, '60,50,46'); } }; };
+  v2Head(g, t, p); fog(g, H * 0.98, 0.12, '60,50,46'); alive(g, t); } }; };
 
 // ---- stack: cột dựng bằng đồ vật (chồng hồ sơ, máy đánh chữ, ATM…). p = { title, obj, per, bars: [{ label, value/num, at, kind }], cam, src } ----
 TPL.stack = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z); diorama(g, t, c, { floor: 0.82 });
@@ -40,7 +43,7 @@ TPL.stack = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { c
     for (let k = 0; k < n; k++) { const a = rv(t, a0 + 0.12 * k, 0.4); if (a <= 0) continue; g.save(); g.globalAlpha *= (proj ? 0.55 : 1) * a; obj(g, x + ((k * 37) % 7 - 3), y - k * hgt * s * 0.98 - (1 - eo(a)) * 60, s, { glow: 1, lit: 0.5 }); g.restore(); }
     const top = y - n * hgt * s * 0.98, va = rv(t, a0 + 0.12 * n, 0.5);
     text(g, b.text || fmtBig(b.value, p.unit), x, top - 30, 64, CREAM, { kind: 'serif', align: 'center', a: va }); if (b.kind) lightTag(g, b.kind, x, top - 112, 20, va, 'center');
-    text(g, b.label || '', x, y + 44, 28, CREAM, { align: 'center', a: rvH(t, a0 - 0.3, 0.4) }); });
+    text(g, b.label || '', x, y + 44, 28, CREAM, { align: 'center', a: rvH(t, a0 - 0.3, 0.4) }); }); alive(g, t);
   if (p.per) text(g, `each ${p.objName || ({ files: 'file stack', atm: 'ATM', typewriter: 'typewriter' })[p.obj] || 'item'} = ${p.unit === '%' ? p.per + ' points' : fmtN(p.per)} ${p.unitName || ''}`.trim(), W - 110, 140, 24, 'rgba(236,223,190,0.85)', { align: 'right', a: rvH(t, p.t0 + 0.5, 0.6) });
   v2Head(g, t, p); } }; };
 
@@ -53,11 +56,11 @@ TPL.sign = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { co
   cut(g, (q) => q.rect(bx0, by0, bx1 - bx0, by1 - by0), '#2b2a2e', { blur: 12 });
   glow(g, (bx0 + bx1) / 2, by0 - 40, (bx1 - bx0) * 0.6, RGB_AMB, 0.28 * Math.max(0.3, a));
   g.save(); g.beginPath(); g.rect(bx0, by0, (bx1 - bx0) * eo(a), by1 - by0); g.clip();   // "sơn" dần từ trái
-  text(g, p.text || fmtBig(p.value, p.unit, p.d), (bx0 + bx1) / 2, (by0 + by1) / 2 + 40, 180, '#f1e4c2', { kind: 'serif', align: 'center' }); g.restore();
+  if (a > 0) text(g, p.text || fmtBig(p.value, p.unit, p.d), (bx0 + bx1) / 2, (by0 + by1) / 2 + 40, 180, '#f1e4c2', { kind: 'serif', align: 'center', a: Math.min(1, a * 1.5) }); g.restore();
   if (p.kind) lightTag(g, p.kind, bx0 + 30, by0 + 30, 26, a);
   if (p.caption) text(g, p.caption, (x0 + x1) / 2, lerp(y0, y1, 0.78), 40, CREAM, { align: 'center', a: rv(t, (p.capAt === undefined ? (p.at || p.t0) + 0.8 : p.capAt), 0.6) });
   for (const lx of [W * 0.05, W * 0.95]) { gasLampIcon(g, lx, H * 0.95, 2.2, 1, 1); }
-  if (p.src) text(g, p.src, 110, H - 34, MINPX, 'rgba(236,223,190,0.88)', { a: rvH(t, p.t0 + 0.4, 0.6) }); fog(g, H, 0.15, '60,50,46'); } }; };
+  if (p.src) text(g, p.src, 110, H - 34, MINPX, 'rgba(236,223,190,0.88)', { a: rvH(t, p.t0 + 0.4, 0.6) }); fog(g, H, 0.15, '60,50,46'); alive(g, t); } }; };
 
 // ---- desk: nhân vật vô danh ở bàn làm việc, đổi thời kỳ theo mốc. p = { eras: [{ era, at }], accent, cam, label: true } ----
 TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }]; return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z); diorama(g, t, c, { floor: 0.78 });
@@ -71,7 +74,7 @@ TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }
     pr_(g, x + 40, y - 40, 1.4, { lit: 0.5, glow: 1 }); glow(g, x - 160, y - 160, 260, RGB_AMB, 0.22);
     if (p.label !== false) text(g, String(e.label || e.era), W - 140, 120, 72, CREAM, { kind: 'serif', align: 'right', a: 1 });
     g.restore(); };
-  if (u < 1) { draw(E[k - 1], 1 - u); } draw(E[k], u); fog(g, H * 0.98, 0.14, '60,50,46'); } }; };
+  if (u < 1) { draw(E[k - 1], 1 - u); } draw(E[k], u); fog(g, H * 0.98, 0.14, '60,50,46'); alive(g, t); } }; };
 
 // ---- archive: ảnh tư liệu phạm vi công cộng (danh sách trắng), Ken Burns + phủ tông B3. p = { img, rid, credit, cam: [{t, x, z}], tone } ----
 // Ảnh nạp sẵn vào window.IMGS bởi render.js. qc (rights_check.py) chặn nếu rid không có dòng RIGHTS hợp lệ.
@@ -83,6 +86,7 @@ TPL.archive = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
     g.save(); g.globalAlpha = 0.18; g.drawImage(paper(W, H, 5).tex, 0, 0, W, H); g.restore(); }
   else text(g, `missing image ${p.img}`, W / 2, H / 2, 40, '#ff8080', { align: 'center' });
   const v = g.createRadialGradient(W / 2, H * 0.5, H * 0.3, W / 2, H * 0.5, H * 0.95); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.7)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
+  alive(g, t, 1.4);
   if (p.credit) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, CREAM, { align: 'right' }); } } }; };
 
 // ---- inspect: giám định xe hỏng ngoài trời. p = { era: 1988|2025, flash: [t…] (chụp ảnh), estimate: t (2025: khung ước tính tự hiện trên điện thoại), amount: "$2,340", walk: [t0, t1], cam } ----
@@ -99,4 +103,4 @@ TPL.inspect = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
   if (p.estimate !== undefined) { const a = rv(t, p.estimate, 0.8); if (a > 0) { const bx = W * 0.58, by = H * 0.18; g.save(); g.globalAlpha *= a;
     cut(g, (q) => rr(q, bx, by, 520, 230, 14), '#101a2a', { blur: 18 }); text(g, 'AUTOMATED ESTIMATE', bx + 30, by + 56, 26, '#9fc4ec', { a });
     text(g, p.amount || 'estimate ready', bx + 30, by + 140, 72, CREAM, { kind: 'serif', a }); text(g, 'from photos · draft for review', bx + 30, by + 196, 24, 'rgba(236,223,190,0.85)', { a }); g.restore(); } }
-  fog(g, H * 0.98, 0.14, '60,50,60'); } }; };
+  fog(g, H * 0.98, 0.14, '60,50,60'); alive(g, t); } }; };

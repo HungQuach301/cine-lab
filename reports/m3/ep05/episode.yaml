@@ -45,6 +45,7 @@ numbers:
   ap35: {v: 12400, text: "12,400", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHC, say: "twelve thousand four hundred"}
   ap_chg: {v: -9, text: "−9%", kind: projection, period: 2025–35, unit: '%', src: OOHC, say: "nine percent"}
   all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
+  naic_n: {v: 193, text: "193", kind: actual, year: 2022, unit: insurers, src: NAIC, say: "one hundred ninety-three"}
   naic: {v: 88, text: "88%", kind: actual, year: 2022, unit: '% of insurers', src: NAIC, say: "eighty-eight percent"}
 
 segments:
