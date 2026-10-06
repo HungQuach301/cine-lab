@@ -5,7 +5,7 @@
 - **Nhánh làm việc:** `ccr-8a2b38d7-rk5x31` (từ `claude/modest-volta-7w7y40` f11e729). Nhánh phát hành: `release-ll-ep0N-v1` (Git LFS).
 - **Lô tập 3–5: XONG** (G1 `reports/m3/LO-3-5-G1.md`; tổng kết `reports/m3/LO-3-5-TONG-KET.md`).
 - **checks LL v2 đã merge** (LOCK 0973478b…, VERSION 1.6.0; qc có dòng LOCK; render ghi `zones` từ tập 6; Q13 bỏ "?").
-- **Lô tập 6–8: G1 CHỜ DUYỆT** (`reports/m3/LO-6-8-G1.md`; nhánh `ccr-5219a838-ftr84s` từ đỉnh `ccr-8a2b38d7-rk5x31` ec0a342). Hàng đề tài: `topics/queue.md`. Trần token: G1 lô ≤ 1,0 triệu, mỗi tập ≤ 1,5 triệu (đầu vào mới + sinh ra, đo log phiên).
+- **Lô tập 6–8: G1 DUYỆT 06/10; tập 6 ở G2** (`reports/m3/LO-6-8-G1.md`; nhánh `ccr-5219a838-ftr84s` từ đỉnh `ccr-8a2b38d7-rk5x31` ec0a342). Hàng đề tài: `topics/queue.md`. Trần token: G1 lô ≤ 1,0 triệu, mỗi tập ≤ 1,5 triệu (đầu vào mới + sinh ra, đo log phiên).
 
 | Tập | Trạng thái | Kế hoạch tập |
 |---|---|---|
@@ -13,9 +13,9 @@
 | 3 "The Teller's Window" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP3.md`) | `reports/m3/ep03/PLAN.md` |
 | 4 "The Typing Pool" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP4.md`) | `reports/m3/ep04/PLAN.md` |
 | 5 "The Claims Desk" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP5.md`) | `reports/m3/ep05/PLAN.md` |
-| 6 "The Hand That Drew It" | G1 chờ duyệt | `reports/m3/ep06/PLAN.md` |
-| 7 "When Computers Were People" | G1 chờ duyệt | `reports/m3/ep07/PLAN.md` |
-| 8 "The Translator's Desk" | G1 chờ duyệt | `reports/m3/ep08/PLAN.md` |
+| 6 "The Hand That Drew It" | G2 chờ duyệt (`reports/m3/TAP6-G2.md`) | `reports/m3/ep06/PLAN.md` |
+| 7 "When Computers Were People" | G1 duyệt; sản xuất sau G2 tập 6 | `reports/m3/ep07/PLAN.md` |
+| 8 "The Translator's Desk" | G1 duyệt; sản xuất sau tập 7 | `reports/m3/ep08/PLAN.md` |
 
 ## Luật làm việc
 - 3 cổng (G1 kịch bản, G2 bản cuối, G3 phát hành). Ngoại lệ phải hỏi: CHUAN-KENH §7.
