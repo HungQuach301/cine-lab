@@ -1,0 +1,13 @@
+diff --git a/scripts/ll/lib/v2.js b/scripts/ll/lib/v2.js
+index 9805e3a..377a6c0 100644
+--- a/scripts/ll/lib/v2.js
++++ b/scripts/ll/lib/v2.js
+@@ -72,7 +72,7 @@ TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }
+     worker(g, x - 60, y + 150, 560, { era: e.era, accent: p.accent, arm: 1.2 + 0.12 * Math.sin(t * 3.1), arm2: 1.0 + 0.12 * Math.sin(t * 2.7 + 1) });
+     cut(g, (q) => q.rect(x - 260, y - 40, 520, 30), PAPER.brown, { blur: 14 }); cut(g, (q) => q.rect(x - 240, y - 10, 24, 140), PAPER.brown); cut(g, (q) => q.rect(x + 216, y - 10, 24, 140), PAPER.brown);
+     pr_(g, x + 40, y - 40, 1.4, { lit: 0.5, glow: 1 }); glow(g, x - 160, y - 160, 260, RGB_AMB, 0.22);
+-    if (p.label !== false) text(g, String(e.label || e.era), W - 140, 120, 72, CREAM, { kind: 'serif', align: 'right', a: 1 });
++    if (p.label !== false && String(e.label || e.era).trim()) text(g, String(e.label || e.era), W - 140, 120, 72, CREAM, { kind: 'serif', align: 'right', a: 1 });
+     g.restore(); };
+   if (u < 1) { draw(E[k - 1], 1 - u); } draw(E[k], u); fog(g, H * 0.98, 0.14, '60,50,46'); alive(g, t); } }; };
+ 

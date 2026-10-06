@@ -101,7 +101,7 @@ for k, L in logs.items():
     thr = 30 if L['fmt'] == '9x16' else 18
     for e in L['text']:
         for it in e['items']:
-            if it['out']: continue
+            if it['out'] or not str(it['s']).strip(): continue   # chuỗi rỗng/khoảng trắng: không có chữ để đo (tập 5, nhãn ' ')
             if it['ratio'] < minr[0]: minr = (it['ratio'], f"{k} f{e['f']} “{it['s']}”")
             if it['cap'] < mincap.get(k, (99,))[0]: mincap[k] = (it['cap'], thr, f"f{e['f']} “{it['s']}”")
     if L['raised']['raised']: raised[k] = L['raised']['raised']
