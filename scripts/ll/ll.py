@@ -216,7 +216,9 @@ def build_seg(E, sg, W, off, dur, ctx_short=False):
         srcs = set(); p = resolve(sh.get('p', {}), W, off, f"{sg['id']}/{sh['tpl']}", N, S, srcs)
         if isinstance(p.get('src'), list): srcs |= set(p['src']); p.pop('src')
         nm = 'short9' if ctx_short else 'short'   # Shorts 9:16: nhãn nguồn gọn (short9) để dòng nguồn không tràn khung 1080 px
-        lab = lambda ks: ('Sources: ' if len(ks) > 1 else 'Source: ') + ' · '.join(S[k].get(nm, S[k]['short']) for k in sorted(ks)) if ks else ''
+        def lab(ks):   # bỏ nhãn trùng (hai nguồn cùng nhãn gọn, ví dụ OOH + EP cùng "BLS projections 2025–35" ở Shorts — tập 6)
+            L = list(dict.fromkeys(S[k].get(nm, S[k]['short']) for k in sorted(ks)))
+            return (('Sources: ' if len(L) > 1 else 'Source: ') + ' · '.join(L)) if L else ''
         if srcs and not isinstance(p.get('src'), str): p['src'] = lab(srcs)
         if p.get('cap'):   # mỗi chú thích mang đúng nguồn của nó (G2 tập 5, 06/10/2026)
             # thấy trên hình = nguồn dữ liệu của mẫu + nguồn riêng của câu (num hoặc src: [...]; src: [] = câu không cần nguồn)
