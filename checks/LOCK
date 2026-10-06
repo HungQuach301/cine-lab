@@ -1,9 +1,9 @@
 # CINE LAB — khoá luật kiểm (chỉ phiên K sửa)
-VERSION: 1.5.0
-DATE_UTC: 2026-09-29T02:38:51Z
+VERSION: 1.6.0
+DATE_UTC: 2026-10-06T08:42:23Z
 ALGO: sha256 của chuỗi các dòng '<sha256 file>  <đường dẫn tương đối>\n', sắp theo đường dẫn,
       mọi file trong checks/ trừ LOCK, __pycache__/ và *.pyc
-TREE_SHA256: 8d55b6ad389dcbd2c40366bb16eed730106edef3ffee6c565e5ce786bd2aa65b
+TREE_SHA256: 0973478b6493722f3812862238c0d31752ef8062102711299e8adefc13b63908
 
 # FILES
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
@@ -11,7 +11,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
 a17ff4e8622a98d672dbfa53b05cc0847e5b42766e5760d46bd043ff5151b099  RULES.md
 4436b010370cb0e164e966b5fc6e97f33f3215768466a001e6f5fed1537ed160  RUN.md
 870f22f8db06167ab6be5778114479a201a668e3f050e662a7082ce3a5409757  audit.py
-f1512fde5c6b53bd89aa3d5cc062e93a99ec13c598fd6fba4cb21e256fed5b4c  cinecheck/__init__.py
+5028da7be6d0238d1fc5adeb568340c18c34e5b5687eafd6b3051f93cab6b24a  cinecheck/__init__.py
 308d167d592bbbeb5c8a273b8ca2c3ca53da7ab9432e28a720e11960a5b7c083  cinecheck/audit.py
 dc4a4dc84800c162705b500f0647f3236c6a48506da93639bec126a4742daf9e  cinecheck/common.py
 2478170c8bbcaeca61a57b44a865b1ee498f0ca8ff7ddd5d91aa1de4087f5ee1  cinecheck/lockhash.py
@@ -30,6 +30,40 @@ c6f70612d2db77c4d4d3a23766e9990e4253ba567771748c280fa34b0e206f3f  cinecheck/rule
 c5169d960e2bfe635f6cb84672b578ac152dfc710a6a4352dbf16b1082c35ccc  cinecheck/rules_file.py
 654e363a42b526ceaf83f1eaa486b6ef6356202c12ce355f0122a160fd1a714b  cinecheck/rules_text.py
 3b73393332dfa86c1ae86f28621c1fdfe219f50408f247201ddbde6970f79e33  cinecheck/textdet.py
+813926ecf3586dc57050e05278c849ceee77c3bb3b992ca9c55cdacaf8ef54ee  ll/RULES-LL.md
+45683ff1b1cd2d09f321e96602f699de76505d48a583da891edf6a585f3a5d95  ll/__init__.py
+015be4c3cbff215f1080403577100b6bfd89cd7f0d5796f99096f77cc8299bd9  ll/base.py
+5b3936f48385d087a520f967eea4dbc416dbe9c25c7e2d2c9c0200d4dd0b6437  ll/fixtures/ep02/episode.yaml
+ed071db7c9073e9097424c1da94101f97046a89b5ea7d5e1cf1b717a2a742ce5  ll/fixtures/ep02/ll-ep02-shorts-text.txt
+6a0ac98cede010936c81996dc6ccf716778c16156eb9cca9529707f50bbc429a  ll/fixtures/ep02/ll-ep02-thumb-T1.jpg.boxes.json
+6b85f30ae7bdcf0c480625595ba58467852c6a3f47b1f396c7348a73f7e3175e  ll/fixtures/ep02/ll-ep02-thumb-T2.jpg.boxes.json
+5c015750e61e4b92f0b22bd992c7b1dda3c7754e24ebb65847efed6c14f03c75  ll/fixtures/ep02/ll-ep02-youtube-description.txt
+d5858275e235dac03850c42482036bc6bbc11ae369d6db6e8ee5435cc8c01660  ll/fixtures/ep02/timeline.json.gz
+8cc17b1ceec0daa9a5b0adaef7e3a739d27ab7453387df5421a34c5a110d5e4e  ll/fixtures/ep03/episode.yaml
+5333c071b98c2cd4d142cdb056677593e4ff8bb0a8041c6c0b7902c3cd47967a  ll/fixtures/ep03/ll-ep03-shorts-text.txt
+4a0000561b9afabde959af903be8d2ff320b6143994606c003c82bfb95e8869f  ll/fixtures/ep03/ll-ep03-thumb-T1.jpg.boxes.json
+4adcae7f600eec390fbf0b74ee3ab9d19ebddefcaf22c1cce009077d0509a05c  ll/fixtures/ep03/ll-ep03-thumb-T2.jpg.boxes.json
+45ac6ab322bba13b777a4687903ef26f44cf8f7e15fc207e1387b12a0ca718d1  ll/fixtures/ep03/ll-ep03-youtube-description.txt
+d635dc31742be08800828ba38852ffc477db43c9813861d7a641aa68af2d332e  ll/fixtures/ep03/timeline.json.gz
+0130a7ee4ea302a3961b6dde4956b6ce34c696e91f84764aee109dc8a7a7095a  ll/fixtures/ep03-v1-4833ac1.yaml
+28eedaad3239dd5db10a535b47ee162f1d03e9a782bd86364acc3087be000afb  ll/fixtures/ep04/episode.yaml
+6045b1458511d5a5dc02d1078270c9bb9b753571bb0b6968610ca467b4f87ff8  ll/fixtures/ep04/ll-ep04-shorts-text.txt
+5283ff2262e653a53880c800000c55f9c52ed4854e9a12fe820af40247b390c3  ll/fixtures/ep04/ll-ep04-thumb-T1.jpg.boxes.json
+46ecdaa1669447c3838af64eae4d5164242962588843013d68892057cb7cb60d  ll/fixtures/ep04/ll-ep04-thumb-T2.jpg.boxes.json
+699f64fe9e749e85cf0f896c1ea904ba465106c47d576087878c8a2d7facacef  ll/fixtures/ep04/ll-ep04-youtube-description.txt
+834c76f602631656585086c25b81f7d480a31485a4884cd3e6cdd7b2a325f826  ll/fixtures/ep04/timeline.json.gz
+f2f6499e0858e2c2916973dfd233ae370e2a3d878b60367c35381c5c8ad9d048  ll/fixtures/ep05/episode.yaml
+0e037ef01d9e462b367b72f9a9b79c8b6058942ff12b77e06d6d8621ee56a47f  ll/fixtures/ep05/ll-ep05-shorts-text.txt
+e70ec22e8909febaa21099aa8571237fe4ff4613f57b878b32c638dd6db2e2b6  ll/fixtures/ep05/ll-ep05-thumb-T1.jpg.boxes.json
+718154ef855337fb477466a9883392d7d122f347bc8b81d5a8c019da362da1bc  ll/fixtures/ep05/ll-ep05-thumb-T2.jpg.boxes.json
+f20656eb5c8c1b1ba02a2d28e318ec163692cfec174923bbabc5330731b63c83  ll/fixtures/ep05/ll-ep05-youtube-description.txt
+b425809fad319b87286566becde42fa6a4aca8196b00e1cd78362506fd783b77  ll/fixtures/ep05/timeline.json.gz
+4b862ebf07ea3c831036051980e383cf967dde92f4e3030b8fce826142cdc866  ll/llcheck.py
+a26a4de23f8491afeb7af2111ca56138eb0b864a94a073918200e8755e9a1bc1  ll/q_overflow.py
+4b23c1fc6210e527d5acd5142d159d2c69272d14f1ac7a65fa7ee72f505a724e  ll/q_rhythm.py
+b8a8832af2ca1cc32996e98fab378c5f2979277042ed7d30f4ba5899e1684e70  ll/q_rights.py
+84629da24a8ef049a3a2f79bb0fcd50a572fa9f973f8bfd4decc06c8286a77ed  ll/q_src.py
+773bc773183312f51c147a8f41d46c38fd6e56857747492d24e58549712ab235  ll/selftest_ll.py
 9bee416f5aa46de7c2b19751128a296cdf02f234298115ecfe62be8daa6fc028  lock.py
 f8b27e7109a37a8e2f61d45fa9d2a03d5e0b306ffa7e2b6701ea51cd27b4f3d0  models/README.md
 d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9  models/ch_PP-OCRv4_det_infer.onnx

@@ -115,3 +115,27 @@ Nguồn: `reports/m3/YEU-CAU-K-NHAP.md`. Bảy mục:
 - G2 tập 2: thumbnail T1 bị cắt chữ S của "OPERATORS" ở mép phải. Chủ dự án giao thêm mục qc.
 - **Q12:** ảnh 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh (64 px ngang, 36 px dọc), không chạm. Hộp lấy từ `.boxes.json` do `scripts/ll/thumb.py` ghi; thiếu tệp này thì TRƯỢT.
 - Đề nghị K xét khoá cùng Q1–Q11.
+
+## Phán quyết K — checks LL v2 (06/10/2026; chủ dự án duyệt lệnh khoá 06/10)
+Bản khoá: `checks/ll/` (luật `checks/ll/RULES-LL.md`), VERSION 1.6.0, LOCK ghi ở `checks/LOCK`. Báo cáo: `reports/checks-ll-v2/BAO-CAO.md`.
+qc.py gọi luật khoá cho Q7, Q12–Q25 và thêm dòng LOCK. Phần còn lại của mục 8 (Q1–Q6, Q8–Q11) **chưa khoá ở bản này**: vẫn là luật làm việc của P.
+
+| Mã | Đề nghị của P | Phán quyết K | Sửa khi khoá |
+|---|---|---|---|
+| Q7 | Nhãn ACTUAL/PROJECTION có mặt | **CHẤP NHẬN, siết thêm** | Bản cũ chỉ đòi nhãn có mặt nên không bắt được lỗi tập 2 S2 (ACTUAL hiện trên −5,3 % dự báo, vì thẻ có số actual khác). Nay TRƯỢT cả khi hiện nhãn của loại không có trong shot, hoặc `kind` khai khác loại của `num` |
+| Q12 | Thumbnail trong lề 5 % | **CHẤP NHẬN** | Không đổi ngưỡng. Hạn chế: hộp chữ do `thumb.py` tự khai, K chưa đo trên điểm ảnh (ghi trong báo cáo) |
+| Q13 | Số trên bề mặt phát hành truy về `numbers` | **CHẤP NHẬN, sửa 3 điểm** | (1) thêm kiểm dấu; (2) đọc "135k"; (3) **bỏ "?"** khỏi danh sách dấu hiệu dự báo (câu hỏi không phải nhãn dự báo). Câu hỏi Q-L13 ở dưới |
+| Q14–Q18 | Luật nhịp | **CHẤP NHẬN nguyên ngưỡng** | Bản khoá dùng hàm nền riêng (`checks/ll/base.py`), không phụ thuộc `ll.py`. Chạy lại: tập 3 trượt cả 5 mục như tổng kết lô 3–5; tập 4 và 5 đạt |
+| Q19 | Hồ sơ quyền tư liệu | **CHẤP NHẬN, vá 1 lỗ** | Danh sách trắng cũ nhận `loc.gov.evil.com`; nay tên miền phải kết thúc ở `.gov` |
+| Q20 | Chữ không đè hình (cờ `hit`) | **CHẤP NHẬN có điều kiện** | Cờ `hit` do render tự khai và chỉ xét dải chú thích. K thêm phép đo độc lập: khi log có `zones` thì mọi hộp chữ không được giao vùng hình. Từ tập 6, đoạn có isotype phải ghi `zones` (Q-L20) |
+| Q21 | Dòng nguồn khớp `src` | **CHẤP NHẬN, siết thêm** | Không tin riêng `capsrc` do ll.py ghi: nguồn cần có cộng thêm nguồn của `num` và `src` khai trong đặc tả |
+| Q22 | Chữ tràn khung, gồm Shorts 9:16 | **CHẤP NHẬN** | Không có log render thì TRƯỢT (trước đây ĐẠT vì không có gì để đo) |
+| Q23 (mới, chủ dự án giao) | Câu ghép nhiều số | **KHOÁ** | Định nghĩa ở RULES-LL.md. Chạy trên 4 tập đã đăng bắt được 2 chỗ: tập 2 thẻ so sánh đoạn 11 (−16,1 % đếm 1930–40 ↔ −5,3 % dự báo 2025–35, cùng dạng lỗi +87 % ↔ −13 %) và tập 4 hook Short S1 "134,000 to 3.9 million" (1900, phân loại 1950 → 1970). Tập 3 và tập 5: 0 |
+| Q24 (mới) | Nhãn phân loại khớp số (bài học HSUS 135 nghìn) | **KHOÁ** | |
+| Q25 (mới) | Thẻ khoảng số không đếm qua số trung gian (bài học 50–80 %) | **KHOÁ** | |
+
+**Câu hỏi cho chủ dự án** (K đã khoá theo phương án khuyến nghị; nếu chọn khác, K sửa và khoá lại):
+- **Q-L23a. "Cùng một đối tượng" nghĩa là gì?** **A (khuyến nghị, đang khoá):** cùng họ nguồn (cùng cơ quan phát hành) và cùng loại, cùng kỳ. Ví dụ được phép: "giám định viên −5 %, mọi nghề +3,5 % (BLS 2025–35)". Ưu: giữ được phép so với mức chung, khớp bài học #17 (cùng nguồn, cùng kỳ). Nhược: hai nghề khác nhau vẫn đứng chung một câu. **B:** đúng một nghề trong mỗi câu/thẻ. Ưu: chặt nhất. Nhược: tập 5 lời 07 sẽ TRƯỢT; mất phép so với mức chung.
+- **Q-L23b. Hai chỗ tìm thấy ở tập đã đăng.** **A (khuyến nghị):** không sửa video đã đăng; ghi vào BAI-HOC; luật áp từ tập 6. **B:** sửa chữ hook Short S1 tập 4 (phải render lại Short) và mô tả liên quan.
+- **Q-L20. Bắt buộc ghi `zones` từ tập 6?** **A (khuyến nghị):** có. P thêm `zones` vào log render (render.js, `LL.zones`). Ưu: đo độc lập, bắt được cả chữ không thuộc dải chú thích. Nhược: P sửa thư viện một lần. **B:** chỉ dựa cờ `hit`.
+- **Q-L13. Bỏ "?" khỏi dấu hiệu dự báo?** **A (khuyến nghị, đang khoá):** bỏ. Bốn tập đã đăng vẫn ĐẠT. **B:** giữ như P.
