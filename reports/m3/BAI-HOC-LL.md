@@ -1,5 +1,9 @@
 # BÀI HỌC — Last Lamplighters (tập 1 → lô 3–5)
 
+> **NGUYÊN TẮC TỐI CAO (chủ dự án, 06/10/2026).** Chất lượng — nội dung, hình ảnh, âm thanh, mọi yếu tố và **sự liền mạch giữa chúng** — là ưu tiên hàng đầu, **không bao giờ được hy sinh**. Tốc độ, token, giảm chạm, mở rộng chỉ được tối ưu khi không làm giảm chất lượng. **Trần token là trần mềm:** vượt để giữ chất lượng thì làm và báo cáo, không dừng hỏi. Nguyên tắc này đứng trên mọi mục khác (kể cả §8 "Nguyên tắc tốc độ").
+
+**Bài học gốc của lô 6–8 (chủ dự án, 06/10/2026):** tối ưu token và nhịp đã kéo chất lượng xuống — đa dạng hình tập 1: 52 khung nhìn → tập 6: 19, khung lặp nhiều nhất 18 % → 46 %; hình làm nền cho phụ đề; người thắp đèn chỉ ở đầu/kết; nhạc một bản đều; ít âm thanh nghề; cắt cứng; màu không theo hồi. qc chỉ đo "có đổi", không đo đa dạng, độ đẹp hay liền mạch → thêm Q26–Q31 (CHUAN-KENH §11).
+
 Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lại báo cáo cũ (chủ dự án, 05/10/2026).
 - Mỗi dòng gồm: bài học · số đo · nguyên nhân · luật hiện hành (nằm ở đâu).
 - Thêm dòng mới ở cuối mỗi mốc. Không xoá dòng cũ; luật đổi thì sửa cột cuối.

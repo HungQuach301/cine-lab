@@ -1,5 +1,7 @@
 # CHUẨN KÊNH — Last Lamplighters
 
+> **NGUYÊN TẮC TỐI CAO (chủ dự án, 06/10/2026).** Chất lượng — nội dung, hình ảnh, âm thanh, mọi yếu tố và **sự liền mạch giữa chúng** — là ưu tiên hàng đầu, **không bao giờ được hy sinh**. Tốc độ, token, giảm chạm, mở rộng chỉ được tối ưu khi không làm giảm chất lượng. **Trần token là trần mềm:** vượt để giữ chất lượng thì làm và báo cáo, không dừng hỏi. Nguyên tắc này đứng trên mọi mục khác (kể cả §8 "Nguyên tắc tốc độ").
+
 Tài liệu chuẩn của kênh. Áp cho kịch bản v3, lát cắt M2.2a và mọi tập sau.
 - Nguồn: quyết định chủ dự án 01/10/2026 (AUTHORSHIP, các mục "Định hướng (Last Lamplighters)" và "Chuẩn kênh").
 - Phiên P giữ tài liệu này. Sửa chuẩn phải có chủ dự án duyệt và ghi AUTHORSHIP.
@@ -128,7 +130,7 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
 - **Nguồn số:** không dùng Wikipedia hay trang tổng hợp làm nguồn chính cho số trên hình; nguồn chính là sách, báo cáo hoặc bài học thuật đọc được toàn văn, ghi trang.
 - **Nhắc lại và mở rộng (chủ dự án, 04/10/2026, mở Mốc B):** chính sách 3 cổng áp cho **mọi tập từ tập 2** và cho Mốc B (đóng gói nhà máy). Bốn ngoại lệ phải hỏi giữ nguyên như trên (trần token mốc > 25 %; đổi kịch bản đã duyệt; nguồn số không xác minh được; rủi ro pháp lý/bản quyền).
 
-## 8. Nguyên tắc tốc độ (chủ dự án, 04/10/2026)
+## 8. Nguyên tắc tốc độ (chủ dự án, 04/10/2026) — **đặt dưới Nguyên tắc tối cao (06/10/2026): chỉ áp khi không giảm chất lượng**
 - **Không cần quá hoàn hảo.** Chấp nhận sai sót nhỏ; không làm thêm vòng sửa không cần thiết.
 - **Ưu tiên tốc độ và tiết kiệm token.** Một vòng sửa chỉ mở khi `scripts/ll/qc.sh` báo TRƯỢT một mục chuẩn kênh, hoặc khi lỗi làm sai nội dung (số, nguồn, nghĩa).
 - Lỗi nhỏ không chặn: ghi "hàng chờ" trong báo cáo, sửa gộp vào lần chạm tiếp theo của mẫu.
@@ -162,3 +164,44 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
 - Khi một tập chạm tới chủ đề AI trong nghề sáng tạo, câu hỏi đặt về **nghề**, bám nguồn đã đọc; không đặt về chính bộ phim.
 - Khai báo nền tảng giữ như tập 1–5: Altered content = No, đoạn mô tả YouTube như các tập trước.
 - **Số dự báo BLS:** dùng đợt mới nhất có toàn văn đã xác minh (từ lô 6–8: 2025–35). Thẻ so sánh cùng nguồn, cùng kỳ dùng đợt này. Đợt cũ (2024–34, 2023–33) chỉ ở khung riêng, có ghi đợt.
+
+## 11. Chất lượng và liền mạch (chủ dự án, 06/10/2026; áp từ tập 6 dựng lại)
+**Chẩn đoán** (Claude đo trên bản xem tập 3–6):
+- Đa dạng hình: số khung nhìn khác nhau tập 1: 52 · tập 3: 16 · tập 5: 20 · tập 6: 19.
+- Khung lặp nhiều nhất: 18 % (tập 1) → 46 % (tập 6).
+- Hình chỉ làm nền cho phụ đề; người thắp đèn chỉ ở đầu và kết; nhạc một bản đều; ít âm thanh nghề; cắt cứng; màu không theo hồi.
+- Gốc: tối ưu token và nhịp; qc đo "có đổi", không đo đa dạng, độ đẹp hay liền mạch.
+
+### 11.1 Bản đồ liền mạch (`map:` mỗi đoạn trong `episode.yaml`)
+Mỗi đoạn khai:
+- câu hỏi xuyên suốt mà đoạn phục vụ;
+- hồi (truyện / lịch sử / hôm nay / kết);
+- cảm xúc;
+- màu chủ đạo;
+- cue nhạc;
+- âm thanh nghề;
+- kiểu chuyển cảnh vào/ra (cắt khớp hình, J-cut, L-cut, hoà, cắt);
+- hình vật chất cho danh từ chính và số neo;
+- có hay không người thắp đèn.
+
+### 11.2 Luật chất lượng mới (tự động, Chặn; gửi K khoá ở lần mở tới)
+| Mã | Luật |
+|---|---|
+| Q26 đa dạng hình | ≥ 40 khung nhìn khác nhau/tập; không khung nhìn nào > 20 % thời lượng; không quá 2 cảnh liền cùng bố cục. Đo: mẫu 1 khung/3 s, 32×18 xám, gộp khi chênh trung bình < 12/255 (`scripts/ll/diversity.py`) |
+| Q27 chấm hình mù | 3 subagent Sonnet độc lập, không ngữ cảnh, chấm 10 khung tập mới trộn 10 khung tập 1 (không biết nguồn), 1–10 về độ đẹp, chi tiết, ánh sáng; trung bình tập mới ≥ tập 1 |
+| Q28 âm thanh | nhạc không lặp nguyên đoạn > 60 s; cue đổi theo hồi; giai điệu chủ đề kênh ở mở/kết; ≥ 1 âm thanh nghề mỗi cảnh đinh; khoảng lặng 0,5–1 s trước mỗi số neo; −14 LUFS, ≤ −1 dBTP; ASR 100 % từ khoá |
+| Q29 hình–lời | mỗi số neo và mỗi danh từ chính trong bản đồ có hình vật chất hiện trong ±1 s quanh từ đọc (không chỉ chữ) |
+| Q30 liền mạch | mọi chuyển hồi dùng cắt khớp hình hoặc J/L-cut; người thắp đèn hoặc ngọn đèn có mặt ở mọi chuyển hồi; tông màu trung bình mỗi hồi đúng kịch bản màu (ấm – sepia – lạnh – ấm) |
+| Q31 xem mù liền mạch | 3 subagent độc lập nhận dải khung theo thời gian + phụ đề, trả lời: câu hỏi của phim là gì, chỗ nào đứt mạch/khó theo, chỗ nào chán; sửa điểm ≥ 2/3 cùng nêu |
+
+- Kiểm mù kịch bản trở lại **3 subagent độc lập** (thay quyết định "1 subagent 3 vai" của 05/10).
+
+### 11.3 Cách đạt
+- Mỗi tập **4–6 cảnh đinh** dựng riêng như tập 1 (mở đầu, điểm ngoặt, số neo, kết). Không dùng lại bố cục cảnh đinh của tập trước.
+- Mỗi tập thêm **≥ 3 bối cảnh/đạo cụ** và **≥ 3 âm thanh nghề** mới vào thư viện (có test, ảnh/âm xem trước, RIGHTS).
+- Cảnh bàn làm việc chung tối đa **3 lần/tập**, mỗi lần đổi góc máy hoặc cỡ cảnh.
+- **Nhạc:** giai điệu chủ đề kênh (CC0/CC BY, ghi RIGHTS) + 3 cue theo hồi.
+- **Giọng Bill:** chỉnh tốc độ và khoảng nghỉ theo câu.
+- **Gói phát hành:** thumbnail, tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này).
+- **Ảnh tư liệu:** ≤ 20 % thời lượng, đúng nghề (tập 7: ảnh NASA tổ "computer").
+- **Báo cáo G2** ghi Q26–Q31, so với tập 1, kèm token thực.

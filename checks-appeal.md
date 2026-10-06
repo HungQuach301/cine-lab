@@ -146,3 +146,8 @@ qc.py gọi luật khoá cho Q7, Q12–Q25 và thêm dòng LOCK. Phần còn l�
 - **Q-L20 = A:** từ tập 6, P ghi `zones` vào log render (render.js, `LL.zones`) cho đoạn có isotype. Thiếu thì Q20 TRƯỢT (đã có trong bản khoá).
 - **Q-L13 = A:** bỏ "?" khỏi dấu hiệu dự báo. Đúng như bản đã khoá.
 Không đổi `checks/`, không đổi LOCK. Phiên K kết thúc.
+
+## Yêu cầu khoá — Q26–Q31 (P chuyển lời chủ dự án, 06/10/2026)
+Chủ dự án giao: các luật chất lượng mới Q26–Q31 (định nghĩa ở `reports/m3/CHUAN-KENH-LL.md` §11.2) là luật tự động, **Chặn**, và **gửi K khoá ở lần mở tới**.
+- Từ nay đến khi K khoá, P chạy các luật này như **luật làm việc của P** trong `scripts/ll/` (`diversity.py` cho Q26, các công cụ còn lại ghi trong `scripts/ll/README.md`) và báo số đo ở mỗi báo cáo G2.
+- P không sửa `checks/`.
