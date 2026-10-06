@@ -125,3 +125,22 @@
    - P đề xuất T1, thử A/B với T2.
 4. **Hàng chờ 1:** duyệt hướng thêm kiểm chữ tràn khung (thư viện + qc) cho tập sau.
 5. **Sau G2:** P chuẩn bị G3 như tập 4 (hướng dẫn đăng, Altered content = No, RIGHTS tư liệu đã có, xoá trung gian).
+
+---
+## 8. Sau G2 (06/10/2026): chủ dự án DUYỆT, sửa nguồn, chuẩn bị G3
+- **Duyệt:** bản cuối, Shorts S1–S3; thumbnail T1 chính, A/B T2. Kiểm chữ tràn khung vào thư viện + qc (từ tập 6). G3 không dừng chờ.
+- **Sửa nguồn theo chỉ đạo:** câu "1966: judgment cannot be computerized (BLS)" ở đoạn mở đầu nay ghi "Source: BLS Bulletin 1468 (1966)"; câu "today…" và số −9 % giữ BLS OOH 2025–35; câu hỏi mở đầu không ghi nguồn.
+- **qc Q21 mới** (dòng nguồn khớp số/câu đang hiện; `scripts/ll/src_check.py`, tự kiểm trong tests). Q21 bắt thêm 5 đoạn (03, 05, 05b, 10, 11) có câu mang năm/số BLS mà **không có dòng nguồn nào**. P đã khai nguồn và render lại cùng đoạn 00: **6 đoạn thay vì 1**, lời và hình không đổi.
+- **qc Q22 mới** (chữ tràn khung; `scripts/ll/overflow_check.py`) bắt lỗi trên **3 Shorts đã duyệt ở G2**:
+  - dòng nguồn tràn hai mép 9:16 (S1, S3), S3 hiện 2 dòng nguồn chồng nhau;
+  - 5 chú thích dài quá khổ;
+  - hộp "AUTOMATED ESTIMATE" của S1 đặt theo toạ độ 16:9.
+  Đã sửa:
+  - nhãn nguồn gọn `short9`; trên Shorts chỉ dải chú thích ghi nguồn;
+  - rút gọn 5 chú thích (S1 "…and calculates a claim estimate"; S2 "judgment stays with people", "now: AI drafts the first estimate", "…record keeping fell"; S3 "of 193 auto insurers (NAIC, 2022)", "use, plan, or explore AI");
+  - `inspect` có bố cục 9:16;
+  - thư viện tự thu cỡ chữ phủ trên khung (≥ MINPX).
+  Vì sửa `lib/`, cả tập render lại. **SHA master trước và sau khi sửa thư viện trùng nhau** (`ac791eea…`), nên khung 16:9 không đổi.
+- **qc lượt cuối: ĐẠT** (Q1–Q22). Master **8:32,5, −14,0 LUFS / −1,6 dBTP**, SHA `ac791eea77183001a96e1916402be8daec1d4f400f5be3147fb0f0dc6a8291ab`.
+- **Nhánh `release-ll-ep05-v1` @ `1faae2f`**: tải ngược 11/11 SHA OK. Hướng dẫn đăng: `reports/m3/HUONG-DAN-DANG-TAP5.md` (Altered content = No; 4 ảnh LoC có RIGHTS).
+- **Hàng chờ (tập 6):** hộp ước tính 9:16 của `inspect` nằm sát dưới dòng hook (không đè chữ). Hạ xuống ≈ 0,14 H ở lượt chạm thư viện tới.

@@ -5,15 +5,25 @@ P soạn ngày 06/10/2026, sau khi chủ dự án duyệt cổng G2. Cổng G3 (
 - Tên nút theo giao diện YouTube Studio tiếng Anh.
 
 ## 0. Lấy tệp (nhánh `release-ll-ep05-v1`, Git LFS)
-- **Nơi lấy:** nhánh **`release-ll-ep05-v1`** của repo `HungQuach301/cine-lab` (public), commit `@REL@`.
+- **Nơi lấy:** nhánh **`release-ll-ep05-v1`** của repo `HungQuach301/cine-lab` (public), commit `1faae2f`.
   - Bản này đã gồm hai sửa sau G2:
     - nguồn câu 1966 ở đoạn mở đầu và 5 dòng nguồn còn thiếu (qc Q21);
     - dòng nguồn tràn khung trên 3 Shorts (qc Q22).
   - Nhánh chỉ có gói tải lên, `SHA256SUMS.txt` và `.gitattributes`. Master và 3 Short đi qua Git LFS.
-  - **Kiểm sau khi đẩy (06/10/2026):** P tải ngược cả **11 tệp** trong `SHA256SUMS.txt` từ link công khai (LFS qua `media.githubusercontent.com`, tệp thường qua `raw.githubusercontent.com`) và chạy `sha256sum -c`: **@VER@**.
+  - **Kiểm sau khi đẩy (06/10/2026):** P tải ngược cả **11 tệp** trong `SHA256SUMS.txt` từ link công khai (LFS qua `media.githubusercontent.com`, tệp thường qua `raw.githubusercontent.com`) và chạy `sha256sum -c`: **cả 11 OK**.
 - Trang nhánh: https://github.com/HungQuach301/cine-lab/tree/release-ll-ep05-v1
 
-@TABLE@
+| Tệp | Dùng cho | Link | SHA-256 (đầy đủ trong `SHA256SUMS.txt`) |
+|---|---|---|---|
+| `ll-ep05-v1-master-1080p.mp4` | video chính (236,8 MB, LFS; 8:32,54) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-v1-master-1080p.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-v1-master-1080p.mp4) | `ac791eea77183001…` |
+| `ll-ep05-short-S1.mp4` | Short 1 (4,7 MB, LFS; 25,1 s) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-short-S1.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-short-S1.mp4) | `f6dc748e7ec4ce22…` |
+| `ll-ep05-short-S2.mp4` | Short 2 (7,2 MB, LFS; 27,0 s) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-short-S2.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-short-S2.mp4) | `ed65eea10f350df6…` |
+| `ll-ep05-short-S3.mp4` | Short 3 (4,2 MB, LFS; 23,3 s) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-short-S3.mp4) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-short-S3.mp4) | `b5469797212715b6…` |
+| `ll-ep05-thumb-T1.jpg` | thumbnail chính | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-thumb-T1.jpg) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-thumb-T1.jpg) | `50383074a578502c…` |
+| `ll-ep05-thumb-T2.jpg` | thumbnail thử A/B | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-thumb-T2.jpg) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-thumb-T2.jpg) | `cceae35c550efe1d…` |
+| `ll-ep05.en.srt` | phụ đề tiếng Anh (178 khối) | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05.en.srt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05.en.srt) | `2a87d9a4a4869877…` |
+| `ll-ep05-youtube-description.txt` | tiêu đề và mô tả video chính | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-youtube-description.txt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-youtube-description.txt) | `f20656eb5c8c1b1b…` |
+| `ll-ep05-shorts-text.txt` | tiêu đề và mô tả 3 Short | [trang tệp](https://github.com/HungQuach301/cine-lab/blob/release-ll-ep05-v1/ll-ep05-shorts-text.txt) · [tải thẳng](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep05-v1/ll-ep05-shorts-text.txt) | `0e037ef01d9e462b…` |
 | `*.boxes.json` (2 tệp) | hộp chữ thumbnail cho qc Q12; **không tải lên YouTube** | trên nhánh | trong `SHA256SUMS.txt` |
 
 **Cách tải và kiểm:** như tập 1, mục 0.
@@ -21,7 +31,7 @@ P soạn ngày 06/10/2026, sau khi chủ dự án duyệt cổng G2. Cổng G3 (
 - Hoặc dùng dòng lệnh: `git lfs install && git clone --branch release-ll-ep05-v1 --single-branch https://github.com/HungQuach301/cine-lab.git ll-ep05-v1`.
 - **Kiểm SHA:**
   - macOS: `shasum -a 256 -c SHA256SUMS.txt`, mọi dòng phải `OK`.
-  - Windows (PowerShell): `Get-FileHash .\ll-ep05-v1-master-1080p.mp4 -Algorithm SHA256` phải bằng `@MSHAU@`.
+  - Windows (PowerShell): `Get-FileHash .\ll-ep05-v1-master-1080p.mp4 -Algorithm SHA256` phải bằng `AC791EEA77183001A96E1916402BE8DAEC1D4F400F5BE3147FB0F0DC6A8291AB`.
 - Lệch SHA thì tải lại; không đăng tệp lệch.
 - Repo public: ai có link cũng tải được gói trước ngày phát hành (đã chấp nhận ở tập 1). P không tự xoá nhánh.
 
@@ -99,7 +109,7 @@ P soạn ngày 06/10/2026, sau khi chủ dự án duyệt cổng G2. Cổng G3 (
    - nguồn đoạn mở đầu, theo chỉ đạo, kèm 5 dòng nguồn thiếu do Q21 bắt;
    - dòng nguồn tràn khung trên Shorts, do Q22 bắt.
    - Lời phim không đổi. Câu chú thích S2 "…declined" thành "…fell".
-2. **Tệp:** nhánh `release-ll-ep05-v1` (Git LFS), commit `@REL@`, tải ngược 11/11 SHA OK.
+2. **Tệp:** nhánh `release-ll-ep05-v1` (Git LFS), commit `1faae2f`, tải ngược 11/11 SHA OK.
 3. **Thumbnail:** T1 chính, A/B T2.
 4. **Altered content: No.** Giữ "How this film was made". RIGHTS cho 4 ảnh LoC đã có.
 5. **Còn lại cho G3:** chủ dự án tải tệp, kiểm SHA, làm theo mục 1–6, bấm Schedule hoặc Publish.

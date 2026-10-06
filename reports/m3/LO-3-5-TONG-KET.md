@@ -9,17 +9,17 @@ Ba tập đã qua G2 và có gói G3. Chủ dự án tự đăng.
 ## 1. Token thực (log phiên; các giai đoạn chồng việc thư viện chung)
 | Giai đoạn (giờ UTC) | P: token sinh ra | P: đầu vào mới (input + ghi cache) | P: đọc lại cache | Subagent (đầu vào mới + sinh ra) |
 |---|---|---|---|---|
-| G1 lô: tra nguồn, 3 đặc tả (05/10 04:03–05:09) | @G1O@ | @G1N@ | @G1C@ | @G1S@ (tra nguồn Sonnet) |
-| Tập 3 + nhà máy v1.1 (05:09–12:07) | @T3O@ | @T3N@ | @T3C@ | @T3S@ (kiểm mù tập 3 ×3 + tập 4 ×1) |
-| Tập 4 + luật nhịp Q14–Q18 + HÌNH v2 (12:07–23:04) | @T4O@ | @T4N@ | @T4C@ | 0 |
-| Tập 5 + Q20–Q22 (23:04 → hết) | @T5O@ | @T5N@ | @T5C@ | @T5S@ (kiểm mù tập 5) |
-- **Các báo cáo G2 trước đây ước P ≈ 0,24–0,3 triệu token mỗi tập. Số đó chỉ gần với phần token sinh ra.** Theo đầu vào mới, mỗi tập 1,3–2,6 triệu. Đọc lại cache là 54–58 triệu mỗi tập, phần lớn do vòng lặp công cụ dài trên ngữ cảnh lớn.
+| G1 lô: tra nguồn, 3 đặc tả (05/10 04:03–05:09) | 128 nghìn | 289 nghìn | 16,80 tr | 562 nghìn (tra nguồn Sonnet) |
+| Tập 3 + nhà máy v1.1 (05:09–12:07) | 100 nghìn | 1,21 tr | 54,31 tr | 186 nghìn (kiểm mù tập 3 ×3 + tập 4 ×1) |
+| Tập 4 + luật nhịp Q14–Q18 + HÌNH v2 (12:07–23:04) | 115 nghìn | 1,33 tr | 58,02 tr | 0 |
+| Tập 5 + Q20–Q22 (23:04 → hết) | 156 nghìn | 2,77 tr | 70,03 tr | 50 nghìn (kiểm mù tập 5) |
+- **Các báo cáo G2 trước đây ước P ≈ 0,24–0,3 triệu token mỗi tập. Số đó chỉ gần với phần token sinh ra.** Theo đầu vào mới, mỗi tập 1,2–2,8 triệu. Đọc lại cache là 54–70 triệu mỗi tập, phần lớn do vòng lặp công cụ dài trên ngữ cảnh lớn.
 - **Cần chủ dự án định nghĩa "trần token"** (sinh ra / đầu vào mới / tổng) cho các lô sau. P đề xuất: trần theo **đầu vào mới + sinh ra**, đo bằng log như bảng này.
 
 ## 2. Giờ máy, ElevenLabs, chạm của chủ dự án
 | | Tập 3 | Tập 4 | Tập 5 |
 |---|---|---|---|
-| Lượt build (giây, đo bằng `build.sh`) | 4 625 + 3 875 + 5 161 + 344 + 1 lượt dở ≈ 4,0 giờ | 3 299 + 2 265 + 2 216 + 2 lượt dở ≈ 2,4 giờ | @T5B@ |
+| Lượt build (giây, đo bằng `build.sh`) | 4 625 + 3 875 + 5 161 + 344 + 1 lượt dở ≈ 4,0 giờ | 3 299 + 2 265 + 2 216 + 2 lượt dở ≈ 2,4 giờ | 3 608 + 3 524 + 3 519 + 164 + 2 688 + 3 043 + 268 + 3 581 + 2 lượt dở ≈ 5,7 giờ |
 | ElevenLabs (ký tự gửi) | 14 004 (≈ 3 000 thừa do ASR báo sai tên) | 8 888 | 5 848, không thu lại |
 - **Chủ dự án chạm 9 lần cho cả lô.**
   - 1 lệnh lô;
@@ -40,7 +40,7 @@ Ba tập đã qua G2 và có gói G3. Chủ dự án tự đăng.
 | Q19 tư liệu phạm vi công cộng | không dùng | không dùng | 84,5 s (16,5 %), 4 dòng RIGHTS |
 | Q20 chữ đè hình | (chưa có luật) | (chưa có luật) | 0 |
 | Q21 gán nguồn (mới) | 0 (không có chú thích đè) | không câu nào sai nguồn; 18 câu chưa khai, 7 câu không có dòng nguồn | sửa 1 câu sai + 10 câu chưa khai → 0 |
-| Q22 chữ tràn khung (mới) | — | — | 16:9: 0. Shorts: 10 chỗ tràn → @Q22@ |
+| Q22 chữ tràn khung (mới) | — | — | 16:9: 0. Shorts: 10 chỗ tràn → 0 (nhãn nguồn gọn, chú thích gọn, thư viện thu cỡ chữ) |
 - Tập 3 trượt cả Q14–Q18 vì làm trước luật nhịp. Tập 4 và tập 5 đạt.
 - Tập 4 đã đăng hoặc chờ đăng, P không sửa. Các câu thiếu dòng nguồn của tập 4 ghi ở đây để chủ dự án biết.
 

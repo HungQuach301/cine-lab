@@ -13,12 +13,12 @@
 | Q4 | Loudness/TP ll-ep05-short-S2.mp4 | **ĐẠT** | -14.0 LUFS / -1.6 dBTP | −14±1 / ≤ −1 |  |  |
 | Q4 | Loudness/TP ll-ep05-short-S3.mp4 | **ĐẠT** | -14.0 LUFS / -2.3 dBTP | −14±1 / ≤ −1 |  |  |
 | Q5 | Tương phản chữ thấp nhất | **ĐẠT** | 6.2 | 4.5 |  | 07 f480 “Sources: BLS Employment Projections · BL” |
-| Q6 | Cỡ chữ hoa tối thiểu (mọi khung mẫu) | **ĐẠT** | 30.7 px (S1 f240 “PROJECTION”) | 18 / 30 px | cỡ chữ: 30.7 (ngưỡng 30) | mẫu tự nâng cỡ: {'00': 669, '02': 1563, '03': 1408, '05': 232, '07': 1244, '08': 1124, '10': 2160, 'S1': 962, 'S2': 579, 'S3': 854} |
+| Q6 | Cỡ chữ hoa tối thiểu (mọi khung mẫu) | **ĐẠT** | 30.7 px (S1 f36 “Source: BLS Outlook Handbook 2025–35”) | 18 / 30 px | cỡ chữ: 30.7 (ngưỡng 30) | mẫu tự nâng cỡ: {'00': 669, '02': 1563, '03': 1673, '05': 392, '05b': 329, '07': 1244, '08': 1124, '10': 2306, '11': 236, 'S1': 962, 'S2': 579, 'S3': 854} |
 | Q7 | Nhãn ACTUAL/PROJECTION khi có số | **ĐẠT** | 0 | 0 |  |  |
 | Q8 | Nguồn (toàn văn, không Wikipedia) + số khớp lời | **ĐẠT** | 0 | 0 |  |  |
 | Q9 | Số khung khớp timeline | **ĐẠT** | master 12301/12301 | = timeline |  |  |
 | Q10 | Dung lượng ll-ep05-v1-p1.mp4 | **ĐẠT** | 58.1 MB | ≤ 90 MB |  |  |
-| Q10 | Dung lượng ll-ep05-v1-p2.mp4 | **ĐẠT** | 67.8 MB | ≤ 90 MB |  |  |
+| Q10 | Dung lượng ll-ep05-v1-p2.mp4 | **ĐẠT** | 67.9 MB | ≤ 90 MB |  |  |
 | Q10 | Dung lượng ll-ep05-v1-p3.mp4 | **ĐẠT** | 61.4 MB | ≤ 90 MB |  |  |
 | Q10 | Thời lượng Short S1 | **ĐẠT** | 25.08 s | ≤ 60 s |  |  |
 | Q10 | Thời lượng Short S2 | **ĐẠT** | 27.04 s | ≤ 60 s |  |  |
@@ -34,3 +34,5 @@
 | Q18 | Thẻ trống ≤ 1,5 s trước số | **ĐẠT** | 0 |  |  |  |
 | Q20 | Chú thích không đè hình (isotype…) | **ĐẠT** | 0 | 0 |  |  |
 | Q19 | Hồ sơ quyền tư liệu (danh sách trắng, RIGHTS, ≤ 20 %) | **ĐẠT** | 0 | 0 |  | tư liệu 84.5 s |
+| Q21 | Dòng nguồn khớp số/câu đang hiện | **ĐẠT** | 0 | 0 |  |  |
+| Q22 | Chữ nằm trong khung (lề ≥ 8 px) | **ĐẠT** | 0 | 0 |  |  |
