@@ -10,22 +10,22 @@
 ## 1. Bàn giao
 | Tệp | Thông số | Dung lượng | SHA-256 |
 |---|---|---|---|
-| Master (Git LFS, nhánh **`release-ll-ep05-v1`**, commit `@REL@`): `ll-ep05-v1-master-1080p.mp4` | 1920×1080, 24 fps, **8:32,5** (12 301 khung) | @MSZ@ MB | `@MSHA@` |
-| `screening/ll-ep05-v1-p1.mp4` | phần 1, 720p | @P1@ | `@P1S@` |
-| `screening/ll-ep05-v1-p2.mp4` | phần 2 | @P2@ | `@P2S@` |
-| `screening/ll-ep05-v1-p3.mp4` | phần 3 | @P3@ | `@P3S@` |
-| Shorts S1/S2/S3 (LFS, cùng nhánh) | 1080×1920; 25,1 / 27,0 / 23,3 s | @SSZ@ | `SHA256SUMS.txt` của nhánh |
+| Master (Git LFS, nhánh **`release-ll-ep05-v1`**, commit `f972859`): `ll-ep05-v1-master-1080p.mp4` | 1920×1080, 24 fps, **8:32,5** (12 301 khung) | 236,6 MB | `c305a52b6eaebe192f5ec1d3312ecf584cec880af2ea32225b73cefc85ca90f5` |
+| `screening/ll-ep05-v1-p1.mp4` | đoạn 00–04 (0:00–2:38,2), 720p | 58,1 MB | `21d81f11…0902b973` |
+| `screening/ll-ep05-v1-p2.mp4` | đoạn 05–08 (2:38,2–5:44,7) | 67,8 MB | `14790188…debd788a` |
+| `screening/ll-ep05-v1-p3.mp4` | đoạn 09–12 (5:44,7–8:32,5) | 61,4 MB | `19ccc170…8d299d30` |
+| Shorts S1/S2/S3 (LFS, cùng nhánh) | 1080×1920; 25,1 / 27,0 / 23,3 s | 4,6 / 7,2 / 4,5 MB | `SHA256SUMS.txt` của nhánh |
 | Thumbnail T1, T2 · mô tả (14 chương) · text Shorts · phụ đề `.srt` | cùng nhánh và `reports/m3/ep05/phat-hanh/` | | |
 
-- **Kiểm sau khi đẩy:** @VERIFY@
+- **Kiểm sau khi đẩy:** tải ngược **11/11 tệp** (LFS qua media.githubusercontent.com, tệp thường qua raw.githubusercontent.com), `sha256sum -c`: **cả 11 OK**.
 - Khung tổng quan (33 shot): `reports/m3/ep05/khung-g2.jpg`. Bảng khán giả (tự sinh): `reports/m3/ep05/KHAN-GIA.md`.
 
-## 2. Kết quả `qc.sh` lượt cuối: **@QCRES@** (bảng đầy đủ: `reports/m3/ep05/qc-g2.md`)
+## 2. Kết quả `qc.sh` lượt cuối: **ĐẠT 32/32** (bảng đầy đủ: `reports/m3/ep05/qc-g2.md`)
 | Mục | Giá trị |
 |---|---|
 | Q1–Q3 judder, khung gần trùng, máy xuyên hình | 0 · 0 · 0 |
-| Q4 loudness / true peak | @Q4@ |
-| Q5 tương phản thấp nhất | @Q5@ |
+| Q4 loudness / true peak | master **−14,0 LUFS / −1,5 dBTP**; phần −15,2 / −15,3 / −15,2 (TP ≤ −2,6); Shorts −14,0 / −14,0 / −14,0 (TP ≤ −1,6) |
+| Q5 tương phản thấp nhất | 6,2:1 |
 | Q6 cỡ chữ hoa tối thiểu | 30,7 px (Short S1, nhãn "PROJECTION") |
 | Q7–Q13 | ĐẠT (0 lỗi; 12 301/12 301 khung; phần ≤ 90 MB; T1/T2 lề 5 %; số trên tiêu đề, thumbnail, mô tả, Shorts truy được về `numbers`) |
 | **Q14 móc câu** | câu hỏi "Who decides what a damaged car is worth?" và hình giám định xe trước 0:15; **tựa ở 0:19,8**; trả lời ở đoạn 11 ("The line is moving") |
@@ -52,7 +52,7 @@
 | Mật độ số (Q17) | 15 số, 1,75/phút | **11 số, 1,29/phút** |
 | Thẻ trống > 1,5 s (Q18) | 0 | 0 |
 | Tư liệu phạm vi công cộng | 0 | 84,5 s (16,5 %) |
-| Q5 tương phản thấp nhất | 5,79:1 | @Q5S@ |
+| Q5 tương phản thấp nhất | 5,79:1 | 6,2:1 |
 
 - Thẻ giấy giảm một nửa: cảnh `desk` (1963 → 1988 → 2025 trên cùng một bàn), `inspect`, `isotype`, `sign` và tư liệu LoC thay phần lớn thẻ trích dẫn. Còn 6 thẻ trích dẫn BLS, giữ vì lời trích nguyên văn là chứng cứ chính của tập.
 - Tựa muộn hơn tập 4 1,2 s, vẫn trong ngưỡng.
@@ -103,7 +103,7 @@
 | **Tổng tập 5** | **≈ 0,3 triệu / trần 0,5 triệu (≈ 60 %)** | ước |
 - **ElevenLabs:** bộ đếm tài khoản 27 538 → **33 386** (+5 848 ký tự, gồm lời phim và 3 Shorts; không thu lại lần nào).
 - **Giờ máy:** 8 lượt build (phần lớn chỉ dựng lại đoạn/Short hỏng nhờ băm đoạn), 8 lượt qc.
-- **Đĩa:** @DISK@. Trung gian `/var/tmp/cine-out/ll-ep05` giữ đến khi G2 duyệt.
+- **Đĩa:** trống 15G. Trung gian `/var/tmp/cine-out/ll-ep05` giữ đến khi G2 duyệt.
 
 ## 6. Hàng chờ nhỏ (không chặn G2)
 1. **Chữ tràn khung chưa có qc.** Lỗi mục 2.8 do P thấy bằng mắt. Đề xuất:
@@ -114,7 +114,7 @@
 3. Hàng chờ từ tập 4 (tư thế tay ở mẫu `rows`) chưa đụng tới, vì tập 5 không dùng `rows`.
 
 ## 7. Chờ chủ dự án — CỔNG G2 tập 5
-1. **Duyệt bản cuối:** xem `screening/ll-ep05-v1-p1/p2/p3.mp4`. Master trên nhánh `release-ll-ep05-v1`, SHA `@MSHORT@`.
+1. **Duyệt bản cuối:** xem `screening/ll-ep05-v1-p1/p2/p3.mp4`. Master trên nhánh `release-ll-ep05-v1`, SHA `c305a52b…5ca90f5`.
 2. **Duyệt 3 Shorts:**
    - S1 "Software that drafts the estimate for a wrecked car";
    - S2 "1966: the computer couldn't judge. 2026?";

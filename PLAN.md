@@ -10,7 +10,7 @@
 | 2 "Hello, Central" | G3: chủ dự án đăng | `reports/m3/HUONG-DAN-DANG-TAP2.md` |
 | 3 "The Teller's Window" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP3.md`) | `reports/m3/ep03/PLAN.md` |
 | 4 "The Typing Pool" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP4.md`) | `reports/m3/ep04/PLAN.md` |
-| 5 "The Claims Desk" | đang sản xuất bằng HÌNH v2 → G2 | `reports/m3/ep05/PLAN.md` |
+| 5 "The Claims Desk" | **G2 — chờ chủ dự án duyệt** (`reports/m3/TAP5-G2.md`) | `reports/m3/ep05/PLAN.md` |
 
 ## Luật làm việc
 - 3 cổng (G1 kịch bản, G2 bản cuối, G3 phát hành). Ngoại lệ phải hỏi: CHUAN-KENH §7.

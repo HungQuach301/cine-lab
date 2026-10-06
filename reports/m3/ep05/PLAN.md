@@ -1,7 +1,7 @@
 # PLAN tập 05  (≤ 1 trang; P cập nhật sau mỗi bước)
 
-**Trạng thái:** đang sản xuất bằng HÌNH v2
-**Việc tiếp:** 1. sửa phụ đề né isotype + test va chạm. 2. đặc tả v4 dùng mẫu v2 + tư liệu PD. 3. kiểm mù → thu giọng → build → qc Q1–Q19 → G2.
+**Trạng thái:** G2 — chờ chủ dự án duyệt (TAP5-G2.md; release-ll-ep05-v1 @ f972859, 11/11 SHA OK)
+**Việc tiếp:** sau G2: G3 như tập 4 (HUONG-DAN-DANG-TAP5.md, Altered content = No, xoá trung gian).
 **Quyết định đã có (chủ dự án):** 05/10 G1 (5A, 5B), 06/10 HÌNH v2 từ tập 5.
 **Trần:** token 0,5 triệu/tập · kiểm mù ~50 nghìn · đĩa trống ≥ 1,5 × mức cần
 

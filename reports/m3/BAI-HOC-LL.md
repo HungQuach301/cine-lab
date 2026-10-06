@@ -74,3 +74,5 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 49 | Ken Burns phủ kín khung cắt mất chủ thể ảnh tư liệu (xe tai nạn bị dải chú thích che) | tập 5 đoạn 10: P thấy khi chọn khung thumbnail | căn giữa ảnh theo khung | `archive.focus` = điểm chính của ảnh, đặt trên dải chú thích; rà một khung mỗi ảnh trước khi build |
 | 50 | Dòng nguồn ảnh tư liệu bị dải chú thích che/thay | tập 5 | chỉ một dòng nguồn | ảnh tư liệu: nguồn ảnh bên phải, nguồn số bên trái, cùng trên dải |
 | 51 | Chú thích riêng của mẫu (sign.caption) nằm dưới dải `cap` ở 9:16 | tập 5 S3: Q5 = 1,83 | hai lớp chữ cùng vùng đáy | dùng một lớp: khi có `cap`, bỏ caption của mẫu |
+| 52 | Dòng nguồn ghép nhiều nguồn tràn mép phải khung 16:9 | tập 5 đoạn 07 isotype: P thấy trên khung tổng quan, qc không bắt | nhãn `short` dài (mã USDL) + không thu cỡ theo bề ngang | giữ `short` ≤ 30 ký tự; hàng chờ: text tự thu cỡ + qc hộp chữ vượt khung |
+| 53 | Mô tả YouTube nêu mốc năm/số ngoài lời phim ("1950s and 60s") | tập 5: Q13 trượt khi mô tả mới sinh | viết mô tả theo trí nhớ nội dung | mô tả chỉ dùng năm/số có trong lời hoặc `numbers`; chạy qc sau khi sinh mô tả |
