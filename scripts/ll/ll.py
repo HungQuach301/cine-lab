@@ -170,6 +170,9 @@ def resolve(x, W, off, ctx, N, S, srcs):
     return x
 
 
+CAPSRC = {}   # nguồn đúng của từng chú thích: qc Q21 đối chiếu với dòng nguồn trên hình
+
+
 def build_seg(E, sg, W, off, dur, ctx_short=False):
     N, S = E.get('numbers', {}), E.get('sources', {})
     shots, cues = [], []
@@ -178,8 +181,18 @@ def build_seg(E, sg, W, off, dur, ctx_short=False):
     for i, sh in enumerate(sg['shots']):
         srcs = set(); p = resolve(sh.get('p', {}), W, off, f"{sg['id']}/{sh['tpl']}", N, S, srcs)
         if isinstance(p.get('src'), list): srcs |= set(p['src']); p.pop('src')
-        if srcs and not isinstance(p.get('src'), str):
-            ks = sorted(srcs); p['src'] = ('Sources: ' if len(ks) > 1 else 'Source: ') + ' · '.join(S[k]['short'] for k in ks)
+        lab = lambda ks: ('Sources: ' if len(ks) > 1 else 'Source: ') + ' · '.join(S[k]['short'] for k in sorted(ks)) if ks else ''
+        if srcs and not isinstance(p.get('src'), str): p['src'] = lab(srcs)
+        if p.get('cap'):   # mỗi chú thích mang đúng nguồn của nó (G2 tập 5, 06/10/2026)
+            # thấy trên hình = nguồn dữ liệu của mẫu + nguồn riêng của câu (num hoặc src: [...]; src: [] = câu không cần nguồn)
+            sp = sh.get('p', {}); tsrc = set(sp['src']) if isinstance(sp.get('src'), list) else set()
+            resolve({k: v for k, v in sp.items() if k not in ('cap', 'src')}, W, off, sg['id'], N, S, tsrc)
+            for j, c in enumerate(p['cap']):
+                decl = 'num' in c or isinstance(c.get('src'), list)
+                own = ({N[c['num']]['src']} if c.get('num') else set()) | set(c.pop('src') if isinstance(c.get('src'), list) else [])
+                vis = tsrc | own
+                CAPSRC[f"{sg['id']}/{i}/{j}"] = dict(srcs=sorted(vis), declared=decl, text=c.get('s', ''))
+                if decl and (not vis <= srcs or not vis): c['src'] = lab(vis) or ' '   # dòng chung thiếu nguồn của câu → ghi riêng; ' ' = không ghi nguồn
         t1 = ats[i + 1] if i + 1 < len(ats) else dur
         tr = sh.get('in', 'cut'); tr = tr if isinstance(tr, dict) else {'type': tr, 'd': 0.7}
         shots.append(dict(tpl=sh['tpl'], t0=ats[i], t1=t1, **({'in': tr} if i else {}), p=p))
@@ -243,6 +256,7 @@ def prep(path):
     parts = {}
     for s in TL['segments']: parts[s['part']] = parts.get(s['part'], 0) + s['t1'] - s['t0']
     TL['ty_le'] = {k: round(100 * v / t_abs, 1) for k, v in parts.items()}
+    TL['capsrc'] = CAPSRC
     json.dump(TL, open(os.path.join(E['out'], 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
     open(os.path.join(E['out'], E['id'] + '.en.srt'), 'w').write(''.join(f'{i}\n{ts(a)} --> {ts(b)}\n{s}\n\n' for i, (a, b, s) in enumerate(srt, 1)))
     print(json.dumps(dict(tong_s=TL['tong_s'], khung=TL['tong_khung'], ty_le=TL['ty_le'], el=[c0, sent, TL['el_after']],

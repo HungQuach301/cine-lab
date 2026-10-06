@@ -17,6 +17,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q14–Q18 luật nhịp (scripts/ll/rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
   Q20 va chạm chữ–hình: chú thích không đè vùng hình đã khai (log render 'hit')
   Q19 hồ sơ quyền tư liệu phạm vi công cộng (scripts/ll/rights_check.py)
+  Q21 gán nguồn trên hình: dòng nguồn đang hiện chứa nguồn của mọi số/câu đang hiện; câu có số/năm/cơ quan phải khai num/src (scripts/ll/src_check.py)
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
@@ -206,6 +207,10 @@ row('Q20', 'Chú thích không đè hình (isotype…)', not _hits, sum(_hits.va
 import rights_check  # noqa: E402
 _rb, _ra = rights_check.check(E, TL)
 row('Q19', 'Hồ sơ quyền tư liệu (danh sách trắng, RIGHTS, ≤ 20 %)', not _rb, len(_rb), 0, note='; '.join(_rb[:4]) or (f'tư liệu {_ra:.1f} s' if _ra else 'không dùng tư liệu'))
+# Q21 gán nguồn trên hình (chủ dự án, G2 tập 5, 06/10/2026)
+import src_check  # noqa: E402
+_sb = src_check.check(E, TL)
+row('Q21', 'Dòng nguồn khớp số/câu đang hiện', not _sb, len(_sb), 0, note='; '.join(_sb[:4]))
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']
