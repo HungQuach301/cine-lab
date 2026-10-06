@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
 sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow  # noqa: E402  luật khoá LL v2 (phiên K)
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
-FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect'}
+FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect', 'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}
 rows = []
 
 

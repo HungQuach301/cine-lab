@@ -97,6 +97,7 @@ def est(E):
     rows, parts, warn, t_abs = [], {}, [], 0.0
     for sg in E['segments']:
         off = float(sg.get('vo_offset', 0.8 if sg.get('vo') else 0)); W = fake_words(sg.get('vo') or '')
+        if sg.get('pause') and W: W = shift_words(W, pause_points(sg, W))
         vlen = W[-1][2] if W else 0
         dur = max(float(sg.get('min_dur', 0)), off + vlen + float(sg.get('tail', 1.0))) if W else float(sg.get('dur', 6))
         try: shots, _ = build_seg(E, sg, W, off, dur)
@@ -111,6 +112,38 @@ def est(E):
         parts[sg.get('part')] = parts.get(sg.get('part'), 0) + dur
         rows.append((sg['id'], sg.get('part'), len(W), round(dur, 1))); t_abs += dur
     return rows, {k: round(100 * v / t_abs, 1) for k, v in parts.items()}, t_abs, warn
+
+
+def pause_points(sg, W):
+    """khoảng lặng chèn TRƯỚC từ (Q28: 0,5–1 s trước mỗi số neo; nghỉ theo câu). sg['pause'] = [{before: '@từ' hoặc '@từ#2', s: 0.7}]"""
+    out = []
+    for q in sg.get('pause') or []:
+        m = re.fullmatch(r'@([^#+\-]+)(?:#(\d+))?', q['before'].strip()); key, nth = norm(m.group(1)), int(m.group(2) or 1)
+        hits = [w for w in W if w[0] == key]
+        if len(hits) < nth: raise SystemExit(f"{sg['id']}: pause — không thấy từ {q['before']}")
+        out.append((hits[nth - 1][1], float(q.get('s', 0.7))))
+    return sorted(out)
+
+
+def shift_words(W, pts):
+    return [(w[0], w[1] + sum(s for t, s in pts if t <= w[1] + 1e-6), w[2] + sum(s for t, s in pts if t <= w[1] + 1e-6), w[3]) for w in W]
+
+
+def apply_pauses(E, sg, mp3, W):
+    """chèn khoảng lặng vào lời đã thu (không thu lại): cắt tại đầu từ (lùi 40 ms vào khoảng nghỉ có sẵn), thêm số 0, dời mốc từ phía sau"""
+    import numpy as np
+    pts = pause_points(sg, W); SR = 44100
+    x = np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', mp3, '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True, check=True).stdout, np.float32)
+    parts, last = [], 0
+    for t, sec in pts:
+        k = max(last, int((t - 0.04) * SR)); parts += [x[last:k], np.zeros(int(sec * SR), np.float32)]; last = k
+    parts.append(x[last:]); y = np.concatenate(parts)
+    out = mp3.replace('.mp3', '.p.mp3')   # giữ đuôi .mp3 + .align.json cạnh tệp: rhythm/qc (và luật khoá) tìm căn chữ bằng vo_file.replace('.mp3', '.align.json')
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '1', '-i', '-', '-c:a', 'libmp3lame', '-b:a', '320k', out], input=y.tobytes(), check=True)
+    al = json.load(open(mp3.replace('.mp3', '.align.json'))); sh = lambda t: t + sum(sec for p, sec in pts if p <= t + 1e-6)
+    al2 = dict(characters=al['characters'], character_start_times_seconds=[sh(t) for t in al['character_start_times_seconds']], character_end_times_seconds=[sh(t) for t in al['character_end_times_seconds']])
+    json.dump(al2, open(out.replace('.mp3', '.align.json'), 'w'))
+    return out, words(al2)
 
 
 def fake_align(text):
@@ -133,6 +166,7 @@ def est_timeline(E):
         off = float(sg.get('vo_offset', 0.8 if sg.get('vo') else 0)); W, vf = [], None
         if sg.get('vo'):
             al = fake_align(sg['vo'].strip()); W = words(al); vf = os.path.join(tmp, sg['id'] + '.mp3'); json.dump(al, open(vf.replace('.mp3', '.align.json'), 'w'))
+            if sg.get('pause'): W = shift_words(W, pause_points(sg, W))
         vlen = W[-1][2] if W else 0
         dur = max(float(sg.get('min_dur', 0)), off + vlen + float(sg.get('tail', 1.0)) if W else float(sg.get('dur', 6)))
         shots, _ = build_seg(E, sg, W, off, dur)
@@ -144,6 +178,44 @@ def est_timeline(E):
         TL['shorts'].append(dict(id=sh['id'], hook=sh.get('hook'), t0=0, t1=dur, vo_file=vf, vo_offset=0.6, shots=shots))
     TL['tong_s'] = t; TL['tong_khung'] = int(round(t * FPS)); TL['capsrc'] = CAPSRC
     return TL
+
+
+HERO_ROOT = '/var/tmp/cine-out/hero'
+
+
+def heroes_plan(E, TL):
+    """Cảnh đinh 3D (CHUAN-KENH §11.3): shot `plate` (p.hero = khoá trong E['heroes']) và `diptych` (p.left/p.right = {hero, i}).
+    Tính độ dài cần dựng của mỗi cảnh từ timeline thật, gán p.dir và p.stamp (băm mã cảnh + tham số → đổi cảnh thì đoạn dùng nó render lại).
+    Ghi <out>/heroes.json cho bước dựng cảnh đinh của build.sh."""
+    HZ = E.get('heroes') or {}
+    if not HZ: return
+    code = b''.join(open(os.path.join(REPO, 'design/ll-hero', fn), 'rb').read() for fn in sorted(os.listdir(os.path.join(REPO, 'design/ll-hero'))) if fn.endswith('.js'))
+    need = {}
+    for kind in ('segments', 'shorts'):
+        for sg in TL[kind]:
+            fmt = '9x16' if kind == 'shorts' else '16x9'
+            for sh in sg['shots']:
+                p = sh['p']
+                if sh['tpl'] == 'plate' and p.get('hero'):
+                    k = p['hero']; d = (sh['t1'] - sh['t0'] + 1.8) * p.get('speed', 1) + p.get('off', 0) / FPS
+                    need[k] = max(need.get(k, 0), d)
+                for q in (p.get('left'), p.get('right')) if sh['tpl'] == 'diptych' else ():
+                    if q and q.get('hero'): need[q['hero']] = max(need.get(q['hero'], 0), (q.get('i', 0) + 2) / FPS)
+    plan = {}
+    for k, d in need.items():
+        h = HZ[k]; dur = round(max(2.0, d) + 0.5, 1)
+        stamp = hashlib.sha1(code + json.dumps([h, dur], sort_keys=True).encode()).hexdigest()[:12]
+        plan[k] = dict(hero=h['hero'], variant=h.get('variant', 'a'), opt=h.get('opt', {}), dur=dur, dir=f"{HERO_ROOT}/{E['id']}-{k}", stamp=stamp)
+    for kind in ('segments', 'shorts'):
+        for sg in TL[kind]:
+            for sh in sg['shots']:
+                p = sh['p']
+                if sh['tpl'] == 'plate' and p.get('hero'): p['dir'] = plan[p['hero']]['dir']; p['stamp'] = plan[p['hero']]['stamp']
+                if sh['tpl'] == 'diptych':
+                    for q in (p.get('left'), p.get('right')):
+                        if q and q.get('hero'): q['dir'] = plan[q['hero']]['dir']; q['stamp'] = plan[q['hero']]['stamp']
+    TL['heroes'] = plan
+    json.dump(plan, open(os.path.join(E['out'], 'heroes.json'), 'w'), indent=1, ensure_ascii=False)
 
 
 # ---------- lời Bill ----------
@@ -158,14 +230,14 @@ def chars_used():
     except Exception as e: return f'không đọc được ({e})'
 
 
-def tts(E, key, text):
+def tts(E, key, text, speed=1.0):
     d = P(E['vo_dir']); os.makedirs(d, exist_ok=True)
     mp3, al, tx = (os.path.join(d, f'{key}.{x}') for x in ('mp3', 'align.json', 'txt'))
-    v = E['voice']; sig = hashlib.sha1(json.dumps([text, v], sort_keys=True).encode()).hexdigest()[:12]
+    v = E['voice']; sig = hashlib.sha1(json.dumps([text, v] + ([speed] if speed != 1.0 else []), sort_keys=True).encode()).hexdigest()[:12]   # nhịp đọc theo đoạn (chủ dự án 06/10/2026)
     if os.path.exists(mp3) and os.path.exists(tx) and open(tx).read().split('\n')[0] == sig: return mp3, json.load(open(al)), 0
     r = el(f"/v1/text-to-speech/{v['id']}/with-timestamps?output_format=mp3_44100_128",
            dict(text=text, model_id=v.get('model', 'eleven_multilingual_v2'),
-                voice_settings=dict(stability=v.get('stability', 0.5), similarity_boost=v.get('similarity', 0.75), speed=1.0)))
+                voice_settings=dict(stability=v.get('stability', 0.5), similarity_boost=v.get('similarity', 0.75), speed=float(speed))))
     open(mp3, 'wb').write(base64.b64decode(r['audio_base64'])); json.dump(r['alignment'], open(al, 'w'))
     open(tx, 'w').write(sig + '\n' + text + '\n')
     return mp3, r['alignment'], len(text)
@@ -269,7 +341,8 @@ def prep(path):
     for sg in E['segments']:
         W, mp3, al, off = [], None, None, float(sg.get('vo_offset', 0.8 if sg.get('vo') else 0))
         if sg.get('vo'):
-            mp3, al, n = tts(E, f"{E['id']}-{sg['id']}", sg['vo'].strip()); sent += n; W = words(al)
+            mp3, al, n = tts(E, f"{E['id']}-{sg['id']}", sg['vo'].strip(), sg.get('speed', 1.0)); sent += n; W = words(al)
+            if sg.get('pause'): mp3, W = apply_pauses(E, sg, mp3, W)
         vlen = (W[-1][2] if W else 0)
         dur = max(float(sg.get('min_dur', 0)), off + vlen + float(sg.get('tail', 1.0)) if W else float(sg.get('dur', 6)))
         frames = int(round(dur * FPS)); dur = frames / FPS
@@ -296,6 +369,7 @@ def prep(path):
     for s in TL['segments']: parts[s['part']] = parts.get(s['part'], 0) + s['t1'] - s['t0']
     TL['ty_le'] = {k: round(100 * v / t_abs, 1) for k, v in parts.items()}
     TL['capsrc'] = CAPSRC
+    heroes_plan(E, TL)
     json.dump(TL, open(os.path.join(E['out'], 'timeline.json'), 'w'), indent=1, ensure_ascii=False)
     open(os.path.join(E['out'], E['id'] + '.en.srt'), 'w').write(''.join(f'{i}\n{ts(a)} --> {ts(b)}\n{s}\n\n' for i, (a, b, s) in enumerate(srt, 1)))
     print(json.dumps(dict(tong_s=TL['tong_s'], khung=TL['tong_khung'], ty_le=TL['ty_le'], el=[c0, sent, TL['el_after']],

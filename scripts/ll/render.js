@@ -17,23 +17,37 @@ const SAMPLE = +arg('sample', 12);
   const browser = await chromium.launch({ args: ['--disable-gpu', '--font-render-hinting=none', '--force-color-profile=srgb'] });
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; }); page.on('console', (m) => console.error('[page]', m.text()));
-  const libs = ['core', 'charts', 'map', 'scenes', 'props', 'v2', 'shot'].map((n) => fs.readFileSync(path.join(LIB, n + '.js'), 'utf8')).join('\n;\n');
+  const libs = ['core', 'charts', 'map', 'scenes', 'props', 'v2', 'v3', 'shot'].map((n) => fs.readFileSync(path.join(LIB, n + '.js'), 'utf8')).join('\n;\n');
   // ảnh tư liệu (mẫu archive): nạp sẵn thành data URI, chờ giải mã xong mới vẽ
   const imgs = [...new Set((JSON.stringify(spec).match(/"img":"([^"]+)"/g) || []).map((m) => m.slice(7, -1)))];
   const REPO = path.join(__dirname, '..', '..');
+  // cảnh đinh 3D (mẫu plate): đếm khung của mỗi thư mục, ghi p.n vào đặc tả; nạp đúng khung trước mỗi drawFrame (xem vòng lặp)
+  const plates = spec.shots.filter((s) => s.tpl === 'plate').map((s) => { const d = path.isAbsolute(s.p.dir) ? s.p.dir : path.join(path.join(__dirname, '..', '..'), s.p.dir);
+    s.p.n = fs.existsSync(d) ? fs.readdirSync(d).filter((x) => /^\d{5}\.jpg$/.test(x)).length : 0; if (!s.p.n) { console.error('thiếu khung plate', d); process.exitCode = 3; } return { s, d }; });
+  const plateFor = (f) => { const t = f / 24, need = [];
+    for (const s of spec.shots) if (s.tpl === 'diptych' && t >= s.t0 - 1.2 && t <= s.t1 + 0.6) for (const q of [s.p.left, s.p.right]) if (q && q.dir) { const dd = path.isAbsolute(q.dir) ? q.dir : path.join(__dirname, '..', '..', q.dir);
+      need.push([q.dir + '#' + (q.i || 0), path.join(dd, String(q.i || 0).padStart(5, '0') + '.jpg')]); }
+    for (const { s, d } of plates) if (t >= s.t0 - 1.2 && t <= s.t1 + 0.6 && s.p.n) { const i = Math.max(0, Math.min(s.p.n - 1, Math.round((t - s.t0) * 24 * (s.p.speed || 1)) + (s.p.off || 0)));
+      need.push([s.p.dir + '#' + i, path.join(d, String(i).padStart(5, '0') + '.jpg')]); }
+    return need; };
   const imgjs = imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>
-<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};${imgjs}</script><script>${libs}</script></body></html>`;
+<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};${imgjs}</script><script>${libs}</script></body></html>`;
   await page.setContent(html); await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(Object.values(window.IMGS).map((i) => i.decode())));
+  const loadPlates = async (f) => { const need = plateFor(f); if (!need.length && !plates.length) return;
+    await page.evaluate(async (L) => { const keep = new Set(L.map((x) => x[0])); for (const k of Object.keys(window.PLATES)) if (!keep.has(k)) delete window.PLATES[k];
+      await Promise.all(L.filter((x) => !window.PLATES[x[0]]).map(async ([k, b64]) => { const im = new Image(); im.src = 'data:image/jpeg;base64,' + b64; await im.decode(); window.PLATES[k] = im; })); },
+      need.map(([k, p]) => [k, fs.readFileSync(p).toString('base64')])); };
   const N = spec.frames, F0 = +arg('from', 0), F1 = Math.min(N, +arg('to', N));
   const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   if (ONLY.length) { const d = arg('jpgdir', path.dirname(OUT)); fs.mkdirSync(d, { recursive: true });
-    for (const f of ONLY) { await page.evaluate((f) => window.drawFrame(f), f); fs.writeFileSync(path.join(d, `${SEG || SH}_f${String(f).padStart(5, '0')}.jpg`), await page.screenshot({ type: 'jpeg', quality: 88 })); }
+    for (const f of ONLY) { await loadPlates(f); await page.evaluate((f) => window.drawFrame(f), f); fs.writeFileSync(path.join(d, `${SEG || SH}_f${String(f).padStart(5, '0')}.jpg`), await page.screenshot({ type: 'jpeg', quality: 88 })); }
     await browser.close(); return; }
   const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', '24', '-i', '-',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
   const act = [], fill = [], cam = [], texts = [], hit = []; const t0 = Date.now();
   for (let f = F0; f < F1; f++) {
+    await loadPlates(f);
     const r = await page.evaluate(([f, smp]) => {
       LL.tlog = smp ? [] : null; window.drawFrame(f);
       const c = document.getElementById('c'), out = { hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };

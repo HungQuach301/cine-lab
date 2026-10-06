@@ -30,7 +30,12 @@ render_one() { # $1 kind (segments|shorts) $2 id $3 out
   if node $LL/render.js --tl $TL $flag $2 --out $3 2>>$O/render-$2.err; then echo $h > $3.hash; python3 $REPO/scripts/p/judder.py $3 --json $3.judder.json > /dev/null || true
   else echo "LỖI render $2 (xem $O/render-$2.err)"; touch $O/render.failed; fi
 }
-if has render; then disk "trước render"; rm -f $O/render.failed
+# Cảnh đinh 3D (CHUAN-KENH §11.3): dựng những cảnh có stamp đổi (mã design/ll-hero hoặc độ dài), tuần tự, trước khi render đoạn
+heroes() { [ -f $O/heroes.json ] || return 0; $PY -c "import json;[print(k,v['hero'],v['variant'],v['dur'],v['dir'],v['stamp'],json.dumps(v['opt'],separators=(',',':'))) for k,v in json.load(open('$O/heroes.json')).items()]" | while read k h v d dir st opt; do
+    [ "$(cat $dir/stamp 2>/dev/null)" = "$st" ] && { echo "giữ cảnh đinh $k"; continue; }
+    rm -rf "$dir"; echo "dựng cảnh đinh $k ($h/$v, $d s)"; node $LL/hero.js --hero $h --variant $v --dur $d --spp ${SPP:-4} --opt "$opt" --out $dir 2>>$O/hero-$k.err || { echo "LỖI cảnh đinh $k"; touch $O/render.failed; continue; }
+    echo $st > $dir/stamp; done; }
+if has render; then disk "trước render"; rm -f $O/render.failed; heroes; [ -f $O/render.failed ] && { echo "Cảnh đinh lỗi — dừng"; exit 3; }
   for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"
   [ -f $O/render.failed ] && { echo "Có đoạn render lỗi — dừng, không ghép"; exit 3; }; fi
 if has mix; then $PY $LL/mix.py $TL $O/mix.wav; fi

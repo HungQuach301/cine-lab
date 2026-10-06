@@ -105,3 +105,17 @@ TPL.inspect = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) {
     cut(g, (q) => rr(q, bx, by, bw, 230 * k, 14), '#101a2a', { blur: 18 }); text(g, 'AUTOMATED ESTIMATE', bx + 30, by + 56 * k, 26, '#9fc4ec', { a });
     text(g, p.amount || 'estimate ready', bx + 30, by + 140 * k, 72, CREAM, { kind: 'serif', a }); text(g, 'from photos · draft for review', bx + 30, by + 196 * k, 24, 'rgba(236,223,190,0.85)', { a }); g.restore(); } }
   fog(g, H * 0.98, 0.14, '60,50,60'); alive(g, t); } }; };
+
+// ---- plate: CẢNH ĐINH 3D dựng sẵn (design/ll-hero, scripts/ll/hero.js) phát làm nền theo khung (chủ dự án 06/10/2026, CHUAN-KENH §11.3).
+// p = { dir: <thư mục JPG %05d.jpg>, off: khung bắt đầu trong chuỗi, speed: 1, fx: 0.5 (điểm giữa ngang khi cắt 9:16), cap, credit }
+// render.js nạp sẵn đúng khung vào window.PLATES[dir#i] trước mỗi drawFrame; ảnh đã grade/grain ở đường ống 3D nên không phủ tông.
+TPL.plate = (p) => ({ kind: 'full', full(g, t) {
+  const n = p.n || 1, i = Math.max(0, Math.min(n - 1, Math.round((t - p.t0) * 24 * (p.speed || 1)) + (p.off || 0))), im = (window.PLATES || {})[p.dir + '#' + i]; LL.act = true;
+  g.fillStyle = '#0b0a0c'; g.fillRect(0, 0, W, H);
+  if (im) { const ar = W / H, iar = im.width / im.height;
+    if (iar > ar + 0.01) { const sw = im.height * ar, sx = Math.max(0, Math.min(im.width - sw, (p.fx === undefined ? 0.5 : p.fx) * im.width - sw / 2)); g.drawImage(im, sx, 0, sw, im.height, 0, 0, W, H); }
+    else g.drawImage(im, 0, 0, W, H); }
+  else text(g, `missing plate ${p.dir}#${i}`, W / 2, H / 2, 40, '#ff8080', { align: 'center' });
+  if (p.cap && p.cap.length) { const v = g.createLinearGradient(0, H * 0.55, 0, H); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.55)'); g.fillStyle = v; g.fillRect(0, H * 0.55, W, H * 0.45); }
+  if (p.credit && !(p.cap && p.cap.length)) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, 'rgba(236,223,190,0.9)', { align: 'right' }); }
+} });
