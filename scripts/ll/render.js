@@ -2,7 +2,7 @@
 // node scripts/ll/render.js --tl <timeline.json> --seg <id> | --short <id>  --out <tệp.mkv> [--from f --to f] [--only f1,f2 --jpgdir d]
 // Ra: <out> (H.264 crf 10 yuv444p, trung gian gần không mất) + <out>.log.json:
 //   act: chuỗi '0'/'1' mỗi khung (có nội dung đang hiện/chuyển), cam: khoảng cách máy tới lớp gần nhất (cảnh 2.5D),
-//   text: ở khung mẫu (mỗi 12 khung) — chữ, cỡ chữ hoa hiệu dụng (px), tương phản đo trên điểm ảnh thật (WCAG), raised: số lần mẫu phải nâng cỡ chữ.
+//   text: ở khung mẫu (mỗi 12 khung) — chữ, cỡ chữ hoa hiệu dụng (px), tương phản đo trên điểm ảnh thật (WCAG), raised: số lần mẫu phải nâng cỡ chữ. zones (Q-L20, từ tập 6): vùng hình của khung mẫu [x0, y0, x1, y1] trong mỗi mục text.
 const { chromium } = require('/opt/pw/node_modules/playwright');
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
@@ -46,9 +46,9 @@ const SAMPLE = +arg('sample', 12);
           L.sort((a, b) => a - b); const bg = L[Math.floor(L.length / 2)], [cr, cg, cb] = parse(e.color), nom = lum(cr, cg, cb), I = [];
           for (let y = 5; y < hh - 5; y++) for (let x = 5; x < w - 5; x++) { const i = (y * w + x) * 4; I.push(lum(d[i], d[i + 1], d[i + 2])); }
           I.sort((a, b) => a - b); const ft = !I.length ? nom : nom < bg ? I[Math.floor(I.length * 0.05)] : I[Math.floor(I.length * 0.95)];   // màu chữ đo trên điểm ảnh (đã qua ánh rọi)
-          return { s: e.s, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean); }
+          return { s: e.s, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
       return out; }, [f, f % SAMPLE === 0]);
-    act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text });
+    act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [] });
     if (!ff.stdin.write(Buffer.from(r.img, 'base64'))) await new Promise((res) => ff.stdin.once('drain', res));
     if ((f - F0) % 120 === 0) console.error(`[render ${SEG || SH}] ${f}/${F1} ${((Date.now() - t0) / 1000 / (f - F0 + 1)).toFixed(2)} s/khung`);
   }

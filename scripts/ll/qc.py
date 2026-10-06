@@ -20,7 +20,8 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q22 chữ tràn khung: hộp chữ ở khung mẫu nằm trong khung, cách mép trái/phải ≥ 8 px (khoá: checks/ll/q_overflow.py)
   Q21 gán nguồn trên hình: dòng nguồn đang hiện chứa nguồn của mọi số/câu đang hiện; câu có số/năm/cơ quan phải khai num/src (khoá: checks/ll/q_src.py)
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
-      số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
+      số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "(proj"); từ LL v2 (Q-L13 = A, 06/10/2026)
+      dấu "?" KHÔNG còn là dấu hiệu dự báo (chủ dự án, 05/10/2026, mục B7)
   Q23 câu/thẻ nhiều số cùng đối tượng/loại/kỳ/cơ sở; Q24 nhãn phân loại khớp số; Q25 thẻ khoảng số không đếm qua số trung gian; LOCK khớp
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
