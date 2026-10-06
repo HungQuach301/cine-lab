@@ -1,5 +1,7 @@
 # TẬP 6 — CỔNG G2: bản cuối · 06/10/2026
 
+> **KHÔNG PHÁT HÀNH (chủ dự án, 06/10/2026).** Bản v1 này bị rút theo Nguyên tắc tối cao; tập 6 dựng lại (G2 lần 2). Nhánh `release-ll-ep06-v1` giữ làm đối chiếu, không đăng.
+
 **P DỪNG ở G2, chờ chủ dự án duyệt bản cuối, Shorts và thumbnail.**
 - Tiêu đề chốt ở G1 (phương án A): "The Computer Replaced the Typesetter and Made the Designer. Now AI Can Draw".
 - Số BLS đợt 2025–35 theo duyệt G1:
