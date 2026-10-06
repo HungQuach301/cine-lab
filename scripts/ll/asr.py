@@ -81,8 +81,15 @@ def near(a, b):
     return a == b or a.rstrip('s') == b.rstrip('s') or (len(a) >= 3 and a[:3] == b[:3]) or difflib.SequenceMatcher(None, a, b).ratio() >= 0.6
 
 
+def pcm16k(mp3):
+    """giải mã bằng ffmpeg → float32 16 kHz mono (06/10/2026: PyAV 19 không nhận tham số metadata_errors mà faster-whisper 1.2.1 truyền)"""
+    import subprocess, numpy as np
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', mp3, '-f', 's16le', '-ac', '1', '-ar', '16000', '-'], capture_output=True, check=True).stdout
+    return np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
+
+
 def check_one(model, mp3, names, vals):
-    segs, _ = model.transcribe(mp3, language='en', beam_size=5, vad_filter=False, hotwords=' '.join(names) or None)
+    segs, _ = model.transcribe(pcm16k(mp3), language='en', beam_size=5, vad_filter=False, hotwords=' '.join(names) or None)
     txt = ' '.join(s.text for s in segs)
     heard = set(ll.norm(w) for w in txt.split()); hv = nums_of(txt)
     miss = [n for n in names if not any(near(n, h) for h in heard)]

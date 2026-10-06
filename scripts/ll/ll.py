@@ -4,7 +4,8 @@
   ll.py prep <episode.yaml>        kiểm đặc tả → thu lời Bill (ElevenLabs, có cache) → giải mốc "@từ" → <out>/timeline.json, sfx, phụ đề .srt
   ll.py check <episode.yaml>       chỉ kiểm đặc tả (không gọi mạng); in lỗi, mã thoát 1 nếu có lỗi
   ll.py est <episode.yaml>         ước trước khi thu lời (không gọi mạng): thời lượng từng đoạn, tỷ lệ STORY/HISTORY/TODAY theo
-                                   tốc độ đọc thật của Bill (BILL_WPS, đo tập 2), mọi mốc "@từ" giải được, và khung đồ hoạ có thể đứng trống > 3 s
+                                   tốc độ đọc thật của Bill (BILL_WPS, đo tập 2), mọi mốc "@từ" giải được, khung đồ hoạ có thể đứng trống > 3 s,
+                                   và Q14–Q18, Q19, Q21 đo trên timeline ước (lời giả lập; từ lô 6–8)
 
 Đặc tả (xem scripts/ll/README.md): id, title, out, voice, music, sources, numbers, segments[{id, part, vo, shots[{tpl, at, in, p}]}], shorts[...].
 Luật kiểm sẵn ở đây (chặn trước khi render):
@@ -110,6 +111,39 @@ def est(E):
         parts[sg.get('part')] = parts.get(sg.get('part'), 0) + dur
         rows.append((sg['id'], sg.get('part'), len(W), round(dur, 1))); t_abs += dur
     return rows, {k: round(100 * v / t_abs, 1) for k, v in parts.items()}, t_abs, warn
+
+
+def fake_align(text):
+    """căn chữ giả lập theo BILL_WPS (cùng dạng alignment của ElevenLabs) — dùng cho timeline ước"""
+    ch, st, en = [], [], []
+    for i, w in enumerate(text.split()):
+        a, b = i / BILL_WPS, (i + 0.9) / BILL_WPS; n = len(w)
+        for j, c in enumerate(w): ch.append(c); st.append(a + (b - a) * j / n); en.append(a + (b - a) * (j + 1) / n)
+        ch.append(' '); st.append(b); en.append(b)
+    return dict(characters=ch, character_start_times_seconds=st, character_end_times_seconds=en)
+
+
+def est_timeline(E):
+    """timeline ƯỚC (trước khi thu lời, không gọi mạng): lời giả lập theo BILL_WPS, cùng build_seg như prep.
+    Dùng để đo luật nhịp Q14–Q18 (rhythm.measure), Q19 (tỷ lệ tư liệu) và Q21 (src_check) ngay ở G1 (BAI-HOC #58; chủ dự án duyệt 06/10/2026)."""
+    import tempfile
+    tmp = tempfile.mkdtemp(prefix='ll-est-'); CAPSRC.clear()
+    TL = dict(id=E['id'], title=E.get('title'), segments=[], shorts=[]); t = 0.0
+    for sg in E['segments']:
+        off = float(sg.get('vo_offset', 0.8 if sg.get('vo') else 0)); W, vf = [], None
+        if sg.get('vo'):
+            al = fake_align(sg['vo'].strip()); W = words(al); vf = os.path.join(tmp, sg['id'] + '.mp3'); json.dump(al, open(vf.replace('.mp3', '.align.json'), 'w'))
+        vlen = W[-1][2] if W else 0
+        dur = max(float(sg.get('min_dur', 0)), off + vlen + float(sg.get('tail', 1.0)) if W else float(sg.get('dur', 6)))
+        shots, _ = build_seg(E, sg, W, off, dur)
+        TL['segments'].append(dict(id=sg['id'], part=sg.get('part'), t0=t, t1=t + dur, vo_file=vf, vo_offset=off, shots=shots)); t += dur
+    for sh in E.get('shorts', []):
+        al = fake_align((sh.get('vo') or '').strip()); W = words(al); dur = 0.6 + (W[-1][2] if W else 0) + float(sh.get('tail', 0.8)) + 1.5
+        vf = os.path.join(tmp, 'short-' + sh['id'] + '.mp3'); json.dump(al, open(vf.replace('.mp3', '.align.json'), 'w'))
+        shots, _ = build_seg(E, dict(sh), W, 0.6, dur, True)
+        TL['shorts'].append(dict(id=sh['id'], hook=sh.get('hook'), t0=0, t1=dur, vo_file=vf, vo_offset=0.6, shots=shots))
+    TL['tong_s'] = t; TL['tong_khung'] = int(round(t * FPS)); TL['capsrc'] = CAPSRC
+    return TL
 
 
 # ---------- lời Bill ----------
@@ -276,3 +310,10 @@ if __name__ == '__main__':
         for r in rows: print(f'  {r[0]:>4} {r[1]:<8} {r[2]:>4} từ  {r[3]:>6.1f} s')
         print(f'TỔNG ≈ {int(T // 60)}:{T % 60:04.1f} ({sum(r[2] for r in rows)} từ, {BILL_WPS} từ/s)  tỷ lệ {ty}')
         [print('CẢNH BÁO', x) for x in w]
+        # đo nhịp + nguồn trên timeline ước (luật làm việc của P; luật khoá chạy ở qc.sh sau khi dựng)
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import ll as L, rhythm, src_check
+        E2 = L.load(path); TL = L.est_timeline(E2)
+        for k, r in rhythm.measure(E2, TL).items(): print(f"ƯỚC {k} {'ĐẠT' if r['ok'] else 'TRƯỢT'} · {r['val']} {('· ' + r['note']) if r.get('note') else ''}")
+        arch = sum(sh['t1'] - sh['t0'] for sg in TL['segments'] for sh in sg['shots'] if sh['tpl'] == 'archive')
+        print(f"ƯỚC Q19 tư liệu {arch:.1f} s = {100 * arch / TL['tong_s']:.1f} % (trần 20 %)")
+        bad = src_check.check(E2, TL); print(f"ƯỚC Q21 gán nguồn: {len(bad)} lỗi"); [print('   ', x) for x in bad[:20]]

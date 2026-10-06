@@ -1,6 +1,7 @@
 # Last Lamplighters · Tập 6 "The Hand That Drew It" — đặc tả nhà máy v1 (G1 lô 6–8, 06/10/2026), HÌNH v2 từ đầu.
 # Cặp nghề: thợ sắp chữ / người dàn trang (1942–1990, máy sắp chữ điện tử, chế bản trên máy tính) ↔ nhà thiết kế đồ hoạ với AI tạo sinh (2022–34).
-# Nguồn: reports/m3/ep06/NGUON-TAP6.md. Mọi số đọc toàn văn (FRASER, NBER, EconStor). Không dùng số BLS 2025–35 (bls.gov chặn P; danh sách CHỜ XÁC MINH trong NGUON).
+# Nguồn: reports/m3/ep06/NGUON-TAP6.md. Mọi số đọc toàn văn (FRASER, NBER, EconStor). Số BLS 2025–35: "đã xác minh (Claude)" 06/10/2026 (G1 duyệt: đổi sang đợt mới nhất; 2024–34 chỉ ở khung riêng).
+# G1 duyệt 06/10/2026: tiêu đề A; đoạn 11 viết lại theo CHUAN-KENH §10 (không nói về cách làm phim).
 # KHÔNG dùng: đỉnh 86 300 của thợ ảnh (trùng con số 86 000 của phòng sắp chữ, dễ đọc nhầm) — chỉ nói "nearly nine in ten" và 9 200; số đếm thợ sắp chữ sau 1988 (không có toàn văn).
 # Thư viện cần thêm trước khi dựng (một lượt, đầu tập): PROP typecase (khay chữ chì + tay cầm sắp chữ), PROP drawboard (bàn vẽ nghiêng + đèn kẹp); ERA 1942 → typecase, 1960 → drawboard.
 id: ll-ep06
@@ -23,6 +24,10 @@ sources:
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF p. 1", accessed: 2026-10-06}
   MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", short9: "BLS Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 1 (total +3.1 %), p. 5 (text + table: 27-1024 Graphic designers)", accessed: 2026-10-06}
+  OOHGD: {short: "BLS, Occupational Outlook Handbook (2025–35): Graphic Designers", short9: "BLS Outlook Handbook 2025–35", title: "Graphic Designers — Job Outlook",
+          url: "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 06/10/2026)", accessed: 2026-10-06}
+  EP: {short: "BLS Employment Projections", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
+       read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
   DHZ: {short: "Demirci, Hannane & Zhu, CESifo WP 11276 (2024)", short9: "Demirci et al. (2024)", title: "Who Is AI Replacing? The Impact of Generative AI on Online Freelancing Platforms",
         url: "https://www.econstor.eu/bitstream/10419/305518/1/cesifo1_wp11276.pdf", read: fulltext, pages: "PDF pp. 6, 19 (Table 4)", accessed: 2026-10-06}
 
@@ -30,10 +35,10 @@ numbers:
   comp88: {v: 86000, text: "86,000", kind: actual, year: 1988, unit: jobs, src: OOH90, say: "eighty-six thousand"}
   art88: {v: 216000, text: "216,000", kind: actual, year: 1988, unit: jobs, src: OOH90, say: "two hundred sixteen thousand"}
   ph23: {v: 9200, text: "9,200", kind: actual, year: 2023, unit: people, src: MLR25, say: "nine thousand two hundred"}
-  gd24: {v: 265900, text: "265,900", kind: actual, year: 2024, unit: people, src: MLR26, say: "two hundred sixty-six thousand"}
-  gd34: {v: 271500, text: "271,500", kind: projection, period: 2024–34, year: 2034, unit: people, src: MLR26, say: "two hundred seventy-one thousand"}
-  gd_chg: {v: 2.1, text: "+2.1%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "two point one percent"}
-  all_chg: {v: 3.1, text: "+3.1%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "three point one percent"}
+  gd25: {v: 253100, text: "253,100", kind: actual, year: 2025, unit: people, src: OOHGD, say: "two hundred fifty-three thousand"}
+  gd35: {v: 248800, text: "248,800", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHGD, say: "two hundred forty-nine thousand"}
+  gd_chg: {v: -1.7, text: "−1.7%", kind: projection, period: 2025–35, unit: '%', src: OOHGD, say: "one point seven percent", note: "(248 800 − 253 100)/253 100; BLS làm tròn −2 %, −4 200"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
   img: {v: -17, text: "−17%", kind: actual, year: 2023, unit: '% of job posts', src: DHZ, say: "seventeen percent", note: "graphic design + 3D modeling, so với việc thủ công, trong 1 năm sau 20/7/2022; một nền tảng"}
 
 segments:
@@ -86,7 +91,7 @@ segments:
       Paste-up artists cut those columns apart and arranged them, with the illustrations, on a board. Increasingly, the BLS noted, the author did the keyboarding before the job was even sent out.
       Then came electronic pagination: a whole newspaper page, made up on a screen, eliminating the role of paste-up artists.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22724.jpg, rid: LOC-8d22724, focus: [0.5, 0.5], credit: "Linotyper's hands, The New York Times, 1942 · Library of Congress",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22724.jpg, rid: LOC-8d22724, focus: [0.62, 0.5], credit: "Linotyper's hands, The New York Times, 1942 · Library of Congress",
            cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -40, z: 0.07}, {t: 12, x: -70, z: 0.1}],
            cap: [{s: "cold type: text keyed into a computer", at: "@cold", src: [OOH90]}, {s: "hyphenate · space · create columns", at: "@hyphenate"}, {s: "printed onto photographic paper", at: "@photographic"}]}}
       - {tpl: desk, at: "@cut-0.4", in: fade, p: {eras: [{era: 1960, at: "@cut-0.4", label: "1975"}], accent: "#2f5d7c", cam: [{t: "@cut", x: 0, z: 0.02}, {t: "@illustrations", x: -20, z: 0.04}, {t: "@author", x: -40, z: 0.06}, {t: "@electronic", x: -80, z: 0.1}],
@@ -156,19 +161,19 @@ segments:
   - id: "08"
     part: TODAY
     vo: >-
-      In January 2026, the BLS described what generative AI does for graphic designers. They can use it in the initial step of the design process, to explore ideas and create first drafts much more quickly, and to automate repetitive tasks such as prototyping.
-      Those gains, it said, are expected to limit demand. It names others in the same group, such as special effects artists and animators, and technical writers. Graphic designers held about two hundred sixty-six thousand jobs in 2024.
-      The projection for 2034 is about two hundred seventy-one thousand: growth of two point one percent, slower than the three point one percent projected for all jobs.
+      In January 2026, a BLS review described what generative AI does for graphic designers: it helps them explore ideas and create first drafts much more quickly, and automate repetitive tasks such as prototyping.
+      The newest projections, for 2025 to 2035, go further. Automated design tools, such as artificial intelligence, are projected to make graphic designers more productive and reduce the need for these workers.
+      Graphic designers held about two hundred fifty-three thousand jobs in 2025. The BLS projects about two hundred forty-nine thousand by 2035: a decline of one point seven percent, while all jobs together grow three point five percent.
     shots:
-      - {tpl: quote, at: 0, p: {beats: [{s: "BLS, Monthly Labor Review, January 2026", at: "@january"}, {s: "generative AI and graphic designers", at: "@generative"}, {s: "explore ideas", at: "@explore"}, {s: "first drafts, much more quickly", at: "@drafts"}, {s: "repetitive tasks such as prototyping", at: "@repetitive"}, {s: "expected to limit demand", at: "@gains"}],
-           text: "…generative AI tools in the initial step of the design process…enabling them to create first drafts much more quickly…", who: "BLS economists", where: "Monthly Labor Review, January 2026", at: "@initial", src: [MLR26]}}
-      - {tpl: desk, at: "@names-0.4", in: fade, p: {eras: [{era: 2025, at: "@names-0.4", label: "2025"}], accent: "#2f5d7c", cam: [{t: "@names", x: 0, z: 0.03}, {t: "@animators", x: -40, z: 0.06}, {t: "@writers+1", x: -70, z: 0.09}],
-           cap: [{s: "others in the same group", at: "@names", src: [MLR26]}, {s: "special effects artists and animators", at: "@special"}, {s: "technical writers", at: "@technical"}]}}
-      - {tpl: isotype, at: "@held-1.0", in: fade, p: {title: "Graphic designers, United States", subtitle: "employment, 2024 and projected 2034", unit: 10000, unitName: "jobs", per: 28,
-           groups: [{label: "2024", num: gd24, at: "@sixtysix"}, {label: "2034 (projected)", num: gd34, at: "@seventyone"}],
-           cap: [{s: "graphic designers, 2024", at: "@held", src: [MLR26]}]}}
-      - {tpl: bars, at: "@point-1.2", in: slide, p: {title: "Projected job growth, 2024–34", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
-           beats: [{s: "slower than all jobs", at: "@slower"}],
+      - {tpl: quote, at: 0, p: {beats: [{s: "BLS, Monthly Labor Review, January 2026", at: "@january"}, {s: "explore ideas", at: "@explore"}, {s: "first drafts, much more quickly", at: "@drafts"}, {s: "repetitive tasks such as prototyping", at: "@repetitive"}],
+           text: "…create first drafts much more quickly…", who: "BLS economists", where: "Monthly Labor Review, January 2026", at: "@create", src: [MLR26]}}
+      - {tpl: quote, at: "@newest-0.4", in: flip, p: {beats: [{s: "the newest projections, 2025–35", at: "@newest"}, {s: "more productive", at: "@productive"}, {s: "…and less need for these workers", at: "@reduce"}], text: "Automated design tools, such as artificial intelligence (AI), are projected to make graphic designers more productive and reduce the need for these workers.",
+           who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 2025–35", at: "@automated", src: [OOHGD]}}
+      - {tpl: isotype, at: "@held-1.0", in: fade, p: {title: "Graphic designers, United States", subtitle: "employment, 2025 and projected 2035", unit: 10000, unitName: "jobs", per: 26,
+           groups: [{label: "2025", num: gd25, at: "@fiftythree"}, {label: "2035 (projected)", num: gd35, at: "@fortynine"}],
+           cap: [{s: "graphic designers, 2025", at: "@held", src: [OOHGD]}]}}
+      - {tpl: bars, at: "@point-1.2", in: slide, p: {title: "Projected job change, 2025–35", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
+           beats: [{s: "designers: down; all jobs: up", at: "@while"}],
            bars: [{label: "Graphic designers", num: gd_chg, at: "@point"}, {label: "All occupations", num: all_chg, at: "@point#2"}]}}
 
   - id: "09"
@@ -190,29 +195,27 @@ segments:
       So here is the comparison, with a caution. We will not set these numbers side by side: one is a count from 1988, one is a forecast, and one is a single platform's job posts.
       What we can compare is the pattern. Then, the computer took over setting the type, and the designer took the tool. Today, software drafts the first image, and the designer is the one handed the tool again.
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
-      But the differences matter. Back then, the machine took the keystrokes. Now it reaches for the drawing itself. And so far, the change shows up in job posts and forecasts, not yet in a count of jobs lost.
+      But the differences matter. Back then, the machine took the keystrokes, and there came to be more designers. This time, it reaches for the drawing itself, and the BLS projects fewer designers. So far, that is a forecast and a drop in job posts, not yet a count of jobs lost.
     shots:
       - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22721.jpg, rid: LOC-8d22721, focus: [0.5, 0.45], credit: "Composing room, The New York Times, 1942 · Library of Congress",
            cam: [{t: 0, x: -60, z: 0.14}, {t: 8, x: -30, z: 0.1}, {t: 16, x: 0, z: 0.06}],
            cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "a count · a forecast · a platform's posts: not side by side", at: "@side"}, {s: "what we can compare is the pattern", at: "@pattern"},
                  {s: "then: the computer sets the type; the designer takes the tool", at: "@then", src: [BES16]}]}}
-      - {tpl: desk, at: "@today-0.4", in: fade, p: {eras: [{era: 2025, at: "@today-0.4", label: "2025"}], accent: "#2f5d7c", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@same", x: -50, z: 0.04}, {t: "@differences", x: -90, z: 0.08}, {t: "@far", x: -110, z: 0.1}, {t: "@posts#2", x: -115, z: 0.105}, {t: "@lost+1", x: -120, z: 0.11}],
+      - {tpl: desk, at: "@today-0.4", in: fade, p: {eras: [{era: 2025, at: "@today-0.4", label: "2025"}], accent: "#2f5d7c", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@same", x: -50, z: 0.04}, {t: "@differences", x: -80, z: 0.07}, {t: "@came", x: -95, z: 0.08}, {t: "@fewer", x: -110, z: 0.09}, {t: "@far", x: -120, z: 0.1}, {t: "@forecast#2", x: -125, z: 0.105}, {t: "@lost+1", x: -130, z: 0.11}],
            cap: [{s: "today: software drafts the first image", at: "@today", src: [MLR26]}, {s: "the designer, handed the tool again", at: "@handed"}, {s: "not the same technology — the same pattern", at: "@technology"}, {s: "but the differences matter", at: "@differences"},
-                 {s: "then: the keystrokes · now: the drawing itself", at: "@keystrokes"}, {s: "so far: posts and forecasts, not a count of jobs lost", at: "@far"}]}}
-
-  # 11 — đoạn minh bạch (rủi ro "cao" của SERIES): phim này làm bằng AI. LỜI NHÁP — chủ dự án duyệt hoặc viết lại ở G1, ghi AUTHORSHIP.
+                 {s: "then: the keystrokes, and more designers", at: "@keystrokes", src: [BES16]}, {s: "now: the drawing itself, and fewer designers projected", at: "@reaches", src: [OOHGD]}, {s: "so far: a forecast and fewer job posts, not a count of jobs lost", at: "@far"}]}}
   - id: "11"
     part: TODAY
     vo: >-
-      A word about this film. It was made with AI tools, including the voice you are hearing. But a person chose this story, approved every script, and decides what goes out.
-      The BLS points the same way for designers: the machine makes first drafts faster, and a person still has to choose, fix, and answer for the one that goes out.
-      Whether that leaves enough paid work for the people who once drew every line by hand, the hand that decides and not only the hand that drew, is something no projection can settle yet.
+      Who made this: a hand, or a machine? For most of a century, the answer was a hand: first the hand that set the type, then the hand that drew the page.
+      If the machine makes the first drafts, the BLS expects designers to shift their focus to the later stages of the work. What is left is the hand that decides: which draft, what to fix, and what is good enough to print.
+      Whether deciding is enough paid work for the people who once drew every line by hand is something no projection can settle yet.
     min_dur: 26
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 1942, at: 0, label: "1942"}, {era: 1988, at: "@person", label: "1988"}, {era: 2025, at: "@choose", label: "2025"}], accent: "#2f5d7c",
-           cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}, {t: "@drew", x: -115, z: 0.08}, {t: "@decides#2", x: -120, z: 0.085}, {t: "@settle+1", x: -125, z: 0.09}],
-           cap: [{s: "made with AI tools, including the voice", at: "@tools", src: []}, {s: "a person chose the story and decides what goes out", at: "@person"}, {s: "faster drafts; a person chooses, fixes, answers for it", at: "@choose", src: [MLR26]},
-                 {s: "enough paid work for the hand that drew?", at: "@enough"}, {s: "no projection can settle it yet", at: "@projection"}]}}
+      - {tpl: desk, at: 0, p: {eras: [{era: 1942, at: 0, label: "1942"}, {era: 1960, at: "@drew", label: "1960"}, {era: 2025, at: "@machine#2", label: "2025"}], accent: "#2f5d7c",
+           cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}, {t: "@deciding", x: -115, z: 0.08}, {t: "@paid", x: -120, z: 0.085}, {t: "@settle+1", x: -125, z: 0.09}],
+           cap: [{s: "a hand, or a machine?", at: "@who", src: []}, {s: "the hand that set the type · the hand that drew the page", at: "@first"}, {s: "the later stages of the work", at: "@later", src: [MLR26]},
+                 {s: "the hand that decides", at: "@decides"}, {s: "which draft · what to fix · what is good enough", at: "@which"}, {s: "enough paid work in deciding?", at: "@enough"}, {s: "no projection can settle it yet", at: "@projection"}]}}
 
   - id: "12"
     part: STORY
@@ -245,10 +248,10 @@ shorts:
            cap: [{s: "a large freelancing platform", at: "@platform", src: [DHZ]}, {s: "within a year of image generators", at: "@within"}, {s: "graphic design and 3D modeling posts", at: "@graphic", src: [DHZ]},
                  {s: "one platform", at: "@one#2"}, {s: "job posts, not jobs", at: "@counts"}]}}
   - id: S3
-    hook: "The BLS on designers and AI"
+    hook: "BLS: AI will reduce the need for graphic designers"
     vo: >-
-      The Bureau of Labor Statistics says graphic designers can use generative AI to create first drafts much more quickly. It expects those gains to limit demand. Its projection: two point one percent growth from 2024 to 2034, slower than the three point one percent for all jobs.
+      The Bureau of Labor Statistics projects that automated design tools, such as artificial intelligence, will make graphic designers more productive and reduce the need for these workers. Its projection: a decline of one point seven percent from 2025 to 2035, while all jobs grow three point five percent.
     shots:
       - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: " "}], accent: "#2f5d7c", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 22, x: -80, z: 0.12}],
-           cap: [{s: "BLS: first drafts, much more quickly", at: "@drafts", src: [MLR26]}, {s: "gains expected to limit demand", at: "@limit"}, {num: gd_chg, s: "graphic designers, projected 2024–34", at: "@two"},
-                 {num: all_chg, s: "all jobs, projected 2024–34", at: "@three"}]}}
+           cap: [{s: "BLS: automated design tools, such as AI", at: "@automated", src: [OOHGD]}, {s: "more productive…", at: "@productive"}, {s: "…and less need for these workers", at: "@reduce"},
+                 {num: gd_chg, s: "graphic designers, projected 2025–35", at: "@one"}, {num: all_chg, s: "all jobs, projected 2025–35", at: "@three"}]}}

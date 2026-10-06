@@ -51,10 +51,38 @@ const PROP = {
     g.strokeStyle = 'rgba(60,40,25,0.6)'; g.lineWidth = 2; for (let i = 0; i < 6; i++) { g.strokeRect(-32, -110 + i * 17, 14, 11); g.beginPath(); g.moveTo(-12, -104 + i * 17); g.lineTo(30, -104 + i * 17); g.stroke(); }
     if (o.stamp) { g.save(); g.globalAlpha *= o.stamp; g.strokeStyle = '#8a2a1a'; g.lineWidth = 4; g.strokeRect(-20, -46, 52, 26); g.fillStyle = '#8a2a1a'; g.font = 'bold 15px "DejaVu Sans"'; g.fillText('PAID', -12, -27); g.restore(); }
     cut(g, (q) => rr(q, -14, -134, 28, 12, 3), PAPER.steel, { blur: 3 }); g.restore(); },
+  typecase(g, x, y, s) { g.save(); g.translate(x, y); g.scale(s, s);   // tập 6: khay chữ chì nghiêng + tay cầm sắp chữ (composing stick)
+    cut(g, (q) => { q.moveTo(-96, 0); q.lineTo(96, 0); q.lineTo(84, -92); q.lineTo(-84, -92); q.closePath(); }, PAPER.brown);
+    g.strokeStyle = 'rgba(30,18,10,0.9)'; g.lineWidth = 2; for (let r = 0; r < 4; r++) { const yy = -86 + r * 22, w = 84 + r * 3; g.beginPath(); g.moveTo(-w, yy); g.lineTo(w, yy); g.stroke(); for (let k = 0; k < 9; k++) { const xx = -w + (k * 2 * w) / 9; g.beginPath(); g.moveTo(xx, yy); g.lineTo(xx, yy + 22); g.stroke(); } }
+    const R = rng(606); g.fillStyle = PAPER.steel; for (let i = 0; i < 70; i++) { const r = Math.floor(R() * 4), k = Math.floor(R() * 9), w = 84 + r * 3; g.fillRect(-w + (k * 2 * w) / 9 + 3 + R() * 12, -82 + r * 22 + R() * 12, 3, 4); }
+    cut(g, (q) => rr(q, 30, -118, 76, 14, 3), PAPER.steel, { blur: 6 }); g.fillStyle = PAPER.ink; for (let k = 0; k < 9; k++) g.fillRect(36 + k * 7, -116, 4, 10);   // tay cầm sắp chữ, một dòng chữ đang xếp
+    g.restore(); },
+  drawboard(g, x, y, s, o = {}) { g.save(); g.translate(x, y); g.scale(s, s);   // tập 6: bàn vẽ nghiêng + tờ vẽ + đèn kẹp
+    cut(g, (q) => { q.moveTo(-8, 0); q.lineTo(8, 0); q.lineTo(4, -40); q.lineTo(-4, -40); q.closePath(); }, PAPER.ink, { blur: 4 });
+    cut(g, (q) => { q.moveTo(-100, -36); q.lineTo(100, -36); q.lineTo(80, -136); q.lineTo(-80, -136); q.closePath(); }, PAPER.sage);
+    cut(g, (q) => { q.moveTo(-70, -46); q.lineTo(64, -46); q.lineTo(50, -122); q.lineTo(-56, -122); q.closePath(); }, PAPER.cream, { blur: 4 });
+    g.strokeStyle = 'rgba(40,30,25,0.75)'; g.lineWidth = 2; g.beginPath(); g.moveTo(-40, -60); g.quadraticCurveTo(-6, -118, 30, -70); g.stroke(); g.strokeRect(-30, -104, 34, 22);   // bản phác
+    cut(g, (q) => rr(q, -100, -42, 200, 6, 2), PAPER.steel, { blur: 3 });   // thước trượt
+    g.strokeStyle = PAPER.ink; g.lineWidth = 4; g.beginPath(); g.moveTo(92, -40); g.lineTo(104, -150); g.lineTo(56, -176); g.stroke();   // tay đèn kẹp
+    cut(g, (q) => { q.moveTo(40, -186); q.lineTo(72, -186); q.lineTo(64, -166); q.lineTo(48, -166); q.closePath(); }, PAPER.ochre, { blur: 4 }); glow(g, 56, -150, 120, '255,214,150', 0.32);
+    g.restore(); },
+  calculator(g, x, y, s) { g.save(); g.translate(x, y); g.scale(s, s);   // tập 7: máy tính cơ (kiểu Friden/Marchant) + giấy kẻ ô
+    cut(g, (q) => rr(q, -100, -14, 76, 14, 2), PAPER.cream, { blur: 3 }); g.strokeStyle = 'rgba(70,90,110,0.5)'; g.lineWidth = 1; for (let i = 0; i < 8; i++) { g.beginPath(); g.moveTo(-98 + i * 10, -14); g.lineTo(-98 + i * 10, 0); g.stroke(); }
+    cut(g, (q) => { q.moveTo(-14, 0); q.lineTo(96, 0); q.lineTo(88, -62); q.lineTo(-6, -62); q.closePath(); }, PAPER.slate);
+    cut(g, (q) => rr(q, -18, -86, 120, 22, 5), PAPER.steel, { blur: 6 });   // xe chạy số
+    g.fillStyle = PAPER.cream; for (let k = 0; k < 10; k++) g.fillRect(-8 + k * 11, -80, 6, 9);
+    for (let r = 0; r < 4; r++) for (let k = 0; k < 8; k++) { g.fillStyle = r === 3 ? PAPER.ochre : PAPER.cream; g.beginPath(); g.arc(4 + k * 10.5 - r * 1.5, -52 + r * 11, 3.3, 0, 7); g.fill(); }
+    g.restore(); },
+  dictionary(g, x, y, s) { g.save(); g.translate(x, y); g.scale(s, s);   // tập 8: chồng từ điển + tờ bản dịch
+    cut(g, (q) => rr(q, -96, -24, 88, 24, 3), PAPER.rust); cut(g, (q) => rr(q, -90, -46, 78, 22, 3), PAPER.slate); cut(g, (q) => rr(q, -94, -64, 84, 18, 3), PAPER.sage);
+    g.fillStyle = 'rgba(240,225,190,0.8)'; for (const [yy, w] of [[-14, 50], [-36, 44], [-56, 46]]) g.fillRect(-80, yy, w, 3);   // gáy sách
+    cut(g, (q) => { q.moveTo(4, 0); q.lineTo(96, 0); q.lineTo(90, -92); q.lineTo(10, -92); q.closePath(); }, PAPER.cream, { blur: 5 });
+    g.strokeStyle = 'rgba(60,45,35,0.55)'; g.lineWidth = 2; for (let i = 0; i < 8; i++) { g.beginPath(); g.moveTo(18, -80 + i * 10); g.lineTo(18 + 60 + 8 * Math.sin(i * 1.7), -80 + i * 10); g.stroke(); }
+    g.restore(); },
   phone(g, x, y, s) { g.save(); g.translate(x, y); g.scale(s, s); cut(g, (q) => rr(q, -22, -84, 44, 84, 7), PAPER.ink); cut(g, (q) => rr(q, -18, -78, 36, 66, 3), '#1a2a40', { edge: false, blur: 0 }); g.restore(); },
 };
 // nhân vật vô danh xuyên suốt tập ("người làm nghề"): bóng người + khăn quàng màu nhấn cố định để nhận ra qua các thời kỳ; era chọn đạo cụ và mũ
-const ERA = { 1900: { hat: 'bowler', prop: 'ledger' }, 1920: { hat: 'cap', prop: 'typewriter' }, 1950: { prop: 'typewriter' }, 1963: { prop: 'claimform' }, 1965: { prop: 'switchboard' }, 1975: { prop: 'counter' }, 1988: { prop: 'terminal' }, 2025: { prop: 'laptop' } };
+const ERA = { 1900: { hat: 'bowler', prop: 'ledger' }, 1920: { hat: 'cap', prop: 'typewriter' }, 1950: { prop: 'typewriter' }, 1963: { prop: 'claimform' }, 1965: { prop: 'switchboard' }, 1975: { prop: 'counter' }, 1988: { prop: 'terminal' }, 1942: { prop: 'typecase' }, 1960: { prop: 'drawboard' }, 1944: { prop: 'calculator' }, 1962: { prop: 'dictionary' }, 2025: { prop: 'laptop' } };
 function worker(g, x, y, h, o = {}) {
   const e = ERA[o.era] || {}; const r = person(g, x, y, h, Object.assign({ seated: o.seated !== false, hat: o.hat === undefined ? e.hat : o.hat, col: '#120e0f', rim: 'rgba(255,200,140,0.75)', armLen: 0.8, arm: 0.6, arm2: -0.55 }, o));
   const k = h / 170, acc = o.accent || '#b6462c';   // khăn quàng: dấu nhận diện cố định của nhân vật

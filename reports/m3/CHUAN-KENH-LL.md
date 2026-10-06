@@ -155,3 +155,10 @@ Chủ dự án duyệt 01/10/2026, sau sự cố đĩa phiên đầy (5 worktree
   - chỉ nguồn trong danh sách trắng: ảnh/phim của chính phủ Mỹ (NARA, các bộ ngành), hoặc Library of Congress ghi "No known restrictions";
   - tối đa khoảng 20 % thời lượng; luôn có chuyển động máy và phủ tông B3;
   - mỗi ảnh có dòng `RIGHTS.md` (URL, tình trạng quyền, ngày tải); qc kiểm đủ hồ sơ quyền, thiếu thì Chặn.
+
+## 10. Lời dẫn và cách làm phim (chủ dự án, 06/10/2026, G1 lô 6–8)
+- Lời dẫn **không nói trực diện** về việc phim làm bằng công cụ AI.
+- Lời dẫn **không khẳng định điều sai** về cách làm phim.
+- Khi một tập chạm tới chủ đề AI trong nghề sáng tạo, câu hỏi đặt về **nghề**, bám nguồn đã đọc; không đặt về chính bộ phim.
+- Khai báo nền tảng giữ như tập 1–5: Altered content = No, đoạn mô tả YouTube như các tập trước.
+- **Số dự báo BLS:** dùng đợt mới nhất có toàn văn đã xác minh (từ lô 6–8: 2025–35). Thẻ so sánh cùng nguồn, cùng kỳ dùng đợt này. Đợt cũ (2024–34, 2023–33) chỉ ở khung riêng, có ghi đợt.
