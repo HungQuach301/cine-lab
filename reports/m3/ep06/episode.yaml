@@ -16,9 +16,9 @@ music:
   - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "12", xfade: 3}
 
 sources:
-  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", short9: "BLS Outlook Handbook 1990–91", title: "Occupational Outlook Handbook, 1990–91 Edition: Compositors and Typesetters; Visual Artists",
+  OOH90: {short: "BLS Outlook Handbook 1990–91", short9: "BLS Outlook Handbook 1990–91", title: "Occupational Outlook Handbook, 1990–91 Edition: Compositors and Typesetters; Visual Artists",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "print pp. 180–181 (Visual Artists), 412–413 (Compositors and Typesetters)", accessed: 2026-10-06}
-  BES16: {short: "Bessen, How Computer Automation Affects Occupations (2016)", short9: "Bessen (2016)", title: "How Computer Automation Affects Occupations: Technology, jobs, and skills",
+  BES16: {short: "Bessen (2016)", short9: "Bessen (2016)", title: "How Computer Automation Affects Occupations: Technology, jobs, and skills",
           url: "https://conference.nber.org/confer/2016/SI2016/PRIT/Bessen.pdf", read: fulltext, pages: "PDF p. 7 and Conclusion", accessed: 2026-10-06}
   MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", short9: "BLS Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF p. 1", accessed: 2026-10-06}
@@ -79,7 +79,7 @@ segments:
       The Bureau of Labor Statistics later wrote that this method was well along the road to extinction.
     min_dur: 28
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22721.jpg, rid: LOC-8d22721, focus: [0.5, 0.45], credit: "Composing room, The New York Times, 1942 · Library of Congress",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22721.jpg, rid: LOC-8d22721, focus: [0.5, 0.45], credit: "NYT composing room, 1942 · Library of Congress",
            cam: [{t: 0, x: 40, z: 0.0}, {t: 6, x: 10, z: 0.04}, {t: 12, x: -20, z: 0.08}, {t: 18, x: -40, z: 0.11}, {t: 26, x: -60, z: 0.14}],
            cap: [{s: "hot type: lines cast in molten lead", at: "@hot", src: [OOH90]}, {s: "a newspaper composing room", at: "@newspaper"}, {s: "compositors fit the lines into pages", at: "@compositors"}]}}
       - {tpl: quote, at: "@later-0.4", in: slide, p: {beats: [{s: "the BLS, 1990", at: "@later"}], text: "…this printing method is well along the road to extinction.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@well", src: [OOH90]}}
@@ -91,7 +91,7 @@ segments:
       Paste-up artists cut those columns apart and arranged them, with the illustrations, on a board. Increasingly, the BLS noted, the author did the keyboarding before the job was even sent out.
       Then came electronic pagination: a whole newspaper page, made up on a screen, eliminating the role of paste-up artists.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22724.jpg, rid: LOC-8d22724, focus: [0.62, 0.5], credit: "Linotyper's hands, The New York Times, 1942 · Library of Congress",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22724.jpg, rid: LOC-8d22724, focus: [0.62, 0.5], credit: "Linotyper's hands, NYT, 1942 · Library of Congress",
            cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -40, z: 0.07}, {t: 12, x: -70, z: 0.1}],
            cap: [{s: "cold type: text keyed into a computer", at: "@cold", src: [OOH90]}, {s: "hyphenate · space · create columns", at: "@hyphenate"}, {s: "printed onto photographic paper", at: "@photographic"}]}}
       - {tpl: desk, at: "@cut-0.4", in: fade, p: {eras: [{era: 1960, at: "@cut-0.4", label: "1975"}], accent: "#2f5d7c", cam: [{t: "@cut", x: 0, z: 0.02}, {t: "@illustrations", x: -20, z: 0.04}, {t: "@author", x: -40, z: 0.06}, {t: "@electronic", x: -80, z: 0.1}],
@@ -107,9 +107,9 @@ segments:
       The training changed too. In the past, almost all compositors learned through an apprenticeship. By 1990, new technologies had lowered skill requirements, and most learned the craft on the job.
       At newspapers, it was blunt: equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting and composition jobs, and more are certain to disappear.
     shots:
-      - {tpl: sign, at: 0, p: {num: comp88, caption: "composing room jobs, United States, 1988", at: "@eightysix", capAt: "@united", wall: brick,
+      - {tpl: sign, at: 0, p: {num: comp88, at: "@eightysix", wall: brick,
            cam: [{t: 0, x: 0, z: 0.0}, {t: 4, x: -20, z: 0.02}, {t: "@third", x: -40, z: 0.04}],
-           cap: [{s: "composing room workers, 1988", at: "@composing", src: [OOH90]}, {s: "more than a third at newspapers", at: "@third"}]}}
+           cap: [{s: "composing room workers", at: "@composing", src: [OOH90]}, {s: "jobs, United States, 1988", at: "@united", src: [OOH90]}, {s: "more than a third at newspapers", at: "@third"}]}}
       - {tpl: desk, at: "@expected-0.4", in: fade, p: {eras: [{era: 1988, at: "@expected-0.4", label: "1988"}], accent: "#2f5d7c", cam: [{t: "@expected", x: 0, z: 0.02}, {t: "@computers", x: -40, z: 0.06}, {t: "@typing+1", x: -70, z: 0.09}, {t: "@apprenticeship", x: -90, z: 0.1}, {t: "@job+1", x: -110, z: 0.11}],
            cap: [{s: "BLS outlook to 2000: little or no change", at: "@expected", src: [OOH90]}, {s: "despite a growing printing industry", at: "@despite"}, {s: "computers take over much of the typing", at: "@typing", src: [OOH90]},
                  {s: "training: from apprenticeship…", at: "@training"}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…to learning on the job", at: "@job"}]}}
@@ -154,9 +154,9 @@ segments:
     shots:
       - {tpl: desk, at: 0, p: {eras: [{era: 1988, at: 0, label: "2004"}], accent: "#2f5d7c", cam: [{t: 0, x: 0, z: 0.03}, {t: 6, x: -40, z: 0.07}, {t: 12, x: -70, z: 0.1}],
            cap: [{s: "Can the BLS see it coming?", at: "@coming", src: []}, {s: "early 2000s: digital cameras replace film", at: "@digital", src: [MLR25]}, {s: "BLS projected: photo processing workers decline", at: "@projected", src: [MLR25]}]}}
-      - {tpl: sign, at: "@nine-1.2", in: fade, p: {num: ph23, caption: "photographic process workers, 2023 (nearly nine in ten gone)", at: "@thousand", capAt: "@2023", wall: plaster,
+      - {tpl: sign, at: "@nine-1.2", in: fade, p: {num: ph23, at: "@thousand", wall: plaster,
            cam: [{t: "@nine-1.2", x: 0, z: 0.0}, {t: "@2023", x: -30, z: 0.03}, {t: "@research", x: -50, z: 0.05}, {t: "@evidence+1", x: -70, z: 0.07}],
-           cap: [{s: "generative AI: projections change…", at: "@brandnew", src: [MLR25]}, {s: "…only with clear evidence", at: "@clear"}]}}
+           cap: [{s: "photographic process workers, 2023: nearly nine in ten gone", at: "@2023", src: [MLR25]}, {s: "generative AI: projections change…", at: "@brandnew", src: [MLR25]}, {s: "…only with clear evidence", at: "@clear"}]}}
 
   - id: "08"
     part: TODAY
@@ -185,9 +185,9 @@ segments:
     shots:
       - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2022"}], accent: "#2f5d7c", cam: [{t: 0, x: 0, z: 0.03}, {t: 6, x: -40, z: 0.06}, {t: 12, x: -70, z: 0.09}],
            cap: [{s: "one study: a large freelancing platform", at: "@study", src: [DHZ]}, {s: "after image generators, 2022", at: "@generators", src: [DHZ]}]}}
-      - {tpl: sign, at: "@seventeen-1.2", in: fade, p: {num: img, caption: "posts for image work (graphic design, 3D modeling) vs. manual jobs, within a year", at: "@seventeen", capAt: "@compared", wall: brick,
+      - {tpl: sign, at: "@seventeen-1.2", in: fade, p: {num: img, at: "@seventeen", wall: brick,
            cam: [{t: "@seventeen-1.2", x: 0, z: 0.0}, {t: "@compared", x: -30, z: 0.03}],
-           cap: [{s: "larger than the usual seasonal swings", at: "@seasonal", src: [DHZ]}, {s: "one platform · job posts, not jobs", at: "@platform#2", src: [DHZ]}, {s: "where a freelancer feels it first", at: "@feels"}]}}
+           cap: [{s: "image-work job posts vs. manual jobs, within a year", at: "@compared", src: [DHZ]}, {s: "larger than the usual seasonal swings", at: "@seasonal", src: [DHZ]}, {s: "one platform · job posts, not jobs", at: "@platform#2", src: [DHZ]}, {s: "where a freelancer feels it first", at: "@feels"}]}}
 
   - id: "10"
     part: TODAY
@@ -197,7 +197,7 @@ segments:
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
       But the differences matter. Back then, the machine took the keystrokes, and there came to be more designers. This time, it reaches for the drawing itself, and the BLS projects fewer designers. So far, that is a forecast and a drop in job posts, not yet a count of jobs lost.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22721.jpg, rid: LOC-8d22721, focus: [0.5, 0.45], credit: "Composing room, The New York Times, 1942 · Library of Congress",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d22721.jpg, rid: LOC-8d22721, focus: [0.5, 0.45], credit: "NYT composing room, 1942 · Library of Congress",
            cam: [{t: 0, x: -60, z: 0.14}, {t: 8, x: -30, z: 0.1}, {t: 16, x: 0, z: 0.06}],
            cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "a count · a forecast · a platform's posts: not side by side", at: "@side"}, {s: "what we can compare is the pattern", at: "@pattern"},
                  {s: "then: the computer sets the type; the designer takes the tool", at: "@then", src: [BES16]}]}}
