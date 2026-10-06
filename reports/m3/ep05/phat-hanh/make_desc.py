@@ -11,7 +11,7 @@ txt = f'''TITLE
 In 1966, Computers Couldn't Judge an Insurance Claim. Now Software Prices the Wreck
 
 DESCRIPTION
-In the 1950s and 60s, insurance companies brought computers into head office. Routine record keeping went to the machine, but the Bureau of Labor Statistics drew a line: jobs requiring judgment and decision making, it said, could not be computerized.
+Decades ago, insurance companies brought computers into head office. Routine record keeping went to the machine, but the Bureau of Labor Statistics drew a line: jobs requiring judgment and decision making, it said, could not be computerized.
 
 Today, software can draft a damage estimate from a photo, and the BLS projects auto damage appraisers to shrink 9 percent by 2035. This film follows the claims desk from the clerks of 1964 to the adjusters of today, and asks where the line sits now.
 
