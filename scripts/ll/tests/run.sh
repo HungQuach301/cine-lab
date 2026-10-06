@@ -31,6 +31,6 @@ n = len(glob.glob(f'{O}/f/*_f00090.jpg'))
 print(f'ảnh: {n} mẫu'); sys.exit(bad or (n < 23))
 P
 # (3) build dừng khi render lỗi: đặc tả có mẫu không tồn tại
-TESTS=0 ASR=0 bash $LL/build.sh $T/bad-render.yaml prep render > /dev/null 2>&1; r=$?
+TESTS=0 ASR=0 RHYTHM=0 bash $LL/build.sh $T/bad-render.yaml prep render > /dev/null 2>&1; r=$?
 [ $r = 3 ] || { echo "TRƯỢT build: phải dừng mã 3 khi render lỗi (nhận $r)"; fail=1; }
 [ $fail = 0 ] && echo "TESTS ĐẠT" || echo "TESTS TRƯỢT"; exit $fail
