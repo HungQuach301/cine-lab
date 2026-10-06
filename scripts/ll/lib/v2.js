@@ -72,7 +72,7 @@ TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }
     worker(g, x - 60, y + 150, 560, { era: e.era, accent: p.accent, arm: 1.2 + 0.12 * Math.sin(t * 3.1), arm2: 1.0 + 0.12 * Math.sin(t * 2.7 + 1) });
     cut(g, (q) => q.rect(x - 260, y - 40, 520, 30), PAPER.brown, { blur: 14 }); cut(g, (q) => q.rect(x - 240, y - 10, 24, 140), PAPER.brown); cut(g, (q) => q.rect(x + 216, y - 10, 24, 140), PAPER.brown);
     pr_(g, x + 40, y - 40, 1.4, { lit: 0.5, glow: 1 }); glow(g, x - 160, y - 160, 260, RGB_AMB, 0.22);
-    if (p.label !== false) text(g, String(e.label || e.era), W - 140, 120, 72, CREAM, { kind: 'serif', align: 'right', a: 1 });
+    if (p.label !== false && String(e.label || e.era).trim()) text(g, String(e.label || e.era), W - 140, 120, 72, CREAM, { kind: 'serif', align: 'right', a: 1 });
     g.restore(); };
   if (u < 1) { draw(E[k - 1], 1 - u); } draw(E[k], u); fog(g, H * 0.98, 0.14, '60,50,46'); alive(g, t); } }; };
 
@@ -80,14 +80,15 @@ TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }
 // Ảnh nạp sẵn vào window.IMGS bởi render.js. qc (rights_check.py) chặn nếu rid không có dòng RIGHTS hợp lệ.
 TPL.archive = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z); g.fillStyle = '#0e0c0e'; g.fillRect(0, 0, W, H);
   const im = (window.IMGS || {})[p.img]; LL.act = true;
-  if (im) { const sc = Math.max(W / im.width, H / im.height) * (1.08 + c.z * 0.6), w = im.width * sc, h = im.height * sc; g.save(); g.drawImage(im, (W - w) / 2 + c.x * 0.6, (H - h) / 2, w, h); g.restore();
+  if (im) { const sc = Math.max(W / im.width, H / im.height) * (1.08 + c.z * 0.6), w = im.width * sc, h = im.height * sc, F = p.focus || [0.5, 0.45];   // focus: điểm chính của ảnh (tỷ lệ 0..1), đặt ở vùng trên dải chú thích
+    const fy = (p.cap && p.cap.length) ? H * 0.38 : H * 0.48, x0 = Math.min(0, Math.max(W - w, W / 2 - F[0] * w + c.x * 0.6)), y0 = Math.min(0, Math.max(H - h, fy - F[1] * h)); g.save(); g.drawImage(im, x0, y0, w, h); g.restore();
     g.save(); g.globalCompositeOperation = 'color'; g.fillStyle = `rgba(150,110,70,${p.tone === undefined ? 0.85 : p.tone})`; g.fillRect(0, 0, W, H); g.restore();
     g.save(); g.globalCompositeOperation = 'multiply'; const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, 'rgba(60,70,110,0.55)'); gr.addColorStop(1, 'rgba(40,28,22,0.65)'); g.fillStyle = gr; g.fillRect(0, 0, W, H); g.restore();
     g.save(); g.globalAlpha = 0.18; g.drawImage(paper(W, H, 5).tex, 0, 0, W, H); g.restore(); }
   else text(g, `missing image ${p.img}`, W / 2, H / 2, 40, '#ff8080', { align: 'center' });
   const v = g.createRadialGradient(W / 2, H * 0.5, H * 0.3, W / 2, H * 0.5, H * 0.95); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.7)'); g.fillStyle = v; g.fillRect(0, 0, W, H);
   alive(g, t, 1.4);
-  if (p.credit) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, CREAM, { align: 'right' }); } } }; };
+  if (p.credit && !(p.cap && p.cap.length)) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, CREAM, { align: 'right' }); } } }; };
 
 // ---- inspect: giám định xe hỏng ngoài trời. p = { era: 1988|2025, flash: [t…] (chụp ảnh), estimate: t (2025: khung ước tính tự hiện trên điện thoại), amount: "$2,340", walk: [t0, t1], cam } ----
 TPL.inspect = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z);

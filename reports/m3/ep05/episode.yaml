@@ -86,7 +86,7 @@ segments:
       Then a new machine arrived at head office: the electronic computer.
     min_dur: 26
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d27894.jpg, rid: LOC-8d27894, credit: "Insurance office, Baltimore, 1943 · Library of Congress, FSA/OWI (no known restrictions)",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d27894.jpg, rid: LOC-8d27894, focus: [0.5, 0.42], credit: "Insurance office, Baltimore, 1943 · Library of Congress",
            cam: [{t: 0, x: 40, z: 0.0}, {t: 6, x: 10, z: 0.04}, {t: 12, x: -20, z: 0.08}, {t: 18, x: -40, z: 0.11}, {t: 26, x: -60, z: 0.14}],
            cap: [{s: "Behind every claim: a small army of clerks", at: "@army"}, {s: "premiums to bill · policies to update · claims to pay", at: "@premiums"},
                  {num: ins64, s: "employees of U.S. insurance carriers, 1964 — most in office work", at: "@eight"}, {s: "then: the electronic computer", at: "@electronic"}]}}
@@ -100,7 +100,7 @@ segments:
       Jobs like premium billing, tasks which formerly required large numbers of clerks handling files, went to the machine.
       So did the policy evaluation clerks, who calculated the cash values of policies using rate books and manual calculators.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/usnwr-89395.jpg, rid: LOC-89395, credit: "An IBM computer room, New Haven, 1967 · Library of Congress, U.S. News & World Report Collection (no known restrictions)",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/usnwr-89395.jpg, rid: LOC-89395, focus: [0.5, 0.55], credit: "IBM computer room, New Haven, 1967 · Library of Congress",
            cam: [{t: 0, x: 0, z: 0.0}, {t: 5, x: -40, z: 0.06}], cap: [{s: "BLS study, 1966: what the computer did to insurance offices", at: "@1966"}]}}
       - {tpl: isotype, at: "@six-1.0", in: fade, p: {title: "People working in insurance computer units", subtitle: "U.S. insurance carriers", unit: 1000, unitName: "people", per: 16,
            groups: [{label: "1954", num: edp54, at: "@six"}, {label: "1963", num: edp63, at: "@sixteen"}], cap: [{s: "company computer units soared", at: "@soared"}]}}
@@ -130,7 +130,7 @@ segments:
       Few people were laid off as a direct result. The BLS pointed to high turnover among young clerical workers, a growing industry, and some new computer jobs.
       And it drew a line: jobs requiring some judgment and decision making, jobs that cannot be computerized, would remain.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8c01946.jpg, rid: LOC-8c01946, credit: "Insurance office, Dayton, Washington, 1941 · Library of Congress, FSA/OWI (no known restrictions)",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8c01946.jpg, rid: LOC-8c01946, focus: [0.5, 0.42], credit: "Insurance office, Dayton, Wash., 1941 · Library of Congress",
            cam: [{t: 0, x: 0, z: 0.02}, {t: 5, x: -30, z: 0.07}], cap: [{s: "Office jobs did not collapse", at: "@collapse"}, {s: "207 surveyed companies, 1954–1963", at: "@surveyed"}]}}
       - {tpl: sign, at: "@thirtyone-1.2", in: fade, p: {num: off_chg, caption: "office employment, 207 surveyed insurers, 1954–63 (nine years)", at: "@thirtyone", capAt: "@nine", wall: plaster,
            cam: [{t: "@thirtyone-1.2", x: 0, z: 0.0}, {t: "@nine", x: -30, z: 0.03}]}}
@@ -217,7 +217,7 @@ segments:
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
       But the differences matter. Back then, the machine kept the records. Now software drafts the first estimate, the step that once needed a person's eye. The final call, so far, still sits with people.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8b28380.jpg, rid: LOC-8b28380, credit: "An automobile accident, U.S. 40, Maryland, 1936 · Library of Congress, FSA/OWI (no known restrictions)",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8b28380.jpg, rid: LOC-8b28380, focus: [0.45, 0.70], credit: "Automobile accident, U.S. 40, Maryland, 1936 · Library of Congress",
            cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -40, z: 0.06}, {t: 16, x: -80, z: 0.1}, {t: 24, x: -110, z: 0.13}],
            cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "not the same job — the same claims desk", at: "@job"}, {s: "two jobs, two kinds of number: not side by side", at: "@side"}, {s: "a survey of office workers vs. a forecast for one job", at: "@survey"}, {s: "what we can compare is the line", at: "@compare"},
                  {s: "1966: the line at judgment", at: "@1966"}, {s: "the computer keeps the records; people decide the worth", at: "@records"}]}}
