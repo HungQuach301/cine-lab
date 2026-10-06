@@ -1,6 +1,6 @@
 #!/opt/cine/bin/python
 """Thumbnail tập 6 (1280×720) từ khung trung gian, dựng bằng scripts/ll/thumb.py (lề an toàn 5 %).
-python make_thumb.py <thư mục ra> <khung T1> <khung T2>   (T1: ảnh phòng sắp chữ / bàn vẽ; T2: thẻ so sánh 2025–35)"""
+python make_thumb.py <thư mục ra> <khung T1> <khung T2>   (T1: ảnh phòng sắp chữ, đoạn 02; T2: cảnh bàn làm việc 2025, đoạn 06)"""
 import sys
 sys.path.insert(0, __file__.rsplit('/reports/', 1)[0] + '/scripts/ll')
 from PIL import Image
