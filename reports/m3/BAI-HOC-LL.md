@@ -70,3 +70,4 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 45 | True peak phần bản xem vượt dù master đạt | tập 5 phần 1: +0,4 dBTP (master −1,5) | mã hoá lại AAC 2 lượt + cắt đoạn | bản xem: volume −1,2 dB + alimiter 0,82 |
 | 46 | Mẫu "sơn dần" ghi chữ khi chưa hiện → đo tương phản 1:1 | tập 5 Short S3 khung 0 | chữ vẽ trong vùng cắt rộng 0 vẫn được ghi log | không gọi text khi alpha = 0 |
 | 47 | Nhãn khoảng trắng (' ') vẫn được vẽ và đo tương phản | tập 5 đoạn 01, 06: Q5 = 1,01 | dùng ' ' để ẩn nhãn thời kỳ | qc bỏ chuỗi rỗng; mẫu desk không vẽ nhãn rỗng (áp ở lượt chạm thư viện tới) |
+| 48 | Nhãn góc trên của mẫu cảnh trùng dòng hook của Shorts (9:16) | tập 5 S2: 'nhãn 1966' dưới hook, Q5 = 1,03 | toạ độ nhãn theo 16:9 | Shorts: không dùng nhãn góc trên; bản vá thư viện chờ: đặt nhãn dưới vùng hook khi 9:16 |
