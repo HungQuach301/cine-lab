@@ -69,3 +69,16 @@ shorts:
 - `ll.py est <yaml>`: ước **trước khi thu lời** (không gọi mạng): thời lượng từng đoạn và tỷ lệ STORY/HISTORY/TODAY theo **tốc độ đọc thật của Bill** (`BILL_WPS` = 2,214 từ/s, đo 1 062 từ / 479,6 s trên 15 đoạn tập 2; thử lại trên tập 2: ước 9:03,2, thật 9:01,4). Giải thử mọi mốc `@từ` (bắt lỗi mốc trước khi tốn ký tự ElevenLabs).
 - Cùng lệnh báo **khung đồ hoạ có thể đứng trống > 3 s**: shot `bars/line/compare/bignum/text/quote` mà nội dung gắn lời đầu tiên (`at`, `beats`, `noteAt`…) đến sau đầu shot hơn 2,5 s (ngưỡng 3 s trừ sai số ước 0,5 s). qc Q11 vẫn là phép đo thật sau render.
 - Hai bài học khác của tập 2 đã có sẵn trong mẫu từ G3 tập 2: `bignum` khoảng số hiện thẳng; `thumb.py` + qc Q12 lề an toàn 5 %.
+
+## Bổ sung tập 6 v2 — NGUYÊN TẮC TỐI CAO (06/10/2026)
+- **Cảnh đinh 3D** (`design/ll-hero/`, three.js headless, cùng đường ống hậu kỳ tập 1): đặc tả khai `heroes: {KHOÁ: {hero: ep06/printshop, variant: a, opt: {...}, size: [1080, 1920]}}`;
+  shot `plate` dùng `p.hero: KHOÁ` (+ `off` khung bắt đầu, `speed`, `fx`); `diptych` dùng `left/right: {hero, i}`. `ll.py prep` tính độ dài cần dựng và dấu (băm mã + tham số);
+  `build.sh` dựng lại cảnh có dấu đổi (`SPP=4`). `opt`: `grade` (warm/sepia/cold, màu theo hồi), `lit` (giây đèn bén), `screen` (giây màn hình bừng), `done` (dòng chữ đầy).
+  Sự kiện thật trong cảnh đinh khai ở `p.ev: [{at, what}]` để thước nhịp Q15 đếm; phải khớp `opt`.
+- **Mẫu v3** (`lib/v3.js`): `jobboard` (tin việc rơi, `drop`, `share`), `filmstrip` (phòng tối, `fade`, `keep`), `pasteup` (bàn dàn trang, `at`, `cut`), `diptych`. `desk` có `frame: {z, x, y}` (khuôn khác; ≤ 3 lần/tập).
+- **Lời:** `pause: [{before: "@từ", s: 0.7}]` chèn lặng trước từ (Q28 trước số neo); `speed: 0.95` nhịp đọc theo đoạn (vào khoá cache TTS).
+- **Nhạc:** `music: [{file, from, ss, gain_db, xfade}]` theo hồi; không lặp vòng (bài ngắn hơn khoảng cần → `mix.py` dừng với lỗi). `mix.json` ghi `music_used`, `sfx_used`.
+- **SFX nghề:** shot nhận `sfx: [{file, at, src_ss, dur, gain_db, fade_ms}]`; `at` âm (trước đầu đoạn) = J-cut.
+- **Bản đồ liền mạch** `map:` mỗi đoạn: `q` (câu hỏi xuyên suốt), `act`, `emo`, `color`, `cue`, `trade`, `in`/`out` (cut, match, jcut, lcut, dissolve, fade), `nouns: [{w: "@từ", img, anchor}]`, `lamp: {in, out}`.
+- **qc mới (luật làm việc của P, chờ K khoá):** `diversity.py` (Q26: khung nhìn, tỷ lệ lớn nhất, cảnh liền cùng bố cục theo điểm cắt thật), `cont.py` (Q28 âm thanh, Q29 hình–lời, Q30 liền mạch),
+  `blind_set.py q27|q31` (bộ ảnh mù cho 3 subagent chấm hình so với tập 1, và xem liền mạch).

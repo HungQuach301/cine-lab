@@ -26,9 +26,9 @@ heroes:
   shop_walk:   {hero: ep06/printshop, variant: b, opt: {lit: 4.6}}
   shop_bridge: {hero: ep06/printshop, variant: c, opt: {lit: 5.0, screen: 9.0, grade: cold}}
   shop_end:    {hero: ep06/printshop, variant: d, opt: {lit: 8.2}}
-  case_wide:   {hero: ep06/cellar, variant: a}
+  case_wide:   {hero: ep06/cellar, variant: a, opt: {grade: warm}}   # hồi 1 (truyện): ấm
   case_close:  {hero: ep06/cellar, variant: b}
-  case_line:   {hero: ep06/cellar, variant: b, opt: {done: 9.0}}
+  case_line:   {hero: ep06/cellar, variant: b, opt: {done: 9.0, grade: warm}}
   case_end:    {hero: ep06/cellar, variant: b, opt: {grade: warm}}
   lino_row:    {hero: ep06/linotype, variant: a}
   lino_high:   {hero: ep06/linotype, variant: b}
@@ -75,8 +75,8 @@ segments:
     vo: >-
       Who made this: a hand, or a machine? In 1990, the government said computers had already eliminated many typesetting jobs.
       Today, machines draw too. On one freelance platform, job posts for image work fell seventeen percent.
-    vo_offset: 0.6
-    tail: 0.8
+    vo_offset: 0.4
+    tail: 0.3
     fadeIn: 0
     shots:
       - {tpl: plate, at: 0, p: {hero: shop_hook, off: 0, cap: [{s: "Who made this: a hand, or a machine?", at: "@who", src: []}]},
@@ -172,7 +172,7 @@ segments:
       - {tpl: archive, at: "@expected-0.4", in: fade, p: {img: assets/ll/archive/fsa-8d22743.jpg, rid: LOC-8d22743, focus: [0.4, 0.55], credit: "Setting type by hand, NYT, 1942 · Library of Congress",
            cam: [{t: "@expected", x: 0, z: 0.02}, {t: "@typing+1", x: -40, z: 0.09}],
            cap: [{s: "BLS outlook to 2000: little or no change", at: "@expected", src: [OOH90]}, {s: "despite a growing printing industry", at: "@despite"}, {s: "computers take over much of the typing", at: "@typing", src: [OOH90]}]}}
-      - {tpl: plate, at: "@training-0.4", in: fade, p: {hero: case_wide, off: 140, cap: [{s: "the training changed too", at: "@training"}, {s: "in the past: an apprenticeship", at: "@apprenticeship", src: [OOH90]}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…most learned on the job", at: "@job"}]},
+      - {tpl: plate, at: "@training-0.4", in: fade, p: {hero: case_close, off: 140, cap: [{s: "the training changed too", at: "@training"}, {s: "in the past: an apprenticeship", at: "@apprenticeship", src: [OOH90]}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…most learned on the job", at: "@job"}]},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@apprenticeship", src_ss: 9.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
       - {tpl: quote, at: "@newspapers#2-0.4", in: slide, p: {beats: [{s: "at newspapers", at: "@newspapers#2"}, {s: "reporters and editors format pages", at: "@reporters"}], text: "…has already eliminated many typesetting and composition jobs, and more are certain to disappear in the years ahead.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@already", src: [OOH90]}}
 
@@ -210,7 +210,7 @@ segments:
       The lamplighter walks on. Above the old print shop, a window is still lit.
       A designer bends over a drawing board with a clamp lamp, pencil in hand. On the next desk, a screen glows.
     vo_offset: 2.5
-    min_dur: 26
+    min_dur: 24
     tail: 1.5
     shots:
       - {tpl: plate, at: 0, p: {hero: shop_bridge, off: 0, ev: [{at: 4.0, what: "người thắp đèn dừng"}, {at: 5.0, what: "đèn bén"}, {at: 9.0, what: "màn hình trong cửa sổ bừng lạnh"}]},
@@ -218,7 +218,8 @@ segments:
                {file: assets/ll/sfx/pencil-paper.mp3, at: "@pencil", src_ss: 40.0, dur: 3.0, gain_db: -12, fade_ms: 400}]}
       - {tpl: plate, at: "@next-0.3", in: fade, p: {hero: wall_back, off: 0},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@screen", src_ss: 10.0, dur: 3.0, gain_db: -11, fade_ms: 300}]}
-      - {tpl: plate, at: "@glows+1.0", in: fade, p: {hero: wall_push, off: 30}}
+      - {tpl: plate, at: "@glows+1.0", in: fade, p: {hero: wall_push, off: 30},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@glows+1.4", src_ss: 6.0, dur: 4.0, gain_db: -16, fade_ms: 600}]}
 
   - id: "07"
     part: TODAY
@@ -315,7 +316,8 @@ segments:
       Whether deciding is enough paid work for the people who once drew every line by hand is something no projection can settle yet.
     min_dur: 26
     shots:
-      - {tpl: plate, at: 0, p: {hero: shop_hook, off: 200, cap: [{s: "a hand, or a machine?", at: "@who", src: []}, {s: "for most of a century: a hand", at: "@answer"}]}}
+      - {tpl: plate, at: 0, p: {hero: shop_hook, off: 200, cap: [{s: "a hand, or a machine?", at: "@who", src: []}, {s: "for most of a century: a hand", at: "@answer"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: 0.4, src_ss: 70.0, dur: 4.0, gain_db: -14, fade_ms: 600}]}
       - {tpl: plate, at: "@first-0.3", in: fade, p: {hero: case_close, off: 100, cap: [{s: "the hand that set the type", at: "@first"}]},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@set", src_ss: 7.0, dur: 2.0, gain_db: -15, fade_ms: 300}]}
       - {tpl: plate, at: "@drew-0.6", in: fade, p: {hero: shop_bridge, off: 200, cap: [{s: "the hand that drew the page", at: "@drew"}]},
