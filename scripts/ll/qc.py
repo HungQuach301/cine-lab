@@ -1,7 +1,7 @@
 #!/opt/cine/bin/python
 """Last Lamplighters · nhà máy — bộ kiểm tự động một tập (gọi qua scripts/ll/qc.sh). Xuất bảng ĐẠT/TRƯỢT (Markdown + JSON).
 
-Luật làm việc của P (Mốc B). Không phải luật khoá của K: luật khoá nằm trong checks/ (chỉ K sửa); đề xuất gửi K qua checks-appeal.md.
+Q1–Q6, Q8–Q11: luật làm việc của P (Mốc B). Q7, Q12–Q25: LUẬT KHOÁ của K (checks/ll, LL v2, LOCK) — qc chỉ gọi; khiếu nại qua checks-appeal.md.
 Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q1 judder: đoạn giữ khung giống hệt 2–12 khung (scripts/p/judder.py, framemd5) trên trung gian từng đoạn = 0
   Q2 khung gần trùng: |chênh| TB ≤ 0,1 mức xám (192×108) mà 6 khung trước và sau đều chuyển động rõ (trung vị > 0,5) = 0
@@ -14,13 +14,14 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q10 bản xem: mỗi phần ≤ 90 MB; Short ≤ 60 s
   Q12 thumbnail: 1280×720; mọi hộp chữ (gồm nền chữ) nằm trong lề an toàn 5 % mỗi cạnh, không chạm (scripts/ll/thumb.py ghi .boxes.json)
   Q11 bản dài: khung đồ hoạ trống (chưa có dữ liệu/chữ gắn lời) > 3 s khi lời đang nói = 0; Shorts: không quá 3 s liền không có nội dung mới (cảnh truyện toàn khung miễn)
-  Q14–Q18 luật nhịp (scripts/ll/rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
+  Q14–Q18 luật nhịp (khoá: checks/ll/q_rhythm.py): móc câu, đổi hình, tỷ lệ thẻ giấy, mật độ số, thẻ trống
   Q20 va chạm chữ–hình: chú thích không đè vùng hình đã khai (log render 'hit')
-  Q19 hồ sơ quyền tư liệu phạm vi công cộng (scripts/ll/rights_check.py)
-  Q22 chữ tràn khung: hộp chữ ở khung mẫu nằm trong khung, cách mép trái/phải ≥ 8 px (scripts/ll/overflow_check.py)
-  Q21 gán nguồn trên hình: dòng nguồn đang hiện chứa nguồn của mọi số/câu đang hiện; câu có số/năm/cơ quan phải khai num/src (scripts/ll/src_check.py)
+  Q19 hồ sơ quyền tư liệu phạm vi công cộng (khoá: checks/ll/q_rights.py)
+  Q22 chữ tràn khung: hộp chữ ở khung mẫu nằm trong khung, cách mép trái/phải ≥ 8 px (khoá: checks/ll/q_overflow.py)
+  Q21 gán nguồn trên hình: dòng nguồn đang hiện chứa nguồn của mọi số/câu đang hiện; câu có số/năm/cơ quan phải khai num/src (khoá: checks/ll/q_src.py)
   Q13 số trên tiêu đề, thumbnail, mô tả, Shorts (hook + text) truy được về một số trong numbers của đặc tả (hoặc năm có trong lời/số);
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "?") (chủ dự án, 05/10/2026, mục B7)
+  Q23 câu/thẻ nhiều số cùng đối tượng/loại/kỳ/cơ sở; Q24 nhãn phân loại khớp số; Q25 thẻ khoảng số không đếm qua số trung gian; LOCK khớp
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
 import glob, json, os, re, subprocess, sys
@@ -28,6 +29,7 @@ import numpy as np
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
+sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow  # noqa: E402  luật khoá LL v2 (phiên K)
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
 FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect'}
@@ -112,16 +114,9 @@ badc = {k: v for k, v in mincap.items() if v[0] < v[1] - 0.05}
 worst = min(mincap.items(), key=lambda kv: kv[1][0] - kv[1][1]) if mincap else None
 row('Q6', 'Cỡ chữ hoa tối thiểu (mọi khung mẫu)', not badc, f'{worst[1][0]} px ({worst[0]} {worst[1][2]})' if worst else '—', '18 / 30 px',
     near=nearv(worst[1][0], worst[1][1], 'cỡ chữ') if worst else None, note=(f'mẫu tự nâng cỡ: {raised}' if raised else '') + (f' TRƯỢT {badc}' if badc else ''))
-# Q7
-miss = []
-for k, L in logs.items():
-    sg = next(s for s in TL['segments'] + TL['shorts'] if s['id'] == k)
-    for sh in sg['shots']:
-        kinds = set(re.findall(r"'kind': '(actual|projection)'", str(sh['p'])))
-        seen = ' '.join(it['s'] for e in L['text'] if sh['t0'] * 24 <= e['f'] < sh['t1'] * 24 for it in e['items'])
-        for kd in kinds:
-            if kd.upper() not in seen: miss.append(f"{k}/{sh['tpl']}@{sh['t0']:.1f}: thiếu {kd.upper()}")
-row('Q7', 'Nhãn ACTUAL/PROJECTION khi có số', not miss, len(miss), 0, note='; '.join(miss[:6]))
+# Q7 (khoá K v2): đủ nhãn của loại số trong shot, không nhãn của loại không có, kind khai trùng loại của num
+miss = K.q7(E, TL, logs)
+row('Q7', 'Nhãn ACTUAL/PROJECTION khớp loại số', not miss, len(miss), 0, note='; '.join(miss[:6]))
 # Q8
 err, warn = ll.check(E)
 row('Q8', 'Nguồn (toàn văn, không Wikipedia) + số khớp lời', not err, len(err), 0, note='; '.join(err[:4] + warn[:2]))
@@ -154,68 +149,39 @@ for k, L in logs.items():
 row('Q11', 'Khung trống > 3 s khi có lời (bản dài) · chữ đứng > 3 s (Shorts)', not still, len(still), 0, note='; '.join(still[:8]))
 
 # Q12 thumbnail: chữ không chạm/vượt lề an toàn 5 %
-import thumb  # noqa: E402
 TH = E.get('thumbs') or sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(EP)), 'phat-hanh', '*thumb*.jpg')))
+TH = [f if os.path.isabs(f) else os.path.join(REPO, f) for f in TH]
 for f in TH:
-    e = thumb.check(f if os.path.isabs(f) else os.path.join(REPO, f))
+    e = K.q12([f])   # khoá K v2
     row('Q12', f'Thumbnail lề an toàn {os.path.basename(f)}', not e, len(e), '0 (lề 5 %)', note='; '.join(e[:3]))
 
-# Q13 số ở các bề mặt phát hành truy được về numbers + đúng nhãn dự báo
-def q13():
-    N = E.get('numbers', {}); vo = ' '.join((x.get('vo') or '') for x in E.get('segments', []) + E.get('shorts', []))
-    years = set(int(y) for y in re.findall(r'\b(1[89]\d\d|20\d\d)\b', vo + ' ' + json.dumps(N, ensure_ascii=False)))
-    PM = re.compile(r'project|forecast|expect|\bby 20\d\d|\?|\(proj', re.I)
-    items = [('tiêu đề', E.get('title') or '')] + [(f"hook {sh['id']}", sh.get('hook', '')) for sh in E.get('shorts', [])]
-    D = os.path.join(os.path.dirname(os.path.abspath(EP)), 'phat-hanh')
-    for f in TH:
-        b = f'{f if os.path.isabs(f) else os.path.join(REPO, f)}.boxes.json'
-        if os.path.exists(b): items.append((os.path.basename(f), ' '.join(x['s'] for x in json.load(open(b))['boxes'])))
-    for f in glob.glob(os.path.join(D, '*description*.txt')):
-        t = open(f).read(); m = re.search(r'DESCRIPTION\n(.*?)\n(?:Chapters|Sources)\n', t, re.S)
-        items += [(os.path.basename(f), x) for x in re.split(r'(?<=[.!?])\s+', m.group(1) if m else '')]
-    for f in glob.glob(os.path.join(D, '*shorts-text*.txt')):
-        items += [(os.path.basename(f), ln.split('#')[0]) for ln in open(f) if ln.strip() and not re.match(r'(Source|Music|Narration)', ln)]
-    bad = []
-    for where, txt in items:
-        t = txt.replace('−', '-').replace('–', '-')
-        t = re.sub(r'\b(\d{4})-(\d{2})\b', r'\1', t)   # đợt dự báo '2023–33': phần sau là năm rút gọn
-        for m in re.finditer(r'(?<![\w.])(-|\+)?((?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)(\s*%| ?million| ?percent)?', t):
-            raw, v, suf = m.group(0).strip(), float(m.group(2).replace(',', '')), (m.group(3) or '').strip()
-            if 'million' in suf: v *= 1e6
-            if not suf and v == int(v) and 1800 <= v <= 2100 and ',' not in m.group(2):
-                if int(v) not in years: bad.append(f'{where}: năm {raw} không có trong lời/số')
-                continue
-            if not suf and v < 10 and ',' not in m.group(2): continue   # đếm nhỏ ("3 jobs"), số thứ tự
-            hit = [k for k, n in N.items() if abs(abs(v) - abs(float(n['v']))) <= max(0.051 * abs(float(n['v'])) if 'million' in suf else 0.5, 1e-9)
-                   and (('%' in suf or 'percent' in suf) == (n.get('unit', '').startswith('%')) or 'million' in suf)]
-            if not hit: bad.append(f'{where}: "{raw}" không truy được về numbers'); continue
-            if all(N[k]['kind'] == 'projection' for k in hit) and not PM.search(txt): bad.append(f'{where}: "{raw}" là số dự báo nhưng thiếu dấu hiệu dự báo')
-    row('Q13', 'Số trên tiêu đề/thumbnail/mô tả/Shorts truy được về numbers + nhãn dự báo', not bad, len(bad), 0, note='; '.join(bad[:6]))
-q13()
-
-# Q14–Q18 luật nhịp (rhythm.py; chủ dự án 05/10/2026). Áp từ tập 4: đặc tả không khai `hook` (tập ≤ 3) thì ghi "không áp".
-import rhythm  # noqa: E402
+# Q13–Q25: luật khoá phiên K (checks/ll, LL v2, 06/10/2026). Định nghĩa: checks/ll/RULES-LL.md
+D = os.path.join(os.path.dirname(os.path.abspath(EP)), 'phat-hanh'); E['_path'] = os.path.abspath(EP); E['_thumbs'] = TH
+bad = K.q13(E, D, TH)
+row('Q13', 'Số trên tiêu đề/thumbnail/mô tả/Shorts truy được về numbers, đúng dấu, nhãn dự báo', not bad, len(bad), 0, note='; '.join(bad[:6]))
 if E.get('hook') or E.get('anchors'):
     NAMES = {'Q14': 'Móc câu < 0:15, tựa ≤ 0:20, trả lời ở cuối', 'Q15': 'Đổi hình: quãng ≤ 8 s, TB ≤ 6 s', 'Q16': 'Tỷ lệ thẻ giấy', 'Q17': 'Mật độ số ≤ 2/phút + 3 số neo', 'Q18': 'Thẻ trống ≤ 1,5 s trước số'}
-    for k, r in rhythm.measure(E, TL).items(): row(k, NAMES[k], r['ok'], r['val'], '', note=r.get('note', ''))
+    for k, r in q_rhythm.measure(E, TL).items(): row(k, NAMES[k], r['ok'], r['val'], '', note=r.get('note', ''))
 else:
     row('Q14–18', 'Luật nhịp', True, 'không áp (tập ≤ 3)', '')
-
-# Q20 va chạm chữ–hình: chú thích đè vùng hình đã khai (isotype…), đếm từ log render
-_hits = {k: L.get('hit', '').count('1') for k, L in logs.items() if L.get('hit', '').count('1')}
-row('Q20', 'Chú thích không đè hình (isotype…)', not _hits, sum(_hits.values()), 0, note=str(_hits) if _hits else '')
-# Q19 hồ sơ quyền tư liệu phạm vi công cộng (rights_check.py; chủ dự án 05/10/2026): thiếu thì Chặn
-import rights_check  # noqa: E402
-_rb, _ra = rights_check.check(E, TL)
+_m = re.search(r'ep(\d+)', E['id']); _epn = int(_m.group(1)) if _m else None
+_iso = {s['id'] for s in TL['segments'] + TL['shorts'] if any(sh['tpl'] == 'isotype' for sh in s['shots'])}
+_hb = K.q20(logs, _iso, need_zones=bool(_epn and _epn >= 6))
+row('Q20', 'Chữ không đè hình (cờ hit + vùng isotype)', not _hb, len(_hb), 0, note='; '.join(_hb[:4]))
+_rb, _ra = q_rights.check(E, TL)
 row('Q19', 'Hồ sơ quyền tư liệu (danh sách trắng, RIGHTS, ≤ 20 %)', not _rb, len(_rb), 0, note='; '.join(_rb[:4]) or (f'tư liệu {_ra:.1f} s' if _ra else 'không dùng tư liệu'))
-# Q21 gán nguồn trên hình (chủ dự án, G2 tập 5, 06/10/2026)
-import src_check  # noqa: E402
-_sb = src_check.check(E, TL)
+_sb = q_src.check(E, TL)
 row('Q21', 'Dòng nguồn khớp số/câu đang hiện', not _sb, len(_sb), 0, note='; '.join(_sb[:4]))
-# Q22 chữ tràn khung (chủ dự án duyệt 06/10/2026)
-import overflow_check  # noqa: E402
-_ob = overflow_check.check(logs)
-row('Q22', 'Chữ nằm trong khung (lề ≥ 8 px)', not _ob, len(_ob), 0, note='; '.join(_ob[:3]))
+_ob = q_overflow.check(logs) if logs else ['không có log render (<đoạn>.mkv.log.json): không đo được']
+row('Q22', 'Chữ nằm trong khung (lề ≥ 8 px, gồm Shorts 9:16)', not _ob, len(_ob), 0, note='; '.join(_ob[:3]))
+_cb = K.q23(E, TL)
+row('Q23', 'Câu/thẻ nhiều số: cùng đối tượng, loại, kỳ, cơ sở', not _cb, len(_cb), 0, note='; '.join(_cb[:4]))
+_lb = K.q24(E, TL)
+row('Q24', 'Nhãn phân loại khớp số', not _lb, len(_lb), 0, note='; '.join(_lb[:4]))
+_gb = K.q25(TL, logs)
+row('Q25', 'Thẻ khoảng số không hiện số trung gian', not _gb, len(_gb), 0, note='; '.join(_gb[:4]))
+_lk = subprocess.run(['/opt/cine/bin/python', os.path.join(REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
+row('LOCK', 'checks/ khớp LOCK (luật khoá không bị sửa)', _lk.returncode == 0, 'KHỚP' if _lk.returncode == 0 else 'KHÔNG KHỚP', 'TREE_SHA256')
 
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']

@@ -1,0 +1,54 @@
+ĐÚNG  Q7      bắt lỗi  tập 2 S2: −5,3 % dự báo hiện nhãn ACTUAL (log)
+ĐÚNG  Q7      bắt lỗi  tập 2 S2: đặc tả khai kind=actual cho nums dự báo
+ĐÚNG  Q7      sạch     tập 2 S2 bản G3: nhãn PROJECTION
+ĐÚNG  Q7      sạch     tập 02 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 03 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 04 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 05 G3: đặc tả
+ĐÚNG  Q12     bắt lỗi  tập 2 T1: hộp "…OPERATORS." vượt mép phải (1292 > 1216)
+ĐÚNG  Q12     bắt lỗi  tập 2 T1: không có .boxes.json (dựng tay như bản lỗi)
+ĐÚNG  Q12     sạch     tập 02 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 03 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 04 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 05 G3: T1, T2
+ĐÚNG  Q13     sạch     tập 02 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 03 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 04 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 05 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     bắt lỗi  tiêu đề nêu −9 % (dự báo) không có dấu hiệu dự báo
+ĐÚNG  Q13     bắt lỗi  tiêu đề +9 % sai dấu (số thật −9 %)
+ĐÚNG  Q13     sạch     tiêu đề số thật truy được
+ĐÚNG  Q13     sạch     tập 3: "135k" truy về 135,000
+ĐÚNG  Q13     bắt lỗi  tập 3: "150k" không có trong numbers
+ĐÚNG  Q14–18  bắt lỗi  tập 03: Q14✗; Q15✗; Q16✗; Q17✗; Q18✗
+ĐÚNG  Q14–18  sạch     tập 04: Q14✓; Q15✓; Q16✓; Q17✓; Q18✓
+ĐÚNG  Q14–18  sạch     tập 05: Q14✓; Q15✓; Q16✓; Q17✓; Q18✓
+ĐÚNG  Q19     sạch     tập 5 G3: 4 dòng RIGHTS, 16,5 %
+ĐÚNG  Q19     bắt lỗi  tập 5: shot archive trỏ rid không có trong RIGHTS
+ĐÚNG  Q19     bắt lỗi  tập 5: shot archive thiếu dòng ghi nguồn trên hình
+ĐÚNG  Q19     sạch     URL giả .gov (loc.gov.evil.com) không qua danh sách trắng
+ĐÚNG  Q20     bắt lỗi  chú thích giao vùng isotype khai trong log
+ĐÚNG  Q20     bắt lỗi  cờ hit của render
+ĐÚNG  Q20     bắt lỗi  tập ≥ 6: đoạn isotype không ghi zones
+ĐÚNG  Q20     sạch     chú thích dưới vùng hình
+ĐÚNG  Q21     sạch     tập 5 G3: 0 lỗi
+ĐÚNG  Q21     bắt lỗi  tập 5 đoạn 00: "1966…" dưới dòng nguồn OOH (bản G2)
+ĐÚNG  Q21     bắt lỗi  tập 5: capsrc (P ghi) bỏ trống nguồn nhưng đặc tả khai src B1468 → K vẫn đòi
+ĐÚNG  Q22     bắt lỗi  tập 5 S1: "Source: BLS, Occupational Outlook…" hộp −338…1418 trên khung 1080
+ĐÚNG  Q22     bắt lỗi  tập 5 đoạn 07 (16:9): dòng nguồn ghép tràn mép phải
+ĐÚNG  Q22     sạch     Shorts gọn (short9) trong lề 8 px
+ĐÚNG  Q23     bắt lỗi  tập 3 v1 thẻ so sánh −13%/+87%
+ĐÚNG  Q23     bắt lỗi  câu "+87 % … while tellers −13 %"
+ĐÚNG  Q23     sạch     câu 2025 → 2035 (điểm gốc + dự báo, cùng nguồn)
+ĐÚNG  Q23     bắt lỗi  tập 3: 65 nghìn (phân loại 1960) + 253 nghìn (1970) không ghi cơ sở
+ĐÚNG  Q23     sạch     tập 3: cùng cặp số, ghi rõ từng cơ sở
+ĐÚNG  Q23     sạch     tập 03 G3: lời, thẻ, chú thích, bề mặt phát hành
+ĐÚNG  Q23     sạch     tập 05 G3: lời, thẻ, chú thích, bề mặt phát hành
+ĐÚNG  Q23     bắt lỗi  tập 4 G3 (trước luật): chỉ hook S1 "134,000 to 3.9 million" bị bắt
+ĐÚNG  Q23     bắt lỗi  tập 2 G3 (trước luật): thẻ so sánh 11 −16,1 % (1930–40) ↔ −5,3 % (2025–35) bị bắt
+ĐÚNG  Q24     sạch     tập 3 G3: "135,000 (1970 classification)"
+ĐÚNG  Q24     bắt lỗi  tập 3: 135,000 gắn nhãn "1960 classification"
+ĐÚNG  Q25     bắt lỗi  tập 2 đoạn 06: hiện “63%” khi đếm tới 50–80 %
+ĐÚNG  Q25     sạch     tập 2 đoạn 06: hiện thẳng “50–80% fewer”
+
+selftest LL v2: 52/52 ca đúng kỳ vọng

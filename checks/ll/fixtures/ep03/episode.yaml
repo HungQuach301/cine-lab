@@ -1,0 +1,282 @@
+# Last Lamplighters · Tập 3 "The Teller's Window" — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: tiêu đề A; bỏ thẻ +87 % ↔ −13 %; thẻ so sánh cùng nguồn cùng kỳ BLS 2025–35; đoạn 11 lời chủ dự án duyệt).
+# Kiểm: /opt/cine/bin/python scripts/ll/ll.py check reports/m3/ep03/episode.yaml · Ước: ll.py est (tốc độ Bill thật 2,214 từ/s).
+# Nguồn: reports/m3/ep03/NGUON-TAP3.md. Số BLS 2025–35: "đã xác minh (Claude)" 05/10/2026. HSUS D355: "đã đối chiếu (Claude)" trên ảnh cắt hsus-d355-tr141-300dpi.png (05/10/2026).
+# KHÔNG dùng: chuỗi tellers 1980–2010 (không có nguồn toàn văn); số đọc từ biểu đồ của Bessen; Fuster et al. (chưa đọc toàn văn).
+# Cần thêm vào thư viện sau G1: rows variant "teller" (quầy giao dịch + màn hình ATM ở tường). Hiện mẫu rơi về variant typing.
+id: ll-ep03
+title: "The ATM Didn't Kill the Bank Teller. Will AI?"
+out: /var/tmp/cine-out/ll-ep03
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "14", xfade: 3}
+
+sources:
+  HSUS: {short: "U.S. Census Bureau, Historical Statistics of the U.S. (1975), Series D 355", title: "Historical Statistics of the United States, Colonial Times to 1970, Part 1, Series D 233–682",
+         url: "https://www2.census.gov/library/publications/1975/compendia/hist_stats_colonial-1970/hist_stats_colonial-1970p1-chD.pdf", read: fulltext,
+         pages: "p. 141 (PDF 21), row 355 'Bank tellers' — ảnh quét; đã đối chiếu (Claude), 05/10/2026", accessed: 2026-10-05}
+  BES15: {short: "Bessen, IMF Finance & Development, March 2015", title: "Toil and Technology", url: "https://www.imf.org/external/pubs/ft/fandd/2015/03/pdf/bessen.pdf", read: fulltext, pages: "p. 17", accessed: 2026-10-05}
+  BES16: {short: "Bessen, How Computer Automation Affects Occupations (2016)", title: "How Computer Automation Affects Occupations: Technology, Jobs, and Skills (BU Law WP 15-49; NBER SI 2016 version)",
+          url: "https://conference.nber.org/confer/2016/SI2016/PRIT/Bessen.pdf", read: fulltext, pages: "p. 6 and note 7", accessed: 2026-10-05}
+  OOHT: {short: "BLS, Occupational Outlook Handbook (2025–35): Tellers", title: "Tellers", url: "https://www.bls.gov/ooh/office-and-administrative-support/tellers.htm",
+         read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  OOHL: {short: "BLS, Occupational Outlook Handbook (2025–35): Loan Officers", title: "Loan Officers", url: "https://www.bls.gov/ooh/business-and-financial/loan-officers.htm",
+         read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
+  EP: {short: "BLS, Employment Projections 2025–2035 (USDL-26-1422)", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
+       read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
+  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF p. 4 (text and Table 3)", accessed: 2026-10-05}
+  PF: {short: "Meursault et al., Philadelphia Fed WP 22-39", title: "One Threshold Doesn't Fit All: Tailoring Machine Learning Predictions of Consumer Default for Lower-Income Areas",
+       url: "https://www.philadelphiafed.org/-/media/frbp/assets/working-papers/2022/wp22-39.pdf", read: fulltext, pages: "PDF p. 18", accessed: 2026-10-05}
+
+numbers:
+  tel50: {v: 65000, text: "65,000", kind: actual, year: 1950, unit: people, src: HSUS, say: "sixty-five thousand", note: "1960 classification, 14+; đã đối chiếu (Claude)"}
+  tel60b: {v: 131000, text: "131,000", kind: actual, year: 1960, unit: people, src: HSUS, note: "1960 classification, 14+; đã đối chiếu (Claude)"}
+  tel60: {v: 135000, text: "135,000", kind: actual, year: 1960, unit: people, src: HSUS, say: "one hundred thirty-five thousand", note: "1970 classification, 16+; đã đối chiếu (Claude)"}
+  tel70: {v: 253000, text: "253,000", kind: actual, year: 1970, unit: people, src: HSUS, say: "two hundred fifty-three thousand", note: "1970, 16+; 14+ = 254"}
+  tel_hist: {v: 87, text: "+87%", kind: actual, unit: '%', src: HSUS, say: "eighty-seven percent", note: "tính: (253 − 135) / 135 = +87,4 %"}
+  atm: {v: 400000, text: "400,000+", kind: actual, year: 2015, unit: machines, src: BES15, say: "four hundred thousand"}
+  br20: {v: 20, text: "20", kind: actual, year: 1988, unit: tellers per branch, src: BES15, say: "twenty"}
+  br13: {v: 13, text: "13", kind: actual, year: 2004, unit: tellers per branch, src: BES15, say: "thirteen"}
+  branch: {v: 43, text: "+43%", kind: actual, unit: '%', src: BES15, say: "forty-three percent"}
+  fte: {v: 2.0, text: "+2.0% a year", kind: actual, unit: '%/yr', src: BES16, say: "two percent a year"}
+  tel25: {v: 339200, text: "339,200", kind: actual, year: 2025, unit: people, src: OOHT, say: "three hundred thirty-nine thousand"}
+  tel35: {v: 294500, text: "294,500", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHT, say: "two hundred ninety-five thousand"}
+  tel_chg: {v: -13, text: "−13%", kind: projection, period: 2025–35, unit: '%', src: OOHT, say: "thirteen percent"}
+  lo25: {v: 283000, text: "283,000", kind: actual, year: 2025, unit: people, src: OOHL, say: "two hundred eighty-three thousand"}
+  lo35: {v: 286000, text: "286,000", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHL, say: "two hundred eighty-six thousand"}
+  lo_chg: {v: 1, text: "+1%", kind: projection, period: 2025–35, unit: '%', src: OOHL, say: "about one percent"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
+  ca_old: {v: -3.9, text: "−3.9%", kind: projection, period: 2023–33, unit: '%', src: MLR25, say: "three point nine percent"}
+
+segments:
+  - id: "00"
+    part: STORY
+    dur: 6
+    fadeIn: 0
+    shots:
+      - {tpl: rows, at: 0, p: {variant: teller, rows: 1, per: 6, dim: [2.0, 4.8], screen: 3.8, screenLabel: "ATM", cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -50, z: 0.1}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the lamplighter starts the round. On the corner stands a bank, and in its wall a small screen glows all night.
+      It never closes. It never needs a lunch break. Inside, behind the counter, there were once people at every window.
+      Tonight, only a few of those windows are lit.
+    vo_offset: 4.0
+    min_dur: 46
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860, lit: "@round+0.5"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [0.5, "@round"], lights: [1]}, warm: 0.6, windows: 0.5,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@corner", x: -280, z: 0.06}]}}
+      - {tpl: rows, at: "@inside-0.4", in: fade, p: {variant: teller, rows: 1, per: 6, dim: ["@once", "@tonight"], screen: "@inside", screenLabel: "ATM", cam: [{t: "@inside", x: 40, z: 0}, {t: "@lit+1.5", x: -40, z: 0.1}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      For most of the twentieth century, banking meant a person at a window. The teller counted your cash, checked your signature,
+      and wrote the deposit in your passbook. It was careful, repetitive work, and after the Second World War there was more and more of it.
+      In 1950, the U.S. census counted about sixty-five thousand bank tellers. By 1970, on a newer census basis, about two hundred fifty-three thousand.
+      That growth came before cash machines, in the long postwar boom.
+    min_dur: 30
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TELLER'S WINDOW", px: 84}, {s: "Last Lamplighters · Episode 3", px: 34, serif: false}]}}
+      - {tpl: line, at: "@1950-0.6", in: slide, p: {title: "Bank tellers, United States", subtitle: "census counts · two occupation classifications", beats: [{s: "counted in the U.S. census", at: "@census"}, {s: "before cash machines: the postwar boom", at: "@postwar"}],
+           ylabel: "tellers", yfmt: k, xr: [1950, 1970], xticks: [1950, 1960, 1970], ymax: 300000, at: "@1950", dur: 14,
+           series: [{points: [[1950, 65000], [1960, 131000]], labels: [0, 1], ltext: ["65,000", "131,000 (1960 classification)"], lpos: ["", "below"]},
+                    {points: [[1960, 135000], [1970, 253000]], labels: [0, 1], ltext: ["135,000 (1970 classification)", "253,000"], at: "@newer"}],
+           marks: [{x: 1960, label: "classification changes", at: "@newer"}],
+           note: "1950–60: 1960 classification · 1960–70: 1970 classification — not one continuous series", noteAt: "@newer", nums: [{num: tel50}, {num: tel70}]}}
+
+  - id: "03"
+    part: HISTORY
+    vo: >-
+      Then came a machine built for the most repetitive part of the job. Cash machines were first installed in the United States in the 1970s.
+      A machine could hand out cash, take a deposit, and report a balance, at any hour, without a person at the window.
+      From the mid-1990s, banks rolled them out fast. By 2015, economist James Bessen counted more than four hundred thousand of them in the United States alone.
+      You might expect the tellers to vanish. They did not.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "a machine for the most repetitive part of the job", at: "@machine"}], lines: [{s: "1970s", px: 110, at: "@1970s", color: "#4f2a0c"}, {s: "first cash machines in the U.S.", px: 38, serif: false, at: "@installed"},
+                                  {s: "mid-1990s · rapid rollout", px: 38, serif: false, at: "@mid1990s"}], src: [BES15]}}
+      - {tpl: bignum, at: "@2015-0.4", in: slide, p: {title: "ATMs installed in the United States", beats: [{s: "economist James Bessen", at: "@economist"}], value: 400000, text: "400,000+", at: "@four", caption: "by 2015", icon: person, nums: [{num: atm}]}}
+      - {tpl: quote, at: "@vanish-0.6", in: flip, p: {text: "The number of bank teller jobs did not decrease as the ATMs were rolled out.", who: "James Bessen", where: "IMF Finance & Development, March 2015", at: "@not", src: [BES15]}}
+
+  - id: "04"
+    part: HISTORY
+    vo: >-
+      Why not? Because the machine made each branch cheaper to run. Between 1988 and 2004, the number of tellers needed to operate an average urban branch
+      fell from twenty to thirteen. So banks did something unexpected. They opened more branches. In urban areas, Bessen reports, forty-three percent more.
+      Fewer tellers per branch, but many more branches. Bessen puts the logic simply: the ATM let banks run branch offices at lower cost,
+      and that prompted them to open many more of them. A machine that saved labor at each window created demand for more windows.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Tellers needed per urban branch", subtitle: "average urban market", beats: [{s: "why didn't tellers vanish?", at: "@why"}, {s: "each branch became cheaper to run", at: "@cheaper"}], unit: "", max: 25,
+           bars: [{label: "1988", num: br20, at: "@twenty"}, {label: "2004", num: br13, at: "@thirteen"}]}}
+      - {tpl: bignum, at: "@opened-0.3", in: slide, p: {title: "Bank branches in urban areas", beats: [{s: "banks opened more branches", at: "@opened"}], value: 43, text: "+43%", suffix: "%", at: "@fortythree", caption: "more branches (Bessen)", nums: [{num: branch}]}}
+      - {tpl: quote, at: "@logic-0.4", in: flip, p: {text: "The ATM allowed banks to operate branch offices at lower cost; this prompted them to open many more branches.", who: "James Bessen", where: "How Computer Automation Affects Occupations (2016)", at: "@logic", src: [BES16]}}
+
+  - id: "05"
+    part: HISTORY
+    vo: >-
+      And the job itself changed. Counting cash mattered less. Talking to customers mattered more. In Bessen's words, tellers became an important part of the
+      relationship banking team: selling accounts, explaining loans, solving problems. In census and survey data, full-time-equivalent teller employment kept rising
+      after 2000, by about two percent a year, faster than the labor force as a whole.
+      Bessen's point is not that machines never cost jobs. It is that when a machine takes one task, the job can survive if people move to the tasks that are left.
+      The machine did not end the job. It changed what the job was for.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "the job itself changed", at: "@job"}, {s: "counting cash mattered less", at: "@counting"}, {s: "talking to customers mattered more", at: "@talking"}], text: "Tellers became an important part of the 'relationship banking team.'", who: "James Bessen", where: "IMF Finance & Development, March 2015", at: "@words", src: [BES15]}}
+      - {tpl: bignum, at: "@census-0.4", in: slide, p: {title: "Full-time-equivalent bank tellers, after 2000", beats: [{s: "census and survey data", at: "@survey"}], value: 2.0, text: "+2.0% a year", suffix: "% a year", d: 1, at: "@two", caption: "faster than the labor force as a whole (Bessen)", nums: [{num: fte}]}}
+
+  - id: "06"
+    part: STORY
+    vo: >-
+      The lamplighter crosses the square. Most of the bank's windows are dark now, but the screen by the door still glows.
+      The work has moved again: from the counter, to the phone, to an app, and now to software that reads, scores, and answers.
+    vo_offset: 2.5
+    min_dur: 30
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@glows+1"]}, warm: 0.4, windows: 0.4,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@glows+1", x: -300, z: 0.05}]}}
+      - {tpl: office, at: "@moved-0.4", in: fade, p: {light: "@software", cam: [{t: "@moved", x: 0, z: 0}, {t: "@answers+1.5", x: -80, z: 0.08}]}}
+
+  - id: "07"
+    part: TODAY
+    vo: >-
+      Today, the outlook for tellers is different. The Bureau of Labor Statistics puts their number at about three hundred thirty-nine thousand in 2025.
+      It projects about two hundred ninety-five thousand by 2035, a decline of thirteen percent. The reasons it gives are familiar:
+      online and mobile banking, enhanced ATMs, and video kiosks. That is a projection, not a count.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Bank tellers, United States", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "the outlook for tellers today", at: "@outlook"}],
+           bars: [{label: "2025", num: tel25, at: "@three"}, {label: "2035 (projected)", num: tel35, at: "@ninetyfive"}], note: "Projected change, 2025–35: −13%", noteAt: "@decline", nums: [{num: tel_chg}]}}
+      - {tpl: text, at: "@reasons-0.4", in: slide, p: {beats: [{s: "the reasons BLS gives", at: "@reasons"}], lines: [{s: "online and mobile banking", px: 46, at: "@online"}, {s: "enhanced ATMs", px: 46, at: "@enhanced"},
+                                                          {s: "video kiosks", px: 46, at: "@video"}, {s: "a projection, not a count", px: 34, serif: false, at: "@projection", color: "#4f2a0c"}], src: [OOHT]}}
+
+  - id: "08"
+    part: TODAY
+    vo: >-
+      The machines are also moving further up the counter, to the people who decide who gets credit. Loan officer jobs are projected to grow only about one percent,
+      from two hundred eighty-three thousand to two hundred eighty-six thousand, as branches close and loan processing becomes more automated.
+      Most firms, the BLS notes, already use underwriting software.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Loan officers, United States", subtitle: "employment, 2025 and projected 2035", kindEach: true, beats: [{s: "further up the counter: who gets credit", at: "@further"}],
+           bars: [{label: "2025", num: lo25, at: "@eightythree"}, {label: "2035 (projected)", num: lo35, at: "@eightysix"}], note: "Most firms use underwriting software (BLS)", noteAt: "@underwriting", nums: [{num: lo_chg}]}}
+
+  - id: "09"
+    part: TODAY
+    vo: >-
+      Behind the loan officer sits the credit analyst, who studies the numbers behind a loan. In a 2025 article on artificial intelligence, BLS economists wrote that
+      AI can synthesize large amounts of data and reach big-picture conclusions, and that these tasks are the essence of a credit rating.
+      In that article's projection, an earlier one for 2023 to 2033, credit analyst jobs were set to decline three point nine percent.
+      It belongs to a different projection cycle from the other numbers.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "behind the loan officer", at: "@behind"}, {s: "the credit analyst: the numbers behind a loan", at: "@analyst"}, {s: "BLS economists, Monthly Labor Review, 2025", at: "@article"}],
+           text: "AI can synthesize large amounts of data and reach big-picture conclusions, and, indeed, these tasks are the essence of a credit rating.", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@synthesize", src: [MLR25]}}
+      - {tpl: bignum, at: "@earlier-0.4", in: slide, p: {title: "Credit analysts, earlier projection cycle 2023–33", beats: [{s: "an earlier projection: 2023 to 2033", at: "@earlier"}], value: -3.9, text: "−3.9%", suffix: "%", d: 1, at: "@nine",
+           caption: "a different projection cycle from the 2025–35 numbers", nums: [{num: ca_old}]}}
+
+  - id: "10"
+    part: TODAY
+    vo: >-
+      Does the software actually judge credit better? Economists at the Federal Reserve Bank of Philadelphia tested a machine-learning model on U.S. credit bureau records.
+      In every year from 2004 to 2019, it predicted defaults better than a traditional statistical model.
+      It is a test of models, not a count of jobs. It shows the scoring is getting better. It does not show what happens to the people who did it.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "does software judge credit better?", at: "@judge"}, {s: "Federal Reserve Bank of Philadelphia", at: "@federal"}],
+           lines: [{s: "machine learning vs. a traditional model", px: 46, at: "@tested"}, {s: "U.S. credit bureau records", px: 34, serif: false, at: "@records"},
+                   {s: "better default predictions, every year 2004–2019", px: 38, serif: false, at: "@every"},
+                   {s: "a test of models, not a count of jobs", px: 34, serif: false, at: "@test", color: "#4f2a0c"}], src: [PF]}}
+
+  # Đoạn 11 — Claude soạn theo câu hỏi nghề; chủ dự án duyệt nguyên văn (05/10/2026). Góc nhìn, không phải số liệu. Hình: quầy giao dịch, giao dịch viên ngẩng lên nhìn khách lo lắng (bóng 2.5D, không cận mặt).
+  - id: "11"
+    part: TODAY
+    vo: >-
+      Ask someone who has worked in banking, and the line looks like this. Machines took the routine: cash, statements, transfers.
+      Models now score a loan in seconds. But a model answers one question — how risky is this? People still answer another — should we lend, and on what terms?
+      And sometimes the most important thing a teller does is notice that something is wrong: a customer, nervous, sending money to a stranger.
+      The machine processes the request. A person asks why.
+    vo_offset: 1.0
+    tail: 1.5
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "A banker's view", at: "@ask"}], lines: [{s: "A banker's view", px: 60, at: "@ask"}, {s: "a perspective, not data", px: 30, serif: false, at: "@ask", color: "#4f2a0c"},
+                                                          {s: "machines: cash, statements, transfers", px: 38, serif: false, at: "@routine"}, {s: "a model: how risky is this?", px: 38, serif: false, at: "@risky"},
+                                                          {s: "people: should we lend, and on what terms?", px: 38, serif: false, at: "@lend"}]}}
+      - {tpl: rows, at: "@sometimes-0.4", in: fade, p: {variant: teller, rows: 1, per: 3, look: "@notice", customer: {nervous: true, at: "@customer"}, cam: [{t: "@sometimes", x: 0, z: 0.04}, {t: "@why+1.5", x: -40, z: 0.14}]}}
+
+  - id: "12"
+    part: TODAY
+    vo: >-
+      So here is the comparison, on the same scale: one source, one period, 2025 to 2035. Bank tellers: down about thirteen percent.
+      Loan officers: up about one percent. All jobs together: up three point five percent.
+      For tellers, the BLS points to online banking and machines, not to AI alone.
+      Not the same technology as the ATM. The same pattern: a repetitive human task, taken over by an automated system.
+      The ATM took over the cash. Software now takes on more of the paperwork and the scoring.
+      But the differences matter. Back then, cheaper branches meant more branches, and more tellers. Now the BLS expects fewer branches.
+      And all three of these numbers are forecasts for one decade. The ATM story is history. We set them side by side for the pattern, not for the arithmetic.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Projected change in employment, 2025–35", subtitle: "U.S., BLS projections", unit: '%', max: 15, d: 1, beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "one source, one period: 2025–35", at: "@source"}],
+           bars: [{label: "bank tellers", num: tel_chg, at: "@tellers"}, {label: "loan officers", num: lo_chg, at: "@loan"}, {label: "all occupations", num: all_chg, at: "@all"}],
+           note: "not the same technology — the same pattern", noteAt: "@pattern"}}
+      - {tpl: text, at: "@differences-0.4", in: slide, p: {lines: [{s: "then: cheaper branches → more branches, more tellers", px: 38, serif: false, at: "@back"}, {s: "now: BLS expects fewer branches", px: 38, serif: false, at: "@fewer"},
+                                                          {s: "forecasts, not counts", px: 38, serif: false, at: "@forecasts", color: "#4f2a0c"}], src: [BES15, OOHL]}}
+
+  - id: "13"
+    part: TODAY
+    vo: >-
+      The teller's story is the more hopeful kind. A machine took over the most repetitive task, and for decades the job grew anyway,
+      because people did more of what the machine could not: advice, trust, a face at the window.
+      But that came with a condition. Cheaper branches meant more branches. That condition may not hold now.
+      With AI, it is an open question. It depends on whether banks create new work faster than software takes the old work away.
+      That is what we will be watching.
+    min_dur: 26
+    shots:
+      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "The more hopeful case", px: 64, at: "@hopeful"}, {s: "The ATM took the cash; the job grew anyway.", px: 34, serif: false, at: "@grew"},
+                                                         {s: "People did what the machine could not.", px: 34, serif: false, at: "@people"}, {s: "The condition: more branches. Not now.", px: 34, serif: false, at: "@condition"}, {s: "With AI: an open question.", px: 34, serif: false, at: "@open"}], src: [BES15, OOHT]}}
+      - {tpl: office, at: "@watching-1.5", in: fade, p: {light: "@watching", cam: [{t: "@watching-1.5", x: 0, z: 0}, {t: "@watching+4", x: -90, z: 0.06}]}}
+
+  - id: "14"
+    part: STORY
+    vo: >-
+      Back on the corner, the lamplighter reaches the last post. The glass opens, the flame takes. Across the street, the little screen glows, patient as ever.
+      Every era has its last lamplighters. Some of them stood behind a bank window, and many still do.
+    vo_offset: 3.0
+    min_dur: 34
+    tail: 2.0
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: "@window+2", x: -520, z: 0.07}]}}
+      - {tpl: endcard, at: "@window+0.8", in: fade, p: {line: "Last Lamplighters · Episode 3", next: "Next: The Typing Pool"}}
+
+shorts:
+  - id: S1
+    hook: "The ATM didn't kill the bank teller"
+    vo: >-
+      When cash machines spread across America, everyone expected bank tellers to disappear. They did not. Economist James Bessen found that between 1988 and 2004,
+      an average urban branch needed fewer tellers, twenty down to thirteen. But branches got cheaper to run, so banks opened more of them. Fewer tellers per branch, more branches,
+      and a new job: talking to customers instead of counting cash.
+    shots:
+      - {tpl: rows, at: 0, p: {variant: teller, rows: 1, per: 4, screen: "@machines", screenLabel: "ATM"}}
+      - {tpl: text, at: "@everyone-0.3", in: slide, p: {lines: [{s: "everyone expected tellers", px: 56, at: "@everyone"}, {s: "to disappear", px: 56, at: "@disappear"}, {s: "they did not", px: 64, at: "@did"}], src: [BES15]}}
+      - {tpl: bars, at: "@economist-0.3", in: slide, p: {title: "Tellers per urban branch", beats: [{s: "economist James Bessen", at: "@economist"}, {s: "1988 → 2004", at: "@1988"}, {s: "an average urban branch", at: "@average"}], unit: "", max: 25,
+           bars: [{label: "1988", num: br20, at: "@twenty"}, {label: "2004", num: br13, at: "@thirteen"}]}}
+      - {tpl: text, at: "@branches-0.3", in: flip, p: {lines: [{s: "cheaper to run", px: 56, at: "@cheaper"}, {s: "more branches", px: 56, at: "@opened"}, {s: "fewer tellers per branch", px: 44, at: "@fewer#2"}, {s: "a new job:", px: 48, at: "@new"},
+                                                          {s: "talking to customers", px: 48, at: "@talking"}, {s: "not counting cash", px: 48, at: "@counting"}], src: [BES15]}}
+  - id: S2
+    hook: "Bank tellers: 13% fewer by 2035?"
+    vo: >-
+      In 2025, about three hundred thirty-nine thousand Americans worked as bank tellers. The Bureau of Labor Statistics projects about two hundred ninety-five thousand by 2035,
+      a decline of thirteen percent. Its reasons: online and mobile banking, enhanced ATMs, video kiosks. It is a projection, not a count.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Bank tellers, U.S.", beats: [{s: "2025", at: "@2025"}, {s: "Americans working as bank tellers", at: "@americans"}, {s: "Bureau of Labor Statistics", at: "@bureau"}, {s: "BLS projects", at: "@projects"}, {s: "by 2035", at: "@2035"}, {s: "a decline of 13%", at: "@decline"}],
+           kindEach: true, bars: [{label: "2025", num: tel25, at: "@three"}, {label: "2035\n(projected)", num: tel35, at: "@ninetyfive"}]}}
+      - {tpl: text, at: "@reasons-0.3", in: slide, p: {lines: [{s: "online and mobile banking", px: 52, at: "@online"}, {s: "enhanced ATMs", px: 52, at: "@enhanced"}, {s: "video kiosks", px: 52, at: "@video"},
+                                                          {s: "a projection,", px: 42, at: "@projection"}, {s: "not a count", px: 42, at: "@count"}], src: [OOHT]}}
+  - id: S3
+    hook: "AI and the essence of a credit rating"
+    vo: >-
+      What does AI change inside a bank? In 2025, economists at the Bureau of Labor Statistics wrote that AI can synthesize large amounts of data and reach big-picture conclusions,
+      and that these tasks are the essence of a credit rating. In that projection, credit analyst jobs were set to decline three point nine percent from 2023 to 2033.
+    shots:
+      - {tpl: text, at: 0, p: {lines: [{s: "What does AI change", px: 60, at: "@what"}, {s: "inside a bank?", px: 60, at: "@inside"}, {s: "BLS economists, 2025", px: 44, at: "@economists"}], src: [MLR25]}}
+      - {tpl: quote, at: "@synthesize-0.4", in: slide, p: {beats: [{s: "large amounts of data", at: "@large"}, {s: "big-picture conclusions", at: "@bigpicture"}], text: "AI can synthesize large amounts of data and reach big-picture conclusions…", who: "BLS economists", at: "@synthesize", src: [MLR25]}}
+      - {tpl: quote, at: "@these-0.4", in: flip, p: {beats: [{s: "the essence of a credit rating", at: "@essence"}], text: "…these tasks are the essence of a credit rating.", who: "Monthly Labor Review, Feb 2025", at: "@these", src: [MLR25]}}
+      - {tpl: bignum, at: "@projection-0.3", in: slide, p: {title: "Credit analysts", beats: [{s: "credit analyst jobs", at: "@analyst"}, {s: "2023–33 projection cycle", at: "@2023"}], value: -3.9, text: "−3.9%", suffix: "%", d: 1, at: "@nine", caption: "projected decline (2023–33)", nums: [{num: ca_old}]}}
