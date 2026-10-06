@@ -6,6 +6,7 @@
 Q14 móc câu: trước 0:15 có câu hỏi/mâu thuẫn bằng lời (câu có "?" hoặc but/yet…) VÀ hình (shot đồ hoạ hoặc dòng chữ) bắt đầu trước 0:15;
     thẻ tựa phim (shot `text` có `lamp: true`) bắt đầu ≤ 0:20; câu hỏi mở đầu được trả lời ở cuối: `hook.answer` (đoạn) chứa mọi từ trong `hook.keys`.
 Q15 đổi hình: sự kiện hình = đầu shot, mọi mốc nội dung (at/noteAt/…/beats/lines/bars), mốc máy quay (cam), đèn thắp, đèn tắt, màn hình;
+    cảnh đinh 3D (plate): sự kiện thật trong cảnh khai ở p.ev [{at (giờ cục bộ đoạn), what}] — phải khớp opt của cảnh (lit, screen, done);
     không quãng nào > 8 s không có sự kiện; trung bình ≤ 6 s.
 Q16 tỷ lệ thẻ giấy (mẫu đồ hoạ, không tính cảnh toàn khung) ≤ 55 % (tập 4–5), ≤ 40 % từ tập 6 (`rhythm.paper_max` trong đặc tả).
 Q17 mật độ số: số MỚI trên hình (khoá `num` phân biệt + nhãn số trên đường) ≤ 2/phút trung bình; đặc tả khai `anchors` = đúng 3 số neo, có xuất hiện trên hình.
@@ -23,7 +24,7 @@ def _ats(x, acc):
     if isinstance(x, dict):
         for k, v in x.items():
             if k == 'cam' and isinstance(v, list): acc += [c['t'] for c in v if isinstance(c.get('t'), (int, float))]
-            elif k in CONTENT_KEYS + ('lit', 'screen', 'look', 'estimate') and isinstance(v, (int, float)): acc.append(float(v))
+            elif k in CONTENT_KEYS + ('lit', 'screen', 'look', 'estimate', 'drop', 'fade', 'split', 'cut') and isinstance(v, (int, float)): acc.append(float(v))   # v3: tờ tin rơi, ô phim mờ, vạch chia, dao rạch
             elif k in ('dim', 'walk', 'flash') and isinstance(v, list): acc += [float(a) for a in v if isinstance(a, (int, float))]
             else: _ats(v, acc)
     elif isinstance(x, list):

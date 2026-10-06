@@ -4,8 +4,8 @@
   mix.py <timeline.json> <ra.wav> [--short ID]
 
 - Lời Bill nguyên bản (lọc thấp 70 Hz, nén nhẹ 3:1; không atempo), chuẩn −17 LUFS vùng có lời.
-- Nhạc: danh sách music [{file, from: id đoạn, xfade}] — lặp có giao 4 s, giao 3 s khi đổi bài; hạ 12 dB khi có lời; vào 1,5 s, ra 3 s.
-  Short: dùng bài đầu, cùng luật hạ nhạc.
+- Nhạc: danh sách music [{file, from: id đoạn, ss, gain_db, xfade}] — theo hồi, không lặp (bài thiếu → lỗi), giao 3 s khi đổi bài;
+  hạ 12 dB khi có lời; vào 1,5 s, ra 3 s. Short: dùng cue đầu (nhạc hiệu kênh), cùng luật hạ nhạc.
 - SFX: cue trong timeline (mẫu tự sinh: lật/trượt giấy khi chuyển thẻ, đèn khí xì khi đèn bừng) + cue khai tay.
 - Master: −14 LUFS tích hợp, true peak ≤ −1 dBTP (limiter trên tín hiệu nâng mẫu ×4). Ghi <ra>.json số đo.
 """
@@ -48,20 +48,26 @@ for a, b in seg:
     if mseg and a - mseg[-1][1] < 0.55: mseg[-1][1] = max(mseg[-1][1], b)
     else: mseg.append([a, b])
 
-# nhạc
-mus = np.zeros((N, 2)); M = TL.get('music') or []
+# nhạc — mỗi cue {file, from: id đoạn, ss: giây vào trong bài, gain_db, xfade}; KHÔNG lặp (CHUAN-KENH §11.2 Q28): bài ngắn hơn khoảng cần → lỗi.
+# Mỗi cue chuẩn riêng −24 LUFS rồi cộng gain_db. Ghi khoảng bài đã dùng vào <ra>.json (music_used) để qc đo lặp > 60 s.
+mus = np.zeros((N, 2)); M = TL.get('music') or []; used = []
 if M:
-    starts = [0.0] if SHORT else [next((s['t0'] for s in SEGS if s['id'] == m.get('from')), 0.0) for m in M]
+    starts = [0.0] if SHORT else [next((s['t0'] for s in SEGS if s['id'] == m.get('from')), None) for m in M]
+    if None in starts: sys.exit(f"mix: cue nhạc trỏ tới đoạn không có: {[m.get('from') for m, s0 in zip(M, starts) if s0 is None]}")
     for i, m in enumerate(M[:1] if SHORT else M):
-        a0, a1 = starts[i], (starts[i + 1] if i + 1 < len(starts) else DUR) + (m.get('xfade', 3) if i + 1 < len(starts) else 0)
-        src = dec(m['file'], 2); need = int((a1 - a0) * SR); XF = int(4 * SR); bed = src.copy()
-        while len(bed) < need:
-            w = np.linspace(0, 1, XF)[:, None]; bed = np.concatenate([bed[:-XF], bed[-XF:] * (1 - w) + src[:XF] * w, src[XF:]])
-        bed = bed[:need].copy(); X3 = int(min(3, (a1 - a0) / 2) * SR)
+        last = i + 1 >= len(starts); a0 = starts[i]; a1 = min(DUR, (DUR if last else starts[i + 1] + m.get('xfade', 3)))
+        need = int((a1 - a0) * SR); ss = float(m.get('ss', 0)); src = dec(m['file'], 2, ss=ss)
+        if len(src) < need:
+            if not m.get('loop'): sys.exit(f"mix: cue {m['file']} từ {ss} s chỉ còn {len(src) / SR:.1f} s, cần {need / SR:.1f} s (Q28: không lặp nhạc)")
+            XF = int(4 * SR); bed = src.copy()
+            while len(bed) < need:
+                w = np.linspace(0, 1, XF)[:, None]; bed = np.concatenate([bed[:-XF], bed[-XF:] * (1 - w) + src[:XF] * w, src[XF:]])
+        else: bed = src
+        bed = bed[:need].copy(); X3 = int(min(m.get('xfade', 3), (a1 - a0) / 2) * SR)
         if i > 0: bed[:X3] *= np.linspace(0, 1, X3)[:, None]
-        if i + 1 < len(starts): bed[-X3:] *= np.linspace(1, 0, X3)[:, None]
-        put(mus, bed, a0)
-    q = mus[:int(min(N, 240 * SR))]; mus *= 10 ** ((-24.0 - lufs(q)) / 20)
+        if not last: bed[-X3:] *= np.linspace(1, 0, X3)[:, None]
+        L = lufs(bed[:int(min(len(bed), 240 * SR))]); bed *= 10 ** ((-24.0 + m.get('gain_db', 0) - L) / 20)
+        put(mus, bed, a0); used.append(dict(file=m['file'], ss=ss, src_to=round(ss + need / SR, 2), t0=round(a0, 2), t1=round(a1, 2), loop=bool(m.get('loop') and len(src) < need)))
 DUCK = -12.0; env = np.zeros(N)
 for a, b in mseg:
     i0, i1 = max(0, int((a - 0.6) * SR)), min(N, int((b + 0.6) * SR)); tt = t[i0:i1]
@@ -96,6 +102,7 @@ m0 = meas(raw); gain = -14.0 - m0['I']
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', raw, '-af', f'volume={gain:.3f}dB,aresample=192000,alimiter=limit=0.83:attack=1:release=60:level=disabled,aresample=48000',
                 '-c:a', 'pcm_s24le', out_p], check=True)
 os.remove(raw); m1 = meas(out_p)
-rec = dict(tong_s=DUR, so_khoang_loi=len(mseg), pre=m0, gain_db=round(gain, 2), master=m1, duck_db=DUCK, so_sfx=len(log), khoang_loi=mseg)
+rec = dict(tong_s=DUR, so_khoang_loi=len(mseg), pre=m0, gain_db=round(gain, 2), master=m1, duck_db=DUCK, so_sfx=len(log), khoang_loi=mseg, music_used=used,
+           sfx_used=[dict(file=c['file'], at=c['at_abs'], dur=c.get('dur')) for c in log])
 json.dump(rec, open(out_p.replace('.wav', '.json'), 'w'), indent=1, ensure_ascii=False)
 print(json.dumps({k: rec[k] for k in ('tong_s', 'so_khoang_loi', 'master', 'so_sfx')}, ensure_ascii=False))

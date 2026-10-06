@@ -16,7 +16,7 @@ const brickTex = (seed, base = '#5a3326') => canvasTex(512, 512, (g, w, h) => {
 });
 
 // ===== printshop: phố, xưởng in, cửa sổ tầng trên =====
-async function printshop({ W, H, dur, v }) {
+async function printshop({ W, H, dur, v, opt = {} }) {
   const scene = new THREE.Scene(); fogOf(scene, v === 'd' ? '#1f2438' : '#2c2739', 0.022);
   const R = rng(61), bt = brickTex(3); bt.wrapS = bt.wrapT = THREE.RepeatWrapping; bt.repeat.set(3, 3);
   const sky = new THREE.Mesh(new THREE.SphereGeometry(180, 32, 16), new THREE.MeshBasicMaterial({ side: THREE.BackSide, fog: false, map: canvasTex(8, 256, (g, w, h) => {
@@ -54,7 +54,7 @@ async function printshop({ W, H, dur, v }) {
   const scrLight = new THREE.PointLight('#8fb8ff', 0, 3, 1.6); scrLight.position.set(0.8, -0.3, -1.2); room.add(scrLight);
   // biển hiệu (tự thiết kế)
   box(6.2, 0.9, 0.12, new THREE.MeshBasicMaterial({ map: canvasTex(1024, 150, (g, w, h) => { g.fillStyle = '#1b2a22'; g.fillRect(0, 0, w, h);
-    g.strokeStyle = '#b89b5e'; g.lineWidth = 6; g.strokeRect(10, 10, w - 20, h - 20); g.fillStyle = '#d9c38a'; g.font = 'bold 66px DejaVu Serif, serif'; g.textAlign = 'center'; g.fillText('PRINTING · COMPOSING', w / 2, 98); }) }), -1.4, 2.95, 0.12, front);
+    g.strokeStyle = '#b89b5e'; g.lineWidth = 6; g.strokeRect(10, 10, w - 20, h - 20); g.fillStyle = '#d9c38a'; g.font = 'bold 66px DejaVu Serif, serif'; g.textAlign = 'center'; g.fillText('PRINTING · COMPOSING', w / 2, 98); }) }), 1.8, 3.05, 0.12, front);   // lệch phải: ngọn đèn phố không che chữ ở mọi góc máy (xem trước 06/10)
   // cửa hàng tầng trệt (cửa kính tối), cửa hầm sáng ấm cuối bậc
   glass(-3.6, 1.3, 3.0, 1.8, '#3a2a1e', 0.9); box(1.1, 2.3, 0.08, std('#2a1d16'), -0.9, 1.15, 0.05, front);
   box(1.0, 1.9, 0.05, new THREE.MeshBasicMaterial({ color: '#d58e47' }), 3.4, -1.5, 0.22);          // cửa hầm sáng
@@ -76,17 +76,19 @@ async function printshop({ W, H, dur, v }) {
     a: [{ t: 0, p: [0.6, 3.4, 18], l: [0, 6.4, 0], mm: 30 }, { t: dur, p: [0.15, 7.3, 5.4], l: [-0.2, 7.3, -1.8], mm: 45 }],
     b: [{ t: 0, p: [-3.5, 1.65, 12.5], l: [-1.2, 2.6, 0], mm: 30 }, { t: dur, p: [0.5, 1.7, 11.0], l: [-0.2, 2.8, 0], mm: 32 }],
     c: [{ t: 0, p: [9, 1.8, 12], l: [0, 2.8, 0], mm: 32 }, { t: dur, p: [-2.5, 4.8, 9.5], l: [0, 7.3, -0.6], mm: 40 }],
-    d: [{ t: 0, p: [0.5, 1.8, 11], l: [-2.2, 3.1, 3.0], mm: 35 }, { t: dur * 0.5, p: [0.8, 6, 15], l: [0, 6, 0], mm: 30 }, { t: dur, p: [1, 22, 28], l: [0, 6, -6], mm: 26 }],
+    d: opt.lit !== undefined   // có opt.lit: giữ máy gần ngọn đèn tới lúc bén, rồi lùi và cẩu lên mái
+      ? [{ t: 0, p: [-0.6, 1.7, 9.5], l: [-3.6, 2.4, 3.0], mm: 35 }, { t: opt.lit + 0.6, p: [0.2, 1.9, 9.0], l: [-2.4, 2.9, 3.0], mm: 38 }, { t: Math.min(dur - 2, opt.lit + 3), p: [0.8, 6, 15], l: [0, 6, 0], mm: 30 }, { t: dur, p: [1, 22, 28], l: [0, 6, -6], mm: 26 }]
+      : [{ t: 0, p: [0.5, 1.8, 11], l: [-2.2, 3.1, 3.0], mm: 35 }, { t: dur * 0.5, p: [0.8, 6, 15], l: [0, 6, 0], mm: 30 }, { t: dur, p: [1, 22, 28], l: [0, 6, -6], mm: 26 }],
   }[v];
   const rig = camRig(W, H, K);
   const update = (t, f) => {
     rig.at(t); dst.update(t);
-    if (v === 'b' || v === 'c') {
-      const u = Math.min(1, t / (dur * 0.45)), x = lerp(-9, -2.7, ease(u)); lighter.root.position.set(x, 0.15, 2.6); lighter.root.rotation.y = Math.PI / 2;
-      lighter.set({ walk: u < 1 ? t * 5 : 0, armR: u < 1 ? 0.2 : -2.4 * ease((t - dur * 0.45) / 1.2) });
-      lamp.set(ease((t - dur * 0.45 - 1.0) / 1.0), f);
+    if (v === 'b' || v === 'c' || opt.lit !== undefined) {   // opt.lit: giây ngọn đèn bén (khớp tiếng xì đèn trong đặc tả); mặc định 0,45·dur + 1
+      const tl = opt.lit !== undefined ? opt.lit : dur * 0.45 + 1.0, ta = tl - 1.0, u = Math.min(1, t / ta), x = lerp(-9, -2.7, ease(u)); lighter.root.position.set(x, 0.15, 2.6); lighter.root.rotation.y = Math.PI / 2;
+      lighter.set({ walk: u < 1 ? t * 5 : 0, armR: u < 1 ? 0.2 : -2.4 * ease((t - ta) / 1.2) });
+      lamp.set(ease((t - tl) / 1.0), f);
     } else { lighter.root.position.set(-2.9, 0.15, 2.7); lighter.root.rotation.y = 0.6; lighter.set({ armR: -0.3 }); lamp.set(1, f); }
-    const u2 = v === 'c' ? ease((t - dur * 0.55) / 2.5) : v === 'a' ? 0.45 : 0;
+    const u2 = v === 'c' ? ease((t - (opt.screen !== undefined ? opt.screen : dur * 0.55)) / 2.5) : v === 'a' ? 0.45 : 0;   // opt.screen: giây màn hình bừng lạnh
     screen.material.color.set(new THREE.Color('#2a3448').lerp(new THREE.Color('#a8cbff'), Math.max(u2, 0.2)));
     scrLight.intensity = 5 * u2; roomLamp.intensity = 7 * (1 - 0.5 * u2) * (1 + 0.02 * Math.sin(f * 0.4));
     designer.set({ armR: -0.9 + 0.08 * Math.sin(t * 2.2), armL: -0.7, headTilt: 0.25 });
@@ -96,7 +98,7 @@ async function printshop({ W, H, dur, v }) {
 }
 
 // ===== cellar: khay chữ chì =====
-async function cellar({ W, H, dur, v }) {
+async function cellar({ W, H, dur, v, opt = {} }) {
   const scene = new THREE.Scene(); fogOf(scene, '#1a130e', 0.045);
   scene.add(new THREE.HemisphereLight('#8a6a50', '#140e0a', 0.75));
   const grain = canvasTex(256, 256, (g, w, h) => { const R = rng(5); g.fillStyle = '#7a4e2e'; g.fillRect(0, 0, w, h); for (let i = 0; i < 120; i++) { g.strokeStyle = `rgba(${40 + R() * 40},${20 + R() * 20},10,0.35)`; g.lineWidth = 1 + R() * 2; g.beginPath(); const y = R() * h; g.moveTo(0, y); g.bezierCurveTo(w * 0.3, y + R() * 8 - 4, w * 0.7, y + R() * 8 - 4, w, y + R() * 6 - 3); g.stroke(); } });
@@ -130,8 +132,9 @@ async function cellar({ W, H, dur, v }) {
   const update = (t, f) => {
     rig.at(t); dst.update(t);
     const n = Math.min(sorts.length, Math.floor(t / Math.max(0.5, dur / 28))); sorts.forEach((s, i) => { s.visible = i < n; });
+    const dn = opt.done !== undefined ? ease((t - opt.done) / 0.9) : 0; if (dn > 0) sorts.forEach((s) => { s.visible = true; });   // opt.done: dòng chữ đầy, bàn tay rời đi (sự kiện hình)
     const ph = (t % 1.2) / 1.2, a = ph < 0.5 ? ease(ph * 2) : ease((1 - ph) * 2);
-    hand.position.set(lerp(-0.3 + 0.25 * Math.sin(t * 0.9), 0.3, a), lerp(1.3, 1.36, a), lerp(-0.1, 0.52, a)); hand.rotation.set(-0.4, 0.2, 0);
+    hand.position.set(lerp(lerp(-0.3 + 0.25 * Math.sin(t * 0.9), 0.3, a), -0.6, dn), lerp(lerp(1.3, 1.36, a), 1.05, dn), lerp(lerp(-0.1, 0.52, a), -0.5, dn)); hand.rotation.set(-0.4, 0.2, 0); hand.visible = dn < 0.9;   // rút xuống sau khay, xa máy quay
     bulb.intensity = 22 * (1 + 0.03 * Math.sin(f * 0.31));
   };
   return { scene, cam: rig.cam, update, grade: 'sepia', exposure: 1.1 };
@@ -196,8 +199,12 @@ async function drafts({ W, H, dur, v }) {
   const mon = box(1.1, 0.65, 0.04, new THREE.MeshBasicMaterial({ color: '#5f7fae' }), 0.4, 1.25, 0.35); mon.rotation.y = -0.15;
   box(0.42, 0.003, 0.3, std('#efe8d6'), -0.5, 0.815, 0.75).rotation.y = 0.2;
   const designer = figure({ seated: true, scale: 1.0, color: '#0c0d10' }); designer.root.position.set(0.2, 0.0, 1.45); designer.root.rotation.y = Math.PI; scene.add(designer.root);
-  const desk = new THREE.PointLight('#ffcf9a', 2.5, 3, 2); desk.position.set(-0.8, 1.4, 0.8); scene.add(desk);
+  const desk = new THREE.PointLight('#ffcf9a', 4, 3, 2); desk.position.set(-0.72, 1.32, 0.66); scene.add(desk);
   const g2 = glowSprite('#9cc0ff', 0.7, 1.8); g2.position.set(0.4, 1.25, 0.4); scene.add(g2);
+  // đèn bàn kẹp (vật nối liền mạch: ngọn đèn có mặt ở mọi chuyển hồi, Q30) — chao đồng, quầng ấm trên tờ in
+  const arm = cyl(0.012, 0.012, 0.7, std('#3a3226', { metalness: 0.5 }), -0.95, 1.15, 0.55); arm.rotation.z = 0.5;
+  const shade = cyl(0.05, 0.16, 0.16, std('#7a5a2e', { metalness: 0.4, roughness: 0.5, side: THREE.DoubleSide }), -0.78, 1.45, 0.62); shade.rotation.z = -0.5;
+  const dl = glowSprite('#ffc27a', 0.9, 0.45); dl.position.set(-0.74, 1.38, 0.64); scene.add(dl);
   const dst = dust(scene, [0, 2, -1], [8, 3, 3], 300, 41, '#b8ccff');
   const K = { a: [{ t: 0, p: [0.4, 1.6, 4.6], l: [0, 2.6, -2.8], mm: 28 }, { t: dur, p: [0.2, 1.9, 2.6], l: [0, 2.9, -2.8], mm: 34 }],
               b: [{ t: 0, p: [1.5, 1.35, 3.6], l: [-0.3, 1.7, -2.8], mm: 30 }, { t: dur, p: [0.9, 1.4, 3.1], l: [-0.8, 1.9, -2.8], mm: 32 }] }[v];

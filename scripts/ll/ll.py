@@ -204,8 +204,8 @@ def heroes_plan(E, TL):
     plan = {}
     for k, d in need.items():
         h = HZ[k]; dur = round(max(2.0, d) + 0.5, 1)
-        stamp = hashlib.sha1(code + json.dumps([h, dur], sort_keys=True).encode()).hexdigest()[:12]
-        plan[k] = dict(hero=h['hero'], variant=h.get('variant', 'a'), opt=h.get('opt', {}), dur=dur, dir=f"{HERO_ROOT}/{E['id']}-{k}", stamp=stamp)
+        stamp = hashlib.sha1(code + json.dumps([h, dur], sort_keys=True).encode()).hexdigest()[:12]   # h gồm cả size (9:16 cho Shorts)
+        plan[k] = dict(hero=h['hero'], variant=h.get('variant', 'a'), opt=h.get('opt', {}), dur=dur, size=h.get('size', [1920, 1080]), dir=f"{HERO_ROOT}/{E['id']}-{k}", stamp=stamp)
     for kind in ('segments', 'shorts'):
         for sg in TL[kind]:
             for sh in sg['shots']:

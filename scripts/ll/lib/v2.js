@@ -63,7 +63,10 @@ TPL.sign = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { co
   if (p.src) text(g, p.src, 110, H - 34, MINPX, 'rgba(236,223,190,0.88)', { a: rvH(t, p.t0 + 0.4, 0.6) }); fog(g, H, 0.15, '60,50,46'); alive(g, t); } }; };
 
 // ---- desk: nhân vật vô danh ở bàn làm việc, đổi thời kỳ theo mốc. p = { eras: [{ era, at }], accent, cam, label: true } ----
-TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }]; return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z); diorama(g, t, c, { floor: 0.78 });
+// p.frame = { z, x, y }: khuôn hình khác (cận vào điểm x,y tỷ lệ khung, phóng z) — bàn làm việc dùng ≤ 3 lần/tập, mỗi lần một góc (CHUAN-KENH §11.3)
+TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }], F = p.frame; return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z);
+  if (F) { g.save(); g.translate(W / 2, H / 2); g.scale(F.z || 1, F.z || 1); g.translate(-(F.x === undefined ? 0.5 : F.x) * W, -(F.y === undefined ? 0.5 : F.y) * H); }
+  diorama(g, t, c, { floor: 0.78 });
   let k = 0; E.forEach((e, i) => { if (t >= e.at) k = i; }); const u = k > 0 ? rv(t, E[k].at, 0.8) : 1, P = lay(c, 1.3);
   const draw = (e, a) => { if (a <= 0) return; g.save(); g.globalAlpha *= a; const [x, y] = P(W * 0.5, H * 0.78), pr_ = PROP[(ERA[e.era] || {}).prop || 'typewriter'];
     // cửa sổ và thành phố theo thời kỳ
@@ -74,7 +77,7 @@ TPL.desk = (p) => { const cam = camOf(p), E = p.eras || [{ era: 1950, at: p.t0 }
     pr_(g, x + 40, y - 40, 1.4, { lit: 0.5, glow: 1 }); glow(g, x - 160, y - 160, 260, RGB_AMB, 0.22);
     if (p.label !== false && String(e.label || e.era).trim()) text(g, String(e.label || e.era), W - 140, 120, 72, CREAM, { kind: 'serif', align: 'right', a: 1 });
     g.restore(); };
-  if (u < 1) { draw(E[k - 1], 1 - u); } draw(E[k], u); fog(g, H * 0.98, 0.14, '60,50,46'); alive(g, t); } }; };
+  if (u < 1) { draw(E[k - 1], 1 - u); } draw(E[k], u); if (F) g.restore(); fog(g, H * 0.98, 0.14, '60,50,46'); alive(g, t); } }; };
 
 // ---- archive: ảnh tư liệu phạm vi công cộng (danh sách trắng), Ken Burns + phủ tông B3. p = { img, rid, credit, cam: [{t, x, z}], tone } ----
 // Ảnh nạp sẵn vào window.IMGS bởi render.js. qc (rights_check.py) chặn nếu rid không có dòng RIGHTS hợp lệ.

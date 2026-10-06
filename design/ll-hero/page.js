@@ -31,7 +31,8 @@ window.setup = async (c) => {
   const uniforms = { gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
   pipe = createPipeline(renderer, c.W, c.H, { exposure: 1.0, gradeGLSL: GRADE, uniforms });
   cur = await H({ W: c.W, H: c.H, dur: c.dur, v: c.variant || 'a', opt: c.opt || {} });
-  const g = typeof cur.grade === 'string' ? GRADES[cur.grade] : (cur.grade || GRADES.warm), u = pipe.outMat.uniforms;
+  const gr = (c.opt && c.opt.grade) || cur.grade, g = typeof gr === 'string' ? GRADES[gr] : (gr || GRADES.warm), u = pipe.outMat.uniforms;   // opt.grade: đổi tông theo hồi (Q30)
+  if (c.opt && c.opt.exposure) cur.exposure = c.opt.exposure;
   u.gCanvas.value = g.gCanvas; u.gVig.value = g.gVig; u.gLift.value = g.gLift; u.gSat.value = g.gSat; u.gShadowTint.value.set(...g.gShadowTint); u.gHiTint.value.set(...g.gHiTint);
   return { ok: true };
 };
