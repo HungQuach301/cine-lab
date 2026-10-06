@@ -73,3 +73,4 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 48 | Nhãn góc trên của mẫu cảnh trùng dòng hook của Shorts (9:16) | tập 5 S2: 'nhãn 1966' dưới hook, Q5 = 1,03 | toạ độ nhãn theo 16:9 | Shorts: không dùng nhãn góc trên; bản vá thư viện chờ: đặt nhãn dưới vùng hook khi 9:16 |
 | 49 | Ken Burns phủ kín khung cắt mất chủ thể ảnh tư liệu (xe tai nạn bị dải chú thích che) | tập 5 đoạn 10: P thấy khi chọn khung thumbnail | căn giữa ảnh theo khung | `archive.focus` = điểm chính của ảnh, đặt trên dải chú thích; rà một khung mỗi ảnh trước khi build |
 | 50 | Dòng nguồn ảnh tư liệu bị dải chú thích che/thay | tập 5 | chỉ một dòng nguồn | ảnh tư liệu: nguồn ảnh bên phải, nguồn số bên trái, cùng trên dải |
+| 51 | Chú thích riêng của mẫu (sign.caption) nằm dưới dải `cap` ở 9:16 | tập 5 S3: Q5 = 1,83 | hai lớp chữ cùng vùng đáy | dùng một lớp: khi có `cap`, bỏ caption của mẫu |

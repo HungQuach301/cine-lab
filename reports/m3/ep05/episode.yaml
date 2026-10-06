@@ -273,5 +273,5 @@ shorts:
     vo: >-
       In a survey by state insurance regulators, eighty-eight percent of one hundred ninety-three auto insurers said they use, plan to use, or plan to explore AI and machine learning. That counts plans as well as practice. It tells us about intent, not about how many claims a machine already prices.
     shots:
-      - {tpl: sign, at: 0, p: {num: naic, caption: "of 193 U.S. auto insurers (NAIC, 2022)", at: "@eightyeight", capAt: "@insurers", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.03}],
-           cap: [{s: "use, plan to use, or plan to explore AI", at: "@use"}, {s: "plans as well as practice", at: "@counts"}, {s: "intent, not a count of claims", at: "@intent"}]}}
+      - {tpl: sign, at: 0, p: {num: naic, at: "@eightyeight", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.03}],
+           cap: [{s: "of 193 U.S. auto insurers (NAIC, 2022)", at: "@insurers"}, {s: "use, plan to use, or plan to explore AI", at: "@use"}, {s: "plans as well as practice", at: "@counts"}, {s: "intent, not a count of claims", at: "@intent"}]}}
