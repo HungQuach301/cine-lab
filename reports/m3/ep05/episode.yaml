@@ -16,15 +16,15 @@ music:
 sources:
   B1468: {short: "BLS Bulletin 1468 (1966)", title: "Impact of Office Automation in the Insurance Industry", url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1468_1966.pdf",
           read: fulltext, pages: "pp. 1–2, 4, 18, 35 (Table 8), 38 (Table 10), 39, 45 (print; PDF = print + 8)", accessed: 2026-10-05}
-  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", title: "Occupational Outlook Handbook, 1990–91 Edition: Adjusters, Investigators, and Collectors",
+  OOH90: {short: "BLS, Occupational Outlook Handbook 1990–91 (Bulletin 2350)", short9: "BLS Outlook Handbook 1990–91", title: "Occupational Outlook Handbook, 1990–91 Edition: Adjusters, Investigators, and Collectors",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "PDF p. 255; P đọc lại đoạn trích 05/10/2026", accessed: 2026-10-05}
-  OOHC: {short: "BLS, Occupational Outlook Handbook (2025–35): Claims Adjusters", title: "Claims Adjusters, Appraisers, Examiners, and Investigators",
+  OOHC: {short: "BLS, Occupational Outlook Handbook (2025–35): Claims Adjusters", short9: "BLS Outlook Handbook 2025–35", title: "Claims Adjusters, Appraisers, Examiners, and Investigators",
          url: "https://www.bls.gov/ooh/business-and-financial/claims-adjusters-appraisers-examiners-and-investigators.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 05/10/2026)", accessed: 2026-10-05}
-  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", short9: "BLS Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 5", accessed: 2026-10-05}
-  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
+  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", short9: "BLS Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF pp. 3–4", accessed: 2026-10-05}
-  NAIC: {short: "NAIC, Artificial Intelligence (topic page)", title: "Artificial Intelligence — insurance topics", url: "https://content.naic.org/insurance-topics/artificial-intelligence",
+  NAIC: {short: "NAIC, Artificial Intelligence (topic page)", short9: "NAIC AI survey, 2022", title: "Artificial Intelligence — insurance topics", url: "https://content.naic.org/insurance-topics/artificial-intelligence",
          read: fulltext, pages: "survey section (auto insurers, Dec 2022)", accessed: 2026-10-05}
   EP: {short: "BLS Employment Projections", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
        read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
@@ -266,7 +266,7 @@ shorts:
       In 1966, the Bureau of Labor Statistics studied computers in insurance offices. Routine record keeping declined in two-thirds of the companies, but few people were laid off, and jobs requiring judgment and decision making would remain. Today, the BLS says AI can produce the initial payout estimate from photographs. The line is moving.
     shots:
       - {tpl: desk, at: 0, p: {eras: [{era: 1963, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#b6462c", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 24, x: -80, z: 0.12}],
-           cap: [{s: "BLS study of insurance offices", at: "@studied", src: [B1468]}, {num: rec, s: "of companies: routine record keeping declined", at: "@twothirds"}, {s: "few people laid off", at: "@few"},
+           cap: [{s: "BLS study of insurance offices", at: "@studied", src: [B1468]}, {num: rec, s: "of companies: routine record keeping fell", at: "@twothirds"}, {s: "few people laid off", at: "@few"},
                  {s: "judgment and decision making would remain", at: "@judgment"}, {s: "today: AI drafts the initial payout estimate", at: "@initial"}, {s: "the line is moving", at: "@line"}]}}
   - id: S3
     hook: "88% of auto insurers — use, plan, or explore AI"

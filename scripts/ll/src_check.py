@@ -24,7 +24,7 @@ def check(E, TL):
                     info = CS.get(f"{sg['id']}/{i}/{j}")
                     if info is None: bad.append(f"{sg['id']}/{i}/{j}: thiếu capsrc"); continue
                     disp = (c.get('src') or p.get('src') or '').strip()
-                    miss = [k for k in info['srcs'] if S.get(k, {}).get('short', k) not in disp]
+                    miss = [k for k in info['srcs'] if not any(S.get(k, {}).get(n, k) in disp for n in ('short', 'short9'))]
                     if miss: bad.append(f"{sg['id']} “{c.get('s', '')[:40]}”: dòng nguồn thiếu {', '.join(miss)} (đang ghi “{disp[:50]}”)")
                     if not info['declared'] and CLAIM.search(c.get('s') or ''):
                         bad.append(f"{sg['id']} “{c.get('s', '')[:40]}”: câu có số/năm/cơ quan chưa khai num hoặc src")
