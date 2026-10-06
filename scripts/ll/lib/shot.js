@@ -18,8 +18,10 @@
     if (c.s) text(g, c.s, x, y0 + (big ? (v ? 230 : 200) : (v ? 120 : 110)), big ? (v ? 46 : 38) : (v ? 54 : 46), CREAM, { a, kind: big ? 'sans' : 'serif', align: al, bold: !big });
     const srcl = c.src || s.p.src; if (s.p.credit) text(g, s.p.credit, W - (v ? 60 : 80), H - (v ? 160 : 34), v ? 26 : 20, 'rgba(236,223,190,0.9)', { align: 'right', a }); /* ảnh tư liệu: dòng nguồn ảnh bên phải, nguồn số bên trái */ /* dải chú thích che dòng nguồn của mẫu → vẽ lại nguồn trên dải */ if (srcl) text(g, srcl, x, H - (v ? 120 : 34), v ? 30 : 20, 'rgba(236,223,190,0.85)', { a, align: al }); }
   const one = (g, s, t, extra) => { if (s.T.kind === 'full') { g.save(); s.T.full(g, t); g.restore(); caps(g, s, t); } else desk(g, t, [cardOf(s, t, extra)]); };
-  function hook(g, t) { if (!S.hook) return; const a = rv(t, 0.15, 0.6); g.save(); g.fillStyle = 'rgba(20,26,46,0.0)';
-    const L = wrap(g, S.hook, W - 160, 52); L.forEach((l, i) => text(g, l, W / 2, 120 + i * 64, 52, CREAM, { align: 'center', kind: 'serif', a })); g.restore(); }
+  function hook(g, t) { if (!S.hook) return; const a = rv(t, 0.15, 0.6); g.save();
+    const L = wrap(g, S.hook, W - 160, 52), hb = 120 + (L.length - 1) * 64 + 40;   // dải tối sau dòng hook: cảnh đinh 3D có vùng sáng (cửa sổ) sau chữ (qc Q5, tập 6 v2)
+    const gr = g.createLinearGradient(0, 0, 0, hb + 60); gr.addColorStop(0, `rgba(8,8,12,${0.78 * a})`); gr.addColorStop(hb / (hb + 60), `rgba(8,8,12,${0.7 * a})`); gr.addColorStop(1, 'rgba(8,8,12,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, W, hb + 60); L.forEach((l, i) => text(g, l, W / 2, 120 + i * 64, 52, CREAM, { align: 'center', kind: 'serif', a })); g.restore(); }
   LL.SEG = { frames: S.frames, blur: S.blur || shots.flatMap((s) => s.T.blur || []), fadeIn: S.fadeIn, fadeOut: S.fadeOut, frame(g, t) {
     let i = shots.findIndex((s) => t >= s.t0 && t < s.t1); if (i < 0) i = t < shots[0].t0 ? 0 : shots.length - 1;
     const s = shots[i], tr = s.in || { type: 'cut' }, d = tr.d || 0.7, u = i > 0 && tr.type !== 'cut' ? pr(t, s.t0, s.t0 + d) : 1;

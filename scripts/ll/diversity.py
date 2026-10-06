@@ -12,6 +12,7 @@
   - CẢNH LIỀN CÙNG BỐ CỤC: "cảnh" = khoảng giữa hai điểm cắt thật (ffmpeg scdet, ngưỡng 4 trên khung 160×90 (đo trên tập 1: 52 điểm cắt); dissolve chậm có thể
     không bắt được); bố cục của cảnh = cụm (ngưỡng lỏng 24/255) chiếm đa số trong các mẫu của cảnh; cảnh < 3 s không có mẫu thì bỏ qua.
     Đếm chuỗi dài nhất các cảnh liền nhau cùng bố cục (luật: ≤ 2).
+    Có --tl (tập dựng bằng nhà máy): ranh giới cảnh lấy từ timeline (mọi điểm chuyển shot, kể cả fade) thay cho scdet.
     Ghi thêm số đo cũ "chuỗi mẫu" (cảnh = các mẫu liền nhau cùng cụm 12/255) để so với chuẩn gốc đã báo cáo (06/10/2026).
 Ngưỡng Q26: khung nhìn ≥ 40; tỷ lệ lớn nhất ≤ 20 %; cảnh liền cùng bố cục ≤ 2.
 Có --tl: in thêm đoạn/shot ứng với cụm lớn nhất (để biết sửa ở đâu).
@@ -89,13 +90,15 @@ def where(t, TL):
 
 
 if __name__ == '__main__':
-    a = sys.argv[1:]; js = a[a.index('--json') + 1] if '--json' in a else None; tl = a[a.index('--tl') + 1] if '--tl' in a else None
+    a = sys.argv[1:]; js = a[a.index('--json') + 1] if '--json' in a else None; tl = a[a.index('--tl') + 1] if '--tl' in a else None   # tl dùng cả cho ranh giới cảnh
     vids = [x for i, x in enumerate(a) if not x.startswith('--') and (i == 0 or a[i - 1] not in ('--json', '--tl'))]
     F, C, off = [], [], 0.0
     for v in vids:
         f = frames(v); F.append(f); C += [off + c for c in cuts(v)]; d = dur(v)
         if off > 0: C.append(off)   # nối phần: ranh giới phần là điểm cắt
         off += d
+    if tl:   # có timeline: ranh giới cảnh = điểm chuyển shot thật (gồm fade/dissolve mà scdet bỏ sót)
+        TLd = json.load(open(tl)); C = sorted({round(sg['t0'] + sh['t0'], 3) for sg in TLd['segments'] for sh in sg['shots']} - {0.0})
     F = np.concatenate(F); R = measure(F, C, off)
     print(f"Q26 {'ĐẠT' if R['dat'] else 'TRƯỢT'} · khung nhìn {R['khung_nhin']} (≥ {MIN_VIEWS}) · lớn nhất {R['ty_le_lon_nhat']} % (≤ {MAX_SHARE:.0f} %) · "
           f"cảnh liền cùng bố cục {R['canh_lien_cung_bo_cuc']} (≤ {MAX_RUN}, từ {R['chuoi_bat_dau_s']} s) · {R['mau']} mẫu, {R['canh']} cảnh, {R.get('diem_cat')} điểm cắt"

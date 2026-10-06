@@ -159,7 +159,7 @@ segments:
     part: HISTORY
     map: {q: "How many jobs, and where were they going?", act: 2, emo: weight, color: sepia, cue: history, trade: [press-rhythm, typewriter-old],
           in: cut, out: cut, lamp: {in: false, out: false},
-          nouns: [{w: "@eightysix", img: "phòng sắp chữ góc cao: hàng máy và người vận hành", anchor: comp88}, {w: "@typing", img: "ảnh: thợ sắp chữ bằng tay, NYT 1942"}, {w: "@apprenticeship", img: "khay chữ chì, tay thợ"}, {w: "@terminal", img: "thẻ trích dẫn BLS"}]}
+          nouns: [{w: "@eightysix", img: "phòng sắp chữ góc cao: hàng máy và người vận hành", anchor: comp88}, {w: "@typing", img: "ảnh: thợ sắp chữ bằng tay, NYT 1942"}, {w: "@apprenticeship", img: "khay chữ chì, tay thợ"}, {w: "@terminal", img: "phòng biên tập: hàng người bên máy, đèn bàn tắt dần"}]}
     pause: [{before: "@eightysix", s: 0.7}]
     vo: >-
       By 1988, composing room workers held about eighty-six thousand jobs in the United States, more than a third of them at newspapers.
@@ -174,7 +174,10 @@ segments:
            cap: [{s: "BLS outlook to 2000: little or no change", at: "@expected", src: [OOH90]}, {s: "despite a growing printing industry", at: "@despite"}, {s: "computers take over much of the typing", at: "@typing", src: [OOH90]}]}}
       - {tpl: plate, at: "@training-0.4", in: fade, p: {hero: case_close, off: 140, cap: [{s: "the training changed too", at: "@training"}, {s: "in the past: an apprenticeship", at: "@apprenticeship", src: [OOH90]}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…most learned on the job", at: "@job"}]},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@apprenticeship", src_ss: 9.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
-      - {tpl: quote, at: "@newspapers#2-0.4", in: slide, p: {beats: [{s: "at newspapers", at: "@newspapers#2"}, {s: "reporters and editors format pages", at: "@reporters"}], text: "…has already eliminated many typesetting and composition jobs, and more are certain to disappear in the years ahead.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@already", src: [OOH90]}}
+      - {tpl: rows, at: "@newspapers#2-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@terminal", "@already+1.0"], cam: [{t: "@newspapers#2", x: 0, z: 0.0}, {t: "@already+1", x: -40, z: 0.05}],
+           cap: [{s: "at newspapers: reporters and editors format pages", at: "@reporters", src: [OOH90]}, {s: "at a desktop terminal", at: "@terminal"}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@reporters", src_ss: 4.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
+      - {tpl: quote, at: "@already+0.8", in: slide, p: {beats: [{s: "BLS, 1990", at: "@already+0.9"}], text: "…has already eliminated many typesetting and composition jobs, and more are certain to disappear in the years ahead.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@already", src: [OOH90]}}
 
   - id: "05"
     part: HISTORY
@@ -216,9 +219,9 @@ segments:
       - {tpl: plate, at: 0, p: {hero: shop_bridge, off: 0, ev: [{at: 4.0, what: "người thắp đèn dừng"}, {at: 5.0, what: "đèn bén"}, {at: 9.0, what: "màn hình trong cửa sổ bừng lạnh"}]},
          sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.2, src_ss: 3.0, dur: 3.6, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/gas-hiss.mp3, at: 5.0, src_ss: 2.0, dur: 1.8, gain_db: -9, fade_ms: 200},
                {file: assets/ll/sfx/pencil-paper.mp3, at: "@pencil", src_ss: 40.0, dur: 3.0, gain_db: -12, fade_ms: 400}]}
-      - {tpl: plate, at: "@next-0.3", in: fade, p: {hero: wall_back, off: 0},
+      - {tpl: plate, at: "@next-0.3", in: fade, p: {hero: wall_back, off: 150},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@screen", src_ss: 10.0, dur: 3.0, gain_db: -11, fade_ms: 300}]}
-      - {tpl: plate, at: "@glows+1.0", in: fade, p: {hero: wall_push, off: 30},
+      - {tpl: plate, at: "@glows+1.0", in: fade, p: {hero: wall_push, off: 200},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@glows+1.4", src_ss: 6.0, dur: 4.0, gain_db: -16, fade_ms: 600}]}
 
   - id: "07"
@@ -245,8 +248,9 @@ segments:
     part: TODAY
     map: {q: "What does the BLS expect for designers?", act: 3, emo: concern, color: cold, cue: today, trade: [keyboard-typing, mouse-clicks],
           in: cut, out: cut, lamp: {in: false, out: false},
-          nouns: [{w: "@drafts", img: "tường bản nháp đầy dần"}, {w: "@fiftythree", img: "hàng hình người 2025", anchor: gd25}, {w: "@point", img: "hàng hình người 2025 → 2035 (dự báo)", anchor: gd_chg}, {w: "@three", img: "cột so sánh", anchor: all_chg}]}
-    pause: [{before: "@point", s: 0.7}]
+          nouns: [{w: "@drafts", img: "tường bản nháp đầy dần"}, {w: "@fiftythree", img: "hàng hình người 2025", anchor: gd25}, {w: "@one", img: "hàng hình người 2025 → 2035 (dự báo)", anchor: gd_chg}, {w: "@three", img: "hàng hình người (chú thích so sánh), rồi cột so sánh", anchor: all_chg}]}
+    pause: [{before: "@one", s: 0.7}]
+    tail: 4.0
     vo: >-
       In January 2026, a BLS review described what generative AI does for graphic designers: it helps them explore ideas and create first drafts much more quickly, and automate repetitive tasks such as prototyping.
       The newest projections, for 2025 to 2035, go further. Automated design tools, such as artificial intelligence, are projected to make graphic designers more productive and reduce the need for these workers.
@@ -258,9 +262,9 @@ segments:
            who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 2025–35", at: "@automated", src: [OOHGD]}}
       - {tpl: isotype, at: "@held-1.0", in: fade, p: {title: "Graphic designers, United States", subtitle: "employment, 2025 and projected 2035", unit: 10000, unitName: "jobs", per: 26,
            groups: [{label: "2025", num: gd25, at: "@fiftythree"}, {label: "2035 (projected)", num: gd35, at: "@fortynine"}],
-           cap: [{s: "graphic designers, 2025", at: "@held", src: [OOHGD]}, {num: gd_chg, s: "projected change, 2025–35", at: "@point"}]}}
-      - {tpl: bars, at: "@while-0.3", in: slide, p: {title: "Projected job change, 2025–35", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
-           bars: [{label: "Graphic designers", num: gd_chg, at: "@while+0.1"}, {label: "All occupations", num: all_chg, at: "@three"}]}}
+           cap: [{s: "graphic designers, 2025", at: "@held", src: [OOHGD]}, {num: gd_chg, s: "graphic designers, projected change, 2025–35", at: "@one"}, {num: all_chg, s: "all jobs, projected change, 2025–35", at: "@three"}]}}
+      - {tpl: bars, at: "@percent#2+0.3", in: slide, p: {title: "Projected job change, 2025–35", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
+           bars: [{label: "Graphic designers", num: gd_chg, at: "@percent#2+0.4"}, {label: "All occupations", num: all_chg, at: "@percent#2+0.9"}]}}
 
   - id: "09"
     part: TODAY
@@ -286,7 +290,7 @@ segments:
     part: TODAY
     map: {q: "Is this the same story again?", act: 3, emo: reflection, color: cold, cue: today, trade: [typewriter-old, press-rhythm, keyboard-typing],
           in: cut, out: cut, lamp: {in: false, out: false},
-          nouns: [{w: "@pattern", img: "khung đôi: khay chữ chì | tường bản nháp"}, {w: "@repetitive", img: "tay đặt chữ lặp lại"}, {w: "@keystrokes", img: "bàn phím máy Linotype"}, {w: "@drawing", img: "tường bản nháp, người thiết kế"}, {w: "@posts", img: "bảng tin việc thưa dần"}]}
+          nouns: [{w: "@pattern", img: "khung đôi: khay chữ chì | tường bản nháp"}, {w: "@repetitive", img: "tay đặt chữ lặp lại"}, {w: "@keystrokes", img: "bàn phím máy Linotype"}, {w: "@drawing", img: "tường bản nháp, người thiết kế"}, {w: "@posts#2", img: "bảng tin việc thưa dần"}]}
     vo: >-
       So here is the comparison, with a caution. We will not set these numbers side by side: one is a count from 1988, one is a forecast, and one is a single platform's job posts.
       What we can compare is the pattern. Then, the computer took over setting the type, and the designer took the tool. Today, software drafts the first image, and the designer is the one handed the tool again.
@@ -355,7 +359,8 @@ shorts:
     vo: >-
       In 1990, the Bureau of Labor Statistics wrote about newspaper typesetters. Equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting jobs, and more are certain to disappear. The work did not vanish. Designers took the tool.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_lino, off: 0, cap: [{s: "BLS, 1990: newspaper typesetters", at: "@1990", src: [OOH90]}, {s: "pages formatted at a desktop terminal", at: "@format"}, {s: "many typesetting jobs already gone", at: "@eliminated"}, {s: "“more are certain to disappear”", at: "@certain"}]}}
+      - {tpl: plate, at: 0, p: {hero: s_lino, off: 0, cap: [{s: "BLS, 1990: newspaper typesetters", at: "@1990", src: [OOH90]}, {s: "pages formatted at a desktop terminal", at: "@format"}, {s: "many typesetting jobs already gone", at: "@eliminated"}, {s: "“more are certain to disappear”", at: "@certain"}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.2, src_ss: 2.0, dur: 9.0, gain_db: -15, fade_ms: 900}]}
       - {tpl: plate, at: "@vanish-0.6", in: fade, p: {hero: s_wall, off: 0, cap: [{s: "the work moved: designers took the tool", at: "@vanish"}]}}
   - id: S2
     hook: "Image work posts −17% after image AI"
@@ -370,5 +375,5 @@ shorts:
     vo: >-
       The Bureau of Labor Statistics projects that automated design tools, such as artificial intelligence, will make graphic designers more productive and reduce the need for these workers. Its projection: a decline of one point seven percent from 2025 to 2035, while all jobs grow three point five percent.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_wall, off: 60, cap: [{s: "BLS: automated design tools, such as AI", at: "@automated", src: [OOHGD]}, {s: "more productive…", at: "@productive"}, {s: "…and less need for these workers", at: "@reduce"},
+      - {tpl: plate, at: 0, sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.4, src_ss: 2.0, dur: 6.0, gain_db: -16, fade_ms: 700}], p: {hero: s_wall, off: 60, cap: [{s: "BLS: automated design tools, such as AI", at: "@automated", src: [OOHGD]}, {s: "more productive…", at: "@productive"}, {s: "…and less need for these workers", at: "@reduce"},
            {num: gd_chg, s: "graphic designers, projected 2025–35", at: "@one"}, {num: all_chg, s: "all jobs, projected 2025–35", at: "@three"}]}}

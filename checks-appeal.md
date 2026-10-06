@@ -151,3 +151,12 @@ Không đổi `checks/`, không đổi LOCK. Phiên K kết thúc.
 Chủ dự án giao: các luật chất lượng mới Q26–Q31 (định nghĩa ở `reports/m3/CHUAN-KENH-LL.md` §11.2) là luật tự động, **Chặn**, và **gửi K khoá ở lần mở tới**.
 - Từ nay đến khi K khoá, P chạy các luật này như **luật làm việc của P** trong `scripts/ll/` (`diversity.py` cho Q26, các công cụ còn lại ghi trong `scripts/ll/README.md`) và báo số đo ở mỗi báo cáo G2.
 - P không sửa `checks/`.
+
+## Khiếu nại P — Q16 bản khoá không nhận các mẫu toàn khung mới (06/10/2026, tập 6 v2)
+- **Hiện tượng:** qc tập 6 v2, Q16 (bản khoá) báo **79,3 %** thẻ giấy (trần 40 %). Thước nhịp của P (`scripts/ll/rhythm.py`, tập FULL đã cập nhật) đo **12,9–15,2 %** trên cùng timeline.
+- **Nguyên nhân P suy ra từ đầu ra (P không đọc mã `checks/`):** danh sách mẫu toàn khung trong bản khoá có trước tập 6 v2, nên chưa có các mẫu mới chủ dự án yêu cầu ở CHUAN-KENH §11.3. Đó là `plate` (cảnh đinh 3D), `jobboard`, `filmstrip`, `pasteup`, `diptych` (lib/v3.js). Các mẫu này vẽ cảnh toàn khung, không phải thẻ giấy.
+- **Đề nghị K:** thêm 5 mẫu trên vào tập cảnh toàn khung của Q16, khoá lại, chạy lại trên tập 6 v2 và các tập đã đăng (không đổi ngưỡng).
+- **Ghi chú cho K về Q26 (luật làm việc của P):**
+  - Định nghĩa "cùng bố cục" của P (cụm xám 32×18, ngưỡng 24/255) gộp mọi cảnh tối (phố đêm, phòng tối, phòng tráng ảnh) thành một bố cục, dù cấu trúc khác nhau.
+  - Điểm cắt dò bằng scdet bỏ sót fade. Khi có timeline, P lấy ranh giới shot thật.
+  - Đề nghị K chọn định nghĩa bố cục khi khoá, ví dụ chuẩn hoá độ sáng từng khung trước khi so. Tập 1 cũng trượt điều kiện này (chuỗi 4).
