@@ -3,7 +3,10 @@
 #   (1) mỗi mẫu render 1 khung, so với ref/<đoạn>.png (lệch trung bình > NGUONG mức xám/255 → TRƯỢT); --update ghi lại tham chiếu
 #   (2) ll.py check bắt được đặc tả sai (bad/*.yaml phải TRƯỢT; tpl.yaml phải ĐẠT)
 #   (3) build.sh dừng (mã 3) khi có đoạn render lỗi
+#   (0) không có chú thích chèn giữa dòng nuốt mất mã (BAI-HOC #70/#76) — kể cả mã cảnh đinh 3D; JS cảnh đinh phải parse được
 set -u; T=$(cd "$(dirname "$0")" && pwd); LL=$T/..; PY=/opt/cine/bin/python; O=/var/tmp/cine-out/ll-test; NGUONG=${NGUONG:-2.0}; fail=0
+(cd $T/../../.. && $PY scripts/ll/tests/comment_guard.py > /dev/null) || { echo "TRƯỢT: chú thích nuốt mã (scripts/ll/tests/comment_guard.py)"; fail=1; }
+for j in $T/../../../design/ll-hero/*.js; do cp $j /tmp/ll-chk-$$.mjs; node --check /tmp/ll-chk-$$.mjs 2>/dev/null || { echo "TRƯỢT cú pháp: $j"; fail=1; }; rm -f /tmp/ll-chk-$$.mjs; done
 rm -rf $O/f; mkdir -p $O/f   # xoá khung cũ: khung lần trước không được che lỗi render lần này
 $PY $LL/ll.py check $T/tpl.yaml > /dev/null || { echo "TRƯỢT check: tpl.yaml phải ĐẠT"; fail=1; }
 for b in $T/bad/*.yaml; do $PY $LL/ll.py check $b > /dev/null 2>&1 && { echo "TRƯỢT check: $(basename $b) phải bị bắt"; fail=1; }; done
