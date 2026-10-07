@@ -21,8 +21,9 @@ SIL_MIN, SIL_MAX, SIL_DB = 0.5, 1.0, -50.0
 LUFS, LUFS_TOL, TP_MAX = -14.0, 0.5, -1.0
 WIN29, VIS29 = 1.0, 0.5                                          # ±1 s quanh từ; hình phải hiện ≥ 0,5 s trong cửa sổ (không tính đuôi fade)
 JL_MIN = 0.3
-# màu theo hồi (CIELAB, điểm ảnh L* > 15 của cảnh toàn khung; h = góc màu, C = độ bão hoà)
-COLOR = {'warm': dict(h=(20.0, 80.0), C=(15.0, 1e9)), 'sepia': dict(h=(45.0, 95.0), C=(4.0, 15.0)), 'cold': dict(h=(180.0, 300.0), C=(3.0, 1e9))}
+# màu theo hồi (CIELAB, điểm ảnh L* > 15 của cảnh toàn khung). Q-L30 = B (chủ dự án 07/10/2026): chỉ đòi hồi 3 (hôm nay) LẠNH NHẤT trong
+# 4 hồi = b* trung bình (trục vàng–xanh) thấp nhất. Chưa đặt ngưỡng tuyệt đối; hiệu chuẩn lại sau tập 7–8.
+COLD_ACT = 3
 NAME_SIM = 0.75
 # cảnh đinh (cảnh, biến thể góc máy) K đã xem tận mắt có ngọn đèn trong khung (07/10/2026, tập 6 v2). ep06/cellar b (khay chữ cận) và
 # ep06/printshop b chưa thấy đèn: không có trong danh sách. Cảnh mới: P khai heroes.<khoá>.lamp: true; người xem Q31 và K đối chiếu.
@@ -299,8 +300,12 @@ def act_tone(E, TL, videos):
     return out
 
 
-def tone_ok(name, x):
-    r = COLOR[name]; return r['h'][0] <= x['h'] <= r['h'][1] and r['C'][0] <= x['C'] < r['C'][1]
+def tone_errors(tone):
+    """Q-L30 = B: hồi 3 phải có b* thấp nhất trong 4 hồi; thiếu hồi nào (không có cảnh toàn khung) thì TRƯỢT"""
+    miss = [k for k in (1, 2, 3, 4) if k not in tone]
+    if miss: return [f'hồi {miss} không có cảnh toàn khung để đo màu']
+    other = min(tone[k]['b'] for k in (1, 2, 4))
+    return [] if tone[COLD_ACT]['b'] < other else [f"hồi 3 không lạnh nhất: b* {tone[COLD_ACT]['b']} ≥ {other} (hồi khác thấp nhất)"]
 
 
 def q30(E, TL, MX, videos=None, tone=None):
@@ -334,7 +339,10 @@ def q30(E, TL, MX, videos=None, tone=None):
     tone = tone if tone is not None else (act_tone(E, TL, videos) if videos else None)
     if tone is None: bad.append('không có video để đo tông màu')
     else:
-        for k, x in sorted(tone.items()):
-            if not tone_ok(ACT_COLOR[k], x): bad.append(f"hồi {k} cần {ACT_COLOR[k]}: đo h={x['h']}° C={x['C']}")
-    val = f'{n} chuyển hồi · tông đo: ' + (', '.join(f"hồi {k} h={x['h']}° C={x['C']}" for k, x in sorted((tone or {}).items())) or '—')
-    return dict(ok=not bad, val=val, note='; '.join(bad[:8]), loi=bad, tong=tone)
+        bad += tone_errors(tone)
+    val = f'{n} chuyển hồi · tông đo (b*): ' + (', '.join(f"hồi {k} {x['b']}" for k, x in sorted((tone or {}).items())) or '—')
+    near = []
+    if tone and all(k in tone for k in (1, 2, 3, 4)):
+        o = min(tone[k]['b'] for k in (1, 2, 4))
+        if abs(tone[COLD_ACT]['b'] - o) <= 0.05 * max(abs(o), 1e-9): near.append(f"b* hồi 3 {tone[COLD_ACT]['b']} sát hồi khác {o}")
+    return dict(ok=not bad, val=val, note='; '.join(bad[:8]), loi=bad, tong=tone, sat_nguong=near)

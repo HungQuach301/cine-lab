@@ -211,22 +211,53 @@ case('Q29', 'đoạn có lời không khai danh từ chính', QA.q29(Eb, TL6)['l
 
 tone = {int(k): v for k, v in json.load(open(os.path.join(F6, 'tone-v2.json'))).items()}
 r = QA.q30(E6, TL6, MX6, tone=tone); case('Q30', f"tập 6 v2: {r['val']}", r['loi'], True)
-R[-1] = R[-1][:3] + (R[-1][3] and len(r['loi']) == 2 and any('hồi 3 cần cold' in x for x in r['loi']) and any('01→02: shot trước' in x for x in r['loi']),) + R[-1][4:]
+R[-1] = R[-1][:3] + (R[-1][3] and len(r['loi']) == 1 and '01→02: shot trước' in r['loi'][0],) + R[-1][4:]   # Q-L30 = B: màu hồi 3 ĐẠT (b* 7,9 < 9,5)
 tc = dict(tone); tc[3] = dict(a=-2.0, b=-9.0, C=9.2, h=257.5, mau=1)
 E6l = copy.deepcopy(E6); E6l['heroes']['case_line']['lamp'] = True   # P khai đèn cho góc máy mới (người xem/K đối chiếu sau)
 case('Q30', 'tập 6 v2 nếu hồi 3 lạnh thật (h 258°, C 9) và case_line khai đèn', QA.q30(E6l, TL6, MX6, tone=tc)['loi'], False)
+case('Q30', 'Q-L30 B: tập 6 v2 thật, case_line khai đèn (hồi 3 b* 7,9 thấp nhất)', QA.q30(E6l, TL6, MX6, tone=tone)['loi'], False)
 Eb = copy.deepcopy(E6l); Eb['segments'][1]['map']['out'] = 'cut'
 case('Q30', 'chuyển hồi 01→02: hai phía khai khác nhau (cut / match)', QA.q30(Eb, TL6, MX6, tone=tc)['loi'], True)
 MXc = copy.deepcopy(MX6); cut12 = TL6['segments'][2]['t0']; MXc['sfx_used'] = [c for c in MXc['sfx_used'] if not (cut12 - 3 < c['at'] < cut12)]
 case('Q30', 'J-cut 01→02 bỏ tiếng máy vào trước điểm cắt', QA.q30(E6l, TL6, MXc, tone=tc)['loi'], True)
 TLb = copy.deepcopy(TL6); TLb['segments'][2]['shots'][0]['p']['hero'] = 'x_khong_den'
 case('Q30', 'shot đầu hồi 2 là cảnh đinh không có đèn', QA.q30(E6l, TLb, MX6, tone=tc)['loi'], True)
-for nm, x, exp in (('warm', dict(h=59.0, C=30.4), True), ('sepia', dict(h=71.8, C=10.0), True), ('cold', dict(h=61.3, C=9.0), False), ('warm', dict(h=71.8, C=10.0), False)):
-    case('Q30', f"tông {nm}: h={x['h']}°, C={x['C']}", [] if QA.tone_ok(nm, x) == exp else ['sai'], False)
+tb = copy.deepcopy(tone); tb[2]['b'] = 7.0
+case('Q30', 'Q-L30 B: hồi 2 (b* 7,0) lạnh hơn hồi 3 (7,9)', QA.tone_errors(tb), True)
+tb = copy.deepcopy(tone); tb[3]['b'] = tb[2]['b']
+case('Q30', 'Q-L30 B: hồi 3 bằng hồi 2 (không lạnh NHẤT)', QA.tone_errors(tb), True)
+tb = {k: v for k, v in tone.items() if k != 3}
+case('Q30', 'Q-L30 B: hồi 3 không có cảnh toàn khung để đo', QA.tone_errors(tb), True)
+r = QA.q30(E6l, TL6, MX6, tone={**tone, 3: dict(tone[3], b=9.2)})
+case('Q30', 'Q-L30 B: hồi 3 b* 9,2 so với 9,5 được nêu là sát ngưỡng ±5 %', [] if r['ok'] and r['sat_nguong'] else ['thiếu'], False)
 
 for tag, exp in (('v2', True), ('v1', True)):
     fx = json.load(open(os.path.join(F6, f'q27-{tag}.json'))); r = QB.agg27(fx['sets'], fx['replies'])
-    case('Q27', f"tập 6 {tag} (đề bài khoá, 3 Sonnet thật): {r['val']}", [] if r['ok'] else [r['val']], exp)
+    case('Q27', f"tập 6 {tag}, bản 10 + 10 (trước Q-L27): {r['val']}", [] if r['ok'] else [r['val']], exp)
+
+
+def strata_ok(plan):
+    """Q-L27 = B: đúng 30 khung mỗi bộ; mỗi khung rơi vào đúng một tầng (1/30 thời lượng dùng được), mỗi tầng một khung"""
+    err = []
+    for k in ('new', 'ref'):
+        it = [(v, t) for s_, v, t in plan.values() if s_ == k]
+        if len(it) != QB.N27: err.append(f'{k}: {len(it)} khung'); continue
+        vids = sorted({v for v, _ in it}, key=lambda v: [x for x, _ in QB.REF27].index(v) if k == 'ref' else v)
+        L = [(v, QB.dur(v) - 2 * QB.EDGE) for v in vids]; tot = sum(d for _, d in L); pos = []
+        for v, t in it: pos.append(sum(d for w, d in L[:[w for w, _ in L].index(v)]) + t - QB.EDGE)
+        if sorted(int(x / tot * QB.N27) for x in pos) != list(range(QB.N27)): err.append(f'{k}: tầng không đều')
+    return err
+
+
+V2v = [f'screening/ll-ep06-v2-p{i}.mp4' for i in (1, 2, 3)]
+_, P27 = QB.plan27(V2v)
+case('Q27', 'Q-L27 B: bộ tập 6 v2 có 30 + 30 khung, mỗi tầng 1/30 thời lượng một khung', strata_ok(P27), False)
+case('Q27', 'Q-L27 B: thứ tự trộn tất định theo SHA video (dựng lại ra cùng bộ)', [] if QB.plan27(V2v)[1] == P27 else ['khác'], False)
+for tag in ('v2', 'v1'):
+    f = os.path.join(F6, f'q27b-{tag}.json')
+    if os.path.exists(f):
+        fx = json.load(open(f)); r = QB.agg27(fx['sets'], fx['replies'])
+        case('Q27', f"tập 6 {tag}, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): {r['val']}", [] if r['ok'] else [r['val']], fx['ky_vong_truot'])
 fx = json.load(open(os.path.join(F6, 'q27-v2.json'))); up = copy.deepcopy(fx['replies'])
 for x in up.values():
     for k, v in x['scores'].items():
@@ -244,9 +275,28 @@ one = copy.deepcopy(cl); one['R1']['issues'].append(dict(where='T05', kind='brea
 case('Q31', 'một người nêu đứt mạch T05: chưa đủ 2/3', QB.agg31(fx['cuts'], one)['loi'], False)
 one['R3']['issues'].append(dict(where='R05.1', kind='break', note='y'))   # R05.1 = 2:42, T05 = 2:41,8 → cùng điểm
 case('Q31', 'hai người nêu cùng chỗ (T05 và R05.1, cách 0,2 s)', QB.agg31(fx['cuts'], one)['loi'], True)
+# Q-L31 (A có điều kiện; vòng tính theo từng tập)
+fx = json.load(open(os.path.join(F6, 'q31-v2.json')))
+r2 = QB.agg31(fx['cuts'], fx['replies'], vong=2)
+case('Q31', f"vòng 2, tập 6 v2: chỉ chặn 3/3 (T03, T05, T10) → {r2['val']}", r2['loi'], True)
+R[-1] = R[-1][:3] + (R[-1][3] and sum(x.startswith('đứt mạch') for x in r2['loi']) == 3,) + R[-1][4:]
+only2 = copy.deepcopy(fx['replies'])
+for x in only2.values(): x['issues'] = [i for i in x['issues'] if i['where'] in ('T01', 'T07')]
+case('Q31', 'vòng 1: điểm 2/3 (T01, T07) chặn', QB.agg31(fx['cuts'], only2, vong=1)['loi'], True)
+case('Q31', 'vòng 2: điểm 2/3 chưa giải trình → chặn', QB.agg31(fx['cuts'], only2, vong=2)['loi'], True)
+gt = {'T01': 'Mở bằng số liệu rồi mới tựa là chủ ý: hook đặt câu hỏi trước tựa (chủ dự án duyệt G1).', 'T07': 'ngắn'}
+case('Q31', 'vòng 2: T07 giải trình quá ngắn (< 20 ký tự) → chặn', QB.agg31(fx['cuts'], only2, vong=2, giai_trinh=gt)['loi'], True)
+gt['3:56.9'] = 'Cắt cứng sang tường tối là nhịp chuyển sang câu hỏi BLS; đã làm rõ chú thích.'
+case('Q31', 'vòng 2: mọi điểm 2/3 có giải trình (theo T## hoặc m:ss.s)', QB.agg31(fx['cuts'], only2, vong=2, giai_trinh=gt)['loi'], False)
+hd = tempfile.mkdtemp(); out31 = os.path.join(hd, 'q31'); os.makedirs(os.path.join(hd, 'q31-lich-su', 'vong-01')); os.makedirs(os.path.join(hd, 'q31-lich-su', 'vong-02'))
+for r_ in QB.RATERS: open(os.path.join(hd, 'q31-lich-su', 'vong-01', f'{r_}.json'), 'w').write('{}')
+open(os.path.join(hd, 'q31-lich-su', 'vong-02', 'R1.json'), 'w').write('{}')
+case('Q31', 'lịch sử vòng: chỉ đếm vòng chấm đủ 3 người (1 đủ, 1 dở → vòng hiện tại = 2)', [] if len(QB._rounds(out31)) == 1 else ['sai'], False)
+
 tmpd = tempfile.mkdtemp()
 for k, x in fx['replies'].items(): json.dump(dict(x, prompt_sha256='0' * 64) if k == 'R2' else x, open(os.path.join(tmpd, f'{k}.json'), 'w'))
 case('Q31', 'R2 dùng đề bài đã sửa (SHA khác bản khoá)', QB._replies(tmpd, 'Q31')[1], True)
+case('Q27', 'đề bài Q27 nêu đủ 60 ảnh F01–F60', [f for f in ('Q27-R1.txt', 'Q27-R2.txt', 'Q27-R3.txt') if 'F60' not in open(os.path.join(QB.HERE, f)).read()], False)
 case('Q27/31', 'đề bài khoá: 6 tệp, mỗi tệp có {DIR} và yêu cầu chỉ trả JSON', [f for f in sorted(os.listdir(QB.HERE)) if '{DIR}' not in open(os.path.join(QB.HERE, f)).read() or 'ONLY this JSON' not in open(os.path.join(QB.HERE, f)).read()], False)
 
 w = max(len(r[1]) for r in R)

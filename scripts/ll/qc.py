@@ -23,7 +23,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "(proj"); từ LL v2 (Q-L13 = A, 06/10/2026)
       dấu "?" KHÔNG còn là dấu hiệu dự báo (chủ dự án, 05/10/2026, mục B7)
   Q23 câu/thẻ nhiều số cùng đối tượng/loại/kỳ/cơ sở; Q24 nhãn phân loại khớp số; Q25 thẻ khoảng số không đếm qua số trung gian; LOCK khớp
-  Q26–Q31 (khoá LL v3, áp từ tập 6): đa dạng hình (checks/ll/q_diversity.py), chấm hình mù và xem liền mạch mù (checks/ll/q_blind.py,
+  Q26–Q31 (khoá LL v3, áp từ tập 7): đa dạng hình (checks/ll/q_diversity.py), chấm hình mù và xem liền mạch mù (checks/ll/q_blind.py,
       bộ ảnh ở <out>/blind/q27, <out>/blind/q31 + R1–R3.json), âm thanh, hình–lời, liền mạch (checks/ll/q_av.py)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
@@ -183,8 +183,9 @@ _lb = K.q24(E, TL)
 row('Q24', 'Nhãn phân loại khớp số', not _lb, len(_lb), 0, note='; '.join(_lb[:4]))
 _gb = K.q25(TL, logs)
 row('Q25', 'Thẻ khoảng số không hiện số trung gian', not _gb, len(_gb), 0, note='; '.join(_gb[:4]))
-# Q26–Q31: luật khoá phiên K (checks/ll, LL v3, 07/10/2026), áp từ tập 6. Định nghĩa: checks/ll/RULES-LL.md
-if _epn and _epn >= 6:
+# Q26–Q31: luật khoá phiên K (checks/ll, LL v3, 07/10/2026), áp từ tập 7 (Q-L6v2 = B: tập 6 v2 phát hành theo luật làm việc của P).
+# Định nghĩa: checks/ll/RULES-LL.md
+if _epn and _epn >= 7:
     _m = f"{O}/{E['id']}-{V}-master.mp4"
     _vids = [_m] if os.path.exists(_m) else sorted(glob.glob(f"{O}/{E['id']}-{V}-p?.mp4"))
     _mx = json.load(open(f'{O}/mix.json')) if os.path.exists(f'{O}/mix.json') else None
@@ -201,7 +202,7 @@ if _epn and _epn >= 6:
         for _q in ('Q28', 'Q30'): row(_q, 'Âm thanh / liền mạch', False, 'không có mix.json', '')
     _r('Q29', 'Hình–lời: hình vật chất ±1 s quanh danh từ chính và số neo', q_av.q29(E, TL))
 else:
-    row('Q26–31', 'Luật chất lượng v3', True, 'không áp (tập ≤ 5)', '')
+    row('Q26–31', 'Luật chất lượng v3', True, 'không áp (tập ≤ 6; Q-L6v2 = B)', '')
 _lk = subprocess.run(['/opt/cine/bin/python', os.path.join(REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
 row('LOCK', 'checks/ khớp LOCK (luật khoá không bị sửa)', _lk.returncode == 0, 'KHỚP' if _lk.returncode == 0 else 'KHÔNG KHỚP', 'TREE_SHA256')
 

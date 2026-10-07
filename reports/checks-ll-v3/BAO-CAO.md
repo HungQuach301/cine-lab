@@ -1,7 +1,8 @@
 # Phiên K — xét và khoá luật chất lượng Q26–Q31 (checks LL v3)
 
 Ngày 07/10/2026 · Phiên K (kiểm định độc lập) · Nhánh `checks/ll-v3` (gốc: đỉnh `ccr-5219a838-ftr84s`, 80a66c7).
-Chủ dự án duyệt lệnh khoá 07/10/2026. **K DỪNG ở đây: luật đã khoá, chờ chủ dự án duyệt kết quả và 4 câu hỏi ở mục 8.**
+Chủ dự án duyệt lệnh khoá 07/10/2026, rồi **duyệt kết quả và ra phán quyết 4 câu hỏi cùng ngày**. Bản hiện hành là **1.7.1** (mục 12); mục 1–11 ghi bản 1.7.0 trình duyệt và giữ nguyên để đối chiếu.
+**K DỪNG ở đây: đã sửa theo phán quyết và khoá lại, chờ chủ dự án duyệt bản 1.7.1.**
 
 ## 1. Kết quả chính
 - **Bản khoá:** VERSION **1.7.0**, LOCK `TREE_SHA256 0b180104d6b7cad9e5ab942011f86c02557fb07388bb52260b42c1efdbe22915`.
@@ -191,7 +192,39 @@ K đã khoá đúng chữ CHUAN-KENH §11.2; chọn khác thì K sửa và khoá
   - Khung nhìn và tỷ lệ lớn nhất không có chỉ số nào sát ngưỡng.
 - **Q28, Q29, Q30:** không có chỉ số nào trong ±5 %. Lặng gần nhất là 0,69 s so với sàn 0,5 s.
 
-## 11. Việc đang chờ chủ dự án
+## 11. Việc đang chờ chủ dự án (bản 1.7.0, đã xử lý: xem mục 12)
 1. Duyệt kết quả khoá checks LL v3 (LOCK `0b180104…`).
 2. Trả lời Q-L27, Q-L30, Q-L31, Q-L6v2.
 3. Sau khi duyệt: phiên P merge `checks/ll-v3` (P là phiên duy nhất merge vào `main`).
+
+## 12. Sau phán quyết của chủ dự án (07/10/2026) — bản 1.7.1
+- **Bản khoá:** VERSION **1.7.1**, LOCK `TREE_SHA256 e3fcd2e686ac92eb15cab0bf93e54aa31165acd8e129d500f4affeb58cc03240`. Tính lại: KHỚP.
+- **Tự kiểm:** **109/109** ca đúng kỳ vọng (`do/selftest.txt`). So với bản 1.7.0: thêm 14 ca, bỏ 4 ca tông màu tuyệt đối, sửa kỳ vọng 2 ca.
+
+| Phán quyết | Sửa trong luật | Kiểm bằng |
+|---|---|---|
+| **Q-L27 = B** (30 + 30) | `N27 = 30`; đề bài Q27 nêu 60 ảnh F01–F60 (SHA đề bài đổi); lấy mẫu phân tầng đều, hạt giống = SHA video mới, trộn như cũ | Ca: đủ 30 + 30, mỗi tầng 1/30 thời lượng đúng một khung; dựng lại ra cùng bộ. **Chạy thật 6 subagent Sonnet** trên đề bài mới (bảng dưới) |
+| **Q-L30 = B** | Bỏ khoảng màu tuyệt đối. Hồi 3 phải có b* trung bình (CIELAB, cảnh toàn khung, L* > 15) thấp hơn hẳn mọi hồi khác; thiếu hồi nào để đo thì TRƯỢT; chênh trong ±5 % thì nêu sát ngưỡng | Tập 6 v2: b* 26,1 / 9,5 / **7,9** / 18,2 → ĐẠT (cách hồi 2: 17 %). Ca: hồi 2 lạnh hơn, hồi 3 bằng hồi 2, thiếu hồi 3 → TRƯỢT; 9,2 so với 9,5 → nêu sát ngưỡng |
+| **Q-L31 = A có điều kiện** | Vòng tính theo từng tập. `q31-set` chuyển lần xem trước sang `<thư mục>-lich-su/vong-NN`; chỉ vòng chấm đủ 3 người được đếm; manifest ghi số vòng, bộ chấm đối chiếu với sổ lịch sử. Vòng 1: chặn ≥ 2/3. Từ vòng 2: chặn 3/3; điểm 2/3 cần giải trình ≥ 20 ký tự trong `giai-trinh.json` (theo T## hoặc m:ss.s), chép vào báo cáo G2 | Ca: tập 6 v2 vòng 2 chỉ còn 3 điểm chặn (T03, T05, T10); 2/3 chưa giải trình, giải trình quá ngắn → TRƯỢT; đủ giải trình → ĐẠT; sổ lịch sử bỏ vòng chấm dở. **Chạy thật:** dựng bộ hai lần trên cùng thư mục → manifest vòng 1 rồi vòng 2; xoá sổ lịch sử → bộ chấm báo "vòng 2 khác lịch sử" |
+| **Q-L6v2 = B** | `scripts/ll/qc.py` gọi Q26–Q31 từ **tập 7** (`_epn >= 7`); tập ≤ 6 ghi "không áp" | Q14, Q16 (đề nghị đã chấp nhận) vẫn áp như bản khoá |
+
+**Q27 chạy thật, bản 30 + 30** (câu trả lời ở `mu/v2-q27b`, `mu/v1-q27b` và `checks/ll/fixtures/ep06/q27b-*.json`):
+| | Tập mới | Tập 1 | Chênh | Sai số chuẩn | Tương quan giữa người chấm | Kết luận |
+|---|---|---|---|---|---|---|
+| Tập 6 v2 | 4,98 | 5,13 | −0,15 | 0,26 | 0,63–0,70 | TRƯỢT (**sát ngưỡng ±5 %**) |
+| Tập 6 v1 | 4,34 | 4,92 | −0,58 | 0,20 | 0,14–0,45 | TRƯỢT |
+
+- So với bản 10 + 10, sai số chuẩn giảm từ 0,63 xuống 0,20–0,26, và ba người chấm bớt trùng nhau (0,98 → 0,14–0,70). Luật vẫn phân biệt được: v1 kém rõ ràng hơn v2.
+- Tập 6 v2 kém tập 1 0,15 điểm, trong khoảng một sai số chuẩn; ở mẫu khác có thể ĐẠT. Theo Q-L6v2 = B, kết quả này không chặn tập 6.
+- Điểm tập 1 khác nhau giữa hai lần chấm (5,13 và 4,92) vì mỗi video mới rút một bộ khung tập 1 khác. So sánh luôn dùng điểm tập 1 của chính lần chấm đó.
+
+**Hạn chế ghi thêm**
+- Q30 màu: thước tương đối, chưa có ngưỡng tuyệt đối. **Hiệu chuẩn lại sau tập 7–8** (khi có ≥ 3 tập theo kịch bản màu).
+- Q31 vòng: sổ lịch sử nằm trong thư mục ra của P. Xoá cả sổ lẫn bộ hiện tại để "làm lại vòng 1" là không phát hiện được bằng máy; báo cáo G2 phải ghi mọi lần xem mù (đã có trong RULES-LL.md).
+
+**Chỉ số trong ±5 % quanh ngưỡng (bổ sung):** Q27 tập 6 v2 bản 30 + 30, 4,98 so với 5,13 (cách 2,9 %).
+
+**Việc đang chờ chủ dự án**
+1. Duyệt bản khoá 1.7.1 (LOCK `e3fcd2e6…`).
+2. Sau khi duyệt, phiên P merge `checks/ll-v3` vào `main`. Phiên P cần biết: qc áp Q26–Q31 từ tập 7, đề bài Q27 là 60 ảnh, Q31 có sổ vòng (không xoá `q31-lich-su/`).
+3. Hiệu chuẩn lại Q30 màu sau tập 7–8 (K mở lại khi có dữ liệu).

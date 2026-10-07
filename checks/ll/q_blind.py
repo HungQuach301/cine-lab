@@ -4,21 +4,23 @@
 K CỐ ĐỊNH: đề bài (checks/ll/blind/Q27-R*.txt, Q31-R*.txt, khoá SHA cùng checks/), cách lấy và trộn mẫu, số người chấm (3), mô hình
 (subagent Sonnet), ngưỡng. P KHÔNG sửa đề bài: chỉ thay {DIR} bằng thư mục bộ ảnh; câu trả lời ghi lại SHA-256 của tệp đề bài.
 
-  q_blind.py q27-set <thư mục> --new <video…>            bộ 20 ảnh F01–F20 (10 tập mới + 10 tập 1, trộn) + đề bài đã điền
+  q_blind.py q27-set <thư mục> --new <video…>            bộ 60 ảnh F01–F60 (30 tập mới + 30 tập 1, trộn; Q-L27 = B) + đề bài đã điền
   q_blind.py q31-set <thư mục> --video <video…> --tl <timeline.json>   dải chuyển đoạn T## + dải tổng quan R## + transitions.txt
   q_blind.py q27-score <thư mục> --new <video…>          chấm (đọc R1.json, R2.json, R3.json); mã thoát 0 = ĐẠT
   q_blind.py q31-score <thư mục> --video <video…> --tl <timeline.json>
 
 Thư mục bộ ảnh phải nằm NGOÀI repo (ví dụ <out>/blind/q27): subagent chỉ được đọc tệp nêu trong đề bài.
 Q27 không ghi tệp khoá giải mã: thứ tự trộn suy lại được từ SHA-256 của video mới (hạt giống), nên không có gì để lộ cho người chấm.
+Q31 tính VÒNG theo từng tập (Q-L31, chủ dự án 07/10/2026): q31-set chuyển lần xem trước sang <thư mục>-lich-su/vong-NN; vòng 1 chặn
+điểm đứt mạch ≥ 2/3; từ vòng 2 chỉ chặn điểm 3/3, điểm 2/3 phải có giải trình trong <thư mục>/giai-trinh.json (chép vào báo cáo G2).
 """
-import hashlib, json, os, random, re, subprocess, sys, tempfile
+import hashlib, json, os, random, re, shutil, subprocess, sys, tempfile
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'blind')
 RATERS = ('R1', 'R2', 'R3')
 MODEL = 'sonnet'
-N27 = 10
+N27 = 30            # Q-L27 = B (chủ dự án 07/10/2026): 30 khung tập mới + 30 khung tập 1
 REF27 = [('screening/ll-ep01-m23-p1.mp4', '4c8b71e9bace1648a27851113271704e8b8233e696f79949fba61e581f9338a5'),
          ('screening/ll-ep01-m23-p2.mp4', '9a258f6b4d3b658702adfcefe84ee5d260574604db733d69cf4b6ac4c670e5d5'),
          ('screening/ll-ep01-m23-p3.mp4', 'aac50b57d69f81ab885d9c906a584df8c7fe5653832e06b517d9bb84a5c5af4f')]   # tập 1 bản m23 (chuẩn gốc)
@@ -27,6 +29,7 @@ EDGE = 1.0          # bỏ 1 s đầu/cuối mỗi phần
 WIN31 = (-2.5, -1.5, -0.5, 0.5, 1.5, 2.5)
 STRIP_STEP, STRIP_N = 4, 8
 NEAR31 = 4.0        # hai vị trí cách ≤ 4 s là cùng một điểm
+GT_MIN = 20         # giải trình điểm 2/3 (từ vòng 2): ≥ 20 ký tự
 
 
 def P(p): return p if os.path.isabs(p) else os.path.join(REPO, p)
@@ -160,7 +163,21 @@ def plan31(TL):
     return cuts, strips
 
 
+def _hist(out): return out.rstrip('/') + '-lich-su'
+
+
+def _rounds(out):
+    """các vòng đã chấm đủ 3 người của tập này (thư mục lịch sử cạnh thư mục bộ ảnh)"""
+    h = _hist(out)
+    if not os.path.isdir(h): return []
+    return sorted(d for d in os.listdir(h) if re.fullmatch(r'vong-\d\d', d) and all(os.path.exists(os.path.join(h, d, f'{r}.json')) for r in RATERS))
+
+
 def q31_set(out, videos, TL):
+    if os.path.exists(os.path.join(out, 'manifest.json')):   # lần xem trước của tập này → lịch sử (vòng tính theo từng tập)
+        h = _hist(out); os.makedirs(h, exist_ok=True); n = len([d for d in os.listdir(h) if d.startswith('vong-')]) + 1
+        shutil.move(out, os.path.join(h, f'vong-{n:02d}'))
+    vong = len(_rounds(out)) + 1
     os.makedirs(out, exist_ok=True); W = _words(TL); cuts, strips = plan31(TL); txt = []
     for k, c in enumerate(cuts, 1):
         names = []
@@ -183,7 +200,7 @@ def q31_set(out, videos, TL):
     open(os.path.join(out, 'transitions.txt'), 'w').write('\n'.join(txt) + f'\n\nOverview strips R00…R{len(rows) - 1:02d}: one frame every 4 s from 0:02, 8 frames per strip, left to right, strips in order.\n')
     render_prompts(out, 'Q31')
     img = {f: sha_file(os.path.join(out, f)) for f in sorted(os.listdir(out)) if re.fullmatch(r'[TR]\d\d\.jpg|transitions\.txt', f)}
-    json.dump(dict(rule='Q31', videos=[dict(video=os.path.basename(v), sha256=sha_file(v)) for v in videos], files=img,
+    json.dump(dict(rule='Q31', vong=vong, videos=[dict(video=os.path.basename(v), sha256=sha_file(v)) for v in videos], files=img,
                    prompts={r: prompt_sha(f'Q31-{r}.txt') for r in RATERS}, model=MODEL), open(os.path.join(out, 'manifest.json'), 'w'), indent=1)
 
 
@@ -201,13 +218,17 @@ def q31_score(out, videos, TL):
     for f, h in (man.get('files') or {}).items():
         if not os.path.exists(os.path.join(out, f)) or sha_file(os.path.join(out, f)) != h: bad.append(f'{f} khác manifest')
     if len([f for f in man.get('files') or {} if f.startswith('T')]) != len(cuts): bad.append('số dải chuyển đoạn khác timeline')
+    vong = int(man.get('vong') or 0)
+    if vong != len(_rounds(out)) + 1: bad.append(f'vòng {vong} khác lịch sử ({len(_rounds(out))} vòng đã chấm trong {os.path.basename(_hist(out))})')
+    gt = json.load(open(os.path.join(out, 'giai-trinh.json'))) if os.path.exists(os.path.join(out, 'giai-trinh.json')) else {}
     R, b2 = _replies(out, 'Q31'); bad += b2
-    return agg31(cuts, R, bad)
+    return agg31(cuts, R, bad, vong=max(1, vong), giai_trinh=gt)
 
 
-def agg31(cuts, R, bad=()):
-    """cuts: giây các điểm chuyển đoạn (T01…); R: {R1: trả lời, …}. ĐẠT khi đủ 3 người xem hợp lệ và không điểm nào được
-    ≥ 2 người khác nhau cùng nêu là đứt mạch (break)"""
+def agg31(cuts, R, bad=(), vong=1, giai_trinh=None):
+    """cuts: giây các điểm chuyển đoạn (T01…); R: {R1: trả lời, …}; vong: vòng xem mù của tập (1, 2, …).
+    Vòng 1: ĐẠT khi đủ 3 người hợp lệ và không điểm nào được ≥ 2 người khác nhau cùng nêu là đứt mạch.
+    Từ vòng 2: chỉ chặn điểm 3/3; mỗi điểm 2/3 phải có giải trình (giai_trinh: {mốc: chữ}, mốc = T## hoặc m:ss.s của điểm) ≥ 20 ký tự."""
     bad = list(bad); items = []
     for r, x in R.items():
         if not str(x.get('question') or '').strip(): bad.append(f'{r}: thiếu câu trả lời "câu hỏi của phim"')
@@ -225,11 +246,20 @@ def agg31(cuts, R, bad=()):
     brk = [g for g in cons if len({z['r'] for z in g if z['kind'] == 'break'}) >= 2]
     fmt = lambda g: f"{int(g[0]['t'] // 60)}:{g[0]['t'] % 60:04.1f} [{'/'.join(sorted({z['where'] for z in g}))}] " \
                     f"{len({z['r'] for z in g})}/3 {'/'.join(sorted({z['kind'] for z in g}))}: {next((z for z in g if z['kind'] == 'break'), g[0])['note']}"
-    ok = not bad and len(R) == 3 and not brk
+    nb = lambda g: len({z['r'] for z in g if z['kind'] == 'break'})
+    GT = {str(k).strip(): str(v).strip() for k, v in (giai_trinh or {}).items()}
+    keys = lambda g: {z['tag'] for z in g if z['tag']} | {f"{int(g[0]['t'] // 60)}:{g[0]['t'] % 60:04.1f}"}
+    if vong <= 1: block, need = brk, []
+    else: block, need = [g for g in brk if nb(g) >= 3], [g for g in brk if nb(g) == 2]
+    nogt = [g for g in need if not any(len(GT.get(k, '')) >= GT_MIN for k in keys(g))]
+    ok = not bad and len(R) == 3 and not block and not nogt
     q = {r: x.get('question') for r, x in R.items()}
-    return dict(ok=ok, val=f"điểm liền mạch {[R[r].get('score') for r in R]} · đồng thuận ≥ 2/3: {len(cons)} điểm, đứt mạch {len(brk)}",
-                note='; '.join(bad[:4] + ['ĐỨT MẠCH ' + fmt(g) for g in brk] + ['chán ' + fmt(g) for g in cons if g not in brk]),
-                loi=bad + ['đứt mạch ' + fmt(g) for g in brk], dong_thuan=[fmt(g) for g in cons], cau_hoi=q)
+    return dict(ok=ok, val=f"vòng {vong} · điểm liền mạch {[R[r].get('score') for r in R]} · đồng thuận ≥ 2/3: {len(cons)} điểm, đứt mạch {len(brk)}"
+                + (f" (3/3: {len(block)}, 2/3 có giải trình {len(need) - len(nogt)}/{len(need)})" if vong > 1 else ''),
+                note='; '.join(bad[:4] + ['ĐỨT MẠCH ' + fmt(g) for g in block] + ['2/3 chưa giải trình ' + fmt(g) for g in nogt]
+                               + ['2/3 đã giải trình ' + fmt(g) for g in need if g not in nogt] + ['chán ' + fmt(g) for g in cons if g not in brk]),
+                loi=bad + ['đứt mạch ' + fmt(g) for g in block] + ['2/3 chưa giải trình ' + fmt(g) for g in nogt],
+                dong_thuan=[fmt(g) for g in cons], cau_hoi=q, vong=vong)
 
 
 if __name__ == '__main__':
