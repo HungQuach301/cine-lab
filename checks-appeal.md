@@ -161,3 +161,4 @@ Chủ dự án giao: các luật chất lượng mới Q26–Q31 (định nghĩa
   - Điểm cắt dò bằng scdet bỏ sót fade. Khi có timeline, P lấy ranh giới shot thật.
   - Đề nghị K chọn định nghĩa bố cục khi khoá, ví dụ chuẩn hoá độ sáng từng khung trước khi so. Tập 1 cũng trượt điều kiện này (chuỗi 4).
 - **Đề nghị Q14 (tập 6 v2, Q31):** cả 3 người xem mù đều thấy cú nhảy từ cảnh tối sang thẻ tựa giấy kem ở 0:19,8 là cứng. Bản khoá chỉ nhận tựa là shot `text` có `lamp`. Đề nghị K cho phép thêm dạng tựa chồng lên cảnh đinh (ví dụ shot `plate` có `title`), ngưỡng 0:20 giữ nguyên. Cho tới khi K khoá, P giữ thẻ tựa giấy.
+- **Chủ dự án quyết (07/10/2026):** Q26 "cảnh liền cùng bố cục" theo phương án A. K định nghĩa lại thước khi khoá: chuẩn hoá độ sáng từng khung, hoặc dựa ranh giới shot thật. Gửi K **cùng lúc** với đề nghị Q14 (tựa chồng lên cảnh đinh) và Q16 (5 mẫu toàn khung) ở trên.

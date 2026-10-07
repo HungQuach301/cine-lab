@@ -71,10 +71,11 @@ segments:
     map: {q: "Who made this: a hand, or a machine?", act: 1, emo: curiosity, color: warm, cue: theme, trade: [press-heidelberg, typewriter-old, mouse-clicks],
           in: cut, out: cut, lamp: {in: true, out: false},
           nouns: [{w: "@who", img: "cửa sổ xưởng in: người vẽ bên bàn vẽ"}, {w: "@typesetting", img: "khay chữ chì dưới đèn"}, {w: "@draw", img: "tường bản nháp hiện dần"}, {w: "@seventeen", img: "bảng ghim tin việc, 17 % tờ rơi"}]}
-    pause: [{before: "@seventeen", s: 0.7}]
+    pause: [{before: "@seventeen", s: 0.55}]
     vo: >-
       Who made this: a hand, or a machine? In 1990, the government said computers had already eliminated many typesetting jobs.
-      Today, machines draw too. On one freelance platform, job posts for image work fell seventeen percent.
+      Today, machines draw too. On one freelance platform, posts for image work fell seventeen percent, compared with manual jobs.
+    speed: 1.08
     vo_offset: 0.4
     tail: 0.3
     fadeIn: 0
@@ -86,7 +87,7 @@ segments:
       - {tpl: plate, at: "@today-0.3", p: {hero: wall_push, off: 60, cap: [{s: "today: machines draw too", at: "@today", src: []}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@today", src_ss: 2.0, dur: 2.6, gain_db: -10, fade_ms: 200}]}
       - {tpl: jobboard, at: "@freelance-0.3", in: fade, p: {drop: "@seventeen+0.1", share: 0.17, mood: cold, cam: [{t: "@freelance", x: 0, z: 0.0}, {t: "@percent+1", x: -40, z: 0.06}],
-           cap: [{num: img, s: "job posts for image work, one platform, within a year", at: "@seventeen"}]}}
+           cap: [{num: img, s: "image-work posts vs. manual jobs, one platform, within a year", at: "@seventeen"}]}}
 
   - id: "01"
     part: STORY
@@ -164,15 +165,15 @@ segments:
     pause: [{before: "@eightysix", s: 0.7}]
     vo: >-
       By 1988, composing room workers held about eighty-six thousand jobs in the United States, more than a third of them at newspapers.
-      The BLS expected little or no change in their numbers through the year 2000, despite a growing printing industry, because computers were taking over much of the typing.
+      Across the whole printing industry, the BLS expected their numbers to stay about level through the year 2000: printing was growing, but computers were taking over much of the typing.
       The training changed too. In the past, almost all compositors learned through an apprenticeship. By 1990, new technologies had lowered skill requirements, and most learned the craft on the job.
-      At newspapers, it was blunt: equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting and composition jobs, and more are certain to disappear.
+      At newspapers, the outlook was blunt: equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting and composition jobs, and more are certain to disappear.
     shots:
       - {tpl: plate, at: 0, p: {hero: lino_high, off: 0, cap: [{s: "composing room workers, United States, 1988", at: "@composing", src: [OOH90]}, {num: comp88, s: "jobs, 1988", at: "@eightysix"}, {s: "more than a third at newspapers", at: "@third"}]},
          sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.0, src_ss: 3.0, dur: 9.0, gain_db: -15, fade_ms: 900}]}
       - {tpl: archive, at: "@expected-0.4", in: fade, p: {img: assets/ll/archive/fsa-8d22743.jpg, rid: LOC-8d22743, focus: [0.4, 0.55], credit: "Setting type by hand, NYT, 1942 · Library of Congress",
            cam: [{t: "@expected", x: 0, z: 0.02}, {t: "@typing+1", x: -40, z: 0.09}],
-           cap: [{s: "BLS outlook to 2000: little or no change", at: "@expected", src: [OOH90]}, {s: "despite a growing printing industry", at: "@despite"}, {s: "computers take over much of the typing", at: "@typing", src: [OOH90]}]}}
+           cap: [{s: "all of printing, outlook to 2000: about level", at: "@expected", src: [OOH90]}, {s: "printing was growing…", at: "@growing"}, {s: "…but computers took over much of the typing", at: "@typing", src: [OOH90]}]}}
       - {tpl: plate, at: "@training-0.4", in: fade, p: {hero: case_close, off: 140, cap: [{s: "the training changed too", at: "@training"}, {s: "in the past: an apprenticeship", at: "@apprenticeship", src: [OOH90]}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…most learned on the job", at: "@job"}]},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@apprenticeship", src_ss: 9.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
       - {tpl: rows, at: "@newspapers#2-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@terminal", "@disappear"], cam: [{t: "@newspapers#2", x: 0, z: 0.0}, {t: "@already", x: -30, z: 0.04}, {t: "@disappear+1", x: -60, z: 0.08}],
@@ -189,7 +190,7 @@ segments:
       But the work did not vanish. It moved. The economist James Bessen describes how it happened. Designers used to draw a page and send it to typesetters, then mark revisions and send it back.
       With desktop publishing, it became easier for designers to use the software themselves. Designers using computers substituted for typesetters.
       In his words: there are fewer typesetters, but more graphic designers and desktop publishers. And the designers had to learn entirely new skills to use the new technology.
-      In 1988, visual artists held about two hundred sixteen thousand jobs, and the BLS expected them to grow faster than average, though computers would limit that growth.
+      In 1988, visual artists, a broad group from graphic designers and illustrators to painters and sculptors, held about two hundred sixteen thousand jobs. The BLS expected them to grow faster than average, though for graphic artists, computers would limit that growth.
     tail: 1.2
     shots:
       - {tpl: diptych, at: 0, p: {split: "@moved-0.2", left: {hero: case_close, i: 150, fx: 0.5}, right: {hero: shop_hook, i: 280, fx: 0.5},
@@ -199,9 +200,9 @@ segments:
            cap: [{s: "designer draws → typesetter sets → revisions go back", at: "@revisions"}, {s: "desktop publishing: designers use the software themselves", at: "@desktop"}, {s: "designers using computers substituted for typesetters", at: "@substituted", src: [BES16]}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@draw", src_ss: 4.0, dur: 3.5, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/keyboard-typing.mp3, at: "@desktop", src_ss: 3.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
       - {tpl: quote, at: "@words-0.4", in: flip, p: {beats: [{s: "in his words", at: "@words"}, {s: "designers had to learn entirely new skills", at: "@entirely"}], text: "There are fewer typesetters, but more graphic designers and desktop publishers.", who: "James Bessen", where: "How Computer Automation Affects Occupations, 2016", at: "@fewer", src: [BES16]}}
-      - {tpl: isotype, at: "@visual-1.0", in: fade, p: {title: "Visual artists, United States, 1988", subtitle: "graphic artists and fine artists", unit: 10000, unitName: "jobs", per: 22,
-           groups: [{label: "1988", num: art88, at: "@sixteen"}], cap: [{s: "BLS outlook: faster than average…", at: "@faster", src: [OOH90]}]}}
-      - {tpl: plate, at: "@though-0.3", in: fade, p: {hero: shop_hook, off: 230, cap: [{s: "…limited by computers", at: "@limit", src: [OOH90]}]},
+      - {tpl: isotype, at: "@visual-1.0", in: fade, p: {title: "Visual artists, United States, 1988", subtitle: "graphic artists (incl. graphic designers) and fine artists", unit: 10000, unitName: "jobs", per: 22,
+           groups: [{label: "1988", num: art88, at: "@sixteen"}], cap: [{s: "a broad group: graphic designers, illustrators, painters, sculptors", at: "@broad", src: [OOH90]}, {s: "BLS outlook: faster than average…", at: "@faster", src: [OOH90]}]}}
+      - {tpl: plate, at: "@though-0.3", in: fade, p: {hero: shop_hook, off: 230, cap: [{s: "graphic artists: growth limited by computers", at: "@limit", src: [OOH90]}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@though", src_ss: 30.0, dur: 3.0, gain_db: -14, fade_ms: 500}, {file: assets/ll/sfx/footsteps-steps.mp3, at: "@growth+0.6", src_ss: 0.5, dur: 2.6, gain_db: -12, fade_ms: 300}]}
 
   # ===== HỒI 3 · HÔM NAY (lạnh) =====
@@ -234,7 +235,8 @@ segments:
     vo: >-
       Can the BLS see a change like this coming? Once, it did. In the early 2000s, digital cameras were replacing film, and the BLS projected that photographic process workers, the people who developed film, would decline.
       They fell by nearly nine in ten, to only nine thousand two hundred by 2023.
-      But for a brand-new technology like generative AI, the BLS changes its projections only when its research provides clear evidence.
+      That change was easy to see coming: the digital camera improved on a familiar tool, and its path was clear.
+      The tools now reaching designers are different. For a brand-new technology like generative AI, the BLS changes its projections only when its research provides clear evidence.
     shots:
       - {tpl: plate, at: 0, p: {hero: wall_back, off: 200, cap: [{s: "Can the BLS see it coming?", at: "@coming", src: []}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: 0.5, src_ss: 32.0, dur: 2.5, gain_db: -13, fade_ms: 400}]}
@@ -243,8 +245,8 @@ segments:
          sfx: [{file: assets/ll/sfx/camera-shutter.mp3, at: "@digital", src_ss: 0.5, dur: 1.2, gain_db: -8, fade_ms: 60}]}
       - {tpl: filmstrip, at: "@fell-0.4", in: cut, p: {fade: "@nine", keep: 0.11, seed: 31, cam: [{t: "@fell", x: 80, z: 0.2}, {t: "@2023+0.5", x: 40, z: 0.24}], cap: [{s: "nearly nine in ten gone", at: "@nine", src: [MLR25]}]}}
       - {tpl: sign, at: "@only-0.4", in: fade, p: {num: ph23, at: "@thousand", wall: plaster, cam: [{t: "@only", x: 0, z: 0.0}, {t: "@2023+0.8", x: -30, z: 0.03}],
-           cap: [{s: "photographic process workers, 2023", at: "@2023", src: [MLR25]}]}}
-      - {tpl: plate, at: "@brandnew-0.4", in: fade, p: {hero: wall_push, off: 0, cap: [{s: "generative AI: projections change…", at: "@brandnew", src: [MLR25]}, {s: "…only with clear evidence", at: "@clear"}]},
+           cap: [{s: "photographic process workers, 2023", at: "@2023", src: [MLR25]}, {s: "easy to see coming: a familiar tool, improved", at: "@easy", src: [MLR25]}, {s: "…and a clear path", at: "@path", src: [MLR25]}]}}
+      - {tpl: plate, at: "@tools-0.4", in: fade, p: {hero: wall_push, off: 0, cap: [{s: "the tools now reaching designers are different", at: "@tools"}, {s: "generative AI: projections change…", at: "@brandnew", src: [MLR25]}, {s: "…only with clear evidence", at: "@clear#2"}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@generative", src_ss: 5.0, dur: 4.0, gain_db: -15, fade_ms: 400}]}
 
   - id: "08"
@@ -296,7 +298,7 @@ segments:
           nouns: [{w: "@pattern", img: "khung đôi: khay chữ chì | tường bản nháp"}, {w: "@repetitive", img: "tay đặt chữ lặp lại"}, {w: "@keystrokes", img: "bàn phím máy Linotype"}, {w: "@drawing", img: "tường bản nháp, người thiết kế"}, {w: "@posts#2", img: "bảng tin việc thưa dần"}]}
     vo: >-
       So here is the comparison, with a caution. We will not set these numbers side by side: one is a count from 1988, one is a forecast, and one is a single platform's job posts.
-      What we can compare is the pattern. Then, the computer took over setting the type, and the designer took the tool. Today, software drafts the first image, and the designer is the one handed the tool again.
+      What we can compare is the pattern. Then, the computer took over setting the type, and designers began doing that work themselves, on screen. Today, software can draft the first image, and designers use it to reach a first draft much more quickly.
       Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
       But the differences matter. Back then, the machine took the keystrokes, and there came to be more designers. This time, it reaches for the drawing itself, and the BLS projects fewer designers. So far, that is a forecast and a drop in job posts, not yet a count of jobs lost.
     shots:
@@ -306,7 +308,7 @@ segments:
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@forecast", src_ss: 14.0, dur: 2.0, gain_db: -14, fade_ms: 300}]}
       - {tpl: jobboard, at: "@single-0.3", in: fade, p: {drop: 999, seed: 29, mood: cold, cam: [{t: "@single", x: 40, z: 0.16}, {t: "@pattern", x: 10, z: 0.2}], cap: [{s: "one platform's job posts", at: "@single", src: [DHZ]}]}}
       - {tpl: diptych, at: "@pattern-0.4", in: fade, p: {split: "@today-0.2", left: {hero: case_close, i: 60, fx: 0.5}, right: {hero: wall_push, i: 300, fx: 0.5},
-           cap: [{s: "what we can compare is the pattern", at: "@pattern"}, {s: "then: the computer sets the type; the designer takes the tool", at: "@then", src: [BES16]}, {s: "today: software drafts the first image", at: "@today", src: [MLR26]}, {s: "the designer, handed the tool again", at: "@handed"}]}}
+           cap: [{s: "what we can compare is the pattern", at: "@pattern"}, {s: "then: computers set the type; designers did that work themselves", at: "@then", src: [BES16]}, {s: "today: software can draft the first image", at: "@today", src: [MLR26]}, {s: "designers use it to reach a first draft faster", at: "@reach", src: [MLR26]}]}}
       - {tpl: plate, at: "@technology-0.6", in: fade, p: {hero: case_close, off: 200, cap: [{s: "not the same technology — the same pattern", at: "@technology"}, {s: "a repetitive human task, taken over by an automated system", at: "@repetitive"}]},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@technology", src_ss: 2.0, dur: 5.0, gain_db: -15, fade_ms: 400}]}
       - {tpl: plate, at: "@differences-0.4", in: fade, p: {hero: lino_row, off: 150, cap: [{s: "but the differences matter", at: "@differences"}, {s: "then: the keystrokes, and more designers", at: "@keystrokes", src: [BES16]}]},
@@ -364,11 +366,11 @@ shorts:
   - id: S1
     hook: "1990: 'more are certain to disappear'"
     vo: >-
-      In 1990, the Bureau of Labor Statistics wrote about newspaper typesetters. Equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting jobs, and more are certain to disappear. The work did not vanish. Designers took the tool.
+      In 1990, the Bureau of Labor Statistics wrote about newspaper typesetters. Equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting jobs, and more are certain to disappear. The work did not vanish: designers began doing it themselves, on computers.
     shots:
       - {tpl: plate, at: 0, p: {hero: s_lino, off: 0, cap: [{s: "BLS, 1990: newspaper typesetters", at: "@1990", src: [OOH90]}, {s: "pages formatted at a desktop terminal", at: "@format"}, {s: "many typesetting jobs already gone", at: "@eliminated"}, {s: "“more are certain to disappear”", at: "@certain"}]},
          sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.2, src_ss: 2.0, dur: 9.0, gain_db: -15, fade_ms: 900}]}
-      - {tpl: plate, at: "@vanish-0.6", in: fade, p: {hero: s_wall, off: 0, cap: [{s: "the work moved: designers took the tool", at: "@vanish"}]}}
+      - {tpl: plate, at: "@vanish-0.6", in: fade, p: {hero: s_wall, off: 0, cap: [{s: "the work moved: designers did it themselves, on computers", at: "@vanish", src: [BES16]}]}}
   - id: S2
     hook: "Image work posts −17% after image AI"
     vo: >-
