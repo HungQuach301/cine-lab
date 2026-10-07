@@ -71,11 +71,11 @@ def main(ep, js=None):
         for sh in s['shots']:
             if sh['tpl'] != 'plate': continue
             a0, a1 = s['t0'] + sh['t0'], s['t0'] + sh['t1']
-            if not any(b0 >= a0 - 1.5 and b0 <= a1 for b0, b1, f in sfx): nohero.append(f"{s['id']}@{sh['t0']:.1f}")
+            if not any(b0 >= a0 - 1.55 and b0 <= a1 for b0, b1, f in sfx): nohero.append(f"{s['id']}@{sh['t0']:.1f}")   # 0,05 s: làm tròn at_abs ở đúng biên J-cut
     if nohero: bad.append('cảnh đinh không có âm thanh nghề: ' + ', '.join(nohero))
     sil = []
     for k in E.get('anchors', []):
-        say = [norm(x) for x in E['numbers'][k]['say'].replace('-', ' ').split()]
+        say = [norm(x) for x in E['numbers'][k]['say'].split()]   # giữ gạch nối: lời căn chỉnh coi 'eighty-six' là một từ (lỗi bỏ sót 86 000, 07/10)
         for sid, W in words.items():
             for i in range(1, len(W)):
                 if [norm(w[3]) for w in W[i:i + len(say)]] == say:

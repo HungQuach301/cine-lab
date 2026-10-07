@@ -370,7 +370,7 @@ shorts:
     shots:
       - {tpl: plate, at: 0, p: {hero: s_lino, off: 0, cap: [{s: "BLS, 1990: newspaper typesetters", at: "@1990", src: [OOH90]}, {s: "pages formatted at a desktop terminal", at: "@format"}, {s: "many typesetting jobs already gone", at: "@eliminated"}, {s: "“more are certain to disappear”", at: "@certain"}]},
          sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.2, src_ss: 2.0, dur: 9.0, gain_db: -15, fade_ms: 900}]}
-      - {tpl: plate, at: "@vanish-0.6", in: fade, p: {hero: s_wall, off: 0, cap: [{s: "the work moved: designers did it themselves, on computers", at: "@vanish", src: [BES16]}]}}
+      - {tpl: plate, at: "@vanish-0.6", in: fade, p: {hero: s_wall, off: 0, cap: [{s: "the work moved to designers' computers", at: "@vanish", src: [BES16]}]}}
   - id: S2
     hook: "Image work posts −17% after image AI"
     vo: >-
