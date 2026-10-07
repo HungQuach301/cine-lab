@@ -72,7 +72,7 @@ shorts:
 
 ## Bổ sung tập 6 v2 — NGUYÊN TẮC TỐI CAO (06/10/2026)
 - **Cảnh đinh 3D** (`design/ll-hero/`, three.js headless, cùng đường ống hậu kỳ tập 1): đặc tả khai `heroes: {KHOÁ: {hero: ep06/printshop, variant: a, opt: {...}, size: [1080, 1920]}}`;
-  shot `plate` dùng `p.hero: KHOÁ` (+ `off` khung bắt đầu, `speed`, `fx`); `diptych` dùng `left/right: {hero, i}`. `ll.py prep` tính độ dài cần dựng và dấu (băm mã + tham số);
+  shot `plate` dùng `p.hero: KHOÁ` (+ `frame0` khung bắt đầu — KHÔNG viết `off:` vì YAML đọc thành boolean; ll.py chặn khoá boolean —, `speed`, `fx`); `diptych` dùng `left/right: {hero, i}`. `ll.py prep` tính độ dài cần dựng và dấu (băm mã + tham số);
   `build.sh` dựng lại cảnh có dấu đổi (`SPP=4`). `opt`: `grade` (warm/sepia/cold, màu theo hồi), `lit` (giây đèn bén), `screen` (giây màn hình bừng), `done` (dòng chữ đầy).
   Sự kiện thật trong cảnh đinh khai ở `p.ev: [{at, what}]` để thước nhịp Q15 đếm; phải khớp `opt`.
 - **Mẫu v3** (`lib/v3.js`): `jobboard` (tin việc rơi, `drop`, `share`), `filmstrip` (phòng tối, `fade`, `keep`), `pasteup` (bàn dàn trang, `at`, `cut`), `diptych`. `desk` có `frame: {z, x, y}` (khuôn khác; ≤ 3 lần/tập).
