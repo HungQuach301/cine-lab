@@ -71,13 +71,13 @@ segments:
     map: {q: "Who made this: a hand, or a machine?", act: 1, emo: curiosity, color: warm, cue: theme, trade: [press-heidelberg, typewriter-old, mouse-clicks],
           in: cut, out: cut, lamp: {in: true, out: false},
           nouns: [{w: "@who", img: "cửa sổ xưởng in: người vẽ bên bàn vẽ"}, {w: "@typesetting", img: "khay chữ chì dưới đèn"}, {w: "@draw", img: "tường bản nháp hiện dần"}, {w: "@seventeen", img: "bảng ghim tin việc, 17 % tờ rơi"}]}
-    pause: [{before: "@seventeen", s: 0.55}]
+    pause: [{before: "@seventeen", s: 0.5}]
     vo: >-
       Who made this: a hand, or a machine? In 1990, the government said computers had already eliminated many typesetting jobs.
       Today, machines draw too. On one freelance platform, posts for image work fell seventeen percent, compared with manual jobs.
     speed: 1.08
-    vo_offset: 0.4
-    tail: 0.3
+    vo_offset: 0.3
+    tail: 0.2
     fadeIn: 0
     shots:
       - {tpl: plate, at: 0, p: {hero: shop_hook, off: 0, cap: [{s: "Who made this: a hand, or a machine?", at: "@who", src: []}]},
