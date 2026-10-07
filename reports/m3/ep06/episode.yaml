@@ -302,7 +302,8 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: lino_high, off: 150, cap: [{s: "the comparison, with a caution", at: "@comparison"}, {s: "not side by side:", at: "@side"}, {s: "a count from 1988", at: "@count", src: [OOH90]}]},
          sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.3, src_ss: 24.0, dur: 5.0, gain_db: -17, fade_ms: 1200}]}
-      - {tpl: plate, at: "@forecast-0.3", in: fade, p: {hero: wall_push, off: 250, cap: [{s: "a forecast, 2025–35", at: "@forecast", src: [OOHGD]}]}}
+      - {tpl: plate, at: "@forecast-0.3", in: fade, p: {hero: wall_push, off: 250, cap: [{s: "a forecast, 2025–35", at: "@forecast", src: [OOHGD]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@forecast", src_ss: 14.0, dur: 2.0, gain_db: -14, fade_ms: 300}]}
       - {tpl: jobboard, at: "@single-0.3", in: fade, p: {drop: 999, seed: 29, mood: cold, cam: [{t: "@single", x: 40, z: 0.16}, {t: "@pattern", x: 10, z: 0.2}], cap: [{s: "one platform's job posts", at: "@single", src: [DHZ]}]}}
       - {tpl: diptych, at: "@pattern-0.4", in: fade, p: {split: "@today-0.2", left: {hero: case_close, i: 60, fx: 0.5}, right: {hero: wall_push, i: 300, fx: 0.5},
            cap: [{s: "what we can compare is the pattern", at: "@pattern"}, {s: "then: the computer sets the type; the designer takes the tool", at: "@then", src: [BES16]}, {s: "today: software drafts the first image", at: "@today", src: [MLR26]}, {s: "the designer, handed the tool again", at: "@handed"}]}}
