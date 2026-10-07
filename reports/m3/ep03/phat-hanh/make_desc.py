@@ -1,0 +1,40 @@
+#!/opt/cine/bin/python
+"""Sinh mô tả YouTube tập 3 từ timeline (chương = mốc đoạn thật). python make_desc.py <timeline.json> <ra.txt>"""
+import json, sys
+tl = json.load(open(sys.argv[1]))
+CH = {'00': 'Cold open', '01': 'The screen on the corner', '02': 'A person at the window', '03': 'The cash machine', '04': 'Fewer tellers per branch, more branches',
+      '05': 'A different job', '06': 'The work moves again', '07': 'Tellers today', '08': 'Loan officers and underwriting software', '09': 'The essence of a credit rating',
+      '10': 'Does software judge credit better?', '11': "A banker's view", '12': 'Same pattern, different technology', '13': 'The more hopeful case', '14': 'The last lamp'}
+mm = lambda s: f'{int(s // 60)}:{int(s % 60):02d}'
+chap = '\n'.join(f"{mm(s['t0'])} {CH[s['id']]}" for s in tl['segments'])
+txt = f'''TITLE
+The ATM Didn't Kill the Bank Teller. Will AI?
+
+DESCRIPTION
+When cash machines spread across America, everyone expected bank tellers to disappear. They didn't. Branches got cheaper to run, banks opened more of them, and the teller's job changed from counting cash to talking with customers.
+
+Today, the Bureau of Labor Statistics projects teller jobs to fall about 13 percent by 2035, while software takes on more of the scoring and paperwork behind a loan. This film looks at what the ATM really did, what AI is doing now, and what still needs a person.
+
+The street and its lamplighter are fictional. Every number on screen comes from the sources listed below. The "banker's view" segment is the perspective of the channel's author, who has worked in banking; it is not data.
+
+Chapters
+{chap}
+
+Sources
+- U.S. Census Bureau, Historical Statistics of the United States, Colonial Times to 1970, Series D 233–682 (bank tellers, 1950–1970)
+- J. Bessen, "Toil and Technology", IMF Finance & Development, March 2015
+- J. Bessen, "How Computer Automation Affects Occupations: Technology, Jobs, and Skills" (2016)
+- U.S. Bureau of Labor Statistics, Occupational Outlook Handbook: "Tellers", "Loan Officers" (projections 2025–35); Employment Projections 2025–2035
+- Machovec, Rieley & Rolen, "Incorporating AI impacts in BLS employment projections: occupational case studies", Monthly Labor Review, Feb 2025
+- Meursault, Moulton, Santucci & Schor, "One Threshold Doesn't Fit All", Federal Reserve Bank of Philadelphia Working Paper 22-39
+Projections are forecasts, not counts. The Philadelphia Fed study tests credit models; it does not measure jobs.
+
+Music
+"Immersed" and "Reawakening" by Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+How this film was made
+Written, animated and edited with AI tools (Claude by Anthropic) under the direction of the channel's human author, who approved every creative decision. Narration is a synthetic voice (ElevenLabs library voice, not a real person). Animation is stylised and not intended to depict real footage.
+'''
+open(sys.argv[2], 'w').write(txt); print(chap)

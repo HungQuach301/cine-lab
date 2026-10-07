@@ -1,0 +1,817 @@
+diff --git a/design/m3/ep01/today/chot.sh b/design/m3/ep01/today/chot.sh
+new file mode 100644
+index 0000000..39a3865
+--- /dev/null
++++ b/design/m3/ep01/today/chot.sh
+@@ -0,0 +1,13 @@
++#!/bin/bash
++# Chốt một đoạn: FFV1 tạm (/dev/shm, vì đĩa đầy 12:38) → H.264 crf 10 yuv444p -g 48 (hợp đồng P đổi 01/10/2026) ở /var/tmp/cine-out/ep01/sec/<NN>.mkv,
++# kiểm số khung, chạy judder.py, xoá FFV1. Dùng: bash chot.sh 14
++set -e
++N=$1; S=/dev/shm/ep01-today/sec; O=/var/tmp/cine-out/ep01/sec
++df -h / | tail -1
++if [ "$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of csv=p=0 $S/$N.mkv)" = h264 ]; then cp $S/$N.mkv $O/$N.mkv; else ffmpeg -nostdin -v error -y -i $S/$N.mkv -c:v libx264 -preset medium -crf 10 -pix_fmt yuv444p -g 48 -r 24 $O/$N.mkv; fi
++cp $S/$N.mkv.timing.json $O/$N.timing.json
++echo "khung: $(ffprobe -v error -count_frames -select_streams v:0 -show_entries stream=nb_read_frames -of csv=p=0 $O/$N.mkv)"
++python3 /home/user/cine-lab/scripts/p/judder.py $O/$N.mkv --json /var/tmp/cine-out/ep01/today/judder-$N.json > /dev/null 2>&1 || true
++python3 -c "import json;d=json.load(open('/var/tmp/cine-out/ep01/today/judder-$N.json'));print({k:d.get(k) for k in ('so_khung','loi','giu_co_y_ge_1s','giu_ngan_13_23')})"
++rm -f $S/$N.mkv
++stat -c '%s byte' $O/$N.mkv
+diff --git a/design/m3/ep01/today/lib.js b/design/m3/ep01/today/lib.js
+new file mode 100644
+index 0000000..015c497
+--- /dev/null
++++ b/design/m3/ep01/today/lib.js
+@@ -0,0 +1,166 @@
++// Cine Lab · Animatic v3 · gói TODAY — thư viện đồ hoạ dùng chung (tách từ lát cắt M2.2a design/m3/lat-cat/dohoa.js, chuẩn kênh đã duyệt).
++// Canvas2D vẽ lại MỖI khung, t = khung/24 tất định. Giấy B3 (vân, mép răng cưa, bóng theo ánh rọi), ánh rọi ấm lướt chậm, giấy lay nhẹ, bụi trong ánh rọi,
++// motion blur khung con (màn trập 180°) trong cửa sổ nhanh. Mỗi đoạn (sNN.js) đặt window.SEC = { dur, frames, blur:[[a,b]], frame(g, t), lightShift?(t) }.
++// Màu và font giữ đúng lát cắt (RIGHTS C4-F1, M2-F-DejaVuSans-Bold, M2-F-DejaVuSerif-Bold).
++'use strict';
++const W = 1920, H = 1080, FPS = 24;
++const cv = document.getElementById('c'), X = cv.getContext('2d');
++const COLD_T = '#2b405c';
++const INK = '#211a17', INK2 = '#4a3f36', CREAM = '#ecdfbe', AMBER = '#c47026', AMBER_L = '#d99a52', COLD = '#3f5a7a', NAVY = '#141a2e', COLDW = '#eef3ff', OCHRE = '#6b3a12';
++const SANS = '"DejaVu Sans"', SERIFB = '"DejaVu Serif"';
++const font = (px, kind = 'sans', bold = false) => `${bold ? 'bold ' : ''}${px}px ${kind === 'serif' ? SERIFB : SANS}`;
++const M = '−';
++const SX = 150, SY = 90, SW = 1620, SH = 900;
++const cl = (u) => Math.max(0, Math.min(1, u));
++const sm = (u) => { u = cl(u); return u * u * u * (u * (u * 6 - 15) + 10); };
++const eo = (u) => { u = cl(u); return 1 - Math.pow(1 - u, 3); };
++const pr = (t, a, b) => cl((t - a) / (b - a));
++const lerp = (a, b, u) => a + (b - a) * u;
++const fmt1 = (v) => (v < 0 ? M : v > 0 ? '+' : '') + Math.abs(v).toFixed(1) + '%';
++const fmt0 = (v) => (v < 0 ? M : v > 0 ? '+' : '') + Math.abs(Math.round(v)) + '%';
++function rng(seed) { let s = seed >>> 0 || 1; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
++function paperTex(w, h, seed) {
++  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d'); const R = rng(seed);
++  g.fillStyle = CREAM; g.fillRect(0, 0, w, h);
++  const id = g.getImageData(0, 0, w, h), d = id.data;
++  for (let i = 0; i < d.length; i += 4) { const n = (R() - 0.5) * 9; d[i] += n; d[i + 1] += n; d[i + 2] += n * 0.8; }
++  g.putImageData(id, 0, 0);
++  for (let i = 0; i < 1400 * (w * h) / (1620 * 900); i++) {
++    const x = R() * w, y = R() * h, L = 6 + R() * 26, a = R() * Math.PI;
++    g.strokeStyle = `rgba(${R() < 0.5 ? '120,95,60' : '255,250,235'},${0.05 + R() * 0.07})`; g.lineWidth = 0.6 + R() * 0.8;
++    g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a) * L * 0.5 + (R() - 0.5) * 4, y + Math.sin(a) * L * 0.5 + (R() - 0.5) * 4, x + Math.cos(a) * L, y + Math.sin(a) * L); g.stroke();
++  }
++  for (let i = 0; i < 26; i++) {
++    const x = R() * w, y = R() * h, r = 40 + R() * 160, gr = g.createRadialGradient(x, y, 0, x, y, r);
++    gr.addColorStop(0, `rgba(150,110,60,${0.025 + R() * 0.03})`); gr.addColorStop(1, 'rgba(150,110,60,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r);
++  }
++  const e = g.createLinearGradient(0, 0, 0, h); e.addColorStop(0, 'rgba(90,60,30,0.10)'); e.addColorStop(0.06, 'rgba(90,60,30,0)'); e.addColorStop(0.94, 'rgba(90,60,30,0)'); e.addColorStop(1, 'rgba(90,60,30,0.12)'); g.fillStyle = e; g.fillRect(0, 0, w, h);
++  const e2 = g.createLinearGradient(0, 0, w, 0); e2.addColorStop(0, 'rgba(90,60,30,0.10)'); e2.addColorStop(0.04, 'rgba(90,60,30,0)'); e2.addColorStop(0.96, 'rgba(90,60,30,0)'); e2.addColorStop(1, 'rgba(90,60,30,0.10)'); g.fillStyle = e2; g.fillRect(0, 0, w, h);
++  return c;
++}
++function edgePath(w, h, seed) { const R = rng(seed), p = []; const step = 18;
++  for (let x = 0; x <= w; x += step) p.push([x, (R() - 0.5) * 2.2]);
++  for (let y = 0; y <= h; y += step) p.push([w + (R() - 0.5) * 2.2, y]);
++  for (let x = w; x >= 0; x -= step) p.push([x, h + (R() - 0.5) * 2.2]);
++  for (let y = h; y >= 0; y -= step) p.push([(R() - 0.5) * 2.2, y]); return p; }
++const PAPER = [paperTex(SW, SH, 11), paperTex(SW, SH, 29)], EDGE = [edgePath(SW, SH, 5), edgePath(SW, SH, 8)];
++const BG = (() => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const R = rng(77);
++  const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#171b2b'); gr.addColorStop(1, '#0d0f19'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
++  for (let i = 0; i < 5000; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '0,0,0' : '120,110,140'},${0.04 + R() * 0.05})`; g.fillRect(R() * W, R() * H, 1 + R() * 2, 1 + R() * 2); }
++  return c; })();
++function hatch(color, bg) { const c = document.createElement('canvas'); c.width = c.height = 14; const g = c.getContext('2d');
++  g.fillStyle = bg; g.fillRect(0, 0, 14, 14); g.strokeStyle = color; g.lineWidth = 3.2;
++  for (const o of [-14, 0, 14]) { g.beginPath(); g.moveTo(o, 14); g.lineTo(o + 14, 0); g.stroke(); } return X.createPattern(c, 'repeat'); }
++const HATCH_COLD = hatch(COLD, 'rgba(63,90,122,0.18)'), HATCH_AMB = hatch(AMBER_L, 'rgba(217,154,82,0.22)');
++function liftIcon(g, x, y, s, a) { g.save(); g.globalAlpha *= a; g.translate(x, y); g.strokeStyle = OCHRE; g.fillStyle = 'rgba(196,112,38,0.22)'; g.lineWidth = 3;
++  g.fillRect(0, 0, 54 * s, 78 * s); g.strokeRect(0, 0, 54 * s, 78 * s); g.beginPath(); g.moveTo(27 * s, 6 * s); g.lineTo(27 * s, 78 * s); g.stroke();
++  g.strokeRect(-4 * s, -14 * s, 62 * s, 10 * s); g.beginPath(); g.moveTo(16 * s, -9 * s); g.lineTo(38 * s, -9 * s); g.stroke(); g.restore(); }
++function mixC(a, b, u) { const p = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return `rgb(${A.map((x, i) => Math.round(lerp(x, B[i], u))).join(',')})`; }
++
++let NOTEXT = false;
++function text(g, s, x, y, f, color, align = 'left', base = 'alphabetic') { if (NOTEXT) return; g.font = f; g.fillStyle = color; g.textAlign = align; g.textBaseline = base; g.fillText(s, x, y); }
++function wrap(g, s, maxW, f) { g.font = f; if (g.measureText(s).width <= maxW) return [s]; const w = s.split(' '); let a = '', out = [];
++  for (const x of w) { const n = a ? a + ' ' + x : x; if (g.measureText(n).width > maxW && a) { out.push(a); a = x; } else a = n; } out.push(a); return out; }
++function tag(g, s, x, y, fill, color, f, a = 1, dash = false, align = 'left') { if (a <= 0) return 0; g.save(); g.globalAlpha *= a; g.font = f; const w = g.measureText(s).width + 28, h = 38;
++  const x0 = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x; g.fillStyle = fill; g.fillRect(x0, y - h / 2, w, h); if (dash) { g.setLineDash([8, 5]); g.strokeStyle = color; g.lineWidth = 2; g.strokeRect(x0 + 3, y - h / 2 + 3, w - 6, h - 6); g.setLineDash([]); }
++  text(g, s, x0 + 14, y + 1, f, color, 'left', 'middle'); g.restore(); return w; }
++function srcLine(g, s, y, a, x = 60) { if (a <= 0) return; g.save(); g.globalAlpha *= a; text(g, s, x, y, font(20), INK2); g.restore(); }
++function fadeText(g, s, x, y, f, color, a, align = 'left', base = 'alphabetic', rise = 10) { if (a <= 0) return; g.save(); g.globalAlpha *= a; text(g, s, x, y + (1 - eo(a)) * rise, f, color, align, base); g.restore(); }
++// cột ngang dự báo (gạch chéo + viền nét đứt)
++function bar(g, x0, k, y, h, v, u, cold, lab = true) { if (u <= 0) return; const L = v * k * u, xa = Math.min(x0, x0 + L), w = Math.abs(L);
++  g.fillStyle = cold ? HATCH_COLD : HATCH_AMB; g.fillRect(xa, y - h / 2, w, h);
++  g.setLineDash([9, 5]); g.strokeStyle = cold ? COLD : OCHRE; g.lineWidth = 2.2; g.strokeRect(xa + 1, y - h / 2 + 1, Math.max(0, w - 2), h - 2); g.setLineDash([]);
++  if (!lab) return; const s = fmt1(v * eo(u)), f = font(h > 40 ? 28 : 24, 'sans', true);
++  if (v < 0) text(g, s, xa - 10, y + 1, f, INK, 'right', 'middle'); else text(g, s, xa + w + 10, y + 1, f, INK, 'left', 'middle'); }
++// cột dọc (chúc xuống khi v < 0): solid = THỰC TẾ (đặc, nét liền), ngược lại DỰ BÁO (gạch chéo, nét đứt)
++function vbar(g, x, y0, k, w, v, u, solid, cold = true) { if (u <= 0) return; const L = -v * k * u, ya = Math.min(y0, y0 + L), h = Math.abs(L);
++  if (solid) { g.fillStyle = cold ? COLD : AMBER; g.fillRect(x - w / 2, ya, w, h); g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(x - w / 2, ya, w, h); }
++  else { g.fillStyle = cold ? HATCH_COLD : HATCH_AMB; g.fillRect(x - w / 2, ya, w, h); g.setLineDash([9, 5]); g.strokeStyle = cold ? COLD : OCHRE; g.lineWidth = 2.4; g.strokeRect(x - w / 2 + 1, ya + 1, w - 2, Math.max(0, h - 2)); g.setLineDash([]); } }
++function rowLabel(g, s, y, a, f = font(24), xr = 470, maxW = 400) { if (a <= 0) return; g.save(); g.globalAlpha *= a; const ls = wrap(g, s, maxW, f); const lh = 27;
++  ls.forEach((l, i) => text(g, l, xr, y + (i - (ls.length - 1) / 2) * lh, f, INK, 'right', 'middle')); g.restore(); }
++function axisH(g, x0, k, vmin, vmax, y0, y1, ty, a, draw = 1, step = 10) {
++  if (a <= 0) return; g.save(); g.globalAlpha *= a; const ga = g.globalAlpha;
++  for (let v = Math.ceil(vmin / step) * step; v <= vmax + 1e-6; v += step) { const x = x0 + v * k;
++    const show = draw >= 1 ? 1 : cl((draw * (vmax - vmin) - (vmax - v)) / (step * 0.6));
++    if (show <= 0) continue; g.globalAlpha = ga * show;
++    g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.28)'; g.lineWidth = v === 0 ? 4 : 1.5; g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y1); g.stroke();
++    text(g, v === 0 ? '0' : (v < 0 ? M : '+') + Math.abs(v) + '%', x, ty, font(22), INK2, 'center', 'top'); }
++  g.restore(); }
++// nét vẽ tay (gạch chân, gạch sửa) vẽ dần
++function stroke(g, pts, u, color, w) { if (u <= 0) return; g.save(); g.strokeStyle = color; g.lineWidth = w; g.lineCap = 'round'; g.lineJoin = 'round';
++  let L = 0; const seg = []; for (let i = 1; i < pts.length; i++) { const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); seg.push(d); L += d; }
++  let left = L * u; g.beginPath(); g.moveTo(...pts[0]);
++  for (let i = 1; i < pts.length && left > 0; i++) { const f = Math.min(1, left / seg[i - 1]); g.lineTo(lerp(pts[i - 1][0], pts[i][0], f), lerp(pts[i - 1][1], pts[i][1], f)); left -= seg[i - 1]; }
++  g.stroke(); g.restore(); }
++// thẻ giấy nhỏ (cắt giấy) trên tấm: nền kem đậm hơn, bóng, viền mảnh
++function card(g, x, y, w, h, a, rot = 0, fill = '#f3e8cc') { if (a <= 0) return false; g.save(); g.globalAlpha *= a; g.translate(x + w / 2, y + h / 2); g.rotate(rot); g.translate(-w / 2, -h / 2);
++  g.shadowColor = 'rgba(40,25,10,0.38)'; g.shadowBlur = 14; g.shadowOffsetX = 5; g.shadowOffsetY = 8; g.fillStyle = fill; g.fillRect(0, 0, w, h); g.shadowBlur = 0; g.shadowOffsetX = g.shadowOffsetY = 0;
++  g.strokeStyle = 'rgba(33,26,23,0.55)'; g.lineWidth = 1.5; g.strokeRect(0.5, 0.5, w - 1, h - 1); return true; }   // gọi g.restore() sau khi vẽ nội dung
++// biểu tượng vẽ tay đơn giản (nét OCHRE / INK)
++const ICON = {
++  pen(g, x, y, s) { g.beginPath(); g.moveTo(x - 18 * s, y + 18 * s); g.lineTo(x + 14 * s, y - 14 * s); g.lineTo(x + 20 * s, y - 8 * s); g.lineTo(x - 12 * s, y + 24 * s); g.closePath(); g.stroke(); g.beginPath(); g.moveTo(x - 24 * s, y + 26 * s); g.lineTo(x + 6 * s, y + 26 * s); g.stroke(); },
++  bubble(g, x, y, s) { g.beginPath(); g.ellipse(x, y - 4 * s, 24 * s, 17 * s, 0, 0, 7); g.stroke(); g.beginPath(); g.moveTo(x - 8 * s, y + 11 * s); g.lineTo(x - 16 * s, y + 24 * s); g.lineTo(x + 2 * s, y + 12 * s); g.stroke(); },
++  check(g, x, y, s) { g.strokeRect(x - 20 * s, y - 20 * s, 40 * s, 40 * s); g.beginPath(); g.moveTo(x - 11 * s, y + 1 * s); g.lineTo(x - 3 * s, y + 10 * s); g.lineTo(x + 13 * s, y - 10 * s); g.stroke(); },
++  code(g, x, y, s) { g.beginPath(); g.moveTo(x - 10 * s, y - 16 * s); g.lineTo(x - 24 * s, y); g.lineTo(x - 10 * s, y + 16 * s); g.moveTo(x + 10 * s, y - 16 * s); g.lineTo(x + 24 * s, y); g.lineTo(x + 10 * s, y + 16 * s); g.moveTo(x + 5 * s, y - 20 * s); g.lineTo(x - 5 * s, y + 20 * s); g.stroke(); },
++  headset(g, x, y, s) { g.beginPath(); g.arc(x, y, 20 * s, Math.PI, 0); g.stroke(); g.strokeRect(x - 25 * s, y - 2 * s, 9 * s, 18 * s); g.strokeRect(x + 16 * s, y - 2 * s, 9 * s, 18 * s); g.beginPath(); g.moveTo(x + 20 * s, y + 16 * s); g.quadraticCurveTo(x + 18 * s, y + 28 * s, x + 2 * s, y + 27 * s); g.stroke(); },
++  shield(g, x, y, s) { g.beginPath(); g.moveTo(x, y - 24 * s); g.lineTo(x + 20 * s, y - 16 * s); g.quadraticCurveTo(x + 20 * s, y + 14 * s, x, y + 25 * s); g.quadraticCurveTo(x - 20 * s, y + 14 * s, x - 20 * s, y - 16 * s); g.closePath(); g.stroke(); g.beginPath(); g.moveTo(x - 8 * s, y); g.lineTo(x - 1 * s, y + 8 * s); g.lineTo(x + 10 * s, y - 8 * s); g.stroke(); },
++  scales(g, x, y, s) { g.beginPath(); g.moveTo(x, y - 24 * s); g.lineTo(x, y + 22 * s); g.moveTo(x - 14 * s, y + 22 * s); g.lineTo(x + 14 * s, y + 22 * s); g.moveTo(x - 24 * s, y - 16 * s); g.lineTo(x + 24 * s, y - 16 * s); g.stroke();
++    for (const d of [-1, 1]) { g.beginPath(); g.moveTo(x + d * 24 * s, y - 16 * s); g.lineTo(x + d * 32 * s, y + 4 * s); g.lineTo(x + d * 16 * s, y + 4 * s); g.closePath(); g.stroke(); } },
++  doc(g, x, y, s) { g.strokeRect(x - 18 * s, y - 24 * s, 36 * s, 48 * s); for (let i = 0; i < 4; i++) { g.beginPath(); g.moveTo(x - 11 * s, y - 12 * s + i * 10 * s); g.lineTo(x + 11 * s, y - 12 * s + i * 10 * s); g.stroke(); } },
++  desk(g, x, y, s) { g.strokeRect(x - 16 * s, y - 20 * s, 32 * s, 22 * s); g.beginPath(); g.moveTo(x - 26 * s, y + 8 * s); g.lineTo(x + 26 * s, y + 8 * s); g.moveTo(x - 20 * s, y + 8 * s); g.lineTo(x - 20 * s, y + 24 * s); g.moveTo(x + 20 * s, y + 8 * s); g.lineTo(x + 20 * s, y + 24 * s); g.moveTo(x, y + 2 * s); g.lineTo(x, y + 8 * s); g.stroke(); },
++  gear(g, x, y, s) { g.beginPath(); for (let i = 0; i < 16; i++) { const a = i * Math.PI / 8, r = (i % 2 ? 15 : 21) * s; g.lineTo(x + Math.cos(a) * r, y + Math.sin(a) * r); } g.closePath(); g.stroke(); g.beginPath(); g.arc(x, y, 6 * s, 0, 7); g.stroke(); },
++};
++function icon(g, k, x, y, s, a, color = OCHRE, lw = 3) { if (a <= 0) return; g.save(); g.globalAlpha *= a; g.strokeStyle = color; g.lineWidth = lw; g.lineCap = 'round'; g.lineJoin = 'round'; ICON[k](g, x, y, s); g.restore(); }
++// cột đèn khí cách điệu (thân = khối cột, đầu đèn có quầng nếu lit > 0)
++function lampPost(g, x, yb, h, lit, a, style = 'solid') { if (a <= 0) return; g.save(); g.globalAlpha *= a; g.strokeStyle = INK; g.lineWidth = 3;
++  g.fillStyle = style === 'hatch' ? HATCH_COLD : style === 'amber' ? HATCH_AMB : 'rgba(33,26,23,0.15)'; g.fillRect(x - 9, yb - h, 18, h); g.strokeRect(x - 9, yb - h, 18, h);
++  g.beginPath(); g.moveTo(x - 30, yb); g.lineTo(x + 30, yb); g.stroke(); g.beginPath(); g.moveTo(x - 26, yb - h - 4); g.lineTo(x + 26, yb - h - 4); g.stroke();
++  const hy = yb - h - 50; g.beginPath(); g.moveTo(x - 20, hy + 46); g.lineTo(x - 26, hy + 8); g.lineTo(x + 26, hy + 8); g.lineTo(x + 20, hy + 46); g.closePath();
++  if (lit > 0) { g.save(); g.globalCompositeOperation = 'source-over'; const gr = g.createRadialGradient(x, hy + 26, 0, x, hy + 26, 120); gr.addColorStop(0, `rgba(255,190,100,${0.55 * lit})`); gr.addColorStop(1, 'rgba(255,190,100,0)'); g.fillStyle = gr; g.fillRect(x - 120, hy - 94, 240, 240); g.restore(); g.fillStyle = mixC('#d8cba8', '#f4b860', lit); g.fill(); }
++  g.stroke(); g.beginPath(); g.moveTo(x - 10, hy + 8); g.lineTo(x, hy - 6); g.lineTo(x + 10, hy + 8); g.stroke(); g.restore(); }
++
++// ---------- ánh rọi, lay, bụi ----------
++function light(t) { const sh = (window.SEC && SEC.lightShift) ? SEC.lightShift(t) : 0; return [960 + 360 * Math.sin(2 * Math.PI * t / 23 + 0.6) + sh, 470 + 110 * Math.sin(2 * Math.PI * t / 31)]; }
++const DUST = (() => { const R = rng(4242); return Array.from({ length: 46 }, () => [R(), R(), R(), R(), R()]); })();
++function drawSheet(g, t, idx, content, ox, oy, alpha, flipU, scale = 1) {
++  const [lx, ly] = light(t);
++  const rot = 0.0021 * Math.sin(2 * Math.PI * t / 7.3) + 0.0012 * Math.sin(2 * Math.PI * t / 4.1 + 1);
++  const dx = 1.6 * Math.sin(2 * Math.PI * t / 5.1 + 0.3), dy = 1.1 * Math.sin(2 * Math.PI * t / 6.7 + 2);
++  g.save(); g.globalAlpha = alpha;
++  g.translate(SX + ox + dx + SW / 2, SY + oy + dy + SH / 2); g.rotate(rot); g.scale(scale, scale); g.translate(-SW / 2, -SH / 2);
++  if (flipU !== undefined) g.scale(Math.max(0.001, flipU), 1);
++  const e = EDGE[idx % 2];
++  g.save(); g.shadowColor = 'rgba(0,0,0,0.62)'; g.shadowBlur = 38; g.shadowOffsetX = (SX + SW / 2 - lx) * 0.03 + 10; g.shadowOffsetY = (SY + SH / 2 - ly) * 0.03 + 16;
++  g.beginPath(); e.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.fillStyle = CREAM; g.fill(); g.restore();
++  g.save(); g.beginPath(); e.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.clip(); g.drawImage(PAPER[idx % 2], 0, 0);
++  content(g, t);
++  if (flipU !== undefined) { g.fillStyle = `rgba(30,20,10,${0.45 * (1 - flipU)})`; g.fillRect(0, 0, SW, SH); }
++  g.restore(); g.restore();
++}
++function drawLight(g, t, a) {
++  const [lx, ly] = light(t);
++  g.save(); g.globalCompositeOperation = 'multiply'; const v = g.createRadialGradient(lx, ly, 260, lx, ly, 1250);
++  v.addColorStop(0, 'rgba(255,255,255,1)'); v.addColorStop(1, `rgba(${Math.round(255 - 120 * a)},${Math.round(255 - 125 * a)},${Math.round(255 - 110 * a)},1)`); g.fillStyle = v; g.fillRect(0, 0, W, H);
++  g.globalCompositeOperation = 'lighter'; const s = g.createRadialGradient(lx, ly, 0, lx, ly, 700);
++  s.addColorStop(0, `rgba(60,38,12,${0.55 * a})`); s.addColorStop(1, 'rgba(60,38,12,0)'); g.fillStyle = s; g.fillRect(0, 0, W, H); g.restore();
++}
++function drawDust(g, t, a) { if (a <= 0) return; const [lx, ly] = light(t); g.save(); g.globalCompositeOperation = 'lighter';
++  for (const [r1, r2, r3, r4, r5] of DUST) { const x = lx - 700 + 1400 * ((r1 + 0.012 * (0.5 + r4) * t) % 1), y = ly - 420 + 840 * ((r2 + 0.006 * (0.4 + r5) * t + 0.02 * Math.sin(t * (0.3 + r3) + r1 * 9)) % 1);
++    const d = Math.hypot(x - lx, y - ly) / 700, al = a * (0.10 + 0.16 * r3) * Math.max(0, 1 - d * d), rad = 1.2 + 2.4 * r4;
++    if (al <= 0.004) continue; const gr = g.createRadialGradient(x, y, 0, x, y, rad * 2); gr.addColorStop(0, `rgba(255,214,160,${al})`); gr.addColorStop(1, 'rgba(255,214,160,0)'); g.fillStyle = gr; g.fillRect(x - rad * 2, y - rad * 2, rad * 4, rad * 4); }
++  g.restore(); }
++function reset(g) { g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0); }
++// khung chuẩn: nền + nội dung đoạn + ánh rọi + bụi; mờ từ/về nền tối 6 khung đầu/cuối (không bao giờ đen hẳn → không có 2 khung giống hệt)
++function sceneFrame(g, t) { reset(g); g.drawImage(BG, 0, 0); SEC.frame(g, t); reset(g); if (!SEC.noLight) { drawLight(g, t, 1); drawDust(g, t, 1); } }
++let STORY = null;
++window.setStory = async (url) => { if (!url) { STORY = null; return; } const im = new Image(); im.src = url; await im.decode(); STORY = im; };
++const ACC = document.createElement('canvas'); ACC.width = W; ACC.height = H; const AX = ACC.getContext('2d');
++window.drawFrame = (f) => {
++  const t = f / FPS, fast = (SEC.blur || []).some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
++  if (N === 1) sceneFrame(X, t);
++  else { for (let k = 0; k < N; k++) { sceneFrame(AX, t + ((k + 0.5) / N - 0.5) * 0.5 / FPS); X.globalCompositeOperation = 'source-over'; X.globalAlpha = 1 / (k + 1); X.setTransform(1, 0, 0, 1, 0, 0); X.drawImage(ACC, 0, 0); } }
++  reset(X); const nf = SEC.frames, ED = 7;
++  const k = f < ED - 1 ? 1 - (f + 1) / ED : f > nf - ED ? (f - (nf - ED)) / ED * 0.92 : 0;
++  if (k > 0 && !SEC.ownFade) { X.fillStyle = `rgba(6,7,12,${k})`; X.fillRect(0, 0, W, H); }
++};
++window.READY = true;
+diff --git a/design/m3/ep01/today/render.js b/design/m3/ep01/today/render.js
+new file mode 100644
+index 0000000..afb6a02
+--- /dev/null
++++ b/design/m3/ep01/today/render.js
+@@ -0,0 +1,48 @@
++// Cine Lab · Animatic v3 · gói TODAY — trình render một đoạn (lib.js + s<NN>.js) trong Chromium Playwright, từng khung, tất định → FFV1.
++// node render.js --sec 14 [--from 0 --to N] [--out tệp.mkv] [--story thư mục %04d.png] [--png 0,100] [--pngdir d]
++// Mã hoá (P đổi hợp đồng 01/10/2026 vì đĩa đầy): H.264 crf 10 yuv444p -g 48. Số khung lấy từ reports/m3/m2-2b/timeline-v3.json (khung1 − khung0). Ghi <out>.timing.json (giây/khung).
++const { chromium } = require('/opt/pw/node_modules/playwright');
++const { spawn } = require('child_process');
++const fs = require('fs'), path = require('path');
++const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
++const SEC = arg('sec'), TL = JSON.parse(fs.readFileSync('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'));
++const seg = (TL.doan || TL.sections || TL.segments || []).find((s) => s.n === SEC);
++const NF = seg.khung[1] - seg.khung[0], F0 = +arg('from', 0), F1 = +arg('to', NF);
++const OUT = path.resolve(arg('out', `${process.env.OUTDIR || '/var/tmp/cine-out/ep01/sec'}/${SEC}.mkv`)), STORY = arg('story', null);
++const PNGS = (arg('png', '') || '').split(',').filter(Boolean).map(Number), PNGDIR = arg('pngdir', path.dirname(OUT));
++const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
++const SRC = path.join(__dirname, 's' + SEC.replace('-', '') + '.js');
++(async () => {
++  const browser = await chromium.launch({ args: ['--disable-gpu', '--font-render-hinting=none', '--force-color-profile=srgb'] });
++  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
++  page.on('pageerror', (e) => console.error('[pageerror]', e.message)); page.on('console', (m) => console.error('[page]', m.text()));
++  await page.route('http://dohoa.local/**', (route) => { const u = decodeURIComponent(new URL(route.request().url()).pathname);
++    if (u === '/index.html') return route.fulfill({ status: 200, contentType: 'text/html; charset=utf-8', body: `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c" width="1920" height="1080"></canvas><script>window.NF=${NF};</script><script src="/lib.js"></script><script src="/sec.js"></script></body></html>` });
++    if (u === '/lib.js') return route.fulfill({ status: 200, contentType: 'text/javascript; charset=utf-8', body: fs.readFileSync(path.join(__dirname, 'lib.js')) });
++    if (u === '/sec.js') return route.fulfill({ status: 200, contentType: 'text/javascript; charset=utf-8', body: fs.readFileSync(SRC) });
++    if (u.startsWith('/story/') && STORY) { const p = path.join(STORY, path.basename(u)); if (fs.existsSync(p)) return route.fulfill({ status: 200, contentType: 'image/png', body: fs.readFileSync(p) }); }
++    route.fulfill({ status: 404, body: 'nf' }); });
++  await page.goto('http://dohoa.local/index.html'); await page.waitForFunction(() => window.READY === true && !!window.SEC);
++  if (ONLY.length) { for (const f of ONLY) { if (STORY) await page.evaluate(async (u) => await window.setStory(u), `/story/${String(f).padStart(4, '0')}.png`);
++      await page.evaluate((f) => window.drawFrame(f), f); const png = await page.locator('#c').screenshot(); fs.writeFileSync(path.join(PNGDIR, `s${SEC}_f${f}.png`), png); }
++    await browser.close(); return; }
++  const NST = STORY ? fs.readdirSync(STORY).filter((x) => /^\d{4}\.png$/.test(x)).length : 0;
++  const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1920x1080', '-framerate', '24', '-i', '-',
++    ...(process.env.FFV1 ? ['-c:v', 'ffv1', '-level', '3', '-coder', '1', '-context', '1', '-pix_fmt', 'yuv444p'] : ['-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48']), OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
++  const times = [], story = [];
++  for (let f = F0; f < F1; f++) {
++    const b = Date.now();
++    if (STORY) await page.evaluate(async (u) => await window.setStory(u), f < NST ? `/story/${String(f).padStart(4, '0')}.png` : null);
++    const b64 = await page.evaluate((f) => { window.drawFrame(f); const d = document.getElementById('c').getContext('2d').getImageData(0, 0, 1920, 1080).data;
++      let s = ''; const CH = 0x8000; for (let i = 0; i < d.length; i += CH) s += String.fromCharCode.apply(null, d.subarray(i, i + CH)); return btoa(s); }, f);
++    const buf = Buffer.from(b64, 'base64'); const dt = (Date.now() - b) / 1000; times.push(dt); if (STORY && f < NST) story.push(dt);
++    if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
++    if (PNGS.includes(f)) { const p = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1920x1080', '-i', '-', '-frames:v', '1', path.join(PNGDIR, `s${SEC}_f${f}.png`)]); p.stdin.end(buf); }
++    if ((f - F0) % 200 === 0) console.error(`[${SEC}] ${f}/${F1} ${dt.toFixed(2)} s`);
++  }
++  ff.stdin.end(); await new Promise((r) => ff.on('close', r)); await browser.close();
++  const st = (a) => a.length ? { mean: +(a.reduce((x, y) => x + y, 0) / a.length).toFixed(3), max: +Math.max(...a).toFixed(3), n: a.length } : null;
++  const res = { sec: SEC, from: F0, to: F1, frames: times.length, frames_expected: NF, per_frame_s: st(times), story_composite_per_frame_s: st(story), times };
++  fs.writeFileSync(OUT + '.timing.json', JSON.stringify(res));
++  console.log(JSON.stringify({ ...res, times: undefined }));
++})().catch((e) => { console.error(e); process.exit(1); });
+diff --git a/design/m3/ep01/today/s1013.js b/design/m3/ep01/today/s1013.js
+new file mode 100644
+index 0000000..6716e94
+--- /dev/null
++++ b/design/m3/ep01/today/s1013.js
+@@ -0,0 +1,201 @@
++// Khối 10–13 · [STORY→TODAY] (93,75 s = 2 250 khung). Dựng lại từ lát cắt M2.2a (design/m3/lat-cat/dohoa.js, đã duyệt): cùng mốc nội bộ, lời lệch +1,0 s
++// (align reports/m3/m2-2a/vo/bill-lat-cat-take1.align.json). Cảnh truyện G0 = tấm nền br10 mới của xưởng STORY. Sửa L1–L4 theo chủ dự án (01/10/2026).
++'use strict';
++const DUR = 93.75;
++// ---------- số liệu (KICH-BAN v3 §9.2, chính xác) ----------
++const G1 = [[1950, 97], [1960, 77], [1970, 37]];
++const G3 = [['Word processors and typists', -34.4, 24.40], ['Telephone operators', -27.6, 28.52], ['Switchboard operators, incl. answering service', -26.0, 31.30], ['Data entry keyers', -25.5, 33.00], ['Telemarketers', -21.4, 36.05]];
++const G4 = [['Customer service representatives', -5.0, 58.62], ['Insurance appraisers, auto damage', -9.2, 62.78], ['Claims adjusters, examiners, and investigators', -4.4, 65.66]];
++const G5A = [['Software developers', 17.9, 72.01]];
++const G5B = [['Nurse practitioners', 41.0, 80.03], ['Solar photovoltaic installers', 36.5, 82.41], ['Data scientists', 34.6, 85.33]];
++const SRC = { census: 'Source: U.S. Census Bureau, Historical Statistics of the U.S., Series D 233–682',
++  ep: 'Source: U.S. BLS, Employment Projections 2025–35, Table 1.5',
++  mlr: 'Source: U.S. BLS, Monthly Labor Review, Feb 2025 (2023–33 projections)' };
++
++// ---------- mốc thời gian (giây, đã gồm lệch +1,0 s của lời dẫn) ----------
++const T = { flame: [1354.4, 907.2], dotA: 6.0, dotB: 6.8, dotC: 7.55, storyOut: [6.3, 6.95], paperUp: [6.95, 7.5],
++  g1axis: [7.2, 8.0], g1line: [[8.2, 9.6], [9.7, 11.1]], g2out: [12.0, 13.5], flip: [13.2, 14.3], g2title: 18.53, g2tag: 17.72, g2axis: [18.6, 20.0], cover: [13.45, 18.3], list: 15.41, strip: [20.21, 21.72], g1title: 10.32, band60: 7.33, rep: 42.53, gear: 43.64, q4: [58.2, 58.8], strip4: [49.10, 50.05],
++  barDur: 0.95, c34: [26.62, 27.55], g3b: [38.69, 39.5], pat: [40.4, 41.6],
++  g4: [45.65, 46.9], g4title: 46.3, g4tag: 48.75, g4quote: 51.8, morph: [68.9, 70.4], tagA: 70.6, tagB: 76.1,
++  words: [88.33, 89.68, 90.95], black: [93.0, 93.75] };
++const BLUR = [[5.95, 7.7], [11.95, 14.5], [45.6, 47.0], [68.85, 70.5]];   // cửa sổ motion blur (khung con)
++
++// ---------- toạ độ tấm (cục bộ) ----------
++const L3 = { lab: 470, z: 1430, k: 22, rows: [330, 410, 490, 570, 650], bh: 46, tickY: 708 };   // G3 (và G4 trước biến hình): 0 ở x 1430, −40 % ở x 550
++const L5 = { z: 550 + 40 * (930 / 85), k: 930 / 85 };   // G5: −40 % ở 550, +45 % ở 1480
++const R45 = { rows4: [360, 420, 480], rowA: [540], rowsB: [650, 704, 758], bh: 36 };
++
++// ---------- nội dung các khung (toạ độ tấm) ----------
++// L2 (chủ dự án 01/10/2026): chuỗi HSUS §6.1, ngắt đường ở chỗ đổi phân loại. 1950: 97k (phân loại 1950, lời "nearly a hundred thousand" ở đoạn 08)
++// và 94k (phân loại 1960, gốc của −18 % ở đoạn 14). Đoạn A 94k → 77k "1960 classification"; đoạn B 77k → 37k "1970 classification". Nhất quán với đoạn 08 và 14.
++function sheetG1(g, t) {
++  const ax = pr(t, ...T.g1axis), x0 = 260, x1 = 1250, yB = 720, yT = 200, X1 = (yr) => 380 + (yr - 1950) * 38, Y1 = (v) => yB - v / 100 * (yB - yT);
++  fadeText(g, 'Elevator operators, United States', 60, 85, font(46, 'serif', true), INK, pr(t, T.g1title, T.g1title + 0.5));
++  g.save(); g.globalAlpha = ax; g.lineWidth = 2; g.strokeStyle = INK; g.strokeRect(1560 - 470, 42, 470, 40);
++  text(g, 'ACTUAL · U.S. Census · persons', 1560 - 14, 63, font(22, 'sans', true), INK, 'right', 'middle'); g.restore();
++  // dải nhấn "the 1960s"
++  const bd = sm(pr(t, T.band60, T.band60 + 0.7)); if (bd > 0) { g.fillStyle = `rgba(196,112,38,${0.10 * bd})`; g.fillRect(X1(1960), yT - 10, (X1(1970) - X1(1960)) * bd, yB - yT + 10); }
++  g.save(); g.globalAlpha = ax;
++  for (let v = 0; v <= 100; v += 25) { const y = Y1(v); g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.22)'; g.lineWidth = v === 0 ? 3.5 : 1.4;
++    g.beginPath(); g.moveTo(x0, y); g.lineTo(x0 + (x1 - x0) * sm(ax * 1.2 - (v / 100) * 0.2), y); g.stroke(); text(g, v === 0 ? '0' : v + 'k', x0 - 16, y, font(22), INK2, 'right', 'middle'); }
++  g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, yB); g.lineTo(x0, yB - (yB - yT) * sm(ax)); g.stroke();
++  for (const yr of [1950, 1960, 1970]) text(g, String(yr), X1(yr), yB + 14, font(24, 'sans', true), INK, 'center', 'top');
++  text(g, 'occupation definitions revised in 1960 and 1970: line broken where the classification changes', x0, yB + 62, font(21), INK2);
++  g.restore();
++  // hai đoạn nét liền, ngắt ở 1960 (mỗi đoạn một phân loại)
++  const uA = sm(pr(t, ...T.g1line[0])), uB = sm(pr(t, ...T.g1line[1])), GAP = 9;
++  const A0 = [X1(1950), Y1(94)], A1 = [X1(1960) - GAP, Y1(77)], B0 = [X1(1960) + GAP, Y1(77)], B1 = [X1(1970), Y1(37)];
++  g.save(); g.strokeStyle = COLD; g.lineWidth = 6; g.lineCap = 'round';
++  if (uA > 0) { g.beginPath(); g.moveTo(...A0); g.lineTo(lerp(A0[0], A1[0], uA), lerp(A0[1], A1[1], uA)); g.stroke(); }
++  if (uB > 0) { g.beginPath(); g.moveTo(...B0); g.lineTo(lerp(B0[0], B1[0], uB), lerp(B0[1], B1[1], uB)); g.stroke(); }
++  g.restore();
++  if (uA > 0.98) { g.save(); g.strokeStyle = INK; g.lineWidth = 2; g.beginPath(); g.moveTo(X1(1960) - 4, Y1(77) - 22); g.lineTo(X1(1960) + 4, Y1(77) + 22); g.stroke(); g.restore(); }
++  fadeText(g, '1960 classification', lerp(A0[0], A1[0], 0.5) + 6, lerp(A0[1], A1[1], 0.5) + 44, font(20), INK2, pr(t, T.g1line[0][0] + 0.3, T.g1line[0][0] + 0.8), 'center', 'middle', 6);
++  fadeText(g, '1970 classification', lerp(B0[0], B1[0], 0.5) - 40, lerp(B0[1], B1[1], 0.5) + 58, font(20), INK2, pr(t, T.g1line[1][0] + 0.3, T.g1line[1][0] + 0.8), 'center', 'middle', 6);
++  // điểm: 1950 có hai giá trị (97k phân loại 1950 — vòng rỗng; 94k phân loại 1960 — chấm đặc, đầu đoạn A)
++  const on97 = pr(t, 7.6, 8.0), on94 = pr(t, 7.4, 7.7), on77 = pr(t, 9.5, 9.8), on37 = pr(t, 11.0, 11.3);
++  if (on97 > 0) { g.save(); g.globalAlpha = on97; g.strokeStyle = COLD; g.lineWidth = 3; g.beginPath(); g.arc(X1(1950), Y1(97), 10, 0, 7); g.stroke();
++    text(g, '97k', X1(1950) + 18, Y1(97) - 10, font(26, 'sans', true), INK, 'left', 'bottom'); text(g, '1950 classification', X1(1950) + 80, Y1(97) - 14, font(19), INK2, 'left', 'bottom'); g.restore(); }
++  if (on94 > 0) { g.save(); g.globalAlpha = on94; g.fillStyle = mixC(AMBER, COLD, pr(t, 7.4, 8.4)); g.beginPath(); g.arc(...A0, 11, 0, 7); g.fill();
++    text(g, '94k', A0[0] + 18, A0[1] + 26, font(26, 'sans', true), INK, 'left', 'middle'); g.restore(); }
++  if (on77 > 0) { g.save(); g.globalAlpha = on77; g.fillStyle = COLD; g.beginPath(); g.arc(...A1, 9, 0, 7); g.arc(...B0, 9, 0, 7); g.fill(); text(g, '77k', X1(1960) + 18, Y1(77) - 20, font(28, 'sans', true), INK, 'left', 'bottom'); g.restore(); }
++  if (on37 > 0) { g.save(); g.globalAlpha = on37; g.fillStyle = COLD; g.beginPath(); g.arc(...B1, 11, 0, 7); g.fill(); text(g, '37k', B1[0] + 18, B1[1] - 18, font(28, 'sans', true), INK, 'left', 'bottom'); g.restore(); }
++  // số lớn đếm theo đầu đường (94k → 77k → 37k)
++  const head = uB > 0 ? lerp(77, 37, uB) : lerp(94, 77, uA);
++  const ca = pr(t, 8.2, 8.7); if (ca > 0) { g.save(); g.globalAlpha = ca; text(g, Math.round(head) + 'k', 1300, 470, font(104, 'sans', true), COLD_T, 'left');
++    text(g, uB >= 1 ? '1970' : uB > 0 ? '1960 → 1970' : '1950 → 1960', 1306, 512, font(26), INK2, 'left'); g.restore(); }
++  srcLine(g, SRC.census, 868, ax);
++}
++function sheetG3(g, t, thumb = false) {
++  const ta = thumb ? 1 : pr(t, T.g2title, T.g2title + 0.6), tg = thumb ? 1 : pr(t, T.g2tag, T.g2tag + 0.5), axd = thumb ? 1 : sm(pr(t, ...T.g2axis));
++  g.save(); g.globalAlpha *= ta; text(g, 'Fastest-shrinking U.S. jobs', 60, 85, font(46, 'serif', true), INK); g.restore();
++  tag(g, 'PROJECTION 2025–35 · BLS · jobs', 1560, 62, NAVY, COLDW, font(22, 'sans', true), tg, true, 'right');
++  axisH(g, L3.z, L3.k, -40, 0, 290, 690, L3.tickY, pr(t, T.g2axis[0], T.g2axis[0] + 0.3), axd);
++  G3.forEach(([lab, v, t0], i) => { const u = thumb ? 1 : sm(pr(t, t0, t0 + T.barDur)); rowLabel(g, lab, L3.rows[i], thumb ? 1 : pr(t, t0 - 0.15, t0 + 0.35)); bar(g, L3.z, L3.k, L3.rows[i], L3.bh, v, u, true); });
++  // số lớn −34 % đếm lên rồi đứng
++  const c = thumb ? 1 : pr(t, ...T.c34); if (c > 0) { g.save(); g.globalAlpha *= pr(t, T.c34[0], T.c34[0] + 0.25) || (thumb ? 1 : 0);
++    const n = Math.round(34 * eo(c)); text(g, (n ? M : '') + n + '%', 550, 252, font(124, 'sans', true), COLD_T, 'left');
++    text(g, 'word processors and typists, 2025–35', 556, 284, font(22), INK2, 'left'); g.restore(); }
++  // G3b: cùng mẫu hình
++  const ia = thumb ? 1 : pr(t, ...T.g3b); if (ia > 0) {
++    liftIcon(g, 70, 170, 1, ia);
++    g.save(); g.globalAlpha *= ia; g.strokeStyle = OCHRE; g.lineWidth = 1.6; g.beginPath(); g.moveTo(97, 252); g.lineTo(97, 296); g.lineTo(lerp(97, 140, 1), 316); g.stroke(); g.restore();
++    const pa = thumb ? 1 : pr(t, ...T.pat); if (pa > 0) { g.save(); g.translate(150, 236); g.rotate(-0.06); g.beginPath(); g.rect(0, -48, 330 * sm(pa), 70); g.clip();
++      text(g, 'same pattern', 0, 0, font(40, 'serif', true), OCHRE, 'left'); g.strokeStyle = OCHRE; g.lineWidth = 2.5; g.beginPath(); g.moveTo(0, 12); g.quadraticCurveTo(150, 20, 300, 8); g.stroke(); g.restore(); }
++  }
++  if (!thumb) { srcLine(g, SRC.ep, 868, pr(t, 13.6, 14.3));
++    // L1 quãng 1. "a list of its own": các dòng trống chờ tên nghề (mờ dần khi nhãn thật hiện)
++    const la = pr(t, T.list, T.list + 0.6); if (la > 0) L3.rows.forEach((y, i) => { const a = la * pr(t, T.list + i * 0.12, T.list + i * 0.12 + 0.4) * (1 - pr(t, G3[i][2] - 0.15, G3[i][2] + 0.35)); if (a <= 0) return;
++      g.fillStyle = `rgba(33,26,23,${0.18 * a})`; g.fillRect(470 - 300 + i * 18, y - 5, 300 - i * 18, 10); });
++    // bìa báo cáo BLS cắt giấy ("the U.S. Bureau of Labor Statistics"), trượt đi khi trục hiện
++    const cu = sm(pr(t, T.cover[0], T.cover[0] + 0.7)), co = sm(pr(t, T.cover[1], T.cover[1] + 0.7));
++    if (cu > 0 && co < 1) { if (card(g, 660 + co * 900, 300 + (1 - cu) * 40 - co * 60, 520, 330, cu * (1 - co), -0.025 + 0.06 * co, '#e9e2cf')) {
++      g.fillStyle = NAVY; g.fillRect(0, 0, 520, 92); text(g, 'U.S. BUREAU OF LABOR STATISTICS', 26, 48, font(23, 'sans', true), COLDW, 'left', 'middle');
++      text(g, 'Employment Projections', 26, 150, font(36, 'serif', true), INK, 'left', 'middle');
++      g.strokeStyle = 'rgba(33,26,23,0.35)'; g.lineWidth = 2; for (let i = 0; i < 4; i++) { g.beginPath(); g.moveTo(26, 205 + i * 26); g.lineTo(26 + [430, 380, 410, 250][i], 205 + i * 26); g.stroke(); }
++      g.restore(); } }
++    // dải thời gian 2025 → 2035 ("between 2025 and 2035")
++    const s0 = pr(t, T.strip[0], T.strip[0] + 0.4), s1 = sm(pr(t, T.strip[0] + 0.2, T.strip[1] + 0.3)), sOut = pr(t, 25.6, 26.4);
++    if (s0 > 0 && sOut < 1) { g.save(); g.globalAlpha *= s0 * (1 - sOut); const xa = 600, xb = 1360, y = 236;
++      g.strokeStyle = COLD; g.lineWidth = 5; g.setLineDash([14, 8]); g.beginPath(); g.moveTo(xa, y); g.lineTo(lerp(xa, xb, s1), y); g.stroke(); g.setLineDash([]);
++      for (let k = 0; k <= 10; k++) { const x = lerp(xa, xb, k / 10); if (x > lerp(xa, xb, s1) + 1) break; g.lineWidth = 2; g.beginPath(); g.moveTo(x, y - 9); g.lineTo(x, y + 9); g.stroke(); }
++      g.fillStyle = COLD; g.beginPath(); g.arc(xa, y, 9, 0, 7); g.fill(); text(g, '2025', xa, y - 22, font(28, 'sans', true), INK, 'center', 'bottom');
++      const e = pr(t, T.strip[1], T.strip[1] + 0.4); if (e > 0) { g.globalAlpha *= e; g.beginPath(); g.moveTo(xb + 16, y); g.lineTo(xb - 4, y - 12); g.lineTo(xb - 4, y + 12); g.closePath(); g.fill(); text(g, '2035', xb, y - 22, font(28, 'sans', true), INK, 'center', 'bottom'); }
++      g.restore(); }
++    // "one task, repeated, and a machine that can repeat it": vòng lặp + bánh răng cạnh "same pattern"
++    const ra = pr(t, T.rep, T.rep + 0.4); if (ra > 0) { g.save(); g.globalAlpha *= ra; g.strokeStyle = OCHRE; g.lineWidth = 3; const cx = 478, cy = 222, an = (t - T.rep) * 2.4;
++      g.beginPath(); g.arc(cx, cy, 17, an, an + 5.2); g.stroke(); const ex = cx + Math.cos(an + 5.2) * 17, ey = cy + Math.sin(an + 5.2) * 17, tg = an + 5.2 + Math.PI / 2;
++      g.fillStyle = OCHRE; g.beginPath(); g.moveTo(ex + Math.cos(tg) * 9, ey + Math.sin(tg) * 9); g.lineTo(ex + Math.cos(tg + 2.3) * 8, ey + Math.sin(tg + 2.3) * 8); g.lineTo(ex + Math.cos(tg - 2.3) * 8, ey + Math.sin(tg - 2.3) * 8); g.closePath(); g.fill(); g.restore(); }
++    const ga = pr(t, T.gear, T.gear + 0.4); if (ga > 0) { g.save(); g.translate(524, 222); g.rotate((t - T.gear) * 1.6); icon(g, 'gear', 0, 0, 0.8, ga, OCHRE, 2.5); g.restore(); } }
++}
++function sheetG45(g, t) {
++  // G3 thu nhỏ góc trái trên, mờ 40 %
++  const s = sm(pr(t, ...T.g4)), sc = lerp(1, 0.3, s);
++  g.save(); g.translate(lerp(0, 40, s), lerp(0, 30, s)); g.scale(sc, sc); g.globalAlpha *= lerp(1, 0.4, s); NOTEXT = s > 0.5; sheetG3(g, t, true); NOTEXT = false; g.restore();
++  if (s < 1) srcLine(g, SRC.ep, 868, 1 - s);
++  const m = sm(pr(t, ...T.morph)), z = lerp(L3.z, L5.z, m), k = lerp(L3.k, L5.k, m);
++  const ta = pr(t, T.g4title, T.g4title + 0.6);
++  // P sửa (luật so sánh điểm 5): tiêu đề, câu trích và nhãn kỳ của G4 chỉ thuộc nhóm AI 2023–33 → mờ đi khi trục biến hình sang G5 (nghề tăng, gồm kỳ 2025–35)
++  const g4a = 1 - sm(pr(t, T.morph[0] - 0.4, T.morph[0] + 0.5));
++  g.save(); g.globalAlpha *= ta * pr(t, T.morph[0] + 0.3, T.morph[1]); text(g, 'Projected change in selected U.S. jobs', 600, 128, font(44, 'serif', true), INK); g.restore();
++  g.save(); g.globalAlpha *= ta * g4a; text(g, 'BLS projections that name AI', 600, 128, font(44, 'serif', true), INK);
++  const q = wrap(g, '“expected to primarily affect occupations whose core tasks can be most easily replicated by GenAI”', 900, font(23));
++  g.globalAlpha *= pr(t, T.q4[0] + 0.2, T.q4[1]); q.forEach((l, i) => text(g, l, 600, 176 + i * 30, font(23), INK2)); g.restore();
++  // L1 quãng 2. Dải 2023 → 2033 ("In its 2023 to 2033 projections")
++  const s4 = pr(t, T.strip4[0], T.strip4[0] + 0.4), s4u = sm(pr(t, T.strip4[0] + 0.1, T.strip4[1] + 0.4)), s4o = pr(t, T.q4[0], T.q4[1]);
++  if (s4 > 0 && s4o < 1) { g.save(); g.globalAlpha *= s4 * (1 - s4o) * g4a; const xa = 1160, xb = 1470, y = 44;
++    g.strokeStyle = OCHRE; g.fillStyle = OCHRE; g.lineWidth = 4; g.setLineDash([12, 7]); g.beginPath(); g.moveTo(xa, y); g.lineTo(lerp(xa, xb, s4u), y); g.stroke(); g.setLineDash([]);
++    g.beginPath(); g.arc(xa, y, 7, 0, 7); g.fill(); text(g, '2023', xa - 14, y + 1, font(24, 'sans', true), INK, 'right', 'middle');
++    const e = pr(t, T.strip4[1], T.strip4[1] + 0.3); if (e > 0) { g.globalAlpha *= e; g.beginPath(); g.moveTo(xb + 14, y); g.lineTo(xb - 4, y - 10); g.lineTo(xb - 4, y + 10); g.closePath(); g.fill(); text(g, '2033', xb + 22, y + 1, font(24, 'sans', true), INK, 'left', 'middle'); }
++    g.restore(); }
++
++  tag(g, 'PROJECTION 2023–33 · earlier round', 600, 44, OCHRE, CREAM, font(22, 'sans', true), pr(t, T.g4tag, T.g4tag + 0.5) * g4a, true);
++  const tickY = lerp(522, 808, m), yTop = 325, yBot = lerp(505, 790, m);
++  axisH(g, z, k, lerp(-40, -40, m), m > 0 ? 45 * m - 0.001 + (m >= 1 ? 0.002 : 0) : 0, yTop, yBot, tickY, pr(t, T.g4tag + 0.3, T.g4tag + 0.9), sm(pr(t, T.g4tag + 0.3, T.g4tag + 1.3)));
++  G4.forEach(([lab, v, t0], i) => { rowLabel(g, lab, R45.rows4[i], pr(t, t0 - 0.15, t0 + 0.35), font(22)); bar(g, z, k, R45.rows4[i], R45.bh, v, sm(pr(t, t0, t0 + T.barDur)), true); });
++  // G5
++  const groupTag = (s, y, a) => tag(g, s, 60, y, OCHRE, CREAM, font(19, 'sans', true), a, true);
++  groupTag('PROJECTION 2023–33', 318, pr(t, T.tagA, T.tagA + 0.5));
++  // L4: vạch ngăn hai đợt dự báo (nét đứt đậm, suốt bề ngang) + nhãn đợt riêng mỗi nhóm + hai dòng nguồn
++  const dvu = sm(pr(t, T.tagB - 0.1, T.tagB + 0.7)); if (dvu > 0) { g.save(); g.setLineDash([16, 8]); g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(60, 578); g.lineTo(60 + 1500 * dvu, 578); g.stroke(); g.restore(); }
++  groupTag('PROJECTION 2025–35 · newest', 606, pr(t, T.tagB, T.tagB + 0.5));
++  G5A.forEach(([lab, v, t0], i) => { rowLabel(g, lab, R45.rowA[i], pr(t, t0 - 0.15, t0 + 0.35), font(22)); bar(g, z, k, R45.rowA[i], R45.bh, v, sm(pr(t, t0, t0 + T.barDur)), false); });
++  G5B.forEach(([lab, v, t0], i) => { rowLabel(g, lab, R45.rowsB[i], pr(t, t0 - 0.15, t0 + 0.35), font(22)); bar(g, z, k, R45.rowsB[i], R45.bh, v, sm(pr(t, t0, t0 + T.barDur)), false); });
++  // câu trích MLR dàn chữ lớn trên thẻ cắt giấy, từng cụm hiện đúng lúc lời đọc tới (không đi trước lời), rồi thu về dòng trích nhỏ trước cột đầu (58,62 s)
++  const QW = [['“expected', 51.97], ['to', 53.00], ['primarily', 53.00], ['affect', 53.37], ['occupations', 53.77], ['whose', 54.14], ['core', 54.38], ['tasks', 54.64], ['can', 56.41], ['be', 56.41], ['most', 56.60], ['easily', 56.88], ['replicated', 57.33], ['by', 57.33], ['GenAI”', 57.33]];
++  const qa = pr(t, T.g4quote, T.g4quote + 0.5), qo = sm(pr(t, ...T.q4));
++  if (qa > 0 && qo < 1) { if (card(g, 600, 300 - qo * 140, 900, 250 - qo * 60, qa * (1 - qo), -0.012, '#f3e8cc')) {
++      const f = font(40, 'serif', true); g.font = f; let x = 36, y = 78;
++      QW.forEach(([w, tw]) => { const ww = g.measureText(w).width; if (x + ww > 870) { x = 36; y += 56; } const a = pr(t, tw, tw + 0.3); if (a > 0) { g.save(); g.globalAlpha *= a; text(g, w, x, y + (1 - eo(a)) * 8, f, INK, 'left', 'alphabetic'); g.restore(); } x += ww + g.measureText(' ').width; });
++      text(g, '— U.S. BLS, Monthly Labor Review, Feb 2025', 36, 222, font(20), INK2, 'left', 'alphabetic');
++      g.restore(); } }
++  // nguồn
++  const a5 = pr(t, T.tagA - 0.3, T.tagA + 0.5);
++  srcLine(g, '2023–33: ' + SRC.mlr, lerp(868, 850, a5), s);
++  srcLine(g, '2025–35: Source: U.S. BLS, Employment Projections 2025–35', 876, pr(t, T.tagB, T.tagB + 0.5));
++  // G6 (L3): ba thẻ chữ ở dải trống y 204–268 (giữa tiêu đề và mép trên trục 325), mũi tên ngắn chỉ nhóm; không đè ô thu nhỏ (x ≤ 526) hay mép biểu đồ
++  [['end', 720, [[652, 236], [560, 236]]], ['change', 1000, [[958, 272], [958, 310]]], ['new', 1330, [[1250, 272], [1250, 310]]]].forEach(([w, x, ar], i) => { const a = pr(t, T.words[i], T.words[i] + 0.45); if (a <= 0) return;
++    g.save(); g.globalAlpha *= a; g.translate(x, 236 + (1 - eo(a)) * 12); g.font = font(46, 'serif', true); const ww = g.measureText(w).width + 40;
++    g.fillStyle = 'rgba(243,232,204,0.96)'; g.shadowColor = 'rgba(40,25,10,0.35)'; g.shadowBlur = 10; g.fillRect(-ww / 2, -32, ww, 62); g.shadowBlur = 0;
++    g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(-ww / 2, -32, ww, 62); text(g, w, 0, 0, font(46, 'serif', true), INK, 'center', 'middle'); g.restore();
++    const au = sm(pr(t, T.words[i] + 0.2, T.words[i] + 0.7)); stroke(g, ar, au, OCHRE, 3);
++    if (au >= 1) { const [p0, p1] = ar, an = Math.atan2(p1[1] - p0[1], p1[0] - p0[0]); g.save(); g.fillStyle = OCHRE; g.beginPath(); g.moveTo(p1[0] + Math.cos(an) * 8, p1[1] + Math.sin(an) * 8); g.lineTo(p1[0] + Math.cos(an + 2.5) * 10, p1[1] + Math.sin(an + 2.5) * 10); g.lineTo(p1[0] + Math.cos(an - 2.5) * 10, p1[1] + Math.sin(an - 2.5) * 10); g.closePath(); g.fill(); g.restore(); } });
++}
++
++// sương trôi 2D trên cảnh truyện (lớp trước, theo độ sâu: dải dưới đặc hơn, trôi nhanh hơn ở gần)
++const MIST = (() => { const R = rng(515); return [0, 1, 2].map((k) => Array.from({ length: 26 }, () => [R(), R(), R()])); })();
++function drawMist(g, t, a) { g.save();
++  MIST.forEach((L, k) => { const sp = [9, 16, 26][k], yb = [560, 700, 860][k], al = [0.05, 0.07, 0.09][k] * a;
++    for (const [r1, r2, r3] of L) { const x = ((r1 * 2400 + sp * t) % 2400) - 240, y = yb + (r2 - 0.5) * 240, rx = 160 + 240 * r3;
++      const gr = g.createRadialGradient(x, y, 0, x, y, rx); gr.addColorStop(0, `rgba(150,160,195,${al})`); gr.addColorStop(1, 'rgba(150,160,195,0)'); g.fillStyle = gr; g.fillRect(x - rx, y - rx, 2 * rx, 2 * rx); } });
++  g.restore(); }
++
++function frameAt(g, t) {
++  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0);
++  g.drawImage(BG, 0, 0);
++  const paperIn = t >= T.storyOut[1] ? 1 : 0;   // G0 → G1: cảnh truyện tối dần (6,3–6,95 s), rồi tấm giấy sáng lên từ tối (6,95–7,5 s); chấm hổ phách nối hai bên
++  // tấm giấy và nội dung theo đoạn
++  if (t < T.g2out[1]) {   // G1 (vào dưới chấm hổ phách, trượt trái + mờ còn 30 % rồi rời khung)
++    const o = sm(pr(t, ...T.g2out)); drawSheet(g, t, 0, sheetG1, -o * 1900, 0, paperIn * lerp(1, 0.3, Math.min(1, o * 1.6)));
++  }
++  if (t >= T.flip[0] && t < T.g4[0]) drawSheet(g, t, 1, (gg, tt) => sheetG3(gg, tt), 0, 0, 1, t < T.flip[1] ? sm(pr(t, ...T.flip)) : undefined);
++  if (t >= T.g4[0]) drawSheet(g, t, 1, sheetG45, 0, 0, 1);
++  drawLight(g, t, 1);
++  drawDust(g, t, paperIn);
++  // cảnh truyện G0 phủ trên, mờ dần 6,55–7,25 s
++  if (t < T.paperUp[1]) { const k = 1 - sm(pr(t, ...T.paperUp)); if (k > 0) { g.fillStyle = `rgba(4,5,10,${k})`; g.fillRect(0, 0, W, H); } }
++  if (STORY && paperIn < 1) { g.drawImage(STORY, 0, 0, W, H); drawMist(g, t, 1); const d = sm(pr(t, ...T.storyOut)); if (d > 0) { g.fillStyle = `rgba(4,5,10,${d})`; g.fillRect(0, 0, W, H); } }
++  // chấm hổ phách: quầng co lại thành chấm (6,0–6,8 s), trôi tới điểm 1950 (6,8–7,55 s)
++  if (t >= T.dotA && t < T.dotC + 0.4) {
++    const P1950 = [SX + 380, SY + 720 - 0.94 * 520], u = sm(pr(t, T.dotB, T.dotC)), c = sm(pr(t, T.dotA, T.dotB));
++    const x = lerp(T.flame[0], P1950[0], u) + Math.sin(u * Math.PI) * 60, y = lerp(T.flame[1], P1950[1], u) - Math.sin(u * Math.PI) * 140;
++    const rad = lerp(170, 30, c), core = lerp(26, 13, c), fade = 1 - pr(t, T.dotC, T.dotC + 0.4);
++    g.save(); g.globalCompositeOperation = 'lighter'; const gr = g.createRadialGradient(x, y, 0, x, y, rad);
++    gr.addColorStop(0, `rgba(255,190,110,${0.85 * fade})`); gr.addColorStop(0.35, `rgba(230,140,50,${0.35 * fade})`); gr.addColorStop(1, 'rgba(200,110,30,0)'); g.fillStyle = gr; g.beginPath(); g.arc(x, y, rad, 0, 7); g.fill(); g.restore();
++    g.save(); g.globalAlpha = c * fade; g.fillStyle = AMBER; g.beginPath(); g.arc(x, y, core * 0.85, 0, 7); g.fill(); g.restore();
++  }
++  // đen cuối
++  const b = pr(t, ...T.black); if (b > 0) { g.fillStyle = `rgba(0,0,0,${0.6 * sm(b)})`; g.fillRect(0, 0, W, H); }
++}
++
++window.SEC = { dur: DUR, frames: window.NF || 2250, blur: BLUR, noLight: true, lightShift: (t) => (t > 88 ? (t - 88) * 70 : 0), frame: frameAt };
+diff --git a/design/m3/ep01/today/s14.js b/design/m3/ep01/today/s14.js
+new file mode 100644
+index 0000000..d052d53
+--- /dev/null
++++ b/design/m3/ep01/today/s14.js
+@@ -0,0 +1,90 @@
++// Đoạn 14 · [TODAY] The same clock (62,83 s = 1 508 khung). Mốc = vo_offset 0,6 + align bill-14 (giây trong đoạn).
++// Tấm A: "CHANGE IN 10 YEARS", bốn cột chúc xuống từ 0 (trục 0 → −60 %): thang máy THỰC TẾ (đặc, nét liền, census · persons, cùng phân loại 94k→77k, 77k→37k)
++// | khe + vạch "history | forecast" | BLS DỰ BÁO 2025–35 (gạch chéo, nét đứt, jobs). Tấm B: một thang máy ↔ lưới văn phòng, không số.
++'use strict';
++const T = { axis: [0.8, 2.0], clock: 3.33, title: 4.14, hdrA: 6.06, tagA: 7.21, srcA: 7.90, c1: [8.82, 9.9], y1: 10.34, c2: [12.21, 13.3], y2: 12.74,
++  hdrB: 14.44, div: 14.44, tagB: 16.56, srcB: 17.47, c3: [18.49, 19.6], y3: 20.29, c4: [20.58, 21.6], hist: 22.20, fore: 23.70, persons: 25.71, jobs: 27.76, band: 29.81,
++  out: [32.6, 33.6], inB: [33.0, 34.0], lift: 34.97, gear: 35.74, lever: 37.43, bldg: 38.18, office: 41.14, once: 42.56, tasks: [43.63, 44.52, 45.59, 46.60], old: 47.78, reach: 50.21,
++  fc: 51.73, tech: 52.86, cases: 54.34, ic: [55.69, 56.63, 57.88] };
++const Z = 260, K = 8, COLS = [[400, -18, 'Elevator operators', '1950–60', '94k → 77k', '1960 classification', T.c1, T.y1, true],
++  [660, -52, 'Elevator operators', '1960–70', '77k → 37k', '1970 classification', T.c2, T.y2, true],
++  [1100, -34, 'Word processors & typists', '2025–35', '', '', T.c3, T.y3, false], [1340, -28, 'Telephone operators', '2025–35', '', '', T.c4, T.y3, false]];
++function outlineTag(g, s, cx, y, a, under, uA) { if (a <= 0) return; g.save(); g.globalAlpha *= a; g.font = font(21, 'sans', true); const w = g.measureText(s).width + 28;
++  g.fillStyle = 'rgba(243,232,204,0.85)'; g.fillRect(cx - w / 2, y - 19, w, 38); g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(cx - w / 2, y - 19, w, 38); text(g, s, cx - w / 2 + 14, y + 1, font(21, 'sans', true), INK, 'left', 'middle');
++  if (under && uA > 0) { const i = s.indexOf(under), x0 = cx - w / 2 + 14 + g.measureText(s.slice(0, i)).width, x1 = x0 + g.measureText(under).width;
++    stroke(g, [[x0 - 4, y + 27], [lerp(x0, x1, 0.5), y + 30], [x1 + 6, y + 26]], uA, AMBER, 4); }
++  g.restore(); }
++function dashTag(g, s, cx, y, a, under, uA) { if (a <= 0) return; g.save(); g.font = font(21, 'sans', true); const w = g.measureText(s).width + 28; g.restore();
++  tag(g, s, cx - w / 2, y, NAVY, COLDW, font(21, 'sans', true), a, true);
++  if (under && uA > 0) { g.save(); g.font = font(21, 'sans', true); const i = s.indexOf(under), x0 = cx - w / 2 + 14 + g.measureText(s.slice(0, i)).width, x1 = x0 + g.measureText(under).width; g.restore();
++    stroke(g, [[x0 - 4, y + 27], [lerp(x0, x1, 0.5), y + 30], [x1 + 6, y + 26]], uA * a, AMBER, 4); } }
++function clock(g, x, y, r, a, u) { if (a <= 0) return; g.save(); g.globalAlpha *= a; g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.arc(x, y, r, 0, 7); g.stroke();
++  for (let i = 0; i < 12; i++) { const an = i * Math.PI / 6; g.beginPath(); g.moveTo(x + Math.cos(an) * r * 0.8, y + Math.sin(an) * r * 0.8); g.lineTo(x + Math.cos(an) * r * 0.92, y + Math.sin(an) * r * 0.92); g.stroke(); }
++  const an = -Math.PI / 2 + 2 * Math.PI * u; g.fillStyle = 'rgba(196,112,38,0.25)'; g.beginPath(); g.moveTo(x, y); g.arc(x, y, r * 0.75, -Math.PI / 2, an); g.closePath(); g.fill();
++  g.strokeStyle = AMBER; g.lineWidth = 4; g.beginPath(); g.moveTo(x, y); g.lineTo(x + Math.cos(an) * r * 0.75, y + Math.sin(an) * r * 0.75); g.stroke(); g.restore(); }
++function sheetA(g, t) {
++  const ax = sm(pr(t, ...T.axis));
++  fadeText(g, 'CHANGE IN 10 YEARS', 60, 85, font(46, 'serif', true), INK, pr(t, T.title, T.title + 0.6));
++  clock(g, 1500, 62, 34, pr(t, T.clock, T.clock + 0.4), sm(pr(t, T.clock + 0.2, T.title + 1.0)));
++  // trục từ 0 xuống −60 %
++  g.save(); g.globalAlpha *= ax;
++  for (let v = 0; v >= -60; v -= 20) { const y = Z - v * K; g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.25)'; g.lineWidth = v === 0 ? 4 : 1.4;
++    g.beginPath(); g.moveTo(270, y); g.lineTo(270 + 1250 * sm(ax * 1.15 + v / 400), y); g.stroke(); text(g, v === 0 ? '0' : M + Math.abs(v) + '%', 252, y, font(22), INK2, 'right', 'middle'); }
++  g.restore();
++  // vạch history | forecast
++  const dv = sm(pr(t, T.div, T.div + 0.9)); if (dv > 0) { g.save(); g.setLineDash([10, 7]); g.strokeStyle = INK2; g.lineWidth = 2.5; g.beginPath(); g.moveTo(880, 110); g.lineTo(880, 110 + 700 * dv); g.stroke(); g.restore(); }
++  fadeText(g, 'history', 862, 145, font(26, 'serif', true), OCHRE, pr(t, T.hist, T.hist + 0.5), 'right', 'middle');
++  fadeText(g, 'forecast', 898, 145, font(26, 'serif', true), OCHRE, pr(t, T.fore, T.fore + 0.5), 'left', 'middle');
++  outlineTag(g, 'ACTUAL · census · persons', 530, 132, pr(t, T.tagA, T.tagA + 0.5), 'persons', sm(pr(t, T.persons, T.persons + 0.6)));
++  dashTag(g, 'PROJECTION · BLS · jobs', 1220, 132, pr(t, T.tagB, T.tagB + 0.5), 'jobs', sm(pr(t, T.jobs, T.jobs + 0.6)));
++  // dải "cùng cỡ" −18 → −52 %
++  const bd = sm(pr(t, T.band, T.band + 1.0)); if (bd > 0) { g.save(); g.globalAlpha *= 0.9 * bd; g.fillStyle = 'rgba(196,112,38,0.10)'; g.fillRect(290, Z + 18 * K, 1210 * bd, 34 * K);
++    g.strokeStyle = OCHRE; g.lineWidth = 3; g.beginPath(); g.moveTo(1490, Z + 18 * K); g.lineTo(1505, Z + 18 * K); g.lineTo(1505, Z + 52 * K); g.lineTo(1490, Z + 52 * K); g.stroke(); g.restore(); }
++  COLS.forEach(([x, v, name, yr, l2, l3, c, ty, act], i) => {
++    const hdr = i < 2 ? T.hdrA : i === 2 ? T.hdrB : T.c4[0], hx = i === 0 ? 530 : x;
++    if (i !== 1) { g.save(); g.globalAlpha *= pr(t, hdr, hdr + 0.5); const ls = wrap(g, name, i === 0 ? 400 : 210, font(22, 'sans', true)); ls.forEach((l, j) => text(g, l, hx, 212 + (j - ls.length + 1) * 26, font(22, 'sans', true), INK, 'center', 'alphabetic')); g.restore(); }
++    const u = sm(pr(t, c[0], c[1])); vbar(g, x, Z, K, 130, v, u, act, true);
++    if (u > 0) text(g, fmt0(v * eo(u)), x, Z - v * K * u + 32, font(30, 'sans', true), INK, 'center', 'middle');
++    const ya = pr(t, ty, ty + 0.5); fadeText(g, yr, x, 772, font(24, 'sans', true), INK, ya, 'center', 'middle', 6);
++    if (l2) { fadeText(g, l2, x, 800, font(20), INK2, ya, 'center', 'middle', 6); fadeText(g, l3, x, 824, font(19), INK2, ya, 'center', 'middle', 6); }
++  });
++  srcLine(g, 'Source: U.S. Census Bureau, Historical Statistics of the U.S., Series D 233–682 (persons)', 856, pr(t, T.srcA, T.srcA + 0.5));
++  srcLine(g, 'Source: U.S. BLS, Employment Projections 2025–35, Table 1.5 (jobs)', 880, pr(t, T.srcB, T.srcB + 0.5));
++}
++function sheetB(g, t) {
++  // trái: một thang máy trong một toà nhà
++  const la = pr(t, T.lift, T.lift + 0.6), bx = 230, by = 200, bw = 260, bh = 460;
++  const bu = sm(pr(t, T.bldg, T.bldg + 1.2));
++  if (bu > 0) { g.save(); g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(bx, by + bh); g.lineTo(bx, by + bh - bh * bu); g.moveTo(bx + bw, by + bh); g.lineTo(bx + bw, by + bh - bh * bu); g.stroke();
++    if (bu > 0.98) { g.beginPath(); g.moveTo(bx - 20, by); g.lineTo(bx + bw / 2, by - 70); g.lineTo(bx + bw + 20, by); g.stroke(); }
++    g.strokeStyle = 'rgba(33,26,23,0.3)'; g.lineWidth = 1.4; for (let f = 1; f < 6; f++) { const y = by + bh - f * bh / 6; if (y < by + bh - bh * bu) continue; g.beginPath(); g.moveTo(bx, y); g.lineTo(bx + bw, y); g.stroke(); } g.restore(); }
++  if (la > 0) { const sy = by + bh - 125 - 270 * (0.5 - 0.5 * Math.cos(2 * Math.PI * (t - T.lift) / 9));
++    g.save(); g.globalAlpha *= la; g.strokeStyle = OCHRE; g.lineWidth = 2; g.setLineDash([6, 6]); g.beginPath(); g.moveTo(bx + bw / 2, by + 10); g.lineTo(bx + bw / 2, by + bh); g.stroke(); g.setLineDash([]); g.restore();
++    liftIcon(g, bx + bw / 2 - 40, sy, 1.48, la);
++    icon(g, 'gear', bx + bw + 70, by + 120, 1.3, pr(t, T.gear, T.gear + 0.5));
++    const lv = pr(t, T.lever, T.lever + 0.5); if (lv > 0) { g.save(); g.globalAlpha *= lv; g.strokeStyle = INK; g.lineWidth = 4; const a = -0.6 + 1.2 * (0.5 + 0.5 * Math.sin((t - T.lever) * 1.4));
++      const px = bx + bw + 70, py = by + 300; g.beginPath(); g.moveTo(px, py); g.lineTo(px + Math.sin(a) * 50, py - Math.cos(a) * 50); g.stroke(); g.fillStyle = AMBER; g.beginPath(); g.arc(px + Math.sin(a) * 50, py - Math.cos(a) * 50, 9, 0, 7); g.fill(); g.strokeRect(px - 22, py, 44, 14); g.restore(); } }
++  // phải: lưới văn phòng 4 × 3, cùng sáng; bốn việc
++  const KIND = ['pen', 'bubble', 'check', 'code'], WORD = ['writing', 'answering', 'checking', 'coding'], gx = 820, gy = 250, cw = 175, ch = 125;
++  const glow = sm(pr(t, T.once, T.once + 0.5)), reach = sm(pr(t, T.reach, T.reach + 1.4));
++  if (glow > 0) { g.save(); const gr = g.createRadialGradient(gx + 2 * cw, gy + 1.5 * ch, 0, gx + 2 * cw, gy + 1.5 * ch, 420 + 160 * reach); gr.addColorStop(0, `rgba(240,170,80,${0.20 * glow + 0.08 * reach})`); gr.addColorStop(1, 'rgba(240,170,80,0)'); g.fillStyle = gr; g.fillRect(gx - 300, gy - 300, 4 * cw + 600, 3 * ch + 600); g.restore(); }
++  for (let c = 0; c < 4; c++) for (let r = 0; r < 3; r++) { const x = gx + c * cw + cw / 2, y = gy + r * ch + ch / 2, ap = pr(t, T.office + (c * 3 + r) * 0.06, T.office + (c * 3 + r) * 0.06 + 0.4);
++    if (ap <= 0) continue; g.save(); g.globalAlpha *= ap; g.fillStyle = glow > 0 ? `rgba(244,196,120,${0.35 * glow})` : 'rgba(33,26,23,0.05)'; g.fillRect(x - cw / 2 + 8, y - ch / 2 + 8, cw - 16, ch - 16);
++    g.strokeStyle = 'rgba(33,26,23,0.45)'; g.lineWidth = 1.5; g.strokeRect(x - cw / 2 + 8, y - ch / 2 + 8, cw - 16, ch - 16); g.restore();
++    const ka = pr(t, T.tasks[c], T.tasks[c] + 0.45); icon(g, ka > 0 ? KIND[c] : 'desk', x, y, 1.15, ap, ka > 0 ? mixC(INK, OCHRE, ka) : INK2, 3); }
++  for (let c = 0; c < 4; c++) fadeText(g, WORD[c], gx + c * cw + cw / 2, gy - 24, font(24, 'sans', true), INK, pr(t, T.tasks[c], T.tasks[c] + 0.45), 'center', 'middle', 8);
++  // mẫu hình cũ: cung nối thang máy → lưới
++  const ol = sm(pr(t, T.old, T.old + 1.1)); if (ol > 0) { const P = []; for (let i = 0; i <= 30; i++) { const u = i / 30; P.push([lerp(bx + bw / 2 + 50, gx - 10, u), lerp(by + 40, gy + 1.5 * ch, u) - 120 * Math.sin(u * Math.PI)]); }
++    g.save(); g.setLineDash([12, 8]); stroke(g, P, ol, OCHRE, 3); g.restore(); }
++  // một dự báo, một công nghệ, các nghiên cứu tình huống
++  const fa = pr(t, T.fc, T.fc + 0.5); if (fa > 0) { g.save(); g.globalAlpha *= fa; g.fillStyle = HATCH_COLD; g.fillRect(700, 676, 56, 74); g.setLineDash([8, 5]); g.strokeStyle = COLD; g.lineWidth = 2.4; g.strokeRect(700, 676, 56, 74); g.setLineDash([]); g.restore(); }
++  tag(g, 'AI', 774, 713, NAVY, COLDW, font(22, 'sans', true), pr(t, T.tech, T.tech + 0.4));
++  [['headset', 'call centres', 1000], ['shield', 'insurance offices', 1220], ['scales', 'law firms', 1450]].forEach(([k, w, x], i) => {
++    const br = sm(pr(t, T.cases + i * 0.15, T.ic[i] + 0.3)); if (br > 0) { g.save(); g.setLineDash([9, 6]); stroke(g, [[i ? [1000, 1220][i - 1] : 840, 713], [x, 713], [x, 738]], br, COLD, 2.4); g.restore(); }
++    const a = pr(t, T.ic[i], T.ic[i] + 0.45); icon(g, k, x, 778, 1.2, a, COLD_T, 3); fadeText(g, w, x, 838, font(22), INK, a, 'center', 'middle', 6); });
++}
++window.SEC = { dur: 62.833, frames: window.NF || 1508, blur: [[32.55, 34.1]],
++  frame(g, t) {
++    if (t < T.out[1]) { const o = sm(pr(t, ...T.out)); drawSheet(g, t, 0, sheetA, -o * 1900, 0, 1 - 0.6 * o); }
++    if (t >= T.inB[0]) { const i = sm(pr(t, ...T.inB)); drawSheet(g, t, 1, sheetB, (1 - i) * 1900, 0, 1); }
++  } };
+diff --git a/design/m3/ep01/today/s15.js b/design/m3/ep01/today/s15.js
+new file mode 100644
+index 0000000..fb67919
+--- /dev/null
++++ b/design/m3/ep01/today/s15.js
+@@ -0,0 +1,33 @@
++// Đoạn 15 · [TODAY] Why these jobs (21,79 s = 523 khung). Mốc = 0,6 + align bill-15.
++// Trái: hai cột dọc DỰ BÁO cùng thang −5 → +5 % (gạch chéo, nét đứt, "PROJECTION 2025–35"): office & administrative support −4.0 %; all U.S. jobs +3.5 %.
++// Phải: thẻ trích dẫn cắt giấy dưới ánh rọi riêng, chữ hiện theo từng từ lời đọc.
++'use strict';
++const T = { head: 0.82, card: 1.71, axis: [2.6, 3.6], lab1: 3.10, tag: 5.46, b1: [6.94, 8.0], q: [8.98, 9.60, 10.40, 10.92, 11.23, 11.61, 11.81], attr: 12.61, lab2: 15.29, b2: [17.49, 18.5], src: 0.82 };
++const Z = 470, K = 45, BX = [430, 740];
++function sheet(g, t) {
++  fadeText(g, 'U.S. Bureau of Labor Statistics', 60, 85, font(42, 'serif', true), INK, pr(t, T.head, T.head + 0.6));
++  tag(g, 'PROJECTION 2025–35 · BLS · jobs', 60, 150, NAVY, COLDW, font(22, 'sans', true), pr(t, T.tag, T.tag + 0.5), true);
++  const ax = sm(pr(t, ...T.axis));
++  g.save(); g.globalAlpha *= ax;
++  for (let v = -4; v <= 4; v += 2) { const y = Z - v * K; g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.25)'; g.lineWidth = v === 0 ? 4 : 1.4;
++    g.beginPath(); g.moveTo(290, y); g.lineTo(290 + 600 * sm(ax * 1.2 - Math.abs(v) / 40), y); g.stroke(); text(g, v === 0 ? '0' : (v < 0 ? M : '+') + Math.abs(v) + '%', 272, y, font(22), INK2, 'right', 'middle'); }
++  g.restore();
++  [[BX[0], -4.0, 'Office & administrative support', T.lab1, T.b1, true], [BX[1], 3.5, 'All U.S. jobs', T.lab2, T.b2, false]].forEach(([x, v, lab, tl, tb, cold]) => {
++    g.save(); g.globalAlpha *= pr(t, tl, tl + 0.5); const ls = wrap(g, lab, 260, font(24, 'sans', true)); ls.forEach((l, j) => text(g, l, x, 740 + j * 28, font(24, 'sans', true), INK, 'center', 'middle')); g.restore();
++    const u = sm(pr(t, ...tb)); vbar(g, x, Z, K, 150, v, u, false, cold);
++    if (u > 0) text(g, fmt1(v * eo(u)), x, Z - v * K * u + (v < 0 ? 34 : -30), font(32, 'sans', true), INK, 'center', 'middle'); });
++  // thẻ trích dẫn
++  const ca = sm(pr(t, T.card, T.card + 0.8));
++  if (ca > 0) { const [lx, ly] = [1250, 400];
++    g.save(); const gr = g.createRadialGradient(lx, ly, 0, lx, ly, 420); gr.addColorStop(0, `rgba(255,214,150,${0.30 * ca})`); gr.addColorStop(1, 'rgba(255,214,150,0)'); g.fillStyle = gr; g.fillRect(lx - 420, ly - 420, 840, 840); g.restore();
++    if (card(g, 990, 200 + (1 - ca) * 30, 540, 420, ca, -0.018)) {
++      text(g, '“', 30, 100, font(120, 'serif', true), OCHRE, 'left', 'alphabetic');
++      const W8 = ['automation', 'tools,', 'including', 'those', 'powered', 'by', 'AI'], f = font(46, 'serif', true); g.font = f;
++      let x = 40, y = 170; W8.forEach((w, i) => { const ww = g.measureText(w + ' ').width; if (x + g.measureText(w).width > 500) { x = 40; y += 62; }
++        const a = pr(t, T.q[i], T.q[i] + 0.3); if (a > 0) { g.save(); g.globalAlpha *= a; text(g, w + (i === 6 ? '”' : ''), x, y + (1 - eo(a)) * 8, f, INK, 'left', 'alphabetic'); g.restore(); } x += ww; });
++      fadeText(g, '— U.S. BLS, Employment Projections 2025–35', 40, 390, font(21), INK2, pr(t, T.attr, T.attr + 0.5));
++      g.restore(); } }
++  srcLine(g, 'Source: U.S. BLS, Employment Projections 2025–35 (news release USDL-26-1422, Aug 2026)', 868, pr(t, T.src, T.src + 0.6));
++}
++window.SEC = { dur: 21.792, frames: window.NF || 523, blur: [],
++  frame(g, t) { const i = sm(pr(t, 0, 0.7)); drawSheet(g, t, 1, sheet, 0, (1 - i) * 40, 1); } };
+diff --git a/design/m3/ep01/today/s16.js b/design/m3/ep01/today/s16.js
+new file mode 100644
+index 0000000..12df909
+--- /dev/null
++++ b/design/m3/ep01/today/s16.js
+@@ -0,0 +1,60 @@
++// Đoạn 16 · [TODAY] Jobs that change (47,50 s = 1 140 khung). Mốc = 0,6 + align bill-16.
++// Mở: lưới 270 ô (Bessen) — nhiều ô đổi màu một góc nhưng đứng nguyên ("tasks, not whole jobs"), ô thang máy để trống như đoạn 08; thu nhỏ về góc (không chữ).
++// Khung "PROJECTION 2023–33": cột dọc gạch chéo cùng thang −10 → +10 %, đường ngang "all occupations +4.0%". Phải: tờ văn bản — AI tô sáng, bàn tay (không mặt) gạch sửa.
++'use strict';
++const T = { grid: 1.20, cap1: 1.83, chg: [4.73, 6.2], cap2: 6.64, shrink: [8.03, 9.0], title: 8.33, axis: [9.83, 11.0], tag: 12.81, doc: 15.71, hl: [17.34, 18.9],
++  hand: [19.9, 20.8], strike: [21.45, 22.6], handOut: [22.9, 23.8], ref: 27.71, work: 42.55, remain: 44.14 };
++const COLS = [[470, 5.2, 'Lawyers', 11.48, 25.17], [670, 1.2, 'Paralegals and legal assistants', 30.80, 31.91], [950, -3.9, 'Credit analysts', 35.95, 37.01], [1150, 9.5, 'Financial and investment analysts', 39.13, 40.34]];
++const Z = 560, K = 22;
++const CELLS = (() => { const R = rng(270); return Array.from({ length: 270 }, (_, i) => ({ chg: R() < 0.62, d: R(), lift: i === 7 * 18 + 9 })); })();
++function grid(g, t, x0, y0, s) { const cs = 40 * s;
++  CELLS.forEach((c, i) => { const col = i % 18, row = (i / 18) | 0, x = x0 + col * cs, y = y0 + row * cs, ap = pr(t, T.grid + (col + row) * 0.035, T.grid + (col + row) * 0.035 + 0.3); if (ap <= 0) return;
++    g.save(); g.globalAlpha *= ap; const sh = c.chg ? 1.5 * Math.sin(t * 2.1 + i) * pr(t, T.chg[0], T.chg[1]) * s : 0;
++    if (c.lift) { g.setLineDash([3, 3]); g.strokeStyle = INK2; g.lineWidth = 1.2; g.strokeRect(x + 3 * s, y + 3 * s, cs - 6 * s, cs - 6 * s); g.restore(); return; }
++    g.fillStyle = 'rgba(63,90,122,0.45)'; g.fillRect(x + 3 * s + sh, y + 3 * s, cs - 6 * s, cs - 6 * s);
++    const cu = c.chg ? sm(pr(t, lerp(T.chg[0], T.chg[1] - 0.4, c.d), lerp(T.chg[0], T.chg[1] - 0.4, c.d) + 0.4)) : 0;
++    const pulse = c.chg ? 0.5 + 0.5 * Math.sin(Math.PI * cl((t - T.work - c.d * 0.6) / 0.9)) * (t > T.work ? 1 : 0) : 0;
++    if (cu > 0) { g.fillStyle = mixC(AMBER, '#f0b25c', pulse); g.beginPath(); g.moveTo(x + 3 * s + sh, y + 3 * s); g.lineTo(x + 3 * s + sh + (cs - 6 * s) * cu, y + 3 * s); g.lineTo(x + 3 * s + sh, y + 3 * s + (cs - 6 * s) * cu); g.closePath(); g.fill(); }
++    g.restore(); }); }
++function hand(g, x, y, a) { if (a <= 0) return; g.save(); g.globalAlpha *= a; g.translate(x, y); g.rotate(-0.5);
++  g.fillStyle = '#8a6a52'; g.strokeStyle = INK; g.lineWidth = 2; g.beginPath(); g.ellipse(0, 0, 34, 22, 0, 0, 7); g.fill(); g.stroke();
++  for (let i = 0; i < 3; i++) { g.beginPath(); g.ellipse(-30, -12 + i * 11, 14, 6, 0.1, 0, 7); g.fill(); g.stroke(); }
++  g.fillStyle = '#3a3e4c'; g.fillRect(28, -26, 120, 52); g.strokeRect(28, -26, 120, 52);
++  g.strokeStyle = INK; g.lineWidth = 6; g.beginPath(); g.moveTo(-40, -2); g.lineTo(-78, -2); g.stroke(); g.restore(); }
++function doc(g, t) { const a = sm(pr(t, T.doc, T.doc + 0.7)); if (a <= 0) return; const x0 = 1290, y0 = 300 + (1 - a) * 30, w = 250;
++  if (!card(g, x0, y0, w, 380, a, 0.02)) return;
++  const HL = [1, 2, 4, 5, 8];
++  for (let i = 0; i < 10; i++) { const y = 46 + i * 31, L = w - 60 - ((i * 37) % 70);
++    if (HL.includes(i)) { const hu = sm(pr(t, T.hl[0] + HL.indexOf(i) * 0.25, T.hl[0] + HL.indexOf(i) * 0.25 + 0.6)); const pl = t > T.work ? 0.12 * Math.sin(Math.PI * cl((t - T.work) / 1.0)) : 0;
++      if (hu > 0) { g.fillStyle = `rgba(232,160,60,${0.42 + pl})`; g.fillRect(24, y - 11, (L + 12) * hu, 22); } }
++    g.fillStyle = 'rgba(33,26,23,0.55)'; g.fillRect(30, y - 3, L, 6); }
++  const st = sm(pr(t, ...T.strike)); stroke(g, [[26, 46 + 4 * 31], [w - 40, 46 + 4 * 31 + 2]], Math.min(1, st * 1.6), '#8b1e1e', 4);
++  stroke(g, [[40, 46 + 4 * 31 + 18], [70, 46 + 4 * 31 + 10], [100, 46 + 4 * 31 + 20], [130, 46 + 4 * 31 + 10], [160, 46 + 4 * 31 + 18]], cl(st * 1.6 - 0.6), '#8b1e1e', 3);
++  g.restore();
++  const hi = sm(pr(t, ...T.hand)), ho = sm(pr(t, ...T.handOut)); if (hi > 0 && ho < 1) { const sx = st > 0 && st < 1 ? lerp(26, 210, Math.min(1, st * 1.6)) : st >= 1 ? 160 : 26;
++    hand(g, lerp(1660, x0 + sx + 80, hi) + ho * 300, lerp(820, y0 + 46 + 4 * 31 + 30, hi) + ho * 200, hi * (1 - ho)); } }
++function sheet(g, t) {
++  const sk = sm(pr(t, ...T.shrink)), s = lerp(1, 0.3, sk);
++  fadeText(g, 'about 270 occupations · U.S. census 1950–2010 · Bessen', 810, 830, font(24), INK2, pr(t, T.cap1, T.cap1 + 0.5) * (1 - sk), 'center', 'middle');
++  fadeText(g, 'tasks, not whole jobs', 810, 110, font(42, 'serif', true), INK, pr(t, T.cap2, T.cap2 + 0.5) * (1 - sk), 'center', 'middle');
++  g.save(); g.globalAlpha *= lerp(1, 0.75, sk); grid(g, t, lerp(450, 40, sk), lerp(170, 34, sk), s); g.restore();
++  fadeText(g, 'Jobs that change', 330, 85, font(46, 'serif', true), INK, pr(t, T.title, T.title + 0.6));
++  tag(g, 'PROJECTION 2023–33 · BLS · jobs', 1560, 70, OCHRE, CREAM, font(22, 'sans', true), pr(t, T.tag, T.tag + 0.5), true, 'right');
++  const ax = sm(pr(t, ...T.axis));
++  g.save(); g.globalAlpha *= ax;
++  for (let v = -10; v <= 10; v += 5) { const y = Z - v * K; g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.25)'; g.lineWidth = v === 0 ? 4 : 1.4;
++    g.beginPath(); g.moveTo(370, y); g.lineTo(370 + 870 * sm(ax * 1.2 - Math.abs(v) / 60), y); g.stroke(); text(g, v === 0 ? '0' : (v < 0 ? M : '+') + Math.abs(v) + '%', 352, y, font(22), INK2, 'right', 'middle'); }
++  g.restore();
++  const ra = sm(pr(t, T.ref, T.ref + 0.9)); if (ra > 0) { const y = Z - 4.0 * K; g.save(); g.setLineDash([12, 7]); g.strokeStyle = INK; g.lineWidth = 2.5; g.beginPath(); g.moveTo(370, y); g.lineTo(370 + 870 * ra, y); g.stroke(); g.restore();
++    const la = pr(t, T.ref + 0.4, T.ref + 0.9); fadeText(g, 'all occupations', 810, y - 40, font(20), INK, la, 'center', 'alphabetic', 6); fadeText(g, '+4.0%', 810, y - 14, font(22, 'sans', true), INK, la, 'center', 'alphabetic', 6); }
++  COLS.forEach(([x, v, lab, tl, tb]) => { const la = pr(t, tl, tl + 0.5);
++    if (la > 0) { g.save(); g.globalAlpha *= la; const ls = wrap(g, lab, 190, font(21, 'sans', true)); ls.forEach((l, j) => text(g, l, x, 806 + j * 25, font(21, 'sans', true), INK, 'center', 'middle')); g.restore();
++      stroke(g, [[x - 60, 806 + ls.length * 25 - 8], [x + 60, 806 + ls.length * 25 - 10]], sm(pr(t, T.remain, T.remain + 0.6)), AMBER, 3); }
++    const u = sm(pr(t, tb, tb + 1.0)); vbar(g, x, Z, K, 120, v, u, false, v < 0);
++    if (u > 0) text(g, fmt1(v * eo(u)), x + (v > 0 && Math.abs(v - 4) < 1.6 ? 0 : 0), Z - v * K * u + (v < 0 ? 26 : -24), font(26, 'sans', true), INK, 'center', 'middle'); });
++  doc(g, t);
++  srcLine(g, 'Source: U.S. BLS, Monthly Labor Review, Feb 2025 (2023–33 projections); Bessen (2016)', 884, pr(t, T.tag, T.tag + 0.6));
++}
++function wrapL(g, s, w, f) { return wrap(g, s, w, f); }
++window.SEC = { dur: 47.5, frames: window.NF || 1140, blur: [[7.98, 9.05]],
++  frame(g, t) { const i = sm(pr(t, 0, 0.7)); drawSheet(g, t, 0, sheet, 0, (1 - i) * 40, 1); } };
+diff --git a/design/m3/ep01/today/s17.js b/design/m3/ep01/today/s17.js
+new file mode 100644
+index 0000000..6e22d67
+--- /dev/null
++++ b/design/m3/ep01/today/s17.js
+@@ -0,0 +1,43 @@
++// Đoạn 17 · [TODAY] An early signal (33,67 s = 808 khung). Mốc = 0,6 + align bill-17.
++// Hai thanh ngang cùng thang từ 0: "expected" = 100 (ước tính, viền nét đứt), "actual" = 81 (đặc). Nguồn Stanford Digital Economy Lab, Aug 2026. Không vẽ người.
++'use strict';
++const T = { lamp: 0.99, head: 3.83, pay: 6.50, ages: 10.86, exp: 13.01, axis: [14.0, 15.0], act: [15.09, 16.3], expd: [17.71, 18.8], gap: 18.89, why: 20.71, older: 22.65, sig: 27.21, proof: 28.43 };
++const Z = 420, K = 10, YE = 400, YA = 520, BH = 70;
++function sheet(g, t) {
++  lampPost(g, 120, 330, 120, (0.75 + 0.25 * Math.sin(t * 7.1) * Math.sin(t * 2.3)) * pr(t, T.lamp, T.lamp + 0.8), pr(t, T.lamp, T.lamp + 0.5));
++  fadeText(g, 'Stanford Digital Economy Lab · Aug 2026', 230, 88, font(40, 'serif', true), INK, pr(t, T.head, T.head + 0.6));
++  fadeText(g, 'U.S. payroll data through June 2026', 232, 134, font(26), INK2, pr(t, T.pay, T.pay + 0.5));
++  g.save(); g.font = font(28, 'sans', true); const w1 = g.measureText('ages 22–25').width; g.restore();
++  fadeText(g, 'ages 22–25', 232, 222, font(28, 'sans', true), INK, pr(t, T.ages, T.ages + 0.5));
++  fadeText(g, ' · most AI-exposed jobs', 232 + w1, 222, font(28, 'sans', true), INK, pr(t, T.exp, T.exp + 0.5));
++  const ax = sm(pr(t, ...T.axis));
++  g.save(); g.globalAlpha *= ax;
++  for (let v = 0; v <= 100; v += 25) { const x = Z + v * K; g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.25)'; g.lineWidth = v === 0 ? 4 : 1.4;
++    g.beginPath(); g.moveTo(x, 330); g.lineTo(x, 330 + 310 * sm(ax * 1.2 - v / 500)); g.stroke(); text(g, String(v), x, 652, font(22), INK2, 'center', 'top'); }
++  text(g, 'employment index · expected = 100', Z, 690, font(21), INK2, 'left', 'top'); g.restore();
++  // expected (ước tính): nền nhạt + viền nét đứt
++  const ue = sm(pr(t, ...T.expd)); if (ue > 0) { g.fillStyle = 'rgba(217,154,82,0.22)'; g.fillRect(Z, YE - BH / 2, 100 * K * ue, BH); g.setLineDash([10, 6]); g.strokeStyle = OCHRE; g.lineWidth = 2.6; g.strokeRect(Z + 1, YE - BH / 2 + 1, 100 * K * ue - 2, BH - 2); g.setLineDash([]);
++    text(g, String(Math.round(100 * eo(ue))), Z + 100 * K * ue + 14, YE + 1, font(32, 'sans', true), INK, 'left', 'middle'); }
++  fadeText(g, 'expected', Z - 20, YE, font(28, 'sans', true), INK, pr(t, T.expd[0], T.expd[0] + 0.4), 'right', 'middle', 0);
++  const ua = sm(pr(t, ...T.act)); if (ua > 0) { g.fillStyle = COLD; g.fillRect(Z, YA - BH / 2, 81 * K * ua, BH); g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(Z, YA - BH / 2, 81 * K * ua, BH);
++    text(g, String(Math.round(81 * eo(ua))), Z + 81 * K * ua + 14, YA + 1, font(32, 'sans', true), INK, 'left', 'middle'); }
++  fadeText(g, 'actual', Z - 20, YA, font(28, 'sans', true), INK, pr(t, T.act[0], T.act[0] + 0.4), 'right', 'middle', 0);
++  // khoảng cách ≈ 19 %
++  const ga = sm(pr(t, T.gap, T.gap + 0.8)); if (ga > 0) { const x0 = Z + 81 * K + 70, x1 = Z + 100 * K, y = YA + 46;
++    g.save(); g.globalAlpha *= ga; g.strokeStyle = AMBER; g.lineWidth = 3.5; g.beginPath(); g.moveTo(Z + 81 * K, YA - 46); g.lineTo(Z + 81 * K, y + 10); g.moveTo(x1, YE + 40); g.lineTo(x1, y + 10); g.stroke();
++    g.beginPath(); g.moveTo(Z + 81 * K, y); g.lineTo(x1, y); g.stroke(); g.restore(); void x0;
++    fadeText(g, 'about 19% below', (Z + 81 * K + x1) / 2, y + 28, font(26, 'sans', true), INK, ga, 'center', 'middle', 6); }
++  fadeText(g, 'mostly fewer hires', (Z + 81 * K + Z + 100 * K) / 2, YA + 104, font(22), INK2, pr(t, T.why, T.why + 0.5), 'center', 'middle', 6);
++  fadeText(g, 'more experienced workers: no such gap', Z, 752, font(26), INK, pr(t, T.older, T.older + 0.5), 'left', 'middle', 6);
++  // dấu "early signal · not proof of cause"
++  const sa = pr(t, T.sig, T.sig + 0.4), pa = pr(t, T.proof, T.proof + 0.4);
++  if (sa > 0) { g.save(); g.translate(1240, 790); g.rotate(-0.04); g.scale(lerp(1.15, 1, eo(sa)), lerp(1.15, 1, eo(sa))); g.globalAlpha *= sa; g.font = font(28, 'sans', true);
++    const s1 = 'early signal', s2 = ' · not proof of cause', w = g.measureText(s1 + s2).width + 36; g.strokeStyle = OCHRE; g.lineWidth = 3; g.strokeRect(-w / 2, -26, w, 52);
++    text(g, s1, -w / 2 + 18, 1, font(28, 'sans', true), OCHRE, 'left', 'middle'); g.globalAlpha *= pa / Math.max(sa, 1e-3) * sa ? 1 : 1;
++    g.restore(); if (pa > 0) { g.save(); g.translate(1240, 790); g.rotate(-0.04); g.globalAlpha *= pa; g.font = font(28, 'sans', true); const w = g.measureText(s1 + s2).width + 36;
++      text(g, s2, -w / 2 + 18 + g.measureText(s1).width, 1, font(28, 'sans', true), OCHRE, 'left', 'middle'); g.restore(); } }
++  srcLine(g, 'Source: Stanford Digital Economy Lab, Aug 2026 · U.S. payroll data through June 2026', 868, pr(t, T.head, T.head + 0.6));
++}
++const s1 = 'early signal', s2 = ' · not proof of cause';
++window.SEC = { dur: 33.667, frames: window.NF || 808, blur: [],
++  frame(g, t) { const i = sm(pr(t, 0, 0.7)); drawSheet(g, t, 1, sheet, 0, (1 - i) * 40, 1); } };
+diff --git a/design/m3/ep01/today/s18.js b/design/m3/ep01/today/s18.js
+new file mode 100644
+index 0000000..087f334
+--- /dev/null
++++ b/design/m3/ep01/today/s18.js
+@@ -0,0 +1,42 @@
++// Đoạn 18 · [TODAY] Not verdicts (22,13 s = 531 khung). Mốc = 0,6 + align bill-18.
++// Ba nhóm cột của 11–13 (thu nhỏ, không chữ, cùng kiểu gạch chéo/nét đứt) xếp lại thành ba cột đèn cách điệu; chữ "end · change · new" đặt ở vùng trống riêng dưới chân cột (L3). Không thêm số mới.
++'use strict';
++const T = { g: [0.6, 1.0, 1.4], verd: 1.47, m: [[3.4, 4.4], [4.5, 5.5], [5.6, 6.6]], w: [4.01, 5.08, 6.14], app: 6.85, field: [10.19, 11.5], one: 12.62, look: 15.26, nob: 7.42, ladder: 17.17, list: 18.39, we: 20.36 };
++const GR = [{ v: [-34.4, -27.6, -26.0, -25.5, -21.4], cold: 1 }, { v: [-5.0, -9.2, -4.4], cold: 1 }, { v: [17.9, 41.0, 36.5, 34.6], cold: 0 }];
++const PX = [380, 810, 1240], BASE = 640, PH = 300, WORD = ['end', 'change', 'new'];
++const FIELD = (() => { const R = rng(1850); return Array.from({ length: 320 }, () => [80 + R() * 1460, 785 + R() * 55, R(), R()]); })();
++function sheet(g, t) {
++  // trường đèn "cả một nước"
++  FIELD.forEach(([x, y, r1, r2], i) => { const a = pr(t, lerp(T.field[0], T.field[1], r1), lerp(T.field[0], T.field[1], r1) + 0.3); if (a <= 0) return;
++    g.fillStyle = `rgba(${r2 < 0.5 ? '196,112,38' : '63,90,122'},${a * (0.55 + 0.25 * Math.sin(t * (1 + r2) + i))})`; g.fillRect(x, y, 4, 4); });
++  const oa = pr(t, T.one, T.one + 0.4) * (1 - pr(t, T.one + 0.9, T.one + 1.6)); if (oa > 0) { const [x, y] = FIELD[137]; g.save(); g.globalAlpha *= oa; g.strokeStyle = INK; g.lineWidth = 2.5; g.beginPath(); g.arc(x + 2, y + 2, lerp(30, 14, eo(pr(t, T.one, T.one + 0.5))), 0, 7); g.stroke(); g.restore(); }
++  GR.forEach((G, k) => {
++    const ap = pr(t, T.g[k], T.g[k] + 0.5), mu = sm(pr(t, ...T.m[k])), n = G.v.length, seg = PH / n;
++    const lit = k === 0 ? 0.08 : k === 1 ? 0.55 + 0.15 * Math.sin(t * 5.3) : 1, la = pr(t, T.m[k][1] - 0.2, T.m[k][1] + 0.3) * (1 + 0.25 * pr(t, T.we, T.we + 0.6));
++    // nhóm cột thu nhỏ → thân cột đèn
++    if (ap > 0) { g.save(); g.globalAlpha *= ap * (1 - pr(t, T.m[k][1] - 0.05, T.m[k][1] + 0.25));
++      if (mu < 0.4) { g.strokeStyle = INK; g.lineWidth = 2.5 * (1 - mu * 2.5); g.beginPath(); g.moveTo(PX[k], 230); g.lineTo(PX[k], 230 + n * 30); g.stroke(); }
++      G.v.forEach((v, i) => { const L = v * 4.2, bx = Math.min(PX[k], PX[k] + L), by = 236 + i * 30, bw = Math.abs(L), bh = 22;
++        const tx = PX[k] - 9, ty = BASE - PH + i * seg + 2, tw = 18, th = seg - 4;
++        const x = lerp(bx, tx, mu), y = lerp(by, ty, mu), w = lerp(bw, tw, mu), h = lerp(bh, th, mu);
++        g.fillStyle = G.cold ? HATCH_COLD : HATCH_AMB; g.fillRect(x, y, w, h); g.setLineDash([7, 4]); g.strokeStyle = G.cold ? COLD : OCHRE; g.lineWidth = 2; g.strokeRect(x + 1, y + 1, w - 2, h - 2); g.setLineDash([]); });
++      g.restore(); }
++    if (la > 0) { lampPost(g, PX[k], BASE, PH, Math.min(1, lit * la * (1 + 0.3 * pr(t, T.we, T.we + 0.6))), Math.min(1, la), G.cold ? 'hatch' : 'amber');
++      // vũng sáng soi xuống "nơi cần nhìn"
++      const lk = sm(pr(t, T.look + k * 0.2, T.look + k * 0.2 + 0.9)) * (k === 0 ? 0.35 : 1); if (lk > 0) { g.save(); const gr = g.createRadialGradient(PX[k], 812, 0, PX[k], 812, 210); gr.addColorStop(0, `rgba(255,200,120,${0.38 * lk})`); gr.addColorStop(1, 'rgba(255,200,120,0)'); g.fillStyle = gr; g.beginPath(); g.ellipse(PX[k], 812, 210, 60, 0, 0, 7); g.fill(); g.restore(); } }
++    // thẻ chữ dưới chân cột (vùng trống riêng)
++    const wa = pr(t, T.w[k], T.w[k] + 0.45); if (wa > 0) { g.save(); g.globalAlpha *= wa; g.translate(PX[k], 715 + (1 - eo(wa)) * 12); g.font = font(46, 'serif', true); const ww = g.measureText(WORD[k]).width + 40;
++      g.fillStyle = 'rgba(243,232,204,0.96)'; g.shadowColor = 'rgba(40,25,10,0.35)'; g.shadowBlur = 10; g.fillRect(-ww / 2, -34, ww, 64); g.shadowBlur = 0; g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(-ww / 2, -34, ww, 64);
++      text(g, WORD[k], 0, 0, font(46, 'serif', true), INK, 'center', 'middle'); g.restore();
++      stroke(g, [[PX[k] - 50, 752], [PX[k] + 52, 750]], sm(pr(t, T.we + k * 0.12, T.we + k * 0.12 + 0.5)), AMBER, 4); } });
++  // nghề mới chưa có tên: cột đèn mờ, thẻ chữ để trống (nét đứt)
++  const nb = pr(t, T.nob, T.nob + 0.6); if (nb > 0) { lampPost(g, 1480, BASE, 200, 0.45 * nb, 0.55 * nb, 'amber'); g.save(); g.globalAlpha *= nb; g.setLineDash([8, 6]); g.strokeStyle = INK2; g.lineWidth = 2; g.strokeRect(1420, 683, 120, 64); g.restore(); }
++  // thang của người thắp đèn tựa cột 1; danh sách trống
++  const ld = pr(t, T.ladder, T.ladder + 0.5); if (ld > 0) { g.save(); g.globalAlpha *= ld; g.strokeStyle = OCHRE; g.lineWidth = 4; const a = [PX[0] - 130, BASE], b = [PX[0] - 18, BASE - PH + 30];
++    for (const o of [-14, 14]) { g.beginPath(); g.moveTo(a[0] + o, a[1]); g.lineTo(b[0] + o, b[1]); g.stroke(); }
++    for (let i = 1; i < 9; i++) { const u = i / 9; g.beginPath(); g.moveTo(lerp(a[0], b[0], u) - 14, lerp(a[1], b[1], u)); g.lineTo(lerp(a[0], b[0], u) + 14, lerp(a[1], b[1], u)); g.stroke(); } g.restore(); }
++  const ls = pr(t, T.list, T.list + 0.5); if (ls > 0) { g.save(); g.globalAlpha *= ls * (1 - 0.5 * pr(t, T.we, T.we + 0.6)); g.setLineDash([8, 6]); g.strokeStyle = INK2; g.lineWidth = 2; g.strokeRect(70, 90, 150, 190); g.setLineDash([]); g.restore(); }
++  srcLine(g, 'Bars: U.S. BLS projections 2025–35 and 2023–33 (as in sections 11–13)', 880, pr(t, T.g[0], T.g[0] + 0.5));
++}
++window.SEC = { dur: 22.125, frames: window.NF || 531, blur: [],
++  frame(g, t) { const i = sm(pr(t, 0, 0.7)); drawSheet(g, t, 0, sheet, 0, (1 - i) * 40, 1); } };
+diff --git a/design/m3/ep01/today/sfx_cue.py b/design/m3/ep01/today/sfx_cue.py
+new file mode 100644
+index 0000000..08e7743
+--- /dev/null
++++ b/design/m3/ep01/today/sfx_cue.py
+@@ -0,0 +1,16 @@
++"""Gói TODAY — ghi cue SFX (dùng lại M2-SFX-1/2/3, CC0) cho P mix: /var/tmp/cine-out/ep01/sfx/<NN>.json. at_abs = t0 đoạn (timeline-v3) + mốc trong đoạn."""
++import json
++D = '/var/tmp/cine-out/m22a/sfx/'
++RT = {'159386': 'M2-SFX-2 (Freesound 159386, clairinski, CC0)', '320149': 'M2-SFX-1 (Freesound 320149, OwlStorm, CC0)', '470189': 'M2-SFX-3 (Freesound 470189, Atrius1, CC0)'}
++TL = {s['n']: s['t0'] for s in json.load(open('/home/user/cine-lab/reports/m3/m2-2b/timeline-v3.json'))['doan']}
++C = {'10-13': [('159386', 2.0, 7.3, 0.0, -17.0, 400), ('470189', 0, 0.37, 12.05, 4.0, 30), ('320149', 3.55, 0.85, 13.15, -10.0, 30), ('470189', 0, 0.37, 13.5, -2.0, 30),
++               ('470189', 0, 0.37, 18.3, -4.0, 30), ('470189', 0, 0.37, 45.7, 2.0, 30), ('470189', 0, 0.37, 51.8, -2.0, 30), ('470189', 0, 0.37, 58.2, -4.0, 30), ('470189', 0, 0.37, 68.95, 0.0, 30)],
++     '14': [('470189', 0, 0.37, 32.6, 2.0, 30), ('470189', 0, 0.37, 33.05, -2.0, 30)],
++     '15': [('470189', 0, 0.37, 1.71, -2.0, 30)],
++     '16': [('470189', 0, 0.37, 8.03, 0.0, 30), ('470189', 0, 0.37, 15.71, -3.0, 30)],
++     '17': [('320149', 3.55, 0.85, 0.05, -12.0, 30)],
++     '18': [('470189', 0, 0.37, 3.4, -4.0, 30)]}
++for n, L in C.items():
++    out = [dict(file=D + f + '.mp3', src_ss=s, dur=d, at_abs=round(TL[n] + a, 3), gain_db=g, fade_ms=fm, rights=RT[f]) for f, s, d, a, g, fm in L]
++    json.dump(out, open(f'/var/tmp/cine-out/ep01/sfx/{n}.json', 'w'), ensure_ascii=False, indent=1)
++print('ok')
+diff --git a/design/m3/ep01/today/tp.py b/design/m3/ep01/today/tp.py
+new file mode 100644
+index 0000000..ade3ea9
+--- /dev/null
++++ b/design/m3/ep01/today/tp.py
+@@ -0,0 +1,39 @@
++"""Cine Lab · gói TODAY — đo tương phản chữ TRÊN CHÍNH clip đoạn (cách đo của design/m3/lat-cat/tuong_phan.py, tỉ lệ WCAG).
++Chữ tối/nền sáng: chữ = trung vị 3 % điểm tối nhất, nền = trung vị 40 % điểm sáng nhất; chữ sáng: ngược lại. Ô theo toạ độ khung 1920×1080; giây tính trong đoạn.
++/opt/cine/bin/python tp.py <NN> [<thư mục clip>]  → in từng ô + JSON {min_thong_tin, min_ten}
++"""
++import io, json, subprocess, sys
++import numpy as np
++from PIL import Image
++def lin(c): c = c / 255.0; return np.where(c <= 0.03928, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
++def L(rgb): r, g, b = lin(np.array(rgb, float)); return 0.2126 * r + 0.7152 * g + 0.0722 * b
++def ratio(a, b): la, lb = L(a), L(b); return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
++BOX = {
++ '14': [(31.0, 'nguồn BLS', (208, 952, 880, 978), 'dark'), (31.0, '"1960 classification"', (718, 903, 902, 926), 'dark'), (31.0, '"94k → 77k"', (495, 879, 605, 902), 'dark'),
++        (31.0, 'thẻ PROJECTION (navy)', (1215, 203, 1525, 239), 'light'), (31.0, '"forecast" (nâu)', (1048, 222, 1170, 248), 'dark'), (31.0, 'giá trị "−28%"', (1440, 590, 1540, 622), 'dark'),
++        (58.5, '"insurance offices"', (1270, 916, 1470, 940), 'dark'), (58.5, '"writing"', (1000, 304, 1110, 330), 'dark'), (58.5, 'thẻ "AI" (navy)', (925, 785, 980, 821), 'light')],
++ '15': [(20.0, 'dòng ghi nguồn trên thẻ', (1185, 660, 1660, 690), 'dark'), (20.0, 'chữ trích "powered by AI"', (1180, 540, 1580, 600), 'dark'),
++        (20.0, 'dòng nguồn', (208, 940, 1135, 966), 'dark'), (20.0, 'nhãn trục "+4%"', (365, 368, 422, 392), 'dark'), (20.0, 'thẻ PROJECTION (navy)', (212, 224, 640, 258), 'light')],
++ '16': [(46.0, '"all occupations"', (880, 505, 1040, 530), 'dark'), (46.0, '"Credit analysts"', (1010, 885, 1200, 910), 'dark'),
++        (46.0, 'dòng nguồn', (208, 958, 1100, 982), 'dark'), (46.0, 'thẻ PROJECTION 2023–33 (nâu)', (1310, 143, 1700, 177), 'light'), (7.5, 'chú thích Bessen', (610, 908, 1310, 934), 'dark')],
++ '17': [(33.0, '"employment index…"', (570, 780, 920, 804), 'dark'), (33.0, '"mostly fewer hires"', (1375, 702, 1575, 726), 'dark'),
++        (33.0, 'dấu "early signal…" (nâu)', (1100, 862, 1680, 898), 'dark'), (33.0, '"U.S. payroll data…"', (382, 204, 830, 230), 'dark'), (33.0, 'dòng nguồn', (208, 940, 1100, 966), 'dark')],
++ '18': [(21.5, 'thẻ "change"', (905, 785, 1015, 825), 'dark'), (21.5, 'dòng ghi nguồn', (208, 955, 860, 978), 'dark')],
++ '10-13': [(11.5, 'G1 "1950 classification"', (610, 272, 790, 292), 'dark'), (11.5, 'G1 "1960 classification"', (626, 396, 820, 422), 'dark'), (11.5, 'G1 "1970 classification"', (968, 558, 1164, 584), 'dark'),
++           (11.5, 'G1 chú thích phân loại', (408, 856, 1260, 880), 'dark'), (11.5, 'G1 nhãn ACTUAL', (1250, 136, 1700, 170), 'dark'),
++           (16.0, 'bìa BLS (chữ sáng trên navy)', (835, 418, 1300, 452), 'light'), (16.0, 'bìa BLS "Employment Projections"', (836, 520, 1330, 556), 'dark'), (23.0, 'dải "2035"', (1480, 280, 1550, 306), 'dark'),
++           (35.0, 'G3 nhãn PROJECTION (navy)', (1330, 138, 1706, 167), 'light'), (35.0, 'G3 số lớn "−34%"', (698, 248, 1010, 348), 'dark'), (35.0, 'G3 nhãn hàng 1', (330, 406, 622, 436), 'dark'),
++           (57.6, 'G4 câu trích lớn', (790, 440, 1600, 475), 'dark'), (60.0, 'G4 nhãn kỳ 2023–33 (nâu)', (762, 122, 1100, 151), 'light'), (60.0, 'G4 tiêu đề', (748, 180, 1300, 232), 'dark'),
++           (87.0, 'G5 nhãn nhóm 2025–35 (nâu)', (220, 684, 525, 709), 'light'), (87.0, 'G5 dòng nguồn 2', (208, 954, 760, 978), 'dark'), (92.5, 'G6 thẻ "change"', (1095, 305, 1240, 348), 'dark')],
++}
++n = sys.argv[1]; d = sys.argv[2] if len(sys.argv) > 2 else '/var/tmp/cine-out/ep01/sec'; v = f'{d}/{n}.mkv'
++res = []
++for t, name, b, kind in BOX[n]:
++    r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t}', '-i', v, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)
++    im = Image.open(io.BytesIO(r.stdout)).convert('RGB')
++    a = np.asarray(im.crop(b)).reshape(-1, 3).astype(int); o = np.argsort(a.sum(1)); k = len(o)
++    lo, hi = a[o[: max(1, k * 3 // 100)]], a[o[-k * 40 // 100:]]
++    if kind == 'light': lo, hi = a[o[: k * 40 // 100]], a[o[-max(1, k * 3 // 100):]]
++    fg = np.median(lo if kind == 'dark' else hi, axis=0); bg = np.median(hi if kind == 'dark' else lo, axis=0)
++    q = ratio(fg, bg); res.append(dict(t=t, name=name, ratio=round(float(q), 2))); print(f'{t:6.1f}s  {q:5.2f}:1  {name}')
++print(json.dumps({'doan': n, 'min_thong_tin': min(x['ratio'] for x in res), 'min_ten': min(res, key=lambda x: x['ratio'])['name']}, ensure_ascii=False))

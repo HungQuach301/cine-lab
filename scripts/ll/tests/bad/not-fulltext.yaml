@@ -1,0 +1,4 @@
+id: bad4
+sources: {S: {short: "S", url: "https://example.org", read: summary, accessed: 2026-10-05}}
+numbers: {a: {v: 1, text: "1", kind: actual, unit: people, src: S}}
+segments: [{id: "01", part: TODAY, vo: "One.", shots: [{tpl: bignum, at: 0, p: {num: a}}]}]

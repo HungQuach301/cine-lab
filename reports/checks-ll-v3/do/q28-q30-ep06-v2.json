@@ -1,0 +1,82 @@
+{
+ "Q28": {
+  "ok": false,
+  "val": "4 cue · cảnh đinh có âm thanh nghề 31/33 · lặng trước số neo [0.76, 0.69, 0.69, 0.7] s · master -14.0 LUFS / -1.6 dBTP",
+  "note": "cảnh đinh không có âm thanh nghề: 05@0.0/diptych, 10@16.7/diptych",
+  "loi": [
+   "cảnh đinh không có âm thanh nghề: 05@0.0/diptych, 10@16.7/diptych"
+  ],
+  "sat_nguong": [],
+  "lang": [
+   [
+    "comp88",
+    "04",
+    0.76,
+    0.76
+   ],
+   [
+    "gd_chg",
+    "08",
+    0.69,
+    0.78
+   ],
+   [
+    "img",
+    "00",
+    0.69,
+    0.83
+   ],
+   [
+    "img",
+    "09",
+    0.7,
+    0.76
+   ]
+  ]
+ },
+ "Q29": {
+  "ok": true,
+  "val": "59/59 danh từ chính và lần đọc số neo có hình vật chất ≥ 0.5 s trong ±1 s",
+  "note": "",
+  "loi": []
+ },
+ "Q30": {
+  "ok": false,
+  "val": "3 chuyển hồi · tông đo: hồi 1 h=59.0° C=30.4, hồi 2 h=71.8° C=10.0, hồi 3 h=61.3° C=9.0, hồi 4 h=49.8° C=23.8",
+  "note": "01→02: shot trước điểm cắt (plate:case_line) không có đèn (heroes.<khoá>.lamp); hồi 3 cần cold: đo h=61.3° C=9.0",
+  "loi": [
+   "01→02: shot trước điểm cắt (plate:case_line) không có đèn (heroes.<khoá>.lamp)",
+   "hồi 3 cần cold: đo h=61.3° C=9.0"
+  ],
+  "tong": {
+   "1": {
+    "a": 15.7,
+    "b": 26.1,
+    "C": 30.4,
+    "h": 59.0,
+    "mau": 88
+   },
+   "2": {
+    "a": 3.1,
+    "b": 9.5,
+    "C": 10.0,
+    "h": 71.8,
+    "mau": 306
+   },
+   "3": {
+    "a": 4.3,
+    "b": 7.9,
+    "C": 9.0,
+    "h": 61.3,
+    "mau": 475
+   },
+   "4": {
+    "a": 15.4,
+    "b": 18.2,
+    "C": 23.8,
+    "h": 49.8,
+    "mau": 48
+   }
+  }
+ }
+}

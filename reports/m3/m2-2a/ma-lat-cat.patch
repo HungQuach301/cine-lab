@@ -1,0 +1,687 @@
+diff --git a/design/m3/lat-cat/am_thanh.py b/design/m3/lat-cat/am_thanh.py
+new file mode 100644
+index 0000000..b19f9f7
+--- /dev/null
++++ b/design/m3/lat-cat/am_thanh.py
+@@ -0,0 +1,84 @@
++"""Cine Lab · M2.2a LÁT CẮT — dựng âm thanh (tất định): lời dẫn Bill nguyên bản (lệch +1,0 s, chỉ lọc thấp + nén nhẹ, KHÔNG atempo,
++không cắt), nhạc M2-MUS-1 hạ 12 dB khi có lời (đường bao tính từ mốc ký tự), SFX CC0 (fade 8 ms), master −14 LUFS / TP ≤ −1 dBTP.
++/opt/cine/bin/python design/m3/lat-cat/am_thanh.py <vo.mp3> <align.json> <nhạc.mp3> <thư mục sfx> <ra.wav>
++Ghi <ra>.json: khoảng lời, mức hạ thật đo trên stem nhạc, vị trí SFX.
++"""
++import json, subprocess, sys
++import numpy as np
++SR, DUR, OFF = 48000, 93.75, 1.0
++vo_p, al_p, mus_p, sfx_d, out_p = sys.argv[1:6]
++
++
++def dec(p, ch, af=None, ss=None, t=None):
++    cmd = ['ffmpeg', '-v', 'error', '-nostdin']
++    if ss is not None: cmd += ['-ss', str(ss)]
++    if t is not None: cmd += ['-t', str(t)]
++    cmd += ['-i', p] + (['-af', af] if af else []) + ['-ac', str(ch), '-ar', str(SR), '-f', 'f32le', '-']
++    a = np.frombuffer(subprocess.run(cmd, capture_output=True, check=True).stdout, np.float32)
++    return a.reshape(-1, ch).astype(np.float64)
++
++
++N = int(round(DUR * SR))
++mix = np.zeros((N, 2))
++# 1) lời dẫn: lọc thấp 70 Hz + nén nhẹ (3:1 trên −26 dB), đặt ở +1,0 s
++vo = dec(vo_p, 1, 'highpass=f=70,acompressor=threshold=-26dB:ratio=3:attack=6:release=160:knee=4')[:, 0]
++i0 = int(OFF * SR); vo_st = np.zeros(N); vo_st[i0:i0 + len(vo)] = vo[: N - i0]
++# 2) khoảng có lời từ mốc ký tự (gộp khe < 0,55 s)
++al = json.load(open(al_p)); cs, ce, ch = al['character_start_times_seconds'], al['character_end_times_seconds'], al['characters']
++seg = []
++for c, a, b in zip(ch, cs, ce):
++    if c.isspace(): continue
++    a, b = a + OFF, b + OFF
++    if seg and a - seg[-1][1] < 0.55: seg[-1][1] = max(seg[-1][1], b)
++    else: seg.append([a, b])
++# 3) nhạc: đường bao dB (0 ở chỗ lặng, −12 khi có lời; dốc 0,2 s trước khi vào lời, 0,25 s sau khi hết lời)
++DUCK, BASE = -12.0, -3.0
++t = np.arange(N) / SR; env = np.zeros(N)
++for a, b in seg:
++    u = np.clip(np.minimum((t - (a - 0.2)) / 0.2, ((b + 0.25) - t) / 0.25), 0, 1); u = u * u * (3 - 2 * u)
++    env = np.minimum(env, DUCK * u)
++fade = np.clip(t / 1.2, 0, 1) * np.clip((DUR - t) / 1.15, 0, 1)   # vào 1,2 s; ra 1,15 s (khớp nhúng đen 93,0–93,75)
++mus = dec(mus_p, 2, ss=0, t=DUR)[:N]
++mus_st = mus * (10 ** ((BASE + env) / 20))[:, None] * fade[:, None]
++# 4) SFX CC0 (Freesound): (tệp, giây bắt đầu trong tệp, độ dài, giây đặt trên phim, gain dB)
++SFX = [('159386.mp3', 2.0, 7.3, 0.0, -17.0, 'đèn khí xì (G0), mờ ra 6,2–7,3 s'),
++       ('470189.mp3', 0.0, 0.37, 12.05, 4.0, 'giấy trượt (G1 rời khung)'),
++       ('320149.mp3', 3.55, 0.85, 13.15, -10.0, 'lật giấy (G2 vào)'),
++       ('470189.mp3', 0.0, 0.37, 45.7, 2.0, 'giấy trượt (G3 thu nhỏ lên góc)'),
++       ('470189.mp3', 0.0, 0.37, 68.95, 0.0, 'giấy trượt (trục G4 → G5)')]
++sfx_log = []
++for f, ss, d, at, g, why in SFX:
++    s = dec(f'{sfx_d}/{f}', 2, ss=ss, t=d); n = len(s); fl = int(0.008 * SR)
++    w = np.ones(n); w[:fl] = np.linspace(0, 1, fl); w[-fl:] = np.linspace(1, 0, fl)
++    if f == '159386.mp3':   # hơi xì kéo dài: vào 0,4 s, ra 1,1 s
++        tt = np.arange(n) / SR; w *= np.clip(tt / 0.4, 0, 1) * np.clip((d - tt) / 1.1, 0, 1)
++    k = int(at * SR); m = min(n, N - k); mix[k:k + m] += (s[:m] * w[:m, None]) * 10 ** (g / 20)
++    sfx_log.append(dict(file=f, src_ss=ss, dur=d, at=at, gain_db=g, note=why, fade_ms=8))
++VO_G = 9.0   # đưa lời lên gần mức đích trước khi chuẩn hoá chung
++mix += vo_st[:, None] * 10 ** (VO_G / 20) + mus_st
++mix = mix.astype(np.float32)
++raw = out_p.replace('.wav', '.pre.wav')
++subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '2', '-i', '-', '-c:a', 'pcm_f32le', raw], input=mix.tobytes(), check=True)
++
++
++def meas(p):
++    r = subprocess.run(['ffmpeg', '-nostats', '-i', p, '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
++    s = r[r.rfind('Summary:'):]; g = lambda k: float(s.split(k)[1].split()[0])
++    return dict(I=g('I:'), LRA=g('LRA:'), TP=g('Peak:'))
++
++
++m0 = meas(raw); gain = -14.0 - m0['I']
++# 5) master: gain tới −14 LUFS rồi giới hạn đỉnh trên tín hiệu nâng mẫu ×4 (xấp xỉ true peak), về 48 kHz
++subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', raw, '-af', f'volume={gain:.3f}dB,aresample=192000,alimiter=limit=0.83:attack=1:release=60:level=disabled,aresample=48000',
++                '-c:a', 'pcm_s24le', out_p], check=True)
++m1 = meas(out_p)
++# mức hạ nhạc thật: RMS stem nhạc (trước fade) trong vùng có lời so với vùng lặng (≥ 0,6 s sau dốc)
++musr = mus * (10 ** ((BASE + env) / 20))[:, None]
++inside = env <= DUCK + 0.01; quiet = (env >= -1.0) & (t > 1.2) & (t < DUR - 1.2)
++db = lambda x: 10 * np.log10(np.mean(x ** 2) + 1e-20)
++duck_meas = db(musr[inside]) - db(musr[quiet])
++duck_env = db(musr[inside]) - db(mus[inside] * 10 ** (BASE / 20))
++rec = dict(segments=seg, pre=m0, gain_db=round(gain, 2), master=m1, duck_env_db=DUCK, duck_meas_same_samples_db=round(duck_env, 2),
++           music_rms_speech_minus_lull_db=round(duck_meas, 2), sfx=sfx_log, vo_gain_db=VO_G)
++json.dump(rec, open(out_p.replace('.wav', '.json'), 'w'), indent=1, ensure_ascii=False)
++print(json.dumps({k: rec[k] for k in ('pre', 'gain_db', 'master', 'duck_meas_same_samples_db', 'music_rms_speech_minus_lull_db')}))
+diff --git a/design/m3/lat-cat/do.sh b/design/m3/lat-cat/do.sh
+new file mode 100644
+index 0000000..cbca336
+--- /dev/null
++++ b/design/m3/lat-cat/do.sh
+@@ -0,0 +1,15 @@
++#!/bin/bash
++cd /var/tmp/cine-out/m22a
++for f in ll-ep01-lat-cat.mp4 ll-ep01-lat-cat-720p.mp4; do
++  python3 /home/user/cine-lab/scripts/p/judder.py $f --json judder-$f.json > /dev/null 2>&1
++  python3 -c "
++import json;d=json.load(open('judder-$f.json'));print('$f',{k:d[k] for k in ('so_khung','thoi_luong_s','loi','loi_khung','giu_ngan_13_23','giu_co_y_ge_1s','giay_nhip_duoi_12')})"
++  ffmpeg -nostats -i $f -af ebur128=peak=true -f null - 2>&1 | grep -E '^\s+(I|LRA|Peak):' | tr -s ' ' | tr '\n' ' '; echo
++  stat -c %s $f
++done
++ffprobe -v error -show_entries stream=codec_name,profile,width,height,r_frame_rate,avg_frame_rate,pix_fmt,color_space,color_primaries,color_transfer,sample_rate,bit_rate -show_entries format=duration -of compact ll-ep01-lat-cat.mp4
++ffprobe -v error -show_entries stream=width,height,bit_rate -show_entries format=duration -of compact ll-ep01-lat-cat-720p.mp4
++/opt/cine/bin/python /home/user/cine-lab/.claude/worktrees/agent-aa29263033136d9fe/design/m3/lat-cat/tuong_phan.py ll-ep01-lat-cat.mp4
++/opt/cine/bin/python /home/user/cine-lab/.claude/worktrees/agent-aa29263033136d9fe/design/m3/lat-cat/tuong_phan.py ll-ep01-lat-cat-720p.mp4 | tail -1
++# im số tuyệt đối giữa đoạn (−90 dB, ≥ 50 ms) trên âm thanh cuối
++ffmpeg -nostats -i ll-ep01-lat-cat.mp4 -af silencedetect=n=-90dB:d=0.05 -f null - 2>&1 | grep -c silence_start
+diff --git a/design/m3/lat-cat/dohoa.js b/design/m3/lat-cat/dohoa.js
+new file mode 100644
+index 0000000..09b58a4
+--- /dev/null
++++ b/design/m3/lat-cat/dohoa.js
+@@ -0,0 +1,281 @@
++// Cine Lab · M2.2a LÁT CẮT — bộ dựng đồ hoạ dữ liệu động G0→G6 (canvas2D, vẽ lại MỖI khung, t = khung/24 tất định).
++// Chạy trong Chromium (dohoa_render.js nạp tệp này). window.drawFrame(f) vẽ khung f lên canvas 1920×1080.
++// Ngôn ngữ B3 (bo_mau.py): giấy ngà có vân + mép, bóng đổ của tấm giấy theo vị trí ánh rọi, ánh đèn rọi ấm lướt chậm, giấy lay rất nhẹ, bụi trong ánh rọi.
++// Luật so sánh (CHUAN-KENH-LL §3): G1 THỰC TẾ (nét liền, nhãn ACTUAL) ở khung riêng; G3–G5 DỰ BÁO (gạch chéo + viền nét đứt + nhãn PROJECTION + kỳ).
++// G3, G4 cùng thang 0 → −40 % (22 px/%); G5 trục hai chiều −40 → +45 % biến hình liền từ G4.
++// Màu (v2 §7): hổ phách = khí / nghề tăng; trắng lạnh / thép lạnh = nghề giảm / điện. Font DejaVu (RIGHTS C4-F1, M2-F-DejaVuSans-Bold, M2-F-DejaVuSerif-Bold).
++'use strict';
++const W = 1920, H = 1080, FPS = 24;
++const cv = document.getElementById('c'), X = cv.getContext('2d');
++const COLD_T = '#2b405c';   // chữ số lớn màu lạnh (đậm hơn COLD để tương phản ≥ 6:1 cả trong vùng ánh rọi)
++const INK = '#211a17', INK2 = '#4a3f36', CREAM = '#ecdfbe', AMBER = '#c47026', AMBER_L = '#d99a52', COLD = '#3f5a7a', NAVY = '#141a2e', COLDW = '#eef3ff', OCHRE = '#6b3a12';
++const SANS = '"DejaVu Sans"', SANSB = 'bold 1px "DejaVu Sans"', SERIFB = '"DejaVu Serif"';
++const font = (px, kind = 'sans', bold = false) => `${bold ? 'bold ' : ''}${px}px ${kind === 'serif' ? SERIFB : SANS}`;
++const M = '−';   // dấu trừ
++const SX = 150, SY = 90, SW = 1620, SH = 900;   // tấm giấy (toạ độ khung)
++const DUR = 93.75;
++
++// ---------- tiện ích thời gian ----------
++const cl = (u) => Math.max(0, Math.min(1, u));
++const sm = (u) => { u = cl(u); return u * u * u * (u * (u * 6 - 15) + 10); };   // smootherstep
++const eo = (u) => { u = cl(u); return 1 - Math.pow(1 - u, 3); };
++const pr = (t, a, b) => cl((t - a) / (b - a));
++const lerp = (a, b, u) => a + (b - a) * u;
++const fmt1 = (v) => (v < 0 ? M : v > 0 ? '+' : '') + Math.abs(v).toFixed(1) + '%';
++
++// ---------- RNG tất định ----------
++function rng(seed) { let s = seed >>> 0 || 1; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
++
++// ---------- vân giấy (một lần, tất định) ----------
++function paperTex(w, h, seed) {
++  const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d'); const R = rng(seed);
++  g.fillStyle = CREAM; g.fillRect(0, 0, w, h);
++  const id = g.getImageData(0, 0, w, h), d = id.data;
++  for (let i = 0; i < d.length; i += 4) { const n = (R() - 0.5) * 9; d[i] += n; d[i + 1] += n; d[i + 2] += n * 0.8; }
++  g.putImageData(id, 0, 0);
++  for (let i = 0; i < 1400; i++) {   // sợi giấy
++    const x = R() * w, y = R() * h, L = 6 + R() * 26, a = R() * Math.PI;
++    g.strokeStyle = `rgba(${R() < 0.5 ? '120,95,60' : '255,250,235'},${0.05 + R() * 0.07})`; g.lineWidth = 0.6 + R() * 0.8;
++    g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + Math.cos(a) * L * 0.5 + (R() - 0.5) * 4, y + Math.sin(a) * L * 0.5 + (R() - 0.5) * 4, x + Math.cos(a) * L, y + Math.sin(a) * L); g.stroke();
++  }
++  for (let i = 0; i < 26; i++) {   // vết loang
++    const x = R() * w, y = R() * h, r = 40 + R() * 160, gr = g.createRadialGradient(x, y, 0, x, y, r);
++    gr.addColorStop(0, `rgba(150,110,60,${0.025 + R() * 0.03})`); gr.addColorStop(1, 'rgba(150,110,60,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r);
++  }
++  const e = g.createLinearGradient(0, 0, 0, h); e.addColorStop(0, 'rgba(90,60,30,0.10)'); e.addColorStop(0.06, 'rgba(90,60,30,0)'); e.addColorStop(0.94, 'rgba(90,60,30,0)'); e.addColorStop(1, 'rgba(90,60,30,0.12)'); g.fillStyle = e; g.fillRect(0, 0, w, h);
++  const e2 = g.createLinearGradient(0, 0, w, 0); e2.addColorStop(0, 'rgba(90,60,30,0.10)'); e2.addColorStop(0.04, 'rgba(90,60,30,0)'); e2.addColorStop(0.96, 'rgba(90,60,30,0)'); e2.addColorStop(1, 'rgba(90,60,30,0.10)'); g.fillStyle = e2; g.fillRect(0, 0, w, h);
++  return c;
++}
++// mép giấy hơi răng cưa (đường bao tất định)
++function edgePath(w, h, seed) { const R = rng(seed), p = []; const step = 18;
++  for (let x = 0; x <= w; x += step) p.push([x, (R() - 0.5) * 2.2]);
++  for (let y = 0; y <= h; y += step) p.push([w + (R() - 0.5) * 2.2, y]);
++  for (let x = w; x >= 0; x -= step) p.push([x, h + (R() - 0.5) * 2.2]);
++  for (let y = h; y >= 0; y -= step) p.push([(R() - 0.5) * 2.2, y]); return p; }
++const PAPER = [paperTex(SW, SH, 11), paperTex(SW, SH, 29)], EDGE = [edgePath(SW, SH, 5), edgePath(SW, SH, 8)];
++// nền: tường/bàn tối, vân thô
++const BG = (() => { const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d'); const R = rng(77);
++  const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#171b2b'); gr.addColorStop(1, '#0d0f19'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
++  for (let i = 0; i < 5000; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '0,0,0' : '120,110,140'},${0.04 + R() * 0.05})`; g.fillRect(R() * W, R() * H, 1 + R() * 2, 1 + R() * 2); }
++  return c; })();
++// mẫu gạch chéo
++function hatch(color, bg) { const c = document.createElement('canvas'); c.width = c.height = 14; const g = c.getContext('2d');
++  g.fillStyle = bg; g.fillRect(0, 0, 14, 14); g.strokeStyle = color; g.lineWidth = 3.2;
++  for (const o of [-14, 0, 14]) { g.beginPath(); g.moveTo(o, 14); g.lineTo(o + 14, 0); g.stroke(); } return X.createPattern(c, 'repeat'); }
++const HATCH_COLD = hatch(COLD, 'rgba(63,90,122,0.18)'), HATCH_AMB = hatch(AMBER_L, 'rgba(217,154,82,0.22)');
++// biểu tượng cửa thang máy (vẽ tay đơn giản)
++function liftIcon(g, x, y, s, a) { g.save(); g.globalAlpha *= a; g.translate(x, y); g.strokeStyle = OCHRE; g.fillStyle = 'rgba(196,112,38,0.22)'; g.lineWidth = 3;
++  g.fillRect(0, 0, 54 * s, 78 * s); g.strokeRect(0, 0, 54 * s, 78 * s); g.beginPath(); g.moveTo(27 * s, 6 * s); g.lineTo(27 * s, 78 * s); g.stroke();
++  g.strokeRect(-4 * s, -14 * s, 62 * s, 10 * s); g.beginPath(); g.moveTo(16 * s, -9 * s); g.lineTo(38 * s, -9 * s); g.stroke(); g.restore(); }
++
++// ---------- số liệu (KICH-BAN v3 §9.2, chính xác) ----------
++const G1 = [[1950, 97], [1960, 77], [1970, 37]];
++const G3 = [['Word processors and typists', -34.4, 24.40], ['Telephone operators', -27.6, 28.52], ['Switchboard operators, incl. answering service', -26.0, 31.30], ['Data entry keyers', -25.5, 33.00], ['Telemarketers', -21.4, 36.05]];
++const G4 = [['Customer service representatives', -5.0, 58.62], ['Insurance appraisers, auto damage', -9.2, 62.78], ['Claims adjusters, examiners, and investigators', -4.4, 65.66]];
++const G5A = [['Software developers', 17.9, 72.01]];
++const G5B = [['Nurse practitioners', 41.0, 80.03], ['Solar photovoltaic installers', 36.5, 82.41], ['Data scientists', 34.6, 85.33]];
++const SRC = { census: 'Source: U.S. Census Bureau, Historical Statistics of the U.S., Series D 233–682',
++  ep: 'Source: U.S. BLS, Employment Projections 2025–35, Table 1.5',
++  mlr: 'Source: U.S. BLS, Monthly Labor Review, Feb 2025 (2023–33 projections)' };
++
++// ---------- mốc thời gian (giây, đã gồm lệch +1,0 s của lời dẫn) ----------
++const T = { flame: [1354.4, 907.2], dotA: 6.0, dotB: 6.8, dotC: 7.55, storyOut: [6.3, 6.95], paperUp: [6.95, 7.5],
++  g1axis: [7.2, 8.0], g1line: [[8.2, 9.6], [9.7, 11.1]], g2out: [12.0, 13.5], flip: [13.2, 14.3], g2title: 14.2, g2tag: 14.7, g2axis: [15.0, 16.5],
++  barDur: 0.95, c34: [26.62, 27.55], g3b: [38.69, 39.5], pat: [40.4, 41.6],
++  g4: [45.65, 46.9], g4title: 46.3, g4tag: 48.75, g4quote: 51.8, morph: [68.9, 70.4], tagA: 70.6, tagB: 76.1,
++  words: [88.33, 89.68, 90.95], black: [93.0, 93.75] };
++const BLUR = [[5.95, 7.7], [11.95, 14.5], [45.6, 47.0], [68.85, 70.5]];   // cửa sổ motion blur (khung con)
++
++// ---------- toạ độ tấm (cục bộ) ----------
++const L3 = { lab: 470, z: 1430, k: 22, rows: [330, 410, 490, 570, 650], bh: 46, tickY: 708 };   // G3 (và G4 trước biến hình): 0 ở x 1430, −40 % ở x 550
++const L5 = { z: 550 + 40 * (930 / 85), k: 930 / 85 };   // G5: −40 % ở 550, +45 % ở 1480
++const R45 = { rows4: [360, 420, 480], rowA: [540], rowsB: [632, 688, 744], bh: 36 };
++
++let NOTEXT = false;   // P sửa: bản thu nhỏ G3 ở G4–G6 không vẽ chữ (chữ mờ 40 % chỉ đạt 2,05:1 < 4,5:1)
++function text(g, s, x, y, f, color, align = 'left', base = 'alphabetic') { if (NOTEXT) return; g.font = f; g.fillStyle = color; g.textAlign = align; g.textBaseline = base; g.fillText(s, x, y); }
++function wrap(g, s, maxW, f) { g.font = f; if (g.measureText(s).width <= maxW) return [s]; const w = s.split(' '); let a = '', out = [];
++  for (const x of w) { const n = a ? a + ' ' + x : x; if (g.measureText(n).width > maxW && a) { out.push(a); a = x; } else a = n; } out.push(a); return out; }
++function tag(g, s, x, y, fill, color, f, a = 1, dash = false, align = 'left') { g.save(); g.globalAlpha *= a; g.font = f; const w = g.measureText(s).width + 28, h = 38;
++  const x0 = align === 'right' ? x - w : x; g.fillStyle = fill; g.fillRect(x0, y - h / 2, w, h); if (dash) { g.setLineDash([8, 5]); g.strokeStyle = color; g.lineWidth = 2; g.strokeRect(x0 + 3, y - h / 2 + 3, w - 6, h - 6); g.setLineDash([]); }
++  text(g, s, x0 + 14, y + 1, f, color, 'left', 'middle'); g.restore(); return w; }
++function srcLine(g, s, y, a) { if (a <= 0) return; g.save(); g.globalAlpha *= a; text(g, s, 60, y, font(20), INK2); g.restore(); }
++
++// cột ngang dự báo: gạch chéo + viền nét đứt; v (%), x0 = vạch 0, k = px/%
++function bar(g, x0, k, y, h, v, u, cold) { if (u <= 0) return; const L = v * k * u, xa = Math.min(x0, x0 + L), w = Math.abs(L);
++  g.fillStyle = cold ? HATCH_COLD : HATCH_AMB; g.fillRect(xa, y - h / 2, w, h);
++  g.setLineDash([9, 5]); g.strokeStyle = cold ? COLD : OCHRE; g.lineWidth = 2.2; g.strokeRect(xa + 1, y - h / 2 + 1, Math.max(0, w - 2), h - 2); g.setLineDash([]);
++  const s = fmt1(v * eo(u)), f = font(h > 40 ? 28 : 24, 'sans', true);
++  if (v < 0) text(g, s, xa - 10, y + 1, f, INK, 'right', 'middle'); else text(g, s, xa + w + 10, y + 1, f, INK, 'left', 'middle'); }
++function rowLabel(g, s, y, a, f = font(24)) { if (a <= 0) return; g.save(); g.globalAlpha *= a; const ls = wrap(g, s, 400, f); const lh = 27;
++  ls.forEach((l, i) => text(g, l, L3.lab, y + (i - (ls.length - 1) / 2) * lh, f, INK, 'right', 'middle')); g.restore(); }
++function axisH(g, x0, k, vmin, vmax, y0, y1, ty, a, draw = 1) {   // vạch 0 đậm + lưới + nhãn ticks
++  if (a <= 0) return; g.save(); g.globalAlpha *= a;
++  for (let v = Math.ceil(vmin / 10) * 10; v <= vmax + 1e-6; v += 10) { const x = x0 + v * k;
++    const show = draw >= 1 ? 1 : cl((draw * (vmax - vmin) - (vmax - v)) / 6);   // vẽ dần từ phải sang trái
++    if (show <= 0) continue; g.globalAlpha = a * show;
++    g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.28)'; g.lineWidth = v === 0 ? 4 : 1.5; g.beginPath(); g.moveTo(x, y0); g.lineTo(x, y1); g.stroke();
++    text(g, v === 0 ? '0' : (v < 0 ? M : '+') + Math.abs(v) + '%', x, ty, font(22), INK2, 'center', 'top'); }
++  g.restore(); }
++
++// ---------- nội dung các khung (toạ độ tấm) ----------
++function sheetG1(g, t) {
++  const ax = pr(t, ...T.g1axis), x0 = 260, x1 = 1250, yB = 720, yT = 200, X1 = (yr) => 380 + (yr - 1950) * 38, Y1 = (v) => yB - v / 100 * (yB - yT);
++  text(g, 'Elevator operators, United States', 60, 85, font(46, 'serif', true), INK);
++  g.save(); g.globalAlpha = ax; g.lineWidth = 2; g.strokeStyle = INK; g.strokeRect(1560 - 470, 42, 470, 40);
++  text(g, 'ACTUAL · U.S. Census · persons', 1560 - 14, 63, font(22, 'sans', true), INK, 'right', 'middle'); g.restore();
++  // trục Y từ 0 (hiện trước), lưới
++  g.save(); g.globalAlpha = ax;
++  for (let v = 0; v <= 100; v += 25) { const y = Y1(v); g.strokeStyle = v === 0 ? INK : 'rgba(33,26,23,0.22)'; g.lineWidth = v === 0 ? 3.5 : 1.4;
++    g.beginPath(); g.moveTo(x0, y); g.lineTo(x0 + (x1 - x0) * sm(ax * 1.2 - (v / 100) * 0.2), y); g.stroke(); text(g, v === 0 ? '0' : v + 'k', x0 - 16, y, font(22), INK2, 'right', 'middle'); }
++  g.strokeStyle = INK; g.lineWidth = 3; g.beginPath(); g.moveTo(x0, yB); g.lineTo(x0, yB - (yB - yT) * sm(ax)); g.stroke();
++  for (const [yr] of G1) text(g, String(yr), X1(yr), yB + 14, font(24, 'sans', true), INK, 'center', 'top');
++  text(g, 'occupation definitions revised in 1960 and 1970', x0, yB + 62, font(21), INK2);
++  g.restore();
++  // đường nét liền vẽ dần
++  const u1 = sm(pr(t, ...T.g1line[0])), u2 = sm(pr(t, ...T.g1line[1]));
++  const P = G1.map(([yr, v]) => [X1(yr), Y1(v)]);
++  let head = G1[0][1], hp = P[0];
++  if (u1 > 0) { g.strokeStyle = COLD; g.lineWidth = 6; g.lineCap = 'round'; g.lineJoin = 'round'; g.beginPath(); g.moveTo(...P[0]);
++    hp = [lerp(P[0][0], P[1][0], u1), lerp(P[0][1], P[1][1], u1)]; g.lineTo(...hp); head = lerp(97, 77, u1);
++    if (u2 > 0) { hp = [lerp(P[1][0], P[2][0], u2), lerp(P[1][1], P[2][1], u2)]; g.lineTo(...hp); head = lerp(77, 37, u2); } g.stroke(); }
++  // điểm và nhãn số
++  G1.forEach(([yr, v], i) => { const on = i === 0 ? pr(t, 7.4, 7.7) : i === 1 ? pr(t, 9.5, 9.8) : pr(t, 11.0, 11.3); if (on <= 0) return;
++    g.save(); g.globalAlpha = on; g.fillStyle = i === 0 ? mixC(AMBER, COLD, pr(t, 7.4, 8.4)) : COLD; g.beginPath(); g.arc(P[i][0], P[i][1], 11, 0, 7); g.fill();
++    text(g, v + 'k', P[i][0] + 18, P[i][1] - 18, font(28, 'sans', true), INK, 'left', 'bottom'); g.restore(); });
++  // số lớn đếm lùi theo đầu đường
++  const ca = pr(t, 8.2, 8.7); if (ca > 0) { g.save(); g.globalAlpha = ca; text(g, Math.round(head) + 'k', 1300, 470, font(104, 'sans', true), COLD_T, 'left');
++    text(g, u2 >= 1 ? '1970' : u2 > 0 ? '1960 → 1970' : u1 > 0 ? '1950 → 1960' : '1950', 1306, 512, font(26), INK2, 'left'); g.restore(); }
++  srcLine(g, SRC.census, 868, ax);
++}
++function mixC(a, b, u) { const p = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16)); const A = p(a), B = p(b); return `rgb(${A.map((x, i) => Math.round(lerp(x, B[i], u))).join(',')})`; }
++
++function sheetG3(g, t, thumb = false) {
++  const ta = thumb ? 1 : pr(t, T.g2title, T.g2title + 0.6), tg = thumb ? 1 : pr(t, T.g2tag, T.g2tag + 0.5), axd = thumb ? 1 : sm(pr(t, ...T.g2axis));
++  g.save(); g.globalAlpha *= ta; text(g, 'Fastest-shrinking U.S. jobs', 60, 85, font(46, 'serif', true), INK); g.restore();
++  tag(g, 'PROJECTION 2025–35 · BLS · jobs', 1560, 62, NAVY, COLDW, font(22, 'sans', true), tg, true, 'right');
++  axisH(g, L3.z, L3.k, -40, 0, 290, 690, L3.tickY, pr(t, T.g2axis[0], T.g2axis[0] + 0.3), axd);
++  G3.forEach(([lab, v, t0], i) => { const u = thumb ? 1 : sm(pr(t, t0, t0 + T.barDur)); rowLabel(g, lab, L3.rows[i], thumb ? 1 : pr(t, t0 - 0.15, t0 + 0.35)); bar(g, L3.z, L3.k, L3.rows[i], L3.bh, v, u, true); });
++  // số lớn −34 % đếm lên rồi đứng
++  const c = thumb ? 1 : pr(t, ...T.c34); if (c > 0) { g.save(); g.globalAlpha *= pr(t, T.c34[0], T.c34[0] + 0.25) || (thumb ? 1 : 0);
++    const n = Math.round(34 * eo(c)); text(g, (n ? M : '') + n + '%', 550, 252, font(124, 'sans', true), COLD_T, 'left');
++    text(g, 'word processors and typists, 2025–35', 556, 284, font(22), INK2, 'left'); g.restore(); }
++  // G3b: cùng mẫu hình
++  const ia = thumb ? 1 : pr(t, ...T.g3b); if (ia > 0) {
++    liftIcon(g, 70, 170, 1, ia);
++    g.save(); g.globalAlpha *= ia; g.strokeStyle = OCHRE; g.lineWidth = 1.6; g.beginPath(); g.moveTo(97, 252); g.lineTo(97, 296); g.lineTo(lerp(97, 140, 1), 316); g.stroke(); g.restore();
++    const pa = thumb ? 1 : pr(t, ...T.pat); if (pa > 0) { g.save(); g.translate(150, 236); g.rotate(-0.06); g.beginPath(); g.rect(0, -48, 330 * sm(pa), 70); g.clip();
++      text(g, 'same pattern', 0, 0, font(40, 'serif', true), OCHRE, 'left'); g.strokeStyle = OCHRE; g.lineWidth = 2.5; g.beginPath(); g.moveTo(0, 12); g.quadraticCurveTo(150, 20, 300, 8); g.stroke(); g.restore(); }
++  }
++  if (!thumb) srcLine(g, SRC.ep, 868, pr(t, 13.6, 14.3));
++}
++function sheetG45(g, t) {
++  // G3 thu nhỏ góc trái trên, mờ 40 %
++  const s = sm(pr(t, ...T.g4)), sc = lerp(1, 0.3, s);
++  g.save(); g.translate(lerp(0, 40, s), lerp(0, 30, s)); g.scale(sc, sc); g.globalAlpha *= lerp(1, 0.4, s); NOTEXT = s > 0.5; sheetG3(g, t, true); NOTEXT = false; g.restore();
++  if (s < 1) srcLine(g, SRC.ep, 868, 1 - s);
++  const m = sm(pr(t, ...T.morph)), z = lerp(L3.z, L5.z, m), k = lerp(L3.k, L5.k, m);
++  const ta = pr(t, T.g4title, T.g4title + 0.6);
++  // P sửa (luật so sánh điểm 5): tiêu đề, câu trích và nhãn kỳ của G4 chỉ thuộc nhóm AI 2023–33 → mờ đi khi trục biến hình sang G5 (nghề tăng, gồm kỳ 2025–35)
++  const g4a = 1 - sm(pr(t, T.morph[0] - 0.4, T.morph[0] + 0.5));
++  g.save(); g.globalAlpha *= ta * pr(t, T.morph[0] + 0.3, T.morph[1]); text(g, 'Projected change in selected U.S. jobs', 600, 128, font(44, 'serif', true), INK); g.restore();
++  g.save(); g.globalAlpha *= ta * g4a; text(g, 'BLS projections that name AI', 600, 128, font(44, 'serif', true), INK);
++  const q = wrap(g, '“expected to primarily affect occupations whose core tasks can be most easily replicated by GenAI”', 900, font(23));
++  g.globalAlpha *= pr(t, T.g4quote, T.g4quote + 0.8); q.forEach((l, i) => text(g, l, 600, 176 + i * 30, font(23), INK2)); g.restore();
++  tag(g, 'PROJECTION 2023–33 · earlier round', 600, 44, OCHRE, CREAM, font(22, 'sans', true), pr(t, T.g4tag, T.g4tag + 0.5) * g4a, true);
++  const tickY = lerp(522, 790, m), yTop = 325, yBot = lerp(505, 772, m);
++  axisH(g, z, k, lerp(-40, -40, m), m > 0 ? 45 * m - 0.001 + (m >= 1 ? 0.002 : 0) : 0, yTop, yBot, tickY, pr(t, T.g4tag + 0.3, T.g4tag + 0.9), sm(pr(t, T.g4tag + 0.3, T.g4tag + 1.3)));
++  G4.forEach(([lab, v, t0], i) => { rowLabel(g, lab, R45.rows4[i], pr(t, t0 - 0.15, t0 + 0.35), font(22)); bar(g, z, k, R45.rows4[i], R45.bh, v, sm(pr(t, t0, t0 + T.barDur)), true); });
++  // G5
++  const groupTag = (s, y, a) => tag(g, s, 60, y, OCHRE, CREAM, font(19, 'sans', true), a, true);
++  groupTag('PROJECTION 2023–33', 318, pr(t, T.tagA, T.tagA + 0.5));
++  groupTag('PROJECTION 2025–35 · newest', 586, pr(t, T.tagB, T.tagB + 0.5));
++  G5A.forEach(([lab, v, t0], i) => { rowLabel(g, lab, R45.rowA[i], pr(t, t0 - 0.15, t0 + 0.35), font(22)); bar(g, z, k, R45.rowA[i], R45.bh, v, sm(pr(t, t0, t0 + T.barDur)), false); });
++  G5B.forEach(([lab, v, t0], i) => { rowLabel(g, lab, R45.rowsB[i], pr(t, t0 - 0.15, t0 + 0.35), font(22)); bar(g, z, k, R45.rowsB[i], R45.bh, v, sm(pr(t, t0, t0 + T.barDur)), false); });
++  // nguồn
++  const a5 = pr(t, T.tagA - 0.3, T.tagA + 0.5);
++  srcLine(g, SRC.mlr, lerp(868, 850, a5), s);
++  srcLine(g, 'Source: U.S. BLS, Employment Projections 2025–35', 874, pr(t, T.tagB, T.tagB + 0.5));
++  // G6: end · change · new
++  [['end', 283, 168], ['change', 720, 316], ['new', 770, 586]].forEach(([w, x, y], i) => { const a = pr(t, T.words[i], T.words[i] + 0.45); if (a <= 0) return;
++    g.save(); g.globalAlpha *= a; g.translate(x, y + (1 - eo(a)) * 14); g.font = font(52, 'serif', true); const ww = g.measureText(w).width + 40;
++    g.fillStyle = 'rgba(236,223,190,0.94)'; g.shadowColor = 'rgba(40,25,10,0.35)'; g.shadowBlur = 10; g.fillRect(-ww / 2, -38, ww, 70); g.shadowBlur = 0;
++    g.strokeStyle = INK; g.lineWidth = 2; g.strokeRect(-ww / 2, -38, ww, 70); text(g, w, 0, 0, font(52, 'serif', true), INK, 'center', 'middle'); g.restore(); });
++}
++
++// ---------- ánh rọi, lay, bụi ----------
++function light(t) { return [960 + 360 * Math.sin(2 * Math.PI * t / 23 + 0.6) + (t > 88 ? (t - 88) * 70 : 0), 470 + 110 * Math.sin(2 * Math.PI * t / 31)]; }
++const DUST = (() => { const R = rng(4242); return Array.from({ length: 46 }, () => [R(), R(), R(), R(), R()]); })();
++function drawSheet(g, t, idx, content, ox, oy, alpha, flipU) {
++  const [lx, ly] = light(t);
++  const rot = 0.0021 * Math.sin(2 * Math.PI * t / 7.3) + 0.0012 * Math.sin(2 * Math.PI * t / 4.1 + 1);
++  const dx = 1.6 * Math.sin(2 * Math.PI * t / 5.1 + 0.3), dy = 1.1 * Math.sin(2 * Math.PI * t / 6.7 + 2);
++  g.save(); g.globalAlpha = alpha;
++  g.translate(SX + ox + dx + SW / 2, SY + oy + dy + SH / 2); g.rotate(rot); g.translate(-SW / 2, -SH / 2);
++  if (flipU !== undefined) g.scale(Math.max(0.001, flipU), 1);
++  const e = EDGE[idx % 2];
++  g.save(); g.shadowColor = 'rgba(0,0,0,0.62)'; g.shadowBlur = 38; g.shadowOffsetX = (SX + SW / 2 - lx) * 0.03 + 10; g.shadowOffsetY = (SY + SH / 2 - ly) * 0.03 + 16;
++  g.beginPath(); e.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.fillStyle = CREAM; g.fill(); g.restore();
++  g.save(); g.beginPath(); e.forEach(([x, y], i) => (i ? g.lineTo(x, y) : g.moveTo(x, y))); g.closePath(); g.clip(); g.drawImage(PAPER[idx % 2], 0, 0);
++  content(g, t);
++  if (flipU !== undefined) { g.fillStyle = `rgba(30,20,10,${0.45 * (1 - flipU)})`; g.fillRect(0, 0, SW, SH); }
++  g.restore(); g.restore();
++}
++function drawLight(g, t, a) {
++  const [lx, ly] = light(t);
++  g.save(); g.globalCompositeOperation = 'multiply'; const v = g.createRadialGradient(lx, ly, 260, lx, ly, 1250);
++  v.addColorStop(0, 'rgba(255,255,255,1)'); v.addColorStop(1, `rgba(${Math.round(255 - 120 * a)},${Math.round(255 - 125 * a)},${Math.round(255 - 110 * a)},1)`); g.fillStyle = v; g.fillRect(0, 0, W, H);
++  g.globalCompositeOperation = 'lighter'; const s = g.createRadialGradient(lx, ly, 0, lx, ly, 700);
++  s.addColorStop(0, `rgba(60,38,12,${0.55 * a})`); s.addColorStop(1, 'rgba(60,38,12,0)'); g.fillStyle = s; g.fillRect(0, 0, W, H); g.restore();
++}
++function drawDust(g, t, a) { if (a <= 0) return; const [lx, ly] = light(t); g.save(); g.globalCompositeOperation = 'lighter';
++  for (const [r1, r2, r3, r4, r5] of DUST) { const x = lx - 700 + 1400 * ((r1 + 0.012 * (0.5 + r4) * t) % 1), y = ly - 420 + 840 * ((r2 + 0.006 * (0.4 + r5) * t + 0.02 * Math.sin(t * (0.3 + r3) + r1 * 9)) % 1);
++    const d = Math.hypot(x - lx, y - ly) / 700, al = a * (0.10 + 0.16 * r3) * Math.max(0, 1 - d * d), rad = 1.2 + 2.4 * r4;
++    if (al <= 0.004) continue; const gr = g.createRadialGradient(x, y, 0, x, y, rad * 2); gr.addColorStop(0, `rgba(255,214,160,${al})`); gr.addColorStop(1, 'rgba(255,214,160,0)'); g.fillStyle = gr; g.fillRect(x - rad * 2, y - rad * 2, rad * 4, rad * 4); }
++  g.restore(); }
++// sương trôi 2D trên cảnh truyện (lớp trước, theo độ sâu: dải dưới đặc hơn, trôi nhanh hơn ở gần)
++const MIST = (() => { const R = rng(515); return [0, 1, 2].map((k) => Array.from({ length: 26 }, () => [R(), R(), R()])); })();
++function drawMist(g, t, a) { g.save();
++  MIST.forEach((L, k) => { const sp = [9, 16, 26][k], yb = [560, 700, 860][k], al = [0.05, 0.07, 0.09][k] * a;
++    for (const [r1, r2, r3] of L) { const x = ((r1 * 2400 + sp * t) % 2400) - 240, y = yb + (r2 - 0.5) * 240, rx = 160 + 240 * r3;
++      const gr = g.createRadialGradient(x, y, 0, x, y, rx); gr.addColorStop(0, `rgba(150,160,195,${al})`); gr.addColorStop(1, 'rgba(150,160,195,0)'); g.fillStyle = gr; g.fillRect(x - rx, y - rx, 2 * rx, 2 * rx); } });
++  g.restore(); }
++
++// ---------- khung ----------
++let STORY = null;   // ảnh khung truyện hiện tại (do trình điều khiển nạp)
++window.setStory = async (url) => { if (!url) { STORY = null; return; } const im = new Image(); im.src = url; await im.decode(); STORY = im; };
++function frameAt(g, t) {
++  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0);
++  g.drawImage(BG, 0, 0);
++  const paperIn = t >= T.storyOut[1] ? 1 : 0;   // G0 → G1: cảnh truyện tối dần (6,3–6,95 s), rồi tấm giấy sáng lên từ tối (6,95–7,5 s); chấm hổ phách nối hai bên
++  // tấm giấy và nội dung theo đoạn
++  if (t < T.g2out[1]) {   // G1 (vào dưới chấm hổ phách, trượt trái + mờ còn 30 % rồi rời khung)
++    const o = sm(pr(t, ...T.g2out)); drawSheet(g, t, 0, sheetG1, -o * 1900, 0, paperIn * lerp(1, 0.3, Math.min(1, o * 1.6)));
++  }
++  if (t >= T.flip[0] && t < T.g4[0]) drawSheet(g, t, 1, (gg, tt) => sheetG3(gg, tt), 0, 0, 1, t < T.flip[1] ? sm(pr(t, ...T.flip)) : undefined);
++  if (t >= T.g4[0]) drawSheet(g, t, 1, sheetG45, 0, 0, 1);
++  drawLight(g, t, 1);
++  drawDust(g, t, paperIn);
++  // cảnh truyện G0 phủ trên, mờ dần 6,55–7,25 s
++  if (t < T.paperUp[1]) { const k = 1 - sm(pr(t, ...T.paperUp)); if (k > 0) { g.fillStyle = `rgba(4,5,10,${k})`; g.fillRect(0, 0, W, H); } }
++  if (STORY && paperIn < 1) { g.drawImage(STORY, 0, 0, W, H); drawMist(g, t, 1); const d = sm(pr(t, ...T.storyOut)); if (d > 0) { g.fillStyle = `rgba(4,5,10,${d})`; g.fillRect(0, 0, W, H); } }
++  // chấm hổ phách: quầng co lại thành chấm (6,0–6,8 s), trôi tới điểm 1950 (6,8–7,55 s)
++  if (t >= T.dotA && t < T.dotC + 0.4) {
++    const P1950 = [SX + 380, SY + 720 - 0.97 * 520], u = sm(pr(t, T.dotB, T.dotC)), c = sm(pr(t, T.dotA, T.dotB));
++    const x = lerp(T.flame[0], P1950[0], u) + Math.sin(u * Math.PI) * 60, y = lerp(T.flame[1], P1950[1], u) - Math.sin(u * Math.PI) * 140;
++    const rad = lerp(170, 30, c), core = lerp(26, 13, c), fade = 1 - pr(t, T.dotC, T.dotC + 0.4);
++    g.save(); g.globalCompositeOperation = 'lighter'; const gr = g.createRadialGradient(x, y, 0, x, y, rad);
++    gr.addColorStop(0, `rgba(255,190,110,${0.85 * fade})`); gr.addColorStop(0.35, `rgba(230,140,50,${0.35 * fade})`); gr.addColorStop(1, 'rgba(200,110,30,0)'); g.fillStyle = gr; g.beginPath(); g.arc(x, y, rad, 0, 7); g.fill(); g.restore();
++    g.save(); g.globalAlpha = c * fade; g.fillStyle = AMBER; g.beginPath(); g.arc(x, y, core * 0.85, 0, 7); g.fill(); g.restore();
++  }
++  // đen cuối
++  const b = pr(t, ...T.black); if (b > 0) { g.fillStyle = `rgba(0,0,0,${sm(b)})`; g.fillRect(0, 0, W, H); }
++}
++// khung f: motion blur bằng tích luỹ khung con (màn trập 180°) trong các cửa sổ chuyển động nhanh
++const ACC = document.createElement('canvas'); ACC.width = W; ACC.height = H; const AX = ACC.getContext('2d');
++window.drawFrame = (f) => {
++  const t = f / FPS, fast = BLUR.some(([a, b]) => t >= a && t <= b), N = fast ? 4 : 1;
++  if (N === 1) { frameAt(X, t); return; }
++  for (let k = 0; k < N; k++) { frameAt(AX, t + ((k + 0.5) / N - 0.5) * 0.5 / FPS); X.globalCompositeOperation = 'source-over'; X.globalAlpha = 1 / (k + 1); X.setTransform(1, 0, 0, 1, 0, 0); X.drawImage(ACC, 0, 0); }
++  X.globalAlpha = 1;
++};
++window.DUR = DUR; window.READY = true;
+diff --git a/design/m3/lat-cat/dohoa_render.js b/design/m3/lat-cat/dohoa_render.js
+new file mode 100644
+index 0000000..ff2227b
+--- /dev/null
++++ b/design/m3/lat-cat/dohoa_render.js
+@@ -0,0 +1,37 @@
++// Cine Lab · M2.2a — trình điều khiển render đồ hoạ dữ liệu (dohoa.js) trong Chromium Playwright, từng khung, tất định.
++// node design/m3/lat-cat/dohoa_render.js --out <tệp.mkv> --from 0 --to 2250 [--story <thư mục png khung truyện %04d.png>] [--png 0,170,...] [--pngdir d]
++// Xuất đoạn khung [from, to) dạng FFV1 không mất (ghép đoạn song song sau); ghi <out>.timing.json (giây/khung: vẽ + lấy điểm ảnh).
++const { chromium } = require('/opt/pw/node_modules/playwright');
++const { spawn } = require('child_process');
++const fs = require('fs'), path = require('path');
++const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
++const OUT = path.resolve(arg('out')), F0 = +arg('from', 0), F1 = +arg('to', 2250), STORY = arg('story', null);
++const PNGS = (arg('png', '') || '').split(',').filter(Boolean).map(Number), PNGDIR = arg('pngdir', path.dirname(OUT));
++(async () => {
++  const browser = await chromium.launch({ args: ['--disable-gpu', '--font-render-hinting=none', '--force-color-profile=srgb'] });
++  const page = await browser.newPage({ viewport: { width: 1920, height: 1080 }, deviceScaleFactor: 1 });
++  page.on('pageerror', (e) => console.error('[pageerror]', e.message)); page.on('console', (m) => console.error('[page]', m.text()));
++  await page.route('http://dohoa.local/**', (route) => { const u = decodeURIComponent(new URL(route.request().url()).pathname);
++    if (u === '/index.html') return route.fulfill({ status: 200, contentType: 'text/html; charset=utf-8', body: '<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c" width="1920" height="1080"></canvas><script src="/dohoa.js"></script></body></html>' });
++    if (u === '/dohoa.js') return route.fulfill({ status: 200, contentType: 'text/javascript; charset=utf-8', body: fs.readFileSync(path.join(__dirname, 'dohoa.js')) });
++    if (u.startsWith('/story/') && STORY) { const p = path.join(STORY, path.basename(u)); if (fs.existsSync(p)) return route.fulfill({ status: 200, contentType: 'image/png', body: fs.readFileSync(p) }); }
++    route.fulfill({ status: 404, body: 'nf' }); });
++  await page.goto('http://dohoa.local/index.html'); await page.waitForFunction(() => window.READY === true);
++  const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1920x1080', '-framerate', '24', '-i', '-',
++    '-c:v', 'ffv1', '-level', '3', '-pix_fmt', 'bgr0', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
++  const times = [];
++  for (let f = F0; f < F1; f++) {
++    const b = Date.now();
++    if (STORY) await page.evaluate(async (u) => await window.setStory(u), f < 180 ? `/story/${String(f).padStart(4, '0')}.png` : null);
++    const b64 = await page.evaluate((f) => { window.drawFrame(f); const d = document.getElementById('c').getContext('2d').getImageData(0, 0, 1920, 1080).data;
++      let s = ''; const CH = 0x8000; for (let i = 0; i < d.length; i += CH) s += String.fromCharCode.apply(null, d.subarray(i, i + CH)); return btoa(s); }, f);
++    const buf = Buffer.from(b64, 'base64'); times.push((Date.now() - b) / 1000);
++    if (!ff.stdin.write(buf)) await new Promise((r) => ff.stdin.once('drain', r));
++    if (PNGS.includes(f)) { const p = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', '1920x1080', '-i', '-', '-frames:v', '1', path.join(PNGDIR, `dohoa_f${f}.png`)]); p.stdin.end(buf); }
++    if ((f - F0) % 100 === 0) console.error(`[dohoa] ${f}/${F1} ${times[times.length - 1].toFixed(2)} s`);
++  }
++  ff.stdin.end(); await new Promise((r) => ff.on('close', r)); await browser.close();
++  const mean = times.reduce((a, b) => a + b, 0) / times.length;
++  fs.writeFileSync(OUT + '.timing.json', JSON.stringify({ from: F0, to: F1, frames: times.length, per_frame_s: { mean: +mean.toFixed(3), max: +Math.max(...times).toFixed(3) }, times }, null, 0));
++  console.log(JSON.stringify({ from: F0, to: F1, mean: +mean.toFixed(3), max: +Math.max(...times).toFixed(3) }));
++})().catch((e) => { console.error(e); process.exit(1); });
+diff --git a/design/m3/lat-cat/ghep.sh b/design/m3/lat-cat/ghep.sh
+new file mode 100755
+index 0000000..4befad6
+--- /dev/null
++++ b/design/m3/lat-cat/ghep.sh
+@@ -0,0 +1,17 @@
++#!/bin/bash
++# ghép 3 đoạn FFV1 + âm thanh → 1080p (crf 16) và 720p (≤ 40 MB); ghi thời gian mã hoá
++set -e
++O=/var/tmp/cine-out/m22a; cd $O/seg
++printf "file 'seg_0.mkv'\nfile 'seg_750.mkv'\nfile 'seg_1500.mkv'\n" > list.txt
++S=$(date +%s)
++ffmpeg -v error -y -f concat -safe 0 -i list.txt -i $O/audio/mix.wav -map 0:v -map 1:a \
++  -vf "scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int,format=yuv420p" \
++  -c:v libx264 -preset slow -crf 16 -profile:v high -g 48 -color_range tv -color_primaries bt709 -color_trc bt709 -colorspace bt709 -r 24 -fps_mode cfr \
++  -c:a aac -b:a 256k -ar 48000 -movflags +faststart -t 93.75 $O/ll-ep01-lat-cat.mp4
++M=$(date +%s)
++ffmpeg -v error -y -f concat -safe 0 -i list.txt -i $O/audio/mix.wav -map 0:v -map 1:a \
++  -vf "scale=1280:720:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p" \
++  -c:v libx264 -preset slow -crf 19 -maxrate 2800k -bufsize 5600k -profile:v high -g 48 -color_range tv -color_primaries bt709 -color_trc bt709 -colorspace bt709 -r 24 -fps_mode cfr \
++  -c:a aac -b:a 256k -ar 48000 -movflags +faststart -t 93.75 $O/ll-ep01-lat-cat-720p.mp4
++E=$(date +%s)
++echo "enc1080_s $((M-S)) enc720_s $((E-M))" > $O/ghep_time.txt
+diff --git a/design/m3/lat-cat/phu_de.py b/design/m3/lat-cat/phu_de.py
+new file mode 100644
+index 0000000..e750228
+--- /dev/null
++++ b/design/m3/lat-cat/phu_de.py
+@@ -0,0 +1,35 @@
++"""Cine Lab · M2.2a — phụ đề EN (.srt, không cháy vào hình) từ mốc ký tự của lời dẫn (lệch +1,0 s).
++Cắt theo câu; câu dài chia ở dấu phẩy/hai chấm gần giữa để mỗi cue ≤ 2 dòng × 42 ký tự.
++python3 design/m3/lat-cat/phu_de.py <align.json> <ra.srt>
++"""
++import json, sys, textwrap
++OFF, MAXC = 1.0, 84
++al = json.load(open(sys.argv[1])); C, S, E = al['characters'], al['character_start_times_seconds'], al['character_end_times_seconds']
++txt = ''.join(C)
++# câu: kết thúc ở . : ? ! theo sau khoảng trắng hoặc hết chuỗi (không cắt "U.S.")
++cues, i0 = [], 0
++for i, c in enumerate(txt):
++    end = i == len(txt) - 1 or (c in '.?!' and txt[i + 1] in ' \n' and txt[max(0, i - 3):i + 1] not in ('U.S.',) and not txt[max(0, i - 1):i + 1] == 'S.')
++    if end:
++        cues.append((i0, i + 1)); i0 = i + 1
++def split(a, b):
++    s = txt[a:b].strip()
++    if len(s) <= MAXC: return [(a, b)]
++    mid = (a + b) // 2; best = None
++    for j in range(a + 10, b - 10):
++        if txt[j] in ',:' and txt[j + 1] == ' ' and (best is None or abs(j - mid) < abs(best - mid)): best = j
++    if best is None: best = txt.rfind(' ', a, mid)
++    return split(a, best + 1) + split(best + 1, b)
++out = []
++for a, b in cues:
++    for x, y in split(a, b):
++        while x < y and txt[x].isspace(): x += 1
++        while y > x and txt[y - 1].isspace(): y -= 1
++        if x < y: out.append((S[x] + OFF, E[y - 1] + OFF, txt[x:y]))
++def ts(t): ms = int(round(t * 1000)); return f'{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}'
++with open(sys.argv[2], 'w') as f:
++    for k, (a, b, s) in enumerate(out):
++        nb = out[k + 1][0] - 0.05 if k + 1 < len(out) else b + 0.8
++        b2 = min(max(b + 0.35, a + 1.2), nb)   # giữ thêm ≤ 0,35 s để kịp đọc, không chồng cue sau
++        f.write(f'{k + 1}\n{ts(a)} --> {ts(b2)}\n' + '\n'.join(textwrap.wrap(s, 42)) + '\n\n')
++print(len(out), 'cue')
+diff --git a/design/m3/lat-cat/run_dohoa.sh b/design/m3/lat-cat/run_dohoa.sh
+new file mode 100755
+index 0000000..fcabdcb
+--- /dev/null
++++ b/design/m3/lat-cat/run_dohoa.sh
+@@ -0,0 +1,10 @@
++#!/bin/bash
++# render đồ hoạ 3 đoạn song song → FFV1
++D=/home/user/cine-lab/.claude/worktrees/agent-aa29263033136d9fe/design/m3/lat-cat
++O=/var/tmp/cine-out/m22a/seg; mkdir -p $O /var/tmp/cine-out/m22a/khung
++S=$(date +%s)
++for r in "0 750" "750 1500" "1500 2250"; do set -- $r
++  node $D/dohoa_render.js --out $O/seg_$1.mkv --from $1 --to $2 --story /var/tmp/cine-out/m22a/story/png --png 0,150,280,840,1640,2080 --pngdir /var/tmp/cine-out/m22a/khung > $O/log_$1.txt 2>&1 &
++done
++wait
++echo "wall_s $(( $(date +%s) - S ))" > $O/wall.txt
+diff --git a/design/m3/lat-cat/run_story.sh b/design/m3/lat-cat/run_story.sh
+new file mode 100755
+index 0000000..358efc7
+--- /dev/null
++++ b/design/m3/lat-cat/run_story.sh
+@@ -0,0 +1,3 @@
++#!/bin/bash
++cd /home/user/cine-lab/.claude/worktrees/agent-aa29263033136d9fe
++exec node design/m3/thu-phong-cach/frames.js --shot br10 --out /var/tmp/cine-out/m22a/story --dbg '{"style":"b3v3"}' --all --frames 0,179 --w 1920 --h 1080
+diff --git a/design/m3/lat-cat/story_shot.js b/design/m3/lat-cat/story_shot.js
+new file mode 100644
+index 0000000..9c23c4b
+--- /dev/null
++++ b/design/m3/lat-cat/story_shot.js
+@@ -0,0 +1,89 @@
++// Cine Lab · M2.2a LÁT CẮT — cảnh truyện G0 'br10' (đoạn 10 "Bridge — the office lights"), 7,5 s, chỉ nạp khi dbg.style có giá trị
++// (style.js → EXTRA). Shot cũ không gọi mã này → tắt cờ / shot khác: 0 px.
++// Bộ phố đêm Last Round (buildStreetSet), cuối phố Ostler: ngọn đèn khí của Ida (L10) cháy ở TIỀN CẢNH, mọi ngọn khác tắt.
++// Máy nâng chậm (crane up, easing) để lộ khối văn phòng cửa sổ trắng lạnh ở HẬU CẢNH, sau cuối phố.
++// Chiều sâu (cờ của shot, mặc định bật; dbg.br10 = { fog:0, dust:0, halo:0 } để tắt từng phần):
++//  - ≥ 3 lớp parallax: (1) cột đèn L10 + quầng ở 8 m; (2) hai dãy mặt tiền phố 6–26 m; (3) khối văn phòng 70 m + trời.
++//  - sương theo độ sâu: THREE.Fog sáng hơn (10–95 m) + lớp sương trôi 2D ở bộ ghép.
++//  - quầng đèn rung nhẹ: biên độ ≈ 3 % (tổng hai sin 0,55 Hz + 1,3 Hz), không nhảy bậc.
++//  - hạt bụi/sương trôi trong vùng sáng của L10 (Points, vị trí là hàm liên tục của t → tất định).
++import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
++import { buildStreetSet, LAMP_X } from '/cong5/layout/sets.js';
++import { ease, fovOf } from '/cong5/layout/util.js';
++
++export const BR = {
++  lamp: 10, t1: 7.5,
++  cam0: { pos: [30.0, 1.3, -2.4], look: [21.0, 2.3, -3.3] },
++  cam1: { pos: [29.4, 4.3, -2.1], look: [-10.0, 8.2, -2.0] },
++  office: { x: -40, w: 64, h: 40, d: 14 },
++};
++
++function officeTex(seed = 7) {
++  const cv = document.createElement('canvas'); cv.width = 1024; cv.height = 768; const g = cv.getContext('2d');
++  g.fillStyle = '#23252e'; g.fillRect(0, 0, 1024, 768);
++  let s = seed; const R = () => (s = (s * 16807) % 2147483647) / 2147483647;
++  const cols = 30, rows = 18, cw = 1024 / cols, rh = 768 / rows;
++  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
++    const on = R() < 0.86, k = 0.82 + 0.18 * R();
++    g.fillStyle = on ? `rgb(${Math.round(226 * k)},${Math.round(236 * k)},${Math.round(255 * k)})` : '#3a3e4c';
++    g.fillRect(c * cw + cw * 0.16, r * rh + rh * 0.2, cw * 0.68, rh * 0.58);
++  }
++  for (let r = 0; r <= rows; r++) { g.fillStyle = '#181a22'; g.fillRect(0, r * rh - 3, 1024, 6); }   // gờ tầng
++  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
++}
++export const BR10_SHOT = { id: 'br10', scene: 10, t0: 0, t1: BR.t1, size: 'WS', angle: 'thấp → nâng', mm: 35, move: 'crane up chậm (easing)',
++  why: 'Đoạn 10: đèn khí của Ida còn cháy ở cuối phố; phía sau, khối văn phòng sáng đèn điện (cầu nối sang đồ hoạ dữ liệu).',
++  async build(ctx) {
++    const F = Object.assign({ fog: 1, dust: 1, halo: 1 }, (ctx.dbg && ctx.dbg.br10) || {});
++    const st = buildStreetSet({ sky: 'night', x0: 4, x1: 46, shadowLamps: [BR.lamp], fog: [30, 150] });
++    const sc = st.scene;
++    // (3) hậu cảnh: khối văn phòng, mặt quay về +x (về phía máy), cửa sổ trắng lạnh
++    const O = BR.office, ot = officeTex();
++    const face = new THREE.Mesh(new THREE.PlaneGeometry(O.w, O.h), new THREE.MeshBasicMaterial({ map: ot, color: new THREE.Color('#ffffff').multiplyScalar(1.1), fog: true }));
++    face.position.set(O.x, O.h / 2, 0); face.rotation.y = Math.PI / 2; sc.add(face);
++    const body = new THREE.Mesh(new THREE.BoxGeometry(O.d, O.h, O.w), new THREE.MeshLambertMaterial({ color: '#1c1e27' })); body.position.set(O.x - O.d / 2 - 0.01, O.h / 2, 0); sc.add(body);
++    const spill = new THREE.PointLight('#e3eaff', 30, 40, 1.4); spill.position.set(O.x + 6, 16, 0); sc.add(spill);   // ánh điện hắt nhẹ lên đầu hồi xa
++    // sương theo độ sâu: tấm dọc vuông góc trục nhìn, xa hơn → đặc hơn
++    // sương theo độ sâu (cờ fog): sương tuyến tính sáng hơn bộ phố gốc → tiền cảnh rõ, mặt tiền mờ dần, khối văn phòng chìm ≈ 40 %.
++    // (Tấm sương 3D thử trước bị lớp B3 vẽ thành sọc ngang → bỏ; lớp sương trôi 2D đặt ở bộ ghép, design/m3/lat-cat/dohoa.html.)
++    if (F.fog) sc.fog = new THREE.Fog('#323a5c', 10, 140);
++    const hazes = [];
++    // hạt bụi/sương trong vùng sáng của L10
++    const L = st.lamps[BR.lamp - 1]; const fp = L.fp.clone();
++    let pts = null; const N = 420, seeds = [];
++    if (F.dust) {
++      let s = 991; const R = () => (s = (s * 16807) % 2147483647) / 2147483647;
++      for (let i = 0; i < N; i++) seeds.push([R(), R(), R(), R(), R()]);
++      const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N * 3), 3));
++      const dot = document.createElement('canvas'); dot.width = dot.height = 32; const dg = dot.getContext('2d'); const gr = dg.createRadialGradient(16, 16, 0, 16, 16, 16);
++      gr.addColorStop(0, 'rgba(255,220,160,1)'); gr.addColorStop(1, 'rgba(255,200,130,0)'); dg.fillStyle = gr; dg.fillRect(0, 0, 32, 32);
++      const dt = new THREE.CanvasTexture(dot);
++      pts = new THREE.Points(g, new THREE.PointsMaterial({ size: 0.035, map: dt, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, color: new THREE.Color('#ffd49a').multiplyScalar(1.6), sizeAttenuation: true, fog: false }));
++      pts.userData.noG = 1; pts.frustumCulled = false; sc.add(pts);
++    }
++    const cam = new THREE.PerspectiveCamera(fovOf(35), ctx.W / ctx.H, 0.1, 400);
++    const p0 = new THREE.Vector3(...BR.cam0.pos), p1 = new THREE.Vector3(...BR.cam1.pos), l0 = new THREE.Vector3(...BR.cam0.look), l1 = new THREE.Vector3(...BR.cam1.look);
++    const pp = new THREE.Vector3(), ll = new THREE.Vector3(), v = new THREE.Vector3();
++    const gc0 = L.gc.material.color.clone(), gw0 = L.gw.material.color.clone();
++    return { scene: sc, cam, named: {}, exposure: 1.15,
++      update(t, T, f) {
++        st.setState({ gas: (i) => (i === BR.lamp ? 1 : 0), post: () => 0, square: 0, clock: 0, whiteFill: 0.0 }, f);
++        // máy: nâng chậm, easing hai đầu (smootherstep), toạ độ liên tục
++        const u0 = Math.max(0, Math.min(1, t / BR.t1)), u = u0 * u0 * u0 * (u0 * (u0 * 6 - 15) + 10);
++        pp.lerpVectors(p0, p1, u); ll.lerpVectors(l0, l1, ease(Math.min(1, u0 * 1.05)));
++        cam.position.copy(pp); cam.lookAt(ll); cam.updateMatrixWorld(true);
++        // quầng rung nhẹ ≈ ±3 % (tần số thấp, liên tục)
++        const fl = F.halo ? 1 + 0.022 * Math.sin(2 * Math.PI * 0.55 * t + 0.4) + 0.010 * Math.sin(2 * Math.PI * 1.3 * t + 2.1) : 1;
++        L.gc.material.color.copy(gc0).multiplyScalar(fl); L.gw.material.color.copy(gw0).multiplyScalar(fl); L.L.intensity *= fl;
++        L.gw.scale.setScalar(L.gw.userData.s0 ?? (L.gw.userData.s0 = L.gw.scale.x)); L.gw.scale.multiplyScalar(1 + 0.6 * (fl - 1));
++        for (const h of hazes) h.tx.offset.x = h.v * t;
++        if (pts) { const a = pts.geometry.attributes.position.array;
++          for (let i = 0; i < N; i++) { const [r1, r2, r3, r4, r5] = seeds[i]; const rr = 0.25 + 1.6 * Math.cbrt(r1), th = 6.283 * r2, ph = Math.acos(2 * r3 - 1);
++            const w = 0.15 + 0.25 * r4, ph0 = 6.283 * r5;
++            a[i * 3] = fp.x + rr * Math.sin(ph) * Math.cos(th) + 0.18 * Math.sin(w * t + ph0);
++            a[i * 3 + 1] = fp.y + rr * Math.cos(ph) * 0.8 + (3 * r5) % 1.6 - 0.8 + (0.05 + 0.06 * r4) * t;
++            a[i * 3 + 2] = fp.z + rr * Math.sin(ph) * Math.sin(th) + 0.18 * Math.cos(w * 0.8 * t + ph0); }
++          pts.geometry.attributes.position.needsUpdate = true; }
++        if (f === Math.round(BR.t1 * 24) - 1 || f === 0) { v.copy(fp).project(cam); console.log(`[br10] f=${f} flame_px=${((v.x + 1) / 2 * ctx.W).toFixed(1)},${((1 - v.y) / 2 * ctx.H).toFixed(1)}`); }
++      } };
++  } };
+diff --git a/design/m3/lat-cat/tuong_phan.py b/design/m3/lat-cat/tuong_phan.py
+new file mode 100644
+index 0000000..64779dd
+--- /dev/null
++++ b/design/m3/lat-cat/tuong_phan.py
+@@ -0,0 +1,41 @@
++"""Cine Lab · M2.2a — đo tương phản chữ TRÊN CHÍNH mp4 lát cắt (cách đo như tuong_phan_clip.py: tỉ lệ WCAG).
++Chữ tối trên nền sáng: chữ = trung vị 3 % điểm tối nhất, nền = trung vị 40 % điểm sáng nhất trong ô; chữ sáng trên nền tối: ngược lại.
++/opt/cine/bin/python design/m3/lat-cat/tuong_phan.py <mp4> [<ảnh ghép ô.png>]   (toạ độ ô theo khung 1920×1080; mp4 khác cỡ thì co tỉ lệ)
++"""
++import io, json, subprocess, sys
++import numpy as np
++from PIL import Image
++v = sys.argv[1]
++def lin(c): c = c / 255.0; return np.where(c <= 0.03928, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
++def L(rgb): r, g, b = lin(np.array(rgb, float)); return 0.2126 * r + 0.7152 * g + 0.0722 * b
++def ratio(a, b): la, lb = L(a), L(b); return (max(la, lb) + 0.05) / (min(la, lb) + 0.05)
++BOX = [  # (giây, tên, (x0, y0, x1, y1), 'dark' | 'light' = chữ tối / chữ sáng)
++    (11.5, 'G1 tiêu đề', (210, 140, 900, 192), 'dark'), (11.5, 'G1 nhãn ACTUAL', (1250, 136, 1700, 170), 'dark'),
++    (11.5, 'G1 nhãn trục "100k"', (330, 278, 402, 302), 'dark'), (11.5, 'G1 chú thích định nghĩa nghề', (408, 856, 885, 880), 'dark'),
++    (11.5, 'G1 dòng nguồn', (208, 940, 820, 966), 'dark'), (11.5, 'G1 số lớn "37k"', (1448, 478, 1690, 564), 'dark'),
++    (35.0, 'G3 nhãn PROJECTION (nền navy)', (1330, 138, 1706, 167), 'light'), (35.0, 'G3 số lớn "−34%"', (698, 248, 1010, 348), 'dark'),
++    (35.0, 'G3 nhãn hàng 1', (330, 406, 622, 436), 'dark'), (35.0, 'G3 giá trị "−34.4%"', (700, 404, 815, 438), 'dark'),
++    (35.0, 'G3 nhãn trục "−40%"', (668, 798, 734, 824), 'dark'), (35.0, 'G3 dòng nguồn', (208, 940, 760, 966), 'dark'),
++    (44.0, 'G3b "same pattern"', (298, 282, 625, 334), 'dark'),
++    (60.0, 'G4 nhãn kỳ 2023–33 (nền nâu)', (762, 122, 1100, 151), 'light'), (60.0, 'G4 trích dẫn MLR', (748, 250, 1310, 276), 'dark'),
++    (60.0, 'G4 tiêu đề', (748, 180, 1300, 232), 'dark'),
++    (87.0, 'G5 giá trị "+41.0%"', (1594, 706, 1705, 738), 'dark'), (87.0, 'G5 nhãn nhóm 2025–35 (nền nâu)', (220, 678, 525, 703), 'light'),
++    (87.0, 'G5 dòng nguồn 2', (208, 954, 760, 976), 'dark'), (92.0, 'G6 chữ "change"', (790, 380, 950, 432), 'dark'),
++    (60.0, 'G3 thu nhỏ (mờ 40 %, trang trí) "−34%"', (352, 162, 448, 198), 'dark'),
++]
++res, crops = [], []
++for t, name, b, kind in BOX:
++    r = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-ss', f'{t}', '-i', v, '-frames:v', '1', '-f', 'image2pipe', '-vcodec', 'png', '-'], capture_output=True, check=True)
++    im = Image.open(io.BytesIO(r.stdout)).convert('RGB'); s = im.width / 1920; bb = tuple(int(round(x * s)) for x in b)
++    a = np.asarray(im.crop(bb)).reshape(-1, 3).astype(int); o = np.argsort(a.sum(1)); n = len(o)
++    lo, hi = a[o[: max(1, n * 3 // 100)]], a[o[-n * 40 // 100:]]
++    if kind == 'light': lo, hi = a[o[: n * 40 // 100]], a[o[-max(1, n * 3 // 100):]]
++    fg = np.median(lo if kind == 'dark' else hi, axis=0); bg = np.median(hi if kind == 'dark' else lo, axis=0)
++    q = ratio(fg, bg); res.append(dict(t=t, name=name, ratio=round(float(q), 2), fg=[int(x) for x in fg], bg=[int(x) for x in bg])); crops.append(im.crop(bb))
++    print(f'{t:6.1f}s  {q:5.2f}:1  {name}')
++info = [x for x in res if 'trang trí' not in x['name']]
++print(json.dumps({'min_thong_tin': min(x['ratio'] for x in info), 'min_ten': min(info, key=lambda x: x['ratio'])['name']}, ensure_ascii=False))
++if len(sys.argv) > 2:
++    Wd = max(c.width for c in crops); Hh = sum(c.height + 4 for c in crops); g = Image.new('RGB', (Wd, Hh), (255, 0, 255)); y = 0
++    for c in crops: g.paste(c, (0, y)); y += c.height + 4
++    g.save(sys.argv[2])
+diff --git a/design/m3/thu-phong-cach/style.js b/design/m3/thu-phong-cach/style.js
+index 5b831f2..eeaef2e 100644
+--- a/design/m3/thu-phong-cach/style.js
++++ b/design/m3/thu-phong-cach/style.js
+@@ -8,8 +8,9 @@ import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
+ import { fovOf } from '/cong5/layout/util.js';
+ import { LAMP_SHOT } from './lamp_shot.js';
+ import { installB3v2 } from './style_v2.js';
++import { BR10_SHOT } from '../lat-cat/story_shot.js';   // M2.2a lát cắt: shot cảnh truyện G0 (chỉ chạy khi gọi --shot br10)
+ 
+-export const EXTRA = [LAMP_SHOT];
++export const EXTRA = [LAMP_SHOT, BR10_SHOT];
+ export const extraShot = (id) => EXTRA.find((s) => s.id === id) || null;
+ 
+ // B3: đổi cỡ cảnh/máy để tránh cận mặt (lý do ghi trong reports/m3/THU-PHONG-CACH.md).

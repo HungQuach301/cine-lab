@@ -1,0 +1,271 @@
+# Last Lamplighters · Tập 2 "Hello, Central" — đặc tả nhà máy v2 (G1 duyệt 05/10/2026: số BLS 2025–35, thêm 10b/10c, tiêu đề mới).
+# Một lệnh: bash scripts/ll/build.sh reports/m3/ep02/episode.yaml   ·   Kiểm: bash scripts/ll/qc.sh reports/m3/ep02/episode.yaml
+# Nguồn đọc toàn văn: reports/m3/ep02/NGUON-TAP2.md. Không dùng số chưa xác minh (342 000 của Richmond Fed; số BLS 2025–35 đọc qua WebFetch).
+id: ll-ep02
+title: "Automation Hurt the Phone Operators. Not the Next Generation. What About Us?"
+out: /var/tmp/cine-out/ll-ep02
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "13", xfade: 3}
+
+sources:
+  FG: {short: "Feigenbaum & Gross, NBER w28061 (rev. 2024)", title: "Answering the Call of Automation: How the Labor Market Adjusted to Mechanizing Telephone Operation",
+       url: "https://www.nber.org/papers/w28061", read: fulltext, pages: "abstract; pp. 1, 7, 13, 19–20, 27, 32 (Table II)", accessed: 2026-10-04}
+  RF: {short: "Richmond Fed, Econ Focus Q4 2019", title: "Goodbye, Operator", url: "https://www.richmondfed.org/publications/research/econ_focus/2019/q4/economic_history",
+       read: fulltext, pages: "PDF pp. 1, 3", accessed: 2026-10-04}
+  OOH: {short: "BLS, Occupational Outlook Handbook (2025–35)", title: "Customer Service Representatives", url: "https://www.bls.gov/ooh/office-and-administrative-support/customer-service-representatives.htm",
+        read: fulltext, pages: "Summary, Job Outlook (verified by Claude, 05/10/2026)", accessed: 2026-10-05}
+  GAW: {short: "Brynjolfsson, Li & Raymond, NBER w31161 (2023)", title: "Generative AI at Work", url: "https://www.nber.org/papers/w31161", read: fulltext, pages: "abstract; pp. 2, 3, 9", accessed: 2026-10-05}
+  CAN: {short: "Brynjolfsson, Chandar & Chen, Stanford (Aug 2026)", title: "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence",
+        url: "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf", read: fulltext, pages: "abstract; Table A.6 (PDF p. 56)", accessed: 2026-10-05}
+  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "Conclusion (FRASER PDF p. 5)", accessed: 2026-10-04}
+
+numbers:
+  op1910: {v: 73030, text: "73,030", kind: actual, year: 1910, unit: people, src: FG, say: "seventy-three thousand"}
+  op1920: {v: 134630, text: "134,630", kind: actual, year: 1920, unit: people, src: FG}
+  op1930: {v: 182040, text: "182,040", kind: actual, year: 1930, unit: people, src: FG, say: "one hundred eighty-two thousand"}
+  op1940: {v: 152700, text: "152,700", kind: actual, year: 1940, unit: people, src: FG, say: "one hundred fifty-three thousand"}
+  dial30: {v: 32, text: "32%", kind: actual, year: 1930, unit: '%', src: FG, say: "thirty-two percent"}
+  dial40: {v: 60, text: "60%", kind: actual, year: 1940, unit: '%', src: FG, say: "sixty percent"}
+  stay: {v: -8, text: "−8 points", kind: actual, unit: pp, src: FG, say: "eight percentage points"}
+  work: {v: -7, text: "−7 points", kind: actual, unit: pp, src: FG, say: "seven points"}
+  occ_exp: {v: -5, text: "−5%", kind: actual, unit: '%', src: FG, say: "fell five percent"}
+  occ_ctl: {v: 8, text: "+8%", kind: actual, unit: '%', src: FG, say: "rose eight"}
+  csr25: {v: 2666000, text: "2,666,000", kind: actual, year: 2025, unit: people, src: OOH, say: "two point seven million"}
+  csr35: {v: 2524100, text: "2,524,100", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOH, say: "two point five million"}
+  csr_chg: {v: -5.3, text: "−5.3%", kind: projection, period: 2025–35, unit: '%', src: OOH, say: "about five percent"}
+  gaw_all: {v: 14, text: "+14%", kind: actual, unit: '%', src: GAW, say: "fourteen percent"}
+  gaw_nov: {v: 34, text: "+34%", kind: actual, unit: '%', src: GAW, say: "thirty-four percent"}
+  can19: {v: -19, text: "−19%", kind: actual, unit: '%', src: CAN, say: "nineteen percent"}
+  csr_old: {v: -5.0, text: "−5.0%", kind: projection, period: 2023–33, unit: '%', src: MLR25, say: "five percent"}
+  mt_old: {v: -4.7, text: "−4.7%", kind: projection, period: 2023–33, unit: '%', src: MLR25, say: "four point seven percent"}
+  occ_sw: {v: 11, text: "+11 points", kind: actual, unit: pp, src: FG, say: "eleven percentage points"}
+  op_chg: {v: -16.1, text: "−16.1%", kind: actual, unit: '%', src: FG, say: "about sixteen percent", note: "tính từ Table II: (152,70 − 182,04) / 182,04"}
+
+segments:
+  - id: "00"
+    part: STORY
+    dur: 6
+    fadeIn: 0
+    shots:
+      - {tpl: rows, at: 0, p: {variant: switchboard, rows: 3, per: 7, dim: [2.2, 4.6], screen: 3.6, cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -60, z: 0.12}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the last lamp on the street still waits for a hand. The lamplighter climbs, opens the glass, and the flame takes.
+      At the end of the street, behind tall windows, another kind of light is burning: a hundred small lamps on a switchboard,
+      and a voice behind each one. Hello, Central. Number, please.
+    vo_offset: 4.0
+    min_dur: 42
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460, lit: "@flame"}, {x: 2060}], lighter: {from: 900, to: 1400, walk: [0.5, "@climbs"], lights: [2]}, warm: 0.6,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@windows", x: -260, z: 0.06}]}}
+      - {tpl: rows, at: "@another-0.4", in: fade, p: {variant: switchboard, rows: 3, per: 7, cam: [{t: "@another", x: 40, z: 0}, {t: "@please+1.5", x: -40, z: 0.1}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      A telephone call once needed a person in the middle. You lifted the receiver, an operator answered, and she connected you by hand, plug into jack.
+      The machine that could do the job alone came early. In 1892, La Porte, Indiana, opened one of the first commercial automatic exchanges.
+      The Bell System opened its first fully automatic office in 1921. But for decades, most calls still went through people.
+    min_dur: 30
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "HELLO, CENTRAL", px: 84}, {s: "Last Lamplighters · Episode 2", px: 34, serif: false}]}}
+      - {tpl: text, at: "@machine", in: slide, p: {beats: [{s: "a machine that could connect calls alone", at: "@machine+0.3"}], lines: [{s: "La Porte, Indiana", px: 60, at: "@la"}, {s: "1892", px: 110, at: "@1892", color: "#4f2a0c"}, {s: "an early automatic exchange", px: 38, serif: false, at: "@automatic"}, {s: "1921 · Bell's first fully automatic office", px: 34, serif: false, at: "@1921"},
+                                                          {s: "most calls still went through operators", px: 32, serif: false, at: "@decades"}], src: [RF]}}
+
+  - id: "03"
+    part: HISTORY
+    vo: >-
+      How many people did this work? Economists James Feigenbaum and Daniel Gross counted operators in the U.S. census, using the full records.
+      In 1910, the telephone industry employed about seventy-three thousand operators. By 1930, about one hundred eighty-two thousand.
+      That was the peak. By 1940, the count had fallen to about one hundred fifty-three thousand.
+    shots:
+      - {tpl: line, at: 0, p: {title: "Telephone operators, U.S. telephone industry", subtitle: "Census counts, 1910–1940", beats: [{s: "Economists James Feigenbaum & Daniel Gross", at: "@economists"}, {s: "counted from the full U.S. census records", at: "@census"}], ylabel: "operators", yfmt: k, xr: [1910, 1940], xticks: [1910, 1920, 1930, 1940], ymax: 200000,
+           at: "@1910", dur: 12, series: [{points: [[1910, 73030], [1920, 134630], [1930, 182040], [1940, 152700]], labels: [0, 2, 3], ltext: ["73,030", "", "182,040", "152,700"]}],
+           marks: [{x: 1930, label: "peak", at: "@peak"}], nums: [{num: op1910}, {num: op1930}, {num: op1940}]}}
+
+  - id: "04"
+    part: HISTORY
+    vo: >-
+      What changed was the switch. Between 1920 and 1940, AT&T replaced operators with mechanical switching in over half of the U.S. telephone network.
+      Among Bell telephones, the share on dial service rose from thirty-two percent in 1930 to sixty percent in 1940.
+      City by city, there was a night called the cutover. The switchboard went quiet, and the dial took over.
+      Decades later, in 1965, Bell opened its first permanent fully electronic switching office, in Succasunna, New Jersey.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Bell telephones on dial service", subtitle: "share of telephones", beats: [{s: "1920–1940: AT&T replaces operators with mechanical switching", at: "@switch"}], unit: '%', max: 100,
+           bars: [{label: "1930", num: dial30, at: "@thirtytwo"}, {label: "1940", num: dial40, at: "@sixty"}], note: "Between 1920 and 1940, mechanical switching replaced operators in over half of the U.S. network.", noteAt: "@half"}}
+      - {tpl: rows, at: "@city-0.3", in: fade, p: {variant: switchboard, rows: 2, per: 6, dim: ["@quiet-0.5", "@dial#2"], cam: [{t: "@city", x: 0, z: 0.03}, {t: "@over#2+1.5", x: -50, z: 0.1}]}}
+      - {tpl: text, at: "@decades-0.3", in: fade, p: {lines: [{s: "Succasunna, New Jersey", px: 56, at: "@succasunna"}, {s: "1965", px: 110, at: "@1965", color: "#4f2a0c"}, {s: "first permanent fully electronic switching office", px: 34, serif: false, at: "@electronic"}], src: [RF]}}
+
+  - id: "05"
+    part: HISTORY
+    vo: >-
+      What happened to the women at the switchboards? Feigenbaum and Gross compared cities that were cut over with cities that were not.
+      Ten years later, operators in cut-over cities were eight percentage points less likely to still be operators.
+      Those over twenty-five were about seven points less likely to be working at all. Many of those still working changed occupations: about eleven percentage points more often than operators elsewhere.
+      And many who found other work landed in lower-paid jobs. Their occupation scores fell five percent, while their peers' rose eight.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "Operators in cut-over cities, ten years later", beats: [{s: "the women at the switchboards", at: "@women"}, {s: "cities that were cut over vs. cities that were not", at: "@compared"}], value: -8, text: "−8 points", suffix: " points", at: "@eight", caption: "less likely to still be operators",
+           sub: "", nums: [{num: stay}], icon: headset}}
+      - {tpl: bignum, at: "@those", in: slide, p: {title: "Operators over 25, ten years later", value: -7, text: "−7 points", suffix: " points", at: "@seven", caption: "less likely to be working at all", nums: [{num: work}]}}
+      - {tpl: bars, at: "@many", in: flip, p: {title: "Occupation score, a decade later", subtitle: "a proxy for pay, by occupation", beats: [{s: "+11 points more likely to change occupations", at: "@changed"}, {s: "many landed in lower-paid jobs", at: "@lowerpaid"}], nums: [{num: occ_sw}], unit: '%', max: 10,
+           bars: [{label: "operators in\ncut-over cities", num: occ_exp, at: "@fell"}, {label: "peers in\nother cities", num: occ_ctl, at: "@rose"}],
+           note: "Statistical estimates from comparing cities, not official counts.", noteAt: "@while"}}
+
+  - id: "06"
+    part: HISTORY
+    vo: >-
+      But the story has a second half. For the next generation of young women, operator jobs fell by fifty to eighty percent.
+      Yet their overall employment did not fall. They moved into other clerical jobs and into service work. The economists put it plainly.
+      Automation hurt the people already in the job. It did not close the door on those who came after.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "Young women working as operators", beats: [{s: "the second half of the story", at: "@half"}, {s: "the next generation of young women", at: "@generation"}], value: 80, text: "50–80% fewer", prefix: "", suffix: "%", at: "@fifty", caption: "after the cutover, for the next generation (ages 16–25)", kind: actual, src: [FG]}}
+      - {tpl: quote, at: "@plainly-1.2", in: slide, p: {text: "It did not reduce future cohorts' overall employment.", who: "James Feigenbaum & Daniel Gross", where: "NBER Working Paper 28061", at: "@plainly", src: [FG]}}
+
+  - id: "07"
+    part: STORY
+    vo: >-
+      The switchboards went dark long ago. Down on the street, the lamplighter walks on, past windows where other people work late.
+      The voice in the middle of the call never fully went away. Today, when you call a company, someone, or something, still answers.
+    vo_offset: 2.5
+    min_dur: 26
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@late+1"]}, warm: 0.4, windows: 0.6,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: "@late+1", x: -300, z: 0.05}]}}
+      - {tpl: rows, at: "@voice-0.4", in: fade, p: {variant: switchboard, rows: 3, per: 7, dim: ["@voice", "@away"], screen: "@today", screenLabel: "AUTOMATED VOICE", cam: [{t: "@voice", x: 0, z: 0}, {t: "@answers+1.5", x: -80, z: 0.12}]}}
+
+  - id: "08"
+    part: TODAY
+    vo: >-
+      Customer service representatives are that voice today. In 2025, there were about two point seven million of them in the United States,
+      according to the Bureau of Labor Statistics. That is about fifteen times as many as the telephone operators at their 1930 peak.
+    shots:
+      - {tpl: bignum, at: 0, p: {title: "Customer service representatives, U.S.", beats: [{s: "the voice in the middle of the call, today", at: "@voice"}], value: 2666000, text: "2,666,000", at: "@two", caption: "employed in 2025 (BLS)", icon: headset, nums: [{num: csr25}]}}
+      - {tpl: bars, at: "@fifteen-0.3", in: slide, p: {title: "Two voices in the middle of the call", subtitle: "workers, U.S.", src: [FG, OOH], bars: [{label: "telephone operators\n1930", num: op1930, echo: true, at: "@fifteen"}, {label: "customer service reps\n2025", num: csr25, echo: true, at: "@peak"}]}}
+
+  - id: "09"
+    part: TODAY
+    vo: >-
+      And the BLS expects that number to shrink. Its projections for 2025 to 2035 show customer service jobs falling about five percent,
+      to about two point five million. That is a projection, not a count. Forecasts can be wrong.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Customer service representatives", subtitle: "employment, 2025 and projected 2035", kindEach: true,
+           bars: [{label: "2025", num: csr25, echo: true, at: "@expects"}, {label: "2035 (projected)", num: csr35, at: "@million"}], note: "Projected change, 2025–35: −5.3% (BLS rounds to −5%)", noteAt: "@about", nums: [{num: csr_chg}]}}
+
+  - id: "10"
+    part: TODAY
+    vo: >-
+      Why? In a 2025 article, BLS economists explained how they factor in artificial intelligence.
+      They expect it to mainly affect jobs whose core tasks can be most easily replicated by generative AI in its current form.
+      Customer service was one of their examples. In that earlier projection, for 2023 to 2033, these jobs were set to decline five percent.
+      Medical transcriptionists, whose work also turns spoken words into records, were set to decline four point seven percent.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "Why does BLS expect fewer of these jobs?", at: "@why"}, {s: "BLS economists, Monthly Labor Review, 2025", at: "@article"}], text: "AI is expected to primarily affect occupations whose core tasks can be most easily replicated by GenAI in its current form.", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@explained", src: [MLR25]}}
+      - {tpl: bars, at: "@earlier-0.3", in: slide, p: {title: "Earlier projection cycle, 2023–33", subtitle: "occupations BLS expects AI to affect", beats: [{s: "an earlier projection: 2023 to 2033", at: "@earlier"}], unit: '%', max: 10,
+           bars: [{label: "customer service\nrepresentatives", num: csr_old, at: "@five"}, {label: "medical\ntranscriptionists", num: mt_old, at: "@four"}], note: "A different projection cycle from the 2025–35 numbers.", noteAt: "@medical"}}
+
+  - id: "10b"
+    part: TODAY
+    vo: >-
+      What does AI actually do at the help desk? Economists Erik Brynjolfsson, Danielle Li and Lindsey Raymond studied five thousand one hundred seventy-nine support agents
+      at one large software company, most of them working in the Philippines. With an AI assistant, agents resolved fourteen percent more issues per hour on average.
+      For newer and less-skilled agents, the gain was thirty-four percent. For the most experienced, it was minimal.
+      New agents with two months on the job performed like agents with six months, without the tool.
+      The authors are careful: the study cannot show what happens to jobs overall. Firms might hire more newcomers, or need fewer of them.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "AI at the help desk", at: "@help"}, {s: "Erik Brynjolfsson, Danielle Li & Lindsey Raymond", at: "@economists"}], lines: [{s: "One company · 5,179 support agents", px: 50, at: "@studied"}, {s: "most working in the Philippines", px: 34, serif: false, at: "@philippines"}, {s: "an AI assistant suggests replies", px: 34, serif: false, at: "@assistant"}], src: [GAW]}}
+      - {tpl: bars, at: "@fourteen-0.6", in: slide, p: {title: "Issues resolved per hour, with AI", subtitle: "change vs. agents without the tool", unit: '%', max: 40, d: 0,
+           bars: [{label: "all agents\n(average)", num: gaw_all, at: "@fourteen"}, {label: "newer and\nless-skilled", num: gaw_nov, at: "@thirtyfour"}], note: "Most experienced agents: minimal change.", noteAt: "@minimal"}}
+      - {tpl: quote, at: "@careful-0.4", in: flip, p: {text: "Our paper is not designed to shed light on the aggregate employment or wage effects of generative AI tools.", who: "Brynjolfsson, Li & Raymond", where: "NBER Working Paper 31161", at: "@careful", src: [GAW]}}
+
+  - id: "10c"
+    part: TODAY
+    vo: >-
+      There is an early signal about who feels it first. Brynjolfsson and his Stanford colleagues follow payroll records for millions of American workers.
+      Through June 2026, they find no evidence of widespread job loss across the economy.
+      But for workers aged twenty-two to twenty-five in the occupations most exposed to AI, employment now stands nineteen percent below where it would have been.
+      Older workers show no such gap. And it happens mostly through fewer young people being hired, not more people being let go.
+      Customer service representatives are among the largest jobs in the most exposed group. The authors call these early, descriptive signals, not proof of cause.
+    shots:
+      - {tpl: text, at: 0, p: {beats: [{s: "An early signal: who feels it first?", at: "@signal"}], lines: [{s: "Payroll records, millions of U.S. workers", px: 46, at: "@payroll"}, {s: "through June 2026", px: 34, serif: false, at: "@june"}, {s: "no evidence of widespread job loss", px: 38, serif: false, at: "@evidence"}], src: [CAN]}}
+      - {tpl: bignum, at: "@twentytwo-0.6", in: slide, p: {title: "Workers aged 22–25 in the most AI-exposed jobs", beats: [{s: "ages 22 to 25, in the most AI-exposed occupations", at: "@twentytwo"}], value: -19, text: "−19%", suffix: "%", at: "@nineteen", caption: "employment vs. where it would be if it had kept pace with less-exposed peers", nums: [{num: can19}]}}
+      - {tpl: text, at: "@older-0.3", in: flip, p: {lines: [{s: "Older workers: no comparable gap", px: 44, at: "@older"}, {s: "mainly fewer young people hired", px: 44, at: "@hired"}, {s: "customer service: among the largest exposed jobs", px: 34, serif: false, at: "@largest"},
+                                                         {s: "early, descriptive — not proof of cause", px: 34, serif: false, at: "@descriptive", color: "#4f2a0c"}], src: [CAN]}}
+
+  - id: "11"
+    part: TODAY
+    vo: >-
+      So here is the comparison, on the same scale: change over ten years. Between 1930 and 1940, as the dial spread, the number of telephone-industry operators fell about sixteen percent.
+      For customer service representatives, the projected decline from 2025 to 2035 is about five percent.
+      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
+      But the differences matter. Customer service is about fifteen times larger. AI reaches into office work far beyond the phone.
+      And one of these numbers is history. The other is only a forecast.
+    shots:
+      - {tpl: compare, at: 0, p: {title: "Change over ten years", beats: [{s: "the comparison, on the same scale", at: "@comparison"}, {s: "change over ten years", at: "@scale"}], unit: '%', mid: "not the same technology — the same pattern", midAt: "@pattern",
+           left: {title: "Telephone operators", years: "1930–1940 · counted", icon: headset, num: op_chg, at: "@1930", d: 1},
+           right: {title: "Customer service reps", years: "2025–2035 · projected", icon: chat, num: csr_chg, at: "@representatives", d: 1},
+           diff: ["~15× more workers", "reaches beyond the phone", "a forecast, not a count"], diffAt: "@differences"}}
+
+  - id: "12"
+    part: TODAY
+    vo: >-
+      If the operators' story is any guide, the question is not only how many jobs. It is who carries the cost.
+      In the 1920s and 30s, the people already in the job paid the most. The next generation found other doors.
+      Today, the early signals point the other way. AI helps newcomers most on the job, yet fewer young people are getting through the door.
+      It is too soon to know if that will last. It depends on things no chart can show yet: how fast the change comes, and what new work grows around it.
+      That is what we will be watching.
+    min_dur: 30
+    shots:
+      - {tpl: text, at: 0, p: {align: left, lh: 92, lines: [{s: "Who carries the cost?", px: 64, at: "@story"}, {s: "1920s–30s: people already in the job paid the most.", px: 34, serif: false, at: "@paid"},
+                                                         {s: "The next generation found other doors.", px: 34, serif: false, at: "@doors"}, {s: "Today: fewer young people hired — an early signal.", px: 34, serif: false, at: "@fewer"},
+                                                         {s: "Too soon to know if it will last.", px: 34, serif: false, at: "@soon"}], src: [FG, CAN]}}
+      - {tpl: office, at: "@watching-1.5", in: fade, p: {light: "@watching", cam: [{t: "@watching-1.5", x: 0, z: 0}, {t: "@watching+4", x: -90, z: 0.06}]}}
+
+  - id: "13"
+    part: STORY
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
+      Every era has its last lamplighters. Some of them answer the phone.
+    vo_offset: 3.0
+    min_dur: 28
+    tail: 2.0
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: "@phone+2", x: -520, z: 0.07}]}}
+      - {tpl: endcard, at: "@phone+0.8", in: fade, p: {line: "Last Lamplighters · Episode 2", next: "Next: The Typing Pool"}}
+
+shorts:
+  - id: S1
+    hook: "Automation hurt the operators — not the next generation"
+    vo: >-
+      Between 1920 and 1940, the dial replaced telephone operators across America. What happened to them? Economists James Feigenbaum and Daniel Gross followed them in the census.
+      Ten years later, operators in cut-over cities were eight percentage points less likely to still be operators. Older ones were about seven points less likely to be working at all.
+      But the next generation of young women? Their overall employment did not fall. They found other work. Automation hurt the people in the job, not those who came after.
+    shots:
+      - {tpl: rows, at: 0, p: {variant: switchboard, rows: 3, per: 4, dim: ["@replaced", "@america"]}}
+      - {tpl: bignum, at: "@ten-0.3", in: slide, p: {title: "Ten years later", beats: [{s: "operators in cut-over cities", at: "@cutover"}], value: -8, text: "−8 points", suffix: " points", at: "@eight", caption: "less likely to still be operators", nums: [{num: stay}]}}
+      - {tpl: bignum, at: "@older-0.3", in: flip, p: {title: "Operators over 25", value: -7, text: "−7 points", suffix: " points", at: "@seven", caption: "less likely to be working at all", nums: [{num: work}]}}
+      - {tpl: quote, at: "@next-0.3", in: slide, p: {beats: [{s: "They found other work.", at: "@found"}, {s: "Automation hurt the people in the job,", at: "@automation"}, {s: "not those who came after.", at: "@came"}, {s: "Feigenbaum & Gross, NBER Working Paper 28061", at: "@after"}], text: "It did not reduce future cohorts' overall employment.", who: "Feigenbaum & Gross", at: "@overall", src: [FG]}}
+  - id: S2
+    hook: "How many U.S. customer service jobs could disappear?"
+    vo: >-
+      In 2025, about two point seven million Americans worked as customer service representatives. The Bureau of Labor Statistics projects that number will fall about five percent by 2035,
+      to about two point five million. BLS says AI mainly affects jobs whose core tasks generative AI can replicate. It is a projection, not a count. But it echoes an old story: the telephone operator.
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Customer service reps", subtitle: "U.S. employment", beats: [{s: "Americans working in customer service", at: "@americans"}, {s: "customer service representatives", at: "@representatives"}, {s: "BLS projects a decline", at: "@projects"}, {s: "about five percent", at: "@fall"}, {s: "by 2035", at: "@2035"}], kindEach: true, bars: [{label: "2025", num: csr25, at: "@two"}, {label: "2035\n(projected)", num: csr35, at: "@million#2"}]}}
+      - {tpl: bignum, at: "@says-0.3", in: slide, p: {title: "Projected change, 2025–35", beats: [{s: "AI mainly affects jobs whose core tasks it can replicate", at: "@mainly"}, {s: "core tasks generative AI can replicate", at: "@replicate"}], value: -5.3, text: "−5.3%", suffix: "%", d: 1, at: "@says", dur: 3, caption: "a projection, not a count (BLS rounds to −5%)", capAt: "@projection", nums: [{num: csr_chg}]}}
+      - {tpl: rows, at: "@echoes-0.3", in: fade, p: {variant: switchboard, rows: 3, per: 4}}
+  - id: S3
+    hook: "The night the switchboard went quiet"
+    vo: >-
+      City by city, America's telephone network had a night called the cutover. The operators' switchboard went quiet, and the dial took over.
+      Among Bell telephones, dial service went from thirty-two percent in 1930 to sixty percent in 1940. Over those two decades, mechanical switching replaced operators in over half of the U.S. network.
+    shots:
+      - {tpl: rows, at: 0, p: {variant: switchboard, rows: 3, per: 4, dim: ["@quiet-0.5", "@dial"]}}
+      - {tpl: bars, at: "@among-0.3", in: slide, p: {title: "Bell phones on dial", beats: [{s: "share of Bell telephones", at: "@among"}, {s: "mechanical switching replaced operators", at: "@mechanical"}, {s: "in over half of the U.S. network", at: "@half"}], note: "1920–1940: mechanical switching replaced operators in over half of the U.S. network.", noteAt: "@decades", unit: '%', max: 100, bars: [{label: "1930", num: dial30, at: "@thirtytwo"}, {label: "1940", num: dial40, at: "@sixty"}]}}

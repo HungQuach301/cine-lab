@@ -1,0 +1,41 @@
+# Đặc tả thử mọi mẫu (không lời, không gọi ElevenLabs). bash scripts/ll/build.sh scripts/ll/examples/demo.yaml prep render
+id: ll-demo
+title: Demo
+out: /var/tmp/cine-out/ll-demo
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2}
+music: [{file: reports/m3/m2-2b/music/Immersed.mp3, from: "A"}]
+sources:
+  FG: {short: "Feigenbaum & Gross, NBER w28061 (2024), p. 32", url: "https://www.nber.org/papers/w28061", read: fulltext, accessed: 2026-10-04}
+  BLS: {short: "BLS, Monthly Labor Review (Jan 2026)", url: "https://fraser.stlouisfed.org/", read: fulltext, accessed: 2026-10-04}
+numbers:
+  a: {v: 73030, text: "73,030", kind: actual, year: 1910, src: FG, unit: people}
+  b: {v: 182040, text: "182,040", kind: actual, year: 1930, src: FG, unit: people}
+  c: {v: -5.5, text: "−5.5%", kind: projection, period: 2024–34, src: BLS, unit: '%'}
+  d: {v: -50, text: "−50%", kind: actual, src: FG, unit: '%'}
+segments:
+  - {id: A, part: STORY, dur: 6, shots: [{tpl: street, at: 0, p: {lamps: [{x: 300, lit: 1.5}, {x: 900, lit: 3.5}, {x: 1500}], lighter: {from: 100, to: 1000, walk: [0, 4], lights: [0, 1]}}}]}
+  - id: B
+    part: HISTORY
+    dur: 14
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "HELLO, CENTRAL", px: 80}, {s: "Last Lamplighters · Episode 2", px: 34, serif: false}]}}
+      - {tpl: bars, at: 3, in: slide, p: {title: "Telephone operators, U.S. telephone industry", subtitle: "Census counts", bars: [{label: "1910", num: a}, {label: "1930", num: b}]}}
+      - {tpl: line, at: 8, in: flip, p: {title: "Operators", ylabel: "thousands", yfmt: k, xr: [1910, 1940], xticks: [1910, 1920, 1930, 1940], series: [{points: [[1910, 73030], [1920, 134630], [1930, 182040], [1940, 152700]], labels: [0, 2]}], src: [FG]}}
+  - id: C
+    part: TODAY
+    dur: 16
+    shots:
+      - {tpl: compare, at: 0, p: {title: "Same pattern", unit: '%', left: {title: "Switchboard operators", years: "1920–1940", icon: headset, num: d}, right: {title: "Customer service reps", years: "2024–34", icon: chat, num: c}, mid: "same pattern, different speed", diff: ["speed", "scope"]}}
+      - {tpl: bignum, at: 6, in: slide, p: {title: "Customer service reps", num: c, caption: "projected change in employment, 2024–34"}}
+      - {tpl: quote, at: 10, in: flip, p: {text: "Not the same technology — the same pattern.", who: "Narration", src: [FG]}}
+      - {tpl: map, at: 13, in: fade, p: {city: london, year: 1807, title: "London", grow: [13.2, 15.5], lampsLit: [14, 16], labels: [{s: "Thames", at: [1.5, 0.3]}]}}
+  - {id: D, part: TODAY, dur: 8, shots: [{tpl: rows, at: 0, p: {variant: switchboard, screen: 4}}, {tpl: office, at: 5, in: fade, p: {light: 5}}]}
+  - {id: E, part: STORY, dur: 4, shots: [{tpl: endcard, at: 0, p: {line: "Next: The Typing Pool"}}]}
+shorts:
+  - id: S1
+    hook: "How many operators were there?"
+    dur: 14
+    shots:
+      - {tpl: bars, at: 0, p: {title: "Telephone operators", bars: [{label: "1910", num: a, at: 1}, {label: "1930", num: b, at: 2}]}}
+      - {tpl: bignum, at: 5, in: slide, p: {title: "Customer service reps", num: c, caption: "projected change, 2024–34"}}
+      - {tpl: rows, at: 9, in: fade, p: {variant: switchboard, rows: 3, per: 4}}

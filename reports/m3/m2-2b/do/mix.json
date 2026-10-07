@@ -1,0 +1,627 @@
+{
+ "tong_s": 596.583,
+ "so_khoang_loi": 62,
+ "pre": {
+  "I": -17.2,
+  "LRA": 3.5,
+  "TP": -2.6
+ },
+ "gain_db": 3.2,
+ "master": {
+  "I": -14.0,
+  "LRA": 3.5,
+  "TP": -1.6
+ },
+ "duck_env_db": -12.0,
+ "duck_do_tren_cung_mau_db": -12.0,
+ "sfx": [
+  {
+   "json": "01.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 3.5,
+   "at_abs": 13.75,
+   "gain_db": -19.0,
+   "fade_ms": 300,
+   "rights": "M2-SFX-2",
+   "note": "đoạn 01 shot e01c (s03 bọc, 11,0–18,0 s): sào mồi chạm, đèn số một (L4) bừng hổ phách ở 13,8 s"
+  },
+  {
+   "json": "01.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 1.3,
+   "dur": 7.0,
+   "at_abs": 24.0,
+   "gain_db": -24.0,
+   "fade_ms": 700,
+   "rights": "M2-SFX-2",
+   "note": "đoạn 01 shot e01n2 (24,0–31,0 s): cận trung ngọn đèn vừa thắp, đèn khí thở rất khẽ dưới lời dẫn"
+  },
+  {
+   "json": "02.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 3.4,
+   "at_abs": 41.683,
+   "gain_db": -19.0,
+   "fade_ms": 400,
+   "rights": "M2-SFX-2",
+   "note": "đèn khí xì nhẹ khi đèn thẻ tựa bật (mờ ra trước lời)"
+  },
+  {
+   "json": "02.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/320149.mp3",
+   "src_ss": 3.55,
+   "dur": 0.85,
+   "at_abs": 44.683,
+   "gain_db": -12.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-1",
+   "note": "thẻ tựa → bản đồ"
+  },
+  {
+   "json": "03.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 82.085,
+   "gain_db": 0.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "cửa sổ cảnh mở"
+  },
+  {
+   "json": "03.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 90.705,
+   "gain_db": -2.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "cửa sổ cảnh đóng"
+  },
+  {
+   "json": "04.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 2.6,
+   "at_abs": 112.45,
+   "gain_db": -20.0,
+   "fade_ms": 300,
+   "rights": "M2-SFX-2",
+   "note": "đoạn 04 shot e04d (s19 bọc): ngọn đèn số 8 nở hổ phách ở 12,58 s của đoạn, xì nhẹ rồi tắt dần trước khi cột điện đứng trắng"
+  },
+  {
+   "json": "05.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 2.6,
+   "at_abs": 116.267,
+   "gain_db": -20.0,
+   "fade_ms": 400,
+   "rights": "M2-SFX-2",
+   "note": "đèn khí cạnh đèn hồ quang"
+  },
+  {
+   "json": "05.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/320149.mp3",
+   "src_ss": 3.55,
+   "dur": 0.85,
+   "at_abs": 129.117,
+   "gain_db": -12.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-1",
+   "note": "bản đồ Opéra → dải phố"
+  },
+  {
+   "json": "06.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 143.758,
+   "gain_db": 2.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "trang báo trượt vào"
+  },
+  {
+   "json": "06.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 147.758,
+   "gain_db": 0.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "trang báo trượt ra"
+  },
+  {
+   "json": "07.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 4.0,
+   "at_abs": 171.867,
+   "gain_db": -21.0,
+   "fade_ms": 400,
+   "rights": "M2-SFX-2",
+   "note": "đèn khí Covent Garden sáng lên"
+  },
+  {
+   "json": "08.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 211.3,
+   "gain_db": -2.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "đèn → cửa thang máy (vào nhà)"
+  },
+  {
+   "json": "08.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 228.89,
+   "gain_db": 2.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "đồ hoạ A trượt ra, lưới 270 ô vào"
+  },
+  {
+   "json": "09.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 248.267,
+   "gain_db": 0.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "bảng trái vào"
+  },
+  {
+   "json": "09.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at_abs": 260.707,
+   "gain_db": 0.0,
+   "fade_ms": 8,
+   "rights": "M2-SFX-3",
+   "note": "bảng phải vào"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 7.3,
+   "at_abs": 275.333,
+   "gain_db": -17.0,
+   "fade_ms": 400,
+   "rights": "M2-SFX-2 (Freesound 159386, clairinski, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 287.383,
+   "gain_db": 4.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/320149.mp3",
+   "src_ss": 3.55,
+   "dur": 0.85,
+   "at_abs": 288.483,
+   "gain_db": -10.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-1 (Freesound 320149, OwlStorm, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 288.833,
+   "gain_db": -2.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 293.633,
+   "gain_db": -4.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 321.033,
+   "gain_db": 2.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 327.133,
+   "gain_db": -2.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 333.533,
+   "gain_db": -4.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "10-13.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 344.283,
+   "gain_db": 0.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "14.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 401.683,
+   "gain_db": 2.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "14.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 402.133,
+   "gain_db": -2.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "15.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 433.627,
+   "gain_db": -2.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "16.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 461.738,
+   "gain_db": 0.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "16.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 469.418,
+   "gain_db": -3.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "17.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/320149.mp3",
+   "src_ss": 3.55,
+   "dur": 0.85,
+   "at_abs": 501.258,
+   "gain_db": -12.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-1 (Freesound 320149, OwlStorm, CC0)"
+  },
+  {
+   "json": "18.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/470189.mp3",
+   "src_ss": 0,
+   "dur": 0.37,
+   "at_abs": 538.275,
+   "gain_db": -4.0,
+   "fade_ms": 30,
+   "rights": "M2-SFX-3 (Freesound 470189, Atrius1, CC0)"
+  },
+  {
+   "json": "19.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 2.0,
+   "dur": 3.0,
+   "at_abs": 562.0,
+   "gain_db": -19.0,
+   "fade_ms": 300,
+   "rights": "M2-SFX-2",
+   "note": "đoạn 19 shot e19a: ngọn đèn thứ hai (L11) bừng ở 5,08 s của đoạn, trong câu 'her second lamp is for the elevator operators'"
+  },
+  {
+   "json": "19.json",
+   "file": "/var/tmp/cine-out/m22a/sfx/159386.mp3",
+   "src_ss": 1.3,
+   "dur": 8.0,
+   "at_abs": 572.0,
+   "gain_db": -25.0,
+   "fade_ms": 900,
+   "rights": "M2-SFX-2",
+   "note": "đoạn 19 shot e19c (8 s lặng, 15,0–23,0 s của đoạn): đèn khí thở rất khẽ dưới hai quầng hổ phách; mờ vào/ra 0,9 s"
+  }
+ ],
+ "khoang_loi": [
+  [
+   5.5,
+   7.66
+  ],
+  [
+   9.0,
+   19.228
+  ],
+  [
+   19.832,
+   23.118000000000002
+  ],
+  [
+   23.721,
+   25.637
+  ],
+  [
+   26.241,
+   33.299
+  ],
+  [
+   34.111999999999995,
+   40.347
+  ],
+  [
+   45.333333333333336,
+   47.29533333333334
+  ],
+  [
+   47.922333333333334,
+   65.92933333333333
+  ],
+  [
+   66.53333333333333,
+   72.77933333333334
+  ],
+  [
+   73.975,
+   85.97999999999999
+  ],
+  [
+   86.618,
+   95.0
+  ],
+  [
+   95.604,
+   99.33099999999999
+  ],
+  [
+   100.91666666666667,
+   103.79666666666667
+  ],
+  [
+   104.91666666666667,
+   107.74966666666667
+  ],
+  [
+   108.35366666666667,
+   109.33966666666667
+  ],
+  [
+   109.94366666666667,
+   112.67166666666667
+  ],
+  [
+   116.26666666666667,
+   118.27566666666667
+  ],
+  [
+   118.85566666666666,
+   139.62566666666666
+  ],
+  [
+   140.80833333333334,
+   147.34433333333334
+  ],
+  [
+   147.94833333333332,
+   158.64133333333334
+  ],
+  [
+   159.33733333333333,
+   167.04633333333334
+  ],
+  [
+   168.26666666666665,
+   170.29866666666666
+  ],
+  [
+   170.89066666666665,
+   178.25166666666667
+  ],
+  [
+   178.85466666666665,
+   198.63866666666667
+  ],
+  [
+   200.85,
+   237.084
+  ],
+  [
+   237.781,
+   245.571
+  ],
+  [
+   248.26666666666665,
+   250.89066666666665
+  ],
+  [
+   251.57566666666665,
+   256.14966666666663
+  ],
+  [
+   256.73066666666665,
+   260.28266666666667
+  ],
+  [
+   260.95666666666665,
+   264.85766666666666
+  ],
+  [
+   265.53066666666666,
+   269.3616666666667
+  ],
+  [
+   269.96566666666666,
+   274.73766666666666
+  ],
+  [
+   276.3333333333333,
+   279.1193333333333
+  ],
+  [
+   279.8163333333333,
+   313.45033333333333
+  ],
+  [
+   314.0193333333333,
+   333.2683333333333
+  ],
+  [
+   333.9533333333333,
+   337.4253333333333
+  ],
+  [
+   338.1103333333333,
+   343.61333333333334
+  ],
+  [
+   344.20533333333333,
+   350.5673333333333
+  ],
+  [
+   351.1703333333333,
+   367.3083333333333
+  ],
+  [
+   369.68333333333334,
+   400.93733333333336
+  ],
+  [
+   401.52933333333334,
+   403.25933333333336
+  ],
+  [
+   403.86333333333334,
+   408.18233333333336
+  ],
+  [
+   408.7393333333333,
+   416.21633333333335
+  ],
+  [
+   416.86633333333333,
+   420.0013333333333
+  ],
+  [
+   420.55833333333334,
+   428.33733333333333
+  ],
+  [
+   432.5166666666667,
+   451.6036666666667
+  ],
+  [
+   454.30833333333334,
+   483.90233333333333
+  ],
+  [
+   484.5063333333333,
+   486.92133333333334
+  ],
+  [
+   487.52433333333335,
+   499.12333333333333
+  ],
+  [
+   501.80833333333334,
+   503.5493333333333
+  ],
+  [
+   504.2463333333333,
+   510.45733333333334
+  ],
+  [
+   511.05033333333336,
+   532.2723333333333
+  ],
+  [
+   535.475,
+   548.838
+  ],
+  [
+   549.442,
+   551.265
+  ],
+  [
+   551.869,
+   554.4
+  ],
+  [
+   555.003,
+   556.4200000000001
+  ],
+  [
+   557.6,
+   564.787
+  ],
+  [
+   565.379,
+   566.923
+  ],
+  [
+   567.527,
+   571.764
+  ],
+  [
+   579.764,
+   582.5500000000001
+  ],
+  [
+   583.1540000000001,
+   586.1260000000001
+  ],
+  [
+   586.8220000000001,
+   589.5740000000001
+  ]
+ ]
+}

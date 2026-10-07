@@ -1,0 +1,94 @@
+{
+ "segments": [
+  [
+   1.0,
+   3.786
+  ],
+  [
+   4.4830000000000005,
+   38.117
+  ],
+  [
+   38.686,
+   57.935
+  ],
+  [
+   58.62,
+   62.092
+  ],
+  [
+   62.777,
+   68.28
+  ],
+  [
+   68.872,
+   75.234
+  ],
+  [
+   75.837,
+   91.975
+  ]
+ ],
+ "pre": {
+  "I": -18.5,
+  "LRA": 1.7,
+  "TP": -4.3
+ },
+ "gain_db": 4.5,
+ "master": {
+  "I": -14.1,
+  "LRA": 1.7,
+  "TP": -1.6
+ },
+ "duck_env_db": -12.0,
+ "duck_meas_same_samples_db": -12.0,
+ "music_rms_speech_minus_lull_db": -12.2,
+ "sfx": [
+  {
+   "file": "159386.mp3",
+   "src_ss": 2.0,
+   "dur": 7.3,
+   "at": 0.0,
+   "gain_db": -17.0,
+   "note": "đèn khí xì (G0), mờ ra 6,2–7,3 s",
+   "fade_ms": 8
+  },
+  {
+   "file": "470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at": 12.05,
+   "gain_db": 4.0,
+   "note": "giấy trượt (G1 rời khung)",
+   "fade_ms": 8
+  },
+  {
+   "file": "320149.mp3",
+   "src_ss": 3.55,
+   "dur": 0.85,
+   "at": 13.15,
+   "gain_db": -10.0,
+   "note": "lật giấy (G2 vào)",
+   "fade_ms": 8
+  },
+  {
+   "file": "470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at": 45.7,
+   "gain_db": 2.0,
+   "note": "giấy trượt (G3 thu nhỏ lên góc)",
+   "fade_ms": 8
+  },
+  {
+   "file": "470189.mp3",
+   "src_ss": 0.0,
+   "dur": 0.37,
+   "at": 68.95,
+   "gain_db": 0.0,
+   "note": "giấy trượt (trục G4 → G5)",
+   "fade_ms": 8
+  }
+ ],
+ "vo_gain_db": 9.0
+}

@@ -1,0 +1,16 @@
+You are watching a short animated documentary film as a story editor checking whether the story holds together. You have no other context and you must not look for any. You will see it as still frames plus the narration text.
+
+Read ONLY these files with your file-reading tool: {DIR}/transitions.txt, then every image named in it: the transition strips T01.jpg … and the overview strips R00.jpg … (all in {DIR}). Do not open, list or search any other file or directory. Do not run commands.
+
+- Each transition strip T## shows 6 frames around a cut between two sections (−2.5, −1.5, −0.5, +0.5, +1.5, +2.5 s), with the narration spoken in that window.
+- The overview strips R## show the whole film, one frame every 4 seconds, 8 frames per strip, left to right, strips in order. Frame k (1–8) of strip R## is at 0:02 + 4 × (8 × ## + k − 1) seconds. Black frames are padding.
+
+Answer three questions:
+1. What is the question this film is asking? One sentence.
+2. Where does the film break its flow or become hard to follow (a jump that is not motivated, a change of look that breaks the world, narration that does not match the picture)?
+3. Where does it get boring (the same picture for too long, nothing new to look at)?
+For 2 and 3 give each place as "T##" or "R##.k". List only real problems; an empty list is a valid answer.
+
+Reply with ONLY this JSON object, no other text:
+{"question": "…", "score": 0, "issues": [{"where": "T03", "kind": "break", "note": "…"}, {"where": "R04.6", "kind": "boring", "note": "…"}]}
+where "score" is an integer 1–10 for how well the film flows as a whole, and "kind" is "break" (flow broken or hard to follow) or "boring".

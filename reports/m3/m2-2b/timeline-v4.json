@@ -1,0 +1,343 @@
+{
+ "fps": 24,
+ "tong_s": 602.583,
+ "tong_khung": 14462,
+ "ty_le": {
+  "STORY": 16.2,
+  "HISTORY": 36.6,
+  "TODAY": 47.2
+ },
+ "doan": [
+  {
+   "n": "00",
+   "nhan": "TODAY",
+   "t0": 0.0,
+   "t1": 6.0,
+   "dur": 6.0,
+   "khung": [
+    0,
+    144
+   ],
+   "vo_file": null,
+   "vo_offset": 0,
+   "vo_dur": 0,
+   "ghi_chu": "đoạn móc 6 s không lời (M2.2 mục 3.6): 10-13 1,0–4,0 s + 14 17,0–20,0 s"
+  },
+  {
+   "n": "01",
+   "nhan": "STORY",
+   "t0": 6.0,
+   "vo_file": "reports/m3/m2-2b/vo/bill-01.mp3",
+   "vo_offset": 9.0,
+   "vo_dur": 31.347,
+   "dur": 41.333333333333336,
+   "ida": [
+    {
+     "line": "L1",
+     "file": "reports/m1/cong2/tableread-d2/lines/L1.mp3",
+     "at": 5.5,
+     "txt": "Evening, old street."
+    }
+   ],
+   "t1": 47.333333333333336,
+   "khung": [
+    144,
+    1136
+   ]
+  },
+  {
+   "n": "02",
+   "nhan": "HISTORY",
+   "t0": 47.333333333333336,
+   "vo_file": "reports/m3/m2-2b/vo/bill-02-m22.mp3",
+   "vo_offset": 4.0,
+   "vo_dur": 25.992,
+   "dur": 32.041666666666664,
+   "t1": 79.375,
+   "khung": [
+    1136,
+    1905
+   ]
+  },
+  {
+   "n": "03",
+   "nhan": "HISTORY",
+   "t0": 79.375,
+   "vo_file": "reports/m3/m2-2b/vo/bill-03.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 25.356,
+   "dur": 26.541666666666668,
+   "t1": 105.91666666666667,
+   "khung": [
+    1905,
+    2542
+   ]
+  },
+  {
+   "n": "04",
+   "nhan": "STORY",
+   "t0": 105.91666666666667,
+   "vo_file": "reports/m3/m2-2b/vo/bill-04.mp3",
+   "vo_offset": 5.0,
+   "vo_dur": 7.755,
+   "dur": 15.75,
+   "ida": [
+    {
+     "line": "L2",
+     "file": "reports/m1/cong2/tableread-d2/lines/L2.mp3",
+     "at": 1.0,
+     "txt": "Not yet… not yet."
+    }
+   ],
+   "t1": 121.66666666666667,
+   "khung": [
+    2542,
+    2920
+   ]
+  },
+  {
+   "n": "05",
+   "nhan": "HISTORY",
+   "t0": 121.66666666666667,
+   "vo_file": "reports/m3/m2-2b/vo/bill-05.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 23.359,
+   "dur": 24.541666666666668,
+   "t1": 146.20833333333334,
+   "khung": [
+    2920,
+    3509
+   ]
+  },
+  {
+   "n": "06",
+   "nhan": "HISTORY",
+   "t0": 146.20833333333334,
+   "vo_file": "reports/m3/m2-2b/vo/bill-06.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 26.238,
+   "dur": 27.458333333333332,
+   "t1": 173.66666666666666,
+   "khung": [
+    3509,
+    4168
+   ]
+  },
+  {
+   "n": "07",
+   "nhan": "HISTORY",
+   "t0": 173.66666666666666,
+   "vo_file": "reports/m3/m2-2b/vo/bill-07.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 30.372,
+   "dur": 32.583333333333336,
+   "t1": 206.25,
+   "khung": [
+    4168,
+    4950
+   ]
+  },
+  {
+   "n": "08",
+   "nhan": "HISTORY",
+   "t0": 206.25,
+   "vo_file": "reports/m3/m2-2b/vo/bill-08.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 44.721,
+   "dur": 47.416666666666664,
+   "t1": 253.66666666666666,
+   "khung": [
+    4950,
+    6088
+   ]
+  },
+  {
+   "n": "09",
+   "nhan": "HISTORY",
+   "t0": 253.66666666666666,
+   "vo_file": "reports/m3/m2-2b/vo/bill-09.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 26.471,
+   "dur": 27.666666666666668,
+   "t1": 281.3333333333333,
+   "khung": [
+    6088,
+    6752
+   ]
+  },
+  {
+   "n": "10-13",
+   "nhan": "TODAY",
+   "t0": 281.3333333333333,
+   "vo_file": "reports/m3/m2-2a/vo/bill-lat-cat-take1.mp3",
+   "vo_offset": 1.0,
+   "vo_dur": 90.975,
+   "dur": 93.75,
+   "ghi_chu": "dựng từ lát cắt M2.2a (cùng mốc nội bộ, lời lệch +1,0 s) + sửa L1–L4",
+   "t1": 375.0833333333333,
+   "khung": [
+    6752,
+    9002
+   ]
+  },
+  {
+   "n": "14",
+   "nhan": "TODAY",
+   "t0": 375.0833333333333,
+   "vo_file": "reports/m3/m2-2b/vo/bill-14.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 58.654,
+   "dur": 62.833333333333336,
+   "t1": 437.9166666666667,
+   "khung": [
+    9002,
+    10510
+   ]
+  },
+  {
+   "n": "15",
+   "nhan": "TODAY",
+   "t0": 437.9166666666667,
+   "vo_file": "reports/m3/m2-2b/vo/bill-15.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 19.087,
+   "dur": 21.791666666666668,
+   "t1": 459.7083333333333,
+   "khung": [
+    10510,
+    11033
+   ]
+  },
+  {
+   "n": "16",
+   "nhan": "TODAY",
+   "t0": 459.7083333333333,
+   "vo_file": "reports/m3/m2-2b/vo/bill-16.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 44.815,
+   "dur": 47.5,
+   "t1": 507.2083333333333,
+   "khung": [
+    11033,
+    12173
+   ]
+  },
+  {
+   "n": "17",
+   "nhan": "TODAY",
+   "t0": 507.2083333333333,
+   "vo_file": "reports/m3/m2-2b/vo/bill-17.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 30.464,
+   "dur": 33.666666666666664,
+   "t1": 540.875,
+   "khung": [
+    12173,
+    12981
+   ]
+  },
+  {
+   "n": "18",
+   "nhan": "TODAY",
+   "t0": 540.875,
+   "vo_file": "reports/m3/m2-2b/vo/bill-18.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 20.945,
+   "dur": 22.125,
+   "t1": 563.0,
+   "khung": [
+    12981,
+    13512
+   ]
+  },
+  {
+   "n": "19",
+   "nhan": "STORY",
+   "t0": 563.0,
+   "vo_file": "reports/m3/m2-2b/vo/bill-19.mp3",
+   "vo_offset": 0.6,
+   "vo_dur": 24.567,
+   "tach": {
+    "cat_tai_giay_trong_take": 14.46,
+    "chen_lang_s": 7.407,
+    "ghi_chu": "phần B (\"Every era…\") lùi thêm 8 s lặng sau phần A"
+   },
+   "the_ket_s": 6.0,
+   "dur": 39.583333333333336,
+   "t1": 602.5833333333334,
+   "khung": [
+    13512,
+    14462
+   ]
+  }
+ ],
+ "vo": [
+  {
+   "file": "reports/m3/m2-2b/vo/bill-01.mp3",
+   "at": 15.0
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-02-m22.mp3",
+   "at": 51.333333333333336
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-03.mp3",
+   "at": 79.975
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-04.mp3",
+   "at": 110.91666666666667
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-05.mp3",
+   "at": 122.26666666666667
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-06.mp3",
+   "at": 146.80833333333334
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-07.mp3",
+   "at": 174.26666666666665
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-08.mp3",
+   "at": 206.85
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-09.mp3",
+   "at": 254.26666666666665
+  },
+  {
+   "file": "reports/m3/m2-2a/vo/bill-lat-cat-take1.mp3",
+   "at": 282.3333333333333
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-14.mp3",
+   "at": 375.68333333333334
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-15.mp3",
+   "at": 438.5166666666667
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-16.mp3",
+   "at": 460.30833333333334
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-17.mp3",
+   "at": 507.80833333333334
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-18.mp3",
+   "at": 541.475
+  },
+  {
+   "file": "reports/m3/m2-2b/vo/bill-19.mp3",
+   "at": 563.6,
+   "cat": 14.46,
+   "lui_phan_b": 7.407
+  }
+ ],
+ "quy_uoc": "Mỗi đoạn là một clip đúng số khung [khung0, khung1). Chuyển đoạn: clip tự làm fade/biến hình trong 4–8 khung đầu/cuối, KHÔNG giữ khung đen trùng nhau ≥ 2 khung (judder). Mốc câu lời dẫn tuyệt đối = t0 đoạn + vo_offset + mốc ký tự trong align.json (đoạn 19: phần B lùi thêm chen_lang_s)."
+}

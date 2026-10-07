@@ -1,0 +1,4 @@
+id: bad1
+sources: {W: {short: "Wiki", url: "https://en.wikipedia.org/wiki/Teller", read: fulltext, accessed: 2026-10-05}}
+numbers: {a: {v: 1, text: "1", kind: actual, unit: people, src: W}}
+segments: [{id: "01", part: TODAY, vo: "One.", shots: [{tpl: bignum, at: 0, p: {num: a}}]}]

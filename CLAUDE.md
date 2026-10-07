@@ -1,5 +1,8 @@
 # CINE LAB — hướng dẫn cho mọi phiên Claude Code trên repo này
 
+## NGUYÊN TẮC TỐI CAO (chủ dự án, 06/10/2026)
+Chất lượng — nội dung, hình ảnh, âm thanh, mọi yếu tố và **sự liền mạch giữa chúng** — là ưu tiên hàng đầu, **không bao giờ được hy sinh**. Tốc độ, token, giảm chạm, mở rộng chỉ tối ưu khi không giảm chất lượng. **Trần token là trần mềm:** vượt để giữ chất lượng thì làm và báo cáo, không dừng hỏi.
+
 ## Dự án
 Nghiên cứu và sản xuất phim ngắn hoạt hình phong cách hoá **chuẩn điện ảnh cao nhất** bằng Claude Opus 5.5.
 - Bài thử năng lực: 2–3 phút. Phim đích: 10–15 phút.
@@ -8,6 +11,9 @@ Nghiên cứu và sản xuất phim ngắn hoạt hình phong cách hoá **chu�
   - `CINE-LAB-HANDOFF.md`: quyết định
   - `CINE-LAB-KHUNG-CHAT-LUONG.md`: 11 cổng và tiêu chuẩn
   - `CINE-LAB-KE-HOACH-TRIEN-KHAI.md`: mốc M0–M4 và tổ chức nhiều phiên
+
+## Bài học (Last Lamplighters)
+- Mọi phiên P đọc `reports/m3/BAI-HOC-LL.md` khi khởi động. Không đọc lại báo cáo cũ (chủ dự án, 05/10/2026).
 
 ## Cách làm việc
 - Báo cáo bằng **tiếng Việt**, văn phong chuyên nghiệp. Nội dung phim viết bằng tiếng Anh.
