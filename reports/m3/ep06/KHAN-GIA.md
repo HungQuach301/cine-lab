@@ -16,29 +16,29 @@ Tự sinh bởi `scripts/ll/khan_gia.py` khi dựng. Chủ dự án gửi ảnh 
 | Nguồn lưu lượng chính |  |  |
 | Người đăng ký mới |  |  |
 
-## 2. Giữ chân theo đoạn (tổng 8:14.0; tỷ lệ {'STORY': 19.2, 'HISTORY': 33.6, 'TODAY': 47.2})
+## 2. Giữ chân theo đoạn (tổng 8:36.8; tỷ lệ {'STORY': 18.3, 'HISTORY': 33.9, 'TODAY': 47.8})
 
 | Đoạn | Phần | Từ | Đến | Mở đầu lời | Giữ chân ở đầu đoạn 48 giờ (%) | 7 ngày (%) | Ghi chú (rơi/tăng) |
 |---|---|---|---|---|---|---|---|
-| 00 | STORY | 0:00.0 | 0:19.8 | Who made this: a hand, or a machine? In… |  |  |  |
-| 01 | STORY | 0:19.8 | 0:46.8 | At dusk, the lamplighter passes a print shop. Down… |  |  |  |
-| 02 | HISTORY | 0:46.8 | 1:14.8 | For most of a century, printing ran on hot… |  |  |  |
-| 03 | HISTORY | 1:14.8 | 1:52.6 | What replaced it was cold type. Text was keyed… |  |  |  |
-| 04 | HISTORY | 1:52.6 | 2:43.2 | By 1988, composing room workers held about eighty-six thousand… |  |  |  |
-| 05 | HISTORY | 2:43.2 | 3:32.9 | But the work did not vanish. It moved. The… |  |  |  |
-| 06 | STORY | 3:32.9 | 3:56.9 | The lamplighter walks on. Above the old print shop,… |  |  |  |
-| 07 | TODAY | 3:56.9 | 4:32.2 | Can the BLS see a change like this coming?… |  |  |  |
-| 08 | TODAY | 4:32.2 | 5:26.5 | In January 2026, a BLS review described what generative… |  |  |  |
-| 09 | TODAY | 5:26.5 | 6:07.8 | Outside the forecasts, one study looked at a large… |  |  |  |
-| 10 | TODAY | 6:07.8 | 7:10.2 | So here is the comparison, with a caution. We… |  |  |  |
-| 11 | TODAY | 7:10.2 | 7:50.0 | Who made this: a hand, or a machine? For… |  |  |  |
-| 12 | STORY | 7:50.0 | 8:14.0 | Back on the street, the lamplighter reaches the last… |  |  |  |
+| 00 | STORY | 0:00.0 | 0:19.7 | Who made this: a hand, or a machine? In… |  |  |  |
+| 01 | STORY | 0:19.7 | 0:46.7 | At dusk, the lamplighter passes a print shop. Down… |  |  |  |
+| 02 | HISTORY | 0:46.7 | 1:14.7 | For most of a century, printing ran on hot… |  |  |  |
+| 03 | HISTORY | 1:14.7 | 1:52.5 | What replaced it was cold type. Text was keyed… |  |  |  |
+| 04 | HISTORY | 1:52.5 | 2:45.5 | By 1988, composing room workers held about eighty-six thousand… |  |  |  |
+| 05 | HISTORY | 2:45.5 | 3:41.8 | But the work did not vanish. It moved. The… |  |  |  |
+| 06 | STORY | 3:41.8 | 4:05.8 | The lamplighter walks on. Above the old print shop,… |  |  |  |
+| 07 | TODAY | 4:05.8 | 4:53.0 | Can the BLS see a change like this coming?… |  |  |  |
+| 08 | TODAY | 4:53.0 | 5:47.2 | In January 2026, a BLS review described what generative… |  |  |  |
+| 09 | TODAY | 5:47.2 | 6:28.6 | Outside the forecasts, one study looked at a large… |  |  |  |
+| 10 | TODAY | 6:28.6 | 7:33.0 | So here is the comparison, with a caution. We… |  |  |  |
+| 11 | TODAY | 7:33.0 | 8:12.8 | Who made this: a hand, or a machine? For… |  |  |  |
+| 12 | STORY | 8:12.8 | 8:36.8 | Back on the street, the lamplighter reaches the last… |  |  |  |
 
 ## 3. Shorts
 
 | Short | Hook | Dài (s) | Lượt xem 48 giờ | 7 ngày | % xem hết | Lượt sang phim dài |
 |---|---|---|---|---|---|---|
-| S1 | 1990: 'more are certain to disappear' | 24.9 |  |  |  |  |
+| S1 | 1990: 'more are certain to disappear' | 25.5 |  |  |  |  |
 | S2 | Image work posts −17% after image AI | 21.8 |  |  |  |  |
 | S3 | BLS: AI will reduce the need for graphic designers | 25.2 |  |  |  |  |
 

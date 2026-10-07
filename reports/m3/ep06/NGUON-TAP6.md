@@ -62,3 +62,12 @@ Trạng thái:
 - Số đếm thợ sắp chữ sau 1988 (không có nguồn toàn văn).
 - Khảo sát WEF *Future of Jobs 2025* (weforum.org chặn P).
 - Mọi khẳng định về dữ liệu huấn luyện/bản quyền của AI tạo hình (không có nguồn toàn văn đã đọc; rủi ro pháp lý).
+
+## Bổ sung khi sửa lời sau G2 lần 2 (07/10/2026, P đọc toàn văn)
+- OOH90 tr. 180 (Visual Artists, Nature of the Work): "Visual artists generally fall into one of two categories—'graphic artists' and 'fine artists'…"; "Graphic artists perform different jobs depending on their area of expertise. Graphic designers, for example, may design packaging…"; illustrators, cartoonists, animators cũng thuộc graphic artists; fine artists gồm painters, sculptors, printmakers. → lời đoạn 05: "visual artists, a broad group from graphic designers and illustrators to painters and sculptors".
+- OOH90 tr. 181: "Employment growth for graphic artists, however, will be limited by increases in productivity due to computers." → lời: "though for graphic artists, computers would limit that growth" (bản cũ gán sai cho cả nhóm visual artists).
+- BES16 tr. 6 và Kết luận: chỉ nói việc thợ sắp chữ giảm, việc nhà thiết kế tăng ("designers using computers substituted for typesetters"; "Workers need to learn new jobs"). **Không nói** thợ sắp chữ có hay không chuyển sang thiết kế → bỏ ý này (theo lệnh chủ dự án 07/10).
+- MLR25 tr. 1: "Digital cameras improved on an already-existing technology, and the path to integrating them into business operations and consumer lives was clear."; "New technologies such as autonomous vehicles or AI are harder to assess than technologies that constitute incremental improvements." → lời đoạn 07: "That change was easy to see coming: the digital camera improved on a familiar tool, and its path was clear. The tools now reaching designers are different."
+- OOH90 tr. 413 ("little or no change through the year 2000 despite anticipated expansion of the printing industry") → lời đoạn 04: "Across the whole printing industry, the BLS expected their numbers to stay about level through the year 2000: printing was growing, but computers were taking over much of the typing."
+- DHZ tr. 6, 19 (Bảng 4): −17 % là so với việc thủ công trên cùng nền tảng → lời đoạn 00: "…fell seventeen percent, compared with manual jobs."
+- MLR26 (tr. 5): AI giúp nhà thiết kế "create first drafts much more quickly" → lời đoạn 10: "designers use it to reach a first draft much more quickly".

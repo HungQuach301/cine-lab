@@ -68,6 +68,9 @@ async function printshop({ W, H, dur, v, opt = {} }) {
   const lamp = gasLamp(scene, -2.2, 3.0, { lit: v === 'a' || v === 'd' ? 1 : 0 });
   const lighter = figure({ hat: true, scale: 1.0 }); scene.add(lighter.root);
   const pole = cyl(0.015, 0.015, 2.6, lam('#2a2016'), 0, -0.2, 0); lighter.armR.add(pole); pole.rotation.x = -0.25;
+  // ngọn lửa mồi ở đầu sào + đèn nhỏ hắt lên người: bóng người thắp đèn không chìm vào mặt tiền tối (Q31 tập 6 v2)
+  const wick = glowSprite('#ffb86a', 0.95, 0.42); wick.position.set(0, 1.32, 0); pole.add(wick);
+  const wickLight = new THREE.PointLight('#ffae62', 2.4, 3.2, 1.6); wickLight.position.set(0, 1.25, 0.1); pole.add(wickLight);
   scene.add(new THREE.HemisphereLight('#5a6690', '#1a1418', 0.9));
   const moon = new THREE.DirectionalLight('#8f9fd8', 0.6); moon.position.set(-20, 30, 25); scene.add(moon);
   const fill = new THREE.PointLight('#ffb070', 3, 18, 1.2); fill.position.set(-2.2, 3.5, 6); scene.add(fill);
@@ -84,7 +87,7 @@ async function printshop({ W, H, dur, v, opt = {} }) {
   const update = (t, f) => {
     rig.at(t); dst.update(t);
     if (v === 'b' || v === 'c' || opt.lit !== undefined) {   // opt.lit: giây ngọn đèn bén (khớp tiếng xì đèn trong đặc tả); mặc định 0,45·dur + 1
-      const tl = opt.lit !== undefined ? opt.lit : dur * 0.45 + 1.0, ta = tl - 1.0, u = Math.min(1, t / ta), x = lerp(-9, -2.7, ease(u)); lighter.root.position.set(x, 0.15, 2.6); lighter.root.rotation.y = Math.PI / 2;
+      const tl = opt.lit !== undefined ? opt.lit : dur * 0.45 + 1.0, ta = tl - 1.0, u = Math.min(1, t / ta), x = lerp(opt.from !== undefined ? opt.from : -9, -2.7, ease(u)); lighter.root.position.set(x, 0.15, 2.6); lighter.root.rotation.y = Math.PI / 2;
       lighter.set({ walk: u < 1 ? t * 5 : 0, armR: u < 1 ? 0.2 : -2.4 * ease((t - ta) / 1.2) });
       lamp.set(ease((t - tl) / 1.0), f);
     } else { lighter.root.position.set(-2.9, 0.15, 2.7); lighter.root.rotation.y = 0.6; lighter.set({ armR: -0.3 }); lamp.set(1, f); }

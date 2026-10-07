@@ -29,8 +29,31 @@ P = lambda p: p if os.path.isabs(p) else os.path.join(REPO, p)
 def norm(w): return re.sub(r"[^a-z0-9']", '', w.lower())
 
 
+def _bool_keys(x, path, out):
+    """YAML 1.1 đọc khoá off/on/yes/no thành boolean (lỗi tập 6 v2: `off` của cảnh đinh thành `false`, bị bỏ qua lặng lẽ)."""
+    if isinstance(x, dict):
+        for k, v in x.items():
+            if isinstance(k, bool): out.append(f'{path}: khoá {k!r} (viết off/on/yes/no không ngoặc?)')
+            _bool_keys(v, f'{path}.{k}', out)
+    elif isinstance(x, list):
+        for i, v in enumerate(x): _bool_keys(v, f'{path}[{i}]', out)
+    return out
+
+
+def _frame0(x):
+    """`frame0` (khung bắt đầu trong cảnh đinh) → `off` cho render (JSON không có lỗi khoá boolean)."""
+    if isinstance(x, dict):
+        if 'frame0' in x: x['off'] = x.pop('frame0')
+        for v in x.values(): _frame0(v)
+    elif isinstance(x, list):
+        for v in x: _frame0(v)
+
+
 def load(path):
     E = yaml.safe_load(open(path))
+    bk = _bool_keys(E, 'E', [])
+    if bk: raise SystemExit('Đặc tả có khoá boolean — sửa trước khi dựng:\n  ' + '\n  '.join(bk[:20]))
+    _frame0(E)
     E.setdefault('out', f"/var/tmp/cine-out/{E['id']}")
     E.setdefault('vo_dir', os.path.join(os.path.dirname(os.path.relpath(path, REPO)), 'vo'))
     return E

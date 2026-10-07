@@ -11,7 +11,7 @@ txt = f'''TITLE
 The Computer Replaced the Typesetter and Made the Designer. Now AI Can Draw
 
 DESCRIPTION
-For most of a century, every word in a newspaper was set by hand. Then computers took over the typesetting, and in 1990 the Bureau of Labor Statistics wrote that more typesetting jobs were certain to disappear. The work did not vanish: graphic designers took the tool.
+For most of a century, every word in a newspaper was set by hand. Then computers took over the typesetting, and in 1990 the Bureau of Labor Statistics wrote that more typesetting jobs were certain to disappear. The work did not vanish: graphic designers began doing it themselves, on their own computers.
 
 Today, the BLS projects that automated design tools, such as AI, will reduce the need for graphic designers: a projected decline of 1.7 percent from 2025 to 2035, while all jobs grow 3.5 percent. This film follows the hand that set the type and the hand that drew the page, and asks what is left for the hand that decides.
 
