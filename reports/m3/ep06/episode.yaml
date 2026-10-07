@@ -360,7 +360,7 @@ segments:
          sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.6, src_ss: 3.0, dur: 6.6, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/gas-hiss.mp3, at: 8.2, src_ss: 2.0, dur: 2.2, gain_db: -7, fade_ms: 250}]}
       - {tpl: plate, at: "@some-0.5", in: fade, p: {hero: case_end, frame0: 40},
          sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@type", src_ss: 3.0, dur: 2.5, gain_db: -16, fade_ms: 400}]}
-      - {tpl: endcard, at: "@hand+1.6", in: fade, p: {line: "Last Lamplighters · Episode 6", next: "Next: When Computers Were People"}}
+      - {tpl: endcard, at: "@hand+1.6", in: fade, p: {line: "Episode 6 · The Hand That Drew It", next: "Next: When Computers Were People"}}
 
 shorts:
   - id: S1
