@@ -188,3 +188,6 @@ qc.py gọi luật khoá Q26–Q31 (áp từ tập 6) và truyền log render ch
 - **Q-L30 = B:** tông đo trên điểm ảnh; chỉ đòi hồi 3 (hôm nay) có b* trung bình thấp nhất trong 4 hồi; thiếu hồi để đo thì TRƯỢT. Tập 6 v2: b* hồi 3 = 7,9 < 9,5 (ĐẠT). **Hạn chế:** chưa có ngưỡng tuyệt đối; hiệu chuẩn lại sau tập 7–8.
 - **Q-L31 = A có điều kiện:** vòng 1 chặn điểm đứt mạch ≥ 2/3. Từ vòng 2 chỉ chặn điểm 3/3; điểm 2/3 phải có giải trình (≥ 20 ký tự) trong `<out>/blind/q31/giai-trinh.json`, chép vào báo cáo G2. **Vòng tính theo từng tập:** `q31-set` chuyển lần xem trước của tập sang `q31-lich-su/vong-NN`; chỉ vòng chấm đủ 3 người được đếm; manifest ghi số vòng và bộ chấm đối chiếu với sổ lịch sử.
 - **Q-L6v2 = B:** tập 6 v2 phát hành theo luật làm việc của P; qc chỉ gọi Q26–Q31 từ tập 7. Q14 (tựa trên cảnh đinh) và Q16 (5 mẫu toàn khung) đã chấp nhận vẫn áp như bản khoá.
+
+**Chủ dự án DUYỆT checks LL v3 1.7.1 (chat 07/10/2026):** LOCK `e3fcd2e686ac92eb15cab0bf93e54aa31165acd8e129d500f4affeb58cc03240`. Claude tính lại: KHỚP; selftest 109/109. Không đổi `checks/`, không đổi LOCK. Phiên K kết thúc.
+- Việc mở: **hiệu chuẩn lại Q30 (tông màu theo hồi) sau tập 7–8, ở một phiên K mới**.
