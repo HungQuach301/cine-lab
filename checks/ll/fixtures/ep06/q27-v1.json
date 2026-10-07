@@ -1,0 +1,351 @@
+{
+ "seed": "a26bb3a9f4e301e417bd9d47cb1c4079eee17a54ba92e81de63eb4d025e5eba3",
+ "sets": {
+  "F01": "new",
+  "F02": "new",
+  "F03": "new",
+  "F04": "new",
+  "F05": "new",
+  "F06": "ref",
+  "F07": "new",
+  "F08": "ref",
+  "F09": "ref",
+  "F10": "ref",
+  "F11": "ref",
+  "F12": "new",
+  "F13": "ref",
+  "F14": "ref",
+  "F15": "ref",
+  "F16": "new",
+  "F17": "new",
+  "F18": "ref",
+  "F19": "ref",
+  "F20": "new"
+ },
+ "replies": {
+  "R1": {
+   "scores": {
+    "F01": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F02": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F03": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 3
+    },
+    "F04": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F05": {
+     "beauty": 3,
+     "detail": 3,
+     "light": 3
+    },
+    "F06": {
+     "beauty": 8,
+     "detail": 8,
+     "light": 8
+    },
+    "F07": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F08": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F09": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F10": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F11": {
+     "beauty": 5,
+     "detail": 3,
+     "light": 5
+    },
+    "F12": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 3
+    },
+    "F13": {
+     "beauty": 9,
+     "detail": 9,
+     "light": 9
+    },
+    "F14": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F15": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F16": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 6
+    },
+    "F17": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F18": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F19": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F20": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    }
+   },
+   "notes": "The 3D-rendered street scenes (F06, F13) stand far above the flat vector title and chart cards for depth, texture and motivated lamp light. Several frames (F03, F05, F12, F17) catch mid-transition or half-drawn graphics, and the dark flat interiors have muddy, low-contrast darks.",
+   "prompt_sha256": "dee08020f89046210690bee9c73940f29da118a2b3c3b9e65c973e20c334f801",
+   "model": "sonnet",
+   "rater": "R1"
+  },
+  "R2": {
+   "scores": {
+    "F01": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F02": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F03": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 3
+    },
+    "F04": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F05": {
+     "beauty": 3,
+     "detail": 3,
+     "light": 3
+    },
+    "F06": {
+     "beauty": 8,
+     "detail": 8,
+     "light": 8
+    },
+    "F07": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F08": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 4
+    },
+    "F09": {
+     "beauty": 5,
+     "detail": 5,
+     "light": 5
+    },
+    "F10": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F11": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F12": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 3
+    },
+    "F13": {
+     "beauty": 9,
+     "detail": 8,
+     "light": 9
+    },
+    "F14": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 4
+    },
+    "F15": {
+     "beauty": 4,
+     "detail": 4,
+     "light": 5
+    },
+    "F16": {
+     "beauty": 5,
+     "detail": 3,
+     "light": 6
+    },
+    "F17": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 3
+    },
+    "F18": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F19": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F20": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    }
+   },
+   "notes": "The 3D-rendered lamp-lit street frames (F06, F13) are clearly the strongest, with motivated warm light, texture and depth. The flat data-graphic and title-card frames are clean but sparse, and several catch fades, overlapping text or half-drawn charts.",
+   "prompt_sha256": "1cf6f5bcd638ee569baa1c2b4db72f1936bc0782f4ef228fb827553ea9f54e67",
+   "model": "sonnet",
+   "rater": "R2"
+  },
+  "R3": {
+   "scores": {
+    "F01": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F02": {
+     "beauty": 7,
+     "detail": 5,
+     "light": 7
+    },
+    "F03": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 3
+    },
+    "F04": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F05": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 3
+    },
+    "F06": {
+     "beauty": 8,
+     "detail": 8,
+     "light": 8
+    },
+    "F07": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 3
+    },
+    "F08": {
+     "beauty": 5,
+     "detail": 5,
+     "light": 5
+    },
+    "F09": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F10": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F11": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F12": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 3
+    },
+    "F13": {
+     "beauty": 8,
+     "detail": 8,
+     "light": 8
+    },
+    "F14": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F15": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F16": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F17": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F18": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F19": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F20": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    }
+   },
+   "notes": "The fully rendered lamplit street frames (F06, F13) stand out clearly, while most others are flat silhouette scenes or text and chart cards with little depth. Several frames catch transitions or half-drawn graphics (F05, F12, F16), which pulled their scores down.",
+   "prompt_sha256": "09d0e88a1f25fccca2165b9855d6dfa30495e2cfb1cae7719cb6cd98fc5c14ea",
+   "model": "sonnet",
+   "rater": "R3"
+  }
+ }
+}

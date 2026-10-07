@@ -4,10 +4,13 @@
   rhythm.py <episode.yaml>          in bảng đo; mã thoát 1 nếu trượt (dùng trong qc.py và trước render)
 
 Q14 móc câu: trước 0:15 có câu hỏi/mâu thuẫn bằng lời (câu có "?" hoặc but/yet…) VÀ hình (shot đồ hoạ hoặc dòng chữ) bắt đầu trước 0:15;
-    thẻ tựa phim (shot `text` có `lamp: true`) bắt đầu ≤ 0:20; câu hỏi mở đầu được trả lời ở cuối: `hook.answer` (đoạn) chứa mọi từ trong `hook.keys`.
+    thẻ tựa phim bắt đầu ≤ 0:20 — shot `text` có `lamp: true`, HOẶC (v3, đề nghị P 06/10/2026) shot `plate` (cảnh đinh) có `p.title`
+    (chuỗi tựa, khác rỗng); khi có log render, chuỗi tựa phải hiện thật trong log của đoạn trong khoảng shot; câu hỏi mở đầu được trả lời
+    ở cuối: `hook.answer` (đoạn) chứa mọi từ trong `hook.keys`.
 Q15 đổi hình: sự kiện hình = đầu shot, mọi mốc nội dung (at/noteAt/…/beats/lines/bars), mốc máy quay (cam), đèn thắp, đèn tắt, màn hình;
     không quãng nào > 8 s không có sự kiện; trung bình ≤ 6 s.
 Q16 tỷ lệ thẻ giấy (mẫu đồ hoạ, không tính cảnh toàn khung) ≤ 55 % (tập 4–5), ≤ 40 % từ tập 6 (`rhythm.paper_max` trong đặc tả).
+    v3 (07/10/2026): cảnh toàn khung thêm `plate`, `jobboard`, `filmstrip`, `pasteup`, `diptych` (K xem khung thật tập 6 v2); Q14 dùng cùng tập.
 Q17 mật độ số: số MỚI trên hình (khoá `num` phân biệt + nhãn số trên đường) ≤ 2/phút trung bình; đặc tả khai `anchors` = đúng 3 số neo, có xuất hiện trên hình.
 Q18 thẻ trống: shot số liệu (bars/line/compare/bignum) phải có số đầu tiên ≤ 1,5 s sau đầu shot.
 """
@@ -15,7 +18,8 @@ import json, os, re, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 from checks.ll import base as ll  # noqa: E402  (bản khoá: hàm nền độc lập với scripts/ll/ll.py)
 
-FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect'}   # v2 (05/10/2026): cảnh toàn khung
+FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect',
+        'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}   # cảnh toàn khung; v3 (07/10/2026) thêm 5 mẫu tập 6 v2 (khiếu nại Q16)
 DATA = {'bars', 'line', 'compare', 'bignum'}
 CONTENT_KEYS = ('at', 'noteAt', 'midAt', 'diffAt', 'capAt')
 
@@ -41,7 +45,30 @@ def _first_data(sh):
     return min(c) if c else sh['t0']
 
 
-def measure(E, TL):
+def _tnorm(x): return re.sub(r'[^a-z0-9]', '', str(x or '').lower())
+
+
+def _title_on_screen(sg, sh, logs, title):
+    L = (logs or {}).get(sg['id'])
+    if not L: return False
+    f0, f1 = int(sh['t0'] * 24), int(sh['t1'] * 24) + 1
+    return any(f0 <= e['f'] <= f1 and title in _tnorm(' '.join(str(it.get('s', '')) for it in e['items'])) for e in L.get('text', []))
+
+
+def title_shots(E, segs, logs=None):
+    """giây bắt đầu các shot tựa phim. `text`+`lamp` như v2; `plate` có p.title (v3). logs=None: chỉ đọc timeline
+    (selftest); qc luôn truyền log và khi đó chuỗi tựa phải có trong log của đoạn trong khoảng shot."""
+    out = []
+    for s in segs:
+        for sh in s['shots']:
+            T = _tnorm(sh['p'].get('title') if isinstance(sh['p'].get('title'), str) else '')
+            if sh['tpl'] == 'text' and sh['p'].get('lamp'): out.append(s['t0'] + sh['t0'])
+            elif sh['tpl'] == 'plate' and len(T) >= 3 and (logs is None or _title_on_screen(s, sh, logs, T)):
+                out.append(s['t0'] + sh['t0'])
+    return out
+
+
+def measure(E, TL, logs=None):
     out = {}
     T = TL['tong_s']; segs = TL['segments']
     # Q14
@@ -55,7 +82,7 @@ def measure(E, TL):
     gfx = [s['t0'] + sh['t0'] for s in segs for sh in s['shots'] if sh['tpl'] not in FULL]
     gfx += [s['t0'] + c['at'] for s in segs for sh in s['shots'] for c in sh['p'].get('cap', []) if isinstance(c.get('at'), (int, float))]   # chú thích đè lên cảnh cũng là hình
     q_img = any(t < 15 for t in gfx)
-    title = [s['t0'] + sh['t0'] for s in segs for sh in s['shots'] if sh['tpl'] == 'text' and sh['p'].get('lamp')]
+    title = title_shots(E, segs, logs)
     t_title = min(title) if title else None
     hk = E.get('hook') or {}
     ans = next((x for x in E['segments'] if x['id'] == hk.get('answer')), None)
