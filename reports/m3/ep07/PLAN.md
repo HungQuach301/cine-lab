@@ -1,6 +1,6 @@
 # PLAN tập 07 — When Computers Were People  (≤ 1 trang; P cập nhật sau mỗi bước)
 
-**Trạng thái:** G1 chờ (lô 6–8, `reports/m3/LO-6-8-G1.md`)
+**Trạng thái:** G1 đã duyệt (06/10); đặc tả chưa sửa theo G1. Bắt đầu ở phiên P mới: đọc `reports/m3/ep07/BAN-GIAO-P.md`. Áp checks v3 (Q1–Q31 + LOCK).
 **Việc tiếp (sau G1):** 1. sửa đặc tả theo duyệt G1; 2. thư viện (gộp một lượt cho cả lô, đầu tập 6): PROP calculator; ERA 1944 → calculator; 3. tải ảnh LoC bản "v" + dòng `RIGHTS.md`; 4. `build.sh` (thu lời Bill, ASR, render), qc Q1–Q22; 5. G2.
 **Quyết định đã có (chủ dự án):** 06/10/2026 — lệnh lô 6–8 (HÌNH v2 từ đầu, Q14–Q22 bắt buộc, kiểm mù 1 subagent 3 vai, trần token theo đầu vào mới + sinh ra). Chi tiết ở AUTHORSHIP.md.
 **Trần:** token 1,5 triệu/tập sản xuất trọn (đầu vào mới + sinh ra, đo từ log phiên; > 25 % thì dừng hỏi) · đĩa trống ≥ 1,5 × mức cần
