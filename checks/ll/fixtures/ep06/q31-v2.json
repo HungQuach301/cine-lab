@@ -1,0 +1,225 @@
+{
+ "cuts": [
+  19.75,
+  46.75,
+  74.75,
+  112.5833,
+  163.2083,
+  212.875,
+  236.875,
+  272.25,
+  326.4583,
+  367.7917,
+  430.1667,
+  469.9583
+ ],
+ "replies": {
+  "R1": {
+   "question": "When a new technology takes over a craft (hand-set type then, AI image tools now), does the work and the jobs disappear, or just change hands, and what do the numbers actually show so far?",
+   "score": 7,
+   "issues": [
+    {
+     "where": "T05",
+     "kind": "break",
+     "note": "Narration says 'the work did not vanish' while the picture is an empty dark wall with tiny silhouettes, then a cut to the type case. The image does not support the line."
+    },
+    {
+     "where": "T03",
+     "kind": "break",
+     "note": "Hard jump from the dark composing room with the 'extinction' quote to a stylised 1975 office with a computer and starfield window. The look changes and the card text arrives late."
+    },
+    {
+     "where": "T12",
+     "kind": "break",
+     "note": "The type case and the poster wall alternate quickly at 'no projection can settle it yet', then it cuts to a dark street. It reads as a flicker rather than a closing beat."
+    },
+    {
+     "where": "R07.5",
+     "kind": "break",
+     "note": "Abrupt digression to a film strip and digital cameras replacing film, in a red room unlike anything before it. The link to the main thread is thin until the 9,200 figure."
+    },
+    {
+     "where": "T10",
+     "kind": "break",
+     "note": "Cuts from the poster wall to the composing room mid-phrase ('clients asking. So here is the comparison'). The picture does not match the narration."
+    },
+    {
+     "where": "R01.2",
+     "kind": "boring",
+     "note": "The same type-case picture holds for several frames (about 12 s) with only the caption changing."
+    },
+    {
+     "where": "R06.1",
+     "kind": "boring",
+     "note": "The Bessen quote card stays on screen with almost no change while it is read."
+    },
+    {
+     "where": "R11.3",
+     "kind": "boring",
+     "note": "The static '-17%' board and the poster wall run on for a long stretch with little new to look at."
+    }
+   ],
+   "prompt_sha256": "6e9fb57a0aa34fd5e35874476595e2b101f15a30249c9a5732d604e682014c27",
+   "model": "sonnet",
+   "rater": "R1"
+  },
+  "R2": {
+   "question": "When a machine takes over a craft, as computers did for typesetters, does that mean the craft's workers disappear, or does the work change hands, and which of those is happening to graphic designers now that AI makes the first drafts?",
+   "score": 6,
+   "issues": [
+    {
+     "where": "T01",
+     "kind": "break",
+     "note": "The -17% job-posts card is followed straight by the title card 'The Hand That Drew It / Episode 6'. The film opens with the statistic and then re-opens with a title, and the narration 'seventeen percent' is left hanging. The same data card reappears at R12.1 as a separate beat."
+    },
+    {
+     "where": "T03",
+     "kind": "break",
+     "note": "The cut goes from the dark typesetting room with the BLS 'extinction' quote to a bright 1975 office with a computer on a desk. The jump in setting and in year has no bridge. The 1975 caption is also clipped to the lower corner."
+    },
+    {
+     "where": "T04",
+     "kind": "break",
+     "note": "The cut goes from the paste-up page diagram to the composing-room hall with the caption 'composing room workers, 1988', which fades in faintly. The caption barely reads, and the number it introduces (86,000) is not shown at the cut."
+    },
+    {
+     "where": "T05",
+     "kind": "break",
+     "note": "The narration says the work did not vanish while the picture shows the same empty dark hall and then the type case, with no sign that the work continued. The line 'But the work did not vanish' has no matching image."
+    },
+    {
+     "where": "T07",
+     "kind": "break",
+     "note": "The cut goes from the designer at the glowing screen with poster walls to a blank dark frame with a faint caption, and the walls rebuild. The narration, 'Can the BLS see a change', is a question and the picture gives it no answer. The caption is nearly unreadable."
+    },
+    {
+     "where": "T08",
+     "kind": "break",
+     "note": "The cut goes from the wall of posters and a quote on projections to the chart, with a sudden switch to the cream bar-chart card. The chart is a new, cleaner look than the dark scenes around it. It then jumps to the job-post corkboard with no linking line in the narration."
+    },
+    {
+     "where": "T09",
+     "kind": "break",
+     "note": "'Outside the forecasts, one...' cuts from the designer scene to the dark composing room, which repeats the 1988 imagery. The picture does not match the narration, which is about freelance demand."
+    },
+    {
+     "where": "T10",
+     "kind": "break",
+     "note": "The cut goes from the poster walls and the freelancer line to the composing room, with the caption 'the comparison, with a caution' fading in over a picture unrelated to a comparison."
+    },
+    {
+     "where": "T12",
+     "kind": "break",
+     "note": "The cut goes from the type case and the designer wall with 'no projection can settle it yet' to a dark street with no figure, an unlit shop and nothing to say. The ending is abrupt and lacks a closing image tied to the question."
+    },
+    {
+     "where": "R10.3",
+     "kind": "boring",
+     "note": "The corkboard of job posts runs through R10.3 to R10.8 with only the captions changing."
+    },
+    {
+     "where": "R03.8",
+     "kind": "boring",
+     "note": "The same sepia photo of a man with a pipe runs across R03.8 and R04.1-R04.2, with little new to look at."
+    },
+    {
+     "where": "R08.1",
+     "kind": "boring",
+     "note": "Three quote and chart cards run in a row: the 'newest projections' quote card (R08.1-R08.4) and the graphic designers chart (R08.5-R08.8). Only text changes."
+    },
+    {
+     "where": "R11.1",
+     "kind": "boring",
+     "note": "The type case is shown again and again, in R11.1-R11.2, R11.4, R11.6 and R11.7, in near-identical frames, in the recap."
+    },
+    {
+     "where": "R00.4",
+     "kind": "boring",
+     "note": "The corkboard of cards is shown twice, in R00.4 and R00.5, and again in R10.3-R10.8 and R12.3-R12.4, in near-identical frames."
+    }
+   ],
+   "prompt_sha256": "dfbf2bde7912b5c244876074673dad97f1efc5093eb31aff67ec54d459d9929b",
+   "model": "sonnet",
+   "rater": "R2"
+  },
+  "R3": {
+   "question": "When a machine takes over a craft's repetitive task, as computers did for typesetters, do the human jobs vanish or change, and what does that say about graphic designers and AI today?",
+   "score": 7,
+   "issues": [
+    {
+     "where": "T01",
+     "kind": "break",
+     "note": "The film opens on the cork board with the -17% figure, then cuts straight to a blank title card with only a lamp. The statistic comes before any setup, so the cut feels abrupt."
+    },
+    {
+     "where": "T02",
+     "kind": "break",
+     "note": "The cut goes from a warm, bright type-case image to a dark Linotype hall with no visible link between hand-set and machine-set type. The lower-third text is also tiny and low-contrast."
+    },
+    {
+     "where": "T03",
+     "kind": "break",
+     "note": "The 'road to extinction' quote sits on the Linotype room, then the next shot is a small 1975 computer scene with a different style and a window of stars. Narration says 'cold' type, but nothing in the picture explains what is cold about it."
+    },
+    {
+     "where": "T05",
+     "kind": "break",
+     "note": "The 'certain to disappear' quote plays over a dark, empty wall, then the film cuts to the type case. The 'did not vanish' turn is not shown in the picture."
+    },
+    {
+     "where": "T06",
+     "kind": "break",
+     "note": "The change of place and mood is abrupt, from the type case to the Printing-Composing street. The caption '...limited by computers' fades out across the cut and looks cut off."
+    },
+    {
+     "where": "T07",
+     "kind": "break",
+     "note": "The frames show the poster wall and the screen shifting around. The narration, 'Can the BLS see a change', has no matching image."
+    },
+    {
+     "where": "T09",
+     "kind": "break",
+     "note": "The poster wall cuts to the Linotype room, which has nothing to do with 'the comparison'. The caption is faint and unreadable at the cut."
+    },
+    {
+     "where": "T10",
+     "kind": "break",
+     "note": "The cut crosses between very different scenes (type case, poster wall) while the caption is mid-line."
+    },
+    {
+     "where": "R02.4",
+     "kind": "boring",
+     "note": "A static dark shot of the composing room with little to look at."
+    },
+    {
+     "where": "R01.7",
+     "kind": "boring",
+     "note": "Archival photos of hands and a composing room sit on screen with little change."
+    },
+    {
+     "where": "R05.1",
+     "kind": "boring",
+     "note": "Fixed-frame text and quote cards, then a stat card with figures. Little visual movement."
+    },
+    {
+     "where": "R08.2",
+     "kind": "boring",
+     "note": "Text-only quote cards that barely change."
+    },
+    {
+     "where": "R09.3",
+     "kind": "boring",
+     "note": "The cork board is held for several frames."
+    },
+    {
+     "where": "R10.3",
+     "kind": "boring",
+     "note": "The cork board is held for several frames."
+    }
+   ],
+   "prompt_sha256": "ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96",
+   "model": "sonnet",
+   "rater": "R3"
+  }
+ }
+}

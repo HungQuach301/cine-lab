@@ -1,0 +1,351 @@
+{
+ "seed": "4b2fc9893ae55e0cc7c7f154702693410fccac1eb088816021025751fecc7ecc",
+ "sets": {
+  "F01": "new",
+  "F02": "new",
+  "F03": "ref",
+  "F04": "ref",
+  "F05": "ref",
+  "F06": "ref",
+  "F07": "new",
+  "F08": "ref",
+  "F09": "new",
+  "F10": "new",
+  "F11": "ref",
+  "F12": "ref",
+  "F13": "new",
+  "F14": "new",
+  "F15": "new",
+  "F16": "ref",
+  "F17": "ref",
+  "F18": "new",
+  "F19": "ref",
+  "F20": "new"
+ },
+ "replies": {
+  "R1": {
+   "scores": {
+    "F01": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F02": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 3
+    },
+    "F03": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 5
+    },
+    "F04": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 4
+    },
+    "F05": {
+     "beauty": 8,
+     "detail": 7,
+     "light": 8
+    },
+    "F06": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 5
+    },
+    "F07": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F08": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 5
+    },
+    "F09": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 7
+    },
+    "F10": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 4
+    },
+    "F11": {
+     "beauty": 9,
+     "detail": 8,
+     "light": 9
+    },
+    "F12": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 5
+    },
+    "F13": {
+     "beauty": 5,
+     "detail": 5,
+     "light": 5
+    },
+    "F14": {
+     "beauty": 4,
+     "detail": 4,
+     "light": 3
+    },
+    "F15": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F16": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F17": {
+     "beauty": 4,
+     "detail": 2,
+     "light": 4
+    },
+    "F18": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F19": {
+     "beauty": 5,
+     "detail": 4,
+     "light": 5
+    },
+    "F20": {
+     "beauty": 7,
+     "detail": 8,
+     "light": 6
+    }
+   },
+   "notes": "The painted night-street frames (F05, F11) are far stronger than the paper-card graphics, which are clean but flat and text-led. Several frames (F02, F14, F09) are very dark or murky, and F04 and F17 look half-drawn or empty.",
+   "prompt_sha256": "dee08020f89046210690bee9c73940f29da118a2b3c3b9e65c973e20c334f801",
+   "model": "sonnet",
+   "rater": "R1"
+  },
+  "R2": {
+   "scores": {
+    "F01": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F02": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F03": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F04": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 4
+    },
+    "F05": {
+     "beauty": 8,
+     "detail": 7,
+     "light": 8
+    },
+    "F06": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 6
+    },
+    "F07": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F08": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F09": {
+     "beauty": 6,
+     "detail": 4,
+     "light": 6
+    },
+    "F10": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 4
+    },
+    "F11": {
+     "beauty": 9,
+     "detail": 8,
+     "light": 9
+    },
+    "F12": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F13": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F14": {
+     "beauty": 4,
+     "detail": 4,
+     "light": 3
+    },
+    "F15": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F16": {
+     "beauty": 6,
+     "detail": 4,
+     "light": 5
+    },
+    "F17": {
+     "beauty": 4,
+     "detail": 2,
+     "light": 5
+    },
+    "F18": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F19": {
+     "beauty": 6,
+     "detail": 3,
+     "light": 6
+    },
+    "F20": {
+     "beauty": 7,
+     "detail": 8,
+     "light": 6
+    }
+   },
+   "notes": "The lamplit street scenes (F05, F11) are far stronger than the flat infographic cards, which are clean but low on detail and light. Several frames (F02, F14, F09) are very dark or muddy, and F04 caught a half-drawn chart.",
+   "prompt_sha256": "1cf6f5bcd638ee569baa1c2b4db72f1936bc0782f4ef228fb827553ea9f54e67",
+   "model": "sonnet",
+   "rater": "R2"
+  },
+  "R3": {
+   "scores": {
+    "F01": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F02": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 3
+    },
+    "F03": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 5
+    },
+    "F04": {
+     "beauty": 3,
+     "detail": 2,
+     "light": 4
+    },
+    "F05": {
+     "beauty": 8,
+     "detail": 7,
+     "light": 8
+    },
+    "F06": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 6
+    },
+    "F07": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F08": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 6
+    },
+    "F09": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 7
+    },
+    "F10": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 4
+    },
+    "F11": {
+     "beauty": 9,
+     "detail": 8,
+     "light": 9
+    },
+    "F12": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F13": {
+     "beauty": 6,
+     "detail": 6,
+     "light": 5
+    },
+    "F14": {
+     "beauty": 4,
+     "detail": 4,
+     "light": 3
+    },
+    "F15": {
+     "beauty": 7,
+     "detail": 6,
+     "light": 7
+    },
+    "F16": {
+     "beauty": 6,
+     "detail": 5,
+     "light": 5
+    },
+    "F17": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 5
+    },
+    "F18": {
+     "beauty": 4,
+     "detail": 3,
+     "light": 4
+    },
+    "F19": {
+     "beauty": 6,
+     "detail": 4,
+     "light": 6
+    },
+    "F20": {
+     "beauty": 7,
+     "detail": 8,
+     "light": 6
+    }
+   },
+   "notes": "The painted night street scenes (F05, F11) stand far above the flat chart and quote cards in beauty, craft and motivated lamplight. Several dark or empty frames (F02, F14, F04) read as muddy or unfinished.",
+   "prompt_sha256": "09d0e88a1f25fccca2165b9855d6dfa30495e2cfb1cae7719cb6cd98fc5c14ea",
+   "model": "sonnet",
+   "rater": "R3"
+  }
+ }
+}

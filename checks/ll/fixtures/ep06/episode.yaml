@@ -1,0 +1,386 @@
+# Last Lamplighters · Tập 6 "The Hand That Drew It" — đặc tả v2 (DỰNG LẠI theo NGUYÊN TẮC TỐI CAO, chủ dự án 06/10/2026).
+# Giữ nguyên lời, số, nguồn đã duyệt ở G1. Đổi: hình (cảnh đinh 3D, mẫu vật chất v3, bàn làm việc ≤ 3 lần), nhạc theo hồi, âm thanh nghề,
+# ngắt nghỉ trước số neo, bản đồ liền mạch `map:` mỗi đoạn (CHUAN-KENH §11.1), chuyển hồi bằng match cut / J-cut có ngọn đèn.
+# Cặp nghề: thợ sắp chữ / người dàn trang (1942–1990, máy sắp chữ điện tử, chế bản trên máy tính) ↔ nhà thiết kế đồ hoạ với AI tạo sinh (2022–34).
+# Nguồn: reports/m3/ep06/NGUON-TAP6.md. Mọi số đọc toàn văn (FRASER, NBER, EconStor). Số BLS 2025–35: "đã xác minh (Claude)" 06/10/2026 (G1 duyệt: đổi sang đợt mới nhất; 2024–34 chỉ ở khung riêng).
+# G1 duyệt 06/10/2026: tiêu đề A; đoạn 11 viết lại theo CHUAN-KENH §10 (không nói về cách làm phim).
+# KHÔNG dùng: đỉnh 86 300 của thợ ảnh (trùng con số 86 000 của phòng sắp chữ, dễ đọc nhầm) — chỉ nói "nearly nine in ten" và 9 200; số đếm thợ sắp chữ sau 1988 (không có toàn văn).
+# Thư viện cần thêm trước khi dựng (một lượt, đầu tập): PROP typecase (khay chữ chì + tay cầm sắp chữ), PROP drawboard (bàn vẽ nghiêng + đèn kẹp); ERA 1942 → typecase, 1960 → drawboard.
+id: ll-ep06
+hook: {answer: "11", keys: [hand, decides]}
+anchors: [comp88, gd_chg, img]
+rhythm: {paper_max: 40}
+title: "The Computer Replaced the Typesetter and Made the Designer. Now AI Can Draw"
+out: /var/tmp/cine-out/ll-ep06
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+# Nhạc theo hồi (Q28): nhạc hiệu kênh mở và đóng (hai khúc khác nhau của bài, không lặp), một cue mỗi hồi, không lặp đoạn nào.
+music:
+  - {file: assets/ll/music/Reawakening.mp3, from: "00", ss: 0}
+  - {file: assets/ll/music/Gymnopedie-No-1.mp3, from: "02", ss: 0, xfade: 3, gain_db: -1}
+  - {file: assets/ll/music/Clean-Soul.mp3, from: "06", ss: 0, xfade: 3, gain_db: -2}
+  - {file: assets/ll/music/Reawakening.mp3, from: "12", ss: 150, xfade: 3}
+
+# Cảnh đinh 3D (design/ll-hero/ep06.js). Bố cục riêng tập 6, không lặp cảnh đinh tập trước. opt.lit = giây ngọn đèn bén (khớp tiếng xì).
+heroes:
+  shop_hook:   {hero: ep06/printshop, variant: a}
+  shop_walk:   {hero: ep06/printshop, variant: b, opt: {lit: 4.6}}
+  shop_bridge: {hero: ep06/printshop, variant: c, opt: {lit: 5.0, screen: 9.0, grade: cold}}
+  shop_end:    {hero: ep06/printshop, variant: d, opt: {lit: 8.2}}
+  case_wide:   {hero: ep06/cellar, variant: a, opt: {grade: warm}}   # hồi 1 (truyện): ấm
+  case_close:  {hero: ep06/cellar, variant: b}
+  case_line:   {hero: ep06/cellar, variant: b, opt: {done: 9.0, grade: warm}}
+  case_end:    {hero: ep06/cellar, variant: b, opt: {grade: warm}}
+  lino_row:    {hero: ep06/linotype, variant: a, opt: {exposure: 1.35}}   # sáng hơn (Q31: phòng máy quá tối)
+  lino_high:   {hero: ep06/linotype, variant: b, opt: {exposure: 1.35}}
+  wall_push:   {hero: ep06/drafts, variant: a}
+  wall_back:   {hero: ep06/drafts, variant: b}
+  s_lino:      {hero: ep06/linotype, variant: a, opt: {exposure: 1.35}, size: [1080, 1920]}
+  s_wall:      {hero: ep06/drafts, variant: a, size: [1080, 1920]}
+
+
+sources:
+  OOH90: {short: "BLS Outlook Handbook 1990–91", short9: "BLS Outlook Handbook 1990–91", title: "Occupational Outlook Handbook, 1990–91 Edition: Compositors and Typesetters; Visual Artists",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "print pp. 180–181 (Visual Artists), 412–413 (Compositors and Typesetters)", accessed: 2026-10-06}
+  BES16: {short: "Bessen (2016)", short9: "Bessen (2016)", title: "How Computer Automation Affects Occupations: Technology, jobs, and skills",
+          url: "https://conference.nber.org/confer/2016/SI2016/PRIT/Bessen.pdf", read: fulltext, pages: "PDF p. 7 and Conclusion", accessed: 2026-10-06}
+  MLR25: {short: "BLS, Monthly Labor Review, Feb 2025", short9: "BLS Labor Review, Feb 2025", title: "Incorporating AI impacts in BLS employment projections: occupational case studies",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20250210.pdf", read: fulltext, pages: "FRASER PDF p. 1", accessed: 2026-10-06}
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", short9: "BLS Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 1 (total +3.1 %), p. 5 (text + table: 27-1024 Graphic designers)", accessed: 2026-10-06}
+  OOHGD: {short: "BLS, Occupational Outlook Handbook (2025–35): Graphic Designers", short9: "BLS projections 2025–35", title: "Graphic Designers — Job Outlook",
+          url: "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm", read: fulltext, pages: "Summary, Job Outlook (đã xác minh, Claude, 06/10/2026)", accessed: 2026-10-06}
+  EP: {short: "BLS Employment Projections", short9: "BLS projections 2025–35", title: "Employment Projections — 2025–2035", url: "https://www.bls.gov/news.release/ecopro.nr0.htm",
+       read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
+  DHZ: {short: "Demirci, Hannane & Zhu, CESifo WP 11276 (2024)", short9: "Demirci et al. (2024)", title: "Who Is AI Replacing? The Impact of Generative AI on Online Freelancing Platforms",
+        url: "https://www.econstor.eu/bitstream/10419/305518/1/cesifo1_wp11276.pdf", read: fulltext, pages: "PDF pp. 6, 19 (Table 4)", accessed: 2026-10-06}
+
+numbers:
+  comp88: {v: 86000, text: "86,000", kind: actual, year: 1988, unit: jobs, src: OOH90, say: "eighty-six thousand"}
+  art88: {v: 216000, text: "216,000", kind: actual, year: 1988, unit: jobs, src: OOH90, say: "two hundred sixteen thousand"}
+  ph23: {v: 9200, text: "9,200", kind: actual, year: 2023, unit: people, src: MLR25, say: "nine thousand two hundred"}
+  gd25: {v: 253100, text: "253,100", kind: actual, year: 2025, unit: people, src: OOHGD, say: "two hundred fifty-three thousand"}
+  gd35: {v: 248800, text: "248,800", kind: projection, period: 2025–35, year: 2035, unit: people, src: OOHGD, say: "two hundred forty-nine thousand"}
+  gd_chg: {v: -1.7, text: "−1.7%", kind: projection, period: 2025–35, unit: '%', src: OOHGD, say: "one point seven percent", note: "(248 800 − 253 100)/253 100; BLS làm tròn −2 %, −4 200"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three point five percent"}
+  img: {v: -17, text: "−17%", kind: actual, year: 2023, unit: '% of job posts', src: DHZ, say: "seventeen percent", note: "graphic design + 3D modeling, so với việc thủ công, trong 1 năm sau 20/7/2022; một nền tảng"}
+
+segments:
+  # ===== HỒI 1 · TRUYỆN (ấm) =====
+  - id: "00"
+    part: STORY
+    map: {q: "Who made this: a hand, or a machine?", act: 1, emo: curiosity, color: warm, cue: theme, trade: [press-heidelberg, typewriter-old, mouse-clicks],
+          in: cut, out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@who", img: "cửa sổ xưởng in: người vẽ bên bàn vẽ"}, {w: "@typesetting", img: "khay chữ chì dưới đèn"}, {w: "@draw", img: "tường bản nháp hiện dần"}, {w: "@seventeen", img: "bảng ghim tin việc, 17 % tờ rơi"}]}
+    pause: [{before: "@seventeen", s: 0.7}]
+    vo: >-
+      Who made this: a hand, or a machine? In 1990, the government said computers had already eliminated many typesetting jobs.
+      Today, machines draw too. On one freelance platform, job posts for image work fell seventeen percent.
+    vo_offset: 0.4
+    tail: 0.3
+    fadeIn: 0
+    shots:
+      - {tpl: plate, at: 0, p: {hero: shop_hook, off: 0, cap: [{s: "Who made this: a hand, or a machine?", at: "@who", src: []}]},
+         sfx: [{file: assets/ll/sfx/press-heidelberg.mp3, at: 0.2, src_ss: 2.0, dur: 4.6, gain_db: -12, fade_ms: 600}]}
+      - {tpl: plate, at: "@1990-0.3", p: {hero: case_wide, off: 24, cap: [{s: "1990: computers had already eliminated many typesetting jobs (BLS)", at: "@1990", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@1990", src_ss: 1.0, dur: 3.0, gain_db: -14, fade_ms: 300}]}
+      - {tpl: plate, at: "@today-0.3", p: {hero: wall_push, off: 60, cap: [{s: "today: machines draw too", at: "@today", src: []}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@today", src_ss: 2.0, dur: 2.6, gain_db: -10, fade_ms: 200}]}
+      - {tpl: jobboard, at: "@freelance-0.3", in: fade, p: {drop: "@seventeen+0.1", share: 0.17, mood: cold, cam: [{t: "@freelance", x: 0, z: 0.0}, {t: "@percent+1", x: -40, z: 0.06}],
+           cap: [{num: img, s: "job posts for image work, one platform, within a year", at: "@seventeen"}]}}
+
+  - id: "01"
+    part: STORY
+    map: {q: "Who set the words by hand?", act: 1, emo: wonder, color: warm, cue: theme, trade: [footsteps-steps, gas-hiss, typewriter-old],
+          in: cut, out: match, out_note: "đèn treo trên khay chữ → hàng đèn treo trên máy Linotype; J-cut tiếng máy đúc chữ", lamp: {in: true, out: true},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn đi qua xưởng in, thắp đèn"}, {w: "@cellar", img: "bậc hầm và cửa hầm sáng"}, {w: "@letters", img: "khay chữ chì"}, {w: "@letter", img: "tay đặt từng con chữ vào tay cầm"}]}
+    vo: >-
+      At dusk, the lamplighter passes a print shop. Down the cellar steps, a lamp burns over a wooden case of metal letters.
+      Every word in tomorrow's paper will be set by hand, one letter at a time.
+    vo_offset: 3.4
+    min_dur: 27
+    tail: 1.4
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE HAND THAT DREW IT", px: 80}, {s: "Last Lamplighters · Episode 6", px: 34, serif: false}]}}
+      - {tpl: plate, at: 3.0, in: fade, p: {hero: shop_walk, off: 0, ev: [{at: 6.6, what: "người thắp đèn dừng, giơ sào"}, {at: 7.6, what: "đèn bén"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 3.2, src_ss: 0.5, dur: 3.6, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/gas-hiss.mp3, at: 7.6, src_ss: 2.0, dur: 1.8, gain_db: -8, fade_ms: 200}]}
+      - {tpl: plate, at: "@lamp-0.3", in: fade, p: {hero: case_wide, off: 0},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: "@down", src_ss: 6.0, dur: 2.4, gain_db: -12, fade_ms: 300}]}
+      - {tpl: plate, at: "@every-0.4", p: {hero: case_line, off: 0, ev: [{at: "@every+8.6", what: "dòng chữ đầy, tay nhấc tay cầm"}], cap: [{s: "every word, set by hand", at: "@every"}, {s: "one letter at a time", at: "@letter"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@every", src_ss: 4.0, dur: 6.5, gain_db: -15, fade_ms: 400}]}
+
+  # ===== HỒI 2 · LỊCH SỬ (sepia) =====
+  - id: "02"
+    part: HISTORY
+    map: {q: "How was a page made before computers?", act: 2, emo: craft, color: sepia, cue: history, trade: [press-rhythm, typewriter-old],
+          in: match, in_note: "match cut đèn treo; tiếng máy vào trước hình 1,5 s (J-cut)", out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@hot", img: "hàng máy Linotype, nồi chì đỏ"}, {w: "@operator", img: "ảnh: tay thợ Linotype trên bàn phím"}, {w: "@room", img: "ảnh: phòng sắp chữ NYT"}, {w: "@compositors", img: "ảnh: thợ dàn trang khuôn chì"}]}
+    vo: >-
+      For most of a century, printing ran on hot type. A Linotype operator typed a line, and the machine cast it in molten lead.
+      In a newspaper composing room, rows of these machines clattered through the night, and compositors fitted the lines of lead into pages.
+      The Bureau of Labor Statistics later wrote that this method was well along the road to extinction.
+    min_dur: 28
+    shots:
+      - {tpl: plate, at: 0, p: {hero: lino_row, off: 0, cap: [{s: "hot type: lines cast in molten lead", at: "@hot", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: -1.5, src_ss: 1.0, dur: 9.0, gain_db: -11, fade_ms: 700}]}
+      - {tpl: archive, at: "@operator-0.3", in: fade, p: {img: assets/ll/archive/fsa-8d22724.jpg, rid: LOC-8d22724, focus: [0.62, 0.5], credit: "Linotyper's hands, NYT, 1942 · Library of Congress",
+           cam: [{t: "@operator", x: 0, z: 0.02}, {t: "@molten+1", x: -40, z: 0.08}], cap: [{s: "a Linotype operator types a line", at: "@operator"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@typed", src_ss: 6.0, dur: 2.6, gain_db: -15, fade_ms: 300}]}
+      - {tpl: archive, at: "@newspaper-0.3", p: {img: assets/ll/archive/fsa-8d22721.jpg, rid: LOC-8d22721, focus: [0.5, 0.45], credit: "NYT composing room, 1942 · Library of Congress",
+           cam: [{t: "@newspaper", x: 40, z: 0.0}, {t: "@night+0.5", x: -20, z: 0.07}], cap: [{s: "a newspaper composing room", at: "@newspaper"}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: "@rows", src_ss: 12.0, dur: 3.2, gain_db: -14, fade_ms: 600}]}
+      - {tpl: archive, at: "@compositors-0.3", p: {img: assets/ll/archive/fsa-8d22748.jpg, rid: LOC-8d22748, focus: [0.45, 0.62], credit: "Page make-up, NYT, 1942 · Library of Congress",
+           cam: [{t: "@compositors", x: 0, z: 0.03}, {t: "@pages+1", x: 30, z: 0.09}], cap: [{s: "compositors fit the lines of lead into pages", at: "@compositors"}]}}
+      - {tpl: plate, at: "@later-0.4", in: fade, p: {hero: lino_row, off: 140, cap: [{s: "the BLS, 1990:", at: "@later", src: [OOH90]}, {s: "“…well along the road to extinction”", at: "@well", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: "@later", src_ss: 20.0, dur: 6.0, gain_db: -15, fade_ms: 1500}]}
+
+  - id: "03"
+    part: HISTORY
+    map: {q: "What replaced hot type?", act: 2, emo: change, color: sepia, cue: history, trade: [keyboard-typing, pencil-paper],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@computer", img: "bàn làm việc: thiết bị đầu cuối 1975"}, {w: "@photographic", img: "phòng tối: bản in phơi trên dây"}, {w: "@pasteup", img: "bàn dàn trang: cột chữ trượt vào khuôn"}, {w: "@screen", img: "cận màn hình thiết bị đầu cuối"}, {w: "@eliminating", img: "dao rạch ngang tấm dàn trang"}]}
+    vo: >-
+      What replaced it was cold type. Text was keyed into a computer that was programmed to hyphenate, space, and create columns of text, and a machine printed it onto photographic paper.
+      Paste-up artists cut those columns apart and arranged them, with the illustrations, on a board. Increasingly, the BLS noted, the author did the keyboarding before the job was even sent out.
+      Then came electronic pagination: a whole newspaper page, made up on a screen, eliminating the role of paste-up artists.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1988, at: 0, label: "1975"}], accent: "#2f5d7c", cam: [{t: 0, x: 0, z: 0.02}, {t: "@photographic", x: -50, z: 0.07}],
+           cap: [{s: "cold type: text keyed into a computer", at: "@cold", src: [OOH90]}, {s: "hyphenate · space · create columns", at: "@hyphenate"}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@keyed", src_ss: 1.0, dur: 4.0, gain_db: -14, fade_ms: 400}]}
+      - {tpl: filmstrip, at: "@machine-0.3", in: fade, p: {fade: 999, cam: [{t: "@machine", x: 0, z: 0.0}, {t: "@pasteup", x: -40, z: 0.05}], cap: [{s: "printed onto photographic paper", at: "@photographic"}]}}
+      - {tpl: pasteup, at: "@pasteup-0.4", in: slide, p: {at: "@cut", seed: 41, cam: [{t: "@pasteup", x: 0, z: 0.0}, {t: "@author", x: -30, z: 0.06}],
+           cap: [{s: "paste-up: columns cut apart…", at: "@cut"}, {s: "…arranged with pictures on a board", at: "@board"}, {s: "the author does the keyboarding", at: "@author", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@cut", src_ss: 20.0, dur: 4.0, gain_db: -12, fade_ms: 400}]}
+      - {tpl: desk, at: "@electronic-0.4", in: fade, p: {eras: [{era: 1988, at: "@electronic-0.4", label: " "}], accent: "#2f5d7c", frame: {z: 1.9, x: 0.54, y: 0.62},
+           cam: [{t: "@electronic", x: 0, z: 0.0}, {t: "@eliminating", x: -30, z: 0.04}], cap: [{s: "electronic pagination: the page made up on a screen", at: "@pagination"}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@screen", src_ss: 8.0, dur: 2.0, gain_db: -15, fade_ms: 300}]}
+      - {tpl: pasteup, at: "@eliminating-0.4", in: cut, p: {at: -50, cut: "@eliminating+0.2", seed: 43, cam: [{t: "@eliminating", x: 60, z: 0.18}, {t: "@artists#2+1", x: 20, z: 0.22}],
+           cap: [{s: "eliminating the role of paste-up artists", at: "@eliminating"}]}}
+
+  - id: "04"
+    part: HISTORY
+    map: {q: "How many jobs, and where were they going?", act: 2, emo: weight, color: sepia, cue: history, trade: [press-rhythm, typewriter-old],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@eightysix", img: "phòng sắp chữ góc cao: hàng máy và người vận hành", anchor: comp88}, {w: "@typing", img: "ảnh: thợ sắp chữ bằng tay, NYT 1942"}, {w: "@apprenticeship", img: "khay chữ chì, tay thợ"}, {w: "@terminal", img: "phòng biên tập: hàng người bên máy, đèn bàn tắt dần"}]}
+    pause: [{before: "@eightysix", s: 0.7}]
+    vo: >-
+      By 1988, composing room workers held about eighty-six thousand jobs in the United States, more than a third of them at newspapers.
+      The BLS expected little or no change in their numbers through the year 2000, despite a growing printing industry, because computers were taking over much of the typing.
+      The training changed too. In the past, almost all compositors learned through an apprenticeship. By 1990, new technologies had lowered skill requirements, and most learned the craft on the job.
+      At newspapers, it was blunt: equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting and composition jobs, and more are certain to disappear.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: lino_high, off: 0, cap: [{s: "composing room workers, United States, 1988", at: "@composing", src: [OOH90]}, {num: comp88, s: "jobs, 1988", at: "@eightysix"}, {s: "more than a third at newspapers", at: "@third"}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.0, src_ss: 3.0, dur: 9.0, gain_db: -15, fade_ms: 900}]}
+      - {tpl: archive, at: "@expected-0.4", in: fade, p: {img: assets/ll/archive/fsa-8d22743.jpg, rid: LOC-8d22743, focus: [0.4, 0.55], credit: "Setting type by hand, NYT, 1942 · Library of Congress",
+           cam: [{t: "@expected", x: 0, z: 0.02}, {t: "@typing+1", x: -40, z: 0.09}],
+           cap: [{s: "BLS outlook to 2000: little or no change", at: "@expected", src: [OOH90]}, {s: "despite a growing printing industry", at: "@despite"}, {s: "computers take over much of the typing", at: "@typing", src: [OOH90]}]}}
+      - {tpl: plate, at: "@training-0.4", in: fade, p: {hero: case_close, off: 140, cap: [{s: "the training changed too", at: "@training"}, {s: "in the past: an apprenticeship", at: "@apprenticeship", src: [OOH90]}, {s: "1990: skill requirements lowered", at: "@lowered", src: [OOH90]}, {s: "…most learned on the job", at: "@job"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@apprenticeship", src_ss: 9.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
+      - {tpl: rows, at: "@newspapers#2-0.4", in: fade, p: {variant: typing, rows: 3, per: 7, dim: ["@terminal", "@disappear"], cam: [{t: "@newspapers#2", x: 0, z: 0.0}, {t: "@already", x: -30, z: 0.04}, {t: "@disappear+1", x: -60, z: 0.08}],
+           cap: [{s: "at newspapers: reporters and editors format pages", at: "@reporters", src: [OOH90]}, {s: "at a desktop terminal", at: "@terminal"},
+                 {s: "BLS, 1990: “…already eliminated many typesetting and composition jobs”", at: "@already", src: [OOH90]}, {s: "“…and more are certain to disappear”", at: "@certain", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@reporters", src_ss: 4.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
+
+  - id: "05"
+    part: HISTORY
+    map: {q: "Where did the work go?", act: 2, emo: relief, color: sepia, cue: history, trade: [pencil-paper, keyboard-typing],
+          in: cut, out: match, out_note: "cửa sổ sáng của người vẽ (đèn kẹp) → cùng cửa sổ nhìn từ phố đêm; J-cut bước chân người thắp đèn", lamp: {in: false, out: true},
+          nouns: [{w: "@moved", img: "khung đôi: khay chữ chì | cửa sổ người vẽ"}, {w: "@designers", img: "bàn vẽ rồi máy tính để bàn"}, {w: "@sixteen", img: "hàng hình người: nghệ sĩ thị giác 1988", anchor: art88}, {w: "@limit", img: "cửa sổ người vẽ dưới đèn"}]}
+    vo: >-
+      But the work did not vanish. It moved. The economist James Bessen describes how it happened. Designers used to draw a page and send it to typesetters, then mark revisions and send it back.
+      With desktop publishing, it became easier for designers to use the software themselves. Designers using computers substituted for typesetters.
+      In his words: there are fewer typesetters, but more graphic designers and desktop publishers. And the designers had to learn entirely new skills to use the new technology.
+      In 1988, visual artists held about two hundred sixteen thousand jobs, and the BLS expected them to grow faster than average, though computers would limit that growth.
+    tail: 1.2
+    shots:
+      - {tpl: diptych, at: 0, p: {split: "@moved-0.2", left: {hero: case_close, i: 150, fx: 0.5}, right: {hero: shop_hook, i: 280, fx: 0.5},
+           cap: [{s: "the work did not vanish: it moved", at: "@moved"}, {s: "economist James Bessen", at: "@economist", src: [BES16]}]}}
+      - {tpl: desk, at: "@designers-0.4", in: fade, p: {eras: [{era: 1960, at: "@designers-0.4", label: "1975"}, {era: 1988, at: "@desktop-0.3", label: "1988"}], accent: "#2f5d7c", frame: {z: 1.25, x: 0.44, y: 0.56},
+           cam: [{t: "@designers", x: 30, z: 0.0}, {t: "@substituted+1", x: -50, z: 0.06}],
+           cap: [{s: "designer draws → typesetter sets → revisions go back", at: "@revisions"}, {s: "desktop publishing: designers use the software themselves", at: "@desktop"}, {s: "designers using computers substituted for typesetters", at: "@substituted", src: [BES16]}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@draw", src_ss: 4.0, dur: 3.5, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/keyboard-typing.mp3, at: "@desktop", src_ss: 3.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
+      - {tpl: quote, at: "@words-0.4", in: flip, p: {beats: [{s: "in his words", at: "@words"}, {s: "designers had to learn entirely new skills", at: "@entirely"}], text: "There are fewer typesetters, but more graphic designers and desktop publishers.", who: "James Bessen", where: "How Computer Automation Affects Occupations, 2016", at: "@fewer", src: [BES16]}}
+      - {tpl: isotype, at: "@visual-1.0", in: fade, p: {title: "Visual artists, United States, 1988", subtitle: "graphic artists and fine artists", unit: 10000, unitName: "jobs", per: 22,
+           groups: [{label: "1988", num: art88, at: "@sixteen"}], cap: [{s: "BLS outlook: faster than average…", at: "@faster", src: [OOH90]}]}}
+      - {tpl: plate, at: "@though-0.3", in: fade, p: {hero: shop_hook, off: 230, cap: [{s: "…limited by computers", at: "@limit", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@though", src_ss: 30.0, dur: 3.0, gain_db: -14, fade_ms: 500}, {file: assets/ll/sfx/footsteps-steps.mp3, at: "@growth+0.6", src_ss: 0.5, dur: 2.6, gain_db: -12, fade_ms: 300}]}
+
+  # ===== HỒI 3 · HÔM NAY (lạnh) =====
+  - id: "06"
+    part: STORY
+    map: {q: "Who draws now, and with what?", act: 3, emo: unease, color: cold, cue: today, trade: [footsteps-steps, gas-hiss, pencil-paper, mouse-clicks],
+          in: match, in_note: "match cut cửa sổ sáng; J-cut bước chân từ cuối đoạn 05", out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn đi tiếp, thắp đèn"}, {w: "@window", img: "máy cẩu lên cửa sổ tầng trên"}, {w: "@designer", img: "người vẽ bên bàn vẽ, đèn kẹp"}, {w: "@screen", img: "màn hình bừng lạnh, tường bản nháp"}]}
+    vo: >-
+      The lamplighter walks on. Above the old print shop, a window is still lit.
+      A designer bends over a drawing board with a clamp lamp, pencil in hand. On the next desk, a screen glows.
+    vo_offset: 2.5
+    min_dur: 24
+    tail: 1.5
+    shots:
+      - {tpl: plate, at: 0, p: {hero: shop_bridge, off: 0, ev: [{at: 4.0, what: "người thắp đèn dừng"}, {at: 5.0, what: "đèn bén"}, {at: 9.0, what: "màn hình trong cửa sổ bừng lạnh"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.2, src_ss: 3.0, dur: 3.6, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/gas-hiss.mp3, at: 5.0, src_ss: 2.0, dur: 1.8, gain_db: -9, fade_ms: 200},
+               {file: assets/ll/sfx/pencil-paper.mp3, at: "@pencil", src_ss: 40.0, dur: 3.0, gain_db: -12, fade_ms: 400}]}
+      - {tpl: plate, at: "@next-0.3", in: fade, p: {hero: wall_back, off: 150},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@screen", src_ss: 10.0, dur: 3.0, gain_db: -11, fade_ms: 300}]}
+      - {tpl: plate, at: "@glows+1.0", in: fade, p: {hero: wall_push, off: 200},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@glows+1.4", src_ss: 6.0, dur: 4.0, gain_db: -16, fade_ms: 600}]}
+
+  - id: "07"
+    part: TODAY
+    map: {q: "Can anyone see the change coming?", act: 3, emo: doubt, color: cold, cue: today, trade: [camera-shutter],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@film", img: "phòng tối đèn đỏ, dải phim âm bản"}, {w: "@nine", img: "ô phim mờ dần, còn 1/10"}, {w: "@thousand", img: "số sơn trên tường", anchor: ph23}, {w: "@generative", img: "tường bản nháp"}]}
+    pause: [{before: "@nine", s: 0.5}]
+    vo: >-
+      Can the BLS see a change like this coming? Once, it did. In the early 2000s, digital cameras were replacing film, and the BLS projected that photographic process workers, the people who developed film, would decline.
+      They fell by nearly nine in ten, to only nine thousand two hundred by 2023.
+      But for a brand-new technology like generative AI, the BLS changes its projections only when its research provides clear evidence.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: wall_back, off: 200, cap: [{s: "Can the BLS see it coming?", at: "@coming", src: []}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: 0.5, src_ss: 32.0, dur: 2.5, gain_db: -13, fade_ms: 400}]}
+      - {tpl: filmstrip, at: "@once-0.3", in: fade, p: {fade: 999, seed: 29, cam: [{t: "@once", x: 0, z: 0.0}, {t: "@fell", x: -60, z: 0.06}],
+           cap: [{s: "once, it did: early 2000s, digital cameras replace film", at: "@digital", src: [MLR25]}, {s: "BLS projected: photo processing workers decline", at: "@projected", src: [MLR25]}]},
+         sfx: [{file: assets/ll/sfx/camera-shutter.mp3, at: "@digital", src_ss: 0.5, dur: 1.2, gain_db: -8, fade_ms: 60}]}
+      - {tpl: filmstrip, at: "@fell-0.4", in: cut, p: {fade: "@nine", keep: 0.11, seed: 31, cam: [{t: "@fell", x: 80, z: 0.2}, {t: "@2023+0.5", x: 40, z: 0.24}], cap: [{s: "nearly nine in ten gone", at: "@nine", src: [MLR25]}]}}
+      - {tpl: sign, at: "@only-0.4", in: fade, p: {num: ph23, at: "@thousand", wall: plaster, cam: [{t: "@only", x: 0, z: 0.0}, {t: "@2023+0.8", x: -30, z: 0.03}],
+           cap: [{s: "photographic process workers, 2023", at: "@2023", src: [MLR25]}]}}
+      - {tpl: plate, at: "@brandnew-0.4", in: fade, p: {hero: wall_push, off: 0, cap: [{s: "generative AI: projections change…", at: "@brandnew", src: [MLR25]}, {s: "…only with clear evidence", at: "@clear"}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@generative", src_ss: 5.0, dur: 4.0, gain_db: -15, fade_ms: 400}]}
+
+  - id: "08"
+    part: TODAY
+    map: {q: "What does the BLS expect for designers?", act: 3, emo: concern, color: cold, cue: today, trade: [keyboard-typing, mouse-clicks],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@drafts", img: "tường bản nháp đầy dần"}, {w: "@fiftythree", img: "hàng hình người 2025", anchor: gd25}, {w: "@one", img: "hàng hình người 2025 → 2035 (dự báo)", anchor: gd_chg}, {w: "@three", img: "hàng hình người (chú thích so sánh), rồi cột so sánh", anchor: all_chg}]}
+    pause: [{before: "@one", s: 0.7}]
+    tail: 4.0
+    vo: >-
+      In January 2026, a BLS review described what generative AI does for graphic designers: it helps them explore ideas and create first drafts much more quickly, and automate repetitive tasks such as prototyping.
+      The newest projections, for 2025 to 2035, go further. Automated design tools, such as artificial intelligence, are projected to make graphic designers more productive and reduce the need for these workers.
+      Graphic designers held about two hundred fifty-three thousand jobs in 2025. The BLS projects about two hundred forty-nine thousand by 2035: a decline of one point seven percent, while all jobs together grow three point five percent.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: wall_push, off: 100, cap: [{s: "BLS, Monthly Labor Review, January 2026", at: "@january", src: [MLR26]}, {s: "explore ideas", at: "@explore"}, {s: "first drafts, much more quickly", at: "@drafts"}, {s: "repetitive tasks such as prototyping", at: "@repetitive"}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@explore", src_ss: 10.0, dur: 4.0, gain_db: -15, fade_ms: 400}, {file: assets/ll/sfx/mouse-clicks.mp3, at: "@prototyping", src_ss: 20.0, dur: 2.0, gain_db: -12, fade_ms: 300}]}
+      - {tpl: quote, at: "@newest-0.4", in: flip, p: {beats: [{s: "the newest projections, 2025–35", at: "@newest"}, {s: "more productive", at: "@productive"}, {s: "…and less need for these workers", at: "@reduce"}], text: "Automated design tools, such as artificial intelligence (AI), are projected to make graphic designers more productive and reduce the need for these workers.",
+           who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 2025–35", at: "@automated", src: [OOHGD]}}
+      - {tpl: isotype, at: "@held-1.0", in: fade, p: {title: "Graphic designers, United States", subtitle: "employment, 2025 and projected 2035", unit: 10000, unitName: "jobs", per: 26,
+           groups: [{label: "2025", num: gd25, at: "@fiftythree"}, {label: "2035 (projected)", num: gd35, at: "@fortynine"}],
+           cap: [{s: "graphic designers, 2025", at: "@held", src: [OOHGD]}, {num: gd_chg, s: "graphic designers, projected change, 2025–35", at: "@one"}, {num: all_chg, s: "all jobs, projected change, 2025–35", at: "@three"}]}}
+      - {tpl: bars, at: "@percent#2+0.3", in: slide, p: {title: "Projected job change, 2025–35", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
+           bars: [{label: "Graphic designers", num: gd_chg, at: "@percent#2+0.4"}, {label: "All occupations", num: all_chg, at: "@percent#2+0.9"}]}}
+
+  - id: "09"
+    part: TODAY
+    map: {q: "Where is the change felt first?", act: 3, emo: concern, color: cold, cue: today, trade: [mouse-clicks],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@platform", img: "bảng ghim tin việc"}, {w: "@seventeen", img: "17 % tờ tin rơi khỏi bảng", anchor: img}, {w: "@freelancer", img: "người thiết kế (bóng) trước tường bản nháp"}]}
+    pause: [{before: "@seventeen", s: 0.7}]
+    vo: >-
+      Outside the forecasts, one study looked at a large online freelancing platform. After image generators such as Midjourney, Stable Diffusion, and DALL-E 2 were released in 2022,
+      posts for image creation work, graphic design and 3D modeling, fell about seventeen percent within a year, compared with manual jobs.
+      The authors note the drop was larger than the platform's usual seasonal swings. Still, that is one platform, and it counts job posts, not jobs. But it is where a freelancer feels a change first: in the number of clients asking.
+    shots:
+      - {tpl: jobboard, at: 0, p: {drop: 999, seed: 17, mood: cold, cam: [{t: 0, x: 30, z: 0.0}, {t: "@posts", x: -30, z: 0.04}],
+           cap: [{s: "one study: a large freelancing platform", at: "@study", src: [DHZ]}, {s: "after image generators, 2022", at: "@generators", src: [DHZ]}]}}
+      - {tpl: jobboard, at: "@posts-0.3", in: cut, p: {drop: "@seventeen+0.1", share: 0.17, seed: 19, mood: cold, cam: [{t: "@posts", x: -80, z: 0.22}, {t: "@manual+1", x: -40, z: 0.26}],
+           cap: [{s: "graphic design and 3D modeling posts", at: "@posts", src: [DHZ]}, {num: img, s: "image-work job posts vs. manual jobs, within a year", at: "@seventeen"}]}}
+      - {tpl: sign, at: "@authors-0.4", in: fade, p: {num: img, at: "@authors+0.2", wall: brick, cam: [{t: "@authors", x: 0, z: 0.0}, {t: "@jobs#2", x: -30, z: 0.03}],
+           cap: [{s: "larger than the usual seasonal swings", at: "@seasonal", src: [DHZ]}, {s: "one platform · job posts, not jobs", at: "@platform#2", src: [DHZ]}]}}
+      - {tpl: plate, at: "@freelancer-0.4", in: fade, p: {hero: wall_back, off: 160, cap: [{s: "where a freelancer feels it first", at: "@feels"}, {s: "in the number of clients asking", at: "@clients"}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@freelancer", src_ss: 26.0, dur: 3.0, gain_db: -12, fade_ms: 300}]}
+
+  - id: "10"
+    part: TODAY
+    map: {q: "Is this the same story again?", act: 3, emo: reflection, color: cold, cue: today, trade: [typewriter-old, press-rhythm, keyboard-typing],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@pattern", img: "khung đôi: khay chữ chì | tường bản nháp"}, {w: "@repetitive", img: "tay đặt chữ lặp lại"}, {w: "@keystrokes", img: "bàn phím máy Linotype"}, {w: "@drawing", img: "tường bản nháp, người thiết kế"}, {w: "@posts#2", img: "bảng tin việc thưa dần"}]}
+    vo: >-
+      So here is the comparison, with a caution. We will not set these numbers side by side: one is a count from 1988, one is a forecast, and one is a single platform's job posts.
+      What we can compare is the pattern. Then, the computer took over setting the type, and the designer took the tool. Today, software drafts the first image, and the designer is the one handed the tool again.
+      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
+      But the differences matter. Back then, the machine took the keystrokes, and there came to be more designers. This time, it reaches for the drawing itself, and the BLS projects fewer designers. So far, that is a forecast and a drop in job posts, not yet a count of jobs lost.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: lino_high, off: 150, cap: [{s: "the comparison, with a caution", at: "@comparison"}, {s: "not side by side:", at: "@side"}, {s: "a count from 1988", at: "@count", src: [OOH90]}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.3, src_ss: 24.0, dur: 5.0, gain_db: -17, fade_ms: 1200}]}
+      - {tpl: plate, at: "@forecast-0.3", in: fade, p: {hero: wall_push, off: 250, cap: [{s: "a forecast, 2025–35", at: "@forecast", src: [OOHGD]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@forecast", src_ss: 14.0, dur: 2.0, gain_db: -14, fade_ms: 300}]}
+      - {tpl: jobboard, at: "@single-0.3", in: fade, p: {drop: 999, seed: 29, mood: cold, cam: [{t: "@single", x: 40, z: 0.16}, {t: "@pattern", x: 10, z: 0.2}], cap: [{s: "one platform's job posts", at: "@single", src: [DHZ]}]}}
+      - {tpl: diptych, at: "@pattern-0.4", in: fade, p: {split: "@today-0.2", left: {hero: case_close, i: 60, fx: 0.5}, right: {hero: wall_push, i: 300, fx: 0.5},
+           cap: [{s: "what we can compare is the pattern", at: "@pattern"}, {s: "then: the computer sets the type; the designer takes the tool", at: "@then", src: [BES16]}, {s: "today: software drafts the first image", at: "@today", src: [MLR26]}, {s: "the designer, handed the tool again", at: "@handed"}]}}
+      - {tpl: plate, at: "@technology-0.6", in: fade, p: {hero: case_close, off: 200, cap: [{s: "not the same technology — the same pattern", at: "@technology"}, {s: "a repetitive human task, taken over by an automated system", at: "@repetitive"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@technology", src_ss: 2.0, dur: 5.0, gain_db: -15, fade_ms: 400}]}
+      - {tpl: plate, at: "@differences-0.4", in: fade, p: {hero: lino_row, off: 150, cap: [{s: "but the differences matter", at: "@differences"}, {s: "then: the keystrokes, and more designers", at: "@keystrokes", src: [BES16]}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: "@differences", src_ss: 18.0, dur: 5.0, gain_db: -15, fade_ms: 700}]}
+      - {tpl: plate, at: "@reaches-0.5", in: fade, p: {hero: wall_back, off: 60, cap: [{s: "now: the drawing itself, and fewer designers projected", at: "@reaches", src: [OOHGD]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@reaches", src_ss: 12.0, dur: 3.5, gain_db: -15, fade_ms: 400}]}
+      - {tpl: jobboard, at: "@far-0.4", in: fade, p: {drop: "@drop+0.2", share: 0.17, seed: 23, mood: cold, cam: [{t: "@far", x: 20, z: 0.1}, {t: "@lost+1", x: -10, z: 0.13}],
+           cap: [{s: "so far: a forecast and fewer job posts, not a count of jobs lost", at: "@far"}]}}
+
+  - id: "11"
+    part: TODAY
+    map: {q: "Who made this: a hand, or a machine? (trả lời)", act: 3, emo: resolve, color: cold, cue: today, trade: [typewriter-old, pencil-paper, keyboard-typing],
+          in: cut, out: jcut, out_note: "khung đôi khay chữ dưới đèn → ngọn đèn phố; tiếng đèn xì vào trước hình", lamp: {in: true, out: true},
+          nouns: [{w: "@who", img: "cửa sổ người vẽ (lặp móc câu)"}, {w: "@type", img: "khay chữ chì, tay đặt chữ"}, {w: "@drew", img: "người vẽ bên bàn vẽ, màn hình bừng"}, {w: "@drafts", img: "tường bản nháp"}, {w: "@decides", img: "người thiết kế, đèn bàn, tờ in"}, {w: "@hand#4", img: "khung đôi: khay chữ | bàn thiết kế"}]}
+    vo: >-
+      Who made this: a hand, or a machine? For most of a century, the answer was a hand: first the hand that set the type, then the hand that drew the page.
+      If the machine makes the first drafts, the BLS expects designers to shift their focus to the later stages of the work. What is left is the hand that decides: which draft, what to fix, and what is good enough to print.
+      Whether deciding is enough paid work for the people who once drew every line by hand is something no projection can settle yet.
+    min_dur: 26
+    shots:
+      - {tpl: plate, at: 0, p: {hero: shop_hook, off: 200, cap: [{s: "a hand, or a machine?", at: "@who", src: []}, {s: "for most of a century: a hand", at: "@answer"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: 0.4, src_ss: 70.0, dur: 4.0, gain_db: -14, fade_ms: 600}]}
+      - {tpl: plate, at: "@first-0.3", in: fade, p: {hero: case_close, off: 100, cap: [{s: "the hand that set the type", at: "@first"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@set", src_ss: 7.0, dur: 2.0, gain_db: -15, fade_ms: 300}]}
+      - {tpl: plate, at: "@drew-0.6", in: fade, p: {hero: shop_bridge, off: 200, cap: [{s: "the hand that drew the page", at: "@drew"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@drew", src_ss: 50.0, dur: 2.5, gain_db: -12, fade_ms: 300}]}
+      - {tpl: plate, at: "@machine#2-0.3", in: fade, p: {hero: wall_push, off: 200, cap: [{s: "if the machine makes the first drafts…", at: "@drafts"}, {s: "…designers shift to the later stages of the work", at: "@later", src: [MLR26]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@drafts", src_ss: 14.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
+      - {tpl: plate, at: "@left-0.4", in: fade, p: {hero: wall_back, off: 260, cap: [{s: "the hand that decides", at: "@decides"}, {s: "which draft · what to fix · what is good enough", at: "@which"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@fix", src_ss: 60.0, dur: 3.0, gain_db: -12, fade_ms: 300}]}
+      - {tpl: diptych, at: "@whether-0.4", in: fade, p: {split: "@people", left: {hero: case_close, i: 230, fx: 0.5}, right: {hero: wall_back, i: 330, fx: 0.5},
+           cap: [{s: "enough paid work in deciding?", at: "@enough#2"}, {s: "no projection can settle it yet", at: "@projection"}]},
+         sfx: [{file: assets/ll/sfx/gas-hiss.mp3, at: "@settle+1.2", src_ss: 4.0, dur: 2.4, gain_db: -12, fade_ms: 600}]}
+
+  # ===== HỒI 4 · TRUYỆN (ấm) =====
+  - id: "12"
+    part: STORY
+    map: {q: "Who carries the light on?", act: 4, emo: warmth, color: warm, cue: theme, trade: [footsteps-steps, gas-hiss, typewriter-old],
+          in: jcut, in_note: "tiếng đèn xì từ cuối đoạn 11; mở trên ngọn đèn phố", out: fade, lamp: {in: true, out: true},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn tới cột đèn cuối"}, {w: "@flame", img: "ngọn đèn bén lửa"}, {w: "@lamplighters", img: "máy cẩu lên mái phố"}, {w: "@hand", img: "khay chữ chì dưới đèn ấm"}]}
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
+      Every era has its last lamplighters. Some of them set type by hand.
+    vo_offset: 3.0
+    min_dur: 24
+    tail: 2.0
+    shots:
+      - {tpl: plate, at: 0, p: {hero: shop_end, off: 0, ev: [{at: 7.2, what: "người thắp đèn tới cột, giơ sào"}, {at: 8.2, what: "đèn bén"}, {at: 10.2, what: "máy lùi, bắt đầu cẩu lên mái"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.6, src_ss: 3.0, dur: 6.6, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/gas-hiss.mp3, at: 8.2, src_ss: 2.0, dur: 2.2, gain_db: -7, fade_ms: 250}]}
+      - {tpl: plate, at: "@some-0.5", in: fade, p: {hero: case_end, off: 40},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@type", src_ss: 3.0, dur: 2.5, gain_db: -16, fade_ms: 400}]}
+      - {tpl: endcard, at: "@hand+1.6", in: fade, p: {line: "Last Lamplighters · Episode 6", next: "Next: When Computers Were People"}}
+
+shorts:
+  - id: S1
+    hook: "1990: 'more are certain to disappear'"
+    vo: >-
+      In 1990, the Bureau of Labor Statistics wrote about newspaper typesetters. Equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting jobs, and more are certain to disappear. The work did not vanish. Designers took the tool.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: s_lino, off: 0, cap: [{s: "BLS, 1990: newspaper typesetters", at: "@1990", src: [OOH90]}, {s: "pages formatted at a desktop terminal", at: "@format"}, {s: "many typesetting jobs already gone", at: "@eliminated"}, {s: "“more are certain to disappear”", at: "@certain"}]},
+         sfx: [{file: assets/ll/sfx/press-rhythm.mp3, at: 0.2, src_ss: 2.0, dur: 9.0, gain_db: -15, fade_ms: 900}]}
+      - {tpl: plate, at: "@vanish-0.6", in: fade, p: {hero: s_wall, off: 0, cap: [{s: "the work moved: designers took the tool", at: "@vanish"}]}}
+  - id: S2
+    hook: "Image work posts −17% after image AI"
+    vo: >-
+      One study looked at a large online freelancing platform. Within a year of image generators, posts for graphic design and 3D modeling work fell about seventeen percent, compared with manual jobs. That is one platform, and it counts job posts, not jobs.
+    shots:
+      - {tpl: jobboard, at: 0, p: {drop: "@seventeen+0.1", share: 0.17, seed: 17, mood: cold, cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.05}],
+           cap: [{s: "a large freelancing platform", at: "@platform", src: [DHZ]}, {s: "within a year of image generators", at: "@within"}, {s: "graphic design and 3D modeling posts", at: "@graphic", src: [DHZ]},
+                 {num: img, s: "job posts vs. manual jobs", at: "@seventeen"}, {s: "one platform · job posts, not jobs", at: "@counts"}]}}
+  - id: S3
+    hook: "BLS: AI will reduce the need for graphic designers"
+    vo: >-
+      The Bureau of Labor Statistics projects that automated design tools, such as artificial intelligence, will make graphic designers more productive and reduce the need for these workers. Its projection: a decline of one point seven percent from 2025 to 2035, while all jobs grow three point five percent.
+    shots:
+      - {tpl: plate, at: 0, sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.4, src_ss: 2.0, dur: 6.0, gain_db: -16, fade_ms: 700}], p: {hero: s_wall, off: 60, cap: [{s: "BLS: automated design tools, such as AI", at: "@automated", src: [OOHGD]}, {s: "more productive…", at: "@productive"}, {s: "…and less need for these workers", at: "@reduce"},
+           {num: gd_chg, s: "graphic designers, projected 2025–35", at: "@one"}, {num: all_chg, s: "all jobs, projected 2025–35", at: "@three"}]}}

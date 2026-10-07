@@ -1,7 +1,7 @@
 #!/opt/cine/bin/python
 """Last Lamplighters · nhà máy — bộ kiểm tự động một tập (gọi qua scripts/ll/qc.sh). Xuất bảng ĐẠT/TRƯỢT (Markdown + JSON).
 
-Q1–Q6, Q8–Q11: luật làm việc của P (Mốc B). Q7, Q12–Q25: LUẬT KHOÁ của K (checks/ll, LL v2, LOCK) — qc chỉ gọi; khiếu nại qua checks-appeal.md.
+Q1–Q6, Q8–Q11: luật làm việc của P (Mốc B). Q7, Q12–Q31: LUẬT KHOÁ của K (checks/ll, LL v3, LOCK) — qc chỉ gọi; khiếu nại qua checks-appeal.md.
 Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q1 judder: đoạn giữ khung giống hệt 2–12 khung (scripts/p/judder.py, framemd5) trên trung gian từng đoạn = 0
   Q2 khung gần trùng: |chênh| TB ≤ 0,1 mức xám (192×108) mà 6 khung trước và sau đều chuyển động rõ (trung vị > 0,5) = 0
@@ -23,6 +23,8 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
       số dự báo phải đi kèm dấu hiệu dự báo trong cùng câu/dòng (projected, projection, forecast, expects, "by 20xx", "(proj"); từ LL v2 (Q-L13 = A, 06/10/2026)
       dấu "?" KHÔNG còn là dấu hiệu dự báo (chủ dự án, 05/10/2026, mục B7)
   Q23 câu/thẻ nhiều số cùng đối tượng/loại/kỳ/cơ sở; Q24 nhãn phân loại khớp số; Q25 thẻ khoảng số không đếm qua số trung gian; LOCK khớp
+  Q26–Q31 (khoá LL v3, áp từ tập 6): đa dạng hình (checks/ll/q_diversity.py), chấm hình mù và xem liền mạch mù (checks/ll/q_blind.py,
+      bộ ảnh ở <out>/blind/q27, <out>/blind/q31 + R1–R3.json), âm thanh, hình–lời, liền mạch (checks/ll/q_av.py)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
 import glob, json, os, re, subprocess, sys
@@ -30,7 +32,7 @@ import numpy as np
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
-sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow  # noqa: E402  luật khoá LL v2 (phiên K)
+sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow, q_diversity, q_av, q_blind  # noqa: E402  luật khoá LL v3 (phiên K)
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
 FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect', 'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}
@@ -162,7 +164,7 @@ bad = K.q13(E, D, TH)
 row('Q13', 'Số trên tiêu đề/thumbnail/mô tả/Shorts truy được về numbers, đúng dấu, nhãn dự báo', not bad, len(bad), 0, note='; '.join(bad[:6]))
 if E.get('hook') or E.get('anchors'):
     NAMES = {'Q14': 'Móc câu < 0:15, tựa ≤ 0:20, trả lời ở cuối', 'Q15': 'Đổi hình: quãng ≤ 8 s, TB ≤ 6 s', 'Q16': 'Tỷ lệ thẻ giấy', 'Q17': 'Mật độ số ≤ 2/phút + 3 số neo', 'Q18': 'Thẻ trống ≤ 1,5 s trước số'}
-    for k, r in q_rhythm.measure(E, TL).items(): row(k, NAMES[k], r['ok'], r['val'], '', note=r.get('note', ''))
+    for k, r in q_rhythm.measure(E, TL, logs).items(): row(k, NAMES[k], r['ok'], r['val'], '', note=r.get('note', ''))
 else:
     row('Q14–18', 'Luật nhịp', True, 'không áp (tập ≤ 3)', '')
 _m = re.search(r'ep(\d+)', E['id']); _epn = int(_m.group(1)) if _m else None
@@ -181,6 +183,25 @@ _lb = K.q24(E, TL)
 row('Q24', 'Nhãn phân loại khớp số', not _lb, len(_lb), 0, note='; '.join(_lb[:4]))
 _gb = K.q25(TL, logs)
 row('Q25', 'Thẻ khoảng số không hiện số trung gian', not _gb, len(_gb), 0, note='; '.join(_gb[:4]))
+# Q26–Q31: luật khoá phiên K (checks/ll, LL v3, 07/10/2026), áp từ tập 6. Định nghĩa: checks/ll/RULES-LL.md
+if _epn and _epn >= 6:
+    _m = f"{O}/{E['id']}-{V}-master.mp4"
+    _vids = [_m] if os.path.exists(_m) else sorted(glob.glob(f"{O}/{E['id']}-{V}-p?.mp4"))
+    _mx = json.load(open(f'{O}/mix.json')) if os.path.exists(f'{O}/mix.json') else None
+    def _r(q, name, r, thr=''):
+        row(q, name, r['ok'], r['val'], thr, near='; '.join(r.get('sat_nguong') or []), note=r.get('note', '').replace('|', '/'))
+    _r('Q26', 'Đa dạng hình', q_diversity.check(_vids, TL) if _vids else dict(ok=False, val='không có master/bản xem', note=''), '≥ 40 · ≤ 20 % · ≤ 2')
+    for _q, _d, _f in (('Q27', 'q27', lambda d: q_blind.q27_score(d, _vids)), ('Q31', 'q31', lambda d: q_blind.q31_score(d, _vids, TL))):
+        _bd = f'{O}/blind/{_d}'; _nm = 'Chấm hình mù (3 subagent, tập mới ≥ tập 1)' if _q == 'Q27' else 'Xem liền mạch mù (3 subagent, không điểm đứt mạch ≥ 2/3)'
+        _r(_q, _nm, _f(_bd) if os.path.exists(f'{_bd}/manifest.json') else dict(ok=False, val='chưa có bộ xem mù', note=f'chạy checks/ll/q_blind.py {_d}-set {_bd} … rồi 3 subagent (RULES-LL.md)'))
+    if _mx:
+        _r('Q28', 'Âm thanh (nhạc theo hồi, âm thanh nghề, lặng trước số neo, loudness, ASR)', q_av.q28(E, TL, _mx, master=_m if os.path.exists(_m) else None))
+        _r('Q30', 'Liền mạch (chuyển hồi, ngọn đèn, tông màu theo hồi)', q_av.q30(E, TL, _mx, videos=_vids))
+    else:
+        for _q in ('Q28', 'Q30'): row(_q, 'Âm thanh / liền mạch', False, 'không có mix.json', '')
+    _r('Q29', 'Hình–lời: hình vật chất ±1 s quanh danh từ chính và số neo', q_av.q29(E, TL))
+else:
+    row('Q26–31', 'Luật chất lượng v3', True, 'không áp (tập ≤ 5)', '')
 _lk = subprocess.run(['/opt/cine/bin/python', os.path.join(REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
 row('LOCK', 'checks/ khớp LOCK (luật khoá không bị sửa)', _lk.returncode == 0, 'KHỚP' if _lk.returncode == 0 else 'KHÔNG KHỚP', 'TREE_SHA256')
 

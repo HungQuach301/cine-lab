@@ -1,0 +1,99 @@
+ĐÚNG  Q7      bắt lỗi  tập 2 S2: −5,3 % dự báo hiện nhãn ACTUAL (log)
+ĐÚNG  Q7      bắt lỗi  tập 2 S2: đặc tả khai kind=actual cho nums dự báo
+ĐÚNG  Q7      sạch     tập 2 S2 bản G3: nhãn PROJECTION
+ĐÚNG  Q7      sạch     tập 02 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 03 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 04 G3: đặc tả
+ĐÚNG  Q7      sạch     tập 05 G3: đặc tả
+ĐÚNG  Q12     bắt lỗi  tập 2 T1: hộp "…OPERATORS." vượt mép phải (1292 > 1216)
+ĐÚNG  Q12     bắt lỗi  tập 2 T1: không có .boxes.json (dựng tay như bản lỗi)
+ĐÚNG  Q12     sạch     tập 02 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 03 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 04 G3: T1, T2
+ĐÚNG  Q12     sạch     tập 05 G3: T1, T2
+ĐÚNG  Q13     sạch     tập 02 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 03 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 04 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     sạch     tập 05 G3: tiêu đề, thumbnail, mô tả, Shorts
+ĐÚNG  Q13     bắt lỗi  tiêu đề nêu −9 % (dự báo) không có dấu hiệu dự báo
+ĐÚNG  Q13     bắt lỗi  tiêu đề +9 % sai dấu (số thật −9 %)
+ĐÚNG  Q13     sạch     tiêu đề số thật truy được
+ĐÚNG  Q13     sạch     tập 3: "135k" truy về 135,000
+ĐÚNG  Q13     bắt lỗi  tập 3: "150k" không có trong numbers
+ĐÚNG  Q14–18  bắt lỗi  tập 03: Q14✗; Q15✗; Q16✗; Q17✗; Q18✗
+ĐÚNG  Q14–18  sạch     tập 04: Q14✓; Q15✓; Q16✓; Q17✓; Q18✓
+ĐÚNG  Q14–18  sạch     tập 05: Q14✓; Q15✓; Q16✓; Q17✓; Q18✓
+ĐÚNG  Q19     sạch     tập 5 G3: 4 dòng RIGHTS, 16,5 %
+ĐÚNG  Q19     bắt lỗi  tập 5: shot archive trỏ rid không có trong RIGHTS
+ĐÚNG  Q19     bắt lỗi  tập 5: shot archive thiếu dòng ghi nguồn trên hình
+ĐÚNG  Q19     sạch     URL giả .gov (loc.gov.evil.com) không qua danh sách trắng
+ĐÚNG  Q20     bắt lỗi  chú thích giao vùng isotype khai trong log
+ĐÚNG  Q20     bắt lỗi  cờ hit của render
+ĐÚNG  Q20     bắt lỗi  tập ≥ 6: đoạn isotype không ghi zones
+ĐÚNG  Q20     sạch     chú thích dưới vùng hình
+ĐÚNG  Q21     sạch     tập 5 G3: 0 lỗi
+ĐÚNG  Q21     bắt lỗi  tập 5 đoạn 00: "1966…" dưới dòng nguồn OOH (bản G2)
+ĐÚNG  Q21     bắt lỗi  tập 5: capsrc (P ghi) bỏ trống nguồn nhưng đặc tả khai src B1468 → K vẫn đòi
+ĐÚNG  Q22     bắt lỗi  tập 5 S1: "Source: BLS, Occupational Outlook…" hộp −338…1418 trên khung 1080
+ĐÚNG  Q22     bắt lỗi  tập 5 đoạn 07 (16:9): dòng nguồn ghép tràn mép phải
+ĐÚNG  Q22     sạch     Shorts gọn (short9) trong lề 8 px
+ĐÚNG  Q23     bắt lỗi  tập 3 v1 thẻ so sánh −13%/+87%
+ĐÚNG  Q23     bắt lỗi  câu "+87 % … while tellers −13 %"
+ĐÚNG  Q23     sạch     câu 2025 → 2035 (điểm gốc + dự báo, cùng nguồn)
+ĐÚNG  Q23     bắt lỗi  tập 3: 65 nghìn (phân loại 1960) + 253 nghìn (1970) không ghi cơ sở
+ĐÚNG  Q23     sạch     tập 3: cùng cặp số, ghi rõ từng cơ sở
+ĐÚNG  Q23     sạch     tập 03 G3: lời, thẻ, chú thích, bề mặt phát hành
+ĐÚNG  Q23     sạch     tập 05 G3: lời, thẻ, chú thích, bề mặt phát hành
+ĐÚNG  Q23     bắt lỗi  tập 4 G3 (trước luật): chỉ hook S1 "134,000 to 3.9 million" bị bắt
+ĐÚNG  Q23     bắt lỗi  tập 2 G3 (trước luật): thẻ so sánh 11 −16,1 % (1930–40) ↔ −5,3 % (2025–35) bị bắt
+ĐÚNG  Q24     sạch     tập 3 G3: "135,000 (1970 classification)"
+ĐÚNG  Q24     bắt lỗi  tập 3: 135,000 gắn nhãn "1960 classification"
+ĐÚNG  Q25     bắt lỗi  tập 2 đoạn 06: hiện “63%” khi đếm tới 50–80 %
+ĐÚNG  Q25     sạch     tập 2 đoạn 06: hiện thẳng “50–80% fewer”
+ĐÚNG  Q14     sạch     tập 6 v2: tựa (text + lamp) ở 19,8 s
+ĐÚNG  Q14     sạch     đề nghị P: tựa chồng lên cảnh đinh (plate + title), timeline
+ĐÚNG  Q14     bắt lỗi  plate khai title nhưng log render không có chữ tựa
+ĐÚNG  Q14     sạch     plate + title, log render có chữ tựa trong khoảng shot
+ĐÚNG  Q14     bắt lỗi  plate không khai title: không còn tựa
+ĐÚNG  Q16     sạch     tập 6 v2: 5 mẫu toàn khung mới không tính thẻ giấy (7.2 % (trần 40 %))
+ĐÚNG  Q16     bắt lỗi  tập 6 v2 nếu các cảnh đó là thẻ giấy: vượt trần 40 %
+ĐÚNG  Q26     sạch     tập 1 (chuẩn gốc, không timeline): khung nhìn 64 (≥ 40) · lớn nhất 11.9 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 2:01.5) · 38 cảnh (dò trên hình)
+ĐÚNG  Q26     bắt lỗi  tập 6 v1 (khung lặp 46 % theo P): khung nhìn 19 (≥ 40) · lớn nhất 43.3 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 6:27.3 10/desk) · 31 cảnh (timeline)
+ĐÚNG  Q26     sạch     tập 6 v2 (ranh giới timeline): khung nhìn 70 (≥ 40) · lớn nhất 5.5 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 4:00.8 07/plate:wall_back) · 60 cảnh (timeline)
+ĐÚNG  Q26     sạch     tập 6 v2 (ranh giới dò trên hình): khung nhìn 70 (≥ 40) · lớn nhất 5.5 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 4:22.2) · 48 cảnh (dò trên hình)
+ĐÚNG  Q26     bắt lỗi  tập 6 v2 + ba cảnh liền cùng một hình (cắt nhảy): chuỗi 3
+ĐÚNG  Q26     bắt lỗi  cùng hình, cảnh giữa tối đi 4 lần: vẫn là cùng bố cục (chuẩn hoá sáng/tương phản), chuỗi 3
+ĐÚNG  Q26     sạch     liên kết đầy đủ: mọi cặp trong một khung nhìn chênh < 12/255
+ĐÚNG  Q28     bắt lỗi  tập 6 v2: 4 cue · cảnh đinh có âm thanh nghề 31/33 · lặng trước số neo [0.76, 0.69, 0.69, 0.7] s · mix.json -14.0 LUFS / -1.6 dBTP · ASR: không chạy
+ĐÚNG  Q28     sạch     tập 6 v2 + âm thanh nghề cho 2 shot diptych
+ĐÚNG  Q28     bắt lỗi  kết bằng cue hồi 3 thay nhạc hiệu kênh
+ĐÚNG  Q28     bắt lỗi  cue hồi 2 dài hơn bài nhạc (phải lặp vòng)
+ĐÚNG  Q28     bắt lỗi  dùng lại 90 s cùng đoạn bài hồi 2
+ĐÚNG  Q28     bắt lỗi  số neo có cụm say không có trong lời (P cũ bỏ qua im lặng)
+ĐÚNG  Q28     bắt lỗi  đoạn 04 dùng lời chưa chèn lặng trước "eighty-six thousand"
+ĐÚNG  Q28     sạch     lặng trước số neo đo trên âm thật: 4 lần đọc (gồm "seventeen percent" lần 2 ở đoạn 09)
+ĐÚNG  Q29     sạch     tập 6 v2: 59/59 danh từ chính và lần đọc số neo có hình vật chất ≥ 0.5 s trong ±1 s
+ĐÚNG  Q29     bắt lỗi  đoạn 04 chỉ còn thẻ số: "eighty-six thousand" không có hình vật chất
+ĐÚNG  Q29     bắt lỗi  đoạn có lời không khai danh từ chính
+ĐÚNG  Q30     bắt lỗi  tập 6 v2: 3 chuyển hồi · tông đo: hồi 1 h=59.0° C=30.4, hồi 2 h=71.8° C=10.0, hồi 3 h=61.3° C=9.0, hồi 4 h=49.8° C=23.8
+ĐÚNG  Q30     sạch     tập 6 v2 nếu hồi 3 lạnh thật (h 258°, C 9) và case_line khai đèn
+ĐÚNG  Q30     bắt lỗi  chuyển hồi 01→02: hai phía khai khác nhau (cut / match)
+ĐÚNG  Q30     bắt lỗi  J-cut 01→02 bỏ tiếng máy vào trước điểm cắt
+ĐÚNG  Q30     bắt lỗi  shot đầu hồi 2 là cảnh đinh không có đèn
+ĐÚNG  Q30     sạch     tông warm: h=59.0°, C=30.4
+ĐÚNG  Q30     sạch     tông sepia: h=71.8°, C=10.0
+ĐÚNG  Q30     sạch     tông cold: h=61.3°, C=9.0
+ĐÚNG  Q30     sạch     tông warm: h=71.8°, C=10.0
+ĐÚNG  Q27     bắt lỗi  tập 6 v2 (đề bài khoá, 3 Sonnet thật): tập mới 4.83 · tập 1 5.58 (R1 4.77/5.53, R2 4.90/5.50, R3 4.83/5.70)
+ĐÚNG  Q27     bắt lỗi  tập 6 v1 (đề bài khoá, 3 Sonnet thật): tập mới 3.84 · tập 1 5.48 (R1 3.90/5.53, R2 3.83/5.40, R3 3.80/5.50)
+ĐÚNG  Q27     sạch     tập 6 v2 nếu mọi khung tập mới +1 điểm
+ĐÚNG  Q27     bắt lỗi  một người chấm bỏ sót khung
+ĐÚNG  Q27     bắt lỗi  chỉ 2 người chấm
+ĐÚNG  Q31     bắt lỗi  tập 6 v2 (đề bài khoá, 3 Sonnet thật): điểm liền mạch [7, 6, 7] · đồng thuận ≥ 2/3: 8 điểm, đứt mạch 7
+ĐÚNG  Q31     sạch     chỉ còn điểm "chán" đồng thuận: không chặn
+ĐÚNG  Q31     sạch     một người nêu đứt mạch T05: chưa đủ 2/3
+ĐÚNG  Q31     bắt lỗi  hai người nêu cùng chỗ (T05 và R05.1, cách 0,2 s)
+ĐÚNG  Q31     bắt lỗi  R2 dùng đề bài đã sửa (SHA khác bản khoá)
+ĐÚNG  Q27/31  sạch     đề bài khoá: 6 tệp, mỗi tệp có {DIR} và yêu cầu chỉ trả JSON
+
+selftest LL v3: 97/97 ca đúng kỳ vọng

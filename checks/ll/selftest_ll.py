@@ -7,7 +7,7 @@ Dữ liệu: checks/ll/fixtures/ep02–05 (bản sao đóng băng episode.yaml +
 + hộp chữ thumbnail của bản G3), ep03-v1-4833ac1.yaml (đặc tả tập 3 trước khi chủ dự án bỏ thẻ +87 % ↔ −13 %).
 Log render không lưu trong repo: ca cần log dùng log tối thiểu dựng lại đúng chữ/hộp của lỗi (ghi rõ ở từng ca).
 """
-import copy, glob, gzip, json, os, sys
+import copy, glob, gzip, json, os, sys, tempfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, ROOT)
@@ -135,6 +135,120 @@ f = int(sh['t0'] * 24) + 12
 case('Q25', f"tập 2 đoạn {sg['id']}: hiện “63%” khi đếm tới 50–80 %", C.q25(TL, log(sg['id'], f, [('63%', [700, 400, 1100, 560])])), True)
 case('Q25', f"tập 2 đoạn {sg['id']}: hiện thẳng “50–80% fewer”", C.q25(TL, log(sg['id'], f, [('50–80% fewer', [600, 400, 1300, 560]), ('ACTUAL', [600, 300, 700, 330])])), False)
 
+# ======================= LL v3 (07/10/2026): Q14 tựa trên cảnh đinh, Q16 mẫu toàn khung mới, Q26–Q31 =======================
+# Dữ liệu thật: tập 1 m23 (chuẩn gốc), tập 6 v1 (đã đăng), tập 6 v2 (G2 lần 2) — fixtures/ep06 (mẫu Q26 đo bằng q_diversity.samples
+# trên screening/*.mp4; timeline dựng lại từ giọng đã lưu, 0 ký tự ElevenLabs; mix.json dựng lại bằng mix.py: −14,0 LUFS / −1,6 dBTP như P báo;
+# câu trả lời thật của 9 subagent Sonnet trên đề bài khoá).
+import numpy as np  # noqa: E402
+from checks.ll import q_diversity as QD, q_av as QA, q_blind as QB  # noqa: E402
+F6 = os.path.join(FX, 'ep06')
+E6 = base.load(os.path.join(F6, 'episode.yaml')); TL6 = json.load(gzip.open(os.path.join(F6, 'timeline-v2.json.gz')))
+TL6v1 = json.load(gzip.open(os.path.join(F6, 'timeline-v1-cuts.json.gz'))); MX6 = json.load(gzip.open(os.path.join(F6, 'mix-v2.json.gz')))
+r6 = q_rhythm.measure(E6, TL6)
+case('Q14', 'tập 6 v2: tựa (text + lamp) ở 19,8 s', [] if r6['Q14']['ok'] else [r6['Q14']['val']], False)
+TLb = copy.deepcopy(TL6); sg1 = TLb['segments'][1]; sg1['shots'][0] = dict(sg1['shots'][0], tpl='plate', p=dict(hero='shop_walk', title='The Hand That Drew It'))
+case('Q14', 'đề nghị P: tựa chồng lên cảnh đinh (plate + title), timeline', [] if q_rhythm.measure(E6, TLb)['Q14']['ok'] else ['trượt'], False)
+lg = {'01': dict(id='01', fmt='16x9', text=[dict(f=10, items=[dict(s='Last Lamplighters · Episode 6')])])}
+case('Q14', 'plate khai title nhưng log render không có chữ tựa', [] if q_rhythm.measure(E6, TLb, lg)['Q14']['ok'] else ['trượt'], True)
+lg['01']['text'].append(dict(f=20, items=[dict(s='THE HAND THAT'), dict(s='DREW IT')]))
+case('Q14', 'plate + title, log render có chữ tựa trong khoảng shot', [] if q_rhythm.measure(E6, TLb, lg)['Q14']['ok'] else ['trượt'], False)
+TLb = copy.deepcopy(TL6); TLb['segments'][1]['shots'][0] = dict(TLb['segments'][1]['shots'][0], tpl='plate', p=dict(hero='shop_walk'))
+case('Q14', 'plate không khai title: không còn tựa', [] if q_rhythm.measure(E6, TLb)['Q14']['ok'] else ['trượt'], True)
+case('Q16', f"tập 6 v2: 5 mẫu toàn khung mới không tính thẻ giấy ({r6['Q16']['val']})", [] if r6['Q16']['ok'] else [r6['Q16']['val']], False)
+TLb = copy.deepcopy(TL6)
+for sg in TLb['segments']:
+    for sh in sg['shots']:
+        if sh['tpl'] in ('plate', 'diptych', 'jobboard', 'filmstrip', 'pasteup'): sh['tpl'] = 'quote'
+case('Q16', 'tập 6 v2 nếu các cảnh đó là thẻ giấy: vượt trần 40 %', [] if q_rhythm.measure(E6, TLb)['Q16']['ok'] else ['trượt'], True)
+
+
+def q26(tag, TL=None, G=None):
+    z = np.load(os.path.join(F6, f'q26-{tag}.npz')); g = z['g'].astype(np.float32) if G is None else G
+    return QD.measure(g, z['t'], z['part'], float(z['T']), TL)
+
+
+r = q26('ep01-m23'); case('Q26', f"tập 1 (chuẩn gốc, không timeline): {r['val']}", [] if r['ok'] else [r['val']], False)
+r = q26('ep06-v1', TL6v1); case('Q26', f"tập 6 v1 (khung lặp 46 % theo P): {r['val']}", [] if r['ok'] else [r['val']], True)
+R[-1] = R[-1][:3] + (R[-1][3] and r['ty_le_lon_nhat'] > 20 and r['khung_nhin'] < 40,) + R[-1][4:]
+r = q26('ep06-v2', TL6); case('Q26', f"tập 6 v2 (ranh giới timeline): {r['val']}", [] if r['ok'] else [r['val']], False)
+r = q26('ep06-v2'); case('Q26', f"tập 6 v2 (ranh giới dò trên hình): {r['val']}", [] if r['ok'] else [r['val']], False)
+z = np.load(os.path.join(F6, 'q26-ep06-v2.npz')); g = z['g'].astype(np.float32).copy(); t = z['t']
+cut = sorted(QD.tl_cuts(TL6)); a0, a1, a2, a3 = cut[30], cut[31], cut[32], cut[33]   # ba cảnh liền nhau: chép khung cảnh đầu sang hai cảnh sau
+src = g[(t >= a0) & (t < a1)][len(g[(t >= a0) & (t < a1)]) // 2]
+for lo, hi in ((a1, a2), (a2, a3)): g[(t >= lo) & (t < hi)] = src
+r = q26('ep06-v2', TL6, g); case('Q26', f'tập 6 v2 + ba cảnh liền cùng một hình (cắt nhảy): chuỗi {r["canh_lien_cung_bo_cuc"]}', [] if r['ok'] else [r['val']], True)
+g2 = z['g'].astype(np.float32).copy(); i = (t >= a1) & (t < a2); g2[i] = np.clip(src * 0.25 + 4, 0, 255)   # cảnh 2: cùng hình nhưng tối hẳn
+g2[(t >= a2) & (t < a3)] = src
+r = q26('ep06-v2', TL6, g2); case('Q26', f'cùng hình, cảnh giữa tối đi 4 lần: vẫn là cùng bố cục (chuẩn hoá sáng/tương phản), chuỗi {r["canh_lien_cung_bo_cuc"]}', [] if r['ok'] else [r['val']], True)
+D = QD.mad(z['g'][::6].astype(np.float32)); lab = QD.complete_link(D, QD.TOL_VIEW)
+case('Q26', 'liên kết đầy đủ: mọi cặp trong một khung nhìn chênh < 12/255', [k for k in set(lab) if (D[np.ix_(lab == k, lab == k)] >= QD.TOL_VIEW).any()], False)
+
+r = QA.q28(E6, TL6, MX6, asr=False)
+case('Q28', f"tập 6 v2: {r['val']}", r['loi'], True)
+R[-1] = R[-1][:3] + (R[-1][3] and len(r['loi']) == 1 and '05@0.0/diptych' in r['loi'][0] and '10@16.7/diptych' in r['loi'][0],) + R[-1][4:]
+MXb = copy.deepcopy(MX6); MXb['sfx_used'] += [dict(file='assets/ll/sfx/press-rhythm.mp3', at=163.5, dur=3.0), dict(file='assets/ll/sfx/typewriter-old.mp3', at=385.0, dur=3.0)]
+case('Q28', 'tập 6 v2 + âm thanh nghề cho 2 shot diptych', QA.q28(E6, TL6, MXb, asr=False)['loi'], False)
+MXc = copy.deepcopy(MXb); MXc['music_used'][-1]['file'] = 'assets/ll/music/Clean-Soul.mp3'
+case('Q28', 'kết bằng cue hồi 3 thay nhạc hiệu kênh', QA.q28(E6, TL6, MXc, asr=False)['loi'], True)
+MXc = copy.deepcopy(MXb); MXc['music_used'][1]['src_to'] = 400.0; MXc['music_used'][1]['t1'] = MXc['music_used'][1]['t0'] + 400.0
+case('Q28', 'cue hồi 2 dài hơn bài nhạc (phải lặp vòng)', QA.q28(E6, TL6, MXc, asr=False)['loi'], True)
+MXc = copy.deepcopy(MXb); MXc['music_used'].append(dict(file='assets/ll/music/Gymnopedie-No-1.mp3', ss=20.0, src_to=110.0, t0=400.0, t1=490.0))
+case('Q28', 'dùng lại 90 s cùng đoạn bài hồi 2', QA.q28(E6, TL6, MXc, asr=False)['loi'], True)
+Eb = copy.deepcopy(E6); Eb['numbers'][Eb['anchors'][0]]['say'] = 'eighty six thousand people'
+case('Q28', 'số neo có cụm say không có trong lời (P cũ bỏ qua im lặng)', QA.q28(Eb, TL6, MXb, asr=False)['loi'], True)
+TLb = copy.deepcopy(TL6); sg4 = next(s for s in TLb['segments'] if s['id'] == '04'); sg4['vo_file'] = sg4['vo_file'].replace('.p.mp3', '.mp3')
+case('Q28', 'đoạn 04 dùng lời chưa chèn lặng trước "eighty-six thousand"', QA.q28(E6, TLb, MXb, asr=False)['loi'], True)
+case('Q28', 'lặng trước số neo đo trên âm thật: 4 lần đọc (gồm "seventeen percent" lần 2 ở đoạn 09)', [] if len(QA.q28(E6, TL6, MXb, asr=False)['lang']) == 4 else ['thiếu'], False)
+
+r = QA.q29(E6, TL6); case('Q29', f"tập 6 v2: {r['val']}", r['loi'], False)
+TLb = copy.deepcopy(TL6)
+for sg in TLb['segments']:
+    if sg['id'] == '04':
+        for sh in sg['shots']: sh['tpl'] = 'bignum'
+case('Q29', 'đoạn 04 chỉ còn thẻ số: "eighty-six thousand" không có hình vật chất', QA.q29(E6, TLb)['loi'], True)
+Eb = copy.deepcopy(E6); Eb['segments'][3]['map'].pop('nouns')
+case('Q29', 'đoạn có lời không khai danh từ chính', QA.q29(Eb, TL6)['loi'], True)
+
+tone = {int(k): v for k, v in json.load(open(os.path.join(F6, 'tone-v2.json'))).items()}
+r = QA.q30(E6, TL6, MX6, tone=tone); case('Q30', f"tập 6 v2: {r['val']}", r['loi'], True)
+R[-1] = R[-1][:3] + (R[-1][3] and len(r['loi']) == 2 and any('hồi 3 cần cold' in x for x in r['loi']) and any('01→02: shot trước' in x for x in r['loi']),) + R[-1][4:]
+tc = dict(tone); tc[3] = dict(a=-2.0, b=-9.0, C=9.2, h=257.5, mau=1)
+E6l = copy.deepcopy(E6); E6l['heroes']['case_line']['lamp'] = True   # P khai đèn cho góc máy mới (người xem/K đối chiếu sau)
+case('Q30', 'tập 6 v2 nếu hồi 3 lạnh thật (h 258°, C 9) và case_line khai đèn', QA.q30(E6l, TL6, MX6, tone=tc)['loi'], False)
+Eb = copy.deepcopy(E6l); Eb['segments'][1]['map']['out'] = 'cut'
+case('Q30', 'chuyển hồi 01→02: hai phía khai khác nhau (cut / match)', QA.q30(Eb, TL6, MX6, tone=tc)['loi'], True)
+MXc = copy.deepcopy(MX6); cut12 = TL6['segments'][2]['t0']; MXc['sfx_used'] = [c for c in MXc['sfx_used'] if not (cut12 - 3 < c['at'] < cut12)]
+case('Q30', 'J-cut 01→02 bỏ tiếng máy vào trước điểm cắt', QA.q30(E6l, TL6, MXc, tone=tc)['loi'], True)
+TLb = copy.deepcopy(TL6); TLb['segments'][2]['shots'][0]['p']['hero'] = 'x_khong_den'
+case('Q30', 'shot đầu hồi 2 là cảnh đinh không có đèn', QA.q30(E6l, TLb, MX6, tone=tc)['loi'], True)
+for nm, x, exp in (('warm', dict(h=59.0, C=30.4), True), ('sepia', dict(h=71.8, C=10.0), True), ('cold', dict(h=61.3, C=9.0), False), ('warm', dict(h=71.8, C=10.0), False)):
+    case('Q30', f"tông {nm}: h={x['h']}°, C={x['C']}", [] if QA.tone_ok(nm, x) == exp else ['sai'], False)
+
+for tag, exp in (('v2', True), ('v1', True)):
+    fx = json.load(open(os.path.join(F6, f'q27-{tag}.json'))); r = QB.agg27(fx['sets'], fx['replies'])
+    case('Q27', f"tập 6 {tag} (đề bài khoá, 3 Sonnet thật): {r['val']}", [] if r['ok'] else [r['val']], exp)
+fx = json.load(open(os.path.join(F6, 'q27-v2.json'))); up = copy.deepcopy(fx['replies'])
+for x in up.values():
+    for k, v in x['scores'].items():
+        if fx['sets'][k] == 'new': x['scores'][k] = {c: min(10, s + 1) for c, s in v.items()}
+case('Q27', 'tập 6 v2 nếu mọi khung tập mới +1 điểm', [] if QB.agg27(fx['sets'], up)['ok'] else ['trượt'], False)
+bad = copy.deepcopy(fx['replies']); bad['R2']['scores'].pop('F07')
+case('Q27', 'một người chấm bỏ sót khung', [] if QB.agg27(fx['sets'], bad)['ok'] else ['trượt'], True)
+case('Q27', 'chỉ 2 người chấm', [] if QB.agg27(fx['sets'], {k: v for k, v in fx['replies'].items() if k != 'R3'})['ok'] else ['trượt'], True)
+fx = json.load(open(os.path.join(F6, 'q31-v2.json'))); r = QB.agg31(fx['cuts'], fx['replies'])
+case('Q31', f"tập 6 v2 (đề bài khoá, 3 Sonnet thật): {r['val']}", r['loi'], True)
+cl = copy.deepcopy(fx['replies'])
+for x in cl.values(): x['issues'] = [i for i in x['issues'] if i['kind'] == 'boring']
+case('Q31', 'chỉ còn điểm "chán" đồng thuận: không chặn', QB.agg31(fx['cuts'], cl)['loi'], False)
+one = copy.deepcopy(cl); one['R1']['issues'].append(dict(where='T05', kind='break', note='x'))
+case('Q31', 'một người nêu đứt mạch T05: chưa đủ 2/3', QB.agg31(fx['cuts'], one)['loi'], False)
+one['R3']['issues'].append(dict(where='R05.1', kind='break', note='y'))   # R05.1 = 2:42, T05 = 2:41,8 → cùng điểm
+case('Q31', 'hai người nêu cùng chỗ (T05 và R05.1, cách 0,2 s)', QB.agg31(fx['cuts'], one)['loi'], True)
+tmpd = tempfile.mkdtemp()
+for k, x in fx['replies'].items(): json.dump(dict(x, prompt_sha256='0' * 64) if k == 'R2' else x, open(os.path.join(tmpd, f'{k}.json'), 'w'))
+case('Q31', 'R2 dùng đề bài đã sửa (SHA khác bản khoá)', QB._replies(tmpd, 'Q31')[1], True)
+case('Q27/31', 'đề bài khoá: 6 tệp, mỗi tệp có {DIR} và yêu cầu chỉ trả JSON', [f for f in sorted(os.listdir(QB.HERE)) if '{DIR}' not in open(os.path.join(QB.HERE, f)).read() or 'ONLY this JSON' not in open(os.path.join(QB.HERE, f)).read()], False)
+
 w = max(len(r[1]) for r in R)
 for rule, name, kind_, ok, got in R: print(f"{'ĐÚNG' if ok else 'SAI '}  {rule:<7} {kind_:<8} {name}" + ('' if ok else f'   → {got}'))
-n_ok = sum(r[3] for r in R); print(f'\nselftest LL v2: {n_ok}/{len(R)} ca đúng kỳ vọng'); sys.exit(0 if n_ok == len(R) else 1)
+n_ok = sum(r[3] for r in R); print(f'\nselftest LL v3: {n_ok}/{len(R)} ca đúng kỳ vọng'); sys.exit(0 if n_ok == len(R) else 1)
