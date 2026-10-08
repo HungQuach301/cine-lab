@@ -134,7 +134,7 @@ segments:
       - {tpl: plate, at: "@1935-0.4", in: fade, p: {hero: pool_five, frame0: 0, cap: [{s: "Langley, Virginia, 1935", at: "@1935", src: [NASA1]}, {s: "the first computer pool: five women", at: "@pool", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/wall-clock.mp3, at: "@1935", src_ss: 3.0, dur: 6.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: archive, at: "@read-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1952-B701_P-74769.jpg, rid: NASA-LRC-1952-B701_P-74769, focus: [0.42, 0.45], credit: "Computer with Friden calculator, 1952 · NASA",
-           cam: [{t: "@read-0.3", x: 30, z: 0.03}, {t: "@calculations#2+1", x: -10, z: 0.08}], cap: [{s: "read film of the wind tunnel instruments", at: "@read", src: [NASA1]}, {s: "run the calculations", at: "@ran"}]},
+           cam: [{t: "@read-0.3", x: 30, z: 0.03}, {t: "@plotted+0.7", x: -10, z: 0.08}], cap: [{s: "read film of the wind tunnel instruments", at: "@read", src: [NASA1]}, {s: "run the calculations", at: "@ran"}]},
          sfx: [{file: assets/ll/sfx/film-reader.mp3, at: "@read", src_ss: 5.0, dur: 3.0, gain_db: -16, fade_ms: 400}]}
       - {tpl: plate, at: "@plotted-0.3", in: fade, p: {hero: pool_desk, frame0: 200, cap: [{s: "plot the results on graph paper", at: "@plotted", src: [NASA1]}, {s: "slide rules · magnifying glasses · calculating machines", at: "@slide"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@plotted", src_ss: 4.0, dur: 3.5, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/adding-machine.mp3, at: "@multiply", src_ss: 14.0, dur: 3.0, gain_db: -15, fade_ms: 300}]}
@@ -175,9 +175,9 @@ segments:
       Under segregation, they were grouped in a separate section, the West Area Computers, with segregated dining rooms and bathrooms. They did the same work. In the 1950s, the sections began to integrate.
     shots:
       - {tpl: archive, at: 0, p: {img: assets/ll/archive/nasa-LRC-1943-B701_P-33025.jpg, rid: NASA-LRC-1943-B701_P-33025, focus: [0.5, 0.5], credit: "Wind tunnel data, Langley, 1943 · NASA",
-           cam: [{t: 0, x: 40, z: 0.02}, {t: 7, x: -20, z: 0.09}], cap: [{s: "the war: computing spreads into the wind tunnels", at: "@war", src: [NASA1]}]},
+           cam: [{t: 0, x: 40, z: 0.02}, {t: "@report+0.4", x: -20, z: 0.09}], cap: [{s: "the war: computing spreads into the wind tunnels", at: "@war", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: 0.3, src_ss: 20.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
-      - {tpl: isotype, at: "@report-0.6", in: fade, p: {title: "Women computers at the Langley laboratory", subtitle: "one laboratory, not a national count", unit: 10, unitName: "women", per: 20,
+      - {tpl: isotype, at: "@report-0.6", in: fade, p: {title: "Women computers at the Langley laboratory", subtitle: "one laboratory, not a national count", unit: 20, unitName: "women", per: 20,
            groups: [{label: "1942 (report)", num: c42, at: "@seventyfive"}, {label: "by 1946 (trained)", num: c46, at: "@about"}],
            cap: [{s: "1935: five · 1942: 75 · by 1946: about 400", at: "@trained", src: [NASA1]}]}}
       - {tpl: plate, at: "@placed-0.4", in: fade, p: {hero: pool_grow, frame0: 0, cap: [{s: "placed across the laboratory", at: "@placed", src: [NASA1]}]},
@@ -199,10 +199,10 @@ segments:
       - {tpl: plate, at: 0, p: {hero: relay_row, frame0: 0, cap: [{s: "the second kind of work", at: "@second"}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: -0.5, src_ss: 30.0, dur: 6.0, gain_db: -13, fade_ms: 600}]}
       - {tpl: archive, at: "@1947-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1947-B701_P-51532.jpg, rid: NASA-LRC-1947-B701_P-51532, focus: [0.5, 0.48], credit: "Bell computer control room, Langley, 1947 · NASA",
-           cam: [{t: "@1947-0.3", x: -30, z: 0.03}, {t: "@group+1", x: 20, z: 0.08}], cap: [{s: "1947: a huge electronic computer", at: "@1947", src: [NASA1]}, {s: "with its own computing group", at: "@group"}]},
+           cam: [{t: "@1947-0.3", x: -30, z: 0.03}, {t: "@people+0.7", x: 20, z: 0.08}], cap: [{s: "1947: a huge electronic computer", at: "@1947", src: [NASA1]}, {s: "with its own computing group", at: "@group"}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: "@1947", src_ss: 90.0, dur: 5.0, gain_db: -15, fade_ms: 500}]}
       - {tpl: archive, at: "@people-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1947-B701_P-52134.jpg, rid: NASA-LRC-1947-B701_P-52134, focus: [0.42, 0.42], credit: "Routine tape, Bell computer, 1947 · NASA",
-           cam: [{t: "@people-0.3", x: 20, z: 0.04}, {t: "@flight+1", x: -20, z: 0.1}], cap: [{s: "programming it: punched tape", at: "@punched", src: [NASA1]}, {s: "the equations of high-speed flight", at: "@equations"}]},
+           cam: [{t: "@people-0.3", x: 20, z: 0.04}, {t: "@human+0.6", x: -20, z: 0.1}], cap: [{s: "programming it: punched tape", at: "@punched", src: [NASA1]}, {s: "the equations of high-speed flight", at: "@equations"}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@punched", src_ss: 20.0, dur: 3.5, gain_db: -15, fade_ms: 400}]}
       - {tpl: plate, at: "@human-0.4", in: fade, p: {hero: relay_tape, frame0: 0, cap: [{s: "human computers took on programming duties", at: "@human", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@human", src_ss: 40.0, dur: 4.0, gain_db: -14, fade_ms: 400}]}
@@ -242,7 +242,7 @@ segments:
            {s: "“the dwindling days of human computing”", at: "@dwindling", src: [NASA3]}, {s: "electronic computers: part of everyday work", at: "@everyday", src: [NASA3]}, {s: "calculating by hand faded away", at: "@faded"}]},
          sfx: [{file: assets/ll/sfx/wall-clock.mp3, at: 0.3, src_ss: 8.0, dur: 9.0, gain_db: -16, fade_ms: 900}]}
       - {tpl: archive, at: "@many-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1959-B701_P-00007.jpg, rid: NASA-LRC-1959-B701_P-00007, focus: [0.5, 0.5], credit: "Women researchers at Langley, 1959 · NASA",
-           cam: [{t: "@many-0.3", x: -20, z: 0.02}, {t: "@engineering+1", x: 20, z: 0.08}], cap: [{s: "many found new work", at: "@many"}, {s: "1950s–60s: out of the computer pool…", at: "@through", src: [NASA3]}, {s: "…worked their way…", at: "@worked"}, {s: "…into engineering", at: "@engineering"}]},
+           cam: [{t: "@many-0.3", x: -20, z: 0.02}, {t: "@others+0.6", x: 20, z: 0.08}], cap: [{s: "many found new work", at: "@many"}, {s: "1950s–60s: out of the computer pool…", at: "@through", src: [NASA3]}, {s: "…worked their way…", at: "@worked"}, {s: "…into engineering", at: "@engineering"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@many", src_ss: 30.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
       - {tpl: plate, at: "@others-0.4", in: fade, p: {hero: relay_tape, frame0: 120, cap: [{s: "others: into programming", at: "@others", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@others", src_ss: 60.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
@@ -261,9 +261,9 @@ segments:
       In 1990, the government's job handbook looked ahead. Improved software, it said, would simplify or eliminate some programming tasks.
       And artificial intelligence would become just additional tools available to programmers.
     shots:
-      - {tpl: sign, at: 0, p: {num: prog88, caption: "computer programmer jobs, United States, 1988", at: "@nineteen", capAt: "@jobs", wall: brick,
+      - {tpl: sign, at: 0, p: {num: prog88, at: "@nineteen", wall: brick,
            cam: [{t: 0, x: 0, z: 0.0}, {t: "@1988", x: -20, z: 0.02}, {t: "@count", x: -40, z: 0.04}, {t: "@numbers+0.5", x: -50, z: 0.05}],
-           cap: [{s: "programming: a large occupation of its own", at: "@programming", src: [OOH90]}, {s: "a count from another era, other job definitions", at: "@count"}, {s: "not set beside today's numbers", at: "@beside"}]}}
+           cap: [{s: "programming: a large occupation of its own", at: "@programming", src: [OOH90]}, {s: "computer programmer jobs, United States, 1988", at: "@jobs", src: [OOH90]}, {s: "a count from another era, other job definitions", at: "@count"}, {s: "not set beside today's numbers", at: "@beside"}]}}
       - {tpl: plate, at: "@1990-0.4", in: fade, p: {hero: relay_tape, frame0: 300, cap: [{s: "1990: the government's job handbook", at: "@1990", src: [OOH90]}, {s: "it looked ahead", at: "@looked"}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@1990", src_ss: 50.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
       - {tpl: quote, at: "@improved-0.4", in: flip, p: {beats: [{s: "the BLS, 1990", at: "@improved"}],
@@ -371,9 +371,9 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: tower_floor, frame0: 0, cap: [{s: "the people just starting out", at: "@starting"}, {s: "Stanford: payroll records, millions of workers, to June 2026", at: "@stanford", src: [CAN]}, {s: "overall employment: still robust", at: "@robust", src: [CAN]}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: 0.5, src_ss: 18.0, dur: 2.5, gain_db: -16, fade_ms: 400}]}
-      - {tpl: sign, at: "@layoffs-0.6", in: fade, p: {num: can, caption: "ages 22–25, AI-exposed jobs, vs. less-exposed peers (2026)", at: "@nineteen", capAt: "@peers", wall: brick,
+      - {tpl: sign, at: "@layoffs-0.6", in: fade, p: {num: can, at: "@nineteen", wall: brick,
            cam: [{t: "@layoffs-0.6", x: 0, z: 0.0}, {t: "@nineteen", x: -20, z: 0.02}, {t: "@experienced", x: -35, z: 0.035}, {t: "@hired", x: -50, z: 0.05}],
-           cap: [{s: "not a wave of layoffs: a gap", at: "@gap", src: [CAN]}, {s: "e.g. software development, customer service", at: "@customer", src: [CAN]}, {s: "experienced workers: no comparable gap", at: "@experienced", src: [CAN]}, {s: "mostly: fewer young people hired…", at: "@mostly", src: [CAN]}, {s: "…not more people let go", at: "@let"}]}}
+           cap: [{s: "not a wave of layoffs: a gap", at: "@gap", src: [CAN]}, {s: "e.g. software development, customer service", at: "@customer", src: [CAN]}, {s: "ages 22–25, AI-exposed jobs, vs. less-exposed peers (2026)", at: "@peers", src: [CAN]}, {s: "experienced workers: no comparable gap", at: "@experienced", src: [CAN]}, {s: "mostly: fewer young people hired…", at: "@mostly", src: [CAN]}, {s: "…not more people let go", at: "@let"}]}}
       - {tpl: plate, at: "@authors-0.4", in: fade, p: {hero: tower_in, frame0: 120, cap: [{s: "the hardest part: separating AI…", at: "@hardest", src: [CAN]}, {s: "…from everything else changing in the economy", at: "@everything", src: [CAN]}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@authors", src_ss: 1.3, dur: 3.0, gain_db: -17, fade_ms: 500}]}
 
