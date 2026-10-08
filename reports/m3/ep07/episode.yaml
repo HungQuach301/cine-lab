@@ -321,13 +321,14 @@ segments:
     part: TODAY
     map: {q: "Which job is shrinking, and which is growing?", act: 3, emo: clarity, color: cold, cue: today, trade: [keyboard-typing, teleprinter-tape],
           in: cut, out: cut, lamp: {in: true, out: true},
-          nouns: [{w: "@titles", img: "toàn sàn: hàng bàn, phần lớn trống"}, {w: "@programmers", img: "toàn sàn, bàn trống"}, {w: "@automated", img: "màn hình mã tự hiện"}, {w: "@developers", img: "người (bóng) bên màn hình, đèn bàn"}]}
+          nouns: [{w: "@titles", img: "khung chia đôi: bàn viết mã | toàn sàn, nhãn hai chức danh"}, {w: "@programmers", img: "nửa trái: màn hình mã"}, {w: "@automated", img: "màn hình mã tự hiện"}, {w: "@developers", img: "người (bóng) bên màn hình, đèn bàn"}]}
     vo: >-
       Here, two job titles that sound alike are heading in different directions. The first is computer programmers: people who write, modify, and test code.
       Their jobs are projected to shrink from 2025 to 2035. Programming work continues to be automated, BLS says, companies are expected to use technologies including AI,
       and some higher-skilled programming tasks will likely shift to other workers, such as software developers.
     shots:
-      - {tpl: plate, at: 0, p: {hero: tower_in, frame0: 230, cap: [{s: "two job titles that sound alike, two directions", at: "@titles"}, {s: "1 · computer programmers", at: "@first", src: [OOHCP]}, {s: "write · modify · test code", at: "@write", src: [OOHCP]},
+      - {tpl: diptych, at: 0, p: {split: "@titles+0.3", left: {hero: tower_code, i: 60, fx: 0.5}, right: {hero: tower_floor, i: 420, fx: 0.4}, labels: ["computer programmers", "software developers"],   # Q31 vòng 3 T11: "hai chức danh" phải thấy ngay
+           cap: [{s: "two job titles that sound alike, two directions", at: "@titles"}, {s: "1 · computer programmers", at: "@first", src: [OOHCP]}, {s: "write · modify · test code", at: "@write", src: [OOHCP]},
            {s: "projected to shrink, 2025–35", at: "@shrink", src: [OOHCP]}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 3.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: plate, at: "@programming-0.4", in: fade, p: {hero: tower_code, frame0: 360, cap: [{s: "programming work continues to be automated", at: "@automated", src: [OOHCP]}, {s: "companies: technologies including AI", at: "@companies", src: [OOHCP]},
@@ -357,7 +358,7 @@ segments:
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@ten", src_ss: 5.0, dur: 3.0, gain_db: -18, fade_ms: 400}]}
       - {tpl: plate, at: "@bls-0.4", in: fade, p: {hero: tower_floor, frame0: 240, cap: [{s: "BLS: strong demand…", at: "@demand", src: [OOHSD]}, {s: "…driven in part by software development for AI", at: "@expansion", src: [OOHSD]}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@bls", src_ss: 12.0, dur: 3.5, gain_db: -17, fade_ms: 500}]}
-      - {tpl: diptych, at: "@put-0.4", in: fade, p: {split: "@put+0.3", left: {hero: pool_desk, i: 300, fx: 0.5}, right: {hero: tower_code, i: 300, fx: 0.5},
+      - {tpl: diptych, at: "@put-0.4", in: fade, p: {split: "@put+0.3", left: {hero: pool_desk, i: 300, fx: 0.5}, right: {hero: tower_code, i: 300, fx: 0.5}, labels: ["Langley, 1940s", "today"],   # Q31 vòng 3 T13
            cap: [{s: "one reading: the work is moving", at: "@reading"}, {s: "less typing of every line", at: "@less"}, {s: "more deciding what to build · designing", at: "@deciding"}, {s: "…and checking what the tool wrote", at: "@checking"}, {s: "a reading, not a forecast", at: "@forecast"}, {s: "checking the machine's numbers: an old job here", at: "@checking#2"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@put", src_ss: 50.0, dur: 3.0, gain_db: -15, fade_ms: 400}, {file: assets/ll/sfx/keyboard-typing.mp3, at: "@checking#2", src_ss: 8.0, dur: 3.0, gain_db: -16, fade_ms: 400}]}
 
@@ -397,7 +398,7 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: tower_floor, frame0: 300, cap: [{s: "one possibility: AI may take over checkable, routine tasks", at: "@possibility", src: [CAN]}, {s: "…that once justified hiring beginners", at: "@justified"}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 2.2, dur: 3.0, gain_db: -18, fade_ms: 600}]}
-      - {tpl: diptych, at: "@technology-0.4", in: fade, p: {split: "@technology+0.3", left: {hero: relay_row, i: 200, fx: 0.5}, right: {hero: tower_code, i: 420, fx: 0.5},
+      - {tpl: diptych, at: "@technology-0.4", in: fade, p: {split: "@technology+0.3", left: {hero: relay_row, i: 200, fx: 0.5}, right: {hero: tower_code, i: 420, fx: 0.5}, labels: ["1947", "today"],
            cap: [{s: "not the same technology as in 1947", at: "@technology", src: [NASA1]}, {s: "a familiar pattern: a repetitive task goes to a machine…", at: "@pattern"}, {s: "…people move to the work around it", at: "@people"}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: "@technology", src_ss: 200.0, dur: 4.0, gain_db: -15, fade_ms: 500}]}
       - {tpl: plate, at: "@back-0.4", in: fade, p: {hero: relay_tape, frame0: 200, cap: [{s: "back then: the new machine needed new people", at: "@needed"}, {s: "doors at the start of a career", at: "@doors"}]},
