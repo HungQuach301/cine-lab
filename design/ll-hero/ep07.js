@@ -49,7 +49,7 @@ function graphSheet(orbit = false) {
 }
 
 // bàn tính toán: mặt gỗ, máy tính cơ (xe chạy), giấy kẻ ô, thước tính, đèn bàn chao xanh, ghế + người (tuỳ)
-function computeDesk(parent, x, z, { person = true, lampOn = true, hero = false, orbit = false, seed = 1 } = {}) {
+function computeDesk(parent, x, z, { person = true, lampOn = true, hero = false, orbit = false, seed = 1, pc } = {}) {
   const R = rng(seed), d = new THREE.Group(); d.position.set(x, 0, z); parent.add(d);
   const wood = std('#6b4528', { roughness: 0.65 }), dark = std('#3a2414');
   box(1.5, 0.05, 0.8, wood, 0, 0.76, 0, d); box(0.06, 0.74, 0.74, dark, -0.7, 0.37, 0, d); box(0.06, 0.74, 0.74, dark, 0.7, 0.37, 0, d); box(1.36, 0.3, 0.04, dark, 0, 0.6, -0.36, d);
@@ -75,7 +75,7 @@ function computeDesk(parent, x, z, { person = true, lampOn = true, hero = false,
     const fillW = new THREE.PointLight('#ffb070', 3.5, 4, 1.5); fillW.position.set(-0.9, 1.3, 0.9); d.add(fillW); }
   // ghế + người
   box(0.44, 0.04, 0.42, dark, 0, 0.46, 0.62, d); box(0.44, 0.45, 0.04, dark, 0, 0.7, 0.84, d);
-  let p = null; if (person) { p = computerWoman({ scale: 0.92 + R() * 0.05 }); p.root.position.set(0, 0.0, 0.66); p.root.rotation.y = Math.PI; d.add(p.root); }
+  let p = null; if (person) { p = computerWoman({ scale: 0.92 + R() * 0.05, ...(pc ? { color: pc } : {}) }); p.root.position.set(0, 0.0, 0.66); p.root.rotation.y = Math.PI; d.add(p.root); }
   const ph = R() * 6.28;
   const set = (t, f, { lamp = lampOn ? 1 : 0, plot = 0 } = {}) => {
     bulbGlow.material.opacity = 0.9 * lamp; bulbGlow.visible = lamp > 0.01; if (pool) pool.intensity = 14 * lamp * (1 + 0.02 * Math.sin(f * 0.37));   /* Q27 nháp: cận bàn quá tối */
@@ -158,9 +158,11 @@ async function airfield({ W, H, dur, v, opt = {} }) {
   const hemi = new THREE.HemisphereLight(night ? '#46507a' : '#7a6a8a', '#1a1418', night ? 0.75 : 0.95); scene.add(hemi);
   const sun = new THREE.DirectionalLight(night ? '#7f8fd0' : '#ffb07a', night ? 0.4 : 0.9); sun.position.set(-30, 10, -40); scene.add(sun);
   const fill = new THREE.PointLight('#ffb070', 2.5, 20, 1.2); fill.position.set(2, 4, 8); scene.add(fill);
+  const spillTex = canvasTex(128, 128, (g, w, h) => { const gr = g.createRadialGradient(64, 40, 4, 64, 56, 64); gr.addColorStop(0, '#ffffff'); gr.addColorStop(1, '#000000'); g.fillStyle = gr; g.fillRect(0, 0, w, h); });
+  if (v === 'a') WIN.forEach(({ x, lit }) => { if (!lit) return; const m = new THREE.Mesh(new THREE.PlaneGeometry(2.8, 3.6), basic('#ffb468', { map: spillTex, transparent: true, opacity: 0.32, depthWrite: false, blending: THREE.AdditiveBlending })); m.rotation.x = -Math.PI / 2; m.position.set(x, 0.07, 2.0); scene.add(m); });   /* vệt sáng cửa sổ hắt xuống lối đi */
   const dst = dust(scene, [4.6, 3.0, 1.75], [2.4, 2.0, 2.2], 160, 13);
   const K = {
-    a: [{ t: 0, p: [-3, 1.7, 17], l: [1, 2.6, -2], mm: 28 }, { t: dur, p: [1.4, 2.35, 3.2], l: [1.2, 1.7, -4.0], mm: 36 }],
+    a: [{ t: 0, p: [-2.6, 1.35, 12.8], l: [1, 2.5, -2], mm: 30 },   /* Q27 nháp lượt 2: mặt đường tối chiếm nửa khung → máy gần, thấp hơn */ { t: dur, p: [1.4, 2.35, 3.2], l: [1.2, 1.7, -4.0], mm: 36 }],
     b: [{ t: 0, p: [-6.5, 1.6, 9.5], l: [-2, 2.2, 1], mm: 30 }, { t: Math.max(1, (opt.lit || 6) - 1.5), p: [0.2, 1.75, 7.6], l: [3.6, 2.4, 0.4], mm: 34 }, { t: dur, p: [1.9, 2.0, 5.2], l: [3.2, 1.9, -1.2], mm: 44 }],
     c: [{ t: 0, p: [1.5, 2.0, 7.5], l: [3, 2.2, -1], mm: 36 }, { t: (opt.tower || 5) - 0.6, p: [0.5, 1.9, 10.5], l: [12, 6.5, -20], mm: 30 }, { t: dur, p: [0, 1.8, 11.5], l: [20, 11.5, -36], mm: 34 }],
     d: [{ t: 0, p: [-5.2, 1.7, 9.2], l: [-9.6, 2.2, 1.8], mm: 32 }, { t: (opt.lit || 7) + 0.6, p: [-6.6, 2.0, 7.6], l: [-9.6, 2.8, 1.7], mm: 36 }, { t: dur, p: [-6, 9, 24], l: [6, 5, -14], mm: 28 }],
@@ -295,6 +297,8 @@ async function relay({ W, H, dur, v, opt = {} }) {
   op.root.position.set(-1.05, 0, 0.85); op.root.rotation.y = Math.PI + 0.55; desk.add(op.root);
   const deskLamp = new THREE.PointLight('#ffd49a', 11, 4.5, 1.5); const key = new THREE.SpotLight('#ffd9a8', 30, 9, 0.55, 0.6, 1.3); key.position.set(-2.2, 3.2, 1.8); key.target.position.set(0.3, 1.2, -0.3); desk.add(key, key.target); deskLamp.position.set(0.2, 1.9, 0.6); desk.add(deskLamp);
   const pend = []; for (let i = 0; i < 4; i++) { const s = glowSprite('#ffe6b8', 0.65, 0.8); s.position.set(0, 3.4, 1.5 - i * 3.2); scene.add(s); pend.push(s); const pl = new THREE.PointLight('#ffdcae', 6, 7, 1.4); pl.position.set(0, 3.3, 1.5 - i * 3.2); scene.add(pl); }
+  box(2.6, 1.3, 0.05, basic('#e6d4a8'), 0, 2.1, -15.82); box(2.8, 0.1, 0.1, std('#3a3428'), 0, 2.8, -15.78); box(0.08, 1.3, 0.1, std('#3a3428'), 0, 2.1, -15.78);   /* ô kính mờ có đèn sau ở tường cuối: nền không đen đặc (Q27 nháp lượt 2) */
+  const backW = new THREE.PointLight('#ffd6a0', 9, 9, 1.3); backW.position.set(0, 2.6, -14.2); scene.add(backW);
   const dst = dust(scene, [0, 1.8, -3], [2.4, 2.4, 12], 260, 47);
   const K = {
     a: [{ t: 0, p: [0.2, 1.65, 5.2], l: [0, 1.4, -4], mm: 28 }, { t: dur, p: [-0.15, 1.6, -4.6], l: [0.25, 1.1, -9.6], mm: 34 }],
@@ -316,7 +320,7 @@ async function relay({ W, H, dur, v, opt = {} }) {
 async function tower({ W, H, dur, v, opt = {} }) {
   const scene = new THREE.Scene(); fogOf(scene, '#0a0f18', 0.03);
   scene.add(new THREE.HemisphereLight('#4a5e88', '#0a0d14', 0.95)); const ceilL = new THREE.PointLight('#a8c0e8', 13, 18, 1.2); ceilL.position.set(-2, 3.0, 1); scene.add(ceilL);
-  box(30, 0.1, 24, std('#1b1f26', { roughness: 0.6 }), 0, 0, -4); box(30, 0.2, 24, std('#20242c'), 0, 3.2, -4);
+  box(30, 0.1, 24, std(v === 'c' ? '#2a303a' : '#1b1f26', { roughness: 0.6 }), 0, 0, -4); box(30, 0.2, 24, std('#20242c'), 0, 3.2, -4);
   for (let i = 0; i < 6; i++) { const s = box(2.2, 0.04, 0.3, basic('#cfe0ff', { transparent: true, opacity: 0.45 }), -7 + i * 3, 3.08, -2); } const amb2 = new THREE.PointLight('#9ab4e0', 8, 14, 1.3); amb2.position.set(4, 3.0, -5); scene.add(amb2);
   // phố đêm ngoài kính (mặt phẳng nền: cửa sổ toà khác, quầng mờ)
   const city = canvasTex(1024, 512, (g, w, h) => { const R = rng(23); const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#060a14'); gr.addColorStop(0.7, '#141c30'); gr.addColorStop(1, '#2a2a3a'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
@@ -367,6 +371,7 @@ async function tower({ W, H, dur, v, opt = {} }) {
   const dev = figure({ seated: true, scale: 1.0, color: '#0c0d10' }); dev.root.position.set(-0.05, 0.0, 0.72); dev.root.rotation.y = Math.PI; main.add(dev.root);
   const rimL = new THREE.PointLight('#6f8fcc', 1.6, 2.2, 1.8); rimL.position.set(0.3, 1.5, 1.4); main.add(rimL);
   // bàn đầu hàng trống (c): màn hình tắt, đèn tắt, ghế đẩy vào
+  if (v === 'c') { scene.add(new THREE.HemisphereLight('#5a6e98', '#10131a', 0.45)); for (const [x, z] of [[-6, -2], [0, -4.5], [6, -2], [-3, -7]]) { const ov = new THREE.PointLight('#c8d8ff', 9, 10, 1.2); ov.position.set(x, 2.9, z); scene.add(ov); } }   /* toàn sàn quá tối (Q27 nháp lượt 2) */
   const first = mkDesk(-3.2, 2.2, false, false); const firstL = new THREE.SpotLight('#9fb6e0', 14, 6, 0.5, 0.7, 1.4); firstL.position.set(-3.2, 3.0, 2.6); firstL.target.position.set(-3.2, 0.7, 2.2); scene.add(firstL, firstL.target);
   const dst = dust(scene, [0, 1.6, -1], [6, 2.4, 4], 220, 61, '#b8ccff');
   const K = {
@@ -409,4 +414,64 @@ async function ladder({ W, H, dur, v, opt = {} }) {
   return { scene, cam: rig.cam, update, grade: 'cold' };
 }
 
-export const HEROES = { airfield, pool, relay, tower, ladder };
+// ===== jpl: phòng tính toán ở California, 1958, ban ngày (đoạn 06: đổi nơi chốn rõ ràng — Q31 vòng 2 T06) =====
+//   nắng chiều qua cửa sổ cao (đồi khô, hàng cọ), bảng quỹ đạo lớn trên tường: Trái Đất, đường phóng, quỹ đạo elip vẽ dần (opt.orbit0, opt.orbitDur);
+//   một người đứng vẽ trên bảng, hai hàng bàn tính ban ngày (đèn bàn bật). a: từ sau hàng bàn đẩy dần tới bảng.
+function orbitBoard() {
+  const c = document.createElement('canvas'); c.width = 1024; c.height = 600; const g = c.getContext('2d'); const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 4;
+  const E = [430, 330], a = 330, b = 200, cx = E[0] + 120;   // tâm elip lệch khỏi Trái Đất (tiêu điểm)
+  const pt = (k) => { const th = Math.PI + k * Math.PI * 2; return [cx + a * Math.cos(th), E[1] + b * Math.sin(th)]; };
+  let last = -1;
+  const draw = (u, w) => { u = Math.max(0, Math.min(1, u)); if (Math.abs(u - last) < 0.003 && w === undefined) return; last = u;
+    g.fillStyle = '#ece4cc'; g.fillRect(0, 0, 1024, 600);
+    for (let i = 0; i <= 1024; i += 20) { g.strokeStyle = i % 100 ? 'rgba(80,120,110,0.28)' : 'rgba(60,100,90,0.55)'; g.lineWidth = i % 100 ? 1 : 1.8; g.beginPath(); g.moveTo(i, 0); g.lineTo(i, 600); g.stroke(); }
+    for (let j = 0; j <= 600; j += 20) { g.strokeStyle = j % 100 ? 'rgba(80,120,110,0.28)' : 'rgba(60,100,90,0.55)'; g.lineWidth = j % 100 ? 1 : 1.8; g.beginPath(); g.moveTo(0, j); g.lineTo(1024, j); g.stroke(); }
+    g.fillStyle = '#2a3346'; g.font = 'bold 30px DejaVu Serif'; g.fillText('TRAJECTORY  ·  1958', 40, 52); g.font = 'italic 20px DejaVu Serif'; g.fillText('satellite orbit, plotted by hand', 42, 82);
+    g.fillStyle = '#4f6a8e'; g.beginPath(); g.arc(E[0], E[1], 62, 0, 7); g.fill(); g.strokeStyle = '#2a3346'; g.lineWidth = 2; g.stroke();
+    g.strokeStyle = 'rgba(42,51,70,0.35)'; g.setLineDash([6, 8]); g.beginPath(); g.ellipse(cx, E[1], a, b, 0, 0, 7); g.stroke(); g.setLineDash([]);   // đường dẫn mờ (tính trước)
+    g.strokeStyle = '#8a2e22'; g.lineWidth = 4.5; g.beginPath(); g.moveTo(E[0] - 60, E[1] - 18); g.quadraticCurveTo(E[0] - 95, E[1] - 30, pt(0)[0], pt(0)[1]); g.stroke();   // đường phóng
+    const n = Math.floor(400 * u); g.beginPath(); for (let k = 0; k <= n; k++) { const [x, y] = pt(k / 400); k ? g.lineTo(x, y) : g.moveTo(x, y); } g.stroke();
+    g.fillStyle = '#2a3346'; for (let k = 0; k <= n; k += 25) { const [x, y] = pt(k / 400); g.beginPath(); g.arc(x, y, 5, 0, 7); g.fill();  }
+    if (n > 0) { const [x, y] = pt(n / 400); g.fillStyle = '#8a2e22'; g.beginPath(); g.arc(x, y, 9, 0, 7); g.fill(); }
+    tex.needsUpdate = true; return pt(n / 400); };
+  draw(0, 0); return { tex, draw };
+}
+async function jpl({ W, H, dur, v, opt = {} }) {
+  const scene = new THREE.Scene(); fogOf(scene, '#d8c8a8', 0.012);
+  scene.add(new THREE.HemisphereLight('#fff1d6', '#6a5a44', 1.6));
+  const lino = canvasTex(512, 512, (g, w, h) => { g.fillStyle = '#9a9a84'; g.fillRect(0, 0, w, h); for (let i = 0; i < 8; i++) for (let j = 0; j < 8; j++) { g.fillStyle = (i + j) % 2 ? '#8f907a' : '#a6a58e'; g.fillRect(i * 64, j * 64, 64, 64); } });
+  lino.wrapS = lino.wrapT = THREE.RepeatWrapping; lino.repeat.set(6, 6);
+  box(16, 0.1, 22, std('#ffffff', { map: lino, roughness: 0.7 }), 0, 0, -3); box(16, 4, 0.3, std('#e6dcc4'), 0, 2, -9); box(0.3, 4, 22, std('#e0d4b8'), 8, 2, -3); box(16, 0.2, 22, std('#efe6d0'), 0, 4, -3);
+  // tường trái: cửa sổ cao nhìn ra đồi khô và hàng cọ dưới nắng chiều
+  const view = canvasTex(512, 256, (g, w, h) => { const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#9ec4e6'); gr.addColorStop(0.6, '#e8dcc0'); gr.addColorStop(1, '#d9c497'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
+    g.fillStyle = '#b08a5e'; g.beginPath(); g.moveTo(0, 170); for (let x = 0; x <= w; x += 16) g.lineTo(x, 150 - 40 * Math.sin(x / 70) - 20 * Math.sin(x / 23)); g.lineTo(w, h); g.lineTo(0, h); g.fill();
+    g.fillStyle = '#8f7a52'; g.fillRect(0, 210, w, h - 210);
+    g.strokeStyle = '#3d3a2a'; g.fillStyle = '#3d3a2a'; for (const [px, ph] of [[90, 150], [210, 175], [370, 160], [450, 140]]) { g.lineWidth = 5; g.beginPath(); g.moveTo(px, 230); g.quadraticCurveTo(px + 8, 230 - ph / 2, px + 4, 230 - ph); g.stroke();
+      for (let k = 0; k < 7; k++) { const an = k / 7 * Math.PI * 2; g.beginPath(); g.ellipse(px + 4 + 20 * Math.cos(an), 230 - ph + 8 * Math.sin(an), 24, 5, an, 0, 7); g.fill(); } } });
+  for (let i = 0; i < 4; i++) { const z = 3 - i * 3.2; box(0.06, 2.4, 2.0, basic('#ffffff', { map: view }), -7.83, 2.2, z); box(0.12, 2.6, 0.12, std('#5a5444'), -7.8, 2.2, z - 1.05); box(0.12, 0.12, 2.2, std('#5a5444'), -7.8, 2.2, z); box(0.12, 0.12, 2.2, std('#5a5444'), -7.8, 1.0, z); }
+  box(0.3, 4, 22, std('#e0d4b8'), -8, 2, -3);
+  const sun = new THREE.DirectionalLight('#ffe0a8', 3.2); sun.position.set(-14, 9, 4); sun.target.position.set(0, 0, -3); scene.add(sun, sun.target); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048); Object.assign(sun.shadow.camera, { left: -14, right: 14, top: 10, bottom: -10 });
+  // vệt nắng trên sàn (cửa sổ chiếu xiên), hạt bụi trong vệt nắng
+  for (let i = 0; i < 4; i++) { const m = new THREE.Mesh(new THREE.PlaneGeometry(3.0, 1.8), basic('#fff0c8', { transparent: true, opacity: 0.22, depthWrite: false, blending: THREE.AdditiveBlending })); m.rotation.x = -Math.PI / 2; m.position.set(-4.6, 0.06, 3 - i * 3.2); scene.add(m); }
+  // bảng quỹ đạo trên tường cuối
+  const ob = orbitBoard(); box(5.0, 2.9, 0.05, std('#ffffff', { map: ob.tex, roughness: 0.85 }), 0.6, 2.15, -8.8); box(5.2, 0.1, 0.12, std('#6b4a2a'), 0.6, 0.66, -8.75); box(5.2, 0.1, 0.12, std('#6b4a2a'), 0.6, 3.64, -8.75);
+  const bl = new THREE.SpotLight('#fff4dc', 40, 12, 0.5, 0.5, 1.2); bl.position.set(0.6, 3.8, -4.5); bl.target.position.set(0.6, 2.1, -8.8); scene.add(bl, bl.target);
+  for (const [x, z] of [[-2, -1], [3, -5]]) { const cl = new THREE.PointLight('#fff2dc', 6, 12, 1.2); cl.position.set(x, 3.2, z); scene.add(cl); }
+  // người đứng vẽ trên bảng (áo sáng màu, không mặt)
+  const pl = figure({ scale: 1.0, color: '#2e2622' }); const bun = new THREE.Mesh(new THREE.SphereGeometry(0.07, 12, 10), lam('#2e2622')); bun.position.set(0, 1.62, -0.1); pl.root.add(bun);
+  pl.root.position.set(-1.2, 0, -8.3); pl.root.rotation.y = Math.PI - 0.25; scene.add(pl.root);
+  // hai hàng bàn tính, ban ngày (đèn bàn vẫn bật), người làm việc
+  const desks = []; for (let r = 0; r < 2; r++) for (let c = 0; c < 3; c++) desks.push(computeDesk(scene, -2.6 + c * 2.5, -4.6 + r * 2.4, { lampOn: true, seed: 300 + r * 3 + c, pc: ['#2e2622', '#28292e', '#33281f'][(r + c) % 3] }));
+  const dst = dust(scene, [-3.5, 1.6, -1], [4, 2.4, 8], 260, 59, '#fff0d0');
+  const K = { a: [{ t: 0, p: [3.2, 1.75, 4.6], l: [-0.4, 1.6, -6], mm: 28 }, { t: dur, p: [1.6, 1.85, -2.6], l: [0.2, 2.0, -8.8], mm: 34 }] }[v];
+  const rig = camRig(W, H, K);
+  const update = (t, f) => {
+    rig.at(t); dst.update(t);
+    const u = ease((t - (opt.orbit0 !== undefined ? opt.orbit0 : 0.5)) / (opt.orbitDur || dur * 0.7)); ob.draw(u);
+    pl.set({ armR: -1.75 - 0.3 * Math.sin(u * Math.PI * 2), armL: -0.15, headTilt: -0.1 });
+    desks.forEach((d) => d.set(t, f, { lamp: 1 }));
+  };
+  return { scene, cam: rig.cam, update, grade: 'sepia', exposure: 1.0 };
+}
+
+export const HEROES = { airfield, pool, relay, tower, ladder, jpl };

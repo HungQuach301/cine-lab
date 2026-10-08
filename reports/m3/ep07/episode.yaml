@@ -30,7 +30,7 @@ heroes:
   pool_door:  {hero: ep07/pool, variant: e, lamp: true}
   pool_grow:  {hero: ep07/pool, variant: c, lamp: true, opt: {grow: 1, grow0: 1.0}}
   pool_split: {hero: ep07/pool, variant: d, lamp: true}
-  pool_orbit: {hero: ep07/pool, variant: b, lamp: true, opt: {orbit: 1, plot: 0.5, plotDur: 16}}
+  jpl_orbit:  {hero: ep07/jpl, variant: a, lamp: true, opt: {orbit0: 3.0, orbitDur: 10.0}}   # Q31 vòng 2 T06: JPL ban ngày, khác hẳn Langley đêm
   pool_empty: {hero: ep07/pool, variant: c, lamp: true, opt: {empty: 1, empty0: 2.0}}
   relay_row:  {hero: ep07/relay, variant: a}
   relay_tape: {hero: ep07/relay, variant: b}
@@ -166,7 +166,7 @@ segments:
     part: HISTORY
     map: {q: "How far did the work spread, and for whom?", act: 2, emo: weight, color: sepia, cue: history, trade: [adding-machine, wall-clock],
           in: cut, out: cut, lamp: {in: false, out: true},
-          nouns: [{w: "@war", img: "ảnh NASA 1943: nữ vận hành thiết bị nghiên cứu ở hầm gió"}, {w: "@tunnels", img: "ảnh NASA 1943: hầm gió hai chiều"}, {w: "@seventyfive", img: "hàng hình người 1942", anchor: c42},
+          nouns: [{w: "@war", img: "chồng giấy tính hoà sang ảnh NASA 1943: dữ liệu hầm gió"}, {w: "@tunnels", img: "ảnh NASA 1943: hầm gió hai chiều"}, {w: "@seventyfive", img: "hàng hình người 1942", anchor: c42},
                   {w: "@about", img: "hàng hình người 1946, rồi phòng đầy dần người", anchor: c46}, {w: "@segregation", img: "vách ngăn giữa hai phòng tính toán giống hệt nhau"}, {w: "@work", img: "hai phòng, cùng việc"}]}
     pause: [{before: "@about", s: 0.7}]
     vo: >-
@@ -175,8 +175,9 @@ segments:
       The door did not open evenly. In the 1940s, Langley also began recruiting Black women with college degrees as computers.
       Under segregation, they were grouped in a separate section, the West Area Computers, with segregated dining rooms and bathrooms. They did the same work. In the 1950s, the sections began to integrate.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/nasa-LRC-1943-B701_P-33025.jpg, rid: NASA-LRC-1943-B701_P-33025, focus: [0.5, 0.5], credit: "Wind tunnel data, Langley, 1943 · NASA",
-           cam: [{t: 0, x: 60, z: 0.02}, {t: "@report+3", x: -60, z: 0.15}], cap: [{s: "the war: computing spreads into the wind tunnels", at: "@war", src: [NASA1]}]},
+      - {tpl: plate, at: 0, p: {hero: pool_stack, frame0: 195}}   # Q31 vòng 2 T04: nối tiếp chồng giấy cuối đoạn 03, rồi hoà sang ảnh lưu trữ (không nhảy chất liệu)
+      - {tpl: archive, at: "@war-0.2", in: {type: fade, d: 1.4}, p: {img: assets/ll/archive/nasa-LRC-1943-B701_P-33025.jpg, rid: NASA-LRC-1943-B701_P-33025, focus: [0.5, 0.5], credit: "Wind tunnel data, Langley, 1943 · NASA",
+           cam: [{t: "@war-0.2", x: 60, z: 0.02}, {t: "@report+3", x: -60, z: 0.15}], cap: [{s: "the war: computing spreads into the wind tunnels", at: "@computing", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: 0.3, src_ss: 20.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: isotype, at: "@report-0.6", in: fade, p: {title: "Women computers at the Langley laboratory", subtitle: "one laboratory, not a national count", unit: 20, unitName: "women", per: 20,
            groups: [{label: "1942 (report)", num: c42, at: "@seventyfive"}, {label: "by 1946 (trained)", num: c46, at: "@about"}],
@@ -212,14 +213,14 @@ segments:
     part: HISTORY
     map: {q: "Who checked whom, the machine or the people?", act: 2, emo: tension, color: sepia, cue: history, trade: [pencil-paper, relay-bank, adding-machine],
           in: cut, out: cut, lamp: {in: true, out: false},
-          nouns: [{w: "@paths", img: "đường quỹ đạo vẽ dần trên giấy kẻ ô"}, {w: "@programmers", img: "quỹ đạo, máy tính cơ, đèn bàn"}, {w: "@explorer", img: "quỹ đạo khép vòng"}, {w: "@machines", img: "tủ rơ-le nhấp nháy"}, {w: "@astronaut", img: "ảnh NASA 1957: phòng máy IBM 704 và bàn tính"}]}
+          nouns: [{w: "@jet", img: "phòng tính toán ban ngày, nắng California, hàng cọ ngoài cửa sổ"}, {w: "@paths", img: "đường quỹ đạo vẽ dần trên bảng lớn"}, {w: "@programmers", img: "hàng bàn tính, người vẽ quỹ đạo"}, {w: "@explorer", img: "quỹ đạo khép vòng"}, {w: "@machines", img: "tủ rơ-le nhấp nháy"}, {w: "@astronaut", img: "ảnh NASA 1957: phòng máy IBM 704 và bàn tính"}]}
     vo: >-
       At the Jet Propulsion Laboratory in California, women computers calculated the paths of spacecraft, and went on to become some of the first computer programmers at NASA.
       In 1958, their calculations helped put Explorer 1, the first American satellite, into orbit.
       At first, as JPL puts it, the machines were fast but not nearly as reliable as the people.
       Before the first American orbital flight, the astronaut asked for a mathematician who had started out as a human computer to check the machine's numbers.
     shots:
-      - {tpl: plate, at: 0, p: {hero: pool_orbit, frame0: 0, cap: [{s: "JPL, California: computing the paths of spacecraft", at: "@paths", src: [NASA2]}, {s: "some of the first computer programmers at NASA", at: "@programmers", src: [NASA2]},
+      - {tpl: plate, at: 0, p: {hero: jpl_orbit, frame0: 0, cap: [{s: "Jet Propulsion Laboratory, California", at: "@jet", src: [NASA2]}, {s: "women computers: the paths of spacecraft", at: "@paths", src: [NASA2]}, {s: "some of the first computer programmers at NASA", at: "@programmers", src: [NASA2]},
            {s: "1958: Explorer 1, the first American satellite", at: "@1958", src: [NASA2]}, {s: "…into orbit", at: "@orbit"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: 0.3, src_ss: 20.0, dur: 6.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/adding-machine.mp3, at: "@1958", src_ss: 8.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
       - {tpl: plate, at: "@first#3-0.4", in: fade, p: {hero: relay_row, frame0: 160, cap: [{s: "at first: the machines were fast…", at: "@first#3", src: [NASA2]}, {s: "…but not nearly as reliable as the people", at: "@reliable", src: [NASA2]}]},
