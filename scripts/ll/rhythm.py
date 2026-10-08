@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.dirname(__file__)); import ll
 
 FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect', 'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}   # v2 (05/10/2026): cảnh toàn khung
 DATA = {'bars', 'line', 'compare', 'bignum'}
-CONTENT_KEYS = ('at', 'noteAt', 'midAt', 'diffAt', 'capAt')
+CONTENT_KEYS = ('at', 'noteAt', 'midAt', 'diffAt', 'capAt', 'titleAt')   # titleAt: tựa phim chồng lên cảnh đinh (v3)
 
 
 def _ats(x, acc):
@@ -56,6 +56,7 @@ def measure(E, TL):
     gfx += [s['t0'] + c['at'] for s in segs for sh in s['shots'] for c in sh['p'].get('cap', []) if isinstance(c.get('at'), (int, float))]   # chú thích đè lên cảnh cũng là hình
     q_img = any(t < 15 for t in gfx)
     title = [s['t0'] + sh['t0'] for s in segs for sh in s['shots'] if sh['tpl'] == 'text' and sh['p'].get('lamp')]
+    title += [s['t0'] + (sh['p']['titleAt'] if isinstance(sh['p'].get('titleAt'), (int, float)) else sh['t0'] + 0.5) for s in segs for sh in s['shots'] if sh['tpl'] == 'plate' and sh['p'].get('title')]   # v3 (checks Q14): tựa chồng lên cảnh đinh
     t_title = min(title) if title else None
     hk = E.get('hook') or {}
     ans = next((x for x in E['segments'] if x['id'] == hk.get('answer')), None)

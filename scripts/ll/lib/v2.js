@@ -44,7 +44,7 @@ TPL.stack = (p) => { const cam = camOf(p); return { kind: 'full', full(g, t) { c
     const top = y - n * hgt * s * 0.98, va = rv(t, a0 + 0.12 * n, 0.5);
     text(g, b.text || fmtBig(b.value, p.unit), x, top - 30, 64, CREAM, { kind: 'serif', align: 'center', a: va }); if (b.kind) lightTag(g, b.kind, x, top - 112, 20, va, 'center');
     text(g, b.label || '', x, y + 44, 28, CREAM, { align: 'center', a: rvH(t, a0 - 0.3, 0.4) }); }); alive(g, t);
-  if (p.per) text(g, `each ${p.objName || ({ files: 'file stack', atm: 'ATM', typewriter: 'typewriter' })[p.obj] || 'item'} = ${p.unit === '%' ? p.per + ' points' : fmtN(p.per)} ${p.unitName || ''}`.trim(), W - 110, 140, 24, 'rgba(236,223,190,0.85)', { align: 'right', a: rvH(t, p.t0 + 0.5, 0.6) });
+  if (p.per) text(g, `each ${p.objName || ({ files: 'file stack', atm: 'ATM', typewriter: 'typewriter' })[p.obj] || 'item'} = ${p.unit === '%' ? p.per + (p.per === 1 ? ' point' : ' points') : fmtN(p.per)} ${p.unitName || ''}`.trim(), W - 110, 140, 24, 'rgba(236,223,190,0.85)', { align: 'right', a: rvH(t, p.t0 + 0.5, 0.6) });
   v2Head(g, t, p); } }; };
 
 // ---- sign: số sơn trên biển hiệu/tường nhà, đèn rọi. p = { value/num/text, caption, at, kind, cam, wall: 'brick'|'plaster', src } ----
@@ -119,6 +119,11 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
     if (iar > ar + 0.01) { const sw = im.height * ar, sx = Math.max(0, Math.min(im.width - sw, (p.fx === undefined ? 0.5 : p.fx) * im.width - sw / 2)); g.drawImage(im, sx, 0, sw, im.height, 0, 0, W, H); }
     else g.drawImage(im, 0, 0, W, H); }
   else text(g, `missing plate ${p.dir}#${i}`, W / 2, H / 2, 40, '#ff8080', { align: 'center' });
+  if (p.title) { const ta = rv(t, p.titleAt === undefined ? p.t0 + 0.5 : p.titleAt, 1.0) * (1 - rv(t, p.titleOut === undefined ? 1e9 : p.titleOut, 0.8)); if (ta > 0.01) {   /* tựa phim chồng lên cảnh đinh (checks LL v3 Q14; rút từ tập 6: thay thẻ tựa giấy) */
+    const yc = H * (LL.fmt === '9x16' ? 0.4 : 0.44), band = g.createLinearGradient(0, yc - 170, 0, yc + 130); band.addColorStop(0, 'rgba(8,7,10,0)'); band.addColorStop(0.3, 'rgba(8,7,10,0.62)'); band.addColorStop(0.7, 'rgba(8,7,10,0.62)'); band.addColorStop(1, 'rgba(8,7,10,0)');
+    g.save(); g.globalAlpha = ta; g.fillStyle = band; g.fillRect(0, yc - 170, W, 300); g.restore();
+    text(g, p.title, W / 2, yc, LL.fmt === '9x16' ? 64 : 84, CREAM, { kind: 'serif', align: 'center', a: ta });
+    if (p.subtitle) text(g, p.subtitle, W / 2, yc + 62, 32, 'rgba(236,223,190,0.92)', { align: 'center', a: ta * rv(t, (p.titleAt === undefined ? p.t0 + 0.5 : p.titleAt) + 0.5, 0.8) }); } }
   if (p.cap && p.cap.length) { const v = g.createLinearGradient(0, H * 0.55, 0, H); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.55)'); g.fillStyle = v; g.fillRect(0, H * 0.55, W, H * 0.45); }
   if (p.credit && !(p.cap && p.cap.length)) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, 'rgba(236,223,190,0.9)', { align: 'right' }); }
 } });

@@ -58,6 +58,7 @@ for k, (a, z) in enumerate([(0, c1), (c1, c2), (c2, T)], 1):
 E
   DUR=$($PY -c "import json;print(json.load(open('$TL'))['tong_s'])")
   VF="scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int,format=yuv420p"; COL="-color_range tv -color_primaries bt709 -color_trc bt709 -colorspace bt709"
+  [ -n "$MW" ] && VF="scale=$MW:-2:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p"   # bản nháp (tập 7): MW=960 → master 960×540; dùng kèm đặc tả nháp (cảnh đinh 960×540, SPP=1)
   disk "trước ghép"
   ffmpeg -v error -y -f concat -safe 0 -i $O/list.txt -i $O/mix.wav -map 0:v -map 1:a -vf "$VF" -c:v libx264 -preset slow -crf 16 -profile:v high -g 48 $COL -r 24 -fps_mode cfr \
     -c:a aac -b:a 256k -ar 48000 -movflags +faststart -t $DUR $O/$ID-$V-master.mp4
