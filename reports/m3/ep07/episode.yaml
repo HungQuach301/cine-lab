@@ -43,11 +43,11 @@ heroes:
   s_relay:    {hero: ep07/relay, variant: b, size: [1080, 1920]}
 
 sources:
-  NASA1: {short: "NASA History: Langley's Computers, 1935–1970", short9: "NASA History", title: "When the Computer Wore a Skirt: Langley's Computers, 1935–1970",
+  NASA1: {short: "NASA History: Langley", short9: "NASA History", title: "When the Computer Wore a Skirt: Langley's Computers, 1935–1970",
           url: "https://www.nasa.gov/history/langleys-computers-1935-1970/", read: fulltext, pages: "web article (P đọc toàn văn 06/10 và 08/10/2026)", accessed: 2026-10-08}
-  NASA2: {short: "NASA JPL: When Computers Were Human", short9: "NASA JPL", title: "When Computers Were Human",
+  NASA2: {short: "NASA JPL: Computers Were Human", short9: "NASA JPL", title: "When Computers Were Human",
           url: "https://www.nasa.gov/centers-and-facilities/jpl/when-computers-were-human/", read: fulltext, pages: "web article", accessed: 2026-10-08}
-  NASA3: {short: "NASA: From Computers to Leaders", short9: "NASA", title: "From Computers to Leaders: Women at NASA Langley",
+  NASA3: {short: "NASA: Computers to Leaders", short9: "NASA", title: "From Computers to Leaders: Women at NASA Langley",
           url: "https://www.nasa.gov/general/from-computers-to-leaders-women-at-nasa-langley/", read: fulltext, pages: "web article", accessed: 2026-10-08}
   OOH90: {short: "BLS Outlook Handbook 1990–91", short9: "BLS Outlook Handbook 1990–91", title: "Occupational Outlook Handbook, 1990–91 Edition: Computer Programmers",
           url: "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_2350_1990.pdf", read: fulltext, pages: "print pp. 215–216 (Computer Programmers)", accessed: 2026-10-06}
@@ -133,8 +133,8 @@ segments:
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: -1.0, src_ss: 1.0, dur: 7.0, gain_db: -15, fade_ms: 700}]}
       - {tpl: plate, at: "@1935-0.4", in: fade, p: {hero: pool_five, frame0: 0, cap: [{s: "Langley, Virginia, 1935", at: "@1935", src: [NASA1]}, {s: "the first computer pool: five women", at: "@pool", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/wall-clock.mp3, at: "@1935", src_ss: 3.0, dur: 6.0, gain_db: -18, fade_ms: 600}]}
-      - {tpl: archive, at: "@read-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1952-B701_P-74769.jpg, rid: NASA-LRC-1952-B701_P-74769, focus: [0.42, 0.45], credit: "NACA computer with film reader and Friden calculator, 1952 · NASA",
-           cam: [{t: "@read", x: 30, z: 0.03}, {t: "@calculations#2+1", x: -10, z: 0.08}], cap: [{s: "read film of the wind tunnel instruments", at: "@read", src: [NASA1]}, {s: "run the calculations", at: "@ran"}]},
+      - {tpl: archive, at: "@read-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1952-B701_P-74769.jpg, rid: NASA-LRC-1952-B701_P-74769, focus: [0.42, 0.45], credit: "Computer with Friden calculator, 1952 · NASA",
+           cam: [{t: "@read-0.3", x: 30, z: 0.03}, {t: "@calculations#2+1", x: -10, z: 0.08}], cap: [{s: "read film of the wind tunnel instruments", at: "@read", src: [NASA1]}, {s: "run the calculations", at: "@ran"}]},
          sfx: [{file: assets/ll/sfx/film-reader.mp3, at: "@read", src_ss: 5.0, dur: 3.0, gain_db: -16, fade_ms: 400}]}
       - {tpl: plate, at: "@plotted-0.3", in: fade, p: {hero: pool_desk, frame0: 200, cap: [{s: "plot the results on graph paper", at: "@plotted", src: [NASA1]}, {s: "slide rules · magnifying glasses · calculating machines", at: "@slide"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@plotted", src_ss: 4.0, dur: 3.5, gain_db: -12, fade_ms: 400}, {file: assets/ll/sfx/adding-machine.mp3, at: "@multiply", src_ss: 14.0, dur: 3.0, gain_db: -15, fade_ms: 300}]}
@@ -174,11 +174,11 @@ segments:
       The door did not open evenly. In the 1940s, Langley also began recruiting Black women with college degrees as computers.
       Under segregation, they were grouped in a separate section, the West Area Computers, with segregated dining rooms and bathrooms. They did the same work. In the 1950s, the sections began to integrate.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/nasa-LRC-1943-B701_P-33025.jpg, rid: NASA-LRC-1943-B701_P-33025, focus: [0.5, 0.5], credit: "Women obtaining wind tunnel data, Langley, 1943 · NASA",
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/nasa-LRC-1943-B701_P-33025.jpg, rid: NASA-LRC-1943-B701_P-33025, focus: [0.5, 0.5], credit: "Wind tunnel data, Langley, 1943 · NASA",
            cam: [{t: 0, x: 40, z: 0.02}, {t: 7, x: -20, z: 0.09}], cap: [{s: "the war: computing spreads into the wind tunnels", at: "@war", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: 0.3, src_ss: 20.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: isotype, at: "@report-0.6", in: fade, p: {title: "Women computers at the Langley laboratory", subtitle: "one laboratory, not a national count", unit: 10, unitName: "women", per: 20,
-           groups: [{label: "1935", num: c35, echo: true, at: "@report"}, {label: "1942 (report)", num: c42, at: "@seventyfive"}, {label: "by 1946 (trained)", num: c46, at: "@about"}],
+           groups: [{label: "1942 (report)", num: c42, at: "@seventyfive"}, {label: "by 1946 (trained)", num: c46, at: "@about"}],
            cap: [{s: "1935: five · 1942: 75 · by 1946: about 400", at: "@trained", src: [NASA1]}]}}
       - {tpl: plate, at: "@placed-0.4", in: fade, p: {hero: pool_grow, frame0: 0, cap: [{s: "placed across the laboratory", at: "@placed", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: "@placed", src_ss: 10.0, dur: 5.0, gain_db: -15, fade_ms: 600}]}
@@ -190,7 +190,7 @@ segments:
     part: HISTORY
     map: {q: "What happened when the machine arrived?", act: 2, emo: change, color: sepia, cue: history, trade: [relay-bank, teleprinter-tape],
           in: cut, out: cut, lamp: {in: false, out: false},
-          nouns: [{w: "@machine", img: "hành lang tủ rơ-le, đèn báo nhấp nháy"}, {w: "@computer#2", img: "ảnh NASA 1947: phòng máy Bell"}, {w: "@tape", img: "ảnh NASA 1947: người vận hành cầm băng"}, {w: "@programming#2", img: "đầu đọc băng đục lỗ, băng chạy"}]}
+          nouns: [{w: "@second", img: "hành lang tủ rơ-le, đèn báo nhấp nháy"}, {w: "@computer", img: "ảnh NASA 1947: phòng máy Bell"}, {w: "@tape", img: "ảnh NASA 1947: người vận hành cầm băng"}, {w: "@programming#2", img: "đầu đọc băng đục lỗ, băng chạy"}]}
     vo: >-
       Then came the second kind of work. In 1947, the laboratory's agency acquired a huge electronic computer, and it got its own computing group:
       people in charge of programming it, feeding it punched tape to solve the equations of high-speed flight.
@@ -199,10 +199,10 @@ segments:
       - {tpl: plate, at: 0, p: {hero: relay_row, frame0: 0, cap: [{s: "the second kind of work", at: "@second"}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: -0.5, src_ss: 30.0, dur: 6.0, gain_db: -13, fade_ms: 600}]}
       - {tpl: archive, at: "@1947-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1947-B701_P-51532.jpg, rid: NASA-LRC-1947-B701_P-51532, focus: [0.5, 0.48], credit: "Bell computer control room, Langley, 1947 · NASA",
-           cam: [{t: "@1947", x: -30, z: 0.03}, {t: "@group+1", x: 20, z: 0.08}], cap: [{s: "1947: a huge electronic computer", at: "@1947", src: [NASA1]}, {s: "with its own computing group", at: "@group"}]},
+           cam: [{t: "@1947-0.3", x: -30, z: 0.03}, {t: "@group+1", x: 20, z: 0.08}], cap: [{s: "1947: a huge electronic computer", at: "@1947", src: [NASA1]}, {s: "with its own computing group", at: "@group"}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: "@1947", src_ss: 90.0, dur: 5.0, gain_db: -15, fade_ms: 500}]}
-      - {tpl: archive, at: "@people-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1947-B701_P-52134.jpg, rid: NASA-LRC-1947-B701_P-52134, focus: [0.42, 0.42], credit: "Operator with a routine tape, Bell computer, Langley, 1947 · NASA",
-           cam: [{t: "@people", x: 20, z: 0.04}, {t: "@flight+1", x: -20, z: 0.1}], cap: [{s: "programming it: punched tape", at: "@punched", src: [NASA1]}, {s: "the equations of high-speed flight", at: "@equations"}]},
+      - {tpl: archive, at: "@people-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1947-B701_P-52134.jpg, rid: NASA-LRC-1947-B701_P-52134, focus: [0.42, 0.42], credit: "Routine tape, Bell computer, 1947 · NASA",
+           cam: [{t: "@people-0.3", x: 20, z: 0.04}, {t: "@flight+1", x: -20, z: 0.1}], cap: [{s: "programming it: punched tape", at: "@punched", src: [NASA1]}, {s: "the equations of high-speed flight", at: "@equations"}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@punched", src_ss: 20.0, dur: 3.5, gain_db: -15, fade_ms: 400}]}
       - {tpl: plate, at: "@human-0.4", in: fade, p: {hero: relay_tape, frame0: 0, cap: [{s: "human computers took on programming duties", at: "@human", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@human", src_ss: 40.0, dur: 4.0, gain_db: -14, fade_ms: 400}]}
@@ -223,8 +223,8 @@ segments:
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: 0.3, src_ss: 20.0, dur: 6.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/adding-machine.mp3, at: "@1958", src_ss: 8.0, dur: 3.5, gain_db: -16, fade_ms: 400}]}
       - {tpl: plate, at: "@first#3-0.4", in: fade, p: {hero: relay_row, frame0: 160, cap: [{s: "at first: the machines were fast…", at: "@first#3", src: [NASA2]}, {s: "…but not nearly as reliable as the people", at: "@reliable", src: [NASA2]}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: "@first#3", src_ss: 150.0, dur: 5.0, gain_db: -14, fade_ms: 500}]}
-      - {tpl: archive, at: "@before-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1957-B701_P-05391.jpg, rid: NASA-LRC-1957-B701_P-05391, focus: [0.48, 0.55], credit: "IBM 704 computer operations, Langley, 1957 · NASA",
-           cam: [{t: "@before", x: 30, z: 0.02}, {t: "@numbers+1", x: -20, z: 0.09}], cap: [{s: "the first American orbital flight", at: "@orbital", src: [NASA3]}, {s: "a mathematician who started as a human computer", at: "@mathematician", src: [NASA3]}, {s: "“check the machine's numbers”", at: "@check", src: [NASA3]}]},
+      - {tpl: archive, at: "@before-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1957-B701_P-05391.jpg, rid: NASA-LRC-1957-B701_P-05391, focus: [0.48, 0.55], credit: "IBM 704 room, Langley, 1957 · NASA",
+           cam: [{t: "@before-0.3", x: 30, z: 0.02}, {t: "@numbers+1", x: -20, z: 0.09}], cap: [{s: "the first American orbital flight", at: "@orbital", src: [NASA3]}, {s: "a mathematician who started as a human computer", at: "@mathematician", src: [NASA3]}, {s: "“check the machine's numbers”", at: "@check", src: [NASA3]}]},
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: "@check", src_ss: 4.0, dur: 3.0, gain_db: -16, fade_ms: 400}]}
 
   - id: "07"
@@ -242,7 +242,7 @@ segments:
            {s: "“the dwindling days of human computing”", at: "@dwindling", src: [NASA3]}, {s: "electronic computers: part of everyday work", at: "@everyday", src: [NASA3]}, {s: "calculating by hand faded away", at: "@faded"}]},
          sfx: [{file: assets/ll/sfx/wall-clock.mp3, at: 0.3, src_ss: 8.0, dur: 9.0, gain_db: -16, fade_ms: 900}]}
       - {tpl: archive, at: "@many-0.3", in: fade, p: {img: assets/ll/archive/nasa-LRC-1959-B701_P-00007.jpg, rid: NASA-LRC-1959-B701_P-00007, focus: [0.5, 0.5], credit: "Women researchers at Langley, 1959 · NASA",
-           cam: [{t: "@many", x: -20, z: 0.02}, {t: "@engineering+1", x: 20, z: 0.08}], cap: [{s: "many found new work", at: "@many"}, {s: "1950s–60s: out of the computer pool…", at: "@through", src: [NASA3]}, {s: "…worked their way…", at: "@worked"}, {s: "…into engineering", at: "@engineering"}]},
+           cam: [{t: "@many-0.3", x: -20, z: 0.02}, {t: "@engineering+1", x: 20, z: 0.08}], cap: [{s: "many found new work", at: "@many"}, {s: "1950s–60s: out of the computer pool…", at: "@through", src: [NASA3]}, {s: "…worked their way…", at: "@worked"}, {s: "…into engineering", at: "@engineering"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@many", src_ss: 30.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
       - {tpl: plate, at: "@others-0.4", in: fade, p: {hero: relay_tape, frame0: 120, cap: [{s: "others: into programming", at: "@others", src: [NASA1]}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@others", src_ss: 60.0, dur: 3.0, gain_db: -15, fade_ms: 400}]}
@@ -253,7 +253,7 @@ segments:
     part: HISTORY
     map: {q: "Did anyone see the next change coming?", act: 2, emo: foresight, color: sepia, cue: history, trade: [teleprinter-tape, wall-clock, footsteps-steps],
           in: cut, out: jcut, out_note: "phòng tính toán còn một đèn bàn → phố đêm; bước chân người thắp đèn vào trước hình 1,2 s", lamp: {in: false, out: true},
-          nouns: [{w: "@occupation", img: "số sơn trên tường thạch cao"}, {w: "@five", img: "số 519,000 sơn trên tường", anchor: prog88}, {w: "@handbook", img: "thẻ trích dẫn sổ tay BLS 1990"}, {w: "@artificial", img: "phòng tính toán, đèn bàn cuối cùng"}]}
+          nouns: [{w: "@occupation", img: "số sơn trên tường thạch cao"}, {w: "@five", img: "số 519,000 sơn trên tường", anchor: prog88}, {w: "@handbook", img: "đầu đọc băng đục lỗ (sổ tay 1990 nhìn về nghề lập trình)"}, {w: "@artificial", img: "phòng tính toán, đèn bàn cuối cùng"}]}
     pause: [{before: "@five", s: 0.7}]
     vo: >-
       Programming grew into a large occupation of its own. By 1988, computer programmers held five hundred nineteen thousand jobs in the United States.
@@ -261,10 +261,12 @@ segments:
       In 1990, the government's job handbook looked ahead. Improved software, it said, would simplify or eliminate some programming tasks.
       And artificial intelligence would become just additional tools available to programmers.
     shots:
-      - {tpl: sign, at: 0, p: {num: prog88, caption: "computer programmer jobs, United States, 1988", at: "@nineteen", capAt: "@jobs", wall: plaster,
+      - {tpl: sign, at: 0, p: {num: prog88, caption: "computer programmer jobs, United States, 1988", at: "@nineteen", capAt: "@jobs", wall: brick,
            cam: [{t: 0, x: 0, z: 0.0}, {t: "@1988", x: -20, z: 0.02}, {t: "@count", x: -40, z: 0.04}, {t: "@numbers+0.5", x: -50, z: 0.05}],
            cap: [{s: "programming: a large occupation of its own", at: "@programming", src: [OOH90]}, {s: "a count from another era, other job definitions", at: "@count"}, {s: "not set beside today's numbers", at: "@beside"}]}}
-      - {tpl: quote, at: "@1990-0.4", in: flip, p: {beats: [{s: "the government's job handbook, 1990", at: "@1990"}, {s: "it looked ahead", at: "@looked"}],
+      - {tpl: plate, at: "@1990-0.4", in: fade, p: {hero: relay_tape, frame0: 300, cap: [{s: "1990: the government's job handbook", at: "@1990", src: [OOH90]}, {s: "it looked ahead", at: "@looked"}]},
+         sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@1990", src_ss: 50.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
+      - {tpl: quote, at: "@improved-0.4", in: flip, p: {beats: [{s: "the BLS, 1990", at: "@improved"}],
            text: "…improved software and programming techniques simplify or eliminate some programming tasks.", who: "U.S. Bureau of Labor Statistics", where: "Occupational Outlook Handbook, 1990–91", at: "@improved", src: [OOH90]}}
       - {tpl: plate, at: "@artificial-0.4", in: fade, p: {hero: pool_empty, frame0: 300, cap: [{s: "AI: “just additional tools available to programmers”", at: "@artificial", src: [OOH90]}]},
          sfx: [{file: assets/ll/sfx/wall-clock.mp3, at: "@artificial", src_ss: 12.0, dur: 5.0, gain_db: -16, fade_ms: 800}]}
@@ -293,20 +295,22 @@ segments:
     part: TODAY
     map: {q: "What does the third kind of work look like?", act: 3, emo: curiosity, color: cold, cue: today, trade: [keyboard-typing, mouse-clicks],
           in: cut, out: cut, lamp: {in: true, out: true},
-          nouns: [{w: "@code", img: "màn hình mã"}, {w: "@economists", img: "thẻ trích dẫn BLS 2025"}, {w: "@stories", img: "màn hình thứ hai: sơ đồ chức năng"}, {w: "@uncertain", img: "toàn sàn văn phòng đêm"}]}
+          nouns: [{w: "@code", img: "màn hình mã"}, {w: "@economists", img: "toàn sàn văn phòng đêm (BLS economists, 2025)"}, {w: "@stories", img: "màn hình thứ hai: sơ đồ chức năng"}, {w: "@uncertain", img: "toàn sàn văn phòng đêm"}]}
     vo: >-
       Today, the third kind of work. The computer can help write the code. In 2025, BLS economists wrote that programming is one of the activities AI is well suited to augment.
       Software developers can use generative AI to develop, test, and document code, and to write user stories, short descriptions of what a feature should do for the people who use it.
       The economists called the effect on the occupation highly uncertain.
     shots:
       - {tpl: plate, at: 0, p: {hero: tower_code, frame0: 240, cap: [{s: "today: the third kind of work", at: "@today"}, {s: "the computer can help write the code", at: "@help", src: [MLR25]}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.2, src_ss: 16.0, dur: 4.5, gain_db: -15, fade_ms: 500}]}
-      - {tpl: quote, at: "@2025-0.4", in: slide, p: {beats: [{s: "BLS economists, 2025", at: "@2025"}, {s: "generative AI", at: "@generative"}, {s: "develop · test · document code", at: "@develop"}, {s: "…and write user stories", at: "@user"}],
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.2, src_ss: 12.8, dur: 4.5, gain_db: -15, fade_ms: 500}]}
+      - {tpl: plate, at: "@2025-0.4", in: fade, p: {hero: tower_floor, frame0: 480, cap: [{s: "BLS economists, 2025", at: "@2025", src: [MLR25]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@2025", src_ss: 26.0, dur: 2.5, gain_db: -15, fade_ms: 300}]}
+      - {tpl: quote, at: "@programming-0.4", in: slide, p: {beats: [{s: "generative AI", at: "@generative"}, {s: "develop · test · document code", at: "@develop"}, {s: "…and write user stories", at: "@user"}],
            text: "Programming is one of many work activities in which new LLMs and GenAI are well suited to augment worker efforts…", who: "BLS economists", where: "Monthly Labor Review, February 2025", at: "@programming", src: [MLR25]}}
       - {tpl: plate, at: "@stories-0.4", in: fade, p: {hero: tower_code, frame0: 480, cap: [{s: "user stories", at: "@stories", src: [MLR25]}, {s: "what a feature should do for the people who use it", at: "@feature"}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@stories", src_ss: 4.0, dur: 3.0, gain_db: -13, fade_ms: 300}]}
       - {tpl: plate, at: "@economists#2-0.4", in: fade, p: {hero: tower_floor, frame0: 0, cap: [{s: "the effect on the occupation: “highly uncertain”", at: "@highly", src: [MLR25]}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@highly", src_ss: 22.0, dur: 3.0, gain_db: -18, fade_ms: 600}]}
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@highly", src_ss: 1.1, dur: 3.0, gain_db: -18, fade_ms: 600}]}
 
   - id: "11"
     part: TODAY
@@ -318,12 +322,12 @@ segments:
       Their jobs are projected to shrink from 2025 to 2035. Programming work continues to be automated, BLS says, companies are expected to use technologies including AI,
       and some higher-skilled programming tasks will likely shift to other workers, such as software developers.
     shots:
-      - {tpl: plate, at: 0, p: {hero: tower_floor, frame0: 120, cap: [{s: "two job titles that sound alike, two directions", at: "@titles"}, {s: "1 · computer programmers", at: "@first", src: [OOHCP]}, {s: "write · modify · test code", at: "@write", src: [OOHCP]},
+      - {tpl: plate, at: 0, p: {hero: tower_in, frame0: 230, cap: [{s: "two job titles that sound alike, two directions", at: "@titles"}, {s: "1 · computer programmers", at: "@first", src: [OOHCP]}, {s: "write · modify · test code", at: "@write", src: [OOHCP]},
            {s: "projected to shrink, 2025–35", at: "@shrink", src: [OOHCP]}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 30.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 3.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: plate, at: "@programming-0.4", in: fade, p: {hero: tower_code, frame0: 360, cap: [{s: "programming work continues to be automated", at: "@automated", src: [OOHCP]}, {s: "companies: technologies including AI", at: "@companies", src: [OOHCP]},
            {s: "higher-skilled tasks: likely to shift…", at: "@higherskilled", src: [OOHCP]}, {s: "…to other workers, such as software developers", at: "@developers", src: [OOHCP]}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@programming", src_ss: 36.0, dur: 4.0, gain_db: -15, fade_ms: 400}]}
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@programming", src_ss: 6.3, dur: 4.0, gain_db: -15, fade_ms: 400}]}
 
   - id: "12"
     part: TODAY
@@ -332,6 +336,7 @@ segments:
           nouns: [{w: "@second", img: "người (bóng) bên hai màn hình: sơ đồ và mã"}, {w: "@two", img: "hàng hình người 2025"}, {w: "@nine", img: "hàng hình người 2035 (dự báo)"}, {w: "@ten", img: "cột laptop xếp chồng (mỗi máy = 1 điểm %)", anchor: sd_chg},
                   {w: "@reading", img: "khung đôi: bàn tính 1940s | màn hình mã"}, {w: "@checking#2", img: "khung đôi: đồ thị và dòng mã được đánh dấu"}]}
     pause: [{before: "@ten", s: 0.7}]
+    speed: 0.97   # ASR tham lam (Q28f) nghe "1.7-2 million" ở bản 1.00; đọc chậm 3 % để tách rõ "seven two"
     vo: >-
       The second is software developers: the people who design applications and plan how the pieces fit together.
       Their jobs are projected to grow, from one point seven two million in 2025 to one point eight nine million in 2035. That is ten point two percent, compared with three point five percent for all jobs.
@@ -347,7 +352,7 @@ segments:
            cam: [{t: "@ten-1.2", x: 0, z: 0.0}, {t: "@jobs#2+1", x: -20, z: 0.04}],
            bars: [{label: "Software developers", num: sd_chg, at: "@ten"}, {label: "All occupations", num: all_chg, at: "@three"}]}}
       - {tpl: plate, at: "@bls-0.4", in: fade, p: {hero: tower_floor, frame0: 240, cap: [{s: "BLS: strong demand…", at: "@demand", src: [OOHSD]}, {s: "…driven in part by software development for AI", at: "@expansion", src: [OOHSD]}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@bls", src_ss: 40.0, dur: 3.5, gain_db: -17, fade_ms: 500}]}
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@bls", src_ss: 12.0, dur: 3.5, gain_db: -17, fade_ms: 500}]}
       - {tpl: diptych, at: "@put-0.4", in: fade, p: {split: "@put+0.3", left: {hero: pool_desk, i: 300, fx: 0.5}, right: {hero: tower_code, i: 300, fx: 0.5},
            cap: [{s: "one reading: the work is moving", at: "@reading"}, {s: "less typing of every line", at: "@less"}, {s: "more deciding what to build · designing", at: "@deciding"}, {s: "…and checking what the tool wrote", at: "@checking"}, {s: "a reading, not a forecast", at: "@forecast"}, {s: "checking the machine's numbers: an old job here", at: "@checking#2"}]},
          sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@put", src_ss: 50.0, dur: 3.0, gain_db: -15, fade_ms: 400}, {file: assets/ll/sfx/keyboard-typing.mp3, at: "@checking#2", src_ss: 8.0, dur: 3.0, gain_db: -16, fade_ms: 400}]}
@@ -370,7 +375,7 @@ segments:
            cam: [{t: "@layoffs-0.6", x: 0, z: 0.0}, {t: "@nineteen", x: -20, z: 0.02}, {t: "@experienced", x: -35, z: 0.035}, {t: "@hired", x: -50, z: 0.05}],
            cap: [{s: "not a wave of layoffs: a gap", at: "@gap", src: [CAN]}, {s: "e.g. software development, customer service", at: "@customer", src: [CAN]}, {s: "experienced workers: no comparable gap", at: "@experienced", src: [CAN]}, {s: "mostly: fewer young people hired…", at: "@mostly", src: [CAN]}, {s: "…not more people let go", at: "@let"}]}}
       - {tpl: plate, at: "@authors-0.4", in: fade, p: {hero: tower_in, frame0: 120, cap: [{s: "the hardest part: separating AI…", at: "@hardest", src: [CAN]}, {s: "…from everything else changing in the economy", at: "@everything", src: [CAN]}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@authors", src_ss: 26.0, dur: 3.0, gain_db: -17, fade_ms: 500}]}
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@authors", src_ss: 1.3, dur: 3.0, gain_db: -17, fade_ms: 500}]}
 
   - id: "14"
     part: TODAY
@@ -385,7 +390,7 @@ segments:
     tail: 1.2
     shots:
       - {tpl: plate, at: 0, p: {hero: tower_floor, frame0: 300, cap: [{s: "one possibility: AI may take over checkable, routine tasks", at: "@possibility", src: [CAN]}, {s: "…that once justified hiring beginners", at: "@justified"}]},
-         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 44.0, dur: 3.0, gain_db: -18, fade_ms: 600}]}
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 2.2, dur: 3.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: diptych, at: "@technology-0.4", in: fade, p: {split: "@technology+0.3", left: {hero: relay_row, i: 200, fx: 0.5}, right: {hero: tower_code, i: 420, fx: 0.5},
            cap: [{s: "not the same technology as in 1947", at: "@technology", src: [NASA1]}, {s: "a familiar pattern: a repetitive task goes to a machine…", at: "@pattern"}, {s: "…people move to the work around it", at: "@people"}]},
          sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: "@technology", src_ss: 200.0, dur: 4.0, gain_db: -15, fade_ms: 500}]}
@@ -451,8 +456,8 @@ shorts:
       Their jobs are projected to shrink from 2025 to 2035. The second is software developers: the people who design applications and plan how the pieces fit together.
       Their jobs are projected to grow, from one point seven two million in 2025 to one point eight nine million in 2035.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_tower, frame0: 0, fx: 0.5, cap: [{s: "two job titles, two directions", at: "@titles"}, {s: "computer programmers: projected to shrink, 2025–35", at: "@shrink", src: [OOHCP]},
-           {s: "software developers: design applications", at: "@second", src: [OOHSD]}, {num: sd35, s: "software developer jobs, projected 2035", at: "@nine"}]},
+      - {tpl: plate, at: 0, p: {hero: s_tower, frame0: 0, fx: 0.5, cap: [{s: "two job titles", at: "@titles"}, {s: "two directions", at: "@directions"}, {s: "programmers: projected to shrink", at: "@shrink", src: [OOHCP]},
+           {s: "developers: design applications", at: "@second", src: [OOHSD]}, {num: sd35, s: "software developer jobs, projected 2035", at: "@nine"}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 2.0, dur: 10.0, gain_db: -17, fade_ms: 900}]}
   - id: S3
     hook: "1990: AI as 'just additional tools'"
@@ -460,6 +465,6 @@ shorts:
       In 1990, the government's job handbook looked ahead. Improved software, it said, would simplify or eliminate some programming tasks.
       And artificial intelligence would become just additional tools available to programmers.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_relay, frame0: 0, fx: 0.5, cap: [{s: "BLS job handbook, 1990", at: "@1990", src: [OOH90]}, {s: "software would simplify or eliminate some programming tasks", at: "@simplify"},
-           {s: "AI: “just additional tools available to programmers”", at: "@artificial", src: [OOH90]}]},
+      - {tpl: plate, at: 0, p: {hero: s_relay, frame0: 0, fx: 0.5, cap: [{s: "BLS job handbook, 1990", at: "@1990", src: [OOH90]}, {s: "software: simplify or eliminate…", at: "@simplify"}, {s: "…some programming tasks", at: "@tasks"},
+           {s: "AI: “just additional tools…”", at: "@artificial", src: [OOH90]}, {s: "“…available to programmers”", at: "@available"}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: 0.3, src_ss: 30.0, dur: 9.0, gain_db: -16, fade_ms: 900}]}

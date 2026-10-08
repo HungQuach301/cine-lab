@@ -124,6 +124,6 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
     g.save(); g.globalAlpha = ta; g.fillStyle = band; g.fillRect(0, yc - 170, W, 300); g.restore();
     text(g, p.title, W / 2, yc, LL.fmt === '9x16' ? 64 : 84, CREAM, { kind: 'serif', align: 'center', a: ta });
     if (p.subtitle) text(g, p.subtitle, W / 2, yc + 62, 32, 'rgba(236,223,190,0.92)', { align: 'center', a: ta * rv(t, (p.titleAt === undefined ? p.t0 + 0.5 : p.titleAt) + 0.5, 0.8) }); } }
-  if (p.cap && p.cap.length) { const v = g.createLinearGradient(0, H * 0.55, 0, H); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,0.55)'); g.fillStyle = v; g.fillRect(0, H * 0.55, W, H * 0.45); }
+  if (p.cap && p.cap.length) { const v = g.createLinearGradient(0, H * 0.5, 0, H); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(0.45, 'rgba(0,0,0,0.5)'); v.addColorStop(1, 'rgba(0,0,0,0.72)'); g.fillStyle = v; g.fillRect(0, H * 0.5, W, H * 0.5); }   /* dải tối đậm hơn: chú thích trên vùng sáng của cảnh 3D (BAI-HOC #75; nháp tập 7: đoạn 11, 14) */
   if (p.credit && !(p.cap && p.cap.length)) { g.fillStyle = 'rgba(10,8,10,0.6)'; g.fillRect(W - 60 - measure(g, p.credit, 22) - 16, H - 58, measure(g, p.credit, 22) + 32, 40); text(g, p.credit, W - 60, H - 30, 22, 'rgba(236,223,190,0.9)', { align: 'right' }); }
 } });
