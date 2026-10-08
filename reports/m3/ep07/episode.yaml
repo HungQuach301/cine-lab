@@ -254,7 +254,7 @@ segments:
     part: HISTORY
     map: {q: "Did anyone see the next change coming?", act: 2, emo: foresight, color: sepia, cue: history, trade: [teleprinter-tape, wall-clock, footsteps-steps],
           in: cut, out: jcut, out_note: "dải cửa sổ phòng tính toán lúc chạng vạng → cùng toà nhà lúc tối (đoạn 09); bước chân người thắp đèn vào trước hình 1,2 s", lamp: {in: false, out: true},
-          nouns: [{w: "@occupation", img: "đầu đọc băng đục lỗ, băng chạy"}, {w: "@five", img: "hàng hình người: lập trình viên 1988", anchor: prog88}, {w: "@handbook", img: "đầu đọc băng đục lỗ (sổ tay 1990 nhìn về nghề lập trình)"}, {w: "@artificial", img: "dải cửa sổ phòng tính toán lúc chạng vạng, đèn khí"}]}
+          nouns: [{w: "@occupation", img: "đầu đọc băng đục lỗ, băng chạy"}, {w: "@five", img: "hành lang tủ máy, số 519,000 trên dải chú thích", anchor: prog88}, {w: "@handbook", img: "đầu đọc băng đục lỗ (sổ tay 1990 nhìn về nghề lập trình)"}, {w: "@artificial", img: "dải cửa sổ phòng tính toán lúc chạng vạng, đèn khí"}]}
     pause: [{before: "@five", s: 0.7}]
     vo: >-
       Programming grew into a large occupation of its own. By 1988, computer programmers held five hundred nineteen thousand jobs in the United States.
@@ -264,8 +264,8 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: relay_tape, frame0: 160, cap: [{s: "programming: a large occupation of its own", at: "@programming", src: [OOH90]}]},
          sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: 0.2, src_ss: 26.0, dur: 4.0, gain_db: -15, fade_ms: 500}]}
-      - {tpl: isotype, at: "@1988-0.6", in: fade, p: {title: "Computer programmers, United States", subtitle: "jobs, 1988 · BLS Outlook Handbook 1990–91", unit: 25000, unitName: "jobs", per: 21,
-           groups: [{label: "1988", num: prog88, at: "@five"}]}}
+      - {tpl: plate, at: "@1988-0.6", in: fade, p: {hero: relay_row, frame0: 240, cap: [{num: prog88, s: "computer programmer jobs, United States, 1988", at: "@five"}]},
+         sfx: [{file: assets/ll/sfx/relay-bank.mp3, at: "@1988", src_ss: 120.0, dur: 5.0, gain_db: -16, fade_ms: 600}]}
       - {tpl: plate, at: "@count-0.4", in: fade, p: {hero: pool_grow, frame0: 60, cap: [{s: "a count from another era, other job definitions", at: "@count", src: [OOH90]}, {s: "not set beside today's numbers", at: "@beside"}]},
          sfx: [{file: assets/ll/sfx/adding-machine.mp3, at: "@count", src_ss: 12.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
       - {tpl: plate, at: "@1990-0.4", in: fade, p: {hero: relay_tape, frame0: 300, cap: [{s: "1990: the government's job handbook", at: "@1990", src: [OOH90]}, {s: "it looked ahead", at: "@looked"}]},
@@ -337,7 +337,7 @@ segments:
     part: TODAY
     map: {q: "What do the forecasts say about developers?", act: 3, emo: clarity, color: cold, cue: today, trade: [keyboard-typing, pencil-paper],
           in: cut, out: cut, lamp: {in: true, out: true},
-          nouns: [{w: "@second", img: "người (bóng) bên hai màn hình: sơ đồ và mã"}, {w: "@two", img: "hàng hình người 2025"}, {w: "@nine", img: "hàng hình người 2035 (dự báo)"}, {w: "@ten", img: "màn hình mã, số +10.2% trên dải chú thích", anchor: sd_chg},
+          nouns: [{w: "@second", img: "người (bóng) bên hai màn hình: sơ đồ và mã"}, {w: "@two", img: "sàn văn phòng đêm, người làm muộn; 1.72 million trên dải chú thích"}, {w: "@nine", img: "sàn văn phòng; 1.89 million (dự báo)"}, {w: "@ten", img: "màn hình mã, số +10.2% trên dải chú thích", anchor: sd_chg},
                   {w: "@reading", img: "khung đôi: bàn tính 1940s | màn hình mã"}, {w: "@checking#2", img: "khung đôi: đồ thị và dòng mã được đánh dấu"}]}
     pause: [{before: "@ten", s: 0.7}]
     speed: 0.97   # ASR tham lam (Q28f) nghe "1.7-2 million" ở bản 1.00; đọc chậm 3 % để tách rõ "seven two"
@@ -350,8 +350,8 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: tower_code, frame0: 600, cap: [{s: "2 · software developers: design applications, plan how the pieces fit", at: "@design", src: [OOHSD]}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: 0.4, src_ss: 12.0, dur: 3.0, gain_db: -14, fade_ms: 400}]}
-      - {tpl: isotype, at: "@projected-0.8", in: fade, p: {title: "Software developers, United States", subtitle: "employment, 2025 and projected 2035 · BLS", unit: 100000, unitName: "jobs", per: 20,
-           groups: [{label: "2025", num: sd25, at: "@two"}, {label: "2035 (projected)", num: sd35, at: "@nine"}]}}
+      - {tpl: plate, at: "@projected-0.8", in: fade, p: {hero: tower_floor, frame0: 600, cap: [{num: sd25, s: "software developer jobs, United States, 2025", at: "@two"}, {num: sd35, s: "projected for 2035", at: "@nine"}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@projected", src_ss: 6.0, dur: 2.5, gain_db: -16, fade_ms: 400}]}
       - {tpl: plate, at: "@ten-1.2", in: fade, p: {hero: tower_code, frame0: 720, cap: [{s: "same source, same period: BLS projections 2025–35", at: "@that", src: [OOHSD, EP]}, {num: sd_chg, s: "software developers, projected 2025–35", at: "@ten"}, {num: all_chg, s: "all jobs, projected 2025–35", at: "@three"}]},
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@ten", src_ss: 5.0, dur: 3.0, gain_db: -18, fade_ms: 400}]}
       - {tpl: plate, at: "@bls-0.4", in: fade, p: {hero: tower_floor, frame0: 240, cap: [{s: "BLS: strong demand…", at: "@demand", src: [OOHSD]}, {s: "…driven in part by software development for AI", at: "@expansion", src: [OOHSD]}]},
