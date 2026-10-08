@@ -205,3 +205,12 @@ Mỗi đoạn khai:
 - **Gói phát hành:** thumbnail, tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này).
 - **Ảnh tư liệu:** ≤ 20 % thời lượng, đúng nghề (tập 7: ảnh NASA tổ "computer").
 - **Báo cáo G2** ghi Q26–Q31, so với tập 1, kèm token thực.
+
+## 12. Trục kể: sự biến đổi của nghề (chủ dự án, 08/10/2026; áp từ tập 7)
+- **Trọng tâm** của mỗi tập là sự **biến đổi** của nghề qua quá khứ → hiện tại → tương lai. Số liệu giữ nguyên chuẩn (§3, §4), dùng để bổ trợ mạch chuyển, không làm trục.
+- **"Máy thay thế người" không bị cấm.** Nguồn cho thấy thay thế thật thì nói đúng như nguồn. Nhưng không biến nó thành thông điệp trung tâm: tiêu đề, móc câu và kết ưu tiên mạch biến đổi.
+- **Ẩn dụ kênh:** ngọn lửa của người thắp đèn được trao tiếp sang thời mới (ở mở và kết).
+- **Tương lai** chỉ nói bằng nguồn (dự báo BLS đợt mới nhất, nghiên cứu đã đọc toàn văn) hoặc bằng câu hỏi mở. Không phán đoán.
+- **Kiểm mù kịch bản** thêm câu hỏi: "Người xem rút ra thông điệp chính là gì?" Báo kết quả ở G1. Nếu thông điệp chính lệch khỏi mạch biến đổi thì cân lại nhấn mạnh, không xoá sự thật.
+- Khung kể mẫu (tập 7): Mở (ngọn lửa trao qua ô cửa + móc câu) → Quá khứ → Chuyển giao → Hiện tại → Tương lai → Kết (ngọn lửa trao tiếp; "Next: …").
+- Tỷ lệ §2 (STORY/HISTORY/TODAY) đặt theo trục cũ. Với trục này P báo tỷ lệ theo 6 phần của khung kể và nêu phần lệch §2; đổi đích §2 chờ chủ dự án duyệt.

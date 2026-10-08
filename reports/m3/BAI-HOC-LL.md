@@ -110,3 +110,9 @@ Mọi phiên P đọc tệp này khi khởi động, thay cho việc đọc lạ
 | 77 | Bóng người tối trên mặt tiền tối thì biến mất | Q31: 2/3 thấy 'phố trống, không có người thắp đèn' ở đoạn 12; khung thật xác nhận | không có ánh viền hay nguồn sáng trên nhân vật | nhân vật chính trong cảnh đêm phải có nguồn sáng riêng (ngọn lửa mồi ở đầu sào) |
 | 78 | Bàn làm việc 2D phẳng là cảnh yếu nhất cạnh cảnh đinh 3D | Q27 lần 2: khung bàn làm việc 3–5/10 ở cả 3 người chấm; Q31: T03 'đổi phong cách' 2/3 | thư viện 2D cũ đặt cạnh 3D mới | tập 7 trở đi: thay bàn làm việc 2D bằng cảnh đinh 3D nội thất |
 | 79 | Khoá YAML `off:` bị đọc thành boolean `false` → khung bắt đầu cảnh đinh bị bỏ qua lặng lẽ | tập 6 v2: mọi shot cảnh đinh đều chạy từ khung 0 qua 4 lần dựng; chỉ lộ khi xem khung đoạn 06→07 (tường nhỏ lại thay vì đẩy vào) | YAML 1.1: off/on/yes/no không ngoặc là boolean | Đặc tả dùng `frame0`; `ll.py load` chặn mọi khoá boolean. Mọi tham số mới: kiểm giá trị trong timeline.json trước khi dựng |
+
+## Tập 7 (G1 v2)
+| # | Bài học | Số đo | Nguyên nhân | Luật hiện hành |
+|---|---|---|---|---|
+| 80 | Trục kể đặt vào "máy thay thế người" làm lệch thông điệp kênh | tập 7 v1: móc câu và kết đặt vào "−19 %" và "máy lấy tên nghề" | khung kể cũ xưa ↔ nay theo cặp số | CHUAN-KENH §12 (chủ dự án, 08/10/2026): trọng tâm là sự biến đổi của nghề quá khứ → hiện tại → tương lai; thay thế thật nói đúng nguồn nhưng không làm trung tâm; tương lai chỉ bằng nguồn hoặc câu hỏi mở; kiểm mù hỏi "thông điệp chính người xem rút ra" |
+| 81 | bls.gov chặn curl của P (403) nhưng WebFetch đọc được | tập 7: đọc được OOH software developers và computer programmers 2025–35 | đường mạng khác | thử WebFetch trước khi giao Claude (Cowork); WebFetch trả lời qua mô hình tóm tắt nên chỉ nhận trích ngắn nguyên văn, số khớp bảng; ghi "P đọc qua WebFetch" và nhờ Claude đối chiếu khi số mới vào lời |
