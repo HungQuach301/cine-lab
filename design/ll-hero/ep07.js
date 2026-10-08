@@ -279,7 +279,9 @@ async function pool({ W, H, dur, v, opt = {} }) {
 async function relay({ W, H, dur, v, opt = {} }) {
   const scene = new THREE.Scene(); fogOf(scene, '#221d18', 0.04);
   scene.add(new THREE.HemisphereLight('#9a8a74', '#14100c', 0.85));
-  box(16, 0.1, 30, std('#3d3630'), 0, 0, -5); box(16, 3.8, 0.3, std('#b8a98c'), 0, 1.9, -16); box(16, 0.2, 30, std('#cfc3a8'), 0, 3.8, -5);
+  const tile = canvasTex(256, 256, (g, w, h) => { const R = rng(12); for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { const k = 0.85 + R() * 0.2; g.fillStyle = `rgb(${Math.round(70 * k)},${Math.round(64 * k)},${Math.round(56 * k)})`; g.fillRect(i * 64, j * 64, 64, 64); } g.strokeStyle = 'rgba(20,16,12,0.6)'; g.lineWidth = 2; for (let i = 0; i <= 4; i++) { g.beginPath(); g.moveTo(i * 64, 0); g.lineTo(i * 64, h); g.stroke(); g.beginPath(); g.moveTo(0, i * 64); g.lineTo(w, i * 64); g.stroke(); } });
+  tile.wrapS = tile.wrapT = THREE.RepeatWrapping; tile.repeat.set(8, 15);   /* sàn ô vinyl: bề mặt có chi tiết, bắt sáng (Q27 lần 4) */
+  box(16, 0.1, 30, std('#ffffff', { map: tile, roughness: 0.45 }), 0, 0, -5); box(16, 3.8, 0.3, std('#b8a98c'), 0, 1.9, -16); box(16, 0.2, 30, std('#cfc3a8'), 0, 3.8, -5);
   const rackTex = canvasTex(256, 512, (g, w, h) => { g.fillStyle = '#7a7c78'; g.fillRect(0, 0, w, h); const R = rng(3);
     for (let r = 0; r < 26; r++) for (let c = 0; c < 8; c++) { g.fillStyle = R() < 0.5 ? '#2c2e30' : '#3b3d40'; g.fillRect(10 + c * 30, 12 + r * 19, 24, 14); g.fillStyle = '#a8742c'; g.fillRect(14 + c * 30, 15 + r * 19, 4, 8); }
     g.fillStyle = '#5c5e5a'; g.fillRect(0, 0, w, 8); g.fillRect(0, h - 8, w, 8); });
@@ -334,7 +336,9 @@ async function relay({ W, H, dur, v, opt = {} }) {
 async function tower({ W, H, dur, v, opt = {} }) {
   const scene = new THREE.Scene(); fogOf(scene, '#0a0f18', 0.03);
   scene.add(new THREE.HemisphereLight('#4a5e88', '#0a0d14', 0.95)); const ceilL = new THREE.PointLight('#a8c0e8', 13, 18, 1.2); ceilL.position.set(-2, 3.0, 1); scene.add(ceilL);
-  box(30, 0.1, 24, std(v === 'c' ? '#2a303a' : '#1b1f26', { roughness: 0.6 }), 0, 0, -4); box(30, 0.2, 24, std('#20242c'), 0, 3.2, -4);
+  const carpet = canvasTex(256, 256, (g, w, h) => { const R = rng(31); for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) { const k = 0.85 + R() * 0.25; g.fillStyle = `rgb(${Math.round(42 * k)},${Math.round(48 * k)},${Math.round(60 * k)})`; g.fillRect(i * 64, j * 64, 64, 64); for (let n = 0; n < 40; n++) { g.fillStyle = `rgba(${R() < 0.5 ? '90,100,120' : '20,24,32'},0.35)`; g.fillRect(i * 64 + R() * 64, j * 64 + R() * 64, 2, 2); } } });
+  carpet.wrapS = carpet.wrapT = THREE.RepeatWrapping; carpet.repeat.set(15, 12);   /* thảm ô văn phòng (Q27 lần 4: sàn phẳng) */
+  box(30, 0.1, 24, std(v === 'c' ? '#d8e0f0' : '#a8b0c0', { map: carpet, roughness: 0.85 }), 0, 0, -4); box(30, 0.2, 24, std('#20242c'), 0, 3.2, -4);
   for (let i = 0; i < 6; i++) { const s = box(2.2, 0.04, 0.3, basic('#cfe0ff', { transparent: true, opacity: 0.45 }), -7 + i * 3, 3.08, -2); } const amb2 = new THREE.PointLight('#9ab4e0', 8, 14, 1.3); amb2.position.set(4, 3.0, -5); scene.add(amb2);
   // phố đêm ngoài kính (mặt phẳng nền: cửa sổ toà khác, quầng mờ)
   const city = canvasTex(1024, 512, (g, w, h) => { const R = rng(23); const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, '#060a14'); gr.addColorStop(0.7, '#141c30'); gr.addColorStop(1, '#2a2a3a'); g.fillStyle = gr; g.fillRect(0, 0, w, h);
@@ -353,6 +357,7 @@ async function tower({ W, H, dur, v, opt = {} }) {
     cyl(0.006, 0.006, 0.4, std('#3a3226', { metalness: 0.5 }), 0.62, 0.95, -0.2, g); const sh = cyl(0.04, 0.12, 0.12, std('#8a6a3a', { metalness: 0.4, side: THREE.DoubleSide }), 0.56, 1.14, -0.14, g); sh.rotation.z = 0.4;
     const lg = glowSprite('#ffc27a', lampOn ? 0.9 : 0, 0.4); lg.position.set(0.53, 1.08, -0.12); g.add(lg);
     box(0.5, 0.05, 0.48, std('#2c3038'), 0, 0.5, 0.62, g); box(0.5, 0.5, 0.05, std('#2c3038'), 0, 0.8, 0.86, g);
+    const rr = Math.abs(Math.sin(x * 3.1 + z * 1.7)); box(0.3, 0.012, 0.22, std('#e8e6df'), -0.5, 0.766, 0.1 + rr * 0.1, g).rotation.y = rr - 0.5; if (rr > 0.4) cyl(0.035, 0.03, 0.09, std(rr > 0.7 ? '#b85a3a' : '#3a6a8a', { roughness: 0.5 }), -0.62, 0.81, -0.15, g);   /* giấy, cốc trên bàn */
     return { g, mon, lg }; };
   const empties = [];
   for (let r = 0; r < 3; r++) for (let c = 0; c < 5; c++) { const x = -6 + c * 3, z = -1.5 - r * 2.4; if (r === 0 && c === 2) continue; const late = (r === 1 && c === 0) || (r === 2 && c === 3) || (r === 1 && c === 4);
