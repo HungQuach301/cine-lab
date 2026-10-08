@@ -147,9 +147,9 @@ async function airfield({ W, H, dur, v, opt = {} }) {
   // cột đèn khí: cạnh cửa sổ phòng tính toán; cột cuối (kết) ở đầu lối đi
   const lampA = gasLamp(scene, 4.6, 1.75, { lit: v === 'a' ? 1 : 0 }), lampB = gasLamp(scene, -9.5, 1.75, { lit: v === 'c' ? 1 : 0 });
   const lighter = figure({ hat: true, scale: 1.0 }); scene.add(lighter.root);
-  const pole = cyl(0.015, 0.015, 2.6, lam('#2a2016'), 0, -0.2, 0); lighter.armR.add(pole); pole.rotation.x = -0.25;
-  const wick = glowSprite('#ffb86a', 0.95, 0.42); wick.position.set(0, 1.32, 0); pole.add(wick);
-  const wickLight = new THREE.PointLight('#ffae62', 2.6, 3.4, 1.6); wickLight.position.set(0, 1.25, 0.1); pole.add(wickLight);
+  const pole = cyl(0.015, 0.015, 3.0, lam('#2a2016'), 0, 0.1, 0); lighter.armR.add(pole); pole.rotation.x = -0.25;   /* sào 3 m; góc tổng (tay + sào) dương → đầu sào nghiêng về phía trước (+x thế giới) */
+  const wick = glowSprite('#ffb86a', 0.95, 0.42); wick.position.set(0, 1.52, 0); pole.add(wick);
+  const wickLight = new THREE.PointLight('#ffae62', 2.6, 3.4, 1.6); wickLight.position.set(0, 1.45, 0.1); pole.add(wickLight);
   const hemi = new THREE.HemisphereLight(night ? '#46507a' : '#7a6a8a', '#1a1418', night ? 0.75 : 0.95); scene.add(hemi);
   const sun = new THREE.DirectionalLight(night ? '#7f8fd0' : '#ffb07a', night ? 0.4 : 0.9); sun.position.set(-30, 10, -40); scene.add(sun);
   const fill = new THREE.PointLight('#ffb070', 2.5, 20, 1.2); fill.position.set(2, 4, 8); scene.add(fill);
@@ -158,7 +158,7 @@ async function airfield({ W, H, dur, v, opt = {} }) {
     a: [{ t: 0, p: [-3, 1.7, 17], l: [1, 2.6, -2], mm: 28 }, { t: dur, p: [1.4, 2.35, 3.2], l: [1.2, 1.7, -4.0], mm: 36 }],
     b: [{ t: 0, p: [-6.5, 1.6, 9.5], l: [-2, 2.2, 1], mm: 30 }, { t: Math.max(1, (opt.lit || 6) - 1.5), p: [0.2, 1.75, 7.6], l: [3.6, 2.4, 0.4], mm: 34 }, { t: dur, p: [1.9, 2.0, 5.2], l: [3.2, 1.9, -1.2], mm: 44 }],
     c: [{ t: 0, p: [1.5, 2.0, 7.5], l: [3, 2.2, -1], mm: 36 }, { t: (opt.tower || 5) - 0.6, p: [0.5, 1.9, 10.5], l: [12, 6.5, -20], mm: 30 }, { t: dur, p: [0, 1.8, 11.5], l: [20, 11.5, -36], mm: 34 }],
-    d: [{ t: 0, p: [-14.5, 1.6, 7.5], l: [-10.2, 2.2, 1.8], mm: 34 }, { t: (opt.lit || 7) + 0.6, p: [-12.6, 1.9, 7.0], l: [-9.5, 2.8, 1.6], mm: 38 }, { t: dur, p: [-6, 9, 24], l: [6, 5, -14], mm: 28 }],
+    d: [{ t: 0, p: [-5.2, 1.7, 9.2], l: [-9.6, 2.2, 1.8], mm: 32 }, { t: (opt.lit || 7) + 0.6, p: [-6.6, 2.0, 7.6], l: [-9.6, 2.8, 1.7], mm: 36 }, { t: dur, p: [-6, 9, 24], l: [6, 5, -14], mm: 28 }],
   }[v];
   const rig = camRig(W, H, K);
   const update = (t, f) => {
@@ -166,11 +166,11 @@ async function airfield({ W, H, dur, v, opt = {} }) {
     let lit = 1, dark = 0, hand = v === 'a' ? 1 : 0, tw = 0;
     if (v === 'b') {   // opt.lit: giây ngọn đèn bén; opt.hand: giây đèn bàn sau kính bừng
       const tl = opt.lit !== undefined ? opt.lit : dur * 0.45, ta = tl - 1.0, u = Math.min(1, t / ta);
-      lighter.root.position.set(lerp(-7.5, 3.9, ease(u)), 0.06, 2.55); lighter.root.rotation.y = Math.PI / 2; lighter.set({ walk: u < 1 ? t * 5 : 0, armR: u < 1 ? 0.2 : -2.4 * ease((t - ta) / 1.2) });
+      lighter.root.position.set(lerp(-7.5, 4.0, ease(u)), 0.06, 2.3); lighter.root.rotation.y = Math.PI / 2; const rz = u < 1 ? 0 : ease((t - ta) / 1.2); lighter.set({ walk: u < 1 ? t * 5 : 0, armR: lerp(0.2, opt.armUp !== undefined ? opt.armUp : 0.15, rz) }); pole.rotation.x = lerp(-0.25, opt.tilt !== undefined ? opt.tilt : 0.2, rz);   /* giơ sào: nghiêng đầu sào (ngọn lửa mồi) về lồng đèn, không lật sào (lỗi nháp lượt 1) */
       lampA.set(ease((t - tl) / 1.0), f); hand = ease((t - (opt.hand !== undefined ? opt.hand : tl + 1.2)) / 1.2);
     } else if (v === 'd') {
       const tl = opt.lit !== undefined ? opt.lit : dur * 0.4, ta = tl - 1.0, u = Math.min(1, t / ta);
-      lighter.root.position.set(lerp(-17, -10.1, ease(u)), 0.06, 2.55); lighter.root.rotation.y = Math.PI / 2; lighter.set({ walk: u < 1 ? t * 5 : 0, armR: u < 1 ? 0.2 : -2.4 * ease((t - ta) / 1.2) });
+      lighter.root.position.set(lerp(-17, -10.05, ease(u)), 0.06, 2.3); lighter.root.rotation.y = Math.PI / 2; const rz = u < 1 ? 0 : ease((t - ta) / 1.2); lighter.set({ walk: u < 1 ? t * 5 : 0, armR: lerp(0.2, opt.armUp !== undefined ? opt.armUp : 0.15, rz) }); pole.rotation.x = lerp(-0.25, opt.tilt !== undefined ? opt.tilt : 0.2, rz);   /* giơ sào: nghiêng đầu sào (ngọn lửa mồi) về lồng đèn, không lật sào (lỗi nháp lượt 1) */
       lampB.set(ease((t - tl) / 1.0), f); lampA.set(1, f); hand = 1; tw = 1;
     } else if (v === 'c') {   // opt.dark: giây cửa sổ phòng tính toán tắt; opt.tower: giây một tầng tháp bừng sáng
       lighter.root.position.set(lerp(6, 14, ease(t / dur)), 0.06, 3.2); lighter.root.rotation.y = Math.PI / 2; lighter.set({ walk: t * 5 });
@@ -228,7 +228,7 @@ async function pool({ W, H, dur, v, opt = {} }) {
   // khung cửa hẹp từ hành lang tối (e)
   if (v === 'e') { const cm = std('#2a2018'); box(4.2, 4.4, 0.3, std('#3a2f25'), -2.9, 2.2, 8); box(4.2, 4.4, 0.3, std('#3a2f25'), 2.9, 2.2, 8); box(1.6, 1.9, 0.3, std('#3a2f25'), 0, 3.45, 8);
     box(0.1, 2.5, 0.35, cm, -0.8, 1.25, 8); box(0.1, 2.5, 0.35, cm, 0.8, 1.25, 8); box(1.7, 0.1, 0.35, cm, 0, 2.5, 8);
-    const door = box(0.08, 2.4, 0.95, std('#4a3524'), -0.82, 1.2, 8.55); door.rotation.y = 0.6; box(6, 0.1, 6, std('#2a231c'), 0, 0.01, 11); }
+    const door = box(0.08, 2.4, 0.95, std('#4a3524'), -0.82, 1.2, 8.55); door.rotation.y = 0.6; box(6, 0.1, 6, std('#2a231c'), 0, 0.01, 11); const wash = new THREE.PointLight('#c89a68', 10, 8, 1.3); wash.position.set(-1.6, 2.6, 11.5); scene.add(wash); const wash2 = new THREE.PointLight('#8a7a9a', 6, 7, 1.3); wash2.position.set(1.8, 2.2, 12.5); scene.add(wash2); }
   const dst = dust(scene, [0.9, 1.6, 3.6], [3, 1.6, 2], 200, 31);
   const K = {
     a: [{ t: 0, p: [-6.5, 1.75, 6.5], l: [-2.2, 1.0, -0.2], mm: 30 }, { t: dur, p: [4.8, 1.85, 5.8], l: [1.6, 0.95, -1.2], mm: 32 }],
@@ -242,7 +242,7 @@ async function pool({ W, H, dur, v, opt = {} }) {
   const update = (t, f) => {
     rig.at(t); dst.update(t);
     const growN = opt.grow ? Math.floor(lerp(5, desks.length, ease((t - (opt.grow0 || 0)) / Math.max(1, dur - (opt.grow0 || 0) - 1)))) : desks.length;
-    const emptyN = opt.empty ? Math.floor(desks.length * ease((t - (opt.empty0 || 0)) / Math.max(1, dur - (opt.empty0 || 0) - 1))) : 0;
+    const emptyN = opt.empty ? Math.floor((desks.length - 3) * ease((t - (opt.empty0 || 0)) / Math.max(1, dur - (opt.empty0 || 0) - 1))) : 0;
     desks.forEach(({ d }, i) => { const occ = (N === undefined || i < N) && i < growN; d.group.visible = (N === undefined || i < N) && (v !== 'c' || i < growN || !opt.grow);
       const lampU = opt.empty ? (i < desks.length - emptyN ? 1 : 0) : (occ ? 1 : 0); if (d.person) d.person.root.visible = occ && lampU > 0; d.set(t, f, { lamp: lampU }); });
     heroD.set(t, f, { lamp: 1, plot: ease((t - (opt.plot !== undefined ? opt.plot : 0.5)) / (opt.plotDur || dur * 0.7)) });
@@ -307,7 +307,7 @@ async function relay({ W, H, dur, v, opt = {} }) {
 // ===== tower: văn phòng tầng cao hôm nay, đêm =====
 async function tower({ W, H, dur, v, opt = {} }) {
   const scene = new THREE.Scene(); fogOf(scene, '#0a0f18', 0.03);
-  scene.add(new THREE.HemisphereLight('#4a5e88', '#0a0d14', 0.75)); const ceilL = new THREE.PointLight('#a8c0e8', 9, 16, 1.2); ceilL.position.set(-2, 3.0, 1); scene.add(ceilL);
+  scene.add(new THREE.HemisphereLight('#4a5e88', '#0a0d14', 0.95)); const ceilL = new THREE.PointLight('#a8c0e8', 13, 18, 1.2); ceilL.position.set(-2, 3.0, 1); scene.add(ceilL);
   box(30, 0.1, 24, std('#1b1f26', { roughness: 0.6 }), 0, 0, -4); box(30, 0.2, 24, std('#20242c'), 0, 3.2, -4);
   for (let i = 0; i < 6; i++) { const s = box(2.2, 0.04, 0.3, basic('#cfe0ff', { transparent: true, opacity: 0.25 }), -7 + i * 3, 3.08, -2); }
   // phố đêm ngoài kính (mặt phẳng nền: cửa sổ toà khác, quầng mờ)
@@ -337,16 +337,16 @@ async function tower({ W, H, dur, v, opt = {} }) {
   const R = rng(51); const lines = []; const kw = ['def', 'return', 'if', 'for', 'while', 'class', 'import', 'else', 'try', 'with'];
   for (let i = 0; i < 40; i++) { const ind = Math.floor(R() * 3) * 2; const toks = []; const n = 2 + Math.floor(R() * 6); for (let k = 0; k < n; k++) toks.push(R() < 0.25 ? kw[Math.floor(R() * kw.length)] : 'abcdefghijklmnopqrstuvwxyz'.slice(0, 2 + Math.floor(R() * 7)).split('').sort(() => R() - 0.5).join('')); lines.push({ ind, toks }); }
   let lastCode = -1;
-  const drawCode = (u, chk) => { const key = Math.round(u * 400) + (chk > 0.5 ? 10000 : 0) + Math.round(chk * 20) * 3; if (key === lastCode) return; lastCode = key;
+  const drawCode = (u, chk, hl) => { const key = Math.round(u * 400) * 1000 + Math.round(chk * 20); if (key === lastCode) return; lastCode = key;
     cg.fillStyle = '#0e1420'; cg.fillRect(0, 0, 1024, 640); cg.fillStyle = '#18202e'; cg.fillRect(0, 0, 60, 640); cg.font = '22px DejaVu Sans Mono';
     const shown = u * lines.length; const top = Math.max(0, Math.floor(shown) - 22);
     for (let i = top; i < Math.min(lines.length, Math.ceil(shown)); i++) { const y = 34 + (i - top) * 27;
-      if (chk > 0 && i === Math.min(lines.length, Math.ceil(shown)) - 6) { cg.fillStyle = `rgba(255,200,110,${0.28 * chk})`; cg.fillRect(60, y - 21, 964, 27); cg.fillStyle = `rgba(255,200,110,${chk})`; cg.fillRect(60, y - 21, 6, 27); }
+      if (chk > 0 && i === hl) { cg.fillStyle = `rgba(255,200,110,${0.28 * chk})`; cg.fillRect(60, y - 21, 964, 27); cg.fillStyle = `rgba(255,200,110,${chk})`; cg.fillRect(60, y - 21, 6, 27); }
       cg.fillStyle = '#4c5a72'; cg.fillText(String(i + 1).padStart(3, ' '), 6, y); let x = 80 + lines[i].ind * 13;
       const frac = Math.min(1, shown - i); const all = lines[i].toks; const vis = Math.max(1, Math.round(all.length * frac));
       for (let k = 0; k < vis; k++) { const s = all[k]; cg.fillStyle = kw.includes(s) ? '#d6a35c' : (k % 3 === 0 ? '#8fb8e8' : '#c9d4e4'); cg.fillText(s, x, y); x += cg.measureText(s + ' ').width; } }
     codeT.needsUpdate = true; };
-  drawCode(0.2, 0);
+  drawCode(0.2, 0, -1);
   const scrM = basic('#ffffff', { map: codeT });
   const doc = canvasTex(512, 320, (g, w, h) => { g.fillStyle = '#1a2232'; g.fillRect(0, 0, w, h); g.strokeStyle = '#6f8fbf'; g.lineWidth = 3; for (let i = 0; i < 5; i++) { g.strokeRect(30 + i * 92, 60 + (i % 2) * 90, 70, 50); if (i) { g.beginPath(); g.moveTo(30 + i * 92 - 22, 85 + ((i - 1) % 2) * 90); g.lineTo(30 + i * 92, 85 + (i % 2) * 90); g.stroke(); } } g.fillStyle = '#4c5a72'; for (let i = 0; i < 6; i++) g.fillRect(30, 230 + i * 12, 200 + (i * 37) % 180, 5); });
   const m1 = box(0.74, 0.46, 0.03, scrM, 0.4, 1.12, -0.22, main); m1.rotation.y = -0.22; const m2 = box(0.74, 0.46, 0.03, basic('#ffffff', { map: doc }), -0.38, 1.12, -0.25, main); m2.rotation.y = 0.12;
@@ -368,8 +368,9 @@ async function tower({ W, H, dur, v, opt = {} }) {
   const update = (t, f) => {
     rig.at(t); dst.update(t);
     const chkT = opt.check !== undefined ? opt.check : 1e9; const chk = ease((t - chkT) / 0.6);
-    const typeU = t < chkT ? Math.min(1, 0.25 + t / Math.max(dur * 1.2, 8) * 0.75) : Math.min(1, 0.25 + chkT / Math.max(dur * 1.2, 8) * 0.75);
-    drawCode(typeU, chk);
+    const rate = 0.75 / Math.max(dur * 1.2, 8), u0 = (x) => 0.25 + x * rate, uc = Math.min(1, u0(Math.min(t, chkT)));
+    const typeU = t < chkT + 2.5 ? uc : Math.min(1, uc + (t - chkT - 2.5) * rate * 0.5);   /* sau khi kiểm 2,5 s: mã tiếp tục hiện chậm (không đứng hình), dòng đã kiểm giữ đánh dấu */
+    drawCode(typeU, chk, Math.ceil(uc * lines.length) - 6);
     dev.set({ armR: t < chkT ? -1.0 + 0.07 * Math.sin(t * 9) : -1.0, armL: -1.0 + (t < chkT ? 0.07 * Math.sin(t * 8.2) : 0), headTilt: -0.1 + 0.1 * chk });
     scrL.intensity = 3.2 * (1 + 0.04 * Math.sin(t * 13)); lampG.material.opacity = 1.0 * (1 + 0.02 * Math.sin(f * 0.3));
   };
