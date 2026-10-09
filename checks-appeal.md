@@ -192,3 +192,11 @@ qc.py gọi luật khoá Q26–Q31 (áp từ tập 6) và truyền log render ch
 
 **Chủ dự án DUYỆT checks LL v3 1.7.1 (chat 07/10/2026):** LOCK `e3fcd2e686ac92eb15cab0bf93e54aa31165acd8e129d500f4affeb58cc03240`. Claude tính lại: KHỚP; selftest 109/109. Không đổi `checks/`, không đổi LOCK. Phiên K kết thúc.
 - Việc mở: **hiệu chuẩn lại Q30 (tông màu theo hồi) sau tập 7–8, ở một phiên K mới**.
+
+## Khiếu nại P — Q28f (ASR độc lập) đọc sai số khi lời viết bằng chữ khác cách ASR viết (09/10/2026, tập 8)
+P không đọc mã `checks/`; chỉ mô tả hiện tượng đo được trên bản nháp tập 8 (`ll-ep08-nhap`), qc 1.8.1.
+- **Đoạn 06:** lời "some twenty million dollars"; faster-whisper small.en (beam 1, P chạy lại) viết "some $20 million". Q28f báo "thiếu 20000000.0". Giọng đọc đúng (P nghe lại bằng beam 5: "twenty million dollars").
+- **Đoạn 13:** lời "three and a half percent"; ASR viết "3.5%". Q28f báo "thiếu 3.0", tức bộ chấm đọc giá trị lời là 3 (bỏ "and a half"), trong khi ASR nghe đúng 3,5.
+- Cùng loại lỗi P vừa sửa trong `scripts/ll/asr.py` (luật làm việc của P): "and a half" = +0,5; năm đứng liền số ("nineteen sixty six twelve years") không ghép thành một số; ngày thứ tự sau tên tháng ("January seventh" = 7).
+- **Đề nghị K:** (1) "$20 million" / "20 million" = 20 000 000; (2) "N and a half" = N,5; (3) không ghép số liền sau năm; (4) ngày thứ tự. Lời đã khoá (G1 v2), P không đổi chữ để né thước.
+- Đến khi K sửa, G2 tập 8 ghi Q28 TRƯỢT riêng mục (f) với giải trình này; các mục khác của Q28 P sửa trong bản cuối.

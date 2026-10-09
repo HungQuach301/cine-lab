@@ -97,9 +97,9 @@ segments:
   - id: "01"
     part: STORY
     map: {q: "Who is working behind the lit window?", act: 1, emo: wonder, color: warm, cue: theme, trade: [footsteps-steps, gas-hiss, library-room],
-          in: cut, out: cut, lamp: {in: true, out: true},
+          in: cut, out: jcut, out_note: "không khí phòng đọc (đoạn 02) vào trước hình 0,6 s, kéo qua điểm cắt", lamp: {in: true, out: true},
           nouns: [{w: "@lamplighter", img: "người thắp đèn đi dọc phố trước thư viện"}, {w: "@library", img: "mặt tiền thư viện đá, dải cửa sổ sáng"}, {w: "@volunteers", img: "phòng đọc: bàn dài, đèn chao xanh, người dịch (bóng) bên thư"},
-                  {w: "@flame", img: "ngọn lửa mồi đầu sào chạm đèn khí"}, {w: "@lamp#2", img: "đèn đọc sách sau ô kính bừng"}]}
+                  {w: "@flame", img: "ngọn lửa mồi đầu sào chạm đèn khí"}, {w: "@lamp", img: "đèn đọc sách sau ô kính bừng"}]}
     vo: >-
       At dusk, the lamplighter passes a library. Inside, volunteers bend over messages written in Dutch, Polish, German, and French, translating each one.
       The lamplighter raises the flame to the post by the window, and inside, a reading lamp comes on. Lamplighting is a job machines took over long ago.
@@ -120,7 +120,7 @@ segments:
   - id: "02"
     part: HISTORY
     map: {q: "How did translators and interpreters work before machines?", act: 2, emo: craft, color: sepia, cue: history, trade: [library-room, paper-flip, typewriter-old],
-          in: cut, in_note: "cắt từ đèn đọc sách sau kính (đoạn 01) vào chính phòng đọc đó, đèn chao xanh trong khung", out: cut, lamp: {in: true, out: false},
+          in: jcut, in_note: "J-cut: không khí phòng đọc vào trước hình 0,6 s; cắt từ đèn đọc sách sau kính (đoạn 01) vào chính phòng đọc đó, đèn chao xanh trong khung", out: cut, lamp: {in: true, out: false},
           nouns: [{w: "@volunteers", img: "phòng đọc 3D: người dịch tình nguyện bên thư"}, {w: "@photograph", img: "ảnh LoC: người dịch tình nguyện ở thư viện Red Cross, 1942"}, {w: "@translators", img: "ảnh LoC: hai người dịch bàn một bức thư"},
                   {w: "@interpreters", img: "ảnh LoC: người đọc to bức thư cho người bên cạnh"}, {w: "@trial", img: "phòng xử 1945: dãy buồng kính"}]}
     vo: >-
@@ -189,7 +189,7 @@ segments:
           in: jcut, in_note: "bước chân người thắp đèn từ cuối đoạn 04 kéo qua điểm cắt", out: cut, lamp: {in: true, out: false},
           nouns: [{w: "@lamplighter", img: "người thắp đèn đi qua thư viện, đèn khí sáng"}, {w: "@soviet", img: "phòng máy 1954"}, {w: "@machine", img: "tủ máy, băng từ quay, thẻ đục lỗ"},
                   {w: "@hundred", img: "máy in dòng; 250 words trên dải chú thích", anchor: w250}, {w: "@pages", img: "máy in dòng nhả câu tiếng Anh"}]}
-    pause: [{before: "@hundred", s: 0.7}]
+    pause: [{before: "@two", s: 0.7}]
     # 09/10 (chủ dự án, G1 v2): Quá khứ + Chuyển giao đo thật 45,4 % > 45 % → rút câu "Machines had long since taken over lamplighting; now they were turned on language."
     vo: >-
       The lamplighter walks on.
@@ -320,7 +320,7 @@ segments:
       - {tpl: plate, at: 0, p: {hero: st_side, frame0: 0, cap: [{s: "Oxford economists", at: "@oxford", src: [FLP]}, {s: "hundreds of local job markets across the United States", at: "@hundreds", src: [FLP]}, {s: "where people used Google Translate more…", at: "@google", src: [FLP]}, {s: "…translator employment grew more slowly", at: "@slowly", src: [FLP]},
            {s: "not layoffs", at: "@layoffs"}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: 0.3, src_ss: 60.0, dur: 6.0, gain_db: -17, fade_ms: 600}]}
-      - {tpl: sign, at: "@never-0.5", in: fade, p: {num: frey, caption: "translator jobs never added, U.S., after 2010 (estimate)", at: "@twentyeight", capAt: "@growth", wall: brick,
+      - {tpl: sign, at: "@never-0.5", in: fade, p: {num: frey, caption: "translator jobs never added, U.S., after 2010 (estimate)", at: "@twentyeight", capAt: "@growth", wall: plaster,
            cam: [{t: "@never-0.5", x: 0, z: 0.0}, {t: "@count+1", x: -30, z: 0.04}], cap: [{s: "an estimate, not a count", at: "@estimate", src: [FLP]}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@never", src_ss: 10.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
       - {tpl: plate, at: "@similar-0.4", in: fade, p: {hero: st_room, frame0: 200, cap: [{s: "editors, technical writers: no such effect", at: "@editors", src: [FLP]}, {s: "a shift toward higher-skilled work", at: "@shift", src: [FLP]}]},
@@ -351,8 +351,8 @@ segments:
     part: TODAY
     map: {q: "What do the forecasts say for the next ten years?", act: 3, emo: measured, color: cold, cue: today, trade: [computer-home, keyboard-typing],
           in: cut, out: cut, lamp: {in: false, out: true},
-          nouns: [{w: "@government", img: "isotype việc làm 2025 và 2035"}, {w: "@percent", img: "cột +2.0 % và +3.5 %", anchor: it_chg}, {w: "@openings", img: "buồng phiên dịch: người làm việc"}, {w: "@computers", img: "màn hình: bản nháp máy đang được duyệt"}]}
-    pause: [{before: "@percent", s: 0.7}]
+          nouns: [{w: "@government", img: "isotype việc làm 2025 và 2035"}, {w: "@two", img: "buồng phiên dịch từ xa; +2.0% trên dải chú thích", anchor: it_chg}, {w: "@positions", img: "buồng phiên dịch: người làm việc"}, {w: "@computers", img: "màn hình: bản nháp máy đang được duyệt"}]}
+    pause: [{before: "@two", s: 0.7}]
     vo: >-
       And the next ten years? The government projects that interpreters and translators will grow from about seventy-four thousand jobs in 2025 to about seventy-five thousand in 2035.
       That is two percent over the whole decade, about fifteen hundred more jobs, slower than the three and a half percent projected for all jobs. Slower growth, not decline.
@@ -363,11 +363,9 @@ segments:
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 5.0, dur: 2.5, gain_db: -20, fade_ms: 400}]}
       - {tpl: isotype, at: "@projects-0.8", in: fade, p: {title: "Interpreters and translators, United States", subtitle: "jobs, 2025 and projected 2035 · BLS", unit: 2500, unitName: "jobs", per: 31,
            groups: [{label: "2025", num: it25, at: "@seventyfour"}, {label: "2035 (projected)", num: it35, at: "@seventyfive"}], cap: [{s: "interpreters and translators", at: "@interpreters"}]}}
-      - {tpl: bars, at: "@percent-1.0", in: slide, p: {title: "Projected job growth, 2025–35", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
-           beats: [{s: "about 1,500 more jobs · slower growth, not decline", at: "@fifteen"}],
-           bars: [{label: "Interpreters and translators", num: it_chg, at: "@percent"}, {label: "All occupations", num: all_chg, at: "@half"}]}}
-      - {tpl: plate, at: "@even-0.4", in: fade, p: {hero: vrs_screen, frame0: 240, cap: [{num: open, s: "openings projected each year", at: "@six"}, {s: "mostly to replace people who retire or change careers", at: "@replace", src: [OOHIT]}]},
-         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@even", src_ss: 30.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
+      - {tpl: plate, at: "@two-0.9", in: fade, p: {hero: vrs_screen, frame0: 120, cap: [{num: it_chg, s: "interpreters and translators, projected 2025–35", at: "@two"}, {s: "about 1,500 more jobs over the decade", at: "@fifteen", src: [OOHIT]},
+           {num: all_chg, s: "all jobs, projected 2025–35", at: "@half"}, {s: "slower growth, not decline", at: "@slower#2"}, {num: open, s: "openings projected each year", at: "@six"}, {s: "mostly to replace people who retire or change careers", at: "@replace", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@two-0.5", src_ss: 9.0, dur: 2.5, gain_db: -20, fade_ms: 400}, {file: assets/ll/sfx/mouse-clicks.mp3, at: "@even", src_ss: 30.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
       - {tpl: plate, at: "@computer-0.4", in: fade, p: {hero: st_screen, frame0: 960, cap: [{s: "computer tools, including AI…", at: "@tools", src: [OOHIT]}, {s: "…are making the work more efficient", at: "@efficient", src: [OOHIT]}, {s: "but many of these jobs cannot be entirely automated", at: "@entirely", src: [OOHIT]}, {s: "“…computers cannot yet produce work comparable to what human translators do…”", at: "@comparable", src: [OOHIT]},
            {s: "cannot yet", at: "@yet#2"}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@computer", src_ss: 70.0, dur: 6.0, gain_db: -17, fade_ms: 600}]}
@@ -375,7 +373,7 @@ segments:
   - id: "14"
     part: TODAY
     map: {q: "So what happened to the people who carry words between languages?", act: 3, emo: resolve, color: cold, cue: today, trade: [radio-tuning, typewriter-1960s, computer-home],
-          in: cut, out: cut, lamp: {in: true, out: true},
+          in: cut, out: jcut, out_note: "bước chân người thắp đèn (đoạn 15) vào trước hình 1,0 s, kéo qua điểm cắt", lamp: {in: true, out: true},
           nouns: [{w: "@comparison", img: "khung đôi: bản in sửa đỏ 1960s | màn hình duyệt bản nháp hôm nay"}, {w: "@patterns", img: "khung đôi có nhãn 1966 · today"}, {w: "@everyday", img: "bàn người dịch hôm nay"},
                   {w: "@waiting", img: "phòng xử 1945: buồng kính"}, {w: "@checking", img: "màn hình duyệt bản nháp"}, {w: "@video", img: "buồng phiên dịch từ xa"}]}
     vo: >-
@@ -404,7 +402,7 @@ segments:
   - id: "15"
     part: STORY
     map: {q: "Which part of the work stays with people?", act: 4, emo: openness, color: warm, cue: theme, trade: [footsteps-steps, library-room],
-          in: cut, out: cut, lamp: {in: true, out: true},
+          in: jcut, in_note: "bước chân người thắp đèn vào trước hình 1,0 s", out: cut, lamp: {in: true, out: true},
           nouns: [{w: "@forecasts", img: "góc phố thư viện lúc chạng vạng, đèn khí sáng"}, {w: "@fifty", img: "người thắp đèn đi tới cột cuối"}, {w: "@people", img: "ô cửa thư viện sáng, đèn đọc sách"}]}
     vo: >-
       In 1954, the forecasts said a few years. It took more than fifty. And the handbook's word, yet, is the open question: which part of the work stays with people, and for how long?
@@ -413,7 +411,7 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: lib_end, frame0: 0, cap: [{s: "1954: “a few years”", at: "@1954", src: [HUT06]}, {s: "it took more than fifty", at: "@took", src: [FLP]}, {s: "the handbook's word: yet", at: "@word", src: [OOHIT]}, {s: "which part of the work stays with people, and for how long?", at: "@which", src: []}],
            ev: [{at: 3.0, what: "người thắp đèn đi dọc phố"}]},
-         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.4, src_ss: 0.5, dur: 7.0, gain_db: -14, fade_ms: 500}]}
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.0, src_ss: 0.5, dur: 8.0, gain_db: -14, fade_ms: 500}]}
 
   - id: "16"
     part: STORY
