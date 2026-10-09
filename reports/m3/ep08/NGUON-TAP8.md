@@ -49,7 +49,9 @@ P tự tải và lọc. Mọi số trong `episode.yaml`: **đọc toàn văn (P)
 
 ---
 # BỔ SUNG G1 v2 (09/10/2026, phiên P tập 8) — lời viết lại theo trục biến đổi (`loi-v2.txt`)
-Mọi số và mọi sự kiện trong `loi-v2.txt` đều có nguồn P **đọc toàn văn** (bảng dưới), trừ OOH đọc qua WebFetch (BAI-HOC #81: bls.gov chặn curl; đọc 2 lần, số khớp nhau và khớp số chủ dự án đưa trong lệnh mở phiên).
+**Đã xác minh (Claude) 09/10/2026:** Claude (Cowork) đọc nguyên văn OOH Interpreters & Translators (73 900 → 75 400, +2 %, +1 500, ≈ 6 000 chỗ trống/năm, post-editing, "cannot yet", chứng chỉ toà án, ASL/video relay, làm từ xa) và ALPAC 1966 (262 tại Mỹ 10/1962, ≈ $20 triệu/10 năm, postedited chậm và đắt hơn, "no immediate or predictable prospect", Mannheim ít hơn một phần ba lỗi): KHỚP.
+
+Mọi số và mọi sự kiện trong `loi-v2.txt` đều có nguồn P **đọc toàn văn** (bảng dưới); OOH P đọc qua WebFetch (BAI-HOC #81: bls.gov chặn curl; đọc 2 lần, số khớp nhau và khớp số chủ dự án đưa trong lệnh mở phiên).
 
 ## 7. Nguồn mới
 | Khoá | Nguồn | URL | Trang | Dùng cho (đoạn) |
