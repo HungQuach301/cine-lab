@@ -1,8 +1,8 @@
 # Phiên K — xét và khoá luật chất lượng Q26–Q31 (checks LL v3)
 
 Ngày 07/10/2026 · Phiên K (kiểm định độc lập) · Nhánh `checks/ll-v3` (gốc: đỉnh `ccr-5219a838-ftr84s`, 80a66c7).
-Chủ dự án duyệt lệnh khoá 07/10/2026, rồi **duyệt kết quả và ra phán quyết 4 câu hỏi cùng ngày**. Bản hiện hành là **1.7.1** (mục 12); mục 1–11 ghi bản 1.7.0 trình duyệt và giữ nguyên để đối chiếu.
-**K DỪNG ở đây: đã sửa theo phán quyết và khoá lại, chờ chủ dự án duyệt bản 1.7.1.**
+Chủ dự án duyệt lệnh khoá 07/10/2026, rồi **duyệt kết quả và ra phán quyết 4 câu hỏi cùng ngày**. Mục 1–11 ghi bản 1.7.0 trình duyệt và giữ nguyên để đối chiếu; mục 12 là bản 1.7.1.
+**Bản trình duyệt hiện tại là 1.8.0 (mục 13): sửa Q27, Q31 và thêm Q26b sau tập 7, 09/10/2026. K DỪNG, chờ chủ dự án duyệt merge.**
 
 ## 1. Kết quả chính
 - **Bản khoá:** VERSION **1.7.0**, LOCK `TREE_SHA256 0b180104d6b7cad9e5ab942011f86c02557fb07388bb52260b42c1efdbe22915`.
@@ -228,3 +228,117 @@ K đã khoá đúng chữ CHUAN-KENH §11.2; chọn khác thì K sửa và khoá
 1. Duyệt bản khoá 1.7.1 (LOCK `e3fcd2e6…`).
 2. Sau khi duyệt, phiên P merge `checks/ll-v3` vào `main`. Phiên P cần biết: qc áp Q26–Q31 từ tập 7, đề bài Q27 là 60 ảnh, Q31 có sổ vòng (không xoá `q31-lich-su/`).
 3. Hiệu chuẩn lại Q30 màu sau tập 7–8 (K mở lại khi có dữ liệu).
+
+## 13. Sửa sau tập 7 (09/10/2026) — bản 1.8.0
+Lệnh chủ dự án 09/10/2026, sau khi đọc `reports/m3/TAP7-G2.md`, `reports/m3/ep07/Q27-Q31.md` (nhánh `claude/eager-babbage-6cc4l6`, df6da4d). Nhánh K: `claude/checks-ll-v3-tap-7-b3kbii`, gốc `main` b9acad1. K không sửa nội dung tập.
+
+- **Bản khoá:** VERSION **1.8.0**, LOCK `TREE_SHA256 848ee170beb253fab25e1eaf6b3d4f53fe4c8f80d0ca6f7561229eb49fe6b1d9`. Tính lại bằng `checks/lock.py --verify`: KHỚP.
+- **Tự kiểm:** `checks/ll/selftest_ll.py` **152/152** (109 ca cũ + 43 ca mới, `do/selftest.txt`); `checks/selftest/run_selftest.py` (bộ máy L1) **142/142** ca + kiểm đầu-cuối `run.py` (sạch ĐẠT, bẩn TRƯỢT): TẤT CẢ KHỚP (18,6 phút).
+- **Tệp đã sửa:** `checks/ll/q_blind.py` (Q27, Q31), `checks/ll/q_setting.py` (mới, Q26b), `checks/ll/RULES-LL.md`, `checks/ll/selftest_ll.py`, `checks/ll/fixtures/ep06/` (tệp lời, xem 13.5), `checks/ll/fixtures/ep07/` (mới), `checks/cinecheck/__init__.py` (VERSION), `checks/LOCK`; `scripts/ll/qc.py` (chỉ phần gọi luật).
+
+### 13.1 Q27 — chỉ chấm bản cuối 1080p, ngưỡng có sai số
+| | Trước (1.7.1) | Bây giờ (1.8.0) |
+|---|---|---|
+| Bản được chấm | bất kỳ video nào | **chỉ bản cuối 1920×1080**. `q27-set` từ chối bản nháp; `q27-score` trên nháp: TRƯỢT |
+| Đối chứng tập 1 | 3 bản xem m23 **1280×720** (`screening/`) | **master m23 1920×1080**, SHA `9c382538…0113942` (đúng SHA trong `M2-3-MASTER-SHORTS.md` và nhánh `release-ll-ep01-v1`). Ngoài repo, lấy bằng `q_blind.py ref-fetch` (kiểm SHA) |
+| ĐẠT | tập mới ≥ tập 1 | **d ≥ −SE**, d = tập mới − tập 1, **SE = 0,27** |
+| Sát ngưỡng | ±5 % | **\|d\| ≤ SE: "SÁT NGƯỠNG"**, bắt buộc `reports/m3/ep<N+1>/PLAN.md` có mục tiêu đề chứa "Cải thiện hình", nội dung ≥ 40 ký tự; thiếu: TRƯỢT |
+| Bộ ảnh luật cũ | — | manifest không ghi đối chứng 1080p: TRƯỢT, phải dựng lại |
+
+**SE đo trên dữ liệu đã có** (`do/q27-se.txt`; 6 lần chấm 30 + 30 hợp lệ, 18 câu trả lời Sonnet thật):
+
+| Lần chấm | Tập mới | Tập 1 | Chênh | SE (người × khung) | SE (chỉ khung) |
+|---|---|---|---|---|---|
+| Tập 6 v1 | 4,34 | 4,92 | −0,58 | 0,23 | 0,20 |
+| Tập 6 v2 | 4,98 | 5,13 | −0,15 | 0,27 | 0,26 |
+| Tập 7 nháp lần 2 | 5,11 | 4,90 | +0,21 | 0,28 | 0,22 |
+| Tập 7 nháp lần 3 | 5,54 | 5,42 | +0,12 | 0,33 | 0,23 |
+| Tập 7 nháp lần 4b | 5,14 | 5,24 | −0,09 | 0,23 | 0,19 |
+| Tập 7 chính thức | 5,68 | 5,64 | +0,04 | 0,28 | 0,23 |
+
+- **Cách đo:** mỗi lần chấm, bootstrap hai tầng (lấy lại 3 người chấm có hoàn lại × lấy lại khung trong từng bộ, 4 000 lượt), lấy độ lệch chuẩn của chênh; gộp 6 lần bằng căn trung bình bình phương: **0,273 → khoá 0,27**. Hàm `se27()` trong luật; selftest tính lại từ fixtures và so với số khoá.
+- **Khác số "≈ 0,36" trong lệnh:** 0,36 là **dự báo** của K ở bản 1.7.0 (0,63 × √(10/30), mục 8), chưa đo. Số đo thật trên 6 lần là 0,27 (dải 0,23–0,33). Theo "số đo thật thắng số tự khai", K khoá 0,27. Ngưỡng **chặt hơn** 0,36 một chút.
+- **Cách đo khác đã xét:** độ lệch chuẩn điểm tập 1 qua 6 lần × √2 = 0,41. Không dùng, vì nó gồm dao động chung của cả lần chấm (cùng người chấm, cùng ngữ cảnh), phần này triệt tiêu khi lấy chênh. Chỉ tính phương sai do rút khung thì được 0,22, thấp vì bỏ qua người chấm.
+- **Suy lại bộ new/ref từ hạt giống** (`sets_from_seed`): khớp đúng bộ đã lưu của tập 6 v1, v2; đọc lại tập 7 chính thức ra đúng 5,68 / 5,64 như G2. Dữ liệu tập 7 đóng băng ở `checks/ll/fixtures/ep07/`.
+- **Chạy thật đầu-cuối** trên master tập 7 (`ec203d63…`, tải lại từ `release-ll-ep07-v1`, SHA khớp G2): `q27-set` dựng 60 ảnh với đối chứng 1080p trong 19 s; bản xem 1280×720 bị từ chối; `q27-score` với điểm thử bắt được ảnh bị thay, thiếu mục PLAN, và ĐẠT khi PLAN có mục. Đây là thử cơ chế, **không phải lần chấm Q27**; K không gọi subagent.
+
+**Tập 7 theo luật mới:** d = +0,04, trong ±0,27 → **ĐẠT, SÁT NGƯỠNG**. `reports/m3/ep08/PLAN.md` trên `main` hiện **chưa có mục "Cải thiện hình"** (selftest ghi lại: TRƯỢT). P cần thêm mục này trước G2 tập 8. Hướng sửa đã có trong G2 tập 7: nội thất 3D khối thô, tối; thẻ giấy dựng dở. Lưu ý: lần chấm chính thức tập 7 so với tập 1 **720p**. Bản 1.8.0 so với 1080p, nên chạy lại qc tập 7 trên 1.8.0 sẽ báo "bộ ảnh luật cũ" ở Q27. K không chạy lại; G2 tập 7 giữ kết quả 1.7.1.
+
+### 13.2 Q31 — luật chuyển sổ vòng nháp sang bản cuối
+- **Dấu vân** ghi trong manifest khi `q31-set`:
+  - **lời** = SHA chữ lời từng đoạn (theo căn chữ);
+  - **cấu trúc** = SHA của thứ tự đoạn; mỗi đoạn gồm chuỗi shot theo mẫu, cảnh đinh (cả hai nửa diptych), ảnh tư liệu, kiểu vào;
+  - không tính thời điểm, máy quay và chi tiết vẽ trong cảnh đinh: lượt sửa ánh sáng/nội thất không đổi dấu vân (selftest).
+- **Đếm vòng:** vòng tính theo tập như cũ. Khi chuyển từ nháp sang **bản cuối (1920×1080)**, sổ nháp chỉ được chuyển nếu bản cuối có **cùng dấu vân lời và cấu trúc với nháp cuối cùng đã chấm**. Khác, hoặc nháp không có dấu vân, thì bản cuối **đếm lại từ vòng 1**. Giữa các vòng nháp với nhau và giữa các vòng bản cuối với nhau vẫn đếm tiếp.
+- **Chuyển sổ:** `q31-set <cuối>/blind/q31 … --tu-nhap <nháp>/blind/q31` **chép** (không chuyển, không xoá) mọi vòng nháp sang `<cuối>/blind/q31-lich-su/`, chạy lại không chép trùng. Thay cho việc P chép tay như ở tập 7.
+- **Không bao giờ xoá `q31-lich-su/`:** manifest ghi SHA manifest của mọi vòng trong sổ. `q31-score` kiểm từng vòng; thiếu hoặc bị sửa: TRƯỢT. Bộ chấm tính lại số vòng từ sổ; khác manifest: TRƯỢT. Dấu vân timeline khác manifest: TRƯỢT.
+- **Chạy thật đầu-cuối** trên master tập 7 với sổ vòng nháp thật (vòng 1–4, `reports/m3/ep07/blind/`) và câu trả lời thật vòng 5:
+  - ảnh dựng lại **trùng SHA 37/37** với bộ G2 gốc;
+  - (A) sổ nháp luật cũ, không dấu vân → bản cuối **vòng 1** → TRƯỢT (T05, T09, T15 2/3 chặn);
+  - (B) sổ nháp có dấu vân cùng lời/cấu trúc → **vòng 5** → ĐẠT (3 điểm 2/3 có giải trình);
+  - (B′) xoá `vong-02` → TRƯỢT ("sổ vòng thiếu", "vòng 5 khác sổ vòng").
+- **Tập 7 theo luật mới:** nháp v6 (vòng 4) và bản cuối **cùng lời, cùng cấu trúc**. Từ 6e771e5 (trước vòng 4) tới df6da4d, `episode.yaml`, `scripts/ll/ll.py`, `scripts/ll/lib/` và `reports/m3/ep07/vo/` **không đổi**; chỉ `design/ll-hero/ep07.js` (nội thất, ánh sáng) đổi. Timeline là hàm của các tệp không đổi đó. Vậy cách P chuyển sổ ở tập 7 (vòng 5) **đúng luật mới về nội dung**. Sổ nháp tập 7 dựng theo 1.7.1 nên không có dấu vân; máy chỉ xác nhận được từ tập 8.
+
+### 13.3 Q26b — đa dạng bối cảnh (mới; áp từ tập 8)
+- **Nhãn bối cảnh** cho mỗi shot của timeline (`checks/ll/q_setting.py`):
+  - `plate` → cảnh đinh `heroes.<khoá>.hero`: mọi góc máy của một cảnh 3D là **một** bối cảnh;
+  - `diptych` → hai nửa, mỗi nửa 1/2 thời lượng;
+  - cảnh 2D toàn khung → `2d/<mẫu>`;
+  - thẻ số, chữ, trích dẫn, isotype, bản đồ, ảnh tư liệu, thẻ kết → trung tính.
+- **Chặn khi:** (a) một bối cảnh > 25 % thời lượng phim; (b) liên tục > 90 s; (c) nửa sau < 3 bối cảnh.
+- **Chi tiết K định, nêu để duyệt:**
+  - Quãng liên tục đi qua shot trung tính, dứt khi gặp bối cảnh khác hoặc khi chuỗi trung tính dài > 8 s (lấy trần Q15).
+  - Ở nửa sau, một bối cảnh phải hiện ≥ 3 s mới được đếm, để chớp một shot ngắn cho đủ số không tính.
+
+**Kết quả** (`do/q26b-*.txt`, có bảng nhãn từng shot):
+| | Bối cảnh | Lớn nhất | Liên tục dài nhất | Nửa sau | Kết luận |
+|---|---|---|---|---|---|
+| **Tập 7 bản cuối** (timeline dựng lại, 14 825 khung = master, 0 ký tự ElevenLabs) | 6 | **ep07/tower 29,1 %** | **ep07/tower 117,0 s (6:02,8–7:59,8)** | 5 | **TRƯỢT** (a), (b) |
+| **Tập 6 v2** | 10 | ep06/drafts 17,3 % | ep06/drafts 27,1 s | 7 | **ĐẠT** |
+
+- **Tập 7:** `ep07/tower` là "văn phòng tầng cao hôm nay, đêm" (chú thích trong `ep07.js`), tức **văn phòng đêm**, đúng dự kiến.
+  - Tổng 179,8 s qua 3 góc máy (tower_in, tower_code, tower_floor) và 3 diptych.
+  - Quãng 5:28,8–5:51,0 bị thẻ trích dẫn 11,9 s cắt (> 8 s); nếu thẻ ngắn hơn 8 s, quãng liên tục là 150,9 s từ 5:28,8 (selftest).
+  - Khoảng "chán" 8:00–9:20 người xem Q31 nêu nằm trong phần văn phòng đêm sau cái thang; luật bắt từ tỷ lệ tổng (a).
+- **Sát ngưỡng (±5 %):** tập 7 `ep07/pool` (phòng tính toán) **24,99 %**, ngưỡng 25 %.
+- **Đối chiếu tập 2–5 (chỉ tham khảo, luật không áp):**
+  - Tập 2: TRƯỢT (c), nửa sau 2 bối cảnh.
+  - Tập 3: ĐẠT, nửa sau đúng 3.
+  - Tập 4: TRƯỢT (a), `2d/office` 37,3 %.
+  - Tập 5: TRƯỢT (a), `2d/desk` 33,8 %.
+  - Các tập dạng thẻ giấy (trung tính 33–80 %) ít bối cảnh. Luật bắt đúng loại lặp nơi chốn mà chủ dự án chê; không ảnh hưởng tập đã phát hành.
+- **qc:** `scripts/ll/qc.py` chạy Q26b **từ tập 8**; tập 7 ghi "không áp". Áp ngược cho tập 7 thì G2 tập 7 TRƯỢT. Chủ dự án quyết (mục 13.7).
+
+### 13.4 Selftest mới (43 ca)
+| Luật | Số ca | Nội dung chính |
+|---|---|---|
+| Q27 | 16 | suy lại bộ từ hạt giống (2); SE khoá = SE đo lại; đọc lại tập 7 = 5,68/5,64; tập 7 sát ngưỡng: không PLAN / PLAN tập 8 trên main / PLAN có mục / mục rỗng / không có mục; +1 điểm → ĐẠT rõ; nháp 4b sát ngưỡng ĐẠT; tập 6 v2 sát ngưỡng ĐẠT; tập 6 v1 TRƯỢT dù có PLAN; lần 4 không hợp lệ; bản xem 720p là nháp; đối chứng là master 1080p |
+| Q31 | 17 | dấu vân: sửa nội thất không đổi, đổi cảnh đinh / bỏ ảnh tư liệu / đổi một chữ lời → đổi; đếm vòng: cùng dấu vân → 5, đổi cấu trúc → 1, đổi lời → 1, nháp luật cũ → 1, nháp đổi giữa các vòng vẫn đếm, cuối → cuối đếm tiếp, nháp → cuối đổi → cuối; tập 7 vòng 5 thật ĐẠT, vòng 1 chặn đúng 3 điểm; sổ nguyên / bị sửa / bị xoá; `--tu-nhap` chép đủ, không trùng, nguồn còn |
+| Q26b | 10 | tập 7 TRƯỢT đúng hai lý do; tập 7 pool sát ngưỡng; tập 6 v2 ĐẠT; nhãn góc máy, diptych, trung tính; thẻ > 8 s cắt quãng; thẻ < 8 s nối quãng; nửa sau còn 1 bối cảnh; chớp 1,5 s không tính; đoạn 06–08 cùng cảnh 114 s |
+
+(Tổng 43: Q27 16 + Q31 17 + Q26b 10. Một ca Q27 cũ đổi kỳ vọng: "tập 6 v2 10 + 10 nếu mọi khung tập mới +1 điểm" có chênh +0,25 nằm trong SE, không có PLAN → TRƯỢT.)
+
+### 13.5 Sửa dữ liệu tự kiểm (lỗi K tìm thấy)
+- Trên `main`, selftest 1.7.1 chỉ được **107/109**. Hai ca Q28 trượt vì "lặng trước số neo ở 00: 0,49 s".
+- **Nguyên nhân:**
+  - fixture `timeline-v2.json.gz` trỏ tới `reports/m3/ep06/vo/`;
+  - P thu lại lời tập 6 v2 (TAP6-SUA-LOI) và nhánh lô 6–8 merge vào `main` sau khi K khoá, nên tệp lời không còn khớp timeline đóng băng.
+- **Sửa:** chép đúng bản lời K đã dùng (từ `checks/ll-v3`) vào `checks/ll/fixtures/ep06/vo/` (13 MB) và trỏ timeline vào đó. Selftest không còn phụ thuộc tệp P có thể sửa.
+- Tập 2–5 vẫn trỏ `reports/m3/ep0N/vo/`, hiện vẫn khớp; nếu P thu lại lời các tập đó, cần đóng băng tương tự.
+
+### 13.6 Hạn chế
+- **SE** đo trên 6 lần, 4 lần trong số đó cùng một tập (tập 7). Lần 4b dùng lại R2, R3 của lần 4. K đề nghị đo lại sau tập 8–9.
+- **Q27 sát ngưỡng → PLAN:** máy chỉ kiểm được mục có tồn tại và có nội dung, không kiểm được chất lượng của mục. Tập sau làm đúng mục đó hay không do G1/G2 tập sau và chủ dự án xét.
+- **Dấu vân cấu trúc** không tính thời điểm cắt. P dời điểm cắt trong đoạn mà không đổi chuỗi shot thì sổ vẫn được chuyển. Dải T## của Q31 nằm ở ranh giới đoạn, nên dời cắt bên trong đoạn ít ảnh hưởng tới điểm đứt mạch.
+- **Q26b** dựa vào khai báo `heroes.<khoá>.hero`. Hai cảnh đinh khác tên mà dựng cùng một nơi (đổi tên để lách) thì máy không thấy; Q26 (khung nhìn) và người xem Q31 vẫn là lưới thứ hai.
+
+### 13.7 Việc đang chờ chủ dự án
+1. **Duyệt bản khoá 1.8.0** (LOCK `848ee170…`). Sau khi duyệt, phiên P merge nhánh `claude/checks-ll-v3-tap-7-b3kbii` vào `main`.
+2. **SE = 0,27 (đo thật)** thay cho 0,36 (dự báo): xác nhận, hoặc chỉ định 0,36. Đổi chỉ là một dòng `SE27` cùng một ca selftest, rồi khoá lại.
+3. **Q26b áp từ tập 8** (đề nghị của K), hay áp ngược tập 7. Áp ngược thì G2 tập 7 TRƯỢT: văn phòng đêm 29,1 % và 117 s.
+4. Hai chi tiết đo Q26b do K định: chuỗi trung tính > 8 s cắt quãng liên tục; ≥ 3 s mới tính ở nửa sau. Duyệt hoặc chỉnh.
+5. **P cần biết:**
+   - Q27 chỉ chạy trên bản cuối (`q_blind.py ref-fetch` một lần mỗi máy);
+   - tập 7 Q27 sát ngưỡng → thêm mục **"Cải thiện hình"** vào `reports/m3/ep08/PLAN.md`;
+   - Q31 chuyển sổ bằng `--tu-nhap`;
+   - không bao giờ xoá `q31-lich-su/`.

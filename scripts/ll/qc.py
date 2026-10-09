@@ -25,6 +25,8 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q23 câu/thẻ nhiều số cùng đối tượng/loại/kỳ/cơ sở; Q24 nhãn phân loại khớp số; Q25 thẻ khoảng số không đếm qua số trung gian; LOCK khớp
   Q26–Q31 (khoá LL v3, áp từ tập 7): đa dạng hình (checks/ll/q_diversity.py), chấm hình mù và xem liền mạch mù (checks/ll/q_blind.py,
       bộ ảnh ở <out>/blind/q27, <out>/blind/q31 + R1–R3.json), âm thanh, hình–lời, liền mạch (checks/ll/q_av.py)
+  Sửa sau tập 7 (K, 09/10/2026, 1.8.0): Q27 chỉ chấm bản cuối 1080p, ĐẠT khi ≥ tập 1 − SE, sát ngưỡng đòi mục "Cải thiện hình" trong
+      PLAN tập sau; Q31 chuyển sổ vòng nháp → bản cuối chỉ khi cùng lời/cấu trúc; Q26b đa dạng bối cảnh (checks/ll/q_setting.py, từ tập 8)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
 import glob, json, os, re, subprocess, sys
@@ -32,7 +34,7 @@ import numpy as np
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
-sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow, q_diversity, q_av, q_blind  # noqa: E402  luật khoá LL v3 (phiên K)
+sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow, q_diversity, q_av, q_blind, q_setting  # noqa: E402  luật khoá LL v3 (phiên K)
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
 FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect', 'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}
@@ -192,8 +194,11 @@ if _epn and _epn >= 7:
     def _r(q, name, r, thr=''):
         row(q, name, r['ok'], r['val'], thr, near='; '.join(r.get('sat_nguong') or []), note=r.get('note', '').replace('|', '/'))
     _r('Q26', 'Đa dạng hình', q_diversity.check(_vids, TL) if _vids else dict(ok=False, val='không có master/bản xem', note=''), '≥ 40 · ≤ 20 % · ≤ 2')
-    for _q, _d, _f in (('Q27', 'q27', lambda d: q_blind.q27_score(d, _vids)), ('Q31', 'q31', lambda d: q_blind.q31_score(d, _vids, TL))):
-        _bd = f'{O}/blind/{_d}'; _nm = 'Chấm hình mù (3 subagent, tập mới ≥ tập 1)' if _q == 'Q27' else 'Xem liền mạch mù (3 subagent, không điểm đứt mạch ≥ 2/3)'
+    if _epn >= 8: _r('Q26b', 'Đa dạng bối cảnh (nhãn từ timeline)', q_setting.q26b(TL), '≤ 25 % · ≤ 90 s liên tục · nửa sau ≥ 3')
+    else: row('Q26b', 'Đa dạng bối cảnh', True, 'không áp (Q26b từ tập 8)', '')
+    _plan_sau = os.path.join(os.path.dirname(os.path.abspath(EP)), '..', f'ep{_epn + 1:02d}', 'PLAN.md')   # Q27 sát ngưỡng → mục "Cải thiện hình"
+    for _q, _d, _f in (('Q27', 'q27', lambda d: q_blind.q27_score(d, _vids, plan_sau=_plan_sau)), ('Q31', 'q31', lambda d: q_blind.q31_score(d, _vids, TL))):
+        _bd = f'{O}/blind/{_d}'; _nm = 'Chấm hình mù (bản cuối 1080p; 3 subagent, tập mới ≥ tập 1 − SE)' if _q == 'Q27' else 'Xem liền mạch mù (3 subagent, vòng theo tập)'
         _r(_q, _nm, _f(_bd) if os.path.exists(f'{_bd}/manifest.json') else dict(ok=False, val='chưa có bộ xem mù', note=f'chạy checks/ll/q_blind.py {_d}-set {_bd} … rồi 3 subagent (RULES-LL.md)'))
     if _mx:
         _r('Q28', 'Âm thanh (nhạc theo hồi, âm thanh nghề, lặng trước số neo, loudness, ASR)', q_av.q28(E, TL, _mx, master=_m if os.path.exists(_m) else None))

@@ -85,13 +85,13 @@
 ĐÚNG  Q30     bắt lỗi  Q-L30 B: hồi 3 bằng hồi 2 (không lạnh NHẤT)
 ĐÚNG  Q30     bắt lỗi  Q-L30 B: hồi 3 không có cảnh toàn khung để đo
 ĐÚNG  Q30     sạch     Q-L30 B: hồi 3 b* 9,2 so với 9,5 được nêu là sát ngưỡng ±5 %
-ĐÚNG  Q27     bắt lỗi  tập 6 v2, bản 10 + 10 (trước Q-L27): tập mới 4.83 · tập 1 5.58 (R1 4.77/5.53, R2 4.90/5.50, R3 4.83/5.70)
-ĐÚNG  Q27     bắt lỗi  tập 6 v1, bản 10 + 10 (trước Q-L27): tập mới 3.84 · tập 1 5.48 (R1 3.90/5.53, R2 3.83/5.40, R3 3.80/5.50)
+ĐÚNG  Q27     bắt lỗi  tập 6 v2, bản 10 + 10 (trước Q-L27): tập mới 4.83 · tập 1 5.58 · chênh -0.74 (SE 0.27) (R1 4.77/5.53, R2 4.90/5.50, R3 4.83/5.70)
+ĐÚNG  Q27     bắt lỗi  tập 6 v1, bản 10 + 10 (trước Q-L27): tập mới 3.84 · tập 1 5.48 · chênh -1.63 (SE 0.27) (R1 3.90/5.53, R2 3.83/5.40, R3 3.80/5.50)
 ĐÚNG  Q27     sạch     Q-L27 B: bộ tập 6 v2 có 30 + 30 khung, mỗi tầng 1/30 thời lượng một khung
 ĐÚNG  Q27     sạch     Q-L27 B: thứ tự trộn tất định theo SHA video (dựng lại ra cùng bộ)
-ĐÚNG  Q27     bắt lỗi  tập 6 v2, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): tập mới 4.98 · tập 1 5.13 (R1 4.92/5.08, R2 5.20/5.21, R3 4.82/5.10)
-ĐÚNG  Q27     bắt lỗi  tập 6 v1, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): tập mới 4.34 · tập 1 4.92 (R1 4.21/4.63, R2 4.43/5.10, R3 4.37/5.02)
-ĐÚNG  Q27     sạch     tập 6 v2 nếu mọi khung tập mới +1 điểm
+ĐÚNG  Q27     bắt lỗi  tập 6 v2, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): tập mới 4.98 · tập 1 5.13 · chênh -0.15 (SE 0.27) · SÁT NGƯỠNG (R1 4.92/5.08, R2 5.20/5.21, R3 4.82/5.10)
+ĐÚNG  Q27     bắt lỗi  tập 6 v1, bản 30 + 30 (đề bài F01–F60, 3 Sonnet thật): tập mới 4.34 · tập 1 4.92 · chênh -0.58 (SE 0.27) (R1 4.21/4.63, R2 4.43/5.10, R3 4.37/5.02)
+ĐÚNG  Q27     bắt lỗi  tập 6 v2 (10 + 10) nếu mọi khung tập mới +1 điểm: chênh +0,25 sát ngưỡng, không có PLAN tập sau → TRƯỢT
 ĐÚNG  Q27     bắt lỗi  một người chấm bỏ sót khung
 ĐÚNG  Q27     bắt lỗi  chỉ 2 người chấm
 ĐÚNG  Q31     bắt lỗi  tập 6 v2 (đề bài khoá, 3 Sonnet thật): vòng 1 · điểm liền mạch [7, 6, 7] · đồng thuận ≥ 2/3: 8 điểm, đứt mạch 7
@@ -107,5 +107,48 @@
 ĐÚNG  Q31     bắt lỗi  R2 dùng đề bài đã sửa (SHA khác bản khoá)
 ĐÚNG  Q27     sạch     đề bài Q27 nêu đủ 60 ảnh F01–F60
 ĐÚNG  Q27/31  sạch     đề bài khoá: 6 tệp, mỗi tệp có {DIR} và yêu cầu chỉ trả JSON
+ĐÚNG  Q27     sạch     suy lại bộ new/ref từ hạt giống khớp bộ đã lưu (tập 6 v1, 30 + 30)
+ĐÚNG  Q27     sạch     suy lại bộ new/ref từ hạt giống khớp bộ đã lưu (tập 6 v2, 30 + 30)
+ĐÚNG  Q27     sạch     SE khoá = SE đo lại trên 6 lần chấm thật (0.273; từng lần 0.23, 0.27, 0.28, 0.33, 0.23, 0.28) → 0.27
+ĐÚNG  Q27     sạch     tập 7 chính thức đọc lại đúng số G2 (5,68 / 5,64): tập mới 5.68 · tập 1 5.64 · chênh +0.04 (SE 0.27) · SÁT NGƯỠNG (R1 5.92/5.90, R2 5.62/5.39, R3 5.49/5.63)
+ĐÚNG  Q27     bắt lỗi  tập 7 chính thức: chênh +0,04 trong ±SE → SÁT NGƯỠNG; không có PLAN tập sau → TRƯỢT
+ĐÚNG  Q27     bắt lỗi  tập 7 chính thức với PLAN tập 8 hiện có trên main (chưa có mục "Cải thiện hình") → TRƯỢT
+ĐÚNG  Q27     sạch     tập 7 chính thức + PLAN tập sau có mục "Cải thiện hình" → ĐẠT, ghi SÁT NGƯỠNG
+ĐÚNG  Q27     bắt lỗi  PLAN tập sau có tiêu đề "Cải thiện hình" nhưng mục rỗng → TRƯỢT
+ĐÚNG  Q27     bắt lỗi  PLAN tập sau không có mục "Cải thiện hình" → TRƯỢT
+ĐÚNG  Q27     sạch     tập 7 nếu mọi khung tập mới +1: chênh > SE → ĐẠT rõ, không cần PLAN (tập mới 6.68 · tập 1 5.64 · chênh +1.04 (SE …)
+ĐÚNG  Q27     sạch     tập 7 nháp 4b (chênh −0,10, trong SE): luật mới ĐẠT sát ngưỡng (tập mới 5.14 · tập 1 5.24 · chênh -0.09 (SE 0.…)
+ĐÚNG  Q27     sạch     tập 6 v2 (30 + 30, chênh −0,15) + PLAN có mục: ĐẠT sát ngưỡng
+ĐÚNG  Q27     bắt lỗi  tập 6 v1 (chênh −0,58 < −SE) → TRƯỢT dù PLAN có mục
+ĐÚNG  Q27     bắt lỗi  tập 7 nháp lần 4: R1 thiếu F59, F60 → bộ chấm không hợp lệ
+ĐÚNG  Q27     bắt lỗi  bản nháp không chấm: bản xem 1280×720 tập 6 v2 bị nhận là nháp
+ĐÚNG  Q27     sạch     đối chứng tập 1 = master m23 1920×1080 (SHA M2-3-MASTER-SHORTS.md), một tệp
+ĐÚNG  Q31     sạch     dấu vân: sửa thời điểm, máy quay, ánh sáng cảnh đinh (lượt nội thất) → không đổi
+ĐÚNG  Q31     bắt lỗi  dấu vân: đổi cảnh đinh một shot (đoạn 13) → cấu trúc khác
+ĐÚNG  Q31     bắt lỗi  dấu vân: bỏ một shot ảnh tư liệu → cấu trúc khác
+ĐÚNG  Q31     bắt lỗi  dấu vân: đổi một chữ lời đoạn 05 → lời khác
+ĐÚNG  Q31     sạch     4 vòng nháp + bản cuối cùng lời, cùng cấu trúc → vòng 5 (sổ 4 vòng nháp chuyển sang bản cuối (cùng lời, cùng cấu trúc))
+ĐÚNG  Q31     sạch     bản cuối đổi cấu trúc → đếm lại vòng 1 (bản cuối đếm lại từ vòng 1 (cấu trúc khác so với nháp cuối đã chấm, vòng 4))
+ĐÚNG  Q31     sạch     bản cuối đổi lời → đếm lại vòng 1
+ĐÚNG  Q31     sạch     sổ nháp bản luật cũ (không dấu vân, như tập 7) → bản cuối vòng 1
+ĐÚNG  Q31     sạch     nháp đổi cấu trúc giữa các vòng nháp vẫn đếm tiếp; so với NHÁP CUỐI đã chấm → vòng 5
+ĐÚNG  Q31     sạch     bản cuối → bản cuối (dựng lại sau vòng bản cuối): đếm tiếp
+ĐÚNG  Q31     sạch     nháp → bản cuối đổi (đếm lại 1) → bản cuối vòng 2 → vòng 3
+ĐÚNG  Q31     sạch     tập 7 vòng 5 thật (sổ nháp chuyển hợp lệ): vòng 5 · điểm liền mạch [7, 7, 7] · đồng thuận ≥ 2/3: 6 điểm, đứt mạch 3 (3/3: 0, 2/3 có giải trình 3/3)
+ĐÚNG  Q31     bắt lỗi  tập 7 bản cuối nếu đếm lại vòng 1: T05, T09, T15 (2/3) chặn
+ĐÚNG  Q31     sạch     sổ vòng nguyên vẹn
+ĐÚNG  Q31     bắt lỗi  sổ vòng: manifest vòng 2 bị sửa
+ĐÚNG  Q31     bắt lỗi  sổ vòng: xoá q31-lich-su/
+ĐÚNG  Q31     sạch     --tu-nhap: chép 3 vòng nháp sang sổ bản cuối (vong-01, vong-02, vong-03), chạy lại không chép trùng, nguồn còn nguyên
+ĐÚNG  Q26b    bắt lỗi  tập 7 bản cuối: 6 bối cảnh · lớn nhất ep07/tower 29.1 % · liên tục dài nhất ep07/tower 117.0 s · nửa sau 5 · trung tính 13.6 %
+ĐÚNG  Q26b    sạch     tập 7: ep07/pool 25,0 % được nêu sát ngưỡng
+ĐÚNG  Q26b    sạch     tập 6 v2: 10 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 18.6 %
+ĐÚNG  Q26b    sạch     nhãn: mọi góc máy của một cảnh đinh là một bối cảnh (tower_in, tower_code, tower_floor)
+ĐÚNG  Q26b    sạch     nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cảnh cả shot; thẻ số, ảnh tư liệu trung tính
+ĐÚNG  Q26b    sạch     tập 7: thẻ trích dẫn 11,9 s (> 8 s) ở 5:51 làm dứt quãng văn phòng (quãng dài nhất bắt đầu 6:02.8)
+ĐÚNG  Q26b    sạch     tập 7 nếu thẻ trích dẫn ngắn hơn 8 s: quãng văn phòng nối dài từ 5:28.8 ([150.9, '5:28.8', '7:59.8'])
+ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: 9 bối cảnh · lớn nhất ep06/drafts 32.3 % · liên tục dài nhất ep06/drafts 59.9 s · nửa sau 1 · trung tính 32.6 %
+ĐÚNG  Q26b    bắt lỗi  chớp 2 bối cảnh 1,5 s ở nửa sau để đủ số: không tính (< 3 s mỗi bối cảnh)
+ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu cả đoạn 06–08 (114 s) dùng tường bản nháp: liên tục > 90 s
 
-selftest LL v3: 109/109 ca đúng kỳ vọng
+selftest LL v3: 152/152 ca đúng kỳ vọng

@@ -242,8 +242,9 @@ def strata_ok(plan):
     for k in ('new', 'ref'):
         it = [(v, t) for s_, v, t in plan.values() if s_ == k]
         if len(it) != QB.N27: err.append(f'{k}: {len(it)} khung'); continue
-        vids = sorted({v for v, _ in it}, key=lambda v: [x for x, _ in QB.REF27].index(v) if k == 'ref' else v)
-        L = [(v, QB.dur(v) - 2 * QB.EDGE) for v in vids]; tot = sum(d for _, d in L); pos = []
+        vids = sorted({v for v, _ in it}, key=lambda v: [x for x, _, _ in QB.REF27].index(v) if k == 'ref' else v)
+        rd = {x: d for x, _, d in QB.REF27}
+        L = [(v, (rd[v] if k == 'ref' else QB.dur(v)) - 2 * QB.EDGE) for v in vids]; tot = sum(d for _, d in L); pos = []
         for v, t in it: pos.append(sum(d for w, d in L[:[w for w, _ in L].index(v)]) + t - QB.EDGE)
         if sorted(int(x / tot * QB.N27) for x in pos) != list(range(QB.N27)): err.append(f'{k}: tầng không đều')
     return err
@@ -262,7 +263,7 @@ fx = json.load(open(os.path.join(F6, 'q27-v2.json'))); up = copy.deepcopy(fx['re
 for x in up.values():
     for k, v in x['scores'].items():
         if fx['sets'][k] == 'new': x['scores'][k] = {c: min(10, s + 1) for c, s in v.items()}
-case('Q27', 'tập 6 v2 nếu mọi khung tập mới +1 điểm', [] if QB.agg27(fx['sets'], up)['ok'] else ['trượt'], False)
+case('Q27', 'tập 6 v2 (10 + 10) nếu mọi khung tập mới +1 điểm: chênh +0,25 sát ngưỡng, không có PLAN tập sau → TRƯỢT', [] if QB.agg27(fx['sets'], up)['ok'] else ['trượt'], True)
 bad = copy.deepcopy(fx['replies']); bad['R2']['scores'].pop('F07')
 case('Q27', 'một người chấm bỏ sót khung', [] if QB.agg27(fx['sets'], bad)['ok'] else ['trượt'], True)
 case('Q27', 'chỉ 2 người chấm', [] if QB.agg27(fx['sets'], {k: v for k, v in fx['replies'].items() if k != 'R3'})['ok'] else ['trượt'], True)
@@ -298,6 +299,158 @@ for k, x in fx['replies'].items(): json.dump(dict(x, prompt_sha256='0' * 64) if 
 case('Q31', 'R2 dùng đề bài đã sửa (SHA khác bản khoá)', QB._replies(tmpd, 'Q31')[1], True)
 case('Q27', 'đề bài Q27 nêu đủ 60 ảnh F01–F60', [f for f in ('Q27-R1.txt', 'Q27-R2.txt', 'Q27-R3.txt') if 'F60' not in open(os.path.join(QB.HERE, f)).read()], False)
 case('Q27/31', 'đề bài khoá: 6 tệp, mỗi tệp có {DIR} và yêu cầu chỉ trả JSON', [f for f in sorted(os.listdir(QB.HERE)) if '{DIR}' not in open(os.path.join(QB.HERE, f)).read() or 'ONLY this JSON' not in open(os.path.join(QB.HERE, f)).read()], False)
+
+# ======================= 1.8.0 (K, 09/10/2026, sau tập 7): Q27 bản cuối 1080p + SE, Q31 sổ vòng nháp → bản cuối, Q26b bối cảnh
+from checks.ll import q_setting as QS  # noqa: E402
+F7 = os.path.join(FX, 'ep07')
+TL7 = json.load(gzip.open(os.path.join(F7, 'timeline-final.json.gz')))
+tmpp = tempfile.mkdtemp()
+
+
+def plan_file(name, text):
+    f = os.path.join(tmpp, name); open(f, 'w', encoding='utf-8').write(text); return f
+
+
+PLAN_OK = plan_file('ok.md', '# PLAN tập 08\n\n## Cải thiện hình (từ Q27 tập 7 sát ngưỡng)\n- Nội thất văn phòng: thêm đồ trên bàn, ánh cửa sổ, tách nền tối.\n- Thẻ giấy dựng xong trước khi cắt.\n')
+PLAN_EMPTY = plan_file('rong.md', '# PLAN tập 08\n\n## Cải thiện hình\n\n## Việc khác\n- viết lời\n')
+PLAN_NONE = plan_file('khong.md', '# PLAN tập 08\n\n## Lời\n- viết lời\n')
+
+# ---- Q27: luật đọc lại đúng dữ liệu đã lưu ----
+for tag in ('v1', 'v2'):
+    fx = json.load(open(os.path.join(F6, f'q27b-{tag}.json')))
+    case('Q27', f'suy lại bộ new/ref từ hạt giống khớp bộ đã lưu (tập 6 {tag}, 30 + 30)', [] if QB.sets_from_seed(fx['seed']) == fx['sets'] else ['khác'], False)
+runs27 = [(json.load(open(os.path.join(F6, f'q27b-{t}.json')))['sets'], json.load(open(os.path.join(F6, f'q27b-{t}.json')))['replies']) for t in ('v1', 'v2')]
+for t in ('nhap-lan-02', 'nhap-lan-03', 'nhap-lan-04b', 'chinh-thuc'):
+    fx = json.load(open(os.path.join(F7, f'q27-{t}.json'))); runs27.append((QB.sets_from_seed(fx['seed']), fx['replies']))
+se, per = QB.se27(runs27)
+case('Q27', f'SE khoá = SE đo lại trên 6 lần chấm thật ({se:.3f}; từng lần ' + ', '.join(f'{x:.2f}' for x in per) + f') → {QB.SE27}',
+     [] if round(se, 2) == QB.SE27 else [f'{se:.3f}'], False)
+fx = json.load(open(os.path.join(F7, 'q27-chinh-thuc.json'))); S7 = QB.sets_from_seed(fx['seed'])
+r = QB.agg27(S7, fx['replies'])
+case('Q27', f"tập 7 chính thức đọc lại đúng số G2 (5,68 / 5,64): {r['val']}", [] if r['val'].startswith('tập mới 5.68 · tập 1 5.64') else [r['val']], False)
+case('Q27', 'tập 7 chính thức: chênh +0,04 trong ±SE → SÁT NGƯỠNG; không có PLAN tập sau → TRƯỢT', [] if r['ok'] else r['loi'], True)
+r = QB.agg27(S7, fx['replies'], plan_sau=os.path.join(ROOT, 'reports/m3/ep08/PLAN.md'))
+case('Q27', 'tập 7 chính thức với PLAN tập 8 hiện có trên main (chưa có mục "Cải thiện hình") → TRƯỢT', [] if r['ok'] else r['loi'], True)
+r = QB.agg27(S7, fx['replies'], plan_sau=PLAN_OK)
+case('Q27', 'tập 7 chính thức + PLAN tập sau có mục "Cải thiện hình" → ĐẠT, ghi SÁT NGƯỠNG', [] if r['ok'] and r['sat'] and r['sat_nguong'] else ['sai'], False)
+case('Q27', 'PLAN tập sau có tiêu đề "Cải thiện hình" nhưng mục rỗng → TRƯỢT', [] if QB.agg27(S7, fx['replies'], plan_sau=PLAN_EMPTY)['ok'] else ['trượt'], True)
+case('Q27', 'PLAN tập sau không có mục "Cải thiện hình" → TRƯỢT', [] if QB.agg27(S7, fx['replies'], plan_sau=PLAN_NONE)['ok'] else ['trượt'], True)
+up = copy.deepcopy(fx['replies'])
+for x in up.values():
+    for k, v in x['scores'].items():
+        if S7[k] == 'new': x['scores'][k] = {c: min(10, s_ + 1) for c, s_ in v.items()}
+r = QB.agg27(S7, up)
+case('Q27', f"tập 7 nếu mọi khung tập mới +1: chênh > SE → ĐẠT rõ, không cần PLAN ({r['val'][:44]}…)", [] if r['ok'] and not r['sat'] else ['sai'], False)
+fx = json.load(open(os.path.join(F7, 'q27-nhap-lan-04b.json'))); r = QB.agg27(QB.sets_from_seed(fx['seed']), fx['replies'], plan_sau=PLAN_OK)
+case('Q27', f"tập 7 nháp 4b (chênh −0,10, trong SE): luật mới ĐẠT sát ngưỡng ({r['val'][:46]}…)", [] if r['ok'] and r['sat'] else ['sai'], False)
+fx = json.load(open(os.path.join(F6, 'q27b-v2.json'))); r = QB.agg27(fx['sets'], fx['replies'], plan_sau=PLAN_OK)
+case('Q27', 'tập 6 v2 (30 + 30, chênh −0,15) + PLAN có mục: ĐẠT sát ngưỡng', [] if r['ok'] and r['sat'] else ['sai'], False)
+fx = json.load(open(os.path.join(F6, 'q27b-v1.json'))); r = QB.agg27(fx['sets'], fx['replies'], plan_sau=PLAN_OK)
+case('Q27', 'tập 6 v1 (chênh −0,58 < −SE) → TRƯỢT dù PLAN có mục', [] if r['ok'] else r['loi'], True)
+fx = json.load(open(os.path.join(F7, 'q27-nhap-lan-04-khong-hop-le.json'))); r = QB.agg27(QB.sets_from_seed(fx['seed']), fx['replies'], plan_sau=PLAN_OK)
+case('Q27', 'tập 7 nháp lần 4: R1 thiếu F59, F60 → bộ chấm không hợp lệ', r['loi'] if not r['ok'] else [], True)
+case('Q27', 'bản nháp không chấm: bản xem 1280×720 tập 6 v2 bị nhận là nháp', QB.draft27(V2v), True)
+case('Q27', 'đối chứng tập 1 = master m23 1920×1080 (SHA M2-3-MASTER-SHORTS.md), một tệp', [] if [h for _, h, _ in QB.REF27] == ['9c3825387345ec0af6c035ec3f94809644ca7767d1ecbafcaed4710480113942'] and QB.SIZE27 == (1920, 1080) else ['sai'], False)
+
+# ---- Q31: dấu vân lời/cấu trúc, đếm vòng nháp → bản cuối, sổ vòng ----
+dv = QB.dau_van(TL7); FIN, DRAFT = [1920, 1080], [960, 540]
+TLb = copy.deepcopy(TL7)
+for sg in TLb['segments']:
+    for sh in sg['shots']:
+        sh['t1'] = sh['t1'] + 0.2; (sh.get('p') or {}).pop('cam', None)
+TLb['heroes']['tower_code']['opt'] = {'exposure': 1.4}
+case('Q31', 'dấu vân: sửa thời điểm, máy quay, ánh sáng cảnh đinh (lượt nội thất) → không đổi', [] if QB.dau_van(TLb) == dv else ['đổi'], False)
+TLb = copy.deepcopy(TL7); sg = TLb['segments'][13]; sg['shots'][1]['p']['hero'] = 'tower_floor'
+case('Q31', 'dấu vân: đổi cảnh đinh một shot (đoạn 13) → cấu trúc khác', [] if QB.dau_van(TLb)['cau_truc'] == dv['cau_truc'] else ['khác'], True)
+TLb = copy.deepcopy(TL7); TLb['segments'][5]['shots'].pop(1)
+case('Q31', 'dấu vân: bỏ một shot ảnh tư liệu → cấu trúc khác', [] if QB.dau_van(TLb)['cau_truc'] == dv['cau_truc'] else ['khác'], True)
+alf = os.path.join(tmpp, 'll-ep07-05.align.json'); al = json.load(open(os.path.join(ROOT, TL7['segments'][5]['vo_file'].replace('.mp3', '.align.json'))))
+al['characters'] = list(''.join(al['characters']).replace('second', 'other', 1)); json.dump(al, open(alf, 'w'))
+TLb = copy.deepcopy(TL7); TLb['segments'][5]['vo_file'] = alf.replace('.align.json', '.mp3')
+case('Q31', 'dấu vân: đổi một chữ lời đoạn 05 → lời khác', [] if QB.dau_van(TLb)['loi'] == dv['loi'] else ['khác'], True)
+ch = lambda n, size, d: [dict(size=size, dau_van=d) for _ in range(n)]
+dvB = dict(dv, cau_truc='0' * 64); dvL = dict(dv, loi='1' * 64)
+v, nt = QB.vong31(ch(4, DRAFT, dv), dict(size=FIN, dau_van=dv))
+case('Q31', f'4 vòng nháp + bản cuối cùng lời, cùng cấu trúc → vòng 5 ({nt[0]})', [] if v == 5 else [v], False)
+v, nt = QB.vong31(ch(4, DRAFT, dv), dict(size=FIN, dau_van=dvB))
+case('Q31', f'bản cuối đổi cấu trúc → đếm lại vòng 1 ({nt[0]})', [] if v == 1 else [v], False)
+v, _ = QB.vong31(ch(4, DRAFT, dv), dict(size=FIN, dau_van=dvL))
+case('Q31', 'bản cuối đổi lời → đếm lại vòng 1', [] if v == 1 else [v], False)
+v, _ = QB.vong31([{}, {}, {}, {}], dict(size=FIN, dau_van=dv))
+case('Q31', 'sổ nháp bản luật cũ (không dấu vân, như tập 7) → bản cuối vòng 1', [] if v == 1 else [v], False)
+v, _ = QB.vong31(ch(2, DRAFT, dvB) + ch(2, DRAFT, dv), dict(size=FIN, dau_van=dv))
+case('Q31', 'nháp đổi cấu trúc giữa các vòng nháp vẫn đếm tiếp; so với NHÁP CUỐI đã chấm → vòng 5', [] if v == 5 else [v], False)
+v, _ = QB.vong31(ch(3, DRAFT, dv) + ch(1, FIN, dv), dict(size=FIN, dau_van=dvB))
+case('Q31', 'bản cuối → bản cuối (dựng lại sau vòng bản cuối): đếm tiếp', [] if v == 5 else [v], False)
+v, _ = QB.vong31(ch(2, DRAFT, dv) + ch(1, FIN, dvB) + ch(1, FIN, dv), dict(size=FIN, dau_van=dv))
+case('Q31', 'nháp → bản cuối đổi (đếm lại 1) → bản cuối vòng 2 → vòng 3', [] if v == 3 else [v], False)
+f4 = json.load(open(os.path.join(F7, 'q31-vong-05.json'))); cuts7, _ = QB.plan31(TL7)
+r = QB.agg31(cuts7, f4['replies'], vong=5, giai_trinh=f4['giai_trinh'])
+case('Q31', f"tập 7 vòng 5 thật (sổ nháp chuyển hợp lệ): {r['val']}", r['loi'], False)
+r = QB.agg31(cuts7, f4['replies'], vong=1, giai_trinh=f4['giai_trinh'])
+case('Q31', 'tập 7 bản cuối nếu đếm lại vòng 1: T05, T09, T15 (2/3) chặn', r['loi'], True)
+R[-1] = R[-1][:3] + (R[-1][3] and len(r['loi']) == 3,) + R[-1][4:]
+hd = tempfile.mkdtemp(); out = os.path.join(hd, 'q31'); hh = os.path.join(hd, 'q31-lich-su')
+for n_ in (1, 2):
+    os.makedirs(os.path.join(hh, f'vong-{n_:02d}')); json.dump(dict(vong=n_), open(os.path.join(hh, f'vong-{n_:02d}', 'manifest.json'), 'w'))
+man = dict(lich_su=QB._ledger(out))
+case('Q31', 'sổ vòng nguyên vẹn', QB.ledger_errors(out, man), False)
+json.dump(dict(vong=9), open(os.path.join(hh, 'vong-02', 'manifest.json'), 'w'))
+case('Q31', 'sổ vòng: manifest vòng 2 bị sửa', QB.ledger_errors(out, man), True)
+import shutil  # noqa: E402
+shutil.rmtree(hh)
+case('Q31', 'sổ vòng: xoá q31-lich-su/', QB.ledger_errors(out, man), True)
+dn = os.path.join(tempfile.mkdtemp(), 'q31'); dh = dn + '-lich-su'
+for n_ in (1, 2):
+    os.makedirs(os.path.join(dh, f'vong-{n_:02d}')); json.dump(dict(vong=n_, size=DRAFT), open(os.path.join(dh, f'vong-{n_:02d}', 'manifest.json'), 'w'))
+os.makedirs(dn); json.dump(dict(vong=3, size=DRAFT), open(os.path.join(dn, 'manifest.json'), 'w'))
+fo = os.path.join(tempfile.mkdtemp(), 'q31'); QB._import_nhap(fo, dn); QB._import_nhap(fo, dn)
+got = sorted(os.listdir(fo + '-lich-su'))
+case('Q31', f'--tu-nhap: chép 3 vòng nháp sang sổ bản cuối ({", ".join(got)}), chạy lại không chép trùng, nguồn còn nguyên',
+     [] if got == ['vong-01', 'vong-02', 'vong-03'] and os.path.isdir(dh) and os.path.exists(os.path.join(dn, 'manifest.json'))
+     and [json.load(open(os.path.join(fo + '-lich-su', g, 'manifest.json')))['vong'] for g in got] == [1, 2, 3] else ['sai'], False)
+
+# ---- Q26b đa dạng bối cảnh ----
+r7 = QS.q26b(TL7)
+case('Q26b', f"tập 7 bản cuối: {r7['val']}", r7['loi'], True)
+R[-1] = R[-1][:3] + (R[-1][3] and len(r7['loi']) == 2 and r7['loi'][0].startswith('ep07/tower chiếm') and 'ep07/tower liên tục 117.0 s (6:02.8–7:59.8' in r7['loi'][1],) + R[-1][4:]
+case('Q26b', 'tập 7: ep07/pool 25,0 % được nêu sát ngưỡng', [] if any(x.startswith('ep07/pool 25.0 %') for x in r7['sat_nguong']) else ['thiếu'], False)
+TL6 = json.load(gzip.open(os.path.join(F6, 'timeline-v2.json.gz')))
+r6 = QS.q26b(TL6)
+case('Q26b', f"tập 6 v2: {r6['val']}", r6['loi'], False)
+H7 = TL7['heroes']
+case('Q26b', 'nhãn: mọi góc máy của một cảnh đinh là một bối cảnh (tower_in, tower_code, tower_floor)',
+     [] if {next(iter(QS.label(dict(tpl='plate', p=dict(hero=k)), H7))) for k in ('tower_in', 'tower_code', 'tower_floor')} == {'ep07/tower'} else ['sai'], False)
+case('Q26b', 'nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cảnh cả shot; thẻ số, ảnh tư liệu trung tính',
+     [] if QS.label(dict(tpl='diptych', p=dict(left=dict(hero='pool_desk'), right=dict(hero='tower_code'))), H7) == {'ep07/pool': 0.5, 'ep07/tower': 0.5}
+     and QS.label(dict(tpl='diptych', p=dict(left=dict(hero='tower_code'), right=dict(hero='tower_floor'))), H7) == {'ep07/tower': 1.0}
+     and QS.label(dict(tpl='archive', p=dict(rid='x')), H7) == {} and QS.label(dict(tpl='quote', p={}), H7) == {} else ['sai'], False)
+case('Q26b', 'tập 7: thẻ trích dẫn 11,9 s (> 8 s) ở 5:51 làm dứt quãng văn phòng (quãng dài nhất bắt đầu 6:02.8)',
+     [] if r7['lien_tuc']['ep07/tower'][1] == '6:02.8' else [r7['lien_tuc']['ep07/tower']], False)
+TLb = copy.deepcopy(TL7)
+for sg in TLb['segments']:
+    for sh in sg['shots']:
+        if sh['tpl'] == 'quote': sh['t1'] = sh['t0'] + 6.0; sg['shots'].insert(sg['shots'].index(sh) + 1, dict(tpl='plate', t0=sh['t1'], t1=sh['t1'] + 5.9, p=dict(hero='tower_code')))
+r = QS.q26b(TLb)
+case('Q26b', f"tập 7 nếu thẻ trích dẫn ngắn hơn 8 s: quãng văn phòng nối dài từ 5:28.8 ({r['lien_tuc']['ep07/tower']})", [] if r['lien_tuc']['ep07/tower'][1] == '5:28.8' else ['sai'], False)
+half = TL6['tong_s'] / 2; TLb = copy.deepcopy(TL6)
+for sg in TLb['segments']:
+    for sh in sg['shots']:
+        if sg['t0'] + sh['t1'] > half: sh['tpl'], sh['p'] = ('plate', dict(hero='wall_push')) if sh['tpl'] in ('plate', 'diptych') else ('quote', {})
+r = QS.q26b(TLb)
+case('Q26b', f"tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: {r['val']}", r['loi'], True)
+for sg in TLb['segments']:
+    if sg['t0'] > half + 30:
+        sg['shots'][0]['tpl'], sg['shots'][0]['p'] = 'plate', dict(hero='lino_row'); sg['shots'][0]['t1'] = sg['shots'][0]['t0'] + 1.5
+        sg['shots'][1]['tpl'], sg['shots'][1]['p'] = 'plate', dict(hero='shop_end'); sg['shots'][1]['t1'] = sg['shots'][1]['t0'] + 1.5; break
+r = QS.q26b(TLb)
+case('Q26b', 'chớp 2 bối cảnh 1,5 s ở nửa sau để đủ số: không tính (< 3 s mỗi bối cảnh)', [x for x in r['loi'] if 'nửa sau' in x], True)
+TLb = copy.deepcopy(TL6); sgs = TLb['segments'][6:9]
+for sg in sgs:
+    for sh in sg['shots']: sh['tpl'], sh['p'] = 'plate', dict(hero='wall_push')
+r = QS.q26b(TLb)
+case('Q26b', f"tập 6 v2 nếu cả đoạn 06–08 ({sgs[-1]['t1'] - sgs[0]['t0']:.0f} s) dùng tường bản nháp: liên tục > 90 s",
+     [x for x in r['loi'] if 'liên tục' in x], True)
 
 w = max(len(r[1]) for r in R)
 for rule, name, kind_, ok, got in R: print(f"{'ĐÚNG' if ok else 'SAI '}  {rule:<7} {kind_:<8} {name}" + ('' if ok else f'   → {got}'))
