@@ -1,3 +1,4 @@
+# BẢN NHÁP (sinh tự động từ episode.yaml): cảnh đinh 960×540, dựng với SPP=1, ghép MW=960. KHÔNG sửa tay.
 # Last Lamplighters · Tập 8 "From Headphones to Machine Drafts: How Translators' Work Changed" — đặc tả v2 (G1 v2 DUYỆT 09/10/2026: lời v2 nguyên văn, khoá lời, SHA 824df1f0…).
 # Trục kể biến đổi (CHUAN-KENH §12): Mở → Quá khứ → Chuyển giao → Hiện tại → Tương lai → Kết. Lời: reports/m3/ep08/loi-v2.txt (17 đoạn, KHÔNG sửa).
 # Nguồn: reports/m3/ep08/NGUON-TAP8.md (§1 + §7–10). Mọi số đọc toàn văn; OOH 2025–35 và ALPAC "đã xác minh (Claude) 09/10".
@@ -10,7 +11,7 @@ hook: {answer: "14", keys: [machine, translation, people]}
 anchors: [w250, frey, it_chg]
 rhythm: {paper_max: 40}
 title: "From Headphones to Machine Drafts: How Translators' Work Changed"
-out: /var/tmp/cine-out/ll-ep08
+out: /var/tmp/cine-out/ll-ep08-nhap
 voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
 # Nhạc theo hồi (Q28): nhạc hiệu kênh mở (00) và đóng (15, khúc khác của bài), cue hồi 2 "Dreams Become Real", cue hồi 3 "Clean Soul".
 music:
@@ -21,29 +22,29 @@ music:
 
 # Cảnh đinh 3D (design/ll-hero/ep08.js). lamp: true = ngọn đèn (đèn khí, đèn đọc sách, đèn bàn) có trong khung (Q30b).
 heroes:
-  lib_hook:   {hero: ep08/library, variant: a, lamp: true}
-  lib_light:  {hero: ep08/library, variant: b, lamp: true, opt: {lit: 8.0, hand: 10.6}}
-  lib_read:   {hero: ep08/library, variant: c, lamp: true}
-  lib_walk:   {hero: ep08/library, variant: d, lamp: true}
-  lib_bridge: {hero: ep08/library, variant: e, lamp: true, opt: {dark: 6.0, screen: 13.0, grade: cold}}
-  lib_end:    {hero: ep08/library, variant: f, lamp: true, opt: {lit: 9.0}}
-  booth_room: {hero: ep08/booths, variant: a}
-  booth_in:   {hero: ep08/booths, variant: b, lamp: true, opt: {warn: 9.0}}
-  booth_bench: {hero: ep08/booths, variant: c, opt: {dial: 2.0}}
-  ibm_room:   {hero: ep08/ibm, variant: a, opt: {feed: 0.5}}
-  ibm_print:  {hero: ep08/ibm, variant: b, opt: {print: 0.5}}
-  pe_room:    {hero: ep08/postedit, variant: a, lamp: true}
-  pe_mark:    {hero: ep08/postedit, variant: b, opt: {mark: 3.0}}
-  pe_gloss:   {hero: ep08/postedit, variant: c, lamp: true, opt: {type: 1.0}}
-  st_room:    {hero: ep08/studio, variant: a, lamp: true}
-  st_screen:  {hero: ep08/studio, variant: b, lamp: true, opt: {edit: 1.0}}
-  st_side:    {hero: ep08/studio, variant: c, lamp: true}
-  vrs_room:   {hero: ep08/vrs, variant: a}
-  vrs_screen: {hero: ep08/vrs, variant: b}
-  vrs_side:   {hero: ep08/vrs, variant: c}
-  s_booth:    {hero: ep08/booths, variant: b, opt: {warn: 9.0}, size: [1080, 1920]}
-  s_ibm:      {hero: ep08/ibm, variant: b, opt: {print: 0.5}, size: [1080, 1920]}
-  s_studio:   {hero: ep08/studio, variant: b, opt: {edit: 1.0}, size: [1080, 1920]}
+  lib_hook:   {hero: ep08/library, variant: a, lamp: true, size: [960, 540]}
+  lib_light:  {hero: ep08/library, variant: b, lamp: true, opt: {lit: 8.0, hand: 10.6}, size: [960, 540]}
+  lib_read:   {hero: ep08/library, variant: c, lamp: true, size: [960, 540]}
+  lib_walk:   {hero: ep08/library, variant: d, lamp: true, size: [960, 540]}
+  lib_bridge: {hero: ep08/library, variant: e, lamp: true, opt: {dark: 6.0, screen: 13.0, grade: cold}, size: [960, 540]}
+  lib_end:    {hero: ep08/library, variant: f, lamp: true, opt: {lit: 9.0}, size: [960, 540]}
+  booth_room: {hero: ep08/booths, variant: a, size: [960, 540]}
+  booth_in:   {hero: ep08/booths, variant: b, lamp: true, opt: {warn: 9.0}, size: [960, 540]}
+  booth_bench: {hero: ep08/booths, variant: c, opt: {dial: 2.0}, size: [960, 540]}
+  ibm_room:   {hero: ep08/ibm, variant: a, opt: {feed: 0.5}, size: [960, 540]}
+  ibm_print:  {hero: ep08/ibm, variant: b, opt: {print: 0.5}, size: [960, 540]}
+  pe_room:    {hero: ep08/postedit, variant: a, lamp: true, size: [960, 540]}
+  pe_mark:    {hero: ep08/postedit, variant: b, opt: {mark: 3.0}, size: [960, 540]}
+  pe_gloss:   {hero: ep08/postedit, variant: c, lamp: true, opt: {type: 1.0}, size: [960, 540]}
+  st_room:    {hero: ep08/studio, variant: a, lamp: true, size: [960, 540]}
+  st_screen:  {hero: ep08/studio, variant: b, lamp: true, opt: {edit: 1.0}, size: [960, 540]}
+  st_side:    {hero: ep08/studio, variant: c, lamp: true, size: [960, 540]}
+  vrs_room:   {hero: ep08/vrs, variant: a, size: [960, 540]}
+  vrs_screen: {hero: ep08/vrs, variant: b, size: [960, 540]}
+  vrs_side:   {hero: ep08/vrs, variant: c, size: [960, 540]}
+  s_booth:    {hero: ep08/booths, variant: b, opt: {warn: 9.0}, size: [540, 960]}
+  s_ibm:      {hero: ep08/ibm, variant: b, opt: {print: 0.5}, size: [540, 960]}
+  s_studio:   {hero: ep08/studio, variant: b, opt: {edit: 1.0}, size: [540, 960]}
 
 sources:
   ALPAC: {short: "ALPAC, Language and Machines (National Academy of Sciences, 1966)", short9: "ALPAC report, 1966", title: "Language and Machines: Computers in Translation and Linguistics",
