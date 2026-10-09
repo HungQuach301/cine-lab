@@ -20,3 +20,14 @@
 5. `reports/m3/ep08/PLAN.md` (tệp này)
 6. `scripts/ll/README.md`
 7. `reports/m3/LO-6-8-G1.md`
+
+## Cải thiện hình
+Lý do: Q27 tập 7 đạt sát ngưỡng (5,68 vs 5,64, chênh +0,04). Người chấm mù ở mọi lần đều trừ điểm nội thất 3D khối thô, tối và thẻ giấy dựng dở.
+- **Nội thất 3D chi tiết hơn, sáng hơn:**
+  - vân vật liệu (gỗ, ô sàn, thảm), đồ vật trên bàn;
+  - ánh sáng có nguồn (cửa sổ, đèn bàn), tương phản rõ, chiều sâu;
+  - tránh vùng tối đặc;
+  - làm từ cảnh đầu tiên, không đợi chấm mù (BAI-HOC #97).
+- **Không bối cảnh nào > 25 % thời lượng hay > 90 s liên tục** (Q26b, checks LL v3 1.8.1). Kiểm ở đặc tả trước khi dựng nháp. Tập 7 bản cuối: tower 139,1 s, pool 104,3 s, TRƯỢT nếu áp (BAI-HOC #96).
+- **Nửa sau phim có ≥ 3 bối cảnh khác nhau** (ban ngày / cận cảnh / nơi người mới học nghề …).
+- **Thay thẻ giấy dựng dở bằng cảnh hoàn chỉnh:** không để khung nào là thẻ trống hoặc biểu đồ đang vẽ dở. Số đặt trên cảnh vật chất đã đẹp (BAI-HOC #87).
