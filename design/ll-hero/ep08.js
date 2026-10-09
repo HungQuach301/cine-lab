@@ -99,7 +99,7 @@ async function library({ W, H, dur, v, opt = {} }) {
   box(3, 3, 0.1, std('#4a4a58'), 0, 5.6, 2.2, apt); box(3, 0.1, 3, std('#3a3434'), 0, 4.2, 0.9, apt); box(1.2, 0.05, 0.6, std('#6a4a30'), 0.1, 4.95, 0.9, apt);
   const aptP = seated('#0e0e14', 0.9, null); aptP.root.position.set(-0.35, 4.2, 1.0); aptP.root.rotation.y = -Math.PI / 2 - 0.4; apt.add(aptP.root); aptP.set({ armR: -1.2, armL: -1.1, headTilt: 0.2 });
   // cột đèn khí: cạnh cửa sổ (b), giữa phố (d), cuối dãy (f); người thắp đèn
-  const lampA = gasLamp(scene, 2.6, 2.4, { lit: 0 }), lampB = gasLamp(scene, -9, 2.4, { lit: 0 }), lampC = gasLamp(scene, 13.5, 2.4, { lit: 0 }), lampD = gasLamp(scene, -20, 2.4, { lit: 0 });
+  const lampA = gasLamp(scene, 2.6, 2.4, { lit: 0 }), lampB = gasLamp(scene, -9, 2.4, { lit: 0 }), lampC = gasLamp(scene, 13.5, 2.4, { lit: 0 }), lampD = gasLamp(scene, -20, 2.4, { lit: 0 }), lampE = gasLamp(scene, 25, 2.4, { lit: 0 });   /* E: cột ở góc phố kế tiếp (kết: ánh sáng truyền sang góc phố sau) */
   const lighter = figure({ hat: true, scale: 1.0 }); scene.add(lighter.root);
   const pole = cyl(0.015, 0.015, 3.0, lam('#2a2016'), 0, 0.1, 0); lighter.armR.add(pole); pole.rotation.x = -0.25;
   const wick = glowSprite('#ffb86a', 0.95, 0.42); wick.position.set(0, 1.52, 0); pole.add(wick); const wickL = new THREE.PointLight('#ffae62', 2.6, 3.4, 1.6); wickL.position.set(0, 1.45, 0.1); pole.add(wickL);
@@ -128,7 +128,7 @@ async function library({ W, H, dur, v, opt = {} }) {
     else if (v === 'd') { lighter.root.position.set(lerp(-14, 0, t / dur), 0.16, 3.2); lighter.root.rotation.y = Math.PI / 2; lighter.set({ walk: t * 5 }); lampA.set(1, f); lampB.set(1, f); lampD.set(1, f); }
     else if (v === 'e') { lampA.set(1, f); lampB.set(1, f); lampC.set(1, f); const dk = ease((t - (opt.dark !== undefined ? opt.dark : 1.5)) / 1.6); read = 1 - dk; hand = 1 - dk; screen = ease((t - (opt.screen !== undefined ? opt.screen : 5)) / 1.0);
       lighter.root.position.set(lerp(4, 9, t / dur), 0.16, 3.2); lighter.root.rotation.y = Math.PI / 2; lighter.set({ walk: t * 5 }); }
-    else { const tl = opt.lit !== undefined ? opt.lit : dur * 0.4; raise(t, tl, 6, 12.85); lampA.set(1, f); lampB.set(1, f); lampC.set(ease((t - tl) / 1.0), f); screen = 1; }
+    else { const tl = opt.lit !== undefined ? opt.lit : dur * 0.4; raise(t, tl, 6, 12.85); lampA.set(1, f); lampB.set(1, f); lampC.set(ease((t - tl) / 1.0), f); lampE.set(ease((t - (opt.next !== undefined ? opt.next : tl + 3.5)) / 1.5), f); screen = 1; }
     winM.forEach((m) => { m.color.set(new THREE.Color('#141620').lerp(new THREE.Color('#f2c27a'), read)); m.opacity = lerp(0.9, inside ? 0.05 : 0.12, read); });
     lamps.forEach((l, i) => { const on = l === near ? hand : read; if (l.gl) { l.gl.material.opacity = 0.9 * on * (1 + 0.03 * Math.sin(f * 0.3 + i)); l.pl.intensity = (l === near ? 4.5 : 2.2) * on; } else { l.ceil.intensity = (inside ? 16 : 10) * read; l.glow.material.opacity = 0.8 * read; } });
     readers.forEach(({ p, ph }) => p.set({ armR: -1.1 + 0.08 * Math.sin(t * 2.4 + ph), armL: -0.9, headTilt: 0.4 + 0.04 * Math.sin(t * 0.5 + ph) }));

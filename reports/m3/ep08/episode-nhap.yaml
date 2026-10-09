@@ -23,18 +23,18 @@ music:
 # Cảnh đinh 3D (design/ll-hero/ep08.js). lamp: true = ngọn đèn (đèn khí, đèn đọc sách, đèn bàn) có trong khung (Q30b).
 heroes:
   lib_hook:   {hero: ep08/library, variant: a, lamp: true, size: [960, 540]}
-  lib_light:  {hero: ep08/library, variant: b, lamp: true, opt: {lit: 8.0, hand: 10.6}, size: [960, 540]}
+  lib_light:  {hero: ep08/library, variant: b, lamp: true, opt: {lit: 8.0, hand: 11.4}, size: [960, 540]}
   lib_read:   {hero: ep08/library, variant: c, lamp: true, size: [960, 540]}
   lib_walk:   {hero: ep08/library, variant: d, lamp: true, size: [960, 540]}
-  lib_bridge: {hero: ep08/library, variant: e, lamp: true, opt: {dark: 6.0, screen: 13.0, grade: cold}, size: [960, 540]}
-  lib_end:    {hero: ep08/library, variant: f, lamp: true, opt: {lit: 9.0}, size: [960, 540]}
+  lib_bridge: {hero: ep08/library, variant: e, lamp: true, opt: {dark: 10.4, screen: 13.9, grade: cold}, size: [960, 540]}
+  lib_end:    {hero: ep08/library, variant: f, lamp: true, opt: {lit: 23.0, next: 26.3}, size: [960, 540]}
   booth_room: {hero: ep08/booths, variant: a, size: [960, 540]}
-  booth_in:   {hero: ep08/booths, variant: b, lamp: true, opt: {warn: 9.0}, size: [960, 540]}
-  booth_bench: {hero: ep08/booths, variant: c, opt: {dial: 2.0}, size: [960, 540]}
+  booth_in:   {hero: ep08/booths, variant: b, lamp: true, opt: {warn: 9.4}, size: [960, 540]}
+  booth_bench: {hero: ep08/booths, variant: c, opt: {dial: 3.6}, size: [960, 540]}
   ibm_room:   {hero: ep08/ibm, variant: a, opt: {feed: 0.5}, size: [960, 540]}
   ibm_print:  {hero: ep08/ibm, variant: b, opt: {print: 0.5}, size: [960, 540]}
   pe_room:    {hero: ep08/postedit, variant: a, lamp: true, size: [960, 540]}
-  pe_mark:    {hero: ep08/postedit, variant: b, opt: {mark: 3.0}, size: [960, 540]}
+  pe_mark:    {hero: ep08/postedit, variant: b, opt: {mark: 10.8}, size: [960, 540]}
   pe_gloss:   {hero: ep08/postedit, variant: c, lamp: true, opt: {type: 1.0}, size: [960, 540]}
   st_room:    {hero: ep08/studio, variant: a, lamp: true, size: [960, 540]}
   st_screen:  {hero: ep08/studio, variant: b, lamp: true, opt: {edit: 1.0}, size: [960, 540]}
@@ -42,7 +42,7 @@ heroes:
   vrs_room:   {hero: ep08/vrs, variant: a, size: [960, 540]}
   vrs_screen: {hero: ep08/vrs, variant: b, size: [960, 540]}
   vrs_side:   {hero: ep08/vrs, variant: c, size: [960, 540]}
-  s_booth:    {hero: ep08/booths, variant: b, opt: {warn: 9.0}, size: [540, 960]}
+  s_booth:    {hero: ep08/booths, variant: b, opt: {warn: 9.4}, size: [540, 960]}
   s_ibm:      {hero: ep08/ibm, variant: b, opt: {print: 0.5}, size: [540, 960]}
   s_studio:   {hero: ep08/studio, variant: b, opt: {edit: 1.0}, size: [540, 960]}
 
@@ -189,8 +189,9 @@ segments:
           nouns: [{w: "@lamplighter", img: "người thắp đèn đi qua thư viện, đèn khí sáng"}, {w: "@soviet", img: "phòng máy 1954"}, {w: "@machine", img: "tủ máy, băng từ quay, thẻ đục lỗ"},
                   {w: "@hundred", img: "máy in dòng; 250 words trên dải chú thích", anchor: w250}, {w: "@pages", img: "máy in dòng nhả câu tiếng Anh"}]}
     pause: [{before: "@hundred", s: 0.7}]
+    # 09/10 (chủ dự án, G1 v2): Quá khứ + Chuyển giao đo thật 45,4 % > 45 % → rút câu "Machines had long since taken over lamplighting; now they were turned on language."
     vo: >-
-      The lamplighter walks on. Machines had long since taken over lamplighting; now they were turned on language.
+      The lamplighter walks on.
       After the war, American officials worried about how little they knew of Soviet work, written in Russian.
       So Dostert, who had used machines to help interpreters, turned to a machine that would translate by itself.
       On January 7, 1954, his Georgetown team and IBM showed it in New York. The computer knew only two hundred fifty words and six rules of grammar, enough for those chosen sentences.
@@ -238,8 +239,8 @@ segments:
       Its conclusion was blunt: there was no immediate or predictable prospect of useful machine translation.
     shots:
       - {tpl: plate, at: 0, p: {hero: pe_mark, frame0: 0, cap: [{s: "1962: the Georgetown project's output", at: "@georgetown", src: [ALPAC]}, {s: "people had to correct the machine", at: "@correct"}, {s: "the committee's word: postediting", at: "@postediting", src: [ALPAC]},
-           {s: "slightly longer, and costlier, than human translation", at: "@slightly", src: [ALPAC]}], ev: [{at: 3.0, what: "bút đỏ bắt đầu sửa"}]},
-         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: 2.5, src_ss: 10.0, dur: 9.0, gain_db: -15, fade_ms: 600}, {file: assets/ll/sfx/pencil-paper.mp3, at: "@postediting", src_ss: 30.0, dur: 6.0, gain_db: -15, fade_ms: 600}]}
+           {s: "slightly longer, and costlier, than human translation", at: "@slightly", src: [ALPAC]}], ev: [{at: "@correct", what: "bút đỏ bắt đầu sửa"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@correct-0.5", src_ss: 10.0, dur: 4.0, gain_db: -15, fade_ms: 600}, {file: assets/ll/sfx/pencil-paper.mp3, at: "@postediting", src_ss: 30.0, dur: 6.0, gain_db: -15, fade_ms: 600}]}
       - {tpl: quote, at: "@conclusion-0.4", in: flip, p: {beats: [{s: "the conclusion, 1966", at: "@conclusion"}], text: "…there is no immediate or predictable prospect of useful machine translation.", who: "ALPAC", where: "Language and Machines, 1966", at: "@immediate", src: [ALPAC]}}
       - {tpl: plate, at: "@immediate+3.6", in: fade, p: {hero: pe_room, frame0: 320, cap: [{s: "no immediate or predictable prospect", at: "@immediate+3.8", src: [ALPAC]}]},
          sfx: [{file: assets/ll/sfx/typewriter-1960s.mp3, at: "@immediate+3.6", src_ss: 30.0, dur: 3.0, gain_db: -20, fade_ms: 600}]}
@@ -274,9 +275,9 @@ segments:
     min_dur: 26
     tail: 1.6
     shots:
-      - {tpl: plate, at: 0, p: {hero: lib_bridge, frame0: 0, ev: [{at: 6.0, what: "cửa sổ thư viện tắt"}, {at: 9.0, what: "máy lia sang căn hộ"}, {at: 13.0, what: "màn hình bừng sáng"}, {at: 16.0, what: "máy đẩy sát ô cửa căn hộ, thấy người (bóng)"}],
+      - {tpl: plate, at: 0, p: {hero: lib_bridge, frame0: 0, ev: [{at: "@lamps", what: "cửa sổ thư viện tắt"}, {at: "@across", what: "máy lia sang căn hộ"}, {at: "@screen", what: "màn hình bừng sáng"}, {at: "@screen+1.6", what: "máy đẩy sát ô cửa căn hộ, thấy người (bóng)"}],
            cap: [{s: "the sixties · the eighties · a new century", at: "@sixties", src: []}, {s: "across the street…", at: "@across"}, {s: "…a screen, lit in an apartment", at: "@screen"}]},
-         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.2, src_ss: 3.0, dur: 7.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/computer-home.mp3, at: 13.0, src_ss: 20.0, dur: 5.0, gain_db: -20, fade_ms: 600}]}
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.2, src_ss: 3.0, dur: 7.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/computer-home.mp3, at: "@screen", src_ss: 20.0, dur: 5.0, gain_db: -20, fade_ms: 600}]}
       - {tpl: plate, at: "@someone-0.4", in: fade, p: {hero: st_screen, frame0: 0, cap: [{s: "paste a paragraph…", at: "@pastes", src: []}, {s: "…a moment later, another language", at: "@moment"}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@someone", src_ss: 30.0, dur: 5.0, gain_db: -16, fade_ms: 500}]}
 
@@ -425,7 +426,7 @@ segments:
     min_dur: 26
     tail: 2.0
     shots:
-      - {tpl: plate, at: 0, p: {hero: lib_end, frame0: 300, ev: [{at: "@glass", what: "người thắp đèn giơ sào"}, {at: "@flame", what: "đèn bén"}, {at: "@flame+2.5", what: "máy lùi, cẩu lên"}, {at: "@corner", what: "thấy dãy đèn phố"}, {at: "@flame+6.0", what: "máy lên cao: thư viện và căn hộ trong khung"}, {at: "@every", what: "thấy cả góc phố"}, {at: "@hands", what: "máy dừng trên cao"}]},
+      - {tpl: plate, at: 0, p: {hero: lib_end, frame0: 378, ev: [{at: "@glass", what: "người thắp đèn giơ sào"}, {at: "@flame", what: "đèn bén"}, {at: "@flame+1.0", what: "máy lùi, cẩu lên"}, {at: "@corner", what: "cột đèn ở góc phố kế tiếp bén lửa"}, {at: "@every", what: "thấy cả góc phố"}, {at: "@every+4.5", what: "máy lên cao: thư viện và căn hộ trong khung"}, {at: "@hands", what: "máy dừng trên cao"}]},
          sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.6, src_ss: 3.0, dur: 5.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/gas-hiss.mp3, at: "@flame", src_ss: 2.0, dur: 2.2, gain_db: -7, fade_ms: 250}]}
       - {tpl: endcard, at: "@hands+1.0", in: fade, p: {line: "Last Lamplighters · Episode 8", next: "More from Last Lamplighters"}}
 
@@ -442,10 +443,11 @@ shorts:
   - id: S2
     hook: "1954: a machine that translated 250 words"
     vo: >-
+      So Dostert, who had used machines to help interpreters, turned to a machine that would translate by itself.
       On January 7, 1954, his Georgetown team and IBM showed it in New York. The computer knew only two hundred fifty words and six rules of grammar, enough for those chosen sentences.
       The next morning it was on front pages, and the forecasts said a machine built just for translation could be ready within a few years.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_ibm, frame0: 0, fx: 0.5, cap: [{s: "New York, January 7, 1954", at: "@january", src: [HUT06]}, {num: w250, s: "six rules of grammar", at: "@hundred"},
+      - {tpl: plate, at: 0, p: {hero: s_ibm, frame0: 0, fx: 0.5, cap: [{s: "Leon Dostert: a machine to translate by itself", at: "@dostert", src: [HUT06]}, {s: "New York, January 7, 1954", at: "@january", src: [HUT06]}, {num: w250, s: "six rules of grammar", at: "@hundred"},
            {s: "front pages", at: "@front"}, {s: "the forecast: a few years", at: "@forecasts", src: [HUT06]}]},
          sfx: [{file: assets/ll/sfx/card-punch.mp3, at: 0.3, src_ss: 10.0, dur: 10.0, gain_db: -17, fade_ms: 900}]}
   - id: S3
