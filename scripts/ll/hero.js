@@ -1,5 +1,5 @@
 // Last Lamplighters · driver CẢNH ĐINH 3D (CHUAN-KENH §11.3). Ghi chuỗi JPG (q 2) để mẫu `plate` của scripts/ll/lib phát làm nền.
-//   node scripts/ll/hero.js --hero ep06/printshop --variant a --dur 12.5 --out /var/tmp/cine-out/hero/ep06-printshop-a [--w 1920 --h 1080] [--only 0,120] [--opt '{}']
+//   node scripts/ll/hero.js --hero ep06/printshop --variant a --dur 12.5 --out /var/tmp/cine-out/hero/ep06-printshop-a [--w 1920 --h 1080] [--only 0,120] [--opt '{}'] [--resume]
 // Tất định: cùng tham số → cùng khung. Ghi <out>/%05d.jpg + <out>/meta.json (khung, s/khung).
 const { chromium } = require('/opt/pw/node_modules/playwright');
 const { spawn } = require('child_process');
@@ -24,7 +24,10 @@ const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   fs.writeFileSync(pf, '<!doctype html><html><body style="margin:0"><script type="module" src="/ll-hero/page.js"></script></body></html>');
   await page.goto(`http://cine.local/ll-hero/${path.basename(pf)}`); await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 }); fs.unlinkSync(pf);
   await page.evaluate(async (c) => await window.setup(c), { W, H, hero: arg('hero'), variant: arg('variant', 'a'), dur: DUR, spp: +arg('spp', 1), opt: JSON.parse(arg('opt', '{}')) });
-  const frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
+  let frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
+  if (process.argv.includes('--resume')) {   /* dựng tiếp sau khi job nền bị ngắt (giới hạn 2 giờ): bỏ khung đã có, dựng lại khung cuối có thể ghi dở */
+    const have = frames.filter((f) => { try { return fs.statSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg')).size > 0; } catch { return false; } });
+    const keep = new Set(have.slice(0, -1)); frames = frames.filter((f) => !keep.has(f)); console.error(`[hero ${arg('hero')}/${arg('variant', 'a')}] dựng tiếp: giữ ${keep.size} khung, còn ${frames.length}`); }
   for (const f of frames) {
     await page.evaluate(async (f) => await window.renderFrame(f), f);
     const b64 = await page.evaluate((f) => window.finalize(f), f);
@@ -33,6 +36,6 @@ const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
     enc.stdin.end(raw); await new Promise((r) => enc.on('close', r));
     if (f % 48 === 0) console.error(`[hero ${arg('hero')}/${arg('variant', 'a')}] ${f}/${N} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung`);
   }
-  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, s_per_frame: +((Date.now() - t0) / 1000 / frames.length).toFixed(2) }));
+  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }));
   await browser.close();
 })();

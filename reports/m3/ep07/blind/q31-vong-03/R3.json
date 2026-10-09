@@ -1,0 +1,29 @@
+{
+ "question": "When a machine takes over a job's tasks, does the job's name stay the same while its work changes, and what will that mean for the newest workers who used to learn on the simple tasks?",
+ "score": 8,
+ "issues": [
+  {
+   "where": "T13",
+   "kind": "break",
+   "note": "The 'checking the machine's numbers: an old job here' shot is a split composite of the 1930s desk and the modern monitor. The two looks and eras are jammed into one frame, and then it cuts hard to the empty dark office for 'the people just starting out'. The look change is abrupt and the 'old job here' meaning is unclear."
+  },
+  {
+   "where": "T11",
+   "kind": "break",
+   "note": "The narration says 'two job titles', but the frames are an empty dark office seen through a window, and the shot gives no sign of two roles. Picture and words do not match until later."
+  },
+  {
+   "where": "R12.3",
+   "kind": "boring",
+   "note": "From R12.3 to R12.7 (about 20 s) the picture is the same lamp-and-screen desk close-up. Only the captions change while the list of programmer projections is read out, so there is nothing new to look at."
+  },
+  {
+   "where": "R14.5",
+   "kind": "boring",
+   "note": "From R14.5 to R14.8 (about 16 s) it is the same dark empty office, with only captions and numbers changing. The Stanford section holds one visual too long."
+  }
+ ],
+ "rater": "R3",
+ "model": "sonnet",
+ "prompt_sha256": "ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96"
+}

@@ -61,7 +61,7 @@ TPL.pasteup = (p) => { const cam = camOf(p), R = rng(p.seed || 41), parts = [];
       g.fillStyle = '#9aa0a6'; g.save(); g.translate(bx - 30 + (bw + 60) * u, by + bh * 0.66); g.rotate(-0.5); g.fillRect(-4, -70, 8, 70); g.fillStyle = '#c9ced3'; g.beginPath(); g.moveTo(-4, 0); g.lineTo(4, 0); g.lineTo(0, 18); g.fill(); g.restore(); }
     g.restore(); glow(g, W * 0.3, H * 0.1, W * 0.5, MOOD[m].lamp, 0.22); moodWash(g, m); vign(g); alive(g, t, 1); } }; };
 
-// ---- diptych: chia đôi khung — trái: khay chữ chì dưới đèn (sepia); phải: lưới bản nháp trên màn hình (lạnh); vạch chia trượt vào ở p.split. p = { split, cam, cap }
+// ---- diptych: chia đôi khung — trái: khay chữ chì dưới đèn (sepia); phải: lưới bản nháp trên màn hình (lạnh); vạch chia trượt vào ở p.split; p.labels: [nhãn trái, nhãn phải] (tuỳ chọn). p = { split, cam, cap, labels }
 TPL.diptych = (p) => { const cam = camOf(p), R = rng(p.seed || 53), pal = ['#c99a5a', '#4f7096', '#a95a4c', '#ddd5bd', '#5a8a7c', '#8c7aa0'];
   const tiles = []; for (let r = 0; r < 5; r++) for (let c = 0; c < 6; c++) tiles.push({ r, c, col: pal[Math.floor(R() * pal.length)], k: R() });
   return { kind: 'full', full(g, t) { const c = cam(t); LL.cam(1 - c.z); const s = p.split === undefined ? p.t0 + 0.5 : p.split, u = eo(cl((t - s) / 1.0)), mx = W * (1 - 0.5 * u);
@@ -81,4 +81,8 @@ TPL.diptych = (p) => { const cam = camOf(p), R = rng(p.seed || 53), pal = ['#c99
       tiles.forEach((q) => { const a = cl((t - s - 0.4 - q.k * 1.5) / 0.4); if (a <= 0) return; g.globalAlpha = a; g.fillStyle = q.col; g.fillRect(sx + q.c * (tw + 8), sy + q.r * (th + 8), tw, th); g.fillStyle = 'rgba(20,20,26,0.7)'; g.fillRect(sx + q.c * (tw + 8) + 8, sy + q.r * (th + 8) + th - 18, tw - 16, 5); });
       g.globalAlpha = 1; glow(g, W * 0.75, H * 0.5, W * 0.4, '150,185,255', 0.25); moodWash(g, 'cold'); g.restore();
       g.fillStyle = 'rgba(236,223,190,0.85)'; g.fillRect(mx - 2, 0, 4, H); }
-    vign(g, 0.55); alive(g, t, 1); } }; };
+    vign(g, 0.55);
+    if (p.labels) { const px = Math.round(H * 0.034), y = H * 0.09;   /* nhãn hai nửa (Q31 vòng 3: hai thời kỳ / hai chức danh phải đọc ra ngay) */
+      if (p.labels[0]) tag(g, p.labels[0], W * 0.05, y, px, 'rgba(20,16,12,0.78)', '#ecdfbe', { a: cl((t - p.t0 - 0.2) / 0.5) });
+      if (p.labels[1] && u > 0) tag(g, p.labels[1], mx + W * 0.03, y, px, 'rgba(12,18,30,0.78)', '#dfe8f6', { a: cl((u - 0.5) / 0.4) }); }
+    alive(g, t, 1); } }; };

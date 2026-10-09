@@ -33,8 +33,9 @@ render_one() { # $1 kind (segments|shorts) $2 id $3 out
 # Cảnh đinh 3D (CHUAN-KENH §11.3): dựng những cảnh có stamp đổi (mã design/ll-hero hoặc độ dài), tuần tự, trước khi render đoạn
 heroes() { [ -f $O/heroes.json ] || return 0; $PY -c "import json;[print(k,v['hero'],v['variant'],v['dur'],v['dir'],v['stamp'],*v.get('size',[1920,1080]),json.dumps(v['opt'],separators=(',',':'))) for k,v in json.load(open('$O/heroes.json')).items()]" | while read k h v d dir st w h2 opt; do
     [ "$(cat $dir/stamp 2>/dev/null)" = "$st" ] && { echo "giữ cảnh đinh $k"; continue; }
-    rm -rf "$dir.new"; echo "dựng cảnh đinh $k ($h/$v, $d s)"; node $LL/hero.js --hero $h --variant $v --dur $d --w $w --h $h2 --spp ${SPP:-4} --opt "$opt" --out $dir.new 2>>$O/hero-$k.err || { echo "LỖI cảnh đinh $k"; touch $O/render.failed; continue; }
-    echo $st > $dir.new/stamp; rm -rf "$dir"; mv "$dir.new" "$dir"; done; }   # dựng vào thư mục tạm, thay khi thành công (06/10: một lỗi cú pháp đã xoá cả 14 cảnh cũ)
+    local rs=""; if [ "$(cat $dir.new/pending 2>/dev/null)" = "$st" ]; then rs=--resume; else rm -rf "$dir.new"; mkdir -p "$dir.new"; echo $st > $dir.new/pending; fi   # 08/10: dựng tiếp phần dở khi job nền bị ngắt
+    echo "dựng cảnh đinh $k ($h/$v, $d s) $rs"; node $LL/hero.js --hero $h --variant $v --dur $d --w $w --h $h2 --spp ${SPP:-4} --opt "$opt" --out $dir.new $rs 2>>$O/hero-$k.err || { echo "LỖI cảnh đinh $k"; touch $O/render.failed; continue; }
+    echo $st > $dir.new/stamp; rm -f $dir.new/pending; rm -rf "$dir"; mv "$dir.new" "$dir"; done; }   # dựng vào thư mục tạm, thay khi thành công (06/10: một lỗi cú pháp đã xoá cả 14 cảnh cũ)
 if has render; then disk "trước render"; rm -f $O/render.failed; heroes; [ -f $O/render.failed ] && { echo "Cảnh đinh lỗi — dừng"; exit 3; }
   for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"
   [ -f $O/render.failed ] && { echo "Có đoạn render lỗi — dừng, không ghép"; exit 3; }; fi
@@ -58,6 +59,7 @@ for k, (a, z) in enumerate([(0, c1), (c1, c2), (c2, T)], 1):
 E
   DUR=$($PY -c "import json;print(json.load(open('$TL'))['tong_s'])")
   VF="scale=out_color_matrix=bt709:out_range=tv:flags=accurate_rnd+full_chroma_int,format=yuv420p"; COL="-color_range tv -color_primaries bt709 -color_trc bt709 -colorspace bt709"
+  [ -n "$MW" ] && VF="scale=$MW:-2:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p"   # bản nháp (tập 7): MW=960 → master 960×540; dùng kèm đặc tả nháp (cảnh đinh 960×540, SPP=1)
   disk "trước ghép"
   ffmpeg -v error -y -f concat -safe 0 -i $O/list.txt -i $O/mix.wav -map 0:v -map 1:a -vf "$VF" -c:v libx264 -preset slow -crf 16 -profile:v high -g 48 $COL -r 24 -fps_mode cfr \
     -c:a aac -b:a 256k -ar 48000 -movflags +faststart -t $DUR $O/$ID-$V-master.mp4

@@ -1,0 +1,39 @@
+{
+ "question": "When a machine takes over a job's core task and the job keeps its name, what happens to the people in it, and to the beginners who used to learn the trade through that task?",
+ "score": 7,
+ "issues": [
+  {
+   "where": "T08",
+   "kind": "break",
+   "note": "The cut goes from the classroom to a blank, dark brick board while the narration says 'a large occupation of its own'. The board sits empty for about 8 seconds before any number appears, so the picture does not support the line."
+  },
+  {
+   "where": "T09",
+   "kind": "break",
+   "note": "The 1990 handbook quote about AI as 'just additional tools' plays over the same empty rows of typewriter desks as before, and then cuts to the dusk street. Neither image connects to the 1990 or AI claim."
+  },
+  {
+   "where": "T13",
+   "kind": "break",
+   "note": "'People just starting out' is shown as an empty dark office with no person and no new image. The topic shifts from programmers to beginners with no visual cue. The ladder shot at T15 is nearly unreadable in the dark, so the beginner idea is conveyed mostly by text."
+  },
+  {
+   "where": "R09.1",
+   "kind": "boring",
+   "note": "The 519,000 board stays frozen for three frames (about 12 s) while only the captions change."
+  },
+  {
+   "where": "R15.4",
+   "kind": "boring",
+   "note": "The board with -19% holds for four frames (about 16 s) after an empty board for three frames (about 12 s). That is about 28 s on one static brick board."
+  },
+  {
+   "where": "R12.1",
+   "kind": "boring",
+   "note": "The film stays in the same dark night office for most of R12, R13 and R14 (roughly 1.5 minutes). Only the captions and a few chart cards vary, so it reads as caption-driven with little new to look at."
+  }
+ ],
+ "rater": "R3",
+ "model": "sonnet",
+ "prompt_sha256": "ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96"
+}

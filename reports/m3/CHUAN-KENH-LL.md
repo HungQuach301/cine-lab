@@ -19,6 +19,11 @@ Tài liệu chuẩn của kênh. Áp cho kịch bản v3, lát cắt M2.2a và m
 | HISTORY | ~35 % | ~3:20 | Lời dẫn và đồ hoạ về nghề xưa, số liệu thực tế |
 | TODAY | ~45 % | ~4:20 | Lời dẫn và đồ hoạ về nghề hôm nay trước công nghệ/AI. **Nội dung chính** |
 
+- **Từ tập 7 (trục biến đổi, chủ dự án 08/10/2026, ±5 điểm):** tỷ lệ theo khung kể §12 thay bảng trên:
+  - Mở + Kết: **15–20 %**;
+  - Quá khứ + Chuyển giao: **40–45 %**;
+  - Hiện tại + Tương lai: **35–40 %**.
+  Báo cáo vẫn ghi quy đổi STORY/HISTORY/TODAY để đối chiếu, nhưng chỉ nêu lệch theo đích mới.
 - **SHORTS** không phải một phần riêng; Shorts cắt ra từ các đoạn trên.
 - Mỗi kịch bản ghi **tỷ lệ thật** (đo theo thời lượng từng đoạn) và nêu tên mọi phần lệch quá ±5 điểm % so với đích.
 
@@ -205,3 +210,12 @@ Mỗi đoạn khai:
 - **Gói phát hành:** thumbnail, tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này).
 - **Ảnh tư liệu:** ≤ 20 % thời lượng, đúng nghề (tập 7: ảnh NASA tổ "computer").
 - **Báo cáo G2** ghi Q26–Q31, so với tập 1, kèm token thực.
+
+## 12. Trục kể: sự biến đổi của nghề (chủ dự án, 08/10/2026; áp từ tập 7)
+- **Trọng tâm** của mỗi tập là sự **biến đổi** của nghề qua quá khứ → hiện tại → tương lai. Số liệu giữ nguyên chuẩn (§3, §4), dùng để bổ trợ mạch chuyển, không làm trục.
+- **"Máy thay thế người" không bị cấm.** Nguồn cho thấy thay thế thật thì nói đúng như nguồn. Nhưng không biến nó thành thông điệp trung tâm: tiêu đề, móc câu và kết ưu tiên mạch biến đổi.
+- **Ẩn dụ kênh:** ngọn lửa của người thắp đèn được trao tiếp sang thời mới (ở mở và kết).
+- **Tương lai** chỉ nói bằng nguồn (dự báo BLS đợt mới nhất, nghiên cứu đã đọc toàn văn) hoặc bằng câu hỏi mở. Không phán đoán.
+- **Kiểm mù kịch bản** thêm câu hỏi: "Người xem rút ra thông điệp chính là gì?" Báo kết quả ở G1. Nếu thông điệp chính lệch khỏi mạch biến đổi thì cân lại nhấn mạnh, không xoá sự thật.
+- Khung kể mẫu (tập 7): Mở (ngọn lửa trao qua ô cửa + móc câu) → Quá khứ → Chuyển giao → Hiện tại → Tương lai → Kết (ngọn lửa trao tiếp; "Next: …").
+- Tỷ lệ theo khung kể: xem §2 (đích mới từ tập 7, chủ dự án duyệt 08/10/2026).

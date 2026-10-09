@@ -107,7 +107,7 @@ def main():
     for key, sg in items:
         names, vals = keywords(E, sg)
         for tr in range(3):
-            mp3, _, n = ll.tts(E, key, sg['vo'].strip()); sent += n
+            mp3, _, n = ll.tts(E, key, sg['vo'].strip(), sg.get('speed', 1.0)); sent += n   # 08/10: cùng nhịp đọc với prep — thiếu speed làm cache trượt, đoạn có speed bị thu lại 2 lần mỗi build
             txt, miss, missv = check_one(model, mp3, names, vals)
             if not miss and not missv or only_check: break
             if tr < 2 and not only_check:
