@@ -216,7 +216,7 @@ Tệp: `reports/m3/ep08/loi-v2.txt` (SHA-256 `824df1f0…e11d038`). Hồi theo Q
 |---|---|---|---|
 | P: đọc tài liệu, tra 5 nguồn, viết lời, 2 lượt sửa, mô phỏng Q26b, NGUON (đến trước khi viết báo cáo này) | ≈ 72 nghìn | ≈ 210 nghìn | ≈ 9,5 triệu |
 | Kiểm mù 6 lượt subagent Sonnet | ≈ 6 × 1 nghìn | ≈ 192 nghìn (3 × 49 nghìn vòng 1, 3 × 15 nghìn vòng 2) | ≈ 0,37 triệu |
-- **Tổng đầu vào mới + sinh ra ≈ 0,48 triệu** (cộng phần viết báo cáo, commit: ước ≈ 0,5 triệu). Trần mềm 1,5 triệu cho cả tập. G1 dùng ≈ 1/3 trần, cao hơn tập 7 (0,33 triệu): do tra thêm 3 nguồn toàn văn mới và chạy kiểm mù 2 vòng thay vì 1.
+- **Đo lại sau khi viết báo cáo và commit:** P sinh ra 89,6 nghìn, đầu vào mới 230,2 nghìn, đọc cache 10,6 triệu. **Tổng đầu vào mới + sinh ra ≈ 0,52 triệu** (P 0,32 + subagent 0,20). Trần mềm 1,5 triệu cho cả tập. G1 dùng ≈ 1/3 trần, cao hơn tập 7 (0,33 triệu): do tra thêm 3 nguồn toàn văn mới và chạy kiểm mù 2 vòng thay vì 1.
 - Giờ máy: không render. **ElevenLabs: 0 ký tự** (chưa thu giọng).
 
 ## 8. Đang chờ chủ dự án
