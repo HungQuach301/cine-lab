@@ -1,2 +1,2 @@
 """Cine Lab — bộ máy kiểm L1 (phiên K). Phiên xưởng không đọc mã này; chỉ đọc checks/RUN.md."""
-VERSION = "1.7.1"
+VERSION = "1.8.1"

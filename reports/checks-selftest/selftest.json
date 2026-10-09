@@ -6,7 +6,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.5,
       "metrics": [
         [
           "r_frame_rate",
@@ -52,7 +52,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.4,
       "metrics": [
         [
           "r_frame_rate",
@@ -98,7 +98,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.4,
       "metrics": [
         [
           "r_frame_rate",
@@ -144,7 +144,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.5,
+      "seconds": 0.4,
       "metrics": [
         [
           "color_primaries",
@@ -236,7 +236,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.4,
       "metrics": [
         [
           "color_primaries",
@@ -282,7 +282,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 3.1,
+      "seconds": 4.7,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -321,7 +321,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          13.952,
+          13.9553,
           ">=",
           12.0,
           true
@@ -359,7 +359,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 2.3,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -398,7 +398,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          3.0409,
+          3.0754,
           ">=",
           12.0,
           false
@@ -436,7 +436,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 1.8,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -498,7 +498,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.3,
+      "seconds": 1.0,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -560,7 +560,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.3,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -585,7 +585,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.3,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -610,7 +610,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.1,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -637,7 +637,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.8,
+      "seconds": 1.6,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -687,7 +687,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 1.2,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -705,7 +705,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.4,
+      "seconds": 3.4,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -723,7 +723,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.8,
+      "seconds": 0.7,
       "metrics": [
         [
           "diện tích banding lớn nhất",
@@ -771,7 +771,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.0,
       "metrics": [
         [
           "integrated loudness",
@@ -801,7 +801,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.0,
       "metrics": [
         [
           "cửa sổ tương quan < −0,3",
@@ -865,7 +865,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.9,
+      "seconds": 18.2,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -894,7 +894,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 5.3,
+      "seconds": 4.8,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -1069,7 +1069,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.7,
+      "seconds": 4.6,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1096,7 +1096,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 2.0,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1124,7 +1124,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.6,
+      "seconds": 2.4,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1151,7 +1151,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.6,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1179,7 +1179,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 0.9,
+      "seconds": 1.5,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -1208,7 +1208,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 2.2,
+      "seconds": 2.6,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1249,7 +1249,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.2,
+      "seconds": 1.6,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1290,7 +1290,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.9,
+      "seconds": 2.1,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1331,7 +1331,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.2,
       "metrics": [
         [
           "σ grain nhỏ nhất theo shot",
@@ -1372,7 +1372,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 2.2,
+      "seconds": 2.4,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1498,7 +1498,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 2.1,
+      "seconds": 2.2,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1540,7 +1540,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 2.4,
+      "seconds": 2.1,
       "metrics": [
         [
           "sai lệch bao năng lượng tổng stem so với mix (P95)",
@@ -1582,7 +1582,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.8,
+      "seconds": 2.0,
       "metrics": [
         [
           "nhân vật có kênh bộ phận nhưng không có screen track",
@@ -1616,7 +1616,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 1.8,
       "metrics": [
         [
           "nhân vật có kênh bộ phận nhưng không có screen track",
@@ -1650,7 +1650,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.5,
+      "seconds": 0.6,
       "metrics": [
         [
           "nhân vật có kênh bộ phận nhưng không có screen track",
@@ -1685,7 +1685,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 9.7,
+      "seconds": 5.3,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -1798,7 +1798,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 5.9,
+      "seconds": 5.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -1911,7 +1911,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.6,
+      "seconds": 0.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2013,7 +2013,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 10.7,
+      "seconds": 5.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2126,7 +2126,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 7.8,
+      "seconds": 5.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2239,7 +2239,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 247.8,
+      "seconds": 219.5,
       "metrics": [
         [
           "tỷ lệ sai số thật nằm trong U(δ)",
@@ -2266,7 +2266,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.1,
+      "seconds": 1.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2366,7 +2366,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 16.1,
+      "seconds": 10.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2479,7 +2479,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 9.6,
+      "seconds": 7.3,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2592,7 +2592,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 3.0,
+      "seconds": 2.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2706,7 +2706,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 9.3,
+      "seconds": 5.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2819,7 +2819,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.3,
+      "seconds": 5.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -2932,7 +2932,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 1.3,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -2960,7 +2960,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 1.4,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -2989,7 +2989,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.7,
+      "seconds": 2.0,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -3018,7 +3018,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.5,
+      "seconds": 1.7,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -3045,7 +3045,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.4,
+      "seconds": 1.5,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -3072,7 +3072,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.6,
+      "seconds": 1.4,
       "metrics": [
         [
           "tương phản chữ/nền (P10) thấp nhất",
@@ -3122,7 +3122,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.9,
+      "seconds": 0.8,
       "metrics": [
         [
           "độ khớp matte–render thấp nhất",
@@ -3142,7 +3142,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 1.4,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -3167,7 +3167,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.6,
+      "seconds": 1.1,
       "metrics": [
         [
           "điểm ảnh nét chữ va chạm",
@@ -3194,7 +3194,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 11.3,
+      "seconds": 9.3,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -3233,7 +3233,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          15.9448,
+          16.0729,
           ">=",
           30.0,
           false
@@ -3261,7 +3261,7 @@
         ]
       ],
       "notes": [
-        "G3b đo có grain (σ lớn nhất theo shot 1.24 ≥ 0.8 mã): master YouTube phải ≥ 30 Mbps để bộ mã giữ grain (Q-G3b).",
+        "G3b đo có grain (σ lớn nhất theo shot 1.09 ≥ 0.8 mã): master YouTube phải ≥ 30 Mbps để bộ mã giữ grain (Q-G3b).",
         "Bitrate âm đo từ gói: 148 kbps (tham khảo, không làm ngưỡng: bộ mã AAC dùng ít bit hơn mức đặt khi nội dung đơn giản, nên con số này không đo chất lượng)."
       ]
     },
@@ -3271,7 +3271,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 11.1,
+      "seconds": 10.0,
       "metrics": [
         [
           "tỷ lệ khung",
@@ -3310,7 +3310,7 @@
         ],
         [
           "bitrate hình đo từ gói",
-          41.6243,
+          41.7652,
           ">=",
           30.0,
           true
@@ -3348,7 +3348,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 18.3,
+      "seconds": 17.8,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3475,7 +3475,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 19.9,
+      "seconds": 21.1,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3504,7 +3504,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 17.9,
+      "seconds": 18.7,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -3562,7 +3562,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 8.0,
+      "seconds": 6.5,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3675,7 +3675,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 6.7,
+      "seconds": 4.3,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3789,7 +3789,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 10.4,
+      "seconds": 4.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -3903,7 +3903,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.6,
+      "seconds": 5.6,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4017,7 +4017,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 113.3,
+      "seconds": 106.1,
       "metrics": [
         [
           "sai số / U(δ=2) lớn nhất — thật",
@@ -4058,7 +4058,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 28.1,
+      "seconds": 22.5,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -4128,7 +4128,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 27.1,
+      "seconds": 25.1,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -4157,7 +4157,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.0,
+      "seconds": 3.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4279,7 +4279,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.2,
+      "seconds": 3.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4392,7 +4392,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 11.3,
+      "seconds": 11.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4560,7 +4560,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:50:58Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:49:07Z."
       ]
     },
     {
@@ -4569,7 +4569,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 12.2,
+      "seconds": 11.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4744,7 +4744,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.43%. 2550 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.27 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:51:11Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:49:18Z."
       ]
     },
     {
@@ -4753,7 +4753,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 17.5,
+      "seconds": 22.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -4928,7 +4928,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 2.1%. 2618 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:51:28Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:49:40Z."
       ]
     },
     {
@@ -4937,7 +4937,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 12.5,
+      "seconds": 12.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5112,7 +5112,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:51:41Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:49:53Z."
       ]
     },
     {
@@ -5121,7 +5121,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 10.5,
+      "seconds": 11.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5296,7 +5296,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:51:51Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:50:05Z."
       ]
     },
     {
@@ -5305,7 +5305,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 11.7,
+      "seconds": 12.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5480,7 +5480,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:52:03Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:50:17Z."
       ]
     },
     {
@@ -5489,7 +5489,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 9.9,
+      "seconds": 11.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5664,7 +5664,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:52:14Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:50:29Z."
       ]
     },
     {
@@ -5673,7 +5673,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 13.0,
+      "seconds": 10.3,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5848,7 +5848,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: 0° (không có views)). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.8%. 2445 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "parts.json không có 'views' (v1.4): mọi mẫu so với góc 0° như v1.3; chỉ loại mẫu bị cắt khung. Xuất 'views' từ render để máy loại mẫu lệch góc, gập, bị che, phối cảnh (RUN.md 3.6).",
-        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-09-29T02:52:26Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 12345, khung [0], phát bởi selftest lúc 2026-10-09T03:50:39Z."
       ]
     },
     {
@@ -5857,7 +5857,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 12.9,
+      "seconds": 11.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -5971,7 +5971,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 11.1,
+      "seconds": 11.7,
       "metrics": [
         [
           "phát lại yêu cầu bị từ chối",
@@ -5982,7 +5982,7 @@
         ]
       ],
       "notes": [
-        "/tmp/cine-selftest-imp72av1/c3a_reissue.audit/request.json đã có. Không phát lại yêu cầu kiểm toán (xoá phải có lý do, ghi vào git)."
+        "/tmp/cine-selftest-09c1npte/c3a_reissue.audit/request.json đã có. Không phát lại yêu cầu kiểm toán (xoá phải có lý do, ghi vào git)."
       ]
     },
     {
@@ -6003,7 +6003,7 @@
       "expect": "N/A",
       "got": "N/A",
       "ok": true,
-      "seconds": 0.2,
+      "seconds": 0.1,
       "metrics": [],
       "notes": [
         "Không có luồng âm và kịch bản thoại rỗng (đoạn không lời): không áp dụng, thống nhất với M3."
@@ -6015,7 +6015,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 0.2,
+      "seconds": 0.1,
       "metrics": [],
       "notes": [
         "Không có luồng âm nhưng kịch bản có 3 từ: thiếu luồng âm, không đo được. Không chèn luồng âm im lặng để lách (sẽ TRƯỢT vì thiếu từ)."
@@ -6027,7 +6027,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 0.2,
+      "seconds": 0.1,
       "metrics": [],
       "notes": [
         "Không có luồng âm nhưng kịch bản có 3 từ: thiếu luồng âm, không đo được. Không chèn luồng âm im lặng để lách (sẽ TRƯỢT vì thiếu từ)."
@@ -6039,7 +6039,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.7,
+      "seconds": 5.0,
       "metrics": [
         [
           "từ bắt buộc nghe đúng",
@@ -6088,7 +6088,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 9.0,
+      "seconds": 7.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6201,7 +6201,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.8,
+      "seconds": 5.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6314,7 +6314,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 6.6,
+      "seconds": 4.9,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6426,7 +6426,7 @@
       "expect": "REVIEW",
       "got": "REVIEW",
       "ok": true,
-      "seconds": 6.6,
+      "seconds": 5.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6547,7 +6547,7 @@
       "expect": "REVIEW",
       "got": "REVIEW",
       "ok": true,
-      "seconds": 5.4,
+      "seconds": 5.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6661,7 +6661,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.2,
+      "seconds": 6.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6773,7 +6773,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 6.3,
+      "seconds": 5.6,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -6885,7 +6885,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.5,
+      "seconds": 4.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7005,7 +7005,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 5.2,
+      "seconds": 5.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7118,7 +7118,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 4.9,
+      "seconds": 9.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7231,7 +7231,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.7,
+      "seconds": 6.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7344,7 +7344,7 @@
       "expect": "REVIEW",
       "got": "REVIEW",
       "ok": true,
-      "seconds": 4.8,
+      "seconds": 5.4,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7467,7 +7467,7 @@
       "expect": "REVIEW",
       "got": "REVIEW",
       "ok": true,
-      "seconds": 10.8,
+      "seconds": 10.6,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7588,7 +7588,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 6.4,
+      "seconds": 7.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7776,7 +7776,7 @@
       "notes": [
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
-        "Kiểm toán ngẫu nhiên: hạt giống 424242, khung [0], phát bởi selftest lúc 2026-09-29T02:54:21Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 424242, khung [0], phát bởi selftest lúc 2026-10-09T03:52:37Z."
       ]
     },
     {
@@ -7785,7 +7785,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 8.1,
+      "seconds": 7.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -7980,7 +7980,7 @@
       "notes": [
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'pca'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2594 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
-        "Kiểm toán ngẫu nhiên: hạt giống 424242, khung [0], phát bởi selftest lúc 2026-09-29T02:54:29Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 424242, khung [0], phát bởi selftest lúc 2026-10-09T03:52:44Z."
       ]
     },
     {
@@ -7989,7 +7989,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 9.3,
+      "seconds": 11.2,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -8102,7 +8102,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 5.4,
+      "seconds": 3.0,
       "metrics": [
         [
           "đúng lý do: báo 'Sai định dạng' rõ ràng, không lộ lỗi Python",
@@ -8122,7 +8122,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 6.2,
+      "seconds": 4.8,
       "metrics": [
         [
           "đúng lý do: báo 'Sai định dạng' rõ ràng, không lộ lỗi Python",
@@ -8142,7 +8142,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 5.4,
+      "seconds": 4.8,
       "metrics": [
         [
           "đúng lý do: báo 'Sai định dạng' rõ ràng, không lộ lỗi Python",
@@ -8162,7 +8162,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.3,
+      "seconds": 0.4,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -8341,7 +8341,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.7,
+      "seconds": 0.6,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -8376,7 +8376,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.7,
+      "seconds": 0.6,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -8411,7 +8411,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 1.0,
+      "seconds": 0.7,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -8446,7 +8446,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 0.7,
+      "seconds": 0.8,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -8517,7 +8517,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 1.7,
+      "seconds": 1.8,
       "metrics": [
         [
           "vùng chữ dò được không có matte",
@@ -8553,7 +8553,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 11.3,
+      "seconds": 12.6,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -8673,7 +8673,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 5.2,
+      "seconds": 5.1,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -8793,7 +8793,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 5.9,
+      "seconds": 5.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -8906,7 +8906,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 12.5,
+      "seconds": 13.7,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -9026,7 +9026,7 @@
       "expect": "MISSING",
       "got": "MISSING",
       "ok": true,
-      "seconds": 3.3,
+      "seconds": 3.1,
       "metrics": [
         [
           "đúng lý do: thông báo nêu đúng trường c3_head_axis",
@@ -9046,7 +9046,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 4.8,
+      "seconds": 7.4,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -9235,7 +9235,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'doc'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2776 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân (thân→đầu), không lật. 1 khung có đầu rộng hơn cao (trục chính sẽ lật).",
-        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0], phát bởi selftest lúc 2026-09-29T02:55:46Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0], phát bởi selftest lúc 2026-10-09T03:54:02Z."
       ]
     },
     {
@@ -9244,7 +9244,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 7.3,
+      "seconds": 12.3,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -9440,7 +9440,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'doc'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2776 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân (thân→đầu), không lật. 1 khung có đầu rộng hơn cao (trục chính sẽ lật).",
-        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0], phát bởi selftest lúc 2026-09-29T02:55:53Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0], phát bởi selftest lúc 2026-10-09T03:54:15Z."
       ]
     },
     {
@@ -9449,7 +9449,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 8.8,
+      "seconds": 8.0,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -9645,7 +9645,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'doc'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 2776 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 5/5 (100.0%) trên 1 khung có nhân vật. Theo shot: shot 1 (khung 0–0): 5/5 (100%).",
         "v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân (thân→đầu), không lật. 1 khung có đầu rộng hơn cao (trục chính sẽ lật).",
-        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0], phát bởi selftest lúc 2026-09-29T02:56:01Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0], phát bởi selftest lúc 2026-10-09T03:54:22Z."
       ]
     },
     {
@@ -9654,7 +9654,7 @@
       "expect": "PASS",
       "got": "PASS",
       "ok": true,
-      "seconds": 12.8,
+      "seconds": 10.4,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -9850,7 +9850,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'doc'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 5552 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 10/10 (100.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–15): 10/10 (100%).",
         "v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân (thân→đầu), không lật. 2 khung có đầu rộng hơn cao (trục chính sẽ lật).",
-        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0, 12], khung bóng nhân vật [15], phát bởi selftest lúc 2026-09-29T02:56:13Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0, 12], khung bóng nhân vật [15], phát bởi selftest lúc 2026-10-09T03:54:31Z."
       ]
     },
     {
@@ -9859,7 +9859,7 @@
       "expect": "FAIL",
       "got": "FAIL",
       "ok": true,
-      "seconds": 11.4,
+      "seconds": 10.8,
       "metrics": [
         [
           "hệ số phân giải mặt nạ/khung đo từ kích thước PNG (nhỏ nhất)",
@@ -10055,7 +10055,7 @@
         "Model sheet: sheet.json (độ dài: cấp gốc; đầu đo theo 'doc'; góc tham chiếu: -90°, 0°, 45°, 90°). Mặt nạ 2560×2800 px trên khung 640×700 → hệ số đo ×4 (khai báo: 4). Đầu cao 100.0–100.0 px video. Lệch lớn nhất (mẫu đo được) 0.25%. 5552 vị trí biên phân biệt; tỷ lệ dồn 1 pha 0.25 (trải đều ≈ 0.25).",
         "Mẫu bộ phận đo được: 10/10 (100.0%) trên 2 khung có nhân vật. Theo shot: shot 1 (khung 0–15): 10/10 (100%).",
         "v1.5: model sheet khai c3_head_axis = 'doc': độ dài đầu = bề dài chiếu lên trục dọc thân (thân→đầu), không lật. 2 khung có đầu rộng hơn cao (trục chính sẽ lật).",
-        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0, 12], khung bóng nhân vật [15], phát bởi selftest lúc 2026-09-29T02:56:24Z."
+        "Kiểm toán ngẫu nhiên: hạt giống 515151, khung [0, 12], khung bóng nhân vật [15], phát bởi selftest lúc 2026-10-09T03:54:42Z."
       ]
     }
   ],
@@ -10119,5 +10119,5 @@
     ],
     "ok": true
   },
-  "sample_dir": "/tmp/cine-selftest-imp72av1"
+  "sample_dir": "/tmp/cine-selftest-09c1npte"
 }
