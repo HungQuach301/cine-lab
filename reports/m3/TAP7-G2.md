@@ -201,3 +201,19 @@ Token đầu vào không cache: Opus 1 136, Sonnet 200.
    - Theo điều phối "render 1080p một lần", tập 7 không sửa.
    - Hướng sửa cho tập sau đã ghi ở BAI-HOC.
 7. G3 tập 6 v2 do chủ dự án tự đăng (đã giao). P không chờ.
+
+## 8. Sau duyệt G2 (09/10/2026): nhánh phát hành và kiểm SHA
+
+- **Chủ dự án DUYỆT bản cuối nguyên trạng.** Các quyết định ghi ở AUTHORSHIP 09/10.
+- **Nhánh phát hành:** https://github.com/HungQuach301/cine-lab/tree/release-ll-ep07-v1, commit `6adb15c`.
+  - Nhánh mồ côi, Git LFS cho `*.mp4`.
+  - Gồm 14 tệp: master, 3 bản xem, 3 Shorts, thumbnail T1/T2 kèm `.boxes.json`, mô tả, chữ Shorts, `SHA256-v1.txt`. Có thêm `SHA256SUMS.txt` và `.gitattributes`.
+- **Kiểm SHA sau khi tải ngược:**
+  - P tải cả 14 tệp từ link công khai `https://github.com/HungQuach301/cine-lab/raw/release-ll-ep07-v1/<tệp>` vào thư mục trống, rồi chạy `sha256sum -c SHA256SUMS.txt`: **14/14 OK**.
+  - Master tải về đủ 973 019 139 byte, đúng tệp thật chứ không phải con trỏ LFS.
+  - SHA master `ec203d6304b0aed13c5dd7f7f3a1649a44255ad03bbc850c68839fa83b3ddfb4`, khớp `SHA256-v1.txt` lập lúc dựng.
+- **Ghi thêm:**
+  - RIGHTS.md: LL-SFX-12, LL-SFX-13 ghi "chủ dự án chấp nhận PDM 09/10".
+  - BAI-HOC #96–#98 (giới hạn bối cảnh 3D, nội thất chi tiết, kiểm bộ đếm ElevenLabs) và luật mới trong `reports/m3/ep08/PLAN.md`.
+  - Hướng dẫn đăng: `reports/m3/HUONG-DAN-DANG-TAP7.md`.
+- **Việc còn lại: G3, chủ dự án đăng.**

@@ -6,6 +6,12 @@
 **Trần:** token 1,5 triệu/tập sản xuất trọn (đầu vào mới + sinh ra, đo từ log phiên; > 25 % thì dừng hỏi) · đĩa trống ≥ 1,5 × mức cần
 **Tiêu đề đề xuất (G1):** "In 1966, Machines Couldn't Translate. Now Translators Compete With Them"
 
+**Luật mới từ G2 tập 7 (chủ dự án, 09/10/2026) — áp ngay từ đặc tả tập 8:**
+- Không bối cảnh 3D nào > 25 % thời lượng hay > 90 s liên tục; nửa sau phim có ≥ 2 bối cảnh khác nhau (ban ngày / cận cảnh / nơi người mới học nghề) — BAI-HOC #96.
+- Nội thất chi tiết hơn, ít khối thô và tối (vân vật liệu, đồ vật, ánh sáng có nguồn, tương phản, chiều sâu) — BAI-HOC #97.
+- ElevenLabs: kiểm bộ đếm trước/sau mỗi build (tập 7 lệch 1 814 ký tự không giải thích được) — BAI-HOC #98.
+- Prep bản cuối (có ASR) chạy riêng một lần, kiểm `el_sent` = 0 trước khi dựng cảnh đinh — BAI-HOC #95.
+
 **Phiên sau đọc (≤ 8 tệp):**
 1. `reports/m3/BAI-HOC-LL.md`
 2. `reports/m3/CHUAN-KENH-LL.md` (§3, §5, §7–9)
