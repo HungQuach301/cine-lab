@@ -1,9 +1,9 @@
 # CINE LAB — khoá luật kiểm (chỉ phiên K sửa)
-VERSION: 1.8.0
-DATE_UTC: 2026-10-09T03:45:37Z
+VERSION: 1.8.1
+DATE_UTC: 2026-10-09T04:27:37Z
 ALGO: sha256 của chuỗi các dòng '<sha256 file>  <đường dẫn tương đối>\n', sắp theo đường dẫn,
       mọi file trong checks/ trừ LOCK, __pycache__/ và *.pyc
-TREE_SHA256: 848ee170beb253fab25e1eaf6b3d4f53fe4c8f80d0ca6f7561229eb49fe6b1d9
+TREE_SHA256: 208121b48826b80a2170d5fab2e8cb9d092b37cf011de8f0da956e7d0dd98af7
 
 # FILES
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
@@ -11,7 +11,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
 a17ff4e8622a98d672dbfa53b05cc0847e5b42766e5760d46bd043ff5151b099  RULES.md
 4436b010370cb0e164e966b5fc6e97f33f3215768466a001e6f5fed1537ed160  RUN.md
 870f22f8db06167ab6be5778114479a201a668e3f050e662a7082ce3a5409757  audit.py
-e787234d7e64e5e2365d725a968ad70d1344f8fe3cb93b5d5b0d29351d370399  cinecheck/__init__.py
+bdd593e7d5acfebce22b554858b1e7d9421d517976e296c1c4d1598b6d317c8d  cinecheck/__init__.py
 308d167d592bbbeb5c8a273b8ca2c3ca53da7ab9432e28a720e11960a5b7c083  cinecheck/audit.py
 dc4a4dc84800c162705b500f0647f3236c6a48506da93639bec126a4742daf9e  cinecheck/common.py
 2478170c8bbcaeca61a57b44a865b1ee498f0ca8ff7ddd5d91aa1de4087f5ee1  cinecheck/lockhash.py
@@ -30,7 +30,7 @@ c6f70612d2db77c4d4d3a23766e9990e4253ba567771748c280fa34b0e206f3f  cinecheck/rule
 c5169d960e2bfe635f6cb84672b578ac152dfc710a6a4352dbf16b1082c35ccc  cinecheck/rules_file.py
 654e363a42b526ceaf83f1eaa486b6ef6356202c12ce355f0122a160fd1a714b  cinecheck/rules_text.py
 3b73393332dfa86c1ae86f28621c1fdfe219f50408f247201ddbde6970f79e33  cinecheck/textdet.py
-31dacc9e55126bf4cb040b66d008d7d8f34b724c67ee1453591ea6e27b60213f  ll/RULES-LL.md
+d17355e6bb4bebd35583edd3438d8329bbe95b4a08b6fadb6b92959eb4b57250  ll/RULES-LL.md
 45683ff1b1cd2d09f321e96602f699de76505d48a583da891edf6a585f3a5d95  ll/__init__.py
 015be4c3cbff215f1080403577100b6bfd89cd7f0d5796f99096f77cc8299bd9  ll/base.py
 166eecef38b1351a4edf9da421f6ce351eeec85a6ed1b2f9c05f21cbe9169616  ll/blind/Q27-R1.txt
@@ -137,9 +137,9 @@ edd5ed9f533e9b7368a4c1e55c2d22a0274e53370086398d571be29c64b318f3  ll/q_blind.py
 a26a4de23f8491afeb7af2111ca56138eb0b864a94a073918200e8755e9a1bc1  ll/q_overflow.py
 49c1e852b9d38a46157019c4eab35f7fa157135788b3ba17d895fea4741f938f  ll/q_rhythm.py
 b8a8832af2ca1cc32996e98fab378c5f2979277042ed7d30f4ba5899e1684e70  ll/q_rights.py
-56ac3f7de9fea7c9e9cdf3fedd726b5755d19fcba9f3f6cb7daf804e13852565  ll/q_setting.py
+947f7211986194015ca246712c91b7b5c1750f4cf7e668f0ee4ba9a91292d009  ll/q_setting.py
 84629da24a8ef049a3a2f79bb0fcd50a572fa9f973f8bfd4decc06c8286a77ed  ll/q_src.py
-15bfa460ccc70df9c898dbee40f8b62900ec595e731c9feb93aa47d729d1db37  ll/selftest_ll.py
+d000ccfbd107ba45bfbb7e39d170a033cda004a60f5f8c95583dd5eeaefddf3f  ll/selftest_ll.py
 9bee416f5aa46de7c2b19751128a296cdf02f234298115ecfe62be8daa6fc028  lock.py
 f8b27e7109a37a8e2f61d45fa9d2a03d5e0b306ffa7e2b6701ea51cd27b4f3d0  models/README.md
 d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9  models/ch_PP-OCRv4_det_infer.onnx

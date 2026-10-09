@@ -140,15 +140,23 @@
 ĐÚNG  Q31     bắt lỗi  sổ vòng: manifest vòng 2 bị sửa
 ĐÚNG  Q31     bắt lỗi  sổ vòng: xoá q31-lich-su/
 ĐÚNG  Q31     sạch     --tu-nhap: chép 3 vòng nháp sang sổ bản cuối (vong-01, vong-02, vong-03), chạy lại không chép trùng, nguồn còn nguyên
-ĐÚNG  Q26b    bắt lỗi  tập 7 bản cuối: 6 bối cảnh · lớn nhất ep07/tower 29.1 % · liên tục dài nhất ep07/tower 117.0 s · nửa sau 5 · trung tính 13.6 %
+ĐÚNG  Q26b    bắt lỗi  tập 7 bản cuối: 6 bối cảnh · lớn nhất ep07/tower 29.1 % · liên tục dài nhất ep07/tower 139.1 s · nửa sau 5 · trung tính 13.6 %
+ĐÚNG  Q26b    bắt lỗi  Ca 5 — tập 7: phòng tính toán 0:51–2:56 có ảnh tư liệu, isotype chen giữa → một quãng 104,3 s (trừ 20,7 s trung tính) > 90 s
 ĐÚNG  Q26b    sạch     tập 7: ep07/pool 25,0 % được nêu sát ngưỡng
 ĐÚNG  Q26b    sạch     tập 6 v2: 10 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 18.6 %
 ĐÚNG  Q26b    sạch     nhãn: mọi góc máy của một cảnh đinh là một bối cảnh (tower_in, tower_code, tower_floor)
 ĐÚNG  Q26b    sạch     nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cảnh cả shot; thẻ số, ảnh tư liệu trung tính
-ĐÚNG  Q26b    sạch     tập 7: thẻ trích dẫn 11,9 s (> 8 s) ở 5:51 làm dứt quãng văn phòng (quãng dài nhất bắt đầu 6:02.8)
-ĐÚNG  Q26b    sạch     tập 7 nếu thẻ trích dẫn ngắn hơn 8 s: quãng văn phòng nối dài từ 5:28.8 ([150.9, '5:28.8', '7:59.8'])
-ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: 9 bối cảnh · lớn nhất ep06/drafts 32.3 % · liên tục dài nhất ep06/drafts 59.9 s · nửa sau 1 · trung tính 32.6 %
+ĐÚNG  Q26b    sạch     tập 7 (1.8.1): thẻ trích dẫn 11,9 s ở 5:51 không dứt quãng văn phòng; quãng 5:28.8–7:59.8 = 139,1 s (trừ 11,9 s trung tính)
+ĐÚNG  Q26b    sạch     tập 7 (1.8.1) nếu thay thẻ trích dẫn bằng cảnh văn phòng cùng thời lượng: quãng = cả 150,9 s ([150.9, '5:28.8', '7:59.8', 0.0])
+ĐÚNG  Q26b    sạch     Ca 1 — thẻ trích dẫn 12 s chen giữa hai đoạn cùng bối cảnh: một quãng, 100 s (không tính 12 s thẻ) → [100.0, 1]
+ĐÚNG  Q26b    sạch     Ca 2 — bối cảnh khác 5 s chen giữa: vẫn liền, 105 s → [105.0, 1]
+ĐÚNG  Q26b    sạch     Ca 3 — bối cảnh khác 8 s chen giữa: dứt quãng (2 quãng, dài nhất 50 s) → [50.0, 2]
+ĐÚNG  Q26b    sạch     Ca 4 — hai bối cảnh khác 4 s + 4 s (cộng dồn 8 s): dứt quãng → [50.0, 2]
+ĐÚNG  Q26b    sạch     thẻ trung tính không cộng vào bộ đếm: khác 4 s + thẻ 6 s + khác 3,9 s → vẫn liền, 102,9 s → [102.9, 1]
+ĐÚNG  Q26b    sạch     diptych có X ở một nửa đặt bộ đếm về 0: khác 5 s + diptych + khác 5 s → vẫn liền, 102 s → [102.0, 1]
+ĐÚNG  Q26b    bắt lỗi  quãng 100 s qua thẻ 12 s bị bắt (> 90 s)
+ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: 9 bối cảnh · lớn nhất ep06/drafts 32.3 % · liên tục dài nhất ep06/drafts 156.1 s · nửa sau 1 · trung tính 32.6 %
 ĐÚNG  Q26b    bắt lỗi  chớp 2 bối cảnh 1,5 s ở nửa sau để đủ số: không tính (< 3 s mỗi bối cảnh)
 ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu cả đoạn 06–08 (114 s) dùng tường bản nháp: liên tục > 90 s
 
-selftest LL v3: 152/152 ca đúng kỳ vọng
+selftest LL v3: 160/160 ca đúng kỳ vọng

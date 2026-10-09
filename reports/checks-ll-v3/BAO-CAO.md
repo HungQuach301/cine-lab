@@ -2,7 +2,8 @@
 
 Ngày 07/10/2026 · Phiên K (kiểm định độc lập) · Nhánh `checks/ll-v3` (gốc: đỉnh `ccr-5219a838-ftr84s`, 80a66c7).
 Chủ dự án duyệt lệnh khoá 07/10/2026, rồi **duyệt kết quả và ra phán quyết 4 câu hỏi cùng ngày**. Mục 1–11 ghi bản 1.7.0 trình duyệt và giữ nguyên để đối chiếu; mục 12 là bản 1.7.1.
-**Bản trình duyệt hiện tại là 1.8.0 (mục 13): sửa Q27, Q31 và thêm Q26b sau tập 7, 09/10/2026. K DỪNG, chờ chủ dự án duyệt merge.**
+Mục 13 là bản 1.8.0 (sửa Q27, Q31, thêm Q26b sau tập 7); số Q26b ở mục 13 đo theo luật quãng cũ, đã được thay bằng mục 14.
+**Bản trình duyệt hiện tại là 1.8.1 (mục 14): chủ dự án duyệt 4 quyết định 09/10/2026, sửa quãng liên tục Q26b. K DỪNG, chờ chủ dự án duyệt merge.**
 
 ## 1. Kết quả chính
 - **Bản khoá:** VERSION **1.7.0**, LOCK `TREE_SHA256 0b180104d6b7cad9e5ab942011f86c02557fb07388bb52260b42c1efdbe22915`.
@@ -342,3 +343,73 @@ Lệnh chủ dự án 09/10/2026, sau khi đọc `reports/m3/TAP7-G2.md`, `repor
    - tập 7 Q27 sát ngưỡng → thêm mục **"Cải thiện hình"** vào `reports/m3/ep08/PLAN.md`;
    - Q31 chuyển sổ bằng `--tu-nhap`;
    - không bao giờ xoá `q31-lich-su/`.
+
+## 14. Sau quyết định của chủ dự án (09/10/2026) — bản 1.8.1
+### 14.1 Bốn quyết định
+1. **SE Q27 = 0,27** (đo thật từ 6 lần chấm). Q27 ĐẠT khi điểm tập mới ≥ tập 1 − 0,27. Chênh trong ±0,27 thì ghi SÁT NGƯỠNG và PLAN tập sau bắt buộc có mục "Cải thiện hình". Luật 1.8.0 đã đúng như vậy, không phải sửa mã.
+2. **Q26b áp từ tập 8.** Không áp ngược tập 7 (đã đăng); kết quả tập 7 chỉ ghi nhận là điểm yếu. `scripts/ll/qc.py` đã gọi Q26b từ tập 8, không đổi.
+3. **Giữ ngưỡng ≥ 3 s** cho mỗi bối cảnh ở nửa sau. Không đổi.
+4. **Sửa luật quãng liên tục của Q26b** (mục 14.2). Vì định nghĩa đo đổi, K nâng VERSION từ 1.8.0 lên **1.8.1**.
+
+### 14.2 Luật quãng liên tục mới (`checks/ll/q_setting.py`, `RULES-LL.md`)
+- Shot trung tính (ảnh tư liệu, isotype, trích dẫn, thẻ số…):
+  - không làm dứt quãng;
+  - không tính vào độ dài quãng.
+- Quãng của bối cảnh X chỉ dứt khi các shot có bối cảnh khác X cộng dồn **≥ 8 s**, tính từ lần X xuất hiện gần nhất. X xuất hiện lại thì bộ đếm về 0.
+- Diptych có X ở một nửa vẫn tính là có X.
+- **Độ dài quãng** = từ đầu shot X đầu tiên tới cuối shot X cuối cùng, trừ các shot trung tính nằm trong quãng.
+  - Shot bối cảnh khác ngắn hơn 8 s nằm giữa quãng vẫn được tính, vì luật chỉ loại trừ shot trung tính.
+- Đã bỏ `NEUTRAL_GAP`; thay bằng `OTHER_BREAK = 8.0`.
+
+### 14.3 Số theo luật mới, đối chiếu với người rà
+(`do/q26b-ep07-final.*`, `do/q26b-ep06-v2.*`, chạy lại và ghi đè)
+
+| | Quãng | Số K (trừ trung tính) | Trung tính trong quãng | Khoảng đầu–cuối | Số người rà | Kết luận |
+|---|---|---|---|---|---|---|
+| Tập 7 `ep07/tower` (văn phòng đêm) | 5:28,8–7:59,8 | **139,1 s** | 11,9 s (thẻ trích dẫn 5:51) | 150,9 s | ≈ 151 s | TRƯỢT (> 90 s) |
+| Tập 7 `ep07/pool` (phòng tính toán) | 0:51,2–2:56,2 | **104,3 s** | 20,7 s (ảnh tư liệu 4,3 + 7,1 s, isotype 9,4 s) | 125,0 s | ≈ 125 s | TRƯỢT (> 90 s) |
+| Tập 6 v2 quãng dài nhất | `ep06/drafts` 4:22,0–4:49,1 | **27,1 s** | 0 | 27,1 s | ≈ 28 s | ĐẠT |
+
+**Giải trình chênh ≥ 1 s:**
+- **Tập 7:** số người rà bằng đúng *khoảng đầu–cuối* của quãng, tức là vẫn tính thẻ trung tính vào độ dài: 150,9 s và 125,0 s. Quyết định 4 ghi rõ thẻ trung tính "không được tính vào thời lượng quãng", nên K trừ phần đó ra: tower còn 139,1 s (−11,9 s), pool còn 104,3 s (−20,7 s). Ranh giới quãng hai bên trùng nhau, và kết luận giống nhau: cả hai TRƯỢT.
+- **Tập 6 v2:** chênh 0,9 s, dưới 1 s. Số ≈ 28 s của người rà có lẽ là khoảng 0:46,8–1:14,8 của `ep06/linotype` (28,0 s). Trong khoảng đó có 16,0 s trung tính, nên theo luật mới quãng này chỉ dài 12,0 s. Quãng dài nhất thật là `ep06/drafts` 27,1 s.
+- Nếu chủ dự án muốn tính thẻ trung tính vào độ dài (như người rà), chỉ cần đổi một dòng. Khi đó số sẽ là 150,9 / 125,0 / 28,0 s, kết luận không đổi.
+
+**Tập 7 đầy đủ** (ghi nhận điểm yếu, không áp):
+- `ep07/tower` 29,1 % thời lượng (> 25 %);
+- tower liên tục 139,1 s; pool liên tục 104,3 s;
+- nửa sau có 5 bối cảnh;
+- pool chiếm 24,99 %, sát ngưỡng 25 %.
+
+**Tập 6 v2:** ĐẠT. 10 bối cảnh, lớn nhất `ep06/drafts` 17,3 %, quãng dài nhất 27,1 s, nửa sau 7 bối cảnh.
+
+### 14.4 Selftest
+- **LL v3: 160/160** ca đúng kỳ vọng (`do/selftest.txt`); 1.8.0 có 152 ca.
+  - Thêm 8 ca:
+    - Ca 1: thẻ 12 s chen giữa → một quãng 100 s;
+    - Ca 2: bối cảnh khác 5 s chen giữa → liền, 105 s;
+    - Ca 3: bối cảnh khác 8 s chen giữa → dứt quãng;
+    - Ca 4: 4 s + 4 s → dứt quãng;
+    - Ca 5: tập 7 pool 0:51–2:56 qua ảnh tư liệu và isotype → 104,3 s, bắt lỗi;
+    - thẻ trung tính không cộng vào bộ đếm (4 s + thẻ 6 s + 3,9 s → liền);
+    - diptych có X đặt bộ đếm về 0;
+    - quãng 100 s qua thẻ 12 s bị bắt.
+  - Sửa 3 ca cũ:
+    - "thẻ 11,9 s dứt quãng" → thẻ không dứt quãng, 139,1 s;
+    - "thẻ ngắn hơn 8 s" → thay thẻ bằng cảnh văn phòng, quãng 150,9 s;
+    - ca tổng tập 7 → 3 lỗi (tower 29,1 %, tower 139,1 s, pool 104,3 s).
+- **cinecheck (L1, có ASR): 142/142** ca, **0 ca trượt**, kèm kiểm đầu-cuối `run.py` (sạch ĐẠT, bẩn TRƯỢT): TẤT CẢ KHỚP.
+  - Lần chạy duy nhất: bắt đầu ≈ 03:38:06 UTC, kết thúc 03:56:42 UTC (18 phút 36,6 giây). Kết quả ở `reports/checks-selftest/selftest.md`.
+  - Bản 1.8.1 không sửa mã L1 (`checks/cinecheck/` chỉ đổi chuỗi VERSION), nên K không chạy lại lần hai.
+  - Ghi chú: trong lúc chờ, K để ba vòng chờ `pgrep` tự khớp với chính dòng lệnh của mình, nên tưởng selftest còn chạy. K đã dừng các vòng đó; không có lần chạy thứ hai nào.
+
+### 14.5 Bản khoá
+- VERSION **1.8.1**, LOCK `TREE_SHA256 208121b48826b80a2170d5fab2e8cb9d092b37cf011de8f0da956e7d0dd98af7`. `checks/lock.py --verify`: KHỚP.
+- **Tự kiểm độc lập:** một đoạn Python riêng (`python3 -I`, không nạp mã trong `checks/`) tính lại theo ALGO ghi trong LOCK, trên 155 tệp, ra **cùng** `208121b4…`.
+  - Lưu ý cho lần kiểm sau: ALGO sắp theo từng thành phần đường dẫn. Dùng `sort` của shell (so cả chuỗi) sẽ đổi chỗ `ll/fixtures/ep03-v1-4833ac1.yaml` và ra SHA khác.
+- Lý do nâng 1.8.1: đổi định nghĩa đo Q26b (b). Q27, Q31 giữ nguyên như 1.8.0.
+
+### 14.6 Việc đang chờ chủ dự án
+1. **Duyệt bản khoá 1.8.1** (LOCK `208121b4…`).
+2. **Thứ tự merge** (đề xuất của người rà, K đồng ý): `claude/eager-babbage-6cc4l6` (tập 7) vào `main` trước, sau đó nhánh K `claude/checks-ll-v3-tap-7-b3kbii`. Phiên P merge.
+3. **Việc của P sau merge:** thêm mục **"Cải thiện hình"** vào `reports/m3/ep08/PLAN.md`, vì Q27 tập 7 sát ngưỡng (+0,04). Gợi ý: đưa vào mục này cả điểm yếu Q26b của tập 7 (văn phòng đêm 29,1 %, 139 s).

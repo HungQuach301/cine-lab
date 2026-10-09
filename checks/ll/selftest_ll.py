@@ -413,7 +413,9 @@ case('Q31', f'--tu-nhap: chép 3 vòng nháp sang sổ bản cuối ({", ".join(
 # ---- Q26b đa dạng bối cảnh ----
 r7 = QS.q26b(TL7)
 case('Q26b', f"tập 7 bản cuối: {r7['val']}", r7['loi'], True)
-R[-1] = R[-1][:3] + (R[-1][3] and len(r7['loi']) == 2 and r7['loi'][0].startswith('ep07/tower chiếm') and 'ep07/tower liên tục 117.0 s (6:02.8–7:59.8' in r7['loi'][1],) + R[-1][4:]
+R[-1] = R[-1][:3] + (R[-1][3] and len(r7['loi']) == 3 and r7['loi'][0].startswith('ep07/tower chiếm 29.1 %') and 'ep07/tower liên tục 139.1 s (5:28.8–7:59.8' in r7['loi'][1],) + R[-1][4:]
+case('Q26b', 'Ca 5 — tập 7: phòng tính toán 0:51–2:56 có ảnh tư liệu, isotype chen giữa → một quãng 104,3 s (trừ 20,7 s trung tính) > 90 s',
+     [x for x in r7['loi'] if x.startswith('ep07/pool liên tục 104.3 s (0:51.2–2:56.2, đã trừ 20.7 s')], True)
 case('Q26b', 'tập 7: ep07/pool 25,0 % được nêu sát ngưỡng', [] if any(x.startswith('ep07/pool 25.0 %') for x in r7['sat_nguong']) else ['thiếu'], False)
 TL6 = json.load(gzip.open(os.path.join(F6, 'timeline-v2.json.gz')))
 r6 = QS.q26b(TL6)
@@ -425,14 +427,42 @@ case('Q26b', 'nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cản
      [] if QS.label(dict(tpl='diptych', p=dict(left=dict(hero='pool_desk'), right=dict(hero='tower_code'))), H7) == {'ep07/pool': 0.5, 'ep07/tower': 0.5}
      and QS.label(dict(tpl='diptych', p=dict(left=dict(hero='tower_code'), right=dict(hero='tower_floor'))), H7) == {'ep07/tower': 1.0}
      and QS.label(dict(tpl='archive', p=dict(rid='x')), H7) == {} and QS.label(dict(tpl='quote', p={}), H7) == {} else ['sai'], False)
-case('Q26b', 'tập 7: thẻ trích dẫn 11,9 s (> 8 s) ở 5:51 làm dứt quãng văn phòng (quãng dài nhất bắt đầu 6:02.8)',
-     [] if r7['lien_tuc']['ep07/tower'][1] == '6:02.8' else [r7['lien_tuc']['ep07/tower']], False)
+case('Q26b', 'tập 7 (1.8.1): thẻ trích dẫn 11,9 s ở 5:51 không dứt quãng văn phòng; quãng 5:28.8–7:59.8 = 139,1 s (trừ 11,9 s trung tính)',
+     [] if r7['lien_tuc']['ep07/tower'] == [139.1, '5:28.8', '7:59.8', 11.9] else [r7['lien_tuc']['ep07/tower']], False)
 TLb = copy.deepcopy(TL7)
 for sg in TLb['segments']:
     for sh in sg['shots']:
-        if sh['tpl'] == 'quote': sh['t1'] = sh['t0'] + 6.0; sg['shots'].insert(sg['shots'].index(sh) + 1, dict(tpl='plate', t0=sh['t1'], t1=sh['t1'] + 5.9, p=dict(hero='tower_code')))
+        if sh['tpl'] == 'quote': sh['tpl'], sh['p'] = 'plate', dict(hero='tower_code')
 r = QS.q26b(TLb)
-case('Q26b', f"tập 7 nếu thẻ trích dẫn ngắn hơn 8 s: quãng văn phòng nối dài từ 5:28.8 ({r['lien_tuc']['ep07/tower']})", [] if r['lien_tuc']['ep07/tower'][1] == '5:28.8' else ['sai'], False)
+case('Q26b', f"tập 7 (1.8.1) nếu thay thẻ trích dẫn bằng cảnh văn phòng cùng thời lượng: quãng = cả 150,9 s ({r['lien_tuc']['ep07/tower']})",
+     [] if r['lien_tuc']['ep07/tower'][:3] == [150.9, '5:28.8', '7:59.8'] else ['sai'], False)
+
+
+def syn(*shots):
+    """timeline tổng hợp một đoạn: shots = (mẫu, cảnh đinh hoặc (trái, phải) cho diptych, giây)"""
+    t, out = 0.0, []
+    for tpl, h, d in shots:
+        p = dict(hero=h) if tpl == 'plate' else dict(left=dict(hero=h[0]), right=dict(hero=h[1])) if tpl == 'diptych' else {}
+        out.append(dict(tpl=tpl, t0=t, t1=t + d, p=p)); t += d
+    return dict(tong_s=t, heroes={k: dict(hero=k.upper()) for k in 'abc'}, segments=[dict(id='00', t0=0.0, t1=t, shots=out)])
+
+
+def lt(TL, x='A'): return QS.q26b(TL)['lien_tuc'][x][:1] + [len(QS.runs(QS.shots(TL), x))]
+
+
+r = lt(syn(('plate', 'a', 50), ('quote', None, 12), ('plate', 'a', 50)))
+case('Q26b', f'Ca 1 — thẻ trích dẫn 12 s chen giữa hai đoạn cùng bối cảnh: một quãng, 100 s (không tính 12 s thẻ) → {r}', [] if r == [100.0, 1] else ['sai'], False)
+r = lt(syn(('plate', 'a', 50), ('plate', 'b', 5), ('plate', 'a', 50)))
+case('Q26b', f'Ca 2 — bối cảnh khác 5 s chen giữa: vẫn liền, 105 s → {r}', [] if r == [105.0, 1] else ['sai'], False)
+r = lt(syn(('plate', 'a', 50), ('plate', 'b', 8), ('plate', 'a', 50)))
+case('Q26b', f'Ca 3 — bối cảnh khác 8 s chen giữa: dứt quãng (2 quãng, dài nhất 50 s) → {r}', [] if r == [50.0, 2] else ['sai'], False)
+r = lt(syn(('plate', 'a', 50), ('plate', 'b', 4), ('plate', 'c', 4), ('plate', 'a', 50)))
+case('Q26b', f'Ca 4 — hai bối cảnh khác 4 s + 4 s (cộng dồn 8 s): dứt quãng → {r}', [] if r == [50.0, 2] else ['sai'], False)
+r = lt(syn(('plate', 'a', 50), ('plate', 'b', 4), ('quote', None, 6), ('plate', 'c', 3.9), ('plate', 'a', 45)))
+case('Q26b', f'thẻ trung tính không cộng vào bộ đếm: khác 4 s + thẻ 6 s + khác 3,9 s → vẫn liền, 102,9 s → {r}', [] if r == [102.9, 1] else ['sai'], False)
+r = lt(syn(('plate', 'a', 50), ('plate', 'b', 5), ('diptych', ('a', 'b'), 2), ('plate', 'b', 5), ('plate', 'a', 40)))
+case('Q26b', f'diptych có X ở một nửa đặt bộ đếm về 0: khác 5 s + diptych + khác 5 s → vẫn liền, 102 s → {r}', [] if r == [102.0, 1] else ['sai'], False)
+case('Q26b', 'quãng 100 s qua thẻ 12 s bị bắt (> 90 s)', QS.q26b(syn(('plate', 'a', 50), ('quote', None, 12), ('plate', 'a', 50), ('plate', 'b', 150), ('plate', 'c', 150)))['loi'], True)
 half = TL6['tong_s'] / 2; TLb = copy.deepcopy(TL6)
 for sg in TLb['segments']:
     for sh in sg['shots']:
