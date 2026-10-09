@@ -90,7 +90,8 @@ segments:
          sfx: [{file: assets/ll/sfx/card-punch.mp3, at: 0.4, src_ss: 4.0, dur: 4.5, gain_db: -18, fade_ms: 700}]}
       - {tpl: plate, at: "@forecasts-0.3", in: fade, p: {hero: ibm_room, frame0: 96, cap: [{s: "the forecast: within a few years", at: "@forecasts", src: [HUT06]}]},
          sfx: [{file: assets/ll/sfx/card-punch.mp3, at: "@forecasts", src_ss: 20.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
-      - {tpl: plate, at: "@but-0.3", in: fade, p: {hero: lib_hook, frame0: 0, title: "FROM HEADPHONES TO MACHINE DRAFTS", subtitle: "How translators' work changed · Last Lamplighters · Episode 8", titleAt: "@but", titleOut: "@when-0.4"}}
+      - {tpl: plate, at: "@but-0.3", in: fade, p: {hero: lib_hook, frame0: 0, title: "FROM HEADPHONES TO MACHINE DRAFTS", subtitle: "How translators' work changed · Last Lamplighters · Episode 8", titleAt: "@but", titleOut: "@when-0.4"},
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@but-0.3", src_ss: 140.0, dur: 4.0, gain_db: -19, fade_ms: 800}]}
       - {tpl: plate, at: "@when-0.3", in: fade, p: {hero: st_screen, frame0: 48, cap: [{s: "what happened to the people who carry words between languages?", at: "@what", src: []}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@when", src_ss: 10.0, dur: 4.0, gain_db: -17, fade_ms: 500}]}
 
@@ -151,7 +152,7 @@ segments:
       Every participant in the courtroom wore headphones and could choose a language. The interpreters sat in booths, each working into their own language only, with a warning light to ask a speaker to slow down.
     shots:
       - {tpl: plate, at: 0, p: {hero: booth_room, frame0: 72, cap: [{s: "October 1945: Leon Dostert", at: "@dostert", src: [HUT06]}, {s: "General Eisenhower's wartime interpreter", at: "@general", src: [HUT06]}, {s: "asked to set up the interpretation…", at: "@asked", src: [HUT06]}, {s: "…for the war crimes tribunal at Nuremberg", at: "@tribunal", src: [HUT06]}]},
-         sfx: [{file: assets/ll/sfx/paper-flip.mp3, at: 0.5, src_ss: 1.0, dur: 2.5, gain_db: -18, fade_ms: 400}]}
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: 0.4, src_ss: 0.2, dur: 2.2, gain_db: -20, fade_ms: 400}, {file: assets/ll/sfx/paper-flip.mp3, at: "@nuremberg", src_ss: 1.0, dur: 2.5, gain_db: -18, fade_ms: 400}]}
       - {tpl: plate, at: "@method-0.4", in: fade, p: {hero: booth_in, frame0: 0, cap: [{s: "a method many thought would not work", at: "@method", src: [HUT06]}, {s: "simultaneous interpretation", at: "@simultaneous"},
            {s: "IBM donated the equipment", at: "@ibm", src: [HUT06]}]},
          sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@method", src_ss: 2.0, dur: 3.0, gain_db: -17, fade_ms: 400}]}
@@ -172,12 +173,13 @@ segments:
       It changed their job, from waiting for the speaker to stop, to speaking at the same time.
       Soon the United Nations installed a similar system, and Dostert went on to Georgetown University in Washington, to train linguists for government service.
     shots:
-      - {tpl: plate, at: 0, p: {hero: booth_room, frame0: 200, cap: [{s: "the first large-scale use of simultaneous interpretation", at: "@first", src: [BOWEN]}, {s: "historians: a success", at: "@historians", src: [HUT06]}]}}
+      - {tpl: plate, at: 0, p: {hero: booth_room, frame0: 200, cap: [{s: "the first large-scale use of simultaneous interpretation", at: "@first", src: [BOWEN]}, {s: "historians: a success", at: "@historians", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: 0.5, src_ss: 4.5, dur: 2.5, gain_db: -19, fade_ms: 400}]}
       - {tpl: plate, at: "@equipment-0.4", in: fade, p: {hero: booth_bench, frame0: 96, cap: [{s: "the equipment did not replace the interpreters", at: "@replace"}]},
          sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@equipment", src_ss: 1.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
       - {tpl: diptych, at: "@changed-0.3", in: fade, p: {split: "@speaking-0.2", left: {hero: lib_read, i: 120, fx: 0.5}, right: {hero: booth_in, i: 200, fx: 0.55}, labels: ["wait for the speaker to stop", "speak at the same time"],
            cap: [{s: "it changed their job", at: "@changed"}]},
-         sfx: [{file: assets/ll/sfx/paper-flip.mp3, at: "@changed", src_ss: 3.0, dur: 2.0, gain_db: -18, fade_ms: 300}]}
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@changed-0.3", src_ss: 160.0, dur: 3.0, gain_db: -18, fade_ms: 400}, {file: assets/ll/sfx/radio-tuning.mp3, at: "@speaking", src_ss: 2.5, dur: 2.5, gain_db: -18, fade_ms: 300}]}
       - {tpl: plate, at: "@soon-0.3", in: fade, p: {hero: booth_room, frame0: 0, cap: [{s: "soon: a similar system at the United Nations", at: "@nations", src: [HUT06]}, {s: "Dostert: Georgetown University, Washington", at: "@georgetown", src: [HUT06]},
            {s: "training linguists for government service", at: "@train", src: [HUT06]}]},
          sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.0, src_ss: 2.0, dur: 3.0, gain_db: -20, fade_ms: 400}]}
