@@ -1,7 +1,7 @@
 # PLAN tập 07 — When Computers Were People  (≤ 1 trang; P cập nhật sau mỗi bước)
 
-**Trạng thái:** G1 v2 (trục kể biến đổi, chủ dự án 08/10): lời v2 `loi-v2.txt`, báo cáo `reports/m3/TAP7-G1-V2.md`. **Chờ chủ dự án duyệt lời.** Đặc tả `episode.yaml` vẫn là v1.
-**Việc tiếp (sau G1):** 1. sửa đặc tả theo duyệt G1; 2. thư viện (gộp một lượt cho cả lô, đầu tập 6): PROP calculator; ERA 1944 → calculator; 3. tải ảnh LoC bản "v" + dòng `RIGHTS.md`; 4. `build.sh` (thu lời Bill, ASR, render), qc Q1–Q22; 5. G2.
+**Trạng thái (09/10/2026):** **G2 — chờ chủ dự án duyệt** (`reports/m3/TAP7-G2.md`). Bản cuối 1080p `/var/tmp/cine-out/ll-ep07/ll-ep07-v1-master.mp4` (SHA `reports/m3/ep07/SHA256-v1.txt`); QC Q1–Q31 + LOCK ĐẠT (`qc-g2.md`); chấm mù: `Q27-Q31.md`. G1 v2 duyệt 08/10 (lời khoá `loi-v2.txt`, tựa A′).
+**Việc tiếp (sau G2):** khi chủ dự án cho phép: tạo `release-ll-ep07-v1` (LFS: master, p1–p3, 3 Shorts, thumbnail, mô tả), tải ngược kiểm SHA, viết `HUONG-DAN-DANG-TAP7.md`; xử lý quyết định PDM SFX nếu có.
 **Quyết định đã có (chủ dự án):** 06/10/2026 — lệnh lô 6–8 (HÌNH v2 từ đầu, Q14–Q22 bắt buộc, kiểm mù 1 subagent 3 vai, trần token theo đầu vào mới + sinh ra). Chi tiết ở AUTHORSHIP.md.
 **Trần:** token 1,5 triệu/tập sản xuất trọn (đầu vào mới + sinh ra, đo từ log phiên; > 25 % thì dừng hỏi) · đĩa trống ≥ 1,5 × mức cần
 **Tiêu đề đề xuất (G1 v2):** A "When Computers Were People: How One Word Changed Jobs Three Times" (kèm B, C trong báo cáo).

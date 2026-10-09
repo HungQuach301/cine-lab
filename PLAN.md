@@ -14,7 +14,7 @@
 | 4 "The Typing Pool" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP4.md`) | `reports/m3/ep04/PLAN.md` |
 | 5 "The Claims Desk" | G3: chủ dự án tự đăng (`reports/m3/HUONG-DAN-DANG-TAP5.md`) | `reports/m3/ep05/PLAN.md` |
 | 6 "The Hand That Drew It" | G2 chờ duyệt (`reports/m3/TAP6-G2.md`) | `reports/m3/ep06/PLAN.md` |
-| 7 "When Computers Were People" | G1 duyệt; sản xuất sau G2 tập 6 | `reports/m3/ep07/PLAN.md` |
+| 7 "When Computers Were People" | **G2 chờ duyệt** (`reports/m3/TAP7-G2.md`; QC Q1–Q31 + LOCK ĐẠT; bản cuối 1080p ngoài repo, chờ phép tạo `release-ll-ep07-v1`) | `reports/m3/ep07/PLAN.md` |
 | 8 "The Translator's Desk" | G1 duyệt; sản xuất sau tập 7 | `reports/m3/ep08/PLAN.md` |
 
 ## Luật làm việc

@@ -1,0 +1,54 @@
+{
+ "question": "When a machine takes over a job but keeps its name (computer, programmer), what happens to the people doing that work, and where will the newest workers learn once the entry-level tasks are automated?",
+ "score": 7,
+ "issues": [
+  {
+   "where": "T01",
+   "kind": "break",
+   "note": "On 'Three different jobs. At dusk, the lamplighter', the picture is still the classroom window with the caption 'same word · three different jobs'. The cut to the empty dusk street arrives with no setup, and the lamplighter's relation to the computer story is unclear to a first-time viewer."
+  },
+  {
+   "where": "T04",
+   "kind": "break",
+   "note": "The 3D desk close-up cuts to a real sepia archival photo on 'Then came the war'. The change of look is abrupt and breaks the stylised world."
+  },
+  {
+   "where": "T07",
+   "kind": "break",
+   "note": "A sepia archival photo (IBM 704 room) is followed by the 3D classroom with no transition. The captions are also thin for the pace of the narration."
+  },
+  {
+   "where": "T12",
+   "kind": "break",
+   "note": "The narration moves to software developers, but the picture stays the same dark desk and monitor. The cut at the narration change is hard to place, and the screen text carries the information."
+  },
+  {
+   "where": "T13",
+   "kind": "break",
+   "note": "A split frame joins the old human computer's desk with the modern monitor. The overlay is confusing and the composition seems unfinished."
+  },
+  {
+   "where": "R08.7",
+   "kind": "break",
+   "note": "On 'AI: just additional tools available to programmers' the picture is the lamplighter's windows. The metaphor is not clear at this point."
+  },
+  {
+   "where": "R00.6",
+   "kind": "boring",
+   "note": "The window or street shot with the lamplighter runs from about 0:22 to 0:50 (R00.6 to R01.5), with only small camera shifts and nothing new to see."
+  },
+  {
+   "where": "R09.1",
+   "kind": "boring",
+   "note": "From 5:42 to about 7:45 the film stays in the same dark modern office, with a few desk and monitor close-ups. Dark frames and large numbers repeat for a long stretch, and only the text changes."
+  },
+  {
+   "where": "R11.5",
+   "kind": "boring",
+   "note": "The dark office plus the ladder and a similar office again, with stat captions, repeat (R11.5 to R12.6) with little new imagery."
+  }
+ ],
+ "rater": "R1",
+ "model": "sonnet",
+ "prompt_sha256": "6e9fb57a0aa34fd5e35874476595e2b101f15a30249c9a5732d604e682014c27"
+}

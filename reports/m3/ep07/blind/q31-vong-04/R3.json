@@ -1,0 +1,34 @@
+{
+ "question": "When a machine takes over the work a job is named after, what happens to the job and to the people just starting out in it, as the word 'computer' and now 'programmer' kept the name while the work moved on?",
+ "score": 7,
+ "issues": [
+  {
+   "where": "T10",
+   "kind": "break",
+   "note": "Hard cut from the lamplighter street back to a dark, modern night office with only the caption 'the third kind of work'. The lamplighter motif is dropped without a visual bridge, and the look changes from warm to cold blue."
+  },
+  {
+   "where": "T14",
+   "kind": "break",
+   "note": "The narration moves to AI taking over routine tasks, but the picture is the same empty-office wide shot used for the previous claims. Nothing on screen shows the new idea, and the jump in subject is hard to follow."
+  },
+  {
+   "where": "R15.1",
+   "kind": "boring",
+   "note": "The dark ladder and lamp image holds for about 16 s (R15.1 to R15.4) while the -19% statistic and caption are read. There is almost no change in the picture."
+  },
+  {
+   "where": "R16.1",
+   "kind": "boring",
+   "note": "The same dark office wide shot stays for about 16 s (R16.1 to R16.4) while three separate captions about young workers and routine tasks go by."
+  },
+  {
+   "where": "R18.5",
+   "kind": "boring",
+   "note": "Several near-identical dark street frames in a row (R18.5 to R18.7) before the closing shot. They add no new information."
+  }
+ ],
+ "rater": "R3",
+ "model": "sonnet",
+ "prompt_sha256": "ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96"
+}

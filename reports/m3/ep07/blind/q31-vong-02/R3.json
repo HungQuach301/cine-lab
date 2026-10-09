@@ -1,0 +1,44 @@
+{
+ "question": "When a machine takes over a job's core task, does the job vanish or do people move to the work around it, and can the newest workers, who used to learn on the simple tasks, still move on with it?",
+ "score": 8,
+ "issues": [
+  {
+   "where": "T03",
+   "kind": "break",
+   "note": "Cut from the wide classroom to a close-up of the desk. The narration 'the next test. It was skilled work' matches the picture, but the viewpoint jumps without a bridge."
+  },
+  {
+   "where": "T04",
+   "kind": "break",
+   "note": "The look changes abruptly from the stylized 3D desk to a sepia archival photo, with no transition. It is a jump in visual style, though the narration about the war supports it."
+  },
+  {
+   "where": "T07",
+   "kind": "break",
+   "note": "The cut goes from the archival IBM room photo to the 3D rows of desks. It is a sudden change of look, and the narration 'over time the arithmetic went to the machines' is only loosely tied to the new image."
+  },
+  {
+   "where": "T11",
+   "kind": "break",
+   "note": "The narration 'two job titles that sound alike' plays over an almost empty, dark office. Nothing in the picture shows two titles, so the narration and image do not match at the cut."
+  },
+  {
+   "where": "R10.7",
+   "kind": "boring",
+   "note": "The programmer-handbook quote card is a static text page, shown in two frames (R10.6 and R10.7) with little change. It is a weak visual after a series of rich scenes."
+  },
+  {
+   "where": "R13.6",
+   "kind": "boring",
+   "note": "The dark, empty office is repeated many times in the final third (R13.5 to R14.4, R15.0 to R15.3) with only the captions changing. This stretch has little new to look at."
+  },
+  {
+   "where": "R15.1",
+   "kind": "break",
+   "note": "The narration 'not the same technology as in 1947' shows the archive hall blended with the code desk, which is a murky composite. In R15.3 the 'tape reader' machine returns without clear motivation."
+  }
+ ],
+ "rater": "R3",
+ "model": "sonnet",
+ "prompt_sha256": "ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96"
+}

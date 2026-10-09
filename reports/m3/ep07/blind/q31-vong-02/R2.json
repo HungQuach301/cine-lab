@@ -1,0 +1,54 @@
+{
+ "question": "When a machine takes over the core task of a job, does the job disappear, or does the name stay while the work moves on, and can today's newest workers move on with it the way earlier ones did?",
+ "score": 7,
+ "issues": [
+  {
+   "where": "T06",
+   "kind": "break",
+   "note": "Narration moves to the Jet Propulsion Laboratory and spacecraft, but the picture is the generic Langley pencil-and-graph desk. The change of place is not shown, and the abstract desk does not match the narration."
+  },
+  {
+   "where": "T12",
+   "kind": "break",
+   "note": "Narration moves to the second job title, software developers, over the same dark office and lamp desk as the programmers section. Nothing in the picture marks the switch to a second job, so the two directions are hard to tell apart."
+  },
+  {
+   "where": "R11.8",
+   "kind": "break",
+   "note": "The film jumps from the dark modern office to a warm 1940s pencil desk, split with the code screen, for 'checking the machine's numbers'. The look is a hard mix of two eras, though the point of it is understandable."
+  },
+  {
+   "where": "T13",
+   "kind": "break",
+   "note": "Cut to a near-empty dark office for 'the people just starting out'. The picture shows no beginners, only an empty room."
+  },
+  {
+   "where": "R04.5",
+   "kind": "break",
+   "note": "A long dark archive corridor appears for 'the second kind of work'. It is not yet tied to programming and reads as an abstract jump."
+  },
+  {
+   "where": "R09.3",
+   "kind": "boring",
+   "note": "The same dim office and lamp desk, with slow camera drifts, runs from about R09.3 to R09.6. That is roughly 12 s of near-identical picture."
+  },
+  {
+   "where": "R10.4",
+   "kind": "boring",
+   "note": "From R10.4 to R11.3 the dark empty office and desk wide shot repeats with almost no change while the statistics run."
+  },
+  {
+   "where": "R12.5",
+   "kind": "boring",
+   "note": "The same dark office and the same dark-office wide shot repeat across R12.5, R12.6, R13.1 and R13.2 (Stanford section). The only new element is overlay text."
+  },
+  {
+   "where": "R05.6",
+   "kind": "boring",
+   "note": "The pencil desk with the lamp and the same desk angle recurs across R05.3 to R05.8 and again in the JPL section. It feels repetitive."
+  }
+ ],
+ "rater": "R2",
+ "model": "sonnet",
+ "prompt_sha256": "dfbf2bde7912b5c244876074673dad97f1efc5093eb31aff67ec54d459d9929b"
+}
