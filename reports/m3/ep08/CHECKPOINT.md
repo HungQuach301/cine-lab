@@ -9,7 +9,7 @@
 - Sau đó: `build.sh … render mix ghep shorts` → qc đủ → Q27 chính thức (1 lần, 1080p) + Q31 bản cuối → phát hành phụ → `reports/m3/TAP8-G2.md` → DỪNG G2.
 
 ## Job nền và cách dựng tiếp
-- Cảnh đinh: `P=3 SPP=4 bash scripts/ll/heroes_par.sh reports/m3/ep08/episode.yaml` (log `/var/tmp/cine-out/ll-ep08/heroes-par.log`, lỗi `hero-<khoá>.err`).
+- Cảnh đinh: runner tách rời (10:49) `P=2 SPP=4 setsid nohup bash scripts/ll/heroes_par.sh reports/m3/ep08/episode.yaml >> /var/tmp/cine-out/ll-ep08/heroes-par2.log 2>&1 &` + 3 cảnh mồ côi của lượt 09:46 (st_screen, lib_end, vrs_screen; tự xếp vào chỗ khi xong). Lỗi: `hero-<khoá>.err`. Mỗi cảnh đang dựng có `<dir>.new/pid`; chạy lại runner sẽ bỏ qua cảnh có pid còn sống.
   - Bị ngắt: **trước khi chạy lại, kiểm không còn `scripts/ll/hero.js` nào chạy** (`pgrep -f scripts/ll/hero.js`, dừng theo PID). Chạy lại đúng lệnh trên: cảnh có `<dir>.new/pending` trùng stamp sẽ `--resume`, cảnh có `stamp` trùng được giữ.
 - Đoạn + ghép: `SPP=4 J=3 bash scripts/ll/build.sh reports/m3/ep08/episode.yaml render mix ghep shorts` (cảnh đinh đã dựng được giữ theo stamp). Không chạy hai build chồng nhau (BAI-HOC #67).
 - QC: `bash scripts/ll/qc.sh reports/m3/ep08/episode.yaml`; mù: `checks/ll/q_blind.py q27-set / q31-set` (RULES-LL).
