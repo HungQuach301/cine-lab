@@ -46,3 +46,36 @@ P tự tải và lọc. Mọi số trong `episode.yaml`: **đọc toàn văn (P)
 - Khảo sát Society of Authors (Anh, 2024): chỉ thấy qua chú thích của FLP, chưa đọc toàn văn.
 - Bài NPR (6/2024) mà MLR26 trích: chưa đọc.
 - Mọi số về giá dịch theo chữ hay thù lao postediting hiện nay (không có nguồn toàn văn).
+
+---
+# BỔ SUNG G1 v2 (09/10/2026, phiên P tập 8) — lời viết lại theo trục biến đổi (`loi-v2.txt`)
+Mọi số và mọi sự kiện trong `loi-v2.txt` đều có nguồn P **đọc toàn văn** (bảng dưới), trừ OOH đọc qua WebFetch (BAI-HOC #81: bls.gov chặn curl; đọc 2 lần, số khớp nhau và khớp số chủ dự án đưa trong lệnh mở phiên).
+
+## 7. Nguồn mới
+| Khoá | Nguồn | URL | Trang | Dùng cho (đoạn) |
+|---|---|---|---|---|
+| BOWEN | David & Margareta Bowen, "The Nuremberg Trials (Communication through Translation)", *Meta* XXX, 1 (1985), tr. 74–77 | https://open.unive.it/hitrade/books/BowenNuremberg.pdf | toàn văn 4 trang (P tải PDF, 09/10) | 03–04: hệ thống IBM; tai nghe cho mọi người dự phiên; kênh sàn + 4 kênh ngôn ngữ; buồng phiên dịch; mỗi người chỉ dịch vào tiếng mẹ đẻ; đèn cảnh báo xin nói chậm; "first large-scale use of simultaneous interpretation"; ≈ 2 500 tài liệu cốt lõi phải dịch viết |
+| HUT06 | W. John Hutchins, "The first public demonstration of machine translation: the Georgetown-IBM system, 7th January 1954" (2006) | https://open.unive.it/hitrade/books/HutchinsFirst.pdf | §1–3 (P tải PDF, 09/10) | 03–05: Dostert là phiên dịch riêng của Eisenhower 1944–45; 10/1945 được giao dựng hệ thống phiên dịch Nuremberg; phiên dịch song song "many thought would be unworkable, but which proved a major success"; 4/1946 lắp hệ thống tương tự ở Liên Hợp Quốc; IBM tặng thiết bị; 1949 lập viện ở Georgetown đào tạo người ngôn ngữ cho chính phủ; 7/1/1954 tại trụ sở IBM New York; 250 từ, 6 quy tắc; "more than sixty" câu; báo ngày 8/1 đưa lên trang nhất; Hurd (IBM Applied Science): máy riêng cho dịch "within three to five years"; Christian Science Monitor: "within a few years"; lý do chọn tiếng Nga (thiếu hiểu biết về Liên Xô) |
+| HUT04 | Hutchins, slide "The Georgetown-IBM experiment demonstrated in January 1954" (AMTA 2004) | https://open.unive.it/hitrade/books/HutchinsGeorgetown.pdf | toàn bộ slide | đối chiếu HUT06 (Dostert dẫn dự án cùng Hurd; dự báo) |
+| OOH-IT | BLS, Occupational Outlook Handbook: Interpreters and Translators (2025–35; trang sửa 27/8/2026) | https://www.bls.gov/ooh/media-and-communication/interpreters-and-translators.htm | Quick Facts, What They Do, How to Become, Job Outlook, bảng dự báo 27-3091 (P đọc qua WebFetch 09/10, 2 lần) | 02 (định nghĩa consecutive), 10 (CAT tools, machine translation, post-editing), 12 (remote; ASL + video relay; tòa án đa số bang yêu cầu chứng chỉ), 13 (73 900 → 75 400, +2 %, +1 500; ≈ 6 000 chỗ trống mỗi năm, chủ yếu thay người nghỉ/chuyển nghề; câu "Computer tools, including AI…" và "…cannot yet produce work comparable…") |
+| EP | BLS Employment Projections 2025–35 (như tập 6, 7) | https://www.bls.gov/news.release/ecopro.nr0.htm | release text (đã xác minh, Claude, 01/10/2026) | 13: toàn nền +3,5 % |
+| ALPAC (đã có) | thêm tr. 25–26 (PDF bản NAP) | (như trên) | "Machine-aided translation at Mannheim and Luxembourg" | 08: Cơ quan dịch thuật Quân lực Liên bang Đức, Mannheim; máy lập bảng thuật ngữ theo văn bản (TRG); người dịch cách thường cần thêm 50–86 % (trung bình 66 %) thời gian; dùng TRG ít lỗi hơn một phần ba. Tr. 11–12: "The supply of translators greatly exceeds the demand" |
+
+## 8. Trích nguyên văn mới
+- BOWEN: "The equipment had a floor channel and four language channels, headphones for all participants in the trial for listening to any one of the channels, and six microphones in the courtroom…" · "the warning light by which the interpreters could request the speaker to slow down or to repeat what he said" · "each interpreter was expected to interpret from one language into his own only" · "this first large-scale use of simultaneous interpretation".
+- HUT06: "He had been Eisenhower's personal interpreter during the war (1944-1945)… In October 1945 he was asked to set up the interpretation system for the Nuremberg war crimes tribunal… He adopted a system of simultaneous interpretation, an innovation at the time that many thought would be unworkable, but which proved a major success. In April 1946 – while the trial was still in progress – he was invited to install a similar interpretation system at the United Nations. The equipment at both… was donated by International Business Machines (IBM)". "The demonstration took place on 7th January 1954 at the New York headquarters of IBM." "a vocabulary of just 250 lexical items (stems and endings) and a limited set of just six rules." "there were 'more than sixty' sentences".
+- HUT04 (CSM): "within a few years there will be a number of 'brains' translating all languages with equal aplomb and dispatch."
+- OOH-IT: "Machine translation software automatically generates text from the source language into the target language, which translators then review in a process called post-editing." · "Computer tools, including artificial intelligence (AI), are making the work of translators and localization specialists more efficient. However, many of these jobs cannot be entirely automated because computers cannot yet produce work comparable to what human translators do in most cases." · "Employment of interpreters and translators is projected to grow 2 percent from 2025 to 2035, slower than the average for all occupations." · "about 6,000 openings… each year… Most of those openings are expected to result from the need to replace workers who transfer to different occupations or exit the labor force".
+- ALPAC tr. 26: "a translator working with conventional aids requires between 50-86 percent (average, 66 percent) more time than a translator working with a text-related glossary… the translators made one third fewer errors."
+
+## 9. Diễn giải trong lời (cần chủ dự án biết)
+- §00, §05, §15 "the forecasts said … within a few years": theo CSM (HUT04) và Hurd "three to five years" (HUT06). Lời không gán cho một người.
+- §04 "historians count it a success": HUT06 "proved a major success" (Hutchins là sử gia dịch máy).
+- §09 "half a century later": cảnh truyện, không phải số liệu; mốc thật là "after 2010" (FLP) ở §10.
+- §11 "jobs that the profession's growth would have created, but did not": diễn giải đúng ước tính phản thực của FLP ("fewer translator positions were created … relative to the broader growth trajectory").
+- §14 so sánh mẫu hình, kèm khác biệt (CHUAN-KENH §3 điểm 5). §15 "the profession did not disappear": dựa OOH-IT (73 900 việc làm 2025, dự báo tăng).
+
+## 10. Bỏ khỏi lời v2 (so với v1)
+- MLR26 (đợt 2024–34: 75 300 → 76 600, +1,7 %, +3,1 %): thay bằng đợt mới nhất 2025–35 (CHUAN-KENH §10). Câu MLR26 "reducing their employment demand" không dùng; lời dùng câu OOH-IT 2025–35.
+- 4 000 người dịch hợp đồng / ≈ 300 mỗi tháng; 13 và 22 triệu USD; 695 thị trường lao động (đọc mù 3/3: khó nghe). Giữ trong nguồn.
+- Chi tiết tiền lương phục hồi 2016 (FLP): bỏ để giảm số trong §11.
