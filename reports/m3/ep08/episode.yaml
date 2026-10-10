@@ -76,13 +76,13 @@ segments:
   - id: "00"
     part: STORY
     map: {q: "When machines learned to translate, what happened to the people who do it?", act: 1, emo: curiosity, color: warm, cue: theme, trade: [card-punch, typewriter-1960s, computer-home],
-          in: cut, out: cut, lamp: {in: true, out: false},
+          in: cut, out: jcut, out_note: "G2 T01: câu hỏi nói xong, hoà 1 s sang phố thư viện; bước chân phố vào trước hình 0,8 s, kéo qua điểm nối sang 01 (cùng cảnh đinh lib_light, khung liền)", lamp: {in: true, out: false},
           nouns: [{w: "@computer", img: "máy in dòng nhả câu tiếng Anh, phòng máy 1954"}, {w: "@russian", img: "giấy in câu dịch từ tiếng Nga"}, {w: "@machines", img: "phòng máy IBM: tủ máy, thẻ đục lỗ"}, {w: "@people", img: "người dịch (bóng) bên màn hình bản nháp máy"}]}
     vo: >-
       In 1954, a computer in New York translated more than sixty Russian sentences. The forecasts said that within a few years, machines would translate almost anything.
       But it took far longer. When the machines finally arrived, what happened to the people who carry words between languages?
     vo_offset: 0.6
-    tail: 0.6
+    tail: 1.2
     fadeIn: 0
     shots:
       - {tpl: plate, at: 0, p: {hero: ibm_print, frame0: 24, cap: [{s: "New York, 1954: a computer translates Russian sentences", at: "@computer", src: [HUT06]}]},
@@ -93,11 +93,13 @@ segments:
          sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@but-0.3", src_ss: 140.0, dur: 4.0, gain_db: -19, fade_ms: 800}]}
       - {tpl: plate, at: "@when-0.3", in: fade, p: {hero: st_screen, frame0: 48, cap: [{s: "what happened to the people who carry words between languages?", at: "@what", src: []}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@when", src_ss: 10.0, dur: 4.0, gain_db: -17, fade_ms: 500}]}
+      - {tpl: plate, at: "@languages+1.1", in: {type: fade, d: 1.0}, p: {hero: lib_light, frame0: 0},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: "@languages+0.3", src_ss: 0.5, dur: 10.2, gain_db: -13, fade_ms: 600}]}
 
   - id: "01"
     part: STORY
     map: {q: "Who is working behind the lit window?", act: 1, emo: wonder, color: warm, cue: theme, trade: [footsteps-steps, gas-hiss, library-room],
-          in: cut, out: jcut, out_note: "không khí phòng đọc (đoạn 02) vào trước hình 0,6 s, kéo qua điểm cắt", lamp: {in: true, out: true},
+          in: jcut, out: jcut, out_note: "không khí phòng đọc (đoạn 02) vào trước hình 0,6 s, kéo qua điểm cắt", lamp: {in: true, out: true},
           nouns: [{w: "@lamplighter", img: "người thắp đèn đi dọc phố trước thư viện"}, {w: "@library", img: "mặt tiền thư viện đá, dải cửa sổ sáng"}, {w: "@volunteers", img: "phòng đọc: bàn dài, đèn chao xanh, người dịch (bóng) bên thư"},
                   {w: "@flame", img: "ngọn lửa mồi đầu sào chạm đèn khí"}, {w: "@lamp", img: "đèn đọc sách sau ô kính bừng"}]}
     vo: >-
@@ -108,8 +110,7 @@ segments:
     min_dur: 34
     tail: 1.4
     shots:
-      - {tpl: plate, at: 0, p: {hero: lib_light, frame0: 0, ev: [{at: 2.5, what: "người thắp đèn vào khung"}, {at: 6.0, what: "đi ngang dải cửa sổ"}]},
-         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.8, src_ss: 0.5, dur: 7.5, gain_db: -13, fade_ms: 500}]}
+      - {tpl: plate, at: 0, p: {hero: lib_light, frame0: 27, ev: [{at: 1.4, what: "người thắp đèn vào khung"}, {at: 4.9, what: "đi ngang dải cửa sổ"}]}}   # G2 T01: nối tiếp khung lib_light cuối đoạn 00; bước chân phố bắt đầu ở đoạn 00 (J-cut)
       - {tpl: plate, at: "@inside-0.3", in: fade, p: {hero: lib_read, frame0: 0, cap: [{s: "Dutch · Polish · German · French", at: "@dutch", src: []}]},
          sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@inside-0.6", src_ss: 30.0, dur: 7.0, gain_db: -15, fade_ms: 700}]}
       - {tpl: plate, at: "@raises-0.4", in: fade, p: {hero: lib_light, frame0: 158, ev: [{at: "@raises+1.0", what: "đèn khí bén"}, {at: "@reading", what: "đèn đọc sách sau kính bừng"}],
