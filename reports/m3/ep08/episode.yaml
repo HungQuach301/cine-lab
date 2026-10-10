@@ -320,8 +320,8 @@ segments:
       - {tpl: plate, at: 0, p: {hero: st_side, frame0: 0, cap: [{s: "Oxford economists", at: "@oxford", src: [FLP]}, {s: "hundreds of local job markets across the United States", at: "@hundreds", src: [FLP]}, {s: "where people used Google Translate more…", at: "@google", src: [FLP]}, {s: "…translator employment grew more slowly", at: "@slowly", src: [FLP]},
            {s: "not layoffs", at: "@layoffs"}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: 0.3, src_ss: 60.0, dur: 6.0, gain_db: -17, fade_ms: 600}]}
-      - {tpl: sign, at: "@never-0.5", in: fade, p: {num: frey, caption: "translator jobs never added, U.S., after 2010 (estimate)", at: "@twentyeight", capAt: "@growth", wall: plaster,
-           cam: [{t: "@never-0.5", x: 0, z: 0.0}, {t: "@count+1", x: -30, z: 0.04}], cap: [{s: "an estimate, not a count", at: "@estimate", src: [FLP]}]},
+      - {tpl: sign, at: "@never-0.5", in: fade, p: {num: frey, at: "@twentyeight", wall: plaster,
+           cam: [{t: "@never-0.5", x: 0, z: 0.0}, {t: "@count+1", x: -30, z: 0.04}], cap: [{s: "translator jobs never added, U.S., after 2010", at: "@growth", src: [FLP]}, {s: "an estimate, not a count", at: "@estimate", src: [FLP]}]},   # Q5 1080p: chữ caption trên tường 3,28:1 → đưa xuống dải chú thích tối
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@never", src_ss: 10.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
       - {tpl: plate, at: "@similar-0.4", in: fade, p: {hero: st_room, frame0: 200, cap: [{s: "editors, technical writers: no such effect", at: "@editors", src: [FLP]}, {s: "a shift toward higher-skilled work", at: "@shift", src: [FLP]}]},
          sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@similar", src_ss: 80.0, dur: 5.0, gain_db: -17, fade_ms: 600}]}
@@ -446,7 +446,7 @@ shorts:
       On January 7, 1954, his Georgetown team and IBM showed it in New York. The computer knew only two hundred fifty words and six rules of grammar, enough for those chosen sentences.
       The next morning it was on front pages, and the forecasts said a machine built just for translation could be ready within a few years.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_ibm, frame0: 0, fx: 0.5, cap: [{s: "Leon Dostert: a machine to translate by itself", at: "@dostert", src: [HUT06]}, {s: "New York, January 7, 1954", at: "@january", src: [HUT06]}, {num: w250, s: "six rules of grammar", at: "@hundred"},
+      - {tpl: plate, at: 0, p: {hero: s_ibm, frame0: 0, fx: 0.5, cap: [{s: "Dostert: a machine to translate", at: "@dostert", src: [HUT06]}, {s: "New York, January 7, 1954", at: "@january", src: [HUT06]}, {num: w250, s: "six rules of grammar", at: "@hundred"},
            {s: "front pages", at: "@front"}, {s: "the forecast: a few years", at: "@forecasts", src: [HUT06]}]},
          sfx: [{file: assets/ll/sfx/card-punch.mp3, at: 0.3, src_ss: 10.0, dur: 10.0, gain_db: -17, fade_ms: 900}]}
   - id: S3
