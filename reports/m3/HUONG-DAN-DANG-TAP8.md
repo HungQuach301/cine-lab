@@ -11,14 +11,13 @@
 
 | Tệp | Dùng cho | Tải thẳng | SHA-256 (đầu; đầy đủ trong `SHA256SUMS.txt` trên nhánh) |
 |---|---|---|---|
-| `ll-ep08-v1-master.mp4` | video chính (901 MB, LFS; 10:07,3) | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-master.mp4) | `a1202dbdb0cda982…` |
-| `ll-ep08-v1-p1/p2/p3.mp4` | 3 phần bản xem (68–83 MB), **không tải lên YouTube** | [p1](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-p1.mp4) · [p2](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-p2.mp4) · [p3](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-p3.mp4) | `a7a343d7…` · `78045316…` · `3a3abee9…` |
+| `ll-ep08-v1-master.mp4` | video chính (900 MB, LFS; 10:08,0) | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-master.mp4) | `d22d7d6e640dc6f0…` |
+| `ll-ep08-v1-p1/p2/p3.mp4` | 3 phần bản xem (68–83 MB), **không tải lên YouTube** | [p1](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-p1.mp4) · [p2](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-p2.mp4) · [p3](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-v1-p3.mp4) | `e2e7b965…` · `6811fe5d…` · `256d5164…` |
 | `ll-ep08-short-S2.mp4` | Short duy nhất của tập (34,2 s) | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-short-S2.mp4) | `e874d6d330a1ca5e…` |
 | `ll-ep08-thumb-T1.jpg` | thumbnail chính | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-thumb-T1.jpg) | `d62a7e9570f98cec…` |
 | `ll-ep08-thumb-T2.jpg` | thumbnail thử A/B | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-thumb-T2.jpg) | `b4fd085c031c9e6d…` |
-| `ll-ep08-youtube-description.txt` | tiêu đề, mô tả, 17 chương | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-youtube-description.txt) | `cb693f70b47d6005…` |
-| `ll-ep08-shorts-text.txt` | tiêu đề và mô tả Short S2 | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-shorts-text.txt) | `aa4ee5bf7062719e…` |
-| `*.boxes.json` (2 tệp) | hộp chữ thumbnail cho qc Q12, **không tải lên YouTube** | trên nhánh | trong `SHA256-v1.txt` |
+| `ll-ep08-youtube-description.txt` | tiêu đề, mô tả, 17 chương | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-youtube-description.txt) | `f09da695d5e1ec53…` |
+| `ll-ep08-shorts-text.txt` | tiêu đề và mô tả Short S2 | [tải](https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/ll-ep08-shorts-text.txt) | `1c58b840a1171208…` |
 
 **Cách tải:**
 - Bấm "tải"; không dùng Code → Download ZIP, vì ZIP chỉ chứa tệp con trỏ LFS.
@@ -26,7 +25,7 @@
 
 **Kiểm SHA:**
 - macOS: `shasum -a 256 -c SHA256SUMS.txt`, mọi dòng phải `OK`.
-- Windows (PowerShell): `Get-FileHash .\ll-ep08-v1-master.mp4 -Algorithm SHA256` phải bằng `A1202DBDB0CDA98295242F771ACFA7774F42EB73D3C91FAD77C88703DC656A45`.
+- Windows (PowerShell): `Get-FileHash .\ll-ep08-v1-master.mp4 -Algorithm SHA256` phải bằng `D22D7D6E640DC6F0F0DFE0237CFD262F809E768EB78C59F0528F03F758C9C854`.
 - Lệch SHA thì tải lại; không đăng tệp lệch.
 
 ## 1. Thứ tự và giờ đăng
@@ -44,7 +43,7 @@ Tập 8 chỉ phát hành **một Short (S2)** (chủ dự án, 10/10/2026). Gi�
 
 ## 2. Tải video chính và Details
 
-1. Tải `ll-ep08-v1-master.mp4` (901 MB, 10:07,3, 1080p 24 fps).
+1. Tải `ll-ep08-v1-master.mp4` (900 MB, 10:08,0, 1080p 24 fps).
 2. **Title** (chủ dự án chọn A ở G1): `From Headphones to Machine Drafts: How Translators' Work Changed`
 3. **Description:** chép toàn bộ phần sau dòng `DESCRIPTION` của `ll-ep08-youtube-description.txt`. Phần này gồm:
    - 17 chương theo mốc thật (0:00 … 9:41);
