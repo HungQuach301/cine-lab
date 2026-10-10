@@ -1,7 +1,7 @@
 # PLAN tập 08 — The Translator's Desk  (≤ 1 trang; P cập nhật sau mỗi bước)
 
-**Trạng thái:** G1 v2 DUYỆT 09/10/2026 (lời khoá SHA 824df1f0…, tiêu đề A, 6 cảnh đinh). Đang dựng tới G2.
-**Việc tiếp (sau G1 v2):** 1. đặc tả v2 (map, heroes, numbers, anchors `w250`/`frey`/`it_chg`) + `design/ll-hero/ep08.js` (6 cảnh đinh); 2. kiểm trước build: `ll.py check` (Q26b), `tests/run.sh`, `node --check`, `hero.js --only`; 3. bộ đếm ElevenLabs → thu giọng → bộ đếm; 4. nháp 960×540, một lượt sửa; 5. 1080p một lần; 6. QC Q1–Q31 + Q26b + LOCK, Q27 chính thức; 7. G2.
+**Trạng thái:** G2 TRÌNH 10/10/2026 (`reports/m3/TAP8-G2.md`): bản cuối 1080p 10:07,3; QC đạt trừ Q28f (khiếu nại); Q27 −0,31 (lỗi nhỏ chấp nhận); Q31 vòng 2 3/3 T01 chờ chủ dự án quyết. DỪNG ở G2.
+**Đã làm (sau G1 v2):** 1. đặc tả v2 (map, heroes, numbers, anchors `w250`/`frey`/`it_chg`) + `design/ll-hero/ep08.js` (6 cảnh đinh); 2. kiểm trước build: `ll.py check` (Q26b), `tests/run.sh`, `node --check`, `hero.js --only`; 3. bộ đếm ElevenLabs → thu giọng → bộ đếm; 4. nháp 960×540, một lượt sửa; 5. 1080p một lần; 6. QC Q1–Q31 + Q26b + LOCK, Q27 chính thức; 7. G2.
 **Quyết định đã có (chủ dự án):** 06/10/2026 — lệnh lô 6–8 (HÌNH v2 từ đầu, Q14–Q22 bắt buộc, kiểm mù 1 subagent 3 vai, trần token theo đầu vào mới + sinh ra). Chi tiết ở AUTHORSHIP.md.
 **Trần:** token 1,5 triệu/tập sản xuất trọn (đầu vào mới + sinh ra, đo từ log phiên; > 25 % thì dừng hỏi) · đĩa trống ≥ 1,5 × mức cần
 **Tiêu đề (chủ dự án duyệt G1 v2):** "From Headphones to Machine Drafts: How Translators' Work Changed".

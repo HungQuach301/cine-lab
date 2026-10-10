@@ -1,12 +1,11 @@
 # CHECKPOINT tập 8 — phiên P (cập nhật ở mỗi mốc lớn)
 
-**Cập nhật:** 09/10/2026 10:50 · nhánh `ccr-a261f349-6rkunc` · checks LL v3 1.8.1 (LOCK KHỚP)
+**Cập nhật:** 10/10/2026 03:40 · nhánh `ccr-a261f349-6rkunc` · checks LL v3 1.8.1 (LOCK KHỚP)
 
-## Bước hiện tại
-- G1 v2 DUYỆT (lời khoá SHA 824df1f0…, tiêu đề A, 6 cảnh đinh). Đoạn 05 đã rút câu "Machines had long since…" theo luật tỷ lệ (QK+CG 45,4 → 44,6 %).
-- ✅ Thu giọng (ASR đạt) · ✅ Nháp 960×540 (10:07) + QC nháp · ✅ Một lượt sửa (commit "lượt sửa sau nháp") · ✅ Prep bản cuối (ASR đạt, `el_sent` = 0).
-- ⏳ **Đang dựng 23 cảnh đinh 1080p SPP4** (12 761 khung, ≈ 8 s/khung/luồng × 3 luồng, ước ~9–10 giờ máy, bắt đầu 09:46).
-- Sau đó: `build.sh … render mix ghep shorts` → qc đủ → Q27 chính thức (1 lần, 1080p) + Q31 bản cuối → phát hành phụ → `reports/m3/TAP8-G2.md` → DỪNG G2.
+## Bước hiện tại: **DỪNG ở G2** — `reports/m3/TAP8-G2.md`
+- ✅ G1 v2 · ✅ thu giọng · ✅ nháp + một lượt sửa · ✅ cảnh đinh 1080p (23 cảnh) · ✅ build 1080p · ✅ QC (sửa Q5, Q22 trước chấm mù) · ✅ Q27 chính thức (TRƯỢT nhẹ −0,31, lỗi nhỏ chấp nhận) · ✅ Q31 vòng 1 (3/3 T12) → lượt sửa duy nhất (đoạn 12) → vòng 2 (3/3 T01, chờ chủ dự án) · ✅ QC cuối · ✅ gói phát hành phụ + `HUONG-DAN-DANG-TAP8.md` · SHA `reports/m3/ep08/SHA256-v1.txt`.
+- Chờ chủ dự án: duyệt G2; quyết T01 (chấp nhận / sửa nhỏ đoạn 00 ≈ 1 giờ máy + Q31 vòng 3); cho phép `release-ll-ep08-v1`.
+- Nếu giao sửa T01: sửa đoạn 00 trong `episode.yaml` (tail, chuyển hoà, J-cut) → `SPP=4 J=3 build.sh … render mix ghep shorts` (giữ cảnh đinh, chỉ đoạn 00 dựng lại) → qc.sh → `q31-set` vòng 3 (chuyển vòng 2 vào `blind/q31-lich-su/vong-03`) → cập nhật SHA, TAP8-G2.
 
 ## Job nền và cách dựng tiếp
 - Cảnh đinh: runner tách rời (10:49) `P=2 SPP=4 setsid nohup bash scripts/ll/heroes_par.sh reports/m3/ep08/episode.yaml >> /var/tmp/cine-out/ll-ep08/heroes-par2.log 2>&1 &` + 3 cảnh mồ côi của lượt 09:46 (st_screen, lib_end, vrs_screen; tự xếp vào chỗ khi xong). Lỗi: `hero-<khoá>.err`. Mỗi cảnh đang dựng có `<dir>.new/pid`; chạy lại runner sẽ bỏ qua cảnh có pid còn sống.
@@ -28,5 +27,5 @@
 
 ## Chi phí đến mốc này (đo)
 - ElevenLabs: +6 143 ký tự bộ đếm (56 810 → 62 953); log gửi 13 970.
-- Giờ máy: cảnh đinh nháp 71 phút, render nháp 86 phút.
-- Subagent: 6 lượt đọc mù G1 (không chạy mù trên nháp).
+- Giờ máy: cảnh đinh nháp 71 phút, render nháp 86 phút, cảnh đinh 1080p ≈ 12,7 giờ, build + dựng lại ≈ 2,8 giờ (chi tiết TAP8-G2 §6).
+- Subagent: 6 lượt đọc mù G1, Q27 3 lượt, Q31 6 lượt (2 vòng). Credits ước tính ≈ $72 (TAP8-G2 §6).
