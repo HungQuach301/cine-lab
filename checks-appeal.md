@@ -200,3 +200,9 @@ P không đọc mã `checks/`; chỉ mô tả hiện tượng đo được trên
 - Cùng loại lỗi P vừa sửa trong `scripts/ll/asr.py` (luật làm việc của P): "and a half" = +0,5; năm đứng liền số ("nineteen sixty six twelve years") không ghép thành một số; ngày thứ tự sau tên tháng ("January seventh" = 7).
 - **Đề nghị K:** (1) "$20 million" / "20 million" = 20 000 000; (2) "N and a half" = N,5; (3) không ghép số liền sau năm; (4) ngày thứ tự. Lời đã khoá (G1 v2), P không đổi chữ để né thước.
 - Đến khi K sửa, G2 tập 8 ghi Q28 TRƯỢT riêng mục (f) với giải trình này; các mục khác của Q28 P sửa trong bản cuối.
+
+## 10/10/2026 — Q27 chấm lại theo SHA master hiện tại (phiên P tập 8)
+- **Hiện tượng:** Q27 chính thức tập 8 chấm trên master SHA `688b4fab…` (manifest `blind/q27/manifest.json` ghi SHA này): `q27-score` lúc đó cho 5,13 vs 5,44 (−0,31). Sau lượt sửa T12 (Q31), master đổi thành `a1202dbd…`; `qc.sh` chạy lại cùng R1–R3.json lại cho **5,31 vs 5,25 (+0,06)**.
+- **Nguyên nhân (theo hành vi và thông báo lỗi khi chạy):** bước chấm điểm dựng lại phép gán khung F01–F60 ↔ tập mới/tập 1 từ SHA video đang có, không lấy từ `seed`/SHA lưu trong manifest, và không báo khi SHA lệch manifest. Khung người chấm đã xem thuộc master cũ, nên số mới gán sai khung.
+- **Đề nghị K:** (1) chấm theo `seed`/phép gán lưu trong manifest; (2) nếu SHA video hiện tại khác manifest thì báo rõ "bộ chấm thuộc bản khác" thay vì tính lại; (3) luật ghi rõ sửa sau Q27 có cần chấm lại hay không.
+- **P ghi trong G2:** kết quả chính thức là −0,31 (TRƯỢT nhẹ, lỗi nhỏ chấp nhận); số +0,06 của QC cuối nêu kèm, không dùng.

@@ -4,6 +4,7 @@
 
 ## Bước hiện tại: **DỪNG ở G2** — `reports/m3/TAP8-G2.md`
 - ✅ G1 v2 · ✅ thu giọng · ✅ nháp + một lượt sửa · ✅ cảnh đinh 1080p (23 cảnh) · ✅ build 1080p · ✅ QC (sửa Q5, Q22 trước chấm mù) · ✅ Q27 chính thức (TRƯỢT nhẹ −0,31, lỗi nhỏ chấp nhận) · ✅ Q31 vòng 1 (3/3 T12) → lượt sửa duy nhất (đoạn 12) → vòng 2 (3/3 T01, chờ chủ dự án) · ✅ QC cuối · ✅ gói phát hành phụ + `HUONG-DAN-DANG-TAP8.md` · SHA `reports/m3/ep08/SHA256-v1.txt`.
+- Q27 QC cuối in +0,06 là số sai (chấm theo SHA mới) — kết quả chính thức −0,31; khiếu nại K 10/10.
 - Chờ chủ dự án: duyệt G2; quyết T01 (chấp nhận / sửa nhỏ đoạn 00 ≈ 1 giờ máy + Q31 vòng 3); cho phép `release-ll-ep08-v1`.
 - Nếu giao sửa T01: sửa đoạn 00 trong `episode.yaml` (tail, chuyển hoà, J-cut) → `SPP=4 J=3 build.sh … render mix ghep shorts` (giữ cảnh đinh, chỉ đoạn 00 dựng lại) → qc.sh → `q31-set` vòng 3 (chuyển vòng 2 vào `blind/q31-lich-su/vong-03`) → cập nhật SHA, TAP8-G2.
 

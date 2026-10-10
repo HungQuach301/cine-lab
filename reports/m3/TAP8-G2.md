@@ -6,7 +6,7 @@
 
 - **Bản cuối 1080p đã dựng xong** (10:07,3; 14 576 khung; 24 fps), kèm 3 bản xem, 3 Shorts, thumbnail T1/T2, mô tả, chữ Shorts và `reports/m3/HUONG-DAN-DANG-TAP8.md`.
 - **QC máy (Q1–Q26, Q26b, Q28–Q30, LOCK):** ĐẠT mọi mục trừ **Q28 mục (f)** — TRƯỢT do ASR độc lập của K đọc "$20 million" và "3.5%" khác cách viết lời; đã khiếu nại 09/10, **không đổi lời** (chỉ đạo chủ dự án). Bảng đầy đủ: `reports/m3/ep08/qc-g2.md`.
-- **Q27 chính thức (một lần, 1080p): TRƯỢT nhẹ** — tập 8 **5,13** vs tập 1 **5,44**, chênh −0,31; SE 0,27 nên vượt sai số 0,04. Theo chỉ đạo 09/10 21:08 đây là **lỗi nhỏ chấp nhận** (Q27 trong/sát ±SE): không dựng lại, đã thêm mục "Cải thiện hình" vào `reports/m3/ep09/PLAN.md`.
+- **Q27 chính thức (một lần, 1080p): TRƯỢT nhẹ** — tập 8 **5,13** vs tập 1 **5,44**, chênh −0,31; SE 0,27 nên vượt sai số 0,04. Theo chỉ đạo 09/10 21:08 đây là **lỗi nhỏ chấp nhận** (Q27 trong/sát ±SE): không dựng lại, đã thêm mục "Cải thiện hình" vào `reports/m3/ep09/PLAN.md`. (QC cuối sau sửa T12 in +0,06 — số sai do công cụ chấm theo SHA master mới, xem mục 3; đã khiếu nại K.)
 - **Q31 bản cuối:** vòng 1 TRƯỢT (3/3 ở T12) → **dùng lượt sửa duy nhất** sửa T12 (dựng lại riêng đoạn 12 + ghép). Vòng 2 **TRƯỢT**: T12 hết, nhưng **T01 (0:22,1) 3/3**. Đã hết lượt sửa nên **không dựng lại**; P đề xuất cách sửa rẻ ở mục 7 để chủ dự án quyết.
 - **Lời:** đúng bản khoá G1 v2 (SHA 824df1f0…), chỉ rút câu "Machines had long since…" ở đoạn 05 theo luật tỷ lệ chủ dự án đặt. ASR (P) đạt 17/17 đoạn và 3 Short.
 - **Tỷ lệ trục kể** (CHUAN-KENH §2): Mở + Kết 16,1 % (khung 15–20) · Quá khứ + Chuyển giao **44,6 %** (khung 40–45, **sát trần**, đã ≤ 45 sau khi rút câu 05) · Hiện tại + Tương lai 39,3 % (35–40, sát trần).
@@ -39,9 +39,9 @@ Thẻ kết: "More from Last Lamplighters" (theo chỉ đạo).
 |---|---|---|
 | Q1 judder / Q2 khung trùng / Q3 xuyên hình | 0 / 0 / 0 | 0 / 0 / 0 |
 | Q4 master | −14,0 LUFS / −1,6 dBTP; Shorts −14,0 / −1,6 | −14,0 / −1,5 |
-| Q5 tương phản chữ thấp nhất | QC_Q5 | 5,12 |
+| Q5 tương phản chữ thấp nhất | 5,96 | 5,12 |
 | **Q6 cỡ chữ hoa nhỏ nhất** | **30,7 px (sát ngưỡng 30)** — dòng nguồn S1 | 30,7 px (sát ngưỡng) |
-| Q7, Q8, Q18, Q20–Q25 | 0 lỗi (Q22: QC_Q22) | 0 lỗi |
+| Q7, Q8, Q18, Q20–Q25 | 0 lỗi | 0 lỗi |
 | Q9 số khung | 14 576 = timeline | 14 825 |
 | Q10 bản xem / Shorts | 68–83 MB · 24–34 s | 74–77 MB · 17–34 s |
 | Q11 / Q12 / Q13 | 0 / 0 / 0 | 0 / 0 / 0 |
@@ -53,7 +53,7 @@ Thẻ kết: "More from Last Lamplighters" (theo chỉ đạo).
 | Q26 đa dạng hình | 101 khung nhìn · lớn nhất 3,9 % · liền cùng bố cục **2 (bằng trần 2)** | 102 · 3,9 % · 1 |
 | Q26b đa dạng bối cảnh | 7 bối cảnh · lớn nhất studio 22,2 % (trần 25, cách 2,8 điểm) · liên tục dài nhất 76,0 s (trần 90) · nửa sau 6 | (mới từ tập 8) |
 | **Q27 chấm hình mù** | **TRƯỢT 5,13 vs 5,44** (mục 3) | 5,68 vs 5,64 |
-| **Q28 âm thanh** | 4 cue · âm nghề 51/51 · lặng trước số neo 0,69 / 0,77 / 0,76 s · **(f) TRƯỢT** (mục 5) | ĐẠT |
+| **Q28 âm thanh** | 4 cue · âm nghề 52/52 · lặng trước số neo 0,69 / 0,77 / 0,76 s · **(f) TRƯỢT** (mục 5) | ĐẠT |
 | Q29 hình–lời | 81/81 | 89/89 |
 | Q30 liền mạch / tông | 3 chuyển hồi · b* 16,7 / 9,9 / 1,5 / 20,4 | 18,5 / 12,3 / 1,8 / 17,2 |
 | **Q31 xem liền mạch** | **vòng 2 TRƯỢT** · [7, 7, 8] · 3/3 T01 | vòng 5 ĐẠT [7, 7, 7] |
@@ -79,6 +79,7 @@ Subagent chấm: Sonnet, đề bài và JSON nguyên văn trong `/var/tmp/cine-o
 | **TB** | **5,13** | **5,44** |
 
 - Chênh −0,31 (−5,7 %), SE 0,27 → TRƯỢT, vượt sai số 0,04 (**sát ngưỡng**, nêu tên theo luật ±5 %).
+- **Lưu ý công cụ:** QC cuối (sau sửa T12) in Q27 = 5,31 vs 5,25 (+0,06, "sát ngưỡng"). Số này **không hợp lệ**: bước chấm dựng lại phép gán khung từ SHA master mới (`a1202dbd…`), trong khi khung đã chấm thuộc master cũ (`688b4fab…`, ghi trong manifest). P giữ −0,31 là kết quả chính thức và đã khiếu nại K (`checks-appeal.md` 10/10).
 - Chấm trên master **trước** lần sửa T12; lần sửa chỉ thay shot mở đầu đoạn 12 (7:01–7:04), nên kết luận Q27 không đổi. P không chấm lại (chỉ đạo: Q27 chính thức một lần).
 - Ý chung 3/3 người chấm (nguyên văn rút gọn):
   - R1: "The best frames are the moody lamplit street scenes and the library exterior. Weaker ones are blank or half-built chart cards and flat low-poly interiors with heavy subtitle banners."
@@ -168,8 +169,8 @@ Subagent chấm: Sonnet, đề bài và JSON nguyên văn trong `/var/tmp/cine-o
 | Cảnh đinh 1080p SPP4 (23 cảnh, 12 761 khung, 3 luồng) | ≈ 12,7 giờ |
 | Render đoạn + trộn + ghép + Shorts 1080p | ≈ 1,0 giờ |
 | Dựng lại sau QC 1080p (Q5/Q22) và sau T12 | ≈ 1,8 giờ |
-| QC (nháp 1 lần, 1080p 3 lần) | QC_GIO |
-| **Cộng** | **QC_TONG** |
+| QC (nháp 1 lần, 1080p 3 lần, ~10–12 phút mỗi lần) | ≈ 0,7 giờ |
+| **Cộng** | **≈ 18,8 giờ** |
 
 **ElevenLabs:** bộ đếm 56 810 → 62 953 (**+6 143**), log gửi 13 970 ký tự (tỷ lệ tính/gửi ≈ 0,44, ổn định; BAI-HOC #103). Bộ đếm **không đổi** từ prep bản cuối qua mọi lần dựng 1080p và sửa (`el_sent` = 0).
 
@@ -181,7 +182,7 @@ Subagent chấm: Sonnet, đề bài và JSON nguyên văn trong `/var/tmp/cine-o
    - **(b) Giao một lượt sửa nhỏ** (P đề xuất nếu ưu tiên chất lượng): kéo dài đuôi đoạn 00 (`tail` 0,6 → ~1,2 s) để câu hỏi nói xong và phụ đề tắt trước điểm cắt, đổi cắt 00 → 01 thành hoà ~1 s sang phố thư viện, J-cut âm phố 0,8 s. Dùng cảnh đinh đã dựng (`ibm`/`studio`, `lib_*`), không dựng cảnh đinh mới. Dựng lại đoạn 00 + ghép + Shorts ≈ 1 giờ máy; Q31 vòng 3 (3 lượt Sonnet, ~0,2 triệu token, ≈ $1–2); ElevenLabs 0 ký tự. Tổng thời lượng tăng ~0,6 s.
 3. **Cho phép tạo nhánh phát hành `release-ll-ep08-v1` (Git LFS):** master, 3 bản xem, 3 Shorts, thumbnail, mô tả, chữ Shorts; P tải ngược và kiểm SHA như tập 7.
 4. **Q27 −0,31 (lỗi nhỏ chấp nhận):** xác nhận không sửa tập 8; hướng cải thiện đã vào `ep09/PLAN.md`.
-5. **Q28f:** chờ K xét khiếu nại 09/10 (`checks-appeal.md`). P không đổi lời.
+5. **Q28f và Q27:** chờ K xét khiếu nại 09/10 (Q28f) và 10/10 (Q27 chấm lại theo SHA mới cho +0,06 sai). P không đổi lời, giữ Q27 −0,31.
 6. Chọn đề tài tập 9 (`ep09/PLAN.md` đang chờ).
 
 ## 8. Lỗi nhỏ chấp nhận (không dựng lại; đã ghi BAI-HOC hoặc PLAN tập 9)
