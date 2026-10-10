@@ -2,11 +2,11 @@
 
 **Cập nhật:** 10/10/2026 03:40 · nhánh `ccr-a261f349-6rkunc` · checks LL v3 1.8.1 (LOCK KHỚP)
 
-## Bước hiện tại: **DỪNG ở G2** — `reports/m3/TAP8-G2.md`
-- ✅ G1 v2 · ✅ thu giọng · ✅ nháp + một lượt sửa · ✅ cảnh đinh 1080p (23 cảnh) · ✅ build 1080p · ✅ QC (sửa Q5, Q22 trước chấm mù) · ✅ Q27 chính thức (TRƯỢT nhẹ −0,31, lỗi nhỏ chấp nhận) · ✅ Q31 vòng 1 (3/3 T12) → lượt sửa duy nhất (đoạn 12) → vòng 2 (3/3 T01, chờ chủ dự án) · ✅ QC cuối · ✅ gói phát hành phụ + `HUONG-DAN-DANG-TAP8.md` · SHA `reports/m3/ep08/SHA256-v1.txt`.
-- Q27 QC cuối in +0,06 là số sai (chấm theo SHA mới) — kết quả chính thức −0,31; khiếu nại K 10/10.
-- Chờ chủ dự án: duyệt G2; quyết T01 (chấp nhận / sửa nhỏ đoạn 00 ≈ 1 giờ máy + Q31 vòng 3); cho phép `release-ll-ep08-v1`.
-- Nếu giao sửa T01: sửa đoạn 00 trong `episode.yaml` (tail, chuyển hoà, J-cut) → `SPP=4 J=3 build.sh … render mix ghep shorts` (giữ cảnh đinh, chỉ đoạn 00 dựng lại) → qc.sh → `q31-set` vòng 3 (chuyển vòng 2 vào `blind/q31-lich-su/vong-03`) → cập nhật SHA, TAP8-G2.
+## Bước hiện tại: **XONG G2 có điều kiện — chờ G3** (10/10/2026)
+- Sửa T01 (đoạn 00 → 01) xong; `render.js` nới cửa sổ nạp khung (BAI-HOC #108), dựng lại 17 đoạn; Q31 vòng 3 [7, 8, 8]: T01 hết, T11 3/3 mới (chỉ ghi).
+- Nhánh phát hành `release-ll-ep08-v1` @ `67bfc2e`: 9 tệp (chỉ Short S2), tải ngược 9/9 SHA OK; master `d22d7d6e640dc6f0…`.
+- Báo cáo: `reports/m3/TAP8-G2.md` mục 9. Bàn giao tập 9: `reports/m3/ep08/BAN-GIAO-P.md`.
+- Chờ: G3 (chủ dự án đăng); khiếu nại Q28f, Q27 (phiên K); đề tài tập 9.
 
 ## Job nền và cách dựng tiếp
 - Cảnh đinh: runner tách rời (10:49) `P=2 SPP=4 setsid nohup bash scripts/ll/heroes_par.sh reports/m3/ep08/episode.yaml >> /var/tmp/cine-out/ll-ep08/heroes-par2.log 2>&1 &` + 3 cảnh mồ côi của lượt 09:46 (st_screen, lib_end, vrs_screen; tự xếp vào chỗ khi xong). Lỗi: `hero-<khoá>.err`. Mỗi cảnh đang dựng có `<dir>.new/pid`; chạy lại runner sẽ bỏ qua cảnh có pid còn sống.

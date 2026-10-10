@@ -2,7 +2,7 @@
 
 ## Trạng thái
 - **Tập 8** "From Headphones to Machine Drafts: How Translators' Work Changed": **G2 DUYỆT có điều kiện (10/10)** — điều kiện đã làm (sửa T01 đoạn 00, Q31 vòng 3, chỉ một Short S2). Chi tiết: `reports/m3/TAP8-G2.md` mục 9.
-  - Gói phát hành: nhánh `release-ll-ep08-v1` (xem TAP8-G2 mục 9 cho commit và kiểm SHA).
+  - Gói phát hành: `release-ll-ep08-v1` @ `67bfc2e`, tải ngược kiểm 9/9 SHA OK (master `d22d7d6e…`).
   - Hướng dẫn đăng: `reports/m3/HUONG-DAN-DANG-TAP8.md` (Short S2 đăng N − 1; tập chính ngày N; T1 chính, T2 A/B).
   - **Chờ chủ dự án làm G3.** Nhánh làm việc `ccr-a261f349-6rkunc` chưa merge vào `main`.
 - **Khiếu nại chờ phiên K** (sau CN 20:00): Q28f ASR đọc số (09/10) và Q27 chấm lại theo SHA master mới (10/10), `checks-appeal.md`.

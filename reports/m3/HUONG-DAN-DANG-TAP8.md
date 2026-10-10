@@ -100,4 +100,6 @@ Tập 8 chỉ phát hành **một Short (S2)** (chủ dự án, 10/10/2026). Gi�
 
 ## 8. Kết quả kiểm SHA sau khi đẩy nhánh phát hành
 
-- Chưa làm: chờ chủ dự án duyệt G2 và cho phép tạo `release-ll-ep08-v1`.
+- Nhánh `release-ll-ep08-v1`, commit **`67bfc2e`**.
+- 10/10/2026: P tải ngược cả **9 tệp** trong `SHA256SUMS.txt` từ link công khai (`https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/<tệp>`) vào thư mục trống, rồi chạy `sha256sum -c`: **cả 9 OK**.
+- Master tải về đủ 900 323 056 byte, đúng tệp thật chứ không phải con trỏ LFS.

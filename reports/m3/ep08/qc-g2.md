@@ -6,19 +6,19 @@
 | Q2 | Khung gần trùng giữa chuyển động (tol 0,1) | **ĐẠT** | 0 | 0 |  |  |
 | Q3 | Máy xuyên hình học (log máy + khung phẳng) | **ĐẠT** | 0 | 0 |  |  |
 | Q4 | Loudness/TP ll-ep08-v1-master.mp4 | **ĐẠT** | -14.0 LUFS / -1.6 dBTP | −14±1 / ≤ −1 |  |  |
-| Q4 | Loudness/TP ll-ep08-v1-p1.mp4 | **ĐẠT** | -15.2 LUFS / -2.6 dBTP | −14±2 / ≤ −1 |  | phần bản xem: đối chiếu (chuẩn đo trên master) |
+| Q4 | Loudness/TP ll-ep08-v1-p1.mp4 | **ĐẠT** | -15.2 LUFS / -2.4 dBTP | −14±2 / ≤ −1 |  | phần bản xem: đối chiếu (chuẩn đo trên master) |
 | Q4 | Loudness/TP ll-ep08-v1-p2.mp4 | **ĐẠT** | -15.2 LUFS / -2.7 dBTP | −14±2 / ≤ −1 |  | phần bản xem: đối chiếu (chuẩn đo trên master) |
 | Q4 | Loudness/TP ll-ep08-v1-p3.mp4 | **ĐẠT** | -15.4 LUFS / -2.6 dBTP | −14±2 / ≤ −1 |  | phần bản xem: đối chiếu (chuẩn đo trên master) |
 | Q4 | Loudness/TP ll-ep08-short-S1.mp4 | **ĐẠT** | -14.0 LUFS / -1.6 dBTP | −14±1 / ≤ −1 |  |  |
 | Q4 | Loudness/TP ll-ep08-short-S2.mp4 | **ĐẠT** | -14.0 LUFS / -1.6 dBTP | −14±1 / ≤ −1 |  |  |
 | Q4 | Loudness/TP ll-ep08-short-S3.mp4 | **ĐẠT** | -14.0 LUFS / -1.6 dBTP | −14±1 / ≤ −1 |  |  |
 | Q5 | Tương phản chữ thấp nhất | **ĐẠT** | 5.96 | 4.5 |  | 06 f564 “Source: ALPAC, Language and Machines (Na” |
-| Q6 | Cỡ chữ hoa tối thiểu (mọi khung mẫu) | **ĐẠT** | 30.7 px (S1 f36 “Source: Hutchins (2006)”) | 18 / 30 px | cỡ chữ: 30.7 (ngưỡng 30) | mẫu tự nâng cỡ: {'00': 392, '01': 240, '02': 667, '03': 644, '04': 417, '05': 946, '06': 1004, '07': 393, '08': 415, '09': 229, '10': 869, '11': 911, '12': 624, '13': 1995, '14': 716, '15': 352, 'S1': 589, 'S2': 975, 'S3': 497} |
+| Q6 | Cỡ chữ hoa tối thiểu (mọi khung mẫu) | **ĐẠT** | 30.7 px (S1 f36 “Source: Hutchins (2006)”) | 18 / 30 px | cỡ chữ: 30.7 (ngưỡng 30) | mẫu tự nâng cỡ: {'00': 405, '01': 240, '02': 667, '03': 644, '04': 417, '05': 946, '06': 1004, '07': 393, '08': 415, '09': 229, '10': 869, '11': 911, '12': 624, '13': 1995, '14': 716, '15': 352, 'S1': 589, 'S2': 975, 'S3': 497} |
 | Q7 | Nhãn ACTUAL/PROJECTION khớp loại số | **ĐẠT** | 0 | 0 |  |  |
 | Q8 | Nguồn (toàn văn, không Wikipedia) + số khớp lời | **ĐẠT** | 0 | 0 |  |  |
-| Q9 | Số khung khớp timeline | **ĐẠT** | master 14576/14576 | = timeline |  |  |
-| Q10 | Dung lượng ll-ep08-v1-p1.mp4 | **ĐẠT** | 71.2 MB | ≤ 90 MB |  |  |
-| Q10 | Dung lượng ll-ep08-v1-p2.mp4 | **ĐẠT** | 83.4 MB | ≤ 90 MB |  |  |
+| Q9 | Số khung khớp timeline | **ĐẠT** | master 14591/14591 | = timeline |  |  |
+| Q10 | Dung lượng ll-ep08-v1-p1.mp4 | **ĐẠT** | 71.5 MB | ≤ 90 MB |  |  |
+| Q10 | Dung lượng ll-ep08-v1-p2.mp4 | **ĐẠT** | 83.3 MB | ≤ 90 MB |  |  |
 | Q10 | Dung lượng ll-ep08-v1-p3.mp4 | **ĐẠT** | 68.4 MB | ≤ 90 MB |  |  |
 | Q10 | Thời lượng Short S1 | **ĐẠT** | 26.08 s | ≤ 60 s |  |  |
 | Q10 | Thời lượng Short S2 | **ĐẠT** | 34.21 s | ≤ 60 s |  |  |
@@ -39,11 +39,11 @@
 | Q23 | Câu/thẻ nhiều số: cùng đối tượng, loại, kỳ, cơ sở | **ĐẠT** | 0 | 0 |  |  |
 | Q24 | Nhãn phân loại khớp số | **ĐẠT** | 0 | 0 |  |  |
 | Q25 | Thẻ khoảng số không hiện số trung gian | **ĐẠT** | 0 | 0 |  |  |
-| Q26 | Đa dạng hình | **ĐẠT** | khung nhìn 100 (≥ 40) · lớn nhất 4.4 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 5:16.9 09/plate:lib_bridge) · 59 cảnh (timeline) | ≥ 40 · ≤ 20 % · ≤ 2 |  |  |
-| Q26b | Đa dạng bối cảnh (nhãn từ timeline) | **ĐẠT** | 7 bối cảnh · lớn nhất ep08/studio 22.8 % · liên tục dài nhất ep08/studio 76.0 s · nửa sau 6 · trung tính 9.5 % | ≤ 25 % · ≤ 90 s liên tục · nửa sau ≥ 3 |  |  |
-| Q27 | Chấm hình mù (bản cuối 1080p; 3 subagent, tập mới ≥ tập 1 − SE) | **TRƯỢT** | tập mới 5.31 · tập 1 5.25 · chênh +0.06 (SE 0.27) · SÁT NGƯỠNG (R1 5.18/5.23, R2 5.23/5.23, R3 5.53/5.29) |  | SÁT NGƯỠNG: chênh +0.06 trong ±SE 0.27 (tập mới 5.31, tập 1 5.25); PLAN tập sau phải có mục "Cải thiện hình" | bộ ảnh không dựng từ đúng video mới (hạt giống khác); F01.jpg khác ảnh dựng lại; F02.jpg khác ảnh dựng lại; F03.jpg khác ảnh dựng lại; F04.jpg khác ảnh dựng lại; F05.jpg khác ảnh dựng lại |
-| Q31 | Xem liền mạch mù (3 subagent, vòng theo tập) | **TRƯỢT** | vòng 2 · điểm liền mạch [7, 7, 8] · đồng thuận ≥ 2/3: 8 điểm, đứt mạch 5 (3/3: 1, 2/3 có giải trình 4/4) |  |  | ĐỨT MẠCH 0:22.1 [T01] 3/3 break: Hard cut from the translation-editor desk to the library street. The opening question narration ends right on the cut, a; 2/3 đã giải trình 0:56.1 [T02] 2/3 break: The narration about volunteers shifts to a library reading room that does not read as the Red Cross translators. It then; 2/3 đã giải trình 1:25.0 [T03] 2/3 break: The narration jumps from the 1942 Red Cross archival photos to a 3D Nuremberg courtroom. The change of look is abrupt, a; 2/3 đã giải trình 3:14.1 [T06] 2/3 break: The narration reads 'ready within a few years. In 1966,' and the picture jumps from the 1954 computer room to a 1966 off; 2/3 đã giải trình 6:10.0 [R11.5/T11] 2/3 boring/break: A split-screen comparison of 1966 and today sits over the narration 'now: part of the job', then it cuts abruptly to a w; chán 2:58.0 [R05.5/R05.6] 2/3 boring: Several consecutive frames show the same dark courtroom interpreter booths, with little new to see.; chán 8:31.0 [R16.1/T14] 2/3 boring/break: The quote 'cannot yet' is repeated over the same shot, then cuts to the 1966 paper close-up. The return to the compariso; chán 9:25.6 [R17.6/T15] 2/3 boring/break: The narration jumps from the video-call office back to 1954 with a 'courtroom booth to video call' line, and the picture |
-| Q28 | Âm thanh (nhạc theo hồi, âm thanh nghề, lặng trước số neo, loudness, ASR) | **TRƯỢT** | 4 cue · cảnh đinh có âm thanh nghề 52/52 · lặng trước số neo [0.69, 0.77, 0.76] s · master -14.0 LUFS / -1.6 dBTP |  |  | ASR 06: thiếu 20000000.0; 13: thiếu 3.0 |
-| Q30 | Liền mạch (chuyển hồi, ngọn đèn, tông màu theo hồi) | **ĐẠT** | 3 chuyển hồi · tông đo (b*): hồi 1 16.7, hồi 2 9.9, hồi 3 1.5, hồi 4 20.4 |  |  |  |
+| Q26 | Đa dạng hình | **ĐẠT** | khung nhìn 98 (≥ 40) · lớn nhất 4.4 % (≤ 20 %) · cảnh liền cùng bố cục 2 (≤ 2, từ 5:17.5 09/plate:lib_bridge) · 60 cảnh (timeline) | ≥ 40 · ≤ 20 % · ≤ 2 |  |  |
+| Q26b | Đa dạng bối cảnh (nhãn từ timeline) | **ĐẠT** | 7 bối cảnh · lớn nhất ep08/studio 22.7 % · liên tục dài nhất ep08/studio 76.0 s · nửa sau 6 · trung tính 9.5 % | ≤ 25 % · ≤ 90 s liên tục · nửa sau ≥ 3 |  |  |
+| Q27 | Chấm hình mù (bản cuối 1080p; 3 subagent, tập mới ≥ tập 1 − SE) | **TRƯỢT** | tập mới 5.23 · tập 1 5.34 · chênh -0.11 (SE 0.27) · SÁT NGƯỠNG (R1 5.04/5.37, R2 5.14/5.32, R3 5.50/5.32) |  | SÁT NGƯỠNG: chênh -0.11 trong ±SE 0.27 (tập mới 5.23, tập 1 5.34); PLAN tập sau phải có mục "Cải thiện hình" | bộ ảnh không dựng từ đúng video mới (hạt giống khác); F01.jpg khác ảnh dựng lại; F02.jpg khác ảnh dựng lại; F03.jpg khác ảnh dựng lại; F04.jpg khác ảnh dựng lại; F05.jpg khác ảnh dựng lại |
+| Q31 | Xem liền mạch mù (3 subagent, vòng theo tập) | **TRƯỢT** | vòng 3 · điểm liền mạch [7, 8, 8] · đồng thuận ≥ 2/3: 4 điểm, đứt mạch 4 (3/3: 1, 2/3 có giải trình 3/3) |  |  | ĐỨT MẠCH 6:14.6 [T11] 3/3 break: The split-screen '1966 postediting / today: post-editing' wipe cuts to a wide empty office. The narration about the chan; 2/3 đã giải trình 1:25.6 [T03] 2/3 break: Hard cut from the library reading room to an empty courtroom with a caption 'a few years later: a trial'. The frames do ; 2/3 đã giải trình 3:14.8 [T06] 2/3 break: Abrupt jump from the 1954 computer hall to the 1966 office. The narration 'In 1966' lands on a quiet office with no link; 2/3 đã giải trình 7:35.5 [T13] 2/3 break: Nuremberg 1945 and today are shown side by side, then the picture drops to an empty video-call room. The narration 'And  |
+| Q28 | Âm thanh (nhạc theo hồi, âm thanh nghề, lặng trước số neo, loudness, ASR) | **TRƯỢT** | 4 cue · cảnh đinh có âm thanh nghề 53/53 · lặng trước số neo [0.69, 0.77, 0.76] s · master -14.0 LUFS / -1.6 dBTP |  |  | ASR 06: thiếu 20000000.0; 13: thiếu 3.0 |
+| Q30 | Liền mạch (chuyển hồi, ngọn đèn, tông màu theo hồi) | **ĐẠT** | 3 chuyển hồi · tông đo (b*): hồi 1 16.7, hồi 2 9.9, hồi 3 1.5, hồi 4 20.6 |  |  |  |
 | Q29 | Hình–lời: hình vật chất ±1 s quanh danh từ chính và số neo | **ĐẠT** | 81/81 danh từ chính và lần đọc số neo có hình vật chất ≥ 0.5 s trong ±1 s |  |  |  |
 | LOCK | checks/ khớp LOCK (luật khoá không bị sửa) | **ĐẠT** | KHỚP | TREE_SHA256 |  |  |

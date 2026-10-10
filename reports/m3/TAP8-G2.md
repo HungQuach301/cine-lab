@@ -195,3 +195,75 @@ Subagent chấm: Sonnet, đề bài và JSON nguyên văn trong `/var/tmp/cine-o
 | Q6 30,7 px, Q26 bố cục liền 2 = trần, tỷ lệ QK+CG 44,6 % | sát ngưỡng, đạt | mục 5 |
 | Q28 (f) | thước K (khiếu nại) | `checks-appeal.md`; BAI-HOC #104 |
 | T01 3/3 | **nghiêm trọng — chờ chủ dự án** (mục 7.2) | BAI-HOC #105 |
+
+## 9. Bổ sung sau duyệt G2 có điều kiện (10/10/2026)
+
+**Quyết định của chủ dự án:** sửa T01 theo phương án (b); Q31 vòng 3 một lần, kết quả thế nào cũng phát hành; chỉ một Short (S2); giữ T1/T2; chấp nhận các chỉ số sát ngưỡng; Q27 không sửa; cho phép `release-ll-ep08-v1`.
+
+**Sửa T01 (đoạn 00 → 01), đúng mục 7.2 (b):**
+- Đuôi đoạn 00: 0,6 → 1,2 s. Câu hỏi nói xong ở 21,50 s; shot phố thư viện (`lib_light`, cảnh đinh có sẵn) hoà vào 1,0 s từ 21,59 s, nên phụ đề câu hỏi tắt cùng cảnh cũ trước điểm nối (22,71 s).
+- J-cut: tiếng bước chân phố vào ở 20,79 s (0,8 s trước hình), kéo liền sang đoạn 01; đoạn 01 bỏ bản bước chân cũ.
+- Đoạn 01 mở ở khung 27 của `lib_light`, tức nối liền khung với cuối đoạn 00, nên điểm nối không còn là cắt.
+- Không dựng cảnh đinh mới; ElevenLabs **0 ký tự** (bộ đếm 62 953 trước và sau).
+- Thời lượng 10:07,3 → **10:08,0** (+0,6 s; 14 591 khung). Chương mô tả YouTube sinh lại (các chương sau 0:22 lùi 1 s).
+
+**Sự cố khi sửa (đã xử lý, BAI-HOC #108):** khung đầu tiên dựng ra có chữ đỏ "missing plate" ở ~35 % độ đậm trong lúc hoà (22,0–22,6 s).
+- Nguyên nhân: `scripts/ll/render.js` chỉ nạp khung cảnh đinh tới `t1 + 0,6 s`, ngắn hơn lần hoà 1,0 s.
+- Lỗi cùng loại có ở mọi lần hoà mặc định 0,7 s, kể cả các tập trước, nhưng chỉ 2 khung cuối, khi cảnh cũ còn ≈ 5 % độ đậm (không thấy).
+- Sửa: nới cửa sổ thành 1,5 s. Vì băm đoạn tính cả mã dựng, **cả 17 đoạn được dựng lại** (77 phút máy, gồm trộn và ghép). Đây là phần vượt "chỉ dựng lại đoạn 00 + ghép" đã duyệt, P làm để bản phát hành dựng đúng bằng mã trong repo.
+- Trước đó P đã kiểm: dựng lại đoạn 02 với timeline mới (chỉ lệch `t0`) cho `framemd5` trùng hệt bản cũ.
+- **Shorts không dựng lại** (theo chỉ đạo): S2 giữ bản cũ, không dùng đoạn 00.
+
+**Q31 vòng 3** (một lần, 3 lượt Sonnet, bản sau sửa):
+
+| Vòng | Điểm | Kết quả | Điểm ≥ 2/3 |
+|---|---|---|---|
+| 3 | [7, 8, 8] | TRƯỢT (theo thước) | **T11 3/3** (6:14,6); T03, T06, T13 2/3 (giải trình 3/3) |
+
+- **T01 đã hết:** không người xem nào nêu điểm 0:22.
+- **T11 3/3, mới:** khung đôi "1966 postediting | today: post-editing" cắt sang cảnh rộng văn phòng hôm nay, trong khi lời "The change shows up in the numbers too" chưa có hình số. Ở vòng 2, T11 là 2/3 có giải trình. **Theo chỉ đạo: chỉ ghi, không sửa, vẫn phát hành.** Hướng sửa cho tập sau: BAI-HOC #101 (mở đoạn bằng hình đúng chủ đề lời).
+- Giải trình vòng 3 (nguyên văn `giai-trinh.json`): T03 và T06 như vòng 2 (mục 3).
+  - **T13:** "Đối chiếu có chủ ý của kịch bản khoá: khung đôi 'Nuremberg, 1945 | today' khép đoạn 12 về phiên dịch (cùng nghề, hai thời), rồi câu hỏi 'And the next ten years?' mở đoạn 13 về dự báo BLS 2025–35 trên phòng phiên dịch video hôm nay — cùng nơi chốn của nửa phải khung đôi, có chú thích số dự báo ngay sau đó."
+- Điểm chán đồng thuận: màn hình bàn dịch lặp ở 12:00–15:30 dải (R12–R15), văn phòng 1966.
+- Thông điệp: cả 3 người xem tự nêu đúng trục kể (máy đến làm một phần việc ngôn ngữ năm 1954, 1966 và hôm nay; người làm nghề ra sao; phần nào còn ở con người).
+- JSON và đề bài: `reports/m3/ep08/blind-g2/q31-vong3/`.
+
+**QC cuối** (`reports/m3/ep08/qc-g2.md`): mọi mục ĐẠT trừ:
+- Q31 (T11 3/3, như trên);
+- Q28 (f) (khiếu nại 09/10);
+- Q27: công cụ lại tính lại theo SHA master mới, lần này ra −0,11. Số này không hợp lệ (khiếu nại 10/10). Kết quả chính thức vẫn **−0,31**, chấm trên `688b4fab…`, không sửa theo chỉ đạo.
+
+Đáng chú ý:
+- Q5 5,96; Q9 14 591 = timeline; Q26 98 khung nhìn, lớn nhất 4,4 %; Q28 âm nghề 53/53; Q29 81/81; LOCK KHỚP.
+- **Q10/Q22 cho S2:** 34,21 s, chữ trong khung.
+
+**Chỉ số sát ngưỡng** (chấp nhận, chỉ liệt kê):
+- Q6 30,7 px (S1, không phát hành; S2 không sát);
+- Q26 bố cục liền 2 = trần;
+- Q26b studio 22,7 %;
+- tỷ lệ trục kể (đo lại sau sửa): Mở + Kết 16,2 %, QK + CG 44,5 % (trần 45), HT + TL 39,3 % (trần 40).
+
+**Gói phát hành:** nhánh `release-ll-ep08-v1`, commit **`67bfc2e`** (nhánh mồ côi, Git LFS cho `*.mp4`).
+- Gồm 9 tệp: master, p1–p3, Short S2, thumbnail T1/T2, mô tả, chữ Short S2. Kèm `SHA256SUMS.txt`, `SHA256-v1.txt`, `.gitattributes`.
+- S1, S3 và `*.boxes.json` không có trong gói.
+- **Kiểm SHA:** P tải ngược 9 tệp từ link công khai `https://github.com/HungQuach301/cine-lab/raw/release-ll-ep08-v1/<tệp>` vào thư mục trống, chạy `sha256sum -c`: **9/9 OK**.
+  - Master tải về đủ 900 323 056 byte (tệp thật, không phải con trỏ LFS).
+  - **SHA master mới:** `d22d7d6e640dc6f0f0dfe0237cfd262f809e768eb78c59f0528f03f758c9c854`.
+
+**Chi phí cập nhật** (cùng giả định giá cache tạo như mục 6):
+
+| | Đầu ra | Cache tạo | Cache đọc |
+|---|---|---|---|
+| Opus (phiên P) | 420 984 | 6 489 068 | 173 402 332 |
+| Sonnet (18 lượt có log) | 15 058 | 1 329 412 | 1 268 563 |
+
+- Ước tính credits: Opus ≈ $8,4 + $34,7 + $32,4 = $75,5; Sonnet ≈ $3,7 → **≈ $79 cho cả tập 8** (lượt sửa T01 + Q31 vòng 3 + phát hành ≈ $7). Trong ngân sách $100.
+- Giờ máy thêm: dựng đoạn 00/01/02 + dựng lại 17 đoạn, trộn, ghép ≈ 1,4 giờ; QC 0,2 giờ → **tổng tập 8 ≈ 20,4 giờ**.
+- ElevenLabs: không đổi (+0).
+
+**Luật mới từ tập 9** (đã ghi `CHUAN-KENH-LL.md` §13 và `reports/m3/ep08/BAN-GIAO-P.md`): mỗi tập 2 Shorts; bỏ thumbnail khỏi gói phát hành.
+
+**Việc còn lại:**
+- G3: chủ dự án đăng theo `HUONG-DAN-DANG-TAP8.md`.
+- Phiên K xét khiếu nại Q28f và Q27 (sau CN 20:00).
+- Đề tài tập 9: chưa làm, theo chỉ đạo.
