@@ -339,8 +339,10 @@ segments:
       Demand for American Sign Language interpreters is expected to grow, as more people use video relay services: online video calls with a sign language interpreter on the line.
       And in courtrooms, where this story began, most states now require interpreters to be certified.
     shots:
-      - {tpl: plate, at: 0, p: {hero: vrs_room, frame0: 0, cap: [{s: "that is translation: the written word", at: "@translation", src: []}, {s: "interpreting: the spoken and signed word", at: "@interpreting", src: [OOHIT]}, {s: "changed in its own way", at: "@changed"}, {s: "remotely, as well as in person", at: "@remotely", src: [OOHIT]}]},
+      - {tpl: plate, at: 0, p: {hero: st_screen, frame0: 1200, cap: [{s: "that is translation: the written word", at: "@translation", src: []}]},   # Q31 1080p vòng 1 T12 3/3: lời "translation, the written word" phải nằm trên bàn người dịch, không trên buồng phiên dịch
          sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.4, src_ss: 1.0, dur: 3.0, gain_db: -20, fade_ms: 500}]}
+      - {tpl: plate, at: "@interpreting-0.4", in: fade, p: {hero: vrs_room, frame0: 72, cap: [{s: "interpreting: the spoken and signed word", at: "@interpreting", src: [OOHIT]}, {s: "changed in its own way", at: "@changed"}, {s: "remotely, as well as in person", at: "@remotely", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@interpreting", src_ss: 12.0, dur: 2.0, gain_db: -20, fade_ms: 300}]}
       - {tpl: plate, at: "@demand-0.4", in: fade, p: {hero: vrs_screen, frame0: 0, cap: [{s: "American Sign Language interpreters: demand expected to grow", at: "@american", src: [OOHIT]}, {s: "video relay services", at: "@video", src: [OOHIT]}, {s: "an online video call, an interpreter on the line", at: "@online", src: [OOHIT]}]},
          sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@demand", src_ss: 20.0, dur: 2.0, gain_db: -18, fade_ms: 300}]}
       - {tpl: diptych, at: "@courtrooms-0.4", in: fade, p: {split: "@states-0.2", left: {hero: booth_in, i: 160, fx: 0.55}, right: {hero: vrs_side, i: 120, fx: 0.5}, labels: ["Nuremberg, 1945", "today"],
