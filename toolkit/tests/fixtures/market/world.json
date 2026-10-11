@@ -1,0 +1,114 @@
+{
+ "_doc": "YouTube giả cho test_market.py: tuổi video/kênh tính theo ngày so với lúc chạy test. Không phải số thật.",
+ "channels": [
+  {
+   "id": "chA",
+   "name": "Fake Explainers A",
+   "subs": 10000,
+   "age_d": 400
+  },
+  {
+   "id": "chB",
+   "name": "Fake Docs B",
+   "subs": 200000,
+   "age_d": 3000
+  },
+  {
+   "id": "chC",
+   "name": "Fake News C",
+   "subs": 5000,
+   "age_d": 100
+  },
+  {
+   "id": "chL",
+   "name": "Last Lamplighters",
+   "subs": 50,
+   "age_d": 30,
+   "handle": "@lastlamplighters"
+  }
+ ],
+ "videos": [
+  {
+   "id": "vidAAAAAAA1",
+   "ch": "chA",
+   "age_d": 20,
+   "min": 14,
+   "views": 600000,
+   "title": "How Drafting Changed Forever",
+   "desc": "Sources: BLS"
+  },
+  {
+   "id": "vidAAAAAAA2",
+   "ch": "chB",
+   "age_d": 40,
+   "min": 22,
+   "views": 80000,
+   "title": "The Drawing Board Era"
+  },
+  {
+   "id": "vidAAAAAAA3",
+   "ch": "chC",
+   "age_d": 30,
+   "min": 12,
+   "views": 70000,
+   "title": "Celebrity Gossip Roundup"
+  },
+  {
+   "id": "vidAAAAAAA4",
+   "ch": "chA",
+   "age_d": 400,
+   "min": 18,
+   "views": 30000,
+   "title": "Old Drafting Tools"
+  },
+  {
+   "id": "vidAAAAAAA5",
+   "ch": "chB",
+   "age_d": 1000,
+   "min": 16,
+   "views": 1200000,
+   "title": "Why CAD Took Over"
+  },
+  {
+   "id": "vidAAAAAAA6",
+   "ch": "chA",
+   "age_d": 200,
+   "min": 10,
+   "views": 20000,
+   "title": "Blueprints Explained"
+  },
+  {
+   "id": "vidAAAAAAA7",
+   "ch": "chA",
+   "age_d": 300,
+   "min": 11,
+   "views": 25000,
+   "title": "Engineering Drawings"
+  },
+  {
+   "id": "vidAAAAAAA8",
+   "ch": "chB",
+   "age_d": 5,
+   "min": 1,
+   "views": 900000,
+   "title": "CAD in 60 seconds #shorts"
+  },
+  {
+   "id": "vidAAAAAAA9",
+   "ch": "chC",
+   "age_d": 60,
+   "min": 9,
+   "views": 3000,
+   "title": "Drafting Jobs Today"
+  },
+  {
+   "id": "ownAAAAAAA1",
+   "ch": "chL",
+   "age_d": 10,
+   "min": 10,
+   "views": 1500,
+   "title": "London Still Has 5 Lamplighters. Who Are the Last of Our Time?",
+   "own": true
+  }
+ ]
+}

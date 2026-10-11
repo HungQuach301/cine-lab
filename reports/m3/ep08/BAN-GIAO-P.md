@@ -10,7 +10,7 @@
 
 ## Luật mới của chủ dự án (10/10/2026) — áp từ tập 9
 1. **Mỗi tập 2 Shorts** (không phải 3). Đặc tả `shorts:` chỉ 2 mục; QC Q10/Q22 áp cho 2 Short đó. (CHUAN-KENH §13)
-2. **Bỏ thumbnail khỏi gói phát hành.** `make_thumb.py` không còn là bước bắt buộc. (CHUAN-KENH §13)
+2. **Nhà máy không làm thumbnail hoàn chỉnh** (sửa 11/10): nhà máy làm 3 tiêu đề dạng câu hỏi tìm kiếm + `PACKAGING-BRIEF.md` + 2–3 ảnh nền 1280×720 không chữ (`toolkit/market/brief.py`); chủ dự án tự tạo 2–3 thumbnail, chọn bằng Test & Compare, CTR vào `epNN/KHAN-GIA.md`. `make_thumb.py` không bắt buộc. (CHUAN-KENH §13, §14 bước 5)
 3. **Chỉ số sát ngưỡng (±5 %)**: chấp nhận, chỉ liệt kê trong báo cáo, không coi là lỗi.
 4. Ngân sách credits theo tập (tập 8: $100); sau QC + Q27/Q31 chỉ sửa lỗi nghiêm trọng, tối đa một lượt, chỉ dựng lại đoạn bị ảnh hưởng; lỗi nhỏ ghi "Lỗi nhỏ chấp nhận" + BAI-HOC.
 5. Không chạy subagent ngoài Q27 chính thức (một lần, 1080p) và Q31 bản cuối.
@@ -28,9 +28,16 @@
 - `scripts/ll/heroes_par.sh`: dựng cảnh đinh song song (khoá pid, `--resume`), chạy tách rời.
 - `scripts/ll/asr.py`: bộ phân tích số sửa (thứ tự sau tên tháng, "and a half", không ghép số sau năm).
 
+## Bổ sung phiên M "Nhà máy dữ liệu" (11/10/2026) — áp từ tập 9, KHÔNG thêm cổng
+- Luật: `CHUAN-KENH-LL.md` §14 (7 bước: Việc 0 hồ sơ cầu bắt buộc; G1 dòng DỰ ĐOÁN; lời trả lời ≥ 3/5 câu hỏi khán giả + 1 nhịp điểm yếu đối thủ + dải thắng; kiểm mù vai người hỏi; đóng gói theo khuôn thắng, Shorts móc câu hỏi; G3 giờ đăng; đối chiếu lượt xem thật).
+- Công cụ: `toolkit/market/` (README ở đó); test `/opt/cine/bin/python -m unittest toolkit/tests/test_market.py`.
+- Việc 0 tập 9: `market.py own --pack ll --session ll` rồi `market.py quota --session ll --plan topic <slug>`. **search.list dành phiên k2 tới hết 12/10** (`toolkit/market/quota-policy.json`); hồ sơ cầu tập 9 chạy từ 13/10 (giờ Thái Bình Dương), khoảng 630 đơn vị/đề tài (3 + 3 câu).
+- Tập 9: thêm vào `toolkit/market/packs/ll.json` cả `topics.<slug>` (title + 2–6 câu hỏi khán giả, `"episode": "ep09"`) và `own.episodes.ep09` trước khi chạy.
+- `reports/m3/KHAN-GIA-SO.md`: ảnh chụp đầu tiên 11/10 (tập 1, 6, 7, 8). **Tập 2–5 không phát hành** (chủ dự án 11/10), loại khỏi hiệu chuẩn; Spearman chỉ áp khi ≥ 3 tập có ≥ 100 lượt xem 7 ngày.
+
 ## Phiên sau đọc (≤ 8 tệp)
 1. `reports/m3/BAI-HOC-LL.md`
-2. `reports/m3/CHUAN-KENH-LL.md` (§2, §10–13)
+2. `reports/m3/CHUAN-KENH-LL.md` (§2, §10–14; §14 = dữ liệu thị trường, hồ sơ cầu tập 9 ở `reports/m3/topics/<slug>.md`)
 3. `reports/m3/ep08/BAN-GIAO-P.md` (tệp này)
 4. `reports/m3/ep09/PLAN.md`
 5. `reports/m3/ep08/episode.yaml` (mẫu đặc tả: `heroes` có `opt`, J-cut, chú thích trên cảnh đinh)
