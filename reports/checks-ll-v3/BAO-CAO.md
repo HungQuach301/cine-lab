@@ -526,7 +526,9 @@ Có thể kết hợp A hoặc C với **đặt lại mốc**: tập 9 chấm c�
 - **cinecheck (L1, có ASR):** CINECHECK_KET_QUA
 
 ### 15.6 Bản khoá
-LOCK_KET_QUA
+- VERSION **1.9.0**, LOCK `TREE_SHA256 0b91fc5f48707e828ab5227f9924964786537878d884f2a6fcb06d1c533fd72f` (164 tệp). `checks/lock.py --verify`: KHỚP.
+- **Tự kiểm độc lập:** đoạn Python riêng (`python3 -I`, không nạp mã trong `checks/`, sắp theo từng thành phần đường dẫn đúng ALGO) ra **cùng** `0b91fc5f…`. Cùng đoạn mã đó chạy trên worktree sạch ở `7d350de` ra `208121b4…` (155 tệp), khớp LOCK 1.8.1.
+- **Bản khoá theo phương án A** của 15.4. Chủ dự án chọn B, C hoặc D thì K sửa và khoá lại.
 
 ### 15.7 Chỉ số trong ±5 % quanh ngưỡng (luật cứng)
 - Q27 API tập 8 lần 1 (−0,15) và lần 2 (+0,02) nằm trong ±SE: theo luật là SÁT NGƯỠNG (chỉ là hiệu chuẩn, không phải lần chấm chính thức).

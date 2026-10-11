@@ -1,9 +1,9 @@
 # CINE LAB — khoá luật kiểm (chỉ phiên K sửa)
-VERSION: 1.8.1
-DATE_UTC: 2026-10-09T04:27:37Z
+VERSION: 1.9.0
+DATE_UTC: 2026-10-11T14:09:06Z
 ALGO: sha256 của chuỗi các dòng '<sha256 file>  <đường dẫn tương đối>\n', sắp theo đường dẫn,
       mọi file trong checks/ trừ LOCK, __pycache__/ và *.pyc
-TREE_SHA256: 208121b48826b80a2170d5fab2e8cb9d092b37cf011de8f0da956e7d0dd98af7
+TREE_SHA256: 0b91fc5f48707e828ab5227f9924964786537878d884f2a6fcb06d1c533fd72f
 
 # FILES
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
@@ -11,7 +11,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
 a17ff4e8622a98d672dbfa53b05cc0847e5b42766e5760d46bd043ff5151b099  RULES.md
 4436b010370cb0e164e966b5fc6e97f33f3215768466a001e6f5fed1537ed160  RUN.md
 870f22f8db06167ab6be5778114479a201a668e3f050e662a7082ce3a5409757  audit.py
-bdd593e7d5acfebce22b554858b1e7d9421d517976e296c1c4d1598b6d317c8d  cinecheck/__init__.py
+317c1780e2bd9ea12bbc10d5c53f4857e324e05c9740b29476dcefb1124a16cd  cinecheck/__init__.py
 308d167d592bbbeb5c8a273b8ca2c3ca53da7ab9432e28a720e11960a5b7c083  cinecheck/audit.py
 dc4a4dc84800c162705b500f0647f3236c6a48506da93639bec126a4742daf9e  cinecheck/common.py
 2478170c8bbcaeca61a57b44a865b1ee498f0ca8ff7ddd5d91aa1de4087f5ee1  cinecheck/lockhash.py
@@ -30,7 +30,7 @@ c6f70612d2db77c4d4d3a23766e9990e4253ba567771748c280fa34b0e206f3f  cinecheck/rule
 c5169d960e2bfe635f6cb84672b578ac152dfc710a6a4352dbf16b1082c35ccc  cinecheck/rules_file.py
 654e363a42b526ceaf83f1eaa486b6ef6356202c12ce355f0122a160fd1a714b  cinecheck/rules_text.py
 3b73393332dfa86c1ae86f28621c1fdfe219f50408f247201ddbde6970f79e33  cinecheck/textdet.py
-d17355e6bb4bebd35583edd3438d8329bbe95b4a08b6fadb6b92959eb4b57250  ll/RULES-LL.md
+4e8b1342daf17bfacd0e8d92e8ed3b059208166c38c0b574c3447cdc24eb1b1a  ll/RULES-LL.md
 45683ff1b1cd2d09f321e96602f699de76505d48a583da891edf6a585f3a5d95  ll/__init__.py
 015be4c3cbff215f1080403577100b6bfd89cd7f0d5796f99096f77cc8299bd9  ll/base.py
 166eecef38b1351a4edf9da421f6ce351eeec85a6ed1b2f9c05f21cbe9169616  ll/blind/Q27-R1.txt
@@ -39,6 +39,7 @@ bdc7d809e8259cc0788f3d9ea5ed430df1664a2b06464906b7a6aafefc8132b6  ll/blind/Q27-R
 6e9fb57a0aa34fd5e35874476595e2b101f15a30249c9a5732d604e682014c27  ll/blind/Q31-R1.txt
 dfbf2bde7912b5c244876074673dad97f1efc5093eb31aff67ec54d459d9929b  ll/blind/Q31-R2.txt
 ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96  ll/blind/Q31-R3.txt
+878eeca73f44b187cd9fbef88e0b99069c8caaa95523af496034b6c6eb922fa4  ll/fixtures/asr-k190.json
 5b3936f48385d087a520f967eea4dbc416dbe9c25c7e2d2c9c0200d4dd0b6437  ll/fixtures/ep02/episode.yaml
 ed071db7c9073e9097424c1da94101f97046a89b5ea7d5e1cf1b717a2a742ce5  ll/fixtures/ep02/ll-ep02-shorts-text.txt
 6a0ac98cede010936c81996dc6ccf716778c16156eb9cca9529707f50bbc429a  ll/fixtures/ep02/ll-ep02-thumb-T1.jpg.boxes.json
@@ -105,6 +106,9 @@ a571b1aa6676124df3b55636ca6dd16e8adbb4491fd61018e9efd5198d8af58e  ll/fixtures/ep
 2301f15d028ffe9f5e698654cd0c77aed84b9b811f16ff35f4aba5a447f70cf6  ll/fixtures/ep06/vo/ll-ep06-11.mp3
 3635cba2bcf16f62ed4154a2c3697cf4d5fdf74af5c9f225809d79d0463d375f  ll/fixtures/ep06/vo/ll-ep06-12.align.json
 d5976792f259b566bbb1db48d42a1540ebfd14b76189cd77063496787ce65159  ll/fixtures/ep06/vo/ll-ep06-12.mp3
+e3db5be2d9e1428199f42fc8bc85ffadc5d06ab71aabbd553a74309bd189f727  ll/fixtures/ep07/plan-ep08-f115e8b.md
+0cf8ebeb881ef13a5a7e8a4d9d04ba1a8e25ddd9abc33ba3fd8c6ceb76c5808c  ll/fixtures/ep07/q27-api-k190-lan1.json
+ff7f6888c20fe626a5cef5a922c01df6455baeb830ea7ed6fa2d11f86149cead  ll/fixtures/ep07/q27-api-k190-lan2.json
 b459798b88a2623f33bbfe7079c14d34f8c78810f374490ee26805b850ce52bd  ll/fixtures/ep07/q27-chinh-thuc.json
 80894b97d064a29cd4c8d2910d633c94f5fb4a6f8f4361c7b61850e6c7cf4bcc  ll/fixtures/ep07/q27-nhap-lan-02.json
 0f760ec3b0626fddc049b147777c1b370035b15c7e1ca796cd7d8b3dcdb71dbd  ll/fixtures/ep07/q27-nhap-lan-03.json
@@ -130,16 +134,21 @@ fd86063fd855d99aec1fd52cc4110c331526e370a876f0638b4d0ca1efc80662  ll/fixtures/ep
 26f44eec9995b9ed121df61790540e4d3c195c3e4606ace9ef123ae6a1ec7a99  ll/fixtures/ep07/vo/ll-ep07-14.align.json
 e8dd7cc9dfb84d4c1d9ec02db7da4f5a8161f71a80e0888b761b405c8022fc83  ll/fixtures/ep07/vo/ll-ep07-15.align.json
 208df22610b5e488f216ed1ff97fd8bc119080f6d0f914e02bd2c95d2029d941  ll/fixtures/ep07/vo/ll-ep07-16.align.json
+a5698159ac1581ecb51b06a06a104e48cea2f2ef1367026b7f418c541f160290  ll/fixtures/ep08/q27-api-k190-lan1.json
+66297710dc79dfeaee2ce34aa3d754ed4672905f60cbe10cbda83e4da2c1b5fa  ll/fixtures/ep08/q27-api-k190-lan2.json
+d7aac4ebe3257cea6f66c60853f3f961f76d96936a55db9849f73efdbc895a25  ll/fixtures/ep08/q27-chinh-thuc.json
+aaf2b53697b98cc8f76218800546f7161886e5c4ee4474e476a4980eaeca4348  ll/fixtures/judge/fake_claude.py
+713be7bb039b1242e753e65e10a5e1d68a686b51939ffe6353150509a2d9fc08  ll/judge.py
 4b862ebf07ea3c831036051980e383cf967dde92f4e3030b8fce826142cdc866  ll/llcheck.py
-a28bbee2588bf16242153cd5a40a01d14e88aaca6a260b2f2cbb6b2b39d8af4e  ll/q_av.py
-edd5ed9f533e9b7368a4c1e55c2d22a0274e53370086398d571be29c64b318f3  ll/q_blind.py
+8bab058f4d25edf5229f79a02ede5016ae6bbb56074aeaa124aae4b49af1bb74  ll/q_av.py
+c25c8b062cdf2cf62c5a2b1fed5db584dc41b30214d8978e19c1c6426979d391  ll/q_blind.py
 32ec3f69349443fa778ae838d7458fe7d8e94663fcdf3358cb3fe96197a9765e  ll/q_diversity.py
 a26a4de23f8491afeb7af2111ca56138eb0b864a94a073918200e8755e9a1bc1  ll/q_overflow.py
 49c1e852b9d38a46157019c4eab35f7fa157135788b3ba17d895fea4741f938f  ll/q_rhythm.py
 b8a8832af2ca1cc32996e98fab378c5f2979277042ed7d30f4ba5899e1684e70  ll/q_rights.py
 947f7211986194015ca246712c91b7b5c1750f4cf7e668f0ee4ba9a91292d009  ll/q_setting.py
 84629da24a8ef049a3a2f79bb0fcd50a572fa9f973f8bfd4decc06c8286a77ed  ll/q_src.py
-d000ccfbd107ba45bfbb7e39d170a033cda004a60f5f8c95583dd5eeaefddf3f  ll/selftest_ll.py
+c93f7be6f87eb69abd022ade3ecdf26dbbb56b995fa10d23c2a495b777515c0d  ll/selftest_ll.py
 9bee416f5aa46de7c2b19751128a296cdf02f234298115ecfe62be8daa6fc028  lock.py
 f8b27e7109a37a8e2f61d45fa9d2a03d5e0b306ffa7e2b6701ea51cd27b4f3d0  models/README.md
 d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9  models/ch_PP-OCRv4_det_infer.onnx
