@@ -2,6 +2,9 @@
 
 **Trạng thái:** chưa mở. Tạo sớm để giữ việc rút từ G2 tập 8.
 
+## Việc 0 dữ liệu (CHUAN-KENH §14, phiên M 11/10)
+- `market.py own --pack ll --session ll` → `KHAN-GIA-SO.md`; hồ sơ cầu đề tài tập 9 (`market.py topic <slug>`, từ 13/10 khi search.list hết giữ cho k2) — bắt buộc trước G1; G1 ghi dòng DỰ ĐOÁN (`market.py predict <slug> --ep ep09`).
+
 ## Cải thiện hình
 Lý do: Q27 chính thức tập 8 TRƯỢT nhẹ (5,13 vs 5,44, chênh −0,31, SE 0,27; vượt sai số 0,04). Cả 3 người chấm nêu cùng một ý: cảnh phố đèn khí và mặt tiền thư viện được điểm cao nhất (7–9); điểm thấp nhất là thẻ số/thẻ trích dẫn phẳng, khung đang chuyển cảnh, và nội thất khối thô với dải chú thích tối dày.
 - Nội thất 3D: thêm vân và đồ vật ở tiền cảnh, ánh sáng có nguồn mạnh hơn, giảm vùng tối nửa dưới khung (dải chú thích đang làm tối thêm 1/3 dưới).

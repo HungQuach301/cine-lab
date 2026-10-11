@@ -1,0 +1,178 @@
+{
+ "_doc": "Gói kênh Last Lamplighters (toolkit/market). Ngách, câu hỏi khán giả mẫu, model ghim, trần chi, đầu ra. Đề tài mới: thêm title + 2–6 câu hỏi khán giả (cách người xem gõ tìm, không nêu phương pháp).",
+ "name": "ll",
+ "channel": "Last Lamplighters",
+ "niche": "faceless animated explainers on how a job/profession was transformed by technology, past → present → future, sourced data (BLS, archives)",
+ "region": "US",
+ "language": "en",
+ "long_min_s": 480,
+ "thresholds": {
+  "big_views": 50000,
+  "durable_views": 500000
+ },
+ "models": {
+  "classify": "claude-haiku-5-5",
+  "judge": "claude-sonnet-5-5",
+  "reviewer": "claude-opus-5-5"
+ },
+ "ai_cap_usd": 5.0,
+ "topics": {
+  "ep01-lamplighters": {
+   "title": "London Still Has 5 Lamplighters. Who Are the Last of Our Time?",
+   "questions": [
+    "which jobs will ai replace history",
+    "jobs that disappeared because of technology",
+    "london lamplighters history"
+   ],
+   "episode": "ep01"
+  },
+  "ep02-phone-operators": {
+   "title": "Automation Hurt the Phone Operators. Not the Next Generation. What About Us?",
+   "questions": [
+    "what happened to telephone switchboard operators",
+    "how automation replaced telephone operators",
+    "history of telephone operators"
+   ],
+   "episode": "ep02"
+  },
+  "ep03-bank-teller": {
+   "title": "The ATM Didn't Kill the Bank Teller. Will AI?",
+   "questions": [
+    "did atms replace bank tellers",
+    "will ai replace bank tellers",
+    "history of the atm and bank jobs"
+   ],
+   "episode": "ep03"
+  },
+  "ep04-typewriter": {
+   "title": "The Typewriter Opened a Door for Millions of Women. Who Gets the Next One?",
+   "questions": [
+    "how the typewriter changed women's work",
+    "history of secretaries and typists",
+    "how office work changed for women"
+   ],
+   "episode": "ep04"
+  },
+  "ep05-insurance": {
+   "title": "In 1966, Computers Couldn't Judge an Insurance Claim. Now Software Prices the Wreck",
+   "questions": [
+    "will ai replace insurance adjusters",
+    "how computers changed the insurance industry",
+    "how insurance claims are processed by ai"
+   ],
+   "episode": "ep05"
+  },
+  "ep06-typesetter": {
+   "title": "The Computer Replaced the Typesetter and Made the Designer. Now AI Can Draw",
+   "questions": [
+    "will ai replace graphic designers",
+    "what happened to typesetters",
+    "how computers changed graphic design"
+   ],
+   "episode": "ep06"
+  },
+  "ep07-human-computers": {
+   "title": "When Computers Were People: One Word, Three Jobs",
+   "questions": [
+    "when computers were people",
+    "history of human computers",
+    "women human computers nasa history"
+   ],
+   "episode": "ep07"
+  },
+  "ep08-translators": {
+   "title": "From Headphones to Machine Drafts: How Translators' Work Changed",
+   "questions": [
+    "will ai replace translators",
+    "how machine translation changed translators",
+    "history of interpreters and translators"
+   ],
+   "episode": "ep08"
+  },
+  "t3-drafters": {
+   "title": "(hàng đợi T3) Draftsmen and the drawing board → CAD → AI",
+   "questions": [
+    "what happened to draftsmen after cad",
+    "will ai replace drafters and cad designers",
+    "history of technical drawing before computers"
+   ]
+  },
+  "t4-apprentices": {
+   "title": "(hàng đợi T4) Apprentices and entry-level jobs → AI",
+   "questions": [
+    "is ai taking entry level jobs",
+    "why are entry level jobs disappearing",
+    "history of apprenticeships in america"
+   ]
+  },
+  "t5-writers-editors": {
+   "title": "(hàng đợi T5) Typists and manuscript typing → writers and editors with AI",
+   "questions": [
+    "will ai replace writers and editors",
+    "what happened to typists",
+    "how ai is changing copy editing jobs"
+   ]
+  }
+ },
+ "out": {
+  "profiles": "reports/m3/topics",
+  "queue": "topics/queue.md"
+ },
+ "own": {
+  "handle": "@lastlamplighters",
+  "discover": true,
+  "snapshots": "reports/m3/khan-gia/snapshots.jsonl",
+  "predictions": "reports/m3/khan-gia/predictions.json",
+  "report": "reports/m3/KHAN-GIA-SO.md",
+  "episodes": {
+   "ep01": {
+    "slug": "ep01-lamplighters",
+    "title": "London Still Has 5 Lamplighters. Who Are the Last of Our Time?",
+    "video_id": "PqS6vL7yaUk",
+    "yt_title": "History Has a Clue! Which Jobs Will AI Replace?"
+   },
+   "ep02": {
+    "slug": "ep02-phone-operators",
+    "title": "Automation Hurt the Phone Operators. Not the Next Generation. What About Us?",
+    "video_id": null,
+    "yt_title": null
+   },
+   "ep03": {
+    "slug": "ep03-bank-teller",
+    "title": "The ATM Didn't Kill the Bank Teller. Will AI?",
+    "video_id": null,
+    "yt_title": null
+   },
+   "ep04": {
+    "slug": "ep04-typewriter",
+    "title": "The Typewriter Opened a Door for Millions of Women. Who Gets the Next One?",
+    "video_id": null,
+    "yt_title": null
+   },
+   "ep05": {
+    "slug": "ep05-insurance",
+    "title": "In 1966, Computers Couldn't Judge an Insurance Claim. Now Software Prices the Wreck",
+    "video_id": null,
+    "yt_title": null
+   },
+   "ep06": {
+    "slug": "ep06-typesetter",
+    "title": "The Computer Replaced the Typesetter and Made the Designer. Now AI Can Draw",
+    "video_id": "nBY2-E9lUt8",
+    "yt_title": "Will AI Replace Graphic Designers? History Has a Clue"
+   },
+   "ep07": {
+    "slug": "ep07-human-computers",
+    "title": "When Computers Were People: One Word, Three Jobs",
+    "video_id": "Xg1nIQOQMOY",
+    "yt_title": "From Human Computers to AI: Three Eras of Work"
+   },
+   "ep08": {
+    "slug": "ep08-translators",
+    "title": "From Headphones to Machine Drafts: How Translators' Work Changed",
+    "video_id": "hm-pBARZYag",
+    "yt_title": "How Translators' Work Changed: From Paper to AI"
+   }
+  }
+ }
+}

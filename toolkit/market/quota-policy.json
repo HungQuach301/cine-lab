@@ -1,0 +1,17 @@
+{
+ "_doc": "Phân bổ quota YouTube Data API giữa các phiên (toolkit/market/quota.py). Ngày quota theo giờ Thái Bình Dương. Sửa khi chủ dự án đổi phân bổ; ghi lý do vào _log.",
+ "daily_units": 10000,
+ "reset_tz": "America/Los_Angeles",
+ "reserve_floor": 500,
+ "priority": ["k2", "ll", "m"],
+ "reservations": [
+  {"session": "k2", "units": 9000, "until": "2026-10-12", "why": "phiên channel-k2 đo A/D/J/G + calib (chủ dự án 11/10)"}
+ ],
+ "holds": [
+  {"session": "k2", "reserved_methods": ["search"], "until": "2026-10-12", "why": "search.list chỉ phiên k2 dùng tới hết 12/10"},
+  {"session": "m", "methods": ["videos", "channels"], "max_units_per_day": 50, "until": "2026-10-12", "why": "phiên M tối 11/10: chỉ videos.list/channels.list, ≤ 50 đơn vị"}
+ ],
+ "_log": [
+  "2026-10-11 phiên M: lập luật đầu tiên theo lệnh chủ dự án (search dành k2 tới hết 12/10; M ≤ 50 đơn vị videos/channels)."
+ ]
+}

@@ -95,6 +95,7 @@ Tập 8 chỉ phát hành **một Short (S2)** (chủ dự án, 10/10/2026). Gi�
 ## 7. Sau khi đăng (P theo dõi khi được giao)
 
 - Ngày 2 và ngày 7: ghi vào `reports/m3/ep08/KHAN-GIA.md` CTR T1/T2, thời lượng xem trung bình, giữ chân 30 s đầu, lượt xem từ S2 sang tập chính. So với tập 7.
+- Lượt xem công khai 48 giờ / 7 ngày / 28 ngày: `market.py own --pack ll --session ll` → `reports/m3/KHAN-GIA-SO.md` (CHUAN-KENH §14; tập 8 chưa có dự đoán G1 vì trước luật).
 - Kết quả Test & compare: ghi bản thắng vào AUTHORSHIP.
 - Nếu BLS cập nhật số OOH 2025–35 (73 900 → 75 400, +2 %; mọi nghề +3,5 %) trước ngày đăng: báo chủ dự án; đính chính bằng bình luận ghim và mô tả; chỉ dựng lại nếu số sai nằm trên hình.
 

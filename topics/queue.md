@@ -91,3 +91,17 @@ P chọn 2 thẻ điểm cao nhất làm tập 7–8. Chủ dự án duyệt c�
 Đo bằng log phiên, không tách được theo thẻ vì việc tra chồng lên nhau.
 - **T3–T5:** mỗi thẻ là vài lượt `grep`/LoC trên tệp đã tải cho tập 6–7. Ước dưới 10 nghìn mỗi thẻ.
 - **T1, T2:** phần tra nguồn gộp vào ngân sách tập 7–8. Báo cáo G1 mục 7.
+
+## Cầu thị trường — cột Cầu / Khoảng trống / Câu hỏi (phiên M, 11/10/2026; CHUAN-KENH §14)
+- Khối dưới do máy sinh, không sửa tay. Hồ sơ đầy đủ: `reports/m3/topics/<slug>.md`. Đề tài mới: thêm vào `toolkit/market/packs/ll.json` (title + 2–6 câu hỏi khán giả).
+- Cột Cầu **không** đổi bảng điểm N/T/S/A/K ở trên; P đọc kèm khi chọn thẻ. Trọng số TẠM.
+
+<!-- market:queue:start -->
+| Đề tài | Cầu (hiện hành / bền) | Khoảng trống | Câu hỏi khán giả (câu 1) | Dải thắng | Làm mới |
+|---|---|---|---|---|---|
+| `t3-drafters` | chưa đo | chưa đo | — | — | — |
+| `t4-apprentices` | chưa đo | chưa đo | — | — | — |
+| `t5-writers-editors` | chưa đo | chưa đo | — | — | — |
+
+Máy sinh (`market.py queue --pack ll`), tự tính, không phải chỉ số YouTube. Trọng số nhãn cầu trong quyết định đề tài: **TẠM** — chốt sau `channel-k2/CALIBRATION.md` (phiên k2, 12/10) và sau 3 tập có dự đoán (`reports/m3/KHAN-GIA-SO.md`).
+<!-- market:queue:end -->
