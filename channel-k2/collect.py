@@ -30,11 +30,12 @@ def get(ep, **p):
     key = DATA / f"api_{ep}_{hashlib.sha1(json.dumps(p, sort_keys=True).encode()).hexdigest()[:12]}.json"
     if key.exists():
         return json.loads(key.read_text())
-    for i in range(4):
+    i = waits = 0
+    while i < 4:
         try:
             r = requests.get(API + ep, params=p, timeout=60)
         except requests.RequestException as e:          # chỉ in tên lỗi, không in URL
-            print(f"{ep}: {type(e).__name__}", file=sys.stderr); time.sleep(2 ** (i + 1)); continue
+            print(f"{ep}: {type(e).__name__}", file=sys.stderr); i += 1; time.sleep(2 ** i); continue
         if r.status_code == 200:
             calls["search.list" if ep == "search" else "other"] += 1
             key.write_text(r.text)
@@ -43,7 +44,9 @@ def get(ep, **p):
             j = {"items": [], "disabled": True}; key.write_text(json.dumps(j)); return j
         if r.status_code in (400, 404):
             raise SystemExit(f"{ep}: HTTP {r.status_code}")
-        time.sleep(2 ** (i + 1))
+        if r.status_code == 429 and waits < 48:     # hết quota ngày: chờ 5 phút rồi thử lại (tối đa 4 giờ)
+            waits += 1; time.sleep(300); continue
+        i += 1; time.sleep(2 ** i)
     raise SystemExit(f"{ep}: thất bại sau 4 lần")
 
 def dur(s):
