@@ -1,0 +1,3850 @@
+# TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + vo-skel.yaml (lời khoá v3.7). Sửa ep-src.yaml, không sửa tệp này.
+id: k2g-ep01
+title: 'Steel: Who Controls the Path, and Who Sets the Toll'
+out: /var/tmp/cine-out/k2g-ep01
+vo_dir: channel-k2/k2g-ep01/vo
+voice:
+  id: cjVigY5qzO86Huf0OWal
+  model: eleven_multilingual_v2
+  stability: 0.5
+  similarity: 0.75
+music:
+- file: assets/k2/music/Half-Mystery.mp3
+  from: '00'
+  ss: 0
+  gain_db: -1
+- file: assets/k2/music/Beauty-Flow.mp3
+  from: '02'
+  ss: 0
+  xfade: 3
+  gain_db: -2
+- file: assets/k2/music/Tyrant.mp3
+  from: '07'
+  ss: 0
+  xfade: 3
+  gain_db: -3
+- file: assets/k2/music/Sincerely.mp3
+  from: '10'
+  ss: 0
+  xfade: 3
+  gain_db: -2
+- file: assets/k2/music/Half-Mystery.mp3
+  from: '12'
+  ss: 200
+  xfade: 3
+  gain_db: -1
+heroes:
+  v_open:
+    hero: k2g01/valley
+    opt:
+      tod: dusk
+      cam:
+      - u: 0
+        p:
+        - -80
+        - 46
+        - -90
+        l:
+        - 0
+        - 4
+        - 18
+        mm: 24
+      - u: 1
+        p:
+        - -56
+        - 34
+        - -70
+        l:
+        - 0
+        - 5
+        - 18
+        mm: 26
+  v_rail:
+    hero: k2g01/valley
+    opt:
+      tod: dusk
+      cam:
+      - u: 0
+        p:
+        - -64
+        - 3.2
+        - 46
+        l:
+        - -30
+        - 2
+        - 30
+        mm: 30
+      - u: 1
+        p:
+        - -46
+        - 3.6
+        - 48
+        l:
+        - -10
+        - 2.2
+        - 30
+        mm: 32
+  v_site:
+    hero: k2g01/valley
+    opt:
+      tod: dusk
+      cam:
+      - u: 0
+        p:
+        - -30
+        - 48
+        - -46
+        l:
+        - -6
+        - 0
+        - 20
+        mm: 26
+      - u: 1
+        p:
+        - -8
+        - 44
+        - -48
+        l:
+        - -2
+        - 0
+        - 20
+        mm: 28
+  v_works:
+    hero: k2g01/valley
+    opt:
+      tod: night
+      cam:
+      - u: 0
+        p:
+        - -34
+        - 6
+        - 0
+        l:
+        - -4
+        - 8
+        - 18
+        mm: 30
+      - u: 1
+        p:
+        - -26
+        - 7
+        - 2
+        l:
+        - 0
+        - 9
+        - 18
+        mm: 34
+  v_bf:
+    hero: k2g01/valley
+    opt:
+      tod: night
+      cam:
+      - u: 0
+        p:
+        - -12
+        - 3.5
+        - 3
+        l:
+        - -2
+        - 10
+        - 18
+        mm: 24
+      - u: 1
+        p:
+        - -6
+        - 3.2
+        - 5
+        l:
+        - -2
+        - 11
+        - 18
+        mm: 24
+  v_coke:
+    hero: k2g01/valley
+    opt:
+      tod: night
+      cam:
+      - u: 0
+        p:
+        - -150
+        - 5
+        - 44
+        l:
+        - -130
+        - 1.5
+        - 25
+        mm: 28
+      - u: 1
+        p:
+        - -116
+        - 6
+        - 44
+        l:
+        - -128
+        - 1.5
+        - 25
+        mm: 30
+  v_coke2:
+    hero: k2g01/valley
+    opt:
+      tod: blue
+      cam:
+      - u: 0
+        p:
+        - -176
+        - 34
+        - 70
+        l:
+        - -128
+        - 0
+        - 20
+        mm: 26
+      - u: 1
+        p:
+        - -150
+        - 38
+        - 72
+        l:
+        - -124
+        - 0
+        - 20
+        mm: 26
+  v_night:
+    hero: k2g01/valley
+    opt:
+      tod: night
+      barges: 1
+      cam:
+      - u: 0
+        p:
+        - -86
+        - 3
+        - -6
+        l:
+        - -40
+        - 1.5
+        - 8
+        mm: 28
+      - u: 1
+        p:
+        - -70
+        - 3.4
+        - -4
+        l:
+        - -30
+        - 1.5
+        - 10
+        mm: 30
+  v_end:
+    hero: k2g01/valley
+    opt:
+      tod: blue
+      cam:
+      - u: 0
+        p:
+        - 40
+        - 30
+        - -70
+        l:
+        - -6
+        - 6
+        - 18
+        mm: 24
+      - u: 1
+        p:
+        - 14
+        - 20
+        - -46
+        l:
+        - -6
+        - 8
+        - 18
+        mm: 28
+  i_hook:
+    hero: k2g01/ingots
+    opt:
+      piles:
+      - x: -16
+        z: 0
+        n: 19
+        us: 9
+        cols: 3
+        rows: 3
+        grow: -1
+      - x: 8
+        z: -2
+        n: 185
+        us: 8
+        cols: 5
+        rows: 4
+        grow: 00@2025
+      cam:
+      - u: 0
+        p:
+        - -25
+        - 5.5
+        - 12
+        l:
+        - -16
+        - 2.5
+        - 0
+        mm: 36
+      - u: 0.42
+        p:
+        - -22
+        - 7
+        - 16
+        l:
+        - -12
+        - 2.5
+        - 0
+        mm: 34
+      - u: 0.75
+        p:
+        - -12
+        - 15
+        - 30
+        l:
+        - -2
+        - 3.5
+        - -1
+        mm: 30
+      - u: 1
+        p:
+        - -10
+        - 16
+        - 32
+        l:
+        - -1
+        - 4
+        - -1
+        mm: 30
+  i_hist:
+    hero: k2g01/ingots
+    opt:
+      piles:
+      - x: -18
+        z: 0
+        n: 1
+        us: 1
+        cols: 3
+        rows: 3
+        grow: '@1900'
+      - x: -6
+        z: 0
+        n: 16
+        us: 8
+        cols: 3
+        rows: 3
+        grow: '@1944'
+      - x: 7
+        z: 0
+        n: 19
+        us: 9
+        cols: 3
+        rows: 3
+        grow: '@1950'
+      cam:
+      - u: 0
+        p:
+        - -22
+        - 8
+        - 20
+        l:
+        - -9
+        - 2
+        - 0
+        mm: 32
+      - u: 1
+        p:
+        - 2
+        - 10
+        - 24
+        l:
+        - 0
+        - 2.5
+        - 0
+        mm: 30
+  i_myth:
+    hero: k2g01/ingots
+    opt:
+      piles:
+      - x: -5
+        z: 0
+        n: 9
+        us: 9
+        cols: 3
+        rows: 3
+        grow: -1
+      - x: 5
+        z: 0
+        n: 8
+        us: 8
+        cols: 3
+        rows: 3
+        grow: -1
+      cam:
+      - u: 0
+        p:
+        - -4
+        - 4
+        - 14
+        l:
+        - 0
+        - 1
+        - 0
+        mm: 34
+      - u: 1
+        p:
+        - 4
+        - 5
+        - 13
+        l:
+        - 0
+        - 1
+        - 0
+        mm: 34
+  i_world:
+    hero: k2g01/ingots
+    opt:
+      piles:
+      - x: -16
+        z: 0
+        n: 19
+        us: 9
+        cols: 3
+        rows: 3
+        grow: -1
+      - x: 8
+        z: -2
+        n: 185
+        us: 8
+        cols: 5
+        rows: 4
+        grow: '@rose'
+      cam:
+      - u: 0
+        p:
+        - 20
+        - 8
+        - 22
+        l:
+        - -6
+        - 3
+        - 0
+        mm: 30
+      - u: 1
+        p:
+        - 6
+        - 24
+        - 38
+        l:
+        - -2
+        - 4
+        - -2
+        mm: 28
+  c_draw:
+    hero: k2g01/chain
+    opt:
+      draw:
+        ore:
+        - '@carried'
+        - '@lakes'
+        boat:
+        - '@boat'
+        - '@again'
+        rail:
+        - '@again'
+        - '@pittsburgh'
+        coke:
+        - '@coal'
+        - '@fifty-odd+0.8'
+        lime:
+        - '@limestone'
+        - '@limestone+2.0'
+      cam:
+      - u: 0
+        p:
+        - -12
+        - 20
+        - 16
+        l:
+        - -4
+        - 0
+        - -1
+        mm: 26
+      - u: 0.3
+        p:
+        - -13
+        - 12
+        - 8
+        l:
+        - -7
+        - 0
+        - -3
+        mm: 28
+      - u: 0.5
+        p:
+        - -6
+        - 15
+        - 10
+        l:
+        - -3
+        - 0
+        - -2
+        mm: 26
+      - u: 0.62
+        p:
+        - 3
+        - 9
+        - 13
+        l:
+        - 3
+        - 0
+        - 3
+        mm: 28
+      - u: 0.75
+        p:
+        - 6
+        - 7
+        - 12
+        l:
+        - 4
+        - 0
+        - 5
+        mm: 30
+      - u: 0.9
+        p:
+        - 8
+        - 8
+        - 13
+        l:
+        - 4.5
+        - 0
+        - 4.5
+        mm: 30
+      - u: 1
+        p:
+        - 2
+        - 14
+        - 16
+        l:
+        - 0
+        - 0
+        - 1
+        mm: 28
+  c_full:
+    hero: k2g01/chain
+    opt:
+      full: 1
+      cam:
+      - u: 0
+        p:
+        - -16
+        - 24
+        - 20
+        l:
+        - -3
+        - 0
+        - 0
+        mm: 26
+      - u: 1
+        p:
+        - -10
+        - 22
+        - 22
+        l:
+        - -2
+        - 0
+        - 0
+        mm: 26
+  c_own:
+    hero: k2g01/chain
+    opt:
+      full: 1
+      own: 04@bought
+      cam:
+      - u: 0
+        p:
+        - 2
+        - 10
+        - 16
+        l:
+        - 3.5
+        - 0
+        - 4
+        mm: 28
+      - u: 1
+        p:
+        - -6
+        - 18
+        - 20
+        l:
+        - -2
+        - 0
+        - 0
+        mm: 26
+  f_bess:
+    hero: k2g01/furnace
+    opt:
+      pour:
+      - '@bessemer'
+      - '@demonstrated'
+  f_men:
+    hero: k2g01/furnace
+    opt:
+      pour:
+      - 0
+      - 3
+      cam:
+      - u: 0
+        p:
+        - 12
+        - 2.2
+        - 8
+        l:
+        - 7
+        - 1.6
+        - 0
+        mm: 30
+      - u: 1
+        p:
+        - 10
+        - 2.4
+        - 9
+        l:
+        - 4
+        - 2
+        - -1
+        mm: 32
+  t_limits:
+    hero: k2g01/trade
+    opt:
+      arcs: 0
+      wall: '@limits'
+      gate: '@brussels'
+      cam:
+      - u: 0
+        p:
+        - 30
+        - 14
+        - 30
+        l:
+        - 4
+        - 3
+        - -4
+        mm: 26
+      - u: 1
+        p:
+        - 26
+        - 10
+        - 24
+        l:
+        - 8
+        - 3
+        - -4
+        mm: 28
+  t_08:
+    hero: k2g01/trade
+    opt:
+      proj: '@projects'
+      mills: '@emerging'
+      arcs: '@exported'
+      cam:
+      - u: 0
+        p:
+        - -40
+        - 30
+        - 40
+        l:
+        - -10
+        - 4
+        - -4
+        mm: 24
+      - u: 0.4
+        p:
+        - -38
+        - 14
+        - 28
+        l:
+        - -20
+        - 4
+        - 2
+        mm: 28
+      - u: 0.62
+        p:
+        - -10
+        - 30
+        - 52
+        l:
+        - -6
+        - 2
+        - 10
+        mm: 24
+      - u: 1
+        p:
+        - 30
+        - 18
+        - 36
+        l:
+        - 0
+        - 5
+        - -2
+        mm: 26
+  t_both:
+    hero: k2g01/trade
+    opt:
+      wall: -5
+      gate: -5
+      arcs: -5
+      mills: -5
+      cam:
+      - u: 0
+        p:
+        - 36
+        - 16
+        - 34
+        l:
+        - 8
+        - 3
+        - -2
+        mm: 26
+      - u: 0.5
+        p:
+        - 10
+        - 26
+        - 44
+        l:
+        - 4
+        - 3
+        - -6
+        mm: 25
+      - u: 1
+        p:
+        - -20
+        - 20
+        - 40
+        l:
+        - 0
+        - 3
+        - -6
+        mm: 26
+  p_hook:
+    hero: k2g01/port
+    opt:
+      tod: dusk
+      gate: us
+      cam:
+      - u: 0
+        p:
+        - 36
+        - 3.2
+        - 84
+        l:
+        - 20
+        - 3.5
+        - 58
+        mm: 30
+      - u: 1
+        p:
+        - 32
+        - 3.6
+        - 80
+        l:
+        - 20
+        - 4
+        - 58
+        mm: 32
+  p_dusk:
+    hero: k2g01/port
+    opt:
+      tod: dusk
+      gate: us
+      cam:
+      - u: 0
+        p:
+        - -80
+        - 30
+        - 90
+        l:
+        - -10
+        - 6
+        - 10
+        mm: 26
+      - u: 1
+        p:
+        - -60
+        - 24
+        - 86
+        l:
+        - -6
+        - 6
+        - 10
+        mm: 28
+  p_day:
+    hero: k2g01/port
+    opt:
+      tod: day
+      gate: us
+      lift: '@recorded+2'
+      cam:
+      - u: 0
+        p:
+        - -52
+        - 10
+        - 50
+        l:
+        - -38
+        - 2
+        - 26
+        mm: 30
+      - u: 0.5
+        p:
+        - 34
+        - 5
+        - 76
+        l:
+        - 20
+        - 3
+        - 58
+        mm: 30
+      - u: 1
+        p:
+        - 10
+        - 14
+        - 40
+        l:
+        - -20
+        - 14
+        - -12
+        mm: 26
+  p_eu:
+    hero: k2g01/port
+    opt:
+      tod: day
+      gate: eu
+      lift: 6
+      cam:
+      - u: 0
+        p:
+        - 48
+        - 16
+        - 96
+        l:
+        - 20
+        - 4
+        - 58
+        mm: 28
+      - u: 0.33
+        p:
+        - 30
+        - 3.5
+        - 70
+        l:
+        - 20
+        - 3
+        - 52
+        mm: 28
+      - u: 0.66
+        p:
+        - -30
+        - 6
+        - 44
+        l:
+        - -44
+        - 2
+        - 26
+        mm: 30
+      - u: 1
+        p:
+        - -4
+        - 22
+        - 40
+        l:
+        - -20
+        - 14
+        - -12
+        mm: 26
+  m_uss:
+    hero: k2g01/mill
+    opt:
+      cam:
+      - u: 0
+        p:
+        - 60
+        - 30
+        - 110
+        l:
+        - 0
+        - 6
+        - 20
+        mm: 28
+      - u: 1
+        p:
+        - 30
+        - 26
+        - 104
+        l:
+        - -6
+        - 6
+        - 20
+        mm: 30
+  m_new:
+    hero: k2g01/mill
+    opt:
+      cam:
+      - u: 0
+        p:
+        - -90
+        - 40
+        - 100
+        l:
+        - -10
+        - 8
+        - 0
+        mm: 24
+      - u: 1
+        p:
+        - -70
+        - 34
+        - 96
+        l:
+        - -6
+        - 8
+        - 0
+        mm: 26
+  m_eaf:
+    hero: k2g01/mill
+    opt:
+      inside: 1
+      cam:
+      - u: 0
+        p:
+        - 10
+        - 9
+        - 9
+        l:
+        - -8
+        - 7
+        - -4
+        mm: 26
+      - u: 1
+        p:
+        - 4
+        - 10
+        - 11
+        l:
+        - -8
+        - 8
+        - -4
+        mm: 28
+  m_slab:
+    hero: k2g01/mill
+    opt:
+      hot: 0
+      cam:
+      - u: 0
+        p:
+        - -4
+        - 6
+        - 62
+        l:
+        - -16
+        - 1
+        - 48
+        mm: 28
+      - u: 1
+        p:
+        - 6
+        - 7
+        - 62
+        l:
+        - -12
+        - 1
+        - 46
+        mm: 30
+  m_hot:
+    hero: k2g01/mill
+    opt:
+      hot: 1
+      cam:
+      - u: 0
+        p:
+        - 20
+        - 5
+        - 46
+        l:
+        - -6
+        - 1.5
+        - 36
+        mm: 28
+      - u: 1
+        p:
+        - 14
+        - 5
+        - 44
+        l:
+        - -10
+        - 1.5
+        - 36
+        mm: 30
+  m_stack:
+    hero: k2g01/mill
+    opt:
+      cam:
+      - u: 0
+        p:
+        - -8
+        - 18
+        - 34
+        l:
+        - -41
+        - 38
+        - -26
+        mm: 30
+      - u: 1
+        p:
+        - -16
+        - 22
+        - 28
+        l:
+        - -41
+        - 42
+        - -26
+        mm: 32
+  n_wide:
+    hero: k2g01/north
+    opt: {}
+  n_site:
+    hero: k2g01/north
+    opt:
+      site: 1
+      cam:
+      - u: 0
+        p:
+        - 40
+        - 14
+        - 60
+        l:
+        - 0
+        - 16
+        - -4
+        mm: 28
+      - u: 1
+        p:
+        - 24
+        - 18
+        - 54
+        l:
+        - -6
+        - 20
+        - -4
+        mm: 30
+  n_route:
+    hero: k2g01/north
+    opt:
+      cam:
+      - u: 0
+        p:
+        - 60
+        - 10
+        - 40
+        l:
+        - 22
+        - 4
+        - 6
+        mm: 28
+      - u: 1
+        p:
+        - 50
+        - 16
+        - 46
+        l:
+        - 10
+        - 10
+        - -40
+        mm: 26
+  s_ingots:
+    hero: k2g01/ingots
+    size:
+    - 1080
+    - 1920
+    opt:
+      piles:
+      - x: -16
+        z: 0
+        n: 19
+        us: 9
+        cols: 3
+        rows: 3
+        grow: -1
+      - x: 8
+        z: -2
+        n: 185
+        us: 8
+        cols: 5
+        rows: 4
+        grow: '@2025'
+      cam:
+      - u: 0
+        p:
+        - -22
+        - 6
+        - 16
+        l:
+        - -15
+        - 3
+        - 0
+        mm: 22
+      - u: 0.5
+        p:
+        - -16
+        - 10
+        - 24
+        l:
+        - -6
+        - 3
+        - 0
+        mm: 20
+      - u: 1
+        p:
+        - -6
+        - 22
+        - 34
+        l:
+        - 0
+        - 5
+        - -1
+        mm: 20
+  s_port:
+    hero: k2g01/port
+    size:
+    - 1080
+    - 1920
+    opt:
+      tod: dusk
+      gate: us
+      cam:
+      - u: 0
+        p:
+        - 30
+        - 4
+        - 84
+        l:
+        - 20
+        - 5
+        - 58
+        mm: 20
+      - u: 1
+        p:
+        - 28
+        - 5
+        - 80
+        l:
+        - 20
+        - 6
+        - 58
+        mm: 22
+  s_mill:
+    hero: k2g01/mill
+    size:
+    - 1080
+    - 1920
+    opt:
+      cam:
+      - u: 0
+        p:
+        - 16
+        - 12
+        - 64
+        l:
+        - 0
+        - 10
+        - 0
+        mm: 20
+      - u: 1
+        p:
+        - 6
+        - 14
+        - 60
+        l:
+        - -4
+        - 12
+        - 0
+        mm: 20
+sources:
+  USGS:
+    short: USGS, Iron and Steel Statistics (DS 140)
+    url: https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/ds140-iron-steel-2021.xlsx
+    read: fulltext
+    accessed: 2026-10-11
+  WSIF:
+    short: worldsteel, World Steel in Figures 2026
+    url: https://worldsteel.org/wp-content/uploads/World-Steel-in-Figures-2026.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  CARN:
+    short: Carnegie, Autobiography (1920)
+    url: https://www.gutenberg.org/cache/epub/17976/pg17976.txt
+    read: fulltext
+    accessed: 2026-10-11
+  PHMC:
+    short: Pennsylvania historical marker, Homestead Strike
+    url: https://explorepahistory.com/hmarker.php%3FmarkerId=1-A-235.html
+    read: fulltext
+    accessed: 2026-10-11
+  USSH:
+    short: U.S. Steel, company history
+    url: https://www.ussteel.com/about-us/history
+    read: fulltext
+    accessed: 2026-10-11
+  USSK:
+    short: U.S. Steel, 2024 Form 10-K (SEC)
+    url: https://www.sec.gov/Archives/edgar/data/1163302/000116330225000018/x-20241231.htm
+    read: fulltext
+    accessed: 2026-10-11
+  P9705:
+    short: Proclamation 9705 (Mar 2018)
+    url: https://www.govinfo.gov/content/pkg/FR-2018-03-15/pdf/2018-05478.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  P10896:
+    short: Proclamation 10896 (Feb 2025)
+    url: https://www.govinfo.gov/content/pkg/FR-2025-02-18/pdf/2025-02833.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  P10947:
+    short: Proclamation 10947 (Jun 2025)
+    url: https://www.govinfo.gov/content/pkg/FR-2025-06-09/pdf/2025-10524.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  P11021:
+    short: Proclamation 11021 (Apr 2026)
+    url: https://www.govinfo.gov/content/pkg/FR-2026-04-09/pdf/2026-06960.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  P11032:
+    short: Proclamation 11032 (Jun 2026)
+    url: https://www.govinfo.gov/content/pkg/FR-2026-06-04/pdf/2026-11314.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  CRS:
+    short: Congressional Research Service, R48872
+    url: https://www.congress.gov/crs_external_products/R/PDF/R48872/R48872.3.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  NSC:
+    short: Nippon Steel & U.S. Steel release, 18 Jun 2025
+    url: https://www.nipponsteel.com/en/newsroom/news/2025/pdf/20250614_100.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  AP:
+    short: Associated Press, 22 Sep 2025
+    url: https://www.firstalert4.com/2025/09/22/white-house-says-it-blocked-us-steels-decision-stop-processing-steel-granite-city-plant/
+    read: fulltext
+    accessed: 2026-10-11
+  OECD:
+    short: OECD Steel Outlook 2026
+    url: https://doi.org/10.1787/99ab9b0c-en
+    read: fulltext
+    accessed: 2026-10-11
+  EU1384:
+    short: Regulation (EU) 2026/1384
+    url: https://eur-lex.europa.eu/eli/reg/2026/1384/oj/eng
+    read: fulltext
+    accessed: 2026-10-11
+  CBAMD:
+    short: European Commission, CBAM definitive regime
+    url: https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/cbam-definitive-regime_en
+    read: fulltext
+    accessed: 2026-10-11
+  CBAMP:
+    short: European Commission, CBAM certificate prices
+    url: https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism/price-cbam-certificates_en
+    read: fulltext
+    accessed: 2026-10-11
+  CBAMR:
+    short: Regulation (EU) 2023/956 (CBAM)
+    url: https://eur-lex.europa.eu/eli/reg/2023/956/oj/eng
+    read: fulltext
+    accessed: 2026-10-11
+  HYB:
+    short: HYBRIT / SSAB release, 18 Aug 2021
+    url: https://group.vattenfall.com/press-and-media/pressreleases/2021/hybrit-the-worlds-first-fossil-free-steel-ready-for-delivery/
+    read: fulltext
+    accessed: 2026-10-11
+  STG:
+    short: Stegra release, 24 Jun 2026
+    url: https://mb.cision.com/Main/20623/4366881/4164862.pdf
+    read: fulltext
+    accessed: 2026-10-11
+  STG2:
+    short: Tech.eu and Finwire, 30 Sep 2026
+    url: https://tech.eu/2026/09/30/stegra-says-extra-capital-needed-for-worlds-biggest-steel-plant-appoints-former-saab-boss-as-new-ceo/
+    read: fulltext
+    accessed: 2026-10-11
+numbers:
+  us1950:
+    v: 87.8
+    text: 87.8 Mt
+    kind: actual
+    year: 1950
+    unit: Mt
+    src: USGS
+    say: eighty-eight million
+    note: USGS raw steel
+  us2025:
+    v: 81.9
+    text: 81.9 Mt
+    kind: actual
+    year: 2025
+    unit: Mt
+    src: WSIF
+    say: eighty-two million
+    note: worldsteel crude steel
+  share50:
+    v: 46.5
+    text: ≈ 46%
+    kind: actual
+    year: 1950
+    unit: '%'
+    src: USGS
+    say: almost half
+    note: 87.8 / 189
+  share25:
+    v: 4.4
+    text: ≈ 4%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: WSIF
+    say: four percent
+    note: 81.9 / 1 848.9
+  w1950:
+    v: 189
+    text: 189 Mt
+    kind: actual
+    year: 1950
+    unit: Mt
+    src: USGS
+    say: one hundred eighty-nine million
+  w2025:
+    v: 1848.9
+    text: 1,849 Mt
+    kind: actual
+    year: 2025
+    unit: Mt
+    src: WSIF
+    say: one point eight billion
+  rails70:
+    v: 70
+    text: $70
+    kind: actual
+    unit: $ / ton
+    src: CARN
+    say: seventy dollars
+  acres:
+    v: 42000
+    text: 42,000 acres
+    kind: actual
+    year: 1897
+    unit: acres
+    src: CARN
+    say: forty-two thousand acres
+  us1900:
+    v: 9.24
+    text: ≈ 9 Mt
+    kind: actual
+    year: 1900
+    unit: Mt
+    src: USGS
+    say: nine million
+  us1944:
+    v: 81.3
+    text: ≈ 81 Mt
+    kind: actual
+    year: 1944
+    unit: Mt
+    src: USGS
+    say: eighty-one million
+  drop7:
+    v: -6.7
+    text: ≈ −7%
+    kind: actual
+    unit: '%'
+    src: WSIF
+    say: seven percent
+    note: 81.9 / 87.8 − 1 (USGS 1950 raw, worldsteel 2025 crude)
+  peak73:
+    v: 137
+    text: 137 Mt
+    kind: actual
+    year: 1973
+    unit: Mt
+    src: USGS
+    say: one hundred thirty-seven million
+  low82:
+    v: 67.7
+    text: 67.7 Mt
+    kind: actual
+    year: 1982
+    unit: Mt
+    src: USGS
+    say: by half
+  eaf_us:
+    v: 71.3
+    text: ≈ 71%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: WSIF
+    say: seventy-one percent
+  eaf_cn:
+    v: 10.6
+    text: ≈ 11%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: WSIF
+    say: eleven percent
+  row1950:
+    v: 101.2
+    text: ≈ 101 Mt
+    kind: actual
+    year: 1950
+    unit: Mt
+    src: USGS
+    note: 189 − 87.8 (tính của chúng tôi)
+  row2025:
+    v: 1767
+    text: ≈ 1,767 Mt
+    kind: actual
+    year: 2025
+    unit: Mt
+    src: WSIF
+    note: 1 848.9 − 81.9 (tính của chúng tôi)
+  t25:
+    v: 25
+    text: 25%
+    kind: actual
+    year: 2018
+    unit: '%'
+    src: P9705
+    say: twenty-five percent
+  t50:
+    v: 50
+    text: 50%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: P10947
+    say: fifty percent
+  util80:
+    v: 80
+    text: ≈ 80%
+    kind: actual
+    year: 2018
+    unit: '%'
+    src: P9705
+    say: eighty percent
+  util17:
+    v: 72.3
+    text: ≈ 72%
+    kind: actual
+    year: 2017
+    unit: '%'
+    src: P11021
+    say: seventy-two percent
+  util26:
+    v: 77.2
+    text: ≈ 77%
+    kind: actual
+    year: 2026
+    unit: '%'
+    src: P11021
+    say: seventy-seven percent
+  excess:
+    v: 745
+    text: 745 Mt
+    kind: projection
+    period: by 2028
+    year: 2028
+    unit: Mt
+    src: OECD
+    say: seven hundred forty-five million
+  cnexp:
+    v: 131.2
+    text: 131.2 Mt
+    kind: actual
+    year: 2025
+    unit: Mt
+    src: OECD
+    say: one hundred thirty-one million
+  subs15:
+    v: 15
+    text: ≈ 15×
+    kind: actual
+    year: 2024
+    unit: ×
+    src: OECD
+    say: fifteen times
+  quota:
+    v: 18.3
+    text: 18.3 Mt
+    kind: actual
+    year: 2026
+    unit: Mt / year
+    src: EU1384
+    say: eighteen point three million
+  eu50:
+    v: 50
+    text: 50%
+    kind: actual
+    year: 2026
+    unit: '%'
+    src: EU1384
+    say: fifty percent
+  co2bf:
+    v: 2.34
+    text: ≈ 2.3 t
+    kind: actual
+    year: 2024
+    unit: t CO₂ / t
+    src: WSIF
+    say: two point three
+  co2eaf:
+    v: 0.69
+    text: ≈ 0.7 t
+    kind: actual
+    year: 2024
+    unit: t CO₂ / t
+    src: WSIF
+    say: zero point seven
+  cbam50:
+    v: 50
+    text: 50 t
+    kind: actual
+    year: 2026
+    unit: t
+    src: CBAMD
+    say: fifty tonnes
+  cbamp:
+    v: 82.32
+    text: €82.32
+    kind: actual
+    year: 2026
+    unit: € / t CO₂
+    src: CBAMP
+    say: eighty-two euros and thirty-two cents
+  stg14:
+    v: 1.4
+    text: €1.4 bn
+    kind: actual
+    year: 2026
+    unit: € bn
+    src: STG
+    say: one point four billion
+segments:
+- id: '00'
+  part: HOOK
+  vo: 'In 1950, America made about eighty-eight million tonnes of steel — almost half the world''s. In 2025: about eighty-two million. Just about four percent. So why is steel now guarded like a weapon?'
+  fadeIn: 0
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: i_hook
+      frame0: 0
+      asof: true
+      labels:
+      - a: pile0
+        s: 1950 · U.S. 87.8 Mt
+        sub: of 189 Mt worldwide · ≈ 46%
+        at: '@eighty-eight'
+        dy: -170
+        num: us1950
+      - a: pile1
+        s: 2025 · U.S. 81.9 Mt
+        sub: of 1,849 Mt worldwide · ≈ 4%
+        at: '@four'
+        dy: -150
+        num: share25
+      cap:
+      - s: 1 bar = 10 million tonnes of steel · orange = United States
+        at: 0.4
+        src:
+        - USGS
+        - WSIF
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: 0.2
+      src_ss: 8
+      dur: 10.5
+      gain_db: -22
+      fade_ms: 900
+  - tpl: plate
+    at: '@so-0.4'
+    in:
+      type: fade
+      d: 0.6
+    p:
+      hero: p_hook
+      frame0: 0
+      title:
+        kicker: THE QUESTION
+        t: Why guard steel like a weapon?
+        at: '@guarded'
+        scale: 0.62
+    sfx:
+    - file: assets/k2/sfx/foghorn.mp3
+      at: '@so'
+      src_ss: 2
+      dur: 4
+      gain_db: -18
+      fade_ms: 600
+- id: '01'
+  part: CONTEXT
+  vo: 'This video explains how the system works. It isn''t financial or investment advice. This story has three layers. The old one: how steelmaking grew in one river valley in Pennsylvania. The recent one: how governments, from Washington to Brussels, started putting hard limits on steel imports — in Washington''s case, on national security grounds. And the new one: a price now attached to steel crossing one major border — the price of its carbon. Under all three, our read is that one mechanism is at work: control of the path from raw material to market — and, now, the tolls charged along it.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: v_open
+      frame0: 0
+      title:
+        kicker: THREE LAYERS OF POWER
+        t: STEEL
+        sub: Who controls the path, and who sets the toll
+        at: 0.3
+        out: '@three-0.3'
+      cap:
+      - s: An explainer. Not financial or investment advice.
+        at: '@isn''t'
+    sfx:
+    - file: assets/k2/sfx/blast-furnace-tap.mp3
+      at: -0.5
+      src_ss: 5
+      dur: 8
+      gain_db: -22
+      fade_ms: 900
+  - tpl: plate
+    at: '@old-0.5'
+    in: fade
+    p:
+      hero: v_open
+      frame0: 140
+      speed: 0.4
+      card:
+        type: layers
+        title: This story has three layers
+        rows:
+        - k: 1 · OLD
+          s: One river valley in Pennsylvania
+          at: '@old'
+        - k: 2 · RECENT
+          s: Hard limits on steel imports
+          at: '@recent'
+        - k: 3 · NEW
+          s: A price on carbon at one border
+          at: '@new'
+  - tpl: plate
+    at: '@recent-0.3'
+    in: fade
+    p:
+      hero: t_limits
+      frame0: 0
+      labels:
+      - a: us
+        s: Washington
+        at: '@washington'
+        dy: -120
+      - a: gate
+        s: Brussels
+        at: '@brussels'
+        dy: -110
+        c: '#3CC2B0'
+      cap:
+      - s: Governments put hard limits on steel imports
+        at: '@limits'
+      - s: 'In Washington''s case: on national security grounds'
+        at: '@national'
+    sfx:
+    - file: assets/k2/sfx/container-terminal.mp3
+      at: '@recent'
+      src_ss: 12
+      dur: 10
+      gain_db: -24
+      fade_ms: 800
+  - tpl: plate
+    at: '@and-0.3'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 0
+      cap:
+      - s: A price attached to steel crossing one major border
+        at: '@price'
+      - s: the price of its carbon
+        at: '@carbon'
+    sfx:
+    - file: assets/k2/sfx/gantry-crane.mp3
+      at: '@and'
+      src_ss: 4
+      dur: 7
+      gain_db: -22
+      fade_ms: 700
+  - tpl: plate
+    at: '@under-0.4'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 300
+      speed: 0.4
+      card:
+        type: path
+        kicker: OUR READ
+        title: One mechanism under all three
+        nodes:
+        - s: Raw material
+          at: '@raw'
+        - s: Furnace
+          at: '@material'
+        - s: Rail and port
+          at: '@material+0.3'
+        - s: Border
+          at: '@market-0.3'
+        - s: Market
+          at: '@market'
+        tolls:
+        - i: 3
+          s: toll
+          at: '@tolls'
+          below: 1
+        q:
+        - s: Control of the path, and the tolls charged along it
+          at: '@tolls'
+          px: 44
+- id: '02'
+  part: LAYER1
+  vo: 'Layer one. Near Pittsburgh, the early 1870s. Andrew Carnegie was a Scottish immigrant who had risen through a telegraph office and the Pennsylvania Railroad. In England, he later wrote, he had seen the Bessemer process for making steel demonstrated. Around 1872, Carnegie recalled, he and his partners decided to build. In his autobiography, Carnegie writes that the answer came to him in bed one Sunday morning: a site called Braddock''s, "between the Pennsylvania, the Baltimore and Ohio, and the river." Our read: two railroads and a river — three ways in, three ways out. He built there, and named the works after his friend Edgar Thomson, president of the Pennsylvania Railroad. When the Edgar Thomson works began, Carnegie recalled, steel rails sold for about seventy dollars a ton.'
+  shots:
+  - tpl: plate
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    p:
+      hero: v_rail
+      frame0: 0
+      title:
+        kicker: LAYER 1 · THE OLD ONE
+        t: The path
+        sub: Near Pittsburgh, early 1870s
+        at: 0.4
+        out: '@andrew-0.6'
+      cap:
+      - s: 'Andrew Carnegie: a Scottish immigrant'
+        at: '@scottish'
+        src:
+        - CARN
+      - s: telegraph office → the Pennsylvania Railroad
+        at: '@telegraph'
+        src:
+        - CARN
+    sfx:
+    - file: assets/k2/sfx/train-1912.mp3
+      at: 0
+      src_ss: 10
+      dur: 11
+      gain_db: -18
+      fade_ms: 900
+  - tpl: plate
+    at: '@england-0.3'
+    in: fade
+    p:
+      hero: f_bess
+      frame0: 0
+      labels:
+      - a: converter
+        s: Bessemer converter
+        at: '@process'
+        dy: -170
+        dx: -140
+      cap:
+      - s: In England he had seen the Bessemer process demonstrated
+        at: '@bessemer'
+        src:
+        - CARN
+    sfx:
+    - file: assets/k2/sfx/forge-fire.mp3
+      at: '@england'
+      src_ss: 1
+      dur: 5.5
+      gain_db: -16
+      fade_ms: 500
+  - tpl: plate
+    at: '@around-0.3'
+    in: fade
+    p:
+      hero: v_site
+      frame0: 0
+      speed: 0.4
+      src:
+      - CARN
+      card:
+        type: num
+        kicker: CARNEGIE RECALLED
+        big: c. 1872
+        unit: he and his partners decided to build
+        at: '@1872'
+  - tpl: plate
+    at: '@autobiography-0.6'
+    in: fade
+    p:
+      hero: v_site
+      frame0: 72
+      labels:
+      - a: railA
+        s: the Pennsylvania
+        sub: railroad
+        at: '@pennsylvania#2'
+        dy: -150
+        dx: -120
+      - a: railB
+        s: the Baltimore and Ohio
+        sub: railroad
+        at: '@baltimore'
+        dy: 130
+        dx: 260
+      - a: river
+        s: the river
+        at: '@river'
+        dy: -120
+        c: '#3CC2B0'
+      cap:
+      - s: A site called Braddock's
+        at: '@braddock''s'
+        src:
+        - CARN
+      - s: “between the Pennsylvania, the Baltimore and Ohio, and the river”
+        at: '@between'
+        src:
+        - CARN
+      - s: 'Our read: three ways in, three ways out'
+        at: '@three'
+    sfx:
+    - file: assets/k2/sfx/train-1912.mp3
+      at: '@autobiography'
+      src_ss: 30
+      dur: 17
+      gain_db: -22
+      fade_ms: 1200
+  - tpl: plate
+    at: '@built-0.4'
+    in: fade
+    p:
+      hero: v_works
+      frame0: 0
+      labels:
+      - a: furnace
+        s: Edgar Thomson Works
+        sub: named for the Pennsylvania Railroad's president
+        at: '@named'
+        dy: -160
+      cap:
+      - s: Named after his friend Edgar Thomson
+        at: '@friend'
+        src:
+        - CARN
+    sfx:
+    - file: assets/k2/sfx/blast-furnace-tap.mp3
+      at: '@built'
+      src_ss: 20
+      dur: 7
+      gain_db: -18
+      fade_ms: 700
+  - tpl: plate
+    at: '@when-0.3'
+    in: fade
+    p:
+      hero: v_works
+      frame0: 150
+      speed: 0.4
+      card:
+        type: num
+        kicker: WHEN THE WORKS BEGAN
+        num: rails70
+        big: $70
+        unit: per ton of steel rails, as Carnegie recalled
+        at: '@seventy'
+- id: '03'
+  part: LAYER1
+  vo: 'This is the first piece of the mechanism. Years after those first rails, in his autobiography, he wrote down the whole chain behind a single ton of steel. One and a half tons of iron ore: mined, carried by rail about a hundred miles to the Great Lakes, then by boat for hundreds of miles, then by rail again, a hundred and fifty miles, to Pittsburgh. One and a half tons of coal, turned into coke and carried fifty-odd miles. And a ton of limestone, carried a hundred and fifty miles. Four tons of material, moved hundreds of miles, to make one ton of steel. Writing about the late 1880s and 1890s, Carnegie said steel was being sold at "three pounds for two cents." Our read: it''s geography plus logistics. Whoever controls the cheapest path from rock to rail gains an edge that everyone else has to answer.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: c_draw
+      frame0: 0
+      src:
+      - CARN
+      cap:
+      - s: The first piece of the mechanism
+        at: '@first'
+      - s: Carnegie's chain behind one ton of steel
+        at: '@chain'
+      labels:
+      - a: ore
+        s: Iron ore · 1.5 t
+        sub: mined
+        at: '@iron'
+        out: '@again'
+        dy: -120
+        dx: -60
+      - a: rail1
+        s: Rail ≈ 100 mi
+        at: '@hundred'
+        out: '@boat+1'
+        dy: 110
+        dx: -80
+        c: '#9AA7B5'
+      - a: lakes
+        s: Lake boats
+        sub: hundreds of miles
+        at: '@boat'
+        out: '@pittsburgh+1'
+        dy: -110
+      - a: rail2
+        s: Rail ≈ 150 mi
+        at: '@fifty'
+        out: '@coal'
+        dy: -110
+        dx: -200
+        c: '#9AA7B5'
+      - a: pitt
+        s: Pittsburgh
+        at: '@pittsburgh'
+        dy: -170
+        dx: -240
+        c: '#EEF1F4'
+      - a: coke
+        s: Coal → coke · 1.5 t
+        sub: ≈ 50 mi
+        at: '@coal'
+        out: '@limestone'
+        dy: 140
+        dx: 120
+        c: '#F2C14E'
+      - a: lime
+        s: Limestone · 1 t
+        sub: ≈ 150 mi
+        at: '@limestone'
+        dy: 130
+        dx: 220
+        c: '#9AA7B5'
+    sfx:
+    - file: assets/k2/sfx/mine-locomotive.mp3
+      at: '@carried'
+      src_ss: 2
+      dur: 6
+      gain_db: -20
+      fade_ms: 600
+    - file: assets/k2/sfx/ship-siren.mp3
+      at: '@boat'
+      src_ss: 0.5
+      dur: 3
+      gain_db: -22
+      fade_ms: 500
+    - file: assets/k2/sfx/train-1912.mp3
+      at: '@again'
+      src_ss: 20
+      dur: 9
+      gain_db: -22
+      fade_ms: 700
+  - tpl: plate
+    at: '@four-0.3'
+    in: fade
+    p:
+      hero: c_draw
+      frame0: 600
+      speed: 0.4
+      src:
+      - CARN
+      card:
+        type: bars
+        title: Four tons of material for one ton of steel
+        max: 1.7
+        items:
+        - label: Iron ore
+          value: 1.5
+          text: 1.5 t
+          at: '@four'
+        - label: Coal (as coke)
+          value: 1.5
+          text: 1.5 t
+          at: '@four+0.3'
+          c: '#F2C14E'
+        - label: Limestone
+          value: 1
+          text: 1 t
+          at: '@four+0.6'
+          c: '#9AA7B5'
+        - label: → Steel
+          value: 1
+          text: 1 t
+          at: '@one#3'
+          c: '#3CC2B0'
+  - tpl: plate
+    at: '@writing-0.3'
+    in: fade
+    p:
+      hero: c_draw
+      frame0: 700
+      speed: 0.4
+      src:
+      - CARN
+      card:
+        type: quote
+        kicker: LATE 1880s–1890s
+        q: three pounds for two cents
+        by: Carnegie on the price of steel, Autobiography (1920)
+        at: '@three'
+        px: 76
+  - tpl: plate
+    at: '@our-0.3'
+    in: fade
+    p:
+      hero: c_full
+      frame0: 0
+      cap:
+      - s: 'Our read: geography plus logistics'
+        at: '@geography'
+      - s: Control the cheapest path from rock to rail, and others must answer
+        at: '@whoever'
+    sfx:
+    - file: assets/k2/sfx/train-1912.mp3
+      at: '@our'
+      src_ss: 40
+      dur: 9
+      gain_db: -24
+      fade_ms: 900
+- id: '04'
+  part: LAYER1
+  vo: 'Carnegie''s firm then bought into one piece of that path. Carnegie wrote that the supply of superior coke was fixed — "the Connellsville field being defined." In 1882, he recalled, his firm bought half the stock of the Frick Coke Company, run by Henry Frick, and later most of the rest. By 1897, Carnegie wrote, that company held forty-two thousand acres of coal land, more than two-thirds of the Connellsville vein. Our read: this is what''s usually called vertical integration — owning steps of the supply chain instead of buying them from outside suppliers. In the same years, there was conflict inside the mills too. In 1892, there was a strike at the Homestead works. A Pennsylvania state historical marker records what happened next: on orders of the Carnegie Steel Company, three hundred Pinkerton agents attempted to land; strikers and citizens repulsed them; seven workers and three Pinkertons were killed. Eight thousand state militia arrived, and by November the strike was broken. Our read: power over the path came alongside power over the people who worked in the mills — and the marker records what that cost at Homestead.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: c_own
+      frame0: 0
+      labels:
+      - a: coke
+        s: Coke
+        sub: one piece of the path
+        at: '@bought'
+        dy: -150
+        c: '#F2C14E'
+  - tpl: plate
+    at: '@wrote-0.6'
+    in: fade
+    p:
+      hero: v_coke
+      frame0: 0
+      labels:
+      - a: coke
+        s: Beehive coke ovens
+        sub: Connellsville field (illustration)
+        at: '@superior'
+        dy: -180
+      cap:
+      - s: 'Superior coke: a fixed supply'
+        at: '@fixed'
+        src:
+        - CARN
+      - s: “the Connellsville field being defined”
+        at: '@connellsville'
+        src:
+        - CARN
+    sfx:
+    - file: assets/k2/sfx/pusher-furnace.mp3
+      at: '@wrote'
+      src_ss: 5
+      dur: 8
+      gain_db: -20
+      fade_ms: 700
+  - tpl: plate
+    at: '@in-0.3'
+    in: fade
+    p:
+      hero: v_coke
+      frame0: 170
+      speed: 0.4
+      src:
+      - CARN
+      card:
+        type: list
+        kicker: FRICK COKE COMPANY
+        title: Carnegie's firm buys in
+        items:
+        - s: '1882: half the stock'
+          at: '@half'
+        - s: run by Henry Frick
+          at: '@henry'
+          check: false
+        - s: 'later: most of the rest'
+          at: '@later'
+  - tpl: plate
+    at: '@by-0.3'
+    in: fade
+    p:
+      hero: v_coke2
+      frame0: 0
+      cap:
+      - big: 42,000 acres
+        s: of coal land held by the Frick Coke Company, 1897
+        at: '@forty-two'
+        num: acres
+      - big: '> two-thirds'
+        s: of the Connellsville vein, as Carnegie wrote
+        at: '@two-thirds'
+        src:
+        - CARN
+    sfx:
+    - file: assets/k2/sfx/pusher-furnace.mp3
+      at: '@by'
+      src_ss: 25
+      dur: 10
+      gain_db: -22
+      fade_ms: 800
+  - tpl: plate
+    at: '@our-0.3'
+    in: fade
+    p:
+      hero: c_own
+      frame0: 120
+      cap:
+      - s: 'Our read: vertical integration'
+        at: '@vertical'
+      - s: owning steps of the supply chain instead of buying them
+        at: '@owning'
+      labels:
+      - a: coke
+        s: owned
+        at: '@owning'
+        dy: -140
+        c: '#F2C14E'
+      - a: ore
+        s: bought
+        at: '@buying'
+        dy: -120
+        c: '#9AA7B5'
+  - tpl: plate
+    at: '@same-0.6'
+    in: fade
+    p:
+      hero: v_night
+      frame0: 0
+      cap:
+      - s: '1892: a strike at the Homestead works'
+        at: '@1892'
+    sfx:
+    - file: assets/k2/sfx/foghorn.mp3
+      at: '@same'
+      src_ss: 8
+      dur: 6
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@historical-1.0'
+    in: fade
+    p:
+      hero: v_night
+      frame0: 220
+      speed: 0.4
+      src:
+      - PHMC
+      card:
+        type: list
+        kicker: PENNSYLVANIA STATE HISTORICAL MARKER
+        title: Homestead Strike, 1892
+        items:
+        - s: On orders of the Carnegie Steel Company, 300 Pinkerton agents attempted to land
+          at: '@orders'
+          check: false
+        - s: Strikers and citizens repulsed them
+          at: '@strikers'
+          check: false
+  - tpl: plate
+    at: '@seven-0.5'
+    in: fade
+    p:
+      hero: v_night
+      frame0: 340
+      src:
+      - PHMC
+      cap:
+      - big: 7 and 3
+        s: seven workers and three Pinkertons were killed
+        at: '@seven'
+      - big: 8,000
+        s: state militia arrived; by November the strike was broken
+        at: '@eight'
+  - tpl: plate
+    at: '@our#2-0.3'
+    in: fade
+    p:
+      hero: f_men
+      frame0: 0
+      cap:
+      - s: 'Our read: power over the path came with power over the people in the mills'
+        at: '@power'
+      - s: and the marker records what that cost at Homestead
+        at: '@marker#2'
+    sfx:
+    - file: assets/k2/sfx/forge-fire.mp3
+      at: '@our#2'
+      src_ss: 4
+      dur: 9
+      gain_db: -20
+      fade_ms: 900
+- id: '05'
+  part: LAYER1
+  vo: 'In March 1901, Carnegie wrote, the banker J. P. Morgan approached him through Charles Schwab and asked whether he really wished to retire from business. Carnegie answered yes. A group led by Morgan and Elbert Gary bought Carnegie''s company and combined it with the Federal Steel Company. The result was United States Steel — "born in 1901," as the company''s history puts it — the company at the center of layer two. According to the U.S. Geological Survey, the United States made about nine million tonnes of steel in 1900. In 1944, it made about eighty-one million — roughly half of all the steel made on Earth that year. In 1950, still close to half. Our read: that''s "steel as national power" in numbers — a share. One explanation for the 1950 figure: much of the world was still rebuilding after the war — an unusual moment, not a baseline.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: v_open
+      frame0: 200
+      speed: 0.35
+      src:
+      - CARN
+      card:
+        type: timeline
+        title: March 1901
+        items:
+        - date: J. P. Morgan
+          s: the banker approaches Carnegie
+          at: '@morgan'
+        - date: via Charles Schwab
+          s: does he really wish to retire from business?
+          at: '@schwab'
+        - date: Carnegie
+          s: answers yes
+          at: '@yes'
+  - tpl: plate
+    at: '@group-0.6'
+    in: fade
+    p:
+      hero: v_works
+      frame0: 260
+      speed: 0.35
+      src:
+      - USSH
+      card:
+        type: list
+        flow: 1
+        title: '1901'
+        items:
+        - s: Carnegie's company
+          sub: bought by a group led by Morgan and Elbert Gary
+          at: '@bought'
+        - s: + Federal Steel Company
+          at: '@federal'
+        - s: = United States Steel
+          sub: “born in 1901”, as the company puts it
+          at: '@united'
+          c: '#3CC2B0'
+  - tpl: plate
+    at: '@according-0.3'
+    in: fade
+    p:
+      hero: i_hist
+      frame0: 0
+      labels:
+      - a: pile0
+        s: 1900 · U.S. ≈ 9 Mt
+        at: '@1900'
+        dy: -130
+        num: us1900
+      - a: pile1
+        s: 1944 · U.S. ≈ 81 Mt
+        sub: ≈ half of world steel
+        at: '@1944'
+        dy: -200
+        num: us1944
+      - a: pile2
+        s: '1950'
+        sub: still close to half
+        at: '@1950'
+        dy: -150
+      cap:
+      - s: 1 bar = 10 million tonnes · orange = United States
+        at: 0.3
+      - s: 'Our read: “steel as national power” in numbers is a share'
+        at: '@read'
+      - s: '1950: much of the world was still rebuilding after the war'
+        at: '@much'
+      - s: an unusual moment, not a baseline
+        at: '@unusual'
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: '@according'
+      src_ss: 20
+      dur: 12
+      gain_db: -24
+      fade_ms: 1000
+- id: '06'
+  part: MYTH
+  vo: 'You''ll often hear that the American steel industry is dying, or already gone. Let''s put that next to the record. The U.S. Geological Survey''s long series and the World Steel Association''s latest figures put American output at about eighty-eight million tonnes in 1950, and about eighty-two million in 2025. By our calculation, a drop of about seven percent. On tonnage, the record says something narrower than "dying." But the line in between was not flat. American production peaked at about one hundred thirty-seven million tonnes in 1973, then fell by half by 1982. The OECD''s history describes the worldwide backdrop: optimistic forecasts drew investment into new mills around the world, and then the first oil shock hit. The record we cite doesn''t say how much of America''s drop that backdrop explains. Today''s industry runs differently: in 2025, about seventy-one percent of U.S. steel came from electric arc furnaces, which can run largely on scrap. In China, about eleven percent. That difference matters later, because melting scrap releases far less carbon. Meanwhile, world production rose from one hundred eighty-nine million tonnes in 1950 to more than one point eight billion in 2025 — almost ten times as much. So America''s share shrank from almost half to about four percent. By our calculation, most of that change comes from the rest of the world making far more, not from America making less.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: i_myth
+      frame0: 0
+      speed: 0.4
+      card:
+        type: split
+        kicker: MYTH VS. RECORD
+        left:
+          tag: YOU'LL OFTEN HEAR
+          title: “The American steel industry is dying, or already gone”
+          at: '@hear'
+        right:
+          tag: THE RECORD
+          title: USGS and worldsteel
+          at: '@record'
+          c: '#3CC2B0'
+          lines:
+          - s: '1950: 87.8 Mt'
+            at: '@eighty-eight'
+            num: us1950
+          - s: '2025: 81.9 Mt'
+            at: '@eighty-two'
+            num: us2025
+  - tpl: plate
+    at: '@by-0.3'
+    in: fade
+    p:
+      hero: i_myth
+      frame0: 60
+      labels:
+      - a: pile0
+        s: '1950'
+        at: '@by'
+        dy: -110
+      - a: pile1
+        s: '2025'
+        at: '@by'
+        dy: -110
+      cap:
+      - big: ≈ −7%
+        s: by our calculation, 1950 to 2025
+        at: '@drop'
+        num: drop7
+      - s: On tonnage, the record says something narrower than “dying”
+        at: '@narrower'
+    sfx:
+    - file: assets/k2/sfx/cutting-steel.mp3
+      at: '@by'
+      src_ss: 3
+      dur: 5
+      gain_db: -24
+      fade_ms: 700
+  - tpl: plate
+    at: '@but-0.3'
+    in: fade
+    p:
+      hero: m_new
+      frame0: 0
+      speed: 0.35
+      card:
+        type: line
+        title: U.S. steel output, million tonnes
+        xmin: 1940
+        xmax: 2032
+        ymax: 150
+        ystep: 50
+        ticks:
+        - 1950
+        - 1973
+        - 1982
+        - 2025
+        pts:
+        - x: 1950
+          num: us1950
+          value: 87.8
+          text: '87.8'
+          at: '@line'
+        - x: 1973
+          num: peak73
+          value: 137
+          text: 137 · peak
+          at: '@peaked'
+        - x: 1982
+          num: low82
+          value: 67.7
+          text: '67.7'
+          at: '@1982'
+          below: 1
+        - x: 2025
+          value: 81.9
+          text: '81.9'
+          at: '@1982+1.2'
+          num: us2025
+        notes:
+        - x: 1974
+          s: '1970s: new mills worldwide, then the first oil shock (OECD)'
+          at: '@backdrop'
+          dy: -10
+  - tpl: plate
+    at: '@optimistic-0.4'
+    in: fade
+    p:
+      hero: m_new
+      frame0: 120
+      cap:
+      - s: '1970s: optimistic forecasts drew investment into new mills worldwide'
+        at: '@optimistic'
+        src:
+        - OECD
+      - s: then the first oil shock hit
+        at: '@oil'
+        src:
+        - OECD
+      - s: 'How much of the U.S. drop that explains: not in the record we cite'
+        at: '@doesn''t'
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: '@optimistic'
+      src_ss: 30
+      dur: 11
+      gain_db: -22
+      fade_ms: 900
+  - tpl: plate
+    at: '@today''s-0.3'
+    in: fade
+    p:
+      hero: m_eaf
+      frame0: 0
+      labels:
+      - a: eaf
+        s: Electric arc furnace
+        at: '@electric'
+        dy: -200
+        dx: 160
+      cap:
+      - big: ≈ 71%
+        s: of U.S. steel came from electric arc furnaces in 2025
+        at: '@seventy-one'
+        num: eaf_us
+      - s: they can run largely on scrap
+        at: '@scrap'
+        src:
+        - CRS
+    sfx:
+    - file: assets/k2/sfx/uhp-furnace.mp3
+      at: '@today''s-0.3'
+      src_ss: 10
+      dur: 11
+      gain_db: -18
+      fade_ms: 600
+  - tpl: plate
+    at: '@china-0.5'
+    in: fade
+    p:
+      hero: m_eaf
+      frame0: 260
+      speed: 0.4
+      card:
+        type: bars
+        title: Steel made in electric arc furnaces, share, 2025
+        max: 100
+        items:
+        - label: United States
+          num: eaf_us
+          text: ≈ 71%
+          at: '@china-0.4'
+        - label: China
+          num: eaf_cn
+          text: ≈ 11%
+          at: '@eleven'
+          c: '#9AA7B5'
+        note: Melting scrap releases far less carbon (layer 3).
+        noteAt: '@melting'
+  - tpl: plate
+    at: '@meanwhile-0.3'
+    in: fade
+    p:
+      hero: i_world
+      frame0: 0
+      labels:
+      - a: pile0
+        s: 1950 · world 189 Mt
+        at: '@meanwhile'
+        dy: -130
+        num: w1950
+      - a: pile1
+        s: 2025 · world 1,849 Mt
+        sub: almost 10× (our calculation)
+        at: '@billion'
+        dy: -160
+        num: w2025
+      cap:
+      - big: ≈ 46% → ≈ 4%
+        s: the U.S. share of world steel
+        at: '@shrank'
+        num: share25
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: '@meanwhile'
+      src_ss: 45
+      dur: 12
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@most-0.5'
+    in: fade
+    p:
+      hero: i_world
+      frame0: 300
+      speed: 0.4
+      card:
+        type: bars
+        kicker: OUR CALCULATION
+        title: 'Most of the change: the rest of the world making far more'
+        max: 1900
+        items:
+        - label: U.S. 1950
+          num: us1950
+          text: 87.8 Mt
+          at: '@most'
+        - label: U.S. 2025
+          num: us2025
+          text: 81.9 Mt
+          at: '@most+0.3'
+        - label: Rest of world 1950
+          num: row1950
+          at: '@rest'
+          c: '#9AA7B5'
+        - label: Rest of world 2025
+          num: row2025
+          at: '@far'
+          c: '#9AA7B5'
+- id: '07'
+  part: LAYER2
+  vo: 'Layer two. The recent past. Facts as of October 2026. In the United States, one legal route for treating steel imports as a national security question is Section 232 of the Trade Expansion Act of 1962, under which the Commerce Secretary can find that imports "threaten to impair the national security," and the president can act on it. In March 2018, a proclamation under that law put a twenty-five percent tariff on imported steel, with Canada and Mexico exempted at first. It recorded the Commerce Secretary''s finding that steel imports, together with global excess capacity, were "weakening our internal economy," and linked the industry''s long-term viability to mills running at about eighty percent of capacity. In February 2025, a new proclamation applied it to all countries, ending earlier exemptions and alternative arrangements; the rate was doubled to fifty percent for most countries in June 2025, and restructured in April 2026. The latest change, as of October 2026, came in June 2026. The administration''s April 2026 proclamation says that, in the Commerce Secretary''s opinion, steel capacity utilization rose from about seventy-two percent in 2017 to about seventy-seven percent "at present" — that is, as of April 2026 — and it credits the tariffs. The Congressional Research Service notes that studies of the 2002 and 2018 U.S. steel tariffs reached different conclusions: some found the 2002 tariffs hurt the competitiveness and employment of American manufacturers that use steel; another suggested that foreign suppliers cut their prices in response to the 2018 tariffs, limiting the effect on American production and jobs.'
+  shots:
+  - tpl: plate
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    p:
+      hero: p_dusk
+      frame0: 0
+      asof: Facts as of October 2026
+      asofAt: '@facts'
+      title:
+        kicker: LAYER 2 · THE RECENT ONE
+        t: The rules
+        sub: Facts as of October 2026
+        at: 0.4
+        out: '@in-0.5'
+    sfx:
+    - file: assets/k2/sfx/container-terminal.mp3
+      at: 0
+      src_ss: 30
+      dur: 7
+      gain_db: -20
+      fade_ms: 900
+  - tpl: plate
+    at: '@in-0.3'
+    in: fade
+    p:
+      hero: t_both
+      frame0: 0
+      speed: 0.35
+      src:
+      - P9705
+      card:
+        type: list
+        kicker: U.S. LAW
+        title: Section 232 of the Trade Expansion Act of 1962
+        items:
+        - s: The Commerce Secretary can find that imports “threaten to impair the national security”
+          at: '@threaten'
+          check: false
+        - s: and the president can act on it
+          at: '@president'
+          check: false
+  - tpl: plate
+    at: '@march-0.4'
+    in: fade
+    p:
+      hero: p_dusk
+      frame0: 180
+      speed: 0.35
+      card:
+        type: timeline
+        title: U.S. Section 232 steel tariffs
+        items:
+        - date: Mar 2018
+          big: 25%
+          s: on imported steel; Canada and Mexico exempt at first
+          at: '@twenty-five'
+          num: t25
+  - tpl: plate
+    at: '@recorded-0.5'
+    in: fade
+    p:
+      hero: p_day
+      frame0: 0
+      cap:
+      - s: 'The 2018 finding: imports plus global excess capacity were “weakening our internal economy”'
+        at: '@weakening'
+        src:
+        - P9705
+      - big: ≈ 80%
+        s: mill capacity use linked to the industry's long-term viability
+        at: '@eighty'
+        num: util80
+    sfx:
+    - file: assets/k2/sfx/gantry-crane.mp3
+      at: '@recorded'
+      src_ss: 20
+      dur: 12
+      gain_db: -20
+      fade_ms: 800
+  - tpl: plate
+    at: '@february-0.4'
+    in: fade
+    p:
+      hero: p_dusk
+      frame0: 300
+      speed: 0.35
+      src:
+      - P9705
+      - P10896
+      - P10947
+      - P11021
+      - P11032
+      asof: as of October 2026
+      card:
+        type: timeline
+        title: U.S. Section 232 steel tariffs
+        items:
+        - date: Mar 2018
+          big: 25%
+          s: on imported steel; Canada and Mexico exempt at first
+          at: -1
+        - date: Feb 2025
+          s: applied to all countries; exemptions end
+          at: '@february'
+        - date: Jun 2025
+          big: 50%
+          s: for most countries
+          at: '@doubled'
+          num: t50
+        - date: Apr 2026
+          s: restructured
+          at: '@restructured'
+        - date: Jun 2026
+          s: latest change, as of Oct 2026
+          at: '@latest'
+  - tpl: plate
+    at: '@administration''s-0.6'
+    in: fade
+    p:
+      hero: m_new
+      frame0: 200
+      speed: 0.35
+      src:
+      - P11021
+      - P9705
+      card:
+        type: bars
+        title: U.S. steel capacity utilization, in the Commerce Secretary's opinion
+        max: 100
+        items:
+        - label: '2017'
+          num: util17
+          text: ≈ 72%
+          at: '@seventy-two'
+          c: '#9AA7B5'
+        - label: Apr 2026
+          num: util26
+          text: ≈ 77%
+          at: '@seventy-seven'
+        ref:
+          value: 80
+          label: 80% · the 2018 viability benchmark
+          at: '@seventy-seven+1.2'
+        note: The April 2026 proclamation credits the tariffs.
+        noteAt: '@credits'
+  - tpl: plate
+    at: '@congressional-0.6'
+    in: fade
+    p:
+      hero: p_day
+      frame0: 330
+      cap:
+      - s: 'Congressional Research Service: studies reached different conclusions'
+        at: '@different'
+        src:
+        - CRS
+    sfx:
+    - file: assets/k2/sfx/container-terminal.mp3
+      at: '@congressional'
+      src_ss: 40
+      dur: 9
+      gain_db: -22
+      fade_ms: 800
+  - tpl: plate
+    at: '@some-0.4'
+    in: fade
+    p:
+      hero: p_day
+      frame0: 470
+      speed: 0.35
+      src:
+      - CRS
+      card:
+        type: split
+        kicker: WHAT STUDIES FOUND (CRS SUMMARY)
+        left:
+          tag: 2002 TARIFFS · SOME STUDIES
+          title: Hurt the competitiveness and jobs of U.S. manufacturers that use steel
+          at: '@some'
+        right:
+          tag: 2018 TARIFFS · ANOTHER STUDY
+          title: Foreign suppliers cut prices, limiting the effect on U.S. production and jobs
+          at: '@another'
+          c: '#3CC2B0'
+- id: 08
+  part: LAYER2
+  vo: 'Meanwhile, look at the other side of the scale. According to the OECD''s Steel Outlook 2026, the world''s capacity to make steel hit a record in 2025 while demand shrank for a fourth year. The OECD projects the unused part to reach seven hundred forty-five million tonnes by 2028. It notes that many emerging economies have concluded they need a growing national steel industry. When output from new mills can''t be absorbed at home, the OECD adds, the steel is typically exported at low prices. Our read: that echoes the old link between steel and national strength. Separately, the OECD reports that Chinese exports of steel products hit a record one hundred thirty-one million tonnes in 2025. By our calculation, and by weight, that''s more than all the crude steel the United States produced that year — though exports and crude output are different measures. In a separate finding, the OECD reports that in 2024, subsidies relative to assets, at the median, were about fifteen times higher for Chinese steel firms than for firms in "other partner economies and OECD Member countries," in the OECD''s words. The European Union set its own limits. Since the first of July 2026, a new regulation has replaced the old steel safeguard: import quotas of about eighteen point three million tonnes a year, and a fifty percent duty above them. Our read: on both sides of the Atlantic, the question has moved from "who can make steel cheapest?" toward "who is allowed to sell it here at all?"'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: t_08
+      frame0: 0
+      cap:
+      - s: 'OECD Steel Outlook 2026: world steelmaking capacity hit a record in 2025'
+        at: '@capacity'
+        src:
+        - OECD
+      - s: while demand shrank for a fourth year
+        at: '@fourth'
+        src:
+        - OECD
+  - tpl: plate
+    at: '@projects-0.5'
+    in: fade
+    p:
+      hero: t_08
+      frame0: 300
+      speed: 0.35
+      card:
+        type: num
+        kicker: OECD PROJECTION
+        num: excess
+        big: 745 Mt
+        unit: unused global steel capacity by 2028
+        at: '@seven'
+  - tpl: plate
+    at: '@it-0.3'
+    in: fade
+    p:
+      hero: t_08
+      frame0: 440
+      labels:
+      - a: mills
+        s: New national mills
+        sub: many emerging economies
+        at: '@emerging'
+        dy: -150
+      - a: arc
+        s: Exports at low prices
+        at: '@exported'
+        dy: -120
+        dx: 120
+      cap:
+      - s: Output that can't be absorbed at home is typically exported at low prices (OECD)
+        at: '@exported'
+        src:
+        - OECD
+      - s: 'Our read: an echo of the old link between steel and national strength'
+        at: '@echoes'
+    sfx:
+    - file: assets/k2/sfx/container-terminal.mp3
+      at: '@it'
+      src_ss: 50
+      dur: 9
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@separately-0.3'
+    in: fade
+    p:
+      hero: t_08
+      frame0: 700
+      speed: 0.35
+      card:
+        type: num
+        kicker: OECD · RECORD
+        num: cnexp
+        big: 131.2 Mt
+        unit: China's exports of steel products, 2025
+        at: '@thirty-one'
+  - tpl: plate
+    at: '@by-0.3'
+    in: fade
+    p:
+      hero: t_both
+      frame0: 160
+      speed: 0.35
+      card:
+        type: bars
+        kicker: OUR CALCULATION · BY WEIGHT, 2025
+        title: Different measures, same year and unit
+        max: 150
+        items:
+        - label: 'China: exports'
+          num: cnexp
+          text: 131.2 Mt
+          at: '@by'
+        - label: 'U.S.: crude output'
+          num: us2025
+          text: 81.9 Mt
+          at: '@united'
+          c: '#9AA7B5'
+          echo: true
+        note: Exports and crude output are different measures.
+        noteAt: '@though'
+  - tpl: plate
+    at: '@finding-0.8'
+    in: fade
+    p:
+      hero: t_08
+      frame0: 820
+      speed: 0.35
+      card:
+        type: num
+        kicker: OECD FINDING · 2024 · MEDIAN
+        num: subs15
+        big: ≈ 15×
+        unit: 'subsidies relative to assets: Chinese steel firms'
+        at: '@fifteen'
+        beats:
+        - s: vs. firms in “other partner economies and OECD Member countries”, in the OECD's words
+          at: '@other'
+  - tpl: plate
+    at: '@european-0.5'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 160
+      cap:
+      - s: 'From 1 July 2026: a new EU regulation replaces the old steel safeguard'
+        at: '@regulation'
+        src:
+        - EU1384
+      labels:
+      - a: gate
+        s: EU border
+        at: '@limits'
+        dy: -150
+        c: '#3CC2B0'
+    sfx:
+    - file: assets/k2/sfx/gantry-crane.mp3
+      at: '@european'
+      src_ss: 30
+      dur: 9
+      gain_db: -22
+      fade_ms: 700
+  - tpl: plate
+    at: '@import-0.4'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 380
+      speed: 0.35
+      card:
+        type: num
+        kicker: EU, FROM 1 JULY 2026
+        num: quota
+        big: 18.3 Mt
+        unit: import quotas a year
+        at: '@eighteen'
+        accent: '#3CC2B0'
+        beats:
+        - s: and a 50% duty above them
+          at: '@duty'
+          px: 48
+          c: '#F08A4B'
+          num: eu50
+  - tpl: plate
+    at: '@atlantic-1.3'
+    in: fade
+    p:
+      hero: t_both
+      frame0: 0
+      labels:
+      - a: wall
+        s: U.S. · Section 232 tariff
+        at: '@atlantic'
+        dy: 120
+        dx: 120
+      - a: gate
+        s: EU · quotas + duty
+        at: '@atlantic+0.3'
+        dy: -130
+        c: '#3CC2B0'
+      cap:
+      - s: From “who can make steel cheapest?”
+        at: '@cheapest'
+      - s: to “who is allowed to sell it here at all?”
+        at: '@allowed'
+- id: 09
+  part: LAYER2
+  vo: 'And then the question reached the company Morgan''s group had formed. In December 2023, U.S. Steel announced it would be acquired by Japan''s Nippon Steel. On January 3, 2025, President Biden issued an order prohibiting the acquisition. President Trump then ordered a new CFIUS review, and on June 13, 2025, he issued an order allowing the acquisition, on the condition of a national security agreement. Five days later, the deal closed. As part of the deal, U.S. Steel issued the U.S. government a "golden share," the companies said. A second popular claim worth checking: that the golden share means Washington now owns U.S. Steel. The companies'' own announcement describes something narrower. The share lets the government appoint one independent director, and gives the president consent rights over specific decisions, including cutting investment commitments in the agreement, changing the name or headquarters, moving production or jobs abroad, and certain plant closures or idlings. The full agreement has not been made public. Three months later, the White House said it had used the threat of that power. U.S. Steel had said it would stop processing steel slabs at its Granite City plant in Illinois. According to the Associated Press on September 22, 2025, the White House said it intervened "with the threat of the president invoking his golden share authority." U.S. Steel reversed course, the AP reported; the company''s own reason is not in the record we cite. Our read: Carnegie''s firm once secured a key piece of the path from rock to rail. Under the terms the companies announced in June 2025, a government holds consent rights over some decisions along it.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: m_uss
+      frame0: 0
+      cap:
+      - s: 'The company Morgan''s group formed: U.S. Steel'
+        at: '@company'
+      - s: 'Dec 2023: U.S. Steel announces it will be acquired by Japan''s Nippon Steel'
+        at: '@december'
+        src:
+        - CRS
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: 0
+      src_ss: 2
+      dur: 11
+      gain_db: -22
+      fade_ms: 900
+  - tpl: plate
+    at: '@on-0.3'
+    in: fade
+    p:
+      hero: t_both
+      frame0: 700
+      speed: 0.35
+      src:
+      - CRS
+      card:
+        type: timeline
+        title: Nippon Steel and U.S. Steel
+        items:
+        - date: 3 Jan 2025
+          s: 'President Biden: order prohibiting the acquisition'
+          at: '@biden'
+        - date: '2025'
+          s: President Trump orders a new CFIUS review
+          at: '@cfius'
+        - date: 13 Jun 2025
+          s: order allowing it, on condition of a national security agreement
+          at: '@allowing'
+        - date: 18 Jun 2025
+          s: the deal closes
+          at: '@closed'
+  - tpl: plate
+    at: '@as-0.3'
+    in: fade
+    p:
+      hero: m_hot
+      frame0: 0
+      cap:
+      - s: 'As part of the deal: a “golden share” issued to the U.S. government, the companies said'
+        at: '@golden'
+        src:
+        - NSC
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: '@as'
+      src_ss: 25
+      dur: 7
+      gain_db: -20
+      fade_ms: 700
+  - tpl: plate
+    at: '@second-0.5'
+    in: fade
+    p:
+      hero: m_hot
+      frame0: 160
+      speed: 0.35
+      src:
+      - NSC
+      card:
+        type: split
+        kicker: MYTH VS. RECORD
+        left:
+          tag: A POPULAR CLAIM
+          title: “The golden share means Washington now owns U.S. Steel”
+          at: '@claim'
+        right:
+          tag: THE COMPANIES' ANNOUNCEMENT
+          title: Something narrower
+          at: '@narrower'
+          c: '#3CC2B0'
+  - tpl: plate
+    at: '@lets-0.6'
+    in: fade
+    p:
+      hero: m_uss
+      frame0: 500
+      speed: 0.35
+      src:
+      - NSC
+      - CRS
+      card:
+        type: list
+        kicker: AS THE COMPANIES DESCRIBED IT, JUNE 2025
+        title: The golden share
+        items:
+        - s: The government appoints one independent director
+          at: '@appoint'
+        - s: 'The president gets consent rights over specific decisions, including:'
+          at: '@consent'
+          check: false
+        - s: cutting investment commitments · changing the name or HQ
+          at: '@cutting'
+        - s: moving production or jobs abroad · certain plant closures or idlings
+          at: '@moving'
+        - s: The full agreement has not been made public.
+          at: '@full'
+          check: false
+          c: '#9AA7B5'
+  - tpl: plate
+    at: '@three-0.4'
+    in: fade
+    p:
+      hero: m_slab
+      frame0: 0
+      labels:
+      - a: slabs
+        s: Steel slabs
+        at: '@slabs'
+        dy: -150
+      cap:
+      - s: 'Three months later: U.S. Steel said it would stop processing slabs at Granite City, Illinois'
+        at: '@granite'
+        src:
+        - AP
+    sfx:
+    - file: assets/k2/sfx/cutting-steel.mp3
+      at: '@three'
+      src_ss: 10
+      dur: 8
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@according-0.5'
+    in: fade
+    p:
+      hero: m_slab
+      frame0: 200
+      speed: 0.35
+      src:
+      - AP
+      card:
+        type: quote
+        kicker: THE WHITE HOUSE, AS REPORTED BY THE AP, 22 SEP 2025
+        q: with the threat of the president invoking his golden share authority
+        by: White House statement quoted by the Associated Press
+        at: '@with'
+        px: 60
+  - tpl: plate
+    at: '@reversed-0.8'
+    in: fade
+    p:
+      hero: m_hot
+      frame0: 300
+      cap:
+      - s: U.S. Steel reversed course, the AP reported
+        at: '@reversed'
+        src:
+        - AP
+      - s: The company's own reason is not in the record we cite
+        at: '@company''s'
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: '@reversed-0.8'
+      src_ss: 40
+      dur: 8
+      gain_db: -20
+      fade_ms: 700
+  - tpl: plate
+    at: '@carnegie''s-0.6'
+    in: fade
+    p:
+      hero: v_coke
+      frame0: 300
+      cap:
+      - s: 'Our read: Carnegie''s firm once secured a key piece of the path'
+        at: '@secured'
+      - s: Now a government holds consent rights over some decisions along it
+        at: '@holds'
+    sfx:
+    - file: assets/k2/sfx/pusher-furnace.mp3
+      at: '@carnegie''s-0.6'
+      src_ss: 30
+      dur: 11
+      gain_db: -24
+      fade_ms: 1000
+- id: '10'
+  part: LAYER3
+  vo: 'Layer three. The new product: a price on carbon. According to the World Steel Association, making a tonne of steel the classic way — iron from a blast furnace, refined in a basic oxygen furnace — released on average about two point three tonnes of carbon dioxide, based on 2024 data. Melting scrap in an electric arc furnace released about zero point seven. Per tonne of crude steel, less than a third of the emissions. These are the World Steel Association''s averages, calculated with its own method; CBAM uses its own rules. Since January 1, 2026, the European Union has put a price on embedded carbon at its border: the Carbon Border Adjustment Mechanism, or CBAM. As of October 2026, importers bringing more than fifty tonnes of covered goods into the EU in a year, steel among them, must declare the emissions embedded in them and, once a year, surrender certificates to cover those emissions; according to the Commission, certificate sales are scheduled to begin in February 2027. The certificate price follows the EU''s carbon market. For goods imported from July to September 2026, the European Commission published it on October 5: eighty-two euros and thirty-two cents per tonne of carbon dioxide. For steel, CBAM counts the direct emissions released in making it, using each plant''s reported data or official default values. At the price for July to September 2026, each tonne of carbon dioxide counted adds about eighty-two euros to the certificate bill, before the bill is reduced for free allowances European mills still receive and for any carbon price already paid in the country of production. So how a tonne of steel was made can change what it costs to sell it in Europe. Our read: a tariff sorts steel mainly by where it comes from and what product it is. A carbon price at the border also sorts it by how it was made — plant by plant, where a plant reports its own data.'
+  shots:
+  - tpl: plate
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    p:
+      hero: m_stack
+      frame0: 0
+      title:
+        kicker: LAYER 3 · THE NEW ONE
+        t: The toll
+        sub: A price on carbon
+        at: 0.4
+        out: '@according-0.5'
+    sfx:
+    - file: assets/k2/sfx/uhp-furnace.mp3
+      at: 0
+      src_ss: 30
+      dur: 6
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@according-0.3'
+    in: fade
+    p:
+      hero: v_bf
+      frame0: 0
+      labels:
+      - a: furnace
+        s: Blast furnace → basic oxygen furnace
+        sub: the classic route
+        at: '@blast'
+        dy: -120
+        dx: 260
+      cap:
+      - big: ≈ 2.3 t CO₂
+        s: per tonne of steel, classic route, average (worldsteel, 2024 data)
+        at: '@two'
+        num: co2bf
+    sfx:
+    - file: assets/k2/sfx/blast-furnace-tap.mp3
+      at: '@according'
+      src_ss: 35
+      dur: 15
+      gain_db: -18
+      fade_ms: 900
+  - tpl: plate
+    at: '@melting-0.4'
+    in: fade
+    p:
+      hero: m_eaf
+      frame0: 120
+      cap:
+      - big: ≈ 0.7 t CO₂
+        s: melting scrap in an electric arc furnace (worldsteel, 2024 data)
+        at: '@zero'
+        num: co2eaf
+    sfx:
+    - file: assets/k2/sfx/scrap-into-eaf.mp3
+      at: '@melting-0.4'
+      src_ss: 8
+      dur: 6
+      gain_db: -18
+      fade_ms: 600
+  - tpl: plate
+    at: '@per-0.4'
+    in: fade
+    p:
+      hero: m_eaf
+      frame0: 400
+      speed: 0.35
+      card:
+        type: bars
+        title: CO₂ per tonne of crude steel, by route (worldsteel averages, 2024 data)
+        max: 2.6
+        items:
+        - label: Blast furnace + BOF
+          num: co2bf
+          text: ≈ 2.3 t
+          at: '@per'
+        - label: Scrap + electric arc
+          num: co2eaf
+          text: ≈ 0.7 t
+          at: '@per+0.4'
+          c: '#3CC2B0'
+        note: Less than a third. worldsteel's own method; CBAM uses its own rules.
+        noteAt: '@third'
+  - tpl: plate
+    at: '@since-0.3'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 0
+      asof: true
+      labels:
+      - a: gate
+        s: EU border
+        at: '@border'
+        dy: -150
+        c: '#3CC2B0'
+      cap:
+      - s: 'Since 1 Jan 2026: a price on embedded carbon at the EU border'
+        at: '@embedded'
+        src:
+        - CBAMD
+      - s: the Carbon Border Adjustment Mechanism (CBAM)
+        at: '@adjustment'
+        src:
+        - CBAMD
+    sfx:
+    - file: assets/k2/sfx/container-terminal.mp3
+      at: '@since'
+      src_ss: 70
+      dur: 10
+      gain_db: -22
+      fade_ms: 800
+  - tpl: plate
+    at: '@as-0.3'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 260
+      speed: 0.35
+      src:
+      - CBAMD
+      - CBAMR
+      asof: as of October 2026
+      card:
+        type: list
+        flow: 1
+        title: CBAM for importers
+        accent: '#3CC2B0'
+        items:
+        - s: More than 50 t of covered goods a year
+          sub: steel among them
+          at: '@fifty'
+          num: cbam50
+        - s: Declare the embedded emissions
+          at: '@declare'
+        - s: 'Once a year: surrender certificates'
+          at: '@surrender'
+        - s: Certificate sales scheduled from Feb 2027
+          sub: according to the Commission
+          at: '@sales'
+  - tpl: plate
+    at: '@follows-1.2'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 480
+      speed: 0.35
+      card:
+        type: num
+        kicker: CBAM CERTIFICATE PRICE · GOODS IMPORTED JUL–SEP 2026
+        num: cbamp
+        big: €82.32
+        unit: per tonne of CO₂
+        at: '@eighty-two'
+        beats:
+        - s: follows the EU carbon market · published by the European Commission on 5 Oct 2026
+          at: '@published'
+  - tpl: plate
+    at: '@counts-1.5'
+    in: fade
+    p:
+      hero: m_stack
+      frame0: 120
+      labels:
+      - a: stack
+        s: Direct emissions
+        at: '@direct'
+        dy: 160
+        dx: 200
+      cap:
+      - s: For steel, CBAM counts the direct emissions released in making it
+        at: '@direct'
+        src:
+        - CBAMR
+      - s: using each plant's reported data or official default values
+        at: '@plant''s'
+        src:
+        - CBAMR
+    sfx:
+    - file: assets/k2/sfx/uhp-furnace.mp3
+      at: '@counts-1.5'
+      src_ss: 45
+      dur: 9
+      gain_db: -24
+      fade_ms: 800
+  - tpl: plate
+    at: '@price#4-0.5'
+    in: fade
+    p:
+      hero: m_stack
+      frame0: 330
+      speed: 0.35
+      src:
+      - CBAMP
+      - CBAMR
+      card:
+        type: list
+        flow: 1
+        kicker: HOW THE BILL IS BUILT · NOT A REAL BILL
+        title: At the Jul–Sep 2026 price
+        items:
+        - s: Each tonne of CO₂ counted
+          at: '@each'
+        - s: adds about €82
+          sub: to the certificate bill
+          at: '@adds'
+        - s: minus free allowances
+          sub: European mills still receive
+          at: '@free'
+        - s: minus any carbon price already paid
+          sub: in the country of production
+          at: '@already'
+  - tpl: plate
+    at: '@so-0.3'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 620
+      cap:
+      - s: How a tonne was made can change what it costs to sell it in Europe
+        at: '@change'
+  - tpl: plate
+    at: '@our-0.3'
+    in: fade
+    p:
+      hero: m_stack
+      frame0: 520
+      speed: 0.35
+      card:
+        type: split
+        kicker: OUR READ
+        left:
+          tag: A TARIFF SORTS STEEL BY
+          title: where it comes from and what product it is
+          at: '@tariff'
+        right:
+          tag: A CARBON PRICE AT THE BORDER ALSO SORTS BY
+          title: 'how it was made: plant by plant, where a plant reports its own data'
+          at: '@also'
+          c: '#3CC2B0'
+- id: '11'
+  part: LAYER3
+  vo: 'Then there''s a route that skips coke entirely. In August 2021, the Swedish steelmaker SSAB announced it had delivered the world''s first steel made with iron reduced by fossil-free hydrogen instead of coal and coke: a trial delivery to the Volvo Group. You''ll hear two opposite claims: that green steel is already here, and that it''s only marketing. The record sits in between: a trial delivery is real steel, and the record shows the route has produced it; on its own, it doesn''t show an industry at scale. A company called Stegra is building a hydrogen-based steel plant in Boden, in northern Sweden. In June 2026 it closed a one point four billion euro financing round and said its project timeline was "under review." As of October 11, 2026, the most recent reports we found: on September 30, Tech.eu and Finwire reported that Stegra''s cost to complete the plant was "significantly higher than assumed in June" and that it needs more capital; Finwire reported that the timeline for green steel "remains unchanged." We won''t guess when it opens. Our read: a route built on hydrogen depends on new inputs, such as fossil-free hydrogen, so where those are produced becomes part of the path again — as coke and ore once were in Pittsburgh.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: n_wide
+      frame0: 0
+      labels:
+      - a: shaft
+        s: Hydrogen route
+        sub: illustration
+        at: '@hydrogen'
+        dy: -60
+        dx: 300
+        c: '#3CC2B0'
+      cap:
+      - s: A route that skips coke entirely
+        at: '@skips'
+      - s: 'Aug 2021: SSAB announces the first steel from iron reduced with fossil-free hydrogen'
+        at: '@announced'
+        src:
+        - HYB
+      - s: a trial delivery to the Volvo Group
+        at: '@trial'
+        src:
+        - HYB
+    sfx:
+    - file: assets/k2/sfx/wind-turbine.mp3
+      at: 0
+      src_ss: 2
+      dur: 17
+      gain_db: -20
+      fade_ms: 1200
+  - tpl: plate
+    at: '@you''ll-0.4'
+    in: fade
+    p:
+      hero: n_wide
+      frame0: 300
+      speed: 0.35
+      card:
+        type: split
+        kicker: TWO OPPOSITE CLAIMS
+        left:
+          tag: CLAIM 1
+          title: “Green steel is already here”
+          at: '@already'
+        right:
+          tag: CLAIM 2
+          title: “It's only marketing”
+          at: '@marketing'
+          c: '#9AA7B5'
+  - tpl: plate
+    at: '@record-0.5'
+    in: fade
+    p:
+      hero: n_wide
+      frame0: 380
+      speed: 0.35
+      src:
+      - HYB
+      card:
+        type: list
+        kicker: THE RECORD
+        title: It sits in between
+        accent: '#3CC2B0'
+        items:
+        - s: 'A trial delivery is real steel: the route has produced it'
+          at: '@real'
+        - s: On its own, it doesn't show an industry at scale
+          at: '@scale'
+          check: false
+  - tpl: plate
+    at: '@company-0.6'
+    in: fade
+    p:
+      hero: n_site
+      frame0: 0
+      labels:
+      - a: site
+        s: Stegra · Boden, northern Sweden
+        sub: hydrogen-based steel plant (illustration)
+        at: '@boden'
+        dy: 120
+        dx: -260
+        c: '#3CC2B0'
+      cap:
+      - big: €1.4 bn
+        s: financing round closed in June 2026 · timeline then “under review”
+        at: '@billion'
+        num: stg14
+    sfx:
+    - file: assets/k2/sfx/gantry-crane.mp3
+      at: '@company'
+      src_ss: 45
+      dur: 14
+      gain_db: -26
+      fade_ms: 1200
+  - tpl: plate
+    at: '@as-0.4'
+    in: fade
+    p:
+      hero: n_site
+      frame0: 300
+      speed: 0.35
+      src:
+      - STG2
+      asof: true
+      card:
+        type: list
+        kicker: MOST RECENT REPORTS WE FOUND
+        title: Stegra, as of 11 Oct 2026
+        accent: '#F2C14E'
+        items:
+        - s: '30 Sep: cost to complete “significantly higher than assumed in June”; more capital needed'
+          sub: Tech.eu, Finwire
+          at: '@significantly'
+        - s: 'Finwire: the green-steel timeline “remains unchanged”'
+          at: '@remains'
+        - s: We won't guess when it opens.
+          at: '@guess'
+          check: false
+          c: '#9AA7B5'
+  - tpl: plate
+    at: '@our-0.4'
+    in: fade
+    p:
+      hero: n_route
+      frame0: 0
+      labels:
+      - a: electro
+        s: 'New input: fossil-free hydrogen'
+        sub: illustration
+        at: '@inputs'
+        dy: -170
+        c: '#3CC2B0'
+      cap:
+      - s: 'Our read: a hydrogen route depends on new inputs'
+        at: '@depends'
+      - s: where those are produced becomes part of the path again
+        at: '@becomes'
+    sfx:
+    - file: assets/k2/sfx/wind-turbine.mp3
+      at: '@our-0.4'
+      src_ss: 20
+      dur: 13
+      gain_db: -20
+      fade_ms: 1000
+- id: '12'
+  part: THREAD
+  vo: 'So here is our read of the mechanism under all three layers. In the 1880s, power in steel meant controlling the cheapest path from rock to rail: ore, coke, limestone, railroads, river. Carnegie''s firm secured a key piece of it: the coke. Since 2018, Washington — and, with its own measures, Brussels — have put hard limits on steel imports; as of October 2026, Washington treats it as a security question. Tariffs and quotas set terms for who sells steel across a border; a golden share sets terms for some decisions inside one company. A carbon price is a different tool. It doesn''t own anything. It''s a toll — and a toll changes which paths are cheapest. One question: who controls the path, and who sets the toll?'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: c_own
+      frame0: 300
+      labels:
+      - a: ore
+        s: ore
+        at: '@ore'
+        dy: -110
+      - a: coke
+        s: coke
+        at: '@coke'
+        dy: 120
+        dx: 100
+        c: '#F2C14E'
+      - a: lime
+        s: limestone
+        at: '@limestone'
+        dy: -120
+        dx: 160
+        c: '#9AA7B5'
+      - a: pitt
+        s: railroads · river
+        at: '@railroads'
+        dy: -160
+        dx: -200
+        c: '#EEF1F4'
+      cap:
+      - s: 'Our read: the mechanism under all three layers'
+        at: '@read'
+      - s: '1880s: power meant controlling the cheapest path from rock to rail'
+        at: '@controlling'
+      - s: 'Carnegie''s firm secured a key piece: the coke'
+        at: '@secured'
+    sfx:
+    - file: assets/k2/sfx/train-1912.mp3
+      at: 0
+      src_ss: 50
+      dur: 9
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@since-0.3'
+    in: fade
+    p:
+      hero: t_both
+      frame0: 400
+      cap:
+      - s: 'Since 2018: hard limits on steel imports, from Washington and, with its own measures, Brussels'
+        at: '@limits'
+      - s: As of Oct 2026, Washington treats it as a security question
+        at: '@security'
+  - tpl: plate
+    at: '@tariffs-0.3'
+    in: fade
+    p:
+      hero: m_uss
+      frame0: 120
+      cap:
+      - s: 'Tariffs and quotas: terms for who sells steel across a border'
+        at: '@quotas'
+      - s: 'A golden share: terms for some decisions inside one company'
+        at: '@golden'
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: '@tariffs'
+      src_ss: 50
+      dur: 10
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@different-1.0'
+    in: fade
+    p:
+      hero: p_eu
+      frame0: 160
+      cap:
+      - s: A carbon price doesn't own anything
+        at: '@own'
+      - s: It's a toll, and a toll changes which paths are cheapest
+        at: '@toll'
+    sfx:
+    - file: assets/k2/sfx/gantry-crane.mp3
+      at: '@different-1.0'
+      src_ss: 10
+      dur: 9
+      gain_db: -22
+      fade_ms: 800
+  - tpl: plate
+    at: '@question-0.6'
+    in: fade
+    p:
+      hero: v_open
+      frame0: 60
+      speed: 0.35
+      card:
+        type: path
+        kicker: ONE QUESTION
+        nodes:
+        - s: Rock
+          at: -1
+        - s: Furnace
+          at: -1
+        - s: Rail and port
+          at: -1
+        - s: Border
+          at: -1
+        - s: Market
+          at: -1
+        tolls:
+        - i: 3
+          s: toll
+          at: '@sets#2'
+          below: 1
+        q:
+        - s: Who controls the path?
+          at: '@controls'
+        - s: And who sets the toll?
+          at: '@sets#2'
+- id: '13'
+  part: END
+  vo: 'In 1950, America made about eighty-eight million tonnes of steel, almost half the world''s. In 2025, about eighty-two million: about four percent. So why guard it like a weapon? Our answer: because steel power was never only about tonnage. It was about share, and about control of the path. Today, more of it runs through other countries'' furnaces and other governments'' rules. A tariff, a quota and a golden share each set terms, in different ways, for how steel moves across a given border. Whether that is worth what it costs, these numbers can''t settle. But the valley at Braddock is still there. The Edgar Thomson works, the mill Carnegie named in the 1870s, was still making steel according to U.S. Steel''s annual report to the SEC for 2024, filed in January 2025 — at a company that Japan''s Nippon Steel acquired in June 2025, under terms that, as the two companies described them in June 2025, give an American president consent rights over certain decisions.'
+  tail: 6.0
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: i_hook
+      frame0: 0
+      asof: true
+      labels:
+      - a: pile0
+        s: 1950 · U.S. 87.8 Mt
+        sub: ≈ 46% of world steel
+        at: '@eighty-eight'
+        dy: -170
+        num: us1950
+      - a: pile1
+        s: 2025 · U.S. 81.9 Mt
+        sub: ≈ 4% of world steel
+        at: '@four'
+        dy: -150
+        num: share25
+      cap:
+      - s: 1 bar = 10 million tonnes of steel · orange = United States
+        at: 0.3
+        src:
+        - USGS
+        - WSIF
+    sfx:
+    - file: assets/k2/sfx/hot-rolling.mp3
+      at: 0
+      src_ss: 60
+      dur: 10
+      gain_db: -24
+      fade_ms: 900
+  - tpl: plate
+    at: '@so-0.3'
+    in: fade
+    p:
+      hero: i_hook
+      frame0: 250
+      speed: 0.35
+      card:
+        type: list
+        kicker: OUR ANSWER
+        title: Why guard it like a weapon?
+        items:
+        - s: Steel power was never only about tonnage
+          at: '@never'
+        - s: It was about share
+          at: '@share'
+        - s: and about control of the path
+          at: '@control'
+  - tpl: plate
+    at: '@today-0.4'
+    in: fade
+    p:
+      hero: t_both
+      frame0: 560
+      cap:
+      - s: More of it runs through other countries' furnaces and other governments' rules
+        at: '@runs'
+      - s: 'A tariff, a quota, a golden share: each sets terms for how steel crosses a border'
+        at: '@tariff'
+      - s: Whether that is worth what it costs, these numbers can't settle
+        at: '@whether'
+  - tpl: plate
+    at: '@but-0.4'
+    in: fade
+    p:
+      hero: v_end
+      frame0: 0
+      labels:
+      - a: furnace
+        s: Edgar Thomson Works
+        sub: Braddock, Pennsylvania
+        at: '@edgar'
+        dy: -170
+      cap:
+      - s: The valley at Braddock is still there
+        at: '@valley'
+      - s: 'Edgar Thomson Works: still making steel, per U.S. Steel''s 2024 annual report to the SEC (filed Jan 2025)'
+        at: '@according'
+        src:
+        - USSK
+      - s: Acquired by Nippon Steel in June 2025; a U.S. president holds consent rights over certain decisions, as the companies described the terms
+        at: '@acquired'
+        src:
+        - NSC
+    sfx:
+    - file: assets/k2/sfx/blast-furnace-tap.mp3
+      at: '@but'
+      src_ss: 40
+      dur: 20
+      gain_db: -22
+      fade_ms: 1500
+  - tpl: plate
+    at: '@decisions+1.2'
+    in:
+      type: fade
+      d: 1.0
+    p:
+      hero: v_end
+      frame0: 520
+      speed: 0.3
+      card:
+        type: end
+        accent: '#F08A4B'
+        lines:
+        - s: STEEL
+          px: 96
+          disp: 1
+          w: 700
+          at: '@decisions+1.4'
+        - s: Who controls the path, and who sets the toll
+          px: 44
+          c: '#B9C3CE'
+          at: '@decisions+1.8'
+          gap: 110
+        - s: Sources in the description
+          px: 40
+          at: '@decisions+2.3'
+          gap: 80
+        - s: Facts as of 11 Oct 2026
+          px: 40
+          c: '#F2C14E'
+          at: '@decisions+2.6'
+shorts:
+- id: S1
+  hook: '1950 vs. 2025: why is steel guarded like a weapon?'
+  vo: 'In 1950, America made about eighty-eight million tonnes of steel — almost half the world''s. In 2025: about eighty-two million. Just about four percent. So why is steel now guarded like a weapon? Our answer: because steel power was never only about tonnage. It was about share, and about control of the path.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: s_ingots
+      frame0: 0
+      labels:
+      - a: pile0
+        s: 1950 · U.S. 87.8 Mt
+        sub: ≈ 46% of world steel
+        at: '@eighty-eight'
+        dy: -230
+        num: us1950
+      - a: pile1
+        s: 2025 · U.S. 81.9 Mt
+        sub: ≈ 4% of world steel
+        at: '@four'
+        dy: -260
+        num: share25
+      cap:
+      - s: 1 bar = 10 Mt · orange = U.S.
+        at: 0.3
+        src:
+        - USGS
+        - WSIF
+  - tpl: plate
+    at: '@so-0.3'
+    in: fade
+    p:
+      hero: s_port
+      frame0: 0
+      cap:
+      - s: Why guard steel like a weapon?
+        at: '@so'
+  - tpl: plate
+    at: '@our-0.3'
+    in: fade
+    p:
+      hero: s_port
+      frame0: 140
+      speed: 0.35
+      card:
+        type: list
+        kicker: OUR ANSWER
+        title: Steel power was never only tonnage
+        items:
+        - s: It was about share
+          at: '@share'
+        - s: and about control of the path
+          at: '@control'
+- id: S2
+  hook: Does Washington now own U.S. Steel?
+  vo: 'A popular claim worth checking: that the golden share means Washington now owns U.S. Steel. The companies'' own announcement describes something narrower. The share lets the government appoint one independent director, and gives the president consent rights over specific decisions, including cutting investment commitments in the agreement, changing the name or headquarters, moving production or jobs abroad, and certain plant closures or idlings. The full agreement has not been made public.'
+  shots:
+  - tpl: plate
+    at: 0
+    p:
+      hero: s_mill
+      frame0: 0
+      cap:
+      - s: 'Claim: “Washington now owns U.S. Steel”'
+        at: '@claim'
+      - s: 'The companies'' announcement: something narrower'
+        at: '@narrower'
+        src:
+        - NSC
+  - tpl: plate
+    at: '@share#2-0.3'
+    in: fade
+    p:
+      hero: s_mill
+      frame0: 300
+      speed: 0.35
+      src:
+      - NSC
+      - CRS
+      card:
+        type: list
+        kicker: THE GOLDEN SHARE, JUNE 2025
+        title: As the companies described it
+        items:
+        - s: 1 independent director
+          at: '@appoint'
+        - s: 'Consent rights: investment cuts, name or HQ'
+          at: '@cutting'
+        - s: moving production or jobs abroad
+          at: '@moving'
+        - s: certain closures or idlings
+          at: '@closures'
+        - s: 'Full agreement: not public'
+          at: '@full'
+          check: false
+          c: '#9AA7B5'
