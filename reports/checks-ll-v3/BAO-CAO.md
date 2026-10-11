@@ -560,3 +560,43 @@ Mỗi lần chấm Q27 chính thức của P từ nay ≈ $0,77 (3 người), Q3
 ### 15.10 Việc đang chờ chủ dự án
 1. **Chọn phương án Q27 (15.4):** A (đang khoá, khuyến nghị), B, C hoặc D; có đặt lại mốc tập 8 trên API ở tập 9 hay không.
 2. **Duyệt bản khoá 1.9.0** và cho merge nhánh K vào `main`. Phiên P merge.
+
+## 16. Bản 1.9.1 (11/10/2026): Q27 phương án A + đặt lại mốc tập 8
+**Chủ dự án duyệt 1.9.0** (LOCK `0b91fc5f…`, người rà tính lại độc lập: KHỚP; selftest LL 208/208, cinecheck 142/142). Phán quyết Q28f, Q27 (manifest) được chấp nhận.
+
+**Chọn Q27 = phương án A + đặt lại mốc:**
+- Q27 chấm qua API `claude-sonnet-5-5`, 3 người chấm, SE giữ 0,27.
+- Từ tập 9, mỗi lần chấm chính thức chấm **kèm tập 8 bản phát hành** (`d22d7d6e…`) so với tập 1, trên cùng đường API.
+- Báo ba số: tập mới − tập 1, tập 8 − tập 1, tập mới − tập 8.
+- **Ngưỡng đạt chỉ tính trên tập mới − tập 1.**
+
+**Cần sửa mã** để chạy kèm tập 8; `RULES-LL.md` cũng nằm trong `checks/`, nên đằng nào cũng phải khoá lại → **1.9.1**. Đề bài không đổi.
+
+**Sửa (`q_blind.py`):**
+- `MOC27`: master tập 8 bản phát hành, `/var/tmp/cine-out/ref/ll-ep08-v1-master.mp4`, SHA `d22d7d6e…`. `ref-fetch` tải từ `release-ll-ep08-v1` và kiểm SHA.
+- `q27-set`: dựng thêm bộ mốc ở `<thư mục>-moc`, cùng cách lấy mẫu 30 + 30. Hạt giống là SHA tập 8, nên bộ mốc **giống hệt nhau ở mọi tập**; chỉ người chấm là chấm lại mỗi lần. Không dựng bộ mốc khi chính tập mới là tập 8.
+- `q27-run`: chấm cả bộ chính và bộ mốc (6 lần gọi API), bỏ qua bộ đã chấm.
+- `q27-score`: kiểm bộ mốc như bộ chính (hạt giống, SHA ảnh, dựng lại ảnh từ video, bản ghi `cham`) và gắn ba con số vào kết quả (`chenh`, `chenh_moc`, `hieu_moc`). Bộ mốc thiếu hoặc không hợp lệ → TRƯỢT. Chênh của tập 8 không có ngưỡng.
+
+**Selftest LL: 214/214** (thêm 6 ca):
+- mốc hợp lệ;
+- thiếu mốc → lỗi;
+- mốc dựng từ video khác → lỗi;
+- kèm mốc, ngưỡng vẫn trên tập mới − tập 1;
+- bộ mốc lỗi → TRƯỢT dù chênh chính đạt;
+- mốc đúng SHA bản phát hành.
+
+**cinecheck:** không chạy lại. 1.9.1 không đổi mã L1, chỉ đổi chuỗi VERSION. Lần chạy 142/142 ở 15.5 là trên bản 1.9.0.
+
+**Chạy thật đầu–cuối** (tập 7 bản cuối đóng vai "tập mới"; chỉ để thử đường chạy, không phải lần chấm của P):
+
+`Q27 ĐẠT · tập mới 5.63 · tập 1 5.14 · chênh +0.49 · mốc: tập 8 5.03 · tập 1 5.02 · chênh +0.01 · tập mới − tập 8 +0.48`
+
+- Hai bộ đều qua kiểm dựng lại ảnh từ video (SHA khớp).
+- Bộ mốc có một người gọi lại 1 lần vì trả lời không đọc được.
+- Chi phí $0,7577 + $0,8434 = **$1,60**. Từ nay mỗi lần chấm Q27 chính thức tốn ≈ $1,6.
+- **Tổng API phiên K này: $5,10** / trần $10.
+
+**Bản khoá:** VERSION **1.9.1**, LOCK `TREE_SHA256 f777e0ca0a69141de99f10f87c2ad19e0f9072d7691773f4144447eca4c19f92` (164 tệp). `lock.py --verify`: KHỚP. Đoạn băm độc lập (`python3 -I`) ra cùng số.
+
+**Việc của P:** gợi ý lệnh trong `scripts/ll/qc.py` (`q27-set`/`q27-run`) không phải đổi. Báo cáo G2 tập 9 ghi cả ba con số Q27.

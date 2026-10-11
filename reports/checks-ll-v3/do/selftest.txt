@@ -3,6 +3,8 @@ Q27: 0/3 người chấm hợp lệ · chi phí $0.0010 · LỖI: R1: lỗi API:
 Q27: 0/3 người chấm hợp lệ · chi phí $0.0310 · LỖI: R1: mô hình khác claude-sonnet-5-5: ['claude-haiku-5-5']; không có claude-sonnet-5-5 trong modelUsage; R2: mô hình khác claude-sonnet-5-5: ['claude-haiku-5-5']; không có claude-sonnet-5-5 trong modelUsage; R3: mô hình khác claude-sonnet-5-5: ['claude-haiku-5-5']; không có claude-sonnet-5-5 trong modelUsage
 Q27: 0/3 người chấm hợp lệ · chi phí $0.0310 · LỖI: R1: không đọc đủ tệp đề bài nêu: thiếu 1 (F60.jpg…); R2: không đọc đủ tệp đề bài nêu: thiếu 1 (F60.jpg…); R3: không đọc đủ tệp đề bài nêu: thiếu 1 (F60.jpg…)
 Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
+Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
 Q27: 0/3 người chấm hợp lệ · chi phí $0.0610 · LỖI: R1: trả lời không đọc được (không phải JSON); R2: trả lời không đọc được (không phải JSON); R3: trả lời không đọc được (không phải JSON)
 Q27: 3/3 người chấm hợp lệ · chi phí $0.0410
 Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
@@ -209,10 +211,16 @@ Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
 ĐÚNG  API     bắt lỗi  chạy mô hình khác MODEL → không nhận trả lời
 ĐÚNG  API     bắt lỗi  người chấm không đọc đủ 60 ảnh → không nhận trả lời
 ĐÚNG  API     sạch     JSON trong rào ``` vẫn nhận
+ĐÚNG  Q27     sạch     mốc tập 8 hợp lệ (bộ giả, 3 người): tập 8 5.00 · tập 1 5.00 · chênh +0.00
+ĐÚNG  Q27     bắt lỗi  thiếu bộ mốc tập 8 → lỗi
+ĐÚNG  Q27     bắt lỗi  bộ mốc dựng từ video khác tập 8 bản phát hành → lỗi "bộ chấm thuộc bản khác"
+ĐÚNG  Q27     sạch     kèm mốc: ngưỡng vẫn trên tập mới − tập 1 (ĐẠT, sát ngưỡng) · tập mới 5.25 · tập 1 5.40 · chênh -0.15 (SE 0.27) · SÁT NGƯỠNG
+ĐÚNG  Q27     bắt lỗi  kèm mốc: bộ mốc lỗi → TRƯỢT dù chênh chính đạt
+ĐÚNG  Q27     sạch     mốc = tập 8 bản phát hành (release-ll-ep08-v1, d22d7d6e…)
 ĐÚNG  API     bắt lỗi  trả hai khối JSON (tự sửa giữa chừng) cả 2 lần gọi → không nhận, TRƯỢT có lý do
 ĐÚNG  API     sạch     trả lời không đọc được ở lần 1 → gọi lại 1 lần, ghi cả 2 lần (số lần mỗi người: [2, 1, 1])
 ĐÚNG  API     sạch     khoá không bao giờ ghi ra tệp (trả lời, bản chép, manifest)
 ĐÚNG  API     bắt lỗi  trả lời kiểu subagent cũ (model "sonnet", không qua API) → không nhận
 ĐÚNG  API     bắt lỗi  bộ chấm subagent tập 8 (không có bản ghi `cham`) → TRƯỢT "chưa chấm qua Claude API"
 
-selftest LL v3: 208/208 ca đúng kỳ vọng
+selftest LL v3: 214/214 ca đúng kỳ vọng
