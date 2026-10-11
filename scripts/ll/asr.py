@@ -16,6 +16,7 @@ import ll
 UNITS = {w: i for i, w in enumerate('zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split())}
 TENS = {w: 10 * i for i, w in enumerate('_ _ twenty thirty forty fifty sixty seventy eighty ninety'.split()) if w != '_'}
 SCALE = {'hundred': 100, 'thousand': 1e3, 'million': 1e6, 'billion': 1e9}
+ORD = {w: i + 1 for i, w in enumerate('first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth thirteenth fourteenth fifteenth sixteenth seventeenth eighteenth nineteenth'.split())}   # tập 8: "January seventh"
 
 
 def nums_of(text):
@@ -23,12 +24,17 @@ def nums_of(text):
     t = text.lower().replace('-', ' ').replace('—', ' ').replace('–', ' ')
     out = set(float(x.replace(',', '')) for x in re.findall(r'\d[\d,]*(?:\.\d+)?', t))
     W = re.findall(r"[a-z]+|\d[\d,.]*", t)
+    MON = {'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december'}
+    W = [str(ORD[w]) if w in ORD and k and W[k - 1] in MON else w for k, w in enumerate(W)]   # ngày: "january seventh" → 7 (chỉ sau tên tháng; "first, it counted…" không phải số)
+    out |= set(float(w) for w in W if w.isdigit())
     i = 0
     while i < len(W):
         if W[i] in UNITS or W[i] in TENS:
             tot, cur, j, dec = 0, 0, i, None
             while j < len(W) and (W[j] in UNITS or W[j] in TENS or W[j] in SCALE or W[j] in ('and', 'point')):
                 w = W[j]
+                if dec is None and j > i and W[j - 1] in UNITS and (w in UNITS or w in TENS): break   # tập 8: "nineteen sixty six twelve years" không ghép thành một số
+                if w == 'and' and j + 2 < len(W) and W[j + 1] == 'a' and W[j + 2] == 'half': cur += 0.5; j += 3; break   # "three and a half" = 3,5
                 if w == 'point': dec = ''; j += 1; continue
                 if dec is not None:
                     if w in UNITS: dec += str(UNITS[w]); j += 1; continue

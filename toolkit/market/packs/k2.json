@@ -1,0 +1,207 @@
+{
+ "_doc": "Gói kênh 2 (cơ chế kinh tế ngành) — chuyển từ channel-k2/current.py (Q, TITLE) và final.py (NICHE A/D/J). B dùng tập kênh 72 câu của current.py (chưa port); G có phần nhãn riêng (khung âm mưu, tầng) vẫn ở channel-k2/final.py.",
+ "name": "k2",
+ "channel": "(kênh 2, tên chờ chủ dự án)",
+ "niche": "faceless, data-driven explainers about the economic mechanisms of industries (how an industry works and makes money, supply chains, business history); no personal-finance advice",
+ "region": "US",
+ "language": "en",
+ "long_min_s": 480,
+ "thresholds": {
+  "big_views": 50000,
+  "durable_views": 500000
+ },
+ "models": {
+  "classify": "claude-haiku-5-5",
+  "judge": "claude-sonnet-5-5",
+  "reviewer": "claude-opus-5-5"
+ },
+ "ai_cap_usd": 5.0,
+ "topics": {
+  "container": {
+   "title": "The Steel Box That Rewired World Trade",
+   "questions": [
+    "how shipping containers changed the world",
+    "how does container shipping work",
+    "why is shipping so cheap",
+    "how do container ships work",
+    "how do ports work",
+    "how global supply chains work"
+   ]
+  },
+  "jet-airliner": {
+   "title": "Why Only Two Companies Can Still Build a Jet Airliner",
+   "questions": [
+    "why are there only two airplane manufacturers",
+    "why can't anyone compete with boeing and airbus",
+    "how hard is it to build a commercial airplane",
+    "how are airplanes built",
+    "why is building a new airliner so expensive",
+    "how are jet engines made"
+   ]
+  },
+  "card-networks": {
+   "title": "How Visa and Mastercard Make Money Without Lending a Cent",
+   "questions": [
+    "how do visa and mastercard make money",
+    "what happens when you swipe a credit card",
+    "who pays credit card swipe fees",
+    "how do credit card companies make money",
+    "how does a card payment work",
+    "what are interchange fees"
+   ]
+  },
+  "amazon-warehouse": {
+   "title": "How a Single Amazon Warehouse Changes Its Town",
+   "questions": [
+    "what happens when amazon builds a warehouse in your town",
+    "how amazon warehouses change towns",
+    "how amazon fulfillment centers work",
+    "is amazon good for local economies",
+    "how warehouses changed small towns",
+    "why amazon builds warehouses everywhere"
+   ]
+  },
+  "chips": {
+   "title": "Why Only a Handful of Countries Can Make Advanced Chips",
+   "questions": [
+    "why is it so hard to make semiconductors",
+    "why can only taiwan make advanced chips",
+    "how are computer chips made",
+    "why are chip factories so expensive",
+    "how does asml make chip machines",
+    "why can't america make advanced chips"
+   ]
+  },
+  "airlines": {
+   "title": "How Airlines Really Make Money (It's Not the Seats)",
+   "questions": [
+    "how do airlines make money",
+    "how airlines really make money",
+    "why airlines make money from credit cards",
+    "how do airline loyalty programs make money",
+    "why are airlines so unprofitable",
+    "how airline ticket pricing works"
+   ]
+  },
+  "dollar-general": {
+   "title": "How a Single Dollar General Changes a Rural Town",
+   "questions": [
+    "how dollar general took over rural america",
+    "why are there so many dollar general stores",
+    "how dollar stores make money",
+    "what happens when dollar general comes to town",
+    "why dollar stores are everywhere",
+    "how dollar general chooses locations"
+   ]
+  },
+  "malls": {
+   "title": "The Collapse of the American Shopping Mall",
+   "questions": [
+    "why are american malls dying",
+    "what happened to shopping malls",
+    "the death of the american mall",
+    "why malls are failing",
+    "what is replacing dead malls",
+    "how malls make money"
+   ]
+  },
+  "factory-town": {
+   "title": "How a Single Factory Holds Up a Small Town",
+   "questions": [
+    "how a factory changed a small town",
+    "what happens to a town when the factory closes",
+    "company towns in america explained",
+    "how one plant can support a whole town",
+    "why factory towns decline",
+    "how manufacturing shaped small town america"
+   ]
+  },
+  "card-rewards": {
+   "title": "Who Actually Pays for Credit Card Rewards?",
+   "questions": [
+    "who pays for credit card rewards",
+    "how do credit card rewards work",
+    "how do credit card companies afford rewards",
+    "are credit card points a scam",
+    "how credit card points make money for banks",
+    "why do credit cards give cash back"
+   ]
+  },
+  "supermarkets": {
+   "title": "How Supermarkets Really Make Money",
+   "questions": [
+    "how do supermarkets make money",
+    "how grocery stores make money",
+    "the economics of grocery stores",
+    "how supermarket margins work",
+    "why grocery stores put milk in the back",
+    "how do grocery chains compete"
+   ]
+  },
+  "retail-abroad": {
+   "title": "Why American Retailers Usually Fail Abroad",
+   "questions": [
+    "why american retailers fail abroad",
+    "why walmart failed in germany",
+    "why target failed in canada",
+    "why american companies fail in china",
+    "why us stores fail in europe",
+    "why some brands fail internationally"
+   ]
+  }
+ },
+ "niches": {
+  "A": {
+   "name": "lịch sử tiền/ngân hàng/hệ thống kinh tế",
+   "crit": "history of money, banking, central banks, currencies and economic/monetary systems, or the history of financial crises (explanatory; NOT personal-finance tips, investing or trading advice)",
+   "q": [
+    "history of the us dollar explained",
+    "how did ancient people use money",
+    "why do countries have central banks",
+    "how did the 1970s inflation happen",
+    "what was the panic of 1907",
+    "how did medieval banking work",
+    "why did the soviet economy collapse",
+    "how did the dollar replace the british pound",
+    "why did weimar germany print money",
+    "how did the bank of england start"
+   ]
+  },
+  "D": {
+   "name": "bí ẩn trên bản đồ",
+   "crit": "geography and map explainers: strange borders, enclaves, why places are where they are, empty or unusual regions, map mysteries (NOT travel vlogs or general trivia)",
+   "q": [
+    "why do borders look like this",
+    "places that are not part of any country",
+    "why do some countries have exclaves",
+    "geography mysteries explained",
+    "how enclaves and exclaves work",
+    "why is nobody allowed to visit this island",
+    "why does this river cause a border dispute",
+    "why is this region empty on the map",
+    "map facts that will surprise you",
+    "why are some cities built in deserts"
+   ]
+  },
+  "J": {
+   "name": "nhà ở & đô thị",
+   "crit": "housing and cities: housing costs, zoning, urban planning, suburbs, transit, how cities are built (explanatory; NOT real-estate investing or home-buying advice)",
+   "q": [
+    "why are starter homes disappearing",
+    "how single family zoning started",
+    "why do american cities have so many parking lots",
+    "why is it so hard to build apartments in the us",
+    "how highways destroyed american neighborhoods",
+    "why are new houses so big",
+    "why are mobile homes so cheap",
+    "how cities decide where to build",
+    "why did tokyo keep housing affordable",
+    "why do americans live in suburbs"
+   ]
+  }
+ },
+ "out": {
+  "profiles": "channel-k2/de-tai",
+  "queue": "channel-k2/HANG-DOI.md"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "top_questions": [
+  {
+   "q_en": "What did drafters do all day before CAD?",
+   "weight": "cao"
+  },
+  {
+   "q_en": "Did CAD cut drafting jobs or change them?",
+   "weight": "cao"
+  },
+  {
+   "q_en": "How long did it take to learn manual drafting?",
+   "weight": "vừa"
+  },
+  {
+   "q_en": "Will AI replace CAD designers?",
+   "weight": "vừa"
+  },
+  {
+   "q_en": "Where do former drafters work now?",
+   "weight": "thấp"
+  }
+ ],
+ "situations": [
+  {
+   "vi": "Người từng vẽ kỹ thuật tay chuyển sang CAD giữa nghề."
+  },
+  {
+   "vi": "Sinh viên kỹ thuật lo AI thay việc vẽ."
+  },
+  {
+   "vi": "Con của một người vẽ kỹ thuật nhớ bàn vẽ ở nhà."
+  }
+ ],
+ "competitor_weaknesses": [
+  {
+   "vi": "Không có số liệu việc làm theo thời gian.",
+   "evidence": "máy đọc tiêu đề/mô tả"
+  },
+  {
+   "vi": "Bỏ qua bước giấy can.",
+   "evidence": "bình luận"
+  },
+  {
+   "vi": "Nói AI thay người mà không có nguồn.",
+   "evidence": "bình luận"
+  }
+ ],
+ "requests": [
+  {
+   "vi": "Video về nghề trắc địa."
+  }
+ ],
+ "title_patterns": [
+  "How X Changed Forever When Y Arrived",
+  "The X Era: What Happened to the People Who Y",
+  "Will Z Replace X? What History Says"
+ ],
+ "keywords": [
+  "drafting history",
+  "cad replaced drafters",
+  "manual drafting"
+ ]
+}

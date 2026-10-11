@@ -3,6 +3,7 @@
 **Trạng thái:** <G1 duyệt | đang sản xuất | G2 chờ | G2 duyệt | G3>
 **Việc tiếp:** 1. … 2. …
 **Quyết định đã có (chủ dự án):** <ngày> — … (chi tiết ở AUTHORSHIP.md)
+**Việc 0 dữ liệu (CHUAN-KENH §14):** `market.py own` · hồ sơ cầu `reports/m3/topics/<slug>.md` (Làm mới ≤ 30 ngày, hoặc "chờ quota <ngày>") · dòng DỰ ĐOÁN (`market.py predict`) vào G1.
 **Trần:** token 0,5 triệu/tập · kiểm mù ~50 nghìn · đĩa trống ≥ 1,5 × mức cần
 
 **Phiên sau đọc (≤ 8 tệp):**
@@ -12,4 +13,5 @@
 4. `reports/m3/epNN/NGUON-TAPN.md`
 5. `reports/m3/epNN/PLAN.md` (tệp này)
 6. `scripts/ll/README.md`
+6b. `reports/m3/topics/<slug>.md` (hồ sơ cầu của tập)
 7. <báo cáo cổng gần nhất của tập>
