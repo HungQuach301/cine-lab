@@ -284,6 +284,19 @@ class TestOwn(Base):
         self.assertIn("KHÔNG", own.calibrate(self.pack, s, bad)["verdict"])
         self.assertIn("chưa đủ", own.calibrate(self.pack, s, {"a": {"label": "Mạnh"}})["verdict"])
 
+    def test_calibration_needs_signal_and_release(self):
+        s = (self.snaps("ep06", [(170, 129)]) + self.snaps("ep07", [(170, 10)]) + self.snaps("ep08", [(170, 5)])
+             + self.snaps("ep02", [(170, 900)]))
+        preds = {e: {"label": l} for e, l in (("ep06", "Mạnh"), ("ep07", "Yếu"), ("ep08", "Không"), ("ep02", "Mạnh"))}
+        c = own.calibrate(self.pack, s, preds)
+        self.assertIn("chưa đủ tín hiệu", c["verdict"])
+        self.assertEqual(sorted(p[0] for p in c["pts"]), ["ep06", "ep07", "ep08"])   # ep02 không phát hành bị loại; < 100 vẫn giữ làm điểm
+        s2 = s + self.snaps("ep01", [(170, 150)]) + self.snaps("ep09", [(170, 400)])
+        p2 = dict(preds, ep01={"label": "Yếu"}, ep09={"label": "Mạnh"})
+        self.assertNotIn("tín hiệu", own.calibrate(self.pack, s2, p2)["verdict"])   # 3 tập ≥ 100 → áp luật trên mọi điểm
+        md, _ = own.report_md(self.pack, s, {}, {})
+        self.assertIn("ep02", md); self.assertIn("không phát hành", md)
+
     def test_predict_needs_history(self):
         s = self.snaps("a", [(170, 100)])
         self.assertIsNone(own.predict(self.pack, s, "Mạnh")["7d"]["range"])
@@ -311,12 +324,37 @@ class TestOwn(Base):
         for e in pack["own"]["episodes"].values():
             e["video_id"] = None; e["yt_title"] = None
         pack["own"]["episodes"]["ep01"]["title"] = "Something Else"
+        pack["own"]["discover"] = True                     # gói ll tắt dò (chủ dự án 11/10); test bật để kiểm cơ chế
         market.load_pack = lambda name: pack
         self.assertEqual(market.main(["own", "--pack", "ll", "--session", "ll", "--cap", "20"]), 0)
         self.assertEqual(market.main(["own", "--pack", "ll", "--session", "ll", "--cap", "20"]), 0)
         self.assertIn("playlistItems", self.world.calls)
         self.assertIn("chưa gán tập", (self.repo / "reports/m3/KHAN-GIA-SO.md").read_text())
         self.assertEqual(own.load_snaps(pack), [])
+
+
+class TestBrief(Base):
+    def test_brief_frames_and_checks(self):
+        import brief, subprocess
+        vid = self.tmp / "v.mp4"
+        subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "testsrc=size=1920x1080:rate=24:duration=3",
+                        "-pix_fmt", "yuv420p", str(vid)], check=True)
+        claims = self.tmp / "claims.txt"; claims.write_text("1954\n")
+        old = brief.REPO; brief.REPO = self.repo; self.addCleanup(setattr, brief, "REPO", old)
+        rc = brief.main(["--ep", "ep09", "--slug", "t3-drafters", "--video", str(vid), "--at", "0.5,1.5,2.5",
+                         "--titles", "Will AI Replace Drafters? History Has a Clue|In 1954, Drafting Changed. Then What?|Who Draws the Plans Now? 73% Say",
+                         "--thumb-text", "WHO DRAWS IT NOW TODAY", "--objects", "a drawing board", "--paradox", "the tool changed, the job stayed",
+                         "--claims", str(claims)])
+        self.assertEqual(rc, 0)                                         # đọc, không chặn
+        out = self.repo / "reports/m3/ep09/phat-hanh"
+        from PIL import Image
+        for i in (1, 2, 3):
+            self.assertEqual(Image.open(out / f"nen-{i}.jpg").size, (1280, 720))
+        md = (out / "PACKAGING-BRIEF.md").read_text()
+        self.assertIn("Tiêu đề A: ĐẠT", md); self.assertIn("Tiêu đề B: ĐẠT", md)
+        self.assertIn("Tiêu đề C: CẢNH BÁO", md)                          # 73% không có trong claim
+        self.assertIn("Chữ thumbnail: CẢNH BÁO", md)                      # 5 từ
+        self.assertIn("Test & Compare", md); self.assertIn("Prompt mẫu", md)
 
 
 if __name__ == "__main__":

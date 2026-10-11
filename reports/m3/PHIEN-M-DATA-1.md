@@ -35,3 +35,10 @@ Mọi nhãn/chỉ số tính ra: **tự tính, không phải chỉ số YouTube*
 2. Trọng số nhãn cầu: giữ TẠM tới `channel-k2/CALIBRATION.md` (12/10).
 3. Phiên P merge nhánh này vào `main`; tập 9: chọn đề tài, thêm vào `packs/ll.json`, chạy hồ sơ cầu từ 13/10.
 4. Tuỳ chọn: YouTube Analytics API (OAuth) — chỉ làm khi chủ dự án yêu cầu.
+
+## Vòng duyệt (11/10) — chủ dự án duyệt có điều chỉnh, phiên M đã làm
+1. §14 bước 5 tách gói phát hành; `toolkit/market/brief.py` → `PACKAGING-BRIEF.md` + 2–3 ảnh nền 1280×720 không chữ (bảng màu đo trên ảnh); kiểm tiêu đề/chữ thumbnail đọc, không chặn; Test & Compare; bảng giữ/bỏ: CTR + lượt xem 7 ngày.
+2. Hiệu chỉnh chỉ áp khi ≥ 3 tập có ≥ 100 lượt xem 7 ngày (`own.MIN_SIGNAL`); hiện "chưa đủ tín hiệu".
+3. Tập 2–5 `released: false` trong `packs/ll.json`, hiện "không phát hành" ở `KHAN-GIA-SO.md`, loại khỏi hiệu chuẩn và dự đoán; gói `ll` tắt dò uploads.
+4. CHUAN-KENH §11.3, §13 và BAN-GIAO-P mục 2 sửa khớp mục 1; P-SAN-XUAT, P-G3, README cập nhật.
+Test: 29 ĐẠT. Quota cả phiên: 2 đơn vị (0 search.list). AI: REVIEWER Opus (`claude-opus-5-5`, `--tools ""`, không subagent) lượt 3 cho phần sửa $0,33 → tổng phiên $1,38 / trần $5. Lượt 3: R1, R2, R6 PASS; đã sửa R3 (P kiểm thumbnail chỉ khi chủ dự án gửi, không chờ), R4 (brief kiểm đầu vào trước khi ghi, xoá khung cũ, lỗi → DỪNG), R5 (cổng tín hiệu đếm chứ không lọc điểm, tránh lệch ρ; Q12 bỏ khỏi P-SAN-XUAT; dòng thumbnail cũ ở P-G3; lý do tắt dò; test khôi phục biến).

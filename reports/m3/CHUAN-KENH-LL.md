@@ -207,7 +207,7 @@ Mỗi đoạn khai:
 - Cảnh bàn làm việc chung tối đa **3 lần/tập**, mỗi lần đổi góc máy hoặc cỡ cảnh.
 - **Nhạc:** giai điệu chủ đề kênh (CC0/CC BY, ghi RIGHTS) + 3 cue theo hồi.
 - **Giọng Bill:** chỉnh tốc độ và khoảng nghỉ theo câu.
-- **Gói phát hành:** tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này); từ tập 9: 2 Shorts, không thumbnail (§13).
+- **Gói phát hành:** tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này); từ tập 9: 2 Shorts; thumbnail do chủ dự án tạo theo PACKAGING-BRIEF (§13, §14 bước 5).
 - **Ảnh tư liệu:** ≤ 20 % thời lượng, đúng nghề (tập 7: ảnh NASA tổ "computer").
 - **Báo cáo G2** ghi Q26–Q31, so với tập 1, kèm token thực.
 
@@ -223,7 +223,7 @@ Mỗi đoạn khai:
 ## 13. Gói phát hành: Shorts và thumbnail (chủ dự án, 10/10/2026)
 - **Tập 8:** phát hành **một** Short duy nhất (S2 "1954: a machine that translated 250 words"); S1, S3 bỏ khỏi gói (không dựng lại, không đẩy LFS). Thumbnail T1/T2 hiện có giữ nguyên.
 - **Từ tập 9: mỗi tập 2 Shorts** (đặc tả `shorts:` chỉ 2 mục; QC Q10/Q22 áp cho 2 Short đó).
-- **Từ tập 9: bỏ thumbnail khỏi gói phát hành.** `make_thumb.py` không còn là bước bắt buộc; Q12 (lề thumbnail) không áp khi gói không có thumbnail. Lời hứa chung (§11.3 "Gói phát hành") áp cho tiêu đề, 15 s đầu và 2 Shorts.
+- **Từ tập 9: nhà máy không làm thumbnail hoàn chỉnh** (sửa 11/10, chủ dự án duyệt phiên M): nhà máy làm PACKAGING-BRIEF + 2–3 ảnh nền không chữ; **chủ dự án tự tạo 2–3 thumbnail** bằng công cụ ảnh theo brief và chọn bằng YouTube Test & Compare (§14 bước 5). `make_thumb.py` không còn là bước bắt buộc; Q12 (lề thumbnail) không áp cho gói nhà máy (không có thumbnail); chữ trong vùng an toàn của thumbnail chủ dự án được P kiểm bằng đọc, không chặn. Lời hứa chung (§11.3 "Gói phát hành") áp cho tiêu đề, 15 s đầu và 2 Shorts.
 
 ## 14. Dữ liệu thị trường trong quy trình (chủ dự án giao phiên M 11/10/2026; áp từ tập 9) — **KHÔNG thêm cổng, không thêm lượt chạm**
 **Nguyên tắc.**
@@ -245,20 +245,22 @@ Mỗi đoạn khai:
    - độ dài trong dải thắng, **trừ khi** khung kể §12 / tỷ lệ §2 / trần 11:00 §1 không cho phép → ghi một dòng lý do ở G1.
    Câu hỏi khán giả phục vụ mạch biến đổi §12, không thay trục kể.
 4. **Kiểm mù kịch bản** — trong lượt kiểm mù sẵn có (§11.2, §12; không thêm lượt, không thêm người đọc): **một** người đọc nhập vai **người đặt câu hỏi** trọng số cao nhất, từ một hoàn cảnh điển hình của hồ sơ; thêm câu: *"Did the film answer the question you came with? Which part?"* Hai người đọc còn lại giữ vai chung. Báo kết quả ở báo cáo nơi lượt kiểm mù đó vốn được báo (G1 theo §12).
-5. **Đóng gói (G2):**
-   - tiêu đề theo **một khuôn thắng** của hồ sơ (khuôn, không chép tiêu đề đối thủ), cụm tìm kiếm của hồ sơ đặt sớm trong tiêu đề hoặc 2 dòng đầu mô tả;
-   - **không hứa vượt claim:** tiêu đề và Shorts chỉ hứa điều phim trả lời bằng nguồn (Q13, §10, §12); câu hỏi tương lai giữ dạng câu hỏi;
+5. **Đóng gói (G2) — tách gói phát hành** (chủ dự án duyệt 11/10):
+   - **Nhà máy làm:** master, 2 Shorts, `.srt`, mô tả (nguồn, chương), `SHA256SUMS.txt`; **3 phương án tiêu đề dạng câu hỏi tìm kiếm** theo khuôn thắng của hồ sơ cầu (cụm tìm kiếm đặt sớm). Học từ tập 6: tiêu đề trên kênh "Will AI Replace Graphic Designers? History Has a Clue" đạt 129 lượt/4 ngày so với 4–10 lượt các tập khác (một tập, chưa phải bằng chứng thống kê). **`PACKAGING-BRIEF.md`** (`toolkit/market/brief.py`, học Crux): ý thumbnail, chữ ≤ 4 từ, bố cục, bảng màu (đo trên ảnh nền), cảm xúc/nghịch lý cần thể hiện, prompt mẫu để chủ dự án dán vào công cụ tạo ảnh, **2–3 ảnh nền 1280×720 không chữ** lấy từ cảnh đinh 1080p.
+   - **Nhà máy KHÔNG làm thumbnail hoàn chỉnh.** Chủ dự án tự tạo 2–3 thumbnail theo brief.
+   - **Kiểm (đọc, không chặn):** tiêu đề và chữ thumbnail không hứa vượt claim (số chỉ trong danh sách claim có nguồn; không cụm giật gân; câu hỏi tương lai giữ dạng câu hỏi — Q13, §10, §12); chữ thumbnail nằm trong vùng an toàn 5 % và tránh góc thời lượng. `brief.py` in cảnh báo cho tiêu đề/chữ ngay khi sinh brief. Thumbnail chủ dự án tạo: nếu chủ dự án gửi ảnh cho P (không bắt buộc), P đọc kiểm và ghi vào HUONG-DAN-DANG — không chặn, không chờ, không thêm lượt chạm.
+   - **Chọn bản thắng bằng YouTube Test & Compare** (2–3 thumbnail); ghi bản thắng và CTR vào `reports/m3/epNN/KHAN-GIA.md`.
    - 2 Shorts (§13): móc mở bằng một câu hỏi khán giả của hồ sơ (diễn đạt lại), trả lời bằng một sự thật có nguồn trong tập.
 6. **G3 (HUONG-DAN-DANG):** mục "giờ đăng" ghi gợi ý từ hồ sơ (thứ đăng của video đúng đề tài, giờ New York) bên cạnh mặc định kênh (thứ Ba–Năm, 9:00–11:00 ET); chỉ đổi mặc định khi ≥ 3 tập có số đo khác. Ghi lịch đọc số 48 giờ / 7 ngày / 28 ngày.
-7. **Sau phát hành:** Việc 0 của tập kế tự chạy `market.py own`; mốc rơi giữa hai tập thì P chạy lại khi tới mốc (2–3 đơn vị). `KHAN-GIA-SO.md` so dự đoán G1 với thật. **Luật hiệu chỉnh sau mỗi 3 tập có nhãn:** Spearman(nhãn cầu, lượt xem 7 ngày); ρ > 0 và trung vị nhóm Mạnh > nhóm còn lại → giữ; ngược lại → sửa công thức (`toolkit/market/demand.py`) hoặc giảm trọng, ghi lý do ở `KHAN-GIA-SO.md`. Ảnh YouTube Studio (CTR, giữ chân) vẫn vào `epNN/KHAN-GIA.md` như cũ.
+7. **Sau phát hành:** Việc 0 của tập kế tự chạy `market.py own`; mốc rơi giữa hai tập thì P chạy lại khi tới mốc (2–3 đơn vị). `KHAN-GIA-SO.md` so dự đoán G1 với thật. **Luật hiệu chỉnh sau mỗi 3 tập có nhãn** — chỉ áp khi **≥ 3 tập có ≥ 100 lượt xem 7 ngày** (chủ dự án 11/10; lượt xem LL hiện 4–129, quá nhỏ để hiệu chỉnh thống kê; trước đó ghi "chưa đủ tín hiệu"; tập không phát hành bị loại): Spearman(nhãn cầu, lượt xem 7 ngày); ρ > 0 và trung vị nhóm Mạnh > nhóm còn lại → giữ; ngược lại → sửa công thức (`toolkit/market/demand.py`) hoặc giảm trọng, ghi lý do ở `KHAN-GIA-SO.md`. Ảnh YouTube Studio (CTR, giữ chân) vẫn vào `epNN/KHAN-GIA.md` như cũ.
 
 **Số đo giữ/bỏ sau 3 tập** (so tập 9–11 với tập 6–8, cùng kênh; tự tính):
 | Phần | Số đo | Giữ khi |
 |---|---|---|
 | Nhãn cầu + dự đoán (bước 1–2) | ρ hiệu chỉnh; lượt xem 7 ngày trong dải dự đoán | ρ > 0 và ≥ 2/3 tập trong dải |
 | Trả lời câu hỏi khán giả (bước 3–4) | người đọc vai "người hỏi" trả lời "có" ; tỷ lệ bình luận câu hỏi/tổng bình luận tập mình | 3/3 "có" và lượt xem 7 ngày trung vị ≥ tập 6–8 |
-| Khuôn tiêu đề + Shorts móc câu hỏi (bước 5) | CTR và lượt xem từ Shorts (ảnh Studio, `KHAN-GIA.md`) | CTR trung vị ≥ tập 6–8 |
+| Tiêu đề câu hỏi tìm kiếm + PACKAGING-BRIEF/Test & Compare + Shorts móc câu hỏi (bước 5) | **CTR** (Test & Compare, ảnh Studio, `KHAN-GIA.md`) **+ lượt xem 7 ngày** | CTR trung vị ≥ tập 6–8 **và** lượt xem 7 ngày trung vị ≥ tập 6–8 |
 | Giờ đăng (bước 6) | lượt xem 48 giờ | chỉ giữ nếu khác mặc định có lợi ở ≥ 2/3 tập |
 Thiếu số đo (vd chưa có ảnh Studio) thì ghi "chưa đo được" — không tính là hiệu quả.
 
-**Ghi nhận khi chạy thử (11/10):** video LL trên kênh đã đổi tiêu đề sang dạng câu hỏi tìm kiếm (vd tập 6 "Will AI Replace Graphic Designers? History Has a Clue"), khác tiêu đề trong gói phát hành; `KHAN-GIA-SO.md` ghi cả hai. Tập 2–5 chưa có `video_id` trong gói (tối 11/10 không được dò danh sách tải lên; kênh có 9 video công khai kể cả Shorts) — lần `own` tới của phiên `ll` tự dò và liệt kê video chưa gán tập.
+**Ghi nhận khi chạy thử (11/10):** video LL trên kênh đã đổi tiêu đề sang dạng câu hỏi tìm kiếm (vd tập 6 "Will AI Replace Graphic Designers? History Has a Clue"), khác tiêu đề trong gói phát hành; `KHAN-GIA-SO.md` ghi cả hai. **Tập 2–5 không phát hành** (chủ dự án 11/10: chất lượng chưa đạt) — ghi trong `packs/ll.json` và `KHAN-GIA-SO.md`, loại khỏi hiệu chuẩn; gói `ll` không dò danh sách tải lên.

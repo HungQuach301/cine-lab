@@ -15,6 +15,7 @@ mô-đun cấu hình theo **gói kênh**; học cách cài vào quy trình từ 
 | `market.py queue --pack ll` | cột Cầu / Khoảng trống / Câu hỏi vào `topics/queue.md` (khối máy sinh) | 0 |
 | `market.py own --pack ll --session ll` | lượt xem công khai video LL → `reports/m3/KHAN-GIA-SO.md` | 2–3 |
 | `market.py predict SLUG --ep epNN --pack ll` | dòng DỰ ĐOÁN cho G1 (ghi `reports/m3/khan-gia/predictions.json`) | 0 |
+| `brief.py --ep epNN --slug SLUG --video <1080p> --at t1,t2,t3 --titles "A\|B\|C" --thumb-text … --objects … --paradox … --claims <tệp>` | `reports/m3/epNN/phat-hanh/PACKAGING-BRIEF.md` + 2–3 ảnh nền 1280×720 không chữ; kiểm tiêu đề/chữ thumbnail (đọc, không chặn). Nhà máy không làm thumbnail hoàn chỉnh | 0 |
 | `market.py niche KEY --pack k2 --session k2` | thước "kênh mới bật được không" (port `final.py`) | ≈ 100 × số câu + ~200 |
 
 Cờ chung: `--cap N` (trần đơn vị của lượt chạy), `--used-elsewhere N` (phiên khác đã dùng hôm nay), `--dry` (chỉ ước).
@@ -29,6 +30,7 @@ Test: `/opt/cine/bin/python -m unittest toolkit/tests/test_market.py -v` (dữ l
 | `demand.py` | hồ sơ cầu: cầu hiện hành, cầu bền, khoảng trống, vượt trội, dải thời lượng, câu hỏi/hoàn cảnh/điểm yếu, mẫu tiêu đề |
 | `render.py` | markdown hồ sơ + khối hàng đợi; `assert_repo_safe` chặn số thô kênh khác trước khi ghi repo |
 | `own.py` | ảnh chụp lượt xem kênh mình ở mốc 48 giờ / 7 ngày / 28 ngày, dự đoán G1, luật hiệu chỉnh |
+| `brief.py` | PACKAGING-BRIEF (CHUAN-KENH §14 bước 5) |
 | `niche.py` | thước kênh mới bật được (port `channel-k2/final.py`, bỏ phần riêng ngách G) |
 | `packs/ll.json`, `packs/k2.json` | gói kênh |
 

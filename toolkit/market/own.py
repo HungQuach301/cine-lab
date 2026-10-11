@@ -15,6 +15,12 @@ from core import REPO, MarketError, get, pubdt, dur, write_atomic, LABEL_SELF
 
 MILESTONES = (("48h", 48), ("7d", 168), ("28d", 672))
 SCORE = {"Mạnh": 2, "Yếu": 1, "Không": 0}
+MIN_SIGNAL = 100     # chủ dự án 11/10: Spearman chỉ áp khi ≥ 3 tập có ≥ 100 lượt xem 7 ngày; trước đó "chưa đủ tín hiệu"
+NOT_RELEASED = "không phát hành"
+
+
+def released(pack, ep):
+    return pack["own"]["episodes"].get(ep, {}).get("released", True)
 
 
 def norm(t):
@@ -38,7 +44,7 @@ def fetch(pack, quota, now=None):
     if not ch.get("items"):
         raise MarketError(f"không thấy kênh {own['handle']}")
     ch = ch["items"][0]
-    eps = own["episodes"]
+    eps = {k: e for k, e in own["episodes"].items() if e.get("released", True)}   # tập không phát hành: không đọc
     known = {e["video_id"]: k for k, e in eps.items() if e.get("video_id")}
     found, unassigned = {}, []
     ok, _ = quota.method_ok("playlistItems")
@@ -76,7 +82,8 @@ def fetch(pack, quota, now=None):
                              yt_title=v["snippet"]["title"]))
     meta = dict(at=now.isoformat(timespec="minutes"), channel_videos=int(ch["statistics"].get("videoCount", 0)),
                 n_found=len(rows), n_eps=len(eps), discovered=len(found), orphans=orphans,
-                discover=("có" if ok and own.get("discover", True) else "không (quota-policy chặn playlistItems)"))
+                discover=("có" if ok and own.get("discover", True) else
+                          "không (gói tắt dò: chủ dự án 11/10)" if not own.get("discover", True) else "không (quota-policy chặn playlistItems)"))
     return rows, meta
 
 
@@ -129,12 +136,16 @@ def calibrate(pack, snaps, preds):
     """Luật hiệu chỉnh sau mỗi 3 tập có nhãn cầu + số 7 ngày đúng mốc/nội suy."""
     pts = []
     for ep, p in preds.items():
+        if not released(pack, ep):                 # tập không phát hành: loại khỏi hiệu chuẩn
+            continue
         stt, v, _ = milestone(snaps, ep, 168)
         if p.get("label") in SCORE and stt in ("đúng mốc", "nội suy"):
             pts.append((ep, p["label"], v))
+    k = sum(v >= MIN_SIGNAL for *_, v in pts)        # cổng tín hiệu: đếm, KHÔNG lọc điểm (lọc sẽ cắt cụt và lệch ρ)
+    if k < 3:
+        return dict(n=len(pts), verdict=f"chưa đủ tín hiệu ({k}/3 tập có nhãn cầu + ≥ {MIN_SIGNAL} lượt xem 7 ngày đúng mốc)",
+                    rho=None, pts=pts)
     n = len(pts)
-    if n < 3:
-        return dict(n=n, verdict=f"chưa đủ mẫu ({n}/3 tập có nhãn cầu + số 7 ngày đúng mốc)", rho=None, pts=pts)
     use = pts[: n - n % 3]                     # chỉ xét theo bội số 3 tập
     rho = spearman([SCORE[l] for _, l, _ in use], [v for *_, v in use])
     hi = [v for _, l, v in use if l == "Mạnh"]; lo = [v for _, l, v in use if l != "Mạnh"]
@@ -151,7 +162,7 @@ def predict(pack, snaps, label, n_min=3):
     """Dải TẠM cho 7 và 28 ngày: lịch sử kênh ở cùng mốc (chỉ số đúng mốc/nội suy), dịch theo nhãn cầu."""
     out = {}
     for key, h in (("7d", 168), ("28d", 672)):
-        hist = sorted(v for ep in {x["ep"] for x in snaps}
+        hist = sorted(v for ep in {x["ep"] for x in snaps if released(pack, x["ep"])}
                       for stt, v, _ in [milestone(snaps, ep, h)] if stt in ("đúng mốc", "nội suy"))
         if len(hist) < n_min:
             out[key] = dict(range=None, n=len(hist), note=f"chưa đủ lịch sử ({len(hist)}/{n_min} tập đúng mốc)")
@@ -185,6 +196,9 @@ def report_md(pack, snaps, preds, meta):
          "| Tập | Video | Phút | Dự đoán G1 (nhãn · 7 ngày · 28 ngày) | 48 giờ | 7 ngày | 28 ngày | Lượt xem/ngày (gần nhất) | Trong dải 7 ngày? |",
          "|---|---|---|---|---|---|---|---|---|"]
     for ep, e in eps.items():
+        if not e.get("released", True):
+            L.append(f"| {ep} {e['title']} | {NOT_RELEASED} | — | — | — | — | — | — | — ({e.get('note', '')}; loại khỏi hiệu chuẩn) |")
+            continue
         s = sorted([x for x in snaps if x["ep"] == ep], key=lambda x: x["age_h"])
         p = preds.get(ep)
         pcell = "chưa có (tập trước luật dự đoán)" if not p else (
@@ -208,10 +222,10 @@ def report_md(pack, snaps, preds, meta):
         L.append(f"| {ep} {e['title']}{ytt} | {vid} | {mins} | {pcell} | {cells[0]} | {cells[1]} | {cells[2]} | {vpd} | {ins} |")
     c = calibrate(pack, snaps, preds)
     L += ["", "## Hiệu chỉnh nhãn cầu (sau mỗi 3 tập có nhãn)", f"- Kết luận hiện tại: **{c['verdict']}**.",
-          "- Luật: Spearman(nhãn cầu hiện hành Mạnh 2 · Yếu 1 · Không 0, lượt xem 7 ngày đúng mốc/nội suy) trên bội số 3 tập; "
+          f"- Luật: chỉ áp khi **≥ 3 tập có ≥ {MIN_SIGNAL} lượt xem 7 ngày** (chủ dự án 11/10; trước đó ghi “chưa đủ tín hiệu”; tập không phát hành bị loại). Spearman(nhãn cầu hiện hành Mạnh 2 · Yếu 1 · Không 0, lượt xem 7 ngày đúng mốc/nội suy) trên bội số 3 tập; "
           "ρ > 0 và trung vị nhóm Mạnh > nhóm còn lại → giữ; ngược lại → sửa công thức `demand.py` hoặc giảm trọng nhãn cầu trong "
           "chọn đề tài, ghi lý do bên dưới. Trọng số hiện TẠM, chốt sau `channel-k2/CALIBRATION.md` (12/10).",
-          "- Nhãn hồi tố 8 tập đầu: chờ `channel-k2/calib.py` (phiên k2, cần search.list) — khi có, ghi vào "
+          "- Nhãn hồi tố 4 tập đã phát hành (1, 6, 7, 8): chờ `channel-k2/calib.py` (phiên k2, cần search.list) — khi có, ghi vào "
           f"`{pack['own']['predictions']}` với `\"retro\": true` (dùng để hiệu chỉnh, không tính là dự đoán G1).",
           "", "### Lần sửa công thức", "- (chưa có)", "",
           "## Phương án tuỳ chọn: YouTube Analytics API (CHƯA LÀM)",
