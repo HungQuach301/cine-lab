@@ -10,19 +10,23 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "kiem-mu"; OUT.mkdir(exist_ok=True)
-LOG = OUT / "cost.jsonl"
-CAP, STOP = 10.0, 9.0
+LOG = OUT / os.environ.get("K2_COST", "cost.jsonl")   # G2: K2_COST=cost-g2.jsonl (trần $40, chủ dự án 11/10)
+CAP, STOP = float(os.environ.get("K2_CAP", 10.0)), float(os.environ.get("K2_STOP", 9.0))
 
 def spent():
     return sum(json.loads(l)["usd"] for l in LOG.read_text().splitlines()) if LOG.exists() else 0.0
 
-def ai(prompt, tag, model):
+def ai(prompt, tag, model, files=()):
+    """files: ảnh/tệp chép vào thư mục tạm, người chấm đọc bằng công cụ Read (chỉ Read được bật)."""
     if spent() > STOP:
         raise SystemExit(f"dừng: đã tiêu ${spent():.2f} (ngưỡng dừng ${STOP}, trần ${CAP})")
     env = dict(os.environ, ANTHROPIC_API_KEY=os.environ["CONSOLE_API_KEY"])
     with tempfile.TemporaryDirectory() as cwd:   # thư mục trống: người đọc không thấy repo
+        import shutil
+        for f in files: shutil.copy(f, cwd)
+        extra = ["--allowedTools", "Read"] if files else []
         for _ in range(3):
-            r = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json"], input=prompt,
+            r = subprocess.run(["claude", "-p", "--model", model, "--output-format", "json"] + extra, input=prompt,
                                capture_output=True, text=True, env=env, cwd=cwd, timeout=1500)
             try:
                 d = json.loads(r.stdout)

@@ -30,6 +30,15 @@
 | STG2 | Tech.eu (John Reynolds, 30/09/2026) và Finwire qua MarketScreener (30/09/2026): "Stegra needs more capital, Håkan Buskhe appointed new CEO" | báo có biên tập (2 nguồn độc lập) | toàn bài (WebFetch) | chi phí hoàn thành "significantly higher than assumed in June"; cần thêm vốn; tiến độ thép xanh "remains unchanged" (Finwire); CEO mới từ 01/11. Chưa đọc được thông cáo gốc (stegra.com, Cision không có bản tin này khi tra) |
 | STG | Stegra, "Stegra announces closing of €1.4 billion financing round", 24/06/2026 (Cision PDF) | thông cáo công ty | toàn văn | "the project timeline is under review" |
 
+## 1b. Tra lại trạng thái "as of" (11/10/2026, ~21:30, trước khi thu giọng — chủ dự án D2b)
+| Mục | Kết quả | Đổi lời? |
+|---|---|---|
+| Federal Register (thép, Section 232) | Tuyên bố mới nhất về thép vẫn là 11032 (01/06/2026). 11/2026-07-20 "Further Strengthening… Aluminum" (91 FR, 23/07/2026) chỉ về nhôm (đã đọc PDF: nhắc 11021/11032, không sửa thép). Tuyên bố 27/08/2026 đổi tên hồ Ontario: không liên quan lời (bản đồ không ghi tên hồ) | Không |
+| EUR-Lex 2026/1384 | Không thấy văn bản sửa đổi; có Implementing Regulation (EU) 2026/1457 chia hạn ngạch theo nước (SECO, chưa đọc gốc) và yêu cầu "melt and pour" từ 01/10/2026 — lời không nói tới | Không |
+| Giá CBAM | Q3 2026 vẫn 82,32 € (05/10/2026); Q4 công bố 04/01/2027 | Không |
+| Stegra | ESG Today (01/10/2026): "the timeline for green steel production remains as expected", chi phí "significantly higher than assumed", cần thêm vốn — khớp Finwire/Tech.eu; một bản tin ngành (SMM) nói tiến độ "đang được xem lại" — lời giữ cách quy cho Finwire | Không |
+| U.S. Steel / Nippon | Không có tin mới (Axios 30/06/2026 là bài gần nhất tìm thấy) | Không |
+
 ## 2. Bảng claims
 | # | Đoạn | Câu (rút gọn) | Loại | Số / nội dung | Nguồn | Kiểm |
 |---|---|---|---|---|---|---|

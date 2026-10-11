@@ -1,0 +1,23 @@
+{
+ "A": {
+  "clarity": 8,
+  "trust": 8,
+  "fit": 8,
+  "why": "ASR matches the script exactly. At 151 wpm it clears the 144 wpm floor with margin, and the script would run about 17.1 min. The contour is a regular fall at the end of each phrase, which sounds like declarative, sourced statements rather than a pitch. The median F0 of 152 Hz is the lowest of the three, which suggests a grounded tone. The 14.8 st range and 4.5 st SD are moderate. Pauses are few and fall at sentence breaks. The one 1.12 s gap sits near the 12 s mark, just before the 'This video explains…' lines. It reads as dead air or a breath/re-take artifact, and it can be trimmed in the edit. The strong, repeated downward sawtooth could get a little predictable over 15+ minutes."
+ },
+ "B": {
+  "clarity": 8,
+  "trust": 7,
+  "fit": 4,
+  "why": "ASR is clean, and the 7 short pauses (longest 0.7 s) give it an unhurried, deliberate feel. But 131 wpm fails the 144 wpm requirement. The 2,586-word script would run about 19.7 min, over the 18 min ceiling, so it would need a re-record or sped-up audio. The spectrogram shows frequent gaps, so it may sound halting. The 199 Hz median is the highest, which may sound lighter and less authoritative for this subject. Moderate pitch range, 14.7 st."
+ },
+ "C": {
+  "clarity": 7,
+  "trust": 6,
+  "fit": 6,
+  "why": "ASR is clean, with a small inserted 'So,' comma. At 146.7 wpm it passes the pace floor, but with only about 2 wpm of margin: the script would run about 17.6 min, close to the 18 min cap before any section gaps. The 24.7 st p5–p95 range and 7.5 st SD are the widest, which can sound animated or sales-like. The plotted contour looks narrower than those numbers (roughly ±7 st), and a stray low point near 13.8 s hints at pitch-tracker error, so the real expressiveness is uncertain. Pauses are evenly short, with the longest at 0.33 s. That gives continuous, slightly metronomic delivery with little room for the viewer to absorb figures like 88M vs 82M tons."
+ },
+ "pick": "A",
+ "pick_why": "A is the only take that meets the 144 wpm requirement with real margin and also has a restrained, falling, low-pitched delivery that suits a calm, sourced documentary. B is too slow. C is borderline on pace and its pitch range is wide enough to risk a promotional feel. Trim A's 1.12 s gap to about 0.5 s, and the script should land near 17 min.",
+ "cannot_tell": "I can't hear timbre, voice quality, or artifacts such as robotic tone, sibilance, clicks and breath noise. I can't judge pronunciation of 'tons' or '4%', or how natural the emphasis sounds. The pitch features don't show whether the wide range in C is expressive or tracker error. I can't tell whether A's 1.12 s pause is a natural beat or a glitch. I can't tell whether pace and tone hold over a full 2,586-word script, because this is only a 277-character sample. Loudness differs by about 1.3 LUFS, so it needs normalizing before any listening comparison. Listener preference for a voice isn't measurable here. A short human listen to A, and to C as a backup, should confirm the choice."
+}

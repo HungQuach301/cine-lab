@@ -1,0 +1,23 @@
+{
+ "A": {
+  "clarity": 8,
+  "trust": 8,
+  "fit": 8,
+  "why": "151 wpm puts the 2,586-word script at about 17.1 min, inside the 14–18 window with margin. ASR is a perfect match. Pitch falls at the end of each phrase, which sounds declarative and authoritative, not upsold. Only 4 pauses over 0.3 s, but one is 1.12 s, which gives the 'so why is steel guarded like a weapon' question a beat. The spectrogram shows clean harmonics. The pitch plot shows a repeating sawtooth (rise, then steady fall), so there is a mild risk of a patterned, announcer-like cadence. LUFS of -24.3 is the quietest, but that is easy to fix in mastering."
+ },
+ "B": {
+  "clarity": 8,
+  "trust": 7,
+  "fit": 5,
+  "why": "ASR is a perfect match and the delivery is deliberate, with 7 short pauses (longest 0.7 s). The contour is moderate and calm. But at 131 wpm the script runs about 19.7 min, over the 18-min ceiling and below the 144 wpm requirement. Fixing that would mean speeding it up after the fact or cutting about 10% of the script. Median F0 of 199 Hz is simply a different voice and tells us nothing about quality. The frequent, evenly spaced pauses could start to feel halting over 15 minutes."
+ },
+ "C": {
+  "clarity": 7,
+  "trust": 6,
+  "fit": 7,
+  "why": "146.7 wpm gives about 17.6 min, which technically passes but only just clears the 144 wpm floor, so any added pauses or re-takes could push it over 18 min. Pauses are all 0.33 s or shorter, so it has little breathing room and may feel rushed or evenly metered. The reported 24.7 st pitch range and 7.5 st SD conflict with the contour plot, which looks the flattest of the three (roughly -6 to +8 st). That points to pitch-tracker outliers such as octave jumps in the metric, so I don't trust that number as evidence of expressiveness. The plot suggests a flatter, steady reading that could come across as slightly monotone or mechanical. The ASR even adds a comma after 'So', which is harmless."
+ },
+ "pick": "A",
+ "pick_why": "A is the only take that meets the length requirement with real margin (about 17 min), transcribes perfectly, and has natural phrase-final falls plus one purposeful longer pause. B is the strongest on calm delivery but fails the 144 wpm requirement. C barely passes on pace and has a doubtful pitch measurement and very uniform pauses.",
+ "cannot_tell": "I can't hear timbre, breathiness, glitches, or artifacts, so I can't tell whether any voice sounds synthetic or robotic. I also can't tell how a pitch sawtooth like A's feels to a listener, whether the voice is pleasant, or how any take holds up over 15 minutes of different script content. The C pitch-range figure contradicts its plot, so I can't resolve its true expressiveness. Pronunciation of numbers and terms beyond this 277-character opening is untested. A single short sample says little about consistency across the episode, and the measurements can't show listener preference or retention."
+}

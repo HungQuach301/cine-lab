@@ -1,0 +1,25 @@
+```json
+{
+  "A": {
+    "clarity": 8,
+    "trust": 8,
+    "fit": 8,
+    "why": "The ASR transcript matches the script exactly. Pace is 151 wpm, which clears the 144 wpm floor. At that pace the 2,586-word script runs about 17.1 min, inside the 14–18 min window with a little margin. Pitch range is moderate (14.8 st) and the median F0 is low (152 Hz). The contour falls at the end of each phrase, which usually reads as declarative and authoritative rather than promotional. Four pauses over 0.3 s, including one of 1.12 s, give the numbers and the 'weapon' question room, though the 1.12 s pause could feel long if it recurs through the whole episode. The pitch plot shows a repeated 'peak then steep fall' shape. Over 17 minutes that could become a sing-song pattern, but the evidence doesn't show it as a problem."
+  },
+  "B": {
+    "clarity": 8,
+    "trust": 7,
+    "fit": 4,
+    "why": "The transcript is clean and the pacing is deliberate. But 131 wpm puts the script at about 19.7 min, over the 18 min ceiling and well below the 144 wpm requirement. That alone disqualifies it unless the script is cut by roughly 10%, or the audio is sped up, which changes the voice. It has seven pauses over 0.3 s, though none longer than 0.7 s. The higher median F0 (199 Hz) means a brighter, lighter voice. That is neutral to slightly less gravitas-heavy, and the evidence can't say whether it sounds warmer or thinner. The contour shows large phrase-initial peaks. The sentence-start lifts look somewhat energetic against the calm brief."
+  },
+  "C": {
+    "clarity": 7,
+    "trust": 6,
+    "fit": 6,
+    "why": "The transcript is accurate and pace is acceptable at 146.7 wpm, about 17.6 min for the script. That is inside the window but close to the 18 min limit, and only slightly above the 144 wpm floor. The measured pitch range is very wide (24.7 st p5–p95, SD 7.5), the widest of the three, which usually signals a more animated, expressive read. That risks sounding like promotional trailer energy. But the plotted contour looks flatter and more compressed (about ±7 st) than that number implies. The 24.7 st figure may therefore come from pitch-tracking octave errors or outliers, so it isn't fully reliable. Pauses are frequent but short (longest 0.33 s), so the delivery has little breathing room and may feel rushed across the full runtime. The ASR inserted 'So,' with a comma, which suggests a slightly more conversational read."
+  },
+  "pick": "A",
+  "pick_why": "A is the only take that meets the runtime requirement with margin (about 17.1 min). Its low F0, moderate pitch range, and mostly falling phrase endings fit a calm, sourced economics documentary. It also has a few longer pauses that let the statistics land. B fails the pace requirement. C is within spec, but it has the widest and least reliable pitch measurements, little pause space, and a thinner runtime margin.",
+  "cannot_tell": "I can't hear the audio, so I can't judge timbre, warmth, or naturalness, and I can't tell whether any take sounds synthetic or robotic. I can't judge pronunciation beyond what the ASR transcript shows. I also can't tell whether A's recurring falling contour or long pause sounds authoritative or monotonous over a full episode. And I can't tell whether C's pitch range is real expressiveness or a tracking artifact. The runtime estimates assume the 277-character opening is representative of the whole script, and pacing may drift on denser passages. No take has been checked for energy across 17 minutes. The LUFS differences are pre-mastering and say nothing about final loudness."
+}
+```

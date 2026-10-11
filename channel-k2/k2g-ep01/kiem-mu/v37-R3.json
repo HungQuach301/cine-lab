@@ -1,0 +1,149 @@
+{
+ "main_message": "U.S. steel's share of world output collapsed not because America stopped making steel but because everyone else scaled up. The through-line is that control of the supply path, from Carnegie's coke to today's tariffs, golden share and carbon border price, is what steel power really means.",
+ "hook_strength_1to10": 7,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The 88M vs 82M tonnes contrast with 'almost half' versus 'four percent' is a real puzzle, and 'guarded like a weapon' is a good question. It's a little data-dense for a cold open, and 'Just about four percent' reads oddly.",
+ "three_layers_connected_1to10": 6,
+ "what_connects_layers": "The 'control the path, then the toll' idea ties them together, but it is asserted more than shown. Coke ownership (vertical integration), tariffs (border limits), a golden share (state veto) and CBAM (a carbon price) are four different instruments with different logics. Presenting them as one mechanism is a stretch. The Pittsburgh layer does most of the work. The CBAM layer feels bolted on, and the hydrogen segment is a sidebar.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It loops back to the opening numbers and answers 'because steel power was about share and control of the path.' The answer is soft, and it admits it can't say whether the cost is worth it. It does not really explain why steel is 'guarded like a weapon' beyond a stated security rationale. Pairing the 'weapon' framing with Braddock and the golden share is neat.",
+ "boring_or_slow": [
+  {
+   "seg": "03",
+   "why": "The ore, coal and limestone mileage list is a slog without visuals, though the 4-tons-for-1 point is good."
+  },
+  {
+   "seg": "07",
+   "why": "The chain of proclamation dates (2018, Feb 2025, June 2025, April 2026, June 2026) reads like a legal timeline."
+  },
+  {
+   "seg": "08",
+   "why": "A stack of OECD statistics (745M, 131M, 15x subsidies, 18.3M quota) with little narrative."
+  },
+  {
+   "seg": "10",
+   "why": "CBAM mechanics (50-tonne threshold, certificate timing, free allowances) are dense for narration."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "01",
+   "quote": "a price now attached to steel crossing one major border",
+   "why": "Vague on first hearing. It is not clear this means the EU or what 'price of carbon' means yet."
+  },
+  {
+   "seg": "06",
+   "quote": "a drop of about seven percent",
+   "why": "The tension between 'not dying' and the 1973 peak and 1982 halving is raised but then left unexplained."
+  },
+  {
+   "seg": "06",
+   "quote": "seventy-one percent... electric arc furnaces",
+   "why": "The EAF/BOF distinction is introduced with no explanation of what they are, only a promise it matters later."
+  },
+  {
+   "seg": "10",
+   "quote": "direct emissions released in making it",
+   "why": "Mixes WSA averages (2.3 vs 0.7 t) with CBAM rules and then an €82 price. The viewer can't tell what a tonne of steel would actually cost."
+  },
+  {
+   "seg": "09",
+   "quote": "golden share",
+   "why": "The mechanics are fine, but the jump from 'doesn't mean ownership' to Granite City is quick."
+  },
+  {
+   "seg": "11",
+   "quote": "under review... remains unchanged",
+   "why": "The Stegra reports are contradictory and hard to follow. The video flags this honestly but it is still muddy."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "02",
+   "quote": "Carnegie recalled / Carnegie wrote",
+   "direction": "toward Carnegie's own self-serving autobiography",
+   "why": "The narrator hedges with 'recalled', but the 'in bed one Sunday morning' account and the prices come from the man's own myth-making, with no outside check."
+  },
+  {
+   "seg": "04",
+   "quote": "Our read: power over the path came alongside power over the people",
+   "direction": "against Carnegie / capital",
+   "why": "Homestead is told through one state marker in a couple of sentences. It is fair and sourced, but it is a thin treatment of Frick, the union (the Amalgamated Association) and the wage dispute."
+  },
+  {
+   "seg": "07",
+   "quote": "credits the tariffs",
+   "direction": "balanced",
+   "why": "It gives the administration's claim and then the CRS skepticism, so it is mostly even. It omits the downstream-user and price side beyond one line, which understates the costs of tariffs."
+  },
+  {
+   "seg": "08",
+   "quote": "subsidies... fifteen times higher for Chinese steel firms",
+   "direction": "against China",
+   "why": "The China overcapacity side gets more space than the counter-arguments (legacy US/EU subsidies and protection, China's domestic consumption). It is OECD-sourced but one-sided in selection."
+  },
+  {
+   "seg": "06",
+   "quote": "most of that change comes from the rest of the world making far more",
+   "direction": "toward a 'not decline' framing",
+   "why": "This is arithmetically true, but it downplays the real collapse of integrated mills, the Rust Belt job losses, and the 1973 to 1982 halving."
+  }
+ ],
+ "felt_like_conspiracy_or_hidden_agenda": false,
+ "conspiracy_detail": "",
+ "felt_like_financial_or_investment_advice": false,
+ "claims_you_doubt": [
+  {
+   "seg": "00",
+   "quote": "almost half the world's",
+   "why": "Fine for 1950 (about 46-47%), but 'guarded like a weapon' implies a causal tie to share loss that the video itself later says it can't prove."
+  },
+  {
+   "seg": "05",
+   "quote": "much of the world was still rebuilding... unusual moment, not a baseline",
+   "why": "Correct and welcome, but the story still treats 1950 as the headline anchor. Anchoring the opening on that unusual year is somewhat cherry-picked."
+  },
+  {
+   "seg": "06",
+   "quote": "a drop of about seven percent",
+   "why": "88 to 82 is about 6.8%, which is fine. But 'not dying' based on tonnage alone ignores employment, integrated capacity and import dependence (the real complaint), so it is a bit of a straw man."
+  },
+  {
+   "seg": "03",
+   "quote": "three pounds for two cents",
+   "why": "This is Carnegie's rhetorical claim for the 1890s. It is also about rails versus a general steel price. It is passed off as a data point with little caveat."
+  },
+  {
+   "seg": "02",
+   "quote": "seventy dollars a ton",
+   "why": "Rails at around $70 a ton in the early/mid-1870s is plausible, but it comes from Carnegie's memory. The Braddock site-choice anecdote is also pretty mythologised."
+  },
+  {
+   "seg": "04",
+   "quote": "Frick Coke Company... bought half the stock",
+   "why": "Roughly right for 1882, but the 'vertical integration' framing skips that Carnegie's own firm was a hugely cost-driven innovator on the mill floor (the Bessemer/open-hearth operations and the accounting)."
+  },
+  {
+   "seg": "09",
+   "quote": "the deal closed",
+   "why": "Five days after the June 13 order is accurate, but the video skips the political backstory of the union (USW) opposition and Cleveland-Cliffs' rival bid. This is a notable omission for a 'who controls the path' story."
+  },
+  {
+   "seg": "10",
+   "quote": "each tonne of carbon dioxide counted adds about eighty-two euros",
+   "why": "The caveats are given, but a viewer will take away that Chinese steel faces a tidy €82 × 2.3 charge, which overstates the likely effect given free allowances and the CBAM phase-in."
+  },
+  {
+   "seg": "13",
+   "quote": "Edgar Thomson works... still making steel",
+   "why": "Right and a nice touch, but Edgar Thomson is a one-site anecdote that can't carry the claim that steel power persists at Braddock."
+  }
+ ],
+ "trust_1to10": 7,
+ "best_moment": "Seg 03 — the 'four tons of material for one ton of steel' chain makes the 'path from rock to rail' idea concrete, and it grounds the whole video's thesis. Close runner-up: the Seg 09 golden-share fact-check, which corrects a popular misreading cleanly.",
+ "top3_fixes": [
+  "Cut or compress the statistics and proclamation-date lists in segs 07, 08 and 10, and keep one number per beat. Put the 'what does CBAM actually add per tonne of Chinese BOF steel vs EU EAF steel' example in place of the mechanics, so layer three feels as concrete as Carnegie's four tons.",
+  "Make the three-layers link earn its keep. Say plainly that these are different instruments (ownership, quotas and tariffs, state veto, carbon price) and show the actual causal chain between them, e.g. overcapacity pushes tariffs, which lead to a state stake in U.S. Steel, which sets up carbon pricing as the next sorting tool. Otherwise the 'one mechanism' claim feels forced.",
+  "Close the gaps a steel person will notice. Add the 1970s to 1980s collapse (cause, jobs lost, the minimill/EAF shift) instead of a hedge about the OECD backdrop. Add the labor and union side of Nippon–U.S. Steel and the Cleveland-Cliffs bid. Give Homestead more than a plaque. Qualify Carnegie's self-reported figures as his own account, in the same place each time."
+ ]
+}
