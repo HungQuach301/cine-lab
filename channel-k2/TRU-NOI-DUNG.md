@@ -16,8 +16,8 @@
 | Câu hỏi khán giả điển hình | "Why can't anyone else build airliners?" · "Why is it so hard to make chips?" · "How did one box make shipping so cheap?" | "What happens to a town when Amazon/Dollar General opens?" · "Why did my town's factory matter so much?" | "How do airlines make money if tickets are cheap?" · "How do Visa and Mastercard make money if they don't lend?" · "What actually happens when I send money abroad?" · "Who pays for a 'free' ATM?" | "Why are malls dying?" · "Why did this whole kind of store disappear?" |
 | Cỗ máy hình 3D trung tâm | Dây chuyền, xưởng lắp ráp thân máy bay, cẩu cảng, tàu container, phòng sạch; bản đồ chuỗi cung ứng nổi khối | Thị trấn thu nhỏ nhìn từ trên cao: kho/cửa hàng mọc lên, dòng xe tải, lối đi, mái nhà đổi màu theo dữ liệu | "Đường ống tiền": quầy thanh toán → máy POS → ngân hàng phát hành → mạng → ngân hàng thanh toán; két, sổ cái, trung tâm dữ liệu, máy ATM cắt lớp | Trung tâm thương mại bỏ trống, bãi đỗ xe, mặt tiền tắt đèn dần theo dòng số liệu |
 | Số neo điển hình (loại nguồn) | Sản lượng, số nhà máy, chi phí phát triển (SEC filings, báo cáo thường niên, số liệu ngành, cơ quan hàng không, WTO/UNCTAD) | Việc làm, lương, thuế bán hàng, số cửa hàng theo quận (Census CBP/QCEW của BLS, báo cáo thường niên) | Doanh thu theo mảng, phí giao dịch theo luật, khối lượng thanh toán (SEC 10-K, Federal Reserve, BIS, báo cáo ngành) | Diện tích bán lẻ, số trung tâm đóng cửa, doanh số bán lẻ (Census Monthly Retail Trade, báo cáo ngành có phương pháp công khai) |
-| **Tỷ lệ trong hàng đợi** | **25 %** (3/12) | **25 %** (3/12) | **42 %** (5/12), trong đó **tài chính–thanh toán 25 %** (3/12) | **8 %** (1/12) |
-| Bằng chứng cầu | Vòng 1: "jet airliner", "advanced chips", "container" đều Nổ-mẫu | Vòng 1: Amazon warehouse, Dollar General Nổ-mẫu; lượt đo 11/10 "factory town" có 1 video 1,1 triệu lượt (n = 3) | Vòng 1: airlines Cầu-ngách. Lượt đo 11/10 thanh toán: **không có video mới nào nổ** (xem cảnh báo dưới) | Vòng 1: malls Nổ-mẫu; Sears, Kodak Cầu-tìm nhưng cung AI dày |
+| **Tỷ lệ trong hàng đợi** | **25 %** (3/12) | **25 %** (3/12) | **42 %** (5/12), trong đó **tài chính–thanh toán ≈ 21–25 %** (2 thuần + 1 lai) | **8 %** (1/12) |
+| Bằng chứng cầu | Vòng 1: "jet airliner", "advanced chips", "container" đều Nổ-mẫu | Vòng 1: Amazon warehouse, Dollar General Nổ-mẫu; lượt đo 11/10 "factory town" có 1 video 1,1 triệu lượt (n = 3) | Vòng 1: airlines Cầu-ngách. Đo 11/10: cụm thẻ đạt Cầu-bền (1,04 triệu; 1,51 triệu); SWIFT, ATM, bảo hiểm, ngân hàng, sở giao dịch, chuyển tiền liên ngân hàng trượt (xem dưới) | Vòng 1: malls Nổ-mẫu; Sears, Kodak Cầu-tìm nhưng cung AI dày |
 
 ## T3 nhánh tài chính–thanh toán: cảnh báo từ số đo 11/10
 Lượt đo nhãn cầu bổ sung dùng 1 search.list mỗi câu, cửa sổ 90 ngày, video ≥ 8 phút, đã đăng ≥ 14 ngày:
@@ -28,25 +28,28 @@ Lượt đo nhãn cầu bổ sung dùng 1 search.list mỗi câu, cửa sổ 90 
 | how does swift international money transfer work | 4 | 414 | 0/4 |
 | how do atm machines make money | 7 | 2 276 | 0/5 |
 
-- **Đọc số:** cung video mới **dày** và đồng dạng: tiêu đề gần như trùng nhau, nhiều kênh tên kiểu "Money Mechanics", "Macro Flow". Cầu **trong 90 ngày** gần như không chạm tới các video này. Đây đúng là dấu hiệu mảng đã ngập video AI mà market-k2 ghi cho "Kodak/Blockbuster".
-- **Chưa kết luận được** là không có cầu. Số đo trên chỉ thấy video mới. Mốc 2 (`de-tai/card-networks.md`) đo cầu **toàn thời gian** qua top 5 video theo độ liên quan và bình luận của chúng.
-- **Hệ quả cho trụ:** nhánh tài chính–thanh toán chỉ vào hàng đợi khi có **góc cơ chế mà video hàng loạt không làm được**: số liệu thật của Federal Reserve/BIS, mô hình dòng tiền dựng riêng, cảnh 3D đường ống thanh toán. Không làm dạng "X makes billions".
+- **Đọc số (tự tính):** nhiều video mới cùng chủ đề, tiêu đề gần trùng nhau, lượt xem 90 ngày rất thấp. Mẫu hình này giống mẫu market-k2 ghi cho "Kodak/Blockbuster" (cung mới dày, cầu không theo). Đây là suy luận từ số đếm và chữ (Haiku đọc tiêu đề, mô tả); tôi chưa xem hình hay quy trình làm của các video đó.
+- **Đo toàn thời gian (cùng ngày, top 5 video dài theo độ liên quan):**
+  - **Cụm thẻ đạt Cầu-bền:** "how do visa and mastercard make money" có 1 video 1,04 triệu (`de-tai/card-networks.md`); "who pays for credit card rewards" có 1 video 1,51 triệu.
+  - **Trượt:** SWIFT (cao nhất 240 nghìn, gắn tin cấm vận 2022), ATM (270 nghìn, chủ yếu video "mở kinh doanh ATM"), bảo hiểm (35 nghìn), chuyển tiền liên ngân hàng (205 nghìn).
+  - **Lệch đề tài:** "ngân hàng kiếm tiền" và "sở giao dịch kiếm tiền" có video lớn nhưng là tài chính cá nhân/đầu tư, lệch góc cơ chế và vi phạm luật YMYL của kênh.
+- **Hệ quả cho trụ:** nhánh tài chính–thanh toán chỉ vào hàng đợi khi có **góc cơ chế mà các video mới trong mẫu chưa làm** (0/5 có dấu hiệu số liệu thật): số liệu thật của Federal Reserve/BIS, mô hình dòng tiền dựng riêng, cảnh 3D đường ống thanh toán. Không làm dạng "X makes billions".
 
 ## Ưu, nhược, tác động, rủi ro
 - **Ưu:**
   - Bốn trụ đều có bằng chứng cầu từ dữ liệu, không phải từ cảm nhận.
   - T1 và T2 dựa vào 3D nhiều nhất (nhà máy, cảng, thị trấn), đây là lợi thế khó sao chép của dự án.
   - T3 tài chính–thanh toán kéo CPM lên: nhóm Personal Finance có CPM công khai cao nhất trong bảng market-k2 (18–45 USD theo OutlierKit). Kênh dùng góc cơ chế chứ không dùng góc tài chính cá nhân, nên CPM thực có thể thấp hơn.
-  - T4 ít, nên giảm phụ thuộc vào mảng đã ngập.
+  - T4 ít, nên giảm phụ thuộc vào mảng mà market-k2 ghi là cung mới dày.
 - **Nhược:**
-  - T3 tài chính–thanh toán chưa có bằng chứng cầu dương trong 90 ngày, còn chờ mốc 2.
+  - T3 tài chính–thanh toán không có video mới nào nổ trong 90 ngày; cầu toàn thời gian chỉ có ở cụm thẻ.
   - T2 có ít câu hỏi tìm kiếm trực tiếp; cầu đến từ tiêu đề gợi tò mò nhiều hơn từ tìm kiếm.
-  - 42 % T3 là tỷ trọng cao cho trụ có cung AI dày nhất.
+  - 42 % T3 là tỷ trọng cao cho trụ có cung video mới dày nhất trong số đo.
 - **Tác động:** hàng đợi (`HANG-DOI.md`) và luật chọn (`LUAT-CHON-DE-TAI.md`) dùng đúng tỷ lệ này. Thư viện cảnh 3D ưu tiên dựng theo thứ tự T1 → T3 → T2 → T4.
 - **Rủi ro:**
   - T2 dễ trượt sang giọng "công ty X giết thị trấn"; T4 dễ trượt sang "ai có lỗi". Cả hai do `LUAT-NOI-DUNG.md` chặn.
   - T3 tài chính dễ bị đọc thành lời khuyên. Có câu miễn trừ và không có persona chuyên gia.
-  - Nếu mốc 2 cho thấy cầu toàn thời gian của thanh toán cũng thấp, đề xuất hạ tỷ lệ tài chính–thanh toán xuống 1/6 và báo chủ dự án. Đây là thay đổi quyết định đầu vào nên cần chủ dự án duyệt.
+  - Ngoài cụm thẻ, chưa có đề tài tài chính–thanh toán nào đạt cầu. Tỷ lệ ~1/4 hiện giữ bằng 2 đề tài cụm thẻ + 1 đề tài lai (hãng bay; giả thuyết bán dặm cho ngân hàng, cần kiểm trên 10-K). Nếu các đề tài đo thêm vẫn trượt, đề xuất hạ xuống ~1/6. Việc này đổi quyết định đầu vào, nên chờ chủ dự án duyệt.
 
 ## Phép thử F1: lõi dùng chung với nhà máy LL và phần riêng
 | Thành phần | Dùng chung lõi LL | Riêng gói kênh 2 |

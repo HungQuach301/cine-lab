@@ -1,5 +1,7 @@
 # Hiến chương kênh (mốc 1, bước 3)
 
+> Mọi chỉ số trích trong tài liệu này là **tự tính, không phải chỉ số YouTube**.
+
 ## 1. Lời hứa với người xem
 > **"Every episode takes one thing you use or see every day and shows the machine behind it: the bottleneck, the money flow, the real numbers, with every number sourced on screen."**
 
@@ -19,7 +21,7 @@ Thời lượng đích lấy từ market-k2: top 25 video nổ của B có trung
 | 2 | **Cơ chế 1–3** | ~55 % (mỗi cơ chế 15–20 %) | Mỗi cơ chế = **1 số neo có nguồn + 1 cảnh 3D riêng**. Cơ chế sau dựa trên cơ chế trước (chuỗi nhân quả, không phải danh sách) | 3D cắt lớp, đồ hoạ dữ liệu động |
 | 3 | **Chỗ người ta hay hiểu sai** | ~10 % | Chỉ ra hiểu lầm phổ biến, lấy từ bình luận phản bác ở hồ sơ cầu, và sửa bằng số. **Không nêu tên kênh hay video khác**; nói về hiểu lầm, không về người làm | Đồ hoạ so sánh "common claim vs data" |
 | 4 | **Giới hạn / tương lai** | ~10 %, **chỉ khi có nguồn** | Điều cơ chế không giải thích được, rủi ro đã được nguồn nêu, dự báo có nguồn (nhãn PROJECTION, nét đứt). Không có nguồn thì bỏ phần này | Đồ hoạ dự báo tách khỏi thực tế |
-| 5 | **Kết** | ~10 % | Trả lời đúng câu hỏi ở móc, bằng các cơ chế vừa xem. Một câu nhìn lại cảnh 3D đầu tập (đóng vòng hình) | Cảnh 3D trung tâm, góc khác móc |
+| 5 | **Kết** | ~5–10 % (móc + kết + các phần cộng lại 100 %) | Trả lời đúng câu hỏi ở móc, bằng các cơ chế vừa xem. Một câu nhìn lại cảnh 3D đầu tập (đóng vòng hình) | Cảnh 3D trung tâm, góc khác móc |
 
 **Nhịp giữ chân** (rút từ chuẩn LL §9, áp lại):
 - Mỗi 60–90 s có một **bước ngoặt nhỏ**: số bất ngờ, cảnh 3D mới, câu hỏi phụ.
@@ -37,7 +39,7 @@ Chính sách kiếm tiền của YouTube (YPP) có mục **"inauthentic content"
 | **Quyết định biên tập của con người** | Câu hỏi, góc, cấu trúc do chủ dự án duyệt | `AUTHORSHIP.md` mỗi tập |
 
 ## Ưu, nhược, tác động, rủi ro
-- **Ưu:** móc bằng số có nguồn tách kênh khỏi video AI hàng loạt (top 5 của thanh toán 0/5 có dấu hiệu số liệu thật). Cấu trúc cơ chế 1–3 ánh xạ thẳng sang đặc tả `segments:` của nhà máy.
+- **Ưu:** móc bằng số có nguồn tách kênh khỏi các video mới trong mẫu (top 5 của thanh toán 0/5 có dấu hiệu số liệu thật, tự tính). Cấu trúc cơ chế 1–3 ánh xạ thẳng sang đặc tả `segments:` của nhà máy.
 - **Nhược:** 12–20 phút với ≥ 4 cảnh 3D riêng tốn công dựng hơn tập LL (8–11 phút). Phần "hiểu sai" phụ thuộc chất lượng bình luận phản bác.
 - **Tác động:** mỗi tập cần ≥ 3 số neo, ≥ 1 mô hình riêng, ≥ 4 cảnh 3D. Đây là chuẩn tối thiểu cho kiểm của K (đề xuất, chưa khoá).
 - **Rủi ro:** phần "giới hạn/tương lai" dễ trượt thành suy đoán, nên chỉ có khi có nguồn. Phần "hiểu sai" dễ thành công kích kênh khác, nên không nêu tên.

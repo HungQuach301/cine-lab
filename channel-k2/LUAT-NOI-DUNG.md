@@ -27,6 +27,7 @@
 - **Chỉ giải thích cơ chế:** hệ thống, dòng tiền, phí, luật, lịch sử. Không bàn sản phẩm nào tốt hơn cho người xem, không nói nên mở/đóng thẻ, không bàn mua/bán cổ phiếu, không dự báo giá.
 - **Câu miễn trừ ngắn**, nói ở 30 s đầu và ghi ở đầu mô tả:
   > "This video explains how the system works. It isn't financial advice."
+- Đề tài **lai** có phần tài chính–thanh toán (ví dụ #6 hãng bay) cũng phải có câu miễn trừ.
 - Số phí, lãi suất, ngưỡng pháp lý: chỉ từ văn bản luật/quy định (ví dụ Regulation II của Federal Reserve) hoặc hồ sơ công ty, ghi năm hiệu lực. Không nói "you will pay X".
 - Không dùng biểu đồ giá cổ phiếu.
 - Tiêu đề không hứa lợi ích tài chính cá nhân ("save money", "get rich", "the secret banks hide").

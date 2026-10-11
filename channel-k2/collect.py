@@ -3,7 +3,7 @@ YouTube Data API v3 qua proxy gắn khoá (không có khoá trong mã, không in
 ANTHROPIC_API_KEY=$CONSOLE_API_KEY, không subagent, trần $5 (dừng khi cost.jsonl vượt).
 Số liệu thô (kể cả bình luận) lưu NGOÀI git ở $K2C_DATA; mỗi lần chạy tự xoá file > 30 ngày.
 Mọi chỉ số tính ra là "tự tính, không phải chỉ số YouTube".
-Dùng: python collect.py labels | durable | names | demand | all"""
+Dùng: python collect.py labels | durable | names | demand | all | purge (chỉ xoá số liệu thô > 30 ngày)"""
 import json, os, re, subprocess, sys, time, hashlib, datetime as dt
 from pathlib import Path
 import requests
@@ -19,7 +19,7 @@ calls = {"search.list": 0, "other": 0}
 
 def purge():
     for f in DATA.glob("*"):
-        if f.is_file() and time.time() - f.stat().st_mtime > 30 * 86400:
+        if f.is_file() and f.name != "cost.jsonl" and time.time() - f.stat().st_mtime > 30 * 86400:   # giữ sổ chi phí AI
             f.unlink()
 
 def spent():
@@ -124,14 +124,20 @@ def labels():
     return out
 
 # ---------- Mốc 1: nhãn Cầu-bền (top 5 video dài toàn thời gian theo độ liên quan) ----------
-DURABLE_Q = {"swift": "how does swift international money transfer work", "atm": "how do atm machines make money"}
+DURABLE_Q = {"swift": "how does swift international money transfer work", "atm": "how do atm machines make money",
+             # vòng 2 (11/10): đề tài cơ chế tài chính thay thế khi SWIFT/ATM trượt Cầu-bền
+             "banks": "how do banks actually make money", "card-rewards": "who pays for credit card rewards",
+             "bank-transfer": "how does money move between banks", "exchange": "how does the stock exchange make money",
+             "insurance": "how do insurance companies make money"}
 
 def durable():
     out = {}
     for tag, q in DURABLE_Q.items():
         j = get("search", part="id", q=q, type="video", maxResults=15, regionCode="US", relevanceLanguage="en", order="relevance")
         top = [v for v in videos([it["id"]["videoId"] for it in j.get("items", [])]) if v["dur"] >= LONG_S][:5]
+        g = gap_check(f"dur-{tag}", top) if top else {}
         out[tag] = dict(q=q, n_500k=sum(v["views"] >= 500_000 for v in top),
+                        top5_real_data=sum(bool(g.get(v["id"], {}).get("real_data")) for v in top), gap_cov=sum(v["id"] in g for v in top),
                         top=[dict(title=v["title"], views=v["views"], min=round(v["dur"] / 60, 1), ch=v["chname"], pub=v["pub"][:10]) for v in top])
     (DATA / "durable.json").write_text(json.dumps(out, indent=1))
     return out
@@ -194,6 +200,15 @@ def classify(tag, items):
         out.update({k: v for k, v in r.items() if isinstance(v, dict)})
     return out
 
+def classify_all(tag, items):
+    """Gắn nhãn, rồi gắn lại tối đa 2 lượt cho bình luận Haiku bỏ sót (lô hỏng JSON)."""
+    lab = classify(tag, items)
+    for n in range(2):
+        miss = [c for c in items if c["cid"] not in lab]
+        if not miss: break
+        lab.update(classify(f"{tag}-retry{n}", miss))
+    return lab
+
 def synth(slug, title, buckets, comp):
     p = (f"Planned episode: \"{title}\" for a faceless, data-driven explainer channel about the economic mechanisms of "
          "industries. Below are labelled viewer comments from the top competing videos, as weighted gists "
@@ -226,7 +241,7 @@ def demand():
                 s = it["snippet"]; tl = s["topLevelComment"]["snippet"]
                 comments.append(dict(cid=it["id"], vid=vid, text=tl.get("textDisplay", ""), likes=int(tl.get("likeCount", 0)),
                                      replies=int(s.get("totalReplyCount", 0))))
-        lab = classify(slug, comments)
+        lab = classify_all(slug, comments)
         cov = sum(c["cid"] in lab for c in comments)
         if comments and cov < 0.95 * len(comments):
             raise SystemExit(f"nhãn thiếu {slug}: {cov}/{len(comments)}")

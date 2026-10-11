@@ -17,7 +17,7 @@ Mọi chỉ số trong luật này là **tự tính, không phải chỉ số Yo
 - **Không hai tập liền cùng trụ** trong 6 tập đầu, để đo được trụ nào kéo người xem.
 - **Cờ thời sự:** đề tài mà cầu chủ yếu đến từ tin tức dưới 90 ngày (một vụ tai nạn, một vụ phá sản đang diễn ra) không vào hàng đợi. Kênh làm nội dung sống lâu.
 - **Đề tài tài chính–thanh toán** thêm 2 kiểm: (a) câu hỏi là "hệ thống vận hành thế nào", không phải "bạn nên làm gì"; (b) không cần số liệu lợi suất, giá cổ phiếu hay so sánh sản phẩm cho người tiêu dùng.
-- **Loại bỏ từ danh sách market-k2:** "What Really Happened to Sears" và "Kodak Built the Digital Camera. Why Did It Lose?" trượt điều kiện 5, vì câu hỏi trung tâm là quyết định của ban lãnh đạo một công ty cụ thể (có người còn sống). Kodak còn trượt điều kiện 2 (cung AI dày).
+- **Loại bỏ từ danh sách market-k2:** "What Really Happened to Sears" và "Kodak Built the Digital Camera. Why Did It Lose?" trượt điều kiện 5, vì câu hỏi trung tâm là quyết định của ban lãnh đạo một công ty cụ thể (có người còn sống). Kodak còn trượt điều kiện 2 (market-k2 ghi cung video mới dày, video đầu ít lượt xem).
 
 ## Ưu, nhược, tác động, rủi ro
 - **Ưu:** mỗi điều kiện có phép đo, nên P hoặc phiên khác áp được mà không cần đoán ý. Điều kiện 5 chặn rủi ro phỉ báng ngay ở khâu chọn, rẻ hơn sửa ở khâu kịch bản.
