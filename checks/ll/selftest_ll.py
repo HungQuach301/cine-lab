@@ -546,11 +546,12 @@ fake = tempfile.mkdtemp(); shutil.copy(os.path.join(FX, 'judge', 'fake_claude.py
 _path = os.environ['PATH']; os.environ['PATH'] = fake + os.pathsep + _path; os.environ['CONSOLE_API_KEY'] = 'sk-ant-SELFTEST-KHOA-GIA-0123456789'
 
 
-def fake_set(mode):
+def fake_set(mode, seed=None, ref=None):
     d = tempfile.mkdtemp(); img = {}
     for i in range(1, 61):
         f = os.path.join(d, f'F{i:02d}.jpg'); open(f, 'wb').write(b'x%d' % i); img[f'F{i:02d}'] = QB.sha_file(f)
-    QB.render_prompts(d, 'Q27'); json.dump(dict(rule='Q27', seed=M8['seed'], new=M8['new'], images=img), open(os.path.join(d, 'manifest.json'), 'w'))
+    new_ = [dict(sha256=h) for _, h, _ in QB.MOC27] if seed else M8['new']
+    QB.render_prompts(d, 'Q27'); json.dump(dict(rule='Q27', seed=seed or M8['seed'], new=new_, ref=ref, images=img), open(os.path.join(d, 'manifest.json'), 'w'))
     os.environ['FAKE_MODE'] = mode
     try: QB.blind_run(d, 'Q27'); code = 0
     except SystemExit as e: code = e.code
@@ -571,6 +572,19 @@ try:
     case('API', 'người chấm không đọc đủ 60 ảnh → không nhận trả lời', [x for x in bad if 'không đọc đủ' in x], True)
     d, code, (Rr, bad) = fake_set('fence')
     case('API', 'JSON trong rào ``` vẫn nhận', bad, False)
+    # ---- 1.9.1: mốc tập 8 (chủ dự án 11/10: phương án A + đặt lại mốc) ----
+    REFS = [dict(video=os.path.basename(v), sha256=h) for v, h, _ in QB.REF27]
+    dm, code, _ = fake_set('ok', seed=QB.seed_of([h for _, h, _ in QB.MOC27]), ref=REFS); m_ = QB.moc27(dm, video=False)
+    case('Q27', f"mốc tập 8 hợp lệ (bộ giả, 3 người): {m_['val']}", m_['loi'] + ([] if m_['chenh'] == 0 else ['chênh']), False)
+    case('Q27', 'thiếu bộ mốc tập 8 → lỗi', QB.moc27(os.path.join(tempfile.mkdtemp(), 'q27-moc'), video=False)['loi'], True)
+    dx, code, _ = fake_set('ok', ref=REFS)
+    case('Q27', 'bộ mốc dựng từ video khác tập 8 bản phát hành → lỗi "bộ chấm thuộc bản khác"', [e for e in QB.moc27(dx, video=False)['loi'] if 'bộ chấm thuộc bản khác' in e], True)
+    c8 = json.load(open(os.path.join(F8, 'q27-api-k190-lan1.json'))); r9 = QB.agg27(QB.sets_from_seed(c8['seed']), c8['replies'], plan_sau=PLAN_OK)
+    rm = QB.them_moc(r9, m_)
+    case('Q27', f"kèm mốc: ngưỡng vẫn trên tập mới − tập 1 (ĐẠT, sát ngưỡng) · {rm['val'].split(' (R1')[0]}",
+         [] if rm['ok'] == r9['ok'] is True and abs(rm['hieu_moc'] - (r9['chenh'] - 0)) < 1e-9 and 'tập mới − tập 8' in rm['val'] else [rm['val']], False)
+    case('Q27', 'kèm mốc: bộ mốc lỗi → TRƯỢT dù chênh chính đạt', [] if QB.them_moc(r9, dict(chenh=None, val='không có', loi=['thiếu']))['ok'] else ['trượt'], True)
+    case('Q27', f'mốc = tập 8 bản phát hành (release-ll-ep08-v1, d22d7d6e…)', [] if QB.MOC27[0][1] == D22 else [QB.MOC27[0][1]], False)
     d, code, (Rr, bad) = fake_set('twojson')
     case('API', 'trả hai khối JSON (tự sửa giữa chừng) cả 2 lần gọi → không nhận, TRƯỢT có lý do', [x for x in bad if 'không đọc được' in x] if not Rr else [], True)
     d, code, (Rr, bad) = fake_set('twojson1')
