@@ -7,7 +7,7 @@ Dữ liệu: checks/ll/fixtures/ep02–05 (bản sao đóng băng episode.yaml +
 + hộp chữ thumbnail của bản G3), ep03-v1-4833ac1.yaml (đặc tả tập 3 trước khi chủ dự án bỏ thẻ +87 % ↔ −13 %).
 Log render không lưu trong repo: ca cần log dùng log tối thiểu dựng lại đúng chữ/hộp của lỗi (ghi rõ ở từng ca).
 """
-import copy, glob, gzip, json, os, sys, tempfile
+import copy, glob, gzip, json, os, shutil, sys, tempfile
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, ROOT)
@@ -329,8 +329,8 @@ fx = json.load(open(os.path.join(F7, 'q27-chinh-thuc.json'))); S7 = QB.sets_from
 r = QB.agg27(S7, fx['replies'])
 case('Q27', f"tập 7 chính thức đọc lại đúng số G2 (5,68 / 5,64): {r['val']}", [] if r['val'].startswith('tập mới 5.68 · tập 1 5.64') else [r['val']], False)
 case('Q27', 'tập 7 chính thức: chênh +0,04 trong ±SE → SÁT NGƯỠNG; không có PLAN tập sau → TRƯỢT', [] if r['ok'] else r['loi'], True)
-r = QB.agg27(S7, fx['replies'], plan_sau=os.path.join(ROOT, 'reports/m3/ep08/PLAN.md'))
-case('Q27', 'tập 7 chính thức với PLAN tập 8 hiện có trên main (chưa có mục "Cải thiện hình") → TRƯỢT', [] if r['ok'] else r['loi'], True)
+r = QB.agg27(S7, fx['replies'], plan_sau=os.path.join(F7, 'plan-ep08-f115e8b.md'))   # 1.9.0: bản đóng băng (main sau tập 8 đã có mục)
+case('Q27', 'tập 7 chính thức với PLAN tập 8 lúc khoá 1.8.1 (f115e8b, chưa có mục "Cải thiện hình") → TRƯỢT', [] if r['ok'] else r['loi'], True)
 r = QB.agg27(S7, fx['replies'], plan_sau=PLAN_OK)
 case('Q27', 'tập 7 chính thức + PLAN tập sau có mục "Cải thiện hình" → ĐẠT, ghi SÁT NGƯỠNG', [] if r['ok'] and r['sat'] and r['sat_nguong'] else ['sai'], False)
 case('Q27', 'PLAN tập sau có tiêu đề "Cải thiện hình" nhưng mục rỗng → TRƯỢT', [] if QB.agg27(S7, fx['replies'], plan_sau=PLAN_EMPTY)['ok'] else ['trượt'], True)
@@ -481,6 +481,128 @@ for sg in sgs:
 r = QS.q26b(TLb)
 case('Q26b', f"tập 6 v2 nếu cả đoạn 06–08 ({sgs[-1]['t1'] - sgs[0]['t0']:.0f} s) dùng tường bản nháp: liên tục > 90 s",
      [x for x in r['loi'] if 'liên tục' in x], True)
+
+# ======================= 1.9.0 (K, 11/10/2026): Q28f bộ chuyển chữ→số, Q27 chấm theo manifest, người chấm qua Claude API =======================
+# ---- Q28f: khiếu nại P 09/10 (tập 8 đoạn 06, 13). Hai phía (lời khoá, ASR) dùng CÙNG nums_of; so theo giá trị, chặt ----
+AS = json.load(open(os.path.join(FX, 'asr-k190.json')))   # văn bản ASR thật (faster-whisper small.en, beam 5) của K, 11/10/2026
+for k in ('ep08/06', 'ep08/13'):
+    case('Q28f', f'tập 8 đoạn {k[-2:]}: lời khoá vs ASR thật của K → ĐẠT', QA.asr_miss(AS['tx'][k]['vo'], AS['tx'][k]['asr']), False)
+V06, V13 = AS['tx']['ep08/06']['vo'], AS['tx']['ep08/13']['vo']
+A06, A13 = AS['tx']['ep08/06']['asr'], AS['tx']['ep08/13']['asr']
+case('Q28f', 'đoạn 06: ASR thật viết "some $20 million" = lời "some twenty million dollars" (1.8.1: "thiếu 20000000.0")', ([] if '$20 million' in A06 else ['ASR khác']) + QA.asr_miss(V06, A06), False)
+case('Q28f', 'đoạn 13: ASR thật viết "3.5%" = lời "three and a half percent" (1.8.1: "thiếu 3.0")', ([] if '3.5%' in A13 else ['ASR khác']) + QA.asr_miss(V13, A13), False)
+for vo, tx, nm in (('two million dollars', 'twenty million dollars', '"two million" ≠ "twenty million"'), ('twenty million dollars', 'two million dollars', '"twenty million" ≠ "two million"'),
+                   ('three and a half percent', 'slower than the 3% projected', '"three and a half percent" ≠ "3%"'), ('about 3%', 'three and a half percent', '"3%" ≠ "three and a half percent"'),
+                   ('some $20 million', 'some 2 million', '"$20 million" ≠ "2 million"')):
+    case('Q28f', f'không nới: {nm} → TRƯỢT', QA.asr_miss(vo, tx), True)
+for vo, tx, nm in (('In 1966, twelve years after', 'In nineteen sixty six twelve years after', 'năm đọc chữ + số liền sau: 1966 và 12, không ghép'),
+                   ('In nineteen sixty-six, twelve years after', 'In 1966, 12 years after', 'lời viết năm bằng chữ, ASR viết số'),
+                   ('on January seventh, 1954', 'on January 7th, 1954', 'ngày thứ tự sau tên tháng = 7'),
+                   ('First, it counted the people.', 'First it counted the people.', '"First" đứng riêng không là số'),
+                   ('two hundred sixty-two translators', '262 translators', '262'), ('about fifteen hundred more jobs', 'about 1,500 more jobs', '1500'),
+                   ('seventy-four thousand jobs', '74,000 jobs', '74 000'), ('two and a half million', '2.5 million', '2,5 triệu')):
+    case('Q28f', f'đọc đúng: {nm}', QA.asr_miss(vo, tx), False)
+case('Q28f', 'bộ đọc cũ ghép "nineteen sixty six twelve" thành 97 (lỗi P báo); bộ mới: {12, 1966}', [] if QA.nums_of('nineteen sixty six twelve years') == {12.0, 1966.0} else [sorted(QA.nums_of('nineteen sixty six twelve years'))], False)
+case('Q28f', 'ngày thứ tự ngoài tên tháng không đọc ("the seventh day")', [] if QA.nums_of('the seventh day') == set() else ['đọc'], False)
+for ep_, exp in AS['ky_vong'].items():
+    got = {k.split('/')[1]: QA.asr_miss(v['vo'], v['asr']) for k, v in AS['tx'].items() if k.startswith(ep_ + '/')}
+    got = {k: v for k, v in got.items() if v}
+    case('Q28f', f"{ep_}: ASR thật, bộ mới → {got or 'ĐẠT'} (bộ cũ 1.8.1: {AS['cu'][ep_] or 'ĐẠT'})", [] if got == exp else [got], False)
+
+# ---- Q27: khiếu nại P 10/10 — chấm lại theo SHA master mới gán sai khung (in −0,11/+0,06 thay vì −0,31) ----
+F8 = os.path.join(FX, 'ep08'); fx8 = json.load(open(os.path.join(F8, 'q27-chinh-thuc.json'))); M8 = fx8['manifest']; D22 = fx8['sha_sau']['d22d7d6e']
+r_old = QB.agg27(QB.sets_from_seed(QB.seed_of([D22])), fx8['replies'])
+case('Q27', f"tái hiện lỗi 1.8.1: gán khung theo SHA master phát hành d22d7d6e… → {r_old['val'].split(' (SE')[0]} (số sai P báo: −0,11)", [] if abs(r_old['chenh'] + 0.11) < 0.005 else [r_old['val']], False)
+S8, b8, same8 = QB.q27_sets(M8, [D22]); r8 = QB.agg27(S8, fx8['replies'], b8)
+case('Q27', f"1.9.0: cùng dữ liệu, gán theo hạt giống manifest → {r8['val'].split(' (SE')[0]} (= số chính thức −0,31)", [] if abs(r8['chenh'] + 0.31) < 0.005 and S8 == QB.sets_from_seed(M8['seed']) else [r8['val']], False)
+case('Q27', 'master khác manifest: báo "bộ chấm thuộc bản khác" → TRƯỢT, chấm lại', [x for x in b8 if 'bộ chấm thuộc bản khác' in x] if not same8 and not r8['ok'] else [], True)
+S8b, b8b, same8b = QB.q27_sets(M8, [M8['new'][0]['sha256']])
+case('Q27', 'master đúng bản trong manifest: không lỗi, cùng phép gán', b8b + ([] if same8b and S8b == S8 else ['khác']), False)
+Mt = copy.deepcopy(M8); Mt['seed'] = QB.seed_of([D22])
+case('Q27', 'manifest bị sửa hạt giống (không khớp SHA ghi trong manifest) → lỗi', QB.q27_sets(Mt, [M8['new'][0]['sha256']])[1], True)
+
+# ---- Hiệu chuẩn Claude API (K 11/10/2026): chấm lại bộ khung Q27 chính thức tập 7, 8 bằng API, 2 lần mỗi tập ----
+CAL = {}
+for e_, Fd, sub in (('07', F7, json.load(open(os.path.join(F7, 'q27-chinh-thuc.json')))['replies']), ('08', F8, fx8['replies'])):
+    for k_ in (1, 2):
+        c_ = json.load(open(os.path.join(Fd, f'q27-api-k190-lan{k_}.json'))); S_ = QB.sets_from_seed(c_['seed'])
+        a_, s_ = QB.agg27(S_, c_['replies']), QB.agg27(S_, sub); CAL[(e_, k_)] = (a_['chenh'], s_['chenh'], c_)
+        case('Q27', f"hiệu chuẩn API tập {e_} lần {k_}: {a_['val'].split(' (SE')[0]} · subagent {s_['chenh']:+.2f} · lệch {a_['chenh'] - s_['chenh']:+.2f} · ${c_['cham']['cost_usd']}",
+             [] if c_['cham']['model'] == QB.MODEL and all(t['model_usage'] == [QB.MODEL] for v in c_['cham']['raters'].values() for t in v) else ['mô hình'], False)
+se_api, _ = QB.se27([(QB.sets_from_seed(c_['seed']), c_['replies']) for _, _, c_ in CAL.values()])
+case('Q27', f'SE đo trên 4 lần chấm API = {se_api:.3f} (subagent, 6 lần: 0,273; khoá: {QB.SE27})', [] if abs(se_api - 0.321) < 0.0015 else [f'{se_api:.4f}'], False)
+
+# ---- Người chấm qua Claude API (judge.py): kiểm bằng `claude` giả, không gọi mạng ----
+from checks.ll import judge as JG  # noqa: E402
+case('API', f'mô hình ghim {JG.MODEL} (không để mặc định)', [] if JG.MODEL == 'claude-sonnet-5-5' and QB.MODEL == JG.MODEL else [QB.MODEL], False)
+case('API', 'modelUsage có mô hình khác (haiku) → lỗi', JG.model_errors({JG.MODEL: {}, 'claude-haiku-5-5': {}}), True)
+case('API', 'modelUsage rỗng → lỗi', JG.model_errors({}), True)
+case('API', 'trả lời JSON trong rào ``` đọc được; chữ thường → không', [] if JG.parse_json('```json\n{"a": 1}\n```') == {'a': 1} and JG.parse_json('no json') is None else ['sai'], False)
+_ok = os.environ.pop('CONSOLE_API_KEY', None)
+try: JG._env('/tmp'); e_ = []
+except JG.JudgeError as e: e_ = [str(e)]
+case('API', 'thiếu CONSOLE_API_KEY → dừng (fail closed)', e_, True)
+fake = tempfile.mkdtemp(); shutil.copy(os.path.join(FX, 'judge', 'fake_claude.py'), os.path.join(fake, 'claude')); os.chmod(os.path.join(fake, 'claude'), 0o755)
+_path = os.environ['PATH']; os.environ['PATH'] = fake + os.pathsep + _path; os.environ['CONSOLE_API_KEY'] = 'sk-ant-SELFTEST-KHOA-GIA-0123456789'
+
+
+def fake_set(mode, seed=None, ref=None):
+    d = tempfile.mkdtemp(); img = {}
+    for i in range(1, 61):
+        f = os.path.join(d, f'F{i:02d}.jpg'); open(f, 'wb').write(b'x%d' % i); img[f'F{i:02d}'] = QB.sha_file(f)
+    new_ = [dict(sha256=h) for _, h, _ in QB.MOC27] if seed else M8['new']
+    QB.render_prompts(d, 'Q27'); json.dump(dict(rule='Q27', seed=seed or M8['seed'], new=new_, ref=ref, images=img), open(os.path.join(d, 'manifest.json'), 'w'))
+    os.environ['FAKE_MODE'] = mode
+    try: QB.blind_run(d, 'Q27'); code = 0
+    except SystemExit as e: code = e.code
+    return d, code, QB._replies(d, 'Q27')
+
+
+try:
+    d, code, (Rr, bad) = fake_set('ok')
+    case('API', f"chấm giả đủ 3 người: R1–R3.json + `cham` trong manifest (mô hình, chi phí ${QB._man(d)['cham']['cost_usd']})", bad + ([] if code == 0 and len(Rr) == 3 and QB._man(d)['cham']['cost_usd'] > 0 else ['thiếu']), False)
+    try: QB.blind_run(d, 'Q27'); e_ = []
+    except SystemExit as e: e_ = [str(e)]
+    case('API', 'chấm lại cùng bộ (đã có R*.json) → từ chối', e_, True)
+    d, code, (Rr, bad) = fake_set('credit')
+    case('API', 'hết credit → TRƯỢT có lý do, không có R*.json', [x for x in bad if 'Credit balance' in x] if code == 2 and not Rr else [], True)
+    d, code, (Rr, bad) = fake_set('model')
+    case('API', 'chạy mô hình khác MODEL → không nhận trả lời', bad if not Rr else [], True)
+    d, code, (Rr, bad) = fake_set('partial')
+    case('API', 'người chấm không đọc đủ 60 ảnh → không nhận trả lời', [x for x in bad if 'không đọc đủ' in x], True)
+    d, code, (Rr, bad) = fake_set('fence')
+    case('API', 'JSON trong rào ``` vẫn nhận', bad, False)
+    # ---- 1.9.1: mốc tập 8 (chủ dự án 11/10: phương án A + đặt lại mốc) ----
+    REFS = [dict(video=os.path.basename(v), sha256=h) for v, h, _ in QB.REF27]
+    dm, code, _ = fake_set('ok', seed=QB.seed_of([h for _, h, _ in QB.MOC27]), ref=REFS); m_ = QB.moc27(dm, video=False)
+    case('Q27', f"mốc tập 8 hợp lệ (bộ giả, 3 người): {m_['val']}", m_['loi'] + ([] if m_['chenh'] == 0 else ['chênh']), False)
+    case('Q27', 'thiếu bộ mốc tập 8 → lỗi', QB.moc27(os.path.join(tempfile.mkdtemp(), 'q27-moc'), video=False)['loi'], True)
+    dx, code, _ = fake_set('ok', ref=REFS)
+    case('Q27', 'bộ mốc dựng từ video khác tập 8 bản phát hành → lỗi "bộ chấm thuộc bản khác"', [e for e in QB.moc27(dx, video=False)['loi'] if 'bộ chấm thuộc bản khác' in e], True)
+    c8 = json.load(open(os.path.join(F8, 'q27-api-k190-lan1.json'))); r9 = QB.agg27(QB.sets_from_seed(c8['seed']), c8['replies'], plan_sau=PLAN_OK)
+    rm = QB.them_moc(r9, m_)
+    case('Q27', f"kèm mốc: ngưỡng vẫn trên tập mới − tập 1 (ĐẠT, sát ngưỡng) · {rm['val'].split(' (R1')[0]}",
+         [] if rm['ok'] == r9['ok'] is True and abs(rm['hieu_moc'] - (r9['chenh'] - 0)) < 1e-9 and 'tập mới − tập 8' in rm['val'] else [rm['val']], False)
+    case('Q27', 'kèm mốc: bộ mốc lỗi → TRƯỢT dù chênh chính đạt', [] if QB.them_moc(r9, dict(chenh=None, val='không có', loi=['thiếu']))['ok'] else ['trượt'], True)
+    case('Q27', f'mốc = tập 8 bản phát hành (release-ll-ep08-v1, d22d7d6e…)', [] if QB.MOC27[0][1] == D22 else [QB.MOC27[0][1]], False)
+    d, code, (Rr, bad) = fake_set('twojson')
+    case('API', 'trả hai khối JSON (tự sửa giữa chừng) cả 2 lần gọi → không nhận, TRƯỢT có lý do', [x for x in bad if 'không đọc được' in x] if not Rr else [], True)
+    d, code, (Rr, bad) = fake_set('twojson1')
+    tr = [len(x['tries']) for x in QB._man(d)['cham']['raters'].values()]
+    case('API', f'trả lời không đọc được ở lần 1 → gọi lại 1 lần, ghi cả 2 lần (số lần mỗi người: {tr})', bad + ([] if tr == [2, 1, 1] and len(Rr) == 3 else ['sai']), False)
+    d, code, (Rr, bad) = fake_set('leak')
+    leak = [f for f in glob.glob(os.path.join(d, '**', '*'), recursive=True) if os.path.isfile(f) and os.environ['CONSOLE_API_KEY'] in open(f, errors='ignore').read()]
+    case('API', 'khoá không bao giờ ghi ra tệp (trả lời, bản chép, manifest)', leak, False)
+    Rs = {r: dict(x, model='sonnet', backend=None) for r, x in Rr.items()}
+    for r, x in Rs.items(): json.dump(x, open(os.path.join(d, f'{r}.json'), 'w'))
+    case('API', 'trả lời kiểu subagent cũ (model "sonnet", không qua API) → không nhận', QB._replies(d, 'Q27')[1], True)
+    d2 = tempfile.mkdtemp(); [shutil.copy(os.path.join(F8, 'q27-chinh-thuc.json'), d2)]
+    for r, x in fx8['replies'].items(): json.dump(x, open(os.path.join(d2, f'{r}.json'), 'w'))
+    json.dump(M8, open(os.path.join(d2, 'manifest.json'), 'w'))
+    case('API', 'bộ chấm subagent tập 8 (không có bản ghi `cham`) → TRƯỢT "chưa chấm qua Claude API"', [x for x in QB._replies(d2, 'Q27')[1] if 'chưa chấm qua Claude API' in x], True)
+finally:
+    os.environ['PATH'] = _path; os.environ.pop('FAKE_MODE', None); os.environ.pop('CONSOLE_API_KEY', None)
+    if _ok: os.environ['CONSOLE_API_KEY'] = _ok
 
 w = max(len(r[1]) for r in R)
 for rule, name, kind_, ok, got in R: print(f"{'ĐÚNG' if ok else 'SAI '}  {rule:<7} {kind_:<8} {name}" + ('' if ok else f'   → {got}'))
