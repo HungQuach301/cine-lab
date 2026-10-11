@@ -413,3 +413,145 @@ Lệnh chủ dự án 09/10/2026, sau khi đọc `reports/m3/TAP7-G2.md`, `repor
 1. **Duyệt bản khoá 1.8.1** (LOCK `208121b4…`).
 2. **Thứ tự merge** (đề xuất của người rà, K đồng ý): `claude/eager-babbage-6cc4l6` (tập 7) vào `main` trước, sau đó nhánh K `claude/checks-ll-v3-tap-7-b3kbii`. Phiên P merge.
 3. **Việc của P sau merge:** thêm mục **"Cải thiện hình"** vào `reports/m3/ep08/PLAN.md`, vì Q27 tập 7 sát ngưỡng (+0,04). Gợi ý: đưa vào mục này cả điểm yếu Q26b của tập 7 (văn phòng đêm 29,1 %, 139 s).
+
+## 15. Bản 1.9.0 (11/10/2026): 2 khiếu nại của P, người chấm qua Claude API, hiệu chuẩn
+Lệnh mở phiên K của chủ dự án (11/10/2026), mục A–E. Trước đó K merge nhánh tập 8 (`ccr-a261f349-6rkunc`) vào `main` ở commit `7d350de` (không xung đột, không đụng `checks/`).
+
+### 15.1 Phán quyết khiếu nại Q28f (P, 09/10): CHẤP NHẬN
+**Hiện tượng P báo là đúng.** Chạy bộ đọc số cũ (1.8.1):
+
+| Câu | Bộ cũ | Bộ mới (1.9.0) |
+|---|---|---|
+| "some $20 million" | {20} | {20 000 000} |
+| "three and a half percent" | {3} | {3,5} |
+| "nineteen sixty six twelve years" | {97} | {1966, 12} |
+| "January seventh" | {} | {7} |
+| "two and three" (K tự thấy thêm) | {5} | {2, 3} |
+
+**Sửa (`checks/ll/q_av.py`, `nums_of` viết lại, `asr_miss` tách khỏi `asr_check`):**
+- Hai phía (lời khoá và văn bản ASR) đi qua **cùng một bộ đọc**.
+- Chữ số kèm từ bậc: "$20 million" = "20 million" = 2·10⁷; "15 hundred" = 1 500. Dấu `$` và `%` không đổi giá trị, nên "%" = "percent".
+- "N and a half" = N,5, cả khi theo sau là bậc ("two and a half million" = 2,5·10⁶).
+- Số chữ: sau đơn vị chỉ được bậc; sau chục chỉ được đơn vị 1–9 hoặc bậc. Vì vậy hai số đọc liền nhau không bị ghép. "and" chỉ nối khi đứng sau hundred/thousand… ("one hundred and twenty").
+- Năm đọc chữ: "nineteen sixty six" = 1966, "twenty twenty-five" = 2025, "nineteen oh five" = 1905.
+- Ngày thứ tự chỉ đọc sau tên tháng ("January seventh", "March twenty-first"). "First, …" đứng riêng không là số. Thứ tự ghép chục ("twenty-first") = 21.
+- Làm tròn 6 chữ số thập phân (1,89 × 10⁶ ra 1 890 000,0000000002).
+
+**Không nới:** "two million" ≠ "twenty million" (cả hai chiều), "3%" ≠ "three and a half percent" (cả hai chiều), "$20 million" ≠ "2 million": đều TRƯỢT (selftest).
+
+**Chạy thật:** faster-whisper small.en, beam 5, nhiệt 0, không VAD, đúng cấu hình luật, trên 47 tệp lời. Văn bản ASR lưu ở `checks/ll/fixtures/asr-k190.json`.
+
+| Tập | Bộ cũ 1.8.1 | Bộ mới 1.9.0 |
+|---|---|---|
+| 6 v2 (13 đoạn) | ĐẠT | ĐẠT (không đổi) |
+| 7 bản cuối (17 đoạn) | ĐẠT | ĐẠT (không đổi) |
+| 8 bản cuối (17 đoạn) | TRƯỢT: 06 thiếu 20000000, 13 thiếu 3 | **ĐẠT** (06 và 13 ĐẠT) |
+
+- ASR của K (beam 5) cũng viết "some $20 million" và "3.5%", giống bản beam 1 của P.
+- Tổng số khoá số đọc từ lời: 107 trước và sau.
+- Hai đoạn có tập giá trị đổi:
+  - tập 7 đoạn 12: "1.72 million", "1.89 million" nay đọc đúng là 1 720 000 và 1 890 000 (trước: 1,72 và 1,89). Hai phía cùng đổi nên vẫn ĐẠT.
+  - tập 8 đoạn 13: 3 → 3,5.
+
+### 15.2 Phán quyết khiếu nại Q27 (P, 10/10): CHẤP NHẬN
+**Tái hiện lỗi.** Selftest dùng 3 câu trả lời Q27 chính thức của tập 8 (`fixtures/ep08/q27-chinh-thuc.json`).
+- Gán khung theo hạt giống của master **phát hành** `d22d7d6e…` (cách 1.8.1) cho **−0,11**, đúng số sai P báo sau sửa T01. Trước đó P báo +0,06 trên `a1202dbd…`; SHA đầy đủ của bản này không còn lưu.
+- Gán theo hạt giống trong manifest cho **−0,31**, đúng số chính thức.
+
+**Sửa (`q_blind.q27_sets`, `q27_score`):**
+1. Phép gán F## ↔ tập mới/tập 1 lấy từ `seed` trong manifest. Hạt giống phải khớp SHA video ghi trong manifest, nếu không thì báo "manifest hỏng".
+2. Video hiện tại khác SHA trong manifest → lỗi **"bộ chấm thuộc bản khác: manifest …, video hiện tại …"**. Số in ra là của bản trong manifest. Ảnh chỉ kiểm theo SHA trong manifest, vì không dựng lại được từ video khác.
+3. Trả lời câu (3) của P: **mọi lần đổi master sau Q27 phải chấm lại.** Kết quả vẫn là TRƯỢT như 1.8.1; khác ở chỗ nay báo rõ lý do và in đúng số. Qua API, chấm lại tốn ≈ $0,8 và ≈ 2 phút.
+- Kết quả chính thức tập 8 vẫn là **−0,31** (chấm trên `688b4fab…`).
+
+### 15.3 Người chấm mù qua Claude API (`checks/ll/judge.py`, `q_blind.py q27-run | q31-run | g1-run`)
+**Cách gọi.** Mỗi người chấm là một lần gọi:
+
+`claude -p --bare --restricted --model claude-sonnet-5-5 --tools Read --allowedTools Read --strict-mcp-config --no-session-persistence --permission-mode dontAsk --output-format stream-json --max-budget-usd <trần>`
+
+- Gọi trong thư mục bộ ảnh (ngoài repo) với `ANTHROPIC_API_KEY="$CONSOLE_API_KEY"`, `HOME` tạm, môi trường bỏ mọi biến `CLAUDE*`/`ANTHROPIC*` của phiên gọi, và `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1`. Không có tác vụ nền: thử lần đầu có Haiku chạy ngầm, sau khi thêm biến này `modelUsage` chỉ còn Sonnet.
+- **Cách ly (kiểm thật):** người chấm đọc được ảnh trong thư mục bộ ảnh. Khi K bảo đọc `/home/user/cine-lab/CLAUDE.md`, lần đọc bị từ chối: công cụ đọc chỉ đọc được thư mục làm việc. `--bare` không nạp CLAUDE.md, hook hay bộ nhớ.
+- **Giữ nguyên:** đề bài khoá (nguyên văn `PROMPT-Rk.txt`, so với bản khoá trước khi gọi), cách trộn khung, định dạng JSON, 3 người chấm.
+- **Ghi vào manifest (`cham`):** phiên bản CLI, lần gọi thử, từng lần gọi của từng người. Mỗi lần gọi có: mô hình thực chạy (`modelUsage`), chi phí USD, số lượt, số tệp đã đọc, các lần đọc bị từ chối, SHA bản chép. Bản chép đầy đủ (stream-json) nằm ở `run/`. Khoá không bao giờ ghi ra tệp: selftest cho `claude` giả in khoá trong trả lời, khoá bị thay bằng `<KHOÁ>` ở mọi tệp.
+- **Fail closed:**
+  - Các trường hợp: thiếu khoá; gọi thử hỏng (DỪNG, báo); lỗi API hoặc hết credit; vượt trần; mô hình khác `claude-sonnet-5-5` (kể cả có thêm mô hình khác); không đọc đủ tệp đề bài nêu; trả lời không đọc được.
+  - Khi đó **không có `Rk.json`**, lý do ghi trong manifest, và `q27-score`/`q31-score` TRƯỢT kèm lý do.
+  - Gọi lại tối đa **1 lần**, chỉ khi lỗi API hoặc trả lời không đọc được (lúc đó chưa có điểm nào để chọn). Không gọi lại vì điểm. Mỗi bộ chỉ chấm một lần: đã có trả lời thì lệnh từ chối.
+  - Trả lời subagent cũ (`model: "sonnet"`, không có `cham`) không còn được nhận.
+- **Sự cố thật lúc hiệu chuẩn:** tập 7 lần 2, R1 trả **hai** khối JSON: người chấm tự sửa giữa chừng vì khối đầu thiếu F60.
+  - Bộ chấm loại đúng ("trả lời không đọc được"). Từ đó K thêm luật gọi lại 1 lần cho lỗi này (selftest `twojson`, `twojson1`).
+  - Lần gọi lại hợp lệ ($0,067).
+- **Thử đầu–cuối:**
+  - Q31 tập 7 (37 tệp): 3/3 hợp lệ, $0,33. Điểm liền mạch [8, 7, 7]; vòng 5 của subagent là [7, 7, 7]. Cả hai có 3 điểm đứt mạch 2/3, ở chỗ khác nhau. Lần này chỉ để thử đường chạy, không phải lần chấm của P.
+  - G1: 1 người chấm, lời tập 8, $0,023.
+
+### 15.4 Hiệu chuẩn Q27: API so với subagent, cùng bộ khung đã chấm
+**Bộ khung:**
+- Tập 7: dựng lại theo luật lúc chấm (tập 1 720p ba phần `screening/ll-ep01-m23-p*.mp4`). **60/60 ảnh trùng SHA** bản đã chấm.
+- Tập 8: master `688b4fab…` không còn. K dựng từ master phát hành `d22d7d6e…` tại cùng vị trí nội dung: khung sau điểm nối T01 lùi 15 khung (+0,625 s). **46/60 trùng SHA**: 30/30 khung tập 1, 16/30 khung tập 8. 14 khung tập 8 khác byte vì cả 17 đoạn đã dựng lại sau sửa T01 (BAI-HOC #108). Không có ảnh gốc để so bằng mắt.
+- Mỗi tập chấm API **2 lần** để tách nhiễu người chấm khỏi lệch đường chấm.
+
+| Tập | Subagent (chính thức) | API lần 1 | API lần 2 | API − subagent | API2 − API1 |
+|---|---|---|---|---|---|
+| 7 | 5,68 / 5,64 → **+0,04** | 5,81 / 5,22 → **+0,59** | 5,66 / 5,18 → **+0,48** | **+0,55 / +0,44** | −0,11 |
+| 8 | 5,13 / 5,44 → **−0,31** | 5,25 / 5,40 → **−0,15** | 5,30 / 5,28 → **+0,02** | +0,16 / **+0,34** | +0,17 |
+
+- **Chênh API − subagent vượt SE 0,27 ở 3/4 lần**: tập 7 cả hai lần, tập 8 lần 2. Nhiễu API–API trên cùng khung chỉ ±0,11–0,17. Vậy lệch là **có hệ thống**: trung bình +0,37, nghiêng về phía có lợi cho tập mới.
+- Phần lớn lệch nằm ở **điểm tập 1**. API chấm khung tập 1 thấp hơn subagent: tập 7 (tập 1 bản 720p) 5,20 so với 5,64; tập 8 (tập 1 bản 1080p) 5,34 so với 5,44. Khung tập mới lệch ít hơn: API cao hơn subagent +0,06 (tập 7) và +0,15 (tập 8).
+- Tương quan điểm từng khung: subagent/API 0,35 (tập 7) và 0,64 (tập 8); API/API 0,56 và 0,73.
+- **SE mới** (bootstrap hai tầng như `se27`):
+  - 4 lần API: **0,321** (từng lần 0,37 / 0,34 / 0,32 / 0,24). Subagent, 6 lần: 0,273.
+  - Gộp 2 lần thành 6 người chấm: 0,261.
+- K không biết đường nào "đúng": không có điểm chuẩn của con người trên các khung này. Subagent không ghim được phiên bản mô hình ('sonnet'), và chạy trong ngữ cảnh hệ thống của Claude Code.
+
+**Phương án cho chủ dự án (chênh > SE nên K trình trước khi chủ dự án duyệt khoá):**
+
+| | Nội dung | Ưu | Nhược | Tác động (tập 9+) | Rủi ro |
+|---|---|---|---|---|---|
+| **A (đang khoá, K khuyến nghị)** | API `claude-sonnet-5-5`, 3 người, SE **giữ 0,27**, ngưỡng d ≥ −0,27 | Không nới ngưỡng. API vốn nghiêng về tập mới khoảng +0,37, nên giữ SE chặt bù một phần. Ghim mô hình, đo chi phí, fail closed bằng máy | Nhiễu API lớn hơn (0,32 > 0,27): dễ ra "sát ngưỡng" hơn. Số API không so trực tiếp được với tập 6–8 | ≈ $0,8 mỗi lần chấm | Lệch có hệ thống làm Q27 dễ đạt hơn trước khoảng 0,2–0,4 điểm |
+| B | Như A, SE = **0,32** (đo trên 4 lần API) | Ngưỡng đúng với nhiễu đo được | **Nới** ngưỡng thêm 0,05, cộng với lệch +0,37 | như A | Q27 mất sức phân biệt |
+| C | API, **2 lượt × 3 đề bài = 6 người**, gộp; SE 0,26 | Nhiễu người chấm giảm một nửa | Đổi số người chấm (lệnh hiện tại giữ 3). Chi phí ×2 | ≈ $1,6 mỗi lần chấm | Không sửa được lệch có hệ thống |
+| D | Q27 **giữ subagent**; Q31, G1 qua API | So được với tập 6–8 | Không ghim mô hình, không đo chi phí. Không fail closed bằng máy (P chép tay trả lời) | như cũ | Mô hình subagent đổi mà không ai biết |
+
+Có thể kết hợp A hoặc C với **đặt lại mốc**: tập 9 chấm cả tập 9 và tập 8 (bản phát hành) so với tập 1 trên API, để từ đó so trong cùng một đường chấm. Chi phí thêm ≈ $0,8.
+
+### 15.5 Selftest
+- **LL v3: 208/208** ca đúng kỳ vọng (1.8.1 có 160).
+  - Thêm 48 ca:
+    - Q28f: 22 ca (4 ca đoạn 06, 13 ĐẠT; 5 ca không nới; 8 ca đọc đúng; 2 ca bộ đọc; 3 ca tổng tập 6 v2/7/8 trên ASR thật);
+    - Q27 manifest: 5 ca (tái hiện −0,11; đúng −0,31; bản khác → TRƯỢT; cùng bản → sạch; hạt giống bị sửa);
+    - hiệu chuẩn API: 5 ca (đọc lại 4 lần chấm + SE 0,321);
+    - đường API: 16 ca. Dùng `claude` giả trong `fixtures/judge/fake_claude.py`, không gọi mạng: ghim mô hình; modelUsage lạ/rỗng; JSON trong rào; thiếu khoá; chấm đủ; chấm lại bị từ chối; hết credit; mô hình khác; đọc thiếu ảnh; hai khối JSON (2 lần, và lần 1 rồi gọi lại); khoá không ra tệp; trả lời subagent cũ; bộ subagent tập 8 không có `cham`.
+  - Sửa 1 ca cũ: "tập 7 + PLAN tập 8 chưa có mục Cải thiện hình" đọc `reports/m3/ep08/PLAN.md` trên main. Sau merge tập 8, tệp này đã có mục đó nên ca đổi kết quả. Nay ca đọc bản đóng băng `fixtures/ep07/plan-ep08-f115e8b.md` (PLAN lúc khoá 1.8.1).
+- **cinecheck (L1, có ASR):** CINECHECK_KET_QUA
+
+### 15.6 Bản khoá
+LOCK_KET_QUA
+
+### 15.7 Chỉ số trong ±5 % quanh ngưỡng (luật cứng)
+- Q27 API tập 8 lần 1 (−0,15) và lần 2 (+0,02) nằm trong ±SE: theo luật là SÁT NGƯỠNG (chỉ là hiệu chuẩn, không phải lần chấm chính thức).
+- SE API 0,321 so với SE khoá 0,27: không phải ngưỡng, nêu để chủ dự án chọn ở 15.4.
+
+### 15.8 Chi phí API đo (trần phiên $10)
+
+| Lần | USD | Ghi chú |
+|---|---|---|
+| Gọi thử (2 lần, đầu phiên) | 0,0059 | kiểm khoá, cách ly |
+| Q27 tập 7, API lần 1 | 0,7645 | 3 × ≈ $0,254, ≈ 30 s mỗi người, 60 ảnh, 61 lượt |
+| Q27 tập 7, API lần 2 | 0,8478 | gồm R1 gọi lại $0,067 |
+| Q27 tập 8, API lần 1 | 0,7628 | |
+| Q27 tập 8, API lần 2 | 0,7651 | |
+| Q31 tập 7 (thử) | 0,3302 | 37 tệp |
+| G1 (thử) | 0,0228 | 1 người |
+| **Tổng** | **3,4991** | toàn bộ do Sonnet 5.5 chạy (`modelUsage`); đơn giá niêm yết |
+
+Mỗi lần chấm Q27 chính thức của P từ nay ≈ $0,77 (3 người), Q31 ≈ $0,33, G1 ≈ $0,02 mỗi người.
+
+### 15.9 Việc của P sau khi merge
+- `scripts/ll/qc.py` (của P) còn ghi "3 subagent" ở tên luật và gợi ý lệnh. Nên đổi thành `q_blind.py q27-run`/`q31-run`. Hàm chấm giữ nguyên chữ ký, qc chạy được như cũ.
+- BAI-HOC #90 ("chạy lại riêng người chấm bằng subagent mới") hết hiệu lực: bộ chấm tự gọi lại 1 lần, và mỗi bộ chỉ chấm một lần.
+- Tập 8 không phải chấm lại: kết quả chính thức −0,31 giữ nguyên theo quyết định 10/10.
+
+### 15.10 Việc đang chờ chủ dự án
+1. **Chọn phương án Q27 (15.4):** A (đang khoá, khuyến nghị), B, C hoặc D; có đặt lại mốc tập 8 trên API ở tập 9 hay không.
+2. **Duyệt bản khoá 1.9.0** và cho merge nhánh K vào `main`. Phiên P merge.
