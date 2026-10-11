@@ -268,7 +268,10 @@ Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `fin
 - **n = 188 kênh**, vượt mục tiêu ≥ 30.
 - **Sát ngưỡng:** 9,6 % nằm trong ±5 % quanh mốc 10 % của luật "cả 4 ngách < 10 %" (khoảng 9,5–10,5 %). Tôi nêu tên chỉ số này theo luật cứng của dự án.
 - **Bỏ bước mở rộng** "kênh xuất hiện ≥ 2 lần": hạn mức hôm nay đã dùng khoảng 8 500/10 000 đơn vị trước vòng này, nên tôi giữ dự phòng.
-- **Chi phí AI vòng cuối đến đây:** $2,56 (Sonnet $1,93; Opus $0,63). Trần vòng $5; mã dừng ở $4,4 để chừa phần cho REVIEWER.
+- **Chi phí AI vòng cuối đến đây:** $2,56 (Sonnet $1,93; Opus $0,63).
+- **Trần vòng:** chủ dự án nâng lên **$10** ngày 11/10; mã dừng ở $9. A, D, J được gắn nhãn y như B: Sonnet 5.5, lô 25 kênh, Opus kiểm 20 kênh/ngách.
+- **Không đổi** thước, luật hay model.
+- **Ngách có dưới 30 kênh trẻ đúng ngách:** ghi n thật và nêu ảnh hưởng lên KTC. Không mở rộng quá 30 search.list.
 
 ### A, D, J
 Tự chạy khi quota đặt lại lúc 07:00 UTC ngày 12/10: 30 search.list cộng lệnh đọc, khoảng 3 500 đơn vị. Kết quả và kết luận luật sẽ ghi vào mục này.

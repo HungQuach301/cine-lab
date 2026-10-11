@@ -16,7 +16,7 @@ AFTER = (NOW - dt.timedelta(days=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
 SEED = 20261011
 BUDGET = int(os.environ.get("K2C_BUDGET", "1000"))
 used = {"units": 0}
-ROUND_CAP = 4.4   # trần $5 của vòng cuối, chừa ~$0,6 cho REVIEWER Opus
+ROUND_CAP = 9.0   # trần $10 của vòng cuối (chủ dự án 11/10), mã dừng ở $9, chừa phần cho REVIEWER Opus
 
 def round_spent():
     """Chi phí AI của vòng cuối = các dòng cost.jsonl có tag final-/audit-/review- (vòng trước không tính)."""
@@ -111,7 +111,7 @@ CRIT_FACE = ("faceless=true only if the channel's videos are explainers or docum
 def label(key, ev, model, tag):
     """Gắn nhãn faceless + in_niche theo lô 25 kênh; dừng nếu thiếu nhãn."""
     out, items = {}, list(ev.items())
-    B = 25 if key == "B" else 50   # A/D/J: lô 50 kênh để giảm chi phí cố định mỗi lệnh (B đã chạy với lô 25)
+    B = 25   # cùng cỡ lô cho mọi ngách, gắn nhãn y như B (chủ dự án 11/10)
     for i in range(0, len(items), B):
         lines = [json.dumps(dict(id=cid, channel=e["name"], about=e["desc"][:400], recent_titles=e["titles"][:10]), ensure_ascii=False)
                  for cid, e in items[i:i+B]]
