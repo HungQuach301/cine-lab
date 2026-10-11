@@ -1,0 +1,49 @@
+{
+ "question": "When machines arrive to do part of a human language job, as predicted in 1954 and in 1966, which part of the work stays with people, and for how long?",
+ "score": 8,
+ "issues": [
+  {
+   "where": "T01",
+   "kind": "break",
+   "note": "The cut falls mid-question. The picture changes from the translator's monitor to the library street while the line 'words between languages?' is still being spoken, so the picture and the sentence end at different moments."
+  },
+  {
+   "where": "T02",
+   "kind": "break",
+   "note": "The narration, '...one machines were expected to take over quickly', is cut off at the start of the line. The picture jumps from the library exterior to the interior reading room, and the subtitle changes with it."
+  },
+  {
+   "where": "T03",
+   "kind": "break",
+   "note": "The 'a few years later: a trial' subtitle covers a cut from the 1942 archival photos to the 3D courtroom. The courtroom is not shown at the moment the line says 'trial', and the cut is not clearly motivated."
+  },
+  {
+   "where": "T06",
+   "kind": "break",
+   "note": "The narration says 'In 1966', but the image switches from the 1954 computer room to the committee office. The 1954-to-1966 time jump is signalled only by a caption."
+  },
+  {
+   "where": "T11",
+   "kind": "break",
+   "note": "The 1966 and today postediting split-screen is a good comparison. The next cut to a wide shot of a lone translator in an empty office, while the narration says 'The change shows up in the...', gives nothing to look at that matches the sentence."
+  },
+  {
+   "where": "R11.5",
+   "kind": "boring",
+   "note": "The government statistics section (R11 to R12) leans on a stacked chart. The wide, quiet shot of a lone worker stays on screen for a long stretch while the statistics are read out."
+  },
+  {
+   "where": "R02.7",
+   "kind": "boring",
+   "note": "Several consecutive frames show the same lamp-lit street or the same still shot while the narration continues. The same shot is held for a long time with nothing new to see."
+  },
+  {
+   "where": "R05.6",
+   "kind": "boring",
+   "note": "The typewriter close-up and the office wide shot are held for many frames in a row (R05.4 to R05.8). The picture barely changes while the narration describes the committee's findings."
+  }
+ ],
+ "rater": "R3",
+ "model": "sonnet",
+ "prompt_sha256": "ae1b81c368910ad4727181616235901f1e190ffb041c0eae844b6c8366abff96"
+}

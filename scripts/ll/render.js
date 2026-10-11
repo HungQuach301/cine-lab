@@ -25,9 +25,10 @@ const SAMPLE = +arg('sample', 12);
   const plates = spec.shots.filter((s) => s.tpl === 'plate').map((s) => { const d = path.isAbsolute(s.p.dir) ? s.p.dir : path.join(path.join(__dirname, '..', '..'), s.p.dir);
     s.p.n = fs.existsSync(d) ? fs.readdirSync(d).filter((x) => /^\d{5}\.jpg$/.test(x)).length : 0; if (!s.p.n) { console.error('thiếu khung plate', d); process.exitCode = 3; } return { s, d }; });
   const plateFor = (f) => { const t = f / 24, need = [];
-    for (const s of spec.shots) if (s.tpl === 'diptych' && t >= s.t0 - 1.2 && t <= s.t1 + 0.6) for (const q of [s.p.left, s.p.right]) if (q && q.dir) { const dd = path.isAbsolute(q.dir) ? q.dir : path.join(__dirname, '..', '..', q.dir);
+    // cửa sổ nạp khung sau t1 phải ≥ thời lượng hoà (fade mặc định 0,7 s, có hoà 1,0–1,4 s): 0,6 s cũ làm hiện "missing plate" khi hoà dài (G2 tập 8, T01)
+    for (const s of spec.shots) if (s.tpl === 'diptych' && t >= s.t0 - 1.2 && t <= s.t1 + 1.5) for (const q of [s.p.left, s.p.right]) if (q && q.dir) { const dd = path.isAbsolute(q.dir) ? q.dir : path.join(__dirname, '..', '..', q.dir);
       need.push([q.dir + '#' + (q.i || 0), path.join(dd, String(q.i || 0).padStart(5, '0') + '.jpg')]); }
-    for (const { s, d } of plates) if (t >= s.t0 - 1.2 && t <= s.t1 + 0.6 && s.p.n) { const i = Math.max(0, Math.min(s.p.n - 1, Math.round((t - s.t0) * 24 * (s.p.speed || 1)) + (s.p.off || 0)));
+    for (const { s, d } of plates) if (t >= s.t0 - 1.2 && t <= s.t1 + 1.5 && s.p.n) { const i = Math.max(0, Math.min(s.p.n - 1, Math.round((t - s.t0) * 24 * (s.p.speed || 1)) + (s.p.off || 0)));
       need.push([s.p.dir + '#' + i, path.join(d, String(i).padStart(5, '0') + '.jpg')]); }
     return need; };
   const imgjs = imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');

@@ -207,7 +207,7 @@ Mỗi đoạn khai:
 - Cảnh bàn làm việc chung tối đa **3 lần/tập**, mỗi lần đổi góc máy hoặc cỡ cảnh.
 - **Nhạc:** giai điệu chủ đề kênh (CC0/CC BY, ghi RIGHTS) + 3 cue theo hồi.
 - **Giọng Bill:** chỉnh tốc độ và khoảng nghỉ theo câu.
-- **Gói phát hành:** thumbnail, tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này).
+- **Gói phát hành:** tiêu đề, 15 s đầu và Shorts cùng một lời hứa (Q13 kiểm thêm điểm này); từ tập 9: 2 Shorts, không thumbnail (§13).
 - **Ảnh tư liệu:** ≤ 20 % thời lượng, đúng nghề (tập 7: ảnh NASA tổ "computer").
 - **Báo cáo G2** ghi Q26–Q31, so với tập 1, kèm token thực.
 
@@ -219,3 +219,8 @@ Mỗi đoạn khai:
 - **Kiểm mù kịch bản** thêm câu hỏi: "Người xem rút ra thông điệp chính là gì?" Báo kết quả ở G1. Nếu thông điệp chính lệch khỏi mạch biến đổi thì cân lại nhấn mạnh, không xoá sự thật.
 - Khung kể mẫu (tập 7): Mở (ngọn lửa trao qua ô cửa + móc câu) → Quá khứ → Chuyển giao → Hiện tại → Tương lai → Kết (ngọn lửa trao tiếp; "Next: …").
 - Tỷ lệ theo khung kể: xem §2 (đích mới từ tập 7, chủ dự án duyệt 08/10/2026).
+
+## 13. Gói phát hành: Shorts và thumbnail (chủ dự án, 10/10/2026)
+- **Tập 8:** phát hành **một** Short duy nhất (S2 "1954: a machine that translated 250 words"); S1, S3 bỏ khỏi gói (không dựng lại, không đẩy LFS). Thumbnail T1/T2 hiện có giữ nguyên.
+- **Từ tập 9: mỗi tập 2 Shorts** (đặc tả `shorts:` chỉ 2 mục; QC Q10/Q22 áp cho 2 Short đó).
+- **Từ tập 9: bỏ thumbnail khỏi gói phát hành.** `make_thumb.py` không còn là bước bắt buộc; Q12 (lề thumbnail) không áp khi gói không có thumbnail. Lời hứa chung (§11.3 "Gói phát hành") áp cho tiêu đề, 15 s đầu và 2 Shorts.

@@ -1,242 +1,463 @@
-# Last Lamplighters · Tập 8 "The Translator's Desk" — đặc tả nhà máy v1 (G1 lô 6–8, 06/10/2026), HÌNH v2 từ đầu. Thẻ đề tài T2 (topics/queue.md).
-# Cặp nghề: người dịch thời Chiến tranh Lạnh (1962–66, máy dịch chưa dùng được) ↔ người dịch/phiên dịch với dịch máy và AI (sau 2010; dự báo 2024–34).
-# Nguồn: reports/m3/ep08/NGUON-TAP8.md. Mọi số đọc toàn văn (NAP/ALPAC 1966, Oxford Martin School, FRASER).
-# So sánh: ĐỊNH TÍNH. Ba loại số khác nhau (đếm 1962 của chính phủ liên bang; ước tính phản thực của một nghiên cứu; dự báo BLS) — không đặt cạnh nhau.
-# KHÔNG dùng: số BLS 2025–35 cho interpreters & translators (CHỜ XÁC MINH); khảo sát Society of Authors (Anh, không đọc toàn văn); bài NPR mà MLR trích (chưa đọc).
-# Thư viện cần thêm (một lượt, đầu tập): PROP dictionary (chồng từ điển + máy chữ + tờ bản thảo), ERA 1962 → dictionary.
+# Last Lamplighters · Tập 8 "From Headphones to Machine Drafts: How Translators' Work Changed" — đặc tả v2 (G1 v2 DUYỆT 09/10/2026: lời v2 nguyên văn, khoá lời, SHA 824df1f0…).
+# Trục kể biến đổi (CHUAN-KENH §12): Mở → Quá khứ → Chuyển giao → Hiện tại → Tương lai → Kết. Lời: reports/m3/ep08/loi-v2.txt (17 đoạn, KHÔNG sửa).
+# Nguồn: reports/m3/ep08/NGUON-TAP8.md (§1 + §7–10). Mọi số đọc toàn văn; OOH 2025–35 và ALPAC "đã xác minh (Claude) 09/10".
+# Hình: 6 cảnh đinh 3D mới (design/ll-hero/ep08.js: library, booths, ibm, postedit, studio, vrs), 2 ảnh LoC Red Cross 1942 (RIGHTS LOC-8d21281/82). Không bàn 2D (BAI-HOC #78).
+# Nuremberg: hình trung tính (buồng dịch, tai nghe, lưng/bóng người), không cận mặt, không nhắc bị cáo (chủ dự án, G1 v2).
+# Âm thanh nghề mới: máy chữ Optima, không khí thư viện, máy đục thẻ, làm việc máy tính, chuyển kênh radio 1947 (Work With Sounds, CC BY 4.0; RIGHTS LL-SFX-14…18).
+# KHÔNG viết khoá off/on/yes/no (BAI-HOC #79): khung bắt đầu cảnh đinh = frame0.
 id: ll-ep08
-hook: {answer: "11", keys: [machine, translate, people]}
-anchors: [mt20, frey, it_chg]
+hook: {answer: "14", keys: [machine, translation, people]}
+anchors: [w250, frey, it_chg]
 rhythm: {paper_max: 40}
-title: "In 1966, Machines Couldn't Translate. Now Translators Compete With Them"
+title: "From Headphones to Machine Drafts: How Translators' Work Changed"
 out: /var/tmp/cine-out/ll-ep08
 voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+# Nhạc theo hồi (Q28): nhạc hiệu kênh mở (00) và đóng (15, khúc khác của bài), cue hồi 2 "Dreams Become Real", cue hồi 3 "Clean Soul".
 music:
-  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
-  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "12", xfade: 3}
+  - {file: assets/ll/music/Reawakening.mp3, from: "00", ss: 0}
+  - {file: assets/ll/music/Dreams-Become-Real.mp3, from: "02", ss: 2, xfade: 3, gain_db: -2}
+  - {file: assets/ll/music/Clean-Soul.mp3, from: "09", ss: 3, xfade: 3, gain_db: -2}
+  - {file: assets/ll/music/Reawakening.mp3, from: "15", ss: 120, xfade: 3}
+
+# Cảnh đinh 3D (design/ll-hero/ep08.js). lamp: true = ngọn đèn (đèn khí, đèn đọc sách, đèn bàn) có trong khung (Q30b).
+heroes:
+  lib_hook:   {hero: ep08/library, variant: a, lamp: true}
+  lib_light:  {hero: ep08/library, variant: b, lamp: true, opt: {lit: 8.0, hand: 11.4}}
+  lib_read:   {hero: ep08/library, variant: c, lamp: true}
+  lib_walk:   {hero: ep08/library, variant: d, lamp: true}
+  lib_bridge: {hero: ep08/library, variant: e, lamp: true, opt: {dark: 10.4, screen: 13.9, grade: cold}}
+  lib_end:    {hero: ep08/library, variant: f, lamp: true, opt: {lit: 23.0, next: 26.3}}
+  booth_room: {hero: ep08/booths, variant: a}
+  booth_in:   {hero: ep08/booths, variant: b, lamp: true, opt: {warn: 9.4}}
+  booth_bench: {hero: ep08/booths, variant: c, opt: {dial: 3.6}}
+  ibm_room:   {hero: ep08/ibm, variant: a, opt: {feed: 0.5}}
+  ibm_print:  {hero: ep08/ibm, variant: b, opt: {print: 0.5}}
+  pe_room:    {hero: ep08/postedit, variant: a, lamp: true}
+  pe_mark:    {hero: ep08/postedit, variant: b, opt: {mark: 10.8}}
+  pe_gloss:   {hero: ep08/postedit, variant: c, lamp: true, opt: {type: 1.0}}
+  st_room:    {hero: ep08/studio, variant: a, lamp: true}
+  st_screen:  {hero: ep08/studio, variant: b, lamp: true, opt: {edit: 1.0}}
+  st_side:    {hero: ep08/studio, variant: c, lamp: true}
+  vrs_room:   {hero: ep08/vrs, variant: a}
+  vrs_screen: {hero: ep08/vrs, variant: b}
+  vrs_side:   {hero: ep08/vrs, variant: c}
+  s_booth:    {hero: ep08/booths, variant: b, opt: {warn: 9.4}, size: [1080, 1920]}
+  s_ibm:      {hero: ep08/ibm, variant: b, opt: {print: 0.5}, size: [1080, 1920]}
+  s_studio:   {hero: ep08/studio, variant: b, opt: {edit: 1.0}, size: [1080, 1920]}
 
 sources:
   ALPAC: {short: "ALPAC, Language and Machines (National Academy of Sciences, 1966)", short9: "ALPAC report, 1966", title: "Language and Machines: Computers in Translation and Linguistics",
-          url: "https://nap.nationalacademies.org/resource/alpac_lm/ARC000005.pdf", read: fulltext, pages: "PDF pp. 21 (translators, Oct 1962), 24 (spending), 25 (JPRS), 33 (Georgetown, postediting), 46 (conclusion)", accessed: 2026-10-06}
+          url: "https://nap.nationalacademies.org/resource/alpac_lm/ARC000005.pdf", read: fulltext, pages: "PDF pp. 11–12 (supply of translators), 21 (translators, Oct 1962), 24 (spending), 25–26 (Mannheim glossary), 33 (Georgetown, postediting), 46 (conclusion); đã xác minh (Claude) 09/10/2026", accessed: 2026-10-09}
+  BOWEN: {short: "Bowen & Bowen, The Nuremberg Trials (Meta, 1985)", short9: "Bowen & Bowen, Meta 1985", title: "The Nuremberg Trials (Communication through Translation)",
+          url: "https://open.unive.it/hitrade/books/BowenNuremberg.pdf", read: fulltext, pages: "Meta XXX, 1 (1985), pp. 74–77", accessed: 2026-10-09}
+  HUT06: {short: "Hutchins, The first public demonstration of MT (2006)", short9: "Hutchins (2006)", title: "The first public demonstration of machine translation: the Georgetown-IBM system, 7th January 1954",
+          url: "https://open.unive.it/hitrade/books/HutchinsFirst.pdf", read: fulltext, pages: "§1–3 (Dostert, Nuremberg, UN, Georgetown; 7 Jan 1954; 250 words, six rules; forecasts)", accessed: 2026-10-09}
   FLP: {short: "Frey & Llanos-Paredes, Lost in Translation (Oxford, 2025)", short9: "Frey & Llanos-Paredes (2025)", title: "Lost in Translation: Artificial Intelligence and the Demand for Foreign Language Skills",
         url: "https://oms-www.files.svdcdn.com/production/downloads/academic/Frey_LlanosParedes_2025_LostInTranslation.pdf?dm=1741600283", read: fulltext, pages: "pp. 1–3 (abstract, introduction)", accessed: 2026-10-06}
-  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", short9: "BLS Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
-          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 1 (total +3.1 %), p. 5 (text + table: 27-3091 Interpreters and translators)", accessed: 2026-10-06}
+  OOHIT: {short: "BLS projections 2025–35: Interpreters and Translators", short9: "BLS projections 2025–35", title: "Interpreters and Translators — What They Do, How to Become One, Job Outlook (OOH, 2025–35)",
+          url: "https://www.bls.gov/ooh/media-and-communication/interpreters-and-translators.htm", read: fulltext, pages: "Quick Facts, What They Do, How to Become One, Job Outlook, projections table 27-3091 (đã xác minh, Claude, 09/10/2026)", accessed: 2026-10-09}
+  EP: {short: "BLS Employment Projections 2025–35", short9: "BLS projections 2025–35", title: "Employment Projections — 2025–2035",
+       url: "https://www.bls.gov/news.release/ecopro.nr0.htm", read: fulltext, pages: "release text (đã xác minh, Claude, 01/10/2026)", accessed: 2026-10-01}
 
 numbers:
-  fed62: {v: 262, text: "262", kind: actual, year: 1962, unit: people, src: ALPAC, say: "two hundred sixty-two"}
-  spend: {v: 22, text: "$22 million", kind: actual, year: 1965, unit: 'million $ / year', src: ALPAC, say: "twenty-two million dollars", note: "ALPAC ước tổng chi dịch thuật mỗi năm (chính phủ 13 + dịch vụ thương mại 7,5 + nội bộ ngoài chính phủ ~2)"}
+  w250: {v: 250, text: "250 words", kind: actual, year: 1954, unit: words, src: HUT06, say: "two hundred fifty", note: "250 mục từ (gốc và đuôi) và 6 quy tắc; trình diễn Georgetown–IBM 7/1/1954"}
+  fed62: {v: 262, text: "262", kind: actual, year: 1962, unit: people, src: ALPAC, say: "two hundred sixty-two", note: "translators and clerk-translators, chính phủ liên bang, tại Mỹ, 10/1962"}
   mt20: {v: 20, text: "$20 million", kind: actual, year: 1965, unit: 'million $ / 10 years', src: ALPAC, say: "twenty million dollars", note: "chi cho dịch máy và lĩnh vực liên quan trong 10 năm"}
-  frey: {v: 28000, text: "≈28,000", kind: actual, year: 2023, unit: jobs, src: FLP, say: "twenty-eight thousand", note: "ước tính phản thực: số vị trí người dịch KHÔNG được tạo ra do dịch máy, sau 2010"}
-  it24: {v: 75300, text: "75,300", kind: actual, year: 2024, unit: people, src: MLR26, say: "seventy-five thousand"}
-  it34: {v: 76600, text: "76,600", kind: projection, period: 2024–34, year: 2034, unit: people, src: MLR26, say: "seventy-six thousand"}
-  it_chg: {v: 1.7, text: "+1.7%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "one point seven percent"}
-  all_chg: {v: 3.1, text: "+3.1%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "three point one percent"}
+  frey: {v: 28000, text: "≈28,000", kind: actual, year: 2023, unit: jobs, src: FLP, say: "twenty-eight thousand", note: "ước tính phản thực: số vị trí người dịch KHÔNG được tạo ra so với đà tăng của nghề, sau 2010; không phải số mất việc"}
+  it25: {v: 73900, text: "73,900", kind: actual, year: 2025, unit: jobs, src: OOHIT, say: "seventy-four thousand", note: "điểm gốc dự báo 2025–35; lời đọc làm tròn 'about'"}
+  it35: {v: 75400, text: "75,400", kind: projection, period: 2025–35, year: 2035, unit: jobs, src: OOHIT, say: "seventy-five thousand", note: "lời đọc làm tròn 'about'"}
+  it_num: {v: 1500, text: "+1,500", kind: projection, period: 2025–35, unit: jobs, src: OOHIT, say: "fifteen hundred"}
+  it_chg: {v: 2.0, text: "+2.0%", kind: projection, period: 2025–35, unit: '%', src: OOHIT, say: "two percent", note: "(75 400 − 73 900)/73 900 = 2,03 %; BLS ghi 2 %"}
+  all_chg: {v: 3.5, text: "+3.5%", kind: projection, period: 2025–35, unit: '%', src: EP, say: "three and a half percent"}
+  open: {v: 6000, text: "≈6,000 a year", kind: projection, period: 2025–35, unit: 'openings / year', src: OOHIT, say: "six thousand", note: "chỗ trống mỗi năm, phần lớn để thay người chuyển nghề hoặc nghỉ"}
 
 segments:
-  # 00 — móc câu (Q14): máy có dịch được không? Trả lời ở đoạn 11 (machine, translate, person).
+  # ===== HỒI 1 · MỞ (ấm) =====
   - id: "00"
     part: STORY
+    map: {q: "When machines learned to translate, what happened to the people who do it?", act: 1, emo: curiosity, color: warm, cue: theme, trade: [card-punch, typewriter-1960s, computer-home],
+          in: cut, out: jcut, out_note: "G2 T01: câu hỏi nói xong, hoà 1 s sang phố thư viện; bước chân phố vào trước hình 0,8 s, kéo qua điểm nối sang 01 (cùng cảnh đinh lib_light, khung liền)", lamp: {in: true, out: false},
+          nouns: [{w: "@computer", img: "máy in dòng nhả câu tiếng Anh, phòng máy 1954"}, {w: "@russian", img: "giấy in câu dịch từ tiếng Nga"}, {w: "@machines", img: "phòng máy IBM: tủ máy, thẻ đục lỗ"}, {w: "@people", img: "người dịch (bóng) bên màn hình bản nháp máy"}]}
     vo: >-
-      Can a machine translate? In 1966, a government committee said no: not usefully, and not soon.
-      Today, one study estimates about twenty-eight thousand American translator jobs that were never created.
+      In 1954, a computer in New York translated more than sixty Russian sentences. The forecasts said that within a few years, machines would translate almost anything.
+      But it took far longer. When the machines finally arrived, what happened to the people who carry words between languages?
     vo_offset: 0.6
-    tail: 0.6
+    tail: 1.2
     fadeIn: 0
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 1962, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.06}, {t: 10, x: -60, z: 0.09}, {t: 16, x: -90, z: 0.12}],
-           cap: [{s: "Can a machine translate?", at: "@can", src: []}, {s: "1966: not usefully, and not soon", at: "@1966", src: [ALPAC]},
-                 {s: "today: one study's estimate", at: "@today", src: [FLP]}, {num: frey, s: "translator jobs not created, U.S., after 2010", at: "@twentyeight"}]}}
+      - {tpl: plate, at: 0, p: {hero: ibm_print, frame0: 24, cap: [{s: "New York, 1954: a computer translates Russian sentences", at: "@computer", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/card-punch.mp3, at: 0.4, src_ss: 4.0, dur: 4.5, gain_db: -18, fade_ms: 700}]}
+      - {tpl: plate, at: "@forecasts-0.3", in: fade, p: {hero: ibm_room, frame0: 96, cap: [{s: "the forecast: within a few years", at: "@forecasts", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/card-punch.mp3, at: "@forecasts", src_ss: 20.0, dur: 3.5, gain_db: -16, fade_ms: 500}]}
+      - {tpl: plate, at: "@but-0.3", in: fade, p: {hero: lib_hook, frame0: 0, title: "FROM HEADPHONES TO MACHINE DRAFTS", subtitle: "How translators' work changed · Last Lamplighters · Episode 8", titleAt: "@but", titleOut: "@when-0.4"},
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@but-0.3", src_ss: 140.0, dur: 4.0, gain_db: -19, fade_ms: 800}]}
+      - {tpl: plate, at: "@when-0.3", in: fade, p: {hero: st_screen, frame0: 48, cap: [{s: "what happened to the people who carry words between languages?", at: "@what", src: []}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@when", src_ss: 10.0, dur: 4.0, gain_db: -17, fade_ms: 500}]}
+      - {tpl: plate, at: "@languages+1.1", in: {type: fade, d: 1.0}, p: {hero: lib_light, frame0: 0},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: "@languages+0.3", src_ss: 0.5, dur: 10.2, gain_db: -13, fade_ms: 600}]}
 
   - id: "01"
     part: STORY
+    map: {q: "Who is working behind the lit window?", act: 1, emo: wonder, color: warm, cue: theme, trade: [footsteps-steps, gas-hiss, library-room],
+          in: jcut, out: jcut, out_note: "không khí phòng đọc (đoạn 02) vào trước hình 0,6 s, kéo qua điểm cắt", lamp: {in: true, out: true},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn đi dọc phố trước thư viện"}, {w: "@library", img: "mặt tiền thư viện đá, dải cửa sổ sáng"}, {w: "@volunteers", img: "phòng đọc: bàn dài, đèn chao xanh, người dịch (bóng) bên thư"},
+                  {w: "@flame", img: "ngọn lửa mồi đầu sào chạm đèn khí"}, {w: "@lamp", img: "đèn đọc sách sau ô kính bừng"}]}
     vo: >-
-      At dusk, the lamplighter passes a library. Inside, at a long table, volunteers bend over letters written in Dutch, Polish, German, and French.
-      Each letter has to be read by someone who knows two languages, and written again in a third.
-    vo_offset: 3.4
-    min_dur: 27
-    tail: 1.2
+      At dusk, the lamplighter passes a library. Inside, volunteers bend over messages written in Dutch, Polish, German, and French, translating each one.
+      The lamplighter raises the flame to the post by the window, and inside, a reading lamp comes on. Lamplighting is a job machines took over long ago.
+      Tonight, its flame opens the story of a job machines were once expected to take over quickly.
+    vo_offset: 3.0
+    min_dur: 34
+    tail: 1.4
     shots:
-      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TRANSLATOR'S DESK", px: 80}, {s: "Last Lamplighters · Episode 8", px: 34, serif: false}]}}
-      - {tpl: street, at: 3.0, in: fade, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [3.2, "@passes+0.5"], lights: [1]}, warm: 0.6, windows: 0.8,
-                                 cam: [{t: 3, x: 0, z: 0}, {t: 7, x: -100, z: 0.02}, {t: "@inside", x: -240, z: 0.06}]}}
-      - {tpl: archive, at: "@volunteers-0.4", in: fade, p: {img: assets/ll/archive/fsa-8d21281.jpg, rid: LOC-8d21281, focus: [0.5, 0.45], credit: "Red Cross volunteer translators, Washington, D.C., 1942 · Library of Congress",
-           cam: [{t: "@volunteers", x: 40, z: 0.0}, {t: "@letter", x: 10, z: 0.04}, {t: "@knows", x: 0, z: 0.06}, {t: "@third+1", x: -20, z: 0.08}, {t: "@third+4", x: -40, z: 0.1}],
-           cap: [{s: "Dutch · Polish · German · French", at: "@dutch"}, {s: "read in one language, written again in another", at: "@letter"}]}}
+      - {tpl: plate, at: 0, p: {hero: lib_light, frame0: 27, ev: [{at: 1.4, what: "người thắp đèn vào khung"}, {at: 4.9, what: "đi ngang dải cửa sổ"}]}}   # G2 T01: nối tiếp khung lib_light cuối đoạn 00; bước chân phố bắt đầu ở đoạn 00 (J-cut)
+      - {tpl: plate, at: "@inside-0.3", in: fade, p: {hero: lib_read, frame0: 0, cap: [{s: "Dutch · Polish · German · French", at: "@dutch", src: []}]},
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@inside-0.6", src_ss: 30.0, dur: 7.0, gain_db: -15, fade_ms: 700}]}
+      - {tpl: plate, at: "@raises-0.4", in: fade, p: {hero: lib_light, frame0: 158, ev: [{at: "@raises+1.0", what: "đèn khí bén"}, {at: "@reading", what: "đèn đọc sách sau kính bừng"}],
+           cap: [{s: "lamplighting: a job machines took over long ago", at: "@lamplighting", src: []}, {s: "tonight: the story of another job…", at: "@tonight"}, {s: "…one machines were expected to take over quickly", at: "@expected"}]},
+         sfx: [{file: assets/ll/sfx/gas-hiss.mp3, at: "@raises+1.0", src_ss: 2.0, dur: 1.8, gain_db: -8, fade_ms: 200}, {file: assets/ll/sfx/library-room.mp3, at: "@reading", src_ss: 60.0, dur: 6.0, gain_db: -20, fade_ms: 900}]}
 
+  # ===== HỒI 2 · QUÁ KHỨ + CHUYỂN GIAO (sepia) =====
   - id: "02"
     part: HISTORY
+    map: {q: "How did translators and interpreters work before machines?", act: 2, emo: craft, color: sepia, cue: history, trade: [library-room, paper-flip, typewriter-old],
+          in: jcut, in_note: "J-cut: không khí phòng đọc vào trước hình 0,6 s; cắt từ đèn đọc sách sau kính (đoạn 01) vào chính phòng đọc đó, đèn chao xanh trong khung", out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@volunteers", img: "phòng đọc 3D: người dịch tình nguyện bên thư"}, {w: "@photograph", img: "ảnh LoC: người dịch tình nguyện ở thư viện Red Cross, 1942"}, {w: "@translators", img: "ảnh LoC: hai người dịch bàn một bức thư"},
+                  {w: "@interpreters", img: "ảnh LoC: người đọc to bức thư cho người bên cạnh"}, {w: "@trial", img: "phòng xử 1945: dãy buồng kính"}]}
     vo: >-
-      That photograph was taken in 1942, at the Red Cross in Washington. Translation was slow work, done by people, one sentence at a time.
-      After the war, the slow part became a problem. American scientists wanted to read Soviet research, published in Russian.
-      Machine translation looked like the answer, and the government paid for it. In 1963, three agencies asked the National Academy of Sciences for an advisory committee.
-      The committee, called ALPAC, first met in April 1964 and published its report in 1966.
+      Those volunteers were real. A photograph taken in 1942, at the Red Cross in Washington, shows them at work. Translators worked with writing, one sentence at a time.
+      Interpreters worked with speech, and they worked the same way: the speaker stopped, and then the interpreter said it again in another language.
+      A few years later, a trial changed how interpreters worked.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d21282.jpg, rid: LOC-8d21282, focus: [0.5, 0.45], credit: "Red Cross Foreign Inquiry Service, Washington, D.C., 1942 · Library of Congress",
-           cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -30, z: 0.06}, {t: 12, x: -60, z: 0.09}],
-           cap: [{s: "Red Cross, Washington, 1942", at: "@photograph", src: []}, {s: "one sentence at a time", at: "@sentence"}]}}
-      - {tpl: desk, at: "@war-0.4", in: fade, p: {eras: [{era: 1962, at: "@war-0.4", label: "1962"}], accent: "#3d6b4f", cam: [{t: "@war", x: 0, z: 0.02}, {t: "@soviet", x: -30, z: 0.05}, {t: "@machine", x: -60, z: 0.08}, {t: "@committee", x: -90, z: 0.1}, {t: "@1966+1", x: -110, z: 0.12}],
-           cap: [{s: "Soviet research, in Russian", at: "@soviet", src: [ALPAC]}, {s: "machine translation: the hoped-for answer", at: "@machine"}, {s: "1963: the National Academy of Sciences is asked to advise", at: "@1963", src: [ALPAC]},
-                 {s: "ALPAC: first met April 1964; report 1966", at: "@alpac", src: [ALPAC]}]}}
+      - {tpl: plate, at: 0, p: {hero: lib_read, frame0: 240, cap: [{s: "those volunteers were real", at: "@real", src: []}]},
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: -0.6, src_ss: 90.0, dur: 5.0, gain_db: -15, fade_ms: 600}]}
+      - {tpl: archive, at: "@photograph-0.6", in: {type: fade, d: 1.4}, p: {img: assets/ll/archive/fsa-8d21281.jpg, rid: LOC-8d21281, focus: [0.5, 0.5], credit: "Red Cross volunteer translators, Washington, D.C., 1942 · Library of Congress",
+           cam: [{t: "@photograph-0.6", x: 40, z: 0.02}, {t: "@sentence+1", x: -30, z: 0.12}], cap: [{s: "Red Cross, Washington, 1942", at: "@1942", src: []}, {s: "translators: writing, one sentence at a time", at: "@writing"}]},
+         sfx: [{file: assets/ll/sfx/paper-flip.mp3, at: "@writing", src_ss: 0.5, dur: 2.5, gain_db: -16, fade_ms: 300}]}
+      - {tpl: archive, at: "@interpreters-0.4", in: fade, p: {img: assets/ll/archive/fsa-8d21282.jpg, rid: LOC-8d21282, focus: [0.55, 0.45], credit: "Red Cross Foreign Inquiry Service, Washington, D.C., 1942 · Library of Congress",
+           cam: [{t: "@interpreters-0.4", x: -40, z: 0.04}, {t: "@language+1", x: 30, z: 0.14}], cap: [{s: "interpreters: speech", at: "@speech"}, {s: "the speaker stops, then the interpreter speaks", at: "@stopped"}]},
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@interpreters", src_ss: 120.0, dur: 5.0, gain_db: -17, fade_ms: 600}]}
+      - {tpl: plate, at: "@few-0.3", in: fade, p: {hero: booth_room, frame0: 0, cap: [{s: "a few years later: a trial", at: "@trial"}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@trial", src_ss: 0.5, dur: 2.5, gain_db: -18, fade_ms: 400}]}
 
   - id: "03"
     part: HISTORY
+    map: {q: "How did one trial change interpreting?", act: 2, emo: focus, color: sepia, cue: history, trade: [radio-tuning, paper-flip, typewriter-old],
+          in: cut, out: cut, lamp: {in: false, out: true},
+          nouns: [{w: "@dostert", img: "phòng xử: dãy buồng kính phiên dịch"}, {w: "@nuremberg", img: "phòng xử toàn cảnh: băng ghế, tai nghe"}, {w: "@simultaneous", img: "trong buồng: người phiên dịch (lưng) bên micro"},
+                  {w: "@headphones", img: "tai nghe trên băng ghế, núm chọn kênh"}, {w: "@booths", img: "dãy buồng kính có biển ngôn ngữ"}, {w: "@warning", img: "đèn cảnh báo nhấp nháy trong buồng"}]}
     vo: >-
-      The committee first counted the people. In October 1962, the federal government employed two hundred sixty-two translators and clerk-translators in the United States.
-      A government research service kept four thousand translators under contract, but in an average month it used only about three hundred of them.
-      The government itself spent about thirteen million dollars a year on translation; with private agencies, the committee estimated, about twenty-two million dollars. Translation in the government, it concluded, was a very small field of activity. There was no shortage of people: the research service could handle up to two and a half times the current demand for Chinese.
+      In October 1945, Leon Dostert, who had been General Eisenhower's interpreter during the war, was asked to set up the interpretation for the war crimes tribunal at Nuremberg.
+      He chose a method many thought would not work: simultaneous interpretation, speaking while the speaker is still speaking. IBM donated the equipment.
+      Every participant in the courtroom wore headphones and could choose a language. The interpreters sat in booths, each working into their own language only, with a warning light to ask a speaker to slow down.
     shots:
-      - {tpl: isotype, at: 0, p: {title: "Federal translators and clerk-translators", subtitle: "employed in the United States, October 1962", unit: 10, unitName: "people", per: 27,
-           groups: [{label: "Oct 1962", num: fed62, at: "@sixtytwo"}], cap: [{s: "first, the committee counted the people", at: "@counted", src: [ALPAC]}]}}
-      - {tpl: desk, at: "@research-0.4", in: fade, p: {eras: [{era: 1962, at: "@research-0.4", label: "1962"}], accent: "#3d6b4f", cam: [{t: "@research", x: 0, z: 0.02}, {t: "@month", x: -40, z: 0.05}, {t: "@private", x: -70, z: 0.08}, {t: "@small+1", x: -100, z: 0.1}, {t: "@handle", x: -110, z: 0.11}],
-           cap: [{s: "4,000 translators under contract…", at: "@four", src: [ALPAC]}, {s: "…about 300 used in an average month", at: "@month", src: [ALPAC]}, {s: "the government's own bill: about $13 million a year", at: "@itself", src: [ALPAC]}, {num: spend, s: "spent on translation each year (estimate)", at: "@twentytwo"},
-                 {s: "“a very small field of activity”", at: "@small"}, {s: "no shortage of people", at: "@shortage"}, {s: "spare capacity: 2.5× the demand for Chinese", at: "@chinese", src: [ALPAC]}]}}
+      - {tpl: plate, at: 0, p: {hero: booth_room, frame0: 72, cap: [{s: "October 1945: Leon Dostert", at: "@dostert", src: [HUT06]}, {s: "General Eisenhower's wartime interpreter", at: "@general", src: [HUT06]}, {s: "asked to set up the interpretation…", at: "@asked", src: [HUT06]}, {s: "…for the war crimes tribunal at Nuremberg", at: "@tribunal", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: 0.4, src_ss: 0.2, dur: 2.2, gain_db: -20, fade_ms: 400}, {file: assets/ll/sfx/paper-flip.mp3, at: "@nuremberg", src_ss: 1.0, dur: 2.5, gain_db: -18, fade_ms: 400}]}
+      - {tpl: plate, at: "@method-0.4", in: fade, p: {hero: booth_in, frame0: 0, cap: [{s: "a method many thought would not work", at: "@method", src: [HUT06]}, {s: "simultaneous interpretation", at: "@simultaneous"},
+           {s: "IBM donated the equipment", at: "@ibm", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@method", src_ss: 2.0, dur: 3.0, gain_db: -17, fade_ms: 400}]}
+      - {tpl: plate, at: "@every-0.4", in: fade, p: {hero: booth_bench, frame0: 0, cap: [{s: "headphones for every participant · choose a language", at: "@headphones", src: [BOWEN]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@choose", src_ss: 4.0, dur: 2.8, gain_db: -14, fade_ms: 300}]}
+      - {tpl: plate, at: "@booths-0.5", in: fade, p: {hero: booth_in, frame0: 120, cap: [{s: "each interpreter: into their own language only", at: "@own", src: [BOWEN]}, {s: "a warning light: please slow down", at: "@warning", src: [BOWEN]}],
+           ev: [{at: "@warning+0.4", what: "đèn cảnh báo nhấp nháy"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-old.mp3, at: "@booths", src_ss: 2.0, dur: 3.5, gain_db: -22, fade_ms: 700}]}
 
   - id: "04"
     part: HISTORY
+    map: {q: "Did the new equipment replace the interpreters?", act: 2, emo: clarity, color: sepia, cue: history, trade: [radio-tuning, paper-flip],
+          in: cut, out: jcut, out_note: "bước chân người thắp đèn vào trước hình 1,0 s (đoạn 05)", lamp: {in: true, out: false},
+          nouns: [{w: "@simultaneous", img: "toàn cảnh phòng xử, dãy buồng kính sáng"}, {w: "@equipment", img: "tai nghe, núm chọn kênh trên băng ghế"}, {w: "@interpreters", img: "người phiên dịch (lưng) trong buồng"},
+                  {w: "@nations", img: "dãy buồng kính, biển ngôn ngữ"}, {w: "@georgetown", img: "phòng máy 1954: tủ máy, thẻ đục lỗ"}]}
     vo: >-
-      Then the committee looked at the machines. Over ten years, the government had spent some twenty million dollars on machine translation and related research, more than the government's own translation bill for a whole year.
-      The results were thin. When the Georgetown University project tried to produce useful output in 1962, after eight years of work, it had to have people correct the machine's output.
-      The committee called this postediting. The postedited translation took slightly longer and cost more than ordinary human translation.
-      Industry was not eager either. A scientist from IBM told the committee he would not advise his company to set up a machine translation service.
+      It was the first large-scale use of simultaneous interpretation, and historians count it a success. The new equipment did not replace the interpreters.
+      It changed their job, from waiting for the speaker to stop, to speaking at the same time.
+      Soon the United Nations installed a similar system, and Dostert went on to Georgetown University in Washington, to train linguists for government service.
     shots:
-      - {tpl: sign, at: 0, p: {num: mt20, caption: "U.S. government spending on machine translation over ten years", at: "@twenty", capAt: "@related", wall: plaster,
-           cam: [{t: 0, x: 0, z: 0.0}, {t: 4, x: -20, z: 0.02}, {t: "@year", x: -40, z: 0.04}],
-           cap: [{s: "more than a year of translation itself", at: "@bill", src: [ALPAC]}]}}
-      - {tpl: desk, at: "@thin-0.4", in: fade, p: {eras: [{era: 1962, at: "@thin-0.4", label: "1962"}], accent: "#3d6b4f", cam: [{t: "@thin", x: 0, z: 0.02}, {t: "@georgetown", x: -30, z: 0.05}, {t: "@produce", x: -40, z: 0.06}, {t: "@eight", x: -50, z: 0.07}, {t: "@correct", x: -60, z: 0.08}, {t: "@postediting", x: -70, z: 0.09}, {t: "@ordinary", x: -80, z: 0.1}, {t: "@advise", x: -100, z: 0.12}, {t: "@service+1", x: -110, z: 0.13}],
-           cap: [{s: "Georgetown project, 1962: after eight years…", at: "@georgetown", src: [ALPAC]}, {s: "…people had to correct the output", at: "@correct"}, {s: "postediting", at: "@postediting"},
-                 {s: "slower and costlier than a human translator", at: "@slightly"}, {s: "IBM: would not advise a machine translation service", at: "@ibm"}]}}
+      - {tpl: plate, at: 0, p: {hero: booth_room, frame0: 200, cap: [{s: "the first large-scale use of simultaneous interpretation", at: "@first", src: [BOWEN]}, {s: "historians: a success", at: "@historians", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: 0.5, src_ss: 4.5, dur: 2.5, gain_db: -19, fade_ms: 400}]}
+      - {tpl: plate, at: "@equipment-0.4", in: fade, p: {hero: booth_bench, frame0: 96, cap: [{s: "the equipment did not replace the interpreters", at: "@replace"}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@equipment", src_ss: 1.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
+      - {tpl: diptych, at: "@changed-0.3", in: fade, p: {split: "@speaking-0.2", left: {hero: lib_read, i: 120, fx: 0.5}, right: {hero: booth_in, i: 200, fx: 0.55}, labels: ["wait for the speaker to stop", "speak at the same time"],
+           cap: [{s: "it changed their job", at: "@changed"}]},
+         sfx: [{file: assets/ll/sfx/library-room.mp3, at: "@changed-0.3", src_ss: 160.0, dur: 3.0, gain_db: -18, fade_ms: 400}, {file: assets/ll/sfx/radio-tuning.mp3, at: "@speaking", src_ss: 2.5, dur: 2.5, gain_db: -18, fade_ms: 300}]}
+      - {tpl: plate, at: "@soon-0.3", in: fade, p: {hero: booth_room, frame0: 0, cap: [{s: "soon: a similar system at the United Nations", at: "@nations", src: [HUT06]}, {s: "Dostert: Georgetown University, Washington", at: "@georgetown", src: [HUT06]},
+           {s: "training linguists for government service", at: "@train", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.0, src_ss: 2.0, dur: 3.0, gain_db: -20, fade_ms: 400}]}
 
   - id: "05"
     part: HISTORY
+    map: {q: "Could a machine translate on its own?", act: 2, emo: hope, color: sepia, cue: history, trade: [footsteps-steps, card-punch, teleprinter-tape],
+          in: jcut, in_note: "bước chân người thắp đèn từ cuối đoạn 04 kéo qua điểm cắt", out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn đi qua thư viện, đèn khí sáng"}, {w: "@soviet", img: "phòng máy 1954"}, {w: "@machine", img: "tủ máy, băng từ quay, thẻ đục lỗ"},
+                  {w: "@hundred", img: "máy in dòng; 250 words trên dải chú thích", anchor: w250}, {w: "@pages", img: "máy in dòng nhả câu tiếng Anh"}]}
+    pause: [{before: "@two", s: 0.7}]
+    # 09/10 (chủ dự án, G1 v2): Quá khứ + Chuyển giao đo thật 45,4 % > 45 % → rút câu "Machines had long since taken over lamplighting; now they were turned on language."
     vo: >-
-      Raw machine output, the committee wrote, was decipherable for the most part, but sometimes misleading and sometimes wrong, and it made slow and painful reading.
-      Its conclusion was blunt: there is no immediate or predictable prospect of useful machine translation. Instead, it urged research in computational linguistics, and better machine aids for human translators.
-      For general scientific text, the translator's desk was safe. It would stay that way for a long time.
+      The lamplighter walks on.
+      After the war, American officials worried about how little they knew of Soviet work, written in Russian.
+      So Dostert, who had used machines to help interpreters, turned to a machine that would translate by itself.
+      On January 7, 1954, his Georgetown team and IBM showed it in New York. The computer knew only two hundred fifty words and six rules of grammar, enough for those chosen sentences.
+      The next morning it was on front pages, and the forecasts said a machine built just for translation could be ready within a few years.
     shots:
-      - {tpl: quote, at: 0, p: {beats: [{s: "raw machine output", at: "@raw"}, {s: "sometimes misleading, sometimes wrong", at: "@misleading"}], text: "…it makes slow and painful reading.", who: "ALPAC", where: "Language and Machines, 1966", at: "@slow", src: [ALPAC]}}
-      - {tpl: quote, at: "@conclusion-0.4", in: flip, p: {beats: [{s: "the conclusion", at: "@conclusion"}, {s: "instead: research, and aids for human translators", at: "@instead"}], text: "…there is no immediate or predictable prospect of useful machine translation.", who: "ALPAC", where: "Language and Machines, 1966", at: "@immediate", src: [ALPAC]}}
-      - {tpl: desk, at: "@general-0.4", in: fade, p: {eras: [{era: 1962, at: "@general-0.4", label: "1966"}], accent: "#3d6b4f", cam: [{t: "@general", x: 0, z: 0.03}, {t: "@safe", x: -40, z: 0.06}, {t: "@long+1", x: -70, z: 0.09}],
-           cap: [{s: "the translator's desk: safe, for now", at: "@safe"}]}}
+      - {tpl: plate, at: 0, p: {hero: lib_walk, frame0: 0, ev: [{at: 1.0, what: "người thắp đèn bước vào khung"}, {at: 6.0, what: "đi ngang thư viện"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.0, src_ss: 3.0, dur: 7.5, gain_db: -13, fade_ms: 500}]}
+      - {tpl: plate, at: "@after-0.4", in: fade, p: {hero: ibm_room, frame0: 0, cap: [{s: "after the war: Soviet work, written in Russian", at: "@soviet", src: [HUT06]}, {s: "Dostert: from helping interpreters…", at: "@used", src: [HUT06]}, {s: "…to a machine that would translate by itself", at: "@itself", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/card-punch.mp3, at: "@after", src_ss: 30.0, dur: 6.0, gain_db: -17, fade_ms: 600}]}
+      - {tpl: plate, at: "@january-0.4", in: fade, p: {hero: ibm_print, frame0: 0, cap: [{s: "January 7, 1954 · New York", at: "@january", src: [HUT06]}, {s: "Dostert's Georgetown team and IBM", at: "@georgetown", src: [HUT06]}, {s: "the computer knew only…", at: "@knew", src: [HUT06]}, {num: w250, s: "and six rules of grammar", at: "@hundred"}],
+           ev: [{at: "@computer+0.5", what: "máy in bắt đầu nhả chữ"}]},
+         sfx: [{file: assets/ll/sfx/teleprinter-tape.mp3, at: "@january", src_ss: 40.0, dur: 5.0, gain_db: -17, fade_ms: 500}]}
+      - {tpl: plate, at: "@next-0.4", in: fade, p: {hero: ibm_room, frame0: 240, cap: [{s: "front pages the next morning", at: "@front", src: [HUT06]}, {s: "the forecast: a machine built just for translation…", at: "@forecasts", src: [HUT06]}, {s: "…ready within a few years", at: "@ready", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/card-punch.mp3, at: "@next", src_ss: 60.0, dur: 5.0, gain_db: -17, fade_ms: 600}]}
 
   - id: "06"
-    part: STORY
+    part: HISTORY
+    map: {q: "Twelve years later, what had the money bought?", act: 2, emo: scrutiny, color: sepia, cue: history, trade: [typewriter-1960s, wall-clock],
+          in: cut, out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@committee", img: "phòng dịch 1960s: bàn gỗ, máy chữ, tạp chí tiếng Nga"}, {w: "@people", img: "phòng dịch có người làm (bóng)"}, {w: "@sixtytwo", img: "isotype 262 người dịch liên bang"},
+                  {w: "@translators#2", img: "phòng dịch, người dịch (bóng) bên máy chữ"}, {w: "@money", img: "biển số $20 million"}]}
     vo: >-
-      The lamplighter walks on. The library goes dark. In an apartment across the street, a screen is still lit:
-      someone pastes a paragraph into a box, and a moment later it comes back in another language.
-    vo_offset: 2.5
-    min_dur: 27
-    tail: 1.5
+      In 1966, twelve years after the demonstration, a committee of the National Academy of Sciences took stock. First, it counted the people.
+      In October 1962, the federal government employed only two hundred sixty-two translators and clerk-translators in the United States, and the committee found more translators available than there was work for them.
+      There was no shortage of people for a machine to fix. Then it counted the money. Over ten years, the government had spent some twenty million dollars on machine translation and related research.
     shots:
-      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@lit+1"]}, warm: 0.4, windows: 0.4,
-                                 cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: 8, x: -200, z: 0.035}, {t: "@lit+1", x: -300, z: 0.05}]}}
-      - {tpl: desk, at: "@someone-0.4", in: fade, p: {eras: [{era: 2025, at: "@someone-0.4", label: " "}], accent: "#3d6b4f",
-           cam: [{t: "@someone", x: 0, z: 0}, {t: "@box", x: -40, z: 0.04}, {t: "@language", x: -80, z: 0.08}, {t: "@language+5", x: -110, z: 0.1}]}}
+      - {tpl: plate, at: 0, p: {hero: pe_room, frame0: 0, cap: [{s: "1966: twelve years after the demonstration", at: "@1966", src: [ALPAC]}, {s: "a committee of the National Academy of Sciences (ALPAC)", at: "@committee", src: [ALPAC]}, {s: "first, it counted the people", at: "@counted"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-1960s.mp3, at: 0.3, src_ss: 5.0, dur: 5.0, gain_db: -18, fade_ms: 600}]}
+      - {tpl: isotype, at: "@october-0.6", in: fade, p: {title: "Federal translators and clerk-translators", subtitle: "employed in the United States, October 1962", unit: 10, unitName: "people", per: 27,
+           groups: [{label: "Oct 1962", num: fed62, at: "@sixtytwo"}], cap: [{s: "a small field, not a shortage", at: "@available", src: [ALPAC]}]}}
+      - {tpl: plate, at: "@shortage-0.4", in: fade, p: {hero: pe_room, frame0: 200, cap: [{s: "more translators available than work", at: "@shortage", src: [ALPAC]}]},
+         sfx: [{file: assets/ll/sfx/wall-clock.mp3, at: "@shortage", src_ss: 20.0, dur: 4.0, gain_db: -18, fade_ms: 600}]}
+      - {tpl: sign, at: "@money-0.5", in: fade, p: {num: mt20, caption: "U.S. government spending on machine translation, ten years", at: "@twenty", capAt: "@research", wall: plaster,
+           cam: [{t: "@money-0.5", x: 0, z: 0.0}, {t: "@research+2", x: -30, z: 0.04}]},
+         sfx: [{file: assets/ll/sfx/typewriter-1960s.mp3, at: "@money", src_ss: 20.0, dur: 3.0, gain_db: -20, fade_ms: 500}]}
 
   - id: "07"
-    part: TODAY
+    part: HISTORY
+    map: {q: "What did the machine's output look like?", act: 2, emo: doubt, color: sepia, cue: history, trade: [pencil-paper, typewriter-1960s],
+          in: cut, out: cut, lamp: {in: false, out: true},
+          nouns: [{w: "@georgetown", img: "bản in máy: chữ in hoa, câu lủng củng"}, {w: "@correct", img: "bút đỏ gạch và sửa trên bản in"}, {w: "@postediting", img: "bản in có vết bút đỏ"}, {w: "@conclusion", img: "trích ALPAC 1966"}]}
     vo: >-
-      After 2010, Google Translate arrived as a phone app and inside web browsers, and machine translation went into everyday use.
-      Economists at Oxford compared six hundred ninety-five local labor markets in the United States. Where people used Google Translate more, translator employment grew more slowly.
-      To check that this was not just a coincidence of busier cities, they used a second, unrelated measure, and the link held. Overall, they estimate about twenty-eight thousand fewer translator positions were created than the profession's growth would have suggested.
-      Wages slowed at first, then recovered around 2016. Job postings told the same story, while similar jobs the machine should not touch, such as editors, proofreaders, and technical writers, showed no such effect.
+      The results were thin. Back in 1962, eight years into the work, the Georgetown project had tried to produce useful output, and it had to have people correct the machine's output.
+      The committee called this postediting. The postedited translation took slightly longer, and cost more, than ordinary human translation.
+      Its conclusion was blunt: there was no immediate or predictable prospect of useful machine translation.
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2010s"}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.05}, {t: 10, x: -60, z: 0.08}, {t: "@labor", x: -70, z: 0.09}, {t: "@used", x: -80, z: 0.1}],
-           cap: [{s: "after 2010: machine translation in everyday use", at: "@everyday", src: [FLP]}, {s: "Oxford: 695 U.S. local labor markets", at: "@oxford", src: [FLP]}, {s: "more use → slower translator job growth", at: "@slowly"}, {s: "checked with a second measure: the link held", at: "@coincidence"}]}}
-      - {tpl: sign, at: "@overall-0.6", in: fade, p: {num: frey, caption: "translator positions not created, U.S., after 2010 (estimate)", at: "@twentyeight", capAt: "@created", wall: brick,
-           cam: [{t: "@overall-0.6", x: 0, z: 0.0}, {t: "@created", x: -30, z: 0.03}, {t: "@wages", x: -50, z: 0.05}, {t: "@postings", x: -60, z: 0.06}, {t: "@editors", x: -70, z: 0.07}, {t: "@effect+1", x: -80, z: 0.08}],
-           cap: [{s: "an estimate, not a count", at: "@estimate", src: [FLP]}, {s: "wages: slowed, then recovered around 2016", at: "@wages", src: [FLP]}, {s: "job postings: the same story", at: "@postings"}, {s: "similar jobs as a check", at: "@similar"}, {s: "editors, proofreaders: no such effect", at: "@editors"}]}}
+      - {tpl: plate, at: 0, p: {hero: pe_mark, frame0: 0, cap: [{s: "1962: the Georgetown project's output", at: "@georgetown", src: [ALPAC]}, {s: "people had to correct the machine", at: "@correct"}, {s: "the committee's word: postediting", at: "@postediting", src: [ALPAC]},
+           {s: "slightly longer, and costlier, than human translation", at: "@slightly", src: [ALPAC]}], ev: [{at: "@correct", what: "bút đỏ bắt đầu sửa"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@correct-0.5", src_ss: 10.0, dur: 4.0, gain_db: -15, fade_ms: 600}, {file: assets/ll/sfx/pencil-paper.mp3, at: "@postediting", src_ss: 30.0, dur: 6.0, gain_db: -15, fade_ms: 600}]}
+      - {tpl: quote, at: "@conclusion-0.4", in: flip, p: {beats: [{s: "the conclusion, 1966", at: "@conclusion"}], text: "…there is no immediate or predictable prospect of useful machine translation.", who: "ALPAC", where: "Language and Machines, 1966", at: "@immediate", src: [ALPAC]}}
+      - {tpl: plate, at: "@immediate+3.6", in: fade, p: {hero: pe_room, frame0: 320, cap: [{s: "no immediate or predictable prospect", at: "@immediate+3.8", src: [ALPAC]}]},
+         sfx: [{file: assets/ll/sfx/typewriter-1960s.mp3, at: "@immediate+3.6", src_ss: 30.0, dur: 3.0, gain_db: -20, fade_ms: 600}]}
 
   - id: "08"
-    part: TODAY
+    part: HISTORY
+    map: {q: "Which machine actually helped?", act: 2, emo: insight, color: sepia, cue: history, trade: [typewriter-1960s, paper-flip, footsteps-steps],
+          in: cut, out: jcut, out_note: "bước chân người thắp đèn vào trước hình 1,2 s (đoạn 09)", lamp: {in: true, out: true},
+          nouns: [{w: "@agency", img: "bảng thuật ngữ in liên tục cạnh máy chữ"}, {w: "@list", img: "bảng thuật ngữ: từ Nga và bản dịch"}, {w: "@errors", img: "máy chữ gõ bản dịch sạch"}, {w: "@aids", img: "người dịch (bóng) bên máy chữ, đèn bàn"}]}
     vo: >-
-      The government sees it too. In January 2026, the BLS wrote that interpreters and translators have become more productive as AI translation keeps improving, and that this is reducing demand for them.
-      Interpreters and translators held about seventy-five thousand jobs in 2024. The projection for 2034 is about seventy-six thousand: growth of one point seven percent, about half the three point one percent projected for all jobs.
+      But the committee also found a machine that did help. At a military translation agency in Germany, a computer produced a list of the technical terms in each text, with their translations.
+      Translators who had the list finished much faster, and made a third fewer errors than translators without it.
+      So the committee recommended research into language, and better human translation, with machine aids. A machine to help the translator, not to replace one.
     shots:
-      - {tpl: quote, at: 0, p: {beats: [{s: "the government sees it too", at: "@government"}, {s: "BLS, Monthly Labor Review, January 2026", at: "@january"}, {s: "more productive as AI translation improves", at: "@productive"}],
-           text: "…interpreters and translators have become more productive as AI translation capabilities continue to improve, reducing their employment demand.", who: "BLS economists", where: "Monthly Labor Review, January 2026", at: "@interpreters", src: [MLR26]}}
-      - {tpl: isotype, at: "@held-1.0", in: fade, p: {title: "Interpreters and translators, United States", subtitle: "employment, 2024 and projected 2034", unit: 2500, unitName: "jobs", per: 31,
-           groups: [{label: "2024", num: it24, at: "@seventyfive"}, {label: "2034 (projected)", num: it34, at: "@seventysix"}], cap: [{s: "interpreters and translators", at: "@held"}]}}
-      - {tpl: bars, at: "@point-1.2", in: slide, p: {title: "Projected job growth, 2024–34", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
-           beats: [{s: "about half the pace of all jobs", at: "@half"}],
-           bars: [{label: "Interpreters and translators", num: it_chg, at: "@point"}, {label: "All occupations", num: all_chg, at: "@point#2"}]}}
+      - {tpl: plate, at: 0, p: {hero: pe_gloss, frame0: 0, cap: [{s: "a military translation agency, Germany", at: "@military", src: [ALPAC]}, {s: "a computer made a list…", at: "@list", src: [ALPAC]}, {s: "…of each text's technical terms, with translations", at: "@technical", src: [ALPAC]},
+           {s: "translators who had the list…", at: "@had", src: [ALPAC]}, {s: "…much faster · a third fewer errors", at: "@faster", src: [ALPAC]}], ev: [{at: 1.0, what: "máy chữ bắt đầu gõ"}]},
+         sfx: [{file: assets/ll/sfx/typewriter-1960s.mp3, at: 0.6, src_ss: 10.0, dur: 9.0, gain_db: -15, fade_ms: 600}, {file: assets/ll/sfx/typewriter-1960s.mp3, at: "@faster", src_ss: 40.0, dur: 6.0, gain_db: -16, fade_ms: 600}]}
+      - {tpl: plate, at: "@recommended-0.4", in: fade, p: {hero: pe_room, frame0: 120, cap: [{s: "the recommendation: research into language…", at: "@research", src: [ALPAC]}, {s: "…and machine aids for human translators", at: "@aids", src: [ALPAC]},
+           {s: "a machine to help the translator, not to replace one", at: "@help"}]},
+         sfx: [{file: assets/ll/sfx/paper-flip.mp3, at: "@recommended", src_ss: 4.0, dur: 2.5, gain_db: -17, fade_ms: 400}, {file: assets/ll/sfx/footsteps-steps.mp3, at: "@replace+0.4", src_ss: 3.0, dur: 3.0, gain_db: -20, fade_ms: 400}]}
 
+  # ===== HỒI 3 · HIỆN TẠI + TƯƠNG LAI (lạnh) =====
   - id: "09"
-    part: TODAY
+    part: STORY
+    map: {q: "Where is the light now?", act: 3, emo: passage, color: cold, cue: today, trade: [footsteps-steps, computer-home],
+          in: jcut, in_note: "bước chân người thắp đèn vào trước hình 1,2 s, kéo qua điểm cắt", out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn đi qua thư viện"}, {w: "@lamps", img: "cửa sổ thư viện tắt dần"}, {w: "@screen", img: "ô cửa căn hộ: màn hình sáng, người (bóng)"}, {w: "@paragraph", img: "màn hình: đoạn văn hiện ra bằng thứ tiếng khác"}]}
     vo: >-
-      What is left for the person at the desk? The Oxford study points to a shift toward higher-skilled translation work, tasks that machine translation cannot easily replace.
-      It also found that demand for foreign language skills fell across the economy, for Spanish, Chinese, Japanese, French, and German alike.
-      And the old word from 1966 is back. In 1966, postediting, a person correcting a machine's draft, was slower than translating from scratch. Today the question is open again: who checks the machine's draft, and who is paid for it?
+      The lamplighter walks on, and the years pass: the sixties, the eighties, a new century. The library's lamps go out.
+      Across the street, a screen is lit in an apartment. Someone pastes a paragraph into a box, and a moment later it comes back in another language.
+    vo_offset: 2.0
+    min_dur: 26
+    tail: 1.6
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2025"}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.05}, {t: 10, x: -60, z: 0.08}, {t: 13, x: -70, z: 0.09}, {t: 16, x: -80, z: 0.1}],
-           cap: [{s: "What is left for the person at the desk?", at: "@left"}, {s: "a shift toward higher-skilled work", at: "@shift", src: [FLP]}, {s: "tasks machines cannot easily replace", at: "@cannot"}]}}
-      - {tpl: desk, at: "@demand-0.4", in: fade, p: {eras: [{era: 2025, at: "@demand-0.4", label: "2025"}], accent: "#3d6b4f", cam: [{t: "@demand", x: -20, z: 0.04}, {t: "@spanish", x: -40, z: 0.06}, {t: "@alike", x: -50, z: 0.07}, {t: "@old", x: -60, z: 0.08}, {t: "@postediting", x: -80, z: 0.1}, {t: "@scratch", x: -90, z: 0.11}, {t: "@paid+1", x: -100, z: 0.12}],
-           cap: [{s: "demand for language skills fell across the economy", at: "@demand", src: [FLP]}, {s: "Spanish · Chinese · Japanese · French · German", at: "@spanish"},
-                 {s: "1966's word, a new life: postediting", at: "@postediting", src: [ALPAC]}, {s: "who checks the draft, and who is paid?", at: "@checks", src: []}]}}
+      - {tpl: plate, at: 0, p: {hero: lib_bridge, frame0: 0, ev: [{at: "@lamps", what: "cửa sổ thư viện tắt"}, {at: "@across", what: "máy lia sang căn hộ"}, {at: "@screen", what: "màn hình bừng sáng"}, {at: "@screen+1.6", what: "máy đẩy sát ô cửa căn hộ, thấy người (bóng)"}],
+           cap: [{s: "the sixties · the eighties · a new century", at: "@sixties", src: []}, {s: "across the street…", at: "@across"}, {s: "…a screen, lit in an apartment", at: "@screen"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.2, src_ss: 3.0, dur: 7.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/computer-home.mp3, at: "@screen", src_ss: 20.0, dur: 5.0, gain_db: -20, fade_ms: 600}]}
+      - {tpl: plate, at: "@someone-0.4", in: fade, p: {hero: st_screen, frame0: 0, cap: [{s: "paste a paragraph…", at: "@pastes", src: []}, {s: "…a moment later, another language", at: "@moment"}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@someone", src_ss: 30.0, dur: 5.0, gain_db: -16, fade_ms: 500}]}
 
   - id: "10"
     part: TODAY
+    map: {q: "What does the translator's desk look like today?", act: 3, emo: clarity, color: cold, cue: today, trade: [computer-home, keyboard-typing, mouse-clicks],
+          in: cut, out: cut, lamp: {in: true, out: true},
+          nouns: [{w: "@box", img: "màn hình bản nháp máy"}, {w: "@handbook", img: "bàn người dịch hôm nay: hai màn hình"}, {w: "@database", img: "màn hình trái: tài liệu tham khảo, bảng thuật ngữ"},
+                  {w: "@draft", img: "màn hình phải: câu nháp máy, đang sửa"}, {w: "@postediting", img: "đoạn được duyệt chuyển màu xanh"}]}
     vo: >-
-      So here is the comparison, with a caution. A count of federal translators from 1962, an estimate from a study, and a forecast for the next ten years are three different kinds of number. We will not set them side by side.
-      What we can compare is the pattern. Then, the machine was tried on translation and failed: the people had to fix its output, and it cost more.
-      Today, the machine is in everyday use, and the Oxford study points to people moving toward the tasks it cannot easily replace.
-      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
-      But the differences matter. In 1966, the machine was not good enough, and the committee said so. This time, the machine is good enough for everyday use, and the change is showing up in translators' job growth.
+      That box is machine translation. After 2010, Google Translate arrived as a phone app and inside web browsers, and it went into everyday use.
+      Today, the government's job handbook describes two kinds of machine on the translator's desk. One keeps a database of sentences already translated, so they can be reused.
+      The other, machine translation software, writes a first draft, which the translator then reviews. The handbook calls this post-editing: the same word the committee used in 1966 for people correcting the machine.
+      Then, it was slower than translating from scratch. Now it is part of the job.
     shots:
-      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d21281.jpg, rid: LOC-8d21281, focus: [0.5, 0.45], credit: "Red Cross volunteer translators, Washington, D.C., 1942 · Library of Congress",
-           cam: [{t: 0, x: -60, z: 0.12}, {t: 6, x: -40, z: 0.1}, {t: 12, x: -20, z: 0.08}, {t: 18, x: 0, z: 0.06}],
-           cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "a count · an estimate · a forecast: not side by side", at: "@kinds"}, {s: "what we can compare is the pattern", at: "@pattern"},
-                 {s: "then: the machine failed; people fixed its output", at: "@failed", src: [ALPAC]}]}}
-      - {tpl: desk, at: "@today-0.4", in: fade, p: {eras: [{era: 2025, at: "@today-0.4", label: "2025"}], accent: "#3d6b4f", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@same", x: -40, z: 0.04}, {t: "@differences", x: -80, z: 0.08}, {t: "@showing", x: -100, z: 0.09}, {t: "@growth", x: -110, z: 0.1}],
-           cap: [{s: "today: the machine in everyday use", at: "@today", src: [FLP]}, {s: "people: toward the tasks it cannot easily replace", at: "@moving"}, {s: "not the same technology — the same pattern", at: "@technology"},
-                 {s: "but the differences matter", at: "@differences"}, {s: "1966: not good enough", at: "@enough", src: [ALPAC]}, {s: "now: good enough for everyday use", at: "@everyday#2"}]}}
+      - {tpl: plate, at: 0, p: {hero: st_screen, frame0: 240, cap: [{s: "after 2010", at: "@2010", src: [FLP]}, {s: "Google Translate: a phone app…", at: "@google", src: [FLP]}, {s: "…and inside web browsers", at: "@inside", src: [FLP]}, {s: "…and into everyday use", at: "@everyday", src: [FLP]}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: 0.2, src_ss: 40.0, dur: 6.0, gain_db: -16, fade_ms: 500}]}
+      - {tpl: plate, at: "@today-0.4", in: fade, p: {hero: st_room, frame0: 0, cap: [{s: "the government's job handbook, today", at: "@handbook", src: [OOHIT]}, {s: "one machine: a database of sentences already translated", at: "@database", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@today", src_ss: 4.0, dur: 3.0, gain_db: -15, fade_ms: 300}]}
+      - {tpl: plate, at: "@other-0.4", in: fade, p: {hero: st_screen, frame0: 480, cap: [{s: "the other: machine translation software…", at: "@software", src: [OOHIT]}, {s: "…writes a first draft", at: "@draft", src: [OOHIT]}, {s: "the translator reviews: post-editing", at: "@reviews", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@other", src_ss: 2.0, dur: 4.0, gain_db: -16, fade_ms: 400}]}
+      - {tpl: diptych, at: "@same-0.3", in: fade, p: {split: "@now-0.2", left: {hero: pe_mark, i: 300, fx: 0.5}, right: {hero: st_screen, i: 600, fx: 0.55}, labels: ["1966: postediting", "today: post-editing"],
+           cap: [{s: "the same word as 1966", at: "@same", src: [ALPAC]}, {s: "then: slower than translating from scratch", at: "@then#2"}, {s: "now: part of the job", at: "@now", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: "@same", src_ss: 50.0, dur: 3.5, gain_db: -17, fade_ms: 400}, {file: assets/ll/sfx/keyboard-typing.mp3, at: "@now", src_ss: 8.0, dur: 3.0, gain_db: -17, fade_ms: 400}]}
 
   - id: "11"
     part: TODAY
+    map: {q: "Did everyday machine translation change translators' jobs?", act: 3, emo: sober, color: cold, cue: today, trade: [computer-home, mouse-clicks],
+          in: cut, out: cut, lamp: {in: true, out: false},
+          nouns: [{w: "@oxford", img: "bàn người dịch hôm nay, góc cửa sổ"}, {w: "@markets", img: "bàn người dịch hôm nay, phố ngoài cửa sổ"}, {w: "@twentyeight", img: "biển số ≈28,000 trên tường gạch", anchor: frey},
+                  {w: "@editors", img: "kệ từ điển, bàn làm việc"}, {w: "@higherskilled", img: "màn hình: đoạn được duyệt"}]}
+    pause: [{before: "@twentyeight", s: 0.7}]
     vo: >-
-      Can a machine translate? In 1966, the answer was no. Today, for much everyday text, the answer is often yes, and it is slowing the growth of translator jobs.
-      What is left for people may be the part where a wrong word matters: a contract, a diagnosis, a letter home. Whether that is enough work for the people who do this job today is something no projection can settle yet.
-    min_dur: 26
+      The change shows up in the numbers too. Economists at Oxford compared hundreds of local job markets across the United States.
+      Where people used Google Translate more, translator employment grew more slowly. What they found was not layoffs.
+      It was jobs that never appeared: they estimate about twenty-eight thousand translator jobs that the profession's growth would have created, but did not. It is an estimate, not a count.
+      Similar jobs, such as editors and technical writers, showed no such effect. The study also points to a shift toward higher-skilled translation work, the tasks machine translation cannot easily replace.
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 1962, at: 0, label: "1962"}, {era: 2025, at: "@today", label: "2025"}], accent: "#3d6b4f",
-           cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}],
-           cap: [{s: "1966: no", at: "@1966", src: [ALPAC]}, {s: "today, for everyday text: yes", at: "@today", src: [FLP]}, {s: "left for people: where a wrong word matters?", at: "@wrong"},
-                 {s: "no projection can settle it yet", at: "@projection"}]}}
+      - {tpl: plate, at: 0, p: {hero: st_side, frame0: 0, cap: [{s: "Oxford economists", at: "@oxford", src: [FLP]}, {s: "hundreds of local job markets across the United States", at: "@hundreds", src: [FLP]}, {s: "where people used Google Translate more…", at: "@google", src: [FLP]}, {s: "…translator employment grew more slowly", at: "@slowly", src: [FLP]},
+           {s: "not layoffs", at: "@layoffs"}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: 0.3, src_ss: 60.0, dur: 6.0, gain_db: -17, fade_ms: 600}]}
+      - {tpl: sign, at: "@never-0.5", in: fade, p: {num: frey, at: "@twentyeight", wall: plaster,
+           cam: [{t: "@never-0.5", x: 0, z: 0.0}, {t: "@count+1", x: -30, z: 0.04}], cap: [{s: "translator jobs never added, U.S., after 2010", at: "@growth", src: [FLP]}, {s: "an estimate, not a count", at: "@estimate", src: [FLP]}]},   # Q5 1080p: chữ caption trên tường 3,28:1 → đưa xuống dải chú thích tối
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@never", src_ss: 10.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
+      - {tpl: plate, at: "@similar-0.4", in: fade, p: {hero: st_room, frame0: 200, cap: [{s: "editors, technical writers: no such effect", at: "@editors", src: [FLP]}, {s: "a shift toward higher-skilled work", at: "@shift", src: [FLP]}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@similar", src_ss: 80.0, dur: 5.0, gain_db: -17, fade_ms: 600}]}
+      - {tpl: plate, at: "@tasks-0.4", in: fade, p: {hero: st_screen, frame0: 720, cap: [{s: "the tasks machine translation cannot easily replace", at: "@tasks", src: [FLP]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@tasks", src_ss: 12.0, dur: 3.5, gain_db: -17, fade_ms: 400}]}
 
   - id: "12"
-    part: STORY
+    part: TODAY
+    map: {q: "How has interpreting changed?", act: 3, emo: warmth, color: cold, cue: today, trade: [keyboard-typing, radio-tuning],
+          in: cut, out: cut, lamp: {in: false, out: false},
+          nouns: [{w: "@interpreting", img: "buồng phiên dịch từ xa: tai nghe, micro, màn hình"}, {w: "@remotely", img: "người phiên dịch (lưng) đeo tai nghe trước màn hình"}, {w: "@sign", img: "màn hình gọi video: người ra dấu"},
+                  {w: "@courtrooms", img: "phòng xử 1945: dãy buồng kính"}]}
     vo: >-
-      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
-      Every era has its last lamplighters. Some of them carried a sentence from one language to another.
-    vo_offset: 3.0
-    min_dur: 24
+      That is translation, the written word. Interpreting, the spoken and signed word, has changed in its own way. Interpreters now work remotely as well as in person.
+      Demand for American Sign Language interpreters is expected to grow, as more people use video relay services: online video calls with a sign language interpreter on the line.
+      And in courtrooms, where this story began, most states now require interpreters to be certified.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: st_screen, frame0: 1200, cap: [{s: "that is translation: the written word", at: "@translation", src: []}]},   # Q31 1080p vòng 1 T12 3/3: lời "translation, the written word" phải nằm trên bàn người dịch, không trên buồng phiên dịch
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.4, src_ss: 1.0, dur: 3.0, gain_db: -20, fade_ms: 500}]}
+      - {tpl: plate, at: "@interpreting-0.4", in: fade, p: {hero: vrs_room, frame0: 72, cap: [{s: "interpreting: the spoken and signed word", at: "@interpreting", src: [OOHIT]}, {s: "changed in its own way", at: "@changed"}, {s: "remotely, as well as in person", at: "@remotely", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@interpreting", src_ss: 12.0, dur: 2.0, gain_db: -20, fade_ms: 300}]}
+      - {tpl: plate, at: "@demand-0.4", in: fade, p: {hero: vrs_screen, frame0: 0, cap: [{s: "American Sign Language interpreters: demand expected to grow", at: "@american", src: [OOHIT]}, {s: "video relay services", at: "@video", src: [OOHIT]}, {s: "an online video call, an interpreter on the line", at: "@online", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/mouse-clicks.mp3, at: "@demand", src_ss: 20.0, dur: 2.0, gain_db: -18, fade_ms: 300}]}
+      - {tpl: diptych, at: "@courtrooms-0.4", in: fade, p: {split: "@states-0.2", left: {hero: booth_in, i: 160, fx: 0.55}, right: {hero: vrs_side, i: 120, fx: 0.5}, labels: ["Nuremberg, 1945", "today"],
+           cap: [{s: "courtrooms, where this story began", at: "@courtrooms"}, {s: "most states: court interpreters must be certified", at: "@states", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@courtrooms", src_ss: 1.0, dur: 2.5, gain_db: -19, fade_ms: 300}]}
+
+  - id: "13"
+    part: TODAY
+    map: {q: "What do the forecasts say for the next ten years?", act: 3, emo: measured, color: cold, cue: today, trade: [computer-home, keyboard-typing],
+          in: cut, out: cut, lamp: {in: false, out: true},
+          nouns: [{w: "@government", img: "isotype việc làm 2025 và 2035"}, {w: "@two", img: "buồng phiên dịch từ xa; +2.0% trên dải chú thích", anchor: it_chg}, {w: "@positions", img: "buồng phiên dịch: người làm việc"}, {w: "@computers", img: "màn hình: bản nháp máy đang được duyệt"}]}
+    pause: [{before: "@two", s: 0.7}]
+    vo: >-
+      And the next ten years? The government projects that interpreters and translators will grow from about seventy-four thousand jobs in 2025 to about seventy-five thousand in 2035.
+      That is two percent over the whole decade, about fifteen hundred more jobs, slower than the three and a half percent projected for all jobs. Slower growth, not decline.
+      Even so, about six thousand positions are projected to open each year, mostly to replace people who retire or change careers.
+      Computer tools, including AI, are making the work more efficient, the handbook says. But many of these jobs cannot be entirely automated, because computers cannot yet produce work comparable to what human translators do in most cases. Cannot yet.
+    shots:
+      - {tpl: plate, at: 0, p: {hero: vrs_side, frame0: 0, cap: [{s: "the next ten years?", at: "@next", src: []}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: 0.3, src_ss: 5.0, dur: 2.5, gain_db: -20, fade_ms: 400}]}
+      - {tpl: isotype, at: "@projects-0.8", in: fade, p: {title: "Interpreters and translators, United States", subtitle: "jobs, 2025 and projected 2035 · BLS", unit: 2500, unitName: "jobs", per: 31,
+           groups: [{label: "2025", num: it25, at: "@seventyfour"}, {label: "2035 (projected)", num: it35, at: "@seventyfive"}], cap: [{s: "interpreters and translators", at: "@interpreters"}]}}
+      - {tpl: plate, at: "@two-0.9", in: fade, p: {hero: vrs_screen, frame0: 120, cap: [{num: it_chg, s: "interpreters and translators, projected 2025–35", at: "@two"}, {s: "about 1,500 more jobs over the decade", at: "@fifteen", src: [OOHIT]},
+           {num: all_chg, s: "all jobs, projected 2025–35", at: "@half"}, {s: "slower growth, not decline", at: "@slower#2"}, {num: open, s: "openings projected each year", at: "@six"}, {s: "mostly to replace people who retire or change careers", at: "@replace", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@two-0.5", src_ss: 9.0, dur: 2.5, gain_db: -20, fade_ms: 400}, {file: assets/ll/sfx/mouse-clicks.mp3, at: "@even", src_ss: 30.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
+      - {tpl: plate, at: "@computer-0.4", in: fade, p: {hero: st_screen, frame0: 960, cap: [{s: "computer tools, including AI…", at: "@tools", src: [OOHIT]}, {s: "…are making the work more efficient", at: "@efficient", src: [OOHIT]}, {s: "but many of these jobs cannot be entirely automated", at: "@entirely", src: [OOHIT]}, {s: "“…computers cannot yet produce work comparable to what human translators do…”", at: "@comparable", src: [OOHIT]},
+           {s: "cannot yet", at: "@yet#2"}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@computer", src_ss: 70.0, dur: 6.0, gain_db: -17, fade_ms: 600}]}
+
+  - id: "14"
+    part: TODAY
+    map: {q: "So what happened to the people who carry words between languages?", act: 3, emo: resolve, color: cold, cue: today, trade: [radio-tuning, typewriter-1960s, computer-home],
+          in: cut, out: jcut, out_note: "bước chân người thắp đèn (đoạn 15) vào trước hình 1,0 s, kéo qua điểm cắt", lamp: {in: true, out: true},
+          nouns: [{w: "@comparison", img: "khung đôi: bản in sửa đỏ 1960s | màn hình duyệt bản nháp hôm nay"}, {w: "@patterns", img: "khung đôi có nhãn 1966 · today"}, {w: "@everyday", img: "bàn người dịch hôm nay"},
+                  {w: "@waiting", img: "phòng xử 1945: buồng kính"}, {w: "@checking", img: "màn hình duyệt bản nháp"}, {w: "@video", img: "buồng phiên dịch từ xa"}]}
+    vo: >-
+      Here is the comparison we can make, and it is a comparison of patterns, not of technologies. In both eras, a repetitive part of the work went to a machine, and people moved to the work around it.
+      One difference matters. In 1966, the machine was not good enough, and the committee said so. This time, the machine is in everyday use, and the Oxford study finds it has slowed the growth of translator jobs.
+      So what happened to the people who carry words between languages? When machine translation finally reached everyday use, the profession did not disappear.
+      The work moved: from waiting for a speaker to stop, to speaking at the same time; from writing every sentence, to checking a machine's draft; from the courtroom booth, to the video call.
+    shots:
+      - {tpl: diptych, at: 0, p: {split: "@both-0.2", left: {hero: pe_mark, i: 420, fx: 0.5}, right: {hero: st_screen, i: 840, fx: 0.55}, labels: ["1966", "today"],
+           cap: [{s: "the comparison we can make", at: "@comparison", src: []}, {s: "a comparison of patterns, not of technologies", at: "@patterns"}, {s: "a repetitive part of the work goes to a machine…", at: "@repetitive"}, {s: "…and people move to the work around it", at: "@moved"}]},
+         sfx: [{file: assets/ll/sfx/pencil-paper.mp3, at: 0.3, src_ss: 60.0, dur: 4.0, gain_db: -18, fade_ms: 500}, {file: assets/ll/sfx/computer-home.mp3, at: "@both", src_ss: 90.0, dur: 4.0, gain_db: -18, fade_ms: 500}]}
+      - {tpl: plate, at: "@one-0.4", in: fade, p: {hero: pe_room, frame0: 420, cap: [{s: "one difference: in 1966, not good enough", at: "@1966", src: [ALPAC]}]},
+         sfx: [{file: assets/ll/sfx/typewriter-1960s.mp3, at: "@one", src_ss: 50.0, dur: 4.0, gain_db: -19, fade_ms: 600}]}
+      - {tpl: plate, at: "@this-0.4", in: fade, p: {hero: st_side, frame0: 240, cap: [{s: "this time: the machine in everyday use", at: "@this", src: [FLP]}, {s: "the Oxford study…", at: "@oxford", src: [FLP]}, {s: "…slower growth in translator jobs", at: "@slowed", src: [FLP]}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@this", src_ss: 100.0, dur: 5.0, gain_db: -18, fade_ms: 600}]}
+      - {tpl: plate, at: "@so#2-0.4", in: fade, p: {hero: vrs_room, frame0: 300, cap: [{s: "so what happened to the people?", at: "@so#2", src: []}, {s: "machine translation reached everyday use…", at: "@finally", src: [FLP]}, {s: "…and the profession did not disappear", at: "@disappear", src: [OOHIT]}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@so#2", src_ss: 6.0, dur: 2.5, gain_db: -19, fade_ms: 300}]}
+      - {tpl: plate, at: "@waiting-0.3", in: fade, p: {hero: booth_in, frame0: 260, cap: [{s: "from waiting for a speaker to stop, to speaking at the same time", at: "@waiting"}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: "@waiting", src_ss: 3.0, dur: 2.5, gain_db: -18, fade_ms: 300}]}
+      - {tpl: plate, at: "@writing-0.3", in: fade, p: {hero: st_screen, frame0: 1080, cap: [{s: "from writing every sentence, to checking a machine's draft", at: "@writing"}]},
+         sfx: [{file: assets/ll/sfx/keyboard-typing.mp3, at: "@writing", src_ss: 14.0, dur: 3.0, gain_db: -18, fade_ms: 300}]}
+      - {tpl: plate, at: "@courtroom-0.3", in: fade, p: {hero: st_side, frame0: 480, cap: [{s: "from the courtroom booth, to the video call", at: "@courtroom"}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: "@courtroom", src_ss: 105.0, dur: 4.0, gain_db: -18, fade_ms: 500}]}
+
+  # ===== HỒI 4 · KẾT (ấm) =====
+  - id: "15"
+    part: STORY
+    map: {q: "Which part of the work stays with people?", act: 4, emo: openness, color: warm, cue: theme, trade: [footsteps-steps, library-room],
+          in: jcut, in_note: "bước chân người thắp đèn vào trước hình 1,0 s", out: cut, lamp: {in: true, out: true},
+          nouns: [{w: "@forecasts", img: "góc phố thư viện lúc chạng vạng, đèn khí sáng"}, {w: "@fifty", img: "người thắp đèn đi tới cột cuối"}, {w: "@people", img: "ô cửa thư viện sáng, đèn đọc sách"}]}
+    vo: >-
+      In 1954, the forecasts said a few years. It took more than fifty. And the handbook's word, yet, is the open question: which part of the work stays with people, and for how long?
+    vo_offset: 0.8
+    tail: 1.2
+    shots:
+      - {tpl: plate, at: 0, p: {hero: lib_end, frame0: 0, cap: [{s: "1954: “a few years”", at: "@1954", src: [HUT06]}, {s: "it took more than fifty", at: "@took", src: [FLP]}, {s: "the handbook's word: yet", at: "@word", src: [OOHIT]}, {s: "which part of the work stays with people, and for how long?", at: "@which", src: []}],
+           ev: [{at: 3.0, what: "người thắp đèn đi dọc phố"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: -1.0, src_ss: 0.5, dur: 8.0, gain_db: -14, fade_ms: 500}]}
+
+  - id: "16"
+    part: STORY
+    map: {q: "Who carries the light on?", act: 4, emo: warmth, color: warm, cue: theme, trade: [footsteps-steps, gas-hiss],
+          in: cut, out: fade, lamp: {in: true, out: true},
+          nouns: [{w: "@lamplighter", img: "người thắp đèn tới cột đèn cuối"}, {w: "@flame", img: "đèn khí bén lửa"}, {w: "@light", img: "máy cẩu lên: thư viện và căn hộ, đèn sáng"}, {w: "@languages", img: "góc phố: thư viện, ô cửa màn hình"}]}
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the light passes on to the next corner.
+      Every era has its last lamplighters. For the people who carry words between languages, the flame keeps changing hands.
+    vo_offset: 1.0
+    min_dur: 26
     tail: 2.0
     shots:
-      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
-                                 cam: [{t: 0, x: -200, z: 0.02}, {t: 4, x: -280, z: 0.03}, {t: "@glass", x: -340, z: 0.04}, {t: "@flame", x: -400, z: 0.05}, {t: "@every", x: -460, z: 0.06}, {t: "@sentence", x: -490, z: 0.065}, {t: "@another+2", x: -520, z: 0.07}]}}
-      - {tpl: endcard, at: "@another+0.8", in: fade, p: {line: "Last Lamplighters · Episode 8", next: "Next: Episode 9 (chờ chủ dự án chọn)"}}
+      - {tpl: plate, at: 0, p: {hero: lib_end, frame0: 378, ev: [{at: "@glass", what: "người thắp đèn giơ sào"}, {at: "@flame", what: "đèn bén"}, {at: "@flame+1.0", what: "máy lùi, cẩu lên"}, {at: "@corner", what: "cột đèn ở góc phố kế tiếp bén lửa"}, {at: "@every", what: "thấy cả góc phố"}, {at: "@every+4.5", what: "máy lên cao: thư viện và căn hộ trong khung"}, {at: "@hands", what: "máy dừng trên cao"}]},
+         sfx: [{file: assets/ll/sfx/footsteps-steps.mp3, at: 0.6, src_ss: 3.0, dur: 5.0, gain_db: -13, fade_ms: 500}, {file: assets/ll/sfx/gas-hiss.mp3, at: "@flame", src_ss: 2.0, dur: 2.2, gain_db: -7, fade_ms: 250}]}
+      - {tpl: endcard, at: "@hands+1.0", in: fade, p: {line: "Last Lamplighters · Episode 8", next: "More from Last Lamplighters"}}
 
 shorts:
   - id: S1
-    hook: "1966: 'no immediate or predictable prospect'"
+    hook: "The trial that changed interpreting"
     vo: >-
-      In 1966, a committee of the National Academy of Sciences judged machine translation. After ten years and some twenty million dollars of government spending, its verdict was blunt: there is no immediate or predictable prospect of useful machine translation. Today, machine translation is in everyday use.
+      In October 1945, Leon Dostert, who had been General Eisenhower's interpreter during the war, was asked to set up the interpretation for the war crimes tribunal at Nuremberg.
+      He chose a method many thought would not work: simultaneous interpretation, speaking while the speaker is still speaking. IBM donated the equipment.
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 1962, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 22, x: -80, z: 0.12}],
-           cap: [{s: "National Academy of Sciences, 1966", at: "@committee", src: [ALPAC]}, {num: mt20, s: "over ten years", at: "@twenty"}, {s: "no immediate or predictable prospect", at: "@immediate"},
-                 {s: "today: in everyday use", at: "@everyday"}]}}
+      - {tpl: plate, at: 0, p: {hero: s_booth, frame0: 0, fx: 0.5, cap: [{s: "October 1945 · Nuremberg", at: "@october", src: [HUT06]}, {s: "Leon Dostert, Eisenhower's interpreter", at: "@dostert", src: [HUT06]},
+           {s: "a method many thought would not work", at: "@method"}, {s: "simultaneous interpretation", at: "@simultaneous"}, {s: "IBM donated the equipment", at: "@ibm", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/radio-tuning.mp3, at: 0.3, src_ss: 0.5, dur: 3.0, gain_db: -16, fade_ms: 500}]}
   - id: S2
-    hook: "Google Translate and translator jobs"
+    hook: "1954: a machine that translated 250 words"
     vo: >-
-      Economists at Oxford compared six hundred ninety-five U.S. labor markets. Where people used Google Translate more, translator employment grew more slowly. They estimate about twenty-eight thousand fewer translator positions were created. It is an estimate, not a count.
+      So Dostert, who had used machines to help interpreters, turned to a machine that would translate by itself.
+      On January 7, 1954, his Georgetown team and IBM showed it in New York. The computer knew only two hundred fifty words and six rules of grammar, enough for those chosen sentences.
+      The next morning it was on front pages, and the forecasts said a machine built just for translation could be ready within a few years.
     shots:
-      - {tpl: sign, at: 0, p: {num: frey, at: "@twentyeight", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.03}],
-           cap: [{s: "Oxford: 695 U.S. labor markets", at: "@oxford", src: [FLP]}, {s: "more Google Translate → slower job growth", at: "@slowly"}, {s: "positions not created", at: "@created"}, {s: "an estimate, not a count", at: "@estimate"}]}}
+      - {tpl: plate, at: 0, p: {hero: s_ibm, frame0: 0, fx: 0.5, cap: [{s: "Dostert: a machine to translate", at: "@dostert", src: [HUT06]}, {s: "New York, January 7, 1954", at: "@january", src: [HUT06]}, {num: w250, s: "six rules of grammar", at: "@hundred"},
+           {s: "front pages", at: "@front"}, {s: "the forecast: a few years", at: "@forecasts", src: [HUT06]}]},
+         sfx: [{file: assets/ll/sfx/card-punch.mp3, at: 0.3, src_ss: 10.0, dur: 10.0, gain_db: -17, fade_ms: 900}]}
   - id: S3
-    hook: "The BLS on translators and AI"
+    hook: "A 1966 word for translators is back"
     vo: >-
-      The Bureau of Labor Statistics says interpreters and translators have become more productive as AI translation improves, and that this is reducing demand for them. Its projection: one point seven percent growth from 2024 to 2034, about half the three point one percent for all jobs.
+      The other, machine translation software, writes a first draft, which the translator then reviews. The handbook calls this post-editing: the same word the committee used in 1966 for people correcting the machine.
+      Then, it was slower than translating from scratch. Now it is part of the job.
     shots:
-      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: " "}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 22, x: -80, z: 0.12}],
-           cap: [{s: "BLS: more productive with AI translation", at: "@productive", src: [MLR26]}, {s: "reducing demand", at: "@reducing"}, {num: it_chg, s: "interpreters & translators, projected 2024–34", at: "@one"},
-                 {num: all_chg, s: "all jobs, projected 2024–34", at: "@three"}]}}
+      - {tpl: plate, at: 0, p: {hero: s_studio, frame0: 0, fx: 0.5, cap: [{s: "machine translation: a first draft", at: "@software", src: [OOHIT]}, {s: "the translator reviews: post-editing", at: "@reviews", src: [OOHIT]},
+           {s: "the same word as 1966", at: "@same", src: [ALPAC]}, {s: "then: slower · now: part of the job", at: "@now"}]},
+         sfx: [{file: assets/ll/sfx/computer-home.mp3, at: 0.3, src_ss: 40.0, dur: 10.0, gain_db: -17, fade_ms: 900}]}

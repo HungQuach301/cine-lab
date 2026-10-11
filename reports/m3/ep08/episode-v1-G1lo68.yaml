@@ -1,0 +1,242 @@
+# Last Lamplighters · Tập 8 "The Translator's Desk" — đặc tả nhà máy v1 (G1 lô 6–8, 06/10/2026), HÌNH v2 từ đầu. Thẻ đề tài T2 (topics/queue.md).
+# Cặp nghề: người dịch thời Chiến tranh Lạnh (1962–66, máy dịch chưa dùng được) ↔ người dịch/phiên dịch với dịch máy và AI (sau 2010; dự báo 2024–34).
+# Nguồn: reports/m3/ep08/NGUON-TAP8.md. Mọi số đọc toàn văn (NAP/ALPAC 1966, Oxford Martin School, FRASER).
+# So sánh: ĐỊNH TÍNH. Ba loại số khác nhau (đếm 1962 của chính phủ liên bang; ước tính phản thực của một nghiên cứu; dự báo BLS) — không đặt cạnh nhau.
+# KHÔNG dùng: số BLS 2025–35 cho interpreters & translators (CHỜ XÁC MINH); khảo sát Society of Authors (Anh, không đọc toàn văn); bài NPR mà MLR trích (chưa đọc).
+# Thư viện cần thêm (một lượt, đầu tập): PROP dictionary (chồng từ điển + máy chữ + tờ bản thảo), ERA 1962 → dictionary.
+id: ll-ep08
+hook: {answer: "11", keys: [machine, translate, people]}
+anchors: [mt20, frey, it_chg]
+rhythm: {paper_max: 40}
+title: "In 1966, Machines Couldn't Translate. Now Translators Compete With Them"
+out: /var/tmp/cine-out/ll-ep08
+voice: {id: pqHfZKP75CvOlQylNhV4, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:
+  - {file: reports/m3/m2-2b/music/Immersed.mp3, from: "00"}
+  - {file: reports/m3/m2-2b/music/Reawakening.mp3, from: "12", xfade: 3}
+
+sources:
+  ALPAC: {short: "ALPAC, Language and Machines (National Academy of Sciences, 1966)", short9: "ALPAC report, 1966", title: "Language and Machines: Computers in Translation and Linguistics",
+          url: "https://nap.nationalacademies.org/resource/alpac_lm/ARC000005.pdf", read: fulltext, pages: "PDF pp. 21 (translators, Oct 1962), 24 (spending), 25 (JPRS), 33 (Georgetown, postediting), 46 (conclusion)", accessed: 2026-10-06}
+  FLP: {short: "Frey & Llanos-Paredes, Lost in Translation (Oxford, 2025)", short9: "Frey & Llanos-Paredes (2025)", title: "Lost in Translation: Artificial Intelligence and the Demand for Foreign Language Skills",
+        url: "https://oms-www.files.svdcdn.com/production/downloads/academic/Frey_LlanosParedes_2025_LostInTranslation.pdf?dm=1741600283", read: fulltext, pages: "pp. 1–3 (abstract, introduction)", accessed: 2026-10-06}
+  MLR26: {short: "BLS, Monthly Labor Review, Jan 2026", short9: "BLS Labor Review, Jan 2026", title: "Industry and occupational employment projections overview and highlights, 2024–34",
+          url: "https://fraser.stlouisfed.org/files/docs/publications/bls_mlr/bls_mlr_20260108.pdf", read: fulltext, pages: "FRASER PDF p. 1 (total +3.1 %), p. 5 (text + table: 27-3091 Interpreters and translators)", accessed: 2026-10-06}
+
+numbers:
+  fed62: {v: 262, text: "262", kind: actual, year: 1962, unit: people, src: ALPAC, say: "two hundred sixty-two"}
+  spend: {v: 22, text: "$22 million", kind: actual, year: 1965, unit: 'million $ / year', src: ALPAC, say: "twenty-two million dollars", note: "ALPAC ước tổng chi dịch thuật mỗi năm (chính phủ 13 + dịch vụ thương mại 7,5 + nội bộ ngoài chính phủ ~2)"}
+  mt20: {v: 20, text: "$20 million", kind: actual, year: 1965, unit: 'million $ / 10 years', src: ALPAC, say: "twenty million dollars", note: "chi cho dịch máy và lĩnh vực liên quan trong 10 năm"}
+  frey: {v: 28000, text: "≈28,000", kind: actual, year: 2023, unit: jobs, src: FLP, say: "twenty-eight thousand", note: "ước tính phản thực: số vị trí người dịch KHÔNG được tạo ra do dịch máy, sau 2010"}
+  it24: {v: 75300, text: "75,300", kind: actual, year: 2024, unit: people, src: MLR26, say: "seventy-five thousand"}
+  it34: {v: 76600, text: "76,600", kind: projection, period: 2024–34, year: 2034, unit: people, src: MLR26, say: "seventy-six thousand"}
+  it_chg: {v: 1.7, text: "+1.7%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "one point seven percent"}
+  all_chg: {v: 3.1, text: "+3.1%", kind: projection, period: 2024–34, unit: '%', src: MLR26, say: "three point one percent"}
+
+segments:
+  # 00 — móc câu (Q14): máy có dịch được không? Trả lời ở đoạn 11 (machine, translate, person).
+  - id: "00"
+    part: STORY
+    vo: >-
+      Can a machine translate? In 1966, a government committee said no: not usefully, and not soon.
+      Today, one study estimates about twenty-eight thousand American translator jobs that were never created.
+    vo_offset: 0.6
+    tail: 0.6
+    fadeIn: 0
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1962, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.06}, {t: 10, x: -60, z: 0.09}, {t: 16, x: -90, z: 0.12}],
+           cap: [{s: "Can a machine translate?", at: "@can", src: []}, {s: "1966: not usefully, and not soon", at: "@1966", src: [ALPAC]},
+                 {s: "today: one study's estimate", at: "@today", src: [FLP]}, {num: frey, s: "translator jobs not created, U.S., after 2010", at: "@twentyeight"}]}}
+
+  - id: "01"
+    part: STORY
+    vo: >-
+      At dusk, the lamplighter passes a library. Inside, at a long table, volunteers bend over letters written in Dutch, Polish, German, and French.
+      Each letter has to be read by someone who knows two languages, and written again in a third.
+    vo_offset: 3.4
+    min_dur: 27
+    tail: 1.2
+    shots:
+      - {tpl: text, at: 0, p: {lamp: true, lines: [{s: "THE TRANSLATOR'S DESK", px: 80}, {s: "Last Lamplighters · Episode 8", px: 34, serif: false}]}}
+      - {tpl: street, at: 3.0, in: fade, p: {lamps: [{x: 260}, {x: 860, lit: "@passes+0.8"}, {x: 1460}, {x: 2060}], lighter: {from: 500, to: 820, walk: [3.2, "@passes+0.5"], lights: [1]}, warm: 0.6, windows: 0.8,
+                                 cam: [{t: 3, x: 0, z: 0}, {t: 7, x: -100, z: 0.02}, {t: "@inside", x: -240, z: 0.06}]}}
+      - {tpl: archive, at: "@volunteers-0.4", in: fade, p: {img: assets/ll/archive/fsa-8d21281.jpg, rid: LOC-8d21281, focus: [0.5, 0.45], credit: "Red Cross volunteer translators, Washington, D.C., 1942 · Library of Congress",
+           cam: [{t: "@volunteers", x: 40, z: 0.0}, {t: "@letter", x: 10, z: 0.04}, {t: "@knows", x: 0, z: 0.06}, {t: "@third+1", x: -20, z: 0.08}, {t: "@third+4", x: -40, z: 0.1}],
+           cap: [{s: "Dutch · Polish · German · French", at: "@dutch"}, {s: "read in one language, written again in another", at: "@letter"}]}}
+
+  - id: "02"
+    part: HISTORY
+    vo: >-
+      That photograph was taken in 1942, at the Red Cross in Washington. Translation was slow work, done by people, one sentence at a time.
+      After the war, the slow part became a problem. American scientists wanted to read Soviet research, published in Russian.
+      Machine translation looked like the answer, and the government paid for it. In 1963, three agencies asked the National Academy of Sciences for an advisory committee.
+      The committee, called ALPAC, first met in April 1964 and published its report in 1966.
+    shots:
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d21282.jpg, rid: LOC-8d21282, focus: [0.5, 0.45], credit: "Red Cross Foreign Inquiry Service, Washington, D.C., 1942 · Library of Congress",
+           cam: [{t: 0, x: 0, z: 0.02}, {t: 6, x: -30, z: 0.06}, {t: 12, x: -60, z: 0.09}],
+           cap: [{s: "Red Cross, Washington, 1942", at: "@photograph", src: []}, {s: "one sentence at a time", at: "@sentence"}]}}
+      - {tpl: desk, at: "@war-0.4", in: fade, p: {eras: [{era: 1962, at: "@war-0.4", label: "1962"}], accent: "#3d6b4f", cam: [{t: "@war", x: 0, z: 0.02}, {t: "@soviet", x: -30, z: 0.05}, {t: "@machine", x: -60, z: 0.08}, {t: "@committee", x: -90, z: 0.1}, {t: "@1966+1", x: -110, z: 0.12}],
+           cap: [{s: "Soviet research, in Russian", at: "@soviet", src: [ALPAC]}, {s: "machine translation: the hoped-for answer", at: "@machine"}, {s: "1963: the National Academy of Sciences is asked to advise", at: "@1963", src: [ALPAC]},
+                 {s: "ALPAC: first met April 1964; report 1966", at: "@alpac", src: [ALPAC]}]}}
+
+  - id: "03"
+    part: HISTORY
+    vo: >-
+      The committee first counted the people. In October 1962, the federal government employed two hundred sixty-two translators and clerk-translators in the United States.
+      A government research service kept four thousand translators under contract, but in an average month it used only about three hundred of them.
+      The government itself spent about thirteen million dollars a year on translation; with private agencies, the committee estimated, about twenty-two million dollars. Translation in the government, it concluded, was a very small field of activity. There was no shortage of people: the research service could handle up to two and a half times the current demand for Chinese.
+    shots:
+      - {tpl: isotype, at: 0, p: {title: "Federal translators and clerk-translators", subtitle: "employed in the United States, October 1962", unit: 10, unitName: "people", per: 27,
+           groups: [{label: "Oct 1962", num: fed62, at: "@sixtytwo"}], cap: [{s: "first, the committee counted the people", at: "@counted", src: [ALPAC]}]}}
+      - {tpl: desk, at: "@research-0.4", in: fade, p: {eras: [{era: 1962, at: "@research-0.4", label: "1962"}], accent: "#3d6b4f", cam: [{t: "@research", x: 0, z: 0.02}, {t: "@month", x: -40, z: 0.05}, {t: "@private", x: -70, z: 0.08}, {t: "@small+1", x: -100, z: 0.1}, {t: "@handle", x: -110, z: 0.11}],
+           cap: [{s: "4,000 translators under contract…", at: "@four", src: [ALPAC]}, {s: "…about 300 used in an average month", at: "@month", src: [ALPAC]}, {s: "the government's own bill: about $13 million a year", at: "@itself", src: [ALPAC]}, {num: spend, s: "spent on translation each year (estimate)", at: "@twentytwo"},
+                 {s: "“a very small field of activity”", at: "@small"}, {s: "no shortage of people", at: "@shortage"}, {s: "spare capacity: 2.5× the demand for Chinese", at: "@chinese", src: [ALPAC]}]}}
+
+  - id: "04"
+    part: HISTORY
+    vo: >-
+      Then the committee looked at the machines. Over ten years, the government had spent some twenty million dollars on machine translation and related research, more than the government's own translation bill for a whole year.
+      The results were thin. When the Georgetown University project tried to produce useful output in 1962, after eight years of work, it had to have people correct the machine's output.
+      The committee called this postediting. The postedited translation took slightly longer and cost more than ordinary human translation.
+      Industry was not eager either. A scientist from IBM told the committee he would not advise his company to set up a machine translation service.
+    shots:
+      - {tpl: sign, at: 0, p: {num: mt20, caption: "U.S. government spending on machine translation over ten years", at: "@twenty", capAt: "@related", wall: plaster,
+           cam: [{t: 0, x: 0, z: 0.0}, {t: 4, x: -20, z: 0.02}, {t: "@year", x: -40, z: 0.04}],
+           cap: [{s: "more than a year of translation itself", at: "@bill", src: [ALPAC]}]}}
+      - {tpl: desk, at: "@thin-0.4", in: fade, p: {eras: [{era: 1962, at: "@thin-0.4", label: "1962"}], accent: "#3d6b4f", cam: [{t: "@thin", x: 0, z: 0.02}, {t: "@georgetown", x: -30, z: 0.05}, {t: "@produce", x: -40, z: 0.06}, {t: "@eight", x: -50, z: 0.07}, {t: "@correct", x: -60, z: 0.08}, {t: "@postediting", x: -70, z: 0.09}, {t: "@ordinary", x: -80, z: 0.1}, {t: "@advise", x: -100, z: 0.12}, {t: "@service+1", x: -110, z: 0.13}],
+           cap: [{s: "Georgetown project, 1962: after eight years…", at: "@georgetown", src: [ALPAC]}, {s: "…people had to correct the output", at: "@correct"}, {s: "postediting", at: "@postediting"},
+                 {s: "slower and costlier than a human translator", at: "@slightly"}, {s: "IBM: would not advise a machine translation service", at: "@ibm"}]}}
+
+  - id: "05"
+    part: HISTORY
+    vo: >-
+      Raw machine output, the committee wrote, was decipherable for the most part, but sometimes misleading and sometimes wrong, and it made slow and painful reading.
+      Its conclusion was blunt: there is no immediate or predictable prospect of useful machine translation. Instead, it urged research in computational linguistics, and better machine aids for human translators.
+      For general scientific text, the translator's desk was safe. It would stay that way for a long time.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "raw machine output", at: "@raw"}, {s: "sometimes misleading, sometimes wrong", at: "@misleading"}], text: "…it makes slow and painful reading.", who: "ALPAC", where: "Language and Machines, 1966", at: "@slow", src: [ALPAC]}}
+      - {tpl: quote, at: "@conclusion-0.4", in: flip, p: {beats: [{s: "the conclusion", at: "@conclusion"}, {s: "instead: research, and aids for human translators", at: "@instead"}], text: "…there is no immediate or predictable prospect of useful machine translation.", who: "ALPAC", where: "Language and Machines, 1966", at: "@immediate", src: [ALPAC]}}
+      - {tpl: desk, at: "@general-0.4", in: fade, p: {eras: [{era: 1962, at: "@general-0.4", label: "1966"}], accent: "#3d6b4f", cam: [{t: "@general", x: 0, z: 0.03}, {t: "@safe", x: -40, z: 0.06}, {t: "@long+1", x: -70, z: 0.09}],
+           cap: [{s: "the translator's desk: safe, for now", at: "@safe"}]}}
+
+  - id: "06"
+    part: STORY
+    vo: >-
+      The lamplighter walks on. The library goes dark. In an apartment across the street, a screen is still lit:
+      someone pastes a paragraph into a box, and a moment later it comes back in another language.
+    vo_offset: 2.5
+    min_dur: 27
+    tail: 1.5
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060}], lighter: {from: 300, to: 1300, walk: [0.5, "@lit+1"]}, warm: 0.4, windows: 0.4,
+                                 cam: [{t: 0, x: 0, z: 0}, {t: 4, x: -100, z: 0.02}, {t: 8, x: -200, z: 0.035}, {t: "@lit+1", x: -300, z: 0.05}]}}
+      - {tpl: desk, at: "@someone-0.4", in: fade, p: {eras: [{era: 2025, at: "@someone-0.4", label: " "}], accent: "#3d6b4f",
+           cam: [{t: "@someone", x: 0, z: 0}, {t: "@box", x: -40, z: 0.04}, {t: "@language", x: -80, z: 0.08}, {t: "@language+5", x: -110, z: 0.1}]}}
+
+  - id: "07"
+    part: TODAY
+    vo: >-
+      After 2010, Google Translate arrived as a phone app and inside web browsers, and machine translation went into everyday use.
+      Economists at Oxford compared six hundred ninety-five local labor markets in the United States. Where people used Google Translate more, translator employment grew more slowly.
+      To check that this was not just a coincidence of busier cities, they used a second, unrelated measure, and the link held. Overall, they estimate about twenty-eight thousand fewer translator positions were created than the profession's growth would have suggested.
+      Wages slowed at first, then recovered around 2016. Job postings told the same story, while similar jobs the machine should not touch, such as editors, proofreaders, and technical writers, showed no such effect.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2010s"}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.05}, {t: 10, x: -60, z: 0.08}, {t: "@labor", x: -70, z: 0.09}, {t: "@used", x: -80, z: 0.1}],
+           cap: [{s: "after 2010: machine translation in everyday use", at: "@everyday", src: [FLP]}, {s: "Oxford: 695 U.S. local labor markets", at: "@oxford", src: [FLP]}, {s: "more use → slower translator job growth", at: "@slowly"}, {s: "checked with a second measure: the link held", at: "@coincidence"}]}}
+      - {tpl: sign, at: "@overall-0.6", in: fade, p: {num: frey, caption: "translator positions not created, U.S., after 2010 (estimate)", at: "@twentyeight", capAt: "@created", wall: brick,
+           cam: [{t: "@overall-0.6", x: 0, z: 0.0}, {t: "@created", x: -30, z: 0.03}, {t: "@wages", x: -50, z: 0.05}, {t: "@postings", x: -60, z: 0.06}, {t: "@editors", x: -70, z: 0.07}, {t: "@effect+1", x: -80, z: 0.08}],
+           cap: [{s: "an estimate, not a count", at: "@estimate", src: [FLP]}, {s: "wages: slowed, then recovered around 2016", at: "@wages", src: [FLP]}, {s: "job postings: the same story", at: "@postings"}, {s: "similar jobs as a check", at: "@similar"}, {s: "editors, proofreaders: no such effect", at: "@editors"}]}}
+
+  - id: "08"
+    part: TODAY
+    vo: >-
+      The government sees it too. In January 2026, the BLS wrote that interpreters and translators have become more productive as AI translation keeps improving, and that this is reducing demand for them.
+      Interpreters and translators held about seventy-five thousand jobs in 2024. The projection for 2034 is about seventy-six thousand: growth of one point seven percent, about half the three point one percent projected for all jobs.
+    shots:
+      - {tpl: quote, at: 0, p: {beats: [{s: "the government sees it too", at: "@government"}, {s: "BLS, Monthly Labor Review, January 2026", at: "@january"}, {s: "more productive as AI translation improves", at: "@productive"}],
+           text: "…interpreters and translators have become more productive as AI translation capabilities continue to improve, reducing their employment demand.", who: "BLS economists", where: "Monthly Labor Review, January 2026", at: "@interpreters", src: [MLR26]}}
+      - {tpl: isotype, at: "@held-1.0", in: fade, p: {title: "Interpreters and translators, United States", subtitle: "employment, 2024 and projected 2034", unit: 2500, unitName: "jobs", per: 31,
+           groups: [{label: "2024", num: it24, at: "@seventyfive"}, {label: "2034 (projected)", num: it34, at: "@seventysix"}], cap: [{s: "interpreters and translators", at: "@held"}]}}
+      - {tpl: bars, at: "@point-1.2", in: slide, p: {title: "Projected job growth, 2024–34", subtitle: "same source, same period: BLS", unit: '%', max: 4, kindEach: true,
+           beats: [{s: "about half the pace of all jobs", at: "@half"}],
+           bars: [{label: "Interpreters and translators", num: it_chg, at: "@point"}, {label: "All occupations", num: all_chg, at: "@point#2"}]}}
+
+  - id: "09"
+    part: TODAY
+    vo: >-
+      What is left for the person at the desk? The Oxford study points to a shift toward higher-skilled translation work, tasks that machine translation cannot easily replace.
+      It also found that demand for foreign language skills fell across the economy, for Spanish, Chinese, Japanese, French, and German alike.
+      And the old word from 1966 is back. In 1966, postediting, a person correcting a machine's draft, was slower than translating from scratch. Today the question is open again: who checks the machine's draft, and who is paid for it?
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: "2025"}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.03}, {t: 5, x: -30, z: 0.05}, {t: 10, x: -60, z: 0.08}, {t: 13, x: -70, z: 0.09}, {t: 16, x: -80, z: 0.1}],
+           cap: [{s: "What is left for the person at the desk?", at: "@left"}, {s: "a shift toward higher-skilled work", at: "@shift", src: [FLP]}, {s: "tasks machines cannot easily replace", at: "@cannot"}]}}
+      - {tpl: desk, at: "@demand-0.4", in: fade, p: {eras: [{era: 2025, at: "@demand-0.4", label: "2025"}], accent: "#3d6b4f", cam: [{t: "@demand", x: -20, z: 0.04}, {t: "@spanish", x: -40, z: 0.06}, {t: "@alike", x: -50, z: 0.07}, {t: "@old", x: -60, z: 0.08}, {t: "@postediting", x: -80, z: 0.1}, {t: "@scratch", x: -90, z: 0.11}, {t: "@paid+1", x: -100, z: 0.12}],
+           cap: [{s: "demand for language skills fell across the economy", at: "@demand", src: [FLP]}, {s: "Spanish · Chinese · Japanese · French · German", at: "@spanish"},
+                 {s: "1966's word, a new life: postediting", at: "@postediting", src: [ALPAC]}, {s: "who checks the draft, and who is paid?", at: "@checks", src: []}]}}
+
+  - id: "10"
+    part: TODAY
+    vo: >-
+      So here is the comparison, with a caution. A count of federal translators from 1962, an estimate from a study, and a forecast for the next ten years are three different kinds of number. We will not set them side by side.
+      What we can compare is the pattern. Then, the machine was tried on translation and failed: the people had to fix its output, and it cost more.
+      Today, the machine is in everyday use, and the Oxford study points to people moving toward the tasks it cannot easily replace.
+      Not the same technology. The same pattern: a repetitive human task, taken over by an automated system.
+      But the differences matter. In 1966, the machine was not good enough, and the committee said so. This time, the machine is good enough for everyday use, and the change is showing up in translators' job growth.
+    shots:
+      - {tpl: archive, at: 0, p: {img: assets/ll/archive/fsa-8d21281.jpg, rid: LOC-8d21281, focus: [0.5, 0.45], credit: "Red Cross volunteer translators, Washington, D.C., 1942 · Library of Congress",
+           cam: [{t: 0, x: -60, z: 0.12}, {t: 6, x: -40, z: 0.1}, {t: 12, x: -20, z: 0.08}, {t: 18, x: 0, z: 0.06}],
+           cap: [{s: "The comparison, with a caution", at: "@comparison"}, {s: "a count · an estimate · a forecast: not side by side", at: "@kinds"}, {s: "what we can compare is the pattern", at: "@pattern"},
+                 {s: "then: the machine failed; people fixed its output", at: "@failed", src: [ALPAC]}]}}
+      - {tpl: desk, at: "@today-0.4", in: fade, p: {eras: [{era: 2025, at: "@today-0.4", label: "2025"}], accent: "#3d6b4f", cam: [{t: "@today", x: 0, z: 0.0}, {t: "@same", x: -40, z: 0.04}, {t: "@differences", x: -80, z: 0.08}, {t: "@showing", x: -100, z: 0.09}, {t: "@growth", x: -110, z: 0.1}],
+           cap: [{s: "today: the machine in everyday use", at: "@today", src: [FLP]}, {s: "people: toward the tasks it cannot easily replace", at: "@moving"}, {s: "not the same technology — the same pattern", at: "@technology"},
+                 {s: "but the differences matter", at: "@differences"}, {s: "1966: not good enough", at: "@enough", src: [ALPAC]}, {s: "now: good enough for everyday use", at: "@everyday#2"}]}}
+
+  - id: "11"
+    part: TODAY
+    vo: >-
+      Can a machine translate? In 1966, the answer was no. Today, for much everyday text, the answer is often yes, and it is slowing the growth of translator jobs.
+      What is left for people may be the part where a wrong word matters: a contract, a diagnosis, a letter home. Whether that is enough work for the people who do this job today is something no projection can settle yet.
+    min_dur: 26
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1962, at: 0, label: "1962"}, {era: 2025, at: "@today", label: "2025"}], accent: "#3d6b4f",
+           cam: [{t: 0, x: 0, z: 0}, {t: 6, x: -30, z: 0.02}, {t: 12, x: -60, z: 0.04}, {t: 18, x: -80, z: 0.05}, {t: 24, x: -100, z: 0.07}],
+           cap: [{s: "1966: no", at: "@1966", src: [ALPAC]}, {s: "today, for everyday text: yes", at: "@today", src: [FLP]}, {s: "left for people: where a wrong word matters?", at: "@wrong"},
+                 {s: "no projection can settle it yet", at: "@projection"}]}}
+
+  - id: "12"
+    part: STORY
+    vo: >-
+      Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again.
+      Every era has its last lamplighters. Some of them carried a sentence from one language to another.
+    vo_offset: 3.0
+    min_dur: 24
+    tail: 2.0
+    shots:
+      - {tpl: street, at: 0, p: {lamps: [{x: 260}, {x: 860}, {x: 1460}, {x: 2060, lit: "@flame"}], lighter: {from: 1500, to: 2000, walk: [0, "@flame-0.6"], lights: [3]}, warm: 0.3,
+                                 cam: [{t: 0, x: -200, z: 0.02}, {t: 4, x: -280, z: 0.03}, {t: "@glass", x: -340, z: 0.04}, {t: "@flame", x: -400, z: 0.05}, {t: "@every", x: -460, z: 0.06}, {t: "@sentence", x: -490, z: 0.065}, {t: "@another+2", x: -520, z: 0.07}]}}
+      - {tpl: endcard, at: "@another+0.8", in: fade, p: {line: "Last Lamplighters · Episode 8", next: "Next: Episode 9 (chờ chủ dự án chọn)"}}
+
+shorts:
+  - id: S1
+    hook: "1966: 'no immediate or predictable prospect'"
+    vo: >-
+      In 1966, a committee of the National Academy of Sciences judged machine translation. After ten years and some twenty million dollars of government spending, its verdict was blunt: there is no immediate or predictable prospect of useful machine translation. Today, machine translation is in everyday use.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 1962, at: 0, label: " "}, {era: 2025, at: "@today-0.3", label: " "}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 22, x: -80, z: 0.12}],
+           cap: [{s: "National Academy of Sciences, 1966", at: "@committee", src: [ALPAC]}, {num: mt20, s: "over ten years", at: "@twenty"}, {s: "no immediate or predictable prospect", at: "@immediate"},
+                 {s: "today: in everyday use", at: "@everyday"}]}}
+  - id: S2
+    hook: "Google Translate and translator jobs"
+    vo: >-
+      Economists at Oxford compared six hundred ninety-five U.S. labor markets. Where people used Google Translate more, translator employment grew more slowly. They estimate about twenty-eight thousand fewer translator positions were created. It is an estimate, not a count.
+    shots:
+      - {tpl: sign, at: 0, p: {num: frey, at: "@twentyeight", cam: [{t: 0, x: 0, z: 0.0}, {t: 6, x: -20, z: 0.03}],
+           cap: [{s: "Oxford: 695 U.S. labor markets", at: "@oxford", src: [FLP]}, {s: "more Google Translate → slower job growth", at: "@slowly"}, {s: "positions not created", at: "@created"}, {s: "an estimate, not a count", at: "@estimate"}]}}
+  - id: S3
+    hook: "The BLS on translators and AI"
+    vo: >-
+      The Bureau of Labor Statistics says interpreters and translators have become more productive as AI translation improves, and that this is reducing demand for them. Its projection: one point seven percent growth from 2024 to 2034, about half the three point one percent for all jobs.
+    shots:
+      - {tpl: desk, at: 0, p: {eras: [{era: 2025, at: 0, label: " "}], accent: "#3d6b4f", cam: [{t: 0, x: 0, z: 0.02}, {t: 8, x: -30, z: 0.06}, {t: 16, x: -60, z: 0.1}, {t: 22, x: -80, z: 0.12}],
+           cap: [{s: "BLS: more productive with AI translation", at: "@productive", src: [MLR26]}, {s: "reducing demand", at: "@reducing"}, {num: it_chg, s: "interpreters & translators, projected 2024–34", at: "@one"},
+                 {num: all_chg, s: "all jobs, projected 2024–34", at: "@three"}]}}
