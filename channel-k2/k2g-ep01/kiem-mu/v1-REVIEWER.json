@@ -1,0 +1,316 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "09",
+   "rule": "G§6 / §1",
+   "severity": "major",
+   "quote": "In September 2025, that power was used.",
+   "problem": "This goes further than the source. AP (C47) reports a White House statement that it intervened 'with the threat of the president invoking' the golden share. A threat is not use, and there is no record of the share being formally used. The sentence misstates an action by a government and an operating company.",
+   "fix": "In September 2025, that power came into play without being formally used."
+  },
+  {
+   "seg": "09",
+   "rule": "G§6",
+   "severity": "minor",
+   "quote": "The White House said it intervened \"with the threat of the president invoking his golden share authority.\"",
+   "problem": "The quote names no exact speaker and no date. G§6 requires a verbatim quote with the speaker and the date.",
+   "fix": "According to the Associated Press on September 22, 2025, the White House said it intervened \"with the threat of the president invoking his golden share authority.\" (Name the spokesperson if AP names one.)"
+  },
+  {
+   "seg": "07",
+   "rule": "G§1",
+   "severity": "major",
+   "quote": "When your share of the world's steel falls from half to four percent, someone eventually asks: what happens in an emergency?",
+   "problem": "Causality without a source. The line suggests the falling world share led to the Section 232 investigation. P9705 cites imports and excess capacity, not world share.",
+   "fix": "Governments have a formal way of asking what happens to steel in an emergency."
+  },
+  {
+   "seg": "08",
+   "rule": "G§1",
+   "severity": "major",
+   "quote": "Why fifty percent? Look at the other side of the scale.",
+   "problem": "Causality without a source. The line presents OECD overcapacity data as the reason for the 50% rate. P10947's stated rationale is not in the claims table. This also leans toward endorsing the policy.",
+   "fix": "Meanwhile, look at the other side of the scale. (Or quote P10947's own stated reason verbatim, attributed and dated, after adding it to claims.)"
+  },
+  {
+   "seg": "07",
+   "rule": "G§5",
+   "severity": "major",
+   "quote": "In April 2026, the system was rebuilt around that fifty percent, with lower rates for many products made mostly of steel, and adjusted again in June.",
+   "problem": "The tariff regime is still in force, but the narration has no 'as of' date. The date is only in the script header. 'Products made mostly of steel' is not how C32 describes them ('derivative products').",
+   "fix": "In April 2026, the system was rebuilt around that fifty percent, with lower rates for many derivative steel products, and adjusted again in June. As of October 2026, that June proclamation is the latest change. (Also put 'Facts as of 11 Oct 2026' on screen.)"
+  },
+  {
+   "seg": "07",
+   "rule": "§2 / G§6",
+   "severity": "minor",
+   "quote": "The Secretary found that steel imports and global excess capacity were \"weakening our internal economy.\" The report linked long-term viability to American mills running at about eighty percent of their capacity.",
+   "problem": "C31 sources both the quote and the 80% link to P9705, the proclamation, not to the Secretary's report. 'Global excess capacity' is not in C31.",
+   "fix": "The proclamation that followed, in March 2018, says steel imports were \"weakening our internal economy,\" and links long-term viability to American mills running at about eighty percent of capacity."
+  },
+  {
+   "seg": "07",
+   "rule": "G§5 / §2",
+   "severity": "minor",
+   "quote": "rose from about seventy-two percent in 2017 to about seventy-seven percent — closer to the eighty percent goal, but not there yet.",
+   "problem": "The 77% figure has no date (P11021 says 'at present', which means April 2026), and it is the Secretary's opinion. 'Not there yet' suggests the goal will be reached.",
+   "fix": "rose from about seventy-two percent in 2017 to about seventy-seven percent at the time of the April 2026 proclamation, in the Commerce Secretary's opinion. That is below the eighty percent mark."
+  },
+  {
+   "seg": "08",
+   "rule": "§2 (cross-basis)",
+   "severity": "major",
+   "quote": "by weight, China's steel exports alone were larger than everything the United States produced.",
+   "problem": "This compares different bases: exports of all steel products against U.S. crude steel output. 'Everything the United States produced' overstates it. C39 requires the basis to be stated.",
+   "fix": "by weight, China's steel exports alone were larger than all the crude steel the United States produced that year. (On-screen label: 'exports (all steel products) vs crude steel output, 2025'.)"
+  },
+  {
+   "seg": "08",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "the median Chinese steel firm received about fifteen times more in subsidies, relative to its assets, than the median producer elsewhere.",
+   "problem": "The comparison group ('elsewhere') is not specified in C40; it may be OECD-economy firms. 'Fifteen times more' is ambiguous.",
+   "fix": "the median Chinese steel firm received about fifteen times as much in subsidies, relative to its assets, as the median firm in [OECD's exact comparison group]."
+  },
+  {
+   "seg": "08",
+   "rule": "G§5",
+   "severity": "minor",
+   "quote": "From the first of July 2026, a new EU regulation replaced the old steel safeguard",
+   "problem": "This measure is ongoing and has no 'as of' marker. 'Europe built its own wall' is loaded metaphor for a policy.",
+   "fix": "Replace 'Europe built its own wall.' with 'The European Union set its own limits.' and add 'As of October 2026,' at the start of the regulation sentence."
+  },
+  {
+   "seg": "01",
+   "rule": "§2",
+   "severity": "major",
+   "quote": "how one river valley in Pennsylvania learned to make steel cheaper than almost anyone.",
+   "problem": "This is a factual superlative with no claim or source.",
+   "fix": "how one river valley in Pennsylvania became a center of American steel. (Or add a sourced claim for the cost comparison.)"
+  },
+  {
+   "seg": "01",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "how governments, from Washington to Brussels, started treating steel imports as a security question.",
+   "problem": "EU1384 replaced a trade safeguard. No source frames the EU measure as national security. Only the U.S. Section 232 action is security-based.",
+   "fix": "how governments, from Washington to Brussels, started putting hard limits on steel imports, in Washington's case on national-security grounds."
+  },
+  {
+   "seg": "04",
+   "rule": "G§1",
+   "severity": "major",
+   "quote": "The same logic reached the people inside the mills.",
+   "problem": "This states as fact that vertical-integration logic caused the Homestead conflict. The cause is not sourced.",
+   "fix": "At the same time, control extended to the mills themselves."
+  },
+  {
+   "seg": "04",
+   "rule": "§1 / §2",
+   "severity": "minor",
+   "quote": "on orders of the Carnegie Steel Company, three hundred Pinkerton agents tried to land; strikers and townspeople drove them back",
+   "problem": "C18 covers only the numbers. 'On orders of the Carnegie Steel Company' and 'strikers and townspeople drove them back' must match the PHMC marker text word for word.",
+   "fix": "Check against the PHMC marker text and add it to C18. Use the marker's exact wording, or cut the clauses it does not contain."
+  },
+  {
+   "seg": "04",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "Coke was a bottleneck. The best coking coal sat in one field, Connellsville.",
+   "problem": "'Best coking coal' and 'bottleneck' are not in the claims table.",
+   "fix": "Attribute it to Carnegie if CARN says so ('Carnegie wrote that…') and add the line to C15/C16. Otherwise write: 'Coke came from one field above all, Connellsville.'"
+  },
+  {
+   "seg": "04",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "Then came railroad deals,",
+   "problem": "This is not in the claims table.",
+   "fix": "Add a CARN-sourced claim, or cut it."
+  },
+  {
+   "seg": "12",
+   "rule": "§2",
+   "severity": "major",
+   "quote": "Carnegie bought each piece of it.",
+   "problem": "Overstated. The sources show coke and coal land purchases and integrated mills. They do not show railroads or the river being bought.",
+   "fix": "Carnegie's firm bought or secured many pieces of it."
+  },
+  {
+   "seg": "12",
+   "rule": "§2",
+   "severity": "major",
+   "quote": "So here is the machine underneath all three layers.",
+   "problem": "The thread is C56, which is opinion, but it is not marked as the channel's read.",
+   "fix": "So here is our read of the machine underneath all three layers."
+  },
+  {
+   "seg": "12",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "In the 2020s, governments decided the path itself was a security question.",
+   "problem": "The dates conflict with seg 07: Section 232 action began in 2018. The EU measure is not a security measure.",
+   "fix": "Since 2018, governments have treated access to the path as a policy question, and Washington treats it as a security question."
+  },
+  {
+   "seg": "13",
+   "rule": "§3",
+   "severity": "major",
+   "quote": "A tariff, a quota or a golden share is a government's attempt to keep a piece of that path at home.",
+   "problem": "This assigns intent to governments ('attempt'). The rules call for describing mechanisms, not motives.",
+   "fix": "A tariff, a quota and a golden share each work, in different ways, to keep a piece of that path at home."
+  },
+  {
+   "seg": "13",
+   "rule": "G§5",
+   "severity": "major",
+   "quote": "still makes steel today",
+   "problem": "C57 rests on the FY2024 10-K filed in January 2025. There is no newer filing because the company was delisted. 'Today' (October 2026) is not verified.",
+   "fix": "was still making steel as of U.S. Steel's last annual report, filed in early 2025"
+  },
+  {
+   "seg": "13",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "When America made half the world's steel, much of that path ran through Pittsburgh.",
+   "problem": "This is unsourced, though it sits inside 'Our answer'. It reads as fact.",
+   "fix": "Our read: when America made half the world's steel, Pittsburgh was one of the main stops on that path."
+  },
+  {
+   "seg": "10",
+   "rule": "§2 / G§4",
+   "severity": "minor",
+   "quote": "Remember those furnace numbers: about seventy-one percent electric in the United States, about eleven in China. Our read: a carbon price at the border sorts steel by how it was made, not where",
+   "problem": "Pairing national EAF shares with CBAM suggests a national cost advantage. CBAM works per installation, and the deduction for carbon price already paid means 'where' still matters.",
+   "fix": "Our read: a carbon price at the border sorts steel mainly by how it was made, while a tariff sorts it by where. (Cut the recap of national shares here, or add: 'CBAM applies plant by plant, not country by country.')"
+  },
+  {
+   "seg": "10",
+   "rule": "G§4",
+   "severity": "minor",
+   "quote": "the average emissions of the blast-furnace route are worth about one hundred ninety euros per ton of steel; the scrap route, about fifty-seven.",
+   "problem": "The unit is inconsistent: the calculation uses metric tonnes. The caveat leaves out that CBAM uses each plant's own emissions or default values, not world averages.",
+   "fix": "the world-average emissions of the blast-furnace route are worth about one hundred ninety euros per tonne of steel; the scrap route, about fifty-seven. Real declarations use each plant's own emissions or official default values."
+  },
+  {
+   "seg": "10",
+   "rule": "G§5 / §2",
+   "severity": "minor",
+   "quote": "Importers bringing more than fifty tonnes of covered goods into the EU",
+   "problem": "The threshold is annual. The CBAM regime is ongoing and the sentence has no 'as of' marker.",
+   "fix": "As of October 2026, importers bringing more than fifty tonnes of covered goods into the EU in a year"
+  },
+  {
+   "seg": "10",
+   "rule": "G§5",
+   "severity": "minor",
+   "quote": "the European Commission set it at eighty-two euros and thirty-two cents per tonne of carbon dioxide. Certificates go on sale in February 2027.",
+   "problem": "The price comes from ETS auctions; the Commission publishes it, it does not set it. The February 2027 sale is a future event stated as fact.",
+   "fix": "the European Commission published a price of eighty-two euros and thirty-two cents per tonne of carbon dioxide on October 5, 2026. Under the current rules, certificates go on sale from February 2027."
+  },
+  {
+   "seg": "11",
+   "rule": "G§5",
+   "severity": "major",
+   "quote": "the new steel will be shaped by where its inputs are.",
+   "problem": "This is a prediction ('will'), and the opinion label does not exempt it.",
+   "fix": "where its inputs are may matter again."
+  },
+  {
+   "seg": "11",
+   "rule": "G§5",
+   "severity": "minor",
+   "quote": "We won't guess when it opens.",
+   "problem": "It assumes the plant will open. The project status has no 'as of' date.",
+   "fix": "As of October 2026, that is the latest public update. We won't guess whether or when it opens."
+  },
+  {
+   "seg": "11",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "A company called Stegra is building a large hydrogen-based steel plant in Boden, in northern Sweden.",
+   "problem": "'Large' is not in C54.",
+   "fix": "A company called Stegra is building a hydrogen-based steel plant in Boden, in northern Sweden."
+  },
+  {
+   "seg": "11",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "Our read: a hydrogen route needs large amounts of clean electricity.",
+   "problem": "A factual statement is labelled as opinion. It needs a source as a fact (for example HYB or STG).",
+   "fix": "Source it as a fact ('According to HYBRIT…'), and keep 'Our read' only for the geography point."
+  },
+  {
+   "seg": "06/09/11",
+   "rule": "G§3",
+   "severity": "minor",
+   "quote": "You'll often hear that America \"stopped making steel.\"",
+   "problem": "G§3 requires claims.md to record where each myth was observed, so it is not a straw man. C25, C45 and C54 have no record for any of the three myths ('stopped making steel', 'Washington owns U.S. Steel', 'green steel is here / only marketing').",
+   "fix": "Add a myth/record pair to claims.md for each one, with where the claim was observed."
+  },
+  {
+   "seg": "02",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "Carnegie describes waking one Sunday morning with the answer: a site called Braddock's, on the Monongahela River",
+   "problem": "'Waking one Sunday morning' and 'Monongahela River' are not in C07.",
+   "fix": "Add both to C07 with the CARN line, or cut them."
+  },
+  {
+   "seg": "03",
+   "rule": "G§2 (historical self-account)",
+   "severity": "minor",
+   "quote": "Carnegie marveled",
+   "problem": "This describes his feeling. Self-accounts should be marked neutrally.",
+   "fix": "Carnegie wrote"
+  },
+  {
+   "seg": "09",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "After a national security review, on January 3, 2025,",
+   "problem": "The review is not in C43.",
+   "fix": "Add it to C43 from CRS, or cut 'After a national security review,'."
+  }
+ ],
+ "missing_from_claims": [
+  "Seg 01: 'make steel cheaper than almost anyone'",
+  "Seg 02/13: 'the 1870s' (start of Edgar Thomson works / date of naming)",
+  "Seg 02: 'not a steelmaker by training'",
+  "Seg 02: Bessemer process as 'a way to make steel in bulk'",
+  "Seg 02: 'waking one Sunday morning'; 'on the Monongahela River'",
+  "Seg 02: works named after Edgar Thomson (C09 covers president/friend only)",
+  "Seg 04: 'Coke was a bottleneck'; 'best coking coal sat in one field'",
+  "Seg 04: 'railroad deals'",
+  "Seg 04: 'on orders of the Carnegie Steel Company'; 'strikers and townspeople drove them back' (check against PHMC text)",
+  "Seg 04: definition of vertical integration attributed to 'Economists'",
+  "Seg 05: 'Carnegie said yes'",
+  "Seg 06: 'not mainly because American output collapsed, but because the rest of the world built far more' (derived; record as calc)",
+  "Seg 07: '1962 law, Section 232 of the Trade Expansion Act … threaten to impair national security'",
+  "Seg 07: 'global excess capacity' in the Secretary's finding",
+  "Seg 07: tariff on 'most' imported steel (2018 exemptions)",
+  "Seg 07: CRS 'mixed effects on the steel industry and the industries that buy steel' (specificity beyond C34)",
+  "Seg 08: OECD comparator group for the 15× subsidy figure ('median producer elsewhere')",
+  "Seg 08: 'new mills' wording in the OECD export line",
+  "Seg 09: 'After a national security review'",
+  "Seg 09: 'steel slabs'; 'in Illinois' (Granite City)",
+  "Seg 09: 'U.S. Steel issued the U.S. government a golden share' (issuer wording)",
+  "Seg 10: 'price of steel was built from ore, energy and labor'",
+  "Seg 10: CBAM 50 t threshold is per year",
+  "Seg 11: 'large' plant; hydrogen route 'needs large amounts of clean electricity' (labelled opinion but factual)",
+  "Seg 13: 'much of that path ran through Pittsburgh'",
+  "G§3: where each of the 3 myths was observed (none recorded)"
+ ],
+ "strengths": [
+  "The disclaimer uses the exact G§4 wording and falls inside the first 30 s (seg 01).",
+  "No conspiracy wording. The closed NSA is stated plainly as 'has not been made public', with no guessing about its contents.",
+  "No group bias. China appears only through OECD/WSIF data attributed to those bodies, and Nippon Steel and U.S. Steel through dated named actions.",
+  "Biden's and Trump's orders are stated neutrally with dates. Tariff results are attributed both ways (the proclamation credits the tariffs; CRS reports mixed effects), and the close leaves 'worth what it costs' open.",
+  "Carnegie's self-account is consistently marked ('he wrote', 'Carnegie recalled'). Homestead casualties are attributed to the state marker.",
+  "The CBAM calculation is labelled as our own calculation, for illustration only, and caveated as not what an importer pays in 2026.",
+  "The OECD 2028 overcapacity figure is framed as an OECD projection. Stegra's timeline is not predicted.",
+  "There are three myth-vs-record beats, each concluding in measured language ('narrower', 'in between').",
+  "The hook paradox is closed in seg 13, and the three-layer structure follows the G§0 proportions."
+ ]
+}

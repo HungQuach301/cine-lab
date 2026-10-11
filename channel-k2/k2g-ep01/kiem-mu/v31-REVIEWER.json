@@ -1,0 +1,190 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "08",
+   "rule": "§2 / G§6 (attribution)",
+   "severity": "major",
+   "quote": "Our read: that's the same idea of steel as power, now held in many more countries. When output from new mills can't be absorbed at home, it adds, the steel is typically exported at low prices.",
+   "problem": "The channel's opinion sits between two OECD claims, so \"it adds\" could now refer to \"our read\". C37 must be clearly attributed to the OECD. The opinion line also speaks about \"countries\" as a whole rather than governments (G§2 national generalization), and the table has no opinion entry for it.",
+   "fix": "It notes that many emerging economies have concluded they need a growing national steel industry. When output from new mills can't be absorbed at home, the OECD adds, the steel is typically exported at low prices. Our read: that's the same idea of steel as power, now held by many more governments. (Add this opinion to claims.md as type: opinion.)"
+  },
+  {
+   "seg": "09",
+   "rule": "G§1 (causality) / G§6",
+   "severity": "major",
+   "quote": "U.S. Steel reversed course.",
+   "problem": "Placed right after the White House's \"threat\" quote, this reads as cause and effect. Only the White House, via AP, claims that link. The script does not report U.S. Steel's own reason.",
+   "fix": "U.S. Steel reversed course, the AP reported; the White House said it had blocked the decision. U.S. Steel's own statement on why is not in the record we cite."
+  },
+  {
+   "seg": "12",
+   "rule": "§1–2 (unsourced fact)",
+   "severity": "major",
+   "quote": "Carnegie's firm bought or secured many pieces of it.",
+   "problem": "Seg 12 lists ore, limestone, railroads and river, but the claims only document coke (C15–C16). \"Many pieces\" goes beyond the record.",
+   "fix": "Carnegie's firm secured a key piece of it: the coke. (Or add sourced claims for ore or rail holdings before keeping \"many pieces\".)"
+  },
+  {
+   "seg": "10",
+   "rule": "G§4 / G§7 (calc label)",
+   "severity": "minor",
+   "quote": "Our own calculation, as an illustration only:",
+   "problem": "The required label is \"our calculation, illustration only\". \"Our own calculation\" does not contain that phrase, so the planned machine check would miss it.",
+   "fix": "Our calculation, illustration only:"
+  },
+  {
+   "seg": "10",
+   "rule": "§5 / G§4",
+   "severity": "minor",
+   "quote": "so no importer pays exactly this",
+   "problem": "This is an unsourced absolute claim about what importers pay. C51 only requires saying the figure is not the 2026 amount payable.",
+   "fix": "so these figures are not what any importer is actually charged for 2026"
+  },
+  {
+   "seg": "11",
+   "rule": "G§6 (verbatim quotes, operating company)",
+   "severity": "minor",
+   "quote": "Stegra said completing the plant costs significantly more than it assumed in June, and that it needs more capital",
+   "problem": "This paraphrases a company statement that the channel has not read in the original (STG2: no primary release found). Words attributed to a living company should be quoted verbatim, as reported.",
+   "fix": "Stegra said the cost of completing the plant is \"significantly higher than assumed in June\" and that it needs more capital"
+  },
+  {
+   "seg": "11",
+   "rule": "G§5 / G§6",
+   "severity": "minor",
+   "quote": "We won't guess whether or when it opens.",
+   "problem": "\"Whether\" suggests the plant might fail, which goes beyond the sources. Finwire reports the timeline as unchanged.",
+   "fix": "We won't guess when it opens."
+  },
+  {
+   "seg": "11",
+   "rule": "G§3 (myth vs record, proportionate)",
+   "severity": "minor",
+   "quote": "but one trial delivery is not an industry",
+   "problem": "This implies SSAB has made only one delivery. The record cited covers only the 2021 trial and says nothing about later deliveries.",
+   "fix": "but a trial delivery shows the route works; on its own it doesn't show an industry at scale"
+  },
+  {
+   "seg": "07",
+   "rule": "G§5 (time markers)",
+   "severity": "minor",
+   "quote": "to about seventy-seven percent at present",
+   "problem": "Heard in October 2026, \"at present\" sounds like now. It is the April 2026 proclamation's wording.",
+   "fix": "to about seventy-seven percent \"at present\" — that is, as of April 2026"
+  },
+  {
+   "seg": "07",
+   "rule": "G§5 (time markers)",
+   "severity": "minor",
+   "quote": "Since then, the tariff has been extended to all countries,",
+   "problem": "Every other step is dated, but this one is not (February 2025, C32).",
+   "fix": "Since then, the tariff has been extended to all countries in February 2025,"
+  },
+  {
+   "seg": "09",
+   "rule": "§1–2 (precision)",
+   "severity": "minor",
+   "quote": "After a new review, on June 13, 2025,",
+   "problem": "\"Review\" is vague. C43 says it was a new CFIUS review ordered by the President.",
+   "fix": "After a new CFIUS review that he had ordered, on June 13, 2025,"
+  },
+  {
+   "seg": "04",
+   "rule": "G§1 (implied link) / §2 (opinion marking)",
+   "severity": "minor",
+   "quote": "At the same time, control reached the mills themselves.",
+   "problem": "This frames Homestead as part of a control strategy, an unmarked interpretation. \"At the same time\" is also loose: the coke deals ran 1882–1897 and the strike was in 1892.",
+   "fix": "In the same years, there was conflict inside the mills too."
+  },
+  {
+   "seg": "04",
+   "rule": "§1–2 (unsourced)",
+   "severity": "minor",
+   "quote": "Coke came from one field above all.",
+   "problem": "This is an unattributed generalization. The source only supports Carnegie's statement that the supply of superior coke was fixed.",
+   "fix": "Delete the sentence; start with \"Carnegie wrote that the supply of superior coke was fixed…\""
+  },
+  {
+   "seg": "03",
+   "rule": "G§5 / CARN dating (C12)",
+   "severity": "minor",
+   "quote": "In his autobiography, he wrote down the whole chain behind a single ton of steel.",
+   "problem": "The chain comes from the 1888–1897 passage, but here it follows straight on from the 1870s founding, so it sounds like the 1870s.",
+   "fix": "Years after those first rails, in his autobiography, he wrote down the whole chain behind a single ton of steel."
+  },
+  {
+   "seg": "02",
+   "rule": "G§2 (memoir attribution)",
+   "severity": "minor",
+   "quote": "In England, he had seen the Bessemer process for making steel demonstrated.",
+   "problem": "This is from the memoir (CARN) but is stated as objective fact.",
+   "fix": "In England, he later wrote, he had seen the Bessemer process for making steel demonstrated."
+  },
+  {
+   "seg": "02",
+   "rule": "§2 (opinion marking)",
+   "severity": "minor",
+   "quote": "Two railroads and a river. Three ways in, three ways out.",
+   "problem": "This is the narrator's inference, not Carnegie's text, and it is not marked as opinion.",
+   "fix": "Our read: two railroads and a river — three ways in, three ways out."
+  },
+  {
+   "seg": "05",
+   "rule": "§1 (beyond source)",
+   "severity": "minor",
+   "quote": "combined it with their Federal Steel Company",
+   "problem": "\"Their\" claims ownership of Federal Steel. USSH only says the company was combined with Federal Steel.",
+   "fix": "combined it with the Federal Steel Company"
+  },
+  {
+   "seg": "13",
+   "rule": "§1–2 (numbers)",
+   "severity": "minor",
+   "quote": "when America made half the world's steel",
+   "problem": "The record is 49.6% (1944) and 46.5% (1950). Seg 00 and seg 13's own opening say \"almost half\".",
+   "fix": "when America made almost half the world's steel"
+  },
+  {
+   "seg": "08",
+   "rule": "§2 / G§2 (OECD wording)",
+   "severity": "minor",
+   "quote": "as the median firm in the other economies it studied",
+   "problem": "This paraphrases the comparison group. C40 gives the OECD's exact wording.",
+   "fix": "as the median firm in \"other partner economies and OECD Member countries,\" in the OECD's words"
+  },
+  {
+   "seg": "06",
+   "rule": "§2 (cross-basis)",
+   "severity": "minor",
+   "quote": "The U.S. Geological Survey's long series and the World Steel Association's latest figures put American output",
+   "problem": "Two sources with different labels (USGS \"raw steel\", worldsteel \"crude steel\"). The spoken line is fine, but the on-screen visual needs the basis note from C02.",
+   "fix": "On screen: \"USGS 'raw steel' (1950) · worldsteel 'crude steel' (2025) — same liquid-steel measure; both 85.8 Mt for 2021\"."
+  }
+ ],
+ "missing_from_claims": [
+  "Seg 12: Carnegie's firm securing ore, limestone, railroads or river access (only coke is covered, C15–C16)",
+  "Seg 04: \"Coke came from one field above all\"",
+  "Seg 05: Federal Steel described as belonging to the Morgan/Gary group (\"their\")",
+  "Seg 05: \"the banker\" J. P. Morgan; 1944 \"in the middle of the Second World War\" (trivial, but not in table)",
+  "Seg 04: definition of vertical integration (explanatory; log as opinion/definition)",
+  "Seg 02: \"Three ways in, three ways out\" (narrator inference)",
+  "Seg 08: Our read \"same idea of steel as power, now held in many more countries\" (no opinion entry)",
+  "Seg 09: Our read \"Today, a government holds consent rights over some decisions along it\" (no seg-09 opinion entry)",
+  "Seg 10: \"For goods imported from July to September 2026\" — CBAMP entry gives \"Q3 2026\" but does not state that the price applies to goods imported in that quarter; confirm wording",
+  "Seg 11: \"in northern Sweden\" (Boden location descriptor)",
+  "Seg 11: implied that SSAB made only one delivery (\"one trial delivery is not an industry\")"
+ ],
+ "strengths": [
+  "Disclaimer is verbatim and inside the first 30 s; the hook has two sourced numbers that look contradictory",
+  "Three myth-vs-record beats, each stated neutrally once, with proportionate conclusions (\"something narrower\", \"sits in between\")",
+  "Presidents appear only through dated official actions; tariff outcomes are attributed (\"in the Commerce Secretary's opinion\", CRS mixed findings); seg 13 explicitly declines to judge cost vs benefit",
+  "Undisclosed NSA is handled correctly: \"has not been made public\", with no guessing at its contents",
+  "Cross-basis comparisons are flagged (\"by weight\", same unit for CO₂ routes, 2024 data vs 2026 price)",
+  "CBAM illustration is caveated well: plant data or default values, free-allowance adjustment, carbon price already paid",
+  "OECD 2028 figure is presented as a projection and attributed; no predictions on Stegra or tariffs",
+  "Homestead is told in the marker's own words with attribution; Carnegie's memoir claims are consistently marked \"he wrote/recalled\"",
+  "Chinese export and subsidy figures are attributed to the OECD; Chinese, Japanese, Scottish and other groups are not assigned motives",
+  "No financial advice, tickers, price charts or product recommendations"
+ ]
+}

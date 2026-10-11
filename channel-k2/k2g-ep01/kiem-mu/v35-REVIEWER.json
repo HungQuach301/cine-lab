@@ -1,0 +1,119 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "10",
+   "rule": "§1–2 / G§6 (claims C75)",
+   "severity": "major",
+   "quote": "These averages also count indirect emissions, such as from purchased electricity, so they aren't the figures CBAM counts for steel.",
+   "problem": "This sentence states as fact what worldsteel's averages include. The claims table marks C75 as not yet checked: it says the worldsteel method (scope 1–3) must be checked before the final lock. The script would lock with an unchecked fact in it.",
+   "fix": "Check the worldsteel CO₂-intensity method and record the result in claims.md. Until that is done, use: \"These are the World Steel Association's averages, calculated with its own method. CBAM uses its own rules to count steel's emissions, so the two aren't the same figure.\""
+  },
+  {
+   "seg": "11",
+   "rule": "G§6 / §3",
+   "severity": "major",
+   "quote": "Finwire reported that Stegra called its timeline for green steel unchanged",
+   "problem": "The source (STG2) gives the words \"remains unchanged\" as Finwire's reporting. The script turns them into a statement by Stegra, an operating company, without a verbatim quote. The primary press release was never read.",
+   "fix": "Finwire reported that the timeline for green steel \"remains unchanged.\""
+  },
+  {
+   "seg": "11",
+   "rule": "G§5",
+   "severity": "minor",
+   "quote": "As of October 2026, the latest: on September 30,",
+   "problem": "\"The latest\" says nothing newer exists. The primary source (stegra.com, Cision) was not found, and the status must be checked again before publishing.",
+   "fix": "As of October 11, 2026, the most recent reports we found: on September 30,"
+  },
+  {
+   "seg": "10",
+   "rule": "G§4 (period of application)",
+   "severity": "minor",
+   "quote": "Each tonne of carbon dioxide counted adds about eighty-two euros to the certificate bill",
+   "problem": "82 € is the price for Q3 2026 only. The sentence reads as if it were a standing rate.",
+   "fix": "At the price for July to September 2026, each tonne of carbon dioxide counted adds about eighty-two euros to the certificate bill"
+  },
+  {
+   "seg": "10",
+   "rule": "G§5",
+   "severity": "minor",
+   "quote": "certificate sales begin in February 2027",
+   "problem": "This is a future event stated as fact without saying who set the date.",
+   "fix": "according to the Commission, certificate sales are scheduled to begin in February 2027"
+  },
+  {
+   "seg": "06",
+   "rule": "§2 (calc label)",
+   "severity": "minor",
+   "quote": "Arithmetically, most of that change comes from the rest of the world making far more, not from America making less.",
+   "problem": "C72 is the channel's own calculation (type: calc), but it isn't labelled as such.",
+   "fix": "By our calculation, most of that change comes from the rest of the world making far more, not from America making less."
+  },
+  {
+   "seg": "09",
+   "rule": "G§5",
+   "severity": "minor",
+   "quote": "Today, a government holds consent rights over some decisions along it.",
+   "problem": "This states the current status of an ongoing arrangement without a date. C57 deliberately avoids claiming the current status because no newer filing exists.",
+   "fix": "Under the terms the companies announced in June 2025, a government holds consent rights over some decisions along it."
+  },
+  {
+   "seg": "13",
+   "rule": "G§5 / G§6",
+   "severity": "minor",
+   "quote": "under an agreement that gives an American president consent rights over certain decisions",
+   "problem": "This states the current terms in the present tense. The full agreement is not public, and the only source is the companies' announcement of 18/06/2025.",
+   "fix": "under terms that, as the two companies described them in June 2025, give an American president consent rights over certain decisions"
+  },
+  {
+   "seg": "08",
+   "rule": "§5 / BAI-HOC #62 (cross-basis)",
+   "severity": "minor",
+   "quote": "Chinese steel exports hit a record one hundred thirty-one million tonnes in 2025. By weight, that's more than all the crude steel",
+   "problem": "The voiceover doesn't name the export basis (all steel products). Only the on-screen label shows it. The comparison holds, but the audio leaves the difference implicit.",
+   "fix": "Chinese exports of steel products hit a record one hundred thirty-one million tonnes in 2025. By weight, that's more than all the crude steel"
+  },
+  {
+   "seg": "04",
+   "rule": "§1–2 (attribution)",
+   "severity": "minor",
+   "quote": "By 1897, Carnegie wrote, that company held forty-two thousand acres of coal land",
+   "problem": "C16 does not say which legal entity held the land. \"That company\" (Frick Coke) is an inference.",
+   "fix": "Check the CARN passage. If it doesn't name the holder, use: \"By 1897, Carnegie wrote, the holdings reached forty-two thousand acres of coal land\""
+  },
+  {
+   "seg": "11",
+   "rule": "§2 / G§3",
+   "severity": "minor",
+   "quote": "a trial delivery is real steel, and it shows the route works",
+   "problem": "\"Shows the route works\" is an interpretation that goes beyond HYB, a single trial delivery. It isn't marked as opinion.",
+   "fix": "a trial delivery is real steel, and the record shows the route has produced it; on its own, it doesn't show an industry at scale."
+  },
+  {
+   "seg": "04",
+   "rule": "§2",
+   "severity": "minor",
+   "quote": "so fewer suppliers can charge you for theirs",
+   "problem": "This explains the strategy's purpose, but no claim covers it and it isn't marked as interpretation. It also uses \"you\".",
+   "fix": "The common name for this strategy is vertical integration: owning steps of the supply chain. One explanation economists give: fewer outside suppliers can charge a margin on those steps."
+  }
+ ],
+ "missing_from_claims": [
+  "\"Great Lakes\" (seg 03): C11 records only \"lakes\" (hồ). Confirm the CARN wording, or say \"the lakes\".",
+  "\"vertical integration\" definition and its purpose (seg 04): not in the claims table",
+  "\"U.S. Steel issued the U.S. government a 'golden share'\" (seg 09): the issuer is not stated in C45/NSC as summarized",
+  "\"Per tonne of crude steel, less than a third\" (seg 10): covered by C48 as a calc but not labelled as the channel's ratio (low risk)",
+  "\"the banker J. P. Morgan\" (seg 05): descriptor not sourced (trivial)"
+ ],
+ "strengths": [
+  "The disclaimer uses the stricter G§4 wording and falls inside the first 30 s",
+  "All three myth-vs-record beats state the claim neutrally, name no source, and conclude at the right strength (\"something narrower\", \"sits in between\")",
+  "Carnegie memoir material is consistently marked \"he wrote / recalled\". The Homestead account follows the marker's wording exactly.",
+  "Causality is guarded: \"the record we cite doesn't say how much…\", \"the company's own reason is not in the record we cite\", and \"Separately\" before the China figures",
+  "Political neutrality holds: Biden and Trump actions are stated with dates only, the proclamation's credit to the tariffs is attributed and balanced with CRS mixed findings, and there is no judgement on whether the 80% target was met",
+  "The OECD 745 Mt figure is framed as a projection, and nothing predicts when Stegra opens",
+  "The withdrawn C51 cross-basis CBAM illustration was replaced with a mechanism sentence (C73)",
+  "The golden share is described through its enumerated consent rights. The NSA's non-publication is stated without speculating about its contents.",
+  "Layer 2–3 segments carry \"as of October 2026\" dates in the voiceover"
+ ]
+}

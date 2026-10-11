@@ -1,0 +1,173 @@
+{
+ "main_message": "Steel power has always been about controlling the path from raw material to market. Carnegie owned that path, governments now police it with tariffs, quotas and a golden share, and carbon pricing is a new toll that changes which paths are cheapest. The video uses that to explain why the US guards steel even though its share fell from about half the world's output to 4%.",
+ "hook_strength_1to10": 7,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The 88M to 82M tonnes versus 'half the world to 4%' contrast is a good puzzle, and 'guarded like a weapon' raises the stakes. It is a numbers opening, though, with no human or visual moment. The disclaimer and the 'our read' framing slow the start slightly.",
+ "three_layers_connected_1to10": 7,
+ "what_connects_layers": "The 'who controls the path, who sets the toll' framing works at the level of metaphor. Layers 1 and 2 connect well through U.S. Steel, Morgan to Nippon, and the golden share. Layer 3 (CBAM, hydrogen) is only loosely tied in. A tariff and a carbon price are both a 'toll', but one is about protecting domestic producers and the other is about emissions, and the script treats them as the same kind of thing. The Carnegie 'path' (ore, coke, rail) is physical, while the modern 'path' is regulatory. That equivalence is asserted more than shown.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It answers the opening question: steel power is about share and control of the path, not tonnage. It then hedges ('these numbers alone can't settle' whether it's worth the cost). The Edgar Thomson closing image is a good callback. The answer is still a bit soft, because it never explains why 'guarded like a weapon' follows from losing path control.",
+ "boring_or_slow": [
+  {
+   "seg": "03",
+   "why": "The ton-by-ton list of miles and tonnages is a long run of numbers with no pacing relief."
+  },
+  {
+   "seg": "07",
+   "why": "The tariff timeline (2018, Feb 2025, June 2025, April 2026, June 2026) is a dense, date-heavy list."
+  },
+  {
+   "seg": "08",
+   "why": "OECD capacity, utilization and export figures stack up quickly, and the EU quota detail is bureaucratic."
+  },
+  {
+   "seg": "10",
+   "why": "The CBAM mechanics (50-tonne threshold, certificate price, free allowances, caveats) are a lot to take in by ear."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "01",
+   "quote": "one machine is at work",
+   "why": "The 'machine' is never defined at the start. It stays vague until segment 12."
+  },
+  {
+   "seg": "06",
+   "quote": "Hold on to those two numbers",
+   "why": "The 71% vs 11% electric-furnace figures sit unexplained for a long time. Viewers won't know why they matter until segment 10."
+  },
+  {
+   "seg": "07",
+   "quote": "capacity utilization rose from about seventy-two percent",
+   "why": "It isn't clear whether the tariff 'worked'. Utilization is up but under the 80% target, so the point is ambiguous."
+  },
+  {
+   "seg": "10",
+   "quote": "worth about one hundred ninety euros per tonne",
+   "why": "It is hard to see why this is 'illustration only' yet reduced by free allowances and uses world-average figures. A viewer can't tell what a real importer pays."
+  },
+  {
+   "seg": "12",
+   "quote": "a toll changes which paths are cheapest",
+   "why": "The toll metaphor is introduced very late and compresses a lot into one line."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "08",
+   "quote": "median Chinese steel firm received about fifteen times as much in subsidies",
+   "direction": "toward the case for tariffs / against China",
+   "why": "Overcapacity and subsidies get one-sided OECD framing. There is no mention of Chinese domestic demand, of Chinese exports being partly downstream-product trade, or of the argument that US protection is partly protectionism for incumbents. The 'more than all crude steel the US produced' line is rhetorical."
+  },
+  {
+   "seg": "07",
+   "quote": "studies of the 2002 U.S. steel tariffs ... hurt",
+   "direction": "against tariffs",
+   "why": "Only one counter-study is mentioned and it is brief. The effects of the 2018 tariffs on downstream users and jobs, which is the better comparison, are skipped."
+  },
+  {
+   "seg": "04",
+   "quote": "at a cost no price list shows",
+   "direction": "against Carnegie",
+   "why": "A mildly editorial line on Homestead. The facts cited are fair, but Carnegie's role in prices, the 1892 context and company-side arguments get little room."
+  },
+  {
+   "seg": "05",
+   "quote": "part of it came from a world still rebuilding after the war",
+   "direction": "neutral/fair",
+   "why": "This one is well balanced. Without it, 1944 and 1950 would look like a norm."
+  }
+ ],
+ "felt_like_conspiracy_or_hidden_agenda": false,
+ "conspiracy_detail": "No. The repeated 'our read' labels and the 'you can judge' framing keep it open. The 'one machine' idea could drift toward a grand-unified-theory feel, but it is presented as an interpretation.",
+ "felt_like_financial_or_investment_advice": false,
+ "claims_you_doubt": [
+  {
+   "seg": "00",
+   "quote": "almost half the world's",
+   "why": "US share in 1950 is commonly cited as around 45-47%. 'Almost half' is fair, but 88 Mt of 189 Mt is about 47%. Fine, though it depends on how the Soviet bloc is counted."
+  },
+  {
+   "seg": "03",
+   "quote": "Four tons of material... to make one ton of steel",
+   "why": "Carnegie's figures are from his own memoir, for his own era, and sound self-flattering. Presented as a general 'chain', the numbers mix his anecdote with industry-wide reality. Inputs also fell over time as efficiency improved, so 1.5 t ore + 1.5 t coal + 1 t limestone is a simplification."
+  },
+  {
+   "seg": "03",
+   "quote": "whoever controls the cheapest path ... gets to set the price",
+   "why": "An oversimplification. Steel prices were also set by cartels, pools, 'Pittsburgh Plus' basing-point pricing and competition. Carnegie's advantage was cost leadership, not simple price-setting."
+  },
+  {
+   "seg": "04",
+   "quote": "Carnegie's firm bought or secured many pieces",
+   "why": "Carnegie Steel's big ore step, the Mesabi range and the Great Lakes fleet, came largely under Rockefeller and later Morgan/US Steel. The 'ore' part of Carnegie's path is overstated, since he missed Mesabi. Carnegie's autobiography is also a self-serving source for his own role."
+  },
+  {
+   "seg": "05",
+   "quote": "In 1944... roughly half of all the steel made on Earth",
+   "why": "Wartime world statistics are shaky: Axis and Soviet output are hard to count. 'Roughly half' is plausible but approximate."
+  },
+  {
+   "seg": "05",
+   "quote": "United States Steel, born in 1901",
+   "why": "U.S. Steel was formed by combining Carnegie with Federal Steel and others (National Tube, American Steel & Wire, etc.). Saying only 'Carnegie plus Federal' is an oversimplification, though it is not exactly wrong."
+  },
+  {
+   "seg": "06",
+   "quote": "American production peaked at about one hundred thirty-seven million tonnes in 1973, then fell by half by 1982",
+   "why": "Peak production was about 137 Mt in 1973, which fits. Falling 'by half' by 1982 (to about 67 Mt) is roughly right. But the video skips the causes (Japan and Europe, minimills, labor costs, legacy costs, the 1970s oil shocks), so the key decline story is missing."
+  },
+  {
+   "seg": "06",
+   "quote": "A drop of about seven percent. Not zero.",
+   "why": "The comparison is technically right but cherry-picks endpoints. Output was far higher in between, and 2025 is not 'steel is not dying'. It conceals a collapse in integrated mills and employment (about 500k+ jobs in the 1950s to well under 100k)."
+  },
+  {
+   "seg": "06",
+   "quote": "China, about eleven percent [EAF]",
+   "why": "Roughly right (10-12%), but China's low EAF share is partly due to a scrap shortage, not just choice. Without that context it reads as a pure-polluter story."
+  },
+  {
+   "seg": "09",
+   "quote": "Five days later, the deal closed.",
+   "why": "Dates check out roughly (June 13 order, June 18 close), but the framing skips the political fight, the United Steelworkers' opposition, and the Cleveland-Cliffs bid, so it reads cleaner than it was."
+  },
+  {
+   "seg": "09",
+   "quote": "the White House said it intervened",
+   "why": "A secondhand AP report of a White House claim, which is a weak basis. The video doesn't note that U.S. Steel's stated reasons for the Granite City decision were commercial."
+  },
+  {
+   "seg": "10",
+   "quote": "released on average about two point three tonnes... zero point seven",
+   "why": "Worldsteel's BF-BOF average is around 2.3 t CO2 per tonne of crude steel, and EAF (scrap) is lower, often 0.6-0.7 t. Plausible. But EAF with scrap depends on a scarce, finite scrap supply, so it isn't a general replacement for BF-BOF. That limit is not stated, and it slightly overstates the 'less than a third' gain."
+  },
+  {
+   "seg": "10",
+   "quote": "As of October 2026, importers bringing more than fifty tonnes",
+   "why": "The 50-tonne de minimis threshold is correct as I recall it, but CBAM's definitive period began in 2026 with certificate purchases starting later. 'Surrender certificates' vs 'purchase' timing is simplified and I can't confirm the details."
+  },
+  {
+   "seg": "11",
+   "quote": "world's first steel made with iron reduced by fossil-free hydrogen",
+   "why": "HYBRIT's August 2021 delivery to Volvo is accurate as a first. But 'steel made with' glosses over how the pilot was small and how reduced iron was melted in an EAF, so it is not a fully proven route."
+  },
+  {
+   "seg": "13",
+   "quote": "still making steel as of U.S. Steel's last annual report",
+   "why": "Edgar Thomson is indeed still operating. But 'last annual report, filed in early 2025' is oddly dated for an October 2026 video, since a newer report may exist after the Nippon acquisition. It sounds stale or hedged."
+  },
+  {
+   "seg": "13",
+   "quote": "Pittsburgh was one of the main stops on that path",
+   "why": "Vague and slightly romantic. Pittsburgh was the center of US integrated steel but not 'one of the stops' on a global path."
+  }
+ ],
+ "trust_1to10": 7,
+ "best_moment": "Segment 09: the golden share explained narrowly (one director, consent rights over specific decisions), then the Granite City intervention. It corrects the 'government owns it' misconception, uses a concrete case, and ties Carnegie's 'securing the path' to a government now holding consent rights. Segment 05's 'a peak, not a normal' caveat is a close second.",
+ "top3_fixes": [
+  "Cover why US output actually collapsed between 1973 and 1982 (Japanese and European competition, minimills, labor and legacy costs, oil shocks), and give the employment number. Right now 'down only 7%' makes the decline sound like a myth. The real story is integrated mills and jobs falling, with a different industry replacing them.",
+  "Define the 'machine' and the 'toll' earlier, in segment 1 or 2, and explain the 71% vs 11% electric-furnace numbers where they first appear. Also separate the two kinds of 'toll' (a protectionist tariff vs an emissions-based carbon price) instead of lumping them together as the same mechanism.",
+  "Fix factual simplifications and balance. Don't give Carnegie credit for the whole path (Mesabi ore went to Rockefeller, then Morgan). Mention cartels and pricing practices instead of 'whoever controls the path sets the price'. Add the downstream-user and steelworker-union side of the 2018 tariff debate. Present the China subsidy and overcapacity figures with Chinese-side context. Cut the number density in 03, 07, 08 and 10, and update the 'last annual report' line to the latest filing."
+ ]
+}

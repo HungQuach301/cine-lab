@@ -1,0 +1,109 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "09",
+   "rule": "G §6 / §1 (accurate attribution of official acts)",
+   "severity": "major",
+   "quote": "After a new CFIUS review that he had ordered, on June 13, 2025, President Trump issued an order allowing it",
+   "problem": "The previous sentence is about Biden, so 'he' comes before Trump is named. A listener can hear it as Biden ordering the new CFIUS review. That would credit the wrong president with an official act. CRS says Trump ordered it.",
+   "fix": "President Trump then ordered a new CFIUS review, and on June 13, 2025, he issued an order allowing the acquisition, on the condition of a national security agreement."
+  },
+  {
+   "seg": "10",
+   "rule": "§2 / BAI-HOC #62 (cross-basis)",
+   "severity": "minor",
+   "quote": "Melting scrap in an electric arc furnace released about zero point seven. Per tonne of crude steel, less than a third of the emissions.",
+   "problem": "The worldsteel figures include indirect emissions, but CBAM counts only direct ones. The next paragraph puts '82 euros per tonne of CO2' and 'how a tonne of steel was made can change what it costs' right after these figures. Listeners are invited to do the 2.3 × 82 sum that was removed as C51 for mixing bases.",
+   "fix": "After 'less than a third of the emissions.' add: 'These World Steel averages also count indirect emissions, such as from purchased electricity, so they aren't the figures CBAM counts for steel.' Add to claims as a fact sourced to WSIF methodology + CBAMR Annex II (the C51 note already documents it)."
+  },
+  {
+   "seg": "05",
+   "rule": "§2 (opinion must fit the facts it explains)",
+   "severity": "minor",
+   "quote": "One explanation: much of the world was still rebuilding after the war — an unusual moment, not a baseline.",
+   "problem": "The explanation follows the 1944 figure, but in 1944 the war was still going on, so 'rebuilding after the war' doesn't explain that year. It fits only 1950.",
+   "fix": "One explanation for the 1950 figure: much of the world was still rebuilding after the war — an unusual moment, not a baseline."
+  },
+  {
+   "seg": "02",
+   "rule": "G §2 (memoir statements stay as the author wrote them)",
+   "severity": "minor",
+   "quote": "Around 1872, he decided to build.",
+   "problem": "The source says 'we decided' (Carnegie and his partners). The script turns it into a solo decision and drops the memoir attribution.",
+   "fix": "Around 1872, Carnegie recalled, he and his partners decided to build."
+  },
+  {
+   "seg": "07",
+   "rule": "§1–2 (every factual statement in claims)",
+   "severity": "minor",
+   "quote": "together with global excess capacity,",
+   "problem": "C31 covers only the quote 'weakening our internal economy' and the 80 % target. The table doesn't record that P9705 links the finding to global excess capacity.",
+   "fix": "Check the P9705 wording and add it to C31 as a verbatim quote. If it can't be confirmed in the text, cut 'together with global excess capacity,'."
+  },
+  {
+   "seg": "10",
+   "rule": "§2 (opinion consistent with the record)",
+   "severity": "minor",
+   "quote": "a tariff sorts steel mainly by whether it crosses the border and what product it is.",
+   "problem": "The script itself reports tariffs that differ by country (Canada/Mexico exemption, UK rate) and EU quotas. Leaving out origin contradicts segments 07–08.",
+   "fix": "a tariff sorts steel mainly by where it comes from and what product it is."
+  },
+  {
+   "seg": "13",
+   "rule": "G §1 / §6 (causality only where a source states it; no judging policy outcomes)",
+   "severity": "minor",
+   "quote": "A tariff, a quota and a golden share each affect, in different ways, how much of that path stays inside a given border.",
+   "problem": "This states an effect. Segment 07 reports that CRS found studies of tariff effects reached different conclusions, so the line goes further than the record.",
+   "fix": "A tariff, a quota and a golden share each set terms, in different ways, for how steel moves across a given border."
+  },
+  {
+   "seg": "11",
+   "rule": "G §5 / §1 (live event, operating company, financial condition)",
+   "severity": "minor",
+   "quote": "As of October 2026, the latest: on September 30, Tech.eu and Finwire reported that Stegra's cost to complete the plant was \"significantly higher than assumed in June\" and that it needs more capital",
+   "problem": "This is fast-moving financial news about an operating company, sourced to press only. The original Stegra release has not been read (STG2 note). G §5 requires a status re-check before recording.",
+   "fix": "Action: before recording, re-check stegra.com, Cision and the press for newer updates (financing, CEO, timeline) and log the result with the date in claims.md. If the original release is found, cite it as well. Keep the 'reported' wording."
+  },
+  {
+   "seg": "00",
+   "rule": "§2 / BAI-HOC #62 (cross-basis, on-screen)",
+   "severity": "minor",
+   "quote": "In 1950, America made about eighty-eight million tonnes of steel — almost half the world's. In 2025: about eighty-two million.",
+   "problem": "The narration compares USGS 'raw steel' with worldsteel 'crude steel' and only the screen discloses it. C02 requires the label in segments 00, 06 and 13.",
+   "fix": "Action: confirm the on-screen line 'USGS \"raw steel\" 1950 · worldsteel \"crude steel\" 2025' appears in the 00 and 13 frames, not just in 06."
+  },
+  {
+   "seg": "08",
+   "rule": "G §5 (projections)",
+   "severity": "minor",
+   "quote": "The OECD projects the unused part to reach seven hundred forty-five million tonnes by 2028.",
+   "problem": "The narration labels it as a projection correctly. The visual also has to carry the PROJECTION label (C36).",
+   "fix": "Action: on screen, show 'PROJECTION — OECD Steel Outlook 2026' with a dashed line for the 2028 value."
+  }
+ ],
+ "missing_from_claims": [
+  "Seg 07: P9705 linking the finding to 'global excess capacity' (not in C31)",
+  "Seg 09: 'U.S. Steel issued the U.S. government a \"golden share\"' — who issued the share and who holds it is not stated in C45/C58",
+  "Seg 10: the fact that worldsteel CO2 intensities include indirect emissions (only in the C51 note, not as a live claim) — needed if the suggested fix is adopted",
+  "Seg 12: 'Since 2018, governments have put hard rules' — plural governments from 2018; the EU's 2018 provisional safeguard date is not in the table (only the expiry of 2019/159)",
+  "Seg 06: 'melting scrap releases far less carbon' — add segment 06 to C48's segment list",
+  "Seg 03: 'to the Great Lakes' and 'to Pittsburgh' — C11 says only the lake / the rail leg; confirm CARN's wording",
+  "Seg 04: definition of vertical integration ('so fewer suppliers can charge you for theirs') — log as an opinion/definition",
+  "Seg 02: 'Pittsburgh, the early 1870s' — Braddock's location relative to Pittsburgh is not sourced",
+  "Seg 11: 'in northern Sweden' (Boden location) — not in STG",
+  "Seg 05: 'roughly half' for 1944 relies on USGS's world total of 164 Mt; fine, but confirm the on-screen label shows USGS"
+ ],
+ "strengths": [
+  "Disclaimer is in the narration at about 0:15, well inside 30 s, with the exact G §4 wording",
+  "No conspiracy framing: Morgan, Gary and Carnegie appear as named actors with sourced acts, and the undisclosed NSA is stated as 'has not been made public' without guessing its contents",
+  "Group bias avoided: China appears only through OECD-attributed findings about firms and exports, and Carnegie's statements are consistently marked 'he wrote / recalled'",
+  "Homestead follows the PHMC marker text word for word and is attributed to the marker",
+  "Three common-claim vs record beats (M1–M3), each stated neutrally and concluded with measured wording ('narrower', 'sits in between')",
+  "Political neutrality: Biden's and Trump's orders are stated as dated official acts, utilization gains are credited to 'the Commerce Secretary's opinion', CRS's mixed findings are given both ways, and the close declines to judge costs vs benefits",
+  "The C51 cross-basis calculation was removed and replaced with a mechanism description (C73), with free-allowance and carbon-price-paid deductions stated",
+  "Ongoing events carry dates ('as of October 2026', the Q3 price published 5 October), there are no predictions ('We won't guess when it opens'), and the OECD 2028 figure is labelled as a projection",
+  "Defamation care: the Granite City reversal is attributed to the AP with the company's reason stated as not in the record, Stegra's finances are attributed to two named outlets, and C57's ownership wording is limited to 'acquired in June 2025'",
+  "The China exports vs U.S. output comparison is flagged 'by weight', and the mismatch between export and output categories is noted for the screen"
+ ]
+}

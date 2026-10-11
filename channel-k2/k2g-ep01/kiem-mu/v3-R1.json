@@ -1,0 +1,107 @@
+{
+ "main_message": "Steel has always been about controlling the route from raw material to buyer. Carnegie did that by owning mines and railroads. Today governments do it with tariffs, quotas, a government 'golden share', and now a carbon price at the border.",
+ "hook_strength_1to10": 7,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The contrast between 88 million tonnes and 82 million tonnes, with a 4% share, is a clear puzzle. The question 'guarded like a weapon' is concrete. The 'not financial advice' line right after it breaks the flow.",
+ "three_layers_connected_1to10": 7,
+ "what_connects_layers": "The recurring phrase 'who controls the path, and who sets the toll' ties them together. The Carnegie, tariff and carbon-price sections each fit it. The carbon layer feels like a stretch, since a toll doesn't give control over the path in the same way. The hydrogen segment is a loose add-on to the pattern.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It answers: steel power was about share and control of the path, not tonnage. It then admits it can't say whether the cost is worth it. The Braddock mill closing image is nice. The answer is somewhat abstract, and 'guard it like a weapon' is never explained in plain terms like war supply or shipbuilding.",
+ "boring_or_slow": [
+  {
+   "seg": "03",
+   "why": "Lots of tonnage and mileage figures for ore, coal and limestone. Easy to lose the thread."
+  },
+  {
+   "seg": "07",
+   "why": "Dates, tariff percentages and capacity-utilization figures pile up with little to hold onto."
+  },
+  {
+   "seg": "08",
+   "why": "Many OECD numbers (745 million, 131 million, 15x subsidies, 18.3 million quotas) in a row."
+  },
+  {
+   "seg": "10",
+   "why": "CBAM mechanics are dense: thresholds, certificates, free allowances, dates."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "06",
+   "quote": "electric arc furnaces, which can run largely on scrap",
+   "why": "Never explained what that is compared with the other kind of furnace until segment 10."
+  },
+  {
+   "seg": "07",
+   "quote": "capacity utilization rose from about seventy-two percent",
+   "why": "A layperson doesn't know what capacity utilization means or why 80% is the target."
+  },
+  {
+   "seg": "10",
+   "quote": "surrender certificates",
+   "why": "Jargon. What is a certificate and who sells it? The euro-per-tonne maths is hard to follow by ear."
+  },
+  {
+   "seg": "09",
+   "quote": "golden share",
+   "why": "The concept is explained only after being used, and a 'consent right' is abstract."
+  },
+  {
+   "seg": "06",
+   "quote": "A drop of about seven percent",
+   "why": "The video says 'not dying', then 'fell by half by 1982'. It's a lot to hold at once."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "07",
+   "quote": "it credits the tariffs",
+   "direction": "Slightly skeptical of the US administration. It gives the official claim, then adds critical studies.",
+   "why": "The skeptical studies get about as much space as the government's claim, so it's balanced. The framing still leans toward 'tariffs have a mixed record'."
+  },
+  {
+   "seg": "08",
+   "quote": "Chinese steel exports hit a record",
+   "direction": "Against China's steel policy",
+   "why": "The overcapacity and subsidy facts are mostly one-sided. There's no mention of why China built so much, or of Western subsidies."
+  },
+  {
+   "seg": "04",
+   "quote": "at a cost no price list shows",
+   "direction": "Against Carnegie",
+   "why": "Editorial. It's a fair point but it's an opinion put in as a 'read'."
+  }
+ ],
+ "felt_like_conspiracy_or_hidden_agenda": false,
+ "conspiracy_detail": "",
+ "felt_like_financial_or_investment_advice": false,
+ "claims_you_doubt": [
+  {
+   "seg": "01",
+   "quote": "a country can import its phones and still function",
+   "why": "It's asserted as fact with no evidence. It sounds reasonable but it's a big claim, and the video never backs it up."
+  },
+  {
+   "seg": "13",
+   "quote": "Pittsburgh was one of the main stops on that path",
+   "why": "A vague metaphor presented as an explanation."
+  },
+  {
+   "seg": "12",
+   "quote": "a toll changes which paths are cheapest",
+   "why": "A nice line, but I'm not sure a carbon price is really the same kind of thing as owning or restricting the path."
+  },
+  {
+   "seg": "05",
+   "quote": "a peak in share, not a normal",
+   "why": "Plausible, but stated with confidence in one line."
+  }
+ ],
+ "trust_1to10": 8,
+ "best_moment": "09. The golden share section. It checks the 'US government owns U.S. Steel' claim against what the companies actually said, then gives the Granite City example of the share being used without being formally invoked. It's concrete and shows how it works.",
+ "top3_fixes": [
+  "Explain the jargon in plain words the first time it appears: what a blast furnace vs an electric arc furnace is, what 'capacity utilization' means, what a 'golden share' is, what a CBAM certificate is. Put the explanation before the number.",
+  "Cut the number density in segments 07, 08 and 10. Keep 2-3 figures per segment and drop the rest. Say what each figure means ('mills running at 77% when they need 80%') instead of just stating it.",
+  "Say early, in plain terms, why steel counts as a weapon: ships, tanks, bridges, what happens in a war or a supply cut. The title question is answered only abstractly ('control of the path'), and the carbon layer needs a sentence on why a carbon price belongs in the same story as national security."
+ ]
+}

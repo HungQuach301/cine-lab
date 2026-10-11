@@ -1,0 +1,144 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "09",
+      "rule": "G §1 (unsupported causality) + G §6 (characterization beyond source)",
+      "severity": "major",
+      "quote": "Three months later, that power came into play without being formally used.",
+      "problem": "The narrator states as fact that the golden-share power influenced the Granite City outcome. The only source (AP) records a White House claim that it threatened to use the share. The script then says the company's reason 'is not in the record', so its own opening sentence asserts a cause the record does not support.",
+      "fix": "Three months later, the White House said that power had come into play, without being formally used."
+    },
+    {
+      "seg": "09",
+      "rule": "§1 / C56 (overclaim beyond source)",
+      "severity": "major",
+      "quote": "Our read: Carnegie's firm once secured the path from rock to rail.",
+      "problem": "C56 limits the claim to the coke supply (C15–16) and bars saying Carnegie took control of ore or rail. Seg 12 follows that limit ('a key piece of it: the coke') but seg 09 says the whole path, so the two segments contradict each other.",
+      "fix": "Our read: Carnegie's firm once secured a key piece of the path from rock to rail."
+    },
+    {
+      "seg": "13",
+      "rule": "G §5 (time markers)",
+      "severity": "major",
+      "quote": "at a company owned, since June 2025, by Japan's Nippon Steel, under an agreement that gives an American president consent rights over certain decisions.",
+      "problem": "This describes ongoing ownership and governance in the present tense. The on-screen 'Facts as of 11 Oct 2026' line is specified only for layer 2–3 frames, and seg 13 is the END segment, so neither the narration nor the visuals date this statement.",
+      "fix": "Insert 'as of October 2026,' so it reads: '— at a company that, as of October 2026, has been owned since June 2025 by Japan's Nippon Steel, under an agreement that gives an American president consent rights over certain decisions.' Also put the 'Facts as of 11 Oct 2026' line on seg 12–13 frames."
+    },
+    {
+      "seg": "12",
+      "rule": "G §5 (time markers)",
+      "severity": "minor",
+      "quote": "Since 2018, governments have put hard rules on who may use that path, and Washington treats it as a security question.",
+      "problem": "This is a present-tense statement about ongoing policy in a THREAD segment, which the on-screen as-of line does not cover.",
+      "fix": "Show the 'Facts as of 11 Oct 2026' line on seg 12 frames, or say '…and, as of October 2026, Washington treats it as a security question.'"
+    },
+    {
+      "seg": "10",
+      "rule": "§1–2 (source fidelity)",
+      "severity": "minor",
+      "quote": "the blast-furnace route's world-average emissions, from 2024 data",
+      "problem": "'World-average' is not in the claims table. WSIF gives worldsteel's route averages, which may rest on reporting member companies rather than every producer in the world.",
+      "fix": "the blast-furnace route's average emissions in World Steel Association data for 2024"
+    },
+    {
+      "seg": "11",
+      "rule": "G §6 (verbatim quotes with speaker)",
+      "severity": "minor",
+      "quote": "Stegra said the cost of completing the plant is \"significantly higher than assumed in June\"",
+      "problem": "The table notes the original Stegra release could not be read. The phrase in quotation marks is known only from Tech.eu and Finwire, so it may be the reporters' paraphrase rather than Stegra's exact words.",
+      "fix": "On September 30, 2026, Tech.eu and Finwire reported that Stegra's cost to complete the plant was \"significantly higher than assumed in June\" and that it needs more capital; Finwire reported that Stegra called its timeline for green steel unchanged."
+    },
+    {
+      "seg": "11",
+      "rule": "§2 (present both sides of record) / C54",
+      "severity": "minor",
+      "quote": "In June 2026 it closed a one point four billion euro financing round.",
+      "problem": "C54 records that the June release said 'the project timeline is under review'. Leaving that out and reporting only Finwire's 'timeline unchanged' gives a one-sided picture of the timeline.",
+      "fix": "In June 2026 it closed a one point four billion euro financing round and said its project timeline was \"under review.\""
+    },
+    {
+      "seg": "09",
+      "rule": "G §1 (undisclosed documents) / §1 attribution",
+      "severity": "minor",
+      "quote": "Under that agreement, as the two companies described it, Nippon Steel committed about eleven billion dollars",
+      "problem": "This places the $11B commitment inside the national security agreement, whose full text the script itself says is not public. C44 sources the figure only to the joint release, not to the NSA's text.",
+      "fix": "As the two companies described their deal, Nippon Steel committed about eleven billion dollars in new investment by 2028."
+    },
+    {
+      "seg": "04",
+      "rule": "G §1 (causal link) / §2 opinion",
+      "severity": "minor",
+      "quote": "Our read: owning the path also meant power over the people who worked it, at a cost no price list shows.",
+      "problem": "Directly after the Homestead deaths, this line suggests that integrating the supply chain caused or enabled the strike violence. No source links the two; they are simply events from the same years.",
+      "fix": "Our read: power over the path came alongside power over the people who worked in the mills, and the marker records what that cost at Homestead."
+    },
+    {
+      "seg": "04",
+      "rule": "§2 (fact vs opinion) / C56",
+      "severity": "minor",
+      "quote": "The common name for this is vertical integration: own each step, so nobody can charge you for theirs.",
+      "problem": "This is unmarked interpretation. 'Own each step' also implies Carnegie owned every step, while the sourced record supports only the coke supply.",
+      "fix": "The common name for this strategy is vertical integration: owning steps of the supply chain, so fewer suppliers can charge you for theirs."
+    },
+    {
+      "seg": "08",
+      "rule": "§1–2 (source fidelity, statistical definition)",
+      "severity": "minor",
+      "quote": "the median Chinese steel firm received about fifteen times as much in subsidies, relative to its assets, as the median firm in",
+      "problem": "The table records only '15×, 2024, median, relative to assets'. Calling it a comparison of median firms is an interpretation; OECD may instead have compared median subsidy-to-asset ratios.",
+      "fix": "Use OECD's exact wording for the comparison (for example: 'subsidies relative to assets, at the median, were about fifteen times higher for Chinese steel firms than for firms in \"other partner economies and OECD Member countries\"'), checked against the PDF before recording."
+    },
+    {
+      "seg": "08",
+      "rule": "G §5 (projection label) / §2 cross-basis",
+      "severity": "minor",
+      "quote": "The OECD projects the unused part to reach seven hundred forty-five million tonnes by 2028. ... By weight, that's more than all the crude steel the United States produced that year.",
+      "problem": "These are visual compliance points. C36 requires a PROJECTION label, a dashed line and the OECD's name on screen. C39 requires the on-screen note 'exports (all steel products) vs crude steel output'.",
+      "fix": "Action: confirm the graphics spec includes the PROJECTION label (dashed line, 'OECD projection') on the 745 Mt figure and the 'exports (all steel products) vs crude steel output' caption on the C39 comparison."
+    },
+    {
+      "seg": "00",
+      "rule": "§2 cross-basis comparison",
+      "severity": "minor",
+      "quote": "In 1950, America made about eighty-eight million tonnes of steel — almost half the world's. In 2025: about eighty-two million.",
+      "problem": "This compares figures from two sources (USGS 'raw steel' and worldsteel 'crude steel'). The table makes the comparison acceptable only with the on-screen source note, and the same pair recurs in seg 06 and seg 13.",
+      "fix": "Action: confirm the caption \"USGS 'raw steel' 1950 · worldsteel 'crude steel' 2025\" appears in seg 00, 06 and 13."
+    },
+    {
+      "seg": "05",
+      "rule": "§1 (sourcing)",
+      "severity": "minor",
+      "quote": "In 1944, in the middle of the Second World War",
+      "problem": "This historical context has no entry in the claims table.",
+      "fix": "Add a claims row (type fact, dated encyclopedia or government history source), or cut the phrase to 'In 1944, it made about eighty-one million'."
+    }
+  ],
+  "missing_from_claims": [
+    "Seg 05: '1944, in the middle of the Second World War' (no source row)",
+    "Seg 05: J. P. Morgan described as 'the banker' (descriptor not in C20/C21)",
+    "Seg 01: 'one river valley in Pennsylvania became a center of American steel' (no claim row; it needs either a source or an 'our read' marker)",
+    "Seg 04: 'vertical integration' definition (unmarked characterization)",
+    "Seg 04: Homestead works identified as a Carnegie mill (implied; confirm the PHMC marker text says so)",
+    "Seg 10: 'world-average' qualifier on the WSIF route emissions",
+    "Seg 10: 'steel among them' as a covered CBAM good (C49 does not state it explicitly)",
+    "Seg 11: 'in northern Sweden' location for Boden (C54 gives only 'Boden')",
+    "Seg 09: link between the $11B commitment and the national security agreement (C44 sources it to the joint release only)",
+    "Seg 08: 'median firm vs median firm' framing of the 15× subsidy finding (C40 records only '15×, median, relative to assets')"
+  ],
+  "strengths": [
+    "The disclaimer appears verbatim in seg 01, roughly 0:15–0:19, inside the 30-second window.",
+    "The CBAM illustration is labelled 'our calculation, illustration only', its inputs are traceable, and it explicitly says it is not what any importer is charged (free allowances, plant data or defaults, carbon price already paid).",
+    "Both presidents are described only through dated official orders, with no judgment. Tariff effects are attributed to the proclamation ('in the Commerce Secretary's opinion') and balanced with CRS's mixed findings.",
+    "There are three myth-vs-record beats, each stated neutrally, with no straw man and no overcorrection ('narrower', 'sits in between').",
+    "Undisclosed documents are handled correctly: 'The full agreement has not been made public'; 'the company's own reason is not in the record we cite'.",
+    "Memoir material is consistently attributed ('Carnegie wrote / recalled'), and the Homestead casualty figures are attributed to the state marker word for word.",
+    "There are no predictions: 'We won't guess when it opens', the OECD figure is attributed as a projection, and the script makes no tariff or market forecasts.",
+    "There is no group bias. Actors are named entities (OECD, Nippon Steel, Stegra, SSAB, governments), and China data is attributed to OECD.",
+    "The China exports vs U.S. output comparison is qualified 'by weight', and 'Separately' keeps the OECD low-price export remark from being pinned on China.",
+    "The decline is framed with arithmetic and a hedge on causes: 'The record doesn't pin America's drop on a single cause'.",
+    "The ending stays neutral on policy: 'Whether that is worth what it costs, these numbers can't settle'."
+  ]
+}
+```

@@ -1,0 +1,246 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "07",
+      "rule": "G§6 / political neutrality",
+      "severity": "major",
+      "quote": "By its own yardstick?",
+      "problem": "The rhetorical question frames the next sentence as the channel grading the policy. G§6 says the script names who assesses a policy and does not judge it.",
+      "fix": "Replace with: \"How does the administration describe the results?\""
+    },
+    {
+      "seg": "07",
+      "rule": "G§6 / political neutrality / §2",
+      "severity": "major",
+      "quote": "still below the eighty percent mark",
+      "problem": "The channel adds its own pass/fail verdict on the 2018 target, comparing it with a 77.2% figure that the 2026 proclamation gives only as 'at present'. The 'rose' framing also leaves out that the proclamation itself credits the tariffs (C33).",
+      "fix": "Replace the sentence with: \"The April 2026 proclamation says that, in the Commerce Secretary's opinion, steel capacity utilization rose from about seventy-two percent in 2017 to about seventy-seven percent at present, and it credits the tariffs. The 2018 proclamation had linked long-term viability to about eighty percent.\""
+    },
+    {
+      "seg": "07",
+      "rule": "§2 / G§6 / cross-basis",
+      "severity": "major",
+      "quote": "studies of the 2002 U.S. steel tariffs, summarized by the Congressional Research Service, suggested those tariffs hurt the competitiveness and employment of American manufacturers that use steel",
+      "problem": "Selective reading. The source says 'Some studies', and C34 records that CRS found mixed effects. Only the negative side is given. 'On the other side' also invites viewers to apply results from the 2002 tariffs to the 2018–2026 tariffs, which are a different policy.",
+      "fix": "Replace with: \"The Congressional Research Service notes that studies of earlier U.S. steel tariffs have reached different conclusions. Some studies of the 2002 tariffs found they hurt the competitiveness and employment of American manufacturers that use steel. Those were different tariffs, in a different market.\""
+    },
+    {
+      "seg": "08",
+      "rule": "§1 / G§2 / §2",
+      "severity": "major",
+      "quote": "the median Chinese steel firm received about fifteen times as much in subsidies, relative to its assets, as the median producer elsewhere",
+      "problem": "C40 records '15×, 2024, median, by assets' but not what the comparison group is. 'Elsewhere' may not match what the OECD compared against (for example, OECD-economy firms or non-Chinese firms in its sample). This is a claim about one nation's industry, so the comparison group needs exact sourcing.",
+      "fix": "Check the OECD wording and add the comparison group to C40. Then replace 'as the median producer elsewhere' with the OECD's exact group (for example, 'as the median firm in OECD economies, in the OECD's sample')."
+    },
+    {
+      "seg": "10",
+      "rule": "§2 / G§1",
+      "severity": "major",
+      "quote": "counted plant by plant, not country by country",
+      "problem": "This contradicts the segment's own caveat that declarations may use 'official default values'. C66 does not show those defaults are plant-specific, and they may be set per country. Coming right after 'Remember the furnace numbers… United States… China', it also suggests a U.S.–China advantage under CBAM that no source states.",
+      "fix": "Replace with: \"counted, where a plant reports its own data, plant by plant.\" Cut the sentence \"Remember the furnace numbers: about seventy-one percent electric in the United States, about eleven in China.\" or follow it with: \"Which route a given shipment took is what CBAM looks at, not the country average.\""
+    },
+    {
+      "seg": "06",
+      "rule": "§2",
+      "severity": "minor",
+      "quote": "The industry that came back was built differently",
+      "problem": "This implies the furnace mix in 1973–1982 was different, but no claim gives a historical EAF share. 'Came back' is also an unsourced recovery claim, since it compares USGS 1982 with WSIF 2025.",
+      "fix": "Replace with: \"Today's industry runs differently:\""
+    },
+    {
+      "seg": "06",
+      "rule": "§2 (calc)",
+      "severity": "minor",
+      "quote": "mostly because the rest of the world built far more",
+      "problem": "This causal statement comes from arithmetic (US ×0.93 vs world ×9.78) but has no calc entry in the claims table.",
+      "fix": "Add a calc claim (81.9/87.8 vs 1848.9/189). Reword to: \"Arithmetically, most of that change comes from the rest of the world making far more, not from America making less.\""
+    },
+    {
+      "seg": "06",
+      "rule": "G§3",
+      "severity": "minor",
+      "quote": "A drop of about seven percent. Not zero.",
+      "problem": "The myth-vs-record beat has no explicit narrow conclusion. 'Not zero' answers 'already gone' but says nothing about 'dying'. The record covers tonnage only.",
+      "fix": "Add after 'Not zero.': \"On tonnage, the record says something narrower than 'dying'.\""
+    },
+    {
+      "seg": "00",
+      "rule": "§2",
+      "severity": "minor",
+      "quote": "Just four percent.",
+      "problem": "The figure is 4.43% (C03), and the hook drops the hedge that C03 approves ('about four percent').",
+      "fix": "Replace with: \"Just about four percent.\""
+    },
+    {
+      "seg": "01",
+      "rule": "G§1",
+      "severity": "minor",
+      "quote": "Under all three, our read is that one machine is at work.",
+      "problem": "'One machine' (also used in 05 and 12) can suggest a single coordinating hand behind events 150 years apart. The intended meaning is a shared mechanism.",
+      "fix": "Replace with: \"Under all three, our read is that one mechanism is at work.\" Change 'machine' to 'mechanism' in 03, 05 and 12 as well."
+    },
+    {
+      "seg": "03",
+      "rule": "§2 / cross-basis (BAI-HOC #62)",
+      "severity": "minor",
+      "quote": "Years after those first rails, Carnegie wrote that steel was being sold at \"three pounds for two cents.\"",
+      "problem": "'Years after those first rails' invites viewers to compare this with '$70 a ton' for rails in 02. C10 and C13 say not to compare: different product, different period, different unit.",
+      "fix": "Replace with: \"Later, in the period between 1888 and 1897, Carnegie wrote that steel was being sold at \"three pounds for two cents.\"\" Show no $/ton conversion on screen."
+    },
+    {
+      "seg": "04",
+      "rule": "§1 / §2",
+      "severity": "minor",
+      "quote": "In 1892, at the Homestead works, a strike turned into a battle on the riverbank.",
+      "problem": "'Battle on the riverbank' is the channel's own characterization and is not in the marker's text (C18 requires staying close to the marker's words).",
+      "fix": "Replace with: \"In 1892, at the Homestead works, there was a strike.\""
+    },
+    {
+      "seg": "05",
+      "rule": "§2",
+      "severity": "minor",
+      "quote": "a peak, not a normal",
+      "problem": "Ambiguous. Segment 06 says production peaked in 1973, so 'peak' here should be a peak in share.",
+      "fix": "Replace with: \"a peak in share, not a normal\""
+    },
+    {
+      "seg": "07",
+      "rule": "§1–2",
+      "severity": "minor",
+      "quote": "a 1962 law that lets the president adjust imports that threaten to impair national security",
+      "problem": "The year and the description of the law are not in the claims table.",
+      "fix": "Add a claim sourced to P9705 (which cites Section 232 of the Trade Expansion Act of 1962, as amended) and quote its wording."
+    },
+    {
+      "seg": "07",
+      "rule": "G§5",
+      "severity": "minor",
+      "quote": "A further adjustment in June 2026 is, as of October, the latest.",
+      "problem": "The time marker has no year.",
+      "fix": "Replace with: \"A further adjustment in June 2026 is, as of October 2026, the latest.\""
+    },
+    {
+      "seg": "08",
+      "rule": "G§1",
+      "severity": "minor",
+      "quote": "It reports that Chinese steel exports hit a record one hundred thirty-one million tonnes in 2025.",
+      "problem": "Placed straight after the general low-price export mechanism, this implies China's exports are that mechanism. The claims table does not show the OECD drawing that link.",
+      "fix": "If the OECD draws the link, quote it. Otherwise start the sentence with \"Separately, the OECD reports that…\""
+    },
+    {
+      "seg": "08",
+      "rule": "G§5",
+      "severity": "minor",
+      "quote": "The OECD projects the unused part to reach seven hundred forty-five million tonnes by 2028.",
+      "problem": "The narration attributes the projection correctly. The visual must also carry the PROJECTION label (C36).",
+      "fix": "Keep the narration. On screen: 'PROJECTION — OECD Steel Outlook 2026' in a dashed style."
+    },
+    {
+      "seg": "09",
+      "rule": "§2",
+      "severity": "minor",
+      "quote": "the company Morgan had built",
+      "problem": "Segment 05 says a group led by Morgan and Gary formed U.S. Steel. 'Morgan had built' overstates his role.",
+      "fix": "Replace with: \"the company Morgan's group had formed\""
+    },
+    {
+      "seg": "09",
+      "rule": "§2",
+      "severity": "minor",
+      "quote": "Today, a government holds consent rights over parts of it.",
+      "problem": "This is interpretation without an opinion marker. The consent rights cover listed company decisions, not 'the path'.",
+      "fix": "Replace with: \"Our read: today, a government holds consent rights over some decisions along that path.\""
+    },
+    {
+      "seg": "10",
+      "rule": "G§4 / cross-basis",
+      "severity": "minor",
+      "quote": "the world-average emissions of the blast-furnace route are worth about one hundred ninety euros per tonne of steel",
+      "problem": "The calculation multiplies 2024 emissions averages by a Q3 2026 price (different years). The year of the averages is not repeated in the calculation.",
+      "fix": "Replace with: \"the blast-furnace route's world-average emissions, from 2024 data, are worth about one hundred ninety euros per tonne of steel\""
+    },
+    {
+      "seg": "10",
+      "rule": "G§4 / G§5",
+      "severity": "minor",
+      "quote": "must declare the emissions embedded in them, and surrender certificates to cover those emissions",
+      "problem": "Certificate sales start in February 2027 (C50) and surrender is annual. As written, viewers may think payment happens now.",
+      "fix": "Append: \", once a year; certificate sales begin in February 2027\""
+    },
+    {
+      "seg": "11",
+      "rule": "G§5",
+      "severity": "minor",
+      "quote": "As of October 2026, that is the latest public update.",
+      "problem": "The claims table records a re-check up to 11/10/2026 only for the Federal Register (P11032). It has no such check for Stegra.",
+      "fix": "Re-check Stegra's press releases before recording, log the date in claims.md (C54 as_of), or cut the sentence."
+    },
+    {
+      "seg": "11",
+      "rule": "G§5",
+      "severity": "minor",
+      "quote": "a trial delivery is real steel, but not yet an industry",
+      "problem": "'Not yet' implies the industry will come, which is a mild prediction.",
+      "fix": "Replace with: \"a trial delivery is real steel, but one trial delivery is not an industry\""
+    },
+    {
+      "seg": "13",
+      "rule": "§3 / G§6",
+      "severity": "minor",
+      "quote": "A tariff, a quota and a golden share each work, in different ways, to keep a piece of that path at home.",
+      "problem": "This assigns one shared purpose to US and EU measures. 'At home' is ambiguous across two jurisdictions, and the statements of purpose are not quoted.",
+      "fix": "Replace with: \"A tariff, a quota and a golden share each affect, in different ways, how much of that path stays inside a given border.\""
+    },
+    {
+      "seg": "13",
+      "rule": "§1 / G§5",
+      "severity": "minor",
+      "quote": "was still making steel as of U.S. Steel's last annual report, filed in early 2025",
+      "problem": "'Last annual report' is not precise. The source is the 2024 Form 10-K filed with the SEC on 31 Jan 2025, and C57 notes there are no later SEC filings.",
+      "fix": "Replace with: \"was still making steel according to U.S. Steel's annual report to the SEC for 2024, filed in January 2025\""
+    },
+    {
+      "seg": "13",
+      "rule": "§2",
+      "severity": "minor",
+      "quote": "When America made half the world's steel, Pittsburgh was one of the main stops on that path.",
+      "problem": "Pittsburgh's share or ranking in the mid-century period has no claim behind it. The same applies to 01, 'the center of American steel'.",
+      "fix": "Prefix with \"Our read:\" or add a sourced claim. In 01, change 'became the center of American steel' to 'became a center of American steel'."
+    }
+  ],
+  "missing_from_claims": [
+    "01: 'one river valley in Pennsylvania became the center of American steel'",
+    "01: 'the frame of the building…, the rebar in the road, the body of the car' (general statement; low risk)",
+    "02/13: Edgar Thomson works named after Edgar Thomson ('named the works after his friend'; 'the mill Carnegie named')",
+    "04: Frick Coke Company 'run by Henry Frick'",
+    "04: 'Coke came from one field above all'",
+    "04: 'a battle on the riverbank' (not on the PHMC marker)",
+    "05: Federal Steel described as 'their' company (the Morgan/Gary group's)",
+    "06: 'The industry that came back was built differently' (no historical EAF share)",
+    "06: 'mostly because the rest of the world built far more' (calc not recorded)",
+    "07: Section 232 = Trade Expansion Act of 1962; 'adjust imports that threaten to impair national security'",
+    "08: comparison group for the 15× subsidy figure ('the median producer elsewhere')",
+    "09: 'After a national security review' (Biden order) / 'After a new review' (Trump order)",
+    "09: Granite City details: 'steel slabs', 'Illinois', timing of U.S. Steel's original statement",
+    "10: CBAM default values described as plant-level ('plant by plant, not country by country')",
+    "11: Stegra 'latest public update as of October 2026' (no re-check recorded)",
+    "12: 'Since 2018, governments' (EU safeguard start date not in claims; only its expiry, 30/06/2026)",
+    "13: Pittsburgh 'one of the main stops on that path' mid-century"
+  ],
+  "strengths": [
+    "Disclaimer is spoken verbatim within the first 30 s and uses the niche-G wording.",
+    "Every Carnegie statement is marked 'he wrote / recalled'; the Homestead account is attributed to the state marker with its figures.",
+    "Three myth-vs-record beats are neutral, have no named accusers, and end with narrow conclusions ('describes something narrower', 'sits in between').",
+    "Golden share is handled precisely: consent rights are listed, 'has not been made public' is used for the NSA, the AP quote is verbatim with date, and 'without being formally used' is used.",
+    "Biden and Trump orders are described as dated official actions with no evaluation.",
+    "CBAM calculation is labelled 'our own calculation, as an illustration only' with real-world adjustments, and 'no importer pays exactly this' prevents a 'you will pay' reading.",
+    "The comparison of China's exports with U.S. output says 'by weight' and 'crude steel', which handles the different-basis issue.",
+    "Ongoing events carry 'as of October 2026' markers; the OECD 2028 figure is attributed as a projection, and the script refuses to guess Stegra's opening.",
+    "Opinions are consistently flagged with 'Our read' / 'Our answer'; the close declines to judge whether the policy is worth its cost.",
+    "No company is given motives; 'reversed course' and 'had said' stay close to the AP report."
+  ]
+}
+```
