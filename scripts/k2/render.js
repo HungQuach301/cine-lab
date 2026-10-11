@@ -29,8 +29,8 @@ const SAMPLE = +arg('sample', 12);
     // cửa sổ nạp khung sau t1 phải ≥ thời lượng hoà (fade mặc định 0,7 s, có hoà 1,0–1,4 s): 0,6 s cũ làm hiện "missing plate" khi hoà dài (G2 tập 8, T01)
     for (const s of spec.shots) if (s.tpl === 'diptych' && t >= s.t0 - 1.2 && t <= s.t1 + 1.5) for (const q of [s.p.left, s.p.right]) if (q && q.dir) { const dd = path.isAbsolute(q.dir) ? q.dir : path.join(__dirname, '..', '..', q.dir);
       need.push([q.dir + '#' + (q.i || 0), path.join(dd, String(q.i || 0).padStart(5, '0') + '.jpg')]); }
-    for (const { s, d } of plates) if (t >= s.t0 - 1.2 && t <= s.t1 + 1.5 && s.p.n) { const i = Math.max(0, Math.min(s.p.n - 1, Math.round((t - s.t0) * 24 * (s.p.speed || 1)) + (s.p.off || 0)));
-      need.push([s.p.dir + '#' + i, path.join(d, String(i).padStart(5, '0') + '.jpg')]); }
+    for (const { s, d } of plates) if (t >= s.t0 - 1.2 && t <= s.t1 + 1.5 && s.p.n) { const x = Math.max(0, (t - s.t0) * 24 * (s.p.speed || 1)) + (s.p.off || 0), i0 = Math.floor(x + 1e-6);   // K2: nền chậm (speed < 1) hoà 2 khung kề (tránh giữ khung = judder Q1)
+      for (const i of new Set([i0, i0 + 1].map((k) => Math.max(0, Math.min(s.p.n - 1, k))))) need.push([s.p.dir + '#' + i, path.join(d, String(i).padStart(5, '0') + '.jpg')]); }
     return need; };
   const imgjs = imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>

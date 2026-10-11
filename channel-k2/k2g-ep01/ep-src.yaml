@@ -19,17 +19,17 @@ heroes:
   v_open:  {hero: k2g01/valley, opt: {tod: dusk, cam: [{u: 0, p: [-80, 46, -90], l: [0, 4, 18], mm: 24}, {u: 1, p: [-56, 34, -70], l: [0, 5, 18], mm: 26}]}}
   v_rail:  {hero: k2g01/valley, opt: {tod: dusk, cam: [{u: 0, p: [-64, 3.2, 46], l: [-30, 2, 30], mm: 30}, {u: 1, p: [-46, 3.6, 48], l: [-10, 2.2, 30], mm: 32}]}}
   v_site:  {hero: k2g01/valley, opt: {tod: dusk, cam: [{u: 0, p: [-30, 48, -46], l: [-6, 0, 20], mm: 26}, {u: 1, p: [-8, 44, -48], l: [-2, 0, 20], mm: 28}]}}
-  v_works: {hero: k2g01/valley, opt: {tod: night, cam: [{u: 0, p: [-34, 6, 0], l: [-4, 8, 18], mm: 30}, {u: 1, p: [-26, 7, 2], l: [0, 9, 18], mm: 34}]}}
+  v_works: {hero: k2g01/valley, opt: {tod: night, cam: [{u: 0, p: [-12, 5, -9], l: [-2, 9, 18], mm: 28}, {u: 1, p: [-4, 6, -7], l: [0, 10, 18], mm: 30}]}}
   v_bf:    {hero: k2g01/valley, opt: {tod: night, cam: [{u: 0, p: [-12, 3.5, 3], l: [-2, 10, 18], mm: 24}, {u: 1, p: [-6, 3.2, 5], l: [-2, 11, 18], mm: 24}]}}
-  v_coke:  {hero: k2g01/valley, opt: {tod: night, cam: [{u: 0, p: [-150, 5, 44], l: [-130, 1.5, 25], mm: 28}, {u: 1, p: [-116, 6, 44], l: [-128, 1.5, 25], mm: 30}]}}
-  v_coke2: {hero: k2g01/valley, opt: {tod: blue, cam: [{u: 0, p: [-176, 34, 70], l: [-128, 0, 20], mm: 26}, {u: 1, p: [-150, 38, 72], l: [-124, 0, 20], mm: 26}]}}
-  v_night: {hero: k2g01/valley, opt: {tod: night, barges: 1, cam: [{u: 0, p: [-86, 3, -6], l: [-40, 1.5, 8], mm: 28}, {u: 1, p: [-70, 3.4, -4], l: [-30, 1.5, 10], mm: 30}]}}
-  v_end:   {hero: k2g01/valley, opt: {tod: blue, cam: [{u: 0, p: [40, 30, -70], l: [-6, 6, 18], mm: 24}, {u: 1, p: [14, 20, -46], l: [-6, 8, 18], mm: 28}]}}
+  v_coke:  {hero: k2g01/valley, opt: {tod: night, cam: [{u: 0, p: [-156, 10, 56], l: [-130, 1, 25], mm: 28}, {u: 1, p: [-112, 11, 56], l: [-128, 1, 25], mm: 30}]}}
+  v_coke2: {hero: k2g01/valley, opt: {tod: dusk, cam: [{u: 0, p: [-162, 16, 52], l: [-130, 1, 24], mm: 28}, {u: 1, p: [-146, 18, 54], l: [-128, 1, 24], mm: 28}]}}
+  v_night: {hero: k2g01/valley, opt: {tod: blue, barges: 1, cam: [{u: 0, p: [-86, 3, -6], l: [-40, 1.5, 8], mm: 28}, {u: 1, p: [-70, 3.4, -4], l: [-30, 1.5, 10], mm: 30}]}}
+  v_end:   {hero: k2g01/valley, opt: {tod: blue, cam: [{u: 0, p: [34, 42, -64], l: [-6, 5, 18], mm: 24}, {u: 1, p: [14, 32, -50], l: [-6, 7, 18], mm: 28}]}}
   # ingots (1 thỏi = 10 Mt; cam = Mỹ)
   i_hook:  {hero: k2g01/ingots, opt: {piles: [{x: -16, z: 0, n: 19, us: 9, cols: 3, rows: 3, grow: -1}, {x: 8, z: -2, n: 185, us: 8, cols: 5, rows: 4, grow: "00@2025"}],
             cam: [{u: 0, p: [-25, 5.5, 12], l: [-16, 2.5, 0], mm: 36}, {u: 0.42, p: [-22, 7, 16], l: [-12, 2.5, 0], mm: 34}, {u: 0.75, p: [-12, 15, 30], l: [-2, 3.5, -1], mm: 30}, {u: 1, p: [-10, 16, 32], l: [-1, 4, -1], mm: 30}]}}
   i_hist:  {hero: k2g01/ingots, opt: {piles: [{x: -18, z: 0, n: 1, us: 1, cols: 3, rows: 3, grow: "@1900"}, {x: -6, z: 0, n: 16, us: 8, cols: 3, rows: 3, grow: "@1944"}, {x: 7, z: 0, n: 19, us: 9, cols: 3, rows: 3, grow: "@1950"}],
-            cam: [{u: 0, p: [-22, 8, 20], l: [-9, 2, 0], mm: 32}, {u: 1, p: [2, 10, 24], l: [0, 2.5, 0], mm: 30}]}}
+            cam: [{u: 0, p: [-18, 7, 19], l: [-7.5, 1.6, 0], mm: 27}, {u: 1, p: [-10, 9, 21], l: [-6, 1.8, 0], mm: 27}]}}
   i_myth:  {hero: k2g01/ingots, opt: {piles: [{x: -5, z: 0, n: 9, us: 9, cols: 3, rows: 3, grow: -1}, {x: 5, z: 0, n: 8, us: 8, cols: 3, rows: 3, grow: -1}],
             cam: [{u: 0, p: [-4, 4, 14], l: [0, 1, 0], mm: 34}, {u: 1, p: [4, 5, 13], l: [0, 1, 0], mm: 34}]}}
   i_world: {hero: k2g01/ingots, opt: {piles: [{x: -16, z: 0, n: 19, us: 9, cols: 3, rows: 3, grow: -1}, {x: 8, z: -2, n: 185, us: 8, cols: 5, rows: 4, grow: "@rose"}],
@@ -61,15 +61,15 @@ heroes:
   m_eaf:   {hero: k2g01/mill, opt: {inside: 1, cam: [{u: 0, p: [10, 9, 9], l: [-8, 7, -4], mm: 26}, {u: 1, p: [4, 10, 11], l: [-8, 8, -4], mm: 28}]}}
   m_slab:  {hero: k2g01/mill, opt: {hot: 0, cam: [{u: 0, p: [-4, 6, 62], l: [-16, 1, 48], mm: 28}, {u: 1, p: [6, 7, 62], l: [-12, 1, 46], mm: 30}]}}
   m_hot:   {hero: k2g01/mill, opt: {hot: 1, cam: [{u: 0, p: [20, 5, 46], l: [-6, 1.5, 36], mm: 28}, {u: 1, p: [14, 5, 44], l: [-10, 1.5, 36], mm: 30}]}}
-  m_stack: {hero: k2g01/mill, opt: {cam: [{u: 0, p: [-8, 18, 34], l: [-41, 38, -26], mm: 30}, {u: 1, p: [-16, 22, 28], l: [-41, 42, -26], mm: 32}]}}
+  m_stack: {hero: k2g01/mill, opt: {cam: [{u: 0, p: [-112, 22, 62], l: [-41, 30, -26], mm: 30}, {u: 1, p: [-98, 26, 54], l: [-41, 34, -26], mm: 32}]}}
   # north (giờ xanh phương bắc)
   n_wide:  {hero: k2g01/north, opt: {}}
   n_site:  {hero: k2g01/north, opt: {site: 1, cam: [{u: 0, p: [40, 14, 60], l: [0, 16, -4], mm: 28}, {u: 1, p: [24, 18, 54], l: [-6, 20, -4], mm: 30}]}}
   n_route: {hero: k2g01/north, opt: {cam: [{u: 0, p: [60, 10, 40], l: [22, 4, 6], mm: 28}, {u: 1, p: [50, 16, 46], l: [10, 10, -40], mm: 26}]}}
   # Shorts 9:16
   s_ingots: {hero: k2g01/ingots, size: [1080, 1920], opt: {piles: [{x: -16, z: 0, n: 19, us: 9, cols: 3, rows: 3, grow: -1}, {x: 8, z: -2, n: 185, us: 8, cols: 5, rows: 4, grow: "@2025"}],
-            cam: [{u: 0, p: [-22, 6, 16], l: [-15, 3, 0], mm: 22}, {u: 0.5, p: [-16, 10, 24], l: [-6, 3, 0], mm: 20}, {u: 1, p: [-6, 22, 34], l: [0, 5, -1], mm: 20}]}}
-  s_port:  {hero: k2g01/port, size: [1080, 1920], opt: {tod: dusk, gate: us, cam: [{u: 0, p: [30, 4, 84], l: [20, 5, 58], mm: 20}, {u: 1, p: [28, 5, 80], l: [20, 6, 58], mm: 22}]}}
+            cam: [{u: 0, p: [-34, 6, 5], l: [-16, 2, 0], mm: 24}, {u: 0.45, p: [-38, 12, 6], l: [-6, 2.5, -1], mm: 22}, {u: 1, p: [-42, 24, 8], l: [0, 4, -1], mm: 22}]}}
+  s_port:  {hero: k2g01/port, size: [1080, 1920], opt: {tod: dusk, gate: us, cam: [{u: 0, p: [22, 18, 108], l: [19, 4, 58], mm: 24}, {u: 1, p: [20, 20, 104], l: [19, 5, 58], mm: 26}]}}
   s_mill:  {hero: k2g01/mill, size: [1080, 1920], opt: {cam: [{u: 0, p: [16, 12, 64], l: [0, 10, 0], mm: 20}, {u: 1, p: [6, 14, 60], l: [-4, 12, 0], mm: 20}]}}
 
 sources:
@@ -154,7 +154,7 @@ segments:
            cap: [{s: "An explainer. Not financial or investment advice.", at: "@isn't"}]},
          sfx: [{file: assets/k2/sfx/blast-furnace-tap.mp3, at: -0.5, src_ss: 5, dur: 8, gain_db: -22, fade_ms: 900}]}
       - {tpl: plate, at: "@old-0.5", in: fade, p: {hero: v_open, frame0: 140, speed: 0.4, card: {type: layers, title: "This story has three layers",
-           rows: [{k: "1 · OLD", s: "One river valley in Pennsylvania", at: "@old"}, {k: "2 · RECENT", s: "Hard limits on steel imports", at: "@recent"}, {k: "3 · NEW", s: "A price on carbon at one border", at: "@new"}]}}}
+           hiAt: "@old", rows: [{k: "1 · OLD", s: "One river valley in Pennsylvania", at: "@old-0.5"}, {k: "2 · RECENT", s: "Hard limits on steel imports", at: "@old+0.6"}, {k: "3 · NEW", s: "A price on carbon at one border", at: "@old+1.2"}]}}}
       - {tpl: plate, at: "@recent-0.3", in: fade, p: {hero: t_limits, frame0: 0,
            labels: [{a: us, s: "Washington", at: "@washington", dy: -120}, {a: gate, s: "Brussels", at: "@brussels", dy: -110, c: "#3CC2B0"}],
            cap: [{s: "Governments put hard limits on steel imports", at: "@limits"}, {s: "In Washington's case: on national security grounds", at: "@national"}]},
@@ -162,7 +162,7 @@ segments:
       - {tpl: plate, at: "@and-0.3", in: fade, p: {hero: p_eu, frame0: 0, cap: [{s: "A price attached to steel crossing one major border", at: "@price"}, {s: "the price of its carbon", at: "@carbon"}]},
          sfx: [{file: assets/k2/sfx/gantry-crane.mp3, at: "@and", src_ss: 4, dur: 7, gain_db: -22, fade_ms: 700}]}
       - {tpl: plate, at: "@under-0.4", in: fade, p: {hero: p_eu, frame0: 300, speed: 0.4, card: {type: path, kicker: "OUR READ", title: "One mechanism under all three",
-           nodes: [{s: "Raw material", at: "@raw"}, {s: "Furnace", at: "@material"}, {s: "Rail and port", at: "@material+0.3"}, {s: "Border", at: "@market-0.3"}, {s: "Market", at: "@market"}],
+           nodes: [{s: "Raw material", at: "@under"}, {s: "Furnace", at: "@under+0.5"}, {s: "Rail and port", at: "@under+1.0"}, {s: "Border", at: "@three-0.3"}, {s: "Market", at: "@three"}],
            tolls: [{i: 3, s: "toll", at: "@tolls", below: 1}], q: [{s: "Control of the path, and the tolls charged along it", at: "@tolls", px: 44}]}}}
 
   # ===== 02 TẦNG 1: ĐỊA ĐIỂM =====
@@ -205,7 +205,7 @@ segments:
       - {tpl: plate, at: "@four-0.3", in: fade, p: {hero: c_draw, frame0: 600, speed: 0.4, src: [CARN], card: {type: bars, title: "Four tons of material for one ton of steel", max: 1.7,
            items: [{label: "Iron ore", value: 1.5, text: "1.5 t", at: "@four"}, {label: "Coal (as coke)", value: 1.5, text: "1.5 t", at: "@four+0.3", c: "#F2C14E"}, {label: "Limestone", value: 1, text: "1 t", at: "@four+0.6", c: "#9AA7B5"},
                    {label: "→ Steel", value: 1, text: "1 t", at: "@one#3", c: "#3CC2B0"}]}}}
-      - {tpl: plate, at: "@writing-0.3", in: fade, p: {hero: c_draw, frame0: 700, speed: 0.4, src: [CARN], card: {type: quote, kicker: "LATE 1880s–1890s", q: "three pounds for two cents", by: "Carnegie on the price of steel, Autobiography (1920)", at: "@three", px: 76}}}
+      - {tpl: plate, at: "@writing-0.3", in: fade, p: {hero: c_draw, frame0: 700, speed: 0.4, src: [CARN], card: {type: quote, kicker: "LATE 1880s–1890s", q: "three pounds for two cents", by: "Carnegie on the price of steel, Autobiography (1920)", at: "@writing", px: 76}}}
       - {tpl: plate, at: "@our-0.3", in: fade, p: {hero: c_full, frame0: 0, cap: [{s: "Our read: geography plus logistics", at: "@geography"}, {s: "Control the cheapest path from rock to rail, and others must answer", at: "@whoever"}]},
          sfx: [{file: assets/k2/sfx/train-1912.mp3, at: "@our", src_ss: 40, dur: 9, gain_db: -24, fade_ms: 900}]}
 
@@ -225,7 +225,7 @@ segments:
          sfx: [{file: assets/k2/sfx/pusher-furnace.mp3, at: "@by", src_ss: 25, dur: 10, gain_db: -22, fade_ms: 800}]}
       - {tpl: plate, at: "@our-0.3", in: fade, p: {hero: c_own, frame0: 120, cap: [{s: "Our read: vertical integration", at: "@vertical"}, {s: "owning steps of the supply chain instead of buying them", at: "@owning"}],
            labels: [{a: coke, s: "owned", at: "@owning", dy: -140, c: "#F2C14E"}, {a: ore, s: "bought", at: "@buying", dy: -120, c: "#9AA7B5"}]}}
-      - {tpl: plate, at: "@same-0.6", in: fade, p: {hero: v_night, frame0: 0, cap: [{s: "1892: a strike at the Homestead works", at: "@1892"}]},
+      - {tpl: plate, at: "@same-0.6", in: fade, p: {hero: v_night, frame0: 0, cap: [{s: "1892: a strike at the Homestead works", at: "@1892", src: [PHMC]}]},
          sfx: [{file: assets/k2/sfx/foghorn.mp3, at: "@same", src_ss: 8, dur: 6, gain_db: -24, fade_ms: 900}]}
       - {tpl: plate, at: "@historical-1.0", in: fade, p: {hero: v_night, frame0: 220, speed: 0.4, src: [PHMC], card: {type: list, kicker: "PENNSYLVANIA STATE HISTORICAL MARKER", title: "Homestead Strike, 1892",
            items: [{s: "On orders of the Carnegie Steel Company, 300 Pinkerton agents attempted to land", at: "@orders", check: false}, {s: "Strikers and citizens repulsed them", at: "@strikers", check: false}]}}}
@@ -246,8 +246,8 @@ segments:
       - {tpl: plate, at: "@according-0.3", in: fade, p: {hero: i_hist, frame0: 0,
            labels: [{a: pile0, s: "1900 · U.S. ≈ 9 Mt", at: "@1900", dy: -130, num: us1900}, {a: pile1, s: "1944 · U.S. ≈ 81 Mt", sub: "≈ half of world steel", at: "@1944", dy: -200, num: us1944},
                     {a: pile2, s: "1950", sub: "still close to half", at: "@1950", dy: -150}],
-           cap: [{s: "1 bar = 10 million tonnes · orange = United States", at: 0.3}, {s: "Our read: “steel as national power” in numbers is a share", at: "@read"},
-                 {s: "1950: much of the world was still rebuilding after the war", at: "@much"}, {s: "an unusual moment, not a baseline", at: "@unusual"}]},
+           cap: [{s: "1 bar = 10 million tonnes · orange = United States", at: 0.3, src: [USGS]}, {s: "Our read: “steel as national power” in numbers is a share", at: "@read", src: []},
+                 {s: "Our read: in 1950 much of the world was still rebuilding after the war", at: "@much", src: []}, {s: "an unusual moment, not a baseline", at: "@unusual", src: []}]},
          sfx: [{file: assets/k2/sfx/hot-rolling.mp3, at: "@according", src_ss: 20, dur: 12, gain_db: -24, fade_ms: 1000}]}
 
   # ===== 06 HUYỀN THOẠI 1 =====
@@ -257,7 +257,7 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: i_myth, frame0: 0, speed: 0.4, card: {type: split, kicker: "MYTH VS. RECORD",
            left: {tag: "YOU'LL OFTEN HEAR", title: "“The American steel industry is dying, or already gone”", at: "@hear"},
-           right: {tag: "THE RECORD", title: "USGS and worldsteel", at: "@record", c: "#3CC2B0", lines: [{s: "1950: 87.8 Mt", at: "@eighty-eight", num: us1950}, {s: "2025: 81.9 Mt", at: "@eighty-two", num: us2025}]}}}}
+           right: {tag: "THE RECORD", title: "USGS and worldsteel", at: "@record", c: "#3CC2B0", lines: [{s: "1950: 87.8 Mt (USGS, raw steel)", at: "@eighty-eight", num: us1950}, {s: "2025: 81.9 Mt (worldsteel, crude steel)", at: "@eighty-two", num: us2025}]}}}}
       - {tpl: plate, at: "@by-0.3", in: fade, p: {hero: i_myth, frame0: 60, labels: [{a: pile0, s: "1950", at: "@by", dy: -110}, {a: pile1, s: "2025", at: "@by", dy: -110}],
            cap: [{big: "≈ −7%", s: "by our calculation, 1950 to 2025", at: "@drop", num: drop7}, {s: "On tonnage, the record says something narrower than “dying”", at: "@narrower"}]},
          sfx: [{file: assets/k2/sfx/cutting-steel.mp3, at: "@by", src_ss: 3, dur: 5, gain_db: -24, fade_ms: 700}]}
@@ -292,7 +292,7 @@ segments:
            title: {kicker: "LAYER 2 · THE RECENT ONE", t: "The rules", sub: "Facts as of October 2026", at: 0.4, out: "@in-0.5"}},
          sfx: [{file: assets/k2/sfx/container-terminal.mp3, at: 0, src_ss: 30, dur: 7, gain_db: -20, fade_ms: 900}]}
       - {tpl: plate, at: "@in-0.3", in: fade, p: {hero: t_both, frame0: 0, speed: 0.35, src: [P9705], card: {type: list, kicker: "U.S. LAW", title: "Section 232 of the Trade Expansion Act of 1962",
-           items: [{s: "The Commerce Secretary can find that imports “threaten to impair the national security”", at: "@threaten", check: false}, {s: "and the president can act on it", at: "@president", check: false}]}}}
+           items: [{s: "The Commerce Secretary can find that imports “threaten to impair the national security”", at: "@section", check: false}, {s: "and the president can act on it", at: "@president", check: false}]}}}
       - {tpl: plate, at: "@march-0.4", in: fade, p: {hero: p_dusk, frame0: 180, speed: 0.35, card: {type: timeline, title: "U.S. Section 232 steel tariffs",
            items: [{date: "Mar 2018", big: "25%", s: "on imported steel; Canada and Mexico exempt at first", at: "@twenty-five", num: t25}]}}}
       - {tpl: plate, at: "@recorded-0.5", in: fade, p: {hero: p_day, frame0: 0,
@@ -350,7 +350,7 @@ segments:
       - {tpl: plate, at: "@second-0.5", in: fade, p: {hero: m_hot, frame0: 160, speed: 0.35, src: [NSC], card: {type: split, kicker: "MYTH VS. RECORD",
            left: {tag: "A POPULAR CLAIM", title: "“The golden share means Washington now owns U.S. Steel”", at: "@claim"},
            right: {tag: "THE COMPANIES' ANNOUNCEMENT", title: "Something narrower", at: "@narrower", c: "#3CC2B0"}}}}
-      - {tpl: plate, at: "@lets-0.6", in: fade, p: {hero: m_uss, frame0: 500, speed: 0.35, src: [NSC, CRS], card: {type: list, kicker: "AS THE COMPANIES DESCRIBED IT, JUNE 2025", title: "The golden share",
+      - {tpl: plate, at: "@lets-0.6", in: fade, p: {hero: m_uss, frame0: 500, speed: 0.35, src: [NSC, CRS], card: {type: list, kicker: "AS THE COMPANIES DESCRIBED IT, JUNE 2025", title: "The golden share", px: 35, gap: 40,
            items: [{s: "The government appoints one independent director", at: "@appoint"}, {s: "The president gets consent rights over specific decisions, including:", at: "@consent", check: false},
                    {s: "cutting investment commitments · changing the name or HQ", at: "@cutting"}, {s: "moving production or jobs abroad · certain plant closures or idlings", at: "@moving"},
                    {s: "The full agreement has not been made public.", at: "@full", check: false, c: "#9AA7B5"}]}}}
@@ -358,7 +358,7 @@ segments:
            cap: [{s: "Three months later: U.S. Steel said it would stop processing slabs at Granite City, Illinois", at: "@granite", src: [AP]}]},
          sfx: [{file: assets/k2/sfx/cutting-steel.mp3, at: "@three", src_ss: 10, dur: 8, gain_db: -24, fade_ms: 900}]}
       - {tpl: plate, at: "@according-0.5", in: fade, p: {hero: m_slab, frame0: 200, speed: 0.35, src: [AP], card: {type: quote, kicker: "THE WHITE HOUSE, AS REPORTED BY THE AP, 22 SEP 2025",
-           q: "with the threat of the president invoking his golden share authority", by: "White House statement quoted by the Associated Press", at: "@with", px: 60}}}
+           q: "with the threat of the president invoking his golden share authority", by: "White House statement quoted by the Associated Press", at: "@according", px: 60}}}
       - {tpl: plate, at: "@reversed-0.8", in: fade, p: {hero: m_hot, frame0: 300, cap: [{s: "U.S. Steel reversed course, the AP reported", at: "@reversed", src: [AP]}, {s: "The company's own reason is not in the record we cite", at: "@company's"}]},
          sfx: [{file: assets/k2/sfx/hot-rolling.mp3, at: "@reversed-0.8", src_ss: 40, dur: 8, gain_db: -20, fade_ms: 700}]}
       - {tpl: plate, at: "@carnegie's-0.6", in: fade, p: {hero: v_coke, frame0: 300, cap: [{s: "Our read: Carnegie's firm once secured a key piece of the path", at: "@secured"}, {s: "Now a government holds consent rights over some decisions along it", at: "@holds"}]},
@@ -407,14 +407,14 @@ segments:
            cap: [{s: "A route that skips coke entirely", at: "@skips"}, {s: "Aug 2021: SSAB announces the first steel from iron reduced with fossil-free hydrogen", at: "@announced", src: [HYB]}, {s: "a trial delivery to the Volvo Group", at: "@trial", src: [HYB]}]},
          sfx: [{file: assets/k2/sfx/wind-turbine.mp3, at: 0, src_ss: 2, dur: 17, gain_db: -20, fade_ms: 1200}]}
       - {tpl: plate, at: "@you'll-0.4", in: fade, p: {hero: n_wide, frame0: 300, speed: 0.35, card: {type: split, kicker: "TWO OPPOSITE CLAIMS",
-           left: {tag: "CLAIM 1", title: "“Green steel is already here”", at: "@already"}, right: {tag: "CLAIM 2", title: "“It's only marketing”", at: "@marketing", c: "#9AA7B5"}}}}
+           left: {tag: "CLAIM 1", title: "“Green steel is already here”", at: "@you'll"}, right: {tag: "CLAIM 2", title: "“It's only marketing”", at: "@marketing", c: "#9AA7B5"}}}}
       - {tpl: plate, at: "@record-0.5", in: fade, p: {hero: n_wide, frame0: 380, speed: 0.35, src: [HYB], card: {type: list, kicker: "THE RECORD", title: "It sits in between", accent: "#3CC2B0",
            items: [{s: "A trial delivery is real steel: the route has produced it", at: "@real"}, {s: "On its own, it doesn't show an industry at scale", at: "@scale", check: false}]}}}
       - {tpl: plate, at: "@company-0.6", in: fade, p: {hero: n_site, frame0: 0, labels: [{a: site, s: "Stegra · Boden, northern Sweden", sub: "hydrogen-based steel plant (illustration)", at: "@boden", dy: 120, dx: -260, c: "#3CC2B0"}],
            cap: [{big: "€1.4 bn", s: "financing round closed in June 2026 · timeline then “under review”", at: "@billion", num: stg14}]},
          sfx: [{file: assets/k2/sfx/gantry-crane.mp3, at: "@company", src_ss: 45, dur: 14, gain_db: -26, fade_ms: 1200}]}
       - {tpl: plate, at: "@as-0.4", in: fade, p: {hero: n_site, frame0: 300, speed: 0.35, src: [STG2], asof: true, card: {type: list, kicker: "MOST RECENT REPORTS WE FOUND", title: "Stegra, as of 11 Oct 2026", accent: "#F2C14E",
-           items: [{s: "30 Sep: cost to complete “significantly higher than assumed in June”; more capital needed", sub: "Tech.eu, Finwire", at: "@significantly"}, {s: "Finwire: the green-steel timeline “remains unchanged”", at: "@remains"},
+           items: [{s: "30 Sep: cost to complete “significantly higher than assumed in June”; more capital needed", sub: "Tech.eu, Finwire", at: "@most"}, {s: "Finwire: the green-steel timeline “remains unchanged”", at: "@remains"},
                    {s: "We won't guess when it opens.", at: "@guess", check: false, c: "#9AA7B5"}]}}}
       - {tpl: plate, at: "@our-0.4", in: fade, p: {hero: n_route, frame0: 0, labels: [{a: electro, s: "New input: fossil-free hydrogen", sub: "illustration", at: "@inputs", dy: -170, c: "#3CC2B0"}],
            cap: [{s: "Our read: a hydrogen route depends on new inputs", at: "@depends"}, {s: "where those are produced becomes part of the path again", at: "@becomes"}]},
@@ -427,7 +427,7 @@ segments:
     shots:
       - {tpl: plate, at: 0, p: {hero: c_own, frame0: 300,
            labels: [{a: ore, s: "ore", at: "@ore", dy: -110}, {a: coke, s: "coke", at: "@coke", dy: 120, dx: 100, c: "#F2C14E"}, {a: lime, s: "limestone", at: "@limestone", dy: -120, dx: 160, c: "#9AA7B5"}, {a: pitt, s: "railroads · river", at: "@railroads", dy: -160, dx: -200, c: "#EEF1F4"}],
-           cap: [{s: "Our read: the mechanism under all three layers", at: "@read"}, {s: "1880s: power meant controlling the cheapest path from rock to rail", at: "@controlling"}, {s: "Carnegie's firm secured a key piece: the coke", at: "@secured"}]},
+           cap: [{s: "Our read: the mechanism under all three layers", at: "@read"}, {s: "1880s: power meant controlling the cheapest path from rock to rail", at: "@controlling", src: []}, {s: "Carnegie's firm secured a key piece: the coke", at: "@secured"}]},
          sfx: [{file: assets/k2/sfx/train-1912.mp3, at: 0, src_ss: 50, dur: 9, gain_db: -24, fade_ms: 900}]}
       - {tpl: plate, at: "@since-0.3", in: fade, p: {hero: t_both, frame0: 400, cap: [{s: "Since 2018: hard limits on steel imports, from Washington and, with its own measures, Brussels", at: "@limits"}, {s: "As of Oct 2026, Washington treats it as a security question", at: "@security"}]}}
       - {tpl: plate, at: "@tariffs-0.3", in: fade, p: {hero: m_uss, frame0: 120, cap: [{s: "Tariffs and quotas: terms for who sells steel across a border", at: "@quotas"}, {s: "A golden share: terms for some decisions inside one company", at: "@golden"}]},
@@ -449,7 +449,7 @@ segments:
            cap: [{s: "1 bar = 10 million tonnes of steel · orange = United States", at: 0.3, src: [USGS, WSIF]}]},
          sfx: [{file: assets/k2/sfx/hot-rolling.mp3, at: 0, src_ss: 60, dur: 10, gain_db: -24, fade_ms: 900}]}
       - {tpl: plate, at: "@so-0.3", in: fade, p: {hero: i_hook, frame0: 250, speed: 0.35, card: {type: list, kicker: "OUR ANSWER", title: "Why guard it like a weapon?",
-           items: [{s: "Steel power was never only about tonnage", at: "@never"}, {s: "It was about share", at: "@share"}, {s: "and about control of the path", at: "@control"}]}}}
+           items: [{s: "Steel power was never only about tonnage", at: "@answer"}, {s: "It was about share", at: "@share"}, {s: "and about control of the path", at: "@control"}]}}}
       - {tpl: plate, at: "@today-0.4", in: fade, p: {hero: t_both, frame0: 560, cap: [{s: "More of it runs through other countries' furnaces and other governments' rules", at: "@runs"},
            {s: "A tariff, a quota, a golden share: each sets terms for how steel crosses a border", at: "@tariff"}, {s: "Whether that is worth what it costs, these numbers can't settle", at: "@whether"}]}}
       - {tpl: plate, at: "@but-0.4", in: fade, p: {hero: v_end, frame0: 0, labels: [{a: furnace, s: "Edgar Thomson Works", sub: "Braddock, Pennsylvania", at: "@edgar", dy: -170}],

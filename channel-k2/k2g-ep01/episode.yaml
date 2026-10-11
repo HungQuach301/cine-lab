@@ -116,24 +116,24 @@ heroes:
       cam:
       - u: 0
         p:
-        - -34
-        - 6
-        - 0
+        - -12
+        - 5
+        - -9
         l:
-        - -4
-        - 8
-        - 18
-        mm: 30
-      - u: 1
-        p:
-        - -26
-        - 7
-        - 2
-        l:
-        - 0
+        - -2
         - 9
         - 18
-        mm: 34
+        mm: 28
+      - u: 1
+        p:
+        - -4
+        - 6
+        - -7
+        l:
+        - 0
+        - 10
+        - 18
+        mm: 30
   v_bf:
     hero: k2g01/valley
     opt:
@@ -166,53 +166,53 @@ heroes:
       cam:
       - u: 0
         p:
-        - -150
-        - 5
-        - 44
+        - -156
+        - 10
+        - 56
         l:
         - -130
-        - 1.5
+        - 1
         - 25
         mm: 28
       - u: 1
         p:
-        - -116
-        - 6
-        - 44
+        - -112
+        - 11
+        - 56
         l:
         - -128
-        - 1.5
+        - 1
         - 25
         mm: 30
   v_coke2:
     hero: k2g01/valley
     opt:
-      tod: blue
+      tod: dusk
       cam:
       - u: 0
         p:
-        - -176
-        - 34
-        - 70
+        - -162
+        - 16
+        - 52
         l:
-        - -128
-        - 0
-        - 20
-        mm: 26
+        - -130
+        - 1
+        - 24
+        mm: 28
       - u: 1
         p:
-        - -150
-        - 38
-        - 72
+        - -146
+        - 18
+        - 54
         l:
-        - -124
-        - 0
-        - 20
-        mm: 26
+        - -128
+        - 1
+        - 24
+        mm: 28
   v_night:
     hero: k2g01/valley
     opt:
-      tod: night
+      tod: blue
       barges: 1
       cam:
       - u: 0
@@ -242,22 +242,22 @@ heroes:
       cam:
       - u: 0
         p:
-        - 40
-        - 30
-        - -70
+        - 34
+        - 42
+        - -64
         l:
         - -6
-        - 6
+        - 5
         - 18
         mm: 24
       - u: 1
         p:
         - 14
-        - 20
-        - -46
+        - 32
+        - -50
         l:
         - -6
-        - 8
+        - 7
         - 18
         mm: 28
   i_hook:
@@ -347,24 +347,24 @@ heroes:
       cam:
       - u: 0
         p:
-        - -22
-        - 8
-        - 20
+        - -18
+        - 7
+        - 19
         l:
-        - -9
-        - 2
+        - -7.5
+        - 1.6
         - 0
-        mm: 32
+        mm: 27
       - u: 1
         p:
-        - 2
-        - 10
-        - 24
+        - -10
+        - 9
+        - 21
         l:
+        - -6
+        - 1.8
         - 0
-        - 2.5
-        - 0
-        mm: 30
+        mm: 27
   i_myth:
     hero: k2g01/ingots
     opt:
@@ -994,22 +994,22 @@ heroes:
       cam:
       - u: 0
         p:
-        - -8
-        - 18
-        - 34
+        - -112
+        - 22
+        - 62
         l:
         - -41
-        - 38
+        - 30
         - -26
         mm: 30
       - u: 1
         p:
-        - -16
-        - 22
-        - 28
+        - -98
+        - 26
+        - 54
         l:
         - -41
-        - 42
+        - 34
         - -26
         mm: 32
   n_wide:
@@ -1088,34 +1088,34 @@ heroes:
       cam:
       - u: 0
         p:
-        - -22
+        - -34
         - 6
-        - 16
+        - 5
         l:
-        - -15
-        - 3
-        - 0
-        mm: 22
-      - u: 0.5
-        p:
         - -16
-        - 10
-        - 24
+        - 2
+        - 0
+        mm: 24
+      - u: 0.45
+        p:
+        - -38
+        - 12
+        - 6
         l:
         - -6
-        - 3
-        - 0
-        mm: 20
+        - 2.5
+        - -1
+        mm: 22
       - u: 1
         p:
-        - -6
-        - 22
-        - 34
+        - -42
+        - 24
+        - 8
         l:
         - 0
-        - 5
+        - 4
         - -1
-        mm: 20
+        mm: 22
   s_port:
     hero: k2g01/port
     size:
@@ -1127,24 +1127,24 @@ heroes:
       cam:
       - u: 0
         p:
-        - 30
-        - 4
-        - 84
+        - 22
+        - 18
+        - 108
         l:
-        - 20
-        - 5
+        - 19
+        - 4
         - 58
-        mm: 20
+        mm: 24
       - u: 1
         p:
-        - 28
-        - 5
-        - 80
-        l:
         - 20
-        - 6
+        - 20
+        - 104
+        l:
+        - 19
+        - 5
         - 58
-        mm: 22
+        mm: 26
   s_mill:
     hero: k2g01/mill
     size:
@@ -1637,16 +1637,17 @@ segments:
       card:
         type: layers
         title: This story has three layers
+        hiAt: '@old'
         rows:
         - k: 1 · OLD
           s: One river valley in Pennsylvania
-          at: '@old'
+          at: '@old-0.5'
         - k: 2 · RECENT
           s: Hard limits on steel imports
-          at: '@recent'
+          at: '@old+0.6'
         - k: 3 · NEW
           s: A price on carbon at one border
-          at: '@new'
+          at: '@old+1.2'
   - tpl: plate
     at: '@recent-0.3'
     in: fade
@@ -1706,15 +1707,15 @@ segments:
         title: One mechanism under all three
         nodes:
         - s: Raw material
-          at: '@raw'
+          at: '@under'
         - s: Furnace
-          at: '@material'
+          at: '@under+0.5'
         - s: Rail and port
-          at: '@material+0.3'
+          at: '@under+1.0'
         - s: Border
-          at: '@market-0.3'
+          at: '@three-0.3'
         - s: Market
-          at: '@market'
+          at: '@three'
         tolls:
         - i: 3
           s: toll
@@ -2008,7 +2009,7 @@ segments:
         kicker: LATE 1880s–1890s
         q: three pounds for two cents
         by: Carnegie on the price of steel, Autobiography (1920)
-        at: '@three'
+        at: '@writing'
         px: 76
   - tpl: plate
     at: '@our-0.3'
@@ -2147,6 +2148,8 @@ segments:
       cap:
       - s: '1892: a strike at the Homestead works'
         at: '@1892'
+        src:
+        - PHMC
     sfx:
     - file: assets/k2/sfx/foghorn.mp3
       at: '@same'
@@ -2281,12 +2284,17 @@ segments:
       cap:
       - s: 1 bar = 10 million tonnes · orange = United States
         at: 0.3
+        src:
+        - USGS
       - s: 'Our read: “steel as national power” in numbers is a share'
         at: '@read'
-      - s: '1950: much of the world was still rebuilding after the war'
+        src: []
+      - s: 'Our read: in 1950 much of the world was still rebuilding after the war'
         at: '@much'
+        src: []
       - s: an unusual moment, not a baseline
         at: '@unusual'
+        src: []
     sfx:
     - file: assets/k2/sfx/hot-rolling.mp3
       at: '@according'
@@ -2317,10 +2325,10 @@ segments:
           at: '@record'
           c: '#3CC2B0'
           lines:
-          - s: '1950: 87.8 Mt'
+          - s: '1950: 87.8 Mt (USGS, raw steel)'
             at: '@eighty-eight'
             num: us1950
-          - s: '2025: 81.9 Mt'
+          - s: '2025: 81.9 Mt (worldsteel, crude steel)'
             at: '@eighty-two'
             num: us2025
   - tpl: plate
@@ -2574,7 +2582,7 @@ segments:
         title: Section 232 of the Trade Expansion Act of 1962
         items:
         - s: The Commerce Secretary can find that imports “threaten to impair the national security”
-          at: '@threaten'
+          at: '@section'
           check: false
         - s: and the president can act on it
           at: '@president'
@@ -3009,6 +3017,8 @@ segments:
         type: list
         kicker: AS THE COMPANIES DESCRIBED IT, JUNE 2025
         title: The golden share
+        px: 35
+        gap: 40
         items:
         - s: The government appoints one independent director
           at: '@appoint'
@@ -3060,7 +3070,7 @@ segments:
         kicker: THE WHITE HOUSE, AS REPORTED BY THE AP, 22 SEP 2025
         q: with the threat of the president invoking his golden share authority
         by: White House statement quoted by the Associated Press
-        at: '@with'
+        at: '@according'
         px: 60
   - tpl: plate
     at: '@reversed-0.8'
@@ -3396,7 +3406,7 @@ segments:
         left:
           tag: CLAIM 1
           title: “Green steel is already here”
-          at: '@already'
+          at: '@you''ll'
         right:
           tag: CLAIM 2
           title: “It's only marketing”
@@ -3466,7 +3476,7 @@ segments:
         items:
         - s: '30 Sep: cost to complete “significantly higher than assumed in June”; more capital needed'
           sub: Tech.eu, Finwire
-          at: '@significantly'
+          at: '@most'
         - s: 'Finwire: the green-steel timeline “remains unchanged”'
           at: '@remains'
         - s: We won't guess when it opens.
@@ -3535,6 +3545,7 @@ segments:
         at: '@read'
       - s: '1880s: power meant controlling the cheapest path from rock to rail'
         at: '@controlling'
+        src: []
       - s: 'Carnegie''s firm secured a key piece: the coke'
         at: '@secured'
     sfx:
@@ -3672,7 +3683,7 @@ segments:
         title: Why guard it like a weapon?
         items:
         - s: Steel power was never only about tonnage
-          at: '@never'
+          at: '@answer'
         - s: It was about share
           at: '@share'
         - s: and about control of the path

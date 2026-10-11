@@ -35,10 +35,10 @@ const rep = (t, a, b) => { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.se
 function brickTex(seed = 3, base = '#5a3428') { const R = rng(seed); return canvasTex(512, 512, (g, w, h) => {
   g.fillStyle = '#2b211d'; g.fillRect(0, 0, w, h); const bw = 64, bh = 22;
   for (let y = 0, r = 0; y < h; y += bh, r++) for (let x = -(r % 2) * bw / 2; x < w; x += bw) { const k = 0.75 + R() * 0.45, c = new THREE.Color(base).multiplyScalar(k);
-    g.fillStyle = `rgb(${c.r * 255 | 0},${c.g * 255 | 0},${c.b * 255 | 0})`; g.fillRect(x + 2, y + 2, bw - 4, bh - 4); if (R() < 0.18) { g.fillStyle = 'rgba(10,8,8,0.25)'; g.fillRect(x + 2, y + 2, bw - 4, bh - 4); } }
+    g.fillStyle = '#' + c.getHexString(); g.fillRect(x + 2, y + 2, bw - 4, bh - 4); if (R() < 0.18) { g.fillStyle = 'rgba(10,8,8,0.25)'; g.fillRect(x + 2, y + 2, bw - 4, bh - 4); } }
   for (let i = 0; i < 60; i++) { const x = R() * w, gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, 'rgba(15,12,12,0.0)'); gr.addColorStop(0.5, 'rgba(15,12,12,0.22)'); gr.addColorStop(1, 'rgba(15,12,12,0)'); g.fillStyle = gr; g.fillRect(x, 0, 6 + R() * 20, h); } }); }
 function corrTex(seed = 5, base = '#7d8590', rust = 0.2) { const R = rng(seed); return canvasTex(256, 256, (g, w, h) => {
-  for (let x = 0; x < w; x++) { const v = 0.75 + 0.25 * Math.sin(x / w * Math.PI * 16), c = new THREE.Color(base).multiplyScalar(v); g.fillStyle = `rgb(${c.r * 255 | 0},${c.g * 255 | 0},${c.b * 255 | 0})`; g.fillRect(x, 0, 1, h); }
+  for (let x = 0; x < w; x++) { const v = 0.75 + 0.25 * Math.sin(x / w * Math.PI * 16), c = new THREE.Color(base).multiplyScalar(v); g.fillStyle = '#' + c.getHexString(); g.fillRect(x, 0, 1, h); }
   for (let i = 0; i < 90 * rust; i++) { const x = R() * w, y = R() * h, r = 4 + R() * 30, gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, 'rgba(120,64,30,0.35)'); gr.addColorStop(1, 'rgba(120,64,30,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); }
   for (let y = 0; y < h; y += 64) { g.fillStyle = 'rgba(0,0,0,0.35)'; g.fillRect(0, y, w, 2); } }); }
 function concTex(seed = 7, base = '#6d6c68') { const R = rng(seed); return canvasTex(512, 512, (g, w, h) => {
@@ -180,7 +180,7 @@ async function valley({ W, H, dur, opt }) {
   for (let r = 0; r < 2; r++) for (let i = 0; i < 26; i++) { const x = -26 + i * 2.05, z = r * 4.4; const d = new THREE.Mesh(dome, mt.brick); d.position.set(x, 0.9, z); d.castShadow = d.receiveShadow = true; coke.add(d); tbox(2.05, 0.9, 3.4, mt.brick2, x, 0.45, z, coke, 0.4);
     const mouth = box(0.7, 0.55, 0.05, basic('#ff7a2a'), x, 0.55, z + (r ? 1.72 : -1.72), coke); ovens.push(mouth); }
   const cokeGlow = new THREE.PointLight('#ff7a30', 40, 30, 1.6); cokeGlow.position.set(0, 2, 6.5); coke.add(cokeGlow);
-  const cokePl = [-20, -6, 8, 20].map((x, i) => plume(scene, -132 + x, 2.2, bz(-132) + 6, { seed: 40 + i, op: 0.3, size: 2.6, rise: 0.5, drift: 0.6, color: '#b9b2aa' }));
+  const cokePl = [-20, -6, 8, 20].map((x, i) => plume(scene, -132 + x, 2.2, bz(-132) + 6, { seed: 40 + i, op: 0.16, size: 2.0, rise: 0.7, drift: 0.6, color: '#b9b2aa' }));
   for (let x = -30; x <= 30; x += 3) for (const z of [-3.6, 8]) { const p = box(0.2, 1.8, 0.2, wood, x, 0.9, z, coke); }
   // ánh sáng
   lightTod(scene, T, 160);
