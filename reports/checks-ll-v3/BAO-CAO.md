@@ -523,7 +523,10 @@ Có thể kết hợp A hoặc C với **đặt lại mốc**: tập 9 chấm c�
     - hiệu chuẩn API: 5 ca (đọc lại 4 lần chấm + SE 0,321);
     - đường API: 16 ca. Dùng `claude` giả trong `fixtures/judge/fake_claude.py`, không gọi mạng: ghim mô hình; modelUsage lạ/rỗng; JSON trong rào; thiếu khoá; chấm đủ; chấm lại bị từ chối; hết credit; mô hình khác; đọc thiếu ảnh; hai khối JSON (2 lần, và lần 1 rồi gọi lại); khoá không ra tệp; trả lời subagent cũ; bộ subagent tập 8 không có `cham`.
   - Sửa 1 ca cũ: "tập 7 + PLAN tập 8 chưa có mục Cải thiện hình" đọc `reports/m3/ep08/PLAN.md` trên main. Sau merge tập 8, tệp này đã có mục đó nên ca đổi kết quả. Nay ca đọc bản đóng băng `fixtures/ep07/plan-ep08-f115e8b.md` (PLAN lúc khoá 1.8.1).
-- **cinecheck (L1, có ASR):** CINECHECK_KET_QUA
+- **cinecheck (L1, có ASR):** **142/142** ca, **0 ca trượt**. Kiểm đầu–cuối `run.py`: sạch ĐẠT (mã 0), bẩn TRƯỢT (mã 1). Kết quả: TẤT CẢ KHỚP (`reports/checks-selftest/selftest.md`).
+  - Chạy trên bản đã khoá `0b91fc5f…`, 14:09:11 → 14:45:20 UTC (36 phút; máy đang bận thêm việc khác nên chậm hơn lần 1.8.1).
+  - Một lần chạy trước đó (13:31 → 14:08 UTC, trước khi ghi LOCK) cũng cho 142/142, nhưng kiểm đầu–cuối báo "LUẬT KHÔNG KHỚP LOCK" (mã 3) cho cả mẫu sạch, đúng như thiết kế. K bỏ báo cáo lần đó và chạy lại sau khi khoá.
+  - 1.9.0 không sửa mã L1: `checks/cinecheck/` chỉ đổi chuỗi VERSION.
 
 ### 15.6 Bản khoá
 - VERSION **1.9.0**, LOCK `TREE_SHA256 0b91fc5f48707e828ab5227f9924964786537878d884f2a6fcb06d1c533fd72f` (164 tệp). `checks/lock.py --verify`: KHỚP.
