@@ -15,7 +15,8 @@ LOG = DATA / "cost.jsonl"
 
 def purge():
     """Tự xoá số liệu thô > 30 ngày (chỉ file do mã này tạo)."""
-    for pat in ("niche_*.json", "haiku_*.json", "metrics.json", "calls.json", "cost.jsonl", "diff.txt"):
+    for pat in ("niche_*.json", "haiku_*.json", "metrics*.json", "calls*.json", "cost.jsonl", "diff.txt",
+                "k2v2_*.json", "search_*.json", "chan_*.json"):
         for f in DATA.glob(pat):
             if time.time() - f.stat().st_mtime > 30 * 86400:
                 f.unlink()
