@@ -1,4 +1,4 @@
-# Hàng đợi 12 đề tài (mốc 1, bước 7)
+# Hàng đợi đề tài (mốc 1, bước 7; cập nhật vòng 2 "Cầu hiện hành" 11/10/2026)
 
 > Mỗi đề tài đã qua 5 điều kiện của `LUAT-CHON-DE-TAI.md`. Mọi chỉ số là **tự tính, không phải chỉ số YouTube**.
 > **Nguồn nhãn cầu:**
@@ -11,7 +11,79 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
-## Bảng
+## Cầu hiện hành (vòng 2, 11/10/2026): hàng đợi hiệu lực
+> Đo bằng `current.py`. Mọi số là **tự tính, không phải chỉ số YouTube**.
+> - **Lấy mẫu:** 6 câu hỏi khán giả/đề tài, search.list `order=relevance`, `regionCode=US`, 25 kết quả, chỉ video đăng trong 90 ngày (từ 13/07/2026). Giữ video ≥ 8 phút.
+> - **"Video ≥ 50 nghìn đúng đề tài":** Sonnet 5.5 chấm từng video ≥ 50 nghìn lượt theo chuẩn **đối thủ trực tiếp**. Chuẩn này viết trước khi có số đo.
+> - **Nhãn Cầu-hiện-hành:** Mạnh ≥ 2 video · Yếu 1 · Không 0.
+> - **"Kênh trẻ":** kênh tạo dưới 730 ngày trước 11/10/2026.
+
+| # | Đề tài | Trụ | Video dài 90 ngày | ≥ 50 nghìn (thô → đúng đề tài) | Kênh khác nhau | Video mới lớn nhất đúng đề tài | Tỷ lệ kênh trẻ (video ≥ 50 nghìn đúng đề tài) | **Cầu hiện hành** | Chuẩn rộng (độ nhạy) |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | Factory town | T2 | 69 | 7 → **3** | 3 | RocaNews, 1,10 triệu, 22,9 phút | 2/3 | **Mạnh** | Mạnh (3) |
+| 2 | Malls | T4 | 83 | 9 → **4** | 4 | Secret State Files, 775 nghìn, 23,5 phút | 3/4 | **Mạnh** | Mạnh (8) |
+| 3 | Jet airliner | T1 | 44 | 9 → **2** | 2 | Aero Explained, 370 nghìn, 11,5 phút | 0/2 | **Mạnh** | Mạnh (3) |
+| 4 | Chips | T1 | 55 | 7 → **2** | 2 | Anastasi In Tech, 622 nghìn, 18,1 phút | 1/2 | **Mạnh** | Mạnh (6) |
+| 5 | Retailers abroad | T3 | 61 | 8 → **3** | 3 | More JTReacts (video phản ứng), 278 nghìn, 25 phút | 0/3 | **Mạnh** | Mạnh (3) |
+| 6 | Supermarkets | T3 | 60 | 1 → **1** | 1 | Mr. Finance, 77,7 nghìn, 25,2 phút | 1/1 | **Yếu** | Yếu (1) |
+| 7 | Card rewards | T3 · tài chính | 58 | 5 → **1** | 1 | 50,6 nghìn, 75,2 phút (kênh điểm thưởng Ấn Độ) | 1/1 | **Yếu** | Mạnh (4) |
+| — | Container | T1 | 46 | 5 → **0** | 0 | — (lớn nhất thô: "How Overnight Shipping Actually Works", 406 nghìn, lạc đề) | — | **Không** | Mạnh (4) |
+| — | Card networks | T3 · tài chính | 50 | 1 → **0** | 0 | — (thô: "How does Tap to Pay Work?", 622 nghìn) | — | **Không** | Yếu (1) |
+| — | Amazon warehouse | T2 | 61 | 13 → **0** | 0 | — (thô gồm game show, Peppa Pig) | — | **Không** | Mạnh (4) |
+| — | Airlines | T3 · lai | 67 | 4 → **0** | 0 | — (thô: "How Airports Actually Make Money", 520 nghìn) | — | **Không** | Mạnh (2) |
+| — | Dollar General | T2 | 71 | 5 → **0** | 0 | — (thô: 2 video "how dollar stores make money", 183 và 104 nghìn) | — | **Không** | Mạnh (4) |
+
+**Kết quả luật quyết định** (luật của chủ dự án, ghi nguyên, không đổi): **5/12 Mạnh → nhánh 3–5/12: TIẾP B.**
+- **Hàng đợi hiệu lực:** chỉ giữ đề tài Mạnh/Yếu, tức 7 đề tài: #1–#7 ở bảng trên.
+- **Loại 5 đề tài "Không":** container, card networks, Amazon warehouse, airlines, Dollar General.
+- **Độ nhạy:** ở chuẩn rộng ("cùng đề tài/ngành, cùng khán giả", Sonnet), kết quả là **10/12 Mạnh**, rơi vào nhánh ≥ 6. Không lọc liên quan cũng ra 10/12. Kết luận **TIẾP B vững ở cả hai chuẩn**. Nhánh con (cắt hàng đợi hay chọn thí điểm ngay) phụ thuộc chuẩn liên quan. Chọn chuẩn là quyết định của chủ dự án.
+
+**Bổ sung đề tài mới cùng trụ:** ứng viên dưới đây có bằng chứng cầu hiện hành **sơ bộ**: video ≥ 50 nghìn lượt thấy trong lượt đo trên, nhưng chưa đo đủ 6 câu riêng. Phải đo đủ trước khi vào hàng đợi (khoảng 36 search.list, ngày quota tới).
+
+| Ứng viên (EN, tên làm việc) | Trụ | Bằng chứng sơ bộ (90 ngày) |
+|---|---|---|
+| How Dollar Stores Actually Make Money | T3 | 2 video ≥ 50 nghìn ở 2 kênh: 183 nghìn, 104 nghìn |
+| How a Container Ship Actually Works (life and money aboard) | T1 | 2 video ≥ 50 nghìn: 345 nghìn, 316 nghìn; khớp yêu cầu khán giả trọng số 1 370 ở hồ sơ container |
+| Inside an Amazon Warehouse: How 1 Box Moves | T1/T3 | 2 video: 267 nghìn, 74 nghìn |
+| How Tap to Pay Works (and who gets paid) | T3 · tài chính | 1 video 622 nghìn (Branch Education) |
+| How Airports Actually Make Money | T3 | 1 video 520 nghìn |
+| Why Nobody Makes Money Renting Cars | T3 | 1 video 291 nghìn |
+
+**Cần biết khi đọc bảng ứng viên** (REVIEWER Opus chỉ ra):
+- 4/6 ứng viên là **đề tài vừa bị loại, viết lại góc**: Dollar General → dollar stores, container → tàu container, Amazon warehouse → bên trong kho, card networks → tap to pay.
+- Bằng chứng sơ bộ của chúng là chính những video mà chuẩn chính đã chấm **lạc đề** cho đề tài cũ.
+- Hai ứng viên đổi trụ: Dollar General T2 → T3, Amazon T2 → T1/T3.
+- **Cam kết:** mỗi ứng viên chỉ vào hàng đợi khi đo đủ 6 câu riêng theo **cùng chuẩn chính** ("đối thủ trực tiếp" với tiêu đề mới) và đạt Mạnh/Yếu. Không dùng bằng chứng sơ bộ để thay phép đo đó.
+
+**Tỷ lệ trụ sau khi cắt** (7 đề tài):
+
+| Trụ | Đề tài | Số |
+|---|---|---|
+| T1 | jet, chips | 2 |
+| T2 | factory town | 1 |
+| T3 | retailers abroad, supermarkets, card rewards | 3 |
+| T4 | malls | 1 |
+
+- **Tài chính–thanh toán chỉ còn 1/7 (14 %)**, thấp hơn đích ~1/4. Ứng viên "Tap to Pay" là đường bổ sung tài chính duy nhất có bằng chứng sơ bộ.
+- **Cảnh báo chất lượng cầu:**
+  - Cầu của chips nghiêng về thời sự (EUV Trung Quốc, nhà máy chip mới).
+  - 2/3 video đúng đề tài của "retailers abroad" là video phản ứng lại một video gốc.
+  - Factory town dựa nhiều vào một video 1,10 triệu (RocaNews).
+
+**Ưu, nhược, tác động, rủi ro**
+- **Ưu:** hàng đợi chỉ còn đề tài có người xem trong 90 ngày. Hai trụ có cầu hiện hành rõ nhất là T2 (thị trấn) và T4 (malls), đều hợp 3D sa bàn.
+- **Nhược:**
+  - Mất container, đề tài có cầu toàn thời gian lớn nhất (4,83 triệu): cầu của nó nằm ở video cũ.
+  - Nhánh tài chính co còn 1/7.
+  - Nhãn phụ thuộc mạnh vào chuẩn liên quan (5/12 so với 10/12).
+- **Tác động:**
+  - Thí điểm cũ (container) không còn hợp lệ theo chuẩn chính; xem `THI-DIEM.md`.
+  - Factory town và malls cần hồ sơ cầu trước khi viết kịch bản.
+- **Rủi ro:**
+  - Chạy theo cầu 90 ngày dễ kéo kênh về đề tài thời sự, trái hiến chương "nội dung sống lâu".
+  - Cầu của malls có nhiều kênh trẻ (3/4), nên cũng có thể là mảng đang đông dần.
+
+## Bảng vòng 1 (thay bằng mục "Cầu hiện hành" ở trên; giữ để đối chiếu)
 | # | Đề tài (EN, tên làm việc) | Trụ | Nhãn cầu (số) | Lý do một dòng |
 |---|---|---|---|---|
 | 1 | The Steel Box That Rewired World Trade | T1 | **Nổ-mẫu + Cầu-bền** (video đầu 4,83 triệu; 4/12 ≥ 500 nghìn; video 2026 cao nhất 329) | Cầu bền lớn nhất, cung mới yếu, hợp 3D cảng–tàu nhất, không quy lỗi ai. Hồ sơ: `de-tai/container.md` |
@@ -51,7 +123,7 @@
 - Hai đề tài thuần còn lại đều thuộc **cụm thẻ** (#3, #10), dùng chung một bộ cảnh.
 - **Đề xuất:** giữ tỷ lệ ~1/4 bằng cụm thẻ + hãng bay lai. Đo thêm đề tài tài chính cơ chế mới khi có quota, ví dụ vận chuyển tiền mặt vật lý (video 205 nghìn lượt trong câu chuyển tiền liên ngân hàng, chưa đạt ngưỡng), thanh toán tức thời FedNow. Chủ dự án quyết có hạ tỷ lệ hay không.
 
-## Thứ tự phát đề xuất (khác thứ tự hàng đợi)
+## Thứ tự phát đề xuất (vòng 1; **hết hiệu lực** sau "Cầu hiện hành": container, Amazon, card networks, Dollar General, airlines đã rời hàng đợi)
 Luật "không hai tập liền cùng trụ trong 6 tập đầu" (`LUAT-CHON-DE-TAI.md`) đổi thứ tự phát:
 1. #1 container (T1)
 2. #4 Amazon warehouse (T2)

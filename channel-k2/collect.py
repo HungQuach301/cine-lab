@@ -44,6 +44,8 @@ def get(ep, **p):
             j = {"items": [], "disabled": True}; key.write_text(json.dumps(j)); return j
         if r.status_code in (400, 404):
             raise SystemExit(f"{ep}: HTTP {r.status_code}")
+        if r.status_code == 429 and os.environ.get("K2C_NOWAIT"):
+            raise SystemExit(f"{ep}: hết quota ngày (429), chạy lại sau khi quota đặt lại; cache giữ phần đã thu")
         if r.status_code == 429 and waits < 48:     # hết quota ngày: chờ 5 phút rồi thử lại (tối đa 4 giờ)
             waits += 1; time.sleep(300); continue
         i += 1; time.sleep(2 ** i)
@@ -66,7 +68,7 @@ def videos(ids):
                                 likes=int(c.get("likeCount", 0)), comments=int(c.get("commentCount", 0)))
     return [out[i] for i in ids if i in out]
 
-def ai(prompt, tag, model="claude-haiku-5-5"):
+def ai(prompt, tag, model):
     """Gọi claude -p (prompt qua stdin). Trả JSON đầu tiên trong câu trả lời, hoặc {} nếu hỏng 3 lần."""
     if spent() > COST_CAP:
         raise SystemExit(f"vượt trần ${COST_CAP}")
@@ -79,7 +81,8 @@ def ai(prompt, tag, model="claude-haiku-5-5"):
         except Exception:
             continue
         with open(LOG, "a") as f:
-            f.write(json.dumps({"tag": tag, "model": model, "usd": d.get("total_cost_usd", 0)}) + "\n")
+            f.write(json.dumps({"tag": tag, "model": model, "served": sorted(d.get("modelUsage", {})),   # model thực chạy
+                                "usd": d.get("total_cost_usd", 0)}) + "\n")
         m = re.search(r"[\{\[].*[\}\]]", d.get("result", ""), re.S)
         if m:
             try:
@@ -102,7 +105,7 @@ def gap_check(tag, vids):
     p = ("For each YouTube video (title + description), judge ONLY from the text whether it shows evidence of using "
          "real, named data sources (e.g. cites statistics agencies, company filings, central bank data, academic papers, "
          "or lists sources). Return ONLY JSON {\"<videoId>\": {\"real_data\": true|false}}.\n\n" + "\n".join(lines))
-    return ai(p, f"gap-{tag}")
+    return ai(p, f"gap-{tag}", model="claude-sonnet-5-5")   # khoảng trống = Sonnet (chủ dự án 11/10)
 
 def labels():
     after = (NOW - dt.timedelta(days=90)).strftime("%Y-%m-%dT%H:%M:%SZ")
@@ -196,7 +199,7 @@ def classify(tag, items):
              "Also write gist: a neutral paraphrase in <= 18 words, no names, no usernames, no quotes.\n"
              "Return ONLY JSON {\"<id>\": {\"k\": \"question|situation|rebuttal|request|drop\", \"gist\": \"...\"}}.\n\n"
              + "\n".join(lines))
-        r = ai(p, f"cls-{tag}-{i}")
+        r = ai(p, f"cls-{tag}-{i}", model="claude-haiku-5-5")
         out.update({k: v for k, v in r.items() if isinstance(v, dict)})
     return out
 

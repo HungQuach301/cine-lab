@@ -3,7 +3,27 @@
 > Đề xuất, chờ chủ dự án duyệt. **Chưa dựng tập.**
 > Số ở mục 1 và phần "Cơ sở của các con số" là **tự tính, không phải chỉ số YouTube**. Chỉ các mục tiêu trong bảng mục 2 là chỉ số YouTube Studio.
 
-## 1. Chọn tập thí điểm: **#1 "The Steel Box That Rewired World Trade"** (16–18 phút)
+## 0. Cập nhật sau "Cầu hiện hành" (11/10/2026), thay mục 1
+Số đo là **tự tính, không phải chỉ số YouTube** (`current.py`, xem `HANG-DOI.md`).
+- **Container không còn hợp lệ làm thí điểm** theo chuẩn chính: trong 90 ngày, 0 video ≥ 50 nghìn lượt đúng đề tài (nhãn "Không").
+- **Luật quyết định ra nhánh 3–5/12 (5/12 Mạnh).** Nhánh này **không quy định cách chọn thí điểm**; chỉ nhánh ≥ 6/12 nói "đề tài Mạnh có điểm cao nhất". Vì vậy dưới đây là **đề xuất** dùng cùng công thức điểm. Chủ dự án quyết.
+- **Công thức điểm:** số video ≥ 50 nghìn đúng đề tài × hợp 3D (1–3) × rủi ro pháp lý thấp (1–3). Hai thang định tính đặt trong `current.py` trước khi có số.
+
+| Đề tài Mạnh | Video ≥ 50 nghìn đúng đề tài | Hợp 3D | Pháp lý thấp | **Điểm** | Điểm ở chuẩn rộng |
+|---|---|---|---|---|---|
+| **Factory town** ("How a Single Factory Holds Up a Small Town") | 3 | 3 | 3 | **27** | 27 |
+| Malls | 4 | 2 | 3 | 24 | **48** |
+| Jet airliner | 2 | 3 | 2 | 12 | 18 |
+| Chips | 2 | 3 | 2 | 12 | 36 |
+| Retailers abroad | 3 | 1 | 2 | 6 | 6 |
+
+- **Đề xuất thí điểm: factory town** (điểm cao nhất ở chuẩn chính); **phương án thay: malls** (cao nhất ở chuẩn rộng).
+  - *Ưu:* cầu hiện hành có ở 3 kênh khác nhau; pháp lý thấp vì không xoay quanh một công ty; dùng bộ cảnh thị trấn sa bàn và nhà máy (lõi `kit.js`).
+  - *Nhược:* một video 1,10 triệu (RocaNews) chiếm phần lớn cầu; **chưa có hồ sơ cầu** (bình luận, số neo).
+  - *Tác động:* trước kịch bản phải có `de-tai/factory-town.md` (khoảng 6 search.list + 50 bình luận/video). Mục tiêu 7 ngày ở mục 2 giữ nguyên ngưỡng; thời lượng đổi sang khung thắng của đề tài, sẽ đo ở hồ sơ.
+  - *Rủi ro:* chọn thí điểm theo cầu 90 ngày có thể thiên về mảng đang nóng tạm thời; malls có 3/4 video đúng đề tài từ kênh trẻ, dấu hiệu mảng đang đông dần.
+
+## 1. (Vòng 1, **thay bằng mục 0**) Chọn tập thí điểm: **#1 "The Steel Box That Rewired World Trade"** (16–18 phút)
 | | Container (#1) | Jet airliner (#2) | Card networks (#3) |
 |---|---|---|---|
 | Cầu toàn thời gian (video đầu) | **4,83 triệu**; 4/12 ≥ 500 nghìn | 3,85 triệu; 4/8 ≥ 500 nghìn | 1,04 triệu; 1/7 ≥ 500 nghìn |

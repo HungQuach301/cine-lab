@@ -4,7 +4,13 @@
 > Đầu vào: chủ dự án chọn hướng B, *cơ chế kinh tế của một ngành*, ngày 11/10. Khoảng 1/4 đề tài là tài chính–thanh toán, chỉ giải thích cơ chế, không khuyên đầu tư/tài chính cá nhân.
 > Mọi chỉ số trong gói là **tự tính, không phải chỉ số YouTube**, trừ các mục tiêu Studio trong `THI-DIEM.md`.
 
-## Kết quả chính
+> **Vòng 2 "Cầu hiện hành" (11/10/2026):** 5/12 đề tài đạt Mạnh, nên theo luật của chủ dự án ra nhánh **3–5/12: TIẾP B**, hàng đợi chỉ giữ 7 đề tài Mạnh/Yếu.
+> - Container rơi xuống "Không" (0 video ≥ 50 nghìn đúng đề tài trong 90 ngày), nên thí điểm đề xuất đổi sang **factory town**.
+> - Ở chuẩn liên quan rộng, kết quả là 10/12 Mạnh. TIẾP B vững ở cả hai chuẩn.
+> - Kiểm nhãn bộ lọc kênh cũ: sai "không lộ mặt" 10 %, lệch ngách B 44 %.
+> - Xem mục "Cầu hiện hành" ở cuối.
+
+## Kết quả chính (vòng 1)
 1. **Định vị (mốc 1):** đủ 7 tài liệu:
 
 | Tài liệu | Nội dung |
@@ -89,7 +95,7 @@
 | `mix.py` (−14 LUFS, TP ≤ −1 dBTP), `build.sh`, `qc.sh` (khung trống, judder, chữ, Q12 thumbnail), `thumb.py` | Giọng mới (khác Bill), nhạc/SFX mới; kiểm câu miễn trừ T3 tài chính và kiểm `claims:` (gửi K, chưa sửa `checks/`) |
 | Luật RIGHTS, luật nguồn, kiểm mù màu | Hiến chương 6 phần thay STORY/HISTORY/TODAY; luật chọn đề tài; luật nội dung pháp lý; quy trình sửa/gỡ |
 
-## Đang chờ chủ dự án
+## Đang chờ chủ dự án (vòng 1; xem danh sách cập nhật ở mục "Cầu hiện hành")
 1. **Tên kênh:** chọn một trong ba (đề xuất Moving Parts `@movingpartsecon`), rồi kiểm handle trực tiếp và kiểm nhãn hiệu USPTO.
 2. **Tập thí điểm:** container (đề xuất) hay jet.
 3. **Tỷ lệ tài chính–thanh toán:** giữ ~1/4 bằng cụm thẻ + hãng bay lai, hay hạ xuống ~1/6.
@@ -121,3 +127,114 @@ Soát 5 nhóm luật: R1 phỉ báng · R2 YMYL/tài chính · R3 luật dữ li
   - 57 lệnh đọc khác (trước ghi khoảng 40).
 
 **Lượt 2: R1, R2, R3, R5 PASS.** Còn 2 FAIL R4 mức nhẹ, đã sửa sau lượt 2: "UPI là hạ tầng công" và cơ chế bán dặm của hãng bay nay gắn [cần kiểm]. Không chạy lượt 3.
+
+---
+## Cầu hiện hành (vòng 2, 11/10/2026)
+Mọi chỉ số trong mục này là **tự tính, không phải chỉ số YouTube**. Mã: `current.py` (dùng lại cache/API/AI của `collect.py`).
+
+### 1. Model: kiểm ghim và model thực chạy
+- **Ghim mọi lệnh `claude -p`** theo chủ dự án:
+  - lọc kênh + liên quan/khoảng trống: `claude-sonnet-5-5`;
+  - phân loại bình luận: `claude-haiku-5-5`;
+  - REVIEWER: `claude-opus-5-5`.
+  - `collect.ai()` nay **bắt buộc** truyền model và ghi thêm trường `served` (model thực chạy, đọc từ `modelUsage` của CLI).
+- **Kiểm thật (gọi thử):** `--model` haiku, sonnet, opus đều chạy đúng model ghim. **Không ghim → CLI mặc định `claude-sonnet-5-5`.** Lệnh Sonnet/Opus còn ghi thêm `claude-haiku-5-5` trong `served`, do CLI dùng Haiku cho tác vụ phụ nội bộ; model chính vẫn đúng.
+- **Trước đây:**
+  - Mọi lệnh trong mã market-k2 và channel-k2 đều có `--model`; không lệnh nào chạy model mặc định.
+  - `cost.jsonl` cũ (33 dòng: 30 Haiku, 3 Sonnet) **chỉ ghi model yêu cầu**, không ghi model thực chạy. Vì CLI tôn trọng `--model` (đã kiểm), model thực chạy suy ra là đúng model ghi.
+  - **Lệch so với luật mới:** kiểm khoảng trống vòng 1 (nhãn "0/5 có số liệu thật") chạy **Haiku**, không phải Sonnet. Nay `gap_check` dùng Sonnet. Nhãn khoảng trống vòng 1 chưa chạy lại.
+  - Hai lượt REVIEWER channel-k2 vòng 1 ghim Sonnet (luật lúc đó), chạy từ shell nên không vào `cost.jsonl`.
+  - REVIEWER market-k2 (Haiku theo báo cáo market-k2): lệnh không nằm trong mã và `cost.jsonl` của market-k2 đã mất cùng container cũ, nên **không kiểm được**.
+- **Phân bổ chi phí vòng 2** (theo `cost.jsonl`, model yêu cầu → served):
+
+| Model yêu cầu | Served | Số lượt | Chi phí |
+|---|---|---|---|
+| Sonnet | haiku + sonnet | 19 | $0,98 |
+| Sonnet | sonnet | 6 | $0,27 |
+| Haiku | haiku | 9 | $0,09 |
+| Opus | haiku + opus | 1 | $0,46 |
+
+  - Gọi thử model: khoảng $0,12.
+  - REVIEWER Opus cho tài liệu: 1 lượt, $0,51, served `claude-opus-5-5` (+ Haiku phụ).
+  - R1 phỉ báng, R2 YMYL, R3 luật dữ liệu, R5 khớp số với dữ liệu gốc: **PASS**.
+  - R4 tính toàn vẹn luật quyết định: 2 FAIL, đã sửa. (1) Danh sách đổi nhãn ở chuẩn rộng thiếu card networks. (2) Bảng ứng viên bổ sung chưa nói rõ phần lớn ứng viên là đề tài vừa bị loại, viết lại góc.
+  - Không chạy lượt 2.
+- **Tổng chi phí AI phiên vòng 2:** $1,79 theo `cost.jsonl` (bộ lọc cũ, liên quan, độ nhạy, chấm lại, Opus kiểm nhãn) + $0,12 gọi thử model + $0,51 REVIEWER ≈ **$2,42**. Trần $5.
+
+### 2. Kiểm nhãn bộ lọc kênh cũ
+- **Không còn danh sách kênh đã lọc của market-k2:** số liệu thô vòng đó đã mất cùng container cũ, và channel-k2 vòng 1 không lọc kênh. Tôi **tái lập đúng bộ lọc cũ**: cùng prompt nguyên văn, Haiku, 1 video mẫu là video nhiều lượt xem nhất của kênh trong mẫu.
+- **Mẫu:** áp lên toàn bộ kênh có video ≥ 8 phút trong 72 lượt tìm kiếm của mục 3 (cùng thiết lập market-k2: 90 ngày, US, ≥ 8 phút; đề tài đều thuộc B).
+  - 659 kênh ứng viên → bộ lọc cũ cho qua **533 (81 %)**, khớp tỷ lệ 81–93 % market-k2 ghi.
+  - Chọn ngẫu nhiên **50** kênh đã qua lọc (seed 20261011).
+- **Chấm lại:**
+  - Sonnet 5.5 đọc khoảng 10 tiêu đề video dài gần nhất, mô tả kênh và 2 mô tả video.
+  - REVIEWER Opus 5.5 ra nhãn cuối từ cùng bằng chứng.
+  - Sonnet và Opus khớp **48/50**.
+
+| Nhãn cuối (Opus) | Sai so với bộ lọc cũ | KTC 90 % (Wilson) |
+|---|---|---|
+| Không phải kênh giải thích không lộ mặt | **5/50 = 10 %** | 5,0–19,2 % |
+| Không thuộc ngách B (lịch sử/kinh tế doanh nghiệp–ngành) | **22/50 = 44 %** | 33,1–55,6 % |
+| Sai ít nhất một trong hai (5 kênh sai mặt đều nằm trong 22 kênh lệch ngách) | 22/50 = 44 % | 33,1–55,6 % |
+
+- Kênh lệch ngách điển hình: kỹ thuật/siêu dự án, địa chính trị Trung Quốc, tài chính cá nhân, hoài niệm văn hoá, "giải thích chung".
+- **Bộ lọc cũ chỉ hỏi "không lộ mặt", không hỏi ngách.** Vì vậy mẫu B của market-k2 nhiều khả năng cũng lẫn kênh ngoài ngách ở mức tương tự. Đây là suy luận; tập kênh gốc đã mất.
+
+**Ảnh hưởng lên chỉ số "kênh trẻ có nổ" của B** (đo trên mẫu 50; kênh trẻ < 730 ngày):
+
+| Tập kênh trẻ | Nổ, định nghĩa gốc (≥ 3× trung vị ±90 ngày hoặc ≥ 3× người đăng ký) | Nổ + ≥ 10 nghìn lượt |
+|---|---|---|
+| Bộ lọc cũ cho qua (35) | 25/35 = **71 %** (KTC 58–82 %) | 2/35 = 6 % (2–16 %) |
+| Đúng "không lộ mặt" (31) | 24/31 = 77 % | 2/31 = 6 % |
+| Đúng "không lộ mặt" + đúng ngách B (19) | 14/19 = **74 %** (KTC 55–87 %) | **0/19 = 0 %** (0–12,5 %) |
+
+- **Định nghĩa gốc:** nhãn sai **gần như không đổi** tỷ lệ (71 % → 74 %, KTC chồng nhau). Chỉ số b của market-k2 (B gộp 16/26 = 62 %) không bị thổi phồng đáng kể vì lỗi nhãn.
+- **Thêm ngưỡng ≥ 10 nghìn:** hai kênh trẻ có video nổ đều **lệch ngách** (kỹ thuật, siêu dự án). Kênh trẻ đúng ngách B trong mẫu: **0/19**. Đây là tín hiệu xấu cho kỳ vọng "kênh trẻ B dễ nổ".
+- **Giới hạn:**
+  - Mức nổ chỉ tính trên 50 lượt tải lên gần nhất (trung vị 12,5 video dài/kênh); market-k2 đọc tới 6 trang. Tỷ lệ nổ ở đây vì vậy thấp hơn cách đo cũ.
+  - Quần thể kênh là kênh của 12 đề tài channel-k2, không phải kênh của câu hỏi market-k2.
+  - Không tính lại được đúng con số 16/26.
+
+### 3. Cầu hiện hành 12 đề tài
+- **72 câu hỏi** (12 × 6). **69 search.list mới**; 3 câu trùng nguyên văn lượt `labels` dùng lại cache. Thêm 151 lệnh đọc khác (khoảng 7 050 đơn vị). Vừa trong ngày, không cần chia ngày.
+- Video ≥ 8 phút đăng trong 90 ngày, `regionCode=US`.
+- **Bảng đầy đủ:** `HANG-DOI.md`, mục "Cầu hiện hành".
+- **Mạnh (5):** factory town, malls, jet airliner, chips, retailers abroad.
+- **Yếu (2):** supermarkets, card rewards.
+- **Không (5):** container, card networks, Amazon warehouse, airlines, Dollar General.
+- **Bước lọc liên quan là quyết định:** search trả nhiều video lạc đề (game show, Peppa Pig, động cơ tự chế). Không lọc thì 10/12 Mạnh.
+  - **Chuẩn chính:** Sonnet chấm theo "đối thủ trực tiếp", viết trước khi có số.
+  - **Chuẩn rộng** ("cùng ngành, cùng khán giả", chạy sau để đo độ nhạy) cũng ra **10/12**. Đổi nhãn ở chuẩn rộng: 5 đề tài lên Mạnh (container, Amazon, airlines, Dollar General, card rewards); card networks từ Không lên Yếu.
+
+### 4. Kết quả luật quyết định (ghi nguyên, không đổi luật)
+- **5/12 Mạnh → nhánh 3–5/12: TIẾP B.**
+  - Hàng đợi chỉ giữ 7 đề tài Mạnh/Yếu.
+  - Bổ sung đề tài mới cùng trụ có cầu hiện hành: 6 ứng viên có bằng chứng sơ bộ (`HANG-DOI.md`), **chờ đo đủ 6 câu ở ngày quota tới** (khoảng 36 search.list).
+- **Chọn thí điểm:** nhánh 3–5/12 không quy định cách chọn. Tôi đề xuất **factory town**, điểm 27, theo cùng công thức của nhánh ≥ 6. Malls đạt 24 (`THI-DIEM.md` mục 0).
+- **Độ nhạy:** ở chuẩn rộng, 10/12 thuộc nhánh ≥ 6, và thí điểm theo luật sẽ là **malls** (điểm 48).
+
+### 5. Ưu, nhược, tác động, rủi ro
+- **Ưu:**
+  - Quyết định TIẾP B có hai phép đo độc lập ủng hộ (chuẩn chính và chuẩn rộng).
+  - Hàng đợi và thí điểm nay dựa trên cầu đang có người xem.
+  - Kiểm nhãn cho thấy chỉ số b theo định nghĩa gốc không bị lỗi nhãn làm lệch.
+- **Nhược:**
+  - Nhãn đề tài nhạy với chuẩn liên quan (5 so với 10).
+  - Container, đề tài có cầu toàn thời gian lớn nhất, rời hàng đợi vì cầu nằm ở video cũ.
+  - Tài chính–thanh toán chỉ còn 1/7.
+  - Kênh trẻ đúng ngách B có nổ ≥ 10 nghìn: 0/19.
+- **Tác động:**
+  - Thí điểm đổi sang factory town; cần hồ sơ cầu `de-tai/factory-town.md` trước kịch bản.
+  - Bộ cảnh ưu tiên: thị trấn sa bàn + nhà máy (thay cảng).
+  - Ba hồ sơ container/jet/card networks: chỉ jet còn trong hàng đợi.
+- **Rủi ro:**
+  - Chọn theo cầu 90 ngày kéo kênh về thời sự: chips nghiêng tin EUV/nhà máy chip; retailers abroad dựa vào video phản ứng.
+  - Factory town phụ thuộc một video 1,10 triệu.
+  - Mẫu B của market-k2 có thể lẫn 44 % kênh ngoài ngách, nên các chỉ số khác của B ở market-k2 (top 5 chiếm, tài trợ) cũng mang sai số chưa đo.
+
+### 6. Đang chờ chủ dự án
+1. **Chuẩn liên quan:** "đối thủ trực tiếp" (5/12, cắt hàng đợi) hay "cùng ngành" (10/12, thí điểm ngay theo nhánh ≥ 6).
+2. **Thí điểm:** factory town (đề xuất) hay malls.
+3. Duyệt đo đủ 6 câu cho 6 ứng viên bổ sung (khoảng 36 search.list, ngày quota tới), và hồ sơ cầu factory town.
+4. **Tài chính–thanh toán còn 1/7:** chấp nhận, hay ưu tiên đo "Tap to Pay".
+5. Các mục chờ vòng 1 còn nguyên: tên kênh, giọng, nhạc, nhận diện.
