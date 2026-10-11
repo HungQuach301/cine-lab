@@ -238,3 +238,37 @@ Mọi chỉ số trong mục này là **tự tính, không phải chỉ số You
 3. Duyệt đo đủ 6 câu cho 6 ứng viên bổ sung (khoảng 36 search.list, ngày quota tới), và hồ sơ cầu factory town.
 4. **Tài chính–thanh toán còn 1/7:** chấp nhận, hay ưu tiên đo "Tap to Pay".
 5. Các mục chờ vòng 1 còn nguyên: tên kênh, giọng, nhạc, nhận diện.
+
+---
+## Vòng cuối: một thước "kênh mới có bật được không" cho A, B, D, J (11–12/10/2026)
+Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `final.py`. Chỉ dùng một project/khoá YouTube của môi trường (Developer Policies III.D.1.c), không mượn khoá dự án khác.
+
+**Thước**
+- **Thước chính:** % kênh trẻ đúng ngách, không lộ mặt, có ≥ 1 video ≥ 8 phút đạt ≥ 10 nghìn lượt.
+  - Kênh trẻ: tạo < 730 ngày trước 11/10/2026, lấy từ `publishedAt` của API.
+  - Video tính: đăng 14–90 ngày trước 11/10/2026.
+  - Mẫu số: chỉ kênh **có ít nhất một video dài** trong cửa sổ đó.
+- **Thước phụ:** tỷ lệ có video ≥ 50 nghìn; trung vị lượt xem/video. KTC 90 % Wilson.
+- **Tập kênh:** kênh có video ≥ 8 phút trong kết quả search.list 90 ngày, US.
+  - B: 659 kênh của 72 câu cầu hiện hành, lấy từ cache.
+  - A, D, J: 10 câu khán giả mới mỗi ngách.
+- **Nhãn:**
+  - Sonnet 5.5 gắn "không lộ mặt" và "đúng ngách" từ khoảng 10 tiêu đề gần nhất cộng mô tả kênh.
+  - Opus 5.5 kiểm ngẫu nhiên 20 kênh trẻ mỗi ngách.
+
+### B (đo ngay, 11/10, 528 đơn vị, 0 search.list)
+| | Giá trị |
+|---|---|
+| Kênh ứng viên → kênh trẻ → trẻ đúng ngách + không lộ mặt → có video dài trong cửa sổ | 659 → 471 → 222 → **188** |
+| **Thước chính: có video ≥ 10 nghìn** | **18/188 = 9,6 %** (KTC 90 % 6,6–13,7 %) |
+| Có video ≥ 50 nghìn | 11/188 = 5,9 % (3,6–9,3 %) |
+| Trung vị lượt xem/video (2 222 video) | **70,5**; trung vị của trung vị từng kênh: 45,8 |
+| Opus khớp Sonnet (20 kênh) | 19/20 cả hai nhãn; 19/20 nhãn gộp "đúng ngách + không lộ mặt" |
+
+- **n = 188 kênh**, vượt mục tiêu ≥ 30.
+- **Sát ngưỡng:** 9,6 % nằm trong ±5 % quanh mốc 10 % của luật "cả 4 ngách < 10 %" (khoảng 9,5–10,5 %). Tôi nêu tên chỉ số này theo luật cứng của dự án.
+- **Bỏ bước mở rộng** "kênh xuất hiện ≥ 2 lần": hạn mức hôm nay đã dùng khoảng 8 500/10 000 đơn vị trước vòng này, nên tôi giữ dự phòng.
+- **Chi phí AI vòng cuối đến đây:** $2,56 (Sonnet $1,93; Opus $0,63). Trần vòng $5; mã dừng ở $4,4 để chừa phần cho REVIEWER.
+
+### A, D, J
+Tự chạy khi quota đặt lại lúc 07:00 UTC ngày 12/10: 30 search.list cộng lệnh đọc, khoảng 3 500 đơn vị. Kết quả và kết luận luật sẽ ghi vào mục này.
