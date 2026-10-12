@@ -11,6 +11,37 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## NHÁP: hàng đợi nếu chủ dự án duyệt ngách J "Nhà ở & đô thị" (vòng cuối 12/10/2026; CHỜ DUYỆT, chưa hiệu lực)
+- **Bằng chứng:** video ≥ 8 phút trong 10 câu tìm kiếm J (90 ngày, US), lưu ở `$K2C_DATA/final_J_search_long.json`, ngoài git. Lượt xem là số đọc từ API; nhãn là **tự tính, không phải chỉ số YouTube**.
+- **Nhãn sơ bộ, CHƯA đo bằng thước cầu 6 câu** (`current.py`). Duyệt J thì phải đo trước khi viết hồ sơ, khoảng 60 search.list.
+- **Góc:** *cơ chế* (luật xây dựng, tài chính, quy hoạch), giữ hiến chương và luật nội dung hiện có. Không khuyên mua bán nhà, không đứng về đảng phái nào.
+
+| # | Đề tài (EN) | Bằng chứng sơ bộ (video ≥ 8 phút, 90 ngày) | Nhãn sơ bộ | Phút |
+|---|---|---|---|---|
+| 1 | Why America Stopped Building Apartments Like This | "Why We Can't Build Apartments Like This Anymore", 958 nghìn lượt | Mạnh? | 14–17 |
+| 2 | Why American Houses Got So Big | 88 nghìn + 10 nghìn (2 video cùng đề) | Mạnh? | 13–16 |
+| 3 | Why Tiny Homes Didn't Fix Housing | 1,64 triệu (góc "hối hận", cần đổi sang cơ chế) | Yếu? (lệch góc) | 13–15 |
+| 4 | Where Americans Lived Before the Suburbs | 25 nghìn | Yếu? | 15–18 |
+| 5 | Why Starter Homes Disappeared | 7,7 nghìn; câu hỏi khán giả của J | Yếu? | 14–16 |
+| 6 | How Highways Were Routed Through American Neighborhoods | 12,8 nghìn + 5,9 nghìn | Yếu? Rủi ro chính trị cao | 16–18 |
+| 7 | Why Manufactured Homes Are So Cheap | 51, 46 và 27 nghìn (phần lớn tour/khuyên mua; cần góc cơ chế) | Yếu? | 13–15 |
+| 8 | How Tokyo Kept Housing Affordable | 186 và 58 nghìn (tour, không phải giải thích) | Chưa rõ | 15–17 |
+
+- **Ưu:**
+  - Thước chính 50 % (cao nhất).
+  - Trung vị lượt xem/video 415, so với 70 của B.
+  - Sa bàn thị trấn và nhà máy tái dùng được (NHAN-DIEN).
+  - Vòng 1 chấm nhà máy cho J 8 điểm.
+- **Nhược:**
+  - n = 6 kênh trẻ.
+  - Phần lớn video top là tour hoặc khuyên mua, không phải giải thích.
+  - Hàng đợi chưa qua thước cầu.
+- **Tác động:** phải viết lại trụ nội dung, hiến chương và tên kênh. Hồ sơ jet, container và card networks không dùng được.
+- **Rủi ro:**
+  - Chính trị hoá (zoning, đường cao tốc, sắc tộc).
+  - Trùng Crux 13 %.
+  - Nhóm YMYL nếu trượt sang chuyện mua nhà.
+
 ## Cầu hiện hành (vòng 2, 11/10/2026): hàng đợi hiệu lực
 > Đo bằng `current.py`. Mọi số là **tự tính, không phải chỉ số YouTube**.
 > - **Lấy mẫu:** 6 câu hỏi khán giả/đề tài, search.list `order=relevance`, `regionCode=US`, 25 kết quả, chỉ video đăng trong 90 ngày (từ 13/07/2026). Giữ video ≥ 8 phút.

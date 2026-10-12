@@ -3,6 +3,17 @@
 > Đề xuất, chờ chủ dự án duyệt. **Chưa dựng tập.**
 > Số ở mục 1 và phần "Cơ sở của các con số" là **tự tính, không phải chỉ số YouTube**. Chỉ các mục tiêu trong bảng mục 2 là chỉ số YouTube Studio.
 
+## NHÁP J (vòng cuối 12/10/2026; CHỜ DUYỆT ngách J, chưa hiệu lực)
+- **Đề xuất thí điểm nếu duyệt J: #1 "Why America Stopped Building Apartments Like This"**, 14–17 phút.
+- **Lý do:**
+  - Đây là bằng chứng cầu mạnh nhất *đúng góc cơ chế*: 958 nghìn lượt trong 90 ngày.
+  - Hợp 3D: mặt cắt toà nhà, cầu thang, luật xây dựng hiện thành khối.
+  - Rủi ro pháp lý thấp vì không xoay quanh một công ty.
+- **Phương án thay: #2 "Why American Houses Got So Big".**
+  - *Ưu:* có 2 video cùng đề, sa bàn nhà dễ dựng.
+  - *Nhược:* cầu nhỏ hơn khoảng 10 lần.
+- **Điều kiện trước khi viết kịch bản:** đo thước cầu 6 câu cho #1 và #2, rồi lập hồ sơ cầu `de-tai/`. Mục tiêu 7 ngày ở mục 2 vẫn áp dụng.
+
 ## 0. Cập nhật sau "Cầu hiện hành" (11/10/2026), thay mục 1
 Số đo là **tự tính, không phải chỉ số YouTube** (`current.py`, xem `HANG-DOI.md`).
 - **Container không còn hợp lệ làm thí điểm** theo chuẩn chính: trong 90 ngày, 0 video ≥ 50 nghìn lượt đúng đề tài (nhãn "Không").
