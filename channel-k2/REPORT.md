@@ -294,6 +294,7 @@ Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `fin
   - cận dưới KTC của J **18,6 %** > cận trên KTC của B − 5 = 13,7 − 5 = **8,7 %**.
 - **→ J THẮNG theo luật.**
 - Nhánh "cả 4 ngách < 10 %" không áp dụng, vì A, D, J đều ≥ 10 %. B 9,6 % nằm trong ±5 % quanh mốc 10 %, đã nêu ở trên.
+- **Ngách G** (thêm ở một phiên khác tối 11/10, xem mục G bên dưới) mới đo nhanh 7 câu, chưa Opus kiểm: 0/14 = 0 % (KTC 0–16,2 %). Dù tính G vào so sánh, J vẫn có thước chính cao nhất. **Kết quả luật không đổi.**
 
 **Độ vững của kết quả J** (tính thêm, không đổi luật):
 - **Ba kênh trẻ J đạt ≥ 10 nghìn:**
@@ -336,10 +337,43 @@ Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `fin
   - 11/10: 528 đơn vị (B).
   - 12/10: 30 search.list + khoảng 247 lệnh đọc (A 1 141, D 1 035, J 1 071 đơn vị), cộng 49 đơn vị khi đọc lại chi tiết kênh J/D/A để soát.
   - Chỉ dùng một project/khoá của môi trường.
-- **AI vòng cuối:** **$4,17** theo `cost.jsonl`, gồm $3,94 cho nhãn (Sonnet gắn nhãn, Opus kiểm 20 kênh × 4 ngách) và $0,23 cho REVIEWER Opus. Trần $10, mã dừng ở $9.
+- **AI vòng cuối (container phiên này):** **$4,17** theo `cost.jsonl`, gồm $3,94 cho nhãn (Sonnet gắn nhãn, Opus kiểm 20 kênh × 4 ngách) và $0,23 cho REVIEWER Opus. Phiên G ghi thêm $0,26 ở container của nó; tổng vòng cuối khoảng **$4,43**. Trần vòng đã được nâng lên $12 ở phiên G (mã dừng ở $11).
 - **REVIEWER Opus 5.5** (1 lượt): R1 phỉ báng, R2 YMYL, R3 luật dữ liệu, R4 áp luật đúng nguyên văn và nêu n nhỏ, R5 khớp số và phép tính Wilson: **tất cả PASS**. Model ghim; trường `served` khớp model yêu cầu (cộng Haiku phụ của CLI).
 - Số liệu thô (kể cả danh sách kênh) ở `~/.cache/cine-channel-k2`, ngoài git, xoá sau 30 ngày khi mã chạy.
 
 ### Đang chờ chủ dự án
 1. **Xác nhận J theo luật**, kèm cảnh báo n = 7: mở gói kênh J, hay xác nhận lại trên mẫu lớn hơn (trái lệnh dừng nghiên cứu, cần chủ dự án cho phép).
 2. Nếu mở gói J: duyệt dùng lại nhận diện, nhà máy và bộ cảnh thị trấn; viết trụ và luật nội dung chống chính trị hoá.
+
+### G "Quyền lực kinh tế qua ba tầng": đo nhanh tối 11/10 (mẫu nhỏ, chưa so luật)
+Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `final.py G --nq 7 --noaudit`.
+
+**Câu hỏi:** 7/10 câu (3 câu tầng 1, 2 câu tầng 2, 2 câu tầng 3). Câu hỏi nằm trong `G_Q`, không trùng câu của A.
+
+**Nhãn:** Sonnet 5.5 gắn như các ngách khác, thêm ba trường:
+- *khung âm mưu*: kênh này không tính là đúng ngách, đếm riêng;
+- *tầng*: 1, 2, 3 hoặc nối tầng;
+- *khuôn tiêu đề*.
+Opus chưa kiểm; sẽ kiểm 20 kênh ở lượt đủ 10 câu.
+
+**Quota:** 7 search.list + 51 lệnh đọc = 751 đơn vị. Thêm 5 đơn vị tìm kênh LL. Theo ước tính (phiên trước ghi khoảng 9 030 đơn vị đã dùng), ngày 11/10 còn khoảng 210, tức vẫn trên mức dự phòng 100.
+
+**Chi phí AI:** $0,26. Sổ vòng cuối $2,82, gồm $2,56 phiên trước ghi theo REPORT. Trần $12, mã dừng ở $11.
+
+| | G (7 câu) |
+|---|---|
+| Kênh ứng viên → kênh trẻ → kênh trẻ đúng ngách, không lộ mặt, không khung âm mưu → có video dài trong cửa sổ | 59 → 40 → **15** → 14 |
+| Thước chính: kênh có video ≥ 10 nghìn | **0/14 = 0 %** (KTC 90 % 0–16,2 %) |
+| Trung vị lượt xem/video (137 video) | 50 |
+| Kênh trẻ mang khung âm mưu (đếm riêng) | 2/40 |
+| Video top 20 mang khung âm mưu (Sonnet) | **1/20 = 5 %** (1,1–19,6 %) |
+| Kênh trẻ đúng ngách theo tầng 1 / 2 / 3 / nối tầng | 13 / 1 / 0 / 1 |
+| Video top 20 theo tầng 1 / 2 / 3 / nối tầng (tổng lượt xem) | 10 (233 nghìn) / 6 (722 nghìn) / 3 (27 nghìn) / 1 |
+| Kênh trẻ làm hàng loạt: nhịp ≥ 12 video/28 ngày / khuôn tiêu đề / cả hai | 5 / 2 / 1 trên 15 |
+
+- **Cầu theo tầng.** Tầng 2 có lượt xem lớn nhất, nhưng gần như toàn tin thời sự Nga và trừng phạt. Tầng 1 có cầu vừa và nằm gần hết ở cụm Rothschild (95 và 90 nghìn lượt). Kênh trẻ dồn vào tầng 1 nhưng chưa kênh nào đạt 10 nghìn. Tầng 3 yếu: cao nhất 14,6 nghìn lượt.
+- **Nhãn âm mưu cần Opus kiểm.** Vài tiêu đề ở cụm Rothschild ("The Secret World of…", "…Owns No Country But Bankrolled Them All") được Sonnet chấm *không* âm mưu, nên con số 5 % có thể thấp hơn thực tế.
+- **CPM công khai** (ghi là CPM, không phải RPM; G là ngách ghép, chưa có dòng riêng):
+  - [OutlierKit 13/09/2026](https://outlierkit.com/resources/youtube-niches-guide/): Personal Finance & Investing 18–45 USD, History & True Crime 5–12 USD, khán giả Mỹ.
+  - [upGrowth, sửa 17/09/2026](https://upgrowth.in/youtube-cpm-overview-highest-paying-niches-2026/): Cryptocurrency & digital assets 12–25 USD (ước tính, không nêu vùng).
+  - Không nguồn nào có dòng tin tức/địa chính trị.
