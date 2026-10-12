@@ -1,0 +1,192 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "02",
+   "rule": "content §1-§2 (quote fidelity) / RISK ĐỎ 1",
+   "severity": "major",
+   "quote": "The same buildings, he wrote, \"in a different environment would be not only entirely unobjectionable but highly desirable.\"",
+   "problem": "Partial quote. The script quotes only the subordinate clause and drops the main clause (\"come very near to being nuisances\"), so Sutherland's sentence sounds favourable when its meaning in the opinion (p. 394-395, C10) is the opposite. Taking it out of context like this misstates the source.",
+   "fix": "Quote the whole clause: \"Apartment houses which, he wrote, 'in a different environment would be not only entirely unobjectionable but highly desirable, come very near to being nuisances' among detached homes.\" Or drop the quote and keep only the air/sun/traffic list."
+  },
+  {
+   "seg": "04",
+   "rule": "content §1 (unsourced fact)",
+   "severity": "major",
+   "quote": "for its two most fire-resistant construction types",
+   "problem": "No source quote supports this ranking, and it is likely wrong. IBC construction types are not a strict fire-resistance ladder: Type II-B can carry 0-hour ratings, while Type IV-A (mass timber) and III-A/V-A have rated assemblies. C19 only supports \"Type I or II\".",
+   "fix": "for its Type I and Type II construction — the two noncombustible types —"
+  },
+  {
+   "seg": "05",
+   "rule": "content §1 / G §6 (dating quotes) / claims C62",
+   "severity": "major",
+   "quote": "In a joint statement posted in June 2024,",
+   "problem": "The claims table says the document is undated and the narration must not state a year. \"June 2024\" is guessed from the upload path in the URL.",
+   "fix": "In an undated joint statement,"
+  },
+  {
+   "seg": "09",
+   "rule": "content §2 (opinion unmarked) / YELLOW 5 (sides)",
+   "severity": "major",
+   "quote": "showed a similar pattern in its first year",
+   "problem": "No source compares SB 9 uptake with the Minneapolis result. 211 and 7 applications have no baseline, so calling it a 'similar pattern' is the channel's interpretation and pushes the contested upzoning debate toward the null side.",
+   "fix": "Replace with: \"California's 2021 law SB 9 ... In its first year, 2022, Los Angeles received 211 applications for new units under the law; San Diego received seven.\" If a comparison is kept, label it: \"Our read: that looks like a slow start.\""
+  },
+  {
+   "seg": "09",
+   "rule": "G §5 / YELLOW 2 (time markers); §2 (cross-basis)",
+   "severity": "major",
+   "quote": "In Minneapolis and California, allowing more homes per lot hasn't produced a surge of small buildings — at least not yet.",
+   "problem": "The California evidence is two cities' 2022 applications, but the sentence states a current, statewide outcome. That stretches both the time window and the geography.",
+   "fix": "In Minneapolis through 2025, and in Los Angeles and San Diego in SB 9's first year, allowing more homes per lot didn't produce a surge of small buildings."
+  },
+  {
+   "seg": "04",
+   "rule": "content §1 (source fidelity) / §2 cross-basis",
+   "severity": "minor",
+   "quote": "add six to thirteen percent to construction costs",
+   "problem": "Pew says the cost is \"equal to approximately 6%-13% of the total construction costs\", which is a share of the total, not a markup on a single-stair baseline.",
+   "fix": "a cost equal to about six to thirteen percent of total construction costs"
+  },
+  {
+   "seg": "01",
+   "rule": "content §2 / claims C04",
+   "severity": "minor",
+   "quote": "Our read of the record: no single cause explains the decline.",
+   "problem": "C04 supports only that the sources don't attribute the decline to a single cause. 'Explains' turns an absence of attribution into a positive finding.",
+   "fix": "Our read: the records we found don't pin the decline on any single cause."
+  },
+  {
+   "seg": "03",
+   "rule": "content §1 (unsourced) / G §5 (as of)",
+   "severity": "minor",
+   "quote": "Take one state that has been mapped in full.",
+   "problem": "No claim says the Colorado coverage is complete (C12 gives only 334 jurisdictions). Colorado zoning is also still changing, and the figures date from the 2025 report.",
+   "fix": "Take one state the National Zoning Atlas has mapped. In its 2025 report, covering Colorado's 334 jurisdictions, ... (on screen: \"as mapped in 2025\")"
+  },
+  {
+   "seg": "04",
+   "rule": "content §2 (inference unmarked)",
+   "severity": "minor",
+   "quote": "So the rule bites mainly at the fourth story — the four-, five- and six-story building on a small lot.",
+   "problem": "This inference is unmarked, and it ignores that the same table also requires two stairs at three stories or fewer when a floor has more than four homes.",
+   "fix": "So the single-stair limit bites at the fourth story, and at any floor with more than four homes."
+  },
+  {
+   "seg": "05",
+   "rule": "content §1 (source fidelity)",
+   "severity": "minor",
+   "quote": "found that the number of stairs mattered only when",
+   "problem": "The finding is limited to the study's comparative risk model. 'Mattered' reads as a real-world statement.",
+   "fix": "found that, in its risk model, the number of stairs made a difference only when"
+  },
+  {
+   "seg": "05",
+   "rule": "content §8 / YELLOW 6 (neutral wording)",
+   "severity": "minor",
+   "quote": "Pew and the Center for Building, the reform group,",
+   "problem": "'Reform' is the advocates' own value-laden word. Segment 04 already uses the neutral 'a group that advocates single-stair rules'.",
+   "fix": "Pew and the Center for Building, the advocacy group,"
+  },
+  {
+   "seg": "06",
+   "rule": "content §1 (unsourced fact); scope",
+   "severity": "minor",
+   "quote": "The Federal Housing Finance Agency, which oversees Fannie Mae and Freddie Mac, defines in its regulations",
+   "problem": "The oversight role is not in the claims table. The 12 CFR 1282 definitions also apply to the GSE housing-goals part only.",
+   "fix": "Add a claim with a source for FHFA's oversight role (e.g., 12 U.S.C. 4511), and say: \"defines, in its housing-goals regulation, single-family housing as...\""
+  },
+  {
+   "seg": "06",
+   "rule": "content §7 (Crux boundary)",
+   "severity": "minor",
+   "quote": "Fannie Mae's and the FHA's standard home loans cover buildings of one to four units.",
+   "problem": "'Standard home loans' sounds like consumer mortgage talk, which is Crux territory. Keep the framing on programs and projects.",
+   "fix": "Fannie Mae's and the FHA's single-family loan programs cover buildings of one to four units."
+  },
+  {
+   "seg": "06",
+   "rule": "content §2 (precision)",
+   "severity": "minor",
+   "quote": "So a shop with five apartments above it fits neither program.",
+   "problem": "It still fits multifamily lending. As written, it can read as 'no financing exists'.",
+   "fix": "So a shop with five apartments above it fits neither single-family program."
+  },
+  {
+   "seg": "07",
+   "rule": "structure / content §2",
+   "severity": "minor",
+   "quote": "The same 2024 Terner Center study noted that in California, buildings with three or more homes fall under the stricter commercial building code",
+   "problem": "A building-code rule sits under 'The rules aren't the whole story', which contradicts the segment's framing.",
+   "fix": "Move this sentence to the end of segment 04 (stairwell/code lock), and keep 07 for C58 and C59."
+  },
+  {
+   "seg": "08",
+   "rule": "content §2 (cross-basis / baseline choice)",
+   "severity": "minor",
+   "quote": "went from 377,000 homes completed in 1973 to about 48,000 in 2025",
+   "problem": "This series is measured from a single peak year, while the 2–4-unit series pools 1970–74. The baseline is not disclosed, which inflates the drop.",
+   "fix": "went from 377,000 homes completed in 1973, the series' peak year, to about 48,000 in 2025"
+  },
+  {
+   "seg": "09",
+   "rule": "content §2 (cross-basis) / YELLOW 5",
+   "severity": "minor",
+   "quote": "Freemark's Chicago study found no measurable effect on permits; the Urban Institute and Auckland studies found gains.",
+   "problem": "The studies measure different things in different places (applications, permits, total supply; one city vs many U.S. places vs Auckland) and are presented as one scoreboard. The documented methodological critique of the Urban study (AEI, in nguon/E) is also left out.",
+   "fix": "Add: \"These studies measure different things — applications, permits, total supply — in different places, so they don't add up to one number.\" Optionally add: \"Other researchers, at the AEI Housing Center, have questioned the Urban study's method.\""
+  },
+  {
+   "seg": "09",
+   "rule": "G §5 / YELLOW 2",
+   "severity": "minor",
+   "quote": "Its 2040 plan, adopted in 2019, allows — as of October 2026 —",
+   "problem": "Minneapolis 2040 has had litigation and legislative changes, but it is missing from the §1b as-of re-check table, so the 'as of' rests on nothing checked.",
+   "fix": "Action: add Minneapolis 2040 legal and implementation status to claims §1b, and re-check before lock and before voice recording."
+  },
+  {
+   "seg": "09",
+   "rule": "G §1 (causality by placement)",
+   "severity": "minor",
+   "quote": "Their headline also reported stable rents.",
+   "problem": "Placed straight after the plan, a context-free rent figure invites a causal reading, and it drifts toward rent talk (§7).",
+   "fix": "Cut, or: \"Their headline also reported stable rents; this video doesn't test what caused them.\""
+  },
+  {
+   "seg": "10",
+   "rule": "G §5 / YELLOW 2; G §6 (attribution)",
+   "severity": "minor",
+   "quote": "In the city's own words, these \"missing middle\" buildings",
+   "problem": "The quote comes from the Department of City Planning's Final Plan, not 'the city' in general. The ongoing legal challenge (dismissed 11/2025; appeal undecided per §1b) is not handled.",
+   "fix": "\"In the Department of City Planning's final plan, these 'missing middle' buildings...\" Re-check the lawsuit status per §1b; if it is still pending at recording, add a coded source and \"A lawsuit against the plan was dismissed in November 2025; as of October 12, 2026, no appeal ruling has been published.\""
+  },
+  {
+   "seg": "11",
+   "rule": "hook/ending (rule 10)",
+   "severity": "minor",
+   "quote": "and the small apartment buildings just above them?",
+   "problem": "The ending's question widens the hook (which asked only about two-to-four-unit buildings). The answer also mixes 'Our read' with the earlier statement that the record doesn't measure the split.",
+   "fix": "\"So why did America almost stop building them? Our read: no single lock did it. Three sets of rules ... while costs, rates and rents decide whether the numbers work — and the record we found doesn't measure how much each contributed.\""
+  }
+ ],
+ "missing_from_claims": [
+  "FHFA oversees Fannie Mae and Freddie Mac (06)",
+  "Ranking of Type I/II as the 'two most fire-resistant construction types' (04; C19 gives no source quote for the ranking)",
+  "Colorado 'mapped in full' (03)",
+  "'June 2024' date of the IAFF/Metro Chiefs joint statement (05; table says the statement is undated)",
+  "'Stronger sprinklers' as a comparison (04; C18 cites 903.3.1.1 but the comparison with standard R-2 sprinklers is not stated)",
+  "SB 9 'similar pattern' to Minneapolis (09)",
+  "NYC City of Yes approval date of Dec 5, 2024 is sourced only to a note in nguon/E, with no coded source in the sources table (10)",
+  "Minneapolis 2040 legal/implementation status 'as of October 2026' (09; not in §1b)"
+ ],
+ "strengths": [
+  "Hook has two sourced numbers, discloses that the two counts differ in basis, and labels 'our calculation'; the disclaimer and as-of date fall within the first 30 seconds",
+  "Single-stair section gives both sides their own named, dated sources (IAFC, IAFF/Metro Chiefs, CAL FIRE vs Pew/CBNA, the Minnesota model, the ICC vote), and labels CBNA as an advocacy group",
+  "Causal discipline in 07/08: 'shows when — not why', 'doesn't measure that split', Urban study described as 'linked'",
+  "The myth-vs-record beat rests on official legislative testimony (not a straw man) and ends narrowly ('sits in between', concerns 'not measured')",
+  "No party framing, campaign words or blame on groups; subjects are named bodies and documents with dates; race is left out because it isn't needed",
+  "Volatile items (Washington SBCC, Montana, Arlington) were removed rather than risk going stale; the ICC 2027 code carries 'as of' and 'not published'",
+  "Channel calculations (C01, C02, C03, C35, C36, C63) are labelled with their pooling assumptions"
+ ]
+}

@@ -1,0 +1,113 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "07",
+      "rule": "LUAT-NOI-DUNG §1-§2; G §1 (causality)",
+      "severity": "major",
+      "quote": "The bank line bites at five homes, and for many buildings with a shop.",
+      "problem": "This says the five-home lending line holds back construction. No source cited in the script says that. C26–C30 only define categories and program eligibility. C33 covers small projects in California in general, not the step from four homes to five. C31 is the one claim that would support this, and it is marked 'not used'. 'Many buildings with a shop' is also a count with no source. Since 'lock three' depends on this sentence, it currently rests on the channel's inference.",
+      "fix": "Replace with: \"The bank line sorts buildings at five homes, and most buildings with a shop fall outside the single-family programs.\" (Alternative: bring C31 back in seg 06 with attribution, as \"A housing finance task force of the Millennial Housing Commission called financing for properties of five to forty-nine units 'one of the most significant gaps in the mortgage industry'\", plus a time cue saying it is a past finding. This needs owner sign-off because the table avoids giving the task force a year.)"
+    },
+    {
+      "seg": "07",
+      "rule": "LUAT-NOI-DUNG §2 (cross-basis)",
+      "severity": "minor",
+      "quote": "And building costs, borrowing costs and rents weigh on all of them.",
+      "problem": "Stretches two sources beyond what they cover. C58 is about multifamily apartments (national and Minneapolis). C59 is about Terner's California prototypes. Neither covers every type of building here across the country.",
+      "fix": "\"And, in the sources we cite, building costs, borrowing costs and rents weigh on multifamily projects and on small 'missing middle' designs alike.\""
+    },
+    {
+      "seg": "06",
+      "rule": "LUAT-NOI-DUNG §2",
+      "severity": "minor",
+      "quote": "Add a fifth home, and the project moves into multifamily lending.",
+      "problem": "C26 is a housing-goals definition, not a rule for lending programs. 'Moves into multifamily lending' is an inference and not marked as one.",
+      "fix": "\"Add a fifth home, and the building falls outside these single-family definitions and programs.\""
+    },
+    {
+      "seg": "09",
+      "rule": "LUAT-NOI-DUNG §2 (fact vs opinion)",
+      "severity": "minor",
+      "quote": "Counts stayed small in Minneapolis and in SB 9's first year; the Urban Institute and Auckland studies found increases.",
+      "problem": "'Small' is the channel's own judgment. For SB 9, no source in the table calls the counts small.",
+      "fix": "\"In Minneapolis, the count was about two percent of multifamily permits; in SB 9's first year, applications ran in the hundreds in Los Angeles and single digits in San Diego. The Urban Institute and Auckland studies found increases.\""
+    },
+    {
+      "seg": "09",
+      "rule": "QUAN-TRI-RUI-RO §1 VÀNG(5); LUAT-NOI-DUNG §2",
+      "severity": "minor",
+      "quote": "A 2023 study by Urban Institute researchers linked loosening land-use reforms to a rise in housing supply of about 0.8 percent within three to nine years, mostly at the higher end of rents.",
+      "problem": "The table shows this study was read from the abstract only. It also records a published challenge to its methods (AEI Housing Center, 27/10/2025) that the narration leaves out. That is the only study on the 'increase' side with a recorded dispute.",
+      "fix": "Owner decision: either read the full paper before recording, or add \"Researchers at the AEI Housing Center have disputed the data behind it.\" after the sentence (source: the AEI entry in nguon/E-cai-cach.md)."
+    },
+    {
+      "seg": "05",
+      "rule": "QUAN-TRI-RUI-RO §1 VÀNG(5); LUAT-NOI-DUNG §8 (sides)",
+      "severity": "minor",
+      "quote": "to allow one stair up to four stories in the next model code, the 2027 edition — which, as of October 12, 2026, has not been published.",
+      "problem": "The segment opens with the fire-service side and ends with two items that lean toward single stairs (the Minnesota model, then the ICC vote). Ending this way can tilt the safety debate.",
+      "fix": "Add after the sentence: \"Four stories is the height above which the fire chiefs' and the state fire marshal's statements above oppose single-stair buildings.\" (C22, C23)"
+    },
+    {
+      "seg": "10",
+      "rule": "G §5; VÀNG(2) (as of, ongoing litigation)",
+      "severity": "minor",
+      "quote": "New York City's \"City of Yes\" plan, approved by the City Council on December 5, 2024, re-legalized housing above shops",
+      "problem": "A legal challenge is still open: the suit was dismissed in 11/2025, the plaintiffs said they would appeal, and no appeals ruling has been found. The narration presents the plan's status without mentioning this.",
+      "fix": "Add: \"A lawsuit against the plan was dismissed in November 2025; as of October 12, 2026, we found no appeals ruling.\" (Queens Daily Eagle, 14/11/2025). Otherwise the owner should confirm in writing that leaving it out was intended."
+    },
+    {
+      "seg": "10",
+      "rule": "G §6 (attribution of agency claims)",
+      "severity": "minor",
+      "quote": "the new \"missing middle\" buildings match the scale of existing buildings",
+      "problem": "The source says 'will match'. This is the planning department's own description, and the narration states it as fact.",
+      "fix": "\"the plan says the new 'missing middle' buildings will match the scale of existing buildings that had been 'functionally banned by zoning.'\""
+    },
+    {
+      "seg": "04",
+      "rule": "G §5; claims §1b (SBCC re-check)",
+      "severity": "minor",
+      "quote": "its 2021 code allows them up to six stories",
+      "problem": "Washington's state building code council plans to adopt the statewide single-stair rule on 16/10/2026, after the as-of date. If recording happens after that, segs 04 and 10 (the 'On stairs' list) will be out of date.",
+      "fix": "Check SBCC status again on or after 16 Oct 2026, before recording. If the rule was adopted, add Washington to seg 10 with its adoption and effective dates and move the as-of date forward. Otherwise keep the text and add \"as of October 2026\" after \"its 2021 code\"."
+    },
+    {
+      "seg": "09",
+      "rule": "G §3 (myth vs record)",
+      "severity": "minor",
+      "quote": "When Washington state's legislature heard its 2023 middle-housing bill, supporters called it",
+      "problem": "The 'common claim' comes from one hearing record. Nothing signals that it is a common belief, and the other documented places it appears (claims §5: Terner's 700,000 estimate, the Sterling Heights council item) go unused.",
+      "fix": "Put in front of the sentence: \"You'll often hear two predictions about opening the map: a big jump in new homes, or more crowding in established neighborhoods.\" Keep the COMMON CLAIM ↔ RECORD frame with labels on both sides."
+    },
+    {
+      "seg": "—",
+      "rule": "QUAN-TRI-RUI-RO §1 VÀNG(3); LUAT-NOI-DUNG §7",
+      "severity": "minor",
+      "quote": "(title/thumbnail not provided)",
+      "problem": "YELLOW condition 3 needs an independent review of the title and thumbnail. Neither was submitted.",
+      "fix": "Submit the title and thumbnail text for review. Check for banned words ('afford', 'your rent', 'buy a home', 'save') and campaign or party wording."
+    }
+  ],
+  "missing_from_claims": [
+    "seg 07: 'The bank line bites at five homes' — no claim says crossing to five units limits financing or construction (C31 is marked unused)",
+    "seg 07: 'for many buildings with a shop' — a count with no source",
+    "seg 06: 'the project moves into multifamily lending' — an inference from C26–C28, not a claim in the table",
+    "seg 09: 'Counts stayed small … in SB 9's first year' — a judgment that no claim supports",
+    "seg 07: 'weigh on all of them' — goes beyond what C58 (multifamily) and C59 (California prototypes) cover"
+  ],
+  "strengths": [
+    "The hook uses two sourced numbers (C01, C02), says they come from different bases, and labels them as our calculation. The disclaimer and the as-of date come within the first 30 seconds.",
+    "Every channel calculation (C01–C03, C35, C36, C53, C63) is labelled 'our calculation' and states the series or pooling it uses.",
+    "Causality is handled carefully: 'The Census numbers show when — not why', the record 'doesn't measure' how much each cause contributed, and the Urban study is described as 'linked', not as a cause.",
+    "The single-stair debate quotes three fire-service sources with dates, against Pew/CBNA, and says CBNA is an advocacy group. Undated sources are marked 'undated'.",
+    "The upzoning evidence covers both small effects and increases, notes that the studies measure different things, and admits none of them tests Washington's law or the traffic concern.",
+    "No party, campaign or group-blame framing. The subjects are named bodies and documents with dates (Euclid 1926, FHFA rule, HB 2001, SB 2835). Race is not brought in where it isn't needed.",
+    "Stays out of Crux territory: lending is explained only as building categories, with no viewer advice on rent, buying or mortgages.",
+    "The ending answers the hook without overclaiming and makes no prediction: 'the record doesn't settle yet'.",
+    "Laws and codes in seg 10 and the 2027 IBC carry explicit as-of markers. Minneapolis 2040 is tagged 'as of October 2026'."
+  ]
+}
+```

@@ -1,0 +1,227 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "03",
+   "rule": "R§1 / YELLOW-1",
+   "severity": "major",
+   "quote": "One state has been counted in full.",
+   "problem": "This is an unsourced factual claim, and it is not in the claims table. Read literally, it says only one state has been fully mapped. Nothing in the table supports that, and NZA-CO only covers Colorado.",
+   "fix": "Take one state that has been mapped in full."
+  },
+  {
+   "seg": "08",
+   "rule": "R§2 (calc label) / cross-basis",
+   "severity": "major",
+   "quote": "Over the same span, single-family houses rose from about fifty-seven percent of new homes to about sixty-eight, {C63} and buildings of fifty or more units went from one in five new apartments to fifty-seven percent. {C34}",
+   "problem": "C63 is a calc but carries no 'our calculation' label. 'Same span' points back to 1973, but C63 pools 1970–74 and C34 starts in 1972. The sentence also mixes two Census sources (NRC and CNH) with different bases (all new homes vs new apartments) without flagging it.",
+   "fix": "Single-family houses went from about fifty-seven percent of new homes in the early 1970s to about sixty-eight percent in 2025 — again our calculation from Census completions, pooling 1970 through 1974. {C63} In a separate Census series that counts only new apartments, buildings of fifty or more units went from one in five in 1972 to fifty-seven percent in 2025. {C34}"
+  },
+  {
+   "seg": "08",
+   "rule": "R§1 / YELLOW-1",
+   "severity": "major",
+   "quote": "377,000 homes completed in 1973, near their peak, to about 48,000 in 2025 — our sum of two Census columns, with wide error margins for recent years.",
+   "problem": "C35 doesn't support 'near their peak'. The CNH error note in the table covers 2-unit and 3–4-unit buildings (20% and 47%), not the 5–9 or 10–19 columns, so 'wide error margins' for 5–19 has no source.",
+   "fix": "377,000 homes completed in 1973 to about 48,000 in 2025 — our sum of two Census columns. (Action: add 'near their peak' and the 5–19 standard errors to C35 with CNH cells, or leave them out.)"
+  },
+  {
+   "seg": "09",
+   "rule": "YELLOW-5 / R§8 sides / R§2",
+   "severity": "major",
+   "quote": "and the broader studies range from no effect to modest gains.",
+   "problem": "Freemark is a local Chicago study, not a 'broader' one. Calling the Auckland result 'modest' is the channel's own judgment and isn't marked as an opinion. It understates the gains side: by the source's own figure, Auckland added about 4.11% of its housing stock.",
+   "fix": "— at least not yet. Freemark's Chicago study found no measurable effect on permits; the Urban Institute and Auckland studies found gains — about 0.8 percent more supply across U.S. places, and additional permits equal to about four percent of Auckland's housing stock."
+  },
+  {
+   "seg": "10",
+   "rule": "G§5 / YELLOW-2 / claims §1b",
+   "severity": "major",
+   "quote": "And as of October 12th, Washington's building code council was targeting October 16th for final adoption of a statewide single-stair rule up to six stories.",
+   "problem": "Correct as of 12/10/2026, but per §1b it will certainly change after 16/10. It can't be voiced unchanged if recording happens after that date.",
+   "fix": "Action: check SBCC status again after 16/10/2026 and before voice recording. If adopted, use: 'And on October 16, 2026, Washington's building code council adopted a statewide rule allowing single-stair buildings up to six stories, effective May 3, 2027.' Record the result in claims.md."
+  },
+  {
+   "seg": "11",
+   "rule": "R§1 / causality / hook",
+   "severity": "minor",
+   "quote": "Over the same century, three sets of rules settled around these buildings — the map decided where they could stand, the stairwell how tall they could rise",
+   "problem": "No source dates the stair rule or the lending rules to 'the same century'. Seg 04 says the stair rule 'rarely touches' 2–4-unit buildings, so 'how tall they could rise' doesn't fit the hook's subject.",
+   "fix": "Today, three sets of rules shape new ones — the map decides where they can stand, the stairwell how tall the small apartment buildings above them can rise, the bank which loan programs they fit — while costs, rates and rents decide whether the numbers work at all."
+  },
+  {
+   "seg": "11",
+   "rule": "R§2 opinion support",
+   "severity": "minor",
+   "quote": "Our read: not because people stopped living in them.",
+   "problem": "This is a negative causal claim. The existing stock (C53, which includes vacant units) doesn't show that demand held up.",
+   "fix": "Our read: the buildings themselves didn't go away."
+  },
+  {
+   "seg": "01",
+   "rule": "R§1 accuracy",
+   "severity": "minor",
+   "quote": "The bank, the ones with a shop, or with more than four homes.",
+   "problem": "Overstates the rule. C30 says FHA accepts mixed-use buildings of 1–4 units if at least 51% is residential.",
+   "fix": "The bank, the ones with more than four homes, and many with a shop."
+  },
+  {
+   "seg": "04",
+   "rule": "R§1 inference",
+   "severity": "minor",
+   "quote": "So the stair rule rarely touches a two- or three-story duplex or triplex.",
+   "problem": "This inference isn't in the claims table. Tie it to the C15 conditions instead.",
+   "fix": "Under that table, a building of up to three stories with no more than four homes per floor can have one stair. So the rule bites mainly at the fourth story — the four-, five- and six-story building on a small lot."
+  },
+  {
+   "seg": "04",
+   "rule": "R§1 attribution",
+   "severity": "minor",
+   "quote": "Washington state's building officials, explaining Seattle's history, wrote",
+   "problem": "WABO is a professional association, not a state body.",
+   "fix": "The Washington Association of Building Officials, explaining Seattle's history, wrote"
+  },
+  {
+   "seg": "04",
+   "rule": "R§1 mapping",
+   "severity": "minor",
+   "quote": "for noncombustible construction",
+   "problem": "The source says 'Type I or II'. Writing 'noncombustible' is a paraphrase the table doesn't record, and the table says this condition goes on screen.",
+   "fix": "for Type I or II construction — the noncombustible types (add the mapping to C19 or keep 'Type I/II' on screen)"
+  },
+  {
+   "seg": "05",
+   "rule": "R§1 accuracy",
+   "severity": "minor",
+   "quote": "described \"near-unanimous opposition\" from California's fire departments",
+   "problem": "The source says the opposition is to single-stair buildings above three stories. Without that scope, it reads as opposition to all single-stair buildings.",
+   "fix": "described \"near-unanimous opposition\" from California's fire departments to single-stair buildings above three stories"
+  },
+  {
+   "seg": "05",
+   "rule": "G§6 / R§8 fair wording",
+   "severity": "minor",
+   "quote": "In a joint statement, the International Association of Fire Fighters and the Metropolitan Fire Chiefs Association put it more bluntly:",
+   "problem": "The quote has no date (G§6), and 'more bluntly' adds the channel's own characterization.",
+   "fix": "In a joint statement posted by the IAFF in June 2024, the International Association of Fire Fighters and the Metropolitan Fire Chiefs Association wrote:"
+  },
+  {
+   "seg": "05",
+   "rule": "R§1 accuracy",
+   "severity": "minor",
+   "quote": "A third study, by engineering consultants",
+   "problem": "IAFC and CAL FIRE are not studies, so 'third' miscounts. 'Doors were left open' also compresses the source's three-part condition.",
+   "fix": "A modeling study by engineering consultants for Minnesota's labor department, in December 2025, found that the number of stairs mattered only when the sprinklers failed and both the apartment door and the stair door on the fire floor were open."
+  },
+  {
+   "seg": "06",
+   "rule": "R§7 Crux boundary",
+   "severity": "minor",
+   "quote": "So a plain fourplex can be financed like a house.",
+   "problem": "Reads like a tip about financing aimed at the viewer. Keep it about how the system works.",
+   "fix": "So a plain fourplex falls under the same single-family loan programs as a house."
+  },
+  {
+   "seg": "06",
+   "rule": "R§8 named bodies",
+   "severity": "minor",
+   "quote": "The federal agency that oversees Fannie Mae and Freddie Mac defines single-family housing",
+   "problem": "The agency isn't named, and the scope of the definition (12 CFR 1282) isn't given.",
+   "fix": "The Federal Housing Finance Agency, which oversees Fannie Mae and Freddie Mac, defines in its regulations single-family housing"
+  },
+  {
+   "seg": "09",
+   "rule": "R§2 opinion marking",
+   "severity": "minor",
+   "quote": "Our read: California's SB 9 started slowly too.",
+   "problem": "The 'Our read' label sits on a passage that is mostly sourced fact, and 'slowly' has no benchmark. SB 9 is never explained.",
+   "fix": "California's 2021 law SB 9, which lets owners add homes on single-family lots, shows a similar pattern so far: (Action: add an SB 9 description claim from TERNER23.)"
+  },
+  {
+   "seg": "09",
+   "rule": "G§6 / R§1 attribution",
+   "severity": "minor",
+   "quote": "Others testified that its",
+   "problem": "C61 is a staff summary of testimony, not verbatim testimony.",
+   "fix": "In the committee's staff summary of the testimony, others said its"
+  },
+  {
+   "seg": "09",
+   "rule": "R§2 causality",
+   "severity": "minor",
+   "quote": "estimated that upzoning about three quarters of Auckland's residential land led to roughly 21,800 additional homes permitted",
+   "problem": "The quoted source text says 'following', not 'led to'.",
+   "fix": "estimated that roughly 21,800 additional homes were permitted in the five years after Auckland upzoned about three quarters of its residential land"
+  },
+  {
+   "seg": "09",
+   "rule": "G§5 / YELLOW-2",
+   "severity": "minor",
+   "quote": "Its 2040 plan, adopted in 2019, allows duplexes and triplexes",
+   "problem": "Describes a plan's current legal status in the present tense with no 'as of' in the segment.",
+   "fix": "Its 2040 plan, adopted in 2019, allows — as of October 2026 — duplexes and triplexes (check current status before recording)"
+  },
+  {
+   "seg": "10",
+   "rule": "G§5 / YELLOW-2",
+   "severity": "minor",
+   "quote": "approved by the City Council on December 5, 2024, re-legalized housing above shops",
+   "problem": "Per §1b the litigation is still open (dismissed 11/2025, appeal undecided), but the line presents the plan as settled.",
+   "fix": "Add: 'A lawsuit against it was dismissed in November 2025; as of October 12, no appeal ruling had been found.' (Add the Queens Eagle source to the claims table first.)"
+  },
+  {
+   "seg": "10",
+   "rule": "R§1 accuracy",
+   "severity": "minor",
+   "quote": "Oregon's 2019 law requires cities of 25,000 people or more to allow duplexes through fourplexes, townhouses and cottage clusters.",
+   "problem": "Leaves out the scope in the statute: areas zoned for detached single-family homes.",
+   "fix": "Oregon's 2019 law requires cities of 25,000 people or more to allow duplexes through fourplexes, townhouses and cottage clusters in areas zoned for detached single-family homes."
+  },
+  {
+   "seg": "00",
+   "rule": "R§2 calc label",
+   "severity": "minor",
+   "quote": "and the math is ours.",
+   "problem": "Rule §2 requires the exact label 'our calculation'.",
+   "fix": "and the shares are our calculation."
+  },
+  {
+   "seg": "01",
+   "rule": "R§2 calc label",
+   "severity": "minor",
+   "quote": "Almost a quarter of today's occupied homes in two-to-four-unit buildings were built before 1940.",
+   "problem": "C03 is a calc share, and year built is reported by survey respondents. Neither is labeled.",
+   "fix": "By our calculation from Census survey data, where residents report the year built, almost a quarter of today's occupied homes in two-to-four-unit buildings were built before 1940."
+  },
+  {
+   "seg": "09",
+   "rule": "G§3",
+   "severity": "minor",
+   "quote": "When Washington state's legislature heard its 2023 middle-housing bill",
+   "problem": "The beat's claim comes from one legislative record, with no evidence that it is widely heard. The script also doesn't mark the COMMON CLAIM ↔ RECORD frame.",
+   "fix": "Action: add a visual note for the 'COMMON CLAIM ↔ RECORD' frame, and log where the expectation and concern appear beyond C61 in claims.md."
+  }
+ ],
+ "missing_from_claims": [
+  "Seg 03: 'One state has been counted in full' (claim that only one state is fully mapped)",
+  "Seg 08: 5–19-unit completions in 1973 'near their peak'",
+  "Seg 08: 'wide error margins for recent years' for the 5–9 and 10–19 columns (CNH error note covers only 2-unit and 3–4-unit buildings)",
+  "Seg 11: 'Over the same century' timing for the stair and lending rules",
+  "Seg 04: 'noncombustible' as a paraphrase of Type I/II construction",
+  "Seg 04: inference that the stair rule 'rarely touches' duplexes and triplexes; seg 01 'The stairwell, mostly the taller ones'",
+  "Seg 05: date of the IAFF/Metro Chiefs joint statement (June 2024 upload)",
+  "Seg 09: Freemark's first name 'Yonah' (table has 'Y. Freemark')",
+  "Seg 09: what SB 9 is or does",
+  "Seg 10: NYC City of Yes litigation status (Queens Eagle not coded as a source)"
+ ],
+ "strengths": [
+  "Hook has two sourced numbers, says they are different Census bases, and the ending answers the question with a marked 'Our read'",
+  "Financial disclaimer and 'as of 12 October 2026' come within the first 30 seconds; seg 10 opens with as-of and uses 'was targeting' for the pending SBCC rule",
+  "Single-stair debate is balanced: three fire-service sources, Pew/CBNA labeled as advocates, a neutral Minnesota model study, and the ICC vote with its publication status",
+  "Upzoning evidence covers both sides (Minneapolis Fed, Terner, Freemark vs Urban Institute, Auckland) and ends with 'the record sits in between' plus a note on the unmeasured traffic and local-character concerns",
+  "No party framing, no campaign words, no blame on groups; subjects are named bodies and documents with dates; race is not brought in",
+  "Seg 07 says plainly that the split between rules and market forces isn't measured; seg 08 says 'show when — not why'",
+  "Quotes from Euclid and Sutherland are verbatim and in context (a summary of commission reports), including the 'highly desirable' clause",
+  "Minneapolis result is worded as 'roughly the same as a comparison group', not as a gain, matching the source"
+ ]
+}

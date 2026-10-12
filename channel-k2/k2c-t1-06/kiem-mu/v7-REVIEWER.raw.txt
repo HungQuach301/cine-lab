@@ -1,0 +1,164 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "04",
+      "rule": "§1/§2 accuracy (ĐỎ 1 risk: statement contrary to source)",
+      "severity": "major",
+      "quote": "Washington state's building code starts from a model, the International Building Code, and Seattle's reprints its text. Under its 2021 edition — the version we checked — an apartment building may have a single staircase up to the third story, with at most four homes per floor and sprinklers throughout. A fourth story on one stair is not permitted.",
+      "problem": "It is unclear what 'its' refers to. A listener can take it as Seattle's 2021 code. Three paragraphs later the script says Seattle's 2021 code allows single-stair buildings up to six stories (C18). The script then contradicts itself, and the first statement is wrong for Seattle. Table 1006.3.4(1) is the model IBC table. Seattle's six-story allowance is a separate local item (item 7).",
+      "fix": "Replace with: \"Washington state's building code starts from a model, the International Building Code, and Seattle's code reprints its text. In the model code's 2021 edition — the version we checked — an apartment building may have a single staircase up to the third story, with at most four homes per floor and sprinklers throughout. A fourth story on one stair is not permitted.\" Then open the Seattle paragraph with: \"Seattle adds its own exception: it has allowed some single-stair apartment buildings since its 1977 code, those officials wrote; ...\""
+    },
+    {
+      "seg": "04",
+      "rule": "G §5 / YELLOW condition 2 (as of)",
+      "severity": "major",
+      "quote": "Washington state's building code starts from a model, the International Building Code",
+      "problem": "Washington's single-stair rule is ongoing and will change within days. Table 1b says SBCC adoption is targeted for 16/10/2026 and the status 'will definitely change after 16/10'. The segment describes Washington's code with no 'as of' marker and leaves out the pending statewide rule. If the script is voiced after 16/10, the segment is stale or misleading.",
+      "fix": "Reactivate C52 and add after the Seattle paragraph: \"As of October 12, 2026, Washington's State Building Code Council has proposed, but not adopted, a statewide rule allowing single-stair apartment buildings up to six stories; final adoption is targeted for October 16, 2026.\" Re-check SBCC status before voice recording and rewrite this sentence to the actual status (adopted/effective May 3, 2027, or not). Put 'Facts as of' on screen."
+    },
+    {
+      "seg": "07",
+      "rule": "Causality (G §1)",
+      "severity": "major",
+      "quote": "How much of the long decline comes from each? The record we found doesn't measure that split.",
+      "problem": "The question assumes each lock contributed to the decline. No source in the table says the map, the stair rule or the lending line caused the drop in 2–4-unit completions. The timeline also cuts against it: Euclid-era zoning came before the 1970s peak, and the stair rule mostly binds buildings above three stories. This is causation implied without a source.",
+      "fix": "Replace with: \"Whether each of these contributed to the long decline, and by how much, the record we found doesn't measure.\""
+    },
+    {
+      "seg": "09",
+      "rule": "Sides (YELLOW condition 5; §2, §8)",
+      "severity": "major",
+      "quote": "In Minneapolis through 2025, and in Los Angeles and San Diego in SB 9's first year, the counts stayed small: 317 permitted units over six years in Minneapolis, and 211 and seven applications in Los Angeles and San Diego in 2022.",
+      "problem": "The closing recap repeats only the low-result numbers and calls them 'small', which is unsourced. The increases (Urban 0.8%, Auckland about 4% of stock) get only 'don't add up to one number'. The summary of a disputed research question ends weighted to one side.",
+      "fix": "Replace with: \"Minneapolis permitted 317 such units over six years — about two percent of its multifamily permits — and Los Angeles and San Diego received 211 and seven SB 9 applications in 2022. The broader studies found increases: about 0.8 percent more housing supply in the Urban Institute study, and about four percent of the housing stock in Auckland.\""
+    },
+    {
+      "seg": "01",
+      "rule": "§2 fact vs opinion",
+      "severity": "minor",
+      "quote": "What the record does show is three sets of rules that grew up around these buildings.",
+      "problem": "The 'three locks' framework is the channel's own construct (C04, opinion), but this line presents it as something the record shows. 'Grew up around these buildings' also suggests the stair and lending rules targeted 2–4-unit buildings, which no source says.",
+      "fix": "\"What the record does show is rules in three areas that apply to these buildings.\""
+    },
+    {
+      "seg": "02",
+      "rule": "§1 precision / tense",
+      "severity": "minor",
+      "quote": "the legislature's judgment controls — in plain terms, judges defer to the lawmakers who wrote the zoning rule.",
+      "problem": "The present tense turns the 1926 standard into a general current rule. The source says 'must be allowed to control', and only when the question is 'fairly debatable'.",
+      "fix": "\"the legislative judgment must be allowed to control — in plain terms, under that standard, judges deferred to the local lawmakers who wrote the zoning rule.\""
+    },
+    {
+      "seg": "02",
+      "rule": "Sides (YELLOW 5), optional",
+      "severity": "minor",
+      "quote": "The Court upheld the ordinance.",
+      "problem": "The decision was split, and the source notes record 6–3. Saying so shows the Court itself disagreed.",
+      "fix": "\"The Court upheld the ordinance, six to three.\" (Add 6–3 to the C09 claim row.)"
+    },
+    {
+      "seg": "03",
+      "rule": "G §5 time marker",
+      "severity": "minor",
+      "quote": "That's one state, not a national figure.",
+      "problem": "Zoning in Colorado is changing through state laws (the script itself cites HB25-1273). The figures describe zoning as mapped for the 2025 report, not as of the episode date.",
+      "fix": "\"That's one state, as mapped for that report — not a national figure, and not today's map.\""
+    },
+    {
+      "seg": "04",
+      "rule": "§1 sources",
+      "severity": "minor",
+      "quote": "The rule starts with a safety idea: two separate ways out.",
+      "problem": "The factual claim about why the rule exists is not in the claims table.",
+      "fix": "Tie it to C23: \"The rule rests on a safety idea the state fire marshal in California calls 'the redundancy of two independent stairways.'\" Or move the attribution to seg 05 and here say only: \"The rule requires two separate ways out.\""
+    },
+    {
+      "seg": "04",
+      "rule": "G §6 (quotes dated)",
+      "severity": "minor",
+      "quote": "In a proposal to Washington's Building Code Council, the Washington Association of Building Officials, explaining Seattle's history, wrote",
+      "problem": "A quote from an operating organization has no date.",
+      "fix": "\"In a proposal posted by Washington's Building Code Council in March 2025, the Washington Association of Building Officials, explaining Seattle's history, wrote\" (or use the filing date on 24-SEP-001 if the document gives one)."
+    },
+    {
+      "seg": "05",
+      "rule": "Sides — fair wording (§8, YELLOW 5)",
+      "severity": "minor",
+      "quote": "Pew and the Center for Building, the advocacy group, cite their own count of fire records",
+      "problem": "Stakeholders are labelled unevenly. CBNA is called an advocacy group twice (seg 04 and seg 05) and its count is 'their own'. The fire-service bodies on the other side get no stakeholder label.",
+      "fix": "\"Pew and the Center for Building cite a count of fire records\" (CBNA is already identified in seg 04). Or label both sides the same way, e.g. \"two fire-service associations, the International Association of Fire Fighters and the Metropolitan Fire Chiefs Association\"."
+    },
+    {
+      "seg": "08",
+      "rule": "§1 cross-basis labelling",
+      "severity": "minor",
+      "quote": "And in a separate Census series, buildings of fifty or more units",
+      "problem": "C34 comes from the same CNH multifamily series as C35, not a separate one. Calling it separate misdescribes the basis and conflicts with 'across these two series'.",
+      "fix": "\"And in that same multifamily series, buildings of fifty or more units\""
+    },
+    {
+      "seg": "09",
+      "rule": "G §5 time marker",
+      "severity": "minor",
+      "quote": "California's SB 9, which took effect in January 2022, let homeowners split their lot and build up to four homes on a single-family parcel.",
+      "problem": "SB 9 is a law in force with ongoing charter-city litigation (table 1b), but the sentence has no time anchor and reads as current statewide scope.",
+      "fix": "\"When California's SB 9 took effect in January 2022, it let homeowners split their lot and build up to four homes on a single-family parcel.\""
+    },
+    {
+      "seg": "09",
+      "rule": "§2 / G §3 (narrow record)",
+      "severity": "minor",
+      "quote": "and none of them covers Washington's 2023 law",
+      "problem": "This is an unbounded negative claim about all research.",
+      "fix": "\"and none of the studies we cite covers Washington's 2023 law\""
+    },
+    {
+      "seg": "10",
+      "rule": "G §6 (quotes dated)",
+      "severity": "minor",
+      "quote": "In the Department of City Planning's final plan, these \"missing middle\" buildings had been \"functionally banned by zoning.\"",
+      "problem": "A quote from an operating agency has no date.",
+      "fix": "Add the Final Plan's publication date from the document, e.g. \"In the Department of City Planning's final plan, published [month year], ...\", or say \"in its final plan for the December 2024 vote\"."
+    },
+    {
+      "seg": "11",
+      "rule": "Causality (G §1)",
+      "severity": "minor",
+      "quote": "And costs, rates and rents decide whether the numbers work at all.",
+      "problem": "'Decide' overstates C58 ('have challenged the profitability') and C59 ('would not be built under recent market conditions'), and it is not attributed.",
+      "fix": "\"And costs, rates and rents, researchers at the Minneapolis Fed and the Terner Center found, weigh on whether the numbers work at all.\""
+    },
+    {
+      "seg": "11",
+      "rule": "§1 tense / basis",
+      "severity": "minor",
+      "quote": "more than eight in ten of the occupied ones are rented.",
+      "problem": "The present tense presents a 2024 survey estimate as current.",
+      "fix": "\"more than eight in ten of the occupied ones were rented, in that survey.\""
+    }
+  ],
+  "missing_from_claims": [
+    "Seg 04: 'The rule starts with a safety idea: two separate ways out' (rationale for the stair rule; no claim row)",
+    "Seg 05: 'the 2027 edition — which, as of October 12th, has not been published' (only in the 1b as-of table, not a claim row with source)",
+    "Seg 02: 'apartment houses among detached homes' (the 'detached homes' context is not in the C10 quoted text)",
+    "Seg 06: 'Add a fifth home, and the project moves into multifamily lending' (inference from C26–C28, not listed in §3 derived sentences)",
+    "Seg 07: 'The bank line bites ... for many buildings with a shop' ('many' is unquantified; derived from C29/C30 but not listed)",
+    "Seg 09: 'none of them covers Washington's 2023 law, or the traffic and local-character concerns' (negative claim, no row)",
+    "Seg 01: 'the classic version on a city corner: a shop on the ground floor, two or three floors of apartments above, one staircase' (v7 wording differs from the §3 entry 'You know the building…'; update §3)",
+    "Seg 02: Euclid 6–3 split (in source notes, not in C09) — needed only if the fix is adopted",
+    "Seg 04: C52 (SBCC as-of) is marked 'not used in v7' but is needed for the Washington as-of fix"
+  ],
+  "strengths": [
+    "The hook has two sourced numbers on different bases, flags the different bases and labels both as 'our calculation' inside 30 s. The G-version disclaimer and the 'as of' date are also inside 30 s.",
+    "Opinions are marked consistently with 'Our read'. Every channel calculation (C01, C02, C03, C35, C36, C53, C63) is labelled with its basis.",
+    "The single-stair debate gives each side its own sources: IAFC, IAFF/Metro Chiefs and CAL FIRE against Pew/CBNA, plus the Minnesota model and the ICC vote. CBNA's advocacy role is disclosed.",
+    "Seg 08 explicitly says 'show when — not why'. Seg 09 avoids presenting rent stability as caused by the plan. Urban's finding is phrased as 'linked', not causal.",
+    "No party framing, campaign words or group blame. Subjects are named bodies and dated decisions. Race and redlining are correctly left out as not needed.",
+    "No Crux-boundary breach. Lending is covered only as definitions and program rules, with no advice on the viewer's rent, purchase or mortgage.",
+    "The myth/record beat uses a real, documented legislative record (HB 1110 staff summary), not a straw man. It keeps 'Other' distinct from 'Opposed' and admits the record does not test the traffic and local-character concerns.",
+    "The ending returns to the hook question and answers it within the record's limits, with no prediction ('the record doesn't settle yet')."
+  ]
+}
+```

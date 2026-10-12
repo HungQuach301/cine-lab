@@ -1,0 +1,196 @@
+# K2C-T1-06 "Apartments" — SHOT LIST (G1a, khớp lời khoá ứng viên v8.1 script.md). Chưa dựng khung mẫu 3D (chờ bộ công cụ phiên V).
+# Khai theo checks 1.10.1 (BAO-CAO §18.4): mỗi shot `type` ∈ {scene3d, map, chart3d, photo, document, footage, card}, `scene_id`, `camera_id`;
+# đặc tả khai `places:`, `people:` (photo: rid/clip_id hoặc ly_do), `anchors:`.
+# `at` = cụm từ trong lời đoạn đó (khớp lần đầu; "#n" = lần thứ n). Thời điểm ước bằng 151,2 từ/phút (Eric, đo ở K2G-01) — `shotlist.py` tính.
+# `nums` = mã claim hiện trên hình; `src` = clip_id trong SOURCES-FOOTAGE (ứng viên: CAN-TAI-HO.csv / footage-ung-vien.csv); `label` = nhãn năm/nguồn bắt buộc trên hình.
+# Document: ≤ 3 s, có p.paper + p.date (Q34d). Footage/ảnh: ≤ 8 s mỗi clip, nhãn năm (QUAN-TRI-RUI-RO §6.3, §6.5).
+id: k2c-t1-06
+script: script.md
+wpm: 151.2
+
+scenes:   # bộ cảnh 3D dựng riêng cho tập (≥ 4 theo HIEN-CHUONG §3) — mô tả cho phiên V/xưởng; cùng (scene_id, camera_id) ≤ 2 lần (Q33)
+  corner:  "Toà góc phố 4 tầng: cửa hàng tầng trệt, 3 tầng căn hộ, 1 cầu thang; ngã tư phố cũ (gạch, mái hiên, biển chữ trung tính không nhãn hiệu); ban ngày / chạng vạng / giờ xanh. Có chế độ cắt lớp (section) hiện cầu thang và căn hộ."
+  street:  "Dãy phố hai bên: duplex, triplex, fourplex, toà 5–19 căn đi bộ (walk-up); dùng để giới thiệu 'họ hàng' toà nhỏ và nhãn số căn bám vật thể."
+  tiers:   "Sa bàn thị trấn kiểu Euclid 1922: 4 tầng khu (U-1 nhà một hộ, U-2 hai hộ, U-3 căn hộ, U-4 cửa hàng) tô theo tầng; toà góc phố 'không vừa' 3 tầng đầu (đèn đỏ) — chỉ minh hoạ, ghi 'illustration' trên hình."
+  lot:     "Lô nhỏ góc phố nhìn từ trên: dấu chân toà nhà + ô đỗ xe (2 chỗ/căn) chiếm dần diện tích lô."
+  stairs:  "Mặt cắt sàn điển hình toà 4–6 tầng: 1 cầu thang vs 2 cầu thang + hành lang (phần tô cam ≈ 7 % diện tích sàn theo Pew); thêm tầng 4 thì 'NP' với 1 cầu thang."
+  bank:    "Hàng khối nhà 1–2–3–4 căn | vạch '4' | 5+ căn; quầy cho vay hai cửa (single-family / multifamily); biến thể có cửa hàng tầng trệt."
+  ends:    "Sa bàn 'hai đầu': cánh đồng nhà một hộ bên trái, toà ≥ 50 căn bên phải, các toà nhỏ ở giữa thưa dần theo năm (1972 → 2025)."
+charts:   # chart3d (cột/khối 3D, trục từ 0, nhãn ACTUAL; nguồn trên hình)
+  ch_hook: "Kho nhà (ACS 2024) vs nhà mới hoàn thành (NRC 2025): 7,5 % vs 1,1 % — hai cột KHÁC CƠ SỞ, nhãn rõ 'homes standing today' / 'homes finished in 2025', 'our calculation'"
+  ch_comp: "Nhà 2–4 căn hoàn thành mỗi năm 1968–2025 (nghìn), đánh dấu 1986→1990, 2006→2010, 2025"
+  ch_share: "Tỷ trọng 2–4 căn trong nhà mới: 5,9 % (1970–74) → 1,1 % (2025), our calculation"
+  ch_size: "Ba khối: 5–19 căn 377k→48k; nhà một căn 57 %→68 %; toà ≥ 50 căn 20 %→57 % căn hộ mới (series CNH riêng, ghi rõ)"
+  ch_co:   "Colorado: 59 % đất ở chỉ cho nhà một hộ; 3 % cho > 4 căn theo quyền; 85 % có bắt buộc chỗ đỗ"
+  ch_pew:  "Pew/CBNA (ghi 'advocacy'): +7 % diện tích sàn, +6–13 % chi phí; NYC 4 440 toà"
+  ch_icc:  "Phiếu ICC 86–34 (thành viên chính quyền), mốc 'IBC 2027 — chưa phát hành (as of 12 Oct 2026)'"
+  ch_mpls: "Minneapolis 2020–2025: 317 căn trong toà 2–4 căn / 12 335 căn nhà nhiều hộ (≈ 2 %), nhóm so sánh ≈ bằng"
+  ch_sb9:  "SB 9 năm 2022: LA 211 đơn, San Diego 7"
+  ch_study: "Urban 2023: +0,8 % cung (3–9 năm); Auckland 2023: ≈ 21 800 nhà (≈ 4 % kho)"
+  ch_terner: "Terner 2024 (California): ≈ +10 % chi phí theo luật thương mại cho ≥ 3 căn"
+maps:     # một bộ bản đồ 3D nhãn địa danh trên hình (BAI-HOC-K2 K7); camera_id = nơi
+  usmap: "Bản đồ Mỹ phong cách kênh (khối nổi, nhãn chữ); thêm khung chèn Auckland (NZ)"
+
+places:   # mọi địa danh nhắc trong lời → shot map (shot id)
+  - {name: "Euclid, Ohio / Cleveland", seg: "02", shot: m_euclid}
+  - {name: "Colorado", seg: "03", shot: m_colorado}
+  - {name: "Seattle", seg: "04", shot: m_seattle}
+  - {name: "New York City", seg: "05,10", shot: m_nyc2}
+  - {name: "California (Los Angeles, San Diego)", seg: "05,06,07,09", shot: m_calif}
+  - {name: "Minnesota / Minneapolis", seg: "05,07,09", shot: m_minn}
+  - {name: "Washington state", seg: "04,09,10", shot: m_wash}
+  - {name: "Chicago", seg: "09", shot: m_chicago}
+  - {name: "Auckland, New Zealand", seg: "09", shot: m_auckland}
+  - {name: "Oregon", seg: "10", shot: m_oregon}
+  - {name: "Texas", seg: "10", shot: m_texas}
+people:   # nhân vật nhắc trong lời → shot photo nếu có ảnh hợp lệ
+  - {name: "Herbert Hoover (Secretary of Commerce, 1921)", seg: "02", shot: p_hoover, photo: "CAN-TAI-HO:LOC-HOOVER", note: "LoC Harris & Ewing / National Photo Co. (khả năng 'No known restrictions'); LoC chặn phiên (Cloudflare 403) → chủ dự án tải hộ, rồi ghi rid RIGHTS.md"}
+  - {name: "Justice George Sutherland", seg: "02", shot: p_sutherland, photo: "CAN-TAI-HO:LOC-SUTHERLAND", note: "LoC Harris & Ewing; như trên"}
+  - {name: "Yonah Freemark", seg: "09", shot: c_freemark, ly_do: "Người còn sống, không có ảnh có giấy phép đã kiểm; chỉ hiện tên + tên nghiên cứu (LUAT-NOI-DUNG-G §6)"}
+
+segments:
+  - id: "00"
+    shots:
+      - {id: s00a, at: "About", type: scene3d, scene_id: corner, camera_id: wide_dusk, desc: "Toà góc phố chạng vạng, cửa sổ sáng; nhãn '1 in 13 homes' bám toà"}
+      - {id: s00b, at: "Of the new", type: chart3d, scene_id: ch_hook, camera_id: front, nums: [C01, C02], desc: "Hai cột khác cơ sở, nhãn rõ"}
+      - {id: s00c, at: "So why", type: scene3d, scene_id: corner, camera_id: push_facade, desc: "Đẩy vào mặt tiền; tựa câu hỏi 'Why did America almost stop building them?'"}
+      - {id: s00d, at: "Two different", type: scene3d, scene_id: street, camera_id: dolly_day, desc: "Lướt dãy phố; dòng 'Census ACS 2024 · NRC 2025 · our calculation' + 'Not financial advice' + 'Facts as of 12 Oct 2026'"}
+  - id: "01"
+    shots:
+      - {id: s01a, at: "Picture", type: scene3d, scene_id: corner, camera_id: section, desc: "Cắt lớp: cửa hàng, 3 tầng căn hộ, 1 cầu thang (nhãn bám vật thể)"}
+      - {id: s01b, at: "The plainer", type: scene3d, scene_id: street, camera_id: labels_row, desc: "Nhãn duplex · triplex · fourplex · 5–19 homes trên từng toà"}
+      - {id: s01c, at: "By our calculation", type: photo, scene_id: loc_det_fifthwood, camera_id: kenburns, src: LOC-DET-01, label: "Pittsburgh, c. 1900–1915 · Library of Congress", desc: "Ảnh lưu trữ góc phố thương mại có căn hộ tầng trên"}
+      - {id: s01c2, at: "almost a quarter", type: photo, scene_id: loc_fsa_durham, camera_id: kenburns, src: LOC-FSA-01, label: "Durham, N.C., May 1940 · Library of Congress (FSA/OWI)", nums: [C03], desc: "Ảnh lưu trữ cửa hàng góc phố 1940; thẻ nhỏ 'pre-1940: ~23% (our calculation, ACS 2024)'"}
+      - {id: s01d, at: "Our read", type: card, scene_id: card_locks, camera_id: intro, desc: "Thẻ 3 khoá (map · stairwell · bank) + 'costs, rates, rents' — 'OUR READ'"}
+      - {id: s01e, at: "Then we'll", type: scene3d, scene_id: corner, camera_id: aerial_day, desc: "Toàn cảnh khu phố ban ngày"}
+  - id: "02"
+    shots:
+      - {id: s02a, at: "Lock one", type: scene3d, scene_id: tiers, camera_id: top, desc: "Sa bàn từ trên, tựa 'LOCK 1 · THE MAP'"}
+      - {id: s02b, at: "In 1921", type: photo, scene_id: p_hoover, camera_id: kenburns, src: "CAN-TAI-HO:LOC-HOOVER", label: "Herbert Hoover, c. 1921 · Library of Congress", desc: "Chân dung (people)"}
+      - {id: s02c, at: "only forty-eight", type: chart3d, scene_id: ch_zoning1921, camera_id: front, nums: [C05], desc: "48 thành phố (1921) — khối đếm 48 trên bản đồ Mỹ mờ"}
+      - {id: s02d, at: "a state could give", type: document, scene_id: d_sszea, camera_id: page, src: DOC-SSZEA, label: "Standard State Zoning Enabling Act, 1926 · U.S. Dept. of Commerce", p: {paper: "A Standard State Zoning Enabling Act (rev. ed.)", date: "1926"}, nums: [C06], desc: "Trang bìa, ≤ 3 s"}
+      - {id: s02e, at: "over building height", type: scene3d, scene_id: tiers, camera_id: districts_fill, nums: [C06], desc: "Các khu tô màu lần lượt (minh hoạ)"}
+      - {id: s02g, at: "In 1926", type: map, scene_id: usmap, camera_id: m_euclid, desc: "Euclid, Ohio cạnh Cleveland (nhãn) — places"}
+      - {id: s02h, at: "Euclid had", type: scene3d, scene_id: tiers, camera_id: oblique_tiers, nums: [C08], desc: "U-1 → U-4 dựng lên lần lượt; toà góc phố đặt thử vào U-1..U-3: đỏ"}
+      - {id: s02i, at: "The Court upheld", type: photo, scene_id: p_sutherland, camera_id: kenburns, src: "CAN-TAI-HO:LOC-SUTHERLAND", label: "Justice George Sutherland · Library of Congress", desc: "Chân dung (people)"}
+      - {id: s02j, at: "commissions and experts", type: document, scene_id: d_euclid, camera_id: page394, src: DOC-EUCLID, label: "Village of Euclid v. Ambler Realty Co., 272 U.S. 365 (1926)", p: {paper: "U.S. Reports 272", date: "1926"}, nums: [C10], desc: "Trang 394, tô câu 'height and bulk' ≤ 3 s"}
+      - {id: s02k, at: "listed the concerns", type: scene3d, scene_id: tiers, camera_id: shadow_low, nums: [C10], desc: "Toà căn hộ đổ bóng lên nhà nhỏ, xe đỗ; chú thích trích dẫn"}
+      - {id: s02l, at: "Apartment houses which", type: scene3d, scene_id: corner, camera_id: shop_close, nums: [C10], desc: "Toà góc phố 'in a different environment' — phố thương mại sáng; chú thích trích"}
+      - {id: s02m, at: "fairly debatable", type: card, scene_id: card_quote, camera_id: euclid_test, nums: [C11], desc: "Thẻ trích 'fairly debatable → legislative judgment controls' + 'judges defer to local lawmakers'"}
+  - id: "03"
+    shots:
+      - {id: s03a, at: "A century later", type: footage, scene_id: f_chicago_aerial, camera_id: clip, src: PX-38879369, label: "Chicago-area homes · Pexels, 2025 (illustrative)", desc: "Flycam khu dân cư nhà một hộ"}
+      - {id: s03b, at: "Take one state", type: map, scene_id: usmap, camera_id: m_colorado, desc: "Colorado nổi lên, 334 khu vực pháp lý (lưới)"}
+      - {id: s03c, at: "Fifty-nine", type: chart3d, scene_id: ch_co, camera_id: land, nums: [C12], desc: "59 % / 3 % trên khối đất 3D"}
+      - {id: s03d, at: "The map has", type: scene3d, scene_id: lot, camera_id: plan, nums: [C14], desc: "Ô đỗ xe lấp lô; nhãn '85% of residential land · most often 2 spaces/home'"}
+      - {id: s03e, at: "On a small lot", type: scene3d, scene_id: lot, camera_id: iso, desc: "Toà co lại theo số ô đỗ (minh hoạ, không số)"}
+  - id: "04"
+    shots:
+      - {id: s04a, at: "Lock two", type: scene3d, scene_id: corner, camera_id: stair_section, desc: "Cầu thang trong mặt cắt; tựa 'LOCK 2 · THE STAIRWELL'; hai lối thoát vẽ mũi tên"}
+      - {id: s04a2, at: "The International Building Code", type: scene3d, scene_id: stairs, camera_id: model_code, desc: "Khối 'model code' đặt lên mặt cắt toà; nhãn 'International Building Code'"}
+      - {id: s04b, at: "reprints its text", type: document, scene_id: d_ibc, camera_id: table, src: DOC-IBC-SEA, label: "Seattle Building Code 2021 (IBC 2021), Table 1006.3.4(1)", p: {paper: "Seattle Building Code 2021, Ch. 10", date: "2021"}, nums: [C15], desc: "Bảng 'Fourth story… NP' ≤ 3 s (dựng lại chữ, không chụp trang)"}
+      - {id: s04c, at: "In the model code's 2021", type: scene3d, scene_id: stairs, camera_id: elev_stack, nums: [C15], desc: "Xếp tầng 1→3 với 1 cầu thang (xanh), tầng 4 'NP' (đỏ)"}
+      - {id: s04d, at: "So the single-stair limit", type: scene3d, scene_id: street, camera_id: tall_walkups, desc: "Toà 4–6 tầng trên lô hẹp được tô nhấn"}
+      - {id: s04e, at: "On that lot", type: scene3d, scene_id: stairs, camera_id: plan_compare, nums: [C16], desc: "Mặt bằng 1 vs 2 cầu thang; phần cam ~7 %"}
+      - {id: s04f, at: "estimates", type: chart3d, scene_id: ch_pew, camera_id: cost, nums: [C16], desc: "+7 % sàn, +6–13 % chi phí; nhãn 'Pew + CBNA (advocates single-stair)'"}
+      - {id: s04g, at: "The Washington Association", type: map, scene_id: usmap, camera_id: m_wash, desc: "Washington state → Seattle (nhãn)"}
+      - {id: s04h, at: "two exits took", type: scene3d, scene_id: stairs, camera_id: floor_plate, nums: [C17], desc: "Sàn nhỏ bị hai lõi thang chiếm; chú thích trích"}
+      - {id: s04i, at: "Seattle has allowed", type: map, scene_id: usmap, camera_id: m_seattle, nums: [C18], desc: "Seattle: '1977 · up to 6 stories, ≤4 homes/floor (2021 code)'"}
+      - {id: s04k, at: "extra protections", type: scene3d, scene_id: stairs, camera_id: pressurized, nums: [C18], desc: "Lõi thang kín, mũi tên áp suất; nhãn 'Seattle 2021: ≤6 stories · ≤4 homes/floor · pressurized stair'"}
+      - {id: s04l, at: "There's a code cost", type: chart3d, scene_id: ch_terner, camera_id: bar, nums: [C57], desc: "+≈10 % chi phí theo luật thương mại cho ≥ 3 căn (California, Terner 2024)"}
+  - id: "05"
+    shots:
+      - {id: s05a, at: "So is one", type: footage, scene_id: f_fire_escape, camera_id: clip, src: PX-36624235, label: "Fire escape, U.S. city · Pexels, 2025 (illustrative)", desc: "Cầu thang thoát hiểm gạch, ≤ 6 s"}
+      - {id: s05b, at: "In a March 2024", type: card, scene_id: card_positions, camera_id: fire_side, desc: "Thẻ 3 tổ chức (IAFC 03/2024 · IAFF+Metro Chiefs 06/2024 · CAL FIRE) trích ngắn, nhãn 'FIRE SERVICE'"}
+      - {id: s05c, at: "California's state", type: map, scene_id: usmap, camera_id: m_calif, desc: "California (nhãn); chú thích 'near-unanimous opposition… above three stories'"}
+      - {id: s05d, at: "Pew and the Center", type: chart3d, scene_id: ch_pew, camera_id: records, nums: [C20, C21], desc: "4 440 toà NYC; tỷ lệ tử vong do cháy 'same'; 4 ca 2012–2024 — nhãn 'Pew + CBNA (advocates)'"}
+      - {id: s05e, at: "A modeling study", type: map, scene_id: usmap, camera_id: m_minn, desc: "Minnesota (nhãn) + dòng 'WJE & Crux for MN DLI, Dec 2025'"}
+      - {id: s05f, at: "in its risk model", type: scene3d, scene_id: stairs, camera_id: fire_logic, nums: [C24], desc: "Sơ đồ 3 điều kiện trên mặt cắt: sprinkler hỏng + cửa căn hộ mở + cửa thang mở"}
+      - {id: s05g, at: "In a vote", type: chart3d, scene_id: ch_icc, camera_id: vote, nums: [C25], desc: "86–34; 'IBC 2027 not yet published (as of 12 Oct 2026)'"}
+  - id: "06"
+    shots:
+      - {id: s06a, at: "Lock three", type: scene3d, scene_id: bank, camera_id: side, desc: "Hàng khối 1–2–3–4 | 5+; tựa 'LOCK 3 · THE BANK'"}
+      - {id: s06a2, at: "The Federal Housing", type: scene3d, scene_id: bank, camera_id: line_four, nums: [C26], desc: "Vạch '4' sáng giữa khối 4 và khối 5; nhãn 'FHFA · single-family = 1–4'"}
+      - {id: s06b, at: "and multifamily as", type: document, scene_id: d_cfr, camera_id: text, src: DOC-CFR1282, label: "12 CFR §1282.1 (FHFA), eCFR", p: {paper: "Code of Federal Regulations, Title 12, §1282.1", date: "current (accessed 12 Oct 2026)"}, nums: [C26], desc: "Hai định nghĩa tô sáng ≤ 3 s"}
+      - {id: s06c, at: "Fannie Mae's and", type: scene3d, scene_id: bank, camera_id: counter, nums: [C27, C28], desc: "Quầy 'single-family' nhận khối 1–4"}
+      - {id: s06d, at: "Add a fifth", type: scene3d, scene_id: bank, camera_id: fifth_block, desc: "Khối thứ 5 trượt sang quầy 'multifamily'"}
+      - {id: s06e, at: "Now add the shop", type: scene3d, scene_id: corner, camera_id: shop_section, nums: [C29, C30], desc: "Tầng trệt cửa hàng sáng; nhãn Fannie '1 unit, owner runs business' · FHA '≤4 units, ≥51% residential'"}
+      - {id: s06f, at: "So a shop with five", type: scene3d, scene_id: bank, camera_id: mixed_reject, desc: "Toà có shop + 5 căn bị cả hai quầy trả lại (minh hoạ)"}
+      - {id: s06i, at: "For small projects", type: map, scene_id: usmap, camera_id: m_calif2, nums: [C33], desc: "California + chú thích 'completion guarantees · recourse to personal assets' (Terner 2024)"}
+  - id: "07"
+    shots:
+      - {id: s07a, at: "Our read", type: footage, scene_id: f_crane, camera_id: clip, src: PX-20568183, label: "Apartment construction · Pexels, 2024 (illustrative)", desc: "Cẩu tháp, toà lớn đang xây, ≤ 7 s"}
+      - {id: s07b, at: "In October 2026", type: map, scene_id: usmap, camera_id: m_minn2, nums: [C58], desc: "Minneapolis (nhãn); chú thích trích 'have challenged the profitability…' — Minneapolis Fed, Oct 2026"}
+      - {id: s07c, at: "And in 2024", type: scene3d, scene_id: lot, camera_id: pencil, nums: [C59], desc: "Toà mẫu nhỏ trên lô, bảng thu–chi đỏ: 'would not be built under recent market conditions' (Terner 2024, California)"}
+      - {id: s07d, at: "To recap", type: card, scene_id: card_locks, camera_id: recap_matrix, desc: "Bảng 'khoá × loại nhà': map → all · stairwell → 4+ stories · bank → 5+ homes, many with a shop · + costs/rates/rents (người đọc mù 2/3 đề nghị)"}
+  - id: "08"
+    shots:
+      - {id: s08a, at: "Here's what", type: scene3d, scene_id: ends, camera_id: wide_1972, desc: "Sa bàn hai đầu năm 1972"}
+      - {id: s08b, at: "Two-to-four-unit completions", type: chart3d, scene_id: ch_comp, camera_id: timeline, nums: [C60], desc: "Chuỗi 1968–2025; mốc 1986→1990, 2006→2010, 2025"}
+      - {id: s08c, at: "The Census numbers", type: chart3d, scene_id: ch_comp, camera_id: when_not_why, desc: "Cùng chuỗi, dấu '?' trên các cú rơi — 'when, not why'"}
+      - {id: s08d, at: "As a share", type: chart3d, scene_id: ch_share, camera_id: front, nums: [C36], desc: "5,9 % → 1,1 %, our calculation"}
+      - {id: s08e, at: "Small apartment buildings of five", type: chart3d, scene_id: ch_size, camera_id: small519, nums: [C35], desc: "377k → 48k (our sum of two Census columns)"}
+      - {id: s08f, at: "Single-family houses went", type: chart3d, scene_id: ch_size, camera_id: sf_share, nums: [C63], desc: "57 % → 68 % (our calculation)"}
+      - {id: s08g, at: "And in that same", type: chart3d, scene_id: ch_size, camera_id: big50, nums: [C34], desc: "20 % → 57 % (CNH, series riêng)"}
+      - {id: s08h, at: "across these two series", type: scene3d, scene_id: ends, camera_id: wide_2025, desc: "Sa bàn năm 2025: giữa thưa, hai đầu dày"}
+  - id: "09"
+    shots:
+      - {id: s09a, at: "So what happens", type: footage, scene_id: f_townhouse, camera_id: clip, src: PX-33003293, label: "Chattanooga, Tenn. · Pexels, 2025 (illustrative)", desc: "Townhouse đang xây, flycam ≤ 7 s"}
+      - {id: s09b, at: "When Washington", type: card, scene_id: card_claim_record, camera_id: claims, nums: [C61], desc: "Khung đôi COMMON CLAIM ↔ RECORD (BAI-HOC #92): bên trái 2 trích (supporters / others, House Bill Report 2023)"}
+      - {id: s09c, at: "Minneapolis offers", type: map, scene_id: usmap, camera_id: m_minn3, nums: [C54], desc: "Minneapolis; '2040 Plan · adopted 2019 · as of Oct 2026'"}
+      - {id: s09d, at: "In October 2026", type: chart3d, scene_id: ch_mpls, camera_id: blocks, nums: [C39], desc: "317 vs 12 335; nhóm so sánh ≈ bằng"}
+      - {id: s09e, at: "Their headline", type: card, scene_id: card_claim_record, camera_id: record_mpls, nums: [C40], desc: "Bên RECORD: 'stable rents, stalled development' + trích summary"}
+      - {id: s09f, at: "When California's SB 9", type: map, scene_id: usmap, camera_id: m_calif3, desc: "California: Los Angeles, San Diego (nhãn)"}
+      - {id: s09g, at: "In its first year", type: chart3d, scene_id: ch_sb9, camera_id: bars, nums: [C41], desc: "211 vs 7"}
+      - {id: s09h, at: "In a 2019 study", type: map, scene_id: usmap, camera_id: m_chicago, nums: [C42], desc: "Chicago; chú thích 'Freemark 2019: prices up, no measurable rise in permits (5 yrs)' — tên người, không ảnh"}
+      - {id: s09i, at: "Other studies", type: chart3d, scene_id: ch_study, camera_id: urban, nums: [C43], desc: "+0,8 % (3–9 năm), 'mostly higher-rent units'"}
+      - {id: s09j, at: "And outside", type: map, scene_id: usmap, camera_id: m_auckland, nums: [C44], desc: "Khung chèn Auckland, NZ; '≈21,800 extra homes permitted · ≈4% of stock'"}
+      - {id: s09k, at: "So on housing production", type: card, scene_id: card_claim_record, camera_id: verdict, desc: "Khung đôi kết: 'the record sits in between' — nhãn từng nghiên cứu"}
+  - id: "10"
+    shots:
+      - {id: s10a, at: "So where are", type: scene3d, scene_id: street, camera_id: dusk_new, desc: "Dãy phố chạng vạng, toà nhỏ mới (minh hoạ), dòng 'As of 12 Oct 2026'"}
+      - {id: s10b, at: "New York City's", type: map, scene_id: usmap, camera_id: m_nyc2, desc: "NYC: 'City of Yes · approved Dec 5, 2024'"}
+      - {id: s10c, at: "re-legalized", type: scene3d, scene_id: corner, camera_id: day_town_center, nums: [C45], desc: "Toà góc 2–4 tầng nhà ở trên cửa hàng, ban ngày; chú thích 'functionally banned by zoning' — NYC DCP"}
+      - {id: s10d, at: "Oregon's 2019", type: map, scene_id: usmap, camera_id: m_oregon, nums: [C46], desc: "Oregon: '≥25,000 people · duplex→fourplex, townhouses, cottage clusters'"}
+      - {id: s10e, at: "Washington's 2023", type: map, scene_id: usmap, camera_id: m_wash2, nums: [C47], desc: "Washington: '2–6 homes per lot'"}
+      - {id: s10f, at: "On stairs", type: map, scene_id: usmap, camera_id: m_texas, nums: [C50], desc: "Texas: '≤6 stories · ≤4 homes/floor · since Sep 2025'"}
+      - {id: s10g, at: "Colorado requires", type: map, scene_id: usmap, camera_id: m_colorado2, nums: [C51], desc: "Colorado: '≥100,000 people · 5 stories · by Dec 1, 2027'"}
+      - {id: s10h, at: "And the lending", type: scene3d, scene_id: bank, camera_id: line_still, nums: [C26], desc: "Vạch '4' vẫn nguyên; 'As of Oct 2026'"}
+  - id: "11"
+    shots:
+      - {id: s11a, at: "So why did", type: scene3d, scene_id: corner, camera_id: blue_hour_end, desc: "Toà góc phố giờ xanh (góc khác móc, đóng vòng hình)"}
+      - {id: s11b, at: "The buildings themselves", type: photo, scene_id: px_bayridge, camera_id: kenburns, src: PXP-7180335, label: "Brooklyn, N.Y. · Pexels (recent photo)", desc: "Toà góc phố gạch, cửa hàng tầng trệt, Bay Ridge; Ken Burns ≤ 6 s"}
+      - {id: s11c, at: "about eleven", type: chart3d, scene_id: ch_stock, camera_id: front, nums: [C53], desc: "11,1 triệu căn trong toà 2–4 căn; > 8/10 căn có người ở là thuê (our calculation, ACS 2024)"}
+      - {id: s11d, at: "But three sets", type: scene3d, scene_id: corner, camera_id: section_end, desc: "Mặt cắt toà góc: 3 lớp khoá hiện lần lượt (bản đồ dưới chân, cầu thang, vạch 4) + 'costs, rates, rents'"}
+      - {id: s11e, at: "The map and stairwell rules", type: scene3d, scene_id: corner, camera_id: crane_up, desc: "Cẩu máy lên cao, phố tối dần; dòng 'Facts as of 12 Oct 2026'"}
+
+anchors:  # số neo (số chính của lập luận) → shot hiện số; tỷ lệ hiện bằng chart3d/scene3d ≥ 60 % (Q34)
+  - {num: "1 in 13 homes in 2–4-unit buildings (ACS 2024)", claim: C01, shot: s00b}
+  - {num: "1 in 100 new homes (NRC 2025)", claim: C02, shot: s00b}
+  - {num: "~23% built before 1940", claim: C03, shot: s01c2}
+  - {num: "48 cities with zoning (1921)", claim: C05, shot: s02c}
+  - {num: "Colorado 59% / 3%", claim: C12, shot: s03c}
+  - {num: "parking on 85%, 2 spaces/home", claim: C14, shot: s03d}
+  - {num: "IBC: 3 stories, 4 homes/floor", claim: C15, shot: s04c}
+  - {num: "2nd stair: 7% floor, 6–13% cost", claim: C16, shot: s04f}
+  - {num: "Seattle: 6 stories (since 1977)", claim: C18, shot: s04i}
+  - {num: "NYC 4,440 single-stair buildings", claim: C20, shot: s05d}
+  - {num: "4 deaths 2012–2024", claim: C21, shot: s05d}
+  - {num: "ICC vote 86–34", claim: C25, shot: s05g}
+  - {num: "1–4 vs 5+ line", claim: C26, shot: s06a2}
+  - {num: "FHA ≥51% residential", claim: C30, shot: s06e}
+  - {num: "~10% commercial-code premium (CA)", claim: C57, shot: s04l}
+  - {num: "2–4 completions 86k→45k, 41k→9k, 16k", claim: C60, shot: s08b}
+  - {num: "share 5.9% → 1.1%", claim: C36, shot: s08d}
+  - {num: "5–19 units 377k → 48k", claim: C35, shot: s08e}
+  - {num: "1-unit share 57% → 68%", claim: C63, shot: s08f}
+  - {num: "50+ units 20% → 57%", claim: C34, shot: s08g}
+  - {num: "Minneapolis 317 / 12,335 (2%)", claim: C39, shot: s09d}
+  - {num: "SB 9: 211 vs 7", claim: C41, shot: s09g}
+  - {num: "Urban +0.8%", claim: C43, shot: s09i}
+  - {num: "Auckland ~21,800 (4%)", claim: C44, shot: s09j}
+  - {num: "Oregon ≥25,000", claim: C46, shot: s10d}
+  - {num: "Washington 2–6 per lot", claim: C47, shot: s10e}
+  - {num: "Texas 6 stories", claim: C50, shot: s10f}
+  - {num: "Colorado 5 stories by 2027", claim: C51, shot: s10g}
+  - {num: "11 million homes, >8 in 10 rented", claim: C53, shot: s11c}

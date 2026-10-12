@@ -1,0 +1,145 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "11",
+      "rule": "G§1 causality / LUAT §2",
+      "severity": "major",
+      "quote": "Our read: no single lock did it.",
+      "problem": "This line assumes the three locks together caused the decline. No source in the table says that. The script's own record works against it: Euclid (1926) came before the 1970s peak, the script gives no start date for the stair rule or the 1-4 lending line, and seg 07 brings in costs, rates and rents as separate forces. The 'Our read' label does not cover an unsourced causal assumption. The line also clashes with C04 in seg 01, which says the record doesn't pin the decline on any single cause.",
+      "fix": "Our read: the record we found doesn't pin it on any single lock, or on the rules alone."
+    },
+    {
+      "seg": "07",
+      "rule": "G§1 causality / LUAT §2",
+      "severity": "minor",
+      "quote": "Our read: the rules aren't the whole story — at least not in recent years.",
+      "problem": "'At least not in recent years' suggests the rules were the whole story in earlier decades. No source supports that.",
+      "fix": "Our read: the rules aren't the whole story. For recent years, these sources point to other forces too."
+    },
+    {
+      "seg": "04",
+      "rule": "LUAT §1 (source for every fact)",
+      "severity": "minor",
+      "quote": "Many American building codes start from a model, the International Building Code; Seattle's code, for one, is built on it.",
+      "problem": "C56 supports only Washington (WAC 51-50) and Seattle. 'Many American building codes' is a national generalization that no source in the table covers.",
+      "fix": "Washington state's building code starts from a model, the International Building Code, and Seattle's code reprints its text."
+    },
+    {
+      "seg": "04",
+      "rule": "G§5 / YELLOW 2 (time markers)",
+      "severity": "minor",
+      "quote": "Under its 2021 edition,",
+      "problem": "The 2024 code cycle is already under way (SBCC 2024 codes, table 1b), and seg 05 jumps straight to 2027. Viewers could take 2021 to be the current edition.",
+      "fix": "Under its 2021 edition — the version we checked —"
+    },
+    {
+      "seg": "00",
+      "rule": "LUAT §2 (cross-basis: year)",
+      "severity": "minor",
+      "quote": "homes standing today",
+      "problem": "The stock figure comes from ACS 2024 1-year data, but the narration dates it 'today' (October 2026). The same problem appears in seg 01 ('today's occupied homes') and seg 11 ('about eleven million American homes are').",
+      "fix": "Replace with 'homes counted in the 2024 Census survey'. In 01 use 'occupied homes in the 2024 survey'. In 11 use 'about eleven million American homes were in buildings of two to four units in the 2024 survey'."
+    },
+    {
+      "seg": "01",
+      "rule": "LUAT §1 (source caveat)",
+      "severity": "minor",
+      "quote": "went up before 1940.",
+      "problem": "Year built in ACS is self-reported by respondents (C03 note). The narration states it as a hard fact.",
+      "fix": "went up before 1940, by the year residents reported."
+    },
+    {
+      "seg": "03",
+      "rule": "LUAT §2 (cross-basis: geography)",
+      "severity": "minor",
+      "quote": "Take one state the National Zoning Atlas has mapped.",
+      "problem": "The question asks about 'the map' in general, but the answer is one state. Viewers may take Colorado's 59% / 3% as national figures.",
+      "fix": "After the C12 sentence, add: 'That's one state, not a national figure.'"
+    },
+    {
+      "seg": "05",
+      "rule": "YELLOW 5 / LUAT §8 (fair wording of sides)",
+      "severity": "minor",
+      "quote": "point to records:",
+      "problem": "Saying the pro side 'points to records' while the fire groups 'declared' or 'wrote' frames one side as evidence and the other as opinion. CAL FIRE's report also contains findings.",
+      "fix": "cite their own count of fire records:"
+    },
+    {
+      "seg": "06",
+      "rule": "LUAT §1 (accuracy of descriptor)",
+      "severity": "minor",
+      "quote": "So, in these federal definitions, a fourplex is classed with houses",
+      "problem": "Fannie Mae's Selling Guide is a GSE guide, not a federal definition.",
+      "fix": "So, in these definitions — a federal regulation, Fannie Mae's guide and the FHA's handbook — a fourplex is classed with houses"
+    },
+    {
+      "seg": "06",
+      "rule": "LUAT §1 (source for every fact)",
+      "severity": "minor",
+      "quote": "a 2007 Harvard paper quoting a federal commission's finance task force",
+      "problem": "C31 and the MHC source row do not describe the commission as 'federal'. Name the body instead.",
+      "fix": "a 2007 Harvard paper quoting the Housing Finance Task Force of the Millennial Housing Commission"
+    },
+    {
+      "seg": "08",
+      "rule": "LUAT §2 (cross-basis; opinion marking)",
+      "severity": "minor",
+      "quote": "New homes moved toward the two ends: houses, and large buildings.",
+      "problem": "This combines C63 (share of all new homes, NRC) with C34 (share of new apartments, a separate CNH series). Neither claim states the combined conclusion, and the line is not marked as interpretation.",
+      "fix": "Our read: across these two series, new construction moved toward the two ends — houses, and large apartment buildings."
+    },
+    {
+      "seg": "09",
+      "rule": "G§3 (record answers narrowly)",
+      "severity": "minor",
+      "quote": "So the record sits in between.",
+      "problem": "'In between' implies two opposite poles. The 'other' testimony raised local uniqueness and traffic, not 'no new housing', so one pole is invented. What the record actually tests is production, and on that it is mixed.",
+      "fix": "So on housing production, the record is mixed."
+    },
+    {
+      "seg": "10",
+      "rule": "G§5 / YELLOW 2, YELLOW 5 (ongoing litigation; local-control side)",
+      "severity": "minor",
+      "quote": "approved by the City Council on December 5, 2024, re-legalized housing above shops",
+      "problem": "A lawsuit was dismissed in November 2025 and an appeal may still be pending (NYCCC row). An ongoing legal matter appears under the 'As of' header with no status, and the opposition's legal challenge is left out.",
+      "fix": "Add new claim C64 from NYCCC / Queens Daily Eagle (14/11/2025), then add: 'A lawsuit against the plan was dismissed in November 2025; as of October 12, 2026, we found no appeal ruling.'"
+    },
+    {
+      "seg": "11",
+      "rule": "clarity",
+      "severity": "minor",
+      "quote": "the stairwell how tall the small apartment buildings above them can rise",
+      "problem": "'Above them' can be heard as buildings physically above. It also leaves out the four-homes-per-floor limit.",
+      "fix": "the stairwell how tall the next size up, small apartment buildings, can rise and how many homes fit on a floor"
+    },
+    {
+      "seg": "10",
+      "rule": "G§5 / table 1b (re-check before recording)",
+      "severity": "minor",
+      "quote": "As of October 12, 2026:",
+      "problem": "Several items in table 1b must be re-checked before recording. The Washington SBCC vote (16/10) will change the facts around seg 04.",
+      "fix": "Before recording, re-check the NYC appeal, the Minneapolis 2040 litigation, whether IBC 2027 has been published (seg 05) and SBCC adoption. If recording happens after 12/10, update the 'as of' date in 00, 05, 09 and 10."
+    }
+  ],
+  "missing_from_claims": [
+    "'Many American building codes start from a model' (C56 covers WA/Seattle only)",
+    "Millennial Housing Commission described as a 'federal commission'",
+    "'New homes moved toward the two ends' (combines C63 and C34 across bases; not in the table as a calc or opinion)",
+    "IBC 2024 edition exists (implied by skipping from 2021 to 2027; only indirectly in table 1b)",
+    "'Add a fifth home, and the project moves into multifamily lending' (inferred from C26-C28, not listed in §3 as an inference)"
+  ],
+  "strengths": [
+    "The hook has two sourced numbers, says they come from different bases (stock vs completions) and labels them 'our calculation'",
+    "The financial disclaimer and 'as of' date both come in the first 30 seconds",
+    "The single-stair section gives both sides their own dated sources and discloses CBNA's advocacy role",
+    "The upzoning evidence is balanced (Minneapolis Fed, Terner, Freemark vs Urban, Auckland), notes the studies measure different things and don't add up, and flags the untested traffic and local-character concerns",
+    "Disclaimers stay consistent: 'The Census numbers show when — not why'; 'this video doesn't test what caused them'",
+    "No party framing, campaign words or blame on groups; subjects are named bodies with dates",
+    "Race and redlining are not used; the Euclid quotes are attributed and in context",
+    "The lending section explains the system at building and industry level, with no viewer-facing housing or money advice",
+    "Status-sensitive items (SBCC, Montana, Arlington) are left out, and the ICC 2027 vote carries an 'as of' unpublished note"
+  ]
+}
+```

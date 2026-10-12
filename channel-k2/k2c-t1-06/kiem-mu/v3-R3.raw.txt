@@ -1,0 +1,60 @@
+```json
+{
+  "main_message": "Small 2-4 unit buildings and small apartment buildings faded because zoning maps, single-stair fire/building rules, and the one-to-four-unit lending line each limit them, with costs, rates and rents also mattering. Reforms are underway, but early evidence that they produce much building is mixed.",
+  "hook_strength_1to10": 7,
+  "would_keep_watching_after_15s": true,
+  "why_hook": "The 1-in-13 standing versus 1-in-100 built contrast is a concrete, surprising gap, and the question is clear. The disclaimer paragraph right after is dry and slows it down.",
+  "mechanisms_build_on_each_other_1to10": 6,
+  "mechanisms_in_your_words": "Three 'locks': (1) zoning map: single-family-only districts, Euclid-era tiering, parking minimums; (2) stairwell: IBC two-stair requirement above three stories, which costs floor area and 6-13% of construction cost; (3) bank: Fannie/Freddie/FHA treat 1-4 units as single-family and 5+ as multifamily, and mixed-use fits neither well. Plus outside forces: interest rates, construction/operating costs, low rent growth, and the California commercial-code cost bump at 3+ units. The video says it does not measure how much each contributes.",
+  "ending_answers_opening_question": false,
+  "ending_comment": "It answers 'what rules exist' and honestly says the split is unmeasured. That is candid, but it leaves the opening 'why' only partly answered. The 2025 vs. standing-stock framing gets no real resolution.",
+  "boring_or_slow": [
+    {"seg": "00", "why": "Disclaimer and as-of-date boilerplate right after the hook."},
+    {"seg": "02", "why": "Hoover committee and model-act history before Euclid is a long run-up."},
+    {"seg": "05", "why": "Stack of organizational positions and statistics with little narrative."},
+    {"seg": "08", "why": "Many Census figures in a row."}
+  ],
+  "confusing": [
+    {"seg": "00", "quote": "two different Census counts", "why": "A stock share and a one-year flow share aren't comparable. The video says so but still sets up the contrast as if it were a decline."},
+    {"seg": "01", "quote": "The map can touch any of them. The stairwell, mostly the taller ones. The bank...", "why": "Compressed; it is unclear what 'them' refers to, and the lock-to-building mapping isn't explained until later."},
+    {"seg": "04", "quote": "single staircase up to the third story... Seattle up to six stories", "why": "IBC 2021 allows a single exit only in limited cases (R-2 up to three stories, with limits). It is unclear whether Seattle's six stories is an amendment, and the jump from three to six is hard to follow."},
+    {"seg": "06", "quote": "multifamily lending... small buildings have their own problems", "why": "It is not clear that agency 'multifamily' means 5+ units but that small-balance multifamily lending is a distinct niche."},
+    {"seg": "08", "quote": "New homes moved toward the two ends", "why": "The 2-4 unit and 5-19 unit drops are not clearly tied to the earlier locks."}
+  ],
+  "felt_biased_or_one_sided": [
+    {"seg": "04", "quote": "estimates... around seven percent of the floor area", "direction": "pro-single-stair reform", "why": "The source is an advocacy-aligned group. The video flags that, which helps, but the cost numbers are the only quantified ones given and have no counterweight."},
+    {"seg": "02", "quote": "mere parasite", "direction": "anti-zoning", "why": "The quote is vivid and invites a 'zoning was classist' reading. The surrounding context, that the Court deferred, is fair, but the framing leans critical."},
+    {"seg": "09", "quote": "So the record sits in between", "direction": "balanced/skeptical of upzoning", "why": "It leans on Minneapolis and SB 9 slow-start data, where permits were tiny, and treats pro-supply studies more briefly."}
+  ],
+  "political_lean_detected": "none",
+  "lean_detail": "Mostly even-handed. It gives fire chiefs and reform advocates equal space and repeatedly says the record doesn't settle the question. A slight pro-development flavor comes from the framing of 'locks' and the 'almost stopped building' question, though it disclaims judging the limits.",
+  "blames_a_group_of_people": false,
+  "blame_detail": "Blame goes to rules and systems, not to groups such as NIMBYs, developers or fire officials. Fire officials are quoted respectfully.",
+  "felt_like_advice_about_your_own_rent_or_home_purchase": false,
+  "claims_you_doubt": [
+    {"seg": "04", "quote": "A fourth story on one stair is not permitted", "why": "IBC 2021 §1006.3.4 and Table 1006.3.4(2) allow a single exit in R-2 only up to three stories. The video's 'at most four homes per floor and sprinklers' is accurate for the exception but the compressed wording mixes the IBC with local amendments. A pedant would want the section cited."},
+    {"seg": "04", "quote": "Seattle's reprints it", "why": "Seattle adopts the IBC with amendments rather than just reprinting it. The phrasing is loose."},
+    {"seg": "06", "quote": "Fannie Mae's and the FHA's standard home loans cover buildings of one to four units", "why": "Roughly true, but owner-occupancy and conforming-limit conditions matter. Fannie's 2-4 unit loans have different LTV and occupancy rules, and investor fourplexes are typically financed differently. 'Financed like a house' oversimplifies."},
+    {"seg": "07", "quote": "buildings with three or more homes fall under the stricter commercial building code", "why": "This is California-specific and the video says so, but the 'roughly ten percent' is from a single study and the mechanism (IBC R-2 vs. CRC) is not explained."},
+    {"seg": "03", "quote": "parking requirements on eighty-five percent... two spaces for every home", "why": "Plausible for single-family land, but the NZA figure may be by district rather than land area. This is a minor attribution slip."},
+    {"seg": "02", "quote": "Retail stores and shops didn't come in until the fourth tier", "why": "Euclid's tiers: U-1 single-family, U-2 two-family, U-3 apartments, U-4 retail, U-5 industrial, U-6 more. This is mostly right. 'In none of the first three' is true, though the point is somewhat rhetorical."},
+    {"seg": "00", "quote": "one in thirteen American homes", "why": "Plausible at about 7-8% of housing units, but the video doesn't say whether it counts occupied or total units, and the later 'eleven million' figure reads as inconsistent unless you check."}
+  ],
+  "questions_left_unanswered": [
+    "How much of the decline is each lock versus costs, rates and rents?",
+    "Why did the 1986-90 and 2006-10 drops happen: the S&L/tax-reform era, the financial crisis?",
+    "What role did the 1986 Tax Reform Act, condo conversion, or construction-defect liability play?",
+    "How do impact fees, permitting time and the entitlement process affect small projects?",
+    "Does the lending line at four actually bind in practice, given small-balance loans from local banks and portfolio lenders?",
+    "What about the energy code, accessibility rules (FHA design requirements at 4+ units) and elevator thresholds?",
+    "What is the cost and condition of existing 2-4 unit stock, and how many are lost to demolition or conversion?"
+  ],
+  "trust_1to10": 7,
+  "best_moment": "[05] Presenting the single-stair dispute with fire chiefs, California's fire marshal, Pew, the Minnesota study and the ICC vote side by side, with each source's stance labeled. It is the most honest and informative segment.",
+  "top3_fixes": [
+    "Fix the opening: either compare like with like (share of stock built in the 2020s vs. share of 2020s completions) or say outright that the 1-in-13 vs. 1-in-100 gap reflects the building era, not just a ban. Then drop the 'almost stopped' framing or earn it with the segment 08 data earlier. Move the disclaimers after the hook.",
+    "Tighten the code claims in [04]: cite the specific IBC section and name the 3-story/4-unit limits and sprinkler requirement precisely. Distinguish IBC from Seattle and NYC amendments. Add the accessibility and elevator thresholds (FHA design rules at 4+ units, elevator at 4+ stories), which also drive small-building cost.",
+    "Rebuild segments 07-08 to connect eras to causes: tie the 1986 and 2006-10 drops to tax reform, the S&L crisis and the financial crisis, or say plainly that this is unexamined. Add one concrete worked pro forma example, such as a four-unit versus a five-unit project, so the 'locks' show up as dollars."
+  ]
+}
+```

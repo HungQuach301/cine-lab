@@ -1,0 +1,111 @@
+{
+ "main_message": "Small 2-4 unit buildings nearly vanished because three layers of rules (zoning maps, single-stair fire codes, and the 4-unit mortgage line) boxed them in, and market costs matter too. How much each one matters isn't known, and even opening up zoning hasn't clearly brought them back.",
+ "hook_strength_1to10": 7,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The 1-in-13 versus 1-in-100 comparison is a concrete puzzle, and the question is clear. The Census-definition disclaimer and the as-of-date legalese right after it slow it down.",
+ "mechanisms_build_on_each_other_1to10": 6,
+ "mechanisms_in_your_words": "1) Zoning map: single-family-only districts, parking minimums, Euclid-era logic. 2) Stairwell: two-stair rule that eats floor area on small lots and applies to 4-6 story buildings. 3) Bank: lending splits at 4 units, and a mixed-use building with a shop falls outside the programs. 4) Outside the rules: construction costs, interest rates, weak rent growth, and the stricter commercial code in California.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It gives a layered answer (map, stairwell, bank, plus costs) but admits it can't say how much each one contributes, and whether reform brings the buildings back is left open. That's honest, but it feels like a shrug.",
+ "boring_or_slow": [
+  {
+   "seg": "02",
+   "why": "Hoover committee and model-act history, then a long Euclid legal recap. It's a history lecture."
+  },
+  {
+   "seg": "04",
+   "why": "Code editions, story counts and units-per-floor numbers pile up fast."
+  },
+  {
+   "seg": "06",
+   "why": "Fannie, Freddie, FHA, FHFA and Terner citations stacked together is alphabet soup."
+  },
+  {
+   "seg": "10",
+   "why": "A list of laws and dates like a legislative roundup."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "00",
+   "quote": "two different Census counts",
+   "why": "Share of the stock versus share of new completions is subtle, and the disclaimer that follows muddies it."
+  },
+  {
+   "seg": "01",
+   "quote": "The map can touch any of them. The stairwell, mostly the taller ones",
+   "why": "It says the locks hit different buildings, but the sentence reads as jumbled."
+  },
+  {
+   "seg": "04",
+   "quote": "Seattle's reprints it",
+   "why": "I can't tell why Seattle is suddenly relevant."
+  },
+  {
+   "seg": "06",
+   "quote": "a shop with five apartments above it fits neither program",
+   "why": "I had to work out for myself why 4 and 5 matter, and which program applies to which case."
+  },
+  {
+   "seg": "09",
+   "quote": "Our read: California's SB 9 started slowly too",
+   "why": "'Our read' is attached to hard numbers, so I can't tell where the data stops and the opinion starts."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "05",
+   "quote": "Pew and the Center for Building, the reform group",
+   "direction": "Slightly toward single-stair reform",
+   "why": "Fire chiefs get quotes and the reform side gets stats. It does label the advocacy group, but the safety evidence ends up looking like a fair fight when most fire officials oppose the change."
+  },
+  {
+   "seg": "09",
+   "quote": "the record sits in between",
+   "direction": "Mild pro-development skepticism",
+   "why": "The Minneapolis, SB 9 and Chicago results lean against 'upzoning works,' with Auckland and Urban Institute as counterweights. Overall it reads even-handed."
+  }
+ ],
+ "political_lean_detected": "none",
+ "lean_detail": "It repeatedly says it isn't judging the limits, gives opposition quotes about traffic and character, and says the split between causes is unmeasured. A pro-development viewer might read the 'rules have defenders' line as hedging.",
+ "blames_a_group_of_people": false,
+ "blame_detail": "",
+ "felt_like_advice_about_your_own_rent_or_home_purchase": false,
+ "claims_you_doubt": [
+  {
+   "seg": "08",
+   "quote": "from 377,000 homes completed in 1973",
+   "why": "The jump to 48,000 mixes two Census columns with 'wide error margins.' I'd want the source before repeating it."
+  },
+  {
+   "seg": "05",
+   "quote": "the fire-death rate the same",
+   "why": "This is from an advocacy group, with small numbers and a short history, so I'm not convinced it proves safety."
+  },
+  {
+   "seg": "02",
+   "quote": "\"very often the apartment house is a mere parasite\"",
+   "why": "It's a real quote, but I wondered if the video was nudging me to treat zoning as classist without saying so."
+  },
+  {
+   "seg": "07",
+   "quote": "would not be built under recent market conditions",
+   "why": "One California study is generalized to the whole country."
+  }
+ ],
+ "questions_left_unanswered": [
+  "How much of the decline is zoning, stair rules, financing or costs?",
+  "Why did completions fall in waves (1986-90, 2006-10)? The video explicitly doesn't test this.",
+  "Why is a missing-middle building expensive to build today, in dollars per unit?",
+  "If upzoning hasn't produced many duplexes, what would?",
+  "How do the single-stair fire-safety disputes come out, and which side is right?",
+  "What about other countries or older eras where these buildings are still common?"
+ ],
+ "trust_1to10": 7,
+ "best_moment": "[00] The one-in-thirteen versus one-in-a-hundred contrast frames a clear mystery, and [07] 'The record we found doesn't measure that split' is the most trust-building line.",
+ "top3_fixes": [
+  "Cut the hook disclaimer to one line and move the as-of date and the Census definitions to the end or on screen. Open straight on the puzzle and a single concrete building.",
+  "Shorten segments 02, 04 and 06. Skip the Hoover and Sutherland detail, and explain the 4-unit lending line and the single-stair rule with one worked example, such as a 25-foot lot and a fourplex, instead of citing agency after agency.",
+  "Give a concrete payoff in the ending: one worked cost example showing which lock bites hardest for a typical small-lot building, plus what to watch for next, so the 'record doesn't settle it' conclusion feels earned rather than a shrug."
+ ]
+}
