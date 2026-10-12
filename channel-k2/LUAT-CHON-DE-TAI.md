@@ -16,7 +16,8 @@ Mọi chỉ số trong luật này là **tự tính, không phải chỉ số Yo
 - **Tỷ lệ trụ** (định vị 12/10/2026, `TRU-NOI-DUNG.md`) trong 12 đề tài kế tiếp: T1 thành phố ≈ 60 %, T2 ngành ≈ 25 %, T3 mô hình kiếm tiền ≈ 15 %. Lệch quá ±1 đề tài thì ghi lý do. Sau 2 tập thí điểm, áp luật ở `THI-DIEM.md` (trụ thắng ≥ 2/3 hàng đợi 6 tập kế). *Tỷ lệ 11/10 (T1–T4, tài chính ≈ 25 %) hết hiệu lực.*
 - **Điều kiện 5 thêm** (12/10): đề tài không thuộc vùng Crux (`LUAT-NOI-DUNG.md` §7). Đề tài chạm zoning, đường cao tốc hay khu dân cư phải nêu trước nguồn chính thức/học thuật sẽ dùng (§8).
 - **Không hai tập liền cùng trụ** trong 6 tập đầu, để đo được trụ nào kéo người xem.
-- **Cờ thời sự:** đề tài mà cầu chủ yếu đến từ tin tức dưới 90 ngày (một vụ tai nạn, một vụ phá sản đang diễn ra) không vào hàng đợi. Kênh làm nội dung sống lâu.
+- **Cờ thời sự** (nới 12/10/2026, `QUAN-TRI-RUI-RO.md`): đề tài mà cầu chủ yếu đến từ tin tức dưới 90 ngày **được vào hàng đợi**. Mức XANH nếu có mốc "as of <ngày>"; VÀNG nếu tin sát chính trị hay địa chính trị. Vẫn ưu tiên đề tài sống lâu, và không quá 2 tập VÀNG liền nhau. Tai nạn có người chết hay vụ việc đang điều tra quy trách nhiệm cá nhân vẫn không làm trục tập (vùng phỉ báng).
+- **Mức rủi ro:** mỗi đề tài trong `HANG-DOI.md` ghi mức XANH/VÀNG/ĐỎ theo `QUAN-TRI-RUI-RO.md` §7; ĐỎ không vào hàng đợi.
 - **Đề tài tài chính–thanh toán** thêm 2 kiểm: (a) câu hỏi là "hệ thống vận hành thế nào", không phải "bạn nên làm gì"; (b) không cần số liệu lợi suất, giá cổ phiếu hay so sánh sản phẩm cho người tiêu dùng.
 - **Loại bỏ từ danh sách market-k2:** "What Really Happened to Sears" và "Kodak Built the Digital Camera. Why Did It Lose?" trượt điều kiện 5, vì câu hỏi trung tâm là quyết định của ban lãnh đạo một công ty cụ thể (có người còn sống). Kodak còn trượt điều kiện 2 (market-k2 ghi cung video mới dày, video đầu ít lượt xem).
 

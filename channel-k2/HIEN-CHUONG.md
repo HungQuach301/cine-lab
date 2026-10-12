@@ -39,7 +39,7 @@ Chính sách kiếm tiền của YouTube (YPP) có mục **"inauthentic content"
 |---|---|---|
 | **Nguồn xác minh** | Dòng nguồn trên mỗi số neo; mô tả có danh sách nguồn kèm link | `sources:` trong đặc tả, đọc toàn văn, ngày tra (luật `ll.py`) |
 | **Mô hình số liệu riêng** | Ít nhất 1 phép tính của kênh mỗi tập (ví dụ chi phí mỗi container-km, phần phí trên giao dịch 50 USD), ghi rõ "our calculation", kèm giả định | Bảng tính trong `de-tai/<slug>/` có công thức và nguồn đầu vào |
-| **Cảnh 3D dựng riêng** | ≥ 4 cảnh 3D dựng riêng cho tập, không dùng stock footage | Mã cảnh trong gói kênh, băm khi dựng (`ll.py prep`) |
+| **Cảnh 3D dựng riêng** | ≥ 4 cảnh 3D dựng riêng cho tập. Footage và ảnh nguồn ngoài chỉ làm B-roll: ≤ 40 % thời lượng, ≤ 8 s mỗi clip, có sổ `SOURCES-FOOTAGE.csv` (`QUAN-TRI-RUI-RO.md` §6; nới 12/10/2026 từ "không dùng stock footage") | Mã cảnh trong gói kênh, băm khi dựng (`ll.py prep`) |
 | **Quyết định biên tập của con người** | Câu hỏi, góc, cấu trúc do chủ dự án duyệt | `AUTHORSHIP.md` mỗi tập |
 
 ## Ưu, nhược, tác động, rủi ro

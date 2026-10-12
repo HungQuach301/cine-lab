@@ -26,6 +26,7 @@
 >   - **sơ bộ**: video thấy trong mẫu tìm kiếm của vòng cuối hoặc hồ sơ khác, chưa đo đúng đề tài;
 >   - **chưa đo**.
 > - **Tỷ lệ:** 7 T1 (58 %) · 3 T2 (25 %) · 2 T3 (17 %).
+> - **Mức rủi ro** (12/10, `QUAN-TRI-RUI-RO.md` §7): XANH #1, #2, #9, #11, #12 · VÀNG #3–#8, #10 · không có ĐỎ. Gợi ý nguồn footage lưu trữ từng đề tài nằm ở bảng đó.
 
 | # | Mã | Trụ | Đề tài (tên làm việc, EN) | Nhãn cầu (dữ liệu đã có) | Nguồn số công khai chính | Phút |
 |---|---|---|---|---|---|---|

@@ -38,7 +38,7 @@
 | 1 | Ghi báo sai vào `channel-k2/SUA-LOI.md`: tập, mốc thời gian, nội dung báo, người báo (ẩn danh nếu là bình luận công khai) | Ngay khi đọc |
 | 2 | Kiểm lại với nguồn gốc. Phân loại: **(a)** sai sự thật có thể gây hại cho công ty/người · **(b)** sai số không đổi kết luận · **(c)** không sai | Trong 48 giờ |
 | 3a | Loại (a): **ẩn video ngay** (đặt riêng tư), sửa và đăng lại hoặc gỡ hẳn, ghim bình luận đính chính, sửa mô tả | Ẩn trong 24 giờ kể từ khi xác nhận |
-| 3b | Loại (b): ghim bình luận đính chính, sửa mô tả (thêm mục "Corrections"). Nếu số sai nằm ở móc hoặc kết luận thì xử như (a) | Trong 72 giờ |
+| 3b | Loại (b): ghim bình luận đính chính, sửa mô tả (thêm mục "Corrections"). Nếu số sai nằm ở móc hoặc kết luận thì xử như (a) | **Trong 24 giờ** (12/10/2026, theo `QUAN-TRI-RUI-RO.md` §5; trước là 72 giờ) |
 | 3c | Loại (c): trả lời kèm nguồn, giọng trung tính | Tuỳ chọn |
 | 4 | Ghi bài học vào `SUA-LOI.md`, cập nhật luật kiểm nếu lỗi có thể bắt bằng máy | Trước tập kế tiếp |
 - Yêu cầu pháp lý chính thức (thư luật sư, khiếu nại phỉ báng) chuyển **chủ dự án** ngay. Claude không trả lời thay.
@@ -64,6 +64,26 @@
   - §1–§2 không thuyết âm mưu, không gán động cơ cho nhóm.
 - Cấu trúc ba tầng (§0) chỉ dùng cho tập T2 dạng "ba tầng". Tập T1 dùng cấu trúc 6 phần của `HIEN-CHUONG.md` §2.
 - Hai luật khác nhau thì luật chặt hơn thắng.
+
+## 10. Đối chiếu với `QUAN-TRI-RUI-RO.md` (chủ dự án 12/10/2026: chấp nhận vùng xám có quản trị)
+**Được nới:**
+| Luật cũ | Nay |
+|---|---|
+| Đề tài bám tin tức dưới 90 ngày không vào hàng đợi (`LUAT-CHON-DE-TAI.md`, cờ thời sự) | **XANH** nếu có mốc "as of <ngày>"; **VÀNG** nếu tin sát chính trị hay địa chính trị |
+| Tiêu đề chỉ theo khuôn mẫu M1–M5 | Tiêu đề tò mò hay dạng câu hỏi được phép (**XANH**), miễn nội dung trả lời được câu hỏi; vẫn cấm hứa điều không có (ĐỎ 5) |
+| `HIEN-CHUONG.md` §3: "không dùng stock footage" | Footage và ảnh nguồn ngoài **được dùng** từ các nguồn ở `QUAN-TRI-RUI-RO.md` §6.1: ≤ 40 % thời lượng, ≤ 8 s mỗi clip, có `SOURCES-FOOTAGE.csv`. Vẫn giữ ≥ 4 cảnh 3D dựng riêng mỗi tập |
+| §1: "Không dùng logo… trong cảnh 3D" | **Giữ** cho cảnh 3D. Trong footage nguồn ngoài, logo chỉ được xuất hiện **ngẫu nhiên, không phải trọng tâm**; clip Pixabay có logo nhận ra được thì **không dùng** (giấy phép cấm dùng thương mại) |
+| Đề tài tranh cãi, gia tộc, địa chính trị gần đây, sản phẩm tài chính mới (trước: tránh hoặc chưa có luật) | **VÀNG**: làm được với 6 điều kiện của `QUAN-TRI-RUI-RO.md` §1 và chủ dự án duyệt ở G1 |
+
+**Giữ nguyên (không nới):**
+- §1 nguồn cho mọi khẳng định về thực thể thật; hành vi sai trái chỉ khi có phán quyết.
+- §2 tách sự kiện và nhận định.
+- §3 không suy đoán động cơ.
+- §4 không persona chuyên gia.
+- §5 câu miễn trừ tài chính.
+- §6 quy trình sửa/gỡ: thời hạn ghim đính chính rút xuống **24 giờ** cho loại (b), theo `QUAN-TRI-RUI-RO.md` §5.
+- §7 vùng Crux; §8 đề tài nhạy cảm của thành phố.
+- Danh sách **ĐỎ** ở `QUAN-TRI-RUI-RO.md` §1.1 chặt hơn mọi mục trên.
 
 ## Ưu, nhược, tác động, rủi ro
 - **Ưu:** luật cụ thể đến mức máy kiểm được một phần (`claims:` có `src:`, câu miễn trừ có trong lời, từ cấm trong tiêu đề). Quy trình sửa lỗi có thời hạn rõ.
