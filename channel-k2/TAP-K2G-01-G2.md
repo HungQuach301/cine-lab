@@ -334,3 +334,11 @@ Theo QUAN-TRI-RUI-RO §1 VÀNG điều kiện (3) và §1.2 điểm 6. Tệp `ki
   - Thêm tuỳ chọn bỏ chữ "Really" ở tiêu đề chính.
 - **D8:** sau 14/10, có thêm dòng Updates về hướng dẫn BIS "U.S. content" vào mô tả không. Không đổi lời.
 - **Thumbnail:** chủ dự án tạo theo PACKAGING-BRIEF; P đọc kiểm khi nhận ảnh.
+
+### 11.9 D1 — Nhánh phát hành
+- **Nhánh:** `release-k2g-ep01-v1`, commit **`bdcd6e7`**. Nhánh mồ côi; Git LFS cho `*.mp4`.
+- **Gồm 10 tệp:** master, S1, S2, `.srt`, mô tả, `titles.txt`, PACKAGING-BRIEF, `nen-1..3.jpg`. Kèm `SHA256SUMS.txt`, `README.md` (ghi nhắc để "AI use" TẮT khi tải lên) và `.gitattributes`.
+- **Kiểm SHA:**
+  - P tải ngược 10 tệp từ `https://github.com/HungQuach301/cine-lab/raw/release-k2g-ep01-v1/<tệp>` vào thư mục trống, chạy `sha256sum -c`: **10/10 OK**.
+  - Master tải về đủ 1 325 096 282 byte (tệp thật, không phải con trỏ LFS).
+- **Tra as-of** (11.6) làm ngay trước khi đóng nhánh này: không có thay đổi buộc sửa lời.
