@@ -1,5 +1,7 @@
 # Gói kênh 2: báo cáo mốc 1 (định vị) và mốc 2 (hồ sơ cầu), 11/10/2026
 
+> **Vòng cuối (12/10/2026): theo luật chủ dự án, J (nhà ở & đô thị) THẮNG.** Thước "kênh trẻ đúng ngách có video ≥ 10 nghìn" (tự tính): J 42,9 % (n = 7, KTC 18,6–71,1) · D 14,3 % (n = 7) · A 11,8 % (n = 34) · B 9,6 % (n = 188). Kết quả mong manh vì n nhỏ; xem mục "Vòng cuối". Lượt đo 2 độc lập (phiên G) cho cùng kết luận: J 50 % (n = 6), cùng 3 kênh trúng, A 3,4 %, G 0 %. Hiệu chuẩn bằng LL ở `CALIBRATION.md` (n = 4, mức tin cậy thấp).
+
 > Nhánh `channel-k2`, tách từ `origin/market-k2`. **Chưa dựng tập.**
 > Đầu vào: chủ dự án chọn hướng B, *cơ chế kinh tế của một ngành*, ngày 11/10. Khoảng 1/4 đề tài là tài chính–thanh toán, chỉ giải thích cơ chế, không khuyên đầu tư/tài chính cá nhân.
 > Mọi chỉ số trong gói là **tự tính, không phải chỉ số YouTube**, trừ các mục tiêu Studio trong `THI-DIEM.md`.
@@ -273,7 +275,93 @@ Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `fin
 - **Không đổi** thước, luật hay model.
 - **Ngách có dưới 30 kênh trẻ đúng ngách:** ghi n thật và nêu ảnh hưởng lên KTC. Không mở rộng quá 30 search.list.
 
-### A, D, J, G: đo 12/10 (chủ dự án 11/10 20:00, thước không đổi)
+### Đối chiếu hai lượt đo (12/10)
+Hai phiên ở hai container cùng chạy `final.py` cho A, D, J với cùng câu hỏi và cùng thước. Không phiên nào thấy cache của phiên kia, nên Sonnet gắn nhãn lại độc lập. Kết quả thành **một phép lặp lại ngoài dự kiến**:
+
+| Ngách | Lượt 1 | Lượt 2 |
+|---|---|---|
+| A | 4/34 = 11,8 % | 1/29 = 3,4 % |
+| D | 1/7 = 14,3 % | 1/7 = 14,3 % |
+| J | 3/7 = 42,9 % (KTC 18,6–71,1) | 3/6 = 50 % (22,1–77,9) |
+| G | (chỉ ở lượt 2) | 0/14 = 0 % |
+
+- **Kết quả luật giống nhau ở cả hai lượt: J THẮNG.** Cả hai lượt đều chọn đúng 3 kênh trúng của J: CityWise, Harlan Braddock, Klyron.
+- **Nhiễu nhãn Sonnet đáng kể ở A:** 11,8 % so với 3,4 % trên gần cùng tập kênh. Kết quả A, và thứ hạng A so với B, vì vậy không vững.
+- **Nghi vấn nhãn Harlan Braddock (lượt 1):** ở lượt 2, Opus kiểm cả 6 kênh J đang hoạt động, Harlan Braddock vẫn được chấm đúng ngách và không lộ mặt. Hai đánh giá khác nhau. Nếu kênh này bị loại, J còn 2/6 hoặc 2/7 và **vẫn thắng** (lượt 1 đã tính).
+- **Quota chi trùng:** hai lượt cùng dùng một khoá, tốn khoảng 3 300 (lượt 1) + 5 990 (lượt 2, gồm G và hiệu chuẩn), tức khoảng 9 300/10 000 đơn vị trong ngày 12/10. Phần trùng khoảng 3 200 đơn vị. Nguyên nhân: lệnh hẹn giờ của phiên G và lệnh nền của phiên channel-k2 đều chạy A, D, J. Bài học: chỉ một phiên giữ một lệnh nền.
+- **AI:** lượt 1 $4,17 (container channel-k2) + lượt 2 $2,80 (container này, không tính $2,56 đã cộng trước) ≈ **$6,97** cho vòng cuối, cộng $0,26 đo nhanh G đã nằm trong lượt 2. Trần $12.
+
+### Lượt đo 1, phiên channel-k2: A, D, J (12/10, mỗi ngách 10 search.list; tổng 30 search.list, khoảng 3 300 đơn vị)
+| Ngách | Ứng viên → trẻ → trẻ đúng ngách + không lộ mặt → có video dài trong cửa sổ (n) | **Thước chính ≥ 10 nghìn** | KTC 90 % | ≥ 50 nghìn | Trung vị lượt xem/video | Opus khớp Sonnet (20 kênh) |
+|---|---|---|---|---|---|---|
+| **B** cơ chế ngành | 659 → 471 → 222 → **188** | 18/188 = **9,6 %** | 6,6–13,7 | 5,9 % | 70,5 | 19/20 |
+| **A** tiền/ngân hàng | 149 → 122 → 37 → **34** | 4/34 = **11,8 %** | 5,4–23,8 | 8,8 % | 124 | 17/20 cả hai nhãn; 18/20 nhãn gộp |
+| **D** bản đồ | 44 → 26 → 8 → **7** | 1/7 = **14,3 %** | 3,3–45,2 | 0 % | 98,5 | 16/20; 18/20 |
+| **J** nhà ở & đô thị | 96 → 66 → 9 → **7** | 3/7 = **42,9 %** | **18,6–71,1** | 14,3 % | 318,5 | 18/20; 19/20 |
+
+**n dưới 30 và ảnh hưởng lên KTC**
+- **D và J chỉ có n = 7, A có n = 34.** Không ngách nào mở rộng truy vấn quá 10 câu, đúng lệnh.
+- **Ở n = 7, mỗi kênh là 14,3 điểm %.** KTC 90 % của J rộng 52 điểm, của D rộng 42 điểm, so với 7 điểm của B (n = 188).
+- **n nhỏ một phần do cách lấy mẫu.** B có 72 câu và 659 ứng viên, gồm rất nhiều kênh mới đăng hàng loạt ít lượt xem; A, D, J chỉ có 10 câu mỗi ngách. Tập kênh vì vậy **không cùng cỡ** và có thể không cùng thành phần.
+
+**Kết quả luật** (luật chủ dự án, ghi nguyên):
+- **Ngách có thước chính cao nhất là J (42,9 %).** Hai điều kiện đều đạt:
+  - J − B = **+33,3 điểm %** ≥ 10;
+  - cận dưới KTC của J **18,6 %** > cận trên KTC của B − 5 = 13,7 − 5 = **8,7 %**.
+- **→ J THẮNG theo luật.**
+- Nhánh "cả 4 ngách < 10 %" không áp dụng, vì A, D, J đều ≥ 10 %. B 9,6 % nằm trong ±5 % quanh mốc 10 %, đã nêu ở trên.
+- **Ngách G** (thêm ở một phiên khác tối 11/10, xem mục G bên dưới) mới đo nhanh 7 câu, chưa Opus kiểm: 0/14 = 0 % (KTC 0–16,2 %). Dù tính G vào so sánh, J vẫn có thước chính cao nhất. **Kết quả luật không đổi.**
+
+**Độ vững của kết quả J** (tính thêm, không đổi luật):
+- **Ba kênh trẻ J đạt ≥ 10 nghìn:**
+
+| Kênh | Video tốt nhất | Lượt xem |
+|---|---|---|
+| CityWise | "Why Baltimore's Downtown Just Doesn't Work" | 89,6 nghìn |
+| Harlan Braddock | về thành phố Hanford | 47,2 nghìn |
+| Klyron | về "Highway to Nowhere" | 12,8 nghìn |
+
+  - Opus không nằm trong mẫu kiểm của cả ba kênh này.
+  - Video của Harlan Braddock nghiêng về lịch sử bí ẩn hơn nhà ở/đô thị, nên nhãn "đúng ngách" của kênh này đáng ngờ.
+- **Nếu bỏ 1 kênh trúng:**
+  - 2/7 = 28,6 % (KTC 10,0–59,1), hoặc 2/6 = 33,3 % (11,7–65,3) nếu kênh đó bị loại khỏi mẫu số.
+  - J **vẫn thắng** (hơn B ≥ 10 điểm; cận dưới > 8,7).
+- **Nếu bỏ 2 kênh trúng:** 1/7 = 14,3 % (3,3–45,2). J **không còn thắng**.
+- **Kết luận:** quyết định đổi sang J dựa trên 3 kênh. Nó đứng được trước một lỗi nhãn, không đứng được trước hai.
+
+### Ưu, nhược, tác động, rủi ro của kết quả "J thắng"
+- **Ưu:**
+  - J có tỷ lệ kênh trẻ bật cao nhất và trung vị lượt xem/video cao nhất (318,5, gấp khoảng 4,5 lần B).
+  - Hợp 3D sa bàn thị trấn/đô thị, bộ cảnh đã đề xuất cho trụ T2 của B.
+  - Market-k2 vòng 1 cũng ghi J là ngách "kênh mới dễ vào nhất" (11/12 kênh trẻ có nổ).
+- **Nhược:**
+  - **n = 7**; kết quả phụ thuộc 3 kênh.
+  - Market-k2 ghi J có CPM thấp hơn A/B, và 53 % kênh trẻ ra video hàng loạt.
+  - Gói kênh hiện tại (trụ, hàng đợi, hồ sơ cầu) viết cho B; J chưa có gói.
+- **Tác động:**
+  - Theo luật, hàng đợi B và thí điểm factory town **tạm dừng** (đã ghi ở `HANG-DOI.md`, `THI-DIEM.md`).
+  - J cần gói riêng: trụ, luật nội dung (chính trị hoá zoning), đề tài có cầu hiện hành.
+  - **Lõi dùng lại được:** nhận diện, luật nguồn, nhà máy LL, bộ cảnh thị trấn sa bàn.
+- **Rủi ro:**
+  - Mẫu nhỏ có thể là may rủi.
+  - J dễ chính trị hoá (zoning, nhà ở công).
+  - Market-k2 ghi J trùng khán giả Crux 13 %.
+  - Chủ dự án đã chỉ thị **dừng nghiên cứu sau vòng này**, nên không chạy thêm vòng đo J. Việc mở gói J hay xác nhận lại J trên mẫu lớn hơn là quyết định của chủ dự án.
+
+### Quota, chi phí, model
+- **YouTube:**
+  - 11/10: 528 đơn vị (B).
+  - 12/10: 30 search.list + khoảng 247 lệnh đọc (A 1 141, D 1 035, J 1 071 đơn vị), cộng 49 đơn vị khi đọc lại chi tiết kênh J/D/A để soát.
+  - Chỉ dùng một project/khoá của môi trường.
+- **AI vòng cuối (container phiên này):** **$4,17** theo `cost.jsonl`, gồm $3,94 cho nhãn (Sonnet gắn nhãn, Opus kiểm 20 kênh × 4 ngách) và $0,23 cho REVIEWER Opus. Phiên G ghi thêm $0,26 ở container của nó; tổng vòng cuối khoảng **$4,43**. Trần vòng đã được nâng lên $12 ở phiên G (mã dừng ở $11).
+- **REVIEWER Opus 5.5** (1 lượt): R1 phỉ báng, R2 YMYL, R3 luật dữ liệu, R4 áp luật đúng nguyên văn và nêu n nhỏ, R5 khớp số và phép tính Wilson: **tất cả PASS**. Model ghim; trường `served` khớp model yêu cầu (cộng Haiku phụ của CLI).
+- Số liệu thô (kể cả danh sách kênh) ở `~/.cache/cine-channel-k2`, ngoài git, xoá sau 30 ngày khi mã chạy.
+
+### Đang chờ chủ dự án
+1. **Xác nhận J theo luật**, kèm cảnh báo n = 7: mở gói kênh J, hay xác nhận lại trên mẫu lớn hơn (trái lệnh dừng nghiên cứu, cần chủ dự án cho phép).
+2. Nếu mở gói J: duyệt dùng lại nhận diện, nhà máy và bộ cảnh thị trấn; viết trụ và luật nội dung chống chính trị hoá.
+
+### Lượt đo 2, phiên G (container khác): A, D, J, G (12/10, cùng câu hỏi, gắn nhãn lại độc lập)
 | Ngách | Kênh ứng viên → trẻ → trẻ đúng ngách + không lộ mặt → có video dài trong cửa sổ | **Thước chính ≥ 10 nghìn** (KTC 90 %) | ≥ 50 nghìn | Trung vị lượt xem/video | Opus khớp Sonnet (20 kênh): cả hai nhãn / nhãn gộp |
 |---|---|---|---|---|---|
 | A Tiền/NH | 149 → 117 → 34 → 29 | 1/29 = **3,4 %** (0,8–14,1) | 0 % | 32 | 20/20 · 20/20 |

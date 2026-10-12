@@ -1,5 +1,11 @@
 # Đề xuất tập thí điểm và mục tiêu đo 7 ngày (mốc 2)
 
+> **Vòng cuối (12/10/2026): theo luật chủ dự án, ngách THẮNG là J (nhà ở & đô thị)**: 42,9 % so với B 9,6 %; cận dưới KTC 18,6 % > 8,7 %. Mọi số là tự tính, không phải chỉ số YouTube.
+> - **Thí điểm factory town (mục 0) TẠM DỪNG.** Mục tiêu đo 7 ngày ở mục 2 vẫn dùng được cho thí điểm J khi có. Hàng đợi J có **nháp** ở mục "NHÁP" bên dưới (lượt đo 2); nháp chờ chủ dự án mở gói J.
+> - **Lặp lại:** lượt đo 2 độc lập cho J 3/6 = 50 % (KTC 22,1–77,9), cùng 3 kênh trúng; Opus khớp 6/6 kênh J đang hoạt động.
+> - **Cảnh báo:** J chỉ có n = 7 kênh trẻ đúng ngách; kết quả mất nếu 2/3 kênh trúng bị chấm lại là sai nhãn. Xem `REPORT.md`, mục "Vòng cuối".
+
+
 > Đề xuất, chờ chủ dự án duyệt. **Chưa dựng tập.**
 > Số ở mục 1 và phần "Cơ sở của các con số" là **tự tính, không phải chỉ số YouTube**. Chỉ các mục tiêu trong bảng mục 2 là chỉ số YouTube Studio.
 
