@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 0, "clarity": 2, "flags": ["confusing", "empty_frame", "flat_slide_look"], "note": "Dark-navy grid with black polygons that look like the Great Lakes, an orange route line and a small yellow-circled building cluster. It has no labels, numbers or place names, and the black shapes are unexplained. The low-poly look is cheap and generic, and a large part of the frame is empty grid. The viewer can't tell where this is or what it quantifies."},
+ "Y": {"craft": 8, "readability": 8, "clarity": 8, "flags": [], "note": "Real satellite imagery of Europe, with a clear callout: Brussels, a 50% ACTUAL duty on steel above the quota, from 1 July 2026. There is a clear title, a date stamp and sources. The callout text is large enough for a phone, and the ACTUAL tag is honest. The sources line is small and dim and would be hard to read on a phone. The yellow beam from the top-left corner is unexplained, though it plausibly points to Washington. The Brussels card sits slightly over the pillar."}, 
+ "better": "Y",
+ "why": "Y puts a specific place, number and date on a real map in text a phone can read, while X shows an unlabeled abstract route that tells the viewer nothing.",
+ "top_fix_for_weaker": "Add large labels to X: name the places (e.g. the origin and destination ports), put one headline number or tonnage figure in a callout card like Y's, and label what the black shapes are. Then zoom the camera in so the route and the callout fill the frame instead of the empty grid."}
+```

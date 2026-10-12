@@ -1,0 +1,198 @@
+# KÊNH 2 · shot mẫu module k2v (phiên V, 12/10/2026) — đặc tả dạng episode. Dựng: scripts/k2/vshot.py A-map-washington-brussels.yaml [--spp 4]. Kiểm: checks/ll/q_types.py, q_scene.py, q_footage.py
+id: k2v-mau-a
+title: k2v sample
+out: /var/tmp/cine-out/k2v-shots/A-map-washington-brussels
+heroes:
+  a_pair:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -84
+        - 34
+        - -70
+        - 44
+        img: /cache/bm-crop--84_34_-70_44-6144-500m.jpg
+      - bbox:
+        - 0
+        - 46
+        - 11
+        - 55
+        img: /cache/bm-crop-0_46_11_55-6144-500m.jpg
+      states: true
+      hl:
+      - country: United States of America
+        color: '#F08A4B'
+        lift: true
+        at: 1.0
+        fill: 0.12
+      - country: Belgium
+        color: '#3CC2B0'
+        lift: true
+        at: 8.5
+        fill: 0.22
+      places:
+      - id: washington
+        at: 3.2
+      - id: brussels
+        at: 8.8
+      arcs:
+      - from: washington
+        to: brussels
+        draw:
+        - 5.0
+        - 8.6
+        color: '#F2C14E'
+      cols:
+      - id: us
+        at: washington
+        v: 0.6
+        grow:
+        - 3.6
+        - 5.0
+        color: '#F08A4B'
+        r: 0.05
+      - id: eu
+        at: brussels
+        v: 0.6
+        grow:
+        - 9.2
+        - 10.6
+        color: '#3CC2B0'
+        r: 0.05
+      cam:
+      - t: 0
+        lon: -58
+        lat: 30
+        alt: 30
+        tilt: 0
+        mm: 35
+      - t: 1.4
+        lon: -66
+        lat: 33
+        alt: 24
+        tilt: 0
+        mm: 35
+      - t: 4.2
+        lon: -77.2
+        lat: 37.2
+        alt: 2.6
+        tilt: 34
+        head: 10
+        mm: 35
+      - t: 5.2
+        lon: -76.4
+        lat: 37.6
+        alt: 3.0
+        tilt: 34
+        head: 20
+        mm: 35
+      - t: 7.0
+        lon: -38
+        lat: 44
+        alt: 9.0
+        tilt: 18
+        head: 0
+        mm: 35
+      - t: 9.6
+        lon: 3.6
+        lat: 48.4
+        alt: 2.8
+        tilt: 36
+        head: 0
+        mm: 35
+      - t: 12
+        lon: 4.2
+        lat: 48.9
+        alt: 2.45
+        tilt: 40
+        head: -6
+        mm: 35
+places:
+- Washington, D.C.
+- Brussels
+people: []
+anchors:
+- t50
+- eu50
+segments:
+- id: A
+  part: BODY
+  dur: 12
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: map/globe
+    camera_id: globe-flyto-pair
+    places:
+    - washington
+    - brussels
+    people: []
+    p:
+      __kind: ''
+      places:
+      - a: washington
+        s: Washington, D.C.
+        at: 3.0
+        out: 5.5
+        side: left
+        c: '#F08A4B'
+      - a: brussels
+        s: Brussels
+        sub: European Union
+        at: 9.0
+        side: left
+        c: '#3CC2B0'
+      tags:
+      - a: col:us
+        s: 50%
+        sub: U.S. tariff on most steel imports, since June 2025
+        big: true
+        kind: actual
+        at: 3.9
+        out: 5.6
+        side: up
+        c: '#F08A4B'
+        gap: 40
+        num: t50
+      - a: col:eu
+        s: 50%
+        sub: EU duty on steel above the quota, from 1 July 2026
+        big: true
+        kind: actual
+        at: 10.3
+        side: right
+        c: '#3CC2B0'
+        num: eu50
+      cap:
+      - s: 'From Washington to Brussels: limits on steel imports'
+        at: 6.6
+      asof: Facts as of 11 Oct 2026
+      asofAt: 0.6
+      src: 'Sources: Proclamation 10947 (Jun 2025) · Regulation (EU) 2026/1384 · Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      hero: a_pair
+numbers:
+  t50:
+    v: 50
+    text: 50%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: P10947
+    say: fifty percent
+  eu50:
+    v: 50
+    text: 50%
+    kind: actual
+    year: 2026
+    unit: '%'
+    src: EU1384
+    say: fifty percent
+sources:
+  P10947:
+    short: Proclamation 10947 (Jun 2025)
+    url: https://www.govinfo.gov/content/pkg/FR-2025-06-09/pdf/2025-10524.pdf
+  EU1384:
+    short: Regulation (EU) 2026/1384
+    url: https://eur-lex.europa.eu/eli/reg/2026/1384/oj/eng

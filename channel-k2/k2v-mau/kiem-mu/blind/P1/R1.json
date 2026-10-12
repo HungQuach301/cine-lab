@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 0,
+  "clarity": 3,
+  "flags": [
+   "confusing",
+   "empty_frame"
+  ],
+  "note": "A stylised Great Lakes map with a glowing route, but it has no labels, numbers or place names. Nothing says what the route or the yellow circle means. The black lake shapes on a flat navy grid look crude. Roughly 60% of the frame is blank grid."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Satellite-textured globe with a clear Brussels pin, a '50% ACTUAL' callout and a title. The text is large and high-contrast. The tiny source line at the bottom is hard to read on a phone. The yellow beam coming in from the top left has no label, so its origin is unclear. Overall it looks like broadcast quality."
+ },
+ "better": "Y",
+ "why": "Y shows a real place, a clear number and a one-line meaning in seconds, while X is an unlabeled abstract diagram.",
+ "top_fix_for_weaker": "Add large labels for the places (e.g. 'Great Lakes mills', 'Chicago') and a headline quantity (e.g. '25% tariff', or tonnes per year) next to the route. Fill the empty lower half by zooming in and recentering on the route. Drop the plain grid for real terrain or satellite imagery."
+}

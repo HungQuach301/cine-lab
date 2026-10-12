@@ -1,0 +1,229 @@
+# KÊNH 2 · shot mẫu module k2v (phiên V, 12/10/2026) — đặc tả dạng episode. Dựng: scripts/k2/vshot.py B-chart3d-steel-1950-2025.yaml [--spp 4]. Kiểm: checks/ll/q_types.py, q_scene.py, q_footage.py
+id: k2v-mau-b
+title: k2v sample
+out: /var/tmp/cine-out/k2v-shots/B-chart3d-steel-1950-2025
+heroes:
+  b_stack:
+    hero: chart3d/stack
+    opt:
+      scale: 0.01
+      block: 100
+      w: 2.6
+      d: 2.6
+      ruler:
+      - 0
+      - 500
+      - 1000
+      - 1500
+      rulerX: -10
+      rulerZ: -5
+      rulerW: 24
+      groups:
+      - id: y1950
+        x: -3.2
+        segs:
+        - id: us
+          v: 87.8
+          color: '#F08A4B'
+        - id: row
+          v: 101.2
+          color: steel
+        grow:
+        - 0.4
+        - 2.0
+      - id: y2025
+        x: 3.2
+        segs:
+        - id: us
+          v: 81.9
+          color: '#F08A4B'
+        - id: row
+          v: 1767.0
+          color: steel
+        grow:
+        - 3.0
+        - 7.0
+      cam:
+      - t: 0
+        p:
+        - -6
+        - 2.4
+        - 9
+        l:
+        - -1
+        - 1.2
+        - 0
+        mm: 32
+      - t: 3.0
+        p:
+        - -4
+        - 2.9
+        - 10.5
+        l:
+        - 0
+        - 1.5
+        - 0
+        mm: 32
+      - t: 7.6
+        p:
+        - -9.5
+        - 9.8
+        - 32.5
+        l:
+        - 1.5
+        - 7.6
+        - 0
+        mm: 32
+      - t: 10.5
+        p:
+        - -10.5
+        - 10.2
+        - 33
+        l:
+        - 1.5
+        - 7.8
+        - 0
+        mm: 32
+places: []
+people: []
+anchors:
+- us1950
+- us2025
+- w2025
+segments:
+- id: B
+  part: BODY
+  dur: 10
+  shots:
+  - tpl: plate
+    at: 0
+    type: chart3d
+    scene_id: chart3d/stack
+    camera_id: stack-crane-up
+    places: []
+    people: []
+    p:
+      __kind: ''
+      tags:
+      - a: y1950:baseL
+        s: '1950'
+        at: 0.4
+        side: left
+        gap: 24
+        nodot: true
+        c: '#9AA7B5'
+        px: 40
+        out: 7.3
+      - a: y1950:us
+        s: U.S. 87.8 Mt
+        sub: almost half of world steel in 1950
+        at: 1.0
+        out: 4.4
+        side: right
+        c: '#F08A4B'
+        num: us1950
+      - a: y1950:top
+        s: World 189 Mt
+        at: 1.6
+        out: 4.4
+        side: up
+        c: '#9AA7B5'
+        num: w1950
+      - a: y2025:baseR
+        s: '2025'
+        at: 3.2
+        side: right
+        gap: 24
+        nodot: true
+        c: '#9AA7B5'
+        out: 6.8
+        px: 40
+      - a: y2025:us
+        s: U.S. 81.9 Mt
+        sub: about 4% of world steel in 2025
+        at: 7.0
+        side: right
+        c: '#F08A4B'
+        num: us2025
+      - a: y2025:top
+        s: 1,849 Mt
+        sub: world crude steel, 2025
+        big: true
+        kind: actual
+        at: 7.2
+        side: right
+        c: '#EEF1F4'
+        num: w2025
+      - a: tick:500
+        s: 500 Mt
+        px: 30
+        at: 4.6
+        side: left
+        gap: 4
+        nodot: true
+        c: '#5b6878'
+      - a: tick:1000
+        s: 1,000 Mt
+        px: 30
+        at: 5.2
+        side: left
+        gap: 4
+        nodot: true
+        c: '#5b6878'
+      - a: tick:1500
+        s: 1,500 Mt
+        px: 30
+        at: 5.8
+        side: left
+        gap: 4
+        nodot: true
+        c: '#5b6878'
+      - a: y1950:top
+        s: World 189 Mt
+        sub: '1950'
+        at: 7.6
+        side: left
+        c: '#9AA7B5'
+        num: w1950
+      src: 'Sources: USGS, Iron and Steel Statistics (DS 140), 1950 raw steel · worldsteel, World Steel in Figures 2026, 2025 crude steel · one block = 100 Mt'
+      hero: b_stack
+numbers:
+  us1950:
+    v: 87.8
+    text: 87.8 Mt
+    kind: actual
+    year: 1950
+    unit: Mt
+    src: USGS
+    say: eighty-eight million
+  w1950:
+    v: 189
+    text: 189 Mt
+    kind: actual
+    year: 1950
+    unit: Mt
+    src: USGS
+    say: one hundred eighty-nine million
+  us2025:
+    v: 81.9
+    text: 81.9 Mt
+    kind: actual
+    year: 2025
+    unit: Mt
+    src: WSIF
+    say: eighty-two million
+  w2025:
+    v: 1848.9
+    text: 1,849 Mt
+    kind: actual
+    year: 2025
+    unit: Mt
+    src: WSIF
+    say: one point eight billion
+sources:
+  USGS:
+    short: USGS, Iron and Steel Statistics (DS 140)
+    url: https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/ds140-iron-steel-2021.xlsx
+  WSIF:
+    short: worldsteel, World Steel in Figures 2026
+    url: https://worldsteel.org/wp-content/uploads/World-Steel-in-Figures-2026.pdf

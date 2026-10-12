@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 3,
+  "readability": 5,
+  "clarity": 3,
+  "flags": [
+   "confusing",
+   "illegible_text"
+  ],
+  "note": "The scene is flat gray low-poly boxes and a cylinder with no clear subject. The caption is thin, low-contrast gray on dark blue-gray, and it sits over a busy texture, so it is hard to read on a phone. The blank light-blue screen on the right looks like a missing texture. A toll is mentioned, but nothing in the image shows one, so the picture and the line don't match."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 0,
+  "clarity": 7,
+  "flags": [],
+  "note": "A strong focal point: molten steel pouring from a tilted converter into a ladle, with sparks, warm glow, light shafts and a small human figure for scale. It is clearly a steel mill. Some parts look low-poly or blocky, and the right side is murky. There is no text, so it can't convey numbers or policy by itself."
+ },
+ "better": "Y",
+ "why": "Y is a clear, well-lit, instantly readable steel-making image, while X is a murky gray scene with no clear subject and a weak caption.",
+ "top_fix_for_weaker": "Replace X's scene with one clear focal object, such as a toll gate with a visible price sign and steel coils or trucks routed around it. Light it with strong contrast, and render the caption in bold white with a dark outline or semi-opaque backing bar at about 40px or larger. Put real content on the blank blue screen or remove it."
+}

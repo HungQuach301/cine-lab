@@ -5,7 +5,9 @@ const { chromium } = require('/opt/pw/node_modules/playwright');
 const { spawn } = require('child_process');
 const fs = require('fs'), path = require('path');
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-const ROOT = path.resolve(__dirname, '../../design');   // trang: design/ll-hero/k2page.js
+const ROOT = path.resolve(__dirname, '../../design');   // trang: design/ll-hero/k2page.js, hoặc design/k2v/page.js khi cảnh thuộc module hình k2v (map, chart3d, photo)
+const CACHE = process.env.K2V_CACHE || '/var/tmp/cine-out/k2v-cache';   // tài sản ngoài git (Blue Marble, ảnh LoC, trang PDF): /cache/<tệp>
+const PAGE = fs.existsSync(path.join(ROOT, 'k2v', String(arg('hero', '')).split('/')[0] + '.js')) ? 'k2v' : 'll-hero';
 const W = +arg('w', 1920), H = +arg('h', 1080), OUT = path.resolve(arg('out')), DUR = +arg('dur', 6), N = Math.ceil(DUR * 24);
 const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
 (async () => {
@@ -15,15 +17,15 @@ const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; });
   page.on('console', (m) => { const t = m.text(); if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader/i.test(t)) console.error('[page]', t); });
   await page.route('http://cine.local/**', (route) => {
-    const p = path.join(ROOT, decodeURIComponent(new URL(route.request().url()).pathname));
+    const u = decodeURIComponent(new URL(route.request().url()).pathname), p = u.startsWith('/cache/') ? path.join(CACHE, u.slice(7)) : u.startsWith('/assets/') ? path.join(ROOT, '..', u) : path.join(ROOT, u);   // /assets/: tư liệu tài sản công đã commit (RIGHTS.md)
     const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : p.endsWith('.jpg') ? 'image/jpeg' : 'text/html';
     if (!fs.existsSync(p)) return route.fulfill({ status: 404, body: 'not found ' + p });
     route.fulfill({ status: 200, contentType: type, body: fs.readFileSync(p) });
   });
-  const pf = path.join(ROOT, `ll-hero/page-${process.pid}.html`);
-  fs.writeFileSync(pf, '<!doctype html><html><body style="margin:0"><script type="module" src="/ll-hero/k2page.js"></script></body></html>');
-  await page.goto(`http://cine.local/ll-hero/${path.basename(pf)}`); await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 }); fs.unlinkSync(pf);
-  await page.evaluate(async (c) => await window.setup(c), { W, H, hero: arg('hero'), variant: arg('variant', 'a'), dur: DUR, spp: +arg('spp', 1), opt: JSON.parse(arg('opt', '{}')) });
+  const pf = path.join(ROOT, `${PAGE}/page-${process.pid}.html`);
+  fs.writeFileSync(pf, `<!doctype html><html><body style="margin:0"><script type="module" src="/${PAGE}/${PAGE === 'k2v' ? 'page' : 'k2page'}.js"></script></body></html>`);
+  await page.goto(`http://cine.local/${PAGE}/${path.basename(pf)}`); await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 }); fs.unlinkSync(pf);
+  const SU = await page.evaluate(async (c) => await window.setup(c), { W, H, hero: arg('hero'), variant: arg('variant', 'a'), dur: DUR, spp: +arg('spp', 1), opt: JSON.parse(arg('opt', '{}')) });
   let frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
   const AF = path.join(OUT, 'anchors.json'); let ANC = {}; try { ANC = JSON.parse(fs.readFileSync(AF, 'utf8')); } catch (e) { ANC = {}; }
   if (process.argv.includes('--resume')) {   /* dựng tiếp sau khi job nền bị ngắt (giới hạn 2 giờ): bỏ khung đã có, dựng lại khung cuối có thể ghi dở */
@@ -40,6 +42,6 @@ const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
     if (f % 48 === 0) console.error(`[hero ${arg('hero')}/${arg('variant', 'a')}] ${f}/${N} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung`);
   }
   fs.writeFileSync(AF, JSON.stringify(ANC));
-  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }));
+  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, spp: +arg('spp', 1), max_tex: SU && SU.maxTex, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }));
   await browser.close();
 })();

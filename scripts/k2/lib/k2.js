@@ -70,6 +70,20 @@ function labels(g, p, t) { for (const L of p.labels || []) { const u = vis(t, L.
   g.save(); g.globalAlpha *= u; g.strokeStyle = c; g.lineWidth = 2.5; const ex = Math.max(bx, Math.min(bx + bw, A.x)), ey = A.y < by ? by : by + bh;
   g.beginPath(); g.moveTo(A.x, A.y); g.lineTo(ex, ey); g.stroke(); g.fillStyle = c; g.beginPath(); g.arc(A.x, A.y, 6, 0, 7); g.fill(); g.strokeStyle = 'rgba(255,255,255,0.7)'; g.lineWidth = 1.5; g.beginPath(); g.arc(A.x, A.y, 11 + 3 * Math.sin(t * 3), 0, 7); g.stroke(); g.restore();
   panel(g, bx, by, bw, bh, { a: u, accent: c, dash: L.kind === 'projection' }); text(g, L.s, bx + 24, by + 14 + px * 0.95, px, K.text, { a: u, w: 700, disp: true }); if (L.sub) text(g, L.sub, bx + 24, by + 14 + px * 1.25 + spx * 1.0, spx, L.subc || K.dim, { a: u, w: 500 }); LL.fill = true; } }
+// nhãn module k2v (design/k2v: map, chart3d, photo) bám điểm neo, không đường dẫn dài: {a, s, sub, at, out, side: 'right'|'left'|'up'|'down', gap, c (màu nhấn), big (số lớn), kind}
+//   địa danh (p.places) và số liệu (p.tags) dùng chung; neo bị che (mặt sau địa cầu, ngoài khung) → không vẽ. Cỡ chữ ≥ MINPX (30 px ở 16:9).
+function tags(g, p, t, list) { for (const L of list || []) { const u = vis(t, L.at, L.out); if (u <= 0.01) continue; const A = anc(p, t, L.a); if (!A || !A.v) continue;
+  const big = !!L.big, px = (L.px || (big ? 54 : 36)) * S, spx = (L.spx || 32) * S, w1 = tw(g, L.s, px, 700, big), w2 = L.sub ? tw(g, L.sub, spx, 500) : 0, kw = L.kind ? tw(g, L.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', MINPX * 0.9, 700) + MINPX * 1.4 : 0;
+  const bw = Math.max(w1 + kw, w2) + 46, bh = (L.sub ? px * 1.2 + spx * 1.35 : px * 1.2) + 26, gap = (L.gap === undefined ? 30 : L.gap) * S, side = L.side || 'right', c = L.c || K.orange;
+  let bx = side === 'right' ? A.x + gap : side === 'left' ? A.x - gap - bw : A.x - bw / 2, by = side === 'up' ? A.y - gap - bh : side === 'down' ? A.y + gap : A.y - bh / 2;
+  const yMax = SAFE.y1 - (p.src || p.cap ? 150 * S : 0);   // không đè dải chú thích/dòng nguồn
+  bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, bx)); by = Math.max(SAFE.y0, Math.min(yMax - bh, by));
+  if (gap > 6 * S) { const ex = Math.max(bx, Math.min(bx + bw, A.x)), ey = Math.max(by, Math.min(by + bh, A.y)); g.save(); g.globalAlpha *= u; g.strokeStyle = c; g.lineWidth = 2.5; g.beginPath(); g.moveTo(A.x, A.y); g.lineTo(ex, ey); g.stroke();
+    if (!L.nodot) { g.fillStyle = c; g.beginPath(); g.arc(A.x, A.y, 5.5, 0, 7); g.fill(); } g.restore(); }
+  panel(g, bx, by, bw, bh, { a: u, accent: c, dash: L.kind === 'projection', fill: 'rgba(12,18,27,0.93)' });   /* nền đặc hơn thẻ: nhãn nằm trên cảnh 3D sáng/tối bất kỳ (chấm mù P2: chữ phụ mờ) */
+  text(g, L.s, bx + 24, by + 13 + px * 0.92, px, big ? (L.kind === 'projection' ? K.amber : c) : K.text, { a: u, w: 700, disp: big });
+  if (L.kind) kindTag(g, L.kind, bx + 24 + w1 + MINPX * 0.7, by + 13 + px * 0.6, u);
+  if (L.sub) text(g, L.sub, bx + 24, by + 13 + px * 1.2 + spx * 0.98, spx, L.subc || '#E6EBF0', { a: u, w: 500 }); LL.fill = true; } }
 // dải chú thích dưới: {s, at, big (số lớn), kind, src}; hiện mục mới nhất
 function caps(g, p, t) { const Cs = p.cap || []; let k = -1; Cs.forEach((c, i) => { if (t >= c.at) k = i; }); if (k < 0 && !p.src) return;
   const c = k >= 0 ? Cs[k] : null, a = c ? rv(t, c.at, 0.45) : 0, srcS = (c && c.src) || p.src, y0 = V ? H * 0.70 : H * 0.735;
@@ -194,7 +208,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
-  else caps(g, p, t);
+  else { caps(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); }   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else kindTag(g, kd, W - SAFE.x0, H - (V ? 330 : 56), 1, 'right'); }   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });

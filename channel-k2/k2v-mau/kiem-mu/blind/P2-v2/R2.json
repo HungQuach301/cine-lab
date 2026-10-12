@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Real 3D stacked-block column with gridded floor, depth, and a copper U.S. slice. It reads as a designed scene, not a slide. Weaknesses: the source footer is tiny and dense. The 1950 label box covers its own block. The 500/1,000/1,500 reference lines don't line up with the block stack, and the gridlines run off at an angle. Large empty dark areas on the right. The 'ACTUAL' tag is ambiguous. The U.S. slice is so small that '4%' needs the callout to land."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look",
+   "text_overlap"
+  ],
+  "note": "A flat PowerPoint-style card over a blurred, muddy background that shows nothing. The dashed 80% line runs through the '\u224872%' and '\u224877%' labels. The 77% label sits on top of the benchmark line. The bar scale has no axis, and the 80% line is placed so the bars look closer to 80% than they should. The title is long. Text is large and clean, and the message (below the 80% benchmark) is instant."
+ },
+ "better": "X",
+ "why": "X is a real 3D data scene with depth and materials and clears a typical explainer. Y is a flat card with a dashed line colliding with its labels, though Y is easier to read.",
+ "top_fix_for_weaker": "Move the 80% benchmark line and its labels so the dashed line stops crossing '\u224872%' and '\u224877%'. Put the value labels at the bar ends or inside the bars, and add a 0\u2013100% axis so the bar lengths are honest. Replace the blurred filler background with a relevant steel-mill plate or a subtle 3D depth treatment, and shorten the title to 'U.S. steel capacity utilization'."
+}

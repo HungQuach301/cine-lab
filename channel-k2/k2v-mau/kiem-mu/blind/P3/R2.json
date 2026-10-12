@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "confusing"
+  ],
+  "note": "This is a dark UI card with a timeline that has only one node. The right 70% of the card is empty. The blurred background is murky and adds nothing. The body text is small and the source line is dim gray, so both are weak on a phone. The event copy is truncated ('order prohibiting the acquisition' with no target or consequence). The title is generic. It looks like a PowerPoint slide, not a 3D or motion shot."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 8,
+  "flags": [],
+  "note": "The archival print is tilted on a warm textured backdrop with a lit mat, a gradient scrim and a clear focal point. It reads instantly as a historical portrait of Andrew Carnegie. The title is legible. The credit line is long and small, so it is hard to read on a phone. The scrim cuts across the bottom of the print, and the lower-third text partly overlaps the photo edge. The photo has a lot of empty brown space on the left and right, but the composition still works."
+ },
+ "better": "Y",
+ "why": "Y has a clear focal subject, depth and lighting and is understood at a glance. X is a mostly empty flat card with one timeline dot and tiny text.",
+ "top_fix_for_weaker": "Replace the card with a full-frame timeline that runs left to right across the whole width, with 3\u20134 dated nodes. Use a large 48px+ date and a 32px+ event label that names both companies and the outcome (for example 'Biden blocks Nippon Steel's $14.9B U.S. Steel takeover'). Put a relevant photo or mill footage behind it with parallax and slight camera motion. Brighten the source line, and animate the line drawing and the nodes popping in so the frame has depth."
+}

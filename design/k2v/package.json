@@ -1,0 +1,13 @@
+{
+  "name": "k2v",
+  "private": true,
+  "description": "Kênh 2 · module hình (map, chart3d, photo) — dữ liệu bản đồ và thư viện địa lý",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "d3-array": "3.2.4",
+    "d3-geo": "3.1.1",
+    "topojson-client": "3.1.0",
+    "us-atlas": "3.0.1",
+    "world-atlas": "2.0.2"
+  }
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 3, "flags": ["confusing", "cluttered"], "note": "Flat, low-poly toll-plaza scene. The lighting is dull and the colors are muddy. The big blue crate and the steel coil are crammed into the foreground and block the view. The blank light-blue sign on the right shows nothing. The caption is a thin, light-gray font over a busy, dark texture, so it is readable but weak on a phone. Nothing says steel or tariff. It could be any warehouse, and the 'toll' text doesn't match the image."},
+ "Y": {"craft": 7, "readability": 0, "clarity": 7, "flags": [], "note": "Strong cinematic composition. A glowing molten pour from a ladle into a bucket gives a clear focal point, with warm sparks, a dark surround and volumetric light shafts. A small human silhouette gives scale. It is clearly a steel mill and easy to read at a glance. It has no text, so it carries no number, place or document. The geometry is still low-poly and the light shafts look a bit like translucent flat planes."},
+ "better": "Y",
+ "why": "Y has a clear focal point, dramatic lighting and an obvious steel-mill subject, while X is a cluttered, flat, confusing scene with an empty sign and a weak caption.",
+ "top_fix_for_weaker": "Rebuild X around one clear subject, such as a steel coil or slab under a toll gate. Use a wide, uncluttered camera angle and warmer, contrasty lighting. Put a real legible label on the sign (for example '25% TARIFF'). Make the caption larger, bold, and white with a dark backing."}
+```

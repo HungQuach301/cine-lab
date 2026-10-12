@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "text_cut_off"
+  ],
+  "note": "Real 3D block-stack bars with a perspective grid floor, metallic materials and a rim-lit gradient. The scale contrast is striking: a 1950 stub next to a 1,849 Mt tower, with the U.S. share in copper. The tower top is cropped at the frame edge, so the headline value sits on a column you can't see the end of. The 1950 label and the U.S. 81.9 Mt callout are dim grey on dark, and the 4% line is small. The source footer is tiny and long for a phone. The 500/1,000/1,500 gridlines run behind the tower and don't line up with the block count. The empty right half feels unbalanced."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look",
+   "text_overlap"
+  ],
+  "note": "A clean 2D card over a blurred background, with big bold type and an obvious takeaway. It reads like a standard slide, with no depth or lighting and nothing 3D. The dashed 80% benchmark line runs through the '\u2248 72%' and '\u2248 77%' labels, which hurts legibility. The 77% bar nearly touches the line, so the gap to 80% looks tiny. The source line is small and the blurred backdrop is unidentifiable. The title is long, but the numbers are fast to grasp."
+ },
+ "better": "X",
+ "why": "X has real 3D craft and a dramatic scale comparison, while Y is a competent but flat, generic slide with a line colliding with its labels.",
+ "top_fix_for_weaker": "Move the dashed 80% line and its label clear of the value text, for example by putting the percentages inside or at the bar ends and ending the line at the bar tops. Then add depth: animate the bars in, add a subtle shadow or 3D extrusion on the bars, and replace the blurred backdrop with a recognizable steel-mill shot."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 7, "clarity": 8, "flags": [], "note": "3D block tower with a grid floor and depth gives a broadcast look. The scale contrast between 1950 and 2025 is instant, and the U.S. orange slice is a good hook. The source footer is small for a phone. The 1950 label box overlaps its own block. The gridlines don't line up cleanly with the tower's blocks."},
+ "Y": {"craft": 5, "readability": 8, "clarity": 7, "flags": ["flat_slide_look", "text_overlap"], "note": "This is a flat card on a blurred background, so it looks like a PowerPoint slide. The big text is crisp. The dashed 80% line runs through the '≈ 72%' and '≈ 77%' labels. The 77% bar is shown as nearly at the benchmark, which is visually muddy. The title wraps awkwardly. The blurred background adds nothing. The source line is small."},
+ "better": "X",
+ "why": "X turns the numbers into a spatial, dimensional visual that reads at a glance, while Y is a flat slide with a dashed line colliding with its value labels.",
+ "top_fix_for_weaker": "Move the 80% benchmark line so it doesn't cross the '≈72%' and '≈77%' labels (for example, put the labels inside the bars or on the left). Shorten the title to 'U.S. steel capacity use'. Replace the blurred filler with real footage or a 3D scene. Enlarge the source text."}
+```

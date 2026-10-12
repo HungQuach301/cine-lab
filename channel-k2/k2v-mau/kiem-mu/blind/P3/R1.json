@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark card with one dot on a timeline, and most of the card is empty. The title and date are legible, but the body text is smallish for a phone. The blurred background is barely visible, so it looks like a PowerPoint slide. 'Order prohibiting the acquisition' is a fragment with no stated outcome. The faint source line is low contrast. The timeline has a single event, so it doesn't work as a timeline."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 9,
+  "flags": [],
+  "note": "A real archival portrait on a mat, tilted and lit on a warm textured backdrop. It has depth, and the gradient behind the caption keeps the white text readable. The 'Andrew Carnegie, 1913' title is big and clear at a glance. The credit line is long and small, so it is hard to read on a phone. The photo is sharp and well framed, though its edge meets the bottom gradient a little awkwardly."
+ },
+ "better": "Y",
+ "why": "Y shows a recognizable person with a clear caption and a proper archival look, while X is a mostly empty, flat slide with a single timeline point.",
+ "top_fix_for_weaker": "Fill X's empty space: use the full width for a multi-event timeline (e.g. Jan 2025 order, deal history, outcome) with larger body text (about 36px or more), or show the actual order document or a photo behind the card at higher visibility. Also complete the sentence ('Biden blocks Nippon Steel's $14.9B takeover of U.S. Steel') and brighten the source line."
+}

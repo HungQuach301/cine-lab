@@ -1,0 +1,94 @@
+# KÊNH 2 · shot mẫu module k2v (phiên V, 12/10/2026) — đặc tả dạng episode. Dựng: scripts/k2/vshot.py C-photo-carnegie-proclamation.yaml [--spp 4]. Kiểm: checks/ll/q_types.py, q_scene.py, q_footage.py
+id: k2v-mau-c
+title: k2v sample
+out: /var/tmp/cine-out/k2v-shots/C-photo-carnegie-proclamation
+heroes:
+  c_print:
+    hero: photo/print
+    opt:
+      img: /assets/k2/archive/loc-cph-3c01767.jpg
+      focus:
+      - 0.42
+      - 0.24
+      push: 0.22
+  c_doc:
+    hero: photo/doc
+    opt:
+      page: /cache/fr-2026-11314-p1.json
+      hl:
+      - i: 0
+        at:
+        - 0.2
+        - 0.8
+        color: '#F0B43C'
+      - i: 1
+        at:
+        - 0.9
+        - 2.1
+        color: '#F0B43C'
+      focus: 1
+      exposure: 0.8
+      cam:
+      - t: 0
+        p:
+        - 0.0
+        - 4.4
+        - 1.5
+        l:
+        - 0.2
+        - 0
+        - -0.55
+        mm: 50
+      - t: 3.5
+        p:
+        - 0.38
+        - 2.45
+        - 0.05
+        l:
+        - 0.36
+        - 0
+        - -0.98
+        mm: 50
+places: []
+people:
+- name: Andrew Carnegie
+  photo: LOC-3c01767
+anchors: []
+segments:
+- id: C
+  part: BODY
+  dur: 9.5
+  shots:
+  - tpl: plate
+    at: 0
+    type: photo
+    scene_id: photo/print
+    camera_id: kenburns-push
+    places: []
+    people:
+    - Andrew Carnegie
+    p:
+      cap:
+      - s: Andrew Carnegie, 1913
+        at: 0.8
+      src: 'Photo: Theodore C. Marceau, 1913 · Library of Congress, Prints & Photographs Division (public domain)'
+      hero: c_print
+      photo: LOC-3c01767
+  - tpl: plate
+    at: 6.5
+    type: document
+    scene_id: photo/doc
+    camera_id: doc-push-hl
+    places: []
+    people: []
+    in: fade
+    p:
+      cap:
+      - s: 'June 2026: the latest change to the U.S. steel tariff rules'
+        at: 6.9
+      asof: Facts as of 11 Oct 2026
+      asofAt: 6.9
+      src: 'Source: Federal Register, Vol. 91, No. 107 (4 Jun 2026), Proclamation 11032'
+      hero: c_doc
+      paper: Federal Register
+      date: '2026-06-04'

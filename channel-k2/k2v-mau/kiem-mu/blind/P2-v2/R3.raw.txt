@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 8,
+    "readability": 7,
+    "clarity": 8,
+    "flags": ["cluttered"],
+    "note": "A 3D block tower makes the roughly 10x growth from 1950 to 2025 clear at a glance. The main numbers are large and high-contrast, and the orange U.S. sliver shows how small the U.S. share is. Problems: the 1950 callout covers part of its own small block, and the U.S. callout touches the tower. The tilted gridlines are a bit hard to follow, and the 1,500/1,000/500 labels are small. The two-line source footer is tiny and low-contrast on a phone."
+  },
+  "Y": {
+    "craft": 5,
+    "readability": 7,
+    "clarity": 7,
+    "flags": ["text_overlap", "flat_slide_look"],
+    "note": "This is a clean but generic slide card with two bars. The title and values are large and legible. The dashed 80% benchmark line runs straight through the '≈ 72%' label, and it nearly touches the '≈ 77%' label. The title says 'in the Commerce Secretary's opinion', which is clear but wordy. The bars are shown against a 100-wide scale with no axis, so the gap looks bigger than 5 points. The blurred background is wasted, and the source line and 80% label are small."
+  },
+  "better": "X",
+  "why": "X turns the numbers into a physical, spatial comparison that reads fast, while Y is a flat slide with a benchmark line cutting through a value label.",
+  "top_fix_for_weaker": "Move the 80% dashed line and its label so the line stops short of or sits behind the value labels (or put the values inside the bars). Then enlarge the source and benchmark text, and add a visible 0–100% axis so the bar gap isn't exaggerated."
+}
+```

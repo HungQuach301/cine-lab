@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 4,
+    "readability": 0,
+    "clarity": 3,
+    "flags": ["confusing", "empty_frame", "flat_slide_look"],
+    "note": "The frame shows black polygon blobs, which look like the Great Lakes, on a blue grid with a glowing orange route. The materials are flat, the lighting is minimal, and the small props (a mill and some bars) are unreadable. There is no text at all, so the viewer can't tell the place, the quantity or the topic. Half the frame is empty grid, and the dark corner looks like an artifact."
+  },
+  "Y": {
+    "craft": 8,
+    "readability": 8,
+    "clarity": 8,
+    "flags": [],
+    "note": "This is a real satellite-textured globe with a shallow-angle camera, a glowing route beam and a 3D cylinder marker. The callout cards are clean, with a high-contrast 50% figure, an ACTUAL tag and a clear Brussels label. The title and date chip are legible. The source line is small and low-contrast on a phone, and the bottom third is a bit heavy and dark. The callout card and Brussels label sit close together near the cylinder."
+  },
+  "better": "Y",
+  "why": "Y states place, number and claim at a glance on a rich, credible map, while X is an unlabeled abstract grid with no readable information.",
+  "top_fix_for_weaker": "Replace the black blob polygons with a textured, lit basemap with real coastlines. Add large labelled callouts (place names plus one key number) at the three route nodes. Frame the camera tighter on the route so it fills the frame, and make the mill and bar props larger, with labels."
+}
+```

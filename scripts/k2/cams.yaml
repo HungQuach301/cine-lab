@@ -1,0 +1,2452 @@
+# KÊNH 2 · THƯ VIỆN GÓC MÁY (chống lặp, chủ dự án 12/10/2026). Dùng trong đặc tả tập: heroes.<khoá>.cam: <preset> → camera_id = <preset>.
+# Luật (scripts/k2/prep.py): cùng (scene_id, camera_id) tối đa 2 shot/tập; vượt → dừng trước khi thu giọng. Biến thể rẻ = cùng cảnh, khác preset.
+# - module k2v (map, chart3d, photo): preset tính trong module theo khung nội dung (module: true; opt.preset), xem design/k2v/*.js.
+# - cảnh Steel (k2g01/*): toạ độ tuyệt đối; 'src' ghi nguồn. Biến thể 'orbit-*', 'high-wide', 'low-close', 'tele' sinh tự động bằng quay quanh điểm nhìn của 'default'
+#   và đã rà tờ khung (channel-k2/k2v-mau/cams/<cảnh>.jpg) — preset có 'loai: true' là bị loại khi rà (lộ mép cảnh/xuyên vật thể), không dùng.
+map/globe:
+  orbit:
+    module: true
+    note: quả địa cầu xoay chậm quanh opt.focus (toàn cầu)
+  flyto:
+    module: true
+    note: toàn cầu → bay xuống opt.focus (tầm thành phố, nghiêng 32°)
+  pullback:
+    module: true
+    note: từ opt.focus kéo lên toàn cầu
+  tilt-low:
+    module: true
+    note: xiên thấp 50–54° trên opt.focus, quét nhẹ hướng
+  top:
+    module: true
+    note: nhìn thẳng xuống, trôi ngang
+  pan:
+    module: true
+    note: lia ngang dọc vĩ tuyến qua opt.focus
+  pair:
+    module: true
+    note: opt.from → cung → opt.to (shot mẫu A)
+chart3d/stack:
+  front-dolly:
+    module: true
+    note: chính diện, tiến chậm
+  crane-up:
+    module: true
+    note: thấp sát cột đầu → cẩu lên lộ toàn chiều cao (shot mẫu B)
+  low-hero:
+    module: true
+    note: góc thấp 24 mm, cột vươn cao
+  orbit-l:
+    module: true
+    note: quay quanh từ trái
+  orbit-r:
+    module: true
+    note: quay quanh từ phải
+  top-down:
+    module: true
+    note: từ trên cao nhìn xuống
+  side-track:
+    module: true
+    note: trượt ngang dọc hàng cột/đường
+chart3d/bars:
+  front-dolly:
+    module: true
+    note: chính diện, tiến chậm
+  crane-up:
+    module: true
+    note: thấp sát cột đầu → cẩu lên lộ toàn chiều cao (shot mẫu B)
+  low-hero:
+    module: true
+    note: góc thấp 24 mm, cột vươn cao
+  orbit-l:
+    module: true
+    note: quay quanh từ trái
+  orbit-r:
+    module: true
+    note: quay quanh từ phải
+  top-down:
+    module: true
+    note: từ trên cao nhìn xuống
+  side-track:
+    module: true
+    note: trượt ngang dọc hàng cột/đường
+chart3d/line:
+  front-dolly:
+    module: true
+    note: chính diện, tiến chậm
+  crane-up:
+    module: true
+    note: thấp sát cột đầu → cẩu lên lộ toàn chiều cao (shot mẫu B)
+  low-hero:
+    module: true
+    note: góc thấp 24 mm, cột vươn cao
+  orbit-l:
+    module: true
+    note: quay quanh từ trái
+  orbit-r:
+    module: true
+    note: quay quanh từ phải
+  top-down:
+    module: true
+    note: từ trên cao nhìn xuống
+  side-track:
+    module: true
+    note: trượt ngang dọc hàng cột/đường
+photo/print:
+  push:
+    module: true
+    note: Ken Burns tiến về điểm chính (opt.focus)
+  pull:
+    module: true
+    note: từ điểm chính lùi ra toàn bản in
+  drift-l:
+    module: true
+    note: trôi ngang sang trái
+  drift-r:
+    module: true
+    note: trôi ngang sang phải
+  tilt-low:
+    module: true
+    note: xiên thấp, chiều sâu trường ảnh
+  detail:
+    module: true
+    note: cận chi tiết quanh điểm chính
+  top:
+    module: true
+    note: nhìn thẳng xuống, tiến rất chậm
+photo/doc:
+  push:
+    module: true
+    note: Ken Burns tiến về điểm chính (opt.focus)
+  pull:
+    module: true
+    note: từ điểm chính lùi ra toàn bản in
+  drift-l:
+    module: true
+    note: trôi ngang sang trái
+  drift-r:
+    module: true
+    note: trôi ngang sang phải
+  tilt-low:
+    module: true
+    note: xiên thấp, chiều sâu trường ảnh
+  detail:
+    module: true
+    note: cận chi tiết quanh điểm chính
+  top:
+    module: true
+    note: nhìn thẳng xuống, tiến rất chậm
+photo/headline:
+  push:
+    module: true
+    note: mặc định (≤ 3 s)
+  drift-l:
+    module: true
+    note: trôi trái
+  drift-r:
+    module: true
+    note: trôi phải
+  tilt-low:
+    module: true
+    note: xiên thấp
+  detail:
+    module: true
+    note: cận tít
+  top:
+    module: true
+    note: thẳng xuống
+k2g01/valley:
+  default:
+    cam:
+    - u: 0
+      p:
+      - -46
+      - 30
+      - -52
+      l:
+      - -4
+      - 4
+      - 16
+      mm: 28
+    - u: 1
+      p:
+      - -38
+      - 25
+      - -44
+      l:
+      - -2
+      - 5
+      - 16
+      mm: 30
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  v_open:
+    cam:
+    - u: 0
+      p:
+      - -80
+      - 46
+      - -90
+      l:
+      - 0
+      - 4
+      - 18
+      mm: 24
+    - u: 1
+      p:
+      - -56
+      - 34
+      - -70
+      l:
+      - 0
+      - 5
+      - 18
+      mm: 26
+    src: K2G-01 Steel (v_open)
+  v_rail:
+    cam:
+    - u: 0
+      p:
+      - -64
+      - 3.2
+      - 46
+      l:
+      - -30
+      - 2
+      - 30
+      mm: 30
+    - u: 1
+      p:
+      - -46
+      - 3.6
+      - 48
+      l:
+      - -10
+      - 2.2
+      - 30
+      mm: 32
+    src: K2G-01 Steel (v_rail)
+  v_site:
+    cam:
+    - u: 0
+      p:
+      - -30
+      - 48
+      - -46
+      l:
+      - -6
+      - 0
+      - 20
+      mm: 26
+    - u: 1
+      p:
+      - -8
+      - 44
+      - -48
+      l:
+      - -2
+      - 0
+      - 20
+      mm: 28
+    src: K2G-01 Steel (v_site)
+  v_works:
+    cam:
+    - u: 0
+      p:
+      - -12
+      - 5
+      - -9
+      l:
+      - -2
+      - 9
+      - 18
+      mm: 28
+    - u: 1
+      p:
+      - -4
+      - 6
+      - -7
+      l:
+      - 0
+      - 10
+      - 18
+      mm: 30
+    src: K2G-01 Steel (v_works)
+  v_bf:
+    cam:
+    - u: 0
+      p:
+      - -12
+      - 3.5
+      - 3
+      l:
+      - -2
+      - 10
+      - 18
+      mm: 24
+    - u: 1
+      p:
+      - -6
+      - 3.2
+      - 5
+      l:
+      - -2
+      - 11
+      - 18
+      mm: 24
+    src: K2G-01 Steel (v_bf)
+  v_coke:
+    cam:
+    - u: 0
+      p:
+      - -156
+      - 10
+      - 56
+      l:
+      - -130
+      - 1
+      - 25
+      mm: 28
+    - u: 1
+      p:
+      - -112
+      - 11
+      - 56
+      l:
+      - -128
+      - 1
+      - 25
+      mm: 30
+    src: K2G-01 Steel (v_coke)
+  v_coke2:
+    cam:
+    - u: 0
+      p:
+      - -162
+      - 16
+      - 52
+      l:
+      - -130
+      - 1
+      - 24
+      mm: 28
+    - u: 1
+      p:
+      - -146
+      - 18
+      - 54
+      l:
+      - -128
+      - 1
+      - 24
+      mm: 28
+    src: K2G-01 Steel (v_coke2)
+    loai: true
+  v_night:
+    cam:
+    - u: 0
+      p:
+      - -86
+      - 3
+      - -6
+      l:
+      - -40
+      - 1.5
+      - 8
+      mm: 28
+    - u: 1
+      p:
+      - -70
+      - 3.4
+      - -4
+      l:
+      - -30
+      - 1.5
+      - 10
+      mm: 30
+    src: K2G-01 Steel (v_night)
+  v_end:
+    cam:
+    - u: 0
+      p:
+      - 34
+      - 42
+      - -64
+      l:
+      - -6
+      - 5
+      - 18
+      mm: 24
+    - u: 1
+      p:
+      - 14
+      - 32
+      - -50
+      l:
+      - -6
+      - 7
+      - 18
+      mm: 28
+    src: K2G-01 Steel (v_end)
+k2g01/ingots:
+  default:
+    cam:
+    - u: 0
+      p:
+      - -25
+      - 5.5
+      - 12
+      l: &id001
+      - -16
+      - 2.5
+      - 0
+      mm: 36
+    - u: 1
+      p:
+      - -15
+      - 15
+      - 31
+      l: &id002
+      - -2
+      - 3.5
+      - -1
+      mm: 30
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  i_hook:
+    cam:
+    - u: 0
+      p:
+      - -25
+      - 5.5
+      - 12
+      l:
+      - -16
+      - 2.5
+      - 0
+      mm: 36
+    - u: 0.42
+      p:
+      - -22
+      - 7
+      - 16
+      l:
+      - -12
+      - 2.5
+      - 0
+      mm: 34
+    - u: 0.75
+      p:
+      - -12
+      - 15
+      - 30
+      l:
+      - -2
+      - 3.5
+      - -1
+      mm: 30
+    - u: 1
+      p:
+      - -10
+      - 16
+      - 32
+      l:
+      - -1
+      - 4
+      - -1
+      mm: 30
+    src: K2G-01 Steel (i_hook)
+  i_hist:
+    cam:
+    - u: 0
+      p:
+      - -18
+      - 7
+      - 19
+      l:
+      - -7.5
+      - 1.6
+      - 0
+      mm: 27
+    - u: 1
+      p:
+      - -10
+      - 9
+      - 21
+      l:
+      - -6
+      - 1.8
+      - 0
+      mm: 27
+    src: K2G-01 Steel (i_hist)
+  i_myth:
+    cam:
+    - u: 0
+      p:
+      - -4
+      - 4
+      - 14
+      l:
+      - 0
+      - 1
+      - 0
+      mm: 34
+    - u: 1
+      p:
+      - 4
+      - 5
+      - 13
+      l:
+      - 0
+      - 1
+      - 0
+      mm: 34
+    src: K2G-01 Steel (i_myth)
+  i_world:
+    cam:
+    - u: 0
+      p:
+      - 20
+      - 8
+      - 22
+      l:
+      - -6
+      - 3
+      - 0
+      mm: 30
+    - u: 1
+      p:
+      - 6
+      - 24
+      - 38
+      l:
+      - -2
+      - 4
+      - -2
+      mm: 28
+    src: K2G-01 Steel (i_world)
+  orbit-l25:
+    cam:
+    - u: 0
+      p:
+      - -19.09
+      - 5.5
+      - 14.68
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - -0.26
+      - 15.0
+      - 33.5
+      l: *id002
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (orbit-l25) — rà tờ khung trước khi dùng
+  orbit-r25:
+    cam:
+    - u: 0
+      p:
+      - -29.23
+      - 5.5
+      - 7.07
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - -27.31
+      - 15.0
+      - 22.51
+      l: *id002
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (orbit-r25) — rà tờ khung trước khi dùng
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -30.89
+      - 5.5
+      - -1.79
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - -36.21
+      - 15.0
+      - 3.74
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - -10.11
+      - 5.5
+      - 13.79
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - 19.21
+      - 15.0
+      - 26.26
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -26.25
+      - 5.5
+      - -10.95
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - -31.26
+      - 15.0
+      - -19.36
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - -2.62
+      - 5.5
+      - 6.78
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - 31.77
+      - 15.0
+      - 6.25
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - -24.86
+      - 15.0
+      - 6.95
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - -18.17
+      - 33.26
+      - 20.37
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - -19.32
+      - 3.3
+      - 10.95
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - -3.0
+      - 5.4
+      - 26.22
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -7.0
+      - 5.5
+      - -12.0
+      l: *id001
+      mm: 36
+    - u: 1
+      p:
+      - 11.0
+      - 15.0
+      - -33.0
+      l: *id002
+      mm: 30
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+k2g01/chain:
+  default:
+    cam:
+    - u: 0
+      p:
+      - -10
+      - 17
+      - 15
+      l: &id003
+      - -5.5
+      - 0
+      - -1.5
+      mm: 28
+    - u: 1
+      p:
+      - -6
+      - 14.5
+      - 14.5
+      l: &id004
+      - -3
+      - 0
+      - -0.5
+      mm: 29
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  c_draw:
+    cam:
+    - u: 0
+      p:
+      - -12
+      - 20
+      - 16
+      l:
+      - -4
+      - 0
+      - -1
+      mm: 26
+    - u: 0.3
+      p:
+      - -13
+      - 12
+      - 8
+      l:
+      - -7
+      - 0
+      - -3
+      mm: 28
+    - u: 0.5
+      p:
+      - -6
+      - 15
+      - 10
+      l:
+      - -3
+      - 0
+      - -2
+      mm: 26
+    - u: 0.62
+      p:
+      - 3
+      - 9
+      - 13
+      l:
+      - 3
+      - 0
+      - 3
+      mm: 28
+    - u: 0.75
+      p:
+      - 6
+      - 7
+      - 12
+      l:
+      - 4
+      - 0
+      - 5
+      mm: 30
+    - u: 0.9
+      p:
+      - 8
+      - 8
+      - 13
+      l:
+      - 4.5
+      - 0
+      - 4.5
+      mm: 30
+    - u: 1
+      p:
+      - 2
+      - 14
+      - 16
+      l:
+      - 0
+      - 0
+      - 1
+      mm: 28
+    src: K2G-01 Steel (c_draw)
+  c_full:
+    cam:
+    - u: 0
+      p:
+      - -16
+      - 24
+      - 20
+      l:
+      - -3
+      - 0
+      - 0
+      mm: 26
+    - u: 1
+      p:
+      - -10
+      - 22
+      - 22
+      l:
+      - -2
+      - 0
+      - 0
+      mm: 26
+    src: K2G-01 Steel (c_full)
+  c_own:
+    cam:
+    - u: 0
+      p:
+      - 2
+      - 10
+      - 16
+      l:
+      - 3.5
+      - 0
+      - 4
+      mm: 28
+    - u: 1
+      p:
+      - -6
+      - 18
+      - 20
+      l:
+      - -2
+      - 0
+      - 0
+      mm: 26
+    src: K2G-01 Steel (c_own)
+  orbit-l25:
+    cam:
+    - u: 0
+      p:
+      - -2.61
+      - 17.0
+      - 15.36
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - 0.62
+      - 14.5
+      - 14.36
+      l: *id004
+      mm: 29
+    src: biến thể quay quanh điểm nhìn của default (orbit-l25) — rà tờ khung trước khi dùng
+  orbit-r25:
+    cam:
+    - u: 0
+      p:
+      - -16.55
+      - 17.0
+      - 11.55
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - -12.06
+      - 14.5
+      - 11.83
+      l: *id004
+      mm: 29
+    src: biến thể quay quanh điểm nhìn của default (orbit-r25) — rà tờ khung trước khi dùng
+  high-wide:
+    cam:
+    - u: 0
+      p:
+      - -11.57
+      - 28.95
+      - 20.78
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - -7.05
+      - 25.58
+      - 19.75
+      l: *id004
+      mm: 29
+    src: biến thể quay quanh điểm nhìn của default (high-wide) — rà tờ khung trước khi dùng
+    loai: true
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -22.04
+      - 17.0
+      - 2.85
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - -17.49
+      - 14.5
+      - 4.4
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: 'bản đồ xoay/lộn ngược hoặc nhìn sượt: mất nhận diện địa lý'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - 6.54
+      - 17.0
+      - 10.65
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - 8.49
+      - 14.5
+      - 9.6
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: 'bản đồ xoay/lộn ngược hoặc nhìn sượt: mất nhận diện địa lý'
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -20.97
+      - 17.0
+      - -8.8
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - -17.25
+      - 14.5
+      - -6.06
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: 'bản đồ xoay/lộn ngược hoặc nhìn sượt: mất nhận diện địa lý'
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - 11.53
+      - 17.0
+      - 0.07
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - 12.29
+      - 14.5
+      - -0.15
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: 'bản đồ xoay/lộn ngược hoặc nhìn sượt: mất nhận diện địa lý'
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - -14.44
+      - 19.71
+      - 13.83
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - -9.88
+      - 17.23
+      - 13.41
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - -4.01
+      - 1.26
+      - 16.48
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - -0.62
+      - 1.1
+      - 15.09
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: 'bản đồ xoay/lộn ngược hoặc nhìn sượt: mất nhận diện địa lý'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -1.0
+      - 17.0
+      - -18.0
+      l: *id003
+      mm: 28
+    - u: 1
+      p:
+      - 0.0
+      - 14.5
+      - -15.5
+      l: *id004
+      mm: 29
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: 'bản đồ xoay/lộn ngược hoặc nhìn sượt: mất nhận diện địa lý'
+k2g01/furnace:
+  default:
+    cam:
+    - u: 0
+      p:
+      - 13
+      - 4.0
+      - 12.5
+      l: &id005
+      - 0
+      - 4.2
+      - -1.5
+      mm: 28
+    - u: 1
+      p:
+      - 10.5
+      - 3.6
+      - 10.5
+      l: &id006
+      - 0.5
+      - 4.0
+      - -1.5
+      mm: 30
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  f_men:
+    cam:
+    - u: 0
+      p:
+      - 12
+      - 2.2
+      - 8
+      l:
+      - 7
+      - 1.6
+      - 0
+      mm: 30
+    - u: 1
+      p:
+      - 10
+      - 2.4
+      - 9
+      l:
+      - 4
+      - 2
+      - -1
+      mm: 32
+    src: K2G-01 Steel (f_men)
+  orbit-l25:
+    cam:
+    - u: 0
+      p:
+      - 17.7
+      - 4.0
+      - 5.69
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 14.63
+      - 3.6
+      - 5.15
+      l: *id006
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (orbit-l25) — rà tờ khung trước khi dùng
+  orbit-r25:
+    cam:
+    - u: 0
+      p:
+      - 5.87
+      - 4.0
+      - 16.68
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 4.49
+      - 3.6
+      - 13.6
+      l: *id006
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (orbit-r25) — rà tờ khung trước khi dùng
+  high-wide:
+    cam:
+    - u: 0
+      p:
+      - 17.55
+      - 9.93
+      - 17.4
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 14.0
+      - 9.46
+      - 14.7
+      l: *id006
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (high-wide) — rà tờ khung trước khi dùng
+    loai: true
+  low-close:
+    cam:
+    - u: 0
+      p:
+      - 7.47
+      - 2.06
+      - 10.05
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 6.09
+      - 1.71
+      - 8.26
+      l: *id006
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (low-close) — rà tờ khung trước khi dùng
+  tele:
+    cam:
+    - u: 0
+      p:
+      - 25.0
+      - 3.88
+      - 16.09
+      l: *id005
+      mm: 55
+    - u: 1
+      p:
+      - 20.14
+      - 3.36
+      - 13.95
+      l: *id006
+      mm: 55
+    src: biến thể quay quanh điểm nhìn của default (tele) — rà tờ khung trước khi dùng
+    loai: true
+  orbit-l45:
+    cam:
+    - u: 0
+      p:
+      - 17.18
+      - 4.02
+      - -0.86
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 14.5
+      - 3.64
+      - -0.23
+      l: *id006
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (orbit-l45) — rà tờ khung trước khi dùng
+  mid-push:
+    cam:
+    - u: 0
+      p:
+      - 12.15
+      - 4.04
+      - 8.38
+      l: *id005
+      mm: 35
+    - u: 1
+      p:
+      - 9.99
+      - 3.67
+      - 7.1
+      l: *id006
+      mm: 35
+    src: biến thể quay quanh điểm nhìn của default (mid-push) — rà tờ khung trước khi dùng
+  orbit-r12-low:
+    cam:
+    - u: 0
+      p:
+      - 7.84
+      - 3.04
+      - 11.62
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 6.33
+      - 2.68
+      - 9.55
+      l: *id006
+      mm: 30
+    src: biến thể quay quanh điểm nhìn của default (orbit-r12-low) — rà tờ khung trước khi dùng
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -5.62
+      - 4.0
+      - 16.76
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - -4.89
+      - 3.6
+      - 13.16
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - 18.62
+      - 4.0
+      - -5.76
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 15.89
+      - 3.6
+      - -4.16
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -16.04
+      - 4.0
+      - 8.87
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - -13.05
+      - 3.6
+      - 6.26
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - 11.53
+      - 4.0
+      - -16.73
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 10.58
+      - 3.6
+      - -13.43
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: kẹt sau tường/vật che khung
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - 6.58
+      - 19.82
+      - 10.93
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 5.33
+      - 16.77
+      - 8.94
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: kẹt sau tường/vật che khung
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - 12.72
+      - 5.2
+      - 5.02
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - 10.6
+      - 4.82
+      - 4.38
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -13.0
+      - 4.0
+      - -15.5
+      l: *id005
+      mm: 28
+    - u: 1
+      p:
+      - -9.5
+      - 3.6
+      - -13.5
+      l: *id006
+      mm: 30
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: kẹt sau tường/vật che khung
+k2g01/trade:
+  default:
+    cam:
+    - u: 0
+      p:
+      - 27
+      - 11
+      - 27
+      l: &id007
+      - 0
+      - 5
+      - -4
+      mm: 26
+    - u: 1
+      p:
+      - 24
+      - 12.5
+      - 28
+      l: &id008
+      - -1
+      - 5
+      - -4
+      mm: 25
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  t_limits:
+    cam:
+    - u: 0
+      p:
+      - 30
+      - 14
+      - 30
+      l:
+      - 4
+      - 3
+      - -4
+      mm: 26
+    - u: 1
+      p:
+      - 26
+      - 10
+      - 24
+      l:
+      - 8
+      - 3
+      - -4
+      mm: 28
+    src: K2G-01 Steel (t_limits)
+  t_08:
+    cam:
+    - u: 0
+      p:
+      - -40
+      - 30
+      - 40
+      l:
+      - -10
+      - 4
+      - -4
+      mm: 24
+    - u: 0.4
+      p:
+      - -38
+      - 14
+      - 28
+      l:
+      - -20
+      - 4
+      - 2
+      mm: 28
+    - u: 0.62
+      p:
+      - -10
+      - 30
+      - 52
+      l:
+      - -6
+      - 2
+      - 10
+      mm: 24
+    - u: 1
+      p:
+      - 30
+      - 18
+      - 36
+      l:
+      - 0
+      - 5
+      - -2
+      mm: 26
+    src: K2G-01 Steel (t_08)
+  t_both:
+    cam:
+    - u: 0
+      p:
+      - 36
+      - 16
+      - 34
+      l:
+      - 8
+      - 3
+      - -2
+      mm: 26
+    - u: 0.5
+      p:
+      - 10
+      - 26
+      - 44
+      l:
+      - 4
+      - 3
+      - -6
+      mm: 25
+    - u: 1
+      p:
+      - -20
+      - 20
+      - 40
+      l:
+      - 0
+      - 3
+      - -6
+      mm: 26
+    src: K2G-01 Steel (t_both)
+  orbit-l25:
+    cam:
+    - u: 0
+      p:
+      - 37.57
+      - 11.0
+      - 12.68
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 35.18
+      - 12.5
+      - 14.44
+      l: *id008
+      mm: 25
+    src: biến thể quay quanh điểm nhìn của default (orbit-l25) — rà tờ khung trước khi dùng
+  orbit-r25:
+    cam:
+    - u: 0
+      p:
+      - 11.37
+      - 11.0
+      - 35.51
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 8.13
+      - 12.5
+      - 35.57
+      l: *id008
+      mm: 25
+    src: biến thể quay quanh điểm nhìn của default (orbit-r25) — rà tờ khung trước khi dùng
+  high-wide:
+    cam:
+    - u: 0
+      p:
+      - 36.45
+      - 19.1
+      - 37.85
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 32.75
+      - 21.12
+      - 39.2
+      l: *id008
+      mm: 25
+    src: biến thể quay quanh điểm nhìn của default (high-wide) — rà tờ khung trước khi dùng
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -13.35
+      - 11.0
+      - 34.88
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - -16.21
+      - 12.5
+      - 33.65
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - 40.35
+      - 11.0
+      - -11.88
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 39.21
+      - 12.5
+      - -9.65
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -35.22
+      - 11.0
+      - 17.21
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - -36.86
+      - 12.5
+      - 15.06
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - 25.84
+      - 11.0
+      - -35.97
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 26.17
+      - 12.5
+      - -34.18
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - 13.43
+      - 38.96
+      - 23.47
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 10.88
+      - 38.76
+      - 23.98
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - 27.2
+      - 7.17
+      - 11.04
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - 25.2
+      - 7.16
+      - 12.37
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -27.0
+      - 11.0
+      - -35.0
+      l: *id007
+      mm: 26
+    - u: 1
+      p:
+      - -26.0
+      - 12.5
+      - -36.0
+      l: *id008
+      mm: 25
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+k2g01/port:
+  default:
+    cam:
+    - u: 0
+      p:
+      - 60
+      - 22
+      - 110
+      l: &id009
+      - 10
+      - 4
+      - 40
+      mm: 30
+    - u: 1
+      p:
+      - 40
+      - 18
+      - 104
+      l: &id010
+      - 6
+      - 4
+      - 40
+      mm: 32
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  p_hook:
+    cam:
+    - u: 0
+      p:
+      - 36
+      - 3.2
+      - 84
+      l:
+      - 20
+      - 3.5
+      - 58
+      mm: 30
+    - u: 1
+      p:
+      - 32
+      - 3.6
+      - 80
+      l:
+      - 20
+      - 4
+      - 58
+      mm: 32
+    src: K2G-01 Steel (p_hook)
+  p_dusk:
+    cam:
+    - u: 0
+      p:
+      - -80
+      - 30
+      - 90
+      l:
+      - -10
+      - 6
+      - 10
+      mm: 26
+    - u: 1
+      p:
+      - -60
+      - 24
+      - 86
+      l:
+      - -6
+      - 6
+      - 10
+      mm: 28
+    src: K2G-01 Steel (p_dusk)
+  p_day:
+    cam:
+    - u: 0
+      p:
+      - -52
+      - 10
+      - 50
+      l:
+      - -38
+      - 2
+      - 26
+      mm: 30
+    - u: 0.5
+      p:
+      - 34
+      - 5
+      - 76
+      l:
+      - 20
+      - 3
+      - 58
+      mm: 30
+    - u: 1
+      p:
+      - 10
+      - 14
+      - 40
+      l:
+      - -20
+      - 14
+      - -12
+      mm: 26
+    src: K2G-01 Steel (p_day)
+  p_eu:
+    cam:
+    - u: 0
+      p:
+      - 48
+      - 16
+      - 96
+      l:
+      - 20
+      - 4
+      - 58
+      mm: 28
+    - u: 0.33
+      p:
+      - 30
+      - 3.5
+      - 70
+      l:
+      - 20
+      - 3
+      - 52
+      mm: 28
+    - u: 0.66
+      p:
+      - -30
+      - 6
+      - 44
+      l:
+      - -44
+      - 2
+      - 26
+      mm: 30
+    - u: 1
+      p:
+      - -4
+      - 22
+      - 40
+      l:
+      - -20
+      - 14
+      - -12
+      mm: 26
+    src: K2G-01 Steel (p_eu)
+  orbit-l25:
+    cam:
+    - u: 0
+      p:
+      - 84.9
+      - 22.0
+      - 82.31
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - 63.86
+      - 18.0
+      - 83.63
+      l: *id010
+      mm: 32
+    src: biến thể quay quanh điểm nhìn của default (orbit-l25) — rà tờ khung trước khi dùng
+  orbit-r25:
+    cam:
+    - u: 0
+      p:
+      - 25.73
+      - 22.0
+      - 124.57
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - 9.77
+      - 18.0
+      - 112.37
+      l: *id010
+      mm: 32
+    src: biến thể quay quanh điểm nhìn của default (orbit-r25) — rà tờ khung trước khi dùng
+    loai: true
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -25.62
+      - 22.0
+      - 118.3
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - -32.43
+      - 18.0
+      - 101.44
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - 95.62
+      - 22.0
+      - 31.7
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - 78.43
+      - 18.0
+      - 42.56
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -67.62
+      - 22.0
+      - 77.09
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - -62.93
+      - 18.0
+      - 62.37
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - 70.25
+      - 22.0
+      - -21.4
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - 63.12
+      - 18.0
+      - -4.6
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - 32.69
+      - 75.84
+      - 100.58
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - 18.2
+      - 64.34
+      - 92.94
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - 64.21
+      - 8.6
+      - 77.21
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - 47.03
+      - 7.86
+      - 76.97
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -40.0
+      - 22.0
+      - -30.0
+      l: *id009
+      mm: 30
+    - u: 1
+      p:
+      - -28.0
+      - 18.0
+      - -24.0
+      l: *id010
+      mm: 32
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+k2g01/mill:
+  default:
+    cam:
+    - u: 0
+      p:
+      - 40
+      - 22
+      - 90
+      l: &id011
+      - 0
+      - 8
+      - 10
+      mm: 30
+    - u: 1
+      p:
+      - 20
+      - 20
+      - 86
+      l: &id012
+      - -4
+      - 8
+      - 10
+      mm: 32
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  m_uss:
+    cam:
+    - u: 0
+      p:
+      - 60
+      - 30
+      - 110
+      l:
+      - 0
+      - 6
+      - 20
+      mm: 28
+    - u: 1
+      p:
+      - 30
+      - 26
+      - 104
+      l:
+      - -6
+      - 6
+      - 20
+      mm: 30
+    src: K2G-01 Steel (m_uss)
+  m_new:
+    cam:
+    - u: 0
+      p:
+      - -90
+      - 40
+      - 100
+      l:
+      - -10
+      - 8
+      - 0
+      mm: 24
+    - u: 1
+      p:
+      - -70
+      - 34
+      - 96
+      l:
+      - -6
+      - 8
+      - 0
+      mm: 26
+    src: K2G-01 Steel (m_new)
+  m_eaf:
+    cam:
+    - u: 0
+      p:
+      - 10
+      - 9
+      - 9
+      l:
+      - -8
+      - 7
+      - -4
+      mm: 26
+    - u: 1
+      p:
+      - 4
+      - 10
+      - 11
+      l:
+      - -8
+      - 8
+      - -4
+      mm: 28
+    src: K2G-01 Steel (m_eaf)
+  m_slab:
+    cam:
+    - u: 0
+      p:
+      - -4
+      - 6
+      - 62
+      l:
+      - -16
+      - 1
+      - 48
+      mm: 28
+    - u: 1
+      p:
+      - 6
+      - 7
+      - 62
+      l:
+      - -12
+      - 1
+      - 46
+      mm: 30
+    src: K2G-01 Steel (m_slab)
+  m_hot:
+    cam:
+    - u: 0
+      p:
+      - 20
+      - 5
+      - 46
+      l:
+      - -6
+      - 1.5
+      - 36
+      mm: 28
+    - u: 1
+      p:
+      - 14
+      - 5
+      - 44
+      l:
+      - -10
+      - 1.5
+      - 36
+      mm: 30
+    src: K2G-01 Steel (m_hot)
+  m_stack:
+    cam:
+    - u: 0
+      p:
+      - -112
+      - 22
+      - 62
+      l:
+      - -41
+      - 30
+      - -26
+      mm: 30
+    - u: 1
+      p:
+      - -98
+      - 26
+      - 54
+      l:
+      - -41
+      - 34
+      - -26
+      mm: 32
+    src: K2G-01 Steel (m_stack)
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -49.28
+      - 22.0
+      - 84.64
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - -57.82
+      - 20.0
+      - 68.78
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - 89.28
+      - 22.0
+      - 15.36
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - 73.82
+      - 20.0
+      - 27.22
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: tường nhà máy che gần kín khung
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -85.73
+      - 22.0
+      - 35.5
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - -83.01
+      - 20.0
+      - 20.44
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - 71.84
+      - 22.0
+      - -43.28
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - 66.68
+      - 20.0
+      - -26.83
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: tường nhà máy che gần kín khung
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - 13.36
+      - 82.01
+      - 75.28
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - -1.39
+      - 73.89
+      - 69.27
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - 49.18
+      - 12.74
+      - 56.57
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - 32.73
+      - 12.22
+      - 57.82
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -40.0
+      - 22.0
+      - -70.0
+      l: *id011
+      mm: 30
+    - u: 1
+      p:
+      - -28.0
+      - 20.0
+      - -66.0
+      l: *id012
+      mm: 32
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: tường nhà máy che gần kín khung
+k2g01/north:
+  default:
+    cam:
+    - u: 0
+      p:
+      - 26
+      - 12
+      - 70
+      l: &id013
+      - -6
+      - 12
+      - -6
+      mm: 30
+    - u: 1
+      p:
+      - 10
+      - 14
+      - 58
+      l: &id014
+      - -8
+      - 13
+      - -8
+      mm: 32
+    src: mặc định cảnh (design/ll-hero/k2g01.js)
+  n_site:
+    cam:
+    - u: 0
+      p:
+      - 40
+      - 14
+      - 60
+      l:
+      - 0
+      - 16
+      - -4
+      mm: 28
+    - u: 1
+      p:
+      - 24
+      - 18
+      - 54
+      l:
+      - -6
+      - 20
+      - -4
+      mm: 30
+    src: K2G-01 Steel (n_site)
+  n_route:
+    cam:
+    - u: 0
+      p:
+      - 60
+      - 10
+      - 40
+      l:
+      - 22
+      - 4
+      - 6
+      mm: 28
+    - u: 1
+      p:
+      - 50
+      - 16
+      - 46
+      l:
+      - 10
+      - 10
+      - -40
+      mm: 26
+    src: K2G-01 Steel (n_route)
+  orbit-l25:
+    cam:
+    - u: 0
+      p:
+      - 55.12
+      - 12.0
+      - 49.36
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - 36.21
+      - 14.0
+      - 44.21
+      l: *id014
+      mm: 32
+    src: biến thể quay quanh điểm nhìn của default (orbit-l25) — rà tờ khung trước khi dùng
+  orbit-r25:
+    cam:
+    - u: 0
+      p:
+      - -9.12
+      - 12.0
+      - 76.4
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - -19.58
+      - 14.0
+      - 59.42
+      l: *id014
+      mm: 32
+    src: biến thể quay quanh điểm nhìn của default (orbit-r25) — rà tờ khung trước khi dùng
+  high-wide:
+    cam:
+    - u: 0
+      p:
+      - 37.2
+      - 18.0
+      - 96.6
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - 16.3
+      - 20.35
+      - 81.1
+      l: *id014
+      mm: 32
+    src: biến thể quay quanh điểm nhìn của default (high-wide) — rà tờ khung trước khi dùng
+  low-close:
+    cam:
+    - u: 0
+      p:
+      - 7.19
+      - 10.0
+      - 51.89
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - -3.49
+      - 11.72
+      - 41.05
+      l: *id014
+      mm: 32
+    src: biến thể quay quanh điểm nhìn của default (low-close) — rà tờ khung trước khi dùng
+  orbit-l60:
+    cam:
+    - u: 0
+      p:
+      - -55.82
+      - 12.0
+      - 59.71
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - -56.16
+      - 14.0
+      - 40.59
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-l60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-r60:
+    cam:
+    - u: 0
+      p:
+      - 75.82
+      - 12.0
+      - 4.29
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - 58.16
+      - 14.0
+      - 9.41
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-r60 quanh điểm nhìn của default — rà tờ khung'
+  orbit-l100:
+    cam:
+    - u: 0
+      p:
+      - -86.4
+      - 12.0
+      - 12.32
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - -76.12
+      - 14.0
+      - -1.73
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-l100 quanh điểm nhìn của default — rà tờ khung'
+    loai: true
+    ly_do_loai: khối nhà tiền cảnh che 1/3 khung
+  orbit-r100:
+    cam:
+    - u: 0
+      p:
+      - 63.29
+      - 12.0
+      - -50.71
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - 53.87
+      - 14.0
+      - -37.19
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): orbit-r100 quanh điểm nhìn của default — rà tờ khung'
+  crane-top:
+    cam:
+    - u: 0
+      p:
+      - 2.27
+      - 79.41
+      - 54.13
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - -7.78
+      - 68.93
+      - 42.36
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): crane-top quanh điểm nhìn của default — rà tờ khung'
+  ground-low:
+    cam:
+    - u: 0
+      p:
+      - 35.95
+      - 16.31
+      - 39.24
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - 21.55
+      - 16.58
+      - 33.8
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): ground-low quanh điểm nhìn của default — rà tờ khung'
+  reverse:
+    cam:
+    - u: 0
+      p:
+      - -38.0
+      - 12.0
+      - -82.0
+      l: *id013
+      mm: 30
+    - u: 1
+      p:
+      - -26.0
+      - 14.0
+      - -74.0
+      l: *id014
+      mm: 32
+    src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'

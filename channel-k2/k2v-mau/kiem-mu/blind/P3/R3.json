@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "This is a dark UI card with a single timeline event. Most of the card is empty: a long timeline line with one dot and about three lines of text on the left. The blurred background shows nothing recognizable. The title is clear and the orange date is legible. The body text is small for a phone, and the grey source line is smaller and low-contrast. 'The acquisition' has no stated subject beyond the title, and the frame doesn't say what happened afterward, so it reads as an unfinished timeline."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 9,
+  "flags": [],
+  "note": "This is a real archival portrait on a mat, tilted with a lit, textured backdrop. It has depth and a period feel. The caption 'Andrew Carnegie, 1913' is large and clear, and the person and year are obvious right away. The credit line is very small and grey over a gradient, so it would be hard to read on a phone, but it is secondary information. The bottom gradient covers part of the photo's lower edge, which is acceptable. The mat is cropped at the bottom edge."
+ },
+ "better": "Y",
+ "why": "Y shows a real historical record that is instantly identifiable, with a clear caption and real visual depth, while X is a mostly empty slide with a single data point and small text.",
+ "top_fix_for_weaker": "Fill the frame: enlarge the timeline text to at least 2x, and add more events (for example the Dec 2024 CFIUS referral, Jun 2025 approval, and the golden share) or an image of the order or the two company logos. Cut the empty space between the title and the timeline, and raise the source line's contrast and size."
+}

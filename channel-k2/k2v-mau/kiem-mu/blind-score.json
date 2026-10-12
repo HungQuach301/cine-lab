@@ -1,0 +1,140 @@
+[
+ {
+  "cap": "P1",
+  "loai": "a map showing where steel and trade policy happen",
+  "n": 3,
+  "craft_steel": 4.0,
+  "craft_moi": 8.0,
+  "read_steel": 0.0,
+  "read_moi": 8.0,
+  "clar_steel": 2.67,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "confusing",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "co_moi": [],
+  "ly_do": [
+   "R1: Y shows a real place, a clear number and a one-line meaning in seconds, while X is an unlabeled abstract diagram.",
+   "R2: Y states place, number and claim at a glance on a rich, credible map, while X is an unlabeled abstract grid with no readable information.",
+   "R3: Y puts a specific place, number and date on a real map in text a phone can read, while X shows an unlabeled abstract route that tells the viewer nothing."
+  ]
+ },
+ {
+  "cap": "P2",
+  "loai": "a data graphic with steel numbers",
+  "n": 3,
+  "craft_steel": 5.0,
+  "craft_moi": 7.0,
+  "read_steel": 8.33,
+  "read_moi": 6.0,
+  "clar_steel": 8.0,
+  "clar_moi": 6.33,
+  "hon": [
+   "Steel",
+   "mới",
+   "Steel"
+  ],
+  "co_steel": [
+   "flat_slide_look",
+   "text_overlap"
+  ],
+  "co_moi": [
+   "cluttered",
+   "text_cut_off"
+  ],
+  "ly_do": [
+   "R1: Y delivers its single comparison (72% to 77% against an 80% benchmark) in about two seconds with large, high-contrast text, while X's more cinematic 3D scene has dim, small, ambiguous labels (the unlabeled 1950 block, the faint US callout) that slow understanding on a phone.",
+   "R2: X has real 3D craft and a dramatic scale comparison, while Y is a competent but flat, generic slide with a line colliding with its labels.",
+   "R3: Y delivers one clear message with large, high-contrast text that holds up on a phone, while X's nicer 3D concept is undercut by cropping, dim secondary labels and an unclear scale."
+  ]
+ },
+ {
+  "cap": "P3",
+  "loai": "a historical/official record: a person, a document or a timeline",
+  "n": 3,
+  "craft_steel": 4.0,
+  "craft_moi": 7.0,
+  "read_steel": 6.67,
+  "read_moi": 6.0,
+  "clar_steel": 5.0,
+  "clar_moi": 8.67,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "confusing",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "co_moi": [],
+  "ly_do": [
+   "R1: Y shows a recognizable person with a clear caption and a proper archival look, while X is a mostly empty, flat slide with a single timeline point.",
+   "R2: Y has a clear focal subject, depth and lighting and is understood at a glance. X is a mostly empty flat card with one timeline dot and tiny text.",
+   "R3: Y shows a real historical record that is instantly identifiable, with a clear caption and real visual depth, while X is a mostly empty slide with a single data point and small text."
+  ]
+ },
+ {
+  "cap": "P4",
+  "loai": "a 3D scene of the steel industry",
+  "n": 3,
+  "craft_steel": 3.33,
+  "craft_moi": 7.0,
+  "read_steel": 5.33,
+  "read_moi": 0.0,
+  "clar_steel": 3.0,
+  "clar_moi": 7.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "cluttered",
+   "confusing",
+   "illegible_text"
+  ],
+  "co_moi": [],
+  "ly_do": [
+   "R1: Y has a clear focal point, dramatic lighting and an obvious steel-mill subject, while X is a cluttered, flat, confusing scene with an empty sign and a weak caption.",
+   "R2: Y has a clear focal subject, dramatic lighting and an instantly recognisable steel-making moment, while X is a flat, cluttered scene that doesn't show what it claims to show.",
+   "R3: Y is a clear, well-lit, instantly readable steel-making image, while X is a murky gray scene with no clear subject and a weak caption."
+  ]
+ },
+ {
+  "cap": "P2-v2",
+  "loai": "a data graphic with steel numbers",
+  "n": 3,
+  "craft_steel": 4.67,
+  "craft_moi": 7.67,
+  "read_steel": 7.67,
+  "read_moi": 7.0,
+  "clar_steel": 7.33,
+  "clar_moi": 7.67,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "flat_slide_look",
+   "text_overlap"
+  ],
+  "co_moi": [
+   "cluttered"
+  ],
+  "ly_do": [
+   "R1: X turns the numbers into a spatial, dimensional visual that reads at a glance, while Y is a flat slide with a dashed line colliding with its value labels.",
+   "R2: X is a real 3D data scene with depth and materials and clears a typical explainer. Y is a flat card with a dashed line colliding with its labels, though Y is easier to read.",
+   "R3: X turns the numbers into a physical, spatial comparison that reads fast, while Y is a flat slide with a benchmark line cutting through a value label."
+  ]
+ }
+]

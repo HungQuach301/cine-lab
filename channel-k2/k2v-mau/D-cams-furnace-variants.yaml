@@ -1,0 +1,60 @@
+# KÊNH 2 · shot mẫu D (chống lặp, phiên V 12/10/2026): một bộ cảnh, ba preset góc máy từ thư viện (biến thể rẻ, không dựng cảnh mới). Dựng: scripts/k2/vshot.py; kiểm: checks/ll/q_scene.py, q_types.py
+id: k2v-mau-d
+title: k2v sample D
+out: /var/tmp/cine-out/k2v-shots/D-cams-furnace-variants
+heroes:
+  d_push:
+    hero: k2g01/furnace
+    cam: mid-push
+    opt:
+      pour:
+      - 0.2
+      - 2.9
+  d_l45:
+    hero: k2g01/furnace
+    cam: orbit-l45
+    opt:
+      pour:
+      - -3.0
+      - 0.2
+  d_low:
+    hero: k2g01/furnace
+    cam: orbit-r25
+    opt:
+      pour:
+      - -3.0
+      - 0.2
+places: []
+people: []
+anchors: []
+segments:
+- id: D
+  part: BODY
+  dur: 9.5
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    scene_id: k2g01/furnace
+    camera_id: mid-push
+    p:
+      hero: d_push
+      cap:
+      - s: A Bessemer converter pours molten steel (3D reconstruction)
+        at: 0.6
+  - tpl: plate
+    at: 3.0
+    in: cut
+    type: scene3d
+    scene_id: k2g01/furnace
+    camera_id: orbit-l45
+    p:
+      hero: d_l45
+  - tpl: plate
+    at: 6.2
+    in: cut
+    type: scene3d
+    scene_id: k2g01/furnace
+    camera_id: orbit-r25
+    p:
+      hero: d_low

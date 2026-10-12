@@ -147,9 +147,33 @@ clip_id,url_trang,url_tai,ngay_tai_utc,giay_phep,yeu_cau_ghi_cong,sha256,timecod
 ### 6.6 Thử trước khi lên kế hoạch
 - Mỗi phiên P **phải thử tải 1 file từ mỗi nguồn** định dùng trước khi lên kế hoạch hình của tập, và ghi kết quả (HTTP, cỡ, SHA256) vào báo cáo G1.
 - Nguồn bị chặn mạng thì lập danh sách `<tập>/CAN-TAI-HO.csv` (cùng cột 6.4, bỏ SHA) để **chủ dự án tải hộ**, rồi đưa vào `/var/tmp`. P kiểm SHA khi nhận.
-- **Hiện trạng 12/10:**
+- **Hiện trạng 12/10 (cập nhật phiên V, 12/10 chiều):**
   - NARA cần tải hộ hoặc xin API key.
-  - Trang Pexels/Pixabay bị 403, nên phải tìm clip qua API (cần khoá; chưa có) hoặc chủ dự án tìm và gửi URL. CDN tải được.
+  - **Pexels/Pixabay đã có khoá** trong môi trường (`PEXELS_API_KEY`, `PIXABAY_API_KEY`, `PIXABAY_VIDEO_API_KEY`); gọi thử 1 lượt mỗi khoá: **HTTP 200** cả 4 điểm (Pexels ảnh/video, Pixabay `/api/`, `/api/videos/`). Tìm và tải bằng `scripts/k2/stock.py` (cache kết quả tìm 24 giờ, tải qua CDN, ghi SHA và dòng sổ CSV; không in khoá). Trang web của hai nguồn vẫn 403 từ container.
+  - LoC: `tile.loc.gov` tải được tệp gốc; trang item `loc.gov` trả **403/Cloudflare** với máy → đọc "Rights Advisory" qua bản sao Commons, **chủ dự án đối chiếu trang LoC** trước khi phát hành (6.7).
+
+### 6.7 Nguồn hình mới: bản đồ, ảnh người thật, văn bản, tiêu đề báo (phiên V, 12/10/2026)
+Áp cho module `design/k2v/` (map, chart3d, photo). Mọi tệp: một dòng `RIGHTS.md` (tài sản dùng lại nhiều tập) hoặc `<tập>/SOURCES-FOOTAGE.csv` (dùng trong một tập), có SHA-256. Tải bằng `scripts/k2/k2v_assets.py` (SHA ghim ở `scripts/k2/k2v-assets.sha.json`; lệch SHA → dừng).
+
+| Loại | Nguồn được dùng | Mức | Điều kiện |
+|---|---|---|---|
+| Bản đồ vector | Natural Earth (qua npm `world-atlas`), Census cartographic boundary (qua npm `us-atlas`) | XANH | Tài sản công; **được commit** (nhỏ, `design/k2v/data/`). Biên giới tranh chấp: theo Natural Earth mặc định, không tự vẽ lại; tập chạm vùng tranh chấp thì nêu ở G1 |
+| Ảnh vệ tinh nền | NASA Blue Marble: Next Generation (Earth Observatory) | XANH | Ghi công "NASA Earth Observatory" trên dòng nguồn + mô tả; **không** logo/insignia NASA, không hàm ý NASA bảo trợ; **không commit** (cache, tải lại theo SHA) |
+| Ảnh tư liệu, chân dung | LoC (kiểm "Rights Advisory" từng item: "No known restrictions" hoặc tác phẩm chính phủ Mỹ hoặc xuất bản trước 1931), Chronicling America (báo Mỹ trước 1931), Wikimedia Commons (kiểm **từng file**: PD, CC0, CC BY, CC BY-SA) | XANH | Không commit; giữ màu gốc, không tô màu/không "phục chế" mặt bằng AI |
+| Ảnh chính thức chính phủ đương thời | White House (whitehouse.gov/copyright), Congress (bioguide, ảnh chính thức thành viên), European Commission Audiovisual Service (audiovisual.ec.europa.eu, điều kiện tái sử dụng ghi ở từng ảnh) | VÀNG | **Đọc điều khoản hiện hành ngay khi tải, trích nguyên câu vào sổ**; ảnh EC thường yêu cầu ghi "© European Union, [năm]" và cấm dùng gợi ý EU bảo trợ; ảnh có người còn sống → quy tắc người thật dưới đây; chủ dự án duyệt ở G1 |
+| Văn bản pháp lý | Federal Register / GovInfo (tác phẩm chính phủ Mỹ), EUR-Lex (Quyết định 2011/833/EU: tái sử dụng được, ghi nguồn "© European Union, https://eur-lex.europa.eu") | XANH | Chụp **đúng trang**, highlight **nguyên văn** dòng được nói tới; chú thích số văn bản + ngày công bố; lời không diễn giải vượt nội dung dòng highlight |
+| Tiêu đề báo hiện đại (≥ 1931) | Trang báo/hãng tin | **VÀNG** | Chỉ **tít nguyên văn + tên báo (chữ thường, không măng-sét/logo) + ngày**; **≤ 3 s**/lần; **thân bài làm mờ** (không chữ đọc được), **không lấy ảnh trong bài**; dùng để dẫn nguồn cho một ý cụ thể trong lời, không xếp chuỗi tít; ghi URL bài trong mô tả. Module `photo/headline` dựng lại bằng chữ, không chụp màn hình trang báo |
+| Footage/ảnh stock | Pexels, Pixabay (6.2) qua `scripts/k2/stock.py` | XANH | Như 6.2–6.5 |
+
+**Quy tắc ảnh người thật** (áp mọi nguồn; kiểm ở bảng §4 mục 8):
+1. **Đúng ngữ cảnh:** ảnh chỉ đi kèm lời nói về chính người đó, đúng thời kỳ (ảnh 1913 cho Carnegie lúc về già; không dùng ảnh một người để minh hoạ việc người khác làm).
+2. **Không đặt vào thế xấu:** không ghép ảnh người với lời về tội phạm, tham nhũng, thất bại, trừ khi hồ sơ ghi đúng việc đó của chính người ấy (có nguồn trong claims); không chế, không biểu cảm hoá, không ghép hình, không cắt để đổi nghĩa.
+3. **Chú thích bắt buộc** trên hình: **tên + năm chụp + nguồn** (ví dụ "Andrew Carnegie, 1913 · Photo: Theodore C. Marceau · Library of Congress").
+4. **Không tạo mặt người thật bằng AI**, không làm động mặt (deepfake, "ảnh sống"), không tô màu ảnh đen trắng bằng AI. Chuyển động chỉ là máy quay di chuyển trên bản in (Ken Burns có thị sai).
+5. Người **còn sống**: thêm LUAT-NOI-DUNG-G §6; ảnh chính thức chính phủ ưu tiên hơn ảnh báo chí; không dùng ảnh đời tư.
+6. Trẻ em, người không phải nhân vật công chúng có mặt nhận diện được trong ảnh tư liệu: chỉ dùng khi là ảnh lịch sử công bố rộng (trước 1931 hoặc tác phẩm chính phủ) và không gắn với lời tiêu cực.
+
+**Không commit media bản quyền bên thứ ba.** Được commit: dữ liệu bản đồ npm (tài sản công, nhỏ), sổ CSV, SHA, đặc tả, mã. Tài sản công dạng ảnh/PDF lớn (Blue Marble, TIFF LoC, PDF FR) cũng **không commit** vì cỡ lớn; tải lại theo SHA ghim.
 
 ## 7. Gán mức cho hàng đợi 12 đề tài (đề xuất; mức VÀNG chờ chủ dự án duyệt ở G1 từng tập)
 | # | Mã | Đề tài | Mức | Lý do (1 dòng) | Footage lưu trữ gợi ý (bộ sưu tập; chưa tải) |
