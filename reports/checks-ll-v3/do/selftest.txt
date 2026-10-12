@@ -150,12 +150,12 @@ Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
 ĐÚNG  Q31     bắt lỗi  sổ vòng: manifest vòng 2 bị sửa
 ĐÚNG  Q31     bắt lỗi  sổ vòng: xoá q31-lich-su/
 ĐÚNG  Q31     sạch     --tu-nhap: chép 3 vòng nháp sang sổ bản cuối (vong-01, vong-02, vong-03), chạy lại không chép trùng, nguồn còn nguyên
-ĐÚNG  Q26b    bắt lỗi  tập 7 bản cuối: 6 bối cảnh · lớn nhất ep07/tower 29.1 % · liên tục dài nhất ep07/tower 139.1 s · nửa sau 5 · trung tính 13.6 %
+ĐÚNG  Q26b    bắt lỗi  tập 7 bản cuối: 7 bối cảnh · lớn nhất ep07/tower 29.1 % · liên tục dài nhất ep07/tower 139.1 s · nửa sau 5 · trung tính 10.8 %
 ĐÚNG  Q26b    bắt lỗi  Ca 5 — tập 7: phòng tính toán 0:51–2:56 có ảnh tư liệu, isotype chen giữa → một quãng 104,3 s (trừ 20,7 s trung tính) > 90 s
 ĐÚNG  Q26b    sạch     tập 7: ep07/pool 25,0 % được nêu sát ngưỡng
-ĐÚNG  Q26b    sạch     tập 6 v2: 10 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 18.6 %
+ĐÚNG  Q26b    sạch     tập 6 v2: 11 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 11.4 %
 ĐÚNG  Q26b    sạch     nhãn: mọi góc máy của một cảnh đinh là một bối cảnh (tower_in, tower_code, tower_floor)
-ĐÚNG  Q26b    sạch     nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cảnh cả shot; thẻ số, ảnh tư liệu trung tính
+ĐÚNG  Q26b    sạch     nhãn: diptych hai nửa khác cảnh mỗi nửa 1/2, cùng cảnh cả shot; ảnh tư liệu trung tính; thẻ trích dẫn = "the" (1.10.1)
 ĐÚNG  Q26b    sạch     tập 7 (1.8.1): thẻ trích dẫn 11,9 s ở 5:51 không dứt quãng văn phòng; quãng 5:28.8–7:59.8 = 139,1 s (trừ 11,9 s trung tính)
 ĐÚNG  Q26b    sạch     tập 7 (1.8.1) nếu thay thẻ trích dẫn bằng cảnh văn phòng cùng thời lượng: quãng = cả 150,9 s ([150.9, '5:28.8', '7:59.8', 0.0])
 ĐÚNG  Q26b    sạch     Ca 1 — thẻ trích dẫn 12 s chen giữa hai đoạn cùng bối cảnh: một quãng, 100 s (không tính 12 s thẻ) → [100.0, 1]
@@ -165,7 +165,7 @@ Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
 ĐÚNG  Q26b    sạch     thẻ trung tính không cộng vào bộ đếm: khác 4 s + thẻ 6 s + khác 3,9 s → vẫn liền, 102,9 s → [102.9, 1]
 ĐÚNG  Q26b    sạch     diptych có X ở một nửa đặt bộ đếm về 0: khác 5 s + diptych + khác 5 s → vẫn liền, 102 s → [102.0, 1]
 ĐÚNG  Q26b    bắt lỗi  quãng 100 s qua thẻ 12 s bị bắt (> 90 s)
-ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: 9 bối cảnh · lớn nhất ep06/drafts 32.3 % · liên tục dài nhất ep06/drafts 156.1 s · nửa sau 1 · trung tính 32.6 %
+ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu nửa sau chỉ còn tường bản nháp: 10 bối cảnh · lớn nhất ep06/drafts 32.3 % · liên tục dài nhất ep06/drafts 156.1 s · nửa sau 1 · trung tính 7.0 %
 ĐÚNG  Q26b    bắt lỗi  chớp 2 bối cảnh 1,5 s ở nửa sau để đủ số: không tính (< 3 s mỗi bối cảnh)
 ĐÚNG  Q26b    bắt lỗi  tập 6 v2 nếu cả đoạn 06–08 (114 s) dùng tường bản nháp: liên tục > 90 s
 ĐÚNG  Q28f    sạch     tập 8 đoạn 06: lời khoá vs ASR thật của K → ĐẠT
@@ -222,5 +222,90 @@ Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
 ĐÚNG  API     sạch     khoá không bao giờ ghi ra tệp (trả lời, bản chép, manifest)
 ĐÚNG  API     bắt lỗi  trả lời kiểu subagent cũ (model "sonnet", không qua API) → không nhận
 ĐÚNG  API     bắt lỗi  bộ chấm subagent tập 8 (không có bản ghi `cham`) → TRƯỢT "chưa chấm qua Claude API"
+ĐÚNG  Q32     sạch     tập giả 4 clip LoC/Wikimedia/Pexels/Pixabay đủ sổ, SHA, ghi công: ĐẠT · 4 đoạn footage · 4 clip · sổ 4 dòng · nguồn ngoài phim 10.8 % (footage 15.4 s + tư liệu/ảnh/báo 51.5 s) · clip dài nhất 4.69 s
+ĐÚNG  Q32a    bắt lỗi  đoạn footage PX-01 không có dòng sổ
+ĐÚNG  Q32a    bắt lỗi  SHA-256 file đã dùng ≠ sổ (file bị thay sau khi ghi sổ)
+ĐÚNG  Q32a    bắt lỗi  không thấy file đã dùng → không kiểm được SHA
+ĐÚNG  Q32a    bắt lỗi  timecode_dung lệch EDL 1 s
+ĐÚNG  Q32a    bắt lỗi  giấy phép CC BY-NC 4.0 (NC bị cấm)
+ĐÚNG  Q32a    bắt lỗi  nguồn ngoài danh sách (shutterstock) → cần chủ dự án duyệt
+ĐÚNG  Q32a    bắt lỗi  Wikimedia trỏ trang danh mục, không phải trang File: (không kiểm được giấy phép từng file)
+ĐÚNG  Q32a    bắt lỗi  giấy phép không hợp nguồn (Pixabay License cho clip Pexels)
+ĐÚNG  Q32a    bắt lỗi  ngày tải không phải ISO 8601 UTC (12/10/2026)
+ĐÚNG  Q32a    sạch     timecode nhiều đoạn "a-b;c-d" và SMPTE hh:mm:ss:ff đọc đúng
+ĐÚNG  Q32b    sạch     LOC-01 hai shot kề nhau 3,34 + 3,59 = 6,93 s: một lần liên tục, ĐẠT (≤ 8 s)
+ĐÚNG  Q32b    bắt lỗi  LOC-01 ba shot kề nhau = 11,62 s liên tục > 8 s
+ĐÚNG  Q32b    bắt lỗi  mọi plate cắt thành clip ≤ 7 s (clip riêng) + tư liệu: nguồn ngoài phim 86.2 % (footage 481.0 s + tư liệu/ảnh/báo 51.5 s) > 40 %
+ĐÚNG  Q32b    sạch     clip 7,9 s: ĐẠT nhưng nêu tên sát ngưỡng (clip LOC-01 7.90 s (ngưỡng 8 s))
+ĐÚNG  Q32c    sạch     CC BY-SA: mô tả có nguyên văn câu ghi công (khác xuống dòng/hoa thường vẫn nhận)
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: mô tả thiếu câu ghi công
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: yeu_cau_ghi_cong trống
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: không có tệp mô tả YouTube
+ĐÚNG  Q32d    sạch     Pexels người nhận diện được, lời và chữ trung tính
+ĐÚNG  Q32d    bắt lỗi  Pexels người nhận diện được + chú thích "went bankrupt" (bad light)
+ĐÚNG  Q32d    sạch     cùng chú thích nhưng mặt đã làm mờ (không còn nhận diện được)
+ĐÚNG  Q32d    bắt lỗi  Pixabay logo rõ nét (giấy phép cấm dùng thương mại)
+ĐÚNG  Q32d    sạch     Pixabay logo đã làm mờ
+ĐÚNG  Q32d    bắt lỗi  logo rõ nét trong khung lời thật có từ tiêu cực (clip PX-02 @7:59.79: logo rõ nét cạnh lời/chữ tiêu cực: layoffs)
+ĐÚNG  Q32e    sạch     repo chỉ có sổ CSV và mã: ĐẠT
+ĐÚNG  Q32e    bắt lỗi  clip commit vào channel-k2/k2x-ep01/footage/PX-01.mp4
+ĐÚNG  Q32e    bắt lỗi  clip LoC commit dưới tên khác (assets/k2/x.bin): bắt theo SHA của sổ
+ĐÚNG  Q32e    bắt lỗi  SHA sổ truyền trực tiếp (sổ chưa commit)
+ĐÚNG  Q32e    sạch     repo cine-lab hiện tại (main): không có media footage nguồn ngoài
+ĐÚNG  Q32f    bắt lỗi  đoạn footage không khai p.setting
+ĐÚNG  Q32f    sạch     Q26b gán nhãn footage theo p.setting: ['ep07/airfield', 'ft/langley-room', 'ft/modern-office', 'ft/server-room']
+ĐÚNG  Q32f    sạch     LOC-01 (3,34 s) khai cùng nơi với cảnh đinh air_hook → cộng vào bối cảnh đó: 15.3 % → 15.9 % (+0.54 %)
+ĐÚNG  Q32f    bắt lỗi  footage cùng nội dung "ft/steel-mill" phủ mọi plate → Q26b TRƯỢT (> 25 %, > 90 s)
+ĐÚNG  Q32f    sạch     tương thích: footage là cảnh toàn khung (Q16) và hình vật chất (Q29)
+ĐÚNG  Q26b    sạch     kênh 2: shot có p.card trên nền cảnh a = bối cảnh "the", không phải A
+ĐÚNG  Q26b    sạch     thẻ 60/240 s = 25,0 %: ĐẠT, nêu sát ngưỡng (the 25.0 % (ngưỡng 25 %))
+ĐÚNG  Q26b    bắt lỗi  thẻ 80/260 s = 30,8 % > 25 % (luật cũ: tính theo nền a, b → đạt)
+ĐÚNG  Q26b    bắt lỗi  thẻ liên tục 110 s (xen cảnh 5 s + 5 s, mỗi lần < 8 s) > 90 s: [110.0, '0:00.0', '1:50.0', 0.0]
+ĐÚNG  Q26b    sạch     thẻ "the" vẫn không làm dứt quãng của bối cảnh khác (giữ 1.8.1): một quãng 100 s → [100.0, 1]
+ĐÚNG  Q26b    bắt lỗi  nửa sau B, C + thẻ 60 s: "the" không được đếm vào (c), chỉ 2 bối cảnh → {'the': 60.0, 'B': 45.0, 'C': 30.0}
+ĐÚNG  Q26b    sạch     tập 6 v2 (1.10.1, thẻ giấy LL = the): 11 bối cảnh · lớn nhất ep06/drafts 17.3 % · liên tục dài nhất ep06/drafts 27.1 s · nửa sau 7 · trung tính 11.4 %
+ĐÚNG  Q26b    sạch     tập 7 bản cuối (1.10.1): vẫn TRƯỢT văn phòng 29,1 % / 139,1 s như 1.8.1, the 2.9 %
+ĐÚNG  Q33     sạch     pHash: cùng khung = 0 bit, hai mẫu khác nhau = 30 bit (> θ 14)
+ĐÚNG  Q33     bắt lỗi  cùng cảnh + góc khai 3 lần, hình giống → 3 góc máy · 5 lần xuất hiện · nhiều nhất scene/x · x_a 3 lần · 1 góc > 2 · pHash θ=14, thêm 0 lần lặp không khai
+ĐÚNG  Q33     sạch     2 lần: ĐẠT, nêu bằng ngưỡng (scene/x · x_a: đúng 2 lần)
+ĐÚNG  Q33     bắt lỗi  khai cùng góc 3 lần, hình khác: pHash KHÔNG hạ số khai → TRƯỢT ({'khai': 3, 'phash_them': 0, 'tong': 3, 'luc': '0:00.0, 0:04.0, 0:08.0'})
+ĐÚNG  Q33     bắt lỗi  khai 3 góc khác nhau của cùng bộ cảnh nhưng hình giống hệt: pHash nối → 3 lần → TRƯỢT
+ĐÚNG  Q33     sạch     khai 3 góc khác nhau, hình khác nhau → ĐẠT
+ĐÚNG  Q33     bắt lỗi  không có master: dùng số lần khai (3) → TRƯỢT
+ĐÚNG  Q33     sạch     hai shot liền nhau cùng góc là MỘT lần → 2 lần, ĐẠT ({'khai': 2, 'phash_them': 0, 'tong': 2, 'luc': '0:00.0, 0:06.0'})
+ĐÚNG  Q33     sạch     lần thứ 3 là thẻ trên nền cảnh mờ (p.card): không tính, thuộc "the" của Q26b
+ĐÚNG  Q33     sạch     đặc tả khai camera_id khác ở lần 2 → mỗi góc ≤ 2 lần
+ĐÚNG  Q33     bắt lỗi  LL tập 7 bản cuối (đo tham khảo, Q33 áp từ tập 9; không có master trong repo → số khai)
+ĐÚNG  Q34     sạch     đặc tả đủ type, địa danh có map, nhân vật có ảnh, số neo 2/3 3D: ĐẠT · 67/67 shot có type · scene3d 80.5 % · map 1.2 % · photo 3.1 % · card 15.1 % · số neo 3D 67 %, chỉ card 33 % (3 số) · địa danh 1 · nhân vật 1
+ĐÚNG  Q34     bắt lỗi  shot thiếu type
+ĐÚNG  Q34     bắt lỗi  type ngoài danh sách ("broll")
+ĐÚNG  Q34     bắt lỗi  đặc tả và timeline lệch số shot
+ĐÚNG  Q34a    sạch     địa danh Virginia (1:09.6) có shot map lúc 1:10 (trong ±6 s)
+ĐÚNG  Q34a    bắt lỗi  không còn shot map quanh "Virginia"
+ĐÚNG  Q34a    bắt lỗi  địa danh "California" (3:26.1) không có map
+ĐÚNG  Q34a    bắt lỗi  địa danh không có trong lời ("Ohio")
+ĐÚNG  Q34b    sạch     nhân vật có ảnh hợp lệ (LOC-8d03493) và shot photo đúng ảnh lúc 3:35 (lời 3:34.0)
+ĐÚNG  Q34b    bắt lỗi  shot photo quanh lần nhắc đầu là ảnh khác
+ĐÚNG  Q34b    bắt lỗi  nhân vật có ảnh hợp lệ nhưng không có shot photo
+ĐÚNG  Q34b    sạch     không có ảnh hợp lệ, ghi lý do
+ĐÚNG  Q34b    bắt lỗi  không có ảnh hợp lệ, không ghi lý do
+ĐÚNG  Q34c    sạch     số neo 3D 2/3 = 67 % ≥ 60 %, chỉ card 1/3 = 33 % ≤ 40 %
+ĐÚNG  Q34c    bắt lỗi  số neo 3D 1/3 = 33 % < 60 %; chỉ card 2/3 > 40 %
+ĐÚNG  Q34c    bắt lỗi  số neo không hiện trên hình tính là không 3D
+ĐÚNG  Q34d    sạch     document 2,5 s có tên báo + ngày
+ĐÚNG  Q34d    bắt lỗi  document 4 s > 3 s
+ĐÚNG  Q34d    bắt lỗi  document thiếu ngày
+ĐÚNG  Q34d    bắt lỗi  photo khai trong đặc tả cộng vào trần 40 % của Q32: nguồn ngoài phim 47.3 % (footage 0.0 s + tư liệu/ảnh/báo 292.3 s)
+ĐÚNG  Q34d    sạch     đặc tả mặc định (1 photo + tư liệu tập 7): Q32b ĐẠT
+ĐÚNG  Steel   sạch     timeline dựng lại = master: 24723 khung, 1030.125 s
+ĐÚNG  Q26b    bắt lỗi  Steel 1.10.1: TRƯỢT · 9 bối cảnh · lớn nhất the 45.0 % · liên tục dài nhất the 60.2 s · nửa sau 7 · trung tính 0.0 %
+ĐÚNG  Q26b    sạch     Steel nếu thẻ tính theo cảnh nền (cách đếm 1.10.0): ĐẠT · 8 bối cảnh · lớn nhất k2g01/valley 20.8 % · liên tục dài nhất k2g01/north 84.0 s · nửa sau 7 · trung tính 0.0 % — đúng lỗi chủ dự án chỉ ra
+ĐÚNG  Q33     sạch     θ tự hiệu chuẩn trên Steel = 14 (= THETA 14); khác bộ cảnh ≤ θ 0.29%, cùng bộ khác góc 1.34%, khai cùng góc ≤ θ 36%
+ĐÚNG  Q33     sạch     Steel: lần xuất hiện dựng từ fixture khớp timeline (50 lần, cùng thứ tự)
+ĐÚNG  Q33     bắt lỗi  Steel: TRƯỢT · 33 góc máy · 50 lần xuất hiện · nhiều nhất k2g01/port · p_eu 5 lần · 4 góc > 2 · pHash θ=14, thêm 3 lần lặp không khai
+ĐÚNG  Q33     sạch     Steel: pHash nối c_draw 1:47.9 ↔ c_own (cùng góc bản đồ, kiểm bằng mắt) — lặp không khai
+ĐÚNG  Q33     sạch     Steel: θ = 16 sẽ nối nhầm v_rail↔v_coke, v_bf↔v_night (kiểm bằng mắt: góc khác) → θ = 14 không nối
+ĐÚNG  Q34     bắt lỗi  Steel nghiêm (đặc tả chưa khai type): TRƯỢT, 90/90 shot thiếu type
+ĐÚNG  Q34c    bắt lỗi  Steel suy loại (p.card → card, còn lại scene3d): scene3d 55.0 % · card 45.0 % · số neo 3D 42 %, chỉ card 58 % (31 số) · địa danh 0 · nhân vật 0
 
-selftest LL v3: 214/214 ca đúng kỳ vọng
+selftest LL v3: 299/299 ca đúng kỳ vọng

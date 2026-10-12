@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from checks.ll import base as ll  # noqa: E402  (bản khoá: hàm nền độc lập với scripts/ll/ll.py)
 
 FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect',
-        'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}   # cảnh toàn khung; v3 (07/10/2026) thêm 5 mẫu tập 6 v2 (khiếu nại Q16)
+        'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych', 'footage'}   # cảnh toàn khung; v3 (07/10/2026) thêm 5 mẫu tập 6 v2 (khiếu nại Q16); 1.10.0 thêm footage (Q32)
 DATA = {'bars', 'line', 'compare', 'bignum'}
 CONTENT_KEYS = ('at', 'noteAt', 'midAt', 'diffAt', 'capAt')
 
