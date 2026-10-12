@@ -1,0 +1,408 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "10",
+   "rule": "causality (G§1); §2 fact vs opinion",
+   "severity": "major",
+   "quote": "Not because the building stopped working. About eleven million American homes are in buildings of two to four units, and more than eight in ten of the occupied ones are rented. {C53} It's that, over a century, three sets of rules settled on top of it.",
+   "problem": "The ending states a single, confident cause as fact. That contradicts seg 01 ('The record doesn't hand this decline to a single cause'; C04 is opinion). 'Stopped working' is also an unsourced judgment, and occupancy counts don't prove it.",
+   "fix": "Our read: it isn't that people stopped using the building. About eleven million American homes are in buildings of two to four units, and more than eight in ten of the occupied ones are rented. Over the same century, three sets of rules settled on top of it, and the record doesn't say how much of the decline each one explains."
+  },
+  {
+   "seg": "07",
+   "rule": "causality (G§1)",
+   "severity": "major",
+   "quote": "Put the three locks together, and look at what America actually builds.",
+   "problem": "This frames the C34–C36 completion trends as the result of the three locks. No source in the table attributes these trends to zoning, stair rules or lending (correlation presented as cause).",
+   "fix": "Now look at what America actually built over the same decades. The record doesn't measure how much of this change each lock explains."
+  },
+  {
+   "seg": "08",
+   "rule": "G§3 myth vs record (no straw man); YELLOW-5 sides",
+   "severity": "major",
+   "quote": "Supporters point to how much housing these reforms make possible: before California's SB 9 passed, a 2021 Terner Center analysis estimated over 700,000 homes would become newly feasible",
+   "problem": "The 'supporters' claim is sourced to a research centre's feasibility estimate, which itself cautioned against the reading. No supporter source in the table shows that supporters actually make this claim. The common claim is attributed to a generic group with no evidence that it is said or widespread.",
+   "fix": "Action: add to claims.md a dated source from a named supporting body (e.g. a bill sponsor's statement or an advocacy group's statement) making the 'lots of new housing' claim, and quote it. If none is found, rewrite: \"Before California's SB 9 passed, a 2021 Terner Center analysis estimated over 700,000 homes would become newly feasible to build — while cautioning that nowhere near that many were likely to be built.\" and drop the word \"Supporters\"."
+  },
+  {
+   "seg": "08",
+   "rule": "YELLOW-5 sides; §2 both sides fairly",
+   "severity": "major",
+   "quote": "Opponents warn that statewide mandates \"could increase residential density in established neighborhoods\"",
+   "problem": "The quote is clipped. It keeps only the density concern and drops the same sentence's local-control arguments, which are the opponents' main stated reasons. Local control is a named disputed issue, and the script never gives that side.",
+   "fix": "Opponents raise other concerns. A resolution proposed on a March 2026 city council agenda in Sterling Heights, Michigan, objected that \"blanket statewide mandates could increase residential density in established neighborhoods, preempt locally tailored standards, and undermine democratic local governance.\""
+  },
+  {
+   "seg": "08",
+   "rule": "§1/§2 sources; YELLOW-1",
+   "severity": "major",
+   "quote": "Minneapolis is the longest-running test.",
+   "problem": "The superlative is unsourced. Oregon HB 2001 also dates from 2019, so 'longest-running' can be contested.",
+   "fix": "Minneapolis offers one test."
+  },
+  {
+   "seg": "03",
+   "rule": "§2 cross-basis comparison",
+   "severity": "major",
+   "quote": "single-family homes allowed by right on ninety-one percent of land, and multifamily buildings of three or more units on two percent.",
+   "problem": "The Connecticut figures are shares of all land (Urban/Cornell 2023, a different definition). The Colorado figures are shares of residential land (NZA 2025). The two are placed side by side without flagging the different basis, year and method.",
+   "fix": "single-family homes allowed by right on ninety-one percent of the state's land, and multifamily buildings of three or more units on two percent. That's a share of all land, measured a different way from the Colorado count, so the two numbers don't compare directly."
+  },
+  {
+   "seg": "02",
+   "rule": "§1 accuracy (RED-1 risk)",
+   "severity": "major",
+   "quote": "And retail stores and shops only in the fourth.",
+   "problem": "The tiers are cumulative. U-4 is where retail begins, and higher tiers also allow it, so 'only in the fourth' misstates the ordinance.",
+   "fix": "Retail stores and shops didn't come in until the fourth."
+  },
+  {
+   "seg": "02",
+   "rule": "§1 sources; YELLOW-1",
+   "severity": "major",
+   "quote": "And he set the test courts would lean on afterwards:",
+   "problem": "The claim about later judicial practice has no source in the table. C11 only covers what Euclid said.",
+   "fix": "And he set out a test:"
+  },
+  {
+   "seg": "04",
+   "rule": "§1 sources; YELLOW-1",
+   "severity": "major",
+   "quote": "Most American cities build to a model code, the International Building Code.",
+   "problem": "No source in the table says how widely the IBC is adopted. The only IBC source is Seattle's reprint.",
+   "fix": "Many building codes start from a model code, the International Building Code — Seattle's, for example, reprints it. (Or add an adoption source to claims.md and keep 'most'.)"
+  },
+  {
+   "seg": "06",
+   "rule": "YELLOW-5 sides; §2 selective quoting",
+   "severity": "major",
+   "quote": "Freddie Mac noted in 2015 that, when small properties default, losses are higher than for large ones.",
+   "problem": "The same source sentence says default rates are similar. Leaving that out makes small buildings sound riskier than the source says.",
+   "fix": "Freddie Mac noted in 2015 that small and large properties default at similar rates, but when small properties do default, losses are higher."
+  },
+  {
+   "seg": "06",
+   "rule": "G§6 quotes dated; §1 attribution; G§5 time",
+   "severity": "major",
+   "quote": "On the multifamily side, small buildings have long been the hard case. In a paper for the Millennial Housing Commission, its housing finance task force called financing",
+   "problem": "The quote is undated and comes second-hand (via JCHS 2007). An old finding is presented as current context, and 'have long been' is unsourced.",
+   "fix": "On the multifamily side, one federal commission's housing finance task force called financing for buildings of five to forty-nine units \"one of the most significant gaps in the mortgage industry\" — as quoted in a 2007 paper from Harvard's Joint Center for Housing Studies."
+  },
+  {
+   "seg": "09",
+   "rule": "G§5 as-of; YELLOW-2",
+   "severity": "major",
+   "quote": "as of this month, the Supreme Court of Virginia is weighing a procedural question in that case.",
+   "problem": "The latest source is dated 27 May 2026. 'As of this month' asserts an October status that hasn't been verified (table 1b says to re-check).",
+   "fix": "Re-check the docket before lock, then say: \"as of our check on October 12, 2026, the Supreme Court of Virginia had not yet ruled on a procedural question in that case.\""
+  },
+  {
+   "seg": "09",
+   "rule": "G§5 as-of; YELLOW-2",
+   "severity": "major",
+   "quote": "And Washington's building code council is targeting October 16th for final adoption of a statewide rule for single-stair buildings up to six stories.",
+   "problem": "This status certainly changes on 16 Oct 2026, four days after the as-of date (table 1b). If voice recording happens after that date, the line becomes false.",
+   "fix": "Re-check SBCC before recording. If adopted: \"And on October 16, 2026, Washington's building code council adopted a statewide rule allowing single-stair buildings up to six stories, effective May 3, 2027.\" If not: \"As of [date], Washington's building code council had not yet adopted a proposed statewide rule for single-stair buildings up to six stories.\""
+  },
+  {
+   "seg": "02",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "A corner shop with apartments above it fit in neither of the first two tiers.",
+   "problem": "U-3 allows apartments but not shops, so the building fits none of the first three tiers. 'First two' understates the point and confuses it.",
+   "fix": "A corner shop with apartments above it fit in none of the first three tiers."
+  },
+  {
+   "seg": "02",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "eleven states had passed laws modeled on it.",
+   "problem": "The source says 'modeled either wholly or partly after it'.",
+   "fix": "eleven states had passed laws modeled wholly or partly on it."
+  },
+  {
+   "seg": "00",
+   "rule": "§2 calc labelling",
+   "severity": "minor",
+   "quote": "About one in thirteen American homes sits in a building with two to four apartments. {C01} Of the new homes finished in 2025, about one in a hundred did. {C02}",
+   "problem": "C01 and C02 are channel calculations but carry no 'our calculation' label. The same applies to C35 (summed columns) and C53 (81.92%). Only C36 is labelled.",
+   "fix": "On screen for C01, C02, C35 and C53: \"Our calculation from U.S. Census data (ACS 2024 / NRC 2025)\", including vacant units for C01. Optionally add to narration after C02: \"— our math, from Census figures.\""
+  },
+  {
+   "seg": "00",
+   "rule": "hook; G§1 no exaggeration",
+   "severity": "minor",
+   "quote": "So why did America stop building them?",
+   "problem": "The data show a sharp decline (about 1% of completions, around 16,000 homes), not a stop. The opening and ending also describe a corner shop with apartments, but C01, C02 and C53 count all 2–4-unit buildings.",
+   "fix": "So why did America almost stop building them? In seg 10, replace \"the corner apartment block\" with \"small two-to-four-unit buildings\"."
+  },
+  {
+   "seg": "01",
+   "rule": "§2 opinion marking",
+   "severity": "minor",
+   "quote": "The record doesn't hand this decline to a single cause. {C04}",
+   "problem": "C04 is typed as opinion but is phrased as fact.",
+   "fix": "Our read of the record: no single cause explains this decline. {C04}"
+  },
+  {
+   "seg": "01",
+   "rule": "§5/YELLOW-4 disclaimer timing",
+   "severity": "minor",
+   "quote": "This video explains how the system works. It isn't financial or investment advice.",
+   "problem": "The disclaimer falls after the hook and the context paragraph, so it may land near or past 30 s.",
+   "fix": "Move the disclaimer and as-of sentences to directly after the hook question, then time the voice track to confirm it ends ≤30 s."
+  },
+  {
+   "seg": "03",
+   "rule": "§2 opinion marking; §1",
+   "severity": "minor",
+   "quote": "The best count comes from the National Zoning Atlas, a project that reads zoning codes district by district. In Colorado, across all 334 jurisdictions,",
+   "problem": "'Best' is unmarked opinion. 'All' implies full statewide coverage, but the source says 334 jurisdictions.",
+   "fix": "One detailed count comes from the National Zoning Atlas, a project that reads zoning codes district by district. In Colorado, across 334 jurisdictions,"
+  },
+  {
+   "seg": "04",
+   "rule": "G§6 quotes dated; causality",
+   "severity": "minor",
+   "quote": "In Seattle, building officials described the problem in almost those words: on the city's many small lots, \"two exits took up a significant portion of the floor plate.\" {C17}\n\nThat's why Seattle took a different path.",
+   "problem": "The speaker isn't named and the quote is undated. 'In almost those words' is filler. 'That's why' is a causal claim that should be attributed to the source.",
+   "fix": "In a 2024 proposal to Washington's building code council, the Washington Association of Building Officials explained Seattle's history: on the city's many small lots, \"two exits took up a significant portion of the floor plate.\" {C17} By their account, that's why Seattle took a different path."
+  },
+  {
+   "seg": "04",
+   "rule": "§1 source disclosure",
+   "severity": "minor",
+   "quote": "The Pew Charitable Trusts estimates that a second stairway and the corridor joining the two take up",
+   "problem": "Pew's work was done with CBNA, an advocacy group, but that is disclosed only in seg 05. 'Joining the two' is a detail not in the source.",
+   "fix": "The Pew Charitable Trusts, in work with a group that advocates single-stair rules, estimates that the additional stairway and corridor take up"
+  },
+  {
+   "seg": "04",
+   "rule": "§1 accuracy (audio-only viewers)",
+   "severity": "minor",
+   "quote": "New York City's code also allows single-stair apartment buildings up to six stories, if each floor stays under two thousand square feet.",
+   "problem": "The Type I/II construction condition appears only on screen, and the source says 'not exceeding', not 'under'.",
+   "fix": "New York City's code also allows single-stair apartment buildings of fire-resistant construction up to six stories, if each floor is no more than two thousand square feet."
+  },
+  {
+   "seg": "05",
+   "rule": "G§6 dated; §1 accuracy",
+   "severity": "minor",
+   "quote": "The International Association of Fire Chiefs states its \"unwavering support\"",
+   "problem": "The position statement isn't dated (15 Mar 2024).",
+   "fix": "In a March 2024 position statement, the International Association of Fire Chiefs stated its \"unwavering support\""
+  },
+  {
+   "seg": "05",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "described \"near-unanimous opposition\" from the fire service it consulted,",
+   "problem": "The source says California's fire departments opposed single-stair buildings above three stories. 'It consulted' isn't in the source.",
+   "fix": "reported \"near-unanimous opposition\" from California's fire departments to single-stair buildings above three stories,"
+  },
+  {
+   "seg": "05",
+   "rule": "YELLOW-5 sides (fair ordering)",
+   "severity": "minor",
+   "quote": "A study for Minnesota's labor department found",
+   "problem": "This third-party study sits inside the fire-side paragraph, so it reads as fire-service evidence. The segment then ends on the pro-reform vote.",
+   "fix": "Start a new paragraph with \"A third study, by engineering consultants for Minnesota's labor department in December 2025, found\". End the segment with the status line below, not with a verdict."
+  },
+  {
+   "seg": "05",
+   "rule": "G§5 as-of; §2 opinion",
+   "severity": "minor",
+   "quote": "As of October 2026, the model code is moving, slowly. In a vote announced this May, the code council's governmental members backed a change, eighty-six to thirty-four, allowing one stair up to four stories.",
+   "problem": "'Slowly' is unmarked opinion. 'Allowing' implies the change is in force, but the IBC 2027 hasn't been published. 'This May' is a relative date, and the council isn't named.",
+   "fix": "In a vote announced in May 2026, governmental members of the International Code Council backed a change, eighty-six to thirty-four, that would permit one stair up to four stories in the 2027 model code. As of October 2026, that edition has not been published."
+  },
+  {
+   "seg": "05",
+   "rule": "§1 sources; neutral wording",
+   "severity": "minor",
+   "quote": "a nonprofit that pushes for single-stair rules",
+   "problem": "'Nonprofit' isn't in the claims table, and 'pushes' is slightly loaded.",
+   "fix": "an organization that advocates for single-stair rules"
+  },
+  {
+   "seg": "06",
+   "rule": "§8 scope of source; §1",
+   "severity": "minor",
+   "quote": "Federal regulation defines single-family housing as one to four homes, and multifamily as more than four. {C26}",
+   "problem": "The regulation's scope isn't stated (FHFA, 12 CFR 1282).",
+   "fix": "A federal regulation from the agency that oversees Fannie Mae and Freddie Mac defines single-family housing as one to four homes, and multifamily as more than four. {C26}"
+  },
+  {
+   "seg": "06",
+   "rule": "§1 sources",
+   "severity": "minor",
+   "quote": "Five homes or more, and a project moves into multifamily, commercial lending.",
+   "problem": "No source covers 'commercial lending'.",
+   "fix": "Five homes or more, and a project moves into multifamily lending."
+  },
+  {
+   "seg": "06",
+   "rule": "§7 Crux boundary; clarity",
+   "severity": "minor",
+   "quote": "A shop with six apartments above it fits neither.",
+   "problem": "Six units exceed the 1–4 cap regardless of the shop, so the example doesn't illustrate the mixed-use rules. The owner-occupant framing also edges toward personal mortgage eligibility.",
+   "fix": "So a building with a shop and more than one apartment, or one whose owner doesn't live there and run the shop, falls outside Fannie Mae's single-family rule."
+  },
+  {
+   "seg": "06",
+   "rule": "§8 scope/geography",
+   "severity": "minor",
+   "quote": "the Terner Center at UC Berkeley reported that lenders on small projects often require",
+   "problem": "The source's context is California, but the script doesn't say so.",
+   "fix": "the Terner Center at UC Berkeley reported that, in California, lenders on small projects often require"
+  },
+  {
+   "seg": "08",
+   "rule": "§3 no motives",
+   "severity": "minor",
+   "quote": "One side hopes a lot will change. The other worries a lot will.",
+   "problem": "This assigns feelings to generic groups without a source.",
+   "fix": "Delete, or replace with: \"Both sides predict a big change.\""
+  },
+  {
+   "seg": "08",
+   "rule": "G§5 time; §1",
+   "severity": "minor",
+   "quote": "California's SB 9, which lets owners split lots and add homes, tells a similar story so far.",
+   "problem": "The data cover 2022 only (2023 report), so 'so far' implies a current status that hasn't been checked. The description of SB 9 isn't in the claims table.",
+   "fix": "California's SB 9 showed a similar pattern in its first year. Add the SB 9 description to claims.md with a source, or cut it."
+  },
+  {
+   "seg": "08",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "the planning researcher Yonah Freemark found that upzoning near transit raised land prices but produced no measurable increase in new homes over five years.",
+   "problem": "The source says 'property prices' and 'newly permitted dwellings'. The year is missing.",
+   "fix": "the planning researcher Yonah Freemark found, in a 2019 study, that upzoning near Chicago rail stations raised property prices but had no measurable effect on newly permitted homes over five years."
+  },
+  {
+   "seg": "08",
+   "rule": "§1 accuracy; cross-geography",
+   "severity": "minor",
+   "quote": "researchers counted roughly 21,800 extra homes permitted over five years.",
+   "problem": "This is a model estimate against a counterfactual from a working paper, not a count, and it comes from a different country.",
+   "fix": "researchers at the University of Auckland estimated, in a 2023 working paper, roughly 21,800 additional homes permitted over five years — about four percent of the city's housing stock."
+  },
+  {
+   "seg": "08",
+   "rule": "§2 opinion marking",
+   "severity": "minor",
+   "quote": "Small buildings haven't flooded the places that allowed them — and changing the map alone hasn't brought them back.",
+   "problem": "This generalization is unmarked. It holds for the U.S. cases cited, but Auckland and the Urban study point to increases.",
+   "fix": "In the U.S. cases here, small buildings haven't flooded the places that allowed them — and changing the map alone hasn't brought them back."
+  },
+  {
+   "seg": "08",
+   "rule": "G§5 time markers",
+   "severity": "minor",
+   "quote": "This October, researchers at the Federal Reserve Bank of Minneapolis reported",
+   "problem": "Relative dates ('this October', 'this March', 'this May') become ambiguous after publication.",
+   "fix": "In October 2026, researchers at the Federal Reserve Bank of Minneapolis reported (apply the same change to 'this March' in seg 09 and 'this May' in seg 05)"
+  },
+  {
+   "seg": "09",
+   "rule": "§7 Crux boundary",
+   "severity": "minor",
+   "quote": "So where can you build one again?",
+   "problem": "Addresses the viewer as a would-be builder or owner.",
+   "fix": "So where are these buildings legal again?"
+  },
+  {
+   "seg": "09",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "in its lowest-density districts",
+   "problem": "The source says all low-density districts (R1–R5).",
+   "fix": "in all its low-density districts"
+  },
+  {
+   "seg": "09",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "Oregon, since 2019, requires its larger cities to allow",
+   "problem": "The threshold is vague, and 2019 is when the law was enacted.",
+   "fix": "Oregon's 2019 law requires cities of 25,000 people or more to allow"
+  },
+  {
+   "seg": "09",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "requiring cities of more than five thousand people",
+   "problem": "The source says '5,000 residents or more'.",
+   "fix": "requiring cities of five thousand people or more"
+  },
+  {
+   "seg": "09",
+   "rule": "§8 named bodies; §1",
+   "severity": "minor",
+   "quote": "In Arlington, Virginia, a 2023 rule allowing up to six homes per lot is operating while its court case continues;",
+   "problem": "The adopting body isn't named, and the C49 quotes don't verbatim support 'is operating'.",
+   "fix": "In Arlington, Virginia, a 2023 County Board zoning change allowing up to six homes per lot remains on the books while its court case continues; (add a verbatim source for its current status to C49)"
+  },
+  {
+   "seg": "09",
+   "rule": "§1 accuracy",
+   "severity": "minor",
+   "quote": "Colorado requires its larger cities to allow five by the end of 2027.",
+   "problem": "The deadline is 1 Dec 2027, and the scope is cities of ≥100,000 people.",
+   "fix": "Colorado requires cities of 100,000 people or more to allow five stories by December 1, 2027."
+  },
+  {
+   "seg": "09",
+   "rule": "§1 sources; G§5",
+   "severity": "minor",
+   "quote": "The bank line hasn't moved. It's still four.",
+   "problem": "'Hasn't moved' implies a history of the line that isn't sourced.",
+   "fix": "As of October 2026, the bank line is still four."
+  },
+  {
+   "seg": "10",
+   "rule": "G§5 as-of; §2",
+   "severity": "minor",
+   "quote": "As of 2026, in a growing number of places, the first two are starting to.",
+   "problem": "The as-of marker is imprecise, and 'growing number' is an unsourced trend.",
+   "fix": "As of October 2026, in the places named here, the first two have begun to."
+  }
+ ],
+ "missing_from_claims": [
+  "Euclid as 'a village outside Cleveland' (location)",
+  "'fairly debatable' test as one 'courts would lean on afterwards' (later case law)",
+  "'Most American cities build to' the IBC (adoption extent)",
+  "National Zoning Atlas 'reads zoning codes district by district' (method) and 'best count'",
+  "'all' 334 jurisdictions = full Colorado coverage",
+  "'the corridor joining the two' (Pew detail)",
+  "Seattle 'That's why' causal link (C17 verbatim describes the problem, not the cause of the 1977 rule)",
+  "CBNA described as 'a nonprofit'",
+  "'the model code is moving, slowly'",
+  "5+ units moves into 'commercial lending'",
+  "'small buildings have long been the hard case'",
+  "Millennial Housing Commission task force quote date (original year not stated)",
+  "'Minneapolis is the longest-running test'",
+  "SB 9 'lets owners split lots and add homes'",
+  "Urban Institute study as 'a national review'",
+  "Arlington rule 'is operating while its court case continues' (no verbatim in C49)",
+  "Arlington Supreme Court of Virginia status 'as of this month' (latest source May 2026)",
+  "Supporters' claim that reforms will produce a lot of housing (no supporter source; C37 is a research estimate)",
+  "'The bank line hasn't moved' (historical stability of the 1–4 line)",
+  "'in a growing number of places' (ending)",
+  "Typical 2–4-unit building = corner shop with apartments above (seg 01/10 imagery tied to C01/C53 data)"
+ ],
+ "strengths": [
+  "Nearly every number carries a {C..} code with verbatim support; C36 is correctly labelled 'our calculation'.",
+  "Exact disclaimer text and an explicit 'as of October twelfth, 2026' early in the script.",
+  "The single-stair debate gives both sides named, quoted sources (Pew/CBNA vs IAFC, CAL FIRE), and CBNA's advocacy role is disclosed.",
+  "The Urban Institute result uses 'linked … to', not causal wording; the Minneapolis 2.4-unit gap is rendered as 'roughly the same'.",
+  "Montana is attributed to NBC Montana because the ruling itself wasn't read.",
+  "No party framing, campaign words, or blame on residents or homeowners; subjects are named bodies with dates.",
+  "Race/redlining isn't brought in where it isn't needed; Sutherland's 'parasite' quote is attributed, in context, with no added moral adjectives.",
+  "One myth-vs-record beat that ends at the proper strength: 'the record sits in between'.",
+  "The finance segment stays at the level of building lending rules, with no advice on viewers' own mortgages or rent.",
+  "Hook uses two sourced numbers on different bases, kept apart in wording ('homes' vs 'new homes finished in 2025')."
+ ]
+}

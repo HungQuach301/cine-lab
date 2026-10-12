@@ -4,3 +4,9 @@
 __pycache__/
 !k2g-ep01/kiem-mu/*.json
 !k2g-ep01/kiem-mu/*.jsonl
+# căn chữ lời (chủ dự án 12/10/2026, BAO-CAO checks §18.1): giữ để lần đo sau không phải dựng lại
+!*/vo/*.align.json
+# K2C-T1-06: kết quả kiểm mù/REVIEWER và số liệu Census tự tính (không chứa dữ liệu kênh khác)
+!k2c-t1-06/kiem-mu/*.json
+!k2c-t1-06/kiem-mu/*.jsonl
+!k2c-t1-06/nguon/census-scripts/results.json

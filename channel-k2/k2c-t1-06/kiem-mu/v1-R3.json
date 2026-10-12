@@ -1,0 +1,103 @@
+{
+ "main_message": "Small 2-4 unit and mixed-use buildings vanished because three overlapping rule sets (zoning maps, single-stair building code limits, and the 4-unit mortgage line) stack up so that all three must say yes at once. Reforming only one, like zoning, isn't enough.",
+ "hook_strength_1to10": 7,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "Concrete 1-in-13 vs 1-in-100 contrast and a clear question. Sets up a puzzle I actually care about professionally.",
+ "mechanisms_build_on_each_other_1to10": 8,
+ "mechanisms_in_your_words": "1) Zoning (Euclid-era tiering, single-family-only land, parking mandates) limits where the building can go. 2) Building code (IBC single-stair limit at 3 stories; second stair costs ~7% of floor area and 6-13% of cost) limits how tall/viable it is on small lots. 3) Finance (the 1-4 unit vs 5+ line for Fannie/FHA, thin small multifamily lending, recourse and guarantees) limits who funds it. Stacked, they squeeze the middle of the market.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "Returns cleanly to the three locks. But it says 'the first two are starting to' say yes, which is a bit generous given Minneapolis and SB 9 results shown earlier, and it never really says why the bank line matters for 2-4 units specifically.",
+ "boring_or_slow": [
+  {
+   "seg": "09",
+   "why": "State-by-state list of laws is a recitation, with many dates and thresholds in a row."
+  },
+  {
+   "seg": "03",
+   "why": "Stat-heavy on Colorado and Connecticut; two states stand in for the nation."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "06",
+   "quote": "Federal regulation defines single-family housing as one to four homes",
+   "why": "The logic is muddled. 2-4 unit buildings CAN get Fannie/FHA single-family loans (owner-occupied). So the 'bank lock' doesn't bind them the way it implies. It only bites on 5+ units or mixed-use, which is the shop-plus-six-apartments example, not the 2-4 unit headline."
+  },
+  {
+   "seg": "01",
+   "quote": "corner shop... One staircase",
+   "why": "The archetype is a mixed-use building with a shop, but the opening stats are about all 2-4 unit buildings, mostly plain duplexes/triplexes. The video slides between these categories."
+  },
+  {
+   "seg": "07",
+   "quote": "five to nineteen units",
+   "why": "The decline stats cover 5-19 unit buildings, but the 'three locks' story is built around 2-4 units and corner-shop buildings. Mixed denominators."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "04",
+   "quote": "a second stair is a line item... a slice of every floor",
+   "direction": "pro-development / single-stair",
+   "why": "Leans on Pew and CBNA figures (advocacy-adjacent) for cost and area. The 7% and 6-13% numbers are presented before the fire chiefs' view."
+  },
+  {
+   "seg": "10",
+   "quote": "the first two are starting to",
+   "direction": "pro-reform",
+   "why": "Frames reform as the direction of travel and the three locks as the explanation, despite its own evidence (seg 08) that opening one lock produced little."
+  }
+ ],
+ "political_lean_detected": "pro-development",
+ "lean_detail": "Mildly. It is fairly balanced on evidence (Minneapolis, SB 9, fire chiefs, Sterling Heights), and it labels its own inferences ('our read'). But the framing treats the rules as barriers to be cleared, and the closing line implies progress.",
+ "blames_a_group_of_people": false,
+ "blame_detail": "Blame goes to rule systems. Though 'mere parasite' is quoted from Euclid without noting the era's exclusionary context.",
+ "felt_like_advice_about_your_own_rent_or_home_purchase": false,
+ "claims_you_doubt": [
+  {
+   "seg": "02",
+   "quote": "Hoover... forty-eight American cities",
+   "why": "The 1921 figure is plausible, but 'Hoover wrote' sourcing is fine; the bigger issue is that Euclid's tiers are described as having retail only in the fourth tier. In the actual ordinance, two-family sat above single-family, but the 'corner shop with apartments fit neither' claim is the video's inference, not the Court's."
+  },
+  {
+   "seg": "04",
+   "quote": "single staircase can rise to a third story, with up to four homes per floor",
+   "why": "Under the IBC 2021 exception, Group R-2 single-exit is limited to 3 stories, 4 units per floor, 125 ft travel distance, and sprinklers. That's about right, but the video drops the other conditions and ignores that the base rule is for R-2 with a 'dwelling unit' limit, not simply three stories. Also, many 2-4 unit buildings are R-3 or IRC, where a single stair is already the norm, so the code lock barely applies to true 2-4 unit buildings."
+  },
+  {
+   "seg": "04",
+   "quote": "Seattle... Since its 1977 building code",
+   "why": "I'd want to confirm. Seattle's single-stair allowance has been revised several times, and current conditions are stricter than implied. I wouldn't state 'six stories' without noting that it's a local amendment to the IBC with specific construction type requirements."
+  },
+  {
+   "seg": "07",
+   "quote": "went from almost six percent... to just over one percent",
+   "why": "Plausible, but the 2-4 unit decline is partly a statistical artifact of how Census categorizes units. Also the 'one in a hundred' opening and 'just over one percent' differ slightly in framing."
+  },
+  {
+   "seg": "06",
+   "quote": "FHA allows mixed use in buildings of up to four units, if at least fifty-one percent... residential",
+   "why": "Roughly right for FHA 203(b), but the video doesn't mention that commercial space is capped and that other programs (e.g., SBA 504, community bank portfolio loans) exist. 'The bank line hasn't moved' overstates a hard barrier; portfolio lenders routinely do this."
+  },
+  {
+   "seg": "10",
+   "quote": "more than eight in ten of the occupied ones are rented",
+   "why": "I'd want to check this. Many 2-4 units are owner-occupied with a landlord living in one unit. Eight in ten renter-occupied units is plausible by unit count, but not by building."
+  }
+ ],
+ "questions_left_unanswered": [
+  "What about the IRC vs IBC split? Most 2-4 unit buildings are built under the residential code, where the single-stair issue largely doesn't apply.",
+  "Where do impact fees, permitting timelines, construction costs, labor, and land prices fit? The 'three locks' story ignores pro forma economics.",
+  "Why does the bank line still bind if 2-4 unit buildings are eligible for conventional and FHA loans?",
+  "What about the history of exclusionary intent behind early zoning, and the role of rent control or condo defect liability in small multifamily?",
+  "Is the 5-19 unit decline caused by the same locks, or by different ones (e.g., financing and scale economies)?",
+  "If zoning reform alone didn't deliver in Minneapolis, what evidence is there that fixing stairs and finance would?"
+ ],
+ "trust_1to10": 7,
+ "best_moment": "08: It lays out supporters and opponents, then Minneapolis (317 units), SB 9 application counts, Chicago, Urban Institute and Auckland, and concludes 'the record sits in between.' It tags its own inference as 'our read.' That's the honest part.",
+ "top3_fixes": [
+  "Fix the bank-lock logic: say explicitly that 2-4 unit owner-occupied buildings CAN get conventional/FHA loans, and that the binding constraints are on mixed-use, investor-owned, and 5+ unit buildings. Cite specific limits like Fannie's owner-occupancy and higher down-payment rules for 2-4 units.",
+  "Address the IRC/IBC split: explain which code governs typical 2-4 unit buildings vs. the 5+ unit and mixed-use buildings where the single-stair cap bites, so the stairwell lock isn't overstated for the video's headline category.",
+  "Add the missing economic layer (construction cost, land cost, impact fees, permitting time, condo-defect liability) in one short segment, or explicitly say these are outside scope, so 'three locks' doesn't read as the complete explanation."
+ ]
+}

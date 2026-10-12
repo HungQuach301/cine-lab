@@ -1,0 +1,117 @@
+{
+ "main_message": "Small 2-4 unit buildings nearly vanished because of three overlapping rule systems (zoning map, single-stair/building code, lending thresholds), plus market costs, and the video says the record can't say how much each contributes. Changing zoning alone (Minneapolis) hasn't brought them back.",
+ "hook_strength_1to10": 7,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The 1-in-13 vs 1-in-100 contrast is concrete and the question is clear. The disclaimer and date stamp right after it slow the momentum a little.",
+ "mechanisms_build_on_each_other_1to10": 6,
+ "mechanisms_in_your_words": "1) Zoning: single-family-only tiers since Euclid, with parking minimums and few places allowing more than four units by right. 2) Building code: the IBC single-stair limit of three stories, the residential-to-commercial code jump at three units, and the extra floor area and cost of a second stair. 3) Finance: the one-to-four vs five-plus line in Fannie, Freddie and FHA, the mixed-use exclusions, and the thin market for 5-49 unit loans. 4) Market costs, rates and rents. They are presented as parallel locks, not as a chain, which the video says openly.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It answers 'why did we stop' with 'several rules plus costs, and we can't say how much each matters.' That is honest, but it is a hedge and not a resolution. It does tie back to the opening numbers.",
+ "boring_or_slow": [
+  {
+   "seg": "00",
+   "why": "The disclaimer and the as-of-date line right after the hook feel like legal throat-clearing."
+  },
+  {
+   "seg": "04",
+   "why": "A dense run of percentages, state names and stair limits for Seattle, NYC and the IBC."
+  },
+  {
+   "seg": "10",
+   "why": "A list of state laws read out one after another with no throughline."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "04",
+   "quote": "up to the third story... no more than four homes per floor",
+   "why": "It does not say whether this is the IBC exception (Section 1006.3.4, with limits on occupant load and travel distance) or the general rule. It is also unclear that the 'three stories' counts floors above grade."
+  },
+  {
+   "seg": "04",
+   "quote": "residential building code... commercial code",
+   "why": "This is a California-specific split. The IBC/IRC split is at two units, with the IRC covering one- and two-family dwellings and townhouses. A viewer would not know which jurisdiction this applies to."
+  },
+  {
+   "seg": "06",
+   "quote": "defines single-family housing as one to four homes",
+   "why": "The FHFA reg is a definition used for GSE purposes. The viewer may miss that this is a federal agency definition and not the mortgage product itself."
+  },
+  {
+   "seg": "01",
+   "quote": "five to nineteen apartments",
+   "why": "The 'small apartment building' category merges the Census 2-4 and 5-19 groups, and then the video mostly uses the 2-4 figures."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "04",
+   "quote": "Pew... a group that advocates single-stair rules",
+   "direction": "Slightly toward the single-stair side",
+   "why": "The cost numbers come from an advocacy source, and no independent cost study is cited. The video does flag that the source is an advocate."
+  },
+  {
+   "seg": "05",
+   "quote": "four fire deaths in these buildings",
+   "direction": "Pro single-stair",
+   "why": "Raw death counts from short windows, with no per-capita comparison, no mention of injuries or near-misses, and no mention of low-probability, high-consequence events."
+  }
+ ],
+ "political_lean_detected": "none",
+ "lean_detail": "It is quite even-handed. It gives fire chiefs, supporters and opponents of upzoning, and null and positive results. It leans mildly toward 'the rules matter, but are not sufficient.'",
+ "blames_a_group_of_people": false,
+ "blame_detail": "",
+ "felt_like_advice_about_your_own_rent_or_home_purchase": false,
+ "claims_you_doubt": [
+  {
+   "seg": "02",
+   "quote": "set up an advisory committee on zoning... forty-eight American cities",
+   "why": "The Standard State Zoning Enabling Act dates to 1924 and the Standard City Planning Enabling Act to 1928. Check the 1926 'edition' framing and the 1921 date. The committee was formed in 1921, but the 1926 edition is the revised one."
+  },
+  {
+   "seg": "02",
+   "quote": "practically a suburb of Cleveland",
+   "why": "This is a real Euclid quote, but the zoning tiers described are simplified. The Euclid ordinance was cumulative in the opposite direction, so higher-numbered use classes allowed all lower uses. Single-family was the most restricted and apartments came in at the U-3 class, which fits the video, but the claim that a corner shop with apartments above 'fit in none of the first three' needs a check against the ordinance."
+  },
+  {
+   "seg": "04",
+   "quote": "no more than four homes per floor and sprinklers throughout... up to the third story",
+   "why": "The 2021 IBC single-exit exception for R-2 allows up to 4 units per floor and a limited height. The common reading is three stories in total, with the exception in Table 1006.3.4(2). The 'no more than four homes per floor' wording is close but oversimplifies the occupant-load and travel-distance limits."
+  },
+  {
+   "seg": "04",
+   "quote": "residential building code... three or more homes fall under the stricter commercial code",
+   "why": "That is true of California, where the residential code covers duplexes. But the roughly 10 percent cost increase is a Terner estimate, and it is presented without noting how it varies by project."
+  },
+  {
+   "seg": "06",
+   "quote": "FHA allows mixed use in buildings of up to four units, if at least fifty-one percent residential",
+   "why": "The FHA 203(b) rule is that the residential portion must be at least 51 percent of the floor area, and the commercial use cannot affect the property's residential character. The claim is roughly right but the video leaves out the other conditions."
+  },
+  {
+   "seg": "08",
+   "quote": "buildings of five to nineteen units went from 377,000 homes completed in 1973 to 48,000",
+   "why": "The 1973 figure is large but plausible in a boom year. I would still want to see the Census SOC table, because 5+ and 5-19 splits have been reclassified over time."
+  },
+  {
+   "seg": "09",
+   "quote": "about two percent of the homes it permitted in multifamily buildings",
+   "why": "A 2020-2025 window is a pandemic and high-rate period. This is a fair point, but it does limit what Minneapolis can show, and the video partly acknowledges this."
+  }
+ ],
+ "questions_left_unanswered": [
+  "How much of the decline is rules versus costs, rates and rents? The video says it can't measure this.",
+  "Why did the steepest fall come in the late 1980s? The video says the Census data shows when and not why. Savings and loan crisis, tax reform in 1986 and the end of passive-loss rules might be part of it, and they are never mentioned.",
+  "What role did the 1986 Tax Reform Act, depreciation rules and the S&L crisis play?",
+  "What about impact fees, permitting time, lot size, NIMBY appeals and design review? Those are the cost levers developers deal with daily and the video never names them.",
+  "What about condo defect liability? That is a big reason small buildings are not built as condos in many states.",
+  "How does the lending line interact with the 1-4 unit residential appraisal and rate difference in practice?"
+ ],
+ "trust_1to10": 7,
+ "best_moment": "[07] The video stops and says the record does not measure the split between rules and costs. Most explainers on this topic overclaim, so this honesty is credible.",
+ "top3_fixes": [
+  "Fill in the 1980s gap. The steepest fall is in 1986-1990, and the video names none of the likely causes (the 1986 tax reform, the S&L crisis, a change in the economics of real estate finance). Without that, the timeline in [08] does not connect to the three locks.",
+  "Tighten the building code section. Name the IBC section and the real limits (occupant load, travel distance, sprinklers), say clearly that the residential-versus-commercial code split is California-specific, and add an independent cost source beside Pew.",
+  "Add the developer's practical costs: impact fees, permitting delay, condo defect liability, and the land-cost-per-unit math. These are what actually decide whether a fourplex pencils, and the video's own finding in [07] says costs matter as much as the rules."
+ ]
+}

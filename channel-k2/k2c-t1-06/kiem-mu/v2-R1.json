@@ -1,0 +1,117 @@
+{
+ "main_message": "Small 2-4 unit apartment buildings nearly vanished from new construction, and three sets of rules (zoning maps, single-staircase fire codes, and bank lending categories) plus costs and interest rates all play a part. Changing just one rule, like zoning, hasn't brought them back yet, and nobody can say how much each factor matters.",
+ "hook_strength_1to10": 6,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The 1-in-13 versus 1-in-100 contrast is striking and the 'why' question is clear. But it's followed right away by a disclaimer, and it's a dry topic.",
+ "mechanisms_build_on_each_other_1to10": 6,
+ "mechanisms_in_your_words": "1) Zoning maps: most residential land only allows single-family houses, and parking rules eat up small lots. 2) Stairwell/fire code: taller walk-ups need two staircases, which takes space and money. 3) Bank lending: loans for 1-4 units work like house loans, but 5 or more units, or a shop in the building, make financing hard. 4) Costs, interest rates and rents might make the numbers not work anyway. The three rules are presented as parallel 'locks' with a fourth economic factor on top, rather than as a chain where each causes the next.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It gives a layered answer (the three rules plus costs) and admits the record can't say how much each matters. That's honest, but I was left without a clear 'because of X'.",
+ "boring_or_slow": [
+  {
+   "seg": "02",
+   "why": "Long 1920s history with Hoover, committees and a court case; I wanted to get to the present."
+  },
+  {
+   "seg": "04",
+   "why": "A pile of percentages, building-code editions and city-by-city rules on stairs."
+  },
+  {
+   "seg": "06",
+   "why": "Lots of Fannie Mae/FHA/Freddie definitions that blur together."
+  },
+  {
+   "seg": "05",
+   "why": "Several studies and organizations stacked up quickly."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "06",
+   "quote": "single-family rule ... falls outside both",
+   "why": "Hard to follow which loan covers which combination of units and shop; I needed a table."
+  },
+  {
+   "seg": "04",
+   "quote": "floor plate",
+   "why": "Jargon; also unclear how the 4-story limit connects to small buildings of 2-4 units."
+  },
+  {
+   "seg": "01",
+   "quote": "five to nineteen apartments",
+   "why": "The topic shifts between 2-4 unit buildings and bigger walk-ups without a clear signal."
+  },
+  {
+   "seg": "02",
+   "quote": "fairly debatable",
+   "why": "I only half got what the legal test means in practice."
+  },
+  {
+   "seg": "08",
+   "quote": "Census numbers show when — not why",
+   "why": "Unclear how this chapter links back to the three locks."
+  },
+  {
+   "seg": "04",
+   "quote": "commercial code",
+   "why": "Unclear whether it applies to 2-4 unit buildings. It says 3+ units, so triplexes are affected, which seems to contradict 'a plain duplex or triplex usually isn't affected'."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "09",
+   "quote": "small buildings haven't flooded the places",
+   "direction": "slightly skeptical of upzoning, though it cites both sides",
+   "why": "More space goes to disappointing results than to the positive study."
+  },
+  {
+   "seg": "05",
+   "quote": "Pew ... advocates single-stair rules",
+   "direction": "mostly balanced",
+   "why": "It flags the advocacy group's bias and gives the fire chiefs equal weight. I felt it was fair."
+  }
+ ],
+ "political_lean_detected": "none",
+ "lean_detail": "It repeatedly says each rule has defenders and the evidence is mixed. If anything, it ends a bit cautious about zoning reform alone being enough.",
+ "blames_a_group_of_people": false,
+ "blame_detail": "",
+ "felt_like_advice_about_your_own_rent_or_home_purchase": false,
+ "claims_you_doubt": [
+  {
+   "seg": "02",
+   "quote": "mere parasite",
+   "why": "Surprising quote; I'd want to check that it's accurate, though it's attributed to a court opinion."
+  },
+  {
+   "seg": "05",
+   "quote": "four fire deaths ... played no role",
+   "why": "That's a pro-single-stair group's own claim, and the numbers seem very small."
+  },
+  {
+   "seg": "08",
+   "quote": "peaked in the 1970s",
+   "why": "Fine as data, but the video gives no cause for the drop, so I may infer one it doesn't support."
+  },
+  {
+   "seg": "11",
+   "quote": "more than eight in ten ... rented",
+   "why": "Not a doubt about accuracy, but I don't see why it matters to the argument."
+  }
+ ],
+ "questions_left_unanswered": [
+  "How much of the decline is due to rules versus costs and interest rates?",
+  "Why did the steepest fall happen in the late 1980s?",
+  "Did anything in the 1980s change, such as savings and loan failures, tax rules or lending?",
+  "Why do big buildings of 50+ units now dominate?",
+  "What would a person actually have to do to build one today?",
+  "Do these buildings cost less to rent than other housing?",
+  "Why is the lending line at four, and why hasn't it changed?"
+ ],
+ "trust_1to10": 8,
+ "best_moment": "[00] The one-in-thirteen versus one-in-a-hundred contrast; it hooked me. [07] is also good for admitting 'the record we found doesn't measure that split'.",
+ "top3_fixes": [
+  "Cut the 1920s court-case detail (seg 02) and the code editions and percentages in seg 04 down to one example each, and add a simple visual or table of 'which rule hits which building'.",
+  "Explain the 1986-1990 collapse in seg 08, or say outright that no cause is known. It's the biggest drop in the video and it's just left hanging.",
+  "Make the opening question more personal, e.g. 'Why can't you find a duplex or fourplex to rent or buy in new construction?', and fix the confusing triplex/commercial-code inconsistency in seg 04."
+ ]
+}
