@@ -7,9 +7,11 @@ Khuôn thắng (hồ sơ cầu `k2g-steel`): (chưa có hồ sơ cầu — dùng
 Cụm tìm kiếm: chưa có hồ sơ cầu.
 
 
-A. **CHÍNH** (chủ dự án 12/10): **Is American Steel Dying? What 1950 vs 2025 Really Shows** (55 ký tự)
-B. **DỰ PHÒNG — YouTube Test & Compare:** **Why Is Steel Guarded Like a Weapon? Who Controls the Path** (57 ký tự)
-C. ~~LOẠI~~ (cụm "who really controls" cấm ở `QUAN-TRI-RUI-RO.md` §1.2): ~~**Who Really Controls Steel? Tariffs, a Golden Share, a Carbon Toll**~~ (65 ký tự)
+A. **CHÍNH** (chủ dự án 12/10, giữ "Really"): **Is American Steel Dying? What 1950 vs 2025 Really Shows** (55 ký tự)
+B. **DỰ PHÒNG — YouTube Test & Compare** (D7, chủ dự án 12/10): **Why Is Steel Guarded Like a Weapon? Tariffs, Quotas and a Carbon Price** (70 ký tự — **đúng ngưỡng 70** của brief.py: kiểm hiển thị trên di động khi bật Test & Compare)
+C. ~~LOẠI~~ (cụm cấm `QUAN-TRI-RUI-RO.md` §1.2): ~~Who Really Controls Steel? Tariffs, a Golden Share, a Carbon Toll~~ (65 ký tự)
+
+Cũng LOẠI (D7, REVIEWER Opus major — gần cụm cấm §1.2): ~~Why Is Steel Guarded Like a Weapon? Who Controls the Path~~
 
 ## 2. Thumbnail (chủ dự án tạo)
 - **Ý:** two stacks of steel ingots on a technical board, 1950 and 2025, with the U.S. share in orange — đúng tên gọi trong lời; một ý duy nhất, đọc được ở cỡ điện thoại (168×94).
@@ -27,7 +29,7 @@ YouTube thumbnail, 1280x720. Use the attached frame as the background and keep i
 ## 3. Kiểm (đọc, không chặn)
 - Tiêu đề A: ĐẠT
 - Tiêu đề B: ĐẠT
-- Tiêu đề C: LOẠI (QUAN-TRI-RUI-RO §1.2; brief.py chưa có cụm này trong danh sách cấm)
+- Tiêu đề C: CẢNH BÁO — cụm cấm của gói (QUAN-TRI-RUI-RO §1.2): /\bwho (?:really )?controls\b/ → đã LOẠI
 - Chữ thumbnail: ĐẠT
 - Chữ trên thumbnail chủ dự án tạo: P đọc ảnh — chữ trong vùng an toàn 5 %, không ở góc thời lượng, không số ngoài claim. Ghi kết quả vào HUONG-DAN-DANG của tập.
 - Claim được phép: 1950, 2025, 4%, 46%, 81.9, 87.8

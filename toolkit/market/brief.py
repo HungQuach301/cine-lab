@@ -19,6 +19,8 @@ from core import REPO, MarketError, load_pack, write_atomic
 # 129 lượt/4 ngày so với 4–10 lượt các tập khác (KHAN-GIA-SO 11/10; một tập, chưa phải bằng chứng thống kê).
 FORBIDDEN = [r"\byour job is next\b", r"\bwill (?:definitely|surely)\b", r"\bguarantee", r"\bshocking\b", r"\bdestroy",
              r"\bend of\b", r"\bnobody\b", r"\beveryone\b", r"\bsecret\b"]
+# Cụm cấm RIÊNG từng gói (gói ll không đổi). k2: QUAN-TRI-RUI-RO.md §1.2 điểm 4 (bẫy "who really controls…"); chủ dự án duyệt 12/10/2026 (D7, tập K2G-01).
+FORBIDDEN_PACK = {"k2": [r"\bwho (?:really )?controls\b"]}
 SAFE = 0.05          # lề an toàn 5 % mỗi cạnh (như thumb.py, BAI-HOC #9)
 TIMESTAMP_BOX = "góc dưới phải ~ 18 % × 12 % (YouTube phủ thời lượng)"
 
@@ -27,7 +29,7 @@ def num_tokens(t):
     return re.findall(r"\d[\d,.]*%?", t)
 
 
-def check_title(t, allowed):
+def check_title(t, allowed, extra=()):
     w = []
     if len(t) > 70:
         w.append(f"dài {len(t)} ký tự (> 70, bị cắt trên di động)")
@@ -39,10 +41,13 @@ def check_title(t, allowed):
     for p in FORBIDDEN:
         if re.search(p, t, re.I):
             w.append(f"cụm hứa vượt claim/giật gân: /{p}/")
+    for p in extra:
+        if re.search(p, t, re.I):
+            w.append(f"cụm cấm của gói (QUAN-TRI-RUI-RO §1.2): /{p}/")
     return w
 
 
-def check_thumb_text(t, allowed):
+def check_thumb_text(t, allowed, extra=()):
     w = []
     if len(t.split()) > 4:
         w.append(f"{len(t.split())} từ (> 4)")
@@ -52,6 +57,9 @@ def check_thumb_text(t, allowed):
     for p in FORBIDDEN:
         if re.search(p, t, re.I):
             w.append(f"cụm hứa vượt claim: /{p}/")
+    for p in extra:
+        if re.search(p, t, re.I):
+            w.append(f"cụm cấm của gói (QUAN-TRI-RUI-RO §1.2): /{p}/")
     return w
 
 
@@ -99,8 +107,9 @@ def build(a):
     outdir = REPO / "reports/m3" / a.ep / "phat-hanh"
     outdir.mkdir(parents=True, exist_ok=True)
     fr = frames(Path(a.video), ats, outdir) if a.video else []
-    warn = {f"Tiêu đề {chr(65 + i)}": check_title(t, allowed) for i, t in enumerate(titles)}
-    warn["Chữ thumbnail"] = check_thumb_text(a.thumb_text, allowed)
+    extra = FORBIDDEN_PACK.get(a.pack, ())
+    warn = {f"Tiêu đề {chr(65 + i)}": check_title(t, allowed, extra) for i, t in enumerate(titles)}
+    warn["Chữ thumbnail"] = check_thumb_text(a.thumb_text, allowed, extra)
     pats = lab["title_patterns"] if lab else ["(chưa có hồ sơ cầu — dùng dạng câu hỏi tìm kiếm của tập 6)"]
     qs = [q["q_en"] for q in lab["questions"]] if lab else []
     kw = lab.get("keywords", []) if lab else []

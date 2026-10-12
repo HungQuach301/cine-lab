@@ -342,3 +342,16 @@ Theo QUAN-TRI-RUI-RO §1 VÀNG điều kiện (3) và §1.2 điểm 6. Tệp `ki
   - P tải ngược 10 tệp từ `https://github.com/HungQuach301/cine-lab/raw/release-k2g-ep01-v1/<tệp>` vào thư mục trống, chạy `sha256sum -c`: **10/10 OK**.
   - Master tải về đủ 1 325 096 282 byte (tệp thật, không phải con trỏ LFS).
 - **Tra as-of** (11.6) làm ngay trước khi đóng nhánh này: không có thay đổi buộc sửa lời.
+
+### 11.10 D7, D8 (chủ dự án duyệt 12/10/2026)
+- **D7 (a):**
+  - Tiêu đề dự phòng Test & Compare: **"Why Is Steel Guarded Like a Weapon? Tariffs, Quotas and a Carbon Price"** (70 ký tự — **đúng ngưỡng 70** của `brief.py`, nằm trong vùng ±5 %; kiểm hiển thị trên di động khi bật Test & Compare).
+  - Giữ "Really" ở tiêu đề chính.
+  - `titles.txt` và PACKAGING-BRIEF đã cập nhật (brief sinh bằng gói `k2`: A, B đạt; C đã loại, bị cụm cấm mới bắt).
+  - Bảng kiểm §4 mục 4 nay **ĐÚNG cho cả tiêu đề chính và dự phòng** → được bật Test & Compare khi có thumbnail.
+- **`toolkit/market/brief.py`:** thêm `FORBIDDEN_PACK = {"k2": [r"\bwho (?:really )?controls\b"]}` (bắt cả "who really controls" lẫn "who controls"), áp cho tiêu đề và chữ thumbnail **chỉ với `--pack k2`**. Gói `ll` không đổi (đã thử: cùng tiêu đề, gói ll không cảnh báo). `toolkit/tests/test_market.py`: 29/29 OK.
+- **D8:**
+  - `phat-hanh/UPDATE-14-10.txt` có 2 câu trung tính, URL `https://www.federalregister.gov/d/2026-20938`, phạm vi đúng văn bản: hàng Canada/Mexico hưởng USMCA, thi hành Proclamation 11032, không đặt mức thuế mới.
+  - `UPDATE-14-10.ghi-chu.md` đối chiếu từng ý với nguyên văn.
+  - Dán vào mô tả sau 14/10. Không đổi video, không cập nhật nhánh phát hành.
+- **SHA gói ở nhánh làm việc** (`phat-hanh/SHA256SUMS.txt`): video, `.srt`, mô tả, ảnh nền không đổi. Đổi: `titles.txt` `d6bce0d4…`, `PACKAGING-BRIEF.md` `d9b498c6…`; thêm `UPDATE-14-10.txt` `af66dc15…`. Nhánh `release-k2g-ep01-v1` giữ nguyên (`bdcd6e7`), nên `titles.txt`/brief trên nhánh đó là bản trước D7.
