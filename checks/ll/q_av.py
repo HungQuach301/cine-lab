@@ -12,7 +12,7 @@ from checks.ll import base
 ACT_COLOR = {1: 'warm', 2: 'sepia', 3: 'cold', 4: 'warm'}
 HERO = {'plate', 'diptych'}                                      # cảnh đinh 3D
 PHYS = {'plate', 'diptych', 'archive', 'jobboard', 'filmstrip', 'pasteup', 'sign', 'isotype', 'stack', 'desk', 'street',
-        'inspect', 'office', 'rows', 'teller'}                    # hình vật chất (cảnh toàn khung có vật/người/nơi chốn); thẻ giấy, bản đồ, chữ: không
+        'inspect', 'office', 'rows', 'teller', 'footage'}         # 1.10.0: footage nguồn ngoài (Q32); hình vật chất (cảnh toàn khung có vật/người/nơi chốn); thẻ giấy, bản đồ, chữ: không
 FULL = PHYS | {'endcard'}                                        # cảnh toàn khung (đo màu theo hồi)
 AUTO_SFX = {'assets/ll/sfx/paper-slide.mp3', 'assets/ll/sfx/paper-flip.mp3'}   # tiếng chuyển thẻ tự sinh: không phải âm thanh nghề
 THEME_SHA = 'b138685f01f2c3857303ef4f8ab1be1de1a23dad17bac1676d3820bcc2cd34d4'  # nhạc hiệu kênh "Reawakening" (RIGHTS LL-MUS-1)

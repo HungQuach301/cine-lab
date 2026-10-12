@@ -600,3 +600,96 @@ Mỗi lần chấm Q27 chính thức của P từ nay ≈ $0,77 (3 người), Q3
 **Bản khoá:** VERSION **1.9.1**, LOCK `TREE_SHA256 f777e0ca0a69141de99f10f87c2ad19e0f9072d7691773f4144447eca4c19f92` (164 tệp). `lock.py --verify`: KHỚP. Đoạn băm độc lập (`python3 -I`) ra cùng số.
 
 **Việc của P:** gợi ý lệnh trong `scripts/ll/qc.py` (`q27-set`/`q27-run`) không phải đổi. Báo cáo G2 tập 9 ghi cả ba con số Q27.
+
+## 17. Bản 1.10.0 (12/10/2026): Q32 footage/ảnh nguồn ngoài, áp cả LL và kênh 2
+**Đầu vào:** chủ dự án 12/10/2026 cho phép footage/ảnh nguồn ngoài, ưu tiên miễn phí. Nguồn cho phép: Library of Congress, NARA, NASA, Internet Archive (Prelinger), Wikimedia Commons (kiểm giấy phép từng file), Pexels, Pixabay; nguồn khác cần chủ dự án duyệt.
+
+**Đã làm:**
+- **Sổ** `SOURCES-FOOTAGE.csv` đặt cạnh `episode.yaml` (`reports/m3/epXX/`, `channel-k2/<tập>/`), đúng 10 cột của mẫu `channel-k2/SOURCES-FOOTAGE.template.csv` (nhánh `channel-k2`; mẫu đó qua bộ đọc không lỗi). Định dạng từng cột: `checks/ll/FOOTAGE.md` §2.
+- **Luật Q32** (`checks/ll/q_footage.py`), sáu mục a–f đúng yêu cầu. Định nghĩa: `RULES-LL.md` (dòng Q32) và `FOOTAGE.md` §4. Đoạn footage trong EDL = shot `tpl: footage` hoặc có `p.clip`; khai thêm `p.file` (file ngoài repo) và `p.setting` (bối cảnh theo nội dung hình).
+- **Q26b** (`q_setting.py`): footage là bối cảnh theo `p.setting`; trùng nơi với cảnh đinh thì cộng vào bối cảnh đó; thiếu khai thì gộp chung `ft/(chưa khai)` (bảo thủ) và Q32f TRƯỢT.
+- **Tương thích:** `footage` thêm vào cảnh toàn khung của Q16 (`q_rhythm.py`, `qc.py`) và hình vật chất của Q29/Q30 (`q_av.py`). Không có thay đổi này thì footage bị tính là thẻ giấy (Q16 trượt oan). Tập không có footage: mọi kết quả cũ không đổi (214 ca cũ vẫn đúng).
+- **qc LL:** `scripts/ll/qc.py` thêm dòng **Q32** cho mọi tập (như K đã sửa qc ở 1.8.0). **Kênh 2:** trên `main` chưa có bộ qc K2 (`scripts/k2/` nằm ở nhánh `k2g-ep01`), nên chạy bằng CLI: `checks/ll/q_footage.py channel-k2/<tập>/episode.yaml [--tl …] [--desc …]` (đã thử với bố cục `channel-k2/k2x-ep01/`).
+- **Giấy phép Pexels/Pixabay đọc lại 12/10/2026:** nguyên văn, URL, giờ đọc và cách đọc ở `FOOTAGE.md` §6.
+
+**Lựa chọn của K cần chủ dự án biết (không tự quyết thay):**
+1. **Trần 40 % tính cả ảnh tư liệu `archive`** (LL, đang theo Q19 ≤ 20 %), vì đó cũng là ảnh nguồn ngoài. Tập 7 hiện có 51,5 s tư liệu (8,3 %).
+2. **Q32e không bắt ảnh `archive` LoC đã commit** (`assets/ll/archive/*.jpg`, Q19 bắt buộc ảnh nằm trong repo). Q32e bắt (i) tệp media trong thư mục có chữ `footage`, (ii) tệp trùng SHA một dòng sổ bất kỳ. Nếu chủ dự án muốn "không media nguồn ngoài nào trong repo" tuyệt đối, phải sửa Q19 và gỡ ảnh tư liệu cũ: chờ quyết.
+3. **Q32d dùng danh sách từ tiêu cực** trên lời ±1 s và chú thích shot. Đây là luật thô: bắt được "bad light" rõ (bankrupt, fraud, layoffs…), không thay người rà. Áp cho mọi nguồn (chặt hơn giấy phép, vốn chỉ Pexels/Pixabay cấm). "Logo rõ nét" và "người nhận diện được" là **tự khai trong sổ**, máy không tự nhận diện.
+4. `timecode_dung` dạng `m:ss.xx-m:ss.xx` (phần thập phân giây), nhận cả SMPTE `hh:mm:ss:ff`. Mẫu kênh 2 ghi `mm:ss.ff`; K hiểu `.ff` là phần trăm giây, nêu rõ trong `FOOTAGE.md`.
+
+**Giới hạn khi đọc giấy phép:** trang Pexels và Pixabay trả **HTTP 403** với `curl` và chặn Chromium headless (Cloudflare "Just a moment..."); Wayback bị 429/ngắt. Nguyên văn lấy qua WebFetch (đi qua một mô hình nhỏ). Với Pixabay, 3 câu dài bị cắt bằng "…". Nội dung khớp bản P đọc 12/10 08:30–08:40 UTC. **Cần chủ dự án mở trang và đối chiếu bằng mắt** trước tập đầu tiên dùng Pexels/Pixabay.
+
+**Selftest LL: 249/249** (thêm 35 ca Q32, `do/selftest.txt`):
+
+| Mục | Đạt | Hỏng |
+|---|---|---|
+| tổng | tập giả 4 clip (LoC, Wikimedia CC BY-SA, Pexels, Pixabay) | — |
+| a | timecode nhiều dạng | thiếu dòng sổ; SHA lệch; không thấy file; timecode lệch; CC BY-NC; nguồn ngoài danh sách; Wikimedia không trỏ `File:`; giấy phép không hợp nguồn; ngày không ISO |
+| b | 2 shot kề = 6,93 s; clip 7,9 s (nêu sát ngưỡng) | 3 shot kề = 11,62 s; 86,2 % nguồn ngoài |
+| c | câu ghi công có trong mô tả | thiếu câu; ghi công trống; không có mô tả |
+| d | người trung tính; mặt đã làm mờ; Pixabay logo làm mờ | "went bankrupt"; Pixabay logo rõ; logo rõ cạnh lời thật "layoffs" (tập 7) |
+| e | repo chỉ có sổ; repo cine-lab hiện tại | clip trong `footage/`; clip đổi tên (bắt theo SHA); sổ chưa commit |
+| f | nhãn theo `p.setting`; cộng vào cảnh đinh trùng nơi; Q16/Q29 tương thích | thiếu `p.setting`; cùng một nơi phủ mọi plate → Q26b TRƯỢT |
+
+**cinecheck: 142/142** trên bản đã khoá 1.10.0 (E2E `run.py`: sạch ĐẠT exit 0, bẩn exit 1; `reports/checks-selftest/selftest.md`).
+
+**Chỉ số trong ±5 % quanh ngưỡng:** chưa có tập thật dùng footage. Ca selftest clip 7,9 s cố ý đặt sát ngưỡng 8 s, và bộ kiểm nêu tên đúng.
+
+**Bản khoá:** VERSION **1.10.0**, LOCK `TREE_SHA256 bb83cbfebeaaf60d8fea8e715108ac37b9c792493e215d0b29598f092bab70c8` (166 tệp). `lock.py --verify`: KHỚP. Đoạn băm độc lập (`python3 -I`, sắp theo phần đường dẫn) ra cùng số.
+
+**Việc đang chờ chủ dự án:** (1) duyệt 1.10.0; (2) quyết hai điểm 1–2 ở trên (archive trong trần 40 %, ảnh Q19 trong git); (3) đối chiếu bằng mắt trang giấy phép Pexels/Pixabay; (4) duyệt nguồn ngoài danh sách khi cần (K thêm vào `DUYET_THEM` rồi khoá lại).
+
+## 18. Bản 1.10.1 (12/10/2026): Q26b "the", Q33 lặp cảnh, Q34 loại shot — sau khi chủ dự án xem Steel
+**Đầu vào:** chủ dự án duyệt 1.10.0 (LOCK `bb83cbfe…`) và giao sửa luật kiểm cho các tập sau (bài học Steel: nhánh `k2g-ep01`, `channel-k2/TAP-K2G-01-G2.md` §5.3: cả 3 người chấm mù thấy "thẻ tối trên nền mờ" chiếm khoảng nửa phim; luật bối cảnh vẫn đạt vì tính theo cảnh nền).
+
+### 18.1 Đo Steel cần timeline, nhưng Steel không có tệp căn chữ trong git
+- `channel-k2/.gitignore` loại `*.json`, nên `.align.json` không có. Khoá ElevenLabs của proxy **không có quyền forced-alignment** (HTTP 401 `missing_permissions`). K không thu lại lời.
+- Cách làm (ngoài repo, `/var/tmp/k2rebuild/`):
+  1. ASR faster-whisper small.en lấy mốc từ trên đúng các tệp lời đã thu (82–96 % số từ khớp trực tiếp, phần còn lại nội suy).
+  2. Hiệu chỉnh từng đoạn bằng **446 dòng phụ đề của bản phát hành** (sinh từ căn chữ gốc ElevenLabs; chữ khớp 446/446).
+  3. Chạy `ll.prep` + `prep.py` của nhánh `k2g-ep01` (feb9941) ở worktree riêng, cấm mọi lời gọi ElevenLabs.
+- Kết quả: **24 723 khung = master** (`28e4d113…`, tải từ `release-k2g-ep01-v1`, SHA khớp). Phụ đề dựng lại lệch bản phát hành tối đa 1 ms. Mốc từ bên trong một dòng phụ đề vẫn là nội suy từ ASR (sai số cỡ 0,1 s); không ảnh hưởng Q26b và Q33, chỉ ảnh hưởng nhẹ Q34 ±6 s.
+- Fixture `checks/ll/fixtures/k2g01/` (488 KB, không có media): đặc tả bản phát hành, timeline dựng lại, căn chữ đã hiệu chỉnh, pHash của 50 lần xuất hiện.
+
+### 18.2 Q26b: thẻ là một bối cảnh "the"
+- Shot có `p.card` (kênh 2: thẻ trên nền cảnh mờ, nền mờ cả shot) và mẫu thẻ giấy LL (bars, line, compare, quote, bignum, text) tính là bối cảnh `the`, trần ≤ 25 % và ≤ 90 s liên tục như mọi bối cảnh.
+- **Hai lựa chọn của K, cần chủ dự án biết:**
+  1. `the` không được đếm vào điều kiện (c) "nửa sau ≥ 3 bối cảnh", vì thẻ không phải nơi chốn.
+  2. Với quãng liên tục của bối cảnh **khác**, shot `the` vẫn trung tính như luật 1.8.1 của chủ dự án. Nếu không làm vậy, thẻ chen giữa sẽ làm dứt quãng và nới luật: tập 7 văn phòng sẽ tụt 139,1 s → 117 s.
+- Tập 6 v2, tập 7: kết quả không đổi (the 0,6–5,7 %).
+
+### 18.3 Q33 lặp cảnh: pHash chỉ được cộng, không được trừ
+- Lần xuất hiện = chuỗi shot liền nhau hiện **rõ** cùng (scene_id, camera_id). Mặc định scene_id = bộ cảnh `heroes.<khoá>.hero`, camera_id = khoá `heroes`. Shot thẻ trên nền mờ không tính (đã thuộc `the`).
+- **Hiệu chuẩn pHash trên Steel (50 lần xuất hiện, 3 khung mỗi lần):**
+  - pHash toàn khung 64 bit **không tách được** "cùng góc" với "khác bộ cảnh". Ví dụ `c_own` 2:39.9 ↔ 15:06.7 và `t_both` 9:41.0 ↔ 15:25.0 mắt thấy là cùng góc (K xem khung), nhưng cách nhau 24 bit; cặp khác bộ cảnh cách nhau 10–40 bit.
+  - Youden J cho θ = 24, khi đó 27 % cặp khác bộ cảnh bị coi là giống: không dùng được.
+  - Thử cắt bỏ dải phụ đề và dùng lưới 16×16 (255 bit): không cải thiện.
+- **Quyết định:** số lần **khai** là sàn. pHash chỉ **cộng thêm** lần lặp không khai (cùng bộ cảnh, khai camera_id khác, hình gần). Nếu để pHash hạ số khai, Steel sẽ lọt `c_own` và `t_both`, trái nguyên tắc chất lượng.
+- θ tự hiệu chuẩn: lớn nhất mà cặp khác bộ cảnh ≤ θ không quá 1 % (đo được 0,29 %) và cặp cùng bộ cảnh khai khác góc không quá 2 % (đo được 1,3 %) → **θ = 14**. Kiểm bằng mắt: θ = 16 nối nhầm `v_rail`↔`v_coke` và `v_bf`↔`v_night` (thung lũng tối, góc khác); θ = 14 chỉ nối `c_draw`↔`c_own`, đúng là cùng góc bản đồ.
+- Q33 áp LL từ tập 9 (`qc.py`, cần master) và kênh 2 từ K2 tập 2 (`checks/ll/q_scene.py <episode.yaml> --video <master>`).
+
+### 18.4 Q34 loại shot (kênh 2)
+- Mỗi shot khai `type` ∈ {scene3d, map, chart3d, photo, document, footage, card}. Đặc tả khai thêm `places:`, `people:` (`photo:` = rid RIGHTS.md hoặc clip_id sổ footage, hoặc `ly_do`), `anchors:`.
+- Luật a–d đúng yêu cầu. Q34d: photo/document/footage khai trong đặc tả được cộng vào trần 40 % của Q32 (`q_footage.py`). Document phải ≤ 3 s và có `p.paper` + `p.date`.
+- Chạy: `checks/ll/q_types.py channel-k2/<tập>/episode.yaml`.
+
+### 18.5 Số đo Steel (hồi tố, không chặn)
+| Luật | Kết quả | Số đo |
+|---|---|---|
+| Q26b | **TRƯỢT** | `the` **45,0 %** thời lượng (> 25 %); `the` liên tục dài nhất 60,2 s (7:13–8:13, ≤ 90 s); 9 bối cảnh, nửa sau 7. Cách đếm 1.10.0 cho ĐẠT (valley 20,8 %) — đúng lỗi chủ dự án chỉ ra |
+| Q33 | **TRƯỢT** | 4 góc > 2 lần: `p_eu` 5 lần (0:37, 9:26, 12:12, 13:24, 15:47); `c_own` 3 khai + 1 lặp không khai (`c_draw` 1:47.9) = 4; `c_draw` 1 + 2 = 3; `t_both` 3 (9:41, 15:25, 16:20). 9 góc đúng 2 lần (bằng ngưỡng): i_hook, m_eaf, m_hot, m_stack, m_uss, p_day, t_08, v_coke, v_night |
+| Q34 | **TRƯỢT** | Nghiêm: 90/90 shot chưa khai `type` (Steel làm trước luật). Suy loại (p.card → card, còn lại scene3d): card 45,0 % thời lượng; số neo (31 số có hiện) bằng 3D **13/31 = 42 %** (< 60 %), chỉ bằng thẻ **18/31 = 58 %** (> 40 %). (a), (b): Steel không khai `places`/`people`, nên chưa đo được; Steel không có shot ảnh nhân vật nào, còn bản đồ là cảnh 3D (chain, trade) chưa khai `map` |
+
+**Chỉ số trong ±5 % quanh ngưỡng:** Q33 có 9 góc đúng 2 lần (liệt kê ở trên). Q26b Steel không có số nào sát ngưỡng.
+
+**Selftest LL: 299/299** (thêm 50 ca: Q26b 10, gồm 2 trên Steel; Q33 16, gồm 11 trên video 1080p tổng hợp bằng ffmpeg và 5 trên Steel; Q34 23, gồm 2 trên Steel; 1 ca kiểm timeline Steel = master. Một ca nhãn Q26b cũ đổi kỳ vọng: thẻ trích dẫn từ trung tính thành `the`).
+
+**cinecheck: 142/142** trên bản khoá (E2E sạch ĐẠT exit 0, bẩn exit 1).
+
+**Bản khoá:** VERSION **1.10.1**, LOCK `TREE_SHA256 1a126d58bbe25b54a478e436d8d687a472c486faad733fe2d417905e3b848464` (183 tệp). `lock.py --verify`: KHỚP.
+
+**Việc đang chờ chủ dự án:**
+1. Xem các lựa chọn của K ở 18.2 (`the` không đếm vào (c), không làm dứt quãng của bối cảnh khác) và 18.3 (pHash chỉ cộng, θ = 14).
+2. Từ K2 tập 2, P khai `type`, `places`, `people`, `anchors` trong đặc tả. Ở LL từ tập 9, Q33 có hiệu lực.
+3. Nên bỏ `*.json` khỏi `channel-k2/.gitignore` cho `vo/*.align.json`, để lần đo sau không phải dựng lại căn chữ.
