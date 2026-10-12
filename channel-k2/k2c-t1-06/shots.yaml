@@ -44,8 +44,8 @@ places:   # mọi địa danh nhắc trong lời → shot map (shot id)
   - {name: "Oregon", seg: "10", shot: m_oregon}
   - {name: "Texas", seg: "10", shot: m_texas}
 people:   # nhân vật nhắc trong lời → shot photo nếu có ảnh hợp lệ
-  - {name: "Herbert Hoover (Secretary of Commerce, 1921)", seg: "02", shot: p_hoover, photo: K2-P1, note: "RIGHTS.md K2-P1; SOURCES-FOOTAGE WM-HOOVER-1928; Harris & Ewing 1928, LoC LCCN 2016888786; Commons: Public domain, 'No known restrictions on publication'; ảnh tải từ tile.loc.gov (SOURCES-FOOTAGE.csv)"}
-  - {name: "Justice George Sutherland", seg: "02", shot: p_sutherland, photo: K2-P2, note: "RIGHTS.md K2-P2; SOURCES-FOOTAGE WM-SUTHERLAND-1937; Harris & Ewing 11/10/1937, LoC LCCN 2016877918; Commons: Public domain; tải từ tile.loc.gov (SOURCES-FOOTAGE.csv)"}
+  - {name: "Herbert Hoover (Secretary of Commerce, 1921)", seg: "02", shot: p_hoover, photo: WM-HOOVER-1928, note: "RIGHTS.md bảng tư liệu WM-HOOVER-1928 (= K2-P1); SOURCES-FOOTAGE WM-HOOVER-1928; Harris & Ewing 1928, LoC LCCN 2016888786; Commons: Public domain, 'No known restrictions on publication'; ảnh tải từ tile.loc.gov (SOURCES-FOOTAGE.csv)"}
+  - {name: "Justice George Sutherland", seg: "02", shot: p_sutherland, photo: WM-SUTHERLAND-1937, note: "RIGHTS.md bảng tư liệu WM-SUTHERLAND-1937 (= K2-P2); SOURCES-FOOTAGE WM-SUTHERLAND-1937; Harris & Ewing 11/10/1937, LoC LCCN 2016877918; Commons: Public domain; tải từ tile.loc.gov (SOURCES-FOOTAGE.csv)"}
   - {name: "Yonah Freemark", seg: "09", shot: c_freemark, ly_do: "Người còn sống, không có ảnh có giấy phép đã kiểm; chỉ hiện tên + tên nghiên cứu (LUAT-NOI-DUNG-G §6)"}
 
 segments:
