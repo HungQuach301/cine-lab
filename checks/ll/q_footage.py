@@ -16,7 +16,7 @@ TRƯỢT khi:
   (a) đoạn footage không có dòng sổ; sổ sai định dạng (cột, URL, ngày ISO 8601 UTC, SHA 64 hex, giấy phép ngoài danh sách hoặc có NC/ND,
       nguồn ngoài danh sách cho phép, giấy phép không hợp nguồn, Wikimedia không trỏ trang File:); SHA-256 file đã dùng ≠ sổ hoặc không thấy
       file; timecode_dung (phim chính) không khớp các đoạn dùng trong EDL (hai chiều, dung sai 0,05 s)
-  (b) footage + ảnh tư liệu (`archive`) > 40 % thời lượng tập (từng Short tính riêng); một clip hiện liên tục > 8 s (shot cùng clip kề nhau gộp lại)
+  (b) footage + ảnh tư liệu (`archive`) + (1.10.1, Q34d) shot khai type photo/document/footage > 40 % thời lượng tập (từng Short tính riêng); một clip hiện liên tục > 8 s (shot cùng clip kề nhau gộp lại)
   (c) giấy phép CC BY / CC BY-SA mà yeu_cau_ghi_cong trống hoặc câu ghi công không có nguyên văn trong mô tả (bỏ khác biệt khoảng trắng, hoa/thường)
   (d) logo rõ nét (logo=co, không ghi làm mờ/cắt) hoặc người nhận diện được (nguoi_nhan_dien=co, không ghi làm mờ/cắt) trong ngữ cảnh tiêu cực:
       lời đọc trong [đầu clip − 1 s, cuối clip + 1 s] hoặc chú thích của shot có từ thuộc danh sách NEG; Pixabay có logo rõ nét: luôn TRƯỢT
@@ -236,10 +236,13 @@ def q32(E, TL, ep_dir, desc=None, repo=None, scan=True):
         segs = TL['segments'] if v == 'main' else [s for s in TL['shorts'] if s['id'] == v]
         arch = sum(sh['t1'] - sh['t0'] for s in segs for sh in s['shots'] if sh.get('tpl') == 'archive' and not (sh.get('p') or {}).get('clip'))
         ft = sum(b - a for vv, a, b, *_ in U if vv == v)
+        if v == 'main':                                  # 1.10.1 (Q34d): shot khai type photo/document/footage trong đặc tả cộng vào trần
+            from checks.ll import q_types
+            arch += q_types.ext_seconds(E, TL)
         if not T or not (ft + arch): continue
         sh_ = 100 * (ft + arch) / T; shares[v] = (sh_, ft, arch)
         nm = 'phim' if v == 'main' else f'Short {v}'
-        if sh_ > MAX_SHARE: P['b'].append(f'{nm}: footage {ft:.1f} s + tư liệu {arch:.1f} s = {sh_:.1f} % > {MAX_SHARE:g} %')
+        if sh_ > MAX_SHARE: P['b'].append(f'{nm}: footage {ft:.1f} s + tư liệu/ảnh/báo {arch:.1f} s = {sh_:.1f} % > {MAX_SHARE:g} %')
         elif abs(sh_ - MAX_SHARE) <= 0.05 * MAX_SHARE: near.append(f'{nm}: nguồn ngoài {sh_:.1f} % (ngưỡng {MAX_SHARE:g} %)')
     for v, c, a, b in RN:
         d = b - a; nm = '' if v == 'main' else f'Short {v} '
@@ -283,8 +286,8 @@ def q32(E, TL, ep_dir, desc=None, repo=None, scan=True):
             P['f'].append(f'{v if v != "main" else sid} @{mmss(a)} clip {(sh.get("p") or {}).get("clip")}: không khai p.setting (bối cảnh theo nội dung hình, Q26b)')
     loi = [f'({k}) {x}' for k in 'abcdef' for x in P[k]]
     m = shares.get('main', (0.0, 0.0, 0.0)); lmax = max([b - a for v, c, a, b in RN] or [0.0])
-    val = (f'{len(U)} đoạn footage · {len(used)} clip · sổ {len(R)} dòng · nguồn ngoài phim {m[0]:.1f} % (footage {m[1]:.1f} s + tư liệu {m[2]:.1f} s)'
-           f' · clip dài nhất {lmax:.2f} s' if U or R else 'không dùng footage ngoài' + (' · sổ sai định dạng' if fmt else ''))
+    val = (f'{len(U)} đoạn footage · {len(used)} clip · sổ {len(R)} dòng · nguồn ngoài phim {m[0]:.1f} % (footage {m[1]:.1f} s + tư liệu/ảnh/báo {m[2]:.1f} s)'
+           f' · clip dài nhất {lmax:.2f} s' if U or R or shares.get('main') else 'không dùng footage ngoài' + (' · sổ sai định dạng' if fmt else ''))
     return dict(ok=not loi, loi=loi, muc=P, sat_nguong=near, note='; '.join(loi[:6]), val=val, so=so_path if os.path.exists(so_path) else None)
 
 

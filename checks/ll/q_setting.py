@@ -13,8 +13,12 @@ Nhãn bối cảnh (từ timeline, mỗi shot):
   cảnh 2D toàn khung (street, office, rows, teller, desk, sign, stack, inspect, jobboard, pasteup, filmstrip) → "2d/<mẫu>"
   footage    → (1.10.0, Q32f) `p.setting` theo nội dung hình: khoá/tên cảnh đinh nếu cùng nơi với cảnh 3D, không thì nhãn tự do;
                không khai → gộp chung "ft/(chưa khai)" (Q32f TRƯỢT)
+  thẻ/đồ hoạ phẳng → (1.10.1) MỘT bối cảnh riêng "the": shot có `p.card` (kênh 2: thẻ trên nền cảnh mờ, cả shot) hoặc mẫu thẻ giấy LL
+               (bars, line, compare, quote, bignum, text). Trần (a) 25 %, (b) 90 s liên tục như mọi bối cảnh; KHÔNG tính vào (c)
+               (chủ dự án 12/10/2026: Steel — người xem thấy "thẻ" là một bối cảnh; luật cũ tính theo cảnh nền nên đạt sai)
   còn lại (thẻ số, chữ, trích dẫn, isotype, bản đồ, ảnh tư liệu archive, thẻ kết) → TRUNG TÍNH: không là bối cảnh
-Ba điều kiện chặn (chủ dự án, 09/10/2026):
+Ba điều kiện chặn (chủ dự án, 09/10/2026; 1.10.1: "the" có trần (a), (b) riêng; với quãng (b) của bối cảnh khác, shot "the" vẫn
+là trung tính như 1.8.1 — không làm dứt và không tính — để luật liên tục không bị nới):
   (a) một bối cảnh chiếm > 25 % thời lượng phim (tong_s);
   (b) một bối cảnh hiện LIÊN TỤC > 90 s. Quãng của X bắt đầu ở shot X đầu tiên (diptych có một nửa là X tính là có X). Shot trung
       tính KHÔNG làm dứt quãng. Quãng chỉ dứt khi các shot có bối cảnh khác X cộng dồn ≥ 8 s tính từ lần X xuất hiện gần nhất; X
@@ -31,6 +35,8 @@ MAX_SHARE = 25.0      # % thời lượng phim
 MAX_RUN = 90.0        # s liên tục
 MIN_HALF = 3          # bối cảnh trong nửa sau
 HALF_MIN_S = 3.0      # s tối thiểu để một bối cảnh được đếm trong nửa sau
+CARD_TPL = ('bars', 'line', 'compare', 'quote', 'bignum', 'text')   # LL: mẫu thẻ giấy (kind 'card' trong scripts/ll/lib/charts.js)
+THE = 'the'          # 1.10.1 (chủ dự án 12/10/2026, bài học Steel G2 §5.3): bối cảnh "thẻ"
 OTHER_BREAK = 8.0     # s bối cảnh khác X cộng dồn (từ lần X gần nhất) làm dứt quãng của X
 
 
@@ -38,6 +44,7 @@ def label(sh, heroes):
     """→ {bối cảnh: trọng số} của một shot ({} = trung tính)"""
     p = sh.get('p') or {}; t = sh['tpl']
     hn = lambda k: (heroes.get(k) or {}).get('hero') or k
+    if p.get('card') or t in CARD_TPL: return {THE: 1.0}   # 1.10.1: thẻ/đồ hoạ phẳng (K2 p.card trên nền mờ; LL thẻ giấy) = MỘT bối cảnh "the"
     if t == 'footage' or p.get('clip'):                 # 1.10.0 (Q32f): footage nguồn ngoài là bối cảnh theo NỘI DUNG HÌNH (`p.setting`)
         return {hn(str(p['setting']).strip()) if str(p.get('setting') or '').strip() else 'ft/(chưa khai)': 1.0}
     if t == 'plate' and p.get('hero'): return {hn(p['hero']): 1.0}
@@ -69,7 +76,7 @@ def runs(S, x):
             if cur is None: cur = dict(s=a, n=0.0, pend=0.0, other=0.0)
             cur['n'] += cur['pend']; cur['pend'] = cur['other'] = 0.0; cur['e'] = b
         elif cur is None: continue
-        elif not L: cur['pend'] += d                       # trung tính: không dứt, không tính (chỉ trừ khi nằm giữa hai shot X)
+        elif not L or (x != THE and set(L) == {THE}): cur['pend'] += d   # trung tính (và, 1.10.1, thẻ "the" với quãng của bối cảnh KHÁC): không dứt, không tính
         else:
             cur['other'] += d
             if cur['other'] >= OTHER_BREAK: R.append(cur); cur = None
@@ -89,7 +96,7 @@ def q26b(TL):
             if b > half: sec[x] = sec.get(x, 0) + w * (b - max(a, half))
     share = {x: 100 * v / T for x, v in tot.items()}
     longest = {x: max(runs(S, x)) for x in tot}
-    half_set = sorted(x for x, v in sec.items() if v >= HALF_MIN_S)
+    half_set = sorted(x for x, v in sec.items() if v >= HALF_MIN_S and x != THE)   # 1.10.1: "the" có trần (a), (b) như mọi bối cảnh nhưng KHÔNG được đếm vào (c)
     bad, near = [], []
     for x, v in sorted(share.items(), key=lambda z: -z[1]):
         if v > MAX_SHARE: bad.append(f'{x} chiếm {v:.1f} % thời lượng (> {MAX_SHARE:g} %)')

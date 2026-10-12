@@ -1,9 +1,9 @@
 # CINE LAB — khoá luật kiểm (chỉ phiên K sửa)
-VERSION: 1.10.0
-DATE_UTC: 2026-10-12T09:38:54Z
+VERSION: 1.10.1
+DATE_UTC: 2026-10-12T14:43:50Z
 ALGO: sha256 của chuỗi các dòng '<sha256 file>  <đường dẫn tương đối>\n', sắp theo đường dẫn,
       mọi file trong checks/ trừ LOCK, __pycache__/ và *.pyc
-TREE_SHA256: bb83cbfebeaaf60d8fea8e715108ac37b9c792493e215d0b29598f092bab70c8
+TREE_SHA256: 1a126d58bbe25b54a478e436d8d687a472c486faad733fe2d417905e3b848464
 
 # FILES
 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
@@ -11,7 +11,7 @@ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  .gitkeep
 a17ff4e8622a98d672dbfa53b05cc0847e5b42766e5760d46bd043ff5151b099  RULES.md
 4436b010370cb0e164e966b5fc6e97f33f3215768466a001e6f5fed1537ed160  RUN.md
 870f22f8db06167ab6be5778114479a201a668e3f050e662a7082ce3a5409757  audit.py
-264a4bfb2183a93fbb8bee9c346422b3d2da84fd86ea957847e98dbbbc0a0a8f  cinecheck/__init__.py
+00f6d3579940cf03256c6d59e86341d5ca7bce847270acd4587717150b1f26f5  cinecheck/__init__.py
 308d167d592bbbeb5c8a273b8ca2c3ca53da7ab9432e28a720e11960a5b7c083  cinecheck/audit.py
 dc4a4dc84800c162705b500f0647f3236c6a48506da93639bec126a4742daf9e  cinecheck/common.py
 2478170c8bbcaeca61a57b44a865b1ee498f0ca8ff7ddd5d91aa1de4087f5ee1  cinecheck/lockhash.py
@@ -30,8 +30,8 @@ c6f70612d2db77c4d4d3a23766e9990e4253ba567771748c280fa34b0e206f3f  cinecheck/rule
 c5169d960e2bfe635f6cb84672b578ac152dfc710a6a4352dbf16b1082c35ccc  cinecheck/rules_file.py
 654e363a42b526ceaf83f1eaa486b6ef6356202c12ce355f0122a160fd1a714b  cinecheck/rules_text.py
 3b73393332dfa86c1ae86f28621c1fdfe219f50408f247201ddbde6970f79e33  cinecheck/textdet.py
-7ed3ff6868758f79ea5327473c00fb6a894c6288375efcdf727759bcd32f61bf  ll/FOOTAGE.md
-5a6aa39d05e97ad93177a541866575f01245b167e6df6e2b8eeb9fa384cf7f7f  ll/RULES-LL.md
+4dbb1ec3c9430b27e19843dcadada1e1ca63c36e1676f8b14e4b37dc6e14741d  ll/FOOTAGE.md
+8b9fe4637cf34f64a513246ad90adc20573fa35560493d17cc1cf4fca2ffabcc  ll/RULES-LL.md
 45683ff1b1cd2d09f321e96602f699de76505d48a583da891edf6a585f3a5d95  ll/__init__.py
 015be4c3cbff215f1080403577100b6bfd89cd7f0d5796f99096f77cc8299bd9  ll/base.py
 166eecef38b1351a4edf9da421f6ce351eeec85a6ed1b2f9c05f21cbe9169616  ll/blind/Q27-R1.txt
@@ -139,18 +139,37 @@ a5698159ac1581ecb51b06a06a104e48cea2f2ef1367026b7f418c541f160290  ll/fixtures/ep
 66297710dc79dfeaee2ce34aa3d754ed4672905f60cbe10cbda83e4da2c1b5fa  ll/fixtures/ep08/q27-api-k190-lan2.json
 d7aac4ebe3257cea6f66c60853f3f961f76d96936a55db9849f73efdbc895a25  ll/fixtures/ep08/q27-chinh-thuc.json
 aaf2b53697b98cc8f76218800546f7161886e5c4ee4474e476a4980eaeca4348  ll/fixtures/judge/fake_claude.py
+2eaf97fb606aff6a56d639d39149050332d0cacc7280261e67a1660f7c76461a  ll/fixtures/k2g01/episode.yaml
+daacac7a5082f5fa8dda8daef2c7dd593af1e179f7e750bf2af48ccc04e07445  ll/fixtures/k2g01/q33-steel.json
+c599dd52b40667c1048c4739ce6b15ce78dd97bc3b2d1fc7722c11a7bcaede6f  ll/fixtures/k2g01/timeline-rebuilt.json.gz
+e383342f07aa024cee6570dfc3866ac87078c5a4d53d5116f6b226379a0e55e2  ll/fixtures/k2g01/vo/k2g-ep01-00.align.json
+cb8dec1ee1410424873764da3567b44df33f7539ac52a121b53303fd203be17f  ll/fixtures/k2g01/vo/k2g-ep01-01.align.json
+891a0ae785329cf53e080bba43784b77e290a2a9b4c5a377e0853cf82115c787  ll/fixtures/k2g01/vo/k2g-ep01-02.align.json
+81136ddb7209f4d998dd9ea6e93b1a08961acbd981a88e65d3a8fbcd2a3a6672  ll/fixtures/k2g01/vo/k2g-ep01-03.align.json
+aaef77c7700fefa122bb0680f87f608d85c4121345dc6a8ade721b38e2693b65  ll/fixtures/k2g01/vo/k2g-ep01-04.align.json
+7edf608904817e03e2b967ac07a5beddca06dee2561b0603f35765ad7f82f88b  ll/fixtures/k2g01/vo/k2g-ep01-05.align.json
+ce9ab02029b7f63871b4f865ec078007de322c7253c3b5bdbafbf1aac0ecb209  ll/fixtures/k2g01/vo/k2g-ep01-06.align.json
+e624af4927d22e5f19d432aeb0e6b73a11a33886a01203c2181206b11655f1b2  ll/fixtures/k2g01/vo/k2g-ep01-07.align.json
+b851bd4bd1ae18724f2f4bc48213a4a676b3bf7f6cc72e0f56c37942abeda189  ll/fixtures/k2g01/vo/k2g-ep01-08.align.json
+c05ddce551ace2d6cd64f4e96ac82dd0030f4636650d07227b6f115595c37a16  ll/fixtures/k2g01/vo/k2g-ep01-09.align.json
+0e93fc725b7bd161cf9e9272ceb8275b3ea7241deed6b7a808af05c9347a9a34  ll/fixtures/k2g01/vo/k2g-ep01-10.align.json
+7e0f03b45ef2dcd88b80a2814787f8be68dd39941dc0a644a30abce509f9de68  ll/fixtures/k2g01/vo/k2g-ep01-11.align.json
+caaf9218f1659dfa813d57635a2c152e23812c4f7771ecba70eb06e130791e01  ll/fixtures/k2g01/vo/k2g-ep01-12.align.json
+3b13ebb9aaf752c1774dc5ee3e36d35cf679b7ef433ed84cc8aae45ec2db0ccf  ll/fixtures/k2g01/vo/k2g-ep01-13.align.json
 713be7bb039b1242e753e65e10a5e1d68a686b51939ffe6353150509a2d9fc08  ll/judge.py
 4b862ebf07ea3c831036051980e383cf967dde92f4e3030b8fce826142cdc866  ll/llcheck.py
 4d77161507cc440024b8775c02fef6659ba778b07ba272a6b119cf8027464f71  ll/q_av.py
 f426be0d2951e999e2dc495690da8499548e2995d22726239d3ae13bad8c716b  ll/q_blind.py
 32ec3f69349443fa778ae838d7458fe7d8e94663fcdf3358cb3fe96197a9765e  ll/q_diversity.py
-a84b3e332e218b250cbe846486a55ee27e78d799d97d3ced748b52e25ef611a8  ll/q_footage.py
+819255da06cd9b9969ff50e5ca534cd6985f735070525d76f36ea4b5b2235298  ll/q_footage.py
 a26a4de23f8491afeb7af2111ca56138eb0b864a94a073918200e8755e9a1bc1  ll/q_overflow.py
 bc2cbe7d9b10a1ca17a877f52b7202848f00e4f9c7656b322ff7d6bf7ec05b30  ll/q_rhythm.py
 b8a8832af2ca1cc32996e98fab378c5f2979277042ed7d30f4ba5899e1684e70  ll/q_rights.py
-71abd879ef321df73bf506ac9d4c0501bfcea170a19e33feb0617d369dc8d4ec  ll/q_setting.py
+cdcc21e90ba16678860749fd8906ce6db8b7ff62df8bd0f2c964ff53adea08ba  ll/q_scene.py
+25fa5e76ec3febca422eabb0324b4b4f0dd3c7c19ede5b759d6d0119fc0f39fb  ll/q_setting.py
 84629da24a8ef049a3a2f79bb0fcd50a572fa9f973f8bfd4decc06c8286a77ed  ll/q_src.py
-102bf709be3f10f5ca48fa19b181c5559f357cd7d8a57ab48af14d7217a9408d  ll/selftest_ll.py
+e326286e7050381702693e30bb05e15ee78510d2ef4d317937c879c9eb7533bc  ll/q_types.py
+86ce9f2d28cabf78e5af71cf8621069e3c37eb57b6cf8cc422e905aab5a5abf8  ll/selftest_ll.py
 9bee416f5aa46de7c2b19751128a296cdf02f234298115ecfe62be8daa6fc028  lock.py
 f8b27e7109a37a8e2f61d45fa9d2a03d5e0b306ffa7e2b6701ea51cd27b4f3d0  models/README.md
 d2a7720d45a54257208b1e13e36a8479894cb74155a5efe29462512d42f49da9  models/ch_PP-OCRv4_det_infer.onnx

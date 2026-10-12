@@ -47,7 +47,7 @@ clip_id,url_trang,url_tai,ngay_tai_utc,giay_phep,yeu_cau_ghi_cong,sha256,timecod
 | Mục | TRƯỢT khi |
 |---|---|
 | a | Đoạn footage không có dòng sổ; sổ sai định dạng (cột, URL, ngày, SHA, giấy phép ngoài danh sách/NC/ND, nguồn ngoài danh sách, giấy phép không hợp nguồn, Wikimedia không trỏ trang `File:`); **SHA-256 file đã dùng ≠ sổ** hoặc không thấy file; `timecode_dung` không khớp đoạn dùng trong EDL phim chính (hai chiều, dung sai 0,05 s) |
-| b | Footage + ảnh tư liệu (`archive`) **> 40 %** thời lượng tập (mỗi Short tính riêng); một clip hiện **liên tục > 8 s** (shot cùng clip cách nhau ≤ 1 khung gộp thành một lần) |
+| b | Footage + ảnh tư liệu (`archive`) + (1.10.1, Q34d) shot khai `type` photo/document/footage **> 40 %** thời lượng tập (mỗi Short tính riêng); một clip hiện **liên tục > 8 s** (shot cùng clip cách nhau ≤ 1 khung gộp thành một lần) |
 | c | Giấy phép CC BY / CC BY-SA mà `yeu_cau_ghi_cong` trống, hoặc câu đó không có nguyên văn trong mô tả YouTube (`<thư mục tập>/phat-hanh/*description*.txt`; bỏ khác biệt khoảng trắng, hoa/thường) |
 | d | Người nhận diện được (`nguoi_nhan_dien=co`, không ghi làm mờ/cắt) hoặc logo rõ nét (`logo=co`, không ghi làm mờ/cắt) trong **ngữ cảnh tiêu cực**: lời đọc trong [đầu clip − 1 s, cuối clip + 1 s] hoặc chú thích của shot có từ thuộc danh sách tiêu cực (crime, fraud, bankrupt, addiction, scandal, failed/failure, layoffs, death, homeless, poverty, greed…). **Pixabay có logo rõ nét: luôn TRƯỢT** (giấy phép cấm dùng thương mại) |
 | e | Cây git (mọi tệp đang theo dõi) có tệp media nằm trong thư mục có chữ `footage`, hoặc có tệp trùng SHA-256 với một dòng của **bất kỳ** sổ `SOURCES-FOOTAGE.csv` nào (bắt cả khi đổi tên/đuôi). Repo public: chỉ commit sổ CSV, không commit file |
