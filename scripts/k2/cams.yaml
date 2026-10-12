@@ -2450,3 +2450,147 @@ k2g01/north:
       l: *id014
       mm: 32
     src: 'biến thể xa (phiên V): reverse quanh điểm nhìn của default — rà tờ khung'
+
+# K2C-T1-06 (phiên P, G1b 13/10/2026): bộ cảnh design/ll-hero/k2c106.js — preset nằm trong module (CAM[cảnh], opt.preset); camera_id = tên preset; rà tờ khung channel-k2/k2c-t1-06/g1b/cams/<cảnh>.jpg.
+k2c106/corner:
+  wide_dusk:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.wide_dusk)
+  push_facade:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.push_facade)
+  section:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.section)
+  stair_section:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.stair_section)
+  shop_section:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.shop_section)
+  day_town_center:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.day_town_center)
+  blue_hour_end:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.blue_hour_end)
+  section_end:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.section_end)
+  crane_up:
+    module: true
+    note: preset trong k2c106.js (CAM.corner.crane_up)
+k2c106/street:
+  dolly_day:
+    module: true
+    note: preset trong k2c106.js (CAM.street.dolly_day)
+  tall_walkups:
+    module: true
+    note: preset trong k2c106.js (CAM.street.tall_walkups)
+  dusk_new:
+    module: true
+    note: preset trong k2c106.js (CAM.street.dusk_new)
+  high_block:
+    module: true
+    note: preset trong k2c106.js (CAM.street.high_block)
+  low_curb:
+    module: true
+    note: preset trong k2c106.js (CAM.street.low_curb)
+  tele_fronts:
+    module: true
+    note: preset trong k2c106.js (CAM.street.tele_fronts)
+k2c106/tiers:
+  top:
+    module: true
+    note: preset trong k2c106.js (CAM.tiers.top)
+  oblique_tiers:
+    module: true
+    note: preset trong k2c106.js (CAM.tiers.oblique_tiers)
+  shadow_low:
+    module: true
+    note: preset trong k2c106.js (CAM.tiers.shadow_low)
+  orbit_r:
+    module: true
+    note: preset trong k2c106.js (CAM.tiers.orbit_r)
+  close_u3:
+    module: true
+    note: preset trong k2c106.js (CAM.tiers.close_u3)
+  front_low:
+    module: true
+    note: preset trong k2c106.js (CAM.tiers.front_low)
+k2c106/lot:
+  plan:
+    module: true
+    note: preset trong k2c106.js (CAM.lot.plan)
+  pencil:
+    module: true
+    note: preset trong k2c106.js (CAM.lot.pencil)
+  top:
+    module: true
+    note: preset trong k2c106.js (CAM.lot.top)
+  street_level:
+    module: true
+    note: preset trong k2c106.js (CAM.lot.street_level)
+  orbit:
+    module: true
+    note: preset trong k2c106.js (CAM.lot.orbit)
+  rear:
+    module: true
+    note: preset trong k2c106.js (CAM.lot.rear)
+k2c106/stairs:
+  elev_stack:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.elev_stack)
+  model_code:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.model_code)
+  plan_compare:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.plan_compare)
+  floor_plate:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.floor_plate)
+  pressurized:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.pressurized)
+  fire_logic:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.fire_logic)
+k2c106/bank:
+  side:
+    module: true
+    note: preset trong k2c106.js (CAM.bank.side)
+  line_four:
+    module: true
+    note: preset trong k2c106.js (CAM.bank.line_four)
+  counter:
+    module: true
+    note: preset trong k2c106.js (CAM.bank.counter)
+  fifth_block:
+    module: true
+    note: preset trong k2c106.js (CAM.bank.fifth_block)
+  mixed_reject:
+    module: true
+    note: preset trong k2c106.js (CAM.bank.mixed_reject)
+  line_still:
+    module: true
+    note: preset trong k2c106.js (CAM.bank.line_still)
+k2c106/ends:
+  wide_1972:
+    module: true
+    note: preset trong k2c106.js (CAM.ends.wide_1972)
+  wide_2025:
+    module: true
+    note: preset trong k2c106.js (CAM.ends.wide_2025)
+  low_middle:
+    module: true
+    note: preset trong k2c106.js (CAM.ends.low_middle)
+  top:
+    module: true
+    note: preset trong k2c106.js (CAM.ends.top)
+  orbit_l:
+    module: true
+    note: preset trong k2c106.js (CAM.ends.orbit_l)
+  close_big:
+    module: true
+    note: preset trong k2c106.js (CAM.ends.close_big)

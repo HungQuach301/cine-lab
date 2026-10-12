@@ -43,6 +43,28 @@ ASSETS = {
         source='GovInfo (U.S. Government Publishing Office), https://www.govinfo.gov/content/pkg/FR-2026-06-04/pdf/2026-11314.pdf',
         license='Tác phẩm của Chính phủ Hoa Kỳ, không có bản quyền (17 U.S.C. §105)',
         credit='Federal Register / GovInfo', kind='văn bản', commit=False),
+    # K2C-T1-06 (phiên P, G1b 13/10/2026): chân dung Hoover, ảnh Detroit Publishing đã kiểm Rights Advisory, trang U.S. Reports của Euclid
+    'loc-hoover-1928': dict(
+        url='https://tile.loc.gov/storage-services/master/pnp/hec/34800/34871u.tif',
+        file='photo/loc-hec-34871u.tif', sha256='',
+        title='Secretary of Commerce Herbert Hoover, Washington, 1928 (Harris & Ewing)',
+        source='Library of Congress Prints & Photographs, Harris & Ewing collection, LCCN 2016888786 (qua Wikimedia Commons, kiểm từng tệp 12/10/2026)',
+        license='Tài sản công (Harris & Ewing, LoC: "No known restrictions on publication"; Commons: Public domain) — RIGHTS.md bảng tư liệu WM-HOOVER-1928',
+        credit='Harris & Ewing, Library of Congress', kind='ảnh tư liệu', commit=False),
+    'loc-det-07': dict(
+        url='https://tile.loc.gov/storage-services/service/pnp/det/4a10000/4a17000/4a17800/4a17898v.jpg',
+        file='photo/loc-det-4a17898v.jpg', sha256='',
+        title='Woodward Avenue, Detroit, between 1900 and 1910 (Detroit Publishing Co.)',
+        source='Library of Congress, Detroit Publishing Co. collection, https://www.loc.gov/pictures/collection/det/item/2016809637/',
+        license='Rights Advisory (JSON loc.gov 13/10/2026): "No known restrictions on publication." — RIGHTS.md bảng tư liệu LOC-DET-07',
+        credit='Detroit Publishing Co., Library of Congress', kind='ảnh tư liệu', commit=False),
+    'usrep-272-365': dict(
+        url='https://tile.loc.gov/storage-services/service/ll/usrep/usrep272/usrep272365/usrep272365.pdf',
+        file='doc/usrep272365.pdf', sha256='',
+        title='Village of Euclid v. Ambler Realty Co., 272 U.S. 365 (1926), U.S. Reports',
+        source='Library of Congress, U.S. Reports collection, https://www.loc.gov/item/usrep272365/',
+        license='Phán quyết Toà án Tối cao, tác phẩm Chính phủ Hoa Kỳ (17 U.S.C. §105)',
+        credit='U.S. Reports, Library of Congress', kind='văn bản', commit=False),
 }
 PIN = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'k2v-assets.sha.json')   # SHA ghim (commit), tài sản ở cache
 

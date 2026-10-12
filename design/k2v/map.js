@@ -159,7 +159,7 @@ export const HEROES = {
     place(0);
     return { scene, cam, grade: o.grade || 'info', exposure: o.exposure || 1.3, anchors,
       update(t) { place(t);
-        for (const p of pins) { const u = win(p.at, t); p.dot.material.opacity = u; p.core.visible = u > 0.02; p.dot.scale.setScalar(0.16 * (0.8 + 0.2 * Math.sin(t * 3)) * Math.max(0.6, cam.position.distanceTo(p.core.position) / 6)); p.core.scale.setScalar(Math.max(0.6, cam.position.distanceTo(p.core.position) / 6)); }
+        for (const p of pins) { const u = win(p.at, t); p.dot.material.opacity = u; p.core.visible = u > 0.02; p.dot.scale.setScalar(0.16 * (0.8 + 0.2 * Math.sin(t * 3)) * Math.max(o.pinMin ?? 0.6, cam.position.distanceTo(p.core.position) / 6)); p.core.scale.setScalar(Math.max(o.pinMin ?? 0.6, cam.position.distanceTo(p.core.position) / 6)); }   // pinMin: ghim nhỏ hơn khi bay xuống tầm thành phố (K2C-T1-06)
         for (const [m, at] of walls) m.material.uniforms.k.value = win(at, t, 1.0);
         for (const c of cols) { const u = eo(win(c.c.grow, t, 1.2)); c.body.scale.y = Math.max(0.0001, u * c.hmax); c.body.position.y = c.body.scale.y / 2; c.cap.position.y = c.body.scale.y + 0.001; c.ring.material.opacity = 0.45 * Math.min(1, u * 4); c.g.visible = u > 0.001; }
         for (const A of arcs) { const u = win(A.a.draw, t), k = Math.floor(A.n * u / 6) * 6; A.tube.geometry.setDrawRange(0, k); A.glow.geometry.setDrawRange(0, k); A.tube.visible = A.glow.visible = k > 0;

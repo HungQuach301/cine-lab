@@ -35,6 +35,7 @@ anchors: [us1950, us2025, w2025]             # Q34(c): khoá trong numbers; ≥ 
 | `places: [id \| {id, ll, name, at}]` | ghim địa danh; gazetteer `data/places.json`; neo cùng tên, mặt sau địa cầu → ẩn |
 | `arcs: [{from, to, draw:[t0,t1], color, h}]` | cung đại vòng vẽ dần, đầu sáng; neo `arc<i>` |
 | `cols: [{id, at, v, grow, color, r}]` | cột số liệu nhô theo pháp tuyến; neo `col:<id>` (đỉnh) |
+| `pinMin` | cỡ tối thiểu của ghim (mặc định 0.6); bay xuống tầm thành phố dùng ~0.07 để hai ghim gần nhau không dính (K2C-T1-06 G1b) |
 | `cam` / preset | máy quay địa lý `{u\|t, lon, lat, alt (R = 10), tilt°, head°, mm}`; preset: `orbit, flyto, pullback, tilt-low, top, pan, pair` (cần `focus` hoặc `from`/`to`) |
 Dữ liệu: Natural Earth 1:50m/1:110m (`data/`, commit), 1:10m (`npm ci`), Census states (`data/`, commit). Ghi công trên hình: "Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory".
 
