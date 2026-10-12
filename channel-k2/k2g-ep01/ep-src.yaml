@@ -76,7 +76,7 @@ sources:
   USGS: {short: "USGS, Iron and Steel Statistics (DS 140)", url: "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/media/files/ds140-iron-steel-2021.xlsx", read: fulltext, accessed: 2026-10-11}
   WSIF: {short: "worldsteel, World Steel in Figures 2026", url: "https://worldsteel.org/wp-content/uploads/World-Steel-in-Figures-2026.pdf", read: fulltext, accessed: 2026-10-11}
   CARN: {short: "Carnegie, Autobiography (1920)", url: "https://www.gutenberg.org/cache/epub/17976/pg17976.txt", read: fulltext, accessed: 2026-10-11}
-  PHMC: {short: "Pennsylvania historical marker, Homestead Strike", url: "https://explorepahistory.com/hmarker.php%3FmarkerId=1-A-235.html", read: fulltext, accessed: 2026-10-11}
+  PHMC: {short: "Pennsylvania historical marker, Homestead Strike", url: "https://explorepahistory.com/hmarker.php?markerId=1-A-235", read: fulltext, accessed: 2026-10-11}
   USSH: {short: "U.S. Steel, company history", url: "https://www.ussteel.com/about-us/history", read: fulltext, accessed: 2026-10-11}
   USSK: {short: "U.S. Steel, 2024 Form 10-K (SEC)", url: "https://www.sec.gov/Archives/edgar/data/1163302/000116330225000018/x-20241231.htm", read: fulltext, accessed: 2026-10-11}
   P9705: {short: "Proclamation 9705 (Mar 2018)", url: "https://www.govinfo.gov/content/pkg/FR-2018-03-15/pdf/2018-05478.pdf", read: fulltext, accessed: 2026-10-11}
@@ -231,8 +231,12 @@ segments:
            items: [{s: "On orders of the Carnegie Steel Company, 300 Pinkerton agents attempted to land", at: "@orders", check: false}, {s: "Strikers and citizens repulsed them", at: "@strikers", check: false}]}}}
       - {tpl: plate, at: "@seven-0.5", in: fade, p: {hero: v_night, frame0: 340, src: [PHMC],
            cap: [{big: "7 and 3", s: "seven workers and three Pinkertons were killed", at: "@seven"}, {big: "8,000", s: "state militia arrived; by November the strike was broken", at: "@eight"}]}}
-      - {tpl: plate, at: "@our#2-0.3", in: fade, p: {hero: f_men, frame0: 0, cap: [{s: "Our read: power over the path came with power over the people in the mills", at: "@power"}, {s: "and the marker records what that cost at Homestead", at: "@marker#2"}]},
-         sfx: [{file: assets/k2/sfx/forge-fire.mp3, at: "@our#2", src_ss: 4, dur: 9, gain_db: -20, fade_ms: 900}]}
+      # D2 (chủ dự án 12/10, J05 3/3 gãy): câu "the marker records what that cost" đặt trên thẻ bia di tích (đủ 4 dòng từ đầu thẻ), không còn shot thùng thép
+      - {tpl: plate, at: "@our#2-0.3", in: fade, p: {hero: v_night, frame0: 400, speed: 0.35, src: [PHMC], card: {type: list, kicker: "PENNSYLVANIA STATE HISTORICAL MARKER", title: "Homestead Strike, 1892", px: 34, gap: 34,
+           items: [{s: "On orders of the Carnegie Steel Company, 300 Pinkerton agents attempted to land", at: -1, check: false}, {s: "Strikers and citizens repulsed them", at: -1, check: false},
+                   {s: "Seven workers and three Pinkertons were killed", at: -1, check: false}, {s: "8,000 state militia arrived; by November the strike was broken", at: -1, check: false},
+                   {s: "Our read: power over the path came with power over the people in the mills", at: "@power", check: false, c: "#3CC2B0"}]}},
+         sfx: [{file: assets/k2/sfx/foghorn.mp3, at: "@our#2", src_ss: 14, dur: 9, gain_db: -26, fade_ms: 900}]}
 
   # ===== 05 TẦNG 1: QUYỀN LỰC =====
   - id: "05"
@@ -240,7 +244,7 @@ segments:
     vo: "@skel"
     shots:
       - {tpl: plate, at: 0, p: {hero: v_open, frame0: 200, speed: 0.35, src: [CARN], card: {type: timeline, title: "March 1901",
-           items: [{date: "J. P. Morgan", s: "the banker approaches Carnegie", at: "@morgan"}, {date: "via Charles Schwab", s: "does he really wish to retire from business?", at: "@schwab"}, {date: "Carnegie", s: "answers yes", at: "@yes"}]}}}
+           items: [{date: "J. P. Morgan", s: "the banker approaches Carnegie", at: 0}, {date: "via Charles Schwab", s: "does he really wish to retire from business?", at: "@schwab"}, {date: "Carnegie", s: "answers yes", at: "@yes"}]}}}
       - {tpl: plate, at: "@group-0.6", in: fade, p: {hero: v_works, frame0: 260, speed: 0.35, src: [USSH], card: {type: list, flow: 1, title: "1901",
            items: [{s: "Carnegie's company", sub: "bought by a group led by Morgan and Elbert Gary", at: "@bought"}, {s: "+ Federal Steel Company", at: "@federal"}, {s: "= United States Steel", sub: "“born in 1901”, as the company puts it", at: "@united", c: "#3CC2B0"}]}}}
       - {tpl: plate, at: "@according-0.3", in: fade, p: {hero: i_hist, frame0: 0,
@@ -479,7 +483,7 @@ shorts:
       The share lets the government appoint one independent director, and gives the president consent rights over specific decisions, including cutting investment commitments in the agreement,
       changing the name or headquarters, moving production or jobs abroad, and certain plant closures or idlings. The full agreement has not been made public.
     shots:
-      - {tpl: plate, at: 0, p: {hero: s_mill, frame0: 0, cap: [{s: "Claim: “Washington now owns U.S. Steel”", at: "@claim"}, {s: "The companies' announcement: something narrower", at: "@narrower", src: [NSC]}]}}
-      - {tpl: plate, at: "@share#2-0.3", in: fade, p: {hero: s_mill, frame0: 300, speed: 0.35, src: [NSC, CRS], card: {type: list, kicker: "THE GOLDEN SHARE, JUNE 2025", title: "As the companies described it",
+      - {tpl: plate, at: 0, p: {hero: s_mill, frame0: 0, asof: true, asofY: 1548, cap: [{s: "Claim: “Washington now owns U.S. Steel”", at: "@claim"}, {s: "The companies' announcement: something narrower", at: "@narrower", src: [NSC]}]}}
+      - {tpl: plate, at: "@share#2-0.3", in: fade, p: {hero: s_mill, frame0: 300, speed: 0.35, src: [NSC, CRS], asof: true, asofY: 1548, card: {type: list, kicker: "THE GOLDEN SHARE, JUNE 2025", title: "As the companies described it",
            items: [{s: "1 independent director", at: "@appoint"}, {s: "Consent rights: investment cuts, name or HQ", at: "@cutting"}, {s: "moving production or jobs abroad", at: "@moving"},
                    {s: "certain closures or idlings", at: "@closures"}, {s: "Full agreement: not public", at: "@full", check: false, c: "#9AA7B5"}]}}}

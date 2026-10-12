@@ -126,3 +126,4 @@
 | M3 (đoạn 11) | "green steel is already here" ↔ "it's only marketing" | Bài "fossil-free hydrogen steel … a pipedream" (autoexpert.com.au); hydrogeninsight.com về "greenwash labelling"; thông cáo các hãng nói "fossil-free steel" | HYB (giao thử 2021) + STG (06/2026, tiến độ đang xem lại) |
 
 **Số neo (≥ 3, chuẩn HIEN-CHUONG):** C01–C03 (nghịch lý móc), C23, C59, C33, C36/C38, C41, C50, C73. **Phép tính riêng của kênh ("our calculation")**: C01/C03 (tỷ phần), C12 (4 tấn), C26 (gần 10 lần), C39 (xuất khẩu TQ > sản lượng Mỹ), C60 (−7 %), C72. C51 (€/tấn) đã bỏ ở v3.4. Hình: gắn nhãn "our calculation" cho các số này.
+| C68 | 05 | 1900 ≈ 9 Mt: REVIEWER gói (12/10) nêu ~10,2 triệu tấn dài theo chuỗi khác; đã kiểm USGS DS 140 sheet thép, cột raw steel production: 9 240 000 t — khớp lời | fact (kiểm lại) | 9,24 | USGS | ✔ khác chuỗi, không đổi lời |

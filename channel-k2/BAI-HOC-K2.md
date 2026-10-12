@@ -16,3 +16,16 @@
 
 ## K5 · Màu canvas trong three.js mới: `THREE.Color` ở hệ tuyến tính (G2 K2G-01)
 - Vẽ vân bằng `new THREE.Color(hex).multiplyScalar(k)` rồi lấy `c.r*255` cho ra màu tuyến tính → vân tối gần đen sau khi texture được coi là sRGB. Dùng `'#' + c.getHexString()`. Phát hiện ở nháp 960×540 nhờ soát khung, trước khi dựng 1080p.
+
+## K6 · Bối cảnh tính cả thẻ (chủ dự án duyệt D4, 12/10/2026)
+- **Chuyện xảy ra:** luật đa dạng bối cảnh (Q26b kênh 2) tính bối cảnh theo cảnh 3D nền, kể cả nền mờ sau thẻ số → K2G-01 đạt (lớn nhất 21,7 %). Nhưng cả 3/3 người xem mù (Q31) nêu "thẻ tối trên nền mờ" là bối cảnh bị lạm dụng (~ một nửa tấm tổng quan); Q27 tay nghề 5/10.
+- **Luật từ tập sau:** "thẻ trên nền mờ" là MỘT bối cảnh riêng, chịu cùng trần (≤ 25 % thời lượng, ≤ 90 s liên tục). Nền mờ không tính cho bối cảnh của cảnh 3D. `scripts/k2/settings.py` sẽ tính thêm hạng mục `card` (phiên P làm ở tập sau); luật khoá do phiên K cập nhật (không sửa `checks/` ở phiên P).
+
+## K7 · Đề xuất nâng hình cho tập sau (chủ dự án ghi nhận D3, 12/10/2026; không làm lại K2G-01)
+- **Số đặt trong cảnh 3D rõ nét** bằng nhãn bám vật thể (như đoạn 00, 05 của K2G-01); thẻ trên nền mờ chỉ cho số cần so sánh trên trục (cột, đường).
+- **Thay một phần thẻ-trên-nền-mờ bằng footage lưu trữ** theo `QUAN-TRI-RUI-RO.md` §6: nguồn cho phép (LoC, NARA, NASA, Prelinger, Commons kiểm từng file, Pexels/Pixabay), trần ≤ 40 % thời lượng và ≤ 8 s mỗi clip, nhãn năm trên hình, sổ `SOURCES-FOOTAGE.csv`, không commit media, giữ màu gốc cảnh lưu trữ.
+- **Thẻ co theo nội dung** (không nửa thẻ trống); mục đầu luôn hiện khi vào thẻ.
+- **Phụ đề có nền đậm** (dải đặc, không chỉ gradient) và chữ trắng đủ đậm; kiểm Q5 trên khung trời sáng.
+- **Vật liệu PBR và ánh sáng giàu hơn** cho port/mill (Q27 nêu "khối xám phẳng"); bản đồ có nhãn địa danh trên hình.
+- **Đo:** Q27 tay nghề ≥ 7/10 và "above" so với faceless thường mới coi là tiến bộ; giữ chấm mù một lần trên 1080p.
+- Ưu: tăng điểm hình, giảm cảm giác "slide". Nhược: thêm giờ dựng cảnh và giờ tìm footage. Rủi ro: SwiftShader chậm (4,2 s/khung SPP4); footage sai quyền → luật §6 và sổ CSV.

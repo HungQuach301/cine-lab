@@ -1,0 +1,129 @@
+```json
+{
+  "verdict": "pass_with_fixes",
+  "issues": [
+    {
+      "where": "title_backup",
+      "rule": "B4",
+      "severity": "major",
+      "quote": "Who Controls the Path",
+      "problem": "This is one word away from the banned title phrase \"who really controls\". It also brings the 'who controls…' conspiracy framing into an episode about families, where RULE 1.2 is strictest. In a title it reads as being about people, not about trade routes.",
+      "fix": "Replace with: \"Why Is Steel Guarded Like a Weapon? Tariffs, Quotas and a Carbon Price\""
+    },
+    {
+      "where": "narration",
+      "rule": "C1",
+      "severity": "major",
+      "quote": "the United States made about nine million tonnes of steel in 1900",
+      "problem": "Standard series give U.S. output in 1900 as about 10.2 million long tons, which is about 10.3–10.4 million metric tonnes. 'About nine million' looks too low. The number may have been taken from the wrong column or the wrong unit in DS 140.",
+      "fix": "Re-check the 1900 row in USGS DS 140 (metric tonnes column). If it is about 10.3 Mt, change the line to \"about ten million tonnes of steel in 1900\"."
+    },
+    {
+      "where": "narration",
+      "rule": "C1",
+      "severity": "minor",
+      "quote": "In 1944, it made about eighty-one million — roughly half of all the steel made on Earth that year.",
+      "problem": "The world total for 1944 needs its own cited source. DS 140 is a U.S. series, and the description's numbers notes don't say where the 1944 world figure comes from.",
+      "fix": "Add the source of the 1944 world total to SOURCES and NOTES ON THE NUMBERS. If none is available, cut the line to \"In 1944, it made about eighty-one million.\""
+    },
+    {
+      "where": "narration",
+      "rule": "C1",
+      "severity": "minor",
+      "quote": "how governments, from Washington to Brussels, started putting hard limits on steel imports — in Washington's case, on national security grounds",
+      "problem": "Washington's main Section 232 tool is a tariff, which is not a hard limit. The same wording returns in [12] (\"have put hard limits on steel imports\"), where it can read as a claim about quotas.",
+      "fix": "In [01] use \"started putting tariffs and quotas on steel imports\". In [12] use \"have put tariffs and, in Brussels' case, quotas on steel imports\"."
+    },
+    {
+      "where": "narration",
+      "rule": "C1",
+      "severity": "minor",
+      "quote": "the Swedish steelmaker SSAB announced it had delivered the world's first steel made with iron reduced by fossil-free hydrogen",
+      "problem": "The cited source is a Vattenfall press release about HYBRIT, a joint venture of SSAB, LKAB and Vattenfall. The narration names a different announcer from the one cited.",
+      "fix": "Change to: \"HYBRIT — a venture of the Swedish steelmaker SSAB, the miner LKAB and the utility Vattenfall — announced it had delivered…\""
+    },
+    {
+      "where": "narration",
+      "rule": "C1",
+      "severity": "minor",
+      "quote": "bought Carnegie's company and combined it with the Federal Steel Company",
+      "problem": "U.S. Steel also merged several other firms in 1901. Naming only Federal Steel isn't false, but it is incomplete.",
+      "fix": "Change to: \"combined it with the Federal Steel Company and several other steel firms\". Also check \"In March 1901, Carnegie wrote\" word-for-word against the Gutenberg text, because the deal is usually dated February 1901. Keep the attribution to Carnegie."
+    },
+    {
+      "where": "narration",
+      "rule": "B1",
+      "severity": "minor",
+      "quote": "A group led by Morgan and Elbert Gary bought Carnegie's company",
+      "problem": "This makes individuals the actors rather than a named firm. RULE 1.2 point 1 prefers the named bank or company. The later line \"the company Morgan's group had formed\" ([09]) repeats this person-centred framing.",
+      "fix": "In [05]: \"A syndicate organized by the bank J. P. Morgan & Co., with Elbert Gary of Federal Steel, bought Carnegie Steel…\". In [09]: \"And then the question reached the company formed in 1901.\""
+    },
+    {
+      "where": "narration",
+      "rule": "C1",
+      "severity": "minor",
+      "quote": "One explanation for the 1950 figure: much of the world was still rebuilding after the war — an unusual moment, not a baseline.",
+      "problem": "This is an explanation with no source, and it isn't marked as the channel's interpretation.",
+      "fix": "Change to: \"Our read: much of the world was still rebuilding after the war — an unusual moment, not a baseline.\""
+    },
+    {
+      "where": "thumbnail",
+      "rule": "A",
+      "severity": "minor",
+      "quote": "U.S. share in orange",
+      "problem": "If the ingot stacks carry share labels such as \"46%\" or \"4.5%\", those exact numbers aren't in the narration. The narration only says \"almost half\" and \"about four percent\".",
+      "fix": "Show the shares with no numbers, or label them \"~½\" and \"~4%\" to match the narration."
+    },
+    {
+      "where": "title_main",
+      "rule": "A",
+      "severity": "minor",
+      "quote": "What 1950 vs 2025 Really Shows",
+      "problem": "\"Really\" adds a hint of revealed truth that the content doesn't need. The video's actual answer is measured.",
+      "fix": "\"Is American Steel Dying? What 1950 vs 2025 Shows\""
+    },
+    {
+      "where": "short_S1",
+      "rule": "A",
+      "severity": "minor",
+      "quote": "Just about four percent.",
+      "problem": "Without the full video, a viewer could take this as a 4% output figure rather than a share of world output.",
+      "fix": "\"Just about four percent of the world's.\""
+    },
+    {
+      "where": "short_S2",
+      "rule": "D",
+      "severity": "minor",
+      "quote": "The full agreement has not been made public.",
+      "problem": "These are time-sensitive deal terms with no 'as of' date in the Short, and Shorts are often seen without the description.",
+      "fix": "Add the on-screen text and narration line \"As of October 2026.\" before \"A popular claim worth checking\"."
+    },
+    {
+      "where": "description",
+      "rule": "C1",
+      "severity": "minor",
+      "quote": "https://explorepahistory.com/hmarker.php%3FmarkerId=1-A-235.html",
+      "problem": "The \"?\" in the URL is encoded as %3F, so the link is probably broken and the Homestead source can't be checked.",
+      "fix": "https://explorepahistory.com/hmarker.php?markerId=1-A-235"
+    }
+  ],
+  "family_points": {
+    "B1_named_entities": "ok",
+    "B2_no_religion_ethnicity_as_explanation": "ok",
+    "B3_imagery": "cannot_check",
+    "B4_title_thumbnail_words": "issue",
+    "B5_comment_moderation": "post_publish"
+  },
+  "strengths": [
+    "The disclaimer is in the description's first line and in narration [01], at about 0:14–0:20, well inside 30 s. The description also gives 'Facts as of 11 October 2026'.",
+    "The Homestead violence is attributed to the state historical marker and the Carnegie Steel Company. No motive is attributed to Frick or Carnegie.",
+    "Carnegie's account is consistently attributed ('Carnegie wrote/recalled'), and the actor is 'Carnegie's firm', not 'the Carnegies'.",
+    "The Granite City episode is attributed to the AP and the White House, and the narration says U.S. Steel's own reason isn't in the record. This protects the operating companies.",
+    "Both 'myth vs record' passages (the 'dying' claim and the 'Washington owns U.S. Steel' claim) are answered with sources and stay measured.",
+    "Ethnicity and religion are never used as explanations. 'Scottish immigrant' is biography only, and 'Japan's Nippon Steel' is a fact relevant to CFIUS.",
+    "Future events stay open: the Stegra opening ('We won't guess when it opens') and the cost of tariffs ('these numbers can't settle').",
+    "'Our read' and 'our calculation' labels are used consistently. The narrator is never presented as an expert, the synthetic voice is disclosed, and the credits say no logos or real people are shown.",
+    "The 'Notes on the numbers' section separates measures: raw vs crude steel, exports vs output, and worldsteel vs CBAM emissions methods."
+  ]
+}
+```

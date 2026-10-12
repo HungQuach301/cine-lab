@@ -9,7 +9,7 @@
 | Q4 | Loudness/TP k2g-ep01-short-S1.mp4 | **ĐẠT** | -14.0 LUFS / -1.7 dBTP | −14±1 / ≤ −1 |  |  |
 | Q4 | Loudness/TP k2g-ep01-short-S2.mp4 | **ĐẠT** | -14.0 LUFS / -2.2 dBTP | −14±1 / ≤ −1 |  |  |
 | Q5 | Tương phản chữ thấp nhất | **TRƯỢT** | 2.68 | 4.5 |  | 10 f48 “LAYER 3 · THE NEW ONE” |
-| Q6 | Cỡ chữ hoa tối thiểu (mọi khung mẫu) | **ĐẠT** | 33.4 px (S1 f12 “Sources: USGS, Iron and Steel Statistics”) | 18 / 30 px |  | mẫu tự nâng cỡ: {'00': 542, '02': 480, '04': 822, '05': 1546, '06': 4908, '07': 3024, '08': 3580, '10': 3918, '11': 1020, '13': 534, 'S1': 1327, 'S2': 525} |
+| Q6 | Cỡ chữ hoa tối thiểu (mọi khung mẫu) | **ĐẠT** | 33.4 px (S1 f12 “Sources: USGS, Iron and Steel Statistics”) | 18 / 30 px |  | mẫu tự nâng cỡ: {'00': 542, '02': 480, '04': 822, '05': 1546, '06': 4908, '07': 3024, '08': 3580, '10': 3918, '11': 1020, '13': 534, 'S1': 1327, 'S2': 2100} |
 | Q7 | Nhãn ACTUAL/PROJECTION khớp loại số | **ĐẠT** | 0 | 0 |  |  |
 | Q8 | Nguồn (toàn văn, không Wikipedia) + số khớp lời | **ĐẠT** | 0 | 0 |  |  |
 | Q9 | Số khung khớp timeline | **ĐẠT** | master 24723/24723 | = timeline |  |  |

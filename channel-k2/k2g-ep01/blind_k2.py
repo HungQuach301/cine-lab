@@ -49,6 +49,19 @@ Return ONLY JSON:
  "breaks": ["Jxx: <why>"], "overused_setting": "<name or empty>", "top3_fixes": ["<concrete>", "<concrete>", "<concrete>"]}}"""
 
 
+Q31J = """{persona}
+
+You will check CONTINUITY at ONE join between two sections of a ~17-minute documentary explainer about steel, without watching it.
+File in the current folder (open it with the Read tool): {jn}.jpg — one strip of 6 frames left→right at −2.5, −1.5, −0.5, +0.5, +1.5, +2.5 s around the join.
+Narration around the join:
+{words}
+
+Decide: is this join smooth / acceptable / a break (jarring change of look, picture that contradicts the words, text that jumps or disappears mid-sentence, an empty card while the narration is already speaking)?
+
+Return ONLY JSON:
+{{"joins": {{"{jn}": {{"verdict": "smooth|acceptable|break", "why": "<short>"}}}}, "fix_if_any": "<concrete or empty>"}}"""
+
+
 def run(prompt, tag, files):
     with ThreadPoolExecutor(3) as ex:
         res = dict(zip(RATERS, ex.map(lambda k: ai.ai(prompt.format(persona=RATERS[k], **FMT), f'{tag}-{k}', 'claude-sonnet-5-5', files), RATERS)))
@@ -65,6 +78,15 @@ if __name__ == '__main__':
         for i, t in enumerate(ts, 1): f = os.path.join(D, f'F{i:02d}.jpg'); grab(video, t, f); key[f'F{i:02d}'] = round(t, 2)
         json.dump(key, open(os.path.join(D, 'key.json'), 'w'), indent=1); FMT.update(n=n)
         run(Q27, 'q27', [os.path.join(D, f'F{i:02d}.jpg') for i in range(1, n + 1)])
+    elif mode == 'q31j':   # chấm lại MỘT điểm nối (chủ dự án 12/10, D2): cùng vai, cùng dải 6 khung, cùng lời quanh điểm nối
+        TL = json.load(open(sys.argv[3])); j = int(sys.argv[sys.argv.index('--join') + 1]); D = os.path.join(OUT, f'q31j{j:02d}'); os.makedirs(D, exist_ok=True); segs = TL['segments']
+        sys.path.insert(0, os.path.join(ai.HERE.parent.parent, 'scripts', 'll')); import ll
+        def words(sg): return ll.words(json.load(open(os.path.join(ll.REPO, sg['vo_file'][:-4] + '.align.json')))) if sg.get('vo_file') else []
+        a, b = segs[j - 1], segs[j]; c = b['t0']; tmp = tempfile.mkdtemp(); jn = f'J{j:02d}'
+        for k, dt in enumerate([-2.5, -1.5, -0.5, 0.5, 1.5, 2.5]): grab(video, c + dt, f'{tmp}/{k}.jpg', 480)
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', f'{tmp}/%d.jpg', '-vf', 'tile=6x1:padding=6:color=white', '-frames:v', '1', '-q:v', '3', os.path.join(D, f'{jn}.jpg')], check=True)
+        wa = ' '.join(w[3] for w in words(a) if a['vo_offset'] + w[1] > a['t1'] - a['t0'] - 6); wb = ' '.join(w[3] for w in words(b) if b['vo_offset'] + w[1] < 6)
+        FMT.update(jn=jn, words=f'{jn}: …{wa} || {wb}…'); run(Q31J, f'q31j{j:02d}', [os.path.join(D, f'{jn}.jpg')])
     elif mode == 'q31':
         TL = json.load(open(sys.argv[3])); D = os.path.join(OUT, 'q31'); os.makedirs(D, exist_ok=True); segs = TL['segments']; lines = []
         sys.path.insert(0, os.path.join(ai.HERE.parent.parent, 'scripts', 'll')); import ll

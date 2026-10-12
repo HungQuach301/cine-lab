@@ -86,7 +86,7 @@ function title(g, p, t) { const T = p.title; if (!T) return; const u = vis(t, T.
   g.save(); g.globalAlpha *= u; g.fillStyle = K.orange; g.fillRect(cx - 60, cy + 34, 120 * eo((t - (T.at || 0)) / 0.8), 6); g.restore();
   if (T.sub) para(g, T.sub, cx, cy + (V ? 130 : 110), V ? W - 160 : 1400, (V ? 50 : 44), K.dim, { a: u, w: 500, align: 'center' }); }
 function asof(g, p, t) { if (!p.asof) return; const u = vis(t, p.asofAt === undefined ? p.t0 : p.asofAt); const s = p.asof === true ? 'Facts as of 11 Oct 2026' : p.asof;
-  const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = V ? 210 : (p.card ? 28 : 56); panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
+  const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = p.asofY !== undefined ? p.asofY : V ? 210 : (p.card ? 28 : 56);   /* asofY: Short có hook 2 dòng đặt nhãn dưới dải hook */ panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
 
 // ---------- thẻ (nền: cảnh 3D mờ) ----------
 const CARD = V ? { x: 60, y: 300, w: 960, h: 1220 } : { x: 150, y: 96, w: 1620, h: 780 };

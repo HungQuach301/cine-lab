@@ -11,9 +11,9 @@ CH = {'00': 'The question', '01': 'Three layers', '02': 'Layer 1: the site at Br
       '07': 'Layer 2: Section 232 tariffs', '08': 'Overcapacity and the EU quotas', '09': 'The golden share', '10': 'Layer 3: a price on carbon (CBAM)',
       '11': 'Hydrogen steel: what the record shows', '12': 'The mechanism', '13': 'The answer'}
 mmss = lambda s: f'{int(s // 60)}:{int(s % 60):02d}'
-TITLES = ["Why Is Steel Guarded Like a Weapon? Who Controls the Path",
-          "Is American Steel Dying? What 1950 vs 2025 Really Shows",
-          "Who Really Controls Steel? Tariffs, a Golden Share, a Carbon Toll"]
+TITLES = ["Is American Steel Dying? What 1950 vs 2025 Really Shows",   # CHÍNH (chủ dự án 12/10, D5)
+          "Why Is Steel Guarded Like a Weapon? Who Controls the Path"]   # DỰ PHÒNG Test & Compare
+# Loại (D5): "Who Really Controls Steel? Tariffs, a Golden Share, a Carbon Toll" — cụm "who really controls" cấm ở QUAN-TRI-RUI-RO §1.2
 src_lines = []
 for k, s in E['sources'].items(): src_lines.append(f"- {s['short']}: {s['url']} (accessed {s['accessed']})")
 desc = f"""This video explains how the system works. It isn't financial or investment advice. Facts as of 11 October 2026.
@@ -45,7 +45,8 @@ Sound effects: Work With Sounds / Sounds of Changes (via Europeana), CC BY 4.0 �
 Font: Inter (SIL Open Font License 1.1).
 """
 open(f'{D}/description.en.txt', 'w').write(desc)
-open(f'{D}/titles.txt', 'w').write('\n'.join(f'{i}. {t} ({len(t)} ký tự)' for i, t in enumerate(TITLES, 1)) + '\n')
+open(f'{D}/titles.txt', 'w').write(f'CHÍNH: {TITLES[0]} ({len(TITLES[0])} ký tự)\nDỰ PHÒNG (Test & Compare): {TITLES[1]} ({len(TITLES[1])} ký tự)\n'
+                                  'LOẠI (chủ dự án 12/10, QUAN-TRI-RUI-RO §1.2): Who Really Controls Steel? Tariffs, a Golden Share, a Carbon Toll\n')
 srt = f"{O}/{TL['id']}.en.srt"; shutil.copy(srt, f'{D}/{TL["id"]}.en.srt')
 files = [f for f in [f'{O}/{TL["id"]}-v1-master.mp4'] + [f'{O}/shorts/{TL["id"]}-short-{s["id"]}.mp4' for s in TL['shorts']] if os.path.exists(f)] + [f'{D}/{TL["id"]}.en.srt', f'{D}/description.en.txt']
 with open(f'{D}/SHA256SUMS.txt', 'w') as fh:
