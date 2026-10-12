@@ -58,7 +58,7 @@ E
   disk "trước ghép"
   ffmpeg -v error -y -f concat -safe 0 -i $O/list.txt -i $O/mix.wav -map 0:v -map 1:a -vf "$VF" -c:v libx264 -preset slow -crf 16 -profile:v high -g 48 $COL -r 24 -fps_mode cfr \
     -c:a aac -b:a 256k -ar 48000 -movflags +faststart -t $DUR $O/$ID-$V-master.mp4
-  for k in p1 p2 p3; do read SS DD RG < $O/$k.range
+  [ "${PARTS:-1}" = 1 ] && for k in p1 p2 p3; do read SS DD RG < $O/$k.range   # PARTS=0: bỏ 3 phần xem 720p (gói phát hành kênh 2 không cần)
     for p in 1 2; do OUTP=/dev/null; [ $p = 2 ] && OUTP=$O/$ID-$V-$k.mp4
       ffmpeg -v error -y -f concat -safe 0 -i $O/list-$k.txt -ss $SS -t $DD -i $O/mix.wav -map 0:v -map 1:a -vf "scale=1280:720:flags=lanczos:out_color_matrix=bt709:out_range=tv,format=yuv420p" \
         -af "volume=-1.2dB,alimiter=limit=0.75:level=0,afade=t=in:d=0.03,afade=t=out:st=$(echo "$DD - 0.06" | bc -l):d=0.06" -c:v libx264 -preset slow -b:v 2800k -maxrate 3600k -bufsize 7200k -pass $p -passlogfile $O/pass/x$k -profile:v high -g 48 $COL -r 24 -fps_mode cfr -c:a aac -aac_coder fast -b:a 128k -ar 48000 -movflags +faststart -t $DD \
