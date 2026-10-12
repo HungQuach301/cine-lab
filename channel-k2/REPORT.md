@@ -1,5 +1,7 @@
 # Gói kênh 2: báo cáo mốc 1 (định vị) và mốc 2 (hồ sơ cầu), 11/10/2026
 
+> **Định vị 12/10/2026 (chủ dự án quyết, sau vòng cuối và lượt đo lặp): kênh 2 = "cơ chế kinh tế của thành phố và ngành".** J (thành phố & kinh tế địa phương) là trụ chính, B (ngành/điểm nghẽn) là trụ phụ. Hai tập thí điểm quyết trụ ưu tiên. Xem mục cuối "Định vị 12/10".
+
 > **Vòng cuối (12/10/2026): theo luật chủ dự án, J (nhà ở & đô thị) THẮNG.** Thước "kênh trẻ đúng ngách có video ≥ 10 nghìn" (tự tính): J 42,9 % (n = 7, KTC 18,6–71,1) · D 14,3 % (n = 7) · A 11,8 % (n = 34) · B 9,6 % (n = 188). Kết quả mong manh vì n nhỏ; xem mục "Vòng cuối". Lượt đo 2 độc lập (phiên G) cho cùng kết luận: J 50 % (n = 6), cùng 3 kênh trúng, A 3,4 %, G 0 %. Hiệu chuẩn bằng LL ở `CALIBRATION.md` (n = 4, mức tin cậy thấp).
 
 > Nhánh `channel-k2`, tách từ `origin/market-k2`. **Chưa dựng tập.**
@@ -456,3 +458,55 @@ Opus chưa kiểm; sẽ kiểm 20 kênh ở lượt đủ 10 câu.
   - Đánh dấu mục G đo nhanh đã có số mới hơn.
   - Lưu danh sách video tìm kiếm của J làm bằng chứng cho hàng đợi nháp, ở `final_J_search_long.json`, ngoài git.
 - Không chạy lượt 2.
+
+---
+## Định vị 12/10: "cơ chế kinh tế của thành phố và ngành" (chủ dự án quyết, gói kênh soạn lại)
+Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Quyết định ghi ở `AUTHORSHIP.md` (12/10/2026).
+
+**Quyết định của chủ dự án:**
+- J (thành phố & kinh tế địa phương) là **trụ chính**, B (ngành/điểm nghẽn sản xuất) là **trụ phụ**.
+- Không đo thêm trên API, trừ hồ sơ cầu thí điểm T1 (≤ 6 search.list) và kiểm tên kênh (≤ 3 search.list).
+- 2 tập thí điểm (K2G-01 Steel + 1 tập T1) quyết trụ ưu tiên.
+
+**Luật chọn ngách lần sau (bắt buộc, bài học vòng cuối):**
+1. **n ≥ 30 kênh trẻ đúng ngách mỗi ngách.** Vòng cuối J và D chỉ có n = 6–7, nên KTC rộng hơn 40 điểm % và kết quả đứng hay đổ chỉ vì 1–2 kênh.
+2. **Cùng số câu hỏi mỗi ngách.** Vòng cuối B có 72 câu và 659 ứng viên, còn A, D, J, G mỗi ngách 10 câu. Khung lấy mẫu khác nhau nên phép so không cùng điều kiện.
+3. **Một lệnh nền cho mỗi phiên.** Hai phiên cùng chạy A, D, J trên một khoá quota, chi trùng khoảng 3 200 đơn vị.
+- Thêm (đề xuất, chờ duyệt): nhãn ngách chấm 2 lượt độc lập. Kết quả A lệch 11,8 % so với 3,4 % chỉ do nhãn Sonnet.
+
+**Gói kênh đã cập nhật:**
+| Tài liệu | Thay đổi |
+|---|---|
+| `TRU-NOI-DUNG.md` | 3 trụ mới: T1 thành phố (≈ 60 %), T2 ngành (25 %), T3 mô hình kiếm tiền của dịch vụ đô thị/ngành (≈ 15 %); ranh giới với Crux và LL |
+| `HIEN-CHUONG.md` | Lời hứa mới, đặt nơi chốn trước; thêm cam kết 5 "thành phố không có phe" |
+| `LUAT-NOI-DUNG.md` | §7 tránh vùng Crux (nhà ở cá nhân, mua nhà, tài chính hộ gia đình); §8 zoning, đường cao tốc, khu dân cư theo chủng tộc chỉ nêu cơ chế + nguồn chính thức/học thuật, không khung đảng phái, không quy lỗi nhóm người; §9 dùng `LUAT-NOI-DUNG-G.md` (đưa từ nhánh `k2g-ep01`, bản chủ dự án duyệt ở G1 K2G-01) cho "huyền thoại vs hồ sơ" và "as of" |
+| `LUAT-CHON-DE-TAI.md` | Tỷ lệ trụ mới; điều kiện 5 thêm kiểm vùng Crux và §8 |
+| `HANG-DOI.md` | Hàng đợi hiệu lực 12 đề tài (7 T1 · 3 T2 · 2 T3), tên diễn đạt lại; nhãn cầu từ dữ liệu đã có hoặc "sơ bộ/chưa đo"; giữ K2G-01 Steel ở T2 |
+| `THI-DIEM.md` | 2 tập thí điểm: K2G-01 Steel + **K2C-T1-01 mall-town** (đề xuất); tiêu chí 7 ngày (CTR, tỷ lệ xem trung bình, lượt xem/ngày); trụ thắng ≥ 2/3 chỉ số chiếm ≥ 4/6 tập kế; điều kiện để phép so công bằng |
+| `de-tai/mall-town.md` | Hồ sơ cầu thí điểm T1: Cầu-bền 5/13 ≥ 500 nghìn (1/5 đúng góc cơ chế); khoảng trống "mall ↔ ngân sách địa phương"; 6 loại số neo công khai |
+| `TEN-KENH.md` | 3 tên theo định vị mới: Moving Parts (còn hợp, đề xuất), Main Street Machine, Townworks |
+
+**Đề tài T1 thí điểm đề xuất: "When the Mall Dies, Who Pays? How One Building Holds Up a Town's Budget"** (tên làm việc).
+- **Lý do:** cầu T1 cao nhất theo thước cầu hiện hành (Mạnh với 4 video đúng đề tài/90 ngày); Cầu-bền 5 video ≥ 500 nghìn, nhưng chỉ 1/5 đúng góc cơ chế mall; có khoảng trống rõ; số liệu Census, BLS và ngân sách thành phố có sẵn; không trùng Steel.
+- **Phương án thay:** factory town (Mạnh; trùng phần thị trấn thép).
+
+**Quota và chi phí phiên này (12/10):**
+- 5 search.list (hồ sơ cầu 3, tên 2) + 22 lệnh đọc, khoảng 522 đơn vị. Cộng hai lượt đo vòng cuối, ngày 12/10 dùng khoảng 9 860/10 000 (ước tính).
+- AI: hồ sơ cầu $0,23 + REVIEWER Opus $1,34 ≈ **$1,57**.
+- Không chạy lệnh nền.
+
+**Đang chờ chủ dự án:**
+1. Duyệt đề tài T1 thí điểm (mall-town hay factory town).
+2. Chọn tên kênh (đề xuất Moving Parts), rồi kiểm handle trực tiếp và USPTO.
+3. Duyệt hàng đợi 12 đề tài và luật bổ sung §7–§9.
+4. Quyết trường hợp hoà 1–1–hoà ở luật thí điểm.
+
+**REVIEWER Opus (1 lượt, $1,34, served `claude-opus-5-5` + Haiku phụ):**
+- R1 phỉ báng, R2 YMYL/Crux/đảng phái, R3 dữ liệu: **PASS**. R4 tuân thủ, R5 khớp số, R6 chép tiêu đề: **FAIL**.
+- **Đã sửa:**
+  - R5: chỉ 1/5 video ≥ 500 nghìn đúng góc cơ chế mall (3/5 lạc góc, 1 xếp hạng downtown); đã ghi ở mọi chỗ nêu Cầu-bền.
+  - R4: ghi hai ngoại lệ API của chủ dự án (hồ sơ cầu T1 ≤ 6, tên ≤ 3) vào AUTHORSHIP và TRU-NOI-DUNG.
+  - R6: đổi tên làm việc K2C-T2-02 để bỏ cụm "Only Two"; đổi thêm T3-01 và T3-02 khỏi khuôn "…Make Money".
+  - R3: điền chi phí REVIEWER.
+  - Đánh dấu banner vòng cuối ở HANG-DOI/THI-DIEM là lịch sử; THI-DIEM nêu thước và tính không đối xứng của phép chọn mall-town; AUTHORSHIP liệt kê phần do AI đề xuất; sửa câu "3 kênh J đều là đô thị" thành 2/3.
+- Không chạy lượt 2, theo lệnh 1 lượt.

@@ -150,9 +150,13 @@ NAMES = {"Moving Parts": ["@movingpartsecon", "@movingpartsfilms"],
          "Load Bearing": ["@loadbearingecon", "@loadbearingfilms"],
          "Throughput": ["@throughputecon", "@throughputfilms"]}
 
-def names():
+# Định vị mới 12/10 ("cơ chế kinh tế của thành phố và ngành"): Moving Parts đã kiểm 11/10 (giữ số cũ), kiểm 2 tên mới
+NAMES2 = {"Townworks": ["@townworks", "@townworksecon"],
+          "Main Street Machine": ["@mainstreetmachine", "@mainstreetmachineecon"]}
+
+def names(table=None, out_name="names.json"):
     out = {}
-    for name, handles in NAMES.items():
+    for name, handles in (table or NAMES).items():
         j = get("search", part="snippet", q=name, type="channel", maxResults=10, regionCode="US")
         ids = [it["snippet"]["channelId"] for it in j.get("items", [])]
         chans = []
@@ -167,7 +171,7 @@ def names():
             hj = get("channels", part="id", forHandle=h)
             hs[h] = "đã có kênh" if hj.get("items") else "chưa thấy kênh"
         out[name] = dict(channels=sorted(chans, key=lambda c: -c["subs"]), handles=hs)
-    (DATA / "names.json").write_text(json.dumps(out, indent=1))
+    (DATA / out_name).write_text(json.dumps(out, indent=1))
     return out
 
 # ---------- Mốc 2: hồ sơ cầu ----------
@@ -181,6 +185,11 @@ TOPICS = {
     "card-networks": ("How Visa and Mastercard Make Money Without Lending a Cent",
                       ["how do visa and mastercard make money", "what happens when you swipe a credit card",
                        "who pays credit card swipe fees"]),
+}
+# Định vị mới (chủ dự án 12/10): T1 thành phố — hồ sơ cầu thí điểm T1 (3 câu, ≤ 6 search.list theo lệnh)
+TOPICS_T1 = {
+    "mall-town": ("When the Mall Dies, Who Pays? How One Building Holds Up a Town's Budget",
+                  ["why are malls dying", "what happens to a town when the mall closes", "why did american downtowns die"]),
 }
 TOP_N, N_COMMENTS = 5, 50
 KINDS = ("question", "situation", "rebuttal", "request")
@@ -223,9 +232,9 @@ def synth(slug, title, buckets, comp):
          "\n\nCOMMENTS BY KIND:\n" + json.dumps(buckets, ensure_ascii=False))
     return ai(p, f"synth-{slug}", model="claude-sonnet-5-5")
 
-def demand():
+def demand(topics=None):
     res = {}
-    for slug, (title, qs) in TOPICS.items():
+    for slug, (title, qs) in (topics or TOPICS).items():
         f = DATA / f"demand_{slug}.json"
         if f.exists():
             res[slug] = json.loads(f.read_text()); continue
@@ -271,5 +280,7 @@ if __name__ == "__main__":
     if what in ("durable", "all"): print(json.dumps(durable(), indent=1))
     if what in ("names", "all"): print(json.dumps(names(), indent=1, ensure_ascii=False))
     if what in ("demand", "all"): demand()
+    if what == "demand-t1": demand(TOPICS_T1)
+    if what == "names2": print(json.dumps(names(NAMES2, "names2.json"), indent=1, ensure_ascii=False))
     (DATA / f"calls_{what}.json").write_text(json.dumps(calls))
     print("calls", calls, f"AI ${spent():.2f}")

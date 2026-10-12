@@ -2,14 +2,18 @@
 
 > Mọi chỉ số trích trong tài liệu này là **tự tính, không phải chỉ số YouTube**.
 
-## 1. Lời hứa với người xem
-> **"Every episode takes one thing you use or see every day and shows the machine behind it: the bottleneck, the money flow, the real numbers, with every number sourced on screen."**
+## 1. Lời hứa với người xem (cập nhật 12/10/2026 theo định vị "cơ chế kinh tế của thành phố và ngành")
+> **"Every episode takes a place you know — a downtown, a mall, a highway, a factory town — or a thing it depends on, and shows the economic machine underneath: who pays, what holds it up, and why it rises or falls, with every number sourced on screen."**
 
-Cụ thể, kênh cam kết bốn điều:
+- *Bản 11/10 (thay thế):* "Every episode takes one thing you use or see every day and shows the machine behind it: the bottleneck, the money flow, the real numbers, with every number sourced on screen."
+- **Thay đổi:** thành phố và nơi chốn (T1) đứng trước; ngành (T2) và dòng tiền (T3) là thứ nơi chốn dựa vào. Cấu trúc tập ở §2 giữ nguyên. Tập T2 dạng "ba tầng" như K2G-01 dùng cấu trúc ở `LUAT-NOI-DUNG-G.md` §0.
+
+Cụ thể, kênh cam kết năm điều:
 1. **Một câu hỏi, trả lời trọn.** Câu mở đầu được trả lời ở cuối tập, không để treo sang tập sau.
 2. **Số có nguồn trên hình.** Mỗi số neo hiện dòng nguồn (tên, năm) ngay trên khung, và có link trong mô tả.
 3. **Cơ chế, không phán xét.** Kênh giải thích hệ thống vận hành thế nào, không quy lỗi, không đoán động cơ.
-4. **Không lời khuyên.** Với đề tài tài chính–thanh toán, kênh giải thích hệ thống, không nói người xem nên làm gì với tiền của họ.
+4. **Không lời khuyên.** Kênh giải thích hệ thống, không nói người xem nên làm gì với tiền hay nhà của họ (`LUAT-NOI-DUNG.md` §5, §7).
+5. **Thành phố không có phe.** Đề tài zoning, đường cao tốc, khu dân cư được kể bằng cơ chế và hồ sơ, không theo khung đảng phái, không quy lỗi cho nhóm người (`LUAT-NOI-DUNG.md` §8).
 
 ## 2. Cấu trúc tập (12–20 phút)
 Thời lượng đích lấy từ market-k2: top 25 video nổ của B có trung vị 17 phút. Tỷ lệ dưới đây tính trên tập 16 phút. Mỗi kịch bản ghi tỷ lệ thật đo theo thời lượng đoạn và nêu tên phần lệch quá ±5 điểm %.

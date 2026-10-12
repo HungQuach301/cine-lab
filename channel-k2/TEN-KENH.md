@@ -3,6 +3,33 @@
 > Đề xuất, chờ chủ dự án chọn. Kiểm ngày 11/10/2026 bằng YouTube Data API v3 (`collect.py names`): **3 search.list** (`type=channel`, `regionCode=US`, 10 kết quả/tên), `channels.list` đọc số người đăng ký, và `channels.list?forHandle=` kiểm handle (1 đơn vị/lượt). Số người đăng ký là số công khai API trả về, làm tròn theo YouTube.
 > **Giới hạn:** API không cho biết handle có *đặt được* hay không (handle bị giữ, bị cấm, hoặc kênh ẩn không hiện). "Chưa thấy kênh" nghĩa là `forHandle` không trả kênh nào. Tôi **chưa kiểm nhãn hiệu (USPTO)** và tên miền.
 
+## Định vị mới 12/10/2026: "cơ chế kinh tế của thành phố và ngành" (thay đề xuất bên dưới)
+- **Kiểm ngày 12/10:** 2 search.list mới (`collect.py names2`, `type=channel`, US, 10 kết quả) + 4 lượt `forHandle`. "Moving Parts" dùng số kiểm 11/10 (bảng dưới), không tìm lại.
+- Số người đăng ký là số công khai API trả về. **Chưa kiểm nhãn hiệu (USPTO) và tên miền.**
+
+| Tên | Hợp định vị mới? | Kênh trùng/gần trùng lớn nhất (search.list) | Handle |
+|---|---|---|---|
+| **Moving Parts** (đề xuất 1) | **Còn hợp:** thành phố và ngành đều là "cỗ máy nhiều bộ phận", và tên không khoá kênh vào nhà máy. Nghiêng nhẹ về máy móc/ngành | (11/10) Không có kênh lớn cùng mảng; vài kênh trùng tên rất nhỏ (7 và 4 người đăng ký); ban nhạc "Tiny Moving Parts" | `@movingpartsecon` chưa thấy kênh (11/10) |
+| **Main Street Machine** | Hợp nhất với T1: "Main Street" là thành phố/thị trấn, "Machine" là cơ chế | Không có kênh nào tên này; kết quả là các kênh lớn khác mảng (xe độ 4,86 triệu, nhạc), một kênh nhỏ "Santiago Street Machine" (52) | `@mainstreetmachine` **đã có kênh** · `@mainstreetmachineecon` chưa thấy kênh |
+| **Townworks** | Hợp T1 ("town" + "works" = cách thị trấn vận hành), kém hợp T2 | Trùng gần với thương hiệu tuyển dụng Nhật **"タウンワーク" (Townwork)**: kênh chính thức 19,5 nghìn người đăng ký | `@townworks`, `@townworksecon` chưa thấy kênh |
+
+- **Moving Parts**
+  - *Ưu:* đã kiểm sạch, trung tính giữa T1 và T2; nếu thí điểm cho T2 thắng, tên vẫn đúng.
+  - *Nhược:* không gợi thành phố; cụm từ phổ thông.
+  - *Tác động:* dòng mô tả kênh cần nói rõ "cities and industries".
+  - *Rủi ro:* nhãn hiệu chưa kiểm.
+- **Main Street Machine**
+  - *Ưu:* nói thẳng trụ chính T1, dễ nhớ.
+  - *Nhược:* handle gốc đã có chủ; "street machine" là thuật ngữ giới xe độ ở Mỹ/Úc, nên tìm kiếm tên có thể lẫn với xe; dài hơn.
+  - *Tác động:* phải dùng handle có hậu tố.
+  - *Rủi ro:* nếu T2 thắng thí điểm, tên lệch trụ.
+- **Townworks**
+  - *Ưu:* ngắn, handle trống.
+  - *Nhược và rủi ro:* gần trùng thương hiệu "Townwork" của một tập đoàn tuyển dụng Nhật, rủi ro nhãn hiệu và nhầm lẫn cao nhất; kém hợp T2.
+- **Đề xuất:** giữ **Moving Parts** (`@movingpartsecon`), dự phòng **Main Street Machine**. Trước khi tạo kênh, chủ dự án kiểm handle trực tiếp và tra USPTO lớp 41.
+
+## (Đề xuất 11/10, giữ để đối chiếu)
+
 ## Tiêu chí
 - Nói được lời hứa "cơ chế phía sau" (`HIEN-CHUONG.md`), không gợi tư vấn tài chính (`LUAT-NOI-DUNG.md` §4).
 - Ngắn, dễ đọc với khán giả Mỹ, không chứa tên công ty hay IP có sẵn.

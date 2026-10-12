@@ -1,63 +1,54 @@
-# Kênh 2: 4 trụ nội dung (mốc 1, bước 1)
+# Kênh 2: 3 trụ nội dung — định vị "cơ chế kinh tế của thành phố và ngành" (12/10/2026)
 
-> **Quyết định đầu vào (chủ dự án, 11/10/2026):** kênh mới theo hướng B, *cơ chế kinh tế của một ngành*. Khoảng 1/4 đề tài thuộc ngành tài chính–thanh toán. Với nhóm này kênh **chỉ giải thích cơ chế, không khuyên đầu tư hay tài chính cá nhân**.
-> **Cơ sở dữ liệu:** `market-k2/REPORT.md`, gồm vòng 1 và vòng xác nhận. Vòng xác nhận cho thấy B và A ngang nhau trên mẫu gộp (B − A = +0,7, KTC 90 % [−9,5; +12,7]). Vì vậy kênh chọn B theo lý do định tính, đúng hướng 1 của báo cáo, và mọi tỷ lệ dưới đây là **giả thuyết vận hành**, sẽ chỉnh theo số đo thật sau 6 tập đầu.
-> Mọi chỉ số trích ở đây là **tự tính, không phải chỉ số YouTube**.
+> **Quyết định đầu vào (chủ dự án, 12/10/2026, `AUTHORSHIP.md`):**
+> - **J, thành phố & kinh tế địa phương, là trụ chính.** B, ngành và điểm nghẽn sản xuất, là trụ phụ.
+> - Không đo thêm trên API, trừ hai ngoại lệ chủ dự án cho trong cùng lệnh: hồ sơ cầu tập T1 thí điểm (≤ 6 search.list; đã dùng 3) và kiểm tên kênh (≤ 3; đã dùng 2). Hai tập thí điểm (`THI-DIEM.md`) quyết trụ nào được ưu tiên.
+> - Bản 4 trụ ngày 11/10 (T1 điểm nghẽn · T2 kinh tế địa phương · T3 mô hình kiếm tiền · T4 sụp đổ) **hết hiệu lực**; xem lịch sử git.
+> - **Cơ sở dữ liệu:** `REPORT.md`, mục "Vòng cuối" và "Đối chiếu hai lượt đo". Kênh trẻ đúng ngách có video ≥ 10 nghìn: J 42,9–50 % (n = 6–7) so với B 9,6 % (n = 188). Thước chưa hiệu chuẩn (`CALIBRATION.md`), nên mọi tỷ lệ dưới đây là **giả thuyết vận hành**.
+> - Mọi chỉ số trích ở đây là **tự tính, không phải chỉ số YouTube**.
 
-## Cách dựng trụ
-- Mỗi trụ là một **mẫu câu hỏi của khán giả**. Câu hỏi này đã có video nổ trong mẫu 90 ngày của market-k2 (mẫu tiêu đề M1–M5) hoặc trong lượt đo nhãn cầu bổ sung ngày 11/10 (`collect.py labels`).
-- Một tập chỉ thuộc **một** trụ. Tập lai (ví dụ hãng bay kiếm tiền từ thẻ tín dụng) ghi trụ chính, trụ phụ ghi chú.
-- Trụ không phải "danh mục chủ đề". Trụ quy định **câu hỏi mở đầu** và **loại cảnh 3D trung tâm**, để mỗi tập có một cỗ máy hình rõ ràng.
+## Cách dựng trụ (giữ từ bản 11/10)
+- Mỗi trụ là một **mẫu câu hỏi của khán giả**, cộng một **cỗ máy hình 3D trung tâm**.
+- Một tập chỉ thuộc một trụ. Tập lai ghi trụ chính, trụ phụ để ghi chú.
+- Trụ quy định **câu hỏi mở đầu** và **loại cảnh trung tâm**. Trụ không phải danh mục chủ đề.
 
-## Bảng 4 trụ
-| | **T1 Điểm nghẽn sản xuất** | **T2 Kinh tế địa phương** | **T3 Mô hình kiếm tiền** | **T4 Mô hình sụp đổ** |
-|---|---|---|---|---|
-| Mẫu tiêu đề gốc | M1 "Why Only [N] [Countries/Companies] Can Still Build [X]"; M4 biến thể "The [Object] That Rewired [X]" | M2 "How a Single [Store/Warehouse/Plant] Changes Its [Town]" | M5 biến thể "How [X] Really Makes Money"; nhánh tài chính–thanh toán "How [Network] Makes Money Without [Y]" | M3 "The (Overdue) Collapse of [Model]" |
-| Câu hỏi khán giả điển hình | "Why can't anyone else build airliners?" · "Why is it so hard to make chips?" · "How did one box make shipping so cheap?" | "What happens to a town when Amazon/Dollar General opens?" · "Why did my town's factory matter so much?" | "How do airlines make money if tickets are cheap?" · "How do Visa and Mastercard make money if they don't lend?" · "What actually happens when I send money abroad?" · "Who pays for a 'free' ATM?" | "Why are malls dying?" · "Why did this whole kind of store disappear?" |
-| Cỗ máy hình 3D trung tâm | Dây chuyền, xưởng lắp ráp thân máy bay, cẩu cảng, tàu container, phòng sạch; bản đồ chuỗi cung ứng nổi khối | Thị trấn thu nhỏ nhìn từ trên cao: kho/cửa hàng mọc lên, dòng xe tải, lối đi, mái nhà đổi màu theo dữ liệu | "Đường ống tiền": quầy thanh toán → máy POS → ngân hàng phát hành → mạng → ngân hàng thanh toán; két, sổ cái, trung tâm dữ liệu, máy ATM cắt lớp | Trung tâm thương mại bỏ trống, bãi đỗ xe, mặt tiền tắt đèn dần theo dòng số liệu |
-| Số neo điển hình (loại nguồn) | Sản lượng, số nhà máy, chi phí phát triển (SEC filings, báo cáo thường niên, số liệu ngành, cơ quan hàng không, WTO/UNCTAD) | Việc làm, lương, thuế bán hàng, số cửa hàng theo quận (Census CBP/QCEW của BLS, báo cáo thường niên) | Doanh thu theo mảng, phí giao dịch theo luật, khối lượng thanh toán (SEC 10-K, Federal Reserve, BIS, báo cáo ngành) | Diện tích bán lẻ, số trung tâm đóng cửa, doanh số bán lẻ (Census Monthly Retail Trade, báo cáo ngành có phương pháp công khai) |
-| **Tỷ lệ trong hàng đợi** | **25 %** (3/12) | **25 %** (3/12) | **42 %** (5/12), trong đó **tài chính–thanh toán ≈ 21–25 %** (2 thuần + 1 lai) | **8 %** (1/12) |
-| Bằng chứng cầu | Vòng 1: "jet airliner", "advanced chips", "container" đều Nổ-mẫu | Vòng 1: Amazon warehouse, Dollar General Nổ-mẫu; lượt đo 11/10 "factory town" có 1 video 1,1 triệu lượt (n = 3) | Vòng 1: airlines Cầu-ngách. Đo 11/10: cụm thẻ đạt Cầu-bền (1,04 triệu; 1,51 triệu); SWIFT, ATM, bảo hiểm, ngân hàng, sở giao dịch, chuyển tiền liên ngân hàng trượt (xem dưới) | Vòng 1: malls Nổ-mẫu; Sears, Kodak Cầu-tìm nhưng cung AI dày |
-
-## T3 nhánh tài chính–thanh toán: cảnh báo từ số đo 11/10
-Lượt đo nhãn cầu bổ sung dùng 1 search.list mỗi câu, cửa sổ 90 ngày, video ≥ 8 phút, đã đăng ≥ 14 ngày:
-
-| Câu hỏi | Video dài mới | Lượt xem cao nhất | Top 5 có dấu hiệu dùng số liệu thật (Haiku đọc tiêu đề + mô tả) |
+## Bảng 3 trụ
+| | **T1 Thành phố** (trụ chính) | **T2 Ngành** (trụ phụ) | **T3 Mô hình kiếm tiền** |
 |---|---|---|---|
-| how do visa and mastercard make money | 9 | **93** | 0/5 |
-| how does swift international money transfer work | 4 | 414 | 0/4 |
-| how do atm machines make money | 7 | 2 276 | 0/5 |
+| Câu hỏi khán giả điển hình | "Why did this downtown empty out?" · "What happens to a town when the mall or the plant closes?" · "Why does a highway split one neighborhood and connect another?" · "Who pays for the suburbs' roads and pipes?" | "Why can only a few companies or countries make X?" · "How did one material or one machine reshape a region?" | "How does an airport/transit system/supermarket actually make money?" · "Who pays for a 'free' city service?" |
+| Phạm vi | Vì sao một downtown, khu phố hay thành phố lên hoặc xuống; hạ tầng chia cắt hay nối liền; một nhà máy hay cửa hàng giữ cả thị trấn | Điểm nghẽn sản xuất, chuỗi cung ứng, địa lý của đầu vào | Dòng tiền của dịch vụ đô thị (sân bay, giao thông công cộng, bãi đỗ xe, tiện ích) và của ngành (siêu thị, hãng bay) |
+| Cỗ máy hình 3D trung tâm | **Sa bàn thành phố/thị trấn** nhìn từ trên cao: khối nhà đổi màu theo dữ liệu, đường cao tốc cắt qua, dòng xe, mặt tiền sáng/tắt; mặt cắt toà nhà | Nhà máy, lò, cảng, tàu, dây chuyền; bản đồ chuỗi cung ứng nổi khối (tái dùng bộ cảnh K2G-01: mill, port) | "Đường ống tiền" nối vào sa bàn: cổng thu phí, quầy, sổ ngân sách thành phố dạng khối |
+| Số neo điển hình (loại nguồn công khai) | **Census** (ACS, Annual Survey of State & Local Government Finances, CBP), **BLS** QCEW theo quận, **ngân sách và báo cáo tài chính thường niên (ACFR) của thành phố**, FHWA/USDOT, nghiên cứu học thuật có phương pháp công khai | USGS, SEC 10-K, worldsteel/hiệp hội ngành có phương pháp, CRS, Federal Register, OECD, UNCTAD | ACFR của cơ quan sân bay/giao thông, FAA (CATS), FTA (NTD), SEC 10-K, Census Monthly Retail Trade |
+| **Tỷ lệ trong hàng đợi** | **≈ 60 %** (7/12) | **25 %** (3/12, gồm K2G-01 Steel) | **≈ 15 %** (2/12) |
+| Bằng chứng cầu (đã có, tự tính) | Malls: Mạnh (vòng 2: 4 video ≥ 50 nghìn đúng đề tài/90 ngày) + Cầu-bền (hồ sơ `de-tai/mall-town.md`: 5 video ≥ 500 nghìn toàn thời gian, nhưng chỉ 1/5 đúng góc cơ chế mall; 3/5 lạc góc, gồm 2 video mall bỏ hoang và 1 creepypasta) · Factory town: Mạnh (3) · J lượt 1–2: 2/3 kênh trẻ ≥ 10 nghìn là kênh đô thị rõ (CityWise: downtown; Klyron: highway); kênh thứ ba (Harlan Braddock) bị lượt 1 nghi nghiêng về lịch sử bí ẩn | Jet, chips: Mạnh (vòng 2) · Steel: đề tài đã duyệt G1; chưa đo thước cầu | Supermarkets: Yếu (vòng 2) · Airports: sơ bộ (1 video 520 nghìn, chưa đo 6 câu) |
 
-- **Đọc số (tự tính):** nhiều video mới cùng chủ đề, tiêu đề gần trùng nhau, lượt xem 90 ngày rất thấp. Mẫu hình này giống mẫu market-k2 ghi cho "Kodak/Blockbuster" (cung mới dày, cầu không theo). Đây là suy luận từ số đếm và chữ (Haiku đọc tiêu đề, mô tả); tôi chưa xem hình hay quy trình làm của các video đó.
-- **Đo toàn thời gian (cùng ngày, top 5 video dài theo độ liên quan):**
-  - **Cụm thẻ đạt Cầu-bền:** "how do visa and mastercard make money" có 1 video 1,04 triệu (`de-tai/card-networks.md`); "who pays for credit card rewards" có 1 video 1,51 triệu.
-  - **Trượt:** SWIFT (cao nhất 240 nghìn, gắn tin cấm vận 2022), ATM (270 nghìn, chủ yếu video "mở kinh doanh ATM"), bảo hiểm (35 nghìn), chuyển tiền liên ngân hàng (205 nghìn).
-  - **Lệch đề tài:** "ngân hàng kiếm tiền" và "sở giao dịch kiếm tiền" có video lớn nhưng là tài chính cá nhân/đầu tư, lệch góc cơ chế và vi phạm luật YMYL của kênh.
-- **Hệ quả cho trụ:** nhánh tài chính–thanh toán chỉ vào hàng đợi khi có **góc cơ chế mà các video mới trong mẫu chưa làm** (0/5 có dấu hiệu số liệu thật): số liệu thật của Federal Reserve/BIS, mô hình dòng tiền dựng riêng, cảnh 3D đường ống thanh toán. Không làm dạng "X makes billions".
+## Ranh giới với Crux và LL
+- **Crux** (tài chính cá nhân): kênh 2 **không** làm nhà ở cá nhân, mua/thuê nhà, thế chấp, ngân sách hộ gia đình (`LUAT-NOI-DUNG.md` §7). Nhà ở chỉ xuất hiện ở tầm **thành phố**: luật xây dựng, nguồn thu thuế, hạ tầng.
+- **LL** (nghề và AI): kênh 2 không lấy nghề làm trục. Việc làm chỉ là số neo của cơ chế (QCEW theo quận).
 
 ## Ưu, nhược, tác động, rủi ro
 - **Ưu:**
-  - Bốn trụ đều có bằng chứng cầu từ dữ liệu, không phải từ cảm nhận.
-  - T1 và T2 dựa vào 3D nhiều nhất (nhà máy, cảng, thị trấn), đây là lợi thế khó sao chép của dự án.
-  - T3 tài chính–thanh toán kéo CPM lên: nhóm Personal Finance có CPM công khai cao nhất trong bảng market-k2 (18–45 USD theo OutlierKit). Kênh dùng góc cơ chế chứ không dùng góc tài chính cá nhân, nên CPM thực có thể thấp hơn.
-  - T4 ít, nên giảm phụ thuộc vào mảng mà market-k2 ghi là cung mới dày.
+  - T1 bám đúng nơi dữ liệu thấy kênh trẻ bật được: 2/3 kênh J trúng là kênh đô thị rõ.
+  - Sa bàn thành phố là lợi thế 3D khó sao chép, và có số liệu công khai theo quận và thành phố rất dày (Census, BLS, ACFR).
+  - T2 giữ được K2G-01 và bộ cảnh nhà máy, cảng.
 - **Nhược:**
-  - T3 tài chính–thanh toán không có video mới nào nổ trong 90 ngày; cầu toàn thời gian chỉ có ở cụm thẻ.
-  - T2 có ít câu hỏi tìm kiếm trực tiếp; cầu đến từ tiêu đề gợi tò mò nhiều hơn từ tìm kiếm.
-  - 42 % T3 là tỷ trọng cao cho trụ có cung video mới dày nhất trong số đo.
-- **Tác động:** hàng đợi (`HANG-DOI.md`) và luật chọn (`LUAT-CHON-DE-TAI.md`) dùng đúng tỷ lệ này. Thư viện cảnh 3D ưu tiên dựng theo thứ tự T1 → T3 → T2 → T4.
+  - Bằng chứng cho T1 dựa trên n = 6–7 kênh trẻ.
+  - Chỉ 2/7 đề tài T1 có nhãn đo bằng thước cầu đầy đủ; còn lại là "sơ bộ" hoặc "chưa đo".
+  - Tài chính–thanh toán (cụm thẻ) rời hàng đợi, nên CPM có thể thấp hơn bản 11/10.
+- **Tác động:**
+  - Thư viện cảnh ưu tiên: sa bàn thành phố/thị trấn → mặt cắt toà nhà → đường cao tốc/giao lộ. Bộ cảnh mill/port của K2G-01 dùng cho T2.
+  - Đặc tả tập ghi `pillar: T1|T2|T3`.
+  - `LUAT-CHON-DE-TAI.md` dùng tỷ lệ mới: T1 ≈ 60 %, T2 ≈ 25 %, T3 ≈ 15 %.
 - **Rủi ro:**
-  - T2 dễ trượt sang giọng "công ty X giết thị trấn"; T4 dễ trượt sang "ai có lỗi". Cả hai do `LUAT-NOI-DUNG.md` chặn.
-  - T3 tài chính dễ bị đọc thành lời khuyên. Có câu miễn trừ và không có persona chuyên gia.
-  - Ngoài cụm thẻ, chưa có đề tài tài chính–thanh toán nào đạt cầu. Tỷ lệ ~1/4 hiện giữ bằng 2 đề tài cụm thẻ + 1 đề tài lai (hãng bay; giả thuyết bán dặm cho ngân hàng, cần kiểm trên 10-K). Nếu các đề tài đo thêm vẫn trượt, đề xuất hạ xuống ~1/6. Việc này đổi quyết định đầu vào, nên chờ chủ dự án duyệt.
+  - T1 chạm đề tài nhạy cảm (zoning, đường cao tốc, phân biệt khu dân cư) và dễ chính trị hoá. Kênh chặn bằng `LUAT-NOI-DUNG.md` §8 và `LUAT-NOI-DUNG-G.md` §3, §5.
+  - T1 dễ trượt sang giọng "thành phố X thất bại vì ai". Luật §3 (không suy đoán động cơ) chặn điều này.
+  - Nếu thí điểm cho T2 thắng, tỷ lệ sẽ đảo, theo luật ở `THI-DIEM.md`.
 
 ## Phép thử F1: lõi dùng chung với nhà máy LL và phần riêng
 | Thành phần | Dùng chung lõi LL | Riêng gói kênh 2 |
 |---|---|---|
-| Đặc tả tập, kiểm nguồn/số (`scripts/ll/ll.py`: `sources`, `numbers`, `say`, actual/projection) | ✔ | Thêm trường `pillar:` (T1–T4) và `claims:` (xem `LUAT-NOI-DUNG.md`) |
-| Cảnh đinh 3D (`design/ll-hero/kit.js`: three.js headless, `camRig`, `box/cyl`, `dust`, `canvasTex`, hậu kỳ) | ✔ bộ đồ nghề | Thư viện cảnh mới theo trụ: xưởng lắp ráp, cảng, tàu, thị trấn, đường ống thanh toán; bảng màu riêng thay `GRADES` ấm/sepia/lạnh |
-| Đồ hoạ dữ liệu động (`render.js`, `lib/charts.js`) | ✔ máy dựng, mẫu biểu đồ | Bỏ giấy B3 và ánh đèn khí; dùng mặt nền kỹ thuật (xem `NHAN-DIEN.md`) |
-| Bản đồ (`lib/map.js`) | Một phần (khung vẽ) | Bản đồ tuyến thương mại toàn cầu, quận hạt Mỹ: viết mới |
-| Lời dẫn (ElevenLabs qua `ll.py`, cache theo băm), trộn âm (`mix.py`: −14 LUFS, TP ≤ −1 dBTP) | ✔ | Giọng riêng, khác Bill (xem `NHAN-DIEN.md`) |
-| Dựng một lệnh, kiểm (`build.sh`, `qc.sh`: khung trống > 3 s, judder, chữ, thumbnail lề 5 %) | ✔ | Thêm kiểm câu miễn trừ cho tập T3 tài chính và kiểm `claims:` có nguồn |
-| Chuẩn kênh LL (tỷ lệ STORY/HISTORY/TODAY, trục nghề–AI, người thắp đèn) | ✘ | Cấu trúc tập riêng (`HIEN-CHUONG.md`) |
+| Đặc tả tập, kiểm nguồn/số (`scripts/ll/ll.py`) | ✔ | Trường `pillar:` (T1–T3), `claims:`, `as_of`, `myth/record` (LUAT-NOI-DUNG-G) |
+| Cảnh đinh 3D (`design/ll-hero/kit.js`) | ✔ bộ đồ nghề | Sa bàn thành phố, mặt cắt toà nhà, đường cao tốc; bộ cảnh mill/port K2G-01 |
+| Đồ hoạ dữ liệu, bản đồ | ✔ máy dựng | Bản đồ quận/thành phố Mỹ (Census TIGER, công cộng) |
+| Lời dẫn, trộn âm, dựng, qc | ✔ | Giọng Eric (K2G-01), nhạc/SFX CC BY theo RIGHTS |
+| Chuẩn kênh LL (trục nghề, người thắp đèn) | ✘ | Cấu trúc tập ở `HIEN-CHUONG.md` |

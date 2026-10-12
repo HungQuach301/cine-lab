@@ -13,7 +13,8 @@ Mọi chỉ số trong luật này là **tự tính, không phải chỉ số Yo
 | 5 | **Rủi ro pháp lý thấp** | Câu hỏi trung tâm là **cơ chế của ngành**, không phải **lỗi, tội hay động cơ của một công ty hoặc một người cụ thể**. Không đề tài đang có vụ kiện là trục chính. Tên công ty chỉ xuất hiện như ví dụ có nguồn | Câu hỏi mở đầu trả lời được mà không cần quy lỗi cho ai | Người soạn + REVIEWER headless |
 
 ## Luật phụ
-- **Tỷ lệ trụ** trong 12 đề tài kế tiếp: T1 ≈ 25 %, T2 ≈ 25 %, T3 ≈ 42 % (tài chính–thanh toán ≈ 25 %), T4 ≤ 10 %. Lệch quá ±1 đề tài thì ghi lý do.
+- **Tỷ lệ trụ** (định vị 12/10/2026, `TRU-NOI-DUNG.md`) trong 12 đề tài kế tiếp: T1 thành phố ≈ 60 %, T2 ngành ≈ 25 %, T3 mô hình kiếm tiền ≈ 15 %. Lệch quá ±1 đề tài thì ghi lý do. Sau 2 tập thí điểm, áp luật ở `THI-DIEM.md` (trụ thắng ≥ 2/3 hàng đợi 6 tập kế). *Tỷ lệ 11/10 (T1–T4, tài chính ≈ 25 %) hết hiệu lực.*
+- **Điều kiện 5 thêm** (12/10): đề tài không thuộc vùng Crux (`LUAT-NOI-DUNG.md` §7). Đề tài chạm zoning, đường cao tốc hay khu dân cư phải nêu trước nguồn chính thức/học thuật sẽ dùng (§8).
 - **Không hai tập liền cùng trụ** trong 6 tập đầu, để đo được trụ nào kéo người xem.
 - **Cờ thời sự:** đề tài mà cầu chủ yếu đến từ tin tức dưới 90 ngày (một vụ tai nạn, một vụ phá sản đang diễn ra) không vào hàng đợi. Kênh làm nội dung sống lâu.
 - **Đề tài tài chính–thanh toán** thêm 2 kiểm: (a) câu hỏi là "hệ thống vận hành thế nào", không phải "bạn nên làm gì"; (b) không cần số liệu lợi suất, giá cổ phiếu hay so sánh sản phẩm cho người tiêu dùng.
