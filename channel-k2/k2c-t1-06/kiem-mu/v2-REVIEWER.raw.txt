@@ -1,0 +1,297 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "00",
+      "rule": "LUAT §2 (calc label) / cross-basis",
+      "severity": "major",
+      "quote": "About one in thirteen American homes sits in a building with two to four apartments. {C01} Of the new homes finished in 2025, about one in a hundred did.",
+      "problem": "C01 and C02 are channel calculations (type calc) but are not labelled 'our calculation'. They also compare two different bases (homes standing today vs homes finished in one year) without saying so. Because these numbers are in the hook, an error here counts as type (a) under §6.",
+      "fix": "About one in thirteen American homes sits in a building with two to four apartments. Of the new homes finished in 2025, about one in a hundred did. Those are two different Census counts, homes standing today and homes finished in one year, and both shares are our calculation."
+    },
+    {
+      "seg": "02",
+      "rule": "LUAT §1 (accuracy) / G §5 (time markers)",
+      "severity": "major",
+      "quote": "Within a year of the act's release, Hoover wrote, eleven states had passed laws modeled wholly or partly on it. {C07}",
+      "problem": "This follows straight after 'Its 1926 edition', so it reads as if eleven states passed laws by 1927. The 1926 foreword is reporting what happened within a year of the act's first issuance. The next sentence, 'That same year', makes the timeline even less clear.",
+      "fix": "In that 1926 edition, Hoover wrote that within a year of the act's first issuance, eleven states had passed laws modeled wholly or partly on it. — and change 'That same year, a case from Euclid, Ohio' to 'In 1926, a case from Euclid, Ohio'"
+    },
+    {
+      "seg": "08",
+      "rule": "LUAT §1 (number not in claims)",
+      "severity": "major",
+      "quote": "The steepest fall came in the late 1980s",
+      "problem": "C60 lists only 1973, 1979, 1986, 1990 and 2025. Saying 'steepest' requires comparing every year in the series (for example 1979→1982), and the claims table does not do that.",
+      "fix": "One sharp fall came in the late 1980s — or add a claim that checks year-on-year drops across the whole NRC column D before keeping 'steepest'."
+    },
+    {
+      "seg": "08",
+      "rule": "LUAT §1 (fact not in claims)",
+      "severity": "major",
+      "quote": "New homes moved toward the two ends: houses, and large buildings.",
+      "problem": "No claim gives the single-family share of completions over time. The 'houses' half of this sentence has no source.",
+      "fix": "Either add a calc claim from NRC column C (1-unit share, 1970–74 pooled vs 2025, labelled our calculation), or cut to: 'New apartments moved toward large buildings.'"
+    },
+    {
+      "seg": "09",
+      "rule": "LUAT §2 (opinion unmarked)",
+      "severity": "major",
+      "quote": "California's SB 9 showed a similar pattern in its first year",
+      "problem": "'Similar pattern' is the channel's interpretation. C41 gives only raw counts, with no baseline or denominator, and no source says the result is similar to Minneapolis.",
+      "fix": "Our read: California's SB 9 started slowly too. In 2022, Los Angeles received 211 applications for new units under the law, and San Diego received seven."
+    },
+    {
+      "seg": "09",
+      "rule": "RISK VÀNG-5 / LUAT §8 (both sides of the upzoning research)",
+      "severity": "major",
+      "quote": "linked loosening reforms across U.S. places to a small rise in housing supply",
+      "problem": "The research is weighted 3 null results to 1 positive. The only positive finding is given the channel's word 'small', which the source does not use. Auckland (C44), the strongest positive evidence in the table, was dropped, while the opening question ('when a place opens the map') is framed generally.",
+      "fix": "Remove 'small': '…linked loosening reforms across U.S. places to a rise in housing supply of about 0.8 percent within three to nine years, mostly at the higher end of rents.' Then add (C44): 'Outside the U.S., a 2023 University of Auckland working paper found that after Auckland upzoned about three-quarters of its residential land, about 21,800 additional homes were permitted over five years, roughly four percent of its housing stock.'"
+    },
+    {
+      "seg": "09",
+      "rule": "G §3 (record answers narrowly) / cross-basis",
+      "severity": "major",
+      "quote": "In the U.S. cases here, small buildings haven't flooded the places that allowed them",
+      "problem": "'Flooded' is a loaded word, and it is not the concern the opponents actually stated (local uniqueness, traffic), so it is close to a straw man. Freemark (Chicago transit-area upzoning) and Stacy (all supply) did not measure small buildings, so they cannot support a conclusion about small buildings.",
+      "fix": "So the record sits in between. In the U.S. cases here, allowing more homes per lot hasn't produced a surge of new small buildings, and the broader studies found effects ranging from none to modest. These studies don't measure traffic or local fit. Changing the map alone hasn't brought small buildings back, at least not yet."
+    },
+    {
+      "seg": "11",
+      "rule": "RISK VÀNG-5 / LUAT §2 (attribution, one-sided close)",
+      "severity": "major",
+      "quote": "Minneapolis's first six years suggest that one change, on its own, isn't enough.",
+      "problem": "This is an unmarked generalisation that goes beyond C40. It also ends the episode on one side of a debate the script itself calls disputed.",
+      "fix": "In Minneapolis, Fed researchers wrote that land-use changes 'appear insufficient to drive new housing production in a challenging development environment.' Other studies found modest gains. The record doesn't settle it yet."
+    },
+    {
+      "seg": "10",
+      "rule": "LUAT §1 (misstatement of law)",
+      "severity": "major",
+      "quote": "Washington's 2023 law requires two to six homes per lot, depending on city size and transit.",
+      "problem": "RCW 36.70A.635 requires cities to allow at least 2–6 units per lot. It does not require that those homes be built.",
+      "fix": "Washington's 2023 law requires many cities to allow at least two to six homes per lot, depending on city size and distance to major transit."
+    },
+    {
+      "seg": "10",
+      "rule": "G §5 / RISK VÀNG-2 (as-of, status will change)",
+      "severity": "major",
+      "quote": "And Washington's building code council is targeting October 16th for final adoption of a statewide rule for single-stair buildings up to six stories.",
+      "problem": "Table 1b says this status will certainly change after 16 October 2026. The current wording will be out of date at recording.",
+      "fix": "Do not record before re-checking SBCC after 16 Oct 2026. If adopted: 'On October 16, 2026, Washington's building code council adopted a statewide rule allowing single-stair buildings up to six stories, effective May 3, 2027.' If not: 'As of <date>, Washington's building code council had not yet adopted…'. Then update the as-of date in 00, 10 and the on-screen line."
+    },
+    {
+      "seg": "00",
+      "rule": "G §5 / LUAT §1",
+      "severity": "minor",
+      "quote": "And because the laws and lawsuits here are still moving",
+      "problem": "The script never mentions a lawsuit. City of Yes, Arlington and Montana are not used.",
+      "fix": "And because the laws and building codes here are still moving"
+    },
+    {
+      "seg": "11",
+      "rule": "Hook/ending match",
+      "severity": "minor",
+      "quote": "So why did America almost stop building small apartment buildings?",
+      "problem": "The hook asks about 2–4 unit buildings ('them'). The ending switches to 'small apartment buildings' (2–19 units), so the hook's numbers and the answer cover different groups.",
+      "fix": "So why did America almost stop building two-to-four-unit buildings, and the small walk-ups just above them?"
+    },
+    {
+      "seg": "08",
+      "rule": "LUAT §2 (calc label + assumptions)",
+      "severity": "minor",
+      "quote": "again, our calculation",
+      "problem": "'Again' points back to a label that was never given. The pooling assumption (1970–74) is not stated.",
+      "fix": "— our calculation from Census completions, pooling 1970 through 1974."
+    },
+    {
+      "seg": "08",
+      "rule": "LUAT §2 (calc, margins, base year)",
+      "severity": "minor",
+      "quote": "buildings of five to nineteen units went from 377,000 homes completed in 1973 to 48,000 in 2025",
+      "problem": "This figure is a sum of two columns (calc). The 2025 small-building estimates have large standard errors. 1973 is a peak year and is not identified as one.",
+      "fix": "buildings of five to nineteen units went from 377,000 homes completed in 1973, near their peak, to about 48,000 in 2025. That's our sum of two Census columns, and recent small-building estimates have wide error margins."
+    },
+    {
+      "seg": "02",
+      "rule": "LUAT §1 (precision)",
+      "severity": "minor",
+      "quote": "Its 1926 edition let cities regulate the height and size of buildings",
+      "problem": "An enabling act is a model for states. It does not give cities power on its own.",
+      "fix": "Its 1926 edition laid out powers a state could give its cities: to regulate the height and size of buildings"
+    },
+    {
+      "seg": "02",
+      "rule": "LUAT §2 (claims sync)",
+      "severity": "minor",
+      "quote": "So a corner shop with apartments above it fit in none of the first three.",
+      "problem": "The note in C08 says 'neither of the first two tiers'. The inference in the script ('none of the first three') is correct, but the claims table no longer matches the script.",
+      "fix": "Update C08's note to 'fit in none of the first three tiers (U-3 excludes retail)'."
+    },
+    {
+      "seg": "01",
+      "rule": "LUAT §1 (unsourced fact)",
+      "severity": "minor",
+      "quote": "Most two-to-four-unit buildings are plainer than that",
+      "problem": "'Most' is a quantity claim, and no claim supports it.",
+      "fix": "The plainer versions are a duplex, a triplex, a fourplex"
+    },
+    {
+      "seg": "01",
+      "rule": "LUAT §1 (overgeneralisation)",
+      "severity": "minor",
+      "quote": "the map touches every one of them",
+      "problem": "No source supports 'every one'. Zoning rules differ by place.",
+      "fix": "the map can touch any of them"
+    },
+    {
+      "seg": "02",
+      "rule": "RISK VÀNG-5 (framing)",
+      "severity": "minor",
+      "quote": "Lock one: the map.",
+      "problem": "Calling a fire-safety rule a 'lock' borrows the reform side's framing.",
+      "fix": "In 01, add once: 'We'll call them locks, meaning rules that limit what can be built, without judging whether each limit is right.'"
+    },
+    {
+      "seg": "03",
+      "rule": "LUAT §8 (year/scope) / cross-geography",
+      "severity": "minor",
+      "quote": "A century later, how much of the map still works that way?",
+      "problem": "The question is national, but the answer covers one state. The Atlas report year is missing.",
+      "fix": "A century later, how much of the map still works that way? Here's one state that's been mapped in full. — and add 'in a 2025 report' after 'counted it for Colorado'."
+    },
+    {
+      "seg": "04",
+      "rule": "LUAT §2 (neutral attribution)",
+      "severity": "minor",
+      "quote": "described Seattle's history the same way",
+      "problem": "'The same way' ties the building officials' statement to the advocacy group's framing.",
+      "fix": "described Seattle's history:"
+    },
+    {
+      "seg": "04",
+      "rule": "G §5 / LUAT §1 (precision)",
+      "severity": "minor",
+      "quote": "New York City allows single-stair apartment buildings of fire-resistant construction up to six stories",
+      "problem": "Types I and II are noncombustible construction, and Type II-B is not fire-rated. The script also says 'Today', but the sources are the 2021 Seattle and 2022 NYC codes.",
+      "fix": "Under its 2022 code, New York City allows single-stair apartment buildings of noncombustible construction, Types I and II, up to six stories — and change 'Today, it allows them' to 'Under its 2021 code, it allows them'."
+    },
+    {
+      "seg": "05",
+      "rule": "RISK VÀNG-5 (fair wording)",
+      "severity": "minor",
+      "quote": "So is one staircase safe enough? The people who study it disagree.",
+      "problem": "The fire chiefs are stakeholders, not researchers. The advocacy role of CBNA is not repeated where its safety data is used.",
+      "fix": "So is one staircase safe enough? Fire officials, researchers and code bodies disagree. — and say 'Pew and the Center for Building, the reform advocacy group,' in the data sentence."
+    },
+    {
+      "seg": "05",
+      "rule": "LUAT §1 (verbatim check)",
+      "severity": "minor",
+      "quote": "In its analysis, the number of stairs mattered mainly when that failure combined with open doors.",
+      "problem": "The open-door condition in C24 has no verbatim quote and no ✔P.",
+      "fix": "Add the verbatim text of conclusion 4 from MNDLI to C24 (✔P) before locking, or cut the sentence."
+    },
+    {
+      "seg": "05",
+      "rule": "G §5 (as-of)",
+      "severity": "minor",
+      "quote": "that would permit one stair up to four stories in the 2027 model code",
+      "problem": "The 2027 IBC has not been published. This is an ongoing item.",
+      "fix": "that would permit one stair up to four stories in the 2027 model code, which, as of October 12, 2026, has not been published."
+    },
+    {
+      "seg": "06",
+      "rule": "LUAT §1 (paraphrase drift)",
+      "severity": "minor",
+      "quote": "the builder's own savings on the line",
+      "problem": "The source says 'personal assets', which is broader than savings.",
+      "fix": "the builder's personal assets on the line"
+    },
+    {
+      "seg": "06",
+      "rule": "cross-year",
+      "severity": "minor",
+      "quote": "On the multifamily side, a 2007 Harvard paper quoted a federal commission's housing finance task force",
+      "problem": "This assessment is decades old and is not clearly marked as older than the rest of the evidence.",
+      "fix": "On the multifamily side, an older assessment: a 2007 Harvard paper quoted a federal commission's housing finance task force"
+    },
+    {
+      "seg": "07",
+      "rule": "LUAT §8 (source year)",
+      "severity": "minor",
+      "quote": "The Terner Center modeled small missing-middle buildings in California",
+      "problem": "The year is missing. 'Recent market conditions' needs a date.",
+      "fix": "In 2024, the Terner Center modeled small missing-middle buildings in California"
+    },
+    {
+      "seg": "09",
+      "rule": "RISK VÀNG-5 (completeness)",
+      "severity": "minor",
+      "quote": "Their summary: changes to land-use rules",
+      "problem": "The Fed article's headline also reports stable rents. Reform supporters cite that result, and the script leaves it out.",
+      "fix": "Optionally add a claim and one city-level line: 'The same researchers reported stable rents in the city.' Keep it at city level, with no advice to viewers."
+    },
+    {
+      "seg": "09",
+      "rule": "G §3 (claim is actually common)",
+      "severity": "minor",
+      "quote": "When Washington state's legislature heard its 2023 middle-housing bill",
+      "problem": "There is one documented instance. claims.md does not show that the expectation is widespread.",
+      "fix": "Add at least one more public instance (search results or editorial coverage) to claims.md §4."
+    },
+    {
+      "seg": "10",
+      "rule": "LUAT §8 (named body + date)",
+      "severity": "minor",
+      "quote": "New York City's \"City of Yes\" plan, approved in December 2024",
+      "problem": "The approving body is not named.",
+      "fix": "New York City's \"City of Yes\" plan, approved by the City Council on December 5, 2024"
+    },
+    {
+      "seg": "10",
+      "rule": "LUAT §1 (omitted conditions)",
+      "severity": "minor",
+      "quote": "Colorado requires cities of 100,000 people or more to allow five stories by December 1, 2027.",
+      "problem": "The single-exit condition is missing, so it sounds like a height rule. The Texas sentence also leaves out its four-units-per-floor cap.",
+      "fix": "Colorado requires cities of 100,000 people or more to allow five-story apartment buildings served by a single stair by December 1, 2027. — and for Texas: 'up to six stories, with no more than four homes per floor, since September 2025.'"
+    },
+    {
+      "seg": "11",
+      "rule": "Causality (G §1)",
+      "severity": "minor",
+      "quote": "the bank who would lend for them",
+      "problem": "This overstates the GSE and FHA definitions, which decide loan categories, not who lends.",
+      "fix": "the bank which loan programs they fit"
+    }
+  ],
+  "missing_from_claims": [
+    "08: 'The steepest fall came in the late 1980s' (superlative not covered by C60)",
+    "08: shift of new homes toward 'houses' (no single-family share claim)",
+    "09: 'SB 9 showed a similar pattern' (interpretation, no source)",
+    "09: 'a small rise' (evaluative adjective not in STACY)",
+    "11: 'Minneapolis's first six years suggest that one change, on its own, isn't enough'",
+    "01: 'Most two-to-four-unit buildings are plainer than that'",
+    "01: 'the map touches every one of them'",
+    "01/08: 'walk-ups' for 5–19 unit buildings (no-elevator characterisation)",
+    "03: description of the National Zoning Atlas as reading codes 'district by district'",
+    "04: year '2024' for the WABO proposal (inferred from the file number only)",
+    "04: 'fire-resistant construction' (source says Type I or II)",
+    "05: C24 open-door condition (no verbatim quote / ✔P)",
+    "02/09: first names 'George' (Sutherland) and 'Yonah' (Freemark) not in the table",
+    "00: 'lawsuits … still moving' (no lawsuit covered in the script)"
+  ],
+  "strengths": [
+    "The disclaimer and the as-of date both come within the first 30 seconds.",
+    "Single-stair debate: each side has its own named, dated sources, and CBNA is disclosed as an advocacy group.",
+    "'The Census numbers show when — not why' and 'The record we found doesn't measure that split' avoid treating correlation as cause.",
+    "Seg 07 sets costs, rates and rents (Minneapolis Fed, Terner) alongside the rules.",
+    "No party framing, campaign words or blame on groups. Race and redlining are not used, so no sensitive framing is needed.",
+    "Seg 06 explains loan categories at system level and gives no advice about the viewer's own housing or money.",
+    "Quotes are verbatim and attributed (Sutherland, IAFC, CAL FIRE, HB 1110 testimony, Minneapolis Fed).",
+    "There is one myth-vs-record beat, built on an official legislative testimony record, and it ends with a narrow conclusion."
+  ]
+}
+```
