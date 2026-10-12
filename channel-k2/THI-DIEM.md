@@ -1,7 +1,67 @@
 # Đề xuất tập thí điểm và mục tiêu đo 7 ngày (mốc 2)
 
+> *(Lịch sử, đã được định vị 12/10 thay; xem mục HIỆU LỰC bên dưới.)* **Vòng cuối (12/10/2026): theo luật chủ dự án, ngách THẮNG là J (nhà ở & đô thị)**: 42,9 % so với B 9,6 %; cận dưới KTC 18,6 % > 8,7 %. Mọi số là tự tính, không phải chỉ số YouTube.
+> - **Thí điểm factory town (mục 0) TẠM DỪNG.** Mục tiêu đo 7 ngày ở mục 2 vẫn dùng được cho thí điểm J khi có. Hàng đợi J có **nháp** ở mục "NHÁP" bên dưới (lượt đo 2); nháp chờ chủ dự án mở gói J.
+> - **Lặp lại:** lượt đo 2 độc lập cho J 3/6 = 50 % (KTC 22,1–77,9), cùng 3 kênh trúng; Opus khớp 6/6 kênh J đang hoạt động.
+> - **Cảnh báo:** J chỉ có n = 7 kênh trẻ đúng ngách; kết quả mất nếu 2/3 kênh trúng bị chấm lại là sai nhãn. Xem `REPORT.md`, mục "Vòng cuối".
+
+
 > Đề xuất, chờ chủ dự án duyệt. **Chưa dựng tập.**
 > Số ở mục 1 và phần "Cơ sở của các con số" là **tự tính, không phải chỉ số YouTube**. Chỉ các mục tiêu trong bảng mục 2 là chỉ số YouTube Studio.
+
+## HIỆU LỰC — 2 tập thí điểm quyết trụ ưu tiên (chủ dự án 12/10/2026; thay mọi mục bên dưới)
+Mọi số đo thị trường ở đây là **tự tính, không phải chỉ số YouTube**. Chỉ số so sánh lấy từ YouTube Studio của kênh mình.
+
+| | Tập thí điểm T2 | Tập thí điểm T1 (đề xuất, chờ duyệt) |
+|---|---|---|
+| Đề tài | **K2G-01 "Steel"** (đang dựng, nhánh `k2g-ep01`) | **K2C-T1-01 "When the Mall Dies, Who Pays?"** (tên làm việc) |
+| Câu hỏi | Vì sao thép vẫn là năng lực quốc gia | Khi mall chết, ngân sách thị trấn mất gì và ai bù |
+| Cầu | Chưa đo bằng thước cầu | Mạnh (vòng 2: 4 video đúng đề tài/90 ngày) + Cầu-bền (hồ sơ đo 12/10 theo phép của chủ dự án: 5/13 ≥ 500 nghìn, chỉ 1/5 đúng góc cơ chế mall); `de-tai/mall-town.md` |
+| Số liệu công khai | 22 nguồn đã đọc | ACFR/ngân sách thành phố, Census State & Local Finances, BLS QCEW, Census E-Commerce, hồ sơ county assessor |
+| Cảnh 3D trung tâm | Lò, cảng, tàu hồ (đã dựng) | Sa bàn thị trấn + mall giữa biển bãi đỗ; dòng tiền thuế chảy về toà thị chính |
+
+**Vì sao chọn mall-town làm thí điểm T1**
+- **Ưu:**
+  - Đây là đề tài T1 có cầu cao nhất **theo thước cầu hiện hành**: 4 video đúng đề tài/90 ngày (chuẩn rộng 8), so với 3 (chuẩn rộng 3) của factory town.
+  - Phép so này không đối xứng: điểm thí điểm cũ (số video × hợp 3D × pháp lý) là factory town 27, malls 24; và chỉ mall-town có hồ sơ toàn thời gian.
+  - Có khoảng trống rõ: không video nào nối mall với ngân sách địa phương.
+  - Có số liệu công khai theo thành phố và quận.
+  - Không trùng nội dung với Steel. Factory town thì trùng phần thị trấn thép, khó tách hiệu ứng trụ.
+- **Nhược:** các video lớn nhất đều trước 2026. Video 2026 dạng giải thích có rất ít lượt (3–6 752), một dấu hiệu cung mới đông.
+- **Tác động:** cần bộ cảnh sa bàn thị trấn–mall mới. Bộ này dùng lại được cho T1-02, T1-03.
+- **Rủi ro:**
+  - Trượt sang hoài niệm hay "mall bỏ hoang" (góc của đối thủ).
+  - Tranh luận "tội phạm làm mall chết" chạm §8, nên chỉ xử bằng số liệu có nguồn và nhịp huyền thoại vs hồ sơ.
+- **Phương án thay:** K2C-T1-02 factory town. *Ưu:* Mạnh, QCEW rất hợp. *Nhược:* trùng Steel.
+
+**Tiêu chí so sau 7 ngày** (YouTube Studio, mỗi tập tính từ lúc đăng):
+1. CTR hiển thị;
+2. tỷ lệ xem trung bình (%);
+3. lượt xem/ngày.
+- **Luật của chủ dự án:** trụ thắng ≥ 2/3 chỉ số thì chiếm **≥ 2/3 hàng đợi 6 tập kế**, tức ≥ 4/6.
+- Mỗi trụ thắng 1 chỉ số và chỉ số thứ ba bằng nhau là trường hợp luật chưa nói. Đề xuất giữ tỷ lệ hiện hành (T1 ≈ 60 %) và chờ chủ dự án quyết.
+
+**Điều kiện để phép so công bằng** (đề xuất):
+- Cùng thứ trong tuần và cùng khung giờ đăng. Hai tập cách nhau 7 ngày, để không tập nào ăn hiển thị của tập kia trong cửa sổ đo.
+- Cùng chính sách Shorts (1 Short trước tập chính) và cùng kiểu thumbnail (sa bàn + 1 số).
+- Thời lượng cùng dải 14–17 phút.
+- **Không chạy quảng cáo trả phí** cho tập nào.
+- **Ghi nhận nhiễu không tránh được:**
+  - Steel là tập đầu kênh, mall-town là tập 2, nên có hiệu ứng thứ tự (thuật toán chưa biết kênh).
+  - Steel dùng cấu trúc ba tầng (LUAT-NOI-DUNG-G §0), mall-town dùng cấu trúc 6 phần.
+  - n = 1 tập mỗi trụ: kết quả chỉ là tín hiệu, đúng như chủ dự án định.
+- **Mục tiêu và sàn 7 ngày** ở mục 2 bên dưới vẫn dùng làm mốc tham chiếu, không phải điều kiện thắng.
+
+## NHÁP J (vòng cuối 12/10/2026; CHỜ DUYỆT ngách J, chưa hiệu lực)
+- **Đề xuất thí điểm nếu duyệt J: #1 "Why America Stopped Building Apartments Like This"**, 14–17 phút.
+- **Lý do:**
+  - Đây là bằng chứng cầu mạnh nhất *đúng góc cơ chế*: 958 nghìn lượt trong 90 ngày.
+  - Hợp 3D: mặt cắt toà nhà, cầu thang, luật xây dựng hiện thành khối.
+  - Rủi ro pháp lý thấp vì không xoay quanh một công ty.
+- **Phương án thay: #2 "Why American Houses Got So Big".**
+  - *Ưu:* có 2 video cùng đề, sa bàn nhà dễ dựng.
+  - *Nhược:* cầu nhỏ hơn khoảng 10 lần.
+- **Điều kiện trước khi viết kịch bản:** đo thước cầu 6 câu cho #1 và #2, rồi lập hồ sơ cầu `de-tai/`. Mục tiêu 7 ngày ở mục 2 vẫn áp dụng.
 
 ## 0. Cập nhật sau "Cầu hiện hành" (11/10/2026), thay mục 1
 Số đo là **tự tính, không phải chỉ số YouTube** (`current.py`, xem `HANG-DOI.md`).

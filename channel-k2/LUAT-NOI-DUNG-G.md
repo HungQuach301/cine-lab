@@ -66,6 +66,17 @@ Khi đề tài chạm lời đồn phổ biến:
 | §5 | mỗi claim `fact` có `date` sự kiện ≥ năm hiện tại − 2 phải có trường `as_of`; cấm "will" trong câu có thực thể chính trị/công ty, trừ khi gắn `projection` |
 | §3 | mỗi tập có ≥ 1 cặp `myth:` / `record:` trong đặc tả |
 
+## 8. Đối chiếu với `QUAN-TRI-RUI-RO.md` (12/10/2026)
+- **Được nới:**
+  - Đề tài gia tộc (Rothschild, Chase, Carnegie, Morgan), địa chính trị gần đây và sản phẩm tài chính mới vào được hàng đợi ở mức **VÀNG**: 6 điều kiện + chủ dự án duyệt G1.
+  - Tiêu đề tò mò hay dạng câu hỏi được phép, nếu nội dung trả lời được và không dùng cụm cấm ở §1.
+  - Footage lưu trữ (LoC, NARA, Prelinger…) dùng được cho tầng 1, theo trần và sổ ở `QUAN-TRI-RUI-RO.md` §6.
+- **Giữ nguyên, và chặt hơn khi kể về gia tộc:**
+  - §1 không thuyết âm mưu; §2 không gán động cơ hay quyền lực ngầm cho nhóm.
+  - §3 nhịp "huyền thoại vs hồ sơ" (1–3 nhịp, nêu lời đồn một lần, hồ sơ chiếm phần lớn).
+  - §4 câu miễn trừ; §5 "as of" và không dự đoán; §6 người còn sống.
+  - **Bẫy "Rothschild conspiracy"**: áp đủ 5 điểm ở `QUAN-TRI-RUI-RO.md` §1.2. Bối cảnh bác bỏ phải nằm **trong hình hoặc lời** của video, không chỉ trong tiêu đề hay mô tả (chính sách Hate speech YouTube, trích nguyên văn ở `QUAN-TRI-RUI-RO.md` §2).
+
 ## Ưu, nhược, tác động, rủi ro
 - **Ưu:** khoá trước các rủi ro lớn nhất của ngách quyền lực kinh tế (âm mưu, định kiến nhóm, YMYL) bằng luật kiểm được một phần; nhịp huyền thoại vs hồ sơ biến lời đồn thành điểm giữ chân có nguồn.
 - **Nhược:** loại các góc "ai giật dây" vốn được nhiều kênh dùng để câu view; lời phải nhiều câu quy chủ thể ("the OECD reports…"), nhịp chậm hơn.

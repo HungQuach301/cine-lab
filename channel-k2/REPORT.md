@@ -1,5 +1,9 @@
 # Gói kênh 2: báo cáo mốc 1 (định vị) và mốc 2 (hồ sơ cầu), 11/10/2026
 
+> **Định vị 12/10/2026 (chủ dự án quyết, sau vòng cuối và lượt đo lặp): kênh 2 = "cơ chế kinh tế của thành phố và ngành".** J (thành phố & kinh tế địa phương) là trụ chính, B (ngành/điểm nghẽn) là trụ phụ. Hai tập thí điểm quyết trụ ưu tiên. Xem mục cuối "Định vị 12/10".
+
+> **Vòng cuối (12/10/2026): theo luật chủ dự án, J (nhà ở & đô thị) THẮNG.** Thước "kênh trẻ đúng ngách có video ≥ 10 nghìn" (tự tính): J 42,9 % (n = 7, KTC 18,6–71,1) · D 14,3 % (n = 7) · A 11,8 % (n = 34) · B 9,6 % (n = 188). Kết quả mong manh vì n nhỏ; xem mục "Vòng cuối". Lượt đo 2 độc lập (phiên G) cho cùng kết luận: J 50 % (n = 6), cùng 3 kênh trúng, A 3,4 %, G 0 %. Hiệu chuẩn bằng LL ở `CALIBRATION.md` (n = 4, mức tin cậy thấp).
+
 > Nhánh `channel-k2`, tách từ `origin/market-k2`. **Chưa dựng tập.**
 > Đầu vào: chủ dự án chọn hướng B, *cơ chế kinh tế của một ngành*, ngày 11/10. Khoảng 1/4 đề tài là tài chính–thanh toán, chỉ giải thích cơ chế, không khuyên đầu tư/tài chính cá nhân.
 > Mọi chỉ số trong gói là **tự tính, không phải chỉ số YouTube**, trừ các mục tiêu Studio trong `THI-DIEM.md`.
@@ -269,9 +273,240 @@ Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `fin
 - **Sát ngưỡng:** 9,6 % nằm trong ±5 % quanh mốc 10 % của luật "cả 4 ngách < 10 %" (khoảng 9,5–10,5 %). Tôi nêu tên chỉ số này theo luật cứng của dự án.
 - **Bỏ bước mở rộng** "kênh xuất hiện ≥ 2 lần": hạn mức hôm nay đã dùng khoảng 8 500/10 000 đơn vị trước vòng này, nên tôi giữ dự phòng.
 - **Chi phí AI vòng cuối đến đây:** $2,56 (Sonnet $1,93; Opus $0,63).
-- **Trần vòng:** chủ dự án nâng lên **$10** ngày 11/10; mã dừng ở $9. A, D, J được gắn nhãn y như B: Sonnet 5.5, lô 25 kênh, Opus kiểm 20 kênh/ngách.
+- **Trần vòng:** chủ dự án nâng lên **$10** ngày 11/10; mã dừng ở $9. Ngày 11/10 lúc 20:00, chủ dự án nâng tiếp lên **$12**; mã dừng ở $11. A, D, J được gắn nhãn y như B: Sonnet 5.5, lô 25 kênh, Opus kiểm 20 kênh/ngách.
 - **Không đổi** thước, luật hay model.
 - **Ngách có dưới 30 kênh trẻ đúng ngách:** ghi n thật và nêu ảnh hưởng lên KTC. Không mở rộng quá 30 search.list.
 
-### A, D, J
-Tự chạy khi quota đặt lại lúc 07:00 UTC ngày 12/10: 30 search.list cộng lệnh đọc, khoảng 3 500 đơn vị. Kết quả và kết luận luật sẽ ghi vào mục này.
+### Đối chiếu hai lượt đo (12/10)
+Hai phiên ở hai container cùng chạy `final.py` cho A, D, J với cùng câu hỏi và cùng thước. Không phiên nào thấy cache của phiên kia, nên Sonnet gắn nhãn lại độc lập. Kết quả thành **một phép lặp lại ngoài dự kiến**:
+
+| Ngách | Lượt 1 | Lượt 2 |
+|---|---|---|
+| A | 4/34 = 11,8 % | 1/29 = 3,4 % |
+| D | 1/7 = 14,3 % | 1/7 = 14,3 % |
+| J | 3/7 = 42,9 % (KTC 18,6–71,1) | 3/6 = 50 % (22,1–77,9) |
+| G | (chỉ ở lượt 2) | 0/14 = 0 % |
+
+- **Kết quả luật giống nhau ở cả hai lượt: J THẮNG.** Cả hai lượt đều chọn đúng 3 kênh trúng của J: CityWise, Harlan Braddock, Klyron.
+- **Nhiễu nhãn Sonnet đáng kể ở A:** 11,8 % so với 3,4 % trên gần cùng tập kênh. Kết quả A, và thứ hạng A so với B, vì vậy không vững.
+- **Nghi vấn nhãn Harlan Braddock (lượt 1):** ở lượt 2, Opus kiểm cả 6 kênh J đang hoạt động, Harlan Braddock vẫn được chấm đúng ngách và không lộ mặt. Hai đánh giá khác nhau. Nếu kênh này bị loại, J còn 2/6 hoặc 2/7 và **vẫn thắng** (lượt 1 đã tính).
+- **Quota chi trùng:** hai lượt cùng dùng một khoá, tốn khoảng 3 300 (lượt 1) + 5 990 (lượt 2, gồm G và hiệu chuẩn), tức khoảng 9 300/10 000 đơn vị trong ngày 12/10. Phần trùng khoảng 3 200 đơn vị. Nguyên nhân: lệnh hẹn giờ của phiên G và lệnh nền của phiên channel-k2 đều chạy A, D, J. Bài học: chỉ một phiên giữ một lệnh nền.
+- **AI:** lượt 1 $4,17 (container channel-k2) + lượt 2 $2,80 (container này, không tính $2,56 đã cộng trước) ≈ **$6,97** cho vòng cuối, cộng $0,26 đo nhanh G đã nằm trong lượt 2. Trần $12.
+
+### Lượt đo 1, phiên channel-k2: A, D, J (12/10, mỗi ngách 10 search.list; tổng 30 search.list, khoảng 3 300 đơn vị)
+| Ngách | Ứng viên → trẻ → trẻ đúng ngách + không lộ mặt → có video dài trong cửa sổ (n) | **Thước chính ≥ 10 nghìn** | KTC 90 % | ≥ 50 nghìn | Trung vị lượt xem/video | Opus khớp Sonnet (20 kênh) |
+|---|---|---|---|---|---|---|
+| **B** cơ chế ngành | 659 → 471 → 222 → **188** | 18/188 = **9,6 %** | 6,6–13,7 | 5,9 % | 70,5 | 19/20 |
+| **A** tiền/ngân hàng | 149 → 122 → 37 → **34** | 4/34 = **11,8 %** | 5,4–23,8 | 8,8 % | 124 | 17/20 cả hai nhãn; 18/20 nhãn gộp |
+| **D** bản đồ | 44 → 26 → 8 → **7** | 1/7 = **14,3 %** | 3,3–45,2 | 0 % | 98,5 | 16/20; 18/20 |
+| **J** nhà ở & đô thị | 96 → 66 → 9 → **7** | 3/7 = **42,9 %** | **18,6–71,1** | 14,3 % | 318,5 | 18/20; 19/20 |
+
+**n dưới 30 và ảnh hưởng lên KTC**
+- **D và J chỉ có n = 7, A có n = 34.** Không ngách nào mở rộng truy vấn quá 10 câu, đúng lệnh.
+- **Ở n = 7, mỗi kênh là 14,3 điểm %.** KTC 90 % của J rộng 52 điểm, của D rộng 42 điểm, so với 7 điểm của B (n = 188).
+- **n nhỏ một phần do cách lấy mẫu.** B có 72 câu và 659 ứng viên, gồm rất nhiều kênh mới đăng hàng loạt ít lượt xem; A, D, J chỉ có 10 câu mỗi ngách. Tập kênh vì vậy **không cùng cỡ** và có thể không cùng thành phần.
+
+**Kết quả luật** (luật chủ dự án, ghi nguyên):
+- **Ngách có thước chính cao nhất là J (42,9 %).** Hai điều kiện đều đạt:
+  - J − B = **+33,3 điểm %** ≥ 10;
+  - cận dưới KTC của J **18,6 %** > cận trên KTC của B − 5 = 13,7 − 5 = **8,7 %**.
+- **→ J THẮNG theo luật.**
+- Nhánh "cả 4 ngách < 10 %" không áp dụng, vì A, D, J đều ≥ 10 %. B 9,6 % nằm trong ±5 % quanh mốc 10 %, đã nêu ở trên.
+- **Ngách G** (thêm ở một phiên khác tối 11/10, xem mục G bên dưới) mới đo nhanh 7 câu, chưa Opus kiểm: 0/14 = 0 % (KTC 0–16,2 %). Dù tính G vào so sánh, J vẫn có thước chính cao nhất. **Kết quả luật không đổi.**
+
+**Độ vững của kết quả J** (tính thêm, không đổi luật):
+- **Ba kênh trẻ J đạt ≥ 10 nghìn:**
+
+| Kênh | Video tốt nhất | Lượt xem |
+|---|---|---|
+| CityWise | "Why Baltimore's Downtown Just Doesn't Work" | 89,6 nghìn |
+| Harlan Braddock | về thành phố Hanford | 47,2 nghìn |
+| Klyron | về "Highway to Nowhere" | 12,8 nghìn |
+
+  - Opus không nằm trong mẫu kiểm của cả ba kênh này.
+  - Video của Harlan Braddock nghiêng về lịch sử bí ẩn hơn nhà ở/đô thị, nên nhãn "đúng ngách" của kênh này đáng ngờ.
+- **Nếu bỏ 1 kênh trúng:**
+  - 2/7 = 28,6 % (KTC 10,0–59,1), hoặc 2/6 = 33,3 % (11,7–65,3) nếu kênh đó bị loại khỏi mẫu số.
+  - J **vẫn thắng** (hơn B ≥ 10 điểm; cận dưới > 8,7).
+- **Nếu bỏ 2 kênh trúng:** 1/7 = 14,3 % (3,3–45,2). J **không còn thắng**.
+- **Kết luận:** quyết định đổi sang J dựa trên 3 kênh. Nó đứng được trước một lỗi nhãn, không đứng được trước hai.
+
+### Ưu, nhược, tác động, rủi ro của kết quả "J thắng"
+- **Ưu:**
+  - J có tỷ lệ kênh trẻ bật cao nhất và trung vị lượt xem/video cao nhất (318,5, gấp khoảng 4,5 lần B).
+  - Hợp 3D sa bàn thị trấn/đô thị, bộ cảnh đã đề xuất cho trụ T2 của B.
+  - Market-k2 vòng 1 cũng ghi J là ngách "kênh mới dễ vào nhất" (11/12 kênh trẻ có nổ).
+- **Nhược:**
+  - **n = 7**; kết quả phụ thuộc 3 kênh.
+  - Market-k2 ghi J có CPM thấp hơn A/B, và 53 % kênh trẻ ra video hàng loạt.
+  - Gói kênh hiện tại (trụ, hàng đợi, hồ sơ cầu) viết cho B; J chưa có gói.
+- **Tác động:**
+  - Theo luật, hàng đợi B và thí điểm factory town **tạm dừng** (đã ghi ở `HANG-DOI.md`, `THI-DIEM.md`).
+  - J cần gói riêng: trụ, luật nội dung (chính trị hoá zoning), đề tài có cầu hiện hành.
+  - **Lõi dùng lại được:** nhận diện, luật nguồn, nhà máy LL, bộ cảnh thị trấn sa bàn.
+- **Rủi ro:**
+  - Mẫu nhỏ có thể là may rủi.
+  - J dễ chính trị hoá (zoning, nhà ở công).
+  - Market-k2 ghi J trùng khán giả Crux 13 %.
+  - Chủ dự án đã chỉ thị **dừng nghiên cứu sau vòng này**, nên không chạy thêm vòng đo J. Việc mở gói J hay xác nhận lại J trên mẫu lớn hơn là quyết định của chủ dự án.
+
+### Quota, chi phí, model
+- **YouTube:**
+  - 11/10: 528 đơn vị (B).
+  - 12/10: 30 search.list + khoảng 247 lệnh đọc (A 1 141, D 1 035, J 1 071 đơn vị), cộng 49 đơn vị khi đọc lại chi tiết kênh J/D/A để soát.
+  - Chỉ dùng một project/khoá của môi trường.
+- **AI vòng cuối (container phiên này):** **$4,17** theo `cost.jsonl`, gồm $3,94 cho nhãn (Sonnet gắn nhãn, Opus kiểm 20 kênh × 4 ngách) và $0,23 cho REVIEWER Opus. Phiên G ghi thêm $0,26 ở container của nó; tổng vòng cuối khoảng **$4,43**. Trần vòng đã được nâng lên $12 ở phiên G (mã dừng ở $11).
+- **REVIEWER Opus 5.5** (1 lượt): R1 phỉ báng, R2 YMYL, R3 luật dữ liệu, R4 áp luật đúng nguyên văn và nêu n nhỏ, R5 khớp số và phép tính Wilson: **tất cả PASS**. Model ghim; trường `served` khớp model yêu cầu (cộng Haiku phụ của CLI).
+- Số liệu thô (kể cả danh sách kênh) ở `~/.cache/cine-channel-k2`, ngoài git, xoá sau 30 ngày khi mã chạy.
+
+### Đang chờ chủ dự án
+1. **Xác nhận J theo luật**, kèm cảnh báo n = 7: mở gói kênh J, hay xác nhận lại trên mẫu lớn hơn (trái lệnh dừng nghiên cứu, cần chủ dự án cho phép).
+2. Nếu mở gói J: duyệt dùng lại nhận diện, nhà máy và bộ cảnh thị trấn; viết trụ và luật nội dung chống chính trị hoá.
+
+### Lượt đo 2, phiên G (container khác): A, D, J, G (12/10, cùng câu hỏi, gắn nhãn lại độc lập)
+| Ngách | Kênh ứng viên → trẻ → trẻ đúng ngách + không lộ mặt → có video dài trong cửa sổ | **Thước chính ≥ 10 nghìn** (KTC 90 %) | ≥ 50 nghìn | Trung vị lượt xem/video | Opus khớp Sonnet (20 kênh): cả hai nhãn / nhãn gộp |
+|---|---|---|---|---|---|
+| A Tiền/NH | 149 → 117 → 34 → 29 | 1/29 = **3,4 %** (0,8–14,1) | 0 % | 32 | 20/20 · 20/20 |
+| B Doanh nghiệp (11/10) | 659 → 471 → 222 → 188 | 18/188 = **9,6 %** (6,6–13,7) | 5,9 % | 70,5 | 19/20 · 19/20 |
+| D Bản đồ | 48 → 30 → 9 → 7 | 1/7 = **14,3 %** (3,3–45,2) | 0 % | 98,5 | **14/20** · 17/20 |
+| G Ba tầng | 88 → 59 → 16 → 14 | 0/14 = **0 %** (0–16,2) | 0 % | 50 | 17/20 · 18/20 |
+| **J Nhà ở & đô thị** | 94 → 65 → 8 → **6** | 3/6 = **50 %** (22,1–77,9) | 16,7 % | 415,5 | 19/20 · 20/20 |
+
+- **Quota 12/10:**
+  - A 1 130, D 1 041, J 1 075, G thêm 320 (3 câu mới; 7 câu cũ dùng cache), hiệu chuẩn khoảng 2 420.
+  - Tổng khoảng **5 990/10 000** đơn vị; 57 search.list.
+- **AI vòng cuối:** **$5,36** theo sổ: $2,56 của phiên trước, $1,92 đo A, D, J, G, Opus kiểm 6 kênh J, và REVIEWER Opus lượt 1 $0,79. Hiệu chuẩn chỉ dùng Sonnet, chi phí nhỏ, đã gồm trong sổ. Trần $12, mã dừng ở $11.
+
+**Luật chọn (5 ngách A, B, D, G, J): J THẮNG theo luật.**
+- *Điều kiện 1:* J có thước chính cao nhất, 50 %. J hơn B 40,4 điểm %, tức ≥ 10 → đạt.
+- *Điều kiện 2:* cận dưới KTC của J là 22,1 %, lớn hơn cận trên KTC của B trừ 5 (13,7 − 5 = 8,7) → đạt.
+- Luật "cả 5 ngách < 10 %" không áp dụng, vì J và D vượt 10 %.
+- **Sát ngưỡng ±5 %:** B 9,6 % so với mốc 10 % (đã nêu ở vòng trước). Các so sánh của luật đều cách xa ngưỡng: 40,4 so với 10; 22,1 so với 8,7.
+- **Cờ độ tin cậy, chủ dự án cần cân nhắc trước khi duyệt:**
+  1. **n = 6.** Kết quả J dựa trên 3 kênh: CityWise (89,6 nghìn lượt, kênh 18 tháng tuổi, 10,6 nghìn người đăng ký), Harlan Braddock (47,2 nghìn) và Klyron (12,8 nghìn). Bớt một kênh là tỷ lệ còn 33 %, bớt hai còn 17 %. Wilson đã tính cỡ mẫu nhỏ, nhưng KTC vẫn rộng 22–78 %.
+  2. **J đúng ngách chặt:** chỉ 11/65 kênh trẻ được chấm đúng ngách, và 8/65 đúng ngách + không lộ mặt. Mẫu tìm kiếm lẫn nhiều kênh nhà di động, tour căn hộ Tokyo và kể chuyện, nên phần "cầu" nằm ở vài kênh giải thích làm tốt.
+  3. **Thước chưa hiệu chuẩn** (`CALIBRATION.md`): LL chỉ có n = 4 và chưa tới 28 ngày.
+  4. **D:** Opus chỉ khớp Sonnet 14/20, nhãn D nhiễu nhất; n = 7.
+  5. **Opus kiểm kênh quyết định:** mẫu Opus 20 kênh ngẫu nhiên chỉ trúng 1 trong 3 kênh có video ≥ 10 nghìn của J. Vì vậy tôi cho Opus kiểm thêm **cả 6 kênh J đang hoạt động**, kết quả khớp Sonnet **6/6** (cả hai nhãn).
+  6. **Khung lấy mẫu khác nhau:** tập kênh của B lấy từ 72 câu cầu hiện hành theo đề tài; J (như A, D, G) lấy từ 10 câu khán giả. Phép so J với B không hoàn toàn cùng điều kiện.
+  7. **Nhà máy:** vòng 1 chấm J 8 điểm, B 6. J có rủi ro chính trị hoá (zoning, đường cao tốc và khu dân cư da màu) và trùng Crux 13 % (market-k2 vòng 1).
+- **Theo chỉ dẫn, ngách đổi nên HANG-DOI và THI-DIEM có thêm mục *nháp* J.** Mục này chờ chủ dự án duyệt và ghi vào `AUTHORSHIP.md`. Phần B giữ nguyên bên dưới.
+
+**G, đủ 10 câu (gộp mẫu 11/10):**
+- **Thước chính:** 0/14 (0 %, KTC 0–16,2 %).
+- **Khung âm mưu:** 3/59 kênh trẻ (đếm riêng). Video top 20 khung âm mưu chiếm **1/20 = 5 %** (KTC 1,1–19,6 %). Opus khớp Sonnet về khung âm mưu 19/20. G không thắng nên cờ "> 50 %" không cần bật.
+- **Cầu theo tầng:**
+  - **Tầng 2** có 7/20 video top với 2,9 triệu lượt (một video 1,22 triệu), nhưng là tin Nga, trừng phạt và đồng đô la, rất thời sự.
+  - **Tầng 1** có 8/20 video top với 232 nghìn lượt, chủ yếu cụm Rothschild. 14/16 kênh trẻ đúng ngách nằm ở tầng này nhưng chưa kênh nào có video ≥ 10 nghìn.
+  - **Tầng 3** yếu: 4/20 video top, video cao nhất 14,6 nghìn lượt.
+- **Kênh trẻ làm hàng loạt:** 5/16 kênh có nhịp ≥ 12 video/28 ngày; 2/16 có khuôn tiêu đề lặp; 6/16 có ít nhất một trong hai.
+- **CPM công khai** (ghi là CPM, xem mục đo nhanh): Personal Finance 18–45, History 5–12, Crypto 12–25 USD. Không có dòng địa chính trị.
+
+**Hiệu chuẩn bằng LL:** xem `CALIBRATION.md`.
+- 8 đề tài, chỉ tập 6 có nhãn Yếu; tập 6 cũng có lượt xem/ngày cao nhất (48 so với ≤ 4).
+- ρ = 0,77 với n = 4, mẫu rất nhỏ. Mức tin cậy của thước: thấp, chưa kiểm được.
+- Khuyến nghị dùng hồ sơ cầu làm **bộ lọc phụ** khi chọn tập 9 của LL.
+
+**Đang chờ chủ dự án:**
+1. **Duyệt hoặc không duyệt J làm ngách kênh 2.** Luật chọn J; các cờ n = 6 và thước chưa hiệu chuẩn nêu ở trên. Có thể duyệt kèm điều kiện đo cầu 6 câu cho hàng đợi J (khoảng 3 600 đơn vị), hoặc giữ B.
+2. Ghi quyết định vào `AUTHORSHIP.md`.
+3. Dùng hồ sơ cầu cho tập 9 của LL ở vai trò bộ lọc phụ hay không.
+
+### G "Quyền lực kinh tế qua ba tầng": đo nhanh tối 11/10 (mẫu nhỏ, chưa so luật)
+> **Đã có số mới hơn:** mục "A, D, J, G: đo 12/10" bên dưới (G đủ 10 câu, có Opus kiểm) thay cho số tầng và khung âm mưu ở mục này.
+
+Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Mã: `final.py G --nq 7 --noaudit`.
+
+**Câu hỏi:** 7/10 câu (3 câu tầng 1, 2 câu tầng 2, 2 câu tầng 3). Câu hỏi nằm trong `G_Q`, không trùng câu của A.
+
+**Nhãn:** Sonnet 5.5 gắn như các ngách khác, thêm ba trường:
+- *khung âm mưu*: kênh này không tính là đúng ngách, đếm riêng;
+- *tầng*: 1, 2, 3 hoặc nối tầng;
+- *khuôn tiêu đề*.
+Opus chưa kiểm; sẽ kiểm 20 kênh ở lượt đủ 10 câu.
+
+**Quota:** 7 search.list + 51 lệnh đọc = 751 đơn vị. Thêm 5 đơn vị tìm kênh LL. Theo ước tính (phiên trước ghi khoảng 9 030 đơn vị đã dùng), ngày 11/10 còn khoảng 210, tức vẫn trên mức dự phòng 100.
+
+**Chi phí AI:** $0,26. Sổ vòng cuối $2,82, gồm $2,56 phiên trước ghi theo REPORT. Trần $12, mã dừng ở $11.
+
+| | G (7 câu) |
+|---|---|
+| Kênh ứng viên → kênh trẻ → kênh trẻ đúng ngách, không lộ mặt, không khung âm mưu → có video dài trong cửa sổ | 59 → 40 → **15** → 14 |
+| Thước chính: kênh có video ≥ 10 nghìn | **0/14 = 0 %** (KTC 90 % 0–16,2 %) |
+| Trung vị lượt xem/video (137 video) | 50 |
+| Kênh trẻ mang khung âm mưu (đếm riêng) | 2/40 |
+| Video top 20 mang khung âm mưu (Sonnet) | **1/20 = 5 %** (1,1–19,6 %) |
+| Kênh trẻ đúng ngách theo tầng 1 / 2 / 3 / nối tầng | 13 / 1 / 0 / 1 |
+| Video top 20 theo tầng 1 / 2 / 3 / nối tầng (tổng lượt xem) | 10 (233 nghìn) / 6 (722 nghìn) / 3 (27 nghìn) / 1 |
+| Kênh trẻ làm hàng loạt: nhịp ≥ 12 video/28 ngày / khuôn tiêu đề / cả hai | 5 / 2 / 1 trên 15 |
+
+- **Cầu theo tầng.** Tầng 2 có lượt xem lớn nhất, nhưng gần như toàn tin thời sự Nga và trừng phạt. Tầng 1 có cầu vừa và nằm gần hết ở cụm Rothschild (95 và 90 nghìn lượt). Kênh trẻ dồn vào tầng 1 nhưng chưa kênh nào đạt 10 nghìn. Tầng 3 yếu: cao nhất 14,6 nghìn lượt.
+- **Nhãn âm mưu cần Opus kiểm.** Vài tiêu đề ở cụm Rothschild ("The Secret World of…", "…Owns No Country But Bankrolled Them All") được Sonnet chấm *không* âm mưu, nên con số 5 % có thể thấp hơn thực tế.
+- **CPM công khai** (ghi là CPM, không phải RPM; G là ngách ghép, chưa có dòng riêng):
+  - [OutlierKit 13/09/2026](https://outlierkit.com/resources/youtube-niches-guide/): Personal Finance & Investing 18–45 USD, History & True Crime 5–12 USD, khán giả Mỹ.
+  - [upGrowth, sửa 17/09/2026](https://upgrowth.in/youtube-cpm-overview-highest-paying-niches-2026/): Cryptocurrency & digital assets 12–25 USD (ước tính, không nêu vùng).
+  - Không nguồn nào có dòng tin tức/địa chính trị.
+
+**REVIEWER Opus (lượt 1, $0,79, served `claude-opus-5-5` + Haiku phụ):**
+- R1 phỉ báng, R2 YMYL/âm mưu, R3 dữ liệu, R4 áp luật, R6 hiệu chuẩn: **PASS**. R5 khớp số: **FAIL**.
+- **Đã sửa:**
+  - Số search.list: 67 → 57.
+  - "8/65 đúng ngách": nay là 11/65 đúng ngách, 8/65 đúng ngách + không lộ mặt.
+  - Thêm cờ: Opus chưa kiểm 2/3 kênh quyết định của J, nên đã cho Opus kiểm cả 6 kênh (khớp 6/6).
+  - Thêm cờ khung lấy mẫu B khác J.
+  - Ghi nguồn trần $12.
+  - Đánh dấu mục G đo nhanh đã có số mới hơn.
+  - Lưu danh sách video tìm kiếm của J làm bằng chứng cho hàng đợi nháp, ở `final_J_search_long.json`, ngoài git.
+- Không chạy lượt 2.
+
+---
+## Định vị 12/10: "cơ chế kinh tế của thành phố và ngành" (chủ dự án quyết, gói kênh soạn lại)
+Mọi chỉ số là **tự tính, không phải chỉ số YouTube**. Quyết định ghi ở `AUTHORSHIP.md` (12/10/2026).
+
+**Quyết định của chủ dự án:**
+- J (thành phố & kinh tế địa phương) là **trụ chính**, B (ngành/điểm nghẽn sản xuất) là **trụ phụ**.
+- Không đo thêm trên API, trừ hồ sơ cầu thí điểm T1 (≤ 6 search.list) và kiểm tên kênh (≤ 3 search.list).
+- 2 tập thí điểm (K2G-01 Steel + 1 tập T1) quyết trụ ưu tiên.
+
+**Luật chọn ngách lần sau (bắt buộc, bài học vòng cuối):**
+1. **n ≥ 30 kênh trẻ đúng ngách mỗi ngách.** Vòng cuối J và D chỉ có n = 6–7, nên KTC rộng hơn 40 điểm % và kết quả đứng hay đổ chỉ vì 1–2 kênh.
+2. **Cùng số câu hỏi mỗi ngách.** Vòng cuối B có 72 câu và 659 ứng viên, còn A, D, J, G mỗi ngách 10 câu. Khung lấy mẫu khác nhau nên phép so không cùng điều kiện.
+3. **Một lệnh nền cho mỗi phiên.** Hai phiên cùng chạy A, D, J trên một khoá quota, chi trùng khoảng 3 200 đơn vị.
+- Thêm (đề xuất, chờ duyệt): nhãn ngách chấm 2 lượt độc lập. Kết quả A lệch 11,8 % so với 3,4 % chỉ do nhãn Sonnet.
+
+**Gói kênh đã cập nhật:**
+| Tài liệu | Thay đổi |
+|---|---|
+| `TRU-NOI-DUNG.md` | 3 trụ mới: T1 thành phố (≈ 60 %), T2 ngành (25 %), T3 mô hình kiếm tiền của dịch vụ đô thị/ngành (≈ 15 %); ranh giới với Crux và LL |
+| `HIEN-CHUONG.md` | Lời hứa mới, đặt nơi chốn trước; thêm cam kết 5 "thành phố không có phe" |
+| `LUAT-NOI-DUNG.md` | §7 tránh vùng Crux (nhà ở cá nhân, mua nhà, tài chính hộ gia đình); §8 zoning, đường cao tốc, khu dân cư theo chủng tộc chỉ nêu cơ chế + nguồn chính thức/học thuật, không khung đảng phái, không quy lỗi nhóm người; §9 dùng `LUAT-NOI-DUNG-G.md` (đưa từ nhánh `k2g-ep01`, bản chủ dự án duyệt ở G1 K2G-01) cho "huyền thoại vs hồ sơ" và "as of" |
+| `LUAT-CHON-DE-TAI.md` | Tỷ lệ trụ mới; điều kiện 5 thêm kiểm vùng Crux và §8 |
+| `HANG-DOI.md` | Hàng đợi hiệu lực 12 đề tài (7 T1 · 3 T2 · 2 T3), tên diễn đạt lại; nhãn cầu từ dữ liệu đã có hoặc "sơ bộ/chưa đo"; giữ K2G-01 Steel ở T2 |
+| `THI-DIEM.md` | 2 tập thí điểm: K2G-01 Steel + **K2C-T1-01 mall-town** (đề xuất); tiêu chí 7 ngày (CTR, tỷ lệ xem trung bình, lượt xem/ngày); trụ thắng ≥ 2/3 chỉ số chiếm ≥ 4/6 tập kế; điều kiện để phép so công bằng |
+| `de-tai/mall-town.md` | Hồ sơ cầu thí điểm T1: Cầu-bền 5/13 ≥ 500 nghìn (1/5 đúng góc cơ chế); khoảng trống "mall ↔ ngân sách địa phương"; 6 loại số neo công khai |
+| `TEN-KENH.md` | 3 tên theo định vị mới: Moving Parts (còn hợp, đề xuất), Main Street Machine, Townworks |
+
+**Đề tài T1 thí điểm đề xuất: "When the Mall Dies, Who Pays? How One Building Holds Up a Town's Budget"** (tên làm việc).
+- **Lý do:** cầu T1 cao nhất theo thước cầu hiện hành (Mạnh với 4 video đúng đề tài/90 ngày); Cầu-bền 5 video ≥ 500 nghìn, nhưng chỉ 1/5 đúng góc cơ chế mall; có khoảng trống rõ; số liệu Census, BLS và ngân sách thành phố có sẵn; không trùng Steel.
+- **Phương án thay:** factory town (Mạnh; trùng phần thị trấn thép).
+
+**Quota và chi phí phiên này (12/10):**
+- 5 search.list (hồ sơ cầu 3, tên 2) + 22 lệnh đọc, khoảng 522 đơn vị. Cộng hai lượt đo vòng cuối, ngày 12/10 dùng khoảng 9 860/10 000 (ước tính).
+- AI: hồ sơ cầu $0,23 + REVIEWER Opus $1,34 ≈ **$1,57**.
+- Không chạy lệnh nền.
+
+**Đang chờ chủ dự án:**
+1. Duyệt đề tài T1 thí điểm (mall-town hay factory town).
+2. Chọn tên kênh (đề xuất Moving Parts), rồi kiểm handle trực tiếp và USPTO.
+3. Duyệt hàng đợi 12 đề tài và luật bổ sung §7–§9.
+4. Quyết trường hợp hoà 1–1–hoà ở luật thí điểm.
+
+**REVIEWER Opus (1 lượt, $1,34, served `claude-opus-5-5` + Haiku phụ):**
+- R1 phỉ báng, R2 YMYL/Crux/đảng phái, R3 dữ liệu: **PASS**. R4 tuân thủ, R5 khớp số, R6 chép tiêu đề: **FAIL**.
+- **Đã sửa:**
+  - R5: chỉ 1/5 video ≥ 500 nghìn đúng góc cơ chế mall (3/5 lạc góc, 1 xếp hạng downtown); đã ghi ở mọi chỗ nêu Cầu-bền.
+  - R4: ghi hai ngoại lệ API của chủ dự án (hồ sơ cầu T1 ≤ 6, tên ≤ 3) vào AUTHORSHIP và TRU-NOI-DUNG.
+  - R6: đổi tên làm việc K2C-T2-02 để bỏ cụm "Only Two"; đổi thêm T3-01 và T3-02 khỏi khuôn "…Make Money".
+  - R3: điền chi phí REVIEWER.
+  - Đánh dấu banner vòng cuối ở HANG-DOI/THI-DIEM là lịch sử; THI-DIEM nêu thước và tính không đối xứng của phép chọn mall-town; AUTHORSHIP liệt kê phần do AI đề xuất; sửa câu "3 kênh J đều là đô thị" thành 2/3.
+- Không chạy lượt 2, theo lệnh 1 lượt.

@@ -1,5 +1,11 @@
 # Hàng đợi đề tài (mốc 1, bước 7; cập nhật vòng 2 "Cầu hiện hành" 11/10/2026)
 
+> *(Lịch sử, đã được định vị 12/10 thay; xem mục HIỆU LỰC bên dưới.)* **Vòng cuối (12/10/2026): theo luật chủ dự án, ngách THẮNG là J (nhà ở & đô thị)**: 42,9 % so với B 9,6 %; cận dưới KTC 18,6 % > 8,7 %. Mọi số là tự tính, không phải chỉ số YouTube.
+> - **Hàng đợi B dưới đây TẠM DỪNG.** Hàng đợi J có **nháp** ở mục "NHÁP" bên dưới (lượt đo 2); nháp chờ chủ dự án mở gói J.
+> - **Lặp lại:** lượt đo 2 độc lập cho J 3/6 = 50 % (KTC 22,1–77,9), cùng 3 kênh trúng; Opus khớp 6/6 kênh J đang hoạt động.
+> - **Cảnh báo:** J chỉ có n = 7 kênh trẻ đúng ngách; kết quả mất nếu 2/3 kênh trúng bị chấm lại là sai nhãn. Xem `REPORT.md`, mục "Vòng cuối".
+
+
 > Mỗi đề tài đã qua 5 điều kiện của `LUAT-CHON-DE-TAI.md`. Mọi chỉ số là **tự tính, không phải chỉ số YouTube**.
 > **Nguồn nhãn cầu:**
 > - market-k2 vòng 1 (11/10/2026), cửa sổ 90 ngày; số liệu thô vòng đó đã mất, nhãn lấy từ `market-k2/REPORT.md`;
@@ -10,6 +16,74 @@
 > - đo bổ sung: 0/5 video đầu có dấu hiệu số liệu thật ở mọi câu đã đo.
 >
 > Cả hai phép đo đều chỉ đọc chữ.
+
+## HÀNG ĐỢI HIỆU LỰC — định vị 12/10/2026 "cơ chế kinh tế của thành phố và ngành" (thay mọi bảng bên dưới)
+> **Chủ dự án quyết 12/10** (`AUTHORSHIP.md`): T1 thành phố là trụ chính, T2 ngành là trụ phụ, T3 mô hình kiếm tiền. Không đo thêm trên API, trừ hồ sơ cầu thí điểm T1 (3 search.list, `de-tai/mall-town.md`). Mọi nhãn là **tự tính, không phải chỉ số YouTube**.
+> - **Tên đề tài** là tên làm việc, diễn đạt lại theo góc cơ chế, **không chép tiêu đề đối thủ**. Tiêu đề thật đặt ở G1 từng tập.
+> - **Nhãn cầu** chỉ lấy từ dữ liệu đã có:
+>   - **Mạnh/Yếu/Không** theo thước cầu hiện hành (vòng 2, 6 câu, 90 ngày, "đối thủ trực tiếp");
+>   - **Cầu-bền** theo hồ sơ cầu toàn thời gian;
+>   - **sơ bộ**: video thấy trong mẫu tìm kiếm của vòng cuối hoặc hồ sơ khác, chưa đo đúng đề tài;
+>   - **chưa đo**.
+> - **Tỷ lệ:** 7 T1 (58 %) · 3 T2 (25 %) · 2 T3 (17 %).
+> - **Mức rủi ro** (12/10, `QUAN-TRI-RUI-RO.md` §7): XANH #1, #2, #9, #11, #12 · VÀNG #3–#8, #10 · không có ĐỎ. Gợi ý nguồn footage lưu trữ từng đề tài nằm ở bảng đó.
+
+| # | Mã | Trụ | Đề tài (tên làm việc, EN) | Nhãn cầu (dữ liệu đã có) | Nguồn số công khai chính | Phút |
+|---|---|---|---|---|---|---|
+| 1 | K2C-T1-01 | T1 | **When the Mall Dies, Who Pays? How One Building Holds Up a Town's Budget** | **Mạnh** (vòng 2 "malls": 4 video ≥ 50 nghìn đúng đề tài/90 ngày) + **Cầu-bền** (hồ sơ 12/10: 5/13 video ≥ 500 nghìn, nhưng chỉ 1/5 đúng góc cơ chế mall); khoảng trống: không video nào nối mall với ngân sách địa phương | ACFR/ngân sách thành phố, Census State & Local Finances, BLS QCEW, Census E-Commerce | 14–17 |
+| 2 | K2C-T1-02 | T1 | One Plant, One Town: What Holds a Factory Town Up | **Mạnh** (vòng 2 "factory town": 3 video; phụ thuộc 1 video 1,10 triệu) | BLS QCEW theo quận, Census CBP, ACFR | 14–17 |
+| 3 | K2C-T1-03 | T1 | Why Some Downtowns Empty Out After Five | **sơ bộ:** kênh trẻ CityWise 89,6 nghìn (video về một downtown, vòng cuối J); hồ sơ mall-town có 1 video xếp hạng downtown 696 nghìn (2024) | Census ACS/LEHD (nơi làm việc–nơi ở), ACFR, số liệu văn phòng trống có phương pháp công khai | 14–17 |
+| 4 | K2C-T1-04 | T1 | Who Pays for the Suburbs' Roads and Pipes? | **sơ bộ:** 1 video 280 nghìn về ngoại ô trong mẫu J/90 ngày (dạng bình luận); chưa đo đúng đề tài | ACFR (chi hạ tầng), Census State & Local Finances, nghiên cứu học thuật về chi phí hạ tầng theo mật độ | 15–18 |
+| 5 | K2C-T1-05 | T1 | How a Highway Splits a City — and What Stitching It Back Costs | **sơ bộ, Yếu:** 12,8 nghìn (kênh trẻ Klyron) + 5,9 nghìn trong mẫu J; **nhạy cảm, áp §8** | FHWA, Federal-Aid Highway Act 1956, hồ sơ USDOT Reconnecting Communities, nghiên cứu bình duyệt | 16–18 |
+| 6 | K2C-T1-06 | T1 | Why US Cities Stopped Building the Corner Apartment Block | **sơ bộ:** 1 video 958 nghìn/90 ngày trong mẫu J, chưa chấm đúng đề tài → theo thước tối đa Yếu; **ranh giới §7** (chỉ ở tầm luật xây dựng của thành phố) | Bộ luật xây dựng/zoning công khai, Census giấy phép xây dựng (BPS), nghiên cứu học thuật | 14–17 |
+| 7 | K2C-T1-07 | T1 | How Americans Lived Before the Suburbs | **sơ bộ:** 25,3 nghìn trong mẫu J | Census lịch sử (dân số đô thị/ngoại ô), HOLC/NARA (áp §8) | 15–18 |
+| 8 | **K2G-01** | T2 | **Steel** (Carnegie/Pittsburgh → thép là năng lực quốc gia → thuế 232, CBAM, thép hydro; nhánh `k2g-ep01`, **đang dựng**) | **chưa đo** bằng thước cầu; đề tài đã duyệt G1 (11/10); vòng cuối G: tầng 1 có cầu vừa | 22 nguồn đã đọc toàn văn (USGS, worldsteel, Federal Register, CRS, OECD, EUR-Lex, SEC) | ~16 |
+| 9 | K2C-T2-02 | T2 | What It Takes to Build an Airliner — and Why Almost No One Can | **Mạnh** (vòng 2) + Cầu-bền (`de-tai/jet-airliner.md`) | SEC 10-K, FAA, hồ sơ công ty | 16–18 |
+| 10 | K2C-T2-03 | T2 | Why Only a Handful of Places Can Make Advanced Chips | **Mạnh** (vòng 2); **cờ thời sự** (cầu nghiêng tin EUV/nhà máy mới) | SEC 10-K/20-F, CRS, SIA có phương pháp công khai | 16–18 |
+| 11 | K2C-T3-01 | T3 | Who Really Pays to Run an Airport | **sơ bộ:** 1 video 520 nghìn/90 ngày (vòng 2, ứng viên); chưa đo 6 câu | ACFR của cơ quan sân bay, FAA CATS | 14–16 |
+| 12 | K2C-T3-02 | T3 | Where a Supermarket's Profit Actually Comes From | **Yếu** (vòng 2: 1 video 77,7 nghìn) | SEC 10-K, Census Monthly Retail Trade | 14–16 |
+
+- **Rời hàng đợi theo định vị mới:**
+  - card rewards, card networks (vùng tài chính hộ gia đình, §7);
+  - retailers abroad (2/3 video đúng đề tài là video phản ứng);
+  - container, Amazon warehouse, Dollar General, airlines (nhãn Không ở vòng 2).
+- **Thứ tự phát:** hai tập thí điểm trước (K2G-01 Steel, K2C-T1-01), sau đó theo luật ở `THI-DIEM.md`. Trong 6 tập kế, không hai tập liền cùng trụ, trừ khi luật thí điểm cho một trụ ≥ 4/6.
+- **Trước G1 mỗi đề tài "sơ bộ/chưa đo":** chủ dự án đã quyết không đo thêm trên API ở vòng này. Mỗi đề tài sẽ có hồ sơ cầu ≤ 6 search.list ở Việc 0/G1 của chính tập đó, theo quy trình phiên M.
+- **Ưu:** 7 đề tài T1 đều có số liệu công khai theo quận/thành phố và hợp sa bàn 3D. Hai đề tài T1 đầu có nhãn đo đủ (Mạnh).
+- **Nhược:** 5/7 đề tài T1 chỉ có nhãn sơ bộ; T1-05 và T1-06 chạm vùng nhạy cảm.
+- **Tác động:** bộ cảnh ưu tiên là sa bàn thị trấn–mall–downtown, dùng cho T1-01…03.
+- **Rủi ro:** nếu thí điểm cho T2 thắng, phải đảo tỷ lệ, và hàng đợi T2 hiện chỉ có 3 đề tài (cần bổ sung).
+
+## (Thay bằng hàng đợi hiệu lực 12/10 ở trên) NHÁP J vòng cuối, giữ để đối chiếu
+- **Bằng chứng:** video ≥ 8 phút trong 10 câu tìm kiếm J (90 ngày, US), lưu ở `$K2C_DATA/final_J_search_long.json`, ngoài git. Lượt xem là số đọc từ API; nhãn là **tự tính, không phải chỉ số YouTube**.
+- **Nhãn sơ bộ, CHƯA đo bằng thước cầu 6 câu** (`current.py`). Duyệt J thì phải đo trước khi viết hồ sơ, khoảng 60 search.list.
+- **Góc:** *cơ chế* (luật xây dựng, tài chính, quy hoạch), giữ hiến chương và luật nội dung hiện có. Không khuyên mua bán nhà, không đứng về đảng phái nào.
+
+| # | Đề tài (EN) | Bằng chứng sơ bộ (video ≥ 8 phút, 90 ngày) | Nhãn sơ bộ | Phút |
+|---|---|---|---|---|
+| 1 | Why America Stopped Building Apartments Like This | "Why We Can't Build Apartments Like This Anymore", 958 nghìn lượt | Mạnh? | 14–17 |
+| 2 | Why American Houses Got So Big | 88 nghìn + 10 nghìn (2 video cùng đề) | Mạnh? | 13–16 |
+| 3 | Why Tiny Homes Didn't Fix Housing | 1,64 triệu (góc "hối hận", cần đổi sang cơ chế) | Yếu? (lệch góc) | 13–15 |
+| 4 | Where Americans Lived Before the Suburbs | 25 nghìn | Yếu? | 15–18 |
+| 5 | Why Starter Homes Disappeared | 7,7 nghìn; câu hỏi khán giả của J | Yếu? | 14–16 |
+| 6 | How Highways Were Routed Through American Neighborhoods | 12,8 nghìn + 5,9 nghìn | Yếu? Rủi ro chính trị cao | 16–18 |
+| 7 | Why Manufactured Homes Are So Cheap | 51, 46 và 27 nghìn (phần lớn tour/khuyên mua; cần góc cơ chế) | Yếu? | 13–15 |
+| 8 | How Tokyo Kept Housing Affordable | 186 và 58 nghìn (tour, không phải giải thích) | Chưa rõ | 15–17 |
+
+- **Ưu:**
+  - Thước chính 50 % (cao nhất).
+  - Trung vị lượt xem/video 415, so với 70 của B.
+  - Sa bàn thị trấn và nhà máy tái dùng được (NHAN-DIEN).
+  - Vòng 1 chấm nhà máy cho J 8 điểm.
+- **Nhược:**
+  - n = 6 kênh trẻ.
+  - Phần lớn video top là tour hoặc khuyên mua, không phải giải thích.
+  - Hàng đợi chưa qua thước cầu.
+- **Tác động:** phải viết lại trụ nội dung, hiến chương và tên kênh. Hồ sơ jet, container và card networks không dùng được.
+- **Rủi ro:**
+  - Chính trị hoá (zoning, đường cao tốc, sắc tộc).
+  - Trùng Crux 13 %.
+  - Nhóm YMYL nếu trượt sang chuyện mua nhà.
 
 ## Cầu hiện hành (vòng 2, 11/10/2026): hàng đợi hiệu lực
 > Đo bằng `current.py`. Mọi số là **tự tính, không phải chỉ số YouTube**.

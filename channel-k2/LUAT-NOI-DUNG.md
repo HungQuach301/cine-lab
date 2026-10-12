@@ -38,10 +38,52 @@
 | 1 | Ghi báo sai vào `channel-k2/SUA-LOI.md`: tập, mốc thời gian, nội dung báo, người báo (ẩn danh nếu là bình luận công khai) | Ngay khi đọc |
 | 2 | Kiểm lại với nguồn gốc. Phân loại: **(a)** sai sự thật có thể gây hại cho công ty/người · **(b)** sai số không đổi kết luận · **(c)** không sai | Trong 48 giờ |
 | 3a | Loại (a): **ẩn video ngay** (đặt riêng tư), sửa và đăng lại hoặc gỡ hẳn, ghim bình luận đính chính, sửa mô tả | Ẩn trong 24 giờ kể từ khi xác nhận |
-| 3b | Loại (b): ghim bình luận đính chính, sửa mô tả (thêm mục "Corrections"). Nếu số sai nằm ở móc hoặc kết luận thì xử như (a) | Trong 72 giờ |
+| 3b | Loại (b): ghim bình luận đính chính, sửa mô tả (thêm mục "Corrections"). Nếu số sai nằm ở móc hoặc kết luận thì xử như (a) | **Trong 24 giờ** (12/10/2026, theo `QUAN-TRI-RUI-RO.md` §5; trước là 72 giờ) |
 | 3c | Loại (c): trả lời kèm nguồn, giọng trung tính | Tuỳ chọn |
 | 4 | Ghi bài học vào `SUA-LOI.md`, cập nhật luật kiểm nếu lỗi có thể bắt bằng máy | Trước tập kế tiếp |
 - Yêu cầu pháp lý chính thức (thư luật sư, khiếu nại phỉ báng) chuyển **chủ dự án** ngay. Claude không trả lời thay.
+
+## 7. Ranh giới với vùng Crux: nhà ở cá nhân và tài chính hộ gia đình (chủ dự án, 12/10/2026)
+- **Không làm:** mua hay thuê nhà, thế chấp, giá nhà "có nên mua", chi phí sinh hoạt của một hộ, ngân sách cá nhân, so sánh sản phẩm tài chính cho người tiêu dùng. Đây là vùng của kênh Crux.
+- **Được làm ở tầm thành phố:** luật xây dựng và zoning như cơ chế định hình thành phố; nguồn thu thuế của thành phố; chi phí hạ tầng trên mỗi người dân; nguồn cung nhà ở như số neo của cơ chế đô thị (Census ACS, giấy phép xây dựng).
+- **Câu kiểm:** câu hỏi của tập trả lời được mà không cần nói người xem nên làm gì với nhà hay tiền của họ.
+- **Tiêu đề, thumbnail** không dùng "afford", "buy a home", "your rent", "save".
+
+## 8. Đề tài nhạy cảm của thành phố: zoning, đường cao tốc, khu dân cư theo chủng tộc (chủ dự án, 12/10/2026)
+- **Chỉ nêu cơ chế, kèm nguồn chính thức hoặc học thuật:** văn bản luật hay quy định (bộ luật zoning, Federal-Aid Highway Act), hồ sơ cơ quan (FHWA, HUD, hồ sơ thành phố), bản đồ lưu trữ công (HOLC/NARA), nghiên cứu bình duyệt hoặc của cơ quan nghiên cứu nhà nước (CRS, GAO). Ghi năm và phạm vi của nguồn.
+- **Không khung đảng phái:** không gắn chính sách với đảng hay chính khách đương thời làm trục; không dùng từ ngữ chiến dịch ("woke", "war on cars", "socialist", "MAGA"…). Khi nêu đánh giá chính sách, ghi **ai** đánh giá (LUAT-NOI-DUNG-G §6).
+- **Không quy lỗi cho nhóm người:** chủ thể là cơ quan, văn bản, quyết định có tên và ngày ("the 1956 Act funded…", "the city council voted…"), không phải chủng tộc, tôn giáo, thế hệ hay cư dân một vùng. Hậu quả lên một cộng đồng được nêu bằng số và nguồn, không bằng tính từ đạo đức.
+- **Tranh luận học thuật:** khi các nghiên cứu bất đồng (tác động của zoning lên giá, của đường cao tốc lên khu dân cư), nêu cả hai kèm nguồn (§2).
+- **Hình:** không biếm hoạ người, không biểu tượng đảng phái; bản đồ lưu trữ dùng nguyên bản có dòng nguồn.
+- **REVIEWER Opus** kiểm §8 ở mỗi bản lời T1.
+
+## 9. Dùng `LUAT-NOI-DUNG-G.md` cho "huyền thoại vs hồ sơ" và "as of"
+- `LUAT-NOI-DUNG-G.md` (chủ dự án duyệt ở G1 K2G-01, 11/10/2026, "dùng cho cả ngách B") áp cho mọi tập kênh 2:
+  - §3 nhịp "huyền thoại vs hồ sơ" (1–3 nhịp/tập, có ghi lời đồn thấy ở đâu);
+  - §5 "as of" cho sự kiện đang diễn ra;
+  - §1–§2 không thuyết âm mưu, không gán động cơ cho nhóm.
+- Cấu trúc ba tầng (§0) chỉ dùng cho tập T2 dạng "ba tầng". Tập T1 dùng cấu trúc 6 phần của `HIEN-CHUONG.md` §2.
+- Hai luật khác nhau thì luật chặt hơn thắng.
+
+## 10. Đối chiếu với `QUAN-TRI-RUI-RO.md` (chủ dự án 12/10/2026: chấp nhận vùng xám có quản trị)
+**Được nới:**
+| Luật cũ | Nay |
+|---|---|
+| Đề tài bám tin tức dưới 90 ngày không vào hàng đợi (`LUAT-CHON-DE-TAI.md`, cờ thời sự) | **XANH** nếu có mốc "as of <ngày>"; **VÀNG** nếu tin sát chính trị hay địa chính trị |
+| Tiêu đề chỉ theo khuôn mẫu M1–M5 | Tiêu đề tò mò hay dạng câu hỏi được phép (**XANH**), miễn nội dung trả lời được câu hỏi; vẫn cấm hứa điều không có (ĐỎ 5) |
+| `HIEN-CHUONG.md` §3: "không dùng stock footage" | Footage và ảnh nguồn ngoài **được dùng** từ các nguồn ở `QUAN-TRI-RUI-RO.md` §6.1: ≤ 40 % thời lượng, ≤ 8 s mỗi clip, có `SOURCES-FOOTAGE.csv`. Vẫn giữ ≥ 4 cảnh 3D dựng riêng mỗi tập |
+| §1: "Không dùng logo… trong cảnh 3D" | **Giữ** cho cảnh 3D. Trong footage nguồn ngoài, logo chỉ được xuất hiện **ngẫu nhiên, không phải trọng tâm**; clip Pixabay có logo nhận ra được thì **không dùng** (giấy phép cấm dùng thương mại) |
+| Đề tài tranh cãi, gia tộc, địa chính trị gần đây, sản phẩm tài chính mới (trước: tránh hoặc chưa có luật) | **VÀNG**: làm được với 6 điều kiện của `QUAN-TRI-RUI-RO.md` §1 và chủ dự án duyệt ở G1 |
+
+**Giữ nguyên (không nới):**
+- §1 nguồn cho mọi khẳng định về thực thể thật; hành vi sai trái chỉ khi có phán quyết.
+- §2 tách sự kiện và nhận định.
+- §3 không suy đoán động cơ.
+- §4 không persona chuyên gia.
+- §5 câu miễn trừ tài chính.
+- §6 quy trình sửa/gỡ: thời hạn ghim đính chính rút xuống **24 giờ** cho loại (b), theo `QUAN-TRI-RUI-RO.md` §5.
+- §7 vùng Crux; §8 đề tài nhạy cảm của thành phố.
+- Danh sách **ĐỎ** ở `QUAN-TRI-RUI-RO.md` §1.1 chặt hơn mọi mục trên.
 
 ## Ưu, nhược, tác động, rủi ro
 - **Ưu:** luật cụ thể đến mức máy kiểm được một phần (`claims:` có `src:`, câu miễn trừ có trong lời, từ cấm trong tiêu đề). Quy trình sửa lỗi có thời hạn rõ.
