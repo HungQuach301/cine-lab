@@ -1,4 +1,4 @@
-# K2C-T1-06 "Apartments" — SHOT LIST (G1a, khớp lời khoá ứng viên v8.1 script.md). Chưa dựng khung mẫu 3D (chờ bộ công cụ phiên V).
+# K2C-T1-06 "Apartments" — SHOT LIST (G1a + D5 ảnh lưu trữ ~12–15 % đoạn 01–03, 08 — chủ dự án 12/10; khớp lời khoá ứng viên v8.1 script.md). Chưa dựng khung mẫu 3D (chờ bộ công cụ phiên V).
 # Khai theo checks 1.10.1 (BAO-CAO §18.4): mỗi shot `type` ∈ {scene3d, map, chart3d, photo, document, footage, card}, `scene_id`, `camera_id`;
 # đặc tả khai `places:`, `people:` (photo: rid/clip_id hoặc ly_do), `anchors:`.
 # `at` = cụm từ trong lời đoạn đó (khớp lần đầu; "#n" = lần thứ n). Thời điểm ước bằng 151,2 từ/phút (Eric, đo ở K2G-01) — `shotlist.py` tính.
@@ -44,8 +44,8 @@ places:   # mọi địa danh nhắc trong lời → shot map (shot id)
   - {name: "Oregon", seg: "10", shot: m_oregon}
   - {name: "Texas", seg: "10", shot: m_texas}
 people:   # nhân vật nhắc trong lời → shot photo nếu có ảnh hợp lệ
-  - {name: "Herbert Hoover (Secretary of Commerce, 1921)", seg: "02", shot: p_hoover, photo: "CAN-TAI-HO:LOC-HOOVER", note: "LoC Harris & Ewing / National Photo Co. (khả năng 'No known restrictions'); LoC chặn phiên (Cloudflare 403) → chủ dự án tải hộ, rồi ghi rid RIGHTS.md"}
-  - {name: "Justice George Sutherland", seg: "02", shot: p_sutherland, photo: "CAN-TAI-HO:LOC-SUTHERLAND", note: "LoC Harris & Ewing; như trên"}
+  - {name: "Herbert Hoover (Secretary of Commerce, 1921)", seg: "02", shot: p_hoover, photo: K2-P1, note: "RIGHTS.md K2-P1; SOURCES-FOOTAGE WM-HOOVER-1928; Harris & Ewing 1928, LoC LCCN 2016888786; Commons: Public domain, 'No known restrictions on publication'; ảnh tải từ tile.loc.gov (SOURCES-FOOTAGE.csv)"}
+  - {name: "Justice George Sutherland", seg: "02", shot: p_sutherland, photo: K2-P2, note: "RIGHTS.md K2-P2; SOURCES-FOOTAGE WM-SUTHERLAND-1937; Harris & Ewing 11/10/1937, LoC LCCN 2016877918; Commons: Public domain; tải từ tile.loc.gov (SOURCES-FOOTAGE.csv)"}
   - {name: "Yonah Freemark", seg: "09", shot: c_freemark, ly_do: "Người còn sống, không có ảnh có giấy phép đã kiểm; chỉ hiện tên + tên nghiên cứu (LUAT-NOI-DUNG-G §6)"}
 
 segments:
@@ -58,32 +58,40 @@ segments:
   - id: "01"
     shots:
       - {id: s01a, at: "Picture", type: scene3d, scene_id: corner, camera_id: section, desc: "Cắt lớp: cửa hàng, 3 tầng căn hộ, 1 cầu thang (nhãn bám vật thể)"}
-      - {id: s01b, at: "The plainer", type: scene3d, scene_id: street, camera_id: labels_row, desc: "Nhãn duplex · triplex · fourplex · 5–19 homes trên từng toà"}
+      - {id: s01a2, at: "two or three floors", type: photo, scene_id: loc_habs_tocco, camera_id: kenburns, src: LOC-HABS-02, label: "Store and apartment building, Pennsylvania · HABS, Library of Congress", desc: "Toà cửa hàng + căn hộ thật (HABS) — ví dụ đúng kiểu toà góc phố; Ken Burns lên tầng căn hộ"}
+      - {id: s01b, at: "The plainer", type: photo, scene_id: loc_det_woodstock, camera_id: kenburns, src: LOC-DET-09, label: "Detroit, between 1910 and 1920 · Library of Congress (Detroit Publishing)", desc: "Walk-up 3 tầng Woodstock Apartments; nhãn duplex · triplex · fourplex vẽ nhẹ lên dãy nhà"}
+      - {id: s01b2, at: "Just above them", type: photo, scene_id: loc_habs_stnicholas, camera_id: kenburns, src: LOC-HABS-01, label: "New York City, 1979 · HABS, Library of Congress", desc: "Toà căn hộ đi bộ 6 tầng (935 St Nicholas Ave); nhãn '5–19 homes'"}
       - {id: s01c, at: "By our calculation", type: photo, scene_id: loc_det_fifthwood, camera_id: kenburns, src: LOC-DET-01, label: "Pittsburgh, c. 1900–1915 · Library of Congress", desc: "Ảnh lưu trữ góc phố thương mại có căn hộ tầng trên"}
       - {id: s01c2, at: "almost a quarter", type: photo, scene_id: loc_fsa_durham, camera_id: kenburns, src: LOC-FSA-01, label: "Durham, N.C., May 1940 · Library of Congress (FSA/OWI)", nums: [C03], desc: "Ảnh lưu trữ cửa hàng góc phố 1940; thẻ nhỏ 'pre-1940: ~23% (our calculation, ACS 2024)'"}
-      - {id: s01d, at: "Our read", type: card, scene_id: card_locks, camera_id: intro, desc: "Thẻ 3 khoá (map · stairwell · bank) + 'costs, rates, rents' — 'OUR READ'"}
-      - {id: s01e, at: "Then we'll", type: scene3d, scene_id: corner, camera_id: aerial_day, desc: "Toàn cảnh khu phố ban ngày"}
+      - {id: s01d, at: "Our read", type: card, scene_id: card_locks, camera_id: intro, desc: "Thẻ 3 khoá (map · stairwell · bank) + 'building and borrowing costs, rents' — 'OUR READ'"}
+      - {id: s01d2, at: "We'll call them locks", type: photo, scene_id: loc_det_lenox, camera_id: kenburns, src: LOC-DET-11, label: "Detroit, between 1900 and 1910 · Library of Congress (Detroit Publishing)", desc: "Toà căn hộ góc phố; ba nhãn khoá xuất hiện dần trên ảnh (map · stairwell · bank)"}
+      - {id: s01e, at: "Then we'll", type: photo, scene_id: loc_fsa_dc1942, camera_id: kenburns, src: LOC-FSA-04, label: "Washington, D.C., August 1942 · Library of Congress (FSA/OWI)", desc: "Phố nhà liền kề có cửa hàng góc, xe điện (cắt bỏ viền bản in có chữ); chuyển sang 'costs and rents'"}
   - id: "02"
     shots:
       - {id: s02a, at: "Lock one", type: scene3d, scene_id: tiers, camera_id: top, desc: "Sa bàn từ trên, tựa 'LOCK 1 · THE MAP'"}
-      - {id: s02b, at: "In 1921", type: photo, scene_id: p_hoover, camera_id: kenburns, src: "CAN-TAI-HO:LOC-HOOVER", label: "Herbert Hoover, c. 1921 · Library of Congress", desc: "Chân dung (people)"}
-      - {id: s02c, at: "only forty-eight", type: chart3d, scene_id: ch_zoning1921, camera_id: front, nums: [C05], desc: "48 thành phố (1921) — khối đếm 48 trên bản đồ Mỹ mờ"}
+      - {id: s02b, at: "In 1921", type: photo, scene_id: p_hoover, camera_id: kenburns, src: WM-HOOVER-1928, label: "Herbert Hoover, Secretary of Commerce, 1928 · Harris & Ewing, Library of Congress", desc: "Chân dung (people)"}
+      - {id: s02c, at: "only forty-eight", type: photo, scene_id: loc_det_columbus, camera_id: kenburns, src: LOC-DET-02, label: "Columbus, Ohio, between 1900 and 1915 · Library of Congress (Detroit Publishing)", nums: [C05], desc: "Toàn cảnh phố đô thị đầu thế kỷ; số lớn bám ảnh '1921: 48 cities and towns with zoning (Hoover)'"}
       - {id: s02d, at: "a state could give", type: document, scene_id: d_sszea, camera_id: page, src: DOC-SSZEA, label: "Standard State Zoning Enabling Act, 1926 · U.S. Dept. of Commerce", p: {paper: "A Standard State Zoning Enabling Act (rev. ed.)", date: "1926"}, nums: [C06], desc: "Trang bìa, ≤ 3 s"}
-      - {id: s02e, at: "over building height", type: scene3d, scene_id: tiers, camera_id: districts_fill, nums: [C06], desc: "Các khu tô màu lần lượt (minh hoạ)"}
+      - {id: s02e, at: "over building height", type: photo, scene_id: loc_det_burlington, camera_id: kenburns, src: LOC-DET-08, label: "Burlington, Vt., between 1910 and 1920 · Library of Congress (Detroit Publishing)", desc: "Phố có cửa hàng tầng trệt, nhà nhiều kiểu cạnh nhau — trước khi chia khu; chú thích 'height · lot coverage · density · use'"}
       - {id: s02g, at: "In 1926", type: map, scene_id: usmap, camera_id: m_euclid, desc: "Euclid, Ohio cạnh Cleveland (nhãn) — places"}
       - {id: s02h, at: "Euclid had", type: scene3d, scene_id: tiers, camera_id: oblique_tiers, nums: [C08], desc: "U-1 → U-4 dựng lên lần lượt; toà góc phố đặt thử vào U-1..U-3: đỏ"}
-      - {id: s02i, at: "The Court upheld", type: photo, scene_id: p_sutherland, camera_id: kenburns, src: "CAN-TAI-HO:LOC-SUTHERLAND", label: "Justice George Sutherland · Library of Congress", desc: "Chân dung (people)"}
+      - {id: s02h2, at: "So a corner shop", type: photo, scene_id: loc_det_woodward, camera_id: kenburns, src: LOC-DET-07, label: "Detroit, between 1900 and 1910 · Library of Congress (Detroit Publishing)", desc: "Phố cửa hàng có tầng trên — kiểu nhà 'không vừa' 3 tầng khu đầu; nhãn 'U-1 · U-2 · U-3: not allowed'"}
+      - {id: s02i, at: "The Court upheld", type: photo, scene_id: p_sutherland, camera_id: kenburns, src: WM-SUTHERLAND-1937, label: "Justice George Sutherland, Washington, Oct. 11, 1937 · Harris & Ewing, Library of Congress", desc: "Chân dung (people)"}
       - {id: s02j, at: "commissions and experts", type: document, scene_id: d_euclid, camera_id: page394, src: DOC-EUCLID, label: "Village of Euclid v. Ambler Realty Co., 272 U.S. 365 (1926)", p: {paper: "U.S. Reports 272", date: "1926"}, nums: [C10], desc: "Trang 394, tô câu 'height and bulk' ≤ 3 s"}
-      - {id: s02k, at: "listed the concerns", type: scene3d, scene_id: tiers, camera_id: shadow_low, nums: [C10], desc: "Toà căn hộ đổ bóng lên nhà nhỏ, xe đỗ; chú thích trích dẫn"}
-      - {id: s02l, at: "Apartment houses which", type: scene3d, scene_id: corner, camera_id: shop_close, nums: [C10], desc: "Toà góc phố 'in a different environment' — phố thương mại sáng; chú thích trích"}
-      - {id: s02m, at: "fairly debatable", type: card, scene_id: card_quote, camera_id: euclid_test, nums: [C11], desc: "Thẻ trích 'fairly debatable → legislative judgment controls' + 'judges defer to local lawmakers'"}
+      - {id: s02k0, at: "listed the concerns", type: scene3d, scene_id: tiers, camera_id: shadow_low, nums: [C10], desc: "Sa bàn: toà căn hộ đổ bóng lên dãy nhà nhỏ (minh hoạ)"}
+      - {id: s02k, at: "interfering by their height", type: photo, scene_id: loc_det_riverside, camera_id: kenburns, src: LOC-DET-06, label: "New York City, c. 1908 · Library of Congress (Detroit Publishing)", nums: [C10], desc: "Toà căn hộ cao bên đại lộ, nhà thấp bên cạnh — chú thích trích 'height and bulk… rays of the sun'"}
+      - {id: s02k3, at: "and bringing traffic", type: photo, scene_id: loc_det_riverside2, camera_id: kenburns, src: LOC-DET-12, label: "New York City, between 1905 and 1920 · Library of Congress (Detroit Publishing)", nums: [C10], desc: "Xe buýt mui trần trước dãy toà căn hộ — 'traffic and parked cars'"}
+      - {id: s02l, at: "Apartment houses which", type: photo, scene_id: loc_det_connecticut, camera_id: kenburns, src: LOC-DET-04, label: "Washington, D.C., c. 1904 · Library of Congress (Detroit Publishing)", nums: [C10], desc: "Toà căn hộ góc đại lộ — chú thích trích nguyên văn của Toà"}
+      - {id: s02l2, at: "come very near", type: photo, scene_id: loc_det_pasadena, camera_id: kenburns, src: LOC-DET-05, label: "Detroit, c. 1905 · Library of Congress (Detroit Publishing)", nums: [C10], desc: "Toà căn hộ giữa phố cây — vế 'come very near to being nuisances' trên hình"}
+      - {id: s02m, at: "fairly debatable", type: card, scene_id: card_quote, camera_id: euclid_test, nums: [C11], desc: "Thẻ trích 'fairly debatable → legislative judgment controls' + 'must be allowed to control'"}
+      - {id: s02m2, at: "in plain terms", type: photo, scene_id: loc_det_buffalo, camera_id: kenburns, src: LOC-DET-03, label: "Buffalo, N.Y., between 1905 and 1920 · Library of Congress (Detroit Publishing)", desc: "Đại lộ nhà riêng hàng cây — khu nhà tách biệt mà luật địa phương bảo vệ"}
   - id: "03"
     shots:
       - {id: s03a, at: "A century later", type: footage, scene_id: f_chicago_aerial, camera_id: clip, src: PX-38879369, label: "Chicago-area homes · Pexels, 2025 (illustrative)", desc: "Flycam khu dân cư nhà một hộ"}
       - {id: s03b, at: "Take one state", type: map, scene_id: usmap, camera_id: m_colorado, desc: "Colorado nổi lên, 334 khu vực pháp lý (lưới)"}
       - {id: s03c, at: "Fifty-nine", type: chart3d, scene_id: ch_co, camera_id: land, nums: [C12], desc: "59 % / 3 % trên khối đất 3D"}
       - {id: s03d, at: "The map has", type: scene3d, scene_id: lot, camera_id: plan, nums: [C14], desc: "Ô đỗ xe lấp lô; nhãn '85% of residential land · most often 2 spaces/home'"}
-      - {id: s03e, at: "On a small lot", type: scene3d, scene_id: lot, camera_id: iso, desc: "Toà co lại theo số ô đỗ (minh hoạ, không số)"}
+      - {id: s03e, at: "On a small lot", type: photo, scene_id: loc_habs_granite, camera_id: kenburns, src: LOC-HABS-04, label: "Butte, Mont., 1979 · HABS, Library of Congress", desc: "Hai toà nhỏ có cửa hàng tầng trệt sát vỉa hè, không chỗ đỗ — minh hoạ, không số"}
   - id: "04"
     shots:
       - {id: s04a, at: "Lock two", type: scene3d, scene_id: corner, camera_id: stair_section, desc: "Cầu thang trong mặt cắt; tựa 'LOCK 2 · THE STAIRWELL'; hai lối thoát vẽ mũi tên"}
@@ -122,14 +130,15 @@ segments:
       - {id: s07a, at: "Our read", type: footage, scene_id: f_crane, camera_id: clip, src: PX-20568183, label: "Apartment construction · Pexels, 2024 (illustrative)", desc: "Cẩu tháp, toà lớn đang xây, ≤ 7 s"}
       - {id: s07b, at: "In October 2026", type: map, scene_id: usmap, camera_id: m_minn2, nums: [C58], desc: "Minneapolis (nhãn); chú thích trích 'have challenged the profitability…' — Minneapolis Fed, Oct 2026"}
       - {id: s07c, at: "And in 2024", type: scene3d, scene_id: lot, camera_id: pencil, nums: [C59], desc: "Toà mẫu nhỏ trên lô, bảng thu–chi đỏ: 'would not be built under recent market conditions' (Terner 2024, California)"}
-      - {id: s07d, at: "To recap", type: card, scene_id: card_locks, camera_id: recap_matrix, desc: "Bảng 'khoá × loại nhà': map → all · stairwell → 4+ stories · bank → 5+ homes, many with a shop · + costs/rates/rents (người đọc mù 2/3 đề nghị)"}
+      - {id: s07d, at: "To recap", type: card, scene_id: card_locks, camera_id: recap_matrix, desc: "Bảng 'khoá × loại nhà': map → all · stairwell → 4+ stories · bank → 5+ homes, many with a shop · + building costs · borrowing costs · rents (người đọc mù 2/3 đề nghị)"}
   - id: "08"
     shots:
       - {id: s08a, at: "Here's what", type: scene3d, scene_id: ends, camera_id: wide_1972, desc: "Sa bàn hai đầu năm 1972"}
       - {id: s08b, at: "Two-to-four-unit completions", type: chart3d, scene_id: ch_comp, camera_id: timeline, nums: [C60], desc: "Chuỗi 1968–2025; mốc 1986→1990, 2006→2010, 2025"}
-      - {id: s08c, at: "The Census numbers", type: chart3d, scene_id: ch_comp, camera_id: when_not_why, desc: "Cùng chuỗi, dấu '?' trên các cú rơi — 'when, not why'"}
+      - {id: s08c, at: "The Census numbers", type: photo, scene_id: loc_habs_dade, camera_id: kenburns, src: LOC-HABS-03, label: "Florida, 1991 · HABS, Library of Congress", desc: "Toà căn hộ góc phố có cửa hàng (Dade Apartment Building) — toà nhỏ vẫn đứng; chú thích 'when — not why'"}
       - {id: s08d, at: "As a share", type: chart3d, scene_id: ch_share, camera_id: front, nums: [C36], desc: "5,9 % → 1,1 %, our calculation"}
       - {id: s08e, at: "Small apartment buildings of five", type: chart3d, scene_id: ch_size, camera_id: small519, nums: [C35], desc: "377k → 48k (our sum of two Census columns)"}
+      - {id: s08e2, at: "from the Census's separate", type: photo, scene_id: loc_fsa_nyc61, camera_id: kenburns, src: LOC-FSA-03, label: "New York City, 1938 · Library of Congress (FSA/OWI)", desc: "Dãy toà căn hộ walk-up phía sau, dây phơi — kiểu toà 5–19 căn; nhãn 'our sum of two Census columns' giữ trên hình"}
       - {id: s08f, at: "Single-family houses went", type: chart3d, scene_id: ch_size, camera_id: sf_share, nums: [C63], desc: "57 % → 68 % (our calculation)"}
       - {id: s08g, at: "And in that same", type: chart3d, scene_id: ch_size, camera_id: big50, nums: [C34], desc: "20 % → 57 % (CNH, series riêng)"}
       - {id: s08h, at: "across these two series", type: scene3d, scene_id: ends, camera_id: wide_2025, desc: "Sa bàn năm 2025: giữa thưa, hai đầu dày"}
@@ -145,7 +154,7 @@ segments:
       - {id: s09h, at: "In a 2019 study", type: map, scene_id: usmap, camera_id: m_chicago, nums: [C42], desc: "Chicago; chú thích 'Freemark 2019: prices up, no measurable rise in permits (5 yrs)' — tên người, không ảnh"}
       - {id: s09i, at: "Other studies", type: chart3d, scene_id: ch_study, camera_id: urban, nums: [C43], desc: "+0,8 % (3–9 năm), 'mostly higher-rent units'"}
       - {id: s09j, at: "And outside", type: map, scene_id: usmap, camera_id: m_auckland, nums: [C44], desc: "Khung chèn Auckland, NZ; '≈21,800 extra homes permitted · ≈4% of stock'"}
-      - {id: s09k, at: "So on housing production", type: card, scene_id: card_claim_record, camera_id: verdict, desc: "Khung đôi kết: 'the record sits in between' — nhãn từng nghiên cứu"}
+      - {id: s09k, at: "So on housing production", type: card, scene_id: card_claim_record, camera_id: verdict, desc: "Khung đôi kết: 'on housing production, the record is mixed' — nhãn từng nghiên cứu (đo khác nhau, nơi khác nhau)"}
   - id: "10"
     shots:
       - {id: s10a, at: "So where are", type: scene3d, scene_id: street, camera_id: dusk_new, desc: "Dãy phố chạng vạng, toà nhỏ mới (minh hoạ), dòng 'As of 12 Oct 2026'"}

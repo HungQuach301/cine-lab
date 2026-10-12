@@ -1,19 +1,19 @@
 # K2C-T1-06 — SHOT LIST (ước) · script.md
 
 > Tự đo của phiên P từ `shots.yaml` bằng `shotlist.py` (151,2 từ/phút, lặng 0.6 s/đoạn). **Không phải kết quả checks/**; checks 1.10.1 chạy trên đặc tả `episode.yaml` khi dựng.
-> Tổng ước: **15.58 phút** (935 s), 90 shot.
+> Tổng ước: **15.58 phút** (935 s), 99 shot.
 
 ## 1. Tỷ lệ theo loại shot
 | type | giây | % | trần/luật |
 |---|---|---|---|
-| scene3d | 340.1 | 36.4 % |  |
-| chart3d | 230.6 | 24.7 % |  |
+| scene3d | 279.8 | 29.9 % |  |
+| chart3d | 212.3 | 22.7 % |  |
 | map | 167.7 | 17.9 % |  |
-| card | 143.1 | 15.3 % | ≤ 25 % (Q26b `the`, Q34) |
-| photo | 23.4 | 2.5 % | cộng vào ≤ 40 % |
+| card | 129.0 | 13.8 % | ≤ 25 % (Q26b `the`, Q34) |
+| photo | 116.1 | 12.4 % | cộng vào ≤ 40 % |
 | document | 9.1 | 1.0 % | cộng vào ≤ 40 %; ≤ 3 s/shot |
 | footage | 20.6 | 2.2 % | cộng vào ≤ 40 %; ≤ 8 s/clip |
-| **ảnh + tài liệu + footage** | 53.2 | **5.7 %** | ≤ 40 % (QUAN-TRI-RUI-RO §6.3, Q32/Q34d) |
+| **ảnh + tài liệu + footage** | 145.8 | **15.6 %** | ≤ 40 % (QUAN-TRI-RUI-RO §6.3, Q32/Q34d) |
 | card liên tục dài nhất | 29.2 | — | ≤ 90 s |
 
 ## 2. Luật từng shot
@@ -21,8 +21,8 @@
 - document thiếu p.paper/p.date: **0**
 - ảnh/footage/tài liệu thiếu nhãn năm/nguồn: **0**
 - cùng (scene_id, camera_id) > 2 lần: **0** ; đúng 2 lần (bằng ngưỡng): không
-- bối cảnh (scene3d theo bộ cảnh; `the` = card): the 15.3 % (liên tục ≤ 60 s), corner 14.1 % (liên tục ≤ 49 s), stairs 6.0 % (liên tục ≤ 23 s), street 4.3 % (liên tục ≤ 16 s), tiers 4.2 % (liên tục ≤ 39 s), bank 3.9 % (liên tục ≤ 28 s), lot 2.9 % (liên tục ≤ 16 s), ends 1.1 % (liên tục ≤ 10 s); nửa sau có 5 bộ cảnh 3D: bank, corner, ends, lot, street
-- số neo hiện bằng chart3d/scene3d: **22/29 = 76 %** (≥ 60 %); số neo trên map: 6, photo: 1, card: 0, document: 0; mã claim không khớp `nums` của shot: 0
+- bối cảnh (scene3d theo bộ cảnh; `the` = card): the 13.8 % (liên tục ≤ 60 s), corner 11.6 % (liên tục ≤ 49 s), stairs 6.0 % (liên tục ≤ 23 s), bank 3.9 % (liên tục ≤ 28 s), street 3.3 % (liên tục ≤ 16 s), lot 2.3 % (liên tục ≤ 11 s), tiers 1.7 % (liên tục ≤ 16 s), ends 1.1 % (liên tục ≤ 10 s); nửa sau có 5 bộ cảnh 3D: bank, corner, ends, lot, street
+- số neo hiện bằng chart3d/scene3d: **21/29 = 72 %** (≥ 60 %); số neo trên map: 6, photo: 2, card: 0, document: 0; mã claim không khớp `nums` của shot: 0
 - địa danh không có shot map: **0** (11 địa danh)
 - người thiếu photo/ly_do: **0** (3 người)
 
@@ -33,29 +33,37 @@
 | s00b | 00 | 0:06.0 | 5.2 | chart3d | ch_hook | front | C01, C02 | Hai cột khác cơ sở, nhãn rõ |  |
 | s00c | 00 | 0:11.1 | 3.2 | scene3d | corner | push_facade |  | Đẩy vào mặt tiền; tựa câu hỏi 'Why did America almost stop building them?' |  |
 | s00d | 00 | 0:14.3 | 16.5 | scene3d | street | dolly_day |  | Lướt dãy phố; dòng 'Census ACS 2024 · NRC 2025 · our calculation' + 'Not financial advice' + 'Facts as of 12 Oct 2026' |  |
-| s01a | 01 | 0:30.8 | 9.1 | scene3d | corner | section |  | Cắt lớp: cửa hàng, 3 tầng căn hộ, 1 cầu thang (nhãn bám vật thể) |  |
-| s01b | 01 | 0:39.9 | 8.7 | scene3d | street | labels_row |  | Nhãn duplex · triplex · fourplex · 5–19 homes trên từng toà |  |
+| s01a | 01 | 0:30.8 | 5.6 | scene3d | corner | section |  | Cắt lớp: cửa hàng, 3 tầng căn hộ, 1 cầu thang (nhãn bám vật thể) |  |
+| s01a2 | 01 | 0:36.3 | 3.6 | photo | loc_habs_tocco | kenburns |  | Toà cửa hàng + căn hộ thật (HABS) — ví dụ đúng kiểu toà góc phố; Ken Burns lên tầng căn hộ | LOC-HABS-02 · Store and apartment building, Pennsylvania · HABS, Library of Congress |
+| s01b | 01 | 0:39.9 | 4.0 | photo | loc_det_woodstock | kenburns |  | Walk-up 3 tầng Woodstock Apartments; nhãn duplex · triplex · fourplex vẽ nhẹ lên dãy nhà | LOC-DET-09 · Detroit, between 1910 and 1920 · Library of Congress (Detroit Publishing) |
+| s01b2 | 01 | 0:43.9 | 4.8 | photo | loc_habs_stnicholas | kenburns |  | Toà căn hộ đi bộ 6 tầng (935 St Nicholas Ave); nhãn '5–19 homes' | LOC-HABS-01 · New York City, 1979 · HABS, Library of Congress |
 | s01c | 01 | 0:48.6 | 2.8 | photo | loc_det_fifthwood | kenburns |  | Ảnh lưu trữ góc phố thương mại có căn hộ tầng trên | LOC-DET-01 · Pittsburgh, c. 1900–1915 · Library of Congress |
 | s01c2 | 01 | 0:51.4 | 7.1 | photo | loc_fsa_durham | kenburns | C03 | Ảnh lưu trữ cửa hàng góc phố 1940; thẻ nhỏ 'pre-1940: ~23% (our calculation, ACS 2024)' | LOC-FSA-01 · Durham, N.C., May 1940 · Library of Congress (FSA/OWI) |
-| s01d | 01 | 0:58.5 | 18.7 | card | card_locks | intro |  | Thẻ 3 khoá (map · stairwell · bank) + 'costs, rates, rents' — 'OUR READ' |  |
-| s01e | 01 | 1:17.2 | 6.6 | scene3d | corner | aerial_day |  | Toàn cảnh khu phố ban ngày |  |
+| s01d | 01 | 0:58.5 | 11.5 | card | card_locks | intro |  | Thẻ 3 khoá (map · stairwell · bank) + 'building and borrowing costs, rents' — 'OUR READ' |  |
+| s01d2 | 01 | 1:10.0 | 7.1 | photo | loc_det_lenox | kenburns |  | Toà căn hộ góc phố; ba nhãn khoá xuất hiện dần trên ảnh (map · stairwell · bank) | LOC-DET-11 · Detroit, between 1900 and 1910 · Library of Congress (Detroit Publishing) |
+| s01e | 01 | 1:17.2 | 6.6 | photo | loc_fsa_dc1942 | kenburns |  | Phố nhà liền kề có cửa hàng góc, xe điện (cắt bỏ viền bản in có chữ); chuyển sang 'costs and rents' | LOC-FSA-04 · Washington, D.C., August 1942 · Library of Congress (FSA/OWI) |
 | s02a | 02 | 1:23.7 | 1.6 | scene3d | tiers | top |  | Sa bàn từ trên, tựa 'LOCK 1 · THE MAP' |  |
-| s02b | 02 | 1:25.3 | 6.3 | photo | p_hoover | kenburns |  | Chân dung (people) | CAN-TAI-HO:LOC-HOOVER · Herbert Hoover, c. 1921 · Library of Congress |
-| s02c | 02 | 1:31.7 | 7.9 | chart3d | ch_zoning1921 | front | C05 | 48 thành phố (1921) — khối đếm 48 trên bản đồ Mỹ mờ |  |
+| s02b | 02 | 1:25.3 | 6.3 | photo | p_hoover | kenburns |  | Chân dung (people) | WM-HOOVER-1928 · Herbert Hoover, Secretary of Commerce, 1928 · Harris & Ewing, Library of Congress |
+| s02c | 02 | 1:31.7 | 7.9 | photo | loc_det_columbus | kenburns | C05 | Toàn cảnh phố đô thị đầu thế kỷ; số lớn bám ảnh '1921: 48 cities and towns with zoning (Hoover)' | LOC-DET-02 · Columbus, Ohio, between 1900 and 1915 · Library of Congress (Detroit Publishing) |
 | s02d | 02 | 1:39.6 | 2.4 | document | d_sszea | page | C06 | Trang bìa, ≤ 3 s | DOC-SSZEA · Standard State Zoning Enabling Act, 1926 · U.S. Dept. of Commerce |
-| s02e | 02 | 1:42.0 | 6.7 | scene3d | tiers | districts_fill | C06 | Các khu tô màu lần lượt (minh hoạ) |  |
+| s02e | 02 | 1:42.0 | 6.7 | photo | loc_det_burlington | kenburns |  | Phố có cửa hàng tầng trệt, nhà nhiều kiểu cạnh nhau — trước khi chia khu; chú thích 'height · lot coverage · density · use' | LOC-DET-08 · Burlington, Vt., between 1910 and 1920 · Library of Congress (Detroit Publishing) |
 | s02g | 02 | 1:48.7 | 7.5 | map | usmap | m_euclid |  | Euclid, Ohio cạnh Cleveland (nhãn) — places |  |
-| s02h | 02 | 1:56.3 | 16.7 | scene3d | tiers | oblique_tiers | C08 | U-1 → U-4 dựng lên lần lượt; toà góc phố đặt thử vào U-1..U-3: đỏ |  |
-| s02i | 02 | 2:12.9 | 4.8 | photo | p_sutherland | kenburns |  | Chân dung (people) | CAN-TAI-HO:LOC-SUTHERLAND · Justice George Sutherland · Library of Congress |
+| s02h | 02 | 1:56.3 | 10.7 | scene3d | tiers | oblique_tiers | C08 | U-1 → U-4 dựng lên lần lượt; toà góc phố đặt thử vào U-1..U-3: đỏ |  |
+| s02h2 | 02 | 2:07.0 | 6.0 | photo | loc_det_woodward | kenburns |  | Phố cửa hàng có tầng trên — kiểu nhà 'không vừa' 3 tầng khu đầu; nhãn 'U-1 · U-2 · U-3: not allowed' | LOC-DET-07 · Detroit, between 1900 and 1910 · Library of Congress (Detroit Publishing) |
+| s02i | 02 | 2:12.9 | 4.8 | photo | p_sutherland | kenburns |  | Chân dung (people) | WM-SUTHERLAND-1937 · Justice George Sutherland, Washington, Oct. 11, 1937 · Harris & Ewing, Library of Congress |
 | s02j | 02 | 2:17.7 | 2.0 | document | d_euclid | page394 | C10 | Trang 394, tô câu 'height and bulk' ≤ 3 s | DOC-EUCLID · Village of Euclid v. Ambler Realty Co., 272 U.S. 365 (1926) |
-| s02k | 02 | 2:19.7 | 13.9 | scene3d | tiers | shadow_low | C10 | Toà căn hộ đổ bóng lên nhà nhỏ, xe đỗ; chú thích trích dẫn |  |
-| s02l | 02 | 2:33.6 | 13.1 | scene3d | corner | shop_close | C10 | Toà góc phố 'in a different environment' — phố thương mại sáng; chú thích trích |  |
-| s02m | 02 | 2:46.7 | 12.1 | card | card_quote | euclid_test | C11 | Thẻ trích 'fairly debatable → legislative judgment controls' + 'judges defer to local lawmakers' |  |
+| s02k0 | 02 | 2:19.7 | 4.0 | scene3d | tiers | shadow_low | C10 | Sa bàn: toà căn hộ đổ bóng lên dãy nhà nhỏ (minh hoạ) |  |
+| s02k | 02 | 2:23.7 | 7.5 | photo | loc_det_riverside | kenburns | C10 | Toà căn hộ cao bên đại lộ, nhà thấp bên cạnh — chú thích trích 'height and bulk… rays of the sun' | LOC-DET-06 · New York City, c. 1908 · Library of Congress (Detroit Publishing) |
+| s02k3 | 02 | 2:31.2 | 2.4 | photo | loc_det_riverside2 | kenburns | C10 | Xe buýt mui trần trước dãy toà căn hộ — 'traffic and parked cars' | LOC-DET-12 · New York City, between 1905 and 1920 · Library of Congress (Detroit Publishing) |
+| s02l | 02 | 2:33.6 | 7.1 | photo | loc_det_connecticut | kenburns | C10 | Toà căn hộ góc đại lộ — chú thích trích nguyên văn của Toà | LOC-DET-04 · Washington, D.C., c. 1904 · Library of Congress (Detroit Publishing) |
+| s02l2 | 02 | 2:40.7 | 6.0 | photo | loc_det_pasadena | kenburns | C10 | Toà căn hộ giữa phố cây — vế 'come very near to being nuisances' trên hình | LOC-DET-05 · Detroit, c. 1905 · Library of Congress (Detroit Publishing) |
+| s02m | 02 | 2:46.7 | 5.2 | card | card_quote | euclid_test | C11 | Thẻ trích 'fairly debatable → legislative judgment controls' + 'must be allowed to control' |  |
+| s02m2 | 02 | 2:51.8 | 6.9 | photo | loc_det_buffalo | kenburns |  | Đại lộ nhà riêng hàng cây — khu nhà tách biệt mà luật địa phương bảo vệ | LOC-DET-03 · Buffalo, N.Y., between 1905 and 1920 · Library of Congress (Detroit Publishing) |
 | s03a | 03 | 2:58.8 | 4.8 | footage | f_chicago_aerial | clip |  | Flycam khu dân cư nhà một hộ | PX-38879369 · Chicago-area homes · Pexels, 2025 (illustrative) |
 | s03b | 03 | 3:03.5 | 7.1 | map | usmap | m_colorado |  | Colorado nổi lên, 334 khu vực pháp lý (lưới) |  |
 | s03c | 03 | 3:10.7 | 17.1 | chart3d | ch_co | land | C12 | 59 % / 3 % trên khối đất 3D |  |
 | s03d | 03 | 3:27.8 | 10.3 | scene3d | lot | plan | C14 | Ô đỗ xe lấp lô; nhãn '85% of residential land · most often 2 spaces/home' |  |
-| s03e | 03 | 3:38.1 | 5.8 | scene3d | lot | iso |  | Toà co lại theo số ô đỗ (minh hoạ, không số) |  |
+| s03e | 03 | 3:38.1 | 5.8 | photo | loc_habs_granite | kenburns |  | Hai toà nhỏ có cửa hàng tầng trệt sát vỉa hè, không chỗ đỗ — minh hoạ, không số | LOC-HABS-04 · Butte, Mont., 1979 · HABS, Library of Congress |
 | s04a | 04 | 3:43.8 | 6.7 | scene3d | corner | stair_section |  | Cầu thang trong mặt cắt; tựa 'LOCK 2 · THE STAIRWELL'; hai lối thoát vẽ mũi tên |  |
 | s04a2 | 04 | 3:50.6 | 4.8 | scene3d | stairs | model_code |  | Khối 'model code' đặt lên mặt cắt toà; nhãn 'International Building Code' |  |
 | s04b | 04 | 3:55.3 | 2.4 | document | d_ibc | table | C15 | Bảng 'Fourth story… NP' ≤ 3 s (dựng lại chữ, không chụp trang) | DOC-IBC-SEA · Seattle Building Code 2021 (IBC 2021), Table 1006.3.4(1) |
@@ -86,12 +94,13 @@
 | s07a | 07 | 8:26.2 | 7.1 | footage | f_crane | clip |  | Cẩu tháp, toà lớn đang xây, ≤ 7 s | PX-20568183 · Apartment construction · Pexels, 2024 (illustrative) |
 | s07b | 07 | 8:33.3 | 14.7 | map | usmap | m_minn2 | C58 | Minneapolis (nhãn); chú thích trích 'have challenged the profitability…' — Minneapolis Fed, Oct 2026 |  |
 | s07c | 07 | 8:48.0 | 11.1 | scene3d | lot | pencil | C59 | Toà mẫu nhỏ trên lô, bảng thu–chi đỏ: 'would not be built under recent market conditions' (Terner 2024, California) |  |
-| s07d | 07 | 8:59.1 | 29.2 | card | card_locks | recap_matrix |  | Bảng 'khoá × loại nhà': map → all · stairwell → 4+ stories · bank → 5+ homes, many with a shop · + costs/rates/rents (người đọc mù 2/3 đề nghị) |  |
+| s07d | 07 | 8:59.1 | 29.2 | card | card_locks | recap_matrix |  | Bảng 'khoá × loại nhà': map → all · stairwell → 4+ stories · bank → 5+ homes, many with a shop · + building costs · borrowing costs · rents (người đọc mù 2/3 đề nghị) |  |
 | s08a | 08 | 9:28.3 | 3.2 | scene3d | ends | wide_1972 |  | Sa bàn hai đầu năm 1972 |  |
 | s08b | 08 | 9:31.5 | 13.1 | chart3d | ch_comp | timeline | C60 | Chuỗi 1968–2025; mốc 1986→1990, 2006→2010, 2025 |  |
-| s08c | 08 | 9:44.6 | 6.0 | chart3d | ch_comp | when_not_why |  | Cùng chuỗi, dấu '?' trên các cú rơi — 'when, not why' |  |
+| s08c | 08 | 9:44.6 | 6.0 | photo | loc_habs_dade | kenburns |  | Toà căn hộ góc phố có cửa hàng (Dade Apartment Building) — toà nhỏ vẫn đứng; chú thích 'when — not why' | LOC-HABS-03 · Florida, 1991 · HABS, Library of Congress |
 | s08d | 08 | 9:50.5 | 13.5 | chart3d | ch_share | front | C36 | 5,9 % → 1,1 %, our calculation |  |
-| s08e | 08 | 10:04.0 | 13.9 | chart3d | ch_size | small519 | C35 | 377k → 48k (our sum of two Census columns) |  |
+| s08e | 08 | 10:04.0 | 9.5 | chart3d | ch_size | small519 | C35 | 377k → 48k (our sum of two Census columns) |  |
+| s08e2 | 08 | 10:13.5 | 4.4 | photo | loc_fsa_nyc61 | kenburns |  | Dãy toà căn hộ walk-up phía sau, dây phơi — kiểu toà 5–19 căn; nhãn 'our sum of two Census columns' giữ trên hình | LOC-FSA-03 · New York City, 1938 · Library of Congress (FSA/OWI) |
 | s08f | 08 | 10:17.9 | 10.7 | chart3d | ch_size | sf_share | C63 | 57 % → 68 % (our calculation) |  |
 | s08g | 08 | 10:28.6 | 11.1 | chart3d | ch_size | big50 | C34 | 20 % → 57 % (CNH, series riêng) |  |
 | s08h | 08 | 10:39.7 | 6.9 | scene3d | ends | wide_2025 |  | Sa bàn năm 2025: giữa thưa, hai đầu dày |  |
@@ -105,7 +114,7 @@
 | s09h | 09 | 12:07.6 | 12.7 | map | usmap | m_chicago | C42 | Chicago; chú thích 'Freemark 2019: prices up, no measurable rise in permits (5 yrs)' — tên người, không ảnh |  |
 | s09i | 09 | 12:20.3 | 14.7 | chart3d | ch_study | urban | C43 | +0,8 % (3–9 năm), 'mostly higher-rent units' |  |
 | s09j | 09 | 12:35.0 | 15.9 | map | usmap | m_auckland | C44 | Khung chèn Auckland, NZ; '≈21,800 extra homes permitted · ≈4% of stock' |  |
-| s09k | 09 | 12:50.9 | 27.2 | card | card_claim_record | verdict |  | Khung đôi kết: 'the record sits in between' — nhãn từng nghiên cứu |  |
+| s09k | 09 | 12:50.9 | 27.2 | card | card_claim_record | verdict |  | Khung đôi kết: 'on housing production, the record is mixed' — nhãn từng nghiên cứu (đo khác nhau, nơi khác nhau) |  |
 | s10a | 10 | 13:18.1 | 4.8 | scene3d | street | dusk_new |  | Dãy phố chạng vạng, toà nhỏ mới (minh hoạ), dòng 'As of 12 Oct 2026' |  |
 | s10b | 10 | 13:22.8 | 6.3 | map | usmap | m_nyc2 |  | NYC: 'City of Yes · approved Dec 5, 2024' |  |
 | s10c | 10 | 13:29.2 | 20.2 | scene3d | corner | day_town_center | C45 | Toà góc 2–4 tầng nhà ở trên cửa hàng, ban ngày; chú thích 'functionally banned by zoning' — NYC DCP |  |
@@ -123,6 +132,6 @@
 ## 4. places / people / anchors
 **places:** Euclid, Ohio / Cleveland → m_euclid; Colorado → m_colorado; Seattle → m_seattle; New York City → m_nyc2; California (Los Angeles, San Diego) → m_calif; Minnesota / Minneapolis → m_minn; Washington state → m_wash; Chicago → m_chicago; Auckland, New Zealand → m_auckland; Oregon → m_oregon; Texas → m_texas
 
-**people:** Herbert Hoover (Secretary of Commerce, 1921) → photo `CAN-TAI-HO:LOC-HOOVER`; Justice George Sutherland → photo `CAN-TAI-HO:LOC-SUTHERLAND`; Yonah Freemark → ly_do: Người còn sống, không có ảnh có giấy phép đã kiểm; chỉ hiện tên + tên nghiên cứu (LUAT-NOI-DUNG-G §6)
+**people:** Herbert Hoover (Secretary of Commerce, 1921) → photo `K2-P1`; Justice George Sutherland → photo `K2-P2`; Yonah Freemark → ly_do: Người còn sống, không có ảnh có giấy phép đã kiểm; chỉ hiện tên + tên nghiên cứu (LUAT-NOI-DUNG-G §6)
 
-**anchors:** 1 in 13 homes in 2–4-unit buildings (ACS 2024) (C01) → s00b [chart3d]; 1 in 100 new homes (NRC 2025) (C02) → s00b [chart3d]; ~23% built before 1940 (C03) → s01c2 [photo]; 48 cities with zoning (1921) (C05) → s02c [chart3d]; Colorado 59% / 3% (C12) → s03c [chart3d]; parking on 85%, 2 spaces/home (C14) → s03d [scene3d]; IBC: 3 stories, 4 homes/floor (C15) → s04c [scene3d]; 2nd stair: 7% floor, 6–13% cost (C16) → s04f [chart3d]; Seattle: 6 stories (since 1977) (C18) → s04i [map]; NYC 4,440 single-stair buildings (C20) → s05d [chart3d]; 4 deaths 2012–2024 (C21) → s05d [chart3d]; ICC vote 86–34 (C25) → s05g [chart3d]; 1–4 vs 5+ line (C26) → s06a2 [scene3d]; FHA ≥51% residential (C30) → s06e [scene3d]; ~10% commercial-code premium (CA) (C57) → s04l [chart3d]; 2–4 completions 86k→45k, 41k→9k, 16k (C60) → s08b [chart3d]; share 5.9% → 1.1% (C36) → s08d [chart3d]; 5–19 units 377k → 48k (C35) → s08e [chart3d]; 1-unit share 57% → 68% (C63) → s08f [chart3d]; 50+ units 20% → 57% (C34) → s08g [chart3d]; Minneapolis 317 / 12,335 (2%) (C39) → s09d [chart3d]; SB 9: 211 vs 7 (C41) → s09g [chart3d]; Urban +0.8% (C43) → s09i [chart3d]; Auckland ~21,800 (4%) (C44) → s09j [map]; Oregon ≥25,000 (C46) → s10d [map]; Washington 2–6 per lot (C47) → s10e [map]; Texas 6 stories (C50) → s10f [map]; Colorado 5 stories by 2027 (C51) → s10g [map]; 11 million homes, >8 in 10 rented (C53) → s11c [chart3d]
+**anchors:** 1 in 13 homes in 2–4-unit buildings (ACS 2024) (C01) → s00b [chart3d]; 1 in 100 new homes (NRC 2025) (C02) → s00b [chart3d]; ~23% built before 1940 (C03) → s01c2 [photo]; 48 cities with zoning (1921) (C05) → s02c [photo]; Colorado 59% / 3% (C12) → s03c [chart3d]; parking on 85%, 2 spaces/home (C14) → s03d [scene3d]; IBC: 3 stories, 4 homes/floor (C15) → s04c [scene3d]; 2nd stair: 7% floor, 6–13% cost (C16) → s04f [chart3d]; Seattle: 6 stories (since 1977) (C18) → s04i [map]; NYC 4,440 single-stair buildings (C20) → s05d [chart3d]; 4 deaths 2012–2024 (C21) → s05d [chart3d]; ICC vote 86–34 (C25) → s05g [chart3d]; 1–4 vs 5+ line (C26) → s06a2 [scene3d]; FHA ≥51% residential (C30) → s06e [scene3d]; ~10% commercial-code premium (CA) (C57) → s04l [chart3d]; 2–4 completions 86k→45k, 41k→9k, 16k (C60) → s08b [chart3d]; share 5.9% → 1.1% (C36) → s08d [chart3d]; 5–19 units 377k → 48k (C35) → s08e [chart3d]; 1-unit share 57% → 68% (C63) → s08f [chart3d]; 50+ units 20% → 57% (C34) → s08g [chart3d]; Minneapolis 317 / 12,335 (2%) (C39) → s09d [chart3d]; SB 9: 211 vs 7 (C41) → s09g [chart3d]; Urban +0.8% (C43) → s09i [chart3d]; Auckland ~21,800 (4%) (C44) → s09j [map]; Oregon ≥25,000 (C46) → s10d [map]; Washington 2–6 per lot (C47) → s10e [map]; Texas 6 stories (C50) → s10f [map]; Colorado 5 stories by 2027 (C51) → s10g [map]; 11 million homes, >8 in 10 rented (C53) → s11c [chart3d]

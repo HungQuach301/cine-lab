@@ -29,3 +29,11 @@
 - **Vật liệu PBR và ánh sáng giàu hơn** cho port/mill (Q27 nêu "khối xám phẳng"); bản đồ có nhãn địa danh trên hình.
 - **Đo:** Q27 tay nghề ≥ 7/10 và "above" so với faceless thường mới coi là tiến bộ; giữ chấm mù một lần trên 1080p.
 - Ưu: tăng điểm hình, giảm cảm giác "slide". Nhược: thêm giờ dựng cảnh và giờ tìm footage. Rủi ro: SwiftShader chậm (4,2 s/khung SPP4); footage sai quyền → luật §6 và sổ CSV.
+
+## K8 · REVIEWER không hội tụ: bỏ câu gây rủi ro thay vì viết thêm (chủ dự án duyệt D7, G1a K2C-T1-06, 12/10/2026)
+- **Chuyện xảy ra:** major qua 8 lượt REVIEWER Opus là 13 → 10 → 5 → 5 → 2 → 1 → **4** → 0. Vòng 7 tăng lên 4 vì cả 4 lỗi đều nằm trong câu mới viết ở v7 để sửa minor: câu IBC/Washington mơ hồ và thiếu as-of; câu hỏi "how much of the decline comes from each" ngầm nhân quả; tóm tắt nghiên cứu lệch. Ở v8, chỉ **bỏ** câu (SBCC 16/10, trích MHC 2007, mã NYC, Freddie Mac) → 0 major, lời ngắn hơn 0,6 phút.
+- **Luật:** khi một vòng REVIEWER làm tăng major, ưu tiên bỏ câu gây rủi ro (nhất là câu có trạng thái sẽ đổi trước khi thu, câu nhân quả, câu tóm tắt tranh luận) thay vì viết câu mới. Sau 0 major, minor chỉ áp khi là đổi chữ không thêm thông tin, và lượt kiểm chứng sau đó chỉ được sửa bằng đúng chữ REVIEWER đề xuất (bổ sung K3).
+
+## K9 · Trích dẫn lịch sử gây cảm xúc mạnh bị đọc là khung một phía (chủ dự án duyệt D7, G1a K2C-T1-06, 12/10/2026)
+- **Chuyện xảy ra:** trích *Euclid* (1926) "very often the apartment house is a mere parasite" có nguồn đúng và quy chủ thể đúng, nhưng 2/3 người đọc mù ở vòng 2 và 3 vẫn thấy nó "gợi khung zoning là phân biệt giai cấp" và nghiêng về phía chống zoning. Ở v4, thay bằng phần lý do Toà liệt kê (chiều cao, khối tích chắn nắng và không khí, xe cộ) cùng nguyên mệnh đề "in a different environment would be… highly desirable, come very near to being nuisances" → không ai nêu nữa.
+- **Luật:** với đề tài VÀNG, trích nguồn lịch sử theo **lý do chính nguồn đó nêu**, không chọn câu giàu cảm xúc nhất; trích **trọn mệnh đề** (REVIEWER v4 bắt lỗi cắt mất mệnh đề chính, làm đảo nghĩa). Nếu cần câu mạnh, đặt cạnh lý lẽ của phía bên kia trong cùng shot.

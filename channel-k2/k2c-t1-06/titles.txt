@@ -1,7 +1,6 @@
-# K2C-T1-06 — 3 tiêu đề dạng câu hỏi (G1a, đề xuất; chủ dự án chọn).
-# Kiểm: toolkit/market/brief.py check_title/check_thumb_text gói k2 — 0 cảnh báo; REVIEWER Opus độc lập (kiem-mu/titles-REVIEWER.json): 0 major — đã áp sửa minor dưới đây.
-1. Why Did America Almost Stop Building Small Buildings Like This?   (63 ký tự; từ ứng viên của chủ dự án "Why America Stopped Building Apartments Like This": thêm "Did… Almost…?" (số liệu ~1 %, dạng câu hỏi) và đổi "Apartments" → "Small Buildings" (REVIEWER: toà lớn tăng lên 57 % căn hộ mới, nên "Apartments" nói quá). Đi kèm hình toà góc phố.)
-2. What Happened to America's Small Apartment Buildings?              (53; REVIEWER: ok)
-3. Why Are Duplexes to Fourplexes So Rare Among New US Homes?         (58; REVIEWER sửa: dùng đúng nhóm 2–4 căn của số ~1 %)
-# Chữ thumbnail (≤ 4 từ): 1% OF NEW HOMES   (REVIEWER: "ONLY 1 IN 100" không nói 1/100 cái gì; số khớp đoạn 00/08: "about one in a hundred", "just over one percent", 2025)
-# Không dùng: "Stopped" không kèm "almost"; "secret/hidden/who (really) controls"; "afford/buy a home/your rent/save" (LUAT-NOI-DUNG §7)
+# K2C-T1-06 — tiêu đề (chủ dự án duyệt D3, 12/10/2026)
+CHÍNH:    Why Did America Almost Stop Building Small Buildings Like This?   (63 ký tự)
+DỰ PHÒNG (Test & Compare): What Happened to America's Small Apartment Buildings?   (53)
+CHỮ THUMBNAIL: 1% OF NEW HOMES   (4 từ; số có trong video, đoạn 00/08)
+# Phương án 3 (không dùng): Why Are Duplexes to Fourplexes So Rare Among New US Homes?
+# Kiểm: toolkit/market/brief.py gói k2 — 0 cảnh báo; REVIEWER Opus độc lập (kiem-mu/titles-REVIEWER.json): 0 major.

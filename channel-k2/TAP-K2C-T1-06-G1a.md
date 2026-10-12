@@ -292,3 +292,65 @@ Số liệu dưới đây là **tự đo của P trên timeline ước**, không
 - **D5. Shot list:** duyệt 7 bộ cảnh 3D và tỷ lệ (thẻ 15 %, nguồn ngoài 6 %). Có muốn tăng ảnh lưu trữ (Detroit Publishing, HABS) ở đoạn 01–02 không? Dựng khung mẫu chờ bộ công cụ phiên V.
 - **D6.** Sau 16/10: cho tra lại SBCC và quyết có đưa câu Washington single-stair trở lại đoạn 10 không.
 - **D7.** Ghi 2 bài học đề xuất ở §10 vào BAI-HOC-K2.
+
+---
+
+## 12. Sau duyệt G1a (chủ dự án 12/10/2026) — thực hiện D1–D7
+**D1–D3:**
+- Đã ghi `AUTHORSHIP.md`.
+- Lời khoá giữ nguyên v8.1 (`k2c-t1-06/script.md`), **không** thêm câu AEI hay City of Yes.
+- `k2c-t1-06/titles.txt`:
+  - chính: "Why Did America Almost Stop Building Small Buildings Like This?";
+  - dự phòng: "What Happened to America's Small Apartment Buildings?";
+  - chữ thumbnail: `1% OF NEW HOMES`.
+
+### 12.1 D4 — Chân dung Hoover và Sutherland
+- **Commons:** API bị 429 nhiều lần (BAI-HOC #82). Đọc được nhờ thử lại có giãn cách, cộng WebFetch trang tệp. Giấy phép đọc trên từng tệp:
+
+| Mã | Tệp | Giấy phép / ghi chú | Tệp đã tải (tile.loc.gov, TIFF gốc) |
+|---|---|---|---|
+| **K2-P1** / WM-HOOVER-1928 | "Secretary of Commerce Herbert Hoover as he posed for a special informal picture…", Harris & Ewing, **1928**, LCCN 2016888786 | Commons "Public domain"; trang tệp: *"No known restrictions on publication."*, *"This work is from the Harris & Ewing collection at the Library of Congress."* | 5109×3958, 20 242 104 B, SHA256 `3ac78a61…` |
+| **K2-P2** / WM-SUTHERLAND-1937 | "Arrives for Supreme Court Session… Associate Justice George Sutherland… 10/11/37", Harris & Ewing, **11/10/1937**, LCCN 2016877918 | Commons "Public domain" (Harris & Ewing, LoC) | 5127×4078 cỡ tương đương, 20 482 080 B, SHA256 `d792457f…` |
+
+- **Vì sao không dùng chân dung Sutherland "SUTHERLAND, GEORGE. JUSTICE" (LCCN 2016861353):** Commons ghi năm "1905", nhưng tiêu đề là "JUSTICE", mà năm 1905 ông còn là thượng nghị sĩ. Năm này nhiều khả năng chỉ là cận dưới của khoảng năm LoC ghi. Vì nhãn năm trên hình phải đúng, tôi chọn ảnh có ngày ghi ngay trong tiêu đề.
+- **Đã ghi** vào `RIGHTS.md` (K2-P1, K2-P2) và `k2c-t1-06/SOURCES-FOOTAGE.csv`. Shot list `people:` trỏ tới K2-P1 và K2-P2.
+- **Thử lại LoC** (~16:40 UTC): trang item và tìm kiếm vẫn 403 (curl và WebFetch); `lccn.loc.gov/marcxml` trả 404. **`tile.loc.gov` tải được** (ảnh và TIFF).
+
+### 12.2 D5 — Ảnh lưu trữ ~12–15 % ở đoạn 01–03 và 08
+- **18 ảnh LoC mới** (11 Detroit Publishing, 3 FSA/OWI, 4 HABS), tải qua `tile.loc.gov` (bản 1024 px, HTTP 200). Chọn bằng mắt trên tờ khung:
+  - toà cửa hàng + căn hộ (HABS Tocco, Dade, Butte);
+  - walk-up (Woodstock Apartments, Detroit);
+  - phố thương mại đầu thế kỷ;
+  - toà căn hộ cho đoạn Euclid (Connecticut Ave, Riverside Drive, Pasadena).
+- **Loại:** ảnh đổ nát động đất San Francisco; bản in FSA có chú thích tên người; mọi ảnh FSA chụp khu "Black Belt" Chicago (lệnh: chủng tộc chỉ khi cần; lời không cần).
+- **Số đo shot list sau D5** (`SHOTLIST.md`, tự đo, không phải checks/):
+
+| Đo | Trước D5 | Sau D5 | Luật |
+|---|---|---|---|
+| Ảnh lưu trữ (LoC + Harris & Ewing) | 4 shot, ~22 s (2,4 %) | **20 shot, 113,8 s = 12,2 %**; đoạn 01: 36,0 s · 02: 61,6 s · 03: 5,8 s · 08: 10,4 s | ~12–15 % (chủ dự án) |
+| Mỗi ảnh | — | 2,4–7,9 s, đều có nhãn "nơi, năm · Library of Congress (bộ sưu tập)" | ≤ 8 s/clip, nhãn năm |
+| Ảnh + tài liệu + footage | 5,9 % | **15,6 %** | ≤ 40 % |
+| Thẻ (`the`) | 15,2 % | **13,8 %**, liên tục dài nhất 29 s | ≤ 25 %, ≤ 90 s |
+| Số neo hiện bằng chart3d/scene3d | 76 % | **72 %** (21/29; số 48 thành phố năm 1921 chuyển lên ảnh Columbus) | ≥ 60 % |
+| Cùng (scene_id, camera_id) > 2 lần | 0 | 0 | ≤ 2 |
+| Bối cảnh 3D lớn nhất | corner 14,0 % | corner 11,6 %; nửa sau có 5 bộ cảnh | ≤ 25 % |
+| Tổng | 15,58 phút, 90 shot | 15,58 phút, **99 shot** | 12–16 phút |
+
+- **Sát ngưỡng (±5 %):** ảnh lưu trữ 12,2 % so với mốc dưới 12 % của chủ dự án. Có thể nâng thêm khoảng 2 điểm bằng cách thay shot `ends`/1972 (s08a) hoặc chia shot thẻ khoá ở đoạn 01 (s01d) nếu chủ dự án muốn.
+- **Quyền ảnh LoC:** trang item vẫn bị chặn, nên **18 ảnh nằm trong `CAN-TAI-HO.csv`**. Ảnh đã có trong `/var/tmp/k2-footage/k2c-t1-06/arch/`, SHA256 ở cột 7. Chủ dự án chỉ cần mở trang item, đọc "Rights Advisory" (kỳ vọng "No known restrictions on publication") và xác nhận; khi đó P chuyển các dòng sang SOURCES-FOOTAGE. **Chưa ghi RIGHTS.md cho 18 ảnh này.**
+- **`SOURCES-FOOTAGE.csv`** (12 dòng): K2-P1, K2-P2, 6 tệp Pexels, 4 tài liệu. `timecode_dung` là mốc ước của G1a, sẽ cập nhật theo bản dựng. PX-5601797 không còn shot nào dùng; giữ làm dự phòng.
+
+### 12.3 D6, D7
+- **D6:** sau 16/10 chỉ tra as-of (bảng `claims.md` §1b: SBCC, NYC, Minneapolis, IBC 2027), không thêm câu. Hôm nay là 12/10, nên **chưa tra**.
+- **D7:** đã ghi BAI-HOC-K2 **K8** (REVIEWER không hội tụ → bỏ câu thay vì viết thêm) và **K9** (trích lịch sử gây cảm xúc → trích lý do của nguồn, trọn mệnh đề).
+
+### 12.4 Chi phí bổ sung
+- API $0 (không gọi `claude -p` ở bước này). ElevenLabs 0 ký tự. YouTube Data API 0 lượt.
+- Pexels/Pixabay: 0 lượt gọi mới.
+- Commons API: khoảng 15 lượt (nhiều lượt bị 429). LoC tile: khoảng 25 tệp.
+
+### 12.5 Việc đang chờ chủ dự án
+- **E1. Xác nhận "Rights Advisory"** cho 18 ảnh LoC trong `CAN-TAI-HO.csv`, hoặc cho phép P thử lại LoC ở phiên sau.
+- **E2.** (Tuỳ chọn) nâng ảnh lưu trữ từ 12,2 % lên ~14 % (s08a, s01d).
+- **E3.** Sau 16/10: P tra as-of theo D6.
+- **Chưa dựng khung mẫu 3D:** chờ bộ công cụ phiên V được duyệt.
