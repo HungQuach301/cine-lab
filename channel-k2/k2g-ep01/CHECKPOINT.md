@@ -9,7 +9,9 @@ Cập nhật ở mỗi mốc. Phiên sau đọc tệp này trước.
 | Bước 3 8 bộ cảnh 3D (`design/ll-hero/k2g01.js`), lớp 2D K2 (`scripts/k2/lib/k2.js`), đặc tả (`ep-src.yaml` → `make_spec.py` → `episode.yaml`) | xong; luật bối cảnh ĐẠT (`scripts/k2/settings.py`) | (commit này) |
 | Bước 4 nháp 960×540: 37 cảnh (88 phút, P=3), ghép 14 đoạn + 2 Short; master nháp −14,0 LUFS / −1,6 dBTP; QC nháp `qc-nhap.md` | xong | (commit này) |
 | Bước 4 một lượt sửa (26 mục, `SUA-NHAP.md`) | xong | (commit này) |
-| Bước 4 1080p: 37 cảnh SPP4 P=3 (bắt đầu 18:20, ước 9–10 giờ máy) → render → mix → ghép → Shorts | đang chạy (`/var/tmp/cine-out/k2g-ep01/heroes-1080.log`) | — |
+| Bước 4 1080p: 37 cảnh SPP4 (11 giờ 36 phút) → render → mix → ghép → Shorts; sửa lỗi mốc 08/12 (dựng lại 2 đoạn) | xong | 98c86ad |
+| Bước 5 QC 1080p (`qc-v1.md`, 23/25), LUAT-G §7 (`luat-g7.json`, 5/5), chấm mù Q27/Q31 (`kiem-mu/q27-*`, `q31-*`) | xong | (commit này) |
+| Bước 6 gói phát hành (`phat-hanh/`) · Bước 7 `../TAP-K2G-01-G2.md` | xong — **DỪNG Ở G2, chờ duyệt D1–D6** | (commit này) |
 
 ## Lệnh
 - Nháp: `K2_DRAFT=1 /opt/cine/bin/python scripts/k2/prep.py prep channel-k2/k2g-ep01/episode.yaml` → `SPP=1 P=3 setsid nohup bash scripts/k2/heroes_par.sh <yaml> >> <out>/heroes-par.log 2>&1 &` → `K2_DRAFT=1 MW=960 J=3 bash scripts/k2/build.sh <yaml> render mix ghep`

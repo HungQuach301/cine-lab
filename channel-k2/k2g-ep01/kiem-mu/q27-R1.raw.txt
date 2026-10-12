@@ -1,0 +1,25 @@
+```json
+{"frames": {
+"F01": {"craft": 6, "readability": 7, "flags": ["cluttered"], "note": "Moody night furnaces with glow and smoke. Very dark and murky. The callout is fine. The bottom caption is small and sits on dark mud. The source line is faint."},
+"F02": {"craft": 5, "readability": 0, "flags": ["confusing"], "note": "Stylised Great Lakes route map. The black landmasses look like blobs. There are no labels, so the route is unclear. The grid floor is generic."},
+"F03": {"craft": 5, "readability": 6, "flags": ["confusing"], "note": "Myth-vs-record card. The left column is mostly empty and the card looks unfinished. Body text is small on a phone. The 'ACTUAL' tag crowds the source line and the background is a blur."},
+"F04": {"craft": 6, "readability": 7, "flags": ["text_overlap"], "note": "The bar chart is clean and readable. The dashed 80% line cuts through the '≈72%' and '≈77%' labels. The source line is small."},
+"F05": {"craft": 4, "readability": 6, "flags": ["empty_frame", "confusing"], "note": "Half-empty card. The right panel is missing, so the layout looks broken. Big dead space and a blurry background."},
+"F06": {"craft": 6, "readability": 6, "flags": [], "note": "Clean isometric diagram with a callout. The scene is sparse and generic with low-poly blocks. The callout is small for a phone."},
+"F07": {"craft": 7, "readability": 7, "flags": [], "note": "Orange arcs from a central tower read as exports. This is the best 3D diagram. The caption is readable but thin on a busy grid."},
+"F08": {"craft": 5, "readability": 8, "flags": [], "note": "Big '18.3 Mt' number is effortless to read. The card is mostly empty, with a duplicate 'ACTUAL' tag and a blurry background."},
+"F09": {"craft": 4, "readability": 6, "flags": ["empty_frame"], "note": "A timeline with one event and a huge void. Text is small, the line is faint and the background is dark mush. It looks unfinished."},
+"F10": {"craft": 5, "readability": 7, "flags": [], "note": "Checklist card is legible. The bullet glyphs are inconsistent: one is a bar instead of a checkbox. Text-heavy, with a blurry background."},
+"F11": {"craft": 4, "readability": 5, "flags": ["text_cut_off", "text_overlap", "empty_frame"], "note": "The right header 'ALSO SORTS BY' runs past the panel edge. The large empty panels are poorly balanced."},
+"F12": {"craft": 5, "readability": 5, "flags": ["illegible_text", "confusing"], "note": "Low-poly toll-plaza scene with a harsh camera angle. The grey caption on dark blue, over a busy texture, has low contrast. The scene is not clear."}
+},
+"overall_craft_1to10": 5,
+"compared_to_typical_faceless_explainers": "similar",
+"best_frame": "F07",
+"worst_frame": "F11",
+"top3_visual_fixes": [
+"Fix the card layouts. Size panels to their content and fill or remove empty columns and half-empty timelines. Make sure text never overflows the panel edge, as with F11's right header. Raise body text to at least 32px for phones.",
+"Give every caption and source line a solid or gradient scrim and higher contrast, and keep the 3D scenes and card backgrounds simple. Move the dashed benchmark line off the value labels in F04.",
+"Make the 3D scenes read as stories. Add labels to the map (F02), use stronger lighting and richer materials in the low-poly scenes (F06, F12), and pull the camera back so the subject is clear."
+]}
+```

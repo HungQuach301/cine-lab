@@ -1,0 +1,22 @@
+```json
+{"joins":{
+"J01":{"verdict":"acceptable","why":"Fades from the 'Why guard steel' card into the STEEL title over a different (valley) scene. The title fades in cleanly, but the setting changes abruptly. The narration says 'This video explains…' and the title matches it."},
+"J02":{"verdict":"acceptable","why":"The mechanism card (blurred background) cuts to the Pittsburgh title over the mill silhouette. The title fades in cleanly. Card to dark 3D scene is a style change, but it is a section break."},
+"J03":{"verdict":"smooth","why":"The $70 stat card cuts to the Great Lakes map with a caption fading in. Source line is continuous. The $70 figure matches the narration."},
+"J04":{"verdict":"smooth","why":"Same map scene, camera zooms in and a label appears. The caption disappears at the join, but the picture stays coherent with the words."},
+"J05":{"verdict":"break","why":"The Homestead caption 'the marker records what that cost' is followed by a 'March 1901' card whose body is empty for 3 s. The card looks broken or unfinished. The caption does not match the picture (a molten-steel ladle, not a marker)."},
+"J06":{"verdict":"acceptable","why":"The chart scene with caption cuts to the myth-vs-record card, whose body is empty before the quote fades in. Text builds up slowly but works."},
+"J07":{"verdict":"smooth","why":"The bar-chart card cuts to the 'The rules' title over a parking-lot scene. The title fades in cleanly. The parking-lot picture is odd for 'The rules' but works as a title background."},
+"J08":{"verdict":"acceptable","why":"The CRS card cuts to an abstract tile scene with no caption. Pictures change a lot, and the tile scene is unrelated to 'what OECD says', but it is clean."},
+"J09":{"verdict":"break","why":"The tariff-map caption is followed by a 3D steel plant with faint overlapping ghost text at +2.5 s. The new section's text is nearly invisible. A caption carries over the cut, and the plant picture is a generic factory, not a Nippon/US Steel context."},
+"J10":{"verdict":"acceptable","why":"The dark steaming mill with caption cuts to a bright, hazy daytime scene titled 'The toll'. The look changes sharply (night to day), but the title fades in cleanly."},
+"J11":{"verdict":"acceptable","why":"The two-column card cuts to a snowy, wind-turbine hydrogen scene. The look is very different (a new palette, flat-illustration style), but it fits the topic. The caption is missing for the first frames."},
+"J12":{"verdict":"smooth","why":"Hydrogen scene to the mechanism map, with captions continuous. Label and caption change cleanly."},
+"J13":{"verdict":"acceptable","why":"The 'One question' card cuts to the 1950 bar scene with a caption. A new date stamp appears. Card to 3D scene is an abrupt change, but the content is consistent."}},
+"consistency_1to10":6,
+"variety_1to10":5,
+"picture_matches_words_1to10":6,
+"breaks":["J05: 'March 1901' card shows an empty body for about 3 s and the preceding picture (molten ladle) does not match the 'marker' narration","J09: the plant scene carries ghost text that is nearly illegible at the join, and the picture is a generic factory rather than the Nippon/US Steel story"],
+"overused_setting":"Dark text-card panels on blurred backgrounds (plus the dark night-time steel-mill/port scenes)",
+"top3_fixes":["Fill or shorten the empty 'March 1901' card and the other cards that sit empty (myth-vs-record, Section 232, CBAM) so each one shows its content within 0.5 s. At J05, show the Homestead marker or a historical image under the 'marker' line, not molten steel.","Fix the faint ghost text in J09 by making the incoming caption fade in over a clean frame, and use a more specific picture, such as a Nippon/US Steel Pittsburgh plant or a shareholder/deal graphic.","Cut the number of text-card slides (they make up roughly half the overview sheets) by mixing in archival photos, maps, and animated charts. Keep the look consistent across the daytime hazy scene, the snowy hydrogen scene, and the night scenes."]}
+```

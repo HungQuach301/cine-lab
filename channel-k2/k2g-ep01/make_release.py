@@ -16,10 +16,11 @@ TITLES = ["Why Is Steel Guarded Like a Weapon? Who Controls the Path",
           "Who Really Controls Steel? Tariffs, a Golden Share, a Carbon Toll"]
 src_lines = []
 for k, s in E['sources'].items(): src_lines.append(f"- {s['short']}: {s['url']} (accessed {s['accessed']})")
-desc = f"""Why is steel, a metal America still makes in large amounts, now guarded like a weapon? Three layers, one mechanism: who controls the path from raw material to market, and who sets the tolls along it.
+desc = f"""This video explains how the system works. It isn't financial or investment advice. Facts as of 11 October 2026.
+Why is steel, a metal America still makes in large amounts, now guarded like a weapon? Three layers, one mechanism: who controls the path from raw material to market, and who sets the tolls along it.
 
-Facts as of 11 October 2026. Ongoing events (tariffs, CBAM, Stegra, the Nippon Steel–U.S. Steel terms) may have changed since.
-This video explains how the system works. It isn't financial or investment advice. Lines marked "our read" are the channel's interpretation; calculations marked "our calculation" are ours, from the cited figures.
+Ongoing events (tariffs, CBAM, Stegra, the Nippon Steel–U.S. Steel terms) may have changed since 11 October 2026.
+Lines marked "our read" are the channel's interpretation; calculations marked "our calculation" are ours, from the cited figures.
 
 CHAPTERS
 """ + '\n'.join(f"{mmss(s['t0'])} {CH[s['id']]}" for s in TL['segments']) + """

@@ -1,0 +1,25 @@
+```json
+{"frames": {
+"F01": {"craft": 5, "readability": 7, "flags": ["cluttered"], "note": "Moody silhouetted furnaces with a clean callout, but the scene is very dark and murky. Two text blocks compete: callout and caption. The caption and source line are low contrast against the dark ground."},
+"F02": {"craft": 5, "readability": 0, "flags": ["confusing", "empty_frame"], "note": "A glowing route over black polygon lakes on a blue grid. It's decent and stylised, but there are no labels. Nothing says what the route is, and the lower half of the frame is empty."},
+"F03": {"craft": 4, "readability": 7, "flags": ["empty_frame", "confusing"], "note": "The left card is mostly empty, with the myth quote stranded at the top. The right card is sparse, and the 'ACTUAL' badge is unexplained. The 3D background is blurred out entirely, so the scene adds nothing."},
+"F04": {"craft": 6, "readability": 7, "flags": ["text_overlap"], "note": "A clean bar chart with good colour coding. The dashed 80% line cuts through the '≈ 72%' label, and the x-axis has no scale. The 77% label sits tight against the line. The title is wordy."},
+"F05": {"craft": 3, "readability": 6, "flags": ["empty_frame", "confusing"], "note": "Only the left half of the card is filled. The right panel is an empty void and the left panel is mostly blank below the text, which looks like an animation caught mid-build. The backdrop is a muddy blur."},
+"F06": {"craft": 6, "readability": 6, "flags": [], "note": "A clean isometric grid with simple blocky mills and a small callout. The callout text is small for a phone. The scene is sparse and generic, and the dark vignette is fine."},
+"F07": {"craft": 7, "readability": 6, "flags": ["cluttered"], "note": "The best 3D frame: orange arcs radiate from a hub and the lighting is better. The caption sits over the arcs and is thin and low contrast. The small callouts are hard to read on a phone."},
+"F08": {"craft": 6, "readability": 9, "flags": ["empty_frame"], "note": "Big, legible stat. The empty lower half of the card is wasted, and the duplicate 'ACTUAL' badges are redundant. The background is a grey blur."},
+"F09": {"craft": 4, "readability": 6, "flags": ["empty_frame", "confusing"], "note": "A near-empty timeline card with one dot and a long dead line. The bottom half is empty. The backdrop is too dark to register. It looks unfinished."},
+"F10": {"craft": 5, "readability": 7, "flags": [], "note": "Readable checklist, but the second bullet's marker is a stray bar instead of a checkbox. There's dead space in the card and the backdrop is a blur."},
+"F11": {"craft": 3, "readability": 5, "flags": ["text_cut_off", "text_overlap", "empty_frame"], "note": "The right column header runs past the card's inner panel to the edge and nearly touches the card border. Both columns are two-thirds empty. Text is small and the layout is poor."},
+"F12": {"craft": 5, "readability": 5, "flags": ["illegible_text"], "note": "A real 3D environment with a toll-plaza concept, but the geometry is crude and low-poly with flat textures. The caption is thin, grey and low contrast over a busy dark scene. The blank blue sign is a dead prop."}
+},
+"overall_craft_1to10": 5,
+"compared_to_typical_faceless_explainers": "similar",
+"best_frame": "F07",
+"worst_frame": "F11",
+"top3_visual_fixes": [
+"Fix the half-empty cards (F03, F05, F09, F11). Fill them with real content such as charts, icons or a 3D object, or size the card to its content. Never show a card with one column blank or one data point on an empty timeline. Hold the final state of every build before cutting.",
+"Raise caption and callout legibility. Use larger type (at least 44px equivalent), a solid or gradient scrim behind it, and full white. The captions in F01, F07 and F12 are thin grey over dark or busy imagery. Add padding and overflow checks so headers like the F11 right column can't hit the card edge.",
+"Upgrade the 3D scenes and stop blurring them behind cards. Add labels to the map in F02, and add PBR materials, real lighting and detail to the F12 plaza. Show the scene sharp with a smaller lower-third card instead of a full-frame frosted blur, so the 3D work earns its place."
+]}
+```

@@ -1,0 +1,105 @@
+{
+ "frames": {
+  "F01": {
+   "craft": 6,
+   "readability": 7,
+   "flags": [],
+   "note": "Moody night furnaces with a clear callout. The scene is very dark and the subtitle sits low-contrast on the dark ground. The Source line is small and gray."
+  },
+  "F02": {
+   "craft": 5,
+   "readability": 0,
+   "flags": [
+    "confusing"
+   ],
+   "note": "Glowing route over a Great Lakes map. The black lake shapes are crude, and with no labels or text it's unclear what the route shows."
+  },
+  "F03": {
+   "craft": 5,
+   "readability": 6,
+   "flags": [
+    "empty_frame"
+   ],
+   "note": "The left panel is about 70% empty, so the myth card looks unfinished. The 87.8 vs 81.9 Mt figures are small bullets. The 'ACTUAL' tag is clipped and the source line is tiny."
+  },
+  "F04": {
+   "craft": 6,
+   "readability": 7,
+   "flags": [],
+   "note": "Clear bar chart. The dashed 80% line cuts through the '≈72%' and '≈77%' labels. The title is long. The bars are legible."
+  },
+  "F05": {
+   "craft": 4,
+   "readability": 6,
+   "flags": [
+    "empty_frame",
+    "confusing"
+   ],
+   "note": "Only the left half is filled and the right half of the card is blank, as if a reveal failed. The left card is mostly empty. The text is readable but there is no visual."
+  },
+  "F06": {
+   "craft": 6,
+   "readability": 6,
+   "flags": [
+    "cluttered"
+   ],
+   "note": "Clean low-poly grid scene. The abstract blocks are hard to interpret. The callout is small and the left edge is tight."
+  },
+  "F07": {
+   "craft": 6,
+   "readability": 6,
+   "flags": [
+    "cluttered"
+   ],
+   "note": "Export arcs are a good idea. The callouts are small and the subtitle overlaps the arcs, with low contrast on the gray grid. The arcs are visually tangled."
+  },
+  "F08": {
+   "craft": 6,
+   "readability": 9,
+   "flags": [],
+   "note": "The big 18.3 Mt number reads effortlessly. The card is otherwise empty, the background is a plain blur, and the double 'ACTUAL' tag is redundant."
+  },
+  "F09": {
+   "craft": 4,
+   "readability": 6,
+   "flags": [
+    "empty_frame"
+   ],
+   "note": "A timeline with a single point and a mostly empty card. Text is small and the layout feels sparse, with large dead areas."
+  },
+  "F10": {
+   "craft": 5,
+   "readability": 7,
+   "flags": [
+    "confusing"
+   ],
+   "note": "Readable checklist, but the second row has a stray bar instead of a checkbox. The small bold text is dense, and the source line is long and small."
+  },
+  "F11": {
+   "craft": 4,
+   "readability": 5,
+   "flags": [
+    "text_overlap",
+    "empty_frame"
+   ],
+   "note": "The right header 'A CARBON PRICE AT THE BORDER ALSO SORTS BY' runs past the card edge. The lower 60% of both panels is empty."
+  },
+  "F12": {
+   "craft": 5,
+   "readability": 5,
+   "flags": [
+    "illegible_text"
+   ],
+   "note": "The 3D toll plaza has some depth and lighting, but it's flat and gray. The subtitle is low-contrast over the busy dark container. The blank screen on the right prop is odd."
+  }
+ },
+ "overall_craft_1to10": 5,
+ "compared_to_typical_faceless_explainers": "similar",
+ "best_frame": "F08",
+ "worst_frame": "F11",
+ "top3_visual_fixes": [
+  "Fix the card layouts. Auto-size or vertically fill cards to the content, and never show half-filled or empty panels (F03, F05, F09, F11). Wrap or shrink long headers so they stay inside the card (F11 overflows).",
+  "Raise the minimum text size to about 32px or more for bullets, sources and callouts. Give subtitles a dark scrim or backing plate, since they sink into the 3D scenes (F01, F07, F12). Remove the redundant 'ACTUAL' tags or keep them from clipping.",
+  "Upgrade the 3D scenes. Add real labels and a clear focal point to the map and grid scenes (F02, F06, F07). Use richer materials and lighting in place of flat gray blocks and crude black lake shapes."
+ ]
+}

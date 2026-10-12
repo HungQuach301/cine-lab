@@ -1,0 +1,70 @@
+{
+ "joins": {
+  "J01": {
+   "verdict": "acceptable",
+   "why": "Title card fades in over a new dark hillside scene; the pre-join text 'Why guard steel like a weapon?' is replaced by the title. This is fine for a title, but the picture changes from the port to a hillside that has nothing to do with the narration."
+  },
+  "J02": {
+   "verdict": "acceptable",
+   "why": "Diagram on a blurred backdrop cuts to the Layer 1 title over the mill. The text fades in cleanly. The mood change is large but expected at a chapter start."
+  },
+  "J03": {
+   "verdict": "acceptable",
+   "why": "The $70 stat card cuts to a Great Lakes map scene. Caption fades in. The narration mentions the 'first piece of the mechanism' and the map matches loosely."
+  },
+  "J04": {
+   "verdict": "smooth",
+   "why": "Same Great Lakes map; the camera moves in and a tooltip appears. The caption is replaced by a label cleanly."
+  },
+  "J05": {
+   "verdict": "break",
+   "why": "The ladle/pour scene (Homestead caption) cuts to an empty 'March 1901' card. The card is blank on all three post-join frames, so the text has not appeared when the narrator says Morgan approached Carnegie. The ladle shot also isn't Homestead specific."
+  },
+  "J06": {
+   "verdict": "acceptable",
+   "why": "Scale diagram cuts to the myth card. The card body is empty at +0.5 s and the quote fades in by +2.5 s. A slight delay but it resolves."
+  },
+  "J07": {
+   "verdict": "acceptable",
+   "why": "Bar chart cuts to the Layer 2 title over the same port/parking setting. Smooth fade-in. The setting is reused and the shift from a data card to a 3D scene is abrupt, but acceptable."
+  },
+  "J08": {
+   "verdict": "break",
+   "why": "The CRS card cuts to an abstract grid with floating blocks that doesn't match the narration about OECD's Steel Outlook. The caption is also missing. The card text disappears, and the blocks aren't explained."
+  },
+  "J09": {
+   "verdict": "break",
+   "why": "The tariff map caption ends and a plant scene starts with a ghosted caption at +2.5 s that is barely legible. The Nippon Steel/U.S. Steel narration has a generic factory shot instead of anything specific, and the caption fades in too late."
+  },
+  "J10": {
+   "verdict": "acceptable",
+   "why": "A dark mill with a caption cuts to a bright, hazy 'The toll' title scene. The brightness jump is big but it marks a new layer. The picture is a generic plant."
+  },
+  "J11": {
+   "verdict": "acceptable",
+   "why": "Two-column card cuts to a snowy hydrogen plant. There's a hard style and brightness change. The hydrogen setting fits the narration."
+  },
+  "J12": {
+   "verdict": "smooth",
+   "why": "Hydrogen scene cuts to the glowing path map for the recap. Captions are consistent and the map matches 'coke and ore once were in Pittsburgh'."
+  },
+  "J13": {
+   "verdict": "acceptable",
+   "why": "Closing diagram cuts to the 1950 bar scene. The jump is abrupt for a closing-to-opening loop, but the stat matches the narration."
+  }
+ },
+ "consistency_1to10": 7,
+ "variety_1to10": 5,
+ "picture_matches_words_1to10": 6,
+ "breaks": [
+  "J05: the 'March 1901' card is empty while the narration describes the Morgan approach, and the ladle shot before it is only loosely tied to Homestead.",
+  "J08: an abstract grid with floating blocks and no caption appears over narration about the OECD outlook, and the CRS card text disappears abruptly.",
+  "J09: a generic factory scene with a barely legible caption appears while the narrator discusses the Nippon/U.S. Steel acquisition."
+ ],
+ "overused_setting": "Dark card-over-blurred-background slides and the low-poly port/parking-lot scene",
+ "top3_fixes": [
+  "Show the card's content with its heading, or start the animation of its text earlier, so no card appears empty (J05, J06); also don't cut away from a card's text before the narration finishes the sentence.",
+  "Replace the generic grid and plant fillers (J08, J09) with scenes that tie to the narration, such as an OECD capacity chart, or a Nippon/U.S. Steel diagram with labelled flags and a Pittsburgh map.",
+  "Reduce the reliance on the dark stat-card format and the port scene: use more varied imagery (archival-style mills, maps, charts with motion), and soften the large brightness and style jumps at layer transitions (J10, J11) with a crossfade or a shared colour grade."
+ ]
+}

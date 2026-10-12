@@ -1,0 +1,31 @@
+```json
+{"joins":{
+"J01":{"verdict":"acceptable","why":"Night pavilion scene cuts to a dark hillside title card. The title fades in cleanly, but the card reads 'STEEL / Who controls the path' while the narration is still on 'why guard steel like a weapon'. The picture and the words do not line up."},
+"J02":{"verdict":"acceptable","why":"The mechanism diagram cuts to the Pittsburgh mill title card, a deliberate section change. The title fades in smoothly. The diagram's caption fades in late and looks muddy at the start."},
+"J03":{"verdict":"acceptable","why":"A $70 stat card cuts to the map flyover with a caption, a clear change of mode. The text on both sides is legible. The next frames show the same map, so it reads as continuous."},
+"J04":{"verdict":"smooth","why":"Same map and glowing path, with the camera moving in. The caption changes naturally with the narration. The coke label is faint at the end."},
+"J05":{"verdict":"break","why":"The caption 'and the marker records what that cost at Homestead' sits over a molten-ladle shot that has nothing to do with the Homestead marker. It then cuts to a 'March 1901' card whose body is empty for the full 2.5 s, so the card looks broken while the narration is already talking about Morgan."},
+"J06":{"verdict":"break","why":"After the 1900/1944/1950 bar scene, the 'Myth vs Record' card appears empty and its text only fades in over several seconds, well after the narration starts. The scene also swaps abruptly from a 3D scene to a flat card."},
+"J07":{"verdict":"acceptable","why":"The bar chart cuts to the 'The rules' title over the pavilion scene, a proper section opener. The 'Facts as of October 2026' subtitle is present. The pavilion is the same night setting used in the intro."},
+"J08":{"verdict":"acceptable","why":"A CRS study card over a blurred pavilion cuts to an abstract grid with floating blocks. The change of look is abrupt, and the scene does not obviously show 'the other side of the scale'. The card text is stable."},
+"J09":{"verdict":"break","why":"The tariff-arcs scene cuts to a daytime hazy low-poly steel plant that looks like a different style from the dark scenes. The caption that fades in at the end is nearly invisible (grey text), so the Dec 2023 narration has no readable text at the join."},
+"J10":{"verdict":"acceptable","why":"A dark night mill with a caption cuts to a bright, hazy daytime scene and the 'The toll' title. The light-to-dark swing is jarring, though the title fades in cleanly."},
+"J11":{"verdict":"acceptable","why":"The two-column card on a blurred background cuts to a snowy hydrogen-plant scene with a different palette (blue, snow, wind turbines). This is a one-off stylised environment, but it matches the narration about a route that skips coke."},
+"J12":{"verdict":"acceptable","why":"The hydrogen scene cuts to the Great Lakes map, a clear callback to Layer 1 that fits the narration. The caption changes cleanly, and the camera cut is abrupt but fine."},
+"J13":{"verdict":"acceptable","why":"The closing diagram card cuts to the 1950 bar scene. The narration moves to 1950 steel output (the film's start), so the callback fits. The cut is a simple hard cut with no transition, and the captions are readable."}
+},
+"consistency_1to10":6,
+"variety_1to10":5,
+"picture_matches_words_1to10":6,
+"breaks":[
+"J05: The molten-ladle shot with the caption does not illustrate the Homestead marker, and the next 'March 1901' card has an empty body for 2.5 s.",
+"J06: 'Myth vs Record' appears as an empty card, and its text lands late relative to the narration.",
+"J09: The daytime hazy plant is a different visual style from the rest of the film, and the grey caption at the join is nearly unreadable."
+],
+"overused_setting":"Dark text/data card over a blurred background (roughly half the film), plus the recurring night pavilion and plant scenes",
+"top3_fixes":[
+"Fill card text before the card appears, or have the card appear with its first line already visible, and align the reveal with the narration (J05, J06, J09 empty or near-empty cards).",
+"Cut down the long runs of dark data cards. Break them up with real scene-based visuals such as steel mills, ports, tariff arcs and EAF footage. Replace the generic pavilion and plant scenes with ones that match the subject (Homestead, Nippon/US Steel, port tariffs).",
+"Unify the lighting and grading across scenes (the bright hazy daytime plant at J09 and J10 and the snowy hydrogen scene against the dark night scenes). Add a quick dip or crossfade at the section changes, and keep captions at full contrast."
+]}
+```
