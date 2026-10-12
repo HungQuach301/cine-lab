@@ -1,18 +1,26 @@
 #!/opt/cine/bin/python
-"""Q27 chấm hình mù · Q31 xem liền mạch mù — luật khoá LL v3 (phiên K, 07/10/2026; sửa sau tập 7, 09/10/2026). Định nghĩa: checks/ll/RULES-LL.md.
+"""Q27 chấm hình mù · Q31 xem liền mạch mù · kiểm mù kịch bản G1 — luật khoá LL v3 (phiên K, 07/10/2026; sửa sau tập 7, 09/10/2026;
+1.9.0, 11/10/2026: người chấm qua Claude API, Q27 chấm theo manifest). Định nghĩa: checks/ll/RULES-LL.md.
 
 K CỐ ĐỊNH: đề bài (checks/ll/blind/Q27-R*.txt, Q31-R*.txt, khoá SHA cùng checks/), cách lấy và trộn mẫu, số người chấm (3), mô hình
-(subagent Sonnet), ngưỡng. P KHÔNG sửa đề bài: chỉ thay {DIR} bằng thư mục bộ ảnh; câu trả lời ghi lại SHA-256 của tệp đề bài.
+(claude-sonnet-5-5 qua Claude API, judge.py), ngưỡng. P KHÔNG sửa đề bài: chỉ thay {DIR} bằng thư mục bộ ảnh; câu trả lời ghi lại SHA-256 của tệp đề bài.
 
-  q_blind.py ref-fetch                                   tải master tập 1 1080p (đối chứng Q27) về REF27, kiểm SHA
+  q_blind.py ref-fetch                                   tải master tập 1 1080p (đối chứng Q27) và tập 8 bản phát hành (mốc Q27, 1.9.1), kiểm SHA
   q_blind.py q27-set <thư mục> --new <master 1080p>      bộ 60 ảnh F01–F60 (30 bản cuối + 30 tập 1 1080p, trộn; Q-L27 = B) + đề bài đã điền
   q_blind.py q31-set <thư mục> --video <video…> --tl <timeline.json> [--tu-nhap <thư mục q31 của nháp>]
                                                          dải chuyển đoạn T## + dải tổng quan R## + transitions.txt
+  q_blind.py q27-run|q31-run <thư mục>                   3 người chấm qua Claude API → R1–R3.json + `cham` trong manifest (fail closed);
+                                                         q27-run chấm cả bộ mốc tập 8 <thư mục>-moc (1.9.1)
+  q_blind.py g1-run <thư mục> --prompt <đề bài> [--n 3]  kiểm mù kịch bản G1 qua Claude API → R1..Rn.md + manifest
   q_blind.py q27-score <thư mục> --new <master 1080p> [--plan-sau <PLAN.md tập sau>]   chấm (R1–R3.json); mã thoát 0 = ĐẠT
   q_blind.py q31-score <thư mục> --video <video…> --tl <timeline.json>
 
-Thư mục bộ ảnh phải nằm NGOÀI repo (ví dụ <out>/blind/q27): subagent chỉ được đọc tệp nêu trong đề bài.
+Thư mục bộ ảnh phải nằm NGOÀI repo (ví dụ <out>/blind/q27): người chấm chỉ đọc được tệp trong thư mục đó.
 Q27 không ghi tệp khoá giải mã: thứ tự trộn suy lại được từ SHA-256 của video mới (hạt giống), nên không có gì để lộ cho người chấm.
+Q27 (1.9.0): q27-score gán khung theo hạt giống ghi trong manifest của lần chấm; video hiện tại khác SHA trong manifest → TRƯỢT
+"bộ chấm thuộc bản khác" (số in ra là của bản trong manifest); đổi master sau Q27 phải chấm lại.
+Q27 (1.9.1, ĐẶT LẠI MỐC): q27-set dựng kèm bộ tập 8 bản phát hành vs tập 1 ở <thư mục>-moc; q27-score báo tập mới − tập 1 (ngưỡng),
+tập 8 − tập 1 và tập mới − tập 8; bộ mốc thiếu hoặc không hợp lệ → TRƯỢT.
 Q27 (sau tập 7): chỉ chấm CHÍNH THỨC trên bản cuối 1920×1080 so với master tập 1 1920×1080; bản nháp không chấm. ĐẠT khi tập mới ≥ tập 1 − SE27;
 chênh trong ±SE27 là SÁT NGƯỠNG và PLAN tập sau phải có mục "Cải thiện hình".
 Q31 tính VÒNG theo từng tập (Q-L31, chủ dự án 07/10/2026): q31-set chuyển lần xem trước sang <thư mục>-lich-su/vong-NN; vòng 1 chặn
@@ -25,12 +33,18 @@ import hashlib, json, os, random, re, shutil, subprocess, sys, tempfile, unicode
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 HERE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'blind')
 RATERS = ('R1', 'R2', 'R3')
-MODEL = 'sonnet'
+sys.path.insert(0, REPO)
+from checks.ll import judge  # noqa: E402  người chấm qua Claude API (1.9.0)
+MODEL = judge.MODEL   # ghim: claude-sonnet-5-5 (1.9.0; trước đó subagent 'sonnet')
 N27 = 30            # Q-L27 = B (chủ dự án 07/10/2026): 30 khung tập mới + 30 khung tập 1
 # Tập 1 bản m23, MASTER 1080p (chủ dự án 09/10/2026: so 1080p với 1080p). Cùng SHA với master m23 (M2-3-MASTER-SHORTS.md) và với
 # ll-ep01-v1-master-1080p.mp4 của nhánh release-ll-ep01-v1. Ngoài repo (853 MB, LFS): `q_blind.py ref-fetch`. (đường dẫn, SHA-256, thời lượng s)
 REF27 = [('/var/tmp/cine-out/ref/ll-ep01-v1-master-1080p.mp4', '9c3825387345ec0af6c035ec3f94809644ca7767d1ecbafcaed4710480113942', 602.583333)]
 REF27_URL = 'https://media.githubusercontent.com/media/HungQuach301/cine-lab/release-ll-ep01-v1/ll-ep01-v1-master-1080p.mp4'
+# 1.9.1 (chủ dự án 11/10/2026, Q27 qua API = phương án A + ĐẶT LẠI MỐC): từ tập 9 mỗi lần chấm chính thức chấm KÈM tập 8 bản phát hành
+# (release-ll-ep08-v1, master d22d7d6e…) so với tập 1 trên cùng đường API, ở thư mục <thư mục>-moc. Ngưỡng đạt vẫn tính trên tập mới − tập 1.
+MOC27 = [('/var/tmp/cine-out/ref/ll-ep08-v1-master.mp4', 'd22d7d6e640dc6f0f0dfe0237cfd262f809e768eb78c59f0528f03f758c9c854', 607.958333)]
+MOC27_URL = 'https://media.githubusercontent.com/media/HungQuach301/cine-lab/release-ll-ep08-v1/ll-ep08-v1-master.mp4'
 SIZE27 = (1920, 1080)   # chỉ chấm chính thức bản cuối 1080p; bản nháp không chấm
 # Sai số chuẩn của chênh lệch (tập mới − tập 1) trong MỘT lần chấm 30 + 30, đo trên dữ liệu thật đã có (6 lần chấm hợp lệ: tập 6 v1, v2;
 # tập 7 nháp lần 2, 3, 4b, chính thức): bootstrap hai tầng (người chấm × khung), căn bậc hai trung bình bình phương = 0,273.
@@ -104,18 +118,22 @@ def size(v):
     return int(w), int(h)
 
 
-def ref_ok():
-    bad = [v for v, h, _ in REF27 if not os.path.exists(P(v)) or sha_file(v) != h]
+def ref_ok(L=None):
+    bad = [v for v, h, _ in (REF27 if L is None else L) if not os.path.exists(P(v)) or sha_file(v) != h]
     return bad
 
 
+def moc_dir(out): return out.rstrip('/') + '-moc'
+
+
 def ref_fetch():
-    v, h, _ = REF27[0]
-    if not ref_ok(): print(f'đã có {v} (SHA khớp)'); return
-    os.makedirs(os.path.dirname(v), exist_ok=True)
-    subprocess.run(['curl', '-sSL', '--fail', '-o', v + '.tai', REF27_URL], check=True); os.replace(v + '.tai', v)
-    if ref_ok(): raise SystemExit(f'{v}: SHA khác {h}')
-    print(f'{v}: SHA khớp')
+    for L, url in ((REF27, REF27_URL), (MOC27, MOC27_URL)):
+        v, h, _ = L[0]
+        if not ref_ok(L): print(f'đã có {v} (SHA khớp)'); continue
+        os.makedirs(os.path.dirname(v), exist_ok=True)
+        subprocess.run(['curl', '-sSL', '--fail', '-o', v + '.tai', url], check=True); os.replace(v + '.tai', v)
+        if ref_ok(L): raise SystemExit(f'{v}: SHA khác {h}')
+        print(f'{v}: SHA khớp')
 
 
 def draft27(new):
@@ -123,45 +141,185 @@ def draft27(new):
     return [f'{os.path.basename(v)} {w}×{h}' for v in new for w, h in [size(v)] if (w, h) != SIZE27]
 
 
-def q27_set(out, new):
-    if ref_ok(): raise SystemExit(f'tập 1 1080p tham chiếu thiếu hoặc không khớp SHA: {ref_ok()} — chạy `q_blind.py ref-fetch`')
-    if draft27(new): raise SystemExit(f'Q27 chỉ chấm chính thức bản cuối 1920×1080; bản nháp không chấm: {draft27(new)}')
+def _set27(out, new, moc=False):
     os.makedirs(out, exist_ok=True); seed, plan = plan27(new); img = {}
     for name, (_, v, t) in plan.items():
         f = os.path.join(out, name + '.jpg'); grab(v, t, f); img[name] = sha_file(f)
     render_prompts(out, 'Q27')
-    json.dump(dict(rule='Q27', seed=seed, new=[dict(video=os.path.basename(v), sha256=sha_file(v), size=list(size(v))) for v in new],
+    json.dump(dict(rule='Q27', moc=moc, seed=seed, new=[dict(video=os.path.basename(v), sha256=sha_file(v), size=list(size(v))) for v in new],
                    ref=[dict(video=os.path.basename(v), sha256=h) for v, h, _ in REF27], images=img,
                    prompts={r: prompt_sha(f'Q27-{r}.txt') for r in RATERS}, model=MODEL), open(os.path.join(out, 'manifest.json'), 'w'), indent=1)
 
 
+def need_moc(new): return [sha_file(v) for v in new] != [h for _, h, _ in MOC27]
+
+
+def q27_set(out, new):
+    """bộ chính thức (tập mới vs tập 1) và, từ 1.9.1, bộ MỐC (tập 8 bản phát hành vs tập 1) ở <thư mục>-moc"""
+    if ref_ok(): raise SystemExit(f'tập 1 1080p tham chiếu thiếu hoặc không khớp SHA: {ref_ok()} — chạy `q_blind.py ref-fetch`')
+    if draft27(new): raise SystemExit(f'Q27 chỉ chấm chính thức bản cuối 1920×1080; bản nháp không chấm: {draft27(new)}')
+    mo = need_moc(new)
+    if mo and ref_ok(MOC27): raise SystemExit(f'tập 8 bản phát hành (mốc Q27) thiếu hoặc không khớp SHA: {ref_ok(MOC27)} — chạy `q_blind.py ref-fetch`')
+    if mo and os.path.exists(os.path.join(moc_dir(out), 'manifest.json')): raise SystemExit(f'{moc_dir(out)} đã có bộ mốc: dùng thư mục mới cho lần chấm mới')
+    _set27(out, new)
+    if mo: _set27(moc_dir(out), [v for v, _, _ in MOC27], moc=True)
+
+
 def _replies(out, rule):
+    """R1–R3.json của một bộ chấm. 1.9.0: mỗi trả lời phải do judge.py ghi (backend 'api', mô hình MODEL), khớp SHA với bản ghi lần chấm
+    trong manifest (`cham`), và mọi lần gọi của người đó chỉ chạy MODEL. Lỗi API/hết credit ghi trong manifest → TRƯỢT kèm lý do."""
     bad, R = [], {}
+    ch = _man(out).get('cham') or {}
+    if not ch: bad.append('chưa chấm qua Claude API (manifest không có bản ghi `cham`; chạy q_blind.py ' + rule.lower() + '-run)')
+    for e in ch.get('loi') or []: bad.append(f'lần chấm: {e}')
     for r in RATERS:
-        f = os.path.join(out, f'{r}.json')
+        f = os.path.join(out, f'{r}.json'); rec = (ch.get('raters') or {}).get(r) or {}
+        for t in rec.get('tries') or []:
+            if t.get('loi') and rec.get('ok') is False: bad.append(f"{r} lần {t['lan']}: {'; '.join(t['loi'])}")
         if not os.path.exists(f): bad.append(f'thiếu {r}.json'); continue
         try: x = json.load(open(f))
         except Exception as e: bad.append(f'{r}.json không đọc được ({e})'); continue
         if x.get('prompt_sha256') != prompt_sha(f'{rule}-{r}.txt'): bad.append(f'{r}: đề bài khác bản khoá (prompt_sha256)')
-        if str(x.get('model', '')).lower().find(MODEL) < 0: bad.append(f"{r}: mô hình {x.get('model')!r}, cần {MODEL}")
+        if x.get('model') != MODEL or x.get('backend') != 'api': bad.append(f"{r}: mô hình/đường chấm {x.get('model')!r}/{x.get('backend')!r}, cần {MODEL!r}/'api'")
+        if ch and (not rec.get('ok') or rec.get('reply_sha256') != sha_file(f)): bad.append(f'{r}.json khác bản ghi lần chấm trong manifest')
+        for t in rec.get('tries') or []:
+            if judge.model_errors(t.get('model_usage')) and rec.get('ok'): bad.append(f"{r} lần {t['lan']}: {'; '.join(judge.model_errors(t.get('model_usage')))}")
         R[r] = x
     return R, bad
+
+
+def blind_run(out, rule):
+    """chấm một bộ (Q27/Q31) bằng 3 người chấm qua Claude API (judge.py). Mỗi bộ chấm MỘT lần: đã có trả lời hoặc bản ghi thì từ chối
+    (muốn chấm lại: dựng bộ mới bằng q27-set/q31-set). Ghi R1–R3.json + `cham` trong manifest (mô hình thực chạy, chi phí, lỗi)."""
+    mf = os.path.join(out, 'manifest.json'); man = json.load(open(mf))
+    if man.get('rule') != rule: raise SystemExit(f"manifest là của {man.get('rule')}, không phải {rule}")
+    if man.get('cham') or any(os.path.exists(os.path.join(out, f'{r}.json')) for r in RATERS):
+        raise SystemExit('bộ này đã chấm (có R*.json hoặc bản ghi `cham`): mỗi bộ chỉ chấm một lần; dựng bộ mới để chấm lại')
+    need = [os.path.join(out, n + '.jpg') for n in sorted(man['images'])] if rule == 'Q27' else \
+           [os.path.join(out, f) for f in sorted(man['files'])]
+    P_ = {}
+    for r in RATERS:
+        want = open(os.path.join(HERE, f'{rule}-{r}.txt'), encoding='utf-8').read().replace('{DIR}', out)
+        got = open(os.path.join(out, f'PROMPT-{r}.txt'), encoding='utf-8').read()
+        if got != want: raise SystemExit(f'PROMPT-{r}.txt khác đề bài khoá đã điền')
+        P_[r] = want
+    ch = dict(backend='api', model=MODEL, cli=judge.cli_version(), bat_dau=judge.now(), loi=[], raters={})
+    def save():
+        ch['cost_usd'] = round(sum(t.get('cost_usd') or 0 for x in ch['raters'].values() for t in x['tries']) + ((ch.get('probe') or {}).get('cost_usd') or 0), 4)
+        man['cham'] = ch; json.dump(man, open(mf, 'w'), indent=1, ensure_ascii=False)
+    try: ch['probe'] = judge.probe()
+    except judge.JudgeError as e:
+        ch['loi'].append(str(e)); ch['xong'] = judge.now(); save(); raise SystemExit(f'{rule}: DỪNG — {e}')
+    for r in RATERS:
+        rep_, tries = judge.run_rater(rule, r, P_[r], out, need)
+        rec = dict(ok=rep_ is not None, tries=tries)
+        if rep_ is not None:
+            rep_.update(prompt_sha256=prompt_sha(f'{rule}-{r}.txt'), model=MODEL, backend='api')
+            f = os.path.join(out, f'{r}.json'); json.dump(rep_, open(f, 'w'), indent=1, ensure_ascii=False); rec['reply_sha256'] = sha_file(f)
+        else: ch['loi'].append(f"{r}: {'; '.join(tries[-1]['loi'])}")
+        ch['raters'][r] = rec; save()
+    ch['xong'] = judge.now(); save()
+    print(f"{rule}: {sum(x['ok'] for x in ch['raters'].values())}/3 người chấm hợp lệ · chi phí ${ch['cost_usd']:.4f}"
+          + ('' if not ch['loi'] else ' · LỖI: ' + '; '.join(ch['loi'])))
+    if ch['loi']: raise SystemExit(2)
+
+
+def g1_run(out, prompt_file, n=3):
+    """kiểm mù kịch bản G1 qua Claude API: n người chấm độc lập, cùng đề bài của P (nguyên văn, ghi SHA), chỉ đọc tệp trong <out>
+    (ngoài repo, P chép lời vào đó). Ghi R1..Rn.md + manifest (mô hình, chi phí). Fail closed như Q27/Q31."""
+    os.makedirs(out, exist_ok=True); prompt = open(prompt_file, encoding='utf-8').read(); mf = os.path.join(out, 'manifest.json')
+    if os.path.exists(mf): raise SystemExit(f'{out} đã chấm (có manifest.json): mỗi bộ chỉ chấm một lần; dùng thư mục mới')
+    need = judge._need_reads(prompt, out)
+    if not need: raise SystemExit(f'đề bài phải nêu đường dẫn tuyệt đối tệp cần đọc trong {out}')
+    for f in need:
+        if not os.path.exists(f): raise SystemExit(f'đề bài nêu {f} nhưng tệp không có')
+    man = dict(rule='G1', prompt_file=os.path.abspath(prompt_file), prompt_sha256=hashlib.sha256(prompt.encode()).hexdigest(),
+               files={os.path.basename(f): sha_file(f) for f in need}, n=n)
+    ch = dict(backend='api', model=MODEL, cli=judge.cli_version(), bat_dau=judge.now(), loi=[], raters={})
+    def save():
+        ch['cost_usd'] = round(sum(t.get('cost_usd') or 0 for x in ch['raters'].values() for t in x['tries']) + ((ch.get('probe') or {}).get('cost_usd') or 0), 4)
+        man['cham'] = ch; json.dump(man, open(mf, 'w'), indent=1, ensure_ascii=False)
+    try: ch['probe'] = judge.probe()
+    except judge.JudgeError as e:
+        ch['loi'].append(str(e)); ch['xong'] = judge.now(); save(); raise SystemExit(f'G1: DỪNG — {e}')
+    for k in range(1, n + 1):
+        r = f'R{k}'; txt, tries = judge.run_rater('G1', r, prompt, out, need, parse=False); rec = dict(ok=txt is not None, tries=tries)
+        if txt is not None:
+            f = os.path.join(out, f'{r}.md'); open(f, 'w', encoding='utf-8').write(txt.strip() + '\n'); rec['reply_sha256'] = sha_file(f)
+        else: ch['loi'].append(f"{r}: {'; '.join(tries[-1]['loi'])}")
+        ch['raters'][r] = rec; save()
+    ch['xong'] = judge.now(); save()
+    print(f"G1: {sum(x['ok'] for x in ch['raters'].values())}/{n} người chấm hợp lệ · chi phí ${ch['cost_usd']:.4f}" + ('' if not ch['loi'] else ' · LỖI: ' + '; '.join(ch['loi'])))
+    if ch['loi']: raise SystemExit(2)
+
+
+def seed_of(shas): return hashlib.sha256(''.join(shas).encode()).hexdigest()
+
+
+def q27_sets(man, cur):
+    """phép gán F## ↔ new/ref của MỘT lần chấm, lấy từ manifest của lần chấm đó (hạt giống ghi lúc q27-set), KHÔNG từ video hiện có
+    (khiếu nại P 10/10/2026: chấm lại theo SHA master mới gán sai khung, in +0,06 thay vì −0,31). cur = SHA video mới đang có.
+    Trả về (sets, lỗi, cùng_bản)."""
+    bad, ms = [], [x.get('sha256') for x in man.get('new') or []]
+    seed = man.get('seed') or ''
+    if not ms or seed != seed_of(ms): bad.append('manifest hỏng: hạt giống không khớp SHA video ghi trong manifest')
+    same = list(cur) == ms
+    if not same:
+        bad.append(f"bộ chấm thuộc bản khác: manifest {', '.join(x[:12] + '…' for x in ms)}, video hiện tại {', '.join(x[:12] + '…' for x in cur)}. "
+                   'Số dưới đây là của bản trong manifest (gán khung theo hạt giống của lần chấm); master đổi sau Q27 phải chấm lại (q27-set + q27-run)')
+    return sets_from_seed(seed) if re.fullmatch(r'[0-9a-f]{64}', seed) else {}, bad, same
+
+
+def _check27(out, new_sha, new=None):
+    """bộ Q27 ở out hợp lệ không: (phép gán, lỗi). new = video để dựng lại ảnh (chỉ khi cùng bản với manifest)"""
+    bad = []
+    man = json.load(open(os.path.join(out, 'manifest.json')))
+    sets, b1, same = q27_sets(man, new_sha); bad += b1
+    if [x.get('sha256') for x in man.get('ref') or []] != [h for _, h, _ in REF27]: bad.append('bộ ảnh không dựng với tập 1 1080p (bản luật trước 1.8: tập 1 720p) — dựng lại bằng q27-set')
+    for name in sorted(man.get('images') or {}):
+        f = os.path.join(out, name + '.jpg')
+        if not os.path.exists(f) or sha_file(f) != man['images'][name]: bad.append(f'{name}.jpg khác manifest')
+    if same and new:   # cùng bản: dựng lại ảnh từ video, so SHA (không đổi ảnh được)
+        _, plan = plan27(new)
+        if {k: v[0] for k, v in plan.items()} != sets: bad.append('phép gán khung dựng lại từ video khác phép gán theo hạt giống')
+        with tempfile.TemporaryDirectory() as td:
+            for name, (_, v, t) in plan.items():
+                f = os.path.join(td, name + '.jpg'); grab(v, t, f)
+                if sha_file(f) != man['images'].get(name): bad.append(f'{name}.jpg khác ảnh dựng lại')
+    return sets, bad
+
+
+def moc27(out, video=True):
+    """bộ mốc tập 8 (<thư mục>-moc): dict(chenh, val, loi). loi = lỗi hợp lệ của bộ (không tính ngưỡng: mốc chỉ để báo)"""
+    if not os.path.exists(os.path.join(out, 'manifest.json')):
+        return dict(chenh=None, val='không có', loi=[f'thiếu bộ mốc tập 8 ({os.path.basename(out)}): dựng bằng q27-set, chấm bằng q27-run'])
+    vids = [v for v, _, _ in MOC27]
+    sets, bad = _check27(out, [h for _, h, _ in MOC27], vids if video and not ref_ok(MOC27) else None)
+    if video and ref_ok(MOC27): bad.append('tập 8 bản phát hành thiếu hoặc không khớp SHA (q_blind.py ref-fetch)')
+    R, b2 = _replies(out, 'Q27'); r = agg27(sets, R, bad + b2)
+    loi = [e for e in r['loi'] if not e.startswith(('tập mới kém tập 1', 'SÁT NGƯỠNG'))]
+    if len([1 for x in R if x]) < 3 and not loi: loi.append('bộ mốc chưa đủ 3 người chấm')
+    return dict(chenh=r['chenh'], val=r['val'].split(' (SE')[0].replace('tập mới', 'tập 8'), loi=loi)
+
+
+def them_moc(r, m):
+    """gắn kết quả mốc tập 8 vào kết quả Q27: báo cả hai chênh và hiệu; ngưỡng vẫn trên tập mới − tập 1; bộ mốc lỗi → TRƯỢT"""
+    r = dict(r); r['chenh_moc'] = m['chenh']; r['hieu_moc'] = None if m['chenh'] is None else round(r['chenh'] - m['chenh'], 6)
+    if m['loi']:
+        r['loi'] = r['loi'] + ['mốc tập 8: ' + e for e in m['loi']]; r['ok'] = False
+        r['note'] = '; '.join(x for x in [r['note'], 'mốc tập 8: ' + '; '.join(m['loi'][:3])] if x)
+    r['val'] += (f" · mốc: {m['val']} · tập mới − tập 8 {r['hieu_moc']:+.2f}" if r['hieu_moc'] is not None else ' · mốc tập 8: không có')
+    return r
 
 
 def q27_score(out, new, plan_sau=None):
     bad = ref_ok() and ['tập 1 1080p tham chiếu thiếu hoặc không khớp SHA (q_blind.py ref-fetch)']
     bad = list(bad or [])
     if draft27(new): bad.append(f'bản nháp không chấm (chỉ bản cuối 1920×1080): {draft27(new)}')
-    seed, plan = plan27(new); man = json.load(open(os.path.join(out, 'manifest.json')))
-    if man.get('seed') != seed: bad.append('bộ ảnh không dựng từ đúng video mới (hạt giống khác)')
-    if [x.get('sha256') for x in man.get('ref') or []] != [h for _, h, _ in REF27]: bad.append('bộ ảnh không dựng với tập 1 1080p (bản luật trước 1.8: tập 1 720p) — dựng lại bằng q27-set')
-    with tempfile.TemporaryDirectory() as td:   # dựng lại ảnh, so SHA: không đổi ảnh được
-        for name, (_, v, t) in plan.items():
-            f = os.path.join(td, name + '.jpg'); grab(v, t, f)
-            if sha_file(f) != man['images'].get(name) or not os.path.exists(os.path.join(out, name + '.jpg')) or sha_file(os.path.join(out, name + '.jpg')) != man['images'].get(name):
-                bad.append(f'{name}.jpg khác ảnh dựng lại')
+    sets, b1 = _check27(out, [sha_file(v) for v in new], new); bad += b1
     R, b2 = _replies(out, 'Q27'); bad += b2
-    return agg27({k: v[0] for k, v in plan.items()}, R, bad, plan_sau=plan_sau)
+    r = agg27(sets, R, bad, plan_sau=plan_sau)
+    return them_moc(r, moc27(moc_dir(out))) if need_moc(new) else r
 
 
 def muc_cai_thien_hinh(path):
@@ -442,7 +600,14 @@ if __name__ == '__main__':
         i = a.index(flag) + 1; o = []
         while i < len(a) and not a[i].startswith('--'): o.append(a[i]); i += 1
         return o
-    if out.startswith(REPO + os.sep) and mode.endswith('-set'): raise SystemExit('thư mục bộ ảnh phải nằm ngoài repo (subagent không được thấy repo)')
+    if out.startswith(REPO + os.sep) and (mode.endswith('-set') or mode.endswith('-run')): raise SystemExit('thư mục bộ ảnh phải nằm ngoài repo (người chấm không được thấy repo)')
+    if mode == 'q27-run':
+        todo = [d for d in (out, moc_dir(out)) if os.path.exists(os.path.join(d, 'manifest.json')) and not _man(d).get('cham')]   # 1.9.1: kèm bộ mốc tập 8
+        if not todo: raise SystemExit('bộ chính thức và bộ mốc đều đã chấm: dựng bộ mới để chấm lại')
+        for d in todo: blind_run(d, 'Q27')
+        sys.exit(0)
+    if mode == 'q31-run': blind_run(out, 'Q31'); sys.exit(0)
+    if mode == 'g1-run': g1_run(out, lst('--prompt')[0], int((lst('--n') or [3])[0])); sys.exit(0)
     if mode == 'q27-set': q27_set(out, lst('--new'))
     elif mode == 'q31-set': q31_set(out, lst('--video'), json.load(open(lst('--tl')[0])), tu_nhap=(lst('--tu-nhap') or [None])[0])
     else:

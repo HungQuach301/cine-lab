@@ -102,57 +102,123 @@ def ebur128(p):
 
 
 # ---------------------------------------------------------------- Q28
+def asr_miss(vo, txt):
+    """từ khoá của lời khoá `vo` mà văn bản ASR `txt` thiếu: số (so theo GIÁ TRỊ, chặt; cùng bộ đọc nums_of cho hai phía) và tên riêng
+    (chữ hoa không đứng đầu câu, ≥ 3 chữ; giống ≥ 0,75)"""
+    vo = ' '.join((vo or '').split()); names = set()
+    for sent in re.split(r'(?<=[.!?:—])\s+', vo):
+        for w in sent.split()[1:]:
+            c = re.sub(r"[^A-Za-z'’-]", '', w)
+            if c[:1].isupper() and len(c) > 2 and c.lower() not in ('the', 'its', 'and'): names.add(base.norm(c.replace('’', "'")).replace("'s", ''))
+    heard = {base.norm(w).replace("'s", '') for w in txt.split()}; hv = nums_of(txt)
+    miss = [n for n in sorted(names - {''}) if not any(n == h or difflib.SequenceMatcher(None, n, h).ratio() >= NAME_SIM for h in heard)]
+    return miss + [(f'{v:.0f}' if v == int(v) else f'{v:g}') for v in sorted(nums_of(vo)) if not any(abs(v - h) < 1e-6 for h in hv) and not year_said(v, txt)]
+
+
 def asr_check(E, TL, model='small.en'):
-    """ASR độc lập trên từng tệp lời (faster-whisper, tất định: beam 5, nhiệt 0, không VAD). Từ khoá: mọi số trong lời
-    (so theo GIÁ TRỊ, chặt) và tên riêng (chữ hoa không đứng đầu câu, ≥ 3 chữ; giống ≥ 0,75)."""
+    """ASR độc lập trên từng tệp lời (faster-whisper, tất định: beam 5, nhiệt 0, không VAD); so bằng asr_miss."""
     from faster_whisper import WhisperModel
     M = WhisperModel(model, device='cpu', compute_type='int8', cpu_threads=4); bad = []
     spec = {s['id']: s for s in E['segments']}
     for s in TL['segments']:
         if not s.get('vo_file'): continue
-        vo = ' '.join((spec[s['id']].get('vo') or '').split())
-        names = set()
-        for sent in re.split(r'(?<=[.!?:—])\s+', vo):
-            for w in sent.split()[1:]:
-                c = re.sub(r"[^A-Za-z'’-]", '', w)
-                if c[:1].isupper() and len(c) > 2 and c.lower() not in ('the', 'its', 'and'): names.add(base.norm(c.replace('’', "'")).replace("'s", ''))
-        vals = nums_of(vo)
         segs, _ = M.transcribe(pcm(s['vo_file']), language='en', beam_size=5, vad_filter=False, temperature=0.0, condition_on_previous_text=False)
-        txt = ' '.join(z.text for z in segs); heard = {base.norm(w).replace("'s", '') for w in txt.split()}; hv = nums_of(txt)
-        miss = [n for n in sorted(names - {''}) if not any(n == h or difflib.SequenceMatcher(None, n, h).ratio() >= NAME_SIM for h in heard)]
-        missv = [v for v in sorted(vals) if not any(abs(v - h) < 1e-6 for h in hv) and not year_said(v, txt)]
-        if miss or missv: bad.append(f"{s['id']}: thiếu {', '.join(miss + [str(v) for v in missv])}")
+        miss = asr_miss(spec[s['id']].get('vo') or '', ' '.join(z.text for z in segs))
+        if miss: bad.append(f"{s['id']}: thiếu {', '.join(miss)}")
     return bad
 
 
 UNITS = {w: i for i, w in enumerate('zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen'.split())}
 TENS = {w: 10 * i for i, w in enumerate('_ _ twenty thirty forty fifty sixty seventy eighty ninety'.split()) if w != '_'}
 SCALE = {'hundred': 100, 'thousand': 1e3, 'million': 1e6, 'billion': 1e9}
+# 1.9.0 (khiếu nại P 09/10/2026, chủ dự án duyệt 11/10): ngày thứ tự CHỈ đọc ngay sau tên tháng ("January seventh" = 7); "first" đứng riêng không là số
+ORD = dict(zip('first second third fourth fifth sixth seventh eighth ninth tenth eleventh twelfth thirteenth fourteenth fifteenth sixteenth '
+               'seventeenth eighteenth nineteenth twentieth'.split(), range(1, 21)), thirtieth=30)
+MONTHS = set('january february march april may june july august september october november december'.split())
+NUM_RE = re.compile(r'\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?|[a-z]+')
+
+
+def _half(W, j):
+    """"and a half" tại W[j:] → số từ tiêu thụ (3) hoặc 0"""
+    return 3 if W[j:j + 3] == ['and', 'a', 'half'] else 0
+
+
+def _scaled(W, j, v):
+    """số đã đọc v, rồi "and a half" và/hoặc từ bậc theo sau: "20 million" = 2e7, "15 hundred" = 1500, "two and a half million" = 2,5e6"""
+    h = _half(W, j)
+    if h: v += 0.5; j += h
+    while j < len(W) and W[j] in SCALE: v *= SCALE[W[j]]; j += 1
+    return v, j
+
+
+def _year(W, i):
+    """năm đọc thành chữ: "nineteen sixty six" = 1966, "twenty twenty five" = 2025, "nineteen oh five" = 1905 → (năm, j) hoặc None"""
+    x = W[i]; hi = UNITS.get(x, 0) if 11 <= UNITS.get(x, 0) <= 19 else (20 if x == 'twenty' else 0)
+    if not hi or i + 1 >= len(W): return None
+    y = W[i + 1]
+    if y == 'oh' and i + 2 < len(W) and 1 <= UNITS.get(W[i + 2], 0) <= 9: return hi * 100 + UNITS[W[i + 2]], i + 3
+    if 10 <= UNITS.get(y, 0) <= 19: return hi * 100 + UNITS[y], i + 2
+    if y in TENS:
+        lo = TENS[y]
+        if i + 2 < len(W) and 1 <= UNITS.get(W[i + 2], 0) <= 9: return hi * 100 + lo + UNITS[W[i + 2]], i + 3
+        return hi * 100 + lo, i + 2
+    return None
+
+
+def _words_num(W, i):
+    """một số viết bằng chữ bắt đầu ở W[i] (đơn vị/chục, hoặc "a" + bậc) → (giá trị, j). Không ghép hai số đọc liền nhau:
+    sau đơn vị chỉ được bậc; sau chục chỉ được đơn vị 1–9 hoặc bậc ("sixty six twelve" = 66 rồi 12, không phải 78)."""
+    tot, cur, last, j = 0.0, 0.0, None, i
+    if W[i] == 'a':
+        cur, last, j = 1.0, 'unit', i + 1
+    while j < len(W):
+        w = W[j]
+        if w in UNITS and (last in (None, 'hundred', 'scale') or (last == 'ten' and 1 <= UNITS[w] <= 9)): cur += UNITS[w]; last = 'unit'
+        elif w in TENS and last in (None, 'hundred', 'scale'): cur += TENS[w]; last = 'ten'
+        elif w in ORD and last == 'ten' and ORD[w] <= 9: cur += ORD[w]; j += 1; break   # "twenty-first" = 21 (thứ tự ghép chục)
+        elif w == 'hundred' and last in ('unit', 'ten'): cur *= 100; last = 'hundred'
+        elif w in SCALE and w != 'hundred' and last in ('unit', 'ten', 'hundred'): tot += cur * SCALE[w]; cur = 0.0; last = 'scale'
+        elif w == 'and' and _half(W, j) and last in ('unit', 'ten', 'hundred', 'scale'):
+            v, j = _scaled(W, j, tot + cur); return v, j
+        elif w == 'and' and last in ('hundred', 'scale') and j + 1 < len(W) and (W[j + 1] in UNITS or W[j + 1] in TENS): pass   # "one hundred and twenty"
+        elif w == 'point' and last in ('unit', 'ten', 'hundred', 'scale') and j + 1 < len(W) and W[j + 1] in UNITS:
+            d = ''; j += 1
+            while j < len(W) and W[j] in UNITS and UNITS[W[j]] <= 9: d += str(UNITS[W[j]]); j += 1
+            v = tot + cur + float('0.' + d)
+            while j < len(W) and W[j] in SCALE and W[j] != 'hundred': v *= SCALE[W[j]]; j += 1
+            return v, j
+        else: break
+        j += 1
+    if last is None or (W[i] == 'a' and j == i + 1): return None, i + 1
+    return tot + cur, j
 
 
 def nums_of(text):
-    t = text.lower().replace('-', ' ').replace('—', ' ').replace('–', ' ')
-    out = set(float(x.replace(',', '')) for x in re.findall(r'\d[\d,]*(?:\.\d+)?', t) if x.replace(',', '').replace('.', '', 1).isdigit())
-    W = re.findall(r"[a-z]+|\d[\d,.]*", t); i = 0
+    """mọi số trong một câu chữ (lời khoá hoặc văn bản ASR; hai phía dùng CÙNG bộ đọc) → tập giá trị.
+    Chữ số: "20" = 20; "$20 million" = "20 million" = 2e7; "3.5%" = "3.5 percent" = 3,5 (dấu %, $ không đổi giá trị); "3 and a half" = 3,5.
+    Chữ: "twenty million dollars" = 2e7; "three and a half percent" = 3,5; "two hundred sixty-two" = 262; năm đọc chữ ("nineteen sixty
+    six") = 1966 và không ghép với số đọc liền sau; ngày thứ tự sau tên tháng ("October seventh") = 7."""
+    t = text.lower().replace('’', "'")
+    t = re.sub(r'[\-‐‑–—]', ' ', t)
+    W = NUM_RE.findall(t); out = set(); i = 0
     while i < len(W):
-        if W[i] in UNITS or W[i] in TENS:
-            tot, cur, j, dec = 0, 0, i, None
-            while j < len(W) and (W[j] in UNITS or W[j] in TENS or W[j] in SCALE or W[j] in ('and', 'point')):
-                w = W[j]
-                if w == 'point': dec = ''; j += 1; continue
-                if dec is not None:
-                    if w in UNITS: dec += str(UNITS[w]); j += 1; continue
-                    break
-                if w in UNITS: cur += UNITS[w]
-                elif w in TENS: cur += TENS[w]
-                elif w == 'hundred': cur *= 100
-                elif w in SCALE: tot += cur * SCALE[w]; cur = 0
-                j += 1
-            v = tot + cur
-            if dec: v = float(f'{int(v)}.{dec}') if v == int(v) else v
-            out.add(float(v)); i = j
-        else: i += 1
-    return out
+        w = W[i]
+        if w[0].isdigit():
+            v, i = _scaled(W, i + 1, float(w.replace(',', ''))); out.add(v); continue
+        if w in MONTHS and i + 1 < len(W):
+            k, d = i + 1, None
+            if W[k] == 'the': k += 1
+            if k < len(W) and W[k] in ORD: d, k = ORD[W[k]], k + 1
+            elif k + 1 < len(W) and W[k] in TENS and W[k + 1] in ORD and ORD[W[k + 1]] <= 9: d, k = TENS[W[k]] + ORD[W[k + 1]], k + 2
+            if d is not None: out.add(float(d)); i = k; continue
+        if w in UNITS or w in TENS or (w == 'a' and W[i + 1:i + 2] and W[i + 1] in SCALE):
+            y = _year(W, i)
+            if y: out.add(float(y[0])); i = y[1]; continue
+            v, i = _words_num(W, i)
+            if v is not None: out.add(float(v))
+            continue
+        i += 1
+    return {round(v, 6) for v in out}   # 1.89 × 1e6 = 1890000.0000000002 → 1890000
 
 
 def _say99(n):

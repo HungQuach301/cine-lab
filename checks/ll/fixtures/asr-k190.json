@@ -1,0 +1,257 @@
+{
+"nguon": "K 11/10/2026: faster-whisper small.en, beam 5, nhiệt 0, không VAD (đúng cấu hình asr_check) trên tệp lời bản dựng: tập 6 v2 (fixtures/ep06/vo), tập 7 bản cuối (reports/m3/ep07/vo theo timeline-final), tập 8 bản cuối (reports/m3/ep08/vo, .p.mp3 khi có)",
+"tx": {
+"ep06v2/00": {
+"vo": "Who made this: a hand, or a machine? In 1990, the government said computers had already eliminated many typesetting jobs. Today, machines draw too. On one freelance platform, job posts for image work fell seventeen percent.",
+"asr": " Who made this, a hand or a machine?  In 1990, the government said computers had already  eliminated many typesetting jobs.  Today, machines draw too.  On one freelance platform, job posts for image work fell 17%.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-00.p.mp3"
+},
+"ep06v2/01": {
+"vo": "At dusk, the lamplighter passes a print shop. Down the cellar steps, a lamp burns over a wooden case of metal letters. Every word in tomorrow's paper will be set by hand, one letter at a time.",
+"asr": " At dusk, the lamp lighter passes a print shop.  Down the cellar steps, a lamp burns over a wooden case of metal letters.  Every word in tomorrow's paper will be set by hand, one letter at a time.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-01.mp3"
+},
+"ep06v2/02": {
+"vo": "For most of a century, printing ran on hot type. A Linotype operator typed a line, and the machine cast it in molten lead. In a newspaper composing room, rows of these machines clattered through the night, and compositors fitted the lines of lead into pages. The Bureau of Labor Statistics later wrote that this method was well along the road to extinction.",
+"asr": " For most of a century, printing ran on hot type.  A linotype operator typed a line,  and the machine cast it in molten lead.  In a newspaper composing room,  rows of these machines clattered through the night,  and compositors fitted the lines of lead into pages.  The Bureau of Labor Statistics later wrote  that this method was well along the road to extinction.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-02.mp3"
+},
+"ep06v2/03": {
+"vo": "What replaced it was cold type. Text was keyed into a computer that was programmed to hyphenate, space, and create columns of text, and a machine printed it onto photographic paper. Paste-up artists cut those columns apart and arranged them, with the illustrations, on a board. Increasingly, the BLS noted, the author did the keyboarding before the job was even sent out. Then came electronic pagination: a whole newspaper page, made up on a screen, eliminating the role of paste-up artists.",
+"asr": " What replaced it was cold type.  Text was keyed into a computer that was programmed to hyphenate, space, and create columns of  text, and a machine printed it onto photographic paper.  Paste-up artists cut those columns apart and arranged them with the illustrations on a board.  Increasingly, the BLS noted, the author did the keyboarding before the job was even sent out.  Then came electronic pagination, a whole newspaper page made up on a screen,  eliminating the role of paste-up artists.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-03.mp3"
+},
+"ep06v2/04": {
+"vo": "By 1988, composing room workers held about eighty-six thousand jobs in the United States, more than a third of them at newspapers. The BLS expected little or no change in their numbers through the year 2000, despite a growing printing industry, because computers were taking over much of the typing. The training changed too. In the past, almost all compositors learned through an apprenticeship. By 1990, new technologies had lowered skill requirements, and most learned the craft on the job. At newspapers, it was blunt: equipment that lets reporters and editors format pages at a desktop terminal has already eliminated many typesetting and composition jobs, and more are certain to disappear.",
+"asr": " By 1988, composing room workers held about 86,000 jobs in the United States, more than  a third of them at newspapers.  The BLS expected little or no change in their numbers through the year 2000, despite a  growing printing industry, because computers were taking over much of the typing.  The training changed, too.  In the past, almost all compositors learned through an apprenticeship.  By 1990, new technologies had lowered skill requirements, and most learned the craft on  the job.  At newspapers, it was blunt.  Equipment that lets reporters and editors format pages at a desktop terminal has already  eliminated many typesetting and composition jobs, and more are certain to disappear.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-04.p.mp3"
+},
+"ep06v2/05": {
+"vo": "But the work did not vanish. It moved. The economist James Bessen describes how it happened. Designers used to draw a page and send it to typesetters, then mark revisions and send it back. With desktop publishing, it became easier for designers to use the software themselves. Designers using computers substituted for typesetters. In his words: there are fewer typesetters, but more graphic designers and desktop publishers. And the designers had to learn entirely new skills to use the new technology. In 1988, visual artists held about two hundred sixteen thousand jobs, and the BLS expected them to grow faster than average, though computers would limit that growth.",
+"asr": " But the work did not vanish. It moved.  The economist James Besson describes how it happened.  Designers used to draw a page and send it to typesetters,  then mark revisions and send it back.  With desktop publishing, it became easier for designers  to use the software themselves,  designers using computers substituted for typesetters.  In his words, there are fewer typesetters,  but more graphic designers and desktop publishers.  And the designers had to learn entirely new skills  to use the new technology.  In 1988, visual artists held about 216,000 jobs,  and the BLS expected them to grow faster than average,  though computers would limit that growth.  Both.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-05.mp3"
+},
+"ep06v2/06": {
+"vo": "The lamplighter walks on. Above the old print shop, a window is still lit. A designer bends over a drawing board with a clamp lamp, pencil in hand. On the next desk, a screen glows.",
+"asr": " The lamp lighter walks on.  Above the old print shop, a window is still lit.  A designer bends over a drawing board with a clamp lamp,  pencil in hand.  On the next desk, a screen glows.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-06.mp3"
+},
+"ep06v2/07": {
+"vo": "Can the BLS see a change like this coming? Once, it did. In the early 2000s, digital cameras were replacing film, and the BLS projected that photographic process workers, the people who developed film, would decline. They fell by nearly nine in ten, to only nine thousand two hundred by 2023. But for a brand-new technology like generative AI, the BLS changes its projections only when its research provides clear evidence.",
+"asr": " Can the BLS see a change like this coming?  Once, it did.  In the early 2000s, digital cameras were replacing film.  And the BLS projected that photographic process workers,  the people who developed film, would decline.  They fell by nearly 9 in 10 to only 9,200 by 2023.  But for a brand new technology like generative AI,  The BLS changes its projections only when its research provides clear evidence.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-07.p.mp3"
+},
+"ep06v2/08": {
+"vo": "In January 2026, a BLS review described what generative AI does for graphic designers: it helps them explore ideas and create first drafts much more quickly, and automate repetitive tasks such as prototyping. The newest projections, for 2025 to 2035, go further. Automated design tools, such as artificial intelligence, are projected to make graphic designers more productive and reduce the need for these workers. Graphic designers held about two hundred fifty-three thousand jobs in 2025. The BLS projects about two hundred forty-nine thousand by 2035: a decline of one point seven percent, while all jobs together grow three point five percent.",
+"asr": " In January, 2026, a BLS review described what generative AI does for graphic designers.  It helps them explore ideas and create first drafts much more quickly, and automate repetitive  tasks such as prototyping.  The newest projections for 2025 to 2035 go further.  Automated design tools such as artificial intelligence are projected to make graphic designers more  productive and reduce the need for these workers.  Graphic designers held about 253,000 jobs in 2025.  The BLS projects about 249,000 by 2035, a decline of 1.7 percent, while all jobs together  grow 3.5 percent.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-08.p.mp3"
+},
+"ep06v2/09": {
+"vo": "Outside the forecasts, one study looked at a large online freelancing platform. After image generators such as Midjourney, Stable Diffusion, and DALL-E 2 were released in 2022, posts for image creation work, graphic design and 3D modeling, fell about seventeen percent within a year, compared with manual jobs. The authors note the drop was larger than the platform's usual seasonal swings. Still, that is one platform, and it counts job posts, not jobs. But it is where a freelancer feels a change first: in the number of clients asking.",
+"asr": " Outside the forecasts, one study looked at a large online freelancing platform.  After image generators such as Mid-Journey, Stable Diffusion, and DAL-E2 were released  in 2022, posts for image creation work, graphic design, and 3D modeling fell about 17% within  a year, compared with manual jobs.  The authors note the drop was larger than the platform's usual seasonal swings.  Still, that is one platform, and it counts job posts, not jobs.  But it is where a freelancer feels a change first,  in the number of clients asking.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-09.p.mp3"
+},
+"ep06v2/10": {
+"vo": "So here is the comparison, with a caution. We will not set these numbers side by side: one is a count from 1988, one is a forecast, and one is a single platform's job posts. What we can compare is the pattern. Then, the computer took over setting the type, and the designer took the tool. Today, software drafts the first image, and the designer is the one handed the tool again. Not the same technology. The same pattern: a repetitive human task, taken over by an automated system. But the differences matter. Back then, the machine took the keystrokes, and there came to be more designers. This time, it reaches for the drawing itself, and the BLS projects fewer designers. So far, that is a forecast and a drop in job posts, not yet a count of jobs lost.",
+"asr": " So here is the comparison with a caution.  We will not set these numbers side by side.  One is a count from 1988, one is a forecast,  and one is a single platform's job posts.  What we can compare is the pattern.  Then the computer took over setting the type  and the designer took the tool.  Today, software drafts the first image  and the designer is the one handed the tool again.  not the same technology, the same pattern, a repetitive human task taken over by an automated  system. But the differences matter. Back then, the machine took the keystrokes,  and there came to be more designers. This time, it reaches for the drawing itself and the BLS  projects fewer designers. So far, that is a forecast and a drop in job posts, not yet  account of jobs lost.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-10.mp3"
+},
+"ep06v2/11": {
+"vo": "Who made this: a hand, or a machine? For most of a century, the answer was a hand: first the hand that set the type, then the hand that drew the page. If the machine makes the first drafts, the BLS expects designers to shift their focus to the later stages of the work. What is left is the hand that decides: which draft, what to fix, and what is good enough to print. Whether deciding is enough paid work for the people who once drew every line by hand is something no projection can settle yet.",
+"asr": " Who made this? A hand or a machine? For most of a century, the answer was a hand.  First the hand that set the type, then the hand that drew the page. If the machine makes the first  drafts, the BLS expects designers to shift their focus to the later stages of the work.  What is left is the hand that decides which draft, what to fix, and what is good enough to print.  Whether deciding is enough paid work for the people who once drew every line by hand is something no projection can settle yet.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-11.mp3"
+},
+"ep06v2/12": {
+"vo": "Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the corner is lit again. Every era has its last lamplighters. Some of them set type by hand.",
+"asr": " Back on the street, the lamplighter reaches the last post.  The glass opens, the flame takes, and the corner is lit again.  Every era has its last lamplighters, some of them set type by hand.",
+"vo_file": "checks/ll/fixtures/ep06/vo/ll-ep06-12.mp3"
+},
+"ep07/00": {
+"vo": "What happens to a job when a machine takes its name? The word computer has stood for three kinds of work. First, a person who calculated with a pencil. Second, the people who programmed a new machine. Third, people working beside a machine that can help write the code. Same word. Three different jobs.",
+"asr": " What happens to a job when a machine takes its name?  The word computer has stood for three kinds of work.  First, a person who calculated with a pencil.  Second, the people who programmed a new machine.  Third, people working beside a machine that can help write the code.  Same word, three different jobs.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-00.mp3"
+},
+"ep07/01": {
+"vo": "At dusk, the lamplighter passes a research laboratory by an airfield. One long window is still lit. The lamplighter raises the flame to the post beside it, and inside, a desk lamp comes on, as if the light had been handed through the glass. Lamplighting is a job machines took over long ago. Tonight, it opens the story of another.",
+"asr": " At dusk, the lamplighter passes a research laboratory by an airfield.  One long window is still lit.  The lamplighter raises the flame to the post beside it.  And inside, a desk lamp comes on, as if the light had been handed through the glass.  Lamplighting is a job machines took over long ago.  Tonight, it opens the story of another.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-01.mp3"
+},
+"ep07/02": {
+"vo": "Before electronic computers, the word computer meant a person. It was a job title: someone who performed mathematical equations and calculations by hand. In 1935, five women formed the first computer pool at the Langley aeronautical laboratory in Virginia. They read film of the wind tunnel instruments, ran the calculations, and plotted the results on graph paper, using slide rules, magnifying glasses, and calculating machines that could multiply and take square roots. Their graphs went back to the engineers, to design the next test.",
+"asr": " Before electronic computers, the word computer meant a person.  It was a job title, someone who performed mathematical equations  and calculations by hand.  In 1935, five women formed the first computer pool  at the Langley Aeronautical Laboratory in Virginia.  They read film of the wind tunnel instruments,  ran the calculations, and plotted the results on graph paper  using slide rules, magnifying glasses,  and calculating machines that could multiply and take square roots.  Their graphs went back to the engineers to design the next test.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-02.mp3"
+},
+"ep07/03": {
+"vo": "It was skilled work. Most of the women had degrees in mathematics or the sciences, and a good number had been high school teachers. The job was a door: a way into aeronautical research at a time when most women simply were not being hired as engineers, and it paid much better than most jobs open to women. It was a narrow door. The computers were classed as subprofessionals, while men with similar degrees were often hired as junior engineers, for more pay. A 1942 document said the computers did more in a morning than an engineer alone could finish in a day.",
+"asr": " It was skilled work.  Most of the women had degrees in mathematics or the sciences,  and a good number had been high school teachers.  The job was a door, away into aeronautical research  at a time when most women simply were not  being hired as engineers.  And it paid much better than most jobs open to women.  It was a narrow door.  The computers were classed as sub-professionals,  while men with similar degrees were often  hired as junior engineers for more pay.  A 1942 document said the computers did more in a morning  than an engineer alone could finish in a day.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-03.mp3"
+},
+"ep07/04": {
+"vo": "Then came the war, and computing spread from one office into the wind tunnels and research divisions. A 1942 report counted seventy-five women computers. By 1946, the head of computing had trained about four hundred and placed them across the laboratory. The door did not open evenly. In the 1940s, Langley also began recruiting Black women with college degrees as computers. Under segregation, they were grouped in a separate section, the West Area Computers, with segregated dining rooms and bathrooms. They did the same work. In the 1950s, the sections began to integrate.",
+"asr": " Then came the war, and computing spread from one office into the wind tunnels and research divisions.  A 1942 report counted 75 women computers. By 1946, the head of computing had trained  about 400 and placed them across the laboratory. The door did not open evenly. In the 1940s,  Langley also began recruiting black women with college degrees as computers.  Under segregation, they were grouped in a separate section, the West Area Computers,  with segregated dining rooms and bathrooms. They did the same work. In the 1950s,  the sections began to integrate.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-04.p.mp3"
+},
+"ep07/05": {
+"vo": "Then came the second kind of work. In 1947, the laboratory's agency acquired a huge electronic computer, and it got its own computing group: people in charge of programming it, feeding it punched tape to solve the equations of high-speed flight. With the first electronic computers, NASA's history says, the human computers took on programming duties as well.",
+"asr": " Then came the second kind of work.  In 1947, the laboratory's agency acquired a huge electronic computer,  and it got its own computing group.  People in charge of programming it, feeding it punched tape  to solve the equations of high-speed flight.  With the first electronic computers, NASA's history says,  the human computers took on programming duties as well.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-05.mp3"
+},
+"ep07/06": {
+"vo": "At the Jet Propulsion Laboratory in California, women computers calculated the paths of spacecraft, and went on to become some of the first computer programmers at NASA. In 1958, their calculations helped put Explorer 1, the first American satellite, into orbit. At first, as JPL puts it, the machines were fast but not nearly as reliable as the people. Before the first American orbital flight, the astronaut asked for a mathematician who had started out as a human computer to check the machine's numbers.",
+"asr": " At the Jet Propulsion Laboratory in California,  women computers calculated the paths of spacecraft  and went on to become some of the first computer programmers at NASA.  In 1958, their calculations helped put Explorer 1,  the first American satellite, into orbit.  At first, as JPL puts it, the machines were fast,  but not nearly as reliable as the people.  Before the first American orbital flight,  The astronaut asked for a mathematician  who had started out as a human computer  to check the machine's numbers.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-06.mp3"
+},
+"ep07/07": {
+"vo": "Over time, the arithmetic itself went to the machines. Human computing at Langley lasted into the 1970s, but NASA calls those years the dwindling days of human computing, as electronic computers became part of everyday work. The job of calculating by hand faded away. Many of the people found new work. Through the 1950s and 1960s, more and more of them worked their way out of the computer pool and into engineering. Others moved into programming. Not all of them, and not on equal terms.",
+"asr": " Over time, the arithmetic itself went to the machines.  Human computing at Langley lasted into the 1970s, but NASA calls those years the dwindling  days of human computing, as electronic computers became part of everyday work.  The job of calculating by hand faded away.  Many of the people found new work.  Through the 1950s and 1960s, more and more of them worked their way out of the computer  pool and into engineering. Others moved into programming. Not all of them, and not on equal  terms.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-07.mp3"
+},
+"ep07/08": {
+"vo": "Programming grew into a large occupation of its own. By 1988, computer programmers held five hundred nineteen thousand jobs in the United States. That count comes from another era, with different job definitions, so we will not set it beside today's numbers. In 1990, the government's job handbook looked ahead. Improved software, it said, would simplify or eliminate some programming tasks. And artificial intelligence would become just additional tools available to programmers.",
+"asr": " Programming grew into a large occupation of its own.  By 1988, computer programmers held 519,000 jobs in the United States.  That count comes from another era, with different job definitions,  so we will not set it beside today's numbers.  In 1990, the government's job handbook looked ahead.  Improved software, it said, would simplify or eliminate some programming tasks,  and artificial intelligence would become just additional tools available to programmers.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-08.p.mp3"
+},
+"ep07/09": {
+"vo": "The lamplighter walks on. The laboratory window goes dark; across the street, in an office tower, a light comes on. A software developer watches lines of code appear on a screen, written by a tool faster than anyone could type, and stops to check one.",
+"asr": " The lamp lighter walks on.  The laboratory window goes dark.  Across the street, in an office tower, a light comes on.  A software developer watches lines of code appear on a screen,  written by a tool faster than anyone could type,  and stops to check one.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-09.mp3"
+},
+"ep07/10": {
+"vo": "Today, the third kind of work. The computer can help write the code. In 2025, BLS economists wrote that programming is one of the activities AI is well suited to augment. Software developers can use generative AI to develop, test, and document code, and to write user stories, short descriptions of what a feature should do for the people who use it. The economists called the effect on the occupation highly uncertain.",
+"asr": " Today, the third kind of work.  The computer can help write the code.  In 2025, BLS economists wrote that programming  is one of the activities AI is well-suited to augment.  Software developers can use generative AI  to develop, test, and document code,  and to write user stories, short descriptions  of what a feature should do for the people who use it.  The economists called the effect  on the occupation highly uncertain.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-10.mp3"
+},
+"ep07/11": {
+"vo": "Here, two job titles that sound alike are heading in different directions. The first is computer programmers: people who write, modify, and test code. Their jobs are projected to shrink from 2025 to 2035. Programming work continues to be automated, BLS says, companies are expected to use technologies including AI, and some higher-skilled programming tasks will likely shift to other workers, such as software developers.",
+"asr": " Here, two job titles that sound alike  are heading in different directions.  The first is computer programmers,  people who write, modify, and test code.  Their jobs are projected to shrink from 2025 to 2035.  Programming work continues to be automated.  BLS says companies are expected to use technologies  including AI and some higher skilled programming tasks  will likely shift to other workers, such as software developers.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-11.mp3"
+},
+"ep07/12": {
+"vo": "The second is software developers: the people who design applications and plan how the pieces fit together. Their jobs are projected to grow, from one point seven two million in 2025 to one point eight nine million in 2035. That is ten point two percent, compared with three point five percent for all jobs. BLS expects strong demand, driven in part by the continued expansion of software development for artificial intelligence. Put these sources together, and one reading is that the work is moving: less typing of every line, more deciding what to build, designing how it fits, and checking what the tool wrote. It is a reading, not a forecast. But checking the machine's numbers is an old job here.",
+"asr": " The second is software developers, the people who design applications and plan how the pieces  fit together. Their jobs are projected to grow from 1.72 million in 2025 to 1.89 million in 2035.  That is 10.2 percent compared with 3.5 percent for all jobs. BLS expects strong demand,  driven in part by the continued expansion of software development for artificial intelligence.  Put these sources together, and one reading is that the work is moving,  less typing of every line, more deciding what to build, designing how it fits,  and checking what the tool wrote. It is a reading, not a forecast,  but checking the machine's numbers is an old job here.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-12.p.mp3"
+},
+"ep07/13": {
+"vo": "What about the people just starting out? Economists at Stanford studied payroll records for millions of workers through June 2026. Overall employment is still robust. What they found is not a wave of layoffs. It is a gap. Employment of workers aged twenty-two to twenty-five in AI-exposed jobs, such as software development and customer service, now stands nineteen percent below where it would be had it kept pace with their less-exposed peers. Experienced workers show no comparable gap. And the gap comes mostly from fewer young people being hired, not from people being let go. The authors are careful: the hardest part, they write, is separating AI from everything else changing in the economy.",
+"asr": " What about the people just starting out?  Economists at Stanford studied payroll records  for millions of workers through June, 2026.  Overall, employment is still robust.  What they found is not a wave of layoffs.  It is a gap.  Employment of workers aged 22 to 25 in AI-exposed jobs,  such as software development and customer service,  now stands 19% below where it would be  had it kept pace with their less exposed peers.  Experienced workers show no comparable gap,  and the gap comes mostly from fewer young people  being hired, not from people being let go.  The authors are careful.  The hardest part, they write,  is separating AI from everything else  changing in the economy.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-13.mp3"
+},
+"ep07/14": {
+"vo": "They raise one possibility: AI may be taking over the checkable, routine tasks that once justified hiring beginners. The technology is not the same as in 1947, but the pattern is familiar: a repetitive task goes to a machine, and people move to the work around it. One difference matters. Back then, the new machine needed new people to program it, so the change opened doors at the start of a career. This time, it shows up first at the bottom of the ladder. If the tools take on the simple tasks that beginners once learned on, where will the next beginners learn?",
+"asr": " They raise one possibility.  AI may be taking over the checkable, routine tasks  that once justified hiring beginners.  The technology is not the same as in 1947,  but the pattern is familiar.  A repetitive task goes to a machine,  and people move to the work around it.  One difference matters.  Back then, the new machine needed new people  to program it, so the change opened doors  at the start of a career.  This time, it shows up first at the bottom of the ladder.  If the tools take on the simple tasks that beginners once learned on, where will the  next beginners learn?",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-14.mp3"
+},
+"ep07/15": {
+"vo": "What happens to a job when a machine takes its name? Three times, the word computer meant different work: calculating by hand, programming the machine, and now working beside it. The arithmetic went to the machine, and many of the people moved on to the work around it. Now the machine can help write the code. The name stayed; the work moved on. Whether the newest workers can move on with it is the question this time.",
+"asr": " What happens to a job when a machine takes its name?  Three times the word computer meant different work,  calculating by hand, programming the machine,  and now working beside it.  The arithmetic went to the machine,  and many of the people moved on to the work around it.  Now the machine can help write the code.  The name stayed, the work moved on.  Whether the newest workers can move on with it  is the question this time.  You",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-15.mp3"
+},
+"ep07/16": {
+"vo": "Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the light passes on to the next corner, the way the work does. Every era has its last lamplighters. Some of them were called computers.",
+"asr": " Back on the street, the lamplighter reaches the last post.  The glass opens, the flame takes, and the light passes on to the next corner,  the way the work does.  Every era has its last lamplighters. Some of them were called computers.",
+"vo_file": "reports/m3/ep07/vo/ll-ep07-16.mp3"
+},
+"ep08/00": {
+"vo": "In 1954, a computer in New York translated more than sixty Russian sentences. The forecasts said that within a few years, machines would translate almost anything. But it took far longer. When the machines finally arrived, what happened to the people who carry words between languages?",
+"asr": " In 1954, a computer in New York translated more than 60 Russian sentences.  The forecast said that within a few years, machines would translate almost anything.  But it took far longer.  When the machines finally arrived, what happened to the people who carry words between languages?",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-00.mp3"
+},
+"ep08/01": {
+"vo": "At dusk, the lamplighter passes a library. Inside, volunteers bend over messages written in Dutch, Polish, German, and French, translating each one. The lamplighter raises the flame to the post by the window, and inside, a reading lamp comes on. Lamplighting is a job machines took over long ago. Tonight, its flame opens the story of a job machines were once expected to take over quickly.",
+"asr": " At dusk, the lamplighter passes a library.  Inside, volunteers bend over messages written in Dutch,  Polish, German, and French, translating each one.  The lamplighter raises the flame to the post by the window,  and inside, a reading lamp comes on.  Lamplighting is a job machines took over long ago.  Tonight, its flame opens the story of a job machines  were once expected to take over quickly.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-01.mp3"
+},
+"ep08/02": {
+"vo": "Those volunteers were real. A photograph taken in 1942, at the Red Cross in Washington, shows them at work. Translators worked with writing, one sentence at a time. Interpreters worked with speech, and they worked the same way: the speaker stopped, and then the interpreter said it again in another language. A few years later, a trial changed how interpreters worked.",
+"asr": " Those volunteers were real.  A photograph taken in 1942 at the Red Cross in Washington  shows them at work.  Translators worked with writing one sentence at a time.  Interpreters worked with speech, and they worked the same way.  The speaker stopped, and then the interpreter  said it again in another language.  A few years later, a trial changed how interpreters worked.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-02.mp3"
+},
+"ep08/03": {
+"vo": "In October 1945, Leon Dostert, who had been General Eisenhower's interpreter during the war, was asked to set up the interpretation for the war crimes tribunal at Nuremberg. He chose a method many thought would not work: simultaneous interpretation, speaking while the speaker is still speaking. IBM donated the equipment. Every participant in the courtroom wore headphones and could choose a language. The interpreters sat in booths, each working into their own language only, with a warning light to ask a speaker to slow down.",
+"asr": " In October 1945, Leon Dostert,  who had been General Eisenhower's interpreter  during the war, was asked to set up the interpretation  for the war crimes tribunal at Nuremberg.  He chose a method many thought would not work,  simultaneous interpretation,  speaking while the speaker is still speaking.  IBM donated the equipment.  Every participant in the courtroom wore headphones  and could choose a language.  The interpreters sat in booths, each working into their own language only,  with a warning light to ask a speaker to slow down.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-03.mp3"
+},
+"ep08/04": {
+"vo": "It was the first large-scale use of simultaneous interpretation, and historians count it a success. The new equipment did not replace the interpreters. It changed their job, from waiting for the speaker to stop, to speaking at the same time. Soon the United Nations installed a similar system, and Dostert went on to Georgetown University in Washington, to train linguists for government service.",
+"asr": " It was the first large-scale use of simultaneous interpretation and historians count it a success.  The new equipment did not replace the interpreters.  It changed their job from waiting for the speaker to stop to speaking at the same time.  Soon the United Nations installed a similar system and Dostert went on to Georgetown University  in Washington to train linguists for government service.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-04.mp3"
+},
+"ep08/05": {
+"vo": "The lamplighter walks on. After the war, American officials worried about how little they knew of Soviet work, written in Russian. So Dostert, who had used machines to help interpreters, turned to a machine that would translate by itself. On January 7, 1954, his Georgetown team and IBM showed it in New York. The computer knew only two hundred fifty words and six rules of grammar, enough for those chosen sentences. The next morning it was on front pages, and the forecasts said a machine built just for translation could be ready within a few years.",
+"asr": " The lamplighter walks on.  After the war, American officials worried about how little they knew of Soviet work,  written in Russian.  So Dostert, who had used machines to help interpreters,  turned to a machine that would translate by itself.  On January 7, 1954, his Georgetown team and IBM showed it in New York.  The computer knew only 250 words and six rules of grammar,  Enough for those chosen sentences.  The next morning it was on front pages, and the forecasts said a machine built just for  translation could be ready within a few years.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-05.p.mp3"
+},
+"ep08/06": {
+"vo": "In 1966, twelve years after the demonstration, a committee of the National Academy of Sciences took stock. First, it counted the people. In October 1962, the federal government employed only two hundred sixty-two translators and clerk-translators in the United States, and the committee found more translators available than there was work for them. There was no shortage of people for a machine to fix. Then it counted the money. Over ten years, the government had spent some twenty million dollars on machine translation and related research.",
+"asr": " In 1966, 12 years after the demonstration, a committee of the National Academy of Sciences  took stock. First, it counted the people. In October 1962, the federal government employed  only 262 translators and clerk translators in the United States. And the committee found  more translators available than there was work for them. There was no shortage of people  for a machine to fix. Then, it counted the money. Over 10 years, the government had spent  some $20 million on machine translation and related research.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-06.mp3"
+},
+"ep08/07": {
+"vo": "The results were thin. Back in 1962, eight years into the work, the Georgetown project had tried to produce useful output, and it had to have people correct the machine's output. The committee called this postediting. The postedited translation took slightly longer, and cost more, than ordinary human translation. Its conclusion was blunt: there was no immediate or predictable prospect of useful machine translation.",
+"asr": " the results were thin. Back in 1962, eight years into the work, the Georgetown Project  had tried to produce useful output, and it had to have people correct the machine's output.  The committee called this post-editing. The post-edited translation took slightly longer  and cost more than ordinary human translation. Its conclusion was blunt. There was no immediate  or predictable prospect of useful machine translation.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-07.mp3"
+},
+"ep08/08": {
+"vo": "But the committee also found a machine that did help. At a military translation agency in Germany, a computer produced a list of the technical terms in each text, with their translations. Translators who had the list finished much faster, and made a third fewer errors than translators without it. So the committee recommended research into language, and better human translation, with machine aids. A machine to help the translator, not to replace one.",
+"asr": " But the committee also found a machine that did help.  At a military translation agency in Germany,  a computer produced a list of the technical terms in each text  with their translations.  Translators who had the list finished much faster  and made a third fewer errors than translators without it.  So the committee recommended research into language  and better human translation with machine aids.  A machine to help the translator, not to replace one.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-08.mp3"
+},
+"ep08/09": {
+"vo": "The lamplighter walks on, and the years pass: the sixties, the eighties, a new century. The library's lamps go out. Across the street, a screen is lit in an apartment. Someone pastes a paragraph into a box, and a moment later it comes back in another language.",
+"asr": " The lamp lighter walks on, and the years pass.  The sixties, the eighties, a new century.  The library's lamps go out.  Across the street, a screen is lit in an apartment.  Someone pastes a paragraph into a box,  and a moment later, it comes back in another language.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-09.mp3"
+},
+"ep08/10": {
+"vo": "That box is machine translation. After 2010, Google Translate arrived as a phone app and inside web browsers, and it went into everyday use. Today, the government's job handbook describes two kinds of machine on the translator's desk. One keeps a database of sentences already translated, so they can be reused. The other, machine translation software, writes a first draft, which the translator then reviews. The handbook calls this post-editing: the same word the committee used in 1966 for people correcting the machine. Then, it was slower than translating from scratch. Now it is part of the job.",
+"asr": " That box is machine translation.  After 2010, Google Translate arrived as a phone app  and inside web browsers, and it went into everyday use.  Today, the government's job handbook  describes two kinds of machine on the translator's desk.  One keeps a database of sentences already translated  so they can be reused.  The other, machine translation software,  writes a first draft, which the translator then reviews.  The handbook calls this post-editing,  the same word the committee used in 1966  for people correcting the machine.  Then, it was slower than translating from scratch.  Now, it is part of the job.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-10.mp3"
+},
+"ep08/11": {
+"vo": "The change shows up in the numbers too. Economists at Oxford compared hundreds of local job markets across the United States. Where people used Google Translate more, translator employment grew more slowly. What they found was not layoffs. It was jobs that never appeared: they estimate about twenty-eight thousand translator jobs that the profession's growth would have created, but did not. It is an estimate, not a count. Similar jobs, such as editors and technical writers, showed no such effect. The study also points to a shift toward higher-skilled translation work, the tasks machine translation cannot easily replace.",
+"asr": " The change shows up in the numbers, too.  Economists at Oxford compared hundreds of local job markets  across the United States.  Where people used Google Translate more, translator  employment grew more slowly.  What they found was not layoffs.  It was jobs that never appeared.  They estimate about 28,000 translator jobs  that the profession's growth would have created,  but did not.  It is an estimate, not a count.  Similar jobs, such as editors and technical writers,  showed no such effect.  The study also points to a shift toward higher skilled  translation work.  The task's machine translation cannot easily replace.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-11.p.mp3"
+},
+"ep08/12": {
+"vo": "That is translation, the written word. Interpreting, the spoken and signed word, has changed in its own way. Interpreters now work remotely as well as in person. Demand for American Sign Language interpreters is expected to grow, as more people use video relay services: online video calls with a sign language interpreter on the line. And in courtrooms, where this story began, most states now require interpreters to be certified.",
+"asr": " That is translation, the written word.  Interpreting, the spoken and signed word  has changed in its own way.  Interpreters now work remotely as well as in person.  Demand for American Sign Language interpreters  is expected to grow.  As more people use video relay services,  online video calls with a sign language interpreter  on the line.  And in courtrooms, where this story began,  Most states now require interpreters to be certified.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-12.mp3"
+},
+"ep08/13": {
+"vo": "And the next ten years? The government projects that interpreters and translators will grow from about seventy-four thousand jobs in 2025 to about seventy-five thousand in 2035. That is two percent over the whole decade, about fifteen hundred more jobs, slower than the three and a half percent projected for all jobs. Slower growth, not decline. Even so, about six thousand positions are projected to open each year, mostly to replace people who retire or change careers. Computer tools, including AI, are making the work more efficient, the handbook says. But many of these jobs cannot be entirely automated, because computers cannot yet produce work comparable to what human translators do in most cases. Cannot yet.",
+"asr": " And the next 10 years, the government projects that interpreters and translators will grow  from about 74,000 jobs in 2025 to about 75,000 in 2035.  That is 2% over the whole decade, about 1,500 more jobs, slower than the 3.5% projected  for all jobs.  Slower growth, not decline.  Even so, about 6,000 positions are projected to open each year, mostly to replace people  who retire or change careers.  Computer tools, including AI, are making the work more efficient, the handbook says.  But many of these jobs cannot be entirely automated because computers cannot yet produce  work comparable to what human translators do in most cases.  Cannot yet.  You",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-13.p.mp3"
+},
+"ep08/14": {
+"vo": "Here is the comparison we can make, and it is a comparison of patterns, not of technologies. In both eras, a repetitive part of the work went to a machine, and people moved to the work around it. One difference matters. In 1966, the machine was not good enough, and the committee said so. This time, the machine is in everyday use, and the Oxford study finds it has slowed the growth of translator jobs. So what happened to the people who carry words between languages? When machine translation finally reached everyday use, the profession did not disappear. The work moved: from waiting for a speaker to stop, to speaking at the same time; from writing every sentence, to checking a machine's draft; from the courtroom booth, to the video call.",
+"asr": " Here is the comparison we can make, and it is a comparison of patterns, not of technologies.  In both eras, a repetitive part of the work went to a machine, and people moved to the  work around it.  One difference matters.  In 1966, the machine was not good enough, and the committee said so.  This time the machine is in everyday use, and the Oxford study finds it has slowed  the growth of translator jobs.  So what happened to the people who carry words between languages?  When machine translation finally reached everyday use, the profession did not disappear.  The work moved, from waiting for a speaker to stop, to speaking at the same time, from  writing every sentence to checking a machine's draft, from the courtroom booth to the video  So call.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-14.mp3"
+},
+"ep08/15": {
+"vo": "In 1954, the forecasts said a few years. It took more than fifty. And the handbook's word, yet, is the open question: which part of the work stays with people, and for how long?",
+"asr": " In 1954, the forecasts said a few years.  It took more than 50.  And the handbook's word, yet, is the open question.  Which part of the work stays with people and for how long?",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-15.mp3"
+},
+"ep08/16": {
+"vo": "Back on the street, the lamplighter reaches the last post. The glass opens, the flame takes, and the light passes on to the next corner. Every era has its last lamplighters. For the people who carry words between languages, the flame keeps changing hands.",
+"asr": " Back on the street, the lamplighter reaches the last post.  The glass opens, the flame takes,  and the light passes on to the next corner.  Every era has its last lamplighters.  For the people who carry words between languages,  the flame keeps changing hands.",
+"vo_file": "reports/m3/ep08/vo/ll-ep08-16.mp3"
+}
+},
+"cu": {
+"ep06v2": {},
+"ep07": {},
+"ep08": {
+"06": [
+"20000000.0"
+],
+"13": [
+"3.0"
+]
+}
+},
+"ky_vong": {
+"ep06v2": {},
+"ep07": {},
+"ep08": {}
+}
+}
