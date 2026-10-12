@@ -687,7 +687,7 @@ Mỗi lần chấm Q27 chính thức của P từ nay ≈ $0,77 (3 người), Q3
 
 **cinecheck: 142/142** trên bản khoá (E2E sạch ĐẠT exit 0, bẩn exit 1).
 
-**Bản khoá:** VERSION **1.10.1**, LOCK `TREE_SHA256 1a126d58bbe25b54a478e436d8d687a472c486faad733fe2d417905e3b848464` (183 tệp). `lock.py --verify`: KHỚP.
+**Bản khoá:** VERSION **1.10.1**, LOCK `TREE_SHA256 1a126d58bbe25b54a478e436d8d687a472c486faad733fe2d417905e3b848464` (185 tệp). `lock.py --verify`: KHỚP.
 
 **Việc đang chờ chủ dự án:**
 1. Xem các lựa chọn của K ở 18.2 (`the` không đếm vào (c), không làm dứt quãng của bối cảnh khác) và 18.3 (pHash chỉ cộng, θ = 14).
