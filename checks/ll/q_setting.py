@@ -11,6 +11,8 @@ Nhãn bối cảnh (từ timeline, mỗi shot):
   plate      → cảnh đinh `heroes.<khoá>.hero` (vd ep07/tower): mọi góc máy (variant) của cùng một cảnh 3D là MỘT bối cảnh
   diptych    → hai nửa (`p.left.hero`, `p.right.hero`), mỗi nửa nặng 1/2 thời lượng shot (hai nửa cùng cảnh: cả shot)
   cảnh 2D toàn khung (street, office, rows, teller, desk, sign, stack, inspect, jobboard, pasteup, filmstrip) → "2d/<mẫu>"
+  footage    → (1.10.0, Q32f) `p.setting` theo nội dung hình: khoá/tên cảnh đinh nếu cùng nơi với cảnh 3D, không thì nhãn tự do;
+               không khai → gộp chung "ft/(chưa khai)" (Q32f TRƯỢT)
   còn lại (thẻ số, chữ, trích dẫn, isotype, bản đồ, ảnh tư liệu archive, thẻ kết) → TRUNG TÍNH: không là bối cảnh
 Ba điều kiện chặn (chủ dự án, 09/10/2026):
   (a) một bối cảnh chiếm > 25 % thời lượng phim (tong_s);
@@ -36,6 +38,8 @@ def label(sh, heroes):
     """→ {bối cảnh: trọng số} của một shot ({} = trung tính)"""
     p = sh.get('p') or {}; t = sh['tpl']
     hn = lambda k: (heroes.get(k) or {}).get('hero') or k
+    if t == 'footage' or p.get('clip'):                 # 1.10.0 (Q32f): footage nguồn ngoài là bối cảnh theo NỘI DUNG HÌNH (`p.setting`)
+        return {hn(str(p['setting']).strip()) if str(p.get('setting') or '').strip() else 'ft/(chưa khai)': 1.0}
     if t == 'plate' and p.get('hero'): return {hn(p['hero']): 1.0}
     if t == 'diptych':
         hs = [hn(x['hero']) for x in (p.get('left'), p.get('right')) if isinstance(x, dict) and x.get('hero')]

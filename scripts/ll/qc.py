@@ -25,6 +25,7 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q23 câu/thẻ nhiều số cùng đối tượng/loại/kỳ/cơ sở; Q24 nhãn phân loại khớp số; Q25 thẻ khoảng số không đếm qua số trung gian; LOCK khớp
   Q26–Q31 (khoá LL v3, áp từ tập 7): đa dạng hình (checks/ll/q_diversity.py), chấm hình mù và xem liền mạch mù (checks/ll/q_blind.py,
       bộ ảnh ở <out>/blind/q27, <out>/blind/q31 + R1–R3.json), âm thanh, hình–lời, liền mạch (checks/ll/q_av.py)
+  Q32 (khoá 1.10.0, 12/10/2026, mọi tập LL và kênh 2): footage/ảnh nguồn ngoài (checks/ll/q_footage.py; sổ SOURCES-FOOTAGE.csv cạnh episode.yaml)
   Sửa sau tập 7 (K, 09/10/2026, 1.8.0): Q27 chỉ chấm bản cuối 1080p, ĐẠT khi ≥ tập 1 − SE, sát ngưỡng đòi mục "Cải thiện hình" trong
       PLAN tập sau; Q31 chuyển sổ vòng nháp → bản cuối chỉ khi cùng lời/cấu trúc; Q26b đa dạng bối cảnh (checks/ll/q_setting.py, từ tập 8)
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
@@ -34,10 +35,10 @@ import numpy as np
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
-sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow, q_diversity, q_av, q_blind, q_setting  # noqa: E402  luật khoá LL v3 (phiên K)
+sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow, q_diversity, q_av, q_blind, q_setting, q_footage  # noqa: E402  luật khoá LL v3 (phiên K)
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
-FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect', 'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych'}
+FULL = {'street', 'office', 'rows', 'endcard', 'teller', 'isotype', 'stack', 'sign', 'desk', 'archive', 'inspect', 'plate', 'jobboard', 'filmstrip', 'pasteup', 'diptych', 'footage'}
 rows = []
 
 
@@ -185,6 +186,10 @@ _lb = K.q24(E, TL)
 row('Q24', 'Nhãn phân loại khớp số', not _lb, len(_lb), 0, note='; '.join(_lb[:4]))
 _gb = K.q25(TL, logs)
 row('Q25', 'Thẻ khoảng số không hiện số trung gian', not _gb, len(_gb), 0, note='; '.join(_gb[:4]))
+# Q32 footage/ảnh nguồn ngoài (khoá 1.10.0, mọi tập): sổ SOURCES-FOOTAGE.csv cạnh episode.yaml, SHA, ≤ 40 % / ≤ 8 s, ghi công, ngữ cảnh, không commit media
+_fq = q_footage.q32(E, TL, os.path.dirname(os.path.abspath(EP)))
+row('Q32', 'Footage nguồn ngoài (sổ, SHA, ≤ 40 % · ≤ 8 s/clip, ghi công, ngữ cảnh, không commit media, bối cảnh)', _fq['ok'], _fq['val'], '≤ 40 % · ≤ 8 s',
+    near='; '.join(_fq['sat_nguong']), note=_fq['note'].replace('|', '/'))
 # Q26–Q31: luật khoá phiên K (checks/ll, LL v3, 07/10/2026), áp từ tập 7 (Q-L6v2 = B: tập 6 v2 phát hành theo luật làm việc của P).
 # Định nghĩa: checks/ll/RULES-LL.md
 if _epn and _epn >= 7:

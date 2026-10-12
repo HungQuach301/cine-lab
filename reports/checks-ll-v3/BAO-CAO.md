@@ -600,3 +600,42 @@ Mỗi lần chấm Q27 chính thức của P từ nay ≈ $0,77 (3 người), Q3
 **Bản khoá:** VERSION **1.9.1**, LOCK `TREE_SHA256 f777e0ca0a69141de99f10f87c2ad19e0f9072d7691773f4144447eca4c19f92` (164 tệp). `lock.py --verify`: KHỚP. Đoạn băm độc lập (`python3 -I`) ra cùng số.
 
 **Việc của P:** gợi ý lệnh trong `scripts/ll/qc.py` (`q27-set`/`q27-run`) không phải đổi. Báo cáo G2 tập 9 ghi cả ba con số Q27.
+
+## 17. Bản 1.10.0 (12/10/2026): Q32 footage/ảnh nguồn ngoài, áp cả LL và kênh 2
+**Đầu vào:** chủ dự án 12/10/2026 cho phép footage/ảnh nguồn ngoài, ưu tiên miễn phí. Nguồn cho phép: Library of Congress, NARA, NASA, Internet Archive (Prelinger), Wikimedia Commons (kiểm giấy phép từng file), Pexels, Pixabay; nguồn khác cần chủ dự án duyệt.
+
+**Đã làm:**
+- **Sổ** `SOURCES-FOOTAGE.csv` đặt cạnh `episode.yaml` (`reports/m3/epXX/`, `channel-k2/<tập>/`), đúng 10 cột của mẫu `channel-k2/SOURCES-FOOTAGE.template.csv` (nhánh `channel-k2`; mẫu đó qua bộ đọc không lỗi). Định dạng từng cột: `checks/ll/FOOTAGE.md` §2.
+- **Luật Q32** (`checks/ll/q_footage.py`), sáu mục a–f đúng yêu cầu. Định nghĩa: `RULES-LL.md` (dòng Q32) và `FOOTAGE.md` §4. Đoạn footage trong EDL = shot `tpl: footage` hoặc có `p.clip`; khai thêm `p.file` (file ngoài repo) và `p.setting` (bối cảnh theo nội dung hình).
+- **Q26b** (`q_setting.py`): footage là bối cảnh theo `p.setting`; trùng nơi với cảnh đinh thì cộng vào bối cảnh đó; thiếu khai thì gộp chung `ft/(chưa khai)` (bảo thủ) và Q32f TRƯỢT.
+- **Tương thích:** `footage` thêm vào cảnh toàn khung của Q16 (`q_rhythm.py`, `qc.py`) và hình vật chất của Q29/Q30 (`q_av.py`). Không có thay đổi này thì footage bị tính là thẻ giấy (Q16 trượt oan). Tập không có footage: mọi kết quả cũ không đổi (214 ca cũ vẫn đúng).
+- **qc LL:** `scripts/ll/qc.py` thêm dòng **Q32** cho mọi tập (như K đã sửa qc ở 1.8.0). **Kênh 2:** trên `main` chưa có bộ qc K2 (`scripts/k2/` nằm ở nhánh `k2g-ep01`), nên chạy bằng CLI: `checks/ll/q_footage.py channel-k2/<tập>/episode.yaml [--tl …] [--desc …]` (đã thử với bố cục `channel-k2/k2x-ep01/`).
+- **Giấy phép Pexels/Pixabay đọc lại 12/10/2026:** nguyên văn, URL, giờ đọc và cách đọc ở `FOOTAGE.md` §6.
+
+**Lựa chọn của K cần chủ dự án biết (không tự quyết thay):**
+1. **Trần 40 % tính cả ảnh tư liệu `archive`** (LL, đang theo Q19 ≤ 20 %), vì đó cũng là ảnh nguồn ngoài. Tập 7 hiện có 51,5 s tư liệu (8,3 %).
+2. **Q32e không bắt ảnh `archive` LoC đã commit** (`assets/ll/archive/*.jpg`, Q19 bắt buộc ảnh nằm trong repo). Q32e bắt (i) tệp media trong thư mục có chữ `footage`, (ii) tệp trùng SHA một dòng sổ bất kỳ. Nếu chủ dự án muốn "không media nguồn ngoài nào trong repo" tuyệt đối, phải sửa Q19 và gỡ ảnh tư liệu cũ: chờ quyết.
+3. **Q32d dùng danh sách từ tiêu cực** trên lời ±1 s và chú thích shot. Đây là luật thô: bắt được "bad light" rõ (bankrupt, fraud, layoffs…), không thay người rà. Áp cho mọi nguồn (chặt hơn giấy phép, vốn chỉ Pexels/Pixabay cấm). "Logo rõ nét" và "người nhận diện được" là **tự khai trong sổ**, máy không tự nhận diện.
+4. `timecode_dung` dạng `m:ss.xx-m:ss.xx` (phần thập phân giây), nhận cả SMPTE `hh:mm:ss:ff`. Mẫu kênh 2 ghi `mm:ss.ff`; K hiểu `.ff` là phần trăm giây, nêu rõ trong `FOOTAGE.md`.
+
+**Giới hạn khi đọc giấy phép:** trang Pexels và Pixabay trả **HTTP 403** với `curl` và chặn Chromium headless (Cloudflare "Just a moment..."); Wayback bị 429/ngắt. Nguyên văn lấy qua WebFetch (đi qua một mô hình nhỏ). Với Pixabay, 3 câu dài bị cắt bằng "…". Nội dung khớp bản P đọc 12/10 08:30–08:40 UTC. **Cần chủ dự án mở trang và đối chiếu bằng mắt** trước tập đầu tiên dùng Pexels/Pixabay.
+
+**Selftest LL: 249/249** (thêm 35 ca Q32, `do/selftest.txt`):
+
+| Mục | Đạt | Hỏng |
+|---|---|---|
+| tổng | tập giả 4 clip (LoC, Wikimedia CC BY-SA, Pexels, Pixabay) | — |
+| a | timecode nhiều dạng | thiếu dòng sổ; SHA lệch; không thấy file; timecode lệch; CC BY-NC; nguồn ngoài danh sách; Wikimedia không trỏ `File:`; giấy phép không hợp nguồn; ngày không ISO |
+| b | 2 shot kề = 6,93 s; clip 7,9 s (nêu sát ngưỡng) | 3 shot kề = 11,62 s; 86,2 % nguồn ngoài |
+| c | câu ghi công có trong mô tả | thiếu câu; ghi công trống; không có mô tả |
+| d | người trung tính; mặt đã làm mờ; Pixabay logo làm mờ | "went bankrupt"; Pixabay logo rõ; logo rõ cạnh lời thật "layoffs" (tập 7) |
+| e | repo chỉ có sổ; repo cine-lab hiện tại | clip trong `footage/`; clip đổi tên (bắt theo SHA); sổ chưa commit |
+| f | nhãn theo `p.setting`; cộng vào cảnh đinh trùng nơi; Q16/Q29 tương thích | thiếu `p.setting`; cùng một nơi phủ mọi plate → Q26b TRƯỢT |
+
+**cinecheck: 142/142** trên bản đã khoá 1.10.0 (E2E `run.py`: sạch ĐẠT exit 0, bẩn exit 1; `reports/checks-selftest/selftest.md`).
+
+**Chỉ số trong ±5 % quanh ngưỡng:** chưa có tập thật dùng footage. Ca selftest clip 7,9 s cố ý đặt sát ngưỡng 8 s, và bộ kiểm nêu tên đúng.
+
+**Bản khoá:** VERSION **1.10.0**, LOCK `TREE_SHA256 bb83cbfebeaaf60d8fea8e715108ac37b9c792493e215d0b29598f092bab70c8` (166 tệp). `lock.py --verify`: KHỚP. Đoạn băm độc lập (`python3 -I`, sắp theo phần đường dẫn) ra cùng số.
+
+**Việc đang chờ chủ dự án:** (1) duyệt 1.10.0; (2) quyết hai điểm 1–2 ở trên (archive trong trần 40 %, ảnh Q19 trong git); (3) đối chiếu bằng mắt trang giấy phép Pexels/Pixabay; (4) duyệt nguồn ngoài danh sách khi cần (K thêm vào `DUYET_THEM` rồi khoá lại).

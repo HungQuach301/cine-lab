@@ -604,6 +604,154 @@ finally:
     os.environ['PATH'] = _path; os.environ.pop('FAKE_MODE', None); os.environ.pop('CONSOLE_API_KEY', None)
     if _ok: os.environ['CONSOLE_API_KEY'] = _ok
 
+# ======================= 1.10.0 (K, 12/10/2026): Q32 footage/ảnh nguồn ngoài (chủ dự án 12/10: cho phép, ưu tiên miễn phí; LL + kênh 2) =======================
+# Dữ liệu: timeline bản cuối tập 7 (fixtures/ep07) với một số shot đổi thành footage giả; file clip là byte ngẫu nhiên trong thư mục tạm (không commit).
+from checks.ll import q_footage as QF  # noqa: E402
+import subprocess  # noqa: E402
+os.environ['Q32_CACHE_DIR'] = tempfile.mkdtemp()
+TL7 = json.load(gzip.open(os.path.join(F7, 'timeline-final.json.gz'))); E7 = dict(id='ll-ep07', out='/var/tmp/cine-out/ll-ep07-khong-co')
+FTD = tempfile.mkdtemp()
+DESC = ('Sources: BLS, NASA History.\nFootage: Library of Congress; Wikimedia Commons; Pexels; Pixabay.\n'
+        'Photo: "Langley computers" by Jane Doe, CC BY-SA 4.0, via Wikimedia Commons.\n')
+CL = {  # clip: (đoạn, shot, nguồn trang, URL tải, giấy phép, ghi công, người, logo, bối cảnh)
+    'LOC-01': ('00', 1, 'https://www.loc.gov/pictures/item/2017878800/', 'https://tile.loc.gov/storage-services/service/pnp/fsa/8b17000/8b17067r.jpg',
+               'PD — LoC: No known restrictions on publication', '', 'khong', 'khong', 'air_hook'),
+    'WM-01': ('00', 3, 'https://commons.wikimedia.org/wiki/File:Langley_computers.jpg', 'https://upload.wikimedia.org/wikipedia/commons/a/ab/Langley_computers.jpg',
+              'CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/', 'Photo: "Langley computers" by Jane Doe, CC BY-SA 4.0, via Wikimedia Commons.', 'khong', 'khong', 'ft/langley-room'),
+    'PX-01': ('08', 0, 'https://www.pexels.com/video/office-workers-123456/', 'https://videos.pexels.com/video-files/123456/123456-hd_1920_1080_25fps.mp4',
+              'Pexels License https://www.pexels.com/license/', '', 'co: hai nhân viên văn phòng, mặt rõ', 'khong', 'ft/modern-office'),
+    'PB-01': ('10', 1, 'https://pixabay.com/videos/server-room-98765/', 'https://cdn.pixabay.com/video/2020/01/01/98765-large.mp4',
+              'Pixabay Content License https://pixabay.com/service/license-summary/', '', 'khong', 'co: nhãn tủ máy, đã làm mờ', 'ft/server-room'),
+}
+
+
+def q32_set(over=None, rows=None, desc=DESC, edit=None):
+    """dựng một tập giả: thư mục tập (sổ + mô tả), timeline có footage → (E, TL, ep_dir)"""
+    d = tempfile.mkdtemp(); TLx = copy.deepcopy(TL7); RW = []
+    os.makedirs(os.path.join(d, 'phat-hanh')); open(os.path.join(d, 'phat-hanh', 'll-ep07-youtube-description.txt'), 'w').write(desc or '') if desc is not None else None
+    for c, (sid, j, ut, ud, lic, at, per, logo, st) in CL.items():
+        f = os.path.join(FTD, c + ('.jpg' if c.startswith(('LOC', 'WM')) else '.mp4'))
+        if not os.path.exists(f): open(f, 'wb').write(os.urandom(4096))
+        sg = next(s for s in TLx['segments'] if s['id'] == sid); sh = sg['shots'][j]
+        sh['tpl'], sh['p'] = 'footage', dict(clip=c, file=f, setting=st)
+        a, b = sg['t0'] + sh['t0'], sg['t0'] + sh['t1']
+        RW.append(dict(clip_id=c, url_trang=ut, url_tai=ud, ngay_tai_utc='2026-10-12T08:32:00Z', giay_phep=lic, yeu_cau_ghi_cong=at,
+                       sha256=QB.sha_file(f), timecode_dung=f'{QF.mmss(a)}-{QF.mmss(b)}', nguoi_nhan_dien=per, logo=logo))
+    if edit: edit(TLx, RW)
+    with open(os.path.join(d, QF.SO), 'w', newline='', encoding='utf-8') as fo:
+        import csv as _csv
+        w_ = _csv.DictWriter(fo, QF.COLS); w_.writeheader(); [w_.writerow(r) for r in (rows(RW) if rows else RW)]
+    return E7, TLx, d
+
+
+def q32m(k, **kw):
+    E_, T_, d_ = q32_set(**kw); r = QF.q32(E_, T_, d_, scan=False); return r['muc'][k], r
+
+
+def row_(c, **kv):
+    def f(TLx, RW): next(r for r in RW if r['clip_id'] == c).update(kv)
+    return f
+
+
+r0 = QF.q32(*q32_set(), scan=False)
+case('Q32', f"tập giả 4 clip LoC/Wikimedia/Pexels/Pixabay đủ sổ, SHA, ghi công: ĐẠT · {r0['val']}", r0['loi'], False)
+# (a) sổ ↔ EDL ↔ SHA
+def _drop(TLx, RW): RW[:] = [r for r in RW if r['clip_id'] != 'PX-01']
+case('Q32a', 'đoạn footage PX-01 không có dòng sổ', q32m('a', edit=_drop)[0], True)
+case('Q32a', 'SHA-256 file đã dùng ≠ sổ (file bị thay sau khi ghi sổ)', q32m('a', edit=row_('LOC-01', sha256='0' * 64))[0], True)
+def _nofile(TLx, RW): next(sh for s in TLx['segments'] for sh in s['shots'] if (sh.get('p') or {}).get('clip') == 'WM-01')['p']['file'] = '/var/tmp/khong-co/WM-01.jpg'
+case('Q32a', 'không thấy file đã dùng → không kiểm được SHA', q32m('a', edit=_nofile)[0], True)
+case('Q32a', 'timecode_dung lệch EDL 1 s', q32m('a', edit=row_('LOC-01', timecode_dung='0:08.78-0:12.12'))[0], True)
+case('Q32a', 'giấy phép CC BY-NC 4.0 (NC bị cấm)', q32m('a', edit=row_('WM-01', giay_phep='CC BY-NC 4.0'))[0], True)
+case('Q32a', 'nguồn ngoài danh sách (shutterstock) → cần chủ dự án duyệt', q32m('a', edit=row_('PX-01', url_trang='https://www.shutterstock.com/video/clip-1'))[0], True)
+case('Q32a', 'Wikimedia trỏ trang danh mục, không phải trang File: (không kiểm được giấy phép từng file)', q32m('a', edit=row_('WM-01', url_trang='https://commons.wikimedia.org/wiki/Category:Langley'))[0], True)
+case('Q32a', 'giấy phép không hợp nguồn (Pixabay License cho clip Pexels)', q32m('a', edit=row_('PX-01', giay_phep='Pixabay License'))[0], True)
+case('Q32a', 'ngày tải không phải ISO 8601 UTC (12/10/2026)', q32m('a', edit=row_('LOC-01', ngay_tai_utc='12/10/2026'))[0], True)
+case('Q32a', 'timecode nhiều đoạn "a-b;c-d" và SMPTE hh:mm:ss:ff đọc đúng', [] if QF.parse_tc('00:00:08:12') == 8.5 and QF.parse_tc('1:02.50') == 62.5 else ['sai'], False)
+# (b) trần 40 % / 8 s
+def _long(TLx, RW):
+    sg = next(s for s in TLx['segments'] if s['id'] == '00'); sg['shots'][2]['tpl'], sg['shots'][2]['p'] = 'footage', dict(sg['shots'][1]['p'])
+    r = next(r for r in RW if r['clip_id'] == 'LOC-01'); r['timecode_dung'] = f"{QF.mmss(sg['t0'] + sg['shots'][1]['t0'])}-{QF.mmss(sg['t0'] + sg['shots'][2]['t1'])}"
+m_, r_ = q32m('b', edit=_long)
+case('Q32b', 'LOC-01 hai shot kề nhau 3,34 + 3,59 = 6,93 s: một lần liên tục, ĐẠT (≤ 8 s)', m_ + r_['muc']['a'], False)
+def _long2(TLx, RW):
+    _long(TLx, RW); sg = next(s for s in TLx['segments'] if s['id'] == '00'); sg['shots'][3]['tpl'], sg['shots'][3]['p'] = 'footage', dict(sg['shots'][1]['p'])
+    next(r for r in RW if r['clip_id'] == 'LOC-01')['timecode_dung'] = f"{QF.mmss(sg['t0'] + sg['shots'][1]['t0'])}-{QF.mmss(sg['t0'] + sg['shots'][3]['t1'])}"
+    sg['shots'][3]['p'] = dict(sg['shots'][1]['p']); RW[:] = [r for r in RW if r['clip_id'] != 'WM-01']
+case('Q32b', 'LOC-01 ba shot kề nhau = 11,62 s liên tục > 8 s', q32m('b', edit=_long2)[0], True)
+def _many(TLx, RW):   # mọi plate cắt thành mảnh ≤ 7 s, mỗi mảnh một clip riêng (không clip nào > 8 s): chỉ trần 40 % bị chạm
+    k = 0
+    for s in TLx['segments']:
+        out = []
+        for sh in s['shots']:
+            if sh['tpl'] != 'plate': out.append(sh); continue
+            n = int((sh['t1'] - sh['t0']) // 7) + 1; dt = (sh['t1'] - sh['t0']) / n
+            for i in range(n):
+                c = f'LOC-M{k:03d}'; k += 1; f = os.path.join(FTD, c + '.jpg')
+                if not os.path.exists(f): open(f, 'wb').write(os.urandom(2048))
+                a, b = sh['t0'] + i * dt, sh['t0'] + (i + 1) * dt
+                out.append(dict(tpl='footage', t0=a, t1=b, p=dict(clip=c, file=f, setting='ft/x')))
+                RW.append(dict(RW[0], clip_id=c, sha256=QB.sha_file(f), timecode_dung=f"{QF.mmss(s['t0'] + a)}-{QF.mmss(s['t0'] + b)}"))
+        s['shots'] = out
+m_, r_ = q32m('b', edit=_many)
+case('Q32b', f"mọi plate cắt thành clip ≤ 7 s (clip riêng) + tư liệu: {r_['val'].split(' · ')[3]} > 40 %", m_ if not r_['muc']['a'] else r_['muc']['a'], True)
+def _eight(TLx, RW):
+    sg = next(s for s in TLx['segments'] if s['id'] == '00'); sh = sg['shots'][1]; sh['t1'] = sh['t0'] + 7.9; sg['shots'][2]['t0'] = sh['t1']
+    next(r for r in RW if r['clip_id'] == 'LOC-01')['timecode_dung'] = f"{QF.mmss(sg['t0'] + sh['t0'])}-{QF.mmss(sg['t0'] + sh['t1'])}"
+m_, r_ = q32m('b', edit=_eight)
+case('Q32b', f"clip 7,9 s: ĐẠT nhưng nêu tên sát ngưỡng ({'; '.join(r_['sat_nguong'])})", m_ + ([] if any('LOC-01' in x for x in r_['sat_nguong']) else ['không nêu sát ngưỡng']), False)
+# (c) ghi công CC BY / CC BY-SA
+case('Q32c', 'CC BY-SA: mô tả có nguyên văn câu ghi công (khác xuống dòng/hoa thường vẫn nhận)', q32m('c', desc=DESC.replace('Photo: "Langley', 'photo:\n  "Langley'))[0], False)
+case('Q32c', 'CC BY-SA: mô tả thiếu câu ghi công', q32m('c', desc='Sources: BLS.\n')[0], True)
+case('Q32c', 'CC BY-SA: yeu_cau_ghi_cong trống', q32m('c', edit=row_('WM-01', yeu_cau_ghi_cong=''))[0], True)
+case('Q32c', 'CC BY-SA: không có tệp mô tả YouTube', q32m('c', desc=None)[0], True)
+# (d) logo / người nhận diện được trong ngữ cảnh xấu
+def _cap(word):
+    def f(TLx, RW): next(sh for s in TLx['segments'] for sh in s['shots'] if (sh.get('p') or {}).get('clip') == 'PX-01')['p']['cap'] = [{'s': f'The firm went {word} in 1931', 'at': 0.5}]
+    return f
+case('Q32d', 'Pexels người nhận diện được, lời và chữ trung tính', q32m('d')[0], False)
+case('Q32d', 'Pexels người nhận diện được + chú thích "went bankrupt" (bad light)', q32m('d', edit=_cap('bankrupt'))[0], True)
+def _blur(TLx, RW): _cap('bankrupt')(TLx, RW); row_('PX-01', nguoi_nhan_dien='co: đã làm mờ mặt')(TLx, RW)
+case('Q32d', 'cùng chú thích nhưng mặt đã làm mờ (không còn nhận diện được)', q32m('d', edit=_blur)[0], False)
+case('Q32d', 'Pixabay logo rõ nét (giấy phép cấm dùng thương mại)', q32m('d', edit=row_('PB-01', logo='co: logo hãng trên tủ máy, rõ'))[0], True)
+case('Q32d', 'Pixabay logo đã làm mờ', q32m('d')[0], False)
+def _negvo(TLx, RW):   # logo rõ nét (Pexels) đặt ở đoạn có lời thật chứa từ tiêu cực: tìm từ NEG thật trong lời tập 7
+    FW = QA.flat_words(TLx); hit = next(((sid, t0) for sid, L in FW.items() for w, t0, *_ in L if QF.NEG.match(w)), None)
+    assert hit, 'lời tập 7 không có từ NEG'
+    sg = next(s for s in TLx['segments'] if s['id'] == hit[0]); sh = next(x for x in sg['shots'] if sg['t0'] + x['t0'] <= hit[1] < sg['t0'] + x['t1'])
+    sh['tpl'], sh['p'] = 'footage', dict(clip='PX-02', file=os.path.join(FTD, 'PX-01.mp4'), setting='ft/y')
+    RW.append(dict(next(r for r in RW if r['clip_id'] == 'PX-01'), clip_id='PX-02', nguoi_nhan_dien='khong', logo='co: biển hiệu công ty rõ',
+                   timecode_dung=f"{QF.mmss(sg['t0'] + sh['t0'])}-{QF.mmss(sg['t0'] + sh['t1'])}"))
+m_, r_ = q32m('d', edit=_negvo)
+case('Q32d', f"logo rõ nét trong khung lời thật có từ tiêu cực ({'; '.join(m_)[:90]})", m_, True)
+# (e) không commit media nguồn ngoài (repo git tạm)
+def _repo(files):
+    g = tempfile.mkdtemp(); subprocess.run(['git', 'init', '-q', g], check=True)
+    for p_, b_ in files.items():
+        os.makedirs(os.path.dirname(os.path.join(g, p_)) or g, exist_ok=True); open(os.path.join(g, p_), 'wb').write(b_)
+    subprocess.run(['git', '-C', g, 'add', '-A'], check=True); return g
+so_ = q32_set()[2]; so_rows = QF.load_so(os.path.join(so_, QF.SO))[0]; b_loc = open(os.path.join(FTD, 'LOC-01.jpg'), 'rb').read()
+case('Q32e', 'repo chỉ có sổ CSV và mã: ĐẠT', QF.git_scan(_repo({'channel-k2/k2x-ep01/SOURCES-FOOTAGE.csv': open(os.path.join(so_, QF.SO), 'rb').read(), 'a.py': b'x=1\n'})), False)
+case('Q32e', 'clip commit vào channel-k2/k2x-ep01/footage/PX-01.mp4', QF.git_scan(_repo({'channel-k2/k2x-ep01/footage/PX-01.mp4': b'\0' * 99})), True)
+case('Q32e', 'clip LoC commit dưới tên khác (assets/k2/x.bin): bắt theo SHA của sổ', QF.git_scan(_repo({'assets/k2/x.bin': b_loc, 'channel-k2/k2x-ep01/SOURCES-FOOTAGE.csv': open(os.path.join(so_, QF.SO), 'rb').read()})), True)
+case('Q32e', 'SHA sổ truyền trực tiếp (sổ chưa commit)', QF.git_scan(_repo({'reports/m3/ep09/still.jpg': b_loc}), [os.path.join(so_, QF.SO)]), True)
+case('Q32e', 'repo cine-lab hiện tại (main): không có media footage nguồn ngoài', QF.git_scan(ROOT, [], {r['sha256'] for r in so_rows.values()}), False)
+# (f) Q26b đếm footage là bối cảnh theo nội dung hình
+def _noset(TLx, RW): next(sh for s in TLx['segments'] for sh in s['shots'] if (sh.get('p') or {}).get('clip') == 'PX-01')['p'].pop('setting')
+case('Q32f', 'đoạn footage không khai p.setting', q32m('f', edit=_noset)[0], True)
+_, Tf, _ = q32_set(); Lf = [QS.label(sh, Tf['heroes']) for s in Tf['segments'] for sh in s['shots'] if (sh.get('p') or {}).get('clip')]
+case('Q32f', f"Q26b gán nhãn footage theo p.setting: {[list(x)[0] for x in Lf]}", [] if [list(x)[0] for x in Lf] == [Tf['heroes']['air_hook']['hero'], 'ft/langley-room', 'ft/modern-office', 'ft/server-room'] else [Lf], False)
+def _other(TLx, RW): next(sh for s in TLx['segments'] for sh in s['shots'] if (sh.get('p') or {}).get('clip') == 'LOC-01')['p']['setting'] = 'ft/khac'
+HA = Tf['heroes']['air_hook']['hero']; rf, ro = QS.q26b(Tf), QS.q26b(q32_set(edit=_other)[1]); d00 = TL7['segments'][0]['shots'][1]; w_ = 100 * (d00['t1'] - d00['t0']) / TL7['tong_s']
+case('Q32f', f"LOC-01 (3,34 s) khai cùng nơi với cảnh đinh air_hook → cộng vào bối cảnh đó: {ro['ty_le'].get(HA)} % → {rf['ty_le'].get(HA)} % (+{w_:.2f} %)",
+     [] if abs(rf['ty_le'][HA] - ro['ty_le'][HA] - w_) < 0.11 and 'ft/khac' in ro['ty_le'] and 'ft/khac' not in rf['ty_le'] else ['sai'], False)
+def _sameset(TLx, RW):
+    for s in TLx['segments']:
+        for sh in s['shots']:
+            if sh['tpl'] == 'plate': sh['tpl'], sh['p'] = 'footage', dict(clip='LOC-01', setting='ft/steel-mill')
+case('Q32f', 'footage cùng nội dung "ft/steel-mill" phủ mọi plate → Q26b TRƯỢT (> 25 %, > 90 s)', QS.q26b(q32_set(edit=_sameset)[1])['loi'], True)
+case('Q32f', 'tương thích: footage là cảnh toàn khung (Q16) và hình vật chất (Q29)', [] if 'footage' in q_rhythm.FULL and 'footage' in QA.PHYS else ['thiếu'], False)
+
 w = max(len(r[1]) for r in R)
 for rule, name, kind_, ok, got in R: print(f"{'ĐÚNG' if ok else 'SAI '}  {rule:<7} {kind_:<8} {name}" + ('' if ok else f'   → {got}'))
 n_ok = sum(r[3] for r in R); print(f'\nselftest LL v3: {n_ok}/{len(R)} ca đúng kỳ vọng'); sys.exit(0 if n_ok == len(R) else 1)

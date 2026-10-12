@@ -222,5 +222,40 @@ Q27: 3/3 người chấm hợp lệ · chi phí $0.0310
 ĐÚNG  API     sạch     khoá không bao giờ ghi ra tệp (trả lời, bản chép, manifest)
 ĐÚNG  API     bắt lỗi  trả lời kiểu subagent cũ (model "sonnet", không qua API) → không nhận
 ĐÚNG  API     bắt lỗi  bộ chấm subagent tập 8 (không có bản ghi `cham`) → TRƯỢT "chưa chấm qua Claude API"
+ĐÚNG  Q32     sạch     tập giả 4 clip LoC/Wikimedia/Pexels/Pixabay đủ sổ, SHA, ghi công: ĐẠT · 4 đoạn footage · 4 clip · sổ 4 dòng · nguồn ngoài phim 10.8 % (footage 15.4 s + tư liệu 51.5 s) · clip dài nhất 4.69 s
+ĐÚNG  Q32a    bắt lỗi  đoạn footage PX-01 không có dòng sổ
+ĐÚNG  Q32a    bắt lỗi  SHA-256 file đã dùng ≠ sổ (file bị thay sau khi ghi sổ)
+ĐÚNG  Q32a    bắt lỗi  không thấy file đã dùng → không kiểm được SHA
+ĐÚNG  Q32a    bắt lỗi  timecode_dung lệch EDL 1 s
+ĐÚNG  Q32a    bắt lỗi  giấy phép CC BY-NC 4.0 (NC bị cấm)
+ĐÚNG  Q32a    bắt lỗi  nguồn ngoài danh sách (shutterstock) → cần chủ dự án duyệt
+ĐÚNG  Q32a    bắt lỗi  Wikimedia trỏ trang danh mục, không phải trang File: (không kiểm được giấy phép từng file)
+ĐÚNG  Q32a    bắt lỗi  giấy phép không hợp nguồn (Pixabay License cho clip Pexels)
+ĐÚNG  Q32a    bắt lỗi  ngày tải không phải ISO 8601 UTC (12/10/2026)
+ĐÚNG  Q32a    sạch     timecode nhiều đoạn "a-b;c-d" và SMPTE hh:mm:ss:ff đọc đúng
+ĐÚNG  Q32b    sạch     LOC-01 hai shot kề nhau 3,34 + 3,59 = 6,93 s: một lần liên tục, ĐẠT (≤ 8 s)
+ĐÚNG  Q32b    bắt lỗi  LOC-01 ba shot kề nhau = 11,62 s liên tục > 8 s
+ĐÚNG  Q32b    bắt lỗi  mọi plate cắt thành clip ≤ 7 s (clip riêng) + tư liệu: nguồn ngoài phim 86.2 % (footage 481.0 s + tư liệu 51.5 s) > 40 %
+ĐÚNG  Q32b    sạch     clip 7,9 s: ĐẠT nhưng nêu tên sát ngưỡng (clip LOC-01 7.90 s (ngưỡng 8 s))
+ĐÚNG  Q32c    sạch     CC BY-SA: mô tả có nguyên văn câu ghi công (khác xuống dòng/hoa thường vẫn nhận)
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: mô tả thiếu câu ghi công
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: yeu_cau_ghi_cong trống
+ĐÚNG  Q32c    bắt lỗi  CC BY-SA: không có tệp mô tả YouTube
+ĐÚNG  Q32d    sạch     Pexels người nhận diện được, lời và chữ trung tính
+ĐÚNG  Q32d    bắt lỗi  Pexels người nhận diện được + chú thích "went bankrupt" (bad light)
+ĐÚNG  Q32d    sạch     cùng chú thích nhưng mặt đã làm mờ (không còn nhận diện được)
+ĐÚNG  Q32d    bắt lỗi  Pixabay logo rõ nét (giấy phép cấm dùng thương mại)
+ĐÚNG  Q32d    sạch     Pixabay logo đã làm mờ
+ĐÚNG  Q32d    bắt lỗi  logo rõ nét trong khung lời thật có từ tiêu cực (clip PX-02 @7:59.79: logo rõ nét cạnh lời/chữ tiêu cực: layoffs)
+ĐÚNG  Q32e    sạch     repo chỉ có sổ CSV và mã: ĐẠT
+ĐÚNG  Q32e    bắt lỗi  clip commit vào channel-k2/k2x-ep01/footage/PX-01.mp4
+ĐÚNG  Q32e    bắt lỗi  clip LoC commit dưới tên khác (assets/k2/x.bin): bắt theo SHA của sổ
+ĐÚNG  Q32e    bắt lỗi  SHA sổ truyền trực tiếp (sổ chưa commit)
+ĐÚNG  Q32e    sạch     repo cine-lab hiện tại (main): không có media footage nguồn ngoài
+ĐÚNG  Q32f    bắt lỗi  đoạn footage không khai p.setting
+ĐÚNG  Q32f    sạch     Q26b gán nhãn footage theo p.setting: ['ep07/airfield', 'ft/langley-room', 'ft/modern-office', 'ft/server-room']
+ĐÚNG  Q32f    sạch     LOC-01 (3,34 s) khai cùng nơi với cảnh đinh air_hook → cộng vào bối cảnh đó: 15.3 % → 15.9 % (+0.54 %)
+ĐÚNG  Q32f    bắt lỗi  footage cùng nội dung "ft/steel-mill" phủ mọi plate → Q26b TRƯỢT (> 25 %, > 90 s)
+ĐÚNG  Q32f    sạch     tương thích: footage là cảnh toàn khung (Q16) và hình vật chất (Q29)
 
-selftest LL v3: 214/214 ca đúng kỳ vọng
+selftest LL v3: 249/249 ca đúng kỳ vọng
