@@ -22,6 +22,9 @@ def seg_words(sg):
 
 
 def heroes_plan(E, TL):
+    # chặn shot sai thứ tự (G2 K2G-01: "@by"/"@question" khớp nhầm lần xuất hiện đầu → thẻ số neo không hiện)
+    bad = [f"{sg['id']}/{i}" for kind in ('segments', 'shorts') for sg in TL[kind] for i, sh in enumerate(sg['shots']) if sh['t1'] <= sh['t0'] + 0.3]
+    if bad: raise SystemExit('Shot sai thứ tự hoặc < 0,3 s (mốc "@từ" khớp nhầm lần xuất hiện? dùng #n): ' + ', '.join(bad))
     HZ = E.get('heroes') or {}
     if not HZ: return
     code = b''.join(open(os.path.join(REPO, f), 'rb').read() for f in CODE)

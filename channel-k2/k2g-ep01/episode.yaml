@@ -2808,7 +2808,7 @@ segments:
         unit: China's exports of steel products, 2025
         at: '@thirty-one'
   - tpl: plate
-    at: '@by-0.3'
+    at: '@by#2-0.3'
     in: fade
     p:
       hero: t_both
@@ -2823,7 +2823,7 @@ segments:
         - label: 'China: exports'
           num: cnexp
           text: 131.2 Mt
-          at: '@by'
+          at: '@by#2'
         - label: 'U.S.: crude output'
           num: us2025
           text: 81.9 Mt
@@ -3564,8 +3564,13 @@ segments:
       cap:
       - s: 'Since 2018: hard limits on steel imports, from Washington and, with its own measures, Brussels'
         at: '@limits'
+        src:
+        - P9705
+        - EU1384
       - s: As of Oct 2026, Washington treats it as a security question
         at: '@security'
+        src:
+        - P11032
   - tpl: plate
     at: '@tariffs-0.3'
     in: fade
@@ -3603,7 +3608,7 @@ segments:
       gain_db: -22
       fade_ms: 800
   - tpl: plate
-    at: '@question-0.6'
+    at: '@question#2-0.6'
     in: fade
     p:
       hero: v_open

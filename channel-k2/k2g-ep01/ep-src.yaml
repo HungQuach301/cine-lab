@@ -322,8 +322,8 @@ segments:
            cap: [{s: "Output that can't be absorbed at home is typically exported at low prices (OECD)", at: "@exported", src: [OECD]}, {s: "Our read: an echo of the old link between steel and national strength", at: "@echoes"}]},
          sfx: [{file: assets/k2/sfx/container-terminal.mp3, at: "@it", src_ss: 50, dur: 9, gain_db: -24, fade_ms: 900}]}
       - {tpl: plate, at: "@separately-0.3", in: fade, p: {hero: t_08, frame0: 700, speed: 0.35, card: {type: num, kicker: "OECD · RECORD", num: cnexp, big: "131.2 Mt", unit: "China's exports of steel products, 2025", at: "@thirty-one"}}}
-      - {tpl: plate, at: "@by-0.3", in: fade, p: {hero: t_both, frame0: 160, speed: 0.35, card: {type: bars, kicker: "OUR CALCULATION · BY WEIGHT, 2025", title: "Different measures, same year and unit", max: 150,
-           items: [{label: "China: exports", num: cnexp, text: "131.2 Mt", at: "@by"}, {label: "U.S.: crude output", num: us2025, text: "81.9 Mt", at: "@united", c: "#9AA7B5", echo: true}],
+      - {tpl: plate, at: "@by#2-0.3", in: fade, p: {hero: t_both, frame0: 160, speed: 0.35, card: {type: bars, kicker: "OUR CALCULATION · BY WEIGHT, 2025", title: "Different measures, same year and unit", max: 150,
+           items: [{label: "China: exports", num: cnexp, text: "131.2 Mt", at: "@by#2"}, {label: "U.S.: crude output", num: us2025, text: "81.9 Mt", at: "@united", c: "#9AA7B5", echo: true}],
            note: "Exports and crude output are different measures.", noteAt: "@though"}}}
       - {tpl: plate, at: "@finding-0.8", in: fade, p: {hero: t_08, frame0: 820, speed: 0.35, card: {type: num, kicker: "OECD FINDING · 2024 · MEDIAN", num: subs15, big: "≈ 15×", unit: "subsidies relative to assets: Chinese steel firms", at: "@fifteen",
            beats: [{s: "vs. firms in “other partner economies and OECD Member countries”, in the OECD's words", at: "@other"}]}}}
@@ -429,12 +429,12 @@ segments:
            labels: [{a: ore, s: "ore", at: "@ore", dy: -110}, {a: coke, s: "coke", at: "@coke", dy: 120, dx: 100, c: "#F2C14E"}, {a: lime, s: "limestone", at: "@limestone", dy: -120, dx: 160, c: "#9AA7B5"}, {a: pitt, s: "railroads · river", at: "@railroads", dy: -160, dx: -200, c: "#EEF1F4"}],
            cap: [{s: "Our read: the mechanism under all three layers", at: "@read"}, {s: "1880s: power meant controlling the cheapest path from rock to rail", at: "@controlling", src: []}, {s: "Carnegie's firm secured a key piece: the coke", at: "@secured"}]},
          sfx: [{file: assets/k2/sfx/train-1912.mp3, at: 0, src_ss: 50, dur: 9, gain_db: -24, fade_ms: 900}]}
-      - {tpl: plate, at: "@since-0.3", in: fade, p: {hero: t_both, frame0: 400, cap: [{s: "Since 2018: hard limits on steel imports, from Washington and, with its own measures, Brussels", at: "@limits"}, {s: "As of Oct 2026, Washington treats it as a security question", at: "@security"}]}}
+      - {tpl: plate, at: "@since-0.3", in: fade, p: {hero: t_both, frame0: 400, cap: [{s: "Since 2018: hard limits on steel imports, from Washington and, with its own measures, Brussels", at: "@limits", src: [P9705, EU1384]}, {s: "As of Oct 2026, Washington treats it as a security question", at: "@security", src: [P11032]}]}}
       - {tpl: plate, at: "@tariffs-0.3", in: fade, p: {hero: m_uss, frame0: 120, cap: [{s: "Tariffs and quotas: terms for who sells steel across a border", at: "@quotas"}, {s: "A golden share: terms for some decisions inside one company", at: "@golden"}]},
          sfx: [{file: assets/k2/sfx/hot-rolling.mp3, at: "@tariffs", src_ss: 50, dur: 10, gain_db: -24, fade_ms: 900}]}
       - {tpl: plate, at: "@different-1.0", in: fade, p: {hero: p_eu, frame0: 160, cap: [{s: "A carbon price doesn't own anything", at: "@own"}, {s: "It's a toll, and a toll changes which paths are cheapest", at: "@toll"}]},
          sfx: [{file: assets/k2/sfx/gantry-crane.mp3, at: "@different-1.0", src_ss: 10, dur: 9, gain_db: -22, fade_ms: 800}]}
-      - {tpl: plate, at: "@question-0.6", in: fade, p: {hero: v_open, frame0: 60, speed: 0.35, card: {type: path, kicker: "ONE QUESTION",
+      - {tpl: plate, at: "@question#2-0.6", in: fade, p: {hero: v_open, frame0: 60, speed: 0.35, card: {type: path, kicker: "ONE QUESTION",
            nodes: [{s: "Rock", at: -1}, {s: "Furnace", at: -1}, {s: "Rail and port", at: -1}, {s: "Border", at: -1}, {s: "Market", at: -1}],
            tolls: [{i: 3, s: "toll", at: "@sets#2", below: 1}], q: [{s: "Who controls the path?", at: "@controls"}, {s: "And who sets the toll?", at: "@sets#2"}]}}}
 
