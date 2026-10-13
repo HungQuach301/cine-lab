@@ -26,9 +26,9 @@ segments:
     p:
       hero: c_lot
       tags:
-      - {a: parking, s: 2 spaces per home, sub: 'most common parking rule, Colorado', at: 2.6, side: right, c: '#F08A4B', num: c14}
+      - {a: parking, s: 2 spaces per home, sub: 'most common parking rule, Colorado', at: 2.6, side: right, gap: 60, c: '#F08A4B', num: c14}
       cap:
-      - {s: 'On a small lot, every parking space is room the building can’t use (illustration)', at: 0.5}
+      - {s: 'On a small lot, parking takes room from the building (illustration)', at: 0.5}
       src: 'Source: National Zoning Atlas, Zoning Report: Colorado (2025) · 3D illustration, not to scale'
   - tpl: plate
     at: 5
@@ -59,7 +59,7 @@ segments:
     p:
       hero: c_bank
       tags:
-      - {a: line, s: '4', sub: 'single-family = 1–4 homes', big: true, kind: actual, at: 11.6, side: up, c: '#F08A4B', num: c26}
+      - {a: line, s: '4', sub: 'single-family = 1–4 homes', big: true, kind: actual, at: 11.6, side: left, gap: 70, c: '#F08A4B', num: c26}
       - {a: s5, s: 5+ homes, sub: multifamily, at: 14.2, side: right, c: '#9AA7B5', num: c26}
       cap:
       - {s: 'In housing finance, one number draws a line: four', at: 11.3}

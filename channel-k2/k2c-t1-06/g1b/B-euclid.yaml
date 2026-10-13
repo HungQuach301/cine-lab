@@ -19,8 +19,8 @@ heroes:
       cam:
       - {t: 0, lon: -70, lat: 30, alt: 24, tilt: 0, mm: 35}
       - {t: 1.6, lon: -76, lat: 36, alt: 12, tilt: 10, mm: 35}
-      - {t: 4.4, lon: -81.6, lat: 41.05, alt: 0.6, tilt: 38, head: 0, mm: 35}
-      - {t: 6.5, lon: -81.62, lat: 41.28, alt: 0.45, tilt: 40, head: 4, mm: 35}
+      - {t: 4.4, lon: -81.6, lat: 40.95, alt: 0.75, tilt: 38, head: 0, mm: 35}
+      - {t: 6.5, lon: -81.62, lat: 41.2, alt: 0.6, tilt: 40, head: 4, mm: 35}
   b_hoover: {hero: photo/print, cam: push, opt: {img: /cache/loc-hoover-1928.jpg, focus: [0.53, 0.3], push: 0.24}}
   b_doc:
     hero: photo/doc
@@ -99,7 +99,7 @@ segments:
       - {a: u1, s: U-1, sub: single-family houses only, at: 14.2, side: up, c: '#3CC2B0'}
       - {a: u2, s: U-2, sub: + two-family homes, at: 14.9, side: up, c: '#7fb8a8'}
       - {a: u3, s: U-3, sub: + apartment houses, at: 15.6, side: up, c: '#c9a24a'}
-      - {a: u4, s: U-4, sub: + retail stores and shops, at: 16.3, side: up, c: '#F08A4B'}
+      - {a: u4, s: U-4, sub: + retail stores and shops, at: 16.3, side: right, gap: 50, c: '#F08A4B'}
       - {a: probe, s: Shop with apartments above, sub: fits none of the first three tiers, at: 17.6, side: down, c: '#E0564B'}
       cap:
       - {s: 'Euclid’s zoning tiers, as described in the Court’s opinion (illustration)', at: 14.0}

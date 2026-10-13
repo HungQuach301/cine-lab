@@ -96,11 +96,11 @@ segments:
     p:
       hero: a_sec
       tags:
-      - {a: shop, s: Shop, sub: ground floor, at: 22.2, side: left, c: '#F2C14E'}
-      - {a: apt3, s: Apartments, sub: two or three floors above, at: 22.8, side: left, c: '#3CC2B0'}
-      - {a: stair, s: One staircase, at: 23.6, side: right, c: '#F08A4B'}
+      - {a: shop, s: Shop, sub: ground floor, at: 22.2, side: right, c: '#F2C14E'}
+      - {a: apt4, s: Apartments, sub: two or three floors above, at: 22.8, side: right, gap: 60, c: '#3CC2B0'}
+      - {a: stair, s: One staircase, at: 23.6, side: left, gap: 60, c: '#F08A4B'}
       cap:
-      - {s: 'The classic corner building (3D illustration)', at: 21.4}
+      - {s: 'The classic corner building (illustration)', at: 21.4}
 numbers:
   c01: {v: 7.54, text: about 1 in 13 (7.5%), kind: actual, year: 2024, unit: '%', src: ACS24, say: about one in thirteen}
   c02: {v: 1.07, text: about 1 in 100 (1.1%), kind: actual, year: 2025, unit: '%', src: NRC, say: about one in a hundred}
