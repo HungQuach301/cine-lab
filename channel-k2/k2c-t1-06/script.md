@@ -1,7 +1,8 @@
-# K2C-T1-06 "Apartments" — lời ứng viên KHOÁ v8.1 (G1a, khoá ứng viên 12/10/2026 — chờ chủ dự án duyệt)
+# K2C-T1-06 "Apartments" — lời KHOÁ v8.1 (chủ dự án duyệt G1a 12/10/2026) + sửa 1 từ ở G2 (13/10, chờ chủ dự án xác nhận)
 
 > Tiếng Anh, giọng Eric. Mỗi đoạn có mã `[NN PART]`. Mã claim `{C..}` trỏ tới `claims.md` (người đọc mù không thấy mã).
 > Mốc "as of": **12 October 2026**. Trên hình: dòng "Facts as of 12 Oct 2026" ở mọi khung về luật, mã xây dựng, cải cách.
+> G2 (13/10/2026, phiên P): đoạn 10 thêm một từ "many" ("Colorado requires many cities of 100,000 people or more…") sau khi đọc toàn văn HB25-1273 bản ký: "subject jurisdiction" = đô thị ≥ 100 000 dân **và** có đơn vị cứu hoả được kiểm định CFAI + đạt yêu cầu xe thang (§31-15-605(6)(e)); câu cũ bao quá rộng. Không thêm câu. Chờ chủ dự án xác nhận.
 > v8 → v8.1: chỉ áp minor đổi chữ của REVIEWER vòng 8 (0 major) + câu tóm tắt "bank line" ở đoạn 07 theo đúng chữ sửa của REVIEWER lượt kiểm v8.1 (1 major, không phát sinh từ minor) + 4 minor đổi chữ của lượt kiểm đó (06, 07, 09, 10). Lịch sử v1–v8: `script-v1.md` … `script-v8.md`, `TAP-K2C-T1-06-G1a.md` §4.; v5 → v6 theo REVIEWER vòng 5 (2 major); v4 → v5 theo REVIEWER vòng 4 (5 major); v3 → v4 theo người đọc mù vòng 3 và REVIEWER vòng 3, xem `TAP-K2C-T1-06-G1a.md` §4.
 
 [00 HOOK]
@@ -89,7 +90,7 @@ So where are these buildings legal again? As of October 12, 2026:
 
 New York City's "City of Yes" plan, approved by the City Council on December 5, 2024, re-legalized housing above shops on commercial streets in all its low-density districts — two to four stories of homes over a ground-floor business. In the Department of City Planning's final plan, the new "missing middle" buildings are meant to match the scale of existing buildings that had been "functionally banned by zoning." {C45} Oregon's 2019 law requires cities of 25,000 people or more to allow duplexes through fourplexes, townhouses and cottage clusters in areas zoned for detached single-family homes. {C46} Washington's 2023 law requires many cities to allow at least two to six homes per lot, depending on city size and distance to major transit. {C47}
 
-On stairs: Texas lets its cities allow single-stair buildings up to six stories, with at most four homes per floor, since September 2025. {C50} Colorado requires cities of 100,000 people or more to allow five-story single-stair apartment buildings by December 1, 2027. {C51}
+On stairs: Texas lets its cities allow single-stair buildings up to six stories, with at most four homes per floor, since September 2025. {C50} Colorado requires many cities of 100,000 people or more to allow five-story single-stair apartment buildings by December 1, 2027. {C51}
 
 And the lending line is still four. {C26}
 

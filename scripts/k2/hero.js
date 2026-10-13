@@ -10,6 +10,21 @@ const CACHE = process.env.K2V_CACHE || '/var/tmp/cine-out/k2v-cache';   // tài 
 const PAGE = fs.existsSync(path.join(ROOT, 'k2v', String(arg('hero', '')).split('/')[0] + '.js')) ? 'k2v' : 'll-hero';
 const W = +arg('w', 1920), H = +arg('h', 1080), OUT = path.resolve(arg('out')), DUR = +arg('dur', 6), N = Math.ceil(DUR * 24);
 const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
+// FOOTAGE nguồn ngoài (K2C-T1-06, 13/10/2026): --hero footage/clip, opt {file: '<đường dẫn tệp clip ngoài git>', sha256, ss (giây trong clip), crop?, eq?}
+// → trích khung 24 fps đúng độ dài cảnh bằng ffmpeg (không qua hậu kỳ 3D: giữ màu gốc, không ACES/grain). Kiểm SHA-256 tệp trước khi dùng (QUAN-TRI-RUI-RO §6, luật K Q32a).
+if (String(arg('hero', '')).startsWith('footage/')) {
+  const o = JSON.parse(arg('opt', '{}')); fs.mkdirSync(OUT, { recursive: true });
+  const buf = fs.readFileSync(o.file), sha = require('crypto').createHash('sha256').update(buf).digest('hex');
+  if (o.sha256 && sha !== o.sha256) { console.error(`LỖI SHA footage ${o.file}: ${sha} ≠ sổ ${o.sha256}`); process.exit(4); }
+  const vf = [o.crop ? `crop=${o.crop}` : null, `scale=${W}:${H}:force_original_aspect_ratio=increase:flags=lanczos`, `crop=${W}:${H}`, 'fps=24', o.eq ? `eq=${o.eq}` : null].filter(Boolean).join(',');
+  const t0 = Date.now(); const r = require('child_process').spawnSync('ffmpeg', ['-nostdin', '-v', 'error', '-y', '-ss', String(o.ss || 0), '-i', o.file, '-t', String(DUR), '-vf', vf, '-frames:v', String(N), '-q:v', '2', '-start_number', '0', path.join(OUT, '%05d.jpg')]);
+  if (r.status) { console.error(String(r.stderr)); process.exit(5); }
+  const got = fs.readdirSync(OUT).filter((f) => /^\d{5}\.jpg$/.test(f)).length;
+  if (got < N) { console.error(`LỖI footage: clip ngắn hơn cảnh (${got}/${N} khung) — giảm độ dài shot hoặc ss`); process.exit(6); }
+  fs.writeFileSync(path.join(OUT, 'anchors.json'), '{}');
+  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), frames: N, dur: DUR, w: W, h: H, spp: 1, footage: { file: path.basename(o.file), sha256: sha, ss: o.ss || 0 }, s_per_frame: +((Date.now() - t0) / 1000 / N).toFixed(3) }));
+  console.error(`[hero footage] ${N} khung từ ${path.basename(o.file)} @${o.ss || 0}s`); process.exit(0);
+}
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });

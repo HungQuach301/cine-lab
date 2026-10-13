@@ -1,0 +1,103 @@
+# K2C-T1-06 "Apartments" — ĐẶC TẢ NGUỒN (sửa ở đây; make_spec.py ghép cảnh từ ep-src-heroes.yaml + lời khoá ứng viên v8.1 nguyên văn từ script.md → episode.yaml).
+# Mẫu duy nhất `plate` (scripts/k2/lib/k2.js): nền cảnh (rõ) + nhãn bám vật thể (tags/places) + dải chú thích (cap) + tựa (title); thẻ (card) trên nền cảnh mờ = bối cảnh `the` (Q26b).
+# Khai cho luật K (checks 1.10.1): mỗi shot `type`; ảnh/biểu đồ/văn bản khai scene_id riêng (mỗi ảnh, mỗi bộ số là một bối cảnh); places/people/anchors cấp tập (Q34).
+# Mọi số trên hình khai `num` (numbers) hoặc nguồn ở `src`. "@từ" = mốc theo lời (scripts/ll/ll.py anchor; #n = lần thứ n trong đoạn).
+id: k2c-t1-06
+title: "Why Did America Almost Stop Building Small Buildings Like This?"
+out: /var/tmp/cine-out/k2c-t1-06
+vo_dir: channel-k2/k2c-t1-06/vo
+voice: {id: cjVigY5qzO86Huf0OWal, model: eleven_multilingual_v2, stability: 0.5, similarity: 0.75}
+music:   # RIGHTS.md K2-MUS-1…5 (CC BY 4.0, ghi công trong mô tả); mỗi bài dùng một lần, bài chủ đề mở/đóng vòng (ss khác)
+  - {file: assets/k2/music/Half-Mystery.mp3, from: "00", ss: 0, gain_db: -1}
+  - {file: assets/k2/music/Beauty-Flow.mp3, from: "02", ss: 0, xfade: 3, gain_db: -2}
+  - {file: assets/k2/music/Sincerely.mp3, from: "04", ss: 0, xfade: 3, gain_db: -2}
+  - {file: assets/k2/music/Tyrant.mp3, from: "06", ss: 0, xfade: 3, gain_db: -3}
+  - {file: assets/k2/music/Lightless-Dawn.mp3, from: "08", ss: 0, xfade: 3, gain_db: -2}
+  - {file: assets/k2/music/Half-Mystery.mp3, from: "11", ss: 200, xfade: 3, gain_db: -1}
+
+places: ["Euclid, Ohio", Cleveland, Colorado, Seattle, California, Minnesota, Minneapolis, Chicago, "Auckland, New Zealand", New York City, Oregon, Texas, Los Angeles, San Diego]
+people:
+  - {name: Herbert Hoover, photo: WM-HOOVER-1928}
+  - {name: George Sutherland, photo: WM-SUTHERLAND-1937}
+  - {name: Yonah Freemark, ly_do: "Living researcher; no licensed photo checked. Name and study shown on screen only (LUAT-NOI-DUNG-G §6)."}
+anchors: [c01, c02, c03, c05, c08, c09, c12, c14, c15, c16, c18, c20, c25, c26, c34, c35, c36, c39, c41, c44, c53, c57, c60, c63]
+
+sources:
+  ACS24: {short: "Census ACS 2024 (B25024, B25127)", url: "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b25024.dat", read: fulltext, accessed: 2026-10-12}
+  NRC: {short: "Census New Residential Construction (completions)", url: "https://www.census.gov/construction/nrc/xls/comps_cust.xlsx", read: fulltext, accessed: 2026-10-12}
+  CNH: {short: "Census Characteristics of New Housing (multifamily)", url: "https://www.census.gov/construction/chars/xls/mfu_unitsperbldg_cust.xls", read: fulltext, accessed: 2026-10-12}
+  SSZEA: {short: "A Standard State Zoning Enabling Act (rev. ed., 1926)", url: "https://nvlpubs.nist.gov/nistpubs/Legacy/BH/nbsbuildinghousing5a.pdf", read: fulltext, accessed: 2026-10-12}
+  EUCLID: {short: "Euclid v. Ambler Realty, 272 U.S. 365 (1926)", url: "https://tile.loc.gov/storage-services/service/ll/usrep/usrep272/usrep272365/usrep272365.pdf", read: fulltext, accessed: 2026-10-12}
+  NZACO: {short: "National Zoning Atlas, Zoning Report: Colorado (2025)", url: "https://www.zoningatlas.org/s/Colorado-Report-Updated-a32l.pdf", read: fulltext, accessed: 2026-10-12}
+  IBCSEA: {short: "Seattle Building Code 2021, Ch. 10 (IBC 2021 text)", url: "https://www.seattle.gov/documents/Departments/SDCI/Codes/SeattleBuildingCode/2021SBCChapter10.pdf", read: fulltext, accessed: 2026-10-12}
+  WABO: {short: "Washington Assn. of Building Officials, proposal 24-SEP-001 (Aug 2024)", url: "https://sbcc.wa.gov/sites/default/files/2025-03/24-SEP-001.pdf", read: fulltext, accessed: 2026-10-12}
+  PEW25: {short: "Pew Charitable Trusts with CBNA, report summary (2025)", url: "https://www.pew.org/-/media/assets/2025/05/single-stair_report_summary.pdf", read: fulltext, accessed: 2026-10-12}
+  IAFC: {short: "International Association of Fire Chiefs (Mar 2024)", url: "https://www.iafc.org/blogs/blog/iafc/2024/03/15/reducing-stairs-in-residential-buildings-higher-than-three-stories-creates-escape-hazards-for-occupants-and-inhibits-vital-emergency-response-operat", read: fulltext, accessed: 2026-10-12}
+  IAFFJS: {short: "IAFF & Metropolitan Fire Chiefs, joint statement (undated)", url: "https://iaff.org/wp-content/uploads/2024/06/JointStatement.pdf", read: fulltext, accessed: 2026-10-12}
+  CALFIRE: {short: "CAL FIRE – State Fire Marshal, report to the Legislature (AB 835)", url: "https://osfm.fire.ca.gov/", read: fulltext, accessed: 2026-10-12}
+  MNDLI: {short: "WJE & Crux for Minnesota DLI (Dec 2025)", url: "https://www.lrl.mn.gov/docs/2025/mandated/251989.pdf", read: fulltext, accessed: 2026-10-12}
+  ICCBSJ: {short: "ICC Building Safety Journal (Jun 2026)", url: "https://www.iccsafe.org/building-safety-journal/bsj-hits/middle-housing-updates-resources-and-the-road-to-2030/", read: fulltext, accessed: 2026-10-12}
+  CFR1282: {short: "12 CFR §1282.1 (FHFA)", url: "https://www.ecfr.gov/current/title-12/chapter-XII/subchapter-E/part-1282/subpart-A/section-1282.1", read: fulltext, accessed: 2026-10-12}
+  FNMA: {short: "Fannie Mae Selling Guide B2-3-01, B2-3-04", url: "https://selling-guide.fanniemae.com/sel/b2-3-01/general-property-eligibility", read: fulltext, accessed: 2026-10-12}
+  HUD4000: {short: "HUD Handbook 4000.1 (FHA)", url: "https://www.hud.gov/sites/default/files/Housing/documents/40001-hsgh-Update-18.pdf", read: fulltext, accessed: 2026-10-12}
+  TERNER24: {short: "Terner Center, Making Missing Middle Pencil (2024)", url: "https://ternercenter.berkeley.edu/wp-content/uploads/2024/06/Missing-Middle-Development-Math-Final-June-2024.pdf", read: fulltext, accessed: 2026-10-12}
+  MPLSFED: {short: "Federal Reserve Bank of Minneapolis (Oct 2026)", url: "https://www.minneapolisfed.org/article/2026/minneapolis-2040-plan-indicators-point-to-stable-rents-stalled-development", read: fulltext, accessed: 2026-10-12}
+  TERNER23: {short: "Terner Center, SB 9 Turns One (2023)", url: "https://ternercenter.berkeley.edu/research-and-policy/sb-9-turns-one-applications/", read: fulltext, accessed: 2026-10-12}
+  FREEMARK: {short: "Freemark, Upzoning Chicago, Urban Affairs Review (2019)", url: "https://doi.org/10.1177/1078087418824672", read: fulltext, accessed: 2026-10-12}
+  STACY: {short: "Stacy et al., Urban Studies (2023), abstract", url: "https://www.Gwern.net/doc/economics/georgism/2023-stacy.pdf", read: fulltext, accessed: 2026-10-13}
+  AKL: {short: "Greenaway-McGrevy & Phillips, Univ. of Auckland WP (2023)", url: "https://www.auckland.ac.nz/en/business/our-research/research-institutes-centres/economic-policy-centre.html", read: fulltext, accessed: 2026-10-12}
+  NYCDCP: {short: "NYC Dept. of City Planning, City of Yes final plan", url: "https://www.nyc.gov/assets/planning/download/pdf/plans-studies/city-of-yes/housing-opportunity/city-of-yes-for-housing-opportunity_final-plan.pdf", read: fulltext, accessed: 2026-10-12}
+  ORHB2001: {short: "Oregon HB 2001 (2019)", url: "https://olis.oregonlegislature.gov/liz/2019R1/Downloads/MeasureDocument/HB2001/Enrolled", read: fulltext, accessed: 2026-10-12}
+  RCW635: {short: "RCW 36.70A.635 (Washington, 2023)", url: "https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.635", read: fulltext, accessed: 2026-10-12}
+  TXSB2835: {short: "Texas SB 2835 (2025)", url: "https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02835F.htm", read: fulltext, accessed: 2026-10-12}
+  COHB1273: {short: "Colorado HB25-1273", url: "https://leg.colorado.gov/sites/default/files/2025a_1273_signed.pdf", read: fulltext, accessed: 2026-10-13}
+  HBR1110: {short: "Washington House Bill Report HB 1110 (2023)", url: "https://lawfilesext.leg.wa.gov/biennium/2023-24/Pdf/Bill%20Reports/House/1110%20HBR%20HOUS%2023.pdf", read: fulltext, accessed: 2026-10-12}
+  NYCCC: {short: "NYC Council approval, Dec 5, 2024", url: "https://www.nyc.gov/assets/planning/download/pdf/plans-studies/city-of-yes/housing-opportunity/city-of-yes-for-housing-opportunity_final-plan.pdf", read: fulltext, accessed: 2026-10-12}
+
+numbers:
+  c01: {v: 7.54, text: "about 1 in 13", kind: actual, year: 2024, unit: '%', src: ACS24, say: "about one in thirteen", note: "11,059,123 / 146,740,964 (our calculation)"}
+  c02: {v: 1.07, text: "about 1 in 100", kind: actual, year: 2025, unit: '%', src: NRC, say: "about one in a hundred", note: "16.0 / 1,488.5 thousand (our calculation)"}
+  c03: {v: 23.2, text: "almost 1 in 4", kind: actual, year: 2024, unit: '%', src: ACS24, say: "almost a quarter", note: "2,248,479 / 9,689,275 occupied (our calculation)"}
+  c05: {v: 48, text: "48", kind: actual, year: 1921, unit: "cities and towns", src: SSZEA, say: "forty-eight"}
+  c08: {v: 4, text: "4th tier", kind: actual, year: 1926, unit: tier, src: EUCLID, say: "fourth tier"}
+  c09: {v: 6, text: "6–3", kind: actual, year: 1926, unit: votes, src: EUCLID, say: "six to three"}
+  c12: {v: 59, text: "59%", kind: actual, year: 2025, unit: '%', src: NZACO, say: "fifty-nine percent"}
+  c12b: {v: 3, text: "3%", kind: actual, year: 2025, unit: '%', src: NZACO, say: "three percent"}
+  c14: {v: 85, text: "85%", kind: actual, year: 2025, unit: '%', src: NZACO, say: "eighty-five percent"}
+  c14b: {v: 2, text: "2 spaces per home", kind: actual, year: 2025, unit: spaces, src: NZACO, say: "two spaces"}
+  c15: {v: 3, text: "up to the 3rd story", kind: actual, year: 2021, unit: stories, src: IBCSEA, say: "third story"}
+  c16: {v: 7, text: "≈ 7%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "seven percent", note: "Pew estimate"}
+  c16b: {v: 6, text: "6%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "six"}
+  c16c: {v: 13, text: "13%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "thirteen percent"}
+  c18: {v: 6, text: "up to 6 stories", kind: actual, year: 2021, unit: stories, src: IBCSEA, say: "six stories"}
+  c20: {v: 4440, text: "4,440", kind: actual, year: 2025, unit: buildings, src: PEW25, say: "4,440"}
+  c25: {v: 86, text: "86–34", kind: actual, year: 2026, unit: votes, src: ICCBSJ, say: "eighty-six to thirty-four"}
+  c25b: {v: 34, text: "34", kind: actual, year: 2026, unit: votes, src: ICCBSJ, say: "thirty-four"}
+  c26: {v: 4, text: "1–4 homes", kind: actual, year: 2026, unit: homes, src: CFR1282, say: "four"}
+  c34: {v: 57, text: "57%", kind: actual, year: 2025, unit: '%', src: CNH, say: "fifty-seven percent"}
+  c34b: {v: 20, text: "1 in 5", kind: actual, year: 1972, unit: '%', src: CNH, say: "one in five"}
+  c35: {v: 48, text: "≈ 48,000", kind: actual, year: 2025, unit: homes, src: CNH, say: "48,000", note: "5–9 + 10–19 units (our sum)"}
+  c35b: {v: 377, text: "377,000", kind: actual, year: 1973, unit: homes, src: CNH, say: "377,000", note: "5–9 + 10–19 units (our sum)"}
+  c36: {v: 5.91, text: "≈ 5.9%", kind: actual, year: 1972, unit: '%', src: NRC, say: "almost six percent", note: "1970–74 pooled (our calculation)", period: "1970–74"}
+  c36b: {v: 1.07, text: "≈ 1.1%", kind: actual, year: 2025, unit: '%', src: NRC, say: "just over one percent"}
+  c39: {v: 317, text: "317", kind: actual, year: 2025, unit: units, src: MPLSFED, say: "317", period: "2020–2025"}
+  c41: {v: 211, text: "211", kind: actual, year: 2022, unit: applications, src: TERNER23, say: "211"}
+  c41b: {v: 7, text: "7", kind: actual, year: 2022, unit: applications, src: TERNER23, say: "seven"}
+  c43: {v: 0.8, text: "≈ +0.8%", kind: actual, year: 2023, unit: '%', src: STACY, say: "0.8 percent", period: "3–9 years"}
+  c44: {v: 21800, text: "≈ 21,800", kind: actual, year: 2023, unit: homes, src: AKL, say: "21,800", note: "about 4% of the housing stock"}
+  c53: {v: 11.06, text: "≈ 11.1 million", kind: actual, year: 2024, unit: homes, src: ACS24, say: "about eleven million"}
+  c53b: {v: 81.9, text: "> 8 in 10", kind: actual, year: 2024, unit: '%', src: ACS24, say: "more than eight in ten", note: "of occupied homes in 2–4-unit buildings (our calculation)"}
+  c57: {v: 10, text: "≈ +10%", kind: actual, year: 2024, unit: '%', src: TERNER24, say: "roughly ten percent", note: "Terner estimate, California"}
+  c60: {v: 16, text: "16,000", kind: actual, year: 2025, unit: homes, src: NRC, say: "16,000"}
+  c60a: {v: 86.1, text: "≈ 86,000", kind: actual, year: 1986, unit: homes, src: NRC, say: "86,000"}
+  c60b: {v: 44.8, text: "≈ 45,000", kind: actual, year: 1990, unit: homes, src: NRC, say: "45,000"}
+  c60c: {v: 40.8, text: "≈ 41,000", kind: actual, year: 2006, unit: homes, src: NRC, say: "41,000"}
+  c60d: {v: 8.9, text: "≈ 9,000", kind: actual, year: 2010, unit: homes, src: NRC, say: "9,000"}
+  c63: {v: 67.5, text: "≈ 68%", kind: actual, year: 2025, unit: '%', src: NRC, say: "sixty-eight percent", note: "our calculation"}
+  c63b: {v: 57.09, text: "≈ 57%", kind: actual, year: 1972, unit: '%', src: NRC, say: "fifty-seven percent", period: "1970–74", note: "1970–74 pooled (our calculation)"}
+  c46: {v: 25000, text: "≥ 25,000 people", kind: actual, year: 2019, unit: people, src: ORHB2001, say: "25,000"}
+  c47: {v: 6, text: "2–6 homes per lot", kind: actual, year: 2023, unit: homes, src: RCW635, say: "two to six"}
+  c50: {v: 6, text: "up to 6 stories", kind: actual, year: 2025, unit: stories, src: TXSB2835, say: "six stories"}
+  c51: {v: 5, text: "5 stories by Dec 1, 2027", kind: actual, year: 2025, unit: stories, src: COHB1273, say: "five-story"}
+
+segments: "@segments"

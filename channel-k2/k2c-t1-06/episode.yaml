@@ -1,0 +1,4843 @@
+# TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + script.md (lời khoá ứng viên v8.1). Sửa ep-src.yaml, không sửa tệp này.
+id: k2c-t1-06
+title: Why Did America Almost Stop Building Small Buildings Like This?
+out: /var/tmp/cine-out/k2c-t1-06
+vo_dir: channel-k2/k2c-t1-06/vo
+voice:
+  id: cjVigY5qzO86Huf0OWal
+  model: eleven_multilingual_v2
+  stability: 0.5
+  similarity: 0.75
+music:
+- file: assets/k2/music/Half-Mystery.mp3
+  from: '00'
+  ss: 0
+  gain_db: -1
+- file: assets/k2/music/Beauty-Flow.mp3
+  from: '02'
+  ss: 0
+  xfade: 3
+  gain_db: -2
+- file: assets/k2/music/Sincerely.mp3
+  from: '04'
+  ss: 0
+  xfade: 3
+  gain_db: -2
+- file: assets/k2/music/Tyrant.mp3
+  from: '06'
+  ss: 0
+  xfade: 3
+  gain_db: -3
+- file: assets/k2/music/Lightless-Dawn.mp3
+  from: 08
+  ss: 0
+  xfade: 3
+  gain_db: -2
+- file: assets/k2/music/Half-Mystery.mp3
+  from: '11'
+  ss: 200
+  xfade: 3
+  gain_db: -1
+places:
+- Euclid, Ohio
+- Cleveland
+- Colorado
+- Seattle
+- California
+- Minnesota
+- Minneapolis
+- Chicago
+- Auckland, New Zealand
+- New York City
+- Oregon
+- Texas
+- Los Angeles
+- San Diego
+people:
+- name: Herbert Hoover
+  photo: WM-HOOVER-1928
+- name: George Sutherland
+  photo: WM-SUTHERLAND-1937
+- name: Yonah Freemark
+  ly_do: Living researcher; no licensed photo checked. Name and study shown on screen only (LUAT-NOI-DUNG-G §6).
+anchors:
+- c01
+- c02
+- c03
+- c05
+- c08
+- c09
+- c12
+- c14
+- c15
+- c16
+- c18
+- c20
+- c25
+- c26
+- c34
+- c35
+- c36
+- c39
+- c41
+- c44
+- c53
+- c57
+- c60
+- c63
+sources:
+  ACS24:
+    short: Census ACS 2024 (B25024, B25127)
+    url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b25024.dat
+    read: fulltext
+    accessed: 2026-10-12
+  NRC:
+    short: Census New Residential Construction (completions)
+    url: https://www.census.gov/construction/nrc/xls/comps_cust.xlsx
+    read: fulltext
+    accessed: 2026-10-12
+  CNH:
+    short: Census Characteristics of New Housing (multifamily)
+    url: https://www.census.gov/construction/chars/xls/mfu_unitsperbldg_cust.xls
+    read: fulltext
+    accessed: 2026-10-12
+  SSZEA:
+    short: A Standard State Zoning Enabling Act (rev. ed., 1926)
+    url: https://nvlpubs.nist.gov/nistpubs/Legacy/BH/nbsbuildinghousing5a.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  EUCLID:
+    short: Euclid v. Ambler Realty, 272 U.S. 365 (1926)
+    url: https://tile.loc.gov/storage-services/service/ll/usrep/usrep272/usrep272365/usrep272365.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  NZACO:
+    short: 'National Zoning Atlas, Zoning Report: Colorado (2025)'
+    url: https://www.zoningatlas.org/s/Colorado-Report-Updated-a32l.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  IBCSEA:
+    short: Seattle Building Code 2021, Ch. 10 (IBC 2021 text)
+    url: https://www.seattle.gov/documents/Departments/SDCI/Codes/SeattleBuildingCode/2021SBCChapter10.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  WABO:
+    short: Washington Assn. of Building Officials, proposal 24-SEP-001 (Aug 2024)
+    url: https://sbcc.wa.gov/sites/default/files/2025-03/24-SEP-001.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  PEW25:
+    short: Pew Charitable Trusts with CBNA, report summary (2025)
+    url: https://www.pew.org/-/media/assets/2025/05/single-stair_report_summary.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  IAFC:
+    short: International Association of Fire Chiefs (Mar 2024)
+    url: https://www.iafc.org/blogs/blog/iafc/2024/03/15/reducing-stairs-in-residential-buildings-higher-than-three-stories-creates-escape-hazards-for-occupants-and-inhibits-vital-emergency-response-operat
+    read: fulltext
+    accessed: 2026-10-12
+  IAFFJS:
+    short: IAFF & Metropolitan Fire Chiefs, joint statement (undated)
+    url: https://iaff.org/wp-content/uploads/2024/06/JointStatement.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  CALFIRE:
+    short: CAL FIRE – State Fire Marshal, report to the Legislature (AB 835)
+    url: https://osfm.fire.ca.gov/
+    read: fulltext
+    accessed: 2026-10-12
+  MNDLI:
+    short: WJE & Crux for Minnesota DLI (Dec 2025)
+    url: https://www.lrl.mn.gov/docs/2025/mandated/251989.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  ICCBSJ:
+    short: ICC Building Safety Journal (Jun 2026)
+    url: https://www.iccsafe.org/building-safety-journal/bsj-hits/middle-housing-updates-resources-and-the-road-to-2030/
+    read: fulltext
+    accessed: 2026-10-12
+  CFR1282:
+    short: 12 CFR §1282.1 (FHFA)
+    url: https://www.ecfr.gov/current/title-12/chapter-XII/subchapter-E/part-1282/subpart-A/section-1282.1
+    read: fulltext
+    accessed: 2026-10-12
+  FNMA:
+    short: Fannie Mae Selling Guide B2-3-01, B2-3-04
+    url: https://selling-guide.fanniemae.com/sel/b2-3-01/general-property-eligibility
+    read: fulltext
+    accessed: 2026-10-12
+  HUD4000:
+    short: HUD Handbook 4000.1 (FHA)
+    url: https://www.hud.gov/sites/default/files/Housing/documents/40001-hsgh-Update-18.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  TERNER24:
+    short: Terner Center, Making Missing Middle Pencil (2024)
+    url: https://ternercenter.berkeley.edu/wp-content/uploads/2024/06/Missing-Middle-Development-Math-Final-June-2024.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  MPLSFED:
+    short: Federal Reserve Bank of Minneapolis (Oct 2026)
+    url: https://www.minneapolisfed.org/article/2026/minneapolis-2040-plan-indicators-point-to-stable-rents-stalled-development
+    read: fulltext
+    accessed: 2026-10-12
+  TERNER23:
+    short: Terner Center, SB 9 Turns One (2023)
+    url: https://ternercenter.berkeley.edu/research-and-policy/sb-9-turns-one-applications/
+    read: fulltext
+    accessed: 2026-10-12
+  FREEMARK:
+    short: Freemark, Upzoning Chicago, Urban Affairs Review (2019)
+    url: https://doi.org/10.1177/1078087418824672
+    read: fulltext
+    accessed: 2026-10-12
+  STACY:
+    short: Stacy et al., Urban Studies (2023), abstract
+    url: https://www.Gwern.net/doc/economics/georgism/2023-stacy.pdf
+    read: fulltext
+    accessed: 2026-10-13
+  AKL:
+    short: Greenaway-McGrevy & Phillips, Univ. of Auckland WP (2023)
+    url: https://www.auckland.ac.nz/en/business/our-research/research-institutes-centres/economic-policy-centre.html
+    read: fulltext
+    accessed: 2026-10-12
+  NYCDCP:
+    short: NYC Dept. of City Planning, City of Yes final plan
+    url: https://www.nyc.gov/assets/planning/download/pdf/plans-studies/city-of-yes/housing-opportunity/city-of-yes-for-housing-opportunity_final-plan.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  ORHB2001:
+    short: Oregon HB 2001 (2019)
+    url: https://olis.oregonlegislature.gov/liz/2019R1/Downloads/MeasureDocument/HB2001/Enrolled
+    read: fulltext
+    accessed: 2026-10-12
+  RCW635:
+    short: RCW 36.70A.635 (Washington, 2023)
+    url: https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.635
+    read: fulltext
+    accessed: 2026-10-12
+  TXSB2835:
+    short: Texas SB 2835 (2025)
+    url: https://capitol.texas.gov/tlodocs/89R/billtext/html/SB02835F.htm
+    read: fulltext
+    accessed: 2026-10-12
+  COHB1273:
+    short: Colorado HB25-1273
+    url: https://leg.colorado.gov/sites/default/files/2025a_1273_signed.pdf
+    read: fulltext
+    accessed: 2026-10-13
+  HBR1110:
+    short: Washington House Bill Report HB 1110 (2023)
+    url: https://lawfilesext.leg.wa.gov/biennium/2023-24/Pdf/Bill%20Reports/House/1110%20HBR%20HOUS%2023.pdf
+    read: fulltext
+    accessed: 2026-10-12
+  NYCCC:
+    short: NYC Council approval, Dec 5, 2024
+    url: https://www.nyc.gov/assets/planning/download/pdf/plans-studies/city-of-yes/housing-opportunity/city-of-yes-for-housing-opportunity_final-plan.pdf
+    read: fulltext
+    accessed: 2026-10-12
+numbers:
+  c01:
+    v: 7.54
+    text: about 1 in 13
+    kind: actual
+    year: 2024
+    unit: '%'
+    src: ACS24
+    say: about one in thirteen
+    note: 11,059,123 / 146,740,964 (our calculation)
+  c02:
+    v: 1.07
+    text: about 1 in 100
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: NRC
+    say: about one in a hundred
+    note: 16.0 / 1,488.5 thousand (our calculation)
+  c03:
+    v: 23.2
+    text: almost 1 in 4
+    kind: actual
+    year: 2024
+    unit: '%'
+    src: ACS24
+    say: almost a quarter
+    note: 2,248,479 / 9,689,275 occupied (our calculation)
+  c05:
+    v: 48
+    text: '48'
+    kind: actual
+    year: 1921
+    unit: cities and towns
+    src: SSZEA
+    say: forty-eight
+  c08:
+    v: 4
+    text: 4th tier
+    kind: actual
+    year: 1926
+    unit: tier
+    src: EUCLID
+    say: fourth tier
+  c09:
+    v: 6
+    text: 6–3
+    kind: actual
+    year: 1926
+    unit: votes
+    src: EUCLID
+    say: six to three
+  c12:
+    v: 59
+    text: 59%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: NZACO
+    say: fifty-nine percent
+  c12b:
+    v: 3
+    text: 3%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: NZACO
+    say: three percent
+  c14:
+    v: 85
+    text: 85%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: NZACO
+    say: eighty-five percent
+  c14b:
+    v: 2
+    text: 2 spaces per home
+    kind: actual
+    year: 2025
+    unit: spaces
+    src: NZACO
+    say: two spaces
+  c15:
+    v: 3
+    text: up to the 3rd story
+    kind: actual
+    year: 2021
+    unit: stories
+    src: IBCSEA
+    say: third story
+  c16:
+    v: 7
+    text: ≈ 7%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: PEW25
+    say: seven percent
+    note: Pew estimate
+  c16b:
+    v: 6
+    text: 6%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: PEW25
+    say: six
+  c16c:
+    v: 13
+    text: 13%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: PEW25
+    say: thirteen percent
+  c18:
+    v: 6
+    text: up to 6 stories
+    kind: actual
+    year: 2021
+    unit: stories
+    src: IBCSEA
+    say: six stories
+  c20:
+    v: 4440
+    text: 4,440
+    kind: actual
+    year: 2025
+    unit: buildings
+    src: PEW25
+    say: 4,440
+  c25:
+    v: 86
+    text: 86–34
+    kind: actual
+    year: 2026
+    unit: votes
+    src: ICCBSJ
+    say: eighty-six to thirty-four
+  c25b:
+    v: 34
+    text: '34'
+    kind: actual
+    year: 2026
+    unit: votes
+    src: ICCBSJ
+    say: thirty-four
+  c26:
+    v: 4
+    text: 1–4 homes
+    kind: actual
+    year: 2026
+    unit: homes
+    src: CFR1282
+    say: four
+  c34:
+    v: 57
+    text: 57%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: CNH
+    say: fifty-seven percent
+  c34b:
+    v: 20
+    text: 1 in 5
+    kind: actual
+    year: 1972
+    unit: '%'
+    src: CNH
+    say: one in five
+  c35:
+    v: 48
+    text: ≈ 48,000
+    kind: actual
+    year: 2025
+    unit: homes
+    src: CNH
+    say: 48,000
+    note: 5–9 + 10–19 units (our sum)
+  c35b:
+    v: 377
+    text: 377,000
+    kind: actual
+    year: 1973
+    unit: homes
+    src: CNH
+    say: 377,000
+    note: 5–9 + 10–19 units (our sum)
+  c36:
+    v: 5.91
+    text: ≈ 5.9%
+    kind: actual
+    year: 1972
+    unit: '%'
+    src: NRC
+    say: almost six percent
+    note: 1970–74 pooled (our calculation)
+    period: 1970–74
+  c36b:
+    v: 1.07
+    text: ≈ 1.1%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: NRC
+    say: just over one percent
+  c39:
+    v: 317
+    text: '317'
+    kind: actual
+    year: 2025
+    unit: units
+    src: MPLSFED
+    say: '317'
+    period: 2020–2025
+  c41:
+    v: 211
+    text: '211'
+    kind: actual
+    year: 2022
+    unit: applications
+    src: TERNER23
+    say: '211'
+  c41b:
+    v: 7
+    text: '7'
+    kind: actual
+    year: 2022
+    unit: applications
+    src: TERNER23
+    say: seven
+  c43:
+    v: 0.8
+    text: ≈ +0.8%
+    kind: actual
+    year: 2023
+    unit: '%'
+    src: STACY
+    say: 0.8 percent
+    period: 3–9 years
+  c44:
+    v: 21800
+    text: ≈ 21,800
+    kind: actual
+    year: 2023
+    unit: homes
+    src: AKL
+    say: 21,800
+    note: about 4% of the housing stock
+  c53:
+    v: 11.06
+    text: ≈ 11.1 million
+    kind: actual
+    year: 2024
+    unit: homes
+    src: ACS24
+    say: about eleven million
+  c53b:
+    v: 81.9
+    text: '> 8 in 10'
+    kind: actual
+    year: 2024
+    unit: '%'
+    src: ACS24
+    say: more than eight in ten
+    note: of occupied homes in 2–4-unit buildings (our calculation)
+  c57:
+    v: 10
+    text: ≈ +10%
+    kind: actual
+    year: 2024
+    unit: '%'
+    src: TERNER24
+    say: roughly ten percent
+    note: Terner estimate, California
+  c60:
+    v: 16
+    text: 16,000
+    kind: actual
+    year: 2025
+    unit: homes
+    src: NRC
+    say: 16,000
+  c60a:
+    v: 86.1
+    text: ≈ 86,000
+    kind: actual
+    year: 1986
+    unit: homes
+    src: NRC
+    say: 86,000
+  c60b:
+    v: 44.8
+    text: ≈ 45,000
+    kind: actual
+    year: 1990
+    unit: homes
+    src: NRC
+    say: 45,000
+  c60c:
+    v: 40.8
+    text: ≈ 41,000
+    kind: actual
+    year: 2006
+    unit: homes
+    src: NRC
+    say: 41,000
+  c60d:
+    v: 8.9
+    text: ≈ 9,000
+    kind: actual
+    year: 2010
+    unit: homes
+    src: NRC
+    say: 9,000
+  c63:
+    v: 67.5
+    text: ≈ 68%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: NRC
+    say: sixty-eight percent
+    note: our calculation
+  c63b:
+    v: 57.09
+    text: ≈ 57%
+    kind: actual
+    year: 1972
+    unit: '%'
+    src: NRC
+    say: fifty-seven percent
+    period: 1970–74
+    note: 1970–74 pooled (our calculation)
+  c46:
+    v: 25000
+    text: ≥ 25,000 people
+    kind: actual
+    year: 2019
+    unit: people
+    src: ORHB2001
+    say: 25,000
+  c47:
+    v: 6
+    text: 2–6 homes per lot
+    kind: actual
+    year: 2023
+    unit: homes
+    src: RCW635
+    say: two to six
+  c50:
+    v: 6
+    text: up to 6 stories
+    kind: actual
+    year: 2025
+    unit: stories
+    src: TXSB2835
+    say: six stories
+  c51:
+    v: 5
+    text: 5 stories by Dec 1, 2027
+    kind: actual
+    year: 2025
+    unit: stories
+    src: COHB1273
+    say: five-story
+segments:
+- id: '00'
+  part: HOOK
+  vo: About one in thirteen American homes sits in a building with two to four apartments. Of the new homes finished in 2025, about one in a hundred did. So why did America almost stop building them? Two different Census counts — homes in the 2024 survey, homes finished in one year — and the shares are our calculation. This video explains how the system works. It isn't financial or investment advice. Facts are as of October twelfth, 2026.
+  fadeIn: 0
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/traffic-lights.mp3
+      at: 0.2
+      src_ss: 5
+      dur: 7
+      gain_db: -24
+      fade_ms: 900
+    at: 0
+    type: scene3d
+    p:
+      hero: c_wide
+      frame0: 0
+      tags:
+      - a: building
+        s: about 1 in 13
+        sub: U.S. homes are in buildings with 2–4 apartments (2024)
+        big: true
+        kind: actual
+        at: '@thirteen'
+        side: right
+        c: '#F08A4B'
+        num: c01
+      src: 'Source: Census ACS 2024 (table B25024) · share is our calculation · 3D illustration'
+  - tpl: plate
+    at: '@of-0.3'
+    type: chart3d
+    scene_id: ch_hook
+    camera_id: front-dolly
+    p:
+      hero: ch_hook
+      frame0: 0
+      tags:
+      - a: stock:top
+        s: 7.5%
+        sub: of homes standing in 2024 (survey)
+        big: true
+        kind: actual
+        at: '@of+0.6'
+        side: left
+        c: '#F08A4B'
+        num: c01
+      - a: new25:top
+        s: 1.1%
+        sub: of new homes finished in 2025
+        big: true
+        kind: actual
+        at: '@hundred'
+        side: right
+        c: '#3CC2B0'
+        num: c02
+      cap:
+      - s: Homes in buildings with 2–4 apartments
+        at: '@of'
+      src: 'Sources: Census ACS 2024 (B25024) · Census New Residential Construction · shares are our calculation'
+  - tpl: plate
+    at: '@so-0.3'
+    in:
+      type: fade
+      d: 0.6
+    type: scene3d
+    p:
+      hero: c_push
+      frame0: 0
+      title:
+        t: Why did America almost stop building them?
+        at: '@why'
+        scale: 0.6
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/city-traffic.mp3
+      at: '@different'
+      src_ss: 10
+      dur: 6
+      gain_db: -26
+      fade_ms: 700
+    at: '@different-0.6'
+    type: scene3d
+    p:
+      hero: st_block
+      frame0: 0
+      cap:
+      - s: 'Two different Census counts: homes in the 2024 survey · homes finished in one year'
+        at: '@different'
+      src: 'Sources: Census ACS 2024 · Census New Residential Construction 2025 · shares are our calculation · 3D illustration'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/city-traffic.mp3
+      at: '@this'
+      src_ss: 20
+      dur: 8
+      gain_db: -26
+      fade_ms: 900
+    at: '@this-0.3'
+    type: scene3d
+    p:
+      hero: st_dolly
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofAt: '@facts'
+      cap:
+      - s: This video explains how the system works. It isn't financial or investment advice.
+        at: '@this'
+      src: 3D illustration
+- id: '01'
+  part: CONTEXT
+  vo: 'Picture the classic version on a city corner: a shop on the ground floor, two or three floors of apartments above, one staircase. The plainer versions are a duplex, a triplex, a fourplex. Just above them sit small apartment buildings of five to nineteen homes. By our calculation from Census survey data, almost a quarter of occupied homes in two-to-four-unit buildings went up before 1940, by the year residents reported. Our read: the records we found don''t pin the decline on any single cause. What the record does show is rules in three areas that apply to these buildings. We''ll call them locks — rules that limit what can be built — without judging whether each limit is right. Then we''ll look at the forces outside the rules: building and borrowing costs, and rents.'
+  shots:
+  - tpl: plate
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: photo
+    scene_id: loc_habs_tocco
+    camera_id: drift-r
+    p:
+      hero: p_habs02
+      frame0: 0
+      cap:
+      - s: A store with apartments above · Jeannette, Pa. (HABS survey photo)
+        at: 0.3
+      src: 'Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/cash-register.mp3
+      at: '@shop'
+      src_ss: 2
+      dur: 3
+      gain_db: -22
+      fade_ms: 300
+    - file: assets/k2/sfx/estate-staircase.mp3
+      at: '@staircase'
+      src_ss: 10
+      dur: 4
+      gain_db: -24
+      fade_ms: 500
+    at: '@shop-0.4'
+    type: scene3d
+    p:
+      hero: c_sec
+      frame0: 0
+      tags:
+      - a: shop
+        s: Shop
+        sub: ground floor
+        at: '@shop'
+        side: right
+        c: '#F2C14E'
+      - a: apt4
+        s: Apartments
+        sub: two or three floors above
+        at: '@floors'
+        side: right
+        gap: 60
+        c: '#3CC2B0'
+      - a: stair
+        s: One staircase
+        at: '@staircase'
+        side: left
+        gap: 60
+        c: '#F08A4B'
+      cap:
+      - s: The classic corner building (illustration)
+        at: '@shop'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/city-traffic.mp3
+      at: '@plainer'
+      src_ss: 40
+      dur: 6
+      gain_db: -28
+      fade_ms: 700
+    at: '@plainer-0.3'
+    type: scene3d
+    p:
+      hero: st_tele
+      frame0: 0
+      tags:
+      - a: duplex
+        s: Duplex
+        sub: 2 homes
+        at: '@duplex'
+        side: up
+        c: '#3CC2B0'
+      - a: triplex
+        s: Triplex
+        sub: 3 homes
+        at: '@triplex'
+        side: up
+        c: '#3CC2B0'
+      - a: fourplex
+        s: Fourplex
+        sub: 4 homes
+        at: '@fourplex'
+        side: up
+        c: '#3CC2B0'
+      src: 3D illustration
+  - tpl: plate
+    at: '@just-0.3'
+    type: photo
+    scene_id: loc_habs_stnicholas
+    camera_id: tilt-low
+    p:
+      hero: p_habs01
+      frame0: 0
+      cap:
+      - s: 'Small apartment buildings: 5–19 homes'
+        at: '@just'
+      - s: Walk-up apartment building · New York City, 1979
+        at: '@five'
+      src: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+  - tpl: plate
+    at: '@by-0.3'
+    type: photo
+    scene_id: loc_det_fifthwood
+    camera_id: push
+    p:
+      hero: p_det01
+      frame0: 0
+      cap:
+      - s: Pittsburgh, c. 1900–1915
+        at: '@by'
+      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+  - tpl: plate
+    at: '@almost-0.3'
+    type: photo
+    scene_id: loc_fsa_durham
+    camera_id: drift-l
+    p:
+      hero: p_fsa01
+      frame0: 0
+      cap:
+      - big: almost 1 in 4
+        s: occupied homes in 2–4-unit buildings went up before 1940, by the year residents reported
+        kind: actual
+        at: '@almost'
+        num: c03
+      src: 'Data: Census ACS 2024 (B25127), our calculation · Photo: Durham, N.C., May 1940, FSA/OWI, Library of Congress'
+  - tpl: plate
+    at: '@our#2-0.3'
+    in: fade
+    type: card
+    p:
+      hero: c_wide
+      frame0: 100
+      speed: 0.4
+      card:
+        type: layers
+        kicker: OUR READ
+        title: No single cause — rules in three areas
+        rows:
+        - k: 1 · THE MAP
+          s: where these buildings can stand
+          at: '@areas'
+        - k: 2 · THE STAIRWELL
+          s: how tall they can rise
+          at: '@areas+0.6'
+        - k: 3 · THE BANK
+          s: which loans they fit
+          at: '@areas+1.2'
+  - tpl: plate
+    at: '@we''ll-0.3'
+    type: photo
+    scene_id: loc_det_lenox
+    camera_id: pull
+    p:
+      hero: p_det11
+      frame0: 0
+      cap:
+      - s: 'Locks: rules that limit what can be built'
+        at: '@we''ll'
+      - s: Detroit, between 1900 and 1910
+        at: '@without'
+      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+  - tpl: plate
+    at: '@then-0.3'
+    type: photo
+    scene_id: loc_fsa_dc1942
+    camera_id: drift-r
+    p:
+      hero: p_fsa04
+      frame0: 0
+      cap:
+      - s: 'Outside the rules: building costs, borrowing costs, rents'
+        at: '@forces'
+      - s: Washington, D.C., August 1942
+        at: '@then'
+      src: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+- id: '02'
+  part: LOCK1
+  vo: 'Lock one: the map. In 1921, when the Commerce Department under Herbert Hoover set up an advisory committee on zoning, only forty-eight American cities and towns had zoning ordinances, Hoover wrote. The committee drafted a model law for the powers a state could give its cities — over building height and size, lot coverage, density and land use, with different rules in different districts. In 1926, a case from Euclid, Ohio — "practically a suburb" of Cleveland, the Court said — reached the Supreme Court. Euclid had zoned its land in tiers: single-family houses only; then two-family homes; then apartment houses. Retail stores and shops didn''t come in until the fourth tier. So a corner shop with apartments above it fit in none of the first three. The Court upheld the ordinance, six to three. Summing up reports from commissions and experts, Justice Sutherland listed the concerns about apartment houses among detached homes: buildings "interfering by their height and bulk with the free circulation of air and monopolizing the rays of the sun," and bringing traffic and parked cars. Apartment houses which, he wrote, "in a different environment would be not only entirely unobjectionable but highly desirable, come very near to being nuisances" in such districts. And if a zoning rule was "fairly debatable," the Court said, the legislative judgment "must be allowed to control" — in plain terms, under that standard, judges deferred to the local lawmakers who wrote the rule.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/housing-estate.mp3
+      at: 0.3
+      src_ss: 5
+      dur: 6
+      gain_db: -28
+      fade_ms: 800
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: scene3d
+    p:
+      hero: ti_top
+      frame0: 0
+      title:
+        kicker: LOCK 1
+        t: The map
+        at: 0.3
+        out: '@1921-0.5'
+      src: 3D illustration
+  - tpl: plate
+    at: '@1921-0.3'
+    type: photo
+    scene_id: p_hoover
+    camera_id: push
+    people:
+    - Herbert Hoover
+    p:
+      hero: p_hoover
+      frame0: 0
+      photo: WM-HOOVER-1928
+      cap:
+      - s: 'Herbert Hoover, Secretary of Commerce (photo: 1928)'
+        at: '@herbert'
+      src: 'Photo: Harris & Ewing, 1928 · Library of Congress (public domain)'
+  - tpl: plate
+    at: '@only-0.3'
+    type: photo
+    scene_id: loc_det_columbus
+    camera_id: drift-l
+    p:
+      hero: p_det02
+      frame0: 0
+      cap:
+      - big: '48'
+        s: U.S. cities and towns with zoning ordinances in 1921, Hoover wrote
+        kind: actual
+        at: '@forty-eight'
+        num: c05
+      src: 'Source: A Standard State Zoning Enabling Act (1926) · Photo: Columbus, Ohio, 1900–1915, Detroit Publishing Co., Library of Congress'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/typewriter.mp3
+      at: '@model'
+      src_ss: 3
+      dur: 2.5
+      gain_db: -26
+      fade_ms: 300
+    at: '@model-0.3'
+    type: document
+    scene_id: d_sszea
+    camera_id: push
+    p:
+      hero: d_sszea
+      frame0: 0
+      paper: A Standard State Zoning Enabling Act (rev. ed.)
+      date: '1926-01-01'
+      cap:
+      - s: A model law for the powers a state could give its cities
+        at: '@model'
+      src:
+      - SSZEA
+  - tpl: plate
+    at: '@state-0.2'
+    type: photo
+    scene_id: loc_det_burlington
+    camera_id: detail
+    p:
+      hero: p_det08
+      frame0: 0
+      cap:
+      - s: Height and size · lot coverage · density · land use — different rules in different districts
+        at: '@height'
+        src:
+        - SSZEA
+      - s: Burlington, Vt., between 1910 and 1920
+        at: '@districts'
+      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+  - tpl: plate
+    at: '@1926-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - euclid
+    - cleveland
+    p:
+      hero: m_euclid
+      frame0: 0
+      places:
+      - a: euclid
+        s: Euclid, Ohio
+        sub: “practically a suburb” of Cleveland — the Court, 1926
+        at: '@euclid'
+        side: right
+        c: '#F08A4B'
+      - a: cleveland
+        s: Cleveland
+        at: '@cleveland'
+        side: left
+        c: '#3CC2B0'
+      cap:
+      - s: '1926: a zoning case reaches the Supreme Court'
+        at: '@1926'
+        src:
+        - EUCLID
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/housing-estate.mp3
+      at: '@euclid#2'
+      src_ss: 30
+      dur: 10
+      gain_db: -28
+      fade_ms: 900
+    at: '@euclid#2-0.3'
+    type: scene3d
+    p:
+      hero: ti_obl
+      frame0: 0
+      tags:
+      - a: u1
+        s: U-1
+        sub: single-family houses only
+        at: '@single-family'
+        side: up
+        c: '#3CC2B0'
+      - a: u2
+        s: U-2
+        sub: + two-family homes
+        at: '@two-family'
+        side: up
+        c: '#7fb8a8'
+      - a: u3
+        s: U-3
+        sub: + apartment houses
+        at: '@then#2'
+        side: up
+        c: '#c9a24a'
+      - a: u4
+        s: U-4
+        sub: + retail stores and shops
+        at: '@retail'
+        side: right
+        gap: 50
+        c: '#F08A4B'
+        num: c08
+      - a: probe
+        s: Shop with apartments above
+        sub: fits none of the first three tiers
+        at: '@none'
+        side: down
+        c: '#E0564B'
+      cap:
+      - s: Euclid's zoning tiers, as the Court described them (illustration)
+        at: '@euclid#2'
+      src:
+      - EUCLID
+  - tpl: plate
+    at: '@upheld-0.4'
+    type: photo
+    scene_id: p_sutherland
+    camera_id: push
+    people:
+    - George Sutherland
+    p:
+      hero: p_suth
+      frame0: 0
+      photo: WM-SUTHERLAND-1937
+      cap:
+      - big: 6–3
+        s: The Supreme Court upheld Euclid's ordinance (1926)
+        kind: actual
+        at: '@upheld'
+        num: c09
+      src: 'Source: Euclid v. Ambler Realty (1926) · Photo: Justice George Sutherland, Oct. 11, 1937, Harris & Ewing, Library of Congress'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/typewriter.mp3
+      at: '@commissions'
+      src_ss: 20
+      dur: 2.5
+      gain_db: -26
+      fade_ms: 300
+    at: '@commissions-0.3'
+    type: document
+    scene_id: d_euclid
+    camera_id: push
+    p:
+      hero: d_euclid
+      frame0: 0
+      paper: U.S. Reports, vol. 272
+      date: '1926-11-22'
+      cap:
+      - s: Justice Sutherland, for the Court, 272 U.S. 365, 394
+        at: '@commissions'
+      src:
+      - EUCLID
+  - tpl: plate
+    at: '@listed-0.2'
+    type: scene3d
+    p:
+      hero: ti_shadow
+      frame0: 0
+      cap:
+      - s: The concerns the Court listed (illustration)
+        at: '@listed'
+        src:
+        - EUCLID
+  - tpl: plate
+    at: '@interfering-0.3'
+    type: photo
+    scene_id: loc_det_riverside
+    camera_id: tilt-low
+    p:
+      hero: p_det06
+      frame0: 0
+      cap:
+      - s: “interfering by their height and bulk with the free circulation of air and monopolizing the rays of the sun”
+        at: '@interfering'
+        src:
+        - EUCLID
+      src: 'Photo: New York City, c. 1908 · Detroit Publishing Co., Library of Congress'
+  - tpl: plate
+    at: '@bringing-0.3'
+    type: photo
+    scene_id: loc_det_riverside2
+    camera_id: drift-r
+    p:
+      hero: p_det12
+      frame0: 0
+      cap:
+      - s: …and bringing traffic and parked cars
+        at: '@bringing'
+        src:
+        - EUCLID
+      src: 'Photo: New York City, between 1905 and 1920 · Detroit Publishing Co., Library of Congress'
+  - tpl: plate
+    at: '@apartment#3-0.3'
+    type: photo
+    scene_id: loc_det_connecticut
+    camera_id: pull
+    p:
+      hero: p_det04
+      frame0: 0
+      cap:
+      - s: “in a different environment would be not only entirely unobjectionable but highly desirable”
+        at: '@different'
+        src:
+        - EUCLID
+      src: 'Photo: Washington, D.C., c. 1904 · Detroit Publishing Co., Library of Congress'
+  - tpl: plate
+    at: '@near-0.6'
+    type: photo
+    scene_id: loc_det_pasadena
+    camera_id: drift-l
+    p:
+      hero: p_det05
+      frame0: 0
+      cap:
+      - s: “…come very near to being nuisances” in such districts
+        at: '@near'
+        src:
+        - EUCLID
+      src: 'Photo: Detroit, c. 1905 · Detroit Publishing Co., Library of Congress'
+  - tpl: plate
+    at: '@fairly-0.6'
+    in: fade
+    type: card
+    p:
+      hero: ti_top
+      frame0: 60
+      speed: 0.4
+      src:
+      - EUCLID
+      card:
+        type: quote
+        kicker: THE TEST, 1926
+        q: If a zoning rule was “fairly debatable,” the legislative judgment “must be allowed to control”
+        by: Euclid v. Ambler Realty Co., 272 U.S. 365 (1926)
+        at: '@fairly'
+        px: 60
+  - tpl: plate
+    at: '@plain-0.4'
+    type: photo
+    scene_id: loc_det_buffalo
+    camera_id: detail
+    p:
+      hero: p_det03
+      frame0: 0
+      cap:
+      - s: 'In plain terms: judges deferred to local lawmakers'
+        at: '@plain'
+      - s: Buffalo, N.Y., between 1905 and 1920
+        at: '@deferred'
+      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+- id: '03'
+  part: LOCK1
+  vo: 'A century later, how much of the map still works that way? Take one state the National Zoning Atlas has mapped. In its 2025 report, covering 334 jurisdictions in Colorado: Fifty-nine percent of residential land allows only single-family homes. Just three percent allows buildings of more than four homes "as of right" — meaning without a special approval. That''s one state, as mapped for that report — not a national figure, and not today''s map. The map has fine print, too. In Colorado, the Atlas found parking requirements on eighty-five percent of residential land, most often two spaces for every home. On a small lot, every parking space is room the building can''t use.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/housing-estate.mp3
+      at: 0.2
+      src_ss: 60
+      dur: 5
+      gain_db: -28
+      fade_ms: 700
+    at: 0
+    type: footage
+    scene_id: f_chicago_aerial
+    camera_id: clip
+    p:
+      hero: f_chicago
+      frame0: 0
+      clip: PX-38879369
+      setting: aerial, single-family neighborhood
+      cap:
+      - s: 'A century later: how much of the map still works that way?'
+        at: 0.3
+      src: 'Footage: Chicago-area homes · Pexels, 2025 (illustrative)'
+  - tpl: plate
+    at: '@take-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - colorado
+    p:
+      hero: m_colorado
+      frame0: 0
+      places:
+      - a: colorado
+        s: Colorado
+        sub: 334 jurisdictions mapped (2025 report)
+        at: '@colorado'
+        side: right
+        c: '#F08A4B'
+      cap:
+      - s: One state the National Zoning Atlas has mapped
+        at: '@take'
+        src:
+        - NZACO
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@fifty-nine-0.5'
+    type: chart3d
+    scene_id: ch_co
+    camera_id: low-hero
+    p:
+      hero: ch_co
+      frame0: 0
+      tags:
+      - a: sf:top
+        s: 59%
+        sub: 'of residential land: single-family homes only'
+        big: true
+        kind: actual
+        at: '@fifty-nine'
+        side: left
+        c: '#F08A4B'
+        num: c12
+      - a: big:top
+        s: 3%
+        sub: allows more than 4 homes “as of right”
+        big: true
+        kind: actual
+        at: '@three'
+        side: right
+        c: '#3CC2B0'
+        num: c12b
+      cap:
+      - s: Colorado, as mapped for the 2025 report — one state, not a national figure, not today's map
+        at: '@that''s'
+      src:
+      - NZACO
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/parking-space.mp3
+      at: '@fine'
+      src_ss: 5
+      dur: 10
+      gain_db: -24
+      fade_ms: 900
+    at: '@fine-0.8'
+    type: scene3d
+    p:
+      hero: lo_plan
+      frame0: 0
+      tags:
+      - a: parking
+        s: 2 spaces per home
+        sub: most common rule · parking required on 85% of residential land
+        at: '@spaces'
+        side: right
+        gap: 60
+        c: '#F08A4B'
+        num: c14b
+      cap:
+      - s: 'The fine print: parking (Colorado, 2025 report)'
+        at: '@fine'
+        src:
+        - NZACO
+      src: 3D illustration
+  - tpl: plate
+    at: '@small-0.3'
+    type: photo
+    scene_id: loc_habs_granite
+    camera_id: push
+    p:
+      hero: p_habs04
+      frame0: 0
+      cap:
+      - s: On a small lot, every parking space is room the building can't use
+        at: '@small'
+      - s: Butte, Mont., 1979
+        at: '@room'
+      src: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+- id: '04'
+  part: LOCK2
+  vo: 'Lock two: the stairwell. The rule requires two separate ways out of taller apartment buildings, with exceptions. The International Building Code is a model code; Seattle''s code, for example, reprints its text, with local amendments. In the model code''s 2021 edition — as reprinted in Seattle''s 2021 code, which we checked — an apartment building may have a single staircase up to the third story, with at most four homes per floor and sprinklers throughout. A fourth story on one stair is not permitted. So the single-stair limit bites at the fourth story, and at any floor with more than four homes — the taller building on a small lot. On that lot, a second stair takes a slice of every floor. The Pew Charitable Trusts, working with the Center for Building in North America — a group that advocates allowing more single-stair buildings — estimates, in a 2025 report summary, that the extra stairway and corridor take around seven percent of the floor area and cost the equivalent of six to thirteen percent of total construction costs. In an August 2024 proposal to Washington''s Building Code Council, the Washington Association of Building Officials, explaining Seattle''s history, wrote that on its many small lots, "two exits took up a significant portion of the floor plate." Seattle has allowed some single-stair apartment buildings since its 1977 code, those officials wrote; its 2021 code allows them up to six stories, with at most four homes per floor and extra protections such as a pressurized stairway. There''s a code cost below four stories, too. A 2024 Terner Center study at UC Berkeley noted that in California, buildings with three or more homes fall under the stricter commercial building code — adding, by its estimate, roughly ten percent to construction costs.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/estate-staircase.mp3
+      at: 0.3
+      src_ss: 20
+      dur: 6
+      gain_db: -22
+      fade_ms: 700
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: scene3d
+    p:
+      hero: c_stair
+      frame0: 0
+      title:
+        kicker: LOCK 2
+        t: The stairwell
+        at: 0.3
+        out: '@rule-0.3'
+      cap:
+      - s: Two separate ways out of taller apartment buildings — with exceptions
+        at: '@rule'
+      src: 3D illustration
+  - tpl: plate
+    at: '@international-0.3'
+    type: scene3d
+    p:
+      hero: sa_model
+      frame0: 0
+      cap:
+      - s: 'The International Building Code: a model code'
+        at: '@international'
+        src:
+        - IBCSEA
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/typewriter.mp3
+      at: '@reprints'
+      src_ss: 15
+      dur: 2.5
+      gain_db: -26
+      fade_ms: 300
+    at: '@reprints-0.6'
+    type: document
+    scene_id: d_ibc
+    camera_id: detail
+    p:
+      hero: d_ibc
+      frame0: 0
+      paper: Seattle Building Code 2021, Ch. 10
+      date: '2024-11-15'
+      cap:
+      - s: Seattle's code reprints the model text, with local amendments
+        at: '@reprints'
+      src:
+      - IBCSEA
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/stairwell.mp3
+      at: '@model''s'
+      src_ss: 10
+      dur: 9
+      gain_db: -26
+      fade_ms: 900
+    at: '@model''s-0.4'
+    type: scene3d
+    p:
+      hero: sa_elev
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofAt: '@model''s'
+      tags:
+      - a: core1
+        s: One staircase
+        sub: up to the 3rd story · ≤ 4 homes per floor · sprinklers
+        at: '@single'
+        side: right
+        gap: 60
+        c: '#3CC2B0'
+        num: c15
+      - a: np
+        s: '4th story: NP'
+        sub: not permitted on one stair
+        at: '@fourth'
+        side: right
+        c: '#E0564B'
+        num: c15
+      cap:
+      - s: Model code, 2021 edition (as reprinted in Seattle's 2021 code)
+        at: '@model''s'
+      src:
+      - IBCSEA
+  - tpl: plate
+    at: '@single-stair-0.3'
+    type: scene3d
+    p:
+      hero: st_tall
+      frame0: 0
+      cap:
+      - s: The limit bites at the fourth story — or above four homes a floor
+        at: '@single-stair'
+      - s: the taller building on a small lot
+        at: '@taller'
+      src: 3D illustration
+  - tpl: plate
+    at: '@second-1.2'
+    type: scene3d
+    p:
+      hero: sa_plan
+      frame0: 0
+      tags:
+      - a: one
+        s: One stair
+        at: '@second-0.6'
+        side: up
+        c: '#3CC2B0'
+      - a: two
+        s: Two stairs + corridor
+        at: '@slice'
+        side: up
+        c: '#F08A4B'
+      cap:
+      - s: A second stair takes a slice of every floor (illustration)
+        at: '@second'
+  - tpl: plate
+    at: '@pew-0.3'
+    type: chart3d
+    scene_id: ch_pew
+    camera_id: orbit-l
+    p:
+      hero: ch_pew
+      frame0: 0
+      tags:
+      - a: floor:top
+        s: ≈ 7%
+        sub: 'of floor area: extra stair + corridor'
+        big: true
+        kind: actual
+        at: '@seven'
+        side: left
+        c: '#F08A4B'
+        num: c16
+      - a: lo:top
+        s: 6%
+        at: '@six'
+        side: up
+        c: '#3CC2B0'
+        num: c16b
+      - a: hi:top
+        s: 13%
+        sub: of total construction cost (range)
+        big: true
+        kind: actual
+        at: '@thirteen'
+        side: right
+        c: '#3CC2B0'
+        num: c16c
+      cap:
+      - s: 'Estimate: Pew, with the Center for Building in North America (advocates more single-stair buildings)'
+        at: '@pew'
+      src:
+      - PEW25
+  - tpl: plate
+    at: '@august-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - seattle
+    p:
+      hero: m_wash
+      frame0: 0
+      places:
+      - a: seattle
+        s: Seattle
+        sub: on its many small lots
+        at: '@lots'
+        side: right
+        c: '#3CC2B0'
+      cap:
+      - s: Washington Association of Building Officials, proposal to the state, Aug 2024
+        at: '@august'
+        src:
+        - WABO
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/stairwell.mp3
+      at: '@two#2'
+      src_ss: 40
+      dur: 6
+      gain_db: -28
+      fade_ms: 700
+    at: '@two#2-0.4'
+    type: scene3d
+    p:
+      hero: sa_floor
+      frame0: 0
+      tags:
+      - a: core1
+        s: Exit 1
+        at: '@two#2'
+        side: up
+        c: '#3CC2B0'
+      - a: core2
+        s: Exit 2 + corridor
+        at: '@exits'
+        side: up
+        c: '#F08A4B'
+      cap:
+      - s: “two exits took up a significant portion of the floor plate”
+        at: '@two#2'
+        src:
+        - WABO
+  - tpl: plate
+    at: '@seattle-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - seattle
+    p:
+      hero: m_seattle
+      frame0: 0
+      places:
+      - a: seattle
+        s: Seattle
+        sub: some single-stair buildings since its 1977 code
+        at: '@1977'
+        side: right
+        c: '#F08A4B'
+      src:
+      - WABO
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/stairwell.mp3
+      at: '@2021#3'
+      src_ss: 70
+      dur: 7
+      gain_db: -28
+      fade_ms: 800
+    at: '@2021#3-0.5'
+    type: scene3d
+    p:
+      hero: sa_press
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofAt: '@2021#3'
+      tags:
+      - a: core1
+        s: Pressurized stairway
+        at: '@pressurized'
+        side: right
+        gap: 60
+        c: '#3CC2B0'
+      cap:
+      - s: 'Seattle 2021: up to 6 stories · ≤ 4 homes per floor · extra protections'
+        at: '@2021#3'
+        num: c18
+      src:
+      - IBCSEA
+  - tpl: plate
+    at: '@there''s-0.3'
+    type: chart3d
+    scene_id: ch_terner
+    camera_id: crane-up
+    p:
+      hero: ch_terner
+      frame0: 0
+      tags:
+      - a: res:top
+        s: Residential code
+        sub: baseline = 100
+        at: '@there''s+0.5'
+        side: left
+        c: '#9AA7B5'
+      - a: com:top
+        s: ≈ +10%
+        sub: commercial code for 3+ homes (Terner estimate, California)
+        big: true
+        kind: actual
+        at: '@roughly'
+        side: right
+        c: '#F08A4B'
+        num: c57
+      cap:
+      - s: A code cost below four stories, too (California)
+        at: '@there''s'
+      src:
+      - TERNER24
+- id: '05'
+  part: LOCK2
+  vo: 'So is one staircase safe enough? Fire officials, researchers and code bodies disagree. In a March 2024 position statement, the International Association of Fire Chiefs declared its "unwavering support" for keeping a second stairway in apartment buildings over three stories. In an undated joint statement, the International Association of Fire Fighters and the Metropolitan Fire Chiefs Association wrote: "Put simply, lives will be endangered." In an undated report to the Legislature, California''s state fire marshal described "near-unanimous opposition" from the state''s fire departments to single-stair buildings above three stories, and found added safeguards "do not fully substitute for the redundancy of two independent stairways." Pew and the Center for Building cite a count of fire records: in New York City''s 4,440 modern single-stair buildings since 2012, they found the fire-death rate the same as in the city''s other residential buildings, and they say a missing second stair played no role in the four deaths they counted in New York and Seattle''s modern single-stair buildings from 2012 to 2024. A modeling study for Minnesota''s labor department, in December 2025, found that, in its risk model, the number of stairs made a difference only when the sprinklers failed and both the apartment door and the stair door on the fire floor were open. In a vote announced in May 2026, governmental members of the International Code Council backed a proposal, eighty-six to thirty-four, to allow one stair up to four stories in the next model code, the 2027 edition — which, as of October 12, 2026, has not been published.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/city-traffic.mp3
+      at: 0.2
+      src_ss: 60
+      dur: 6
+      gain_db: -28
+      fade_ms: 700
+    at: 0
+    type: footage
+    scene_id: f_fire_escape
+    camera_id: clip
+    p:
+      hero: f_fire
+      frame0: 0
+      clip: PX-36624235
+      setting: brick building, fire escape
+      cap:
+      - s: Is one staircase safe enough? Fire officials, researchers and code bodies disagree
+        at: 0.3
+      src: 'Footage: fire escape, U.S. city · Pexels, 2025 (illustrative)'
+  - tpl: plate
+    at: '@march-0.4'
+    in: fade
+    type: card
+    p:
+      hero: sa_model
+      frame0: 60
+      speed: 0.4
+      src:
+      - IAFC
+      - IAFFJS
+      card:
+        type: list
+        kicker: FIRE SERVICE
+        title: Keep the second stair
+        items:
+        - s: International Association of Fire Chiefs, Mar 2024
+          sub: “unwavering support” for a second stairway over three stories
+          at: '@march'
+        - s: IAFF and Metropolitan Fire Chiefs, undated
+          sub: “Put simply, lives will be endangered.”
+          at: '@undated'
+  - tpl: plate
+    at: '@california''s-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - calif
+    p:
+      hero: m_calif
+      frame0: 0
+      places:
+      - a: calif
+        s: California
+        sub: 'State Fire Marshal: “near-unanimous opposition” above three stories'
+        at: '@california''s'
+        side: right
+        c: '#E0564B'
+      cap:
+      - s: Safeguards “do not fully substitute for the redundancy of two independent stairways”
+        at: '@safeguards'
+        src:
+        - CALFIRE
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@pew-0.3'
+    type: chart3d
+    scene_id: ch_records
+    camera_id: orbit-r
+    p:
+      hero: ch_records
+      frame0: 0
+      tags:
+      - a: single:top
+        s: 4,440
+        sub: modern single-stair buildings, NYC, since 2012
+        big: true
+        kind: actual
+        at: '@4,440'
+        side: left
+        c: '#3CC2B0'
+        num: c20
+      - a: other:top
+        s: Same fire-death rate
+        sub: as the city's other residential buildings, by their count
+        at: '@same'
+        side: right
+        c: '#9AA7B5'
+      cap:
+      - s: Pew and the Center for Building (advocates) · 4 deaths counted, NYC and Seattle, 2012–2024
+        at: '@four'
+      src:
+      - PEW25
+  - tpl: plate
+    at: '@modeling-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - minn
+    p:
+      hero: m_minn
+      frame0: 0
+      places:
+      - a: minn
+        s: Minnesota
+        sub: risk model for the labor department, Dec 2025
+        at: '@minnesota''s'
+        side: right
+        c: '#3CC2B0'
+      src:
+      - MNDLI
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/fire-alarm.mp3
+      at: '@sprinklers'
+      src_ss: 2
+      dur: 2.5
+      gain_db: -34
+      fade_ms: 500
+    at: '@risk-0.6'
+    type: scene3d
+    p:
+      hero: sa_fire
+      frame0: 0
+      tags:
+      - a: fire1
+        s: Sprinklers failed
+        at: '@sprinklers'
+        side: up
+        c: '#F2C14E'
+      - a: fire2
+        s: Apartment door open
+        at: '@apartment#2'
+        side: up
+        c: '#F08A4B'
+      - a: fire3
+        s: Stair door open
+        at: '@stair#2'
+        side: up
+        c: '#E0564B'
+      cap:
+      - s: In the model, stair count mattered only when all three happened
+        at: '@risk'
+      src:
+      - MNDLI
+  - tpl: plate
+    at: '@vote-0.4'
+    type: chart3d
+    scene_id: ch_icc
+    camera_id: side-track
+    p:
+      hero: ch_icc
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofAt: '@2027'
+      tags:
+      - a: yes:top
+        s: '86'
+        sub: 'governmental members: for one stair up to 4 stories'
+        big: true
+        kind: actual
+        at: '@eighty-six'
+        side: left
+        c: '#3CC2B0'
+        num: c25
+      - a: no:top
+        s: '34'
+        sub: against
+        big: true
+        kind: actual
+        at: '@thirty-four'
+        side: right
+        c: '#9AA7B5'
+        num: c25b
+      cap:
+      - s: International Code Council vote, announced May 2026
+        at: '@vote'
+      - s: '2027 model code: not yet published (as of 12 Oct 2026)'
+        at: '@2027'
+      src:
+      - ICCBSJ
+- id: '06'
+  part: LOCK3
+  vo: 'Lock three: the bank. In housing finance, one number draws a line: four. The Federal Housing Finance Agency defines, in its housing-goals regulation, single-family housing as one to four homes, and multifamily as more than four. Fannie Mae''s and the FHA''s single-family loan programs cover buildings of one to four units. So, in these definitions, a fourplex is classed with houses, not with apartment buildings. Add a fifth home, and the building falls outside these single-family programs. Now add the shop. Fannie Mae''s single-family rules accept a mixed-use property only if it''s a one-unit home whose borrower lives there and runs the business. The FHA allows mixed use up to four units, if at least fifty-one percent of the floor area is residential. So a shop with five apartments above it fits neither single-family program. For small projects, the same Terner Center study reported that in California, lenders often require completion guarantees and "recourse to the developer''s personal assets."'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/stapler.mp3
+      at: '@four'
+      src_ss: 2
+      dur: 2
+      gain_db: -24
+      fade_ms: 200
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: scene3d
+    p:
+      hero: b_side
+      frame0: 0
+      title:
+        kicker: LOCK 3
+        t: The bank
+        at: 0.3
+        out: '@housing-0.3'
+      tags:
+      - a: line
+        s: '4'
+        big: true
+        kind: actual
+        at: '@four'
+        side: up
+        c: '#F08A4B'
+        num: c26
+      src:
+      - CFR1282
+  - tpl: plate
+    at: '@federal-0.3'
+    type: scene3d
+    p:
+      hero: b_line
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofAt: '@federal'
+      tags:
+      - a: line
+        s: 'FHFA: single-family = 1–4 homes'
+        at: '@single-family'
+        side: up
+        c: '#F08A4B'
+        num: c26
+      src:
+      - CFR1282
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/typewriter.mp3
+      at: '@multifamily'
+      src_ss: 45
+      dur: 2
+      gain_db: -28
+      fade_ms: 300
+    at: '@multifamily-0.8'
+    type: document
+    scene_id: d_cfr
+    camera_id: tilt-low
+    p:
+      hero: d_cfr
+      frame0: 0
+      paper: Code of Federal Regulations, Title 12, §1282.1
+      date: '2024-12-30'
+      cap:
+      - s: Federal housing-goals regulation (eCFR, current text)
+        at: '@multifamily'
+      src:
+      - CFR1282
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/typewriter.mp3
+      at: '@fannie'
+      src_ss: 30
+      dur: 5
+      gain_db: -28
+      fade_ms: 600
+    at: '@fannie-0.3'
+    type: scene3d
+    p:
+      hero: b_counter
+      frame0: 0
+      tags:
+      - a: sf
+        s: Single-family loan programs
+        sub: 'Fannie Mae · FHA: 1–4 units'
+        at: '@fannie'
+        side: up
+        c: '#3CC2B0'
+      cap:
+      - s: In these definitions, a fourplex is classed with houses
+        at: '@classed'
+      src:
+      - FNMA
+      - HUD4000
+  - tpl: plate
+    at: '@add-0.3'
+    type: scene3d
+    p:
+      hero: b_fifth
+      frame0: 0
+      tags:
+      - a: s5
+        s: 5th home
+        sub: outside these single-family programs
+        at: '@fifth+0.8'
+        side: right
+        c: '#9AA7B5'
+      src:
+      - CFR1282
+      - FNMA
+      - HUD4000
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/cash-register.mp3
+      at: '@now'
+      src_ss: 6
+      dur: 3
+      gain_db: -24
+      fade_ms: 300
+    at: '@now-0.3'
+    type: scene3d
+    p:
+      hero: c_shop
+      frame0: 0
+      tags:
+      - a: shop
+        s: Fannie Mae
+        sub: one-unit home; the borrower lives there and runs the business
+        at: '@fannie#2'
+        side: right
+        c: '#F2C14E'
+      - a: apt3
+        s: FHA
+        sub: up to 4 units; ≥ 51% of floor area residential
+        at: '@fha'
+        side: right
+        gap: 60
+        c: '#3CC2B0'
+      cap:
+      - s: Now add the shop
+        at: '@now'
+      src:
+      - FNMA
+      - HUD4000
+  - tpl: plate
+    at: '@neither-1.4'
+    type: scene3d
+    p:
+      hero: b_reject
+      frame0: 0
+      tags:
+      - a: s5
+        s: Shop + 5 apartments
+        sub: fits neither single-family program
+        at: '@neither'
+        side: right
+        c: '#E0564B'
+      src:
+      - FNMA
+      - HUD4000
+  - tpl: plate
+    at: '@small-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - calif
+    p:
+      hero: m_calif2
+      frame0: 0
+      places:
+      - a: calif
+        s: California
+        sub: 'small projects: completion guarantees, “recourse to the developer''s personal assets”'
+        at: '@small+0.4'
+        side: right
+        c: '#F2C14E'
+      src:
+      - TERNER24
+- id: '07'
+  part: FORCES
+  vo: 'Our read: the rules aren''t the whole story. For recent years, these sources point to other forces too. In October 2026, researchers at the Federal Reserve Bank of Minneapolis wrote that high borrowing, operating and construction costs, and low rent growth, "have challenged the profitability of multifamily apartments and slowed multifamily construction in many markets." And in 2024, the Terner Center at UC Berkeley found that its small model buildings in California, in most cases, "would not be built under recent market conditions." To recap: the map can block any of these buildings. The stairwell bites at four stories, or above four homes a floor. The bank line sorts buildings at five homes, and puts many buildings with a shop outside the single-family programs. And building costs, borrowing costs and rents weigh on new apartments too. Whether each of these contributed to the long decline, and by how much, the record we found doesn''t measure.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/building-site.mp3
+      at: 0.2
+      src_ss: 5
+      dur: 6
+      gain_db: -24
+      fade_ms: 700
+    at: 0
+    type: footage
+    scene_id: f_crane
+    camera_id: clip
+    p:
+      hero: f_crane
+      frame0: 0
+      clip: PX-20568183
+      setting: apartment construction site, crane
+      cap:
+      - s: 'Our read: the rules aren''t the whole story'
+        at: 0.3
+      src: 'Footage: apartment construction · Pexels, 2024 (illustrative)'
+  - tpl: plate
+    at: '@october-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - mpls
+    p:
+      hero: m_minn2
+      frame0: 0
+      places:
+      - a: mpls
+        s: Minneapolis
+        sub: Federal Reserve Bank of Minneapolis, Oct 2026
+        at: '@minneapolis'
+        side: right
+        c: '#F08A4B'
+      cap:
+      - s: Costs and low rent growth “have challenged the profitability of multifamily apartments”
+        at: '@challenged'
+        src:
+        - MPLSFED
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@2024-0.6'
+    type: scene3d
+    p:
+      hero: lo_pencil
+      frame0: 0
+      cap:
+      - s: 'Terner Center (California): small model buildings “would not be built under recent market conditions”'
+        at: '@would'
+        src:
+        - TERNER24
+      src: 3D illustration
+  - tpl: plate
+    at: '@recap-0.6'
+    in: fade
+    type: card
+    p:
+      hero: b_side
+      frame0: 80
+      speed: 0.4
+      card:
+        type: list
+        kicker: TO RECAP
+        title: Three locks — and the costs
+        items:
+        - s: The map
+          sub: can block any of these buildings
+          at: '@map'
+        - s: The stairwell
+          sub: bites at 4 stories, or above 4 homes a floor
+          at: '@stairwell'
+        - s: The bank line
+          sub: sorts at 5 homes; many buildings with a shop fall outside single-family programs
+          at: '@bank'
+        - s: Costs and rents
+          sub: building costs · borrowing costs · rents
+          at: '@building'
+          c: '#9AA7B5'
+        - s: 'How much each contributed: not measured in the record we found'
+          at: '@whether'
+          check: false
+          c: '#9AA7B5'
+- id: 08
+  part: RESULT
+  vo: 'Here''s what America built over the same decades. Two-to-four-unit completions peaked in the 1970s, then fell in waves: from about 86,000 homes in 1986 to 45,000 in 1990, and from about 41,000 in 2006 to 9,000 in 2010. In 2025: 16,000. The Census numbers show when — not why; this video doesn''t test what caused each drop. As a share of all new homes, two-to-four-unit buildings went from almost six percent in the early 1970s to just over one percent in 2025 — our calculation from Census completions, pooling 1970 through 1974. Small apartment buildings of five to nineteen units went from 377,000 homes completed in 1973, the series'' peak year, to about 48,000 in 2025 — from the Census''s separate multifamily series, our sum of two columns. Single-family houses went from about fifty-seven percent of new homes in the early 1970s to about sixty-eight percent in 2025 — again our calculation, pooling 1970 through 1974. And in that same multifamily series, buildings of fifty or more units went from one in five new apartments in 1972 to fifty-seven percent in 2025. Our read: across these two series, new construction moved toward the two ends — houses, and large apartment buildings.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/housing-estate.mp3
+      at: 0.2
+      src_ss: 60
+      dur: 6
+      gain_db: -28
+      fade_ms: 800
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: scene3d
+    p:
+      hero: e_72
+      frame0: 0
+      tags:
+      - a: houses
+        s: Houses
+        at: 0.6
+        side: up
+        c: '#3CC2B0'
+      - a: small
+        s: Small buildings
+        at: 1.0
+        side: up
+        c: '#F2C14E'
+      - a: big
+        s: Large buildings
+        at: 1.4
+        side: up
+        c: '#F08A4B'
+      cap:
+      - s: What America built over the same decades (illustration)
+        at: 0.3
+  - tpl: plate
+    at: '@two-to-four-unit-0.3'
+    type: chart3d
+    scene_id: ch_comp
+    camera_id: side-track
+    p:
+      hero: ch_comp
+      frame0: 0
+      tags:
+      - a: pt:18
+        s: '1986: ≈ 86,000'
+        at: '@1986'
+        out: '@2006'
+        side: up
+        c: '#F08A4B'
+        num: c60a
+      - a: pt:22
+        s: '1990: ≈ 45,000'
+        at: '@1990'
+        out: '@2006'
+        side: right
+        c: '#F08A4B'
+        num: c60b
+      - a: pt:38
+        s: '2006: ≈ 41,000'
+        at: '@2006'
+        side: up
+        c: '#F08A4B'
+        num: c60c
+      - a: pt:42
+        s: '2010: ≈ 9,000'
+        at: '@2010'
+        side: right
+        c: '#F08A4B'
+        num: c60d
+      - a: end
+        s: '2025: 16,000'
+        big: true
+        kind: actual
+        at: '@2025'
+        side: up
+        c: '#3CC2B0'
+        num: c60
+      cap:
+      - s: Homes completed per year in 2–4-unit buildings, thousands (1968–2025)
+        at: '@two-to-four-unit'
+      src:
+      - NRC
+  - tpl: plate
+    at: '@census-0.3'
+    type: photo
+    scene_id: loc_habs_dade
+    camera_id: drift-l
+    p:
+      hero: p_habs03
+      frame0: 0
+      cap:
+      - s: The Census numbers show when — not why
+        at: '@census'
+      - s: Dade Apartment Building and neighbors, Florida, 1991
+        at: '@test'
+      src: 'Photo: Historic American Buildings Survey, 1991 · Library of Congress (no known restrictions)'
+  - tpl: plate
+    at: '@share-0.4'
+    type: chart3d
+    scene_id: ch_share
+    camera_id: front-dolly
+    p:
+      hero: ch_share
+      frame0: 0
+      tags:
+      - a: s70:top
+        s: ≈ 5.9%
+        sub: early 1970s (1970–74 pooled)
+        big: true
+        kind: actual
+        at: '@almost'
+        side: left
+        c: '#F08A4B'
+        num: c36
+      - a: s25:top
+        s: ≈ 1.1%
+        sub: '2025'
+        big: true
+        kind: actual
+        at: '@just'
+        side: right
+        c: '#F08A4B'
+        num: c36b
+      cap:
+      - s: '2–4-unit buildings: share of all new homes (our calculation)'
+        at: '@share'
+      src:
+      - NRC
+  - tpl: plate
+    at: '@small-0.3'
+    type: chart3d
+    scene_id: ch_small
+    camera_id: crane-up
+    p:
+      hero: ch_small
+      frame0: 0
+      tags:
+      - a: y73:top
+        s: 377,000
+        sub: 1973, the series' peak
+        big: true
+        kind: actual
+        at: '@377,000'
+        side: left
+        c: '#9AA7B5'
+        num: c35b
+      - a: y25:top
+        s: ≈ 48,000
+        sub: '2025'
+        big: true
+        kind: actual
+        at: '@48,000'
+        side: right
+        c: '#F08A4B'
+        num: c35
+      cap:
+      - s: Homes completed in buildings of 5–19 units (our sum of two Census columns)
+        at: '@small'
+      src:
+      - CNH
+  - tpl: plate
+    at: '@separate-1.2'
+    type: photo
+    scene_id: loc_fsa_nyc61
+    camera_id: tilt-low
+    p:
+      hero: p_fsa03
+      frame0: 0
+      cap:
+      - s: Walk-up apartment buildings, New York City, 1938
+        at: '@separate'
+      src: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+  - tpl: plate
+    at: '@single-family-0.3'
+    type: chart3d
+    scene_id: ch_sfh
+    camera_id: low-hero
+    p:
+      hero: ch_sfh
+      frame0: 0
+      tags:
+      - a: s70:top
+        s: ≈ 57%
+        sub: early 1970s (1970–74 pooled)
+        big: true
+        kind: actual
+        at: '@fifty-seven'
+        side: left
+        c: '#9AA7B5'
+        num: c63b
+      - a: s25:top
+        s: ≈ 68%
+        sub: '2025'
+        big: true
+        kind: actual
+        at: '@sixty-eight'
+        side: right
+        c: '#3CC2B0'
+        num: c63
+      cap:
+      - s: 'Single-family houses: share of new homes (our calculation)'
+        at: '@single-family'
+      src:
+      - NRC
+  - tpl: plate
+    at: '@that-0.6'
+    type: chart3d
+    scene_id: ch_big
+    camera_id: orbit-r
+    p:
+      hero: ch_big
+      frame0: 0
+      tags:
+      - a: y72:top
+        s: 1 in 5
+        sub: '1972'
+        big: true
+        kind: actual
+        at: '@five#2'
+        side: left
+        c: '#9AA7B5'
+        num: c34b
+      - a: y25:top
+        s: 57%
+        sub: '2025'
+        big: true
+        kind: actual
+        at: '@fifty-seven#2'
+        side: right
+        c: '#F08A4B'
+        num: c34
+      cap:
+      - s: 'Buildings of 50+ units: share of new apartments'
+        at: '@that'
+      src:
+      - CNH
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/building-site.mp3
+      at: '@across'
+      src_ss: 40
+      dur: 6
+      gain_db: -28
+      fade_ms: 800
+    at: '@across-0.6'
+    type: scene3d
+    p:
+      hero: e_25
+      frame0: 0
+      tags:
+      - a: houses
+        s: Houses
+        at: '@houses'
+        side: up
+        c: '#3CC2B0'
+      - a: big
+        s: Large apartment buildings
+        at: '@large'
+        side: up
+        c: '#F08A4B'
+      cap:
+      - s: 'Our read: new construction moved toward the two ends (illustration, 1972 → 2025)'
+        at: '@across'
+- id: 09
+  part: MYTH
+  vo: 'So what happens when a place opens the map? When Washington state''s legislature heard its 2023 middle-housing bill, supporters called it "the fastest and most scalable way to increase housing production." In the committee''s staff summary of the testimony, others said its "uniform application of requirements does not recognize the uniqueness of each city," and that "more people would just create more traffic." Minneapolis offers one test. Its 2040 plan, adopted in 2019, allows — as of October 2026 — duplexes and triplexes in areas once zoned only for single-family homes. In October 2026, Minneapolis Fed researchers reported that from 2020 through 2025 the city permitted 317 new units in duplexes, triplexes and fourplexes — about two percent of the homes it permitted in multifamily buildings, and roughly the same as a comparison group. Their headline also reported stable rents; this video doesn''t test what caused them. Their summary: land-use changes "appear insufficient to drive new housing production in a challenging development environment." When California''s SB 9 took effect in January 2022, it let homeowners split their lot and build up to four homes on a single-family parcel. In its first year, Los Angeles received 211 applications for new units under the law; San Diego received seven. In a 2019 study, the researcher Yonah Freemark found short-term, local effects of upzoning near Chicago rail stations: higher property prices, but over five years, no measurable increase in newly permitted homes. Other studies report increases. A 2023 study by Urban Institute researchers linked loosening land-use reforms to a rise in housing supply of about 0.8 percent within three to nine years, mostly at the higher end of rents. And outside the U.S., a 2023 University of Auckland working paper estimated that roughly 21,800 additional homes were permitted in the five years after Auckland upzoned about three quarters of its residential land — about four percent of its housing stock. So on housing production, the record is mixed. In Minneapolis and in SB 9''s first year, the counts were in the hundreds or fewer; the Urban Institute and Auckland studies found increases. These studies measure different things in different places, so they don''t add up to one number — and none of the studies we cite covers Washington''s 2023 law, or the traffic and city-by-city concerns raised there.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/building-site.mp3
+      at: 0.2
+      src_ss: 20
+      dur: 6
+      gain_db: -26
+      fade_ms: 700
+    at: 0
+    type: footage
+    scene_id: f_townhouse
+    camera_id: clip
+    p:
+      hero: f_town
+      frame0: 0
+      clip: PX-33003293
+      setting: townhouse construction, aerial
+      cap:
+      - s: So what happens when a place opens the map?
+        at: 0.3
+      src: 'Footage: Chattanooga, Tenn. · Pexels, 2025 (illustrative)'
+  - tpl: plate
+    at: '@washington-0.6'
+    in: fade
+    type: card
+    p:
+      hero: st_dusk
+      frame0: 40
+      speed: 0.4
+      src:
+      - HBR1110
+      card:
+        type: split
+        title: Washington state, 2023 middle-housing bill
+        left:
+          tag: SUPPORTERS SAID
+          at: '@supporters'
+          lines:
+          - s: “the fastest and most scalable way to increase housing production”
+            at: '@fastest'
+        right:
+          tag: OTHERS SAID
+          at: '@others'
+          lines:
+          - s: “uniform application of requirements does not recognize the uniqueness of each city”
+            at: '@uniform'
+          - s: “more people would just create more traffic”
+            at: '@traffic'
+  - tpl: plate
+    at: '@minneapolis-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - mpls
+    p:
+      hero: m_minn3
+      frame0: 0
+      places:
+      - a: mpls
+        s: Minneapolis
+        sub: '2040 Plan, adopted 2019: duplexes and triplexes allowed (as of Oct 2026)'
+        at: '@minneapolis'
+        side: right
+        c: '#3CC2B0'
+      src:
+      - MPLSFED
+  - tpl: plate
+    at: '@october#2-0.3'
+    type: chart3d
+    scene_id: ch_mpls
+    camera_id: crane-up
+    p:
+      hero: ch_mpls
+      frame0: 0
+      tags:
+      - a: mf:small
+        s: '317'
+        sub: new units in 2–4-unit buildings, 2020–2025
+        big: true
+        kind: actual
+        at: '@317'
+        side: right
+        c: '#F08A4B'
+        num: c39
+      - a: mf:top
+        s: all homes permitted in multifamily buildings
+        at: '@multifamily'
+        side: left
+        c: '#9AA7B5'
+      cap:
+      - s: About 2% — roughly the same as a comparison group
+        at: '@roughly'
+      src:
+      - MPLSFED
+  - tpl: plate
+    at: '@headline-0.3'
+    in: fade
+    type: card
+    p:
+      hero: m_minn3
+      frame0: 60
+      speed: 0.4
+      src:
+      - MPLSFED
+      card:
+        type: quote
+        kicker: THE RECORD · MINNEAPOLIS FED, OCT 2026
+        q: Land-use changes “appear insufficient to drive new housing production in a challenging development environment.”
+        by: Their headline also reported stable rents
+        at: '@summary'
+        px: 54
+  - tpl: plate
+    at: '@california''s-0.4'
+    type: map
+    scene_id: map/globe
+    places:
+    - la
+    - sd
+    p:
+      hero: m_calif3
+      frame0: 0
+      places:
+      - a: la
+        s: Los Angeles
+        at: 0.4
+        side: left
+        c: '#3CC2B0'
+      - a: sd
+        s: San Diego
+        at: 0.9
+        side: right
+        c: '#3CC2B0'
+      cap:
+      - s: 'California''s SB 9, in effect January 2022: up to four homes on a single-family parcel'
+        at: '@california''s'
+        src:
+        - TERNER23
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@first-0.3'
+    type: chart3d
+    scene_id: ch_sb9
+    camera_id: front-dolly
+    p:
+      hero: ch_sb9
+      frame0: 0
+      tags:
+      - a: la:top
+        s: '211'
+        sub: 'Los Angeles: applications for new units, first year'
+        big: true
+        kind: actual
+        at: '@211'
+        side: left
+        c: '#3CC2B0'
+        num: c41
+      - a: sd:top
+        s: '7'
+        sub: San Diego
+        big: true
+        kind: actual
+        at: '@seven'
+        side: right
+        c: '#3CC2B0'
+        num: c41b
+      src:
+      - TERNER23
+  - tpl: plate
+    at: '@2019#2-0.6'
+    type: map
+    scene_id: map/globe
+    places:
+    - chicago
+    p:
+      hero: m_chicago
+      frame0: 0
+      places:
+      - a: chicago
+        s: Chicago
+        sub: upzoning near rail stations
+        at: '@chicago'
+        side: right
+        c: '#F2C14E'
+      cap:
+      - s: 'Yonah Freemark (2019): higher property prices; over five years, no measurable rise in newly permitted homes'
+        at: '@freemark'
+        src:
+        - FREEMARK
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@other-0.3'
+    type: chart3d
+    scene_id: ch_study
+    camera_id: top-down
+    p:
+      hero: ch_study
+      frame0: 0
+      tags:
+      - a: urban:top
+        s: ≈ +0.8%
+        sub: housing supply within 3–9 years, mostly higher-rent units
+        big: true
+        kind: actual
+        at: '@0.8'
+        side: right
+        c: '#3CC2B0'
+        num: c43
+      cap:
+      - s: Urban Institute researchers, 2023 study (abstract)
+        at: '@urban'
+      src:
+      - STACY
+  - tpl: plate
+    at: '@outside-0.6'
+    type: map
+    scene_id: map/globe
+    places:
+    - auckland
+    p:
+      hero: m_auckland
+      frame0: 0
+      places:
+      - a: auckland
+        s: Auckland, New Zealand
+        sub: upzoned about three quarters of its residential land
+        at: '@auckland'
+        side: right
+        c: '#3CC2B0'
+      cap:
+      - big: ≈ 21,800
+        s: additional homes permitted in five years — about 4% of the housing stock (2023 working paper)
+        kind: actual
+        at: '@21,800'
+        num: c44
+      src:
+      - AKL
+  - tpl: plate
+    at: '@mixed-1.6'
+    in: fade
+    type: card
+    p:
+      hero: e_25
+      frame0: 60
+      speed: 0.4
+      src:
+      - MPLSFED
+      - TERNER23
+      - STACY
+      - AKL
+      card:
+        type: list
+        kicker: THE RECORD
+        title: On housing production, the record is mixed
+        items:
+        - s: Minneapolis · SB 9's first year
+          sub: counts in the hundreds or fewer
+          at: '@minneapolis#3'
+        - s: Urban Institute · Auckland
+          sub: found increases
+          at: '@urban#2'
+        - s: Different measures, different places
+          sub: they don't add up to one number
+          at: '@different'
+          c: '#9AA7B5'
+        - s: 'Not covered: Washington''s 2023 law, traffic, city-by-city concerns'
+          at: '@covers'
+          check: false
+          c: '#9AA7B5'
+- id: '10'
+  part: WHERE
+  vo: 'So where are these buildings legal again? As of October 12, 2026: New York City''s "City of Yes" plan, approved by the City Council on December 5, 2024, re-legalized housing above shops on commercial streets in all its low-density districts — two to four stories of homes over a ground-floor business. In the Department of City Planning''s final plan, the new "missing middle" buildings are meant to match the scale of existing buildings that had been "functionally banned by zoning." Oregon''s 2019 law requires cities of 25,000 people or more to allow duplexes through fourplexes, townhouses and cottage clusters in areas zoned for detached single-family homes. Washington''s 2023 law requires many cities to allow at least two to six homes per lot, depending on city size and distance to major transit. On stairs: Texas lets its cities allow single-stair buildings up to six stories, with at most four homes per floor, since September 2025. Colorado requires many cities of 100,000 people or more to allow five-story single-stair apartment buildings by December 1, 2027. And the lending line is still four.'
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/traffic-lights.mp3
+      at: 0.2
+      src_ss: 20
+      dur: 7
+      gain_db: -26
+      fade_ms: 800
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: scene3d
+    p:
+      hero: st_dusk
+      frame0: 0
+      asof: As of 12 Oct 2026
+      asofAt: '@as'
+      cap:
+      - s: So where are these buildings legal again?
+        at: 0.3
+      src: 3D illustration
+  - tpl: plate
+    at: '@new-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - nyc
+    p:
+      hero: m_nyc
+      frame0: 0
+      asof: As of 12 Oct 2026
+      asofAt: '@new'
+      places:
+      - a: nyc
+        s: New York City
+        sub: “City of Yes” · approved by the City Council, Dec 5, 2024
+        at: '@york'
+        side: right
+        c: '#F08A4B'
+      src:
+      - NYCCC
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/city-traffic.mp3
+      at: '@re-legalized'
+      src_ss: 70
+      dur: 7
+      gain_db: -26
+      fade_ms: 800
+    at: '@re-legalized-0.3'
+    type: scene3d
+    p:
+      hero: c_day
+      frame0: 0
+      tags:
+      - a: shop
+        s: Housing above shops
+        sub: 2–4 stories of homes over a ground-floor business
+        at: '@re-legalized'
+        side: right
+        c: '#F2C14E'
+      cap:
+      - s: “functionally banned by zoning” — NYC Department of City Planning
+        at: '@functionally'
+        src:
+        - NYCDCP
+      src: 3D illustration
+  - tpl: plate
+    at: '@oregon''s-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - oregon
+    p:
+      hero: m_oregon
+      frame0: 0
+      places:
+      - a: oregon
+        s: Oregon
+        sub: '2019 law: duplexes through fourplexes, townhouses, cottage clusters'
+        at: '@oregon''s'
+        side: right
+        c: '#3CC2B0'
+      cap:
+      - s: Cities of 25,000 people or more
+        at: '@25,000'
+        num: c46
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@washington''s-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - washst
+    p:
+      hero: m_wash2
+      frame0: 0
+      places:
+      - a: washst
+        s: Washington
+        sub: '2023 law: 2–6 homes per lot, by city size and transit'
+        at: '@washington''s'
+        side: right
+        c: '#F2C14E'
+      cap:
+      - s: At least two to six homes per lot
+        at: '@two'
+        num: c47
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@stairs-0.4'
+    type: map
+    scene_id: map/globe
+    places:
+    - texas
+    p:
+      hero: m_texas
+      frame0: 0
+      asof: As of 12 Oct 2026
+      asofAt: '@stairs'
+      places:
+      - a: texas
+        s: Texas
+        sub: single-stair up to 6 stories, ≤ 4 homes per floor, since Sep 2025
+        at: '@texas'
+        side: right
+        c: '#F08A4B'
+      cap:
+      - s: Cities may allow single-stair buildings up to six stories
+        at: '@six'
+        num: c50
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@colorado-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - denver
+    p:
+      hero: m_colorado2
+      frame0: 0
+      places:
+      - a: denver
+        s: Colorado
+        sub: 'many cities of 100,000+: five-story single-stair buildings by Dec 1, 2027'
+        at: '@colorado'
+        side: right
+        c: '#3CC2B0'
+      cap:
+      - s: Five-story single-stair apartment buildings, by December 1, 2027
+        at: '@five-story'
+        num: c51
+      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+  - tpl: plate
+    at: '@lending-0.6'
+    type: scene3d
+    p:
+      hero: b_still
+      frame0: 0
+      asof: As of 12 Oct 2026
+      asofAt: '@lending'
+      tags:
+      - a: line
+        s: Still 4
+        sub: the lending line
+        big: true
+        kind: actual
+        at: '@still'
+        side: up
+        c: '#F08A4B'
+        num: c26
+      src:
+      - CFR1282
+- id: '11'
+  part: ENDING
+  vo: 'So why did America almost stop building them? Our read: the record we found doesn''t pin it on any single lock, or on the rules alone. The buildings themselves didn''t go away — about eleven million American homes were in buildings of two to four units in the 2024 Census survey, and, by our calculation from that survey, more than eight in ten of the occupied ones were rented. But three sets of rules shape new ones: the map decides where they can stand, the stairwell how tall the next size up can rise, the bank which loan programs they fit. And building costs, borrowing costs and rents, researchers at the Minneapolis Fed and the Terner Center found, weigh on whether the numbers work at all. The map and stairwell rules have defenders, with reasons on the record. In some places, the map and the stairwell have started to change. Whether that brings back the building on the corner, the record doesn''t settle yet.'
+  fadeOut: 24
+  shots:
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/traffic-lights.mp3
+      at: 0.2
+      src_ss: 35
+      dur: 8
+      gain_db: -26
+      fade_ms: 900
+    at: 0
+    in:
+      type: wipe
+      d: 0.6
+    type: scene3d
+    p:
+      hero: c_blue
+      frame0: 0
+      title:
+        t: So why did America almost stop building them?
+        at: 0.4
+        out: '@our-0.4'
+        scale: 0.6
+      cap:
+      - s: 'Our read: no single lock — and not the rules alone'
+        at: '@our'
+  - tpl: plate
+    at: '@themselves-1.0'
+    type: photo
+    scene_id: px_bayridge
+    camera_id: drift-r
+    p:
+      hero: p_bayridge
+      frame0: 0
+      cap:
+      - s: The buildings themselves didn't go away
+        at: '@themselves'
+      src: 'Photo: Bay Ridge, Brooklyn, N.Y. · Pexels (recent photo)'
+  - tpl: plate
+    at: '@eleven-0.4'
+    type: chart3d
+    scene_id: ch_stock
+    camera_id: low-hero
+    p:
+      hero: ch_stock
+      frame0: 0
+      tags:
+      - a: all:top
+        s: ≈ 11.1 million
+        sub: homes in 2–4-unit buildings (2024 survey)
+        big: true
+        kind: actual
+        at: '@eleven'
+        side: right
+        c: '#EEF1F4'
+        num: c53
+      - a: all:rented
+        s: '> 8 in 10'
+        sub: of the occupied ones were rented (our calculation)
+        big: true
+        kind: actual
+        at: '@rented'
+        side: left
+        c: '#F08A4B'
+        num: c53b
+      src:
+      - ACS24
+  - tpl: plate
+    at: '@but-0.3'
+    type: scene3d
+    p:
+      hero: c_secend
+      frame0: 0
+      cap:
+      - s: 'The map: where they can stand'
+        at: '@map'
+      - s: 'The stairwell: how tall the next size up can rise'
+        at: '@stairwell'
+      - s: 'The bank: which loan programs they fit'
+        at: '@bank'
+      src: 3D illustration
+  - tpl: plate
+    at: '@building-0.3'
+    type: scene3d
+    p:
+      hero: st_dolly
+      frame0: 140
+      speed: 0.6
+      cap:
+      - s: Building costs, borrowing costs and rents — Minneapolis Fed, Terner Center
+        at: '@building'
+        src:
+        - MPLSFED
+        - TERNER24
+  - tpl: plate
+    sfx:
+    - file: assets/k2/sfx/city-traffic.mp3
+      at: '@defenders'
+      src_ss: 80
+      dur: 12
+      gain_db: -28
+      fade_ms: 1500
+    at: '@defenders-1.4'
+    type: scene3d
+    p:
+      hero: c_crane
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofAt: '@whether'
+      cap:
+      - s: The rules have defenders, with reasons on the record
+        at: '@defenders'
+      - s: In some places, the map and the stairwell have started to change
+        at: '@some'
+heroes:
+  c_wide:
+    hero: k2c106/corner
+    cam: wide_dusk
+    opt:
+      tod: dusk
+  c_push:
+    hero: k2c106/corner
+    cam: push_facade
+    opt:
+      tod: dusk
+  c_sec:
+    hero: k2c106/corner
+    cam: section
+    opt:
+      tod: dusk
+      section:
+      - '@floors-0.6'
+      - '@floors+1.0'
+  c_stair:
+    hero: k2c106/corner
+    cam: stair_section
+    opt:
+      tod: dusk
+      section:
+      - 0.2
+      - 1.4
+  c_shop:
+    hero: k2c106/corner
+    cam: shop_section
+    opt:
+      tod: dusk
+      section:
+      - 0.4
+      - 1.6
+      shop: 1.4
+  c_day:
+    hero: k2c106/corner
+    cam: day_town_center
+    opt:
+      tod: day
+  c_blue:
+    hero: k2c106/corner
+    cam: blue_hour_end
+    opt:
+      tod: blue
+  c_secend:
+    hero: k2c106/corner
+    cam: section_end
+    opt:
+      tod: blue
+      section:
+      - 0.4
+      - 1.8
+  c_crane:
+    hero: k2c106/corner
+    cam: crane_up
+    opt:
+      tod: blue
+  st_block:
+    hero: k2c106/street
+    cam: high_block
+    opt:
+      tod: day
+  st_dolly:
+    hero: k2c106/street
+    cam: dolly_day
+    opt:
+      tod: day
+  st_tele:
+    hero: k2c106/street
+    cam: tele_fronts
+    opt:
+      tod: day
+  st_tall:
+    hero: k2c106/street
+    cam: tall_walkups
+    opt:
+      tod: day
+      hl: 3
+      hlAt:
+      - 0.4
+      - 1.0
+  st_dusk:
+    hero: k2c106/street
+    cam: dusk_new
+    opt:
+      tod: dusk
+  ti_top:
+    hero: k2c106/tiers
+    cam: top
+    opt:
+      fill:
+      - 0.4
+      - 0.9
+      - 1.4
+      - 1.9
+  ti_obl:
+    hero: k2c106/tiers
+    cam: oblique_tiers
+    opt:
+      fill:
+      - '@single-family'
+      - '@two-family'
+      - '@then#2'
+      - '@retail'
+      probe:
+        at: '@so'
+        zones:
+        - 0
+        - 1
+        - 2
+        - 3
+        step: 3.0
+  ti_shadow:
+    hero: k2c106/tiers
+    cam: shadow_low
+    opt:
+      sun: 1
+  lo_plan:
+    hero: k2c106/lot
+    cam: plan
+    opt:
+      stalls: 10
+      grow:
+      - '@parking'
+      - '@spaces+1.5'
+  lo_pencil:
+    hero: k2c106/lot
+    cam: pencil
+    opt:
+      stalls: 6
+      grow: -1
+  sa_model:
+    hero: k2c106/stairs
+    cam: model_code
+    opt:
+      mode: one
+      floors: 3
+  sa_elev:
+    hero: k2c106/stairs
+    cam: elev_stack
+    opt:
+      mode: one
+      floors: 4
+      stackAt:
+      - '@single-0.6'
+      - 0.5
+      np:
+      - '@fourth'
+      - '@fourth+0.6'
+  sa_plan:
+    hero: k2c106/stairs
+    cam: plan_compare
+    opt:
+      mode: compare
+      floors: 4
+  sa_floor:
+    hero: k2c106/stairs
+    cam: floor_plate
+    opt:
+      mode: two
+      floors: 4
+  sa_press:
+    hero: k2c106/stairs
+    cam: pressurized
+    opt:
+      mode: one
+      floors: 6
+      press:
+      - '@pressurized-0.4'
+      - '@pressurized+0.6'
+  sa_fire:
+    hero: k2c106/stairs
+    cam: fire_logic
+    opt:
+      mode: one
+      floors: 4
+      fire:
+      - '@sprinklers'
+      - 1.0
+  b_side:
+    hero: k2c106/bank
+    cam: side
+    opt: {}
+  b_line:
+    hero: k2c106/bank
+    cam: line_four
+    opt: {}
+  b_counter:
+    hero: k2c106/bank
+    cam: counter
+    opt: {}
+  b_fifth:
+    hero: k2c106/bank
+    cam: fifth_block
+    opt:
+      fifth:
+      - '@fifth'
+      - '@fifth+1.8'
+  b_reject:
+    hero: k2c106/bank
+    cam: mixed_reject
+    opt:
+      fifth: -1
+      shop: 1
+      reject:
+      - '@neither-0.4'
+      - '@neither+0.4'
+  b_still:
+    hero: k2c106/bank
+    cam: line_still
+    opt: {}
+  e_72:
+    hero: k2c106/ends
+    cam: wide_1972
+    opt:
+      year: 1972
+  e_25:
+    hero: k2c106/ends
+    cam: wide_2025
+    opt:
+      year: 1972
+      year1: 2025
+      yearAt:
+      - 0.3
+      - 3.0
+  m_euclid:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -84
+        - 39
+        - -79
+        - 44
+        img: /cache/bm-crop--84_39_-79_44-6144-500m.jpg
+      states:
+      - state: Ohio
+        color: '#3CC2B0'
+        fill: 0.16
+      pinMin: 0.07
+      places:
+      - id: euclid
+        ll:
+        - -81.5268
+        - 41.5931
+        name: Euclid, Ohio
+        at: '@euclid'
+      - id: cleveland
+        ll:
+        - -81.6944
+        - 41.4993
+        name: Cleveland
+        at: '@cleveland'
+      cam:
+      - u: 0
+        lon: -70
+        lat: 30
+        alt: 24
+        tilt: 0
+        mm: 35
+      - u: 0.3
+        lon: -76
+        lat: 36
+        alt: 12
+        tilt: 10
+        mm: 35
+      - u: 0.75
+        lon: -81.6
+        lat: 40.2
+        alt: 1.6
+        tilt: 30
+        mm: 35
+      - u: 1
+        lon: -81.62
+        lat: 40.6
+        alt: 1.3
+        tilt: 34
+        head: 3
+        mm: 35
+  m_colorado:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -110
+        - 36
+        - -101
+        - 42
+        img: /cache/bm-crop--110_36_-101_42-6144-500m.jpg
+      states:
+      - state: Colorado
+        color: '#F08A4B'
+        fill: 0.22
+      pinMin: 0.12
+      places:
+      - id: colorado
+        ll:
+        - -105.55
+        - 39.0
+        name: Colorado
+        at: '@colorado'
+      cam:
+      - u: 0
+        lon: -96
+        lat: 30
+        alt: 14
+        tilt: 8
+        mm: 35
+      - u: 0.55
+        lon: -104.5
+        lat: 35.2
+        alt: 3.2
+        tilt: 34
+        head: -6
+        mm: 35
+      - u: 1
+        lon: -105.2
+        lat: 35.8
+        alt: 2.8
+        tilt: 38
+        head: -10
+        mm: 35
+  m_colorado2:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -110
+        - 36
+        - -101
+        - 42
+        img: /cache/bm-crop--110_36_-101_42-6144-500m.jpg
+      states:
+      - state: Colorado
+        color: '#3CC2B0'
+        fill: 0.2
+      pinMin: 0.1
+      places:
+      - id: denver
+        ll:
+        - -104.9903
+        - 39.7392
+        name: Denver
+        at: 0.6
+      cam:
+      - u: 0
+        lon: -106.8
+        lat: 37.3
+        alt: 2.4
+        tilt: 46
+        head: 18
+        mm: 40
+      - u: 1
+        lon: -105.0
+        lat: 37.0
+        alt: 2.2
+        tilt: 50
+        head: -8
+        mm: 40
+  m_wash:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 45
+        - -116
+        - 49.5
+        img: /cache/bm-crop--125_45_-116_49.5-6144-500m.jpg
+      states:
+      - state: Washington
+        color: '#3CC2B0'
+        fill: 0.2
+      pinMin: 0.1
+      places:
+      - id: seattle
+        ll:
+        - -122.3321
+        - 47.6062
+        name: Seattle
+        at: '@seattle''s'
+      cam:
+      - u: 0
+        lon: -112
+        lat: 40
+        alt: 10
+        tilt: 10
+        mm: 35
+      - u: 1
+        lon: -121.0
+        lat: 45.2
+        alt: 2.4
+        tilt: 38
+        head: -12
+        mm: 35
+  m_seattle:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 45
+        - -116
+        - 49.5
+        img: /cache/bm-crop--125_45_-116_49.5-6144-500m.jpg
+      states:
+      - state: Washington
+        color: '#F08A4B'
+        fill: 0.14
+      pinMin: 0.07
+      places:
+      - id: seattle
+        ll:
+        - -122.3321
+        - 47.6062
+        name: Seattle
+        at: 0.4
+      cam:
+      - u: 0
+        lon: -123.4
+        lat: 46.4
+        alt: 1.5
+        tilt: 44
+        head: 22
+        mm: 40
+      - u: 1
+        lon: -121.6
+        lat: 46.2
+        alt: 1.3
+        tilt: 46
+        head: -14
+        mm: 40
+  m_calif:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 32
+        - -114
+        - 42
+        img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg
+      states:
+      - state: California
+        color: '#E0564B'
+        fill: 0.18
+      pinMin: 0.12
+      places:
+      - id: calif
+        ll:
+        - -119.4
+        - 37.2
+        name: California
+        at: '@california''s'
+      cam:
+      - u: 0
+        lon: -104
+        lat: 30
+        alt: 14
+        tilt: 6
+        mm: 35
+      - u: 1
+        lon: -118.2
+        lat: 32.6
+        alt: 3.6
+        tilt: 34
+        head: -14
+        mm: 35
+  m_calif2:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 32
+        - -114
+        - 42
+        img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg
+      states:
+      - state: California
+        color: '#F2C14E'
+        fill: 0.16
+      pinMin: 0.12
+      places:
+      - id: calif
+        ll:
+        - -119.4
+        - 37.2
+        name: California
+        at: 0.4
+      cam:
+      - u: 0
+        lon: -114.0
+        lat: 33.4
+        alt: 3.4
+        tilt: 40
+        head: -40
+        mm: 35
+      - u: 1
+        lon: -114.8
+        lat: 35.6
+        alt: 3.2
+        tilt: 42
+        head: -58
+        mm: 35
+  m_calif3:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 32
+        - -114
+        - 42
+        img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg
+      states:
+      - state: California
+        color: '#3CC2B0'
+        fill: 0.12
+      pinMin: 0.08
+      places:
+      - id: la
+        ll:
+        - -118.2437
+        - 34.0522
+        name: Los Angeles
+        at: 0.4
+      - id: sd
+        ll:
+        - -117.1611
+        - 32.7157
+        name: San Diego
+        at: 0.9
+      cam:
+      - u: 0
+        lon: -121.5
+        lat: 33.0
+        alt: 2.4
+        tilt: 30
+        head: 30
+        mm: 35
+      - u: 1
+        lon: -118.6
+        lat: 31.0
+        alt: 2.0
+        tilt: 36
+        head: 6
+        mm: 35
+  m_minn:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -97.5
+        - 43
+        - -90
+        - 49.5
+        img: /cache/bm-crop--97.5_43_-90_49.5-6144-500m.jpg
+      states:
+      - state: Minnesota
+        color: '#3CC2B0'
+        fill: 0.2
+      pinMin: 0.12
+      places:
+      - id: minn
+        ll:
+        - -94.3
+        - 46.3
+        name: Minnesota
+        at: '@minnesota''s'
+      cam:
+      - u: 0
+        lon: -86
+        lat: 38
+        alt: 12
+        tilt: 8
+        mm: 35
+      - u: 1
+        lon: -94.2
+        lat: 42.4
+        alt: 3.0
+        tilt: 34
+        head: -4
+        mm: 35
+  m_minn2:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -97.5
+        - 43
+        - -90
+        - 49.5
+        img: /cache/bm-crop--97.5_43_-90_49.5-6144-500m.jpg
+      states:
+      - state: Minnesota
+        color: '#F08A4B'
+        fill: 0.12
+      pinMin: 0.07
+      places:
+      - id: mpls
+        ll:
+        - -93.265
+        - 44.9778
+        name: Minneapolis
+        at: 0.5
+      cam:
+      - u: 0
+        lon: -95.2
+        lat: 43.6
+        alt: 1.6
+        tilt: 42
+        head: 24
+        mm: 40
+      - u: 1
+        lon: -93.6
+        lat: 43.7
+        alt: 1.4
+        tilt: 44
+        head: 2
+        mm: 40
+  m_minn3:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -97.5
+        - 43
+        - -90
+        - 49.5
+        img: /cache/bm-crop--97.5_43_-90_49.5-6144-500m.jpg
+      states:
+      - state: Minnesota
+        color: '#3CC2B0'
+        fill: 0.12
+      pinMin: 0.07
+      places:
+      - id: mpls
+        ll:
+        - -93.265
+        - 44.9778
+        name: Minneapolis
+        at: '@minneapolis'
+      cam:
+      - u: 0
+        lon: -91.4
+        lat: 44.0
+        alt: 1.6
+        tilt: 46
+        head: -30
+        mm: 40
+      - u: 1
+        lon: -92.4
+        lat: 43.9
+        alt: 1.4
+        tilt: 48
+        head: -14
+        mm: 40
+  m_chicago:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -89.5
+        - 40.5
+        - -86
+        - 43
+        img: /cache/bm-crop--89.5_40.5_-86_43-6144-500m.jpg
+      states:
+      - state: Illinois
+        color: '#F2C14E'
+        fill: 0.14
+      pinMin: 0.07
+      places:
+      - id: chicago
+        ll:
+        - -87.6298
+        - 41.8781
+        name: Chicago
+        at: '@chicago'
+      cam:
+      - u: 0
+        lon: -84
+        lat: 36
+        alt: 9
+        tilt: 10
+        mm: 35
+      - u: 1
+        lon: -87.9
+        lat: 40.4
+        alt: 1.5
+        tilt: 40
+        head: 4
+        mm: 35
+  m_auckland:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - 172.5
+        - -38.5
+        - 177
+        - -35
+        img: /cache/bm-crop-172.5_-38.5_177_-35-6144-500m.jpg
+      pinMin: 0.08
+      hl:
+      - country: New Zealand
+        color: '#3CC2B0'
+        at: 0.6
+        fill: 0.16
+      places:
+      - id: auckland
+        ll:
+        - 174.7633
+        - -36.8485
+        name: Auckland, New Zealand
+        at: '@auckland'
+      cam:
+      - u: 0
+        lon: -150
+        lat: -10
+        alt: 26
+        tilt: 0
+        mm: 35
+      - u: 0.45
+        lon: 172
+        lat: -40
+        alt: 9
+        tilt: 10
+        mm: 35
+      - u: 1
+        lon: 174.6
+        lat: -38.6
+        alt: 1.7
+        tilt: 38
+        head: 6
+        mm: 35
+  m_nyc:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -76
+        - 39.5
+        - -72
+        - 42
+        img: /cache/bm-crop--76_39.5_-72_42-6144-500m.jpg
+      states:
+      - state: New York
+        color: '#F08A4B'
+        fill: 0.14
+      pinMin: 0.07
+      places:
+      - id: nyc
+        ll:
+        - -74.006
+        - 40.7128
+        name: New York City
+        at: '@york'
+      cam:
+      - u: 0
+        lon: -66
+        lat: 34
+        alt: 8
+        tilt: 12
+        mm: 35
+      - u: 1
+        lon: -74.2
+        lat: 39.4
+        alt: 1.4
+        tilt: 40
+        head: 4
+        mm: 35
+  m_oregon:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 41.5
+        - -116
+        - 46.5
+        img: /cache/bm-crop--125_41.5_-116_46.5-6144-500m.jpg
+      states:
+      - state: Oregon
+        color: '#3CC2B0'
+        fill: 0.2
+      pinMin: 0.12
+      places:
+      - id: oregon
+        ll:
+        - -120.6
+        - 43.9
+        name: Oregon
+        at: '@oregon''s'
+      cam:
+      - u: 0
+        lon: -114.5
+        lat: 41.0
+        alt: 3.8
+        tilt: 36
+        head: -36
+        mm: 35
+      - u: 1
+        lon: -118.4
+        lat: 40.8
+        alt: 3.2
+        tilt: 38
+        head: -18
+        mm: 35
+  m_wash2:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 45
+        - -116
+        - 49.5
+        img: /cache/bm-crop--125_45_-116_49.5-6144-500m.jpg
+      states:
+      - state: Washington
+        color: '#F2C14E'
+        fill: 0.2
+      pinMin: 0.12
+      places:
+      - id: washst
+        ll:
+        - -120.5
+        - 47.4
+        name: Washington
+        at: 0.4
+      cam:
+      - u: 0
+        lon: -118.0
+        lat: 50.6
+        alt: 3.4
+        tilt: 36
+        head: 196
+        mm: 35
+      - u: 1
+        lon: -120.4
+        lat: 51.0
+        alt: 3.0
+        tilt: 38
+        head: 178
+        mm: 35
+  m_texas:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -107
+        - 25.5
+        - -93
+        - 36.8
+        img: /cache/bm-crop--107_25.5_-93_36.8-6144-500m.jpg
+      states:
+      - state: Texas
+        color: '#F08A4B'
+        fill: 0.18
+      pinMin: 0.12
+      places:
+      - id: texas
+        ll:
+        - -99.3
+        - 31.3
+        name: Texas
+        at: '@texas'
+      cam:
+      - u: 0
+        lon: -88
+        lat: 22
+        alt: 12
+        tilt: 8
+        mm: 35
+      - u: 1
+        lon: -99.0
+        lat: 26.2
+        alt: 3.8
+        tilt: 34
+        head: -2
+        mm: 35
+  ch_hook:
+    hero: chart3d/bars
+    cam: front-dolly
+    opt:
+      scale: 0.8
+      w: 2.4
+      d: 2.4
+      bars:
+      - id: stock
+        x: -2.4
+        v: 7.54
+        color: '#F08A4B'
+        grow:
+        - 0.3
+        - 1.6
+      - id: new25
+        x: 2.4
+        v: 1.07
+        color: '#3CC2B0'
+        grow:
+        - '@hundred-0.6'
+        - '@hundred+0.4'
+  ch_co:
+    hero: chart3d/bars
+    cam: low-hero
+    opt:
+      scale: 0.1
+      w: 2.6
+      d: 2.6
+      ruler:
+      - 0
+      - 25
+      - 50
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: sf
+        x: -2.6
+        v: 59
+        color: '#F08A4B'
+        grow:
+        - '@fifty-nine-0.4'
+        - '@fifty-nine+0.8'
+      - id: big
+        x: 2.6
+        v: 3
+        color: '#3CC2B0'
+        grow:
+        - '@three'
+        - '@three+0.6'
+  ch_pew:
+    hero: chart3d/bars
+    cam: orbit-l
+    opt:
+      scale: 0.35
+      w: 2.2
+      d: 2.2
+      ruler:
+      - 0
+      - 5
+      - 10
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: floor
+        x: -3.6
+        v: 7
+        color: '#F08A4B'
+        grow:
+        - '@seven'
+        - '@seven+0.8'
+      - id: lo
+        x: 0.6
+        v: 6
+        color: '#3CC2B0'
+        grow:
+        - '@six'
+        - '@six+0.6'
+      - id: hi
+        x: 3.6
+        v: 13
+        color: '#3CC2B0'
+        grow:
+        - '@thirteen'
+        - '@thirteen+0.7'
+  ch_terner:
+    hero: chart3d/bars
+    cam: crane-up
+    opt:
+      scale: 0.05
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 50
+      - 100
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: res
+        x: -2.4
+        v: 100
+        color: '#9AA7B5'
+        grow:
+        - 0.4
+        - 1.4
+      - id: com
+        x: 2.4
+        v: 110
+        color: '#F08A4B'
+        grow:
+        - '@roughly-0.6'
+        - '@roughly+0.6'
+  ch_records:
+    hero: chart3d/bars
+    cam: orbit-r
+    opt:
+      scale: 3
+      w: 2.6
+      d: 2.6
+      bars:
+      - id: single
+        x: -2.6
+        v: 1
+        color: '#3CC2B0'
+        grow:
+        - '@4,440'
+        - '@4,440+0.8'
+      - id: other
+        x: 2.6
+        v: 1
+        color: '#9AA7B5'
+        grow:
+        - '@same-0.6'
+        - '@same+0.4'
+  ch_icc:
+    hero: chart3d/bars
+    cam: side-track
+    opt:
+      scale: 0.06
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 50
+      - 100
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: true
+        x: -2.4
+        v: 86
+        color: '#3CC2B0'
+        grow:
+        - '@eighty-six-0.4'
+        - '@eighty-six+0.6'
+      - id: false
+        x: 2.4
+        v: 34
+        color: '#9AA7B5'
+        grow:
+        - '@thirty-four-0.3'
+        - '@thirty-four+0.5'
+  ch_comp:
+    hero: chart3d/line
+    cam: side-track
+    opt:
+      scale: 0.06
+      xk: 0.32
+      xoff: -9
+      th: 0.24
+      depth: 1.4
+      ruler:
+      - 0
+      - 50
+      - 100
+      rulerX: -10.5
+      rulerZ: -2
+      rulerW: 21
+      draw:
+      - '@peaked-1.0'
+      - '@2025-0.2'
+      pts:
+      - - 1968
+        - 77.4
+      - - 1969
+        - 79.8
+      - - 1970
+        - 85.1
+      - - 1971
+        - 106.1
+      - - 1972
+        - 119.2
+      - - 1973
+        - 123.5
+      - - 1974
+        - 95.3
+      - - 1975
+        - 60.4
+      - - 1976
+        - 77.1
+      - - 1977
+        - 94.9
+      - - 1978
+        - 116.1
+      - - 1979
+        - 124.9
+      - - 1980
+        - 118.8
+      - - 1981
+        - 111.4
+      - - 1982
+        - 80.7
+      - - 1983
+        - 92
+      - - 1984
+        - 112.2
+      - - 1985
+        - 97.2
+      - - 1986
+        - 86.1
+      - - 1987
+        - 71.4
+      - - 1988
+        - 56.6
+      - - 1989
+        - 58.7
+      - - 1990
+        - 44.8
+      - - 1991
+        - 36.8
+      - - 1992
+        - 36.1
+      - - 1993
+        - 26.3
+      - - 1994
+        - 31.8
+      - - 1995
+        - 34.7
+      - - 1996
+        - 33.1
+      - - 1997
+        - 37
+      - - 1998
+        - 40.6
+      - - 1999
+        - 35.2
+      - - 2000
+        - 27.3
+      - - 2001
+        - 33.9
+      - - 2002
+        - 35
+      - - 2003
+        - 31.5
+      - - 2004
+        - 23.5
+      - - 2005
+        - 37.5
+      - - 2006
+        - 40.8
+      - - 2007
+        - 31.4
+      - - 2008
+        - 23.7
+      - - 2009
+        - 14.5
+      - - 2010
+        - 8.9
+      - - 2011
+        - 8.4
+      - - 2012
+        - 8.7
+      - - 2013
+        - 9.1
+      - - 2014
+        - 8.7
+      - - 2015
+        - 10
+      - - 2016
+        - 10.4
+      - - 2017
+        - 10.7
+      - - 2018
+        - 9
+      - - 2019
+        - 9
+      - - 2020
+        - 10.5
+      - - 2021
+        - 7.7
+      - - 2022
+        - 9.4
+      - - 2023
+        - 11.7
+      - - 2024
+        - 16.6
+      - - 2025
+        - 16
+  ch_share:
+    hero: chart3d/bars
+    cam: front-dolly
+    opt:
+      scale: 0.9
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 2
+      - 4
+      - 6
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: s70
+        x: -2.4
+        v: 5.91
+        color: '#F08A4B'
+        grow:
+        - '@almost-0.4'
+        - '@almost+0.8'
+      - id: s25
+        x: 2.4
+        v: 1.07
+        color: '#F08A4B'
+        grow:
+        - '@just'
+        - '@just+0.5'
+  ch_small:
+    hero: chart3d/bars
+    cam: crane-up
+    opt:
+      scale: 0.025
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 100
+      - 200
+      - 300
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: y73
+        x: -2.4
+        v: 377
+        color: '#9AA7B5'
+        grow:
+        - '@377,000-0.4'
+        - '@377,000+0.8'
+      - id: y25
+        x: 2.4
+        v: 48
+        color: '#F08A4B'
+        grow:
+        - '@48,000-0.3'
+        - '@48,000+0.5'
+  ch_sfh:
+    hero: chart3d/bars
+    cam: low-hero
+    opt:
+      scale: 0.12
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 25
+      - 50
+      - 75
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: s70
+        x: -2.4
+        v: 57.09
+        color: '#9AA7B5'
+        grow:
+        - '@fifty-seven-0.4'
+        - '@fifty-seven+0.6'
+      - id: s25
+        x: 2.4
+        v: 67.5
+        color: '#3CC2B0'
+        grow:
+        - '@sixty-eight-0.4'
+        - '@sixty-eight+0.6'
+  ch_big:
+    hero: chart3d/bars
+    cam: orbit-r
+    opt:
+      scale: 0.12
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 25
+      - 50
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: y72
+        x: -2.4
+        v: 20
+        color: '#9AA7B5'
+        grow:
+        - '@five#2-0.3'
+        - '@five#2+0.5'
+      - id: y25
+        x: 2.4
+        v: 57
+        color: '#F08A4B'
+        grow:
+        - '@fifty-seven#2-0.4'
+        - '@fifty-seven#2+0.6'
+  ch_mpls:
+    hero: chart3d/stack
+    cam: crane-up
+    opt:
+      scale: 0.0008
+      block: 1000
+      w: 3.0
+      d: 3.0
+      ruler:
+      - 0
+      - 4000
+      - 8000
+      - 12000
+      rulerX: -6
+      rulerZ: -4
+      rulerW: 12
+      groups:
+      - id: mf
+        x: 0
+        segs:
+        - id: small
+          v: 317
+          color: '#F08A4B'
+        - id: rest
+          v: 12018
+          color: steel
+        grow:
+        - '@317-0.4'
+        - '@317+1.8'
+  ch_sb9:
+    hero: chart3d/bars
+    cam: front-dolly
+    opt:
+      scale: 0.03
+      w: 2.4
+      d: 2.4
+      ruler:
+      - 0
+      - 100
+      - 200
+      rulerX: -7
+      rulerZ: -4
+      rulerW: 14
+      bars:
+      - id: la
+        x: -2.4
+        v: 211
+        color: '#3CC2B0'
+        grow:
+        - '@211-0.4'
+        - '@211+0.6'
+      - id: sd
+        x: 2.4
+        v: 7
+        color: '#3CC2B0'
+        grow:
+        - '@seven-0.2'
+        - '@seven+0.4'
+  ch_study:
+    hero: chart3d/bars
+    cam: top-down
+    opt:
+      scale: 6
+      w: 2.6
+      d: 2.6
+      ruler:
+      - 0
+      - 0.5
+      - 1
+      rulerX: -6
+      rulerZ: -4
+      rulerW: 12
+      bars:
+      - id: urban
+        x: 0
+        v: 0.8
+        color: '#3CC2B0'
+        grow:
+        - '@0.8-0.4'
+        - '@0.8+0.6'
+  ch_stock:
+    hero: chart3d/stack
+    cam: low-hero
+    opt:
+      scale: 0.5
+      block: 1
+      w: 3.0
+      d: 3.0
+      ruler:
+      - 0
+      - 5
+      - 10
+      rulerX: -6
+      rulerZ: -4
+      rulerW: 12
+      groups:
+      - id: all
+        x: 0
+        segs:
+        - id: rented
+          v: 7.94
+          color: '#F08A4B'
+        - id: owned
+          v: 1.75
+          color: '#3CC2B0'
+        - id: vacant
+          v: 1.37
+          color: steel
+        grow:
+        - '@eleven-0.4'
+        - '@eleven+1.6'
+  p_habs02:
+    hero: photo/print
+    cam: drift-r
+    opt:
+      img: /cache/k2c106-loc-habs-02.jpg
+      focus:
+      - 0.5
+      - 0.42
+  p_habs01:
+    hero: photo/print
+    cam: tilt-low
+    opt:
+      img: /cache/k2c106-loc-habs-01.jpg
+      focus:
+      - 0.5
+      - 0.4
+  p_det01:
+    hero: photo/print
+    cam: push
+    opt:
+      img: /cache/k2c106-loc-det-01.jpg
+      focus:
+      - 0.55
+      - 0.42
+      push: 0.2
+  p_fsa01:
+    hero: photo/print
+    cam: drift-l
+    opt:
+      img: /cache/k2c106-loc-fsa-01.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_det11:
+    hero: photo/print
+    cam: pull
+    opt:
+      img: /cache/k2c106-loc-det-11.jpg
+      focus:
+      - 0.5
+      - 0.42
+  p_fsa04:
+    hero: photo/print
+    cam: drift-r
+    opt:
+      img: /cache/k2c106-loc-fsa-04.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_hoover:
+    hero: photo/print
+    cam: push
+    opt:
+      img: /cache/loc-hoover-1928.jpg
+      focus:
+      - 0.53
+      - 0.3
+      push: 0.24
+  p_det02:
+    hero: photo/print
+    cam: drift-l
+    opt:
+      img: /cache/k2c106-loc-det-02.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_det08:
+    hero: photo/print
+    cam: detail
+    opt:
+      img: /cache/k2c106-loc-det-08.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_det07:
+    hero: photo/print
+    cam: push
+    opt:
+      img: /cache/loc-det-07-tif.jpg
+      focus:
+      - 0.8
+      - 0.45
+      push: 0.2
+  p_suth:
+    hero: photo/print
+    cam: push
+    opt:
+      img: /cache/loc-sutherland-1937.jpg
+      focus:
+      - 0.5
+      - 0.3
+      push: 0.22
+  p_det06:
+    hero: photo/print
+    cam: tilt-low
+    opt:
+      img: /cache/k2c106-loc-det-06.jpg
+      focus:
+      - 0.5
+      - 0.42
+  p_det12:
+    hero: photo/print
+    cam: drift-r
+    opt:
+      img: /cache/k2c106-loc-det-12.jpg
+      focus:
+      - 0.5
+      - 0.5
+  p_det04:
+    hero: photo/print
+    cam: pull
+    opt:
+      img: /cache/k2c106-loc-det-04.jpg
+      focus:
+      - 0.5
+      - 0.4
+  p_det05:
+    hero: photo/print
+    cam: drift-l
+    opt:
+      img: /cache/k2c106-loc-det-05.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_det03:
+    hero: photo/print
+    cam: detail
+    opt:
+      img: /cache/k2c106-loc-det-03.jpg
+      focus:
+      - 0.5
+      - 0.5
+  p_habs04:
+    hero: photo/print
+    cam: push
+    opt:
+      img: /cache/k2c106-loc-habs-04.jpg
+      focus:
+      - 0.45
+      - 0.45
+      push: 0.18
+  p_habs03:
+    hero: photo/print
+    cam: drift-l
+    opt:
+      img: /cache/k2c106-loc-habs-03.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_fsa03:
+    hero: photo/print
+    cam: tilt-low
+    opt:
+      img: /cache/k2c106-loc-fsa-03.jpg
+      focus:
+      - 0.5
+      - 0.45
+  p_bayridge:
+    hero: photo/print
+    cam: drift-r
+    opt:
+      img: /cache/k2c106-px-7180335.jpg
+      focus:
+      - 0.5
+      - 0.45
+      tone: '#26221e'
+  d_sszea:
+    hero: photo/doc
+    cam: push
+    opt:
+      page: /cache/sszea-1926-p1.json
+      hl:
+      - i: 0
+        at:
+        - 0.15
+        - 1.4
+        color: '#F0B43C'
+      focus: 0
+      exposure: 0.8
+  d_euclid:
+    hero: photo/doc
+    cam: push
+    opt:
+      page: /cache/usrep-272-365-p30.json
+      hl:
+      - i: 0
+        at:
+        - 0.15
+        - 1.6
+        color: '#F0B43C'
+      focus: 0
+      exposure: 0.8
+  d_ibc:
+    hero: photo/doc
+    cam: detail
+    opt:
+      page: /cache/ibc-sea-t1006-p1.json
+      hl:
+      - i: 0
+        at:
+        - 0.2
+        - 1.4
+        color: '#F0B43C'
+      - i: 1
+        at:
+        - 1.2
+        - 2.2
+        color: '#E0564B'
+      focus: 1
+      exposure: 0.8
+  d_cfr:
+    hero: photo/doc
+    cam: tilt-low
+    opt:
+      page: /cache/cfr-1282-1-p1.json
+      hl:
+      - i: 0
+        at:
+        - 0.15
+        - 1.2
+        color: '#F0B43C'
+      - i: 1
+        at:
+        - 1.1
+        - 2.2
+        color: '#F0B43C'
+      focus: 1
+      exposure: 0.8
+  f_chicago:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/k2-footage/k2c-t1-06/px-38879369.mp4
+      sha256: 846d11cd6c06393ce95d71d889b0743623b6032f8c6cb1f523afb653014070bf
+      ss: 2
+  f_fire:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/k2-footage/k2c-t1-06/px-36624235.mp4
+      sha256: 53b2cd086da64419a149972655e65026f1b0aa276d6a47e81afaeca5cac73e7a
+      ss: 1
+  f_crane:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/k2-footage/k2c-t1-06/px-20568183.mp4
+      sha256: b1e0689ad73fe59d86ef60f575e7eae56e86d7e4d555956d19bba017c7a108bb
+      ss: 1
+  f_town:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/k2-footage/k2c-t1-06/px-33003293.mp4
+      sha256: bf4774e9bf41cb44fb3cf4fd646fbdaa68d8eb04a8131ddeaf579304300447fd
+      ss: 1
+  s_corner:
+    hero: k2c106/corner
+    size:
+    - 1080
+    - 1920
+    opt:
+      tod: dusk
+      cam:
+      - u: 0
+        p:
+        - -17
+        - 2.0
+        - -19
+        l:
+        - 9
+        - 8.5
+        - 9
+        mm: 22
+      - u: 1
+        p:
+        - -14.5
+        - 2.3
+        - -16.5
+        l:
+        - 9
+        - 8.8
+        - 9
+        mm: 22
+  s_corner2:
+    hero: k2c106/corner
+    size:
+    - 1080
+    - 1920
+    opt:
+      tod: blue
+      cam:
+      - u: 0
+        p:
+        - -7
+        - 2.2
+        - -6
+        l:
+        - 9
+        - 9.5
+        - 8.5
+        mm: 22
+      - u: 1
+        p:
+        - -3.5
+        - 2.6
+        - -2.5
+        l:
+        - 9
+        - 10
+        - 8.5
+        mm: 22
+  s_hook:
+    hero: chart3d/bars
+    size:
+    - 1080
+    - 1920
+    opt:
+      preset: crane-up
+      scale: 0.8
+      w: 2.4
+      d: 2.4
+      bars:
+      - id: stock
+        x: -2.0
+        v: 7.54
+        color: '#F08A4B'
+        grow:
+        - 0.3
+        - 1.6
+      - id: new25
+        x: 2.0
+        v: 1.07
+        color: '#3CC2B0'
+        grow:
+        - '@hundred-0.6'
+        - '@hundred+0.4'
+  s_stairs:
+    hero: k2c106/stairs
+    size:
+    - 1080
+    - 1920
+    opt:
+      mode: one
+      floors: 4
+      stackAt:
+      - '@single-0.6'
+      - 0.5
+      np:
+      - '@fourth'
+      - '@fourth+0.6'
+      cam:
+      - u: 0
+        p:
+        - 12
+        - 9
+        - 22
+        l:
+        - 0
+        - 6.5
+        - 0
+        mm: 24
+      - u: 1
+        p:
+        - 10
+        - 10.5
+        - 23
+        l:
+        - 0
+        - 7
+        - 0
+        mm: 24
+  s_tall:
+    hero: k2c106/street
+    size:
+    - 1080
+    - 1920
+    opt:
+      tod: day
+      hl: 3
+      hlAt:
+      - 0.3
+      - 0.9
+      cam:
+      - u: 0
+        p:
+        - 6
+        - 1.6
+        - -6
+        l:
+        - 20
+        - 11
+        - 15
+        mm: 20
+      - u: 1
+        p:
+        - 8
+        - 1.8
+        - -7
+        l:
+        - 21
+        - 11.5
+        - 15
+        mm: 20
+shorts:
+- id: S1
+  hook: 1 in 13 homes — but 1 in 100 new ones. Why?
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    p:
+      hero: s_corner
+      frame0: 0
+      asofY: 1548
+      labels:
+      - a: building
+        s: about 1 in 13
+        sub: U.S. homes in 2–4-apartment buildings (2024)
+        at: '@thirteen'
+        dy: -260
+        num: c01
+      cap:
+      - s: Census ACS 2024 · our calculation
+        at: 0.3
+        src:
+        - ACS24
+  - tpl: plate
+    at: '@of-0.3'
+    in: fade
+    type: chart3d
+    scene_id: ch_hook
+    camera_id: s-crane
+    p:
+      hero: s_hook
+      frame0: 0
+      labels:
+      - a: stock:top
+        s: 7.5%
+        sub: homes standing (2024)
+        at: '@of+0.4'
+        dy: -160
+        num: c01
+      - a: new25:top
+        s: 1.1%
+        sub: new homes finished (2025)
+        at: '@hundred'
+        dy: -200
+        num: c02
+      cap:
+      - s: Two different Census counts · our calculation
+        at: '@of'
+        src:
+        - ACS24
+        - NRC
+  - tpl: plate
+    at: '@so-0.3'
+    in: fade
+    type: scene3d
+    p:
+      hero: s_corner2
+      frame0: 0
+      cap:
+      - s: Why did America almost stop building them?
+        at: '@why'
+  vo: About one in thirteen American homes sits in a building with two to four apartments. Of the new homes finished in 2025, about one in a hundred did. So why did America almost stop building them?
+- id: S2
+  hook: Why one staircase stops at three stories
+  shots:
+  - tpl: plate
+    at: 0
+    type: scene3d
+    p:
+      hero: s_stairs
+      frame0: 0
+      asof: Facts as of 12 Oct 2026
+      asofY: 1548
+      labels:
+      - a: core1
+        s: One staircase
+        sub: up to the 3rd story · ≤ 4 homes per floor
+        at: '@single'
+        dy: -220
+        num: c15
+      - a: np
+        s: '4th story: NP'
+        sub: not permitted
+        at: '@fourth'
+        dy: -200
+        num: c15
+      cap:
+      - s: Model code, 2021 edition (as reprinted in Seattle's 2021 code)
+        at: 0.3
+        src:
+        - IBCSEA
+  - tpl: plate
+    at: '@so-0.3'
+    in: fade
+    type: scene3d
+    p:
+      hero: s_tall
+      frame0: 0
+      cap:
+      - s: The taller building on a small lot
+        at: '@taller'
+  vo: In the model code's 2021 edition — as reprinted in Seattle's 2021 code, which we checked — an apartment building may have a single staircase up to the third story, with at most four homes per floor and sprinklers throughout. A fourth story on one stair is not permitted. So the single-stair limit bites at the fourth story, and at any floor with more than four homes — the taller building on a small lot.

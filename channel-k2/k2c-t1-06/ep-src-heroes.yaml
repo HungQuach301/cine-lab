@@ -1,0 +1,168 @@
+# K2C-T1-06 "Apartments" — ĐẶC TẢ NGUỒN, phần cảnh (ghép bởi ep-src.yaml qua make_spec.py; sửa ở đây).
+# Cảnh 3D của tập: design/ll-hero/k2c106.js (preset máy quay CAM[cảnh]); module k2v: map/globe, chart3d/*, photo/*; footage/clip (scripts/k2/hero.js, trích khung, kiểm SHA).
+# camera_id = tên preset (heroes.<k>.cam) hoặc máy quay khai trực tiếp; scene_id khai ở shot cho ảnh/biểu đồ/văn bản (mỗi ảnh, mỗi bộ số là một bối cảnh riêng).
+heroes:
+  # ---------- corner (toà góc phố) ----------
+  c_wide:   {hero: k2c106/corner, cam: wide_dusk, opt: {tod: dusk}}
+  c_push:   {hero: k2c106/corner, cam: push_facade, opt: {tod: dusk}}
+  c_sec:    {hero: k2c106/corner, cam: section, opt: {tod: dusk, section: ["@floors-0.6", "@floors+1.0"]}}
+  c_stair:  {hero: k2c106/corner, cam: stair_section, opt: {tod: dusk, section: [0.2, 1.4]}}
+  c_shop:   {hero: k2c106/corner, cam: shop_section, opt: {tod: dusk, section: [0.4, 1.6], shop: 1.4}}
+  c_day:    {hero: k2c106/corner, cam: day_town_center, opt: {tod: day}}
+  c_blue:   {hero: k2c106/corner, cam: blue_hour_end, opt: {tod: blue}}
+  c_secend: {hero: k2c106/corner, cam: section_end, opt: {tod: blue, section: [0.4, 1.8]}}
+  c_crane:  {hero: k2c106/corner, cam: crane_up, opt: {tod: blue}}
+  # ---------- street (dãy phố) ----------
+  st_block: {hero: k2c106/street, cam: high_block, opt: {tod: day}}
+  st_dolly: {hero: k2c106/street, cam: dolly_day, opt: {tod: day}}
+  st_tele:  {hero: k2c106/street, cam: tele_fronts, opt: {tod: day}}
+  st_tall:  {hero: k2c106/street, cam: tall_walkups, opt: {tod: day, hl: 3, hlAt: [0.4, 1.0]}}
+  st_dusk:  {hero: k2c106/street, cam: dusk_new, opt: {tod: dusk}}
+  # ---------- tiers (sa bàn Euclid, minh hoạ) ----------
+  ti_top:   {hero: k2c106/tiers, cam: top, opt: {fill: [0.4, 0.9, 1.4, 1.9]}}
+  ti_obl:   {hero: k2c106/tiers, cam: oblique_tiers, opt: {fill: ["@single-family", "@two-family", "@then#2", "@retail"], probe: {at: "@so", zones: [0, 1, 2, 3], step: 3.0}}}
+  ti_shadow: {hero: k2c106/tiers, cam: shadow_low, opt: {sun: 1}}
+  # ---------- lot ----------
+  lo_plan:  {hero: k2c106/lot, cam: plan, opt: {stalls: 10, grow: ["@parking", "@spaces+1.5"]}}
+  lo_pencil: {hero: k2c106/lot, cam: pencil, opt: {stalls: 6, grow: -1}}
+  # ---------- stairs (mặt cắt) ----------
+  sa_model: {hero: k2c106/stairs, cam: model_code, opt: {mode: one, floors: 3}}
+  sa_elev:  {hero: k2c106/stairs, cam: elev_stack, opt: {mode: one, floors: 4, stackAt: ["@single-0.6", 0.5], np: ["@fourth", "@fourth+0.6"]}}
+  sa_plan:  {hero: k2c106/stairs, cam: plan_compare, opt: {mode: compare, floors: 4}}
+  sa_floor: {hero: k2c106/stairs, cam: floor_plate, opt: {mode: two, floors: 4}}
+  sa_press: {hero: k2c106/stairs, cam: pressurized, opt: {mode: one, floors: 6, press: ["@pressurized-0.4", "@pressurized+0.6"]}}
+  sa_fire:  {hero: k2c106/stairs, cam: fire_logic, opt: {mode: one, floors: 4, fire: ["@sprinklers", 1.0]}}
+  # ---------- bank ----------
+  b_side:   {hero: k2c106/bank, cam: side, opt: {}}
+  b_line:   {hero: k2c106/bank, cam: line_four, opt: {}}
+  b_counter: {hero: k2c106/bank, cam: counter, opt: {}}
+  b_fifth:  {hero: k2c106/bank, cam: fifth_block, opt: {fifth: ["@fifth", "@fifth+1.8"]}}
+  b_reject: {hero: k2c106/bank, cam: mixed_reject, opt: {fifth: -1, shop: 1, reject: ["@neither-0.4", "@neither+0.4"]}}
+  b_still:  {hero: k2c106/bank, cam: line_still, opt: {}}
+  # ---------- ends (hai đầu, 1972 → 2025) ----------
+  e_72:     {hero: k2c106/ends, cam: wide_1972, opt: {year: 1972}}
+  e_25:     {hero: k2c106/ends, cam: wide_2025, opt: {year: 1972, year1: 2025, yearAt: [0.3, 3.0]}}
+
+  # ---------- map/globe (bản đồ thật: Blue Marble + Natural Earth + Census; patches 500 m/px) ----------
+  m_euclid: {hero: map/globe, opt: {patches: [{bbox: [-84, 39, -79, 44], img: /cache/bm-crop--84_39_-79_44-6144-500m.jpg}], states: [{state: Ohio, color: '#3CC2B0', fill: 0.16}], pinMin: 0.07,
+             places: [{id: euclid, ll: [-81.5268, 41.5931], name: "Euclid, Ohio", at: "@euclid"}, {id: cleveland, ll: [-81.6944, 41.4993], name: Cleveland, at: "@cleveland"}],
+             cam: [{u: 0, lon: -70, lat: 30, alt: 24, tilt: 0, mm: 35}, {u: 0.3, lon: -76, lat: 36, alt: 12, tilt: 10, mm: 35}, {u: 0.75, lon: -81.6, lat: 40.2, alt: 1.6, tilt: 30, mm: 35}, {u: 1, lon: -81.62, lat: 40.6, alt: 1.3, tilt: 34, head: 3, mm: 35}]}}
+  m_colorado: {hero: map/globe, opt: {patches: [{bbox: [-110, 36, -101, 42], img: /cache/bm-crop--110_36_-101_42-6144-500m.jpg}], states: [{state: Colorado, color: '#F08A4B', fill: 0.22}], pinMin: 0.12,
+             places: [{id: colorado, ll: [-105.55, 39.0], name: Colorado, at: "@colorado"}],
+             cam: [{u: 0, lon: -96, lat: 30, alt: 14, tilt: 8, mm: 35}, {u: 0.55, lon: -104.5, lat: 35.2, alt: 3.2, tilt: 34, head: -6, mm: 35}, {u: 1, lon: -105.2, lat: 35.8, alt: 2.8, tilt: 38, head: -10, mm: 35}]}}
+  m_colorado2: {hero: map/globe, opt: {patches: [{bbox: [-110, 36, -101, 42], img: /cache/bm-crop--110_36_-101_42-6144-500m.jpg}], states: [{state: Colorado, color: '#3CC2B0', fill: 0.2}], pinMin: 0.1,
+             places: [{id: denver, ll: [-104.9903, 39.7392], name: Denver, at: 0.6}],
+             cam: [{u: 0, lon: -106.8, lat: 37.3, alt: 2.4, tilt: 46, head: 18, mm: 40}, {u: 1, lon: -105.0, lat: 37.0, alt: 2.2, tilt: 50, head: -8, mm: 40}]}}
+  m_wash:   {hero: map/globe, opt: {patches: [{bbox: [-125, 45, -116, 49.5], img: /cache/bm-crop--125_45_-116_49.5-6144-500m.jpg}], states: [{state: Washington, color: '#3CC2B0', fill: 0.2}], pinMin: 0.1,
+             places: [{id: seattle, ll: [-122.3321, 47.6062], name: Seattle, at: "@seattle's"}],
+             cam: [{u: 0, lon: -112, lat: 40, alt: 10, tilt: 10, mm: 35}, {u: 1, lon: -121.0, lat: 45.2, alt: 2.4, tilt: 38, head: -12, mm: 35}]}}
+  m_seattle: {hero: map/globe, opt: {patches: [{bbox: [-125, 45, -116, 49.5], img: /cache/bm-crop--125_45_-116_49.5-6144-500m.jpg}], states: [{state: Washington, color: '#F08A4B', fill: 0.14}], pinMin: 0.07,
+             places: [{id: seattle, ll: [-122.3321, 47.6062], name: Seattle, at: 0.4}],
+             cam: [{u: 0, lon: -123.4, lat: 46.4, alt: 1.5, tilt: 44, head: 22, mm: 40}, {u: 1, lon: -121.6, lat: 46.2, alt: 1.3, tilt: 46, head: -14, mm: 40}]}}
+  m_calif:  {hero: map/globe, opt: {patches: [{bbox: [-125, 32, -114, 42], img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg}], states: [{state: California, color: '#E0564B', fill: 0.18}], pinMin: 0.12,
+             places: [{id: calif, ll: [-119.4, 37.2], name: California, at: "@california's"}],
+             cam: [{u: 0, lon: -104, lat: 30, alt: 14, tilt: 6, mm: 35}, {u: 1, lon: -118.2, lat: 32.6, alt: 3.6, tilt: 34, head: -14, mm: 35}]}}
+  m_calif2: {hero: map/globe, opt: {patches: [{bbox: [-125, 32, -114, 42], img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg}], states: [{state: California, color: '#F2C14E', fill: 0.16}], pinMin: 0.12,
+             places: [{id: calif, ll: [-119.4, 37.2], name: California, at: 0.4}],
+             cam: [{u: 0, lon: -114.0, lat: 33.4, alt: 3.4, tilt: 40, head: -40, mm: 35}, {u: 1, lon: -114.8, lat: 35.6, alt: 3.2, tilt: 42, head: -58, mm: 35}]}}
+  m_calif3: {hero: map/globe, opt: {patches: [{bbox: [-125, 32, -114, 42], img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg}], states: [{state: California, color: '#3CC2B0', fill: 0.12}], pinMin: 0.08,
+             places: [{id: la, ll: [-118.2437, 34.0522], name: Los Angeles, at: 0.4}, {id: sd, ll: [-117.1611, 32.7157], name: San Diego, at: 0.9}],
+             cam: [{u: 0, lon: -121.5, lat: 33.0, alt: 2.4, tilt: 30, head: 30, mm: 35}, {u: 1, lon: -118.6, lat: 31.0, alt: 2.0, tilt: 36, head: 6, mm: 35}]}}
+  m_minn:   {hero: map/globe, opt: {patches: [{bbox: [-97.5, 43, -90, 49.5], img: /cache/bm-crop--97.5_43_-90_49.5-6144-500m.jpg}], states: [{state: Minnesota, color: '#3CC2B0', fill: 0.2}], pinMin: 0.12,
+             places: [{id: minn, ll: [-94.3, 46.3], name: Minnesota, at: "@minnesota's"}],
+             cam: [{u: 0, lon: -86, lat: 38, alt: 12, tilt: 8, mm: 35}, {u: 1, lon: -94.2, lat: 42.4, alt: 3.0, tilt: 34, head: -4, mm: 35}]}}
+  m_minn2:  {hero: map/globe, opt: {patches: [{bbox: [-97.5, 43, -90, 49.5], img: /cache/bm-crop--97.5_43_-90_49.5-6144-500m.jpg}], states: [{state: Minnesota, color: '#F08A4B', fill: 0.12}], pinMin: 0.07,
+             places: [{id: mpls, ll: [-93.265, 44.9778], name: Minneapolis, at: 0.5}],
+             cam: [{u: 0, lon: -95.2, lat: 43.6, alt: 1.6, tilt: 42, head: 24, mm: 40}, {u: 1, lon: -93.6, lat: 43.7, alt: 1.4, tilt: 44, head: 2, mm: 40}]}}
+  m_minn3:  {hero: map/globe, opt: {patches: [{bbox: [-97.5, 43, -90, 49.5], img: /cache/bm-crop--97.5_43_-90_49.5-6144-500m.jpg}], states: [{state: Minnesota, color: '#3CC2B0', fill: 0.12}], pinMin: 0.07,
+             places: [{id: mpls, ll: [-93.265, 44.9778], name: Minneapolis, at: "@minneapolis"}],
+             cam: [{u: 0, lon: -91.4, lat: 44.0, alt: 1.6, tilt: 46, head: -30, mm: 40}, {u: 1, lon: -92.4, lat: 43.9, alt: 1.4, tilt: 48, head: -14, mm: 40}]}}
+  m_chicago: {hero: map/globe, opt: {patches: [{bbox: [-89.5, 40.5, -86, 43], img: /cache/bm-crop--89.5_40.5_-86_43-6144-500m.jpg}], states: [{state: Illinois, color: '#F2C14E', fill: 0.14}], pinMin: 0.07,
+             places: [{id: chicago, ll: [-87.6298, 41.8781], name: Chicago, at: "@chicago"}],
+             cam: [{u: 0, lon: -84, lat: 36, alt: 9, tilt: 10, mm: 35}, {u: 1, lon: -87.9, lat: 40.4, alt: 1.5, tilt: 40, head: 4, mm: 35}]}}
+  m_auckland: {hero: map/globe, opt: {patches: [{bbox: [172.5, -38.5, 177, -35], img: /cache/bm-crop-172.5_-38.5_177_-35-6144-500m.jpg}], pinMin: 0.08,
+             hl: [{country: New Zealand, color: '#3CC2B0', at: 0.6, fill: 0.16}],
+             places: [{id: auckland, ll: [174.7633, -36.8485], name: "Auckland, New Zealand", at: "@auckland"}],
+             cam: [{u: 0, lon: -150, lat: -10, alt: 26, tilt: 0, mm: 35}, {u: 0.45, lon: 172, lat: -40, alt: 9, tilt: 10, mm: 35}, {u: 1, lon: 174.6, lat: -38.6, alt: 1.7, tilt: 38, head: 6, mm: 35}]}}
+  m_nyc:    {hero: map/globe, opt: {patches: [{bbox: [-76, 39.5, -72, 42], img: /cache/bm-crop--76_39.5_-72_42-6144-500m.jpg}], states: [{state: New York, color: '#F08A4B', fill: 0.14}], pinMin: 0.07,
+             places: [{id: nyc, ll: [-74.006, 40.7128], name: New York City, at: "@york"}],
+             cam: [{u: 0, lon: -66, lat: 34, alt: 8, tilt: 12, mm: 35}, {u: 1, lon: -74.2, lat: 39.4, alt: 1.4, tilt: 40, head: 4, mm: 35}]}}
+  m_oregon: {hero: map/globe, opt: {patches: [{bbox: [-125, 41.5, -116, 46.5], img: /cache/bm-crop--125_41.5_-116_46.5-6144-500m.jpg}], states: [{state: Oregon, color: '#3CC2B0', fill: 0.2}], pinMin: 0.12,
+             places: [{id: oregon, ll: [-120.6, 43.9], name: Oregon, at: "@oregon's"}],
+             cam: [{u: 0, lon: -114.5, lat: 41.0, alt: 3.8, tilt: 36, head: -36, mm: 35}, {u: 1, lon: -118.4, lat: 40.8, alt: 3.2, tilt: 38, head: -18, mm: 35}]}}
+  m_wash2:  {hero: map/globe, opt: {patches: [{bbox: [-125, 45, -116, 49.5], img: /cache/bm-crop--125_45_-116_49.5-6144-500m.jpg}], states: [{state: Washington, color: '#F2C14E', fill: 0.2}], pinMin: 0.12,
+             places: [{id: washst, ll: [-120.5, 47.4], name: Washington, at: 0.4}],
+             cam: [{u: 0, lon: -118.0, lat: 50.6, alt: 3.4, tilt: 36, head: 196, mm: 35}, {u: 1, lon: -120.4, lat: 51.0, alt: 3.0, tilt: 38, head: 178, mm: 35}]}}
+  m_texas:  {hero: map/globe, opt: {patches: [{bbox: [-107, 25.5, -93, 36.8], img: /cache/bm-crop--107_25.5_-93_36.8-6144-500m.jpg}], states: [{state: Texas, color: '#F08A4B', fill: 0.18}], pinMin: 0.12,
+             places: [{id: texas, ll: [-99.3, 31.3], name: Texas, at: "@texas"}],
+             cam: [{u: 0, lon: -88, lat: 22, alt: 12, tilt: 8, mm: 35}, {u: 1, lon: -99.0, lat: 26.2, alt: 3.8, tilt: 34, head: -2, mm: 35}]}}
+
+  # ---------- chart3d (tỷ lệ thật, trục từ 0, nguồn trên hình) ----------
+  ch_hook:  {hero: chart3d/bars, cam: front-dolly, opt: {scale: 0.8, w: 2.4, d: 2.4, bars: [{id: stock, x: -2.4, v: 7.54, color: '#F08A4B', grow: [0.3, 1.6]}, {id: new25, x: 2.4, v: 1.07, color: '#3CC2B0', grow: ["@hundred-0.6", "@hundred+0.4"]}]}}
+  ch_co:    {hero: chart3d/bars, cam: low-hero, opt: {scale: 0.1, w: 2.6, d: 2.6, ruler: [0, 25, 50], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: sf, x: -2.6, v: 59, color: '#F08A4B', grow: ["@fifty-nine-0.4", "@fifty-nine+0.8"]}, {id: big, x: 2.6, v: 3, color: '#3CC2B0', grow: ["@three", "@three+0.6"]}]}}
+  ch_pew:   {hero: chart3d/bars, cam: orbit-l, opt: {scale: 0.35, w: 2.2, d: 2.2, ruler: [0, 5, 10], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: floor, x: -3.6, v: 7, color: '#F08A4B', grow: ["@seven", "@seven+0.8"]}, {id: lo, x: 0.6, v: 6, color: '#3CC2B0', grow: ["@six", "@six+0.6"]}, {id: hi, x: 3.6, v: 13, color: '#3CC2B0', grow: ["@thirteen", "@thirteen+0.7"]}]}}
+  ch_terner: {hero: chart3d/bars, cam: crane-up, opt: {scale: 0.05, w: 2.4, d: 2.4, ruler: [0, 50, 100], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: res, x: -2.4, v: 100, color: '#9AA7B5', grow: [0.4, 1.4]}, {id: com, x: 2.4, v: 110, color: '#F08A4B', grow: ["@roughly-0.6", "@roughly+0.6"]}]}}
+  ch_records: {hero: chart3d/bars, cam: orbit-r, opt: {scale: 3, w: 2.6, d: 2.6,
+             bars: [{id: single, x: -2.6, v: 1, color: '#3CC2B0', grow: ["@4,440", "@4,440+0.8"]}, {id: other, x: 2.6, v: 1, color: '#9AA7B5', grow: ["@same-0.6", "@same+0.4"]}]}}
+  ch_icc:   {hero: chart3d/bars, cam: side-track, opt: {scale: 0.06, w: 2.4, d: 2.4, ruler: [0, 50, 100], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: yes, x: -2.4, v: 86, color: '#3CC2B0', grow: ["@eighty-six-0.4", "@eighty-six+0.6"]}, {id: no, x: 2.4, v: 34, color: '#9AA7B5', grow: ["@thirty-four-0.3", "@thirty-four+0.5"]}]}}
+  ch_comp:  {hero: chart3d/line, cam: side-track, opt: {scale: 0.06, xk: 0.32, xoff: -9, th: 0.24, depth: 1.4, ruler: [0, 50, 100], rulerX: -10.5, rulerZ: -2, rulerW: 21, draw: ["@peaked-1.0", "@2025-0.2"],
+             pts: [[1968, 77.4], [1969, 79.8], [1970, 85.1], [1971, 106.1], [1972, 119.2], [1973, 123.5], [1974, 95.3], [1975, 60.4], [1976, 77.1], [1977, 94.9], [1978, 116.1], [1979, 124.9], [1980, 118.8], [1981, 111.4], [1982, 80.7], [1983, 92], [1984, 112.2], [1985, 97.2], [1986, 86.1], [1987, 71.4], [1988, 56.6], [1989, 58.7], [1990, 44.8], [1991, 36.8], [1992, 36.1], [1993, 26.3], [1994, 31.8], [1995, 34.7], [1996, 33.1], [1997, 37], [1998, 40.6], [1999, 35.2], [2000, 27.3], [2001, 33.9], [2002, 35], [2003, 31.5], [2004, 23.5], [2005, 37.5], [2006, 40.8], [2007, 31.4], [2008, 23.7], [2009, 14.5], [2010, 8.9], [2011, 8.4], [2012, 8.7], [2013, 9.1], [2014, 8.7], [2015, 10], [2016, 10.4], [2017, 10.7], [2018, 9], [2019, 9], [2020, 10.5], [2021, 7.7], [2022, 9.4], [2023, 11.7], [2024, 16.6], [2025, 16]]}}
+  ch_share: {hero: chart3d/bars, cam: front-dolly, opt: {scale: 0.9, w: 2.4, d: 2.4, ruler: [0, 2, 4, 6], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: s70, x: -2.4, v: 5.91, color: '#F08A4B', grow: ["@almost-0.4", "@almost+0.8"]}, {id: s25, x: 2.4, v: 1.07, color: '#F08A4B', grow: ["@just", "@just+0.5"]}]}}
+  ch_small: {hero: chart3d/bars, cam: crane-up, opt: {scale: 0.025, w: 2.4, d: 2.4, ruler: [0, 100, 200, 300], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: y73, x: -2.4, v: 377, color: '#9AA7B5', grow: ["@377,000-0.4", "@377,000+0.8"]}, {id: y25, x: 2.4, v: 48, color: '#F08A4B', grow: ["@48,000-0.3", "@48,000+0.5"]}]}}
+  ch_sfh:   {hero: chart3d/bars, cam: low-hero, opt: {scale: 0.12, w: 2.4, d: 2.4, ruler: [0, 25, 50, 75], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: s70, x: -2.4, v: 57.09, color: '#9AA7B5', grow: ["@fifty-seven-0.4", "@fifty-seven+0.6"]}, {id: s25, x: 2.4, v: 67.5, color: '#3CC2B0', grow: ["@sixty-eight-0.4", "@sixty-eight+0.6"]}]}}
+  ch_big:   {hero: chart3d/bars, cam: orbit-r, opt: {scale: 0.12, w: 2.4, d: 2.4, ruler: [0, 25, 50], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: y72, x: -2.4, v: 20, color: '#9AA7B5', grow: ["@five#2-0.3", "@five#2+0.5"]}, {id: y25, x: 2.4, v: 57, color: '#F08A4B', grow: ["@fifty-seven#2-0.4", "@fifty-seven#2+0.6"]}]}}
+  ch_mpls:  {hero: chart3d/stack, cam: crane-up, opt: {scale: 0.0008, block: 1000, w: 3.0, d: 3.0, ruler: [0, 4000, 8000, 12000], rulerX: -6, rulerZ: -4, rulerW: 12,
+             groups: [{id: mf, x: 0, segs: [{id: small, v: 317, color: '#F08A4B'}, {id: rest, v: 12018, color: steel}], grow: ["@317-0.4", "@317+1.8"]}]}}
+  ch_sb9:   {hero: chart3d/bars, cam: front-dolly, opt: {scale: 0.03, w: 2.4, d: 2.4, ruler: [0, 100, 200], rulerX: -7, rulerZ: -4, rulerW: 14,
+             bars: [{id: la, x: -2.4, v: 211, color: '#3CC2B0', grow: ["@211-0.4", "@211+0.6"]}, {id: sd, x: 2.4, v: 7, color: '#3CC2B0', grow: ["@seven-0.2", "@seven+0.4"]}]}}
+  ch_study: {hero: chart3d/bars, cam: top-down, opt: {scale: 6, w: 2.6, d: 2.6, ruler: [0, 0.5, 1], rulerX: -6, rulerZ: -4, rulerW: 12,
+             bars: [{id: urban, x: 0, v: 0.8, color: '#3CC2B0', grow: ["@0.8-0.4", "@0.8+0.6"]}]}}
+  ch_stock: {hero: chart3d/stack, cam: low-hero, opt: {scale: 0.5, block: 1, w: 3.0, d: 3.0, ruler: [0, 5, 10], rulerX: -6, rulerZ: -4, rulerW: 12,
+             groups: [{id: all, x: 0, segs: [{id: rented, v: 7.94, color: '#F08A4B'}, {id: owned, v: 1.75, color: '#3CC2B0'}, {id: vacant, v: 1.37, color: steel}], grow: ["@eleven-0.4", "@eleven+1.6"]}]}}
+
+  # ---------- photo/print (tư liệu đã kiểm quyền từng tệp; cache ngoài git) ----------
+  p_habs02: {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-habs-02.jpg, focus: [0.5, 0.42]}}
+  p_habs01: {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-habs-01.jpg, focus: [0.5, 0.4]}}
+  p_det01:  {hero: photo/print, cam: push, opt: {img: /cache/k2c106-loc-det-01.jpg, focus: [0.55, 0.42], push: 0.2}}
+  p_fsa01:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-fsa-01.jpg, focus: [0.5, 0.45]}}
+  p_det11:  {hero: photo/print, cam: pull, opt: {img: /cache/k2c106-loc-det-11.jpg, focus: [0.5, 0.42]}}
+  p_fsa04:  {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-fsa-04.jpg, focus: [0.5, 0.45]}}
+  p_hoover: {hero: photo/print, cam: push, opt: {img: /cache/loc-hoover-1928.jpg, focus: [0.53, 0.3], push: 0.24}}
+  p_det02:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-det-02.jpg, focus: [0.5, 0.45]}}
+  p_det08:  {hero: photo/print, cam: detail, opt: {img: /cache/k2c106-loc-det-08.jpg, focus: [0.5, 0.45]}}
+  p_det07:  {hero: photo/print, cam: push, opt: {img: /cache/loc-det-07-tif.jpg, focus: [0.8, 0.45], push: 0.2}}
+  p_suth:   {hero: photo/print, cam: push, opt: {img: /cache/loc-sutherland-1937.jpg, focus: [0.5, 0.3], push: 0.22}}
+  p_det06:  {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-det-06.jpg, focus: [0.5, 0.42]}}
+  p_det12:  {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-det-12.jpg, focus: [0.5, 0.5]}}
+  p_det04:  {hero: photo/print, cam: pull, opt: {img: /cache/k2c106-loc-det-04.jpg, focus: [0.5, 0.4]}}
+  p_det05:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-det-05.jpg, focus: [0.5, 0.45]}}
+  p_det03:  {hero: photo/print, cam: detail, opt: {img: /cache/k2c106-loc-det-03.jpg, focus: [0.5, 0.5]}}
+  p_habs04: {hero: photo/print, cam: push, opt: {img: /cache/k2c106-loc-habs-04.jpg, focus: [0.45, 0.45], push: 0.18}}
+  p_habs03: {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-habs-03.jpg, focus: [0.5, 0.45]}}
+  p_fsa03:  {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-fsa-03.jpg, focus: [0.5, 0.45]}}
+  p_bayridge: {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-px-7180335.jpg, focus: [0.5, 0.45], tone: '#26221e'}}
+  # ---------- photo/doc (trang văn bản; ≤ 3 s, p.paper + p.date) ----------
+  d_sszea:  {hero: photo/doc, cam: push, opt: {page: /cache/sszea-1926-p1.json, hl: [{i: 0, at: [0.15, 1.4], color: '#F0B43C'}], focus: 0, exposure: 0.8}}
+  d_euclid: {hero: photo/doc, cam: push, opt: {page: /cache/usrep-272-365-p30.json, hl: [{i: 0, at: [0.15, 1.6], color: '#F0B43C'}], focus: 0, exposure: 0.8}}
+  d_ibc:    {hero: photo/doc, cam: detail, opt: {page: /cache/ibc-sea-t1006-p1.json, hl: [{i: 0, at: [0.2, 1.4], color: '#F0B43C'}, {i: 1, at: [1.2, 2.2], color: '#E0564B'}], focus: 1, exposure: 0.8}}
+  d_cfr:    {hero: photo/doc, cam: tilt-low, opt: {page: /cache/cfr-1282-1-p1.json, hl: [{i: 0, at: [0.15, 1.2], color: '#F0B43C'}, {i: 1, at: [1.1, 2.2], color: '#F0B43C'}], focus: 1, exposure: 0.8}}
+  # ---------- footage/clip (Pexels, ≤ 8 s/clip, nhãn năm; SHA = SOURCES-FOOTAGE.csv) ----------
+  f_chicago: {hero: footage/clip, opt: {file: /var/tmp/k2-footage/k2c-t1-06/px-38879369.mp4, sha256: 846d11cd6c06393ce95d71d889b0743623b6032f8c6cb1f523afb653014070bf, ss: 2}}
+  f_fire:    {hero: footage/clip, opt: {file: /var/tmp/k2-footage/k2c-t1-06/px-36624235.mp4, sha256: 53b2cd086da64419a149972655e65026f1b0aa276d6a47e81afaeca5cac73e7a, ss: 1}}
+  f_crane:   {hero: footage/clip, opt: {file: /var/tmp/k2-footage/k2c-t1-06/px-20568183.mp4, sha256: b1e0689ad73fe59d86ef60f575e7eae56e86d7e4d555956d19bba017c7a108bb, ss: 1}}
+  f_town:    {hero: footage/clip, opt: {file: /var/tmp/k2-footage/k2c-t1-06/px-33003293.mp4, sha256: bf4774e9bf41cb44fb3cf4fd646fbdaa68d8eb04a8131ddeaf579304300447fd, ss: 1}}
+
+  # ---------- Shorts 9:16 ----------
+  s_corner:  {hero: k2c106/corner, size: [1080, 1920], opt: {tod: dusk, cam: [{u: 0, p: [-17, 2.0, -19], l: [9, 8.5, 9], mm: 22}, {u: 1, p: [-14.5, 2.3, -16.5], l: [9, 8.8, 9], mm: 22}]}}
+  s_corner2: {hero: k2c106/corner, size: [1080, 1920], opt: {tod: blue, cam: [{u: 0, p: [-7, 2.2, -6], l: [9, 9.5, 8.5], mm: 22}, {u: 1, p: [-3.5, 2.6, -2.5], l: [9, 10, 8.5], mm: 22}]}}
+  s_hook:    {hero: chart3d/bars, size: [1080, 1920], opt: {preset: crane-up, scale: 0.8, w: 2.4, d: 2.4, bars: [{id: stock, x: -2.0, v: 7.54, color: '#F08A4B', grow: [0.3, 1.6]}, {id: new25, x: 2.0, v: 1.07, color: '#3CC2B0', grow: ["@hundred-0.6", "@hundred+0.4"]}]}}
+  s_stairs:  {hero: k2c106/stairs, size: [1080, 1920], opt: {mode: one, floors: 4, stackAt: ["@single-0.6", 0.5], np: ["@fourth", "@fourth+0.6"], cam: [{u: 0, p: [12, 9, 22], l: [0, 6.5, 0], mm: 24}, {u: 1, p: [10, 10.5, 23], l: [0, 7, 0], mm: 24}]}}
+  s_tall:    {hero: k2c106/street, size: [1080, 1920], opt: {tod: day, hl: 3, hlAt: [0.3, 0.9], cam: [{u: 0, p: [6, 1.6, -6], l: [20, 11, 15], mm: 20}, {u: 1, p: [8, 1.8, -7], l: [21, 11.5, 15], mm: 20}]}}

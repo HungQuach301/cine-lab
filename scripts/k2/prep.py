@@ -73,7 +73,7 @@ def shot_type(hero):
     """loại shot theo luật K Q34 (checks 1.10.1): scene3d | map | chart3d | photo | document | footage | card"""
     if not hero: return 'card'
     m, n = hero.split('/')[0], hero.split('/')[-1]
-    return {'map': 'map', 'chart3d': 'chart3d'}.get(m) or ({'print': 'photo', 'doc': 'document', 'headline': 'document'}.get(n) if m == 'photo' else 'scene3d')
+    return {'map': 'map', 'chart3d': 'chart3d', 'footage': 'footage'}.get(m) or ({'print': 'photo', 'doc': 'document', 'headline': 'document'}.get(n) if m == 'photo' else 'scene3d')
 
 
 def shot_meta(E, sh):
