@@ -1,5 +1,6 @@
 #!/opt/cine/bin/python
-"""Q34 loại shot — luật khoá bản 1.10.1 (phiên K, 12/10/2026; chủ dự án xem Steel). Áp kênh 2 (từ K2 tập 2), đọc ĐẶC TẢ.
+"""Q34 loại shot — luật khoá bản 1.10.1 (phiên K, 12/10/2026; chủ dự án xem Steel); 1.10.2 (13/10/2026): khiếu nại V về (c).
+Áp kênh 2 (từ K2 tập 2), đọc ĐẶC TẢ.
 Định nghĩa: checks/ll/RULES-LL.md (dòng Q34).
 
   q_types.py <episode.yaml> [--tl timeline.json] [--json ra.json]
@@ -15,7 +16,10 @@ TRƯỢT khi:
   (a) một địa danh không có shot `map` giao [t − 6 s, t + 6 s], t = lần đầu lời nhắc tên; tên không có trong lời
   (b) một nhân vật có ảnh hợp lệ (rid trong RIGHTS.md hoặc clip_id trong sổ footage) mà không có shot `photo` ảnh đó giao ±6 s quanh lần nhắc đầu;
       không có ảnh hợp lệ mà không ghi `ly_do` (≥ 20 ký tự)
-  (c) số neo hiện bằng chart3d/scene3d < 60 %, hoặc chỉ bằng card > 40 % (số neo không hiện: tính là không 3D)
+  (c) số neo hiện bằng chart3d/scene3d < 60 %, hoặc chỉ bằng card > 40 % (số neo không hiện: tính là không 3D).
+      1.10.2 (khiếu nại V 12/10, chấp nhận): số trên shot `map` tính là hiện bằng 3D CHỈ KHI nhãn số bám neo `col:<id>` (đỉnh cột số liệu
+      3D nhô khỏi địa cầu) VÀ `<id>` là một cột khai trong `heroes.<p.hero>.opt.cols` (timeline, không có thì đặc tả). Số in chữ trên
+      bản đồ, nhãn địa danh/ghim, neo `col:` không có cột khai → không tính 3D
   (d) shot `document` > 3 s, hoặc thiếu tên báo/ngày. Thời lượng photo/document/footage cộng vào trần 40 % của Q32 (q_footage.py)
 """
 import json, os, re, sys
@@ -28,6 +32,22 @@ EXT = ('photo', 'document', 'footage')      # tính chung trần nguồn ngoài 
 WIN = 6.0
 MIN_3D, MAX_CARD = 60.0, 40.0
 DOC_MAX = 3.0
+COL = 'col:'                                # 1.10.2: neo đỉnh cột số liệu 3D của bản đồ (design/k2v/map.js `cols`)
+
+
+def map_col_nums(sh, heroes):
+    """1.10.2 → khoá số của shot `map` có nhãn bám neo `col:<id>` với <id> là cột 3D khai trong heroes.<p.hero>.opt.cols"""
+    p = sh.get('p') or {}; h = heroes.get(p.get('hero')) or {}
+    ids = {str(c.get('id', i)) for i, c in enumerate((h.get('opt') or {}).get('cols') or []) if isinstance(c, dict)}
+    out = []
+    def walk(x):
+        if isinstance(x, dict):
+            a = x.get('a')
+            if isinstance(x.get('num'), str) and isinstance(a, str) and a.startswith(COL) and a[len(COL):] in ids: out.append(x['num'])
+            for v in x.values(): walk(v)
+        elif isinstance(x, list):
+            for v in x: walk(v)
+    walk(p); return out
 
 
 def stype(spec, sh):
@@ -97,13 +117,15 @@ def q34(E, TL, ep_dir=None):
         if not any(ty == 'photo' and _photo_id(sh) == ph and b >= t - WIN and a <= t + WIN for _, _, a, b, ty, sh, _ in S):
             P['b'].append(f'{nm} @{mmss(t)}: có ảnh hợp lệ {ph} nhưng không có shot photo ảnh đó trong ±{WIN:g} s')
     # (c) số neo
-    shown = {}
+    shown = {}; HE = dict(E.get('heroes') or {}, **(TL.get('heroes') or {}))
     for _, _, a, b, ty, sh, spec in S:
         for k in set(base.nums_in(sh.get('p') or {}, [], True)): shown.setdefault(k, set()).add(ty)
+        if ty == 'map':
+            for k in set(map_col_nums(sh, HE)): shown[k].add('map3d')   # 1.10.2: số bám đỉnh cột 3D của bản đồ = hiện bằng 3D
     A = list(E.get('anchors') or sorted(shown))
-    n3 = sum(1 for k in A if shown.get(k, set()) & {'chart3d', 'scene3d'}); nc = sum(1 for k in A if shown.get(k) and shown[k] <= {'card'})
+    n3 = sum(1 for k in A if shown.get(k, set()) & {'chart3d', 'scene3d', 'map3d'}); nc = sum(1 for k in A if shown.get(k) and shown[k] <= {'card'})
     s3, sc = (100 * n3 / len(A), 100 * nc / len(A)) if A else (100.0, 0.0)
-    if A and s3 < MIN_3D: P['c'].append(f'số neo hiện bằng chart3d/scene3d {n3}/{len(A)} = {s3:.0f} % < {MIN_3D:g} %')
+    if A and s3 < MIN_3D: P['c'].append(f'số neo hiện bằng chart3d/scene3d/cột 3D bản đồ {n3}/{len(A)} = {s3:.0f} % < {MIN_3D:g} %')
     if A and sc > MAX_CARD: P['c'].append(f'số neo chỉ hiện bằng card {nc}/{len(A)} = {sc:.0f} % > {MAX_CARD:g} %')
     near = [f'số neo 3D {s3:.0f} % (ngưỡng {MIN_3D:g} %)'] if A and abs(s3 - MIN_3D) <= 0.05 * MIN_3D else []
     near += [f'số neo card {sc:.0f} % (ngưỡng {MAX_CARD:g} %)'] if A and abs(sc - MAX_CARD) <= 0.05 * MAX_CARD else []
