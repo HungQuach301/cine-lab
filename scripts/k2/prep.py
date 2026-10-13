@@ -19,7 +19,7 @@ import ll  # noqa: E402
 
 REPO, FPS = ll.REPO, ll.FPS
 DRAFT = os.environ.get('K2_DRAFT') == '1'
-CODE = ['design/ll-hero/k2g01.js', 'design/ll-hero/k2page.js', 'design/ll-hero/kit.js', 'scripts/k2/hero.js',
+CODE = ['design/ll-hero/k2g01.js', 'design/ll-hero/k2c106.js', 'design/ll-hero/k2page.js', 'design/ll-hero/kit.js', 'scripts/k2/hero.js',
         'design/k2v/page.js', 'design/k2v/common.js', 'design/k2v/map.js', 'design/k2v/chart3d.js', 'design/k2v/photo.js']
 CAMS = os.path.join(REPO, 'scripts/k2/cams.yaml')
 MAX_SAME = 2   # cùng góc máy (scene_id + camera_id) tối đa 2 lần/tập

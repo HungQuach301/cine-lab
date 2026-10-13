@@ -60,7 +60,7 @@ segments:
       hero: c_bank
       tags:
       - {a: line, s: '4', sub: 'single-family = 1–4 homes', big: true, kind: actual, at: 11.6, side: left, gap: 70, c: '#F08A4B', num: c26}
-      - {a: s5, s: 5+ homes, sub: multifamily, at: 14.2, side: right, c: '#9AA7B5', num: c26}
+      - {a: s5, s: 5+ homes, sub: multifamily, at: 14.2, side: right, gap: 50, c: '#9AA7B5', num: c26}
       cap:
       - {s: 'In housing finance, one number draws a line: four', at: 11.3}
       asof: Facts as of 12 Oct 2026
