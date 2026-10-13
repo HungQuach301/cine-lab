@@ -378,6 +378,9 @@ shorts:
            labels: [{a: "stock:top", s: "7.5%", sub: "homes standing (2024)", at: "@of+0.4", dy: -160, num: c01}, {a: "new25:top", s: "1.1%", sub: "new homes finished (2025)", at: "@hundred", dy: -200, num: c02}],
            cap: [{s: "Two different Census counts · our calculation", at: "@of", src: [ACS24, NRC]}]}}
       - {tpl: plate, at: "@so-0.3", in: fade, type: scene3d, p: {hero: s_corner2, frame0: 0, cap: [{s: "Why did America almost stop building them?", at: "@why"}]}}
+# Chủ dự án 13/10/2026 22:17: gói phát hành chỉ 1 Short. Chọn S1 (móc câu mạnh hơn: nghịch lý số "1 in 13 vs 1 in 100" trong 2 s đầu, khớp tiêu đề chính
+# và chữ thumbnail "1% OF NEW HOMES"). S2 giữ đặc tả + giọng trong cache (vo/k2c-t1-06-S2.*), KHÔNG render, không vào gói. make_spec chỉ đọc khoá `shorts`.
+shorts_held:
   - id: S2
     hook: "Why one staircase stops at three stories"
     vo_from: ["04", "In the model code's", "So the single-stair"]
