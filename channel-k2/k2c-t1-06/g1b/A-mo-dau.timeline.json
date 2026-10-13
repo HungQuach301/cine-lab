@@ -1,0 +1,345 @@
+{
+ "id": "k2c106-g1b-a",
+ "title": "K2C-T1-06 G1b sample A (hook)",
+ "segments": [
+  {
+   "id": "A",
+   "part": "HOOK",
+   "t0": 0.0,
+   "t1": 27.0,
+   "frames": 648,
+   "vo_file": null,
+   "vo_offset": 0,
+   "vo_len": 0,
+   "speech": [],
+   "shots": [
+    {
+     "tpl": "plate",
+     "t0": 0.0,
+     "t1": 5.0,
+     "p": {
+      "hero": "a_wide",
+      "tags": [
+       {
+        "a": "building",
+        "s": "about 1 in 13",
+        "sub": "U.S. homes are in buildings with 2–4 apartments (2024)",
+        "big": true,
+        "kind": "actual",
+        "at": 1.2,
+        "side": "right",
+        "c": "#F08A4B",
+        "num": "c01"
+       }
+      ],
+      "src": "Source: Census ACS 2024 (table B25024) · share is our calculation · 3D illustration",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero0-f-spp4",
+      "stamp": "vshot"
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/corner",
+     "camera_id": "wide_dusk",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 5.0,
+     "t1": 11.0,
+     "p": {
+      "hero": "a_hook",
+      "tags": [
+       {
+        "a": "stock:top",
+        "s": "7.5%",
+        "sub": "of homes standing in 2024",
+        "big": true,
+        "kind": "actual",
+        "at": 6.6,
+        "side": "left",
+        "c": "#F08A4B",
+        "num": "c01"
+       },
+       {
+        "a": "new25:top",
+        "s": "1.1%",
+        "sub": "of new homes finished in 2025",
+        "big": true,
+        "kind": "actual",
+        "at": 8.2,
+        "side": "right",
+        "c": "#3CC2B0",
+        "num": "c02"
+       }
+      ],
+      "cap": [
+       {
+        "s": "Homes in 2–4-unit buildings: two different Census counts",
+        "at": 5.4
+       }
+      ],
+      "src": "Sources: Census ACS 2024 (B25024) · Census New Residential Construction, 2025 completions · shares are our calculation",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero1-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "chart3d",
+     "scene_id": "chart3d/bars",
+     "camera_id": "front-dolly",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 11.0,
+     "t1": 15.5,
+     "p": {
+      "hero": "a_push",
+      "title": {
+       "t": "Why did America almost stop building them?",
+       "at": 11.6,
+       "scale": 0.6
+      },
+      "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero2-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/corner",
+     "camera_id": "push_facade",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 15.5,
+     "t1": 21.0,
+     "p": {
+      "hero": "a_street",
+      "tags": [
+       {
+        "a": "duplex",
+        "s": "Duplex",
+        "sub": "2 homes",
+        "at": 15.8,
+        "out": 17.4,
+        "side": "up",
+        "c": "#3CC2B0"
+       },
+       {
+        "a": "triplex",
+        "s": "Triplex",
+        "sub": "3 homes",
+        "at": 16.6,
+        "out": 18.4,
+        "side": "up",
+        "c": "#3CC2B0"
+       },
+       {
+        "a": "fourplex",
+        "s": "Fourplex",
+        "sub": "4 homes",
+        "at": 17.6,
+        "out": 19.4,
+        "side": "up",
+        "c": "#3CC2B0"
+       },
+       {
+        "a": "walkup_base",
+        "s": "Small apartment building",
+        "sub": "5–19 homes",
+        "at": 18.6,
+        "side": "up",
+        "gap": 160,
+        "c": "#F08A4B"
+       }
+      ],
+      "asof": "Facts as of 12 Oct 2026",
+      "asofAt": 15.8,
+      "src": "This video explains how the system works. It isn’t financial or investment advice. · 3D illustration",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero3-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/street",
+     "camera_id": "dolly_day",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 21.0,
+     "t1": 27.0,
+     "p": {
+      "hero": "a_sec",
+      "tags": [
+       {
+        "a": "shop",
+        "s": "Shop",
+        "sub": "ground floor",
+        "at": 22.2,
+        "side": "right",
+        "c": "#F2C14E"
+       },
+       {
+        "a": "apt4",
+        "s": "Apartments",
+        "sub": "two or three floors above",
+        "at": 22.8,
+        "side": "right",
+        "gap": 60,
+        "c": "#3CC2B0"
+       },
+       {
+        "a": "stair",
+        "s": "One staircase",
+        "at": 23.6,
+        "side": "left",
+        "gap": 60,
+        "c": "#F08A4B"
+       }
+      ],
+      "cap": [
+       {
+        "s": "The classic corner building (illustration)",
+        "at": 21.4
+       }
+      ],
+      "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero4-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/corner",
+     "camera_id": "section",
+     "places": [],
+     "people": []
+    }
+   ],
+   "sfx": [],
+   "fadeIn": 6,
+   "fadeOut": 6
+  }
+ ],
+ "shorts": [],
+ "heroes": {
+  "a_wide": {
+   "hero": "k2c106/corner",
+   "variant": "a",
+   "opt": {
+    "preset": "wide_dusk",
+    "tod": "dusk"
+   },
+   "dur": 5.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero0-f-spp4",
+   "stamp": "vshot"
+  },
+  "a_hook": {
+   "hero": "chart3d/bars",
+   "variant": "a",
+   "opt": {
+    "preset": "front-dolly",
+    "scale": 0.8,
+    "w": 2.4,
+    "d": 2.4,
+    "bars": [
+     {
+      "id": "stock",
+      "x": -2.4,
+      "v": 7.54,
+      "color": "#F08A4B",
+      "grow": [
+       0.3,
+       1.8
+      ]
+     },
+     {
+      "id": "new25",
+      "x": 2.4,
+      "v": 1.07,
+      "color": "#3CC2B0",
+      "grow": [
+       2.2,
+       3.2
+      ]
+     }
+    ]
+   },
+   "dur": 6.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero1-f-spp4",
+   "stamp": "vshot"
+  },
+  "a_push": {
+   "hero": "k2c106/corner",
+   "variant": "a",
+   "opt": {
+    "preset": "push_facade",
+    "tod": "dusk"
+   },
+   "dur": 5.0,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero2-f-spp4",
+   "stamp": "vshot"
+  },
+  "a_street": {
+   "hero": "k2c106/street",
+   "variant": "a",
+   "opt": {
+    "preset": "dolly_day",
+    "tod": "day"
+   },
+   "dur": 6.0,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero3-f-spp4",
+   "stamp": "vshot"
+  },
+  "a_sec": {
+   "hero": "k2c106/corner",
+   "variant": "a",
+   "opt": {
+    "preset": "section",
+    "tod": "dusk",
+    "section": [
+     0.8,
+     2.4
+    ]
+   },
+   "dur": 6.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/A-mo-dau/hero4-f-spp4",
+   "stamp": "vshot"
+  }
+ },
+ "tong_s": 27.0,
+ "tong_khung": 648
+}
