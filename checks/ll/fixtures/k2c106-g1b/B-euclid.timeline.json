@@ -1,0 +1,407 @@
+{
+ "id": "k2c106-g1b-b",
+ "title": "K2C-T1-06 G1b sample B (Euclid)",
+ "segments": [
+  {
+   "id": "B",
+   "part": "BODY",
+   "t0": 0.0,
+   "t1": 27.3,
+   "frames": 655,
+   "vo_file": null,
+   "vo_offset": 0,
+   "vo_len": 0,
+   "speech": [],
+   "shots": [
+    {
+     "tpl": "plate",
+     "t0": 0.0,
+     "t1": 6.0,
+     "p": {
+      "hero": "b_map",
+      "places": [
+       {
+        "a": "euclid",
+        "s": "Euclid, Ohio",
+        "sub": "“practically a suburb” of Cleveland (Supreme Court, 1926)",
+        "at": 3.6,
+        "side": "right",
+        "c": "#F08A4B"
+       },
+       {
+        "a": "cleveland",
+        "s": "Cleveland",
+        "at": 4.2,
+        "side": "left",
+        "c": "#3CC2B0"
+       }
+      ],
+      "cap": [
+       {
+        "s": "1926: a zoning case from Euclid, Ohio reaches the Supreme Court",
+        "at": 0.6
+       }
+      ],
+      "src": "Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory · Quote: Euclid v. Ambler Realty, 272 U.S. 365, 379 (1926)",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero0-f-spp4",
+      "stamp": "vshot"
+     },
+     "type": "map",
+     "scene_id": "map/globe",
+     "camera_id": "flyto-euclid",
+     "places": [
+      "euclid",
+      "cleveland"
+     ],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 6.0,
+     "t1": 11.0,
+     "p": {
+      "hero": "b_hoover",
+      "photo": "WM-HOOVER-1928",
+      "cap": [
+       {
+        "s": "Herbert Hoover, Secretary of Commerce, 1928",
+        "at": 6.4
+       }
+      ],
+      "src": "Photo: Harris & Ewing, 1928 · Library of Congress, Prints & Photographs Division (public domain)",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero1-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "photo",
+     "scene_id": "photo/print",
+     "camera_id": "push-hoover",
+     "places": [],
+     "people": [
+      "Herbert Hoover"
+     ]
+    },
+    {
+     "tpl": "plate",
+     "t0": 11.0,
+     "t1": 13.8,
+     "p": {
+      "hero": "b_doc",
+      "paper": "U.S. Reports, vol. 272",
+      "date": "1926-11-22",
+      "cap": [
+       {
+        "s": "Justice Sutherland, for the Court (1926)",
+        "at": 11.2
+       }
+      ],
+      "src": "Source: Village of Euclid v. Ambler Realty Co., 272 U.S. 365, 394 (1926) · U.S. Reports, Library of Congress",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero2-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "document",
+     "scene_id": "photo/doc",
+     "camera_id": "push-page394",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 13.8,
+     "t1": 21.6,
+     "p": {
+      "hero": "b_tiers",
+      "tags": [
+       {
+        "a": "u1",
+        "s": "U-1",
+        "sub": "single-family houses only",
+        "at": 14.2,
+        "side": "up",
+        "c": "#3CC2B0"
+       },
+       {
+        "a": "u2",
+        "s": "U-2",
+        "sub": "+ two-family homes",
+        "at": 14.9,
+        "side": "up",
+        "c": "#7fb8a8"
+       },
+       {
+        "a": "u3",
+        "s": "U-3",
+        "sub": "+ apartment houses",
+        "at": 15.6,
+        "side": "up",
+        "c": "#c9a24a"
+       },
+       {
+        "a": "u4",
+        "s": "U-4",
+        "sub": "+ retail stores and shops",
+        "at": 16.3,
+        "side": "right",
+        "gap": 50,
+        "c": "#F08A4B"
+       },
+       {
+        "a": "probe",
+        "s": "Shop with apartments above",
+        "sub": "fits none of the first three tiers",
+        "at": 17.6,
+        "side": "down",
+        "c": "#E0564B"
+       }
+      ],
+      "cap": [
+       {
+        "s": "Euclid’s zoning tiers, as described in the Court’s opinion (illustration)",
+        "at": 14.0
+       }
+      ],
+      "src": "Source: Euclid v. Ambler Realty, 272 U.S. 365, 380 (1926) · 3D illustration, not to scale",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero3-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/tiers",
+     "camera_id": "oblique_tiers",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 21.6,
+     "t1": 27.3,
+     "p": {
+      "hero": "b_det07",
+      "cap": [
+       {
+        "s": "Woodward Avenue, Detroit, between 1900 and 1910",
+        "at": 22.0
+       }
+      ],
+      "src": "Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero4-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "photo",
+     "scene_id": "photo/print",
+     "camera_id": "push-det07",
+     "places": [],
+     "people": []
+    }
+   ],
+   "sfx": [],
+   "fadeIn": 6,
+   "fadeOut": 6
+  }
+ ],
+ "shorts": [],
+ "heroes": {
+  "b_map": {
+   "hero": "map/globe",
+   "variant": "a",
+   "opt": {
+    "patches": [
+     {
+      "bbox": [
+       -84,
+       39,
+       -79,
+       44
+      ],
+      "img": "/cache/bm-crop--84_39_-79_44-6144-500m.jpg"
+     }
+    ],
+    "states": [
+     {
+      "state": "Ohio",
+      "color": "#3CC2B0",
+      "fill": 0.16
+     }
+    ],
+    "pinMin": 0.07,
+    "places": [
+     {
+      "id": "euclid",
+      "ll": [
+       -81.5268,
+       41.5931
+      ],
+      "name": "Euclid, Ohio",
+      "at": 3.4
+     },
+     {
+      "id": "cleveland",
+      "ll": [
+       -81.6944,
+       41.4993
+      ],
+      "name": "Cleveland",
+      "at": 4.0
+     }
+    ],
+    "cam": [
+     {
+      "t": 0,
+      "lon": -70,
+      "lat": 30,
+      "alt": 24,
+      "tilt": 0,
+      "mm": 35
+     },
+     {
+      "t": 1.6,
+      "lon": -76,
+      "lat": 36,
+      "alt": 12,
+      "tilt": 10,
+      "mm": 35
+     },
+     {
+      "t": 4.4,
+      "lon": -81.6,
+      "lat": 40.95,
+      "alt": 0.75,
+      "tilt": 38,
+      "head": 0,
+      "mm": 35
+     },
+     {
+      "t": 6.5,
+      "lon": -81.62,
+      "lat": 41.2,
+      "alt": 0.6,
+      "tilt": 40,
+      "head": 4,
+      "mm": 35
+     }
+    ],
+    "preset": "flyto"
+   },
+   "dur": 6.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero0-f-spp4",
+   "stamp": "vshot"
+  },
+  "b_hoover": {
+   "hero": "photo/print",
+   "variant": "a",
+   "opt": {
+    "img": "/cache/loc-hoover-1928.jpg",
+    "focus": [
+     0.53,
+     0.3
+    ],
+    "push": 0.24,
+    "preset": "push"
+   },
+   "dur": 5.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero1-f-spp4",
+   "stamp": "vshot"
+  },
+  "b_doc": {
+   "hero": "photo/doc",
+   "variant": "a",
+   "opt": {
+    "page": "/cache/usrep-272-365-p30.json",
+    "hl": [
+     {
+      "i": 0,
+      "at": [
+       0.15,
+       1.6
+      ],
+      "color": "#F0B43C"
+     }
+    ],
+    "focus": 0,
+    "exposure": 0.8,
+    "preset": "push"
+   },
+   "dur": 3.3,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero2-f-spp4",
+   "stamp": "vshot"
+  },
+  "b_tiers": {
+   "hero": "k2c106/tiers",
+   "variant": "a",
+   "opt": {
+    "preset": "oblique_tiers",
+    "fill": [
+     0.3,
+     1.0,
+     1.7,
+     2.4
+    ],
+    "probe": {
+     "at": 3.6,
+     "zones": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "step": 3.0
+    }
+   },
+   "dur": 8.3,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero3-f-spp4",
+   "stamp": "vshot"
+  },
+  "b_det07": {
+   "hero": "photo/print",
+   "variant": "a",
+   "opt": {
+    "img": "/cache/loc-det-07.jpg",
+    "focus": [
+     0.8,
+     0.45
+    ],
+    "push": 0.2,
+    "preset": "push"
+   },
+   "dur": 6.2,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/B-euclid/hero4-f-spp4",
+   "stamp": "vshot"
+  }
+ },
+ "tong_s": 27.3,
+ "tong_khung": 655
+}

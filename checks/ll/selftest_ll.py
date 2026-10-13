@@ -899,6 +899,63 @@ for s in ES2['segments']:
 rT2 = Q34.q34(ES2, TLS)
 case('Q34c', f"Steel suy loại (p.card → card, còn lại scene3d): {rT2['val'].split(' · ', 1)[1]}", rT2['muc']['c'] if rT2['so_neo'] == dict(n=31, ba_d=13, card=18) else [], True)
 
+# ======================= 1.10.2 (K, 13/10/2026; chủ dự án duyệt 13/10): Q26b đọc định dạng kênh 2 vshot/episode; khiếu nại V Q34(c) =======================
+# ---- Q26b: fixtures/k2c106-g1b = 3 shot mẫu G1b của P (origin/k2c-t1-06 @f3fb60bc: đặc tả + timeline vshot) ----
+FG = os.path.join(FX, 'k2c106-g1b')
+def g1b(n): return base.load(os.path.join(FG, n + '.yaml')), json.load(open(os.path.join(FG, n + '.timeline.json')))
+def qs_cli(*a): pr = subprocess.run([sys.executable, os.path.join(ROOT, 'checks', 'll', 'q_setting.py'), *a], capture_output=True, text=True); return pr.returncode, pr.stdout + pr.stderr
+rc_, out_ = qs_cli(os.path.join(FG, 'A-mo-dau.yaml'), '--tl', os.path.join(FG, 'A-mo-dau.timeline.json'))
+case('Q26b', f'CLI nhận episode.yaml + --tl như q_types/q_scene/q_footage (lỗi P 13/10: JSONDecodeError khi đưa .yaml) → mã {rc_}, "{out_.strip().splitlines()[-2][:60]}"',
+     [] if rc_ in (0, 1) and 'JSONDecodeError' not in out_ and 'Q26b TRƯỢT' in out_ else [out_[-200:]], False)
+rc_, out_ = qs_cli(os.path.join(FG, 'A-mo-dau.yaml'))
+case('Q26b', 'CLI đặc tả không có <out>/timeline.json: báo rõ tệp thiếu và cách chỉ --tl, không traceback', [] if rc_ == 1 and 'không thấy timeline' in out_ and 'Traceback' not in out_ else [out_[-200:]], False)
+rc_, out_ = qs_cli(os.path.join(FG, 'A-mo-dau.timeline.json'))
+case('Q26b', 'CLI timeline.json như cũ (qc.py, FOOTAGE.md) vẫn chạy', [] if 'Q26b TRƯỢT · 3 bối cảnh' in out_ else [out_[-200:]], False)
+EB, TB = g1b('B-euclid'); rB = QS.q26b(TB, EB)
+case('Q26b', f"kênh 2 type map/photo/document = bản đồ / ảnh tư liệu → trung tính (RULES-LL): B {rB['val']}",
+     [] if rB['ty_le'] == {'k2c106/tiers': 28.6} and [x[3] for x in rB['nhan']] == ['trung tính', 'trung tính', 'trung tính', {'k2c106/tiers': 1.0}, 'trung tính'] else [rB['ty_le']], False)
+TBs = copy.deepcopy(TB)
+for s in TBs['segments']:
+    for sh in s['shots']: sh.pop('type', None)
+case('Q26b', 'timeline không ghi type: đọc type từ đặc tả (đoạn, thứ tự) → cùng kết quả', [] if QS.q26b(TBs, EB)['ty_le'] == rB['ty_le'] else [QS.q26b(TBs, EB)['ty_le']], False)
+case('Q26b', 'timeline không ghi type, không đưa đặc tả: đọc như 1.10.1 (plate → cảnh đinh) — chứng tỏ cần đặc tả', [] if 'photo/print' in QS.q26b(TBs)['ty_le'] else ['sai'], False)
+EA, TA = g1b('A-mo-dau'); EC, TC = g1b('C-ba-khoa')
+case('Q26b', f"A (scene3d + chart3d) không đổi so với 1.10.1: {QS.q26b(TA, EA)['ty_le']}", [] if QS.q26b(TA, EA)['ty_le'] == QS.q26b(TA)['ty_le'] == {'k2c106/corner': 57.4, 'chart3d/bars': 22.2, 'k2c106/street': 20.4} else ['đổi'], False)
+case('Q26b', f"C (scene3d) không đổi so với 1.10.1: {QS.q26b(TC, EC)['ty_le']}", [] if QS.q26b(TC, EC)['ty_le'] == QS.q26b(TC)['ty_le'] else ['đổi'], False)
+case('Q26b', 'kênh 2 type card (không có p.card) → "the"; type footage không khai p.setting → ft/(chưa khai)',
+     [] if QS.label(dict(tpl='plate', type='card', p=dict(hero='a')), {'a': dict(hero='A')}) == {'the': 1.0}
+     and QS.label(dict(tpl='plate', type='footage', p=dict(hero='a')), {'a': dict(hero='A')}) == {'ft/(chưa khai)': 1.0} else ['sai'], False)
+rSb = QS.q26b(TLS, ES)
+case('Q26b', 'Steel (đặc tả không khai type) với đặc tả = không đặc tả (1.10.1)', [] if rSb['ty_le'] == rS['ty_le'] and rSb['loi'] == rS['loi'] else ['đổi'], False)
+
+# ---- Q34(c) khiếu nại V 12/10 (chấp nhận): số bám đỉnh cột 3D của bản đồ (neo col:<id>, cột khai trong opt.cols) = hiện bằng 3D ----
+def map34(tags, cols=({'id': 't50', 'at': 'washington', 'v': 0.5}, {'id': 'eu50', 'at': 'brussels', 'v': 0.4}), anchors=('t50', 'eu50', 'n3'), ty0='map'):
+    TLm = dict(tong_s=18.0, heroes=dict(m_pair=dict(hero='map/globe', opt=dict(from_='washington', to='brussels', cols=list(cols))), s_x=dict(hero='k2x/room')),
+               segments=[dict(id='00', t0=0.0, t1=18.0, shots=[dict(tpl='plate', t0=0.0, t1=6.0, p=dict(hero='m_pair', tags=tags)),
+                                                              dict(tpl='plate', t0=6.0, t1=12.0, p=dict(hero='s_x', tags=[dict(a='desk', s='3', num='n3')])),
+                                                              dict(tpl='plate', t0=12.0, t1=18.0, p=dict(hero='s_x'))])])
+    Em = dict(id='k2x', anchors=list(anchors), segments=[dict(id='00', shots=[dict(tpl='plate', type=ty0), dict(tpl='plate', type='scene3d'), dict(tpl='plate', type='scene3d')])])
+    r = Q34.q34(Em, TLm); return r['muc']['c'], r
+COLT = [dict(a='col:t50', s='50%', num='t50'), dict(a='col:eu50', s='50%', num='eu50')]
+m_, r_ = map34(COLT)
+case('Q34c', f"map: 2 số bám neo col:* của cột 3D khai trong opt.cols → tính 3D: {r_['so_neo']} (trước 1.10.2: 1/3 = 33 % TRƯỢT)", m_ if r_['so_neo'] == dict(n=3, ba_d=3, card=0) else ['sai'], False)
+m_, r_ = map34([dict(a='washington', s='50%', num='t50'), dict(a='brussels', s='50%', num='eu50')])
+case('Q34c', f"map: số in chữ ở nhãn địa danh (không bám cột) → không tính 3D: {r_['so_neo']}", m_, True)
+m_, r_ = map34(COLT, cols=())
+case('Q34c', 'map: neo col:* nhưng heroes.opt không khai cột → không tính 3D (không có vật thể 3D)', m_, True)
+m_, r_ = map34([dict(a='col:t50', s='50%', num='t50'), dict(a='col:zz', s='50%', num='eu50')])
+case('Q34c', f"map: một số bám col:zz không có trong opt.cols → chỉ t50 tính: {r_['so_neo']} = 67 %", m_ if r_['so_neo'] == dict(n=3, ba_d=2, card=0) else ['sai'], False)
+m_, r_ = map34(COLT, ty0='card')
+case('Q34c', f"shot card có neo col:* (không phải map) → vẫn chỉ card: {r_['so_neo']}", m_ if r_['so_neo'] == dict(n=3, ba_d=1, card=2) else [], True)
+rG = [Q34.q34(*g1b(n), FG) for n in ('A-mo-dau', 'B-euclid', 'C-ba-khoa')]
+case('Q34c', f"G1b (không có cột bản đồ): số neo không đổi A {rG[0]['so_neo']} · B {rG[1]['so_neo']} · C {rG[2]['so_neo']}",
+     [] if [r['so_neo'] for r in rG] == [dict(n=2, ba_d=2, card=0), dict(n=0, ba_d=0, card=0), dict(n=3, ba_d=3, card=0)] else ['đổi'], False)
+FV = os.path.join(FX, 'k2v-mau-a'); EV = base.load(os.path.join(FV, 'A-map-washington-brussels.yaml')); TV = json.load(open(os.path.join(FV, 'timeline.json')))
+rV = Q34.q34(EV, TV)
+case('Q34c', f"shot mẫu A của phiên V (khiếu nại 12/10; t50, eu50 bám col:us, col:eu): {rV['so_neo']} — 1.10.1 báo 0/2 = 0 % TRƯỢT", rV['muc']['c'] if rV['so_neo'] == dict(n=2, ba_d=2, card=0) else ['sai'], False)
+EV2 = copy.deepcopy(EV); EV2['heroes']['a_pair']['opt'].pop('cols'); TV2 = copy.deepcopy(TV); TV2['heroes']['a_pair']['opt'].pop('cols')
+case('Q34c', 'shot mẫu A của V bỏ opt.cols (số còn nhãn col:* nhưng không có cột 3D) → 0/2 TRƯỢT', Q34.q34(EV2, TV2)['muc']['c'], True)
+
 w = max(len(r[1]) for r in R)
 for rule, name, kind_, ok, got in R: print(f"{'ĐÚNG' if ok else 'SAI '}  {rule:<7} {kind_:<8} {name}" + ('' if ok else f'   → {got}'))
 n_ok = sum(r[3] for r in R); print(f'\nselftest LL v3: {n_ok}/{len(R)} ca đúng kỳ vọng'); sys.exit(0 if n_ok == len(R) else 1)

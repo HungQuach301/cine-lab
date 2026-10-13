@@ -56,7 +56,7 @@ Sát ngưỡng ±5 % quanh 40 % và 8 s được nêu tên. Danh sách từ tiê
 
 ## 5. Chạy
 - LL: `bash scripts/ll/qc.sh <episode.yaml>` (dòng **Q32**, mọi tập).
-- Kênh 2 (hoặc chạy riêng): `/opt/cine/bin/python checks/ll/q_footage.py channel-k2/<tập>/episode.yaml [--tl <timeline.json>] [--desc <mô tả>]`; Q26b có footage: `checks/ll/q_setting.py <timeline.json>`. Mã thoát 1 = TRƯỢT.
+- Kênh 2 (hoặc chạy riêng): `/opt/cine/bin/python checks/ll/q_footage.py channel-k2/<tập>/episode.yaml [--tl <timeline.json>] [--desc <mô tả>]`; Q26b có footage: `checks/ll/q_setting.py <timeline.json>` hoặc (1.10.2) `checks/ll/q_setting.py channel-k2/<tập>/episode.yaml [--tl <timeline.json>]`. Mã thoát 1 = TRƯỢT.
 
 ## 6. Giấy phép Pexels và Pixabay — K đọc lại ngày 12/10/2026
 **Cách đọc và giới hạn (nêu rõ):**

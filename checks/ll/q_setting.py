@@ -1,8 +1,11 @@
 #!/opt/cine/bin/python
-"""Q26b đa dạng bối cảnh — luật khoá LL v3 (phiên K, 09/10/2026, sau tập 7; quãng liên tục theo chủ dự án 09/10/2026, 1.8.1).
+"""Q26b đa dạng bối cảnh — luật khoá LL v3 (phiên K, 09/10/2026, sau tập 7; quãng liên tục theo chủ dự án 09/10/2026, 1.8.1;
+đọc định dạng kênh 2 vshot/episode 1.10.2).
 Định nghĩa: checks/ll/RULES-LL.md.
 
-  q_setting.py <timeline.json> [--json ra.json]      in bảng nhãn bối cảnh từng shot và kết luận
+  q_setting.py <timeline.json> [--json ra.json]                     in bảng nhãn bối cảnh từng shot và kết luận
+  q_setting.py <episode.yaml> [--tl timeline.json] [--json ra.json]  (1.10.2) như q_types/q_scene/q_footage: mặc định <out>/timeline.json;
+                                                                     `type` khai trong đặc tả được ghép vào shot timeline (đoạn, thứ tự)
 
 Lý do: tập 7 (Q31 vòng 5) — người xem cùng thấy "chán" ở văn phòng tối dùng lại nhiều lần (khoảng 8:00–9:20). Q26 đo đa dạng
 KHUNG NHÌN (điểm ảnh), không thấy được việc phim đứng lâu ở cùng một nơi với nhiều góc máy khác nhau.
@@ -17,6 +20,9 @@ Nhãn bối cảnh (từ timeline, mỗi shot):
                (bars, line, compare, quote, bignum, text). Trần (a) 25 %, (b) 90 s liên tục như mọi bối cảnh; KHÔNG tính vào (c)
                (chủ dự án 12/10/2026: Steel — người xem thấy "thẻ" là một bối cảnh; luật cũ tính theo cảnh nền nên đạt sai)
   còn lại (thẻ số, chữ, trích dẫn, isotype, bản đồ, ảnh tư liệu archive, thẻ kết) → TRUNG TÍNH: không là bối cảnh
+  kênh 2 (1.10.2): mọi shot là `plate` + `type` (Q34; ở shot timeline do vshot ghi, hoặc ở đặc tả) — đọc theo `type` cùng nghĩa trên:
+               card → "the"; footage → như footage; map, photo, document → TRUNG TÍNH (bản đồ, ảnh tư liệu); scene3d, chart3d,
+               không khai → như plate (cảnh đinh `heroes.<khoá>.hero`)
 Ba điều kiện chặn (chủ dự án, 09/10/2026; 1.10.1: "the" có trần (a), (b) riêng; với quãng (b) của bối cảnh khác, shot "the" vẫn
 là trung tính như 1.8.1 — không làm dứt và không tính — để luật liên tục không bị nới):
   (a) một bối cảnh chiếm > 25 % thời lượng phim (tong_s);
@@ -38,15 +44,23 @@ HALF_MIN_S = 3.0      # s tối thiểu để một bối cảnh được đếm
 CARD_TPL = ('bars', 'line', 'compare', 'quote', 'bignum', 'text')   # LL: mẫu thẻ giấy (kind 'card' trong scripts/ll/lib/charts.js)
 THE = 'the'          # 1.10.1 (chủ dự án 12/10/2026, bài học Steel G2 §5.3): bối cảnh "thẻ"
 OTHER_BREAK = 8.0     # s bối cảnh khác X cộng dồn (từ lần X gần nhất) làm dứt quãng của X
+K2_NEUTRAL = ('map', 'photo', 'document')   # 1.10.2: kênh 2 `type` bản đồ / ảnh tư liệu / ảnh chụp báo → trung tính (cùng nghĩa map, archive của LL)
 
 
-def label(sh, heroes):
-    """→ {bối cảnh: trọng số} của một shot ({} = trung tính)"""
-    p = sh.get('p') or {}; t = sh['tpl']
+def stype(sh, spec=None):
+    """`type` kênh 2 của một shot: shot timeline (vshot ghi cùng cấp `tpl`), `p.type`, rồi đặc tả (như q_types.stype)"""
+    spec = spec or {}
+    return sh.get('type') or (sh.get('p') or {}).get('type') or spec.get('type') or (spec.get('p') or {}).get('type')
+
+
+def label(sh, heroes, spec=None):
+    """→ {bối cảnh: trọng số} của một shot ({} = trung tính); spec = shot cùng vị trí trong đặc tả (kênh 2, để đọc `type`)"""
+    p = sh.get('p') or {}; t = sh['tpl']; ty = stype(sh, spec)
     hn = lambda k: (heroes.get(k) or {}).get('hero') or k
-    if p.get('card') or t in CARD_TPL: return {THE: 1.0}   # 1.10.1: thẻ/đồ hoạ phẳng (K2 p.card trên nền mờ; LL thẻ giấy) = MỘT bối cảnh "the"
-    if t == 'footage' or p.get('clip'):                 # 1.10.0 (Q32f): footage nguồn ngoài là bối cảnh theo NỘI DUNG HÌNH (`p.setting`)
+    if p.get('card') or t in CARD_TPL or ty == 'card': return {THE: 1.0}   # 1.10.1: thẻ/đồ hoạ phẳng (K2 p.card trên nền mờ; LL thẻ giấy) = MỘT bối cảnh "the"
+    if t == 'footage' or p.get('clip') or ty == 'footage':                 # 1.10.0 (Q32f): footage nguồn ngoài là bối cảnh theo NỘI DUNG HÌNH (`p.setting`)
         return {hn(str(p['setting']).strip()) if str(p.get('setting') or '').strip() else 'ft/(chưa khai)': 1.0}
+    if ty in K2_NEUTRAL: return {}                        # 1.10.2: kênh 2 bản đồ / ảnh tư liệu / ảnh chụp báo → trung tính
     if t == 'plate' and p.get('hero'): return {hn(p['hero']): 1.0}
     if t == 'diptych':
         hs = [hn(x['hero']) for x in (p.get('left'), p.get('right')) if isinstance(x, dict) and x.get('hero')]
@@ -57,13 +71,15 @@ def label(sh, heroes):
     return {}
 
 
-def shots(TL):
-    """→ [(t0, t1, {bối cảnh: trọng số}, mẫu)] theo thời gian tuyệt đối (chỉ phim chính, không Shorts)"""
+def shots(TL, E=None):
+    """→ [(t0, t1, {bối cảnh: trọng số}, mẫu)] theo thời gian tuyệt đối (chỉ phim chính, không Shorts); E = đặc tả (kênh 2) nếu có"""
     H = TL.get('heroes') or {}; out = []
+    SP = {s['id']: s.get('shots') or [] for s in (E or {}).get('segments') or [] if isinstance(s, dict) and 'id' in s}
     for s in TL['segments']:
-        for sh in s['shots']:
+        sp = SP.get(s.get('id'), [])
+        for i, sh in enumerate(s['shots']):
             a, b = s['t0'] + sh['t0'], s['t0'] + sh['t1']
-            if b > a: out.append((round(a, 3), round(b, 3), label(sh, H), sh['tpl']))
+            if b > a: out.append((round(a, 3), round(b, 3), label(sh, H, sp[i] if i < len(sp) else None), sh['tpl']))
     return out
 
 
@@ -87,8 +103,8 @@ def runs(S, x):
 def mmss(t): return f'{int(t // 60)}:{t % 60:04.1f}'
 
 
-def q26b(TL):
-    S = shots(TL); T = float(TL['tong_s']); half = T / 2
+def q26b(TL, E=None):
+    S = shots(TL, E); T = float(TL['tong_s']); half = T / 2
     tot, sec = {}, {}
     for a, b, L, _ in S:
         for x, w in L.items():
@@ -119,8 +135,18 @@ def q26b(TL):
                 nhan=[[mmss(a), round(b - a, 1), tpl, {x: round(w, 2) for x, w in L.items()} or 'trung tính'] for a, b, L, tpl in S])
 
 
+def load_input(a):
+    """1.10.2: đối số đầu là timeline.json (như cũ) hoặc episode.yaml (như các luật kênh 2) → (TL, E | None)"""
+    if not a[0].lower().endswith(('.yaml', '.yml')): return json.load(open(a[0])), None
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
+    from checks.ll import base
+    E = base.load(a[0]); tl = a[a.index('--tl') + 1] if '--tl' in a else os.path.join(E['out'], 'timeline.json')
+    if not os.path.exists(tl): sys.exit(f'Q26b: không thấy timeline {tl} (đặc tả {a[0]}); dựng trước hoặc chỉ rõ --tl <timeline.json>')
+    return json.load(open(tl)), E
+
+
 if __name__ == '__main__':
-    a = sys.argv[1:]; TL = json.load(open(a[0])); r = q26b(TL)
+    a = sys.argv[1:]; TL, E = load_input(a); r = q26b(TL, E)
     for row in r['nhan']: print(f'  {row[0]:>7}  {row[1]:>5} s  {row[2]:<9} {row[3]}')
     print(json.dumps(dict(ty_le=r['ty_le'], lien_tuc=r['lien_tuc'], nua_sau=r['nua_sau']), ensure_ascii=False, indent=1))
     print('Q26b ' + ('ĐẠT' if r['ok'] else 'TRƯỢT') + ' · ' + r['val'] + ('\n  ' + r['note'] if r['note'] else '')

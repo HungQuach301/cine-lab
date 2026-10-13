@@ -1,0 +1,292 @@
+{
+ "id": "k2c106-g1b-c",
+ "title": "K2C-T1-06 G1b sample C (locks)",
+ "segments": [
+  {
+   "id": "C",
+   "part": "BODY",
+   "t0": 0.0,
+   "t1": 24.0,
+   "frames": 576,
+   "vo_file": null,
+   "vo_offset": 0,
+   "vo_len": 0,
+   "speech": [],
+   "shots": [
+    {
+     "tpl": "plate",
+     "t0": 0.0,
+     "t1": 5.0,
+     "p": {
+      "hero": "c_lot",
+      "tags": [
+       {
+        "a": "parking",
+        "s": "2 spaces per home",
+        "sub": "most common parking rule, Colorado",
+        "at": 2.6,
+        "side": "right",
+        "gap": 60,
+        "c": "#F08A4B",
+        "num": "c14"
+       }
+      ],
+      "cap": [
+       {
+        "s": "On a small lot, parking takes room from the building (illustration)",
+        "at": 0.5
+       }
+      ],
+      "src": "Source: National Zoning Atlas, Zoning Report: Colorado (2025) · 3D illustration, not to scale",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero0-f-spp4",
+      "stamp": "vshot"
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/lot",
+     "camera_id": "plan",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 5.0,
+     "t1": 11.0,
+     "p": {
+      "hero": "c_stairs",
+      "tags": [
+       {
+        "a": "core1",
+        "s": "One staircase",
+        "sub": "up to the 3rd story, ≤4 homes per floor",
+        "at": 6.6,
+        "out": 8.2,
+        "side": "right",
+        "c": "#3CC2B0",
+        "num": "c15"
+       },
+       {
+        "a": "np",
+        "s": "4th story: NP",
+        "sub": "not permitted on one stair",
+        "at": 8.5,
+        "side": "right",
+        "c": "#E0564B",
+        "num": "c15"
+       }
+      ],
+      "cap": [
+       {
+        "s": "Model code, 2021 edition (as reprinted in Seattle’s 2021 code)",
+        "at": 5.3
+       }
+      ],
+      "asof": "Facts as of 12 Oct 2026",
+      "asofAt": 5.3,
+      "src": "Source: Seattle Building Code 2021 (IBC 2021 text), Table 1006.3.4(1) · 3D illustration",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero1-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/stairs",
+     "camera_id": "elev_stack",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 11.0,
+     "t1": 17.5,
+     "p": {
+      "hero": "c_bank",
+      "tags": [
+       {
+        "a": "line",
+        "s": "4",
+        "sub": "single-family = 1–4 homes",
+        "big": true,
+        "kind": "actual",
+        "at": 11.6,
+        "side": "left",
+        "gap": 70,
+        "c": "#F08A4B",
+        "num": "c26"
+       },
+       {
+        "a": "s5",
+        "s": "5+ homes",
+        "sub": "multifamily",
+        "at": 14.2,
+        "side": "right",
+        "gap": 50,
+        "c": "#9AA7B5",
+        "num": "c26"
+       }
+      ],
+      "cap": [
+       {
+        "s": "In housing finance, one number draws a line: four",
+        "at": 11.3
+       }
+      ],
+      "asof": "Facts as of 12 Oct 2026",
+      "asofAt": 11.3,
+      "src": "Source: 12 CFR §1282.1 (FHFA housing-goals regulation) · 3D illustration",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero2-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/bank",
+     "camera_id": "fifth_block",
+     "places": [],
+     "people": []
+    },
+    {
+     "tpl": "plate",
+     "t0": 17.5,
+     "t1": 24.0,
+     "p": {
+      "hero": "c_ends",
+      "tags": [
+       {
+        "a": "houses",
+        "s": "Houses",
+        "at": 18.0,
+        "side": "up",
+        "c": "#3CC2B0"
+       },
+       {
+        "a": "small",
+        "s": "Small buildings",
+        "at": 18.4,
+        "side": "up",
+        "c": "#F2C14E"
+       },
+       {
+        "a": "big",
+        "s": "50+ units",
+        "at": 18.8,
+        "side": "up",
+        "c": "#F08A4B"
+       }
+      ],
+      "cap": [
+       {
+        "s": "1972 → 2025: new construction moved toward the two ends",
+        "at": 17.8
+       }
+      ],
+      "src": "Sources: Census New Residential Construction · Census Characteristics of New Housing · our read; 3D illustration, not to scale",
+      "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero3-f-spp4",
+      "stamp": "vshot"
+     },
+     "in": {
+      "type": "cut",
+      "d": 0.7
+     },
+     "type": "scene3d",
+     "scene_id": "k2c106/ends",
+     "camera_id": "wide_1972",
+     "places": [],
+     "people": []
+    }
+   ],
+   "sfx": [],
+   "fadeIn": 6,
+   "fadeOut": 6
+  }
+ ],
+ "shorts": [],
+ "heroes": {
+  "c_lot": {
+   "hero": "k2c106/lot",
+   "variant": "a",
+   "opt": {
+    "preset": "plan",
+    "stalls": 10,
+    "grow": [
+     0.6,
+     4.2
+    ]
+   },
+   "dur": 5.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero0-f-spp4",
+   "stamp": "vshot"
+  },
+  "c_stairs": {
+   "hero": "k2c106/stairs",
+   "variant": "a",
+   "opt": {
+    "preset": "elev_stack",
+    "mode": "one",
+    "floors": 4,
+    "stackAt": [
+     0.3,
+     0.55
+    ],
+    "np": [
+     3.4,
+     4.0
+    ]
+   },
+   "dur": 6.5,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero1-f-spp4",
+   "stamp": "vshot"
+  },
+  "c_bank": {
+   "hero": "k2c106/bank",
+   "variant": "a",
+   "opt": {
+    "preset": "fifth_block",
+    "fifth": [
+     2.4,
+     4.2
+    ]
+   },
+   "dur": 7.0,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero2-f-spp4",
+   "stamp": "vshot"
+  },
+  "c_ends": {
+   "hero": "k2c106/ends",
+   "variant": "a",
+   "opt": {
+    "preset": "wide_1972",
+    "year": 1972,
+    "year1": 2025,
+    "yearAt": [
+     1.2,
+     4.8
+    ]
+   },
+   "dur": 7.0,
+   "size": [
+    1920,
+    1080
+   ],
+   "dir": "/var/tmp/cine-out/k2c106-g1b/C-ba-khoa/hero3-f-spp4",
+   "stamp": "vshot"
+  }
+ },
+ "tong_s": 24.0,
+ "tong_khung": 576
+}
