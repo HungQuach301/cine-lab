@@ -1,8 +1,8 @@
-# K2C-T1-06 "Apartments" — lời KHOÁ v8.1 (chủ dự án duyệt G1a 12/10/2026) + sửa 1 từ ở G2 (13/10, chờ chủ dự án xác nhận)
+# K2C-T1-06 "Apartments" — lời KHOÁ v8.2 = v8.1 + 1 từ "many" ở đoạn 10 (chủ dự án duyệt 13/10/2026)
 
 > Tiếng Anh, giọng Eric. Mỗi đoạn có mã `[NN PART]`. Mã claim `{C..}` trỏ tới `claims.md` (người đọc mù không thấy mã).
 > Mốc "as of": **12 October 2026**. Trên hình: dòng "Facts as of 12 Oct 2026" ở mọi khung về luật, mã xây dựng, cải cách.
-> G2 (13/10/2026, phiên P): đoạn 10 thêm một từ "many" ("Colorado requires many cities of 100,000 people or more…") sau khi đọc toàn văn HB25-1273 bản ký: "subject jurisdiction" = đô thị ≥ 100 000 dân **và** có đơn vị cứu hoả được kiểm định CFAI + đạt yêu cầu xe thang (§31-15-605(6)(e)); câu cũ bao quá rộng. Không thêm câu. Chờ chủ dự án xác nhận.
+> G2 (13/10/2026, phiên P): đoạn 10 thêm một từ "many" ("Colorado requires many cities of 100,000 people or more…") sau khi đọc toàn văn HB25-1273 bản ký: "subject jurisdiction" = đô thị ≥ 100 000 dân **và** có đơn vị cứu hoả được kiểm định CFAI + đạt yêu cầu xe thang (§31-15-605(6)(e)); câu cũ bao quá rộng. Không thêm câu. **Chủ dự án duyệt 13/10/2026 (v8.2).**
 > v8 → v8.1: chỉ áp minor đổi chữ của REVIEWER vòng 8 (0 major) + câu tóm tắt "bank line" ở đoạn 07 theo đúng chữ sửa của REVIEWER lượt kiểm v8.1 (1 major, không phát sinh từ minor) + 4 minor đổi chữ của lượt kiểm đó (06, 07, 09, 10). Lịch sử v1–v8: `script-v1.md` … `script-v8.md`, `TAP-K2C-T1-06-G1a.md` §4.; v5 → v6 theo REVIEWER vòng 5 (2 major); v4 → v5 theo REVIEWER vòng 4 (5 major); v3 → v4 theo người đọc mù vòng 3 và REVIEWER vòng 3, xem `TAP-K2C-T1-06-G1a.md` §4.
 
 [00 HOOK]

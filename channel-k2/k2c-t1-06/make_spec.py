@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""K2C-T1-06 · ghép đặc tả tập: ep-src.yaml (hình, nguồn, số) + lời khoá ứng viên v8.1 NGUYÊN VĂN từ script.md → episode.yaml.
+"""K2C-T1-06 · ghép đặc tả tập: ep-src.yaml (hình, nguồn, số) + lời khoá v8.2 NGUYÊN VĂN từ script.md → episode.yaml.
 Lời mỗi đoạn = phần văn bản sau nhãn [NN PART] trong script.md, bỏ mã claim {Cnn}, gộp đoạn văn bằng một khoảng trắng (đúng chuỗi gửi ElevenLabs, khoá cache).
 Shorts: lời lấy nguyên văn từ các câu của script.md (`vo_from: [đoạn, câu đầu, câu cuối]` trong ep-src.yaml) — không thêm thông tin mới."""
 import os, re, sys, yaml
@@ -38,7 +38,7 @@ if __name__ == '__main__':
         if f:
             S = sentences(VO[f[0]]); i0 = next(i for i, x in enumerate(S) if x.startswith(f[1])); i1 = next(i for i, x in enumerate(S) if x.startswith(f[2]))
             sh['vo'] = ' '.join(S[i0:i1 + 1])
-    hd = '# TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + script.md (lời khoá ứng viên v8.1). Sửa ep-src.yaml, không sửa tệp này.\n'
+    hd = '# TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + script.md (lời khoá v8.2). Sửa ep-src.yaml, không sửa tệp này.\n'
     open(f'{H}/episode.yaml', 'w').write(hd + yaml.safe_dump(src, allow_unicode=True, sort_keys=False, width=4000))
     n = sum(len(s['vo'].split()) for s in src['segments'])
     print('episode.yaml', len(src['segments']), 'đoạn,', sum(len(s['shots']) for s in src['segments']), 'shot,', len(src['heroes']), 'cảnh,', n, 'từ lời,', sum(len(s['vo']) for s in src['segments']), 'ký tự')
