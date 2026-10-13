@@ -798,10 +798,10 @@ Chạy cùng một script trên `origin/main` (1.10.1) và trên bản 1.10.2. M
 **Không sửa** `scripts/`, `qc.py`, `checks-appeal.md` hay nhánh `k2c-t1-06`. Phán quyết khiếu nại V ghi ở đây (19.2). Nếu thêm vào `checks-appeal.md` trên main thì sẽ xung đột với mục V đang có ở `k2c-t1-06`.
 
 ### 19.5 Ghép thử
-- Bằng , trên commit khoá :
-  - Với  @2193dbe7: **không xung đột** (nhánh tạo từ đây).
-  - Với : **không xung đột**. Nhánh này nay ở **3d74d87**, đã đi tiếp sau f3fb60bc;  của nó trùng main.
-- Trên cây đã ghép với :  KHỚP.  cho tiers 28,6 %, giống f3fb60bc.
+- Bằng `git merge-tree --write-tree`, trên commit khoá `0033cda`:
+  - Với `origin/main` @2193dbe7: **không xung đột** (nhánh tạo từ đây).
+  - Với `origin/k2c-t1-06`: **không xung đột**. Nhánh này nay ở **3d74d87**, đã đi tiếp sau f3fb60bc; `checks/` của nó trùng main.
+- Trên cây đã ghép với `k2c-t1-06`: `lock.py --verify` KHỚP. `q_setting.py g1b/B-euclid.yaml --tl …` cho tiers 28,6 %, giống f3fb60bc.
 - Ở 3d74d87, đặc tả A/B có sửa nhưng timeline không đổi. Q26b của A, B, C giống hệt.
 
 ### 19.6 Chi phí
