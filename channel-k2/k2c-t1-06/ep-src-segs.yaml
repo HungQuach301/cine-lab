@@ -132,10 +132,10 @@ segments:
       - {tpl: plate, at: "@international-0.3", type: scene3d, p: {hero: sa_model, frame0: 0, cap: [{s: "The International Building Code: a model code", at: "@international", src: [IBCSEA]}]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@reprints", src_ss: 15, dur: 2.5, gain_db: -26, fade_ms: 300}], at: "@reprints-0.6", type: document, scene_id: d_ibc, camera_id: detail, p: {hero: d_ibc, frame0: 0, paper: "Seattle Building Code 2021, Ch. 10", date: "2024-11-15",
            cap: [{s: "Seattle's code reprints the model text, with local amendments", at: "@reprints"}], src: [IBCSEA]}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@model's", src_ss: 10, dur: 9, gain_db: -26, fade_ms: 900}], at: "@model's-0.4", type: scene3d, p: {hero: sa_elev, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@model's",
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@code's", src_ss: 10, dur: 9, gain_db: -26, fade_ms: 900}], at: "@code's-0.4", type: scene3d, p: {hero: sa_elev, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@code's",
            tags: [{a: core1, s: "One staircase", sub: "up to the 3rd story · ≤ 4 homes per floor · sprinklers", at: "@single", side: right, gap: 60, c: "#3CC2B0", num: c15},
                   {a: np, s: "4th story: NP", sub: "not permitted on one stair", at: "@fourth", side: right, c: "#E0564B", num: c15}],
-           cap: [{s: "Model code, 2021 edition (as reprinted in Seattle's 2021 code)", at: "@model's"}], src: [IBCSEA]}}
+           cap: [{s: "Model code, 2021 edition (as reprinted in Seattle's 2021 code)", at: "@code's"}], src: [IBCSEA]}}
       - {tpl: plate, at: "@single-stair-0.3", type: scene3d, p: {hero: st_tall, frame0: 0,
            cap: [{s: "The limit bites at the fourth story — or above four homes a floor", at: "@single-stair"}, {s: "the taller building on a small lot", at: "@taller"}], src: "3D illustration"}}
       - {tpl: plate, at: "@second-1.2", type: scene3d, p: {hero: sa_plan, frame0: 0,
@@ -149,9 +149,9 @@ segments:
       - {tpl: plate, at: "@august-0.3", type: map, scene_id: map/globe, places: [seattle], p: {hero: m_wash, frame0: 0,
            places: [{a: seattle, s: Seattle, sub: "on its many small lots", at: "@lots", side: right, c: "#3CC2B0"}],
            cap: [{s: "Washington Association of Building Officials, proposal to the state, Aug 2024", at: "@august", src: [WABO]}], src: *mapsrc}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@two#2", src_ss: 40, dur: 6, gain_db: -28, fade_ms: 700}], at: "@two#2-0.4", type: scene3d, p: {hero: sa_floor, frame0: 0,
-           tags: [{a: core1, s: "Exit 1", at: "@two#2", side: up, c: "#3CC2B0"}, {a: core2, s: "Exit 2 + corridor", at: "@exits", side: up, c: "#F08A4B"}],
-           cap: [{s: "“two exits took up a significant portion of the floor plate”", at: "@two#2", src: [WABO]}]}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@two#3", src_ss: 40, dur: 6, gain_db: -28, fade_ms: 700}], at: "@two#3-0.4", type: scene3d, p: {hero: sa_floor, frame0: 0,
+           tags: [{a: core1, s: "Exit 1", at: "@two#3", side: up, c: "#3CC2B0"}, {a: core2, s: "Exit 2 + corridor", at: "@exits", side: up, c: "#F08A4B"}],
+           cap: [{s: "“two exits took up a significant portion of the floor plate”", at: "@two#3", src: [WABO]}]}}
       - {tpl: plate, at: "@seattle-0.3", type: map, scene_id: map/globe, places: [seattle], p: {hero: m_seattle, frame0: 0,
            places: [{a: seattle, s: Seattle, sub: "some single-stair buildings since its 1977 code", at: "@1977", side: right, c: "#F08A4B"}], src: [WABO]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@2021#3", src_ss: 70, dur: 7, gain_db: -28, fade_ms: 800}], at: "@2021#3-0.5", type: scene3d, p: {hero: sa_press, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@2021#3",
@@ -176,7 +176,7 @@ segments:
            places: [{a: calif, s: California, sub: "State Fire Marshal: “near-unanimous opposition” above three stories", at: "@california's", side: right, c: "#E0564B"}],
            cap: [{s: "Safeguards “do not fully substitute for the redundancy of two independent stairways”", at: "@safeguards", src: [CALFIRE]}], src: *mapsrc}}
       - {tpl: plate, at: "@pew-0.3", type: chart3d, scene_id: ch_records, camera_id: orbit-r, p: {hero: ch_records, frame0: 0,
-           tags: [{a: "single:top", s: "4,440", sub: "modern single-stair buildings, NYC, since 2012", big: true, kind: actual, at: "@4,440", side: left, c: "#3CC2B0", num: c20},
+           tags: [{a: "single:top", s: "4,440", sub: "modern single-stair buildings, NYC, since 2012", big: true, kind: actual, at: "@forty", side: left, c: "#3CC2B0", num: c20},
                   {a: "other:top", s: "Same fire-death rate", sub: "as the city's other residential buildings, by their count", at: "@same", side: right, c: "#9AA7B5"}],
            cap: [{s: "Pew and the Center for Building (advocates) · 4 deaths counted, NYC and Seattle, 2012–2024", at: "@four"}], src: [PEW25]}}
       - {tpl: plate, at: "@modeling-0.3", type: map, scene_id: map/globe, places: [minn], p: {hero: m_minn, frame0: 0,
@@ -255,7 +255,7 @@ segments:
                   {a: "s25:top", s: "≈ 1.1%", sub: "2025", big: true, kind: actual, at: "@just", side: right, c: "#F08A4B", num: c36b}],
            cap: [{s: "2–4-unit buildings: share of all new homes (our calculation)", at: "@share"}], src: [NRC]}}
       - {tpl: plate, at: "@small-0.3", type: chart3d, scene_id: ch_small, camera_id: crane-up, p: {hero: ch_small, frame0: 0,
-           tags: [{a: "y73:top", s: "377,000", sub: "1973, the series' peak", big: true, kind: actual, at: "@377,000", side: left, c: "#9AA7B5", num: c35b},
+           tags: [{a: "y73:top", s: "377,000", sub: "1973, the series' peak", big: true, kind: actual, at: "@seventy-seven", side: left, c: "#9AA7B5", num: c35b},
                   {a: "y25:top", s: "≈ 48,000", sub: "2025", big: true, kind: actual, at: "@48,000", side: right, c: "#F08A4B", num: c35}],
            cap: [{s: "Homes completed in buildings of 5–19 units (our sum of two Census columns)", at: "@small"}], src: [CNH]}}
       - {tpl: plate, at: "@separate-1.2", type: photo, scene_id: loc_fsa_nyc61, camera_id: tilt-low, p: {hero: p_fsa03, frame0: 0,
@@ -353,7 +353,7 @@ segments:
            src: [ACS24]}}
       - {tpl: plate, at: "@but-0.3", type: scene3d, p: {hero: c_secend, frame0: 0,
            cap: [{s: "The map: where they can stand", at: "@map"}, {s: "The stairwell: how tall the next size up can rise", at: "@stairwell"}, {s: "The bank: which loan programs they fit", at: "@bank"}], src: "3D illustration"}}
-      - {tpl: plate, at: "@building-0.3", type: scene3d, p: {hero: st_dolly, frame0: 140, speed: 0.6,
+      - {tpl: plate, at: "@building#2-0.3", type: scene3d, p: {hero: st_dolly, frame0: 140, speed: 0.6,
            cap: [{s: "Building costs, borrowing costs and rents — Minneapolis Fed, Terner Center", at: "@building", src: [MPLSFED, TERNER24]}]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/city-traffic.mp3, at: "@defenders", src_ss: 80, dur: 12, gain_db: -28, fade_ms: 1500}], at: "@defenders-1.4", type: scene3d, p: {hero: c_crane, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@whether",
            cap: [{s: "The rules have defenders, with reasons on the record", at: "@defenders"}, {s: "In some places, the map and the stairwell have started to change", at: "@some"}]}}

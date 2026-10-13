@@ -106,7 +106,7 @@ heroes:
   ch_terner: {hero: chart3d/bars, cam: crane-up, opt: {scale: 0.05, w: 2.4, d: 2.4, ruler: [0, 50, 100], rulerX: -7, rulerZ: -4, rulerW: 14,
              bars: [{id: res, x: -2.4, v: 100, color: '#9AA7B5', grow: [0.4, 1.4]}, {id: com, x: 2.4, v: 110, color: '#F08A4B', grow: ["@roughly-0.6", "@roughly+0.6"]}]}}
   ch_records: {hero: chart3d/bars, cam: orbit-r, opt: {scale: 3, w: 2.6, d: 2.6,
-             bars: [{id: single, x: -2.6, v: 1, color: '#3CC2B0', grow: ["@4,440", "@4,440+0.8"]}, {id: other, x: 2.6, v: 1, color: '#9AA7B5', grow: ["@same-0.6", "@same+0.4"]}]}}
+             bars: [{id: single, x: -2.6, v: 1, color: '#3CC2B0', grow: ["@forty-1.0", "@forty+0.4"]}, {id: other, x: 2.6, v: 1, color: '#9AA7B5', grow: ["@same-0.6", "@same+0.4"]}]}}
   ch_icc:   {hero: chart3d/bars, cam: side-track, opt: {scale: 0.06, w: 2.4, d: 2.4, ruler: [0, 50, 100], rulerX: -7, rulerZ: -4, rulerW: 14,
              bars: [{id: yes, x: -2.4, v: 86, color: '#3CC2B0', grow: ["@eighty-six-0.4", "@eighty-six+0.6"]}, {id: no, x: 2.4, v: 34, color: '#9AA7B5', grow: ["@thirty-four-0.3", "@thirty-four+0.5"]}]}}
   ch_comp:  {hero: chart3d/line, cam: side-track, opt: {scale: 0.06, xk: 0.32, xoff: -9, th: 0.24, depth: 1.4, ruler: [0, 50, 100], rulerX: -10.5, rulerZ: -2, rulerW: 21, draw: ["@peaked-1.0", "@2025-0.2"],
@@ -114,7 +114,7 @@ heroes:
   ch_share: {hero: chart3d/bars, cam: front-dolly, opt: {scale: 0.9, w: 2.4, d: 2.4, ruler: [0, 2, 4, 6], rulerX: -7, rulerZ: -4, rulerW: 14,
              bars: [{id: s70, x: -2.4, v: 5.91, color: '#F08A4B', grow: ["@almost-0.4", "@almost+0.8"]}, {id: s25, x: 2.4, v: 1.07, color: '#F08A4B', grow: ["@just", "@just+0.5"]}]}}
   ch_small: {hero: chart3d/bars, cam: crane-up, opt: {scale: 0.025, w: 2.4, d: 2.4, ruler: [0, 100, 200, 300], rulerX: -7, rulerZ: -4, rulerW: 14,
-             bars: [{id: y73, x: -2.4, v: 377, color: '#9AA7B5', grow: ["@377,000-0.4", "@377,000+0.8"]}, {id: y25, x: 2.4, v: 48, color: '#F08A4B', grow: ["@48,000-0.3", "@48,000+0.5"]}]}}
+             bars: [{id: y73, x: -2.4, v: 377, color: '#9AA7B5', grow: ["@seventy-seven-0.6", "@seventy-seven+0.6"]}, {id: y25, x: 2.4, v: 48, color: '#F08A4B', grow: ["@48,000-0.3", "@48,000+0.5"]}]}}
   ch_sfh:   {hero: chart3d/bars, cam: low-hero, opt: {scale: 0.12, w: 2.4, d: 2.4, ruler: [0, 25, 50, 75], rulerX: -7, rulerZ: -4, rulerW: 14,
              bars: [{id: s70, x: -2.4, v: 57.09, color: '#9AA7B5', grow: ["@fifty-seven-0.4", "@fifty-seven+0.6"]}, {id: s25, x: 2.4, v: 67.5, color: '#3CC2B0', grow: ["@sixty-eight-0.4", "@sixty-eight+0.6"]}]}}
   ch_big:   {hero: chart3d/bars, cam: orbit-r, opt: {scale: 0.12, w: 2.4, d: 2.4, ruler: [0, 25, 50], rulerX: -7, rulerZ: -4, rulerW: 14,

@@ -1400,18 +1400,18 @@ segments:
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/stairwell.mp3
-      at: '@model''s'
+      at: '@code''s'
       src_ss: 10
       dur: 9
       gain_db: -26
       fade_ms: 900
-    at: '@model''s-0.4'
+    at: '@code''s-0.4'
     type: scene3d
     p:
       hero: sa_elev
       frame0: 0
       asof: Facts as of 12 Oct 2026
-      asofAt: '@model''s'
+      asofAt: '@code''s'
       tags:
       - a: core1
         s: One staircase
@@ -1430,7 +1430,7 @@ segments:
         num: c15
       cap:
       - s: Model code, 2021 edition (as reprinted in Seattle's 2021 code)
-        at: '@model''s'
+        at: '@code''s'
       src:
       - IBCSEA
   - tpl: plate
@@ -1528,12 +1528,12 @@ segments:
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/stairwell.mp3
-      at: '@two#2'
+      at: '@two#3'
       src_ss: 40
       dur: 6
       gain_db: -28
       fade_ms: 700
-    at: '@two#2-0.4'
+    at: '@two#3-0.4'
     type: scene3d
     p:
       hero: sa_floor
@@ -1541,7 +1541,7 @@ segments:
       tags:
       - a: core1
         s: Exit 1
-        at: '@two#2'
+        at: '@two#3'
         side: up
         c: '#3CC2B0'
       - a: core2
@@ -1551,7 +1551,7 @@ segments:
         c: '#F08A4B'
       cap:
       - s: “two exits took up a significant portion of the floor plate”
-        at: '@two#2'
+        at: '@two#3'
         src:
         - WABO
   - tpl: plate
@@ -1631,7 +1631,7 @@ segments:
       - TERNER24
 - id: '05'
   part: LOCK2
-  vo: 'So is one staircase safe enough? Fire officials, researchers and code bodies disagree. In a March 2024 position statement, the International Association of Fire Chiefs declared its "unwavering support" for keeping a second stairway in apartment buildings over three stories. In an undated joint statement, the International Association of Fire Fighters and the Metropolitan Fire Chiefs Association wrote: "Put simply, lives will be endangered." In an undated report to the Legislature, California''s state fire marshal described "near-unanimous opposition" from the state''s fire departments to single-stair buildings above three stories, and found added safeguards "do not fully substitute for the redundancy of two independent stairways." Pew and the Center for Building cite a count of fire records: in New York City''s 4,440 modern single-stair buildings since 2012, they found the fire-death rate the same as in the city''s other residential buildings, and they say a missing second stair played no role in the four deaths they counted in New York and Seattle''s modern single-stair buildings from 2012 to 2024. A modeling study for Minnesota''s labor department, in December 2025, found that, in its risk model, the number of stairs made a difference only when the sprinklers failed and both the apartment door and the stair door on the fire floor were open. In a vote announced in May 2026, governmental members of the International Code Council backed a proposal, eighty-six to thirty-four, to allow one stair up to four stories in the next model code, the 2027 edition — which, as of October 12, 2026, has not been published.'
+  vo: 'So is one staircase safe enough? Fire officials, researchers and code bodies disagree. In a March 2024 position statement, the International Association of Fire Chiefs declared its "unwavering support" for keeping a second stairway in apartment buildings over three stories. In an undated joint statement, the International Association of Fire Fighters and the Metropolitan Fire Chiefs Association wrote: "Put simply, lives will be endangered." In an undated report to the Legislature, California''s state fire marshal described "near-unanimous opposition" from the state''s fire departments to single-stair buildings above three stories, and found added safeguards "do not fully substitute for the redundancy of two independent stairways." Pew and the Center for Building cite a count of fire records: in New York City''s four thousand four hundred forty modern single-stair buildings since 2012, they found the fire-death rate the same as in the city''s other residential buildings, and they say a missing second stair played no role in the four deaths they counted in New York and Seattle''s modern single-stair buildings from 2012 to 2024. A modeling study for Minnesota''s labor department, in December 2025, found that, in its risk model, the number of stairs made a difference only when the sprinklers failed and both the apartment door and the stair door on the fire floor were open. In a vote announced in May 2026, governmental members of the International Code Council backed a proposal, eighty-six to thirty-four, to allow one stair up to four stories in the next model code, the 2027 edition — which, as of October 12, 2026, has not been published.'
   shots:
   - tpl: plate
     sfx:
@@ -1712,7 +1712,7 @@ segments:
         sub: modern single-stair buildings, NYC, since 2012
         big: true
         kind: actual
-        at: '@4,440'
+        at: '@forty'
         side: left
         c: '#3CC2B0'
         num: c20
@@ -2091,7 +2091,7 @@ segments:
           c: '#9AA7B5'
 - id: 08
   part: RESULT
-  vo: 'Here''s what America built over the same decades. Two-to-four-unit completions peaked in the 1970s, then fell in waves: from about 86,000 homes in 1986 to 45,000 in 1990, and from about 41,000 in 2006 to 9,000 in 2010. In 2025: 16,000. The Census numbers show when — not why; this video doesn''t test what caused each drop. As a share of all new homes, two-to-four-unit buildings went from almost six percent in the early 1970s to just over one percent in 2025 — our calculation from Census completions, pooling 1970 through 1974. Small apartment buildings of five to nineteen units went from 377,000 homes completed in 1973, the series'' peak year, to about 48,000 in 2025 — from the Census''s separate multifamily series, our sum of two columns. Single-family houses went from about fifty-seven percent of new homes in the early 1970s to about sixty-eight percent in 2025 — again our calculation, pooling 1970 through 1974. And in that same multifamily series, buildings of fifty or more units went from one in five new apartments in 1972 to fifty-seven percent in 2025. Our read: across these two series, new construction moved toward the two ends — houses, and large apartment buildings.'
+  vo: 'Here''s what America built over the same decades. Two-to-four-unit completions peaked in the 1970s, then fell in waves: from about 86,000 homes in 1986 to 45,000 in 1990, and from about 41,000 in 2006 to 9,000 in 2010. In 2025: 16,000. The Census numbers show when — not why; this video doesn''t test what caused each drop. As a share of all new homes, two-to-four-unit buildings went from almost six percent in the early 1970s to just over one percent in 2025 — our calculation from Census completions, pooling 1970 through 1974. Small apartment buildings of five to nineteen units went from three hundred seventy-seven thousand homes completed in 1973, the series'' peak year, to about 48,000 in 2025 — from the Census''s separate multifamily series, our sum of two columns. Single-family houses went from about fifty-seven percent of new homes in the early 1970s to about sixty-eight percent in 2025 — again our calculation, pooling 1970 through 1974. And in that same multifamily series, buildings of fifty or more units went from one in five new apartments in 1972 to fifty-seven percent in 2025. Our read: across these two series, new construction moved toward the two ends — houses, and large apartment buildings.'
   shots:
   - tpl: plate
     sfx:
@@ -2236,7 +2236,7 @@ segments:
         sub: 1973, the series' peak
         big: true
         kind: actual
-        at: '@377,000'
+        at: '@seventy-seven'
         side: left
         c: '#9AA7B5'
         num: c35b
@@ -2892,7 +2892,7 @@ segments:
         at: '@bank'
       src: 3D illustration
   - tpl: plate
-    at: '@building-0.3'
+    at: '@building#2-0.3'
     type: scene3d
     p:
       hero: st_dolly
@@ -3938,8 +3938,8 @@ heroes:
         v: 1
         color: '#3CC2B0'
         grow:
-        - '@4,440'
-        - '@4,440+0.8'
+        - '@forty-1.0'
+        - '@forty+0.4'
       - id: other
         x: 2.6
         v: 1
@@ -4163,8 +4163,8 @@ heroes:
         v: 377
         color: '#9AA7B5'
         grow:
-        - '@377,000-0.4'
-        - '@377,000+0.8'
+        - '@seventy-seven-0.6'
+        - '@seventy-seven+0.6'
       - id: y25
         x: 2.4
         v: 48

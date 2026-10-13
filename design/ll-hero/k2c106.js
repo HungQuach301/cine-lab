@@ -371,7 +371,7 @@ async function bank({ W, H, dur, opt }) {
   const lampSF = glowSprite(C.teal, 0.9, 2.2), lampMF = glowSprite(C.steel, 0.6, 2.2); lampSF.position.set(-8, 2.6, -9); lampMF.position.set(10, 2.6, -9); scene.add(lampSF, lampMF);
   const plaqueSF = box(6, 1.4, 0.15, std(C.teal, { emissive: '#0d3a34', emissiveIntensity: 0.6 }), -8, 1.85, -9.95), plaqueMF = box(6, 1.4, 0.15, std('#5a6676', { emissive: '#1a2230', emissiveIntensity: 0.5 }), 10, 1.85, -9.95);
   // vạch "4": tấm kính đứng giữa
-  const lineM = std(C.orange, { emissive: '#a8461a', emissiveIntensity: 0.55 }); const line = box(0.22, 0.05, 11, lineM, 1.2, 0.03, -3.5); box(0.14, 4.4, 0.14, lineM, 1.2, 2.2, 0); box(0.6, 0.12, 0.6, lineM, 1.2, 0.06, 0);   // vạch '4': dải sáng trên sàn + cột mảnh phía trước, không che khối
+  const lineM = std(C.orange, { emissive: '#a8461a', emissiveIntensity: 0.55 }); const line = box(0.22, 0.05, 7, lineM, 1.2, 0.03, -5.5); box(0.14, 4.4, 0.14, lineM, 1.2, 2.2, 0); box(0.6, 0.12, 0.6, lineM, 1.2, 0.06, 0);   // vạch '4': dải sáng trên sàn + cột mảnh phía trước, không che khối
   // khối nhà 1..4 (trái vạch) và 5 (phải); mỗi căn = một khối nhỏ xếp tầng
   const unit = new THREE.BoxGeometry(1.8, 1.2, 1.8); const mats5 = [mt.brick, mt.brick2, mt.brick3, mt.stucco, mt.clap];
   const stacks = [1, 2, 3, 4, 5].map((n, i) => { const g = new THREE.Group(); g.position.set(-11 + i * 3.2 + (n === 5 ? 2.2 : 0), 0, 0); scene.add(g);

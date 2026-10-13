@@ -30,8 +30,13 @@ if __name__ == '__main__':
     VO = script_vo(); src = yaml.safe_load(open(f'{H}/ep-src.yaml'))
     src['heroes'] = yaml.safe_load(open(f'{H}/ep-src-heroes.yaml'))['heroes']
     SG = yaml.safe_load(open(f'{H}/ep-src-segs.yaml')); src['segments'] = SG['segments']; src['shorts'] = SG.get('shorts', [])
+    # Cách viết số cho TTS (13/10/2026): ElevenLabs đọc "4,440" thành ~"4,040" và "377,000" sai nhóm (ASR small.en + medium.en, đoạn 05, 08).
+    # Viết bằng chữ ĐÚNG những từ của lời khoá v8.2 — không đổi từ nào được nói; script.md giữ chữ số.
+    TTS_SPELL = {'4,440': 'four thousand four hundred forty', '377,000': 'three hundred seventy-seven thousand'}
     for s in src['segments']:
-        if s.get('vo') == '@script': s['vo'] = VO[s['id']]
+        if s.get('vo') == '@script':
+            s['vo'] = VO[s['id']]
+            for k, v in TTS_SPELL.items(): s['vo'] = s['vo'].replace(k, v)
     assert [s['id'] for s in src['segments']] == sorted(VO), (sorted(VO), [s['id'] for s in src['segments']])
     for sh in src.get('shorts', []):
         f = sh.pop('vo_from', None)
