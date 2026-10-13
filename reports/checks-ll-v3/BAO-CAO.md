@@ -693,3 +693,122 @@ Mỗi lần chấm Q27 chính thức của P từ nay ≈ $0,77 (3 người), Q3
 1. Xem các lựa chọn của K ở 18.2 (`the` không đếm vào (c), không làm dứt quãng của bối cảnh khác) và 18.3 (pHash chỉ cộng, θ = 14).
 2. Từ K2 tập 2, P khai `type`, `places`, `people`, `anchors` trong đặc tả. Ở LL từ tập 9, Q33 có hiệu lực.
 3. Nên bỏ `*.json` khỏi `channel-k2/.gitignore` cho `vo/*.align.json`, để lần đo sau không phải dựng lại căn chữ.
+
+## 19. Bản 1.10.2 (13/10/2026): Q26b đọc định dạng kênh 2 (vshot/episode) · khiếu nại V về Q34(c)
+**Đầu vào:** chủ dự án duyệt lệnh mở phiên K ngày 13/10/2026. Phạm vi chỉ gồm 2 việc. Nhánh làm việc tạo từ `origin/main` @2193dbe7 (LOCK 1.10.1 `1a126d58…`, 185 tệp). Không đổi ngưỡng hay ý nghĩa của luật nào khác.
+
+### 19.1 Q26b: lỗi `JSONDecodeError: Expecting value` trên shot mẫu G1b
+**Tái hiện** trên `origin/k2c-t1-06` @f3fb60bc (chỉ đọc, không sửa nhánh đó):
+- `q_setting.py channel-k2/k2c-t1-06/g1b/A-mo-dau.yaml` báo `JSONDecodeError: Expecting value: line 1 column 1`. B và C cũng vậy.
+- `q_setting.py channel-k2/k2c-t1-06/g1b/A-mo-dau.timeline.json` chạy bình thường. B và C cũng vậy.
+
+**Nguyên nhân: không phải lỗi luật, cũng không phải do vshot thiếu tệp.** Đây là lỗi giao diện dòng lệnh của bộ kiểm:
+- `q_types.py`, `q_scene.py`, `q_footage.py` nhận `<episode.yaml> [--tl]`.
+- `q_setting.py` (Q26b) chỉ nhận `<timeline.json>` và gọi `json.load` thẳng lên đối số.
+- P chạy mọi luật theo cùng một cách, tức là đưa `.yaml`, nên Q26b đọc YAML như JSON và lỗi ngay ở ký tự đầu (`#`).
+- vshot đã sinh đủ tệp: `<out>/timeline.json` có `segments[].shots` (kèm `type`, `scene_id`, `camera_id`), `heroes` (kèm `opt`), `tong_s`. **P không phải sinh thêm tệp hay trường nào.**
+
+**Lỗi thứ hai, phát hiện khi đọc đúng định dạng kênh 2:**
+- Kênh 2 dựng mọi shot bằng `tpl: plate` và phân loại bằng `type` (Q34).
+- Bản 1.10.1 đọc mọi `plate` thành cảnh đinh `heroes.<khoá>.hero`. Vì vậy bản đồ (`map/globe`), ảnh tư liệu (`photo/print`) và ảnh chụp văn bản (`photo/doc`) bị tính thành bối cảnh.
+- Câu chữ RULES-LL (1.8.0, giữ nguyên tới 1.10.1) ghi rõ: "isotype, **bản đồ, ảnh tư liệu**, thẻ kết → trung tính". P đo tay đúng theo câu chữ này. Mã của K lệch câu chữ khi gặp định dạng kênh 2.
+
+**Sửa (`checks/ll/q_setting.py`):**
+1. CLI nhận cả hai dạng:
+   - `q_setting.py <timeline.json>`: như cũ (`qc.py` gọi `q26b(TL)`, không đổi).
+   - `q_setting.py <episode.yaml> [--tl timeline.json]`: như các luật kênh 2, mặc định `<out>/timeline.json`.
+   - Không thấy timeline thì báo rõ đường dẫn thiếu và gợi ý `--tl`, không in traceback.
+2. Đọc `type` theo thứ tự: shot timeline, rồi `p.type`, rồi đặc tả cùng đoạn và thứ tự (giống `q_types.stype`). Ánh xạ cùng nghĩa với luật đã có:
+
+   | `type` | Nhãn |
+   |---|---|
+   | `card` | `the` |
+   | `footage` | như footage (`p.setting`) |
+   | `map`, `photo`, `document` | trung tính |
+   | `scene3d`, `chart3d`, không khai | như `plate` (cảnh đinh) |
+
+   `p.card`, `p.clip` và các mẫu LL vẫn được xét trước, không đổi thứ tự. Tập LL không có `type`, nên kết quả không đổi.
+3. `q26b(TL, E=None)`: tham số đặc tả là tuỳ chọn, nên chữ ký cũ vẫn dùng được.
+
+**Fixture `checks/ll/fixtures/k2c106-g1b/`** (52 KB): đặc tả và timeline vshot của 3 shot mẫu, chép nguyên văn từ f3fb60bc. 10 ca selftest mới:
+- CLI với `.yaml` + `--tl`; `.yaml` thiếu timeline; `.json` như cũ.
+- B: map/photo/document thành trung tính.
+- Đọc `type` từ đặc tả khi timeline không ghi; không đưa đặc tả thì đọc như 1.10.1.
+- A, C không đổi.
+- `type: card` → `the`; `type: footage` → `ft/(chưa khai)`.
+- Steel không đổi.
+
+### 19.2 Khiếu nại V về Q34(c): số trên cột 3D của bản đồ — **CHẤP NHẬN có điều kiện**
+**Lý do (theo RULES-LL):**
+- Q34(c) ra đời từ bài học Steel (1.10.1): số trên **thẻ phẳng nền mờ** thay cho số **trong cảnh 3D**. Thước đo là "số hiện bằng hình 3D", không phải "số hiện ở shot có nhãn chart3d/scene3d".
+- Ở scene3d, nhãn số bám một vật thể 3D (như `building`) đã được tính là 3D, dù vật thể không mã hoá giá trị.
+- Cột số liệu của `map.js` là hình khối 3D thật: mọc theo pháp tuyến địa cầu, có `grow`, có tỷ lệ. Nhãn bám neo đỉnh `col:<id>` và ẩn khi cột khuất. Về hình, cột này cùng loại với cột của chart3d.
+- Nếu bác, tập nào đặt số lên bản đồ sẽ phải vẽ lại cùng số đó bằng chart3d chỉ để qua thước. Như vậy là trái luật cứng "không thêm phần tử chỉ để vượt ngưỡng".
+
+**Điều kiện, chặt hơn đề nghị của V:**
+- V đề nghị: "`opt.cols` **hoặc** neo `col:*`". K đòi **cả hai**: nhãn số bám neo `col:<id>`, **và** `<id>` là một cột khai trong `heroes.<p.hero>.opt.cols` (đọc ở timeline, không có thì ở đặc tả).
+- Chỉ có `opt.cols` thì một số in chữ ở chỗ khác trên bản đồ sẽ được tính oan. Chỉ có neo `col:*` mà không có cột khai thì không có vật thể 3D nào.
+- Không tính là 3D: số in chữ trên bản đồ, số ở nhãn địa danh hay ghim, neo `col:` không có cột khai, và shot `card` có neo `col:*`.
+- Ngưỡng 60 % và 40 % giữ nguyên. Dòng lỗi đổi chữ thành "chart3d/scene3d/cột 3D bản đồ".
+
+**Fixture:**
+- `checks/ll/fixtures/k2v-mau-a/`:
+  - Đặc tả shot mẫu A của V, chép nguyên văn từ `origin/k2c-t1-06`.
+  - Timeline do K dựng lại theo đúng cấu trúc `vshot.py`, không render (`channel-k2/.gitignore` loại `*.json`, nên timeline gốc không có trong git).
+  - Kết quả: 1.10.1 báo **0/2 = 0 % TRƯỢT**, đúng như khiếu nại; 1.10.2 cho **2/2 = 100 %**.
+- 8 ca selftest mới:
+  - V thật; V bỏ `opt.cols`.
+  - Tổng hợp: neo col khai đủ; số ở nhãn địa danh; không khai cột; một neo `col:zz` lạ; shot card có neo col.
+  - G1b không đổi.
+
+**Cách khai đúng cho P / V:** trong shot `type: map`, nhãn số khai `{a: 'col:<id>', num: <khoá số>}`, và `heroes.<khoá>.opt.cols` có `{id: <id>, …}`.
+
+### 19.3 Hồi tố (Steel k2g01 + 3 shot mẫu G1b @f3fb60bc): Q26b / Q32 / Q33 / Q34
+Chạy cùng một script trên `origin/main` (1.10.1) và trên bản 1.10.2. Mọi ô ghi "không đổi" đều có `val` và danh sách lỗi trùng từng ký tự.
+
+| Tập / shot | Q26b trước → sau | Q32 | Q33 | Q34 |
+|---|---|---|---|---|
+| Steel k2g01 | TRƯỢT (`the` 45,0 %) → **không đổi** | ĐẠT, không đổi | TRƯỢT (4 góc > 2), không đổi | TRƯỢT (0/90 type), không đổi |
+| G1b A (mở đầu) | TRƯỢT (corner 57,4 %, nửa sau 2) → **không đổi** | ĐẠT, không đổi | ĐẠT, không đổi | ĐẠT, số neo 3D 2/2, không đổi |
+| G1b B (Euclid) | TRƯỢT: 4 bối cảnh (photo/print 39,2 %, tiers 28,6 %, map/globe 22,0 %, photo/doc 10,3 %), nửa sau 2 → **TRƯỢT: 1 bối cảnh (tiers 28,6 %), trung tính 71,4 % (19,5 s), nửa sau 1** | TRƯỢT 49,5 %, không đổi | ĐẠT, không đổi | TRƯỢT (a)(b) (mẫu không có lời), không đổi |
+| G1b C (ba khoá) | TRƯỢT (bank 27,1 %, ends 27,1 %; stairs 25,0 % sát ngưỡng) → **không đổi** | ĐẠT, không đổi | ĐẠT, không đổi | ĐẠT, số neo 3D 3/3, không đổi |
+
+- **Chỉ một ô đổi: Q26b ở G1b B.** Số mới khớp số P đo tay trong `TAP-K2C-T1-06-G1b.md` §4 (tiers 28,6 %, trung tính 19,5 s).
+- Q34(c) không đổi ở cả 4: không tập nào có cột bản đồ.
+- Q26b trên mẫu 24–27 s TRƯỢT là đương nhiên, vì đây là luật **cả phim** (P đã nêu). Kết quả hồi tố không chặn.
+- **Chỉ số trong ±5 % quanh ngưỡng:**
+  - G1b C: `k2c106/stairs` 25,0 % (ngưỡng 25 %), không đổi so với 1.10.1.
+  - Steel: Q33 có 9 góc đúng 2 lần, như mục 18.5.
+  - Không có chỉ số sát ngưỡng mới.
+
+### 19.4 Kiểm và khoá
+**Selftest LL: 317/317** (thêm 18 ca: Q26b 10, Q34c 8; ca cũ giữ nguyên kỳ vọng).
+
+**cinecheck: 142/142** trên bản khoá (E2E sạch ĐẠT exit 0, bẩn exit 1).
+
+**Bản khoá:** VERSION **1.10.2**, LOCK `TREE_SHA256 c598467f2283b141b8a14382c18dbe23b370522ef2a1afb31856399f7eb4549e` (193 tệp; 1.10.1: 185 tệp). `lock.py --verify`: KHỚP.
+
+**Tệp đã sửa:**
+- `checks/ll/q_setting.py`, `checks/ll/q_types.py`
+- `checks/ll/RULES-LL.md` (đầu tệp, dòng Q26b, Q34, dòng selftest), `checks/ll/FOOTAGE.md` (một dòng lệnh chạy)
+- `checks/ll/selftest_ll.py`
+- `checks/ll/fixtures/k2c106-g1b/` (mới), `checks/ll/fixtures/k2v-mau-a/` (mới)
+- `checks/cinecheck/__init__.py` (VERSION), `checks/LOCK`, mục này
+
+**Không sửa** `scripts/`, `qc.py`, `checks-appeal.md` hay nhánh `k2c-t1-06`. Phán quyết khiếu nại V ghi ở đây (19.2). Nếu thêm vào `checks-appeal.md` trên main thì sẽ xung đột với mục V đang có ở `k2c-t1-06`.
+
+### 19.5 Ghép thử
+- Bằng , trên commit khoá :
+  - Với  @2193dbe7: **không xung đột** (nhánh tạo từ đây).
+  - Với : **không xung đột**. Nhánh này nay ở **3d74d87**, đã đi tiếp sau f3fb60bc;  của nó trùng main.
+- Trên cây đã ghép với :  KHỚP.  cho tiers 28,6 %, giống f3fb60bc.
+- Ở 3d74d87, đặc tả A/B có sửa nhưng timeline không đổi. Q26b của A, B, C giống hệt.
+
+### 19.6 Chi phí
+- Claude API $0; ElevenLabs $0; YouTube Data API: không gọi.
+- Giờ máy: selftest LL khoảng 15 phút, cinecheck khoảng 20 phút, hồi tố dưới 1 phút.
+
+**Việc đang chờ chủ dự án:**
+1. Duyệt 1.10.2 và cho merge vào `main` (phiên P merge).
+2. Duyệt phán quyết Q34(c): chấp nhận có điều kiện; K đòi cả neo `col:<id>` lẫn cột khai (19.2).
+3. Biết thêm điểm đổi Q26b ở kênh 2: map/photo/document thành trung tính, khớp câu chữ RULES-LL và số P đo tay. Từ nay P chạy `q_setting.py <episode.yaml>` như các luật khác.
