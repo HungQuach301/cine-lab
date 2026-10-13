@@ -736,6 +736,9 @@ segments:
       - s: A store with apartments above · Jeannette, Pa. (HABS survey, documented after 1933)
         at: 0.3
       src: 'Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)'
+      clip: LOC-HABS-02
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-02u.tif
+      setting: ft/tocco-store-north-third-st
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/cash-register.mp3
@@ -825,6 +828,9 @@ segments:
       - s: Walk-up apartment building · New York City, 1979
         at: '@five'
       src: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+      clip: LOC-HABS-01
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-01u.tif
+      setting: ft/nyc-st-nicholas-ave
   - tpl: plate
     at: '@by-0.3'
     type: photo
@@ -837,6 +843,9 @@ segments:
       - s: Pittsburgh, c. 1900–1915
         at: '@by'
       src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+      clip: LOC-DET-01
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-01u.tif
+      setting: ft/pittsburgh-fifth-and-wood
   - tpl: plate
     at: '@almost-0.3'
     type: photo
@@ -852,6 +861,9 @@ segments:
         at: '@almost'
         num: c03
       src: 'Data: Census ACS 2024 (B25127), our calculation · Photo: Durham, N.C., May 1940, FSA/OWI, Library of Congress'
+      clip: LOC-FSA-01
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-fsa-01u.tif
+      setting: ft/durham-corner-store
   - tpl: plate
     at: '@our#2-0.3'
     in: fade
@@ -888,6 +900,9 @@ segments:
       - s: Detroit, between 1900 and 1910
         at: '@without'
       src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+      clip: LOC-DET-11
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-11u.tif
+      setting: ft/detroit-lenox-apartments
   - tpl: plate
     at: '@then-0.3'
     type: photo
@@ -902,6 +917,9 @@ segments:
       - s: Washington, D.C., August 1942
         at: '@then'
       src: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+      clip: LOC-FSA-04
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-fsa-04u.tif
+      setting: ft/washington-corner-store
 - id: '02'
   part: LOCK1
   vo: 'Lock one: the map. In 1921, when the Commerce Department under Herbert Hoover set up an advisory committee on zoning, only forty-eight American cities and towns had zoning ordinances, Hoover wrote. The committee drafted a model law for the powers a state could give its cities — over building height and size, lot coverage, density and land use, with different rules in different districts. In 1926, a case from Euclid, Ohio — "practically a suburb" of Cleveland, the Court said — reached the Supreme Court. Euclid had zoned its land in tiers: single-family houses only; then two-family homes; then apartment houses. Retail stores and shops didn''t come in until the fourth tier. So a corner shop with apartments above it fit in none of the first three. The Court upheld the ordinance, six to three. Summing up reports from commissions and experts, Justice Sutherland listed the concerns about apartment houses among detached homes: buildings "interfering by their height and bulk with the free circulation of air and monopolizing the rays of the sun," and bringing traffic and parked cars. Apartment houses which, he wrote, "in a different environment would be not only entirely unobjectionable but highly desirable, come very near to being nuisances" in such districts. And if a zoning rule was "fairly debatable," the Court said, the legislative judgment "must be allowed to control" — in plain terms, under that standard, judges deferred to the local lawmakers who wrote the rule.'
@@ -943,6 +961,9 @@ segments:
       - s: 'Herbert Hoover, Secretary of Commerce (photo: 1928)'
         at: '@herbert'
       src: 'Photo: Harris & Ewing, 1928 · Library of Congress (public domain)'
+      clip: WM-HOOVER-1928
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-hec-34871u.tif
+      setting: ft/hoover-portrait-1928
   - tpl: plate
     at: '@only-0.3'
     type: photo
@@ -958,6 +979,9 @@ segments:
         at: '@forty-eight'
         num: c05
       src: 'Source: A Standard State Zoning Enabling Act (1926) · Photo: Columbus, Ohio, 1900–1915, Detroit Publishing Co., Library of Congress'
+      clip: LOC-DET-02
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-02u.tif
+      setting: ft/columbus-broad-and-high
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/typewriter.mp3
@@ -980,6 +1004,9 @@ segments:
         at: '@model'
       src:
       - SSZEA
+      clip: DOC-SSZEA
+      file: /var/tmp/cine-out/k2v-cache/doc/standardstatezon05ball.pdf
+      setting: ft/page-sszea-1926
   - tpl: plate
     at: '@state-0.2'
     type: photo
@@ -989,13 +1016,28 @@ segments:
       hero: p_det08
       frame0: 0
       cap:
-      - s: Height and size · lot coverage · density · land use — different rules in different districts
+      - s: Height and size · lot coverage · density · land use
         at: '@height'
         src:
         - SSZEA
       - s: Burlington, Vt., between 1910 and 1920
-        at: '@districts'
+        at: '@coverage'
       src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+      clip: LOC-DET-08
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-08u.tif
+      setting: ft/burlington-main-and-st-paul
+  - tpl: plate
+    at: '@with-0.2'
+    type: scene3d
+    p:
+      hero: ti_front
+      frame0: 0
+      cap:
+      - s: Different rules in different districts
+        at: '@different'
+        src:
+        - SSZEA
+      src: 3D illustration
   - tpl: plate
     at: '@1926-0.3'
     type: map
@@ -1095,6 +1137,9 @@ segments:
         at: '@upheld'
         num: c09
       src: 'Source: Euclid v. Ambler Realty (1926) · Photo: Justice George Sutherland, Oct. 11, 1937, Harris & Ewing, Library of Congress'
+      clip: WM-SUTHERLAND-1937
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-hec-29001u.tif
+      setting: ft/supreme-court-steps-1937
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/typewriter.mp3
@@ -1117,6 +1162,9 @@ segments:
         at: '@commissions'
       src:
       - EUCLID
+      clip: DOC-EUCLID
+      file: /var/tmp/cine-out/k2v-cache/doc/usrep272365.pdf
+      setting: ft/page-us-reports-272
   - tpl: plate
     at: '@listed-0.2'
     type: scene3d
@@ -1142,6 +1190,9 @@ segments:
         src:
         - EUCLID
       src: 'Photo: New York City, c. 1908 · Detroit Publishing Co., Library of Congress'
+      clip: LOC-DET-06
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-06u.tif
+      setting: ft/nyc-riverside-drive
   - tpl: plate
     at: '@bringing-0.3'
     type: photo
@@ -1156,6 +1207,9 @@ segments:
         src:
         - EUCLID
       src: 'Photo: New York City, between 1905 and 1920 · Detroit Publishing Co., Library of Congress'
+      clip: LOC-DET-12
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-12u.tif
+      setting: ft/nyc-riverside-drive
   - tpl: plate
     at: '@apartment#3-0.3'
     type: photo
@@ -1170,6 +1224,9 @@ segments:
         src:
         - EUCLID
       src: 'Photo: Washington, D.C., c. 1904 · Detroit Publishing Co., Library of Congress'
+      clip: LOC-DET-04
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-04u.tif
+      setting: ft/washington-connecticut-ave
   - tpl: plate
     at: '@near-0.6'
     type: photo
@@ -1184,6 +1241,9 @@ segments:
         src:
         - EUCLID
       src: 'Photo: Detroit, c. 1905 · Detroit Publishing Co., Library of Congress'
+      clip: LOC-DET-05
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-05u.tif
+      setting: ft/detroit-pasadena-apartments
   - tpl: plate
     at: '@fairly-0.6'
     in: fade
@@ -1215,6 +1275,9 @@ segments:
       - s: Buffalo, N.Y., between 1905 and 1920
         at: '@deferred'
       src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+      clip: LOC-DET-03
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-det-03u.tif
+      setting: ft/buffalo-delaware-and-north
 - id: '03'
   part: LOCK1
   vo: 'A century later, how much of the map still works that way? Take one state the National Zoning Atlas has mapped. In its 2025 report, covering 334 jurisdictions in Colorado: Fifty-nine percent of residential land allows only single-family homes. Just three percent allows buildings of more than four homes "as of right" — meaning without a special approval. That''s one state, as mapped for that report — not a national figure, and not today''s map. The map has fine print, too. In Colorado, the Atlas found parking requirements on eighty-five percent of residential land, most often two spaces for every home. On a small lot, every parking space is room the building can''t use.'
@@ -1336,6 +1399,9 @@ segments:
       - s: Butte, Mont., 1979
         at: '@room'
       src: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+      clip: LOC-HABS-04
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-04u.tif
+      setting: ft/butte-west-granite
 - id: '04'
   part: LOCK2
   vo: 'Lock two: the stairwell. The rule requires two separate ways out of taller apartment buildings, with exceptions. The International Building Code is a model code; Seattle''s code, for example, reprints its text, with local amendments. In the model code''s 2021 edition — as reprinted in Seattle''s 2021 code, which we checked — an apartment building may have a single staircase up to the third story, with at most four homes per floor and sprinklers throughout. A fourth story on one stair is not permitted. So the single-stair limit bites at the fourth story, and at any floor with more than four homes — the taller building on a small lot. On that lot, a second stair takes a slice of every floor. The Pew Charitable Trusts, working with the Center for Building in North America — a group that advocates allowing more single-stair buildings — estimates, in a 2025 report summary, that the extra stairway and corridor take around seven percent of the floor area and cost the equivalent of six to thirteen percent of total construction costs. In an August 2024 proposal to Washington''s Building Code Council, the Washington Association of Building Officials, explaining Seattle''s history, wrote that on its many small lots, "two exits took up a significant portion of the floor plate." Seattle has allowed some single-stair apartment buildings since its 1977 code, those officials wrote; its 2021 code allows them up to six stories, with at most four homes per floor and extra protections such as a pressurized stairway. There''s a code cost below four stories, too. A 2024 Terner Center study at UC Berkeley noted that in California, buildings with three or more homes fall under the stricter commercial building code — adding, by its estimate, roughly ten percent to construction costs.'
@@ -2212,6 +2278,9 @@ segments:
       - s: Dade Apartment Building and neighbors, Florida, 1991
         at: '@test'
       src: 'Photo: Historic American Buildings Survey, 1991 · Library of Congress (no known restrictions)'
+      clip: LOC-HABS-03
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-03u.tif
+      setting: ft/dade-apartment-building
   - tpl: plate
     at: '@share-0.4'
     type: chart3d
@@ -2288,6 +2357,9 @@ segments:
       - s: Walk-up apartment buildings, New York City, 1938
         at: '@separate'
       src: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+      clip: LOC-FSA-03
+      file: /var/tmp/cine-out/k2v-cache/photo/loc-fsa-03u.tif
+      setting: ft/nyc-61st-street-rear
   - tpl: plate
     at: '@single-family-0.3'
     type: chart3d
@@ -2870,6 +2942,9 @@ segments:
       - s: The buildings themselves didn't go away
         at: '@themselves'
       src: 'Photo: Bay Ridge, Brooklyn, N.Y. · Pexels (recent photo)'
+      clip: PXP-7180335
+      file: /var/tmp/cine-out/k2v-cache/photo/pexels-photo-7180335.jpeg
+      setting: ft/bay-ridge-brooklyn
   - tpl: plate
     at: '@eleven-0.4'
     type: chart3d
@@ -3060,6 +3135,15 @@ heroes:
         - 2
         - 3
         step: 3.0
+  ti_front:
+    hero: k2c106/tiers
+    cam: front_low
+    opt:
+      fill:
+      - '@different'
+      - '@rules'
+      - '@different#2'
+      - '@districts'
   ti_shadow:
     hero: k2c106/tiers
     cam: shadow_low
@@ -4571,7 +4655,7 @@ heroes:
     hero: photo/doc
     cam: push
     opt:
-      page: /cache/sszea-1926-p1.json
+      page: /cache/sszea-1926-ia-p1.json
       hl:
       - i: 0
         at:

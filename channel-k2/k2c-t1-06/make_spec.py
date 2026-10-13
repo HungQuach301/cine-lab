@@ -43,6 +43,23 @@ if __name__ == '__main__':
         if f:
             S = sentences(VO[f[0]]); i0 = next(i for i, x in enumerate(S) if x.startswith(f[1])); i1 = next(i for i, x in enumerate(S) if x.startswith(f[2]))
             sh['vo'] = ' '.join(S[i0:i1 + 1])
+    # Q32 (FOOTAGE.md §3, 13/10/2026): shot ảnh/trang quét nguồn ngoài khai p.clip (dòng sổ SOURCES-FOOTAGE.csv), p.file (tệp GỐC đã tải, ngoài repo,
+    # để K kiểm SHA) và p.setting (nơi theo nội dung hình, nhãn ft/…; cùng nơi cùng nhãn). Trang dựng lại chữ (IBC, CFR) không có tệp nguồn ngoài → không khai.
+    sys.path.insert(0, os.path.abspath(f'{H}/../../scripts/k2')); import k2v_assets as KA
+    import importlib.util; sp = importlib.util.spec_from_file_location('sfl', f'{H}/sf_ledger.py'); SFL = importlib.util.module_from_spec(sp); sp.loader.exec_module(SFL)
+    SETTING = {'LOC-DET-01': 'ft/pittsburgh-fifth-and-wood', 'LOC-DET-02': 'ft/columbus-broad-and-high', 'LOC-DET-03': 'ft/buffalo-delaware-and-north',
+               'LOC-DET-04': 'ft/washington-connecticut-ave', 'LOC-DET-05': 'ft/detroit-pasadena-apartments', 'LOC-DET-06': 'ft/nyc-riverside-drive',
+               'LOC-DET-12': 'ft/nyc-riverside-drive', 'LOC-DET-08': 'ft/burlington-main-and-st-paul', 'LOC-DET-11': 'ft/detroit-lenox-apartments',
+               'LOC-FSA-01': 'ft/durham-corner-store', 'LOC-FSA-03': 'ft/nyc-61st-street-rear', 'LOC-FSA-04': 'ft/washington-corner-store',
+               'LOC-HABS-01': 'ft/nyc-st-nicholas-ave', 'LOC-HABS-02': 'ft/tocco-store-north-third-st', 'LOC-HABS-03': 'ft/dade-apartment-building',
+               'LOC-HABS-04': 'ft/butte-west-granite', 'WM-HOOVER-1928': 'ft/hoover-portrait-1928', 'WM-SUTHERLAND-1937': 'ft/supreme-court-steps-1937',
+               'PXP-7180335': 'ft/bay-ridge-brooklyn', 'DOC-SSZEA': 'ft/page-sszea-1926', 'DOC-EUCLID': 'ft/page-us-reports-272'}
+    for s in src['segments']:
+        for sh in s['shots']:
+            p = sh.get('p') or {}; o = (src['heroes'].get(p.get('hero')) or {}).get('opt', {}); f = o.get('img') or o.get('page')
+            if p.get('clip') or not f: continue
+            a = SFL.asset_of(f); cid = SFL.clip_of_asset(a)
+            if cid: p['clip'] = cid; p['file'] = os.path.join(KA.CACHE, KA.ASSETS[a]['file']); p['setting'] = SETTING[cid]
     hd = '# TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + script.md (lời khoá v8.2). Sửa ep-src.yaml, không sửa tệp này.\n'
     open(f'{H}/episode.yaml', 'w').write(hd + yaml.safe_dump(src, allow_unicode=True, sort_keys=False, width=4000))
     n = sum(len(s['vo'].split()) for s in src['segments'])

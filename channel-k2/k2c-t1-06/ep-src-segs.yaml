@@ -69,8 +69,10 @@ segments:
       - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@model", src_ss: 3, dur: 2.5, gain_db: -26, fade_ms: 300}], at: "@model-0.3", type: document, scene_id: d_sszea, camera_id: push, p: {hero: d_sszea, frame0: 0, paper: "A Standard State Zoning Enabling Act (rev. ed.)", date: "1926-01-01",
            cap: [{s: "A model law for the powers a state could give its cities", at: "@model"}], src: [SSZEA]}}
       - {tpl: plate, at: "@state-0.2", type: photo, scene_id: loc_det_burlington, camera_id: detail, p: {hero: p_det08, frame0: 0,
-           cap: [{s: "Height and size · lot coverage · density · land use — different rules in different districts", at: "@height", src: [SSZEA]}, {s: "Burlington, Vt., between 1910 and 1920", at: "@districts"}],
+           cap: [{s: "Height and size · lot coverage · density · land use", at: "@height", src: [SSZEA]}, {s: "Burlington, Vt., between 1910 and 1920", at: "@coverage"}],
            src: "Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)"}}
+      - {tpl: plate, at: "@with-0.2", type: scene3d, p: {hero: ti_front, frame0: 0,
+           cap: [{s: "Different rules in different districts", at: "@different", src: [SSZEA]}], src: "3D illustration"}}
       - {tpl: plate, at: "@1926-0.3", type: map, scene_id: map/globe, places: [euclid, cleveland], p: {hero: m_euclid, frame0: 0,
            places: [{a: euclid, s: "Euclid, Ohio", sub: "“practically a suburb” of Cleveland — the Court, 1926", at: "@euclid", side: up, gap: 70, c: "#F08A4B"}, {a: cleveland, s: Cleveland, at: "@cleveland", side: down, gap: 70, c: "#3CC2B0"}],
            cap: [{s: "1926: a zoning case reaches the Supreme Court", at: "@1926", src: [EUCLID]}], src: *mapsrc}}

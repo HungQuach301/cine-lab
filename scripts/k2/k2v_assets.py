@@ -102,6 +102,10 @@ ASSETS = {
         url='https://nvlpubs.nist.gov/nistpubs/Legacy/BH/nbsbuildinghousing5a.pdf', file='doc/nbsbuildinghousing5a.pdf', sha256='',
         title='A Standard State Zoning Enabling Act (revised edition, 1926), U.S. Dept. of Commerce, BH5', source='NIST Technical Series Publications (legacy), https://nvlpubs.nist.gov/nistpubs/Legacy/BH/nbsbuildinghousing5a.pdf',
         license='Tác phẩm của Chính phủ Hoa Kỳ (Bộ Thương mại, 1926), không có bản quyền (17 U.S.C. §105)', credit='U.S. Department of Commerce / NIST', kind='văn bản', commit=False),
+    'sszea-1926-ia': dict(   # cùng ấn phẩm BH5 (rev. ed. 1926), bản quét Internet Archive (nguồn Q32 cho phép); thay bản nvlpubs.nist.gov (ngoài danh sách FOOTAGE.md §1), 13/10/2026
+        url='https://archive.org/download/standardstatezon05ball/standardstatezon05ball.pdf', file='doc/standardstatezon05ball.pdf', sha256='',
+        title='A Standard State Zoning Enabling Act (revised edition, 1926), U.S. Dept. of Commerce, BH5', source='Internet Archive, https://archive.org/details/standardstatezon05ball (NIST Research Library)',
+        license='PD — tác phẩm của Chính phủ Hoa Kỳ (17 U.S.C. §105); IA possible-copyright-status: "NBS Building and Housing is a publication of the U.S. Government. The papers are in the public domain…"', credit='U.S. Department of Commerce / NIST Research Library, via Internet Archive', kind='văn bản', commit=False),
     'usrep-272-365': dict(
         url='https://tile.loc.gov/storage-services/service/ll/usrep/usrep272/usrep272365/usrep272365.pdf',
         file='doc/usrep272365.pdf', sha256='',

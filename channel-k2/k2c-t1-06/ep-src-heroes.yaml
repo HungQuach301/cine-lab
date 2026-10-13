@@ -21,6 +21,7 @@ heroes:
   # ---------- tiers (sa bàn Euclid, minh hoạ) ----------
   ti_top:   {hero: k2c106/tiers, cam: top, opt: {fill: [0.4, 0.9, 1.4, 1.9]}}
   ti_obl:   {hero: k2c106/tiers, cam: oblique_tiers, opt: {fill: ["@single-family", "@two-family", "@then#2", "@retail"], probe: {at: "@so", zones: [0, 1, 2, 3], step: 3.0}}}
+  ti_front: {hero: k2c106/tiers, cam: front_low, opt: {fill: ["@different", "@rules", "@different#2", "@districts"]}}   # Q32b 13/10: tách ảnh DET-08 (9,2 s > 8 s); bốn vùng sáng lần lượt theo "different rules in different districts"
   ti_shadow: {hero: k2c106/tiers, cam: shadow_low, opt: {sun: 1}}
   # ---------- lot ----------
   lo_plan:  {hero: k2c106/lot, cam: plan, opt: {stalls: 10, grow: ["@parking", "@spaces+1.5"]}}
@@ -153,7 +154,7 @@ heroes:
   p_fsa03:  {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-fsa-03.jpg, focus: [0.5, 0.45]}}
   p_bayridge: {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-px-7180335.jpg, focus: [0.5, 0.45], tone: '#26221e'}}
   # ---------- photo/doc (trang văn bản; ≤ 3 s, p.paper + p.date) ----------
-  d_sszea:  {hero: photo/doc, cam: push, opt: {page: /cache/sszea-1926-p1.json, hl: [{i: 0, at: [0.15, 1.4], color: '#F0B43C'}], focus: 0, exposure: 0.8}}
+  d_sszea:  {hero: photo/doc, cam: push, opt: {page: /cache/sszea-1926-ia-p1.json, hl: [{i: 0, at: [0.15, 1.4], color: '#F0B43C'}], focus: 0, exposure: 0.8}}
   d_euclid: {hero: photo/doc, cam: push, opt: {page: /cache/usrep-272-365-p30.json, hl: [{i: 0, at: [0.15, 1.6], color: '#F0B43C'}], focus: 0, exposure: 0.8}}
   d_ibc:    {hero: photo/doc, cam: detail, opt: {page: /cache/ibc-sea-t1006-p1.json, hl: [{i: 0, at: [0.2, 1.4], color: '#F0B43C'}, {i: 1, at: [1.2, 2.2], color: '#E0564B'}], focus: 1, exposure: 0.8}}
   d_cfr:    {hero: photo/doc, cam: tilt-low, opt: {page: /cache/cfr-1282-1-p1.json, hl: [{i: 0, at: [0.15, 1.2], color: '#F0B43C'}, {i: 1, at: [1.1, 2.2], color: '#F0B43C'}], focus: 1, exposure: 0.8}}
