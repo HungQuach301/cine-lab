@@ -130,9 +130,9 @@ segments:
       - {tpl: plate, sfx: [{file: assets/k2/sfx/estate-staircase.mp3, at: 0.3, src_ss: 20, dur: 6, gain_db: -22, fade_ms: 700}], at: 0, in: {type: wipe, d: 0.6}, type: scene3d, p: {hero: c_stair, frame0: 0, title: {kicker: "LOCK 2", t: "The stairwell", at: 0.3, out: "@rule-0.3"},
            cap: [{s: "Two separate ways out of taller apartment buildings — with exceptions", at: "@rule"}], src: "3D illustration"}}
       - {tpl: plate, at: "@international-0.3", type: scene3d, p: {hero: sa_model, frame0: 0, cap: [{s: "The International Building Code: a model code", at: "@international", src: [IBCSEA]}]}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@reprints", src_ss: 15, dur: 2.5, gain_db: -26, fade_ms: 300}], at: "@reprints-0.6", type: document, scene_id: d_ibc, camera_id: detail, p: {hero: d_ibc, frame0: 0, paper: "Seattle Building Code 2021, Ch. 10", date: "2024-11-15",
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@reprints", src_ss: 15, dur: 2.5, gain_db: -26, fade_ms: 300}], at: "@reprints-0.3", type: document, scene_id: d_ibc, camera_id: detail, p: {hero: d_ibc, frame0: 0, paper: "Seattle Building Code 2021, Ch. 10", date: "2024-11-15",
            cap: [{s: "Seattle's code reprints the model text, with local amendments", at: "@reprints"}], src: [IBCSEA]}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@code's", src_ss: 10, dur: 9, gain_db: -26, fade_ms: 900}], at: "@code's-0.4", type: scene3d, p: {hero: sa_elev, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@code's",
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@code's", src_ss: 10, dur: 9, gain_db: -26, fade_ms: 900}], at: "@amendments+0.5", type: scene3d, p: {hero: sa_elev, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@code's",
            tags: [{a: core1, s: "One staircase", sub: "up to the 3rd story · ≤ 4 homes per floor · sprinklers", at: "@single", side: right, gap: 60, c: "#3CC2B0", num: c15},
                   {a: np, s: "4th story: NP", sub: "not permitted on one stair", at: "@fourth", side: right, c: "#E0564B", num: c15}],
            cap: [{s: "Model code, 2021 edition (as reprinted in Seattle's 2021 code)", at: "@code's"}], src: [IBCSEA]}}
@@ -157,10 +157,13 @@ segments:
       - {tpl: plate, sfx: [{file: assets/k2/sfx/stairwell.mp3, at: "@2021#3", src_ss: 70, dur: 7, gain_db: -28, fade_ms: 800}], at: "@2021#3-0.5", type: scene3d, p: {hero: sa_press, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@2021#3",
            tags: [{a: core1, s: "Pressurized stairway", at: "@pressurized", side: right, gap: 60, c: "#3CC2B0"}],
            cap: [{s: "Seattle 2021: up to 6 stories · ≤ 4 homes per floor · extra protections", at: "@2021#3", num: c18}], src: [IBCSEA]}}
-      - {tpl: plate, at: "@there's-0.3", type: chart3d, scene_id: ch_terner, camera_id: crane-up, p: {hero: ch_terner, frame0: 0,
-           tags: [{a: "res:top", s: "Residential code", sub: "baseline = 100", at: "@there's+0.5", side: left, c: "#9AA7B5"},
+      - {tpl: plate, at: "@there's-0.3", type: map, scene_id: map/globe, places: [calif], p: {hero: m_calif0, frame0: 0,
+           places: [{a: calif, s: California, sub: "Terner Center, UC Berkeley, 2024", at: "@california", side: right, c: "#F08A4B"}],
+           cap: [{s: "A code cost below four stories, too", at: "@there's"}], src: [TERNER24]}}
+      - {tpl: plate, at: "@buildings#4-0.3", type: chart3d, scene_id: ch_terner, camera_id: crane-up, p: {hero: ch_terner, frame0: 0,
+           tags: [{a: "res:top", s: "Residential code", sub: "baseline = 100", at: "@buildings#4+0.4", side: left, c: "#9AA7B5"},
                   {a: "com:top", s: "≈ +10%", sub: "commercial code for 3+ homes (Terner estimate, California)", big: true, kind: actual, at: "@roughly", side: right, c: "#F08A4B", num: c57}],
-           cap: [{s: "A code cost below four stories, too (California)", at: "@there's"}], src: [TERNER24]}}
+           cap: [{s: "3+ homes: the commercial building code (California)", at: "@commercial"}], src: [TERNER24]}}
 
   # ===== 05 KHOÁ 2: AN TOÀN =====
   - id: "05"
@@ -199,7 +202,7 @@ segments:
            tags: [{a: line, s: "4", big: true, kind: actual, at: "@four", side: up, c: "#F08A4B", num: c26}], src: [CFR1282]}}
       - {tpl: plate, at: "@federal-0.3", type: scene3d, p: {hero: b_line, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@federal",
            tags: [{a: line, s: "FHFA: single-family = 1–4 homes", at: "@single-family", side: up, c: "#F08A4B", num: c26}], src: [CFR1282]}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@multifamily", src_ss: 45, dur: 2, gain_db: -28, fade_ms: 300}], at: "@multifamily-0.8", type: document, scene_id: d_cfr, camera_id: tilt-low, p: {hero: d_cfr, frame0: 0, paper: "Code of Federal Regulations, Title 12, §1282.1", date: "2024-12-30",
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@multifamily", src_ss: 45, dur: 2, gain_db: -28, fade_ms: 300}], at: "@multifamily-0.5", type: document, scene_id: d_cfr, camera_id: tilt-low, p: {hero: d_cfr, frame0: 0, paper: "Code of Federal Regulations, Title 12, §1282.1", date: "2024-12-30",
            cap: [{s: "Federal housing-goals regulation (eCFR, current text)", at: "@multifamily"}], src: [CFR1282]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@fannie", src_ss: 30, dur: 5, gain_db: -28, fade_ms: 600}], at: "@fannie-0.3", type: scene3d, p: {hero: b_counter, frame0: 0,
            tags: [{a: sf, s: "Single-family loan programs", sub: "Fannie Mae · FHA: 1–4 units", at: "@fannie", side: up, c: "#3CC2B0"}],

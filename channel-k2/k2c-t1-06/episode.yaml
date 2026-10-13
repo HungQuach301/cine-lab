@@ -45,19 +45,20 @@ places:
 - Colorado
 - Seattle
 - California
-- Minnesota
+- Minnesota's
 - Minneapolis
 - Chicago
-- Auckland, New Zealand
-- New York City
-- Oregon
+- Auckland
+- New York City's
+- Oregon's
 - Texas
 - Los Angeles
 - San Diego
 people:
 - name: Herbert Hoover
   photo: WM-HOOVER-1928
-- name: George Sutherland
+- name: Justice Sutherland
+  full: George Sutherland
   photo: WM-SUTHERLAND-1937
 - name: Yonah Freemark
   ly_do: Living researcher; no licensed photo checked. Name and study shown on screen only (LUAT-NOI-DUNG-G §6).
@@ -369,7 +370,7 @@ numbers:
     year: 2025
     unit: buildings
     src: PEW25
-    say: 4,440
+    say: four thousand four hundred forty
   c25:
     v: 86
     text: 86–34
@@ -426,7 +427,7 @@ numbers:
     year: 1973
     unit: homes
     src: CNH
-    say: 377,000
+    say: three hundred seventy-seven thousand
     note: 5–9 + 10–19 units (our sum)
   c36:
     v: 5.91
@@ -1383,7 +1384,7 @@ segments:
       dur: 2.5
       gain_db: -26
       fade_ms: 300
-    at: '@reprints-0.6'
+    at: '@reprints-0.3'
     type: document
     scene_id: d_ibc
     camera_id: detail
@@ -1405,7 +1406,7 @@ segments:
       dur: 9
       gain_db: -26
       fade_ms: 900
-    at: '@code''s-0.4'
+    at: '@amendments+0.5'
     type: scene3d
     p:
       hero: sa_elev
@@ -1602,6 +1603,27 @@ segments:
       - IBCSEA
   - tpl: plate
     at: '@there''s-0.3'
+    type: map
+    scene_id: map/globe
+    places:
+    - calif
+    p:
+      hero: m_calif0
+      frame0: 0
+      places:
+      - a: calif
+        s: California
+        sub: Terner Center, UC Berkeley, 2024
+        at: '@california'
+        side: right
+        c: '#F08A4B'
+      cap:
+      - s: A code cost below four stories, too
+        at: '@there''s'
+      src:
+      - TERNER24
+  - tpl: plate
+    at: '@buildings#4-0.3'
     type: chart3d
     scene_id: ch_terner
     camera_id: crane-up
@@ -1612,7 +1634,7 @@ segments:
       - a: res:top
         s: Residential code
         sub: baseline = 100
-        at: '@there''s+0.5'
+        at: '@buildings#4+0.4'
         side: left
         c: '#9AA7B5'
       - a: com:top
@@ -1625,8 +1647,8 @@ segments:
         c: '#F08A4B'
         num: c57
       cap:
-      - s: A code cost below four stories, too (California)
-        at: '@there''s'
+      - s: '3+ homes: the commercial building code (California)'
+        at: '@commercial'
       src:
       - TERNER24
 - id: '05'
@@ -1876,7 +1898,7 @@ segments:
       dur: 2
       gain_db: -28
       fade_ms: 300
-    at: '@multifamily-0.8'
+    at: '@multifamily-0.5'
     type: document
     scene_id: d_cfr
     camera_id: tilt-low
@@ -3393,6 +3415,43 @@ heroes:
         alt: 3.6
         tilt: 34
         head: -14
+        mm: 35
+  m_calif0:
+    hero: map/globe
+    opt:
+      patches:
+      - bbox:
+        - -125
+        - 32
+        - -114
+        - 42
+        img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg
+      states:
+      - state: California
+        color: '#F08A4B'
+        fill: 0.14
+      pinMin: 0.12
+      places:
+      - id: calif
+        ll:
+        - -119.4
+        - 37.2
+        name: California
+        at: '@california'
+      cam:
+      - u: 0
+        lon: -121.5
+        lat: 44.5
+        alt: 6.0
+        tilt: 22
+        head: 18
+        mm: 35
+      - u: 1
+        lon: -121.0
+        lat: 39.4
+        alt: 3.4
+        tilt: 38
+        head: 8
         mm: 35
   m_calif2:
     hero: map/globe

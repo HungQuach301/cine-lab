@@ -16,10 +16,11 @@ music:   # RIGHTS.md K2-MUS-1…5 (CC BY 4.0, ghi công trong mô tả); mỗi b
   - {file: assets/k2/music/Lightless-Dawn.mp3, from: "08", ss: 0, xfade: 3, gain_db: -2}
   - {file: assets/k2/music/Half-Mystery.mp3, from: "11", ss: 200, xfade: 3, gain_db: -1}
 
-places: ["Euclid, Ohio", Cleveland, Colorado, Seattle, California, Minnesota, Minneapolis, Chicago, "Auckland, New Zealand", New York City, Oregon, Texas, Los Angeles, San Diego]
+# Q34(a)/(b) tìm tên ĐÚNG như được nói trong lời khoá (kể cả dạng sở hữu): "Minnesota's", "Oregon's", "New York City's", "Auckland", "Justice Sutherland".
+places: ["Euclid, Ohio", Cleveland, Colorado, Seattle, California, "Minnesota's", Minneapolis, Chicago, Auckland, "New York City's", "Oregon's", Texas, Los Angeles, San Diego]
 people:
   - {name: Herbert Hoover, photo: WM-HOOVER-1928}
-  - {name: George Sutherland, photo: WM-SUTHERLAND-1937}
+  - {name: Justice Sutherland, full: George Sutherland, photo: WM-SUTHERLAND-1937}
   - {name: Yonah Freemark, ly_do: "Living researcher; no licensed photo checked. Name and study shown on screen only (LUAT-NOI-DUNG-G §6)."}
 anchors: [c01, c02, c03, c05, c08, c09, c12, c14, c15, c16, c18, c20, c25, c26, c34, c35, c36, c39, c41, c44, c53, c57, c60, c63]
 
@@ -71,14 +72,14 @@ numbers:
   c16b: {v: 6, text: "6%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "six"}
   c16c: {v: 13, text: "13%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "thirteen percent"}
   c18: {v: 6, text: "up to 6 stories", kind: actual, year: 2021, unit: stories, src: IBCSEA, say: "six stories"}
-  c20: {v: 4440, text: "4,440", kind: actual, year: 2025, unit: buildings, src: PEW25, say: "4,440"}
+  c20: {v: 4440, text: "4,440", kind: actual, year: 2025, unit: buildings, src: PEW25, say: "four thousand four hundred forty"}
   c25: {v: 86, text: "86–34", kind: actual, year: 2026, unit: votes, src: ICCBSJ, say: "eighty-six to thirty-four"}
   c25b: {v: 34, text: "34", kind: actual, year: 2026, unit: votes, src: ICCBSJ, say: "thirty-four"}
   c26: {v: 4, text: "1–4 homes", kind: actual, year: 2026, unit: homes, src: CFR1282, say: "four"}
   c34: {v: 57, text: "57%", kind: actual, year: 2025, unit: '%', src: CNH, say: "fifty-seven percent"}
   c34b: {v: 20, text: "1 in 5", kind: actual, year: 1972, unit: '%', src: CNH, say: "one in five"}
   c35: {v: 48, text: "≈ 48,000", kind: actual, year: 2025, unit: homes, src: CNH, say: "48,000", note: "5–9 + 10–19 units (our sum)"}
-  c35b: {v: 377, text: "377,000", kind: actual, year: 1973, unit: homes, src: CNH, say: "377,000", note: "5–9 + 10–19 units (our sum)"}
+  c35b: {v: 377, text: "377,000", kind: actual, year: 1973, unit: homes, src: CNH, say: "three hundred seventy-seven thousand", note: "5–9 + 10–19 units (our sum)"}
   c36: {v: 5.91, text: "≈ 5.9%", kind: actual, year: 1972, unit: '%', src: NRC, say: "almost six percent", note: "1970–74 pooled (our calculation)", period: "1970–74"}
   c36b: {v: 1.07, text: "≈ 1.1%", kind: actual, year: 2025, unit: '%', src: NRC, say: "just over one percent"}
   c39: {v: 317, text: "317", kind: actual, year: 2025, unit: units, src: MPLSFED, say: "317", period: "2020–2025"}
