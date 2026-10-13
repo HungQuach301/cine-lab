@@ -106,7 +106,7 @@ const CAM = {
     side: [{ u: 0, p: [-24, 5, 12], l: [0, 2.5, 0], mm: 32 }, { u: 1, p: [-21, 5.5, 15], l: [0, 2.5, 0], mm: 32 }],
     line_four: [{ u: 0, p: [3, 3.5, 12], l: [0, 3, 0], mm: 32 }, { u: 1, p: [5, 3.8, 11], l: [0.5, 3, 0], mm: 32 }],
     counter: [{ u: 0, p: [-14, 6, 8], l: [-8, 2.5, -9], mm: 32 }, { u: 1, p: [-11, 5.5, 7], l: [-8, 2.5, -9], mm: 32 }],
-    fifth_block: [{ u: 0, p: [-13, 6.5, 20], l: [-0.5, 4.0, -3.5], mm: 28 }, { u: 1, p: [-10, 6.8, 20.5], l: [0.5, 4.0, -3.5], mm: 28 }],
+    fifth_block: [{ u: 0, p: [-3, 5.0, 16.5], l: [-1.5, 2.4, -1], mm: 28 }, { u: 1, p: [-0.5, 5.2, 16], l: [-0.5, 2.4, -1], mm: 28 }],
     mixed_reject: [{ u: 0, p: [0, 9, 22], l: [1, 2.5, -4], mm: 30 }, { u: 1, p: [-3, 9.5, 21], l: [1, 2.5, -4], mm: 30 }],
     line_still: [{ u: 0, p: [10, 4, 14], l: [1, 2.8, 0], mm: 32 }, { u: 1, p: [8, 4.2, 15], l: [1, 2.8, 0], mm: 32 }],
   },
@@ -163,6 +163,8 @@ function walkup({ x, z, w, d, floors, fH = 3.1, mat, T, seed = 1, shop = false, 
   const y0 = shop ? fH + 0.6 : 0.3, nUp = shop ? floors - 1 : floors;
   if (faces.includes('z')) windows(-w / 2 + 0.4, w / 2 - 0.4, y0, nUp, fH, d / 2, { seed, T });
   if (faces.includes('x')) windows(-d / 2 + 0.4, d / 2 - 0.4, y0, nUp, fH, w / 2, { axis: 'x', seed: seed + 7, T });
+  if (faces.includes('nx')) windows(-d / 2 + 0.4, d / 2 - 0.4, y0, nUp, fH, -w / 2, { axis: 'x', dir: -1, seed: seed + 11, T });
+  if (!shop && faces.includes('z')) { box(1.3, 2.3, 0.14, std('#3a2a1c', { roughness: 0.6 }), 0, 1.15, d / 2 + 0.05, g); box(1.9, 0.12, 0.25, mt.trim, 0, 2.42, d / 2 + 0.12, g); box(2.2, 0.36, 1.2, mt.walk, 0, 0.18, d / 2 + 0.6, g); }   // cửa chung + mái che + bậc thềm
   let shopM = null;
   if (shop) { const sh = new THREE.MeshStandardMaterial({ color: '#2a2016', emissive: '#ffb066', emissiveIntensity: T.day ? 0.05 : 0.9, roughness: 0.3, metalness: 0.2 });
     const fz = new THREE.Mesh(new THREE.PlaneGeometry(w - 1.2, fH - 0.8), sh); fz.position.set(0, (fH - 0.2) / 2 + 0.2, d / 2 + 0.03); g.add(fz);
@@ -174,7 +176,9 @@ function walkup({ x, z, w, d, floors, fH = 3.1, mat, T, seed = 1, shop = false, 
 }
 function house(x, z, { w = 6, d = 7, h = 3.0, mat, roofC = '#3a3c40', ry = 0, T, seed = 1, parent }) { const g = new THREE.Group(); g.position.set(x, 0, z); g.rotation.y = ry; (parent || window.__scene).add(g);
   tbox(w, h, d, mat, 0, h / 2, 0, g, 0.3); const roof = new THREE.Mesh(new THREE.CylinderGeometry(0.01, w * 0.62, 2.0, 4, 1), std(roofC, { roughness: 0.9, flatShading: true })); roof.position.set(0, h + 1.0, 0); roof.rotation.y = Math.PI / 4; roof.scale.set(1, 1, d / w); roof.castShadow = true; g.add(roof);
-  const sc = window.__scene; window.__scene = g; windows(-w / 2 + 0.6, w / 2 - 0.6, 0.2, 1, h - 0.4, d / 2, { seed, T, per: 2.4, w: 1.0, h: 1.3 }); window.__scene = sc; return g; }
+  const sc = window.__scene; window.__scene = g; windows(-w / 2 + 0.6, w / 2 - 0.6, 0.2, 1, h - 0.4, d / 2, { seed, T, per: 2.4, w: 1.0, h: 1.3 });
+  if (h > 4) { windows(-w / 2 + 0.6, w / 2 - 0.6, 0.2 + (h - 0.4) / 2, 1, (h - 0.4) / 2, d / 2, { seed: seed + 3, T, per: 2.4, w: 1.0, h: 1.1 }); for (const sx of [1, -1]) windows(-d / 2 + 0.8, d / 2 - 0.8, 0.3, 2, h / 2 - 0.2, sx * w / 2, { axis: 'x', dir: sx, seed: seed + 5 + sx, T, per: 2.6, w: 0.9, h: 1.1 }); box(1.1, 2.1, 0.12, std('#3a2a1c'), w * 0.28, 1.05, d / 2 + 0.05, g); }
+  window.__scene = sc; return g; }
 
 // =================================== corner ===================================
 async function corner({ W, H, dur, opt }) {
@@ -247,10 +251,10 @@ async function street({ W, H, dur, opt }) {
   // bốn kiểu toà nhỏ, trái → phải; mỗi toà một lô 12 m
   const lots = [
     { k: 'duplex', mk: () => house(-30, 15, { w: 8, d: 10, h: 6.2, mat: mt.clap, T, seed: 61 }), top: 9.6, x: -30 },
-    { k: 'triplex', mk: () => walkup({ x: -15, z: 15, w: 8, d: 11, floors: 3, mat: mt.brick2, T, seed: 63, faces: ['z'] }), top: 10.8, x: -15 },
-    { k: 'fourplex', mk: () => walkup({ x: 0, z: 15, w: 11, d: 11, floors: 2, mat: mt.stucco, T, seed: 67, faces: ['z'] }), top: 7.6, x: 0 },
-    { k: 'walkup', mk: () => walkup({ x: 17, z: 15, w: 14, d: 14, floors: 5, mat: mt.brick, T, seed: 71, faces: ['z', 'x'] }), top: 17.2, x: 17 },
-    { k: 'walkup2', mk: () => walkup({ x: 35, z: 15, w: 13, d: 13, floors: 4, mat: mt.brick3, T, seed: 73, shop: true, faces: ['z', 'x'] }), top: 14.4, x: 35 },
+    { k: 'triplex', mk: () => walkup({ x: -15, z: 15, w: 8, d: 11, floors: 3, mat: mt.brick2, T, seed: 63, faces: ['z', 'x', 'nx'] }), top: 10.8, x: -15 },
+    { k: 'fourplex', mk: () => walkup({ x: 0, z: 15, w: 11, d: 11, floors: 2, mat: mt.stucco, T, seed: 67, faces: ['z', 'x', 'nx'] }), top: 7.6, x: 0 },
+    { k: 'walkup', mk: () => walkup({ x: 17, z: 15, w: 14, d: 14, floors: 5, mat: mt.brick, T, seed: 71, faces: ['z', 'x', 'nx'] }), top: 17.2, x: 17 },
+    { k: 'walkup2', mk: () => walkup({ x: 35, z: 15, w: 13, d: 13, floors: 4, mat: mt.brick3, T, seed: 73, shop: true, faces: ['z', 'x', 'nx'] }), top: 14.4, x: 35 },
   ];
   const built = lots.map((l) => ({ ...l, o: l.mk() }));
   // bậc cửa, cây, đèn, xe
@@ -337,7 +341,8 @@ async function stairs({ W, H, dur, opt }) {
       box(w, fH - 0.3, 0.12, wall, 0, fH / 2, d / 2, g); box(0.12, fH - 0.3, d, wall, -w / 2, fH / 2, 0, g);
       floors.push(g); }
     return { G, floors, top: (n) => V3([ox, n * fH + 1.5, 0]) }; };
-  const A = build(mode === 'compare' ? -10 : 0, mode === 'two'), Bb = mode === 'compare' ? build(10, true) : null;
+  const pad = (x) => { box(17, 0.18, 14, std('#2c3542', { roughness: 0.9 }), x, 0.04, 0); box(17.2, 0.05, 14.2, basic('#5b6878'), x, -0.02, 0); };   // bệ móng: toà đứng trên nền ngay từ khung đầu
+  const A = build(mode === 'compare' ? -10 : 0, mode === 'two'), Bb = mode === 'compare' ? build(10, true) : null; pad(A.G.position.x); if (Bb) pad(10);
   const npM = new THREE.MeshBasicMaterial({ color: C.red, transparent: true, opacity: 0, side: THREE.DoubleSide, depthWrite: false }); const np = new THREE.Mesh(new THREE.BoxGeometry(14.6, fH, 11.6), npM); np.position.set(A.G.position.x, 3 * fH + fH / 2, 0); scene.add(np);
   const npEdge = new THREE.LineSegments(new THREE.EdgesGeometry(np.geometry), new THREE.LineBasicMaterial({ color: C.red, transparent: true, opacity: 0 })); np.add(npEdge);
   // áp suất (mũi tên vào lõi thang kín) và 3 điều kiện cháy (đèn)
@@ -350,7 +355,7 @@ async function stairs({ W, H, dur, opt }) {
     np: V3([A.G.position.x, 4 * fH + 0.6, 0]), floor4: V3([A.G.position.x + 7.5, 3 * fH + 1.5, 0]), fire1: () => fireL[0].position, fire2: () => fireL[1].position, fire3: () => fireL[2].position };
   const stackAt = opt.stackAt || [-1, -1]; const NPw = opt.np, PRw = opt.press, FIw = opt.fire;
   const update = (t) => { rig.at(t);
-    [A, Bb].filter(Boolean).forEach((b) => b.floors.forEach((g, f) => { const shown = f < NF; const u = stackAt[0] < 0 ? 1 : clamp01((t - stackAt[0] - f * (stackAt[1] || 0.5)) / 0.45); g.visible = shown && u > 0.01; g.position.y = f * fH + (1 - ease(u)) * 3; }));
+    [A, Bb].filter(Boolean).forEach((b) => b.floors.forEach((g, f) => { const shown = f < NF; const u = stackAt[0] < 0 ? 1 : clamp01((t - stackAt[0] - f * (stackAt[1] || 0.5)) / 0.45); g.visible = shown && u > 0.01; g.position.y = f * fH; g.scale.y = Math.max(0.02, ease(u)); }));
     const kn = NPw ? win01(t, NPw) : 0; npM.opacity = 0.22 * kn; npEdge.material.opacity = 0.95 * kn;
     const kp = PRw ? win01(t, PRw) : 0; arrows.forEach((a, i) => { a.material.opacity = kp * (0.55 + 0.45 * Math.sin(t * 5 + i)); });
     fireL.forEach((s, i) => { const k = FIw ? win01(t, [FIw[0] + i * (FIw[1] || 0.8), FIw[0] + i * (FIw[1] || 0.8) + 0.4]) : 0; s.material.opacity = 0.95 * k; }); };
@@ -366,10 +371,10 @@ async function bank({ W, H, dur, opt }) {
   const lampSF = glowSprite(C.teal, 0.9, 2.2), lampMF = glowSprite(C.steel, 0.6, 2.2); lampSF.position.set(-8, 2.6, -9); lampMF.position.set(10, 2.6, -9); scene.add(lampSF, lampMF);
   const plaqueSF = box(6, 1.4, 0.15, std(C.teal, { emissive: '#0d3a34', emissiveIntensity: 0.6 }), -8, 1.85, -9.95), plaqueMF = box(6, 1.4, 0.15, std('#5a6676', { emissive: '#1a2230', emissiveIntensity: 0.5 }), 10, 1.85, -9.95);
   // vạch "4": tấm kính đứng giữa
-  const line = box(0.25, 4.2, 14, std(C.orange, { emissive: '#7a3a14', emissiveIntensity: 0.9, transparent: true, opacity: 0.85 }), 1.2, 2.1, 0);
+  const lineM = std(C.orange, { emissive: '#a8461a', emissiveIntensity: 0.55 }); const line = box(0.22, 0.05, 11, lineM, 1.2, 0.03, -3.5); box(0.14, 4.4, 0.14, lineM, 1.2, 2.2, 0); box(0.6, 0.12, 0.6, lineM, 1.2, 0.06, 0);   // vạch '4': dải sáng trên sàn + cột mảnh phía trước, không che khối
   // khối nhà 1..4 (trái vạch) và 5 (phải); mỗi căn = một khối nhỏ xếp tầng
   const unit = new THREE.BoxGeometry(1.8, 1.2, 1.8); const mats5 = [mt.brick, mt.brick2, mt.brick3, mt.stucco, mt.clap];
-  const stacks = [1, 2, 3, 4, 5].map((n, i) => { const g = new THREE.Group(); g.position.set(-11 + i * 3.2 + (n === 5 ? 3.4 : 0), 0, 0); scene.add(g);
+  const stacks = [1, 2, 3, 4, 5].map((n, i) => { const g = new THREE.Group(); g.position.set(-11 + i * 3.2 + (n === 5 ? 2.2 : 0), 0, 0); scene.add(g);
     for (let k = 0; k < n; k++) { const m = new THREE.Mesh(unit, mats5[i % 5]); m.position.set(0, 0.6 + k * 1.25, 0); m.castShadow = m.receiveShadow = true; g.add(m);
       const w = new THREE.Mesh(new THREE.PlaneGeometry(1.2, 0.6), new THREE.MeshStandardMaterial({ color: '#2a2a2a', emissive: '#ffcf8a', emissiveIntensity: 0.6 })); w.position.set(0, 0.6 + k * 1.25, 0.91); g.add(w); }
     box(2.1, 0.12, 2.1, mt.trim, 0, n * 1.25 + 0.06, 0, g); return g; });
@@ -380,7 +385,7 @@ async function bank({ W, H, dur, opt }) {
   const rig = rigOf(W, H, dur, opt, [{ u: 0, p: [0, 7, 24], l: [0, 2.5, -2], mm: 30 }, { u: 1, p: [-4, 7.5, 23], l: [0, 2.5, -2], mm: 30 }], CAM.bank);
   const anchors = { s1: V3([-11, 2.2, 0]), s4: V3([-1.4, 6.0, 0]), s5: () => stacks[4].position.clone().add(V3([0, 7.2, 0])), line: V3([1.2, 4.6, 0]), sf: V3([-8, 4.6, -10]), mf: V3([10, 4.6, -10]) };
   const fw = opt.fifth, shopOn = opt.shop, rej = opt.reject;
-  const update = (t) => { rig.at(t); dst.update(t); const u = fw ? ease(win01(t, fw)) : 0; stacks[4].position.x = lerp(5.4, 9.8, u); stacks[4].position.z = lerp(0, -5.5, u);
+  const update = (t) => { rig.at(t); dst.update(t); const u = fw ? ease(win01(t, fw)) : 0; stacks[4].position.x = lerp(4.2, 7.0, u); stacks[4].position.z = lerp(0, 1.2, u);
     shopL.forEach((m, i) => { m.visible = !!shopOn && (i === 2 || i === 4); }); const kr = rej ? win01(t, rej) : 0; lampSF.material.color.set(kr > 0.5 ? C.amber : C.teal); lampMF.material.color.set(kr > 0.5 ? C.amber : C.steel); lampSF.material.opacity = lampMF.material.opacity = 0.6 + 0.35 * Math.max(kr, 0.5); };
   return { scene, cam: rig.cam, update, grade: GRADE_K2, exposure: 1.08, anchors };
 }

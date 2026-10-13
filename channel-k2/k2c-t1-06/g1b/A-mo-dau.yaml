@@ -18,6 +18,7 @@ heroes:
       - {id: stock, x: -2.4, v: 7.54, color: '#F08A4B', grow: [0.3, 1.8]}
       - {id: new25, x: 2.4, v: 1.07, color: '#3CC2B0', grow: [2.2, 3.2]}
   a_push:  {hero: k2c106/corner, cam: push_facade, opt: {preset: push_facade, tod: dusk}}
+  a_block: {hero: k2c106/street, cam: high_block, opt: {preset: high_block, tod: day}}
   a_street: {hero: k2c106/street, cam: dolly_day, opt: {preset: dolly_day, tod: day}}
   a_sec:   {hero: k2c106/corner, cam: section, opt: {preset: section, tod: dusk, section: [0.8, 2.4]}}
 places: []
@@ -26,7 +27,7 @@ anchors: [c01, c02]
 segments:
 - id: A
   part: HOOK
-  dur: 27
+  dur: 30
   shots:
   - tpl: plate
     at: 0
@@ -72,21 +73,34 @@ segments:
     in: cut
     type: scene3d
     scene_id: k2c106/street
+    camera_id: high_block
+    places: []
+    people: []
+    p:
+      hero: a_block
+      cap:
+      - {s: 'The plainer versions: duplex, triplex, fourplex — and small apartment buildings', at: 15.8}
+      src: '3D illustration'
+  - tpl: plate
+    at: 18.5
+    in: cut
+    type: scene3d
+    scene_id: k2c106/street
     camera_id: dolly_day
     places: []
     people: []
     p:
       hero: a_street
       tags:
-      - {a: duplex, s: Duplex, sub: 2 homes, at: 15.8, out: 17.4, side: up, c: '#3CC2B0'}
-      - {a: triplex, s: Triplex, sub: 3 homes, at: 16.6, out: 18.4, side: up, c: '#3CC2B0'}
-      - {a: fourplex, s: Fourplex, sub: 4 homes, at: 17.6, out: 19.4, side: up, c: '#3CC2B0'}
-      - {a: walkup_base, s: Small apartment building, sub: 5–19 homes, at: 18.6, side: up, gap: 160, c: '#F08A4B'}
+      - {a: duplex, s: Duplex, sub: 2 homes, at: 18.8, out: 20.4, side: up, c: '#3CC2B0'}
+      - {a: triplex, s: Triplex, sub: 3 homes, at: 19.6, out: 21.4, side: up, c: '#3CC2B0'}
+      - {a: fourplex, s: Fourplex, sub: 4 homes, at: 20.6, out: 22.4, side: up, c: '#3CC2B0'}
+      - {a: walkup_base, s: Small apartment building, sub: 5–19 homes, at: 21.6, side: up, gap: 160, c: '#F08A4B'}
       asof: Facts as of 12 Oct 2026
-      asofAt: 15.8
+      asofAt: 18.8
       src: 'This video explains how the system works. It isn’t financial or investment advice. · 3D illustration'
   - tpl: plate
-    at: 21
+    at: 24
     in: cut
     type: scene3d
     scene_id: k2c106/corner
@@ -96,11 +110,11 @@ segments:
     p:
       hero: a_sec
       tags:
-      - {a: shop, s: Shop, sub: ground floor, at: 22.2, side: right, c: '#F2C14E'}
-      - {a: apt4, s: Apartments, sub: two or three floors above, at: 22.8, side: right, gap: 60, c: '#3CC2B0'}
-      - {a: stair, s: One staircase, at: 23.6, side: left, gap: 60, c: '#F08A4B'}
+      - {a: shop, s: Shop, sub: ground floor, at: 25.2, side: right, c: '#F2C14E'}
+      - {a: apt4, s: Apartments, sub: two or three floors above, at: 25.8, side: right, gap: 60, c: '#3CC2B0'}
+      - {a: stair, s: One staircase, at: 26.6, side: left, gap: 60, c: '#F08A4B'}
       cap:
-      - {s: 'The classic corner building (illustration)', at: 21.4}
+      - {s: 'The classic corner building (illustration)', at: 24.4}
 numbers:
   c01: {v: 7.54, text: about 1 in 13 (7.5%), kind: actual, year: 2024, unit: '%', src: ACS24, say: about one in thirteen}
   c02: {v: 1.07, text: about 1 in 100 (1.1%), kind: actual, year: 2025, unit: '%', src: NRC, say: about one in a hundred}

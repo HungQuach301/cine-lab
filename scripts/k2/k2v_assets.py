@@ -58,6 +58,13 @@ ASSETS = {
         source='Library of Congress, Detroit Publishing Co. collection, https://www.loc.gov/pictures/collection/det/item/2016809637/',
         license='Rights Advisory (JSON loc.gov 13/10/2026): "No known restrictions on publication." — RIGHTS.md bảng tư liệu LOC-DET-07',
         credit='Detroit Publishing Co., Library of Congress', kind='ảnh tư liệu', commit=False),
+    'loc-det-07-tif': dict(
+        url='https://tile.loc.gov/storage-services/master/pnp/det/4a10000/4a17000/4a17800/4a17898u.tif',
+        file='photo/loc-det-4a17898u.tif', sha256='',
+        title='Woodward Avenue, Detroit, between 1900 and 1910 (Detroit Publishing Co.) — bản gốc TIFF',
+        source='Library of Congress, Detroit Publishing Co. collection, https://www.loc.gov/pictures/collection/det/item/2016809637/',
+        license='Rights Advisory (JSON loc.gov 13/10/2026): "No known restrictions on publication." — RIGHTS.md bảng tư liệu LOC-DET-07',
+        credit='Detroit Publishing Co., Library of Congress', kind='ảnh tư liệu', commit=False),
     'usrep-272-365': dict(
         url='https://tile.loc.gov/storage-services/service/ll/usrep/usrep272/usrep272365/usrep272365.pdf',
         file='doc/usrep272365.pdf', sha256='',
