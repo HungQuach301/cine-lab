@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": ["cluttered"], "note": "Cutaway corner building at dusk with warm glow, glowing stairs and clean callout cards (Apartments / One staircase / Shop). The layout is clear and the lighting is atmospheric. Foreground buildings are heavy and dark. The subtitle sits low on a dark area, and the 'Shop' label overlaps the street. The primitive modelling and transparent floors look a bit game-like."},
+ "Y": {"craft": 3, "readability": 6, "clarity": 2, "flags": ["confusing", "illegible_text"], "note": "Blocky, untextured, unreadable props: a grey cylinder, crates and a blank blue screen. Nothing shows what a toll or a path is. The camera is cropped and awkward, with flat lighting and a column blocking the view. The subtitle is legible but low-contrast grey over dark, busy crates, and no on-screen label explains the scene."},
+ "better": "X",
+ "why": "X shows a readable, labelled, well-lit scene that explains its subject at a glance, while Y is an ambiguous set of placeholder-looking props that doesn't illustrate a toll.",
+ "top_fix_for_weaker": "Rebuild the shot as a clear toll scene: a recognisable gantry or booth with lane markings and vehicles, plus a sign or label with the toll price and a path overlay showing the cheapest route. Frame it from a wider, cleaner camera angle with proper materials and lighting, and put the subtitle on a darker backing for contrast."}
+```

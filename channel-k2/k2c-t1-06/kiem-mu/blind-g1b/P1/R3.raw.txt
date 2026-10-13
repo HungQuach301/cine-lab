@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Cutaway corner building at dusk with warm glow, clear floor layers and a staircase. Three callout labels point at the right parts and are large enough for a phone. The caption sits on a dark area and reads well. The low-poly look is plain and the foreground buildings crowd the edges, but the idea comes across fast."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 3, "flags": ["confusing", "illegible_text", "flat_slide_look"], "note": "Toll-plaza scene made of blocky gray-blue boxes with a flat, game-engine-default look. The objects are a cylinder, crates and a blank screen, and none can be identified. No labels or numbers tie the scene to the 'toll' caption. The caption is white on a dark, busy surface and readable, though thin and low-contrast on the left. The blank light-blue panel looks like a missing texture."}, 
+ "better": "X",
+ "why": "X shows a clear, labelled cutaway that explains the building at a glance, while Y is an unreadable pile of untextured boxes where nothing visibly says 'toll'.",
+ "top_fix_for_weaker": "Make the toll booth, barrier arm, lane signs and a price display recognisable, with a large readable price on the blank screen (for example '$4'). Add a callout or label to the 'toll' and to the cheaper and costlier paths. Pull the camera back so the layout is visible, and put the caption on a solid dark bar."}
+```

@@ -1,0 +1,88 @@
+[
+ {
+  "cap": "P1",
+  "loai": "a 3D scene explaining a building or a place",
+  "n": 3,
+  "craft_steel": 3.33,
+  "craft_moi": 7.0,
+  "read_steel": 5.67,
+  "read_moi": 8.0,
+  "clar_steel": 2.33,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "confusing",
+   "flat_slide_look",
+   "illegible_text"
+  ],
+  "co_moi": [
+   "cluttered"
+  ],
+  "ly_do": [
+   "R1: X shows a clear, lit, labelled scene whose subject you grasp in seconds. Y is a crude, murky render in which the objects are not identifiable and the caption has low contrast.",
+   "R2: X shows a readable, labelled, well-lit scene that explains its subject at a glance, while Y is an ambiguous set of placeholder-looking props that doesn't illustrate a toll.",
+   "R3: X shows a clear, labelled cutaway that explains the building at a glance, while Y is an unreadable pile of untextured boxes where nothing visibly says 'toll'."
+  ]
+ },
+ {
+  "cap": "P2",
+  "loai": "a map showing where the story happens",
+  "n": 3,
+  "craft_steel": 4.67,
+  "craft_moi": 7.0,
+  "read_steel": 0.0,
+  "read_moi": 6.67,
+  "clar_steel": 3.0,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "confusing",
+   "empty_frame"
+  ],
+  "co_moi": [
+   "text_overlap"
+  ],
+  "ly_do": [
+   "R1: Y tells you where and what in a couple of seconds with readable text, while X is an unlabeled abstract diagram that conveys nothing without narration.",
+   "R2: Y shows a recognisable real place with clear labels and context, while X is an abstract, textless graphic with no clear subject.",
+   "R3: Y tells the viewer where and what happened with readable text, while X has no text and no way to tell what the map shows."
+  ]
+ },
+ {
+  "cap": "P3",
+  "loai": "a historical/official record: a person, a document or a timeline",
+  "n": 3,
+  "craft_steel": 4.0,
+  "craft_moi": 7.0,
+  "read_steel": 5.67,
+  "read_moi": 6.67,
+  "clar_steel": 5.0,
+  "clar_moi": 8.67,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_steel": [
+   "cluttered",
+   "confusing",
+   "empty_frame",
+   "flat_slide_look",
+   "illegible_text"
+  ],
+  "co_moi": [],
+  "ly_do": [
+   "R1: X shows a real archival photo with a clear caption, while Y is a mostly empty dark slide with one timeline event and a muddy background.",
+   "R2: X shows a tangible, instantly understood archival subject with decent composition, while Y is a mostly empty flat slide with tiny text and no visual anchor.",
+   "R3: X shows a real person with a clear caption and a tactile composition, while Y is a mostly empty template card with a lone timeline point and tiny text."
+  ]
+ }
+]

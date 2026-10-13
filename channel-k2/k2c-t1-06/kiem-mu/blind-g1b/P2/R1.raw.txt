@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 0, "clarity": 3, "flags": ["confusing", "empty_frame"], "note": "Stylized 3D Great Lakes on a navy grid with a glowing route, but no labels, no text and no scale. The lakes are black blobs and hard to recognise. The yellow circle and the little pillars are unexplained. You can't tell what is being shown. About 60% of the frame is empty grid."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": ["text_overlap"], "note": "Real satellite terrain with the Great Lakes and state borders, so the place is clear straight away. The caption states the story: 1926, Euclid zoning case, Supreme Court. The Cleveland and Euclid labels overlap and crowd each other. The leading quote mark is clipped by the Cleveland tag. The source credit line is tiny and will be unreadable on a phone. The pin and leader line are weak."},
+ "better": "Y",
+ "why": "Y tells you where and what in a couple of seconds with readable text, while X is an unlabeled abstract diagram that conveys nothing without narration.",
+ "top_fix_for_weaker": "Add large, high-contrast labels (e.g. 'Great Lakes', city names, what the route and the circled site represent). Make the lakes read as water or land. Zoom in so the route fills the frame instead of leaving half of it empty grid."}
+```

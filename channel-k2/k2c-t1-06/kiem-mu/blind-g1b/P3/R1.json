@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 8,
+  "flags": [],
+  "note": "Tilted archival photo on a warm textured backdrop, with a clear caption identifying the person and year. It looks like a real historical record. The credit line is small and low-contrast on a phone, and the caption overlaps the bottom of the photo mount. The photo is large and clear."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "cluttered"
+  ],
+  "note": "A dark card with a single timeline event; most of the card and the line are empty, so it looks unfinished. The blurred background shapes are muddy and add noise. The title and date are legible, but the body text and the source line are small for a phone. The one event gives no sense of quantity or sequence."
+ },
+ "better": "X",
+ "why": "X shows a real archival photo with a clear caption, while Y is a mostly empty dark slide with one timeline event and a muddy background.",
+ "top_fix_for_weaker": "Fill the timeline with the full sequence of dated events (or enlarge the single event), make the date and event text much larger, and replace the blurred background with a clean one or a clear image such as a steel plant photo or the order document."
+}

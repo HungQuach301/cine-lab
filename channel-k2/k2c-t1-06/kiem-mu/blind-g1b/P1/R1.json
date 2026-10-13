@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Cutaway corner building at dusk with warm glow and glass floors. Callout labels sit on dark pills, so the three parts (shop, staircase, apartments) read at once. The caption is thin white text on a dark road, which is fine. Foreground buildings crop the frame a bit and the transparent floors are slightly muddy."
+ },
+ "Y": {
+  "craft": 3,
+  "readability": 5,
+  "clarity": 2,
+  "flags": [
+   "confusing",
+   "illegible_text",
+   "flat_slide_look"
+  ],
+  "note": "Low-poly toll plaza with untextured grey blocks, a blank screen and an unexplained cylinder. The caption is grey on a dark-blue box with weak contrast, and part of it sits on mid-tone surfaces. The camera is too close and the frame has no focal point. It is hard to tell what a toll booth or a path is, and nothing shows what is cheaper."
+ },
+ "better": "X",
+ "why": "X shows a clear, lit, labelled scene whose subject you grasp in seconds. Y is a crude, murky render in which the objects are not identifiable and the caption has low contrast.",
+ "top_fix_for_weaker": "Pull the camera back to a wide, high-angle view of the toll plaza with its lanes and booths. Add a big white label such as 'Toll: $X' with route arrows or cost numbers. Replace the grey caption with bold white text on a dark pill, and swap the blank screen and cylinder for recognisable props like a gantry, booth and cars."
+}

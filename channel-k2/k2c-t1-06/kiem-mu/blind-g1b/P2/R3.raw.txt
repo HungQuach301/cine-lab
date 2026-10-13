@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 0, "clarity": 3, "flags": ["confusing", "empty_frame"], "note": "Stylized dark-blue grid with black Great Lakes-like blobs and a glowing orange route. It has no labels, no title and no legend, so the viewer can't tell which place, route or quantity it shows. The yellow circle and small bars are unexplained. Most of the lower half of the frame is empty grid. The look is clean but abstract, and the story is unreadable."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": ["text_overlap"], "note": "Realistic satellite terrain with state borders, clear callouts and a clear headline that states the story (1926 Euclid zoning case). The 'Cleveland' and 'Euclid, Ohio' labels collide, and the opening quote mark is clipped by the Cleveland tag. The credits line is small and low-contrast on a phone, though it is non-essential. The pins sit close together at this zoom, and the Cleveland/Euclid labels point to almost the same spot."}, 
+ "better": "Y",
+ "why": "Y tells the viewer where and what happened with readable text, while X has no text and no way to tell what the map shows.",
+ "top_fix_for_weaker": "Add a large place label and a one-line headline (for example the city or region plus the year). Label the route start and end and the circled site, and add a short legend for what the route and bars represent. Zoom the camera in so the map fills the frame instead of leaving empty grid."}
+```

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 9, "flags": [], "note": "Tilted archival print on a dark brown textured backdrop. The subject is clear and the sepia treatment is cohesive. The caption sits on a gradient scrim. The tilted card makes a convincing physical object, though the lighting and shadow are flat. The credit line is small and low-contrast on a phone, and the bottom of the print is cropped. The headline caption is readable."},
+ "Y": {"craft": 4, "readability": 5, "clarity": 5, "flags": ["flat_slide_look", "empty_frame", "illegible_text"], "note": "A flat dark UI card with a single timeline dot and one event. About 70% of the card is empty. The blurred background is murky and shows no recognizable content. The event text is small, and the source line is tiny and gray. It looks like a PowerPoint template, with no depth, no motion cues and no visual of the steel companies or the order. The timeline has only one point, so it feels unfinished."}, 
+ "better": "X",
+ "why": "X shows a tangible, instantly understood archival subject with decent composition, while Y is a mostly empty flat slide with tiny text and no visual anchor.",
+ "top_fix_for_weaker": "Drop the empty timeline card. Show a real visual anchor, such as the order document or a steel-plant photo, in 3D with depth and lighting. Put the date and event in large text (about 2x the current size) on a scrim over it, and fill the timeline with its next milestones, or remove the track."}
+```

@@ -1010,12 +1010,14 @@ segments:
         s: Euclid, Ohio
         sub: “practically a suburb” of Cleveland — the Court, 1926
         at: '@euclid'
-        side: right
+        side: up
+        gap: 70
         c: '#F08A4B'
       - a: cleveland
         s: Cleveland
         at: '@cleveland'
-        side: left
+        side: down
+        gap: 70
         c: '#3CC2B0'
       cap:
       - s: '1926: a zoning case reaches the Supreme Court'

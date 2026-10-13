@@ -14,3 +14,5 @@ __pycache__/
 # shot mẫu / bản nháp: không commit (kể cả LFS) — chỉ ghi SHA trong báo cáo; release cuối mới dùng LFS (chủ dự án 13/10/2026)
 k2c-t1-06/g1b/*.mp4
 !k2c-t1-06/kiem-mu/loc-rights/*.json
+!k2c-t1-06/kiem-mu/blind-g1b/**/*.json
+!k2c-t1-06/kiem-mu/blind-g1b/*.json
