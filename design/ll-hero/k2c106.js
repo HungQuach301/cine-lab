@@ -88,7 +88,7 @@ const CAM = {
   },
   lot: {
     plan: [{ u: 0, p: [11.5, 46, 46], l: [11.5, 0, 20.0], mm: 30 }, { u: 1, p: [13.5, 42, 45], l: [11.5, 0, 20.0], mm: 30 }],
-    pencil: [{ u: 0, p: [-14, 16, -6], l: [11, 5, 16], mm: 32 }, { u: 1, p: [-10, 15, -10], l: [11, 5, 16], mm: 32 }],
+    pencil: [{ u: 0, p: [32, 13, 44], l: [11, 5, 14], mm: 32 }, { u: 1, p: [28, 13, 46], l: [11, 5.5, 14], mm: 32 }],   // 13/10: nhìn từ phía bãi đỗ (mặt có cửa sổ + mái che), góc cũ chỉ thấy tường trơn
     top: [{ u: 0, p: [10.5, 56, 19.5], l: [11.5, 0, 19], mm: 30 }, { u: 1, p: [12.5, 52, 19.5], l: [11.5, 0, 19], mm: 30 }],
     street_level: [{ u: 0, p: [-6, 1.7, 2], l: [11, 4, 18], mm: 28 }, { u: 1, p: [-4, 1.8, 0], l: [11, 4, 18], mm: 28 }],
     orbit: [{ u: 0, p: [36, 22, 8], l: [11.5, 1, 18], mm: 30 }, { u: 1, p: [34, 22, 30], l: [11.5, 1, 18], mm: 30 }],
@@ -101,6 +101,7 @@ const CAM = {
     floor_plate: [{ u: 0, p: [6, 22, 14], l: [0, 6, 0], mm: 30 }, { u: 1, p: [-4, 21, 15], l: [0, 6, 0], mm: 30 }],
     pressurized: [{ u: 0, p: [10, 9, 14], l: [0, 5, 0], mm: 30 }, { u: 1, p: [7, 10, 16], l: [0, 5.5, 0], mm: 30 }],
     fire_logic: [{ u: 0, p: [-14, 12, 22], l: [0, 6.5, -2], mm: 30 }, { u: 1, p: [-10, 12.5, 24], l: [0, 6.5, -2], mm: 30 }],
+    corridor_side: [{ u: 0, p: [-24, 19, 17], l: [0, 5, 0], mm: 30 }, { u: 1, p: [-20, 19, 21], l: [0, 5.5, 0], mm: 30 }],   // 13/10: phần giới thiệu Pew (đoạn 04), toà hai thang nhìn từ bên
   },
   bank: {
     side: [{ u: 0, p: [-24, 5, 12], l: [0, 2.5, 0], mm: 32 }, { u: 1, p: [-21, 5.5, 15], l: [0, 2.5, 0], mm: 32 }],
@@ -318,7 +319,7 @@ async function lot({ W, H, dur, opt }) {
   lightTod(scene, T, 40, [10, 0, 18]);
   const rig = rigOf(W, H, dur, opt, [{ u: 0, p: [11.5, 54, 19.5], l: [11.5, 0, 19.0], mm: 30 }, { u: 1, p: [11.5, 48, 21], l: [11.5, 0, 19.0], mm: 30 }], CAM.lot);
   const anchors = { lot: V3([4 + LW / 2, 0.5, 4 + LD + 1.5]), building: V3([4 + LW / 2, 13.5, 12]), parking: V3([4 + LW / 2, 1, 4 + LD - 5]), corner: V3([4, 0.4, 4]) };
-  const update = (t) => { rig.at(t); const k = win01(t, gw); stalls.forEach((s, i) => { const u = clamp01(k * n - i); s.visible = u > 0.01; s.position.y = 0.3 + (1 - ease(u)) * 4; });
+  const update = (t) => { rig.at(t); const k = typeof gw === 'number' ? (gw < 0 ? 1 : 0) : win01(t, gw); stalls.forEach((s, i) => { const u = clamp01(k * n - i); s.visible = u > 0.01; s.position.y = 0.3 + (1 - ease(u)) * 4; });
     const used = Math.ceil(k * n / 5) * 5.6; const d = Math.max(5, 14 - Math.max(0, used - 8)); bld.group.scale.z = d / 14; bld.group.position.z = 4 + d / 2 + 1; };
   return { scene, cam: rig.cam, update, grade: GRADE_K2_DAY, exposure: 1.0, anchors };
 }

@@ -142,8 +142,11 @@ segments:
            cap: [{s: "The limit bites at the fourth story — or above four homes a floor", at: "@single-stair"}, {s: "the taller building on a small lot", at: "@taller"}], src: "3D illustration"}}
       - {tpl: plate, at: "@second-1.2", type: scene3d, p: {hero: sa_plan, frame0: 0,
            tags: [{a: one, s: "One stair", at: "@second-0.6", side: up, c: "#3CC2B0"}, {a: two, s: "Two stairs + corridor", at: "@slice", side: up, c: "#F08A4B"}],
-           cap: [{s: "A second stair takes a slice of every floor (illustration)", at: "@second"}]}}
-      - {tpl: plate, at: "@pew-0.3", type: chart3d, scene_id: ch_pew, camera_id: orbit-l, p: {hero: ch_pew, frame0: 0,
+           cap: [{s: "A second stair takes a slice of every floor (illustration)", at: "@second"}, {s: "Estimate: Pew, with the Center for Building in North America", at: "@pew", src: [PEW25]}]}}
+      - {tpl: plate, at: "@group-0.3", type: scene3d, p: {hero: sa_corr, frame0: 0,
+           tags: [{a: core2, s: "Extra stair + corridor", at: "@estimates", side: up, c: "#F08A4B"}],
+           cap: [{s: "The Center for Building in North America advocates allowing more single-stair buildings", at: "@group", src: [PEW25]}], src: "3D illustration"}}
+      - {tpl: plate, at: "@extra-0.4", type: chart3d, scene_id: ch_pew, camera_id: orbit-l, p: {hero: ch_pew, frame0: 0,
            tags: [{a: "floor:top", s: "≈ 7%", sub: "of floor area: extra stair + corridor", big: true, kind: actual, at: "@seven", side: left, c: "#F08A4B", num: c16},
                   {a: "lo:top", s: "6%", at: "@six", side: up, c: "#3CC2B0", num: c16b},
                   {a: "hi:top", s: "13%", sub: "of total construction cost (range)", big: true, kind: actual, at: "@thirteen", side: right, c: "#3CC2B0", num: c16c}],
@@ -162,8 +165,8 @@ segments:
       - {tpl: plate, at: "@there's-0.3", type: map, scene_id: map/globe, places: [calif], p: {hero: m_calif0, frame0: 0,
            places: [{a: calif, s: California, sub: "Terner Center, UC Berkeley, 2024", at: "@california", side: right, c: "#F08A4B"}],
            cap: [{s: "A code cost below four stories, too", at: "@there's"}], src: [TERNER24]}}
-      - {tpl: plate, at: "@buildings#4-0.3", type: chart3d, scene_id: ch_terner, camera_id: crane-up, p: {hero: ch_terner, frame0: 0,
-           tags: [{a: "res:top", s: "Residential code", sub: "baseline = 100", at: "@buildings#4+0.4", side: left, c: "#9AA7B5"},
+      - {tpl: plate, at: "@buildings#4-0.3", type: chart3d, scene_id: ch_terner, camera_id: front-dolly, p: {hero: ch_terner, frame0: 0,
+           tags: [{a: "res:top", s: "Residential code", sub: "baseline = 100", at: "@buildings#4+0.4", side: left, c: "#B8C2CE"},
                   {a: "com:top", s: "≈ +10%", sub: "commercial code for 3+ homes (Terner estimate, California)", big: true, kind: actual, at: "@roughly", side: right, c: "#F08A4B", num: c57}],
            cap: [{s: "3+ homes: the commercial building code (California)", at: "@commercial"}], src: [TERNER24]}}
 
@@ -182,7 +185,7 @@ segments:
            cap: [{s: "Safeguards “do not fully substitute for the redundancy of two independent stairways”", at: "@safeguards", src: [CALFIRE]}], src: *mapsrc}}
       - {tpl: plate, at: "@pew-0.3", type: chart3d, scene_id: ch_records, camera_id: orbit-r, p: {hero: ch_records, frame0: 0,
            tags: [{a: "single:top", s: "4,440", sub: "modern single-stair buildings, NYC, since 2012", big: true, kind: actual, at: "@forty", side: left, c: "#3CC2B0", num: c20},
-                  {a: "other:top", s: "Same fire-death rate", sub: "as the city's other residential buildings, by their count", at: "@same", side: right, c: "#9AA7B5"}],
+                  {a: "other:top", s: "Same fire-death rate", sub: "as the city's other residential buildings, by their count", at: "@same", side: right, c: "#B8C2CE"}],
            cap: [{s: "Pew and the Center for Building (advocates) · 4 deaths counted, NYC and Seattle, 2012–2024", at: "@four"}], src: [PEW25]}}
       - {tpl: plate, at: "@modeling-0.3", type: map, scene_id: map/globe, places: [minn], p: {hero: m_minn, frame0: 0,
            places: [{a: minn, s: Minnesota, sub: "risk model for the labor department, Dec 2025", at: "@minnesota's", side: right, c: "#3CC2B0"}], src: [MNDLI]}}
@@ -191,8 +194,8 @@ segments:
                   {a: fire3, s: "Stair door open", at: "@stair#2", side: up, c: "#E0564B"}],
            cap: [{s: "In the model, stair count mattered only when all three happened", at: "@risk"}], src: [MNDLI]}}
       - {tpl: plate, at: "@vote-0.4", type: chart3d, scene_id: ch_icc, camera_id: side-track, p: {hero: ch_icc, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@2027",
-           tags: [{a: "yes:top", s: "86", sub: "governmental members: for one stair up to 4 stories", big: true, kind: actual, at: "@eighty-six", side: left, c: "#3CC2B0", num: c25},
-                  {a: "no:top", s: "34", sub: "against", big: true, kind: actual, at: "@thirty-four", side: right, c: "#9AA7B5", num: c25b}],
+           tags: [{a: "yea:top", s: "86", sub: "governmental members: for one stair up to 4 stories", big: true, kind: actual, at: "@eighty-six", side: left, c: "#3CC2B0", num: c25},
+                  {a: "nay:top", s: "34", sub: "against", big: true, kind: actual, at: "@thirty-four", side: right, c: "#B8C2CE", num: c25b}],
            cap: [{s: "International Code Council vote, announced May 2026", at: "@vote"}, {s: "2027 model code: not yet published (as of 12 Oct 2026)", at: "@2027"}], src: [ICCBSJ]}}
 
   # ===== 06 KHOÁ 3: NGÂN HÀNG =====
@@ -204,13 +207,13 @@ segments:
            tags: [{a: line, s: "4", big: true, kind: actual, at: "@four", side: up, c: "#F08A4B", num: c26}], src: [CFR1282]}}
       - {tpl: plate, at: "@federal-0.3", type: scene3d, p: {hero: b_line, frame0: 0, asof: "Facts as of 12 Oct 2026", asofAt: "@federal",
            tags: [{a: line, s: "FHFA: single-family = 1–4 homes", at: "@single-family", side: up, c: "#F08A4B", num: c26}], src: [CFR1282]}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@multifamily", src_ss: 45, dur: 2, gain_db: -28, fade_ms: 300}], at: "@multifamily-0.5", type: document, scene_id: d_cfr, camera_id: tilt-low, p: {hero: d_cfr, frame0: 0, paper: "Code of Federal Regulations, Title 12, §1282.1", date: "2024-12-30",
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@multifamily", src_ss: 45, dur: 2, gain_db: -28, fade_ms: 300}], at: "@multifamily-0.5", type: document, scene_id: d_cfr, camera_id: detail, p: {hero: d_cfr, frame0: 0, paper: "Code of Federal Regulations, Title 12, §1282.1", date: "2024-12-30",
            cap: [{s: "Federal housing-goals regulation (eCFR, current text)", at: "@multifamily"}], src: [CFR1282]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@fannie", src_ss: 30, dur: 5, gain_db: -28, fade_ms: 600}], at: "@fannie-0.3", type: scene3d, p: {hero: b_counter, frame0: 0,
            tags: [{a: sf, s: "Single-family loan programs", sub: "Fannie Mae · FHA: 1–4 units", at: "@fannie", side: up, c: "#3CC2B0"}],
            cap: [{s: "In these definitions, a fourplex is classed with houses", at: "@classed"}], src: [FNMA, HUD4000]}}
       - {tpl: plate, at: "@add-0.3", type: scene3d, p: {hero: b_fifth, frame0: 0,
-           tags: [{a: s5, s: "5th home", sub: "outside these single-family programs", at: "@fifth+0.8", side: right, c: "#9AA7B5"}], src: [CFR1282, FNMA, HUD4000]}}
+           tags: [{a: s5, s: "5th home", sub: "outside these single-family programs", at: "@fifth+0.8", side: right, c: "#B8C2CE"}], src: [CFR1282, FNMA, HUD4000]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/cash-register.mp3, at: "@now", src_ss: 6, dur: 3, gain_db: -24, fade_ms: 300}], at: "@now-0.3", type: scene3d, p: {hero: c_shop, frame0: 0,
            tags: [{a: shop, s: "Fannie Mae", sub: "one-unit home; the borrower lives there and runs the business", at: "@fannie#2", side: right, c: "#F2C14E"},
                   {a: apt3, s: "FHA", sub: "up to 4 units; ≥ 51% of floor area residential", at: "@fha", side: right, gap: 60, c: "#3CC2B0"}],
@@ -233,11 +236,11 @@ segments:
            cap: [{s: "Costs and low rent growth “have challenged the profitability of multifamily apartments”", at: "@challenged", src: [MPLSFED]}], src: *mapsrc}}
       - {tpl: plate, at: "@2024-0.6", type: scene3d, p: {hero: lo_pencil, frame0: 0,
            cap: [{s: "Terner Center (California): small model buildings “would not be built under recent market conditions”", at: "@would", src: [TERNER24]}], src: "3D illustration"}}
-      - {tpl: plate, at: "@recap-0.6", in: fade, type: card, p: {hero: b_side, frame0: 80, speed: 0.4, card: {type: list, kicker: "TO RECAP", title: "Three locks — and the costs",
+      - {tpl: plate, at: "@recap-0.6", in: fade, type: card, p: {hero: b_side, frame0: 80, speed: 0.4, card: {type: list, kicker: "TO RECAP", title: "Three locks — and the costs", px: 34, gap: 30, top: 170,
            items: [{s: "The map", sub: "can block any of these buildings", at: "@map"}, {s: "The stairwell", sub: "bites at 4 stories, or above 4 homes a floor", at: "@stairwell"},
                    {s: "The bank line", sub: "sorts at 5 homes; many buildings with a shop fall outside single-family programs", at: "@bank"},
-                   {s: "Costs and rents", sub: "building costs · borrowing costs · rents", at: "@building", c: "#9AA7B5"},
-                   {s: "How much each contributed: not measured in the record we found", at: "@whether", check: false, c: "#9AA7B5"}]}}}
+                   {s: "Costs and rents: building costs · borrowing costs · rents", at: "@building", c: "#B8C2CE"},
+                   {s: "How much each contributed: not measured in the record we found", at: "@whether", check: false, c: "#B8C2CE"}]}}}
 
   # ===== 08 KẾT QUẢ =====
   - id: "08"
@@ -259,23 +262,23 @@ segments:
            tags: [{a: "s70:top", s: "≈ 5.9%", sub: "early 1970s (1970–74 pooled)", big: true, kind: actual, at: "@almost", side: left, c: "#F08A4B", num: c36},
                   {a: "s25:top", s: "≈ 1.1%", sub: "2025", big: true, kind: actual, at: "@just", side: right, c: "#F08A4B", num: c36b}],
            cap: [{s: "2–4-unit buildings: share of all new homes (our calculation)", at: "@share"}], src: [NRC]}}
-      - {tpl: plate, at: "@small-0.3", type: chart3d, scene_id: ch_small, camera_id: crane-up, p: {hero: ch_small, frame0: 0,
-           tags: [{a: "y73:top", s: "377,000", sub: "1973, the series' peak", big: true, kind: actual, at: "@seventy-seven", side: left, c: "#9AA7B5", num: c35b},
+      - {tpl: plate, at: "@small-0.3", type: chart3d, scene_id: ch_small, camera_id: front-dolly, p: {hero: ch_small, frame0: 0,
+           tags: [{a: "y73:top", s: "377,000", sub: "1973, the series' peak", big: true, kind: actual, at: "@seventy-seven", side: left, c: "#B8C2CE", num: c35b},
                   {a: "y25:top", s: "≈ 48,000", sub: "2025", big: true, kind: actual, at: "@48,000", side: right, c: "#F08A4B", num: c35}],
            cap: [{s: "Homes completed in buildings of 5–19 units (our sum of two Census columns)", at: "@small"}], src: [CNH]}}
       - {tpl: plate, at: "@separate-1.2", type: photo, scene_id: loc_fsa_nyc61, camera_id: tilt-low, p: {hero: p_fsa03, frame0: 0,
            cap: [{s: "Walk-up apartment buildings, New York City, 1938", at: "@separate"}], src: "Photo: FSA/OWI, Library of Congress (no known restrictions)"}}
       - {tpl: plate, at: "@single-family-0.3", type: chart3d, scene_id: ch_sfh, camera_id: low-hero, p: {hero: ch_sfh, frame0: 0,
-           tags: [{a: "s70:top", s: "≈ 57%", sub: "early 1970s (1970–74 pooled)", big: true, kind: actual, at: "@fifty-seven", side: left, c: "#9AA7B5", num: c63b},
+           tags: [{a: "s70:top", s: "≈ 57%", sub: "early 1970s (1970–74 pooled)", big: true, kind: actual, at: "@fifty-seven", side: left, c: "#B8C2CE", num: c63b},
                   {a: "s25:top", s: "≈ 68%", sub: "2025", big: true, kind: actual, at: "@sixty-eight", side: right, c: "#3CC2B0", num: c63}],
            cap: [{s: "Single-family houses: share of new homes (our calculation)", at: "@single-family"}], src: [NRC]}}
       - {tpl: plate, at: "@that-0.6", type: chart3d, scene_id: ch_big, camera_id: orbit-r, p: {hero: ch_big, frame0: 0,
-           tags: [{a: "y72:top", s: "1 in 5", sub: "1972", big: true, kind: actual, at: "@five#2", side: left, c: "#9AA7B5", num: c34b},
+           tags: [{a: "y72:top", s: "1 in 5", sub: "1972", big: true, kind: actual, at: "@five#2", side: left, c: "#B8C2CE", num: c34b},
                   {a: "y25:top", s: "57%", sub: "2025", big: true, kind: actual, at: "@fifty-seven#2", side: right, c: "#F08A4B", num: c34}],
            cap: [{s: "Buildings of 50+ units: share of new apartments", at: "@that"}], src: [CNH]}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/building-site.mp3, at: "@across", src_ss: 40, dur: 6, gain_db: -28, fade_ms: 800}], at: "@across-0.6", type: scene3d, p: {hero: e_25, frame0: 0,
            tags: [{a: houses, s: Houses, at: "@houses", side: up, c: "#3CC2B0"}, {a: big, s: "Large apartment buildings", at: "@large", side: up, c: "#F08A4B"}],
-           cap: [{s: "Our read: new construction moved toward the two ends (illustration, 1972 → 2025)", at: "@across"}]}}
+           cap: [{s: "Our read: new construction moved toward the two ends (illustration, 1972 → 2025)", at: "@across", src: [CNH, NRC]}]}}
 
   # ===== 09 HUYỀN THOẠI VÀ HỒ SƠ =====
   - id: "09"
@@ -289,9 +292,9 @@ segments:
            right: {tag: "OTHERS SAID", at: "@others", lines: [{s: "“uniform application of requirements does not recognize the uniqueness of each city”", at: "@uniform"}, {s: "“more people would just create more traffic”", at: "@traffic"}]}}}}
       - {tpl: plate, at: "@minneapolis-0.3", type: map, scene_id: map/globe, places: [mpls], p: {hero: m_minn3, frame0: 0,
            places: [{a: mpls, s: Minneapolis, sub: "2040 Plan, adopted 2019: duplexes and triplexes allowed (as of Oct 2026)", at: "@minneapolis", side: right, c: "#3CC2B0"}], src: [MPLSFED]}}
-      - {tpl: plate, at: "@october#2-0.3", type: chart3d, scene_id: ch_mpls, camera_id: crane-up, p: {hero: ch_mpls, frame0: 0,
+      - {tpl: plate, at: "@october#2-0.3", type: chart3d, scene_id: ch_mpls, camera_id: front-dolly, p: {hero: ch_mpls, frame0: 0,
            tags: [{a: "mf:small", s: "317", sub: "new units in 2–4-unit buildings, 2020–2025", big: true, kind: actual, at: "@317", side: right, c: "#F08A4B", num: c39},
-                  {a: "mf:top", s: "all homes permitted in multifamily buildings", at: "@multifamily", side: left, c: "#9AA7B5"}],
+                  {a: "mf:top", s: "all homes permitted in multifamily buildings", at: "@multifamily", side: left, c: "#B8C2CE"}],
            cap: [{s: "About 2% — roughly the same as a comparison group", at: "@roughly"}], src: [MPLSFED]}}
       - {tpl: plate, at: "@headline-0.3", in: fade, type: card, p: {hero: m_minn3, frame0: 60, speed: 0.4, src: [MPLSFED], card: {type: quote, kicker: "THE RECORD · MINNEAPOLIS FED, OCT 2026",
            q: "Land-use changes “appear insufficient to drive new housing production in a challenging development environment.”", by: "Their headline also reported stable rents", at: "@summary", px: 54}}}
@@ -304,7 +307,7 @@ segments:
       - {tpl: plate, at: "@2019#2-0.6", type: map, scene_id: map/globe, places: [chicago], p: {hero: m_chicago, frame0: 0,
            places: [{a: chicago, s: Chicago, sub: "upzoning near rail stations", at: "@chicago", side: right, c: "#F2C14E"}],
            cap: [{s: "Yonah Freemark (2019): higher property prices; over five years, no measurable rise in newly permitted homes", at: "@freemark", src: [FREEMARK]}], src: *mapsrc}}
-      - {tpl: plate, at: "@other-0.3", type: chart3d, scene_id: ch_study, camera_id: top-down, p: {hero: ch_study, frame0: 0,
+      - {tpl: plate, at: "@other-0.3", type: chart3d, scene_id: ch_study, camera_id: front-dolly, p: {hero: ch_study, frame0: 0,
            tags: [{a: "urban:top", s: "≈ +0.8%", sub: "housing supply within 3–9 years, mostly higher-rent units", big: true, kind: actual, at: "@0.8", side: right, c: "#3CC2B0", num: c43}],
            cap: [{s: "Urban Institute researchers, 2023 study (abstract)", at: "@urban"}], src: [STACY]}}
       - {tpl: plate, at: "@outside-0.6", type: map, scene_id: map/globe, places: [auckland], p: {hero: m_auckland, frame0: 0,
@@ -312,8 +315,8 @@ segments:
            cap: [{big: "≈ 21,800", s: "additional homes permitted in five years — about 4% of the housing stock (2023 working paper)", kind: actual, at: "@21,800", num: c44}], src: [AKL]}}
       - {tpl: plate, at: "@mixed-1.6", in: fade, type: card, p: {hero: e_25, frame0: 60, speed: 0.4, src: [MPLSFED, TERNER23, STACY, AKL], card: {type: list, kicker: "THE RECORD", title: "On housing production, the record is mixed",
            items: [{s: "Minneapolis · SB 9's first year", sub: "counts in the hundreds or fewer", at: "@minneapolis#3"}, {s: "Urban Institute · Auckland", sub: "found increases", at: "@urban#2"},
-                   {s: "Different measures, different places", sub: "they don't add up to one number", at: "@different", c: "#9AA7B5"},
-                   {s: "Not covered: Washington's 2023 law, traffic, city-by-city concerns", at: "@covers", check: false, c: "#9AA7B5"}]}}}
+                   {s: "Different measures, different places", sub: "they don't add up to one number", at: "@different", c: "#B8C2CE"},
+                   {s: "Not covered: Washington's 2023 law, traffic, city-by-city concerns", at: "@covers", check: false, c: "#B8C2CE"}]}}}
 
   # ===== 10 NƠI ĐÃ MỞ LẠI =====
   - id: "10"
@@ -340,7 +343,7 @@ segments:
            places: [{a: denver, s: Colorado, sub: "many cities of 100,000+: five-story single-stair buildings by Dec 1, 2027", at: "@colorado", side: right, c: "#3CC2B0"}],
            cap: [{s: "Five-story single-stair apartment buildings, by December 1, 2027", at: "@five-story", num: c51}], src: *mapsrc}}
       - {tpl: plate, at: "@lending-0.6", type: scene3d, p: {hero: b_still, frame0: 0, asof: "As of 12 Oct 2026", asofAt: "@lending",
-           tags: [{a: line, s: "Still 4", sub: "the lending line", big: true, kind: actual, at: "@still", side: up, c: "#F08A4B", num: c26}], src: [CFR1282]}}
+           tags: [{a: line, s: "Still 4", sub: "the lending line", big: true, kind: actual, at: "@still", side: up, c: "#F08A4B", num: c26c}], src: [CFR1282]}}
 
   # ===== 11 KẾT =====
   - id: "11"
@@ -365,11 +368,11 @@ segments:
 
 shorts:
   - id: S1
-    hook: "1 in 13 homes — but 1 in 100 new ones. Why?"
+    hook: "One in thirteen homes — but one in a hundred new ones. Why?"
     vo_from: ["00", "About one", "So why"]
     shots:
       - {tpl: plate, at: 0, type: scene3d, p: {hero: s_corner, frame0: 0, asofY: 1548,
-           labels: [{a: building, s: "about 1 in 13", sub: "U.S. homes in 2–4-apartment buildings (2024)", at: "@thirteen", dy: -260, num: c01}],
+           labels: [{a: building, s: "about 1 in 13", sub: "U.S. homes in 2–4-unit buildings, 2024", at: "@thirteen", dy: -260, num: c01}],
            cap: [{s: "Census ACS 2024 · our calculation", at: 0.3, src: [ACS24]}]}}
       - {tpl: plate, at: "@of-0.3", in: fade, type: chart3d, scene_id: ch_hook, camera_id: s-crane, p: {hero: s_hook, frame0: 0,
            labels: [{a: "stock:top", s: "7.5%", sub: "homes standing (2024)", at: "@of+0.4", dy: -160, num: c01}, {a: "new25:top", s: "1.1%", sub: "new homes finished (2025)", at: "@hundred", dy: -200, num: c02}],

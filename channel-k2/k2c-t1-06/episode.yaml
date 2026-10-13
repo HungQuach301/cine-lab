@@ -90,11 +90,13 @@ anchors:
 sources:
   ACS24:
     short: Census ACS 2024 (B25024, B25127)
+    short9: Census ACS 2024
     url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b25024.dat
     read: fulltext
     accessed: 2026-10-12
   NRC:
     short: Census New Residential Construction (completions)
+    short9: Census completions
     url: https://www.census.gov/construction/nrc/xls/comps_cust.xlsx
     read: fulltext
     accessed: 2026-10-12
@@ -120,6 +122,7 @@ sources:
     accessed: 2026-10-12
   IBCSEA:
     short: Seattle Building Code 2021, Ch. 10 (IBC 2021 text)
+    short9: Seattle Building Code 2021
     url: https://www.seattle.gov/documents/Departments/SDCI/Codes/SeattleBuildingCode/2021SBCChapter10.pdf
     read: fulltext
     accessed: 2026-10-12
@@ -238,6 +241,150 @@ sources:
     url: https://www.nyc.gov/assets/planning/download/pdf/plans-studies/city-of-yes/housing-opportunity/city-of-yes-for-housing-opportunity_final-plan.pdf
     read: fulltext
     accessed: 2026-10-12
+  MAPC:
+    short: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+    url: https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
+  PH-LOC-HABS-02:
+    short: 'Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)'
+    url: https://www.loc.gov/pictures/collection/hh/item/pa3088.photos.039233p/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-HABS-01:
+    short: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+    url: https://www.loc.gov/pictures/collection/hh/item/ny0362.photos.118488p/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-01:
+    short: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+    url: https://www.loc.gov/pictures/collection/det/item/2016810740/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-FSA-01:
+    short: 'Photo: Durham, N.C., May 1940, FSA/OWI, Library of Congress'
+    url: https://www.loc.gov/pictures/collection/fsa/item/2017790836/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-11:
+    short: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+    url: https://www.loc.gov/pictures/collection/det/item/2016812541/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-FSA-04:
+    short: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+    url: https://www.loc.gov/pictures/collection/fsa/item/2017765088/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-WM-HOOVER-1928:
+    short: 'Photo: Harris & Ewing, 1928 · Library of Congress (public domain)'
+    url: https://www.loc.gov/pictures/item/2016888786/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
+  PH-LOC-DET-02:
+    short: 'Photo: Columbus, Ohio, 1900–1915, Detroit Publishing Co., Library of Congress'
+    url: https://www.loc.gov/pictures/collection/det/item/2016810719/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-08:
+    short: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+    url: https://www.loc.gov/pictures/collection/det/item/2016812188/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-WM-SUTHERLAND-1937:
+    short: 'Photo: Justice George Sutherland, Oct. 11, 1937, Harris & Ewing, Library of Congress'
+    url: https://www.loc.gov/pictures/item/2016877918/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-06:
+    short: 'Photo: New York City, c. 1908 · Detroit Publishing Co., Library of Congress'
+    url: https://www.loc.gov/pictures/collection/det/item/2016814659/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-12:
+    short: 'Photo: New York City, between 1905 and 1920 · Detroit Publishing Co., Library of Congress'
+    url: https://www.loc.gov/pictures/collection/det/item/2016811709/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-04:
+    short: 'Photo: Washington, D.C., c. 1904 · Detroit Publishing Co., Library of Congress'
+    url: https://www.loc.gov/pictures/collection/det/item/2016794835/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-05:
+    short: 'Photo: Detroit, c. 1905 · Detroit Publishing Co., Library of Congress'
+    url: https://www.loc.gov/pictures/collection/det/item/2016804677/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-DET-03:
+    short: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+    url: https://www.loc.gov/pictures/collection/det/item/2016810430/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-PX-38879369:
+    short: 'Footage: Chicago-area homes · Pexels, 2025 (illustrative)'
+    url: https://www.pexels.com/video/aerial-view-of-chicago-residential-area-38879369/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
+  PH-LOC-HABS-04:
+    short: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+    url: https://www.loc.gov/pictures/collection/hh/item/mt0040.photos.101096p/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-PX-36624235:
+    short: 'Footage: fire escape, U.S. city · Pexels, 2025 (illustrative)'
+    url: https://www.pexels.com/video/classic-fire-escape-on-urban-building-closeup-36624235/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
+  PH-PX-20568183:
+    short: 'Footage: apartment construction · Pexels, 2024 (illustrative)'
+    url: https://www.pexels.com/video/construction-site-20568183/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
+  PH-LOC-HABS-03:
+    short: 'Photo: Historic American Buildings Survey, 1991 · Library of Congress (no known restrictions)'
+    url: https://www.loc.gov/pictures/collection/hh/item/fl0619.photos.221759p/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-LOC-FSA-03:
+    short: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+    url: https://www.loc.gov/pictures/collection/fsa/item/2017732855/
+    read: fulltext
+    accessed: '2026-10-13'
+    onscreen: true
+  PH-PX-33003293:
+    short: 'Footage: Chattanooga, Tenn. · Pexels, 2025 (illustrative)'
+    url: https://www.pexels.com/video/aerial-view-of-new-townhouse-construction-site-33003293/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
+  PH-PXP-7180335:
+    short: 'Photo: Bay Ridge, Brooklyn, N.Y. · Pexels (recent photo)'
+    url: https://www.pexels.com/photo/parked-cars-in-front-of-apartment-building-7180335/
+    read: fulltext
+    accessed: '2026-10-12'
+    onscreen: true
 numbers:
   c01:
     v: 7.54
@@ -362,7 +509,7 @@ numbers:
     year: 2021
     unit: stories
     src: IBCSEA
-    say: six stories
+    say: them up to six stories
   c20:
     v: 4440
     text: 4,440
@@ -394,7 +541,15 @@ numbers:
     year: 2026
     unit: homes
     src: CFR1282
-    say: four
+    say: 'a line: four'
+  c26c:
+    v: 4
+    text: 1–4 homes
+    kind: actual
+    year: 2026
+    unit: homes
+    src: CFR1282
+    say: still four
   c34:
     v: 57
     text: 57%
@@ -598,7 +753,7 @@ numbers:
     year: 2025
     unit: stories
     src: TXSB2835
-    say: six stories
+    say: buildings up to six stories
   c51:
     v: 5
     text: 5 stories by Dec 1, 2027
@@ -636,7 +791,9 @@ segments:
         side: right
         c: '#F08A4B'
         num: c01
-      src: 'Source: Census ACS 2024 (table B25024) · share is our calculation · 3D illustration'
+      src:
+      - ACS24
+      credit: 'Share: our calculation · 3D illustration'
   - tpl: plate
     at: '@of-0.3'
     type: chart3d
@@ -667,7 +824,13 @@ segments:
       cap:
       - s: Homes in buildings with 2–4 apartments
         at: '@of'
-      src: 'Sources: Census ACS 2024 (B25024) · Census New Residential Construction · shares are our calculation'
+        src:
+        - ACS24
+        - NRC
+      src:
+      - ACS24
+      - NRC
+      credit: 'Shares: our calculation'
   - tpl: plate
     at: '@so-0.3'
     in:
@@ -697,7 +860,13 @@ segments:
       cap:
       - s: 'Two different Census counts: homes in the 2024 survey · homes finished in one year'
         at: '@different'
-      src: 'Sources: Census ACS 2024 · Census New Residential Construction 2025 · shares are our calculation · 3D illustration'
+        src:
+        - ACS24
+        - NRC
+      src:
+      - ACS24
+      - NRC
+      credit: 'Shares: our calculation · 3D illustration'
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/city-traffic.mp3
@@ -735,7 +904,10 @@ segments:
       cap:
       - s: A store with apartments above · Jeannette, Pa. (HABS survey, documented after 1933)
         at: 0.3
-      src: 'Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)'
+        src:
+        - PH-LOC-HABS-02
+      src:
+      - PH-LOC-HABS-02
       clip: LOC-HABS-02
       file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-02u.tif
       setting: ft/tocco-store-north-third-st
@@ -825,9 +997,14 @@ segments:
       cap:
       - s: 'Small apartment buildings: 5–19 homes'
         at: '@just'
+        src:
+        - PH-LOC-HABS-01
       - s: Walk-up apartment building · New York City, 1979
         at: '@five'
-      src: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+        src:
+        - PH-LOC-HABS-01
+      src:
+      - PH-LOC-HABS-01
       clip: LOC-HABS-01
       file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-01u.tif
       setting: ft/nyc-st-nicholas-ave
@@ -842,7 +1019,10 @@ segments:
       cap:
       - s: Pittsburgh, c. 1900–1915
         at: '@by'
-      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+        src:
+        - PH-LOC-DET-01
+      src:
+      - PH-LOC-DET-01
       clip: LOC-DET-01
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-01u.tif
       setting: ft/pittsburgh-fifth-and-wood
@@ -860,10 +1040,13 @@ segments:
         kind: actual
         at: '@almost'
         num: c03
-      src: 'Data: Census ACS 2024 (B25127), our calculation · Photo: Durham, N.C., May 1940, FSA/OWI, Library of Congress'
+      src:
+      - ACS24
+      - PH-LOC-FSA-01
       clip: LOC-FSA-01
       file: /var/tmp/cine-out/k2v-cache/photo/loc-fsa-01u.tif
       setting: ft/durham-corner-store
+      credit: 'Data: our calculation'
   - tpl: plate
     at: '@our#2-0.3'
     in: fade
@@ -897,9 +1080,14 @@ segments:
       cap:
       - s: 'Locks: rules that limit what can be built'
         at: '@we''ll'
+        src:
+        - PH-LOC-DET-11
       - s: Detroit, between 1900 and 1910
         at: '@without'
-      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+        src:
+        - PH-LOC-DET-11
+      src:
+      - PH-LOC-DET-11
       clip: LOC-DET-11
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-11u.tif
       setting: ft/detroit-lenox-apartments
@@ -914,9 +1102,14 @@ segments:
       cap:
       - s: 'Outside the rules: building costs, borrowing costs, rents'
         at: '@forces'
+        src:
+        - PH-LOC-FSA-04
       - s: Washington, D.C., August 1942
         at: '@then'
-      src: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+        src:
+        - PH-LOC-FSA-04
+      src:
+      - PH-LOC-FSA-04
       clip: LOC-FSA-04
       file: /var/tmp/cine-out/k2v-cache/photo/loc-fsa-04u.tif
       setting: ft/washington-corner-store
@@ -960,7 +1153,10 @@ segments:
       cap:
       - s: 'Herbert Hoover, Secretary of Commerce (photo: 1928)'
         at: '@herbert'
-      src: 'Photo: Harris & Ewing, 1928 · Library of Congress (public domain)'
+        src:
+        - PH-WM-HOOVER-1928
+      src:
+      - PH-WM-HOOVER-1928
       clip: WM-HOOVER-1928
       file: /var/tmp/cine-out/k2v-cache/photo/loc-hec-34871u.tif
       setting: ft/hoover-portrait-1928
@@ -978,7 +1174,9 @@ segments:
         kind: actual
         at: '@forty-eight'
         num: c05
-      src: 'Source: A Standard State Zoning Enabling Act (1926) · Photo: Columbus, Ohio, 1900–1915, Detroit Publishing Co., Library of Congress'
+      src:
+      - PH-LOC-DET-02
+      - SSZEA
       clip: LOC-DET-02
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-02u.tif
       setting: ft/columbus-broad-and-high
@@ -1002,6 +1200,8 @@ segments:
       cap:
       - s: A model law for the powers a state could give its cities
         at: '@model'
+        src:
+        - SSZEA
       src:
       - SSZEA
       clip: DOC-SSZEA
@@ -1022,7 +1222,10 @@ segments:
         - SSZEA
       - s: Burlington, Vt., between 1910 and 1920
         at: '@coverage'
-      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+        src:
+        - PH-LOC-DET-08
+      src:
+      - PH-LOC-DET-08
       clip: LOC-DET-08
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-08u.tif
       setting: ft/burlington-main-and-st-paul
@@ -1037,7 +1240,9 @@ segments:
         at: '@different'
         src:
         - SSZEA
-      src: 3D illustration
+      src:
+      - SSZEA
+      credit: 3D illustration
   - tpl: plate
     at: '@1926-0.3'
     type: map
@@ -1067,7 +1272,8 @@ segments:
         at: '@1926'
         src:
         - EUCLID
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/housing-estate.mp3
@@ -1117,6 +1323,8 @@ segments:
       cap:
       - s: Euclid's zoning tiers, as the Court described them (illustration)
         at: '@euclid#2'
+        src:
+        - EUCLID
       src:
       - EUCLID
   - tpl: plate
@@ -1136,7 +1344,9 @@ segments:
         kind: actual
         at: '@upheld'
         num: c09
-      src: 'Source: Euclid v. Ambler Realty (1926) · Photo: Justice George Sutherland, Oct. 11, 1937, Harris & Ewing, Library of Congress'
+      src:
+      - EUCLID
+      - PH-WM-SUTHERLAND-1937
       clip: WM-SUTHERLAND-1937
       file: /var/tmp/cine-out/k2v-cache/photo/loc-hec-29001u.tif
       setting: ft/supreme-court-steps-1937
@@ -1160,6 +1370,8 @@ segments:
       cap:
       - s: Justice Sutherland, for the Court, 272 U.S. 365, 394
         at: '@commissions'
+        src:
+        - EUCLID
       src:
       - EUCLID
       clip: DOC-EUCLID
@@ -1189,7 +1401,8 @@ segments:
         at: '@interfering'
         src:
         - EUCLID
-      src: 'Photo: New York City, c. 1908 · Detroit Publishing Co., Library of Congress'
+      src:
+      - PH-LOC-DET-06
       clip: LOC-DET-06
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-06u.tif
       setting: ft/nyc-riverside-drive
@@ -1206,7 +1419,8 @@ segments:
         at: '@bringing'
         src:
         - EUCLID
-      src: 'Photo: New York City, between 1905 and 1920 · Detroit Publishing Co., Library of Congress'
+      src:
+      - PH-LOC-DET-12
       clip: LOC-DET-12
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-12u.tif
       setting: ft/nyc-riverside-drive
@@ -1223,7 +1437,8 @@ segments:
         at: '@different'
         src:
         - EUCLID
-      src: 'Photo: Washington, D.C., c. 1904 · Detroit Publishing Co., Library of Congress'
+      src:
+      - PH-LOC-DET-04
       clip: LOC-DET-04
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-04u.tif
       setting: ft/washington-connecticut-ave
@@ -1240,7 +1455,8 @@ segments:
         at: '@near'
         src:
         - EUCLID
-      src: 'Photo: Detroit, c. 1905 · Detroit Publishing Co., Library of Congress'
+      src:
+      - PH-LOC-DET-05
       clip: LOC-DET-05
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-05u.tif
       setting: ft/detroit-pasadena-apartments
@@ -1272,9 +1488,14 @@ segments:
       cap:
       - s: 'In plain terms: judges deferred to local lawmakers'
         at: '@plain'
+        src:
+        - PH-LOC-DET-03
       - s: Buffalo, N.Y., between 1905 and 1920
         at: '@deferred'
-      src: 'Photo: Detroit Publishing Co. · Library of Congress (no known restrictions on publication)'
+        src:
+        - PH-LOC-DET-03
+      src:
+      - PH-LOC-DET-03
       clip: LOC-DET-03
       file: /var/tmp/cine-out/k2v-cache/photo/loc-det-03u.tif
       setting: ft/buffalo-delaware-and-north
@@ -1302,7 +1523,10 @@ segments:
       cap:
       - s: 'A century later: how much of the map still works that way?'
         at: 0.3
-      src: 'Footage: Chicago-area homes · Pexels, 2025 (illustrative)'
+        src:
+        - PH-PX-38879369
+      src:
+      - PH-PX-38879369
   - tpl: plate
     at: '@take-0.3'
     type: map
@@ -1324,7 +1548,8 @@ segments:
         at: '@take'
         src:
         - NZACO
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     at: '@fifty-nine-0.5'
     type: chart3d
@@ -1355,6 +1580,8 @@ segments:
       cap:
       - s: Colorado, as mapped for the 2025 report — one state, not a national figure, not today's map
         at: '@that''s'
+        src:
+        - NZACO
       src:
       - NZACO
   - tpl: plate
@@ -1384,7 +1611,9 @@ segments:
         at: '@fine'
         src:
         - NZACO
-      src: 3D illustration
+      src:
+      - NZACO
+      credit: 3D illustration
   - tpl: plate
     at: '@small-0.3'
     type: photo
@@ -1396,9 +1625,14 @@ segments:
       cap:
       - s: On a small lot, every parking space is room the building can't use
         at: '@small'
+        src:
+        - PH-LOC-HABS-04
       - s: Butte, Mont., 1979
         at: '@room'
-      src: 'Photo: Historic American Buildings Survey, 1979 · Library of Congress (no known restrictions)'
+        src:
+        - PH-LOC-HABS-04
+      src:
+      - PH-LOC-HABS-04
       clip: LOC-HABS-04
       file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-04u.tif
       setting: ft/butte-west-granite
@@ -1462,6 +1696,8 @@ segments:
       cap:
       - s: Seattle's code reprints the model text, with local amendments
         at: '@reprints'
+        src:
+        - IBCSEA
       src:
       - IBCSEA
   - tpl: plate
@@ -1498,6 +1734,8 @@ segments:
       cap:
       - s: Model code, 2021 edition (as reprinted in Seattle's 2021 code)
         at: '@code''s'
+        src:
+        - IBCSEA
       src:
       - IBCSEA
   - tpl: plate
@@ -1532,8 +1770,32 @@ segments:
       cap:
       - s: A second stair takes a slice of every floor (illustration)
         at: '@second'
+      - s: 'Estimate: Pew, with the Center for Building in North America'
+        at: '@pew'
+        src:
+        - PEW25
   - tpl: plate
-    at: '@pew-0.3'
+    at: '@group-0.3'
+    type: scene3d
+    p:
+      hero: sa_corr
+      frame0: 0
+      tags:
+      - a: core2
+        s: Extra stair + corridor
+        at: '@estimates'
+        side: up
+        c: '#F08A4B'
+      cap:
+      - s: The Center for Building in North America advocates allowing more single-stair buildings
+        at: '@group'
+        src:
+        - PEW25
+      src:
+      - PEW25
+      credit: 3D illustration
+  - tpl: plate
+    at: '@extra-0.4'
     type: chart3d
     scene_id: ch_pew
     camera_id: orbit-l
@@ -1568,6 +1830,8 @@ segments:
       cap:
       - s: 'Estimate: Pew, with the Center for Building in North America (advocates more single-stair buildings)'
         at: '@pew'
+        src:
+        - PEW25
       src:
       - PEW25
   - tpl: plate
@@ -1591,7 +1855,8 @@ segments:
         at: '@august'
         src:
         - WABO
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/stairwell.mp3
@@ -1686,13 +1951,15 @@ segments:
       cap:
       - s: A code cost below four stories, too
         at: '@there''s'
+        src:
+        - TERNER24
       src:
       - TERNER24
   - tpl: plate
     at: '@buildings#4-0.3'
     type: chart3d
     scene_id: ch_terner
-    camera_id: crane-up
+    camera_id: front-dolly
     p:
       hero: ch_terner
       frame0: 0
@@ -1702,7 +1969,7 @@ segments:
         sub: baseline = 100
         at: '@buildings#4+0.4'
         side: left
-        c: '#9AA7B5'
+        c: '#B8C2CE'
       - a: com:top
         s: ≈ +10%
         sub: commercial code for 3+ homes (Terner estimate, California)
@@ -1715,6 +1982,8 @@ segments:
       cap:
       - s: '3+ homes: the commercial building code (California)'
         at: '@commercial'
+        src:
+        - TERNER24
       src:
       - TERNER24
 - id: '05'
@@ -1741,7 +2010,10 @@ segments:
       cap:
       - s: Is one staircase safe enough? Fire officials, researchers and code bodies disagree
         at: 0.3
-      src: 'Footage: fire escape, U.S. city · Pexels, 2025 (illustrative)'
+        src:
+        - PH-PX-36624235
+      src:
+      - PH-PX-36624235
   - tpl: plate
     at: '@march-0.4'
     in: fade
@@ -1785,7 +2057,8 @@ segments:
         at: '@safeguards'
         src:
         - CALFIRE
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     at: '@pew-0.3'
     type: chart3d
@@ -1809,10 +2082,12 @@ segments:
         sub: as the city's other residential buildings, by their count
         at: '@same'
         side: right
-        c: '#9AA7B5'
+        c: '#B8C2CE'
       cap:
       - s: Pew and the Center for Building (advocates) · 4 deaths counted, NYC and Seattle, 2012–2024
         at: '@four'
+        src:
+        - PEW25
       src:
       - PEW25
   - tpl: plate
@@ -1865,6 +2140,8 @@ segments:
       cap:
       - s: In the model, stair count mattered only when all three happened
         at: '@risk'
+        src:
+        - MNDLI
       src:
       - MNDLI
   - tpl: plate
@@ -1878,7 +2155,7 @@ segments:
       asof: Facts as of 12 Oct 2026
       asofAt: '@2027'
       tags:
-      - a: yes:top
+      - a: yea:top
         s: '86'
         sub: 'governmental members: for one stair up to 4 stories'
         big: true
@@ -1887,20 +2164,24 @@ segments:
         side: left
         c: '#3CC2B0'
         num: c25
-      - a: no:top
+      - a: nay:top
         s: '34'
         sub: against
         big: true
         kind: actual
         at: '@thirty-four'
         side: right
-        c: '#9AA7B5'
+        c: '#B8C2CE'
         num: c25b
       cap:
       - s: International Code Council vote, announced May 2026
         at: '@vote'
+        src:
+        - ICCBSJ
       - s: '2027 model code: not yet published (as of 12 Oct 2026)'
         at: '@2027'
+        src:
+        - ICCBSJ
       src:
       - ICCBSJ
 - id: '06'
@@ -1967,7 +2248,7 @@ segments:
     at: '@multifamily-0.5'
     type: document
     scene_id: d_cfr
-    camera_id: tilt-low
+    camera_id: detail
     p:
       hero: d_cfr
       frame0: 0
@@ -1976,6 +2257,8 @@ segments:
       cap:
       - s: Federal housing-goals regulation (eCFR, current text)
         at: '@multifamily'
+        src:
+        - CFR1282
       src:
       - CFR1282
   - tpl: plate
@@ -2001,6 +2284,9 @@ segments:
       cap:
       - s: In these definitions, a fourplex is classed with houses
         at: '@classed'
+        src:
+        - FNMA
+        - HUD4000
       src:
       - FNMA
       - HUD4000
@@ -2016,7 +2302,7 @@ segments:
         sub: outside these single-family programs
         at: '@fifth+0.8'
         side: right
-        c: '#9AA7B5'
+        c: '#B8C2CE'
       src:
       - CFR1282
       - FNMA
@@ -2051,6 +2337,9 @@ segments:
       cap:
       - s: Now add the shop
         at: '@now'
+        src:
+        - FNMA
+        - HUD4000
       src:
       - FNMA
       - HUD4000
@@ -2112,7 +2401,10 @@ segments:
       cap:
       - s: 'Our read: the rules aren''t the whole story'
         at: 0.3
-      src: 'Footage: apartment construction · Pexels, 2024 (illustrative)'
+        src:
+        - PH-PX-20568183
+      src:
+      - PH-PX-20568183
   - tpl: plate
     at: '@october-0.3'
     type: map
@@ -2134,7 +2426,8 @@ segments:
         at: '@challenged'
         src:
         - MPLSFED
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     at: '@2024-0.6'
     type: scene3d
@@ -2146,7 +2439,9 @@ segments:
         at: '@would'
         src:
         - TERNER24
-      src: 3D illustration
+      src:
+      - TERNER24
+      credit: 3D illustration
   - tpl: plate
     at: '@recap-0.6'
     in: fade
@@ -2159,6 +2454,9 @@ segments:
         type: list
         kicker: TO RECAP
         title: Three locks — and the costs
+        px: 34
+        gap: 30
+        top: 170
         items:
         - s: The map
           sub: can block any of these buildings
@@ -2169,14 +2467,13 @@ segments:
         - s: The bank line
           sub: sorts at 5 homes; many buildings with a shop fall outside single-family programs
           at: '@bank'
-        - s: Costs and rents
-          sub: building costs · borrowing costs · rents
+        - s: 'Costs and rents: building costs · borrowing costs · rents'
           at: '@building'
-          c: '#9AA7B5'
+          c: '#B8C2CE'
         - s: 'How much each contributed: not measured in the record we found'
           at: '@whether'
           check: false
-          c: '#9AA7B5'
+          c: '#B8C2CE'
 - id: 08
   part: RESULT
   vo: 'Here''s what America built over the same decades. Two-to-four-unit completions peaked in the 1970s, then fell in waves: from about 86,000 homes in 1986 to 45,000 in 1990, and from about 41,000 in 2006 to 9,000 in 2010. In 2025: 16,000. The Census numbers show when — not why; this video doesn''t test what caused each drop. As a share of all new homes, two-to-four-unit buildings went from almost six percent in the early 1970s to just over one percent in 2025 — our calculation from Census completions, pooling 1970 through 1974. Small apartment buildings of five to nineteen units went from three hundred seventy-seven thousand homes completed in 1973, the series'' peak year, to about 48,000 in 2025 — from the Census''s separate multifamily series, our sum of two columns. Single-family houses went from about fifty-seven percent of new homes in the early 1970s to about sixty-eight percent in 2025 — again our calculation, pooling 1970 through 1974. And in that same multifamily series, buildings of fifty or more units went from one in five new apartments in 1972 to fifty-seven percent in 2025. Our read: across these two series, new construction moved toward the two ends — houses, and large apartment buildings.'
@@ -2262,6 +2559,8 @@ segments:
       cap:
       - s: Homes completed per year in 2–4-unit buildings, thousands (1968–2025)
         at: '@two-to-four-unit'
+        src:
+        - NRC
       src:
       - NRC
   - tpl: plate
@@ -2275,9 +2574,14 @@ segments:
       cap:
       - s: The Census numbers show when — not why
         at: '@census'
+        src:
+        - PH-LOC-HABS-03
       - s: Dade Apartment Building and neighbors, Florida, 1991
         at: '@test'
-      src: 'Photo: Historic American Buildings Survey, 1991 · Library of Congress (no known restrictions)'
+        src:
+        - PH-LOC-HABS-03
+      src:
+      - PH-LOC-HABS-03
       clip: LOC-HABS-03
       file: /var/tmp/cine-out/k2v-cache/photo/loc-habs-03u.tif
       setting: ft/dade-apartment-building
@@ -2311,13 +2615,15 @@ segments:
       cap:
       - s: '2–4-unit buildings: share of all new homes (our calculation)'
         at: '@share'
+        src:
+        - NRC
       src:
       - NRC
   - tpl: plate
     at: '@small-0.3'
     type: chart3d
     scene_id: ch_small
-    camera_id: crane-up
+    camera_id: front-dolly
     p:
       hero: ch_small
       frame0: 0
@@ -2329,7 +2635,7 @@ segments:
         kind: actual
         at: '@seventy-seven'
         side: left
-        c: '#9AA7B5'
+        c: '#B8C2CE'
         num: c35b
       - a: y25:top
         s: ≈ 48,000
@@ -2343,6 +2649,8 @@ segments:
       cap:
       - s: Homes completed in buildings of 5–19 units (our sum of two Census columns)
         at: '@small'
+        src:
+        - CNH
       src:
       - CNH
   - tpl: plate
@@ -2356,7 +2664,10 @@ segments:
       cap:
       - s: Walk-up apartment buildings, New York City, 1938
         at: '@separate'
-      src: 'Photo: FSA/OWI, Library of Congress (no known restrictions)'
+        src:
+        - PH-LOC-FSA-03
+      src:
+      - PH-LOC-FSA-03
       clip: LOC-FSA-03
       file: /var/tmp/cine-out/k2v-cache/photo/loc-fsa-03u.tif
       setting: ft/nyc-61st-street-rear
@@ -2376,7 +2687,7 @@ segments:
         kind: actual
         at: '@fifty-seven'
         side: left
-        c: '#9AA7B5'
+        c: '#B8C2CE'
         num: c63b
       - a: s25:top
         s: ≈ 68%
@@ -2390,6 +2701,8 @@ segments:
       cap:
       - s: 'Single-family houses: share of new homes (our calculation)'
         at: '@single-family'
+        src:
+        - NRC
       src:
       - NRC
   - tpl: plate
@@ -2408,7 +2721,7 @@ segments:
         kind: actual
         at: '@five#2'
         side: left
-        c: '#9AA7B5'
+        c: '#B8C2CE'
         num: c34b
       - a: y25:top
         s: 57%
@@ -2422,6 +2735,8 @@ segments:
       cap:
       - s: 'Buildings of 50+ units: share of new apartments'
         at: '@that'
+        src:
+        - CNH
       src:
       - CNH
   - tpl: plate
@@ -2451,6 +2766,9 @@ segments:
       cap:
       - s: 'Our read: new construction moved toward the two ends (illustration, 1972 → 2025)'
         at: '@across'
+        src:
+        - CNH
+        - NRC
 - id: 09
   part: MYTH
   vo: 'So what happens when a place opens the map? When Washington state''s legislature heard its 2023 middle-housing bill, supporters called it "the fastest and most scalable way to increase housing production." In the committee''s staff summary of the testimony, others said its "uniform application of requirements does not recognize the uniqueness of each city," and that "more people would just create more traffic." Minneapolis offers one test. Its 2040 plan, adopted in 2019, allows — as of October 2026 — duplexes and triplexes in areas once zoned only for single-family homes. In October 2026, Minneapolis Fed researchers reported that from 2020 through 2025 the city permitted 317 new units in duplexes, triplexes and fourplexes — about two percent of the homes it permitted in multifamily buildings, and roughly the same as a comparison group. Their headline also reported stable rents; this video doesn''t test what caused them. Their summary: land-use changes "appear insufficient to drive new housing production in a challenging development environment." When California''s SB 9 took effect in January 2022, it let homeowners split their lot and build up to four homes on a single-family parcel. In its first year, Los Angeles received 211 applications for new units under the law; San Diego received seven. In a 2019 study, the researcher Yonah Freemark found short-term, local effects of upzoning near Chicago rail stations: higher property prices, but over five years, no measurable increase in newly permitted homes. Other studies report increases. A 2023 study by Urban Institute researchers linked loosening land-use reforms to a rise in housing supply of about 0.8 percent within three to nine years, mostly at the higher end of rents. And outside the U.S., a 2023 University of Auckland working paper estimated that roughly 21,800 additional homes were permitted in the five years after Auckland upzoned about three quarters of its residential land — about four percent of its housing stock. So on housing production, the record is mixed. In Minneapolis and in SB 9''s first year, the counts were in the hundreds or fewer; the Urban Institute and Auckland studies found increases. These studies measure different things in different places, so they don''t add up to one number — and none of the studies we cite covers Washington''s 2023 law, or the traffic and city-by-city concerns raised there.'
@@ -2475,7 +2793,10 @@ segments:
       cap:
       - s: So what happens when a place opens the map?
         at: 0.3
-      src: 'Footage: Chattanooga, Tenn. · Pexels, 2025 (illustrative)'
+        src:
+        - PH-PX-33003293
+      src:
+      - PH-PX-33003293
   - tpl: plate
     at: '@washington-0.6'
     in: fade
@@ -2525,7 +2846,7 @@ segments:
     at: '@october#2-0.3'
     type: chart3d
     scene_id: ch_mpls
-    camera_id: crane-up
+    camera_id: front-dolly
     p:
       hero: ch_mpls
       frame0: 0
@@ -2543,10 +2864,12 @@ segments:
         s: all homes permitted in multifamily buildings
         at: '@multifamily'
         side: left
-        c: '#9AA7B5'
+        c: '#B8C2CE'
       cap:
       - s: About 2% — roughly the same as a comparison group
         at: '@roughly'
+        src:
+        - MPLSFED
       src:
       - MPLSFED
   - tpl: plate
@@ -2592,7 +2915,8 @@ segments:
         at: '@california''s'
         src:
         - TERNER23
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     at: '@first-0.3'
     type: chart3d
@@ -2643,12 +2967,13 @@ segments:
         at: '@freemark'
         src:
         - FREEMARK
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
   - tpl: plate
     at: '@other-0.3'
     type: chart3d
     scene_id: ch_study
-    camera_id: top-down
+    camera_id: front-dolly
     p:
       hero: ch_study
       frame0: 0
@@ -2665,6 +2990,8 @@ segments:
       cap:
       - s: Urban Institute researchers, 2023 study (abstract)
         at: '@urban'
+        src:
+        - STACY
       src:
       - STACY
   - tpl: plate
@@ -2718,11 +3045,11 @@ segments:
         - s: Different measures, different places
           sub: they don't add up to one number
           at: '@different'
-          c: '#9AA7B5'
+          c: '#B8C2CE'
         - s: 'Not covered: Washington''s 2023 law, traffic, city-by-city concerns'
           at: '@covers'
           check: false
-          c: '#9AA7B5'
+          c: '#B8C2CE'
 - id: '10'
   part: WHERE
   vo: 'So where are these buildings legal again? As of October 12, 2026: New York City''s "City of Yes" plan, approved by the City Council on December 5, 2024, re-legalized housing above shops on commercial streets in all its low-density districts — two to four stories of homes over a ground-floor business. In the Department of City Planning''s final plan, the new "missing middle" buildings are meant to match the scale of existing buildings that had been "functionally banned by zoning." Oregon''s 2019 law requires cities of 25,000 people or more to allow duplexes through fourplexes, townhouses and cottage clusters in areas zoned for detached single-family homes. Washington''s 2023 law requires many cities to allow at least two to six homes per lot, depending on city size and distance to major transit. On stairs: Texas lets its cities allow single-stair buildings up to six stories, with at most four homes per floor, since September 2025. Colorado requires many cities of 100,000 people or more to allow five-story single-stair apartment buildings by December 1, 2027. And the lending line is still four.'
@@ -2794,7 +3121,9 @@ segments:
         at: '@functionally'
         src:
         - NYCDCP
-      src: 3D illustration
+      src:
+      - NYCDCP
+      credit: 3D illustration
   - tpl: plate
     at: '@oregon''s-0.3'
     type: map
@@ -2815,7 +3144,9 @@ segments:
       - s: Cities of 25,000 people or more
         at: '@25,000'
         num: c46
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
+      - ORHB2001
   - tpl: plate
     at: '@washington''s-0.3'
     type: map
@@ -2836,7 +3167,9 @@ segments:
       - s: At least two to six homes per lot
         at: '@two'
         num: c47
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
+      - RCW635
   - tpl: plate
     at: '@stairs-0.4'
     type: map
@@ -2859,7 +3192,9 @@ segments:
       - s: Cities may allow single-stair buildings up to six stories
         at: '@six'
         num: c50
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - MAPC
+      - TXSB2835
   - tpl: plate
     at: '@colorado-0.3'
     type: map
@@ -2880,7 +3215,9 @@ segments:
       - s: Five-story single-stair apartment buildings, by December 1, 2027
         at: '@five-story'
         num: c51
-      src: 'Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory'
+      src:
+      - COHB1273
+      - MAPC
   - tpl: plate
     at: '@lending-0.6'
     type: scene3d
@@ -2898,7 +3235,7 @@ segments:
         at: '@still'
         side: up
         c: '#F08A4B'
-        num: c26
+        num: c26c
       src:
       - CFR1282
 - id: '11'
@@ -2941,7 +3278,10 @@ segments:
       cap:
       - s: The buildings themselves didn't go away
         at: '@themselves'
-      src: 'Photo: Bay Ridge, Brooklyn, N.Y. · Pexels (recent photo)'
+        src:
+        - PH-PXP-7180335
+      src:
+      - PH-PXP-7180335
       clip: PXP-7180335
       file: /var/tmp/cine-out/k2v-cache/photo/pexels-photo-7180335.jpeg
       setting: ft/bay-ridge-brooklyn
@@ -3190,6 +3530,12 @@ heroes:
   sa_floor:
     hero: k2c106/stairs
     cam: floor_plate
+    opt:
+      mode: two
+      floors: 4
+  sa_corr:
+    hero: k2c106/stairs
+    cam: corridor_side
     opt:
       mode: two
       floors: 4
@@ -4041,9 +4387,9 @@ heroes:
         - '@thirteen+0.7'
   ch_terner:
     hero: chart3d/bars
-    cam: crane-up
+    cam: front-dolly
     opt:
-      scale: 0.05
+      scale: 0.038
       w: 2.4
       d: 2.4
       ruler:
@@ -4094,7 +4440,7 @@ heroes:
     hero: chart3d/bars
     cam: side-track
     opt:
-      scale: 0.06
+      scale: 0.045
       w: 2.4
       d: 2.4
       ruler:
@@ -4105,14 +4451,14 @@ heroes:
       rulerZ: -4
       rulerW: 14
       bars:
-      - id: true
+      - id: yea
         x: -2.4
         v: 86
         color: '#3CC2B0'
         grow:
         - '@eighty-six-0.4'
         - '@eighty-six+0.6'
-      - id: false
+      - id: nay
         x: 2.4
         v: 34
         color: '#9AA7B5'
@@ -4287,9 +4633,9 @@ heroes:
         - '@just+0.5'
   ch_small:
     hero: chart3d/bars
-    cam: crane-up
+    cam: front-dolly
     opt:
-      scale: 0.025
+      scale: 0.011
       w: 2.4
       d: 2.4
       ruler:
@@ -4376,9 +4722,9 @@ heroes:
         - '@fifty-seven#2+0.6'
   ch_mpls:
     hero: chart3d/stack
-    cam: crane-up
+    cam: front-dolly
     opt:
-      scale: 0.0008
+      scale: 0.00035
       block: 1000
       w: 3.0
       d: 3.0
@@ -4434,9 +4780,9 @@ heroes:
         - '@seven+0.4'
   ch_study:
     hero: chart3d/bars
-    cam: top-down
+    cam: front-dolly
     opt:
-      scale: 6
+      scale: 5
       w: 2.6
       d: 2.6
       ruler:
@@ -4697,7 +5043,7 @@ heroes:
       exposure: 0.8
   d_cfr:
     hero: photo/doc
-    cam: tilt-low
+    cam: detail
     opt:
       page: /cache/cfr-1282-1-p1.json
       hl:
@@ -4725,6 +5071,7 @@ heroes:
       file: /var/tmp/k2-footage/k2c-t1-06/px-36624235.mp4
       sha256: 53b2cd086da64419a149972655e65026f1b0aa276d6a47e81afaeca5cac73e7a
       ss: 1
+      decimate: true
   f_crane:
     hero: footage/clip
     opt:
@@ -4799,20 +5146,20 @@ heroes:
     - 1080
     - 1920
     opt:
-      preset: crane-up
-      scale: 0.8
-      w: 2.4
-      d: 2.4
+      preset: front-dolly
+      scale: 0.55
+      w: 2.0
+      d: 2.0
       bars:
       - id: stock
-        x: -2.0
+        x: -1.4
         v: 7.54
         color: '#F08A4B'
         grow:
         - 0.3
         - 1.6
       - id: new25
-        x: 2.0
+        x: 1.4
         v: 1.07
         color: '#3CC2B0'
         grow:
@@ -4887,7 +5234,7 @@ heroes:
         mm: 20
 shorts:
 - id: S1
-  hook: 1 in 13 homes — but 1 in 100 new ones. Why?
+  hook: One in thirteen homes — but one in a hundred new ones. Why?
   shots:
   - tpl: plate
     at: 0
@@ -4899,7 +5246,7 @@ shorts:
       labels:
       - a: building
         s: about 1 in 13
-        sub: U.S. homes in 2–4-apartment buildings (2024)
+        sub: U.S. homes in 2–4-unit buildings, 2024
         at: '@thirteen'
         dy: -260
         num: c01

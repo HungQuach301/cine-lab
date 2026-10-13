@@ -43,13 +43,14 @@ export function studio(scene, { size = 160, floor = '#0a0e15', wall = '#101824',
   const ft = canvasTex(2048, 2048, (g, w, h) => { g.fillStyle = floor; g.fillRect(0, 0, w, h);
     const R = rng(11); for (let i = 0; i < 30000; i++) { g.fillStyle = `rgba(255,255,255,${0.008 + 0.014 * R()})`; g.fillRect(R() * w, R() * h, 1.2, 1.2); }
     const n = Math.round(size / grid); g.strokeStyle = 'rgba(154,167,181,0.10)'; g.lineWidth = 1.6; for (let i = 0; i <= n; i++) { const x = i * w / n; g.beginPath(); g.moveTo(x, 0); g.lineTo(x, h); g.stroke(); g.beginPath(); g.moveTo(0, x); g.lineTo(w, x); g.stroke(); } });
-  ft.wrapS = ft.wrapT = THREE.RepeatWrapping; ft.repeat.set(3, 3);
-  const fl = new THREE.Mesh(new THREE.PlaneGeometry(size * 3, size * 3), new THREE.MeshPhysicalMaterial({ map: ft, roughness: 0.78, metalness: 0.0, specularIntensity: 0.22, envMapIntensity: 0.12 })   /* sàn đen nhưng góc sượt phản xạ gương mạnh (Fresnel) → xám bạc; giảm specular */);
+  ft.wrapS = ft.wrapT = THREE.RepeatWrapping; ft.repeat.set(12, 12);
+  const fl = new THREE.Mesh(new THREE.PlaneGeometry(size * 12, size * 12), new THREE.MeshPhysicalMaterial({ map: ft, roughness: 0.78, metalness: 0.0, specularIntensity: 0.22, envMapIntensity: 0.12 })   /* sàn đen nhưng góc sượt phản xạ gương mạnh (Fresnel) → xám bạc; giảm specular */);
   fl.rotation.x = -Math.PI / 2; fl.receiveShadow = true; scene.add(fl);
   // tường cong (cyclorama) bao ba phía, đủ rộng để không lộ mép ở mọi preset máy quay
   const r = 12, d = size * 0.18, geo = new THREE.BufferGeometry(), P = [], I = [], prof = [[-d, 0]];
-  for (let i = 1; i <= 16; i++) { const a = (i / 16) * Math.PI / 2; prof.push([-d - Math.sin(a) * r, r - Math.cos(a) * r]); } prof.push([-d - r, size * 0.6]);
-  prof.forEach(([z, y], j) => { P.push(-size * 1.5, y, z, size * 1.5, y, z); if (j) { const b = (j - 1) * 2; I.push(b, b + 1, b + 2, b + 1, b + 3, b + 2); } });
+  for (let i = 1; i <= 16; i++) { const a = (i / 16) * Math.PI / 2; prof.push([-d - Math.sin(a) * r, r - Math.cos(a) * r]); } prof.push([-d - r, size * 1.5]);
+  prof.forEach(([z, y], j) => { P.push(-size * 6, y, z, size * 6, y, z);   // 13/10: ±1,5·size lộ đầu mút tường (khối đen góc bo) khi máy nhìn dọc tường (K2C-T1-06 ch_pew, ch_terner)
+    if (j) { const b = (j - 1) * 2; I.push(b, b + 1, b + 2, b + 1, b + 3, b + 2); } });
   geo.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); geo.setIndex(I); geo.computeVertexNormals();
   const wl = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: wall, roughness: 0.95, side: THREE.DoubleSide, envMapIntensity: 0.2 })); wl.receiveShadow = true; scene.add(wl);
   // vũng sáng mềm trên tường sau (chiều sâu, tách chủ thể khỏi nền)

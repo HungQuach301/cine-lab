@@ -25,13 +25,13 @@ people:
 anchors: [c01, c02, c03, c05, c08, c09, c12, c14, c15, c16, c18, c20, c25, c26, c34, c35, c36, c39, c41, c44, c53, c57, c60, c63]
 
 sources:
-  ACS24: {short: "Census ACS 2024 (B25024, B25127)", url: "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b25024.dat", read: fulltext, accessed: 2026-10-12}
-  NRC: {short: "Census New Residential Construction (completions)", url: "https://www.census.gov/construction/nrc/xls/comps_cust.xlsx", read: fulltext, accessed: 2026-10-12}
+  ACS24: {short: "Census ACS 2024 (B25024, B25127)", short9: "Census ACS 2024", url: "https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/data/1YRData/acsdt1y2024-b25024.dat", read: fulltext, accessed: 2026-10-12}
+  NRC: {short: "Census New Residential Construction (completions)", short9: "Census completions", url: "https://www.census.gov/construction/nrc/xls/comps_cust.xlsx", read: fulltext, accessed: 2026-10-12}
   CNH: {short: "Census Characteristics of New Housing (multifamily)", url: "https://www.census.gov/construction/chars/xls/mfu_unitsperbldg_cust.xls", read: fulltext, accessed: 2026-10-12}
   SSZEA: {short: "A Standard State Zoning Enabling Act (rev. ed., 1926)", url: "https://nvlpubs.nist.gov/nistpubs/Legacy/BH/nbsbuildinghousing5a.pdf", read: fulltext, accessed: 2026-10-12}
   EUCLID: {short: "Euclid v. Ambler Realty, 272 U.S. 365 (1926)", url: "https://tile.loc.gov/storage-services/service/ll/usrep/usrep272/usrep272365/usrep272365.pdf", read: fulltext, accessed: 2026-10-12}
   NZACO: {short: "National Zoning Atlas, Zoning Report: Colorado (2025)", url: "https://www.zoningatlas.org/s/Colorado-Report-Updated-a32l.pdf", read: fulltext, accessed: 2026-10-12}
-  IBCSEA: {short: "Seattle Building Code 2021, Ch. 10 (IBC 2021 text)", url: "https://www.seattle.gov/documents/Departments/SDCI/Codes/SeattleBuildingCode/2021SBCChapter10.pdf", read: fulltext, accessed: 2026-10-12}
+  IBCSEA: {short: "Seattle Building Code 2021, Ch. 10 (IBC 2021 text)", short9: "Seattle Building Code 2021", url: "https://www.seattle.gov/documents/Departments/SDCI/Codes/SeattleBuildingCode/2021SBCChapter10.pdf", read: fulltext, accessed: 2026-10-12}
   WABO: {short: "Washington Assn. of Building Officials, proposal 24-SEP-001 (Aug 2024)", url: "https://sbcc.wa.gov/sites/default/files/2025-03/24-SEP-001.pdf", read: fulltext, accessed: 2026-10-12}
   PEW25: {short: "Pew Charitable Trusts with CBNA, report summary (2025)", url: "https://www.pew.org/-/media/assets/2025/05/single-stair_report_summary.pdf", read: fulltext, accessed: 2026-10-12}
   IAFC: {short: "International Association of Fire Chiefs (Mar 2024)", url: "https://www.iafc.org/blogs/blog/iafc/2024/03/15/reducing-stairs-in-residential-buildings-higher-than-three-stories-creates-escape-hazards-for-occupants-and-inhibits-vital-emergency-response-operat", read: fulltext, accessed: 2026-10-12}
@@ -71,11 +71,12 @@ numbers:
   c16: {v: 7, text: "≈ 7%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "seven percent", note: "Pew estimate"}
   c16b: {v: 6, text: "6%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "six"}
   c16c: {v: 13, text: "13%", kind: actual, year: 2025, unit: '%', src: PEW25, say: "thirteen percent"}
-  c18: {v: 6, text: "up to 6 stories", kind: actual, year: 2021, unit: stories, src: IBCSEA, say: "six stories"}
+  c18: {v: 6, text: "up to 6 stories", kind: actual, year: 2021, unit: stories, src: IBCSEA, say: "them up to six stories"}
   c20: {v: 4440, text: "4,440", kind: actual, year: 2025, unit: buildings, src: PEW25, say: "four thousand four hundred forty"}
   c25: {v: 86, text: "86–34", kind: actual, year: 2026, unit: votes, src: ICCBSJ, say: "eighty-six to thirty-four"}
   c25b: {v: 34, text: "34", kind: actual, year: 2026, unit: votes, src: ICCBSJ, say: "thirty-four"}
-  c26: {v: 4, text: "1–4 homes", kind: actual, year: 2026, unit: homes, src: CFR1282, say: "four"}
+  c26: {v: 4, text: "1–4 homes", kind: actual, year: 2026, unit: homes, src: CFR1282, say: "a line: four"}
+  c26c: {v: 4, text: "1–4 homes", kind: actual, year: 2026, unit: homes, src: CFR1282, say: "still four"}   # đoạn 10 ("the lending line is still four")
   c34: {v: 57, text: "57%", kind: actual, year: 2025, unit: '%', src: CNH, say: "fifty-seven percent"}
   c34b: {v: 20, text: "1 in 5", kind: actual, year: 1972, unit: '%', src: CNH, say: "one in five"}
   c35: {v: 48, text: "≈ 48,000", kind: actual, year: 2025, unit: homes, src: CNH, say: "48,000", note: "5–9 + 10–19 units (our sum)"}
@@ -99,7 +100,7 @@ numbers:
   c63b: {v: 57.09, text: "≈ 57%", kind: actual, year: 1972, unit: '%', src: NRC, say: "fifty-seven percent", period: "1970–74", note: "1970–74 pooled (our calculation)"}
   c46: {v: 25000, text: "≥ 25,000 people", kind: actual, year: 2019, unit: people, src: ORHB2001, say: "25,000"}
   c47: {v: 6, text: "2–6 homes per lot", kind: actual, year: 2023, unit: homes, src: RCW635, say: "two to six"}
-  c50: {v: 6, text: "up to 6 stories", kind: actual, year: 2025, unit: stories, src: TXSB2835, say: "six stories"}
+  c50: {v: 6, text: "up to 6 stories", kind: actual, year: 2025, unit: stories, src: TXSB2835, say: "buildings up to six stories"}
   c51: {v: 5, text: "5 stories by Dec 1, 2027", kind: actual, year: 2025, unit: stories, src: COHB1273, say: "five-story"}
 
 segments: "@segments"

@@ -2556,6 +2556,9 @@ k2c106/stairs:
   fire_logic:
     module: true
     note: preset trong k2c106.js (CAM.stairs.fire_logic)
+  corridor_side:
+    module: true
+    note: preset trong k2c106.js (CAM.stairs.corridor_side)
 k2c106/bank:
   side:
     module: true

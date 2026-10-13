@@ -78,7 +78,7 @@ function tags(g, p, t, list) { for (const L of list || []) { const u = vis(t, L.
   const big = !!L.big, px = (L.px || (big ? 54 : 36)) * S, spx = (L.spx || 32) * S, w1 = tw(g, L.s, px, 700, big), w2 = L.sub ? tw(g, L.sub, spx, 500) : 0, kw = L.kind ? tw(g, L.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', MINPX * 0.9, 700) + MINPX * 1.4 : 0;
   const bw = Math.max(w1 + kw, w2) + 46, bh = (L.sub ? px * 1.2 + spx * 1.35 : px * 1.2) + 26, gap = (L.gap === undefined ? 30 : L.gap) * S, side = L.side || 'right', c = L.c || K.orange;
   let bx = side === 'right' ? A.x + gap : side === 'left' ? A.x - gap - bw : A.x - bw / 2, by = side === 'up' ? A.y - gap - bh : side === 'down' ? A.y + gap : A.y - bh / 2;
-  const yMax = SAFE.y1 - (p.src || p.cap ? 150 * S : 0);   // không đè dải chú thích/dòng nguồn
+  const yMax = (p.src || p.cap) ? (V ? SAFE.y1 - 150 * S : Math.min(SAFE.y1 - 150 * S, H * 0.735 + 10)) : SAFE.y1;   // không đè dải chú thích/dòng nguồn (13/10: 16:9 chặn ở đỉnh câu chú thích, nhãn 317 từng đè câu ở ch_mpls)
   bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, bx)); by = Math.max(SAFE.y0, Math.min(yMax - bh, by));
   if (gap > 6 * S) { const ex = Math.max(bx, Math.min(bx + bw, A.x)), ey = Math.max(by, Math.min(by + bh, A.y)); g.save(); g.globalAlpha *= u; g.strokeStyle = c; g.lineWidth = 2.5; g.beginPath(); g.moveTo(A.x, A.y); g.lineTo(ex, ey); g.stroke();
     if (!L.nodot) { g.fillStyle = c; g.beginPath(); g.arc(A.x, A.y, 5.5, 0, 7); g.fill(); } g.restore(); }
@@ -88,12 +88,18 @@ function tags(g, p, t, list) { for (const L of list || []) { const u = vis(t, L.
   if (L.sub) text(g, L.sub, bx + 24, by + 13 + px * 1.2 + spx * 0.98, spx, L.subc || '#E6EBF0', { a: u, w: 500 }); LL.fill = true; } }
 // dải chú thích dưới: {s, at, big (số lớn), kind, src}; hiện mục mới nhất
 function caps(g, p, t) { const Cs = p.cap || []; let k = -1; Cs.forEach((c, i) => { if (t >= c.at) k = i; }); if (k < 0 && !p.src) return;
-  const c = k >= 0 ? Cs[k] : null, a = c ? rv(t, c.at, 0.45) : 0, srcS = (c && c.src) || p.src, y0 = V ? H * 0.70 : H * 0.735;
+  const c = k >= 0 ? Cs[k] : null, a = c ? rv(t, c.at, 0.45) : 0, src0 = (c && c.src) || p.src, srcS = p.credit ? (src0 && String(src0).trim() ? src0 + ' · ' + p.credit : p.credit) : src0;   // credit (3D illustration / our calculation) nối cuối dòng nguồn: không đè nhãn ACTUAL góc phải
+  // 13/10 (nháp K2C-T1-06): số lớn + câu 2 dòng + dòng nguồn 2 dòng đè nhau → đẩy cả khối chữ lên cho dòng cuối cách đỉnh dòng nguồn ≥ 18 px
+  const lh0 = V ? 66 : 54, px0 = V ? 54 : 44, smw = V ? W - 2 * 70 : 1500, nL = c ? Math.min(3, wrap(g, c.s || '', V ? W - 140 : 1500, px0, 600).length) : 0;
+  const nS = srcS && String(srcS).trim() ? (tw(g, srcS, MINPX, 500) <= smw ? 1 : wrap(g, srcS, smw, MINPX, 500).length) : 0;
+  const srcTop = H - (V ? 260 : EDGE_B) - (nS ? (nS - 1) * MINPX * 1.25 + MINPX : 0);
+  const last0 = (V ? H * 0.70 : H * 0.735) + (V ? 60 : 50) + (c && c.big ? (V ? 170 : 105) : 0) + 10 + Math.max(0, nL - 1) * lh0;
+  const y0 = (V ? H * 0.70 : H * 0.735) - Math.max(0, last0 - (srcTop - 18));
   const gr = g.createLinearGradient(0, y0 - (V ? 160 : 80), 0, H); gr.addColorStop(0, 'rgba(8,12,18,0)'); gr.addColorStop(0.35, `rgba(8,12,18,${0.78 * Math.max(a, srcS ? 0.85 : 0)})`); gr.addColorStop(1, `rgba(8,12,18,${0.9 * Math.max(a, srcS ? 0.85 : 0)})`);
   g.fillStyle = gr; g.fillRect(0, y0 - (V ? 160 : 80), W, H - y0 + 160); const x = V ? W / 2 : SAFE.x0, al = V ? 'center' : 'left', mw = V ? W - 140 : 1500;
   if (c) { let y = y0 + (V ? 60 : 50); if (c.big) { text(g, c.big, x, y + (V ? 70 : 60), (V ? 110 : 96), c.kind === 'projection' ? K.amber : K.orange, { a, w: 700, disp: true, align: al }); if (c.kind) kindTag(g, c.kind, V ? W / 2 : x + tw(g, c.big, 96, 700, true) + 30, y + (V ? 130 : 30), a, V ? 'center' : 'left'); y += V ? 170 : 105; }
     const L = wrap(g, c.s || '', mw, (V ? 54 : 44), 600); L.slice(0, 3).forEach((l, i) => text(g, l, x, y + 10 + i * (V ? 66 : 54), (V ? 54 : 44), K.text, { a, w: 600, align: al })); }
-  if (srcS) srcLine(g, srcS, x, H - (V ? 260 : EDGE_B), 1, al); if (p.credit) text(g, p.credit, W - SAFE.x0, H - EDGE_B, MINPX, K.dim, { align: 'right', w: 500 }); }
+  if (srcS) srcLine(g, srcS, x, H - (V ? 260 : EDGE_B), 1, al); }
 // tựa lớn: {t, sub, at, out, kicker}
 function title(g, p, t) { const T = p.title; if (!T) return; const u = vis(t, T.at === undefined ? 0 : T.at, T.out, 0.7); if (u <= 0.01) return;
   const cx = W / 2, cy = V ? H * 0.42 : H * 0.44; const gr = g.createRadialGradient(cx, cy, 50, cx, cy, W * 0.6); gr.addColorStop(0, `rgba(8,12,18,${0.62 * u})`); gr.addColorStop(1, 'rgba(8,12,18,0)'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
@@ -165,7 +171,7 @@ TPLC.split = (g, c, t, u) => { const R = CARD, gap = 40, cw = V ? R.w - 80 : (R.
     text(g, col.tag, x + 34, y + 62, 32 * S, col.c || (k ? K.teal : K.orange), { a: a * u, w: 700 }); let yy = col.title ? para(g, col.title, x + 34, y + 130, cw - 70, 44 * S, K.text, { a: a * u, w: 700, disp: true }) + 80 : y + 130;
     for (const ln of col.lines || []) { const b = rv(t, ln.at, 0.45); if (b <= 0) continue; g.save(); g.globalAlpha *= b * u; g.fillStyle = col.c || (k ? K.teal : K.orange); g.fillRect(x + 34, yy - 26 * S, 10, 10); g.restore(); yy = para(g, ln.s, x + 60, yy, cw - 100, 36 * S, ln.c || K.text, { a: b * u, w: 500 }) + 60 * S; } }); };
 // danh sách / luồng: {items: [{s, sub, at}], flow (mũi tên giữa các bước), num (đánh số)}
-TPLC.list = (g, c, t, u) => { const R = CARD, n = c.items.length, top = R.y + (c.title ? 250 : 120) * S;
+TPLC.list = (g, c, t, u) => { const R = CARD, n = c.items.length, top = R.y + (c.top || (c.title ? 250 : 120)) * S;   // c.top: thẻ nhiều mục (K2C-T1-06 07, 13/10)
   if (c.flow && !V) { const bw = (R.w - 100 - (n - 1) * 50) / n; c.items.forEach((it, i) => { const a = rv(t, it.at, 0.5); if (a <= 0) return; const x = R.x + 50 + i * (bw + 50), y = top - 30 * S, h = R.h - (top - R.y) - 100 * S;
       panel(g, x, y, bw, h, { a: a * u, accent: it.c || K.orange, fill: 'rgba(22,33,47,0.92)' }); text(g, String(i + 1), x + 30, y + 72, 56, it.c || K.orange, { a: a * u, w: 700, disp: true });
       const ye = para(g, it.s, x + 30, y + 140, bw - 54, 38, K.text, { a: a * u, w: 700 }); if (it.sub) para(g, it.sub, x + 30, ye + 50, bw - 54, 31, K.dim, { a: a * u, w: 500 });
@@ -212,14 +218,14 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
   else { caps(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); }   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;
-  if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else kindTag(g, kd, W - SAFE.x0, H - (V ? 330 : EDGE_B + 14), 1, 'right'); }   // Q7: shot có số → nhãn ACTUAL/PROJECTION
+  if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });
 
 // thẻ cuối Short (ll.py tự chèn tpl 'endcard', p.line)
 TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGradient(W / 2, H * 0.45, 40, W / 2, H * 0.45, H * 0.8); gr.addColorStop(0, '#1b2738'); gr.addColorStop(1, K.ink); g.fillStyle = gr; g.fillRect(0, 0, W, H);
   g.save(); g.strokeStyle = 'rgba(154,167,181,0.10)'; g.lineWidth = 1.5; const o = (t * 18) % 60; for (let x = -60 + o; x < W + 60; x += 60) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); } for (let y = -60 + o; y < H + 60; y += 60) { g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); } g.restore();
   const a = rvH(t, p.t0, 0.4), z = 1 + 0.03 * cl((t - p.t0) / 1.5); g.save(); g.translate(W / 2, H * 0.45); g.scale(z, z); g.translate(-W / 2, -H * 0.45);
-  text(g, (window.SPEC && window.SPEC.brand) || p.brand || 'STEEL', W / 2, H * 0.42, V ? 130 : 120, K.text, { a, w: 700, disp: true, align: 'center' }); g.save(); g.globalAlpha *= a; g.fillStyle = K.orange; g.fillRect(W / 2 - 60, H * 0.42 + 36, 120, 6); g.restore();
+  text(g, (window.SPEC && window.SPEC.brand) || p.brand || 'STEEL', W / 2, H * 0.42, V ? 130 : 120, K.text, { a, w: 700, disp: true, align: 'center', maxW: W - 192 }); g.save(); g.globalAlpha *= a; g.fillStyle = K.orange; g.fillRect(W / 2 - 60, H * 0.42 + 36, 120, 6); g.restore();
   text(g, p.line || 'full film on the channel', W / 2, H * 0.42 + 130, V ? 52 : 44, K.dim, { a, w: 600, align: 'center' }); g.restore(); } });
 
 // ---------- ghép shot trong đoạn ----------

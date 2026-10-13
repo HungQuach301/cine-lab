@@ -60,6 +60,56 @@ if __name__ == '__main__':
             if p.get('clip') or not f: continue
             a = SFL.asset_of(f); cid = SFL.clip_of_asset(a)
             if cid: p['clip'] = cid; p['file'] = os.path.join(KA.CACHE, KA.ASSETS[a]['file']); p['setting'] = SETTING[cid]
+    # Q21 (13/10/2026, QC nháp): dòng nguồn trên hình phải chứa nguồn của mọi số/câu đang hiện. ll.py chỉ gộp nguồn khi p.src là DANH SÁCH khoá,
+    # nên chuỗi tự do được đổi thành khoá: ảnh/footage → bản ghi ảnh (trang LoC/Pexels của đúng tệp, đã đọc đủ bản ghi), bản đồ → MAPC (NASA Blue Marble);
+    # "3D illustration" và ghi chú "our calculation" chuyển sang p.credit (góc phải, cùng hàng). Câu chú thích ảnh (nơi chốn, năm) lấy nguồn = bản ghi ảnh.
+    import csv as _csv
+    LED = {r['clip_id']: r for r in _csv.DictReader(open(f'{H}/SOURCES-FOOTAGE.csv'))}
+    LOCITEM = {'WM-HOOVER-1928': 'https://www.loc.gov/pictures/item/2016888786/', 'WM-SUTHERLAND-1937': 'https://www.loc.gov/pictures/item/2016877918/'}
+    S = src['sources']; N = src['numbers']
+    S['MAPC'] = dict(short='Map: Natural Earth, U.S. Census · Imagery: NASA Earth Observatory', url='https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-topography-bathymetry/', read='fulltext', accessed='2026-10-12', onscreen=True)
+    PRE = {'Source: Census ACS 2024 (table B25024) · share is our calculation · 3D illustration': (['ACS24'], 'Share: our calculation · 3D illustration'),
+           'Sources: Census ACS 2024 (B25024) · Census New Residential Construction · shares are our calculation': (['ACS24', 'NRC'], 'Shares: our calculation'),
+           'Sources: Census ACS 2024 · Census New Residential Construction 2025 · shares are our calculation · 3D illustration': (['ACS24', 'NRC'], 'Shares: our calculation · 3D illustration'),
+           'Data: Census ACS 2024 (B25127), our calculation · ': (['ACS24'], 'Data: our calculation'),
+           'Source: A Standard State Zoning Enabling Act (1926) · ': (['SSZEA'], None), 'Source: Euclid v. Ambler Realty (1926) · ': (['EUCLID'], None)}
+
+    def shot_keys(p):   # nguồn của số (tags/labels/places/cap num) đang hiện trong shot
+        ks = set()
+        def walk(o):
+            if isinstance(o, dict):
+                if o.get('num') in N: ks.add(N[o['num']]['src'])
+                for v in o.values(): walk(v)
+            elif isinstance(o, list): [walk(v) for v in o]
+        walk({k: v for k, v in p.items() if k != 'src'}); return ks
+    for s in src['segments'] + src['shorts']:
+        for sh in s['shots']:
+            p = sh.get('p') or {}; x = p.get('src')
+            if not isinstance(x, str): continue
+            keys, credit = [], None
+            i = max(x.find('Photo: '), x.find('Footage: '))
+            if i >= 0 and p.get('clip') in LED:
+                pre, lab, cid = x[:i], x[i:], p['clip']; k = 'PH-' + cid
+                S.setdefault(k, dict(short=lab, url=LOCITEM.get(cid, LED[cid]['url_trang']), read='fulltext', accessed=LED[cid]['ngay_tai_utc'][:10], onscreen=True))
+                keys.append(k)
+                if pre: kk, credit = PRE[pre]; keys += kk
+                for c in p.get('cap') or []:
+                    if 'num' not in c and not isinstance(c.get('src'), list): c['src'] = [k]
+            elif x.startswith('Map: '): keys = ['MAPC']
+            elif x in PRE: keys, credit = PRE[x]
+            elif x == '3D illustration':
+                ks = shot_keys(p) | {k for c in p.get('cap') or [] if isinstance(c.get('src'), list) for k in c['src']}
+                if not ks: continue
+                keys, credit = sorted(ks), '3D illustration'
+            else: raise SystemExit(f'chuỗi nguồn chưa khai: {x}')
+            p['src'] = sorted(set(keys) | shot_keys(p))
+            if credit: p['credit'] = credit
+    for s in src['segments'] + src['shorts']:   # câu chưa khai nguồn trong shot có danh sách nguồn → nguồn của shot (số/năm/cơ quan trên câu đến từ đúng các nguồn đó)
+        for sh in s['shots']:
+            p = sh.get('p') or {}
+            if isinstance(p.get('src'), list) and p['src']:
+                for c in p.get('cap') or []:
+                    if 'num' not in c and 'src' not in c: c['src'] = list(p['src'])
     hd = '# TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + script.md (lời khoá v8.2). Sửa ep-src.yaml, không sửa tệp này.\n'
     open(f'{H}/episode.yaml', 'w').write(hd + yaml.safe_dump(src, allow_unicode=True, sort_keys=False, width=4000))
     n = sum(len(s['vo'].split()) for s in src['segments'])
