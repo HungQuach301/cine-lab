@@ -133,6 +133,9 @@ def fetch(k):
                 b = r.read(1 << 20)
                 if not b: break
                 f.write(b)
+        head = open(p + '.part', 'rb').read(512).lstrip().lower()
+        if head.startswith(b'<') or b'<html' in head:   # 13/10: một lần tải trả trang HTML (chặn/giới hạn) với mã 200 và bị ghim nhầm SHA
+            os.remove(p + '.part'); raise SystemExit(f'LỖI {k}: máy chủ trả HTML thay vì tệp — không ghim, thử lại sau')
         os.replace(p + '.part', p)
     s, P = sha(p), pins()
     if k in P and P[k]['sha256'] != s: raise SystemExit(f'LỖI SHA {k}: {s} ≠ ghim {P[k]["sha256"]} — nguồn đã đổi, kiểm lại giấy phép và nội dung trước khi dùng')

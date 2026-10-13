@@ -1,6 +1,7 @@
 # TỆP SINH TỰ ĐỘNG bởi make_spec.py từ ep-src.yaml + script.md (lời khoá ứng viên v8.1). Sửa ep-src.yaml, không sửa tệp này.
 id: k2c-t1-06
 title: Why Did America Almost Stop Building Small Buildings Like This?
+brand: THE CORNER BUILDING
 out: /var/tmp/cine-out/k2c-t1-06
 vo_dir: channel-k2/k2c-t1-06/vo
 voice:
@@ -731,7 +732,7 @@ segments:
       hero: p_habs02
       frame0: 0
       cap:
-      - s: A store with apartments above · Jeannette, Pa. (HABS survey photo)
+      - s: A store with apartments above · Jeannette, Pa. (HABS survey, documented after 1933)
         at: 0.3
       src: 'Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)'
   - tpl: plate
@@ -4345,8 +4346,8 @@ heroes:
     opt:
       img: /cache/k2c106-loc-habs-02.jpg
       focus:
+      - 0.45
       - 0.5
-      - 0.42
   p_habs01:
     hero: photo/print
     cam: tilt-low
@@ -4378,16 +4379,17 @@ heroes:
     opt:
       img: /cache/k2c106-loc-det-11.jpg
       focus:
-      - 0.5
-      - 0.42
+      - 0.48
+      - 0.45
   p_fsa04:
     hero: photo/print
-    cam: drift-r
+    cam: push
     opt:
       img: /cache/k2c106-loc-fsa-04.jpg
       focus:
-      - 0.5
-      - 0.45
+      - 0.66
+      - 0.58
+      push: 0.34
   p_hoover:
     hero: photo/print
     cam: push
@@ -4404,15 +4406,15 @@ heroes:
       img: /cache/k2c106-loc-det-02.jpg
       focus:
       - 0.5
-      - 0.45
+      - 0.55
   p_det08:
     hero: photo/print
     cam: detail
     opt:
       img: /cache/k2c106-loc-det-08.jpg
       focus:
-      - 0.5
-      - 0.45
+      - 0.74
+      - 0.52
   p_det07:
     hero: photo/print
     cam: push
@@ -4437,7 +4439,7 @@ heroes:
     opt:
       img: /cache/k2c106-loc-det-06.jpg
       focus:
-      - 0.5
+      - 0.72
       - 0.42
   p_det12:
     hero: photo/print
@@ -4445,24 +4447,24 @@ heroes:
     opt:
       img: /cache/k2c106-loc-det-12.jpg
       focus:
-      - 0.5
-      - 0.5
+      - 0.45
+      - 0.58
   p_det04:
     hero: photo/print
     cam: pull
     opt:
       img: /cache/k2c106-loc-det-04.jpg
       focus:
-      - 0.5
-      - 0.4
+      - 0.42
+      - 0.42
   p_det05:
     hero: photo/print
     cam: drift-l
     opt:
       img: /cache/k2c106-loc-det-05.jpg
       focus:
-      - 0.5
-      - 0.45
+      - 0.56
+      - 0.42
   p_det03:
     hero: photo/print
     cam: detail
@@ -4473,13 +4475,12 @@ heroes:
       - 0.5
   p_habs04:
     hero: photo/print
-    cam: push
+    cam: detail
     opt:
       img: /cache/k2c106-loc-habs-04.jpg
       focus:
-      - 0.45
-      - 0.45
-      push: 0.18
+      - 0.3
+      - 0.5
   p_habs03:
     hero: photo/print
     cam: drift-l

@@ -178,7 +178,10 @@ ll.load = load_checked
 
 if __name__ == '__main__':
     cmd, path = sys.argv[1], sys.argv[2]
-    if cmd == 'prep': ll.prep(path)
+    if cmd == 'prep':
+        ll.prep(path); import yaml; E0 = yaml.safe_load(open(path))
+        if E0.get('brand'):   # chữ thẻ kết Short → timeline (render.js đọc TL.brand)
+            tp = os.path.join(E0.get('out') or f"/var/tmp/cine-out/{E0['id']}", 'timeline.json'); T = json.load(open(tp)); T['brand'] = E0['brand']; json.dump(T, open(tp, 'w'), indent=1, ensure_ascii=False)
     elif cmd == 'cams':
         E = _load(path); cnt, where, bad = repeat_check(E)
         for (a, b), n in sorted(cnt.items(), key=lambda x: -x[1]): print(f"{'LỖI ' if n > MAX_SAME else '    '}{n:>2}  {a:<18} {b:<16} {', '.join(where[(a, b)])}")

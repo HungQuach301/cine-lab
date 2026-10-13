@@ -219,7 +219,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
 TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGradient(W / 2, H * 0.45, 40, W / 2, H * 0.45, H * 0.8); gr.addColorStop(0, '#1b2738'); gr.addColorStop(1, K.ink); g.fillStyle = gr; g.fillRect(0, 0, W, H);
   g.save(); g.strokeStyle = 'rgba(154,167,181,0.10)'; g.lineWidth = 1.5; const o = (t * 18) % 60; for (let x = -60 + o; x < W + 60; x += 60) { g.beginPath(); g.moveTo(x, 0); g.lineTo(x, H); g.stroke(); } for (let y = -60 + o; y < H + 60; y += 60) { g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); } g.restore();
   const a = rvH(t, p.t0, 0.4), z = 1 + 0.03 * cl((t - p.t0) / 1.5); g.save(); g.translate(W / 2, H * 0.45); g.scale(z, z); g.translate(-W / 2, -H * 0.45);
-  text(g, 'STEEL', W / 2, H * 0.42, V ? 130 : 120, K.text, { a, w: 700, disp: true, align: 'center' }); g.save(); g.globalAlpha *= a; g.fillStyle = K.orange; g.fillRect(W / 2 - 60, H * 0.42 + 36, 120, 6); g.restore();
+  text(g, (window.SPEC && window.SPEC.brand) || p.brand || 'STEEL', W / 2, H * 0.42, V ? 130 : 120, K.text, { a, w: 700, disp: true, align: 'center' }); g.save(); g.globalAlpha *= a; g.fillStyle = K.orange; g.fillRect(W / 2 - 60, H * 0.42 + 36, 120, 6); g.restore();
   text(g, p.line || 'full film on the channel', W / 2, H * 0.42 + 130, V ? 52 : 44, K.dim, { a, w: 600, align: 'center' }); g.restore(); } });
 
 // ---------- ghép shot trong đoạn ----------

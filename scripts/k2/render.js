@@ -9,6 +9,7 @@ const fs = require('fs'), path = require('path');
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const TL = JSON.parse(fs.readFileSync(arg('tl'), 'utf8')), SEG = arg('seg'), SH = arg('short');
 const spec = SH ? TL.shorts.find((s) => s.id === SH) : TL.segments.find((s) => s.id === SEG);
+if (spec && TL.brand) spec.brand = TL.brand;   // chữ thẻ kết Short (K2C-T1-06): đặc tả tập `brand`, mặc định 'STEEL' (K2G-01)
 if (!spec) { console.error('không thấy đoạn/short', SEG || SH); process.exit(2); }
 const fmt = SH ? '9x16' : '16x9', [W, H] = SH ? [1080, 1920] : [1920, 1080];
 const OUT = path.resolve(arg('out')), LIB = path.join(__dirname, 'lib');

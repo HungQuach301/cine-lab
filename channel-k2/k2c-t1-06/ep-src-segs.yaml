@@ -29,7 +29,7 @@ segments:
     vo: "@script"
     shots:
       - {tpl: plate, at: 0, in: {type: wipe, d: 0.6}, type: photo, scene_id: loc_habs_tocco, camera_id: drift-r, p: {hero: p_habs02, frame0: 0,
-           cap: [{s: "A store with apartments above · Jeannette, Pa. (HABS survey photo)", at: 0.3}], src: "Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)"}}
+           cap: [{s: "A store with apartments above · Jeannette, Pa. (HABS survey, documented after 1933)", at: 0.3}], src: "Photo: Historic American Buildings Survey, Library of Congress (no known restrictions)"}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/cash-register.mp3, at: "@shop", src_ss: 2, dur: 3, gain_db: -22, fade_ms: 300}, {file: assets/k2/sfx/estate-staircase.mp3, at: "@staircase", src_ss: 10, dur: 4, gain_db: -24, fade_ms: 500}], at: "@shop-0.4", type: scene3d, p: {hero: c_sec, frame0: 0,
            tags: [{a: shop, s: "Shop", sub: "ground floor", at: "@shop", side: right, c: "#F2C14E"},
                   {a: apt4, s: "Apartments", sub: "two or three floors above", at: "@floors", side: right, gap: 60, c: "#3CC2B0"},

@@ -129,23 +129,23 @@ heroes:
              groups: [{id: all, x: 0, segs: [{id: rented, v: 7.94, color: '#F08A4B'}, {id: owned, v: 1.75, color: '#3CC2B0'}, {id: vacant, v: 1.37, color: steel}], grow: ["@eleven-0.4", "@eleven+1.6"]}]}}
 
   # ---------- photo/print (tư liệu đã kiểm quyền từng tệp; cache ngoài git) ----------
-  p_habs02: {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-habs-02.jpg, focus: [0.5, 0.42]}}
+  p_habs02: {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-habs-02.jpg, focus: [0.45, 0.5]}}
   p_habs01: {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-habs-01.jpg, focus: [0.5, 0.4]}}
   p_det01:  {hero: photo/print, cam: push, opt: {img: /cache/k2c106-loc-det-01.jpg, focus: [0.55, 0.42], push: 0.2}}
   p_fsa01:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-fsa-01.jpg, focus: [0.5, 0.45]}}
-  p_det11:  {hero: photo/print, cam: pull, opt: {img: /cache/k2c106-loc-det-11.jpg, focus: [0.5, 0.42]}}
-  p_fsa04:  {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-fsa-04.jpg, focus: [0.5, 0.45]}}
+  p_det11:  {hero: photo/print, cam: pull, opt: {img: /cache/k2c106-loc-det-11.jpg, focus: [0.48, 0.45]}}
+  p_fsa04:  {hero: photo/print, cam: push, opt: {img: /cache/k2c106-loc-fsa-04.jpg, focus: [0.66, 0.58], push: 0.34}}
   p_hoover: {hero: photo/print, cam: push, opt: {img: /cache/loc-hoover-1928.jpg, focus: [0.53, 0.3], push: 0.24}}
-  p_det02:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-det-02.jpg, focus: [0.5, 0.45]}}
-  p_det08:  {hero: photo/print, cam: detail, opt: {img: /cache/k2c106-loc-det-08.jpg, focus: [0.5, 0.45]}}
+  p_det02:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-det-02.jpg, focus: [0.5, 0.55]}}
+  p_det08:  {hero: photo/print, cam: detail, opt: {img: /cache/k2c106-loc-det-08.jpg, focus: [0.74, 0.52]}}
   p_det07:  {hero: photo/print, cam: push, opt: {img: /cache/loc-det-07-tif.jpg, focus: [0.8, 0.45], push: 0.2}}
   p_suth:   {hero: photo/print, cam: push, opt: {img: /cache/loc-sutherland-1937.jpg, focus: [0.5, 0.3], push: 0.22}}
-  p_det06:  {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-det-06.jpg, focus: [0.5, 0.42]}}
-  p_det12:  {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-det-12.jpg, focus: [0.5, 0.5]}}
-  p_det04:  {hero: photo/print, cam: pull, opt: {img: /cache/k2c106-loc-det-04.jpg, focus: [0.5, 0.4]}}
-  p_det05:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-det-05.jpg, focus: [0.5, 0.45]}}
+  p_det06:  {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-det-06.jpg, focus: [0.72, 0.42]}}
+  p_det12:  {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-loc-det-12.jpg, focus: [0.45, 0.58]}}
+  p_det04:  {hero: photo/print, cam: pull, opt: {img: /cache/k2c106-loc-det-04.jpg, focus: [0.42, 0.42]}}
+  p_det05:  {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-det-05.jpg, focus: [0.56, 0.42]}}
   p_det03:  {hero: photo/print, cam: detail, opt: {img: /cache/k2c106-loc-det-03.jpg, focus: [0.5, 0.5]}}
-  p_habs04: {hero: photo/print, cam: push, opt: {img: /cache/k2c106-loc-habs-04.jpg, focus: [0.45, 0.45], push: 0.18}}
+  p_habs04: {hero: photo/print, cam: detail, opt: {img: /cache/k2c106-loc-habs-04.jpg, focus: [0.3, 0.5]}}   # cắt cận toà gỗ bên trái: biển tiệm tạp hoá bên phải có logo nước ngọt
   p_habs03: {hero: photo/print, cam: drift-l, opt: {img: /cache/k2c106-loc-habs-03.jpg, focus: [0.5, 0.45]}}
   p_fsa03:  {hero: photo/print, cam: tilt-low, opt: {img: /cache/k2c106-loc-fsa-03.jpg, focus: [0.5, 0.45]}}
   p_bayridge: {hero: photo/print, cam: drift-r, opt: {img: /cache/k2c106-px-7180335.jpg, focus: [0.5, 0.45], tone: '#26221e'}}
