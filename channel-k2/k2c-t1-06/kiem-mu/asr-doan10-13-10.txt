@@ -1,0 +1,7 @@
+K2C-T1-06 · kiểm ASR đoạn 10 (13/10/2026)
+asr.py (small.en) báo thiếu số 25000, 100000 sau 3 lần thu (lan_thu 3, mp3 05:45 UTC).
+Kiểm trực tiếp cùng tệp vo/k2c-t1-06-10.mp3 (ffmpeg → wav 16 kHz mono; faster-whisper beam 5, không hotwords):
+  small.en : "Oregon's 2019 law requires cities of 25,000 people or more" · "Colorado requires many cities of 100,000 people or more"
+  medium.en: "Oregon's 2019 law requires cities of 25,000 people or more" · "Colorado requires many cities of 100,000 people or more"
+Kết luận: giọng đọc đúng cả hai số; báo trượt là báo nhầm của công cụ asr.py (scripts/ll), không thu lại thêm.
+Lượt ASR này gửi ElevenLabs 7 513 ký tự (thu lại 05, 08 ×3, 10 ×3).
