@@ -16,13 +16,21 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   const o = JSON.parse(arg('opt', '{}')); fs.mkdirSync(OUT, { recursive: true });
   const buf = fs.readFileSync(o.file), sha = require('crypto').createHash('sha256').update(buf).digest('hex');
   if (o.sha256 && sha !== o.sha256) { console.error(`LỖI SHA footage ${o.file}: ${sha} ≠ sổ ${o.sha256}`); process.exit(4); }
-  const vf = [o.decimate ? 'decimate=cycle=5' : null, o.crop ? `crop=${o.crop}` : null, `scale=${W}:${H}:force_original_aspect_ratio=increase:flags=lanczos`, `crop=${W}:${H}`, 'fps=24', o.eq ? `eq=${o.eq}` : null].filter(Boolean).join(',');
+  // V4 (F3, chủ dự án 14/10/2026 22:11): footage thật chỉnh màu theo bảng màu kênh — grade: 'sepia' (tư liệu đen trắng → mực nâu/giấy cũ như bản đồ SEPIA, không tô màu)
+  //   | 'natural' (clip hiện đại: bớt bão hoà nhẹ, ấm vùng sáng như bản đồ TỰ NHIÊN); clean: true = khử nhiễu nhẹ (hqdn3d) + làm nét nhẹ sau khi phóng (tư liệu độ phân giải thấp);
+  //   ivtc: true = gỡ kéo xuống 3:2 (phim 24 khung chuyển 29,97 — newsreel MPEG-2); điểm ảnh không vuông (SAR) luôn đưa về vuông trước khi cắt khung;
+  //   pts: hệ số tốc độ (vd. 0.75 = phim câm ~18 fps chiếu đúng nhịp ở 24 fps); hflip cấm (không làm sai sự thật hình ảnh).
+  const hx = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16)), INK = hx(o.ink || '#2a1c10'), PAP = hx(o.paper || '#f1e4c6'), RGB = ['r', 'g', 'b'];
+  const sep = `format=gray,format=rgb24,lutrgb=${RGB.map((k, i) => `${k}='${INK[i]}+(${PAP[i] - INK[i]})*clip((val-${o.lo ?? 12})/(${(o.hi ?? 244) - (o.lo ?? 12)})\,0\,1)'`).join(':')}`;
+  const nat = `eq=saturation=${o.sat ?? 0.86}:contrast=${o.con ?? 1.03},colorbalance=rh=0.025:gh=0.01:bh=-0.03:rs=-0.01:bs=0.02`;
+  const vf = [o.ivtc ? 'fieldmatch,yadif=deint=interlaced,decimate' : null, o.decimate ? 'decimate=cycle=5' : null, 'scale=trunc(iw*sar/2)*2:ih,setsar=1', o.pts ? `setpts=PTS/${o.pts}` : null, o.crop ? `crop=${o.crop}` : null, o.clean ? 'hqdn3d=1.5:1.5:5:5' : null, `scale=${W}:${H}:force_original_aspect_ratio=increase:flags=lanczos`, `crop=${W}:${H}`, o.clean ? 'unsharp=5:5:0.45:5:5:0' : null, 'fps=24', o.eq ? `eq=${o.eq}` : null,
+    o.grade === 'sepia' ? sep : o.grade === 'natural' ? nat : null].filter(Boolean).join(',');
   const t0 = Date.now(); const r = require('child_process').spawnSync('ffmpeg', ['-nostdin', '-v', 'error', '-y', '-ss', String(o.ss || 0), '-i', o.file, '-t', String(N / 24 + 0.1), '-vf', vf, '-frames:v', String(N), '-q:v', '2', '-start_number', '0', path.join(OUT, '%05d.jpg')]);
   if (r.status) { console.error(String(r.stderr)); process.exit(5); }
   const got = fs.readdirSync(OUT).filter((f) => /^\d{5}\.jpg$/.test(f)).length;
   if (got < N) { console.error(`LỖI footage: clip ngắn hơn cảnh (${got}/${N} khung) — giảm độ dài shot hoặc ss`); process.exit(6); }
   fs.writeFileSync(path.join(OUT, 'anchors.json'), '{}');
-  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), frames: N, dur: DUR, w: W, h: H, spp: 1, footage: { file: path.basename(o.file), sha256: sha, ss: o.ss || 0 }, s_per_frame: +((Date.now() - t0) / 1000 / N).toFixed(3) }));
+  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), frames: N, dur: DUR, w: W, h: H, spp: 1, footage: { file: path.basename(o.file), sha256: sha, ss: o.ss || 0, grade: o.grade || null, vf }, s_per_frame: +((Date.now() - t0) / 1000 / N).toFixed(3) }));
   console.error(`[hero footage] ${N} khung từ ${path.basename(o.file)} @${o.ss || 0}s`); process.exit(0);
 }
 (async () => {

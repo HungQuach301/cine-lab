@@ -1,0 +1,62 @@
+{
+ "id": "MET-11602",
+ "img": "assets/k2/archive/met-11602-clinton.jpg",
+ "img_sha256": "73c2c15f30324b074bc194b27cb2c730a53578608b649e8ec334dc7319a60558",
+ "size": [
+  1400,
+  1672
+ ],
+ "mask": "design/k2v/cutouts/MET-11602-mask.png",
+ "mask_sha256": "c6f8f9ff04ff5dc7fa63e4f7871412067354861ef5ac07f8e8a7642f73d137e9",
+ "bg": "design/k2v/cutouts/MET-11602-bg.jpg",
+ "bg_sha256": "9110c8ba534ad8e55289506d8a3b0d26f9cf0ced4f8c0eeb7fbb475d82b7b070",
+ "model": "birefnet-portrait",
+ "model_file": "BiRefNet-portrait-epoch_150.onnx",
+ "model_sha256": "1ba1c8ff5a7bbfadc8d8d13fb11d7be793f91f23d9d466549e37a854f6668f99",
+ "model_license": "MIT (ZhengPeng7/BiRefNet)",
+ "runtime": "rembg 2.0.85 + onnxruntime 1.31.0 (CPU, cục bộ)",
+ "steps": [
+  "model:birefnet-portrait",
+  "clean"
+ ],
+ "clean": {
+  "manh_roi_bo": 0,
+  "lo_lap": 0
+ },
+ "edge": {
+  "duong_vien_px": 4093,
+  "lech_tb_px": 0.206,
+  "lech_p95_px": 0.391,
+  "dai_mem_tb_px": 6.78
+ },
+ "edge_points_2x": [
+  [
+   580,
+   566
+  ],
+  [
+   927,
+   659
+  ],
+  [
+   379,
+   867
+  ],
+  [
+   1131,
+   914
+  ],
+  [
+   827,
+   310
+  ],
+  [
+   162,
+   1136
+  ]
+ ],
+ "canh_bao": [
+  "dải mềm > 6 px (mép nhoè)"
+ ],
+ "note": "Chỉ tách nền: lớp người = điểm ảnh gốc × alpha; không sinh hay vẽ lại điểm ảnh nào. Nền -bg.jpg = nền gốc lấp chỗ người + mờ (chỉ làm nền mờ/tối)."
+}

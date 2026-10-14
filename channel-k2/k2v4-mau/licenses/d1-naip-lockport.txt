@@ -1,0 +1,28 @@
+Asset: d1-naip-lockport
+Service: https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer (?f=json)
+Accessed: 2026-10-14
+Files:
+  naip_lockport_2048x2048.jpg  SHA-256: 4dd462dc2735c0fe6229fd044cde1863a52936a9e79462bd9438552818758967
+    request: exportImage?bbox=-78.70,43.165,-78.68,43.175&bboxSR=4326&imageSR=4326&size=2048,2048&format=jpg&f=image
+    NOTE: bbox is ~1624 m x 1111 m, so a 2048x2048 output is anisotropically stretched (~0.79 m/px E-W, ~0.54 m/px N-S).
+  naip_lockport_2048x1401.jpg  SHA-256: 449f5980d755134baf1ea07955ca953105f4ead2851a76f4da72480e4edbcb3a
+    same request with size=2048,1401 (aspect-correct, ~0.79 m/px).
+
+--- Source raster (service query + identify at -78.6905,43.1705, verbatim attributes) ---
+Name: m_4307851_se_17_060_20190820 and m_4307851_sw_17_060_20190820
+Year: 2019 ; acquisition_date: 2019-08-20 ; agency: USDA ; vendor: USDA-FSA-APFO
+resolution_value: 0.6 ; resolution_units: METER ; band_count: 4 ; sensor_type: CNIR
+
+--- USGSNAIPPlus service description (verbatim excerpt) ---
+"The USGS NAIP Plus service from The National Map consists of National Agriculture Imagery Program (NAIP) and high resolution orthoimagery (HRO) ... The National Map download client allows free downloads of public domain, 1-meter resolution orthoimagery in JPEG 2000 (jp2) format for the conterminous United States ..."
+copyrightText: "USGS, USDA, The National Map: Orthoimagery. March 12, 2025."
+(The service has no separate licenseInfo field. NOTE: the service mixes NAIP with state-contributed HRO; for this bbox the identify/query confirms only USDA NAIP 2019 tiles are used.)
+
+--- USDA Farm Service Agency, Policies and Links (https://www.fsa.usda.gov/help/policies-and-links/, verbatim) ---
+"Digital Rights and Copyright: Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested. Attribution may be cited as follows: "U. S. Department of Agriculture, Farm Service Agency." Some materials on the FSA Web site are protected by copyright, trademark, or patent, and/or are provided for personal use only. Such materials are used by FSA with permission, and FSA has made every attempt to identify and clearly label them."
+(Microsoft Planetary Computer's NAIP STAC collection links this FSA page as its license link with title "Public Domain"; AWS Registry of Open Data lists NAIP "License: Public Domain with Attribution".)
+(The former FSA NAIP program pages fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery now redirect to a coverage-map page with no licence text; fpacbc.usda.gov/geo/products/naip returned "Page Not Found".)
+
+--- USGS Copyrights and Credits (https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits, verbatim) ---
+"USGS-authored or produced data and information are considered to be in the U.S. Public Domain. While the content of most USGS websites is in the U.S. Public Domain, not all information, illustrations, or photographs on our site are."
+Suggested credit: "U.S. Department of Agriculture, Farm Service Agency (NAIP 2019), via USGS The National Map."

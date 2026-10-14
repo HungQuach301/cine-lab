@@ -1,0 +1,245 @@
+{
+ "name": "lockport",
+ "center": [
+  -78.6915,
+  43.1712
+ ],
+ "service": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer",
+ "tiers": [
+  {
+   "i": 0,
+   "km": 130.0,
+   "px": 3000,
+   "m_per_px": 43.33,
+   "bbox": [
+    -79.49212,
+    42.583337,
+    -77.89088,
+    43.759063
+   ],
+   "raw_sha256": "4964472a0d98260822763cbe161916d2cc3c058b798bb1c86d803d000dfe91c7",
+   "sha256": "70c9d54fb7801af0a403d77ce69abb11c41d1835aa3df999b9a371eef659a35f",
+   "file": "t0.png",
+   "nodata_pct": 51.2,
+   "naip": [
+    {
+     "Name": "m_4307851_sw_17_060_20190820",
+     "Category": 1,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000016B_C00000073.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B5_C00000039.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L03_R0000005A_C0000001C.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002D_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "km": 40.0,
+   "px": 3000,
+   "m_per_px": 13.33,
+   "bbox": [
+    -78.937845,
+    42.990319,
+    -78.445155,
+    43.352081
+   ],
+   "raw_sha256": "183d08da4d2b4aadb6e7722fa4a16023f318d46083b5e2c2a809f3b08dd57f10",
+   "sha256": "c060605c2df81cc25051f7350682dc36ce77a092398c089fbcbcbd7f92d741b3",
+   "file": "t1.png",
+   "nodata_pct": 9.8,
+   "naip": [
+    {
+     "Name": "m_4307851_sw_17_060_20190820",
+     "Category": 1,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000016B_C00000073.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B5_C00000039.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L03_R0000005A_C0000001C.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002D_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "km": 12.0,
+   "px": 3000,
+   "m_per_px": 4.0,
+   "bbox": [
+    -78.765403,
+    43.116936,
+    -78.617597,
+    43.225464
+   ],
+   "raw_sha256": "3822c0ba21daef494b7183b2c91df8bf8534ddd6287f5cccd0e5f665c02d6a48",
+   "sha256": "72ae4176f6fbeb51f5aba34b57777a90c865df8f70ac53424cc3a45e45e998ed",
+   "file": "t2.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_4307851_sw_17_060_20190820",
+     "Category": 1,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000016B_C00000073.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B5_C00000039.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L03_R0000005A_C0000001C.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002D_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 3,
+   "km": 3.2,
+   "px": 3600,
+   "m_per_px": 0.89,
+   "bbox": [
+    -78.711208,
+    43.15673,
+    -78.671792,
+    43.18567
+   ],
+   "raw_sha256": "e127f1f6d2b20cdfe8c244bc08fce3024300d7023e99084c09f964b393e7901b",
+   "sha256": "27449809eaf69ae575c13eae46659945009180d2cad187988b6b4084c630e3ba",
+   "file": "t3.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_4307851_sw_17_060_20190820",
+     "Category": 1,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000016B_C00000073.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B5_C00000039.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L03_R0000005A_C0000001C.tif",
+     "Category": 2,
+     "State": "NY",
+     "Year": 2019
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002D_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  }
+ ],
+ "color_match": {
+  "mu_s": [
+   35.09720230102539,
+   -14.5874605178833,
+   10.932555198669434
+  ],
+  "mu_r": [
+   62.681480407714844,
+   -14.186162948608398,
+   20.760374069213867
+  ],
+  "k": [
+   0.8500000238418579,
+   0.8588765859603882,
+   1.4404535293579102
+  ],
+  "strength": 0.6
+ },
+ "license": "USDA FSA NAIP — public domain (U.S. Government work); xem channel-k2/k2v4-mau/licenses/NAIP.txt"
+}

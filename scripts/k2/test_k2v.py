@@ -133,6 +133,63 @@ class T(unittest.TestCase):
         for k in ("anchors['rul:'", 'c.ruler', 'FAST ? 12 : 24'): self.assertIn(k, src)
         for k in ("arg('chunk'", "'--only'", 'WORK.sort'): self.assertIn(k, vs)
 
+    # ---- V4 (14/10/2026): tách nền chân dung (F2), footage thật ≤ 20 % (F3), zoom nhiều tầng (F4), hàng xu (G2), bảng điểm ≥ 34 px (G3)
+    V4 = os.path.join(prep.REPO, 'channel-k2/k2v4-mau/K2V4-reel.yaml')
+
+    def test_v4_footage_share(self):
+        """footage ≤ 20 % thời lượng; mỗi clip có p.clip + p.setting + SHA; mỗi clip có tệp giấy phép ghi đúng SHA; clip ≤ 8 s"""
+        import subprocess
+        r = subprocess.run([sys.executable, os.path.join(prep.REPO, 'scripts/k2/footage_share.py'), self.V4], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout[-1200:])
+
+    def test_v4_cutout_masks(self):
+        """mỗi shot photo/cutout: mặt nạ alpha + nền mờ + sổ JSON tồn tại trong repo, SHA khớp sổ, mặt nạ cùng cỡ ảnh, mô hình có giấy phép mở (không bria/NC)"""
+        import hashlib, json, yaml
+        from PIL import Image
+        E = yaml.safe_load(open(self.V4)); n = 0
+        for k, h in E['heroes'].items():
+            if h['hero'] != 'photo/cutout': continue
+            o = h['opt']; mask = os.path.join(prep.REPO, 'design', o['mask'].lstrip('/')); img = os.path.join(prep.REPO, o['img'].lstrip('/'))
+            meta = json.load(open(mask.replace('-mask.png', '.json'))); n += 1
+            self.assertTrue(os.path.exists(mask), mask); self.assertEqual(hashlib.sha256(open(mask, 'rb').read()).hexdigest(), meta['mask_sha256'])
+            self.assertEqual(hashlib.sha256(open(img, 'rb').read()).hexdigest(), meta['img_sha256'], img)
+            self.assertTrue(os.path.exists(os.path.join(prep.REPO, meta['bg'])))
+            self.assertEqual(Image.open(mask).size, Image.open(img).size)
+            self.assertIn(meta['model'], ('birefnet-portrait', 'birefnet-general', 'isnet-general-use', 'u2net')); self.assertNotIn('NC', meta['model_license'] or '')
+            self.assertLessEqual(meta['edge']['lech_p95_px'], 1.5, 'mép răng cưa/gợn')
+        self.assertGreaterEqual(n, 2)
+
+    def test_v4_rhythm(self):
+        import subprocess
+        r = subprocess.run([sys.executable, os.path.join(prep.REPO, 'scripts/k2/rhythm.py'), self.V4], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout[-800:])
+
+    def test_v4_zoom_api(self):
+        """zoom nhiều tầng: ≥ 2 tầng ảnh hàng không có bbox + fade theo khoảng cách (xa > gần, tầng sau gần hơn), tầng gần hoà theo mốc; mỗi tầng có SHA trong sổ"""
+        import json, yaml
+        E = yaml.safe_load(open(self.V4)); o = E['heroes']['z_dive']['opt']; A = o['aerial']; self.assertGreaterEqual(len(A), 2)
+        for a, b in zip(A, A[1:]): self.assertGreater(a['fade'][1], b['fade'][0] * 0.5); self.assertGreater(a['fade'][0], b['fade'][0])
+        for a in A: self.assertGreater(a['fade'][0], a['fade'][1]); self.assertEqual(len(a['bbox']), 4)
+        M = json.load(open(os.path.join(prep.REPO, 'channel-k2/k2v4-mau/aerial-lockport-meta.json'))); self.assertEqual(len(M['tiers']), len(A))
+        for t in M['tiers']: self.assertRegex(t['sha256'], '^[0-9a-f]{64}$')
+        self.assertLess(o['close']['at'][0], o['close']['at'][1]); src = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read()
+        for k in ('o.aerial', 'o.close', 'Math.log(camDist)', 'camGround'): self.assertIn(k, src)
+
+    def test_v4_coin_row_and_board(self):
+        """G2: hàng 10 xu nằm cạnh 1 xu, bỏ thước ×10; G3: chữ bảng điểm gọn ≥ 34 px, bảng ~40 % khung"""
+        import re, yaml
+        E = yaml.safe_load(open(self.V4)); C = E['heroes']['h_num']['opt']['cols']
+        self.assertEqual(sorted(c['n'] for c in C), [1, 10]); self.assertTrue(all(c.get('layout') == 'row' and not c.get('ruler') for c in C))
+        N = [s for s in E['segments'] if s['id'] == 'N'][0]; self.assertFalse(any(t['a'].startswith('rul:') for t in N['shots'][0]['p']['tags']))
+        S = [s for s in E['segments'] if s['id'] == 'S'][0]['shots'][0]['p']['score']; self.assertLessEqual(abs(S['board']['w'] / 1920 - 0.40), 0.03)
+        k2 = open(os.path.join(prep.REPO, 'scripts/k2/lib/k2.js')).read(); i = k2.index('function score('); j = k2.index('// ---------- thẻ', i); seg = k2[i:j]
+        for k in ("(CMP ? 36 : 40) * S, sd.c", "vp = CMP ? (win ? 42 : 40)", "text(g, r.k, bx + 86, y + rh * 0.5 + 13, 36", "text(g, Bd.title, mid, by + 58, 40 * S", "if (r.sub && r.sub[j] && !CMP)", "if (!CMP) text(g, 'vs'"): self.assertIn(k, seg)   # cỡ chữ từng phần tử của bảng gọn ≥ 34 px; bỏ dòng phụ
+        self.assertGreaterEqual(seg.count('px = 34 * S'), 2)   # huy hiệu góc 34 px
+        for sg in E['segments']:
+            for sh in sg['shots']:
+                p = sh['p']
+                for x in filter(None, [p.get('src'), ((p.get('score') or {}).get('board') or {}).get('foot')]): self.assertLessEqual(len(x), 70, x)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)

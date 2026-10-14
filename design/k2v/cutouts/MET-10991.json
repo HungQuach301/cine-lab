@@ -1,0 +1,60 @@
+{
+ "id": "MET-10991",
+ "img": "assets/k2/archive/met-10991-vanrensselaer.jpg",
+ "img_sha256": "ed30aa1b2d564392e3d75f5036f93d8fd6dfcf7aafe36e23a20dc1b285944b77",
+ "size": [
+  1400,
+  1805
+ ],
+ "mask": "design/k2v/cutouts/MET-10991-mask.png",
+ "mask_sha256": "23be827cc5140603ab3c8cc25eab910934648a1d1022c6fc1c3bf6052c1b3e17",
+ "bg": "design/k2v/cutouts/MET-10991-bg.jpg",
+ "bg_sha256": "6861b0e1f8006bce51e40b6f658650bd7cf7465060806d9db9b899f05e146ef0",
+ "model": "birefnet-general",
+ "model_file": "BiRefNet-general-epoch_244.onnx",
+ "model_sha256": "58f621f00f5d756097615970a88a791584600dcf7c45b18a0a6267535a1ebd3c",
+ "model_license": "MIT (ZhengPeng7/BiRefNet)",
+ "runtime": "rembg 2.0.85 + onnxruntime 1.31.0 (CPU, cục bộ)",
+ "steps": [
+  "model:birefnet-general",
+  "clean"
+ ],
+ "clean": {
+  "manh_roi_bo": 0,
+  "lo_lap": 0
+ },
+ "edge": {
+  "duong_vien_px": 4890,
+  "lech_tb_px": 0.214,
+  "lech_p95_px": 0.411,
+  "dai_mem_tb_px": 4.22
+ },
+ "edge_points_2x": [
+  [
+   608,
+   758
+  ],
+  [
+   669,
+   268
+  ],
+  [
+   892,
+   661
+  ],
+  [
+   164,
+   1369
+  ],
+  [
+   86,
+   1711
+  ],
+  [
+   546,
+   454
+  ]
+ ],
+ "canh_bao": [],
+ "note": "Chỉ tách nền: lớp người = điểm ảnh gốc × alpha; không sinh hay vẽ lại điểm ảnh nào. Nền -bg.jpg = nền gốc lấp chỗ người + mờ (chỉ làm nền mờ/tối)."
+}

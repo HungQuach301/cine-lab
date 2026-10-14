@@ -40,6 +40,7 @@ def spec_times(E, sg):
         for c in o.get('cam', []) if isinstance(o.get('cam'), list) else []: add(c.get('t'))
         for w in o.get('walkers', []): add((w.get('t') or [None])[0])
         for q in o.get('props', []): add(q.get('t'))
+        if isinstance(o.get('close'), dict): add((o['close'].get('at') or [None])[0])   # V4: tầng gần của zoom nhiều tầng hoà vào
         for k in ('places', 'tags', 'stickers', 'labels'):
             for x in p.get(k, []) or []:
                 if isinstance(x, dict): add(x.get('at'))

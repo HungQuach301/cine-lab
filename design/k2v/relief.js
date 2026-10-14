@@ -128,7 +128,7 @@ export const HEROES = {
     const ctrack = spline(camKeys, dur, ['lon', 'lat', 'dist', 'tilt', 'head', 'mm']);
     let camDist = 500; const tgt = new THREE.Vector3();
     const place = (t) => { const k = ctrack(t); camDist = k.dist; const tl = (k.tilt || 0) * D2R, hd = (k.head || 0) * D2R;
-      tgt.set(X(k.lon), 0.25 * VE, Z(k.lat)); const dir = new THREE.Vector3(Math.sin(hd), 0, -Math.cos(hd));
+      tgt.set(X(k.lon), o.camGround ? hAt(k.lon, k.lat) : 0.25 * VE, Z(k.lat));   /* V4 camGround: tâm nhìn trên mặt đất thật (zoom xuống tầm km; mặc định giữ như V3) */ const dir = new THREE.Vector3(Math.sin(hd), 0, -Math.cos(hd));
       cam.position.copy(tgt).addScaledVector(dir, -Math.sin(tl) * k.dist).add(new THREE.Vector3(0, Math.cos(tl) * k.dist, 0));
       cam.up.set(0, 1, 0); if (tl < 0.02) cam.up.copy(dir); cam.lookAt(tgt); cam.fov = fovOf(k.mm || 35); cam.near = Math.max(0.2, k.dist * 0.02); cam.far = k.dist * 8; cam.updateProjectionMatrix(); };
     // ---- độ cao mặt đất tại điểm (kể cả phần nổi của vùng ở thời điểm hiện tại)
@@ -185,7 +185,10 @@ export const HEROES = {
         const gold = new THREE.MeshStandardMaterial({ color: c.color || '#e8b54a', metalness: 0.55, roughness: 0.3, envMapIntensity: 1.6, emissive: '#5a3a08', emissiveIntensity: 0.35 }), rim = new THREE.MeshStandardMaterial({ color: '#c99a3a', metalness: 0.6, roughness: 0.4, emissive: '#3a2604', emissiveIntensity: 0.3 });   /* nháp V2: metalness 1 + phòng phản xạ tối → xu nâu đen; vàng sáng như sticker */
         const cg = new THREE.CylinderGeometry(r, r, th * 0.86, 56), eg = new THREE.TorusGeometry(r * 0.97, th * 0.07, 6, 56); eg.rotateX(Math.PI / 2);
         for (let i = 0; i < n; i++) { const g = new THREE.Group(); g.add(new THREE.Mesh(cg, gold)); const e1 = new THREE.Mesh(eg, rim); e1.position.y = th * 0.43; const e2 = e1.clone(); e2.position.y = -th * 0.43; g.add(e1, e2);
-          g.userData = { y: th * (i + 0.5), rz: (Math.sin(i * 12.9898) * 0.5) * 0.06, ox: Math.sin(i * 78.233) * r * 0.05, oz: Math.cos(i * 37.71) * r * 0.05 }; grp.add(g); items.push(g); }
+          g.userData = { y: th * (i + 0.5), rz: (Math.sin(i * 12.9898) * 0.5) * 0.06, ox: Math.sin(i * 78.233) * r * 0.05, oz: Math.cos(i * 37.71) * r * 0.05 };
+          if (c.layout === 'row') { const hd = (c.rowDir ?? 0) * D2R, gp = (c.gap ?? 2.3) * r; g.userData = { y: th * 0.5, rz: (Math.sin(i * 12.9898) * 0.5) * 0.02, ox: Math.cos(hd) * gp * i, oz: Math.sin(hd) * gp * i }; }   /* V4 (G2): HÀNG xu nằm phẳng cạnh nhau → đếm được bằng mắt */
+          grp.add(g); items.push(g); }
+        if (c.layout === 'row') items.row = true;
         if (c.ruler) { const rm = new THREE.MeshToonMaterial({ color: c.rulerColor || '#f4efe4' }), dk = new THREE.MeshToonMaterial({ color: '#3a3026' }), rx = (c.rulerSide ?? 1) * r * 1.55, rul = new THREE.Group(); rul.position.set(rx, 0, 0); grp.add(rul);   /* V3 (E3): thước cạnh chồng, 1 khấc / đồng → đọc tỷ lệ bằng mắt */
           const N = c.ruler === true ? n : c.ruler, post = new THREE.Mesh(new THREE.BoxGeometry(r * 0.16, th * N, r * 0.16), rm); post.position.y = th * N / 2; rul.add(post);
           for (let i = 0; i <= N; i++) { const tk = new THREE.Mesh(new THREE.BoxGeometry(r * (i % 5 === 0 ? 0.62 : 0.4), th * 0.09, r * 0.2), i % 5 === 0 ? dk : rm); tk.position.set(-r * 0.12, th * i, 0); rul.add(tk); }
@@ -195,6 +198,11 @@ export const HEROES = {
         cols.push({ c, grp, items, x, z, lon: lonA, lat: latA, top: () => b.scale.y, bar: b, sh }); }
       const cc = cols[cols.length - 1], tp = new THREE.Vector3(), pl = new THREE.Vector3(), pr = new THREE.Vector3(), rgt = new THREE.Vector3();
       anchors['col:' + c.id] = () => tp.set(cc.x, cc.grp.position.y + cc.top() + 0.6, cc.z);
+      if (cc.items.row) { const last = () => { let L = cc.items[0]; for (const g of cc.items) if (g.visible) L = g; return L; };   /* V4 (G2): hàng xu — nhãn bám đồng cuối đã rơi; hộp chiếu = đồng đầu ↔ đồng cuối */
+        anchors['col:' + c.id] = () => { const L = last(); return tp.set(cc.x + L.position.x, cc.grp.position.y + cc.th + 0.6, cc.z + L.position.z); };
+        anchors['colL:' + c.id] = () => cc.grp.visible ? pl.set(cc.x + cc.items[0].userData.ox - r * 1.1, cc.grp.position.y, cc.z + cc.items[0].userData.oz) : null;
+        anchors['colR:' + c.id] = () => { const L = last(); return cc.grp.visible ? pr.set(cc.x + L.userData.ox + r * 1.1, cc.grp.position.y, cc.z + L.userData.oz) : null; };
+        continue; }
       if (cc.items.ruler) { const rp = new THREE.Vector3(); anchors['rul:' + c.id] = () => { if (!cc.grp.visible || !cc.items.ruler.visible) return null; cc.items.ruler.updateMatrixWorld(); return rp.set(0, cc.th * cc.items.ruler.userData.N * cc.items.ruler.scale.y + 0.3, 0).applyMatrix4(cc.items.ruler.matrixWorld); }; }
       // mép trái/phải ở chân (theo hướng phải của máy quay) → lớp 2D dựng hộp chiếu của chồng xu để nhãn né (BAI-HOC-K2 K11)
       anchors['colL:' + c.id] = () => { rgt.setFromMatrixColumn(cam.matrixWorld, 0).setY(0).normalize().multiplyScalar(r * 1.1); return cc.grp.visible ? pl.set(cc.x, cc.grp.position.y, cc.z).sub(rgt) : null; };
@@ -268,12 +276,40 @@ export const HEROES = {
           x.inner.scale.x = fl ? -1 : 1; }
         else if (x.wk && x.wk.w) { const R = routes[x.wk.w.route], u = x.wk.u, a = R.at(Math.max(0, u - 0.004)), b = R.at(Math.min(1, u + 0.004)); x.root.rotation.y = Math.atan2(-(Z(b[1]) - Z(a[1])), X(b[0]) - X(a[0])) + (q.yaw || 0) * D2R; }
         else x.root.rotation.y = toCam - 35 * D2R + (q.yaw || 0) * D2R; } };
+    // ---- V4 (F4, chủ dự án 14/10/2026 22:11): ZOOM NHIỀU TẦNG — bản đồ nổi → ảnh hàng không (tài sản công, scripts/k2/aerial.py) → cảnh gần (ảnh/footage)
+    //   aerial: [{img: '/cache/aerial/<tên>/t<i>.jpg', bbox: [lon0,lat0,lon1,lat1], fade: [dXa, dGần] (km khoảng cách máy: 0 khi ≥ dXa, đủ khi ≤ dGần), feather (mép hoà, phần cạnh, mặc định 0,14)}]
+    //     tấm ảnh phủ đúng toạ độ trên địa hình (theo độ cao), mép mờ dần → hoà vào tầng dưới; độ hiện theo KHOẢNG CÁCH máy (không theo giờ) → tỉ lệ liền, không giật
+    //   close: {img, at: [t0, t1] (hoà sang), kb: [[u, v, s], [u, v, s]] (tâm + độ phóng Ken Burns từ t0 tới hết cảnh), tone: 'sepia'|'none', grain}
+    //     cảnh gần = ảnh/khung toàn màn hình hoà lên trên, tiếp tục "lặn" bằng Ken Burns (độ phóng tăng theo hàm mũ như máy); neo 'close:<u>,<v>' không cần — lớp 2D dùng toạ độ khung
+    const aer = [];
+    for (const A of o.aerial || []) { const im = await loadImg(A.img), [a0, b0, a1, b1] = A.bbox, fe = A.feather ?? 0.14, iw = Math.min(im.naturalWidth, maxT), ih = Math.round(iw * im.naturalHeight / im.naturalWidth);
+      const cv = document.createElement('canvas'); cv.width = iw; cv.height = ih; const g = cv.getContext('2d'); g.drawImage(im, 0, 0, iw, ih); const D = g.getImageData(0, 0, iw, ih), P = D.data;
+      for (let y = 0; y < ih; y++) for (let x = 0; x < iw; x++) { const e = Math.min(x / iw, 1 - x / iw, y / ih, 1 - y / ih) / fe; P[(y * iw + x) * 4 + 3] *= (e >= 1 ? 1 : e * e * (3 - 2 * e)); }   // mép hoà (smoothstep) × alpha sẵn có (ô không có ảnh = trong suốt)
+      g.putImageData(D, 0, 0); const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 16; t.needsUpdate = true;
+      const n = 40, gw = (a1 - a0) * kx, gh = (b1 - b0) * kz, geo2 = new THREE.PlaneGeometry(gw, gh, n, n); geo2.rotateX(-Math.PI / 2); const cx0 = X((a0 + a1) / 2), cz0 = Z((b0 + b1) / 2), Pp = geo2.attributes.position;
+      for (let i = 0; i < Pp.count; i++) { const lon = lonc + (Pp.getX(i) + cx0) / kx, lat = latc - (Pp.getZ(i) + cz0) / kz; Pp.setY(i, hAt(lon, lat) + 0.02); }
+      const m = new THREE.Mesh(geo2, new THREE.MeshBasicMaterial({ map: t, transparent: true, depthWrite: false, depthTest: false, opacity: 0 })); m.position.set(cx0, 0, cz0); m.renderOrder = -10 + aer.length * 0.01; m.visible = false; scene.add(m); aer.push({ A, m }); }
+    let close = null;
+    if (o.close) { const im = await loadImg(o.close.img), iar = im.naturalWidth / im.naturalHeight, tx2 = new THREE.Texture(im); tx2.colorSpace = THREE.SRGBColorSpace; tx2.anisotropy = 8; tx2.generateMipmaps = true; tx2.minFilter = THREE.LinearMipmapLinearFilter; tx2.needsUpdate = true;
+      const fr = (W / H) / iar;   // phủ khung (cover): phần ảnh thấy được theo u/v ở độ phóng 1
+      close = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false,
+        uniforms: { tex: { value: tx2 }, a: { value: 0 }, c: { value: new THREE.Vector2(0.5, 0.5) }, s: { value: 1 }, k: { value: new THREE.Vector2(fr > 1 ? 1 : fr, fr > 1 ? 1 / fr : 1) }, sep: { value: o.close.tone === 'none' ? 0 : 1 },
+          ink: { value: new THREE.Color(o.close.ink || '#2a1c10') }, paper: { value: new THREE.Color(o.close.paper || '#f1e4c6') } },
+        vertexShader: 'varying vec2 vU; void main(){ vU = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+        fragmentShader: `uniform sampler2D tex; uniform float a, s, sep; uniform vec2 c, k; uniform vec3 ink, paper; varying vec2 vU;
+          void main(){ vec2 uv = c + (vec2(vU.x, 1.0 - vU.y) - 0.5) * k / s; vec3 x = texture2D(tex, vec2(uv.x, 1.0 - uv.y)).rgb;   /* uv ảnh: u sang phải, v từ trên xuống */
+            float L = dot(x, vec3(0.2126, 0.7152, 0.0722)); L = smoothstep(0.02, 0.98, L); vec3 st = mix(ink, paper, L);   /* ảnh lưu trữ đen trắng → bảng màu sepia của kênh (không tô màu) */
+            gl_FragColor = vec4(mix(x, st, sep), a); }` }));
+      close.frustumCulled = false; close.renderOrder = 30; scene.add(close); }
     // ---- palette
     const sepAt = (t) => o.palette === 'sepia' ? 1 : o.sepia ? ease(cl((t - o.sepia[0]) / (o.sepia[1] - o.sepia[0]))) : o.natural ? 1 - ease(cl((t - o.natural[0]) / (o.natural[1] - o.natural[0]))) : 0;
     const BGN = new THREE.Color('#8fa3ab'), BGS = new THREE.Color('#bba985');   // mù nền cùng tông bảng màu (mép bản đồ không lộ khối tối)
     place(0);
     const self = { scene, cam, grade: o.grade || 'info', exposure: o.exposure || 1.0, anchors,
-      update(t) { place(t); const sp = sepAt(t); U.sep.value = sp; U.bg.value.copy(BGN).lerp(BGS, sp); scene.background = U.bg.value;
+      update(t) { place(t); const sp = sepAt(t);
+        for (const { A, m } of aer) { const [dF, dN] = A.fade, a = 1 - ease(cl((Math.log(camDist) - Math.log(dN)) / (Math.log(dF) - Math.log(dN)))); m.material.opacity = a; m.visible = a > 0.002; }   // V4: tầng ảnh hàng không theo khoảng cách máy (thang log)
+        if (close) { const C2 = o.close, a = ease(cl((t - C2.at[0]) / Math.max(0.01, C2.at[1] - C2.at[0]))), [k0, k1] = C2.kb || [[0.5, 0.5, 1], [0.5, 0.5, 1.15]], u = cl((t - C2.at[0]) / Math.max(0.01, dur - C2.at[0]));
+          close.visible = a > 0.002; close.material.uniforms.a.value = a; close.material.uniforms.c.value.set(lerp(k0[0], k1[0], u), lerp(k0[1], k1[1], u)); close.material.uniforms.s.value = Math.exp(lerp(Math.log(k0[2]), Math.log(k1[2]), u)); } U.sep.value = sp; U.bg.value.copy(BGN).lerp(BGS, sp); scene.background = U.bg.value;
         RK = regions.map((r) => { const a = Array.isArray(r.at) ? eo(cl((t - r.at[0]) / Math.max(0.01, r.at[1] - r.at[0]))) : win(r.at, t, 1.0); return r.out !== undefined ? a * (1 - ease(cl((t - r.out) / 0.8))) : a; });
         U.rk.value.set(RK[0] || 0, RK[1] || 0, RK[2] || 0); U.rlift.value.set(RL[0] || 0, RL[1] || 0, RL[2] || 0);
         const wk = 2 * camDist * Math.tan(cam.fov * D2R / 2) / 1080;   // km ứng với 1 px của khung 1080p ở tâm khung (độ dày nét, cỡ vòng sáng theo px)
@@ -285,7 +321,8 @@ export const HEROES = {
         for (const cc of cols) { const y0 = ground(cc.lon, cc.lat); cc.grp.position.set(cc.x, y0, cc.z); const [t0, t1] = cc.c.t || [0, 0.01];
           if (cc.bar) { const u = eo(cl((t - t0) / (t1 - t0))); cc.bar.scale.y = Math.max(0.001, u * cc.c.v); cc.bar.position.y = cc.bar.scale.y / 2; cc.grp.visible = u > 0.001; }
           else { const n = cc.items.length, step = n > 1 ? (t1 - t0) / n : 0; cc.items.forEach((g, i) => { const ti = t0 + i * step, u = cl((t - ti) / 0.32); g.visible = u > 0; const d = g.userData;   // rơi xuống + nảy nhẹ
-            g.position.set(d.ox, d.y + (1 - eo(u)) * 6 + Math.sin(cl(u * 1.4) * Math.PI) * 0.0, d.oz); g.rotation.z = d.rz * (1 - u) * 6 + d.rz; });
+            if (cc.items.row && d.gy === undefined) { const lo = cc.lon + d.ox / kx, la = cc.lat - d.oz / kz, rr = cc.c.r || 7; d.gy = Math.max(...[[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1], [0.7, 0.7], [-0.7, 0.7], [0.7, -0.7], [-0.7, -0.7]].map(([a, b]) => ground(lo + a * rr / kx, la + b * rr / kz))) - y0 + 0.15; }   /* V4 (G2): đồng nằm trên điểm cao nhất dưới nó → không lún vào địa hình */
+            g.position.set(d.ox, d.y + (d.gy || 0) + (1 - eo(u)) * 6, d.oz); g.rotation.z = d.rz * (1 - u) * 6 + d.rz; });
             if (cc.items.ruler) { const ru = eo(cl((t - t0) / 0.5)); cc.items.ruler.visible = ru > 0.001; cc.items.ruler.scale.y = Math.max(0.001, ru); }
             cc.grp.visible = cc.items.some((g) => g.visible) || !!(cc.items.ruler && cc.items.ruler.visible); cc.sh.material.opacity = cc.grp.visible ? 1 : 0; } }
         for (const w of walkers) w.set(t);

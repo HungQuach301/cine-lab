@@ -57,7 +57,66 @@ export const PHOTO_PRESETS = {
   top: ({ dur, size, mm }) => { const d = hgt(size, mm, 0.56); return [{ t: 0, p: [0, d * 1.04, 0.01], l: [0, 0, 0], mm }, { t: dur, p: [0, d, 0.01], l: [0, 0, 0], mm }]; },
 };
 
+// ---- V4 (F2, chủ dự án 14/10/2026 22:11): chân dung TÁCH NỀN — lớp người (điểm ảnh gốc × mặt nạ alpha của scripts/k2/cutout.py, mô hình phân đoạn
+// mã nguồn mở chạy cục bộ; không sinh hình) + viền trắng và bóng đổ cùng phong cách sticker (scripts/k2/lib/sticker.js STK.style: giãn alpha 32 hướng × 2 vòng,
+// bóng mềm lệch xuống phải) trên nền mờ/tối hoặc bản đồ sepia. Ken Burns 2.5D: các lớp đặt ở độ sâu khác nhau → máy tiến + trượt ngang tạo thị sai thật.
+function cutoutLayer(im, mk, crop, { o = 10, sa = 0.42, edge = '#ffffff' } = {}) {
+  const [u0, v0, u1, v1] = crop || [0, 0, 1, 1], sx = Math.round(u0 * im.naturalWidth), sy = Math.round(v0 * im.naturalHeight), sw = Math.round((u1 - u0) * im.naturalWidth), sh = Math.round((v1 - v0) * im.naturalHeight);
+  const p = document.createElement('canvas'); p.width = sw; p.height = sh; const pg = p.getContext('2d'); pg.drawImage(im, sx, sy, sw, sh, 0, 0, sw, sh);
+  const m = document.createElement('canvas'); m.width = sw; m.height = sh; const mg = m.getContext('2d'); mg.drawImage(mk, sx, sy, sw, sh, 0, 0, sw, sh);
+  const P = pg.getImageData(0, 0, sw, sh), M = mg.getImageData(0, 0, sw, sh).data; for (let i = 0; i < M.length; i += 4) P.data[i + 3] = M[i]; pg.putImageData(P, 0, 0);   // alpha = mặt nạ; RGB giữ nguyên
+  const pad = Math.ceil(o * 4), W = sw + 2 * pad, H = sh + 2 * pad;
+  const sil = document.createElement('canvas'); sil.width = W; sil.height = H; const sg = sil.getContext('2d');
+  for (let k = 0; k < 32; k++) { const a = k / 32 * Math.PI * 2; for (const f of [1, 0.6]) sg.drawImage(p, pad + Math.cos(a) * o * f, pad + Math.sin(a) * o * f); }
+  sg.globalCompositeOperation = 'source-in'; sg.fillStyle = edge; sg.fillRect(0, 0, W, H);
+  const body = document.createElement('canvas'); body.width = W; body.height = H; const bg = body.getContext('2d'); bg.drawImage(sil, 0, 0); bg.drawImage(p, pad, pad);
+  const shd = document.createElement('canvas'); shd.width = W; shd.height = H; const hg = shd.getContext('2d'); hg.filter = `blur(${Math.max(2, o * 1.6)}px)`; hg.globalAlpha = sa; hg.drawImage(sil, 0, 0); hg.globalCompositeOperation = 'source-in'; hg.fillStyle = 'rgba(10,12,16,1)'; hg.fillRect(0, 0, W, H);
+  return { body, shd, pad, sw, sh };
+}
+async function cutoutBg(o) {   // nền: 'blur' (nền gốc đã lấp chỗ người + mờ, cutout.py) | {map, bbox, palette, routes:[{src|pts, color, w, dash}]}
+  const b = o.bg || 'blur';
+  if (b === 'blur' || typeof b === 'string') { const im = await loadImg(b === 'blur' ? o.bgImg : b); return canvasTex(1280, Math.round(1280 * im.naturalHeight / im.naturalWidth), (g, w, h) => { g.filter = 'blur(6px)'; g.drawImage(im, -24, -24, w + 48, h + 48); }); }
+  const base = `/cache/relief/${b.map || 'erie'}/`, meta = await loadJSON(base + 'meta.json'), im = await loadImg(base + (b.palette === 'natural' ? 'natural.jpg' : 'sepia.jpg'));
+  const [L0, A0, L1, A1] = meta.bbox, [l0, a0, l1, a1] = b.bbox, px = (lon) => (lon - L0) / (L1 - L0) * im.naturalWidth, py = (lat) => (A1 - lat) / (A1 - A0) * im.naturalHeight;
+  const sx = px(l0), sy = py(a1), sw = px(l1) - sx, sh = py(a0) - sy, TW = 2048, TH = Math.round(TW * sh / sw);
+  const RTS = b.routes ? await loadJSON(base + 'routes.json').catch(() => ({})) : {};
+  return canvasTex(TW, TH, (g, w, h) => { g.filter = `blur(${b.blur ?? 2}px)`; g.drawImage(im, sx, sy, sw, sh, 0, 0, w, h); g.filter = 'none';   /* nền lùi sâu: mờ nhẹ (độ sâu trường ảnh) → người tách lớp */
+    for (const r of b.routes || []) { const pts = r.pts || RTS[r.src] || []; g.save(); g.strokeStyle = r.color || C.orange; g.lineWidth = r.w || 7; g.lineCap = g.lineJoin = 'round'; if (r.dash) g.setLineDash(r.dash);
+      g.beginPath(); pts.forEach(([lon, lat], i) => { const x = (px(lon) - sx) / sw * w, y = (py(lat) - sy) / sh * h; i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke(); g.restore(); } });
+}
+
 export const HEROES = {
+  // photo/cutout — opt: img, mask ('/k2v/cutouts/<rid>-mask.png'), bgImg ('/k2v/cutouts/<rid>-bg.jpg'), bg: 'blur' | {map, bbox, palette, routes}, dim (0..1, mặc định 0,55),
+  //   crop: [u0,v0,u1,v1] (phần ảnh dùng), pos: [x, y] (tâm người trong khung đầu, 0..1), h (chiều cao người / khung, mặc định 0,9), outline (px @1080p, mặc định 10), sa (độ đậm bóng),
+  //   push (độ tiến, mặc định 0,14), drift (trượt ngang, đơn vị cảnh, mặc định 0,5), depth (khoảng cách nền sau người, mặc định 7), focus: [u, v] (mặt — neo 'face'), cam: [...] ghi đè
+  //   neo: 'face', 'person:top', 'person:bl', 'person:br'
+  async cutout({ W, H, dur, opt: o = {} }) {
+    const scene = new THREE.Scene(); scene.background = new THREE.Color('#0b0d10');
+    const [im, mk] = await Promise.all([loadImg(o.img), loadImg(o.mask)]);
+    const D = 10, mm = o.mm || 50, fov = 2 * Math.atan(12 / mm), hF = 2 * D * Math.tan(fov / 2), wF = hF * W / H, Zb = o.depth ?? 7;
+    const oPx = o.outline ?? 10, ph0 = (o.h ?? 0.9) * hF;   // chiều cao người (đơn vị cảnh) ở khung đầu
+    const L = cutoutLayer(im, mk, o.crop, { o: 1, sa: 0 });   // đo cỡ trước để quy viền px@1080 → px ảnh
+    const oImg = Math.max(2, Math.round(oPx * L.sh / ((o.h ?? 0.9) * 1080)));   // viền oPx tính ở khung 1080p → px ảnh
+    const C2 = cutoutLayer(im, mk, o.crop, { o: oImg, sa: o.sa ?? 0.5 }), ar = C2.body.width / C2.body.height, pw = ph0 * C2.body.height / C2.sh * ar, phT = ph0 * C2.body.height / C2.sh;
+    const tx = (cv) => { const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 8; t.needsUpdate = true; return t; };
+    const pos = o.pos || [0.33, 0.53], cx = (pos[0] - 0.5) * wF, cy = -(pos[1] - 0.5) * hF;
+    const person = new THREE.Mesh(new THREE.PlaneGeometry(pw, phT), new THREE.MeshBasicMaterial({ map: tx(C2.body), transparent: true, depthWrite: false, toneMapped: false }));
+    person.position.set(cx, cy, 0); person.renderOrder = 3; scene.add(person);
+    const sOff = oImg * 0.9 / C2.sh * ph0;   // bóng đổ mềm lệch xuống phải (như STK.style), trên lớp gần nền người → thị sai nhỏ giữa người và bóng
+    const shadow = new THREE.Mesh(new THREE.PlaneGeometry(pw, phT), new THREE.MeshBasicMaterial({ map: tx(C2.shd), transparent: true, depthWrite: false, toneMapped: false }));
+    shadow.position.set(cx + sOff * 0.7, cy - sOff * 1.1, -0.18); shadow.renderOrder = 2; scene.add(shadow);
+    const bt = await cutoutBg(o), bimg = bt.image, bar = bimg.width / bimg.height, hb = 2 * (D + Zb) * Math.tan(fov / 2) * 1.3, wb = Math.max(hb * W / H, hb * bar) * 1.0;
+    const bgm = new THREE.Mesh(new THREE.PlaneGeometry(Math.max(wb, hb * bar), Math.max(wb, hb * bar) / bar), new THREE.MeshBasicMaterial({ map: bt, toneMapped: false, color: new THREE.Color(1, 1, 1).multiplyScalar(1 - (o.dim ?? 0.55)) }));
+    bgm.position.set((o.bgShift || [0, 0])[0], (o.bgShift || [0, 0])[1], -Zb); bgm.renderOrder = 1; scene.add(bgm);
+    const F = o.focus || [0.5, 0.25], fx = cx + (F[0] - 0.5) * (pw * C2.sw / C2.body.width), fy = cy - (F[1] - 0.5) * ph0;
+    const push = o.push ?? 0.14, dr = o.drift ?? 0.5;
+    const keys = o.cam || [{ t: 0, p: [-dr / 2, 0, D], l: [-dr / 2 * 0.4, 0, 0], mm }, { t: dur, p: [dr / 2 + (fx - 0) * push * 0.6, (fy) * push * 0.6, D * (1 - push)], l: [dr / 2 * 0.4 + fx * push * 0.5, fy * push * 0.5, 0], mm }];
+    const { cam, at } = camRig(W, H, keys, dur);
+    const wpos = (x, y) => new THREE.Vector3(x, y, 0);
+    return { scene, cam, grade: o.grade || 'archive', exposure: o.exposure || 1.0,
+      anchors: { face: () => wpos(fx, fy), 'person:top': () => wpos(cx, cy + ph0 / 2), 'person:bl': () => wpos(cx - pw * C2.sw / C2.body.width / 2, cy - ph0 / 2), 'person:br': () => wpos(cx + pw * C2.sw / C2.body.width / 2, cy - ph0 / 2) },
+      update(t) { at(t); } };
+  },
   async print({ W, H, dur, opt: o = {} }) {
     const scene = new THREE.Scene(); desk(scene, { tone: o.tone || '#2b241e' });
     const im = await loadImg(o.img), ar = im.naturalWidth / im.naturalHeight, ph = o.h || 2.6, pw = ph * ar;
