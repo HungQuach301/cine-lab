@@ -396,12 +396,12 @@ heroes:
       pins:
       - id: wagon
         at:
-        - -78.66
+        - -78.79
         - 42.8
       - id: boat
         at:
-        - -78.66
-        - 42.665
+        - -78.79
+        - 42.62
       cam:
       - t: 0
         lon: -77.95
@@ -485,7 +485,7 @@ heroes:
       mask: /k2v/cutouts/MET-10991-mask.png
       bgImg: /k2v/cutouts/MET-10991-bg.jpg
       bg: blur
-      dim: 0.35
+      dim: 0.2
       sa: 0.6
       crop:
       - 0.0
@@ -646,7 +646,7 @@ segments:
         - up
         c: '#ffe6b0'
       cap:
-      - s: 'Lockport, New York: where the Erie Canal climbs the Niagara Escarpment'
+      - s: 'Lockport, N.Y.: where the Erie Canal climbs the Niagara Escarpment'
         at: 1.0
         out: 6.9
       - s: The locks at Lockport, on a 1905 postcard
@@ -917,11 +917,11 @@ segments:
       - a: st:wagon
         img: stk:wagon
         at: 0.3
-        px: 160
+        px: 135
       - a: st:boat
         img: stk:boat
         at: 3.3
-        px: 150
+        px: 125
       tags:
       - a: col:wagon
         s: $90–125
@@ -982,6 +982,7 @@ segments:
       cap:
       - s: A barge in a lock on New York's Erie Canal (1957 newsreel)
         at: 0.4
+        out: 4.4
       src: 'Film: Warner-Pathé News, 1957 · Prelinger Archives'
   - tpl: plate
     at: 4.4
@@ -995,7 +996,7 @@ segments:
       setting: replica packet boat entering Black Rock Lock, Buffalo
       cap:
       - s: '2025: a replica 19th-century packet boat passes Black Rock Lock in Buffalo'
-        at: 0.4
+        at: 4.8
       src: 'Video: U.S. Army Corps of Engineers, 2025'
 - id: P
   part: BODY
@@ -1058,6 +1059,7 @@ segments:
           w: 500
           c: '#D6DDE4'
           at: 1.3
+        out: 4.35
   - tpl: plate
     at: 4.5
     in: fade
@@ -1070,27 +1072,27 @@ segments:
       hero: p_vr
       photo: MET-10991
       side:
-        at: 0.3
+        at: 4.8
         lines:
         - s: Stephen Van Rensselaer
           px: 60
           w: 700
           disp: true
-          at: 0.3
+          at: 4.8
         - s: Erie Canal commissioner
           px: 40
           c: '#E6EBF0'
-          at: 0.7
+          at: 5.2
         - s: Portrait painted about 1828
           px: 40
           c: '#F2C14E'
-          at: 1.0
+          at: 5.5
           gap: 40
         - s: 'Painting: C. Harding · The Met (public domain)'
           px: 38
           w: 500
           c: '#D6DDE4'
-          at: 1.3
+          at: 5.8
 - id: S
   part: BODY
   dur: 6

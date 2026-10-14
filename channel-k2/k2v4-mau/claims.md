@@ -5,7 +5,7 @@ Cuộn mẫu dùng lại đoạn H, J, N, S của K2V2 (số và nguồn: `chann
 
 | Mã | Đoạn | Trên hình | Nguyên văn nguồn | Nguồn |
 |---|---|---|---|---|
-| Z1 | Z | "Lockport, New York: where the Erie Canal climbs the Niagara Escarpment" | "…which enable today's canal traffic to climb the Niagara Escarpment." · "Lockport's famous Flight of Five locks are perhaps one of the most iconic features" | Erie Canalway NHC, *Lockport Locks District* (eriecanalway.org/find-resources/case-studies/lockport-locks) |
+| Z1 | Z | "Lockport, N.Y.: where the Erie Canal climbs the Niagara Escarpment" | "…which enable today's canal traffic to climb the Niagara Escarpment." · "Lockport's famous Flight of Five locks are perhaps one of the most iconic features" | Erie Canalway NHC, *Lockport Locks District* (eriecanalway.org/find-resources/case-studies/lockport-locks) |
 | Z2 | Z | "The locks at Lockport, on a 1905 postcard" + chip "1905" | Tên tư liệu: "The Locks, Lockport, N.Y." · "Copyright 1905 by the Rotograph Co." | LOC 2025670941 (loc.gov/item/2025670941/) |
 | Z3 | Z | Ảnh hàng không Lockport (không chữ) | NAIP, chụp 20/08/2019 (tile `m_4307851_sw_17_060_20190820`) | USDA FSA qua USGS The National Map (`aerial-lockport-meta.json`) |
 | F1 | F | "A barge in a lock on New York's Erie Canal (1957 newsreel)" | Mô tả phim: "…and New York State's Erie Canal." · thẻ đoạn "AMERICA'S HERITAGE / THE ERIE CANAL"; khung 1073,6–1078,5 s: cảnh từ trên không, sà lan trong buồng âu | Prelinger Archives, *News Magazine of the Screen, The (1957)*, Warner Pathé News (archive.org/details/NewsMaga1957) |

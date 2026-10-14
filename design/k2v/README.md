@@ -154,6 +154,22 @@ Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng
   - `vshot.py --chunk K`: chia cảnh dài thành các phần ≤ K khung, việc dài chạy trước. Ở 4 vCPU không nhanh hơn `--par 4` (SwiftShader đã dùng hết CPU).
   - `lod_test.py --set v3 [--cfg …]`: so SSIM/pHash các cấu hình V3.
 
+### V4 (14/10/2026, chủ dự án duyệt 22:11 F2–F4 và 22:55 G2–G4)
+- **Zoom nhiều tầng (F4)** — thêm vào `relief/map`:
+  - `aerial: [{img, bbox, fade: [dXa, dGần], feather}]`: tấm ảnh hàng không phủ đúng toạ độ trên địa hình. Độ hiện theo **khoảng cách máy** (thang log), không theo giờ, nên tỉ lệ liền, không giật. Mép mờ dần → hoà vào tầng dưới; ô không có ảnh (mặt hồ ngoài NAIP) trong suốt.
+  - `close: {img, at: [t0, t1], kb: [[u, v, s], [u, v, s]], tone: 'sepia'|'none'}`: cảnh gần toàn khung hoà lên trên, tiếp tục "lặn" bằng Ken Burns (độ phóng tăng theo hàm mũ). Ảnh đen trắng → tông sepia của kênh (không tô màu).
+  - `camGround: true`: tâm nhìn đặt trên mặt đất thật (cần khi máy xuống tầm km).
+  - Tầng ảnh: `scripts/k2/aerial.py fetch --name <tên> --center lon,lat --tiers km:px,… --relief erie --match 0.6` (USDA NAIP qua USGS `USGSNAIPPlus`; chỉnh màu toàn cục về bảng màu TỰ NHIÊN; SHA từng tầng vào `channel-k2/k2v4-mau/aerial-<tên>-meta.json`). Quy tắc chọn `fade`: tầng cạnh K km hiện đủ khi máy ≤ ~0,6 K, ẩn khi ≥ ~0,9 K.
+  - Nhịp: `rhythm.py` tính mốc `close.at`; các tầng ảnh khai bằng mốc `cam`.
+- **Chân dung tách nền (F2)** — cảnh mới `photo/cutout` (`photo.js`):
+  - Mặt nạ: `scripts/k2/cutout.py try|make` (rembg + BiRefNet/IS-Net/U²-Net, ONNX, CPU cục bộ; venv `/var/tmp/cine-out/segvenv`; trọng số ở `$K2V_CACHE/models`, không commit). Chỉ tách nền: lớp người = điểm ảnh gốc × alpha.
+  - Ra `design/k2v/cutouts/<rid>-mask.png` + `<rid>-bg.jpg` (nền gốc lấp chỗ người + mờ) + `<rid>.json` (SHA, mô hình, số đo mép: lệch đường viền p95, dải mềm; tờ kiểm mép 2× ở cache).
+  - opt: `img, mask, bgImg, bg: 'blur' | {map, bbox, palette, routes: [{src, color, w, dash}]}, dim, crop, pos, h, outline (px @1080p), sa, push, drift, depth, focus`. Viền trắng + bóng đổ cùng thuật toán `STK.style`. Ken Burns 2.5D: người, bóng, nền ở ba độ sâu → thị sai thật. Neo `face`, `person:top|bl|br`. Chữ: `p.side` như chân dung V2b.
+- **Footage thật (F3)** — `footage/clip` (`scripts/k2/hero.js`) thêm: `grade: 'sepia'|'natural'` (bảng màu kênh), `clean` (khử nhiễu + làm nét nhẹ), `ivtc` (gỡ kéo xuống 3:2), điểm ảnh không vuông luôn đưa về vuông. Mỗi shot footage ≤ 8 s, `p.clip` + `p.setting`; chuyển cảnh hoà bằng `in: fade`.
+  - Kiểm: `scripts/k2/footage_share.py <spec>`: footage ≤ 20 % thời lượng, mỗi clip có SHA và tệp giấy phép `licenses/<mã>.txt` ghi đúng SHA.
+- **Hàng xu (G2):** `cols[].layout: 'row'` (+ `rowDir`°, `gap` × r): các đồng nằm phẳng thành hàng, rơi lần lượt, mỗi đồng đặt trên điểm cao nhất dưới nó; neo `col:<id>` = đồng cuối đã rơi, hộp chiếu = đồng đầu ↔ đồng cuối. Thước `ruler` (V3) vẫn còn nhưng cuộn mẫu không dùng.
+- **Bảng điểm gọn (G3):** khi `board.w < 1000`: mỗi hàng MỘT dòng (biểu tượng + nhãn 36 px bên trái, hai giá trị 40/42 px), tên hai phía 36 px, bỏ chữ "vs" và dòng phụ `sub`; huy hiệu góc 34 px.
+
 ## Công cụ
 - `scripts/k2/k2v_assets.py` — tải tài sản (SHA ghim `scripts/k2/k2v-assets.sha.json`), Blue Marble toàn cầu/vùng, ảnh tư liệu, trang PDF + khung highlight, bảng giấy phép.
 - `scripts/k2/relief_build.py` (nền bản đồ nổi), `scripts/k2/stickers_build.js` + `stickers_sheet.py` (thư viện sticker), `scripts/k2/reel_sheet.py` (tờ khung cuộn mẫu) — V2.

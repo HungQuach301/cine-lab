@@ -41,6 +41,7 @@ def spec_times(E, sg):
         for w in o.get('walkers', []): add((w.get('t') or [None])[0])
         for q in o.get('props', []): add(q.get('t'))
         if isinstance(o.get('close'), dict): add((o['close'].get('at') or [None])[0])   # V4: tầng gần của zoom nhiều tầng hoà vào
+        add = lambda v, base=0.0: T.add(base + v) if num(v) is not None and v >= 0 else None   # V4: mốc lớp 2D (p.*) là giây TRONG ĐOẠN (k2.js vis(t, at), t = giờ đoạn) — không cộng mốc shot
         for k in ('places', 'tags', 'stickers', 'labels'):
             for x in p.get(k, []) or []:
                 if isinstance(x, dict): add(x.get('at'))

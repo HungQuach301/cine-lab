@@ -76,7 +76,9 @@ def main():
         raw = open(rf, 'rb').read() if os.path.exists(rf) and '--cached' in sys.argv else export(bb, int(px)); open(rf, 'wb').write(raw)
         im = Image.open(io.BytesIO(raw)).convert('RGB'); a = np.asarray(im, np.float32)
         from scipy import ndimage
-        nod = ndimage.binary_dilation(a.sum(2) < 20, iterations=4)   # ô không có ảnh (mặt hồ ngoài vùng NAIP) = đen → trong suốt, mép mờ
+        nod = a.sum(2) < 20; lb, nn = ndimage.label(nod)
+        if nn: sz = ndimage.sum(nod, lb, range(1, nn + 1)); nod = np.isin(lb, 1 + np.nonzero(sz >= 0.001 * nod.size)[0])   # chỉ vùng trống lớn; bóng đen nhỏ trong ảnh giữ nguyên
+        nod = ndimage.binary_dilation(nod, iterations=4)   # ô không có ảnh (mặt hồ ngoài vùng NAIP) = đen → trong suốt, mép mờ
         alpha = np.clip(1 - ndimage.gaussian_filter(nod.astype(np.float32), 10) * 1.6, 0, 1) * (~nod); valid = ~nod
         if i == 0 and arg('relief'):   # phép chuyển màu: thống kê Lab tầng xa → thống kê Lab nền relief TỰ NHIÊN cùng ô (bảng màu kênh)
             rm = json.load(open(os.path.join(CACHE, 'relief', arg('relief'), 'meta.json'))); R = Image.open(os.path.join(CACHE, 'relief', arg('relief'), 'natural.jpg'))
@@ -85,6 +87,14 @@ def main():
             mu_s, sd_s, mu_r, sd_r = src[valid].mean(0), src[valid].std(0), ref[valid].mean(0), ref[valid].std(0)   # chỉ vùng có ảnh, cùng vùng trên nền relief
             k = sd_r / np.maximum(sd_s, 1e-3); k[0] = max(k[0], 0.85)   # giữ tương phản sáng của ảnh (không làm bệt chi tiết)
             tf = dict(mu_s=mu_s.tolist(), mu_r=mu_r.tolist(), k=k.tolist(), strength=strength)
+        if arg('relief'):   # mặt nước lấy theo nền relief (Natural Earth): nước → trong suốt, để hồ/sông của bản đồ hiện qua; ranh ảnh NAIP trên mặt hồ không lộ khối
+            rm = json.load(open(os.path.join(CACHE, 'relief', arg('relief'), 'meta.json'))); R = Image.open(os.path.join(CACHE, 'relief', arg('relief'), 'natural.jpg')); L0, A0, L1, A1 = rm['bbox']; W, H = R.size
+            box = ((bb[0] - L0) / (L1 - L0) * W, (A1 - bb[3]) / (A1 - A0) * H, (bb[2] - L0) / (L1 - L0) * W, (A1 - bb[1]) / (A1 - A0) * H)
+            rc = np.asarray(R.crop(tuple(round(v) for v in box)).resize(a.shape[1::-1], Image.BILINEAR).convert('RGB'), np.float32)
+            wat = ndimage.binary_opening(((rc[..., 2] > rc[..., 0] + 12) & (rc[..., 2] >= rc[..., 1] - 4)) | ((a[..., 2] > a[..., 1] + 4) & (a[..., 2] > a[..., 0] + 12)), iterations=3)   # nước theo relief HOẶC theo màu ảnh (xanh lam)
+            lab_, nw = ndimage.label(wat)
+            if nw: sz = ndimage.sum(wat, lab_, range(1, nw + 1)); wat = np.isin(lab_, 1 + np.nonzero(sz >= 0.002 * wat.size)[0])   # chỉ mặt nước lớn (hồ, sông rộng) — mái nhà xanh, bóng đổ không tính
+            if wat.mean() > 0.002: wa = np.clip(1 - ndimage.gaussian_filter(ndimage.binary_dilation(wat, iterations=3).astype(np.float32), 6) * 1.3, 0, 1); alpha = alpha * wa
         if tf:
             L = lab(a); T = (L - np.array(tf['mu_s'])) * np.array(tf['k']) + np.array(tf['mu_r']); L2 = L + strength * (T - L); a = unlab(L2)
         fp = os.path.join(out, f't{i}.png'); Image.fromarray(np.dstack([a, alpha * 255]).astype(np.uint8), 'RGBA').save(fp, optimize=False, compress_level=3)
