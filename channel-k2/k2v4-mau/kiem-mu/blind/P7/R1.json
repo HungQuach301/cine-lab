@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "confusing",
+   "illegible_text"
+  ],
+  "note": "Washed-out, foggy street photo with a bright sky. The caption is white on a gradient, and its left half sits over light mid-tones, so contrast is only moderate. The credit line is small and thin, so it is hard to read on a phone. The caption ('judges deferred to local lawmakers') has no visible connection to a tree-lined street, so the viewer can't tell what the place or subject is. The photo has no focal point."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The 1905 chip is bold and high-contrast. The caption sits on a dark gradient and reads cleanly. The photo has a strong central subject (a stepped lock with a bridge above it), good depth, and a consistent sepia grade. The credit line is small but legible. The caption names the place and year, so the viewer understands the image right away. The bottom of the lock is slightly crushed by the gradient."
+ },
+ "better": "Y",
+ "why": "Y has a clear focal subject, a high-contrast caption and year chip, and a caption that says exactly what is shown, while X is a hazy, low-contrast street scene whose caption doesn't match the image.",
+ "top_fix_for_weaker": "Darken the bottom third more (or put the caption on a solid dark bar), enlarge and brighten the credit line, and crop or zoom on the mansion or a specific subject with a label naming the place and date, so the image supports the 'judges deferred' point."
+}

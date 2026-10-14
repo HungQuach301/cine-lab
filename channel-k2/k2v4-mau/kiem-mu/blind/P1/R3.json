@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Bright relief map with a clear dashed canal route, Buffalo and Albany labels, a year badge and a caption that states the claim. The route shows where it happens right away. Minor issues: the Albany label covers the end of the route, and the source line is small."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Dark, muddy satellite imagery with a heavy blur toward the bottom. The Minneapolis callout is readable, but its pin is tiny and the callout is a source citation, not a place story. The state outline is faint. The caption is a quote with no figure, and the source line is small gray text over a dark gradient."
+ },
+ "better": "X",
+ "why": "X shows a specific route between two labeled places that you can read at a glance, while Y shows a dim map with a tiny pin and a source credit where a data point should be.",
+ "top_fix_for_weaker": "Brighten and sharpen the terrain and highlight the Minnesota outline. Use a larger pin with a short label such as 'Minneapolis Fed'. Move the source credit out of the callout, and add a concrete figure to the caption, such as a rent-growth percentage."
+}

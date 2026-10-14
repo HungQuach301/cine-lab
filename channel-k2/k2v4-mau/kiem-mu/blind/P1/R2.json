@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Crisp hillshaded relief map with a clear state outline and a dashed canal route that runs between the two labelled endpoints. The year badge is bold and the caption is large and high-contrast. Weaknesses: the lower third is a muddy dark fade over the orange Pennsylvania terrain. The Buffalo label sits on the lake edge and crowds the route start. The source line is small and the gap above it is wasted. The map is flat and top-down, so there is little camera depth."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Moody oblique satellite-style view with decent depth, but the imagery is murky and low in contrast. The brown Minnesota fill looks off. State borders are thin and washed out, and the Wisconsin and Michigan lakes are a dark mass. Nothing shows what the story is about: one pin and a label that reads like a citation, 'Federal Reserve Bank of Minneapolis, Oct 2026'. The pin is tiny. The two-line source credit is small, low-contrast grey and long, so it is hard to read on a phone."
+ },
+ "better": "X",
+ "why": "X shows where and what at a glance, with a route, labelled endpoints, a date and a legible caption, while Y is a murky map with one pin and a source label that tells the viewer nothing about the story.",
+ "top_fix_for_weaker": "Brighten and clean up the terrain with a clear Minnesota highlight and dimmed neighbours. Make the Minneapolis pin larger with a pulse. Label it simply 'Minneapolis' and move the Fed attribution into the caption. Shorten the source credit and raise its size and contrast. Add a data cue such as a rent-growth number or a metro highlight so the frame shows the subject and not only the location."
+}

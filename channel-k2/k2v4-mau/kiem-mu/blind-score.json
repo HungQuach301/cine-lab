@@ -1,0 +1,273 @@
+[
+ {
+  "cap": "P1",
+  "loai": "a terrain map that sets up the story (where it happens)",
+  "t1": "F08",
+  "moi_s": 23.0,
+  "n": 3,
+  "craft_t1": 5.67,
+  "craft_moi": 7.67,
+  "read_t1": 6.33,
+  "read_moi": 8.0,
+  "clar_t1": 5.0,
+  "clar_moi": 9.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "confusing"
+  ],
+  "co_moi": [],
+  "craft_moi_tung_nguoi": [
+   8,
+   8,
+   7
+  ],
+  "ly_do": [
+   "R1: X shows a specific place and a route with strong color contrast, while Y is a dim, generic regional map where the data point is not clear.",
+   "R2: X shows where and what at a glance, with a route, labelled endpoints, a date and a legible caption, while Y is a murky map with one pin and a source label that tells the viewer nothing about the story.",
+   "R3: X shows a specific route between two labeled places that you can read at a glance, while Y shows a dim map with a tiny pin and a source credit where a data point should be."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): Shaded-relief terrain of New York with a clear dashed canal route, Buffalo and Albany labels, and a year badge. Colors are well separated and the story reads at a glance. The source line is small, and the dark gradient at the bottom is a bit heavy.",
+   "R2 (ghi chú mới): Crisp hillshaded relief map with a clear state outline and a dashed canal route that runs between the two labelled endpoints. The year badge is bold and the caption is large and high-contrast. Weaknesses: the lower third is a muddy dark fade over the orange Pennsylvania terrain. The Buffalo label sits on the lake edge and crowds the route start. The source line is small and the gap above it is wasted. The map is flat and top-down, so there is little camera depth.",
+   "R3 (ghi chú mới): Bright relief map with a clear dashed canal route, Buffalo and Albany labels, a year badge and a caption that states the claim. The route shows where it happens right away. Minor issues: the Albany label covers the end of the route, and the source line is small."
+  ]
+ },
+ {
+  "cap": "P2",
+  "loai": "a map showing a route or movement across a region",
+  "t1": "F12",
+  "moi_s": 31.0,
+  "n": 3,
+  "craft_t1": 7.0,
+  "craft_moi": 6.67,
+  "read_t1": 7.0,
+  "read_moi": 7.67,
+  "clar_t1": 5.67,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "confusing"
+  ],
+  "co_moi": [],
+  "craft_moi_tung_nguoi": [
+   7,
+   6,
+   7
+  ],
+  "ly_do": [
+   "R1: Y shows an actual route with large readable labels and a caption that matches the map, while X is a static highlight with small text and a caption that doesn't match its callout.",
+   "R2: Y shows the route and the story at a glance with a tight map, labeled stops and characters, while X is a prettier globe whose main subject, Texas, is small and whose caption and callout don't connect.",
+   "R3: Y actually shows a route with big readable labels and a caption that matches the visual, while X is a prettier globe that only highlights one state and gives no movement."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): A clear route map: Buffalo, then the Genesee Valley, Albany and New York, with an orange canal line and a dotted Hudson leg. The labels are large and high-contrast. The character and barge icons give it a storytelling feel. The caption matches the route and reads easily. Minor issues: the farmer icon sits on the line and Genesee Valley's label is offset from its marker. The terrain is flat and muted. The source line is small. The barge icon is not at the Albany end of the canal and slightly overlaps the line.",
+   "R2 (ghi chú mới): The framing is tight on New York State. The relief terrain is muted and cohesive, and the labels are bold and legible. The route runs Buffalo to Albany to New York, using a solid orange line for the canal and a dashed line for the Hudson. The farmer and boatman figures and the canal boat tell the story, though they are small, clip-art-like and flatly lit. The route line is thin. The Genesee Valley label points to the farmer only through a thin stem. The two-line caption is clear. The source line sits in a dim band that is hard to read.",
+   "R3 (ghi chú mới): A flat stylized terrain map with a clear orange route from Buffalo to Albany and a dotted line down the Hudson to New York. Labels are large and high-contrast, and the caption describes the movement directly. The figures and boat are small and a bit clip-art. Genesee Valley's pin sits slightly off from its label, and the route doesn't clearly start at the Genesee label. The source line is small."
+  ]
+ },
+ {
+  "cap": "P3",
+  "loai": "numbers shown as 3D objects in a scene",
+  "t1": "F03",
+  "moi_s": 39.6,
+  "n": 3,
+  "craft_t1": 5.0,
+  "craft_moi": 6.0,
+  "read_t1": 4.67,
+  "read_moi": 8.0,
+  "clar_t1": 3.67,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "cluttered",
+   "confusing",
+   "empty_frame",
+   "illegible_text",
+   "text_overlap"
+  ],
+  "co_moi": [
+   "flat_slide_look"
+  ],
+  "craft_moi_tung_nguoi": [
+   6,
+   6,
+   6
+  ],
+  "ly_do": [
+   "R1: X shows the 10-to-1 comparison immediately with clean, readable labels, while Y has overlapping, faded labels and cubes that don't match their values.",
+   "R2: X shows its quantity ratio clearly with readable labels, while Y has overlapping, partly illegible callouts and cube sizes that don't match the numbers.",
+   "R3: X shows a clear quantity comparison in a real setting with readable labels, while Y has an overlapping, faded label, an unlabeled value and cubes whose sizes contradict their numbers."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): Terrain map with a wagon icon and a canal boat icon. Ten coins sit against one coin, so the 10:1 cost ratio is easy to see. The callouts are crisp and high-contrast. The coins are flat ovals and the wagon and boat icons are flat stickers, so the 3D feel is weak. The callout box covers part of the coin row. The terrain is muted and a bit dull.",
+   "R2 (ghi chú mới): The terrain map has real relief, and the 10 coins against 1 coin shows the 1/10 ratio at a glance. The wagon and boat icons are flat 2D stickers and look pasted on. The coins are flat discs, with no real 3D lighting. The map is just a backdrop, because the Buffalo to New York route is not drawn on it. The wagon cost label sits on top of the last coin. The 1/10 callout is crisp, the lower-third text is readable, and the text is bright enough for a phone.",
+   "R3 (ghi chú mới): Terrain map with a row of 10 coins against 1 coin makes the 10:1 canal-vs-wagon cost gap clear at a glance. Labels are large and high-contrast, and the caption explains the coin unit. The coins are flat, sticker-like discs rather than true 3D objects. The wagon and boat icons are small and clip-art-like. The wagon coin row sits under the callout, which crowds it slightly. The 'ACTUAL' tag is repeated three times."
+  ]
+ },
+ {
+  "cap": "P4",
+  "loai": "a historical portrait or archival image with a caption",
+  "t1": "F01",
+  "moi_s": 53.0,
+  "n": 3,
+  "craft_t1": 6.33,
+  "craft_moi": 7.67,
+  "read_t1": 6.33,
+  "read_moi": 8.33,
+  "clar_t1": 7.33,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "cluttered",
+   "text_overlap"
+  ],
+  "co_moi": [],
+  "craft_moi_tung_nguoi": [
+   8,
+   7,
+   8
+  ],
+  "ly_do": [
+   "R1: X combines the portrait with map context and a clearly structured, high-contrast text block, while Y is a plain tilted photo with a smaller, thinner caption partly over the image.",
+   "R2: X has a clear layout, separated text, strong contrast and added context from the map. Y's caption overlaps the photo and loses contrast, and its subject is small.",
+   "R3: X pairs a clear text hierarchy and strong contrast with context from the map, while Y's caption is partly over the photo and its small source line is harder to read."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): A cutout portrait with a white outline sits on a relief map with an orange dashed route. The text block has a gold accent bar and a clear hierarchy. The route line is faint, and the vignette on the right is a bit heavy. The credit line is small but still legible. The map context (New York, canal route) supports the topic.",
+   "R2 (ghi chú mới): A cut-out portrait with a white outline sits over a shaded-relief map of New York, with an orange dashed route that reads as the Erie Canal. The text block on the right is clean: a gold rule, a clear name/title/date hierarchy, and good contrast against the darkened map. The composition is balanced. The cutout looks like a sticker with no shadow or depth, and the cropped lower body is a little awkward. The source line is small and low contrast. The canal route is unlabeled and split into two disconnected dashed segments, which is slightly ambiguous.",
+   "R3 (ghi chú mới): The portrait cutout has a white outline and sits over a relief map with a dashed orange route, which suggests the Erie Canal. The name, title and date are clearly ranked, with a gold accent bar. The text sits on a darkened vignette, so contrast is good. The source line is small but legible. The cutout edge is a bit stickerish, and the route has no label."
+  ]
+ },
+ {
+  "cap": "P5",
+  "loai": "a summary / comparison screen",
+  "t1": "F09",
+  "moi_s": 62.5,
+  "n": 3,
+  "craft_t1": 3.67,
+  "craft_moi": 7.67,
+  "read_t1": 5.67,
+  "read_moi": 7.33,
+  "clar_t1": 4.0,
+  "clar_moi": 8.67,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "confusing",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "co_moi": [],
+  "craft_moi_tung_nguoi": [
+   8,
+   7,
+   8
+  ],
+  "ly_do": [
+   "R1: X shows the place and the quantities visually with clear winner highlighting, while Y is a plain text slide with vague wording and wasted space.",
+   "R2: X puts the numbers on a real map with clear visual cues for which route wins, while Y is a flat text slide with no imagery.",
+   "R3: X shows a real comparison in a clean layout with highlighted winners and a map for context, while Y is a flat, vague text recap with small grey type and an empty lower half."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): Relief map with a color-coded comparison table and a score pill. The place and the numbers are clear at a glance. Highlighted winning values help. Body text in the table and the source line are a bit small on a phone. The table covers part of the map, which is acceptable.",
+   "R2 (ghi chú mới): Relief map with state colours, route line and a comparison table. The score pills and circled winners make the point quickly. Table text is smallish for a phone. The panel covers the eastern part of the map, including the NYC area, and the Pennsylvania route barely shows on the map.",
+   "R3 (ghi chú mới): Relief map of NY and PA with a compact comparison table, a score chip row and colour coding (teal for Erie, gold for Main Line). The winning values are circled, so the comparison reads at a glance. The table covers part of the map and the footer and source text are small. The map shows where the routes run but doesn't label them."
+  ]
+ },
+ {
+  "cap": "P6",
+  "loai": "real video footage used in a documentary explainer",
+  "t1": "t1@179.0",
+  "moi_s": 44.0,
+  "n": 3,
+  "craft_t1": 6.67,
+  "craft_moi": 6.0,
+  "read_t1": 6.0,
+  "read_moi": 8.0,
+  "clar_t1": 5.33,
+  "clar_moi": 7.67,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "confusing",
+   "illegible_text"
+  ],
+  "co_moi": [],
+  "craft_moi_tung_nguoi": [
+   6,
+   6,
+   6
+  ],
+  "ly_do": [
+   "R1: X's footage matches its caption and has stronger text contrast, while Y has nicer footage but a caption that refers to something the frame doesn't show and is harder to read over the busy rooftops.",
+   "R2: X's caption is more legible against a darker scrim and states exactly what the footage shows, while Y's headline competes with bright rooftops and its caption is vague.",
+   "R3: X's caption states what, where and when and matches the footage, while Y's pretty stock shot comes with a vague caption that has no visible referent and weaker text contrast."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): Real archival aerial shot of a barge in a canal lock. The sepia grain suits the 1957 newsreel, and the caption states place and date plainly. The lower gradient keeps the white text legible. The footage is soft, and the caption is a bit small for a phone. The source line is dimmer and thinner than the caption.",
+   "R2 (ghi chú mới): Authentic 1957 sepia aerial of a barge in a lock. The caption states place, subject and date at once. The gradient scrim keeps white text legible, and the source credit is clear. The footage is soft and grainy, and the subject is small, tilted and off-center, but that suits archival material.",
+   "R3 (ghi chú mới): Real 1957 newsreel aerial of a barge in a canal lock. The caption names the place, subject and year, and the source line credits the film. The white text sits on a dark gradient and is legible. The footage is grainy and the barge is small, but sepia suits the subject. The credit line is small and grey, so it is borderline on a phone."
+  ]
+ },
+ {
+  "cap": "P7",
+  "loai": "an archival photograph shown full screen",
+  "t1": "t1@171.0",
+  "moi_s": 8.6,
+  "n": 3,
+  "craft_t1": 5.33,
+  "craft_moi": 7.0,
+  "read_t1": 6.33,
+  "read_moi": 8.0,
+  "clar_t1": 4.0,
+  "clar_moi": 8.0,
+  "hon": [
+   "mới",
+   "mới",
+   "mới"
+  ],
+  "co_t1": [
+   "confusing",
+   "flat_slide_look",
+   "illegible_text"
+  ],
+  "co_moi": [],
+  "craft_moi_tung_nguoi": [
+   7,
+   7,
+   7
+  ],
+  "ly_do": [
+   "R1: Y has a clear focal subject, a high-contrast caption and year chip, and a caption that says exactly what is shown, while X is a hazy, low-contrast street scene whose caption doesn't match the image.",
+   "R2: Y gives a clear subject, place and date with high-contrast, legible text, while X is a hazy generic street whose caption doesn't match the image.",
+   "R3: Y's year badge and caption state exactly what the photo shows (place, date, object), while X's caption is an abstract legal claim that the generic street scene doesn't illustrate."
+  ],
+  "goi_y": [
+   "R1 (ghi chú mới): The 1905 chip is bold and high-contrast. The caption sits on a dark gradient and reads cleanly. The photo has a strong central subject (a stepped lock with a bridge above it), good depth, and a consistent sepia grade. The credit line is small but legible. The caption names the place and year, so the viewer understands the image right away. The bottom of the lock is slightly crushed by the gradient.",
+   "R2 (ghi chú mới): Strong contrast, with a clear subject (canal locks under a bridge) and a bottom gradient that gives the caption a solid dark base. The gold '1905' badge is crisp and phone-legible, and the caption names the place and the year. The credit line is small but fine. The grain and vignette feel authentic.",
+   "R3 (ghi chú mới): A gritty archival postcard, with a clear canal lock as its focal point and a strong bridge behind it. The yellow '1905' badge on dark navy is crisp and high-contrast. The caption names the place and the object, so the viewer understands it quickly. The credit line is small, and 'Terrain: USGS 3DEP' and 'Imagery: USDA NAIP' don't fit a 1905 postcard. The dark gradient swallows the bottom of the lock."
+  ]
+ }
+]

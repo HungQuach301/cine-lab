@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 8, "clarity": 9, "flags": [], "note": "Shaded-relief terrain of New York with a clear dashed canal route, Buffalo and Albany labels, and a year badge. Colors are well separated and the story reads at a glance. The source line is small, and the dark gradient at the bottom is a bit heavy."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "Dark, muddy satellite imagery of the Upper Midwest with a tilted perspective. The Minneapolis label is readable, but the map does not make clear what is being shown, and the pin sits on an unmarked spot. Nothing shows the topic (apartments or rent). The two-line source credit is tiny and low-contrast on a phone."},
+ "better": "X",
+ "why": "X shows a specific place and a route with strong color contrast, while Y is a dim, generic regional map where the data point is not clear.",
+ "top_fix_for_weaker": "Highlight Minnesota or the Twin Cities with a brighter fill and a zoom, and put a concrete figure on the map (for example, the rent growth percentage). Brighten the dark imagery, and shorten the source line and enlarge it."}
+```

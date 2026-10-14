@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "Relief map with state colours, route line and a comparison table. The score pills and circled winners make the point quickly. Table text is smallish for a phone. The panel covers the eastern part of the map, including the NYC area, and the Pennsylvania route barely shows on the map."},
+ "Y": {"craft": 3, "readability": 5, "clarity": 4, "flags": ["flat_slide_look", "empty_frame", "confusing"], "note": "A dark text card over a blurred background. The bottom third of the card is empty and the background shows nothing. The sub-lines are small, low-contrast grey. The recap is vague ('three locks', 'bank line') with no visual to anchor it."},
+ "better": "X",
+ "why": "X puts the numbers on a real map with clear visual cues for which route wins, while Y is a flat text slide with no imagery.",
+ "top_fix_for_weaker": "Replace the static card with a 3D scene of the building and three animated lock icons (map, stairwell, bank). Enlarge the sub-lines to at least 36px in white, and drop the empty lower third of the card."}
+```

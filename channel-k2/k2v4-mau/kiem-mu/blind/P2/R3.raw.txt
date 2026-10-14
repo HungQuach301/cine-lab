@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "The globe render is polished and the Texas highlight is clear. But the map doesn't show a route or movement at all, only one highlighted state. The callout is dense for a phone: the '≤ 4 homes per floor' line is small, and the sources line is tiny and low-contrast. The callout box covers part of the map. 'Cities may allow' conflicts with the Texas-only callout, and the 'ACTUAL' badge is unexplained."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "A flat stylized terrain map with a clear orange route from Buffalo to Albany and a dotted line down the Hudson to New York. Labels are large and high-contrast, and the caption describes the movement directly. The figures and boat are small and a bit clip-art. Genesee Valley's pin sits slightly off from its label, and the route doesn't clearly start at the Genesee label. The source line is small."}, 
+ "better": "Y",
+ "why": "Y actually shows a route with big readable labels and a caption that matches the visual, while X is a prettier globe that only highlights one state and gives no movement.",
+ "top_fix_for_weaker": "Zoom the camera to the US, not a whole globe. Shade or animate more than Texas to show the spread of the rule, or show a route. Cut the callout to a short two-line stat at a larger font size, and make the caption match the callout (Texas, not 'cities')."}
+```

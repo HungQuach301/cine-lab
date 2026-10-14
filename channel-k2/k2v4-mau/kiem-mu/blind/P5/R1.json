@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 9,
+  "flags": [],
+  "note": "Relief map with a color-coded comparison table and a score pill. The place and the numbers are clear at a glance. Highlighted winning values help. Body text in the table and the source line are a bit small on a phone. The table covers part of the map, which is acceptable."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "confusing"
+  ],
+  "note": "Generic dark text card over a blurred background with nothing visual. The bottom third of the card is empty. The gray subtext is small and low contrast, and the longest line is dense. The recap wording is vague ('The map', 'the bank line', 'locks') and gives no sense of what it is about. The checkboxes add nothing."
+ },
+ "better": "X",
+ "why": "X shows the place and the quantities visually with clear winner highlighting, while Y is a plain text slide with vague wording and wasted space.",
+ "top_fix_for_weaker": "Replace the bullet card with a visual recap. Show three icon tiles or a small building diagram, each with a large number such as '4 stories' or '5 homes' and a short label. Use bigger white text, drop the empty lower third, and put a sharp scene behind the content instead of a blurred background."
+}

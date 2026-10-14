@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 6,
+    "flags": ["confusing"],
+    "note": "The globe render is handsome and Texas is clearly highlighted. But this is a static point map, not a route or movement. The callout text and the 'As of' badge are small on a phone. The source line is tiny and low-contrast. The caption says 'Cities' while the callout is about Texas, so the focus is split. The 'ACTUAL' badge is unexplained. The globe is much larger than the one highlighted state needs."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 8,
+    "flags": [],
+    "note": "A clear route map: Buffalo, then the Genesee Valley, Albany and New York, with an orange canal line and a dotted Hudson leg. The labels are large and high-contrast. The character and barge icons give it a storytelling feel. The caption matches the route and reads easily. Minor issues: the farmer icon sits on the line and Genesee Valley's label is offset from its marker. The terrain is flat and muted. The source line is small. The barge icon is not at the Albany end of the canal and slightly overlaps the line."
+  },
+  "better": "Y",
+  "why": "Y shows an actual route with large readable labels and a caption that matches the map, while X is a static highlight with small text and a caption that doesn't match its callout.",
+  "top_fix_for_weaker": "Zoom in on Texas instead of showing the whole globe. Enlarge the callout text to at least 2x. Make the caption and callout about the same subject. Drop or explain the 'ACTUAL' badge and brighten the source line."
+}
+```

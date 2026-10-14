@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 6, "clarity": 4, "flags": ["confusing", "flat_slide_look"], "note": "Washed-out, foggy sepia street photo. The caption is white text on a bright, hazy lower-left area and sits over the dark gradient only partly. The credit line is small and long. The caption ('judges deferred to local lawmakers') has no visible link to the image, which shows a generic residential street with no clear subject, place or date."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Strong contrast, with a clear subject (canal locks under a bridge) and a bottom gradient that gives the caption a solid dark base. The gold '1905' badge is crisp and phone-legible, and the caption names the place and the year. The credit line is small but fine. The grain and vignette feel authentic."},
+ "better": "Y",
+ "why": "Y gives a clear subject, place and date with high-contrast, legible text, while X is a hazy generic street whose caption doesn't match the image.",
+ "top_fix_for_weaker": "Choose a photo that shows the subject (a courthouse, a council chamber or a specific local ordinance) and add a place/year badge like Y's. Darken the bottom third with a stronger gradient, enlarge the caption and shorten the credit line, and add slow push-in motion plus a vignette to give the frame depth."}
+```

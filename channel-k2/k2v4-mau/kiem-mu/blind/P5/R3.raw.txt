@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 8, "clarity": 9, "flags": [], "note": "Relief map of NY and PA with a compact comparison table, a score chip row and colour coding (teal for Erie, gold for Main Line). The winning values are circled, so the comparison reads at a glance. The table covers part of the map and the footer and source text are small. The map shows where the routes run but doesn't label them."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 4, "flags": ["flat_slide_look", "confusing", "empty_frame"], "note": "A text card over a blurred, near-black background. The body text is small, low-contrast grey, and the lower third of the card is empty. The wording is abstract ('Three locks', 'The map can block any of these buildings'), so the viewer can't tell what is being recapped. There is no number, image or visual anchor, and the long third line would be hard to read on a phone."},
+ "better": "X",
+ "why": "X shows a real comparison in a clean layout with highlighted winners and a map for context, while Y is a flat, vague text recap with small grey type and an empty lower half.",
+ "top_fix_for_weaker": "Replace the paragraph-style bullets with three large icon rows, each with a bold keyword and a number (for example 'Map: zoning', 'Stairwell: 4 stories', 'Bank: 5 homes'). Use a clear building image or diagram instead of the blur, raise the body text to roughly 36px or more in bright white, and fill or shrink the empty bottom of the card."}
+```

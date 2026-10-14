@@ -984,6 +984,7 @@ segments:
         at: 0.4
         out: 4.4
       src: 'Film: Warner-Pathé News, 1957 · Prelinger Archives'
+      file: /var/tmp/cine-out/k2v-cache/v4src/a1-newsmag1957-erie/NewsMaga1957.mpeg
   - tpl: plate
     at: 4.4
     in: fade
@@ -998,6 +999,7 @@ segments:
       - s: '2025: a replica 19th-century packet boat passes Black Rock Lock in Buffalo'
         at: 4.8
       src: 'Video: U.S. Army Corps of Engineers, 2025'
+      file: /var/tmp/cine-out/k2v-cache/v4src/b1-dvids-978155/DOD_111318443.mp4
 - id: P
   part: BODY
   dur: 9

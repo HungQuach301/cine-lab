@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The terrain map has real relief, and the 10 coins against 1 coin shows the 1/10 ratio at a glance. The wagon and boat icons are flat 2D stickers and look pasted on. The coins are flat discs, with no real 3D lighting. The map is just a backdrop, because the Buffalo to New York route is not drawn on it. The wagon cost label sits on top of the last coin. The 1/10 callout is crisp, the lower-third text is readable, and the text is bright enough for a phone."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "cluttered"
+  ],
+  "note": "The 3D cubes are clean and have good material. But the left callout covers the orange cube, and the right 13% callout is semi-transparent and the cube behind it makes its text muddy and low contrast. The cubes are all about the same size, so 7%, 6% and 13% do not show as different quantities (13% looks smaller than 7%). The labels do not sit clearly over the cube they describe. The three bars are bunched together. There is no axis or baseline, and the two metrics, floor area and cost, are mixed. The scene is dark and empty, and the callouts crowd the cubes."
+ },
+ "better": "X",
+ "why": "X shows its quantity ratio clearly with readable labels, while Y has overlapping, partly illegible callouts and cube sizes that don't match the numbers.",
+ "top_fix_for_weaker": "Scale the cube heights to the values (7, 6, 13), and place each label directly above its own cube with a solid, opaque background and no overlap. Spread the cubes apart and add a baseline so the callouts do not cover them."
+}

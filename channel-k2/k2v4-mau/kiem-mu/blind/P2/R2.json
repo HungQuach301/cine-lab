@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The satellite globe is attractive, with good atmospheric glow and a clean callout. But the whole globe is shown to point at one state, so Texas is small and the framing is wasteful. The callout box covers the Gulf and the US interior. The lower-third caption says 'Cities may allow...' while the callout says Texas, and the two messages don't connect. The source line and 'ACTUAL' badge are small and low-contrast on a phone. The 'As of' chip is tiny. The single-stair concept has no visual support, such as a building or a stair."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "The framing is tight on New York State. The relief terrain is muted and cohesive, and the labels are bold and legible. The route runs Buffalo to Albany to New York, using a solid orange line for the canal and a dashed line for the Hudson. The farmer and boatman figures and the canal boat tell the story, though they are small, clip-art-like and flatly lit. The route line is thin. The Genesee Valley label points to the farmer only through a thin stem. The two-line caption is clear. The source line sits in a dim band that is hard to read."
+ },
+ "better": "Y",
+ "why": "Y shows the route and the story at a glance with a tight map, labeled stops and characters, while X is a prettier globe whose main subject, Texas, is small and whose caption and callout don't connect.",
+ "top_fix_for_weaker": "Zoom to a tilted regional view of Texas and its neighbors, with the state extruded or highlighted. Add a simple 3D single-stair building or floor-plan inset to show the rule. Shorten the callout to 'Texas: 6 stories, 1 stair' in larger type. Make the caption and callout agree, and raise the source and 'ACTUAL' text size and contrast."
+}

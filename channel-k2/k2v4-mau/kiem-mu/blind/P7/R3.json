@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The sepia street photo with its bare trees is atmospheric and the bottom gradient helps the text. The caption, 'judges deferred to local lawmakers', has nothing to do with the image, which shows an empty street and a mansion. The credit line is long and small, so it is hard to read on a phone. The caption sits mid-frame and is only moderately sized. There is no place, date or subject cue."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "A gritty archival postcard, with a clear canal lock as its focal point and a strong bridge behind it. The yellow '1905' badge on dark navy is crisp and high-contrast. The caption names the place and the object, so the viewer understands it quickly. The credit line is small, and 'Terrain: USGS 3DEP' and 'Imagery: USDA NAIP' don't fit a 1905 postcard. The dark gradient swallows the bottom of the lock."
+ },
+ "better": "Y",
+ "why": "Y's year badge and caption state exactly what the photo shows (place, date, object), while X's caption is an abstract legal claim that the generic street scene doesn't illustrate.",
+ "top_fix_for_weaker": "Replace the abstract line with a caption that identifies the photo (for example 'Detroit residential street, c. 1900'). Add a visible date or place badge like Y's, and shorten the credit to 'Photo: Detroit Publishing Co., LOC' at a larger size."
+}

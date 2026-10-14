@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": [], "note": "Real 1957 newsreel aerial of a barge in a canal lock. The caption names the place, subject and year, and the source line credits the film. The white text sits on a dark gradient and is legible. The footage is grainy and the barge is small, but sepia suits the subject. The credit line is small and grey, so it is borderline on a phone."},
+ "Y": {"craft": 7, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "Sharp, well-lit aerial of Chicago-area homes with the lake behind, and visually the better footage. The caption 'how much of the map still works that way?' refers to something that isn't shown, so the viewer can't tell what 'that way' means. The main caption crosses busy rooftops with only a weak gradient, so contrast is uneven. The source line is small, grey and low-contrast. '(illustrative)' admits the footage is generic stock."}, 
+ "better": "X",
+ "why": "X's caption states what, where and when and matches the footage, while Y's pretty stock shot comes with a vague caption that has no visible referent and weaker text contrast.",
+ "top_fix_for_weaker": "Rewrite the caption to name the subject (for example 'Chicago neighborhoods today: still shaped by 1920s zoning and redlining maps'). Add a stronger dark gradient or text shadow under both text lines, and enlarge and brighten the source line. If the 'map' is the point, overlay or cut to the actual historical map."}
+```

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": [], "note": "Authentic 1957 sepia aerial of a barge in a lock. The caption states place, subject and date at once. The gradient scrim keeps white text legible, and the source credit is clear. The footage is soft and grainy, and the subject is small, tilted and off-center, but that suits archival material."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 6, "flags": ["illegible_text"], "note": "Crisp, well-lit aerial of Chicago with the lake on the horizon. The headline sits on busy rooftops, and the weak scrim lets the bright roofs break up the letters. The grey source line is small and low-contrast. The caption is a rhetorical question that doesn't say what the image shows. The 'illustrative' stock footage is generic and not tied to the narrative."},
+ "better": "X",
+ "why": "X's caption is more legible against a darker scrim and states exactly what the footage shows, while Y's headline competes with bright rooftops and its caption is vague.",
+ "top_fix_for_weaker": "Add a stronger dark gradient or a semi-opaque caption bar behind the bottom text, brighten and enlarge the source line, and change the caption to name what is shown (e.g. 'Chicago two-flat neighborhood, 2025')."}
+```

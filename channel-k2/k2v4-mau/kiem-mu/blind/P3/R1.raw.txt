@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": [], "note": "Terrain map with a wagon icon and a canal boat icon. Ten coins sit against one coin, so the 10:1 cost ratio is easy to see. The callouts are crisp and high-contrast. The coins are flat ovals and the wagon and boat icons are flat stickers, so the 3D feel is weak. The callout box covers part of the coin row. The terrain is muted and a bit dull."},
+ "Y": {"craft": 5, "readability": 5, "clarity": 4, "flags": ["text_overlap", "illegible_text", "confusing", "empty_frame"], "note": "The cubes and the dark grid look polished, but the labels don't line up with the cubes. The 7% box covers the orange cube's top. The 13% label is faded and washed out, with its text overlapping the cube, so it is hard to read on a phone. The three cubes are close in size and don't scale to 7, 6 and 13, so the data isn't shown honestly. The 6% label has no description. The upper half of the frame is empty. The caption is long and there is no context for what is being compared."}, 
+ "better": "X",
+ "why": "X shows the 10-to-1 comparison immediately with clean, readable labels, while Y has overlapping, faded labels and cubes that don't match their values.",
+ "top_fix_for_weaker": "Put the labels in clear space above or beside their cubes, with full opacity and no overlap. Scale the cube heights to 7, 6 and 13 and give the 6% a description. Cut the caption to one line and move the cubes up to fill the empty top half."}
+```
