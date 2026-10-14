@@ -190,6 +190,30 @@ class T(unittest.TestCase):
                 p = sh['p']
                 for x in filter(None, [p.get('src'), ((p.get('score') or {}).get('board') or {}).get('foot')]): self.assertLessEqual(len(x), 70, x)
 
+    def test_t2_coin_row_thickness(self):
+        """T2 0c (Kinh thánh §4, duyệt 15/10): hàng xu có độ dày (0,42 r), cạnh khía (bumpMap) + gờ mặt; shot số liệu mẫu nghiêng máy thấp (tilt ≥ 55° khỏi phương đứng)"""
+        import yaml
+        js = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read()
+        for k in ("th = c.th || r * (ROW ? 0.42 : 0.24)", "bumpMap: tx", "ROW ? [edge, gold, gold] : gold", "new THREE.TorusGeometry(r * 0.7"): self.assertIn(k, js)
+        E = yaml.safe_load(open(os.path.join(prep.REPO, 'channel-k2/k2c-t2-01/mau/coin-t2.yaml')))
+        self.assertTrue(all(k['tilt'] >= 55 for k in E['heroes']['h_num']['opt']['cam']))
+
+    def test_t2_footage_frame_in_frame(self):
+        """T2 0c: nguồn < 720p → khung trong khung (tỉ lệ gốc, phóng ≤ 1,5×, viền); nguồn ≥ 720p → phủ kín như cũ"""
+        import json, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            for name, size, want in (('lo', '480x360', True), ('hi', '1280x720', False)):
+                f = os.path.join(d, name + '.mp4')
+                subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', f'testsrc2=size={size}:rate=24', '-t', '1.5', '-pix_fmt', 'yuv420p', f], check=True)
+                o = os.path.join(d, 'o' + name)
+                r = subprocess.run(['node', os.path.join(prep.REPO, 'scripts/k2/hero.js'), '--hero', 'footage/clip', '--out', o, '--dur', '0.5', '--opt', json.dumps({'file': f, 'grade': 'sepia'})], capture_output=True, text=True)
+                self.assertEqual(r.returncode, 0, r.stderr[-800:])
+                fr = json.load(open(os.path.join(o, 'meta.json')))['footage']['frame']
+                if want:
+                    self.assertIsNotNone(fr); self.assertLessEqual(fr['scale'], 1.5); self.assertAlmostEqual(fr['box'][0] / fr['box'][1], 480 / 360, places=2); self.assertGreater(fr['border'], 0)
+                else:
+                    self.assertIsNone(fr)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)
