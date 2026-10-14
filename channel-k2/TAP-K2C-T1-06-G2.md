@@ -124,3 +124,17 @@ Gộp 1–4: dựng lại 1–2 cảnh + lớp chữ cả phim + ghép ≈ 2–2
 - **D5.** Đối chiếu trang giấy phép Pexels bằng trình duyệt (tập đầu tiên dùng Pexels; QUAN-TRI-RUI-RO §6.2), ghi AUTHORSHIP.
 - **D6** (từ trước). Sau 16/10: chỉ kiểm lại các dòng "as of" nếu chưa đăng.
 - Thumbnail: chủ dự án tự làm theo `phat-hanh/PACKAGING-BRIEF.md`.
+
+## 11. Sổ chi phí tập K2C-T1-06 — mốc gốc (chủ dự án yêu cầu 14/10/2026)
+| Khoản | Số đo | Nguồn số |
+|---|---|---|
+| **API (`claude -p`)** | **$9,06** luỹ kế cả tập (trần $40): G1a kiểm mù lời 3 vòng + REVIEWER + tiêu đề; G1b chấm mù trước/sau $0,55; G2 chấm mù Q27 $0,41 + Q31 $0,36 | `k2c-t1-06/kiem-mu/cost.jsonl` (mỗi lượt gọi: model yêu cầu, model chạy, USD) |
+| **ElevenLabs (ký tự gửi)** | **≈ 30 360**: bản thu đầu 12 đoạn + 2 Short 15 005 (14 408 + S1 193 + S2 404); thu lại khi kiểm ASR lần 1 7 840; thu lại sau khi viết số bằng chữ + ASR lần 2 7 513. Bộ đếm tài khoản sau cùng: 93 318 | log `prep.py`/`asr.py` (`el_sent`), báo cáo G2 §1 |
+| **Giờ máy — mẫu G1b** | 3 shot mẫu 1 879 khung 1080p trong 61 phút; lượt dựng lại sau sửa G1b không đo riêng (không có log thời gian) | TAP-K2C-T1-06-G1b §6 |
+| **Giờ máy — nháp 960×540** | cảnh đinh SPP 2 ≈ 2 giờ 15 phút; lớp chữ + mix + ghép + 2 Short 1 giờ 47 phút; ASR ≈ 45 phút → **≈ 4,8 giờ** | `build.log`, log nền |
+| **Giờ máy — 1080p** | cảnh đinh SPP 4 11 giờ 41 phút; lớp chữ 49 phút; ghép 36 phút; hai lượt sửa 1080p 65 + 89 phút; S1 2 phút → **≈ 15,5 giờ** | `/var/tmp/cine-out/k2c-t1-06/build.log` |
+| **Số lần chủ dự án chạm** | **10**: 3 cổng duyệt (G1a 12/10, G1b có điều kiện 13/10, G2 14/10) + 7 lệnh/xác nhận giữa cổng (lệnh mở G1a 12/10; merge checks 1.10.1 giữa G1a; duyệt mốc V + chỉ đạo G1b 13/10; xác nhận v8.2 + SSZEA 13/10; báo checks 1.10.2 13/10; quyết định gói phát hành 13/10 22:17; rà giấy phép Pexels 14/10) | AUTHORSHIP.md, báo cáo G1a/G1b/G2 |
+| Đĩa phiên | trần ~12 GB trống; khung cảnh 1080p 8,9 GB + master 1,58 GB là phần lớn nhất | `df`, `du` |
+
+## 12. Sau duyệt G2 (14/10/2026)
+- D1 S1 · D2 giữ bản, 4 điểm → `BAI-HOC-K2.md` K11 · D3 nhánh `release-k2c-t1-06-v1` (Git LFS) · D4 khiếu nại giữ cho K · D5 giấy phép Pexels đã rà → AUTHORSHIP. Kết quả phát hành và merge `main`: xem báo cáo cuối của phiên.
