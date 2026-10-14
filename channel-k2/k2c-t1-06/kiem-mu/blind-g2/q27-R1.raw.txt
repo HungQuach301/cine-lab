@@ -1,0 +1,25 @@
+```json
+{"frames": {
+"F01": {"craft": 6, "readability": 8, "flags": [], "note": "Polaroid-style Hoover photo on a brown textured backdrop. The caption sits on a dark gradient and reads fine. The photo is static and the tilt is a bit generic."},
+"F02": {"craft": 5, "readability": 8, "flags": [], "note": "Full-bleed sepia archival street photo with a clean caption. The image is washed-out and low-contrast, and it has no motion or depth cues."},
+"F03": {"craft": 5, "readability": 5, "flags": ["text_overlap", "illegible_text", "confusing"], "note": "The 13% card overlaps its cube, and its label is faded and low-contrast over the cube, so it's hard to read. The three tiny cubes are unscaled and mean nothing. The 'ACTUAL' tags are jargon. The labels crowd the cubes and the empty dark space is wasted."},
+"F04": {"craft": 3, "readability": 6, "flags": ["empty_frame", "confusing"], "note": "Just a dark grid floor with stray lines, mid-transition. Only the caption carries any information."},
+"F05": {"craft": 5, "readability": 7, "flags": ["text_cut_off", "confusing"], "note": "The big 3D bars are cropped at the left edge and the green bar's label covers it. The bars have no axis or baseline. The labels are readable, but the 86 vs 34 comparison is crude."},
+"F06": {"craft": 8, "readability": 7, "flags": ["cluttered"], "note": "The best scene. A dusk street with a translucent stair building, warm lighting and good depth. The Fannie Mae callout covers the shop front it describes. The silhouette people are crude."},
+"F07": {"craft": 8, "readability": 7, "flags": ["cluttered"], "note": "Near-duplicate of F06 with a slightly different camera angle. Same strengths. The callout still sits over the key subject."},
+"F08": {"craft": 7, "readability": 8, "flags": [], "note": "Tilted 3D terrain map with state borders and a clear Minneapolis callout. The caption is readable. The map is murky and green and the callout pin is small."},
+"F09": {"craft": 5, "readability": 8, "flags": ["empty_frame"], "note": "Plain recap card with big text and orange accents. It reads well, but it is a flat slide with a lot of empty space at the bottom and a blurred background that adds nothing."},
+"F10": {"craft": 6, "readability": 8, "flags": [], "note": "Archival photo of a corner building in a frame, with a clear caption. It has the same polaroid look as F01, so it feels repetitive."},
+"F11": {"craft": 7, "readability": 7, "flags": ["confusing"], "note": "The globe is attractive, but Illinois is only faintly highlighted and there is no callout. The two-line caption plus the small source text is dense. The viewer must guess what the map shows."},
+"F12": {"craft": 8, "readability": 7, "flags": [], "note": "Globe with Texas highlighted and a clear callout, plus a date badge. The sources line is tiny. The 'ACTUAL' stamp is meaningless to a viewer."}
+},
+"overall_craft_1to10": 6,
+"compared_to_typical_faceless_explainers": "above",
+"best_frame": "F06",
+"worst_frame": "F04",
+"top3_visual_fixes": [
+"Fix the data scenes (F03, F05). Give the bars a baseline, axis and scale. Place callouts beside the bars, not over them, so none overlap or crop. Make every label full-contrast, and drop the faded 13% card or fix its overlap with the cube.",
+"Cut or replace transition and dead frames like F04, and the near-duplicate shots (F06/F07, F11/F12). Keep one shot per idea, and put the callout away from the key subject, such as the shop front in F06.",
+"Make on-screen text and stamps clearer for phone viewers. Remove or explain the repeated 'ACTUAL' badges, shorten the two-line captions and tiny source lines (F11, F12), and add a callout or color change on the highlighted state in F11. Also vary the polaroid photo treatment so it doesn't repeat."
+]}
+```

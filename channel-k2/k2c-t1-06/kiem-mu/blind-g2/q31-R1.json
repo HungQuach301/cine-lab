@@ -1,0 +1,58 @@
+{
+ "joins": {
+  "J01": {
+   "verdict": "acceptable",
+   "why": "Hard cut from the 3D street scene to a sepia HABS photo. It matches the 'classic version' narration, but the disclaimer caption cuts off abruptly and the style changes from illustration to archival photo."
+  },
+  "J02": {
+   "verdict": "acceptable",
+   "why": "Sepia 1942 photo cuts to a dark 3D lot grid, and the 'Lock 1: The map' title fades in cleanly. The style change is big but the section break is motivated."
+  },
+  "J03": {
+   "verdict": "acceptable",
+   "why": "Sepia 1905-1920 photo cuts to bright colour drone footage. That is a jarring look change, but it fits 'a century later' and the caption fades in."
+  },
+  "J04": {
+   "verdict": "smooth",
+   "why": "Sepia Butte photo cuts to the night 3D building and the 'The stairwell' title. Both show the corner building and the cut matches the section start."
+  },
+  "J05": {
+   "verdict": "acceptable",
+   "why": "Dark +10% cost chart cuts to bright fire-escape stock footage. It is a strong colour jump, and the footage is only loosely tied to the code-cost chart. It fits the staircase-safety question."
+  },
+  "J06": {
+   "verdict": "smooth",
+   "why": "Dark chart cuts to the dark 3D 'The bank' scene in a similar style, with a clean title fade."
+  },
+  "J07": {
+   "verdict": "acceptable",
+   "why": "Dim globe with a California callout cuts to gray, overcast crane footage. The tone changes abruptly, and the generic construction site only loosely matches 'the rules aren't the whole story'."
+  },
+  "J08": {
+   "verdict": "acceptable",
+   "why": "Recap card cuts to the 3D houses/small/large diagram. Same dark style and a sensible link, though the caption fades in late."
+  },
+  "J09": {
+   "verdict": "acceptable",
+   "why": "Dark diagram cuts to bright Chattanooga townhouse footage. The footage is colourful and generic, but it matches the 'opens the map' question."
+  },
+  "J10": {
+   "verdict": "smooth",
+   "why": "Recap card cuts to the dusk 3D street with the caption appearing. The look is consistent."
+  },
+  "J11": {
+   "verdict": "smooth",
+   "why": "Dark bank-line chart cuts to the 3D street at night with the title. Consistent style and a clean payoff."
+  }
+ },
+ "consistency_1to10": 7,
+ "variety_1to10": 6,
+ "picture_matches_words_1to10": 7,
+ "breaks": [],
+ "overused_setting": "Dark 3D globe/map flyovers with callouts, and the same red-brick corner-building 3D scene. Text-card slides and bar charts on dark backgrounds also repeat heavily in the middle third.",
+ "top3_fixes": [
+  "Cut the repeated globe/map callouts in the middle and late sections (California, Washington and similar). Replace some with street-level photos or footage of actual small apartment buildings.",
+  "Add a short dissolve or colour-grade bridge at the hard cuts from dark charts and diagrams to bright stock footage (J03, J05, J07, J09). Also swap the generic fire-escape and crane clips for footage that matches the narration, such as a real single-stair building, a lender or loan document, or a small-lot walkup.",
+  "Break up the long run of dark chart and text-card slides in the 2-4-unit and recap sections with real photos or footage. Hold captions and titles longer so they are fully readable before the cut, since several fade in right at the join (J01, J04, J07)."
+ ]
+}

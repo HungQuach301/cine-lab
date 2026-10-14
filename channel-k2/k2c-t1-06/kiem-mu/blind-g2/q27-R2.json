@@ -1,0 +1,99 @@
+{
+ "frames": {
+  "F01": {
+   "craft": 7,
+   "readability": 9,
+   "flags": [],
+   "note": "Convincing archival print on a textured desk. Photo is large and the caption is clean. The caption gradient muddies the bottom of the photo."
+  },
+  "F02": {
+   "craft": 6,
+   "readability": 9,
+   "flags": [],
+   "note": "Full-bleed archival photo with a caption. Clear, but there is no motion-graphic content, so it is a plain still."
+  },
+  "F03": {
+   "craft": 5,
+   "readability": 6,
+   "flags": [
+    "text_overlap",
+    "cluttered",
+    "confusing"
+   ],
+   "note": "The 13% card overlaps the green cube and its text is faded and low-contrast. The three labels collide with the cubes and with each other. 'ACTUAL' tags are repeated, and the cubes have no axis or scale."
+  },
+  "F04": {
+   "craft": 3,
+   "readability": 8,
+   "flags": [
+    "empty_frame",
+    "confusing"
+   ],
+   "note": "Only stray white lines on an empty grid. Nothing visual supports the caption, so it looks like an unfinished build."
+  },
+  "F05": {
+   "craft": 5,
+   "readability": 8,
+   "flags": [
+    "cluttered",
+    "confusing"
+   ],
+   "note": "Bars are cropped at the left edge. The 86 label covers the top of the bar. The 34 label overlaps its bar. The ground is barely distinguishable and there are stray lines. A date badge and an ACTUAL badge compete for attention."
+  },
+  "F06": {
+   "craft": 8,
+   "readability": 8,
+   "flags": [],
+   "note": "Best 3D scene: dusk lighting, glowing stair, translucent floors. The callout covers the lower storefront and the figures are crude silhouettes."
+  },
+  "F07": {
+   "craft": 7,
+   "readability": 8,
+   "flags": [],
+   "note": "Near-duplicate of F06 from a slightly different camera angle. The callout cuts through the base of the building and the figures."
+  },
+  "F08": {
+   "craft": 6,
+   "readability": 8,
+   "flags": [],
+   "note": "Terrain map with a state outline. The Minneapolis callout is clear. The imagery is soft and muddy, and the Minnesota fill is dull brown."
+  },
+  "F09": {
+   "craft": 4,
+   "readability": 8,
+   "flags": [
+    "empty_frame"
+   ],
+   "note": "Plain recap card over a blurred background. Readable, but the bottom third is empty and the body text is small and grey. It looks like a slide."
+  },
+  "F10": {
+   "craft": 7,
+   "readability": 9,
+   "flags": [],
+   "note": "Same archival-print style as F01. The photo is strong and the caption is clean."
+  },
+  "F11": {
+   "craft": 7,
+   "readability": 7,
+   "flags": [
+    "confusing"
+   ],
+   "note": "Attractive globe, but the caption names Freemark and the only highlight is Illinois, with no label. The caption and source lines are dense. The subject is a study, so the map is only loosely relevant."
+  },
+  "F12": {
+   "craft": 7,
+   "readability": 8,
+   "flags": [],
+   "note": "Globe with a clear Texas callout. The Gulf and Mexico take up most of the frame. The callout text is smallish and there is a redundant ACTUAL badge."
+  }
+ },
+ "overall_craft_1to10": 6,
+ "compared_to_typical_faceless_explainers": "above",
+ "best_frame": "F06",
+ "worst_frame": "F04",
+ "top3_visual_fixes": [
+  "Rebuild the data-viz scenes (F03, F04, F05). Fix the label overlaps and the faded card. Frame the bars fully and anchor them to a visible baseline with a scale. Never leave the grid-and-lines frame with nothing on it.",
+  "Make the text bigger and more consistent. Use fewer chips: drop the repeated ACTUAL badges and keep one status marker. Give the callouts and source lines a larger minimum size and higher contrast for phone viewing. Keep callouts off the subject.",
+  "Add visual variety and purpose to the recap, globe and building scenes. Replace the flat recap card with animated icons for the three locks. Highlight and label the relevant region on the globes. Use more camera angles and populate the street scenes with better figures."
+ ]
+}

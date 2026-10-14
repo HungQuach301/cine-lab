@@ -221,3 +221,10 @@ Phiên V không đọc mã `checks/`; chỉ đọc `checks/ll/RULES-LL.md` và c
 - **Vì sao nêu:** Q34(c) đo "số đặt trong cảnh 3D thay vì thẻ phẳng" (bài học Steel: thẻ trên nền mờ). Cột số liệu trên bản đồ là đúng ý đó (số gắn với nơi chốn, vật thể 3D có tỷ lệ), nhưng bị đếm như thể không phải 3D. Nếu giữ, tập nào đặt số lên bản đồ sẽ phải vẽ lại cùng số đó bằng chart3d chỉ để qua thước (trái luật cứng "không thêm phần tử chỉ để vượt ngưỡng").
 - **Đề nghị K:** tính `map` là hình 3D cho Q34(c) **khi** số neo bám vật thể 3D của bản đồ (shot `map` có `opt.cols` hoặc nhãn số bám neo `col:*`); số chỉ in chữ trên bản đồ phẳng thì vẫn không tính. Module xuất sẵn tên neo `col:<id>` trong `anchors.json` để đo.
 - **Ghi thêm (không phải khiếu nại):** Q34(a), (b) trên shot mẫu trượt vì shot mẫu không có lời (không `.align.json`); Q32(b) trên mẫu C trượt vì shot mẫu 9,5 s toàn ảnh/văn bản (100 %). Cả ba là bản chất của shot mẫu, sẽ đo lại trong tập thật.
+
+## Khiếu nại P — qc.py áp luật nhịp LL (Q14–Q18) cho tập kênh 2 vì mã tập "k2c-t1-06" (14/10/2026, phiên P kênh 2, nhánh k2c-t1-06)
+Phiên P không đọc mã `checks/`; chỉ chạy `scripts/ll/qc.py` và đọc `checks/ll/RULES-LL.md`.
+- **Hiện tượng:** trên K2G-01 (`k2g-ep01`) bảng QC ghi "Q14–18 · không áp (tập ≤ 3)". Trên K2C-T1-06 (`id: k2c-t1-06`) cùng bộ qc lại áp Q14, Q15, Q17 và đánh TRƯỢT (Q14 "tựa None · trả lời ở None"; Q15 quãng 17,2 s; Q17 "anchors không đúng 3 số"). Dấu hiệu: số tập được suy từ đuôi "06" của mã, nên tập kênh 2 bị coi là "LL tập 6".
+- **Vì sao nêu:** kênh 2 không theo luật nhịp LL (K2G-01 G2 §5.1). Q17 ("anchors đúng 3 số") còn mâu thuẫn với Q34 của kênh 2 (anchors = mọi số neo, đo tỷ lệ hiện bằng 3D). Thay `anchors` để qua Q17 sẽ làm sai Q34.
+- **Đề nghị K:** nhận diện tập kênh 2 (đường dẫn `channel-k2/` hoặc khoá kênh trong đặc tả) và đánh Q14–Q18 "không áp", như K2G-01; hoặc quy định rõ phần nào của Q14–Q18 áp cho kênh 2.
+- **Phiên P không đổi gì** để vượt các mục này (không đổi id, không đổi anchors); báo cáo G2 ghi rõ ba mục TRƯỢT và lý do.

@@ -1,0 +1,103 @@
+{
+ "frames": {
+  "F01": {
+   "craft": 7,
+   "readability": 8,
+   "flags": [],
+   "note": "Nice archival photo on a mount. The caption sits over the white mat and the gradient. Source line is small but legible."
+  },
+  "F02": {
+   "craft": 6,
+   "readability": 8,
+   "flags": [],
+   "note": "Full-bleed sepia archive photo. Clean caption. Plain, but fits the subject. Source text is small."
+  },
+  "F03": {
+   "craft": 5,
+   "readability": 5,
+   "flags": [
+    "text_overlap",
+    "illegible_text",
+    "confusing"
+   ],
+   "note": "The 13% label overlaps the green cube and its text is faded and low contrast. Three unlabeled cubes of near-equal size make the data hard to read. 'ACTUAL' badges are repeated three times and add noise. A stray badge appears at the bottom right."
+  },
+  "F04": {
+   "craft": 3,
+   "readability": 8,
+   "flags": [
+    "empty_frame",
+    "confusing"
+   ],
+   "note": "Only a grid floor and a few floating lines. No subject, so the viewer has nothing to look at while the caption says something about a vote."
+  },
+  "F05": {
+   "craft": 6,
+   "readability": 7,
+   "flags": [
+    "text_cut_off",
+    "cluttered"
+   ],
+   "note": "The 86 bar is cropped at the left edge. The label box covers the top of the bar. The 'against' bar is cut off by the caption gradient. Floating lines mean nothing. Two 'as of' notes say the same thing."
+  },
+  "F06": {
+   "craft": 8,
+   "readability": 8,
+   "flags": [
+    "cluttered"
+   ],
+   "note": "Strong stylized dusk scene with a glowing cutaway stair. The Fannie Mae callout hides the storefront and the people. The caption 'Now add the shop' is clear."
+  },
+  "F07": {
+   "craft": 8,
+   "readability": 8,
+   "flags": [
+    "cluttered"
+   ],
+   "note": "Same scene as F06 with a slight camera move. The callout covers the ground floor. The cutaway building is cropped at the top."
+  },
+  "F08": {
+   "craft": 7,
+   "readability": 7,
+   "flags": [],
+   "note": "Good terrain map. The callout is readable. The source text is small, and the three-line source text below the caption is dense. The pin is tiny."
+  },
+  "F09": {
+   "craft": 5,
+   "readability": 8,
+   "flags": [
+    "empty_frame"
+   ],
+   "note": "Recap card with large clear text. The blurred background is mostly dead space. The lower third of the card is empty. Plain and templated."
+  },
+  "F10": {
+   "craft": 7,
+   "readability": 7,
+   "flags": [],
+   "note": "Archival photo of a corner building. The caption sits over the white mat and is legible. Source line is small. The film-edge label is cut off, which is a harmless stylistic detail."
+  },
+  "F11": {
+   "craft": 7,
+   "readability": 6,
+   "flags": [
+    "confusing"
+   ],
+   "note": "Handsome globe. Illinois is highlighted but has no label or callout, so the map doesn't connect to the caption. Two-line caption and a long source line are small on a phone."
+  },
+  "F12": {
+   "craft": 8,
+   "readability": 8,
+   "flags": [],
+   "note": "Strong globe with a Texas highlight and a clear callout. 'As of' badge is clear. Callout text is a bit small for a phone. The 'ACTUAL' badge is unexplained."
+  }
+ },
+ "overall_craft_1to10": 7,
+ "compared_to_typical_faceless_explainers": "above",
+ "best_frame": "F06",
+ "worst_frame": "F04",
+ "top3_visual_fixes": [
+  "Fix the data scenes (F03, F04, F05): give the bars labels and sensible proportions, keep callouts off the geometry and inside the frame, make sure nothing is cropped, and stop the ghosted 13% label from overlapping the cube. Never show an empty grid with only floating lines. Put a real visual there, such as the vote tally or a building icon.",
+  "Make small text bigger and shorter: source lines, callouts and the 'ACTUAL' badges should be larger and fewer. Drop the repeated badge or define it once. Cut the long multi-source lines to one short line. The phone-width minimum should be about 28 px for body text.",
+  "Connect the map and 3D scenes to their captions: label Illinois in F11, move the callout in F06 and F07 so it doesn't cover the shop, and fill the dead space on the recap card (F09) with icons or a small building illustration for each lock."
+ ]
+}

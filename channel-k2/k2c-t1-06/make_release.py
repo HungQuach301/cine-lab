@@ -7,9 +7,9 @@ import csv, hashlib, json, os, re, shutil, sys, yaml
 H = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{H}/../..')
 tl_p, O, D = sys.argv[1:4]; os.makedirs(D, exist_ok=True)
 TL = json.load(open(tl_p)); E = yaml.safe_load(open(f'{H}/episode.yaml'))
-CH = {'00': 'The question', '01': 'The building on the corner', '02': 'Lock 1: the map (1916–1926)', '03': 'The map today',
+CH = {'00': 'The question', '01': 'The building on the corner', '02': 'Lock 1: the map (1921–1926)', '03': 'The map today',
       '04': 'Lock 2: the stairwell', '05': 'Is one stair safe? What the record shows', '06': 'Lock 3: the bank line at four homes',
-      '07': 'Other forces: costs, rates, rents', '08': 'What the numbers show since the 1970s', '09': 'Myth vs. record: does upzoning work?',
+      '07': 'Other forces: building costs, borrowing costs, rents', '08': 'What the numbers show since the 1970s', '09': 'Myth vs. record: does upzoning work?',
       '10': 'Where the rules are changing', '11': 'The answer'}
 mmss = lambda s: f'{int(s // 60)}:{int(s % 60):02d}'
 TITLES = ["Why Did America Almost Stop Building Small Buildings Like This?",   # CHÍNH (chủ dự án duyệt D3, 12/10/2026; titles.txt)
@@ -37,7 +37,8 @@ SF = list(csv.DictReader(open(f'{H}/SOURCES-FOOTAGE.csv')))
 loc = sorted({r['clip_id'] for r in SF if r['clip_id'].startswith('LOC-')})
 px = [r for r in SF if r['clip_id'].startswith('PX')]
 cc = [r['yeu_cau_ghi_cong'] for r in SF if r['giay_phep'].startswith('CC BY')]
-src_lines = [f"- {s['short']}: {s['url']} (accessed {s['accessed']})" for s in E['sources'].values()]
+src_lines = [f"- {s['short']}: {s['url']} (accessed {s['accessed']})" for s in E['sources'].values() if not s.get('onscreen')]
+img_lines = [f"- {s['short']}: {s['url']}" for s in E['sources'].values() if s.get('onscreen')]   # bản ghi ảnh/footage/bản đồ (khoá do make_spec.py tạo cho Q21)
 desc = f"""This video explains how the system works. It isn't financial or investment advice. Facts as of 12 October 2026.
 About one in thirteen American homes sits in a building with two to four apartments. Of the new homes finished in 2025, about one in a hundred did. Three sets of rules shape new ones — the map, the stairwell and the bank line — and building costs, borrowing costs and rents weigh on whether the numbers work. Our read: the record doesn't pin the decline on any single one.
 
@@ -48,7 +49,7 @@ CHAPTERS
 """ + '\n'.join(f"{mmss(s['t0'])} {CH[s['id']]}" for s in TL['segments']) + """
 
 SOURCES
-""" + '\n'.join(src_lines) + """
+All """ + str(len(src_lines)) + """ sources (with links and access dates) and the item page of every archival photo, document and stock clip are listed in the pinned comment.
 
 NOTES ON THE NUMBERS
 - "One in thirteen" (Census ACS 2024, homes in buildings with 2–4 units) and "one in a hundred" (Census completions, 2025) are two different counts; the shares are our calculation.
@@ -67,11 +68,15 @@ Sound effects: Work With Sounds / Sounds of Changes (via Europeana), CC BY 4.0 �
 """ + '\n'.join(f'  {s}' for s in sfx) + """
 Fonts: Inter (SIL Open Font License 1.1); DejaVu Serif for re-typeset excerpts (Bitstream Vera License).
 """
+assert len(desc) <= 5000, f'mô tả {len(desc)} ký tự > 5000 (giới hạn mô tả YouTube)'   # 14/10: nguồn đầy đủ chuyển sang bình luận ghim
 open(f'{D}/description.en.txt', 'w').write(desc)
+pin = ("SOURCES (accessed dates in brackets)\n" + '\n'.join(src_lines) + "\n\nIMAGES, DOCUMENTS AND FOOTAGE (item pages)\n" + '\n'.join(img_lines) + "\n")
+assert len(pin) <= 10000, f'bình luận ghim {len(pin)} ký tự > 10000'
+open(f'{D}/nguon-binh-luan-ghim.en.txt', 'w').write(pin)
 open(f'{D}/titles.txt', 'w').write(f'CHÍNH: {TITLES[0]} ({len(TITLES[0])} ký tự)\nDỰ PHÒNG (Test & Compare): {TITLES[1]} ({len(TITLES[1])} ký tự)\nPHƯƠNG ÁN 3 (không dùng): {TITLES[2]} ({len(TITLES[2])} ký tự)\n')
 srt = f"{O}/{TL['id']}.en.srt"
 if os.path.exists(srt): shutil.copy(srt, f'{D}/{TL["id"]}.en.srt')
-files = [f for f in [f'{O}/{TL["id"]}-v1-master.mp4'] + [f'{O}/shorts/{TL["id"]}-short-{s["id"]}.mp4' for s in TL['shorts']] + [f'{D}/{TL["id"]}.en.srt', f'{D}/description.en.txt'] if os.path.exists(f)]
+files = [f for f in [f'{O}/{TL["id"]}-v1-master.mp4'] + [f'{O}/shorts/{TL["id"]}-short-{s["id"]}.mp4' for s in TL['shorts']] + [f'{D}/{TL["id"]}.en.srt', f'{D}/description.en.txt', f'{D}/nguon-binh-luan-ghim.en.txt'] if os.path.exists(f)]
 with open(f'{D}/SHA256SUMS.txt', 'w') as fh:
     for f in files: fh.write(hashlib.sha256(open(f, 'rb').read()).hexdigest() + '  ' + os.path.basename(f) + '\n')
 print(json.dumps(dict(files=[os.path.basename(f) for f in files], titles=TITLES, chapters=len(TL['segments']), music=len(mus), sfx=len(sfx), loc=len(loc)), ensure_ascii=False))

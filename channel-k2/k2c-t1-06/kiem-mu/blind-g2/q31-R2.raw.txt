@@ -1,0 +1,25 @@
+```json
+{"joins":{
+"J01":{"verdict":"acceptable","why":"Hard cut from a 3D street scene to a sepia HABS photo. The caption swaps cleanly and the image fits 'classic corner building'. The photo is a four-story walk-up, not a shop with two or three floors. The 'Facts as of' tag disappears at the cut, which is fine."},
+"J02":{"verdict":"acceptable","why":"Cut from a 1942 DC streetcar photo to a dark 3D lot map, with the title card fading in over the cut. The style change is abrupt, but it marks the start of a section. The tram photo says little about the 1921 Commerce Department."},
+"J03":{"verdict":"acceptable","why":"Sepia 1905-20 photo cuts to saturated modern aerial footage of Chicago. The color and era jump is jarring, though it matches 'A century later'. The caption fades in at the cut. The narration then moves to a state map, which the picture doesn't show."},
+"J04":{"verdict":"acceptable","why":"Sepia Butte photo cuts to a dusk 3D corner building with the 'Lock 2: The stairwell' title. The title is semi-transparent and overlaps the building at +0.5 s. This is a normal section opening. The Butte photo has little to do with the parking sentence."},
+"J05":{"verdict":"acceptable","why":"Dark 3D bar chart cuts to bright real fire-escape footage. The style jump is strong, but the footage suits a question about stairs. The caption fades in at the cut."},
+"J06":{"verdict":"acceptable","why":"Bar chart with the code-not-published caption cuts to the dark 3D 'The bank' building stack. Both share the dark chart look, so the cut is smooth. The title fades in over the stack, and the 'LOCK 3' label is partly covered at +0.5 s."},
+"J07":{"verdict":"acceptable","why":"Dark satellite California map with a callout cuts to bright gray crane footage. Strong change of look. The footage is generic and does not show the 'rules aren't the whole story' point."},
+"J08":{"verdict":"smooth","why":"Recap card cuts to a 3D houses vs. small buildings vs. large buildings scene, which matches the narration. The recap card text is steady. The 'Large buildings' label appears with some lag."},
+"J09":{"verdict":"acceptable","why":"A 3D diagram cuts to real Chattanooga rowhouse footage. This is a style jump, but the footage is on topic and shows a small multi-unit building."},
+"J10":{"verdict":"acceptable","why":"Text recap card cuts to a dusk 3D street scene with the question caption. The cut is abrupt but fits a new section. The same dusk corner building appears again."},
+"J11":{"verdict":"smooth","why":"Chart of still-4 lending line cuts to the 3D street scene with a centered question title. The dark-to-night-scene look is consistent. The title fades in at the cut. The street picture fits 'almost stop building them'."}
+},
+"consistency_1to10":6,
+"variety_1to10":5,
+"picture_matches_words_1to10":7,
+"breaks":[],
+"overused_setting":"The 3D dusk/night red-brick corner building with a shop, used for intros, section titles and the end, plus dark satellite globes and map flyovers",
+"top3_fixes":[
+"Add 0.3–0.5 s dissolves or a shared title-card transition at the stock-footage and archival-photo joins (J02, J03, J05, J07, J09). Give the Pexels footage the same color grade and 3D-style overlay as the rest.",
+"Cut the repeated corner-building and globe/map shots. Replace them with new subjects: a floor-plan walk-through of a single-stair vs. two-stair layout, a loan-limit ladder, and real small-apartment exteriors. Replace the generic crane shot at J07 with something about lending.",
+"Fix the title card timing so 'Lock N' titles fully appear before they overlap busy scenes (J04, J06). Hold the chyron or lower-third text at the cut so it does not fade in mid-sentence, and keep recap cards visually steady."
+]}
+```

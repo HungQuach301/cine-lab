@@ -1,0 +1,60 @@
+{
+ "joins": {
+  "J01": {
+   "verdict": "acceptable",
+   "why": "A 3D render cuts to a sepia archival photo. The caption changes cleanly, but the style change is abrupt. Sepia photos fit the narration about the classic corner shop."
+  },
+  "J02": {
+   "verdict": "acceptable",
+   "why": "A 1942 archival photo cuts to the 3D 'Lock 1: The map' title card. The shift in style is noticeable but works as a section divider, and the title fades in cleanly."
+  },
+  "J03": {
+   "verdict": "acceptable",
+   "why": "A 1905\u20131920 Buffalo photo cuts to modern colour drone footage of Chicago. The jump from old to new matches 'a century later', but the caption fades in mid-sentence."
+  },
+  "J04": {
+   "verdict": "smooth",
+   "why": "A Butte, Mont. photo cuts to a 3D corner building with a 'Lock 2: The stairwell' title. The building continues the corner-building motif, and the title is clear."
+  },
+  "J05": {
+   "verdict": "acceptable",
+   "why": "A dark chart cuts to bright Pexels fire-escape footage. The footage matches the stairs topic, but the contrast is jarring and the caption fades in mid-line."
+  },
+  "J06": {
+   "verdict": "acceptable",
+   "why": "A bar chart cuts to the 3D stepped-buildings 'Lock 3: The bank' card. Both are dark and share a style. The title is faded at the cut, but it is a standard divider."
+  },
+  "J07": {
+   "verdict": "break",
+   "why": "The narration is 'recourse to the developer's personal assets' (lending). The picture is a globe over California, then a cut to bright construction-crane footage. The footage is generic and does not show the claim 'rules aren't the whole story'. The style change is also abrupt."
+  },
+  "J08": {
+   "verdict": "smooth",
+   "why": "The recap card cuts to a 3D houses/small buildings/large buildings diagram. The look is consistent and the picture matches the words."
+  },
+  "J09": {
+   "verdict": "acceptable",
+   "why": "The 3D diagram cuts to bright Chattanooga stock footage, which is a style jump. The footage shows small-building construction and fits the topic. The caption fades in."
+  },
+  "J10": {
+   "verdict": "smooth",
+   "why": "A text recap card cuts to a 3D corner building at dusk with the title 'where are these buildings legal again'. The picture fits and the style is consistent."
+  },
+  "J11": {
+   "verdict": "smooth",
+   "why": "The 'Still 4' lending-line 3D chart cuts to the corner-building render. The narration 'lending line is still four' is shown directly, and the look is consistent."
+  }
+ },
+ "consistency_1to10": 6,
+ "variety_1to10": 6,
+ "picture_matches_words_1to10": 7,
+ "breaks": [
+  "J07: The narration is about lending recourse and the picture is a California globe map, then generic crane/construction stock footage. It does not illustrate the words, and the style jump from dark graphics to bright stock footage is jarring."
+ ],
+ "overused_setting": "The dusk 3D corner brick building (shop on the ground floor). It opens and closes the film and recurs often. The dark globe/satellite maps and dark text cards are also repeated heavily.",
+ "top3_fixes": [
+  "Replace the J07 generic crane footage with a graphic that shows 'rules aren't the whole story' (for example, a rules/costs/rents diagram). Show a recourse/guarantee visual for the lending line.",
+  "Unify the look. Either grade the bright Pexels clips (fire escape, Chicago, Chattanooga, crane) to match the dark 3D/chart style, or add a dissolve or dip-to-dark at each cut. Also stop captions fading in mid-sentence at joins.",
+  "Cut repetition: reduce the reuse of the dusk corner building and the globe/map shots. Use more real photographs of small apartment buildings, stairwells and loan paperwork, and vary the recap and text-card layouts."
+ ]
+}
