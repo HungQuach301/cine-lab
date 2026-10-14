@@ -312,3 +312,162 @@ Nhánh `k2-visual2` (từ `origin/main` @ `d3beb5f`; checks 1.10.2, LOCK `c59846
    - Ghi nhận phần DEM ngoài nước Mỹ (Canada) là dữ liệu USGS gộp vào lớp liền mạch 3DEP (metadata USGS: "Access constraints: None").
 7. **Số liệu lệch giữa các nguồn** (`claims.md`): độ dâng kênh Erie 566/568/571 ft; chi phí $7M (dự toán) vs $7,143,789. Chọn khi làm tập thật.
 8. **Tốc độ render:** relief chậm gấp ≈ 2 lần cảnh T1. Duyệt thử SPP2 / lưới nhẹ cho relief ở phiên sau (§4.1).
+
+---
+
+# V2b — một lượt sửa theo Kinh thánh kênh 2 §4 (phiên V2b, 14/10/2026; chủ dự án duyệt 14/10 18:08)
+- **Nhánh:** `k2-visual2`, tiếp từ `0d6019a`.
+- **Kinh thánh:** đã commit nguyên văn vào `docs/BIBLE-KENH2.md` (`10a035c`) và đọc trước khi sửa. Từ đây, việc "phiên không đọc được Kinh thánh" ở §0/§9 bên trên **đã được giải quyết**.
+- **Không đụng tới:** không sửa `checks/`, không sửa tệp của tập, không merge `main`.
+
+## V2b.0 Tóm tắt
+| Hạng mục | V2 (vòng 2) | **V2b (vòng 3)** | Mục tiêu |
+|---|---|---|---|
+| Tay nghề chấm mù TB (mới) | 6,8 | **7,13** | ≥ 8 — **CHƯA ĐẠT** |
+| Lượt chọn mới vs T1 | 15/15 | **15/15** | — |
+| Cảnh 3D 1080p, đồng hồ thật / khung | 3,81 s (SPP4) | **2,70 s (SPP2)** | ≤ 1,86 s (T1) — **CHƯA ĐẠT** |
+| Toàn bộ, đồng hồ thật / khung | 4,19 s | **3,08 s** | — |
+| Nhịp thị giác: khoảng TB / dài nhất / khung tĩnh dài nhất | — | **1,16 s / 4,15 s / 4,04 s** | ≤ 3,5 s / — / ≤ 6 s — **ĐẠT** |
+| Chi phí API V2b | — | **$0,90 / trần thêm $5** | — |
+
+- **1080p dựng MỘT lần** (SPP2) sau tờ khung 540p.
+- **Không chạy thêm lượt sửa nào** sau chấm mù vòng 3, đúng lệnh.
+
+## V2b.1 Sửa gì
+1. **Sticker vật dựng TRONG cảnh 3D (D2b, Kinh thánh §4)** — `design/k2v/relief.js`:
+   - **Vật:** mô hình toon của `sticker-lab.js` đặt trên địa hình, cỡ theo px.
+     - Nhận ánh sáng chung của cảnh. Mặt trời Tây Bắc 315°/45° được **chọn cùng hướng tô bóng địa hình**, để bóng vật và bóng núi nhất quán.
+     - **Đổ bóng thật lên địa hình** bằng shadow map riêng từ máy mặt trời (2048², PCF 3×3 trong shader địa hình).
+     - Đổi phối cảnh theo máy quay; vật đi theo tuyến quay theo hướng tuyến.
+     - **Viền trắng bằng shader:** mặt nạ vật → quad toàn khung giãn 24 hướng, 5 px @1080p. Quad vẽ sau địa hình/tuyến và trước vật, nên chỉ viền bóng ngoài, không kẻ đường trong vật. Một phong cách, chạy trên cả hai bảng màu.
+     - Chồng xu cũng đi qua cùng đường ống (bóng thật + viền), thay cho đốm bóng giả.
+   - **Nhân vật A-lite:** tấm phẳng **trong cảnh**.
+     - Quay trọn về máy. Lý do: máy nhìn gần thẳng xuống, nếu chỉ xoay quanh trục đứng thì nhân vật bị ép dẹt.
+     - Nhận ánh sáng cảnh, nên tông đổi theo bảng màu. Đổ bóng lên địa hình. Lật theo hướng đi trên màn hình.
+     - Viền trắng có sẵn trong hình (`STK.style`), đã bỏ bóng 2D.
+   - **Giữ API cũ:** `scripts/k2/prep.py lift_props` tự chuyển `p.stickers` của shot `relief/*` vào `opt.props`, nên tập vẫn khai `pins/walkers/st:<id>`, `img`, `at/out` (cả `"@từ"`) như V2.
+   - **Lỗi thứ tự vẽ đã sửa:** vật đục luôn vẽ trước lớp trong suốt, nên tuyến cam từng đè lên thuyền. Vật được đưa vào hàng vẽ trong suốt với `renderOrder` 9.
+   - **Công sức phần nhân vật:** ≈ 20 dòng (billboard, lật, bóng), vẫn ≤ ~10 %.
+2. **Chân dung (D4):**
+   - Bản in lệch trái ~60 % khung, **nâng 0,12 đơn vị khỏi mặt bàn** để có bóng đổ dưới đèn bàn.
+   - Máy trượt ngang 1,0 đơn vị và hạ dần, nên thị sai mạnh hơn.
+   - Cột chú thích bên phải (`p.side`): tên · vai trò · năm · nguồn, có vạch nhấn hổ phách. Không còn dải chú thích dưới.
+3. **Dòng nguồn 34 px (D3):** `SRCPX` trong `scripts/k2/lib/k2.js`, áp cho mọi tập 16:9 dựng sau; 9:16 giữ 46 px.
+   - Chân bảng điểm có `maxW` theo bề rộng bảng.
+   - Dòng nguồn H rút gọn ("LOC") để không xuống 2 dòng.
+   - Kiểm lại: mép 48 px **0 vi phạm** (mép gần nhất 62 px); tương phản < 4,5: **0**; chữ < 30 px: **0**.
+4. **Móc:** nhãn Albany vào ở **12,4 s**, trước mốc chấm 13,0 s (vòng 2: 13,4 s).
+5. **Nhịp thị giác** (Kinh thánh §4, sửa 14/10 18:08): mục V2b.2.
+6. **Nhãn né vật trong cảnh:** hộp chiếu `objL/objR` của vật/nhân vật vào `LL.occ`. Ở nháp, nhãn "Genesee Valley" từng che nhân vật nông dân; đã sửa.
+7. **Thêm biến cố hình cho đoạn thưa:**
+   - J: mốc máy đổi hướng 6,0 s và nhãn "Hudson River" 6,6 s.
+   - N: mốc máy 5,6 s.
+
+## V2b.2 Nhịp thị giác (`scripts/k2/rhythm.py`, kết quả `channel-k2/k2v2-mau/rhythm-v2b.json`)
+- **Cách đo:**
+  - Khai `segments[].beats` trong `K2V2-reel.yaml`.
+  - Script đối chiếu **từng** biến cố khai với một mốc thật của đặc tả (±0,3 s): vùng, tuyến, vòng, xu, mốc máy, sticker, nhãn, chú thích, chip năm, cột chân dung, bảng điểm. Biến cố khai không khớp thì báo LỖI.
+  - Trên video: khung tĩnh là chuỗi khung có sai khác trung bình < 0,6/255 (ảnh xám 160×90).
+
+| Chỉ số | Kết quả | Ngưỡng |
+|---|---|---|
+| Biến cố khai / sau gộp (< 0,25 s) | 43 / 38 (0 biến cố không khớp đặc tả) | — |
+| Khoảng trung bình | **1,16 s** | ≤ 3,5 s |
+| Khoảng dài nhất | **4,15 s** (S 39,85 s: hàng cuối bảng điểm → hết cuộn) | — |
+| Khung tĩnh dài nhất (video) | **4,04 s** (từ 39,67 s, bảng điểm đã đầy) | ≤ 6 s |
+| Cắt cứng | 5 (chỉ ở 5 lần đổi cảnh) | chỉ khi đổi cảnh |
+
+- **Theo đoạn:** H 14 biến cố / 15 s · J 10 / 10 s · N 8 / 8 s · P 4 / 5 s · S 7 / 6 s.
+- **Phép kiểm:** `test_k2v.py::test_v2b_rhythm` chặn khi trượt.
+
+## V2b.3 Tốc độ: SPP2 / LOD (`scripts/k2/lod_test.py`, `lod-test.json`, tờ so `lod-test-sheet.jpg`)
+- **Cách đo:** 6 khung 1080p chọn trước, trải mọi tầm máy (H ~440 và ~520 km, J ~600 km, N ~125 km, S ~650 km, P ảnh). So với chuẩn SPP4 không LOD.
+- **s/khung** là số đo 1 tiến trình, tuần tự, chỉ vài khung mỗi lần chạy, nên **chỉ dùng để so tương đối**.
+
+| Cấu hình | SSIM TB (min) | pHash max | s/khung |
+|---|---|---|---|
+| A SPP4 (chuẩn) | 1 | 0 | 10,17 |
+| **B SPP2** | 0,965 (0,948) | 2 | **7,61** |
+| C SPP2 + lưới 1/2 (> 300 km) + texture 4096 (> 500 km) | 0,947 (0,918) | 6 | 7,48 |
+| D SPP4 + LOD | 0,968 (0,948) | 4 | 8,35 |
+
+- **Chọn B (SPP2, tắt LOD).**
+  - **SPP2:** SSIM thấp hơn 1 chủ yếu do mẫu răng cưa dưới điểm ảnh đổi chỗ trên vân địa hình rất dày (đổi mẫu jitter). Phóng 2× vùng nhiều vân, A và B không phân biệt được bằng mắt. Khung N (vật + xu): SSIM 0,987; khung ảnh: 0,990.
+  - **LOD:** làm vân địa hình mềm đi **thấy được** ở 1:1 (pHash tới 6; C kém B rõ ở khung H/J), mà chỉ nhanh hơn ~2 %. Vì vậy `lodMesh`/`lodTex` để **mặc định tắt** (bật bằng `opt` khi cần).
+- **Giờ render cuộn 1080p** (3 tiến trình trên 4 vCPU, đồng hồ thật):
+
+| | V2 (SPP4) | **V2b (SPP2 + D2b)** | T1 |
+|---|---|---|---|
+| Cảnh 3D / khung | 3,81 s | **2,70 s** (2 847,5 s / 1 056) | 1,86 s |
+| Toàn bộ / khung | 4,19 s | **3,08 s** (3 248 s) | 2,47 s |
+| Mỗi tiến trình | relief 7,2–13,0 s | H 5,81 · J 10,65 · N 10,20 · S 4,35 · P 3,71 s | — |
+
+- **Phần do D2b** (đo riêng cùng khung, 1 tiến trình, SPP2, có/không vật trong cảnh; `d2b-cost.json`):
+  - J: 3,25 → 4,33 s (**+33 %**); N: 2,48 → 3,75 s (**+51 %**).
+  - Hai đoạn này chiếm 456/1 056 khung. Ước phần D2b trong cuộn ≈ **0,17–0,43 s/khung**, tức 6–16 % của 2,70 s, tuỳ cách quy đổi tranh chấp CPU giữa 3 tiến trình.
+  - Không có D2b, cảnh 3D ≈ 2,3–2,5 s/khung, **vẫn > T1**. Phần lớn chênh lệch nằm ở bản thân bản đồ nổi (đoạn J nhìn rộng tới 660 km: 10,65 s/khung mỗi tiến trình).
+- **Đề xuất để về ≤ T1** (chưa làm; mỗi mục cần đo lại bằng `lod_test.py`):
+  - (a) Mặt nạ viền và shadow map dựng ở ½ độ phân giải; vòng giãn viền 24 → 12 hướng.
+  - (b) Khung rộng > 500 km chuyển SPP1 + lọc khử răng cưa hậu kỳ, vì texture đã mịn.
+  - (c) Dựng 4 tiến trình thay vì 3. Hiện tiến trình P xong sớm, nên đuôi chỉ còn 1–2 tiến trình chạy.
+  - (d) Chia đoạn dài (J) thành 2 tiến trình theo khoảng khung.
+  - Kinh thánh §9 đã dự liệu rủi ro "sticker vật trong cảnh làm tăng giờ render (bù bằng SPP2/lưới nhẹ, đo mỗi tập)". Lưới nhẹ đã đo và không đáng dùng; SPP2 đã áp dụng.
+
+## V2b.4 Chấm mù vòng 3 (cùng giao thức `blind_v2.py`, `rejudge3`)
+- Cùng cặp, cùng khung T1, cùng thứ tự X/Y, cùng đề bài. Mốc giây giữ nguyên `key.json` (13,0 / 21,0 / 31,0 / 36,0 / 42,5 s), **chốt trước khi dựng 1080p**.
+- Model ghim `claude-sonnet-5-5` (kèm lượt phụ nhỏ `claude-haiku-5-5` của CLI như V2).
+
+| Cặp | Vòng 2: T1 → mới | **Vòng 3: T1 → mới** | Đọc / Rõ ý (v3) | Chọn v3 | Cờ mới v3 |
+|---|---|---|---|---|---|
+| P1 bản đồ móc | 6,0 → 7,33 | 6,0 → **8,0** (8/8/8) | 8,0 / 9,0 | mới 3/3 | — |
+| P2 hành trình | 7,0 → 7,0 | 7,0 → **6,67** (7/6/7) | 8,0 / 8,0 | mới 3/3 | — |
+| P3 số liệu | 4,33 → 6,67 | 4,33 → **7,0** | 8,0 / 7,67 | mới 3/3 | — (v2: confusing) |
+| P4 chân dung | 5,33 → 6,0 | 5,33 → **7,0** | 8,0 / 9,0 | mới 3/3 | — (v2: empty_frame, flat_slide_look) |
+| P5 bảng điểm | 4,0 → 7,0 | 3,67 → **7,0** | 7,67 / 8,0 | mới 3/3 | — (v2: cluttered) |
+| **TB** | 5,33 → 6,8 | 5,27 → **7,13** | | **15/15** | **0 cờ** |
+
+- **Đã cải thiện (thấy trong ghi chú người chấm):**
+  - Chân dung: "clear hierarchy… balanced".
+  - Không còn cờ lỗi nào.
+  - Nhãn Albany được ghi nhận ở P1.
+  - Viền + bóng vật được ghi nhận "white outlines and shadows are clean" (P3, R2).
+- **Còn giữ dưới 8 (≥ 2/3 người chấm):**
+  1. **Vật/nhân vật vẫn bị gọi "clip-art"** (P2 2/3, P3 2/3). D2b làm vật có ánh sáng/bóng thật, nhưng hình khối toon đơn giản vẫn đọc là biểu tượng. Đây là bản chất của công thức sticker trong Kinh thánh §4.
+  2. **Dòng nguồn 34 px vẫn bị nêu "small"** ở mọi cặp. Người chấm xem ảnh 1280 px, nên 34 px còn ≈ 23 px.
+  3. **Nhãn ACTUAL lặp** (P3 2/3). Việc này để phiên K (D5).
+  4. **Chồng 10 xu và 1 xu "khó đoán tỷ lệ bằng mắt"** (P3 1/3).
+  5. **Bảng điểm che bản đồ; "Rows won" chưa rõ nghĩa** (P5 2/3).
+- **Nhiễu phép đo:** khung T1 giống hệt mà điểm dao động ±0,33 giữa các vòng (F09: 4,0 → 3,67).
+
+## V2b.5 Chi phí
+| Hạng mục | Chi phí |
+|---|---|
+| Claude API V2b (chấm mù vòng 3, 15 lượt) | **$0,90 / trần thêm $5** (sổ `kiem-mu/cost.jsonl` luỹ kế $2,71 cho V2 + V2b) |
+| ElevenLabs, YouTube API | 0 |
+| Giờ máy | Nháp 540p 2 lượt (≈ 25 phút) · `lod_test.py` 20 lần dựng (≈ 30 phút) · 1080p SPP2 **một lần** 54,1 phút · đo D2b 4 lần dựng (≈ 10 phút) |
+
+## V2b.6 Kiểm trước khi đẩy
+- `scripts/k2/test_k2v.py`: **16/16 ĐẠT**. Thêm `test_v2b_lift_props`, `test_v2b_outline_shader`, `test_v2b_rhythm`.
+- `checks/lock.py --verify`: **KHỚP** (`c598467f…`). Không sửa `checks/`.
+- **Luật K 1.10.2:**
+  - Q33 ĐẠT; Q32 ĐẠT (tư liệu 11,4 %); Q34(c) số neo 3D **100 %**.
+  - Q34(a)(b) trượt vì cuộn mẫu không có lời (như V2).
+- **Không có email; không có media lớn ngoài git.**
+  - Cuộn 1080p không vào git hay LFS. SHA-256 `0f7273714dc3885c59570da6e3dfccc6e3663f1d80e17501310fa1fa97f19981`, 114,2 MB, `/var/tmp/cine-out/k2v-shots/K2V2-reel/shot.mp4`.
+  - Ảnh commit lớn nhất: tờ khung ≈ 0,5 MB.
+- **Tệp mới/sửa:**
+  - `docs/BIBLE-KENH2.md`.
+  - `design/k2v/{relief,photo,sticker-lab}.js`, `design/k2v/data/places-relief.json`, `design/k2v/README.md` (mục V2b).
+  - `scripts/k2/{hero.js,prep.py,vshot.py,rhythm.py,lod_test.py,test_k2v.py}`, `scripts/k2/lib/k2.js`.
+  - `channel-k2/k2v2-mau/{K2V2-reel.yaml, to-khung-540.jpg, to-khung-1080.jpg, rhythm-v2b.json, lod-test.json, lod-test-sheet.jpg, d2b-cost.json, measure-1080-spp2-v2b.json, blind_v2.py, kiem-mu/…-v3}`.
+
+## V2b.7 Việc đang chờ chủ dự án
+1. **Duyệt V2b:** sticker vật trong cảnh, chân dung lệch, dòng nguồn 34 px, nhịp thị giác, SPP2. Sau đó P ghi `AUTHORSHIP.md` và merge `k2-visual2`.
+2. **Tay nghề 7,13 < 8.** Chọn hướng cho phiên sau, vì lệnh cấm sửa thêm sau vòng 3:
+   - (a) vật thư viện chi tiết hơn: vật liệu PBR thay toon, bevel, vân gỗ/kim loại, giữ viền;
+   - (b) dòng nguồn 38–40 px, hoặc chuyển nguồn đầy đủ xuống mô tả, trên hình chỉ giữ tên nguồn ngắn;
+   - (c) chồng xu có vạch thước "×10" cạnh chồng;
+   - (d) bảng điểm thu nhỏ còn ~40 % khung, "Rows won" đổi thành "Advantages".
+3. **Giờ render 2,70 > 1,86 s/khung (T1).** Duyệt thử các đề xuất (a)–(d) ở V2b.3 trong phiên kế, mỗi mục đo bằng `lod_test.py`.
+4. **Nhãn ACTUAL cho số lịch sử (D5):** chuyển phiên K.
+5. **Các việc còn treo từ V2 (§9 bên trên):** đối chiếu trang The Met; chọn số lệch nguồn (568/571 ft; $7,1M).

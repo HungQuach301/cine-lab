@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "The globe render looks good, but Texas is a small orange patch on a continent-scale view, so the point is hard to see. The callout text is small on a phone, and the 'ACTUAL' badge and tiny source line are barely readable. The view shows no route or movement, only one highlighted state, and the caption ('Cities may allow...') doesn't clearly connect to the Texas label."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "A tight regional map with a clear orange route from Buffalo through the Genesee Valley to Albany, then a dotted line down to New York. The larger labels and the caption read easily on a phone, and the little figure and barge icons add character. The icons are a bit clip-art and the terrain is muted. The route line is thin, the Genesee marker is slightly off the line, and the bottom gradient muddies the map."},
+ "better": "Y",
+ "why": "Y shows an actual route with large readable labels and a caption that matches the visuals, while X's map is too zoomed out for its small callout and shows no movement.",
+ "top_fix_for_weaker": "Zoom the camera in on Texas, fill the state with a bright color, and enlarge the callout text. Cut it to a short line such as 'Texas: single-stair up to 6 stories'. Move the source line and badge out of the way, and make the caption name Texas directly."}
+```

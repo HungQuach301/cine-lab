@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Clean relief map with a strong green state against tan neighbors. The dashed canal route, the Buffalo and Albany labels and the 1825 badge make place, route and date clear at a glance. The caption states the fact. The sources line is small."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Moody tilted satellite view that is dark and muddy. The tan Minnesota blends into the greens and the borders are faint. The Minneapolis pin is tiny and placed arbitrarily, and the label's long subtitle is small. The caption is a quote with no visual tie to the map. The map shows only the location, with nothing about rent or apartments, so it is a generic location shot."
+ },
+ "better": "X",
+ "why": "X shows where and what happened at once, with a visible route, clear labels and a date, while Y is a dim, low-contrast map that only places a dot.",
+ "top_fix_for_weaker": "Zoom in and brighten the map, with a clear highlight on Minnesota and a larger Minneapolis marker, so the label reads on a phone. Add a data callout (e.g. a rent-growth figure) so the frame shows the story's content, not just a location."
+}

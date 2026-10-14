@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Tilted mat-framed portrait on the left, text block on the right. Warm, balanced, with good hierarchy: white name, gold date, small gray credit. Name and title read fine on a phone. The credit line is small and low-contrast. The empty right and bottom areas are slightly dead, but they don't hurt."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "text_overlap",
+   "cluttered"
+  ],
+  "note": "The photo bleeds off the bottom edge and a dark gradient is laid over its lower part, so the caption sits on top of the white mat and the photo. The gradient muddies the bottom of the image and the mat edge. The main caption is readable, but the source line is small and gray, and it will be hard to read on a phone. The caption is full-width and unstructured, with the name, title and date all in one line. The subject is small within the frame."
+ },
+ "better": "X",
+ "why": "X separates image and text cleanly with clear hierarchy, while Y overlays the caption on the photo and its gradient, and its source line is hard to read.",
+ "top_fix_for_weaker": "Shrink and reposition the photo so it is fully in frame, and put the caption in its own clean panel beside or below it, not over the photo. Split it into a bold name, a title line and a date line, and enlarge the source line with higher contrast."
+}

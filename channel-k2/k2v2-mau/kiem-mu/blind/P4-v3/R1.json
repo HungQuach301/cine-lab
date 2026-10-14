@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Tilted mat-board portrait on the left with a text block on the right. The name, title and year have clear hierarchy, and the yellow accent bar and highlighted year help. The credit line is small and grey, so it is marginal on a phone. The right side is a large dark void, so the layout is a bit left-heavy, but the frame is clean and balanced enough."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "text_overlap",
+   "cluttered"
+  ],
+  "note": "The photo is large and atmospheric, but the dark gradient caption bar covers the bottom of the photo and the mat. The caption text runs across the white mat and the photo's lower edge, so the figure's legs and the planter are partly muddied. The headline is readable, but the source line is small and low-contrast. The photo is cropped off the bottom of the frame. The subject is small within the photo, and the 1928 photo has no strong focal contrast."
+ },
+ "better": "X",
+ "why": "X separates image and text into clean zones with clear hierarchy, while Y overlays the caption on the photo and mat, which clutters the frame and makes the small source line hard to read.",
+ "top_fix_for_weaker": "Shrink the photo so it sits fully above the caption zone, or move the caption to a solid side panel as in X. Then enlarge the source line and raise its contrast so the text does not overlap the image."
+}

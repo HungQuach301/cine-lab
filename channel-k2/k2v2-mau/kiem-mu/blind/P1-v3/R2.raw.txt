@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 8,
+    "readability": 8,
+    "clarity": 9,
+    "flags": [],
+    "note": "Relief-shaded terrain with the state highlighted against muted neighbours. The dashed canal route runs between two labelled endpoints, and the year badge sets the time. The caption states the 363 miles and the story. Weak points: the Buffalo pin is tiny and sits partly under its label, the Albany marker is barely visible, the source line is small, and the bottom third is a dark gradient that wastes space. Flat top-down view with little depth."
+  },
+  "Y": {
+    "craft": 6,
+    "readability": 7,
+    "clarity": 5,
+    "flags": ["confusing"],
+    "note": "Tilted satellite-style map with state borders. It is moody but murky and low contrast, and Minnesota is only lightly distinguished by a brownish tint. The Minneapolis label card is crisp, but the pin is a tiny dot, and the card covers the area it points to. The caption is a quote about apartment profitability, so it never says what the map shows. The map adds nothing about housing or the quote, and the card's source line (Fed Bank of Minneapolis, Oct 2026) is odd. The source text is small and grey on a dark gradient."
+  },
+  "better": "X",
+  "why": "X's map visibly carries the story, with a labelled route, a date and a quantity, while Y's map is a murky backdrop that doesn't connect to its caption.",
+  "top_fix_for_weaker": "Make the map carry the claim. Brighten and increase contrast on the terrain, and outline or lift Minnesota's metro area (the Twin Cities) with a glowing highlight and a larger pin. Move the label card so it doesn't cover the area it points to, and replace the pull-quote with a plain statement plus one key figure (for example rent growth percentage) on screen. Enlarge the source line."
+}
+```

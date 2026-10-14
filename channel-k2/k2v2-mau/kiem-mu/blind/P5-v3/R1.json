@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Relief map of NY and PA sits behind a dark comparison card. Colour coding (teal vs gold), icons and circled winning values make the comparison fast to read. Scoreboard pill at top left. Row labels and the sources line are small on a phone, and the card covers much of the map."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 5,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "confusing"
+  ],
+  "note": "Plain text checklist on a heavily blurred, near-black background that shows nothing recognisable. The bottom third of the card is empty. Sub-lines are small, low-contrast grey and the last one is long. 'Three locks', 'bank line' and 'stairwell' are jargon with no visual support, so the screen reads as a PowerPoint recap."
+ },
+ "better": "X",
+ "why": "X shows a real place and a quantified side-by-side with clear visual hierarchy, while Y is a flat text list on a murky background with unexplained jargon.",
+ "top_fix_for_weaker": "Replace the blurred dark background with a clear visual for each lock (map, stairwell, bank). Make the sub-lines larger and brighter, cut the long third line, and fill or shrink the empty bottom of the card."
+}

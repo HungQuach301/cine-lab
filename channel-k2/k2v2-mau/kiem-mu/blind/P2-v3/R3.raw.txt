@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "The globe render is polished and the callout is legible. But Texas is a single state on a continent-scale view, so the map doesn't show a route or movement. The callout is long and wordy. The pin is tiny. The 'ACTUAL' badge is unexplained. The source line and date chip are small and hard to read on a phone. The caption ('Cities may allow…') and the callout repeat each other."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "A stylized relief map of New York State with a clear orange route from Buffalo through the Genesee Valley to Albany, then a dotted line down the Hudson to New York. The labels are large and high-contrast, and the caption states the story directly. Weaknesses: the Genesee Valley icon sits on top of the route line, the barge and figure icons are a bit clip-art, the dotted Hudson leg is thin, and the source line is small."},
+ "better": "Y",
+ "why": "Y shows the actual route with large, readable labels and a caption that matches the visual, while X zooms out to a continent where the labeled subject is a small patch and no movement is shown.",
+ "top_fix_for_weaker": "Zoom or tilt the camera to Texas (or a multi-state comparison) so the highlighted region fills the frame. Cut the callout to a short phrase such as 'Texas: single-stair up to 6 stories (since Sep 2025)', enlarge the pin and text, and drop the repeated caption, the unexplained 'ACTUAL' badge, and the tiny source line."}
+```

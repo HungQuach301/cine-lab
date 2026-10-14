@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 9, "flags": [], "note": "Tilted matted portrait on a dark textured backdrop, with a vignette on the right and a clean text block with a yellow accent rule. The hierarchy is clear: name, then title, then year, then credit. The warm painting colours match the background. The framing is balanced and has room to breathe. The credit line is small and grey, and the right side is a bit empty and dark. The mat is a plain flat white."},
+ "Y": {"craft": 5, "readability": 6, "clarity": 7, "flags": ["text_overlap", "cluttered"], "note": "The photo is large and tilted, and it runs off the bottom edge, so the mat is cropped. A dark gradient bar sits across the photo's lower third and covers the subject's legs and the mat. The caption straddles the white mat and the dark background, so its contrast changes along the line. The source line is small, thin and pale grey, and hard to read on a phone. The caption is a plain lower-third with no hierarchy, and the frame feels top-heavy."},
+ "better": "X",
+ "why": "X separates image and text cleanly with a clear hierarchy and no overlap, while Y's gradient bar and caption cut across the photo and the cropped mat.",
+ "top_fix_for_weaker": "Shrink and reposition the photo so the whole mat stays in frame, then move the caption into its own clean area (a side panel like X's, or a solid lower band that doesn't overlap the photo). Make the headline bold and larger and the source line larger and brighter."}
+```

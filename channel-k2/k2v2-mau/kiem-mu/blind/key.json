@@ -78,5 +78,45 @@
   "t1_frame": "F09",
   "t1_s": 552.58,
   "moi_s": 42.5
+ },
+ "P1-v3": {
+  "kind": "a terrain map that sets up the story (where it happens)",
+  "t1": "Y",
+  "moi": "X",
+  "t1_frame": "F08",
+  "t1_s": 526.65,
+  "moi_s": 13.0
+ },
+ "P2-v3": {
+  "kind": "a map showing a route or movement across a region",
+  "t1": "X",
+  "moi": "Y",
+  "t1_frame": "F12",
+  "t1_s": 868.87,
+  "moi_s": 21.0
+ },
+ "P3-v3": {
+  "kind": "numbers shown as 3D objects in a scene",
+  "t1": "Y",
+  "moi": "X",
+  "t1_frame": "F03",
+  "t1_s": 285.91,
+  "moi_s": 31.0
+ },
+ "P4-v3": {
+  "kind": "a historical portrait or archival image with a caption",
+  "t1": "Y",
+  "moi": "X",
+  "t1_frame": "F01",
+  "t1_s": 89.39,
+  "moi_s": 36.0
+ },
+ "P5-v3": {
+  "kind": "a summary / comparison screen",
+  "t1": "Y",
+  "moi": "X",
+  "t1_frame": "F09",
+  "t1_s": 552.58,
+  "moi_s": 42.5
  }
 }

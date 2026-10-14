@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Map backdrop, color-coded icons and highlighted winning values make a quick head-to-head comparison. The panel covers part of the map, and the 'Rows won' pill is small, with the term unexplained. The 'Length' flag icon is a weak fit. The Main Line column text is smaller than the Erie column's circled values, but both stay legible on a phone."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "confusing"
+  ],
+  "note": "A plain text card over a blurred, nearly black background. The grey subtext is small and low in contrast on a phone. The bottom third of the card is empty. 'Three locks' is jargon with no visual, and the checkbox bullets and the 'sorts at 5 homes' wording are vague. Nothing shows what the buildings or locks are."
+ },
+ "better": "X",
+ "why": "X shows its comparison through a map, icons and highlighted values, while Y is a flat text slide with small low-contrast subtext and no visual anchor.",
+ "top_fix_for_weaker": "Replace the blurred background with a clear visual for each lock (a map, a stairwell cross-section, a bank icon). Cut each line to a short phrase with one big number (4 stories, 5 homes). Make the subtext larger and brighter, and fill or shrink the empty bottom of the card."
+}

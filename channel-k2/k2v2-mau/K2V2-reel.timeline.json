@@ -38,7 +38,7 @@
        {
         "a": "albany",
         "s": "Albany",
-        "at": 13.4,
+        "at": 12.4,
         "side": "auto",
         "c": "#F08A4B"
        },
@@ -60,12 +60,12 @@
         "at": 9.8
        }
       ],
-      "src": "Sources: Library of Congress · NPS · Erie Canalway NHC · Terrain: USGS 3DEP · Map: Natural Earth",
+      "src": "Sources: LOC · NPS · Erie Canalway NHC · Terrain: USGS 3DEP · Map: Natural Earth",
       "year": {
        "s": "1825",
        "at": 8.4
       },
-      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero0-f-spp4",
+      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero0-f-spp2",
       "stamp": "vshot"
      },
      "type": "map",
@@ -101,52 +101,6 @@
      "t1": 10.0,
      "p": {
       "hero": "h_trip",
-      "stickers": [
-       {
-        "a": "st:sack",
-        "img": "stk:sack",
-        "at": 0.3,
-        "out": 3.6,
-        "px": 130
-       },
-       {
-        "a": "st:farm",
-        "img": {
-         "role": "farmer",
-         "hand": "wheat"
-        },
-        "at": 2.0,
-        "out": 6.4,
-        "px": 170
-       },
-       {
-        "a": "st:boat",
-        "img": "stk:boat",
-        "at": 0.5,
-        "px": 130,
-        "walk": true,
-        "hz": 1.2,
-        "face": "right"
-       },
-       {
-        "a": "st:crew",
-        "img": {
-         "role": "sailor",
-         "hand": "rope"
-        },
-        "at": 0.7,
-        "px": 160,
-        "walk": true
-       },
-       {
-        "a": "st:town",
-        "img": {
-         "role": "merchant"
-        },
-        "at": 8.8,
-        "px": 170
-       }
-      ],
       "places": [
        {
         "a": "buffalo",
@@ -196,6 +150,18 @@
         ],
         "c": "#F08A4B",
         "px": 42
+       },
+       {
+        "a": "hudson-mid",
+        "s": "Hudson River",
+        "at": 6.6,
+        "out": 9.2,
+        "side": "auto",
+        "prefer": [
+         "right",
+         "left"
+        ],
+        "c": "#9fb6d8"
        }
       ],
       "cap": [
@@ -205,7 +171,7 @@
        }
       ],
       "src": "Source: Erie Canalway National Heritage Corridor · Terrain: USGS 3DEP · Map: Natural Earth",
-      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero1-f-spp4",
+      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero1-f-spp2",
       "stamp": "vshot"
      },
      "type": "map",
@@ -240,20 +206,6 @@
      "t1": 8.0,
      "p": {
       "hero": "h_num",
-      "stickers": [
-       {
-        "a": "st:wagon",
-        "img": "stk:wagon",
-        "at": 0.3,
-        "px": 160
-       },
-       {
-        "a": "st:boat",
-        "img": "stk:boat",
-        "at": 3.3,
-        "px": 150
-       }
-      ],
       "tags": [
        {
         "a": "col:wagon",
@@ -295,7 +247,7 @@
        }
       ],
       "src": "Sources: NYS Archives Partnership Trust · Erie Canalway NHC · Terrain: USGS 3DEP",
-      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero2-f-spp4",
+      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero2-f-spp2",
       "stamp": "vshot"
      },
      "type": "map",
@@ -329,14 +281,39 @@
      "p": {
       "hero": "h_clin",
       "photo": "MET-11602",
-      "cap": [
-       {
-        "s": "DeWitt Clinton, Governor of New York · painted 1826",
-        "at": 0.5
-       }
-      ],
-      "src": "Painting: Samuel F. B. Morse, 1826 · The Metropolitan Museum of Art, Open Access (public domain)",
-      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero3-f-spp4",
+      "side": {
+       "at": 0.3,
+       "lines": [
+        {
+         "s": "DeWitt Clinton",
+         "px": 64,
+         "w": 700,
+         "disp": true,
+         "at": 0.3
+        },
+        {
+         "s": "Governor of New York",
+         "px": 40,
+         "c": "#E6EBF0",
+         "at": 0.7
+        },
+        {
+         "s": "Portrait painted 1826",
+         "px": 40,
+         "c": "#F2C14E",
+         "at": 1.0,
+         "gap": 40
+        },
+        {
+         "s": "Painting: Samuel F. B. Morse · The Metropolitan Museum of Art, Open Access (public domain)",
+         "px": 34,
+         "w": 500,
+         "c": "#D6DDE4",
+         "at": 1.3
+        }
+       ]
+      },
+      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero3-f-spp2",
       "stamp": "vshot"
      },
      "type": "photo",
@@ -464,10 +441,10 @@
           "at": 1.85
          }
         ],
-        "foot": "Sources: NPS Allegheny Portage Railroad NHS · Erie Canalway NHC"
+        "foot": "Sources: NPS · Erie Canalway NHC"
        }
       },
-      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero4-f-spp4",
+      "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero4-f-spp2",
       "stamp": "vshot"
      },
      "type": "map",
@@ -648,7 +625,7 @@
     1920,
     1080
    ],
-   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero0-f-spp4",
+   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero0-f-spp2",
    "stamp": "vshot"
   },
   "h_trip": {
@@ -741,7 +718,8 @@
      "buffalo",
      "rochester",
      "albany",
-     "nyc"
+     "nyc",
+     "hudson-mid"
     ],
     "pins": [
      {
@@ -808,12 +786,70 @@
       "head": 1
      },
      {
+      "t": 6.0,
+      "lon": -75.6,
+      "lat": 41.4,
+      "dist": 600,
+      "tilt": 30,
+      "head": -4
+     },
+     {
       "t": 10,
       "lon": -75.8,
       "lat": 41.35,
       "dist": 660,
       "tilt": 27,
       "head": -2
+     }
+    ],
+    "props": [
+     {
+      "a": "st:sack",
+      "px": 130,
+      "id": "J-0",
+      "t": 0.3,
+      "out": 3.6,
+      "obj": "sack"
+     },
+     {
+      "a": "st:farm",
+      "px": 170,
+      "id": "J-1",
+      "t": 2.0,
+      "out": 6.4,
+      "char": {
+       "role": "farmer",
+       "hand": "wheat"
+      }
+     },
+     {
+      "a": "st:boat",
+      "px": 90,
+      "walk": true,
+      "hz": 1.2,
+      "id": "J-2",
+      "t": 0.5,
+      "obj": "boat"
+     },
+     {
+      "a": "st:crew",
+      "px": 160,
+      "walk": true,
+      "id": "J-3",
+      "t": 0.7,
+      "char": {
+       "role": "sailor",
+       "hand": "rope"
+      }
+     },
+     {
+      "a": "st:town",
+      "px": 170,
+      "id": "J-4",
+      "t": 8.8,
+      "char": {
+       "role": "merchant"
+      }
      }
     ]
    },
@@ -822,7 +858,7 @@
     1920,
     1080
    ],
-   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero1-f-spp4",
+   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero1-f-spp2",
    "stamp": "vshot"
   },
   "h_num": {
@@ -900,12 +936,36 @@
       "head": 2
      },
      {
+      "t": 5.6,
+      "lon": -78.24,
+      "lat": 42.79,
+      "dist": 122,
+      "tilt": 48,
+      "head": 4
+     },
+     {
       "t": 8,
-      "lon": -78.2,
+      "lon": -78.18,
       "lat": 42.8,
-      "dist": 115,
-      "tilt": 50,
-      "head": 8
+      "dist": 112,
+      "tilt": 51,
+      "head": 10
+     }
+    ],
+    "props": [
+     {
+      "a": "st:wagon",
+      "px": 160,
+      "id": "N-0",
+      "t": 0.3,
+      "obj": "wagon"
+     },
+     {
+      "a": "st:boat",
+      "px": 150,
+      "id": "N-1",
+      "t": 3.3,
+      "obj": "boat"
      }
     ]
    },
@@ -914,7 +974,7 @@
     1920,
     1080
    ],
-   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero2-f-spp4",
+   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero2-f-spp2",
    "stamp": "vshot"
   },
   "h_clin": {
@@ -922,32 +982,33 @@
    "variant": "a",
    "opt": {
     "img": "/assets/k2/archive/met-11602-clinton.jpg",
+    "lift": 0.12,
     "cam": [
      {
       "t": 0,
       "p": [
-       -0.15,
-       10.7,
-       4.06
+       0.75,
+       8.7,
+       3.1
       ],
       "l": [
-       -0.05,
+       1.45,
        0,
-       0.76
+       0.05
       ],
       "mm": 50
      },
      {
       "t": 5.5,
       "p": [
-       0.12,
-       9.9,
-       3.66
+       1.75,
+       8.25,
+       2.75
       ],
       "l": [
-       0.08,
+       1.35,
        0,
-       0.66
+       -0.05
       ],
       "mm": 50
      }
@@ -958,7 +1019,7 @@
     1920,
     1080
    ],
-   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero3-f-spp4",
+   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero3-f-spp2",
    "stamp": "vshot"
   },
   "h_score": {
@@ -1050,7 +1111,7 @@
     1920,
     1080
    ],
-   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero4-f-spp4",
+   "dir": "/var/tmp/cine-out/k2v-shots/K2V2-reel/hero4-f-spp2",
    "stamp": "vshot"
   }
  },

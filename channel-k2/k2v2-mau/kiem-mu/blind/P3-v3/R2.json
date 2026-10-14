@@ -1,0 +1,25 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Terrain map, coin stack, wagon and canal boat make the quantity easy to read. White outlines and shadows are clean. Labels are high-contrast and large enough for a phone. Weaknesses: the coin stack is about 10x the single coin, so the 10:1 ratio is hard to judge by eye. The stack's label sits right against the top of the stack. The ACTUAL tag is repeated three times. The caption is slightly redundant with the labels."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "The 13% label is faded and overlaps the green cube, so its text is hard to read. The 7% label card covers the orange cube's top and the connector lines. The cube heights don't match the values (7, 6, 13). Nothing shows what the cubes represent. The dark void and plain grid take up most of the frame. The caption is a long text block. It looks like a generic dark slide with boxes."
+ },
+ "better": "X",
+ "why": "X shows its subject in a real place with objects that explain themselves and legible labels, while Y has overlapping labels, a faded 13% and cubes that tell the viewer nothing.",
+ "top_fix_for_weaker": "Scale the cubes to the values (13 about twice 6 and 7). Place the three labels clear of the cubes and of each other, all at full opacity. Put 13% on the right, tall cube. Give the cubes context, such as a building or floor-plan model showing the stair and corridor, instead of an empty grid. Cut the caption to one line."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 8, "clarity": 9, "flags": [], "note": "Clean relief map. The canal route is a dashed line, Buffalo and Albany are labelled, and the year is in the top corner. The caption states the 363 miles. The source line is small and low-contrast, but it is secondary. The Buffalo pulse ring is tiny and the Albany marker is nearly invisible."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "The satellite terrain is dark, muddy and tilted, and Minnesota is hard to pick out. The 'Minneapolis' callout is mostly a source credit, not place information. The caption quote has no obvious link to the map or to any quantity. The map shows only a place name, and the viewer gets no sense of the story. The 2-line grey source text is small and dim on a phone."},
+ "better": "X",
+ "why": "X shows its story on the map (the canal route, two labelled endpoints, the year and the distance), while Y puts a pin on a dark, murky map and has a quote that does not connect to the visual.",
+ "top_fix_for_weaker": "Brighten and desaturate the terrain so the Minnesota outline stands out. Make the callout the actual claim or number (for example the city's rent or vacancy figure), not a source credit. Enlarge the Minneapolis marker, and move the source credit out of the callout into a larger, higher-contrast footer."}
+```

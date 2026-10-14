@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Relief map of NY and PA sits behind a comparison card. Teal and gold color-coding, icons, and circled winners make the Erie vs Main Line comparison clear in seconds. The map shows where the places are, so it isn't a flat slide. Small flaws: the 'Rows won' score chips are slightly small, the icons are generic, and the card covers much of the map's route."},
+ "Y": {"craft": 3, "readability": 6, "clarity": 4, "flags": ["flat_slide_look", "empty_frame", "confusing"], "note": "This is a plain text checklist on a dark, blurred background. The lower third of the card is empty. The gray subtext is small and low-contrast for a phone. The abstract wording ('The map', 'bank line', 'sorts at 5 homes') doesn't say what the three locks are without context. There are no visuals of buildings, numbers, or stakes, so it feels like a PowerPoint recap."},
+ "better": "X",
+ "why": "X has a real map backdrop, a color-coded side-by-side layout, and numbers that can be compared at a glance, while Y is a dim text-only bullet slide with a half-empty card and vague wording.",
+ "top_fix_for_weaker": "Replace the bullets with three large visual tiles, each with an icon or 3D object (map pin, stairwell, bank) and one big number ('4 stories', '5 homes') in bright high-contrast type over a clear scene. Drop the blurred background, raise the subtext size and contrast, and fill or remove the empty lower half of the card."}
+```

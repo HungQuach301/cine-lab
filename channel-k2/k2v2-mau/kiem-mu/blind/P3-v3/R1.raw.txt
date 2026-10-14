@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Terrain map with a wagon, a coin stack and a canal boat with one coin. The labels are crisp and high-contrast, and the coin stack against one coin reads fast as 10:1. Weak points: the pale stroke outlines and the flat, clip-art-like wagon and boat. The 'ACTUAL' tag repeats three times. The sources line is small on a phone."},
+ "Y": {"craft": 4, "readability": 4, "clarity": 3, "flags": ["text_overlap", "illegible_text", "confusing", "empty_frame", "flat_slide_look"], "note": "Three plain cubes on a dark grid with no context. The 13% label is faded and sits over its own cube, so it is hard to read. The 7% label covers the orange cube. The cubes are about the same size, so they don't match 7/6/13. The labels don't clearly attach to cubes. The top half of the frame is empty. The sources line is small and low-contrast."},
+ "better": "X",
+ "why": "X puts the numbers on a clear real-world scene with sharp labels, while Y has overlapping and faded labels, cubes whose sizes don't match their values, and no context.",
+ "top_fix_for_weaker": "Make cube heights proportional to 7/6/13 and place them evenly spaced with no overlap. Put each label above or beside its own cube at full opacity, and use the empty top half for a one-line title saying what is being compared. Add a visual anchor such as a building, stair or floor plan."}
+```
