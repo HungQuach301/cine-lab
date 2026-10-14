@@ -6,7 +6,8 @@ Trần API phiên V2 $10 (dừng ở $9). Chi phí: kiem-mu/cost.jsonl (model y�
 Cặp + mốc KHAI TRƯỚC khi dựng 1080p (không chọn tay sau khi xem):
   khung T1 = master 1080p release-k2c-t1-06-v1 (SHA 4f2d280b…) ở giây của bộ Q27 G2 (k2c-t1-06/kiem-mu/blind-g2/q27/key.json);
   khung mới = shot.mp4 1080p của cuộn K2V2 ở giây khai dưới đây. Tên X/Y trộn bằng hạt giống cố định. Thang tuyệt đối (5 = video faceless thường).
-  blind_v2.py set <master_t1.mp4>   ·   blind_v2.py run   ·   blind_v2.py score"""
+  blind_v2.py set <master_t1.mp4>   ·   blind_v2.py run   ·   blind_v2.py score
+  blind_v2.py rejudge [P1 …]   vòng 2 sau MỘT lượt sửa: thư mục <cặp>-v2, cùng khung T1, cùng thứ tự X/Y, cùng mốc giây, cùng đề bài (khung mới trích từ shot.mp4 mới)"""
 import json, os, random, re, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'kiem-mu'); B = os.path.join(OUT, 'blind'); LOG = os.path.join(OUT, 'cost.jsonl')
@@ -82,6 +83,17 @@ def run(only=None):
     print(dict(zip([f'{a}-{b}' for a, b in jobs], res)), f'chi phí lũy kế ${spent():.2f} / trần ${CAP}')
 
 
+def rejudge(only=None):
+    key = json.load(open(os.path.join(B, 'key.json')))
+    for pid in [p[0] for p in PAIRS if not only or p[0] in only]:
+        k = dict(key[pid]); nid = pid + '-v2'; d = os.path.join(B, nid); os.makedirs(d, exist_ok=True)
+        shutil.copy(os.path.join(B, pid, k['t1'] + '.jpg'), os.path.join(d, k['t1'] + '.jpg')); grab(NEW, k['moi_s'], os.path.join(d, k['moi'] + '.jpg')); key[nid] = k
+    json.dump(key, open(os.path.join(B, 'key.json'), 'w'), indent=1)
+    jobs = [(n, rk) for n in key if n.endswith('-v2') and (not only or n[:-3] in only) for rk in RATERS if not os.path.exists(os.path.join(B, n, f'{rk}.json'))]
+    with ThreadPoolExecutor(3) as ex: res = list(ex.map(lambda a: call(*a), jobs))
+    print(dict(zip([f'{a}-{b}' for a, b in jobs], res)), f'chi phí lũy kế ${spent():.2f} / trần ${CAP}')
+
+
 def score():
     key = json.load(open(os.path.join(B, 'key.json'))); rows = []
     for pid, k in key.items():
@@ -107,4 +119,5 @@ if __name__ == '__main__':
     a = sys.argv[1]
     if a == 'set': setup(sys.argv[2])
     elif a == 'run': run(sys.argv[2:] or None)
+    elif a == 'rejudge': rejudge(sys.argv[2:] or None)
     else: score()

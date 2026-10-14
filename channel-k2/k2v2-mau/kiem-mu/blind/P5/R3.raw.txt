@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 8,
+    "flags": ["cluttered"],
+    "note": "Two-column comparison over a relief map. Teal and gold color-coding makes the two routes easy to tell apart, and the rows are well aligned. The icons are clear, and the circled figures show which route wins each row. The map backdrop gives geographic context. Weaknesses: the sources line, the row labels and the score pills at top-left are small for a phone. The '3 vs 0' scoreboard is unexplained, so it is slightly confusing. The labels crowd the icons in the centre column. The circled highlights are inconsistent, since the 1834 and 394 mi cells are not highlighted."
+  },
+  "Y": {
+    "craft": 4,
+    "readability": 6,
+    "clarity": 5,
+    "flags": ["flat_slide_look", "empty_frame", "confusing"],
+    "note": "A text-only recap card over a blurred, near-black background. The bold titles are readable, but the grey sub-lines are small and low-contrast for a phone. There is a lot of dead space: the lower third of the card is empty and the right side is mostly blank. The background shows nothing identifiable, so the frame carries no visual information. The jargon ('the map', 'the stairwell', 'the bank line', 'locks') is not explained on screen. Checkbox bullets are a generic slide-deck look."
+  },
+  "better": "X",
+  "why": "X shows quantities in a structured, color-coded comparison with a relevant map and icons, while Y is a flat, low-contrast bullet slide with vague labels and large empty areas.",
+  "top_fix_for_weaker": "Make each lock a visual: an icon or number badge (e.g. '4 stories', '5 homes') and a matching building image, with the key numbers in large type. Cut the sub-lines to a few words. Raise the sub-text size and contrast, and fill the empty lower half of the card or shrink the card to fit."
+}
+```

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Coin stack on a terrain map reads quickly: tall stack for wagon, one coin for canal, plus wagon and boat icons. The callouts are crisp and high-contrast. The map is muted, the lower third is a dark gradient, and the footer text is small. The coin stack has slight rendering artifacts. The 'one tenth' scale is stated only in the footer."},
+ "Y": {"craft": 4, "readability": 4, "clarity": 3, "flags": ["text_overlap", "illegible_text", "confusing", "empty_frame"], "note": "The 13% label is faded and sits on top of the green cube, so 'of total construction cost' is hard to read. The 7% label covers the orange cube's top. The three cubes are nearly the same size and don't match 7/6/13. The dark empty void and grid add nothing, and it isn't clear what 6% refers to because that label has no description. The bottom caption is large while the data is small."}, 
+ "better": "X",
+ "why": "X shows its quantity visually and every label is legible, while Y has overlapping, faded labels, cubes that don't match the numbers, and a missing description for 6%.",
+ "top_fix_for_weaker": "Scale the cubes to the values (13 about twice 6 and 7), move the labels clear of the cubes with no overlap, make the 13% label fully opaque, add a description to the 6% label, and cut the empty void and the oversized caption so the numbers are bigger."}
+```

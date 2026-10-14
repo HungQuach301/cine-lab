@@ -74,6 +74,7 @@ Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng
 - **Tuyến** `routes`:
   - `style: solid|dashed`; nét đứt "chảy" theo `flow` km/s; vẽ dần theo `draw`; đầu sáng.
   - Độ dày `w` tính theo px khung 1080p, giữ nguyên khi máy zoom.
+  - `trail: <walker id>`: tuyến vẽ đúng tới vị trí vật đang đi (vệt sau thuyền), thay cho `draw`.
   - `pts` trộn địa danh, `[lon, lat]` và đoạn của đường Natural Earth `{src, from, to}`.
 - **Vòng sáng** `rings` (3 vòng lan, cỡ theo px). **Neo:** địa danh, `st:<id>` (`pins`, `walkers` chạy theo tuyến), `col:<id>` (đỉnh chồng xu/cột), `rt:<id>` (đầu tuyến).
 - **Số liệu trên bản đồ** `cols: [{id, at, kind: coins|bar, n|v, unit, t: [t0, t1], r}]`:
@@ -91,7 +92,8 @@ Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng
 - **Lớp 2D** `p.stickers: [{a: 'st:<id>'|địa danh|'col:<id>', img: 'stk:<tên>' | {role, hat, hand} | 'role:<vai>', at, out, px, walk, hz, bob, flip|face, dx, dy}]`:
   - Bật nảy khi vào (back-out 0,42 s) và co lại khi ra.
   - `walk`: nhún theo nhịp, tự lật theo hướng đi.
-  - Vẽ dưới dải chú thích; hộp sticker ghi vào `LL.occ` để nhãn né.
+  - Bóng tiếp đất mềm dưới chân (`ground: false` để tắt), để sticker "đứng" trên bản đồ.
+  - Vẽ dưới dải chú thích; hộp sticker và hộp chiếu chồng xu (`colL/colR`) ghi vào `LL.occ` để nhãn né.
 - **Nhân vật A-lite** (8 vai: worker, merchant, banker, soldier, official, engineer, farmer, sailor):
   - Vẽ vector phẳng. Không mặt chi tiết, không diễn xuất, không khớp miệng.
   - Nhận ra bằng mũ + vật cầm tay, có thể thay: `STK.HATS`, `STK.HANDS`, vd. `{role: farmer, hand: wheat}`.
@@ -101,15 +103,16 @@ Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng
 - `p.tags[].side: 'auto'`: chọn hướng đầu tiên trong `prefer` (mặc định up/right/left/down) không chạm hộp sticker/nhãn đã vẽ ở khung.
 - Hướng đã chọn được giữ cho tới khi bị chạm, nên nhãn không nhảy qua lại.
 ### Bảng điểm (`p.score`, component dùng lại ở `scripts/k2/lib/k2.js`)
-- `corner: {at, out, sides: [{s, c, icon, n | [{t, v}]}]}`: huy hiệu góc (biểu tượng + tên + điểm tăng theo mốc).
-- `board: {at, out, title, sides: [{s, c, icon}], rows: [{k, icon, v: [trái, phải], win, at, sub}], foot}`: bảng tổng kết hai phía.
+- `corner: {at, out, title, sides: [{s, c, icon, n | [{t, v}]}]}`: huy hiệu góc (biểu tượng + tên + điểm tăng theo mốc); `title` (vd. "Rows won:") giải thích con số.
+- `board: {at, out, title, align: 'right', w, sides: [{s, c, icon}], rows: [{k, icon, v: [trái, phải], win, at, sub}], foot}`: bảng tổng kết hai phía; `align: right` + `w` để lộ bản đồ bên trái; hàng không có `win` thì không khoanh.
   - Mỗi hàng có biểu tượng sticker; ô thắng được khoanh viền màu phía thắng.
   - Các hàng hiện lần lượt.
   - Nền là bản đồ thật làm tối (`p.dim`), không làm mờ (K11: thẻ tóm tắt có biểu tượng cho từng mục).
 
 ## Công cụ
 - `scripts/k2/k2v_assets.py` — tải tài sản (SHA ghim `scripts/k2/k2v-assets.sha.json`), Blue Marble toàn cầu/vùng, ảnh tư liệu, trang PDF + khung highlight, bảng giấy phép.
+- `scripts/k2/relief_build.py` (nền bản đồ nổi), `scripts/k2/stickers_build.js` + `stickers_sheet.py` (thư viện sticker), `scripts/k2/reel_sheet.py` (tờ khung cuộn mẫu) — V2.
 - `scripts/k2/stock.py` — Pexels/Pixabay: tìm (cache 24 giờ), tải qua CDN, SHA, dòng `SOURCES-FOOTAGE.csv`.
-- `scripts/k2/vshot.py` — dựng shot mẫu độc lập từ đặc tả dạng episode (1080p, SPP chọn được), xuất `timeline.json` để chạy `checks/ll/q_types.py`, `q_scene.py`, `q_footage.py`.
+- `scripts/k2/vshot.py` — (`--par N`: dựng N cảnh 3D song song, V2) dựng shot mẫu độc lập từ đặc tả dạng episode (1080p, SPP chọn được), xuất `timeline.json` để chạy `checks/ll/q_types.py`, `q_scene.py`, `q_footage.py`.
 - `scripts/k2/cams_sheet.py` — tờ khung rà preset góc máy.
 - Cài: `(cd design/k2v && npm ci)`; tài sản: `scripts/k2/k2v_assets.py fetch all && … bm-global && … bm-crop …`.

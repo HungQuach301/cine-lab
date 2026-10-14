@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 8, "clarity": 9, "flags": [], "note": "Clean relief map with the state highlighted, a dashed canal route, a year badge and a Buffalo label. It shows the place and the route at a glance. The Albany endpoint is unlabeled and the sources line is tiny, but the caption states the claim clearly."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Dark, murky satellite tilt with low contrast. Minnesota is only faintly distinguished from its neighbors. The label is a bank name rather than a place, and the marker sits in the middle of the state. The map says nothing about rent or apartments, so it doesn't support the caption. The sources text is small and wraps to two lines."},
+ "better": "X",
+ "why": "X shows the place, the route and the date at a glance, while Y is a dim generic map whose label and marker don't connect to the apartment-profitability caption.",
+ "top_fix_for_weaker": "Brighten the map and highlight the Minnesota/Twin Cities region against the rest. Label the pin 'Minneapolis' only, and move the Fed attribution to the sources line. Add a clear data callout tied to the story, such as a rent-growth figure, and shorten the sources text."}
+```

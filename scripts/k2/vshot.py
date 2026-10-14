@@ -34,7 +34,8 @@ def main():
     if bad: sys.exit(f'LẶP GÓC MÁY: {bad}')
     spp = int(arg('spp', E.get('spp', 4))); draft = '--draft' in sys.argv; meas = int(arg('measure', 0))
     W, H = (960, 540) if draft else (1920, 1080)
-    TL = dict(id=sid, title=E.get('title'), segments=[], shorts=[], heroes={}); M = []; t_abs = 0.0; gi = 0
+    TL = dict(id=sid, title=E.get('title'), segments=[], shorts=[], heroes={}); M = []; t_abs = 0.0; gi = 0; JOBS = []
+    par = int(arg('par', 1))   # V2: --par N dựng N cảnh 3D song song (đo giờ máy: ghi cả đồng hồ thật)
     for sg in E['segments']:
         dur = float(sg['dur']); frames = int(round(dur * FPS)); ats = [float(s.get('at', 0)) for s in sg['shots']]; shots = []
         for i, sh in enumerate(sg['shots']):
@@ -47,18 +48,25 @@ def main():
             sf = os.path.join(hdir, 'vshot.stamp'); fresh = os.path.exists(os.path.join(hdir, 'meta.json')) and open(sf).read() == st if os.path.exists(sf) else False
             if meas or not fresh:
                 if not meas and os.path.isdir(hdir) and not os.path.exists(sf) and os.path.exists(os.path.join(hdir, 'meta.json')) and '--keep' in sys.argv: fresh = True   # khung dựng trước khi có stamp
-            if meas or not fresh:
-                r = subprocess.run(cmd, stderr=subprocess.PIPE, text=True)
-                if r.returncode: print(r.stderr[-3000:]); sys.exit(f'lỗi cảnh 3D {sg["id"]}/{i}')
-                if not meas: open(sf, 'w').write(st)
-            meta = json.load(open(os.path.join(hdir, 'meta.json'))); MT = prep.shot_meta(E, sh)
-            M.append(dict(seg=sg['id'], shot=i, hero=h['hero'], type=MT['type'], w=W, h=H, spp=spp, s_per_frame=meta['s_per_frame'], frames=meta['frames']))
+            if meas or not fresh: JOBS.append((cmd, None if meas else (sf, st), f'{sg["id"]}/{i}'))
+            MT = prep.shot_meta(E, sh); M.append(dict(seg=sg['id'], shot=i, hero=h['hero'], type=MT['type'], w=W, h=H, spp=spp, _dir=hdir))
             p = dict(sh['p']); p['dir'] = hdir; p['stamp'] = 'vshot'
             shots.append(dict(tpl=sh.get('tpl', 'plate'), t0=t0, t1=t1, p=p, **({'in': {'type': sh.get('in', 'cut'), 'd': 0.7}} if i else {}), **MT))
             TL['heroes'][k] = dict(hero=h['hero'], variant=h.get('variant', 'a'), opt=h.get('opt', {}), dur=hd, size=[W, H], dir=hdir, stamp='vshot')
         TL['segments'].append(dict(id=sg['id'], part=sg.get('part', 'BODY'), t0=round(t_abs, 4), t1=round(t_abs + dur, 4), frames=frames, vo_file=None, vo_offset=0, vo_len=0,
                                    speech=[], shots=shots, sfx=[], fadeIn=sg.get('fadeIn', 6), fadeOut=sg.get('fadeOut', 6)))
         t_abs += dur
+    t_wall = time.time()
+    def run(job):
+        cmd, stamp, tag = job; r = subprocess.run(cmd, stderr=subprocess.PIPE, text=True)
+        if r.returncode: print(r.stderr[-3000:]); return f'lỗi cảnh 3D {tag}'
+        if stamp: open(stamp[0], 'w').write(stamp[1])
+    from concurrent.futures import ThreadPoolExecutor
+    with ThreadPoolExecutor(max(1, par)) as ex: errs = [e for e in ex.map(run, JOBS) if e]
+    if errs: sys.exit('; '.join(errs))
+    if JOBS: print(json.dumps(dict(dung_canh=len(JOBS), song_song=par, dong_ho_s=round(time.time() - t_wall, 1))), file=sys.stderr)
+    for m in M:
+        meta = json.load(open(os.path.join(m.pop('_dir'), 'meta.json'))); m.update(s_per_frame=meta['s_per_frame'], frames=meta['frames'])
     TL['tong_s'] = round(t_abs, 4); TL['tong_khung'] = sum(s['frames'] for s in TL['segments'])
     json.dump(M, open(os.path.join(out, f'measure-spp{spp}{"-d" if draft else ""}.json'), 'w'), indent=1)
     print(json.dumps(M, ensure_ascii=False))

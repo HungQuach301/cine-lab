@@ -47,8 +47,9 @@ function kindTag(g, kind, x, y, a = 1, align = 'left') { if (a <= 0.01 || !kind)
   g.save(); g.globalAlpha *= a; g.strokeStyle = pj ? K.amber : K.steel; g.lineWidth = 2.4; if (pj) g.setLineDash([9, 6]); g.strokeRect(x0, y - h / 2, wd, h); g.restore();
   text(g, s, x0 + p * 0.45, y + 1, p, pj ? K.amber : K.dim, { a, w: 700, base: 'middle' }); return wd; }
 function srcLine(g, s, x, y, a = 1, align = 'left') { if (!s || !String(s).trim()) return; const mw = V ? W - 2 * 70 : 1500;
-  if (tw(g, s, MINPX, 500) <= mw) { text(g, s, x, y, MINPX, K.dim, { a, w: 500, align, maxW: mw }); return; }
-  const L = wrap(g, s, mw, MINPX, 500); L.forEach((l, i) => text(g, l, x, y - (L.length - 1 - i) * MINPX * 1.25, MINPX, K.dim, { a, w: 500, align, maxW: mw })); }   // nguồn dài: xuống dòng, không tràn (Q22)
+  const SC = '#D6DDE4';   /* V2 14/10: K.dim → sáng hơn (3 người chấm mù: dòng nguồn xám, nhỏ, khó đọc trên điện thoại) */
+  if (tw(g, s, MINPX, 500) <= mw) { text(g, s, x, y, MINPX, SC, { a, w: 500, align, maxW: mw }); return; }
+  const L = wrap(g, s, mw, MINPX, 500); L.forEach((l, i) => text(g, l, x, y - (L.length - 1 - i) * MINPX * 1.25, MINPX, SC, { a, w: 500, align, maxW: mw })); }   // nguồn dài: xuống dòng, không tràn (Q22)
 
 // ---------- cảnh 3D nền ----------
 LL.camNear = Infinity;
@@ -78,11 +79,14 @@ function tags(g, p, t, list) { for (const L of list || []) { const u = vis(t, L.
   const big = !!L.big, px = (L.px || (big ? 54 : 36)) * S, spx = (L.spx || 32) * S, w1 = tw(g, L.s, px, 700, big), w2 = L.sub ? tw(g, L.sub, spx, 500) : 0, kw = L.kind ? tw(g, L.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', MINPX * 0.9, 700) + MINPX * 1.4 : 0;
   const bw = Math.max(w1 + kw, w2) + 46, bh = (L.sub ? px * 1.2 + spx * 1.35 : px * 1.2) + 26, gap = (L.gap === undefined ? 30 : L.gap) * S, side = L.side || 'right', c = L.c || K.orange;
   const yMax = (p.src || p.cap) ? (V ? SAFE.y1 - 150 * S : Math.min(SAFE.y1 - 150 * S, H * 0.735 + 10)) : SAFE.y1;   // không đè dải chú thích/dòng nguồn (13/10: 16:9 chặn ở đỉnh câu chú thích, nhãn 317 từng đè câu ở ch_mpls)
-  const boxOf = (sd) => { let x = sd === 'right' ? A.x + gap : sd === 'left' ? A.x - gap - bw : A.x - bw / 2, y = sd === 'up' ? A.y - gap - bh : sd === 'down' ? A.y + gap : A.y - bh / 2;
+  // side 'auto': khi neo nằm trong hộp một vật (chồng xu, sticker), khoảng cách tính từ MÉP hộp đó, không từ tâm neo
+  const own = side === 'auto' ? (LL.occ || []).find((o) => A.x >= o[0] - 2 && A.x <= o[2] + 2 && A.y >= o[1] - 12 && A.y <= o[3] + 2) : null;
+  const boxOf = (sd) => { let x = sd === 'right' ? (own ? own[2] + 18 : A.x + gap) : sd === 'left' ? (own ? own[0] - 18 : A.x - gap) - bw : A.x - bw / 2, y = sd === 'up' ? (own ? Math.min(own[1], A.y) - 18 : A.y - gap) - bh : sd === 'down' ? (own ? own[3] + 18 : A.y + gap) : A.y - bh / 2;
     return [Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, x)), Math.max(SAFE.y0, Math.min(yMax - bh, y))]; };
   // V2 (BAI-HOC-K2 K11): side 'auto' = hướng đầu tiên trong up/right/left/down không chạm hộp sticker/nhãn đã vẽ ở khung này (LL.occ); giữ hướng đã chọn để nhãn không nhảy
-  let side2 = side; if (side === 'auto') { const occ = LL.occ || [], hit = ([x, y]) => occ.reduce((m, o) => m + Math.max(0, Math.min(x + bw, o[2]) - Math.max(x, o[0])) * Math.max(0, Math.min(y + bh, o[3]) - Math.max(y, o[1])), 0);
-    const cand = (L.prefer || ['up', 'right', 'left', 'down']); if (!L._side || hit(boxOf(L._side)) > 0) { let best = null; for (const sd of cand) { const h2 = hit(boxOf(sd)); if (!best || h2 < best[1]) best = [sd, h2]; if (!h2) break; } L._side = best[0]; } side2 = L._side; }
+  let side2 = side; if (side === 'auto') { const occ = LL.occ || [];
+    const hit2 = ([x, y]) => occ.reduce((m, o) => m + Math.max(0, Math.min(x + bw, o[2]) - Math.max(x, o[0])) * Math.max(0, Math.min(y + bh, o[3]) - Math.max(y, o[1])), 0);   /* tính cả hộp của chính vật: hướng bị kẹp vào lề an toàn có thể trượt đè lên vật (nháp V2, nhãn 1/10) */
+    const cand = (L.prefer || ['up', 'right', 'left', 'down']); if (!L._side || hit2(boxOf(L._side)) > 0) { let best = null; for (const sd of cand) { const h2 = hit2(boxOf(sd)); if (!best || h2 < best[1]) best = [sd, h2]; if (!h2) break; } L._side = best[0]; } side2 = L._side; }
   let [bx, by] = boxOf(side2); (LL.occ = LL.occ || []).push([bx, by, bx + bw, by + bh]);
   if (gap > 6 * S) { const ex = Math.max(bx, Math.min(bx + bw, A.x)), ey = Math.max(by, Math.min(by + bh, A.y)); g.save(); g.globalAlpha *= u; g.strokeStyle = c; g.lineWidth = 2.5; g.beginPath(); g.moveTo(A.x, A.y); g.lineTo(ex, ey); g.stroke();
     if (!L.nodot) { g.fillStyle = c; g.beginPath(); g.arc(A.x, A.y, 5.5, 0, 7); g.fill(); } g.restore(); }
@@ -111,6 +115,11 @@ function title(g, p, t) { const T = p.title; if (!T) return; const u = vis(t, T.
   text(g, T.t, cx, cy, (V ? 120 : 132) * (T.scale || 1), K.text, { a: u, w: 700, disp: true, align: 'center', maxW: W - 200 });
   g.save(); g.globalAlpha *= u; g.fillStyle = K.orange; g.fillRect(cx - 60, cy + 34, 120 * eo((t - (T.at || 0)) / 0.8), 6); g.restore();
   if (T.sub) para(g, T.sub, cx, cy + (V ? 130 : 110), V ? W - 160 : 1400, (V ? 50 : 44), K.dim, { a: u, w: 500, align: 'center' }); }
+// V2: chip năm lớn (mốc thời gian của bản đồ quá khứ): p.year = {s, at, out, c}; góc trên trái, chữ display 64 px
+function yearChip(g, p, t) { const Y = p.year; if (!Y) return; const u = vis(t, Y.at === undefined ? p.t0 : Y.at, Y.out, 0.5); if (u <= 0.01) return;
+  const px = 64 * S, w = tw(g, Y.s, px, 700, true) + 56, h = px * 1.45, x = SAFE.x0, y = V ? 210 : 62, sc = backOut(cl((t - (Y.at || 0)) / 0.45));
+  g.save(); g.translate(x + w / 2, y + h / 2); g.scale(sc, sc); g.translate(-(x + w / 2), -(y + h / 2)); panel(g, x, y, w, h, { a: u, fill: 'rgba(12,18,27,0.92)', stroke: Y.c || K.amber, r: 12 });
+  text(g, Y.s, x + w / 2, y + h / 2 + px * 0.36, px, Y.c || K.amber, { a: u, w: 700, disp: true, align: 'center' }); g.restore(); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
 function asof(g, p, t) { if (!p.asof) return; const u = vis(t, p.asofAt === undefined ? p.t0 : p.asofAt); const s = p.asof === true ? 'Facts as of 11 Oct 2026' : p.asof;
   const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = p.asofY !== undefined ? p.asofY : V ? 210 : (p.card ? 28 : 56);   /* asofY: Short có hook 2 dòng đặt nhãn dưới dải hook */ panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
 
@@ -127,7 +136,10 @@ function stickers(g, p, t) { if (!p.stickers || !window.STK) return;
     if (S.walk) { const ph = (t - at) * (S.hz || 2.4) * Math.PI; hop = Math.abs(Math.sin(ph)) * px * 0.07; rot = Math.sin(ph) * 0.05; }
     else if (S.bob !== false) { rot = Math.sin((t - at) * 1.7 + (S.ph || 0)) * 0.025; }
     let flip = S.flip === true; if (S.flip === 'auto' || (S.walk && S.flip === undefined)) { const B = anc(p, t + 2 / FPS, S.a), Bp = anc(p, t - 2 / FPS, S.a); if (B && Bp && Math.abs(B.x - Bp.x) > 0.4) flip = B.x < Bp.x; else flip = !!S.lastFlip; S.lastFlip = flip; if (S.face === 'left') flip = !flip; }
-    const h = px, w = h * im.width / im.height; g.save(); g.translate(A.x + (S.dx || 0) * S_, A.y + (S.dy || 0) * S_ - hop); g.rotate(rot); g.scale(sc * (flip ? -1 : 1), sc);
+    const h = px, w = h * im.width / im.height;
+    if (S.ground !== false) { const gx = A.x + (S.dx || 0) * S_, gy = A.y + (S.dy || 0) * S_, rw = w * 0.36 * sc * (1 - 0.25 * hop / (px * 0.07 + 1e-6) * 0.5), gr = g.createRadialGradient(gx, gy, 0, gx, gy, rw);   /* bóng tiếp đất: sticker "đứng" trên bản đồ (chấm mù V2: "dán lên") */
+      gr.addColorStop(0, `rgba(20,16,10,${0.34 * sc})`); gr.addColorStop(1, 'rgba(20,16,10,0)'); g.save(); g.translate(gx, gy); g.scale(1, 0.32); g.translate(-gx, -gy); g.fillStyle = gr; g.beginPath(); g.arc(gx, gy, rw, 0, 7); g.fill(); g.restore(); }
+    g.save(); g.translate(A.x + (S.dx || 0) * S_, A.y + (S.dy || 0) * S_ - hop); g.rotate(rot); g.scale(sc * (flip ? -1 : 1), sc);
     g.drawImage(im, -w / 2, -h * 0.94, w, h); g.restore(); (LL.occ = LL.occ || []).push([A.x - w / 2 * sc, A.y - h * sc, A.x + w / 2 * sc, A.y]); LL.fill = true; } }
 const S_ = S;
 // V2: hộp chiếu của chồng xu/cột bản đồ (neo col/colL/colR của relief) vào LL.occ → nhãn side:'auto' không đè vật thể (BAI-HOC-K2 K11)
@@ -142,6 +154,7 @@ function iconImg(spec, px) { return window.STK ? STK.get(spec, px) : null; }
 function drawIcon(g, spec, cx, cy, px, a = 1) { const im = iconImg(spec, px); if (!im) return; let h = px, w = h * im.width / im.height; if (w > px * 1.15) { w = px * 1.15; h = w * im.height / im.width; }   /* sticker rộng (thuyền, xe) co theo ô, không đè chữ */ g.save(); g.globalAlpha *= a; g.drawImage(im, cx - w / 2, cy - h / 2, w, h); g.restore(); }
 function score(g, p, t) { const Sc = p.score; if (!Sc) return;
   const Cn = Sc.corner; if (Cn) { const u = vis(t, Cn.at === undefined ? p.t0 : Cn.at, Cn.out, 0.45); if (u > 0.01) { let x = SAFE.x0, y = V ? 210 : 62;
+    if (Cn.title) { const px = 32 * S, bh = 72 * S, tw0 = tw(g, Cn.title, px, 700) + 44; panel(g, x, y, tw0, bh, { a: u, fill: 'rgba(12,18,27,0.92)', r: bh / 2 }); text(g, Cn.title, x + 22, y + bh / 2 + px * 0.36, px, '#E6EBF0', { a: u, w: 700 }); x += tw0 + 14; }   /* chú giải điểm (chấm mù V2: '3 vs 0' không rõ nghĩa) */
     for (const sd of Cn.sides) { const n = Array.isArray(sd.n) ? sd.n.reduce((v, e) => (t >= e.t ? e.v : v), '') : sd.n, px = 32 * S;
       const nw = n === undefined || n === '' ? 0 : tw(g, String(n), 40 * S, 700, true) + 30, bw = 86 * S + tw(g, sd.s, px, 700) + nw + 36, bh = 72 * S;
       panel(g, x, y, bw, bh, { a: u, fill: 'rgba(12,18,27,0.92)', stroke: sd.c, r: bh / 2 }); drawIcon(g, sd.icon, x + 44 * S, y + bh / 2, 58 * S, u);
@@ -149,17 +162,17 @@ function score(g, p, t) { const Sc = p.score; if (!Sc) return;
       if (nw) { const bx = x + bw - nw - 8; g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; rrect(g, bx, y + 10, nw, bh - 20, (bh - 20) / 2); g.fill(); g.restore(); text(g, String(n), bx + nw / 2, y + bh / 2 + 14 * S, 40 * S, K.ink, { a: u, w: 700, disp: true, align: 'center' }); }
       x += bw + 18; } } }
   const Bd = Sc.board; if (!Bd) return; const u = vis(t, Bd.at === undefined ? p.t0 : Bd.at, Bd.out, 0.5); if (u <= 0.01) return;
-  const n = Bd.rows.length, rh = V ? 150 : 104, hh = V ? 190 : 150, bw = V ? 960 : 1340, top0 = Bd.title ? (V ? 90 : 72) : 0, bh = top0 + hh + n * rh + (Bd.foot ? 70 : 30), bx = (W - bw) / 2;
+  const n = Bd.rows.length, rh = V ? 150 : 108, hh = V ? 190 : 150, bw = V ? 960 : (Bd.w || 1340), top0 = Bd.title ? (V ? 90 : 72) : 0, bh = top0 + hh + n * rh + (Bd.foot ? 70 : 30), bx = !V && Bd.align === 'right' ? W - SAFE.x0 - bw : (W - bw) / 2;   /* align right: lộ bản đồ bên trái (chấm mù V2: bảng che bản đồ) */
   const by = Math.max(SAFE.y0 + (Cn ? 90 : 0), (H - bh) / 2 - (V ? 0 : 10)), sl = eo(u);
   g.save(); g.translate(0, (1 - sl) * 40); panel(g, bx, by, bw, bh, { a: u, fill: 'rgba(12,18,27,0.93)', r: 18 });
-  if (Bd.title) text(g, Bd.title, W / 2, by + 58, 40 * S, K.dim, { a: u, w: 700, align: 'center' });
-  const cx = [bx + bw * 0.22, bx + bw * 0.78], mid = W / 2;
+  const cx = [bx + bw * 0.22, bx + bw * 0.78], mid = bx + bw / 2;
+  if (Bd.title) text(g, Bd.title, mid, by + 58, 40 * S, '#E6EBF0', { a: u, w: 700, align: 'center' });
   Bd.sides.forEach((sd, i) => { const y = by + top0 + hh / 2; drawIcon(g, sd.icon, cx[i] - (V ? 0 : 0), y - 18, 96 * S, u); text(g, sd.s, cx[i], y + 62, 40 * S, sd.c, { a: u, w: 700, disp: true, align: 'center' });
     g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; g.fillRect(cx[i] - 70, y + 76, 140, 5); g.restore(); });
   text(g, 'vs', mid, by + top0 + hh / 2 + 14, 34 * S, K.steel, { a: u, w: 600, align: 'center' });
   Bd.rows.forEach((r, i) => { const a = vis(t, r.at === undefined ? (Bd.at || p.t0) + 0.4 + i * 0.35 : r.at, undefined, 0.45) * u; if (a <= 0.01) return; const y = by + top0 + hh + i * rh;
     g.save(); g.globalAlpha *= a; g.fillStyle = i % 2 ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.055)'; g.fillRect(bx + 16, y + 6, bw - 32, rh - 12); g.restore();
-    drawIcon(g, r.icon, mid - (V ? 0 : 0), y + rh * 0.36, 54 * S, a); text(g, r.k, mid, y + rh * 0.86, 30 * S, K.dim, { a, w: 600, align: 'center' });
+    drawIcon(g, r.icon, mid - (V ? 0 : 0), y + rh * 0.36, 54 * S, a); text(g, r.k, mid, y + rh * 0.88, 32 * S, '#D6DDE4', { a, w: 600, align: 'center' });
     r.v.forEach((v, j) => { const win = r.win === j, c = win ? Bd.sides[j].c : K.text; text(g, v, cx[j], y + rh * 0.62, (win ? 46 : 42) * S, c, { a, w: 700, disp: true, align: 'center' });
       if (r.sub && r.sub[j]) text(g, r.sub[j], cx[j], y + rh * 0.62 + 34 * S, 30 * S, K.dim, { a, w: 500, align: 'center' });
       if (win) { g.save(); g.globalAlpha *= a; g.strokeStyle = Bd.sides[j].c; g.lineWidth = 4; const ww = tw(g, v, 46 * S, 700, true); rrect(g, cx[j] - ww / 2 - 22, y + rh * 0.62 - 50 * S, ww + 44, 66 * S, 33 * S); g.stroke(); g.restore(); } }); LL.fill = true; });
@@ -271,7 +284,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
-  else { colOcc(p, t); stickers(g, p, t); caps(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
+  else { colOcc(p, t); yearChip(g, p, t); stickers(g, p, t); caps(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 6, "clarity": 7, "flags": [], "note": "A globe with NASA-style imagery, an atmosphere glow and a highlighted Texas looks premium. The callout text and source line are small for a phone. The scale is too wide for a single-state fact. The caption says 'Cities may allow', but only Texas is highlighted. The lower third is a little dark and empty."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "The 3D relief terrain has a nice muted palette, and the caption is large and readable. The sticker-style farmer and boatman look pasted on, with mismatched lighting and a different style from the map. There is no visible route to Albany or the Hudson, no destination label, and no sense of place beyond the single 'Genesee Valley' tag. The orange route line is thin. The frame is cropped oddly: a stray blue shape sits at the bottom and the lake edge has glitchy ice-like artifacts at the top. The movement is hard to follow."},
+ "better": "X",
+ "why": "X has a richer, more cohesive and polished look and communicates its single point (Texas) faster, whereas Y's pasted icons and missing destination make the route unclear.",
+ "top_fix_for_weaker": "Zoom out so the whole Genesee-Albany-Hudson-NYC route is visible. Draw a thick glowing route line with labelled endpoints (Genesee Valley, Albany, New York). Replace the flat stickers with a lit 3D barge that moves along the line, and remove the stray render artifacts at the lake and bottom edge."}
+```

@@ -184,7 +184,7 @@ export const HEROES = {
     // ---- neo
     for (const p of o.places || []) { const id = typeof p === 'string' ? p : p.id, [lon, lat] = LL(id), v = new THREE.Vector3(); anchors[id] = () => v.set(X(lon), ground(lon, lat) + 0.2, Z(lat)); }
     for (const p of o.pins || []) { const [lon, lat] = LL(p.at), v = new THREE.Vector3(); anchors['st:' + p.id] = () => v.set(X(lon) + (p.dx || 0), ground(lon, lat) + (p.dy || 0.3), Z(lat) + (p.dz || 0)); }
-    const walkers = (o.walkers || []).map((w) => { const v = new THREE.Vector3(); let cur = null; anchors['st:' + w.id] = () => cur; return { w, v, set(t) { const R = routes[w.route]; if (!R) return; const uu = w.u || [0, 1], u = lerp(uu[0], uu[1], cl((t - w.t[0]) / (w.t[1] - w.t[0])));
+    const walkers = (o.walkers || []).map((w) => { const v = new THREE.Vector3(); let cur = null; anchors['st:' + w.id] = () => cur; return { w, v, u: 0, set(t) { const R = routes[w.route]; if (!R) return; const uu = w.u || [0, 1], u = lerp(uu[0], uu[1], cl((t - w.t[0]) / (w.t[1] - w.t[0]))); this.u = cl(u);
       const [lon, lat] = R.at(u); cur = v.set(X(lon), ground(lon, lat) + 0.3, Z(lat)); } }; });
     for (const R of rmeshes) anchors['rt:' + R.r.id] = () => R.head.visible ? R.head.position : null;
     // ---- palette
@@ -207,6 +207,7 @@ export const HEROES = {
             g.position.set(d.ox, d.y + (1 - eo(u)) * 6 + Math.sin(cl(u * 1.4) * Math.PI) * 0.0, d.oz); g.rotation.z = d.rz * (1 - u) * 6 + d.rz; });
             cc.grp.visible = cc.items.some((g) => g.visible); cc.sh.material.opacity = cc.grp.visible ? 1 : 0; } }
         for (const w of walkers) w.set(t);
+        for (const R of rmeshes) if (R.r.trail) { const w = walkers.find((x) => x.w.id === R.r.trail); if (w) { const d = Math.max(0, w.u) * R.L; R.line.material.uniforms.draw.value = d; R.glow.material.uniforms.draw.value = d; R.head.visible = false; } }   /* trail: tuyến vẽ theo đúng vị trí vật đi (vệt sau thuyền) */
       } };
     return self;
   },

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "A relief map sits behind a dark comparison panel. Teal and gold color-code the two routes, and the icons plus highlighted winner values make it quick to scan. The sources line and the small row labels are too small for a phone. The score pills at top left are a little unclear. The map is mostly hidden behind the panel."},
+ "Y": {"craft": 3, "readability": 6, "clarity": 4, "flags": ["flat_slide_look", "empty_frame", "confusing"], "note": "A text-only checklist on a blurred, almost black background. The lower third of the panel is empty and the right half is unused. The body text is small and gray, and the wording is vague ('Three locks', 'bank line', 'sorts at 5 homes'), so the viewer has no concrete picture. It reads like a default PowerPoint slide."},
+ "better": "X",
+ "why": "X has a real map backdrop, an icon-led side-by-side comparison, and numbers you can scan in seconds. Y is a flat bullet list on a muddy blur with an unclear message.",
+ "top_fix_for_weaker": "Replace the bullet list with three large visual cards. Each card gets an icon or 3D object (map pin, stairwell, bank), one big number or rule ('4 stories', '5 homes') at 40px or larger, and a one-line label. Put them on a sharp, lit background and fill the full frame."}
+```
