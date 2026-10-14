@@ -1,0 +1,19 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [],
+  "note": "The globe render is rich and cinematic, with a good atmosphere rim and a highlighted Texas. The callout is clean but long. The tiny source line and 'As of' chip are small on a phone. The map shows a single state, not a route or movement, so it is a weak match for the content type. A giant globe to point at one state is overkill and the lower third is empty. The callout's pin is barely visible. The caption ('cities may allow') and the Texas label say different things, which muddles the message."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "The relief-shaded map has a clear orange route (solid for the canal, dashed for the Hudson) and labelled nodes. The character stickers add storytelling, though they look like clip-art pasted on and sit a bit awkwardly on the line. The labels are bold and legible. 'Genesee Valley' is offset from its point and the label stems are thin. The New York label sits over the map's lower part and the route end is small. The caption ties directly to the visual. The flat 2D look is less polished than X's globe."
+ },
+ "better": "Y",
+ "why": "Y shows an actual route that matches the caption and can be read at a glance, while X is a pretty globe that only highlights one state.",
+ "top_fix_for_weaker": "Zoom in tightly on Texas (or show several states) with a bold fill, a larger callout of about 40px with the key figure '6 stories' in big type, and a thicker pin or leader line. Drop the globe's dead ocean space and make the on-screen label match the caption."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": ["cluttered"], "note": "A shaded-relief map of NY and PA sits behind a clean two-column comparison card. The teal and amber color coding, icons and highlighted winning values make it quick to scan. The panel covers much of the map, and the 'Rows won' pill and the card's title and row labels are small for a phone. The sources line is tiny. The map shows the geography, but nothing marks where each route runs."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 5, "flags": ["flat_slide_look", "empty_frame"], "note": "This is a plain text checklist on a heavily blurred, almost black background, which looks like a PowerPoint slide. The blurred 3D scene is unrecognizable. The bottom third of the card is empty. The gray subtext is small and low in contrast, and the long third line is dense. The wording is abstract ('Three locks', 'bank line', 'sorts at 5 homes'), so it is unclear what is being summarized."},
+ "better": "X",
+ "why": "X shows real map context with structured, color-coded, scannable data, while Y is a dim text-only slide over a blur that shows nothing.",
+ "top_fix_for_weaker": "Replace the blurred dark backdrop with a sharp, lit 3D building scene. Turn each of the three points into a large icon plus a one-line big-number callout (for example '4 stories' and '5 homes'). Bump the subtext to at least 36px with higher contrast, and fill or remove the empty bottom third of the card."}
+```

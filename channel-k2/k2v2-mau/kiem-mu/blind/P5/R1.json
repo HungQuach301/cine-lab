@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "A shaded-relief map sits behind a clean two-column comparison card. Colour-coding (teal for Erie Canal, gold for Main Line), icons and highlighted winner values make it quick to scan. The score pills at top left (3\u20130) are slightly unexplained. The sources line and the small row labels are tiny on a phone. The card covers most of the map, so the map adds little."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "This is a plain text recap card over a blurred, near-black background. The bullet text is small and the grey subtext is low-contrast, so it will strain on a phone. The bottom third of the card is empty and the left-aligned text leaves the right half blank. The checkbox bullets are generic. The wording is abstract ('Three locks', 'The map', 'bank line'), so it's unclear what is being summarised. No imagery, numbers or hierarchy support it."
+ },
+ "better": "X",
+ "why": "X shows a concrete, visual comparison with clear hierarchy and icons that is understood at a glance. Y is a dim, text-only slide with small grey type and vague wording.",
+ "top_fix_for_weaker": "Enlarge the body text by about 40% and brighten the grey subtext. Fill the empty lower half by adding a clear icon or number per row, such as '4 stories' and '5 homes' as large highlighted figures. Replace the blurred void with a recognisable building or street image behind the card, and use plain-language labels in place of the abstract ones."
+}

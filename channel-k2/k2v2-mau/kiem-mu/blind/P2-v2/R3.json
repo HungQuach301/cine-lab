@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The globe render is attractive and Texas is clearly highlighted. The callout is a long single line of small text, and the source line is tiny and low-contrast. The 'As of 12 Oct 2026' and 'ACTUAL' tags are unexplained. The bottom caption ('Cities may allow...') and the Texas callout say overlapping things. The map shows a single state, with no route or movement. The globe is much wider than the point it makes."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Terrain relief with a clear orange route and a dashed Hudson leg, tied together by well-sized labels (Buffalo, Genesee Valley, Albany, New York). The caption reads as a clear narrative. Weaknesses: the clip-art farmer and boatman look pasted on. The Genesee Valley pointer is slightly off the route. The source line is tiny. The route clearly shows the movement."
+ },
+ "better": "Y",
+ "why": "Y shows an actual route with big, legible labels and a one-sentence caption that matches the visual, while X packs a small-text callout on a globe that is mostly irrelevant to the point.",
+ "top_fix_for_weaker": "Zoom the map to Texas (or the US) instead of a whole globe. Split the callout into a bold 'Texas' plus two short lines ('Single-stair up to 6 stories' / 'Max 4 homes per floor, since Sep 2025'), enlarge the text to at least ~32px, make the callout and the caption say different things, and drop or explain the 'ACTUAL' and 'As of' tags."
+}

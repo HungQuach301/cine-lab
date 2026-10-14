@@ -1,0 +1,6 @@
+```json
+{"X": {"craft": 6, "readability": 6, "clarity": 8, "flags": ["flat_slide_look", "empty_frame"], "note": "The whole portrait sits inside the frame on a tilted white mat, with a clean dark gradient behind the caption. It looks like a static card, though. The mat is plain with no shadow, depth or parallax. A large share of the frame is empty brown space. The caption is clean and readable, but the small source line is thin and low-contrast on a phone."},
+ "Y": {"craft": 6, "readability": 5, "clarity": 7, "flags": ["text_overlap", "cluttered"], "note": "The photo is larger and more dramatic, with a stronger tilt and real archival grain, and it fills the frame better. But the headline sits over the lower part of the photo, where the white mat and the man's legs run into the gradient. The title's contrast is reduced where it crosses the mat. The photo bleeds off the bottom edge and is cropped. The source line is small and grey."},
+ "better": "X", "why": "X keeps the subject and caption cleanly separated and fully legible, while Y's caption collides with the photo and mat and the photo is cut off at the bottom.",
+ "top_fix_for_weaker": "Scale the photo down and move it up so it ends above the caption gradient. Then add a solid, darker caption band with a drop shadow on the mat, and enlarge the source line to at least the title's size minus 20%."}
+```

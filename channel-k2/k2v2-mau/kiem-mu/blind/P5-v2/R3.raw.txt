@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "A relief map sits behind a clean two-column comparison card. Colour coding (teal vs amber) is consistent, and the icons and key numbers are large and legible. Circled winners and the 'Rows won' scoreboard make the result obvious. Weak points: the source line is small, some icons are decorative or arbitrary (a flag for 'Length', a document for 'Opened'), and the card covers the map, so the map adds little. Still, it clearly shows what is being compared."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 5, "flags": ["flat_slide_look", "empty_frame", "confusing"], "note": "A text-only recap card over a dark, blurred background. The headline is readable, but the grey sub-lines are small and low-contrast on a phone. The bottom third of the card is empty. There are no numbers to anchor, no visual and no place or object. 'Three locks', 'the map' and 'the bank line' are abstract and cryptic without audio. The checkboxes are decorative, and the last line is a long run-on."},
+ "better": "X",
+ "why": "X shows a concrete place and quantities in a clear, colour-coded comparison, while Y is a flat, low-contrast bullet slide with cryptic labels and a half-empty card.",
+ "top_fix_for_weaker": "Replace the checklist with 3 large visual tiles, each with a big number (4 stories, 4 homes a floor, 5 homes) and an icon or building silhouette. Cut the sub-text to 3–5 words, raise its size and contrast to at least white on dark, and fill or shrink the empty lower half of the card."}
+```

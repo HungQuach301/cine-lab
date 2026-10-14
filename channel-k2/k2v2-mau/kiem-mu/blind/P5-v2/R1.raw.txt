@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 8,
+    "flags": ["cluttered"],
+    "note": "The relief map of NY and PA sits behind a colour-coded comparison card. Teal marks Erie Canal and amber marks Main Line, and the icons and pill highlights make the winner of each row obvious. The score chips at top left, 'Rows won: New York 3 / Pennsylvania 0', add context. The card covers much of the right half of the map, and the source line and row labels are small for a phone. The map is a soft backdrop and barely connects to the table."
+  },
+  "Y": {
+    "craft": 4,
+    "readability": 6,
+    "clarity": 6,
+    "flags": ["flat_slide_look", "empty_frame"],
+    "note": "A dark glass card with three checkbox bullets over a blurred, almost black background. It looks like a generic text slide. The body text is a small grey on dark, and the long third line is dense for a phone. The bottom third of the card is empty, and the blurred scene behind it shows nothing identifiable. The subject (buildings, stairwell, bank line) can't be seen. The meaning also depends on narration: 'Three locks' and 'The map can block any of these buildings' are vague on their own."
+  },
+  "better": "X",
+  "why": "X shows real visual content with a structured, colour-coded comparison that is understood at a glance, while Y is a text-only recap slide on a blurred dark background with small grey body text.",
+  "top_fix_for_weaker": "Make Y visual. Replace the checklist with three large icon-led cards (map, stairwell, bank). Give each a big number, such as '4 stories' and '5 homes'. Use brighter, larger body text and a sharp, relevant image of a building behind the cards instead of a blurred void. Trim the long third line, and either shrink the card to fit its content or fill the empty space."
+}
+```

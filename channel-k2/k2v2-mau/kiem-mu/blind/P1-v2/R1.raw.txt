@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 8, "clarity": 9, "flags": [], "note": "Bright relief map with a clean state outline. The dashed orange canal route runs from Buffalo to the Albany end. The year badge, city label and caption all read fast. Only the sources line is small. The Albany endpoint is unlabeled, and the left edge is a little crowded."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "Dark, murky, tilted satellite map. Minnesota is only faintly distinguished from its neighbors. The Minneapolis label is clear, but its box has a long source subtitle that covers the area around the pin. The caption quote has no stated speaker or topic anchor. The sources text is tiny and low-contrast on a phone. The framing is generic and carries little story, though it does place the location."},
+ "better": "X",
+ "why": "X shows a clear place, route, date and a caption that says what happened, while Y is a dim, low-contrast map where the label and quote don't tell you much.",
+ "top_fix_for_weaker": "Brighten the map and highlight Minnesota with a fill or glow so the state stands out. Shorten the label to 'Minneapolis Fed' and make the caption state the finding, for example 'Multifamily profits squeezed by costs and weak rent growth'. Enlarge the sources line or move it out of the frame."}
+```

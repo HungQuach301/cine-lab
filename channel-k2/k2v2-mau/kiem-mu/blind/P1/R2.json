@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Relief-shaded terrain with a clear state highlight, a dashed canal route and a year badge. The Buffalo label is clear, but the Albany endpoint has no label. The source line is small."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The satellite imagery is dark, muddy and low-contrast. Minnesota is only faintly distinguished from its neighbours and the camera tilt is awkward. The callout is readable but small. The source text is tiny, and the whole frame reads as a generic map."
+ },
+ "better": "X",
+ "why": "X shows the place, the route and the date at a glance with polished lighting and highlighting, while Y is murky, has weak state emphasis and shows no real information beyond a pin.",
+ "top_fix_for_weaker": "Brighten and color-grade the imagery. Highlight or extrude Minnesota and dim the surrounding states. Add a larger, bolder Minneapolis marker with a stronger pin. Enlarge the callout text and cut the source line to one short line."
+}

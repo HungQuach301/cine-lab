@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [],
+  "note": "The globe render with satellite imagery looks like broadcast work. Texas is highlighted and the callout is clear. The callout text is small on a phone, and the source line and 'As of' badge are tiny. The caption says 'cities' but the map only marks one state, so the point is a little vague. The 'ACTUAL' tag is unexplained."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The relief terrain is attractive, and the orange route line and the figures add narrative. The map is cropped and zoomed so tightly that Albany, the Hudson and the full route are missing. The Genesee Valley label sits at the far left edge, and the tag collides with the route line. The farmer and boatman icons are flat clip-art and look pasted on. The route is only partly visible, so the 'float east to Albany' story is not shown. The caption is fine, but the source line is tiny."
+ },
+ "better": "X",
+ "why": "X has a clear focal point and a legible callout over a polished globe, while Y has no visible destination, a cramped label at the edge and clip-art icons.",
+ "top_fix_for_weaker": "Pull the camera back so the whole route is in frame, with Genesee Valley at the start and Albany and the Hudson labelled at the end. Move the label away from the route line and enlarge it. Replace the clip-art icons with a single marker or boat moving along the line."
+}

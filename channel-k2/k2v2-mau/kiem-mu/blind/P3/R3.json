@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "A terrain map with a tall coin stack against one coin makes the 10:1 wagon-versus-canal cost comparison clear at a glance. The wagon and barge icons sit by their coins, and the labels are high-contrast and large enough for a phone. Weaknesses: the stack is only about 10 coins (the stack's size looks about right, but the count is hard to verify), the barge sits detached from its coin, and the 'ACTUAL' badges are redundant noise. The footer source line is small but legible."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The '13% of total construction cost (range)' label is faded and sits on top of the green cube, so it is low-contrast and partly illegible. The orange label overlaps its own cube, and the connector lines are tangled. It is unclear which cube maps to which number: the 7% and 6% cubes are similar in size and the 13% cube is no bigger than the 6% one, so the cube sizes do not match the values. The generic dark grid has no scene or context, and the 'Estimate' caption competes with the labels. Source text is small."
+ },
+ "better": "X",
+ "why": "X shows a quantity comparison with a real scene, legible labels and proportional objects, while Y has an overlapping, faded label and cube sizes that do not match the numbers.",
+ "top_fix_for_weaker": "Move the three labels clear of the cubes (above or beside each, with no overlap) and give the 13% label full opacity and contrast. Scale the cubes to their values (13% roughly twice the 6%). Add a short axis or scene context so the three numbers read as one comparison, and cut the redundant 'ACTUAL' badges."
+}

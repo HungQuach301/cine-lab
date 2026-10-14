@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 7, "clarity": 8, "flags": [], "note": "The portrait sits fully inside the frame as a tilted print on a dark textured background. Composition is clean and the whole image is visible. The title is white on a dark gradient and reads well. The credit line is small, gray and low-contrast, so it is borderline on a phone. There is a large empty gap between the title and the credit line. The image is small and leaves wide dead space left and right."},
+ "Y": {"craft": 5, "readability": 6, "clarity": 7, "flags": ["cluttered", "text_overlap"], "note": "The photo is larger and more dramatic, but it runs off the bottom of the frame and is cropped. The white mat and the lower photo (his legs and the planter) fade into the caption gradient behind the title. The title therefore sits partly over a bright, busy area and loses contrast on the left. The gray credit line is small. The photo has a torn or damaged edge at the right. The man is small within the picture."},
+ "better": "X",
+ "why": "X keeps the subject uncropped with clean, high-contrast caption text, while Y's photo runs off the bottom edge and its title overlaps the bright, busy part of the print.",
+ "top_fix_for_weaker": "Scale and reposition the photo so it ends above the caption band, with no bleed behind the text. Put the title on a solid dark bar or a stronger gradient. Enlarge the credit line and raise its contrast."}
+```

@@ -53,3 +53,17 @@ Nguồn: chấm mù một lần trên 1080p (`k2c-t1-06/kiem-mu/blind-g2/`, Q27 
 - **Mối nối footage sáng ↔ cảnh 3D tối (J07 06→07, 1/3 coi là gãy):** lời về bảo lãnh cá nhân nhưng hình là bản đồ California rồi footage cần cẩu sáng. V2: footage chỉ dùng khi khớp đúng danh từ của lời; mối footage ↔ 3D có hoà tan 0,3–0,5 s hoặc chỉnh tông footage gần cảnh 3D; thiếu footage đúng thì dùng cảnh 3D/ảnh lưu trữ.
 - **Thẻ tóm tắt phẳng (TO RECAP, F09, 5/4/5):** thẻ list nhiều chữ, nhiều khoảng trống. V2: thẻ tóm tắt có biểu tượng/hình nhỏ cho từng mục (ba khoá), hoặc thay bằng cảnh 3D ba khoá.
 - Ghi thêm (cả 3 người chấm, Q31): lạm dụng toà góc phố chạng vạng và bản đồ địa cầu; nhãn ACTUAL lặp nhiều; dòng nguồn nhiều nguồn dài trên điện thoại.
+
+## K12 · Bộ hình V2: bản đồ nổi + sticker (phiên V2, 14/10/2026; chờ chủ dự án duyệt)
+- **Chú thích `//` trong chuỗi GLSL viết một dòng nuốt phần còn lại của `main()`:**
+  - Shader lỗi biên dịch. three.js chỉ ghi vào console, nên đã dựng xong 2 lượt nháp toàn khung thiếu địa hình mà không báo.
+  - **Luật:** trong chuỗi shader chỉ dùng `/* */` (`test_k2v.py`). `scripts/k2/hero.js` nay dừng có mã lỗi khi gặp "Shader Error".
+- **`pkill -f <mẫu>` giết luôn shell đang chạy lệnh** (dòng lệnh của shell chứa mẫu đó). Dừng tiến trình nền bằng PID (`ps … | awk | xargs kill`).
+- **Chấm mù V2:**
+  - Sticker phẳng bị người chấm "broadcast" gọi là "clip-art dán lên" (2–3/3). Bóng tiếp đất giảm nhưng không hết.
+  - Dòng nguồn 30 px bị nêu "nhỏ trên điện thoại" ở mọi cặp (người chấm xem ảnh 1280 px).
+  - Hành trình phải thấy **trọn tuyến và nhãn hai đầu mút** ở khung chấm. Khung bám sát vật đi bị chấm "confusing", thua T1 3/3; sau khi mở rộng khung thì thắng 3/3.
+  - Chi tiết: `K2V2-BAO-CAO.md` §5.
+- **Nhãn né vật phải tính từ MÉP hộp vật, không từ tâm neo:**
+  - Khi nhãn bị kẹp vào lề an toàn, nó trượt ngược lại và đè lên vật.
+  - Phép kiểm va chạm phải tính cả hộp của chính vật (nhãn "1/10" ở nháp).

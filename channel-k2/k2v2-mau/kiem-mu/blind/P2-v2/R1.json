@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good-looking satellite globe with a highlighted Texas, but it shows a static location, not a route or movement. The Texas callout text is small for a phone. The source line is tiny. The caption says 'Cities may allow' while the callout is Texas-specific, and the 'ACTUAL' badge is unexplained. Much of the frame (Atlantic, Pacific, Caribbean) is wasted."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Relief map with a clear orange route from Buffalo through Genesee Valley to Albany, then a dashed line down the Hudson to New York. The labels are large and high-contrast, and the caption states the story. The farmer and boatman icons are slightly clip-art and the route line is thin. The source line is small."
+ },
+ "better": "Y",
+ "why": "Y reads as an actual route with big legible labels and a caption that matches what is on screen, while X is a static highlight with small text and a caption that doesn't match the Texas-only visual.",
+ "top_fix_for_weaker": "Zoom in on Texas, or on the US states, and enlarge the Texas callout text. Align the caption with the visual, for example by showing several states or cities that allow single-stair buildings, or by animating the spread of the law. Drop or explain the 'ACTUAL' badge and enlarge the source line."
+}

@@ -1,0 +1,6 @@
+```json
+{"X": {"craft": 6, "readability": 7, "clarity": 8, "flags": ["empty_frame"], "note": "The painting sits entirely above the caption, and the white mat and dark vignette look clean. The tilted print floats in a lot of dead brown space, so the portrait is small. The title is clear. The source line is small and low-contrast on a phone, and there is a big gap between the two caption lines."},
+ "Y": {"craft": 5, "readability": 6, "clarity": 7, "flags": ["text_overlap", "cluttered"], "note": "The photo is larger and fills the frame better, with nice period texture. The print runs under the caption bar, so the white mat and the subject's legs sit behind the title and the gradient muddies the title's background. The title still reads but contrast is uneven over the pale mat. The source line is small. The cropped scan edge on the right is a distraction."}, 
+ "better": "X", "why": "X keeps the artwork and caption cleanly separated and its title is the more legible, while Y's print collides with the caption area and loses contrast.",
+ "top_fix_for_weaker": "Shrink and reposition the photo so it ends above the caption gradient, or put a solid dark caption bar behind the text. Also enlarge the source line."}
+```

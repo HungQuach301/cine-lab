@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Terrain map with a coin stack and a canal boat tells the story fast. The two callouts are crisp and high-contrast. Problems: the ACTUAL badges look like a leftover template tag, the caption 'each coin is one tenth' doesn't obviously match the stack, and the canal coin is a single flat disc so the 1/10 ratio isn't clear. The stack also looks taller than ten coins."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The 13% label is faded and sits on top of the green cube, so it is nearly unreadable. The 7% callout covers the orange cube, and the callouts overlap each other. The scene is an empty dark grid with no place or building context. Three unlabelled cubes don't show which is which, and 6% vs 13% don't match their cube sizes. The caption is two lines long, and the ACTUAL badges are meaningless."
+ },
+ "better": "X",
+ "why": "X has a clear scene, a legible callout for each number and a readable caption, while Y has overlapping, faded labels, an empty grid background and cubes whose sizes don't match their numbers.",
+ "top_fix_for_weaker": "Move each label clear of its cube so none overlap, give the 13% label the same full opacity and contrast as the others, and scale the cubes to match 7/6/13. Place them in a recognisable building or floor-plan scene and shorten the caption to one line."
+}

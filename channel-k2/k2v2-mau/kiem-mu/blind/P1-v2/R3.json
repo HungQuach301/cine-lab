@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Bright relief map with the NY state highlighted against muted neighbors. A dashed orange canal route runs Buffalo to Albany, with a year badge and a caption stating the key fact (1825, 363 miles). The Albany endpoint has no label. The Buffalo label sits on the lake edge and slightly crowds the route start. The source line is small but is not the main content."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Dark, moody satellite-style imagery with muted state borders. The callout is legible, but it just names the source (Federal Reserve Bank of Minneapolis) beside a city pin, so it reads like a citation rather than a location. Nothing on screen shows the quantity or the topic (apartment profitability). The map gives no sense of what the story is about. The quote caption is readable, but the dim sources line is small and low-contrast on a phone."
+ },
+ "better": "X",
+ "why": "X shows the place, the date, the route and the key number in one glance, while Y's map is generic and its callout adds no information beyond the pin.",
+ "top_fix_for_weaker": "Replace the 'Federal Reserve Bank of Minneapolis, Oct 2026' callout with real content: a bold stat or label tied to the story (e.g. the rent growth or multifamily vacancy figure for the Twin Cities). Brighten the terrain or increase border contrast. Enlarge the sources line, or move it to the end of the video."
+}

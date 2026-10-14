@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 9,
+    "flags": [],
+    "note": "Relief-shaded terrain, a state highlighted against muted neighbors, and a dashed canal route with a glowing endpoint. A year badge and a Buffalo label give time and place. The caption states the event and the distance. The Albany endpoint has no label, and the sources line is small. The terrain is slightly flat and top-down, and the right-hand side is a bit noisy."
+  },
+  "Y": {
+    "craft": 6,
+    "readability": 7,
+    "clarity": 5,
+    "flags": ["confusing"],
+    "note": "Moody, tilted satellite imagery with a dark vignette looks cinematic, but it is murky. Minnesota is only subtly distinguished, and the border lines are thin. The single pin is tiny and the callout is oversized. The map shows no data, so it doesn't support the caption's claim about rent and multifamily profitability, and the 'where' is generic. The callout text and the two-line sources are small on a phone."
+  },
+  "better": "X",
+  "why": "X tells a specific story (a route, a year, two places) on a clearly highlighted region, while Y is a murky, generic location pin that doesn't connect to its caption.",
+  "top_fix_for_weaker": "Lift the exposure and contrast on the imagery. Highlight Minnesota and the Twin Cities metro with a bright fill or outline, and dim the surrounding states. Enlarge the pin, shorten the callout to 'Minneapolis Fed', and add one data overlay, such as a rent-growth figure, so the map supports the caption."
+}
+```

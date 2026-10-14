@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Terrain map, coin stack against a single coin, wagon and canal icons, and clean callouts with a good color hierarchy. Wagon vs canal reads fast. The canal coin is oddly flat, and the 'ACTUAL' badges are noise. The wagon label sits slightly off its stack."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "cluttered"
+  ],
+  "note": "Plain glossy cubes on a dark grid with no context. The 13% label is faded and overlaps its cube, which makes the text hard to read. The callout boxes cover the cubes. The three values (7%, 6%, 13%) have no clear relationship, and the cube sizes don't match the numbers. The first label is also cramped."
+ },
+ "better": "X",
+ "why": "X shows a place and a clear quantity comparison with legible labels, while Y has overlapping, faded text and cubes that don't explain what the numbers mean.",
+ "top_fix_for_weaker": "Fix the 13% label so it is fully opaque and doesn't overlap its cube, and place the labels clear of the cubes. Make cube heights proportional to the values (6, 7, 13). Add a short caption naming what each cube is (extra stair area, savings, total cost), and replace the empty grid with a recognizable building or floor-plan context."
+}

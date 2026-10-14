@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map gives a clear sense of place. The coin stack against a single coin shows the 10:1 ratio quickly, and the callouts are high-contrast and legible. The weak points are flat, matte lighting and a coin stack that is only loosely tied to the map. The wagon and barge are 2D stickers that float over the 3D terrain. The canal coin is partly hidden behind the barge. The $90\u2013125 label points to the top of the stack, and the 'Each coin is one tenth' caption is awkward next to a range of '$90\u2013125'. The scale logic is a little muddled. Every label carries an 'ACTUAL' tag, which is noise."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "The 13% callout is faded and dim, and its text runs over the green cube, which makes it hard to read on a phone. The 7% callout covers the top of the orange cube, and the leader lines cross behind the boxes. The cubes are nearly the same size, so 7%, 6% and 13% are not shown as proportional. The cube labelled 13% is not the largest. The dark void, the empty grid floor and the empty top half of the frame add nothing, and the scene has no context. It looks like a generic template. The cubes are glossy and cleanly lit, but nothing connects them to a building, a stair or a cost. The labels also don't say which cube is which metric, and the bottom caption is long."
+ },
+ "better": "X",
+ "why": "X shows its quantities and its place (a map of the route) with legible callouts, while Y has overlapping and faded text, cubes that don't match their numbers, and an empty, context-free scene.",
+ "top_fix_for_weaker": "Scale the cubes to their real values (13 > 7 > 6), put each label clear of its cube with a short leader line and full-opacity text, and place the cubes in a recognisable scene, such as a floor plan or building section with the stair highlighted. Remove the empty upper half and the repeated 'ACTUAL' tags."
+}

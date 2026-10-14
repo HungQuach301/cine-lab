@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Clean relief map with a bright green state against tan neighbours, so the subject stands out. The dashed canal route, the 1825 badge and the Buffalo label tell the story at a glance. The Albany endpoint is a faint glow with no label, even though the caption names it. The Buffalo label sits on the lake edge and is a little crowded. The source line is small and low-contrast, but it is non-essential."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain is moody and tilted, but the colours are muddy and Minnesota is only slightly distinguishable from its neighbours. The Minneapolis pin is tiny and the label box covers a large part of the map. The state is never named, and a Fed bank and a date do not locate anything. The caption is a quote about apartment profitability, and nothing on the map ties to it, so the viewer cannot tell what the map is meant to show. The two-line source text is small."
+ },
+ "better": "X",
+ "why": "X shows the place, the route and the date in one glance, and Y is a pretty but low-contrast map whose label and caption say nothing about the geography.",
+ "top_fix_for_weaker": "Highlight Minnesota with a brighter fill and dim the other states. Name the state, and enlarge the Minneapolis pin. Make the label say what is being located, for example 'Minneapolis Fed district, Oct 2026', and add one data callout such as a rent-growth figure so the map supports the quote. Cut the source line to one short line."
+}
