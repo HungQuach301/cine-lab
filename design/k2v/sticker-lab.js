@@ -14,7 +14,7 @@ function toonify(root) {
     if (o.isMesh) { const m = o.material; o.material = toon(m.color ? m.color.clone() : '#ffffff', { map: m.map || null, emissive: m.emissive ? m.emissive.clone().multiplyScalar(m.emissiveIntensity ?? 1) : '#000000' }); } });
   for (const o of kill) o.parent.remove(o); return root;
 }
-const OWN = async () => {
+export const OWN = async () => {
   const g01 = await import('/ll-hero/k2g01.js?rx=blastFurnace,shed,mats'), c106 = await import('/ll-hero/k2c106.js?rx=house,walkup,mats');
   return { g01, c106 };
 };
@@ -74,7 +74,7 @@ export const OBJECTS = {
     g.add(new THREE.Mesh(new THREE.LatheGeometry(prof, 28), wd)); for (const y of [0.5, 1.4, 3.0, 3.9]) { const h = new THREE.Mesh(new THREE.TorusGeometry(1.5 + 0.28 * Math.sin(y / 4.4 * Math.PI) + 0.02, 0.07, 6, 32), hp); h.rotation.x = Math.PI / 2; h.position.y = y; g.add(h); }
     Cy(1.5, 1.5, 0.05, toon('#a8743e'), 0, 4.4, 0, g, 28); return g; },
 };
-const OWN_NEEDS = new Set(['furnace', 'factory', 'house', 'town']);
+export const OWN_NEEDS = new Set(['furnace', 'factory', 'house', 'town']);
 let R = null, own = null;
 window.renderIcon = async (name, px = 640) => {
   if (!R) { R = new THREE.WebGLRenderer({ antialias: true, alpha: true, preserveDrawingBuffer: true }); R.setPixelRatio(1); R.outputColorSpace = THREE.SRGBColorSpace; }

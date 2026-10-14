@@ -66,7 +66,7 @@ export const HEROES = {
     const board = sheet(mw, mh, canvasTex(1024, Math.round(1024 * mh / mw), (g, w, h) => { g.fillStyle = '#e9e2d1'; g.fillRect(0, 0, w, h); const R = rng(9);
       for (let i = 0; i < 9000; i++) { g.fillStyle = `rgba(120,100,70,${0.02 * R()})`; g.fillRect(R() * w, R() * h, 2, 2); }
       const bx = (0.31 / mw) * w, by = (0.31 / mh) * h; g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(bx - 3, by - 3, w - 2 * bx + 6, h - 2 * by + 6); }), { curl: 0.004, back: '#cfc6b2' });
-    board.rotation.y = o.rot ?? -0.035; scene.add(board);
+    board.rotation.y = o.rot ?? -0.035; board.position.y = o.lift ?? 0; scene.add(board);   // lift (V2b): nâng bản in khỏi mặt bàn → bóng đổ rõ dưới đèn bàn
     const pr = sheet(pw, ph, tex, { curl: 0.006, rough: 0.55 }); pr.position.y = 0.012; board.add(pr);
     const F = o.focus || [0.5, 0.35], fx = (F[0] - 0.5) * pw, fz = (F[1] - 0.5) * ph;
     const keys = o.cam || kenburns(W, H, dur, { size: mh, focus: [fx, fz], push: o.push ?? 0.2, mm: o.mm || 50, preset: o.preset || 'push' });

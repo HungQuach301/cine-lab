@@ -84,19 +84,23 @@ export const HEROES = {
     const tFill = dtex(fillA), tEdge = dtex(edgeA);
     const maskAt = (lon, lat) => { const x = Math.round(cl((lon - lon0) / (lon1 - lon0)) * (RW - 1)), y = RH - 1 - Math.round(cl((lat1 - lat) / (lat1 - lat0)) * (RH - 1)), d = (y * RW + x) * 4; return [fillA[d] / 255, fillA[d + 1] / 255, fillA[d + 2] / 255]; };
     const rcol = regions.map((r) => new THREE.Color(r.color || C.teal)); while (rcol.length < 3) rcol.push(new THREE.Color('#ffffff'));
-    const U = { tNat: { value: tNat }, tSep: { value: tSep }, tFill: { value: tFill }, tEdge: { value: tEdge }, sep: { value: 0 }, rk: { value: new THREE.Vector3() }, rlift: { value: new THREE.Vector3() },
+    const SHT = new THREE.DepthTexture(2048, 2048); SHT.type = THREE.UnsignedIntType; const shRT = new THREE.WebGLRenderTarget(2048, 2048, { depthTexture: SHT, depthBuffer: true });
+    const U = { tShadow: { value: SHT }, shMat: { value: new THREE.Matrix4() }, shOn: { value: 0 }, tNat: { value: tNat }, tSep: { value: tSep }, tFill: { value: tFill }, tEdge: { value: tEdge }, sep: { value: 0 }, rk: { value: new THREE.Vector3() }, rlift: { value: new THREE.Vector3() },
       rfill: { value: new THREE.Vector3(...[0, 1, 2].map((i) => regions[i] ? regions[i].fill ?? 0.5 : 0)) }, rc0: { value: rcol[0] }, rc1: { value: rcol[1] }, rc2: { value: rcol[2] }, bg: { value: new THREE.Color() }, shOff: { value: new THREE.Vector2(0.0042, -0.0062) } };
     const LIFT_GLSL = 'uniform sampler2D tFill; uniform vec3 rk, rlift; float liftAt(vec2 uv){ return dot(texture2D(tFill, uv).rgb * rk, rlift); }';
     const terr = new THREE.Mesh(geo, new THREE.ShaderMaterial({ uniforms: U, extensions: { derivatives: true },
       vertexShader: `${LIFT_GLSL} varying vec2 vUv; varying vec3 vW; varying vec3 vM;
         void main(){ vUv = uv; vec3 p = position; vM = textureLod(tFill, uv, 1.6).rgb; p.y += dot(vM * rk, rlift);   /* mip ~1,6: tường nổi mượt, không răng cưa theo lưới */ vec4 w = modelMatrix * vec4(p, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
-      fragmentShader: `uniform sampler2D tNat, tSep, tFill, tEdge; uniform float sep; uniform vec3 rk, rfill, rc0, rc1, rc2, bg; uniform vec2 shOff; varying vec2 vUv; varying vec3 vW; varying vec3 vM;
+      fragmentShader: `uniform sampler2D tNat, tSep, tFill, tEdge, tShadow; uniform mat4 shMat; uniform float shOn; uniform float sep; uniform vec3 rk, rfill, rc0, rc1, rc2, bg; uniform vec2 shOff; varying vec2 vUv; varying vec3 vW; varying vec3 vM;
         void main(){
           vec3 c = mix(texture2D(tNat, vUv).rgb, texture2D(tSep, vUv).rgb, sep);
           vec3 m = texture2D(tFill, vUv).rgb * rk, e = texture2D(tEdge, vUv).rgb * rk;
           /* bóng đổ của khối nổi lên nền xung quanh (mặt nạ mờ theo mipmap, lệch về Đông Nam) */
           vec3 sh = rk.x + rk.y + rk.z > 0.0005 ? texture2D(tFill, vUv + shOff, 3.5).rgb * rk : vec3(0.0); float shade = max(max(sh.r * (1.0 - m.r), sh.g * (1.0 - m.g)), sh.b * (1.0 - m.b));
           c *= 1.0 - 0.55 * shade;
+          if (shOn > 0.5) { vec4 sc = shMat * vec4(vW, 1.0); vec3 q = sc.xyz / sc.w * 0.5 + 0.5; float sv = 0.0;   /* bóng thật của vật trong cảnh (D2b): shadow map máy mặt trời, PCF 3x3 */
+            if (q.x > 0.0 && q.x < 1.0 && q.y > 0.0 && q.y < 1.0 && q.z < 1.0) { for (int i = -1; i <= 1; i++) for (int j = -1; j <= 1; j++) sv += step(texture2D(tShadow, q.xy + vec2(float(i), float(j)) / 2048.0).r, q.z - 0.0015); sv /= 9.0; }
+            c *= 1.0 - 0.5 * sv; }
           vec3 n = normalize(cross(dFdx(vW), dFdy(vW))); float wall = 1.0 - abs(n.y);
           vec3 RC[3]; RC[0] = rc0; RC[1] = rc1; RC[2] = rc2; float MF[3]; MF[0] = m.r; MF[1] = m.g; MF[2] = m.b; float EF[3]; EF[0] = e.r; EF[1] = e.g; EF[2] = e.b; float FL[3]; FL[0] = rfill.x; FL[1] = rfill.y; FL[2] = rfill.z;
           float VM[3]; VM[0] = vM.r; VM[1] = vM.g; VM[2] = vM.b;
@@ -109,6 +113,14 @@ export const HEROES = {
           float ed = min(min(vUv.x, 1.0 - vUv.x), min(vUv.y, 1.0 - vUv.y)); c = mix(bg, c, smoothstep(0.0, 0.06, ed));
           gl_FragColor = vec4(c, 1.0); }` }));
     scene.add(terr);
+    // ---- LOD (V2b, tối ưu render): lưới 1/2 khi máy xa > lodMesh km, texture 4096 khi > lodTex km (đo khác biệt bằng SSIM, scripts/k2/lod_test.py)
+    const lodMesh = o.lodMesh ?? 300, lodTex = o.lodTex ?? 500;
+    let terrH = null; if (lodMesh > 0) { const h2 = Math.floor(MH / 2), w2 = Math.floor(MW / 2), gh = new THREE.PlaneGeometry(WK, HK, w2 - 1, h2 - 1); gh.rotateX(-Math.PI / 2);
+      const P = gh.attributes.position; for (let i = 0; i < P.count; i++) { const r = Math.floor(i / w2), q = i % w2; P.setY(i, HT[Math.min(MH - 1, Math.round(r * (MH - 1) / (h2 - 1))) * MW + Math.min(MW - 1, Math.round(q * (MW - 1) / (w2 - 1)))] / 1000 * VE); }
+      terrH = new THREE.Mesh(gh, terr.material); terrH.visible = false; scene.add(terrH); }
+    const small = (t) => { const im = t.image, k = 4096 / im.width; if (k >= 1) return t; const cv = document.createElement('canvas'); cv.width = 4096; cv.height = Math.round(im.height * k); cv.getContext('2d').drawImage(im, 0, 0, cv.width, cv.height);
+      const t2 = new THREE.Texture(cv); t2.colorSpace = THREE.SRGBColorSpace; t2.anisotropy = 8; t2.needsUpdate = true; return t2; };
+    const tNat4 = lodTex > 0 ? small(tNat) : tNat, tSep4 = lodTex > 0 ? small(tSep) : tSep;
     // ---- máy quay
     const cam = new THREE.PerspectiveCamera(30, W / H, 0.5, 6000); scene.add(cam);
     const camKeys = (o.cam || [{ u: 0, lon: lonc - 0.5, lat: latc, dist: 600, tilt: 25 }, { u: 1, lon: lonc + 0.5, lat: latc, dist: 560, tilt: 28 }]).map((k) => (k.at ? { ...k, lon: LL(k.at)[0], lat: LL(k.at)[1] } : k));
@@ -162,7 +174,7 @@ export const HEROES = {
       m.rotation.x = -Math.PI / 2; m.renderOrder = 4; scene.add(m); rings.push({ R, m, lon, lat }); }
     // ---- chồng xu / cột (tỷ lệ thật: mỗi đồng = unit; cột cao v km)
     scene.environment = envMap(renderer);
-    scene.add(new THREE.HemisphereLight('#fff6e6', '#3a3226', 0.9)); const sun = new THREE.DirectionalLight('#fff1d8', 2.4); sun.position.set(-300, 500, -200); scene.add(sun);
+    const hemi = new THREE.HemisphereLight('#fff6e6', '#5a4e3c', 1.1); scene.add(hemi); const SUN = new THREE.Vector3(-0.5, 0.7071, -0.5).normalize(), sun = new THREE.DirectionalLight('#fff1d8', 2.4); sun.position.copy(SUN).multiplyScalar(500); scene.add(sun);   /* mặt trời Tây Bắc 315°/45°: cùng hướng tô bóng địa hình → bóng vật đổ về Đông Nam */
     const anchors = {}, cols = [];
     const shadowTex = (() => { const cv = document.createElement('canvas'); cv.width = cv.height = 128; const g = cv.getContext('2d'), gr = g.createRadialGradient(64, 64, 4, 64, 64, 62); gr.addColorStop(0, 'rgba(0,0,0,0.55)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(0, 0, 128, 128); return new THREE.CanvasTexture(cv); })();
     for (const c of o.cols || []) { const [lon, lat] = LL(c.at), x = X(lon) + (c.dx || 0), z = Z(lat) + (c.dy || 0), lonA = lon + (c.dx || 0) / kx, latA = lat - (c.dy || 0) / kz;
@@ -187,6 +199,69 @@ export const HEROES = {
     const walkers = (o.walkers || []).map((w) => { const v = new THREE.Vector3(); let cur = null; anchors['st:' + w.id] = () => cur; return { w, v, u: 0, set(t) { const R = routes[w.route]; if (!R) return; const uu = w.u || [0, 1], u = lerp(uu[0], uu[1], cl((t - w.t[0]) / (w.t[1] - w.t[0]))); this.u = cl(u);
       const [lon, lat] = R.at(u); cur = v.set(X(lon), ground(lon, lat) + 0.3, Z(lat)); } }; });
     for (const R of rmeshes) anchors['rt:' + R.r.id] = () => R.head.visible ? R.head.position : null;
+    // ---- D2b (duyệt 14/10 18:08): sticker VẬT dựng trong cảnh 3D + nhân vật A-lite phẳng trong cảnh
+    //   opt.props: [{id, a: 'st:<pin|walker>' | at: địa danh|[lon,lat], obj: 'boat'|… (thư viện design/k2v/sticker-lab.js) | char: {role, hat, hand}, t, out, px, walk, hz, yaw, face}]
+    //   (scripts/k2/prep.py tự chuyển p.stickers của shot relief vào đây → tập khai như cũ). Vật: toon + ánh sáng cảnh + bóng thật + viền trắng shader.
+    //   Nhân vật: billboard phẳng (đứng thẳng, quay về máy), nhận ánh sáng cảnh, đổ bóng lên địa hình; viền trắng sẵn trong hình (STK.style, không bóng 2D).
+    const props = []; let LIB = null;
+    if ((o.props || []).length) {
+      if ((o.props || []).some((q) => q.obj)) { LIB = await import('/k2v/sticker-lab.js'); }
+      if ((o.props || []).some((q) => q.char) && !window.STK) await new Promise((ok, ko) => { const sc = document.createElement('script'); sc.src = '/k2lib/sticker.js'; sc.onload = ok; sc.onerror = () => ko(new Error('không nạp được STK')); document.head.appendChild(sc); });
+      let own = null;
+      for (const q of o.props) { const root = new THREE.Group(), inner = new THREE.Group(); root.add(inner); scene.add(root); let H0 = 1, isChar = false;
+        if (q.obj) { if (LIB.OWN_NEEDS.has(q.obj) && !own) own = await LIB.OWN(); const obj = await LIB.OBJECTS[q.obj](own); inner.add(obj); obj.updateMatrixWorld(true);
+          const bb = new THREE.Box3().setFromObject(obj), c0 = bb.getCenter(new THREE.Vector3()); obj.position.sub(new THREE.Vector3(c0.x, bb.min.y, c0.z)); H0 = Math.max(bb.max.y - bb.min.y, (bb.max.x - bb.min.x) * 0.55, (bb.max.z - bb.min.z) * 0.55);
+          inner.traverse((m) => { if (m.isMesh) { m.layers.enable(1); m.renderOrder = 9; m.material = m.material.clone(); m.material.transparent = true; } }); }   /* vào hàng vẽ trong suốt: renderOrder 9 vẽ SAU tuyến/viền (vật đục luôn vẽ trước lớp trong suốt) */
+        else { isChar = true; const sp = typeof q.char === 'string' ? { role: q.char } : q.char, cv = window.STK.style(window.STK.char(sp, 360), { sa: 0 }), tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
+          const ar = cv.width / cv.height, m = new THREE.Mesh(new THREE.PlaneGeometry(ar, 1), new THREE.MeshLambertMaterial({ map: tex, alphaTest: 0.5, side: THREE.DoubleSide, emissive: '#ffffff', emissiveMap: tex, emissiveIntensity: 0.32 }));
+          m.position.y = 0.47; m.material.transparent = true; inner.add(m); m.layers.enable(2); m.renderOrder = 9; H0 = 1; }
+        const a0 = q.a && anchors[q.a] ? anchors[q.a] : null, ll = q.at ? LL(q.at) : null, wk0 = q.a && q.a.startsWith('st:') ? walkers.find((w) => 'st:' + w.w.id === q.a) : null;
+        props.push({ q, root, inner, H0, isChar, a0, ll, wk: wk0, last: new THREE.Vector3(), pos: new THREE.Vector3() });
+        const P0 = props[props.length - 1], top = new THREE.Vector3(), Lp = new THREE.Vector3(), Rp = new THREE.Vector3(), rg = new THREE.Vector3();
+        anchors['obj:' + q.id] = () => root.visible ? top.set(root.position.x, root.position.y + P0.H0 * root.scale.y, root.position.z) : null;   // đỉnh vật → nhãn bám
+        anchors['objL:' + q.id] = () => { rg.setFromMatrixColumn(cam.matrixWorld, 0).setY(0).normalize().multiplyScalar(P0.H0 * root.scale.x * 0.6); return root.visible ? Lp.copy(root.position).sub(rg) : null; };
+        anchors['objR:' + q.id] = () => { rg.setFromMatrixColumn(cam.matrixWorld, 0).setY(0).normalize().multiplyScalar(P0.H0 * root.scale.x * 0.6); return root.visible ? Rp.copy(root.position).add(rg) : null; }; }
+    }
+    // viền trắng: mặt nạ vật (layer 1) → quad toàn khung giãn mặt nạ, vẽ SAU địa hình/tuyến và TRƯỚC vật
+    const anyObj = props.some((x) => !x.isChar) || (o.cols || []).length;
+    let maskRT = null, outline = null; const MASKM = new THREE.MeshBasicMaterial({ color: '#ffffff' });
+    if (anyObj) { maskRT = new THREE.WebGLRenderTarget(W, H, { depthBuffer: true });
+      outline = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false,
+        uniforms: { tMask: { value: maskRT.texture }, res: { value: new THREE.Vector2(W, H) }, rad: { value: (o.outlinePx ?? 5) * H / 1080 }, col: { value: new THREE.Color(o.outlineColor || '#ffffff') } },
+        vertexShader: 'void main(){ gl_Position = vec4(position.xy, 0.0, 1.0); }',
+        fragmentShader: `uniform sampler2D tMask; uniform vec2 res; uniform float rad; uniform vec3 col;
+          void main(){ vec2 uv = gl_FragCoord.xy / res; if (texture2D(tMask, uv).r > 0.5) discard; float a = 0.0;
+            for (int k = 0; k < 24; k++) { float an = float(k) * 0.2618; vec2 d = vec2(cos(an), sin(an)) / res;
+              a = max(a, texture2D(tMask, uv + d * rad).r); a = max(a, texture2D(tMask, uv + d * rad * 0.55).r * 1.0); }
+            if (a < 0.01) discard; gl_FragColor = vec4(col, smoothstep(0.05, 0.6, a)); }` }));
+      outline.frustumCulled = false; outline.renderOrder = 8; scene.add(outline); }
+    for (const cc of cols) { cc.grp.traverse((m) => { if (m.isMesh && m !== cc.sh) { m.layers.enable(1); m.renderOrder = 9; m.material.transparent = true; } }); cc.sh.visible = false; }   // xu: bóng thật + viền như mọi vật
+    const shCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10); shCam.layers.set(1); shCam.layers.enable(2);
+    const bbx = new THREE.Box3(), tmp3 = new THREE.Vector3();
+    const passes = () => {   // gọi mỗi khung sau khi đặt vật: (1) shadow map máy mặt trời; (2) mặt nạ viền theo máy quay
+      bbx.makeEmpty(); for (const x of props) if (x.root.visible) bbx.expandByObject(x.root); for (const cc of cols) if (cc.grp.visible) bbx.expandByObject(cc.grp);
+      const bg = scene.background, cc0 = renderer.getClearColor(new THREE.Color()), ca = renderer.getClearAlpha(), rt0 = renderer.getRenderTarget();
+      if (bbx.isEmpty()) { U.shOn.value = 0; }
+      else { const ctr = bbx.getCenter(new THREE.Vector3()), rr = Math.max(4, bbx.getSize(tmp3).length() * 0.6);
+        shCam.position.copy(ctr).addScaledVector(SUN, rr * 4); shCam.lookAt(ctr); Object.assign(shCam, { left: -rr, right: rr, top: rr, bottom: -rr, near: rr * 0.5, far: rr * 8 }); shCam.updateProjectionMatrix(); shCam.updateMatrixWorld();
+        scene.background = null; renderer.setRenderTarget(shRT); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, shCam);
+        U.shMat.value.multiplyMatrices(shCam.projectionMatrix, shCam.matrixWorldInverse); U.shOn.value = 1; }
+      if (maskRT) { const l0 = cam.layers.mask; cam.layers.set(1); scene.overrideMaterial = MASKM; scene.background = null; renderer.setRenderTarget(maskRT); renderer.setClearColor(0x000000, 1); renderer.clear(); renderer.render(scene, cam); scene.overrideMaterial = null; cam.layers.mask = l0; }
+      scene.background = bg; renderer.setRenderTarget(rt0); renderer.setClearColor(cc0, ca); };
+    const backOut = (u) => { u = cl(u); const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(u - 1, 3) + c1 * Math.pow(u - 1, 2); };
+    const placeProps = (t, wk) => { for (const x of props) { const q = x.q, t0 = q.t ?? 0, u0 = cl((t - t0) / 0.42), uo = q.out === undefined ? 0 : cl((t - q.out) / 0.3);
+        x.root.visible = u0 > 0 && uo < 1; if (!x.root.visible) continue;
+        let P = null; if (x.a0) P = x.a0(); else if (x.ll) P = tmp3.set(X(x.ll[0]) + (q.dx || 0), ground(x.ll[0], x.ll[1]), Z(x.ll[1]) + (q.dz || 0));
+        if (!P) { x.root.visible = false; continue; } x.pos.copy(P); if (!x.wk) x.pos.y -= q.a ? 0.3 : 0;
+        const sc = (q.pop === false ? eo(u0) : backOut(u0)) * (1 - eo(uo)), s = (q.px || 120) * wk / x.H0 * sc; x.root.position.copy(x.pos); x.root.scale.setScalar(Math.max(1e-4, s));
+        const ph = (t - t0) * (q.hz || 2.2) * Math.PI; x.inner.position.y = q.walk ? Math.abs(Math.sin(ph)) * 0.07 * x.H0 : 0; x.inner.rotation.z = q.walk ? Math.sin(ph) * 0.04 : 0;
+        const toCam = Math.atan2(cam.position.x - x.pos.x, cam.position.z - x.pos.z);
+        if (x.isChar) { x.root.quaternion.copy(cam.quaternion); let fl = q.face === 'left';   /* quay trọn về máy: máy nhìn gần thẳng xuống thì nhân vật vẫn là tấm sticker đọc được, không bị ép dẹt */
+          if (x.wk && x.wk.w) { const R = routes[x.wk.w.route], u = x.wk.u, a = R.at(Math.max(0, u - 0.004)), b = R.at(Math.min(1, u + 0.004)), pa = new THREE.Vector3(X(a[0]), 0, Z(a[1])).project(cam), pb = new THREE.Vector3(X(b[0]), 0, Z(b[1])).project(cam);
+            if (Math.abs(pb.x - pa.x) > 1e-4) x.flip = pb.x < pa.x; fl = !!x.flip; }
+          x.inner.scale.x = fl ? -1 : 1; }
+        else if (x.wk && x.wk.w) { const R = routes[x.wk.w.route], u = x.wk.u, a = R.at(Math.max(0, u - 0.004)), b = R.at(Math.min(1, u + 0.004)); x.root.rotation.y = Math.atan2(-(Z(b[1]) - Z(a[1])), X(b[0]) - X(a[0])) + (q.yaw || 0) * D2R; }
+        else x.root.rotation.y = toCam - 35 * D2R + (q.yaw || 0) * D2R; } };
     // ---- palette
     const sepAt = (t) => o.palette === 'sepia' ? 1 : o.sepia ? ease(cl((t - o.sepia[0]) / (o.sepia[1] - o.sepia[0]))) : o.natural ? 1 - ease(cl((t - o.natural[0]) / (o.natural[1] - o.natural[0]))) : 0;
     const BGN = new THREE.Color('#8fa3ab'), BGS = new THREE.Color('#bba985');   // mù nền cùng tông bảng màu (mép bản đồ không lộ khối tối)
@@ -207,7 +282,11 @@ export const HEROES = {
             g.position.set(d.ox, d.y + (1 - eo(u)) * 6 + Math.sin(cl(u * 1.4) * Math.PI) * 0.0, d.oz); g.rotation.z = d.rz * (1 - u) * 6 + d.rz; });
             cc.grp.visible = cc.items.some((g) => g.visible); cc.sh.material.opacity = cc.grp.visible ? 1 : 0; } }
         for (const w of walkers) w.set(t);
+        placeProps(t, wk);
+        if (terrH) { const far = camDist > lodMesh; terrH.visible = far; terr.visible = !far; }
+        if (lodTex > 0) { const far = camDist > lodTex; U.tNat.value = far ? tNat4 : tNat; U.tSep.value = far ? tSep4 : tSep; }
         for (const R of rmeshes) if (R.r.trail) { const w = walkers.find((x) => x.w.id === R.r.trail); if (w) { const d = Math.max(0, w.u) * R.L; R.line.material.uniforms.draw.value = d; R.glow.material.uniforms.draw.value = d; R.head.visible = false; } }   /* trail: tuyến vẽ theo đúng vị trí vật đi (vệt sau thuyền) */
+        cam.updateMatrixWorld(); passes();
       } };
     return self;
   },

@@ -33,10 +33,11 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   page.on('console', (m) => { const t = m.text(); if (/Shader Error|VALIDATE_STATUS false/.test(t)) { console.error('[page] LỖI SHADER — dừng (V2 14/10: lỗi biên dịch từng cho ra khung thiếu địa hình mà không báo)', t.slice(0, 600)); process.exit(7); }
     if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader/i.test(t)) console.error('[page]', t); });
   await page.route('http://cine.local/**', (route) => {
-    const u = decodeURIComponent(new URL(route.request().url()).pathname), p = u.startsWith('/cache/') ? path.join(CACHE, u.slice(7)) : u.startsWith('/assets/') ? path.join(ROOT, '..', u) : path.join(ROOT, u);   // /assets/: tư liệu tài sản công đã commit (RIGHTS.md)
+    const U2 = new URL(route.request().url()), u = decodeURIComponent(U2.pathname), p = u.startsWith('/cache/') ? path.join(CACHE, u.slice(7)) : u.startsWith('/assets/') ? path.join(ROOT, '..', u) : u.startsWith('/k2lib/') ? path.join(__dirname, 'lib', u.slice(7)) : path.join(ROOT, u);   // /assets/: tư liệu tài sản công đã commit (RIGHTS.md) · /k2lib/: scripts/k2/lib (STK, V2b)
     const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : p.endsWith('.jpg') ? 'image/jpeg' : 'text/html';
     if (!fs.existsSync(p)) return route.fulfill({ status: 404, body: 'not found ' + p });
-    route.fulfill({ status: 200, contentType: type, body: fs.readFileSync(p) });
+    let body = fs.readFileSync(p); const rx = U2.searchParams.get('rx'); if (rx && /^[\w,]+$/.test(rx)) body = Buffer.concat([body, Buffer.from(`\nexport { ${rx} };\n`)]);   // ?rx=: nạp hàm của mô hình tập mà không sửa tệp tập (V2b, như stickers_build.js)
+    route.fulfill({ status: 200, contentType: type, body });
   });
   const pf = path.join(ROOT, `${PAGE}/page-${process.pid}.html`);
   fs.writeFileSync(pf, `<!doctype html><html><body style="margin:0"><script type="module" src="/${PAGE}/${PAGE === 'k2v' ? 'page' : 'k2page'}.js"></script></body></html>`);

@@ -20,7 +20,7 @@ import ll  # noqa: E402
 REPO, FPS = ll.REPO, ll.FPS
 DRAFT = os.environ.get('K2_DRAFT') == '1'
 CODE = ['design/ll-hero/k2g01.js', 'design/ll-hero/k2c106.js', 'design/ll-hero/k2page.js', 'design/ll-hero/kit.js', 'scripts/k2/hero.js',
-        'design/k2v/page.js', 'design/k2v/common.js', 'design/k2v/map.js', 'design/k2v/chart3d.js', 'design/k2v/photo.js', 'design/k2v/relief.js']
+        'design/k2v/page.js', 'design/k2v/common.js', 'design/k2v/map.js', 'design/k2v/chart3d.js', 'design/k2v/photo.js', 'design/k2v/relief.js', 'design/k2v/sticker-lab.js', 'scripts/k2/lib/sticker.js']
 CAMS = os.path.join(REPO, 'scripts/k2/cams.yaml')
 MAX_SAME = 2   # cùng góc máy (scene_id + camera_id) tối đa 2 lần/tập
 
@@ -34,8 +34,31 @@ def cam_lib():
     return yaml.safe_load(open(CAMS)) if os.path.exists(CAMS) else {}
 
 
+def lift_props(E):
+    """V2b (D2b, chủ dự án 14/10 18:08): sticker của shot dựng trên cảnh relief/* chuyển từ lớp 2D (p.stickers) vào cảnh 3D (heroes.<k>.opt.props):
+    vật thư viện ('stk:<tên>') dựng bằng mô hình 3D trên địa hình (ánh sáng chung, bóng thật, viền shader); nhân vật ('role:<vai>' | {role, hat, hand} | 'stk:role-<vai>')
+    là billboard phẳng trong cảnh. Tập vẫn khai như cũ. Mốc giây trong đoạn → giây trong cảnh (trừ at của shot); "@từ" để nguyên (prep đổi theo cảnh)."""
+    HZ = E.get('heroes') or {}
+    for sg in E.get('segments', []):
+        for sh in sg.get('shots', []):
+            p = sh.get('p') or {}; h = HZ.get(p.get('hero')) if sh.get('tpl', 'plate') == 'plate' else None
+            if not h or not str(h.get('hero', '')).startswith('relief/') or not p.get('stickers'): continue
+            off = sh.get('at', 0) if isinstance(sh.get('at', 0), (int, float)) else 0; o = h.setdefault('opt', {}); props = o.setdefault('props', [])
+            sec = lambda v: v - off if isinstance(v, (int, float)) else v
+            for i, S in enumerate(p.pop('stickers')):
+                img = S.get('img'); q = {k: S[k] for k in ('a', 'px', 'walk', 'hz', 'face', 'yaw', 'pop', 'dx', 'dz') if k in S}; q['id'] = S.get('id') or f'{sg.get("id")}-{len(props)}'
+                if 'at' in S: q['t'] = sec(S['at'])
+                if 'out' in S: q['out'] = sec(S['out'])
+                if isinstance(img, dict): q['char'] = img
+                elif str(img).startswith('role:'): q['char'] = {'role': str(img)[5:]}
+                elif str(img).startswith('stk:role-'): q['char'] = {'role': str(img)[9:]}
+                else: q['obj'] = str(img).replace('stk:', '')
+                props.append(q)
+
+
 def resolve_cams(E):
     """heroes.<k>.cam: '<preset>' → opt.cam từ thư viện (scene_id phải có preset đó). Gắn _camera_id cho mỗi khoá cảnh."""
+    lift_props(E)
     L = cam_lib()
     for k, h in (E.get('heroes') or {}).items():
         o = h.setdefault('opt', {}); c = h.get('cam')

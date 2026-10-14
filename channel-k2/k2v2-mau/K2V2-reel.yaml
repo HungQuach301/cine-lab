@@ -130,7 +130,7 @@ segments:
       stickers:
       - {a: 'st:sack', img: 'stk:sack', at: 0.3, out: 3.6, px: 130}
       - {a: 'st:farm', img: {role: farmer, hand: wheat}, at: 2.0, out: 6.4, px: 170}
-      - {a: 'st:boat', img: 'stk:boat', at: 0.5, px: 130, walk: true, hz: 1.2, face: right}
+      - {a: 'st:boat', img: 'stk:boat', at: 0.5, px: 90, walk: true, hz: 1.2}
       - {a: 'st:crew', img: {role: sailor, hand: rope}, at: 0.7, px: 160, walk: true}
       - {a: 'st:town', img: {role: merchant}, at: 8.8, px: 170}
       places:
@@ -210,7 +210,7 @@ segments:
           - {k: Length, icon: 'stk:flag', v: ['363 mi', '394 mi'], at: 1.05}
           - {k: Climb from the start, icon: 'stk:mountain', v: ['568 ft', '2,102 ft'], win: 0, at: 1.45}
           - {k: Cost to build, icon: 'stk:coins', v: ['$7.1M', '$16.5M'], win: 0, at: 1.85}
-          foot: 'Sources: NPS Allegheny Portage Railroad NHS · Erie Canalway NHC'
+          foot: 'Sources: NPS (Allegheny Portage RR) · Erie Canalway NHC'
 numbers:
   wagon_cost: {v: 90, text: '$90–125', kind: actual, year: 1825, unit: '$/ton', src: NYSAPT, say: ninety to one hundred twenty-five dollars}
   canal_tenth: {v: 0.1, text: '1/10', kind: actual, year: 1825, unit: ratio, src: ECNHC-NS, say: a tenth}
