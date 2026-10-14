@@ -40,11 +40,11 @@ Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (l�
   - Thư viện vai dùng lại: công nhân, thương nhân, chủ ngân hàng, binh lính, quan chức, kỹ sư, nông dân, thuỷ thủ; mỗi tập thêm 1–3 đạo cụ.
   - Luật chi phí: không cổng kiểm nhân vật riêng, không dựng nhân vật 3D mới mỗi tập, phần nhân vật ≤ ~10 % công sức hình. KHÔNG lặp mô hình Ida (nhân vật 3D đóng vai).
   - B-lite (5–10 cảnh nhân vật bằng công cụ AI ngoài, ~$5–20/tập, phải bật nhãn AI) chỉ thử khi số liệu T2 cho thấy cần.
-- Số liệu: biểu tượng trên bản đồ (chồng xu, cột) theo tỷ lệ thật; chữ trên hình tối thiểu.
+- Số liệu: biểu tượng trên bản đồ (chồng xu, cột) theo tỷ lệ thật; chữ trên hình tối thiểu. Xu/vật xếp hàng phải có độ dày, khối thấy được (không đĩa phẳng) (duyệt 15/10).
 - Mã màu cố định cho từng phía trong cả tập.
 - Chuyển động: máy quay trượt liên tục trên bản đồ, cung đường, nét đứt, vòng sáng; ít cú cắt.
 - Hồ sơ thật 10–15 % thời lượng; 1–2 cảnh 3D đặc trưng.
-- **Footage thật (duyệt 14/10 22:11, F3)**: tối đa 20 % thời lượng; ưu tiên tư liệu công (NARA, Library of Congress, Prelinger Archives…), sau đó kho miễn phí có giấy phép rõ (Pexels, Pixabay); chỉnh màu theo bảng màu kênh; mỗi clip ghi nguồn, giấy phép, SHA trong RIGHTS; footage phải đúng nội dung câu lời (không lấp chỗ trống).
+- **Footage thật (duyệt 14/10 22:11, F3)**: tối đa 20 % thời lượng; ưu tiên tư liệu công (NARA, Library of Congress, Prelinger Archives…), sau đó kho miễn phí có giấy phép rõ (Pexels, Pixabay); chỉnh màu theo bảng màu kênh; mỗi clip ghi nguồn, giấy phép, SHA trong RIGHTS; footage phải đúng nội dung câu lời (không lấp chỗ trống). Nguồn ưu tiên ≥ 720p; tư liệu thấp hơn đặt trong khung (giữ tỉ lệ gốc, phóng ≤ 1,5×, có viền), không phóng to cắt cúp. DVIDS (tác phẩm chính phủ Mỹ) được dùng nếu không có huy hiệu/logo, không làm nổi bật cá nhân, không hàm ý bảo trợ (duyệt 15/10).
 - Thủ pháp chạy suốt: bảng điểm (biểu tượng góc + bảng tổng kết).
 - **Nhịp (sửa 14/10 18:08): đo theo NHỊP THỊ GIÁC** — trung bình ≤ 3,5 s có một biến cố hình mới (máy đổi hướng/tầm, vùng/tuyến/sticker/số liệu xuất hiện, chuyển bảng màu, cắt cảnh); cắt cứng chỉ khi đổi cảnh; không giữ khung tĩnh > 6 s. (Đối thủ đo được 3,3 s/shot.)
 - Chữ trên màn hình: dòng nguồn ngắn khi có con số: chỉ tên nguồn ngắn, cỡ ≥ 38 px; nguồn đầy đủ ở mô tả/bình luận ghim (duyệt 14/10 20:45); "Facts as of" chỉ với luật đang hiệu lực (chờ K sửa luật).
@@ -66,7 +66,7 @@ Master, 1 Short, .en.srt, mô tả (chương + nguồn đầy đủ + ghi công)
 5. Tăng nhịp đăng, chuỗi theo loạt; áp cho Last Lamplighters.
 
 ## 8. Thước đo thắng
-Chấm mù hình ≥ 8/10; CTR và thời gian xem T2 > T1; giờ render và token/tập ≤ T1; chủ dự án ≤ 3 lần chạm.
+Cổng hình G2: chấm mù ≥ 7,0/10 và không thua T1 ở cặp nào; ≥ 8 là mục tiêu dài hạn (duyệt 15/10). CTR và thời gian xem T2 > T1; giờ render và token/tập ≤ T1; chủ dự án ≤ 3 lần chạm.
 
 ## 9. Rủi ro
 Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, hồ sơ thật, sticker vật trong cảnh 3D); ngách đông kênh AI (khác biệt bằng độ tin cậy, dữ liệu mới); sửa luật liên tục (gom theo đợt, áp giữa các tập); nhân vật sticker kém cảm xúc hơn đối thủ dùng AI (theo dõi đường giữ chân, mở B-lite nếu cần); sticker vật trong cảnh làm tăng giờ render (bù bằng SPP2/lưới nhẹ, đo mỗi tập); footage kho miễn phí có thể bị Content ID/trùng kênh khác (ưu tiên tư liệu công, giữ ≤ 20 %, lưu trang giấy phép); zoom nhiều tầng nặng render ở đoạn chuyển (đo riêng).
