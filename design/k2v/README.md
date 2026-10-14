@@ -135,10 +135,29 @@ Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng
     - đo trung bình ≤ 3,5 s, khoảng dài nhất ≤ 6 s;
     - đo khung tĩnh trên video ≤ 6 s.
 
+### V3 (14/10/2026, chủ dự án duyệt 14/10 20:45)
+- **Dòng nguồn ngắn ≥ 38 px (E2):**
+  - `SRCPX` = 38 px ở 16:9, 46 px ở 9:16.
+  - Trên hình chỉ ghi tên nguồn ngắn, ví dụ `Source: NPS, LOC · Terrain: USGS 3DEP`; không xuống 2 dòng.
+  - Nguồn và ghi công đầy đủ đặt ở mô tả/bình luận ghim (mẫu: `channel-k2/k2v2-mau/mo-ta-nguon.en.txt`).
+- **Vạch ×10 cạnh chồng xu (E3):**
+  - Khai trong `cols[]`: `ruler: true` (vạch theo số xu) hoặc `ruler: N` (N vạch), cùng `rulerSide: ±1` (vạch nằm bên trái/phải chồng xu).
+  - Mỗi vạch thứ 5 sẫm màu; vạch mọc lên cùng chồng xu (0,5 s).
+  - Neo nhãn tại `rul:<id>` (đỉnh vạch).
+- **Bảng điểm thu gọn (E4):** bật khi `board.w < 1000` ở 16:9.
+  - Nhãn hàng và biểu tượng nằm một dòng phía trên; giá trị nằm ở dòng dưới.
+  - Biểu tượng tiêu đề 78 px.
+  - Ví dụ: `w: 768`, `align: right` ≈ 40 % khung; huy hiệu góc ghi `title: 'Advantages:'`.
+- **Tốc độ (E6):**
+  - `opt.fast` (mặc định bật): shadow map 1024², viền trắng lấy mẫu 12 hướng. Mặt nạ viền vẫn giữ đủ độ phân giải: thử ½ độ phân giải thì viền bị bậc thang ở 2×.
+  - `opt.spp1Km`: khi máy xa hơn N km thì dùng SPP1 kèm lọc khử răng cưa theo cạnh. Đã thử và **bác** (mép vật còn răng cưa), mặc định 0.
+  - `vshot.py --chunk K`: chia cảnh dài thành các phần ≤ K khung, việc dài chạy trước. Ở 4 vCPU không nhanh hơn `--par 4` (SwiftShader đã dùng hết CPU).
+  - `lod_test.py --set v3 [--cfg …]`: so SSIM/pHash các cấu hình V3.
+
 ## Công cụ
 - `scripts/k2/k2v_assets.py` — tải tài sản (SHA ghim `scripts/k2/k2v-assets.sha.json`), Blue Marble toàn cầu/vùng, ảnh tư liệu, trang PDF + khung highlight, bảng giấy phép.
 - `scripts/k2/relief_build.py` (nền bản đồ nổi), `scripts/k2/stickers_build.js` + `stickers_sheet.py` (thư viện sticker), `scripts/k2/reel_sheet.py` (tờ khung cuộn mẫu) — V2.
 - `scripts/k2/stock.py` — Pexels/Pixabay: tìm (cache 24 giờ), tải qua CDN, SHA, dòng `SOURCES-FOOTAGE.csv`.
-- `scripts/k2/vshot.py` — (`--par N`: dựng N cảnh 3D song song, V2) dựng shot mẫu độc lập từ đặc tả dạng episode (1080p, SPP chọn được), xuất `timeline.json` để chạy `checks/ll/q_types.py`, `q_scene.py`, `q_footage.py`.
+- `scripts/k2/vshot.py` — (`--par N`: dựng N cảnh 3D song song, V2; `--chunk K`: chia cảnh dài, V3) dựng shot mẫu độc lập từ đặc tả dạng episode (1080p, SPP chọn được), xuất `timeline.json` để chạy `checks/ll/q_types.py`, `q_scene.py`, `q_footage.py`.
 - `scripts/k2/cams_sheet.py` — tờ khung rà preset góc máy.
 - Cài: `(cd design/k2v && npm ci)`; tài sản: `scripts/k2/k2v_assets.py fetch all && … bm-global && … bm-crop …`.
