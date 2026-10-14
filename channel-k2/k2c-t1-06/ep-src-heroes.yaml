@@ -66,7 +66,7 @@ heroes:
              cam: [{u: 0, lon: -104, lat: 30, alt: 14, tilt: 6, mm: 35}, {u: 1, lon: -118.2, lat: 32.6, alt: 3.6, tilt: 34, head: -14, mm: 35}]}}
   m_calif0: {hero: map/globe, opt: {patches: [{bbox: [-125, 32, -114, 42], img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg}], states: [{state: California, color: '#F08A4B', fill: 0.14}], pinMin: 0.12,
              places: [{id: calif, ll: [-119.4, 37.2], name: California, at: "@california"}],
-             cam: [{u: 0, lon: -121.5, lat: 44.5, alt: 6.0, tilt: 22, head: 18, mm: 35}, {u: 1, lon: -121.0, lat: 39.4, alt: 3.4, tilt: 38, head: 8, mm: 35}]}}
+             cam: [{u: 0, lon: -121.0, lat: 40.0, alt: 6.0, tilt: 20, head: 14, mm: 35}, {u: 1, lon: -120.0, lat: 34.6, alt: 3.6, tilt: 34, head: 6, mm: 35}]}}
   m_calif2: {hero: map/globe, opt: {patches: [{bbox: [-125, 32, -114, 42], img: /cache/bm-crop--125_32_-114_42-6144-500m.jpg}], states: [{state: California, color: '#F2C14E', fill: 0.16}], pinMin: 0.12,
              places: [{id: calif, ll: [-119.4, 37.2], name: California, at: 0.4}],
              cam: [{u: 0, lon: -114.0, lat: 33.4, alt: 3.4, tilt: 40, head: -40, mm: 35}, {u: 1, lon: -114.8, lat: 35.6, alt: 3.2, tilt: 42, head: -58, mm: 35}]}}

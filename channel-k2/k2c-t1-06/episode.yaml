@@ -2125,17 +2125,20 @@ segments:
       - a: fire1
         s: Sprinklers failed
         at: '@sprinklers'
-        side: up
+        side: left
+        gap: 70
         c: '#F2C14E'
       - a: fire2
         s: Apartment door open
         at: '@apartment#2'
         side: up
+        gap: 110
         c: '#F08A4B'
       - a: fire3
         s: Stair door open
         at: '@stair#2'
-        side: up
+        side: right
+        gap: 70
         c: '#E0564B'
       cap:
       - s: In the model, stair count mattered only when all three happened
@@ -3035,6 +3038,9 @@ segments:
         type: list
         kicker: THE RECORD
         title: On housing production, the record is mixed
+        px: 34
+        gap: 30
+        top: 170
         items:
         - s: Minneapolis · SB 9's first year
           sub: counts in the hundreds or fewer
@@ -3870,18 +3876,18 @@ heroes:
         at: '@california'
       cam:
       - u: 0
-        lon: -121.5
-        lat: 44.5
+        lon: -121.0
+        lat: 40.0
         alt: 6.0
-        tilt: 22
-        head: 18
+        tilt: 20
+        head: 14
         mm: 35
       - u: 1
-        lon: -121.0
-        lat: 39.4
-        alt: 3.4
-        tilt: 38
-        head: 8
+        lon: -120.0
+        lat: 34.6
+        alt: 3.6
+        tilt: 34
+        head: 6
         mm: 35
   m_calif2:
     hero: map/globe
