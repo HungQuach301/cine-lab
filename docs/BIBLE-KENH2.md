@@ -1,4 +1,4 @@
-# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41 và 18:08)
+# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45 và 22:11)
 
 Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (lời + 14 khung, 13/10) và "GoDocs" (video Suez 11:00 đo bằng máy, 14/10) + định hướng nâng cấp nhà máy (Bảng trạng thái). Nguyên tắc: học CÔNG THỨC, không sao chép sản phẩm (không dùng câu chữ, hình, thumbnail, nhận diện, danh sách đề tài của đối thủ; lời/video của đối thủ không đưa vào repo).
 
@@ -30,12 +30,13 @@ Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (l�
 
 ## 4. Ngữ pháp hình
 - Nền: bản đồ địa hình nổi, hai bảng màu — tự nhiên (hiện tại) và giấy cổ sepia (quá khứ); sắc nét ở tầm vùng.
+- **Zoom nhiều tầng (duyệt 14/10 22:11, F4)**: máy "lặn" liên tục từ bản đồ nổi (vùng/bang) → ảnh hàng không (thành phố, khu phố; nguồn tài sản công, kiểm giấy phép từng tệp) → cảnh 3D tự dựng hoặc ảnh/footage (ngôi nhà, con người, vật cụ thể); hoà ảnh ở chỗ chuyển tầng; dùng cho móc câu và các chuyển chương "từ lớn đến nhỏ".
 - Sticker: biểu tượng viền trắng, render từ vật thể 3D của mình, một phong cách; mỗi câu một biểu tượng gắn đúng chỗ trên bản đồ.
   - **Sticker vật dựng TRONG cảnh 3D (duyệt 14/10 18:08, D2b)**: vật là mô hình 3D đặt trên địa hình, nhận cùng ánh sáng của cảnh, đổ bóng thật lên địa hình, đổi phối cảnh theo máy quay, giữ viền trắng (shader viền) — không dán ảnh 2D lên khung.
   - Nhân vật A-lite vẫn phẳng (xem dưới) nhưng phải hoà vào cảnh: bóng tiếp đất lên địa hình, tông màu theo ánh sáng cảnh.
 - **Nhân vật A-lite (duyệt 14/10)**:
   - Nhân vật sticker phẳng, nhận ra bằng 1–2 đạo cụ (mũ, khăn, dụng cụ, túi tiền); không cận mặt, không diễn xuất, không khớp miệng; đặt trên bản đồ và di chuyển theo tuyến — hành trình là mạch truyện.
-  - Người thật: chân dung/tranh/ảnh tài sản công (Ken Burns), kiểm quyền từng tệp.
+  - Người thật: chân dung/tranh/ảnh tài sản công, kiểm quyền từng tệp. **Tách người khỏi nền (duyệt 14/10 22:11, F2)**: cắt theo dáng bằng mô hình phân đoạn mã nguồn mở chạy cục bộ (chỉ tách nền, không sinh hình), viền trắng + bóng đổ cùng phong cách sticker, Ken Burns 2.5D (người tách lớp khỏi nền); kiểm mép từng ảnh; ảnh có giấy phép yêu cầu ghi chỉnh sửa thì ghi "đã chỉnh sửa".
   - Thư viện vai dùng lại: công nhân, thương nhân, chủ ngân hàng, binh lính, quan chức, kỹ sư, nông dân, thuỷ thủ; mỗi tập thêm 1–3 đạo cụ.
   - Luật chi phí: không cổng kiểm nhân vật riêng, không dựng nhân vật 3D mới mỗi tập, phần nhân vật ≤ ~10 % công sức hình. KHÔNG lặp mô hình Ida (nhân vật 3D đóng vai).
   - B-lite (5–10 cảnh nhân vật bằng công cụ AI ngoài, ~$5–20/tập, phải bật nhãn AI) chỉ thử khi số liệu T2 cho thấy cần.
@@ -43,6 +44,7 @@ Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (l�
 - Mã màu cố định cho từng phía trong cả tập.
 - Chuyển động: máy quay trượt liên tục trên bản đồ, cung đường, nét đứt, vòng sáng; ít cú cắt.
 - Hồ sơ thật 10–15 % thời lượng; 1–2 cảnh 3D đặc trưng.
+- **Footage thật (duyệt 14/10 22:11, F3)**: tối đa 20 % thời lượng; ưu tiên tư liệu công (NARA, Library of Congress, Prelinger Archives…), sau đó kho miễn phí có giấy phép rõ (Pexels, Pixabay); chỉnh màu theo bảng màu kênh; mỗi clip ghi nguồn, giấy phép, SHA trong RIGHTS; footage phải đúng nội dung câu lời (không lấp chỗ trống).
 - Thủ pháp chạy suốt: bảng điểm (biểu tượng góc + bảng tổng kết).
 - **Nhịp (sửa 14/10 18:08): đo theo NHỊP THỊ GIÁC** — trung bình ≤ 3,5 s có một biến cố hình mới (máy đổi hướng/tầm, vùng/tuyến/sticker/số liệu xuất hiện, chuyển bảng màu, cắt cảnh); cắt cứng chỉ khi đổi cảnh; không giữ khung tĩnh > 6 s. (Đối thủ đo được 3,3 s/shot.)
 - Chữ trên màn hình: dòng nguồn ngắn khi có con số: chỉ tên nguồn ngắn, cỡ ≥ 38 px; nguồn đầy đủ ở mô tả/bình luận ghim (duyệt 14/10 20:45); "Facts as of" chỉ với luật đang hiệu lực (chờ K sửa luật).
@@ -58,7 +60,7 @@ Master, 1 Short, .en.srt, mô tả (chương + nguồn đầy đủ + ghi công)
 
 ## 7. Lộ trình
 1. Chốt Kinh thánh (xong 13/10; bổ sung A-lite 14/10) + Teardown số liệu so 5–8 kênh cùng dạng.
-2. Phiên V2 (sau khi T1 qua G2): bản đồ nổi, sticker, nhân vật A-lite, biểu tượng số liệu, chuyển động; đo giờ render; chấm mù ≥ 8. V2b (14/10): sticker vật trong cảnh, nhịp thị giác, chân dung, dòng nguồn 34 px, tối ưu render.
+2. Phiên V2 (sau khi T1 qua G2): bản đồ nổi, sticker, nhân vật A-lite, biểu tượng số liệu, chuyển động; đo giờ render; chấm mù ≥ 8. V2b (14/10): sticker vật trong cảnh, nhịp thị giác, chân dung, dòng nguồn 34 px, tối ưu render. V3 (14/10): nguồn ngắn ≥ 38 px, ×10, bảng điểm thu gọn, tối ưu tốc độ. V4 (14/10): zoom nhiều tầng, tách nền chân dung, footage thật.
 3. T2 tập bóng theo Kinh thánh; phiên Nền tảng song song.
 4. Đo T1 vs T2 (CTR, thời gian xem, giữ chân, chi phí, giờ máy); giữ/bỏ vai; K đưa thành luật.
 5. Tăng nhịp đăng, chuỗi theo loạt; áp cho Last Lamplighters.
@@ -67,4 +69,4 @@ Master, 1 Short, .en.srt, mô tả (chương + nguồn đầy đủ + ghi công)
 Chấm mù hình ≥ 8/10; CTR và thời gian xem T2 > T1; giờ render và token/tập ≤ T1; chủ dự án ≤ 3 lần chạm.
 
 ## 9. Rủi ro
-Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, hồ sơ thật, sticker vật trong cảnh 3D); ngách đông kênh AI (khác biệt bằng độ tin cậy, dữ liệu mới); sửa luật liên tục (gom theo đợt, áp giữa các tập); nhân vật sticker kém cảm xúc hơn đối thủ dùng AI (theo dõi đường giữ chân, mở B-lite nếu cần); sticker vật trong cảnh làm tăng giờ render (bù bằng SPP2/lưới nhẹ, đo mỗi tập).
+Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, hồ sơ thật, sticker vật trong cảnh 3D); ngách đông kênh AI (khác biệt bằng độ tin cậy, dữ liệu mới); sửa luật liên tục (gom theo đợt, áp giữa các tập); nhân vật sticker kém cảm xúc hơn đối thủ dùng AI (theo dõi đường giữ chân, mở B-lite nếu cần); sticker vật trong cảnh làm tăng giờ render (bù bằng SPP2/lưới nhẹ, đo mỗi tập); footage kho miễn phí có thể bị Content ID/trùng kênh khác (ưu tiên tư liệu công, giữ ≤ 20 %, lưu trang giấy phép); zoom nhiều tầng nặng render ở đoạn chuyển (đo riêng).
