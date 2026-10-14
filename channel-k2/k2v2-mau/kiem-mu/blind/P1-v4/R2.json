@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Clean relief-shaded New York with a clearly highlighted state, a dashed canal route, and Buffalo and Albany labels. The year badge and caption state the story at once. Weak spots: the lighting is flat and top-down, with no camera depth, and the Buffalo label overlaps the lake edge. The caption sits on a dark gradient and the source line is small."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Tilted satellite-style view with a vignette gives some depth. But Minnesota is only slightly distinguished from its neighbours, the dim muddy tones look low-contrast, and borders are thin. The pin is tiny. The callout mixes the city name with a long source line, so it reads as a citation rather than a place. The map says nothing about rents or apartments. The two-line source text is small for a phone."
+ },
+ "better": "X",
+ "why": "X shows the place, route, and date at a glance with strong contrast, while Y is a dim, generic region map whose label doesn't connect to the caption's claim.",
+ "top_fix_for_weaker": "Brighten and desaturate the surrounding states so Minnesota clearly stands out. Enlarge the Minneapolis pin and shorten the callout to the city name alone, moving the Fed source into the footer. Add a data element tied to the claim, such as a rent-growth figure, and enlarge the source text."
+}

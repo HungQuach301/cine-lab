@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "The terrain map, stacked gold coins, wagon and canal boat give a clear place and a clear quantity: the tall stack against a single coin. The lighting is soft and the outlines are clean. The ruler gizmos are small and cryptic. The wagon's \u00d710 tag is tiny. The labels crowd the objects, and the 'ACTUAL' badge is repeated three times. The footer text is a bit small."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "Three plain cubes sit on a dark grid with no context. The 7%, 6% and 13% labels sit on top of the cubes and cover them. The 13% label is half-faded and unreadable against the cube behind it. The cube sizes do not match the values: 13% is not clearly larger than 7%. The scene is mostly empty dark space, with no building or stair to show what is measured. The text-card look dominates."
+ },
+ "better": "X",
+ "why": "X shows a recognisable place and objects whose scale matches the numbers and has readable labels, while Y has overlapping, faded labels on abstract cubes that don't convey what they stand for.",
+ "top_fix_for_weaker": "Move the labels off the cubes and make them fully opaque. Scale the cube heights to the values (13 vs 7 vs 6). Replace the cubes with a recognisable building and stair floor-plan model in a lit scene, and fill the frame by moving the camera closer."
+}

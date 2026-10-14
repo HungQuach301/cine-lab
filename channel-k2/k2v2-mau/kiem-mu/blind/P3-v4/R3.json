@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Terrain map with a wagon, a coin stack and a canal boat is a real 3D scene. High-contrast labels show $90\u2013125 and 1/10. The 'ruler' in the caption is a faint, tiny ladder-like object that is hard to read. The labels crowd the objects. The canal coin disc is a single flat disc, so '1 of 10' is not obvious at a glance. The caption is readable."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 5,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The 13% label is faded and sits on top of a cube, so its text is washed out and barely readable on a phone. The 7% label covers part of the orange cube. The cubes are almost the same size, so they do not match 7, 6 and 13, and there is no baseline or axis. The three values mean different things (floor area, ?, construction cost), and the 6% label has no description. The scene is a dark empty void with a grid floor and no place or context."
+ },
+ "better": "X",
+ "why": "X shows a real scene with legible, high-contrast labels and a clear cost comparison. Y has an illegible, overlapping 13% label, cube sizes that do not match their values, and a missing description for 6%.",
+ "top_fix_for_weaker": "Scale the cube heights to 7/6/13 on a shared baseline. Move each label clear of its cube, giving every label the same opaque dark card. Add a description to the 6% label. Replace the empty void with a recognizable setting such as a building or floor plan."
+}

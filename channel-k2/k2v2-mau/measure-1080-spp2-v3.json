@@ -1,0 +1,74 @@
+{
+ "cau_hinh": "SPP2, fast (bóng 1024², viền 12 hướng, mặt nạ đủ phân giải), LOD tắt, spp1Km 0, --par 4, không chia",
+ "canh_3d_dong_ho_s": 2726.5,
+ "tong_dong_ho_s": 3150,
+ "khung": 1056,
+ "canh_3d_s_khung": 2.58,
+ "tong_s_khung": 2.98,
+ "lop_2d_s_khung": [
+  0.246,
+  0.237,
+  0.184,
+  0.2,
+  0.239
+ ],
+ "moi_tien_trinh": [
+  {
+   "seg": "H",
+   "shot": 0,
+   "hero": "relief/map",
+   "type": "map",
+   "w": 1920,
+   "h": 1080,
+   "spp": 2,
+   "s_per_frame": 7.12,
+   "frames": 372
+  },
+  {
+   "seg": "J",
+   "shot": 0,
+   "hero": "relief/map",
+   "type": "map",
+   "w": 1920,
+   "h": 1080,
+   "spp": 2,
+   "s_per_frame": 10.81,
+   "frames": 252
+  },
+  {
+   "seg": "N",
+   "shot": 0,
+   "hero": "relief/map",
+   "type": "map",
+   "w": 1920,
+   "h": 1080,
+   "spp": 2,
+   "s_per_frame": 10.88,
+   "frames": 204
+  },
+  {
+   "seg": "P",
+   "shot": 0,
+   "hero": "photo/print",
+   "type": "photo",
+   "w": 1920,
+   "h": 1080,
+   "spp": 2,
+   "s_per_frame": 5.83,
+   "frames": 132
+  },
+  {
+   "seg": "S",
+   "shot": 0,
+   "hero": "relief/map",
+   "type": "map",
+   "w": 1920,
+   "h": 1080,
+   "spp": 2,
+   "s_per_frame": 8.95,
+   "frames": 156
+  }
+ ],
+ "shot_mp4_sha256": "b7701ff98c2929ffe8077d5afe3eab560e192d340a33ea0a4d6f9b97d7b407f6",
+ "shot_mp4_bytes": 115328018
+}

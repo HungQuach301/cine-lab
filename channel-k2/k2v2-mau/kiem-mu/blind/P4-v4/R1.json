@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Balanced two-column layout with a tilted matted portrait on the left and a clear text hierarchy on the right: white name, gold date line, dim source line. Name, role and date are readable at once. The source line is small and grey, so it is marginal on a phone. The dark gradient on the right is clean, though the right side is somewhat empty."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "text_overlap",
+   "cluttered"
+  ],
+  "note": "The photo is large and tilted, and the caption sits over its lower portion. The gradient bar covers the bottom of the photo, including the man's legs and the matte, so the text collides with the image. The caption is legible but wide and flat. The source line is small, grey and low-contrast on the dark band. The text runs close to the left edge and the bottom. The image is cropped awkwardly, with the matte running off the bottom. Who and when are clear, but the composition feels crowded."
+ },
+ "better": "X",
+ "why": "X separates image from text cleanly with a clear hierarchy, while Y overlays its caption on the photo and crops the subject's legs.",
+ "top_fix_for_weaker": "Shrink and shift the photo up and left so it sits fully above a caption band or beside a text column, rather than behind the caption. Then enlarge the source line and raise its contrast, or split the caption into a name line and a smaller gold date line like X."
+}

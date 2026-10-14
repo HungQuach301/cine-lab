@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 8, "clarity": 9, "flags": [], "note": "Relief map with a clean comparison card. The color coding (teal for Erie Canal, amber for Main Line) matches the map regions and the score pills. Highlighted winning values make the comparison quick to read. The panel covers the eastern part of the map, and the row labels and icons are small on a phone. The 'Advantages: New York 3, Pennsylvania 0' pill is cryptic without narration."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 4, "flags": ["flat_slide_look", "empty_frame", "confusing"], "note": "A dark text card over a blurry, nearly invisible background, so it looks like a bullet slide. The body text is small, low-contrast gray, and the bottom third of the card is empty. The meaning is vague: 'The map can block any of these buildings' has no visible subject, and the checkboxes imply a checklist but there are no numbers or visuals to anchor it. The title says 'Three locks' but the items read as abstract and the 'costs' are never shown."}, 
+ "better": "X",
+ "why": "X shows a real place, with numbers visually compared and highlighted, while Y is a low-contrast text-only recap with vague wording and no visual anchor.",
+ "top_fix_for_weaker": "Make the text bigger and brighter (at least 1.4x, with higher-contrast body text), fill the empty space, and give each lock a concrete visual or number (an icon, a key figure like '4 stories' or '5 homes', or a sharp building image) in place of the blurred background. Rewrite the vague lines so they name the subject."}
+```

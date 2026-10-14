@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 9, "clarity": 9, "flags": [], "note": "Clean shaded-relief terrain with a clear state outline, and a dashed canal route linking two labelled endpoints. The year badge, caption and miles figure are all large and high contrast. Minor issues: the source line is smallish, the Buffalo label sits on the lake edge, and a thin white line runs through the caption gradient."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "The tilted satellite map is moody and dim, and the state borders are faint. The Minneapolis pin is tiny and the label has no data point, so the viewer can't tell what the map is meant to show. The label's subtitle is a citation, not information, which is odd. The caption is readable, but the multi-line grey source text is small and low contrast on a phone. The muddy brown Minnesota gives weak figure/ground separation."},
+ "better": "X",
+ "why": "X shows a specific place, route, date and quantity that tie directly to the caption, while Y's map is decorative and the pin doesn't connect to the claim about multifamily rent.",
+ "top_fix_for_weaker": "Make the map carry the story. Highlight Minnesota or the Twin Cities metro with a brighter fill or outline and dim the rest. Replace the citation in the pin label with a real data callout (e.g. a rent growth or vacancy figure). Shorten the source line to one larger line, or move it to a small corner credit."}
+```

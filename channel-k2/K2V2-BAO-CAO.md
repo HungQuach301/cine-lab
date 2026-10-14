@@ -471,3 +471,136 @@ Nhánh `k2-visual2` (từ `origin/main` @ `d3beb5f`; checks 1.10.2, LOCK `c59846
 3. **Giờ render 2,70 > 1,86 s/khung (T1).** Duyệt thử các đề xuất (a)–(d) ở V2b.3 trong phiên kế, mỗi mục đo bằng `lod_test.py`.
 4. **Nhãn ACTUAL cho số lịch sử (D5):** chuyển phiên K.
 5. **Các việc còn treo từ V2 (§9 bên trên):** đối chiếu trang The Met; chọn số lệch nguồn (568/571 ft; $7,1M).
+
+# V3 — merge V2b và một vòng tinh chỉnh cuối bộ hình k2v trước T2 (phiên V3, 14/10/2026; chủ dự án duyệt 14/10 20:45)
+- **Nhánh:** `k2-visual3`, tạo từ `main` sau khi merge.
+- **Không đụng tới:** không sửa `checks/`, không sửa tệp của tập, **không merge** `k2-visual3`.
+
+## V3.0 Tóm tắt
+| Hạng mục | V2b (vòng 3) | **V3 (vòng 4)** | Mục tiêu |
+|---|---|---|---|
+| Tay nghề chấm mù TB (mới) | 7,13 | **7,20** | ≥ 8 — **CHƯA ĐẠT** |
+| Lượt chọn mới vs T1 | 15/15 | **15/15** | — |
+| Cảnh 3D 1080p, đồng hồ thật / khung | 2,70 s | **2,58 s** (−4,4 %) | ≤ 1,86 s (T1) — **CHƯA ĐẠT** |
+| Toàn bộ, đồng hồ thật / khung | 3,08 s | **2,98 s** (−3,2 %) | T1 2,47 s |
+| Nhịp thị giác: khoảng TB / dài nhất / khung tĩnh dài nhất | 1,16 / 4,15 / 4,04 s | **1,16 / 4,15 / 4,04 s** | ≤ 3,5 s / — / ≤ 6 s — **ĐẠT** |
+| Mép 48 px / tương phản < 4,5 / chữ nhỏ | 0 / 0 / 0 | **0 / 0 / 0** (mép gần nhất 62 px) | 0 |
+| Chi phí API V3 | — | **$0,90 / trần $4** | — |
+
+- **Chỉ số nằm trong ±5 % quanh ngưỡng:** không có. Riêng mép gần nhất 62 px cách ngưỡng 48 px tới 29 %.
+- **1080p dựng MỘT lần**, sau tờ khung 540p.
+- **Không sửa thêm sau vòng 4**, đúng lệnh E7.
+
+## V3.1 Bước 0: merge
+- **AUTHORSHIP:** thêm 3 dòng: Kinh thánh + V2; quyết định V2b (18:08); quyết định V3 (20:45).
+- **Trước khi đẩy:** kiểm không email, không media lớn, `lock.py --verify` KHỚP, `test_k2v.py` 16/16.
+- **Merge:** `k2-visual2` → `main` dạng **fast-forward** (`d3beb5f` → **`c226cbf`**), đã đẩy `origin/main`.
+- **Bước 0b:** sửa Kinh thánh §4 đúng cụm từ được duyệt, commit **`3f87efd`**. Nội dung mới: "dòng nguồn ngắn khi có con số: chỉ tên nguồn ngắn, cỡ ≥ 38 px; nguồn đầy đủ ở mô tả/bình luận ghim (duyệt 14/10 20:45)".
+
+## V3.2 Sửa gì
+1. **Nguồn ngắn ≥ 38 px (E2):** `SRCPX` 34 → **38 px** ở 16:9; 9:16 giữ 46 px.
+   - Trên hình chỉ còn tên nguồn ngắn và ghi công tài sản ngắn nhất còn hợp lệ, ví dụ "Source: NPS, LOC · Terrain: USGS 3DEP". Ghi công USGS 3DEP là bắt buộc theo `RIGHTS.md`.
+   - Chân dung: "Painting: S. F. B. Morse · The Met (public domain)".
+   - Nguồn và ghi công đầy đủ: `channel-k2/k2v2-mau/mo-ta-nguon.en.txt`, dùng cho mô tả và bình luận ghim.
+   - Kiểm: mọi dòng nguồn **một dòng**; mép 48 px 0 vi phạm; tương phản 0 dưới 4,5. `test_v3_source_short` chặn khi `SRCPX` < 38 hoặc dòng nguồn > 70 ký tự.
+2. **Vạch ×10 cạnh chồng xu (E3):** `cols[].ruler` (`true` = theo số xu; `N` = N vạch), `rulerSide`.
+   - Cột và vạch khắc, vạch thứ 5 sẫm. Vạch mọc lên cùng chồng xu.
+   - Có bóng thật và viền như vật khác.
+   - Nhãn "×10" ở 2,9 s (xe ngựa) và "1 of 10" ở 3,8 s (kênh).
+   - Chú thích đổi thành "Each coin is one tenth of the wagon cost; the ruler marks ten coins".
+3. **Bảng điểm thu gọn (E4):** `w: 768`, chiếm **40 % bề rộng khung**, căn phải để lộ bản đồ bên trái.
+   - Chế độ gọn tự bật khi `w` < 1000: nhãn hàng và biểu tượng ở dòng trên, giá trị ở dòng dưới.
+   - Huy hiệu góc đổi "Rows won:" thành **"Advantages:"**.
+4. **Sticker/nhân vật J lớn hơn:** bao lúa 170, nông dân 230, thuyền 125, người lái 220, thương nhân 230 px.
+5. **Tốc độ (E6):** mục V3.3. **E5 (PBR): KHÔNG làm**, đúng lệnh.
+
+## V3.3 Tốc độ, từng mục (`scripts/k2/lod_test.py --set v3`; `lod-test-v3.json`, tờ so `lod-test-v3-sheet.jpg`)
+- **Cách đo:** cùng 6 khung 1080p như V2b; 1 tiến trình; so với chuẩn SPP4 (cấu hình V2b).
+- **Lưu ý:** A và B đo lại cùng lượt, nên số tuyệt đối khác bảng V2b.3. **Chỉ dùng để so tương đối.**
+
+| Mục | Cấu hình | SSIM TB (min) | pHash max | s/khung | Quyết định |
+|---|---|---|---|---|---|
+| chuẩn | A SPP4 (V2b) | 1 | 0 | 10,69 | — |
+| gốc V2b | B SPP2 | 0,9654 (0,948) | 2 | 8,23 | — |
+| **(a)** | **E SPP2 + bóng 1024² + viền 12 hướng, mặt nạ đủ phân giải** | **0,9652 (0,948)** | **2** | **7,03 (−14,6 %)** | **CHỌN** |
+| (a) bản đầy đủ | mặt nạ viền ½ phân giải | — | — | — | **Bác:** viền bậc thang ở 2× |
+| (b) | F SPP1 + fast | 0,9702 | 2 | 6,40 | **Bác:** mép vật răng cưa |
+| (b) | G SPP2 + SPP1/lọc cạnh khi > 500 km | 0,9702 (0,955) | 2 | 6,72 | **Bác:** mép vật răng cưa ở 2× |
+
+- **SSIM không bắt được răng cưa mép vật.** F/G có SSIM *cao hơn* B vì bớt jitter đổi mẫu trên vân địa hình dày. Nhưng soi 2× thì đường viền trắng và mép thuyền/xe bị bậc. Theo nguyên tắc chất lượng trước, (b) đã cài (`opt.spp1Km`) nhưng **để mặc định tắt**.
+- **Lịch dựng 540p nháp** (cả cuộn, đồng hồ thật):
+
+| Mục | Cấu hình | Đồng hồ |
+|---|---|---|
+| — | 3 tiến trình | 687,4 s |
+| **(c)** | 4 tiến trình | 684,6 s (−0,4 %) |
+| **(d)** | 4 tiến trình + chia cảnh ≤ 130 khung | 707,4 s (+3 %) |
+
+  - SwiftShader đã dùng hết 4 vCPU từ 3 tiến trình (load ~14), nên thêm tiến trình hay chia việc chỉ thêm tranh chấp và chi phí khởi động trang.
+  - (c) giữ cho 1080p vì không hại. (d) **không dùng**, nhưng giữ cờ `--chunk` cho máy nhiều nhân hơn.
+- **Cuộn 1080p V3** (SPP2 + E, 4 tiến trình, đồng hồ thật; `measure-1080-spp2-v3.json`):
+
+| | V2b | **V3** | T1 |
+|---|---|---|---|
+| Cảnh 3D / khung | 2,70 s (2 847,5 s) | **2,58 s** (2 726,5 s / 1 056) | 1,86 s |
+| Toàn bộ / khung | 3,08 s (3 248 s) | **2,98 s** (3 150 s) | 2,47 s |
+| Mỗi tiến trình (s/khung) | H 5,81 · J 10,65 · N 10,20 · S 4,35 · P 3,71 | H 7,12 · J 10,81 · N 10,88 · S 8,95 · P 5,83 | — |
+
+- **Vì sao chỉ −4 %, trong khi đo đơn lẻ là −15 %:** đồng hồ cả cuộn do **đoạn dài nhất (J, N: ~10,8 s/khung × 252 và 204 khung)** quyết định. Trong 4 tiến trình, mỗi tiến trình chậm đi vì tranh CPU. Phần tiết kiệm của E (bóng và viền) chỉ có ở đoạn có vật.
+- **Kết luận:** chạy CPU/SwiftShader trên 4 vCPU thì **không về được ≤ 1,86 s/khung mà không giảm chất lượng.** Đề xuất (chờ chủ dự án, xem V3.6):
+  - (i) Môi trường render có GPU, hoặc nhiều vCPU hơn. Đây là hướng duy nhất về được T1 mà giữ nguyên hình.
+  - (ii) Cache nền địa hình tĩnh theo khung khi máy đứng yên. Cần thêm mã; lợi ích chỉ ở các đoạn máy chậm.
+  - (iii) Chấp nhận 2,6 s/khung cho kênh 2. Với tập 10 phút, chênh lệch so với T1 là ~1,6 giờ máy mỗi tập.
+
+## V3.4 Chấm mù vòng 4 (`blind_v2.py rejudge4`)
+- **Giao thức:** cùng 3 người chấm, cùng model ghim `claude-sonnet-5-5`, cùng cặp, cùng khung T1, cùng thứ tự X/Y, cùng đề bài.
+- **Mốc giây:** giữ `key.json` (13,0 / 21,0 / 31,0 / 36,0 / 42,5 s), **khai trước khi dựng 1080p**; chế độ `rejudge4` commit trong `d73a6a2`, trước lượt dựng.
+
+| Cặp | Vòng 3: T1 → mới | **Vòng 4: T1 → mới** | Đọc / Rõ ý (v4) | Chọn v4 | Cờ mới v4 |
+|---|---|---|---|---|---|
+| P1 bản đồ móc | 6,0 → 8,0 | 6,0 → **7,67** (8/7/8) | 8,67 / 9,0 | mới 3/3 | — |
+| P2 hành trình | 7,0 → 6,67 | 7,0 → **7,0** (7/7/7) | 8,0 / 8,0 | mới 3/3 | — |
+| P3 số liệu | 4,33 → 7,0 | 4,0 → **7,0** | 8,0 / 7,0 | mới 3/3 | cluttered |
+| P4 chân dung | 5,33 → 7,0 | 5,33 → **7,0** | 8,0 / 9,0 | mới 3/3 | — |
+| P5 bảng điểm | 3,67 → 7,0 | 3,33 → **7,33** (7/7/8) | 7,33 / 8,33 | mới 3/3 | cluttered |
+| **TB** | 5,27 → 7,13 | 5,13 → **7,20** | | **15/15** | 2 cờ |
+
+- **Đọc kết quả:** +0,07 nằm trong mức nhiễu của phép đo. Khung T1 giống hệt mà dao động ±0,33 giữa các vòng, nên **coi như giữ nguyên tay nghề**.
+- **Có tiến bộ:**
+  - Readability P1 tăng 8,0 → 8,67.
+  - P5 có 1/3 người chấm cho 8; ghi nhận "score chips… explain the comparison quickly".
+  - P2 (J) tăng 6,67 → 7,0: người chấm ghi "figures add narrative"/"carry the story". Tuy vậy 2/3 người chấm vẫn nêu nhân vật "small" và "a little clip-art"; nét tuyến Hudson mảnh.
+- **Ghi nhận trung thực các điểm V3 chưa đạt:**
+  1. **Vạch ×10 bị đọc là "tiny ladder / cryptic gizmo"** (P3 3/3), và được gắn cờ cluttered. Ở khung chấm (máy ~125 km, ảnh 1280 px), vạch quá mảnh. Đồng xu "1 of 10" là một đĩa phẳng, nên tỷ lệ chưa hiện ra ngay. Nhãn ACTUAL lặp 3 lần (D5, việc của K) vẫn bị nêu.
+  2. **Bảng điểm gọn:** chữ trong bảng nhỏ trên điện thoại (P5 3/3). "Advantages: 3 / 0" vẫn "cryptic without narration" (1/3). Ở phim có lời, câu thoại sẽ giải nghĩa.
+  3. **Dòng nguồn 38 px** vẫn bị nêu "smallish" ở P1/P4, nhưng không còn là điểm yếu chính.
+  4. **Vật/nhân vật "clip-art"** (P2): giới hạn của công thức sticker toon. E5 (PBR) đã được chủ dự án quyết không làm.
+
+## V3.5 Chi phí, kiểm trước khi đẩy
+- **Chi phí:**
+  - Claude API V3: **$0,90 / trần $4** (15 lượt; sổ luỹ kế $3,61). `rejudge4` tự dừng khi chi phí V3 vượt $3,6.
+  - ElevenLabs, YouTube: 0.
+  - Giờ máy: 540p nháp 3 lượt (~35 phút), `lod_test --set v3` (~25 phút), 1080p **một lần 52,5 phút**.
+- **Kiểm:**
+  - `test_k2v.py`: **18/18 ĐẠT**; thêm `test_v3_source_short`, `test_v3_ruler_and_chunk`.
+  - `checks/lock.py --verify`: **KHỚP** (`c598467f…`).
+  - Luật K: Q33 ĐẠT; Q32 ĐẠT (tư liệu 11,4 %); Q34(c) số neo 3D 100 %. Q34(a)(b) trượt vì cuộn mẫu không có lời, như V2/V2b.
+- **Media:**
+  - Cuộn 1080p **không vào git**: SHA-256 `b7701ff98c2929ffe8077d5afe3eab560e192d340a33ea0a4d6f9b97d7b407f6`, 115,3 MB, `/var/tmp/cine-out/k2v-shots/K2V2-reel/shot.mp4`.
+  - Ảnh commit lớn nhất < 0,6 MB.
+- **Tệp sửa/mới:**
+  - `design/k2v/{relief,page}.js`, `design/k2v/README.md` (mục V3).
+  - `scripts/k2/{vshot.py,lod_test.py,test_k2v.py}`, `scripts/k2/lib/k2.js`.
+  - `channel-k2/k2v2-mau/{K2V2-reel.yaml, mo-ta-nguon.en.txt, to-khung-540.jpg, to-khung-1080.jpg, rhythm-v3.json, lod-test-v3.json, lod-test-v3-sheet.jpg, measure-1080-spp2-v3.json, blind_v2.py, kiem-mu/…-v4}`.
+  - `docs/BIBLE-KENH2.md`, `AUTHORSHIP.md`.
+
+## V3.6 Việc đang chờ chủ dự án
+1. **Duyệt V3:** nguồn ngắn 38 px, vạch ×10, bảng điểm 40 %, J lớn hơn, cấu hình tốc độ E. Sau đó P merge `k2-visual3`, rồi sang **T2** (E7).
+2. **Tay nghề 7,2 < 8.** V3 đã hết lượt sửa. Đề xuất mang vào T2, mỗi mục nêu tác động và rủi ro:
+   - (a) **Vạch ×10:** to gấp 2–3 lần, kèm số "10" khắc ở đỉnh; hoặc bỏ vạch, thay bằng 10 đĩa xếp hàng cạnh nhau.
+     - Ưu: tỷ lệ đọc bằng mắt.
+     - Nhược: chiếm chỗ trong khung.
+   - (b) Bảng điểm: chữ trong bảng ≥ 34 px; giữ 40 % khung bằng cách bớt dòng phụ.
+   - (c) Nhãn ACTUAL một lần mỗi khung (D5): việc của phiên K.
+3. **Tốc độ 2,58 > 1,86 s/khung:** chọn hướng ở V3.3: (i) GPU/nhiều vCPU, (ii) cache nền, hoặc (iii) chấp nhận.
+4. **Còn treo từ V2:** đối chiếu trang The Met; chọn số lệch nguồn (568/571 ft; $7,1M).

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 7, "flags": ["cluttered"], "note": "Terrain map with a wagon and a coin stack vs a canal boat and a single coin is a strong visual metaphor with good lighting. The big callout nearly touches the coin stack. The tiny rulers and the 'ACTUAL' tags add noise. The 'ruler marks ten coins' caption is not obvious from the image. Where the places are (Buffalo, New York) is inferred, not shown."},
+ "Y": {"craft": 4, "readability": 4, "clarity": 3, "flags": ["text_overlap", "illegible_text", "confusing", "empty_frame"], "note": "Three plain cubes on a dark grid. The 13% label is faded and the cube overlaps it, so it is hard to read on a phone. The 7% label covers the orange cube. Cube sizes do not match the 7/6/13 values (13% looks no bigger than 6%). The labels are not tied to clear categories, and the upper half of the frame is empty. It reads like a generic placeholder chart."},
+ "better": "X",
+ "why": "X shows a real scene with a clear contrast between wagon and canal and readable labels, while Y has overlapping, faded text and cubes whose sizes do not match their values.",
+ "top_fix_for_weaker": "Move the labels clear of the cubes so nothing overlaps. Make the 13% label full-contrast. Scale the cube heights to the actual values (7, 6, 13). Put the labels above each cube with a clear category name, and fill the frame with a real subject such as a building cross-section showing the extra stair."}
+```

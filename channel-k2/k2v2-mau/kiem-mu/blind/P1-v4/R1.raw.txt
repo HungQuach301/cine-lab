@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 8, "readability": 9, "clarity": 9, "flags": [], "note": "Bright relief-shaded terrain with a clear state outline. The dashed canal route runs between the Buffalo and Albany labels, and the year badge and caption are large and high contrast. The scene reads instantly as a place and a route. Minor issues: the canal line is thin and the source line is small."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Dark, murky satellite-style map that is tilted and blurry. It is hard to tell the state is Minnesota, because no state name appears. The Minneapolis pin is tiny, and the label's tiny sub-line (Federal Reserve Bank, Oct 2026) is a source credit rather than location information. The caption quote is readable, but the multi-line source credit is small on a phone. Muted contrast and the heavy bottom gradient make it feel flat and gloomy."},
+ "better": "X",
+ "why": "X shows where and what at a glance with strong contrast and a clear route, while Y is a dim, vague regional map with a tiny pin and no obvious subject.",
+ "top_fix_for_weaker": "Brighten and sharpen the terrain, highlight and label the Minnesota state outline, and zoom in on the Twin Cities with a larger pin. Shorten the label to 'Minneapolis' and drop the Federal Reserve credit from it, and cut the source line to one short line."}
+```

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 9, "flags": [], "note": "Clean split layout. The tilted matted portrait has a soft shadow, and the warm dark background with a vignette suits the subject. The text column has a clear hierarchy (name, title, gold date, source) with an accent bar. The source line is small and a bit dim for a phone. The card sits slightly low-left and the right side is a little empty. Otherwise polished and well balanced."},
+ "Y": {"craft": 5, "readability": 6, "clarity": 7, "flags": ["text_overlap", "cluttered"], "note": "The photo is large and the 3D tilt gives depth. But the caption gradient bar sits on top of the photo's lower third and cuts off the man's legs and the planter. The white caption text runs over the bright matte and photo with only a gradient behind it, so it is not clean. The source line is tiny and low-contrast. The photo is cropped by the frame bottom, and the bottom text sits close to the edge, which risks the phone safe area. The portrait itself reads clearly."},
+ "better": "X",
+ "why": "X keeps the image and text separate with a clear hierarchy, while Y's caption gradient covers the photo and the text collides with the matte.",
+ "top_fix_for_weaker": "Shift or scale the photo up and left so the caption bar sits entirely below the image, or move the caption into a side column as in X. Make the source line larger and higher-contrast, and keep it inside the phone-safe margins."}
+```

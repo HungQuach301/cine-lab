@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The globe render looks good, but the frame is mostly irrelevant ocean and Mexico. The Texas callout is a small, dense line of text that is hard to read on a phone. The source line and the 'As of' chip are tiny. The caption says 'cities may allow' while the callout is about Texas, so the claim doesn't match the visual. There is no route or movement, so it doesn't really fit the 'map showing a route' brief."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "A clean, zoomed relief map with large, high-contrast labels. The orange route line from Buffalo to Albany and the dotted line down the Hudson to New York make the movement clear, and the farmer and boatman figures add narrative. The figures are a little clip-art and flat. The Genesee Valley label sits slightly off its pin. The route is thin."
+ },
+ "better": "Y",
+ "why": "Y shows a legible, labelled route that is understood at a glance and matches its caption, while X has tiny callout text and a caption that doesn't match the Texas highlight.",
+ "top_fix_for_weaker": "Zoom into the US, highlight Texas and any other relevant states, and use one short callout (e.g. 'Texas: single-stair to 6 stories') in text about 1.5x larger. Remove the unrelated ocean, and make the caption match the highlighted subject."
+}

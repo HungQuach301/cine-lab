@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 8, "flags": ["cluttered"], "note": "Relief map with a color-coded NY vs PA comparison panel. The score chips, icons and highlighted winning values explain the comparison quickly. The panel covers the right third of the map and hides part of the geography. Several labels are small, and the Opened, Length and Climb values are close to phone-illegible. No route lines are drawn for the Main Line, and the Erie Canal line is thin."},
+ "Y": {"craft": 3, "readability": 6, "clarity": 4, "flags": ["flat_slide_look", "empty_frame", "confusing"], "note": "A text-only recap card over a blurred dark background. Nothing visual supports it, and the bottom third of the card is empty. The body text is small and low-contrast grey, and the long third line is hard to read on a phone. Wording like 'sorts at 5 homes' and 'the map can block' is vague without context. The checkboxes are decorative. This looks like a PowerPoint bullet slide."},
+ "better": "X",
+ "why": "X ties its data to real geography with color coding and highlighted winners, while Y is a flat bullet slide with small grey text and a dead lower third.",
+ "top_fix_for_weaker": "Replace the text card with three large icon or illustration tiles (map, stairwell, bank). Give each one a bold number such as '4 stories' or '5 homes' at 40pt or larger, and cut the supporting text to a few words. Fill the frame with the building scene instead of a blurred background."}
+```
