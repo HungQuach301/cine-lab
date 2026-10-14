@@ -137,4 +137,4 @@ Gộp 1–4: dựng lại 1–2 cảnh + lớp chữ cả phim + ghép ≈ 2–2
 | Đĩa phiên | trần ~12 GB trống; khung cảnh 1080p 8,9 GB + master 1,58 GB là phần lớn nhất | `df`, `du` |
 
 ## 12. Sau duyệt G2 (14/10/2026)
-- D1 S1 · D2 giữ bản, 4 điểm → `BAI-HOC-K2.md` K11 · D3 nhánh `release-k2c-t1-06-v1` (Git LFS) · D4 khiếu nại giữ cho K · D5 giấy phép Pexels đã rà → AUTHORSHIP. Kết quả phát hành và merge `main`: xem báo cáo cuối của phiên.
+- D1 S1 · D2 giữ bản, 4 điểm → `BAI-HOC-K2.md` K11 · D3 nhánh `release-k2c-t1-06-v1` (Git LFS) · D4 khiếu nại giữ cho K · D5 giấy phép Pexels đã rà → AUTHORSHIP. **Phát hành (14/10/2026):** nhánh mồ côi `release-k2c-t1-06-v1` @ `0aa26ec24e75c420452911b96b233a765574996f` (Git LFS cho 2 mp4; README + 10 tệp gói). Hạn mức LFS: **không đọc được** (cần đăng nhập trang billing; phiên không có `gh`). Push LFS 2/2 (1,6 GB) thành công lần đầu. **Tải ngược:** clone mới nhánh release (con trỏ 135 byte) → `git lfs pull` → `sha256sum -c SHA256SUMS.txt`: **10/10 OK** (master 4f2d280b…, S1 4314fed7…, .srt, mô tả, bình luận ghim, tiêu đề, PACKAGING-BRIEF, nền 1–3). Merge `main`: báo cáo cuối của phiên.

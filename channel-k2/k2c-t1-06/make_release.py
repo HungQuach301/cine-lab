@@ -76,7 +76,7 @@ open(f'{D}/nguon-binh-luan-ghim.en.txt', 'w').write(pin)
 open(f'{D}/titles.txt', 'w').write(f'CHÍNH: {TITLES[0]} ({len(TITLES[0])} ký tự)\nDỰ PHÒNG (Test & Compare): {TITLES[1]} ({len(TITLES[1])} ký tự)\nPHƯƠNG ÁN 3 (không dùng): {TITLES[2]} ({len(TITLES[2])} ký tự)\n')
 srt = f"{O}/{TL['id']}.en.srt"
 if os.path.exists(srt): shutil.copy(srt, f'{D}/{TL["id"]}.en.srt')
-files = [f for f in [f'{O}/{TL["id"]}-v1-master.mp4'] + [f'{O}/shorts/{TL["id"]}-short-{s["id"]}.mp4' for s in TL['shorts']] + [f'{D}/{TL["id"]}.en.srt', f'{D}/description.en.txt', f'{D}/nguon-binh-luan-ghim.en.txt'] if os.path.exists(f)]
+files = [f for f in [f'{O}/{TL["id"]}-v1-master.mp4'] + [f'{O}/shorts/{TL["id"]}-short-{s["id"]}.mp4' for s in TL['shorts']] + [f'{D}/{n}' for n in (f'{TL["id"]}.en.srt', 'description.en.txt', 'nguon-binh-luan-ghim.en.txt', 'titles.txt', 'PACKAGING-BRIEF.md', 'nen-1.jpg', 'nen-2.jpg', 'nen-3.jpg')]   # mọi tệp của nhánh release (D3, 14/10) if os.path.exists(f)]
 with open(f'{D}/SHA256SUMS.txt', 'w') as fh:
     for f in files: fh.write(hashlib.sha256(open(f, 'rb').read()).hexdigest() + '  ' + os.path.basename(f) + '\n')
 print(json.dumps(dict(files=[os.path.basename(f) for f in files], titles=TITLES, chapters=len(TL['segments']), music=len(mus), sfx=len(sfx), loc=len(loc)), ensure_ascii=False))
