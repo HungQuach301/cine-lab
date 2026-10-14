@@ -178,7 +178,7 @@ TPLC.list = (g, c, t, u) => { const R = CARD, n = c.items.length, top = R.y + (c
       if (i < n - 1) { g.save(); g.globalAlpha *= a * u; g.fillStyle = K.steel; g.beginPath(); g.moveTo(x + bw + 12, y + h / 2 - 16); g.lineTo(x + bw + 38, y + h / 2); g.lineTo(x + bw + 12, y + h / 2 + 16); g.fill(); g.restore(); } }); return; }
   const px = (c.px || 40) * S, mw = R.w - 180, gap = (c.gap || 64) * S;
   const hts = c.items.map((it) => wrap(g, it.s, mw, px, 600).length * px * 1.28 + (it.sub ? wrap(g, it.sub, mw, 32 * S, 500).length * 32 * S * 1.28 + 16 : 0));
-  const total = hts.reduce((x, h) => x + h, 0) + gap * (c.items.length - 1), foot = R.y + R.h - 90 * S; let y = top + Math.max(30, ((foot - top) - total) / 2) + px * 0.8;
+  const total = hts.reduce((x, h) => x + h, 0) + gap * (c.items.length - 1), foot = R.y + R.h - 90 * S; let y = top + (c.top ? 30 * S : Math.max(30, ((foot - top) - total) / 2)) + px * 0.8;   // c.top: bám trên (dòng nguồn nhiều dòng ở đáy thẻ)
   c.items.forEach((it, i) => { const a = rv(t, it.at, 0.5), col = it.c || K.orange; if (a > 0) { g.save(); g.globalAlpha *= a * u;
       if (it.check === false) { g.fillStyle = col; g.fillRect(R.x + 60, y - px * 0.8, 8, px * 0.9); }
       else { g.strokeStyle = col; g.lineWidth = 3; g.strokeRect(R.x + 60, y - 30 * S, 30 * S, 30 * S); g.beginPath(); g.moveTo(R.x + 66, y - 14 * S); g.lineTo(R.x + 60 + 13 * S, y - 6); g.lineTo(R.x + 60 + 26 * S, y - 26 * S); g.stroke(); } g.restore();

@@ -313,7 +313,7 @@ segments:
       - {tpl: plate, at: "@outside-0.6", type: map, scene_id: map/globe, places: [auckland], p: {hero: m_auckland, frame0: 0,
            places: [{a: auckland, s: "Auckland, New Zealand", sub: "upzoned about three quarters of its residential land", at: "@auckland", side: right, c: "#3CC2B0"}],
            cap: [{big: "≈ 21,800", s: "additional homes permitted in five years — about 4% of the housing stock (2023 working paper)", kind: actual, at: "@21,800", num: c44}], src: [AKL]}}
-      - {tpl: plate, at: "@mixed-1.6", in: fade, type: card, p: {hero: e_25, frame0: 60, speed: 0.4, src: [MPLSFED, TERNER23, STACY, AKL], card: {type: list, kicker: "THE RECORD", title: "On housing production, the record is mixed", px: 34, gap: 30, top: 170,
+      - {tpl: plate, at: "@mixed-1.6", in: fade, type: card, p: {hero: e_25, frame0: 60, speed: 0.4, src: [MPLSFED, TERNER23, STACY, AKL], card: {type: list, kicker: "THE RECORD", title: "On housing production, the record is mixed", px: 34, gap: 22, top: 160,
            items: [{s: "Minneapolis · SB 9's first year", sub: "counts in the hundreds or fewer", at: "@minneapolis#3"}, {s: "Urban Institute · Auckland", sub: "found increases", at: "@urban#2"},
                    {s: "Different measures, different places", sub: "they don't add up to one number", at: "@different", c: "#B8C2CE"},
                    {s: "Not covered: Washington's 2023 law, traffic, city-by-city concerns", at: "@covers", check: false, c: "#B8C2CE"}]}}}
