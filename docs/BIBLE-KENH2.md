@@ -45,7 +45,7 @@ Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (l�
 - Hồ sơ thật 10–15 % thời lượng; 1–2 cảnh 3D đặc trưng.
 - Thủ pháp chạy suốt: bảng điểm (biểu tượng góc + bảng tổng kết).
 - **Nhịp (sửa 14/10 18:08): đo theo NHỊP THỊ GIÁC** — trung bình ≤ 3,5 s có một biến cố hình mới (máy đổi hướng/tầm, vùng/tuyến/sticker/số liệu xuất hiện, chuyển bảng màu, cắt cảnh); cắt cứng chỉ khi đổi cảnh; không giữ khung tĩnh > 6 s. (Đối thủ đo được 3,3 s/shot.)
-- Chữ trên màn hình: dòng nguồn ngắn khi có con số, cỡ 34 px (duyệt 14/10); "Facts as of" chỉ với luật đang hiệu lực (chờ K sửa luật).
+- Chữ trên màn hình: dòng nguồn ngắn khi có con số: chỉ tên nguồn ngắn, cỡ ≥ 38 px; nguồn đầy đủ ở mô tả/bình luận ghim (duyệt 14/10 20:45); "Facts as of" chỉ với luật đang hiệu lực (chờ K sửa luật).
 - Âm thanh: khoảng −14 đến −15 LUFS, đỉnh ≤ −1 dBFS (chờ K đưa vào luật).
 
 ## 5. Gói phát hành
