@@ -18,9 +18,11 @@ const SAMPLE = +arg('sample', 12);
   const browser = await chromium.launch({ args: ['--disable-gpu', '--font-render-hinting=none', '--force-color-profile=srgb'] });
   const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; }); page.on('console', (m) => console.error('[page]', m.text()));
-  const libs = ['k2'].map((n) => fs.readFileSync(path.join(LIB, n + '.js'), 'utf8')).join('\n;\n');
+  const libs = ['sticker', 'k2'].map((n) => fs.readFileSync(path.join(LIB, n + '.js'), 'utf8')).join('\n;\n');
   // ảnh tư liệu (mẫu archive): nạp sẵn thành data URI, chờ giải mã xong mới vẽ
-  const imgs = [...new Set((JSON.stringify(spec).match(/"img":"([^"]+)"/g) || []).map((m) => m.slice(7, -1)))];
+  const imgs = [...new Set((JSON.stringify(spec).match(/"img":"([^"]+)"/g) || []).map((m) => m.slice(7, -1)))].filter((f) => !/^(stk|role):/.test(f));
+  // V2: sticker thư viện 'stk:<tên>' (p.stickers[].img, p.score icon) → design/k2v/stickers/<tên>.png
+  const stks = [...new Set((JSON.stringify(spec).match(/"stk:[a-z0-9-]+"/g) || []).map((m) => m.slice(5, -1)))];
   const REPO = path.join(__dirname, '..', '..');
   // cảnh đinh 3D (mẫu plate): đếm khung của mỗi thư mục, ghi p.n vào đặc tả; nạp đúng khung trước mỗi drawFrame (xem vòng lặp)
   const plates = spec.shots.filter((s) => s.tpl === 'plate').map((s) => { const d = path.isAbsolute(s.p.dir) ? s.p.dir : path.join(path.join(__dirname, '..', '..'), s.p.dir);
@@ -33,7 +35,8 @@ const SAMPLE = +arg('sample', 12);
     for (const { s, d } of plates) if (t >= s.t0 - 1.2 && t <= s.t1 + 1.5 && s.p.n) { const x = Math.max(0, (t - s.t0) * 24 * (s.p.speed || 1)) + (s.p.off || 0), i0 = Math.floor(x + 1e-6);   // K2: nền chậm (speed < 1) hoà 2 khung kề (tránh giữ khung = judder Q1)
       for (const i of new Set([i0, i0 + 1].map((k) => Math.max(0, Math.min(s.p.n - 1, k))))) need.push([s.p.dir + '#' + i, path.join(d, String(i).padStart(5, '0') + '.jpg')]); }
     return need; };
-  const imgjs = imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
+  const stkjs = stks.map((n) => `IMGS['stk:${n}']=Object.assign(new Image(),{src:'data:image/png;base64,${fs.readFileSync(path.join(REPO, 'design/k2v/stickers', n + '.png')).toString('base64')}'});`).join('');
+  const imgjs = stkjs + imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>
 <script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};window.ANC=${JSON.stringify(ANCS)};${imgjs}</script><script>${libs}</script></body></html>`;
   await page.setContent(html); await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(Object.values(window.IMGS).map((i) => i.decode())));

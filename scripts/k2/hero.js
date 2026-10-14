@@ -30,7 +30,8 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
   const page = await browser.newPage({ viewport: { width: 800, height: 600 } });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; });
-  page.on('console', (m) => { const t = m.text(); if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader/i.test(t)) console.error('[page]', t); });
+  page.on('console', (m) => { const t = m.text(); if (/Shader Error|VALIDATE_STATUS false/.test(t)) { console.error('[page] LỖI SHADER — dừng (V2 14/10: lỗi biên dịch từng cho ra khung thiếu địa hình mà không báo)', t.slice(0, 600)); process.exit(7); }
+    if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader/i.test(t)) console.error('[page]', t); });
   await page.route('http://cine.local/**', (route) => {
     const u = decodeURIComponent(new URL(route.request().url()).pathname), p = u.startsWith('/cache/') ? path.join(CACHE, u.slice(7)) : u.startsWith('/assets/') ? path.join(ROOT, '..', u) : path.join(ROOT, u);   // /assets/: tư liệu tài sản công đã commit (RIGHTS.md)
     const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : p.endsWith('.jpg') ? 'image/jpeg' : 'text/html';

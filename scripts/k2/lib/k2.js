@@ -77,9 +77,13 @@ function labels(g, p, t) { for (const L of p.labels || []) { const u = vis(t, L.
 function tags(g, p, t, list) { for (const L of list || []) { const u = vis(t, L.at, L.out); if (u <= 0.01) continue; const A = anc(p, t, L.a); if (!A || !A.v) continue;
   const big = !!L.big, px = (L.px || (big ? 54 : 36)) * S, spx = (L.spx || 32) * S, w1 = tw(g, L.s, px, 700, big), w2 = L.sub ? tw(g, L.sub, spx, 500) : 0, kw = L.kind ? tw(g, L.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', MINPX * 0.9, 700) + MINPX * 1.4 : 0;
   const bw = Math.max(w1 + kw, w2) + 46, bh = (L.sub ? px * 1.2 + spx * 1.35 : px * 1.2) + 26, gap = (L.gap === undefined ? 30 : L.gap) * S, side = L.side || 'right', c = L.c || K.orange;
-  let bx = side === 'right' ? A.x + gap : side === 'left' ? A.x - gap - bw : A.x - bw / 2, by = side === 'up' ? A.y - gap - bh : side === 'down' ? A.y + gap : A.y - bh / 2;
   const yMax = (p.src || p.cap) ? (V ? SAFE.y1 - 150 * S : Math.min(SAFE.y1 - 150 * S, H * 0.735 + 10)) : SAFE.y1;   // không đè dải chú thích/dòng nguồn (13/10: 16:9 chặn ở đỉnh câu chú thích, nhãn 317 từng đè câu ở ch_mpls)
-  bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, bx)); by = Math.max(SAFE.y0, Math.min(yMax - bh, by));
+  const boxOf = (sd) => { let x = sd === 'right' ? A.x + gap : sd === 'left' ? A.x - gap - bw : A.x - bw / 2, y = sd === 'up' ? A.y - gap - bh : sd === 'down' ? A.y + gap : A.y - bh / 2;
+    return [Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, x)), Math.max(SAFE.y0, Math.min(yMax - bh, y))]; };
+  // V2 (BAI-HOC-K2 K11): side 'auto' = hướng đầu tiên trong up/right/left/down không chạm hộp sticker/nhãn đã vẽ ở khung này (LL.occ); giữ hướng đã chọn để nhãn không nhảy
+  let side2 = side; if (side === 'auto') { const occ = LL.occ || [], hit = ([x, y]) => occ.reduce((m, o) => m + Math.max(0, Math.min(x + bw, o[2]) - Math.max(x, o[0])) * Math.max(0, Math.min(y + bh, o[3]) - Math.max(y, o[1])), 0);
+    const cand = (L.prefer || ['up', 'right', 'left', 'down']); if (!L._side || hit(boxOf(L._side)) > 0) { let best = null; for (const sd of cand) { const h2 = hit(boxOf(sd)); if (!best || h2 < best[1]) best = [sd, h2]; if (!h2) break; } L._side = best[0]; } side2 = L._side; }
+  let [bx, by] = boxOf(side2); (LL.occ = LL.occ || []).push([bx, by, bx + bw, by + bh]);
   if (gap > 6 * S) { const ex = Math.max(bx, Math.min(bx + bw, A.x)), ey = Math.max(by, Math.min(by + bh, A.y)); g.save(); g.globalAlpha *= u; g.strokeStyle = c; g.lineWidth = 2.5; g.beginPath(); g.moveTo(A.x, A.y); g.lineTo(ex, ey); g.stroke();
     if (!L.nodot) { g.fillStyle = c; g.beginPath(); g.arc(A.x, A.y, 5.5, 0, 7); g.fill(); } g.restore(); }
   panel(g, bx, by, bw, bh, { a: u, accent: c, dash: L.kind === 'projection', fill: 'rgba(12,18,27,0.93)' });   /* nền đặc hơn thẻ: nhãn nằm trên cảnh 3D sáng/tối bất kỳ (chấm mù P2: chữ phụ mờ) */
@@ -109,6 +113,57 @@ function title(g, p, t) { const T = p.title; if (!T) return; const u = vis(t, T.
   if (T.sub) para(g, T.sub, cx, cy + (V ? 130 : 110), V ? W - 160 : 1400, (V ? 50 : 44), K.dim, { a: u, w: 500, align: 'center' }); }
 function asof(g, p, t) { if (!p.asof) return; const u = vis(t, p.asofAt === undefined ? p.t0 : p.asofAt); const s = p.asof === true ? 'Facts as of 11 Oct 2026' : p.asof;
   const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = p.asofY !== undefined ? p.asofY : V ? 210 : (p.card ? 28 : 56);   /* asofY: Short có hook 2 dòng đặt nhãn dưới dải hook */ panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
+
+// ---------- STICKER + BẢNG ĐIỂM (phiên V2, 14/10/2026; scripts/k2/lib/sticker.js) ----------
+// p.stickers: [{a: 'st:<id>' | 'col:<id>' | địa danh, img: 'stk:<tên thư viện>' | 'role:<vai>' | {role, hat, hand}, at, out, px (cao, px @1080p),
+//   pop (bật nảy khi vào, mặc định true), walk (nhún khi đi theo tuyến), bob (lắc nhẹ khi đứng), flip: 'auto' | true, dx, dy}]
+const backOut = (u) => { u = cl(u); const c1 = 1.9, c3 = c1 + 1; return 1 + c3 * Math.pow(u - 1, 3) + c1 * Math.pow(u - 1, 2); };
+function stickers(g, p, t) { if (!p.stickers || !window.STK) return;
+  const list = p.stickers.map((S, i) => ({ S, i, A: anc(p, t, S.a) })).filter((e) => e.A && e.A.v).sort((a, b) => a.A.y - b.A.y);   // xa trước, gần sau
+  for (const { S, A } of list) { const at = S.at === undefined ? p.t0 : S.at, u0 = cl((t - at) / 0.42); if (u0 <= 0) continue;
+    const uo = S.out === undefined ? 0 : cl((t - S.out) / 0.3); if (uo >= 1) continue;
+    const px = (S.px || 120) * S_, im = STK.get(S.img, px); if (!im) continue; rv(t, at, 0.42);
+    let sc = (S.pop === false ? eo(u0) : backOut(u0)) * (1 - eo(uo)), rot = 0, hop = 0;
+    if (S.walk) { const ph = (t - at) * (S.hz || 2.4) * Math.PI; hop = Math.abs(Math.sin(ph)) * px * 0.07; rot = Math.sin(ph) * 0.05; }
+    else if (S.bob !== false) { rot = Math.sin((t - at) * 1.7 + (S.ph || 0)) * 0.025; }
+    let flip = S.flip === true; if (S.flip === 'auto' || (S.walk && S.flip === undefined)) { const B = anc(p, t + 2 / FPS, S.a), Bp = anc(p, t - 2 / FPS, S.a); if (B && Bp && Math.abs(B.x - Bp.x) > 0.4) flip = B.x < Bp.x; else flip = !!S.lastFlip; S.lastFlip = flip; if (S.face === 'left') flip = !flip; }
+    const h = px, w = h * im.width / im.height; g.save(); g.translate(A.x + (S.dx || 0) * S_, A.y + (S.dy || 0) * S_ - hop); g.rotate(rot); g.scale(sc * (flip ? -1 : 1), sc);
+    g.drawImage(im, -w / 2, -h * 0.94, w, h); g.restore(); (LL.occ = LL.occ || []).push([A.x - w / 2 * sc, A.y - h * sc, A.x + w / 2 * sc, A.y]); LL.fill = true; } }
+const S_ = S;
+// V2: hộp chiếu của chồng xu/cột bản đồ (neo col/colL/colR của relief) vào LL.occ → nhãn side:'auto' không đè vật thể (BAI-HOC-K2 K11)
+function colOcc(p, t) { const A = window.ANC[p.dir]; if (!A) return; const fr = A[plateIdx(p, t)] || A[String(plateIdx(p, t))]; if (!fr) return;
+  for (const k of Object.keys(fr)) { if (!k.startsWith('col:')) continue; const id = k.slice(4), T = anc(p, t, k), L = anc(p, t, 'colL:' + id), R = anc(p, t, 'colR:' + id); if (!T || !L || !R || !L.v) continue;
+    (LL.occ = LL.occ || []).push([Math.min(L.x, R.x) - 6, T.y - 10, Math.max(L.x, R.x) + 6, Math.max(L.y, R.y) + 10]); } }
+
+// p.score: biểu tượng góc + bảng tổng kết hai phía (component dùng lại)
+//   corner: {at, out, sides: [{s, c, icon, n}]}               huy hiệu góc trên trái: biểu tượng + tên + điểm (n: số hoặc [{t, v}] tăng theo mốc)
+//   board:  {at, out, title, sides: [{s, c, icon}], rows: [{k, icon, v: [trái, phải], win: 0|1, at, sub}], foot}
+function iconImg(spec, px) { return window.STK ? STK.get(spec, px) : null; }
+function drawIcon(g, spec, cx, cy, px, a = 1) { const im = iconImg(spec, px); if (!im) return; let h = px, w = h * im.width / im.height; if (w > px * 1.15) { w = px * 1.15; h = w * im.height / im.width; }   /* sticker rộng (thuyền, xe) co theo ô, không đè chữ */ g.save(); g.globalAlpha *= a; g.drawImage(im, cx - w / 2, cy - h / 2, w, h); g.restore(); }
+function score(g, p, t) { const Sc = p.score; if (!Sc) return;
+  const Cn = Sc.corner; if (Cn) { const u = vis(t, Cn.at === undefined ? p.t0 : Cn.at, Cn.out, 0.45); if (u > 0.01) { let x = SAFE.x0, y = V ? 210 : 62;
+    for (const sd of Cn.sides) { const n = Array.isArray(sd.n) ? sd.n.reduce((v, e) => (t >= e.t ? e.v : v), '') : sd.n, px = 32 * S;
+      const nw = n === undefined || n === '' ? 0 : tw(g, String(n), 40 * S, 700, true) + 30, bw = 86 * S + tw(g, sd.s, px, 700) + nw + 36, bh = 72 * S;
+      panel(g, x, y, bw, bh, { a: u, fill: 'rgba(12,18,27,0.92)', stroke: sd.c, r: bh / 2 }); drawIcon(g, sd.icon, x + 44 * S, y + bh / 2, 58 * S, u);
+      text(g, sd.s, x + 86 * S, y + bh / 2 + px * 0.36, px, K.text, { a: u, w: 700 });
+      if (nw) { const bx = x + bw - nw - 8; g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; rrect(g, bx, y + 10, nw, bh - 20, (bh - 20) / 2); g.fill(); g.restore(); text(g, String(n), bx + nw / 2, y + bh / 2 + 14 * S, 40 * S, K.ink, { a: u, w: 700, disp: true, align: 'center' }); }
+      x += bw + 18; } } }
+  const Bd = Sc.board; if (!Bd) return; const u = vis(t, Bd.at === undefined ? p.t0 : Bd.at, Bd.out, 0.5); if (u <= 0.01) return;
+  const n = Bd.rows.length, rh = V ? 150 : 104, hh = V ? 190 : 150, bw = V ? 960 : 1340, top0 = Bd.title ? (V ? 90 : 72) : 0, bh = top0 + hh + n * rh + (Bd.foot ? 70 : 30), bx = (W - bw) / 2;
+  const by = Math.max(SAFE.y0 + (Cn ? 90 : 0), (H - bh) / 2 - (V ? 0 : 10)), sl = eo(u);
+  g.save(); g.translate(0, (1 - sl) * 40); panel(g, bx, by, bw, bh, { a: u, fill: 'rgba(12,18,27,0.93)', r: 18 });
+  if (Bd.title) text(g, Bd.title, W / 2, by + 58, 40 * S, K.dim, { a: u, w: 700, align: 'center' });
+  const cx = [bx + bw * 0.22, bx + bw * 0.78], mid = W / 2;
+  Bd.sides.forEach((sd, i) => { const y = by + top0 + hh / 2; drawIcon(g, sd.icon, cx[i] - (V ? 0 : 0), y - 18, 96 * S, u); text(g, sd.s, cx[i], y + 62, 40 * S, sd.c, { a: u, w: 700, disp: true, align: 'center' });
+    g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; g.fillRect(cx[i] - 70, y + 76, 140, 5); g.restore(); });
+  text(g, 'vs', mid, by + top0 + hh / 2 + 14, 34 * S, K.steel, { a: u, w: 600, align: 'center' });
+  Bd.rows.forEach((r, i) => { const a = vis(t, r.at === undefined ? (Bd.at || p.t0) + 0.4 + i * 0.35 : r.at, undefined, 0.45) * u; if (a <= 0.01) return; const y = by + top0 + hh + i * rh;
+    g.save(); g.globalAlpha *= a; g.fillStyle = i % 2 ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.055)'; g.fillRect(bx + 16, y + 6, bw - 32, rh - 12); g.restore();
+    drawIcon(g, r.icon, mid - (V ? 0 : 0), y + rh * 0.36, 54 * S, a); text(g, r.k, mid, y + rh * 0.86, 30 * S, K.dim, { a, w: 600, align: 'center' });
+    r.v.forEach((v, j) => { const win = r.win === j, c = win ? Bd.sides[j].c : K.text; text(g, v, cx[j], y + rh * 0.62, (win ? 46 : 42) * S, c, { a, w: 700, disp: true, align: 'center' });
+      if (r.sub && r.sub[j]) text(g, r.sub[j], cx[j], y + rh * 0.62 + 34 * S, 30 * S, K.dim, { a, w: 500, align: 'center' });
+      if (win) { g.save(); g.globalAlpha *= a; g.strokeStyle = Bd.sides[j].c; g.lineWidth = 4; const ww = tw(g, v, 46 * S, 700, true); rrect(g, cx[j] - ww / 2 - 22, y + rh * 0.62 - 50 * S, ww + 44, 66 * S, 33 * S); g.stroke(); g.restore(); } }); LL.fill = true; });
+  if (Bd.foot) srcLine(g, Bd.foot, mid, by + bh - 30, u, 'center'); g.restore(); }
 
 // ---------- thẻ (nền: cảnh 3D mờ) ----------
 const CARD = V ? { x: 60, y: 300, w: 960, h: 1220 } : { x: 150, y: 96, w: 1620, h: 780 };
@@ -216,7 +271,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
-  else { caps(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); }   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
+  else { colOcc(p, t); stickers(g, p, t); caps(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });
@@ -248,4 +303,4 @@ TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGrad
 function frameAt(g, t) { g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0); g.filter = 'none'; LL.SEG.frame(g, t); g.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0);
   const S2 = LL.SEG, fi = S2.fadeIn === undefined || S2.fadeIn === null ? 6 : S2.fadeIn, fo = S2.fadeOut === undefined || S2.fadeOut === null ? 6 : S2.fadeOut, fr = t * FPS, N = S2.frames; let k = 0;
   if (fi > 0 && fr < fi) k = Math.max(k, 1 - sm((fr + 1) / (fi + 1))); if (fo > 0 && fr > N - 1 - fo) k = Math.max(k, sm((fr - (N - 1 - fo)) / (fo + 1))); if (k > 0) { g.fillStyle = `rgba(3,4,8,${k})`; g.fillRect(0, 0, W, H); if (k > 0.2 && LL.tlog) LL.tlog.length = 0; } }   // khung đang tối dần (chuyển đoạn): không tính chữ cho Q5
-window.drawFrame = (f) => { LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };
+window.drawFrame = (f) => { LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };

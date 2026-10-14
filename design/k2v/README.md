@@ -59,6 +59,54 @@ Biểu đồ đứng trong phòng studio thật (sàn bóng, tường cong, đè
 - `prep.py cams <episode.yaml>`: bảng đếm (scene_id, camera_id); `prep.py prep` dừng nếu > 2. Shot thẻ (`p.card`) không tính (bối cảnh `the` của Q26b).
 - Kiểm thử: `/opt/cine/bin/python scripts/k2/test_k2v.py`.
 
+## E. `relief/map` — bản đồ địa hình nổi + sticker (phiên V2, `relief.js`, 14/10/2026)
+Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng hình, thumbnail, câu chữ của kênh nào). Mọi tài sản tự dựng hoặc tài sản công (RIGHTS.md K2V2-*).
+- **Nền:** `scripts/k2/relief_build.py build --name <tên> --bbox lon0,lat0,lon1,lat1 [--ppd 600] [--mesh 8] [--routes 'id=Tên NE|Tên NE;…']`
+  - DEM USGS 3DEP 1″ (tài sản công) ghép ở 6″ (~140–185 m/px): sắc nét ở tầm vùng 300–500 km.
+  - Tô bóng nhiều hướng (315/270/360/225°); mặt nạ nước + sông + ranh bang/tỉnh từ Natural Earth 10m.
+  - Ra `$K2V_CACHE/relief/<tên>/{natural.jpg, sepia.jpg, height.f32, routes.json, meta.json}`.
+  - Bản `erie`: 82°W–71°W × 39°N–46°N, 6600×4200, lưới 825×525, ≈ 2,5 phút dựng.
+- **Hai bảng màu:**
+  - TỰ NHIÊN (hiện tại): màu độ cao × bóng, nước có dải nông.
+  - SEPIA (quá khứ): giấy, mực nâu, bờ nước kẻ nét.
+  - Chuyển dần trong shot: `sepia: [t0, t1]` hoặc `natural: [t0, t1]`; cố định: `palette`.
+- **Vùng nổi theo phía** `regions` (≤ 3): khối nhô `lift` km, tô theo phương pháp nhân (giữ vân địa hình), tường tối, viền sáng kiểu sticker, bóng đổ Đông Nam; nổi lên theo `at: [t0, t1]`.
+- **Tuyến** `routes`:
+  - `style: solid|dashed`; nét đứt "chảy" theo `flow` km/s; vẽ dần theo `draw`; đầu sáng.
+  - Độ dày `w` tính theo px khung 1080p, giữ nguyên khi máy zoom.
+  - `pts` trộn địa danh, `[lon, lat]` và đoạn của đường Natural Earth `{src, from, to}`.
+- **Vòng sáng** `rings` (3 vòng lan, cỡ theo px). **Neo:** địa danh, `st:<id>` (`pins`, `walkers` chạy theo tuyến), `col:<id>` (đỉnh chồng xu/cột), `rt:<id>` (đầu tuyến).
+- **Số liệu trên bản đồ** `cols: [{id, at, kind: coins|bar, n|v, unit, t: [t0, t1], r}]`:
+  - Mỗi đồng xu là một đơn vị khai rõ, nên chiều cao chồng đúng tỷ lệ thật; xu rơi lần lượt.
+  - Nhãn số bám `col:<id>` (`p.tags[].a`) và khai `num`. Như vậy Q34(c) 1.10.2 tính số là hiện bằng 3D.
+- **Máy quay** `cam: [{t|u, lon, lat, dist km, tilt°, head°, mm}]`: spline Hermite qua các mốc. Máy không dừng ở mốc giữa và giữ vận tốc ở hai đầu, nên **trượt liên tục**.
+- **Tone map riêng** (`export const TONE`): giữ bảng màu bản đồ, vai mềm trên 0,82. ACES vẫn là mặc định cho các module khác (`page.js`).
+
+### Sticker (`scripts/k2/lib/sticker.js`, thư viện `design/k2v/stickers/`, tờ rà `channel-k2/k2v2-mau/stickers-sheet.jpg`)
+- **Một phong cách** cho mọi sticker: viền trắng dày ≈ 6 % cạnh, bóng đổ mềm lệch xuống phải (`STK.style`).
+  - **Vật 3D:** vật liệu toon 3 nấc, góc 3/4 cố định (`design/k2v/sticker-lab.js`).
+  - Tái dùng mô hình của kênh: lò cao và xưởng (K2G-01), nhà (K2C-T1-06). Mô hình nạp qua `?rx=` nên không sửa tệp tập.
+  - **Vật mới:** mỏ, tàu buồm, thuyền kênh, xu, chồng xu, văn bản, ngân hàng, cờ trung tính, xe hàng, bao, thùng, núi.
+  - Dựng lại: `node scripts/k2/stickers_build.js [tên…]`; SHA trong `stickers.json`.
+- **Lớp 2D** `p.stickers: [{a: 'st:<id>'|địa danh|'col:<id>', img: 'stk:<tên>' | {role, hat, hand} | 'role:<vai>', at, out, px, walk, hz, bob, flip|face, dx, dy}]`:
+  - Bật nảy khi vào (back-out 0,42 s) và co lại khi ra.
+  - `walk`: nhún theo nhịp, tự lật theo hướng đi.
+  - Vẽ dưới dải chú thích; hộp sticker ghi vào `LL.occ` để nhãn né.
+- **Nhân vật A-lite** (8 vai: worker, merchant, banker, soldier, official, engineer, farmer, sailor):
+  - Vẽ vector phẳng. Không mặt chi tiết, không diễn xuất, không khớp miệng.
+  - Nhận ra bằng mũ + vật cầm tay, có thể thay: `STK.HATS`, `STK.HANDS`, vd. `{role: farmer, hand: wheat}`.
+  - Hoạt ảnh tối thiểu: đi theo tuyến (`walkers` + `walk: true`), nảy nhẹ, xuất hiện/biến mất.
+- **Chân dung tài sản công:** dùng lại `photo/print` (Ken Burns có thị sai, chú thích tên · năm · nguồn qua `p.cap`/`p.src`, `p.photo` = rid RIGHTS).
+### Nhãn né vật (BAI-HOC-K2 K11)
+- `p.tags[].side: 'auto'`: chọn hướng đầu tiên trong `prefer` (mặc định up/right/left/down) không chạm hộp sticker/nhãn đã vẽ ở khung.
+- Hướng đã chọn được giữ cho tới khi bị chạm, nên nhãn không nhảy qua lại.
+### Bảng điểm (`p.score`, component dùng lại ở `scripts/k2/lib/k2.js`)
+- `corner: {at, out, sides: [{s, c, icon, n | [{t, v}]}]}`: huy hiệu góc (biểu tượng + tên + điểm tăng theo mốc).
+- `board: {at, out, title, sides: [{s, c, icon}], rows: [{k, icon, v: [trái, phải], win, at, sub}], foot}`: bảng tổng kết hai phía.
+  - Mỗi hàng có biểu tượng sticker; ô thắng được khoanh viền màu phía thắng.
+  - Các hàng hiện lần lượt.
+  - Nền là bản đồ thật làm tối (`p.dim`), không làm mờ (K11: thẻ tóm tắt có biểu tượng cho từng mục).
+
 ## Công cụ
 - `scripts/k2/k2v_assets.py` — tải tài sản (SHA ghim `scripts/k2/k2v-assets.sha.json`), Blue Marble toàn cầu/vùng, ảnh tư liệu, trang PDF + khung highlight, bảng giấy phép.
 - `scripts/k2/stock.py` — Pexels/Pixabay: tìm (cache 24 giờ), tải qua CDN, SHA, dòng `SOURCES-FOOTAGE.csv`.

@@ -65,6 +65,35 @@ class T(unittest.TestCase):
         self.assertEqual((M1['type'], M1['camera_id'], M1['people']), ('photo', 'default', ['Andrew Carnegie']))
         self.assertEqual(prep.shot_type('photo/doc'), 'document'); self.assertEqual(prep.shot_type('k2g01/port'), 'scene3d'); self.assertEqual(prep.shot_type('photo/headline'), 'document'); self.assertEqual(prep.shot_type(None), 'card')
 
+    # ---- V2 (14/10/2026): bản đồ nổi, sticker, đặc tả cuộn mẫu
+    def test_v2_relief_type(self):
+        self.assertEqual(prep.shot_type('relief/map'), 'map')
+
+    def test_v2_sticker_library(self):
+        import hashlib, json
+        D = os.path.join(prep.REPO, 'design/k2v/stickers'); man = json.load(open(os.path.join(D, 'stickers.json')))
+        items = {k: v for k, v in man.items() if not k.startswith('_')}
+        self.assertEqual(sum(1 for v in items.values() if v['kind'] == 'character'), 8)
+        self.assertGreaterEqual(sum(1 for v in items.values() if v['kind'] == 'object'), 12)
+        for k, v in items.items(): self.assertEqual(hashlib.sha256(open(os.path.join(D, k + '.png'), 'rb').read()).hexdigest(), v['sha256'], k)
+
+    def test_v2_reel_q34c_cols(self):
+        """mọi nhãn số bám col:<id> phải có <id> trong heroes.<p.hero>.opt.cols (điều kiện Q34(c) 1.10.2) và num nằm trong anchors"""
+        import yaml
+        E = yaml.safe_load(open(os.path.join(prep.REPO, 'channel-k2/k2v2-mau/K2V2-reel.yaml'))); seen = set()
+        for sg in E['segments']:
+            for sh in sg['shots']:
+                p = sh['p']; cols = {c['id'] for c in (E['heroes'][p['hero']].get('opt') or {}).get('cols', [])}
+                for tg in p.get('tags', []):
+                    if str(tg.get('a', '')).startswith('col:'): self.assertIn(tg['a'][4:], cols); seen.add(tg.get('num'))
+        self.assertEqual(seen, set(E['anchors']))
+
+    def test_v2_shader_no_line_comment(self):
+        """chú thích // trong dòng GLSL có mã phía sau nuốt phần còn lại của main() (lỗi nháp V2): trong chuỗi shader chỉ dùng /* */"""
+        import re
+        src = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read()
+        for m in re.finditer(r'(?:vertexShader|fragmentShader):\s*`([^`]*)`', src):
+            for line in m.group(1).split('\n'): self.assertNotIn('//', line, line[:90])
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)

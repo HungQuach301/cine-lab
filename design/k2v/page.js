@@ -30,6 +30,7 @@ vec3 grade(vec3 c, vec2 uv){
 // tông riêng cho đồ hoạ thông tin k2v: ít vân vải (chữ/viền sắc), vignette nhẹ
 const K2V_GRADES = {
   info: { gCanvas: 0.004, gVig: 0.22, gLift: 0.015, gSat: 1.0, gShadowTint: [0.30, 0.38, 0.95], gHiTint: [1.0, 0.99, 0.96] },
+  map: { gCanvas: 0.003, gVig: 0.16, gLift: 0.0, gSat: 1.0, gShadowTint: [0.30, 0.38, 0.95], gHiTint: [1.0, 1.0, 1.0] },
   archive: { gCanvas: 0.010, gVig: 0.30, gLift: 0.02, gSat: 0.9, gShadowTint: [0.45, 0.38, 0.32], gHiTint: [1.03, 0.98, 0.90] },
 };
 const classic = (src) => new Promise((ok, ko) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = () => ko(new Error('không nạp được ' + src)); document.head.appendChild(s); });
@@ -40,9 +41,9 @@ window.setup = async (c) => {
   if ((mod.NEEDS || []).includes('geo') && !window.d3) {
     for (const p of ['d3-array/dist/d3-array.min.js', 'd3-geo/dist/d3-geo.min.js', 'topojson-client/dist/topojson-client.min.js']) await classic('/k2v/node_modules/' + p);
   }
-  const renderer = createRenderer(c.W, c.H); renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  const renderer = createRenderer(c.W, c.H);   // module có thể khai TONE (GLSL tonemap riêng, vd. relief giữ bảng màu bản đồ); mặc định ACES như cũ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   const uniforms = { gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
-  pipe = createPipeline(renderer, c.W, c.H, { exposure: 1.0, gradeGLSL: GRADE, uniforms });
+  pipe = createPipeline(renderer, c.W, c.H, { exposure: 1.0, gradeGLSL: GRADE, uniforms, ...(mod.TONE ? { toneGLSL: mod.TONE } : {}) });
   cur = await H({ W: c.W, H: c.H, dur: c.dur, v: c.variant || 'a', opt: c.opt || {}, renderer });
   const gr = (c.opt && c.opt.grade) || cur.grade || 'info', g = typeof gr === 'string' ? (K2V_GRADES[gr] || GRADES[gr]) : gr, u = pipe.outMat.uniforms;
   if (c.opt && c.opt.exposure) cur.exposure = c.opt.exposure;

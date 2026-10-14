@@ -1,0 +1,123 @@
+{
+ "furnace": {
+  "kind": "object",
+  "src": "design/ll-hero/k2g01.js blastFurnace (K2G-01)",
+  "sha256": "33f259662f2075420dd2781b4cccf6204e7ac26e3770b462c87ae7b4df77314a"
+ },
+ "factory": {
+  "kind": "object",
+  "src": "design/ll-hero/k2g01.js shed (K2G-01) + ống khói mới",
+  "sha256": "ba291c5267bc509828432e59fea090a03da76b9e9078982b4d66b57ab0a54f04"
+ },
+ "house": {
+  "kind": "object",
+  "src": "design/ll-hero/k2c106.js house (K2C-T1-06)",
+  "sha256": "d377958fb903f373370c94c7cbacfef51402c535c5118c52d4577bc895ab193e"
+ },
+ "town": {
+  "kind": "object",
+  "src": "design/ll-hero/k2c106.js house ×3 (K2C-T1-06)",
+  "sha256": "80807da1a8ed58dc958a0efaa74596c9a54e68c2ec60e530551ee04243e1c0e1"
+ },
+ "mine": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "b5bb58f04ba40f1ce31d2aee8b2f568131354d5ee31bc21b24d1e557d9d537cd"
+ },
+ "ship": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "971fa4ba10e81d7bf01add3d8c499766a0ea51e7a4fe3785b9976907476df2c8"
+ },
+ "boat": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "9dad1c725cd63178f4797029f7f50df8c9da38cbef86770d11efac41561f6798"
+ },
+ "coin": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "ce261e3d8f76b200cfd0327645dd942f8836829e76661a05d55311abf3076f88"
+ },
+ "coins": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "9869ff0c40711a18a65b8accb1b243dbd54c261f40e55ccb60bdf3efa5c16fc1"
+ },
+ "document": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "94243a47835a7a6e3f82d9a755caec42140c6b7dadcf53ffa7e499792b1157d9"
+ },
+ "bank": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "46a5da640ebd2b1cfad45ebca00fb1289bbed4201742c2d9bde2a82fba5a20c2"
+ },
+ "flag": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "df3b1e6278ade38a1d4ae8640fa617501703110450b708f5cf9abd55669c2a03"
+ },
+ "wagon": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "a6de475fde4d148a4bfd2352484165c3109b0c4944e8fcdc6b0853bf94dec246"
+ },
+ "sack": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "8fb10f07a18e980be16c6b110c7351ebd650086ac93c53686b28f4d258980208"
+ },
+ "barrel": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "372af39734d675e1419c52165c0eb8f732e33bab1c21aa2ee47ec6d7ba1b11c4"
+ },
+ "role-worker": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "8ae8f6e6abc71d59888ab94faccb3afa75fbd1b57f7e8a6dd9ec3ca0328439f9"
+ },
+ "role-merchant": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "88e7aa7a95ae3c95a258bdce0e85dd62dc64518b18b571f4be6c808a6c08c5ec"
+ },
+ "role-banker": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "f21e06239e3502822156af611012f373fae9257a7b1bb037503b7d2d837cde6f"
+ },
+ "role-soldier": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "dbb7cdab7f188db8fd0297f23a86851bfd7aac481ae69452a51c5e2f531e6612"
+ },
+ "role-official": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "dd17f208d9db9df2f55e79244a3bc91a88da7bba88212a5e09ada21dbca8f48e"
+ },
+ "role-engineer": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "d910d910e2e44c5c5b5a3e2c16f5821f05b9ad966175b9585ba01c8fb1cd0671"
+ },
+ "role-farmer": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "08661670bcca4533da754be153276d424d406fa165f5333498202feda9792906"
+ },
+ "role-sailor": {
+  "kind": "character",
+  "src": "scripts/k2/lib/sticker.js STK.char (vector, tự vẽ)",
+  "sha256": "9f15c2baf918d37a7283cfaded95c061464e91bab60e4c28db3d5c125170a72c"
+ },
+ "_note": "Thư viện sticker K2V2 — tác phẩm tự dựng của dự án (mô hình three.js + vẽ vector), không dùng hình của bên thứ ba. Tạo lại: node scripts/k2/stickers_build.js",
+ "mountain": {
+  "kind": "object",
+  "src": "design/k2v/sticker-lab.js (vật mới, tự dựng)",
+  "sha256": "a682812dbfe580040b1f19a74b05339c80805ffa3cbabb837fd309f6ed53b958"
+ }
+}

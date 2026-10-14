@@ -20,7 +20,7 @@ import ll  # noqa: E402
 REPO, FPS = ll.REPO, ll.FPS
 DRAFT = os.environ.get('K2_DRAFT') == '1'
 CODE = ['design/ll-hero/k2g01.js', 'design/ll-hero/k2c106.js', 'design/ll-hero/k2page.js', 'design/ll-hero/kit.js', 'scripts/k2/hero.js',
-        'design/k2v/page.js', 'design/k2v/common.js', 'design/k2v/map.js', 'design/k2v/chart3d.js', 'design/k2v/photo.js']
+        'design/k2v/page.js', 'design/k2v/common.js', 'design/k2v/map.js', 'design/k2v/chart3d.js', 'design/k2v/photo.js', 'design/k2v/relief.js']
 CAMS = os.path.join(REPO, 'scripts/k2/cams.yaml')
 MAX_SAME = 2   # cùng góc máy (scene_id + camera_id) tối đa 2 lần/tập
 
@@ -73,7 +73,8 @@ def shot_type(hero):
     """loại shot theo luật K Q34 (checks 1.10.1): scene3d | map | chart3d | photo | document | footage | card"""
     if not hero: return 'card'
     m, n = hero.split('/')[0], hero.split('/')[-1]
-    return {'map': 'map', 'chart3d': 'chart3d', 'footage': 'footage'}.get(m) or ({'print': 'photo', 'doc': 'document', 'headline': 'document'}.get(n) if m == 'photo' else 'scene3d')
+    # relief/map (V2): bản đồ nổi = map
+    return {'map': 'map', 'relief': 'map', 'chart3d': 'chart3d', 'footage': 'footage'}.get(m) or ({'print': 'photo', 'doc': 'document', 'headline': 'document'}.get(n) if m == 'photo' else 'scene3d')
 
 
 def shot_meta(E, sh):
