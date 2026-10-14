@@ -114,7 +114,7 @@ export const HEROES = {
           gl_FragColor = vec4(c, 1.0); }` }));
     scene.add(terr);
     // ---- LOD (V2b, tối ưu render): lưới 1/2 khi máy xa > lodMesh km, texture 4096 khi > lodTex km (đo khác biệt bằng SSIM, scripts/k2/lod_test.py)
-    const lodMesh = o.lodMesh ?? 300, lodTex = o.lodTex ?? 500;
+    const lodMesh = o.lodMesh ?? 0, lodTex = o.lodTex ?? 0;   // mặc định TẮT: lod_test.py (V2b) — LOD làm vân địa hình mềm thấy được ở 1:1 (SSIM 0,92–0,95) mà chỉ nhanh hơn ~2 %; bật bằng opt khi cần
     let terrH = null; if (lodMesh > 0) { const h2 = Math.floor(MH / 2), w2 = Math.floor(MW / 2), gh = new THREE.PlaneGeometry(WK, HK, w2 - 1, h2 - 1); gh.rotateX(-Math.PI / 2);
       const P = gh.attributes.position; for (let i = 0; i < P.count; i++) { const r = Math.floor(i / w2), q = i % w2; P.setY(i, HT[Math.min(MH - 1, Math.round(r * (MH - 1) / (h2 - 1))) * MW + Math.min(MW - 1, Math.round(q * (MW - 1) / (w2 - 1)))] / 1000 * VE); }
       terrH = new THREE.Mesh(gh, terr.material); terrH.visible = false; scene.add(terrH); }

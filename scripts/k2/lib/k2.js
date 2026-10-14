@@ -152,7 +152,7 @@ function stickers(g, p, t) { if (!p.stickers || !window.STK) return;
 const S_ = S;
 // V2: hộp chiếu của chồng xu/cột bản đồ (neo col/colL/colR của relief) vào LL.occ → nhãn side:'auto' không đè vật thể (BAI-HOC-K2 K11)
 function colOcc(p, t) { const A = window.ANC[p.dir]; if (!A) return; const fr = A[plateIdx(p, t)] || A[String(plateIdx(p, t))]; if (!fr) return;
-  for (const k of Object.keys(fr)) { if (!k.startsWith('col:')) continue; const id = k.slice(4), T = anc(p, t, k), L = anc(p, t, 'colL:' + id), R = anc(p, t, 'colR:' + id); if (!T || !L || !R || !L.v) continue;
+  for (const k of Object.keys(fr)) { const pre = k.startsWith('col:') ? 'col' : k.startsWith('obj:') ? 'obj' : null; if (!pre) continue; const id = k.slice(4), T = anc(p, t, k), L = anc(p, t, pre + 'L:' + id), R = anc(p, t, pre + 'R:' + id); if (!T || !L || !R || !L.v || !T.v) continue;   /* V2b: cả vật/nhân vật dựng trong cảnh (obj:) */
     (LL.occ = LL.occ || []).push([Math.min(L.x, R.x) - 6, T.y - 10, Math.max(L.x, R.x) + 6, Math.max(L.y, R.y) + 10]); } }
 
 // p.score: biểu tượng góc + bảng tổng kết hai phía (component dùng lại)

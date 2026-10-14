@@ -94,6 +94,29 @@ class T(unittest.TestCase):
         src = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read()
         for m in re.finditer(r'(?:vertexShader|fragmentShader):\s*`([^`]*)`', src):
             for line in m.group(1).split('\n'): self.assertNotIn('//', line, line[:90])
+    # ---- V2b (14/10/2026): sticker vật trong cảnh, shader viền, nhịp thị giác
+    def test_v2b_lift_props(self):
+        """p.stickers của shot relief → opt.props (vật thư viện = obj, vai = char), mốc giây trừ at của shot; shot không phải relief giữ nguyên"""
+        E = ep([{'tpl': 'plate', 'at': 2.0, 'p': {'hero': 'r', 'stickers': [{'a': 'st:b', 'img': 'stk:boat', 'at': 3.0, 'px': 90, 'walk': True}, {'a': 'st:c', 'img': {'role': 'farmer', 'hand': 'wheat'}, 'at': '@wheat'}]}},
+                {'tpl': 'plate', 'at': 6.0, 'p': {'hero': 'm', 'stickers': [{'a': 'x', 'img': 'stk:coin'}]}}],
+               {'r': {'hero': 'relief/map', 'opt': {}}, 'm': {'hero': 'map/globe', 'opt': {}}})
+        prep.lift_props(E); P = E['heroes']['r']['opt']['props']; S0 = E['segments'][0]['shots']
+        self.assertEqual((P[0]['obj'], P[0]['t'], P[0]['walk'], P[0]['a']), ('boat', 1.0, True, 'st:b'))
+        self.assertEqual((P[1]['char'], P[1]['t']), ({'role': 'farmer', 'hand': 'wheat'}, '@wheat'))
+        self.assertNotIn('stickers', S0[0]['p']); self.assertIn('stickers', S0[1]['p'])
+        prep.lift_props(E); self.assertEqual(len(E['heroes']['r']['opt']['props']), 2)   # chạy lại không nhân đôi
+
+    def test_v2b_outline_shader(self):
+        """viền trắng bằng shader cho vật trong cảnh: mặt nạ layer 1 → quad toàn khung vẽ sau địa hình, trước vật; vật vào hàng trong suốt (renderOrder 9)"""
+        src = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read()
+        for k in ('maskRT', 'uniform sampler2D tMask', 'outline.renderOrder = 8', 'm.layers.enable(1)', 'm.renderOrder = 9', 'shCam', 'tShadow', 'shOn'): self.assertIn(k, src)
+
+    def test_v2b_rhythm(self):
+        """nhịp thị giác của cuộn mẫu: mọi biến cố khai khớp đặc tả, trung bình ≤ 3,5 s, khoảng dài nhất ≤ 6 s"""
+        import subprocess
+        r = subprocess.run([sys.executable, os.path.join(prep.REPO, 'scripts/k2/rhythm.py'), os.path.join(prep.REPO, 'channel-k2/k2v2-mau/K2V2-reel.yaml')], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout[-800:])
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)

@@ -109,6 +109,32 @@ Công thức "bản đồ nổi + sticker" học từ thể loại (không dùng
   - Các hàng hiện lần lượt.
   - Nền là bản đồ thật làm tối (`p.dim`), không làm mờ (K11: thẻ tóm tắt có biểu tượng cho từng mục).
 
+### V2b (14/10/2026, Kinh thánh kênh 2 §4 — `docs/BIBLE-KENH2.md`)
+- **Sticker vật dựng TRONG cảnh relief (D2b):**
+  - `p.stickers` của shot `relief/*` được `scripts/k2/prep.py lift_props` tự chuyển vào `heroes.<k>.opt.props`, nên tập khai như cũ (`a: 'st:<pin|walker>'`, `img`, `at/out`, `px`, `walk`).
+  - **Vật** (`img: 'stk:<tên>'`): mô hình toon của `design/k2v/sticker-lab.js` đặt trên địa hình, cỡ theo px.
+    - Nhận ánh sáng cảnh: mặt trời Tây Bắc 315°/45°, cùng hướng tô bóng địa hình.
+    - Đổ bóng thật lên địa hình bằng shadow map máy mặt trời (PCF 3×3 trong shader địa hình).
+    - Đổi phối cảnh theo máy quay; vật đi theo tuyến thì quay theo hướng tuyến.
+    - **Viền trắng shader:** mặt nạ layer 1 → quad toàn khung giãn mặt nạ (`outlinePx`, mặc định 5 px @1080p), vẽ sau địa hình/tuyến và trước vật. Một phong cách, chạy trên cả hai bảng màu.
+  - **Nhân vật A-lite** (`role:<vai>` | `{role, hat, hand}`): tấm phẳng trong cảnh, quay về máy.
+    - Nhận ánh sáng cảnh và đổ bóng lên địa hình; viền trắng sẵn trong hình (`STK.style`, không bóng 2D); lật theo hướng đi trên màn hình.
+  - Neo cho nhãn: `obj:<id>` (đỉnh vật), `objL/objR:<id>` (hộp chiếu).
+- **LOD:**
+  - `lodMesh` (mặc định 300 km): lưới 1/2 khi máy xa hơn.
+  - `lodTex` (mặc định 500 km): texture 4096 khi máy xa hơn.
+  - 0 = tắt. Đo khác biệt: `scripts/k2/lod_test.py`.
+- **Chân dung lệch trái (D4):**
+  - `photo/print` có `lift` (nâng bản in → bóng đổ) và `cam` tường minh, đặt bản in ở ~60 % khung bên trái.
+  - Lớp chữ `p.side = {at, x0, lines: [{s, px, c, w, disp, at}]}`: cột tên · vai trò · năm · nguồn bên phải.
+- **Dòng nguồn 34 px (D3)** ở 16:9 (`SRCPX`, `scripts/k2/lib/k2.js`); 9:16 giữ 46 px.
+- **Nhịp thị giác:**
+  - Khai `segments[].beats: [{t, k, s}]`.
+  - `scripts/k2/rhythm.py <spec> [--mp4]`:
+    - đối chiếu từng biến cố với mốc thật của đặc tả (±0,3 s);
+    - đo trung bình ≤ 3,5 s, khoảng dài nhất ≤ 6 s;
+    - đo khung tĩnh trên video ≤ 6 s.
+
 ## Công cụ
 - `scripts/k2/k2v_assets.py` — tải tài sản (SHA ghim `scripts/k2/k2v-assets.sha.json`), Blue Marble toàn cầu/vùng, ảnh tư liệu, trang PDF + khung highlight, bảng giấy phép.
 - `scripts/k2/relief_build.py` (nền bản đồ nổi), `scripts/k2/stickers_build.js` + `stickers_sheet.py` (thư viện sticker), `scripts/k2/reel_sheet.py` (tờ khung cuộn mẫu) — V2.

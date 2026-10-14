@@ -38,7 +38,7 @@ heroes:
       - {id: trip, pts: [buffalo, {src: erie, from: buffalo, to: montezuma}, syracuse, rome, {src: mohawk, from: rome, to: troy}, albany, {src: hudson, from: albany, to: nyc}, nyc], draw: -1, trail: boat, style: solid, color: '#F08A4B', w: 11}
       rings:
       - {id: nyc, at: nyc, t: 8.7, color: '#ffd9b0'}
-      places: [buffalo, rochester, albany, nyc]
+      places: [buffalo, rochester, albany, nyc, hudson-mid]
       pins:
       - {id: sack, at: buffalo, dx: -6, dz: 6}
       - {id: farm, at: [-77.75, 42.9]}
@@ -49,6 +49,7 @@ heroes:
       cam:
       - {t: 0, lon: -77.6, lat: 42.1, dist: 440, tilt: 32, head: 4}
       - {t: 3.0, lon: -76.1, lat: 41.45, dist: 640, tilt: 28, head: 1}
+      - {t: 6.0, lon: -75.6, lat: 41.4, dist: 600, tilt: 30, head: -4}
       - {t: 10, lon: -75.8, lat: 41.35, dist: 660, tilt: 27, head: -2}
   h_num:
     hero: relief/map
@@ -66,14 +67,16 @@ heroes:
       - {id: boat, at: [-78.13, 42.775]}
       cam:
       - {t: 0, lon: -78.3, lat: 42.76, dist: 135, tilt: 46, head: 2}
-      - {t: 8, lon: -78.2, lat: 42.8, dist: 115, tilt: 50, head: 8}
+      - {t: 5.6, lon: -78.24, lat: 42.79, dist: 122, tilt: 48, head: 4}
+      - {t: 8, lon: -78.18, lat: 42.8, dist: 112, tilt: 51, head: 10}
   h_clin:
     hero: photo/print
     opt:
       img: /assets/k2/archive/met-11602-clinton.jpg
-      cam:   # bản in nằm 6–68 % chiều cao khung, trên dải chú thích (chấm mù V2: chú thích đè khung tranh); Ken Burns tiến nhẹ về mặt
-      - {t: 0, p: [-0.15, 10.7, 4.06], l: [-0.05, 0, 0.76], mm: 50}
-      - {t: 5.5, p: [0.12, 9.9, 3.66], l: [0.08, 0, 0.66], mm: 50}
+      lift: 0.12   # bản in nâng khỏi bàn → bóng đổ dưới đèn (V2b, D4)
+      cam:   # bản in lệch trái ~60 % khung, chú thích ở cột phải (D4); máy trượt ngang + hạ dần → thị sai mạnh
+      - {t: 0, p: [0.75, 8.7, 3.1], l: [1.45, 0, 0.05], mm: 50}
+      - {t: 5.5, p: [1.75, 8.25, 2.75], l: [1.35, 0, -0.05], mm: 50}
   h_score:
     hero: relief/map
     opt:
@@ -96,6 +99,21 @@ segments:
 - id: H
   part: HOOK
   dur: 15
+  beats:   # nhịp thị giác (Kinh thánh §4): biến cố hình mới; scripts/k2/rhythm.py đối chiếu với đặc tả và đo
+  - {t: 0, k: cut, s: bản đồ hiện tại, máy trượt}
+  - {t: 1.2, k: text, s: chú thích Mohawk}
+  - {t: 3.3, k: route, s: vệt sáng khe Mohawk}
+  - {t: 3.6, k: label, s: nhãn Mohawk Valley}
+  - {t: 5.0, k: cam, s: máy đổi tầm (lùi ra)}
+  - {t: 7.0, k: palette, s: chuyển sepia}
+  - {t: 8.4, k: label, s: chip 1825}
+  - {t: 9.2, k: region, s: NY nổi}
+  - {t: 9.7, k: region, s: PA nổi}
+  - {t: 10.3, k: ring, s: vòng sáng Buffalo}
+  - {t: 10.4, k: route, s: tuyến kênh vẽ dần}
+  - {t: 12.4, k: label, s: nhãn Albany}
+  - {t: 13.4, k: route, s: tuyến Hudson + vòng Albany}
+  - {t: 14.3, k: label, s: nhãn New York}
   shots:
   - tpl: plate
     at: 0
@@ -108,16 +126,27 @@ segments:
       places:
       - {a: littlefalls, s: Mohawk Valley, at: 3.6, out: 7.4, side: auto, c: '#ffe6b0'}
       - {a: buffalo, s: Buffalo, at: 10.5, side: left, c: '#F08A4B'}
-      - {a: albany, s: Albany, at: 13.4, side: auto, c: '#F08A4B'}
+      - {a: albany, s: Albany, at: 12.4, side: auto, c: '#F08A4B'}
       - {a: nyc, s: New York, at: 14.3, side: right, c: '#F08A4B'}
       cap:
       - {s: 'The Mohawk Valley: a low path from the Great Lakes to the Hudson', at: 1.2}
       - {s: '1825: New York opens the Erie Canal, 363 miles from Buffalo to Albany', at: 9.8}
-      src: 'Sources: Library of Congress · NPS · Erie Canalway NHC · Terrain: USGS 3DEP · Map: Natural Earth'
+      src: 'Sources: LOC · NPS · Erie Canalway NHC · Terrain: USGS 3DEP · Map: Natural Earth'
       year: {s: '1825', at: 8.4}
 - id: J
   part: BODY
   dur: 10
+  beats:
+  - {t: 0, k: cut, s: bản đồ sepia, hành trình}
+  - {t: 0.3, k: sticker, s: bao lúa (vật 3D)}
+  - {t: 0.5, k: sticker, s: thuyền kênh khởi hành (vật 3D)}
+  - {t: 2.0, k: sticker, s: nông dân + lúa mì}
+  - {t: 2.6, k: label, s: nhãn Albany}
+  - {t: 3.0, k: cam, s: máy mở rộng toàn tuyến + nhãn New York}
+  - {t: 6.0, k: cam, s: máy đổi hướng}
+  - {t: 6.6, k: label, s: nhãn Hudson River}
+  - {t: 8.7, k: ring, s: vòng sáng New York}
+  - {t: 8.8, k: sticker, s: thương nhân ở New York}
   shots:
   - tpl: plate
     at: 0
@@ -138,12 +167,22 @@ segments:
       - {a: rochester, s: Genesee Valley, at: 2.2, out: 6.0, side: auto, prefer: [up, down], c: '#F08A4B', px: 42}
       - {a: albany, s: Albany, at: 2.6, side: auto, prefer: [up, right], c: '#F08A4B', px: 42}
       - {a: nyc, s: New York, at: 3.0, side: auto, prefer: [left, up], c: '#F08A4B', px: 42}
+      - {a: hudson-mid, s: Hudson River, at: 6.6, out: 9.2, side: auto, prefer: [right, left], c: '#9fb6d8'}
       cap:
       - {s: 'Wheat from the Genesee Valley could now float east to Albany, then down the Hudson', at: 1.0}
       src: 'Source: Erie Canalway National Heritage Corridor · Terrain: USGS 3DEP · Map: Natural Earth'
 - id: N
   part: BODY
   dur: 8
+  beats:
+  - {t: 0, k: cut, s: bản đồ gần Buffalo}
+  - {t: 0.3, k: sticker, s: xe hàng (vật 3D)}
+  - {t: 0.6, k: number, s: xu rơi lần lượt}
+  - {t: 2.2, k: number, s: nhãn $90–125}
+  - {t: 3.3, k: sticker, s: thuyền (vật 3D)}
+  - {t: 3.5, k: number, s: đồng xu kênh}
+  - {t: 4.1, k: number, s: nhãn 1/10}
+  - {t: 5.6, k: cam, s: máy đổi hướng, tiến vào}
   shots:
   - tpl: plate
     at: 0
@@ -165,6 +204,11 @@ segments:
 - id: P
   part: BODY
   dur: 5
+  beats:
+  - {t: 0, k: cut, s: chân dung trên bàn}
+  - {t: 0.3, k: text, s: tên DeWitt Clinton}
+  - {t: 1.0, k: text, s: năm 1826}
+  - {t: 1.3, k: text, s: nguồn tranh}
   shots:
   - tpl: plate
     at: 0
@@ -175,12 +219,24 @@ segments:
     p:
       hero: h_clin
       photo: MET-11602
-      cap:
-      - {s: 'DeWitt Clinton, Governor of New York · painted 1826', at: 0.5}
-      src: 'Painting: Samuel F. B. Morse, 1826 · The Metropolitan Museum of Art, Open Access (public domain)'
+      side:
+        at: 0.3
+        lines:
+        - {s: DeWitt Clinton, px: 64, w: 700, disp: true, at: 0.3}
+        - {s: Governor of New York, px: 40, c: '#E6EBF0', at: 0.7}
+        - {s: 'Portrait painted 1826', px: 40, c: '#F2C14E', at: 1.0, gap: 40}
+        - {s: 'Painting: Samuel F. B. Morse · The Metropolitan Museum of Art, Open Access (public domain)', px: 34, w: 500, c: '#D6DDE4', at: 1.3}
 - id: S
   part: BODY
   dur: 6
+  beats:
+  - {t: 0, k: cut, s: bản đồ hai bang}
+  - {t: 0.2, k: score, s: huy hiệu góc}
+  - {t: 0.3, k: score, s: bảng tổng kết}
+  - {t: 0.65, k: score, s: hàng Opened}
+  - {t: 1.05, k: score, s: hàng Length}
+  - {t: 1.45, k: score, s: hàng Climb}
+  - {t: 1.85, k: score, s: hàng Cost}
   shots:
   - tpl: plate
     at: 0
@@ -210,7 +266,7 @@ segments:
           - {k: Length, icon: 'stk:flag', v: ['363 mi', '394 mi'], at: 1.05}
           - {k: Climb from the start, icon: 'stk:mountain', v: ['568 ft', '2,102 ft'], win: 0, at: 1.45}
           - {k: Cost to build, icon: 'stk:coins', v: ['$7.1M', '$16.5M'], win: 0, at: 1.85}
-          foot: 'Sources: NPS (Allegheny Portage RR) · Erie Canalway NHC'
+          foot: 'Sources: NPS · Erie Canalway NHC'
 numbers:
   wagon_cost: {v: 90, text: '$90–125', kind: actual, year: 1825, unit: '$/ton', src: NYSAPT, say: ninety to one hundred twenty-five dollars}
   canal_tenth: {v: 0.1, text: '1/10', kind: actual, year: 1825, unit: ratio, src: ECNHC-NS, say: a tenth}
