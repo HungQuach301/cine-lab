@@ -9,10 +9,21 @@ import { GRADES } from '/ll-hero/kit.js';
 
 const GRADE = `
 uniform float gCanvas, gVig, gLift, gSat; uniform vec3 gShadowTint, gHiTint;
+uniform float uAA;
+// V3 (E6b): lọc khử răng cưa cho khung dựng SPP1 (relief, máy > spp1Km): phát hiện cạnh theo độ chênh sáng 4 lân cận, trộn về trung bình lân cận theo độ mạnh cạnh.
+// Đặt trong grade() của trang k2v (đọc được tAcc/res), không sửa post.js dùng chung với LL.
+vec3 aaS(vec2 p){ return pow(tonemap(max(texture(tAcc, p).rgb, 0.0)), vec3(1.0 / 2.2)); }
+vec3 aaFilter(vec3 c, vec2 uv){ vec2 px = 1.0 / res; vec3 a = aaS(uv + vec2(px.x, 0.0)), b = aaS(uv - vec2(px.x, 0.0)), d = aaS(uv + vec2(0.0, px.y)), e = aaS(uv - vec2(0.0, px.y));
+  vec3 W3 = vec3(0.299, 0.587, 0.114); float lc = dot(c, W3), la = dot(a, W3), lb = dot(b, W3), ld = dot(d, W3), le = dot(e, W3);
+  float mx = max(lc, max(max(la, lb), max(ld, le))), mn = min(lc, min(min(la, lb), min(ld, le))), rg = mx - mn;
+  if (rg < max(0.07, mx * 0.16)) return c;   /* chỉ cạnh tương phản cao (mép vật, viền, tuyến); vân địa hình nhẹ giữ nguyên */
+  float h = abs(la + lb - 2.0 * lc), v = abs(ld + le - 2.0 * lc); vec3 blur = h > v ? (a + b) * 0.5 : (d + e) * 0.5;   /* trộn theo hướng vuông góc với cạnh */
+  return mix(c, blur, clamp(rg * 1.6, 0.0, 0.55)); }
 float ch21(vec2 p){ p = fract(p*vec2(233.34, 851.73)); p += dot(p, p+23.45); return fract(p.x*p.y); }
 float cvn(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
   return mix(mix(ch21(i), ch21(i+vec2(1,0)), f.x), mix(ch21(i+vec2(0,1)), ch21(i+vec2(1,1)), f.x), f.y); }
 vec3 grade(vec3 c, vec2 uv){
+  if (uAA > 0.5) c = aaFilter(c, uv);
   float L = dot(c, vec3(0.2126,0.7152,0.0722));
   c = mix(vec3(L), c, gSat);
   float sh = 1.0 - smoothstep(0.0, 0.45, L), hi = smoothstep(0.55, 1.0, L);
@@ -42,7 +53,7 @@ window.setup = async (c) => {
     for (const p of ['d3-array/dist/d3-array.min.js', 'd3-geo/dist/d3-geo.min.js', 'topojson-client/dist/topojson-client.min.js']) await classic('/k2v/node_modules/' + p);
   }
   const renderer = createRenderer(c.W, c.H);   // module có thể khai TONE (GLSL tonemap riêng, vd. relief giữ bảng màu bản đồ); mặc định ACES như cũ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  const uniforms = { gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
+  const uniforms = { uAA: { value: 0 }, gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
   pipe = createPipeline(renderer, c.W, c.H, { exposure: 1.0, gradeGLSL: GRADE, uniforms, ...(mod.TONE ? { toneGLSL: mod.TONE } : {}) });
   cur = await H({ W: c.W, H: c.H, dur: c.dur, v: c.variant || 'a', opt: c.opt || {}, renderer });
   const gr = (c.opt && c.opt.grade) || cur.grade || 'info', g = typeof gr === 'string' ? (K2V_GRADES[gr] || GRADES[gr]) : gr, u = pipe.outMat.uniforms;
@@ -50,7 +61,8 @@ window.setup = async (c) => {
   u.gCanvas.value = g.gCanvas; u.gVig.value = g.gVig; u.gLift.value = g.gLift; u.gSat.value = g.gSat; u.gShadowTint.value.set(...g.gShadowTint); u.gHiTint.value.set(...g.gHiTint);
   return { ok: true, maxTex: renderer.capabilities.maxTextureSize };
 };
-window.renderFrame = async (f) => { const t = f / 24; cur.update(t, f); pipe.outMat.uniforms.uExp.value = cur.exposure ?? 1.0; return { ms: pipe.accumulate(cur.scene, cur.cam, cfg.spp || 1, cur.onSample || null) }; };
+window.renderFrame = async (f) => { const t = f / 24; cur.update(t, f); pipe.outMat.uniforms.uExp.value = cur.exposure ?? 1.0; const n = cur.sppNow || cfg.spp || 1; pipe.outMat.uniforms.uAA.value = cur.sppNow === 1 && (cfg.spp || 1) > 1 ? 1 : 0;   /* V3 (E6b): module có thể hạ SPP cho khung này (relief máy xa) → bật lọc khử răng cưa */
+  return { ms: pipe.accumulate(cur.scene, cur.cam, n, cur.onSample || null) }; };
 window.finalize = (f) => pipe.finalize(f);
 window.anchorsAt = () => { if (!cur.anchors) return null; const out = {}, v = new THREE.Vector3();
   for (const [k, a] of Object.entries(cur.anchors)) { const p = typeof a === 'function' ? a() : a; if (!p) { out[k] = [0, 0, 0]; continue; } v.copy(p).project(cur.cam);

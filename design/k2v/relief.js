@@ -84,14 +84,15 @@ export const HEROES = {
     const tFill = dtex(fillA), tEdge = dtex(edgeA);
     const maskAt = (lon, lat) => { const x = Math.round(cl((lon - lon0) / (lon1 - lon0)) * (RW - 1)), y = RH - 1 - Math.round(cl((lat1 - lat) / (lat1 - lat0)) * (RH - 1)), d = (y * RW + x) * 4; return [fillA[d] / 255, fillA[d + 1] / 255, fillA[d + 2] / 255]; };
     const rcol = regions.map((r) => new THREE.Color(r.color || C.teal)); while (rcol.length < 3) rcol.push(new THREE.Color('#ffffff'));
-    const SHT = new THREE.DepthTexture(2048, 2048); SHT.type = THREE.UnsignedIntType; const shRT = new THREE.WebGLRenderTarget(2048, 2048, { depthTexture: SHT, depthBuffer: true });
-    const U = { tShadow: { value: SHT }, shMat: { value: new THREE.Matrix4() }, shOn: { value: 0 }, tNat: { value: tNat }, tSep: { value: tSep }, tFill: { value: tFill }, tEdge: { value: tEdge }, sep: { value: 0 }, rk: { value: new THREE.Vector3() }, rlift: { value: new THREE.Vector3() },
+    const FAST = o.fast ?? true, SHN = FAST ? 1024 : 2048;   // V3 (E6a): shadow map ½ (1024²), giãn viền 12 hướng (mặt nạ vẫn đủ độ phân giải); fast:false = cấu hình V2b (đo bằng lod_test.py)
+    const SHT = new THREE.DepthTexture(SHN, SHN); SHT.type = THREE.UnsignedIntType; const shRT = new THREE.WebGLRenderTarget(SHN, SHN, { depthTexture: SHT, depthBuffer: true });
+    const U = { shTexel: { value: 1 / SHN }, tShadow: { value: SHT }, shMat: { value: new THREE.Matrix4() }, shOn: { value: 0 }, tNat: { value: tNat }, tSep: { value: tSep }, tFill: { value: tFill }, tEdge: { value: tEdge }, sep: { value: 0 }, rk: { value: new THREE.Vector3() }, rlift: { value: new THREE.Vector3() },
       rfill: { value: new THREE.Vector3(...[0, 1, 2].map((i) => regions[i] ? regions[i].fill ?? 0.5 : 0)) }, rc0: { value: rcol[0] }, rc1: { value: rcol[1] }, rc2: { value: rcol[2] }, bg: { value: new THREE.Color() }, shOff: { value: new THREE.Vector2(0.0042, -0.0062) } };
     const LIFT_GLSL = 'uniform sampler2D tFill; uniform vec3 rk, rlift; float liftAt(vec2 uv){ return dot(texture2D(tFill, uv).rgb * rk, rlift); }';
     const terr = new THREE.Mesh(geo, new THREE.ShaderMaterial({ uniforms: U, extensions: { derivatives: true },
       vertexShader: `${LIFT_GLSL} varying vec2 vUv; varying vec3 vW; varying vec3 vM;
         void main(){ vUv = uv; vec3 p = position; vM = textureLod(tFill, uv, 1.6).rgb; p.y += dot(vM * rk, rlift);   /* mip ~1,6: tường nổi mượt, không răng cưa theo lưới */ vec4 w = modelMatrix * vec4(p, 1.0); vW = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
-      fragmentShader: `uniform sampler2D tNat, tSep, tFill, tEdge, tShadow; uniform mat4 shMat; uniform float shOn; uniform float sep; uniform vec3 rk, rfill, rc0, rc1, rc2, bg; uniform vec2 shOff; varying vec2 vUv; varying vec3 vW; varying vec3 vM;
+      fragmentShader: `uniform sampler2D tNat, tSep, tFill, tEdge, tShadow; uniform mat4 shMat; uniform float shOn, shTexel; uniform float sep; uniform vec3 rk, rfill, rc0, rc1, rc2, bg; uniform vec2 shOff; varying vec2 vUv; varying vec3 vW; varying vec3 vM;
         void main(){
           vec3 c = mix(texture2D(tNat, vUv).rgb, texture2D(tSep, vUv).rgb, sep);
           vec3 m = texture2D(tFill, vUv).rgb * rk, e = texture2D(tEdge, vUv).rgb * rk;
@@ -99,7 +100,7 @@ export const HEROES = {
           vec3 sh = rk.x + rk.y + rk.z > 0.0005 ? texture2D(tFill, vUv + shOff, 3.5).rgb * rk : vec3(0.0); float shade = max(max(sh.r * (1.0 - m.r), sh.g * (1.0 - m.g)), sh.b * (1.0 - m.b));
           c *= 1.0 - 0.55 * shade;
           if (shOn > 0.5) { vec4 sc = shMat * vec4(vW, 1.0); vec3 q = sc.xyz / sc.w * 0.5 + 0.5; float sv = 0.0;   /* bóng thật của vật trong cảnh (D2b): shadow map máy mặt trời, PCF 3x3 */
-            if (q.x > 0.0 && q.x < 1.0 && q.y > 0.0 && q.y < 1.0 && q.z < 1.0) { for (int i = -1; i <= 1; i++) for (int j = -1; j <= 1; j++) sv += step(texture2D(tShadow, q.xy + vec2(float(i), float(j)) / 2048.0).r, q.z - 0.0015); sv /= 9.0; }
+            if (q.x > 0.0 && q.x < 1.0 && q.y > 0.0 && q.y < 1.0 && q.z < 1.0) { for (int i = -1; i <= 1; i++) for (int j = -1; j <= 1; j++) sv += step(texture2D(tShadow, q.xy + vec2(float(i), float(j)) * shTexel).r, q.z - 0.0015); sv /= 9.0; }
             c *= 1.0 - 0.5 * sv; }
           vec3 n = normalize(cross(dFdx(vW), dFdy(vW))); float wall = 1.0 - abs(n.y);
           vec3 RC[3]; RC[0] = rc0; RC[1] = rc1; RC[2] = rc2; float MF[3]; MF[0] = m.r; MF[1] = m.g; MF[2] = m.b; float EF[3]; EF[0] = e.r; EF[1] = e.g; EF[2] = e.b; float FL[3]; FL[0] = rfill.x; FL[1] = rfill.y; FL[2] = rfill.z;
@@ -185,11 +186,16 @@ export const HEROES = {
         const cg = new THREE.CylinderGeometry(r, r, th * 0.86, 56), eg = new THREE.TorusGeometry(r * 0.97, th * 0.07, 6, 56); eg.rotateX(Math.PI / 2);
         for (let i = 0; i < n; i++) { const g = new THREE.Group(); g.add(new THREE.Mesh(cg, gold)); const e1 = new THREE.Mesh(eg, rim); e1.position.y = th * 0.43; const e2 = e1.clone(); e2.position.y = -th * 0.43; g.add(e1, e2);
           g.userData = { y: th * (i + 0.5), rz: (Math.sin(i * 12.9898) * 0.5) * 0.06, ox: Math.sin(i * 78.233) * r * 0.05, oz: Math.cos(i * 37.71) * r * 0.05 }; grp.add(g); items.push(g); }
-        cols.push({ c, grp, items, x, z, lon: lonA, lat: latA, top: () => th * items.filter((g) => g.visible).length, sh });
+        if (c.ruler) { const rm = new THREE.MeshToonMaterial({ color: c.rulerColor || '#f4efe4' }), dk = new THREE.MeshToonMaterial({ color: '#3a3026' }), rx = (c.rulerSide ?? 1) * r * 1.55, rul = new THREE.Group(); rul.position.set(rx, 0, 0); grp.add(rul);   /* V3 (E3): thước cạnh chồng, 1 khấc / đồng → đọc tỷ lệ bằng mắt */
+          const N = c.ruler === true ? n : c.ruler, post = new THREE.Mesh(new THREE.BoxGeometry(r * 0.16, th * N, r * 0.16), rm); post.position.y = th * N / 2; rul.add(post);
+          for (let i = 0; i <= N; i++) { const tk = new THREE.Mesh(new THREE.BoxGeometry(r * (i % 5 === 0 ? 0.62 : 0.4), th * 0.09, r * 0.2), i % 5 === 0 ? dk : rm); tk.position.set(-r * 0.12, th * i, 0); rul.add(tk); }
+          rul.userData.N = N; items.ruler = rul; }
+        cols.push({ c, grp, items, x, z, lon: lonA, lat: latA, top: () => th * items.filter((g) => g.visible).length, sh, th });
       } else { const m = new THREE.MeshStandardMaterial({ color: c.color || C.orange, roughness: 0.4, metalness: 0.1 }), b = new THREE.Mesh(new THREE.BoxGeometry(r * 1.6, 1, r * 1.6), m); grp.add(b); items.push(b);
         cols.push({ c, grp, items, x, z, lon: lonA, lat: latA, top: () => b.scale.y, bar: b, sh }); }
       const cc = cols[cols.length - 1], tp = new THREE.Vector3(), pl = new THREE.Vector3(), pr = new THREE.Vector3(), rgt = new THREE.Vector3();
       anchors['col:' + c.id] = () => tp.set(cc.x, cc.grp.position.y + cc.top() + 0.6, cc.z);
+      if (cc.items.ruler) { const rp = new THREE.Vector3(); anchors['rul:' + c.id] = () => { if (!cc.grp.visible || !cc.items.ruler.visible) return null; cc.items.ruler.updateMatrixWorld(); return rp.set(0, cc.th * cc.items.ruler.userData.N * cc.items.ruler.scale.y + 0.3, 0).applyMatrix4(cc.items.ruler.matrixWorld); }; }
       // mép trái/phải ở chân (theo hướng phải của máy quay) → lớp 2D dựng hộp chiếu của chồng xu để nhãn né (BAI-HOC-K2 K11)
       anchors['colL:' + c.id] = () => { rgt.setFromMatrixColumn(cam.matrixWorld, 0).setY(0).normalize().multiplyScalar(r * 1.1); return cc.grp.visible ? pl.set(cc.x, cc.grp.position.y, cc.z).sub(rgt) : null; };
       anchors['colR:' + c.id] = () => { rgt.setFromMatrixColumn(cam.matrixWorld, 0).setY(0).normalize().multiplyScalar(r * 1.1); return cc.grp.visible ? pr.set(cc.x, cc.grp.position.y, cc.z).add(rgt) : null; }; }
@@ -225,15 +231,15 @@ export const HEROES = {
     // viền trắng: mặt nạ vật (layer 1) → quad toàn khung giãn mặt nạ, vẽ SAU địa hình/tuyến và TRƯỚC vật
     const anyObj = props.some((x) => !x.isChar) || (o.cols || []).length;
     let maskRT = null, outline = null; const MASKM = new THREE.MeshBasicMaterial({ color: '#ffffff' });
-    if (anyObj) { maskRT = new THREE.WebGLRenderTarget(W, H, { depthBuffer: true });
+    if (anyObj) { maskRT = new THREE.WebGLRenderTarget(W, H, { depthBuffer: true });   /* mặt nạ giữ đủ độ phân giải: ½ làm viền răng cưa bậc thang thấy được (lod_test V3, cấu hình E đầu) — tiết kiệm nằm ở số mẫu giãn */
       outline = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), new THREE.ShaderMaterial({ transparent: true, depthTest: false, depthWrite: false,
         uniforms: { tMask: { value: maskRT.texture }, res: { value: new THREE.Vector2(W, H) }, rad: { value: (o.outlinePx ?? 5) * H / 1080 }, col: { value: new THREE.Color(o.outlineColor || '#ffffff') } },
         vertexShader: 'void main(){ gl_Position = vec4(position.xy, 0.0, 1.0); }',
         fragmentShader: `uniform sampler2D tMask; uniform vec2 res; uniform float rad; uniform vec3 col;
           void main(){ vec2 uv = gl_FragCoord.xy / res; if (texture2D(tMask, uv).r > 0.5) discard; float a = 0.0;
-            for (int k = 0; k < 24; k++) { float an = float(k) * 0.2618; vec2 d = vec2(cos(an), sin(an)) / res;
+            for (int k = 0; k < ${FAST ? 12 : 24}; k++) { float an = float(k) * ${FAST ? '0.5236' : '0.2618'}; vec2 d = vec2(cos(an), sin(an)) / res;
               a = max(a, texture2D(tMask, uv + d * rad).r); a = max(a, texture2D(tMask, uv + d * rad * 0.55).r * 1.0); }
-            if (a < 0.01) discard; gl_FragColor = vec4(col, smoothstep(0.05, 0.6, a)); }` }));
+            if (a < 0.01) discard; gl_FragColor = vec4(col, smoothstep(0.02, 0.85, a)); }` }));
       outline.frustumCulled = false; outline.renderOrder = 8; scene.add(outline); }
     for (const cc of cols) { cc.grp.traverse((m) => { if (m.isMesh && m !== cc.sh) { m.layers.enable(1); m.renderOrder = 9; m.material.transparent = true; } }); cc.sh.visible = false; }   // xu: bóng thật + viền như mọi vật
     const shCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10); shCam.layers.set(1); shCam.layers.enable(2);
@@ -280,13 +286,15 @@ export const HEROES = {
           if (cc.bar) { const u = eo(cl((t - t0) / (t1 - t0))); cc.bar.scale.y = Math.max(0.001, u * cc.c.v); cc.bar.position.y = cc.bar.scale.y / 2; cc.grp.visible = u > 0.001; }
           else { const n = cc.items.length, step = n > 1 ? (t1 - t0) / n : 0; cc.items.forEach((g, i) => { const ti = t0 + i * step, u = cl((t - ti) / 0.32); g.visible = u > 0; const d = g.userData;   // rơi xuống + nảy nhẹ
             g.position.set(d.ox, d.y + (1 - eo(u)) * 6 + Math.sin(cl(u * 1.4) * Math.PI) * 0.0, d.oz); g.rotation.z = d.rz * (1 - u) * 6 + d.rz; });
-            cc.grp.visible = cc.items.some((g) => g.visible); cc.sh.material.opacity = cc.grp.visible ? 1 : 0; } }
+            if (cc.items.ruler) { const ru = eo(cl((t - t0) / 0.5)); cc.items.ruler.visible = ru > 0.001; cc.items.ruler.scale.y = Math.max(0.001, ru); }
+            cc.grp.visible = cc.items.some((g) => g.visible) || !!(cc.items.ruler && cc.items.ruler.visible); cc.sh.material.opacity = cc.grp.visible ? 1 : 0; } }
         for (const w of walkers) w.set(t);
         placeProps(t, wk);
         if (terrH) { const far = camDist > lodMesh; terrH.visible = far; terr.visible = !far; }
         if (lodTex > 0) { const far = camDist > lodTex; U.tNat.value = far ? tNat4 : tNat; U.tSep.value = far ? tSep4 : tSep; }
         for (const R of rmeshes) if (R.r.trail) { const w = walkers.find((x) => x.w.id === R.r.trail); if (w) { const d = Math.max(0, w.u) * R.L; R.line.material.uniforms.draw.value = d; R.glow.material.uniforms.draw.value = d; R.head.visible = false; } }   /* trail: tuyến vẽ theo đúng vị trí vật đi (vệt sau thuyền) */
         cam.updateMatrixWorld(); passes();
+        self.sppNow = o.spp1Km && camDist > o.spp1Km ? 1 : null;   /* V3 (E6b): máy xa > spp1Km km → SPP1 + lọc khử răng cưa (page.js) */
       } };
     return self;
   },

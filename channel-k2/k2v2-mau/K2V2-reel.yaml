@@ -60,8 +60,8 @@ heroes:
       - {id: ny, state: New York, color: '#3CC2B0', at: -1, lift: 3, fill: 0.16}
       places: [buffalo]
       cols:
-      - {id: wagon, at: [-78.42, 42.80], kind: coins, n: 10, t: [0.6, 2.8], r: 8}
-      - {id: canal, at: [-78.02, 42.84], kind: coins, n: 1, t: [3.5, 3.6], r: 8}
+      - {id: wagon, at: [-78.42, 42.80], kind: coins, n: 10, t: [0.6, 2.8], r: 8, ruler: true, rulerSide: -1}
+      - {id: canal, at: [-78.02, 42.84], kind: coins, n: 1, t: [3.5, 3.6], r: 8, ruler: 10, rulerSide: 1}
       pins:
       - {id: wagon, at: [-78.62, 42.74]}
       - {id: boat, at: [-78.13, 42.775]}
@@ -131,7 +131,7 @@ segments:
       cap:
       - {s: 'The Mohawk Valley: a low path from the Great Lakes to the Hudson', at: 1.2}
       - {s: '1825: New York opens the Erie Canal, 363 miles from Buffalo to Albany', at: 9.8}
-      src: 'Sources: LOC · NPS · Erie Canalway NHC · Terrain: USGS 3DEP · Map: Natural Earth'
+      src: 'Source: NPS, LOC · Terrain: USGS 3DEP'
       year: {s: '1825', at: 8.4}
 - id: J
   part: BODY
@@ -157,11 +157,11 @@ segments:
     p:
       hero: h_trip
       stickers:
-      - {a: 'st:sack', img: 'stk:sack', at: 0.3, out: 3.6, px: 130}
-      - {a: 'st:farm', img: {role: farmer, hand: wheat}, at: 2.0, out: 6.4, px: 170}
-      - {a: 'st:boat', img: 'stk:boat', at: 0.5, px: 90, walk: true, hz: 1.2}
-      - {a: 'st:crew', img: {role: sailor, hand: rope}, at: 0.7, px: 160, walk: true}
-      - {a: 'st:town', img: {role: merchant}, at: 8.8, px: 170}
+      - {a: 'st:sack', img: 'stk:sack', at: 0.3, out: 3.6, px: 170}
+      - {a: 'st:farm', img: {role: farmer, hand: wheat}, at: 2.0, out: 6.4, px: 230}
+      - {a: 'st:boat', img: 'stk:boat', at: 0.5, px: 125, walk: true, hz: 1.2}
+      - {a: 'st:crew', img: {role: sailor, hand: rope}, at: 0.7, px: 220, walk: true}
+      - {a: 'st:town', img: {role: merchant}, at: 8.8, px: 230}
       places:
       - {a: buffalo, s: Buffalo, at: 0.3, side: auto, prefer: [left, down], c: '#F08A4B', px: 42}
       - {a: rochester, s: Genesee Valley, at: 2.2, out: 6.0, side: auto, prefer: [up, down], c: '#F08A4B', px: 42}
@@ -170,7 +170,7 @@ segments:
       - {a: hudson-mid, s: Hudson River, at: 6.6, out: 9.2, side: auto, prefer: [right, left], c: '#9fb6d8'}
       cap:
       - {s: 'Wheat from the Genesee Valley could now float east to Albany, then down the Hudson', at: 1.0}
-      src: 'Source: Erie Canalway National Heritage Corridor · Terrain: USGS 3DEP · Map: Natural Earth'
+      src: 'Source: Erie Canalway NHC · Terrain: USGS 3DEP'
 - id: N
   part: BODY
   dur: 8
@@ -196,11 +196,13 @@ segments:
       - {a: 'st:wagon', img: 'stk:wagon', at: 0.3, px: 160}
       - {a: 'st:boat', img: 'stk:boat', at: 3.3, px: 150}
       tags:
+      - {a: 'rul:wagon', s: '×10', at: 2.9, side: auto, prefer: [left, up], c: '#F4EFE4', px: 40, gap: 14}
+      - {a: 'rul:canal', s: '1 of 10', at: 3.8, side: auto, prefer: [down, right], c: '#F4EFE4', px: 34, gap: 14}
       - {a: 'col:wagon', s: '$90–125', sub: 'a ton, Buffalo to New York, by wagon', big: true, kind: actual, at: 2.2, side: auto, prefer: [left, up, right], c: '#F2C14E', num: wagon_cost}
       - {a: 'col:canal', s: '1/10', sub: 'of the overland cost, by canal', big: true, kind: actual, at: 4.1, side: auto, prefer: [right, up, left], c: '#3CC2B0', num: canal_tenth}
       cap:
-      - {s: 'Each coin is one tenth of the wagon cost', at: 0.8}
-      src: 'Sources: NYS Archives Partnership Trust · Erie Canalway NHC · Terrain: USGS 3DEP'
+      - {s: 'Each coin is one tenth of the wagon cost; the ruler marks ten coins', at: 0.8}
+      src: 'Source: NYS Archives, Erie Canalway NHC · Terrain: USGS 3DEP'
 - id: P
   part: BODY
   dur: 5
@@ -225,7 +227,7 @@ segments:
         - {s: DeWitt Clinton, px: 64, w: 700, disp: true, at: 0.3}
         - {s: Governor of New York, px: 40, c: '#E6EBF0', at: 0.7}
         - {s: 'Portrait painted 1826', px: 40, c: '#F2C14E', at: 1.0, gap: 40}
-        - {s: 'Painting: Samuel F. B. Morse · The Metropolitan Museum of Art, Open Access (public domain)', px: 34, w: 500, c: '#D6DDE4', at: 1.3}
+        - {s: 'Painting: S. F. B. Morse · The Met (public domain)', px: 38, w: 500, c: '#D6DDE4', at: 1.3}
 - id: S
   part: BODY
   dur: 6
@@ -249,14 +251,14 @@ segments:
       score:
         corner:
           at: 0.2
-          title: 'Rows won:'
+          title: 'Advantages:'
           sides:
           - {s: New York, c: '#3CC2B0', icon: 'stk:boat', n: [{t: 0, v: 0}, {t: 0.85, v: 1}, {t: 1.65, v: 2}, {t: 2.05, v: 3}]}
           - {s: Pennsylvania, c: '#F2C14E', icon: 'stk:wagon', n: 0}
         board:
           at: 0.3
           align: right
-          w: 1000
+          w: 768
           title: Two routes west
           sides:
           - {s: Erie Canal, c: '#3CC2B0', icon: 'stk:boat'}
@@ -266,7 +268,7 @@ segments:
           - {k: Length, icon: 'stk:flag', v: ['363 mi', '394 mi'], at: 1.05}
           - {k: Climb from the start, icon: 'stk:mountain', v: ['568 ft', '2,102 ft'], win: 0, at: 1.45}
           - {k: Cost to build, icon: 'stk:coins', v: ['$7.1M', '$16.5M'], win: 0, at: 1.85}
-          foot: 'Sources: NPS · Erie Canalway NHC'
+          foot: 'Source: NPS, Erie Canalway NHC'
 numbers:
   wagon_cost: {v: 90, text: '$90–125', kind: actual, year: 1825, unit: '$/ton', src: NYSAPT, say: ninety to one hundred twenty-five dollars}
   canal_tenth: {v: 0.1, text: '1/10', kind: actual, year: 1825, unit: ratio, src: ECNHC-NS, say: a tenth}

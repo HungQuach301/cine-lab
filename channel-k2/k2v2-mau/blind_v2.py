@@ -8,11 +8,13 @@ Cặp + mốc KHAI TRƯỚC khi dựng 1080p (không chọn tay sau khi xem):
   khung mới = shot.mp4 1080p của cuộn K2V2 ở giây khai dưới đây. Tên X/Y trộn bằng hạt giống cố định. Thang tuyệt đối (5 = video faceless thường).
   blind_v2.py set <master_t1.mp4>   ·   blind_v2.py run   ·   blind_v2.py score
   blind_v2.py rejudge3 [P1 …]  vòng 3 (V2b), thư mục <cặp>-v3
+  blind_v2.py rejudge4 [P1 …]  vòng 4 (V3, 14/10): cùng giao thức/cặp/khung T1/X-Y/mốc giây, thư mục <cặp>-v4; trần V3 $4 tính từ mức đã tiêu trước V3 ($2,708), dừng ở $3,6
   blind_v2.py rejudge [P1 …]   vòng 2 sau MỘT lượt sửa: thư mục <cặp>-v2, cùng khung T1, cùng thứ tự X/Y, cùng mốc giây, cùng đề bài (khung mới trích từ shot.mp4 mới)"""
 import json, os, random, re, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'kiem-mu'); B = os.path.join(OUT, 'blind'); LOG = os.path.join(OUT, 'cost.jsonl')
 CAP, STOP, MODEL = 10.0, 9.0, 'claude-sonnet-5-5'
+V3_BASE = 2.708   # chi phí lũy kế khi bắt đầu V3
 NEW = '/var/tmp/cine-out/k2v-shots/K2V2-reel/shot.mp4'
 T1KEY = os.path.join(HERE, '..', 'k2c-t1-06', 'kiem-mu', 'blind-g2', 'q27', 'key.json')
 # (cặp, loại nội dung chung, khung T1 (F## bộ Q27 G2), giây khung mới trong cuộn — đoạn H 0–15, J 15–25, N 25–33, P 33–38, S 38–44)
@@ -121,5 +123,7 @@ if __name__ == '__main__':
     if a == 'set': setup(sys.argv[2])
     elif a == 'run': run(sys.argv[2:] or None)
     elif a == 'rejudge': rejudge(sys.argv[2:] or None)
+    elif a == 'rejudge4':   # V3: vòng 4 — trần riêng $4 trên mức lũy kế trước V3
+        STOP = min(STOP, V3_BASE + 3.6); rejudge(sys.argv[2:] or None, 'v4')
     elif a == 'rejudge3': rejudge(sys.argv[2:] or None, 'v3')   # V2b: vòng 3 (cùng cặp, cùng khung T1, cùng X/Y, cùng mốc giây — khai trước 1080p)
     else: score()

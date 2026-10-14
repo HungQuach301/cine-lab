@@ -57,14 +57,34 @@ def main():
                                    speech=[], shots=shots, sfx=[], fadeIn=sg.get('fadeIn', 6), fadeOut=sg.get('fadeOut', 6)))
         t_abs += dur
     t_wall = time.time()
-    def run(job):
-        cmd, stamp, tag = job; r = subprocess.run(cmd, stderr=subprocess.PIPE, text=True)
-        if r.returncode: print(r.stderr[-3000:]); return f'lỗi cảnh 3D {tag}'
-        if stamp: open(stamp[0], 'w').write(stamp[1])
+    # V3 (E6d): --chunk K chia cảnh dài thành các phần ≤ K khung (--only theo khoảng), mỗi phần một tiến trình, ra thư mục con rồi gộp; xếp việc dài trước (LPT)
+    chunk = int(arg('chunk', 0)); WORK = []
+    for cmd, stamp, tag in JOBS:
+        nfr = int(-(-float(cmd[cmd.index('--dur') + 1]) * FPS // 1)); hdir = cmd[cmd.index('--out') + 1]
+        if chunk and not meas and nfr > chunk:
+            k = -(-nfr // chunk); b = [round(i * nfr / k) for i in range(k + 1)]
+            for i in range(k):
+                c2 = list(cmd); c2[c2.index('--out') + 1] = os.path.join(hdir, f'part{i}'); c2 += ['--only', ','.join(str(f) for f in range(b[i], b[i + 1]))]
+                WORK.append(dict(cmd=c2, n=b[i + 1] - b[i], tag=f'{tag}#{i}', parent=hdir))
+        else: WORK.append(dict(cmd=cmd, n=nfr, tag=tag, parent=None))
+    WORK.sort(key=lambda w: -w['n'])
+    def run(w):
+        r = subprocess.run(w['cmd'], stderr=subprocess.PIPE, text=True)
+        if r.returncode: print(r.stderr[-3000:]); return f'lỗi cảnh 3D {w["tag"]}'
     from concurrent.futures import ThreadPoolExecutor
-    with ThreadPoolExecutor(max(1, par)) as ex: errs = [e for e in ex.map(run, JOBS) if e]
+    with ThreadPoolExecutor(max(1, par)) as ex: errs = [e for e in ex.map(run, WORK) if e]
     if errs: sys.exit('; '.join(errs))
-    if JOBS: print(json.dumps(dict(dung_canh=len(JOBS), song_song=par, dong_ho_s=round(time.time() - t_wall, 1))), file=sys.stderr)
+    import glob, shutil
+    for hdir in dict.fromkeys(w['parent'] for w in WORK if w['parent']):   # gộp các phần: khung, điểm neo, meta (s/khung = TB theo số khung)
+        anc, tot, sec, meta0 = {}, 0, 0.0, None
+        for w in [w for w in WORK if w['parent'] == hdir]:
+            pd = w['cmd'][w['cmd'].index('--out') + 1]
+            for f in glob.glob(os.path.join(pd, '[0-9]' * 5 + '.jpg')): os.replace(f, os.path.join(hdir, os.path.basename(f)))
+            anc.update(json.load(open(os.path.join(pd, 'anchors.json')))); m = json.load(open(os.path.join(pd, 'meta.json'))); tot += w['n']; sec += m['s_per_frame'] * w['n']; meta0 = m; shutil.rmtree(pd)
+        meta0.update(s_per_frame=round(sec / max(1, tot), 2), chunks=True); json.dump(anc, open(os.path.join(hdir, 'anchors.json'), 'w')); json.dump(meta0, open(os.path.join(hdir, 'meta.json'), 'w'))
+    for cmd, stamp, tag in JOBS:
+        if stamp: open(stamp[0], 'w').write(stamp[1])
+    if JOBS: print(json.dumps(dict(dung_canh=len(JOBS), phan=len(WORK), song_song=par, chunk=chunk, dong_ho_s=round(time.time() - t_wall, 1))), file=sys.stderr)
     for m in M:
         meta = json.load(open(os.path.join(m.pop('_dir'), 'meta.json'))); m.update(s_per_frame=meta['s_per_frame'], frames=meta['frames'])
     TL['tong_s'] = round(t_abs, 4); TL['tong_khung'] = sum(s['frames'] for s in TL['segments'])

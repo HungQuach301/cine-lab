@@ -117,6 +117,22 @@ class T(unittest.TestCase):
         r = subprocess.run([sys.executable, os.path.join(prep.REPO, 'scripts/k2/rhythm.py'), os.path.join(prep.REPO, 'channel-k2/k2v2-mau/K2V2-reel.yaml')], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stdout[-800:])
 
+    # ---- V3 (14/10/2026): nguồn ngắn ≥ 38 px, thước ×10, bảng điểm gọn, chia đoạn dựng
+    def test_v3_source_short(self):
+        """Kinh thánh §4 (20:45): dòng nguồn 16:9 ≥ 38 px; nguồn trên hình chỉ tên ngắn (một dòng ≤ 70 ký tự ở cuộn mẫu)"""
+        import re, yaml
+        src = open(os.path.join(prep.REPO, 'scripts/k2/lib/k2.js')).read(); px = int(re.search(r'const SRCPX = V \? \d+ : (\d+)', src).group(1)); self.assertGreaterEqual(px, 38)
+        E = yaml.safe_load(open(os.path.join(prep.REPO, 'channel-k2/k2v2-mau/K2V2-reel.yaml')))
+        for sg in E['segments']:
+            for sh in sg['shots']:
+                p = sh['p']; s1 = [p.get('src')] + [((p.get('score') or {}).get('board') or {}).get('foot')]
+                for x in filter(None, s1): self.assertLessEqual(len(x), 70, x)
+
+    def test_v3_ruler_and_chunk(self):
+        src = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read(); vs = open(os.path.join(prep.REPO, 'scripts/k2/vshot.py')).read()
+        for k in ("anchors['rul:'", 'c.ruler', 'FAST ? 12 : 24'): self.assertIn(k, src)
+        for k in ("arg('chunk'", "'--only'", 'WORK.sort'): self.assertIn(k, vs)
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)

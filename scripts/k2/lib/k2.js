@@ -11,7 +11,7 @@ const cv = document.getElementById('c'); cv.width = W; cv.height = H; const X = 
 const K = { ink: '#0F1722', ink2: '#16212f', text: '#EEF1F4', steel: '#9AA7B5', orange: '#F08A4B', teal: '#3CC2B0', amber: '#F2C14E', dim: '#B9C3CE' };
 // mép dưới của dòng nguồn / nhãn ACTUAL (chủ dự án 13/10/2026: mọi chữ cách mép ≥ 48 px, kiểm bằng scripts/k2/edge_check.py)
 const EDGE_B = 62;
-const SRCPX = V ? 46 : 34;   // dòng nguồn kênh 2: 34 px ở 16:9 (Kinh thánh §4, chủ dự án duyệt D3 14/10/2026; trước đó MINPX 30)
+const SRCPX = V ? 46 : 38;   // dòng nguồn kênh 2: chỉ tên nguồn ngắn, ≥ 38 px ở 16:9 (Kinh thánh §4, duyệt 14/10 20:45; V2b 34 px; trước đó MINPX 30)
 const SAFE = V ? { x0: 70, x1: 1010, y0: 300, y1: 1560 } : { x0: 110, x1: 1810, y0: 70, y1: 1010 };
 const cl = (u) => Math.max(0, Math.min(1, u)), sm = (u) => { u = cl(u); return u * u * u * (u * (u * 6 - 15) + 10); }, eo = (u) => { u = cl(u); return 1 - Math.pow(1 - u, 3); };
 const pr = (t, a, b) => cl((t - a) / (b - a)), lerp = (a, b, u) => a + (b - a) * u;
@@ -170,20 +170,22 @@ function score(g, p, t) { const Sc = p.score; if (!Sc) return;
       if (nw) { const bx = x + bw - nw - 8; g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; rrect(g, bx, y + 10, nw, bh - 20, (bh - 20) / 2); g.fill(); g.restore(); text(g, String(n), bx + nw / 2, y + bh / 2 + 14 * S, 40 * S, K.ink, { a: u, w: 700, disp: true, align: 'center' }); }
       x += bw + 18; } } }
   const Bd = Sc.board; if (!Bd) return; const u = vis(t, Bd.at === undefined ? p.t0 : Bd.at, Bd.out, 0.5); if (u <= 0.01) return;
-  const n = Bd.rows.length, rh = V ? 150 : 108, hh = V ? 190 : 150, bw = V ? 960 : (Bd.w || 1340), top0 = Bd.title ? (V ? 90 : 72) : 0, bh = top0 + hh + n * rh + (Bd.foot ? 70 : 30), bx = !V && Bd.align === 'right' ? W - SAFE.x0 - bw : (W - bw) / 2;   /* align right: lộ bản đồ bên trái (chấm mù V2: bảng che bản đồ) */
+  const CMP = !V && (Bd.w || 1340) < 1000, n = Bd.rows.length, rh = V ? 150 : CMP ? 112 : 108, hh = V ? 190 : CMP ? 138 : 150,   /* CMP (V3, E4): bảng hẹp ~40 % khung — hàng 2 dòng: biểu tượng + nhãn trên, hai giá trị dưới */ bw = V ? 960 : (Bd.w || 1340), top0 = Bd.title ? (V ? 90 : 72) : 0, bh = top0 + hh + n * rh + (Bd.foot ? 70 : 30), bx = !V && Bd.align === 'right' ? W - SAFE.x0 - bw : (W - bw) / 2;   /* align right: lộ bản đồ bên trái (chấm mù V2: bảng che bản đồ) */
   const by = Math.max(SAFE.y0 + (Cn ? 90 : 0), (H - bh) / 2 - (V ? 0 : 10)), sl = eo(u);
   g.save(); g.translate(0, (1 - sl) * 40); panel(g, bx, by, bw, bh, { a: u, fill: 'rgba(12,18,27,0.93)', r: 18 });
-  const cx = [bx + bw * 0.22, bx + bw * 0.78], mid = bx + bw / 2;
+  const cx = [bx + bw * (CMP ? 0.25 : 0.22), bx + bw * (CMP ? 0.75 : 0.78)], mid = bx + bw / 2;
   if (Bd.title) text(g, Bd.title, mid, by + 58, 40 * S, '#E6EBF0', { a: u, w: 700, align: 'center' });
-  Bd.sides.forEach((sd, i) => { const y = by + top0 + hh / 2; drawIcon(g, sd.icon, cx[i] - (V ? 0 : 0), y - 18, 96 * S, u); text(g, sd.s, cx[i], y + 62, 40 * S, sd.c, { a: u, w: 700, disp: true, align: 'center' });
-    g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; g.fillRect(cx[i] - 70, y + 76, 140, 5); g.restore(); });
+  Bd.sides.forEach((sd, i) => { const y = by + top0 + hh / 2; drawIcon(g, sd.icon, cx[i], y - (CMP ? 22 : 18), (CMP ? 78 : 96) * S, u); text(g, sd.s, cx[i], y + (CMP ? 48 : 62), (CMP ? 38 : 40) * S, sd.c, { a: u, w: 700, disp: true, align: 'center' });
+    g.save(); g.globalAlpha *= u; g.fillStyle = sd.c; g.fillRect(cx[i] - 70, y + (CMP ? 60 : 76), 140, 5); g.restore(); });
   text(g, 'vs', mid, by + top0 + hh / 2 + 14, 34 * S, K.steel, { a: u, w: 600, align: 'center' });
   Bd.rows.forEach((r, i) => { const a = vis(t, r.at === undefined ? (Bd.at || p.t0) + 0.4 + i * 0.35 : r.at, undefined, 0.45) * u; if (a <= 0.01) return; const y = by + top0 + hh + i * rh;
     g.save(); g.globalAlpha *= a; g.fillStyle = i % 2 ? 'rgba(255,255,255,0.025)' : 'rgba(255,255,255,0.055)'; g.fillRect(bx + 16, y + 6, bw - 32, rh - 12); g.restore();
-    drawIcon(g, r.icon, mid - (V ? 0 : 0), y + rh * 0.36, 54 * S, a); text(g, r.k, mid, y + rh * 0.88, 32 * S, '#D6DDE4', { a, w: 600, align: 'center' });
-    r.v.forEach((v, j) => { const win = r.win === j, c = win ? Bd.sides[j].c : K.text; text(g, v, cx[j], y + rh * 0.62, (win ? 46 : 42) * S, c, { a, w: 700, disp: true, align: 'center' });
-      if (r.sub && r.sub[j]) text(g, r.sub[j], cx[j], y + rh * 0.62 + 34 * S, 30 * S, K.dim, { a, w: 500, align: 'center' });
-      if (win) { g.save(); g.globalAlpha *= a; g.strokeStyle = Bd.sides[j].c; g.lineWidth = 4; const ww = tw(g, v, 46 * S, 700, true); rrect(g, cx[j] - ww / 2 - 22, y + rh * 0.62 - 50 * S, ww + 44, 66 * S, 33 * S); g.stroke(); g.restore(); } }); LL.fill = true; });
+    const vy = CMP ? y + rh * 0.82 : y + rh * 0.62;
+    if (CMP) { const lw = tw(g, r.k, 32, 600), x0 = mid - (lw + 52) / 2; drawIcon(g, r.icon, x0 + 20, y + rh * 0.27, 40, a); text(g, r.k, x0 + 52, y + rh * 0.27 + 11, 32, '#D6DDE4', { a, w: 600 }); }
+    else { drawIcon(g, r.icon, mid, y + rh * 0.36, 54 * S, a); text(g, r.k, mid, y + rh * 0.88, 32 * S, '#D6DDE4', { a, w: 600, align: 'center' }); }
+    r.v.forEach((v, j) => { const win = r.win === j, c = win ? Bd.sides[j].c : K.text; text(g, v, cx[j], vy, (win ? 46 : 42) * S, c, { a, w: 700, disp: true, align: 'center' });
+      if (r.sub && r.sub[j]) text(g, r.sub[j], cx[j], vy + 34 * S, 30 * S, K.dim, { a, w: 500, align: 'center' });
+      if (win) { g.save(); g.globalAlpha *= a; g.strokeStyle = Bd.sides[j].c; g.lineWidth = 4; const ww = tw(g, v, 46 * S, 700, true); rrect(g, cx[j] - ww / 2 - 22, vy - 50 * S + (CMP ? 6 : 0), ww + 44, (CMP ? 58 : 66) * S, 29 * S); g.stroke(); g.restore(); } }); LL.fill = true; });
   if (Bd.foot) srcLine(g, Bd.foot, mid, by + bh - 30, u, 'center', bw - 48); g.restore(); }
 
 // ---------- thẻ (nền: cảnh 3D mờ) ----------

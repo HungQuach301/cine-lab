@@ -16,6 +16,8 @@ REPO = prep.REPO
 # (đoạn, giây trong cảnh) — chọn trước, trải các tầm máy: H 2,5 s (~440 km), H 12,5 s (~520 km), J 6,0 s (~600 km), N 4,2 s (~125 km), S 3,0 s (~650 km), P 2,5 s (ảnh)
 PICKS = [('H', 2.5), ('H', 12.5), ('J', 6.0), ('N', 4.2), ('S', 3.0), ('P', 2.5)]
 CONFIGS = {'A_spp4': dict(spp=4, lod=False), 'B_spp2': dict(spp=2, lod=False), 'C_spp2_lod': dict(spp=2, lod=True), 'D_spp4_lod': dict(spp=4, lod=True)}
+# V3 (E6): --set v3 → chuẩn SPP4 cấu hình V2b; B = V2b (SPP2); E = SPP2 + bóng/mặt nạ viền ½ độ phân giải, viền 12 hướng (fast); F = SPP1 + fast
+V3 = {'A_spp4': dict(spp=4, lod=False, fast=False), 'B_spp2_v2b': dict(spp=2, lod=False, fast=False), 'E_spp2_fast': dict(spp=2, lod=False, fast=True), 'F_spp1_fast': dict(spp=1, lod=False, fast=True), 'G_spp2_fast_aa500': dict(spp=2, lod=False, fast=True, spp1Km=500)}
 
 
 def arg(k, d=None):
@@ -33,18 +35,24 @@ def phash(im):
 
 
 def main():
+    global CONFIGS
+    if arg('set') == 'v3': CONFIGS = V3
     E = yaml.safe_load(open(sys.argv[1])); prep.resolve_cams(E); out = arg('out'); os.makedirs(out, exist_ok=True); R = {}
     seg = {s['id']: s for s in E['segments']}
+    only = (arg('cfg') or '').split(',')   # --cfg: chỉ dựng lại các cấu hình này; cấu hình khác dùng khung đã có trong --out
     for name, cf in CONFIGS.items():
         R[name] = {}
         for sid in dict.fromkeys(s for s, _ in PICKS):
             sh = seg[sid]['shots'][0]; h = E['heroes'][sh['p']['hero']]; opt = dict(h.get('opt', {}))
             if not cf['lod'] and h['hero'].startswith('relief/'): opt.update(lodMesh=0, lodTex=0)
+            if h['hero'].startswith('relief/'): opt['lodMesh'], opt['lodTex'] = (300, 500) if cf['lod'] else (0, 0); opt['fast'] = cf.get('fast', False); opt['spp1Km'] = cf.get('spp1Km', 0)
             fr = [int(round(t * 24)) for s, t in PICKS if s == sid]; d = os.path.join(out, f'{name}-{sid}')
             cmd = ['node', os.path.join(REPO, 'scripts/k2/hero.js'), '--hero', h['hero'], '--dur', str(float(seg[sid]['dur']) + 0.5), '--w', '1920', '--h', '1080', '--spp', str(cf['spp']),
                    '--only', ','.join(map(str, fr)), '--opt', json.dumps(opt), '--out', d]
-            t0 = time.time(); r = subprocess.run(cmd, capture_output=True, text=True)
-            if r.returncode: print(r.stderr[-2000:]); sys.exit(f'lỗi {name} {sid}')
+            t0 = time.time()
+            if not (only[0] and name not in only and os.path.exists(os.path.join(d, 'meta.json'))):
+                r = subprocess.run(cmd, capture_output=True, text=True)
+                if r.returncode: print(r.stderr[-2000:]); sys.exit(f'lỗi {name} {sid}')
             meta = json.load(open(os.path.join(d, 'meta.json')))
             for f in fr: R[name][f'{sid}@{f}'] = dict(file=os.path.join(d, f'{f:05d}.jpg'), s_per_frame=meta['s_per_frame'], wall_s=round(time.time() - t0, 1))
             print(name, sid, meta['s_per_frame'], 's/khung', file=sys.stderr)
