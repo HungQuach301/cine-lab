@@ -1,0 +1,1132 @@
+{
+ "collected": "2026-10-15",
+ "method": {
+  "S1": "history 3D timelapse Zurich|Seville|Budapest|Helsinki|Detroit",
+  "S2": "why Zurich|Seville|Budapest|Helsinki|Detroit",
+  "params": "search.list type=video order=relevance maxResults=50 relevanceLanguage=en regionCode=US, không giới hạn ngày; videos.list cho 100 video",
+  "classify": "video thuộc thành phố khi tên thành phố có trong tiêu đề; dài ≥ 480 s, Short ≤ 180 s",
+  "note": "Trần 300 đv không đủ 1 search/thành phố (3×100 + videos.list > 300) nên gộp 5 thành phố bằng toán tử |; kết quả bị thành phố nhiều video lấn chỗ (Budapest ở S1, Detroit ở S2)"
+ },
+ "quota_units": 224,
+ "cities": {
+  "Zurich": {
+   "S1": {
+    "n": 1,
+    "n_long": 0,
+    "n_short": 1,
+    "max_long": 0,
+    "max_short": 21101,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 0,
+    "videos": [
+     {
+      "rank": 18,
+      "id": "KKwctl0vsro",
+      "pub": "2019-09-22",
+      "dur_s": 16,
+      "views": 21101,
+      "comments": 0,
+      "chname": "Ank Kumar",
+      "title": "Zurich Diaries - Google Earth 3D view of my Apartment - 2019"
+     }
+    ]
+   },
+   "S2": {
+    "n": 8,
+    "n_long": 3,
+    "n_short": 4,
+    "max_long": 64084,
+    "max_short": 27958,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 2,
+    "videos": [
+     {
+      "rank": 1,
+      "id": "X1kW8C2_f7I",
+      "pub": "2022-08-12",
+      "dur_s": 440,
+      "views": 949,
+      "comments": 4,
+      "chname": "One Sustainable Choice",
+      "title": "ZURICH: why is ZURICH one of the MOST LIVEABLE CITIES in the world?"
+     },
+     {
+      "rank": 2,
+      "id": "1WOENnSAdqA",
+      "pub": "2026-10-01",
+      "dur_s": 1353,
+      "views": 603,
+      "comments": 0,
+      "chname": "Creative Curiosities",
+      "title": "Working in Zurich | Why So Many People Want to Work Here"
+     },
+     {
+      "rank": 5,
+      "id": "zDKNBKlOJQA",
+      "pub": "2026-10-15",
+      "dur_s": 31,
+      "views": 454,
+      "comments": 0,
+      "chname": "Cloudia Chen",
+      "title": "Why Zurich Is More Than Just 'Expensive'"
+     },
+     {
+      "rank": 6,
+      "id": "Nw1KzQ_9V0Q",
+      "pub": "2026-01-24",
+      "dur_s": 993,
+      "views": 64084,
+      "comments": 84,
+      "chname": "Ella Morgan",
+      "title": "Why Billionaires Choose Zurich Over Every Luxury City | The Dark Luxury"
+     },
+     {
+      "rank": 7,
+      "id": "k-2ChlWUFbY",
+      "pub": "2026-08-09",
+      "dur_s": 578,
+      "views": 637,
+      "comments": 1,
+      "chname": "Made it ",
+      "title": "Living In Zurich | why Is Everyone Moving to Zurich in 2026 ? 4k Documentary"
+     },
+     {
+      "rank": 13,
+      "id": "7cPJcO8C2VY",
+      "pub": "2023-06-15",
+      "dur_s": 19,
+      "views": 2076,
+      "comments": 0,
+      "chname": "A Backpacker's World",
+      "title": "This is why Zurich is an underrated city..."
+     },
+     {
+      "rank": 16,
+      "id": "vuMB47CK07A",
+      "pub": "2025-03-05",
+      "dur_s": 78,
+      "views": 27958,
+      "comments": 30,
+      "chname": "La Vacanza Travel",
+      "title": "Why Staying in Zurich is a Smart Choice for Your Switzerland Trip | Swiss Travel Pass Experience"
+     },
+     {
+      "rank": 43,
+      "id": "H2N0MqkUWiQ",
+      "pub": "2026-09-28",
+      "dur_s": 43,
+      "views": 706,
+      "comments": 2,
+      "chname": "Switzerland Explained",
+      "title": "Why Zurich Trams Need Sand on Wet Rails"
+     }
+    ]
+   },
+   "gap_haiku": [
+    {
+     "city": "Zurich",
+     "id": "X1kW8C2_f7I",
+     "search": "S2",
+     "rank": 1,
+     "title": "ZURICH: why is ZURICH one of the MOST LIVEABLE CITIES in the world?",
+     "chname": "One Sustainable Choice",
+     "dur_s": 440,
+     "views": 949,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "explainer"
+    },
+    {
+     "city": "Zurich",
+     "id": "1WOENnSAdqA",
+     "search": "S2",
+     "rank": 2,
+     "title": "Working in Zurich | Why So Many People Want to Work Here",
+     "chname": "Creative Curiosities",
+     "dur_s": 1353,
+     "views": 603,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": true,
+     "genre": "travel_lifestyle"
+    },
+    {
+     "city": "Zurich",
+     "id": "Nw1KzQ_9V0Q",
+     "search": "S2",
+     "rank": 6,
+     "title": "Why Billionaires Choose Zurich Over Every Luxury City | The Dark Luxury",
+     "chname": "Ella Morgan",
+     "dur_s": 993,
+     "views": 64084,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "travel_lifestyle"
+    },
+    {
+     "city": "Zurich",
+     "id": "k-2ChlWUFbY",
+     "search": "S2",
+     "rank": 7,
+     "title": "Living In Zurich | why Is Everyone Moving to Zurich in 2026 ? 4k Documentary",
+     "chname": "Made it ",
+     "dur_s": 578,
+     "views": 637,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": true,
+     "genre": "travel_lifestyle"
+    }
+   ],
+   "teardown_channels_done": []
+  },
+  "Seville": {
+   "S1": {
+    "n": 0,
+    "n_long": 0,
+    "n_short": 0,
+    "max_long": 0,
+    "max_short": 0,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 0,
+    "videos": []
+   },
+   "S2": {
+    "n": 1,
+    "n_long": 0,
+    "n_short": 0,
+    "max_long": 0,
+    "max_short": 0,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 0,
+    "videos": [
+     {
+      "rank": 37,
+      "id": "qN12Gvqj3zs",
+      "pub": "2025-05-17",
+      "dur_s": 296,
+      "views": 5595,
+      "comments": 5,
+      "chname": "John Kenel",
+      "title": "Why Seville Gets Density Right – and What NZ Can Learn From It"
+     }
+    ]
+   },
+   "gap_haiku": [
+    {
+     "city": "Seville",
+     "id": "qN12Gvqj3zs",
+     "search": "S2",
+     "rank": 37,
+     "title": "Why Seville Gets Density Right – and What NZ Can Learn From It",
+     "chname": "John Kenel",
+     "dur_s": 296,
+     "views": 5595,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "explainer"
+    }
+   ],
+   "teardown_channels_done": []
+  },
+  "Budapest": {
+   "S1": {
+    "n": 10,
+    "n_long": 3,
+    "n_short": 4,
+    "max_long": 209869,
+    "max_short": 4606,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 6,
+    "n_since_2026_10_01": 5,
+    "videos": [
+     {
+      "rank": 1,
+      "id": "orsPRkH4sJk",
+      "pub": "2026-10-15",
+      "dur_s": 301,
+      "views": 12,
+      "comments": 1,
+      "chname": "Epic 3D",
+      "title": "WATCH BUDAPEST GROW IN 5 MINUTES | AD 89–2026 | 3D TIMELAPSE"
+     },
+     {
+      "rank": 2,
+      "id": "NxZwL205itE",
+      "pub": "2026-10-14",
+      "dur_s": 502,
+      "views": 10,
+      "comments": 0,
+      "chname": "CityLapse History",
+      "title": "The Growth of Budapest — 3D Timelapse (1686–2026)"
+     },
+     {
+      "rank": 3,
+      "id": "F-BQo5eK0_I",
+      "pub": "2026-10-09",
+      "dur_s": 377,
+      "views": 3444,
+      "comments": 8,
+      "chname": "RoZoom Maps",
+      "title": "2,000 Years of BUDAPEST in 6 Minutes: History Time-Lapse"
+     },
+     {
+      "rank": 5,
+      "id": "RN3ScQrIG3w",
+      "pub": "2026-10-11",
+      "dur_s": 520,
+      "views": 105,
+      "comments": 0,
+      "chname": "Relax and Understand ",
+      "title": "BUDAPEST Complete 3D Timelaspe "
+     },
+     {
+      "rank": 6,
+      "id": "ldj33VSeWZ0",
+      "pub": "2026-09-02",
+      "dur_s": 737,
+      "views": 209869,
+      "comments": 314,
+      "chname": "TimeLapse Lords",
+      "title": "Evolution of Budapest | Fixed-Camera Timelapse: 1,100 Years by the Danube"
+     },
+     {
+      "rank": 9,
+      "id": "qqSWhRV-ag0",
+      "pub": "2026-10-05",
+      "dur_s": 86,
+      "views": 475,
+      "comments": 0,
+      "chname": "Urbis Anno",
+      "title": "Budapest, 1248 → 2026 in 1:26"
+     },
+     {
+      "rank": 10,
+      "id": "y1aDZiexVYg",
+      "pub": "2025-05-11",
+      "dur_s": 39,
+      "views": 4606,
+      "comments": 6,
+      "chname": "Intermarium Citizen",
+      "title": "Evolution of Budapest from 1900 to 2025  #evolution #history #hungary #budapest #beautiful"
+     },
+     {
+      "rank": 19,
+      "id": "DwNOZK5Buts",
+      "pub": "2024-02-25",
+      "dur_s": 26,
+      "views": 4546,
+      "comments": 0,
+      "chname": "Royally Roaming",
+      "title": "Hungarian parliament building: one of Europe's largest and most impressive #budapest #europe"
+     },
+     {
+      "rank": 41,
+      "id": "B_Hfmp-z7AE",
+      "pub": "2015-04-29",
+      "dur_s": 225,
+      "views": 2614122,
+      "comments": 906,
+      "chname": "Around The World 4K",
+      "title": "Budapest in 4K"
+     },
+     {
+      "rank": 46,
+      "id": "p6oO4NaWgdM",
+      "pub": "2023-08-09",
+      "dur_s": 61,
+      "views": 204,
+      "comments": 0,
+      "chname": "British Baloch",
+      "title": "#citadel #budapest #exploring #history #europe #amazingfacts"
+     }
+    ]
+   },
+   "S2": {
+    "n": 3,
+    "n_long": 1,
+    "n_short": 2,
+    "max_long": 7065,
+    "max_short": 2315,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 1,
+    "videos": [
+     {
+      "rank": 29,
+      "id": "R8XTCTFNORU",
+      "pub": "2026-06-14",
+      "dur_s": 1718,
+      "views": 7065,
+      "comments": 92,
+      "chname": "Passport With Us",
+      "title": "Why Budapest Keeps Pulling People Back🇭🇺"
+     },
+     {
+      "rank": 42,
+      "id": "HBYWQ-UYVWo",
+      "pub": "2024-12-08",
+      "dur_s": 16,
+      "views": 2315,
+      "comments": 1,
+      "chname": "Peter in Berlin",
+      "title": "Why you easily overlook hidden gems in Budapest #budapest #hiddengems #hungary #travel #destination"
+     },
+     {
+      "rank": 50,
+      "id": "hJBw-QY5NsA",
+      "pub": "2026-10-03",
+      "dur_s": 34,
+      "views": 1463,
+      "comments": 0,
+      "chname": "Hotshotknicks",
+      "title": "Why Budapest's water is the only thing that lasts #budapest #history #Shorts"
+     }
+    ]
+   },
+   "gap_haiku": [
+    {
+     "city": "Budapest",
+     "id": "orsPRkH4sJk",
+     "search": "S1",
+     "rank": 1,
+     "title": "WATCH BUDAPEST GROW IN 5 MINUTES | AD 89–2026 | 3D TIMELAPSE",
+     "chname": "Epic 3D",
+     "dur_s": 301,
+     "views": 12,
+     "sourced_data": true,
+     "evidence": "Population: census results of the Hungarian Central Statistical Office (KSH), 1870–2022.",
+     "mechanism": false,
+     "genre": "3d_growth_timelapse"
+    },
+    {
+     "city": "Budapest",
+     "id": "NxZwL205itE",
+     "search": "S1",
+     "rank": 2,
+     "title": "The Growth of Budapest — 3D Timelapse (1686–2026)",
+     "chname": "CityLapse History",
+     "dur_s": 502,
+     "views": 10,
+     "sourced_data": true,
+     "evidence": "census; 2022–2026 Hungarian Central Statistical Office",
+     "mechanism": false,
+     "genre": "3d_growth_timelapse"
+    },
+    {
+     "city": "Budapest",
+     "id": "F-BQo5eK0_I",
+     "search": "S1",
+     "rank": 3,
+     "title": "2,000 Years of BUDAPEST in 6 Minutes: History Time-Lapse",
+     "chname": "RoZoom Maps",
+     "dur_s": 377,
+     "views": 3444,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "3d_growth_timelapse"
+    },
+    {
+     "city": "Budapest",
+     "id": "RN3ScQrIG3w",
+     "search": "S1",
+     "rank": 5,
+     "title": "BUDAPEST Complete 3D Timelaspe ",
+     "chname": "Relax and Understand ",
+     "dur_s": 520,
+     "views": 105,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "3d_growth_timelapse"
+    },
+    {
+     "city": "Budapest",
+     "id": "ldj33VSeWZ0",
+     "search": "S1",
+     "rank": 6,
+     "title": "Evolution of Budapest | Fixed-Camera Timelapse: 1,100 Years by the Danube",
+     "chname": "TimeLapse Lords",
+     "dur_s": 737,
+     "views": 209869,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "3d_growth_timelapse"
+    }
+   ],
+   "teardown_channels_done": []
+  },
+  "Helsinki": {
+   "S1": {
+    "n": 3,
+    "n_long": 0,
+    "n_short": 3,
+    "max_long": 0,
+    "max_short": 1411,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 2,
+    "n_since_2026_10_01": 0,
+    "videos": [
+     {
+      "rank": 7,
+      "id": "5IplpvkVZ_0",
+      "pub": "2026-03-06",
+      "dur_s": 80,
+      "views": 1411,
+      "comments": 3,
+      "chname": "SuomiShortsit",
+      "title": "Watch Helsinki Grow for 1000 Years in 60 Seconds"
+     },
+     {
+      "rank": 11,
+      "id": "DhqauxRyVis",
+      "pub": "2025-10-24",
+      "dur_s": 9,
+      "views": 211,
+      "comments": 0,
+      "chname": "Living 3D City",
+      "title": "he City That Grows: Helsinki Miniature 3D from Paper Map | Slow‑Motion ASMR #travel #gta #realestate"
+     },
+     {
+      "rank": 13,
+      "id": "fV5kPC8LD6c",
+      "pub": "2026-09-29",
+      "dur_s": 13,
+      "views": 88,
+      "comments": 0,
+      "chname": "Buildstax",
+      "title": "Helsinki Cathedral"
+     }
+    ]
+   },
+   "S2": {
+    "n": 3,
+    "n_long": 1,
+    "n_short": 1,
+    "max_long": 18703,
+    "max_short": 206,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 0,
+    "videos": [
+     {
+      "rank": 8,
+      "id": "dPb9o3uDF_Q",
+      "pub": "2019-10-14",
+      "dur_s": 284,
+      "views": 1813923,
+      "comments": 2743,
+      "chname": "Tom Scott",
+      "title": "Why Helsinki's library robots aren't important"
+     },
+     {
+      "rank": 44,
+      "id": "01OWHuCzQAk",
+      "pub": "2024-06-19",
+      "dur_s": 781,
+      "views": 18703,
+      "comments": 130,
+      "chname": "Chico Muya",
+      "title": "5 Reasons why Helsinki is amazing"
+     },
+     {
+      "rank": 49,
+      "id": "hbWfmuTVImU",
+      "pub": "2026-09-20",
+      "dur_s": 75,
+      "views": 206,
+      "comments": 0,
+      "chname": "Broke But Travelling",
+      "title": "Why Helsinki Wasn't Even Supposed To Be The Capital 🇫🇮 #travel #lakeluzern #europe"
+     }
+    ]
+   },
+   "gap_haiku": [
+    {
+     "city": "Helsinki",
+     "id": "dPb9o3uDF_Q",
+     "search": "S2",
+     "rank": 8,
+     "title": "Why Helsinki's library robots aren't important",
+     "chname": "Tom Scott",
+     "dur_s": 284,
+     "views": 1813923,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "explainer"
+    },
+    {
+     "city": "Helsinki",
+     "id": "01OWHuCzQAk",
+     "search": "S2",
+     "rank": 44,
+     "title": "5 Reasons why Helsinki is amazing",
+     "chname": "Chico Muya",
+     "dur_s": 781,
+     "views": 18703,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "travel_lifestyle"
+    }
+   ],
+   "teardown_channels_done": []
+  },
+  "Detroit": {
+   "S1": {
+    "n": 0,
+    "n_long": 0,
+    "n_short": 0,
+    "max_long": 0,
+    "max_short": 0,
+    "long_90d_10k_100k": [],
+    "any_500k_90d": [],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 0,
+    "videos": []
+   },
+   "S2": {
+    "n": 34,
+    "n_long": 15,
+    "n_short": 15,
+    "max_long": 1982434,
+    "max_short": 2902888,
+    "long_90d_10k_100k": [
+     [
+      "Why Detroit Couldn't Let Go of Bias-Ply Tires!",
+      17179,
+      1075,
+      "2026-07-24"
+     ],
+     [
+      "Why Detroit Fixed Its Downtown (And Baltimore Didn't)",
+      36892,
+      966,
+      "2026-09-21"
+     ]
+    ],
+    "any_500k_90d": [
+     [
+      "Why Deep Dish Pizza Belongs To Detroit - Andrew Santino",
+      1058996,
+      19,
+      "2026-09-01"
+     ]
+    ],
+    "top5_long_alltime_500k": false,
+    "n_3d_timelapse": 0,
+    "n_since_2026_10_01": 6,
+    "videos": [
+     {
+      "rank": 3,
+      "id": "Qlc6XVHrFXM",
+      "pub": "2026-03-31",
+      "dur_s": 550,
+      "views": 1226,
+      "comments": 14,
+      "chname": "UrbanXplain",
+      "title": "Why Detroit is the Opposite of Every U.S. City"
+     },
+     {
+      "rank": 4,
+      "id": "ySYUN30c8-0",
+      "pub": "2026-09-12",
+      "dur_s": 166,
+      "views": 413809,
+      "comments": 685,
+      "chname": "JerryThink",
+      "title": "Why Detroit AND Windsor are so big!"
+     },
+     {
+      "rank": 9,
+      "id": "Hfcr6tLnEj8",
+      "pub": "2026-07-24",
+      "dur_s": 1075,
+      "views": 17179,
+      "comments": 212,
+      "chname": "Its Just Cars!",
+      "title": "Why Detroit Couldn't Let Go of Bias-Ply Tires!"
+     },
+     {
+      "rank": 10,
+      "id": "pFu8BBXdPlw",
+      "pub": "2026-03-29",
+      "dur_s": 36,
+      "views": 481248,
+      "comments": 266,
+      "chname": "SlimShots",
+      "title": "Why Detroit Loves Eminem to Death 😤"
+     },
+     {
+      "rank": 11,
+      "id": "9Po9ftvZIPo",
+      "pub": "2026-07-09",
+      "dur_s": 746,
+      "views": 111859,
+      "comments": 111,
+      "chname": "IT'S HISTORY",
+      "title": "Why Detroit has 100 Miles of Secret Tunnels Below the City"
+     },
+     {
+      "rank": 12,
+      "id": "WVjuRC4p6QY",
+      "pub": "2022-06-01",
+      "dur_s": 181,
+      "views": 135176,
+      "comments": 579,
+      "chname": "The Why Minutes ",
+      "title": "Why Detroit Became America’s Biggest Ghost Town"
+     },
+     {
+      "rank": 14,
+      "id": "3uCx3FgHwlQ",
+      "pub": "2026-02-20",
+      "dur_s": 1931,
+      "views": 359021,
+      "comments": 2030,
+      "chname": "Dumbsville",
+      "title": "Why Detroit: Become Human is Stupid and Dumb"
+     },
+     {
+      "rank": 15,
+      "id": "5gpaoteHU0s",
+      "pub": "2026-02-24",
+      "dur_s": 799,
+      "views": 197943,
+      "comments": 223,
+      "chname": "IT'S HISTORY",
+      "title": "Why Detroit Built Secret Islands in the River"
+     },
+     {
+      "rank": 17,
+      "id": "0aA_6BTVyCs",
+      "pub": "2022-08-10",
+      "dur_s": 786,
+      "views": 1982434,
+      "comments": 4695,
+      "chname": "CNBC",
+      "title": "Why Detroit Is Tearing Down A Highway"
+     },
+     {
+      "rank": 18,
+      "id": "tjHAvvI0fLE",
+      "pub": "2026-10-15",
+      "dur_s": 269,
+      "views": 369,
+      "comments": 1,
+      "chname": "CBS Detroit",
+      "title": "Lions rookie Skyler Gill-Howard finds a home in Detroit"
+     },
+     {
+      "rank": 19,
+      "id": "FkQ2BsUhx5Q",
+      "pub": "2025-11-20",
+      "dur_s": 927,
+      "views": 15636,
+      "comments": 158,
+      "chname": "Safe By Design",
+      "title": "Why Detroit is the Opposite of Every Other US City"
+     },
+     {
+      "rank": 20,
+      "id": "R4517uB788c",
+      "pub": "2026-09-21",
+      "dur_s": 966,
+      "views": 36892,
+      "comments": 56,
+      "chname": "CityWise",
+      "title": "Why Detroit Fixed Its Downtown (And Baltimore Didn't)"
+     },
+     {
+      "rank": 21,
+      "id": "tQdGFufkrNg",
+      "pub": "2024-05-15",
+      "dur_s": 990,
+      "views": 203084,
+      "comments": 749,
+      "chname": "Versed",
+      "title": "Why Basically Everyone Left Detroit"
+     },
+     {
+      "rank": 22,
+      "id": "sWGJ0avsCR4",
+      "pub": "2026-10-14",
+      "dur_s": 140,
+      "views": 6213,
+      "comments": 6,
+      "chname": "CBS Detroit",
+      "title": "Michigan State Police investigates barricaded situation on Detroit's west side"
+     },
+     {
+      "rank": 23,
+      "id": "Rs6TYfb8aoU",
+      "pub": "2025-11-21",
+      "dur_s": 321,
+      "views": 11504,
+      "comments": 114,
+      "chname": "Spaces  ",
+      "title": "Why Everyone Abandoned Detroit"
+     },
+     {
+      "rank": 24,
+      "id": "dkNG4KwcL4E",
+      "pub": "2025-07-21",
+      "dur_s": 43,
+      "views": 1217684,
+      "comments": 3243,
+      "chname": "The Prime Hand",
+      "title": "Why Detroit become Poor? #joerogan #berniesanders #shorts"
+     },
+     {
+      "rank": 25,
+      "id": "QldJ8JA9Wfg",
+      "pub": "2025-07-08",
+      "dur_s": 1148,
+      "views": 505613,
+      "comments": 1073,
+      "chname": "Crankverse",
+      "title": "Why Detroit 8V92 Was Banned: The Engine That Was Too Powerful to Survive"
+     },
+     {
+      "rank": 26,
+      "id": "YQt26GmpKWI",
+      "pub": "2026-01-24",
+      "dur_s": 52,
+      "views": 1251871,
+      "comments": 721,
+      "chname": "SlimShots",
+      "title": "Why Eminem Won't Leave Detroit"
+     },
+     {
+      "rank": 27,
+      "id": "FCsJDSOjVjE",
+      "pub": "2026-09-21",
+      "dur_s": 797,
+      "views": 8543,
+      "comments": 60,
+      "chname": "Boundless Building",
+      "title": "Why Detroit's Comeback Is Already Falling Apart"
+     },
+     {
+      "rank": 30,
+      "id": "bT8lpKdJ28s",
+      "pub": "2024-09-03",
+      "dur_s": 48,
+      "views": 2902888,
+      "comments": 1709,
+      "chname": "CarterPCs",
+      "title": "Why Detroit has the best airport in the country #carterpcs #tech #techtok #techfacts #airport #dtw"
+     },
+     {
+      "rank": 31,
+      "id": "7KNhbtsiXA0",
+      "pub": "2026-06-28",
+      "dur_s": 768,
+      "views": 40280,
+      "comments": 79,
+      "chname": "AviaTales",
+      "title": "Why Detroit Airport Is About To Become America's Most Powerful Hub - Against All Logic"
+     },
+     {
+      "rank": 32,
+      "id": "GfCyPhokoiM",
+      "pub": "2026-10-13",
+      "dur_s": 539,
+      "views": 153756,
+      "comments": 1105,
+      "chname": "Scotty Kilmer",
+      "title": "Why Nobody’s Buying EVs Anymore (And Detroit Is Losing Too)"
+     },
+     {
+      "rank": 33,
+      "id": "GsT_B7eprw4",
+      "pub": "2013-07-03",
+      "dur_s": 159,
+      "views": 6435,
+      "comments": 5,
+      "chname": "Men and Motors",
+      "title": "Why Detroit became Car Building Central."
+     },
+     {
+      "rank": 34,
+      "id": "Aen7k2EDlQU",
+      "pub": "2018-03-12",
+      "dur_s": 577,
+      "views": 657949,
+      "comments": 2240,
+      "chname": "Downward Thrust",
+      "title": "Why Detroit: Become Human Is Worrying Gamers"
+     },
+     {
+      "rank": 35,
+      "id": "uioEi-hMOdU",
+      "pub": "2026-10-08",
+      "dur_s": 32,
+      "views": 12,
+      "comments": 0,
+      "chname": "Map Shift",
+      "title": "Why Detroit Faces Canada Across the Detroit River #Shorts"
+     },
+     {
+      "rank": 36,
+      "id": "TkDGNHux3U0",
+      "pub": "2026-01-28",
+      "dur_s": 19,
+      "views": 16800,
+      "comments": 10,
+      "chname": "DetroitRapEra",
+      "title": "Why Detroit and the Bay Area Move So Alike Culturally 👀 #shorts #viral #fyp"
+     },
+     {
+      "rank": 38,
+      "id": "5n8RqpqjBk8",
+      "pub": "2025-10-21",
+      "dur_s": 35,
+      "views": 25418,
+      "comments": 18,
+      "chname": "Sanborn Construction Group",
+      "title": "Why Detroit Is a Great Market"
+     },
+     {
+      "rank": 39,
+      "id": "tYFpCoagJ0I",
+      "pub": "2026-10-15",
+      "dur_s": 84,
+      "views": 1435,
+      "comments": 11,
+      "chname": "Michael Perna",
+      "title": "$15K To Move To Detroit"
+     },
+     {
+      "rank": 40,
+      "id": "r450wBzQlGY",
+      "pub": "2023-10-05",
+      "dur_s": 43,
+      "views": 180611,
+      "comments": 52,
+      "chname": "Dust Runners Automotive Journal",
+      "title": "How Detroit Diesel Two-Stroke Engines Work 👀"
+     },
+     {
+      "rank": 41,
+      "id": "zOB_sYJYTcg",
+      "pub": "2026-09-01",
+      "dur_s": 19,
+      "views": 1058996,
+      "comments": 396,
+      "chname": "Nutrify",
+      "title": "Why Deep Dish Pizza Belongs To Detroit - Andrew Santino"
+     },
+     {
+      "rank": 45,
+      "id": "lQGyuLaFpwo",
+      "pub": "2026-09-14",
+      "dur_s": 58,
+      "views": 2633,
+      "comments": 5,
+      "chname": "The Best Pizza Shop",
+      "title": "This Is Why Detroit-Style Pizza Is So Good 🍕"
+     },
+     {
+      "rank": 46,
+      "id": "PdM90iK_ReA",
+      "pub": "2026-03-06",
+      "dur_s": 1304,
+      "views": 16753,
+      "comments": 46,
+      "chname": "Heavymatic",
+      "title": "Why Detroit Diesel 8V92 Was Killed"
+     },
+     {
+      "rank": 47,
+      "id": "GS1F1w0B2Qk",
+      "pub": "2026-05-04",
+      "dur_s": 142,
+      "views": 9806,
+      "comments": 76,
+      "chname": "The Fumble",
+      "title": "Why Detroit Pistons Fans Are Beefing With Angel Reese"
+     },
+     {
+      "rank": 48,
+      "id": "WoQnQywt93w",
+      "pub": "2026-10-14",
+      "dur_s": 219,
+      "views": 3963,
+      "comments": 2,
+      "chname": "Click On Detroit | Local 4 | WDIV",
+      "title": "Missing children from Detroit found safe in Ohio after search"
+     }
+    ]
+   },
+   "gap_haiku": [
+    {
+     "city": "Detroit",
+     "id": "Qlc6XVHrFXM",
+     "search": "S2",
+     "rank": 3,
+     "title": "Why Detroit is the Opposite of Every U.S. City",
+     "chname": "UrbanXplain",
+     "dur_s": 550,
+     "views": 1226,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": true,
+     "genre": "explainer"
+    },
+    {
+     "city": "Detroit",
+     "id": "ySYUN30c8-0",
+     "search": "S2",
+     "rank": 4,
+     "title": "Why Detroit AND Windsor are so big!",
+     "chname": "JerryThink",
+     "dur_s": 166,
+     "views": 413809,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": true,
+     "genre": "explainer"
+    },
+    {
+     "city": "Detroit",
+     "id": "Hfcr6tLnEj8",
+     "search": "S2",
+     "rank": 9,
+     "title": "Why Detroit Couldn't Let Go of Bias-Ply Tires!",
+     "chname": "Its Just Cars!",
+     "dur_s": 1075,
+     "views": 17179,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "other"
+    },
+    {
+     "city": "Detroit",
+     "id": "9Po9ftvZIPo",
+     "search": "S2",
+     "rank": 11,
+     "title": "Why Detroit has 100 Miles of Secret Tunnels Below the City",
+     "chname": "IT'S HISTORY",
+     "dur_s": 746,
+     "views": 111859,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "explainer"
+    },
+    {
+     "city": "Detroit",
+     "id": "WVjuRC4p6QY",
+     "search": "S2",
+     "rank": 12,
+     "title": "Why Detroit Became America’s Biggest Ghost Town",
+     "chname": "The Why Minutes ",
+     "dur_s": 181,
+     "views": 135176,
+     "sourced_data": false,
+     "evidence": "none",
+     "mechanism": false,
+     "genre": "explainer"
+    }
+   ],
+   "teardown_channels_done": []
+  }
+ },
+ "teardown_channels_checked": {
+  "@latoscharts": {
+   "subs": "99700",
+   "uploads_checked": 15,
+   "latest": "2026-10-15",
+   "since_2026_10_01": 7
+  },
+  "@3dtimelapse-w9e": {
+   "subs": "87100",
+   "uploads_checked": 13,
+   "latest": "2026-10-03",
+   "since_2026_10_01": 2
+  },
+  "@restoredtimeline": {
+   "subs": "64500",
+   "uploads_checked": 30,
+   "latest": "2026-10-07",
+   "since_2026_10_01": 2
+  },
+  "@cornerstonetimelapse": {
+   "subs": "2040",
+   "uploads_checked": 4,
+   "latest": "2026-10-15",
+   "since_2026_10_01": 4
+  },
+  "@cityeons": {
+   "subs": "2200",
+   "uploads_checked": 3,
+   "latest": "2026-10-11",
+   "since_2026_10_01": 3
+  },
+  "@urbavision": {
+   "subs": "1070",
+   "uploads_checked": 7,
+   "latest": "2026-10-13",
+   "since_2026_10_01": 7
+  },
+  "@howcitiesgrew": {
+   "subs": "632",
+   "uploads_checked": 4,
+   "latest": "2026-10-15",
+   "since_2026_10_01": 1
+  },
+  "@datasharkyt": {
+   "subs": "17100",
+   "uploads_checked": 11,
+   "latest": "2026-10-14",
+   "since_2026_10_01": 11
+  },
+  "@timelinecities4k": {
+   "subs": "412",
+   "uploads_checked": 14,
+   "latest": "2026-10-15",
+   "since_2026_10_01": 13
+  },
+  "@nobodycareswhatiswrittenhere": {
+   "subs": "1060",
+   "uploads_checked": 29,
+   "latest": "2026-10-15",
+   "since_2026_10_01": 6
+  },
+  "@timewarpcities": {
+   "subs": "58400",
+   "uploads_checked": 50,
+   "latest": "2026-10-15",
+   "since_2026_10_01": 14
+  }
+ }
+}
