@@ -13,14 +13,24 @@
 | R6 | Economics Explained: tàu khổng lồ (554 nghìn) | Tàu container nhìn từ mũi trên nền bản đồ thế giới tối có tuyến sáng xanh; băng chữ vàng–đen 2 dòng | Vật trung tâm sáng trên nền tối, tuyến hàng hải phát sáng |
 - **Chung:** ≤ 4 từ hoặc 1 cặp số; một vật/vùng trung tâm; tương phản lớn; không quá 2 biểu tượng.
 
-## 2. Ý thumbnail của mình (chốt cùng tiêu đề)
-- **T-A (đối lập số, khuyến nghị):** bản đồ nổi Thái Bình Dương cắt hẹp — bờ Tây Mỹ (vịnh San Francisco) bên trái tô **sepia** với 1 con tàu Liberty sticker viền trắng; bờ Hàn Quốc bên phải tô **tự nhiên** với cụm tàu sticker. Chữ trong hai hộp: **"1942: 4 DAYS"** (trái) · **"NOW: ?"** (phải). Tối đa 2 biểu tượng: tàu + đồng hồ.
-- **T-B (không chữ, quá khứ–hiện tại):** một nửa ảnh lưu trữ (tài sản công, OWI) thân tàu Liberty đang hạ thuỷ, nửa kia là ụ tàu trống/cẩu rỉ hiện đại (DVIDS hoặc tự dựng 3D), đường cắt chéo; không chữ.
-- **T-C (vật trong cảnh):** hàng xu 3D có độ dày trên bản đồ nổi — 1 đồng "US-built" cạnh hàng nhiều đồng (nếu số chi phí đã khoá); chữ "WHY 4×?" (chỉ khi con số chi phí có nguồn chính thức).
-- Không mặt người thật, không logo công ty/huy hiệu, không cờ nhà nước làm điểm nhấn (VÀNG: REVIEWER rà tiêu đề + thumbnail).
+## 2. Ý thumbnail của mình (sau REVIEWER tiêu đề/thumbnail, Opus 15/10)
+- **T-B (khuyến nghị, REVIEWER chọn):** không chữ — nửa trái ảnh OWI 1943 (LoC 2017854462, "No known restrictions") cắt theo thân tàu Liberty, đèn hàn và đôi tay (mặt người **không** làm tiêu điểm); nửa phải ụ tàu hiện đại 3D tự dựng có một thân tàu nhỏ (không "trống hoàn toàn", không gán là xưởng Mỹ có thật); đường cắt chéo; sepia ↔ tự nhiên. Ảnh nền: render 3D + ảnh LoC (chủ dự án ghép).
+- **T-A (biến thể số):** bản đồ nổi bờ Tây Mỹ; hai hộp số **cùng ở bờ Mỹ**: "U.S. 1943 (PEAK): 3 LAUNCHED/DAY" · "U.S. (CRS 2023): ~5/YEAR"; xưởng Ulsan chỉ là hình nhỏ phía Tây Thái Bình Dương, không số. Tối đa 2 biểu tượng (tàu, cẩu).
+- **T-A′ (biến thể motif):** phiếu đơn hàng 3D (dấu đỏ) rơi xuống bãi biển trống trên bản đồ nổi; chữ 2 từ "ORDER FIRST?" — chỉ dùng nếu chủ dự án thấy hợp tiêu đề.
+- Bỏ **T-C** (4× là ước của một hãng cho một loại tàu; REVIEWER: đổi cơ sở khi lên thumbnail).
+- Chung: không mặt người thật làm tiêu điểm, không logo Hanwha/HD Hyundai, không cờ quốc gia làm điểm nhấn, không "secret/hidden".
 
-## 3. Ba tiêu đề (viết từ dữ liệu cầu)
-_(điền sau khi khoá số — xem mục 4 và `G1-BAO-CAO.md`)_
+## 3. Ba tiêu đề (viết từ dữ liệu cầu; REVIEWER đã rà)
+| # | Tiêu đề | Dữ liệu cầu dùng | REVIEWER |
+|---|---|---|---|
+| 1 | **Why America Builds So Few Ships (It's Not Just Wages)** — *khuyến nghị chính* | câu tìm kiếm "why can't america build ships" + bình luận phản bác "lương rẻ" (trọng số 17 301) | ĐẠT nguyên văn; khớp câu hỏi của lời |
+| 2 | In 1943, America Launched 3 Ships a Day. Why Does It Build So Few Now? | đối lập số (dạng tiêu đề video 3,21 triệu: con số + câu hỏi) | ĐẠT sau khi thêm "In 1943", "launched" |
+| 3 | From Richmond to Ulsan: Why America Builds So Few Ships | bình luận "Hàn Quốc bắt đầu khi còn nghèo" (2 717) + góc nơi chốn của kênh | bản sửa của REVIEWER (bản cũ "How Korea Built a Shipbuilding Giant…" hứa quá, khung đối đầu quốc gia) |
+- Không dùng "Can't" dù khớp câu tìm kiếm: lời nói "so few" (~5 tàu/năm), "can't" là nói quá.
 
-## 4. Kế hoạch Test & Compare (cho chủ dự án)
-_(điền sau khi chốt tiêu đề)_
+## 4. Kế hoạch Test & Compare (chủ dự án chạy trong YouTube Studio)
+1. **Lúc đăng:** tiêu đề 1 + Test & Compare 3 thumbnail **T-B · T-A · T-A′** (cùng tiêu đề, để đo riêng hình).
+2. **Thời gian:** để YouTube chạy tới khi có kết quả (thường ≤ 2 tuần); không đổi tiêu đề trong lúc test.
+3. **Thước:** chỉ số YouTube chọn (tỷ lệ thời gian xem theo thumbnail) + CTR trong YouTube Analytics 7 ngày đầu, so T1 cùng mốc 7 ngày (Kinh thánh §8: CTR, thời gian xem T2 > T1).
+4. **Vòng 2 (nếu kênh có test tiêu đề):** giữ thumbnail thắng, thử tiêu đề 1 ↔ 2. Nếu không có: đổi tay sang tiêu đề 2 sau 14 ngày nếu CTR < T1, ghi ngày đổi để không lẫn số đo.
+5. **Ghi kết quả** vào `channel-k2/k2c-t2-01/SO-LIEU-7-NGAY.md` (phiên Phân tích), kèm ảnh chụp Studio của chủ dự án.

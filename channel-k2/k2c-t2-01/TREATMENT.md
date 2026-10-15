@@ -40,13 +40,10 @@ Ký hiệu module: **R** `relief/map` (bản đồ nổi; S = sepia, N = tự nh
 
 | Giờ | Câu (rút gọn) | Hình | Biến cố hình (nhịp) |
 |---|---|---|---|
-| 0:00 | 1943: three cargo ships a day | **R-S** Vịnh SF, máy thấp; 3 tàu `freighter` hạ thuỷ nối nhau từ 3 bến | tàu 1 · tàu 2 · tàu 3 (mỗi ~1,3 s) |
-| 0:05 | under five days (stunt) | **F** NARA "Last Liberty Ship Launched" (CC0, 640×480 → khung trong khung) | cắt; nhãn "1942 · publicity stunt" |
+| 0:00 | 1943: three cargo ships a day | **R-S** Vịnh SF, máy thấp; 3 tàu `freighter` hạ thuỷ nối nhau từ 3 bến; chữ trên hình 0:03–0:12: "Explains how the system works — not financial or investment advice · Facts as of 14 Oct 2026" (LUAT-G §4–§5) | tàu 1 · tàu 2 · tàu 3 (mỗi ~1,3 s) · chip |
 | 0:10 | 0.04 % tonnage · China > half | **R-N** Thái Bình Dương thu nhỏ (Blue Marble `map/globe` hoặc relief rộng); hai cột **b** Mỹ (gần như phẳng) ↔ TQ (cao), màu ngọc ↔ tím | cột TQ mọc · nhãn "share of tonnage (2024)" |
-| 0:20 | disclaimer + as-of | giữ khung, chip "Facts as of 14 Oct 2026" + dòng "Not financial advice" | chip vào |
-| 0:28 | deadline: pause runs through Nov 9 | **D** Federal Register 90 FR 50947, tô dòng "through 11:59 p.m. … November 9, 2026" | dải tô quét · đồng hồ góc "Nov 9" |
-| 0:41 | Korean company, Philadelphia | **R-N** sông Delaware; phiếu `order` lơ lửng chưa rơi (gợi motif) | vòng sáng Philadelphia |
-| 0:47 | why so few ships? wages? narrower | đẩy máy vào bến trống Philadelphia; chữ tiêu đề | cắt cứng sang 01 |
+| 0:15 | Korean company, Philadelphia | **R-N** sông Delaware; phiếu `order` lơ lửng chưa rơi (gợi motif) | vòng sáng Philadelphia |
+| 0:19 | why so few ships? wages? narrower · deadline Nov 9 | đẩy máy vào bến Philadelphia; đồng hồ nhỏ góc "Nov 9, 2026" (chỉ một nhịp, nội dung ở 05) | đồng hồ vào · cắt cứng sang 01 |
 | 0:54 | Richmond 12/1940, Kaiser | **Z** relief bang California → Vịnh SF (S); chân dung Kaiser chỉ khi có ảnh tài sản công đã kiểm (LoC "not evaluated" → nếu không có: A-lite "engineer" + mũ cứng) | lặn tầng · nhãn Richmond |
 | 1:00 | orders from British government | phiếu `order` (dấu đỏ) **rơi xuống Richmond trước**, rồi `crane` mọc | phiếu rơi · cẩu mọc (motif lần 1) |
 | 1:08 | Liberty: plain emergency cargo ship | đạo cụ `freighter` xoay 3/4 cận trên mặt nước sepia, nhãn "Liberty" | máy vòng 30° |
@@ -64,12 +61,12 @@ Ký hiệu module: **R** `relief/map` (bản đồ nổi; S = sepia, N = tự nh
 | 2:28 | Senator Wesley Jones | **C** ảnh National Photo Co. LoC 2016845467 ("No known restrictions") tách nền | Ken Burns · tên/năm |
 | 2:37 | Section 27 = Jones Act rule | tuyến đổi: Alaska → Seattle (ngọc); khung chữ 3 điều kiện (built · owned · crewed) bằng 3 biểu tượng | 3 biểu tượng vào |
 | 2:50 | CRS "significant degree of protection" | **D** trang CRS R45725 tô câu | dải tô |
-| 2:55 | AMP vs Lee/McClintock | khung đôi "SUPPORTERS ↔ CRITICS" có nhãn hai bên (BAI-HOC #92), mỗi bên trích nguyên văn + nguồn ngắn | trái vào · phải vào |
+| 2:55 | AMP vs Lee/McClintock | (sau chấm xem tiếp 2/3: bỏ màn chia đôi tĩnh) **R-N** máy trượt dọc tuyến nội địa Jones Act: tàu `freighter` đi Seattle → Alaska; trích AMP hiện bám cảng Seattle, trích Lee–McClintock hiện bám tàu đang chạy; nhãn "SUPPORTERS"/"CRITICS" nhỏ trên từng trích | tàu đi · trích 1 · trích 2 |
 | 3:13 | subsidy at the world price | hàng xu **x**: 1 đồng "world price" + phần chênh do trợ cấp phủ màu ngọc (chỉ minh hoạ cơ chế, không số) | xu rơi · lớp phủ |
 | 3:20 | 1970s 15–25 ships/yr → ~5 | **b** hai cột (1970s ↔ hiện nay), nhãn "ships per year (CRS)" | cột 1 · cột 2 thấp |
 | 3:28 | subsidy ended 1980s; "some observers" | trợ cấp (lớp ngọc) tắt; nhãn "some observers: main reason (CRS)" | tắt lớp |
 | 3:43 | subscribe | máy trượt chậm, sticker kênh nhỏ góc | — |
-| 3:49 | myth: wages | **Myth vs record** khung đôi COMMON CLAIM ↔ RECORD (nhãn hai bên) | khung vào |
+| 3:49 | myth: wages | **Myth vs record** (LUAT-G §3): khung đôi COMMON CLAIM ↔ RECORD, nhưng mỗi nửa là cảnh 3D (trái: thợ hàn A-lite + đồng lương; phải: trang CRS-23 tô câu), dòng nguồn CRS-23 bên RECORD | khung vào |
 | 3:55 | 1922 +20 % → 1950s ×2 → 1990s ×3 | **x** hàng xu dày trên bờ Đông Mỹ: mỗi mốc thêm đồng (1 → 1,2 → 2 → 3), máy thấp | xu rơi theo mốc |
 | 4:07 | 2019: ~4× (one firm's estimate) | **Đ2** 1 đồng "world" cạnh 4 đồng "U.S.-built tanker", nhãn ESTIMATE + "one firm" | 4 xu rơi |
 | 4:15 | wages, welders, currency | 3 biểu tượng đứng cạnh xu: thợ hàn A-lite (`worker` + mỏ hàn), biểu tượng tiền tệ | 2 biểu tượng nảy |
@@ -96,7 +93,7 @@ Ký hiệu module: **R** `relief/map` (bản đồ nổi; S = sepia, N = tự nh
 | 7:58 | 90 % for export (2025) | tuyến xuất khẩu toả từ bờ TQ | tuyến |
 | 8:03 | USTR: "unreasonable" | **D** thông cáo USTR 20/01/2025 tô câu | tô |
 | 8:12 | the fees (size-based, ≤ 5×/yr) | **R-N** cảng Mỹ (Long Beach), tàu `freighter` vào cảng, phiếu phí nổi; số $50/NT · $18/NT trên hình nhỏ | tàu vào · phiếu |
-| 8:28 | MOFCOM objection 2/2025 | khung đôi "U.S. finding ↔ China's response" | phải vào |
+| 8:28 | MOFCOM objection 2/2025 | (bỏ màn chia đôi) **R-N** máy quay ngang Thái Bình Dương từ bờ Mỹ sang bờ TQ; kết luận USTR bám Washington, trích Bộ Thương mại TQ bám Bắc Kinh, cùng cỡ chữ | máy quay · trích |
 | 8:39 | suspended after Trump–Xi deal | **D** 90 FR 50947 tô "In light of the trade and economic deal…" | tô |
 | 8:48 | 200+ groups: "another cost layer" | **D** trang thư NFTC tô câu | tô |
 | 9:02 | as of 14/10 no extension | đồng hồ "Nov 9" + chip "as of 14 Oct 2026" | chip |
@@ -110,6 +107,7 @@ Ký hiệu module: **R** `relief/map` (bản đồ nổi; S = sepia, N = tự nh
 | 10:45 | Richmond Yard 3 = national park | **Z** lặn về Richmond (N) → ảnh NPS (tài sản công) Shipyard No. 3 hôm nay | hoà |
 | 10:51 | next: containers | sticker `barrel`→ đạo cụ container (tập sau) | — |
 
+- **Giờ trong bảng là lời v3.1; lời v3.2 rút móc còn ~31 s nên mọi mốc sau 0:19 lùi ~20 s (máy dựng nhịp lại ở G1b).**
 - **Footage ước:** NARA Liberty 2 clip × ~6 s = 12 s; footage hiện đại (DVIDS xưởng/hải quân không huy hiệu nếu tìm được, hoặc Pexels tàu container) ~ 10 s → **≈ 22 s / 656 s ≈ 3,4 %** (≤ 20 %). Hồ sơ thật (D, C, P) ≈ 70 s ≈ 11 % (Kinh thánh 10–15 %).
 - **Nhịp:** 64 biến cố/656 s ≈ 1 biến cố/2,6 s trong bảng (máy `rhythm.py` đo lại trên đặc tả G1b).
 - **Đạo cụ cần thêm ở G1b:** `truck`, container (tập sau), ụ tàu khối; relief `pnw` (Seattle–Vancouver–Alaska: 3DEP + SRTM), `eastus` (bờ Đông, Delaware).

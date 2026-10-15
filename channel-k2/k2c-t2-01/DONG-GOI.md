@@ -10,7 +10,8 @@
 | **Quét kho 10 kênh giải thích không lộ mặt cùng dạng** (Economics Explained, Wendover, PolyMatter, RealLifeLore, Real Engineering, Business Casual, CaspianReport, Asianometry, Modern MBA, Half as Interesting; 3 788 video) — tìm ai đã làm đề tài, video đó được bao nhiêu lượt | `channels` 10 + `playlistItems` 80 + `videos` 1 | 91 |
 | **Hồ sơ cầu đề tài khuyến nghị:** 1 câu hỏi khán giả "why can't america build ships", toàn thời gian, theo độ liên quan, `regionCode=US`; 5 video dài đầu; 150 bình luận (`collect.py demand`, Haiku gắn nhãn 150/150, Sonnet tổng hợp) | `search` 100 + `videos` 1 + `commentThreads` 5 | 106 |
 | Lấy mã 2 video để xem thumbnail tham chiếu (ảnh chỉ để ngoài git) | `playlistItems` | 2 |
-| **Tổng** | | **≈ 215 / 300** |
+| Lấy lại mã 2 video đối thủ (thumbnail) + 1 lệnh `videos` cho video khớp từ khoá | | 2 |
+| **Tổng** | | **≈ 216 / 300** |
 - **Vì sao chỉ 1 search.list:** mỗi lượt tốn 100 đơn vị; 3 lượt (một mỗi đề tài) cộng lệnh đọc sẽ vượt 300. Hai đề tài còn lại dùng bằng chứng từ phép quét kho 10 kênh + 2 đối thủ (rẻ, đo được) và ghi rõ là **chưa đo bằng câu hỏi tìm kiếm**.
 - AI: Haiku + Sonnet trong `collect.py` **$0,14** (vai Đóng gói).
 

@@ -1,7 +1,8 @@
-# K2C-T2-01 "Shipbuilding" — lời v3.1 (ứng viên khoá, chờ G1)
+# K2C-T2-01 "Shipbuilding" — lời v3.2 (ứng viên khoá, chờ G1)
 
 > Tiếng Anh, giọng như T1 (Eric). Mỗi đoạn có mã `[NN PART]`. Mã claim `{C..}` trỏ tới `claims.md` (người đọc mù không thấy mã).
 > Mốc "as of": **14 October 2026**. Trên hình: "Facts as of 14 Oct 2026" ở mọi khung về phí cảng, đầu tư Hanwha, gói hợp tác Hàn–Mỹ, dự luật. Tra lại trước khi khoá lời và trước khi thu giọng (BAI-HOC-K2 K2).
+> v3.1 → v3.2 (một vòng sửa theo chấm "xem tiếp" 3/3, Mốc A): bỏ câu miễn trừ + đoạn hạn phí khỏi móc; câu miễn trừ và "Facts as of 14 Oct 2026" chuyển thành chữ trên hình 0:03–0:12 (trong 30 s đầu, LUAT-G §4–§5 cho phép "trong lời hoặc trên hình") và đầu mô tả; hạn 9/11 chỉ còn một câu nhắc ở móc, nội dung đầy đủ ở chương 05.
 > v3 → v3.1 (sau REVIEWER vòng 3 — hết trần 3 vòng): 5 major + các minor đổi chữ áp **đúng chữ REVIEWER đề xuất** (BAI-HOC-K2 K8); không chạy thêm lượt REVIEWER. Thêm lại C15 (Uỷ ban Hàng hải) theo REVIEWER. Thứ tự móc (lịch sử trước tin) là **lệch có ghi** khỏi Kinh thánh §3 — trình chủ dự án ở G1.
 > v2 → v3: áp REVIEWER Opus vòng 2 (0 block, 6 major, 35 minor — dùng đúng chữ REVIEWER đề xuất ở hầu hết chỗ) + điểm ≥ 2/3 người đọc mù vòng 2: móc mở bằng nghịch lý số, thủ tục (miễn trừ, phí) gọn lại; chương 01 thêm nhân vật có hồ sơ (Josie Lucille Owens, OWI 1943); chương Trung Quốc gộp vào chương "hiện tại", chủ thể là 5 công đoàn kiến nghị + USTR (REVIEWER: chương không có nhân vật); phí nói bằng lời thường (số $ để trên hình); lời mời đăng ký dời ra cuối chương 02; đánh số đoạn liền.
 
@@ -10,11 +11,9 @@ In 1943, at the peak, America launched three cargo ships a day. {C03}
 
 In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at four hundredths of one percent. China's, in 2024: more than half. {C05}
 
-This video explains how the system works. It isn't financial or investment advice. Facts are as of October fourteenth, 2026.
+And the company that has announced plans to expand a Philadelphia shipyard is South Korean. {C40}
 
-Now, a deadline. Under a notice from the U.S. Trade Representative, a one-year pause on fees for ships owned or operated by Chinese companies, and for ships built in China, runs through November ninth, 2026. {C01} {C38} And the company that has announced plans to expand a Philadelphia shipyard is South Korean. {C40}
-
-So why does America build so few ships? You'll often hear: wages. The record says something narrower.
+So why does America build so few ships? You'll often hear: wages. The record says something narrower. And there's a deadline in this story: November ninth, 2026. {C01}
 
 [01 KAISER]
 Start in Richmond, California, in December 1940, when Henry J. Kaiser started his first Richmond shipyard. {C07} What allowed it to grow, the Park Service says, were orders: ships for the British government, already at war. {C08}
