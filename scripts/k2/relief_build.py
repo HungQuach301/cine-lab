@@ -12,6 +12,7 @@ Ra (<cache>/relief/<tên>/):
   meta.json    bbox, kích thước, SHA nguồn, giấy phép
 Dùng:
   relief_build.py build --name erie --bbox -81,39,-72,45 [--ppd 600] [--mesh 5]
+  relief_build.py build --name korea --bbox 125,33.5,130.5,38.7 --dem skadi     (T2: ngoài Mỹ — SRTM 1", USGS, tài sản công)
 """
 import hashlib, json, math, os, subprocess, sys
 import numpy as np
@@ -52,6 +53,27 @@ def tiles(b):
             yield n, w, f'n{n:02d}w{w:03d}'
 
 
+URLSKADI = 'https://s3.amazonaws.com/elevation-tiles-prod/skadi/{d}/{t}.hgt.gz'   # T2 (K2C-T2-01): ngoài Mỹ — SRTM 1" (USGS, tài sản công) qua AWS Terrain Tiles
+
+
+def mosaic_skadi(b, ppd):
+    """ô SRTM 1" dạng HGT (3601 px, int16 big-endian; ô biển/thiếu = NaN) → lưới ppd điểm/độ. Dùng cho vùng ngoài nước Mỹ (--dem skadi)."""
+    import gzip
+    lon0, lat0, lon1, lat1 = b; W, H = round((lon1 - lon0) * ppd), round((lat1 - lat0) * ppd); Z = np.full((H, W), np.nan, np.float32); k = 3600 // ppd; src = {}
+    for la in range(int(math.floor(lat0)), int(math.ceil(lat1))):
+        for lo in range(int(math.floor(lon0)), int(math.ceil(lon1))):
+            d = f"{'N' if la >= 0 else 'S'}{abs(la):02d}"; t = d + f"{'E' if lo >= 0 else 'W'}{abs(lo):03d}"; f = os.path.join(DEM, 'skadi', t + '.hgt.gz')
+            if not fetch(URLSKADI.format(d=d, t=t), f): print('  (không có ô)', t); continue
+            a = np.frombuffer(gzip.open(f).read(), dtype='>i2').astype(np.float32); n = int(round(math.sqrt(a.size))); a = a.reshape(n, n)[:3600, :3600]; a[a < -1000] = np.nan
+            if n != 3601: print('  (ô SRTM không phải 1", bỏ)', t, n); continue
+            a = np.nanmean(a.reshape(ppd, k, ppd, k), axis=(1, 3)) if k > 1 else a
+            x0, y0 = round((lo - lon0) * ppd), round((lat1 - (la + 1)) * ppd)
+            xs, ys = slice(max(0, x0), min(W, x0 + ppd)), slice(max(0, y0), min(H, y0 + ppd))
+            if xs.start < xs.stop and ys.start < ys.stop: Z[ys, xs] = a[ys.start - y0:ys.stop - y0, xs.start - x0:xs.stop - x0]
+            src[t] = sha(f)
+    return Z, src
+
+
 def mosaic(b, ppd):
     """ô 3DEP 1" (3612 px, đệm 6 px) → lưới ppd điểm/độ bằng trung bình khối; ô thiếu (biển) = NaN"""
     import tifffile
@@ -59,7 +81,9 @@ def mosaic(b, ppd):
     for n, w, t in tiles(b):
         f = os.path.join(DEM, t + '.tif')
         if not fetch(URL3DEP.format(t=t), f): print('  (không có ô)', t); continue
-        a = tifffile.imread(f)[6:3606, 6:3606].astype(np.float32); a[a < -1000] = np.nan
+        a = tifffile.imread(f).astype(np.float32)
+        if a.shape != (3612, 3612): print('  (ô lệch cỡ, đệm NaN)', t, a.shape); a = np.pad(a, ((0, max(0, 3612 - a.shape[0])), (0, max(0, 3612 - a.shape[1]))), constant_values=np.nan)[:3612, :3612]   # T2: vài ô ven biển 3DEP không đủ 3612 px
+        a = a[6:3606, 6:3606]; a[a < -1000] = np.nan
         a = np.nanmean(a.reshape(ppd, k, ppd, k), axis=(1, 3)) if k > 1 else a
         x0, y0 = round((-w - lon0) * ppd), round((lat1 - n) * ppd)
         xs, ys = slice(max(0, x0), min(W, x0 + ppd)), slice(max(0, y0), min(H, y0 + ppd))
@@ -138,7 +162,8 @@ def draw_lines(img, L, color, wfn, scale=1.0):
 def build():
     name = arg('name'); b = [float(x) for x in arg('bbox').split(',')]; ppd = int(arg('ppd', 600)); mk = int(arg('mesh', 5))
     out = os.path.join(CACHE, 'relief', name); os.makedirs(out, exist_ok=True)
-    print('[relief] ghép DEM 3DEP 1"…'); Z, src = mosaic(b, ppd); H, W = Z.shape
+    SK = arg('dem', '3dep') == 'skadi'
+    print('[relief] ghép DEM', 'SRTM 1" (skadi)…' if SK else '3DEP 1"…'); Z, src = (mosaic_skadi if SK else mosaic)(b, ppd); H, W = Z.shape
     print('[relief] mặt nạ nước Natural Earth 10m…')
     ocean = poly_mask('ne_10m_ocean', b, W, H)
     lakes = poly_mask('ne_10m_lakes', b, W, H) | poly_mask('ne_10m_lakes_north_america', b, W, H)
@@ -198,7 +223,7 @@ def build():
         RT[rid] = chain(segs)
     json.dump(RT, open(os.path.join(out, 'routes.json'), 'w'))
     meta = dict(name=name, bbox=b, ppd=ppd, size=[W, H], mesh=[w2, h2], zmax=float(np.nanmax(Zf)), files={f: sha(os.path.join(out, f)) for f in ('natural.jpg', 'sepia.jpg', 'height.f32', 'routes.json')},
-                src=dict(dem='USGS 3DEP 1 arc-second (public domain, U.S. Government work)', dem_tiles=src, vector='Natural Earth 1:10m 5.1 (public domain)',
+                src=dict(dem=('SRTM 1 arc-second via AWS Terrain Tiles (USGS, public domain; attribution: SRTM terrain data courtesy of the U.S. Geological Survey)' if SK else 'USGS 3DEP 1 arc-second (public domain, U.S. Government work)'), dem_tiles=src, vector='Natural Earth 1:10m 5.1 (public domain)',
                          ne_zip={n: sha(os.path.join(NE, n + '.zip')) for _, n in NEFILES if os.path.exists(os.path.join(NE, n + '.zip'))}))
     json.dump(meta, open(os.path.join(out, 'meta.json'), 'w'), indent=1); print(json.dumps({k: v for k, v in meta.items() if k != 'src'}, indent=1))
 

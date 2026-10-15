@@ -1,0 +1,393 @@
+```json
+{
+  "verdict": "lock_with_fixes",
+  "issues": [
+    {
+      "seg": "06",
+      "rule": "RR-VANG(5) / ND§2 sides / ND§1 sources",
+      "severity": "block",
+      "quote": "Defenders of the Jones Act point out it gives American yards and carriers a significant degree of protection. {C18} Critics point to the cost. Both are in the record.",
+      "problem": "This puts CRS-19's own neutral wording in the mouth of 'defenders'. The 'critics' line has no source at all. Neither side has its own source, and the defenders' main stated arguments (national security, sealift, keeping a base of U.S. mariners) are left out. The Jones Act is the most contested stakeholder issue in the episode.",
+      "fix": "Add two claims, each with its own source: a named pro-Jones Act body (for example a coalition statement or a CRS passage summarising supporters, quoted word for word) and a named critic (a named study or institute, quoted word for word). Then: \"Supporters of the Jones Act, such as [named body], argue [quoted reason]. Critics, such as [named body], argue [quoted reason]. CRS describes the act as providing 'a significant degree of protection' for U.S. shipyards and carriers.\" Until both claims exist, cut the two sentences rather than leave sides without sources."
+    },
+    {
+      "seg": "07",
+      "rule": "RR-VANG(5) sides / G§6",
+      "severity": "block",
+      "quote": "In September, more than two hundred trade groups asked for another extension. Resuming the fees, they wrote, \"would add another cost layer to an already strained transportation system.\"",
+      "problem": "On the port fees, only the opponents (NFTC letter) are quoted. USTR's stated reason for the fees is never given in this segment. The only 'goal' in the script comes from the EO, which is a different document.",
+      "fix": "Add a claim quoting FR-DET or FR-ACT word for word on USTR's stated basis for the action (the actionability finding). Insert before the NFTC sentence: \"USTR's stated basis: it determined in January 2025 that China's targeting of the sector was [quoted wording from FR-DET].\" Keep the NFTC quote right after it."
+    },
+    {
+      "seg": "05",
+      "rule": "RR-VANG(5) sides / G§2",
+      "severity": "major",
+      "quote": "According to Congress's researchers, the U.S. trade representative found that Chinese government plans set production and market-share targets, and backed them with subsidies and state financing.",
+      "problem": "Industrial subsidies are a contested point, and only the U.S. finding is given. The PRC government's official response to the Section 301 findings is missing.",
+      "fix": "Add a claim from an official PRC statement (MOFCOM or the Foreign Ministry, with its date) or a CRS passage summarising it. Append: \"China's Ministry of Commerce rejected the findings, saying [quoted wording, date].\""
+    },
+    {
+      "seg": "00",
+      "rule": "ND§2 / G§3 / RR-DO1",
+      "severity": "major",
+      "quote": "The company expanding a Philadelphia shipyard is from South Korea, where in 1972 a firm with no shipbuilding experience broke ground on an empty beach.",
+      "problem": "This merges Hanwha (2024–26) and Hyundai (1972) into one sentence, which suggests the same firm. 'Expanding' is an ongoing state with no as-of, and C40 only supports 'announced'. 'No shipbuilding experience' is Hyundai's own account and isn't labelled as such.",
+      "fix": "\"The company that has announced plans to expand a Philadelphia shipyard, Hanwha, is South Korean. In South Korea, in 1972, a different company, Hyundai, broke ground on an empty beach. By its own account, it had no shipbuilding experience.\""
+    },
+    {
+      "seg": "00",
+      "rule": "ND§1 sources / G§3",
+      "severity": "major",
+      "quote": "So why can't America build ships anymore? Most people say wages. The record says something else.",
+      "problem": "'Most people' is a quantity nobody measured (DEMAND only shows the myth is common). 'Something else' overstates the record, which lists wages as a factor, and contradicts seg 03's correct 'something narrower'.",
+      "fix": "\"So why does America build so few ships? You'll often hear: wages. The record says something narrower.\""
+    },
+    {
+      "seg": "00",
+      "rule": "ND§5 / G§4 / RR-VANG(4)",
+      "severity": "major",
+      "quote": "This video explains how the system works. It isn't financial or investment advice. Facts are as of October fourteenth, 2026.",
+      "problem": "About 115 words of narration come before the disclaimer (~45 s), so it misses the 'first 30 s' rule.",
+      "fix": "Move both sentences to right after the first paragraph (after \"…rebuild American shipbuilding.\"), or shorten the hook so they land before 0:30."
+    },
+    {
+      "seg": "00",
+      "rule": "ND§1 / causality",
+      "severity": "major",
+      "quote": "The stated goal: rebuild American shipbuilding.",
+      "problem": "C02 is EO 14269's policy statement, not the fee notice's stated goal. The line makes the EO's language the purpose of the fees without a source that says so.",
+      "fix": "\"An April 2025 executive order set a U.S. policy to 'revitalize and rebuild' the country's maritime industries.\""
+    },
+    {
+      "seg": "00",
+      "rule": "ND§1 / C38 wording",
+      "severity": "major",
+      "quote": "Unless Washington extends it, ships built or run by Chinese companies will again owe a fee at American ports.",
+      "problem": "Annex II covers China-built ships, not ships 'built by Chinese companies'. 'Washington' is a metonym, not a named body. 'Will' states a future outcome without attribution.",
+      "fix": "\"Unless the U.S. Trade Representative extends it, fees set in 2025 on ships owned or operated by Chinese companies, and on ships built in China, are scheduled to apply again at U.S. ports.\""
+    },
+    {
+      "seg": "00",
+      "rule": "ND§1 numbers",
+      "severity": "major",
+      "quote": "One California yard built a ship in four and a half days.",
+      "problem": "The source says 4 days 15½ hours (4.65 days), so 'four and a half' rounds down past the source. It also drops 'publicity stunt', so a one-off reads as normal capability.",
+      "fix": "\"One California yard, in a publicity stunt, built a ship in under five days.\""
+    },
+    {
+      "seg": "00",
+      "rule": "cross-basis / G§5",
+      "severity": "minor",
+      "quote": "Today, Congress's researchers put America at four hundredths of one percent of the world's shipbuilding tonnage. China: more than half.",
+      "problem": "No years or dates are given. China's 54.6% is a 2024 figure; the U.S. figure comes from a 2026 report. 'Today' gives no as-of date.",
+      "fix": "\"In a 2026 report, Congress's researchers put America at four hundredths of one percent of world shipbuilding tonnage. China, in 2024: more than half.\""
+    },
+    {
+      "seg": "04",
+      "rule": "G§2 (no national generalisation) / lore",
+      "severity": "major",
+      "quote": "We found no loan documents, so treat the banknote as the story Korea tells about itself.",
+      "problem": "One op-ed's lore is generalised to a whole nation.",
+      "fix": "\"We found no loan documents, so treat the banknote as lore: one columnist's account, not a record.\""
+    },
+    {
+      "seg": "04",
+      "rule": "G§6 lore labelled",
+      "severity": "major",
+      "quote": "Technical help came from the Scott Lithgow shipyard in Scotland, and a consortium of English banks agreed to finance the equipment.",
+      "problem": "This is op-ed lore (C30), stated as fact in its own sentence. The source spells it 'Scot Lithgow', so the spelling also goes beyond the source.",
+      "fix": "\"The same column says technical help came from the Scott Lithgow shipyard in Scotland, and that a consortium of English banks agreed to finance the equipment.\" (Confirm the spelling against a second source or the company record, or use the source's spelling on screen.)"
+    },
+    {
+      "seg": "04",
+      "rule": "G§6 company self-account labelled",
+      "severity": "major",
+      "quote": "In March 1972, ground was broken on that beach in Ulsan, for what would become the world's largest shipyard.",
+      "problem": "C31, C06 and C29 come only from HHI's own History page, but just C28 is labelled. 'World's largest' is the company's own claim.",
+      "fix": "\"Hyundai's own history says ground was broken in March 1972 on that beach in Ulsan, for what it calls the world's largest shipyard.\" Also: \"By the company's account, it built the shipyard and the two tankers at the same time, and finished both in 1974.\""
+    },
+    {
+      "seg": "04",
+      "rule": "ND§1 beyond source / causality",
+      "severity": "major",
+      "quote": "Look at where those first ships were going: to a foreign owner. From the start, the yard was selling to the whole world.",
+      "problem": "One Greek order is generalised to 'the whole world'. Putting the 2025 GDP right after it implies the shipyard caused Korea's income rise, and no source says that.",
+      "fix": "\"Its first customer was a foreign owner. Our read: from the start, the yard was built to sell abroad. At the same time, South Korea's income grew. The sources we used don't measure how much shipbuilding contributed.\""
+    },
+    {
+      "seg": "04",
+      "rule": "cross-basis (current vs constant $)",
+      "severity": "major",
+      "quote": "In 2025, South Korea's output was about thirty-six thousand dollars per person.",
+      "problem": "It's set against the 1962 figure, but this line drops the current-dollar label. A ~340× gap reads as real growth when inflation isn't adjusted.",
+      "fix": "\"In 2025, it was about thirty-six thousand dollars per person, again in that year's dollars, not adjusted for inflation.\""
+    },
+    {
+      "seg": "04",
+      "rule": "ND§1 sequence",
+      "severity": "minor",
+      "quote": "What it had first was an order.",
+      "problem": "'First' (order before money or technology) is a sequence the source doesn't state. HHI only says the order came while the yard was in planning.",
+      "fix": "\"Before the yard existed, it had an order.\" and label it: \"by Hyundai's account\"."
+    },
+    {
+      "seg": "06",
+      "rule": "ND§1 factual / cross-basis",
+      "severity": "major",
+      "quote": "Shares here are by tonnage, not ship counts, and two congressional reports, two years apart, put America at 0.2 percent and 0.04 percent.",
+      "problem": "CRS-23 is dated 11/2023 and CRS-26 08/2026, so they are nearly three years apart, not two. The quote for 0.2% ('builds about 0.2%') doesn't state its basis, so 'by tonnage' goes beyond the source. The EO figure in seg 07 is a ship count, so 'shares here are by tonnage' is also false for that line.",
+      "fix": "\"Most shares here are by tonnage; the executive order's figure counts ships. Two congressional reports, about three years apart, put America at 0.2 percent and 0.04 percent, and the earlier one doesn't say what it measured. The record doesn't say why they differ.\" (Or verify the 0.2% basis in CRS-23 and state it.)"
+    },
+    {
+      "seg": "03",
+      "rule": "G§5 time / cross-year",
+      "severity": "major",
+      "quote": "Today, one maritime consulting firm estimates an American-built tanker costs about four times the world price.",
+      "problem": "The estimate comes from a 2019 CRS report and its own date is unknown. 'Today' is a time marker with no source.",
+      "fix": "\"In 2019, Congress's researchers cited one maritime consulting firm's estimate: an American-built tanker costs about four times the world price.\""
+    },
+    {
+      "seg": "03",
+      "rule": "ND§2 opinion unmarked",
+      "severity": "major",
+      "quote": "And the protected home market is small.",
+      "problem": "'Small' is the channel's judgement. The fleet count (2018) is not the size of the market for new orders.",
+      "fix": "\"Our read: the protected home market is small. In March 2018, the Jones Act fleet had ninety-nine oceangoing ships.\""
+    },
+    {
+      "seg": "03",
+      "rule": "G§3 narrow conclusion",
+      "severity": "minor",
+      "quote": "Building a few ships a year, for one market, is the other.",
+      "problem": "'The other' implies only two causes, but the record also lists currency policy, and observers point to the end of the subsidy.",
+      "fix": "\"Building a few ships a year, for one market, is another.\""
+    },
+    {
+      "seg": "02",
+      "rule": "ND§1 beyond source / verification",
+      "severity": "major",
+      "quote": "And war orders end. In April 1944, the government signed its last contract for Liberty ships.",
+      "problem": "The source says 'no more contracts for these emergency vessels were let after April 1944'. It names the Maritime Commission, not 'the government signed its last', and the referent ('these emergency vessels' = Liberty?) comes from OCR checked only by the sub-agent, not ✔P.",
+      "fix": "P must grep USMC45 to confirm the referent. Then: \"After April 1944, the Maritime Commission let no more contracts for these emergency ships.\""
+    },
+    {
+      "seg": "02",
+      "rule": "G§5 as-of",
+      "severity": "minor",
+      "quote": "That's roughly the rate today.",
+      "problem": "'Today' means the 2023 CRS report, and that date isn't given.",
+      "fix": "\"A 2023 congressional report calls that the current rate.\""
+    },
+    {
+      "seg": "02",
+      "rule": "story through people",
+      "severity": "minor",
+      "quote": "pushed a change to the rules for shipping between American ports",
+      "problem": "Jones has no sourced 'what he sought'. CRS-19 does state it (Alaska-bound cargo through Seattle), so it can be used without guessing motive.",
+      "fix": "\"…sought, as CRS describes it, to require Alaska-bound cargo to move through the Port of Seattle, part of a broader change to the rules for shipping between American ports.\""
+    },
+    {
+      "seg": "01",
+      "rule": "ND§1 / cross-basis",
+      "severity": "minor",
+      "quote": "Notice who the customers were: first the British government, then America's own Maritime Commission. Governments at war.",
+      "problem": "The U.S. was not at war when Maritime Commission contracts began (before 12/1941). No source covers the 'then' sequence or 'at war' for the U.S.",
+      "fix": "\"Notice who the customers were: the British government, at war, and America's own Maritime Commission. Governments, in wartime.\""
+    },
+    {
+      "seg": "01",
+      "rule": "ND§1 missing date / attribution",
+      "severity": "minor",
+      "quote": "That November, as a publicity stunt, Kaiser's Yard Number Two built the Robert E. Peary",
+      "problem": "November 1942 isn't in C04. The source names 'Permanente Metals Corporation No. 2 Yard', and its tie to Kaiser isn't covered by a claim.",
+      "fix": "Add the date and the Permanente–Kaiser link to claims, or say: \"Later, as a publicity stunt, Permanente Metals' Yard Number Two in Richmond built the Robert E. Peary…\""
+    },
+    {
+      "seg": "01",
+      "rule": "ND§2 description",
+      "severity": "minor",
+      "quote": "a slow, plain cargo ship",
+      "problem": "'Slow, plain' is the channel's description (the table notes 11 knots).",
+      "fix": "\"a plain cargo ship with a top speed of about eleven knots\" (add the 11 knots from NPS-SB to C09)."
+    },
+    {
+      "seg": "01",
+      "rule": "ND§1 wording",
+      "severity": "minor",
+      "quote": "Across the country, yards with government contracts employed 702,000 people at the peak.",
+      "problem": "The source says 'Commission contracts' at almost 80 yards.",
+      "fix": "\"Across the country, almost eighty yards held Maritime Commission contracts, and at the program's peak they employed 702,000 people.\""
+    },
+    {
+      "seg": "05",
+      "rule": "ND§2 opinion unmarked",
+      "severity": "minor",
+      "quote": "Then came a bigger version of the same move.",
+      "problem": "This equates Hyundai's path with PRC state plans. That's the channel's interpretation and it isn't labelled.",
+      "fix": "\"Our read: China ran a bigger version of a similar playbook.\""
+    },
+    {
+      "seg": "05",
+      "rule": "ND§1 verification",
+      "severity": "major",
+      "quote": "Congress's researchers say ninety percent of the ships China made in 2025 were for export.",
+      "problem": "The source quote is a parenthetical: '(90% of the ships they made in 2025…)'. 'They' may mean particular firms (for example state groups), not all Chinese yards. It also counts ships, not tonnage.",
+      "fix": "P must check the referent of 'they' in CRS-26 and phrase it to match, for example \"ninety percent of the ships [named firms] made in 2025 were for export, by count\"."
+    },
+    {
+      "seg": "05",
+      "rule": "G§2 country as subject",
+      "severity": "minor",
+      "quote": "And like Ulsan, China built for the world.",
+      "problem": "This is a broad statement about a country, and it leans on the unsourced 'Ulsan sold to the world'.",
+      "fix": "\"Chinese yards also built mainly for export.\""
+    },
+    {
+      "seg": "07",
+      "rule": "G§5 time marker",
+      "severity": "minor",
+      "quote": "Which brings us back to this year.",
+      "problem": "The next sentence is about April 2025, but 'this year' is 2026.",
+      "fix": "\"Which brings us to the present.\""
+    },
+    {
+      "seg": "07",
+      "rule": "ND§1 beyond source",
+      "severity": "minor",
+      "quote": "ships owned or run by Chinese companies owed fifty dollars per net ton to enter a U.S. port; Chinese-built ships owed eighteen.",
+      "problem": "'To enter a U.S. port' is a basis of charge that isn't in the quoted annex wording. The Annex II alternative (per-container, whichever is higher) is dropped without saying so.",
+      "fix": "\"…ships owned or operated by Chinese companies owed a fee of fifty dollars per net ton; most other China-built ships owed eighteen dollars per net ton, or a per-container fee if higher.\""
+    },
+    {
+      "seg": "07",
+      "rule": "G§4 named bodies",
+      "severity": "minor",
+      "quote": "Less than a month later, the fees were suspended until November ninth, 2026.",
+      "problem": "No named body takes the action.",
+      "fix": "\"Less than a month later, USTR suspended the fees until November ninth, 2026.\""
+    },
+    {
+      "seg": "07",
+      "rule": "ND§1 accuracy",
+      "severity": "minor",
+      "quote": "In September, more than two hundred trade groups asked for another extension.",
+      "problem": "There has been no earlier extension, only a suspension. The year is missing.",
+      "fix": "\"In September 2026, more than two hundred trade associations asked USTR to extend the suspension.\""
+    },
+    {
+      "seg": "07",
+      "rule": "G§5 re-check",
+      "severity": "major",
+      "quote": "As of October fourteenth, none had been published.",
+      "problem": "The log shows the status check relied on WebSearch because federalregister.gov blocked the agent. The govinfo re-check required before lock hasn't been done.",
+      "fix": "Re-check govinfo/Federal Register before lock and before recording, and log it in claims §3. Wording: \"As of October fourteenth, 2026, no extension had been published.\""
+    },
+    {
+      "seg": "07",
+      "rule": "G§5 as-of / ND§2",
+      "severity": "major",
+      "quote": "In August 2025, it announced five billion dollars of investment to raise output from one and a half ships a year to twenty.",
+      "problem": "This is an ongoing investment with no as-of and no timeframe. The table notes a conflicting CEO figure (~10/year after 10 years) that the script leaves out.",
+      "fix": "\"In August 2025, according to Korea JoongAng Daily, Hanwha announced five billion dollars of investment, with a stated goal of raising output from one and a half ships a year to twenty. As of October 2026, that remains a plan.\" Either add the CEO's figure as a sourced claim and mention it, or note \"no timeline was given in that report\"."
+    },
+    {
+      "seg": "07",
+      "rule": "G§5 as-of / named bodies",
+      "severity": "major",
+      "quote": "That came weeks after Seoul offered a hundred-and-fifty-billion-dollar shipbuilding fund in a trade deal; details were still unknown at the time.",
+      "problem": "This is an ongoing fund with no current status. 'Seoul' is a metonym. The source calls it a 'proposal'. JA-CENTER (07/2026) is in sources but not used.",
+      "fix": "\"That came weeks after South Korea's government proposed a hundred-and-fifty-billion-dollar shipbuilding fund as part of a July 2025 tariff deal; details were not public at the time. As of October 2026, [status from JA-CENTER as a new claim, e.g. the two governments had opened a shipbuilding partnership center].\""
+    },
+    {
+      "seg": "07",
+      "rule": "G§5 'due' attributed",
+      "severity": "major",
+      "quote": "In July 2026, the yard was picked to build two missile-tracking ships for the Pentagon. The first is due in June 2030.",
+      "problem": "'Due' isn't attributed, and the selecting body isn't named.",
+      "fix": "\"In July 2026, Military Times reported the yard had been tapped to build two missile-tracking ships for the Pentagon, with the first slated for delivery in June 2030.\""
+    },
+    {
+      "seg": "07",
+      "rule": "causality / sequence",
+      "severity": "major",
+      "quote": "There it is again. An order, before the expansion.",
+      "problem": "The record has the purchase (12/2024) and the $5B announcement (08/2025) before the order (07/2026), so 'order before expansion' misstates the sequence. It's a causal thesis with no label.",
+      "fix": "\"Our read: the pattern again. Here, the order arrived after the investment was announced, but before the new capacity exists.\""
+    },
+    {
+      "seg": "08",
+      "rule": "cross-basis",
+      "severity": "major",
+      "quote": "1943: three Liberty ships launched a day. {C03} Recently: around five a year.",
+      "problem": "This compares wartime-peak launches of one emergency design with all new U.S. ships completed per year (2023 report). The units and bases differ, and 'recently' has no date.",
+      "fix": "\"1943, at the peak: three Liberty ships launched a day. A 2023 congressional report: around five new ships a year, all types. Different ships, different eras; the gap is still the story.\""
+    },
+    {
+      "seg": "08",
+      "rule": "sides / ND§2",
+      "severity": "minor",
+      "quote": "Our read of the record: America didn't forget how to build ships. For four decades, it mostly stopped getting the orders.",
+      "problem": "It's labelled, but the closing thesis doesn't acknowledge the cost-first reading the record also supports (C23–C25), and C36 says no source weighs the causes.",
+      "fix": "Add: \"Others weigh cost more heavily, and no source we found settles it.\""
+    },
+    {
+      "seg": "08",
+      "rule": "ND§1 / hook return",
+      "severity": "minor",
+      "quote": "Philadelphia: whether the new docks get built.",
+      "problem": "'New docks' isn't in any claim.",
+      "fix": "\"Philadelphia: whether the announced investment shows up as new capacity.\""
+    },
+    {
+      "seg": "08",
+      "rule": "hook return",
+      "severity": "minor",
+      "quote": "Back in Richmond, one of Kaiser's shipyards is now part of a national park.",
+      "problem": "The ending only loosely returns to the opening image (the California yard). Naming the yard would tie it back to the source.",
+      "fix": "\"Back in Richmond, Kaiser's Shipyard Number Three is now part of a national park.\""
+    },
+    {
+      "seg": "04",
+      "rule": "ND§1",
+      "severity": "minor",
+      "quote": "a famous warship from Korea's past",
+      "problem": "The explanation of the turtle ship isn't in claims.",
+      "fix": "Add a source for the gloss, or cut it to \"a 500-won banknote showing a turtle ship\"."
+    }
+  ],
+  "missing_from_claims": [
+    "'That November' (1942) date for the Robert E. Peary build",
+    "Permanente Metals No. 2 Yard as a Kaiser yard ('Kaiser's Yard Number Two')",
+    "U.S. 'Governments at war' and the British-then-Maritime-Commission sequence",
+    "'now called the Jones Act' (Section 27 naming)",
+    "'Most people say wages' (DEMAND supports only 'often heard')",
+    "'the protected home market is small' (channel judgement)",
+    "'a famous warship from Korea's past' (turtle ship gloss)",
+    "'went looking for money' (not in the quoted C30 wording)",
+    "'Scott Lithgow' spelling (source says 'Scot Lithgow')",
+    "'the yard was selling to the whole world'",
+    "'two years apart' for CRS-23/CRS-26 (actually ~3 years) and the metric basis of CRS-23's 0.2%",
+    "'to enter a U.S. port' as the basis of the fee charge",
+    "Timeframe for Hanwha's 1.5→20 ships/year target, and the conflicting CEO figure",
+    "Current (Oct 2026) status of the $150B fund (JA-CENTER sourced but unused)",
+    "'new docks' in Philadelphia",
+    "USTR's stated rationale for the vessel fees (needed for sides)",
+    "PRC government's response to the Section 301 findings (needed for sides)",
+    "Jones Act supporters' and critics' own sourced statements (needed for sides)",
+    "Referent of 'they' in CRS-26's 90%-export parenthetical",
+    "C16 (last Liberty contracts April 1944) not yet ✔P-verified on the raw OCR"
+  ],
+  "strengths": [
+    "The myth beat is fair: it grants wages as a real factor (C25) and concludes 'narrower' rather than 'debunked'.",
+    "The cost loop is explicitly labelled 'our read; the pieces are in the record'.",
+    "The 'honest part' segment flags unit and year mismatches and the single-firm source of the 4× estimate.",
+    "Korean GDP 1962 is labelled 'in that year's dollars'.",
+    "The Korea Times banknote story is labelled as a column's telling and backed by 'we found no loan documents'.",
+    "The 'some observers' attribution on the subsidy termination is kept from the CRS wording.",
+    "No party framing and no campaign slogans; 'MASGA' is avoided in the narration.",
+    "The unconfirmed $2B MRIV figure is correctly left out.",
+    "Every hook number maps to a claim, and the ending answers the title question and returns to Richmond.",
+    "No prediction on the fee outcome: the 'what to watch' list sticks to open questions."
+  ]
+}
+```

@@ -1,0 +1,108 @@
+{
+ "main_message": "America didn't lose shipbuilding because it forgot how or just because of wages. It lost it because the orders dried up: wartime demand ended, the subsidy ended, and the protected home market is too small to get cheap. Korea and China built yards to sell abroad, and now Korea is being invited back into a US yard.",
+ "hook_strength_1to10": 6,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The 3-ships-a-day versus 0.04% contrast is a real curiosity gap, and the 'why so few ships?' question is clear. But it opens with a dry fee deadline and a disclaimer before the interesting part, and I might have bailed during that.",
+ "story_through_people_1to10": 4,
+ "people_you_remember": "Henry Kaiser built the Richmond yards for British orders. Chung Ju-yung of Hyundai wanted a shipyard with no experience, and he carried a photo of a beach to get customers. Senator Wesley Jones wanted Alaska cargo to go through Seattle. Park Chung Hee pushed heavy industry for export. Everyone else is a name in a list.",
+ "mechanisms_build_on_each_other_1to10": 7,
+ "mechanisms_in_your_words": "1) Wartime government orders created the boom. 2) The orders ended and the subsidy ended, leaving only the small Jones Act market. 3) A small market means few ships, no scale, and high prices, which means even fewer orders (a loop). 4) Korea and China got government support and built for export, so they got scale. 5) Now fees and Korean money are trying to bring orders back to US yards.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "'Stopped getting the orders' answers why so few ships and is tidy. It's hedged with 'others weigh cost more heavily', so it's less satisfying, and the 'November ninth' hook from the start gets only a vague 'what to watch'.",
+ "boring_or_slow": [
+  {
+   "seg": "02",
+   "why": "Jones Act, a 1920 senator, then a list of who supports and opposes it, then subsidy facts. Lots of names and dates, with no one to follow."
+  },
+  {
+   "seg": "07",
+   "why": "Dense run of dates, dollar figures, agencies and a fund. It's hard to keep straight."
+  },
+  {
+   "seg": "03",
+   "why": "A pile of cost ratios (20%, double, 3x, 4x) and Congress researcher citations."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "03",
+   "quote": "economies of scale",
+   "why": "It does explain it, but only briefly. 'Currency policy' is thrown in with no explanation."
+  },
+  {
+   "seg": "07",
+   "quote": "fifty dollars per net ton",
+   "why": "I have no idea what a net ton is or how big a fee that is for a ship. And it's unclear whose ships are charged and who actually pays."
+  },
+  {
+   "seg": "02",
+   "quote": "subsidy meant to let American owners buy American ships at the world price",
+   "why": "Unclear how that works, who paid whom, and why it ended."
+  },
+  {
+   "seg": "00",
+   "quote": "four hundredths of one percent",
+   "why": "Hard to picture. Is that really smaller than the 5 ships a year?"
+  },
+  {
+   "seg": "05",
+   "quote": "Ninety-one billion dollars",
+   "why": "No sense of whether that is big compared with what the US spent."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "03",
+   "quote": "America didn't forget how to build ships",
+   "direction": "toward the 'demand, not wages' thesis",
+   "why": "It dismisses the wage explanation a bit quickly, though it later says 'others weigh cost more heavily'."
+  },
+  {
+   "seg": "02",
+   "quote": "higher prices for Americans",
+   "direction": "slightly toward critics of the Jones Act",
+   "why": "The critics' cost point is backed by the later price numbers, but supporters get a one-line defense."
+  }
+ ],
+ "political_lean_detected": "none",
+ "lean_detail": "It goes out of its way to attribute claims and give both sides (China's ministry, trade groups, Jones Act supporters and critics). If anything it leans mildly toward 'a small market is the problem', which is analysis, not politics.",
+ "blames_a_group_of_people": false,
+ "blame_detail": "",
+ "claims_you_doubt": [
+  {
+   "seg": "04",
+   "quote": "turtle ship banknote",
+   "why": "It admits that it's lore. Fun, but it makes me wonder how much else in the Hyundai story is company PR."
+  },
+  {
+   "seg": "03",
+   "quote": "four times the world price",
+   "why": "It's one consulting firm's estimate for tankers, and the video uses it as a general trend."
+  },
+  {
+   "seg": "08",
+   "quote": "mostly stopped getting the orders",
+   "why": "Cause and effect might run the other way. Orders may have gone elsewhere because US ships were too expensive, which is the video's own loop. So 'orders' versus 'cost' isn't cleanly separated."
+  },
+  {
+   "seg": "04",
+   "quote": "$107 to $36,000 per person",
+   "why": "It then says it doesn't know how much of that was shipbuilding, so why show it?"
+  }
+ ],
+ "questions_left_unanswered": [
+  "How big are the fees, and who really pays them: shippers, customers or the Chinese owners?",
+  "Why does the US Navy not simply give lots of orders? Military shipbuilding is barely covered, and it should be a steady order stream.",
+  "If the Jones Act protects the home market, why did the market stay so small?",
+  "Why would Korea succeed in the US when the US failed? Is it workers, tech or management?",
+  "What happens on November 9, and does it matter to a normal person?",
+  "Why is there no segment 06? (I noticed the numbering jumps.)"
+ ],
+ "trust_1to10": 8,
+ "best_moment": "00: 'three ships a day' against 'four hundredths of one percent', ending with 'the company expanding the Philadelphia yard is South Korean.' That is a real mystery, and it made me want the answer.",
+ "top3_fixes": [
+  "Cut the intro to one clear question and the stakes ('why does America build so few ships, and why is a Korean firm now building them?'), and move the November 9 fee deadline and the disclaimer to the end or into a later segment.",
+  "Turn lists into people and one concrete picture: follow one Richmond worker or one Hyundai moment instead of strings of statistics, and show the 2023 'five ships a year' next to one Korean yard's output so the gap is visible.",
+  "Explain the jargon in plain terms and size the numbers: what the fee means for one ship or for a TV's shipping cost, what the subsidy actually did, and how $91 billion compares with US spending. Also drop or shorten the Jones Act history and per-capita income, and spend the time on the Navy and on why Korea can succeed in the US."
+ ]
+}
