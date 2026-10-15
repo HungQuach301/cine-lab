@@ -1,0 +1,807 @@
+{
+ "note": "Số công khai YouTube Data API đọc ngày 15/10/2026 (UTC). Chỉ số tính thêm (views/ngày, tỷ lệ) là TỰ TÍNH, không phải chỉ số YouTube. Không lưu mô tả/lời/thumbnail của kênh khác: chỉ lưu đặc điểm cấu trúc. Mẫu kênh: 8 kênh trẻ lấy từ 2 search.list (order=viewCount, publishedAfter 2026-04-15, US, en, 4–20 phút) + 2 kênh trẻ thành công tìm thấy khi tra cung đề tài (Geography Effect, Uncover History) + 2 đối thủ. Mẫu KHÔNG ngẫu nhiên: 4 kênh thắng là chọn có chủ đích; 8 kênh còn lại là kênh trẻ trong ngách do search trả về.",
+ "search_queries": [
+  "why is this country so rich economy geography explained",
+  "how engineers built megaproject canal bridge documentary"
+ ],
+ "channels": {
+  "Fortune of Nations Animated": {
+   "nhom": "doi-thu",
+   "channel_created": "2026-09-30",
+   "n_total": 13,
+   "n_long": 5,
+   "n_short": 8,
+   "first_long": "2026-10-02",
+   "long_per_week": 3.18,
+   "share_long_ge_100k": 0.6,
+   "n_long_ge_100k": 3,
+   "median_views_long": 124124,
+   "max_views": 1377805,
+   "median_dur_long_min": 9.6,
+   "median_dur_winners_min": 9.6,
+   "median_dur_rest_min": 9.8,
+   "like_per_1k": 6.7,
+   "cmt_per_1k": 1.55,
+   "top5": [
+    {
+     "title": "Why Did the US Get Rich But Latin America Never Did?",
+     "views": 1377805,
+     "dur_min": 9.7,
+     "pub": "2026-10-07",
+     "pattern": [
+      "why",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "Why Britain's Decline Is Making Ireland Rich",
+     "views": 225713,
+     "dur_min": 9.6,
+     "pub": "2026-10-05",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Switzerland Should Be Poor. Here's Why It Isn't",
+     "views": 124124,
+     "dur_min": 9.5,
+     "pub": "2026-10-02",
+     "pattern": [
+      "khẳng định",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "Why Did Russia Unify as a Country But Europe Never Did?",
+     "views": 28619,
+     "dur_min": 9.2,
+     "pub": "2026-10-13",
+     "pattern": [
+      "why",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "Egypt Is Bigger Than Texas… So Why Does Everyone Live Here?",
+     "views": 12108,
+     "dur_min": 10.3,
+     "pub": "2026-10-11",
+     "pattern": [
+      "khẳng định"
+     ]
+    }
+   ]
+  },
+  "GoDocs": {
+   "nhom": "doi-thu",
+   "channel_created": "2024-03-28 (video đầu 2026-05-19)",
+   "n_total": 42,
+   "n_long": 42,
+   "n_short": 0,
+   "first_long": "2026-05-19",
+   "long_per_week": 2.0,
+   "share_long_ge_100k": 0.476,
+   "n_long_ge_100k": 20,
+   "median_views_long": 74196,
+   "max_views": 2352424,
+   "median_dur_long_min": 15.3,
+   "median_dur_winners_min": 15.7,
+   "median_dur_rest_min": 14.9,
+   "like_per_1k": 5.0,
+   "cmt_per_1k": 0.24,
+   "top5": [
+    {
+     "title": "Why Isn't Dubai's Palm Jumeirah Sinking? How Engineers Turned Sand into Steel",
+     "views": 2352424,
+     "dur_min": 19.2,
+     "pub": "2026-07-24",
+     "pattern": [
+      "why",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "How a 3,000-Year-Old Obsession Built the Suez Canal",
+     "views": 2261861,
+     "dur_min": 11.0,
+     "pub": "2026-09-19",
+     "pattern": [
+      "how",
+      "số"
+     ]
+    },
+    {
+     "title": "No Rock to Hold Onto - Why the Burj Khalifa Hasn't Collapsed Yet",
+     "views": 1693753,
+     "dur_min": 14.2,
+     "pub": "2026-09-10",
+     "pattern": [
+      "khẳng định",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "Can We Turn a Desert Into a Forest?  The Green Great Wall",
+     "views": 1081530,
+     "dur_min": 17.9,
+     "pub": "2026-07-27",
+     "pattern": [
+      "yes/no-what"
+     ]
+    },
+    {
+     "title": "The Deepest Hole on Earth (And Why It Was Sealed)",
+     "views": 1070118,
+     "dur_min": 17.1,
+     "pub": "2026-07-26",
+     "pattern": [
+      "khẳng định"
+     ]
+    }
+   ]
+  },
+  "FactVerse": {
+   "nhom": "search-sample",
+   "channel_created": "2026-02-18",
+   "n_total": 50,
+   "n_long": 47,
+   "n_short": 3,
+   "first_long": "2026-04-23",
+   "long_per_week": 1.99,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 17,
+   "max_views": 680,
+   "median_dur_long_min": 8.7,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 8.7,
+   "like_per_1k": 11.9,
+   "cmt_per_1k": 8.67,
+   "top5": [
+    {
+     "title": "The Shocking Reality of Philippine Prisons 🇵🇭",
+     "views": 680,
+     "dur_min": 5.9,
+     "pub": "2026-07-19",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "How Did Singapore Become So Rich?",
+     "views": 147,
+     "dur_min": 10.2,
+     "pub": "2026-09-29",
+     "pattern": [
+      "how"
+     ]
+    },
+    {
+     "title": "The Reality of Life Under Dictatorship",
+     "views": 136,
+     "dur_min": 10.3,
+     "pub": "2026-07-31",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "TUVALU The Country That Will Disappear?",
+     "views": 135,
+     "dur_min": 9.0,
+     "pub": "2026-05-26",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "How Hitler Brainwashed Millions Of People?",
+     "views": 131,
+     "dur_min": 8.8,
+     "pub": "2026-05-09",
+     "pattern": [
+      "how"
+     ]
+    }
+   ]
+  },
+  "Stories Of USA": {
+   "nhom": "search-sample",
+   "channel_created": "2025-12-15",
+   "n_total": 32,
+   "n_long": 32,
+   "n_short": 0,
+   "first_long": "2026-04-04",
+   "long_per_week": 2.77,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 618,
+   "max_views": 8675,
+   "median_dur_long_min": 9.5,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 9.5,
+   "like_per_1k": 7.0,
+   "cmt_per_1k": 0.2,
+   "top5": [
+    {
+     "title": "They Built This Bridge in the Sky… No One Talks About It!",
+     "views": 8675,
+     "dur_min": 11.2,
+     "pub": "2026-04-25",
+     "pattern": [
+      "khẳng định",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "Inside The World’s Most INSANE Luxury Mobile Homes #usa #china #megaprojects #usavschina",
+     "views": 3662,
+     "dur_min": 10.7,
+     "pub": "2026-05-28",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "5 Insane Chinese Mega Projects America Didn’t Know Existed",
+     "views": 3461,
+     "dur_min": 7.6,
+     "pub": "2026-05-11",
+     "pattern": [
+      "khẳng định",
+      "số"
+     ]
+    },
+    {
+     "title": "The Most Dangerous Glass Bridges in China That Tourists Fearl #china #megaprojects #usa",
+     "views": 3415,
+     "dur_min": 7.7,
+     "pub": "2026-06-21",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Engineers Said These Bridges Were Impossible... China Built Them Anyway #megaprojects #usa #china",
+     "views": 3223,
+     "dur_min": 10.3,
+     "pub": "2026-06-05",
+     "pattern": [
+      "khẳng định"
+     ]
+    }
+   ]
+  },
+  "The Why of Where": {
+   "nhom": "search-sample",
+   "channel_created": "2026-06-20",
+   "n_total": 26,
+   "n_long": 26,
+   "n_short": 0,
+   "first_long": "2026-06-24",
+   "long_per_week": 1.65,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 66,
+   "max_views": 604,
+   "median_dur_long_min": 12.6,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 12.6,
+   "like_per_1k": 9.8,
+   "cmt_per_1k": 2.63,
+   "top5": [
+    {
+     "title": "One Town So High That Visitors Get Sick Walking",
+     "views": 604,
+     "dur_min": 12.2,
+     "pub": "2026-08-22",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "A Harsh Place Where Humans Still Choose to Live",
+     "views": 290,
+     "dur_min": 13.0,
+     "pub": "2026-07-02",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Some Countries Can Never Seem to Escape Poverty",
+     "views": 211,
+     "dur_min": 14.2,
+     "pub": "2026-06-27",
+     "pattern": [
+      "khẳng định",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "This Country Has No Rivers and Still Survives",
+     "views": 208,
+     "dur_min": 13.4,
+     "pub": "2026-08-08",
+     "pattern": [
+      "khẳng định",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "Why Almost Nobody Lives in the Center of Australia",
+     "views": 169,
+     "dur_min": 12.9,
+     "pub": "2026-07-14",
+     "pattern": [
+      "why"
+     ]
+    }
+   ]
+  },
+  "Beyond Manufacturing": {
+   "nhom": "search-sample",
+   "channel_created": "2026-06-12",
+   "n_total": 32,
+   "n_long": 25,
+   "n_short": 7,
+   "first_long": "2026-07-22",
+   "long_per_week": 2.24,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 1073,
+   "max_views": 12667,
+   "median_dur_long_min": 17.0,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 17.0,
+   "like_per_1k": 5.2,
+   "cmt_per_1k": 0.62,
+   "top5": [
+    {
+     "title": "How Europe Is Building the IMPOSSIBLE: An 18 KM Tunnel Under the Sea",
+     "views": 12667,
+     "dur_min": 15.2,
+     "pub": "2026-08-10",
+     "pattern": [
+      "how",
+      "số"
+     ]
+    },
+    {
+     "title": "How Dubai Built an IMPOSSIBLE Island in the Ocean!",
+     "views": 6346,
+     "dur_min": 12.3,
+     "pub": "2026-08-02",
+     "pattern": [
+      "how"
+     ]
+    },
+    {
+     "title": "How China Built a Highway That Disappears Under the Ocean — America Can't Believe This",
+     "views": 6045,
+     "dur_min": 15.0,
+     "pub": "2026-08-07",
+     "pattern": [
+      "how"
+     ]
+    },
+    {
+     "title": "China Built an INSANE Bridge 625m in the Sky!",
+     "views": 3740,
+     "dur_min": 11.7,
+     "pub": "2026-08-13",
+     "pattern": [
+      "khẳng định",
+      "số"
+     ]
+    },
+    {
+     "title": "How Australia Is Building an IMPOSSIBLE Tunnel Under Sydney Harbour",
+     "views": 3189,
+     "dur_min": 20.8,
+     "pub": "2026-09-11",
+     "pattern": [
+      "how"
+     ]
+    }
+   ]
+  },
+  "Mega Build World": {
+   "nhom": "search-sample",
+   "channel_created": "2026-06-30",
+   "n_total": 53,
+   "n_long": 53,
+   "n_short": 0,
+   "first_long": "2026-07-13",
+   "long_per_week": 4.82,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 304,
+   "max_views": 4971,
+   "median_dur_long_min": 6.7,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 6.7,
+   "like_per_1k": 4.4,
+   "cmt_per_1k": 0.51,
+   "top5": [
+    {
+     "title": "Inside Nepal’s Bridge Destroyed Twice | How Engineers Built Across a Wild Himalayan River",
+     "views": 4971,
+     "dur_min": 9.9,
+     "pub": "2026-09-07",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Inside Japan's Deepest Undersea Tunnel | How the Seikan Tunnel Was Built Beneath the Ocean",
+     "views": 2864,
+     "dur_min": 6.2,
+     "pub": "2026-07-26",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Inside Nepal’s Forgotten Dam | How Engineers Built Hydropower in Total Isolation",
+     "views": 1745,
+     "dur_min": 14.9,
+     "pub": "2026-09-19",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Inside Greece’s Giant Earthquake Dam | How Engineers Built It on Unstable Ground",
+     "views": 1643,
+     "dur_min": 15.8,
+     "pub": "2026-09-17",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Inside China's $20B Underwater Tunnel – The Hardest Part",
+     "views": 1209,
+     "dur_min": 6.0,
+     "pub": "2026-07-17",
+     "pattern": [
+      "khẳng định",
+      "số"
+     ]
+    }
+   ]
+  },
+  "The Useful Brief": {
+   "nhom": "search-sample",
+   "channel_created": "2026-09-27",
+   "n_total": 67,
+   "n_long": 18,
+   "n_short": 49,
+   "first_long": "2026-09-27",
+   "long_per_week": 7.88,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 96,
+   "max_views": 1031,
+   "median_dur_long_min": 8.4,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 8.4,
+   "like_per_1k": 17.2,
+   "cmt_per_1k": 4.58,
+   "top5": [
+    {
+     "title": "Domino's Isn't A Pizza Company",
+     "views": 1031,
+     "dur_min": 12.3,
+     "pub": "2026-10-12",
+     "pattern": [
+      "khẳng định",
+      "nghịch lý"
+     ]
+    },
+    {
+     "title": "How Costco Really Makes Money — It's Not What You Think",
+     "views": 817,
+     "dur_min": 8.0,
+     "pub": "2026-10-07",
+     "pattern": [
+      "how"
+     ]
+    },
+    {
+     "title": "Starbucks: The Billion Dollar Secret They Don't Tell You",
+     "views": 301,
+     "dur_min": 8.6,
+     "pub": "2026-10-09",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Why Is AI Usage Driving Up Your Electric Bill",
+     "views": 208,
+     "dur_min": 9.1,
+     "pub": "2026-10-01",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "How America Became a Superpower (Explained)",
+     "views": 181,
+     "dur_min": 11.0,
+     "pub": "2026-10-03",
+     "pattern": [
+      "how"
+     ]
+    }
+   ]
+  },
+  "DT Civil Core": {
+   "nhom": "search-sample",
+   "channel_created": "2026-05-24",
+   "n_total": 189,
+   "n_long": 106,
+   "n_short": 83,
+   "first_long": "2026-06-01",
+   "long_per_week": 6.18,
+   "share_long_ge_100k": 0.019,
+   "n_long_ge_100k": 2,
+   "median_views_long": 722,
+   "max_views": 1820231,
+   "median_dur_long_min": 17.1,
+   "median_dur_winners_min": 17.1,
+   "median_dur_rest_min": 17.2,
+   "like_per_1k": 2.9,
+   "cmt_per_1k": 0.4,
+   "top5": [
+    {
+     "title": "Over 12 Miles in 7 Minutes — How Did the Nepal–Tibet Flood Move So Fast?",
+     "views": 1820231,
+     "dur_min": 17.1,
+     "pub": "2026-09-01",
+     "pattern": [
+      "khẳng định",
+      "số"
+     ]
+    },
+    {
+     "title": "Where Did the Water in the Nepal–Tibet Mega Flood Come From?",
+     "views": 1025748,
+     "dur_min": 17.1,
+     "pub": "2026-08-31",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Nepal–Tibet Mega Flood 2026: What Really Caused It?",
+     "views": 93928,
+     "dur_min": 17.2,
+     "pub": "2026-08-28",
+     "pattern": [
+      "khẳng định",
+      "số"
+     ]
+    },
+    {
+     "title": "How South Korea Built the World’s Longest Seawall",
+     "views": 90853,
+     "dur_min": 15.4,
+     "pub": "2026-08-09",
+     "pattern": [
+      "how"
+     ]
+    },
+    {
+     "title": "How Can a Mountain Collapse Turn Into a Mega Flood?",
+     "views": 69203,
+     "dur_min": 16.7,
+     "pub": "2026-08-29",
+     "pattern": [
+      "how"
+     ]
+    }
+   ]
+  },
+  "The Built Mind": {
+   "nhom": "search-sample",
+   "channel_created": "2026-05-05",
+   "n_total": 26,
+   "n_long": 26,
+   "n_short": 0,
+   "first_long": "2026-05-15",
+   "long_per_week": 1.27,
+   "share_long_ge_100k": 0.0,
+   "n_long_ge_100k": 0,
+   "median_views_long": 305,
+   "max_views": 40015,
+   "median_dur_long_min": 9.9,
+   "median_dur_winners_min": null,
+   "median_dur_rest_min": 9.9,
+   "like_per_1k": 14.4,
+   "cmt_per_1k": 2.67,
+   "top5": [
+    {
+     "title": "What It's Like Inside the World's Worst Traffic",
+     "views": 40015,
+     "dur_min": 10.1,
+     "pub": "2026-09-15",
+     "pattern": [
+      "yes/no-what"
+     ]
+    },
+    {
+     "title": "Why Is Singapore So Insanely Rich",
+     "views": 33360,
+     "dur_min": 9.7,
+     "pub": "2026-08-06",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Why Luxury Apartments Are Quietly Making You Sick",
+     "views": 13801,
+     "dur_min": 10.2,
+     "pub": "2026-05-24",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Why American Suburbs Are Designed to Make You Lonely",
+     "views": 10912,
+     "dur_min": 10.5,
+     "pub": "2026-05-15",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Singapore is Running Out of Singaporeans",
+     "views": 1608,
+     "dur_min": 11.5,
+     "pub": "2026-09-26",
+     "pattern": [
+      "khẳng định"
+     ]
+    }
+   ]
+  },
+  "Geography Effect": {
+   "nhom": "thang-co-chu-dich",
+   "channel_created": "2026-02-08",
+   "n_total": 72,
+   "n_long": 68,
+   "n_short": 4,
+   "first_long": "2026-02-19",
+   "long_per_week": 2.03,
+   "share_long_ge_100k": 0.353,
+   "n_long_ge_100k": 24,
+   "median_views_long": 38520,
+   "max_views": 1154629,
+   "median_dur_long_min": 12.7,
+   "median_dur_winners_min": 13.5,
+   "median_dur_rest_min": 11.9,
+   "like_per_1k": 9.8,
+   "cmt_per_1k": 1.94,
+   "top5": [
+    {
+     "title": "Why Canada Is Sitting On the Most Valuable Land In Human History",
+     "views": 1154629,
+     "dur_min": 8.9,
+     "pub": "2026-07-17",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Why California Can't Shut Down Slab City",
+     "views": 698616,
+     "dur_min": 12.7,
+     "pub": "2026-07-07",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Why Germany's Decline Is Making Poland Rich",
+     "views": 479139,
+     "dur_min": 21.2,
+     "pub": "2026-09-11",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Why the Best Farmland on Earth Made Argentina Poor",
+     "views": 415991,
+     "dur_min": 18.3,
+     "pub": "2026-07-31",
+     "pattern": [
+      "why"
+     ]
+    },
+    {
+     "title": "Why Build a $265 Billion Microchip Fortress In the Arizona Desert?",
+     "views": 407417,
+     "dur_min": 18.1,
+     "pub": "2026-09-01",
+     "pattern": [
+      "why",
+      "số"
+     ]
+    }
+   ]
+  },
+  "Uncover History": {
+   "nhom": "thang-co-chu-dich",
+   "channel_created": "2026-05-08",
+   "n_total": 104,
+   "n_long": 104,
+   "n_short": 0,
+   "first_long": "2026-05-25",
+   "long_per_week": 5.13,
+   "share_long_ge_100k": 0.221,
+   "n_long_ge_100k": 23,
+   "median_views_long": 23493,
+   "max_views": 532596,
+   "median_dur_long_min": 29.7,
+   "median_dur_winners_min": 28.9,
+   "median_dur_rest_min": 30.0,
+   "like_per_1k": 20.4,
+   "cmt_per_1k": 3.88,
+   "top5": [
+    {
+     "title": "Britain Sold Palestine to Pay Its WWI Debt. The Balfour Declaration Was a Banking Deal!",
+     "views": 532596,
+     "dur_min": 27.2,
+     "pub": "2026-05-29",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Britain Built the World’s First Industrial Powerhouse — So Why Did It Stop Making Things?",
+     "views": 407118,
+     "dur_min": 28.5,
+     "pub": "2026-09-06",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "Britain Created Iraq to Control Its Oil — Then Installed Its Own King",
+     "views": 370967,
+     "dur_min": 29.3,
+     "pub": "2026-08-14",
+     "pattern": [
+      "khẳng định"
+     ]
+    },
+    {
+     "title": "The 1946 Loan That Finished the British Empire — How America Bought Britain's Freedom",
+     "views": 353100,
+     "dur_min": 29.2,
+     "pub": "2026-08-12",
+     "pattern": [
+      "khẳng định",
+      "số"
+     ]
+    },
+    {
+     "title": "Argentina Was Once One of the Richest Countries on Earth — So What Went Wrong?",
+     "views": 262006,
+     "dur_min": 30.1,
+     "pub": "2026-09-03",
+     "pattern": [
+      "khẳng định"
+     ]
+    }
+   ]
+  }
+ }
+}
