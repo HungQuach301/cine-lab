@@ -163,11 +163,6 @@ sources:
     url: https://www.loc.gov/item/2016845467/
     read: fulltext
     accessed: 2026-10-15
-  NARA39018:
-    short: 'Film: U.S. National Archives'
-    url: https://archive.org/details/gov.archives.arc.39018
-    read: fulltext
-    accessed: 2026-10-15
 numbers:
   n_peak3:
     v: 3
@@ -1353,7 +1348,7 @@ heroes:
   r04_chung:
     hero: relief/map
     opt:
-      relief: korea
+      relief: koreaw
       palette: sepia
       places:
       - id: seoul
@@ -1507,7 +1502,7 @@ heroes:
   r04_state:
     hero: relief/map
     opt:
-      relief: korea
+      relief: koreaw
       palette: sepia
       regions:
       - id: kr
@@ -1563,7 +1558,7 @@ heroes:
   r04_abroad:
     hero: relief/map
     opt:
-      relief: korea
+      relief: koreaw
       palette: natural
       places:
       - id: ulsanx
@@ -3364,7 +3359,7 @@ segments:
           - k: New ships
             icon: stk:freighter
             v:
-            - 3 launched / day
+            - 3 / day
             - ~5 / year
             at: '@peak'
           foot: Different ships, different eras · NPS, CRS

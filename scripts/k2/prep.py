@@ -44,7 +44,8 @@ def lift_props(E):
             p = sh.get('p') or {}; h = HZ.get(p.get('hero')) if sh.get('tpl', 'plate') == 'plate' else None
             if not h or not str(h.get('hero', '')).startswith('relief/') or not p.get('stickers'): continue
             off = sh.get('at', 0) if isinstance(sh.get('at', 0), (int, float)) else 0; o = h.setdefault('opt', {}); props = o.setdefault('props', [])
-            sec = lambda v: v - off if isinstance(v, (int, float)) else v
+            f0, sp = float(p.get('frame0', p.get('off', 0)) or 0) / 24, float(p.get('speed', 1))   # T2 G1b: shot bắt đầu giữa cảnh → giây cảnh = (giây đoạn − at)·speed + frame0/24
+            sec = lambda v: (v - off) * sp + f0 if isinstance(v, (int, float)) else v
             for i, S in enumerate(p.pop('stickers')):
                 img = S.get('img'); q = {k: S[k] for k in ('a', 'px', 'walk', 'hz', 'face', 'yaw', 'pop', 'dx', 'dz') if k in S}; q['id'] = S.get('id') or f'{sg.get("id")}-{len(props)}'
                 if 'at' in S: q['t'] = sec(S['at'])

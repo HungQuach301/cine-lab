@@ -204,7 +204,7 @@ segments:
            asof: "Facts as of 15 Oct 2026", asofAt: "@November", src: "Sources: USTR, Military Times · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@scoreboard-0.3", type: map, scene_id: relief/map, camera_id: t2-06-score, places: [], p: {hero: r06_score, frame0: 0,
            score: {board: {at: "@scoreboard", title: "U.S. shipbuilding", align: right, w: 768, sides: [{s: "1943 (peak)", c: "#F2C14E", icon: "stk:freighter"}, {s: "CRS 2023", c: "#3CC2B0", icon: "stk:crane"}],
-                   rows: [{k: "New ships", icon: "stk:freighter", v: ["3 launched / day", "~5 / year"], at: "@peak"}], foot: "Different ships, different eras · NPS, CRS"}},
+                   rows: [{k: "New ships", icon: "stk:freighter", v: ["3 / day", "~5 / year"], at: "@peak"}], foot: "Different ships, different eras · NPS, CRS"}},
            src: "Sources: National Park Service, CRS (2023) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@Our-0.3", type: map, scene_id: relief/map, camera_id: t2-06-score2, places: [], p: {hero: r06_score, frame0: 380, speed: 0.6,
            cap: [{s: "Our read: America didn't forget how to build ships", at: "@forget"}, {s: "Since the 1980s: few orders came", at: "@1980s"}, {s: "Record: high prices → fewer domestic purchases", at: "@ties"}, {s: "No exports → no economies of scale", at: "@lack"}, {s: "Supporters (American Maritime Partnership): jobs & security", at: "@Supporters"}, {s: "Critics (Sen. Lee, Rep. McClintock): higher prices", at: "@Critics"}, {s: "No source measures how much each factor counts", at: "@measures"}],
