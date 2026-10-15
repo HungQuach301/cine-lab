@@ -91,3 +91,26 @@
 - **Dấu cảnh:** sửa `photo.js` đổi dấu của mọi cảnh, vì dấu băm cả mã mọi module.
   - Thay vì dựng lại 44 cảnh, đã tính dấu cũ bằng `photo.js` trước khi sửa (`git show HEAD`) và chỉ chuyển dấu cho cảnh **không phải photo/*** có dấu cũ khớp đúng tham số (29 cảnh; không module nào import `photo.js`).
   - Dựng lại 16 cảnh: 8 trang văn bản, 2 ảnh, phim NARA, g04_pacific, r04_abroad, r02_cut, r03_myth, r06_home.
+
+## 6. Rà tờ khung toàn tập trên nháp 540p sau O2/O5 (tự rà, mỗi 3 s) — lỗi tìm thấy và cách sửa
+- **Địa cầu (cả 5 cảnh, có cảnh móc 0:05–0:16):** ba lỗi khai báo, đều có từ G1b, nên người chấm mù ở bước Dựng đã xem bản có lỗi.
+  - `lift: 1` tính theo bán kính Trái Đất → tường cao gấp đôi địa cầu, thành quạt tia vàng/xanh. Sửa: `lift: true`.
+  - Cột `r: 1.2` to hơn địa cầu → đĩa tím/kem khổng lồ. Sửa: 0,035.
+  - Cung `h: 0.5` → dải tím nhô ra. Sửa: dùng mặc định.
+  - Cột 0,04 % : 54,6 % cũ phóng đại phần Mỹ ~11×; nay theo tỉ lệ thật.
+  - Tô quốc gia đậm hơn: `fill` 0,26 → 0,45.
+- **Alaska 2 thiếu ghim `ship`:** con tàu và thẻ định nghĩa Jones Act chưa từng hiện. Đã thêm ghim + tàu đi theo tuyến Seattle → Juneau. Đã kiểm toàn tập: chỉ shot này thiếu.
+- **Trang Federal Register dạng ảnh tư liệu cháy sáng**, chữ không đọc được. Sửa trong `photo.js` cho chế độ có trang: giấy bớt chói, phơi sáng 0,9. Máy tiến gần hơn (push 0,6), trang lớn hơn (h 3,4).
+- **Ảnh Owens/Jones:** cột chữ bên phải đè mép bìa ảnh.
+  - Preset `drift-r` của Jones bỏ qua tiêu điểm → đổi sang `push`.
+  - Tiêu điểm x 1,1 và cột chữ dời sang `x0: 0,68`. Đo thử: mép ảnh dừng ở 0,61–0,64 khung.
+- **Đạo cụ nhỏ ở r03_myth:** cỡ đạo cụ tính theo khoảng cách tới tâm nhìn, mà người thợ nằm cách tâm nhìn ~9 km. Sửa: máy nhìn thẳng vào người thợ.
+- **Nhịp và đạo cụ:**
+  - r03_scale trống ~5 s đầu shot → thêm đạo cụ "báo cáo 2023" từ đầu shot, người thợ vào ở "lists".
+  - Tàu chở dầu: đồng xu "world price" không nhãn 7 s → nhãn từ đầu shot.
+  - Chung sát mép trên → máy đi theo.
+  - 4 đạo cụ kết luận chồng thành một cụm → dàn hàng.
+  - Tàu gợi ý tập sau ra khỏi mép trái → dời vào vùng nước.
+- **Phim NARA:** khung trong khung đè dải chú thích → `maxScale` 1,1 (cao ≈ 49 % khung ở 1080p). Đã kiểm khung cắt: shot 127 khung, cận mặt người chỉ bắt đầu ở khung 131, không lên hình.
+- **Dấu cảnh:** mỗi lần sửa `photo.js` đổi dấu mọi cảnh. Dùng cách chuyển dấu có kiểm (dấu cũ tính bằng `photo.js` của HEAD, chỉ cho cảnh có tham số giống hệt) — 29 rồi 30 cảnh giữ nguyên, chỉ dựng lại cảnh thật sự đổi.
+- **Đĩa:** worktree v5a (4,9 GB, cả repo) làm đĩa còn 1,5 GB → bản dựng tự dừng ở ngưỡng 3 GB. Đã gỡ worktree; sẽ thêm lại lúc kiểm gói rồi gỡ ngay.
