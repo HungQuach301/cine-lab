@@ -73,7 +73,7 @@ segments:
            side: {at: "@Wesley", x0: 0.68, lines: [{s: "Sen. Wesley L. Jones", px: 52, w: 700, disp: true, at: "@Wesley"}, {s: "Washington · chair, Commerce Committee", px: 38, at: "@chair"}, {s: "photo c. 1921", px: 38, at: "@chair+0.6"}, {s: "aim: Alaska cargo through Seattle", px: 38, at: "@requiring"}]},
            src: "Photo: National Photo Co., Library of Congress"}}
       - {tpl: plate, at: "@cargo#3-0.3", type: map, scene_id: relief/map, camera_id: t2-02-alaska2, places: [], p: {hero: r02_alaska2, frame0: 0,
-           places: [{a: seattle, s: "Seattle", at: "@cargo#3", side: auto}], stickers: [{a: "st:ship", img: "stk:freighter", at: "@carrying", px: 90, walk: true}],
+           places: [{a: seattle, s: "Seattle", at: "@cargo#3", side: auto}], stickers: [{a: "st:ship", img: "stk:freighter", at: "@carrying", px: 110, walk: true, yaw: 90}],
            tags: [{a: "st:ship", s: "built · owned · crewed in the U.S.", sub: "Jones Act, Sec. 27 (1920)", at: "@American-built", side: auto, prefer: [up, left], c: "#3CC2B0"}],
            cap: [{s: "Merchant Marine Act of 1920, Section 27: the \"Jones Act\"", at: "@Section"}], src: "Source: CRS (2019) · Terrain: SRTM (USGS)"}}
       - {tpl: plate, at: "@Congress's#1-0.3", type: map, scene_id: relief/map, camera_id: t2-02-quotes, places: [], p: {hero: r02_quotes, frame0: 0,

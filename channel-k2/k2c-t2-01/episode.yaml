@@ -3105,8 +3105,9 @@ segments:
       - a: st:ship
         img: stk:freighter
         at: '@carrying'
-        px: 90
+        px: 110
         walk: true
+        yaw: 90
       tags:
       - a: st:ship
         s: built · owned · crewed in the U.S.
