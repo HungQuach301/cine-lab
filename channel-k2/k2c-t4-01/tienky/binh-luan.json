@@ -1,0 +1,408 @@
+{
+ "note": "100 bình luận gốc hàng đầu (order=relevance) × 3 video: RealLifeLore 4U1TkIdDbRA (100), Geography Effect R0dr3SBmxLA (chỉ 20 bình luận gốc), The Fault Line bTMfT2V3Jyo (100). Haiku 5.5 (ghim) gắn nhãn 220/220. Trọng số = 1 + thích + phản hồi (tự tính). Ý DIỄN ĐẠT LẠI ≤ 10 từ, không nguyên văn; số thô ngoài git.",
+ "videos": {
+  "4U1TkIdDbRA": {
+   "n": 100,
+   "n_hoi_yeucau_suasai_tranhluan": 10,
+   "n_hoi_yeucau": 3,
+   "kind_weight": {
+    "opinion": 10883,
+    "praise": 10056,
+    "joke": 7481,
+    "cause_debate": 5840,
+    "other": 5359,
+    "correction": 712,
+    "request": 99,
+    "question": 12
+   },
+   "topic_weight": {
+    "water_supply": 22429,
+    "other": 11300,
+    "climate_drought": 7553,
+    "conservation_turf": 7176,
+    "gambling_economy": 7029,
+    "lake_mead_level": 6432,
+    "agriculture_california": 5890,
+    "golf_pools_fountains": 1083,
+    "hoover_dam": 801,
+    "other_states_arizona": 449,
+    "growth_overpopulation": 231,
+    "colorado_compact_law": 34
+   },
+   "top_y": [
+    {
+     "w": 5824,
+     "kind": "cause_debate",
+     "topics": [
+      "lake_mead_level",
+      "climate_drought",
+      "agriculture_california",
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "Blaming Vegas is unfair; snowfall and California farming are the real causes."
+    },
+    {
+     "w": 4856,
+     "kind": "praise",
+     "topics": [
+      "water_supply",
+      "conservation_turf"
+     ],
+     "y_dien_dat_lai": "Vegas is surprisingly water-sustainable and could inspire other cities."
+    },
+    {
+     "w": 3997,
+     "kind": "opinion",
+     "topics": [
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "Wishes Southern California managed its water as sensibly as Vegas."
+    },
+    {
+     "w": 3962,
+     "kind": "joke",
+     "topics": [
+      "gambling_economy"
+     ],
+     "y_dien_dat_lai": "Childhood realization that other cities lack casinos, a funny anecdote."
+    },
+    {
+     "w": 2902,
+     "kind": "joke",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Patrolling the Mojave makes a nuclear winter sound appealing."
+    },
+    {
+     "w": 2323,
+     "kind": "praise",
+     "topics": [
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "Surprised by Vegas's efficiency; hopes desert cities copy it."
+    },
+    {
+     "w": 2091,
+     "kind": "other",
+     "topics": [
+      "gambling_economy"
+     ],
+     "y_dien_dat_lai": "Physicists' 1986 conference flopped at casinos because they didn't gamble."
+    },
+    {
+     "w": 1348,
+     "kind": "opinion",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Impressed Vegas draws more visitors than Venice and has a replica."
+    },
+    {
+     "w": 1332,
+     "kind": "opinion",
+     "topics": [
+      "climate_drought",
+      "other"
+     ],
+     "y_dien_dat_lai": "Mexican northern cities need desert water solutions; Monterrey is in drought."
+    },
+    {
+     "w": 1036,
+     "kind": "praise",
+     "topics": [
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "A water engineer is pleased with the city's efficient infrastructure."
+    },
+    {
+     "w": 965,
+     "kind": "opinion",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Seeing Vegas light up at night from darkness was breathtaking."
+    },
+    {
+     "w": 762,
+     "kind": "praise",
+     "topics": [
+      "water_supply",
+      "other"
+     ],
+     "y_dien_dat_lai": "Local resident praises the water system and desert landscape changes."
+    }
+   ]
+  },
+  "R0dr3SBmxLA": {
+   "n": 20,
+   "n_hoi_yeucau_suasai_tranhluan": 8,
+   "n_hoi_yeucau": 3,
+   "kind_weight": {
+    "praise": 38,
+    "opinion": 29,
+    "question": 13,
+    "correction": 10,
+    "cause_debate": 7,
+    "joke": 7,
+    "other": 4,
+    "request": 4
+   },
+   "topic_weight": {
+    "other": 36,
+    "video_quality_ai": 33,
+    "gambling_economy": 14,
+    "other_states_arizona": 13,
+    "hoover_dam": 11,
+    "colorado_compact_law": 11,
+    "water_supply": 10,
+    "lake_mead_level": 9,
+    "growth_overpopulation": 3,
+    "conservation_turf": 3,
+    "mexico_delta": 2
+   },
+   "top_y": [
+    {
+     "w": 28,
+     "kind": "praise",
+     "topics": [
+      "video_quality_ai"
+     ],
+     "y_dien_dat_lai": "Thanks creator for narrating personally instead of using AI"
+    },
+    {
+     "w": 11,
+     "kind": "question",
+     "topics": [
+      "hoover_dam",
+      "colorado_compact_law"
+     ],
+     "y_dien_dat_lai": "Asks which factor, dam, law, or road, would doom the city"
+    },
+    {
+     "w": 10,
+     "kind": "praise",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Finds the arrival moment's effect on city layout striking"
+    },
+    {
+     "w": 10,
+     "kind": "opinion",
+     "topics": [
+      "gambling_economy"
+     ],
+     "y_dien_dat_lai": "Film Casino helped them understand Vegas's development history"
+    },
+    {
+     "w": 10,
+     "kind": "opinion",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Southern Californian visitor finally learned why Vegas exists"
+    },
+    {
+     "w": 6,
+     "kind": "correction",
+     "topics": [
+      "water_supply",
+      "lake_mead_level",
+      "other_states_arizona"
+     ],
+     "y_dien_dat_lai": "Vegas uses little Colorado water; indoor water is returned"
+    },
+    {
+     "w": 4,
+     "kind": "opinion",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Shares that Vegas was their first out-of-state trip"
+    },
+    {
+     "w": 4,
+     "kind": "request",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks for a similar video about Salt Lake City"
+    },
+    {
+     "w": 4,
+     "kind": "cause_debate",
+     "topics": [
+      "gambling_economy"
+     ],
+     "y_dien_dat_lai": "Blames wealthy builders and wishes Vegas had never existed"
+    },
+    {
+     "w": 4,
+     "kind": "joke",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Quips that humans built it, saving viewers eight minutes"
+    },
+    {
+     "w": 3,
+     "kind": "cause_debate",
+     "topics": [
+      "growth_overpopulation",
+      "other_states_arizona"
+     ],
+     "y_dien_dat_lai": "Blames California taxes, outsourcing, and 1965 immigration act"
+    },
+    {
+     "w": 3,
+     "kind": "correction",
+     "topics": [
+      "water_supply",
+      "lake_mead_level"
+     ],
+     "y_dien_dat_lai": "Vegas mainly draws from an aquifer, not Lake Mead"
+    }
+   ]
+  },
+  "bTMfT2V3Jyo": {
+   "n": 100,
+   "n_hoi_yeucau_suasai_tranhluan": 24,
+   "n_hoi_yeucau": 13,
+   "kind_weight": {
+    "opinion": 1240,
+    "cause_debate": 385,
+    "other": 167,
+    "question": 154,
+    "request": 120,
+    "correction": 22,
+    "joke": 8,
+    "praise": 5
+   },
+   "topic_weight": {
+    "growth_overpopulation": 1007,
+    "water_supply": 775,
+    "lake_mead_level": 670,
+    "gambling_economy": 447,
+    "other": 436,
+    "climate_drought": 407,
+    "desalination_pipeline": 256,
+    "hoover_dam": 134,
+    "other_states_arizona": 45,
+    "colorado_compact_law": 18,
+    "golf_pools_fountains": 9,
+    "conservation_turf": 5,
+    "video_quality_ai": 5,
+    "agriculture_california": 4,
+    "tribes": 3
+   },
+   "top_y": [
+    {
+     "w": 281,
+     "kind": "opinion",
+     "topics": [
+      "lake_mead_level",
+      "growth_overpopulation",
+      "gambling_economy"
+     ],
+     "y_dien_dat_lai": "Mead will drop further while wasteful luxury projects continue; disparages Vegas."
+    },
+    {
+     "w": 227,
+     "kind": "cause_debate",
+     "topics": [
+      "water_supply",
+      "growth_overpopulation",
+      "climate_drought"
+     ],
+     "y_dien_dat_lai": "Overpopulation, misuse and drought will exhaust the water supply."
+    },
+    {
+     "w": 154,
+     "kind": "opinion",
+     "topics": [
+      "growth_overpopulation"
+     ],
+     "y_dien_dat_lai": "Building huge cities in a waterless desert is foolish; mocks movie."
+    },
+    {
+     "w": 104,
+     "kind": "request",
+     "topics": [
+      "desalination_pipeline"
+     ],
+     "y_dien_dat_lai": "Build coastal desalination and pipe the water to Lake Mead."
+    },
+    {
+     "w": 98,
+     "kind": "opinion",
+     "topics": [
+      "lake_mead_level",
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "Tunneling under the drying lake will speed its decline."
+    },
+    {
+     "w": 88,
+     "kind": "question",
+     "topics": [
+      "growth_overpopulation",
+      "gambling_economy"
+     ],
+     "y_dien_dat_lai": "Why keep building homes and casinos despite water shortages?"
+    },
+    {
+     "w": 83,
+     "kind": "opinion",
+     "topics": [
+      "lake_mead_level",
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "Lake levels were a major reason they sold their Vegas home."
+    },
+    {
+     "w": 79,
+     "kind": "opinion",
+     "topics": [
+      "growth_overpopulation",
+      "water_supply"
+     ],
+     "y_dien_dat_lai": "Developers keep building as if water were unlimited."
+    },
+    {
+     "w": 75,
+     "kind": "opinion",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "The tunneling project is extremely dangerous given fault and pressure risks."
+    },
+    {
+     "w": 71,
+     "kind": "opinion",
+     "topics": [
+      "desalination_pipeline"
+     ],
+     "y_dien_dat_lai": "America should have built West Coast desalination plants long ago."
+    },
+    {
+     "w": 65,
+     "kind": "other",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Lives on a Montana ranch with wells and solar power."
+    },
+    {
+     "w": 63,
+     "kind": "opinion",
+     "topics": [
+      "hoover_dam",
+      "growth_overpopulation"
+     ],
+     "y_dien_dat_lai": "Vegas grew from a mining town into a big city with huge demand."
+    }
+   ]
+  }
+ }
+}
