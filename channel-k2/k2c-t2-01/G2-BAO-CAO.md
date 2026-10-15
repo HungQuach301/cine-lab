@@ -52,3 +52,42 @@
   - g04_pacific: bay xuống Hàn Quốc (preset flyto), thẻ $107 cỡ lớn. Seattle hiện ngay đầu shot Alaska.
 - **Không áp dụng (lời đã khoá SHA, chờ chủ dự án):** các đề nghị cắt lời (xem §9).
 - **Nhịp sau sửa (căn chữ thật):** trung bình 2,36 s, khoảng dài nhất 5,46 s → ĐẠT. Không khoảng nào trong vùng ±5 % quanh 6 s. Footage ≤ 20 %: ĐẠT. Lặp góc máy: 0 góc vượt 2.
+
+## 5. Bổ sung từ K 1.11 (O2, O5 — chủ dự án duyệt 15/10)
+- **O2, Q34(d) của 1.10.2 đang ghim.** Đặc tả còn 4 shot `document` (8,3–13,3 s), chứ không phải 5 như K đếm trên @8ec1063: shot thư NFTC đã đổi thành bản đồ theo M3.
+  - Cả 4 tách thành **8 shot ảnh tư liệu** `photo/print`, mỗi shot ≤ 8 s, tô **một** dòng trích:
+    - "five labor union petitioners" / "On March 12, 2024, petitioners";
+    - "sectors for dominance is unreasonable" / "burdens or restricts U.S. commerce";
+    - "disincentivize the use and purchase of Chinese-built ships" / "create leverage for the elimination of the investigated acts, policies, and practices";
+    - "In light of the trade and economic deal…" / "11:59 p.m. … November 9, 2026".
+  - Trong mỗi cặp, hai shot dùng hai góc máy khác nhau (detail / push).
+  - Bộ dựng: `design/k2v/photo.js` — `photo/print` nhận `page` + `hl` (tách hàm tô dòng dùng chung với `photo/doc`, cảnh `photo/doc` không đổi hành vi).
+  - Lệnh tạo lại trang có dòng tô (cache ngoài git):
+    `k2v_assets.py doc t2-fr-act --page 2 --find "The five labor union petitioners are" --find "On March 12, 2024, petitioners"`;
+    `… --page 5 --find "disincentivize the use and purchase of Chinese-built ships" --find "create leverage for the elimination of the investigated acts, policies, and practices"`;
+    `doc t2-fr-det --page 1 --find "burdens or restricts U.S. commerce" --find "sectors for dominance is unreasonable"`;
+    `doc t2-fr-susp --page 1 --find "In light of …Xi Jinping" --find "11:59 p.m. Eastern Standard Time on November 9, 2026" --find "is suspending for one year"`.
+  - **Chạy lại Q34 (1.10.2, `checks/ll/q_types.py`) lần đầu: (d) ĐẠT nhưng (c) TRƯỢT** — số neo hiện bằng 3D 6/12 = 50 % < 60 %. Lỗi này có từ G1b (cùng danh sách `anchors`), không do O2.
+    - Sửa có nội dung: cặp GDP/người Hàn Quốc là phép so sánh nên dựng **cột 3D theo tỉ lệ thật**: 2025 = 12 km, 1962 = 12 × 107/36 227 ≈ 35 m (đĩa mỏng) ở Ulsan, kèm cột nhỏ trên địa cầu cho $107 năm 1962.
+    - **Q34 ĐẠT: 42/42 shot có type; map 89,2 %, photo 10,0 %, footage 0,8 %; số neo 3D 8/12 = 67 %.**
+- **O5-2 (ACTUAL 1 lần/khung):** 22 thẻ số ở 14 shot (cả 2 shot của Short) thôi khai `kind`; nhãn góc khai rõ `p.kind: actual`.
+  - `scripts/k2/lib/k2.js`: `p.kind` (chuỗi) quyết định nhãn góc; `''` = không nhãn góc.
+  - Philadelphia có cả số thật lẫn số dự báo: `p.kind: ''`, mỗi thẻ tự mang nhãn, hai thẻ ACTUAL không hiện cùng lúc.
+  - Tàu chở dầu chỉ có ESTIMATE: giữ nguyên.
+  - Thêm năm vào chữ phụ của số lịch sử còn thiếu: 0,04 % (2026 report), ~5/năm (2023 report), $18 (from Oct 2025), 200+ groups (Sept. 2026).
+- **O5-3 (dòng nguồn ≤ 70 ký tự):** 6 dòng 76–87 ký tự đã rút; dài nhất nay 69. Nguồn đầy đủ ở mô tả và bình luận ghim.
+- **O5-4 ("Facts as of"):**
+  - Khai `loai`/`hieu_luc` ở `ep-src.yaml`:
+    - FRACT `quy_dinh`, 2025-10-14 (Phụ lục I "Effective as of October 14, 2025");
+    - FRSUSP `quy_dinh`, 2025-11-10 ("as of 12:01 a.m. … November 10, 2025", tới 9/11/2026);
+    - FRDET `chinh_sach`, 2025-01-17 ("Decided: January 17, 2025").
+  - Shot dẫn văn bản ghi `p.luat`.
+  - "Facts as of" **giữ** ở 3 shot dẫn văn bản hiệu lực: phí (FRACT + FRSUSP), tạm hoãn (FRSUSP), What to watch (FRSUSP).
+  - **Bỏ** ở 3 shot không dẫn văn bản hiệu lực: trích dẫn Jones Act (dự luật, không phải luật đang hiệu lực), thư các hiệp hội (dòng chú thích "As of 15 Oct 2026: no extension published" vẫn giữ), Philadelphia (tin báo).
+  - Câu miễn trừ mở đầu giữ theo J3.
+  - Lưu ý cho người rà: phí FRACT đang **tạm hoãn**, không hết hiệu lực; máy không tự tra hiệu lực (K 1.11 §9 mục 6).
+- **O5-5 (`scripts/k2/rhythm.py`):** khung đầu của cảnh dùng lại đọc `p.frame0`, không có thì `p.off`; `opt.hl` không phải danh sách thì bỏ qua. Test mới trong `test_k2v.py`; 26/26 đạt.
+  - **Nhịp đo lại (đặc tả, căn chữ thật): trung bình 2,31 s, dài nhất 5,46 s → ĐẠT**, không chỉ số nào trong vùng ±5 %.
+- **Dấu cảnh:** sửa `photo.js` đổi dấu của mọi cảnh, vì dấu băm cả mã mọi module.
+  - Thay vì dựng lại 44 cảnh, đã tính dấu cũ bằng `photo.js` trước khi sửa (`git show HEAD`) và chỉ chuyển dấu cho cảnh **không phải photo/*** có dấu cũ khớp đúng tham số (29 cảnh; không module nào import `photo.js`).
+  - Dựng lại 16 cảnh: 8 trang văn bản, 2 ảnh, phim NARA, g04_pacific, r04_abroad, r02_cut, r03_myth, r06_home.
