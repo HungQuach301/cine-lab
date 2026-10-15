@@ -130,8 +130,8 @@ segments:
     part: CH4
     vo: "@script"
     shots:
-      - {tpl: plate, at: 0, type: map, scene_id: map/globe, camera_id: pair, places: ["South Korea's"], p: {hero: g04_pacific, frame0: 0, kind: actual,
-           tags: [{a: kr, s: "$107", sub: "South Korea, output per person, 1962 (current $)", big: true, kind: null, num: n_gdp62, at: "@hundred", side: auto, c: "#F2C14E"}],
+      - {tpl: plate, at: 0, type: map, scene_id: map/globe, camera_id: flyto, places: ["South Korea's"], p: {hero: g04_pacific, frame0: 0, kind: actual,
+           tags: [{a: "col:kr", s: "$107", sub: "South Korea, output per person, 1962 (current $)", big: true, kind: null, num: n_gdp62, at: "@hundred", side: auto, c: "#F2C14E"}],
            src: "Source: World Bank · Map: Natural Earth · Imagery: NASA"}}
       - {tpl: plate, at: "@Chung#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-chung, places: [], people: [Chung Ju-yung], p: {hero: r04_chung, frame0: 0, year: {s: "early 1970s", at: "@1970s"},
            stickers: [{a: "st:chung", img: {role: engineer, hand: blueprint, hat: hardhat}, at: 0.3, px: 165, walk: true}],
@@ -152,7 +152,8 @@ segments:
            cap: [{s: "Munseob Lee, Korea Economic Institute of America (2023)", at: "@Institute"}],
            src: "Source: KEIA (2023) · Terrain: SRTM (USGS)"}}
       - {tpl: plate, at: "@Our#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-abroad, places: [], p: {hero: r04_abroad, frame0: 0, kind: actual,
-           tags: [{a: ulsanx, s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [left, down], c: "#F2C14E"}],
+           tags: [{a: "col:k62", s: "$107", sub: "1962", kind: null, num: n_gdp62, at: 0.5, side: auto, prefer: [left, up], c: "#E6EBF0"},
+                  {a: "col:k25", s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [right, up], c: "#F2C14E"}],
            cap: [{s: "Our read: the yard's customers were abroad", at: "@abroad#2"}],
            src: "Sources: World Bank, company history · Terrain: SRTM (USGS)"}}
 

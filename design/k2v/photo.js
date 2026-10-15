@@ -5,6 +5,7 @@
 // Cảnh và API (opt; thời điểm = giây trong cảnh):
 //   photo/print    img:'/cache/<id>.jpg', focus:[u,v] (điểm chính của ảnh, 0..1 từ trên-trái — Ken Burns tiến về đây), push: 0.18 (độ tiến),
 //                  mat: true (bìa passe-partout), surface: 'desk'|'wall', cam: [...] (ghi đè Ken Burns tự động)
+//                  page: '/cache/<id>-pN.json' + hl: [...] (như photo/doc) — trang văn bản gốc trình bày như ảnh tư liệu có tô dòng; focus mặc định = dòng tô đầu (G2, K 1.11 O2)
 //                  neo: 'focus', 'print:bl', 'print:br', 'print:top'
 //   photo/doc      page: '/cache/<id>-pN.json' (từ k2v_assets.py doc: ảnh trang + khung highlight), hl: [{i, at:[t0,t1], color, opacity}] (quét theo dòng; opacity mặc định 0,62 — T2 G2: 0,85 cho dòng trích cần đọc rõ),
 //                  focus: i (khung highlight máy quay tiến tới), cam: [...]
@@ -85,6 +86,22 @@ async function cutoutBg(o) {   // nền: 'blur' (nền gốc đã lấp chỗ ng
       g.beginPath(); pts.forEach(([lon, lat], i) => { const x = (px(lon) - sx) / sw * w, y = (py(lat) - sy) / sh * h; i ? g.lineTo(x, y) : g.moveTo(x, y); }); g.stroke(); g.restore(); } });
 }
 
+// dải tô dòng (bút dạ quang) sát mặt giấy, quét trái → phải theo từng dòng trong [t0, t1] — dùng chung photo/doc và photo/print có trang văn bản (G2, K 1.11 O2)
+function addHL(parent, meta, list, pw, ph, y = 0.02) {
+  const hls = [], anchors = {}, toLocal = (u, v) => [(u - 0.5) * pw, (v - 0.5) * ph];
+  for (const h of list || []) { const H2 = meta.hl[h.i]; if (!H2) continue; const rows = [];
+    for (const [x0, y0, x1, y1] of H2.rects) { const [a, b] = toLocal(x0 - 0.004, y0 - 0.002), [c, d] = toLocal(x1 + 0.004, y1 + 0.003);
+      const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: h.color || C.amber, transparent: true, opacity: h.opacity ?? 0.62, depthWrite: false }) /* bút dạ quang: phủ thường (Multiply quá nhạt trên giấy trắng) */);
+      m.rotation.x = -Math.PI / 2; m.position.set(a, y, (b + d) / 2); m.userData = { a, c, len: c - a, hz: d - b }; m.scale.set(0.0001, d - b, 1); parent.add(m); rows.push(m); }
+    hls.push({ h, rows }); const last = H2.rects[H2.rects.length - 1], [lx, lz] = toLocal(last[2], (last[1] + last[3]) / 2);
+    anchors['hl' + h.i] = () => { const v = new THREE.Vector3(lx, y + 0.01, lz); parent.localToWorld(v); return v; }; }
+  return { hls, anchors, toLocal };
+}
+function sweepHL(hls, t) {
+  for (const { h, rows } of hls) { const u = win(h.at, t), tot = rows.reduce((s, m) => s + m.userData.len, 0); let acc = 0;
+    for (const m of rows) { const f = cl((u * tot - acc) / m.userData.len); acc += m.userData.len; m.scale.x = Math.max(0.0001, f * m.userData.len); m.position.x = m.userData.a + m.scale.x / 2; m.visible = f > 0; } }
+}
+
 export const HEROES = {
   // photo/cutout — opt: img, mask ('/k2v/cutouts/<rid>-mask.png'), bgImg ('/k2v/cutouts/<rid>-bg.jpg'), bg: 'blur' | {map, bbox, palette, routes}, dim (0..1, mặc định 0,55),
   //   crop: [u0,v0,u1,v1] (phần ảnh dùng), pos: [x, y] (tâm người trong khung đầu, 0..1), h (chiều cao người / khung, mặc định 0,9), outline (px @1080p, mặc định 10), sa (độ đậm bóng),
@@ -119,7 +136,8 @@ export const HEROES = {
   },
   async print({ W, H, dur, opt: o = {} }) {
     const scene = new THREE.Scene(); desk(scene, { tone: o.tone || '#2b241e' });
-    const im = await loadImg(o.img), ar = im.naturalWidth / im.naturalHeight, ph = o.h || 2.6, pw = ph * ar;
+    const meta = o.page ? await loadJSON(o.page) : null;   // G2 (K 1.11 O2): trang văn bản gốc trình bày như ẢNH TƯ LIỆU trên bàn (bản in có bìa) + tô dòng trích
+    const im = await loadImg(o.img || o.page.replace(/\.json$/, '.png')), ar = im.naturalWidth / im.naturalHeight, ph = o.h || 2.6, pw = ph * ar;
     const tex = canvasTex(im.naturalWidth, im.naturalHeight, (g, w, h) => { g.drawImage(im, 0, 0, w, h); });
     const mat = o.mat !== false, mw = pw + (mat ? 0.62 : 0), mh = ph + (mat ? 0.62 : 0);
     const board = sheet(mw, mh, canvasTex(1024, Math.round(1024 * mh / mw), (g, w, h) => { g.fillStyle = '#e9e2d1'; g.fillRect(0, 0, w, h); const R = rng(9);
@@ -127,13 +145,14 @@ export const HEROES = {
       const bx = (0.31 / mw) * w, by = (0.31 / mh) * h; g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(bx - 3, by - 3, w - 2 * bx + 6, h - 2 * by + 6); }), { curl: 0.004, back: '#cfc6b2' });
     board.rotation.y = o.rot ?? -0.035; board.position.y = o.lift ?? 0; scene.add(board);   // lift (V2b): nâng bản in khỏi mặt bàn → bóng đổ rõ dưới đèn bàn
     const pr = sheet(pw, ph, tex, { curl: 0.006, rough: 0.55 }); pr.position.y = 0.012; board.add(pr);
-    const F = o.focus || [0.5, 0.35], fx = (F[0] - 0.5) * pw, fz = (F[1] - 0.5) * ph;
+    const HL = meta ? addHL(pr, meta, o.hl, pw, ph, 0.032) : { hls: [], anchors: {} }, R0 = meta && o.hl && o.hl[0] && meta.hl[o.hl[0].i] ? meta.hl[o.hl[0].i].rects[0] : null;
+    const F = o.focus || (R0 ? [(R0[0] + R0[2]) / 2, R0[1]] : [0.5, 0.35]), fx = (F[0] - 0.5) * pw, fz = (F[1] - 0.5) * ph;   // trang văn bản: máy tiến về dòng tô đầu
     const keys = o.cam || kenburns(W, H, dur, { size: mh, focus: [fx, fz], push: o.push ?? 0.2, mm: o.mm || 50, preset: o.preset || 'push' });
     const { cam, at } = camRig(W, H, keys, dur);
     const wp = (x, z) => { const v = new THREE.Vector3(x, 0.03, z); board.localToWorld(v); return v; };
     return { scene, cam, grade: o.grade || 'archive', exposure: o.exposure || 1.05,
-      anchors: { focus: () => wp(fx, fz), 'print:bl': () => wp(-pw / 2, ph / 2), 'print:br': () => wp(pw / 2, ph / 2), 'print:top': () => wp(0, -ph / 2) },
-      update(t) { at(t); } };
+      anchors: { focus: () => wp(fx, fz), 'print:bl': () => wp(-pw / 2, ph / 2), 'print:br': () => wp(pw / 2, ph / 2), 'print:top': () => wp(0, -ph / 2), ...HL.anchors },
+      update(t) { at(t); sweepHL(HL.hls, t); } };
   },
   async doc({ W, H, dur, opt: o = {} }) {
     const scene = new THREE.Scene(); desk(scene, { tone: o.tone || '#23262c' });
@@ -141,24 +160,14 @@ export const HEROES = {
     const ph = o.h || 3.4, pw = ph * meta.aspect;
     const tex = canvasTex(im.naturalWidth, im.naturalHeight, (g, w, h) => g.drawImage(im, 0, 0, w, h));
     const page = sheet(pw, ph, tex, { curl: 0.008, rough: 0.7, back: '#f2f2ee' }); page.children[0].material.color.set(o.paper || '#e6e2d8');   /* giấy bớt chói dưới đèn bàn */ page.rotation.y = o.rot ?? 0.05; scene.add(page);
-    // highlight: dải hổ phách trong suốt sát mặt giấy, quét trái → phải theo từng dòng trong [t0, t1]
-    const hls = [], anchors = {};
-    const toLocal = (u, v) => [(u - 0.5) * pw, (v - 0.5) * ph];
-    for (const h of o.hl || []) { const H2 = meta.hl[h.i]; if (!H2) continue; const rows = [];
-      for (const [x0, y0, x1, y1] of H2.rects) { const [a, b] = toLocal(x0 - 0.004, y0 - 0.002), [c, d] = toLocal(x1 + 0.004, y1 + 0.003);
-        const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: h.color || C.amber, transparent: true, opacity: h.opacity ?? 0.62, depthWrite: false }) /* bút dạ quang: phủ thường (Multiply quá nhạt trên giấy trắng) */);
-        m.rotation.x = -Math.PI / 2; m.position.set(a, 0.02, (b + d) / 2); m.userData = { a, c, len: c - a, hz: d - b }; m.scale.set(0.0001, d - b, 1); page.add(m); rows.push(m); }
-      hls.push({ h, rows }); const last = H2.rects[H2.rects.length - 1], [lx, lz] = toLocal(last[2], (last[1] + last[3]) / 2);
-      anchors['hl' + h.i] = () => { const v = new THREE.Vector3(lx, 0.03, lz); page.localToWorld(v); return v; }; }
+    const { hls, anchors, toLocal } = addHL(page, meta, o.hl, pw, ph, 0.02);
     anchors['page:top'] = () => { const v = new THREE.Vector3(0, 0.03, -ph / 2); page.localToWorld(v); return v; };
     let keys = o.cam;
     if (!keys) { const fi = o.focus ?? (o.hl && o.hl[0] && o.hl[0].i) ?? 0, R0 = meta.hl[fi] ? meta.hl[fi].rects[0] : [0.3, 0.3, 0.7, 0.32], [fx, fz] = toLocal((R0[0] + R0[2]) / 2, R0[1]);
       keys = kenburns(W, H, dur, { size: ph, focus: [fx, fz], push: o.push ?? 0.45, mm: o.mm || 50, tilt: 0.42, preset: o.preset || 'push' }); }
     const { cam, at } = camRig(W, H, keys, dur);
     return { scene, cam, grade: o.grade || 'info', exposure: o.exposure || 1.0, anchors,
-      update(t) { at(t);
-        for (const { h, rows } of hls) { const u = win(h.at, t), tot = rows.reduce((s, m) => s + m.userData.len, 0); let acc = 0;
-          for (const m of rows) { const f = cl((u * tot - acc) / m.userData.len); acc += m.userData.len; m.scale.x = Math.max(0.0001, f * m.userData.len); m.position.x = m.userData.a + m.scale.x / 2; m.visible = f > 0; } } } };
+      update(t) { at(t); sweepHL(hls, t); } };
   },
   async headline({ W, H, dur, opt: o = {} }) {
     const scene = new THREE.Scene(); desk(scene, { tone: o.tone || '#23262c' });

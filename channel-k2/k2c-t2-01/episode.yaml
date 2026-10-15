@@ -113,16 +113,22 @@ sources:
     url: https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf
     read: fulltext
     accessed: 2026-10-14
+    loai: chinh_sach
+    hieu_luc: '2025-01-17'
   FRACT:
     short: USTR, Federal Register (Apr 2025)
     url: https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf
     read: fulltext
     accessed: 2026-10-14
+    loai: quy_dinh
+    hieu_luc: '2025-10-14'
   FRSUSP:
     short: USTR, Federal Register (Nov 2025)
     url: https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf
     read: fulltext
     accessed: 2026-10-15
+    loai: quy_dinh
+    hieu_luc: '2025-11-10'
   USTRPR:
     short: USTR (Jan 2025)
     url: https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2025/january/ustr-finds-chinas-targeting-maritime-logistics-and-shipbuilding-sectors-dominance-actionable-under
@@ -1483,6 +1489,17 @@ heroes:
         at: 2.0
         lift: 1
       focus: seoul
+      cols:
+      - id: kr
+        at:
+        - 127.8
+        - 36.3
+        v: 0.05
+        grow:
+        - '@hundred'
+        - '@hundred+0.6'
+        color: '#F2C14E'
+        r: 0.03
   r04_chung:
     hero: relief/map
     opt:
@@ -1788,25 +1805,59 @@ heroes:
         dist: 90
         tilt: 52
         head: 10
+      cols:
+      - id: k62
+        at:
+        - 129.27
+        - 35.6
+        kind: bar
+        v: 0.035
+        t:
+        - 0.4
+        - 0.6
+        r: 2.6
+        color: '#F2C14E'
+      - id: k25
+        at:
+        - 129.35
+        - 35.6
+        kind: bar
+        v: 12.0
+        t:
+        - '@thirty-six'
+        - '@thirty-six+1.2'
+        r: 2.6
+        color: '#F2C14E'
   d05_unions:
-    hero: photo/doc
-    cam: push
+    hero: photo/print
+    cam: detail
     opt:
       page: /cache/t2-fr-act-p2.json
-      paper: true
       hl:
       - i: 0
         at:
-        - '@unions-0.4'
-        - '@unions+1.2'
+        - '@five'
+        - '@five+1.4'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_unions2:
+    hero: photo/print
+    cam: push
+    opt:
+      page: /cache/t2-fr-act-p2.json
+      hl:
       - i: 1
         at:
         - '@petitioned'
         - '@petitioned+1.4'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   g05_china:
     hero: map/globe
     cam: orbit
@@ -1841,18 +1892,35 @@ heroes:
         color: '#8E7CC3'
         h: 0.5
   d05_det:
-    hero: photo/doc
+    hero: photo/print
+    cam: push
+    opt:
+      page: /cache/t2-fr-det-p1.json
+      hl:
+      - i: 1
+        at:
+        - '@unreasonable-0.4'
+        - '@unreasonable+1.0'
+        opacity: 0.85
+        color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_det2:
+    hero: photo/print
     cam: detail
     opt:
       page: /cache/t2-fr-det-p1.json
-      paper: true
       hl:
       - i: 0
         at:
-        - '@unreasonable'
+        - '@burdens'
         - '@burdens+1.4'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   r05_fees:
     hero: relief/map
     opt:
@@ -1904,11 +1972,10 @@ heroes:
         tilt: 52
         head: -10
   d05_aim:
-    hero: photo/doc
+    hero: photo/print
     cam: detail
     opt:
       page: /cache/t2-fr-act-p5.json
-      paper: true
       hl:
       - i: 0
         at:
@@ -1916,12 +1983,24 @@ heroes:
         - '@discourage+1.6'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_aim2:
+    hero: photo/print
+    cam: push
+    opt:
+      page: /cache/t2-fr-act-p5.json
+      hl:
       - i: 1
         at:
         - '@press'
         - '@press+1.6'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -1941,11 +2020,10 @@ heroes:
         name: Beijing
       focus: beijing
   d05_susp:
-    hero: photo/doc
+    hero: photo/print
     cam: push
     opt:
       page: /cache/t2-fr-susp-p1.json
-      paper: true
       hl:
       - i: 0
         at:
@@ -1953,18 +2031,24 @@ heroes:
         - '@light+1.6'
         opacity: 0.85
         color: '#F5B83D'
-      - i: 2
-        at:
-        - '@suspended'
-        - '@suspended+1.4'
-        opacity: 0.85
-        color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_susp2:
+    hero: photo/print
+    cam: detail
+    opt:
+      page: /cache/t2-fr-susp-p1.json
+      hl:
       - i: 1
         at:
-        - '@ninth'
-        - '@ninth+1.2'
+        - '@suspended+0.3'
+        - '@suspended+1.5'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   r05_cost:
     hero: relief/map
     opt:
@@ -2505,6 +2589,7 @@ segments:
     p:
       hero: r00_launch
       frame0: 0
+      kind: actual
       year:
         s: '1943'
         at: 0.2
@@ -2526,7 +2611,7 @@ segments:
         s: 3 a day
         sub: Liberty ships launched, at the 1943 peak
         big: true
-        kind: actual
+        kind: null
         num: n_peak3
         at: '@day'
         side: auto
@@ -2550,6 +2635,7 @@ segments:
     p:
       hero: g00_share
       frame0: 0
+      kind: actual
       cap:
       - s: This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.
         at: 3.0
@@ -2560,9 +2646,9 @@ segments:
       tags:
       - a: col:us
         s: 0.04%
-        sub: U.S. share of world shipbuilding tonnage
+        sub: U.S. share of world shipbuilding tonnage (2026 report)
         big: true
-        kind: actual
+        kind: null
         num: n_us004
         at: '@percent'
         side: auto
@@ -2574,7 +2660,7 @@ segments:
         s: 54.6%
         sub: China's share (2024)
         big: true
-        kind: actual
+        kind: null
         num: n_cn546
         at: '@half'
         side: auto
@@ -2700,6 +2786,7 @@ segments:
     p:
       hero: r01_days
       frame0: 0
+      kind: actual
       year:
         s: 1942–43
         at: '@June-0.10'
@@ -2721,7 +2808,7 @@ segments:
       - a: col:d1942
         s: 122 days
         sub: average Liberty ship, June 1942
-        kind: actual
+        kind: null
         num: n_d1942
         at: '@hundred'
         side: auto
@@ -2732,7 +2819,7 @@ segments:
       - a: col:d1943
         s: 39 days
         sub: average, Dec. 1943
-        kind: actual
+        kind: null
         num: n_d1943
         at: '@thirty-nine'
         side: auto
@@ -2743,7 +2830,7 @@ segments:
       - a: col:dpeary
         s: 4½ days
         sub: Robert E. Peary (publicity stunt)
-        kind: actual
+        kind: null
         num: n_peary
         at: '@Peary'
         side: auto
@@ -2795,6 +2882,7 @@ segments:
     p:
       hero: r01_yards
       frame0: 0
+      kind: actual
       stickers:
       - a: st:t1
         img: stk:town
@@ -2812,7 +2900,7 @@ segments:
       - a: st:t2
         s: 747 ships
         sub: four Richmond yards, 1940s
-        kind: actual
+        kind: null
         num: n_747
         at: '@747'
         side: auto
@@ -2820,7 +2908,7 @@ segments:
       - a: st:t3
         s: ~24,000 → ~100,000
         sub: Richmond residents, 1940 → 1943
-        kind: actual
+        kind: null
         num: n_pop
         at: '@nearly'
         side: auto
@@ -2842,7 +2930,7 @@ segments:
       cap:
       - s: 'Our read: the customers were governments, in wartime'
         at: '@notice'
-      src: 'Sources: National Park Service, U.S. Maritime Commission · Terrain: USGS 3DEP'
+      src: 'Sources: NPS, U.S. Maritime Commission · Terrain: USGS 3DEP'
 - id: '02'
   part: CH2
   vo: 'In 1944, the Liberty program was cut back. After April, no more Liberty contracts were let. America already had a different kind of customer, written into law in 1920. Back then, American shippers
@@ -3055,9 +3143,7 @@ segments:
         at: '@introduced'
       - s: ''
         at: '@higher'
-      asof: Facts as of 15 Oct 2026
-      asofAt: '@bill'
-      src: 'Sources: CRS, American Maritime Partnership, Rep. McClintock · Terrain: SRTM'
+      src: 'Sources: CRS, Am. Maritime Partnership, Rep. McClintock · SRTM'
   - tpl: plate
     at: '@There-0.3'
     type: map
@@ -3067,6 +3153,7 @@ segments:
     p:
       hero: r02_subsidy
       frame0: 0
+      kind: actual
       tags:
       - a: col:wp
         s: world price
@@ -3081,7 +3168,7 @@ segments:
       - a: col:s70
         s: 15–25 ships/yr
         sub: U.S. yards, 1970s (~5% of world tonnage)
-        kind: actual
+        kind: null
         num: n_5pct
         at: '@fifteen'
         out: '@five#2'
@@ -3091,8 +3178,8 @@ segments:
         c: '#3CC2B0'
       - a: col:now5
         s: ~5 ships/yr
-        sub: U.S. yards, new ships
-        kind: actual
+        sub: U.S. yards, new ships (2023 report)
+        kind: null
         num: n_5yr
         at: '@five#2'
         side: auto
@@ -3160,6 +3247,7 @@ segments:
     p:
       hero: r03_ladder
       frame0: 0
+      kind: actual
       tags:
       - a: col:f1
         s: foreign yard
@@ -3172,7 +3260,7 @@ segments:
       - a: col:c22
         s: +20%
         sub: '1922'
-        kind: actual
+        kind: null
         num: n_1922
         at: '@twenty'
         side: auto
@@ -3182,7 +3270,7 @@ segments:
       - a: col:c50
         s: 2×
         sub: 1950s
-        kind: actual
+        kind: null
         num: n_1950
         at: '@double'
         side: auto
@@ -3192,7 +3280,7 @@ segments:
       - a: col:c90
         s: 3×
         sub: 1990s
-        kind: actual
+        kind: null
         num: n_1990
         at: '@three'
         side: auto
@@ -3242,6 +3330,7 @@ segments:
     p:
       hero: r03_scale
       frame0: 0
+      kind: actual
       stickers:
       - a: st:wl
         img:
@@ -3271,7 +3360,7 @@ segments:
       - a: st:tn
         s: 99 ships
         sub: Jones Act oceangoing fleet, Mar. 2018
-        kind: actual
+        kind: null
         num: n_99
         at: '@ninety-nine'
         side: auto
@@ -3360,18 +3449,19 @@ segments:
     at: 0
     type: map
     scene_id: map/globe
-    camera_id: pair
+    camera_id: flyto
     places:
     - South Korea's
     p:
       hero: g04_pacific
       frame0: 0
+      kind: actual
       tags:
-      - a: kr
+      - a: col:kr
         s: $107
         sub: South Korea, output per person, 1962 (current $)
         big: true
-        kind: actual
+        kind: null
         num: n_gdp62
         at: '@hundred'
         side: auto
@@ -3502,7 +3592,7 @@ segments:
       cap:
       - s: 'LORE: one columnist''s account, not a record'
         at: '@lore'
-      src: 'Sources: HD Hyundai Heavy Industries history, The Korea Times (2010) · Terrain: SRTM'
+      src: 'Sources: HD Hyundai history, Korea Times (2010) · Terrain: SRTM'
   - tpl: plate
     at: '@Meanwhile-0.3'
     type: map
@@ -3571,17 +3661,29 @@ segments:
     p:
       hero: r04_abroad
       frame0: 0
+      kind: actual
       tags:
-      - a: ulsanx
+      - a: col:k62
+        s: $107
+        sub: '1962'
+        kind: null
+        num: n_gdp62
+        at: '@Our#1+0.20'
+        side: auto
+        prefer:
+        - left
+        - up
+        c: '#E6EBF0'
+      - a: col:k25
         s: $36,227
         sub: output per person, 2025 (current $)
-        kind: actual
+        kind: null
         num: n_gdp25
         at: '@thirty-six'
         side: auto
         prefer:
-        - left
-        - down
+        - right
+        - up
         c: '#F2C14E'
       cap:
       - s: 'Our read: the yard''s customers were abroad'
@@ -3611,18 +3713,34 @@ segments:
       gain_db: -26
       fade_ms: 200
     at: 0
-    type: document
+    type: photo
     scene_id: doc_fr_act_p2
-    camera_id: push
+    camera_id: detail
     places: []
     p:
       hero: d05_unions
       frame0: 0
       paper: Federal Register, 90 FR 17114
       date: '2025-04-23'
+      luat:
+      - FRACT
       cap:
       - s: 'March 2024: five U.S. labor unions petition the U.S. Trade Representative'
         at: '@March'
+      src: 'Source: Federal Register (USTR)'
+  - tpl: plate
+    at: '@including-0.3'
+    type: photo
+    scene_id: doc_fr_act_p2
+    camera_id: push
+    places: []
+    p:
+      hero: d05_unions2
+      frame0: 0
+      paper: Federal Register, 90 FR 17114
+      date: '2025-04-23'
+      luat:
+      - FRACT
       src: 'Source: Federal Register (USTR)'
   - tpl: plate
     at: '@Congress''s-0.3'
@@ -3634,6 +3752,7 @@ segments:
     p:
       hero: g05_china
       frame0: 0
+      kind: actual
       places:
       - a: cn2
         s: China
@@ -3653,7 +3772,7 @@ segments:
       - a: cn2
         s: 90%
         sub: of ships Chinese shipbuilders made in 2025 were exported
-        kind: actual
+        kind: null
         num: n_exp90
         at: '@ninety'
         side: auto
@@ -3668,18 +3787,34 @@ segments:
       gain_db: -26
       fade_ms: 200
     at: '@January-0.3'
-    type: document
+    type: photo
     scene_id: doc_fr_det
-    camera_id: detail
+    camera_id: push
     places: []
     p:
       hero: d05_det
       frame0: 0
       paper: USTR, Federal Register 90 FR 8089
       date: '2025-01-23'
+      luat:
+      - FRDET
       cap:
       - s: 'USTR finding, Jan. 2025: "unreasonable"'
         at: '@dominance'
+      src: 'Source: USTR'
+  - tpl: plate
+    at: '@burdens-0.3'
+    type: photo
+    scene_id: doc_fr_det
+    camera_id: detail
+    places: []
+    p:
+      hero: d05_det2
+      frame0: 0
+      paper: USTR, Federal Register 90 FR 8089
+      date: '2025-01-23'
+      luat:
+      - FRDET
       src: 'Source: USTR'
   - tpl: plate
     at: '@Then-0.3'
@@ -3690,6 +3825,7 @@ segments:
     p:
       hero: r05_fees
       frame0: 0
+      kind: actual
       places:
       - a: port
         s: Port of Philadelphia
@@ -3704,7 +3840,7 @@ segments:
       - a: st:cnship
         s: $50 / net ton
         sub: Chinese-owned or -operated ships (from Oct 2025)
-        kind: actual
+        kind: null
         num: n_fee50
         at: '@owned'
         out: '@built#1'
@@ -3715,8 +3851,8 @@ segments:
         c: '#8E7CC3'
       - a: port
         s: $18 / net ton
-        sub: China-built ships (or per container); ≤ 5×/yr
-        kind: actual
+        sub: China-built ships, from Oct 2025 · ≤ 5×/yr
+        kind: null
         num: n_fee18
         at: '@built#1'
         side: auto
@@ -3726,10 +3862,13 @@ segments:
         c: '#8E7CC3'
       asof: Facts as of 15 Oct 2026
       asofAt: '@fees'
+      luat:
+      - FRACT
+      - FRSUSP
       src: 'Source: Federal Register (USTR) · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@stated-0.3'
-    type: document
+    type: photo
     scene_id: doc_fr_act_p5
     camera_id: detail
     places: []
@@ -3738,6 +3877,22 @@ segments:
       frame0: 0
       paper: Federal Register, 90 FR 17114
       date: '2025-04-23'
+      luat:
+      - FRACT
+      src: 'Source: Federal Register (USTR)'
+  - tpl: plate
+    at: '@press-0.6'
+    type: photo
+    scene_id: doc_fr_act_p5
+    camera_id: push
+    places: []
+    p:
+      hero: d05_aim2
+      frame0: 0
+      paper: Federal Register, 90 FR 17114
+      date: '2025-04-23'
+      luat:
+      - FRACT
       src: 'Source: Federal Register (USTR)'
   - tpl: plate
     at: '@Ministry-0.6'
@@ -3761,7 +3916,7 @@ segments:
       src: 'Sources: USTR · Xinhua via China Daily · Map: Natural Earth'
   - tpl: plate
     at: '@Within-0.3'
-    type: document
+    type: photo
     scene_id: doc_fr_susp
     camera_id: push
     places: []
@@ -3770,9 +3925,25 @@ segments:
       frame0: 0
       paper: Federal Register, 90 FR 50947
       date: '2025-11-13'
+      luat:
+      - FRSUSP
       cap:
       - s: After a Trump–Xi trade deal (Nov. 2025)
         at: '@deal'
+      src: 'Source: Federal Register (USTR)'
+  - tpl: plate
+    at: '@says'
+    type: photo
+    scene_id: doc_fr_susp
+    camera_id: detail
+    places: []
+    p:
+      hero: d05_susp2
+      frame0: 0
+      paper: Federal Register, 90 FR 50947
+      date: '2025-11-13'
+      luat:
+      - FRSUSP
       asof: Facts as of 15 Oct 2026
       asofAt: '@suspended'
       src: 'Source: Federal Register (USTR)'
@@ -3793,6 +3964,7 @@ segments:
     p:
       hero: r05_cost
       frame0: 0
+      kind: actual
       stickers:
       - a: st:q1
         img: stk:freighter
@@ -3805,8 +3977,8 @@ segments:
       tags:
       - a: col:cost
         s: 200+ groups
-        sub: signed the joint letter (our count)
-        kind: actual
+        sub: signed the joint letter, Sept. 2026 (our count)
+        kind: null
         num: n_200
         at: '@hundred'
         side: auto
@@ -3819,9 +3991,7 @@ segments:
         at: '@Resuming'
       - s: 'As of 15 Oct 2026: no extension published'
         at: '@As#1'
-      asof: Facts as of 15 Oct 2026
-      asofAt: '@As#1'
-      src: 'Source: joint letter to USTR from trade groups (NFTC, Sept. 2026) · Terrain: USGS 3DEP'
+      src: 'Source: trade groups'' letter to USTR, Sept. 2026 · Terrain: USGS 3DEP'
   - tpl: plate
     sfx:
     - file: assets/k2/sfx/container-terminal.mp3
@@ -3839,6 +4009,7 @@ segments:
     p:
       hero: r05_philly
       frame0: 0
+      kind: ''
       places:
       - a: phy
         s: Philly Shipyard
@@ -3910,9 +4081,7 @@ segments:
         at: '@Military'
       - s: 'Our read: an order again — this time after the investment'
         at: '@after'
-      asof: Facts as of 15 Oct 2026
-      asofAt: '@As#2'
-      src: 'Sources: Korea JoongAng Daily, Military Times · Imagery: USDA NAIP · Terrain: USGS 3DEP'
+      src: 'Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP'
 - id: '06'
   part: END
   vo: 'So, what to watch. November ninth, 2026: whether the fee pause is extended or runs out as the notice sets. Philadelphia: whether the announced investment shows up as new capacity. And June 2030:
@@ -3954,6 +4123,8 @@ segments:
         at: '@June'
       asof: Facts as of 15 Oct 2026
       asofAt: '@November'
+      luat:
+      - FRSUSP
       src: 'Sources: USTR, Military Times · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@scoreboard-0.3'
@@ -4045,7 +4216,7 @@ segments:
         img: stk:freighter
         at: '@shipping'
         px: 110
-      src: 'Sources: National Park Service, CRS (2026) · Imagery: USDA NAIP · Terrain: USGS 3DEP'
+      src: 'Sources: NPS, CRS (2026) · Imagery: USDA NAIP · Terrain: USGS 3DEP'
 shorts:
 - id: S1
   hook: Three ships a day. Now 0.04%. What happened?
@@ -4060,6 +4231,7 @@ shorts:
     p:
       hero: s_launch
       frame0: 0
+      kind: actual
       year:
         s: '1943'
         at: 0.2
@@ -4081,7 +4253,7 @@ shorts:
         s: 3 a day
         sub: Liberty ships launched, 1943 peak
         big: true
-        kind: actual
+        kind: null
         num: n_peak3
         at: '@day'
         side: auto
@@ -4099,12 +4271,13 @@ shorts:
     p:
       hero: s_share
       frame0: 0
+      kind: actual
       tags:
       - a: col:us
         s: 0.04%
         sub: U.S. share of world shipbuilding tonnage (2026 report)
         big: true
-        kind: actual
+        kind: null
         num: n_us004
         at: '@percent'
         side: auto

@@ -1093,6 +1093,17 @@ heroes:
         at: 2.0
         lift: 1
       focus: seoul
+      cols:
+      - id: kr
+        at:
+        - 127.8
+        - 36.3
+        v: 0.05
+        grow:
+        - '@hundred'
+        - '@hundred+0.6'
+        color: '#F2C14E'
+        r: 0.03
   r04_chung:
     hero: relief/map
     opt:
@@ -1398,6 +1409,29 @@ heroes:
         dist: 90
         tilt: 52
         head: 10
+      cols:
+      - id: k62
+        at:
+        - 129.27
+        - 35.6
+        kind: bar
+        v: 0.035
+        t:
+        - 0.4
+        - 0.6
+        r: 2.6
+        color: '#F2C14E'
+      - id: k25
+        at:
+        - 129.35
+        - 35.6
+        kind: bar
+        v: 12.0
+        t:
+        - '@thirty-six'
+        - '@thirty-six+1.2'
+        r: 2.6
+        color: '#F2C14E'
   d05_unions:
     hero: photo/print
     cam: detail
