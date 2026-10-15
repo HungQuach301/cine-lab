@@ -3,68 +3,262 @@
 id: k2c-t2-phac
 title: T2 nail-moment sketches
 out: /var/tmp/cine-out/k2v-shots/t2-phac
-places: [Richmond, Ulsan]
+places:
+- Richmond
+- Ulsan
 people: []
-anchors: [lib_1942, lib_1943, peary, tanker_x4]
+anchors:
+- lib_1942
+- lib_1943
+- peary
+- tanker_x4
 numbers:
-  lib_1942: {v: 122, text: '122 days', kind: actual, year: 1942, unit: days, src: USMC45, say: 'a hundred and twenty-two days'}
-  lib_1943: {v: 39.2, text: '39 days', kind: actual, year: 1943, unit: days, src: USMC45, say: 'thirty-nine'}
-  peary: {v: 4.65, text: '4½ days', kind: actual, year: 1942, unit: days, src: NPS-SB, say: 'four days and fifteen and a half hours'}
-  tanker_x4: {v: 4, text: '≈ 4×', kind: estimate, year: 2019, unit: ratio, src: CRS-19, say: 'about four times'}
+  lib_1942:
+    v: 122
+    text: 122 days
+    kind: actual
+    year: 1942
+    unit: days
+    src: USMC45
+    say: a hundred and twenty-two days
+  lib_1943:
+    v: 39.2
+    text: 39 days
+    kind: actual
+    year: 1943
+    unit: days
+    src: USMC45
+    say: thirty-nine
+  peary:
+    v: 4.65
+    text: 4½ days
+    kind: actual
+    year: 1942
+    unit: days
+    src: NPS-SB
+    say: four days and fifteen and a half hours
+  tanker_x4:
+    v: 4
+    text: ≈ 4×
+    kind: estimate
+    year: 2019
+    unit: ratio
+    src: CRS-19
+    say: about four times
 sources:
-  USMC45: {short: 'U.S. Maritime Commission 1945', url: 'https://www.fmc.gov/wp-content/uploads/2019/04/REPORT_TO_CONGRESS_1945.pdf'}
-  NPS-SB: {short: 'NPS', url: 'https://www.nps.gov/articles/s-s-scotts-bluff-forgotten-contributor.htm'}
-  CRS-19: {short: 'CRS', url: 'https://www.everycrsreport.com/files/20191121_R45725_4b1d41c49c7314e0ecdd2bdf7e042f2e27d04ade.html'}
+  USMC45:
+    short: U.S. Maritime Commission 1945
+    url: https://www.fmc.gov/wp-content/uploads/2019/04/REPORT_TO_CONGRESS_1945.pdf
+  NPS-SB:
+    short: NPS
+    url: https://www.nps.gov/articles/s-s-scotts-bluff-forgotten-contributor.htm
+  CRS-19:
+    short: CRS
+    url: https://www.everycrsreport.com/files/20191121_R45725_4b1d41c49c7314e0ecdd2bdf7e042f2e27d04ade.html
 heroes:
   d1_days:
     hero: relief/map
     opt:
       relief: sfbay
       palette: sepia
-      places: [{id: richmond, ll: [-122.36, 37.915], name: Richmond}]
+      places:
+      - id: richmond
+        ll:
+        - -122.36
+        - 37.915
+        name: Richmond
       cols:
-      - {id: d1942, at: [-122.30, 37.93], kind: bar, v: 6.1, t: [0.4, 1.6], r: 0.9, color: '#3CC2B0'}
-      - {id: d1943, at: [-122.30, 37.895], kind: bar, v: 1.96, t: [1.8, 2.6], r: 0.9, color: '#3CC2B0'}
-      - {id: dpeary, at: [-122.30, 37.862], kind: bar, v: 0.23, t: [2.9, 3.3], r: 0.9, color: '#F2C14E'}
+      - id: d1942
+        at:
+        - -122.335
+        - 37.885
+        kind: bar
+        v: 6.1
+        t:
+        - 0.4
+        - 1.6
+        r: 0.9
+        color: '#3CC2B0'
+      - id: d1943
+        at:
+        - -122.305
+        - 37.885
+        kind: bar
+        v: 1.96
+        t:
+        - 1.8
+        - 2.6
+        r: 0.9
+        color: '#3CC2B0'
+      - id: dpeary
+        at:
+        - -122.275
+        - 37.885
+        kind: bar
+        v: 0.23
+        t:
+        - 2.9
+        - 3.3
+        r: 0.9
+        color: '#F2C14E'
       pins:
-      - {id: ship, at: [-122.385, 37.875]}
-      - {id: crane, at: [-122.37, 37.905]}
+      - id: ship
+        at:
+        - -122.37
+        - 37.88
+      - id: crane
+        at:
+        - -122.36
+        - 37.905
       cam:
-      - {t: 0, lon: -122.255, lat: 37.86, dist: 30, tilt: 58, head: -8}
-      - {t: 6, lon: -122.27, lat: 37.875, dist: 25, tilt: 61, head: -4}
+      - t: 0
+        lon: -122.3
+        lat: 37.84
+        dist: 26
+        tilt: 60
+        head: -4
+      - t: 6
+        lon: -122.3
+        lat: 37.85
+        dist: 22
+        tilt: 62
+        head: 0
   d2_loop:
     hero: relief/map
     opt:
       relief: sfbay
       palette: natural
-      places: [{id: oakland, ll: [-122.27, 37.80], name: Oakland}]
+      places:
+      - id: oakland
+        ll:
+        - -122.27
+        - 37.8
+        name: Oakland
       cols:
-      - {id: world, at: [-121.98, 37.70], kind: coins, layout: row, n: 1, t: [0.3, 0.4], r: 1.5}
-      - {id: us, at: [-121.98, 37.635], kind: coins, layout: row, n: 4, t: [1.0, 2.2], r: 1.5, gap: 2.35}
+      - id: world
+        at:
+        - -122.07
+        - 37.64
+        kind: coins
+        layout: row
+        n: 1
+        t:
+        - 0.3
+        - 0.4
+        r: 1.5
+      - id: us
+        at:
+        - -121.99
+        - 37.64
+        kind: coins
+        layout: row
+        n: 4
+        t:
+        - 1.0
+        - 2.2
+        r: 1.5
+        gap: 2.35
       pins:
-      - {id: order, at: [-122.12, 37.55]}
-      - {id: crane, at: [-121.80, 37.56]}
+      - id: order
+        at:
+        - -122.05
+        - 37.57
+      - id: crane
+        at:
+        - -121.86
+        - 37.57
       routes:
-      - {id: loop, pts: [[-121.93, 37.72], [-121.78, 37.64], [-121.86, 37.53], [-122.04, 37.50], [-122.16, 37.58], [-122.06, 37.70], [-121.93, 37.72]], draw: [3.0, 5.0], style: dashed, color: '#F2C14E', w: 7, flow: 3}
+      - id: loop
+        pts:
+        - - -121.93
+          - 37.68
+        - - -121.84
+          - 37.62
+        - - -121.88
+          - 37.555
+        - - -122.0
+          - 37.535
+        - - -122.1
+          - 37.57
+        - - -122.06
+          - 37.66
+        - - -121.93
+          - 37.68
+        draw:
+        - 3.0
+        - 5.0
+        style: dashed
+        color: '#F2C14E'
+        w: 7
+        flow: 3
       cam:
-      - {t: 0, lon: -121.97, lat: 37.565, dist: 38, tilt: 57, head: 0}
-      - {t: 6, lon: -121.97, lat: 37.575, dist: 34, tilt: 60, head: 3}
+      - t: 0
+        lon: -121.98
+        lat: 37.575
+        dist: 30
+        tilt: 58
+        head: 0
+      - t: 6
+        lon: -121.98
+        lat: 37.58
+        dist: 27
+        tilt: 61
+        head: 3
   d3_beach:
     hero: relief/map
     opt:
       relief: korea
       palette: sepia
-      natural: [3.8, 5.2]
-      regions: [{id: kr, country: South Korea, color: '#F2C14E', at: [0.2, 1.0], lift: 1.2, fill: 0.14}]
-      places: [{id: ulsan, ll: [129.42, 35.51], name: Ulsan}]
+      natural:
+      - 3.8
+      - 5.2
+      regions:
+      - id: kr
+        country: South Korea
+        color: '#F2C14E'
+        at:
+        - 0.2
+        - 1.0
+        lift: 1.2
+        fill: 0.14
+      places:
+      - id: ulsan
+        ll:
+        - 129.42
+        - 35.51
+        name: Ulsan
       pins:
-      - {id: order, at: [129.43, 35.505]}
-      - {id: crane, at: [129.405, 35.515]}
-      - {id: ship, at: [129.445, 35.49]}
+      - id: order
+        at:
+        - 129.43
+        - 35.505
+      - id: crane
+        at:
+        - 129.405
+        - 35.515
+      - id: ship
+        at:
+        - 129.445
+        - 35.49
       cam:
-      - {t: 0, lon: 128.9, lat: 35.6, dist: 260, tilt: 32, head: 0}
-      - {t: 3.0, lon: 129.33, lat: 35.47, dist: 70, tilt: 48, head: 4}
-      - {t: 6.5, lon: 129.40, lat: 35.45, dist: 32, tilt: 58, head: 8}
+      - t: 0
+        lon: 128.9
+        lat: 35.6
+        dist: 260
+        tilt: 32
+        head: 0
+      - t: 3.0
+        lon: 129.33
+        lat: 35.47
+        dist: 70
+        tilt: 48
+        head: 4
+      - t: 6.5
+        lon: 129.4
+        lat: 35.45
+        dist: 32
+        tilt: 58
+        head: 8
 segments:
 - id: D1
   dur: 6
@@ -74,18 +268,59 @@ segments:
     type: map
     scene_id: relief/map
     camera_id: t2-d1-low
-    places: [Richmond]
+    places:
+    - Richmond
     p:
       hero: d1_days
-      places: [{a: richmond, s: 'Richmond, Calif.'}]
-      year: {s: '1942–43', at: 0.2}
+      places:
+      - a: richmond
+        s: Richmond, Calif.
+      year:
+        s: 1942–43
+        at: 0.2
       stickers:
-      - {a: 'st:crane', img: 'stk:crane', at: 0.2, px: 120}
-      - {a: 'st:ship', img: 'stk:freighter', at: 3.2, px: 150}
+      - a: st:crane
+        img: stk:crane
+        at: 0.2
+        px: 120
+      - a: st:ship
+        img: stk:freighter
+        at: 3.2
+        px: 150
       tags:
-      - {a: 'col:d1942', at: 1.2, s: '122 days', sub: 'average Liberty ship, June 1942', num: lib_1942, kind: actual, c: '#3CC2B0', side: auto, prefer: [right, up]}
-      - {a: 'col:d1943', at: 2.4, s: '39 days', sub: 'average, Dec. 1943', num: lib_1943, kind: actual, c: '#3CC2B0', side: auto, prefer: [right, up]}
-      - {a: 'col:dpeary', at: 3.3, s: '4½ days', sub: 'Robert E. Peary (publicity stunt)', num: peary, kind: actual, c: '#F2C14E', side: auto, prefer: [right, down]}
+      - a: col:d1942
+        at: 1.2
+        s: 122 days
+        sub: average Liberty ship, June 1942
+        num: lib_1942
+        kind: actual
+        c: '#3CC2B0'
+        side: auto
+        prefer:
+        - right
+        - up
+      - a: col:d1943
+        at: 2.4
+        s: 39 days
+        sub: average, Dec. 1943
+        num: lib_1943
+        kind: actual
+        c: '#3CC2B0'
+        side: auto
+        prefer:
+        - right
+        - up
+      - a: col:dpeary
+        at: 3.3
+        s: 4½ days
+        sub: Robert E. Peary (publicity stunt)
+        num: peary
+        kind: actual
+        c: '#F2C14E'
+        side: auto
+        prefer:
+        - right
+        - down
       src: 'Source: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP'
 - id: D2
   dur: 6
@@ -99,12 +334,37 @@ segments:
     p:
       hero: d2_loop
       stickers:
-      - {a: 'st:order', img: 'stk:order', at: 2.6, px: 95}
-      - {a: 'st:crane', img: 'stk:crane', at: 2.8, px: 120}
+      - a: st:order
+        img: stk:order
+        at: 2.6
+        px: 95
+      - a: st:crane
+        img: stk:crane
+        at: 2.8
+        px: 120
       tags:
-      - {a: 'col:world', at: 0.6, s: 'world price', c: '#E6EBF0', side: auto, prefer: [up, right]}
-      - {a: 'col:us', at: 2.2, s: '≈ 4×', sub: 'U.S.-built tanker (one firm’s estimate)', num: tanker_x4, kind: estimate, c: '#3CC2B0', side: auto, prefer: [down, right]}
-      cap: [{at: 3.2, s: 'High prices → few orders → no scale'}]
+      - a: col:world
+        at: 0.6
+        s: world price
+        c: '#E6EBF0'
+        side: auto
+        prefer:
+        - up
+        - right
+      - a: col:us
+        at: 2.2
+        s: ≈ 4×
+        sub: U.S.-built tanker (one firm’s estimate)
+        num: tanker_x4
+        kind: estimate
+        c: '#3CC2B0'
+        side: auto
+        prefer:
+        - down
+        - right
+      cap:
+      - at: 3.2
+        s: High prices → few orders → no scale
       src: 'Source: CRS (2019) · Terrain: USGS 3DEP'
 - id: D3
   dur: 6.5
@@ -114,14 +374,31 @@ segments:
     type: map
     scene_id: relief/map
     camera_id: t2-d3-dive
-    places: [Ulsan]
+    places:
+    - Ulsan
     p:
       hero: d3_beach
-      places: [{a: ulsan, s: 'Ulsan', at: 2.4}]
-      year: {s: '1972', at: 0.2}
+      places:
+      - a: ulsan
+        s: Ulsan
+        at: 2.4
+      year:
+        s: '1972'
+        at: 0.2
       stickers:
-      - {a: 'st:order', img: 'stk:order', at: 2.2, px: 95}
-      - {a: 'st:crane', img: 'stk:crane', at: 3.4, px: 120}
-      - {a: 'st:ship', img: 'stk:freighter', at: 4.4, px: 150}
-      cap: [{at: 2.4, s: 'An order first, then a shipyard (by Hyundai’s account)'}]
+      - a: st:order
+        img: stk:order
+        at: 2.2
+        px: 95
+      - a: st:crane
+        img: stk:crane
+        at: 3.4
+        px: 120
+      - a: st:ship
+        img: stk:freighter
+        at: 4.4
+        px: 150
+      cap:
+      - at: 2.4
+        s: An order first, then a shipyard (by Hyundai’s account)
       src: 'Source: HD Hyundai Heavy Industries history · Terrain: SRTM (USGS)'

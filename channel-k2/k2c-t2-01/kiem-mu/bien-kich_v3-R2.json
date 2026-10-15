@@ -1,0 +1,97 @@
+{
+ "main_message": "America stopped building ships because orders dried up after the 1980s, and high prices plus a tiny protected home market lock that in. It's not simply 'wages' or 'we forgot how'. Korea and China built yards around export orders and state backing.",
+ "hook_strength_1to10": 8,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "The three-ships-a-day versus 0.04% contrast is striking, and the 'you'll often hear wages, the record says narrower' line sets up a real question. The disclaimer and deadline paragraph slows it a bit.",
+ "story_through_people_1to10": 6,
+ "people_you_remember": "Henry Kaiser (grew Richmond yards on British orders); Josie Lucille Owens (welder trainee, only a photo caption); Chung Ju-yung (Hyundai, built a yard with no experience, got an order from Livanos); Park Chung Hee (heavy-industry drive); Sen. Wesley Jones (Alaska cargo rule). Unions petitioning USTR and Hanwha are institutions, not people.",
+ "mechanisms_build_on_each_other_1to10": 7,
+ "mechanisms_in_your_words": "1) Government wartime orders built the yards. 2) Orders stopped after 1944 and the subsidy ended in the 1980s. 3) Jones Act protects a small home market. 4) High prices lead to few orders, which means no scale, which keeps prices high (the loop). 5) Wages are just one factor. 6) Korea and China built export-oriented yards with state support. 7) Orders, now from the Pentagon and a Korean investor, are reviving Philadelphia.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It returns to 'why so few ships' with 'few orders came', and nods to the Richmond opening. It's a bit hedged ('no source settles how much each counts'), but that's honest.",
+ "boring_or_slow": [
+  {
+   "seg": "00",
+   "why": "Disclaimer and deadline details before the actual question starts."
+  },
+  {
+   "seg": "02",
+   "why": "Lots of statute and coalition names, plus a mid-roll subscribe plug that interrupts the flow."
+  },
+  {
+   "seg": "05",
+   "why": "Dense dates, fee schedules and trade-group letters."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "02",
+   "quote": "some observers see that as the main reason",
+   "why": "It never says what the subsidy was called or how it worked."
+  },
+  {
+   "seg": "03",
+   "quote": "four times the world price",
+   "why": "This conflicts with the 'three times' figure from the 1990s, and the sources are different eras of estimates."
+  },
+  {
+   "seg": "04",
+   "quote": "total factor productivity didn't rise significantly",
+   "why": "Jargon, and it seems to undercut the Korea success story without explanation."
+  },
+  {
+   "seg": "00",
+   "quote": "four hundredths of one percent",
+   "why": "Hard to tell if that's 0.04% or 4%, and it's worded awkwardly."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "05",
+   "quote": "targeted dominance",
+   "direction": "Slightly anti-China, because it relies on USTR's own findings and quotes the Chinese ministry only briefly.",
+   "why": "The USTR finding is presented as the main fact. China's reply is a one-liner."
+  },
+  {
+   "seg": "03",
+   "quote": "Our read: the protected home market is small",
+   "direction": "Leans toward the 'not just wages' thesis, which fits an anti-labor-cost-blame view.",
+   "why": "Critics' view that high prices matter more gets one line at the end."
+  }
+ ],
+ "political_lean_detected": "none",
+ "lean_detail": "It's mostly even-handed and cites both Jones Act supporters and critics, and unions as well as trade groups. It tilts a little toward 'demand and scale matter more than wages', and the Trump-Xi deal is mentioned neutrally.",
+ "blames_a_group_of_people": false,
+ "blame_detail": "",
+ "claims_you_doubt": [
+  {
+   "seg": "04",
+   "quote": "Hyundai's own account: no experience, capital, or technology",
+   "why": "Company self-mythology, though the video flags it as Hyundai's account."
+  },
+  {
+   "seg": "05",
+   "quote": "ninety percent of ships ... were for export",
+   "why": "It sounds high, and it isn't clear whether that's by count or tonnage."
+  },
+  {
+   "seg": "06",
+   "quote": "America didn't forget how to build ships",
+   "why": "A confident claim, while the video also says no source settles the causes."
+  }
+ ],
+ "questions_left_unanswered": [
+  "Why did the subsidy end, and would reviving it work?",
+  "Do Korean and Chinese yards also have a wage advantage?",
+  "What's the actual capacity of the Philadelphia yard today?",
+  "Does the Jones Act really keep ship prices high, or is that disputed?",
+  "What happens to shipping costs if the fees resume on Nov 9?"
+ ],
+ "trust_1to10": 8,
+ "best_moment": "[03] The loop of high prices, few orders, no scale, high prices. It's a clear mechanism that answers the 'wages' myth, and it's labelled as the video's own read.",
+ "top3_fixes": [
+  "Cut the disclaimer and deadline detail from the cold open and start with the 1943 vs today contrast and the question. Move the fee date to segment 5.",
+  "Add a few more people with stakes, like a Hyundai engineer, a Philadelphia worker or a Jones Act ship owner. Right now institutions dominate segments 2 and 5.",
+  "Explain the subsidy (name, how it worked, why it ended) and give China's side a real paragraph, so the 1980s cause and the fee dispute are both clear."
+ ]
+}

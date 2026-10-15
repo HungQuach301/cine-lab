@@ -111,19 +111,19 @@ heroes:
         - 42.62
       cam:
       - t: 0
-        lon: -77.95
+        lon: -78.25
         lat: 42.69
         dist: 146
         tilt: 58
         head: 0
       - t: 5.6
-        lon: -77.93
+        lon: -78.23
         lat: 42.7
         dist: 134
         tilt: 60
         head: 2
       - t: 7
-        lon: -77.92
+        lon: -78.22
         lat: 42.705
         dist: 130
         tilt: 61
@@ -198,8 +198,8 @@ segments:
         at: 4.1
         side: auto
         prefer:
+        - down
         - right
-        - up
         - left
         c: '#3CC2B0'
         num: canal_tenth

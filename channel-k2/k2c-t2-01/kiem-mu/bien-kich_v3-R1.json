@@ -1,0 +1,106 @@
+{
+ "main_message": "America builds almost no ships because it has few orders, not because it forgot how. Wages are only part of it: high prices and a small protected home market feed each other. Korea and China built for export, with government help.",
+ "hook_strength_1to10": 6,
+ "would_keep_watching_after_15s": true,
+ "why_hook": "Three ships a day versus 0.04% is a striking contrast, and the question 'why so few?' is clear. The disclaimer, the deadline and the Korean-owned Philadelphia yard are a lot of clutter before the question arrives.",
+ "story_through_people_1to10": 5,
+ "people_you_remember": "Henry Kaiser (wanted to build ships fast for the British and the US government). Josie Lucille Owens, the welder (shown briefly, with no story). Chung Ju-yung of Hyundai (no experience, wanted to build a shipyard, got a foreign order). Senator Jones (wanted Alaska cargo to go through Seattle). Park Chung Hee (wanted heavy industry for export). The rest, such as the union petitioners and Hanwha, are institutions rather than people.",
+ "mechanisms_build_on_each_other_1to10": 7,
+ "mechanisms_in_your_words": "1) Wartime government orders made the 1940s boom. 2) After the war, the orders dried up. 3) The Jones Act protects American yards but keeps the market small. 4) The subsidy ended in the 1980s. 5) High prices lead to few orders, which means no scale, which keeps prices high (a loop). 6) Korea and China built for export with state support. 7) US tariffs and fees on China are now paused, and a Korean company is investing in a US yard.",
+ "ending_answers_opening_question": true,
+ "ending_comment": "It circles back to 'few orders, high prices, small home market', which answers the wages teaser. It then hedges by saying no source settles how much each factor counts, so it's a bit unsatisfying. The Kaiser park line is a nice closing image.",
+ "boring_or_slow": [
+  {
+   "seg": "00",
+   "why": "Disclaimer, 'facts as of' date and a fee-pause deadline come before I know why I should care."
+  },
+  {
+   "seg": "02",
+   "why": "Legislative history (Senator Jones, Section 27) and who said what on the Jones Act reads like a list of names."
+  },
+  {
+   "seg": "04",
+   "why": "Heavy hedging on sources (turtle banknote, 'we found no loan documents') and the productivity detail slow the story."
+  },
+  {
+   "seg": "05",
+   "why": "Dates, trade groups, suspension and extension details pile up. It feels like a news brief."
+  }
+ ],
+ "confusing": [
+  {
+   "seg": "00",
+   "quote": "ships owned or operated by Chinese companies, and ships built in China",
+   "why": "I don't know yet what fees these are or why they matter."
+  },
+  {
+   "seg": "02",
+   "quote": "federal subsidy meant to let American owners buy American ships at the world price",
+   "why": "Unclear how that worked, and it was introduced and dropped in a few lines."
+  },
+  {
+   "seg": "03",
+   "quote": "Currency policy, too",
+   "why": "Dropped in with no explanation."
+  },
+  {
+   "seg": "04",
+   "quote": "total factor productivity didn't rise significantly",
+   "why": "Jargon, and I can't tell what it means for the story."
+  },
+  {
+   "seg": "05",
+   "quote": "targeted dominance... burdens or restricts U.S. commerce",
+   "why": "Legal wording with no plain explanation."
+  }
+ ],
+ "felt_biased_or_one_sided": [
+  {
+   "seg": "03",
+   "quote": "American shipyards lost because American workers cost too much",
+   "direction": "toward dismissing the wage explanation",
+   "why": "Framed as a myth, then the video downplays wages as 'one factor' even though its own sources list wages."
+  },
+  {
+   "seg": "05",
+   "quote": "fail to revitalize",
+   "direction": "slightly toward the China side",
+   "why": "A Chinese ministry quote is given as a counterpoint, but the other voices (unions, USTR) get more space."
+  }
+ ],
+ "political_lean_detected": "none",
+ "lean_detail": "It tries hard to attribute everything and hedge. It gives both Jones Act supporters and critics. If anything it leans slightly toward 'orders and scale matter more than wages', and it is neutral on the fees.",
+ "blames_a_group_of_people": false,
+ "blame_detail": "",
+ "claims_you_doubt": [
+  {
+   "seg": "06",
+   "quote": "America didn't forget how to build ships",
+   "why": "It's the video's own conclusion, stated confidently, while it admits no source settles the weight of each cause."
+  },
+  {
+   "seg": "03",
+   "quote": "four times the world price",
+   "why": "Based on one consulting firm's estimate, so I'm not sure how solid it is."
+  },
+  {
+   "seg": "02",
+   "quote": "the main reason fewer ships were built",
+   "why": "Presented as 'some observers see' it, so it's unclear whether the video agrees."
+  }
+ ],
+ "questions_left_unanswered": [
+  "How much does each cause (wages, Jones Act, subsidy ending, scale) actually count?",
+  "Why did Korea and China succeed at export when the US never did?",
+  "Will the Philadelphia investment really change anything?",
+  "What happened to US yards between 1945 and the 1970s?",
+  "Why should I care if America builds ships?"
+ ],
+ "trust_1to10": 7,
+ "best_moment": "03: the loop of 'high prices mean few orders, few orders mean no scale, no scale keeps prices high' explains the whole thing simply and shows that wages are only part of it.",
+ "top3_fixes": [
+  "Cut the opening to the ship contrast and the question; move the disclaimer, the 'as of' date and the fee deadline to the end or a short note, and say what the fee actually is.",
+  "Give the story more people and moments: a short scene for Kaiser or Owens, and a human reason why Chung bet on shipbuilding. Cut name-heavy legislative history in segment 02.",
+  "Explain jargon in plain words (economies of scale with a simple example, currency policy, total factor productivity, targeted dominance) and add a 'why should you care' line so the stakes are clear. Drop or shorten hedges that don't change the conclusion."
+ ]
+}

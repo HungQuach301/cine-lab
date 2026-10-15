@@ -43,7 +43,8 @@ function panel(g, x, y, w, h, o = {}) { const a = o.a === undefined ? 1 : o.a; i
   g.strokeStyle = o.stroke || 'rgba(154,167,181,0.35)'; g.lineWidth = 1.5; if (o.dash) g.setLineDash([12, 8]); g.stroke(); g.setLineDash([]);
   if (o.accent) { g.fillStyle = o.accent; g.fillRect(x, y + 8, 6, h - 16); } g.restore(); }
 // nhãn loại số: ACTUAL viền liền; PROJECTION nét đứt hổ phách
-function kindTag(g, kind, x, y, a = 1, align = 'left') { if (a <= 0.01 || !kind) return 0; const pj = kind === 'projection', s = pj ? 'PROJECTION' : 'ACTUAL', px = 26 * S;
+const KINDLBL = (k) => ({ projection: 'PROJECTION', estimate: 'ESTIMATE' })[k] || 'ACTUAL';
+function kindTag(g, kind, x, y, a = 1, align = 'left') { if (a <= 0.01 || !kind) return 0; const pj = kind === 'projection' || kind === 'estimate', s = KINDLBL(kind), px = 26 * S;   /* T2: 'estimate' → ESTIMATE (trước đây mọi loại khác projection in ACTUAL — sai nhãn) */
   const p = Math.max(px, MINPX * 0.9), wd = tw(g, s, p, 700) + p * 0.9, h = p * 1.5, x0 = align === 'right' ? x - wd : align === 'center' ? x - wd / 2 : x;
   g.save(); g.globalAlpha *= a; g.strokeStyle = pj ? K.amber : K.steel; g.lineWidth = 2.4; if (pj) g.setLineDash([9, 6]); g.strokeRect(x0, y - h / 2, wd, h); g.restore();
   text(g, s, x0 + p * 0.45, y + 1, p, pj ? K.amber : K.dim, { a, w: 700, base: 'middle' }); return wd; }
@@ -77,7 +78,7 @@ function labels(g, p, t) { for (const L of p.labels || []) { const u = vis(t, L.
 // nhãn module k2v (design/k2v: map, chart3d, photo) bám điểm neo, không đường dẫn dài: {a, s, sub, at, out, side: 'right'|'left'|'up'|'down', gap, c (màu nhấn), big (số lớn), kind}
 //   địa danh (p.places) và số liệu (p.tags) dùng chung; neo bị che (mặt sau địa cầu, ngoài khung) → không vẽ. Cỡ chữ ≥ MINPX (30 px ở 16:9).
 function tags(g, p, t, list) { for (const L of list || []) { const u = vis(t, L.at, L.out); if (u <= 0.01) continue; const A = anc(p, t, L.a); if (!A || !A.v) continue;
-  const big = !!L.big, px = (L.px || (big ? 54 : 36)) * S, spx = (L.spx || 32) * S, w1 = tw(g, L.s, px, 700, big), w2 = L.sub ? tw(g, L.sub, spx, 500) : 0, kw = L.kind ? tw(g, L.kind === 'projection' ? 'PROJECTION' : 'ACTUAL', MINPX * 0.9, 700) + MINPX * 1.4 : 0;
+  const big = !!L.big, px = (L.px || (big ? 54 : 36)) * S, spx = (L.spx || 32) * S, w1 = tw(g, L.s, px, 700, big), w2 = L.sub ? tw(g, L.sub, spx, 500) : 0, kw = L.kind ? tw(g, KINDLBL(L.kind), MINPX * 0.9, 700) + MINPX * 1.4 : 0;
   const bw = Math.max(w1 + kw, w2) + 46, bh = (L.sub ? px * 1.2 + spx * 1.35 : px * 1.2) + 26, gap = (L.gap === undefined ? 30 : L.gap) * S, side = L.side || 'right', c = L.c || K.orange;
   const yMax = (p.src || p.cap) ? (V ? SAFE.y1 - 150 * S : Math.min(SAFE.y1 - 150 * S, H * 0.735 + 10)) : SAFE.y1;   // không đè dải chú thích/dòng nguồn (13/10: 16:9 chặn ở đỉnh câu chú thích, nhãn 317 từng đè câu ở ch_mpls)
   // side 'auto': khi neo nằm trong hộp một vật (chồng xu, sticker), khoảng cách tính từ MÉP hộp đó, không từ tâm neo
