@@ -1,0 +1,191 @@
+{
+ "name": "philly",
+ "center": [
+  -75.18,
+  39.89
+ ],
+ "service": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer",
+ "tiers": [
+  {
+   "i": 0,
+   "km": 40.0,
+   "px": 2048,
+   "m_per_px": 19.53,
+   "bbox": [
+    -75.414156,
+    39.709119,
+    -74.945844,
+    40.070881
+   ],
+   "raw_sha256": "c8dfc83918c529e42757e6ef9866ed376e25757ae228c7596bd4fcf48d476e21",
+   "sha256": "1e30cf277117632a433e60508f6fdec6e9a82c5df71d401ca258f47af7ce22f6",
+   "file": "t0.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_3907507_se_18_060_20220510",
+     "Category": 1,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R00000166_C00000077.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B3_C0000003B.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L03_R00000059_C0000001D.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002C_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "km": 8.0,
+   "px": 2048,
+   "m_per_px": 3.91,
+   "bbox": [
+    -75.226831,
+    39.853824,
+    -75.133169,
+    39.926176
+   ],
+   "raw_sha256": "e2c0f9da62158e5fed0e4bc10269a54e568899d0f5a84e0e6d15b415fedf4b67",
+   "sha256": "2195fd707de9c397fb3a281a75e3cc5194bed4fcd8232b3e465e3c69f38f0238",
+   "file": "t1.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_3907507_se_18_060_20220510",
+     "Category": 1,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R00000166_C00000077.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B3_C0000003B.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L03_R00000059_C0000001D.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002C_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "km": 1.8,
+   "px": 2048,
+   "m_per_px": 0.88,
+   "bbox": [
+    -75.190537,
+    39.88186,
+    -75.169463,
+    39.89814
+   ],
+   "raw_sha256": "b1277da433877a41364e89015aff0881b8ba89c0323f0fcda4d48e00016a8176",
+   "sha256": "3d1403ea9a515229c9d978849f2fe698e6efdbb379f885a0baf2174a4de5acdb",
+   "file": "t2.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_3907507_se_18_060_20220510",
+     "Category": 1,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R00000166_C00000077.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B3_C0000003B.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L03_R00000059_C0000001D.tif",
+     "Category": 2,
+     "State": "PA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002C_C0000000E",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000007",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  }
+ ],
+ "color_match": {
+  "mu_s": [
+   49.09635543823242,
+   -5.258195877075195,
+   6.120447158813477
+  ],
+  "mu_r": [
+   55.94600296020508,
+   -21.632495880126953,
+   20.684814453125
+  ],
+  "k": [
+   0.8500000238418579,
+   1.103266716003418,
+   1.4534430503845215
+  ],
+  "strength": 0.6
+ },
+ "license": "USDA FSA NAIP — public domain (U.S. Government work); xem channel-k2/k2v4-mau/licenses/NAIP.txt"
+}

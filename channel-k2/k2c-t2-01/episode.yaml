@@ -641,15 +641,15 @@ heroes:
       cam:
       - t: 0
         lon: -122.315
-        lat: 37.8
-        dist: 24
-        tilt: 62
+        lat: 37.84
+        dist: 28
+        tilt: 60
         head: 0
       - t: 12
         lon: -122.31
-        lat: 37.815
-        dist: 20
-        tilt: 64
+        lat: 37.85
+        dist: 25
+        tilt: 61
         head: 3
   p01_owens:
     hero: photo/print
@@ -807,6 +807,62 @@ heroes:
         color: '#8a7a62'
         w: 6
         flow: 3
+      walkers:
+      - id: ship
+        route: seattle
+        t:
+        - '@Seattle+0.6'
+        - '@crewed'
+        u:
+        - 0
+        - 1
+      cam:
+      - t: 0
+        lon: -123.4
+        lat: 48.0
+        dist: 560
+        tilt: 36
+        head: 0
+      - t: '@rail'
+        lon: -123.4
+        lat: 48.05
+        dist: 540
+        tilt: 37
+        head: 2
+      - t: '@foreign'
+        lon: -127.8
+        lat: 53.4
+        dist: 980
+        tilt: 30
+        head: 0
+      - t: '@ships#1+1'
+        lon: -128.2
+        lat: 53.8
+        dist: 1000
+        tilt: 30
+        head: -2
+  r02_alaska2:
+    hero: relief/map
+    opt:
+      relief: pnw
+      palette: sepia
+      places:
+      - id: seattle
+        ll:
+        - -122.33
+        - 47.61
+        name: Seattle
+      - id: vancouver
+        ll:
+        - -123.12
+        - 49.28
+        name: Vancouver
+      - id: alaska
+        ll:
+        - -134.42
+        - 58.3
+        name: Alaska (Juneau)
+      routes:
       - id: seattle
         pts:
         - - -122.33
@@ -822,45 +878,36 @@ heroes:
         - - -134.42
           - 58.3
         draw:
-        - '@Seattle'
-        - '@Seattle+2.6'
+        - '@carrying'
+        - '@carrying+3.2'
         style: solid
         color: '#3CC2B0'
         w: 7
-      walkers:
-      - id: ship
-        route: seattle
-        t:
-        - '@Seattle+0.6'
-        - '@crewed'
-        u:
-        - 0
-        - 1
       cam:
       - t: 0
-        lon: -128.5
-        lat: 52.2
-        dist: 900
-        tilt: 30
-        head: 0
-      - t: '@Seattle'
-        lon: -127.5
-        lat: 51.6
-        dist: 820
-        tilt: 34
-        head: 4
-      - t: '@ports'
-        lon: -126.0
-        lat: 50.8
-        dist: 620
-        tilt: 40
-        head: 8
-      - t: '@Americans#1+2'
-        lon: -125.6
-        lat: 50.4
+        lon: -123.4
+        lat: 47.7
         dist: 560
-        tilt: 44
-        head: 10
+        tilt: 36
+        head: 0
+      - t: '@carrying'
+        lon: -123.6
+        lat: 47.8
+        dist: 560
+        tilt: 36
+        head: 0
+      - t: '@carrying+3.2'
+        lon: -129.0
+        lat: 54.0
+        dist: 980
+        tilt: 30
+        head: -4
+      - t: '@Americans#1+1'
+        lon: -129.3
+        lat: 54.3
+        dist: 1000
+        tilt: 30
+        head: -5
   p02_jones:
     hero: photo/print
     cam: drift-r
@@ -909,29 +956,34 @@ heroes:
         - 0.9
       cam:
       - t: 0
-        lon: -124.5
-        lat: 48.9
-        dist: 320
+        lon: -122.6
+        lat: 47.45
+        dist: 230
         tilt: 44
-        head: -8
+        head: -6
       - t: '@Jobs'
-        lon: -124.9
-        lat: 49.1
-        dist: 300
-        tilt: 46
+        lon: -122.65
+        lat: 47.5
+        dist: 220
+        tilt: 45
         head: -3
       - t: '@repeal'
-        lon: -125.3
-        lat: 49.4
-        dist: 280
-        tilt: 48
-        head: 2
+        lon: -122.7
+        lat: 47.55
+        dist: 210
+        tilt: 46
+        head: 1
       - t: '@higher+3'
-        lon: -125.6
-        lat: 49.6
-        dist: 270
-        tilt: 49
-        head: 4
+        lon: -122.75
+        lat: 47.6
+        dist: 205
+        tilt: 47
+        head: 3
+      pins:
+      - id: jship
+        at:
+        - -123.0
+        - 48.3
   r02_subsidy:
     hero: relief/map
     opt:
@@ -989,38 +1041,38 @@ heroes:
       cam:
       - t: 0
         lon: -75.45
-        lat: 39.42
-        dist: 30
-        tilt: 62
+        lat: 39.5
+        dist: 32
+        tilt: 61
         head: 0
       - t: '@1970s'
         lon: -75.2
-        lat: 39.45
-        dist: 40
-        tilt: 60
+        lat: 39.55
+        dist: 46
+        tilt: 59
         head: 4
       - t: '@observers'
-        lon: -75.15
-        lat: 39.47
-        dist: 36
-        tilt: 62
+        lon: -75.12
+        lat: 39.56
+        dist: 44
+        tilt: 60
         head: 10
       - t: '@Output'
         lon: -75.05
-        lat: 39.48
-        dist: 30
-        tilt: 63
+        lat: 39.57
+        dist: 40
+        tilt: 61
         head: 14
       - t: '@subscribing'
         lon: -75.1
-        lat: 39.44
-        dist: 42
+        lat: 39.5
+        dist: 46
         tilt: 58
         head: 6
       - t: '@next+2'
         lon: -75.12
-        lat: 39.43
-        dist: 46
+        lat: 39.49
+        dist: 50
         tilt: 56
         head: 2
   r03_myth:
@@ -1221,27 +1273,27 @@ heroes:
         tilt: 55
         head: 4
       - t: '@counted'
-        lon: -75.15
-        lat: 39.7
-        dist: 44
+        lon: -75.2
+        lat: 39.85
+        dist: 46
         tilt: 56
         head: -2
       - t: '@fleet'
-        lon: -75.2
-        lat: 39.78
-        dist: 42
+        lon: -75.24
+        lat: 39.9
+        dist: 44
         tilt: 57
         head: -4
       - t: '@truck'
-        lon: -75.25
-        lat: 39.85
-        dist: 38
+        lon: -75.28
+        lat: 39.93
+        dist: 42
         tilt: 58
         head: -6
       - t: '@job+1'
-        lon: -75.25
-        lat: 39.88
-        dist: 34
+        lon: -75.28
+        lat: 39.95
+        dist: 40
         tilt: 60
         head: -2
   r03_loop:
@@ -1504,15 +1556,6 @@ heroes:
     opt:
       relief: koreaw
       palette: sepia
-      regions:
-      - id: kr
-        country: South Korea
-        color: '#F2C14E'
-        at:
-        - '@January'
-        - '@January+1.0'
-        lift: 1.5
-        fill: 0.16
       pins:
       - id: tax
         at:
@@ -1725,16 +1768,16 @@ heroes:
         name: Port of Philadelphia
       cam:
       - t: 0
-        lon: -74.8
-        lat: 39.25
-        dist: 120
+        lon: -74.9
+        lat: 39.45
+        dist: 110
         tilt: 50
         head: -20
       - t: 14
-        lon: -75.0
-        lat: 39.55
+        lon: -75.1
+        lat: 39.72
         dist: 80
-        tilt: 54
+        tilt: 52
         head: -10
   d05_aim:
     hero: photo/doc
@@ -2420,20 +2463,17 @@ segments:
       - a: seattle
         s: Seattle
         at: '@shippers'
+        out: '@foreign'
         side: auto
       - a: vancouver
         s: Vancouver, B.C.
         at: '@Vancouver'
+        out: '@foreign+0.8'
         side: auto
       - a: alaska
         s: Alaska
-        at: '@Alaska#1'
+        at: '@foreign'
         side: auto
-      stickers:
-      - a: st:ship
-        img: stk:freighter
-        at: '@Seattle+0.6'
-        px: 90
       src: 'Source: CRS (2019) · Terrain: SRTM (USGS)'
   - tpl: plate
     at: '@Senator#1-0.3'
@@ -2472,9 +2512,18 @@ segments:
     camera_id: t2-02-alaska2
     places: []
     p:
-      hero: r02_alaska
-      frame0: 220
-      speed: 0.6
+      hero: r02_alaska2
+      frame0: 0
+      places:
+      - a: seattle
+        s: Seattle
+        at: '@cargo#3'
+        side: auto
+      stickers:
+      - a: st:ship
+        img: stk:freighter
+        at: '@carrying'
+        px: 90
       cap:
       - s: 'Merchant Marine Act of 1920, Section 27: the "Jones Act"'
         at: '@Section'
@@ -2556,6 +2605,7 @@ segments:
         s: world price
         sub: the subsidy's target for U.S. owners
         at: '@world'
+        out: '@1970s'
         side: auto
         prefer:
         - up
@@ -3120,7 +3170,8 @@ segments:
         at: '@owned'
         side: auto
         prefer:
-        - up
+        - right
+        - down
         c: '#8E7CC3'
       - a: port
         s: $18 / net ton
@@ -3130,8 +3181,8 @@ segments:
         at: '@built#1'
         side: auto
         prefer:
-        - up
         - left
+        - down
         c: '#8E7CC3'
       asof: Facts as of 15 Oct 2026
       asofAt: '@fees'
@@ -3253,6 +3304,7 @@ segments:
         kind: actual
         num: n_hanwha
         at: '@hundred#2'
+        out: '@August'
         side: auto
         prefer:
         - up
@@ -3263,6 +3315,7 @@ segments:
         kind: actual
         num: n_5b
         at: '@investment#1'
+        out: '@Military'
         side: auto
         prefer:
         - left
@@ -3274,6 +3327,7 @@ segments:
         kind: projection
         num: n_goal20
         at: '@twenty'
+        out: '@Military'
         side: auto
         prefer:
         - right
@@ -3362,7 +3416,9 @@ segments:
             - 3 / day
             - ~5 / year
             at: '@peak'
-          foot: Different ships, different eras · NPS, CRS
+      cap:
+      - s: Different ships, different eras
+        at: '@Different'
       src: 'Sources: National Park Service, CRS (2023) · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@Our-0.3'
