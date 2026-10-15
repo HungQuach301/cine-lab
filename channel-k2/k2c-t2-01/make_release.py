@@ -3,7 +3,7 @@
 mô tả ≤ 5 000 ký tự Unicode (miễn trừ, "Facts as of", chương theo timeline THẬT, ghi chú số liệu, ghi công ngắn + nhạc/SFX CC BY lấy NGUYÊN VĂN cột "Ghi công"
 của RIGHTS.md cho đúng các tệp có trong đặc tả, câu dẫn bình luận ghim); bình luận ghim ≤ 10 000 ký tự (mọi URL + ngày truy cập, bản ghi ảnh/tài liệu/footage,
 giấy phép); 3 tiêu đề (J5: chính = tiêu đề 1); .en.srt; SHA256SUMS phủ master, Short, .srt, mô tả, bình luận ghim (+ tiêu đề, brief, ảnh nền).
-Năm/số trong mô tả chỉ lấy từ lời khoá hoặc claims (BAI-HOC-LL #53). Không làm thumbnail (chủ dự án tự làm theo PACKAGING-BRIEF, Test & Compare: T-B mặc định — J5).
+Năm/số trong mô tả chỉ lấy từ lời khoá hoặc claims (BAI-HOC-LL #53). Q3 (chủ dự án 15/10): dòng 1 câu móc ≤ 150 ký tự, miễn trừ ở dòng 2, SOURCES chỉ trỏ bình luận ghim, mọi tiêu đề ≤ 60 ký tự. Không làm thumbnail (chủ dự án tự làm theo PACKAGING-BRIEF, Test & Compare: T-B mặc định — J5).
   make_release.py <timeline.json> <thư mục out (master, shorts/)> <thư mục phat-hanh> [--v v1]"""
 import csv, hashlib, json, os, re, shutil, sys, yaml
 H = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.abspath(f'{H}/../..')
@@ -13,7 +13,7 @@ CH = {'00': 'Three ships a day', '01': 'Richmond, 1940: the order comes first', 
       '03': '"It\'s the wages" and what the record says', '04': 'Ulsan, 1972: an empty beach', '05': 'Today: a petition, a finding, a fee and a pause', '06': 'What to watch'}
 mmss = lambda s: f'{int(s // 60)}:{int(s % 60):02d}'
 TITLES = ["Why America Builds So Few Ships (It's Not Just Wages)",              # CHÍNH (J5, chủ dự án 15/10)
-          "In 1943, America Launched 3 Ships a Day. Why Does It Build So Few Now?",
+          "In 1943, America Launched 3 Ships a Day. What Happened?",
           "From Richmond to Ulsan: Why America Builds So Few Ships"]
 
 
@@ -38,16 +38,19 @@ item_lines = [f"- {r['clip_id']}: {r['url_trang']} — {r['giay_phep'].split(' (
 item_lines += ["- Aerial imagery: USDA FSA NAIP 2022 via USGS The National Map (USGSNAIPPlus), public domain",
                "- Terrain: USGS 3DEP; SRTM / GMTED2010 (USGS) via AWS Terrain Tiles; Canada: Open Government Licence – Canada; Natural Earth (public domain); NASA Blue Marble",
                "- Federal Register / USTR page images: works of the U.S. Government"]
-desc = f"""In 1943, at the peak, America launched three cargo ships a day. In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at 0.04 percent. So why does America build so few ships? You'll often hear: wages. The record says something narrower.
-
+HOOK = "In 1943, America launched three cargo ships a day. Why does it build so few now?"   # Q3 (15/10): dòng 1 = câu móc ≤ 150 ký tự, có số + câu hỏi
+assert len(HOOK) <= 150 and all(len(t) <= 60 for t in TITLES), 'Q3: móc ≤ 150, tiêu đề ≤ 60 ký tự'
+desc = f"""{HOOK}
 This video explains how the system works. It isn't financial or investment advice. Facts as of 15 October 2026. Fees, investments, contracts and bills mentioned here can change after that date.
+
+In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at 0.04 percent. You'll often hear: wages. The record says something narrower.
 Lines marked "our read" are the channel's interpretation. Company stories marked "by the company's account" come from the company's own history; the banknote story is a newspaper column's account (lore), not a record.
 
 CHAPTERS
 """ + '\n'.join(f"{mmss(s['t0'])} {CH[s['id']]}" for s in TL['segments']) + """
 
 SOURCES
-All """ + str(len(src_lines)) + """ sources (with links and access dates) and the item page of every archival photo, film and document are listed in the pinned comment.
+All sources, with links and access dates, are in the pinned comment.
 
 NOTES ON THE NUMBERS
 - 0.04 percent is a share of world shipbuilding tonnage (CRS, 2026); "around five a year" counts ships (CRS, 2023). Different measures, different eras.
@@ -71,7 +74,7 @@ open(f'{D}/description.en.txt', 'w').write(desc)
 pin = ("SOURCES (accessed dates in brackets)\n" + '\n'.join(src_lines) + "\n\nPHOTOS, FILM, IMAGERY AND DOCUMENTS (item pages and licences)\n" + '\n'.join(item_lines) + "\n")
 assert len(pin) <= 10000, f'bình luận ghim {len(pin)} ký tự > 10000'
 open(f'{D}/nguon-binh-luan-ghim.en.txt', 'w').write(pin)
-open(f'{D}/titles.txt', 'w').write(f'CHÍNH (J5): {TITLES[0]} ({len(TITLES[0])} ký tự)\nPHƯƠNG ÁN 2: {TITLES[1]} ({len(TITLES[1])} ký tự)\nPHƯƠNG ÁN 3: {TITLES[2]} ({len(TITLES[2])} ký tự)\nThumbnail mặc định Test & Compare: T-B (J5)\n')
+open(f'{D}/titles.txt', 'w').write(f'CHÍNH: {TITLES[0]}\nDỰ PHÒNG 1: {TITLES[1]}\nDỰ PHÒNG 2: {TITLES[2]}\n')   # J5: tiêu đề chính; Q3: mọi tiêu đề ≤ 60 ký tự; thumbnail mặc định Test & Compare T-B ghi ở PACKAGING-BRIEF
 srt = f"{O}/{TL['id']}.en.srt"
 if os.path.exists(srt): shutil.copy(srt, f'{D}/{TL["id"]}.en.srt')
 files = [f for f in [f'{O}/{TL["id"]}-{V}-master.mp4'] + [f'{O}/shorts/{TL["id"]}-short-{s["id"]}.mp4' for s in TL['shorts']] + [f'{D}/{n}' for n in (f'{TL["id"]}.en.srt', 'description.en.txt', 'nguon-binh-luan-ghim.en.txt', 'titles.txt', 'PACKAGING-BRIEF.md', 'nen-1.jpg', 'nen-2.jpg', 'nen-3.jpg')] if os.path.exists(f)]
