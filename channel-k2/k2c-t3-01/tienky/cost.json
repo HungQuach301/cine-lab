@@ -1,0 +1,58 @@
+{
+ "note": "Chi phí phiên Tiền kỳ T3 (thay cost.jsonl vì lệnh chỉ cho ghi tienky/*.json). Không ghi COST-LEDGER.csv (ngoài vùng) — P chép.",
+ "claude_api": {
+  "cap_usd": 2.0,
+  "model_pinned": "claude-haiku-5-5",
+  "calls": [
+   {
+    "tag": "gap-gibraltar",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.0015383900000000002
+   },
+   {
+    "tag": "comments-6Le4lWqk9XQ",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.00594456
+   },
+   {
+    "tag": "comments-2J1Ro-XCF2A",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.00814906
+   },
+   {
+    "tag": "comments-c3G16DCoiFc",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.006047459999999999
+   }
+  ],
+  "total_usd": 0.02168
+ },
+ "youtube_data_api": {
+  "cap_units": 300,
+  "total_units": 294,
+  "by_endpoint": {
+   "channels": 4,
+   "search": 200,
+   "videos": 5,
+   "commentThreads": 3,
+   "playlistItems": 82
+  },
+  "n_calls": 96,
+  "http_non200": []
+ },
+ "elevenlabs_chars": 0,
+ "websearch": "~10 lượt (không thuộc quota YouTube)",
+ "subagents": "2 phiên phụ (nguồn lịch sử; giấy phép tài sản) — token trong phiên Claude Code, không qua API trả tiền"
+}
