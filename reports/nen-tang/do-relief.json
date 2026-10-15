@@ -1,0 +1,18 @@
+{
+ "ngay": "2026-10-15",
+ "may": "cine-lab-av: 4 vCPU Xeon 2.8 GHz, 15 GB RAM, không GPU; WebGL = ANGLE/SwiftShader (scripts/common/webgl_probe.js)",
+ "khung": "cuộn K2V4, đoạn H (hero h_hook relief/map, nền erie SHA khớp V2), 1920×1080, SPP2, mã dựng hiện hành (hero.js --only), không đổi mã",
+ "ket_qua": [
+  {"cau_hinh": "1 tiến trình, 24 khung liền 120–143", "s_khung_meta": 1.98, "dong_ho_s": 50.1},
+  {"cau_hinh": "4 tiến trình song song, mỗi tiến trình 24 khung liền", "s_khung_moi_tien_trinh": 6.37, "thong_luong_s_khung": 1.65, "dong_ho_s": 158.7},
+  {"cau_hinh": "1 tiến trình, chỉ nền địa hình (bỏ regions/routes/rings/places), 24 khung liền", "s_khung_meta": 1.91, "dong_ho_s": 47.4},
+  {"cau_hinh": "1 tiến trình, SPP1, 24 khung liền", "s_khung_meta": 1.38, "dong_ho_s": 35.4},
+  {"cau_hinh": "1 tiến trình, 4 khung rải 24/120/240/340 (cách đo V4)", "s_khung_meta": 4.31, "dong_ho_s": 20.6},
+  {"cau_hinh": "2 tiến trình, 4 khung rải", "s_khung_moi_tien_trinh": 6.18, "thong_luong_s_khung": 3.66},
+  {"cau_hinh": "4 tiến trình, 4 khung rải", "s_khung_moi_tien_trinh": 10.55, "thong_luong_s_khung": 3.07},
+  {"cau_hinh": "1 tiến trình, 960×540 SPP2, 4 khung rải", "s_khung_meta": 2.36},
+  {"cau_hinh": "1 tiến trình, 1080p SPP1, 4 khung rải", "s_khung_meta": 2.80}
+ ],
+ "dung_lai_nen": {"tai_dem_GB": 3.2, "tai_phut": 7, "tinh_s": 147, "sha_khop_v2": "4/4"},
+ "khung_jpg_MB": 0.61
+}
