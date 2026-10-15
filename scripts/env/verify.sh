@@ -21,6 +21,11 @@ TV=$(node -p "require('$SH/node_modules/three/package.json').version" 2>/dev/nul
 LV=$(node -p "require('$SH/package-lock.json').packages['node_modules/three'].version" 2>/dev/null)
 [ -n "$TV" ] && [ "$TV" = "$LV" ] && ok "three.js $TV (design/cong3/shared/node_modules, khớp package-lock)" \
   || ko "three.js" "thiếu hoặc lệch package-lock (có: ${TV:-không}, lock: $LV) — chạy: (cd design/cong3/shared && npm ci)"
+$CINE_PY -c "import tifffile, shapefile" 2>/dev/null && ok "Python chính: tifffile, pyshp (relief_build.py)" \
+  || ko "tifffile/pyshp" "thiếu — chạy: /opt/cine/bin/pip install tifffile pyshp"
+K2="$(cd "$(dirname "$0")/../.." && pwd)/design/k2v"
+node -e "require('$K2/node_modules/d3-geo/package.json');require('$K2/node_modules/topojson-client/package.json')" 2>/dev/null && ok "k2v node_modules (d3-geo, topojson, atlas)" \
+  || ko "k2v node_modules" "thiếu — chạy: (cd design/k2v && npm ci)"
 ls /opt/pw-browsers 2>/dev/null | grep -q chromium && ok "Chromium (Playwright)" || ko "Chromium" "chưa tải — kiểm tên miền playwright"
 
 # Mạng

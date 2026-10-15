@@ -223,7 +223,7 @@ Mỗi đoạn khai:
 ## 13. Gói phát hành: Shorts và thumbnail (chủ dự án, 10/10/2026)
 - **Tập 8:** phát hành **một** Short duy nhất (S2 "1954: a machine that translated 250 words"); S1, S3 bỏ khỏi gói (không dựng lại, không đẩy LFS). Thumbnail T1/T2 hiện có giữ nguyên.
 - **Từ tập 9: mỗi tập 2 Shorts** (đặc tả `shorts:` chỉ 2 mục; QC Q10/Q22 áp cho 2 Short đó).
-- **Sửa 15/10/2026 (phiên Nền tảng, chờ chủ dự án duyệt) — áp từ tập kế tiếp, thay dòng "2 Shorts" ở trên và ở §14 bước 5:**
+- **Sửa 15/10/2026 (phiên Nền tảng; chủ dự án duyệt 15/10, NT K2) — áp từ tập kế tiếp, thay dòng "2 Shorts" ở trên và ở §14 bước 5:**
   - **Mỗi tập 1 Short** (đặc tả `shorts:` chỉ 1 mục; QC Q10/Q22 áp cho Short đó), thống nhất với kênh 2 (quyết định 13/10 22:17, `docs/BIBLE-KENH2.md` §5).
   - **Gói: master, 1 Short, `.srt`, mô tả, `nguon-binh-luan-ghim.en.txt`, 3 tiêu đề, `PACKAGING-BRIEF.md` + 2–3 ảnh nền không chữ, `SHA256SUMS.txt`.** Chủ dự án tự làm thumbnail theo brief.
   - **Mô tả ≤ 5 000 ký tự** (ký tự Unicode — giới hạn YouTube): chương, miễn trừ, nguồn ngắn và câu dẫn tới bình luận ghim. **Nguồn đầy đủ** (URL + ngày truy cập, bản ghi tư liệu, giấy phép) đặt ở **bình luận ghim** (≤ 10 000 ký tự). Mô tả tập 8 đo được 4 021 ký tự (đạt).

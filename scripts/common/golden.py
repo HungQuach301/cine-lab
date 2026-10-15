@@ -11,7 +11,7 @@ Không sửa mã dựng; chỉ gọi scripts/k2|ll/{prep.py,ll.py,hero.js,render
 
 Số đo mỗi ca: pHash 64 bit (DCT 32×32 → 8×8, Hamming — cùng cách scripts/k2/lod_test.py), SSIM ảnh xám (Gauss σ 1,5),
 lệch tuyệt đối TB (0–255), tỉ lệ điểm ảnh lệch > 24 mức, và các ô lệch trên lưới 16×9 (ô có > 3 % điểm ảnh lệch > 24 → vùng đổi).
-Kết luận: KHỚP khi Hamming ≤ 6, SSIM ≥ 0,90 và không có ô lệch; LỆCH CỤC BỘ khi hai điều đầu đạt nhưng có ô lệch (chữ, nhãn, vật nhỏ
+Kết luận (ngưỡng TẠM, chủ dự án 15/10 NT K7 — chốt sau 3 lần chạy): KHỚP khi Hamming ≤ 6, SSIM ≥ 0,90 và không có ô lệch; LỆCH CỤC BỘ khi hai điều đầu đạt nhưng có ô lệch (chữ, nhãn, vật nhỏ
 đổi — pHash một mình KHÔNG bắt được, đã thấy ở lần chạy đầu); LỆCH khi còn lại. Ngưỡng tạm, chỉnh sau 3 lần chạy có số đo; master đã qua
 yuv420p crf 16 nên không thể giống bit. Không chặn gì: báo để P/chủ dự án xem sheet.jpg (tham chiếu | mới | diff ×4).
 """
@@ -28,8 +28,8 @@ FPS = 24
 # Ca cố định. seg = đoạn; f = khung trong đoạn (shot cảnh 3D, ≈ 2 s sau đầu shot — dựng tuần tự từ khung 0 nên khung sớm = nhanh; cách ranh giới shot ≥ 1,5 s; không footage/ảnh ngoài git).
 CASES = {
     'steel': dict(kind='k2', episode='channel-k2/k2g-ep01/episode.yaml', seg='01', f=48, spp=4,
-                  # lời Steel: align.json chưa từng được commit cạnh vo/; bản sao duy nhất trong repo nằm ở bộ dữ liệu kiểm của K (chỉ đọc)
-                  align_from='checks/ll/fixtures/k2g01/vo', no_repeat_check=True,
+                  # align.json Steel chép vào channel-k2/k2g-ep01/vo/ (NT duyệt 15/10 K4); trước đó chỉ có ở checks/ll/fixtures/k2g01/vo/
+                  no_repeat_check=True,
                   ref=dict(lfs_branch='release-k2g-ep01-v1', lfs_path='k2g-ep01-v1-master.mp4')),
     't1': dict(kind='k2', episode='channel-k2/k2c-t1-06/episode.yaml', seg='00', f=48, spp=4,
                ref=dict(lfs_branch='release-k2c-t1-06-v1', lfs_path='k2c-t1-06-v1-master.mp4')),

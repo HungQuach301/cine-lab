@@ -1,6 +1,6 @@
 # VÙNG TỆP — loại phiên nào được sửa tệp nào
 
-> Phiên Nền tảng soạn ngày 15/10/2026. **Chờ chủ dự án duyệt.** Bảng tổng hợp từ CLAUDE.md (mục "Vai trò"), KE-HOACH mục 5.3 và cách các phiên đã làm tới 14/10. Khi lệnh giao ghi khác, lệnh thắng, nhưng phải ghi rõ trong khối điều lệ (`docs/SESSION-CHARTER.md`).
+> Phiên Nền tảng soạn ngày 15/10/2026. **Chủ dự án duyệt 15/10 (NT K2).** Bảng tổng hợp từ CLAUDE.md (mục "Vai trò"), KE-HOACH mục 5.3 và cách các phiên đã làm tới 14/10. Khi lệnh giao ghi khác, lệnh thắng, nhưng phải ghi rõ trong khối điều lệ (`docs/SESSION-CHARTER.md`).
 
 ## 1. Ký hiệu
 - **S** = được sửa · **+** = chỉ ghi thêm ở cuối, mã dòng `<tiền tố>-<số>` · **R** = chỉ đọc · **✗** = không đọc mã (chỉ chạy công cụ) · `<tập>` = thư mục của tập được giao.

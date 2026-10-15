@@ -12,9 +12,13 @@
 | Python | chính `/opt/cine/bin/python` (3.13); Blender `/opt/bpy/bin/python`; tách nền: venv `/var/tmp/cine-out/segvenv` (tạo lại mỗi container) | CLAUDE.md, `design/k2v/README.md` |
 | Container | tạm thời: mọi thứ ngoài git mất khi container bị thu hồi (cache relief, footage, trọng số, `/var/tmp/cine-out`) | — |
 
-**Gói còn thiếu trong môi trường (phát hiện 15/10, cài tay mỗi container mới cho tới khi `scripts/env` được sửa):**
+**Gói từng thiếu (phát hiện 15/10; đã thêm vào `scripts/env/setup.sh` + `verify.sh` theo NT K5 — container dựng bằng setup cũ vẫn phải cài tay):**
 - `/opt/cine/bin/python -m pip install tifffile pyshp` — `scripts/k2/relief_build.py` cần (ghép DEM GeoTIFF, đọc shapefile Natural Earth). Thiếu thì dựng nền relief lỗi `ModuleNotFoundError`.
 - `(cd design/cong3/shared && npm ci)` và `(cd design/k2v && npm ci)` — three.js 0.180 và dữ liệu bản đồ. `verify.sh` báo FAIL three.js cho tới khi chạy.
+
+## 1b. GPU — HOÃN (chủ dự án 15/10, NT K6)
+- Phương án máy render có GPU (`reports/NEN-TANG-BAO-CAO.md` §1.4 (a)) **hoãn**. Mọi phiên dựng bằng SwiftShader trên 4 vCPU như hiện hành; ước G1 theo §7.
+- Khi mở lại: (1) máy Linux có GPU NVIDIA chạy `claude remote-control` trong thư mục repo; (2) phiên V sửa cờ Chromium ghim cứng `--use-angle=swiftshader` ở `scripts/k2/hero.js:38` và `scripts/ll/hero.js:13` (theo biến môi trường); (3) `node scripts/common/webgl_probe.js` phải hiện tên GPU; (4) so khung với SwiftShader bằng `scripts/common/golden.py` trước khi dùng cho tập.
 
 ## 2. Dựng lại cache ngoài git (`K2V_CACHE`, mặc định `/var/tmp/cine-out/k2v-cache`)
 | Tài sản | Lệnh | Giờ đo | Kiểm |
@@ -52,7 +56,7 @@
 
 ## 5. Giọng ElevenLabs
 - **Số viết bằng chữ trong lời gửi TTS** (vd "four thousand four hundred forty", không "4,440"): ElevenLabs đọc sai số có dấu phẩy nghìn (commit `96da659`, T1 G2; ASR small.en + medium.en xác nhận). Năm đọc bằng chữ được ASR chấp nhận (BAI-HOC-LL #19).
-- Cache lời theo băm văn bản (`vo/<id>-<đoạn>.{mp3,txt,align.json}`). **Commit cả `align.json`**: Steel thiếu `align.json` trong `channel-k2/k2g-ep01/vo/`, bản duy nhất nằm ở `checks/ll/fixtures/k2g01/vo/` (phát hiện khi dựng khung vàng 15/10). Thiếu thì `prep` sẽ thu lại (tốn ký tự).
+- Cache lời theo băm văn bản (`vo/<id>-<đoạn>.{mp3,txt,align.json}`). **Commit cả `align.json`**: Steel từng thiếu `align.json` trong `channel-k2/k2g-ep01/vo/` (bản duy nhất ở `checks/ll/fixtures/k2g01/vo/`, phát hiện 15/10) — đã chép sang theo NT K4; `prep` offline ra 1 030,125 s đúng master. Thiếu thì `prep` sẽ thu lại (tốn ký tự).
 - Bộ đếm tài khoản tính ≈ 0,44–0,8 ký tự/ký tự gửi (T1: 30 360 gửi; Steel: 17 009 gửi → +13 718 bộ đếm). Ghi cả hai vào `COST-LEDGER.csv`.
 
 ## 6. Git, LFS, media
@@ -71,5 +75,5 @@
 | Cuộn K2V4 1080p toàn bộ (65 s) | cảnh 1,79 / toàn bộ 2,12 s/khung, 55,2 phút | `K2V4-BAO-CAO.md` §6 |
 | T1 1080p (15:41) | cảnh SPP4 11 giờ 41 phút; tổng ≈ 15,5 giờ + nháp 4,8 giờ | `TAP-K2C-T1-06-G2.md` |
 | Steel 1080p (17:10) | ≈ 18 giờ tổng | `TAP-K2G-01-G2.md` |
-| Khung vàng 4 ca | xem `reports/NEN-TANG-BAO-CAO.md` §3 | đo 15/10 |
+| Khung vàng 4 ca | 24,5 phút (`scripts/common/golden.py run`); ngưỡng pHash ≤ 6, SSIM ≥ 0,90, 0 ô lệch là **tạm** — chốt sau 3 lần chạy (chủ dự án 15/10, NT K7) | `reports/NEN-TANG-BAO-CAO.md` §3 |
 - **Tất định của cảnh 3D:** `hero.js` chỉ cho cùng khung khi dựng **tuần tự từ khung 0**. Dựng lẻ `--only N` ở cảnh có người đi bộ (`k2c106/corner`) lệch vùng người tới 244 mức (đo 15/10). Khi cần đúng một khung (khung vàng, sửa lẻ), dựng 0..N.

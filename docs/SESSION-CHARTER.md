@@ -1,6 +1,6 @@
 # ĐIỀU LỆ PHIÊN — mẫu bắt buộc cho mọi phiên Claude Code trên repo
 
-> Phiên Nền tảng soạn ngày 15/10/2026, theo lệnh chủ dự án ngày 13/10 (phiên Nền tảng). **Chờ chủ dự án duyệt** trước khi áp. Nguyên tắc tối cao (CLAUDE.md, 06/10) đứng trên mọi mục dưới đây.
+> Phiên Nền tảng soạn ngày 15/10/2026, theo lệnh chủ dự án ngày 13/10 (phiên Nền tảng). **Chủ dự án duyệt 15/10 (NT K2) — áp cho mọi phiên từ 15/10.** Nguyên tắc tối cao (CLAUDE.md, 06/10) đứng trên mọi mục dưới đây.
 > Đọc kèm: `docs/FILE-ZONES.md` (vùng tệp của từng loại phiên) và `docs/RUNBOOK-MOI-TRUONG.md` (môi trường, nguồn tư liệu, giờ máy).
 
 ## 1. Cách dùng
@@ -23,6 +23,7 @@ Trần chi phí:      Claude API $<n> (ghim model <claude-…>, ghi cost.jsonl) 
                    (quyền, mạng, dữ liệu nguồn sai, luật K mâu thuẫn); (4) cuối mốc/cổng có quy định DỪNG.
 KHÔNG dừng hỏi lại giữa chừng. Câu hỏi không chặn thì tự chọn phương án an toàn nhất cho chất lượng, ghi lý do vào báo cáo,
 và đưa vào mục "Việc chờ chủ dự án".
+Preflight:         BẮT BUỘC — bash tools/preflight.sh --range origin/main..HEAD ĐẠT (kèm lock.py --verify KHỚP) trước mỗi lần đẩy
 Merge:             <phiên này KHÔNG merge | P merge sau duyệt, chỉ giữa hai tập>
 ```
 
@@ -44,7 +45,7 @@ Merge:             <phiên này KHÔNG merge | P merge sau duyệt, chỉ giữa
 4. **Tệp dùng chung chỉ ghi thêm.** Không sửa, không xoá, không sắp lại dòng của phiên khác. Mỗi dòng mới có mã `<tiền tố>-<số>` tăng dần trong phiên (ví dụ `NT-01`, `T2-03`). Bảng có cột "#" thì ghi mã vào cột đó. Hai phiên cùng ghi thêm vào cuối một tệp sẽ xung đột khi merge; xung đột kiểu này P giải bằng cách giữ cả hai khối, theo thứ tự thời gian.
 5. **Chi phí:** mỗi lần gọi Claude API ghi một dòng vào `<thư mục việc>/cost.jsonl` (`model`, `served`, `tag`, `usd`). Cuối phiên ghi **một dòng** vào `COST-LEDGER.csv` (`docs/COST-LEDGER-HUONG-DAN.md`).
 6. **Đóng băng phiên bản (phiên tập):** ghi `VERSIONS.yaml` lúc G1 (`scripts/common/versions.py record`), kiểm lúc G2 (`versions.py check`). Lệch → nêu tên trong báo cáo G2, không tự ghi đè.
-7. **Trước mỗi lần đẩy:** `bash tools/preflight.sh --range origin/main..HEAD` phải ĐẠT (hoặc cài hook, xem đầu tệp `tools/preflight.sh`).
+7. **Preflight BẮT BUỘC cho mọi phiên (chủ dự án 15/10, NT K2):** trước mỗi lần đẩy, `bash tools/preflight.sh --range origin/main..HEAD` phải ĐẠT (gồm `checks/lock.py --verify` KHỚP); nên cài hook ngay đầu phiên (`ln -sf ../../tools/preflight.sh .git/hooks/pre-commit` và `pre-push`). Báo cáo cuối phiên ghi kết quả preflight. Bỏ qua (`--no-verify`) chỉ khi chủ dự án cho phép, ghi lý do.
 8. **Media:** tệp > 30 MB không gửi qua giao diện; media trung gian, footage, ảnh gốc, trọng số ở ngoài git, chỉ ghi SHA. LFS chỉ cho gói phát hành (`tools/lfs-allow.txt`).
 9. **Cuối phiên:** commit → đẩy nhánh của phiên → báo cáo tiếng Việt gồm: kết quả, số đo thật, chỉ số trong ±5 % quanh ngưỡng, chi phí thật, tệp đã sửa, xung đột khi ghép thử với `main` và các nhánh đang chạy, **việc chờ chủ dự án**.
 10. **Tiến trình nền:** chạy bằng công cụ chạy nền của harness, không dùng `&`; dừng tiến trình bằng PID, không dùng `pkill -f` (BAI-HOC-LL #24, #38, #41).

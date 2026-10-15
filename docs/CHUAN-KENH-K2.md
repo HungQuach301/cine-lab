@@ -1,6 +1,6 @@
 # CHUẨN KÊNH — Kênh 2 "Moving Parts"
 
-> Phiên Nền tảng soạn ngày 15/10/2026 theo lệnh chủ dự án ngày 13/10 (mục 8). **Chờ chủ dự án duyệt**; sau khi duyệt, P ghi `AUTHORSHIP.md`.
+> Phiên Nền tảng soạn ngày 15/10/2026 theo lệnh chủ dự án ngày 13/10 (mục 8). **Chủ dự án duyệt 15/10 (NT K2)**, ghi `AUTHORSHIP.md`.
 > **Nguyên tắc tối cao (CLAUDE.md, 06/10/2026)** đứng trên mọi mục: chất lượng và sự liền mạch không bao giờ được hy sinh.
 
 ## 0. Thứ bậc tài liệu
