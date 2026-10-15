@@ -33,7 +33,7 @@ def spec_times(E, sg):
     for j, sh in enumerate(SH):
         off = num(sh.get('at', 0)) or 0.0; T.add(off); p = sh.get('p') or {}; h = HZ.get(p.get('hero')) or {}; o = h.get('opt') or {}
         end = num(SH[j + 1].get('at')) if j + 1 < len(SH) else num(sg.get('dur'))
-        f0 = (num(p.get('frame0', 0)) or 0.0) / 24; sp = num(p.get('speed', 1)) or 1.0
+        f0 = (num(p['frame0'] if 'frame0' in p else p.get('off', 0)) or 0.0) / 24; sp = num(p.get('speed', 1)) or 1.0   # G2 (K 1.11 O5): ll.load đổi frame0 → off; đặc tả đã giải chỉ còn off
         def add(v, base=off, f0=f0, sp=sp, end=end):   # T2 G1b: mốc opt là giờ CẢNH; cảnh dùng lại (frame0, speed) → giờ đoạn = at + (τ − frame0/24)/speed, chỉ tính trong khung shot
             if num(v) is None or v < f0: return
             t = base + (v - f0) / sp
@@ -48,7 +48,7 @@ def spec_times(E, sg):
         for w in o.get('walkers', []): add((w.get('t') or [None])[0])
         for q in o.get('props', []): add(q.get('t'))
         if isinstance(o.get('close'), dict): add((o['close'].get('at') or [None])[0])   # V4: tầng gần của zoom nhiều tầng hoà vào
-        for x in o.get('hl', []) or []:   # T2 G1b: dải tô dòng trang tài liệu (photo/doc: at [t0,t1]) · vùng tô quốc gia trên địa cầu (map/globe: at)
+        for x in o.get('hl') if isinstance(o.get('hl'), list) else []:   # (K 1.11 O5: opt.hl dạng số của T1 → bỏ qua) T2 G1b: dải tô dòng trang tài liệu (photo/doc: at [t0,t1]) · vùng tô quốc gia trên địa cầu (map/globe: at)
             if isinstance(x, dict): add(x['at'][0] if isinstance(x.get('at'), list) else x.get('at'))
         for x in o.get('arcs', []) or []: add((x.get('draw') or [None])[0] if isinstance(x.get('draw'), list) else x.get('draw'))   # cung đại vòng vẽ dần (map/globe)
         for x in o.get('cols', []) or []:

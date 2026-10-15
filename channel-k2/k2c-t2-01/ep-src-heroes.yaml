@@ -1399,24 +1399,35 @@ heroes:
         tilt: 52
         head: 10
   d05_unions:
-    hero: photo/doc
-    cam: push
+    hero: photo/print
+    cam: detail
     opt:
       page: /cache/t2-fr-act-p2.json
-      paper: true
       hl:
       - i: 0
         at:
-        - '@unions-0.4'
-        - '@unions+1.2'
+        - '@five'
+        - '@five+1.4'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_unions2:
+    hero: photo/print
+    cam: push
+    opt:
+      page: /cache/t2-fr-act-p2.json
+      hl:
       - i: 1
         at:
         - '@petitioned'
         - '@petitioned+1.4'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   g05_china:
     hero: map/globe
     cam: orbit
@@ -1451,18 +1462,35 @@ heroes:
         color: '#8E7CC3'
         h: 0.5
   d05_det:
-    hero: photo/doc
+    hero: photo/print
+    cam: push
+    opt:
+      page: /cache/t2-fr-det-p1.json
+      hl:
+      - i: 1
+        at:
+        - '@unreasonable-0.4'
+        - '@unreasonable+1.0'
+        opacity: 0.85
+        color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_det2:
+    hero: photo/print
     cam: detail
     opt:
       page: /cache/t2-fr-det-p1.json
-      paper: true
       hl:
       - i: 0
         at:
-        - '@unreasonable'
+        - '@burdens'
         - '@burdens+1.4'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   r05_fees:
     hero: relief/map
     opt:
@@ -1514,11 +1542,10 @@ heroes:
         tilt: 52
         head: -10
   d05_aim:
-    hero: photo/doc
+    hero: photo/print
     cam: detail
     opt:
       page: /cache/t2-fr-act-p5.json
-      paper: true
       hl:
       - i: 0
         at:
@@ -1526,12 +1553,24 @@ heroes:
         - '@discourage+1.6'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_aim2:
+    hero: photo/print
+    cam: push
+    opt:
+      page: /cache/t2-fr-act-p5.json
+      hl:
       - i: 1
         at:
         - '@press'
         - '@press+1.6'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -1551,11 +1590,10 @@ heroes:
         name: Beijing
       focus: beijing
   d05_susp:
-    hero: photo/doc
+    hero: photo/print
     cam: push
     opt:
       page: /cache/t2-fr-susp-p1.json
-      paper: true
       hl:
       - i: 0
         at:
@@ -1563,18 +1601,24 @@ heroes:
         - '@light+1.6'
         opacity: 0.85
         color: '#F5B83D'
-      - i: 2
-        at:
-        - '@suspended'
-        - '@suspended+1.4'
-        opacity: 0.85
-        color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
+  d05_susp2:
+    hero: photo/print
+    cam: detail
+    opt:
+      page: /cache/t2-fr-susp-p1.json
+      hl:
       - i: 1
         at:
-        - '@ninth'
-        - '@ninth+1.2'
+        - '@suspended+0.3'
+        - '@suspended+1.5'
         opacity: 0.85
         color: '#F5B83D'
+      push: 0.45
+      grade: info
+      tone: '#23262c'
   r05_cost:
     hero: relief/map
     opt:

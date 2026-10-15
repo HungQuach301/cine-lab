@@ -224,6 +224,11 @@ class T(unittest.TestCase):
         self.assertIn(5.0, T); self.assertNotIn(12.0, T)   # shot 1: 0–10 s; mốc 12 thuộc giờ cảnh, không phải giờ đoạn
         self.assertIn(14.0, T)                                # shot 2: 10 + (12 − 10)/0,5
         self.assertNotIn(50.0, T); self.assertNotIn(40.0, T)  # 10 + (30 − 10)/0,5 = 50 > hết đoạn
+        # K 1.11 O5: đặc tả đã giải (ll.load) đổi frame0 → off — đọc off khi không có frame0; opt.hl dạng số (T1) bỏ qua, không lỗi
+        sg2 = {'dur': 30, 'shots': [{'at': 0, 'p': {'hero': 'h'}}, {'at': 10, 'p': {'hero': 'h', 'off': 240, 'speed': 0.5}}]}
+        self.assertEqual(r.spec_times(E, sg2), T)
+        E3 = {'heroes': {'g': {'opt': {'hl': 2}}}}
+        self.assertEqual(r.spec_times(E3, {'dur': 5, 'shots': [{'at': 0, 'p': {'hero': 'g'}}]}), [0.0])
 
 
 if __name__ == '__main__':
