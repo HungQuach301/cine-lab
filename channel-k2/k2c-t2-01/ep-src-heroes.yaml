@@ -196,35 +196,15 @@ heroes:
         dist: 22
         tilt: 62
         head: 4
-  r01_liberty:
-    hero: relief/map
+  f_liberty:
+    hero: footage/clip
     opt:
-      relief: sfbay
-      palette: sepia
-      pins:
-      - id: lib
-        at:
-        - -122.4
-        - 37.88
-      cam:
-      - t: 0
-        lon: -122.405
-        lat: 37.865
-        dist: 7
-        tilt: 66
-        head: -40
-      - t: '@emergency'
-        lon: -122.402
-        lat: 37.866
-        dist: 6
-        tilt: 67
-        head: -10
-      - t: '@ships#2+1'
-        lon: -122.4
-        lat: 37.867
-        dist: 5.5
-        tilt: 68
-        head: 12
+      file: /var/tmp/cine-out/k2v-cache/t2src/nara-39018/gov.archives.arc.39018.mpeg
+      sha256: fee7371b7d004dfc6c208b070461d41c3d75d459ac23df8ff5c12050c13c0357
+      ss: 72.3
+      grade: sepia
+      clean: true
+      ivtc: true
   r01_days:
     hero: relief/map
     opt:
@@ -278,14 +258,14 @@ heroes:
       cam:
       - t: 0
         lon: -122.315
-        lat: 37.84
-        dist: 28
+        lat: 37.86
+        dist: 32
         tilt: 60
         head: 0
       - t: 12
         lon: -122.31
-        lat: 37.85
-        dist: 25
+        lat: 37.865
+        dist: 29
         tilt: 61
         head: 3
   p01_owens:
@@ -423,7 +403,7 @@ heroes:
         - '@Vancouver'
         style: dashed
         color: '#c9a24a'
-        w: 6
+        w: 9
         flow: 2
       - id: foreign
         pts:
@@ -442,7 +422,7 @@ heroes:
         - '@foreign+2.4'
         style: dashed
         color: '#8a7a62'
-        w: 6
+        w: 9
         flow: 3
       walkers:
       - id: ship
@@ -455,17 +435,23 @@ heroes:
         - 1
       cam:
       - t: 0
-        lon: -123.4
-        lat: 48.0
-        dist: 560
-        tilt: 36
+        lon: -123.2
+        lat: 48.2
+        dist: 420
+        tilt: 38
         head: 0
       - t: '@rail'
-        lon: -123.4
-        lat: 48.05
-        dist: 540
-        tilt: 37
+        lon: -123.0
+        lat: 48.55
+        dist: 380
+        tilt: 40
         head: 2
+      - t: '@Vancouver+0.6'
+        lon: -123.1
+        lat: 48.75
+        dist: 400
+        tilt: 40
+        head: 0
       - t: '@foreign'
         lon: -127.8
         lat: 53.4
@@ -478,6 +464,25 @@ heroes:
         dist: 1000
         tilt: 30
         head: -2
+      pins:
+      - id: rail
+        at:
+        - -122.55
+        - 48.45
+      - id: fship
+        at:
+        - -125.5
+        - 51.2
+      regions:
+      - id: ak
+        state: Alaska
+        color: '#F2C14E'
+        at:
+        - '@foreign'
+        - '@foreign+1.0'
+        lift: 0.6
+        fill: 0.22
+        edgeW: 3
   r02_alaska2:
     hero: relief/map
     opt:
@@ -819,8 +824,8 @@ heroes:
         layout: row
         n: 1
         t:
-        - '@global-0.3'
-        - '@global'
+        - 0.4
+        - 0.5
         r: 1.5
       - id: us
         at:
@@ -921,6 +926,12 @@ heroes:
         dist: 44
         tilt: 57
         head: -4
+      - t: '@adds#2'
+        lon: -75.26
+        lat: 39.91
+        dist: 43
+        tilt: 57
+        head: -5
       - t: '@truck'
         lon: -75.28
         lat: 39.93
@@ -1210,6 +1221,22 @@ heroes:
         at:
         - 127.2
         - 36.2
+      - id: pol
+        at:
+        - 128.3
+        - 35.85
+      - id: hi1
+        at:
+        - 129.36
+        - 36.02
+      - id: hi2
+        at:
+        - 129.42
+        - 35.5
+      - id: hi3
+        at:
+        - 129.9
+        - 35.3
       cam:
       - t: 0
         lon: 128.6
@@ -1289,25 +1316,25 @@ heroes:
       cam:
       - t: 0
         lon: 129.4
-        lat: 35.1
+        lat: 35.3
         dist: 110
         tilt: 48
         head: 0
       - t: '@thirty-six'
         lon: 129.45
-        lat: 35.12
+        lat: 35.32
         dist: 100
         tilt: 50
         head: 4
       - t: '@inflation'
         lon: 129.5
-        lat: 35.14
+        lat: 35.34
         dist: 95
         tilt: 51
         head: 8
       - t: '@shipbuilding#4+1'
         lon: 129.5
-        lat: 35.15
+        lat: 35.35
         dist: 90
         tilt: 52
         head: 10
@@ -1322,6 +1349,8 @@ heroes:
         at:
         - '@unions-0.4'
         - '@unions+1.2'
+        opacity: 0.85
+        color: '#F5B83D'
   g05_china:
     hero: map/globe
     cam: orbit
@@ -1364,8 +1393,10 @@ heroes:
       hl:
       - i: 0
         at:
-        - '@burdens'
+        - '@unreasonable'
         - '@burdens+1.4'
+        opacity: 0.85
+        color: '#F5B83D'
   r05_fees:
     hero: relief/map
     opt:
@@ -1418,7 +1449,7 @@ heroes:
         head: -10
   d05_aim:
     hero: photo/doc
-    cam: drift-l
+    cam: detail
     opt:
       page: /cache/t2-fr-act-p5.json
       paper: true
@@ -1427,6 +1458,8 @@ heroes:
         at:
         - '@discourage'
         - '@discourage+1.6'
+        opacity: 0.85
+        color: '#F5B83D'
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -1455,21 +1488,83 @@ heroes:
         at:
         - '@light'
         - '@light+1.6'
+        opacity: 0.85
+        color: '#F5B83D'
       - i: 1
         at:
         - '@ninth'
         - '@ninth+1.2'
-  d05_nftc:
-    hero: photo/doc
-    cam: drift-r
+        opacity: 0.85
+        color: '#F5B83D'
+  r05_cost:
+    hero: relief/map
     opt:
-      page: /cache/t2-nftc-p1.json
-      paper: true
-      hl:
-      - i: 0
+      relief: eastus
+      palette: natural
+      camGround: true
+      pins:
+      - id: q1
         at:
+        - -75.05
+        - 39.45
+      - id: q2
+        at:
+        - -75.3
+        - 39.7
+      cols:
+      - id: cost
+        at:
+        - -75.15
+        - 39.88
+        kind: coins
+        n: 3
+        t:
         - '@cost'
-        - '@cost+1.6'
+        - '@cost+1.2'
+        r: 1.4
+        color: '#8E7CC3'
+      routes:
+      - id: bay
+        pts:
+        - - -74.9
+          - 38.95
+        - - -75.05
+          - 39.3
+        - - -75.35
+          - 39.6
+        - - -75.15
+          - 39.88
+        draw:
+        - '@letter'
+        - '@letter+3'
+        style: dashed
+        color: '#8E7CC3'
+        w: 5
+      cam:
+      - t: 0
+        lon: -75.0
+        lat: 39.4
+        dist: 90
+        tilt: 52
+        head: -25
+      - t: '@extended'
+        lon: -75.1
+        lat: 39.62
+        dist: 70
+        tilt: 54
+        head: -15
+      - t: '@cost'
+        lon: -75.14
+        lat: 39.8
+        dist: 40
+        tilt: 58
+        head: -8
+      - t: '@As#1'
+        lon: -75.15
+        lat: 39.83
+        dist: 36
+        tilt: 59
+        head: -4
   r05_philly:
     hero: relief/map
     opt:
@@ -1619,30 +1714,54 @@ heroes:
         dist: 56
         tilt: 48
         head: 3
-      - t: '@1980s'
+  r06_score2:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: natural
+      cam:
+      - t: 0
         lon: -122.3
         lat: 37.72
         dist: 52
         tilt: 50
+        head: 4
+      - t: '@1980s'
+        lon: -122.305
+        lat: 37.725
+        dist: 51
+        tilt: 50
         head: 6
-      - t: '@domestic'
+      - t: '@ties'
         lon: -122.31
         lat: 37.73
         dist: 50
         tilt: 51
         head: 2
+      - t: '@Supporters'
+        lon: -122.31
+        lat: 37.735
+        dist: 49
+        tilt: 51
+        head: -1
       - t: '@Critics'
         lon: -122.31
         lat: 37.74
         dist: 48
         tilt: 52
         head: -3
+      - t: '@theirs'
+        lon: -122.312
+        lat: 37.742
+        dist: 47
+        tilt: 52
+        head: -5
       - t: '@counts+1'
-        lon: -122.31
+        lon: -122.315
         lat: 37.745
         dist: 46
         tilt: 52
-        head: -5
+        head: -6
   r06_home:
     hero: relief/map
     opt:
@@ -1687,3 +1806,137 @@ heroes:
         dist: 5
         tilt: 60
         head: 8
+  s_launch:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: sepia
+      pins:
+      - id: y1
+        at:
+        - -122.392
+        - 37.905
+      - id: y2
+        at:
+        - -122.355
+        - 37.912
+      - id: y3
+        at:
+        - -122.318
+        - 37.918
+      cam:
+      - t: 0
+        lon: -122.355
+        lat: 37.875
+        dist: 36
+        tilt: 58
+        head: -4
+      - t: 6
+        lon: -122.35
+        lat: 37.88
+        dist: 30
+        tilt: 61
+        head: 2
+  s_share:
+    hero: map/globe
+    cam: pair
+    opt:
+      from: washington
+      to: beijing
+      places:
+      - id: usa
+        ll:
+        - -98
+        - 39
+        name: United States
+      - id: cn
+        ll:
+        - 104
+        - 35
+        name: China
+      hl:
+      - country: United States of America
+        color: '#3CC2B0'
+        at: '@America''s'
+        lift: 1
+      cols:
+      - id: us
+        at:
+        - -98
+        - 39
+        v: 0.02
+        grow:
+        - '@percent'
+        - '@percent+0.6'
+        color: '#3CC2B0'
+        r: 1.2
+  s_loop:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      cols:
+      - id: loopc
+        at:
+        - -75.4
+        - 39.7
+        kind: coins
+        layout: row
+        n: 4
+        t:
+        - 0
+        - 0.6
+        r: 1.5
+        gap: 2.35
+      pins:
+      - id: lo
+        at:
+        - -75.25
+        - 39.6
+      - id: lc
+        at:
+        - -75.1
+        - 39.7
+      routes:
+      - id: loop
+        pts:
+        - - -75.33
+          - 39.73
+        - - -75.18
+          - 39.75
+        - - -75.06
+          - 39.68
+        - - -75.14
+          - 39.58
+        - - -75.3
+          - 39.57
+        - - -75.42
+          - 39.64
+        - - -75.33
+          - 39.73
+        draw:
+        - '@few#2'
+        - '@few#2+3'
+        style: dashed
+        color: '#F2C14E'
+        w: 7
+        flow: 3
+      cam:
+      - t: 0
+        lon: -75.25
+        lat: 39.6
+        dist: 38
+        tilt: 56
+        head: 0
+      - t: '@1980s'
+        lon: -75.25
+        lat: 39.6
+        dist: 34
+        tilt: 58
+        head: 4
+      - t: '@ties'
+        lon: -75.24
+        lat: 39.6
+        dist: 32
+        tilt: 59
+        head: -4

@@ -6,7 +6,7 @@
 //   photo/print    img:'/cache/<id>.jpg', focus:[u,v] (điểm chính của ảnh, 0..1 từ trên-trái — Ken Burns tiến về đây), push: 0.18 (độ tiến),
 //                  mat: true (bìa passe-partout), surface: 'desk'|'wall', cam: [...] (ghi đè Ken Burns tự động)
 //                  neo: 'focus', 'print:bl', 'print:br', 'print:top'
-//   photo/doc      page: '/cache/<id>-pN.json' (từ k2v_assets.py doc: ảnh trang + khung highlight), hl: [{i, at:[t0,t1], color}] (quét theo dòng),
+//   photo/doc      page: '/cache/<id>-pN.json' (từ k2v_assets.py doc: ảnh trang + khung highlight), hl: [{i, at:[t0,t1], color, opacity}] (quét theo dòng; opacity mặc định 0,62 — T2 G2: 0,85 cho dòng trích cần đọc rõ),
 //                  focus: i (khung highlight máy quay tiến tới), cam: [...]
 //                  neo: 'hl<i>' (mép phải dòng cuối của highlight i), 'page:top'
 //   photo/headline paper:'Name of paper' (chữ thường, KHÔNG dùng logo/măng-sét), date:'22 Sep 2025', head:'Headline text…' (nguyên văn tít), kicker,
@@ -146,7 +146,7 @@ export const HEROES = {
     const toLocal = (u, v) => [(u - 0.5) * pw, (v - 0.5) * ph];
     for (const h of o.hl || []) { const H2 = meta.hl[h.i]; if (!H2) continue; const rows = [];
       for (const [x0, y0, x1, y1] of H2.rects) { const [a, b] = toLocal(x0 - 0.004, y0 - 0.002), [c, d] = toLocal(x1 + 0.004, y1 + 0.003);
-        const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: h.color || C.amber, transparent: true, opacity: 0.62, depthWrite: false }) /* bút dạ quang: phủ thường (Multiply quá nhạt trên giấy trắng) */);
+        const m = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.MeshBasicMaterial({ color: h.color || C.amber, transparent: true, opacity: h.opacity ?? 0.62, depthWrite: false }) /* bút dạ quang: phủ thường (Multiply quá nhạt trên giấy trắng) */);
         m.rotation.x = -Math.PI / 2; m.position.set(a, 0.02, (b + d) / 2); m.userData = { a, c, len: c - a, hz: d - b }; m.scale.set(0.0001, d - b, 1); page.add(m); rows.push(m); }
       hls.push({ h, rows }); const last = H2.rects[H2.rects.length - 1], [lx, lz] = toLocal(last[2], (last[1] + last[3]) / 2);
       anchors['hl' + h.i] = () => { const v = new THREE.Vector3(lx, 0.03, lz); page.localToWorld(v); return v; }; }

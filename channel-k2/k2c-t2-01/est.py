@@ -11,6 +11,15 @@ H = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.j
 sys.path.insert(0, os.path.join(REPO, 'scripts/k2')); import prep  # noqa: E402  (vá ll.load: chặn lặp góc máy)
 ll = prep.ll
 ll.BILL_WPS = 151.2 / 60   # Eric (K2G-01) thay cho Bill (LL)
+# G2: đã thu giọng → dùng căn chữ THẬT của ElevenLabs (vo/<id>-<đoạn>.align.json, khớp toàn văn ở dòng 2 của .txt) thay cho lời giả lập; đoạn chưa thu vẫn ước
+_fake = ll.fake_align
+def _real_align(text):
+    import glob
+    for tx in glob.glob(os.path.join(H, 'vo', '*.txt')):
+        L = open(tx).read().split('\n')
+        if len(L) > 1 and L[1].strip() == text.strip(): return json.load(open(tx[:-4] + '.align.json'))
+    return _fake(text)
+if '--uoc' not in sys.argv: ll.fake_align = _real_align
 
 
 def arg(k, d=None):
@@ -60,7 +69,7 @@ def main():
     tot = sum(s['dur'] for s in R['segments']); print(f'timeline ước: {int(tot // 60)}:{tot % 60:04.1f} ({tot:.1f} s), {sum(len(s["shots"]) for s in R["segments"])} shot → {rp}')
     for sg in R['segments']: print(f"  {sg['id']} {sg['dur']:6.1f} s  {len(sg['shots'])} shot")
     if arg('sub'):
-        mx = float(arg('max', 7)); S = {k: v for k, v in R.items() if k != 'segments'}; S['id'] = 't2-tokhung'; S['out'] = '/var/tmp/cine-out/k2v-shots/t2-tokhung'; S['segments'] = []
+        mx = float(arg('max', 7)); S = {k: v for k, v in R.items() if k != 'segments'}; S['id'] = arg('subid', 't2-tokhung'); S['out'] = '/var/tmp/cine-out/k2v-shots/' + arg('subid', 't2-tokhung'); S['segments'] = []
         for key in arg('sub').split(','):
             key, _, w = key.partition(':'); sid, i = key.split('/'); sg = next(x for x in R['segments'] if x['id'] == sid); i = int(i); sh = copy.deepcopy(sg['shots'][i])
             t0 = sh['at']; t1 = sg['shots'][i + 1]['at'] if i + 1 < len(sg['shots']) else sg['dur']; win = float(w or 0)   # "04/2:36" = cửa sổ bắt đầu 36 s sau đầu shot
@@ -72,13 +81,13 @@ def main():
             p = shift(sh['p']); p['frame0'] = int(round((a - t0) * 24 * sh['p'].get('speed', 1))) + int(sh['p'].get('frame0', 0))
             sh['p'] = p; sh['at'] = 0
             S['segments'].append(dict(id=f'{sid}-{i}' + (f'-{int(win)}' if w else ''), dur=d, shots=[sh], beats=[dict(t=0, k='cut', s='đầu shot')]))
-        sp = os.path.join(H, 'g1b', 'tokhung.yaml'); os.makedirs(os.path.dirname(sp), exist_ok=True)
+        sp = os.path.join(H, 'g1b', arg('subid', 't2-tokhung').replace('t2-', '') + '.yaml'); os.makedirs(os.path.dirname(sp), exist_ok=True)
         yaml.safe_dump(S, open(sp, 'w'), allow_unicode=True, sort_keys=False, width=200); print('đặc tả tờ khung →', sp)
     return rp
 
 
 if __name__ == '__main__':
     rp = main()
-    for cmd in (['scripts/k2/rhythm.py', rp, '--json', os.path.join(H, 'g1b', 'rhythm-g1b.json')], ['scripts/k2/footage_share.py', rp, '--json', os.path.join(H, 'g1b', 'footage-g1b.json')]):
+    for cmd in (['scripts/k2/rhythm.py', rp, '--json', os.path.join(H, 'g1b', 'rhythm-g1b.json')], ['scripts/k2/footage_share.py', rp, '--licenses', os.path.join(H, 'licenses'), '--json', os.path.join(H, 'g1b', 'footage-g1b.json')]):
         os.makedirs(os.path.join(H, 'g1b'), exist_ok=True)
         r = subprocess.run([sys.executable, os.path.join(REPO, cmd[0])] + cmd[1:], capture_output=True, text=True, cwd=REPO); print(cmd[0], 'mã', r.returncode); print(r.stdout[-1500:], r.stderr[-800:])

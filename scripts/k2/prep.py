@@ -201,6 +201,56 @@ def load_checked(path):
 
 ll.load = load_checked
 
+_check_ll = ll.check
+def check_k2(E):
+    """K2C-T2-01 (G2): kênh 2 có thêm loại số 'estimate' (nhãn ESTIMATE trong lib/k2.js, ước của một bên thứ ba, không phải dự báo) — kiểm như số thực đo."""
+    import copy
+    E2 = copy.deepcopy(E)
+    for n in (E2.get('numbers') or {}).values():
+        if n.get('kind') == 'estimate': n['kind'] = 'actual'
+    return _check_ll(E2)
+
+
+ll.check = check_k2
+
+_tts_ll = ll.tts
+def tts_k2(E, key, text, speed=1.0):
+    """K2C-T2-01 (G2): proxy cắt yêu cầu ElevenLabs sau ~30 s → đoạn > 1 900 ký tự thu thành 2–3 phần tách ở ranh giới câu,
+    mỗi phần gửi kèm previous_text/next_text (giữ ngữ điệu liền), ghép mp3 (ffmpeg concat, không mã hoá lại) và cộng bù mốc căn chữ
+    theo thời lượng thật của phần trước (ffprobe). Chữ ký cache vẫn là toàn văn đoạn → đoạn ngắn và tập cũ không đổi."""
+    if len(text) <= 1900: return _tts_ll(E, key, text, speed)
+    import base64, subprocess, tempfile, urllib.request
+    d = ll.P(E['vo_dir']); os.makedirs(d, exist_ok=True)
+    mp3, al, tx = (os.path.join(d, f'{key}.{x}') for x in ('mp3', 'align.json', 'txt'))
+    v = E['voice']; sig = hashlib.sha1(json.dumps([text, v] + ([speed] if speed != 1.0 else []), sort_keys=True).encode()).hexdigest()[:12]
+    if os.path.exists(mp3) and os.path.exists(tx) and open(tx).read().split('\n')[0] == sig: return mp3, json.load(open(al)), 0
+    S = re.split(r'(?<=[.?!"])\s+(?=[A-Z"])', text); n = -(-len(text) // 1900); parts, cur = [], ''
+    for x in S:
+        if cur and len(cur) + len(x) + 1 > len(text) / n + 120: parts.append(cur); cur = x
+        else: cur = (cur + ' ' + x).strip()
+    parts.append(cur); assert ' '.join(parts) == text, 'tách câu làm đổi chữ'
+    A = dict(characters=[], character_start_times_seconds=[], character_end_times_seconds=[]); off = 0.0; files = []; sent = 0
+    with tempfile.TemporaryDirectory() as td:
+        for i, ptxt in enumerate(parts):
+            body = dict(text=ptxt, model_id=v.get('model', 'eleven_multilingual_v2'), voice_settings=dict(stability=v.get('stability', 0.5), similarity_boost=v.get('similarity', 0.75), speed=float(speed)))
+            if i: body['previous_text'] = ' '.join(parts[:i])[-900:]
+            if i + 1 < len(parts): body['next_text'] = ' '.join(parts[i + 1:])[:900]
+            r = ll.el(f"/v1/text-to-speech/{v['id']}/with-timestamps?output_format=mp3_44100_128", body); sent += len(ptxt)
+            f = os.path.join(td, f'p{i}.mp3'); open(f, 'wb').write(base64.b64decode(r['audio_base64'])); files.append(f)
+            a = r['alignment']
+            if i:   # khoảng trắng nối hai phần
+                A['characters'].append(' '); A['character_start_times_seconds'].append(off); A['character_end_times_seconds'].append(off)
+            A['characters'] += a['characters']; A['character_start_times_seconds'] += [t + off for t in a['character_start_times_seconds']]; A['character_end_times_seconds'] += [t + off for t in a['character_end_times_seconds']]
+            off += float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], capture_output=True, text=True).stdout)
+        lst = os.path.join(td, 'l.txt'); open(lst, 'w').write(''.join(f"file '{f}'\n" for f in files))
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', lst, '-c', 'copy', mp3], check=True)
+    json.dump(A, open(al, 'w')); open(tx, 'w').write(sig + '\n' + text + '\n')
+    print(f'[tts] {key}: {len(parts)} phần {[len(x) for x in parts]} ký tự', file=sys.stderr)
+    return mp3, A, sent
+
+
+ll.tts = tts_k2
+
 if __name__ == '__main__':
     cmd, path = sys.argv[1], sys.argv[2]
     if cmd == 'prep':

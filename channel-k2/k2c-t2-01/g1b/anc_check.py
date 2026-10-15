@@ -1,5 +1,5 @@
 import json, yaml, os, glob, sys
-S = yaml.safe_load(open('/home/user/cine-lab/channel-k2/k2c-t2-01/g1b/tokhung.yaml'))
+S = yaml.safe_load(open(sys.argv[2] if len(sys.argv) > 2 else '/home/user/cine-lab/channel-k2/k2c-t2-01/g1b/tokhung.yaml'))
 base = sys.argv[1] if len(sys.argv) > 1 else '/var/tmp/cine-out/k2v-shots/t2-tokhung'   # đo tỉ lệ khung có điểm neo trong vùng an toàn (x 4–96 %, y 6–80 %)
 for gi, sg in enumerate(S['segments']):
     d = glob.glob(f'{base}/hero{gi}-*')

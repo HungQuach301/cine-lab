@@ -1,0 +1,2987 @@
+id: t2-sua7
+title: Why America Builds So Few Ships (It's Not Just Wages)
+brand: MOVING PARTS
+out: /var/tmp/cine-out/k2v-shots/t2-sua7
+vo_dir: channel-k2/k2c-t2-01/vo
+voice:
+  id: cjVigY5qzO86Huf0OWal
+  model: eleven_multilingual_v2
+  stability: 0.5
+  similarity: 0.75
+asof: Facts as of 15 Oct 2026
+places:
+- Richmond
+- Philadelphia
+- Alaska
+- Vancouver
+- Seattle
+- Ulsan
+- South Korea's
+- China
+people:
+- name: Henry J. Kaiser
+  ly_do: No public-domain portrait cleared (LoC 2002715425 'rights status not evaluated'); shown as A-lite engineer + name on screen.
+- name: Josie Lucille Owens
+  photo: LOC-FSA-8D18716
+- name: Wesley Jones
+  full: Wesley L. Jones
+  photo: LOC-NPCC-21943
+- name: Mike Lee
+  ly_do: Living official; quoted from a dated press release, name and quote on screen only (LUAT-NOI-DUNG-G §6).
+- name: Tom McClintock
+  ly_do: Living official; quoted from a dated press release, name and quote on screen only (LUAT-NOI-DUNG-G §6).
+- name: Chung Ju-yung
+  ly_do: No public-domain portrait found; A-lite character (hard hat + plans) labelled with name; company account labelled.
+- name: George Livanos
+  ly_do: Named in company history only; no image; order slip prop stands for the order.
+- name: Park Chung Hee
+  ly_do: Named for a 1973 policy announcement; no portrait used (source text only).
+- name: Munseob Lee
+  ly_do: Living researcher; name and article on screen only.
+anchors:
+- n_peak3
+- n_us004
+- n_cn546
+- n_d1942
+- n_d1943
+- n_peary
+- n_747
+- n_tanker4
+- n_gdp62
+- n_gdp25
+- n_exp90
+- n_goal20
+sources:
+  NPS:
+    short: National Park Service
+    url: https://www.nps.gov/articles/s-s-scotts-bluff-forgotten-contributor.htm
+    read: fulltext
+    accessed: 2026-10-14
+  NPSRICH:
+    short: National Park Service
+    url: https://www.nps.gov/rori/learn/historyculture/richmond-california.htm
+    read: fulltext
+    accessed: 2026-10-14
+  USMC45:
+    short: U.S. Maritime Commission (1945)
+    url: https://www.fmc.gov/wp-content/uploads/2019/04/REPORT_TO_CONGRESS_1945.pdf
+    read: fulltext
+    accessed: 2026-10-14
+  CRS26:
+    short: CRS (2026)
+    url: https://www.everycrsreport.com/files/2026-08-26_IF12666_1aacdd58a4f8f1cc88913d8d75c81df7f0284616.html
+    read: fulltext
+    accessed: 2026-10-14
+  CRS23:
+    short: CRS (2023)
+    url: https://www.everycrsreport.com/files/2023-11-15_IF12534_dc64343953cbeb745275d998c39d542b5dfa0b2c.html
+    read: fulltext
+    accessed: 2026-10-14
+  CRS19:
+    short: CRS (2019)
+    url: https://www.everycrsreport.com/files/20191121_R45725_4b1d41c49c7314e0ecdd2bdf7e042f2e27d04ade.html
+    read: fulltext
+    accessed: 2026-10-14
+  FRDET:
+    short: USTR (Jan 2025)
+    url: https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf
+    read: fulltext
+    accessed: 2026-10-14
+  FRACT:
+    short: USTR, Federal Register (Apr 2025)
+    url: https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf
+    read: fulltext
+    accessed: 2026-10-14
+  FRSUSP:
+    short: USTR, Federal Register (Nov 2025)
+    url: https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf
+    read: fulltext
+    accessed: 2026-10-15
+  USTRPR:
+    short: USTR (Jan 2025)
+    url: https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2025/january/ustr-finds-chinas-targeting-maritime-logistics-and-shipbuilding-sectors-dominance-actionable-under
+    read: fulltext
+    accessed: 2026-10-14
+  WB:
+    short: World Bank
+    url: https://api.worldbank.org/v2/country/KOR/indicator/NY.GDP.PCAP.CD?format=json
+    read: fulltext
+    accessed: 2026-10-14
+  HHI:
+    short: HD Hyundai Heavy Industries history
+    url: https://ewh.ieee.org/soc/ras/conf/technicallycosponsored/iccas/iccas2011/english.hhi.co.kr/about/history.html
+    read: fulltext
+    accessed: 2026-10-14
+  KT2010:
+    short: The Korea Times (2010 column)
+    url: https://www.koreatimes.co.kr/economy/others/20100716/korea-builds-worlds-largest-shipyard-out-of-nothing
+    read: fulltext
+    accessed: 2026-10-14
+  KEIA:
+    short: KEIA (2023)
+    url: https://keia.org/the-peninsula/industrial-policy-did-it-work-in-korea-50-years-ago
+    read: fulltext
+    accessed: 2026-10-14
+  JAH:
+    short: Korea JoongAng Daily, 27 Aug 2025
+    url: https://www.koreajoongangdaily.com/business/hanwha-invests-5-billion-in-philly-shipyard-as-part-of-masga-push/12398569
+    read: fulltext
+    accessed: 2026-10-14
+  MT:
+    short: Military Times, 21 Jul 2026
+    url: https://www.militarytimes.com/pentagon/2026/07/21/hanwha-philly-shipyard-awarded-2-billion-to-build-2-missile-tracking-vessels
+    read: fulltext
+    accessed: 2026-10-14
+  NFTC:
+    short: Joint letter to USTR (Sep 2026)
+    url: https://www.nftc.org/wp-content/uploads/2026/09/Joint-Association-USTR-Letter-Sec-301-Vessel-Fee-Suspension-Extension-Request-Final-092326.pdf
+    read: fulltext
+    accessed: 2026-10-14
+  MOFCOM:
+    short: Xinhua via China Daily (Feb 2025)
+    url: https://www.chinadailyhk.com/hk/article/605277
+    read: fulltext
+    accessed: 2026-10-15
+  AMP:
+    short: American Maritime Partnership
+    url: https://www.americanmaritimepartnership.com/
+    read: fulltext
+    accessed: 2026-10-15
+  MCC:
+    short: Rep. McClintock (Jun 2025)
+    url: https://mcclintock.house.gov/newsroom/press-releases/mcclintock-lee-introduce-open-americas-waters-act-repeal-jones-act-boost
+    read: fulltext
+    accessed: 2026-10-15
+  LOCOWENS:
+    short: 'Photo: OWI, Library of Congress'
+    url: https://www.loc.gov/item/2017854462/
+    read: fulltext
+    accessed: 2026-10-15
+  LOCJONES:
+    short: 'Photo: National Photo Co., LoC'
+    url: https://www.loc.gov/item/2016845467/
+    read: fulltext
+    accessed: 2026-10-15
+numbers:
+  n_peak3:
+    v: 3
+    text: 3 a day
+    kind: actual
+    year: 1943
+    unit: ships/day
+    src: NPS
+    say: three cargo ships a day
+  n_us004:
+    v: 0.04
+    text: 0.04%
+    kind: actual
+    year: 2026
+    unit: '%'
+    src: CRS26
+    say: 0.04 percent
+  n_cn546:
+    v: 54.6
+    text: 54.6%
+    kind: actual
+    year: 2024
+    unit: '%'
+    src: CRS26
+    say: more than half
+  n_d1942:
+    v: 122
+    text: 122 days
+    kind: actual
+    year: 1942
+    unit: days
+    src: USMC45
+    say: a hundred and twenty-two days
+  n_d1943:
+    v: 39.2
+    text: 39 days
+    kind: actual
+    year: 1943
+    unit: days
+    src: USMC45
+    say: thirty-nine
+  n_peary:
+    v: 4.65
+    text: 4½ days
+    kind: actual
+    year: 1942
+    unit: days
+    src: NPS
+    say: four days and fifteen and a half hours
+  n_747:
+    v: 747
+    text: 747 ships
+    kind: actual
+    year: 1945
+    unit: ships
+    src: NPSRICH
+    say: 747 ships
+  n_pop:
+    v: 100000
+    text: ~24,000 → ~100,000
+    kind: actual
+    year: 1943
+    unit: people
+    src: NPSRICH
+    say: fewer than twenty-four thousand people in 1940 to nearly a hundred thousand
+  n_5pct:
+    v: 5
+    text: ~5% · 15–25 ships/yr
+    kind: actual
+    year: 1975
+    unit: '%'
+    src: CRS23
+    say: about five percent of the world's tonnage
+  n_5yr:
+    v: 5
+    text: ~5 ships/yr
+    kind: actual
+    year: 2023
+    unit: ships/yr
+    src: CRS23
+    say: around five a year
+  n_1922:
+    v: 1.2
+    text: +20%
+    kind: actual
+    year: 1922
+    unit: ratio
+    src: CRS19
+    say: twenty percent more
+  n_1950:
+    v: 2
+    text: 2×
+    kind: actual
+    year: 1955
+    unit: ratio
+    src: CRS19
+    say: double
+  n_1990:
+    v: 3
+    text: 3×
+    kind: actual
+    year: 1995
+    unit: ratio
+    src: CRS19
+    say: three times
+  n_tanker4:
+    v: 4
+    text: ≈ 4×
+    kind: estimate
+    year: 2019
+    unit: ratio
+    src: CRS19
+    say: about four times
+  n_99:
+    v: 99
+    text: 99 ships
+    kind: actual
+    year: 2018
+    unit: ships
+    src: CRS19
+    say: ninety-nine oceangoing ships
+  n_gdp62:
+    v: 106.6
+    text: $107
+    kind: actual
+    year: 1962
+    unit: USD/person
+    src: WB
+    say: a hundred and seven dollars per person
+  n_gdp25:
+    v: 36227
+    text: $36,227
+    kind: actual
+    year: 2025
+    unit: USD/person
+    src: WB
+    say: thirty-six thousand dollars per person
+  n_exp90:
+    v: 90
+    text: 90%
+    kind: actual
+    year: 2025
+    unit: '%'
+    src: CRS26
+    say: ninety percent
+  n_fee50:
+    v: 50
+    text: $50 / net ton
+    kind: actual
+    year: 2025
+    unit: USD/NT
+    src: FRACT
+    say: a fee on their U.S. voyages
+  n_fee18:
+    v: 18
+    text: $18 / net ton
+    kind: actual
+    year: 2025
+    unit: USD/NT
+    src: FRACT
+    say: a fee on their U.S. voyages
+  n_200:
+    v: 200
+    text: 200+ groups
+    kind: actual
+    year: 2026
+    unit: groups
+    src: NFTC
+    say: more than two hundred trade groups
+  n_hanwha:
+    v: 100
+    text: $100M
+    kind: actual
+    year: 2024
+    unit: USD M
+    src: JAH
+    say: a hundred million dollars
+  n_5b:
+    v: 5
+    text: $5B
+    kind: actual
+    year: 2025
+    unit: USD B
+    src: JAH
+    say: five billion dollars
+  n_goal20:
+    v: 20
+    text: 1.5 → 20 ships/yr (goal)
+    kind: projection
+    year: 2025
+    period: announced goal, no date
+    unit: ships/yr
+    src: JAH
+    say: from one and a half ships a year to twenty
+  n_2030:
+    v: 2030
+    text: June 2030
+    kind: projection
+    year: 2030
+    period: 2026–30
+    unit: date
+    src: MT
+    say: June 2030
+heroes:
+  r00_launch:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: sepia
+      pins:
+      - id: y1
+        at:
+        - -122.392
+        - 37.905
+      - id: y2
+        at:
+        - -122.355
+        - 37.912
+      - id: y3
+        at:
+        - -122.318
+        - 37.918
+      cam:
+      - t: 0
+        lon: -122.35
+        lat: 37.86
+        dist: 22
+        tilt: 62
+        head: -6
+      - t: 9
+        lon: -122.34
+        lat: 37.87
+        dist: 18
+        tilt: 64
+        head: 2
+      props:
+      - a: st:y1
+        px: 120
+        id: 00-0
+        t: 3.076
+        obj: freighter
+      - a: st:y2
+        px: 120
+        id: 00-1
+        t: 3.424
+        obj: freighter
+      - a: st:y3
+        px: 120
+        id: 00-2
+        t: 3.749
+        obj: freighter
+    _camera_id: inline:89fb5a
+    _cam_geo: null
+  g00_share:
+    hero: map/globe
+    cam: pair
+    opt:
+      from: washington
+      to: beijing
+      places:
+      - id: usa
+        ll:
+        - -98
+        - 39
+        name: United States
+      - id: cn
+        ll:
+        - 104
+        - 35
+        name: China
+      hl:
+      - country: United States of America
+        color: '#3CC2B0'
+        at: 3.539
+        lift: 1
+      - country: China
+        color: '#8E7CC3'
+        at: 8.369
+        lift: 1
+      cols:
+      - id: us
+        at:
+        - -98
+        - 39
+        v: 0.02
+        grow:
+        - 7.394
+        - 7.994
+        color: '#3CC2B0'
+        r: 1.2
+      - id: cn
+        at:
+        - 104
+        - 35
+        v: 2.4
+        grow:
+        - 9.879
+        - 11.079
+        color: '#8E7CC3'
+        r: 1.2
+      preset: pair
+    _camera_id: pair
+    _cam_geo: null
+  r00_philly:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      places:
+      - id: philly
+        ll:
+        - -75.165
+        - 39.952
+        name: Philadelphia
+      pins:
+      - id: yard
+        at:
+        - -75.181
+        - 39.893
+      rings:
+      - id: py
+        at:
+        - -75.181
+        - 39.893
+        t: 0.3
+        color: '#F2C14E'
+        px: 110
+      cam:
+      - t: 0
+        lon: -75.2
+        lat: 39.8
+        dist: 70
+        tilt: 48
+        head: 0
+      - t: 0.567
+        lon: -75.19
+        lat: 39.84
+        dist: 44
+        tilt: 54
+        head: 4
+      - t: 8.915
+        lon: -75.185
+        lat: 39.86
+        dist: 30
+        tilt: 58
+        head: 10
+      - t: 14.398
+        lon: -75.183
+        lat: 39.87
+        dist: 24
+        tilt: 60
+        head: 14
+      props:
+      - a: st:yard
+        px: 90
+        id: 00-0
+        t: 4.096
+        obj: order
+    _camera_id: inline:6c4650
+    _cam_geo: null
+  r01_dive:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: sepia
+      places:
+      - id: richmond
+        ll:
+        - -122.35
+        - 37.935
+        name: Richmond
+      pins:
+      - id: ord
+        at:
+        - -122.362
+        - 37.912
+      - id: cr1
+        at:
+        - -122.392
+        - 37.905
+      - id: cr2
+        at:
+        - -122.355
+        - 37.912
+      - id: kai
+        at:
+        - -122.33
+        - 37.92
+      rings:
+      - id: rr
+        at:
+        - -122.36
+        - 37.91
+        t: 1.23
+        color: '#ffe6b0'
+        px: 120
+      cam:
+      - t: 0
+        lon: -122.0
+        lat: 37.6
+        dist: 190
+        tilt: 30
+        head: 0
+      - t: 2.286
+        lon: -122.25
+        lat: 37.8
+        dist: 70
+        tilt: 46
+        head: -4
+      - t: 7.371
+        lon: -122.32
+        lat: 37.85
+        dist: 38
+        tilt: 55
+        head: -8
+      - t: 11.191
+        lon: -122.34
+        lat: 37.86
+        dist: 26
+        tilt: 60
+        head: -4
+      - t: 18.561
+        lon: -122.35
+        lat: 37.865
+        dist: 22
+        tilt: 62
+        head: 4
+      props:
+      - a: st:ord
+        px: 110
+        id: 01-0
+        t: 9.333
+        obj: order
+      - a: st:cr1
+        px: 130
+        id: 01-1
+        t: 11.191
+        obj: crane
+      - a: st:cr2
+        px: 130
+        id: 01-2
+        t: 12.561
+        obj: crane
+    _camera_id: inline:ab696c
+    _cam_geo: null
+  f_liberty:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/cine-out/k2v-cache/t2src/nara-39018/gov.archives.arc.39018.mpeg
+      sha256: fee7371b7d004dfc6c208b070461d41c3d75d459ac23df8ff5c12050c13c0357
+      ss: 72.3
+      grade: sepia
+      clean: true
+      ivtc: true
+    _camera_id: default
+    _cam_geo: null
+  r01_days:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: sepia
+      places:
+      - id: richmond2
+        ll:
+        - -122.4
+        - 37.93
+        name: Richmond
+      cols:
+      - id: d1942
+        at:
+        - -122.365
+        - 37.885
+        kind: bar
+        v: 6.1
+        t:
+        - 2.32
+        - 3.632
+        r: 0.85
+        color: '#3CC2B0'
+      - id: d1943
+        at:
+        - -122.315
+        - 37.885
+        kind: bar
+        v: 1.96
+        t:
+        - 5.705
+        - 6.505
+        r: 0.85
+        color: '#3CC2B0'
+      - id: dpeary
+        at:
+        - -122.265
+        - 37.885
+        kind: bar
+        v: 0.23
+        t:
+        - 10.482
+        - 10.782
+        r: 0.85
+        color: '#F2C14E'
+      pins:
+      - id: ship
+        at:
+        - -122.29
+        - 37.862
+      cam:
+      - t: 0
+        lon: -122.315
+        lat: 37.86
+        dist: 32
+        tilt: 60
+        head: 0
+      - t: 12
+        lon: -122.31
+        lat: 37.865
+        dist: 29
+        tilt: 61
+        head: 3
+      props:
+      - a: st:ship
+        px: 120
+        id: 01-0
+        t: 10.482
+        obj: freighter
+    _camera_id: inline:90b698
+    _cam_geo: null
+  p01_owens:
+    hero: photo/print
+    cam: push
+    opt:
+      img: /assets/k2/archive/loc-fsa-8d18716-owens.jpg
+      focus:
+      - 0.48
+      - 0.38
+      push: 0.12
+      preset: push
+    _camera_id: push
+    _cam_geo: null
+  r01_yards:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: sepia
+      rings:
+      - id: a
+        at:
+        - -122.392
+        - 37.905
+        t: 0.3
+        color: '#ffe6b0'
+        px: 70
+      - id: b
+        at:
+        - -122.355
+        - 37.912
+        t: 0.6
+        color: '#ffe6b0'
+        px: 70
+      - id: c
+        at:
+        - -122.375
+        - 37.904
+        t: 0.9
+        color: '#ffe6b0'
+        px: 70
+      - id: d
+        at:
+        - -122.33
+        - 37.92
+        t: 1.2
+        color: '#ffe6b0'
+        px: 70
+      pins:
+      - id: t1
+        at:
+        - -122.34
+        - 37.94
+      - id: t2
+        at:
+        - -122.31
+        - 37.95
+      - id: t3
+        at:
+        - -122.36
+        - 37.955
+      cam:
+      - t: 0
+        lon: -122.34
+        lat: 37.88
+        dist: 30
+        tilt: 55
+        head: 10
+      - t: 12
+        lon: -122.34
+        lat: 37.895
+        dist: 24
+        tilt: 58
+        head: 18
+      props:
+      - a: st:t1
+        px: 70
+        id: 01-0
+        t: 6.639
+        obj: town
+      - a: st:t2
+        px: 80
+        id: 01-1
+        t: 10.122
+        obj: town
+      - a: st:t3
+        px: 90
+        id: 01-2
+        t: -11.554
+        obj: town
+    _camera_id: inline:d20b35
+    _cam_geo: null
+  r02_cut:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: sepia
+      pins:
+      - id: c1
+        at:
+        - -122.392
+        - 37.905
+      - id: c2
+        at:
+        - -122.355
+        - 37.912
+      - id: o1
+        at:
+        - -122.37
+        - 37.895
+      cam:
+      - t: 0
+        lon: -122.36
+        lat: 37.86
+        dist: 16
+        tilt: 64
+        head: -10
+      - t: 7
+        lon: -122.37
+        lat: 37.86
+        dist: 22
+        tilt: 58
+        head: -20
+      props:
+      - a: st:c1
+        px: 130
+        id: 02-0
+        t: 0.0
+        obj: crane
+      - a: st:c2
+        px: 130
+        id: 02-1
+        t: 0.0
+        obj: crane
+      - a: st:o1
+        px: 100
+        id: 02-2
+        t: 0.0
+        out: 4.55
+        obj: order
+    _camera_id: inline:f2d75f
+    _cam_geo: null
+  r02_alaska:
+    hero: relief/map
+    opt:
+      relief: pnw
+      palette: sepia
+      places:
+      - id: seattle
+        ll:
+        - -122.33
+        - 47.61
+        name: Seattle
+      - id: vancouver
+        ll:
+        - -123.12
+        - 49.28
+        name: Vancouver
+      - id: alaska
+        ll:
+        - -134.42
+        - 58.3
+        name: Alaska (Juneau)
+      routes:
+      - id: rail
+        pts:
+        - - -122.33
+          - 47.61
+        - - -122.6
+          - 48.6
+        - - -123.12
+          - 49.28
+        draw:
+        - 8.799
+        - 9.611
+        style: dashed
+        color: '#c9a24a'
+        w: 9
+        flow: 2
+      - id: foreign
+        pts:
+        - - -123.12
+          - 49.28
+        - - -124.5
+          - 50.5
+        - - -128.5
+          - 52.5
+        - - -131.5
+          - 54.8
+        - - -134.42
+          - 58.3
+        draw:
+        - 11.655
+        - 14.055
+        style: dashed
+        color: '#8a7a62'
+        w: 9
+        flow: 3
+      walkers:
+      - id: ship
+        route: seattle
+        t:
+        - 21.473
+        - 31.972
+        u:
+        - 0
+        - 1
+      cam:
+      - t: 0
+        lon: -123.4
+        lat: 48.0
+        dist: 560
+        tilt: 36
+        head: 0
+      - t: 8.799
+        lon: -123.4
+        lat: 48.05
+        dist: 540
+        tilt: 37
+        head: 2
+      - t: 11.655
+        lon: -127.8
+        lat: 53.4
+        dist: 980
+        tilt: 30
+        head: 0
+      - t: 12.968
+        lon: -128.2
+        lat: 53.8
+        dist: 1000
+        tilt: 30
+        head: -2
+      pins:
+      - id: rail
+        at:
+        - -122.55
+        - 48.45
+      - id: fship
+        at:
+        - -125.5
+        - 51.2
+      regions:
+      - id: ak
+        state: Alaska
+        color: '#F2C14E'
+        at:
+        - 11.655
+        - 12.655
+        lift: 0.6
+        fill: 0.22
+        edgeW: 3
+      props:
+      - a: st:rail
+        px: 90
+        id: 02-0
+        t: 8.799
+        obj: train
+      - a: st:fship
+        px: 100
+        id: 02-1
+        t: 11.655
+        obj: freighter
+    _camera_id: inline:22d84c
+    _cam_geo: null
+  r02_alaska2:
+    hero: relief/map
+    opt:
+      relief: pnw
+      palette: sepia
+      places:
+      - id: seattle
+        ll:
+        - -122.33
+        - 47.61
+        name: Seattle
+      - id: vancouver
+        ll:
+        - -123.12
+        - 49.28
+        name: Vancouver
+      - id: alaska
+        ll:
+        - -134.42
+        - 58.3
+        name: Alaska (Juneau)
+      routes:
+      - id: seattle
+        pts:
+        - - -122.33
+          - 47.61
+        - - -123.4
+          - 48.3
+        - - -125.5
+          - 49.6
+        - - -129.0
+          - 52.6
+        - - -132.0
+          - 55.2
+        - - -134.42
+          - 58.3
+        draw:
+        - 5.059
+        - 8.259
+        style: solid
+        color: '#3CC2B0'
+        w: 7
+      cam:
+      - t: 0
+        lon: -123.4
+        lat: 47.7
+        dist: 560
+        tilt: 36
+        head: 0
+      - t: 5.059
+        lon: -123.6
+        lat: 47.8
+        dist: 560
+        tilt: 36
+        head: 0
+      - t: 8.259
+        lon: -129.0
+        lat: 54.0
+        dist: 980
+        tilt: 30
+        head: -4
+      - t: 11.539
+        lon: -129.3
+        lat: 54.3
+        dist: 1000
+        tilt: 30
+        head: -5
+      props:
+      - a: st:ship
+        px: 90
+        id: 02-0
+        t: 5.059
+        obj: freighter
+    _camera_id: inline:66b0d5
+    _cam_geo: null
+  p02_jones:
+    hero: photo/print
+    cam: drift-r
+    opt:
+      img: /assets/k2/archive/loc-npcc-21943-wjones.jpg
+      focus:
+      - 0.5
+      - 0.25
+      push: 0.1
+      preset: drift-r
+    _camera_id: drift-r
+    _cam_geo: null
+  r02_quotes:
+    hero: relief/map
+    opt:
+      relief: pnw
+      palette: natural
+      places:
+      - id: seattle2
+        ll:
+        - -122.33
+        - 47.61
+        name: Seattle
+      routes:
+      - id: jr
+        pts:
+        - - -122.33
+          - 47.61
+        - - -123.4
+          - 48.3
+        - - -125.5
+          - 49.6
+        - - -129.0
+          - 52.6
+        draw:
+        - 0
+        - 1.5
+        style: solid
+        color: '#3CC2B0'
+        w: 7
+      walkers:
+      - id: jship
+        route: jr
+        t:
+        - 0.5
+        - 16
+        u:
+        - 0.1
+        - 0.9
+      cam:
+      - t: 0
+        lon: -122.6
+        lat: 47.45
+        dist: 230
+        tilt: 44
+        head: -6
+      - t: 12.374
+        lon: -122.65
+        lat: 47.5
+        dist: 220
+        tilt: 45
+        head: -3
+      - t: 21.848
+        lon: -122.7
+        lat: 47.55
+        dist: 210
+        tilt: 46
+        head: 1
+      - t: 26.892
+        lon: -122.75
+        lat: 47.6
+        dist: 205
+        tilt: 47
+        head: 3
+      pins:
+      - id: jship
+        at:
+        - -123.0
+        - 48.3
+      props:
+      - a: st:jship
+        px: 90
+        id: 02-0
+        t: 0.4
+        obj: freighter
+    _camera_id: inline:29a138
+    _cam_geo: null
+  r02_subsidy:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: sepia
+      natural:
+      - 16.368
+      - 17.868
+      cols:
+      - id: wp
+        at:
+        - -75.6
+        - 39.55
+        kind: coins
+        layout: row
+        n: 1
+        t:
+        - 6.79
+        - 6.89
+        r: 1.6
+      - id: us1
+        at:
+        - -75.52
+        - 39.55
+        kind: coins
+        layout: row
+        n: 1
+        t:
+        - 5.164
+        - 5.264
+        r: 1.6
+        color: '#7fd3c6'
+      - id: s70
+        at:
+        - -75.25
+        - 39.62
+        kind: bar
+        v: 6.0
+        t:
+        - 8.195
+        - 8.995
+        r: 1.2
+        color: '#3CC2B0'
+      - id: now5
+        at:
+        - -74.95
+        - 39.62
+        kind: bar
+        v: 1.5
+        t:
+        - 24.484
+        - 25.084
+        r: 1.2
+        color: '#3CC2B0'
+      cam:
+      - t: 0
+        lon: -75.45
+        lat: 39.5
+        dist: 32
+        tilt: 61
+        head: 0
+      - t: 8.195
+        lon: -75.2
+        lat: 39.55
+        dist: 46
+        tilt: 59
+        head: 4
+      - t: 19.445
+        lon: -75.12
+        lat: 39.56
+        dist: 44
+        tilt: 60
+        head: 10
+      - t: 23.358
+        lon: -75.05
+        lat: 39.57
+        dist: 40
+        tilt: 61
+        head: 14
+      - t: 31.891
+        lon: -75.1
+        lat: 39.5
+        dist: 46
+        tilt: 58
+        head: 6
+      - t: 35.296
+        lon: -75.12
+        lat: 39.49
+        dist: 50
+        tilt: 56
+        head: 2
+    _camera_id: inline:4fca5a
+    _cam_geo: null
+  r03_myth:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      pins:
+      - id: w
+        at:
+        - -75.2
+        - 39.88
+      - id: c
+        at:
+        - -75.12
+        - 39.88
+      cam:
+      - t: 0
+        lon: -75.16
+        lat: 39.8
+        dist: 18
+        tilt: 62
+        head: 0
+      - t: 6
+        lon: -75.16
+        lat: 39.81
+        dist: 15
+        tilt: 64
+        head: 6
+      props:
+      - a: st:w
+        px: 150
+        id: 03-0
+        t: 0.3
+        char:
+          role: worker
+          hand: torch
+      - a: st:c
+        px: 90
+        id: 03-1
+        t: 5.305
+        obj: coin
+    _camera_id: inline:974a8f
+    _cam_geo: null
+  r03_ladder:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: sepia
+      natural:
+      - 13.823
+      - 15.023
+      cols:
+      - id: f1
+        at:
+        - -75.7
+        - 39.3
+        kind: bar
+        v: 1.0
+        t:
+        - 0.2
+        - 0.8
+        r: 1.0
+        color: '#c9b48a'
+      - id: c22
+        at:
+        - -75.45
+        - 39.3
+        kind: bar
+        v: 1.2
+        t:
+        - 1.554
+        - 2.154
+        r: 1.0
+        color: '#3CC2B0'
+      - id: c50
+        at:
+        - -75.2
+        - 39.3
+        kind: bar
+        v: 2.0
+        t:
+        - 9.507
+        - 10.107
+        r: 1.0
+        color: '#3CC2B0'
+      - id: c90
+        at:
+        - -74.95
+        - 39.3
+        kind: bar
+        v: 3.0
+        t:
+        - 12.27
+        - 12.87
+        r: 1.0
+        color: '#3CC2B0'
+      cam:
+      - t: 0
+        lon: -75.32
+        lat: 39.15
+        dist: 40
+        tilt: 62
+        head: 0
+      - t: 12
+        lon: -75.3
+        lat: 39.17
+        dist: 36
+        tilt: 64
+        head: 4
+    _camera_id: inline:850681
+    _cam_geo: null
+  r03_tanker:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      cols:
+      - id: world
+        at:
+        - -75.42
+        - 39.7
+        kind: coins
+        layout: row
+        n: 1
+        t:
+        - 0.4
+        - 0.5
+        r: 1.5
+      - id: us
+        at:
+        - -75.32
+        - 39.7
+        kind: coins
+        layout: row
+        n: 4
+        t:
+        - 7.731
+        - 8.731
+        r: 1.5
+        gap: 2.35
+      cam:
+      - t: 0
+        lon: -75.32
+        lat: 39.62
+        dist: 22
+        tilt: 60
+        head: 0
+      - t: 3.632
+        lon: -75.33
+        lat: 39.625
+        dist: 20
+        tilt: 62
+        head: 6
+      - t: 10.855
+        lon: -75.32
+        lat: 39.63
+        dist: 19
+        tilt: 63
+        head: 10
+    _camera_id: inline:190112
+    _cam_geo: null
+  r03_scale:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      routes:
+      - id: exp
+        pts:
+        - - -74.95
+          - 39.42
+        - - -74.4
+          - 39.2
+        - - -73.9
+          - 39.0
+        draw:
+        - 10.887
+        - 11.887
+        style: dashed
+        color: '#8a8a8a'
+        w: 6
+      pins:
+      - id: wl
+        at:
+        - -75.12
+        - 39.86
+      - id: tr
+        at:
+        - -75.4
+        - 39.95
+      - id: tn
+        at:
+        - -75.3
+        - 40.02
+      - id: pl
+        at:
+        - -75.2
+        - 40.08
+      cam:
+      - t: 0
+        lon: -75.1
+        lat: 39.62
+        dist: 60
+        tilt: 52
+        head: 0
+      - t: 10.887
+        lon: -74.95
+        lat: 39.5
+        dist: 52
+        tilt: 54
+        head: 8
+      - t: 14.904
+        lon: -75.0
+        lat: 39.55
+        dist: 46
+        tilt: 55
+        head: 4
+      - t: 23.727
+        lon: -75.2
+        lat: 39.85
+        dist: 46
+        tilt: 56
+        head: -2
+      - t: 26.792
+        lon: -75.24
+        lat: 39.9
+        dist: 44
+        tilt: 57
+        head: -4
+      - t: 31.738
+        lon: -75.26
+        lat: 39.91
+        dist: 43
+        tilt: 57
+        head: -5
+      - t: 35.279
+        lon: -75.28
+        lat: 39.93
+        dist: 42
+        tilt: 58
+        head: -6
+      - t: 38.508
+        lon: -75.28
+        lat: 39.95
+        dist: 40
+        tilt: 60
+        head: -2
+      props:
+      - a: st:wl
+        px: 120
+        id: 03-0
+        t: 5.279
+        char:
+          role: worker
+          hand: torch
+      - a: st:tr
+        px: 90
+        id: 03-1
+        t: 35.279
+        obj: truck
+      - a: st:tn
+        px: 90
+        id: 03-2
+        t: 35.964
+        obj: train
+      - a: st:pl
+        px: 80
+        id: 03-3
+        t: 36.568
+        obj: pipeline
+    _camera_id: inline:717f14
+    _cam_geo: null
+  r03_loop:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      cols:
+      - id: loopc
+        at:
+        - -75.4
+        - 39.7
+        kind: coins
+        layout: row
+        n: 4
+        t:
+        - 0
+        - 0.6
+        r: 1.5
+        gap: 2.35
+      pins:
+      - id: lo
+        at:
+        - -75.25
+        - 39.6
+      - id: lc
+        at:
+        - -75.1
+        - 39.7
+      routes:
+      - id: loop
+        pts:
+        - - -75.33
+          - 39.73
+        - - -75.18
+          - 39.75
+        - - -75.06
+          - 39.68
+        - - -75.14
+          - 39.58
+        - - -75.3
+          - 39.57
+        - - -75.42
+          - 39.64
+        - - -75.33
+          - 39.73
+        draw:
+        - 2.992
+        - 7.961
+        style: dashed
+        color: '#F2C14E'
+        w: 7
+        flow: 3
+      cam:
+      - t: 0
+        lon: -75.24
+        lat: 39.56
+        dist: 24
+        tilt: 58
+        head: 0
+      - t: 2.992
+        lon: -75.24
+        lat: 39.565
+        dist: 22
+        tilt: 60
+        head: 4
+      - t: 18.654
+        lon: -75.25
+        lat: 39.57
+        dist: 26
+        tilt: 57
+        head: -6
+      - t: 25.353
+        lon: -75.24
+        lat: 39.575
+        dist: 30
+        tilt: 55
+        head: -10
+      - t: 29.708
+        lon: -75.24
+        lat: 39.58
+        dist: 32
+        tilt: 54
+        head: -12
+      props:
+      - a: st:lo
+        px: 70
+        id: 03-0
+        t: 4.188
+        obj: order
+      - a: st:lc
+        px: 120
+        id: 03-1
+        t: 5.837
+        obj: crane
+    _camera_id: inline:e9d5b2
+    _cam_geo: null
+  g04_pacific:
+    hero: map/globe
+    cam: pair
+    opt:
+      from:
+      - -122.42
+      - 37.77
+      to: seoul
+      places:
+      - id: kr
+        ll:
+        - 127.8
+        - 36.3
+        name: South Korea
+      hl:
+      - country: South Korea
+        color: '#F2C14E'
+        at: 2.0
+        lift: 1
+      preset: pair
+    _camera_id: pair
+    _cam_geo: null
+  r04_chung:
+    hero: relief/map
+    opt:
+      relief: koreaw
+      palette: sepia
+      places:
+      - id: seoul
+        ll:
+        - 126.98
+        - 37.0
+        name: Seoul →
+      routes:
+      - id: walk
+        pts:
+        - - 127.6
+          - 36.6
+        - - 128.4
+          - 36.0
+        - - 129.1
+          - 35.7
+        - - 129.4
+          - 35.51
+        draw:
+        - 0
+        - 0.1
+        style: dashed
+        color: '#F2C14E'
+        w: 4
+      walkers:
+      - id: chung
+        route: walk
+        t:
+        - 0.4
+        - 14
+        u:
+        - 0
+        - 1
+      cam:
+      - t: 0
+        lon: 128.4
+        lat: 35.4
+        dist: 320
+        tilt: 38
+        head: 0
+      - t: 4.166
+        lon: 128.7
+        lat: 35.35
+        dist: 250
+        tilt: 42
+        head: 4
+      - t: 13.723
+        lon: 128.9
+        lat: 35.3
+        dist: 200
+        tilt: 46
+        head: 6
+      props:
+      - a: st:chung
+        px: 120
+        walk: true
+        id: 04-0
+        t: 0.3
+        char:
+          role: engineer
+          hand: blueprint
+          hat: hardhat
+    _camera_id: inline:2e63cb
+    _cam_geo: null
+  r04_beach:
+    hero: relief/map
+    opt:
+      relief: korea
+      palette: sepia
+      natural:
+      - 46.404
+      - 48.004
+      places:
+      - id: ulsan
+        ll:
+        - 129.38
+        - 35.54
+        name: Ulsan
+      pins:
+      - id: ord
+        at:
+        - 129.428
+        - 35.506
+      - id: cr1
+        at:
+        - 129.414
+        - 35.516
+      - id: cr2
+        at:
+        - 129.432
+        - 35.497
+      - id: s1
+        at:
+        - 129.445
+        - 35.49
+      - id: s2
+        at:
+        - 129.452
+        - 35.502
+      - id: photo
+        at:
+        - 129.4
+        - 35.53
+      - id: note
+        at:
+        - 129.44
+        - 35.53
+      cam:
+      - t: 0
+        lon: 129.3
+        lat: 35.3
+        dist: 120
+        tilt: 42
+        head: 10
+      - t: 6.21
+        lon: 129.41
+        lat: 35.45
+        dist: 22
+        tilt: 58
+        head: 14
+      - t: 10.97
+        lon: 129.415
+        lat: 35.455
+        dist: 19
+        tilt: 60
+        head: 18
+      - t: 18.098
+        lon: 129.42
+        lat: 35.46
+        dist: 17
+        tilt: 61
+        head: 8
+      - t: 25.494
+        lon: 129.425
+        lat: 35.462
+        dist: 18
+        tilt: 60
+        head: 2
+      - t: 35.397
+        lon: 129.42
+        lat: 35.46
+        dist: 16
+        tilt: 61
+        head: 10
+      - t: 40.668
+        lon: 129.42
+        lat: 35.462
+        dist: 15
+        tilt: 62
+        head: 16
+      - t: 47.204
+        lon: 129.42
+        lat: 35.465
+        dist: 14
+        tilt: 63
+        head: 22
+      - t: 51.204
+        lon: 129.42
+        lat: 35.468
+        dist: 13
+        tilt: 64
+        head: 26
+      props:
+      - a: st:ord
+        px: 150
+        id: 04-0
+        t: 6.21
+        obj: order
+      - a: st:cr1
+        px: 210
+        id: 04-1
+        t: 32.913
+        obj: crane
+      - a: st:cr2
+        px: 210
+        id: 04-2
+        t: 37.742
+        obj: crane
+      - a: st:photo
+        px: 120
+        id: 04-3
+        t: 18.644
+        obj: document
+      - a: st:note
+        px: 120
+        id: 04-4
+        t: 20.594
+        obj: document
+      - a: st:s1
+        px: 170
+        id: 04-5
+        t: 44.093
+        obj: freighter
+      - a: st:s2
+        px: 170
+        id: 04-6
+        t: 45.01
+        obj: freighter
+    _camera_id: inline:97cf25
+    _cam_geo: null
+  r04_state:
+    hero: relief/map
+    opt:
+      relief: koreaw
+      palette: sepia
+      pins:
+      - id: tax
+        at:
+        - 128.6
+        - 35.9
+      - id: loan
+        at:
+        - 129.0
+        - 35.7
+      - id: plant
+        at:
+        - 129.35
+        - 35.52
+      - id: lee
+        at:
+        - 127.2
+        - 36.2
+      - id: pol
+        at:
+        - 127.6
+        - 36.3
+      - id: hi1
+        at:
+        - 129.36
+        - 36.02
+      - id: hi2
+        at:
+        - 129.42
+        - 35.5
+      - id: hi3
+        at:
+        - 129.9
+        - 35.3
+      cam:
+      - t: 0
+        lon: 128.6
+        lat: 35.2
+        dist: 260
+        tilt: 40
+        head: 0
+      - t: 10.819
+        lon: 128.7
+        lat: 35.22
+        dist: 240
+        tilt: 42
+        head: 3
+      - t: 12.63
+        lon: 128.5
+        lat: 35.3
+        dist: 230
+        tilt: 44
+        head: -3
+      - t: 29.339
+        lon: 128.8
+        lat: 35.25
+        dist: 220
+        tilt: 44
+        head: 4
+      props:
+      - a: st:pol
+        px: 100
+        id: 04-0
+        t: 6.988
+        obj: document
+      - a: st:hi1
+        px: 100
+        id: 04-1
+        t: 8.334
+        obj: factory
+      - a: st:hi2
+        px: 110
+        id: 04-2
+        t: 9.53
+        obj: crane
+      - a: st:hi3
+        px: 100
+        id: 04-3
+        t: 10.819
+        obj: freighter
+      - a: st:tax
+        px: 90
+        id: 04-4
+        t: 19.213
+        obj: document
+      - a: st:loan
+        px: 100
+        id: 04-5
+        t: 21.988
+        obj: bank
+      - a: st:plant
+        px: 110
+        id: 04-6
+        t: 23.451
+        obj: factory
+    _camera_id: inline:8b954d
+    _cam_geo: null
+  r04_abroad:
+    hero: relief/map
+    opt:
+      relief: koreaw
+      palette: natural
+      places:
+      - id: ulsanx
+        ll:
+        - 129.42
+        - 35.5
+        name: Ulsan
+      routes:
+      - id: e1
+        pts:
+        - - 129.45
+          - 35.48
+        - - 130.1
+          - 35.1
+        draw:
+        - 3.342
+        - 4.542
+        style: dashed
+        color: '#F2C14E'
+        w: 6
+        flow: 3
+      - id: e2
+        pts:
+        - - 129.45
+          - 35.48
+        - - 129.6
+          - 34.6
+        draw:
+        - 3.742
+        - 4.942
+        style: dashed
+        color: '#F2C14E'
+        w: 6
+        flow: 3
+      - id: e3
+        pts:
+        - - 129.45
+          - 35.48
+        - - 130.2
+          - 36.2
+        draw:
+        - 4.142
+        - 5.342
+        style: dashed
+        color: '#F2C14E'
+        w: 6
+        flow: 3
+      cam:
+      - t: 0
+        lon: 129.4
+        lat: 35.3
+        dist: 110
+        tilt: 48
+        head: 0
+      - t: 7.185
+        lon: 129.45
+        lat: 35.32
+        dist: 100
+        tilt: 50
+        head: 4
+      - t: 12.05
+        lon: 129.5
+        lat: 35.34
+        dist: 95
+        tilt: 51
+        head: 8
+      - t: 16.928
+        lon: 129.5
+        lat: 35.35
+        dist: 90
+        tilt: 52
+        head: 10
+    _camera_id: inline:841ecb
+    _cam_geo: null
+  d05_unions:
+    hero: photo/doc
+    cam: push
+    opt:
+      page: /cache/t2-fr-act-p2.json
+      paper: true
+      hl:
+      - i: 0
+        at:
+        - 5.45
+        - 7.05
+      preset: push
+    _camera_id: push
+    _cam_geo: null
+  g05_china:
+    hero: map/globe
+    cam: orbit
+    opt:
+      focus: beijing
+      places:
+      - id: cn2
+        ll:
+        - 104
+        - 35
+        name: China
+      hl:
+      - country: China
+        color: '#8E7CC3'
+        at: 0.4
+        lift: 1
+      arcs:
+      - from: shanghai
+        to: rotterdam
+        draw:
+        - 15.083
+        - 16.483
+        color: '#8E7CC3'
+        h: 0.5
+      - from: shanghai
+        to:
+        - -118.24
+        - 34.05
+        draw:
+        - 15.483
+        - 16.883
+        color: '#8E7CC3'
+        h: 0.5
+      preset: orbit
+    _camera_id: orbit
+    _cam_geo: null
+  d05_det:
+    hero: photo/doc
+    cam: detail
+    opt:
+      page: /cache/t2-fr-det-p1.json
+      paper: true
+      hl:
+      - i: 0
+        at:
+        - 6.685
+        - 9.664
+      preset: detail
+    _camera_id: detail
+    _cam_geo: null
+  r05_fees:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      routes:
+      - id: inb
+        pts:
+        - - -73.9
+          - 39.0
+        - - -74.6
+          - 39.25
+        - - -75.1
+          - 39.55
+        - - -75.17
+          - 39.88
+        draw:
+        - 10.03
+        - 13.03
+        style: dashed
+        color: '#8E7CC3'
+        w: 5
+      walkers:
+      - id: cnship
+        route: inb
+        t:
+        - 0.3
+        - 12
+        u:
+        - 0
+        - 1
+      places:
+      - id: port
+        ll:
+        - -75.14
+        - 39.9
+        name: Port of Philadelphia
+      cam:
+      - t: 0
+        lon: -74.9
+        lat: 39.45
+        dist: 110
+        tilt: 50
+        head: -20
+      - t: 14
+        lon: -75.1
+        lat: 39.72
+        dist: 80
+        tilt: 52
+        head: -10
+      props:
+      - a: st:cnship
+        px: 110
+        id: 05-0
+        t: 0.4
+        obj: freighter
+    _camera_id: inline:8477d7
+    _cam_geo: null
+  d05_aim:
+    hero: photo/doc
+    cam: detail
+    opt:
+      page: /cache/t2-fr-act-p5.json
+      paper: true
+      hl:
+      - i: 0
+        at:
+        - 1.543
+        - 3.143
+      preset: detail
+    _camera_id: detail
+    _cam_geo: null
+  g05_mofcom:
+    hero: map/globe
+    cam: pan
+    opt:
+      from: washington
+      to: beijing
+      places:
+      - id: dc
+        ll:
+        - -77.04
+        - 38.9
+        name: Washington
+      - id: bj
+        ll:
+        - 116.4
+        - 39.9
+        name: Beijing
+      preset: pan
+    _camera_id: pan
+    _cam_geo: null
+  d05_susp:
+    hero: photo/doc
+    cam: push
+    opt:
+      page: /cache/t2-fr-susp-p1.json
+      paper: true
+      hl:
+      - i: 0
+        at:
+        - 1.333
+        - 2.933
+      - i: 1
+        at:
+        - 9.263
+        - 10.463
+      preset: push
+    _camera_id: push
+    _cam_geo: null
+  r05_cost:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      camGround: true
+      pins:
+      - id: q1
+        at:
+        - -75.05
+        - 39.45
+      - id: q2
+        at:
+        - -75.3
+        - 39.7
+      cols:
+      - id: cost
+        at:
+        - -75.15
+        - 39.88
+        kind: coins
+        n: 3
+        t:
+        - 10.052
+        - 11.252
+        r: 1.4
+        color: '#8E7CC3'
+      routes:
+      - id: bay
+        pts:
+        - - -74.9
+          - 38.95
+        - - -75.05
+          - 39.3
+        - - -75.35
+          - 39.6
+        - - -75.15
+          - 39.88
+        draw:
+        - 1.31
+        - 4.31
+        style: dashed
+        color: '#8E7CC3'
+        w: 5
+      cam:
+      - t: 0
+        lon: -75.0
+        lat: 39.4
+        dist: 90
+        tilt: 52
+        head: -25
+      - t: 6.732
+        lon: -75.1
+        lat: 39.62
+        dist: 70
+        tilt: 54
+        head: -15
+      - t: 10.052
+        lon: -75.14
+        lat: 39.8
+        dist: 40
+        tilt: 58
+        head: -8
+      - t: 13.837
+        lon: -75.15
+        lat: 39.83
+        dist: 36
+        tilt: 59
+        head: -4
+      props:
+      - a: st:q1
+        px: 100
+        id: 05-0
+        t: 1.31
+        obj: freighter
+      - a: st:q2
+        px: 100
+        id: 05-1
+        t: 6.732
+        obj: freighter
+    _camera_id: inline:3beebb
+    _cam_geo: null
+  r05_philly:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      camGround: true
+      aerial:
+      - img: /cache/aerial/philly/t0.png
+        bbox:
+        - -75.414156
+        - 39.709119
+        - -74.945844
+        - 40.070881
+        fade:
+        - 36
+        - 22
+        feather: 0.08
+      - img: /cache/aerial/philly/t1.png
+        bbox:
+        - -75.226831
+        - 39.853824
+        - -75.133169
+        - 39.926176
+        fade:
+        - 7.2
+        - 4.4
+        feather: 0.08
+      places:
+      - id: phy
+        ll:
+        - -75.181
+        - 39.893
+        name: Philly Shipyard
+      pins:
+      - id: ord2
+        at:
+        - -75.181
+        - 39.893
+      - id: cr3
+        at:
+        - -75.176
+        - 39.89
+      cam:
+      - t: 0
+        lon: -75.3
+        lat: 39.68
+        dist: 120
+        tilt: 42
+        head: 10
+      - t: 3.941
+        lon: -75.2
+        lat: 39.84
+        dist: 22
+        tilt: 58
+        head: 14
+      - t: 12.626
+        lon: -75.19
+        lat: 39.85
+        dist: 18
+        tilt: 59
+        head: 4
+      - t: 14.936
+        lon: -75.19
+        lat: 39.855
+        dist: 16
+        tilt: 59
+        head: 1
+      - t: 19.824
+        lon: -75.19
+        lat: 39.86
+        dist: 14
+        tilt: 60
+        head: -2
+      - t: 29.843
+        lon: -75.185
+        lat: 39.875
+        dist: 6
+        tilt: 62
+        head: 20
+      - t: 37.436
+        lon: -75.185
+        lat: 39.872
+        dist: 9
+        tilt: 60
+        head: 12
+      - t: 45.541
+        lon: -75.19
+        lat: 39.86
+        dist: 16
+        tilt: 56
+        head: 6
+      props:
+      - a: st:ord2
+        px: 150
+        id: 05-0
+        t: 29.843
+        obj: order
+      - a: st:cr3
+        px: 190
+        id: 05-1
+        t: 30.865
+        obj: crane
+    _camera_id: inline:2ad7e9
+    _cam_geo: null
+  r06_watch:
+    hero: relief/map
+    opt:
+      relief: eastus
+      palette: natural
+      places:
+      - id: w1
+        ll:
+        - -75.181
+        - 39.893
+        name: Philadelphia
+      cam:
+      - t: 0
+        lon: -75.25
+        lat: 39.65
+        dist: 70
+        tilt: 50
+        head: 0
+      - t: 5.816
+        lon: -75.22
+        lat: 39.7
+        dist: 60
+        tilt: 52
+        head: 4
+      - t: 8.358
+        lon: -75.2
+        lat: 39.78
+        dist: 50
+        tilt: 54
+        head: 8
+      - t: 14.43
+        lon: -75.2
+        lat: 39.79
+        dist: 48
+        tilt: 54
+        head: 6
+      - t: 18.298
+        lon: -75.2
+        lat: 39.8
+        dist: 46
+        tilt: 55
+        head: 10
+    _camera_id: inline:a04db2
+    _cam_geo: null
+  r06_score:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: natural
+      cam:
+      - t: 0
+        lon: -122.28
+        lat: 37.7
+        dist: 60
+        tilt: 46
+        head: 0
+      - t: 6.779
+        lon: -122.285
+        lat: 37.705
+        dist: 58
+        tilt: 47
+        head: 2
+      - t: 11.504
+        lon: -122.29
+        lat: 37.71
+        dist: 56
+        tilt: 48
+        head: 3
+    _camera_id: inline:72613c
+    _cam_geo: null
+  r06_score2:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: natural
+      cam:
+      - t: 0
+        lon: -122.3
+        lat: 37.72
+        dist: 52
+        tilt: 50
+        head: 4
+      - t: 4.793
+        lon: -122.305
+        lat: 37.725
+        dist: 51
+        tilt: 50
+        head: 6
+      - t: 9.461
+        lon: -122.31
+        lat: 37.73
+        dist: 50
+        tilt: 51
+        head: 2
+      - t: 15.486
+        lon: -122.31
+        lat: 37.735
+        dist: 49
+        tilt: 51
+        head: -1
+      - t: 20.85
+        lon: -122.31
+        lat: 37.74
+        dist: 48
+        tilt: 52
+        head: -3
+      - t: 24.135
+        lon: -122.312
+        lat: 37.742
+        dist: 47
+        tilt: 52
+        head: -5
+      - t: 30.452
+        lon: -122.315
+        lat: 37.745
+        dist: 46
+        tilt: 52
+        head: -6
+    _camera_id: inline:df1436
+    _cam_geo: null
+  r06_home:
+    hero: relief/map
+    opt:
+      relief: sfbay
+      palette: natural
+      camGround: true
+      aerial:
+      - img: /cache/aerial/richmond/t0.png
+        bbox:
+        - -122.587715
+        - 37.729119
+        - -122.132285
+        - 38.090881
+        fade:
+        - 36
+        - 22
+        feather: 0.08
+      - img: /cache/aerial/richmond/t1.png
+        bbox:
+        - -122.405543
+        - 37.873824
+        - -122.314457
+        - 37.946176
+        fade:
+        - 7.2
+        - 4.4
+        feather: 0.08
+      places:
+      - id: y3
+        ll:
+        - -122.375
+        - 37.905
+        name: Richmond Shipyard No. 3
+      cam:
+      - t: 0
+        lon: -122.35
+        lat: 37.8
+        dist: 60
+        tilt: 44
+        head: 0
+      - t: 3.435
+        lon: -122.37
+        lat: 37.885
+        dist: 12
+        tilt: 56
+        head: 6
+      - t: 9.381
+        lon: -122.372
+        lat: 37.895
+        dist: 5
+        tilt: 60
+        head: 8
+    _camera_id: inline:ae1a4f
+    _cam_geo: null
+segments:
+- id: 01-1-0
+  dur: 5.747
+  shots:
+  - tpl: plate
+    type: footage
+    scene_id: f_liberty_launch_1944
+    camera_id: clip
+    places:
+    - Richmond
+    at: 0
+    p:
+      hero: f_liberty
+      clip: NARA-39018
+      setting: ft/richmond-yard-1944
+      year:
+        s: '1944'
+        at: 0.2
+      cap:
+      - s: A Liberty ship launched at Richmond, Calif., 1944 (newsreel)
+        at: 3.017
+      src: 'Film: United News (1944) · U.S. National Archives'
+      'off': 0
+      frame0: 0
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 01-2-6
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-01-days
+    places: []
+    at: 0
+    p:
+      hero: r01_days
+      year:
+        s: 1942–43
+        at: -5.8
+      places:
+      - a: richmond2
+        s: Richmond, Calif.
+        at: -5.7
+        side: auto
+        prefer:
+        - left
+        - up
+        - down
+      tags:
+      - a: col:d1942
+        s: 122 days
+        sub: average Liberty ship, June 1942
+        kind: actual
+        num: n_d1942
+        at: -3.68
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#3CC2B0'
+        value: 122
+        text: 122 days
+      - a: col:d1943
+        s: 39 days
+        sub: average, Dec. 1943
+        kind: actual
+        num: n_d1943
+        at: 0.105
+        side: auto
+        prefer:
+        - up
+        - right
+        c: '#3CC2B0'
+        value: 39.2
+        text: 39 days
+      - a: col:dpeary
+        s: 4½ days
+        sub: Robert E. Peary (publicity stunt)
+        kind: actual
+        num: n_peary
+        at: 4.482
+        side: auto
+        prefer:
+        - right
+        - down
+        c: '#F2C14E'
+        value: 4.65
+        text: 4½ days
+      src: 'Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP'
+      'off': 0
+      frame0: 144
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 02-1-5
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-02-alaska
+    places:
+    - Alaska
+    - Vancouver
+    - Seattle
+    at: 0
+    p:
+      hero: r02_alaska
+      year:
+        s: '1920'
+        at: -1.055
+      places:
+      - a: seattle
+        s: Seattle
+        at: 1.128
+        out: 6.155
+        side: auto
+      - a: vancouver
+        s: Vancouver, B.C.
+        at: 4.111
+        out: 6.155
+        side: auto
+        prefer:
+        - left
+        - up
+      - a: alaska
+        s: Alaska
+        at: 6.155
+        side: auto
+      src: 'Source: CRS (2019) · Terrain: SRTM (USGS)'
+      'off': 0
+      frame0: 132
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 03-2-0
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-03-tanker
+    places: []
+    at: 0
+    p:
+      hero: r03_tanker
+      tags:
+      - a: col:world
+        s: world price
+        at: 8.52
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#E6EBF0'
+      - a: col:us
+        s: ≈ 4×
+        sub: U.S.-built tanker (one firm's estimate)
+        kind: estimate
+        num: n_tanker4
+        at: 7.731
+        side: auto
+        prefer:
+        - down
+        - right
+        c: '#3CC2B0'
+        value: 4
+        text: ≈ 4×
+      src: 'Source: CRS (2019) · Terrain: USGS 3DEP'
+      'off': 0
+      frame0: 0
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 04-3-0
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-04-state
+    places: []
+    people:
+    - Park Chung Hee
+    - Munseob Lee
+    at: 0
+    p:
+      hero: r04_state
+      year:
+        s: '1973'
+        at: 3.203
+      cap:
+      - s: Government drive for heavy industry, incl. shipbuilding (Jan. 1973)
+        at: 3.203
+      - s: 'Named: shipbuilding · goal: exports'
+        at: 9.159
+      - s: Munseob Lee, Korea Economic Institute of America (2023)
+        at: 15.521
+      - s: 'How much reached Hyundai''s yard: not in our sources'
+        at: 25.68
+      src: 'Source: KEIA (2023) · Terrain: SRTM (USGS)'
+      'off': 0
+      frame0: 0
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 04-3-6
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-04-state
+    places: []
+    people:
+    - Park Chung Hee
+    - Munseob Lee
+    at: 0
+    p:
+      hero: r04_state
+      year:
+        s: '1973'
+        at: -2.797
+      cap:
+      - s: Government drive for heavy industry, incl. shipbuilding (Jan. 1973)
+        at: -2.797
+      - s: 'Named: shipbuilding · goal: exports'
+        at: 3.159
+      - s: Munseob Lee, Korea Economic Institute of America (2023)
+        at: 9.521
+      - s: 'How much reached Hyundai''s yard: not in our sources'
+        at: 19.68
+      src: 'Source: KEIA (2023) · Terrain: SRTM (USGS)'
+      'off': 0
+      frame0: 144
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 04-2-36
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-04-beach
+    places:
+    - Ulsan
+    at: 0
+    p:
+      hero: r04_beach
+      year:
+        s: 1971–74
+        at: -35.7
+      places:
+      - a: ulsan
+        s: Ulsan
+        at: -33.97
+        out: -21.13
+        side: auto
+        prefer:
+        - left
+        - up
+      tags:
+      - a: st:photo
+        s: LORE
+        sub: a photo of the empty beach (2010 column)
+        at: -17.356
+        out: -15.406
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#F08A4B'
+      - a: st:note
+        s: 500-won note
+        sub: turtle ship, a warship from Korea's history
+        at: -14.094
+        out: -8.544
+        side: auto
+        prefer:
+        - up
+        - right
+        c: '#F08A4B'
+      cap:
+      - s: An order first, then a shipyard (by Hyundai's account)
+        at: -29.79
+      - s: A story from a 2010 newspaper column
+        at: -21.13
+      - s: 'LORE: one columnist''s account, not a record'
+        at: -8.544
+      - s: 'Company history: ground broken, March 1972'
+        at: -3.087
+      - s: Atlantic Baron · Atlantic Baroness, 1974 (company history)
+        at: 8.093
+      src: 'Sources: HD Hyundai Heavy Industries history, The Korea Times (2010) · Terrain: SRTM'
+      'off': 0
+      frame0: 864
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 04-4-2
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-04-abroad
+    places: []
+    at: 0
+    p:
+      hero: r04_abroad
+      tags:
+      - a: ulsanx
+        s: $36,227
+        sub: output per person, 2025 (current $)
+        kind: actual
+        num: n_gdp25
+        at: 5.185
+        side: auto
+        prefer:
+        - left
+        - down
+        c: '#F2C14E'
+        value: 36227
+        text: $36,227
+      cap:
+      - s: 'Our read: the yard''s customers were abroad'
+        at: 1.342
+      - s: 'Not in our sources: how much of the rise came from shipbuilding'
+        at: 12.372
+      src: 'Sources: World Bank, company history · Terrain: SRTM (USGS)'
+      'off': 0
+      frame0: 48
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 05-2-2
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: document
+    scene_id: doc_fr_det
+    camera_id: detail
+    places: []
+    at: 0
+    p:
+      hero: d05_det
+      paper: USTR, Federal Register 90 FR 8089
+      date: '2025-01-23'
+      cap:
+      - s: 'USTR finding, Jan. 2025: "unreasonable"'
+        at: 2.421
+      src: 'Source: USTR'
+      'off': 0
+      frame0: 48
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 05-4-0
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: document
+    scene_id: doc_fr_act_p5
+    camera_id: detail
+    places: []
+    at: 0
+    p:
+      hero: d05_aim
+      paper: Federal Register, 90 FR 17114
+      date: '2025-04-23'
+      cap:
+      - s: 'Stated aim: discourage Chinese-built ships'
+        at: 0.7
+      - s: …and press China to drop the practices
+        at: 5.142
+      src: 'Source: Federal Register (USTR)'
+      'off': 0
+      frame0: 0
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 05-7-0
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-05-cost
+    places:
+    - Philadelphia
+    at: 0
+    p:
+      hero: r05_cost
+      tags:
+      - a: col:cost
+        s: 200+ groups
+        sub: signed the joint letter (our count)
+        kind: actual
+        num: n_200
+        at: 2.366
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#E6EBF0'
+        value: 200
+        text: 200+ groups
+      cap:
+      - s: 'Trade groups'' letter to USTR: "would add another cost layer to an already strained transportation system"'
+        at: 7.753
+      - s: 'As of 15 Oct 2026: no extension published'
+        at: 13.837
+      asof: Facts as of 15 Oct 2026
+      asofAt: 13.837
+      src: 'Source: joint letter to USTR from trade groups (NFTC, Sept. 2026) · Terrain: USGS 3DEP'
+      'off': 0
+      frame0: 0
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot
+- id: 05-7-7
+  dur: 6.0
+  shots:
+  - tpl: plate
+    type: map
+    scene_id: relief/map
+    camera_id: t2-05-cost
+    places:
+    - Philadelphia
+    at: 0
+    p:
+      hero: r05_cost
+      tags:
+      - a: col:cost
+        s: 200+ groups
+        sub: signed the joint letter (our count)
+        kind: actual
+        num: n_200
+        at: -4.634
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#E6EBF0'
+        value: 200
+        text: 200+ groups
+      cap:
+      - s: 'Trade groups'' letter to USTR: "would add another cost layer to an already strained transportation system"'
+        at: 0.753
+      - s: 'As of 15 Oct 2026: no extension published'
+        at: 6.837
+      asof: Facts as of 15 Oct 2026
+      asofAt: 6.837
+      src: 'Source: joint letter to USTR from trade groups (NFTC, Sept. 2026) · Terrain: USGS 3DEP'
+      'off': 0
+      frame0: 168
+  beats:
+  - t: 0
+    k: cut
+    s: đầu shot

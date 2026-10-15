@@ -36,10 +36,24 @@ if __name__ == '__main__':
     got = hashlib.sha256(open(f'{H}/script.md', 'rb').read()).hexdigest()
     if got != want['script.md']: raise SystemExit(f'LỜI KHOÁ ĐỔI: script.md {got[:12]} ≠ LOI-KHOA.sha256 {want["script.md"][:12]}')
     VO = script_vo(); E = yaml.safe_load(open(f'{H}/ep-src.yaml'))
+    # G2: chuỗi gửi ElevenLabs phải trùng loi-khoa.txt (SHA ở LOI-KHOA.sha256), từng đoạn, sau khi gộp khoảng trắng
+    got = hashlib.sha256(open(f'{H}/loi-khoa.txt', 'rb').read()).hexdigest()
+    if got != want['loi-khoa.txt']: raise SystemExit(f'LỜI KHOÁ ĐỔI: loi-khoa.txt {got[:12]} ≠ LOI-KHOA.sha256')
+    Lk = re.split(r'^\[(\d\d) [^\]]+\]\s*$', open(f'{H}/loi-khoa.txt').read(), flags=re.M); LK = {Lk[i]: re.sub(r'\s+', ' ', Lk[i + 1]).strip() for i in range(1, len(Lk), 2)}
+    bad = [k for k in VO if VO[k] != LK.get(k)]
+    if bad: raise SystemExit(f'script.md ≠ loi-khoa.txt ở đoạn {bad}')
     E['heroes'] = yaml.safe_load(open(f'{H}/ep-src-heroes.yaml'))['heroes']
     SG = yaml.safe_load(open(f'{H}/ep-src-segs.yaml')); E['segments'] = SG['segments']; E['shorts'] = SG.get('shorts', [])
     for s in E['segments']:
         if s.get('vo') == '@script': s['vo'] = VO[s['id']]
+    def sentences(t): return re.split(r'(?<=[.?!])\s+(?=[A-Z])', t)
+    for sh in E['shorts']:   # Short: lời = các câu NGUYÊN VĂN của lời khoá, vo_from [[đoạn, câu đầu, câu cuối], …]
+        R = sh.pop('vo_from', None)
+        if R:
+            out = []
+            for sid, a, b in R:
+                S = sentences(VO[sid]); i0 = next(i for i, x in enumerate(S) if x.startswith(a)); i1 = next(i for i, x in enumerate(S) if x.startswith(b)); out += S[i0:i1 + 1]
+            sh['vo'] = ' '.join(out)
     assert [s['id'] for s in E['segments']] == sorted(VO), (sorted(VO), [s['id'] for s in E['segments']])
     # mốc số ở lớp 2D (p.places/tags/stickers/labels/cap/year/title .at) là giây TRONG ĐOẠN (k2.js); ở shot không mở đoạn, nguồn ghi số = giây SAU ĐẦU SHOT
     # → đổi thành mốc lời của shot cộng bù (vd shot "@June-0.3", at 0.3 → "@June+0.00"), để vật hiện đúng lúc trong shot thay vì đã có sẵn khi cắt vào. Mục có seg: true giữ giây trong đoạn (câu miễn trừ 0:03–0:12 vắt qua hai shot đầu).

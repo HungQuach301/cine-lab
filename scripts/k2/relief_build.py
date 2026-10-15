@@ -175,7 +175,7 @@ def build():
         ocean = dem_ocean
     lakes = poly_mask('ne_10m_lakes', b, W, H) | poly_mask('ne_10m_lakes_north_america', b, W, H)
     water = ocean | lakes | np.isnan(Z)
-    u = ppd / 600.0   # T2 G1b: hằng số vẽ (px) thiết kế ở ppd 600 → quy theo ppd để nền độ phân giải cao giữ cùng dáng theo km
+    u = max(1.0, ppd / 600.0)   # T2 G1b: hằng số vẽ (px) thiết kế ở ppd 600 → quy theo ppd để nền độ phân giải cao giữ cùng dáng theo km (nền thô < 600 giữ nét theo px: nhìn ở tầm vùng)
     if u > 1.01:   # mép nước: làm mượt mặt nạ nhị phân (σ ~ 0,6 px) rồi lấy ngưỡng — bỏ răng cưa bậc thang 1 ô khi máy ở tầm < 20 km
         sm = lambda m: ndimage.gaussian_filter(m.astype(np.float32), 0.6 * u) > 0.5
         ocean, lakes = sm(ocean), sm(lakes) & ~sm(ocean); water = ocean | lakes | np.isnan(Z)
