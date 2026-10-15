@@ -1,0 +1,99 @@
+{
+ "note": "Xác minh neo thời sự bằng NGUỒN GỐC, phiên Tiền kỳ T3, 15/10/2026. Trích nguyên văn từ tệp tải bằng curl (pdftotext/odt/html → text). SHA-256 là của tệp tải về (ngoài git, /tmp scratchpad).",
+ "neo": [
+  {
+   "id": "N1",
+   "neo": "Ngày ký hiệp ước",
+   "ket_luan": "ĐÚNG",
+   "gia_tri": "14/07/2026, Brussels",
+   "as_of": "2026-07-14",
+   "nguon": "UK Government (FCDO) press release",
+   "url": "https://www.gov.uk/government/news/uk-finalises-historic-treaty-with-eu-to-secure-economic-future-of-gibraltar",
+   "trich": "following the signing of the historic UK-EU Treaty on Gibraltar in Brussels today (14 July), in the presence of the Chief Minister of Gibraltar and the Foreign Minister of Spain."
+  },
+  {
+   "id": "N2",
+   "neo": "Áp dụng tạm thời (không phải \"có hiệu lực\")",
+   "ket_luan": "ĐÚNG — cần dùng đúng chữ \"provisionally applied\"",
+   "gia_tri": "áp dụng tạm thời từ 15/07/2026; chưa có hiệu lực chính thức",
+   "as_of": "2026-07-14",
+   "nguon": "FCDO Explanatory Memorandum, MS No.9/2026 (CP 1645), §5.6–5.8",
+   "url": "https://assets.publishing.service.gov.uk/media/6a5748349e631544544136ab/EM_MS_9.2026_Agreement_Gibraltar_UK_EU_EAEC.odt",
+   "sha256": "c363a24aa4cc1632ac6373aecaabbd7c4f26bb245234676e97822ae27085d8f5",
+   "trich": "In accordance with Article 336(2) of the Treaty, the UK and the EU agreed to apply the Treaty provisionally from 15 July 2026."
+  },
+  {
+   "id": "N3",
+   "neo": "Trạng thái phê chuẩn",
+   "ket_luan": "CHƯA HIỆU LỰC — Nghị viện châu Âu chưa đồng ý; Anh còn thủ tục CRaG",
+   "gia_tri": "phiên toàn thể dự kiến 14/12/2026; thủ tục 2026/0058(NLE)",
+   "as_of": "trang đọc 15/10/2026",
+   "nguon": "European Parliament — Legislative Train Schedule",
+   "url": "https://www.europarl.europa.eu/legislative-train/theme-a-stronger-europe-in-the-world/file-eu-uk-agreement-in-respect-of-gibraltar",
+   "trich": "The European Parliament will need to give its consent, in accordance with the EU treaties. In draft report the rapporteurs proposed to give consent to the agreement. Indicative plenary sitting date is set for 14 December 2026.",
+   "ghi_chu": "Hiệu lực chính thức: \"the first day of the month following that in which both Parties have notified each other\" (EM §5.8). Bầu cử Tây Ban Nha 29/11/2026 chỉ có nguồn thứ cấp (gfsb.gi) → CHƯA XÁC MINH GỐC; không đưa vào lời nếu chưa có BOE."
+  },
+  {
+   "id": "N4",
+   "neo": "\"Hàng rào gỡ 15/07/2026\" (Teardown)",
+   "ket_luan": "SAI MỘT PHẦN / NÓI QUÁ",
+   "gia_tri": "Hiệp ước Điều 7: mọi rào cản vật lý sẽ gỡ THEO KẾ HOẠCH thực thi; trước 02/07 đã gỡ một số đoạn hàng rào cũ, nhưng dựng hàng rào mới cấp 4 \"no-climb\" từ biển tới sân bay; khu quân sự phía tây vẫn rào; chỉ ~150 m quanh vòng xoay không rào. Từ 15/07 hết kiểm soát hộ chiếu thường quy ở biên giới đất liền.",
+   "as_of": "2026-07-02",
+   "nguon": "HM Government of Gibraltar press release 517/2026 + Treaty Art. 7",
+   "url": "https://www.gibraltar.gov.gi/press-releases/new-frontier-security-measures-in-place-as-government-publishes-plans-for-the-border-area-5172026-12156",
+   "sha256": "3e0489f9242dbd1d20180a62ba84cdaf7a9f53693b314c762a89b778fa333b7d",
+   "trich": "As the old chain-link and barbed-wire fencing comes down, a new, high-security fence line has already been erected only a few metres away. [...] The only section without a border fence will be the area of approximately 150 metres by the loop, where pedestrians have always crossed.",
+   "trich2_treaty_art7": "All physical barriers shall be removed in accordance with the implementation plan contained in the relevant administrative arrangement between the United Kingdom, in respect of Gibraltar, and the Kingdom of Spain.",
+   "he_qua": "KHÔNG dùng tiêu đề \"The Fence Came Down\". Lời: \"routine checks ended\" / \"the old fence began coming down\". Cảnh 3D \"hàng rào tan ra\" phải đúng: hàng rào cũ tan ra, hàng rào mới phía sau vẫn đứng."
+  },
+  {
+   "id": "N5",
+   "neo": "Nội dung chính",
+   "ket_luan": "ĐÚNG",
+   "gia_tri": "Không kiểm tra thường quy ở biên giới đất liền; kiểm tra kép (Gibraltar + Tây Ban Nha thay mặt EU) ở sân bay và cảng; liên minh thuế quan EU–Gibraltar; \"transaction tax\" thay thuế nhập khẩu; điều khoản chủ quyền \"without prejudice\"; lao động qua biên giới; sân bay mở chuyến bay EU",
+   "as_of": "2026-07-14",
+   "nguon": "FCDO Explanatory Memorandum (CP 1645)",
+   "url": "https://assets.publishing.service.gov.uk/media/6a5748349e631544544136ab/EM_MS_9.2026_Agreement_Gibraltar_UK_EU_EAEC.odt",
+   "trich": "It does not formally integrate Gibraltar into the Schengen Area, the EU Single Market, or the EU Customs Union, but creates a unique set of arrangements intended to achieve the benefits of a fluid land border between Gibraltar and Spain."
+  },
+  {
+   "id": "N6",
+   "neo": "~15 000 người qua lại/ngày, \"hơn một nửa lực lượng lao động\"",
+   "ket_luan": "ĐÚNG VỀ CỠ, LỆCH VỀ TỶ LỆ",
+   "gia_tri": "UK Gov: \"15,000 people – over half of Gibraltar’s workforce\". Thống kê Gibraltar 10/2025: 14 112 việc làm của \"frontier worker\" (cư trú ở Tây Ban Nha) / 32 206 việc làm = 43,8 % (TỰ TÍNH, đơn vị là việc làm, không phải người).",
+   "as_of": "2025-10 (khảo sát) / 2026-07-14 (thông cáo)",
+   "nguon": "HM Government of Gibraltar Statistics Office, Employment Survey Report 2025, Table 2.4 + Survey Summary; UK FCDO press release",
+   "url": "https://www.gibraltar.gov.gi/uploads/statistics/2025/Reports/Employment%20Survey%20Report%202025.pdf",
+   "sha256": "145e2914378c2db87d98efdf84f1c9eb2eabb02ee3909dba059b125ea0a8e5d0",
+   "trich": "(a) Frontier Worker: an employee who is normally resident in Spain and is employed in Gibraltar. | In October 2025 the number of employee jobs was 32,206 | Table 2.4 Total 14,112",
+   "he_qua": "Lời dùng \"about fourteen thousand jobs — more than four in ten\" (Thống kê Gibraltar) thay cho \"over half\"; có thể trích UK Gov như lời của chính phủ Anh."
+  },
+  {
+   "id": "N7",
+   "neo": "GDP/người Gibraltar — ai công bố, phương pháp",
+   "ket_luan": "ĐÚNG NHƯNG LÀ SỐ TỰ CÔNG BỐ; PHẢI KÈM 3 CAVEAT",
+   "gia_tri": "Văn phòng Thống kê (HMGoG): GDP giá yếu tố 2024/25 £3 089,47 triệu (dự báo), £80 885/người (dân số sau Census 2022). Ngân sách 07/07/2026 (Thủ hiến): GDP dự báo £3,252 tỷ, £85 145/người (dân 38 200), quy ra $126 015 theo tỷ giá trung bình 20 năm £1=$1,48 → \"thứ 3 thế giới\" (sau Luxembourg, Liechtenstein; xếp hạng theo IMF WEO 04/2026).",
+   "as_of": "2026-07-07",
+   "nguon": "HMGoG Statistics Office \"National Income, 2010/11 - 2024/25\"; HMGoG press release 536/2026 (Chief Minister Budget Address)",
+   "url": "https://www.gibraltar.gov.gi/uploads/statistics/2025/National%20Accounts/GDP%20Estimates%202010%20-%2011%20-%202024-25.pdf | https://www.gibraltar.gov.gi/press-releases/the-chief-ministers-budget-address-2026-5362026-12180",
+   "sha256": "d1fed3b92cd99388b72ce554a7a16e55ac6c5cec6302188f0654ffc8477703fd | 7693004e2d884bc4e6194e04fd8fe11bf4250d2d0fe2a84935853a7bcca80a85",
+   "trich": "This year, dividing our forecast Gross Domestic Product across a resident population of 38,200, it stands at £85,145 per head. | [2] Sterling figures are converted to US dollars at £1 = US$1.48, the twenty-year average sterling-to-dollar exchange rate",
+   "caveat": [
+    "(1) Mẫu số là dân cư trú nhưng ~44 % việc làm do người sống ở Tây Ban Nha nắm → GDP/người phồng lên so với nơi không có lao động đi về (cơ chế giống Luxembourg).",
+    "(2) Quy đô-la theo tỷ giá trung bình 20 năm, không theo tỷ giá thị trường hiện hành.",
+    "(3) Không phải số của IMF/World Bank; IMF không xếp Gibraltar — Thủ hiến tự đặt vào bảng IMF. Chính Thủ hiến: \"these international comparisons are not an exact science\"."
+   ]
+  },
+  {
+   "id": "N8",
+   "neo": "Thất nghiệp La Línea / Campo de Gibraltar",
+   "ket_luan": "ĐÚNG — MẠNH",
+   "gia_tri": "INE Indicadores Urbanos (ed. 2025, số 2024): La Línea 28,6 % — cao nhất trong 113 đô thị của bộ chỉ số (Linares 27,59; Melilla 26,52; Ceuta 26,27; Algeciras 22,6); toàn quốc 11,34 %. Thu nhập ròng/người 2023: La Línea 11 553 € vs toàn quốc 14 807 €.",
+   "as_of": "INE công bố 23/10/2025; API đọc 15/10/2026",
+   "nguon": "INE — Indicadores Urbanos, series UA121870, UA129043, UA121855, UA129028 (bảng 69303/69310)",
+   "url": "https://servicios.ine.es/wstempus/js/ES/DATOS_SERIE/UA121870?nult=6",
+   "trich": "Línea de la Concepción, La. Tasa de desempleo (Porcentaje). Total. → 2024: 28.6 | Phương pháp (metodologia_IU.pdf §3.1): \"Se define como el cociente entre el número de parados y el número de activos. – Fuente: Encuesta de Población Activa (EPA). Registro de parados por municipios del Servicio Público de Empleo Estatal.\"",
+   "ghi_chu": "Là ƯỚC TÍNH của INE (EPA + sổ SEPE), không phải số đếm SEPE. SEPE tháng gần nhất (09/2026) chưa đọc trực tiếp — tuỳ chọn ở G1. Không có số \"Campo de Gibraltar\" gộp trong INE UA; dùng La Línea + Algeciras."
+  }
+ ]
+}
