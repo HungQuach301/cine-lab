@@ -1,5 +1,7 @@
 #!/opt/cine/bin/python
 """Q32 footage/ảnh nguồn ngoài — luật khoá LL v3 bản 1.10.0 (phiên K, 12/10/2026). Áp cho Last Lamplighters VÀ kênh 2.
+1.11.0 (phiên K, 15/10/2026; chủ dự án duyệt 15/10, Kinh thánh kênh 2 §4 F3 + V4 H1–H6): thêm nguồn DVIDS có điều kiện (g), tệp giấy phép
+cho mọi dòng sổ (h), trần footage 20 % (b2), nguồn < 720p phải đặt trong khung (i).
 Định nghĩa: checks/ll/RULES-LL.md (mục Q32) và checks/ll/FOOTAGE.md (nguồn, giấy phép Pexels/Pixabay đọc lại 12/10/2026).
 
   q_footage.py <episode.yaml> [--tl <timeline.json>] [--desc <mô tả YouTube>] [--json ra.json]
@@ -23,7 +25,16 @@ TRƯỢT khi:
       (giấy phép Pixabay cấm dùng thương mại nội dung có nhãn hiệu nhận ra được)
   (e) cây git (mọi tệp đang theo dõi) có tệp media trong đường dẫn có "footage", hoặc tệp có SHA-256 trùng một dòng của bất kỳ sổ SOURCES-FOOTAGE.csv nào
   (f) đoạn footage không khai `p.setting` (Q26b đếm footage là bối cảnh theo nội dung hình: checks/ll/q_setting.py)
-Trong ±5 % quanh ngưỡng 40 % và 8 s: nêu tên (sát ngưỡng).
+  (b2) 1.11.0: FOOTAGE (shot khai type footage, hoặc tpl footage không khai type khác) > 20 % thời lượng phim (từng Short riêng)
+  (g) 1.11.0, nguồn DVIDS (dvidshub.net, tác phẩm chính phủ Mỹ): giấy phép không phải PD; logo/huy hiệu trong khung dùng (cột logo phải
+      bắt đầu "khong", hoặc "co" kèm ghi đã cắt khỏi khung — làm mờ KHÔNG nhận vì vẫn hàm ý bảo trợ); người nhận diện được mà không ghi
+      "không nổi bật / không cận mặt" (hoặc đã làm mờ); câu ghi công (yeu_cau_ghi_cong) không có "U.S. government work", hoặc mô tả YouTube
+      (khi có) không có nguyên văn câu ghi công đó
+  (h) 1.11.0 (từ V4): mỗi dòng sổ phải có tệp giấy phép đã lưu: đường dẫn licenses/… ghi trong cột giay_phep, hoặc
+      licenses/<clip_id viết thường>.txt cạnh sổ; tệp phải chứa đúng SHA-256 của dòng (DVIDS: thêm chữ "public domain")
+  (i) 1.11.0: clip footage có nguồn cao < 720 điểm ảnh (đo bằng ffprobe trên file đã dùng) mà cảnh footage (heroes.<p.hero>.opt) không khai
+      khung trong khung: fit: frame, zoom ≤ 1,5 (phóng so với điểm ảnh gốc), border (có viền); không đo được độ phân giải → TRƯỢT
+Trong ±5 % quanh ngưỡng 40 %, 20 %, 8 s và 1,5×: nêu tên (sát ngưỡng).
 """
 import csv, glob, hashlib, json, os, re, subprocess, sys
 from urllib.parse import urlparse
@@ -33,7 +44,10 @@ from checks.ll import base  # noqa: E402
 
 COLS = ['clip_id', 'url_trang', 'url_tai', 'ngay_tai_utc', 'giay_phep', 'yeu_cau_ghi_cong', 'sha256', 'timecode_dung', 'nguoi_nhan_dien', 'logo']
 SO = 'SOURCES-FOOTAGE.csv'
-MAX_SHARE = 40.0          # % thời lượng
+MAX_SHARE = 40.0          # % thời lượng (footage + ảnh/tư liệu/báo)
+MAX_FOOT = 20.0           # % thời lượng, riêng footage (1.11.0; Kinh thánh kênh 2 §4 F3)
+MIN_H = 720               # điểm ảnh, nguồn thấp hơn phải đặt trong khung (1.11.0)
+MAX_ZOOM = 1.5            # phóng tối đa so với điểm ảnh gốc khi đặt trong khung
 MAX_CLIP = 8.0            # s liên tục mỗi clip
 TOL = 0.05                # s, dung sai timecode sổ ↔ EDL
 GAP = 1 / 24 + 0.001      # shot cùng clip cách nhau ≤ 1 khung: một lần hiện liên tục
@@ -42,10 +56,14 @@ ROOTS = ('/var/tmp/k2-footage/{id}', '/var/tmp/ll-footage/{id}', '{out}/footage'
 
 # nguồn cho phép (chủ dự án 12/10/2026). Nguồn khác: chủ dự án duyệt, ghi AUTHORSHIP.md, rồi K thêm vào DUYET_THEM (không ai khác sửa).
 SRC = (('loc', r'(^|\.)loc\.gov$'), ('nara', r'(^|\.)archives\.gov$'), ('nasa', r'(^|\.)nasa\.gov$'), ('ia', r'(^|\.)archive\.org$'),
-       ('wikimedia', r'^commons\.wikimedia\.org$'), ('pexels', r'(^|\.)pexels\.com$'), ('pixabay', r'(^|\.)pixabay\.com$'))
+       ('wikimedia', r'^commons\.wikimedia\.org$'), ('pexels', r'(^|\.)pexels\.com$'), ('pixabay', r'(^|\.)pixabay\.com$'),
+       ('dvids', r'(^|\.)dvidshub\.net$'))   # 1.11.0: DVIDS có điều kiện (g), chủ dự án duyệt 15/10/2026 (V4 H1–H6, Kinh thánh §4)
 DUYET_THEM = {}           # {host: nhãn nguồn} — trống ở 1.10.0
 LIC_OK = {'loc': {'PD', 'CC0'}, 'nara': {'PD', 'CC0'}, 'nasa': {'PD', 'CC0'}, 'ia': {'PD', 'CC0', 'CC BY', 'CC BY-SA'},
-          'wikimedia': {'PD', 'CC0', 'CC BY', 'CC BY-SA'}, 'pexels': {'Pexels'}, 'pixabay': {'Pixabay'}}
+          'wikimedia': {'PD', 'CC0', 'CC BY', 'CC BY-SA'}, 'pexels': {'Pexels'}, 'pixabay': {'Pixabay'}, 'dvids': {'PD'}}
+CROPPED = re.compile(r'cắt|\bcat\b|crop|ngoài khung|ngoai khung|không dùng|khong dung|not used', re.I)                  # (g) logo: chỉ nhận đã cắt khỏi khung
+NOT_FEATURED = re.compile(r'không (làm )?nổi bật|khong (lam )?noi bat|không cận mặt|khong can mat|not featured|làm mờ|lam mo|blur', re.I)
+GOVWORK = re.compile(r'u\.?\s?s\.? government work', re.I)
 MEDIA = re.compile(r'\.(jpe?g|png|tiff?|gif|webp|bmp|heic|mp4|mov|mkv|webm|avi|m4v|mxf|mpe?g|ogv|ts|mts|m2ts|prores)$', re.I)
 HANDLED = re.compile(r'làm mờ|lam mo|\bmờ\b|blur|pixel|cắt|\bcat\b|crop|che |không nhận ra|khong nhan ra', re.I)
 NEG = re.compile(r"^(crime|crimes|criminal|criminals|fraud|frauds|fraudulent|scam|scams|scammer|swindle|swindled|theft|thief|thieves|steal|stole|"
@@ -203,13 +221,58 @@ def git_scan(repo, so_paths=(), extra_sha=(), cache=None):
     return sorted(set(bad))
 
 
+def is_k2(E, ep_dir):
+    """tập kênh 2: thư mục channel-k2/ hoặc mã tập k2… (1.11.0: b2, h, i chỉ áp kênh 2 — Kinh thánh kênh 2 §4)"""
+    return '/channel-k2/' in (os.path.abspath(ep_dir or '') + '/') or str(E.get('id') or '').startswith('k2')
+
+
+def lic_files(ep_dir, r):
+    """(h) tệp giấy phép của một dòng sổ: licenses/… ghi trong cột giay_phep, không có thì licenses/<clip_id viết thường>.txt"""
+    refs = re.findall(r'licenses/[\w.\-/]+', r.get('giay_phep') or '')
+    return [os.path.join(ep_dir, x.rstrip('.,;)')) for x in refs] or [os.path.join(ep_dir, 'licenses', r['clip_id'].lower() + '.txt')]
+
+
+def probe(f):
+    """(i) cỡ khung gốc (rộng theo SAR, cao) của tệp video bằng ffprobe; None khi không đọc được"""
+    try:
+        r = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,sample_aspect_ratio',
+                            '-of', 'json', f], capture_output=True, text=True, timeout=60)
+        st = json.loads(r.stdout)['streams'][0]; w, h = int(st['width']), int(st['height']); sar = st.get('sample_aspect_ratio') or '1:1'
+        a, b = (int(x) for x in sar.split(':')) if re.fullmatch(r'\d+:\d+', sar) and not sar.startswith('0') else (1, 1)
+        return round(w * a / b), h
+    except (OSError, ValueError, KeyError, IndexError, subprocess.SubprocessError):
+        return None
+
+
+def shot_types(E, TL):
+    """→ {(đoạn, chỉ số shot): type} từ đặc tả (Q34); LL không khai type → rỗng"""
+    try:
+        from checks.ll import q_types
+        S, _ = q_types.typed(E, TL); return {(sid, i): t for sid, i, a, b, t, sh, sp in S}
+    except (KeyError, TypeError):
+        return {}
+
+
+def footage_uses(E, TL):
+    """(b2, i) đoạn FOOTAGE thật (không tính ảnh): shot khai type footage; LL/không khai type: tpl footage → [(video, t0, t1, shot, đoạn)]"""
+    TY = shot_types(E, TL); out = []
+    for kind, segs in (('main', TL['segments']), ('short', TL.get('shorts') or [])):
+        for s in segs:
+            for i, sh in enumerate(s['shots']):
+                ty = TY.get((s['id'], i)) if kind == 'main' else (sh.get('type') or (sh.get('p') or {}).get('type'))
+                if ty == 'footage' or (ty is None and sh.get('tpl') == 'footage'):
+                    a, b = (s['t0'] + sh['t0'], s['t0'] + sh['t1']) if kind == 'main' else (sh['t0'], sh['t1'])
+                    out.append(('main' if kind == 'main' else s['id'], a, b, sh, s['id']))
+    return out
+
+
 def _cache_path(): return os.path.join(os.environ.get('Q32_CACHE_DIR', '/var/tmp/cine-out'), 'q32-sha-cache.json')
 
 
 def q32(E, TL, ep_dir, desc=None, repo=None, scan=True):
     from checks.ll import q_av
     so_path = os.path.join(ep_dir, SO); R, fmt = load_so(so_path)
-    U = uses(TL); P = {k: [] for k in 'abcdef'}; near = []
+    U = uses(TL); P = {k: [] for k in 'abcdefghi'}; near = []; k2 = is_k2(E, ep_dir)
     P['a'] += fmt
     # (a) mọi đoạn có dòng sổ; SHA file đã dùng; timecode hai chiều (phim chính)
     seen = {}
@@ -284,11 +347,58 @@ def q32(E, TL, ep_dir, desc=None, repo=None, scan=True):
     for v, a, b, sh, sid in U:
         if not str((sh.get('p') or {}).get('setting') or '').strip():
             P['f'].append(f'{v if v != "main" else sid} @{mmss(a)} clip {(sh.get("p") or {}).get("clip")}: không khai p.setting (bối cảnh theo nội dung hình, Q26b)')
-    loi = [f'({k}) {x}' for k in 'abcdef' for x in P[k]]
+    # (b2) 1.11.0 kênh 2: footage thật ≤ 20 % thời lượng (ảnh/tư liệu không tính ở đây; vẫn chịu trần 40 % chung)
+    FU = footage_uses(E, TL) if k2 else []; fshare = {}
+    for v, T in (vids.items() if k2 else []):
+        ft = sum(b - a for vv, a, b, *_ in FU if vv == v)
+        if not T or not ft: continue
+        fs_ = 100 * ft / T; fshare[v] = fs_; nm = 'phim' if v == 'main' else f'Short {v}'
+        if fs_ > MAX_FOOT + 1e-9: P['b'].append(f'{nm}: footage thật {ft:.1f} s = {fs_:.1f} % > {MAX_FOOT:g} % (b2)')
+        elif abs(fs_ - MAX_FOOT) <= 0.05 * MAX_FOOT: near.append(f'{nm}: footage thật {fs_:.1f} % (ngưỡng {MAX_FOOT:g} %)')
+    # (g) DVIDS có điều kiện
+    for c in sorted(used):
+        r = R[c]
+        if r['_src'] != 'dvids': continue
+        lg = (r['logo'] or '').strip()
+        if yes(lg) and not CROPPED.search(lg): P['g'].append(f'clip {c} (DVIDS): logo/huy hiệu trong khung dùng (cột logo phải "khong" hoặc ghi đã cắt khỏi khung; làm mờ không nhận)')
+        if yes(r['nguoi_nhan_dien']) and not NOT_FEATURED.search(r['nguoi_nhan_dien']): P['g'].append(f'clip {c} (DVIDS): người nhận diện được mà không ghi "không nổi bật"/"không cận mặt" (DVIDS: không làm nổi bật cá nhân)')
+        if not GOVWORK.search(r['yeu_cau_ghi_cong'] or ''): P['g'].append(f'clip {c} (DVIDS): câu ghi công (yeu_cau_ghi_cong) không có "U.S. government work"')
+        else:
+            txt, fs = desc_text(ep_dir, desc)
+            cr = re.search(r'"([^"]*government work[^"]*)"', r['yeu_cau_ghi_cong'], re.I)
+            cr = cr.group(1) if cr else r['yeu_cau_ghi_cong']
+            if fs and _sq(cr) not in _sq(txt): P['g'].append(f'clip {c} (DVIDS): mô tả YouTube thiếu câu ghi công "{cr}"')
+    # (h) tệp giấy phép cho mọi dòng sổ (kênh 2, từ V4)
+    for c, r in (R.items() if k2 else []):
+        fl = lic_files(ep_dir, r); ex = [f for f in fl if os.path.isfile(f)]
+        if not ex: P['h'].append(f'clip {c}: không có tệp giấy phép ({os.path.relpath(fl[0], ep_dir)})'); continue
+        body = ' '.join(open(f, encoding='utf-8', errors='replace').read() for f in ex)
+        if r['sha256'] and r['sha256'] not in body.lower(): P['h'].append(f'clip {c}: tệp giấy phép {os.path.relpath(ex[0], ep_dir)} không ghi SHA-256 {r["sha256"][:12]}… của dòng sổ')
+        if r['_src'] == 'dvids' and 'public domain' not in body.lower(): P['h'].append(f'clip {c} (DVIDS): tệp giấy phép không có nguyên văn "public domain" của trang DVIDS')
+    # (i) nguồn < 720p → khung trong khung (fit: frame, zoom ≤ 1,5, border)
+    HE = dict(E.get('heroes') or {}, **(TL.get('heroes') or {})); seen_i = set(); res = {}
+    for v, a, b, sh, sid in (FU if k2 else []):
+        p = sh.get('p') or {}; c = p.get('clip'); key = (c, p.get('hero'))
+        if key in seen_i: continue
+        seen_i.add(key); o = (HE.get(p.get('hero')) or {}).get('opt') or {}
+        f = find_file(E, sh) or (o.get('file') if o.get('file') and os.path.exists(o.get('file')) else None)
+        wh = probe(f) if f and os.path.exists(f) else None; res[c] = wh
+        w = f'{v if v != "main" else sid} @{mmss(a)} clip {c}'
+        if wh is None: P['i'].append(f'{w}: không đo được độ phân giải nguồn (không thấy/không đọc được file đã dùng)'); continue
+        if wh[1] >= MIN_H: continue
+        z = o.get('zoom')
+        if o.get('fit') != 'frame': P['i'].append(f'{w}: nguồn {wh[0]}×{wh[1]} < {MIN_H}p mà cảnh {p.get("hero")} không đặt trong khung (opt.fit: frame) — đang phóng đầy khung ≈ {max(1920 / wh[0], 1080 / wh[1]):.2f}× rồi cắt')
+        elif not isinstance(z, (int, float)) or z <= 0: P['i'].append(f'{w}: nguồn {wh[0]}×{wh[1]} trong khung nhưng không khai opt.zoom (phóng so với điểm ảnh gốc)')
+        elif z > MAX_ZOOM + 1e-9: P['i'].append(f'{w}: nguồn {wh[0]}×{wh[1]} phóng {z:g}× > {MAX_ZOOM:g}×')
+        elif not o.get('border'): P['i'].append(f'{w}: nguồn {wh[0]}×{wh[1]} trong khung nhưng không có viền (opt.border)')
+        elif abs(z - MAX_ZOOM) <= 0.05 * MAX_ZOOM: near.append(f'clip {c}: phóng {z:g}× (ngưỡng {MAX_ZOOM:g}×)')
+    loi = [f'({k}) {x}' for k in 'abcdefghi' for x in P[k]]
     m = shares.get('main', (0.0, 0.0, 0.0)); lmax = max([b - a for v, c, a, b in RN] or [0.0])
     val = (f'{len(U)} đoạn footage · {len(used)} clip · sổ {len(R)} dòng · nguồn ngoài phim {m[0]:.1f} % (footage {m[1]:.1f} s + tư liệu/ảnh/báo {m[2]:.1f} s)'
-           f' · clip dài nhất {lmax:.2f} s' if U or R or shares.get('main') else 'không dùng footage ngoài' + (' · sổ sai định dạng' if fmt else ''))
-    return dict(ok=not loi, loi=loi, muc=P, sat_nguong=near, note='; '.join(loi[:6]), val=val, so=so_path if os.path.exists(so_path) else None)
+           f' · clip dài nhất {lmax:.2f} s' + (f" · footage thật {fshare.get('main', 0.0):.1f} %" if k2 else '')
+           if U or R or shares.get('main') else 'không dùng footage ngoài' + (' · sổ sai định dạng' if fmt else ''))
+    return dict(ok=not loi, loi=loi, muc=P, sat_nguong=near, note='; '.join(loi[:6]), val=val, so=so_path if os.path.exists(so_path) else None,
+                footage_pct=round(fshare.get('main', 0.0), 2), do_phan_giai=res)
 
 
 if __name__ == '__main__':

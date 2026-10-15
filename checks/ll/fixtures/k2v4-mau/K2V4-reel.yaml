@@ -1,0 +1,1238 @@
+# KÊNH 2 · cuộn shot mẫu K2V4 (phiên V4, 14/10/2026) — kênh Erie, đề tài trung tính. Số/câu có nguồn: claims.md cạnh tệp này; giấy phép: licenses/ + RIGHTS.md K2V4-*.
+# Mới: Z zoom nhiều tầng (F4) · F footage thật ≤ 20 % (F3) · P chân dung tách nền (F2) · N hàng 10 xu cạnh 1 xu (G2) · S bảng điểm chữ ≥ 34 px (G3). H, J giữ nguyên V3.
+# Dựng: scripts/k2/vshot.py channel-k2/k2v4-mau/K2V4-reel.yaml [--draft] --spp 2 --par 4. Nhịp: scripts/k2/rhythm.py. Footage: scripts/k2/footage_share.py.
+id: k2v4-reel
+title: K2V4 sample reel
+out: /var/tmp/cine-out/k2v-shots/K2V4-reel
+heroes:
+  z_dive:
+    hero: relief/map
+    opt:
+      relief: erie
+      palette: natural
+      camGround: true
+      regions:
+      - id: ny
+        state: New York
+        color: '#3CC2B0'
+        at:
+        - 0.3
+        - 1.3
+        out: 3.2
+        lift: 4
+        fill: 0.3
+      rings:
+      - id: lk
+        at: lockport
+        t: 1.4
+        out: 4.4
+        color: '#ffe6b0'
+        px: 120
+      places:
+      - lockport
+      - id: locks
+        ll:
+        - -78.6928
+        - 43.1706
+        name: Lockport locks
+      aerial:
+      - img: /cache/aerial/lockport/t0.png
+        bbox:
+        - -79.49212
+        - 42.583337
+        - -77.89088
+        - 43.759063
+        fade:
+        - 118
+        - 80
+      - img: /cache/aerial/lockport/t1.png
+        bbox:
+        - -78.937845
+        - 42.990319
+        - -78.445155
+        - 43.352081
+        fade:
+        - 37
+        - 25
+      - img: /cache/aerial/lockport/t2.png
+        bbox:
+        - -78.765403
+        - 43.116936
+        - -78.617597
+        - 43.225464
+        fade:
+        - 11.5
+        - 7.6
+      - img: /cache/aerial/lockport/t3.png
+        bbox:
+        - -78.711208
+        - 43.15673
+        - -78.671792
+        - 43.18567
+        fade:
+        - 3.1
+        - 2.0
+      close:
+        img: /cache/v4src/e1-loc-rotograph-locks-lockport/lockport-1905-crop.jpg
+        at:
+        - 6.9
+        - 7.9
+        kb:
+        - - 0.5
+          - 0.56
+          - 1.0
+        - - 0.5
+          - 0.62
+          - 1.32
+        tone: sepia
+      cam:
+      - t: 0
+        lon: -75.7
+        lat: 42.85
+        dist: 640
+        tilt: 16
+        head: 0
+      - t: 3.0
+        lon: -78.62
+        lat: 43.12
+        dist: 150
+        tilt: 18
+        head: 2
+      - t: 5.0
+        lon: -78.69
+        lat: 43.168
+        dist: 20
+        tilt: 22
+        head: 6
+      - t: 6.6
+        lon: -78.6925
+        lat: 43.1705
+        dist: 3.0
+        tilt: 28
+        head: 10
+      - t: 8.2
+        lon: -78.6928
+        lat: 43.1706
+        dist: 1.4
+        tilt: 34
+        head: 14
+      - t: 10
+        lon: -78.6929
+        lat: 43.1707
+        dist: 1.15
+        tilt: 38
+        head: 16
+  h_hook:
+    hero: relief/map
+    opt:
+      relief: erie
+      sepia:
+      - 7.0
+      - 9.0
+      regions:
+      - id: ny
+        state: New York
+        color: '#3CC2B0'
+        at:
+        - 9.2
+        - 10.4
+        lift: 12
+        fill: 0.42
+      - id: pa
+        state: Pennsylvania
+        color: '#F2C14E'
+        at:
+        - 9.7
+        - 10.9
+        lift: 12
+        fill: 0.42
+      routes:
+      - id: valley
+        pts:
+        - src: mohawk
+          from: rome
+          to: troy
+        draw:
+        - 3.3
+        - 5.6
+        out: 8.4
+        style: solid
+        color: '#ffe6b0'
+        w: 12
+      - id: erie
+        pts:
+        - buffalo
+        - src: erie
+          from: buffalo
+          to: montezuma
+        - syracuse
+        - rome
+        - src: mohawk
+          from: rome
+          to: troy
+        - albany
+        draw:
+        - 10.4
+        - 13.6
+        style: dashed
+        color: '#F08A4B'
+        w: 7
+      - id: hudson
+        pts:
+        - albany
+        - src: hudson
+          from: albany
+          to: nyc
+        - nyc
+        draw:
+        - 13.4
+        - 14.8
+        style: dashed
+        color: '#F08A4B'
+        w: 6
+      rings:
+      - id: gap
+        at: littlefalls
+        t: 3.4
+        out: 7.4
+        color: '#ffe6b0'
+        px: 150
+      - id: buf
+        at: buffalo
+        t: 10.3
+      - id: alb
+        at: albany
+        t: 13.4
+      places:
+      - littlefalls
+      - buffalo
+      - albany
+      - nyc
+      cam:
+      - t: 0
+        lon: -75.9
+        lat: 41.9
+        dist: 560
+        tilt: 26
+        head: -4
+      - t: 5
+        lon: -74.95
+        lat: 42.78
+        dist: 330
+        tilt: 34
+        head: 4
+      - t: 9.5
+        lon: -76.1
+        lat: 42.5
+        dist: 500
+        tilt: 30
+        head: 0
+      - t: 15
+        lon: -75.7
+        lat: 42.1
+        dist: 560
+        tilt: 28
+        head: -2
+  h_trip:
+    hero: relief/map
+    opt:
+      relief: erie
+      palette: sepia
+      regions:
+      - id: ny
+        state: New York
+        color: '#3CC2B0'
+        at: -1
+        lift: 2.5
+        fill: 0.18
+      routes:
+      - id: plan
+        pts:
+        - buffalo
+        - src: erie
+          from: buffalo
+          to: montezuma
+        - syracuse
+        - rome
+        - src: mohawk
+          from: rome
+          to: troy
+        - albany
+        - src: hudson
+          from: albany
+          to: nyc
+        - nyc
+        draw: -1
+        style: dashed
+        color: '#8a6a44'
+        w: 5
+        flow: 0
+      - id: trip
+        pts:
+        - buffalo
+        - src: erie
+          from: buffalo
+          to: montezuma
+        - syracuse
+        - rome
+        - src: mohawk
+          from: rome
+          to: troy
+        - albany
+        - src: hudson
+          from: albany
+          to: nyc
+        - nyc
+        draw: -1
+        trail: boat
+        style: solid
+        color: '#F08A4B'
+        w: 11
+      rings:
+      - id: nyc
+        at: nyc
+        t: 8.7
+        color: '#ffd9b0'
+      places:
+      - buffalo
+      - rochester
+      - albany
+      - nyc
+      - hudson-mid
+      pins:
+      - id: sack
+        at: buffalo
+        dx: -6
+        dz: 6
+      - id: farm
+        at:
+        - -77.75
+        - 42.9
+      - id: town
+        at: nyc
+        dx: 14
+        dz: 4
+      walkers:
+      - id: boat
+        route: trip
+        t:
+        - 0.4
+        - 9.3
+        u:
+        - 0.0
+        - 0.975
+      - id: crew
+        route: trip
+        t:
+        - 0.4
+        - 9.3
+        u:
+        - 0.018
+        - 0.993
+      cam:
+      - t: 0
+        lon: -77.6
+        lat: 42.1
+        dist: 440
+        tilt: 32
+        head: 4
+      - t: 3.0
+        lon: -76.1
+        lat: 41.45
+        dist: 640
+        tilt: 28
+        head: 1
+      - t: 6.0
+        lon: -75.6
+        lat: 41.4
+        dist: 600
+        tilt: 30
+        head: -4
+      - t: 10
+        lon: -75.8
+        lat: 41.35
+        dist: 660
+        tilt: 27
+        head: -2
+  h_num:
+    hero: relief/map
+    opt:
+      relief: erie
+      palette: sepia
+      regions:
+      - id: ny
+        state: New York
+        color: '#3CC2B0'
+        at: -1
+        lift: 3
+        fill: 0.16
+      places:
+      - buffalo
+      cols:
+      - id: wagon
+        at:
+        - -78.45
+        - 42.8
+        kind: coins
+        layout: row
+        rowDir: 0
+        n: 10
+        t:
+        - 0.6
+        - 2.6
+        r: 4.6
+        gap: 2.35
+      - id: canal
+        at:
+        - -78.45
+        - 42.665
+        kind: coins
+        layout: row
+        n: 1
+        t:
+        - 3.5
+        - 3.6
+        r: 4.6
+      pins:
+      - id: wagon
+        at:
+        - -78.79
+        - 42.8
+      - id: boat
+        at:
+        - -78.79
+        - 42.62
+      cam:
+      - t: 0
+        lon: -77.95
+        lat: 42.69
+        dist: 178
+        tilt: 40
+        head: 0
+      - t: 5.6
+        lon: -77.93
+        lat: 42.7
+        dist: 163
+        tilt: 42
+        head: 2
+      - t: 7
+        lon: -77.92
+        lat: 42.705
+        dist: 158
+        tilt: 43
+        head: 3
+  f_arch:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/cine-out/k2v-cache/v4src/a1-newsmag1957-erie/NewsMaga1957.mpeg
+      sha256: 85ec6a67f609ee47270ebe21d1f213a843f4d1b6986869cc6def045302a3a1fb
+      ss: 1073.6
+      grade: sepia
+      clean: true
+      ivtc: true
+  f_now:
+    hero: footage/clip
+    opt:
+      file: /var/tmp/cine-out/k2v-cache/v4src/b1-dvids-978155/DOD_111318443.mp4
+      sha256: 62826fed421e44c8e257e5e143c8abd0ab89a609a405a3edeab71dee557ef5b0
+      ss: 35.6
+      grade: natural
+  p_clin:
+    hero: photo/cutout
+    opt:
+      img: /assets/k2/archive/met-11602-clinton.jpg
+      mask: /k2v/cutouts/MET-11602-mask.png
+      bgImg: /k2v/cutouts/MET-11602-bg.jpg
+      bg:
+        map: erie
+        bbox:
+        - -80.6
+        - 39.5
+        - -72.0
+        - 44.3
+        palette: sepia
+        routes:
+        - src: erie
+          color: '#F08A4B'
+          w: 10
+          dash:
+          - 24
+          - 14
+        - src: mohawk
+          color: '#F08A4B'
+          w: 10
+          dash:
+          - 24
+          - 14
+      dim: 0.5
+      sa: 0.6
+      crop:
+      - 0.03
+      - 0.03
+      - 0.97
+      - 0.975
+      pos:
+      - 0.3
+      - 0.64
+      h: 0.86
+      focus:
+      - 0.45
+      - 0.28
+  p_vr:
+    hero: photo/cutout
+    opt:
+      img: /assets/k2/archive/met-10991-vanrensselaer.jpg
+      mask: /k2v/cutouts/MET-10991-mask.png
+      bgImg: /k2v/cutouts/MET-10991-bg.jpg
+      bg: blur
+      dim: 0.2
+      sa: 0.6
+      crop:
+      - 0.0
+      - 0.0
+      - 1.0
+      - 0.97
+      pos:
+      - 0.3
+      - 0.6
+      h: 0.98
+      focus:
+      - 0.42
+      - 0.2
+      drift: -0.5
+  h_score:
+    hero: relief/map
+    opt:
+      relief: erie
+      palette: sepia
+      regions:
+      - id: ny
+        state: New York
+        color: '#3CC2B0'
+        at: -1
+        lift: 12
+        fill: 0.42
+      - id: pa
+        state: Pennsylvania
+        color: '#F2C14E'
+        at: -1
+        lift: 12
+        fill: 0.42
+      routes:
+      - id: erie
+        pts:
+        - buffalo
+        - src: erie
+          from: buffalo
+          to: montezuma
+        - syracuse
+        - rome
+        - src: mohawk
+          from: rome
+          to: troy
+        - albany
+        draw: -1
+        style: solid
+        color: '#3CC2B0'
+        w: 6
+      - id: main
+        pts:
+        - philadelphia
+        - columbia-pa
+        - harrisburg
+        - hollidaysburg
+        - johnstown
+        - pittsburgh
+        draw: -1
+        style: dashed
+        color: '#F2C14E'
+        w: 6
+        smooth: 1
+      cam:
+      - t: 0
+        lon: -73.9
+        lat: 41.75
+        dist: 660
+        tilt: 22
+        head: -2
+      - t: 6
+        lon: -73.7
+        lat: 41.85
+        dist: 630
+        tilt: 25
+        head: 2
+places:
+- Lockport
+- Mohawk Valley
+- Buffalo
+- Albany
+- New York
+people:
+- name: DeWitt Clinton
+  photo: MET-11602
+- name: Stephen Van Rensselaer
+  photo: MET-10991
+anchors:
+- wagon_cost
+- canal_tenth
+segments:
+- id: Z
+  part: HOOK
+  dur: 10
+  beats:
+  - t: 0
+    k: cut
+    s: bản đồ bang New York, máy bắt đầu lặn
+  - t: 0.3
+    k: region
+    s: NY nổi
+  - t: 1.0
+    k: text
+    s: chú thích Lockport
+  - t: 1.4
+    k: ring
+    s: vòng sáng Lockport
+  - t: 1.6
+    k: label
+    s: nhãn Lockport, N.Y.
+  - t: 3.0
+    k: cam
+    s: máy xuống tầm 150 km, ảnh hàng không tầng 1 hiện
+  - t: 5.0
+    k: cam
+    s: 'tầng 2–3: thành phố'
+  - t: 6.0
+    k: label
+    s: nhãn The locks
+  - t: 6.6
+    k: cam
+    s: 'tầng 4: khu âu, máy nghiêng'
+  - t: 6.9
+    k: palette
+    s: hoà sang ảnh 1905 (sepia)
+  - t: 7.4
+    k: label
+    s: chip 1905 + chú thích
+  - t: 8.2
+    k: cam
+    s: Ken Burns tiếp tục lặn
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: relief/map
+    camera_id: relief-zoom-dive
+    places:
+    - lockport
+    p:
+      hero: z_dive
+      places:
+      - a: lockport
+        s: Lockport, N.Y.
+        at: 1.6
+        out: 5.6
+        side: auto
+        prefer:
+        - right
+        - up
+        c: '#ffe6b0'
+      - a: locks
+        s: The locks
+        at: 6.0
+        out: 6.9
+        side: auto
+        prefer:
+        - right
+        - up
+        c: '#ffe6b0'
+      cap:
+      - s: 'Lockport, N.Y.: where the Erie Canal climbs the Niagara Escarpment'
+        at: 1.0
+        out: 6.9
+      - s: The locks at Lockport, on a 1905 postcard
+        at: 7.4
+      src: 'Imagery: USDA NAIP · Photo: LOC · Terrain: USGS 3DEP'
+      year:
+        s: '1905'
+        at: 7.4
+- id: H
+  part: HOOK
+  dur: 15
+  beats:
+  - t: 0
+    k: cut
+    s: bản đồ hiện tại
+    máy trượt: null
+  - t: 1.2
+    k: text
+    s: chú thích Mohawk
+  - t: 3.3
+    k: route
+    s: vệt sáng khe Mohawk
+  - t: 3.6
+    k: label
+    s: nhãn Mohawk Valley
+  - t: 5.0
+    k: cam
+    s: máy đổi tầm (lùi ra)
+  - t: 7.0
+    k: palette
+    s: chuyển sepia
+  - t: 8.4
+    k: label
+    s: chip 1825
+  - t: 9.2
+    k: region
+    s: NY nổi
+  - t: 9.7
+    k: region
+    s: PA nổi
+  - t: 10.3
+    k: ring
+    s: vòng sáng Buffalo
+  - t: 10.4
+    k: route
+    s: tuyến kênh vẽ dần
+  - t: 12.4
+    k: label
+    s: nhãn Albany
+  - t: 13.4
+    k: route
+    s: tuyến Hudson + vòng Albany
+  - t: 14.3
+    k: label
+    s: nhãn New York
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: relief/map
+    camera_id: relief-hook-glide
+    places:
+    - littlefalls
+    - buffalo
+    - albany
+    - nyc
+    p:
+      hero: h_hook
+      places:
+      - a: littlefalls
+        s: Mohawk Valley
+        at: 3.6
+        out: 7.4
+        side: auto
+        c: '#ffe6b0'
+      - a: buffalo
+        s: Buffalo
+        at: 10.5
+        side: left
+        c: '#F08A4B'
+      - a: albany
+        s: Albany
+        at: 12.4
+        side: auto
+        c: '#F08A4B'
+      - a: nyc
+        s: New York
+        at: 14.3
+        side: right
+        c: '#F08A4B'
+      cap:
+      - s: 'The Mohawk Valley: a low path from the Great Lakes to the Hudson'
+        at: 1.2
+      - s: '1825: New York opens the Erie Canal, 363 miles from Buffalo to Albany'
+        at: 9.8
+      src: 'Source: NPS, LOC · Terrain: USGS 3DEP'
+      year:
+        s: '1825'
+        at: 8.4
+- id: J
+  part: BODY
+  dur: 10
+  beats:
+  - t: 0
+    k: cut
+    s: bản đồ sepia
+    hành trình: null
+  - t: 0.3
+    k: sticker
+    s: bao lúa (vật 3D)
+  - t: 0.5
+    k: sticker
+    s: thuyền kênh khởi hành (vật 3D)
+  - t: 2.0
+    k: sticker
+    s: nông dân + lúa mì
+  - t: 2.6
+    k: label
+    s: nhãn Albany
+  - t: 3.0
+    k: cam
+    s: máy mở rộng toàn tuyến + nhãn New York
+  - t: 6.0
+    k: cam
+    s: máy đổi hướng
+  - t: 6.6
+    k: label
+    s: nhãn Hudson River
+  - t: 8.7
+    k: ring
+    s: vòng sáng New York
+  - t: 8.8
+    k: sticker
+    s: thương nhân ở New York
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: relief/map
+    camera_id: relief-route-follow
+    places:
+    - buffalo
+    - rochester
+    - albany
+    p:
+      hero: h_trip
+      stickers:
+      - a: st:sack
+        img: stk:sack
+        at: 0.3
+        out: 3.6
+        px: 170
+      - a: st:farm
+        img:
+          role: farmer
+          hand: wheat
+        at: 2.0
+        out: 6.4
+        px: 230
+      - a: st:boat
+        img: stk:boat
+        at: 0.5
+        px: 125
+        walk: true
+        hz: 1.2
+      - a: st:crew
+        img:
+          role: sailor
+          hand: rope
+        at: 0.7
+        px: 220
+        walk: true
+      - a: st:town
+        img:
+          role: merchant
+        at: 8.8
+        px: 230
+      places:
+      - a: buffalo
+        s: Buffalo
+        at: 0.3
+        side: auto
+        prefer:
+        - left
+        - down
+        c: '#F08A4B'
+        px: 42
+      - a: rochester
+        s: Genesee Valley
+        at: 2.2
+        out: 6.0
+        side: auto
+        prefer:
+        - up
+        - down
+        c: '#F08A4B'
+        px: 42
+      - a: albany
+        s: Albany
+        at: 2.6
+        side: auto
+        prefer:
+        - up
+        - right
+        c: '#F08A4B'
+        px: 42
+      - a: nyc
+        s: New York
+        at: 3.0
+        side: auto
+        prefer:
+        - left
+        - up
+        c: '#F08A4B'
+        px: 42
+      - a: hudson-mid
+        s: Hudson River
+        at: 6.6
+        out: 9.2
+        side: auto
+        prefer:
+        - right
+        - left
+        c: '#9fb6d8'
+      cap:
+      - s: Wheat from the Genesee Valley could now float east to Albany, then down the Hudson
+        at: 1.0
+      src: 'Source: Erie Canalway NHC · Terrain: USGS 3DEP'
+- id: N
+  part: BODY
+  dur: 7
+  beats:
+  - t: 0
+    k: cut
+    s: bản đồ gần Buffalo
+  - t: 0.3
+    k: sticker
+    s: xe hàng (vật 3D)
+  - t: 0.6
+    k: number
+    s: hàng 10 xu rơi lần lượt
+  - t: 2.2
+    k: number
+    s: nhãn $90–125
+  - t: 3.3
+    k: sticker
+    s: thuyền (vật 3D)
+  - t: 3.5
+    k: number
+    s: 1 đồng xu kênh
+  - t: 4.1
+    k: number
+    s: nhãn 1/10
+  - t: 5.6
+    k: cam
+    s: máy đổi hướng, tiến vào
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: relief/map
+    camera_id: relief-num-push
+    places:
+    - buffalo
+    p:
+      hero: h_num
+      stickers:
+      - a: st:wagon
+        img: stk:wagon
+        at: 0.3
+        px: 135
+      - a: st:boat
+        img: stk:boat
+        at: 3.3
+        px: 125
+      tags:
+      - a: col:wagon
+        s: $90–125
+        sub: a ton, Buffalo to New York, by wagon
+        big: true
+        kind: actual
+        at: 2.2
+        side: auto
+        prefer:
+        - left
+        - up
+        - right
+        c: '#F2C14E'
+        num: wagon_cost
+      - a: col:canal
+        s: 1/10
+        sub: of the overland cost, by canal
+        big: true
+        kind: actual
+        at: 4.1
+        side: auto
+        prefer:
+        - right
+        - up
+        - left
+        c: '#3CC2B0'
+        num: canal_tenth
+      cap:
+      - s: Each coin is one tenth of the wagon cost
+        at: 0.8
+      src: 'Source: NYS Archives, Erie Canalway NHC · Terrain: USGS 3DEP'
+- id: F
+  part: BODY
+  dur: 8
+  beats:
+  - t: 0
+    k: cut
+    s: 'footage 1957: sà lan trong âu'
+  - t: 0.4
+    k: text
+    s: chú thích 1957
+  - t: 4.4
+    k: cut
+    s: hoà sang footage 2025
+  - t: 4.8
+    k: text
+    s: chú thích 2025
+  shots:
+  - tpl: plate
+    at: 0
+    type: footage
+    scene_id: f_barge_lock_1957
+    camera_id: clip
+    p:
+      hero: f_arch
+      clip: A1-NEWSMAG1957-ERIE
+      setting: aerial, barge in a canal lock, New York State Barge Canal
+      cap:
+      - s: A barge in a lock on New York's Erie Canal (1957 newsreel)
+        at: 0.4
+        out: 4.4
+      src: 'Film: Warner-Pathé News, 1957 · Prelinger Archives'
+      file: /var/tmp/cine-out/k2v-cache/v4src/a1-newsmag1957-erie/NewsMaga1957.mpeg
+  - tpl: plate
+    at: 4.4
+    in: fade
+    type: footage
+    scene_id: f_black_rock_2025
+    camera_id: clip
+    p:
+      hero: f_now
+      clip: B1-DVIDS-978155
+      setting: replica packet boat entering Black Rock Lock, Buffalo
+      cap:
+      - s: '2025: a replica 19th-century packet boat passes Black Rock Lock in Buffalo'
+        at: 4.8
+      src: 'Video: U.S. Army Corps of Engineers, 2025'
+      file: /var/tmp/cine-out/k2v-cache/v4src/b1-dvids-978155/DOD_111318443.mp4
+- id: P
+  part: BODY
+  dur: 9
+  beats:
+  - t: 0
+    k: cut
+    s: chân dung tách nền Clinton trên bản đồ sepia
+  - t: 0.3
+    k: text
+    s: tên DeWitt Clinton
+  - t: 1.0
+    k: text
+    s: năm 1826
+  - t: 1.3
+    k: text
+    s: nguồn tranh
+  - t: 4.5
+    k: cut
+    s: hoà sang Van Rensselaer
+  - t: 4.8
+    k: text
+    s: tên Van Rensselaer
+  - t: 5.5
+    k: text
+    s: năm c. 1828
+  - t: 5.8
+    k: text
+    s: nguồn tranh
+  shots:
+  - tpl: plate
+    at: 0
+    type: photo
+    scene_id: photo/cutout
+    camera_id: kb25-drift-r
+    people:
+    - DeWitt Clinton
+    p:
+      hero: p_clin
+      photo: MET-11602
+      side:
+        at: 0.3
+        lines:
+        - s: DeWitt Clinton
+          px: 64
+          w: 700
+          disp: true
+          at: 0.3
+        - s: Governor of New York
+          px: 40
+          c: '#E6EBF0'
+          at: 0.7
+        - s: Portrait painted 1826
+          px: 40
+          c: '#F2C14E'
+          at: 1.0
+          gap: 40
+        - s: 'Painting: S. F. B. Morse · The Met (public domain)'
+          px: 38
+          w: 500
+          c: '#D6DDE4'
+          at: 1.3
+        out: 4.35
+  - tpl: plate
+    at: 4.5
+    in: fade
+    type: photo
+    scene_id: photo/cutout-b
+    camera_id: kb25-drift-l
+    people:
+    - Stephen Van Rensselaer
+    p:
+      hero: p_vr
+      photo: MET-10991
+      side:
+        at: 4.8
+        lines:
+        - s: Stephen Van Rensselaer
+          px: 60
+          w: 700
+          disp: true
+          at: 4.8
+        - s: Erie Canal commissioner
+          px: 40
+          c: '#E6EBF0'
+          at: 5.2
+        - s: Portrait painted about 1828
+          px: 40
+          c: '#F2C14E'
+          at: 5.5
+          gap: 40
+        - s: 'Painting: C. Harding · The Met (public domain)'
+          px: 38
+          w: 500
+          c: '#D6DDE4'
+          at: 5.8
+- id: S
+  part: BODY
+  dur: 6
+  beats:
+  - t: 0
+    k: cut
+    s: bản đồ hai bang
+  - t: 0.2
+    k: score
+    s: huy hiệu góc
+  - t: 0.3
+    k: score
+    s: bảng tổng kết
+  - t: 0.65
+    k: score
+    s: hàng Opened
+  - t: 1.05
+    k: score
+    s: hàng Length
+  - t: 1.45
+    k: score
+    s: hàng Climb
+  - t: 1.85
+    k: score
+    s: hàng Cost
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: relief/map
+    camera_id: relief-score-drift
+    p:
+      hero: h_score
+      dim: 0.25
+      score:
+        corner:
+          at: 0.2
+          title: 'Advantages:'
+          sides:
+          - s: New York
+            c: '#3CC2B0'
+            icon: stk:boat
+            n:
+            - t: 0
+              v: 0
+            - t: 0.85
+              v: 1
+            - t: 1.65
+              v: 2
+            - t: 2.05
+              v: 3
+          - s: Pennsylvania
+            c: '#F2C14E'
+            icon: stk:wagon
+            n: 0
+        board:
+          at: 0.3
+          align: right
+          w: 768
+          title: Two routes west
+          sides:
+          - s: Erie Canal
+            c: '#3CC2B0'
+            icon: stk:boat
+          - s: Main Line
+            c: '#F2C14E'
+            icon: stk:wagon
+          rows:
+          - k: Opened
+            icon: stk:document
+            v:
+            - '1825'
+            - '1834'
+            win: 0
+            at: 0.65
+          - k: Length
+            icon: stk:flag
+            v:
+            - 363 mi
+            - 394 mi
+            at: 1.05
+          - k: Total climb
+            icon: stk:mountain
+            v:
+            - 568 ft
+            - 2,102 ft
+            win: 0
+            at: 1.45
+          - k: Cost to build
+            icon: stk:coins
+            v:
+            - $7.1M
+            - $16.5M
+            win: 0
+            at: 1.85
+          foot: 'Source: NPS, Erie Canalway NHC'
+numbers:
+  wagon_cost:
+    v: 90
+    text: $90–125
+    kind: actual
+    year: 1825
+    unit: $/ton
+    src: NYSAPT
+    say: ninety to one hundred twenty-five dollars
+  canal_tenth:
+    v: 0.1
+    text: 1/10
+    kind: actual
+    year: 1825
+    unit: ratio
+    src: ECNHC-NS
+    say: a tenth
+sources:
+  NYSAPT:
+    short: NYS Archives Partnership Trust, "Canal at Work"
+    url: https://www.nysarchivestrust.org/exhibits/erie-canal/canal-work
+  ECNHC-NS:
+    short: Erie Canalway NHC, National Significance
+    url: https://eriecanalway.org/application/files/9814/5133/0135/07-2_National_Significance_Final.pdf
+  ECNHC-FF:
+    short: Erie Canalway NHC, Fast Facts
+    url: https://eriecanalway.org/learn/history-culture/fast-facts
+  NPS-ALPO:
+    short: NPS, Allegheny Portage Railroad NHS
+    url: https://www.nps.gov/alpo/learn/historyculture/allegheny-portage-railroad.htm
+  NPS-ALPO-ML:
+    short: NPS, Pennsylvania Main Line Canal
+    url: https://www.nps.gov/alpo/learn/historyculture/pennsylvania-main-line-canal.htm
+  LOC:
+    short: Library of Congress, Opening of the Erie Canal
+    url: https://guides.loc.gov/this-month-in-business-history/october/opening-erie-canal
+  ECNHC-LOCK:
+    short: Erie Canalway NHC, Lockport Locks District
+    url: https://eriecanalway.org/find-resources/case-studies/lockport-locks
+  DVIDS-978155:
+    short: USACE Buffalo District via DVIDS
+    url: https://www.dvidshub.net/video/978155
+  PRELINGER-NEWSMAG1957:
+    short: Prelinger Archives
+    url: https://archive.org/details/NewsMaga1957

@@ -21,6 +21,8 @@ TRƯỢT khi:
       3D nhô khỏi địa cầu) VÀ `<id>` là một cột khai trong `heroes.<p.hero>.opt.cols` (timeline, không có thì đặc tả). Số in chữ trên
       bản đồ, nhãn địa danh/ghim, neo `col:` không có cột khai → không tính 3D
   (d) shot `document` > 3 s, hoặc thiếu tên báo/ngày. Thời lượng photo/document/footage cộng vào trần 40 % của Q32 (q_footage.py)
+      1.11.0 (chủ dự án 15/10/2026, Q34(d)): `p.date` chỉ có năm (YYYY) HỢP LỆ khi nguồn chỉ ghi năm — khai `p.date_chi_nam`: lý do ≥ 20 ký tự
+      (trích chỗ nguồn ghi năm, vd "masthead chỉ in 'Spring 1926'"); không khai → vẫn TRƯỢT như 1.10.1. Ngày đủ YYYY-MM-DD giữ nguyên.
 """
 import json, os, re, sys
 
@@ -32,6 +34,7 @@ EXT = ('photo', 'document', 'footage')      # tính chung trần nguồn ngoài 
 WIN = 6.0
 MIN_3D, MAX_CARD = 60.0, 40.0
 DOC_MAX = 3.0
+YEAR_ONLY_WHY = 20                         # 1.11.0: lý do tối thiểu khi ngày chỉ có năm (nguồn chỉ ghi năm)
 COL = 'col:'                                # 1.10.2: neo đỉnh cột số liệu 3D của bản đồ (design/k2v/map.js `cols`)
 
 
@@ -134,7 +137,12 @@ def q34(E, TL, ep_dir=None):
         if ty != 'document': continue
         p = sh.get('p') or {}
         if b - a > DOC_MAX + 1e-6: P['d'].append(f'{sid}/{i} @{mmss(a)}: document {b - a:.1f} s > {DOC_MAX:g} s')
-        if not str(p.get('paper') or '').strip() or not re.fullmatch(r'\d{4}-\d\d-\d\d', str(p.get('date') or '')): P['d'].append(f'{sid}/{i} @{mmss(a)}: document thiếu tên báo (p.paper) hoặc ngày (p.date YYYY-MM-DD)')
+        dt = str(p.get('date') or '').strip(); why = str(p.get('date_chi_nam') or '').strip()
+        if not str(p.get('paper') or '').strip(): P['d'].append(f'{sid}/{i} @{mmss(a)}: document thiếu tên báo (p.paper)')
+        if re.fullmatch(r'\d{4}-\d\d-\d\d', dt): pass
+        elif re.fullmatch(r'\d{4}', dt):
+            if len(why) < YEAR_ONLY_WHY: P['d'].append(f'{sid}/{i} @{mmss(a)}: ngày chỉ có năm ({dt}) mà không khai p.date_chi_nam (nguồn chỉ ghi năm, lý do ≥ {YEAR_ONLY_WHY} ký tự)')
+        else: P['d'].append(f'{sid}/{i} @{mmss(a)}: document thiếu ngày (p.date YYYY-MM-DD, hoặc YYYY khi nguồn chỉ ghi năm)')
     T = float(TL['tong_s']); dur = {t: 0.0 for t in TYPES}
     for _, _, a, b, ty, *_ in S:
         if ty in dur: dur[ty] += b - a
