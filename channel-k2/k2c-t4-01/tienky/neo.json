@@ -1,0 +1,159 @@
+{
+ "note": "Phiên NGUỒN cho T4 \"Why Las Vegas grew in a desert\". as_of chung 2026-10-15. Mọi \"trich\"/\"trich_nguyen_van\" được trích tự động từ tệp text tách bằng pdftotext/html→text của tệp tải bằng curl (khoảng trắng đã gộp), trừ chỗ ghi rõ \"đọc từ ảnh\". tep = đường dẫn tệp gốc, sha256 = SHA-256 của tệp gốc.",
+ "neo": [
+  {
+   "id": "N1",
+   "neo": "Record of Decision post-2026 (Interior, ký 21/08/2026)",
+   "ket_luan": "ĐÚNG (có điều chỉnh chi tiết)",
+   "gia_tri": "ROD \"Decision Framework for Colorado River Guidelines: Coordinated Operations of Lake Powell and Lake Mead (2027–2036)\"; Bộ trưởng Doug Burgum ký ngày 21/08/2026 (chữ ký tay trên trang bìa, kiểm bằng ảnh), David M. Palumbo đề nghị ký 08-21-2026. Khung 10 năm 2027–2036; Operating Guidelines dự kiến theo chu kỳ 2 năm; bộ đầu tiên là 2027–2028 Operating Guidelines. Phương án chọn: Preferred Alternative của Final EIS (31/07/2026) = \"Decision Framework\". Sideboard cắt Lower Basin tối đa 3,0 maf. Năm 2027 và 2028: Lower Basin cắt 1,25 maf/năm: Arizona 760.000 af, California 440.000 af, Nevada 50.000 af (Nevada còn 250.000 af). Kiện tụng: Nevada + Colorado River Commission of Nevada + SNWA kiện tại D. Nev., Case 2:26-cv-02665, nộp 24/08/2026.",
+   "as_of": "2026-10-15",
+   "nguon": "U.S. Department of the Interior / USBR",
+   "url": "https://www.usbr.gov/ColoradoRiverBasin/post2026/decision-doc/P26_RecordofDecision_Final.pdf",
+   "tep_goc": "p26_rod.pdf",
+   "sha256": "c296dd9de33aeacf4fd3678091346ecdbaed495c1a431c79b08830a3616099ef",
+   "trich": "Unfortunately, as of the publication of this Record of Decision (ROD), consensus on long-term operations has not been reached. Given the extraordinary importance of the Colorado River, the Secretary of the Interior (Secretary), for the first time in modern history, convened all seven Colorado River Governors multiple times to facilitate a common, consensus- based operational approach to the worsening conditions in the Basin. Despite these efforts, the seven Basin States were unable to reach an agreement. Nevertheless, new operations must begin October 1, 2026.",
+   "trich_bo_sung": [
+    "The Operating Guidelines are anticipated to be issued for 2-year intervals, unless the Secretary determines a different number of years is appropriate. The Secretary will issue each set of Operating Guidelines, subject to applicable environmental compliance, as a final agency action.",
+    "Of the 6.25 maf that shall be apportioned each calendar year for consumptive use in the Lower Division States of which 2.04 maf shall be apportioned for use in Arizona, 3.96 maf shall be apportioned for use in California and 250,000 acre-feet (af) shall be apportioned for use in Nevada, reflecting reductions of 760,000 af in Arizona, 440,000 af in California, and 50,000 af in Nevada, in accordance with a Lower Basin implementing agreement(s).",
+    "Reclamation also released today the August 2026 24-Month Study , determining the 2027 operations based on the new guidelines. Lake Powell will begin the October 1 water year between elevations 3,540 and 3,510 feet, placing operations in the Lower Elevation Infrastructure Protection Range with an expected water year release between 6.0 and 7.0 million acre-feet. Reclamation will begin the water year with lower releases between 6.0 and 7.0 million acre-feet in order to attempt to maintain an elevation of 3,510 feet or higher and will adjust releases through April to continue to maintain elevation 3,510 feet. The water year 2027 release volume will be determined in April. For Lake Mead, water deliveries to the Lower Basin States will be reduced by 1.25 million-acre feet for calendar year 2027.",
+    "Case 2:26-cv-02665 Document 1 Filed 08/24/26",
+    "EIS No. 20260089, Final, BR, CO, Post-2026 Operational Guidelines and Strategies for Lake Powell and Lake Mead Final Environmental Impact Statement"
+   ],
+   "tep_bo_sung": [
+    "p26_og2728.pdf",
+    "nr5392.html",
+    "nv_complaint_2026-08-24.pdf",
+    "govinfo_FR-2026-07-31_2026-15536.htm",
+    "p26_factsheet.pdf"
+   ],
+   "ghi_chu": "Năm áp dụng thật: 2027–2036 (khung 10 năm); hướng dẫn cụ thể chỉ cho Operating Years 2027 và 2028. Có \"khung 2 năm/lần\": ĐÚNG (\"anticipated to be issued for 2-year intervals, unless the Secretary determines...\"). Federal Register: chỉ tìm thấy thông báo EPA về Final EIS (91 FR, số 146, 31/07/2026, EIS No. 20260089); KHÔNG tìm thấy thông báo FR riêng cho ROD trong phiên này. federalregister.gov API trả 403. Fact sheet USBR (FutureColoradoOperations_Factsheet.pdf) còn sót chữ nháp \"My in-progress spot illustration\" / \"Canyon in progress too\" — không dùng ảnh/đồ hoạ từ tệp này. Phản ứng chính thức: Thống đốc Nevada Lombardo (thông cáo gov.nv.gov 24/08/2026) nói Nevada có thể bị cắt \"up to 213,556 acre-feet\" — đây là con số tối đa theo sideboard ROD do bang tính, KHÔNG phải mức cắt 2027 (50.000 af)."
+  },
+  {
+   "id": "N2",
+   "neo": "Colorado River Compact 1922",
+   "ket_luan": "ĐÚNG (trừ chữ \"chủ trì\")",
+   "gia_tri": "Điều III(a): 7.500.000 af/năm mỗi lưu vực (Upper/Lower) \"in perpetuity\"; III(b): Lower Basin thêm 1.000.000 af/năm; III(c): phần cho Mexico lấy trước từ thặng dư, thiếu thì hai lưu vực gánh đều; III(d): Upper Division không làm dòng chảy tại Lee Ferry dưới 75.000.000 af/10 năm. Ký tại Santa Fe 24/11/1922. Herbert Hoover là đại diện Hoa Kỳ \"participated in\" đàm phán và ký \"Approved\" — văn bản KHÔNG dùng từ \"chair\".",
+   "as_of": "1922-11-24",
+   "nguon": "USBR Lower Colorado Region (bản chép văn bản Compact; bản scan chứng thực Bộ Ngoại giao cũng tải: crcompct.pdf)",
+   "url": "https://www.usbr.gov/lc/region/g1000/pdfiles/crcompct.pdf",
+   "tep_goc": "crcompct_g1000.pdf",
+   "sha256": "83201356aed0cac1fd1dcec3a317923a5985e10c40c3210cbee3777115cd2030",
+   "trich": "(a) There is hereby apportioned from the Colorado River System in perpetuity to the Upper Basin and to the Lower Basin, respectively, the exclusive beneficial consumptive use of 7,500,000 acre-feet of water per annum, which shall include all water necessary for the supply of any rights which may now exist. (b) In addition to the apportionment in paragraph (a), the Lower Basin is hereby given the right to increase its beneficial consumptive use of such waters by one million acre-feet per annum.",
+   "trich_bo_sung": [
+    "who, after negotiations participated in by Herbert Hoover appointed by The President as the representative of the United States of America, have agreed upon the following articles:",
+    "(c) If, as a matter of international comity, the United States of America shall hereafter recognize in the United States of Mexico any right to the use of any waters of the Colorado River System, such waters shall be supplied first from the waters which are surplus over and above the aggregate of the quantities specified in paragraphs (a) and (b); and if such surplus shall prove insufficient for this purpose, then, the burden of such deficiency shall be equally borne by the Upper Basin and the Lower Basin,",
+    "DONE at the City of Santa Fe, New Mexico, this twenty-fourth day of November, A.D. One Thousand Nine Hundred and Twenty-two."
+   ],
+   "tep_bo_sung": [
+    "crcompct.pdf"
+   ]
+  },
+  {
+   "id": "N3",
+   "neo": "Phần Nevada 300.000 af/năm",
+   "ket_luan": "ĐÚNG — nhưng nguồn ấn định là Arizona v. California (1963/1964), không phải BCPA tự nó",
+   "gia_tri": "BCPA 1928 §4(a) (43 U.S.C. 617c) chỉ \"authorized\" 3 bang ký hiệp định chia 300.000 (NV)/2.800.000 (AZ), và buộc California giới hạn 4.400.000; hiệp định 3 bang không thành. Toà Tối cao (Arizona v. California, 373 U.S. 546, 03/06/1963) phán Congress tự lập cơ chế chia qua BCPA và hợp đồng của Bộ trưởng: 4,4 triệu CA, 2,8 triệu AZ, 300.000 NV. Decree 09/03/1964 (376 U.S. 340) Điều II(B)(1) ấn định; Consolidated Decree 27/03/2006 (547 U.S. 150) giữ nguyên câu chữ.",
+   "as_of": "2006-03-27",
+   "nguon": "U.S. Supreme Court (U.S. Reports qua Library of Congress); U.S. Code (GPO GovInfo)",
+   "url": "https://tile.loc.gov/storage-services/service/ll/usrep/usrep376/usrep376340/usrep376340.pdf",
+   "tep_goc": "usrep376340.pdf",
+   "sha256": "cbd5902c36f760663736cc49a5437930a583b712bb17719bc16cf1898b53748f",
+   "trich": "(1) If sufficient mainstream water is available for release, as determined by the Secretary of the Interior, to satisfy 7,500,000 acre-feet of annual consumptive use in the aforesaid three States, then of such 7,500,000 acre- feet of consumptive use, there shall be apportioned 2,800,000 acre-feet for use in Arizona, 4,400,000 acre-feet for use in California, and 300,000 acre-feet for use in Nevada;",
+   "trich_bo_sung": [
+    "The States of Arizona, California, and Nevada are authorized to enter into an agreement which shall provide (1) that of the 7,500,000 acre-feet annually apportioned to the lower basin by paragraph (a) of Article III of the Colorado River compact, there shall be apportioned to the State of Nevada 300,000 acre-feet and to the State of Arizona 2,800,000 acre-feet for exclusive beneficial consumptive use in perpetuity,",
+    "In passing the Boulder Canyon Project Act, Congress intended to, and did, create its own comprehensive scheme for the apportion- ment among California, Arizona and Nevada of the Lower Basin's share of the mainstream waters of the Colorado River, leaving each State her own tributaries. It decided that a fair division of the first 7,500,000 acre-feet of such mainstream waters would give 4,400,000 acre-feet to California, 2,800,000 to Arizona, and 300,000 to Nevada, and that Arizona and California should each get one-half of any surplus.",
+    "Consolidated decree entered March 27, 2006"
+   ],
+   "tep_bo_sung": [
+    "usc43_617c.htm",
+    "usrep373546.pdf",
+    "usrep547150.pdf"
+   ]
+  },
+  {
+   "id": "N4",
+   "neo": "Mực nước Lake Mead mới nhất + kỷ lục",
+   "ket_luan": "ĐÚNG — kỷ lục thấp mới năm 2026 xác minh; mức 2022 là 1.040,58 ft (không phải ~1.040 tròn)",
+   "gia_tri": "Mới nhất: 1.037,54 ft ngày 14/10/2026 (thấp nhất từ khi hồ tích nước xong; dữ liệu HDB USBR). Kỷ lục 2022: 1.040,58 ft ngày 28/07/2022. Lần đầu xuống dưới mức 2022: 06/08/2026 (1.040,50 ft). Mức cao nhất ghi nhận (HDB): 1.225,83 ft ngày 24/07/1983. \"High-water line\" thiết kế: 1.229 ft (USBR Lake FAQ). Đỉnh cửa xả tràn nâng: 1.221,4 ft. \"Dead pool\" 895 ft (SNWA). Dưới 950 ft: chỉ còn cửa lấy nước tầng trên, không phát điện (OG 2027–2028). Hồ Powell cũng lập kỷ lục thấp: 3.516,62 ft ngày 15/09/2026 (cũ: 3.519,92 ft ngày 13/04/2023). Thiếu hụt: 2026 = Shortage Condition 2.D.1.a (Tier 1; Lake Mead dự báo 01/01/2026 = 1.055,88 ft): Nevada phân bổ 287.000 af (cắt 13.000) + đóng góp DCP (8.000 af theo mức 2025 cùng tầng — số 2026 cụ thể CHỜ XÁC MINH GỐC); 2027 = Nevada cắt 50.000 af (còn 250.000) theo OG 2027–2028 và 24-Month Study 08/2026.",
+   "as_of": "2026-10-14",
+   "nguon": "USBR Lower Colorado Region — HDB (svr=lchdb, SDI 1930) và báo cáo ngày",
+   "url": "https://www.usbr.gov/pn-bin/hdb/hdb.pl?svr=lchdb&sdi=1930&tstp=DY&t1=1935-01-01T00:00&t2=2026-10-15T00:00&table=R&mrid=0&format=csv",
+   "tep_goc": "hdb_mead_daily_1935_2026.csv",
+   "sha256": "26cc853353ca2e752388cd3f9dc3ab2c0fbb3105ff19d185300a99102d57b7c0",
+   "trich": "10/14/2026 00:00, 1037.54",
+   "trich_bo_sung": [
+    "07/28/2022 00:00, 1040.58",
+    "08/06/2026 00:00, 1040.50",
+    "07/24/1983 00:00, 1225.829956054690",
+    "The high-water line is at 1,229 feet above sea level.",
+    "below Lake Mead's \"dead pool\" elevation of 895 feet — the point at which no water can pass through Hoover Dam to generate power or meet downstream water demands in California, Arizona or Mexico.",
+    "Last week, Lake Mead reached a record-low elevation",
+    "projected January 1, 2026 Lake Mead elevation of 1,055.88 feet (321.83 meters) and consistent with Section 2.D.1 of the 2007 Interim Guidelines, a Shortage Condition, consistent with Section 2.D.1.a, will govern releases for use in the states of Arizona, Nevada, and California during calendar year 2026",
+    "In years when Lake Mead content is projected to be at or below elevation 1,075 feet and at or above 1,050 feet on January 1, a quantity of 7.167 maf shall be apportioned for consumptive use in the Lower Division States of which 2.48 maf shall be apportioned for use in Arizona and 287,000 af shall be apportioned for use in Nevada in accordance with the Arizona-Nevada Shortage Sharing Agreement dated February 9, 2007, and 4.4 maf shall be apportioned for use in California.",
+    "09/15/2026 00:00, 3516.62"
+   ],
+   "tep_bo_sung": [
+    "levels.html",
+    "accumweb.json",
+    "mead-elv.html",
+    "hoover_faqs_lakefaqs.html",
+    "AOP26.pdf",
+    "usbr_2007_IG_ROD.pdf",
+    "hdb_powell_daily_1963_2026.csv",
+    "24mo_current.pdf"
+   ],
+   "ghi_chu": "Không gọi là \"thấp nhất mọi thời đại\": trong giai đoạn tích nước ban đầu 1935–1937 mực hồ thấp hơn (HDB 02/02/1935 = 670 ft). Cách nói an toàn: \"lowest since the lake first filled\". Thông cáo USBR 21/08 nói \"Last week\" (tức ~10–14/08) — dữ liệu ngày cho thấy đã thấp hơn kỷ lục 2022 từ 06/08/2026; chênh lệch nhỏ, dùng số đo. Trang \"24mo.pdf\" (bản hiện hành) vẫn là July 2026; bản August/September 2026 không có ở đường dẫn lưu trữ (404) — 24-Month Study 08/2026 chỉ được trích qua thông cáo nr5392."
+  },
+  {
+   "id": "N5",
+   "neo": "Đập Hoover: thời gian, tử vong, tên",
+   "ket_luan": "SAI MỘT PHẦN — khánh thành 30/09/1935 (FDR) ĐÚNG; \"hoàn thành 1936\" ĐÚNG (mọi hạng mục xong 01/03/1936); 96 là số \"chính thức\" ĐÚNG; 112 bao gồm cả ca chết 1922",
+   "gia_tri": "Hợp đồng cho phép 7 năm kể từ 20/04/1931; đổ bê tông xong 29/05/1935; mọi hạng mục xong 01/03/1936. Six Companies trúng thầu 11/03/1931 ($48.890.955). FDR khánh thành \"Boulder Dam\" 30/09/1935. Tên Hoover Dam chính thức trở lại 1947 (nghị quyết chung của Congress). Lake Mead đặt theo Elwood Mead (Commissioner USBR); bắt đầu tích nước 01/02/1935. Tử vong \"chính thức\" 96 (industrial fatalities); 112 gồm các ca trước khi đập được phê duyệt (1922). 21.000 người làm, trung bình 3.500, đỉnh 5.218 (06/1934).",
+   "as_of": "2015-03-12 (trang USBR fatal.html cập nhật)",
+   "nguon": "USBR Hoover Dam (FAQ, essay); U.S. Census Bureau \"History and the Census: Hoover Dam\" (09/2025)",
+   "url": "https://www.usbr.gov/lc/hooverdam/history/essays/fatal.html",
+   "tep_goc": "hoover_fatal.html",
+   "sha256": "6181b62943dc6b65014cff7feab86a563717e96577b0ccdedaa67ba87c11f58b",
+   "trich": "The \"official\" number of fatalities involved in building Hoover Dam is 96. These were men who died at the dam site (classified as \"industrial fatalities\") from such causes as drowning, blasting, falling rocks or slides, falls from the canyon walls, being struck by heavy equipment, truck accidents, etc. Industrial fatalities do not include deaths from heat, pneumonia, heart trouble, etc.",
+   "trich_bo_sung": [
+    "some sources cite the number of deaths as 112. But this incorporates incidents that occurred before the dam was authorized, and well in advance of construction.",
+    "The contractors were allowed seven years from April 20, 1931, but concrete placement in the dam was completed May 29, 1935, and all features were completed by March 1, 1936.",
+    "With the bulk of heavy construction completed, President Franklin D. Roosevelt dedicated Boulder Dam during a September 30, 1935, ceremony",
+    "Engineers began filling Lake Mead—named for Elwood Mead , commissioner of the U.S. Bureau of Reclamation—on February 1, 1935.",
+    "President Franklin D. Roosevelt dedicated Boulder Dam—named Hoover Dam since 1947—on September 30, 1935."
+   ],
+   "tep_bo_sung": [
+    "hoover_faqs_damfaqs.html",
+    "census_hoover_2025.html"
+   ],
+   "ghi_chu": "MÂU THUẪN nhỏ: City of Las Vegas timeline viết \"With the dam completed and dedicated in 1936\" — sai về năm khánh thành (1935). Dùng 1935 (khánh thành) và 1936 (hoàn tất). Census story gọi Lake Mead là \"the largest water reservoir in the world\" — KHÔNG dùng (xem khong_dung)."
+  },
+  {
+   "id": "N6",
+   "neo": "Hiệp ước 1944 Mỹ–Mexico; Minute 323 và minute kế tiếp",
+   "ket_luan": "ĐÚNG — minute kế tiếp là Minute 334 (ký 02/09/2026, El Paso)",
+   "gia_tri": "Điều 10(a) Hiệp ước 03/02/1944: Mexico được bảo đảm 1.500.000 af/năm. Minute 323 (2017) và 330 (2024) được Minute 334 \"Colorado River Basin Cooperative Measures through December 31, 2028\" thay thế; ký 02/09/2026; Mexico bị giảm 250.000 af/năm trong 2027 và 2028. Minute 319 (ký 20/11/2012): xung nước 2014 khoảng 105.392 af (130 mcm), 23/03–18/05/2014, nối dòng tới cửa sông lần đầu từ 2001.",
+   "as_of": "2026-09-09",
+   "nguon": "IBWC (International Boundary and Water Commission); Treaty Series 994 (bản USBR)",
+   "url": "https://www.ibwc.gov/wp-content/uploads/2026/09/US-and-Mexico-announce-Colorado-River-cooperative-agreement.pdf",
+   "tep_goc": "ibwc_m334_pr.pdf",
+   "sha256": "554ccdb8adf7b6d45d378030eef34256ac7544bcdde806fbefb770e2086f6441",
+   "trich": "Minute 334 of the International Boundary and Water Commission, United States and Mexico (IBWC), “Colorado River Basin Cooperative Measures through December 31, 2028,” was signed on September 2, 2026, in El Paso, Texas, and approved by the U.S. and Mexican governments.",
+   "trich_bo_sung": [
+    "Colorado River water deliveries to Mexico will be reduced by 250,000 acre-feet (308,372,250 cubic meters) per year during the same period.",
+    "The agreement extends and replaces Colorado River basin cooperative measures from Minutes 323 (2017) and 330 (2024),",
+    "(a)e A guaranteed annual quan a)eUn volumen garantizado de tity of 1,500,000 acre-feet (1,850,- 1 850 234 000 metros cu.bicos 234,000 cubic meters) to be de (1 500 000 .acres pies) cada afio, livered in accordance with the que se entregara de ac1ierdo con lo provisions of Article 15 of this dispuesto en el Articulo 15 de este Treaty.",
+    "a pulse flow of approximately 130 million cubic meters (mcm) (105,392 acre-feet), implemented by the U.S. and Mexican governments, was released to the riparian corridor of the Colorado River Delta from Morelos Dam at the U.S.-Mexico border, Km 27 spillway and Km 18 spillway. The water was delivered over an eight-week period that began on March 23, 2014 and ended on May 18, 2014.",
+    "The pulse flow achieved lateral and longitudinal connectivity along the entire river from Morelos Dam to the estuary for the first time since 2001."
+   ],
+   "tep_bo_sung": [
+    "mx1944.pdf",
+    "Min334.pdf",
+    "Min323.pdf",
+    "m319_monitoring_2018.pdf",
+    "nr5410.html"
+   ],
+   "ghi_chu": "Văn bản Minute 323/334 trên ibwc.gov là bản scan không có lớp chữ (không có OCR trong môi trường) — trích từ thông cáo IBWC 09/09/2026. Bản treaty mextrety.pdf là OCR song ngữ (có ký tự lạ \"(a)e\")."
+  }
+ ]
+}

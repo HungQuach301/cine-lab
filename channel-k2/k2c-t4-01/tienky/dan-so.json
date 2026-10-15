@@ -1,0 +1,254 @@
+{
+ "note": "Chuỗi dân số Census thập niên (01/04 mỗi năm điều tra; 1910 = 15/04) cho City of Las Vegas và Clark County, NV, + ước tính Vintage 2025. Lưu ý: ESTIMATESBASE2020 của PEP (city 645.774; county 2.266.446) KHÁC số điều tra 2020 (641.903; 2.265.461) — dùng số điều tra cho năm 2020. Census 2020 PL qua api.census.gov cần khoá → lấy từ tệp PL 94-171 gốc. Không tìm được nv190090.txt (404). Kiểm chéo: Census story 09/2025 ghi Clark 1940 = 16.414, 1950 = 48.289, 2024 = 2.398.871 (khớp PEP V2024? PEP V2025 cho 2024 = 2.385.746 — chênh do vintage). Tăng trưởng: Clark 1940→2020 ×138; city 1920→2020 ×279.",
+ "as_of": "2026-10-15",
+ "du_lieu": {
+  "1910": {
+   "city": null,
+   "city_ghi_chu": "Las Vegas chưa hợp nhất (incorporated 1911). Las Vegas precinct = 945",
+   "clark_county": 3321,
+   "nguon": [
+    {
+     "tep_goc": "census1910_v3p2.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1910/volume-3/volume-3-p2.pdf",
+     "sha256": "543df5c486170abbc6a1cc0c20f6624fd4fb2378f4be6627fbbfbb8f1ec0f5e0",
+     "cach_lay": "1910 Census Vol. III, Nevada Table 1 p.78 (scan; OCR + đối chiếu ảnh)",
+     "trich": "Clark County ... 3,321 | Las Vegas precinct ... 945"
+    }
+   ]
+  },
+  "1920": {
+   "city": 2304,
+   "clark_county": 4859,
+   "nguon": [
+    {
+     "tep_goc": "census1960_nv_inhabitants.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1960/population-volume-1/37745194v1p30ch2.pdf",
+     "sha256": "d7d38c37623763dc4b943d8272c6bd584941f250f6533438af063034c21e4137",
+     "cach_lay": "1960 Census Number of Inhabitants, Nevada, Table 5 (scan, đọc ảnh)",
+     "trich": "LAS VEGAS: 1960 64,405; 1950 24,624; 1940 8,422; 1930 5,165; 1920 2,304"
+    },
+    {
+     "tep_goc": "census1940_v1ch06.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1940/population-volume-1/33973538v1ch06.pdf",
+     "sha256": "b457152628aaafc9af29fa61ae0c55c0ad1e0e60c2519a66190866afff2d0fd1",
+     "cach_lay": "1940 Census Vol. I, Nevada Table 3 (OCR): Clark 1940/1930/1920",
+     "trich": "Clark ... 16, 414 ... 8, 532 4, 859 (OCR)"
+    }
+   ]
+  },
+  "1930": {
+   "city": 5165,
+   "clark_county": 8532,
+   "nguon": [
+    {
+     "tep_goc": "census1960_nv_inhabitants.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1960/population-volume-1/37745194v1p30ch2.pdf",
+     "sha256": "d7d38c37623763dc4b943d8272c6bd584941f250f6533438af063034c21e4137",
+     "cach_lay": "1960 Census Number of Inhabitants, Nevada, Table 5 (scan, đọc ảnh)",
+     "trich": "LAS VEGAS: 1960 64,405; 1950 24,624; 1940 8,422; 1930 5,165; 1920 2,304"
+    },
+    {
+     "tep_goc": "census1940_v1ch06.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1940/population-volume-1/33973538v1ch06.pdf",
+     "sha256": "b457152628aaafc9af29fa61ae0c55c0ad1e0e60c2519a66190866afff2d0fd1",
+     "cach_lay": "1940 Census Vol. I, Nevada Table 3 (OCR): Clark 1940/1930/1920",
+     "trich": "Clark ... 16, 414 ... 8, 532 4, 859 (OCR)"
+    },
+    {
+     "tep_goc": "census1950_v1_nevada.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1950/population-volume-1/vol-01-31.pdf",
+     "sha256": "1414d344c083882b65aba1a4befb2b03edf92e2af06e94109a087434106dc68b",
+     "cach_lay": "1950 Census Vol. I Nevada (OCR) Table 6/7",
+     "trich": "Clark CountY---~----· 48, 289 16,414 8,532 | Las Vegas ... 24, 624"
+    }
+   ]
+  },
+  "1940": {
+   "city": 8422,
+   "clark_county": 16414,
+   "nguon": [
+    {
+     "tep_goc": "census1960_nv_inhabitants.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1960/population-volume-1/37745194v1p30ch2.pdf",
+     "sha256": "d7d38c37623763dc4b943d8272c6bd584941f250f6533438af063034c21e4137",
+     "cach_lay": "1960 Census Number of Inhabitants, Nevada, Table 5 (scan, đọc ảnh)",
+     "trich": "LAS VEGAS: 1960 64,405; 1950 24,624; 1940 8,422; 1930 5,165; 1920 2,304"
+    },
+    {
+     "tep_goc": "census1990_cph-2-30.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-30.pdf",
+     "sha256": "33eb3aa8f11f657c8fa04d13bfeb2167062db84aa9d174a2ef180dd0b6d64d87",
+     "cach_lay": "1990 CPH-2-30 Nevada, Table 3 (county 1940–1990) và Table 8 (place 1970–1990)",
+     "trich": "Clark County ... 741 459 463 087 273 288 127 016 48 289 16 414 | Las Vegas city, Clark County ... 258 295 164 674 125 787"
+    }
+   ]
+  },
+  "1950": {
+   "city": 24624,
+   "clark_county": 48289,
+   "nguon": [
+    {
+     "tep_goc": "census1960_nv_inhabitants.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1960/population-volume-1/37745194v1p30ch2.pdf",
+     "sha256": "d7d38c37623763dc4b943d8272c6bd584941f250f6533438af063034c21e4137",
+     "cach_lay": "1960 Census Number of Inhabitants, Nevada, Table 5 (scan, đọc ảnh)",
+     "trich": "LAS VEGAS: 1960 64,405; 1950 24,624; 1940 8,422; 1930 5,165; 1920 2,304"
+    },
+    {
+     "tep_goc": "census1990_cph-2-30.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-30.pdf",
+     "sha256": "33eb3aa8f11f657c8fa04d13bfeb2167062db84aa9d174a2ef180dd0b6d64d87",
+     "cach_lay": "1990 CPH-2-30 Nevada, Table 3 (county 1940–1990) và Table 8 (place 1970–1990)",
+     "trich": "Clark County ... 741 459 463 087 273 288 127 016 48 289 16 414 | Las Vegas city, Clark County ... 258 295 164 674 125 787"
+    },
+    {
+     "tep_goc": "census1950_v1_nevada.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1950/population-volume-1/vol-01-31.pdf",
+     "sha256": "1414d344c083882b65aba1a4befb2b03edf92e2af06e94109a087434106dc68b",
+     "cach_lay": "1950 Census Vol. I Nevada (OCR) Table 6/7",
+     "trich": "Clark CountY---~----· 48, 289 16,414 8,532 | Las Vegas ... 24, 624"
+    }
+   ]
+  },
+  "1960": {
+   "city": 64405,
+   "clark_county": 127016,
+   "nguon": [
+    {
+     "tep_goc": "census1960_nv_inhabitants.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1960/population-volume-1/37745194v1p30ch2.pdf",
+     "sha256": "d7d38c37623763dc4b943d8272c6bd584941f250f6533438af063034c21e4137",
+     "cach_lay": "1960 Census Number of Inhabitants, Nevada, Table 5 (scan, đọc ảnh)",
+     "trich": "LAS VEGAS: 1960 64,405; 1950 24,624; 1940 8,422; 1930 5,165; 1920 2,304"
+    },
+    {
+     "tep_goc": "census1990_cph-2-30.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-30.pdf",
+     "sha256": "33eb3aa8f11f657c8fa04d13bfeb2167062db84aa9d174a2ef180dd0b6d64d87",
+     "cach_lay": "1990 CPH-2-30 Nevada, Table 3 (county 1940–1990) và Table 8 (place 1970–1990)",
+     "trich": "Clark County ... 741 459 463 087 273 288 127 016 48 289 16 414 | Las Vegas city, Clark County ... 258 295 164 674 125 787"
+    }
+   ]
+  },
+  "1970": {
+   "city": 125787,
+   "clark_county": 273288,
+   "nguon": [
+    {
+     "tep_goc": "census1990_cph-2-30.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-30.pdf",
+     "sha256": "33eb3aa8f11f657c8fa04d13bfeb2167062db84aa9d174a2ef180dd0b6d64d87",
+     "cach_lay": "1990 CPH-2-30 Nevada, Table 3 (county 1940–1990) và Table 8 (place 1970–1990)",
+     "trich": "Clark County ... 741 459 463 087 273 288 127 016 48 289 16 414 | Las Vegas city, Clark County ... 258 295 164 674 125 787"
+    }
+   ]
+  },
+  "1980": {
+   "city": 164674,
+   "clark_county": 463087,
+   "nguon": [
+    {
+     "tep_goc": "census1990_cph-2-30.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-30.pdf",
+     "sha256": "33eb3aa8f11f657c8fa04d13bfeb2167062db84aa9d174a2ef180dd0b6d64d87",
+     "cach_lay": "1990 CPH-2-30 Nevada, Table 3 (county 1940–1990) và Table 8 (place 1970–1990)",
+     "trich": "Clark County ... 741 459 463 087 273 288 127 016 48 289 16 414 | Las Vegas city, Clark County ... 258 295 164 674 125 787"
+    }
+   ]
+  },
+  "1990": {
+   "city": 258295,
+   "clark_county": 741459,
+   "nguon": [
+    {
+     "tep_goc": "census1990_cph-2-30.pdf",
+     "url": "https://www2.census.gov/library/publications/decennial/1990/cph-2/cph-2-30.pdf",
+     "sha256": "33eb3aa8f11f657c8fa04d13bfeb2167062db84aa9d174a2ef180dd0b6d64d87",
+     "cach_lay": "1990 CPH-2-30 Nevada, Table 3 (county 1940–1990) và Table 8 (place 1970–1990)",
+     "trich": "Clark County ... 741 459 463 087 273 288 127 016 48 289 16 414 | Las Vegas city, Clark County ... 258 295 164 674 125 787"
+    },
+    {
+     "tep_goc": "nvleg_popcounties2020.pdf",
+     "url": "https://www.leg.state.nv.us/Division/Research/Documents/PopulationofCountiesInNevada2020.pdf",
+     "sha256": "47a27c434d4ff1a6550b3f4bd8dd6a4a20966b97b95c2bab53cb9bdef28e373d",
+     "cach_lay": "Nevada LCB, Population of Counties in Nevada 2020/2010/2000/1990",
+     "trich": "Clark County 2,265,461 ... 1,951,269 ... 1,375,765 ... 741,459"
+    }
+   ]
+  },
+  "2000": {
+   "city": 478434,
+   "clark_county": 1375765,
+   "nguon": [
+    {
+     "tep_goc": "sub-est2009_32.csv",
+     "url": "https://www2.census.gov/programs-surveys/popest/datasets/2000-2009/cities/totals/sub-est2009_32.csv",
+     "sha256": "5fbf8ed92d6afba01ac028fdf0f604cdbeea466c78dc38c5de964054f170e74d",
+     "cach_lay": "Vintage 2009 PEP, cột POPCENSUS_2000",
+     "trich": "162,32,000,40000,00000,Las Vegas city,Nevada,478434 | 050,32,003,...,Clark County,Nevada,1375765"
+    },
+    {
+     "tep_goc": "nvleg_popcounties2020.pdf",
+     "url": "https://www.leg.state.nv.us/Division/Research/Documents/PopulationofCountiesInNevada2020.pdf",
+     "sha256": "47a27c434d4ff1a6550b3f4bd8dd6a4a20966b97b95c2bab53cb9bdef28e373d",
+     "cach_lay": "Nevada LCB, Population of Counties in Nevada 2020/2010/2000/1990",
+     "trich": "Clark County 2,265,461 ... 1,951,269 ... 1,375,765 ... 741,459"
+    }
+   ]
+  },
+  "2010": {
+   "city": 583756,
+   "clark_county": 1951269,
+   "nguon": [
+    {
+     "tep_goc": "sub-est00int.csv",
+     "url": "https://www2.census.gov/programs-surveys/popest/datasets/2000-2010/intercensal/cities/sub-est00int.csv",
+     "sha256": "401fe5599b9dbbba53baefad5b2e9736b87026e1756d40db72d747107e3fda6c",
+     "cach_lay": "2000–2010 intercensal, cột CENSUS2010POP",
+     "trich": "Las Vegas city ... 583756 | Clark County ... 1951269"
+    },
+    {
+     "tep_goc": "nvleg_popcounties2020.pdf",
+     "url": "https://www.leg.state.nv.us/Division/Research/Documents/PopulationofCountiesInNevada2020.pdf",
+     "sha256": "47a27c434d4ff1a6550b3f4bd8dd6a4a20966b97b95c2bab53cb9bdef28e373d",
+     "cach_lay": "Nevada LCB, Population of Counties in Nevada 2020/2010/2000/1990",
+     "trich": "Clark County 2,265,461 ... 1,951,269 ... 1,375,765 ... 741,459"
+    }
+   ]
+  },
+  "2020": {
+   "city": 641903,
+   "clark_county": 2265461,
+   "nguon": [
+    {
+     "tep_goc": "nv2020.pl.zip",
+     "url": "https://www2.census.gov/programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/Nevada/nv2020.pl.zip",
+     "sha256": "ac7e792e0a1d6248ff1700159f4ec6a3a7b3330ebe10899bb4f47ab97c19952d",
+     "cach_lay": "2020 PL 94-171 geo header nvgeo2020.pl, trường POP100",
+     "trich": "Clark County|A||2265461 | Las Vegas city POP100 641903"
+    },
+    {
+     "tep_goc": "nvleg_popcounties2020.pdf",
+     "url": "https://www.leg.state.nv.us/Division/Research/Documents/PopulationofCountiesInNevada2020.pdf",
+     "sha256": "47a27c434d4ff1a6550b3f4bd8dd6a4a20966b97b95c2bab53cb9bdef28e373d",
+     "cach_lay": "Nevada LCB, Population of Counties in Nevada 2020/2010/2000/1990",
+     "trich": "Clark County 2,265,461 ... 1,951,269 ... 1,375,765 ... 741,459"
+    }
+   ]
+  },
+  "2025_uoc_tinh": {
+   "city": 679817,
+   "clark_county": 2407226,
+   "loai": "Vintage 2025 PEP, 01/07/2025",
+   "nguon": [
+    {
+     "tep_goc": "sub-est2025.csv",
+     "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/cities/totals/sub-est2025.csv",
+     "sha256": "e3508f5201465913476d4ddf91740f191f7977c9f2614a2a7e30b5fd22027934",
+     "cach_lay": "Vintage 2025 PEP (POPESTIMATE2025, 01/07/2025)",
+     "trich": "162,32,000,40000,...,Las Vegas city,Nevada,645774,...,679817 | 050,32,003,...,Clark County,Nevada,2266446,...,2407226"
+    }
+   ]
+  }
+ }
+}
