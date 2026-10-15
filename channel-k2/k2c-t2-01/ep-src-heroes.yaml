@@ -209,6 +209,7 @@ heroes:
       ivtc: true
       lo: 26
       hi: 226
+      maxScale: 1.1
   r01_days:
     hero: relief/map
     opt:
@@ -278,7 +279,7 @@ heroes:
     opt:
       img: /assets/k2/archive/loc-fsa-8d18716-owens.jpg
       focus:
-      - 0.78
+      - 1.1
       - 0.4
       push: 0.12
   r01_yards:
@@ -560,13 +561,27 @@ heroes:
         dist: 1000
         tilt: 30
         head: -5
+      pins:
+      - id: ship
+        at:
+        - -122.4
+        - 47.65
+      walkers:
+      - id: ship
+        route: seattle
+        t:
+        - '@carrying'
+        - '@carrying+3.2'
+        u:
+        - 0.02
+        - 1
   p02_jones:
     hero: photo/print
-    cam: drift-r
+    cam: push
     opt:
       img: /assets/k2/archive/loc-npcc-21943-wjones.jpg
       focus:
-      - 0.8
+      - 1.1
       - 0.3
       push: 0.1
   r02_quotes:
@@ -766,17 +781,17 @@ heroes:
         - 39.88
       cam:
       - t: 0
-        lon: -75.16
-        lat: 39.8
-        dist: 12
-        tilt: 62
-        head: 0
-      - t: 6
-        lon: -75.16
-        lat: 39.81
+        lon: -75.185
+        lat: 39.845
         dist: 10
-        tilt: 64
-        head: 6
+        tilt: 60
+        head: 4
+      - t: 6
+        lon: -75.18
+        lat: 39.852
+        dist: 8.5
+        tilt: 62
+        head: 8
   r03_ladder:
     hero: relief/map
     opt:
@@ -928,6 +943,10 @@ heroes:
         at:
         - -75.2
         - 40.08
+      - id: rep
+        at:
+        - -75.06
+        - 39.8
       cam:
       - t: 0
         lon: -75.1
@@ -936,9 +955,9 @@ heroes:
         tilt: 52
         head: 0
       - t: '@lists'
-        lon: -75.13
-        lat: 39.76
-        dist: 40
+        lon: -75.11
+        lat: 39.82
+        dist: 38
         tilt: 57
         head: -4
       - t: '@adds'
@@ -1145,20 +1164,20 @@ heroes:
         - 1
       cam:
       - t: 0
-        lon: 128.4
-        lat: 35.4
+        lon: 127.85
+        lat: 36.15
         dist: 250
-        tilt: 38
+        tilt: 40
         head: 0
       - t: '@decided'
-        lon: 128.7
-        lat: 35.35
+        lon: 128.45
+        lat: 35.85
         dist: 195
-        tilt: 42
+        tilt: 43
         head: 4
       - t: '@whatsoever+1'
         lon: 128.9
-        lat: 35.3
+        lat: 35.6
         dist: 155
         tilt: 46
         head: 6
@@ -1449,6 +1468,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_unions2:
     hero: photo/print
     cam: push
@@ -1464,6 +1484,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   g05_china:
     hero: map/globe
     cam: orbit
@@ -1511,6 +1532,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_det2:
     hero: photo/print
     cam: detail
@@ -1526,6 +1548,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   r05_fees:
     hero: relief/map
     opt:
@@ -1591,6 +1614,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_aim2:
     hero: photo/print
     cam: push
@@ -1606,6 +1630,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -1639,6 +1664,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_susp2:
     hero: photo/print
     cam: detail
@@ -1654,6 +1680,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   r05_cost:
     hero: relief/map
     opt:
@@ -1942,20 +1969,20 @@ heroes:
       pins:
       - id: kc
         at:
-        - -122.335
-        - 37.738
+        - -122.43
+        - 37.74
       - id: ko
         at:
-        - -122.318
-        - 37.748
+        - -122.36
+        - 37.755
       - id: kf
         at:
-        - -122.295
-        - 37.727
+        - -122.3
+        - 37.72
       - id: kk
         at:
-        - -122.322
-        - 37.718
+        - -122.23
+        - 37.75
   r06_home:
     hero: relief/map
     opt:

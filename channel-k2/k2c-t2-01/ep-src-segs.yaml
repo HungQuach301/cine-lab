@@ -46,7 +46,7 @@ segments:
                   {a: "col:dpeary", s: "4½ days", sub: "Robert E. Peary (publicity stunt)", kind: null, num: n_peary, at: "@Peary", side: auto, prefer: [right, down], c: "#F2C14E"}],
            src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@photographer-0.8", src_ss: 2, dur: 1.2, gain_db: -20, fade_ms: 60}], at: "@photographer-0.6", in: fade, type: photo, scene_id: loc_fsa_owens, camera_id: push, people: [Josie Lucille Owens], p: {hero: p01_owens, frame0: 0, photo: LOC-FSA-8D18716,
-           side: {at: "@Josie", lines: [{s: "Josie Lucille Owens", px: 52, w: 700, disp: true, at: "@Josie"}, {s: "welder trainee · Richmond, Calif. · 1943", px: 38, at: "@trainee"}, {s: "Liberty ship SS George Washington Carver", px: 38, at: "@Carver"}]},
+           side: {at: "@Josie", x0: 0.68, lines: [{s: "Josie Lucille Owens", px: 52, w: 700, disp: true, at: "@Josie"}, {s: "welder trainee · Richmond, Calif. · 1943", px: 38, at: "@trainee"}, {s: "Liberty ship SS George Washington Carver", px: 38, at: "@Carver"}]},
            src: "Photo: E. F. Joseph, OWI, 1943 · Library of Congress"}}
       - {tpl: plate, at: "@four#2-0.3", type: map, scene_id: relief/map, camera_id: t2-01-yards, places: [], p: {hero: r01_yards, frame0: 0, kind: actual,
            stickers: [{a: "st:t1", img: "stk:town", at: "@grew", px: 110}, {a: "st:t2", img: "stk:town", at: "@nearly", px: 125}, {a: "st:t3", img: "stk:town", at: "@1943#2", px: 140}],
@@ -69,11 +69,11 @@ segments:
            stickers: [{a: "st:rail", img: "stk:train", at: "@rail", px: 90}, {a: "st:fship", img: "stk:freighter", at: "@foreign", px: 100}],
            places: [{a: seattle, s: "Seattle", at: 0.3, out: "@foreign", side: auto}, {a: vancouver, s: "Vancouver, B.C.", at: "@Vancouver", out: "@foreign", side: auto, prefer: [left, up]}, {a: alaska, s: "Alaska", at: "@foreign", side: auto}],
            src: "Source: CRS (2019) · Terrain: SRTM (USGS)"}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@Senator#1-0.5", src_ss: 8, dur: 1.2, gain_db: -21, fade_ms: 60}], at: "@Senator#1-0.3", in: fade, type: photo, scene_id: loc_npcc_jones, camera_id: drift-r, people: [Wesley Jones], p: {hero: p02_jones, frame0: 0, photo: LOC-NPCC-21943,
-           side: {at: "@Wesley", lines: [{s: "Sen. Wesley L. Jones", px: 52, w: 700, disp: true, at: "@Wesley"}, {s: "Washington · chair, Commerce Committee", px: 38, at: "@chair"}, {s: "photo c. 1921", px: 38, at: "@chair+0.6"}, {s: "aim: Alaska cargo through Seattle", px: 38, at: "@requiring"}]},
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@Senator#1-0.5", src_ss: 8, dur: 1.2, gain_db: -21, fade_ms: 60}], at: "@Senator#1-0.3", in: fade, type: photo, scene_id: loc_npcc_jones, camera_id: push, people: [Wesley Jones], p: {hero: p02_jones, frame0: 0, photo: LOC-NPCC-21943,
+           side: {at: "@Wesley", x0: 0.68, lines: [{s: "Sen. Wesley L. Jones", px: 52, w: 700, disp: true, at: "@Wesley"}, {s: "Washington · chair, Commerce Committee", px: 38, at: "@chair"}, {s: "photo c. 1921", px: 38, at: "@chair+0.6"}, {s: "aim: Alaska cargo through Seattle", px: 38, at: "@requiring"}]},
            src: "Photo: National Photo Co., Library of Congress"}}
       - {tpl: plate, at: "@cargo#3-0.3", type: map, scene_id: relief/map, camera_id: t2-02-alaska2, places: [], p: {hero: r02_alaska2, frame0: 0,
-           places: [{a: seattle, s: "Seattle", at: "@cargo#3", side: auto}], stickers: [{a: "st:ship", img: "stk:freighter", at: "@carrying", px: 90}],
+           places: [{a: seattle, s: "Seattle", at: "@cargo#3", side: auto}], stickers: [{a: "st:ship", img: "stk:freighter", at: "@carrying", px: 90, walk: true}],
            tags: [{a: "st:ship", s: "built · owned · crewed in the U.S.", sub: "Jones Act, Sec. 27 (1920)", at: "@American-built", side: auto, prefer: [up, left], c: "#3CC2B0"}],
            cap: [{s: "Merchant Marine Act of 1920, Section 27: the \"Jones Act\"", at: "@Section"}], src: "Source: CRS (2019) · Terrain: SRTM (USGS)"}}
       - {tpl: plate, at: "@Congress's#1-0.3", type: map, scene_id: relief/map, camera_id: t2-02-quotes, places: [], p: {hero: r02_quotes, frame0: 0,
@@ -109,11 +109,11 @@ segments:
            cap: [{s: "RECORD: U.S.-built vs foreign ship prices (government report, CRS)", at: "@gap"}],
            src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@2019-0.3", type: map, scene_id: relief/map, camera_id: t2-03-tanker, places: [], p: {hero: r03_tanker, frame0: 0,
-           tags: [{a: "col:world", s: "world price", at: "@global", side: auto, prefer: [up, left], c: "#E6EBF0"},
+           tags: [{a: "col:world", s: "world price", at: 0.6, side: auto, prefer: [up, left], c: "#E6EBF0"},
                   {a: "col:us", s: "≈ 4×", sub: "U.S.-built tanker (one firm's estimate)", kind: estimate, num: n_tanker4, at: "@four", side: auto, prefer: [down, right], c: "#3CC2B0"}],
            src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@2023#1-0.6", type: map, scene_id: relief/map, camera_id: t2-03-scale, places: [], p: {hero: r03_scale, frame0: 0, kind: actual,
-           stickers: [{a: "st:wl", img: {role: worker, hand: torch}, at: "@welders", px: 170}, {a: "st:tr", img: "stk:truck", at: "@truck", px: 90}, {a: "st:tn", img: "stk:train", at: "@train", px: 90}, {a: "st:pl", img: "stk:pipeline", at: "@pipeline", px: 80}],
+           stickers: [{a: "st:rep", img: "stk:document", at: 0.3, px: 110}, {a: "st:wl", img: {role: worker, hand: torch}, at: "@lists", px: 170}, {a: "st:tr", img: "stk:truck", at: "@truck", px: 90}, {a: "st:tn", img: "stk:train", at: "@train", px: 90}, {a: "st:pl", img: "stk:pipeline", at: "@pipeline", px: 80}],
            tags: [{a: "st:wl", s: "wages (welders)", sub: "one factor listed", at: "@welders", side: auto, c: "#F08A4B"},
                   {a: "st:tn", s: "99 ships", sub: "Jones Act oceangoing fleet, Mar. 2018", kind: null, num: n_99, at: "@ninety-nine", side: auto, prefer: [up], c: "#3CC2B0"}],
            cap: [{s: "Our read: the protected home market is small", at: "@protected"}],

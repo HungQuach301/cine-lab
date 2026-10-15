@@ -451,10 +451,12 @@ heroes:
         color: '#3CC2B0'
         at: '@America''s'
         lift: true
+        fill: 0.45
       - country: China
         color: '#8E7CC3'
         at: '@China''s'
         lift: true
+        fill: 0.45
       cols:
       - id: us
         at:
@@ -603,6 +605,7 @@ heroes:
       ivtc: true
       lo: 26
       hi: 226
+      maxScale: 1.1
   r01_days:
     hero: relief/map
     opt:
@@ -672,7 +675,7 @@ heroes:
     opt:
       img: /assets/k2/archive/loc-fsa-8d18716-owens.jpg
       focus:
-      - 0.78
+      - 1.1
       - 0.4
       push: 0.12
   r01_yards:
@@ -954,13 +957,27 @@ heroes:
         dist: 1000
         tilt: 30
         head: -5
+      pins:
+      - id: ship
+        at:
+        - -122.4
+        - 47.65
+      walkers:
+      - id: ship
+        route: seattle
+        t:
+        - '@carrying'
+        - '@carrying+3.2'
+        u:
+        - 0.02
+        - 1
   p02_jones:
     hero: photo/print
-    cam: drift-r
+    cam: push
     opt:
       img: /assets/k2/archive/loc-npcc-21943-wjones.jpg
       focus:
-      - 0.8
+      - 1.1
       - 0.3
       push: 0.1
   r02_quotes:
@@ -1160,17 +1177,17 @@ heroes:
         - 39.88
       cam:
       - t: 0
-        lon: -75.16
-        lat: 39.8
-        dist: 12
-        tilt: 62
-        head: 0
-      - t: 6
-        lon: -75.16
-        lat: 39.81
+        lon: -75.185
+        lat: 39.845
         dist: 10
-        tilt: 64
-        head: 6
+        tilt: 60
+        head: 4
+      - t: 6
+        lon: -75.18
+        lat: 39.852
+        dist: 8.5
+        tilt: 62
+        head: 8
   r03_ladder:
     hero: relief/map
     opt:
@@ -1322,6 +1339,10 @@ heroes:
         at:
         - -75.2
         - 40.08
+      - id: rep
+        at:
+        - -75.06
+        - 39.8
       cam:
       - t: 0
         lon: -75.1
@@ -1330,9 +1351,9 @@ heroes:
         tilt: 52
         head: 0
       - t: '@lists'
-        lon: -75.13
-        lat: 39.76
-        dist: 40
+        lon: -75.11
+        lat: 39.82
+        dist: 38
         tilt: 57
         head: -4
       - t: '@adds'
@@ -1539,20 +1560,20 @@ heroes:
         - 1
       cam:
       - t: 0
-        lon: 128.4
-        lat: 35.4
+        lon: 127.85
+        lat: 36.15
         dist: 250
-        tilt: 38
+        tilt: 40
         head: 0
       - t: '@decided'
-        lon: 128.7
-        lat: 35.35
+        lon: 128.45
+        lat: 35.85
         dist: 195
-        tilt: 42
+        tilt: 43
         head: 4
       - t: '@whatsoever+1'
         lon: 128.9
-        lat: 35.3
+        lat: 35.6
         dist: 155
         tilt: 46
         head: 6
@@ -1843,6 +1864,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_unions2:
     hero: photo/print
     cam: push
@@ -1858,6 +1880,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   g05_china:
     hero: map/globe
     cam: orbit
@@ -1874,6 +1897,7 @@ heroes:
         color: '#8E7CC3'
         at: 0.4
         lift: true
+        fill: 0.45
       arcs:
       - from: shanghai
         to: rotterdam
@@ -1904,6 +1928,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_det2:
     hero: photo/print
     cam: detail
@@ -1919,6 +1944,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   r05_fees:
     hero: relief/map
     opt:
@@ -1984,6 +2010,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_aim2:
     hero: photo/print
     cam: push
@@ -1999,6 +2026,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -2032,6 +2060,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   d05_susp2:
     hero: photo/print
     cam: detail
@@ -2047,6 +2076,7 @@ heroes:
       push: 0.6
       grade: info
       tone: '#23262c'
+      h: 3.4
   r05_cost:
     hero: relief/map
     opt:
@@ -2343,20 +2373,20 @@ heroes:
       pins:
       - id: kc
         at:
-        - -122.335
-        - 37.738
+        - -122.43
+        - 37.74
       - id: ko
         at:
-        - -122.318
-        - 37.748
+        - -122.36
+        - 37.755
       - id: kf
         at:
-        - -122.295
-        - 37.727
+        - -122.3
+        - 37.72
       - id: kk
         at:
-        - -122.322
-        - 37.718
+        - -122.23
+        - 37.75
   r06_home:
     hero: relief/map
     opt:
@@ -2470,6 +2500,7 @@ heroes:
         color: '#3CC2B0'
         at: '@America''s'
         lift: true
+        fill: 0.45
       cols:
       - id: us
         at:
@@ -2858,6 +2889,7 @@ segments:
       photo: LOC-FSA-8D18716
       side:
         at: '@Josie'
+        x0: 0.68
         lines:
         - s: Josie Lucille Owens
           px: 52
@@ -3029,7 +3061,7 @@ segments:
     in: fade
     type: photo
     scene_id: loc_npcc_jones
-    camera_id: drift-r
+    camera_id: push
     people:
     - Wesley Jones
     p:
@@ -3038,6 +3070,7 @@ segments:
       photo: LOC-NPCC-21943
       side:
         at: '@Wesley'
+        x0: 0.68
         lines:
         - s: Sen. Wesley L. Jones
           px: 52
@@ -3073,6 +3106,7 @@ segments:
         img: stk:freighter
         at: '@carrying'
         px: 90
+        walk: true
       tags:
       - a: st:ship
         s: built · owned · crewed in the U.S.
@@ -3301,7 +3335,7 @@ segments:
       tags:
       - a: col:world
         s: world price
-        at: '@global'
+        at: '@2019+0.30'
         side: auto
         prefer:
         - up
@@ -3330,11 +3364,15 @@ segments:
       frame0: 0
       kind: actual
       stickers:
+      - a: st:rep
+        img: stk:document
+        at: '@2023#1-0.30'
+        px: 110
       - a: st:wl
         img:
           role: worker
           hand: torch
-        at: '@welders'
+        at: '@lists'
         px: 170
       - a: st:tr
         img: stk:truck
