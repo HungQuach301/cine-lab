@@ -318,6 +318,63 @@ case('Q34d', 'document năm 1926 + date_chi_nam (nguồn chỉ ghi năm, ≥ 20 
 case('Q34d', 'document năm 1926 + lý do quá ngắn → (d)', q34d(date='1926', date_chi_nam='chỉ có năm'), True)
 case('Q34d', 'document "1926-11" (tháng, không khai) → (d)', q34d(date='1926-11', date_chi_nam="masthead của số báo chỉ in 'Spring 1926'"), True)
 
+# =============================================================== 1.11.1 (O2-B) record — văn bản gốc
+FR = dict(FR90=dict(short='Federal Register 90 FR 17114', loai='quy_dinh', hieu_luc='2025-04-23'), FRX=dict(short='Federal Register 90 FR 1', loai='quy_dinh'),
+          LTR=dict(short='Joint letter to USTR'))
+
+
+def rec(dur=10.0, p=None, ty='record', heroes=None):
+    pp = dict(dict(hero='d', src='Source: Federal Register 90 FR 17114', hl=[dict(at=[1.0, 4.0])]), **(p or {}))
+    pp = {k: v for k, v in pp.items() if v is not None}
+    TL = dict(tong_s=dur + 5, heroes=heroes or dict(d=dict(hero='photo/doc', opt={})), segments=[dict(id='00', t0=0.0, t1=dur + 5, shots=[
+        dict(tpl='plate', t0=0.0, t1=dur, p=pp), dict(tpl='plate', t0=dur, t1=dur + 5, p={})])], shorts=[])
+    E = dict(id='k2x', sources=FR, segments=[dict(id='00', shots=[dict(tpl='plate', type=ty), dict(tpl='plate', type='scene3d')])])
+    return QT.q34(E, TL)['muc']
+
+
+case('Q34e', 'record 10 s, dòng tô ở 1 s, nguồn Federal Register khai quy_dinh + hieu_luc → đạt', rec()['e'], False)
+case('Q34e', 'record 12,0 s (đúng trần) → đạt', rec(12.0)['e'], False)
+case('Q34e', 'record 12,5 s > 12 s → (e)', rec(12.5)['e'], True)
+case('Q34e', 'record không có dòng tô (p.hl, opt.hl) → (e)', rec(p=dict(hl=None))['e'], True)
+case('Q34e', 'record có p.hl nhưng hiện ở 11 s, ngoài shot 0–10 s → (e)', rec(p=dict(hl=[dict(at=11.0)]))['e'], True)
+case('Q34e', 'record dòng tô ở opt.hl của cảnh (τ = 15 s, shot vào cảnh từ khung 240, speed 1 → giây đoạn 5) → đạt',
+     rec(p=dict(hl=None, off=240), heroes=dict(d=dict(hero='photo/doc', opt=dict(hl=[dict(at=[15.0, 17.0])]))))['e'], False)
+case('Q34e', 'record opt.hl τ = 8 s nhưng shot vào cảnh từ khung 240 (τ 10 s) → dòng tô không hiện trong shot → (e)',
+     rec(p=dict(hl=None, off=240), heroes=dict(d=dict(hero='photo/doc', opt=dict(hl=[dict(at=8.0)]))))['e'], True)
+case('Q34e', 'record không dẫn nguồn → (e)', rec(p=dict(src=None))['e'], True)
+case('Q34e', 'record là luật (p.luat FRX) mà nguồn thiếu hieu_luc → (e)', rec(p=dict(src=None, luat='FRX'))['e'], True)
+case('Q34e', 'record thư (nguồn không phải luật, không cần hieu_luc) → đạt', rec(p=dict(src='Source: Joint letter to USTR'))['e'], False)
+case('Q34e', 'record nguồn p.nguon trỏ khoá không có trong sources → (e)', rec(p=dict(src=None, nguon='KHONGCO'))['e'], True)
+case('Q34d', 'document (ảnh chụp báo) 10 s vẫn > 3 s → (d); cùng shot khai record → đạt (e)',
+     rec(p=dict(paper='The Times', date='2025-04-23'), ty='document')['d'] if not rec()['e'] else ['record trượt'], True)
+r = QT.q34(dict(id='k2x', segments=[dict(id='00', shots=[dict(tpl='plate', type='record')])]), dict(tong_s=5.0, heroes={}, segments=[dict(id='00', t0=0, t1=5.0, shots=[dict(tpl='plate', t0=0, t1=5.0, p={})])], shorts=[]))
+case('Q34', f"type record nằm trong TYPES (không lỗi (0)); tỉ lệ: {r['ty_le']}", r['muc']['0'], False)
+
+# =============================================================== 1.11.1 (O3) "Facts as of" trong câu miễn trừ
+MT = "This video explains how the system works. It isn't financial advice. Facts as of 15 Oct 2026."
+
+
+def q36m(segs):
+    TL = dict(tong_s=segs[-1][1], segments=[], shorts=[]); E = dict(id='k2x', numbers={}, sources=SRCS, segments=[])
+    for k, (t0, t1, shots) in enumerate(segs):
+        TL['segments'].append(dict(id=f'{k:02d}', t0=t0, t1=t1, shots=[dict(tpl='plate', t0=a, t1=b, p=pp) for a, b, pp in shots]))
+        E['segments'].append(dict(id=f'{k:02d}', shots=[dict(tpl='plate', type='scene3d') for _ in shots]))
+    return QC.q36(E, TL)['muc']['b']
+
+
+CAPM = lambda **kw: [dict(dict(s=MT, at=3.0, mien_tru=True), **kw), dict(s='', at=12.0)]
+case('Q36b', 'câu miễn trừ có "Facts as of" 0:03–0:12, khai mien_tru → đạt (O3)', q36m([(0, 30, [(0, 30, dict(src='Source: Census ACS 2024', cap=CAPM()))])]), False)
+case('Q36b', 'cùng câu nhưng không khai mien_tru → (b) như 1.11.0', q36m([(0, 30, [(0, 30, dict(src='Source: Census ACS 2024', cap=[dict(s=MT, at=3.0), dict(s='', at=12.0)]))])]), True)
+case('Q36b', 'câu miễn trừ nối qua 2 shot liền (0–5, 5–30; cap seg) = MỘT lần → đạt (như T2 00/0–00/1)',
+     q36m([(0, 30, [(0, 5, dict(src='Source: Census ACS 2024', cap=CAPM())), (5, 30, dict(src='Source: Census ACS 2024', cap=CAPM()))])]), False)
+case('Q36b', 'câu miễn trừ hiện 0:10–0:20 (kéo quá 0:15) → (b)', q36m([(0, 30, [(0, 30, dict(src='Source: Census ACS 2024', cap=[dict(s=MT, at=10.0, mien_tru=True), dict(s='', at=20.0)]))])]), True)
+case('Q36b', 'câu miễn trừ đặt ở 1:00 (ngoài 0:00–0:15) → (b)', q36m([(0, 50, [(0, 50, {})]), (50, 80, [(0, 30, dict(src='Source: Census ACS 2024', cap=CAPM()))])]), True)
+case('Q36b', 'câu miễn trừ "Facts as of" lần thứ hai (0:03 rồi 0:13 sau một câu khác) → (b)',
+     q36m([(0, 30, [(0, 30, dict(src='Source: Census ACS 2024', cap=[dict(s=MT, at=1.0, mien_tru=True), dict(s='x', at=6.0), dict(s=MT, at=8.0, mien_tru=True), dict(s='', at=12.0)]))])]), True)
+case('Q36b', 'p.mien_tru trên shot (không trên cap) → đạt', q36m([(0, 30, [(0, 30, dict(src='Source: Census ACS 2024', mien_tru=True, cap=[dict(s=MT, at=3.0), dict(s='', at=12.0)]))])]), False)
+case('Q36b', 'có câu miễn trừ hợp lệ, nhưng p.asof "Facts as of" trên số liệu Census ở shot sau → (b) (ngoài câu miễn trừ giữ luật cũ)',
+     q36m([(0, 60, [(0, 30, dict(src='Source: Census ACS 2024', cap=CAPM())), (30, 60, dict(src='Source: Census ACS 2024', asof='Facts as of 15 Oct 2026'))])]), True)
+
 # =============================================================== Q14–Q18: khiếu nại P 14/10 (kênh 2 bị áp luật nhịp LL)
 E1q = copy.deepcopy(E1t); E1q['_path'] = os.path.join(ROOT, 'channel-k2', 'k2c-t1-06', 'episode.yaml')
 m = QR.measure(E1q, TL1)
@@ -328,4 +385,4 @@ case('Q14–18', f"cùng dữ liệu T1 đội lốt tập LL → vẫn đo như
      [k for k, v in m.items() if not v['ok']], True)
 
 for rule, name, kind_, ok, got in R: print(f"{'ĐÚNG' if ok else 'SAI '}  {rule:<7} {kind_:<8} {name}" + ('' if ok else f'   → {got}'))
-n_ok = sum(r[3] for r in R); print(f'\nselftest kênh 2 (1.11.0): {n_ok}/{len(R)} ca đúng kỳ vọng'); sys.exit(0 if n_ok == len(R) else 1)
+n_ok = sum(r[3] for r in R); print(f'\nselftest kênh 2 (1.11.1): {n_ok}/{len(R)} ca đúng kỳ vọng'); sys.exit(0 if n_ok == len(R) else 1)

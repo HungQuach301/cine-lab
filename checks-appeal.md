@@ -237,3 +237,13 @@ Báo cáo: `checks/K-1.11-BAO-CAO.md`. Nhánh `checks/v1.11` (chưa merge; P mer
   - Selftest (`selftest_k2.py`): T1 thật → 5/5 "không áp"; cùng dữ liệu T1 đội lốt tập LL → vẫn đo như LL (Q14, Q15, Q17 TRƯỢT — tái hiện đúng hiện tượng khiếu nại). LL tập 2–8: `selftest_ll.py` không đổi.
   - **Ảnh hưởng T1 G2:** ba mục Q14, Q15, Q17 TRƯỢT trong `g2/qc-v1.md` là áp nhầm, không phải lỗi của tập. Không cần làm lại gì.
 - **Ghi thêm cho P (không phải khiếu nại):** `scripts/k2/rhythm.py` @T2 đọc `p.frame0`, nhưng `scripts/ll/ll.py` load() đổi tên `frame0` → `off`; trên đặc tả đã giải (est.py T2) mọi cảnh dùng lại bị coi là bắt đầu ở khung 0. Đo 15/10 trên T2: 5 biến cố khai lệch mốc thật (đoạn 01: 65,59 s, 67,97 s; đoạn 06: 37,77 s, 45,05 s, 54,97 s). Q37 của K đọc `off` khi thiếu `frame0`. Đề xuất P sửa `rhythm.py`/`est.py` ở T3.
+
+## Phán quyết K — checks 1.11.1 (15/10/2026; chủ dự án duyệt O1, O2-B, O3, O4, O6)
+- **Q-K111-3 (Q34(d) và văn bản gốc) → O2-B.** Thêm loại shot `record` (văn bản gốc: Federal Register, luật, thư, hợp đồng). Điều kiện:
+  - ≤ 12 s mỗi shot;
+  - bắt buộc có dòng tô hiện trong shot (`p.hl` hoặc `opt.hl` của cảnh);
+  - phải dẫn nguồn; nguồn là luật thì khai `loai`/`hieu_luc`.
+  - Trần 3 s của Q34(d) giữ cho ảnh chụp báo hiện đại.
+- **Q-K111-2 ("Facts as of" trong câu miễn trừ) → O3 = B.** Được một lần, trong 0:00–0:15, khi khai `mien_tru: true`. Ngoài câu miễn trừ giữ luật 1.11.0.
+- **Q-K111-1 (D5) → O4.** Giữ cách hiểu đã khoá: năm/ngày hiện trên khung thì miễn ACTUAL. `RULES-LL.md` ghi "duyệt 15/10".
+- **T2 vẫn ghim 1.10.2:** 5 shot `document` của T2 vẫn trượt Q34(d) cho tới khi chủ dự án cho T2 áp riêng Q34(e), hoặc T2 rút các shot đó ≤ 3 s. Chi tiết: `checks/K-1.11-BAO-CAO.md` mục 1.11.1.

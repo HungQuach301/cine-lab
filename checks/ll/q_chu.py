@@ -21,7 +21,10 @@ Q36 — TRƯỢT khi:
       cỡ chữ < 38 px (cỡ = chiều cao chữ hoa log / 0,727) hoặc xuống > 1 dòng; không log → cỡ/dòng THIẾU (không ĐẠT)
   (b) khung hiện "Facts as of" mà shot không dẫn nguồn là LUẬT/CHÍNH SÁCH ĐANG HIỆU LỰC: một khoá `sources` (khớp chữ `short`/`short9`
       trên dòng nguồn của shot, `src` của số đang hiện, hoặc `p.luat`) có `loai` ∈ {luat, chinh_sach, quy_dinh} và `hieu_luc`
-      (true hoặc ngày YYYY-MM-DD ≤ ngày "as of"), không có `het_hieu_luc` ≤ ngày "as of"
+      (true hoặc ngày YYYY-MM-DD ≤ ngày "as of"), không có `het_hieu_luc` ≤ ngày "as of".
+      1.11.1 (chủ dự án 15/10/2026, O3): NGOẠI LỆ — "Facts as of" trong CÂU MIỄN TRỪ trên hình (chú thích `cap` có `mien_tru: true`, hoặc
+      shot khai `p.mien_tru: true`) được phép MỘT lần, hiện trọn trong 0:00–0:15 phim chính (cùng câu nối qua các shot liền nhau = một lần).
+      Lần thứ hai, hoặc ngoài 0:00–0:15 → TRƯỢT. Ngoài câu miễn trừ: giữ luật trên.
 """
 import glob, json, os, re, sys
 from datetime import date
@@ -30,6 +33,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 from checks.ll import base  # noqa: E402
 
 SRC_MAX_CHARS, SRC_MIN_PX, CAP_RATIO = 70, 38.0, 0.727
+MIEN_WIN = 15.0   # 1.11.1 (O3): câu miễn trừ có "Facts as of" chỉ ở 0:00–0:15, một lần
 LBL = {'actual': 'ACTUAL', 'projection': 'PROJECTION', 'estimate': 'ESTIMATE'}
 POLICY = {'luat', 'chinh_sach', 'quy_dinh'}
 MON = {m: i + 1 for i, m in enumerate('jan feb mar apr may jun jul aug sep oct nov dec'.split())}
@@ -39,6 +43,9 @@ def mmss(t): return f'{int(t // 60)}:{t % 60:04.1f}'
 
 
 def num(v): return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+
+
+def _n(v): return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
 
 
 def vis(t, at, out=None, t0=0.0):
@@ -237,7 +244,7 @@ def q36(E, TL, logdir=None):
             try: J = json.load(open(f))
             except (OSError, ValueError): continue
             if J.get('fmt', '16x9') == '16x9' and J.get('id'): logs[str(J['id'])] = J
-    nlines = 0; longest = (0, ''); done = set()
+    nlines = 0; longest = (0, ''); done = set(); mien = dict(n=0, last=None)
     for s in TL['segments']:
         J = logs.get(str(s['id']))
         for i, sh in enumerate(s['shots']):
@@ -265,7 +272,23 @@ def q36(E, TL, logdir=None):
             if SL and not J: thieu.append(f'{w}: cỡ chữ/số dòng của dòng nguồn: không có log render')
             # (b) Facts as of
             texts = [str(p.get('asof') if isinstance(p.get('asof'), str) else ('Facts as of' if p.get('asof') else ''))]
-            texts += [str(c.get('s', '')) for c in p.get('cap') or [] if isinstance(c, dict)]
+            caps = [c for c in p.get('cap') or [] if isinstance(c, dict)]
+            for j, cp in enumerate(caps):   # 1.11.1 (O3): câu miễn trừ có "Facts as of" được MỘT lần ở 0:00–0:15
+                cs = str(cp.get('s', ''))
+                if not re.search(r'facts as of', cs, re.I): continue
+                if p.get('mien_tru') is True or cp.get('mien_tru') is True:
+                    at = _n(cp.get('at')); a0 = s['t0'] + max(sh['t0'], at if at is not None else sh['t0'])
+                    nx = next((_n(c2.get('at')) for c2 in caps[j + 1:] if _n(c2.get('at')) is not None), None)
+                    a1 = s['t0'] + min(sh['t1'], nx if nx is not None else sh['t1'])
+                    if mien['last'] and mien['last'][0] == cs and a0 <= mien['last'][1] + 0.1:   # cùng câu nối sang shot kế: một lần hiện
+                        mien['last'] = (cs, a1)
+                        if a1 > MIEN_WIN + 0.05: P['b'].append(f'{w}: câu miễn trừ có "Facts as of" kéo quá 0:{MIEN_WIN:02.0f} (tới {mmss(a1)})')
+                        continue
+                    if a0 < -1e-6 or a1 > MIEN_WIN + 0.05: P['b'].append(f'{w}: câu miễn trừ có "Facts as of" hiện {mmss(a0)}–{mmss(a1)}, ngoài 0:00–0:{MIEN_WIN:02.0f}'); continue
+                    mien['n'] += 1; mien['last'] = (cs, a1)
+                    if mien['n'] > 1: P['b'].append(f'{w}: "Facts as of" trong câu miễn trừ lần thứ {mien["n"]} (chỉ được một lần)')
+                    continue
+                texts.append(cs)
             c = p.get('card') or {}
             texts += [str(c.get(k, '')) for k in ('title', 'note', 'sub') if isinstance(c.get(k), str)]
             fa = [x for x in texts if re.search(r'facts as of', x, re.I)]
@@ -274,7 +297,7 @@ def q36(E, TL, logdir=None):
             keys = set()
             for line, _, _ in SL:
                 for k, v in SRC.items():
-                    if any(str(v.get(f) or '').strip() and str(v[f]).strip() in line for f in ('short', 'short9')): keys.add(k)
+                    if any(str(v.get(f) or '').strip() and re.search(r'(?<![\w])' + re.escape(str(v[f]).strip()) + r'(?![\w])', line) for f in ('short', 'short9')): keys.add(k)   # 1.11.1: trọn từ
             for k in base.nums_in(p, [], True): keys |= {x.strip() for x in str((N.get(k) or {}).get('src') or '').replace(',', ' ').split() if x.strip()}
             for k in (p.get('luat') if isinstance(p.get('luat'), list) else [p.get('luat')] if p.get('luat') else []): keys.add(k)
             ok = [k for k in keys if k in SRC and in_force(SRC[k], when)]
