@@ -591,10 +591,12 @@ heroes:
     opt:
       file: /var/tmp/cine-out/k2v-cache/t2src/nara-39018/gov.archives.arc.39018.mpeg
       sha256: fee7371b7d004dfc6c208b070461d41c3d75d459ac23df8ff5c12050c13c0357
-      ss: 72.3
+      ss: 76.72
       grade: sepia
       clean: true
       ivtc: true
+      lo: 26
+      hi: 226
   r01_days:
     hero: relief/map
     opt:
@@ -664,8 +666,8 @@ heroes:
     opt:
       img: /assets/k2/archive/loc-fsa-8d18716-owens.jpg
       focus:
-      - 0.48
-      - 0.38
+      - 0.78
+      - 0.4
       push: 0.12
   r01_yards:
     hero: relief/map
@@ -718,14 +720,14 @@ heroes:
       - t: 0
         lon: -122.34
         lat: 37.88
-        dist: 30
-        tilt: 55
+        dist: 23
+        tilt: 57
         head: 10
       - t: 12
         lon: -122.34
         lat: 37.895
-        dist: 24
-        tilt: 58
+        dist: 18
+        tilt: 60
         head: 18
   r02_cut:
     hero: relief/map
@@ -752,6 +754,12 @@ heroes:
         dist: 16
         tilt: 64
         head: -10
+      - t: '@April'
+        lon: -122.365
+        lat: 37.862
+        dist: 19
+        tilt: 61
+        head: -15
       - t: 7
         lon: -122.37
         lat: 37.86
@@ -946,8 +954,8 @@ heroes:
     opt:
       img: /assets/k2/archive/loc-npcc-21943-wjones.jpg
       focus:
-      - 0.5
-      - 0.25
+      - 0.8
+      - 0.3
       push: 0.1
   r02_quotes:
     hero: relief/map
@@ -993,22 +1001,34 @@ heroes:
         dist: 230
         tilt: 44
         head: -6
-      - t: '@Jobs'
-        lon: -122.65
+      - t: '@coalition'
+        lon: -122.55
         lat: 47.5
-        dist: 220
-        tilt: 45
-        head: -3
-      - t: '@repeal'
-        lon: -122.7
+        dist: 195
+        tilt: 47
+        head: 2
+      - t: '@Jobs'
+        lon: -122.6
         lat: 47.55
-        dist: 210
+        dist: 180
+        tilt: 48
+        head: 5
+      - t: '@Critics'
+        lon: -122.75
+        lat: 47.5
+        dist: 205
+        tilt: 45
+        head: -5
+      - t: '@repeal'
+        lon: -122.75
+        lat: 47.55
+        dist: 195
         tilt: 46
-        head: 1
+        head: -1
       - t: '@higher+3'
         lon: -122.75
         lat: 47.6
-        dist: 205
+        dist: 185
         tilt: 47
         head: 3
       pins:
@@ -1095,6 +1115,12 @@ heroes:
         dist: 40
         tilt: 61
         head: 14
+      - t: '@rate'
+        lon: -75.0
+        lat: 39.6
+        dist: 36
+        tilt: 62
+        head: 12
       - t: '@subscribing'
         lon: -75.1
         lat: 39.5
@@ -1107,6 +1133,11 @@ heroes:
         dist: 50
         tilt: 56
         head: 2
+      pins:
+      - id: rep
+        at:
+        - -74.97
+        - 39.7
   r03_myth:
     hero: relief/map
     opt:
@@ -1125,13 +1156,13 @@ heroes:
       - t: 0
         lon: -75.16
         lat: 39.8
-        dist: 18
+        dist: 12
         tilt: 62
         head: 0
       - t: 6
         lon: -75.16
         lat: 39.81
-        dist: 15
+        dist: 10
         tilt: 64
         head: 6
   r03_ladder:
@@ -1289,10 +1320,16 @@ heroes:
       - t: 0
         lon: -75.1
         lat: 39.62
-        dist: 60
+        dist: 50
         tilt: 52
         head: 0
-      - t: '@exports'
+      - t: '@lists'
+        lon: -75.13
+        lat: 39.76
+        dist: 40
+        tilt: 57
+        head: -4
+      - t: '@adds'
         lon: -74.95
         lat: 39.5
         dist: 52
@@ -1385,6 +1422,20 @@ heroes:
         color: '#F2C14E'
         w: 7
         flow: 3
+      - id: noexp
+        pts:
+        - - -75.1
+          - 39.7
+        - - -74.92
+          - 39.66
+        - - -74.72
+          - 39.6
+        draw:
+        - '@lack'
+        - '@lack+1.2'
+        style: dashed
+        color: '#8a8a8a'
+        w: 6
       cam:
       - t: 0
         lon: -75.24
@@ -1418,12 +1469,8 @@ heroes:
         head: -12
   g04_pacific:
     hero: map/globe
-    cam: pair
+    cam: flyto
     opt:
-      from:
-      - -122.42
-      - 37.77
-      to: seoul
       places:
       - id: kr
         ll:
@@ -1435,6 +1482,7 @@ heroes:
         color: '#F2C14E'
         at: 2.0
         lift: 1
+      focus: seoul
   r04_chung:
     hero: relief/map
     opt:
@@ -1476,19 +1524,19 @@ heroes:
       - t: 0
         lon: 128.4
         lat: 35.4
-        dist: 320
+        dist: 250
         tilt: 38
         head: 0
       - t: '@decided'
         lon: 128.7
         lat: 35.35
-        dist: 250
+        dist: 195
         tilt: 42
         head: 4
       - t: '@whatsoever+1'
         lon: 128.9
         lat: 35.3
-        dist: 200
+        dist: 155
         tilt: 46
         head: 6
   r04_beach:
@@ -1553,6 +1601,12 @@ heroes:
         dist: 19
         tilt: 60
         head: 18
+      - t: '@column'
+        lon: 129.412
+        lat: 35.452
+        dist: 21
+        tilt: 59
+        head: 12
       - t: '@photo'
         lon: 129.42
         lat: 35.46
@@ -1646,6 +1700,12 @@ heroes:
         dist: 230
         tilt: 44
         head: -3
+      - t: '@sources#1'
+        lon: 129.0
+        lat: 35.4
+        dist: 205
+        tilt: 45
+        head: 2
       - t: '@yard#2+1'
         lon: 128.8
         lat: 35.25
@@ -1739,6 +1799,12 @@ heroes:
         at:
         - '@unions-0.4'
         - '@unions+1.2'
+        opacity: 0.85
+        color: '#F5B83D'
+      - i: 1
+        at:
+        - '@petitioned'
+        - '@petitioned+1.4'
         opacity: 0.85
         color: '#F5B83D'
   g05_china:
@@ -1850,6 +1916,12 @@ heroes:
         - '@discourage+1.6'
         opacity: 0.85
         color: '#F5B83D'
+      - i: 1
+        at:
+        - '@press'
+        - '@press+1.6'
+        opacity: 0.85
+        color: '#F5B83D'
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -1867,6 +1939,7 @@ heroes:
         - 116.4
         - 39.9
         name: Beijing
+      focus: beijing
   d05_susp:
     hero: photo/doc
     cam: push
@@ -1878,6 +1951,12 @@ heroes:
         at:
         - '@light'
         - '@light+1.6'
+        opacity: 0.85
+        color: '#F5B83D'
+      - i: 2
+        at:
+        - '@suspended'
+        - '@suspended+1.4'
         opacity: 0.85
         color: '#F5B83D'
       - i: 1
@@ -2028,6 +2107,12 @@ heroes:
         dist: 14
         tilt: 60
         head: -2
+      - t: '@As#2'
+        lon: -75.187
+        lat: 39.868
+        dist: 11
+        tilt: 61
+        head: 10
       - t: '@tapped'
         lon: -75.185
         lat: 39.875
@@ -2088,6 +2173,19 @@ heroes:
         dist: 46
         tilt: 55
         head: 10
+      pins:
+      - id: wd
+        at:
+        - -75.23
+        - 39.76
+      - id: wc
+        at:
+        - -75.176
+        - 39.89
+      - id: wf
+        at:
+        - -75.16
+        - 39.875
   r06_score:
     hero: relief/map
     opt:
@@ -2160,6 +2258,23 @@ heroes:
         dist: 46
         tilt: 52
         head: -6
+      pins:
+      - id: kc
+        at:
+        - -122.335
+        - 37.738
+      - id: ko
+        at:
+        - -122.318
+        - 37.748
+      - id: kf
+        at:
+        - -122.295
+        - 37.727
+      - id: kk
+        at:
+        - -122.322
+        - 37.718
   r06_home:
     hero: relief/map
     opt:
@@ -2212,6 +2327,11 @@ heroes:
         dist: 5
         tilt: 60
         head: 8
+      pins:
+      - id: nx
+        at:
+        - -122.395
+        - 37.893
   s_launch:
     hero: relief/map
     opt:
@@ -2243,6 +2363,9 @@ heroes:
         dist: 30
         tilt: 61
         head: 2
+    size:
+    - 1080
+    - 1920
   s_share:
     hero: map/globe
     cam: pair
@@ -2276,6 +2399,9 @@ heroes:
         - '@percent+0.6'
         color: '#3CC2B0'
         r: 1.2
+    size:
+    - 1080
+    - 1920
   s_loop:
     hero: relief/map
     opt:
@@ -2346,6 +2472,9 @@ heroes:
         dist: 32
         tilt: 59
         head: -4
+    size:
+    - 1080
+    - 1920
 segments:
 - id: '00'
   part: HOOK
@@ -2475,8 +2604,6 @@ segments:
         at: '@South'
         px: 90
       cap:
-      - s: 'Owner announced plans to expand: a South Korean group (2025)'
-        at: '@company'
       - s: 'Deadline: November 9, 2026'
         at: '@deadline'
       title:
@@ -2530,8 +2657,6 @@ segments:
       cap:
       - s: Henry J. Kaiser's first Richmond shipyard, Dec. 1940
         at: '@Kaiser'
-      - s: 'First orders: ships for the British government'
-        at: '@orders'
       src: 'Source: National Park Service · Terrain: USGS 3DEP'
   - tpl: plate
     sfx:
@@ -2541,7 +2666,7 @@ segments:
       dur: 4
       gain_db: -23
       fade_ms: 300
-    at: '@Liberty#1-0.3'
+    at: '@Liberty#1+0.15'
     type: footage
     scene_id: f_liberty_launch_1944
     camera_id: clip
@@ -2554,7 +2679,7 @@ segments:
       setting: ft/richmond-yard-1944
       year:
         s: '1944'
-        at: '@Liberty#1-0.10'
+        at: '@Liberty#1+0.35'
       cap:
       - s: A Liberty ship launched at Richmond, Calif., 1944 (newsreel)
         at: '@emergency'
@@ -2674,15 +2799,15 @@ segments:
       - a: st:t1
         img: stk:town
         at: '@grew'
-        px: 70
+        px: 110
       - a: st:t2
         img: stk:town
         at: '@nearly'
-        px: 80
+        px: 125
       - a: st:t3
         img: stk:town
         at: '@1943#2'
-        px: 90
+        px: 140
       tags:
       - a: st:t2
         s: 747 ships
@@ -2762,9 +2887,6 @@ segments:
         at: 0.0
         out: '@April'
         px: 100
-      cap:
-      - s: 'After April 1944: no more Liberty contracts'
-        at: '@April'
       src: 'Source: U.S. Maritime Commission (1945) · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@America#1-0.3'
@@ -2793,7 +2915,7 @@ segments:
       places:
       - a: seattle
         s: Seattle
-        at: '@shippers'
+        at: '@America#1+0.00'
         out: '@foreign'
         side: auto
       - a: vancouver
@@ -2865,13 +2987,19 @@ segments:
         img: stk:freighter
         at: '@carrying'
         px: 90
+      tags:
+      - a: st:ship
+        s: built · owned · crewed in the U.S.
+        sub: Jones Act, Sec. 27 (1920)
+        at: '@American-built'
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#3CC2B0'
       cap:
       - s: 'Merchant Marine Act of 1920, Section 27: the "Jones Act"'
         at: '@Section'
-      - s: Cargo between two U.S. ports must ride on ships that are…
-        at: '@between'
-      - s: 'Jones Act (Sec. 27): American-built · American-owned · American-crewed'
-        at: '@American-built'
       src: 'Source: CRS (2019) · Terrain: SRTM (USGS)'
   - tpl: plate
     at: '@Congress''s#1-0.3'
@@ -2892,6 +3020,7 @@ segments:
         s: '"a significant degree of protection"'
         sub: CRS (2019)
         at: '@protection'
+        out: '@Jobs'
         side: auto
         prefer:
         - up
@@ -2901,6 +3030,7 @@ segments:
         s: '"American Jobs. American Security."'
         sub: SUPPORTERS · American Maritime Partnership
         at: '@Jobs'
+        out: '@higher'
         side: auto
         prefer:
         - left
@@ -2921,10 +3051,6 @@ segments:
         at: '@Congress''s#1+0.10'
         px: 90
       cap:
-      - s: 'American Maritime Partnership: a coalition of supporters'
-        at: '@coalition'
-      - s: 'Critics: Sen. Mike Lee · Rep. Tom McClintock'
-        at: '@Mike'
       - s: 'Their bill to repeal it: June 12, 2025'
         at: '@introduced'
       - s: ''
@@ -2958,6 +3084,7 @@ segments:
         kind: actual
         num: n_5pct
         at: '@fifteen'
+        out: '@five#2'
         side: auto
         prefer:
         - up
@@ -2973,13 +3100,14 @@ segments:
         - up
         - right
         c: '#3CC2B0'
+      stickers:
+      - a: st:rep
+        img: stk:document
+        at: '@congressional'
+        px: 95
       cap:
       - s: Construction Differential Subsidy (federal)
         at: '@Construction'
-      - s: The subsidy ended in the 1980s
-        at: '@ended'
-      - s: '2023 congressional report: "the current rate"'
-        at: '@calls'
       src: 'Source: CRS (2023) · Terrain: USGS 3DEP'
 - id: '03'
   part: CH3
@@ -3007,7 +3135,7 @@ segments:
           role: worker
           hand: torch
         at: 0.3
-        px: 150
+        px: 230
       - a: st:c
         img: stk:coin
         at: '@cost'
@@ -3120,7 +3248,7 @@ segments:
           role: worker
           hand: torch
         at: '@welders'
-        px: 120
+        px: 170
       - a: st:tr
         img: stk:truck
         at: '@truck'
@@ -3151,12 +3279,8 @@ segments:
         - up
         c: '#3CC2B0'
       cap:
-      - s: 'Without exports: no economies of scale (CRS 2023)'
-        at: '@exports'
       - s: 'Our read: the protected home market is small'
         at: '@protected'
-      - s: 'At home: high prices hold buyers back (CRS 2023)'
-        at: '@hold'
       src: 'Sources: CRS (2023, 2019) · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@together-0.6'
@@ -3176,17 +3300,36 @@ segments:
         img: stk:crane
         at: '@scale#2'
         px: 120
-      cap:
-      - s: High prices → few orders
+      tags:
+      - a: col:loopc
+        s: high prices
         at: '@High#2'
-      - s: Few orders → no scale
-        at: '@Few'
-      - s: No scale → high prices
+        out: '@pieces'
+        side: auto
+        prefer:
+        - up
+        c: '#F08A4B'
+      - a: st:lo
+        s: few orders
+        at: '@Few#1'
+        out: '@pieces'
+        side: auto
+        prefer:
+        - down
+        - right
+        c: '#E6EBF0'
+      - a: st:lc
+        s: no scale
         at: '@No#1'
+        out: '@pieces'
+        side: auto
+        prefer:
+        - right
+        - up
+        c: '#3CC2B0'
+      cap:
       - s: 'Our read: the loop is our interpretation'
         at: '@pieces'
-      - s: 'Record: wages are one factor · no exports, no scale is another'
-        at: '@lack'
       score:
         corner:
           at: '@So'
@@ -3227,6 +3370,7 @@ segments:
       - a: kr
         s: $107
         sub: South Korea, output per person, 1962 (current $)
+        big: true
         kind: actual
         num: n_gdp62
         at: '@hundred'
@@ -3254,7 +3398,7 @@ segments:
           hand: blueprint
           hat: hardhat
         at: '@Chung#1+0.00'
-        px: 120
+        px: 165
         walk: true
       tags:
       - a: st:chung
@@ -3356,16 +3500,8 @@ segments:
         - right
         c: '#F08A4B'
       cap:
-      - s: An order first, then a shipyard (by Hyundai's account)
-        at: '@ordered'
-      - s: A story from a 2010 newspaper column
-        at: '@column'
       - s: 'LORE: one columnist''s account, not a record'
         at: '@lore'
-      - s: 'Company history: ground broken, March 1972'
-        at: '@broken'
-      - s: Atlantic Baron · Atlantic Baroness, 1974 (company history)
-        at: '@Baron'
       src: 'Sources: HD Hyundai Heavy Industries history, The Korea Times (2010) · Terrain: SRTM'
   - tpl: plate
     at: '@Meanwhile-0.3'
@@ -3411,15 +3547,20 @@ segments:
         img: stk:factory
         at: '@complexes'
         px: 110
+      tags:
+      - a: st:pol
+        s: Heavy-industry drive (Jan. 1973)
+        sub: 'shipbuilding named · goal: exports'
+        at: '@announced'
+        out: '@tax'
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#F2C14E'
       cap:
-      - s: Government drive for heavy industry, incl. shipbuilding (Jan. 1973)
-        at: '@January'
-      - s: 'Named: shipbuilding · goal: exports'
-        at: '@naming'
       - s: Munseob Lee, Korea Economic Institute of America (2023)
         at: '@Institute'
-      - s: 'How much reached Hyundai''s yard: not in our sources'
-        at: '@sources#1'
       src: 'Source: KEIA (2023) · Terrain: SRTM (USGS)'
   - tpl: plate
     at: '@Our#1-0.3'
@@ -3445,8 +3586,6 @@ segments:
       cap:
       - s: 'Our read: the yard''s customers were abroad'
         at: '@abroad#2'
-      - s: 'Not in our sources: how much of the rise came from shipbuilding'
-        at: '@measure'
       src: 'Sources: World Bank, company history · Terrain: SRTM (USGS)'
 - id: '05'
   part: CH5
@@ -3484,11 +3623,9 @@ segments:
       cap:
       - s: 'March 2024: five U.S. labor unions petition the U.S. Trade Representative'
         at: '@March'
-      - s: incl. the steelworkers and the boilermakers
-        at: '@steelworkers'
       src: 'Source: Federal Register (USTR)'
   - tpl: plate
-    at: '@over-0.2'
+    at: '@Congress''s-0.3'
     type: map
     scene_id: map/globe
     camera_id: orbit
@@ -3504,6 +3641,16 @@ segments:
         side: auto
       tags:
       - a: cn2
+        s: state targets · subsidies · state financing
+        sub: USTR findings, as summarized by CRS (2026)
+        at: '@targets'
+        out: '@ninety'
+        side: auto
+        prefer:
+        - up
+        - right
+        c: '#8E7CC3'
+      - a: cn2
         s: 90%
         sub: of ships Chinese shipbuilders made in 2025 were exported
         kind: actual
@@ -3511,9 +3658,6 @@ segments:
         at: '@ninety'
         side: auto
         c: '#8E7CC3'
-      cap:
-      - s: 'USTR findings (summarized by CRS): state targets, subsidies, state financing'
-        at: '@targets'
       src: 'Source: CRS (2026) · Map: Natural Earth · Imagery: NASA'
   - tpl: plate
     sfx:
@@ -3563,6 +3707,7 @@ segments:
         kind: actual
         num: n_fee50
         at: '@owned'
+        out: '@built#1'
         side: auto
         prefer:
         - right
@@ -3593,11 +3738,6 @@ segments:
       frame0: 0
       paper: Federal Register, 90 FR 17114
       date: '2025-04-23'
-      cap:
-      - s: 'Stated aim: discourage Chinese-built ships'
-        at: '@stated+0.4'
-      - s: …and press China to drop the practices
-        at: '@press'
       src: 'Source: Federal Register (USTR)'
   - tpl: plate
     at: '@Ministry-0.6'
@@ -3609,12 +3749,6 @@ segments:
       hero: g05_mofcom
       frame0: 0
       tags:
-      - a: dc
-        s: '"unreasonable"'
-        sub: U.S. Trade Representative, Jan. 2025
-        at: '@Ministry-0.20'
-        side: auto
-        c: '#3CC2B0'
       - a: bj
         s: '"fail to revitalize" U.S. shipbuilding'
         sub: China's Ministry of Commerce, Feb. 2025
@@ -3639,8 +3773,6 @@ segments:
       cap:
       - s: After a Trump–Xi trade deal (Nov. 2025)
         at: '@deal'
-      - s: Fees suspended
-        at: '@suspended'
       asof: Facts as of 15 Oct 2026
       asofAt: '@suspended'
       src: 'Source: Federal Register (USTR)'
@@ -3742,7 +3874,7 @@ segments:
         kind: actual
         num: n_5b
         at: '@investment#1'
-        out: '@Military'
+        out: '@twenty'
         side: auto
         prefer:
         - left
@@ -3774,14 +3906,10 @@ segments:
       cap:
       - s: 'Aug. 2025: Hanwha announces an investment'
         at: '@August'
-      - s: 'Announced goal: the article gives no date'
-        at: '@date'
       - s: Military Times, July 2026
         at: '@Military'
       - s: 'Our read: an order again — this time after the investment'
         at: '@after'
-      - s: 'New capacity finished: no report found yet'
-        at: '@capacity'
       asof: Facts as of 15 Oct 2026
       asofAt: '@As#2'
       src: 'Sources: Korea JoongAng Daily, Military Times · Imagery: USDA NAIP · Terrain: USGS 3DEP'
@@ -3804,6 +3932,19 @@ segments:
     p:
       hero: r06_watch
       frame0: 0
+      stickers:
+      - a: st:wd
+        img: stk:document
+        at: '@November'
+        px: 95
+      - a: st:wc
+        img: stk:crane
+        at: '@Philadelphia'
+        px: 120
+      - a: st:wf
+        img: stk:freighter
+        at: '@June'
+        px: 110
       cap:
       - s: '1 · Nov 9, 2026: fee pause extended or not'
         at: '@November'
@@ -3843,9 +3984,6 @@ segments:
             - 3 / day
             - ~5 / year
             at: '@peak'
-      cap:
-      - s: Different ships, different eras
-        at: '@Different'
       src: 'Sources: National Park Service, CRS (2023) · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@Our-0.3'
@@ -3856,19 +3994,26 @@ segments:
     p:
       hero: r06_score2
       frame0: 0
+      stickers:
+      - a: st:kc
+        img: stk:coin
+        at: '@high'
+        px: 90
+      - a: st:ko
+        img: stk:order
+        at: '@purchases'
+        px: 95
+      - a: st:kf
+        img: stk:freighter
+        at: '@exports'
+        px: 105
+      - a: st:kk
+        img: stk:crane
+        at: '@scale'
+        px: 120
       cap:
       - s: 'Our read: America didn''t forget how to build ships'
         at: '@forget'
-      - s: 'Since the 1980s: few orders came'
-        at: '@1980s'
-      - s: 'Record: high prices → fewer domestic purchases'
-        at: '@ties'
-      - s: No exports → no economies of scale
-        at: '@lack'
-      - s: 'Supporters (American Maritime Partnership): jobs & security'
-        at: '@Supporters'
-      - s: 'Critics (Sen. Lee, Rep. McClintock): higher prices'
-        at: '@Critics'
       - s: No source measures how much each factor counts
         at: '@measures'
       src: 'Sources: CRS, American Maritime Partnership, Rep. McClintock'
@@ -3895,9 +4040,11 @@ segments:
         s: Richmond Shipyard No. 3 — now a national park
         at: '@Three#2'
         side: auto
-      cap:
-      - s: 'Next: why one country makes almost all the world''s shipping containers'
-        at: '@Next'
+      stickers:
+      - a: st:nx
+        img: stk:freighter
+        at: '@shipping'
+        px: 110
       src: 'Sources: National Park Service, CRS (2026) · Imagery: USDA NAIP · Terrain: USGS 3DEP'
 shorts:
 - id: S1

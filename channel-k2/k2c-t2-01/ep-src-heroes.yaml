@@ -201,10 +201,12 @@ heroes:
     opt:
       file: /var/tmp/cine-out/k2v-cache/t2src/nara-39018/gov.archives.arc.39018.mpeg
       sha256: fee7371b7d004dfc6c208b070461d41c3d75d459ac23df8ff5c12050c13c0357
-      ss: 72.3
+      ss: 76.72
       grade: sepia
       clean: true
       ivtc: true
+      lo: 26
+      hi: 226
   r01_days:
     hero: relief/map
     opt:
@@ -274,8 +276,8 @@ heroes:
     opt:
       img: /assets/k2/archive/loc-fsa-8d18716-owens.jpg
       focus:
-      - 0.48
-      - 0.38
+      - 0.78
+      - 0.4
       push: 0.12
   r01_yards:
     hero: relief/map
@@ -328,14 +330,14 @@ heroes:
       - t: 0
         lon: -122.34
         lat: 37.88
-        dist: 30
-        tilt: 55
+        dist: 23
+        tilt: 57
         head: 10
       - t: 12
         lon: -122.34
         lat: 37.895
-        dist: 24
-        tilt: 58
+        dist: 18
+        tilt: 60
         head: 18
   r02_cut:
     hero: relief/map
@@ -362,6 +364,12 @@ heroes:
         dist: 16
         tilt: 64
         head: -10
+      - t: '@April'
+        lon: -122.365
+        lat: 37.862
+        dist: 19
+        tilt: 61
+        head: -15
       - t: 7
         lon: -122.37
         lat: 37.86
@@ -556,8 +564,8 @@ heroes:
     opt:
       img: /assets/k2/archive/loc-npcc-21943-wjones.jpg
       focus:
-      - 0.5
-      - 0.25
+      - 0.8
+      - 0.3
       push: 0.1
   r02_quotes:
     hero: relief/map
@@ -603,22 +611,34 @@ heroes:
         dist: 230
         tilt: 44
         head: -6
-      - t: '@Jobs'
-        lon: -122.65
+      - t: '@coalition'
+        lon: -122.55
         lat: 47.5
-        dist: 220
-        tilt: 45
-        head: -3
-      - t: '@repeal'
-        lon: -122.7
+        dist: 195
+        tilt: 47
+        head: 2
+      - t: '@Jobs'
+        lon: -122.6
         lat: 47.55
-        dist: 210
+        dist: 180
+        tilt: 48
+        head: 5
+      - t: '@Critics'
+        lon: -122.75
+        lat: 47.5
+        dist: 205
+        tilt: 45
+        head: -5
+      - t: '@repeal'
+        lon: -122.75
+        lat: 47.55
+        dist: 195
         tilt: 46
-        head: 1
+        head: -1
       - t: '@higher+3'
         lon: -122.75
         lat: 47.6
-        dist: 205
+        dist: 185
         tilt: 47
         head: 3
       pins:
@@ -705,6 +725,12 @@ heroes:
         dist: 40
         tilt: 61
         head: 14
+      - t: '@rate'
+        lon: -75.0
+        lat: 39.6
+        dist: 36
+        tilt: 62
+        head: 12
       - t: '@subscribing'
         lon: -75.1
         lat: 39.5
@@ -717,6 +743,11 @@ heroes:
         dist: 50
         tilt: 56
         head: 2
+      pins:
+      - id: rep
+        at:
+        - -74.97
+        - 39.7
   r03_myth:
     hero: relief/map
     opt:
@@ -735,13 +766,13 @@ heroes:
       - t: 0
         lon: -75.16
         lat: 39.8
-        dist: 18
+        dist: 12
         tilt: 62
         head: 0
       - t: 6
         lon: -75.16
         lat: 39.81
-        dist: 15
+        dist: 10
         tilt: 64
         head: 6
   r03_ladder:
@@ -899,10 +930,16 @@ heroes:
       - t: 0
         lon: -75.1
         lat: 39.62
-        dist: 60
+        dist: 50
         tilt: 52
         head: 0
-      - t: '@exports'
+      - t: '@lists'
+        lon: -75.13
+        lat: 39.76
+        dist: 40
+        tilt: 57
+        head: -4
+      - t: '@adds'
         lon: -74.95
         lat: 39.5
         dist: 52
@@ -995,6 +1032,20 @@ heroes:
         color: '#F2C14E'
         w: 7
         flow: 3
+      - id: noexp
+        pts:
+        - - -75.1
+          - 39.7
+        - - -74.92
+          - 39.66
+        - - -74.72
+          - 39.6
+        draw:
+        - '@lack'
+        - '@lack+1.2'
+        style: dashed
+        color: '#8a8a8a'
+        w: 6
       cam:
       - t: 0
         lon: -75.24
@@ -1028,12 +1079,8 @@ heroes:
         head: -12
   g04_pacific:
     hero: map/globe
-    cam: pair
+    cam: flyto
     opt:
-      from:
-      - -122.42
-      - 37.77
-      to: seoul
       places:
       - id: kr
         ll:
@@ -1045,6 +1092,7 @@ heroes:
         color: '#F2C14E'
         at: 2.0
         lift: 1
+      focus: seoul
   r04_chung:
     hero: relief/map
     opt:
@@ -1086,19 +1134,19 @@ heroes:
       - t: 0
         lon: 128.4
         lat: 35.4
-        dist: 320
+        dist: 250
         tilt: 38
         head: 0
       - t: '@decided'
         lon: 128.7
         lat: 35.35
-        dist: 250
+        dist: 195
         tilt: 42
         head: 4
       - t: '@whatsoever+1'
         lon: 128.9
         lat: 35.3
-        dist: 200
+        dist: 155
         tilt: 46
         head: 6
   r04_beach:
@@ -1163,6 +1211,12 @@ heroes:
         dist: 19
         tilt: 60
         head: 18
+      - t: '@column'
+        lon: 129.412
+        lat: 35.452
+        dist: 21
+        tilt: 59
+        head: 12
       - t: '@photo'
         lon: 129.42
         lat: 35.46
@@ -1256,6 +1310,12 @@ heroes:
         dist: 230
         tilt: 44
         head: -3
+      - t: '@sources#1'
+        lon: 129.0
+        lat: 35.4
+        dist: 205
+        tilt: 45
+        head: 2
       - t: '@yard#2+1'
         lon: 128.8
         lat: 35.25
@@ -1349,6 +1409,12 @@ heroes:
         at:
         - '@unions-0.4'
         - '@unions+1.2'
+        opacity: 0.85
+        color: '#F5B83D'
+      - i: 1
+        at:
+        - '@petitioned'
+        - '@petitioned+1.4'
         opacity: 0.85
         color: '#F5B83D'
   g05_china:
@@ -1460,6 +1526,12 @@ heroes:
         - '@discourage+1.6'
         opacity: 0.85
         color: '#F5B83D'
+      - i: 1
+        at:
+        - '@press'
+        - '@press+1.6'
+        opacity: 0.85
+        color: '#F5B83D'
   g05_mofcom:
     hero: map/globe
     cam: pan
@@ -1477,6 +1549,7 @@ heroes:
         - 116.4
         - 39.9
         name: Beijing
+      focus: beijing
   d05_susp:
     hero: photo/doc
     cam: push
@@ -1488,6 +1561,12 @@ heroes:
         at:
         - '@light'
         - '@light+1.6'
+        opacity: 0.85
+        color: '#F5B83D'
+      - i: 2
+        at:
+        - '@suspended'
+        - '@suspended+1.4'
         opacity: 0.85
         color: '#F5B83D'
       - i: 1
@@ -1630,6 +1709,12 @@ heroes:
         dist: 14
         tilt: 60
         head: -2
+      - t: '@As#2'
+        lon: -75.187
+        lat: 39.868
+        dist: 11
+        tilt: 61
+        head: 10
       - t: '@tapped'
         lon: -75.185
         lat: 39.875
@@ -1690,6 +1775,19 @@ heroes:
         dist: 46
         tilt: 55
         head: 10
+      pins:
+      - id: wd
+        at:
+        - -75.23
+        - 39.76
+      - id: wc
+        at:
+        - -75.176
+        - 39.89
+      - id: wf
+        at:
+        - -75.16
+        - 39.875
   r06_score:
     hero: relief/map
     opt:
@@ -1762,6 +1860,23 @@ heroes:
         dist: 46
         tilt: 52
         head: -6
+      pins:
+      - id: kc
+        at:
+        - -122.335
+        - 37.738
+      - id: ko
+        at:
+        - -122.318
+        - 37.748
+      - id: kf
+        at:
+        - -122.295
+        - 37.727
+      - id: kk
+        at:
+        - -122.322
+        - 37.718
   r06_home:
     hero: relief/map
     opt:
@@ -1806,6 +1921,11 @@ heroes:
         dist: 5
         tilt: 60
         head: 8
+      pins:
+      - id: nx
+        at:
+        - -122.395
+        - 37.893
   s_launch:
     hero: relief/map
     opt:
@@ -1837,6 +1957,9 @@ heroes:
         dist: 30
         tilt: 61
         head: 2
+    size:
+    - 1080
+    - 1920
   s_share:
     hero: map/globe
     cam: pair
@@ -1870,6 +1993,9 @@ heroes:
         - '@percent+0.6'
         color: '#3CC2B0'
         r: 1.2
+    size:
+    - 1080
+    - 1920
   s_loop:
     hero: relief/map
     opt:
@@ -1940,3 +2066,6 @@ heroes:
         dist: 32
         tilt: 59
         head: -4
+    size:
+    - 1080
+    - 1920

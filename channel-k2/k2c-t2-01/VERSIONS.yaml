@@ -1,0 +1,65 @@
+# ĐÓNG BĂNG PHIÊN BẢN tập k2c-t2-01 — ghi lúc G1 bởi scripts/common/versions.py. KHÔNG sửa tay; G2 chạy `versions.py check`.
+# GHI SAU (G2, 15/10): versions.py chưa có lúc G1 → ghi trên bản sao làm việc tại commit cuối G1b 8ec10632 (git worktree), cùng versions.py hiện hành. Mục relief_cache đọc từ cache HIỆN TẠI (nền đã dựng lại ở G1b/G2), không phải trạng thái G1b.
+schema: 1
+gate: G1
+utc: '2026-10-15T07:26:41Z'
+repo_head: 8ec106325e597465c1f14da26992965c9a528f3c
+branch: HEAD
+checks:
+  version: 1.10.2
+  tree_sha256: c598467f2283b141b8a14382c18dbe23b370522ef2a1afb31856399f7eb4549e
+  lock_verify: KHỚP
+  commit: 0033cda6a9fe8cfa3a26720dce5f6b5cfaf465f0
+toolkit:
+  k2v:
+    paths:
+    - design/k2v
+    - scripts/k2
+    commit: 1ed08d56abbf90ef36ba9050b4b4797153ee756c
+    tree_sha256: b025f274bdf6b7badec414e1034fc4f96ad94d333fcd37b9f716a6f51c4cf5c3
+    files: 85
+  ll-hero:
+    paths:
+    - design/ll-hero
+    commit: 3d08b13fffc3b4dd6678cfa00ffbec807ffdec7a
+    tree_sha256: f2214ae22a38e6f20772672662782b5b6dbf79d6c27bdc81470bdc8b5166f39a
+    files: 8
+  ll:
+    paths:
+    - scripts/ll
+    commit: 033b64d9d739a052c30c9601bc80e283693395ee
+    tree_sha256: c4d64bf44172ecc2b742cb987080e1bcbebc08967a55144dae3fec8476f19d8d
+    files: 80
+  shared3d:
+    paths:
+    - design/cong3/shared
+    commit: 4bbdc733364b4fb54749bf9146e56f46482ede59
+    tree_sha256: 074a98aedf50d535f6943a181e8cc696fa889ceeed1e5a5bb74f101ff6f6da7e
+    files: 10
+tools:
+  claude_cli: 2.1.300
+  relief_cache:
+    eastus: 95303bce9040e6fe
+    erie: d5cf7c1a153ea24d
+    korea: e5f6e28ddd7477b7
+    koreaw: 36a87ef5400c4910
+    pnw: 6ec0a6c11e277bc4
+    sfbay: 377b331a41cfce29
+  ffmpeg: 6.1.1-3ubuntu5
+  node: 22.22.0
+  python_cine: 3.13.16
+  three: 0.180.0
+  playwright: 1.64.0
+  chromium: chromium_headless_shell-1248
+episode:
+  id: k2c-t2-01
+  file: channel-k2/k2c-t2-01/episode.yaml
+  sha256: 9dd14d10eed3be41f08f7fcae2af2af5b434a91241930826d086311ef4ab1c9b
+  voice:
+    id: cjVigY5qzO86Huf0OWal
+    model: eleven_multilingual_v2
+    stability: 0.5
+    similarity: 0.75
+  claude_models:
+  - claude-opus-5-5
+  - claude-sonnet-5-5
