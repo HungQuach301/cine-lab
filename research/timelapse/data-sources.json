@@ -1,0 +1,1336 @@
+{
+ "checked": "2026-10-15",
+ "datasets": [
+  {
+   "city": "Amsterdam (and all Netherlands)",
+   "country": "NL",
+   "dataset": "BAG – Basisregistratie Adressen en Gebouwen, layer bag:pand (attribute bouwjaar)",
+   "provider": "Kadaster via PDOK",
+   "url": "https://service.pdok.nl/lv/bag/wfs/v2_0",
+   "license": "CC0 1.0 (WFS AccessConstraints = https://creativecommons.org/publicdomain/zero/1.0/)",
+   "commercial_ok": true,
+   "attribution": "Not required (CC0); courtesy credit 'Kadaster / BAG (PDOK)' recommended",
+   "share_alike": false,
+   "buildings_approx": 11440441,
+   "pct_with_year": 100.0,
+   "earliest_year": 1005,
+   "heaping": {
+    "pct_year_end_0_5": 45.5,
+    "top_years": [
+     [
+      1905,
+      394
+     ],
+     [
+      1005,
+      243
+     ],
+     [
+      1650,
+      99
+     ],
+     [
+      1750,
+      93
+     ],
+     [
+      1740,
+      65
+     ]
+    ],
+    "sample_n": 5000,
+    "bbox": "EPSG:28992 120500,486500,122000,488000 (Amsterdam canal ring/centre; 6,965 panden in bbox, first 5,000 sampled)"
+   },
+   "heights": "Not in BAG; 3DBAG (TU Delft 3D geoinformation + 3DGI) gives LoD1.2/1.3/2.2 heights for all NL, CC BY 4.0, credit '© 3DBAG by tudelft3d and 3DGI'",
+   "access": "WFS 2.0 GetFeature typeNames=bag:pand, max 1000/page, startIndex paging; also OGC API & full GeoPackage download",
+   "evidence_urls": [
+    "https://service.pdok.nl/lv/bag/wfs/v2_0?service=WFS&version=2.0.0&request=GetFeature&typeNames=bag:pand&resultType=hits",
+    "https://service.pdok.nl/lv/bag/wfs/v2_0?service=WFS&request=GetCapabilities",
+    "https://docs.3dbag.nl/en/copyright/"
+   ],
+   "notes": "1005 is a known placeholder for 'unknown/very old' (243/5000 in centre = 4.9%); 1905 heap (7.9%) is an administrative default for pre-1905 stock. Centre year heaping 45.5% vs ~20% expected => old-centre years must be treated as approximate; post-1950 data reliable."
+  },
+  {
+   "city": "New York City",
+   "country": "US",
+   "dataset": "Building Footprints (construction_year, height_roof)",
+   "provider": "NYC Office of Technology and Innovation (OTI), NYC Open Data",
+   "url": "https://data.cityofnewyork.us/resource/5zhs-2jue.json",
+   "license": "NYC Open Data Terms of Use; NYC Admin. Code ch.5 §23-502: public data sets made available 'without any registration requirement, license requirement or restrictions on their use'",
+   "commercial_ok": true,
+   "attribution": "Not legally required; credit 'NYC Open Data / NYC OTI' recommended (City may require source & modification notice)",
+   "share_alike": false,
+   "buildings_approx": 1083059,
+   "pct_with_year": 99.1,
+   "earliest_year": 1652,
+   "heaping": {
+    "pct_year_end_0_5": 57.0,
+    "top_years": [
+     [
+      1900,
+      2349
+     ],
+     [
+      1920,
+      919
+     ],
+     [
+      1910,
+      895
+     ],
+     [
+      1915,
+      312
+     ],
+     [
+      1930,
+      161
+     ]
+    ],
+    "sample_n": 10514,
+    "bbox": "WGS84 within_box 40.700–40.735 N, -74.02–-73.97 W (Lower Manhattan)"
+   },
+   "heights": "Yes: height_roof (ft) + ground_elevation per footprint",
+   "access": "Socrata SODA API ($select/$where/$group), GeoJSON/CSV export",
+   "evidence_urls": [
+    "https://data.cityofnewyork.us/resource/5zhs-2jue.json?$select=count(*)",
+    "https://data.cityofnewyork.us/api/views/5zhs-2jue.json",
+    "https://nyc-laws.readthedocs.io/en/latest/nycadmincode/t23/c05/",
+    "https://data.cityofnewyork.us/resource/64uk-42ks.json"
+   ],
+   "notes": "Citywide top years 1920 (129,570), 1930 (112,095), 1925 (108,669) — strong heaping. Lower Manhattan: 1900 = 22% of sample. PLUTO (64uk-42ks) yearbuilt: 817,967/858,284 lots >0, same heaping (1920, 1930, 1925). Years before ~1930 are estimates."
+  },
+  {
+   "city": "Berlin",
+   "country": "DE",
+   "dataset": "Umweltatlas 06.12 'Gebäudealter der Wohnbebauung' (block level) + 'Städtebauliche Entwicklung Berlins seit 1650 in Karten'",
+   "provider": "Senatsverwaltung für Stadtentwicklung / Geoportal Berlin",
+   "url": "https://gdi.berlin.de/services/wfs/ua_gebaeudealter",
+   "license": "Datenlizenz Deutschland – Zero – 2.0 (dl-de/zero-2.0) per datenregister.berlin.de",
+   "commercial_ok": true,
+   "attribution": "Not required (dl-de/zero); credit 'Geoportal Berlin' recommended",
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": "Separate Umweltatlas 'Gebäudehöhen 2022' WFS (storeys/heights), and LoD2 3D city model",
+   "access": "WFS ua_gebaeudealter; WMS/Atom staedtebauliche_entwicklung",
+   "evidence_urls": [
+    "https://datenregister.berlin.de/api/3/action/package_search?q=Geb%C3%A4udealter",
+    "https://www.berlin.de/umweltatlas/nutzung/gebaeudealter/2016/datengrundlage/",
+    "https://gdi.berlin.de/data/staedtebauliche_entwicklung/atom/"
+   ],
+   "notes": "NOT per building: decade classes per block/block-part, residential only (Zensus 2011). Excellent for H1-lite: scanned growth maps 1650, 1690, 1750, 1800, 1850, 1880, 1910, 1940, war damage 1945, 1986, building age 1992/93 — all dl-de/zero-2.0."
+  },
+  {
+   "city": "Vienna",
+   "country": "AT",
+   "dataset": "Gebäudeinformation (BAUJAHR) + Bauperiode detail (OBJ_STR_TXT period classes)",
+   "provider": "Stadt Wien – data.wien.gv.at",
+   "url": "https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:GEBAEUDEINFOOGD",
+   "license": "CC BY 4.0 (OGD Wien terms; some city datasets CC BY-NC — check per dataset; WFS capabilities still reference CC BY 3.0 AT)",
+   "commercial_ok": true,
+   "attribution": "'Datenquelle: Stadt Wien – data.wien.gv.at'",
+   "share_alike": false,
+   "buildings_approx": 439205,
+   "pct_with_year": 19.4,
+   "earliest_year": 1100,
+   "heaping": {
+    "pct_year_end_0_5": 23.0,
+    "top_years": [
+     [
+      1912,
+      300
+     ],
+     [
+      1910,
+      276
+     ],
+     [
+      1911,
+      273
+     ],
+     [
+      1913,
+      272
+     ],
+     [
+      1929,
+      262
+     ]
+    ],
+    "sample_n": 11280,
+    "bbox": "whole layer GEBAEUDEINFOOGD (58,248 records, 11,280 with BAUJAHR)"
+   },
+   "heights": "GESCH_ANZ (storeys) in Gebäudeinfo; Baukörpermodell/FMZK layers with heights",
+   "access": "WFS ogdwien:GEBAEUDEINFOOGD (58,248) and ogdwien:BAUPERIODEDETAILOGD (439,205 building parts; classes 'Vor 1683', '1683-1740', ..., 'Nach 1976')",
+   "evidence_urls": [
+    "https://data.wien.gv.at/daten/geo?service=WFS&request=GetCapabilities&version=1.1.0",
+    "https://digitales.wien.gv.at/open-data/ogd-nutzungsbedingungen/"
+   ],
+   "notes": "Exact year only for ~11k buildings (mostly protected zones); period class for the rest but ~75% null/'Keine Angabe' in first 20,000 parts sampled. One record has BAUJAHR=190 (error). Aerial imagery WMTS lb1938…lb1992 available. => H1-partial."
+  },
+  {
+   "city": "Copenhagen (all Denmark)",
+   "country": "DK",
+   "dataset": "BBR – Bygnings- og Boligregistret (byg026Opførelsesår); INSPIRE BU export (dateOfConstruction)",
+   "provider": "Klimadatastyrelsen / Datafordeler; Dataforsyningen",
+   "url": "https://datafordeler.dk/vejledning/brugervilkaar/bygnings-og-boligregistret-bbr/",
+   "license": "CC BY 4.0 (frie grunddata, terms dated 16.05.2024)",
+   "commercial_ok": true,
+   "attribution": "Credit 'Bygnings- og Boligregistret (BBR)' when sharing substantial parts",
+   "share_alike": false,
+   "buildings_approx": 5000000,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": "Floors in BBR; footprints from GeoDanmark (CC BY 4.0)",
+   "access": "Datafordeler API (free user account) or INSPIRE GeoPackage on Dataforsyningen (data/3829)",
+   "evidence_urls": [
+    "https://datafordeler.dk/vejledning/brugervilkaar/bygnings-og-boligregistret-bbr/",
+    "https://wiki.openstreetmap.org/wiki/OpenHistoricalMap/Projects/Denmark/BBR",
+    "https://dataforsyningen.dk/data/3829"
+   ],
+   "notes": "Not sampled (download requires login/JS). OSM wiki: ~5 million buildings with year; warns of bogus values (e.g. 1000) and century rounding. Points only, no polygons in BBR."
+  },
+  {
+   "city": "Helsinki",
+   "country": "FI",
+   "dataset": "Rakennukset_alue_rekisteritiedot (c_valmpvm completion date, i_kerrlkm floors)",
+   "provider": "Helsingin kaupunki (kartta.hel.fi / HRI)",
+   "url": "https://kartta.hel.fi/ws/geoserver/avoindata/wfs",
+   "license": "CC BY 4.0 (HRI package 'helsingin-rakennukset')",
+   "commercial_ok": true,
+   "attribution": "'Helsingin kaupunki' (source + licence link)",
+   "share_alike": false,
+   "buildings_approx": 84958,
+   "pct_with_year": 59.2,
+   "earliest_year": 1757,
+   "heaping": {
+    "pct_year_end_0_5": 21.7,
+    "top_years": [
+     [
+      1928,
+      139
+     ],
+     [
+      1927,
+      123
+     ],
+     [
+      1938,
+      118
+     ],
+     [
+      1939,
+      115
+     ],
+     [
+      1937,
+      111
+     ]
+    ],
+    "sample_n": 4387,
+    "bbox": "EPSG:3879 N 6670500–6675500, E 25494000–25500000 (city centre; 5,800 polygons, 75.6% with year)"
+   },
+   "heights": "Floors (i_kerrlkm), volume; Helsinki 3D city model (CityGML) separate",
+   "access": "WFS 2.0 typeNames=avoindata:Rakennukset_alue_rekisteritiedot (GeoJSON)",
+   "evidence_urls": [
+    "https://kartta.hel.fi/ws/geoserver/avoindata/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=avoindata:Rakennukset_alue_rekisteritiedot&resultType=hits",
+    "https://hri.fi/data/api/3/action/package_search?q=rakennukset%20rekisteritiedot"
+   ],
+   "notes": "Exact completion DATE (not just year). Citywide 50,305/84,958 with date, heaping 21.6% (≈ no heaping), min 1000 = placeholder. Missing years mostly small/auxiliary buildings. Best data quality measured."
+  },
+  {
+   "city": "Melbourne (City of Melbourne LGA)",
+   "country": "AU",
+   "dataset": "CLUE Building information (construction_year)",
+   "provider": "City of Melbourne Open Data",
+   "url": "https://data.melbourne.vic.gov.au/explore/dataset/buildings-with-name-age-size-accessibility-and-bicycle-facilities/",
+   "license": "CC BY (portal metadata 'CC BY'; version to confirm, portal default CC BY 4.0)",
+   "commercial_ok": true,
+   "attribution": "'City of Melbourne Open Data'",
+   "share_alike": false,
+   "buildings_approx": 14094,
+   "pct_with_year": 54.0,
+   "earliest_year": 1837,
+   "heaping": {
+    "pct_year_end_0_5": 48.7,
+    "top_years": [
+     [
+      1900,
+      716
+     ],
+     [
+      1870,
+      252
+     ],
+     [
+      1910,
+      228
+     ],
+     [
+      2006,
+      223
+     ],
+     [
+      1901,
+      219
+     ]
+    ],
+    "sample_n": 7609,
+    "bbox": "whole LGA, census_year 2024"
+   },
+   "heights": "number_of_floors_above_ground; separate 3D massing/footprints datasets",
+   "access": "Opendatasoft Explore API v2.1",
+   "evidence_urls": [
+    "https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/buildings-with-name-age-size-accessibility-and-bicycle-facilities/records?limit=1"
+   ],
+   "notes": "Points per property, census_year series 2002–2024 (305,557 rows total). Only central LGA, not metro. 1900 is a default."
+  },
+  {
+   "city": "Toronto",
+   "country": "CA",
+   "dataset": "(none found) — 3D Massing has no year",
+   "provider": "City of Toronto Open Data",
+   "url": "https://open.toronto.ca/dataset/3d-massing/",
+   "license": "Open Government Licence – Toronto",
+   "commercial_ok": true,
+   "attribution": "'Contains information licensed under the Open Government Licence – Toronto'",
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": null,
+   "access": "CKAN search 'year built' returned only city-owned energy/bridges datasets",
+   "evidence_urls": [
+    "https://ckan0.cf.opendata.inter.prod-toronto.ca/api/3/action/package_search?q=%22year%20built%22"
+   ],
+   "notes": "No open per-building year (MPAC data proprietary). Not H1."
+  },
+  {
+   "city": "Paris",
+   "country": "FR",
+   "dataset": "APUR EMPRISE_BATIE_PARIS (an_const, c_perconst, h_moy…)",
+   "provider": "Atelier Parisien d'Urbanisme (APUR)",
+   "url": "https://carto2.apur.org/apur/rest/services/OPENDATA/EMPRISE_BATIE_PARIS/MapServer/0",
+   "license": "ODbL (APUR open data)",
+   "commercial_ok": true,
+   "attribution": "'Apur' + ODbL notice",
+   "share_alike": true,
+   "buildings_approx": 128206,
+   "pct_with_year": 63.3,
+   "earliest_year": 1250,
+   "heaping": {
+    "pct_year_end_0_5": 84.1,
+    "top_years": [
+     [
+      1800,
+      333
+     ],
+     [
+      1700,
+      228
+     ],
+     [
+      1750,
+      224
+     ],
+     [
+      1880,
+      212
+     ],
+     [
+      1850,
+      185
+     ]
+    ],
+    "sample_n": 3072,
+    "bbox": "WGS84 2.33–2.37 E, 48.85–48.87 N (6,000 footprints)"
+   },
+   "heights": "Yes: h_moy/h_med/h_min/h_max per footprint",
+   "access": "ArcGIS REST query (maxRecordCount 3000)",
+   "evidence_urls": [
+    "https://carto2.apur.org/apur/rest/services/OPENDATA/EMPRISE_BATIE_PARIS/MapServer/0?f=json",
+    "https://geocatalogue.apur.org/catalogue/srv/api/records/urn:apur:emprise_batie_od"
+   ],
+   "notes": "81,150/128,206 footprints have an_const; c_perconst period class for nearly all (7,786 = 99 'non daté'). ODbL share-alike: the produced DATABASE must stay ODbL if published; a rendered film is a 'Produced Work' (attribution only). Old-centre years heavily rounded."
+  },
+  {
+   "city": "France (Lyon, Bordeaux… nationwide)",
+   "country": "FR",
+   "dataset": "IGN BD TOPO V3 – batiment (date_d_apparition, hauteur, nombre_d_etages)",
+   "provider": "IGN (Géoplateforme)",
+   "url": "https://data.geopf.fr/wfs/ows?service=WFS&request=GetFeature&typeNames=BDTOPO_V3:batiment",
+   "license": "Licence Ouverte / Open Licence Etalab 2.0 (IGN data free since 01/01/2021; CGU https://cartes.gouv.fr/cgu)",
+   "commercial_ok": true,
+   "attribution": "'IGN – BD TOPO®' + date",
+   "share_alike": false,
+   "buildings_approx": 51450444,
+   "pct_with_year": 72.0,
+   "earliest_year": 1400,
+   "heaping": {
+    "pct_year_end_0_5": 87.0,
+    "top_years": [
+     [
+      1850,
+      378
+     ],
+     [
+      1800,
+      338
+     ],
+     [
+      1880,
+      280
+     ],
+     [
+      1900,
+      250
+     ],
+     [
+      1860,
+      188
+     ]
+    ],
+    "sample_n": 3248,
+    "bbox": "Lyon Presqu'île 45.755–45.772 N, 4.825–4.845 E (4,532 buildings, 71.7% dated); Bordeaux centre: 72.6% dated, 88.0% heaping, top 1800/1850/1900"
+   },
+   "heights": "Yes: hauteur, altitude toit, nombre_d_etages",
+   "access": "WFS 2.0 (count up to 5000)",
+   "evidence_urls": [
+    "https://data.geopf.fr/wfs/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=BDTOPO_V3:batiment&count=1&outputFormat=application/json",
+    "https://www.actuia.com/actualite/les-donnees-publiques-de-lign-relatives-a-la-topographie-au-relief-et-a-la-visualisation-du-territoire-libres-et-gratuites/"
+   ],
+   "notes": "date_d_apparition derives from DGFiP fichiers fonciers; pre-1900 values are mostly rounded to 50/100 years. Paris sample request reset by server (retry needed). BDNB (CSTB) also has annee_construction — licence not verified."
+  },
+  {
+   "city": "Seville (all Spain except Basque Country & Navarre)",
+   "country": "ES",
+   "dataset": "Catastro INSPIRE Buildings (BU) – dateOfConstruction",
+   "provider": "Dirección General del Catastro",
+   "url": "https://www.catastro.hacienda.gob.es/INSPIRE/buildings/41/ES.SDGC.bu.atom_41.xml",
+   "license": "'Licencia de acceso y uso de los servicios y conjuntos de datos INSPIRE de la DG del Catastro' v1.0 (July 2016)",
+   "commercial_ok": true,
+   "attribution": "Cite 'Dirección General del Catastro' (resolution); must NOT be labelled 'cartografía catastral'",
+   "share_alike": false,
+   "buildings_approx": 58723,
+   "pct_with_year": 99.7,
+   "earliest_year": 1023,
+   "heaping": {
+    "pct_year_end_0_5": 65.2,
+    "top_years": [
+     [
+      1900,
+      942
+     ],
+     [
+      1940,
+      921
+     ],
+     [
+      1950,
+      764
+     ],
+     [
+      1930,
+      687
+     ],
+     [
+      1920,
+      505
+     ]
+    ],
+    "sample_n": 9195,
+    "bbox": "EPSG:25830 234500,4141500,236500,4143800 (Casco Antiguo; first vertex), field 'beginning'"
+   },
+   "heights": "numberOfFloorsAboveGround in BuildingPart file (Building file often nil)",
+   "access": "ATOM download per municipality (Seville zip 35 MB); WFS wfsBU.aspx unstable during test",
+   "evidence_urls": [
+    "https://www.catastro.hacienda.gob.es/webinspire/documentos/Licencia.pdf",
+    "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/41/41900-SEVILLA/A.ES.SDGC.BU.41900.zip"
+   ],
+   "notes": "Licence allows public incl. commercial use only of TRANSFORMED information (a film render qualifies); raw redistribution forbidden. Citywide heaping 41.5%. 11% of records have beginning≠end (range/renovation). Basque Country & Navarre have own cadastres."
+  },
+  {
+   "city": "Prague",
+   "country": "CZ",
+   "dataset": "IPR Praha open data (buildings) — construction year not confirmed",
+   "provider": "IPR Praha (Geoportál Praha)",
+   "url": "https://geoportalpraha.cz/en/data-and-services/open-data",
+   "license": "CC BY 4.0 ('data base © IPR Praha')",
+   "commercial_ok": true,
+   "attribution": "'© IPR Praha'",
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": null,
+   "access": null,
+   "evidence_urls": [
+    "https://geoportalpraha.cz/en/data-and-services/open-data"
+   ],
+   "notes": "No per-building year field found in time; UNKNOWN."
+  },
+  {
+   "city": "Estonia (Tallinn)",
+   "country": "EE",
+   "dataset": "Ehitisregister (EHR) open data",
+   "provider": "Ehitisregister",
+   "url": "https://livekluster.ehr.ee/",
+   "license": "unclear (not confirmed)",
+   "commercial_ok": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": null,
+   "access": null,
+   "evidence_urls": [
+    "https://www.err.ee/1609944737/riik-ignoreeris-aastaid-probleeme-ehitisregistri-avalike-andmetega"
+   ],
+   "notes": "Register has use-permit data; field list & licence not verified. UNKNOWN."
+  },
+  {
+   "city": "Finland (national)",
+   "country": "FI",
+   "dataset": "DVV building open data",
+   "provider": "Digi- ja väestötietovirasto",
+   "url": "https://www.avoindata.fi/",
+   "license": "CC BY 4.0 (typical) — not verified",
+   "commercial_ok": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": null,
+   "access": null,
+   "evidence_urls": [
+    "https://nic.funet.fi/index/geodata/dvv/osoitteet/2018/rakennusten-osoitetiedot-ja-aanestysaluetiedot-avoin-data-kuvaus-tiedoista-2018-08-15.pdf"
+   ],
+   "notes": "2016/2018 descriptions list no construction year. Helsinki city data used instead."
+  },
+  {
+   "city": "Brussels",
+   "country": "BE",
+   "dataset": "UrbIS buildings — no construction-year attribute documented",
+   "provider": "paradigm.brussels",
+   "url": "https://be.brussels/en/about-region/urbis-data",
+   "license": "UrbIS open data licence",
+   "commercial_ok": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": null,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": null,
+   "access": null,
+   "evidence_urls": [
+    "https://geobru-geonetwork.irisnet.be/geonetwork/srv/api/records/e9ec2aa4-cffd-11ee-bccc-00090ffe0001"
+   ],
+   "notes": "Not H1 (UNKNOWN until spec PDF checked)."
+  },
+  {
+   "city": "Zurich (all Switzerland)",
+   "country": "CH",
+   "dataset": "Eidg. Gebäude- und Wohnungsregister GWR (GBAUJ year, GBAUP period, GASTW floors)",
+   "provider": "Bundesamt für Statistik (BFS)",
+   "url": "https://public.madd.bfs.admin.ch/zh.zip",
+   "license": "BFS open use: 'Freie Nutzung. Quellenangabe ist Pflicht' — commercial use explicitly allowed (license.pdf in download)",
+   "commercial_ok": true,
+   "attribution": "'Bundesamt für Statistik; Eidg. Gebäude- und Wohnungsregister'",
+   "share_alike": false,
+   "buildings_approx": 54185,
+   "pct_with_year": 100.0,
+   "earliest_year": 1100,
+   "heaping": {
+    "pct_year_end_0_5": 23.8,
+    "top_years": [
+     [
+      1812,
+      275
+     ],
+     [
+      1879,
+      55
+     ],
+     [
+      1896,
+      53
+     ],
+     [
+      1897,
+      50
+     ],
+     [
+      1894,
+      48
+     ]
+    ],
+    "sample_n": 3107,
+    "bbox": "LV95 E 2682500–2684000, N 1246500–1248500 (Altstadt/City)"
+   },
+   "heights": "GASTW floors; footprints+heights from swisstopo swissBUILDINGS3D (free geodata, '© swisstopo')",
+   "access": "Canton CSV/GeoJSON/SQLite zip (ZH 122 MB) or api3.geo.admin.ch identify layer ch.bfs.gebaeude_wohnungs_register",
+   "evidence_urls": [
+    "https://public.madd.bfs.admin.ch/zh.zip",
+    "https://api3.geo.admin.ch/rest/services/ech/MapServer/identify?geometryType=esriGeometryEnvelope&geometry=2683000,1247500,2683300,1247800&layers=all:ch.bfs.gebaeude_wohnungs_register&tolerance=0&sr=2056&returnGeometry=false",
+    "https://www.swisstopo.admin.ch/en/terms-of-use-free-geodata-and-geoservices"
+   ],
+   "notes": "City of Zürich: 54,185 existing buildings, 100% with year, heaping 21.0% (none). 1812 = placeholder for pre-1813 Altstadt (8.9% of centre sample). Canton: 367,387 buildings, 93.1%. Points (coordinates), not polygons."
+  },
+  {
+   "city": "Chicago",
+   "country": "US",
+   "dataset": "Building Footprints (year_built, stories)",
+   "provider": "City of Chicago Data Portal",
+   "url": "https://data.cityofchicago.org/resource/syp8-uezg.json",
+   "license": "City of Chicago Data Portal Terms of Use (no named open licence)",
+   "commercial_ok": "unclear",
+   "attribution": "City of Chicago",
+   "share_alike": false,
+   "buildings_approx": 820606,
+   "pct_with_year": 54.4,
+   "earliest_year": 1852,
+   "heaping": {
+    "pct_year_end_0_5": 18.8,
+    "top_years": [
+     [
+      2006,
+      242
+     ],
+     [
+      2005,
+      209
+     ],
+     [
+      1891,
+      183
+     ],
+     [
+      2004,
+      178
+     ],
+     [
+      1889,
+      135
+     ]
+    ],
+    "sample_n": 3333,
+    "bbox": "WGS84 41.86–41.905 N, -87.66–-87.61 W (Loop)"
+   },
+   "heights": "stories / no_stories",
+   "access": "Socrata SODA",
+   "evidence_urls": [
+    "https://data.cityofchicago.org/resource/syp8-uezg.json?$select=count(*)"
+   ],
+   "notes": "373,921 records have year 0. Max year in Loop sample 2015 → dataset not maintained since ~2015."
+  },
+  {
+   "city": "San Francisco",
+   "country": "US",
+   "dataset": "Assessor Historical Secured Property Tax Rolls (year_property_built)",
+   "provider": "SF Office of the Assessor-Recorder",
+   "url": "https://data.sf.gov/resource/wv5m-vpq2.json",
+   "license": "ODC Public Domain Dedication and License (PDDL)",
+   "commercial_ok": true,
+   "attribution": "Not required",
+   "share_alike": false,
+   "buildings_approx": 212206,
+   "pct_with_year": 94.4,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": "No (parcel records; footprints dataset separate)",
+   "access": "Socrata SODA (roll years to 2025)",
+   "evidence_urls": [
+    "https://data.sf.gov/api/views/wv5m-vpq2.json"
+   ],
+   "notes": "Parcel/unit level, not footprints. Top year 1900 (14,656) — default for pre-1906-earthquake records lost. Heaping not sampled by bbox."
+  },
+  {
+   "city": "Portland (Oregon)",
+   "country": "US",
+   "dataset": "Statewide Building Footprints of Oregon SBFO_1_1 (YEAR_BUILT, ROOF_MEAN/ROOF_MAX)",
+   "provider": "Oregon GEO / DOGAMI",
+   "url": "https://services8.arcgis.com/8PAo5HGmvRMlF2eU/arcgis/rest/services/Building_Footprints/FeatureServer/0",
+   "license": "not stated on service (unclear)",
+   "commercial_ok": "unclear",
+   "attribution": null,
+   "share_alike": false,
+   "buildings_approx": 2170837,
+   "pct_with_year": 91.8,
+   "earliest_year": 1870,
+   "heaping": {
+    "pct_year_end_0_5": 26.5,
+    "top_years": [
+     [
+      1912,
+      39
+     ],
+     [
+      1890,
+      38
+     ],
+     [
+      1910,
+      38
+     ],
+     [
+      1920,
+      32
+     ],
+     [
+      1911,
+      31
+     ]
+    ],
+    "sample_n": 1343,
+    "bbox": "WGS84 45.51–45.53 N, -122.69–-122.66 W (downtown; only 1,463 footprints in bbox, below 2,000 target)"
+   },
+   "heights": "ROOF_MEAN/ROOF_MAX",
+   "access": "ArcGIS REST",
+   "evidence_urls": [
+    "https://services8.arcgis.com/8PAo5HGmvRMlF2eU/arcgis/rest/services/Building_Footprints/FeatureServer/0?f=json"
+   ],
+   "notes": "Good quality but licence must be confirmed with Oregon GEO."
+  },
+  {
+   "city": "Boston",
+   "country": "US",
+   "dataset": "Property Assessment FY2026 (YR_BUILT)",
+   "provider": "City of Boston (Analyze Boston)",
+   "url": "https://data.boston.gov/dataset/property-assessment",
+   "license": "ODC PDDL",
+   "commercial_ok": true,
+   "attribution": "Not required",
+   "share_alike": false,
+   "buildings_approx": 184552,
+   "pct_with_year": null,
+   "earliest_year": 1700,
+   "heaping": {
+    "pct_year_end_0_5": null,
+    "top_years": [
+     [
+      1900,
+      18076
+     ],
+     [
+      1920,
+      12233
+     ],
+     [
+      1910,
+      11832
+     ],
+     [
+      1905,
+      10618
+     ],
+     [
+      1899,
+      9910
+     ]
+    ],
+    "sample_n": 161992,
+    "bbox": "whole city (parcel/unit rows)"
+   },
+   "heights": "No (parcels)",
+   "access": "CKAN datastore_search_sql",
+   "evidence_urls": [
+    "https://data.boston.gov/api/3/action/package_show?id=property-assessment"
+   ],
+   "notes": "22,560 null year; parcels/condo units, needs join to footprints. 1899/1900 heaping."
+  },
+  {
+   "city": "Montreal",
+   "country": "CA",
+   "dataset": "Unités d'évaluation foncière (ANNEE_CONSTRUCTION, ETAGE_HORS_SOL)",
+   "provider": "Ville de Montréal",
+   "url": "https://donnees.montreal.ca/dataset/unites-evaluation-fonciere",
+   "license": "CC BY 4.0",
+   "commercial_ok": true,
+   "attribution": "'Ville de Montréal' + CC BY 4.0",
+   "share_alike": false,
+   "buildings_approx": 514600,
+   "pct_with_year": 95.0,
+   "earliest_year": 1600,
+   "heaping": {
+    "pct_year_end_0_5": 41.0,
+    "top_years": [
+     [
+      1910,
+      2769
+     ],
+     [
+      1900,
+      2413
+     ],
+     [
+      1885,
+      890
+     ],
+     [
+      1987,
+      831
+     ]
+    ],
+    "sample_n": 28496,
+    "bbox": "first 30,000 datastore rows (mostly REM21/REM19/REM20); 9999 = unknown (5%)"
+   },
+   "heights": "ETAGE_HORS_SOL floors",
+   "access": "CKAN datastore_search (CSV direct download returned 'RBAC: access denied' during test); geo extract GeoJSON/SHP",
+   "evidence_urls": [
+    "https://donnees.montreal.ca/api/3/action/package_search?q=unit%C3%A9s%20%C3%A9valuation%20fonci%C3%A8re",
+    "https://donnees.montreal.ca/api/3/action/datastore_search?resource_id=2b9dfc3d-91d3-48de-b32c-a2a6d9417079&limit=1"
+   ],
+   "notes": "Assessment units (lots), not building footprints; sample is not a strict centre bbox."
+  },
+  {
+   "city": "Singapore",
+   "country": "SG",
+   "dataset": "HDB Property Information (year_completed, max_floor_lvl)",
+   "provider": "Housing & Development Board via data.gov.sg",
+   "url": "https://data.gov.sg/api/action/datastore_search?resource_id=d_17f5382f26140b1fdae0ba2ef6239d2f",
+   "license": "Singapore Open Data Licence v1.0",
+   "commercial_ok": true,
+   "attribution": "'Contains information from HDB Property Information accessed on {date} from data.gov.sg which is made available under the Singapore Open Data Licence version 1.0'",
+   "share_alike": false,
+   "buildings_approx": 13392,
+   "pct_with_year": 100.0,
+   "earliest_year": 1937,
+   "heaping": {
+    "pct_year_end_0_5": 19.1,
+    "top_years": [
+     [
+      1984,
+      806
+     ],
+     [
+      1985,
+      516
+     ],
+     [
+      1999,
+      451
+     ],
+     [
+      1998,
+      449
+     ],
+     [
+      1986,
+      443
+     ]
+    ],
+    "sample_n": 13392,
+    "bbox": "all HDB blocks"
+   },
+   "heights": "max_floor_lvl",
+   "access": "data.gov.sg datastore API",
+   "evidence_urls": [
+    "https://data.gov.sg/open-data-licence"
+   ],
+   "notes": "Public-housing blocks only (addresses, no geometry; geocode via OneMap). No year for private/CBD/shophouse stock → H1-partial."
+  },
+  {
+   "city": "Tokyo 23 wards (and Japan PLATEAU)",
+   "country": "JP",
+   "dataset": "PLATEAU 3D city model – bldg:yearOfConstruction",
+   "provider": "MLIT Japan / municipalities",
+   "url": "https://api.plateau.reearth.io/datacatalog/plateau-datasets",
+   "license": "PLATEAU site: PDL 1.0 (compatible with CC BY 4.0); data copyright belongs to each municipality (G空間情報センター)",
+   "commercial_ok": true,
+   "attribution": "e.g. '出典：国土交通省 PLATEAU' + municipality; note edits",
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": 0.0,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": "Yes: measuredHeight, storeys, LOD1/LOD2 geometry",
+   "access": "3D Tiles/CityGML/MVT per city via PLATEAU data catalog API",
+   "evidence_urls": [
+    "https://www.mlit.go.jp/plateau/site-policy/",
+    "https://assets.cms.plateau.reearth.io/assets/3f/e07412-5455-40c0-9f64-2ac43086a209/13101_chiyoda-ku_pref_2025_citygml_1_op_bldg_3dtiles_13101_chiyoda-ku_lod1/tileset.json"
+   ],
+   "notes": "Scanned 306 latest LOD1 tilesets: 134 cities expose bldg:yearOfConstruction; ALL 23 Tokyo wards, Yokohama, Osaka, Nagoya, Sendai do NOT. 0001 = unknown. Possible Survey Act (測量法) caveat — UNKNOWN."
+  },
+  {
+   "city": "Kyoto",
+   "country": "JP",
+   "dataset": "PLATEAU Kyoto-shi 2025 – bldg:yearOfConstruction",
+   "provider": "MLIT / Kyoto City",
+   "url": "https://api.plateau.reearth.io/datacatalog/plateau-datasets",
+   "license": "PDL 1.0 / CC BY 4.0-compatible (per PLATEAU site policy; confirm G空間 dataset page)",
+   "commercial_ok": true,
+   "attribution": "'出典：国土交通省 PLATEAU / 京都市'",
+   "share_alike": false,
+   "buildings_approx": null,
+   "pct_with_year": 82.6,
+   "earliest_year": 1869,
+   "heaping": {
+    "pct_year_end_0_5": 19.1,
+    "top_years": [
+     [
+      2024,
+      192
+     ],
+     [
+      1932,
+      149
+     ],
+     [
+      1995,
+      124
+     ],
+     [
+      1996,
+      120
+     ],
+     [
+      1998,
+      113
+     ]
+    ],
+    "sample_n": 5307,
+    "bbox": "25 random LOD1 tiles of 200 (6,428 buildings), not a centre bbox"
+   },
+   "heights": "Yes: measuredHeight, storeys, LOD2",
+   "access": "3D Tiles b3dm batch table 'attributes'",
+   "evidence_urls": [
+    "https://www.mlit.go.jp/plateau/site-policy/"
+   ],
+   "notes": "Other cities sampled: Hiroshima 36.3% (heaping 20.8%), Fukuoka 13.4%, Sapporo 58.0%, Kanazawa 57.9%. Kyoto earliest 1869 suggests pre-Meiji = 0001 unknown → machiya/temples need other sources."
+  },
+  {
+   "city": "Hong Kong",
+   "country": "HK",
+   "dataset": "Building information and age records (occupation permit date)",
+   "provider": "Buildings Department via DATA.GOV.HK / CSDI",
+   "url": "https://data.gov.hk/en-data/dataset/hk-bd-opendata-building-information",
+   "license": "DATA.GOV.HK Terms and Conditions (commercial & non-commercial use permitted, free)",
+   "commercial_ok": true,
+   "attribution": "Identify source; credit HKSAR Government, Buildings Department and DATA.GOV.HK",
+   "share_alike": false,
+   "buildings_approx": 51354,
+   "pct_with_year": 98.5,
+   "earliest_year": 1947,
+   "heaping": {
+    "pct_year_end_0_5": 18.8,
+    "top_years": [
+     [
+      1988,
+      1813
+     ],
+     [
+      1989,
+      1504
+     ],
+     [
+      1981,
+      1485
+     ],
+     [
+      1994,
+      1342
+     ],
+     [
+      1983,
+      1274
+     ]
+    ],
+    "sample_n": 50575,
+    "bbox": "whole territory"
+   },
+   "heights": "No (points); 3D models via CSDI separate",
+   "access": "CSV zip (2.9 MB)",
+   "evidence_urls": [
+    "https://static.csdi.gov.hk/csdi-webpage/download/0e55c533715b5da3ae0ca6e6024e90b4/csv",
+    "https://data.gov.hk/en/terms-and-conditions"
+   ],
+   "notes": "Private buildings with OP since 1947 only."
+  },
+  {
+   "city": "Hanoi / Ho Chi Minh City / Bangkok",
+   "country": "VN/TH",
+   "dataset": "OpenStreetMap start_date (only open option found)",
+   "provider": "OpenStreetMap contributors",
+   "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+   "license": "ODbL 1.0",
+   "commercial_ok": true,
+   "attribution": "'© OpenStreetMap contributors'",
+   "share_alike": true,
+   "buildings_approx": null,
+   "pct_with_year": 0.03,
+   "earliest_year": null,
+   "heaping": null,
+   "heights": null,
+   "access": "Overpass bbox counts",
+   "evidence_urls": [
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter"
+   ],
+   "notes": "Core bboxes: Hanoi 71,406 building ways / 20 with start_date; HCMC 23,253 / 18; Bangkok 80,548 / 43. No official open per-building year found. Not H1."
+  }
+ ],
+ "historical_maps": [
+  {
+   "source": "David Rumsey Map Collection (Stanford)",
+   "coverage": "World, ~150k+ georeferenced maps",
+   "license": "Creative Commons (BY-NC-SA per site); 'may be reproduced or transmitted, but not for commercial use'",
+   "commercial_ok": false,
+   "notes": "Commercial use/republication requires contacting [email liên hệ trên trang Terms of Use của David Rumsey]. REJECT unless a written licence is obtained.",
+   "evidence_urls": [
+    "https://www.davidrumsey.com/about"
+   ]
+  },
+  {
+   "source": "Library of Congress, Geography & Map Division",
+   "coverage": "World incl. US cities (Sanborn, panoramic maps), some colonial Asia",
+   "license": "Item-level rights; typical 'No known restrictions on publication' (pre-1927 or US Gov works)",
+   "commercial_ok": "unclear",
+   "notes": "Generally usable but user must determine rights per item; credit 'Library of Congress, Geography and Map Division'. Verify each item's rights statement.",
+   "evidence_urls": [
+    "https://www.loc.gov/item/90680842/"
+   ]
+  },
+  {
+   "source": "Kadaster – Topotijdreis (NL topographic maps 1815–today)",
+   "coverage": "Netherlands",
+   "license": "Kadaster base data CC BY 4.0 ('CC-BY Kadaster' + year); Topotijdreis layer licence not confirmed",
+   "commercial_ok": "unclear",
+   "notes": "BRT and Kadastrale kaart on data.overheid.nl are CC BY 4.0 with commercial use; historical layer licence to confirm.",
+   "evidence_urls": [
+    "https://data.overheid.nl/dataset/22500-basisregistratie--topografie--brt---donl-"
+   ]
+  },
+  {
+   "source": "IGN France – Remonter le temps (Cassini, État-major 1820–1866, historical aerials)",
+   "coverage": "France",
+   "license": "IGN 'données' Etalab 2.0 since 2021, BUT maps/SCANs excluded ('cartes et SCANs' with third-party/author rights); État-major licence not confirmed",
+   "commercial_ok": "unclear",
+   "notes": "État-major minutes freely downloadable but licence for commercial video not verified.",
+   "evidence_urls": [
+    "https://www.actuia.com/actualite/les-donnees-publiques-de-lign-relatives-a-la-topographie-au-relief-et-a-la-visualisation-du-territoire-libres-et-gratuites/",
+    "https://www.refuges.info/forum/viewtopic.php?p=45094"
+   ]
+  },
+  {
+   "source": "swisstopo – Journey through time (Siegfried, Dufour, Landeskarte series 1844–today)",
+   "coverage": "Switzerland",
+   "license": "swisstopo free geodata terms: commercial use allowed, source mandatory ('© swisstopo'); explicit coverage of historical layers not stated; one opendata.swiss Siegfried listing says commercial use needs permission",
+   "commercial_ok": "unclear",
+   "notes": "Layers ch.swisstopo.zeitreihen / hiks-siegfried / hiks-dufour attributed 'swisstopo' in api3.geo.admin.ch. Confirm with [email liên hệ geodata trên trang swisstopo].",
+   "evidence_urls": [
+    "https://www.swisstopo.admin.ch/en/terms-of-use-free-geodata-and-geoservices",
+    "https://api3.geo.admin.ch/rest/services/api/MapServer/layersConfig?lang=en"
+   ]
+  },
+  {
+   "source": "Denmark SDFI/Klimadatastyrelsen historical maps (Høje/Lave Målebordsblade)",
+   "coverage": "Denmark",
+   "license": "Dataforsyningen free data, CC BY 4.0 assumed — page is JS-only, not verified",
+   "commercial_ok": "unclear",
+   "notes": "UNKNOWN until 'Vilkår' tab is read.",
+   "evidence_urls": [
+    "https://dataforsyningen.dk/"
+   ]
+  },
+  {
+   "source": "Geoportal Berlin – Städtebauliche Entwicklung seit 1650; Straube-Plan 1910",
+   "coverage": "Berlin",
+   "license": "dl-de/zero-2.0 (Städtebauliche Entwicklung, datenregister.berlin.de); Straube 1910 has two records: dl-de/zero-2.0 and dl-de/by-2.0 ('Geoportal Berlin/Landesarchiv Berlin/…')",
+   "commercial_ok": true,
+   "notes": "Best H1-lite set found: 11 dated growth stages 1650–1993.",
+   "evidence_urls": [
+    "https://datenregister.berlin.de/api/3/action/package_search?q=Geb%C3%A4udealter",
+    "https://gdi.berlin.de/geonetwork/srv/api/records/9271450c-f95a-358a-9cff-093484cb73ae"
+   ]
+  },
+  {
+   "source": "Stadt Wien – historical aerial imagery WMTS (lb1938, lb1956 … lb1992)",
+   "coverage": "Vienna",
+   "license": "OGD Wien CC BY 4.0 (dataset-level check needed)",
+   "commercial_ok": true,
+   "notes": "Attribution 'Datenquelle: Stadt Wien – data.wien.gv.at'.",
+   "evidence_urls": [
+    "https://mapsneu.wien.gv.at/wmtsneu/1.0.0/WMTSCapabilities.xml",
+    "https://digitales.wien.gv.at/open-data/ogd-nutzungsbedingungen/"
+   ]
+  },
+  {
+   "source": "Lisbon municipal archive (Arquivo Municipal de Lisboa)",
+   "coverage": "Lisbon",
+   "license": "not checked",
+   "commercial_ok": "unclear",
+   "notes": "UNKNOWN.",
+   "evidence_urls": []
+  },
+  {
+   "source": "Allmaps / OldMapsOnline",
+   "coverage": "Aggregators/georeferencing tools",
+   "license": "Tools only; each map keeps its holder's licence",
+   "commercial_ok": "unclear",
+   "notes": "Use Allmaps annotations for georeferencing; clear rights at source institution.",
+   "evidence_urls": [
+    "https://allmaps.org/"
+   ]
+  },
+  {
+   "source": "Wikimedia Commons (PD-old maps)",
+   "coverage": "Global; Old maps of Hanoi 90 items, Saigon 50, Bangkok 45, Tokyo 108, Singapore 12",
+   "license": "Public domain (PD-old / PD-Art) per file",
+   "commercial_ok": true,
+   "notes": "Many Hanoi/Indochina files are Gallica scans (btv1b…): PD under Commons policy but BnF asserts a paid licence for commercial reuse → legal risk in France; prefer non-BnF scans or buy BnF licence.",
+   "evidence_urls": [
+    "https://commons.wikimedia.org/wiki/Category:Old_maps_of_Hanoi",
+    "https://commons.wikimedia.org/wiki/Category:Old_maps_of_Saigon"
+   ]
+  },
+  {
+   "source": "Gallica (BnF) – incl. French colonial plans of Hanoi/Saigon",
+   "coverage": "France + Indochina",
+   "license": "Non-commercial reuse free with source credit; commercial reuse 'payante et fait l'objet d'une licence' ([email tái sử dụng thương mại trên trang BnF])",
+   "commercial_ok": false,
+   "notes": "Commercial use only with paid BnF licence.",
+   "evidence_urls": [
+    "https://linuxfr.org/users/pamputt/journaux/conditions-d-utilisation-des-contenus-de-gallica",
+    "https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica"
+   ]
+  },
+  {
+   "source": "Vietnam National Archives Centre I/II",
+   "coverage": "Hanoi (Centre I), HCMC (Centre II) colonial plans",
+   "license": "No open licence found",
+   "commercial_ok": "unclear",
+   "notes": "Must request reproduction rights directly. UNKNOWN fees/conditions.",
+   "evidence_urls": [
+    "https://virtual-saigon.net/Texts/E-Library?ID=2003"
+   ]
+  },
+  {
+   "source": "National Archives of Singapore – Maps & Building Plans",
+   "coverage": "Singapore",
+   "license": "Per-image access conditions; licence via NAS e-Request on payment of fees; many UK TNA-sourced maps need TNA permission",
+   "commercial_ok": false,
+   "notes": "Commercial use only with paid licence.",
+   "evidence_urls": [
+    "https://www.nas.gov.sg/archivesonline/maps_building_plans/ordering",
+    "https://nas.gov.sg/archivesonline/maps_building_plans/faq"
+   ]
+  },
+  {
+   "source": "GSI Japan (国土地理院) old topographic maps (旧版地図)",
+   "coverage": "Japan incl. Tokyo, Kyoto from 1880s",
+   "license": "Survey Act art. 29/30: some uses need approval; book/web insertion often only needs source credit; video use not specified",
+   "commercial_ok": "unclear",
+   "notes": "Check via 地図の利用手続ナビ; Meiji-era maps may be PD by age.",
+   "evidence_urls": [
+    "https://www.gsi.go.jp/LAW/2930-index.html",
+    "https://www.gsi.go.jp/LAW/2930-qa.html"
+   ]
+  },
+  {
+   "source": "Bangkok (Thai National Archives / Chulalongkorn)",
+   "coverage": "Bangkok",
+   "license": "No open licence found; Commons has 45 PD items (e.g. 'Thai Map of Bangkok Phaenthi Krung Thep 1896')",
+   "commercial_ok": "unclear",
+   "notes": "UNKNOWN.",
+   "evidence_urls": [
+    "https://commons.wikimedia.org/wiki/Category:Old_maps_of_Bangkok"
+   ]
+  }
+ ],
+ "asia": [
+  {
+   "city": "Hanoi",
+   "h1_level": "H1-lite (conditional)",
+   "per_building_year": "None open (OSM: 20 of 71,406 buildings in core bbox have start_date)",
+   "historical_maps": "French colonial plans exist (Commons 90 files, many Gallica-sourced → BnF paid licence for commercial); Vietnam National Archives Centre I terms unknown",
+   "population_source": "GSO Vietnam censuses 1979/1989/1999/2009/2019 (site unreachable via proxy during test); colonial 1900–1945 only from academic tables with conflicting figures (Hitotsubashi IER COE DP98.7; INRS) ",
+   "verdict": "H1-lite only, after rights clearance of 3–5 dated colonial maps; per-building 'exact year' NOT feasible",
+   "notes": "Population pre-1979 must be cited with ranges/uncertainty."
+  },
+  {
+   "city": "Ho Chi Minh City",
+   "h1_level": "H1-lite (conditional)",
+   "per_building_year": "None open (OSM: 18 of 23,253 in core bbox)",
+   "historical_maps": "Commons 'Old maps of Saigon' 50 items (incl. 1795 Le Brun plan); Gallica/ANOM/National Archives Centre II need licences",
+   "population_source": "GSO censuses 1979+; colonial-era academic only",
+   "verdict": "H1-lite only; not H1",
+   "notes": ""
+  },
+  {
+   "city": "Singapore",
+   "h1_level": "H1-partial + H1-lite",
+   "per_building_year": "HDB blocks only: 13,392 blocks, year_completed 100%, 1937–2026, heaping 19.1% (Singapore Open Data Licence v1.0, commercial OK)",
+   "historical_maps": "NAS maps: paid licence per image; UK TNA permissions; Commons only 12",
+   "population_source": "SingStat censuses 1871–1931 (decennial), 1947, 1957, 1970+ (official)",
+   "verdict": "Feasible as 'public-housing grows' story (HDB exact years) + OSM/URA footprints; private buildings lack years",
+   "notes": "Needs geocoding (OneMap) – ToS not checked."
+  },
+  {
+   "city": "Bangkok",
+   "h1_level": "Not feasible",
+   "per_building_year": "None open (OSM: 43 of 80,548 in core bbox)",
+   "historical_maps": "No clear commercial licence found; few PD items on Commons",
+   "population_source": "NSO Thailand censuses (official); BMA registration",
+   "verdict": "Not feasible for H1; weak H1-lite",
+   "notes": ""
+  },
+  {
+   "city": "Tokyo",
+   "h1_level": "H1-lite",
+   "per_building_year": "PLATEAU 23 wards have NO yearOfConstruction (all 23 tilesets checked); heights/LOD2 available",
+   "historical_maps": "GSI old maps (approval rules unclear for video), Tokyo Metropolitan Library TOKYO Archive (application for publication use), Commons 108 PD",
+   "population_source": "Statistics Bureau of Japan census 1920–2020; Tokyo Metropolitan Government statistics (toukei.metro.tokyo.lg.jp); Edo-era only academic",
+   "verdict": "H1-lite only. Within Japan, Kyoto is H1-level (82.6% with year in sample)",
+   "notes": "Alternative Japanese H1 cities: Kyoto, Sapporo, Kanazawa, Hiroshima (36%)."
+  },
+  {
+   "city": "Kyoto",
+   "h1_level": "H1",
+   "per_building_year": "PLATEAU 2025: 82.6% with yearOfConstruction (sample 6,428), heaping 19.1%, earliest 1869",
+   "historical_maps": "Not checked (Nichibunken / Kyoto Prefectural Library) — UNKNOWN",
+   "population_source": "Statistics Bureau census 1920+; Kyoto City statistics",
+   "verdict": "H1-level for 1869–2026 (pre-Meiji = unknown)",
+   "notes": ""
+  },
+  {
+   "city": "Hong Kong",
+   "h1_level": "H1 (1947+)",
+   "per_building_year": "Buildings Dept OP dates: 50,575/51,354 private buildings, 1947–2025, heaping 18.8%",
+   "historical_maps": "Not checked",
+   "population_source": "Census and Statistics Department (official)",
+   "verdict": "H1 for post-war; pre-1947 needs maps",
+   "notes": "DATA.GOV.HK terms allow commercial use."
+  }
+ ],
+ "population_series": [
+  {
+   "city": "New York City",
+   "source": "U.S. Census Bureau decennial census; Gibson (1998) Population Division Working Paper No. 27 'Population of the 100 Largest Cities… 1790 to 1990'",
+   "type": "national statistics office (official)",
+   "years_covered": "1790–2020",
+   "url": "https://www.census.gov/library/working-papers/1998/demo/POP-twps0027.html"
+  },
+  {
+   "city": "Chicago / Boston / San Francisco / Portland",
+   "source": "same U.S. Census Bureau series (WP27 + decennial 2000/2010/2020)",
+   "type": "national statistics office (official)",
+   "years_covered": "1790/1840/1850–2020 depending on city",
+   "url": "https://www.census.gov/library/working-papers/1998/demo/POP-twps0027.html"
+  },
+  {
+   "city": "Amsterdam",
+   "source": "CBS StatLine + Gemeente Amsterdam OIS kerncijfers; pre-1900 academic (TSEG 2018; NIDI DEMOS 2022)",
+   "type": "NSO + municipal statistics + academic",
+   "years_covered": "c.1514 (est.)–2026",
+   "url": "https://onderzoek.amsterdam.nl/interactief/kerncijfers"
+  },
+  {
+   "city": "Zurich",
+   "source": "Statistik Stadt Zürich – Bevölkerung",
+   "type": "municipal statistics office",
+   "years_covered": "historical series (start year to confirm)–2026",
+   "url": "https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten/daten/bevoelkerung.html"
+  },
+  {
+   "city": "Vienna",
+   "source": "Stadt Wien Statistik (Wien in Zahlen) / Statistik Austria censuses",
+   "type": "municipal + NSO",
+   "years_covered": "1869 census onward (start to confirm)",
+   "url": "https://www.wien.gv.at/statistik/bevoelkerung"
+  },
+  {
+   "city": "Berlin",
+   "source": "Amt für Statistik Berlin-Brandenburg",
+   "type": "regional statistics office",
+   "years_covered": "to confirm",
+   "url": "https://www.statistik-berlin-brandenburg.de/bevoelkerung"
+  },
+  {
+   "city": "Helsinki",
+   "source": "Statistics Finland (väestörakenne) + Helsinki city statistics",
+   "type": "NSO + municipal",
+   "years_covered": "to confirm",
+   "url": "https://stat.fi/en/statistics/vaerak"
+  },
+  {
+   "city": "Copenhagen",
+   "source": "Danmarks Statistik – Statistikbanken (BY1 etc.)",
+   "type": "NSO",
+   "years_covered": "to confirm",
+   "url": "https://www.statistikbanken.dk/BY1"
+  },
+  {
+   "city": "Seville / Madrid / Barcelona",
+   "source": "INE – Población de hecho desde 1900 (intercensal series) & Alteraciones de los municipios en los Censos desde 1842",
+   "type": "NSO",
+   "years_covered": "1842/1900–2026",
+   "url": "https://www.ine.es/intercensal/"
+  },
+  {
+   "city": "Paris / Lyon / Bordeaux",
+   "source": "INSEE censuses + EHESS 'Des villages de Cassini aux communes d'aujourd'hui'",
+   "type": "NSO + academic",
+   "years_covered": "1793–2026",
+   "url": "https://cassini.ehess.fr/"
+  },
+  {
+   "city": "Montreal",
+   "source": "Statistics Canada censuses",
+   "type": "NSO",
+   "years_covered": "1851/1871–2021",
+   "url": "https://www150.statcan.gc.ca/n1/en/type/data"
+  },
+  {
+   "city": "Melbourne",
+   "source": "Australian Bureau of Statistics (censuses, ERP)",
+   "type": "NSO",
+   "years_covered": "to confirm",
+   "url": "https://www.abs.gov.au/"
+  },
+  {
+   "city": "Kyoto / Tokyo",
+   "source": "Statistics Bureau of Japan – Population Census; Tokyo Metropolitan Government estimates",
+   "type": "NSO + prefectural",
+   "years_covered": "1920–2020 (+ annual estimates)",
+   "url": "https://www.stat.go.jp/data/kokusei/2020/kekka.html"
+  },
+  {
+   "city": "Singapore",
+   "source": "Department of Statistics Singapore – Census of Population (1871…1931, 1947, 1957, 1970+); Saw Swee-Hock 'The Population of Singapore' (ISEAS) for 1824–1870",
+   "type": "NSO + academic",
+   "years_covered": "1824–2026",
+   "url": "https://www.singstat.gov.sg/census-of-population/past-censuses"
+  },
+  {
+   "city": "Hanoi / Ho Chi Minh City",
+   "source": "General Statistics Office of Viet Nam censuses 1979–2019; colonial era: Hitotsubashi IER COE DP98.7 tables (Indochina Statistical Yearbooks)",
+   "type": "NSO + academic (conflicting pre-1979)",
+   "years_covered": "c.1900–2019",
+   "url": "https://www.ier.hit-u.ac.jp/COE/Japanese/discussionpapers/DP98.7/6.htm"
+  },
+  {
+   "city": "Bangkok",
+   "source": "National Statistical Office Thailand – Population and Housing Census",
+   "type": "NSO",
+   "years_covered": "to confirm",
+   "url": "https://www.nso.go.th/nsoweb/index?set_lang=en"
+  },
+  {
+   "city": "(any)",
+   "source": "Wikipedia population tables",
+   "type": "NOT ACCEPTABLE as a source — only as a pointer to primary sources",
+   "years_covered": "",
+   "url": ""
+  }
+ ]
+}
