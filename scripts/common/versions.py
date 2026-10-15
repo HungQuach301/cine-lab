@@ -21,6 +21,13 @@ GROUPS = {
     'll-hero': ['design/ll-hero'],                   # cảnh 3D (Steel k2g01, T1 k2c106, LL ep06–08)
     'll': ['scripts/ll'],                            # nhà máy LL: render.js, lib/, mix.py (kênh 2 dùng lại mix.py)
     'shared3d': ['design/cong3/shared'],             # three.js (khoá phiên bản) + post.js, props.js, cast.js… dùng chung cho cảnh 3D
+    # V5a (15/10/2026): công cụ dùng chung mới — release_check.py (gói phát hành), lut.py (LUT offline), cc0_fetch.py (thư viện CC0),
+    # preflight_scan.py; brief.py ab (thumbnail A/B) trong toolkit/market; k2hook.py (qc --k2check) nằm trong nhóm 'll'.
+    # Nhóm mới chỉ được SO ở tập ghi G1 sau V5a: compare() duyệt nhóm của bản ghi G1, nên VERSIONS.yaml cũ (T2) không đổi kết quả.
+    'common': ['scripts/common', 'tools'],
+    'market': ['toolkit/market'],
+    # tài sản kênh 2: thư viện CC0 băm qua catalog.json (SHA từng tệp; không băm tệp LFS vì bản clone có thể chỉ có con trỏ) + LUT ứng viên
+    'assets_k2': ['assets/k2/cc0/catalog.json', 'assets/k2/lut'],
 }
 SKIP = re.compile(r'(^|/)(node_modules|__pycache__|\.pytest_cache)(/|$)|\.pyc$')
 MODEL_RE = re.compile(r"claude-(?:opus|sonnet|haiku|fable)-\d+-\d+(?:-\d{8})?")
@@ -83,7 +90,9 @@ def tools_info():
     for m in sorted(glob.glob(os.path.join(cache, 'relief', '*', 'meta.json'))):   # nền bản đồ ngoài git: SHA từng tệp (natural/sepia/height/routes)
         try: relief[os.path.basename(os.path.dirname(m))] = hashlib.sha256(json.dumps(json.load(open(m)).get('files', {}), sort_keys=True).encode()).hexdigest()[:16]
         except Exception: pass
+    cv = v(['/opt/cine/bin/python', '-c', 'import cv2; print(cv2.__version__)'])   # lut.py (k-means màu chủ đạo)
     return {'claude_cli': v(['claude', '--version'], r'(\d+\.\d+\.\d+)'), 'relief_cache': relief or None,
+            'git_lfs': v(['git', 'lfs', 'version'], r'git-lfs/(\S+)'), 'opencv': cv,
             'ffmpeg': v(['ffmpeg', '-version'], r'ffmpeg version (\S+)'), 'node': v(['node', '--version'], r'v(\S+)'),
             'python_cine': v(['/opt/cine/bin/python', '--version']), 'three': three, 'playwright': pw,
             'chromium': os.path.basename(chromium[-1]) if chromium else None}
