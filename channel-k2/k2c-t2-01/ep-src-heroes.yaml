@@ -55,10 +55,12 @@ heroes:
         color: '#3CC2B0'
         at: '@America''s'
         lift: true
+        fill: 0.45
       - country: China
         color: '#8E7CC3'
         at: '@China''s'
         lift: true
+        fill: 0.45
       cols:
       - id: us
         at:
@@ -1478,6 +1480,7 @@ heroes:
         color: '#8E7CC3'
         at: 0.4
         lift: true
+        fill: 0.45
       arcs:
       - from: shanghai
         to: rotterdam
@@ -2058,6 +2061,7 @@ heroes:
         color: '#3CC2B0'
         at: '@America''s'
         lift: true
+        fill: 0.45
       cols:
       - id: us
         at:
