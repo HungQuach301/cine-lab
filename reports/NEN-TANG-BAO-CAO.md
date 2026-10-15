@@ -216,3 +216,18 @@ Khung đo: cuộn K2V4, đoạn H (hero `h_hook`, `relief/map`), 1080p, SPP2 + b
 6. **Môi trường:** thêm `tifffile`, `pyshp` và `npm ci` (k2v + cong3/shared) vào `scripts/env`. Phiên nào được giao?
 7. **Điền % hạn mức và token** của phiên Nền tảng (đọc trên trang Usage) vào dòng NT của `COST-LEDGER.csv`.
 8. **Ngưỡng khung vàng** (pHash ≤ 6, SSIM ≥ 0,90, 0 ô lệch) là tạm; đề xuất chốt sau 3 lần chạy. Cài hook preflight là tự nguyện cho tới khi chủ dự án biến thành luật trong điều lệ.
+
+## 11. Thực hiện duyệt NT 15/10 (K1–K7)
+- **K3:** `RIGHTS.md` dòng 26 (REF-SF): email bên thứ ba thay bằng "liên hệ người tải lên — xem trang archive.org".
+- **K4:** chép 14 tệp `align.json` của Steel từ `checks/ll/fixtures/k2g01/vo/` sang `channel-k2/k2g-ep01/vo/`, giống từng byte (`cmp`). `checks/` không đổi. `prep` offline với `vo/` gốc cho 1 030,125 s / 24 723 khung, khớp master. `golden.py` bỏ đường đọc fixtures.
+- **K5:** `scripts/env/setup.sh` thêm `tifffile pyshp` vào pip và `npm ci` cho `design/k2v`. `verify.sh` thêm 2 phép kiểm tương ứng; chạy thử: PASS, tổng 12 PASS / 1 FAIL. FAIL duy nhất là Freesound, vốn là mục tuỳ chọn.
+- **K2:**
+  - `SESSION-CHARTER.md` ghi preflight **BẮT BUỘC** cho mọi phiên (dòng "Preflight:" trong khối §2, luật §4.7).
+  - `SESSION-CHARTER.md`, `FILE-ZONES.md`, `CHUAN-KENH-K2.md`, `CHUAN-KENH-LL.md` §13 ghi "chủ dự án duyệt 15/10 (NT K2)".
+- **K6:** RUNBOOK thêm §1b "GPU — HOÃN" kèm 4 điều kiện khi mở lại.
+- **K7:** ngưỡng khung vàng ghi "TẠM, chốt sau 3 lần chạy" trong `golden.py` và RUNBOOK §7.
+- **AUTHORSHIP:** thêm dòng "NT DUYỆT 15/10 (K1–K7)".
+- **Commit:** `490525c`. **Preflight** `--range origin/main..HEAD` (39 tệp): **ĐẠT**. **`lock.py --verify`:** **KHỚP** (`c598467f…`).
+- **Merge (K1):** `origin/main` vẫn ở `f5ea772` → `merge --ff-only nen-tang` → **main = `490525c`**, đã đẩy (`f5ea7726..490525c4`). Không có commit merge riêng vì là fast-forward.
+- **Ghép thử main mới (`490525c`) với `origin/k2c-t2` (`e2a9709`):** **sạch, 0 xung đột** (74 tệp). Không tệp nào bị cả hai bên sửa kể từ `f5ea772`, nên không chạm tệp T2.
+- **Còn lại:** sau khi T2 merge, chạy lại `scripts/common/golden.py run` trên main (T2 đổi `hero.js`, `relief.js`, `lib/k2.js`). Ngưỡng khung vàng chốt sau 3 lần chạy (K7).
