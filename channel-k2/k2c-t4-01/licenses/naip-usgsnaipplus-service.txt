@@ -1,0 +1,32 @@
+=====
+URL: https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer?f=json
+FETCHED_UTC: 2026-10-15T15:39:09Z
+HTTP: 200 https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer?f=json 7632
+SHA256: ffb936eb9d8e3ac80b48693f4c6e88b2c0a655238a606a41ebbb63f9a0b901e8
+-----
+serviceDescription: The USGS NAIP Plus service from The National Map consists of National Agriculture Imagery Program (NAIP) and high resolution orthoimagery (HRO) that combine the visual attributes of an aerial photograph with the spatial accuracy and reliability of a map. Digital orthoimage resolution may vary from 6 inches to 1 meter. In the former resolution, every pixel in an orthoimage covers a six inch square of the earth’s surface, while in the latter resolution, each pixel represents a one meter square. Many states contribute orthoimagery to The National Map, and the USGS also relies on a partnership with the U.S. Department of Agriculture's Farm Service Agency. The National Map download client allows free downloads of public domain, 1-meter resolution orthoimagery in JPEG 2000 (jp2) format for the conterminous United States, with many urban areas and other locations at 1-foot (or better) resolution also in JPEG 2000 (jp2) format. For additional information on orthoimagery, go to https://nationalmap.gov/ortho.html . crdate-20250311
+copyrightText: USGS, USDA, The National Map: Orthoimagery. March 12, 2025.
+(no licenseInfo field in service JSON)
+
+identify at -115.1728,36.1147 (pixelSize 3.1 m, EPSG:26911) catalog item, verbatim attributes:
+OBJECTID: 134911
+Name: m_3611563_ne_11_060_20220611
+MinPS: 0
+MaxPS: 19.1
+Category: 1
+CenterX: -12819135.028253542
+CenterY: 4313531.118822989
+State: NV
+Year: 2022
+raster_name: m_3611563_ne_11_060_20220611
+download_url: https://earthexplorer.usgs.gov/download/options/naip/3287356
+acquisition_date: 1654905600000
+agency: USDA
+vendor: USDA-FSA-APFO
+resolution_value: 0.6
+resolution_units: METER
+band_count: 4
+sensor_type: CNIR
+projection_name: UTM
+projection_zone: 11N
+datum: NAD83
