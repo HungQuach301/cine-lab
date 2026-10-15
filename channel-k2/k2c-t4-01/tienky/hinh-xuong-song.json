@@ -1,0 +1,387 @@
+{
+ "note": "Kho lựa chọn hình cho xương sống (KHÔNG phải hạn ngạch; chủ dự án 15/10 22:54). Hướng chụp ghi \"ước\" khi suy từ tiêu đề/nội dung. NOW chỉ từ NAIP/Landsat/3DEP render của mình.",
+ "moc": [
+  {
+   "id": "M1",
+   "nam": 1905,
+   "su_kien": "Đấu giá đất Clark's Las Vegas Townsite của đường sắt SP,LA&SL (15/5/1905), nhà ga đầu Fremont St",
+   "dia_diem": "Nhà ga cũ ở đầu tây Fremont St tại Main St (nay Plaza Hotel)",
+   "lat": 36.1717,
+   "lon": -115.1466,
+   "anh": [
+    {
+     "id": "T4-LOC-2007662544",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/2007662544/",
+     "giay_phep": "LoC rights_advisory: No known restrictions on publication.",
+     "thuong_mai": true,
+     "licence_file": "loc-2007662544.txt",
+     "huong_chup": "ước: nhà ga nhìn từ phía đông/đông nam (chưa xem ảnh lớn — tile.loc.gov 520)",
+     "sha256": null,
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-LOC-91729072",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/91729072/",
+     "giay_phep": "LoC rights_advisory: None",
+     "thuong_mai": "điều kiện",
+     "licence_file": "loc-91729072.txt",
+     "huong_chup": "ước: từ nhà ga nhìn dọc Fremont St về hướng ĐĐN ~118° (theo tiêu đề \"from the depot\" + hướng tuyến OSM)",
+     "sha256": null,
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-LOC-2007662533",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/2007662533/",
+     "giay_phep": "LoC rights_advisory: No known restrictions on publication.",
+     "thuong_mai": true,
+     "licence_file": "loc-2007662533.txt",
+     "huong_chup": "ước: toàn cảnh thị trấn c1910, hướng chưa xác định",
+     "sha256": null,
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-TOPO-1907",
+     "nguon": "USGS Historical Topographic Map Collection (topoView)",
+     "url": "https://www.sciencebase.gov/catalog/item/5a8a4b18e4b00f54eb3ffd0c",
+     "giay_phep": "U.S. Public Domain (USGS); metadata useconst \"None.\"",
+     "thuong_mai": true,
+     "licence_file": "usgs-htmc-las-vegas-1907.txt; usgs-copyrights-and-credits.txt",
+     "huong_chup": "bản đồ, nhìn thẳng đứng",
+     "sha256": "b207336fa3c9cab1b25612e0eefdace54e82e0bf3a5ba530cc90bc8e996f326a",
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    }
+   ],
+   "ghi_chu": "Không tìm thấy ảnh chính buổi đấu giá 1905 có giấy phép rõ trong LoC/NARA phiên này; UNLV có thể có nhưng bị 403 và thường không giữ bản quyền."
+  },
+  {
+   "id": "M2",
+   "nam": 1931,
+   "su_kien": "Hợp pháp hoá cờ bạc ở Nevada (3/1931) + khởi công đập (1931), Boulder City",
+   "dia_diem": "Boulder City / Black Canyon",
+   "lat": 35.9786,
+   "lon": -114.8325,
+   "anh": [
+    {
+     "id": "T4-IA-BOULDERD1931",
+     "nguon": "Prelinger Archives / Internet Archive",
+     "url": "https://archive.org/details/BoulderD1931",
+     "giay_phep": "archive.org licenseurl http://creativecommons.org/licenses/publicdomain/ (Prelinger)",
+     "thuong_mai": "điều kiện",
+     "licence_file": "ia-boulderd1931.txt",
+     "huong_chup": "footage nhiều góc (Boulder City, công trường)",
+     "sha256": "b168b65c44fd6894144d73d4cb1b16a1fe01b600d27758310aef15bcf4e7f6db",
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-LOC-97517305",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/97517305/",
+     "giay_phep": "LoC rights_advisory: No known restrictions on publication.",
+     "thuong_mai": true,
+     "licence_file": "loc-97517305.txt",
+     "huong_chup": "ước: từ vách hẻm nhìn xuống móng đập",
+     "sha256": null,
+     "loai_ly_do": "c",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-NARA-293834",
+     "nguon": "NARA, Records of the Bureau of Reclamation, Construction Photographs (Boulder Canyon Project)",
+     "url": "https://catalog.archives.gov/id/293834",
+     "giay_phep": "NARA useRestriction: Unrestricted (tác phẩm chính phủ liên bang, USBR)",
+     "thuong_mai": true,
+     "licence_file": "nara-293834.txt",
+     "huong_chup": "không ảnh Boulder City 1932, góc chưa xác định (xiên?)",
+     "sha256": "43133feb2bc1ed2e00db186e06816afc2f504f4989db73f2100cae8049870fe7",
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    }
+   ],
+   "ghi_chu": "Fremont St thập niên 1930: chưa có ảnh PD rõ; gần nhất là Rothstein 3/1940 (M4)."
+  },
+  {
+   "id": "M3",
+   "nam": 1936,
+   "su_kien": "Đập Hoover hoàn thành 1935–36, Lake Mead bắt đầu đầy",
+   "dia_diem": "Đập Hoover",
+   "lat": 36.016,
+   "lon": -114.7377,
+   "anh": [
+    {
+     "id": "T4-LOC-96516913",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/96516913/",
+     "giay_phep": "LoC rights_advisory: No known restrictions on publication.",
+     "thuong_mai": true,
+     "licence_file": "loc-96516913.txt",
+     "huong_chup": "ước: mặt thượng lưu, nhìn từ phía hồ/vách bờ, ban đêm",
+     "sha256": null,
+     "loai_ly_do": "d",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-NARA-293901",
+     "nguon": "NARA, Records of the Bureau of Reclamation, Construction Photographs (Boulder Canyon Project)",
+     "url": "https://catalog.archives.gov/id/293901",
+     "giay_phep": "NARA useRestriction: Unrestricted (tác phẩm chính phủ liên bang, USBR)",
+     "thuong_mai": true,
+     "licence_file": "nara-293901.txt",
+     "huong_chup": "theo tiêu đề: nhìn ngược dòng qua hẻm giữa",
+     "sha256": "c08bd05fdb858c772076b55a4a83fb0a34a85e4461592b336854a91100fdec2f",
+     "loai_ly_do": "c",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-NARA-293766",
+     "nguon": "NARA, Records of the Bureau of Reclamation, Construction Photographs (Boulder Canyon Project)",
+     "url": "https://catalog.archives.gov/id/293766",
+     "giay_phep": "NARA useRestriction: Unrestricted (tác phẩm chính phủ liên bang, USBR)",
+     "thuong_mai": true,
+     "licence_file": "nara-293766.txt",
+     "huong_chup": "vách Arizona, góc chưa xác định",
+     "sha256": "8b20090cb6869d4a04a1a5bcd50398b525911c57af96fd85e983add3bd3f1914",
+     "loai_ly_do": "b",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-LOC-2005677820",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/2005677820/",
+     "giay_phep": "LoC rights_advisory: Rights status not evaluated. For general information see \"Copyright and Other Restrictions ...,\" https://www.loc.gov/rr/print/195_copr.html",
+     "thuong_mai": "điều kiện",
+     "licence_file": "loc-2005677820.txt",
+     "huong_chup": "ước: nhìn đập lúc chạng vạng, góc chưa xác định",
+     "sha256": null,
+     "loai_ly_do": "d",
+     "gia_tri": "trung bình"
+    },
+    {
+     "id": "T4-NARA-548975",
+     "nguon": "NARA, Records of the EPA, DOCUMERICA (series 542493)",
+     "url": "https://catalog.archives.gov/id/548975",
+     "giay_phep": "NARA useRestriction: Unrestricted (tác phẩm chính phủ liên bang)",
+     "thuong_mai": true,
+     "licence_file": "nara-548975.txt",
+     "huong_chup": "ước: không ảnh xiên từ phía thượng lưu/bờ Nevada, nhìn về hướng nam–đông nam xuống đập và hẻm Black Canyon (Lake Mead bên trái)",
+     "sha256": "969d4a61c4988ccce4b35238c4844e7b1c01666860fca8ba41ce38f55f121088",
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    }
+   ]
+  },
+  {
+   "id": "M4",
+   "nam": 1941,
+   "su_kien": "Strip đầu tiên (El Rancho Vegas 1941, Flamingo 1946) + dân số bùng nổ thập niên 1950",
+   "dia_diem": "Las Vegas Blvd South gần Sahara Ave",
+   "lat": 36.144,
+   "lon": -115.157,
+   "anh": [
+    {
+     "id": "T4-LOC-2017779911",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/2017779911/",
+     "giay_phep": "LoC rights_advisory: No known restrictions. For information, see U.S. Farm Security Administration/Office of War Information Black & White Photographs https://www.loc.gov/rr/print/res/071_fsab.html",
+     "thuong_mai": true,
+     "licence_file": "loc-2017779911.txt",
+     "huong_chup": "ước: phố Main/Fremont 1940, nhìn dọc phố (đời sống thị trấn ngay trước Strip)",
+     "sha256": null,
+     "loai_ly_do": "b",
+     "gia_tri": "cao"
+    }
+   ],
+   "ghi_chu": "Không có ảnh El Rancho/Flamingo có giấy phép thương mại rõ (LoC trả LOOK \"may be restricted\"; Commons 429). Khuyến nghị dựng 3D từ mô tả có nguồn — \"không dùng ảnh, 3D làm tốt hơn\"."
+  },
+  {
+   "id": "M5",
+   "nam": 1971,
+   "su_kien": "Southern Nevada Water Project: lấy nước Lake Mead (1971) + thời megaresort 1990s",
+   "dia_diem": "Saddle Island (cửa lấy nước #1/#2), Lake Mead",
+   "lat": 36.068,
+   "lon": -114.7994,
+   "anh": [
+    {
+     "id": "T4-NARA-548989",
+     "nguon": "NARA, Records of the EPA, DOCUMERICA (series 542493)",
+     "url": "https://catalog.archives.gov/id/548989",
+     "giay_phep": "NARA useRestriction: Unrestricted (tác phẩm chính phủ liên bang)",
+     "thuong_mai": true,
+     "licence_file": "nara-548989.txt",
+     "huong_chup": "ước: bờ Lake Mead 1972 mực nước cao, hướng chưa xác định",
+     "sha256": "29e3fcf7d5fa00f4712a87a90cc463c3d0e65d225dad22fbcc7b07d40ba1e211",
+     "loai_ly_do": "a",
+     "gia_tri": "trung bình"
+    },
+    {
+     "id": "T4-NARA-549008",
+     "nguon": "NARA, Records of the EPA, DOCUMERICA (series 542493)",
+     "url": "https://catalog.archives.gov/id/549008",
+     "giay_phep": "NARA useRestriction: Unrestricted (tác phẩm chính phủ liên bang)",
+     "thuong_mai": "điều kiện",
+     "licence_file": "nara-549008.txt",
+     "huong_chup": "ước: phố motel Las Vegas 1972, nhìn dọc phố",
+     "sha256": "5fc5b1ab9180e745ca381778e46fe77e49ea7a42c698c2bd2b066e55bd99b091",
+     "loai_ly_do": "b",
+     "gia_tri": "trung bình"
+    }
+   ],
+   "ghi_chu": "Chưa tìm ảnh công trình SNWP 1971 có giấy phép (USBR Flickr cần API key; usbr.gov gallery 403). Tuyến 3D water_main từ OSM."
+  },
+  {
+   "id": "M6",
+   "nam": 2022,
+   "su_kien": "Hạn hán 2002–2022, Lake Mead tụt, bathtub ring; Third Intake (2015), Low Lake Level Pumping Station (2020)",
+   "dia_diem": "Lake Mead gần Boulder City / Saddle Island",
+   "lat": 36.06,
+   "lon": -114.8,
+   "anh": [
+    {
+     "id": "T4-LOC-2023697161",
+     "nguon": "Library of Congress Prints & Photographs",
+     "url": "https://www.loc.gov/item/2023697161/",
+     "giay_phep": "LoC rights_advisory: No known restrictions on publication.",
+     "thuong_mai": true,
+     "licence_file": "loc-2023697161.txt",
+     "huong_chup": "ước: từ bờ gần Boulder City nhìn ra hồ, bathtub ring thấy rõ",
+     "sha256": null,
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-COMMONS-BATHTUB-2026",
+     "nguon": "Wikimedia Commons (Christian David)",
+     "url": "https://commons.wikimedia.org/wiki/File:Lake_Mead_and_its_bathtub_ring_upstream_of_Hoover_Dam,_Black_Canyon,_Arizona-Nevada.jpg (tên tệp CHỜ XÁC MINH — kết quả search bị cắt 80 ký tự)",
+     "giay_phep": "CC BY-SA 4.0 (extmetadata đọc 1 lần lúc 15:4x UTC; sau đó API 429)",
+     "thuong_mai": "điều kiện",
+     "licence_file": null,
+     "huong_chup": "ước: thượng lưu đập nhìn bathtub ring (CHỜ XÁC MINH)",
+     "sha256": null,
+     "loai_ly_do": "a",
+     "gia_tri": "trung bình"
+    }
+   ],
+   "ghi_chu": "Lớp chính nên là Landsat 2000 vs 2022 (cùng path/row, mây <10 % cả hai năm) + mặt nước theo cao trình USBR."
+  },
+  {
+   "id": "M7",
+   "nam": 2026,
+   "su_kien": "2026: quyết định vận hành hậu-2026 (ROD) / mực nước + chương trình gỡ cỏ (turf)",
+   "dia_diem": "Thung lũng + Lake Mead",
+   "lat": 36.15,
+   "lon": -115.15,
+   "anh": [
+    {
+     "id": "T4-LANDSAT-OLI-2026",
+     "nguon": "USGS Landsat Collection 2 qua Microsoft Planetary Computer",
+     "url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/landsat-c2-l2/items/LC09_L2SP_039035_20261002_02_T1",
+     "giay_phep": "Public domain (USGS)",
+     "thuong_mai": true,
+     "licence_file": "landsat-usgs-data-policy.txt",
+     "huong_chup": "vệ tinh nhìn thẳng đứng",
+     "sha256": "c0401127417b0be48113aacf125b078dbf483e667f769955ea76c56a30b50049",
+     "loai_ly_do": "a",
+     "gia_tri": "cao"
+    },
+    {
+     "id": "T4-NAIP-2022-STRIP",
+     "nguon": "USDA FSA NAIP qua USGS The National Map USGSNAIPPlus",
+     "url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer",
+     "giay_phep": "Public domain (USDA FSA; \"U. S. Department of Agriculture, Farm Service Agency\" được đề nghị ghi)",
+     "thuong_mai": true,
+     "licence_file": "naip-fsa-policies.txt; naip-usgsnaipplus-service.txt",
+     "huong_chup": "hàng không nhìn thẳng đứng (2022; NAIP 2010 trên PC cho so sánh cỏ trước/sau)",
+     "sha256": "37cd5fe34a4128cb9691773ce0e42539840d8c5c57fa51480ca22ad8f9911976",
+     "loai_ly_do": "c",
+     "gia_tri": "cao"
+    }
+   ],
+   "ghi_chu": "Hiện tại ưu tiên 3D + NAIP/Landsat; không cần ảnh stock. Turf: so NAIP 2010↔2022 (CNIR có băng NIR → tách cỏ xanh)."
+  }
+ ],
+ "then_now": [
+  {
+   "id": "TN1",
+   "ten": "Đập Hoover + Lake Mead 1972 → nay",
+   "then": "T4-NARA-548975",
+   "now": "render của mình: DEM USGS 3DEP n37w115 (T4-DEM-N37W115) + NAIP 2022 phủ lên + mặt nước đặt theo cao trình USBR năm chọn; kiểm bằng Landsat 2026 (T4-LANDSAT-OLI-2026)",
+   "lat": 36.02,
+   "lon": -114.74,
+   "huong": "ước: máy bay phía bắc/tây bắc đập, nhìn nam–đông nam; cao độ máy ước 600–900 m trên mặt hồ (suy từ kích thước tháp lấy nước trong khung) — cần so khớp bằng camera solve trên DEM",
+   "ghi_chu": "Góc khớp được vì địa hình hẻm cố định; vạch nước 1972 vs nay cho thấy bathtub ring."
+  },
+  {
+   "id": "TN2",
+   "ten": "Fremont Street từ nhà ga, 1910s → nay",
+   "then": "T4-LOC-91729072 (rights cần chủ dự án đối chiếu)",
+   "now": "render 3D của mình dọc tuyến OSM Fremont (route_fremont.geojson) + NAIP 2022; không dùng Google Street View",
+   "lat": 36.1717,
+   "lon": -115.1466,
+   "huong": "ước: nhìn ĐĐN ~118° dọc Fremont St, tầm mắt người",
+   "ghi_chu": "Chỉ giữ cặp này nếu ảnh lớn (khi tile.loc.gov hoạt động) cho thấy đúng hướng; nếu không khớp thì bỏ — không tìm thêm."
+  }
+ ],
+ "tuyen_bay": [
+  {
+   "id": "TB-fremont",
+   "ten": "Fremont Street: nhà ga cũ/Main St → đông tới Eastern Ave",
+   "nguon_hinh_hoc": "OpenStreetMap qua Overpass (maps.mail.ru), 59 way; tim đường gộp hai chiều xe bằng trung bình theo bin 0,0004°",
+   "giay_phep": "ODbL 1.0 — ghi \"© OpenStreetMap contributors\"",
+   "so_diem": 64,
+   "do_dai_km": 2.83,
+   "geojson_sha256": "7958b439b6b45d6db146f68cacd1dd0b5e37f3084764981707f43aba82360ea5",
+   "geojson": "assets/osm/route_fremont.geojson",
+   "ghi_chu": "Bắt đầu [-115.1463147, 36.171684], kết thúc [-115.1185028, 36.1597014]; hướng đoạn đầu ~118°. Fremont lịch sử (1905) chỉ vài khối đầu (Main→5th St/Las Vegas Blvd ~0,6 km)."
+  },
+  {
+   "id": "TB-strip",
+   "ten": "Las Vegas Boulevard South (Strip): Sahara Ave → Mandalay Bay",
+   "nguon_hinh_hoc": "OpenStreetMap qua Overpass (maps.mail.ru), 188 way; tim đường gộp hai chiều xe bằng trung bình theo bin 0,0004°",
+   "giay_phep": "ODbL 1.0 — ghi \"© OpenStreetMap contributors\"",
+   "so_diem": 127,
+   "do_dai_km": 6.54,
+   "geojson_sha256": "41a2cb47b77ec0b399ef7172c8d906e720792a0365bd852a486db004ab43a606",
+   "geojson": "assets/osm/route_strip.geojson",
+   "ghi_chu": "Bắt đầu [-115.1568911, 36.1444261] (Sahara), kết thúc [-115.1728856, 36.0901839] (Mandalay Bay, ~Russell Rd không tính). 188 đoạn way."
+  },
+  {
+   "id": "TB-water_main",
+   "ten": "Tuyến nước: cửa lấy nước Intake #3 (Lake Mead) → Saddle Island → hầm River Mountains → thung lũng",
+   "nguon_hinh_hoc": "OpenStreetMap qua Overpass (maps.mail.ru)",
+   "giay_phep": "ODbL 1.0 — ghi \"© OpenStreetMap contributors\"",
+   "so_diem": 32,
+   "do_dai_km": 16.82,
+   "geojson_sha256": "b0d5194f4009b2e3aa9e6eba5f81a32b4636ce2c288badd48b5ce57159e0e603",
+   "geojson": "assets/osm/route_water_main.geojson",
+   "ghi_chu": "Gồm đoạn nối thẳng giả định 4.55 km (OSM không gắn tên đoạn ống giữa nhà máy AMSWTF/RMWTF và hầm). Không phải tuyến SNWP 1971 nguyên bản — đường ống 1971 chưa có hình học kiểm được."
+  },
+  {
+   "id": "TB-water",
+   "ten": "Mạng ống nước SNWA (tất cả way man_made=pipeline trong vùng Lake Mead–Henderson)",
+   "nguon_hinh_hoc": "OpenStreetMap qua Overpass (maps.mail.ru)",
+   "giay_phep": "ODbL 1.0 — ghi \"© OpenStreetMap contributors\"",
+   "so_diem": 277,
+   "do_dai_km": 67.94,
+   "geojson_sha256": "731f0a4b280896e7fb0b81b1a1ec50747ab87c2dfb6767f7033e2c525e23acfa",
+   "geojson": "assets/osm/route_water.geojson",
+   "ghi_chu": "Tổng chiều dài cộng mọi đoạn (có trùng/song song) — chỉ dùng làm tham chiếu."
+  },
+  {
+   "id": "TB-sanborn-1923",
+   "ten": "Lưới phố downtown 1923 (để bay \"thời Sanborn\")",
+   "nguon_hinh_hoc": "Sanborn 1923 LoC (PD) — chưa số hoá",
+   "giay_phep": "PD (xuất bản 1923)",
+   "so_diem": null,
+   "do_dai_km": null,
+   "geojson_sha256": null,
+   "ghi_chu": "Tuỳ chọn; tile.loc.gov 520 khi thử tải."
+  }
+ ]
+}

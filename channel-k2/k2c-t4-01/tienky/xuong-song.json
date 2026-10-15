@@ -1,0 +1,1228 @@
+{
+ "note": "Phiên phụ DỮ LIỆU T4, 15/10/2026. bbox thung lũng dùng chung: lon -115.35…-114.95, lat 35.98…36.33 (Las Vegas, North Las Vegas, Henderson, Paradise/Strip, Boulder City phía nam một phần; không gồm Lake Mead phía đông -114.95). Mọi số là số đo thật trong phiên này (API/tệp). Landsat đếm qua Planetary Computer STAC (intersects điểm -115.15,36.15; WRS-1 042/035 và WRS-2 039/035).",
+ "nguon": [
+  {
+   "id": "clv-parcels",
+   "ten": "City of Las Vegas — CLV Parcel and Property Assessment Records (bảng, không hình học; khoá APN=PARCEL)",
+   "giay_phep": "Không có giấy phép mở; licenseInfo chỉ là disclaimer \"makes no warranty…\". Dữ liệu là hồ sơ công (năm xây là sự kiện, không có bản quyền ở Mỹ), nhưng không có câu cấp quyền thương mại → VÀNG, chủ dự án duyệt",
+   "thuong_mai": "điều kiện",
+   "ghi_cong": "nên ghi \"City of Las Vegas Open Data\"",
+   "truong_nam": "CONSTYR (năm xây của công trình HIỆN CÓ trên thửa), ASSDYR",
+   "nam_som_nhat": 1901,
+   "do_phu": "302 313 dòng; 272 088 có CONSTYR>0 (90,0 %); trong ranh thành phố (WARD>0) 211 995 dòng, 190 487 có năm (89,9 %); <1950: 2 829 (toàn bảng) / 2 412 (trong thành phố); <1932: 61 trong thành phố. Theo thập niên: {\"1900\": 1, \"1910\": 3, \"1920\": 38, \"1930\": 255, \"1940\": 2532, \"1950\": 12237, \"1960\": 22278, \"1970\": 25289, \"1980\": 35014, \"1990\": 70644, \"2000\": 62805, \"2010\": 19445, \"2020\": 21547}",
+   "so_toa": "302 313 thửa (gồm căn hộ condo tách thửa) — chỉ City of Las Vegas + một phần vùng lân cận (WARD=0: 90 318); KHÔNG phủ Paradise/Strip đầy đủ (book 162: 16 737 dòng)",
+   "cach_tai": "ArcGIS REST https://services1.arcgis.com/F1v0ufATbBQScMtY/arcgis/rest/services/parcels/FeatureServer/0/query (returnCountOnly, groupBy CONSTYR chạy được; maxRecordCount 2000; xuất csv/geojson qua Hub). Ghép hình học bằng APN với Clark County Assessor/Layers/MapServer/1 (951 761 thửa toàn hạt; 830 474 trong bbox; không có trường năm)",
+   "mau_sha256": "116531fe6b277fc217468036fa6c99d7643d9c66b5cd7cf8d2ea2e2102574085 (truy vấn mẫu 5 dòng <1932, 1 993 byte); groupBy CONSTYR lưu _clv_constyr_hist.json",
+   "ket_luan": "Nguồn năm xây THẬT duy nhất miễn phí tìm được, nhưng chỉ cho City of Las Vegas; Strip (Paradise, unincorporated) và Henderson/NLV không có. Bảng có cột OWNER/ADDRESS — không lưu/không hiển thị (dữ liệu cá nhân). Có dòng nghi sai (vd thửa 1924 với LANDUSE 710000)."
+  },
+  {
+   "id": "clark-assessor",
+   "ten": "Clark County Assessor / GISMO (parcels toàn hạt)",
+   "giay_phep": "Lớp REST công khai (maps.clarkcountynv.gov Assessor/Layers, GISMO/AssessorMapv2): không ghi giấy phép, chỉ có hình học+APN. Bộ \"Assessor's Parcel Data\" có thuộc tính: phải MUA ($50/section, $2 500 toàn hạt) hoặc thuê bao $7 500/năm kèm GIS Data Subscriber License Agreement, cam kết \"data may not be resold, and is attained solely for the use of that Company/Agency\"; văn bản License Agreement chưa đọc được",
+   "thuong_mai": "điều kiện (phải mua + đọc License Agreement; dùng dẫn xuất trong phim có thể được nhưng chưa xác minh)",
+   "ghi_cong": "chưa rõ",
+   "truong_nam": "Không có trong lớp REST công khai; bộ mua được mô tả \"ownership, mailing address, location, land use and valuation\" — KHÔNG nêu year built (bên thứ ba LandRecords khai có year built, số liệu mâu thuẫn — CHỜ XÁC MINH)",
+   "nam_som_nhat": null,
+   "do_phu": "—",
+   "so_toa": "951 761 thửa toàn hạt; 830 474 thửa giao bbox thung lũng (returnCountOnly)",
+   "cach_tai": "REST hình học miễn phí; thuộc tính: liên hệ GISMO (điện thoại/email trên trang data-for-purchase)",
+   "mau_sha256": "2174de7dc08de251a5a0a8ce805eb55cfb631bccad17070d034f0fe9b44bd055 (returnCountOnly toàn hạt)",
+   "ket_luan": "Không dùng được ngay cho \"năm xây toàn thung lũng\". Việc chờ chủ dự án: quyết định có mua/xin license không."
+  },
+  {
+   "id": "osm",
+   "ten": "OpenStreetMap buildings (Overpass, mirror maps.mail.ru; overpass-api.de 500/504, kumi 500, private.coffee 500)",
+   "giay_phep": "ODbL 1.0",
+   "thuong_mai": true,
+   "ghi_cong": "\"© OpenStreetMap contributors\" + nêu ODbL; share-alike cho CƠ SỞ DỮ LIỆU dẫn xuất công bố (hình ảnh render là \"Produced Work\": chỉ cần ghi công)",
+   "truong_nam": "start_date / building:year (hiếm)",
+   "nam_som_nhat": "0 toà có start_date trước 1950 (regex ^1[89][0-4]x)",
+   "do_phu": "start_date: 66 / 321611 way (≈0.021 %); building:year/year_built/construction_date: hết giờ 504 sau 3 lần — chưa đếm",
+   "so_toa": "321611 way building + 372 relation trong bbox",
+   "cach_tai": "Overpass \"out count\" (đã chạy); tải toàn bộ: Geofabrik nevada-latest.osm.pbf (từ container: kết nối bị cắt — chưa tải)",
+   "mau_sha256": "GeoJSON tuyến bay (xem hinh-xuong-song.json)",
+   "ket_luan": "Footprint tốt, gần như KHÔNG có năm → không dùng cho trục thời gian."
+  },
+  {
+   "id": "ms-global-ml-buildings",
+   "ten": "Microsoft Global ML Building Footprints (release 2026-02-03; USBuildingFootprints v2 blob trả 409 \"Public access is not permitted\")",
+   "giay_phep": "CDLA Permissive 2.0 (README: \"This data is licensed by Microsoft under the CDLA Permissive 2.0\") — KHÔNG phải ODbL như giả định trong đề bài",
+   "thuong_mai": true,
+   "ghi_cong": "CDLA-P 2.0 yêu cầu kèm văn bản giấy phép khi chia sẻ Data; với hình render (Results) không ràng buộc — vẫn ghi \"Microsoft Building Footprints\"",
+   "truong_nam": "Không (có height ước lượng, confidence)",
+   "nam_som_nhat": null,
+   "do_phu": "height có ở 663123/663154 toà (giá trị -1 = không có)",
+   "so_toa": "663154 toà trong bbox (4 tile quadkey z9: 737684 toà); diện tích trung vị 204 m²; ≥100 m²: 599427; ≥500: 41661; ≥1000: 11214; ≥2000: 4878; ≥5000: 1649; ≥10 000: 640; tổng mái 187.6 km²",
+   "cach_tai": "dataset-links.csv → 4 tệp csv.gz quadkey 023013011/013/100/102 (≈85 MB)",
+   "mau_sha256": "0bbeff37cb307706427df934b5443c2c9d0ec00d2b0a781df7a0220ea8563be3 (quadkey 023013100, 60 MB)",
+   "ket_luan": "Footprint + chiều cao cho cảnh NOW và để đùn khối; không có năm."
+  },
+  {
+   "id": "overture-buildings",
+   "ten": "Overture Maps buildings release 2026-09-23.1",
+   "giay_phep": "ODbL-1.0 (STAC collection) — theme buildings gộp OSM (ODbL) + Microsoft ML (CDLA-P) + nguồn khác",
+   "thuong_mai": true,
+   "ghi_cong": "\"© OpenStreetMap contributors, Overture Maps Foundation\" + nguồn từng dòng (sources[].dataset)",
+   "truong_nam": "Không có cột năm (cột: id, names, sources, level, height, min_height, num_floors, …, roof_*, geometry)",
+   "nam_som_nhat": null,
+   "do_phu": "height: MS 334716/346677, OSM 240295/318429; num_floors chỉ 3218 (OSM)",
+   "so_toa": "665106 toà trong bbox (MS 346677, OSM 318429)",
+   "cach_tai": "DuckDB đọc s3://overturemaps-us-west-2 (ẩn danh; phải bỏ AWS key do proxy gắn) lọc bbox, 125 s",
+   "mau_sha256": "(truy vấn đếm, không tải tệp; kết quả _overture_counts.json)",
+   "ket_luan": "Bản footprint hợp nhất tốt nhất cho NOW (ít trùng lặp hơn ghép MS+OSM thủ công)."
+  },
+  {
+   "id": "hisdac-us-fbuy-v2",
+   "ten": "HISDAC-US FBUY v2 — First built-up year, 250 m, 1810–2020 (Ahn, Leyk, Uhl, McShane 2023; doi:10.7910/DVN/HHFM5E)",
+   "giay_phep": "CC0 1.0 (Harvard Dataverse). Nguồn gốc ZTRAX (c) Zillow — chương trình ZTRAX có điều khoản hạn chế, nhưng bản lưới dẫn xuất được tác giả phát hành CC0",
+   "thuong_mai": true,
+   "ghi_cong": "không bắt buộc; nên trích dẫn Leyk & Uhl 2018",
+   "truong_nam": "năm xây sớm nhất trong ô 250 m",
+   "nam_som_nhat": 1901,
+   "do_phu": "15897 ô có năm trong bbox (~994 km²); tích luỹ số ô: {\"1905\": 2, \"1910\": 2, \"1920\": 16, \"1930\": 58, \"1940\": 152, \"1950\": 509, \"1960\": 1323, \"1970\": 2749, \"1980\": 4956, \"1990\": 7150, \"2000\": 11104, \"2010\": 14852, \"2015\": 15195, \"2020\": 15819}",
+   "so_toa": "không theo toà (ô 250 m)",
+   "cach_tai": "https://dataverse.harvard.edu/api/access/datafile/7337822 (FBUY.tif 39,7 MB, EPSG:5070)",
+   "mau_sha256": "69c9f7c64c15704cb34640110cae934ceb8bc0b30281e76fe2ddc363abd9d8d2",
+   "ket_luan": "Tốt nhất cho \"vùng đô thị mọc theo năm\" 1905→2020 ở 250 m; bị survivorship bias (chỉ toà còn tồn tại khi lập ZTRAX), Las Vegas thời 1905–1930 gần như trống (2 ô ≤1910, 58 ô ≤1930) — đúng về quy mô nhưng thiếu các toà đã phá."
+  },
+  {
+   "id": "hisdac-us-bufa",
+   "ten": "HISDAC-US BUFA — Historical building footprint area 1900–2010 theo thập niên (doi:10.7910/DVN/HXQWNJ)",
+   "giay_phep": "CC0 1.0",
+   "thuong_mai": true,
+   "ghi_cong": "nên trích dẫn",
+   "truong_nam": "mỗi tệp một thập niên",
+   "nam_som_nhat": 1900,
+   "do_phu": "CONUS, 12 tệp 6,8–40 MB",
+   "so_toa": "diện tích footprint/ô, không theo toà",
+   "cach_tai": "Dataverse; chưa tải (FBUY đủ cho đánh giá)",
+   "mau_sha256": null,
+   "ket_luan": "Thay thế/bổ sung FBUY nếu muốn mật độ thay vì nhị phân."
+  },
+  {
+   "id": "mtbf-33",
+   "ten": "MTBF-33 (Uhl & Leyk 2022, Data in Brief; Mendeley Data doi:10.17632/w33vbvjtdy)",
+   "giay_phep": "bài báo CC BY 4.0; giấy phép dữ liệu trên Mendeley: CHƯA ĐỌC ĐƯỢC (Mendeley 403 Cloudflare)",
+   "thuong_mai": "không liên quan",
+   "ghi_cong": "—",
+   "truong_nam": "năm xây từng footprint",
+   "nam_som_nhat": 1900,
+   "do_phu": "33 hạt: Boulder CO; Hillsborough, Manatee, Sarasota FL; Vanderburgh IN; Baltimore MD; 14 hạt MA; 6 hạt MN; Monmouth NJ; 5 quận NYC; Mecklenburg NC (theo PMC9233215 qua WebFetch)",
+   "so_toa": "6,2 triệu toà (cả 33 hạt)",
+   "cach_tai": "—",
+   "mau_sha256": null,
+   "ket_luan": "Clark County NV KHÔNG có trong MTBF-33 → loại."
+  },
+  {
+   "id": "annual-nlcd",
+   "ten": "USGS Annual NLCD Collection 1.2 (1985–2025, 30 m; Land Cover + Fractional Impervious)",
+   "giay_phep": "USGS public domain; metadata useconst \"None.\"",
+   "thuong_mai": true,
+   "ghi_cong": "U.S. Geological Survey, Annual NLCD (doi:10.5066/P94UXNTS)",
+   "truong_nam": "mỗi năm một raster",
+   "nam_som_nhat": 1985,
+   "do_phu": "CONUS hằng năm 1985–2025 (41 năm)",
+   "so_toa": "không theo toà",
+   "cach_tai": "ScienceBase item 697b907eb66b0197c3043c9f: mỗi năm 1 zip 0,77–0,98 GB (CONUS) → vượt trần đĩa phiên này, CHƯA TẢI bản annual. Đã tải thử NLCD 2021 Impervious qua WCS mrlc_download (cắt bbox, 1518x1426, 2,4 MB): 921,6 km² ô ≥20 % không thấm",
+   "mau_sha256": "aebca042fb3593402bd4a3cf81e60125e318ddd9e872fc76de0cd3e49a7603e0",
+   "ket_luan": "Lớp chính cho \"mọc theo năm\" 1985–2025; cần một phiên/đĩa riêng tải 41 zip (≈35 GB) hoặc 6–8 năm mốc (≈6 GB) rồi cắt bbox."
+  },
+  {
+   "id": "ghsl-built-s-r2023a",
+   "ten": "GHSL GHS-BUILT-S R2023A (JRC), 100 m, 1975–2030 mỗi 5 năm",
+   "giay_phep": "\"Reuse is authorised, provided the source is acknowledged\" (Quyết định 2011/833/EU); báo cáo CC BY 4.0",
+   "thuong_mai": true,
+   "ghi_cong": "bắt buộc: \"© European Union, 2023, GHSL (JRC)\"; không hàm ý EU bảo trợ",
+   "truong_nam": "mỗi epoch một raster",
+   "nam_som_nhat": 1975,
+   "do_phu": "diện tích xây dựng trong bbox (km² mái): {\"1975\": 86.3, \"1990\": 101.3, \"2000\": 180.6, \"2020\": 286.2, \"2025\": 293.3}",
+   "so_toa": "không theo toà",
+   "cach_tai": "tile R5_C8 Mollweide 100 m, ~8–10 MB/epoch (đã tải 1975, 1990, 2000, 2020, 2025)",
+   "mau_sha256": "ba2a8ffe681225adacee3a6aef84c16bee09fee9074a65751ef6560e926882ec",
+   "ket_luan": "Kiểm chéo HISDAC/NLCD; 1975 GHSL dựa Landsat MSS, độ tin thấp; nhiễu nhiều ô giá trị nhỏ."
+  },
+  {
+   "id": "landsat-series",
+   "ten": "Landsat MSS/TM/ETM+/OLI 1972–2026 (lớp kiểm chứng ảnh)",
+   "giay_phep": "USGS public domain",
+   "thuong_mai": true,
+   "ghi_cong": "Landsat imagery courtesy of the U.S. Geological Survey",
+   "truong_nam": "ngày chụp",
+   "nam_som_nhat": 1972,
+   "do_phu": "55/55 năm 1972–2026 đều có ≥1 cảnh mây <10 % (xem landsat_theo_nam)",
+   "so_toa": "—",
+   "cach_tai": "Planetary Computer STAC (không đăng nhập; blob cần SAS token miễn phí)",
+   "mau_sha256": "c28a1c7a563489496b1e6134f63a26934acc0f1abd13551b62db5018dd94e8e5",
+   "ket_luan": "Lớp then/now và kiểm chứng ranh đô thị hằng năm. ETM+ sau 31/5/2003 có sọc SLC-off; L7 2022–2023 quỹ đạo trôi."
+  },
+  {
+   "id": "usgs-htmc-sanborn",
+   "ten": "Bản đồ lịch sử: USGS topo 1907/1908/1952/1954/1967/1973 + Sanborn 1923 (LoC)",
+   "giay_phep": "PD (USGS; Sanborn xuất bản 1923)",
+   "thuong_mai": true,
+   "ghi_cong": "USGS / Library of Congress",
+   "truong_nam": "năm in",
+   "nam_som_nhat": 1907,
+   "do_phu": "mốc rời",
+   "so_toa": "Sanborn: từng toà downtown 1923 (số tờ chưa đếm)",
+   "cach_tai": "prd-tnm S3; LoC tile (520 khi thử)",
+   "mau_sha256": "b207336fa3c9cab1b25612e0eefdace54e82e0bf3a5ba530cc90bc8e996f326a",
+   "ket_luan": "Số hoá tay downtown 1923 cho cảnh \"1905–1930 mọc từng toà\" ở quy mô nhỏ (vài trăm toà)."
+  }
+ ],
+ "landsat_theo_nam": [
+  {
+   "nam": 1972,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 5,
+     "may_duoi_10": 4,
+     "canh_tot_nhat": "LM01_L1TP_042035_19720913_02_T2",
+     "may_pct": 4.0
+    }
+   }
+  },
+  {
+   "nam": 1973,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 12,
+     "may_duoi_10": 7,
+     "canh_tot_nhat": "LM01_L1TP_042035_19731014_02_T2",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1974,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 13,
+     "may_duoi_10": 10,
+     "canh_tot_nhat": "LM01_L1TP_042035_19741027_02_T2",
+     "may_pct": 1.0
+    }
+   }
+  },
+  {
+   "nam": 1975,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 13,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LM01_L1TP_042035_19751022_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L2": {
+     "tong": 14,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LM02_L1TP_042035_19751206_02_T2",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1976,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 12,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LM01_L1GS_042035_19760928_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L2": {
+     "tong": 19,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LM02_L1TP_042035_19761130_02_T2",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1977,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 8,
+     "may_duoi_10": 7,
+     "canh_tot_nhat": "LM01_L1TP_042035_19771219_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L2": {
+     "tong": 20,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LM02_L1TP_042035_19771213_02_T2",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1978,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L1": {
+     "tong": 1,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LM01_L1GS_042035_19780106_02_T2",
+     "may_pct": 9.0
+    },
+    "MSS/L2": {
+     "tong": 14,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LM02_L1TP_042035_19781226_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L3": {
+     "tong": 9,
+     "may_duoi_10": 4,
+     "canh_tot_nhat": "LM03_L1TP_042035_19780831_02_T2",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1979,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L2": {
+     "tong": 11,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LM02_L1TP_042035_19791028_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L3": {
+     "tong": 13,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LM03_L1TP_042035_19791212_02_T2",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1980,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L2": {
+     "tong": 10,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LM02_L1TP_042035_19801215_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L3": {
+     "tong": 10,
+     "may_duoi_10": 2,
+     "canh_tot_nhat": "LM03_L1TP_042035_19800627_02_T2",
+     "may_pct": 3.0
+    }
+   }
+  },
+  {
+   "nam": 1981,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L2": {
+     "tong": 16,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LM02_L1TP_042035_19811104_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L3": {
+     "tong": 1,
+     "may_duoi_10": 0,
+     "canh_tot_nhat": null,
+     "may_pct": null
+    }
+   }
+  },
+  {
+   "nam": 1982,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L2": {
+     "tong": 1,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LM02_L1TP_042035_19820115_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L3": {
+     "tong": 8,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LM03_L1TP_042035_19821021_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L4": {
+     "tong": 4,
+     "may_duoi_10": 3,
+     "canh_tot_nhat": "LM04_L1TP_039035_19821228_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L4": {
+     "tong": 1,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LT04_L2SP_039035_19821212_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1983,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L4": {
+     "tong": 18,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LM04_L1TP_039035_19831231_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L4": {
+     "tong": 1,
+     "may_duoi_10": 0,
+     "canh_tot_nhat": null,
+     "may_pct": null
+    }
+   }
+  },
+  {
+   "nam": 1984,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L4": {
+     "tong": 5,
+     "may_duoi_10": 3,
+     "canh_tot_nhat": "LM04_L1TP_039035_19840320_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L5": {
+     "tong": 12,
+     "may_duoi_10": 8,
+     "canh_tot_nhat": "LM05_L1TP_039035_19841022_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 6,
+     "may_duoi_10": 4,
+     "canh_tot_nhat": "LT05_L2SP_039035_19841022_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1985,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L5": {
+     "tong": 19,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LM05_L1TP_039035_19850822_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 15,
+     "may_duoi_10": 8,
+     "canh_tot_nhat": "LT05_L2SP_039035_19850822_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1986,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L4": {
+     "tong": 4,
+     "may_duoi_10": 4,
+     "canh_tot_nhat": "LM04_L1TP_039035_19861105_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L5": {
+     "tong": 21,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LM05_L1TP_039035_19861113_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LT05_L2SP_039035_19861113_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1987,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L5": {
+     "tong": 20,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LM05_L1TP_039035_19871116_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 18,
+     "may_duoi_10": 10,
+     "canh_tot_nhat": "LT05_L2SP_039035_19871015_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1988,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L5": {
+     "tong": 17,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LM05_L1TP_039035_19881017_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 14,
+     "may_duoi_10": 10,
+     "canh_tot_nhat": "LT05_L2SP_039035_19881017_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1989,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L4": {
+     "tong": 1,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LM04_L1TP_039035_19890622_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L4": {
+     "tong": 1,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LT04_L2SP_039035_19890606_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 14,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LT05_L2SP_039035_19891004_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1990,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L4": {
+     "tong": 4,
+     "may_duoi_10": 2,
+     "canh_tot_nhat": "LT04_L2SP_039035_19900524_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 13,
+     "may_duoi_10": 6,
+     "canh_tot_nhat": "LT05_L2SP_039035_19901023_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1991,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 17,
+     "may_duoi_10": 8,
+     "canh_tot_nhat": "LT05_L2SP_039035_19911111_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1992,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "MSS/L4": {
+     "tong": 5,
+     "may_duoi_10": 5,
+     "canh_tot_nhat": "LM04_L1TP_039035_19920817_02_T2",
+     "may_pct": 0.0
+    },
+    "MSS/L5": {
+     "tong": 12,
+     "may_duoi_10": 8,
+     "canh_tot_nhat": "LM05_L1TP_039035_19921012_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L4": {
+     "tong": 3,
+     "may_duoi_10": 2,
+     "canh_tot_nhat": "LT04_L2SP_039035_19920630_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 21,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LT05_L2SP_039035_19921113_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1993,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 20,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LT05_L2SP_039035_19930929_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1994,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LT05_L2SP_039035_19940916_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1995,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 23,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LT05_L2SP_039035_19951208_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1996,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LT05_L2SP_039035_19961124_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1997,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 21,
+     "may_duoi_10": 10,
+     "canh_tot_nhat": "LT05_L2SP_039035_19971026_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1998,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LT05_L2SP_039035_19981216_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 1999,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 12,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LE07_L2SP_039035_19991227_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 23,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LT05_L2SP_039035_19991016_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2000,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LE07_L2SP_039035_20000924_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 18,
+     "may_duoi_10": 8,
+     "canh_tot_nhat": "LT05_L2SP_039035_20001221_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2001,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LE07_L2SP_039035_20011013_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 23,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LT05_L2SP_039035_20010818_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2002,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LE07_L2SP_039035_20021016_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 20,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LT05_L2SP_039035_20021024_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2003,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 21,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LE07_L2SP_039035_20030917_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 7,
+     "canh_tot_nhat": "LT05_L2SP_039035_20031011_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2004,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LE07_L2SP_039035_20041224_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LT05_L2SP_039035_20041013_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2005,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LE07_L2SP_039035_20050922_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 21,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LT05_L2SP_039035_20051117_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2006,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LE07_L2SP_039035_20061112_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 21,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LT05_L2SP_039035_20061206_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2007,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LE07_L2SP_039035_20071115_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 17,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LT05_L2SP_039035_20070718_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2008,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LE07_L2SP_039035_20081203_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 21,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LT05_L2SP_039035_20081008_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2009,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LE07_L2SP_039035_20091104_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 21,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LT05_L2SP_039035_20091011_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2010,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LE07_L2SP_039035_20100920_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LT05_L2SP_039035_20101115_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2011,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LE07_L2SP_039035_20111126_02_T1",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 20,
+     "may_duoi_10": 9,
+     "canh_tot_nhat": "LT05_L2SP_039035_20111102_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2012,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LE07_L2SP_039035_20121027_02_T1",
+     "may_pct": 0.0
+    },
+    "MSS/L5": {
+     "tong": 15,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LM05_L1TP_039035_20121222_02_T2",
+     "may_pct": 0.0
+    },
+    "TM/L5": {
+     "tong": 1,
+     "may_duoi_10": 0,
+     "canh_tot_nhat": null,
+     "may_pct": null
+    }
+   }
+  },
+  {
+   "nam": 2013,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LE07_L2SP_039035_20131115_02_T1",
+     "may_pct": 0.0
+    },
+    "MSS/L5": {
+     "tong": 1,
+     "may_duoi_10": 1,
+     "canh_tot_nhat": "LM05_L1TP_039035_20130107_02_T2",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 17,
+     "may_duoi_10": 10,
+     "canh_tot_nhat": "LC08_L2SP_039035_20130531_02_T1",
+     "may_pct": 0.03
+    }
+   }
+  },
+  {
+   "nam": 2014,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LE07_L2SP_039035_20141118_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LC08_L2SP_039035_20140923_02_T1",
+     "may_pct": 0.01
+    }
+   }
+  },
+  {
+   "nam": 2015,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LE07_L2SP_039035_20151121_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LC08_L2SP_039035_20150724_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2016,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LE07_L2SP_039035_20161123_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 22,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LC08_L2SP_039035_20160912_02_T1",
+     "may_pct": 0.02
+    }
+   }
+  },
+  {
+   "nam": 2017,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LE07_L2SP_039035_20171212_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LC08_L2SP_039035_20170814_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2018,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LE07_L2SP_039035_20180926_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 16,
+     "canh_tot_nhat": "LC08_L2SP_039035_20180918_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2019,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 22,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LE07_L2SP_039035_20191116_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LC08_L2SP_039035_20190820_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2020,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 23,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LE07_L2SP_039035_20201220_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LC08_L2SP_039035_20200806_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2021,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 19,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LE07_L2SP_039035_20211105_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LC08_L2SP_039035_20210505_02_T1",
+     "may_pct": 0.02
+    },
+    "OLI/L9": {
+     "tong": 4,
+     "may_duoi_10": 2,
+     "canh_tot_nhat": "LC09_L2SP_039035_20211103_02_T1",
+     "may_pct": 0.38
+    }
+   }
+  },
+  {
+   "nam": 2022,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 5,
+     "may_duoi_10": 2,
+     "canh_tot_nhat": "LE07_L2SP_039035_20220209_02_T1",
+     "may_pct": 2.0
+    },
+    "OLI/L8": {
+     "tong": 20,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LC08_L2SP_039035_20220508_02_T1",
+     "may_pct": 0.08
+    },
+    "OLI/L9": {
+     "tong": 17,
+     "may_duoi_10": 12,
+     "canh_tot_nhat": "LC09_L2SP_039035_20220905_02_T1",
+     "may_pct": 0.02
+    }
+   }
+  },
+  {
+   "nam": 2023,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "ETM+/L7": {
+     "tong": 18,
+     "may_duoi_10": 10,
+     "canh_tot_nhat": "LE07_L2SP_039035_20231110_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LC08_L2SP_039035_20230714_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L9": {
+     "tong": 21,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LC09_L2SP_039035_20230807_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2024,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "OLI/L8": {
+     "tong": 23,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LC08_L2SP_039035_20240614_02_T1",
+     "may_pct": 0.0
+    },
+    "OLI/L9": {
+     "tong": 23,
+     "may_duoi_10": 15,
+     "canh_tot_nhat": "LC09_L2SP_039035_20240926_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2025,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "OLI/L8": {
+     "tong": 21,
+     "may_duoi_10": 14,
+     "canh_tot_nhat": "LC08_L2SP_039035_20251007_02_T1",
+     "may_pct": 0.06
+    },
+    "OLI/L9": {
+     "tong": 21,
+     "may_duoi_10": 11,
+     "canh_tot_nhat": "LC09_L2SP_039035_20250711_02_T1",
+     "may_pct": 0.0
+    }
+   }
+  },
+  {
+   "nam": 2026,
+   "co_canh_may_duoi_10": true,
+   "cam_bien": {
+    "OLI/L8": {
+     "tong": 17,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LC08_L2SP_039035_20260519_02_T1",
+     "may_pct": 0.13
+    },
+    "OLI/L9": {
+     "tong": 18,
+     "may_duoi_10": 13,
+     "canh_tot_nhat": "LC09_L2SP_039035_20261002_02_T1",
+     "may_pct": 0.01
+    }
+   }
+  }
+ ],
+ "uoc_so_toa": {
+  "footprint_ms": 663154,
+  "footprint_overture": 665106,
+  "footprint_osm": 321611,
+  "thua_clark_trong_bbox": 830474,
+  "thua_clark_toan_hat": 951761,
+  "footprint_theo_dien_tich": {
+   "ge500": 41661,
+   "ge1000": 11214,
+   "ge2000": 4878,
+   "ge5000": 1649,
+   "ge10000": 640
+  },
+  "ghi_chu": "≈0,66 triệu toà trong thung lũng; ~0,6 triệu là nhà ở ≥100 m². Toà ≥2 000 m² ≈ 4,9 nghìn (thương mại, casino, kho), ≥10 000 m² ≈ 640 (resort, sân bay, trung tâm thương mại)."
+ },
+ "phuong_an": {
+  "A": {
+   "ten": "Mỗi toà nhà mọc đúng năm",
+   "dieu_kien": "Cần năm xây cho toàn thung lũng: chỉ có miễn phí cho City of Las Vegas (CLV CONSTYR, ~90 % thửa có năm); Paradise/Strip, Henderson, NLV, unincorporated phải mua dữ liệu Clark County (license chưa đọc, có thể không có year built) hoặc lấy từ assessor từng thửa (không bulk). Ghép thửa→footprint (MS/Overture) theo không gian; thửa condo/nhiều toà phải gộp.",
+   "so_toa": "~660 nghìn (đầy đủ) — quá nặng và không có năm cho ~60 % diện tích; giản lược: chỉ toà ≥2 000 m² (~4,9 nghìn) + gom nhà ở theo ô 250 m dùng năm HISDAC",
+   "rui_ro": "(1) Năm assessor là năm của công trình HIỆN CÓ; toà đã phá (El Rancho Vegas 1941–1960 cháy, Flamingo bản 1946, Sands 1952→phá 1996, Dunes, Stardust, Desert Inn…) KHÔNG có → \"mọc đúng năm\" bỏ sót và làm sai lịch sử Strip (trông như Strip mọc sau 1990). (2) Năm \"effective\"/tái thiết ghi đè năm gốc. (3) Dữ liệu cá nhân (OWNER) trong bảng. (4) Giấy phép CLV chỉ là disclaimer. (5) Khối lượng dựng/render lớn.",
+   "uu": "chính xác từng toà ở City of Las Vegas; hình ảnh ấn tượng",
+   "nhuoc": "không phủ Strip; sai lịch sử phá dỡ",
+   "tac_dong": "cần thêm 1–2 mốc dữ liệu (mua Clark, số hoá Sanborn) và nhiều giờ máy"
+  },
+  "B": {
+   "ten": "Vùng đô thị theo mốc",
+   "dieu_kien": "HISDAC FBUY (1901–2020, 250 m, CC0) cho trước 1985; Annual NLCD (1985–2025, 30 m, PD) hằng năm; GHSL 1975–2025 mỗi 5 năm (CC BY-tương đương); Landsat mỗi năm 1972–2026 làm kiểm chứng; topo 1907/1952/1967 làm nền lịch sử",
+   "so_toa": "không theo toà; tô vùng/đùn khối thủ tục theo mật độ footprint hiện tại trong vùng đã \"bật\"",
+   "rui_ro": "nhìn \"trừu tượng\" hơn; HISDAC cũng survivorship (nhưng ở 250 m sai số nhỏ hơn); nối HISDAC→NLCD ở 1985 lệch độ phân giải/định nghĩa → cần chuyển cảnh mềm",
+   "uu": "giấy phép sạch (CC0/PD/ghi công), phủ toàn thung lũng, đúng quy mô thời gian 1905→2026",
+   "nhuoc": "không thấy từng toà; Strip lịch sử phải tự kể bằng lớp riêng",
+   "tac_dong": "dữ liệu ~40 MB (HISDAC) + ~6 GB nếu tải 8 năm NLCD"
+  },
+  "C": {
+   "ten": "Lai (khuyến nghị)",
+   "dieu_kien": "Nền B cho toàn thung lũng + lớp \"anh hùng\" từng toà ở 2 vùng: (i) downtown/Fremont 1905–1950 số hoá Sanborn 1923 + CLV CONSTYR (vài trăm toà); (ii) Strip: 20–40 resort mốc dựng tay theo năm khai trương VÀ năm phá dỡ (có nguồn trong claims), khối giản lược, không logo; còn lại đùn footprint Overture ≥2 000 m² theo năm ô HISDAC/NLCD đầu tiên chuyển \"developed\"",
+   "so_toa": "~4,9 nghìn khối tự động + ~300 toà downtown + 20–40 resort dựng tay",
+   "rui_ro": "phải có bảng năm khai trương/phá dỡ resort với nguồn kiểm được (chưa lập); Sanborn số hoá tay tốn công; chuyển cảnh B↔A cần thiết kế",
+   "uu": "đúng lịch sử phá-xây của Strip, giấy phép sạch, kiểm soát được chất lượng hình",
+   "nhuoc": "nhiều việc tay hơn B",
+   "tac_dong": "thêm 1 gói việc số hoá + 1 gói claims cho resort"
+  }
+ },
+ "khuyen_nghi": "Chọn C. Không chọn A thuần: năm assessor chỉ là năm công trình hiện có và không phủ Strip — kể \"Las Vegas mọc từng toà\" bằng dữ liệu này sẽ sai về lịch sử phá dỡ. Ưu: giấy phép sạch (CC0/PD/ODbL/CDLA-P/ghi công EU), phủ 1905–2026, có lớp từng toà ở nơi lịch sử cần. Nhược: thêm việc tay (Sanborn, bảng resort). Tác động: cần chủ dự án duyệt (1) dùng CLV CONSTYR dù chỉ có disclaimer, (2) có mua dữ liệu Clark County không (khuyến nghị KHÔNG cần cho C), (3) cấp đĩa để tải 6–8 năm Annual NLCD (≈6 GB). Rủi ro: chuyển HISDAC(250 m)→NLCD(30 m) năm 1985 phải làm mềm; ODbL yêu cầu ghi công OSM nếu dùng Overture/OSM."
+}

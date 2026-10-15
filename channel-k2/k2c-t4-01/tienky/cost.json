@@ -1,0 +1,59 @@
+{
+ "note": "Chi phí phiên Tiền kỳ T4 (thay cost.jsonl vì lệnh chỉ cho ghi tienky/*.json). Không ghi COST-LEDGER.csv (ngoài vùng) — P chép.",
+ "claude_api": {
+  "cap_usd": 2.0,
+  "model_pinned": "claude-haiku-5-5",
+  "calls": [
+   {
+    "tag": "gap-lasvegas",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.00200039
+   },
+   {
+    "tag": "comments-4U1TkIdDbRA",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.00787339
+   },
+   {
+    "tag": "comments-R0dr3SBmxLA",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.00253449
+   },
+   {
+    "tag": "comments-bTMfT2V3Jyo",
+    "model": "claude-haiku-5-5",
+    "served": [
+     "claude-haiku-5-5"
+    ],
+    "usd": 0.00893459
+   }
+  ],
+  "total_usd": 0.02134
+ },
+ "youtube_data_api": {
+  "cap_units": 300,
+  "total_units": 292,
+  "by_endpoint": {
+   "channels": 1,
+   "search": 200,
+   "videos": 5,
+   "playlistItems": 83,
+   "commentThreads": 3
+  },
+  "n_calls": 94,
+  "http_non200": []
+ },
+ "elevenlabs_chars": 0,
+ "websearch": "5 lượt (mã video timelapse, Imperial/Salton; không thuộc quota YouTube)",
+ "subagents": "2 phiên phụ Claude Code (nguồn gốc: 366 615 token, 210 lượt công cụ; tài sản + dữ liệu: 341 664 token, 170 lượt công cụ) — token trong phiên, không qua API trả tiền; vượt trần mềm để giữ chất lượng",
+ "dia": "tệp tải ngoài git (scratchpad): nguồn 346 MB (81 tệp), tài sản 543 MB"
+}
