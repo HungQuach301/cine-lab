@@ -1,0 +1,107 @@
+GIAY PHEP: Helsinki Region Infoshare (HRI) / kartta.hel.fi - CC BY 4.0 - ban do lich su, asemakaava, ortho 1932-, 3D, rakennukset, dan so
+Ngay doc: 2026-10-15 (phien Tien ky thanh pho, tac tu con zh_hel)
+Tep tho luu ngoai git o /var/tmp/thanhpho/<thu muc>/body; SHA-256 la cua tep body doc duoc.
+
+======================================================================
+URL: https://www.hri.fi/en_gb/terms-and-conditions/
+HTTP: 200
+SHA-256 trang/tep: 77fa1b54d13fbee57308edfb540f5ab8c852f9a8037d15d9be1cf9bb16da2bb3
+Thu muc tho: /var/tmp/thanhpho/hri_terms
+Trich nguyen van:
+  "As a general rule, users of the Service have a broad user licence in the datasets under the terms of the Creative Commons Attribution 4.0 International (CC BY 4.0) licence . The data material may be freely copied, disseminated, displayed and presented and used as part of other works. The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed. This attribution must be deleted if so requested by the publisher of the dataset. The publisher of each dataset is indicated in each dataset. The publisher of the dataset must not be attributed in any way that suggests that the publisher of the dataset or the Service endorses the user or the use of the data."
+
+======================================================================
+URL: https://creativecommons.org/licenses/by/4.0/legalcode.en
+HTTP: 200
+SHA-256 trang/tep: 58230517b7895aa219ff46a6ed63e67057a1582fb9ea054b16728a8c13525650
+Thu muc tho: /var/tmp/thanhpho/ccby4
+Trich nguyen van:
+  CC BY 4.0 Legal Code, Section 2: "the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive, irrevocable license to exercise the Licensed Rights in the Licensed Material to: reproduce and Share the Licensed Material, in whole or in part; and produce, reproduce, and Share Adapted Material."
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-historialliset-kartat
+HTTP: 200
+SHA-256 trang/tep: af91bfa1359795ecb92cc018baabd0ab8136857036ac32fb296ce9f57d5dc573
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_helsingin-historialliset-kartat
+Trich nguyen van:
+  CKAN package_show "helsingin-historialliset-kartat": license_id "CC-BY-4.0" (https://creativecommons.org/licenses/by/4.0/); to chuc "Helsingin kaupunkiympäristön toimiala"
+  "Map of Helsinge Parish 1749 ... The map is kept in the Swedish National Archives (Riksarkivet). ... Scanned from the original map and positioned on a coordinate grid. The scale of the map is approximately 1:5000. The map can be used through WMS-API."
+  "Map of Helsinki 1780–82 ... The scale of the map is approximately 1:20,000. The map can be used through WMS-API."
+  "Map of Helsinki 1870–1907 ... (the so-called Senate Map) ... The map can be used through WMS-API."
+  "Tourist map of Helsinki in 1900 ... The scale of the map is 1:12,000. The image resolution is 400 dpi."
+  "Map of Helsinki and its areas from 1909 ... The map scale is approximately 1:8,000 and the image resolution is 300 dpi."
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-historialliset-asemakaavakartat
+HTTP: 200
+SHA-256 trang/tep: 6405ef649e2e120acbf4852f76d574c9d72977b9433e7c8d6d84e1d4a1ef0b1e
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_ak
+Trich nguyen van:
+  CKAN "helsingin-historialliset-asemakaavakartat": license_id "CC-BY-4.0"
+  "Helsinki town plan map from the early 19th century (Plan Öfver Helsingfors Stad I Början Af 1800 Talet). Year of publication according to the City Archives is 1803."
+  "The detailed plan drawn up by Johan Albrecht Ehrenström (1762–1847) was approved in 1820." "The very detailed map from 1878 by City Engineer Claes Kjerrström ... The map depicts the wooden city before the more extensive construction of stone houses."
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-historialliset-opaskartat
+HTTP: 200
+SHA-256 trang/tep: e489854bbe24b571c1d8c2d879c1353bfbca413c910ce77fec30a60c232fa565
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_helsingin-historialliset-opaskartat
+Trich nguyen van:
+  CKAN "helsingin-historialliset-opaskartat": license_id "CC-BY-4.0"; "Historical guide maps of Helsinki from 1940, 1952, 1962 and 1999."
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-ortoilmakuvat
+HTTP: 200
+SHA-256 trang/tep: c7d5bdc83ac1bb66a8abbcf928791dd9de978d5ef5e56d120df1400861d7e090
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_helsingin-ortoilmakuvat
+Trich nguyen van:
+  CKAN "helsingin-ortoilmakuvat": license_id "CC-BY-4.0"; "This dataset provides the orthophotographs of Helsinki in GIS API from 1932 to present day. Additionally, photos from 1988, 1976, 1969, 1964, 1950, 1943 and 1932 are provided as image files."
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-3d-kaupunkimalli
+HTTP: 200
+SHA-256 trang/tep: f35e861d6edbe4db4009a9ca1fde169eaa03b329c48e1c7a36253a657b9fac81
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_helsingin-3d-kaupunkimalli
+Trich nguyen van:
+  CKAN "helsingin-3d-kaupunkimalli": license_id "CC-BY-4.0"; "The city information model - licensed under CC BY 4.0"; "Buildings are presented in two formats: flat-roofed (LoD1) and with differentiated roof structures (LoD2). The LoD2 buildings are also available textured."
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-rakennukset
+HTTP: 200
+SHA-256 trang/tep: fc6c17b38534db8922058768dd3ba39337f242c08b6879cdcb672b7643766379
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_helsingin-rakennukset
+Trich nguyen van:
+  CKAN "helsingin-rakennukset": license_id "CC-BY-4.0"; "The scale of the data is 1:500."
+
+======================================================================
+URL: https://kartta.hel.fi/ws/geoserver/avoindata/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=DescribeFeatureType&TYPENAMES=avoindata:Rakennukset_alue_rekisteritiedot
+HTTP: 200
+SHA-256 trang/tep: b932039f0efb3a5eb28001df54d83064bee21477192c10914c83fd941e99df14
+Thu muc tho: /var/tmp/thanhpho/hel_desc
+Trich nguyen van:
+  WFS DescribeFeatureType avoindata:Rakennukset_alue_rekisteritiedot: co truong "c_valmpvm" (ngay hoan thanh), "c_kayttark", "i_kerrlkm"
+
+======================================================================
+URL: https://kartta.hel.fi/ws/geoserver/avoindata/wms?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0
+HTTP: 200
+SHA-256 trang/tep: 873b90114ad22239c6ee967522bc7ddaf3a0b2af09965a1a73de79bf3f788909
+Thu muc tho: /var/tmp/thanhpho/hel_wmscap
+Trich nguyen van:
+  WMS GetCapabilities kartta.hel.fi avoindata: "<Fees>NONE</Fees>" "<AccessConstraints>NONE</AccessConstraints>"; lop: Pitajakuvauskartta_1749, Rekognosointikartta_1780_1782, Plan_ofver_Helsingfors_stad_i_borjan_af_1800_talet, Asemakaavakartta_1820, Asemakaavakartta_1838, Asemakaavakartta_1878, Senaatinkartta_1870, Plan_af_Helsingfors_1900, Kartta_Helsingin_kaupungista_ja_sen_alueista_1909, Helsingin_kaupunki_1917_1918, Helsingin_kaupungin_kartta_1925, Ortoilmakuva_1932, Ortoilmakuva_1943, Ortoilmakuva_1950
+
+======================================================================
+URL: https://hri.fi/data/api/3/action/package_show?id=helsingin-vakiluku-1-1-1875-1993-ja-vuodenvaihteissa-1993-94-2013-14
+HTTP: 200
+SHA-256 trang/tep: 2634e08826375b88b4ecbbcda052c4bbf04db19d9b28657a630f2a9aa4d7fee0
+Thu muc tho: /var/tmp/thanhpho/hri_pkg_helsingin-vakiluku-1-1-1875-1993-ja-vuodenvaihteissa-1993-94-2013-14
+Trich nguyen van:
+  CKAN "helsingin-vakiluku-1-1-1875-1993...": license_id "CC-BY-4.0"; resource PxWeb his_vaerak_023o.px
+
+======================================================================
+URL: https://stat.hel.fi/api/v1/fi/Aluesarjat/his/vrm/vaerak/his_vaerak_023o.px (POST Kaupunginosa=ALL, csv)
+HTTP: 200
+SHA-256 trang/tep: e2a0cac8ecb9372db7007292b39056ed3ec60fd320633bf31f81da1483872004
+Thu muc tho: /var/tmp/thanhpho/hel_px_csv
+Trich nguyen van:
+  PxWeb CSV (POST Kaupunginosa=ALL): cot "Henkikirjoitettu väestö 1875" ... "1960b"; dong "Koko kaupunki"
+
