@@ -34,7 +34,8 @@ P1=$!
   python3 -m venv /opt/cine &&
   retry /opt/cine/bin/pip install -q --upgrade pip &&
   retry /opt/cine/bin/pip install -q faster-whisper pyloudnorm numpy scipy soundfile librosa \
-      opencv-python-headless pillow scenedetect elevenlabs requests jsonschema psutil &&
+      opencv-python-headless pillow scenedetect elevenlabs requests jsonschema psutil \
+      tifffile pyshp &&   # tifffile + pyshp: scripts/k2/relief_build.py (DEM GeoTIFF, shapefile Natural Earth) — NT duyệt 15/10 K5
   echo "OK_PY"
 ) &
 P2=$!
@@ -59,13 +60,14 @@ P4=$!
 
 wait $P2; R2=$?; wait $P3; R3=$?; wait $P4; R4=$?
 
-# 5) three.js cho trang render (design/cong3/shared/node_modules — KHÔNG nằm trong git).
+# 5) three.js cho trang render (design/cong3/shared/node_modules) + dữ liệu bản đồ k2v (design/k2v/node_modules) — KHÔNG nằm trong git.
 #    Luôn dùng `npm ci` theo package-lock.json (three 0.180.0, đúng mã integrity), không dùng `npm install`.
 #    Setup script có thể chạy trước khi repo được clone: không thấy repo thì bỏ qua; verify.sh báo FAIL kèm lệnh chạy tay.
 R5=skip
 for REPO in "${CINE_REPO:-}" /home/user/cine-lab; do
   if [ -n "$REPO" ] && [ -f "$REPO/design/cong3/shared/package-lock.json" ]; then
-    ( cd "$REPO/design/cong3/shared" && retry npm ci --no-audit --no-fund ) && R5=0 || R5=1
+    ( cd "$REPO/design/cong3/shared" && retry npm ci --no-audit --no-fund ) &&
+    ( cd "$REPO/design/k2v" && retry npm ci --no-audit --no-fund ) && R5=0 || R5=1   # k2v: dữ liệu bản đồ d3-geo/topojson/atlas (NT duyệt 15/10 K5)
     break
   fi
 done

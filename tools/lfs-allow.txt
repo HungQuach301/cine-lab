@@ -1,0 +1,5 @@
+# Vùng LFS cho phép (glob theo đường dẫn trong repo). Chỉ gói phát hành ở gốc nhánh release-*: master, Short, bản xem 3 phần.
+# Thêm mẫu mới phải có chủ dự án duyệt (LFS tốn hạn mức lưu trữ/băng thông GitHub). Media trung gian, footage, ảnh gốc, trọng số: KHÔNG vào LFS — chỉ ghi SHA.
+*-master.mp4
+*-short-*.mp4
+*-v[0-9]-p[0-9].mp4

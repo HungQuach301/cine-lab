@@ -1,0 +1,28 @@
+# MẪU — ĐÓNG BĂNG PHIÊN BẢN TẬP (sinh tự động bởi scripts/common/versions.py; không viết tay tệp thật)
+#   G1:  /opt/cine/bin/python scripts/common/versions.py record channel-k2/<tập>/episode.yaml --gate G1     → channel-k2/<tập>/VERSIONS.yaml (commit cùng báo cáo G1)
+#   G2:  /opt/cine/bin/python scripts/common/versions.py check  channel-k2/<tập>/VERSIONS.yaml [--json <tập>/g2/versions-check.json]
+#        mã 0 = KHỚP (có thể kèm mục BÁO về công cụ máy) · mã 1 = LỆCH: nêu từng mục CHẶN trong báo cáo G2, chủ dự án quyết dựng lại hay chấp nhận.
+#   Không sửa VERSIONS.yaml sau G1. Bộ công cụ cần đổi giữa G1 và G2 → ghi lý do + versions.py check vào báo cáo G2.
+schema: 1
+gate: G1
+utc: '<thời điểm ghi>'
+repo_head: <SHA commit HEAD lúc ghi>
+branch: <nhánh>
+checks:                      # luật K: checks/LOCK + kết quả checks/lock.py --verify
+  version: <VERSION trong checks/LOCK, vd 1.10.2>
+  tree_sha256: <TREE_SHA256 trong checks/LOCK>
+  lock_verify: KHỚP
+  commit: <commit cuối chạm checks/>
+toolkit:                     # mỗi nhóm: commit cuối + băm nội dung cây làm việc (bắt cả sửa chưa commit)
+  k2v:      {paths: [design/k2v, scripts/k2], commit: <SHA>, tree_sha256: <sha256>, files: <n>}
+  ll-hero:  {paths: [design/ll-hero], commit: <SHA>, tree_sha256: <sha256>, files: <n>}
+  ll:       {paths: [scripts/ll], commit: <SHA>, tree_sha256: <sha256>, files: <n>}
+  shared3d: {paths: [design/cong3/shared], commit: <SHA>, tree_sha256: <sha256>, files: <n>}
+tools: {ffmpeg: <v>, node: <v>, python_cine: <v>, three: <v>, playwright: <v>, chromium: <thư mục>}   # chỉ BÁO, không chặn
+episode:
+  id: <id tập>
+  file: <đường dẫn episode.yaml>
+  sha256: <sha256 episode.yaml lúc G1 — chỉ ghi, không so (đặc tả được sửa hợp lệ sau G1)>
+  voice: {id: <voice id ElevenLabs>, model: <eleven_…>, stability: <x>, similarity: <x>}
+  claude_models: [<model ghim tìm thấy trong ai.py/blind_*.py của tập, vd claude-opus-5-5, claude-sonnet-5-5>]
+# Lúc G2, check thêm `served_models` từ kiem-mu/cost*.jsonl: model thật đã phục vụ khác model ghim (fallback ngầm) → CHẶN.
