@@ -102,7 +102,7 @@ def main():
         print(json.dumps(M['tiers'][-1], ensure_ascii=False), file=sys.stderr)
     M['color_match'] = tf; M['license'] = 'USDA FSA NAIP — public domain (U.S. Government work); xem channel-k2/k2v4-mau/licenses/NAIP.txt'
     json.dump(M, open(os.path.join(out, 'meta.json'), 'w'), indent=1)
-    dst = os.path.join(REPO, 'channel-k2/k2v4-mau', f'aerial-{name}-meta.json'); os.makedirs(os.path.dirname(dst), exist_ok=True); json.dump(M, open(dst, 'w'), indent=1, ensure_ascii=False)
+    dst = os.path.join(REPO, arg('meta-dir', 'channel-k2/k2v4-mau'), f'aerial-{name}-meta.json')   # T2: --meta-dir <thư mục tập> (không ghi vào cuộn V4); os.makedirs(os.path.dirname(dst), exist_ok=True); json.dump(M, open(dst, 'w'), indent=1, ensure_ascii=False)
     print(json.dumps(M, ensure_ascii=False, indent=1))
 
 

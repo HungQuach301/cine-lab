@@ -12,7 +12,7 @@ Ra (<cache>/relief/<tên>/):
   meta.json    bbox, kích thước, SHA nguồn, giấy phép
 Dùng:
   relief_build.py build --name erie --bbox -81,39,-72,45 [--ppd 600] [--mesh 5]
-  relief_build.py build --name korea --bbox 125,33.5,130.5,38.7 --dem skadi     (T2: ngoài Mỹ — SRTM 1", USGS, tài sản công)
+  relief_build.py build --name korea --bbox 125,33.5,130.5,38.7 --dem skadi [--coast dem]   (T2: ngoài Mỹ — SRTM 1", USGS, tài sản công; --coast dem = bờ suy từ DEM)
 """
 import hashlib, json, math, os, subprocess, sys
 import numpy as np
@@ -166,6 +166,12 @@ def build():
     print('[relief] ghép DEM', 'SRTM 1" (skadi)…' if SK else '3DEP 1"…'); Z, src = (mosaic_skadi if SK else mosaic)(b, ppd); H, W = Z.shape
     print('[relief] mặt nạ nước Natural Earth 10m…')
     ocean = poly_mask('ne_10m_ocean', b, W, H)
+    if arg('coast', 'ne') == 'dem':   # T2 G1b: đường bờ suy từ DEM (ô ≤ 0 m hoặc trống, nối với biển Natural Earth) — bỏ dải lệch bờ NE 10m ↔ SRTM/3DEP ở tầm < 50 km
+        sea = np.isnan(Z) | (Z <= 0.0); lab, n = ndimage.label(sea)
+        keep = np.unique(lab[ocean & sea]); keep = keep[keep > 0]
+        dem_ocean = np.isin(lab, keep)
+        print(f'[relief] bờ từ DEM: {int(dem_ocean.sum())} ô biển (NE: {int(ocean.sum())}), lệch {int((dem_ocean ^ ocean).sum())} ô')
+        ocean = dem_ocean
     lakes = poly_mask('ne_10m_lakes', b, W, H) | poly_mask('ne_10m_lakes_north_america', b, W, H)
     water = ocean | lakes | np.isnan(Z)
     Zf = np.where(np.isnan(Z), 0, Z)

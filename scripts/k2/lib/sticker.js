@@ -18,7 +18,7 @@
     sailor:   { coat: '#e9e4d8', pants: '#2f4a6b', hat: 'sailor',   hand: 'oar',       acc: 'stripes' },
   };
   STK.HATS = ['none', 'cap', 'bowler', 'tophat', 'kepi', 'wide', 'straw', 'sailor', 'hardhat', 'tricorn'];
-  STK.HANDS = ['none', 'pickaxe', 'shovel', 'sack', 'moneybag', 'ledger', 'rifle', 'scroll', 'blueprint', 'pitchfork', 'wheat', 'oar', 'rope', 'lantern', 'flag', 'coin'];
+  STK.HANDS = ['none', 'pickaxe', 'shovel', 'sack', 'moneybag', 'ledger', 'rifle', 'scroll', 'blueprint', 'pitchfork', 'wheat', 'oar', 'rope', 'lantern', 'flag', 'coin', 'torch'];
   const shade = (hex, k) => { const n = parseInt(hex.slice(1), 16); let r = n >> 16, g = (n >> 8) & 255, b = n & 255; const f = (v) => Math.max(0, Math.min(255, Math.round(k < 0 ? v * (1 + k) : v + (255 - v) * k))); return `rgb(${f(r)},${f(g)},${f(b)})`; };
   const rr = (g, x, y, w, h, r) => { g.beginPath(); g.roundRect(x, y, w, h, r); };
   const cap = (g, x0, y0, x1, y1, w) => { g.lineCap = 'round'; g.lineWidth = w; g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y1); g.stroke(); };
@@ -36,6 +36,7 @@
     wheat(g, back) { if (back) return; g.strokeStyle = '#b48a2c'; g.lineWidth = 1.8; for (let k = -2; k <= 2; k++) { g.beginPath(); g.moveTo(22, 64); g.lineTo(22 + k * 3, 38); g.stroke(); g.fillStyle = '#d9b14a'; g.beginPath(); g.ellipse(22 + k * 3, 36, 2.2, 6, k * 0.12, 0, 7); g.fill(); } },
     oar(g, back) { if (back) return; g.strokeStyle = '#8a6238'; cap(g, 26, 14, 18, 92, 3); g.fillStyle = '#8a6238'; g.beginPath(); g.ellipse(17, 92, 4.5, 9, 0.1, 0, 7); g.fill(); },
     rope(g, back) { if (back) return; g.strokeStyle = '#b89a62'; g.lineWidth = 2.6; for (let k = 0; k < 3; k++) { g.beginPath(); g.ellipse(25, 66, 9 - k * 2.3, 6 - k * 1.5, 0, 0, 7); g.stroke(); } },
+    torch(g, back) { if (back) return; g.strokeStyle = '#3c4148'; cap(g, 22, 60, 30, 70, 2.2); g.fillStyle = '#5b6470'; rr(g, 18, 56, 7, 9, 2); g.fill(); g.fillStyle = '#ffd36a'; g.beginPath(); g.arc(31.5, 71.5, 2.6, 0, Math.PI * 2); g.fill(); g.fillStyle = '#ffffff'; g.beginPath(); g.arc(31.5, 71.5, 1.2, 0, Math.PI * 2); g.fill(); },   /* T2: mỏ hàn (thợ hàn Liberty, chương 03) */
     lantern(g, back) { if (back) return; g.strokeStyle = '#3c4148'; cap(g, 22, 58, 22, 64, 1.6); g.fillStyle = '#3c4148'; rr(g, 17, 64, 10, 13, 2); g.fill(); g.fillStyle = '#ffc95a'; rr(g, 19, 66, 6, 9, 1.5); g.fill(); },
     flag(g, back) { if (back) return; g.strokeStyle = '#6b5a48'; cap(g, 22, 70, 22, 6, 2.4); g.fillStyle = '#ece6d6'; g.beginPath(); g.moveTo(23, 7); g.quadraticCurveTo(33, 3, 43, 8); g.lineTo(43, 24); g.quadraticCurveTo(33, 19, 23, 23); g.fill(); },
     coin(g, back) { if (back) return; g.fillStyle = '#d9a640'; g.beginPath(); g.arc(25, 54, 8, 0, 7); g.fill(); g.strokeStyle = '#a8792a'; g.lineWidth = 1.6; g.beginPath(); g.arc(25, 54, 5.5, 0, 7); g.stroke(); },

@@ -3,7 +3,7 @@
 ## Mô tả (dán nguyên văn)
 In 1943, at the peak, America launched three cargo ships a day. In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at four hundredths of one percent. So why does America build so few ships? You'll often hear: wages. The record says something narrower.
 
-This video explains how the system works. It isn't financial or investment advice. Facts as of 14 October 2026. Fees, investments, contracts and bills mentioned here can change; updates will be pinned in the comments.
+This video explains how the system works. It isn't financial or investment advice. Facts as of 15 October 2026. Fees, investments, contracts and bills mentioned here can change; updates will be pinned in the comments.
 
 Chapters
 0:00 Three ships a day

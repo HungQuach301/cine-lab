@@ -20,6 +20,19 @@ BMI = dict(source='NASA Earth Observatory (Reto Stöckli), https://science.nasa.
            license='NASA media: "generally are not subject to copyright in the United States"; không hàm ý NASA bảo trợ; không dùng logo NASA (nasa.gov/nasa-brand-center/images-and-media, đọc 12/10/2026). Trang BMNG: "please credit NASA Earth Observatory"',
            credit='NASA Earth Observatory (Blue Marble: Next Generation)', kind='raster bản đồ', commit=False)
 ASSETS = {
+    # ---- T2 K2C-T2-01 (đóng tàu, G1b 15/10/2026): văn bản chính phủ Mỹ (tài sản công) + thư của các hiệp hội (chỉ hiện trang có tô dòng, trích ngắn)
+    't2-fr-susp': dict(url='https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf', file='doc/FR-2025-11-13-2025-19873.pdf', sha256='',
+        title='Federal Register 90 FR 50947 (13/11/2025), USTR: Notice of Modification of Section 301 Action (suspension)', source='GovInfo, https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf',
+        license='U.S. Government work — public domain (17 U.S.C. §105)', credit='Federal Register / GovInfo', kind='văn bản', commit=False),
+    't2-fr-act': dict(url='https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf', file='doc/FR-2025-04-23-2025-06927.pdf', sha256='',
+        title='Federal Register 90 FR 17114 (23/04/2025), USTR: Notice of Action and Proposed Action (Section 301, maritime)', source='GovInfo, https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf',
+        license='U.S. Government work — public domain (17 U.S.C. §105)', credit='Federal Register / GovInfo', kind='văn bản', commit=False),
+    't2-fr-det': dict(url='https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf', file='doc/USTR-FRN-Actionability-Maritime.pdf', sha256='',
+        title='USTR, Notice of Determination (Federal Register 90 FR 8089, 23/01/2025)', source='USTR, https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf',
+        license='U.S. Government work — public domain (17 U.S.C. §105)', credit='USTR / Federal Register', kind='văn bản', commit=False),
+    't2-nftc': dict(url='https://www.nftc.org/wp-content/uploads/2026/09/Joint-Association-USTR-Letter-Sec-301-Vessel-Fee-Suspension-Extension-Request-Final-092326.pdf', file='doc/NFTC-joint-letter-2026-09-23.pdf', sha256='',
+        title='Joint association letter to USTR (23/09/2026) requesting extension of the Section 301 vessel-fee suspension', source='NFTC, https://www.nftc.org/',
+        license='Thư công khai của các hiệp hội — trích ngắn có ghi nguồn (sử dụng hợp lý cho bình luận tin tức); chỉ hiện một đoạn có tô dòng, không hiện logo', credit='Joint association letter (NFTC)', kind='văn bản', commit=False),
     'bm-200407': dict(
         url=BMU + '21600x10800.jpg', file='bm/world.topo.bathy.200407.3x21600x10800.jpg', sha256='',
         title='Blue Marble: Next Generation, topography + bathymetry, July 2004 (21600×10800, 2 km/px)', **BMI),

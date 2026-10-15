@@ -93,6 +93,17 @@ export const OBJECTS = {
     const s = new THREE.Shape(); s.moveTo(-1.8, 0); s.lineTo(1.9, 0); s.lineTo(1.5, -0.6); s.lineTo(-1.5, -0.6); s.lineTo(-1.8, 0); const hullG = new THREE.ShapeGeometry(s); const hull = new THREE.Mesh(hullG, ink); hull.rotation.x = -Math.PI / 2; hull.position.set(-0.2, 0.16, 1.9); g.add(hull);
     B(0.7, 0.02, 0.45, ink, -0.3, 0.16, 1.5, g); const ring = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.1, 6, 32), toon('#b3322a')); ring.rotation.x = -Math.PI / 2; ring.position.set(1.2, 0.17, 2.4); g.add(ring);
     g.rotation.x = 0.95; g.position.y = 3; return g; },
+  // ---- T2 G1b: phương án chở hàng trên bộ (lời 03: "a truck, a train or a pipeline")
+  async truck() { const g = new THREE.Group(), cab = toon('#3f74b8'), box = toon('#e8e2d4'), dk = toon('#2b2f36'), gl = toon('#9fc3dd');
+    B(9, 4.2, 3.4, box, -1.5, 3.1, 0, g); B(3.2, 3.2, 3.2, cab, 4.7, 2.6, 0, g); B(0.1, 1.2, 2.4, gl, 6.31, 3.2, 0, g); B(14.2, 0.5, 3.0, dk, 0.2, 0.95, 0, g);
+    for (const x of [-4.6, -2.6, 4.6]) for (const z of [-1.6, 1.6]) { const w = Cy(0.85, 0.85, 0.5, dk, x, 0.85, z, g, 20); w.rotation.x = Math.PI / 2; } return g; },
+  async train() { const g = new THREE.Group(), loco = toon('#8c3b2e'), car = toon('#5b6470'), dk = toon('#2b2f36');
+    B(7, 3.4, 3, loco, 0, 2.4, 0, g); B(2.6, 1.4, 2.8, toon('#e8e2d4'), -1.8, 4.8, 0, g); Cy(0.4, 0.5, 1.6, dk, 2.4, 4.6, 0, g, 12);
+    for (const x of [-8.2, -15.6]) B(7, 3.0, 3, car, x, 2.2, 0, g);
+    B(24, 0.3, 3.6, toon('#6e6a62'), -7.5, 0.4, 0, g); for (let i = 0; i < 9; i++) for (const z of [-1.3, 1.3]) { const w = Cy(0.55, 0.55, 0.3, dk, 2.5 - i * 2.4, 0.75, z, g, 14); w.rotation.x = Math.PI / 2; } return g; },
+  async pipeline() { const g = new THREE.Group(), st = toon('#9aa3ab'), dk = toon('#5b6470');
+    const p = Cy(1.1, 1.1, 22, st, 0, 2.6, 0, g, 24); p.rotation.z = Math.PI / 2;
+    for (const x of [-9, -3, 3, 9]) { B(0.5, 1.6, 2.4, dk, x, 0.8, 0, g); const r = new THREE.Mesh(new THREE.TorusGeometry(1.15, 0.14, 8, 24), dk); r.rotation.y = Math.PI / 2; r.position.set(x, 2.6, 0); g.add(r); } return g; },
 };
 export const OWN_NEEDS = new Set(['furnace', 'factory', 'house', 'town']);
 let R = null, own = null;
