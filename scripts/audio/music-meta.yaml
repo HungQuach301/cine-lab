@@ -1,0 +1,11 @@
+# Tempo của các bài trong thư viện (nguồn: cột mô tả RIGHTS.md, chép 15/10/2026) — làm gợi ý cho bộ dò phách scripts/audio/music.py.
+# align: cách giao bài mặc định cho bài đó (bar | beat | none). Bài ambient không có phách rõ → none (giao theo giây như mix.py cũ).
+assets/k2/music/Half-Mystery.mp3: {bpm: 72}
+assets/k2/music/Beauty-Flow.mp3: {bpm: 108}
+assets/k2/music/Tyrant.mp3: {bpm: 72}
+assets/k2/music/Sincerely.mp3: {bpm: 72}
+assets/k2/music/Lightless-Dawn.mp3: {align: none}     # RIGHTS K2-MUS-5: "Ambient", không ghi bpm; bộ dò ra 51,7 bpm — không tin
+assets/ll/music/Reawakening.mp3: {bpm: 56}
+assets/ll/music/Gymnopedie-No-1.mp3: {bpm: 77}
+assets/ll/music/Wholesome.mp3: {bpm: 128}
+assets/ll/music/Dreams-Become-Real.mp3: {bpm: 60}

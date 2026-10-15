@@ -1,0 +1,147 @@
+{
+ "cong_cu": "scripts/audio/master.py",
+ "tham_so": {
+  "smr": 15.0,
+  "duck": -12.0,
+  "duck_floor": -30.0,
+  "merge_gap": 0.8,
+  "attack": 0.25,
+  "release": 0.45,
+  "sfx_duck_ratio": 0.5,
+  "vo_lufs": -17.0,
+  "I": -14.0,
+  "tp": -1.0,
+  "tp_margin": 0.5,
+  "fade_in": 1.5,
+  "fade_out": 1.2,
+  "aac": "192k",
+  "vo_chain": "highpass=f=70,deesser=i=0.35:m=0.5:f=0.5:s=o,acompressor=threshold=-24dB:ratio=2.5:attack=5:release=120:knee=6"
+ },
+ "tong_s": 15.25,
+ "loi_LUFS_truoc_chuan": -25.94,
+ "duck": {
+  "so_khoang": 1,
+  "trung_vi_db": -12.1,
+  "sau_nhat_db": -12.1,
+  "khoang_vuot_co_ban": 1,
+  "ds": [
+   {
+    "t0": 0.6,
+    "t1": 12.95,
+    "L_loi": -20.5,
+    "L_nen_max": -24.3,
+    "duck_db": -12.1
+   }
+  ]
+ },
+ "fade": {
+  "nen_vao_s": 1.5,
+  "nen_ra_s": 1.2,
+  "ca_ban_ra_bat_dau_s": 14.05,
+  "ca_ban_ra_s": 1.2
+ },
+ "loudness": [
+  {
+   "luot1": {
+    "I": -18.01,
+    "TP": -5.4,
+    "LRA": 9.1
+   },
+   "gain_db": 4.01,
+   "bu_db": 0.0,
+   "tran_limiter_dbtp": -1.5,
+   "luot2": {
+    "I": -14.03,
+    "TP": -1.5,
+    "LRA": 9.0
+   },
+   "loudnorm": {
+    "normalization_type": "linear",
+    "output_i": -13.42,
+    "output_tp": -1.49,
+    "target_offset": -0.58
+   },
+   "aac": {
+    "I": -13.4,
+    "TP": -1.5
+   },
+   "ebur128": {
+    "I": -13.4,
+    "TP": -1.5
+   }
+  },
+  {
+   "luot1": {
+    "I": -18.01,
+    "TP": -5.4,
+    "LRA": 9.1
+   },
+   "gain_db": 3.41,
+   "bu_db": -0.6,
+   "tran_limiter_dbtp": -1.5,
+   "luot2": {
+    "I": -14.63,
+    "TP": -1.99,
+    "LRA": 9.0
+   },
+   "loudnorm": {
+    "normalization_type": "linear",
+    "output_i": -14.02,
+    "output_tp": -1.98,
+    "target_offset": -0.58
+   },
+   "aac": {
+    "I": -14.0,
+    "TP": -2.0
+   },
+   "ebur128": {
+    "I": -14.0,
+    "TP": -2.0
+   }
+  }
+ ],
+ "dau_ra": {
+  "I": -14.0,
+  "LRA": 2.9,
+  "TP": -2.0,
+  "TP_sau_aac": -2.0,
+  "lang_pct": 2.01,
+  "lang_bat_thuong": 0,
+  "cham_tran": 0
+ },
+ "smr": {
+  "cua_so": 10,
+  "trung_vi": 19.58,
+  "p10": 18.51,
+  "min": 18.32,
+  "duoi_nguong_pct": 0.0,
+  "nguong": 15.0
+ },
+ "dat": {
+  "I": true,
+  "TP": true,
+  "TP_sau_aac": true,
+  "SMR_p10": true,
+  "loudnorm_tuyen_tinh": true
+ },
+ "nhac": [
+  {
+   "file": "assets/k2/music/Half-Mystery.mp3",
+   "intensity": "mid",
+   "gain_db": -1.0,
+   "lpf": null,
+   "t0": 0.0,
+   "t1": 15.25,
+   "ranh_gioi": 0.0,
+   "diem_giao": 0.0,
+   "lech_ranh_gioi_s": 0.0,
+   "giao_s": 0.0,
+   "ss_doc": 0.0,
+   "src_to": 15.25,
+   "bpm": 71.78,
+   "tiep_bai": false,
+   "align": "bar"
+  }
+ ],
+ "sfx": []
+}

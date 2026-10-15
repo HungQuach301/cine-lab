@@ -1,0 +1,62 @@
+# 20 CÂU KHÓ cho phép thử phát âm (phiên Âm thanh, 15/10/2026): nguyên văn lời T2 v3.2 (origin/k2c-t2 e2a9709, script.md)
+# và T1 (channel-k2/k2c-t1-06/script-v2.md). "ten" = tên riêng/thuật ngữ phải nghe ra (so mờ với bản ASR); số so theo GIÁ TRỊ (scripts/ll/asr.py nums_of).
+- id: t2-01
+  text: In 1943, at the peak, America launched three cargo ships a day.
+- id: t2-02
+  text: Over 2,710 Liberty ships were built between 1941 and 1945.
+  ten: [Liberty]
+- id: t2-03
+  text: The four Richmond yards produced 747 ships, more than any other shipyard complex in the country.
+  ten: [Richmond]
+- id: t2-04
+  text: Almost eighty yards held Maritime Commission contracts, and at the program's height they employed 702,000 people.
+  ten: [Maritime Commission]
+- id: t2-05
+  text: Chung went abroad carrying a photo of the empty beach and a 500-won banknote showing a turtle ship, a warship from Korea's history.
+  ten: [Chung, won, turtle ship]
+  mo_ho_asr: true   # "five hundred won" ↔ "501": ASR không tách được won/one — chấm bằng tai
+- id: t2-06
+  text: Chung Ju-yung had built Hyundai as a construction company.
+  ten: [Chung Ju-yung, Hyundai]
+- id: t2-07
+  text: Hyundai's own history says ground was broken in March 1972 on that beach in Ulsan, for what it calls the world's largest shipyard.
+  ten: [Hyundai, Ulsan]
+- id: t2-08
+  text: In January 1973, President Park Chung Hee announced a drive for heavy industry, naming shipbuilding, with exports as the goal.
+  ten: [Park Chung Hee]
+- id: t2-09
+  text: Munseob Lee, writing for the Korea Economic Institute of America in 2023, lists the support.
+  ten: [Munseob Lee, Korea Economic Institute]
+- id: t2-10
+  text: By Hyundai's account, while the shipyard was still being planned, a Greek shipowner, George Livanos, ordered two crude oil tankers.
+  ten: [Hyundai, George Livanos]
+- id: t2-11
+  text: As a publicity stunt, one Richmond yard built the Robert E. Peary in four days and fifteen and a half hours.
+  ten: [Richmond, Robert E. Peary]
+- id: t2-12
+  text: According to Korea JoongAng Daily, Hanwha, a South Korean group, bought the shipyard for a hundred million dollars in December 2024.
+  ten: [Korea JoongAng Daily, Hanwha]
+- id: t2-13
+  text: On March twelfth, 2024, five American labor unions, including the steelworkers and the boilermakers, petitioned the U.S. Trade Representative over China's shipbuilding.
+  ten: [steelworkers, boilermakers, Trade Representative]
+- id: t2-14
+  text: By the company's account, it completed the shipyard and two supertankers, the Atlantic Baron and the Atlantic Baroness, at the same time, in 1974.
+  ten: [Atlantic Baron, Atlantic Baroness]
+- id: t2-15
+  text: "In 1943, a government photographer pictured one of the people building Liberty ships in Richmond: Josie Lucille Owens, a welder trainee, helping build the Liberty ship George Washington Carver."
+  ten: [Josie Lucille Owens, George Washington Carver]
+- id: t1-01
+  text: Pew and the Center for Building looked at New York City's 4,440 modern single-stair buildings since 2012, and found the fire-death rate the same as in the city's other residential buildings.
+  ten: [Pew]
+  dong_am: {Pew: [Pugh]}   # đồng âm /pjuː/ — ASR viết "Pugh" không phải TTS đọc sai
+- id: t1-02
+  text: "The steepest fall came in the late 1980s: from about 86,000 homes in 1986 to about 45,000 in 1990."
+- id: t1-03
+  text: Colorado requires cities of 100,000 people or more to allow five stories by December 1, 2027.
+  ten: [Colorado]
+- id: t1-04
+  text: In 1926, a case from Euclid, Ohio — "practically a suburb" of Cleveland, the Court said — reached the Supreme Court.
+  ten: [Euclid, Ohio, Cleveland]
+- id: t1-05
+  text: A 2023 University of Auckland working paper estimated that roughly 21,800 additional homes were permitted in the five years after Auckland upzoned about three quarters of its residential land.
+  ten: [Auckland]

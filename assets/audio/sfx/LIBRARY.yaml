@@ -1,0 +1,109 @@
+version: 1
+ghi_chu: 'Thư viện SFX gắn hình — phiên Âm thanh 15/10/2026; dòng RIGHTS: AM-01…'
+mau:
+- id: coin-1
+  loai: coin_drop
+  tep: assets/audio/sfx/coin-1.ogg
+  sha256: fcfa5c03d80933f68aaba8d9d36d67135867f476db423d9321fbc40293e25338
+  nguon: Kenney "Impact Sounds" (https://kenney.nl/assets/impact-sounds), tệp gốc
+    impactMetal_light_000.ogg trong zip SHA-256 029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: coin-2
+  loai: coin_drop
+  tep: assets/audio/sfx/coin-2.ogg
+  sha256: ab263e699165360ea6c505a0723d4913b346981418126dc1824db5488cb4cbc5
+  nguon: Kenney "Impact Sounds" (https://kenney.nl/assets/impact-sounds), tệp gốc
+    impactMetal_light_001.ogg trong zip SHA-256 029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: coin-3
+  loai: coin_drop
+  tep: assets/audio/sfx/coin-3.ogg
+  sha256: c719394a7d17753eaabcf1973ec728cd9bb9c4e0fccb9511d8a982ee77af53dd
+  nguon: Kenney "Impact Sounds" (https://kenney.nl/assets/impact-sounds), tệp gốc
+    impactMetal_light_002.ogg trong zip SHA-256 029d734af1582474edf3a694d1b0cebc97c1c152f2f39fa34d4c2bafc5de77f8
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: coin-4
+  loai: coin_drop
+  tep: assets/audio/sfx/coin-4.ogg
+  sha256: 4a43dcf1f59f84c21f7ce5df4f5ec48f78928201cbaeef59ab5bf59d13a74e6d
+  nguon: Kenney "RPG Audio" (https://kenney.nl/assets/rpg-audio), tệp gốc handleCoins2.ogg
+    trong zip SHA-256 6dbeaf8544da958d8f2adcb4a4a4b76c1ade34a05f8ab9edccd327da7375f38b
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: paper-1
+  loai: paper_drop
+  tep: assets/audio/sfx/paper-1.ogg
+  sha256: 0054110778f788f361d26267530f4de2a9a2e5339e773461da96d5cbed899ec6
+  nguon: Kenney "Casino Audio" (https://kenney.nl/assets/casino-audio), tệp gốc card-place-1.ogg
+    trong zip SHA-256 f36250766ac5bc378c13708ddf12a23a8e54a3251f8d482c7536e51b5dbafa18
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: paper-2
+  loai: paper_drop
+  tep: assets/audio/sfx/paper-2.ogg
+  sha256: 865f87e30b84ede5cfd378a3f11838d8bc6f48794f0b90701e63a55ef241d988
+  nguon: Kenney "Casino Audio" (https://kenney.nl/assets/casino-audio), tệp gốc card-place-2.ogg
+    trong zip SHA-256 f36250766ac5bc378c13708ddf12a23a8e54a3251f8d482c7536e51b5dbafa18
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: paper-3
+  loai: paper_drop
+  tep: assets/audio/sfx/paper-3.ogg
+  sha256: a0ddc63376da207e224bd412ffde563738d7443661000f3032701fa00d3a61be
+  nguon: Kenney "Casino Audio" (https://kenney.nl/assets/casino-audio), tệp gốc card-place-3.ogg
+    trong zip SHA-256 f36250766ac5bc378c13708ddf12a23a8e54a3251f8d482c7536e51b5dbafa18
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: paper-4
+  loai: paper_drop
+  tep: assets/audio/sfx/paper-4.ogg
+  sha256: 77af4f039f8f213657ce0e2820146bd27e7f0eba158a1d2ed0cbdfe4ca9435f9
+  nguon: Kenney "Casino Audio" (https://kenney.nl/assets/casino-audio), tệp gốc card-place-4.ogg
+    trong zip SHA-256 f36250766ac5bc378c13708ddf12a23a8e54a3251f8d482c7536e51b5dbafa18
+  giay_phep: CC0 1.0 (License.txt trong gói; assets/audio/licenses/kenney-cc0.txt)
+  tac_gia: Kenney Vleugels (kenney.nl)
+- id: whoosh-1
+  loai: camera_move
+  tep: assets/audio/sfx/whoosh-1.ogg
+  sha256: c7c8f97f38544b7222852aaea17fe63bc9b564fe76562786dac290f2466def32
+  nguon: 'tự tổng hợp: scripts/audio/sfx.py whoosh(dur=0.9, seed=11)'
+  giay_phep: thuộc dự án (mã của dự án tạo ra, không dùng mẫu ngoài)
+  tac_gia: CINE LAB
+- id: whoosh-2
+  loai: camera_move
+  tep: assets/audio/sfx/whoosh-2.ogg
+  sha256: 4f8e65e3ab579c0c63b39a80941c005e2ab492efd16981ea9cba179aca788f31
+  nguon: 'tự tổng hợp: scripts/audio/sfx.py whoosh(dur=1.4, seed=12)'
+  giay_phep: thuộc dự án (mã của dự án tạo ra, không dùng mẫu ngoài)
+  tac_gia: CINE LAB
+- id: whoosh-3
+  loai: camera_move
+  tep: assets/audio/sfx/whoosh-3.ogg
+  sha256: c4ce3f72ce12675957e890b5e7455679be3d1906914e93c6fb8181032a43c1dc
+  nguon: 'tự tổng hợp: scripts/audio/sfx.py whoosh(dur=2.0, seed=13)'
+  giay_phep: thuộc dự án (mã của dự án tạo ra, không dùng mẫu ngoài)
+  tac_gia: CINE LAB
+- id: shimmer-1
+  loai: palette_shift
+  tep: assets/audio/sfx/shimmer-1.ogg
+  sha256: 0599c929594f78dbd1c518603759978b06b080e5de4584e0cdfeeb322fb79089
+  nguon: 'tự tổng hợp: scripts/audio/sfx.py shimmer(dur=2.4, seed=21)'
+  giay_phep: thuộc dự án (mã của dự án tạo ra, không dùng mẫu ngoài)
+  tac_gia: CINE LAB
+- id: shimmer-2
+  loai: palette_shift
+  tep: assets/audio/sfx/shimmer-2.ogg
+  sha256: b5f6fbd34e13e590190927836a92dadb1cf8998aa908fe5dcbe004b3676b4b19
+  nguon: 'tự tổng hợp: scripts/audio/sfx.py shimmer(dur=3.0, seed=22)'
+  giay_phep: thuộc dự án (mã của dự án tạo ra, không dùng mẫu ngoài)
+  tac_gia: CINE LAB
+- id: shimmer-3
+  loai: palette_shift
+  tep: assets/audio/sfx/shimmer-3.ogg
+  sha256: cfbb33373dee07c2f1ccbdad44eba4c1ec581d780d7864b31d6c558c18db0670
+  nguon: 'tự tổng hợp: scripts/audio/sfx.py shimmer(dur=2.4, seed=23)'
+  giay_phep: thuộc dự án (mã của dự án tạo ra, không dùng mẫu ngoài)
+  tac_gia: CINE LAB

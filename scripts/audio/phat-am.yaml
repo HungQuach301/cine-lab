@@ -1,0 +1,42 @@
+# TỪ ĐIỂN PHÁT ÂM TTS — tệp máy đọc (phiên Âm thanh, Mốc C, 15/10/2026). Người đọc: docs/AUDIO-PHAT-AM.md.
+# scripts/audio/phat_am.py áp tệp này lên lời TRƯỚC khi gửi ElevenLabs (bản gửi = bản nói; phụ đề .srt lấy theo bản gửi).
+# Thứ tự áp: alias (cụm dài trước) → viết tắt → tiền/phần trăm → số có đơn vị → năm/thập niên → ngày → số thứ tự → số thường.
+# Mỗi mục: khoá = chữ trong lời (khớp nguyên từ, phân biệt hoa/thường), giá trị = chữ gửi TTS.
+# Thêm mục: ghi số đo chứng minh đọc sai (ASR/tai người), nguồn cách đọc, ngày.
+
+version: 1
+
+# Cụm/tên riêng đọc khác chữ viết (alias). CHỈ thêm khi đo thấy TTS đọc sai (ASR + tai người) — không respell tên TTS đã đọc đúng.
+# Đo 15/10 (scripts/audio/asr_phat_am.py, giọng Eric eleven_multilingual_v2): respell tên Hàn/Hy Lạp làm ASR nghe XẤU hơn
+#   ("Lee-vah-nos" → "Liva Knows", "Hahn-hwah" → "Hanhwa", "Moon-sub" → "Moon-Sub") còn nguyên chữ thì nghe ra đúng → bỏ hết alias tên.
+# Tên đã kiểm, để NGUYÊN CHỮ: Chung Ju-yung, Park Chung Hee, Ulsan, Hyundai, Hanwha, Korea JoongAng Daily, George Livanos, Munseob Lee,
+#   Robert E. Peary, Josie Lucille Owens, Atlantic Baron(ess), Euclid, Cleveland, Auckland, Pew. Cách đọc bản ngữ (tên Hàn) vẫn cần tai chủ dự án.
+alias: {}
+
+# Viết tắt: say = đọc như từ; spell = đánh vần (viết có dấu chấm để TTS đọc từng chữ). ĐỀ XUẤT, CHƯA ĐO — kiểm ASR lần đầu một tập dùng.
+abbr:
+  USTR: {spell: "U.S.T.R."}
+  OWI: {spell: "O.W.I."}
+  KEI: {spell: "K.E.I."}
+  NATO: {say: "NATO"}
+  GDP: {spell: "G.D.P."}
+  LNG: {spell: "L.N.G."}
+  EAF: {spell: "E.A.F."}
+  USDA: {spell: "U.S.D.A."}
+  "U.S.": {say: "U.S."}
+  HD: {spell: "H.D."}
+
+# Đơn vị tiền sau số: "$5 billion" → "five billion dollars"; "500-won" → "five-hundred-won"
+currency:
+  "$": [dollar, dollars]
+  "€": [euro, euros]
+  "£": [pound, pounds]
+  "₩": [won, won]
+suffix_units:
+  won: won
+  yen: yen
+
+# Năm: 1000–1999 và 2010–2099 đọc theo cặp ("nineteen forty-three", "twenty twenty-six"); 2000–2009 "two thousand five";
+# x00 → "nineteen hundred". Chỉ coi là năm khi 4 chữ số không dấu phẩy, nằm trong khoảng year_range, và KHÔNG đứng ngay trước đơn vị đếm (ships, people…).
+year_range: [1500, 2099]
+count_nouns: [ships, ship, people, homes, workers, tons, tonnes, dollars, yards, vessels, units, jobs, miles, feet, percent]
