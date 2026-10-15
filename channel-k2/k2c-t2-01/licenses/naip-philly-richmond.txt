@@ -1,0 +1,9 @@
+Assets: aerial tiers 'philly' (center -75.180,39.890) and 'richmond' (center -122.360,37.910), 3 tiers each (40 / 8 / 1.8 km, 2048 px)
+Service: https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer (exportImage), fetched 2026-10-15 by scripts/k2/aerial.py
+Source rasters (service identify, Category 1 = NAIP): philly m_3907507_se_18_060_20220510 (USDA NAIP 2022); richmond m_3712206_sw_10_060_20220518 (USDA NAIP 2022).
+Other rows in the identify list are service overviews (Ov_i02_*), not state HRO.
+Per-tier bbox, SHA-256 (raw + processed) and acquisition list: channel-k2/k2c-t2-01/aerial/aerial-{philly,richmond}-meta.json
+Licence: same terms as channel-k2/k2v4-mau/licenses/d1-naip-lockport.txt (verbatim USDA FSA "Digital Rights and Copyright" + USGS "Copyrights and Credits", read 2026-10-14):
+  "Most information presented on the FSA Web site is considered public domain information. Public domain information may be freely distributed or copied, but use of appropriate byline/photo/image credits is requested."
+Credit used: "Imagery: USDA NAIP" (on screen) / "U.S. Department of Agriculture, Farm Service Agency (NAIP 2022), via USGS The National Map." (description)
+Media are NOT committed (cache $K2V_CACHE/aerial/<name>/). No prominent signage/logos: checked on the G1b frame sheet at 540p (see G1b-BAO-CAO.md).

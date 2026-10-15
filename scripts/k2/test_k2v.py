@@ -214,6 +214,17 @@ class T(unittest.TestCase):
                 else:
                     self.assertIsNone(fr)
 
+    def test_t2_rhythm_reused_hero(self):
+        """T2 G1b: mốc opt của cảnh dùng lại quy theo frame0/speed của shot; mốc ngoài khung shot không tính"""
+        import importlib.util
+        sp = importlib.util.spec_from_file_location('k2rhythm', os.path.join(prep.REPO, 'scripts/k2/rhythm.py')); r = importlib.util.module_from_spec(sp); sp.loader.exec_module(r)
+        E = {'heroes': {'h': {'opt': {'cam': [{'t': 0}, {'t': 5}, {'t': 12}, {'t': 30}]}}}}
+        sg = {'dur': 30, 'shots': [{'at': 0, 'p': {'hero': 'h'}}, {'at': 10, 'p': {'hero': 'h', 'frame0': 240, 'speed': 0.5}}]}
+        T = r.spec_times(E, sg)
+        self.assertIn(5.0, T); self.assertNotIn(12.0, T)   # shot 1: 0–10 s; mốc 12 thuộc giờ cảnh, không phải giờ đoạn
+        self.assertIn(14.0, T)                                # shot 2: 10 + (12 − 10)/0,5
+        self.assertNotIn(50.0, T); self.assertNotIn(40.0, T)  # 10 + (30 − 10)/0,5 = 50 > hết đoạn
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)

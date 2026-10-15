@@ -25,7 +25,7 @@ What this video covers
 Main sources (full list with links in the pinned comment)
 U.S. Trade Representative and Federal Register notices (2025); Congressional Research Service (2019, 2023, 2026); U.S. Maritime Commission, Report to Congress (1945); National Park Service, Rosie the Riveter WWII Home Front NHP; World Bank; HD Hyundai Heavy Industries company history; Korea Economic Institute of America (2023); Korea JoongAng Daily; Military Times; Library of Congress (FSA/OWI photographs).
 
-Images and film: Library of Congress (FSA/OWI, National Photo Company — no known restrictions); U.S. National Archives (public domain); terrain from USGS 3DEP and SRTM (courtesy of the U.S. Geological Survey); Natural Earth. All maps, 3D objects and animation are our own.
+Images: Library of Congress (FSA/OWI, National Photo Company — no known restrictions); aerial imagery: U.S. Department of Agriculture, Farm Service Agency (NAIP 2022), via USGS The National Map; terrain: 3DEP, GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey; Canada terrain data contains information licensed under the Open Government Licence – Canada; Natural Earth; NASA Blue Marble. All maps, 3D objects and animation are our own.
 
 Next: why one country makes almost all the world's shipping containers.
 

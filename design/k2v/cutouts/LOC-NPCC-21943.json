@@ -1,0 +1,60 @@
+{
+ "id": "LOC-NPCC-21943",
+ "img": "assets/k2/archive/loc-npcc-21943-wjones.jpg",
+ "img_sha256": "adc7aba05eb2bbd704200b2a458e912ed415f45076fc08cb9af15292f49d8732",
+ "size": [
+  1731,
+  2400
+ ],
+ "mask": "design/k2v/cutouts/LOC-NPCC-21943-mask.png",
+ "mask_sha256": "4b8eb2a75cb42feb168275e1b250201baf079c36aa7690c32b4121b0e871f9f1",
+ "bg": "design/k2v/cutouts/LOC-NPCC-21943-bg.jpg",
+ "bg_sha256": "c1f8497e2644e3296788fafff032a47169ac1f1d9e9df1ef7b1ba59fb15ffcf0",
+ "model": "birefnet-portrait",
+ "model_file": "BiRefNet-portrait-epoch_150.onnx",
+ "model_sha256": "1ba1c8ff5a7bbfadc8d8d13fb11d7be793f91f23d9d466549e37a854f6668f99",
+ "model_license": "MIT (ZhengPeng7/BiRefNet)",
+ "runtime": "rembg 2.0.85 + onnxruntime 1.31.0 (CPU, cục bộ)",
+ "steps": [
+  "model:birefnet-portrait",
+  "clean"
+ ],
+ "clean": {
+  "manh_roi_bo": 0,
+  "lo_lap": 0
+ },
+ "edge": {
+  "duong_vien_px": 4999,
+  "lech_tb_px": 0.205,
+  "lech_p95_px": 0.409,
+  "dai_mem_tb_px": 5.0
+ },
+ "edge_points_2x": [
+  [
+   724,
+   1379
+  ],
+  [
+   1464,
+   1357
+  ],
+  [
+   1044,
+   488
+  ],
+  [
+   828,
+   531
+  ],
+  [
+   1123,
+   752
+  ],
+  [
+   1274,
+   1502
+  ]
+ ],
+ "canh_bao": [],
+ "note": "Chỉ tách nền: lớp người = điểm ảnh gốc × alpha; không sinh hay vẽ lại điểm ảnh nào. Nền -bg.jpg = nền gốc lấp chỗ người + mờ (chỉ làm nền mờ/tối)."
+}

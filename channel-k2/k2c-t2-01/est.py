@@ -5,7 +5,7 @@
   - biến cố hình (beats) SINH TỪ mốc thật của đặc tả (đầu shot, nhãn/địa danh/sticker/chú thích/năm/bảng điểm/asof ở p; vùng/tuyến/vòng/cột/máy/bảng màu/đạo cụ ở opt)
     → scripts/k2/rhythm.py đo trung bình ≤ 3,5 s, khoảng dài nhất ≤ 6 s; scripts/k2/footage_share.py đo tỉ lệ footage ≤ 20 %.
   - tùy chọn --sub <đoạn/shot,…> --max <giây>: đặc tả CON (mỗi shot chọn thành một đoạn, cắt ≤ max giây) cho tờ khung 540p (vshot.py --draft).
-  est.py [--out <thư mục>] [--sub 00/0,01/2,…] [--max 7]"""
+  est.py [--out <thư mục>] [--sub 00/0,01/2:6,…] [--max 7]   (đoạn/shot[:giây bắt đầu cửa sổ trong shot])"""
 import copy, json, os, re, subprocess, sys
 H = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(H, '..', '..'))
 sys.path.insert(0, os.path.join(REPO, 'scripts/k2')); import prep  # noqa: E402  (vá ll.load: chặn lặp góc máy)
@@ -62,8 +62,8 @@ def main():
     if arg('sub'):
         mx = float(arg('max', 7)); S = {k: v for k, v in R.items() if k != 'segments'}; S['id'] = 't2-tokhung'; S['out'] = '/var/tmp/cine-out/k2v-shots/t2-tokhung'; S['segments'] = []
         for key in arg('sub').split(','):
-            sid, i = key.split('/'); sg = next(x for x in R['segments'] if x['id'] == sid); i = int(i); sh = copy.deepcopy(sg['shots'][i])
-            t0 = sh['at']; t1 = sg['shots'][i + 1]['at'] if i + 1 < len(sg['shots']) else sg['dur']; win = float(arg(f'w{sid}_{i}', 0)) or 0
+            key, _, w = key.partition(':'); sid, i = key.split('/'); sg = next(x for x in R['segments'] if x['id'] == sid); i = int(i); sh = copy.deepcopy(sg['shots'][i])
+            t0 = sh['at']; t1 = sg['shots'][i + 1]['at'] if i + 1 < len(sg['shots']) else sg['dur']; win = float(w or 0)   # "04/2:36" = cửa sổ bắt đầu 36 s sau đầu shot
             a = max(t0, min(t1 - mx, t0 + win)); d = round(min(mx, t1 - a), 3)
             def shift(o):
                 if isinstance(o, dict): return {kk: (round(v - a, 3) if kk in ('at', 'out', 't', 'asofAt') and isinstance(v, (int, float)) else shift(v)) for kk, v in o.items()}
@@ -71,7 +71,7 @@ def main():
                 return o
             p = shift(sh['p']); p['frame0'] = int(round((a - t0) * 24 * sh['p'].get('speed', 1))) + int(sh['p'].get('frame0', 0))
             sh['p'] = p; sh['at'] = 0
-            S['segments'].append(dict(id=f'{sid}-{i}', dur=d, shots=[sh], beats=[dict(t=0, k='cut', s='đầu shot')]))
+            S['segments'].append(dict(id=f'{sid}-{i}' + (f'-{int(win)}' if w else ''), dur=d, shots=[sh], beats=[dict(t=0, k='cut', s='đầu shot')]))
         sp = os.path.join(H, 'g1b', 'tokhung.yaml'); os.makedirs(os.path.dirname(sp), exist_ok=True)
         yaml.safe_dump(S, open(sp, 'w'), allow_unicode=True, sort_keys=False, width=200); print('đặc tả tờ khung →', sp)
     return rp

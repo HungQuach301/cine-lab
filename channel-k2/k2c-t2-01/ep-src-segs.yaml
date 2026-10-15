@@ -14,6 +14,7 @@ segments:
            cap: [{s: "This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.", at: 3.0}, {s: "", at: 12.0}],
            src: "Source: National Park Service · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@In#2-0.3", type: map, scene_id: map/globe, camera_id: pair, places: [China], p: {hero: g00_share, frame0: 0,
+           cap: [{s: "This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.", at: 3.0, seg: true}, {s: "", at: 12.0, seg: true}],
            tags: [{a: "col:us", s: "0.04%", sub: "U.S. share of world shipbuilding tonnage", big: true, kind: actual, num: n_us004, at: "@percent", side: auto, prefer: [down, left], c: "#3CC2B0"},
                   {a: "col:cn", s: "54.6%", sub: "China's share (2024)", big: true, kind: actual, num: n_cn546, at: "@half", side: auto, prefer: [up, right], c: "#8E7CC3"}],
            src: "Source: CRS (2026) · Map: Natural Earth · Imagery: NASA"}}
@@ -117,7 +118,7 @@ segments:
            src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@together-0.6", type: map, scene_id: relief/map, camera_id: t2-03-loop, places: [], p: {hero: r03_loop, frame0: 0,
            stickers: [{a: "st:lo", img: "stk:order", at: "@orders#1", px: 70}, {a: "st:lc", img: "stk:crane", at: "@scale#2", px: 120}],
-           cap: [{s: "High prices → few orders", at: "@High#1"}, {s: "Few orders → no scale", at: "@Few"}, {s: "No scale → high prices", at: "@No#1"}, {s: "Our read: the loop is our interpretation", at: "@pieces"}, {s: "Record: wages are one factor · no exports, no scale is another", at: "@lack"}],
+           cap: [{s: "High prices → few orders", at: "@High#2"}, {s: "Few orders → no scale", at: "@Few"}, {s: "No scale → high prices", at: "@No#1"}, {s: "Our read: the loop is our interpretation", at: "@pieces"}, {s: "Record: wages are one factor · no exports, no scale is another", at: "@lack"}],
            score: {corner: {at: "@So", title: "The record:", sides: [{s: "Wages", c: "#F08A4B", icon: "role:worker", n: 1}, {s: "Scale", c: "#3CC2B0", icon: "stk:crane", n: 1}]}},
            src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
 
@@ -129,12 +130,12 @@ segments:
       - {tpl: plate, at: 0, type: map, scene_id: map/globe, camera_id: pair, places: ["South Korea's"], p: {hero: g04_pacific, frame0: 0,
            tags: [{a: kr, s: "$107", sub: "South Korea, output per person, 1962 (current $)", kind: actual, num: n_gdp62, at: "@hundred", side: auto, c: "#F2C14E"}],
            src: "Source: World Bank · Map: Natural Earth · Imagery: NASA"}}
-      - {tpl: plate, at: "@Chung#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-chung, places: [], people: [Chung Ju-yung], p: {hero: r04_chung, frame0: 0,
+      - {tpl: plate, at: "@Chung#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-chung, places: [], people: [Chung Ju-yung], p: {hero: r04_chung, frame0: 0, year: {s: "early 1970s", at: "@1970s"},
            stickers: [{a: "st:chung", img: {role: engineer, hand: blueprint, hat: hardhat}, at: 0.3, px: 120, walk: true}],
            tags: [{a: "st:chung", s: "Chung Ju-yung", sub: "Hyundai (by the company's own account)", at: "@Ju-yung", side: auto, prefer: [up, right], c: "#F2C14E"}],
            cap: [{s: "\"no experience, capital, or shipbuilding technology whatsoever\" — company history", at: "@experience"}],
            src: "Source: HD Hyundai Heavy Industries history · Terrain: SRTM (USGS)"}}
-      - {tpl: plate, at: "@By#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-beach, places: [Ulsan], p: {hero: r04_beach, frame0: 0, year: {s: "1971–74", at: 0.3},
+      - {tpl: plate, at: "@By#2-0.3", type: map, scene_id: relief/map, camera_id: t2-04-beach, places: [Ulsan], p: {hero: r04_beach, frame0: 0, year: {s: "1971–74", at: 0.3},
            places: [{a: ulsan, s: "Ulsan", at: "@shipyard#1", side: auto, prefer: [left, up]}],
            stickers: [{a: "st:ord", img: "stk:order", at: "@ordered", px: 150}, {a: "st:cr1", img: "stk:crane", at: "@broken", px: 210}, {a: "st:cr2", img: "stk:crane", at: "@largest", px: 210},
                       {a: "st:photo", img: "stk:document", at: "@empty", px: 120}, {a: "st:note", img: "stk:document", at: "@banknote", px: 120}, {a: "st:s1", img: "stk:freighter", at: "@Baron", px: 170}, {a: "st:s2", img: "stk:freighter", at: "@Baroness", px: 170}],
@@ -185,7 +186,7 @@ segments:
       - {tpl: plate, at: "@Philadelphia#1-0.9", type: map, scene_id: relief/map, camera_id: t2-05-philly, places: [Philadelphia], p: {hero: r05_philly, frame0: 0,
            places: [{a: phy, s: "Philly Shipyard", at: "@shipyard", side: auto, prefer: [left, up]}],
            stickers: [{a: "st:ord2", img: "stk:order", at: "@tapped", px: 150}, {a: "st:cr3", img: "stk:crane", at: "@missile-tracking", px: 190}],
-           tags: [{a: phy, s: "$100M", sub: "bought by Hanwha, Dec. 2024 (reported)", kind: actual, num: n_hanwha, at: "@hundred", side: auto, prefer: [up], c: "#F2C14E"},
+           tags: [{a: phy, s: "$100M", sub: "bought by Hanwha, Dec. 2024 (reported)", kind: actual, num: n_hanwha, at: "@hundred#2", side: auto, prefer: [up], c: "#F2C14E"},
                   {a: phy, s: "$5B", sub: "investment announced, Aug. 2025", kind: actual, num: n_5b, at: "@investment#1", side: auto, prefer: [left, up], c: "#F2C14E"},
                   {a: phy, s: "1.5 → 20 ships/yr", sub: "announced goal, no date given", kind: projection, num: n_goal20, at: "@twenty", side: auto, prefer: [right, down], c: "#F2C14E"},
                   {a: "st:ord2", s: "June 2030", sub: "first missile-tracking ship, slated (Military Times)", kind: projection, num: n_2030, at: "@2030", side: auto, prefer: [up, right], c: "#3CC2B0"}],
@@ -209,6 +210,6 @@ segments:
            cap: [{s: "Our read: America didn't forget how to build ships", at: "@forget"}, {s: "Since the 1980s: few orders came", at: "@1980s"}, {s: "Record: high prices → fewer domestic purchases", at: "@ties"}, {s: "No exports → no economies of scale", at: "@lack"}, {s: "Supporters (American Maritime Partnership): jobs & security", at: "@Supporters"}, {s: "Critics (Sen. Lee, Rep. McClintock): higher prices", at: "@Critics"}, {s: "No source measures how much each factor counts", at: "@measures"}],
            src: "Sources: CRS, American Maritime Partnership, Rep. McClintock"}}
       - {tpl: plate, at: "@Back-0.3", in: fade, type: map, scene_id: relief/map, camera_id: t2-06-home, places: [Richmond], p: {hero: r06_home, frame0: 0,
-           places: [{a: y3, s: "Richmond Shipyard No. 3 — now a national park", at: "@Three", side: auto}],
+           places: [{a: y3, s: "Richmond Shipyard No. 3 — now a national park", at: "@Three#2", side: auto}],
            cap: [{s: "Next: why one country makes almost all the world's shipping containers", at: "@Next"}],
            src: "Sources: National Park Service, CRS (2026) · Imagery: USDA NAIP · Terrain: USGS 3DEP"}}

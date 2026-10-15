@@ -219,7 +219,7 @@ heroes:
         dist: 6
         tilt: 67
         head: -10
-      - t: '@ships+1'
+      - t: '@ships#2+1'
         lon: -122.4
         lat: 37.867
         dist: 5.5
@@ -926,8 +926,8 @@ heroes:
         - - -75.33
           - 39.73
         draw:
-        - '@High#1'
-        - '@prices#2'
+        - '@High#2'
+        - '@prices#4'
         style: dashed
         color: '#F2C14E'
         w: 7
@@ -939,7 +939,7 @@ heroes:
         dist: 24
         tilt: 58
         head: 0
-      - t: '@High#1'
+      - t: '@High#2'
         lon: -75.24
         lat: 39.565
         dist: 22
@@ -1186,7 +1186,7 @@ heroes:
         dist: 230
         tilt: 44
         head: -3
-      - t: '@yard+1'
+      - t: '@yard#2+1'
         lon: 128.8
         lat: 35.25
         dist: 220
@@ -1262,7 +1262,7 @@ heroes:
         dist: 95
         tilt: 51
         head: 8
-      - t: '@shipbuilding#3+1'
+      - t: '@shipbuilding#4+1'
         lon: 129.5
         lat: 35.15
         dist: 90
@@ -1540,6 +1540,12 @@ heroes:
         dist: 50
         tilt: 54
         head: 8
+      - t: '@delivery'
+        lon: -75.2
+        lat: 39.79
+        dist: 48
+        tilt: 54
+        head: 6
       - t: '@ships#1+1'
         lon: -75.2
         lat: 39.8

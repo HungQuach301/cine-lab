@@ -587,7 +587,7 @@ heroes:
         dist: 6
         tilt: 67
         head: -10
-      - t: '@ships+1'
+      - t: '@ships#2+1'
         lon: -122.4
         lat: 37.867
         dist: 5.5
@@ -1294,8 +1294,8 @@ heroes:
         - - -75.33
           - 39.73
         draw:
-        - '@High#1'
-        - '@prices#2'
+        - '@High#2'
+        - '@prices#4'
         style: dashed
         color: '#F2C14E'
         w: 7
@@ -1307,7 +1307,7 @@ heroes:
         dist: 24
         tilt: 58
         head: 0
-      - t: '@High#1'
+      - t: '@High#2'
         lon: -75.24
         lat: 39.565
         dist: 22
@@ -1554,7 +1554,7 @@ heroes:
         dist: 230
         tilt: 44
         head: -3
-      - t: '@yard+1'
+      - t: '@yard#2+1'
         lon: 128.8
         lat: 35.25
         dist: 220
@@ -1630,7 +1630,7 @@ heroes:
         dist: 95
         tilt: 51
         head: 8
-      - t: '@shipbuilding#3+1'
+      - t: '@shipbuilding#4+1'
         lon: 129.5
         lat: 35.15
         dist: 90
@@ -1916,6 +1916,12 @@ heroes:
         dist: 50
         tilt: 54
         head: 8
+      - t: '@delivery'
+        lon: -75.2
+        lat: 39.79
+        dist: 48
+        tilt: 54
+        head: 6
       - t: '@ships#1+1'
         lon: -75.2
         lat: 39.8
@@ -2084,6 +2090,13 @@ segments:
     p:
       hero: g00_share
       frame0: 0
+      cap:
+      - s: This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.
+        at: 3.0
+        seg: true
+      - s: ''
+        at: 12.0
+        seg: true
       tags:
       - a: col:us
         s: 0.04%
@@ -2201,7 +2214,7 @@ segments:
       stickers:
       - a: st:lib
         img: stk:freighter
-        at: 0.1
+        at: '@Liberty#1-0.20'
         px: 260
       cap:
       - s: 'The Liberty: an emergency cargo ship (about 11 knots)'
@@ -2218,11 +2231,11 @@ segments:
       frame0: 0
       year:
         s: 1942–43
-        at: 0.2
+        at: '@June-0.10'
       places:
       - a: richmond2
         s: Richmond, Calif.
-        at: 0.3
+        at: '@June+0.00'
         side: auto
         prefer:
         - left
@@ -2487,7 +2500,7 @@ segments:
       places:
       - a: seattle2
         s: Seattle
-        at: 0.2
+        at: '@Congress''s#1-0.10'
         side: auto
       tags:
       - a: seattle2
@@ -2520,7 +2533,7 @@ segments:
       stickers:
       - a: st:jship
         img: stk:freighter
-        at: 0.4
+        at: '@Congress''s#1+0.10'
         px: 90
       cap:
       - s: 'American Maritime Partnership: a coalition of supporters'
@@ -2637,7 +2650,7 @@ segments:
       - a: col:f1
         s: foreign yard
         sub: = 1
-        at: 0.6
+        at: '@gap+0.30'
         side: auto
         prefer:
         - up
@@ -2779,7 +2792,7 @@ segments:
         px: 120
       cap:
       - s: High prices → few orders
-        at: '@High#1'
+        at: '@High#2'
       - s: Few orders → no scale
         at: '@Few'
       - s: No scale → high prices
@@ -2845,13 +2858,16 @@ segments:
     p:
       hero: r04_chung
       frame0: 0
+      year:
+        s: early 1970s
+        at: '@1970s'
       stickers:
       - a: st:chung
         img:
           role: engineer
           hand: blueprint
           hat: hardhat
-        at: 0.3
+        at: '@Chung#1+0.00'
         px: 120
         walk: true
       tags:
@@ -2869,7 +2885,7 @@ segments:
         at: '@experience'
       src: 'Source: HD Hyundai Heavy Industries history · Terrain: SRTM (USGS)'
   - tpl: plate
-    at: '@By#1-0.3'
+    at: '@By#2-0.3'
     type: map
     scene_id: relief/map
     camera_id: t2-04-beach
@@ -2880,7 +2896,7 @@ segments:
       frame0: 0
       year:
         s: 1971–74
-        at: 0.3
+        at: '@By#2+0.00'
       places:
       - a: ulsan
         s: Ulsan
@@ -3093,12 +3109,12 @@ segments:
       places:
       - a: port
         s: Port of Philadelphia
-        at: 0.4
+        at: '@Then+0.10'
         side: auto
       stickers:
       - a: st:cnship
         img: stk:freighter
-        at: 0.4
+        at: '@Then+0.10'
         px: 110
       tags:
       - a: st:cnship
@@ -3155,7 +3171,7 @@ segments:
       - a: dc
         s: '"unreasonable"'
         sub: U.S. Trade Representative, Jan. 2025
-        at: 0.4
+        at: '@Ministry-0.20'
         side: auto
         c: '#3CC2B0'
       - a: bj
@@ -3241,7 +3257,7 @@ segments:
         sub: bought by Hanwha, Dec. 2024 (reported)
         kind: actual
         num: n_hanwha
-        at: '@hundred'
+        at: '@hundred#2'
         side: auto
         prefer:
         - up
@@ -3393,7 +3409,7 @@ segments:
       places:
       - a: y3
         s: Richmond Shipyard No. 3 — now a national park
-        at: '@Three'
+        at: '@Three#2'
         side: auto
       cap:
       - s: 'Next: why one country makes almost all the world''s shipping containers'

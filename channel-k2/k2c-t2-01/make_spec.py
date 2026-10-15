@@ -41,6 +41,20 @@ if __name__ == '__main__':
     for s in E['segments']:
         if s.get('vo') == '@script': s['vo'] = VO[s['id']]
     assert [s['id'] for s in E['segments']] == sorted(VO), (sorted(VO), [s['id'] for s in E['segments']])
+    # mốc số ở lớp 2D (p.places/tags/stickers/labels/cap/year/title .at) là giây TRONG ĐOẠN (k2.js); ở shot không mở đoạn, nguồn ghi số = giây SAU ĐẦU SHOT
+    # → đổi thành mốc lời của shot cộng bù (vd shot "@June-0.3", at 0.3 → "@June+0.00"), để vật hiện đúng lúc trong shot thay vì đã có sẵn khi cắt vào. Mục có seg: true giữ giây trong đoạn (câu miễn trừ 0:03–0:12 vắt qua hai shot đầu).
+    def rel(v, base):
+        m = re.match(r'^(@.+?)([+-]\d+(?:\.\d+)?)?$', base); o = float(m.group(2) or 0) + v
+        return f'{m.group(1)}{o:+.2f}'
+    for s in E['segments']:
+        for sh in s['shots']:
+            if not isinstance(sh.get('at'), str): continue
+            p = sh['p']
+            for k in ('places', 'tags', 'stickers', 'labels', 'cap'):
+                for x in p.get(k) or []:
+                    if isinstance(x.get('at'), (int, float)) and not x.get('seg'): x['at'] = rel(x['at'], sh['at'])
+            for k in ('year', 'title'):
+                if isinstance(p.get(k), dict) and isinstance(p[k].get('at'), (int, float)): p[k]['at'] = rel(p[k]['at'], sh['at'])
     try: aerial_bbox(E['heroes'])
     except FileNotFoundError as e: print('CẢNH BÁO: chưa có ảnh hàng không —', e, file=sys.stderr)
     out = sys.argv[1] if len(sys.argv) > 1 else f'{H}/episode.yaml'
