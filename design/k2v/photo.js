@@ -144,13 +144,14 @@ export const HEROES = {
       for (let i = 0; i < 9000; i++) { g.fillStyle = `rgba(120,100,70,${0.02 * R()})`; g.fillRect(R() * w, R() * h, 2, 2); }
       const bx = (0.31 / mw) * w, by = (0.31 / mh) * h; g.fillStyle = 'rgba(0,0,0,0.25)'; g.fillRect(bx - 3, by - 3, w - 2 * bx + 6, h - 2 * by + 6); }), { curl: 0.004, back: '#cfc6b2' });
     board.rotation.y = o.rot ?? -0.035; board.position.y = o.lift ?? 0; scene.add(board);   // lift (V2b): nâng bản in khỏi mặt bàn → bóng đổ rõ dưới đèn bàn
-    const pr = sheet(pw, ph, tex, { curl: 0.006, rough: 0.55 }); pr.position.y = 0.012; board.add(pr);
+    const pr = sheet(pw, ph, tex, { curl: 0.006, rough: meta ? 0.75 : 0.55 }); pr.position.y = 0.012; board.add(pr);
+    if (meta) pr.children[0].material.color.set(o.paper || '#cfcabe');   /* trang văn bản: giấy bớt chói dưới đèn bàn (như photo/doc) → chữ đọc được */
     const HL = meta ? addHL(pr, meta, o.hl, pw, ph, 0.032) : { hls: [], anchors: {} }, R0 = meta && o.hl && o.hl[0] && meta.hl[o.hl[0].i] ? meta.hl[o.hl[0].i].rects[0] : null;
     const F = o.focus || (R0 ? [(R0[0] + R0[2]) / 2, R0[1]] : [0.5, 0.35]), fx = (F[0] - 0.5) * pw, fz = (F[1] - 0.5) * ph;   // trang văn bản: máy tiến về dòng tô đầu
     const keys = o.cam || kenburns(W, H, dur, { size: mh, focus: [fx, fz], push: o.push ?? 0.2, mm: o.mm || 50, preset: o.preset || 'push' });
     const { cam, at } = camRig(W, H, keys, dur);
     const wp = (x, z) => { const v = new THREE.Vector3(x, 0.03, z); board.localToWorld(v); return v; };
-    return { scene, cam, grade: o.grade || 'archive', exposure: o.exposure || 1.05,
+    return { scene, cam, grade: o.grade || 'archive', exposure: o.exposure || (meta ? 0.9 : 1.05),
       anchors: { focus: () => wp(fx, fz), 'print:bl': () => wp(-pw / 2, ph / 2), 'print:br': () => wp(pw / 2, ph / 2), 'print:top': () => wp(0, -ph / 2), ...HL.anchors },
       update(t) { at(t); sweepHL(HL.hls, t); } };
   },
