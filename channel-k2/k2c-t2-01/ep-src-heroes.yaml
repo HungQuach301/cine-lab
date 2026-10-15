@@ -54,32 +54,32 @@ heroes:
       - country: United States of America
         color: '#3CC2B0'
         at: '@America''s'
-        lift: 1
+        lift: true
       - country: China
         color: '#8E7CC3'
         at: '@China''s'
-        lift: 1
+        lift: true
       cols:
       - id: us
         at:
         - -98
         - 39
-        v: 0.02
+        v: 0.0006
         grow:
         - '@percent'
         - '@percent+0.6'
         color: '#3CC2B0'
-        r: 1.2
+        r: 0.035
       - id: cn
         at:
         - 104
         - 35
-        v: 2.4
+        v: 0.8
         grow:
         - '@half-0.8'
         - '@half+0.4'
         color: '#8E7CC3'
-        r: 1.2
+        r: 0.035
   r00_philly:
     hero: relief/map
     opt:
@@ -1091,7 +1091,7 @@ heroes:
       - country: South Korea
         color: '#F2C14E'
         at: 2.0
-        lift: 1
+        lift: true
       focus: seoul
       cols:
       - id: kr
@@ -1477,7 +1477,7 @@ heroes:
       - country: China
         color: '#8E7CC3'
         at: 0.4
-        lift: 1
+        lift: true
       arcs:
       - from: shanghai
         to: rotterdam
@@ -1485,7 +1485,6 @@ heroes:
         - '@ninety'
         - '@ninety+1.4'
         color: '#8E7CC3'
-        h: 0.5
       - from: shanghai
         to:
         - -118.24
@@ -1494,7 +1493,6 @@ heroes:
         - '@ninety+0.4'
         - '@ninety+1.8'
         color: '#8E7CC3'
-        h: 0.5
   d05_det:
     hero: photo/print
     cam: push
@@ -2059,18 +2057,18 @@ heroes:
       - country: United States of America
         color: '#3CC2B0'
         at: '@America''s'
-        lift: 1
+        lift: true
       cols:
       - id: us
         at:
         - -98
         - 39
-        v: 0.02
+        v: 0.0006
         grow:
         - '@percent'
         - '@percent+0.6'
         color: '#3CC2B0'
-        r: 1.2
+        r: 0.035
     size:
     - 1080
     - 1920
