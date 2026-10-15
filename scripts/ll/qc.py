@@ -29,13 +29,16 @@ Mục kiểm (ngưỡng ở bảng R dưới đây):
   Q32 (khoá 1.10.0, 12/10/2026, mọi tập LL và kênh 2): footage/ảnh nguồn ngoài (checks/ll/q_footage.py; sổ SOURCES-FOOTAGE.csv cạnh episode.yaml)
   Sửa sau tập 7 (K, 09/10/2026, 1.8.0): Q27 chỉ chấm bản cuối 1080p, ĐẠT khi ≥ tập 1 − SE, sát ngưỡng đòi mục "Cải thiện hình" trong
       PLAN tập sau; Q31 chuyển sổ vòng nháp → bản cuối chỉ khi cùng lời/cấu trúc; Q26b đa dạng bối cảnh (checks/ll/q_setting.py, từ tập 8)
+  K2 (tuỳ chọn --k2check hoặc K2CHECK=1; V5a 15/10/2026): gọi bộ kiểm kênh 2 của K checks/ll/k2check.py (checks 1.11) qua dòng lệnh
+      (scripts/ll/k2hook.py); chưa có tệp (chưa merge 1.11) → bỏ qua êm, chỉ ghi chú dưới bảng, không thêm mục TRƯỢT
 Mọi số trong ±5 % quanh ngưỡng được nêu tên ở cột "sát ngưỡng".
 """
 import glob, json, os, re, subprocess, sys
 import numpy as np
 
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-sys.path.insert(0, os.path.dirname(__file__)); import ll  # noqa: E402
+sys.path.insert(0, os.path.dirname(__file__)); import ll, k2hook  # noqa: E402
+K2 = '--k2check' in sys.argv or os.environ.get('K2CHECK') == '1'; sys.argv = [x for x in sys.argv if x != '--k2check']
 sys.path.insert(0, REPO); from checks.ll import llcheck as K, q_rhythm, q_rights, q_src, q_overflow, q_diversity, q_av, q_blind, q_setting, q_footage, q_scene  # noqa: E402  luật khoá LL v3 (phiên K)
 EP = sys.argv[1]; E = ll.load(EP); O = E['out']; V = os.environ.get('V', 'v1')
 TL = json.load(open(os.path.join(O, 'timeline.json')))
@@ -219,8 +222,15 @@ else:
 _lk = subprocess.run(['/opt/cine/bin/python', os.path.join(REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
 row('LOCK', 'checks/ khớp LOCK (luật khoá không bị sửa)', _lk.returncode == 0, 'KHỚP' if _lk.returncode == 0 else 'KHÔNG KHỚP', 'TREE_SHA256')
 
+k2note = ''
+if K2:
+    _k2 = k2hook.run(REPO, EP, O, V, E['id'])
+    if _k2 is None: k2note = '_k2check: bỏ qua — checks/ll/k2check.py chưa có trên nhánh này (chưa merge checks 1.11)._'
+    else: row('K2', 'Bộ kiểm kênh 2 của K (checks/ll/k2check.py)', _k2['ok'], _k2['val'], 'mã thoát 0', note=_k2['note'])
+
 ok = all(r['kq'] == 'ĐẠT' for r in rows)
 md = [f"# QC {E['id']} ({V}) — {'ĐẠT' if ok else 'TRƯỢT'}", '', '| Mục | Kiểm | Kết quả | Giá trị | Ngưỡng | Sát ngưỡng (±5 %) | Ghi chú |', '|---|---|---|---|---|---|---|']
 md += [f"| {r['q']} | {r['ten']} | **{r['kq']}** | {r['gia_tri']} | {r['nguong']} | {r['sat']} | {r['ghi_chu']} |" for r in rows]
+if k2note: md += ['', k2note]
 open(f'{O}/qc.md', 'w').write('\n'.join(md) + '\n'); json.dump(rows, open(f'{O}/qc.json', 'w'), ensure_ascii=False, indent=1)
 print('\n'.join(md)); sys.exit(0 if ok else 1)
