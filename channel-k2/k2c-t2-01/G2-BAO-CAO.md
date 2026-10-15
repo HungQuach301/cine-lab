@@ -114,3 +114,8 @@
 - **Phim NARA:** khung trong khung đè dải chú thích → `maxScale` 1,1 (cao ≈ 49 % khung ở 1080p). Đã kiểm khung cắt: shot 127 khung, cận mặt người chỉ bắt đầu ở khung 131, không lên hình.
 - **Dấu cảnh:** mỗi lần sửa `photo.js` đổi dấu mọi cảnh. Dùng cách chuyển dấu có kiểm (dấu cũ tính bằng `photo.js` của HEAD, chỉ cho cảnh có tham số giống hệt) — 29 rồi 30 cảnh giữ nguyên, chỉ dựng lại cảnh thật sự đổi.
 - **Đĩa:** worktree v5a (4,9 GB, cả repo) làm đĩa còn 1,5 GB → bản dựng tự dừng ở ngưỡng 3 GB. Đã gỡ worktree; sẽ thêm lại lúc kiểm gói rồi gỡ ngay.
+
+## 7. Bờ biển Ulsan (mục 6 lệnh K 1.11) — ghi nhận, không chặn
+- Kiểm ở khung 1080p của r04_beach (máy cách ~13–14 km, xem 100 %): đường bờ còn **bậc răng cưa của điểm ảnh nền**, thấy rõ ở khung cuối.
+- Gốc lỗi là độ phân giải mặt nạ bờ của nền `korea` (ppd 1800, bờ suy từ DEM). Sửa phải **dựng lại nền lớn** (ppd cao hơn hoặc vector bờ biển cho vùng Ulsan), không chỉ dựng lại shot Ulsan.
+- Theo lệnh: không sửa ở lượt này, ghi ở đây. Đề xuất cho T3/V: nền cục bộ ppd ≥ 3 600 quanh Ulsan (bbox ~129,3–129,5°E, 35,4–35,6°N), hoặc vẽ đường bờ từ Natural Earth 10 m / OSM coastline.
