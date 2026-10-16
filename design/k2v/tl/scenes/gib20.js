@@ -25,7 +25,7 @@ export async function build(ctx) {
     route: { line: WCA, type: 'eo_dat', nguon: 'OSM Winston Churchill Avenue (tim tuyến gộp hai chiều, gib20.js)' },
     fly: { s0: 100, s1: 340, t: [7.8, 10.8], h: [104, 96], target: LL, r: 520, pitch: 0.12, fov: 26 },
     ramp: { t1: 11.6, k: 2.4 },
-    orbit: { c: [0, 2, 0], r: 100, h: 40, look: 12, a0: -92, a1: -248, t1: 16.6, fov: 32, heroId: 'crossing' },
+    orbit: { c: [0, 2, 0], r: 95, h: 38, look: 16, a0: -92, a1: -248, t1: 16.6, fov: 33, heroId: 'crossing' },
     crane: { t1: 17.8, h: 240, fov: 32, l: [-60, 30, -500] },
     reveal: { keys: [{ t: 19.4, p: [-700, 620, 420], l: [-80, 0, -60], fov: 31 }, { t: 21.1, p: [-1800, 1450, 220], l: [-130, 0, 250], fov: 32 }, { t: 22.8, p: [-2600, 2080, 60], l: [-150, 0, 350], fov: 33 }] },
     pin: PIN });

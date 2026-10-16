@@ -38,6 +38,16 @@ export async function makeTerrain(base, M, U) {
       // nhiễu cho vật liệu nền: thủ tục (fbm/vn) hoặc NƯỚNG SẴN (tech.baked: 1 lần lấy mẫu kết cấu thay 4 tầng vn) — đo ở báo cáo V5B1B §7
       float FBM(vec2 p){ return uBaked > 0.5 ? texture(tNoise, p * 0.25).r : fbm(p); }
       float VN(vec2 p){ return uBaked > 0.5 ? texture(tNoise, p * 0.03125).a : vn(p); }
+      // V5b-2a · chi tiết CẬN CẢNH cho bay thấp ≤ 120 m (cú liên hoàn): cụm cỏ 0,7–1,5 m (tối, có tâm sáng), hạt cỏ 0,3 m, bụi thấp 2–4 m lẻ — mờ dần khi
+      // nhỏ hơn điểm ảnh (fw) nên không răng cưa/nhấp nháy ở xa; chỉ vật liệu cỏ (cỏ khô, đồng cỏ eo đất) — phong cách hoá, không phải dữ liệu mới
+      vec3 tufts(vec3 s, vec2 p, vec3 bushC){
+        vec2 q = p * 0.9, ci = floor(q), cf = fract(q) - 0.5; float dt = length(cf - (vec2(h21(ci), h21(ci + 7.3)) - 0.5) * 0.6);
+        float k1 = fw(p, 0.9), tuft = (1.0 - smoothstep(0.16, 0.40, dt)) * step(0.35, h21(ci + 2.1)) * k1;
+        s *= 1.0 - 0.30 * tuft + 0.10 * (1.0 - smoothstep(0.0, 0.12, dt)) * k1;
+        s *= 0.88 + 0.24 * vn(p * 3.1) * fw(p, 3.1);
+        vec2 b = p * 0.3, bi = floor(b), bf = fract(b) - 0.5; float bd = length(bf - (vec2(h21(bi + 1.7), h21(bi + 9.1)) - 0.5) * 0.5);
+        float bush = (1.0 - smoothstep(0.09, 0.20, bd)) * step(0.70, h21(bi + 4.4)) * fw(p, 0.3);
+        return mix(s, bushC * (0.8 + 0.4 * vn(p * 1.3)), bush * 0.8); }
       vec3 matC(float c, vec2 p, float dc, float sl){
         float m1 = FBM(p * 0.045), m2 = VN(p * 0.31), mi = VN(p * 1.7) * fw(p, 1.7), m3 = FBM(p * 0.012 + 4.0);
         if (c < 1.5) {   // 1 cát bãi: gợn cát, vệt ướt sát mép nước, vỏ sò
@@ -46,7 +56,7 @@ export async function makeTerrain(base, M, U) {
         if (c < 2.5) {   // 2 cỏ khô: vàng rơm, búi tối, đất lộ
           vec3 s = mix(vec3(0.70, 0.64, 0.38), vec3(0.56, 0.56, 0.30), m1); s = mix(s, vec3(0.66, 0.56, 0.40), smoothstep(0.62, 0.8, m2) * 0.6);
           float sh = smoothstep(0.58, 0.70, FBM(p * 0.05 + 3.0) * 0.6 + VN(p * 0.6) * 0.45); s = mix(s, vec3(0.30, 0.38, 0.18) * (0.85 + 0.3 * mi), sh * 0.7);   // garrigue: cụm bụi lẻ trên cỏ khô
-          return s * (0.84 + 0.26 * mi); }
+          return tufts(s, p, vec3(0.30, 0.36, 0.17)) * (0.84 + 0.26 * mi); }
         if (c < 3.5) {   // 3 maquis: cụm bụi xanh đậm, khe đá vôi/đất giữa cụm
           float cl = FBM(p * 0.11 + 2.0); vec3 s = mix(vec3(0.17, 0.29, 0.12), vec3(0.32, 0.40, 0.17), m2 * 0.7 + m3 * 0.5);
           s = mix(s, vec3(0.62, 0.58, 0.48), smoothstep(0.42, 0.30, cl) * 0.85); return s * (0.80 + 0.32 * mi); }
@@ -74,7 +84,7 @@ export async function makeTerrain(base, M, U) {
         // 13 đồng cỏ eo đất (trước đô thị hoá): cỏ xanh-ô liu xen mảng cỏ khô + lối mòn sáng (phong cách hoá theo ảnh LoC c.1900)
         vec3 s = mix(vec3(0.40, 0.48, 0.24), vec3(0.54, 0.55, 0.32), m1); s = mix(s, vec3(0.68, 0.63, 0.40), smoothstep(0.55, 0.72, m3) * 0.7);
         float tr = (1.0 - smoothstep(0.0, 0.005, abs(FBM(p * 0.0032 + 9.0) - 0.5))) * fw(p, 0.25); s = mix(s, vec3(0.76, 0.71, 0.56), tr * 0.5);
-        return s * (0.84 + 0.24 * mi); }`)
+        return tufts(s, p, vec3(0.24, 0.30, 0.14)) * (0.84 + 0.24 * mi); }`)
       .replace('#include <map_fragment>', `
       vec2 guv = vec2((vWP.x - uExt.x) / uExt.z, (-vWP.z - uExt.y) / uExt.w);
       vec4 yv = texture(tYears, guv); float uy = decYear(yv.rg);

@@ -50,7 +50,9 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   const OV = JSON.parse(arg('override', '[]'));   // [{year, cam:{p,l,fov}, spp, noText}] theo thứ tự --only
   const MEAS = +arg('measure', 24), log = { renderer: info.renderer, gl: GL, info, cfg, frames: [] }, t0 = Date.now(), mem = [];
   for (const f of frames) {
-    if (arg('maskonly')) { const r = Object.assign({ f }, await page.evaluate(async ([f, ov]) => window.contentMask(f, ov), [f, OV[frames.indexOf(f)] || OV[0] || null])); log.frames.push(r); continue; }   // V5b-1b: đo mặt nạ nội dung ở LƯỢT RIÊNG (xen với dựng hình làm hỏng trạng thái bóng/terrain — lỗi phát hiện 16/10)
+    if (arg('maskonly')) { const r = Object.assign({ f }, await page.evaluate(async ([f, ov, png]) => window.contentMask(f, ov, png), [f, OV[frames.indexOf(f)] || OV[0] || null, !!arg('maskpng')]));
+      if (r.png_b64) { fs.mkdirSync(arg('maskpng'), { recursive: true }); fs.writeFileSync(path.join(arg('maskpng'), String(f).padStart(5, '0') + '.png'), Buffer.from(r.png_b64, 'base64')); }   // V5b-2a: --maskpng <thư mục>
+      delete r.png_b64; log.frames.push(r); continue; }   // V5b-1b: đo mặt nạ nội dung ở LƯỢT RIÊNG (xen với dựng hình làm hỏng trạng thái bóng/terrain — lỗi phát hiện 16/10)
     const tf = Date.now(); const r = await page.evaluate(async ([f, m, ov]) => await window.renderFrame(f, m, ov), [f, f % MEAS === 0 || only.length > 0, OV[frames.indexOf(f)] || OV[0] || null]);
     if (OUT) fs.writeFileSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg'), Buffer.from(r.img, 'base64')); delete r.img; r.wall_ms = Date.now() - tf;
     log.frames.push(r);

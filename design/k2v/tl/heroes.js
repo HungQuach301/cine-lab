@@ -135,7 +135,12 @@ export function makeHeroes(H, hAt, U, terr, lines) {
   const TW = 8192, TH = 256, cv = document.createElement('canvas'); cv.width = TW; cv.height = TH; const g = cv.getContext('2d');
   const X = (s) => s / L * TW, Yv = (o) => (o + hw) / (2 * hw) * TH;   // s dọc (m từ đầu tây), o ngang (m, −hw..hw)
   g.fillStyle = '#4a4c50'; g.fillRect(0, 0, TW, TH);
-  { const R = rng(3); for (let i = 0; i < 9000; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '30,30,32' : '120,120,118'},${0.05 + R() * 0.08})`; g.fillRect(R() * TW, R() * TH, 2 + R() * 30, 1 + R() * 3); } }
+  { const R = rng(3); for (let i = 0; i < 9000; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '30,30,32' : '120,120,118'},${0.05 + R() * 0.08})`; g.fillRect(R() * TW, R() * TH, 2 + R() * 30, 1 + R() * 3); }
+    // V5b-2a · cận cảnh orbit (≈ 100 m): cốt liệu đá dăm lấm tấm, mảng vá nhựa, vết dầu, đường nối thi công ngang 7,5 m (mặt nhựa thời chiến) — tất định (rng 3)
+    for (let i = 0; i < 60000; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '22,22,24' : '150,148,142'},${0.10 + R() * 0.16})`; g.fillRect(R() * TW, R() * TH, 1 + R() * 2, 1 + R() * 2); }
+    for (let i = 0; i < 160; i++) { g.fillStyle = `rgba(${R() < 0.5 ? '38,38,40' : '104,100,94'},${0.08 + R() * 0.10})`; const w = 20 + R() * 120, h = 8 + R() * 40; g.fillRect(R() * TW, R() * (TH - h), w, h); }
+    for (let i = 0; i < 140; i++) { g.fillStyle = `rgba(18,16,14,${0.06 + R() * 0.08})`; g.beginPath(); g.ellipse(R() * TW, TH * (0.25 + 0.5 * R()), 6 + R() * 18, 3 + R() * 9, 0, 0, 7); g.fill(); }
+    g.fillStyle = 'rgba(20,20,22,0.35)'; for (let s = 0; s < TW; s += TW / (L / 7.5)) g.fillRect(s, 0, 1.5, TH); }
   g.fillStyle = 'rgba(25,25,27,0.35)'; g.fillRect(X(dW + 250), Yv(-6), X(L - dW - 500) - X(0) + 0, Yv(6) - Yv(-6));   // vết lốp vùng chạm bánh (giữa)
   g.fillStyle = '#ecebe6';
   const rect = (s0, s1, o0, o1) => g.fillRect(X(s0), Yv(o0), X(s1) - X(s0), Yv(o1) - Yv(o0));
@@ -165,7 +170,7 @@ export function makeHeroes(H, hAt, U, terr, lines) {
   // viền sáng đường băng (mốc đinh): khung chữ nhật phát sáng, chỉ phần trên đất
   const fr = new THREE.Group(); const fmat = new THREE.MeshBasicMaterial({ color: '#ffd166', transparent: true, opacity: 0, depthWrite: false, fog: false });
   const seg = (s0, s1, o0, o1) => { const e0 = W0[0] + dir[0] * s0 + nrm[0] * o0, n0 = W0[1] + dir[1] * s0 + nrm[1] * o0, e1 = W0[0] + dir[0] * s1 + nrm[0] * o1, n1 = W0[1] + dir[1] * s1 + nrm[1] * o1;
-    const l = Math.hypot(e1 - e0, n1 - n0), m = new THREE.Mesh(new THREE.BoxGeometry(l + 3, 1.2, 3), fmat); m.position.set((e0 + e1) / 2, 4.6, -(n0 + n1) / 2); m.rotation.y = Math.atan2(-(n1 - n0), e1 - e0); fr.add(m); };
+    const l = Math.hypot(e1 - e0, n1 - n0), m = new THREE.Mesh(new THREE.BoxGeometry(l + 1.4, 0.6, 1.4), fmat);   /* V5b-2a: viền mảnh hơn (orbit cận 100 m: dải 3 m quá nặng) */ m.position.set((e0 + e1) / 2, 4.6, -(n0 + n1) / 2); m.rotation.y = Math.atan2(-(n1 - n0), e1 - e0); fr.add(m); };
   // khung chỉ trên phần đường băng có đất năm 1941 (đông bờ vịnh cũ, ≈ E −340 m — xem build_scene.OLD_BAY); phần lấn vịnh khai hoang 1941–43
   const sL = Math.max(0, Math.min(L, (-340 - W0[0]) / dir[0])); out.rwLandS = sL;
   seg(sL, L, hw + 3, hw + 3); seg(sL, L, -hw - 3, -hw - 3); seg(sL, sL, -hw - 3, hw + 3); seg(L, L, -hw - 3, hw + 3); fr.visible = false; group.add(fr); out.rwFrame = fr; out.rwFrameMat = fmat;

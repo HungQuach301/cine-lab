@@ -60,6 +60,12 @@ export function makeRoads(roads, hAt, U) {
       float edge = smoothstep(0.80, 0.92, rz) * step(rz, 1.0) * step(0.7, vRd.y) * smoothstep(1955.0, 1965.0, uYear);   // vạch mép đường chính
       c = mix(c, vec3(0.82, 0.82, 0.80), edge * 0.6);
       c *= 0.92 + 0.12 * fract(sin(dot(floor(vWP2.xz * 1.3), vec2(12.9898, 78.233))) * 43758.5453) * (1.0 - smoothstep(200.0, 600.0, length(vWP2 - cameraPosition)));   // đá dăm / vá
+      { // V5b-2a · đường ĐẤT (trước khi trải nhựa 1935–50) nhìn cận khi bay thấp: hai vệt bánh xe, loang bụi/ổ gà 3 m, lề cỏ lấn mép
+        float de = 1.0 - smoothstep(1935.0, 1950.0, uYear), nr = 1.0 - smoothstep(250.0, 900.0, length(vWP2 - cameraPosition));
+        float rut = (smoothstep(0.26, 0.36, rz) - smoothstep(0.52, 0.64, rz)) * step(0.5, vRd.y);
+        float mo = fract(sin(dot(floor(vWP2.xz * 0.33), vec2(41.3, 289.1))) * 15731.7), mo2 = fract(sin(dot(floor(vWP2.xz * 2.1 + 0.5), vec2(7.1, 113.9))) * 9137.3);
+        c *= 1.0 - de * (0.20 * rut + (0.10 * mo + 0.06 * mo2) * nr);
+        c = mix(c, vec3(0.50, 0.53, 0.30), de * smoothstep(0.80, 1.0, rz) * step(rz, 1.0) * 0.55 * nr); }
       if (vRd.y < 0.2) c = mix(vec3(0.74, 0.68, 0.55), vec3(0.80, 0.77, 0.70), step(0.14, vRd.y) * smoothstep(1950.0, 1970.0, uYear));   // lối mòn đất / lối lát
       if (rz > 1.0 && vRd.w < 0.999) {   // vỉa hè: lát gạch 0,6 m + bó vỉa tối (sau 1900; trước đó lề đất)
         vec2 q = abs(fract(vWP2.xz / 0.6) - 0.5); float jn = step(0.45, max(q.x, q.y)) * (1.0 - smoothstep(80.0, 300.0, length(vWP2 - cameraPosition)));

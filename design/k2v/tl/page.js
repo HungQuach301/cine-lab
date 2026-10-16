@@ -98,7 +98,7 @@ window.renderFrame = async (f, measure, ov) => {
 const projOf = () => (v) => { const p = v.clone().project(cam); if (!(p.z < 1 && p.z > -1)) return null; const a = [(p.x + 1) / 2 * C.W, (1 - p.y) / 2 * C.H]; a.w = [v.x, v.y, -v.z]; return a; };
 // tỉ lệ diện tích NỘI DUNG có nghĩa trong khung (cả khung + vùng giữa 15–85 %) — đo trên mặt nạ dựng cùng máy/năm, không tự khai
 let maskRT = null;
-window.contentMask = (f, ov) => {
+window.contentMask = (f, ov, png) => {
   const t = f / SC.fps, st = Object.assign(SC.state(t), ov || {}), U = ctx.U; U.uYear.value = st.year; U.uDim.value = 0; U.uT.value = t;
   applyCam(cam, st.cam); ctx.terr.update(cam); ctx.city.update(cam); if (ctx.trees) ctx.trees.update(cam); ctx.ships.update(st.year); SC.apply && SC.apply(st, t);
   const w = Math.round(C.W / 2), h = Math.round(C.H / 2); if (!maskRT) maskRT = new THREE.WebGLRenderTarget(w, h);
@@ -111,8 +111,10 @@ window.contentMask = (f, ov) => {
   // content = HÌNH HỌC nội dung (toà, hero, tường, đường, tàu, xe/người); fabric = content + nền phố (mặt đất đô thị của năm đó: sân, phố, quảng trường)
   // V5b-2a: hero_pct = % khung của hero ĐANG KỂ (st.hero = id tên trong heroIds; không khai → mọi hero), hero_pct_by_id theo từng hero
   const P = (k) => +(k / (w * h) * 100).toFixed(2), by = {}; for (const k in hn) by[k] = P(hn[k]);
+  let png_b64 = null; if (png) { const cv = document.createElement('canvas'); cv.width = w; cv.height = h; const g = cv.getContext('2d'), im = g.createImageData(w, h);   // V5b-2a: ảnh mặt nạ (lật dọc về chiều ảnh) cho đo sáng công trình (TL-Q1c)
+    for (let y = 0; y < h; y++) im.data.set(px.subarray((h - 1 - y) * w * 4, (h - y) * w * 4), y * w * 4); g.putImageData(im, 0, 0); png_b64 = cv.toDataURL('image/png').slice(22); }
   return { content_pct: +(n / (w * h) * 100).toFixed(1), content_center_pct: +(nc / tc * 100).toFixed(1), fabric_pct: +(nf / (w * h) * 100).toFixed(1),
-    hero_id: st.hero || 'all', hero_pct: st.hero ? by[st.hero] : P(nh), hero_pct_by_id: by, phase: st.phase || null, preset: st.preset || null, year: +st.year.toFixed(2) };
+    hero_id: st.hero || 'all', hero_pct: st.hero ? by[st.hero] : P(nh), hero_pct_by_id: by, phase: st.phase || null, preset: st.preset || null, year: +st.year.toFixed(2), png_b64 };
 };
 window.camLog = () => SC.camLog();
 window.budgetAll = () => { const out = []; for (let f = 0; f < SC.N; f++) { const t = f / SC.fps, st = SC.state(t); applyCam(cam, st.cam); txt.begin(null); SC.overlay(t, st, txt, projOf());
