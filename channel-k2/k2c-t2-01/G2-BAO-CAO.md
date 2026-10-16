@@ -119,3 +119,57 @@
 - Kiểm ở khung 1080p của r04_beach (máy cách ~13–14 km, xem 100 %): đường bờ còn **bậc răng cưa của điểm ảnh nền**, thấy rõ ở khung cuối.
 - Gốc lỗi là độ phân giải mặt nạ bờ của nền `korea` (ppd 1800, bờ suy từ DEM). Sửa phải **dựng lại nền lớn** (ppd cao hơn hoặc vector bờ biển cho vùng Ulsan), không chỉ dựng lại shot Ulsan.
 - Theo lệnh: không sửa ở lượt này, ghi ở đây. Đề xuất cho T3/V: nền cục bộ ppd ≥ 3 600 quanh Ulsan (bbox ~129,3–129,5°E, 35,4–35,6°N), hoặc vẽ đường bờ từ Natural Earth 10 m / OSM coastline.
+
+## 8. CHỜ QUYẾT (chủ dự án) — chưa áp dụng; lời khoá SHA giữ nguyên tới khi có quyết định
+
+### 8.1 Đề nghị cắt lời của người chấm mù (bước Dựng, `kiem-mu/dung/gop.json`)
+Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p). "Tiết kiệm" = từ đầu câu cắt tới đầu câu kế (gồm khoảng nghỉ).
+
+**Chi phí nếu cắt (áp cho mọi mục):**
+- **Lời và giọng:** lời khoá SHA phải khoá lại (`loi-khoa.txt`, `LOI-KHOA.sha256`) và chạy ASR lại đoạn bị sửa.
+- **ElevenLabs:** chọn một trong hai cách.
+  - **(A)** Cắt âm ở ranh câu: 0 ký tự, nhưng có rủi ro nối ngữ điệu (nhất là khi bỏ câu giữa đoạn).
+  - **(B)** Thu lại cả đoạn: số ký tự ghi ở từng mục. Đoạn 05 > 1 900 ký tự nên phải thu 2 phần.
+- **Dựng lại:** mọi shot sau điểm cắt trong cùng đoạn đổi mốc theo lời, nên cảnh của chúng phải dựng lại ở 1080p.
+  - Giờ máy ước theo số đo thật: 3,1 s/khung đồng hồ, 3 tiến trình.
+  - Phải ghép lại lớp chữ của đoạn đó. Ước 0,9 s/khung — **chưa đo ở 1080p**, sẽ thay bằng số thật khi lượt 1080p hiện tại ghép xong.
+  - Trộn tiếng, ghép master, Short: thêm ≈ 0,5 h.
+  - Đo lại nhịp và Q34; giây khung RÀ GU sau điểm cắt sẽ dời.
+- Các mục cùng một đoạn gộp chung một lượt dựng, nên chi phí không cộng dồn tuyến tính.
+
+| Mã | Người chấm | Đoạn lời nguyên văn (giây) | Lý do người chấm | Claim | Tiết kiệm | EL (B) | Dựng lại 1080p (ước) | Xung đột cần lưu ý |
+|---|---|---|---|---|---|---|---|---|
+| D5 | **3/3** | 198,6–202,3: "If you're finding this useful, subscribing is how you'll catch the next one." | Lời mời đăng ký giữa phim cắt mạch ngay trước luận điểm "lương" | không | 4,7 s | 1 496 ký tự (đoạn 02) | 1 cảnh (r02_subsidy, 37 s) ≈ 0,8 h + chữ ≈ 0,6 h | Kinh thánh kênh 2: "Lời mời đăng ký nhẹ quanh phút 3" — cắt là lệch Kinh thánh; phương án khác: dời xuống cuối phim |
+| D7 | **3/3** | 287,8–298,5: "So the record says something narrower than "wages": wages are one factor it lists; the lack of exports, and the scale that comes with them, is another." | Vòng lặp nói 3 lần (273–282, 287–305, 600s) | opinion (không mã; dựa C25) | 11,3 s | 1 258 (03) | 1 cảnh (r03_loop, 33 s) ≈ 0,7 h + chữ ≈ 0,6 h | — |
+| D7b | (R1, R3 gồm cả câu sau) | D7 + 299,1–303,5: "Our emphasis on scale is a position the evidence only partly supports." | như trên | opinion | 16,7 s | 1 187 (03) | như D7 | Câu "only partly supports" do **người đọc mù vòng 4 (J4) yêu cầu 3/3** khi khoá lời v3.3 — bỏ là đi ngược vòng J4 |
+| D13 | **3/3** | 620,1–630,8: "Supporters, like the American Maritime Partnership, make their case on jobs and security. Critics, like Senator Lee and Representative McClintock, make theirs on higher prices for Americans." | Phần kết lặp gần nguyên văn ủng hộ/phản đối ở 148–168 | C47, C48 (giữ ở chương 02) | 11,4 s | 886 (06) | 2 cảnh (r06_score2, r06_home, 45 s) ≈ 0,9 h + chữ ≈ 0,4 h | Chọn **một trong D4/D13** để còn đủ hai phía một lần (Kinh thánh: nêu cả hai phía) |
+| D4 | 2/3 (R1, R3; R2 rộng hơn 113–170) | 148,3–167,9: "The American Maritime Partnership, a coalition of supporters, puts its case in its headline: "American Jobs. American Security." Critics, like Senator Mike Lee and Representative Tom McClintock, who introduced a bill on June twelfth, 2025, to repeal it, say its costs mean "higher prices for Americans."" | 35 s tên, ngày, trích dẫn trên bản đồ tĩnh; lặp ở phần kết | C47, C48 | 20,3 s | 1 269 (02) | 2 cảnh (r02_quotes, r02_subsidy, 66 s) ≈ 1,4 h + chữ ≈ 0,6 h | Như D13. Nếu cắt ở đây thì mất ngày dự luật 12/6/2025 và trích dẫn gốc; giữ D13 làm chỗ duy nhất nêu hai phía |
+| D10 | **3/3** (giữ một câu báo giới hạn) | 399,8–403,1: "The sources we used don't say how much of that went to Hyundai's yard." | Hai câu "nguồn không nói" liền nhau | giới hạn nguồn (C49) | 3,7 s | 1 721 (04) | 2 cảnh (r04_state, r04_abroad, 51 s) ≈ 1,1 h + chữ ≈ 0,7 h | Câu còn lại 416,4–420,0 vẫn giữ tính trung thực về nguồn |
+| D6 | 2/3 (R1; R2 224–252 rộng hơn) | 218,5–223,6: "By the 1950s, double. By the 1990s, three times." | Danh sách giá liệt kê trên hình ít đổi; giữ hai mốc | C23 | 5,8 s | 1 361 (03) | 4 cảnh (r03_ladder, r03_tanker, r03_scale, r03_loop, 103 s) ≈ 2,1 h + chữ ≈ 0,6 h | Mất 2 cột 3D số liệu 1950s/1990s (không thuộc `anchors`, Q34(c) không đổi) |
+| D11 | 2/3 (R2, R3; R1 gộp 423–528) | 477,2–485,8: "The stated aim: to discourage the use and purchase of Chinese-built ships, and to press China to drop the practices the Trade Representative had found." | Cơ chế phí quá chi tiết so với luận điểm | C57 | 9,5 s | 2 210 (05, thu 2 phần) | 7 cảnh (113 s) ≈ 2,3 h + chữ ≈ 0,9 h | Câu mục đích của phí do **J4 yêu cầu 3/3** (nguồn FR-ACT) — bỏ là đi ngược vòng J4. Không thể chỉ rút "up to five times a year" mà không thu lại câu |
+| D12 | 2/3 (R2, R3) | 510,5–523,4: "In September, a letter from more than two hundred trade groups, by our count of its signatories, asked for the suspension to be extended. Resuming the fees, they wrote, "would add another cost layer to an already strained transportation system."" | Bốn nhịp thủ tục liền nhau; thư là chi tiết phụ | C39 | 13,7 s | 2 116 (05) | 2 cảnh (r05_cost, r05_philly, 68 s) ≈ 1,4 h + chữ ≈ 0,9 h | **M3** (chủ dự án): giữ một câu trích + nguồn của thư — cắt là đổi quyết định M3 |
+| D1 | 1/3 (R2) | 17,0–21,6: "And the company that has announced plans to expand a Philadelphia shipyard is South Korean." · 28,6–32,4: "And there's a deadline in this story: November ninth, 2026." | Mở đầu 34 s, rút còn ~15 s | C40, C01 | 9,8 s | 307 (00) | 1 cảnh (r00_philly, 19 s) ≈ 0,4 h + chữ ≈ 0,2 h | **J2/J3** (móc "nghịch lý trước", miễn trừ 0:03–0:12) — chỉ rút câu, không đổi cấu trúc móc |
+| D9 | 1/3 (R1) | 339,3–356,5: "A 2010 Korea Times column adds a story. Chung went abroad carrying a photo of the empty beach and a 500-won banknote showing a turtle ship, a warship from Korea's history. We found no documents for it, so treat it as lore: one columnist's account, not a record." | Chuyện bên lề 18 s trên bản đồ tĩnh | C30, C31 (lore) | 17,6 s | 1 530 (04) | 3 cảnh (r04_beach, r04_state, r04_abroad, 102 s) ≈ 2,1 h + chữ ≈ 0,7 h | Thẻ LORE và tờ 500 won (sửa điểm hình 04-2-36 của chủ dự án) sẽ bỏ theo |
+| D2 | 1/3 (R2) | 59,7–65,7: "As a publicity stunt, one Richmond yard built the Robert E. Peary in four days and fifteen and a half hours." | Chi tiết đố vui sau mốc 122 → 39 ngày | C04 | 6,4 s | 946 (01) | 4 cảnh (62 s) ≈ 1,3 h + chữ ≈ 0,4 h | — |
+| D3 | 1/3 (R2) | 94,1–97,0: "The British government, and America's own Maritime Commission." | "Our read" nói một ý ba lần | C08, C15 | 3,5 s | 992 (01) | 1 cảnh (r01_dive, 16 s) ≈ 0,3 h + chữ ≈ 0,4 h | — |
+
+**Không đề xuất cắt lời** (đã xử lý bằng hình hoặc không nêu câu cụ thể):
+- R1 305–340 (GDP Hàn Quốc + câu "no experience"): đã thêm cột GDP 3D, Chung to hơn và máy đi theo.
+- R3 635,5–645 (phần kết và câu dẫn tập sau "hiện hai lần"): đã bỏ dòng chữ "Next…" (C66); lời giữ.
+- R1 423–528 ("giảm một nửa phần USTR"): đã quy về D11 và D12.
+
+**Đề xuất của P:**
+- Nếu chỉ cắt **3/3 mà không đụng quyết định đã duyệt**: D7 (11,3 s) + D13 (11,4 s) + D10 (3,7 s) = **26,4 s**; ba đoạn 03, 04, 06; giờ máy ≈ 2,7 h cảnh + ≈ 1,7 h chữ + 0,5 h.
+- D5 cần chủ dự án quyết vì lệch Kinh thánh: hoặc giữ, hoặc dời xuống cuối phim.
+- D4, D7b, D11, D12, D1 đụng các quyết định J2/J3/J4/M3 đã duyệt; P không đề xuất trừ khi chủ dự án đổi các quyết định đó.
+
+### 8.2 Tiêu đề (Q3: mọi tiêu đề ≤ 60 ký tự; J5: tiêu đề chính)
+| Vai | Tiêu đề | Ký tự | Claim đỡ |
+|---|---|---|---|
+| **Chính (J5, đã duyệt)** | Why America Builds So Few Ships (It's Not Just Wages) | 53 | C05 (0,04 % tấn đóng tàu thế giới, CRS 2026), C21 (~5 tàu/năm, CRS 2023), C25 (lương là một yếu tố; thiếu xuất khẩu → không đạt quy mô, CRS 2023), C22 (huyền thoại "lương") |
+| **Dự phòng 1 — MỚI, chờ duyệt** | In 1943, America Launched 3 Ships a Day. What Happened? | 55 | C03 (1943, đỉnh: 3 tàu Liberty/ngày, NPS), C05 + C21 (mức hiện nay) |
+| (Dự phòng 1 cũ, bỏ vì 70 > 60 ký tự) | In 1943, America Launched 3 Ships a Day. Why Does It Build So Few Now? | 70 | như trên |
+| Dự phòng 2 (không đổi) | From Richmond to Ulsan: Why America Builds So Few Ships | 55 | C07, C13 (xưởng Kaiser ở Richmond, 747 tàu), C31, C06 (Ulsan: động thổ 3/1972, xong 1974 — tự thuật công ty), C05 + C21 |
+
+- Ba tiêu đề đều qua `release_check.py` của v5a (R1 ≤ 60 ký tự) trong lần chạy thử trên bản nháp: 0 LỖI.
+- Dự phòng 1 mới giữ con số mạnh nhất của móc (3/ngày năm 1943) và để câu hỏi mở. Không có số nào ngoài claims.
