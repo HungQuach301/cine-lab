@@ -4,6 +4,7 @@
 set -e; cd "$(dirname "$0")/../../.."; PY=/opt/cine/bin/python
 $PY scripts/k2tl/tests/test_geo.py 2>&1 | tail -1
 $PY scripts/k2tl/tests/test_calib.py 2>&1 | tail -1
+$PY scripts/k2tl/tests/test_look.py
 node --no-warnings scripts/k2tl/tests/test_geom.mjs
 node --no-warnings scripts/k2tl/tests/test_campath.mjs
 if [ -f "${K2TL_CACHE:-/var/tmp/cine-out/k2tl-cache}/scene/gib/pack/meta.json" ]; then node scripts/k2tl/tests/test_browser.js; else echo "test_browser: BỎ QUA (chưa có gói cảnh)"; fi
