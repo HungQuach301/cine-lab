@@ -246,7 +246,7 @@ def main(name):
     Image.fromarray(dbg).save(src / "dbg_years.png"); print(json.dumps(meta, indent=1)[:1500])
 
 if __name__ == "__main__":
-    a = argparse.ArgumentParser(); a.add_argument("--name", default="gib"); a.add_argument("--ao", action="store_true"); a.add_argument("--far", action="store_true"); a.add_argument("--cls", action="store_true"); o = a.parse_args(); main(o.name)
+    a = argparse.ArgumentParser(); a.add_argument("--name", default="gib"); a.add_argument("--ao", action="store_true"); a.add_argument("--far", action="store_true"); a.add_argument("--cls", action="store_true"); a.add_argument("--plan1913", action="store_true"); o = a.parse_args(); main(o.name)
 
 def bake_ao(name, res=4.0, box=(-2400, -4800, 1400, 4400)):
     """Nướng sẵn AO tiếp đất của toà theo NĂM (kỹ thuật 'AO tĩnh theo quãng năm'): R = độ tối (0..255), G/B = năm sớm nhất toà gây tối.
@@ -352,3 +352,40 @@ def build_classes(name):
 
 if __name__ == "__main__" and "--cls" in __import__("sys").argv:
     build_classes("gib")
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# V5b-1b · MỐC 1913 từ bình đồ BAEDEKER "Gibraltar 1:25 000" (Wagner & Debes, Leipzig; K. Baedeker, *Spain and Portugal*, 1913 —
+# archive.org/details/spainportugalhan00karl, trang n643; IA: possible-copyright-status NOT_IN_COPYRIGHT; xuất bản 1913 → PD ở Mỹ).
+# Nắn AFFINE bằng 8 điểm khống chế khớp OSM (RMS ≈ 65 m — bản in nhỏ, ảnh chụp trang gập) → chỉ dùng ở mức KHU (đệm 60 m), không mức toà.
+# Toà Gibraltar chưa có mốc trước 1987 (ghost = 0) nằm trong khối xây tô cam của bình đồ → lớp tái dựng từ 1913 ("reconstructed from Baedeker plan, 1913").
+PLAN1913_GCP = [("Europa Point lighthouse", (765, 2125), (236, -4629)), ("Rosia Bay", (435, 1660), (-470, -3256)), ("Southport Gates", (500, 1135), (-409, -1811)),
+                ("Signal Station", (734, 1203), (224, -1958)), ("O'Hara's Battery", (805, 1570), (439, -3063)), ("Catalan Bay", (935, 1010), (625, -1312)),
+                ("King's Bastion", (400, 990), (-637, -1272)), ("Windmill Hill", (735, 1900), (164, -3907))]   # (ảnh px gốc 1230×2243) ↔ (E, N) m
+
+def plan1913(name):
+    src = CACHE / "scene" / name; out = src / "pack"; im = np.array(Image.open(CACHE / "maps/baedeker1913_n643.jpg").convert("RGB")).astype(np.float32)
+    A = np.array([[x, y, 1] for _, (x, y), _ in PLAN1913_GCP], float); Bm = np.array([e for *_, e in PLAN1913_GCP], float)
+    Mx, *_ = np.linalg.lstsq(A, Bm, rcond=None); res = np.hypot(*(A @ Mx - Bm).T); rms = float(np.sqrt((res ** 2).mean()))
+    # khối xây tô cam (đỏ cam, không phải đường mảnh): màu → đóng (lấp gạch chéo) → mở (bỏ đường 2–4 px)
+    r, g, b = im[..., 0], im[..., 1], im[..., 2]; orange = (r > 150) & (r - g > 45) & (g - b > 5) & (r - b > 70)
+    m = cv2.morphologyEx(orange.astype(np.uint8), cv2.MORPH_CLOSE, np.ones((5, 5), np.uint8)); m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((7, 7), np.uint8))
+    m[:60] = 0   # bỏ phần La Línea ở mép trên (đã có tầng ĐẦY ĐỦ Catastro)
+    inv = np.linalg.inv(np.vstack([Mx.T, [0, 0, 1]]))   # (E, N, 1) → (x, y, 1)
+    B = json.loads((out / "buildings.json").read_text()); n = 0
+    built = cv2.dilate(m, np.ones((45, 45), np.uint8))   # đệm ≈ 60 m (2,8 m/px) — sai số nắn
+    for bd in B:
+        if bd[5] != 1 or bd[1] or bd[0] < 1987: continue
+        cx, cy = np.mean(bd[6], 0); x, y, _ = inv @ np.array([cx, cy, 1.0]); x, y = int(round(x)), int(round(y))
+        if 0 <= y < m.shape[0] and 0 <= x < m.shape[1] and built[y, x] and cy > -4700: bd[1] = 1913; n += 1
+    (out / "buildings.json").write_text(json.dumps(B, separators=(",", ":")))
+    Mp = json.loads((out / "meta.json").read_text()); Mp["plan1913"] = dict(source="Baedeker, Spain and Portugal (1913), Plan of Gibraltar 1:25 000, Wagner & Debes", gcp=len(PLAN1913_GCP), rms_m=round(rms, 1), max_m=round(float(res.max()), 1), buildings_1913=n)
+    (out / "meta.json").write_text(json.dumps(Mp, indent=1)); print("plan1913", Mp["plan1913"])
+    # ảnh kiểm: bình đồ nắn về lưới ENU 10 m + toà OSM
+    e0, n0, e1, n1 = json.loads((src / "meta_rasters.json").read_text())["ext"]; W_, H_ = int((e1 - e0) / 10) + 1, int((n1 - n0) / 10) + 1
+    Mw = (inv @ np.array([[10, 0, e0], [0, -10, n1], [0, 0, 1]]))[:2]; wimg = cv2.warpAffine(im.astype(np.uint8), Mw, (W_, H_), flags=cv2.WARP_INVERSE_MAP | cv2.INTER_LINEAR)
+    for bd in B:
+        if bd[5] == 1: cv2.polylines(wimg, [np.array([[(e - e0) / 10, (n1 - nn) / 10] for e, nn in bd[6]], np.int32)], True, (0, 90, 255) if bd[1] == 1913 else (40, 40, 40), 1)
+    Image.fromarray(wimg).save(src / "dbg_plan1913.png")
+
+if __name__ == "__main__" and "--plan1913" in __import__("sys").argv:
+    plan1913("gib")
