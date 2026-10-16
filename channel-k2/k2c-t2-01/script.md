@@ -1,7 +1,8 @@
-# K2C-T2-01 "Shipbuilding" — lời KHOÁ v3.3 (G1 duyệt 15/10, J1–J6)
+# K2C-T2-01 "Shipbuilding" — lời KHOÁ v3.4 (G1 duyệt 15/10, J1–J6; G2 §8 duyệt 16/10)
 
 > Tiếng Anh, giọng như T1 (Eric). Mỗi đoạn có mã `[NN PART]`. Mã claim `{C..}` trỏ tới `claims.md` (người đọc mù không thấy mã).
 > Mốc "as of": **15 October 2026** (tra lại phí 301 ngày 15/10, không đổi). Trên hình: "Facts as of 15 Oct 2026" ở mọi khung về phí cảng, đầu tư Hanwha, gói hợp tác Hàn–Mỹ, dự luật. Tra lại trước khi khoá lời và trước khi thu giọng (BAI-HOC-K2 K2).
+> v3.3 → v3.4 (KHOÁ, chủ dự án 16/10, G2-BAO-CAO §8): CẮT D7 (câu nhắc lại vòng lặp, chương 03), D13 (ủng hộ/phản đối lặp ở phần kết; vẫn nêu ở chương 02), D10 (câu "nguồn không nói" thứ nhất, chương 04); DỜI D5 (lời mời đăng ký) từ cuối chương 02 xuống cuối phim, sau câu chốt, trước "Back in Richmond". Âm cắt/chèn ở ranh câu từ bản thu đã có (`sua_loi.py`, 0 ký tự ElevenLabs). Bản v3.3: `script-v3.3-KHOA.md`, `vo/v3.3/`.
 > v3.2 → v3.3 (KHOÁ): người đọc mù vòng 4 (J4) — sửa MỘT lần các lỗi ≥ 2/3 bằng chữ góp ý: "0.04 percent" (3/3), tên Construction Differential Subsidy (3/3), một câu mục đích của phí (3/3, nguồn FR-ACT C57), bớt ngày ở chương 05 (3/3), câu "a position the evidence only partly supports" (3/3), bỏ câu total factor productivity (2/3), bớt số ở chương 01 (2/3: bỏ câu 2 710 tàu và 702 000 người). Mốc as-of 15/10/2026 (phí 301 tra lại, không đổi).
 > v3.1 → v3.2 (một vòng sửa theo chấm "xem tiếp" 3/3, Mốc A): bỏ câu miễn trừ + đoạn hạn phí khỏi móc; câu miễn trừ và "Facts as of 14 Oct 2026" chuyển thành chữ trên hình 0:03–0:12 (trong 30 s đầu, LUAT-G §4–§5 cho phép "trong lời hoặc trên hình") và đầu mô tả; hạn 9/11 chỉ còn một câu nhắc ở móc, nội dung đầy đủ ở chương 05.
 > v3 → v3.1 (sau REVIEWER vòng 3 — hết trần 3 vòng): 5 major + các minor đổi chữ áp **đúng chữ REVIEWER đề xuất** (BAI-HOC-K2 K8); không chạy thêm lượt REVIEWER. Thêm lại C15 (Uỷ ban Hàng hải) theo REVIEWER. Thứ tự móc (lịch sử trước tin) là **lệch có ghi** khỏi Kinh thánh §3 — trình chủ dự án ở G1.
@@ -38,8 +39,6 @@ Congress's researchers say it gives American shipyards "a significant degree of 
 
 There was also a federal subsidy, the Construction Differential Subsidy, meant to let American owners buy American ships at the world price. {C20} In the 1970s, American yards built about five percent of the world's tonnage: fifteen to twenty-five new ships a year. The subsidy ended in the 1980s, and Congress's researchers note that some observers see that as the main reason fewer ships were built. Output fell to around five a year, which a 2023 congressional report calls the current rate. {C21}
 
-If you're finding this useful, subscribing is how you'll catch the next one.
-
 [03 MYTH]
 Now the answer you'll often hear: American shipyards lost because American workers cost too much. {C22}
 
@@ -49,7 +48,7 @@ A 2023 report from Congress's researchers lists wages, especially for welders, a
 
 Our read: the protected home market is small. A 2019 congressional report counted ninety-nine oceangoing ships in the Jones Act fleet as of March 2018. {C26} At home, the 2023 report adds, high prices hold buyers back wherever a truck, a train or a pipeline can do the job. {C46}
 
-Our read: put those together and you get a loop. High prices mean few orders. Few orders mean no scale. No scale keeps prices high. The pieces come from the record; the loop is our interpretation. So the record says something narrower than "wages": wages are one factor it lists; the lack of exports, and the scale that comes with them, is another. Our emphasis on scale is a position the evidence only partly supports.
+Our read: put those together and you get a loop. High prices mean few orders. Few orders mean no scale. No scale keeps prices high. The pieces come from the record; the loop is our interpretation. Our emphasis on scale is a position the evidence only partly supports.
 
 [04 CHUNG]
 In 1962, South Korea's output was about a hundred and seven dollars per person, in that year's dollars. {C27}
@@ -62,7 +61,7 @@ A 2010 Korea Times column adds a story. Chung went abroad carrying a photo of th
 
 Hyundai's own history says ground was broken in March 1972 on that beach in Ulsan, for what it calls the world's largest shipyard. {C31} By the company's account, it completed the shipyard and two supertankers, the Atlantic Baron and the Atlantic Baroness, at the same time, in 1974. {C06}
 
-Meanwhile, the government set its own targets. In January 1973, President Park Chung Hee announced a drive for heavy industry, naming shipbuilding, with exports as the goal. Munseob Lee, writing for the Korea Economic Institute of America in 2023, lists the support: tax incentives, subsidized long-term loans, and industrial complexes built by the government. {C49} The sources we used don't say how much of that went to Hyundai's yard.
+Meanwhile, the government set its own targets. In January 1973, President Park Chung Hee announced a drive for heavy industry, naming shipbuilding, with exports as the goal. Munseob Lee, writing for the Korea Economic Institute of America in 2023, lists the support: tax incentives, subsidized long-term loans, and industrial complexes built by the government. {C49}
 
 Our read: from the start, this yard's customers were abroad. In 2025, South Korea's output was about thirty-six thousand dollars per person, again in that year's dollars, not adjusted for inflation. {C27} The sources we used don't measure how much of that rise came from shipbuilding.
 
@@ -86,7 +85,9 @@ So, what to watch. November ninth, 2026: whether the fee pause is extended or ru
 
 The scoreboard. 1943, at the peak: three Liberty ships launched a day. {C03} A 2023 congressional report: around five new ships a year. {C21} Different ships, different eras.
 
-Our read of the record: America didn't forget how to build ships. Since the 1980s, it has built few because few orders came — and the record ties high prices to fewer domestic purchases, and the lack of exports to missing economies of scale. {C46} {C25} Supporters, like the American Maritime Partnership, make their case on jobs and security. Critics, like Senator Lee and Representative McClintock, make theirs on higher prices for Americans. No source we found measures how much each factor counts. {C47} {C48} {C36}
+Our read of the record: America didn't forget how to build ships. Since the 1980s, it has built few because few orders came — and the record ties high prices to fewer domestic purchases, and the lack of exports to missing economies of scale. {C46} {C25} No source we found measures how much each factor counts. {C36}
+
+If you're finding this useful, subscribing is how you'll catch the next one.
 
 Back in Richmond, Kaiser's Shipyard Number Three is now part of a national park. {C43}
 

@@ -748,18 +748,6 @@ heroes:
         dist: 36
         tilt: 62
         head: 12
-      - t: '@subscribing'
-        lon: -75.1
-        lat: 39.5
-        dist: 46
-        tilt: 58
-        head: 6
-      - t: '@next+2'
-        lon: -75.12
-        lat: 39.49
-        dist: 50
-        tilt: 56
-        head: 2
       pins:
       - id: rep
         at:
@@ -1053,20 +1041,6 @@ heroes:
         color: '#F2C14E'
         w: 7
         flow: 3
-      - id: noexp
-        pts:
-        - - -75.1
-          - 39.7
-        - - -74.92
-          - 39.66
-        - - -74.72
-          - 39.6
-        draw:
-        - '@lack'
-        - '@lack+1.2'
-        style: dashed
-        color: '#8a8a8a'
-        w: 6
       cam:
       - t: 0
         lon: -75.24
@@ -1080,12 +1054,6 @@ heroes:
         dist: 22
         tilt: 60
         head: 4
-      - t: '@factor'
-        lon: -75.25
-        lat: 39.57
-        dist: 26
-        tilt: 57
-        head: -6
       - t: '@emphasis'
         lon: -75.24
         lat: 39.575
@@ -1342,13 +1310,7 @@ heroes:
         dist: 230
         tilt: 44
         head: -3
-      - t: '@sources#1'
-        lon: 129.0
-        lat: 35.4
-        dist: 205
-        tilt: 45
-        head: 2
-      - t: '@yard#2+1'
+      - t: '@government#2+1'
         lon: 128.8
         lat: 35.25
         dist: 220
@@ -1942,30 +1904,24 @@ heroes:
         dist: 50
         tilt: 51
         head: 2
-      - t: '@Supporters'
+      - t: '@measures'
         lon: -122.31
-        lat: 37.735
-        dist: 49
-        tilt: 51
-        head: -1
-      - t: '@Critics'
-        lon: -122.31
-        lat: 37.74
+        lat: 37.737
         dist: 48
-        tilt: 52
-        head: -3
-      - t: '@theirs'
-        lon: -122.312
-        lat: 37.742
-        dist: 47
-        tilt: 52
-        head: -5
+        tilt: 51
+        head: -2
       - t: '@counts+1'
         lon: -122.315
         lat: 37.745
         dist: 46
         tilt: 52
         head: -6
+      - t: '@subscribing'
+        lon: -122.32
+        lat: 37.745
+        dist: 44
+        tilt: 53
+        head: -8
       pins:
       - id: kc
         at:

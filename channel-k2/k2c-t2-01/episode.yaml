@@ -1144,18 +1144,6 @@ heroes:
         dist: 36
         tilt: 62
         head: 12
-      - t: '@subscribing'
-        lon: -75.1
-        lat: 39.5
-        dist: 46
-        tilt: 58
-        head: 6
-      - t: '@next+2'
-        lon: -75.12
-        lat: 39.49
-        dist: 50
-        tilt: 56
-        head: 2
       pins:
       - id: rep
         at:
@@ -1449,20 +1437,6 @@ heroes:
         color: '#F2C14E'
         w: 7
         flow: 3
-      - id: noexp
-        pts:
-        - - -75.1
-          - 39.7
-        - - -74.92
-          - 39.66
-        - - -74.72
-          - 39.6
-        draw:
-        - '@lack'
-        - '@lack+1.2'
-        style: dashed
-        color: '#8a8a8a'
-        w: 6
       cam:
       - t: 0
         lon: -75.24
@@ -1476,12 +1450,6 @@ heroes:
         dist: 22
         tilt: 60
         head: 4
-      - t: '@factor'
-        lon: -75.25
-        lat: 39.57
-        dist: 26
-        tilt: 57
-        head: -6
       - t: '@emphasis'
         lon: -75.24
         lat: 39.575
@@ -1738,13 +1706,7 @@ heroes:
         dist: 230
         tilt: 44
         head: -3
-      - t: '@sources#1'
-        lon: 129.0
-        lat: 35.4
-        dist: 205
-        tilt: 45
-        head: 2
-      - t: '@yard#2+1'
+      - t: '@government#2+1'
         lon: 128.8
         lat: 35.25
         dist: 220
@@ -2346,30 +2308,24 @@ heroes:
         dist: 50
         tilt: 51
         head: 2
-      - t: '@Supporters'
+      - t: '@measures'
         lon: -122.31
-        lat: 37.735
-        dist: 49
-        tilt: 51
-        head: -1
-      - t: '@Critics'
-        lon: -122.31
-        lat: 37.74
+        lat: 37.737
         dist: 48
-        tilt: 52
-        head: -3
-      - t: '@theirs'
-        lon: -122.312
-        lat: 37.742
-        dist: 47
-        tilt: 52
-        head: -5
+        tilt: 51
+        head: -2
       - t: '@counts+1'
         lon: -122.315
         lat: 37.745
         dist: 46
         tilt: 52
         head: -6
+      - t: '@subscribing'
+        lon: -122.32
+        lat: 37.745
+        dist: 44
+        tilt: 53
+        head: -8
       pins:
       - id: kc
         at:
@@ -2970,7 +2926,7 @@ segments:
     "American Jobs. American Security." Critics, like Senator Mike Lee and Representative Tom McClintock, who introduced a bill on June twelfth, 2025, to repeal it, say its costs mean "higher prices for
     Americans." There was also a federal subsidy, the Construction Differential Subsidy, meant to let American owners buy American ships at the world price. In the 1970s, American yards built about five
     percent of the world''s tonnage: fifteen to twenty-five new ships a year. The subsidy ended in the 1980s, and Congress''s researchers note that some observers see that as the main reason fewer ships
-    were built. Output fell to around five a year, which a 2023 congressional report calls the current rate. If you''re finding this useful, subscribing is how you''ll catch the next one.'
+    were built. Output fell to around five a year, which a 2023 congressional report calls the current rate.'
   shots:
   - tpl: plate
     sfx:
@@ -3236,9 +3192,8 @@ segments:
     about four times the global price of a similar vessel. A 2023 report from Congress''s researchers lists wages, especially for welders, among the factors behind higher prices. Then it adds one more:
     without exports, American shipyards can''t reach economies of scale — the savings that come from building many of the same thing. Our read: the protected home market is small. A 2019 congressional report
     counted ninety-nine oceangoing ships in the Jones Act fleet as of March 2018. At home, the 2023 report adds, high prices hold buyers back wherever a truck, a train or a pipeline can do the job. Our
-    read: put those together and you get a loop. High prices mean few orders. Few orders mean no scale. No scale keeps prices high. The pieces come from the record; the loop is our interpretation. So the
-    record says something narrower than "wages": wages are one factor it lists; the lack of exports, and the scale that comes with them, is another. Our emphasis on scale is a position the evidence only
-    partly supports.'
+    read: put those together and you get a loop. High prices mean few orders. Few orders mean no scale. No scale keeps prices high. The pieces come from the record; the loop is our interpretation. Our emphasis
+    on scale is a position the evidence only partly supports.'
   shots:
   - tpl: plate
     at: 0
@@ -3458,7 +3413,7 @@ segments:
         at: '@pieces'
       score:
         corner:
-          at: '@So'
+          at: '@emphasis'
           title: 'The record:'
           sides:
           - s: Wages
@@ -3479,8 +3434,8 @@ segments:
     own history says ground was broken in March 1972 on that beach in Ulsan, for what it calls the world''s largest shipyard. By the company''s account, it completed the shipyard and two supertankers, the
     Atlantic Baron and the Atlantic Baroness, at the same time, in 1974. Meanwhile, the government set its own targets. In January 1973, President Park Chung Hee announced a drive for heavy industry, naming
     shipbuilding, with exports as the goal. Munseob Lee, writing for the Korea Economic Institute of America in 2023, lists the support: tax incentives, subsidized long-term loans, and industrial complexes
-    built by the government. The sources we used don''t say how much of that went to Hyundai''s yard. Our read: from the start, this yard''s customers were abroad. In 2025, South Korea''s output was about
-    thirty-six thousand dollars per person, again in that year''s dollars, not adjusted for inflation. The sources we used don''t measure how much of that rise came from shipbuilding.'
+    built by the government. Our read: from the start, this yard''s customers were abroad. In 2025, South Korea''s output was about thirty-six thousand dollars per person, again in that year''s dollars,
+    not adjusted for inflation. The sources we used don''t measure how much of that rise came from shipbuilding.'
   shots:
   - tpl: plate
     at: 0
@@ -4124,9 +4079,8 @@ segments:
   vo: 'So, what to watch. November ninth, 2026: whether the fee pause is extended or runs out as the notice sets. Philadelphia: whether the announced investment shows up as new capacity. And June 2030:
     the delivery date Military Times reported for the first of those ships. The scoreboard. 1943, at the peak: three Liberty ships launched a day. A 2023 congressional report: around five new ships a year.
     Different ships, different eras. Our read of the record: America didn''t forget how to build ships. Since the 1980s, it has built few because few orders came — and the record ties high prices to fewer
-    domestic purchases, and the lack of exports to missing economies of scale. Supporters, like the American Maritime Partnership, make their case on jobs and security. Critics, like Senator Lee and Representative
-    McClintock, make theirs on higher prices for Americans. No source we found measures how much each factor counts. Back in Richmond, Kaiser''s Shipyard Number Three is now part of a national park. Next
-    time: why one country makes almost all the world''s shipping containers.'
+    domestic purchases, and the lack of exports to missing economies of scale. No source we found measures how much each factor counts. If you''re finding this useful, subscribing is how you''ll catch the
+    next one. Back in Richmond, Kaiser''s Shipyard Number Three is now part of a national park. Next time: why one country makes almost all the world''s shipping containers.'
   shots:
   - tpl: plate
     at: 0

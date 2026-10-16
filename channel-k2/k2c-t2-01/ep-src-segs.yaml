@@ -122,7 +122,7 @@ segments:
            stickers: [{a: "st:lo", img: "stk:order", at: "@orders#1", px: 70}, {a: "st:lc", img: "stk:crane", at: "@scale#2", px: 120}],
            tags: [{a: "col:loopc", s: "high prices", at: "@High#2", out: "@pieces", side: auto, prefer: [up], c: "#F08A4B"}, {a: "st:lo", s: "few orders", at: "@Few#1", out: "@pieces", side: auto, prefer: [down, right], c: "#E6EBF0"}, {a: "st:lc", s: "no scale", at: "@No#1", out: "@pieces", side: auto, prefer: [right, up], c: "#3CC2B0"}],
            cap: [{s: "Our read: the loop is our interpretation", at: "@pieces"}],
-           score: {corner: {at: "@So", title: "The record:", sides: [{s: "Wages", c: "#F08A4B", icon: "role:worker", n: 1}, {s: "Scale", c: "#3CC2B0", icon: "stk:crane", n: 1}]}},
+           score: {corner: {at: "@emphasis", title: "The record:", sides: [{s: "Wages", c: "#F08A4B", icon: "role:worker", n: 1}, {s: "Scale", c: "#3CC2B0", icon: "stk:crane", n: 1}]}},
            src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
 
   # ===== 04 CHUNG / ULSAN =====

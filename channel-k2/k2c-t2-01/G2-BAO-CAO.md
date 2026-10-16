@@ -173,3 +173,29 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
 
 - Ba tiêu đề đều qua `release_check.py` của v5a (R1 ≤ 60 ký tự) trong lần chạy thử trên bản nháp: 0 LỖI.
 - Dự phòng 1 mới giữ con số mạnh nhất của móc (3/ngày năm 1943) và để câu hỏi mở. Không có số nào ngoài claims.
+
+## 9. Áp quyết định §8 (16/10) — lời v3.4
+- **Cách làm (A, 0 ký tự ElevenLabs):** `sua_loi.py apply` cắt/chèn âm ở ranh câu trên bản thu sẵn có.
+  - Điểm nối đặt giữa khoảng nghỉ trước và sau câu; hoà 25 ms trong vùng lặng.
+  - Căn chữ bỏ đúng ký tự của câu và dời mốc theo độ dài âm; chữ ký cache tính lại.
+  - Bản gốc giữ ở `vo/v3.3/` và `script-v3.3-KHOA.md`; nhật ký ở `vo/sua-v3.4.json`.
+  - Lời khoá v3.4: `script.md` + `loi-khoa.txt` sửa cùng chữ, `LOI-KHOA.sha256` tính lại.
+  - Chương 06 không còn gắn C47/C48 (vẫn nêu ở chương 02).
+- **Độ dài âm:**
+  - D7 −11,26 s (03).
+  - D10 −3,71 s (04).
+  - D13 −5,34 −5,88 s (06).
+  - D5: chương 02 −3,79 s; chèn vào chương 06 +4,09 s, sau "No source we found measures how much each factor counts.", trước "Back in Richmond…".
+  - **Phim 645,4 s → 618,9 s.**
+- **Nghe thử + ASR từng điểm nối** (`noi_check.py`, hai cách nghe A small.en / B medium.en, cửa sổ ±6 s; `kiem-mu/asr/noi-v3.4.json`).
+  - 6 điểm nối: khoảng lặng 0,41–0,75 s và chênh mức −/+ dB đều **trong dải ranh câu tự nhiên của chính đoạn đó**. WER A/B: 03 0,04/0,04; 06 (sau bỏ D13) 0,09/0,03; 06 (chèn D5, hai đầu) 0,03/0,13 và 0,00/0,00; 02 (cuối) 0,00/0,00.
+  - Điểm 04 bị công cụ gắn cờ (WER 0,13/0,21) vì "Our read" nghe thành "Our red" + lệch mép cửa sổ. **Bản thu gốc v3.3 cùng chỗ cũng nghe "Our red" (small.en)** → đồng âm, không phải lộ nối.
+  - **Không đoạn nào phải thu lại → ký tự ElevenLabs thật: 0.** `prep` chạy với proxy chặn để bảo đảm không gọi API: bộ đếm "gửi 0".
+- **Mốc shot:** `moc_check.py` so mọi mốc "@từ" của 4 đoạn bị sửa giữa căn chữ v3.3 và v3.4 (mốc trước điểm nối phải giữ giây, mốc sau phải dời đúng phần cắt/chèn).
+  - 12 mốc lệch → sửa: bỏ khoá máy theo câu đã cắt (02: `@subscribing`, `@next+2`; 03: `@factor`; 06: `@Supporters`, `@Critics`, `@theirs`); bỏ tuyến "xuất khẩu vắng" của 03 (lời không còn nói "lack of exports"); bảng "The record" của 03 hiện ở `@emphasis`; khoá cuối r04_state theo "government." thứ 2; thêm khoá máy 06 ở `@measures` và `@subscribing`.
+  - **Mốc `@sources#1` của 04 không gãy mà tự trỏ sang câu "nguồn" còn lại (lệch 16,5 s)** — đã bắt và bỏ.
+  - Còn 2 mốc báo lệch, cả hai đúng ý: `@government#2+1` mới đặt; `@Back-0.5` nằm ngay sau câu chèn.
+- **Nhịp (đặc tả v3.4, căn chữ thật): trung bình 2,27 s, dài nhất 5,46 s → ĐẠT**; footage ≤ 20 % ĐẠT.
+- **Cảnh đổi dấu vì v3.4: 4** (r02_subsidy, r03_loop, r04_state, r06_score2; 107,9 s cảnh) → dựng lại 1080p, gộp trong lượt dựng đang chạy. Các cảnh khác tính giờ theo cảnh nên không đổi.
+- **Đề xuất sửa Kinh thánh (chủ dự án, D5):** "lời mời đăng ký đặt ở cuối hoặc ở ranh chương, không chen trước luận điểm chính" — P ghi vào `docs/BIBLE-KENH2.md` (phiên này không sửa Kinh thánh).
+- **Tiêu đề dự phòng 1 DUYỆT** (16/10): "In 1943, America Launched 3 Ships a Day. What Happened?" (55 ký tự) — đã có trong `make_release.py`; chạy lại `release_check` ở bước gói.
