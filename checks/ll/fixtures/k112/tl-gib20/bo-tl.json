@@ -1,0 +1,13 @@
+{"ten": "gib20 (v5b1b e8092a1, channel-k2/k2c-t3-01/v5b1-thu/v5b1b/gib20_540p.mp4)",
+ "ghi_chu": "campath.json, text-budget.json, render-log.json (log chữ mỗi 24 khung) của phiên V5b-1b; cửa sổ theo cues của design/k2v/tl/scenes/gib20.js.",
+ "campath": "campath.json.gz", "mat_bang": "xz", "fps": 24,
+ "ngan_sach": "text-budget.json.gz", "log_chu": "log-chu.json",
+ "tuyen": [{"t": [7.8, 10.8], "dung_dev_m": true, "nguon": "OSM Winston Churchill Avenue (tim tuyến gộp hai chiều, gib20.js)", "dich": [320, 15, 1650]}],
+ "reveal": [{"t": [3.2, 7.4], "truong": "d_tower", "kieu": "zoom_in"}, {"t": [14.4, 20.0], "truong": "d_crossing", "kieu": "keo_lui"}],
+ "anh": [{"id": "2025710366", "rights": "../rights-v5b1b.txt", "neo": true}],
+ "ket": [18.6, 20.0],
+ "nam_toa": {"nam_hien_tai": 2026,
+   "moc": {"1941": "HM Government of Gibraltar 199/2018, 177/2023 (đường băng lấn vịnh 1941–1943)", "1987": "Landsat 5 TM 1987 (USGS)", "2026": "Copernicus Sentinel-2, 15/04/2026"},
+   "lop": {"Gibraltar (khối OSM, tầng chuẩn)": {"loai": "tang_chuan", "nguon": "goi-canh-meta.json stat gib_1987 + gib_2026 (= gib 2451)", "nam": {"1987": 1995, "2026": 456}},
+           "đất theo năm (landY)": {"loai": "tang_chuan", "nguon": "goi-canh-meta.json landY_counts (0 = luôn là đất, không tính)", "nam": {"1941": 614, "1987": 3626, "2026": 10027}},
+           "La Línea (Catastro, năm theo toà)": {"loai": "so_dang_ky", "nguon": "goi-canh-meta.json chỉ có tổng lalinea 26087, không có phân bố năm", "nam": {}}}}}

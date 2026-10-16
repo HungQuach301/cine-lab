@@ -1,0 +1,859 @@
+{
+"nguon": "k2c-t2 @15e9c57: timeline dựng lại ngoại tuyến (scripts/k2/prep.py, proxy chặn, ElevenLabs gửi 0) + căn chữ vo/*.align.json; lời v3.4",
+"align_sha256": {
+"00": "0e87897cbe8d0431b0d3c4229657f40690cc1ef6299dbc6403664d1b92fd668d",
+"01": "3de019a373804b74f767d9714172b0575cf5fee1cc0fc45450b78f3d37778be1",
+"02": "4e52283940acd15a9e9feb66d6bc58c308234c063d02962ad2741abc1bdfd869",
+"03": "f3b73fa626fce94fc9b38bc0df4e38aebd7fa393a61025066699ab92b97f7b46",
+"04": "8ebdef4cf55455812b0c3065c7ef78b4735f3e87db7ba6af7c950cd383032461",
+"05": "9a2f3ed4e68537a65c1358ebe2932a59df9b45a240cdebeda7ff62cac76604fd",
+"06": "9b856decfddb115138fbbb8b32d4cabb19e3722c4a8b8d1a66333ebe0f871e59"
+},
+"tong_s": 618.9167,
+"segments": [
+{
+"id": "00",
+"part": "HOOK",
+"t0": 0.0,
+"t1": 33.375
+},
+{
+"id": "01",
+"part": "CH1",
+"t0": 33.375,
+"t1": 100.2083
+},
+{
+"id": "02",
+"part": "CH2",
+"t0": 100.2083,
+"t1": 198.9167
+},
+{
+"id": "03",
+"part": "CH3",
+"t0": 198.9167,
+"t1": 288.7917
+},
+{
+"id": "04",
+"part": "CH4",
+"t0": 288.7917,
+"t1": 401.625
+},
+{
+"id": "05",
+"part": "CH5",
+"t0": 401.625,
+"t1": 554.875
+},
+{
+"id": "06",
+"part": "END",
+"t0": 554.875,
+"t1": 618.9167
+}
+],
+"cau": [
+{
+"i": 0,
+"seg": "00",
+"part": "HOOK",
+"t0": 0.8,
+"t1": 5.142,
+"s": "In 1943, at the peak, America launched three cargo ships a day."
+},
+{
+"i": 1,
+"seg": "00",
+"part": "HOOK",
+"t0": 5.653,
+"t1": 13.339,
+"s": "In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at 0.04 percent."
+},
+{
+"i": 2,
+"seg": "00",
+"part": "HOOK",
+"t0": 13.722,
+"t1": 16.497,
+"s": "China's, in 2024: more than half."
+},
+{
+"i": 3,
+"seg": "00",
+"part": "HOOK",
+"t0": 17.008,
+"t1": 21.629,
+"s": "And the company that has announced plans to expand a Philadelphia shipyard is South Korean."
+},
+{
+"i": 4,
+"seg": "00",
+"part": "HOOK",
+"t0": 21.954,
+"t1": 24.171,
+"s": "So why does America build so few ships?"
+},
+{
+"i": 5,
+"seg": "00",
+"part": "HOOK",
+"t0": 24.496,
+"t1": 26.319,
+"s": "You'll often hear: wages."
+},
+{
+"i": 6,
+"seg": "00",
+"part": "HOOK",
+"t0": 26.563,
+"t1": 28.13,
+"s": "The record says something narrower."
+},
+{
+"i": 7,
+"seg": "00",
+"part": "HOOK",
+"t0": 28.571,
+"t1": 32.38,
+"s": "And there's a deadline in this story: November ninth, 2026."
+},
+{
+"i": 8,
+"seg": "01",
+"part": "CH1",
+"t0": 34.175,
+"t1": 39.632,
+"s": "Start in Richmond, California, in December 1940, when Henry J. Kaiser started his first Richmond shipyard."
+},
+{
+"i": 9,
+"seg": "01",
+"part": "CH1",
+"t0": 40.015,
+"t1": 46.377,
+"s": "What allowed it to grow, the Park Service says, were orders: ships for the British government, already at war."
+},
+{
+"i": 10,
+"seg": "01",
+"part": "CH1",
+"t0": 46.981,
+"t1": 52.205,
+"s": "The Liberty was a slow cargo ship, designed as an emergency answer to a shortage of cargo ships."
+},
+{
+"i": 11,
+"seg": "01",
+"part": "CH1",
+"t0": 52.716,
+"t1": 56.756,
+"s": "In June 1942, a Liberty ship took a hundred and twenty-two days, on average."
+},
+{
+"i": 12,
+"seg": "01",
+"part": "CH1",
+"t0": 57.267,
+"t1": 59.461,
+"s": "By December 1943, thirty-nine."
+},
+{
+"i": 13,
+"seg": "01",
+"part": "CH1",
+"t0": 59.67,
+"t1": 65.742,
+"s": "As a publicity stunt, one Richmond yard built the Robert E. Peary in four days and fifteen and a half hours."
+},
+{
+"i": 14,
+"seg": "01",
+"part": "CH1",
+"t0": 66.067,
+"t1": 77.596,
+"s": "In 1943, a government photographer pictured one of the people building Liberty ships in Richmond: Josie Lucille Owens, a welder trainee, helping build the Liberty ship George Washington Carver."
+},
+{
+"i": 15,
+"seg": "01",
+"part": "CH1",
+"t0": 77.921,
+"t1": 83.564,
+"s": "The four Richmond yards produced 747 ships, more than any other shipyard complex in the country."
+},
+{
+"i": 16,
+"seg": "01",
+"part": "CH1",
+"t0": 84.005,
+"t1": 90.193,
+"s": "Richmond grew from fewer than twenty-four thousand people in 1940 to nearly a hundred thousand by 1943."
+},
+{
+"i": 17,
+"seg": "01",
+"part": "CH1",
+"t0": 90.704,
+"t1": 93.49,
+"s": "Our read: notice who the customers were."
+},
+{
+"i": 18,
+"seg": "01",
+"part": "CH1",
+"t0": 94.094,
+"t1": 96.985,
+"s": "The British government, and America's own Maritime Commission."
+},
+{
+"i": 19,
+"seg": "01",
+"part": "CH1",
+"t0": 97.589,
+"t1": 99.191,
+"s": "Governments, in wartime."
+},
+{
+"i": 20,
+"seg": "02",
+"part": "CH2",
+"t0": 101.008,
+"t1": 103.76,
+"s": "In 1944, the Liberty program was cut back."
+},
+{
+"i": 21,
+"seg": "02",
+"part": "CH2",
+"t0": 104.363,
+"t1": 107.788,
+"s": "After April, no more Liberty contracts were let."
+},
+{
+"i": 22,
+"seg": "02",
+"part": "CH2",
+"t0": 108.74,
+"t1": 113.686,
+"s": "America already had a different kind of customer, written into law in 1920."
+},
+{
+"i": 23,
+"seg": "02",
+"part": "CH2",
+"t0": 113.895,
+"t1": 120.907,
+"s": "Back then, American shippers were sending Alaska cargo by rail to Vancouver, Canada, and on by foreign ships."
+},
+{
+"i": 24,
+"seg": "02",
+"part": "CH2",
+"t0": 121.418,
+"t1": 129.905,
+"s": "Senator Wesley Jones of Washington, chair of the Commerce Committee, sought to stop that by requiring Alaska-bound cargo to move through the Port of Seattle."
+},
+{
+"i": 25,
+"seg": "02",
+"part": "CH2",
+"t0": 130.602,
+"t1": 141.724,
+"s": "The cargo rule in that act, Section 27, is known as the Jones Act: a ship carrying cargo between two American ports must be American-built, and owned and crewed by Americans."
+},
+{
+"i": 26,
+"seg": "02",
+"part": "CH2",
+"t0": 142.536,
+"t1": 147.725,
+"s": "Congress's researchers say it gives American shipyards \"a significant degree of protection.\""
+},
+{
+"i": 27,
+"seg": "02",
+"part": "CH2",
+"t0": 148.329,
+"t1": 155.144,
+"s": "The American Maritime Partnership, a coalition of supporters, puts its case in its headline: \"American Jobs."
+},
+{
+"i": 28,
+"seg": "02",
+"part": "CH2",
+"t0": 155.237,
+"t1": 156.433,
+"s": "American Security.\""
+},
+{
+"i": 29,
+"seg": "02",
+"part": "CH2",
+"t0": 157.13,
+"t1": 167.869,
+"s": "Critics, like Senator Mike Lee and Representative Tom McClintock, who introduced a bill on June twelfth, 2025, to repeal it, say its costs mean \"higher prices for Americans.\""
+},
+{
+"i": 30,
+"seg": "02",
+"part": "CH2",
+"t0": 168.566,
+"t1": 175.822,
+"s": "There was also a federal subsidy, the Construction Differential Subsidy, meant to let American owners buy American ships at the world price."
+},
+{
+"i": 31,
+"seg": "02",
+"part": "CH2",
+"t0": 176.206,
+"t1": 182.858,
+"s": "In the 1970s, American yards built about five percent of the world's tonnage: fifteen to twenty-five new ships a year."
+},
+{
+"i": 32,
+"seg": "02",
+"part": "CH2",
+"t0": 183.462,
+"t1": 191.113,
+"s": "The subsidy ended in the 1980s, and Congress's researchers note that some observers see that as the main reason fewer ships were built."
+},
+{
+"i": 33,
+"seg": "02",
+"part": "CH2",
+"t0": 191.624,
+"t1": 197.905,
+"s": "Output fell to around five a year, which a 2023 congressional report calls the current rate."
+},
+{
+"i": 34,
+"seg": "03",
+"part": "CH3",
+"t0": 199.717,
+"t1": 205.278,
+"s": "Now the answer you'll often hear: American shipyards lost because American workers cost too much."
+},
+{
+"i": 35,
+"seg": "03",
+"part": "CH3",
+"t0": 205.882,
+"t1": 213.405,
+"s": "The cost gap goes back at least to 1922, when a government report put American-built ships at twenty percent more than foreign ones."
+},
+{
+"i": 36,
+"seg": "03",
+"part": "CH3",
+"t0": 214.102,
+"t1": 216.064,
+"s": "By the 1950s, double."
+},
+{
+"i": 37,
+"seg": "03",
+"part": "CH3",
+"t0": 216.76,
+"t1": 219.175,
+"s": "By the 1990s, three times."
+},
+{
+"i": 38,
+"seg": "03",
+"part": "CH3",
+"t0": 219.872,
+"t1": 230.135,
+"s": "In 2019, Congress's researchers cited one consulting firm's estimate for one ship type: an American-built tanker, at about four times the global price of a similar vessel."
+},
+{
+"i": 39,
+"seg": "03",
+"part": "CH3",
+"t0": 230.739,
+"t1": 238.692,
+"s": "A 2023 report from Congress's researchers lists wages, especially for welders, among the factors behind higher prices."
+},
+{
+"i": 40,
+"seg": "03",
+"part": "CH3",
+"t0": 239.388,
+"t1": 247.98,
+"s": "Then it adds one more: without exports, American shipyards can't reach economies of scale — the savings that come from building many of the same thing."
+},
+{
+"i": 41,
+"seg": "03",
+"part": "CH3",
+"t0": 248.491,
+"t1": 251.149,
+"s": "Our read: the protected home market is small."
+},
+{
+"i": 42,
+"seg": "03",
+"part": "CH3",
+"t0": 251.753,
+"t1": 259.381,
+"s": "A 2019 congressional report counted ninety-nine oceangoing ships in the Jones Act fleet as of March 2018."
+},
+{
+"i": 43,
+"seg": "03",
+"part": "CH3",
+"t0": 259.892,
+"t1": 268.263,
+"s": "At home, the 2023 report adds, high prices hold buyers back wherever a truck, a train or a pipeline can do the job."
+},
+{
+"i": 44,
+"seg": "03",
+"part": "CH3",
+"t0": 268.704,
+"t1": 271.966,
+"s": "Our read: put those together and you get a loop."
+},
+{
+"i": 45,
+"seg": "03",
+"part": "CH3",
+"t0": 272.477,
+"t1": 274.149,
+"s": "High prices mean few orders."
+},
+{
+"i": 46,
+"seg": "03",
+"part": "CH3",
+"t0": 274.358,
+"t1": 275.902,
+"s": "Few orders mean no scale."
+},
+{
+"i": 47,
+"seg": "03",
+"part": "CH3",
+"t0": 276.506,
+"t1": 278.305,
+"s": "No scale keeps prices high."
+},
+{
+"i": 48,
+"seg": "03",
+"part": "CH3",
+"t0": 278.514,
+"t1": 282.868,
+"s": "The pieces come from the record; the loop is our interpretation."
+},
+{
+"i": 49,
+"seg": "03",
+"part": "CH3",
+"t0": 283.378,
+"t1": 287.79,
+"s": "Our emphasis on scale is a position the evidence only partly supports."
+},
+{
+"i": 50,
+"seg": "04",
+"part": "CH4",
+"t0": 289.592,
+"t1": 295.676,
+"s": "In 1962, South Korea's output was about a hundred and seven dollars per person, in that year's dollars."
+},
+{
+"i": 51,
+"seg": "04",
+"part": "CH4",
+"t0": 296.488,
+"t1": 299.368,
+"s": "Chung Ju-yung had built Hyundai as a construction company."
+},
+{
+"i": 52,
+"seg": "04",
+"part": "CH4",
+"t0": 300.064,
+"t1": 309.805,
+"s": "When he decided to go into shipbuilding in the early 1970s, by the company's own account Hyundai had \"no experience, capital, or shipbuilding technology whatsoever.\""
+},
+{
+"i": 53,
+"seg": "04",
+"part": "CH4",
+"t0": 310.501,
+"t1": 318.21,
+"s": "By Hyundai's account, while the shipyard was still being planned, a Greek shipowner, George Livanos, ordered two crude oil tankers."
+},
+{
+"i": 54,
+"seg": "04",
+"part": "CH4",
+"t0": 318.907,
+"t1": 323.249,
+"s": "So, by that account, an order from a foreign owner came before the yard existed."
+},
+{
+"i": 55,
+"seg": "04",
+"part": "CH4",
+"t0": 323.632,
+"t1": 326.302,
+"s": "A 2010 Korea Times column adds a story."
+},
+{
+"i": 56,
+"seg": "04",
+"part": "CH4",
+"t0": 326.999,
+"t1": 334.789,
+"s": "Chung went abroad carrying a photo of the empty beach and a 500-won banknote showing a turtle ship, a warship from Korea's history."
+},
+{
+"i": 57,
+"seg": "04",
+"part": "CH4",
+"t0": 335.114,
+"t1": 340.815,
+"s": "We found no documents for it, so treat it as lore: one columnist's account, not a record."
+},
+{
+"i": 58,
+"seg": "04",
+"part": "CH4",
+"t0": 341.256,
+"t1": 349.046,
+"s": "Hyundai's own history says ground was broken in March 1972 on that beach in Ulsan, for what it calls the world's largest shipyard."
+},
+{
+"i": 59,
+"seg": "04",
+"part": "CH4",
+"t0": 349.65,
+"t1": 358.508,
+"s": "By the company's account, it completed the shipyard and two supertankers, the Atlantic Baron and the Atlantic Baroness, at the same time, in 1974."
+},
+{
+"i": 60,
+"seg": "04",
+"part": "CH4",
+"t0": 358.949,
+"t1": 361.364,
+"s": "Meanwhile, the government set its own targets."
+},
+{
+"i": 61,
+"seg": "04",
+"part": "CH4",
+"t0": 361.643,
+"t1": 370.838,
+"s": "In January 1973, President Park Chung Hee announced a drive for heavy industry, naming shipbuilding, with exports as the goal."
+},
+{
+"i": 62,
+"seg": "04",
+"part": "CH4",
+"t0": 371.279,
+"t1": 383.714,
+"s": "Munseob Lee, writing for the Korea Economic Institute of America in 2023, lists the support: tax incentives, subsidized long-term loans, and industrial complexes built by the government."
+},
+{
+"i": 63,
+"seg": "04",
+"part": "CH4",
+"t0": 384.126,
+"t1": 387.748,
+"s": "Our read: from the start, this yard's customers were abroad."
+},
+{
+"i": 64,
+"seg": "04",
+"part": "CH4",
+"t0": 388.259,
+"t1": 396.538,
+"s": "In 2025, South Korea's output was about thirty-six thousand dollars per person, again in that year's dollars, not adjusted for inflation."
+},
+{
+"i": 65,
+"seg": "04",
+"part": "CH4",
+"t0": 396.979,
+"t1": 400.636,
+"s": "The sources we used don't measure how much of that rise came from shipbuilding."
+},
+{
+"i": 66,
+"seg": "05",
+"part": "CH5",
+"t0": 402.425,
+"t1": 404.016,
+"s": "Which brings us to the present."
+},
+{
+"i": 67,
+"seg": "05",
+"part": "CH5",
+"t0": 404.526,
+"t1": 414.372,
+"s": "In March 2024, five American labor unions, including the steelworkers and the boilermakers, petitioned the U.S. Trade Representative over China's shipbuilding."
+},
+{
+"i": 68,
+"seg": "05",
+"part": "CH5",
+"t0": 415.184,
+"t1": 426.063,
+"s": "Congress's researchers summarize the Trade Representative's findings: Chinese government plans set production and market-share targets, backed by subsidies and state financing."
+},
+{
+"i": 69,
+"seg": "05",
+"part": "CH5",
+"t0": 426.446,
+"t1": 431.438,
+"s": "And in 2025, ninety percent of the ships Chinese shipbuilders made were for export."
+},
+{
+"i": 70,
+"seg": "05",
+"part": "CH5",
+"t0": 432.135,
+"t1": 442.688,
+"s": "In January 2025, the Trade Representative found that China's \"targeted dominance\" in these sectors was \"unreasonable\" and \"burdens or restricts U.S. commerce.\""
+},
+{
+"i": 71,
+"seg": "05",
+"part": "CH5",
+"t0": 443.013,
+"t1": 444.093,
+"s": "Then came the fees."
+},
+{
+"i": 72,
+"seg": "05",
+"part": "CH5",
+"t0": 444.604,
+"t1": 457.201,
+"s": "From October 2025, ships owned or operated by Chinese companies, and ships built in China, owed a fee on their U.S. voyages, based mostly on the ship's size, up to five times a year."
+},
+{
+"i": 73,
+"seg": "05",
+"part": "CH5",
+"t0": 457.805,
+"t1": 466.465,
+"s": "The stated aim: to discourage the use and purchase of Chinese-built ships, and to press China to drop the practices the Trade Representative had found."
+},
+{
+"i": 74,
+"seg": "05",
+"part": "CH5",
+"t0": 467.278,
+"t1": 479.886,
+"s": "China's Ministry of Commerce had already objected: in February 2025, responding to the proposed measures, a spokesperson said they would \"fail to revitalize\" American shipbuilding and raise shipping costs."
+},
+{
+"i": 75,
+"seg": "05",
+"part": "CH5",
+"t0": 479.93,
+"t1": 490.704,
+"s": "Within a month, \"in light of\" a trade deal between President Trump and President Xi, the notice says, the Trade Representative suspended them through November ninth, 2026."
+},
+{
+"i": 76,
+"seg": "05",
+"part": "CH5",
+"t0": 491.087,
+"t1": 498.32,
+"s": "In September, a letter from more than two hundred trade groups, by our count of its signatories, asked for the suspension to be extended."
+},
+{
+"i": 77,
+"seg": "05",
+"part": "CH5",
+"t0": 498.761,
+"t1": 504.032,
+"s": "Resuming the fees, they wrote, \"would add another cost layer to an already strained transportation system.\""
+},
+{
+"i": 78,
+"seg": "05",
+"part": "CH5",
+"t0": 504.845,
+"t1": 508.804,
+"s": "As of October fifteenth, 2026, no extension had been published."
+},
+{
+"i": 79,
+"seg": "05",
+"part": "CH5",
+"t0": 509.315,
+"t1": 510.29,
+"s": "And Philadelphia."
+},
+{
+"i": 80,
+"seg": "05",
+"part": "CH5",
+"t0": 510.615,
+"t1": 518.615,
+"s": "According to Korea JoongAng Daily, Hanwha, a South Korean group, bought the shipyard for a hundred million dollars in December 2024."
+},
+{
+"i": 81,
+"seg": "05",
+"part": "CH5",
+"t0": 518.998,
+"t1": 526.846,
+"s": "In August 2025, it announced five billion dollars of investment, with a goal of raising output from one and a half ships a year to twenty."
+},
+{
+"i": 82,
+"seg": "05",
+"part": "CH5",
+"t0": 527.543,
+"t1": 531.536,
+"s": "That's an announced goal; the article gives no date for reaching it."
+},
+{
+"i": 83,
+"seg": "05",
+"part": "CH5",
+"t0": 532.233,
+"t1": 543.971,
+"s": "As of October fifteenth, 2026: in July, Military Times reported the Philadelphia yard had been tapped to build two missile-tracking ships for the Pentagon, the first slated for June 2030."
+},
+{
+"i": 84,
+"seg": "05",
+"part": "CH5",
+"t0": 544.667,
+"t1": 547.558,
+"s": "Our read: the pattern again, an order."
+},
+{
+"i": 85,
+"seg": "05",
+"part": "CH5",
+"t0": 548.371,
+"t1": 553.862,
+"s": "This time it came after the investment was announced, and before any report we found of the new capacity being finished."
+},
+{
+"i": 86,
+"seg": "06",
+"part": "END",
+"t0": 555.675,
+"t1": 557.138,
+"s": "So, what to watch."
+},
+{
+"i": 87,
+"seg": "06",
+"part": "END",
+"t0": 557.219,
+"t1": 562.85,
+"s": "November ninth, 2026: whether the fee pause is extended or runs out as the notice sets."
+},
+{
+"i": 88,
+"seg": "06",
+"part": "END",
+"t0": 563.233,
+"t1": 567.32,
+"s": "Philadelphia: whether the announced investment shows up as new capacity."
+},
+{
+"i": 89,
+"seg": "06",
+"part": "END",
+"t0": 567.645,
+"t1": 572.683,
+"s": "And June 2030: the delivery date Military Times reported for the first of those ships."
+},
+{
+"i": 90,
+"seg": "06",
+"part": "END",
+"t0": 573.125,
+"t1": 574.123,
+"s": "The scoreboard."
+},
+{
+"i": 91,
+"seg": "06",
+"part": "END",
+"t0": 574.727,
+"t1": 578.547,
+"s": "1943, at the peak: three Liberty ships launched a day."
+},
+{
+"i": 92,
+"seg": "06",
+"part": "END",
+"t0": 578.755,
+"t1": 582.784,
+"s": "A 2023 congressional report: around five new ships a year."
+},
+{
+"i": 93,
+"seg": "06",
+"part": "END",
+"t0": 583.225,
+"t1": 585.083,
+"s": "Different ships, different eras."
+},
+{
+"i": 94,
+"seg": "06",
+"part": "END",
+"t0": 585.524,
+"t1": 588.903,
+"s": "Our read of the record: America didn't forget how to build ships."
+},
+{
+"i": 95,
+"seg": "06",
+"part": "END",
+"t0": 589.599,
+"t1": 600.327,
+"s": "Since the 1980s, it has built few because few orders came — and the record ties high prices to fewer domestic purchases, and the lack of exports to missing economies of scale."
+},
+{
+"i": 96,
+"seg": "06",
+"part": "END",
+"t0": 600.881,
+"t1": 604.109,
+"s": "No source we found measures how much each factor counts."
+},
+{
+"i": 97,
+"seg": "06",
+"part": "END",
+"t0": 604.863,
+"t1": 608.602,
+"s": "If you're finding this useful, subscribing is how you'll catch the next one."
+},
+{
+"i": 98,
+"seg": "06",
+"part": "END",
+"t0": 609.008,
+"t1": 613.06,
+"s": "Back in Richmond, Kaiser's Shipyard Number Three is now part of a national park."
+},
+{
+"i": 99,
+"seg": "06",
+"part": "END",
+"t0": 613.443,
+"t1": 617.925,
+"s": "Next time: why one country makes almost all the world's shipping containers."
+}
+]
+}
