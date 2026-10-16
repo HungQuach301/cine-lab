@@ -1,0 +1,31 @@
+{
+ "youtube_units": {
+  "cap": 300,
+  "used": 224,
+  "breakdown": {
+   "search": 200,
+   "channels": 11,
+   "playlistItems": 11,
+   "videos": 2
+  }
+ },
+ "claude_api": {
+  "cap_usd": 2,
+  "used_usd": 0.00814,
+  "calls": 1,
+  "model": "claude-haiku-5-5",
+  "served": "claude-haiku-5-5"
+ },
+ "elevenlabs_chars": 0,
+ "subagents": [
+  {
+   "task": "bản đồ/công trình Zürich+Helsinki",
+   "tokens_harness": 242309
+  },
+  {
+   "task": "bản đồ/công trình Sevilla+Budapest+Detroit",
+   "tokens_harness": 316810
+  }
+ ],
+ "websearch": "~4 lượt"
+}

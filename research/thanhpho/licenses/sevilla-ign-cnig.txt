@@ -1,0 +1,216 @@
+==================================================================
+URL: https://www.ign.es/resources/licencia/Condiciones_licenciaUso_IGN.pdf
+FETCHED_UTC: 2026-10-15T23:36:59Z
+HTTP: 200 https://www.ign.es/resources/licencia/Condiciones_licenciaUso_IGN.pdf 145381
+SHA256: 48b745c62276e4d5ae8870922b9db89d276e9b339f66e3d1f9eea6379f2957d9
+------------------------------------------------------------------
+Cach doc: curl tai PDF goc, pdftotext; trich nguyen van (email da che).
+                   MINISTERIO                                                                      CENTRO NACIONAL
+                                                                                                   DE INFORMACIÓN
+                   DE FOMENTO                                                                      GEOGRÁFICA
+
+
+
+
+           Licencia de los productos y servicios de datos geográficos
+         producidos por el IGN y de los coproducidos por las CC. AA. y
+             la AGE en el marco del Sistema Cartográfico Nacional
+
+
+       En esta licencia se establecen las condiciones de uso y acceso a los productos y servicios de
+       información geográfica generados por la Dirección General del Instituto Geográfico Nacional de
+       España, en adelante IGN, que depende del Ministerio de Fomento, condiciones que s e ajustan a lo
+       establecido en la Orden Ministerial FOM/2807/2015, de 18 de diciembre del año 2015, BOE
+       2015.12.26, que modifica la Orden Ministerial FOM/956/2008 de fecha 31 de marzo, BOE 2008.04.08.
+
+       Según se recoge en la mencionada Orden Ministerial FOM/2807/2015, Artículo 4: «El uso de los
+       productos de datos geográficos digitales mencionados en el Artículo 2 tendrá carácter libre y
+       gratuito, siempre que se mencione el origen y propiedad de los datos, con el alcance y forma que
+       autorice la licencia de uso correspondiente».
+
+       En ese sentido, el uso de los productos y servicios de información geográfica del IGN definidos en el
+       ámbito de la Orden FOM/2807/2015 conlleva la aceptación por el usuario de una licencia CC-BY 4.0
+       tal y como se define en:
+
+         •         http://creativecommons.org/licenses/by/4.0/
+         •         http://creativecommons.org/licenses/by/4.0/legalcode
+
+       En donde el reconocimiento se realizará de la siguiente manera:
+       1. Para los productos, en el caso de que no se modifique o altere la información geográfica
+          digital original, se utilizará la expresión general: «<identificador del producto> <fecha> CC-BY
+          4.0 <atribución de productores>», en la que las etiquetas <identificador del producto>, <fecha>
+          y <atribución de productores> serán sustituidas por los valores correspondientes de la tabla de
+          productos, que se encuentra en la página web publicada a tal efecto:
+
+                   http://www.scne.es/productos.html
+
+                   Como en:
+                                            BTN25 2014-2015 CC-BY 4.0 ign.es
+
+             Esta mención de atribución obligatoria se mostrará visible junto con los datos, de forma legible
+             y a pie de mapa, imagen, presentación o ventana de visualización. En caso de imposibilidad
+             manifiesta y justificable se podrá incluir en listados de capas o servicios, leyendas, tablas de
+             contenidos o créditos, siempre de manera que quede claro el origen y propiedad del IGN de
+             España.
+
+
+
+
+CORREO ELECTRÓNICO:
+[email da che]                                                                                   INSTITUTO GEOGRÁFICO
+                                                                                                   NACIONAL
+                                                                                                   General Ibáñez de Ibero, 3
+                                                                                                   28003 MADRID
+                                                                                                   TEL.: +34 91 597 9453
+                                                                                                   FAX: +34 91 597 9693
+    2. Para los servicios, en el caso de que se use el servicio sin modificar, se utilizará la fórmula de
+       reconocimiento establecida para los datos acoplados, utilizados en cada caso y, si no hay datos
+
+==================================================================
+URL: https://www.ign.es/wms/primera-edicion-mtn?request=GetCapabilities&service=WMS
+FETCHED_UTC: 2026-10-15T23:48:46Z
+HTTP: 200 https://www.ign.es/wms/primera-edicion-mtn?request=GetCapabilities&service=WMS 13739
+SHA256: 4cb9e31955726cf001e83cbeff756c15c2c83b6718a08e99d9cac40d6ad4f377
+------------------------------------------------------------------
+Cach doc: WMS GetCapabilities (curl). Trich:
+<Title>Minutas del Mapa Topográfico Nacional 1:50.000 (catastrones) 1910-1970
+<Fees>No se aplican condiciones
+<AccessConstraints>CC BY 4.0 ign.es
+
+==================================================================
+URL: https://www.ign.es/wms/minutas-cartograficas?request=GetCapabilities&service=WMS
+FETCHED_UTC: 2026-10-15T23:48:46Z
+HTTP: 200 https://www.ign.es/wms/minutas-cartograficas?request=GetCapabilities&service=WMS 11709
+SHA256: 85c61a356742716cec8b1710e1b0010c2bc36fae6dbac18eae05e68ec522df7e
+------------------------------------------------------------------
+Cach doc: WMS GetCapabilities (curl). Trich:
+<Title>Planimetrías de España(1870-1950)
+<Fees>no se aplican condiciones
+<AccessConstraints>Se permite el acceso a este servicio en cualquier caso siempre que se mencionen la autoría y propiedad del IGN del siguiente modo: «© Instituto Geográfico Nacional de España»
+
+==================================================================
+URL: https://www.ign.es/wms/primera-edicion-mtn?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=Enlace&QUERY_LAYERS=Enlace&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html
+FETCHED_UTC: 2026-10-15T23:49:04Z
+HTTP: 200 https://www.ign.es/wms/primera-edicion-mtn?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=Enlace&QUERY_LAYERS=Enlace&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html 2996
+SHA256: c25682f0fb05329daecd08b9b078e773af3dc9a0e7d5ce3e2467ab6327a8aa33
+------------------------------------------------------------------
+Cach doc: WMS GetFeatureInfo tai Sevilla (curl). Noi dung:
+ Primera Edición MTN50 --> Primera Edición MTN50 Nombre Sevilla Número 0984 Año 1918 Ediciones 1918nnn,1988nnn,2006cns Descarga Enlace a CDD Footer a desarrollar. --> 
+href=http://centrodedescargas.cnig.es/CentroDescargas/buscar.do?filtro.checkCoord=N&amp;filtro.codFamilia=02307&amp;filtro.codCA=&amp;filtro.codProv=&amp;filtro.nombreBis=&amp;filtro.numeroHoja=0984
+
+==================================================================
+URL: https://www.ign.es/wms/primera-edicion-mtn?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=catastrones&QUERY_LAYERS=catastrones&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html
+FETCHED_UTC: 2026-10-15T23:49:04Z
+HTTP: 200 https://www.ign.es/wms/primera-edicion-mtn?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=catastrones&QUERY_LAYERS=catastrones&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html 2887
+SHA256: d1eb2ea3d839c86272a7545a55612cedf6e3599b88600daf395e3f09abbecae5
+------------------------------------------------------------------
+Cach doc: WMS GetFeatureInfo tai Sevilla (curl). Noi dung:
+ Minutas MTN50 (1910-1970) --> Minutas MTN50 (1910-1970) Nombre Sevilla Número 0984 Año de edición 1917 Descarga MinMTN50H0984.zip Footer a desarrollar. --> -->
+href="http://centrodedescargas.cnig.es/CentroDescargas/busquedaRedirigida.do?ruta=PUBLICACION_CNIG_DATOS_VARIOS/Minutas_MTN50/MinutaMTN50-0984-Sevilla.zip
+
+==================================================================
+URL: https://www.ign.es/wms/minutas-cartograficas?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=Minutas&QUERY_LAYERS=Minutas&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html
+FETCHED_UTC: 2026-10-15T23:49:05Z
+HTTP: 200 https://www.ign.es/wms/minutas-cartograficas?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=Minutas&QUERY_LAYERS=Minutas&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html 1083
+SHA256: 7c8fcc94c88c3493fe3c2b7f0da5e22c40e7ac6b00f3b434085ed9646b0df591
+------------------------------------------------------------------
+Cach doc: WMS GetFeatureInfo tai Sevilla (curl). Noi dung:
+ --> Información MinutasCartográficas Minutas Cartográficas --> Municipio Sevilla (Sevilla) Tipo Planimetría Fecha 1873-03-31 Documento 410943 
+href="http://centrodedescargas.cnig.es/CentroDescargas/buscar.do?filtro.checkCoord=N&filtro.codFamilia=MIPAC&filtro.codCA=&filtro.codProv=&filtro.nombreBis=Municipio&filtro.codIne=34014141091&filtro.numeroHoja=
+
+==================================================================
+URL: https://www.ign.es/web/catalogo-cartoteca/resources/html/008319.html
+FETCHED_UTC: 2026-10-15T23:46:28Z
+HTTP: 200 https://www.ign.es/web/catalogo-cartoteca/resources/html/008319.html 65875
+SHA256: b4d22009487997b776ad7c6edbb45a81f84978d34ad9188cc03c6d874745ed7b
+------------------------------------------------------------------
+Cach doc: trang muc Cartoteca IGN (curl). Trich mo ta + 'Politica de datos':
+... Obra principal Ver Documentos de esta obra Ver Documentos incluidos Ver Información del mapa ISBD Ficha catalográfica Política de datos Información ISBD Ficha catalográfica Legal Info Imagen ISBD Ficha Legal Sevilla: Plano de la Zona de Ensanche 🗺️ Ámbito geográfico Sevilla 🏷️ Materia Planos de población ⏳ Fecha 1929 ✍️ Autor(es) el Ingeniero Jefe de las Brigadas Centrales, Fernando Uriol ; Instituto Geográfico y Catastral. Lugar de publicación España 🇪🇸 🔍 Escala Escala 1:2.000. 🌐 Lengua Español 🌐 Otras lenguas No hay más lenguas 🖼️ Descripción física 1 plano en 23 hojas: 400 x 210 cm en hoja de 64 x 84 cm ✒️ Datos de publicación Instituto Geográfico y Catastral, [Madrid], 1929 🖨️ Datos de impresión 🗄️ Signatura 31-E-6 📓 Notas La fecha en la portada es 1928 y el plano esta firmado en Madrid en 1929 por el Director
+...s información 🎖️ T651 Sevilla - Ensanches urbanos 📚 1 documentos Más información 🎖️ T700 Uriol y Duties, Fernando 📚 2 documentos Más información 🎖️ T710 España. Dirección General del Instituto Geográfico y Catastral 📚 2888 documentos Más información Política de datos La política de datos determinada por el IGN , establecida en la Orden FOM/2807/2015 , establece que el uso de la información de los productos y servicios de datos geográficos definidos en ella, así como sus derivados, conlleva la aceptación implícita por el usuario de las condiciones generales de dicha orden, concretada en la siguiente licencia de uso , compatible con CC-BY 4.0 . Toda la información de Política de datos se puede consultar en el apartado https://www.ign.es/web/ign/portal/politica-datos . © Instituto Geográfico Nacional - C/ General Ibáñez de Ibero, 3. 28003 - 
+Lien ket anh tren trang:
+https://www.ign.es/web/BibliotecaIGN/31-E-6.pdf
+https://www.ign.es/web/BibliotecaIGN/31-E-6_Cuadrícula.jpg
+https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj01.jpg
+https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj02.jpg
+https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj03.jpg
+
+==================================================================
+URL: https://www.ign.es/web/catalogo-cartoteca/resources/html/016386.html
+FETCHED_UTC: 2026-10-15T23:46:52Z
+HTTP: 200 https://www.ign.es/web/catalogo-cartoteca/resources/html/016386.html 49949
+SHA256: f977ed62cc98db6eb9a532177b8e7c9b10bc65a90a28339e26f5c3e671ecbeb6
+------------------------------------------------------------------
+Cach doc: trang muc Cartoteca IGN (curl). Trich mo ta + 'Politica de datos':
+...evilla 827 Planos de población Obra principal Ver Documentos de esta obra Ver Documentos incluidos Ver Información del mapa ISBD Ficha catalográfica Política de datos Información ISBD Ficha catalográfica Legal Info Imagen ISBD Ficha Legal Sevilla 🗺️ Ámbito geográfico Sevilla 🏷️ Materia Planos de población ⏳ Fecha 1929 ✍️ Autor(es) Lugar de publicación España 🇪🇸 🔍 Escala Escala 1:10.000. 🌐 Lengua Español 🌐 Otras lenguas No hay más lenguas 🖼️ Descripción física 1 plano: 54 x 74 cm ✒️ Datos de publicación s.n.], [S.l., [1929?] 🖨️ Datos de impresión 🗄️ Signatura 31-E-5 📓 Notas Ficha catalográfica del mapa Sección Registro Descripción física Información general Datos matemáticos T130 - Encabezamiento principal T245 - Mención de título T250 - Mención de responsabilidad T255 - Área de datos matemáticos T260 - Pu
+...37°28'42"-N 37°17'06") s.n.], [S.l., [1929?] 1 plano: 54 x 74 cm _#T515#_ 🗄️ Signatura 31-E-5 Autoridades del documento 🎖️ T650 Planos de población - Sevilla 📚 7 documentos Más información 🎖️ T650 Planos de población 📚 827 documentos Más información Política de datos La política de datos determinada por el IGN , establecida en la Orden FOM/2807/2015 , establece que el uso de la información de los productos y servicios de datos geográficos definidos en ella, así como sus derivados, conlleva la aceptación implícita por el usuario de las condiciones generales de dicha orden, concretada en la siguiente licencia de uso , compatible con CC-BY 4.0 . Toda la información de Política de datos se puede consultar en el apartado https://www.ign.es/web/ign/portal/politica-datos . © Instituto Geográfico Nacional - C/ General Ibáñez de Ibero, 3. 28003 - ...
+Lien ket anh tren trang:
+https://www.ign.es/web/BibliotecaIGN/31-E-5_01.JPG
+https://www.ign.es/web/BibliotecaIGN/miniatura/thumbmap.jpg
+
+==================================================================
+URL: https://www.ign.es/web/catalogo-cartoteca/resources/html/005470.html
+FETCHED_UTC: 2026-10-15T23:46:53Z
+HTTP: 200 https://www.ign.es/web/catalogo-cartoteca/resources/html/005470.html 56965
+SHA256: b0e95722a18e9584696a2d8d6c8f1499a01bd4c20615431c4cd773a559f01ff0
+------------------------------------------------------------------
+Cach doc: trang muc Cartoteca IGN (curl). Trich mo ta + 'Politica de datos':
+...atalográfica Política de datos Información ISBD Ficha catalográfica Legal Info Imagen ISBD Ficha Legal Plano de el perímetro e inmediaciones de Sevilla: Arrabales Triana,S. Bernardo, S. Roque, La Calzada, Macarena, Humeros, Cestería, Carretería [ 🗺️ Ámbito geográfico Sevilla 🏷️ Materia Planos de población ⏳ Fecha 1839 ✍️ Autor(es) Man. Galiano. Lugar de publicación España 🇪🇸 🔍 Escala Escala [1:10.000] 🌐 Lengua Español 🌐 Otras lenguas No hay más lenguas 🖼️ Descripción física 1 plano: manuscrito, col, montado en tela: 50,5 x 89,5 cm, en hoja de 53,5 x 91,5 cm ✒️ Datos de publicación [s. n.], Sevilla, 1839 🖨️ Datos de impresión 🗄️ Signatura 31-E-3 📓 Notas Comprende la periferia de Sevilla, los arrabales de Triana, S. Bernardo, S. Roque, La Calzada, Macarena, Humeros, Cesteria y Carreteria. El casco urbano de Sevilla a
+... Planos de población - Sevilla (Área metropolitana) 📚 2 documentos Más información 🎖️ T650 Planimetría 📚 7 documentos Más información 🎖️ T650 Planos de población 📚 827 documentos Más información 🎖️ T700 Galiano, Manuel 📚 1 documentos Más información Política de datos La política de datos determinada por el IGN , establecida en la Orden FOM/2807/2015 , establece que el uso de la información de los productos y servicios de datos geográficos definidos en ella, así como sus derivados, conlleva la aceptación implícita por el usuario de las condiciones generales de dicha orden, concretada en la siguiente licencia de uso , compatible con CC-BY 4.0 . Toda la información de Política de datos se puede consultar en el apartado https://www.ign.es/web/ign/portal/politica-datos . © Instituto Geográfico Nacional - C/ General Ibáñez de Ibero, 3. 280
+Lien ket anh tren trang:
+https://www.ign.es/web/BibliotecaIGN/miniatura/thumbmap.jpg
+
+==================================================================
+URL: https://www.ign.es/web/catalogo-cartoteca/resources/html/031500.html
+FETCHED_UTC: 2026-10-15T23:46:54Z
+HTTP: 200 https://www.ign.es/web/catalogo-cartoteca/resources/html/031500.html 52872
+SHA256: aeb83434b4f8c18039902d7b62d7b2314b8d82fd3186e2e2e3c44a8b79955ec4
+------------------------------------------------------------------
+Cach doc: trang muc Cartoteca IGN (curl). Trich mo ta + 'Politica de datos':
+... 1907-1933), grabador Obra principal Ver Documentos de esta obra Ver Documentos incluidos Ver Información del mapa ISBD Ficha catalográfica Política de datos Información ISBD Ficha catalográfica Legal Info Imagen ISBD Ficha Legal Plano de Sevilla 🗺️ Ámbito geográfico Sevilla 🏷️ Materia Planos de población ⏳ Fecha 1910 ✍️ Autor(es) J. Soler, Gº. Lugar de publicación España 🇪🇸 🔍 Escala Escala 1:7.500. 🌐 Lengua Español 🌐 Otras lenguas No hay más lenguas 🖼️ Descripción física 1 plano: color: 52 x 66 cm, plegado en 26 x 38 cm ✒️ Datos de publicación 🖨️ Datos de impresión 🗄️ Signatura 92-89(V03-0021-MAPA) 📓 Notas Ficha catalográfica del mapa Sección Registro Descripción física Información general Datos matemáticos T130 - Encabezamiento principal T245 - Mención de título T250 - Mención de responsabilidad T255 - Á
+...89(V03-0021-MAPA) Autoridades del documento 🎖️ T650 Planos de población - Sevilla 📚 7 documentos Más información 🎖️ T650 Planos de población 📚 827 documentos Más información 🎖️ T700 Soler, J. (fl. 1907-1933), grabador 📚 26 documentos Más información Política de datos La política de datos determinada por el IGN , establecida en la Orden FOM/2807/2015 , establece que el uso de la información de los productos y servicios de datos geográficos definidos en ella, así como sus derivados, conlleva la aceptación implícita por el usuario de las condiciones generales de dicha orden, concretada en la siguiente licencia de uso , compatible con CC-BY 4.0 . Toda la información de Política de datos se puede consultar en el apartado https://www.ign.es/web/ign/portal/politica-datos . © Instituto Geográfico Nacional - C/ General Ibáñez de Ibero, 3. 28003 - ..
+Lien ket anh tren trang:
+https://www.ign.es/web/BibliotecaIGN/92-89(V03-0020-indice).jpg
+https://www.ign.es/web/BibliotecaIGN/92-89(V03-0020-indice2).jpg
+https://www.ign.es/web/BibliotecaIGN/92-89(V03-0021-mapa).jpg
+https://www.ign.es/web/BibliotecaIGN/miniatura/thumbmap.jpg
+
+==================================================================
+URL: https://www.ign.es/web/catalogo-cartoteca/resources/html/030487.html
+FETCHED_UTC: 2026-10-15T23:46:55Z
+HTTP: 200 https://www.ign.es/web/catalogo-cartoteca/resources/html/030487.html 70376
+SHA256: a01dbf3f5279a86d6d7e9c9c883984256c799dbfd07a95eb332d57347d5aff50
+------------------------------------------------------------------
+Cach doc: trang muc Cartoteca IGN (curl). Trich mo ta + 'Politica de datos':
+...sta obra Ver Documentos incluidos Ver Información del mapa ISBD Ficha catalográfica Política de datos Información ISBD Ficha catalográfica Legal Info Imagen ISBD Ficha Legal Tercera hoja de suplemento - Andalucía: Jaén, Granada, Cordoba, Sevilla. 🗺️ Ámbito geográfico Andalucía 🏷️ Materia Planos de población ⏳ Fecha [1852] ✍️ Autor(es) los planos han sido arreglados por D. Francisco Coello ; grabado bajo la dirección del autor ; el contorno por Raynaud, la topografía por Blondeau y la letra por Burty ; las esplicaciones [sic] han sido escritas por D. Pascual Madoz. Lugar de publicación España 🇪🇸 🔍 Escala Escala 1:10.000 🌐 Lengua Español 🌐 Otras lenguas No hay más lenguas 🖼️ Descripción física 16 planos en 1 hoja: montada sobre tela en cuarterones: 77 x 104,5 cm en una hoja de 83 x 110 cm,. +: estuche de 21 x 15 cm ✒️ Datos de p
+...ción 🎖️ T700 Blondeau, E., grabador 📚 4 documentos Más información 🎖️ T700 Burty, J., grabador 📚 6 documentos Más información 🎖️ T700 Raynaud, grabador 📚 2 documentos Más información 🎖️ T700 Madoz, Pascual (1806-1870) 📚 85 documentos Más información Política de datos La política de datos determinada por el IGN , establecida en la Orden FOM/2807/2015 , establece que el uso de la información de los productos y servicios de datos geográficos definidos en ella, así como sus derivados, conlleva la aceptación implícita por el usuario de las condiciones generales de dicha orden, concretada en la siguiente licencia de uso , compatible con CC-BY 4.0 . Toda la información de Política de datos se puede consultar en el apartado https://www.ign.es/web/ign/portal/politica-datos . © Instituto Geográfico Nacional - C/ General Ibáñez de Ibero, 3. 2
+Lien ket anh tren trang:
+https://www.ign.es/web/BibliotecaIGN/913(map35).jpg
+https://www.ign.es/web/BibliotecaIGN/miniatura/thumbmap.jpg
+
+==================================================================
+URL: https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj01.jpg
+FETCHED_UTC: 2026-10-15T23:47:18Z
+HTTP: 200 https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj01.jpg 9722969
+SHA256: 5b9de77f7b6d0c862091b458ddaceeeaad7ccfa39b4263939863354a1465e56e
+------------------------------------------------------------------
+Tep anh tai ve (/var/tmp, khong vao git). Kich thuoc do bang PIL:
+px (8400, 6466) dpi (254, 254)
+
+==================================================================
+URL: https://www.ign.es/web/BibliotecaIGN/31-E-5_01.JPG
+FETCHED_UTC: 2026-10-15T23:47:30Z
+HTTP: 200 https://www.ign.es/web/BibliotecaIGN/31-E-5_01.JPG 12722424
+SHA256: b99abc6330fa7ffb2eb4bf72f184757eab06981436aa0ff7480f93a170182e3e
+------------------------------------------------------------------
+Tep anh tai ve (/var/tmp, khong vao git). Kich thuoc do bang PIL:
+px (7454, 5400) dpi (254, 254)
+
+==================================================================
+URL: https://www.ign.es/web/BibliotecaIGN/913(map35).jpg
+FETCHED_UTC: 2026-10-15T23:48:15Z
+HTTP: 200 https://www.ign.es/web/BibliotecaIGN/913(map35).jpg 45394571
+SHA256: 1b4bdaf7d0038911da806237d3043d3a58eeb1644b2cd5154b35760b7393f6c4
+------------------------------------------------------------------
+Tep anh tai ve (/var/tmp, khong vao git). Kich thuoc do bang PIL:
+px (11256, 8600) dpi (254, 254)
+
