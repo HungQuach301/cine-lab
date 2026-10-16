@@ -432,3 +432,19 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   - Sau khi gỡ, đổi đường dẫn `img` của p01_owens/p02_jones sang `/cache/archive/…` (cùng byte, chuyển dấu) và sửa dòng RIGHTS T2-PHO-1/2.
   - Nguồn ngoài phim 11,3 % (trần 40 %).
 - **k2check 1.11.1 (chỉ báo):** chạy trên master cuối, ghi ở 12.5.
+
+### 12.4 Quyết định RÀ LUẬT 1.10.2 của chủ dự án (17/10) và việc đã làm
+- **Q32e — ĐÃ GỠ** `assets/k2/archive/loc-fsa-8d18716-owens.jpg` và `loc-npcc-21943-wjones.jpg` khỏi git (`git rm`, chủ dự án cho phép).
+  - Bản dùng để dựng nằm ở `k2v-cache/archive/` (cùng byte, SHA `fb76508a…` / `adc7aba0…` khớp sổ footage), cạnh TIFF gốc của LoC, như T1.
+  - Đã cập nhật đường dẫn ở `ep-src-heroes.yaml` (`/cache/archive/…`), `design/k2v/cutouts/LOC-*.json` và RIGHTS T2-PHO-1/2.
+  - p01_owens và p02_jones **chuyển dấu, không dựng lại**: tham số chỉ khác đường dẫn `img`, tệp cùng SHA, dấu cũ khớp. Đã kiểm từng điều kiện trước khi chuyển.
+  - Q32 chạy lại: hết (a) và (e); chỉ còn (b).
+- **Q32b — NGOẠI LỆ CHỦ DỰ ÁN DUYỆT 17/10:** giữ nguyên ảnh Owens 10,57 s (1:07.21–1:17.78) và Jones 9,36 s (2:01.12–2:10.48). Lý do: ảnh chân dung tĩnh có chú thích, không phải footage chuyển động.
+  - **Đề xuất cho K:** xem lại trần 8 s/clip của Q32(b) với ảnh tĩnh (photo) — tách trần ảnh tĩnh khỏi footage, hoặc chỉ áp 8 s cho `type: footage`.
+- **Q26b(c), Q33 — NGOẠI LỆ ĐÃ BIẾT của hình thức kênh 2, không sửa phim.**
+  - `scene_id` của 29 shot bản đồ nay khai theo đúng vùng: `relief/sfbay` 10, `relief/eastus` 12, `relief/pnw` 3, `relief/koreaw` 3, `relief/korea` 1; trước đây là `relief/map` chung. Q33 chạy lại trên master cuối, ghi ở 12.6.
+  - **Đề xuất khiếu nại cho K:** Q26b và Q33 viết cho LL (bối cảnh 3D dựng tay). Với kênh 2:
+    - (i) bản đồ là trung tính nên Q26b(c) "nửa sau ≥ 3 bối cảnh" gần như không thể đạt khi Q34 đẩy phim về bản đồ;
+    - (ii) pHash ảnh xám 32×18 trên địa hình cùng vùng cho Hamming nhỏ dù góc máy khác, nên Q33 cộng lần lặp không khai.
+  - Đề nghị K đặt luật riêng cho kênh 2: bối cảnh theo vùng/địa danh, và pHash có kiểm thêm khác biệt về máy quay.
+- **Q14, Q15, Q17 — áp nhầm như T1** (luật nhịp LL; khiếu nại 14/10 chờ K). Nhịp kênh 2 (`rhythm.py`) ĐẠT.
