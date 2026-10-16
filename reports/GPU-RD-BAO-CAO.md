@@ -169,7 +169,7 @@ Dòng `COST-LEDGER.csv` **không ghi** (ngoài vùng tệp được sửa) — �
 
 ## 11. Tệp, preflight, ghép thử
 - Tệp mới (chỉ 2 vùng được phép): `research/gpu/{profile.js, gl_flags.js, webgl_probe.js, compare.py, so_mp4.py, trace_sum.py, cpu_bench.sh, uoc_tap.py}`, `research/gpu/thu-gpu/{README.md, 0_chuan_bi_cpu.sh, 1_cai_dat_gpu.sh, 2_chay_thu.sh}`, `research/gpu/do/*` (số đo JSON, 2 ảnh so, bản xem 540p 4,5 MB), `reports/GPU-RD-BAO-CAO.md`.
-- Preflight: xem dòng cuối mục này (ghi sau khi chạy).
+- Preflight: hook pre-commit/pre-push cài đầu lúc commit; `bash tools/preflight.sh --range origin/main..HEAD` → **36 tệp ĐẠT, `lock.py --verify` KHỚP, PREFLIGHT ĐẠT** (commit `0a2a2ef`; chạy lại trước khi đẩy commit cuối). Không dùng `--no-verify`.
 - Ghép thử với `main`: nhánh chỉ thêm tệp mới trong `research/gpu/` và một báo cáo → không xung đột với `main`, `v5b1b`.
 - Bài học mới (đề xuất cho `reports/m3/BAI-HOC-LL.md`, P ghi): (1) `gl.finish()` trong Chrome không chặn — đo bước dựng phải đồng bộ bằng `readPixels` 1 điểm ảnh; trace Chrome dồn thời gian dựng vào "Readback". (2) Chú thích `//` chèn giữa dòng lại nuốt mã (lần 3, BAI-HOC-LL #42) — `node --check` bắt được. (3) Vòng chờ `until ! pgrep -f "<mẫu>"` khớp chính lệnh của nó → chạy tới hết giờ (lần 3, #24/#41). (4) Preload `node -r` không truyền sang tiến trình con `execFileSync` → dùng `NODE_OPTIONS`.
 
