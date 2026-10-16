@@ -6,7 +6,7 @@ KHUNG T1 = đúng khung T1 đã dùng ở vòng 5 (ảnh đã commit k2v4-mau/ki
 release-k2c-t1-06-v1 SHA 4f2d280b…) → cùng tham chiếu với các vòng trước. Khung T2 = master 1080p của tập (giây khai TRƯỚC khi dựng 1080p,
 ghi ở g2/rague-cap.json và commit trước lượt dựng). Thứ tự X/Y: hạt giống cố định 20261015. Không sửa sau khi chấm.
 Sổ chi phí kiem-mu/cost.jsonl (tag "ragu:…"), trần tập $11, dừng $10.
-  blind_g2.py set <master_t2.mp4>   · blind_g2.py run [P1 …]   · blind_g2.py score"""
+  blind_g2.py set <master_t2.mp4>   · blind_g2.py run [P1 …]   · blind_g2.py score      (thêm --sua: bộ cặp E* phần bị sửa, g2/sua-cap.json)"""
 import importlib.util, json, os, random, re, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'kiem-mu'); B = os.path.join(OUT, 'ragu'); LOG = os.path.join(OUT, 'cost.jsonl')
@@ -16,6 +16,9 @@ assert MODEL == 'claude-sonnet-5-5'
 CAP, STOP = 11.0, 10.0
 V5 = os.path.join(HERE, '..', 'k2v4-mau', 'kiem-mu', 'blind')
 CAPS = os.path.join(HERE, 'g2', 'rague-cap.json')   # {"P1": giây T2, …} — khai trước lượt dựng 1080p
+# G2 §8 (16/10): chấm mù lại PHẦN BỊ SỬA (lời v3.4) — cặp E* = khung T2 ngay sau điểm sửa ↔ khung T1 cùng loại của cặp vòng 5 ghi ở cap_t1 (g2/sua-cap.json, khai trước khi ghép master)
+SUA = '--sua' in sys.argv
+if SUA: B = os.path.join(OUT, 'ragu-sua'); CAPS = os.path.join(HERE, 'g2', 'sua-cap.json')
 
 
 def spent():
@@ -23,12 +26,13 @@ def spent():
 
 
 def setup(master):
-    os.makedirs(B, exist_ok=True); K5 = json.load(open(os.path.join(V5, 'key.json'))); T2 = json.load(open(CAPS)); R = random.Random(20261015); key = {}
+    os.makedirs(B, exist_ok=True); K5 = json.load(open(os.path.join(V5, 'key.json'))); T2 = json.load(open(CAPS)); R = random.Random(20261016 if SUA else 20261015); key = {}
     for pid in sorted(T2):
+        src = T2[pid]['cap_t1'] if SUA else pid; t2s = T2[pid]['t2'] if SUA else T2[pid]
         t1_is_x = R.random() < 0.5; d = os.path.join(B, pid); os.makedirs(d, exist_ok=True)
-        shutil.copy(os.path.join(V5, pid, K5[pid]['t1'] + '.jpg'), os.path.join(d, 'X.jpg' if t1_is_x else 'Y.jpg'))
-        grab(master, T2[pid], os.path.join(d, 'Y.jpg' if t1_is_x else 'X.jpg'))
-        key[pid] = dict(kind=K5[pid]['kind'], t1='X' if t1_is_x else 'Y', t2='Y' if t1_is_x else 'X', t1_s=K5[pid]['t1_s'], t2_s=T2[pid])
+        shutil.copy(os.path.join(V5, src, K5[src]['t1'] + '.jpg'), os.path.join(d, 'X.jpg' if t1_is_x else 'Y.jpg'))
+        grab(master, t2s, os.path.join(d, 'Y.jpg' if t1_is_x else 'X.jpg'))
+        key[pid] = dict(kind=K5[src]['kind'], t1='X' if t1_is_x else 'Y', t2='Y' if t1_is_x else 'X', t1_s=K5[src]['t1_s'], t2_s=t2s, cap_t1=src)
     json.dump(key, open(os.path.join(B, 'key.json'), 'w'), indent=1); print(json.dumps(key, indent=1))
 
 
@@ -42,7 +46,7 @@ def call(pid, rk):
             r = subprocess.run(['claude', '-p', '--model', MODEL, '--output-format', 'json', '--allowedTools', 'Read'], input=prompt, capture_output=True, text=True, env=env, cwd=cwd, timeout=900)
             try: d = json.loads(r.stdout)
             except Exception: continue
-            with open(LOG, 'a') as f: f.write(json.dumps({'tag': f'ragu:{pid}-{rk}', 'model': MODEL, 'served': sorted(d.get('modelUsage', {})), 'usd_by_model': {m: round(u.get('costUSD', 0), 5) for m, u in d.get('modelUsage', {}).items()}, 'usd': d.get('total_cost_usd', 0)}) + '\n')
+            with open(LOG, 'a') as f: f.write(json.dumps({'tag': f"{'ragu-sua' if SUA else 'ragu'}:{pid}-{rk}", 'model': MODEL, 'served': sorted(d.get('modelUsage', {})), 'usd_by_model': {m: round(u.get('costUSD', 0), 5) for m, u in d.get('modelUsage', {}).items()}, 'usd': d.get('total_cost_usd', 0)}) + '\n')
             open(os.path.join(B, pid, f'{rk}.raw.txt'), 'w').write(d.get('result', ''))
             m = re.search(r'\{.*\}', d.get('result', ''), re.S)
             if m:
@@ -68,11 +72,11 @@ def score():
                          doc_t2=round(sum(j[k['t2']]['readability'] for j in J) / len(J), 2), ro_t2=round(sum(j[k['t2']]['clarity'] for j in J) / len(J), 2), thua=sum(c2) < sum(c1)))
     tb = round(sum(t2all) / len(t2all), 2); ok = tb >= 7.0 and not any(r['thua'] for r in rows)
     R = dict(cap=rows, tb_t2=tb, tb_t1=round(sum(r['t1'] for r in rows) / len(rows), 2), thua_cap=[r['cap'] for r in rows if r['thua']], ket_qua='ĐẠT' if ok else 'TRƯỢT', chi_phi_tap=round(spent(), 2))
-    json.dump(R, open(os.path.join(OUT, 'ragu-score.json'), 'w'), indent=1, ensure_ascii=False); print(json.dumps(R, ensure_ascii=False, indent=1))
+    json.dump(R, open(os.path.join(OUT, 'ragu-sua-score.json' if SUA else 'ragu-score.json'), 'w'), indent=1, ensure_ascii=False); print(json.dumps(R, ensure_ascii=False, indent=1))
 
 
 if __name__ == '__main__':
     a = sys.argv[1]
     if a == 'set': setup(sys.argv[2])
-    elif a == 'run': run(sys.argv[2:] or None)
+    elif a == 'run': run([x for x in sys.argv[2:] if x != '--sua'] or None)
     elif a == 'score': score()
