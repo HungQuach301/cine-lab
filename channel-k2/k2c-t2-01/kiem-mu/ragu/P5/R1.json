@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark recap card over a nearly invisible blurred background. The title and bold labels are legible. The grey sub-lines are small and low-contrast for a phone, and the long third line is dense. The bottom third of the card is empty. The checkbox list looks like a PowerPoint slide. The background shows nothing about the subject (buildings), so the card has no visual anchor."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "A shaded-relief terrain map of the San Francisco Bay area with a compact comparison card. The numbers (3/day vs ~5/year) are large, high-contrast and instantly readable. The card has clear column headers with color coding and icons. The map gives a sense of place. The source line at the bottom is small but acceptable. The card sits on the map without pointing to a specific shipyard, and the map is not strictly relevant to the numbers."
+ },
+ "better": "Y",
+ "why": "Y has a real visual setting and a single striking data comparison that reads at a glance. X is a text-only slide on a background that is too blurred and dark to show anything.",
+ "top_fix_for_weaker": "Replace the blurred backdrop with a sharp, relevant image, such as an apartment building cross-section or stairwell, and make it visible. Cut the recap to three short lines, each with a large number or icon (4 stories, 5 homes). Brighten the sub-text, increase its size, and shrink the card to fit its content."
+}

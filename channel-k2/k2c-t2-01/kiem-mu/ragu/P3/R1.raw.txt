@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 6, "clarity": 4, "flags": ["text_overlap", "cluttered", "confusing", "flat_slide_look"], "note": "Dark chart-on-grid scene with 3 small cubes. The 13% label is faded and sits over the 6% cube. The 7% label covers its own cube. The 'ACTUAL' tag is repeated four times and means nothing to a viewer. The cubes aren't scaled to their values (6% looks as big as 7%), and the 13% cube isn't taller. The footer text is fine. Overall it looks like a dashboard slide, not a scene."},
+ "Y": {"craft": 7, "readability": 4, "clarity": 3, "flags": ["confusing", "illegible_text"], "note": "The terrain render is attractive: relief, river, and white-outlined coins with shadows read well on a phone. But there are no numbers or labels and no place name. The only text is a small source line. It's unclear what the coins count, what region this is, or why one coin is separated from the other four. The lower third is a dark gradient with nothing in it."},
+ "better": "Y",
+ "why": "Y is a clean, good-looking scene but explains nothing, while X's overlapping labels and meaningless cubes make it harder to read and understand despite having text.",
+ "top_fix_for_weaker": "Fix X: stop the labels from overlapping or fading out. Put each value label directly above its own cube, at full opacity. Scale cube heights to the values (6, 7, 13). Drop the repeated 'ACTUAL' tags. Use one large number per cube, with a short caption beside it."}
+```

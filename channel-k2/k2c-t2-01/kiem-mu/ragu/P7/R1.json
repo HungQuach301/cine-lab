@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The mat-framed portrait sits on a dark vignette with a clear name, role and date label, so it is instantly understood as a person. The photo's bottom edge fades into a gray gradient that looks odd. The mat is tilted slightly and floats awkwardly. The attribution line is small but readable."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [],
+  "note": "The full-bleed sepia street scene is atmospheric and cinematic, with good depth and a dark gradient under the text. The caption 'judges deferred to local lawmakers' has no visible connection to the image of a tree-lined street and mansion. The small gray source line is weak on a phone. The viewer can't tell the place or the subject."
+ },
+ "better": "X",
+ "why": "X tells the viewer immediately who the person is and why they matter, while Y is prettier but its image and caption don't connect.",
+ "top_fix_for_weaker": "Add a specific location and date label, such as 'Detroit, c. 1900', and tie the image to the caption, for example by highlighting the mansion. Also enlarge the source line and give it a stronger contrast scrim."
+}

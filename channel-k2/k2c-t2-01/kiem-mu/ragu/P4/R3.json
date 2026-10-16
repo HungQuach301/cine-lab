@@ -1,0 +1,19 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Tilted archival print on a dark textured background, with a clear side caption. The name, role, place and year are all readable and the gold rule gives a clean hierarchy. The credit line sits on a grey gradient over the lower part of the print, so contrast there is weak, and it is small for a phone. The photo is cropped at the bottom and the right side of the frame is mostly empty."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 8,
+  "flags": [],
+  "note": "The print is well composed and the Hoover portrait is clear. The main caption is bold and readable, but it runs across the lower part of the print, and its edge is close to the right end of the photo and the gradient. The source line is small and low-contrast grey, which is hard to read on a phone. The caption identifies the person and the year immediately."
+ },
+ "better": "X",
+ "why": "X has a dedicated, high-contrast caption block off the photo with a clear name/role/place/year hierarchy, while Y puts its caption over the photo's gradient and its source line is small and faint.",
+ "top_fix_for_weaker": "Move the caption off the photo into a solid dark panel or side column, make the source line larger and brighter (about 28px or more, near-white), and keep the title clear of the photo edge."
+}

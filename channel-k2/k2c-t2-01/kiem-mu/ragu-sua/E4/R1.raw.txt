@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "Dark text-only recap card over a blurred, near-invisible background. The checkbox list is clean and the hierarchy is clear. Subtext is small and grey, so it is marginal on a phone. The bottom third of the card is empty and the 'bank line' sentence runs long. It looks like a PowerPoint slide, with no visual content."},
+ "Y": {"craft": 8, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Stylised 3D terrain map of a bay with a coin, document, ship and crane icons. It looks polished and has depth, shadows and a sense of place. The caption and source line are legible, with the source line small but high contrast. The icons are unlabeled, so what each 'factor' means is unclear. The map gives no place name, and the viewer has to infer the topic from the caption."},
+ "better": "Y",
+ "why": "Y is a real, attractive illustrated scene with readable captions, while X is a flat text card on a dim blur with small grey subtext.",
+ "top_fix_for_weaker": "Make X more than a card: replace the blurred backdrop with distinct icons or thumbnails for map, stairwell and bank line, one per row. Enlarge the grey subtext to at least the heading's weight and brightness. Shorten the third line, and fill or shrink the empty bottom third of the card."}
+```

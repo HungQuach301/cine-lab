@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 6,
+    "readability": 6,
+    "clarity": 4,
+    "flags": ["text_overlap", "cluttered", "confusing"],
+    "note": "Dark 3D scene with glossy cubes. The labels cover the objects they describe. The right label (13%) sits on top of the 6% cube, and its text is low-contrast teal on a translucent panel. 'ACTUAL' is stamped three times plus once in the corner, and it reads as a debug watermark. The three cubes look almost the same height, so they don't match 7 / 6 / 13. The 6% label has no description, so it's unclear what it measures. The bottom caption is large and readable."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 3,
+    "clarity": 2,
+    "flags": ["confusing", "empty_frame"],
+    "note": "The terrain is attractive: shaded relief, a river, and outlined coins with soft shadows. But the frame has no labels, numbers, place names or title. Five coins sit on an unnamed landscape and nothing says what they count or where. The coins are the same size, and one is isolated on the left. The only text is a small source line, which is readable. The bottom third is a dark fade that wastes space."
+  },
+  "better": "Y",
+  "why": "Y is clean and well made but says nothing, while X is a cluttered overlap of cubes and labels with a hard-to-read 13% label. Y's rendering is the better of the two, but neither frame communicates well.",
+  "top_fix_for_weaker": "Fix X by moving the three callouts above the cubes, with leader lines and no overlap. Make the 13% label white on an opaque panel, and scale the cube heights to 7 / 6 / 13. Add a description to the 6% label. Show ACTUAL once as a small tag, or drop it."
+}
+```

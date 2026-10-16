@@ -1,0 +1,25 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing"
+  ],
+  "note": "The three cubes are the same size even though they stand for 7%, 6% and 13%, so they say nothing about quantity. The right label (13%) is ghosted and sits on top of the green cube, and its grey body text is low contrast. The three 'ACTUAL' badges plus a fourth in the corner are noise. The cards crowd the cubes, and the scene is mostly an empty dark floor. The caption is clear but long."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "A clean, attractive terrain map with good lighting. The coins, document and gantry icons have clean outlines and good materials. The top pills and the caption are legible. The map shows no place name and no numbers, so the viewer can't tell where this is or what the 4 coins, the document or the loop mean. The icons are small for a phone, and the loop is only 'our interpretation'."
+ },
+ "better": "Y",
+ "why": "Y is a cleaner, more polished scene with no overlapping or illegible text, while X has a ghosted label overlapping a cube and same-size cubes that contradict the numbers they represent.",
+ "top_fix_for_weaker": "Scale the cube heights to 6/7/13, move the labels clear of the cubes, make the 13% card as opaque and high-contrast as the others, and drop the repeated 'ACTUAL' badges."
+}

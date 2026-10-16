@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 4,
+    "readability": 7,
+    "clarity": 6,
+    "flags": ["flat_slide_look", "empty_frame"],
+    "note": "This is a dark recap card over a heavily blurred background. The orange checkboxes and heading hierarchy are clean, and the white titles read well. The grey subtext is small and low-contrast, and the longest line runs nearly the full card width, so it will be tight on a phone. The bottom third of the card is empty and the blurred background adds nothing. It looks like a PowerPoint bullet slide, not a documentary visual. The checkmarks suggest 'done' when the items are costs or obstacles. The phrases 'the map', 'the stairwell' and 'the bank line' are jargon that is not explained on screen."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 8,
+    "flags": [],
+    "note": "A real terrain map of the San Francisco Bay sits under a compact comparison card (3 ships/day in 1943 vs ~5/year in 2023). The numbers are large, bold and colour-coded, and the contrast is instantly graspable. The place and the quantity are clear. The sources line is white on a dark gradient and legible, though small on a phone. The card's column headers and icons are fairly small. The card covers part of the bay (the shipyard area), and the icons are tiny and muddy. The 'CRS 2023' header is a bit cryptic, since it never says what CRS is. The map isn't marked to show where the shipyards were."
+  },
+  "better": "Y",
+  "why": "Y puts a big, simple comparison on a real, relevant map and is understood at a glance, while X is a text-heavy bullet slide with small low-contrast subtext, an empty lower half and jargon labels.",
+  "top_fix_for_weaker": "Turn X into a visual recap. Use three large icon or diagram tiles, one per lock (a map pin, a stair icon, a bank icon). Give each a bold 2–4 word headline and a single big number (4 stories, 5 homes). Raise the subtext to at least 32px at full-white or near-white contrast. Fill the card height, drop the blurred empty backdrop for a relevant building image, and replace the 'done' checkmarks with warning or lock icons."
+}
+```

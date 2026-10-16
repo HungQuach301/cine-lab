@@ -238,3 +238,124 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   - **Dấu cảnh:** `hero.js` đổi nên mọi dấu đổi. Chuyển dấu cho 42 cảnh có tham số không đổi (so tham số cũ/mới, cùng cách đã dùng khi sửa photo.js); chỉ 2 cảnh dựng lại.
 - **Lưu bản chấm lần 1:** `kiem-mu/ragu-l1/`, `kiem-mu/ragu-sua-l1/`, điểm `kiem-mu/ragu-score-l1.json`, `kiem-mu/ragu-sua-score-l1.json` (chi phí API sau lần 1: $6,70 / trần $11).
 - **Kết quả chấm lại:** ghi ở §11 sau khi ghép lại và chấm lại cùng giây khung đã khai.
+
+## 11. RÀ GU 1080p lần 2 — VẪN TRƯỢT → DỪNG CHỜ CHỦ DỰ ÁN (luật chủ dự án 16/10: không tự sửa vòng 3)
+- **Bản chấm lần 2:** master 1080p sau sửa §10, **SHA256 `fd395b6976ef815a042c776194abd3661182be9a296622a819fbd09fe8bb933c`**.
+  - Thời lượng 618,917 s; 1920×1080, 24 fps; −14,0 LUFS, −1,6 dBTP, LRA 2,2.
+  - Short không đổi: `9d4f3e45…`.
+- **Giao thức giữ nguyên:**
+  - Đúng các giây khung đã khai trong `g2/rague-cap.json` và `g2/sua-cap.json`; hai tệp này và `blind_g2.py` không đổi so với HEAD, đã kiểm bằng `git diff` trước khi chạy.
+  - Seed 20261015 (RÀ GU) và 20261016 (phần sửa); 3 người chấm; chỉ công cụ Read.
+  - Bản chấm lần 2 lưu ở `kiem-mu/ragu/`, `kiem-mu/ragu-sua/`, `kiem-mu/ragu-score.json`, `kiem-mu/ragu-sua-score.json`. Lần 1 lưu ở `*-l1`.
+
+### 11.1 Điểm từng cặp, lần 1 → lần 2
+**RÀ GU (P1–P7): TB T2 6,62 → 6,81 (T1 5,86 → 5,81). TRƯỢT: dưới 7,0. Không còn thua cặp nào.**
+
+| Cặp | Cảnh (giây) | T1 L1 → L2 | T2 L1 → L2 | 3 người (L2) | Chọn T2 (L2) | Kết luận |
+|---|---|---|---|---|---|---|
+| P1 | r04_beach (355,49) | 6,33 → 6,00 | 6,33 → **7,00** | 7/7/7 | 3/3 | hết hoà, thắng |
+| P2 | r04_abroad (389,37) | 7,33 → 7,00 | 6,67 → **7,33** | 8/7/7 | 1/3 | hết thua, thắng điểm |
+| P3 | r03_tanker (228,58) | 5,00 → 5,33 | 6,67 → 6,67 | 7/6/7 | 2/3 | không sửa ở §10 |
+| P4 | p01_owens (75,50) | 6,00 → 6,33 | 7,00 → 6,67 | 7/6/7 | 3/3 | không sửa |
+| P5 | r06 so sánh (577,30) | 4,00 → 3,67 | 7,33 → 7,00 | 7/7/7 | 3/3 | không sửa |
+| P6 | f_liberty (50,68) | 7,00 → 6,33 | 5,67 → 6,33 | 6/6/7 | 3/3 | hết thua (hoà điểm, thắng 3/3 lựa chọn) |
+| P7 | p02_jones (124,96) | 5,33 → 6,00 | 6,67 → 6,67 | 6/7/7 | 3/3 | không sửa |
+
+**Phần bị sửa v3.4 (E1–E5): TB T2 6,47 → 6,87 (T1 5,27 → 5,33). TRƯỢT: dưới 7,0 và thua E2.**
+
+| Cặp | Cảnh (giây) | T1 L1 → L2 | T2 L1 → L2 | 3 người (L2) | Chọn T2 (L2) |
+|---|---|---|---|---|---|
+| E1 | r03_loop (285,12) | 5,00 → 5,33 | 6,33 → 7,00 | 7/7/7 | 3/3 |
+| **E2** | **r04_abroad (385,93)** | **8,00 → 8,00** | **6,00 → 6,33** | 7/6/6 | **0/3 — THUA** |
+| E3 | r06 kết (602,53) | 4,00 → 4,00 | 7,00 → 7,00 | 7/7/7 | 3/3 |
+| E4 | r06 kết (606,56) | 4,00 → 4,00 | 7,00 → 7,67 | 8/8/7 | 3/3 |
+| E5 | r02_subsidy (197,42) | 5,33 → 5,33 | 6,00 → 6,33 | 6/6/7 | 3/3 |
+
+- **Vùng ±5 % quanh ngưỡng 7,0 (luật cứng, phải nêu tên):**
+  - RÀ GU 6,81 (−2,7 %).
+  - Phần sửa 6,87 (−1,9 %).
+  - Các cặp nằm trong vùng ±5 %: P1 7,00; P2 7,33; P5 7,00; E1 7,00; E3 7,00.
+- **Độ nhiễu của người chấm:** khung T1 giữ nguyên giữa hai lần mà điểm vẫn đổi tới 0,67 mỗi cặp (P6 7,00 → 6,33; P7 5,33 → 6,00). Mức chênh 0,19–0,13 so với ngưỡng nằm trong độ nhiễu này. Mình không dùng điều này để coi là đạt; chỉ nêu để chủ dự án cân nhắc cách quyết.
+
+### 11.2 Ghi chú nguyên văn của người chấm (lần 2; các cặp dưới 7,0 hoặc thua)
+- **E2 (THUA, T2 = X):**
+  - R1: "The $107 callout is tied to a tiny yellow box by a thin line. The Ulsan marker is a faint dot, and the callout sits well away from it. Half the frame is empty ocean. … No route or movement is visible, so the frame reads as two disconnected labels."
+  - R2: "The $107 callout leader points to an unexplained small yellow rectangle that is not Ulsan. The Ulsan label floats away from its pin, and no country or region context is shown."
+  - R3: "A viewer can't tell if $107 belongs to Ulsan, to the box, or to the country. … The map is zoomed too far in to show where Ulsan sits in Korea."
+- **P3 (6,67):**
+  - R1: "there are no numbers or labels and no place name. The only text is a small source line. It's unclear what the coins count, what region this is, or why one coin is separated from the other four."
+  - R3: "Five coins sit on an unnamed landscape and nothing says what they count or where."
+- **E5 (6,33):**
+  - R1: "One small cube, a tiny document icon and a cut-off cube at the left edge give no clear place or comparison. The caption says 'Construction Differential Subsidy' but nothing in the frame connects to it."
+  - R3: "A big teal shape is cut off at the left edge. … The document icon isn't tied to the 'Construction Differential Subsidy' caption."
+- **P6 (6,33):**
+  - R1: "The photo is small in the frame and low-res, and the large empty dark area at the bottom looks unfinished."
+  - R2: "The footage is small and sits in a big, dark, empty blurred border."
+- **P4 (6,67), P7 (6,67):** khen bố cục; chê dải tối dưới làm mờ mép ảnh và dòng nguồn nhỏ. Ví dụ R2 P7: "The bottom gradient washes out the lower part of the mat, and the print is slightly off-center and tilted."
+- **E1 (7,00):** R1: "The map shows no place name and no numbers, so the viewer can't tell where this is or what the 4 coins, the document or the loop mean." R2: "The 'Wages 1 / Scale 1' pills are cryptic."
+
+### 11.3 Chẩn đoán từ khung thật (đã xem từng khung T2)
+- **E2, r04_abroad giây 2,1 của cảnh — LỖI HÌNH THẬT.**
+  - Thẻ "$107" bám vào cột GDP 1962 vẽ đúng tỉ lệ thật, nhỏ tới mức trông như "hộp vàng bí ẩn". Đúng tỉ lệ là chủ ý, để cột 2025 cao gấp ≈ 338 lần.
+  - Lúc này tuyến chưa vẽ và chú thích chưa hiện (cả hai đặt ở "@abroad#2"); máy quay quá gần nên không thấy vị trí Ulsan trên bán đảo Triều Tiên.
+  - Sửa §10 (đơn vị, nhãn Ulsan) đúng hướng nhưng chưa đủ: điểm T2 tăng 6,00 → 6,33; T1 ở cặp này là khung mạnh (8,00).
+- **P3, r03_tanker giây 8,81 — LỖI HÌNH THẬT (lỗi hiển thị).** Thẻ "world price" khai hiện từ giây 0,6 nhưng **không thấy trên khung**; thẻ "≈ 4×" mới hiện ở "@four", sau giây khung. Khả năng cao là điểm neo `col:world` không hiện (v = false) ở đoạn này. Cần kiểm điểm neo của prop dạng đồng xu; chưa kiểm vì đang dừng.
+- **E5, r02_subsidy giây 29,15 — LỖI HÌNH THẬT.**
+  - Có một khối xanh bị cắt ở mép trái khung (lỗi khuôn hình máy quay).
+  - Icon tài liệu không có nhãn nên không nối với chú thích "Construction Differential Subsidy".
+- **E1, r03_loop — NỬA HÌNH, NỬA KHẨU VỊ.** Bảng "The record: Wages 1 · Scale 1" khó hiểu nếu đứng riêng một khung, và các icon không có nhãn ở giây khung (các thẻ "high prices / few orders / no scale" đã tắt ở "@pieces"). Đây là cách kể theo thời gian; khung tĩnh làm lộ điểm yếu.
+- **P6, f_liberty — RÀNG BUỘC KINH THÁNH, không phải lỗi dựng.** Nguồn 640×480; khung đã ở 1,45×, gần trần 1,5× (Kinh thánh §4). Muốn lớn hơn phải đổi luật hoặc tìm bản nguồn độ phân giải cao hơn.
+- **P4, P7 — KHẨU VỊ / CHI TIẾT.** Dải tối dưới phủ mép ảnh in; không sai nội dung.
+
+### 11.4 Đề xuất sửa (chờ chủ dự án chọn; chưa làm gì)
+| # | Việc | Cảnh | Dựng lại 3D? | Giờ máy ước | API ước |
+|---|---|---|---|---|---|
+| S1 | P3: sửa điểm neo hoặc thẻ "world price" cho hiện từ đầu cảnh; thêm chú thích "Price to build one tanker: U.S. vs world (one firm's estimate)" | r03_tanker | không (nếu chỉ là neo 2D) / 0,8 giờ-tiến trình nếu prop cần xuất neo | 0–0,3 giờ thật | 0 |
+| S2 | E2: chú thích từ đầu cảnh "South Korea, 1962: about $107 output per person"; thẻ $107 bám nhãn Ulsan thay cho cột nhỏ (cột giữ đúng tỉ lệ) | r04_abroad | không | — | 0 |
+| S3 | E2: máy quay mở đầu rộng hơn, thấy bán đảo Triều Tiên rồi mới vào Ulsan | r04_abroad | **có**, 482 khung | ≈ 1,2 giờ-tiến trình (≈ 25 phút thật, chia 3) | 0 |
+| S4 | E5: khuôn hình máy quay bỏ khối bị cắt mép; nhãn cho icon tài liệu ("CRS report") | r02_subsidy | **có**, 792 khung | ≈ 2,0 giờ-tiến trình (≈ 45 phút thật, chia 3) | 0 |
+| S5 | E1: nhãn chữ cho icon và bảng "The record" giữ tới hết cảnh | r03_loop | không | — | 0 |
+| S6 | P6: (a) cho phép riêng clip này phóng tới 1,8×, **cần chủ dự án sửa Kinh thánh §4**; hoặc (b) tìm bản nguồn ≥ 720p; hoặc (c) giữ nguyên | f_liberty | footage (1 phút) | ≈ 0 | 0 |
+
+- **Sau sửa:**
+  - Dựng lớp chữ các đoạn bị đổi: 02, 03, 04, khoảng 25 phút; 01 thêm 6 phút nếu chọn S6.
+  - Ghép master khoảng 40 phút; Short không đổi.
+- **Tổng giờ máy ước:** S1 + S2 + S5 (chỉ 2D) ≈ 1,1 giờ thật; thêm S3 + S4 ≈ 2,3 giờ thật (≈ 4,5 giờ-tiến trình).
+- **Chấm mù lần 3 (cùng giao thức):**
+  - RÀ GU ≈ $1,28; phần sửa ≈ $0,84; cả hai ≈ $2,12.
+  - **Vượt mốc dừng $10** (lũy kế sẽ ≈ $10,94, sát trần $11) → **cần chủ dự án cho phép.**
+  - Phương án rẻ hơn: chỉ chấm lại phần sửa (≈ $0,84, lũy kế ≈ $9,66), nhưng như vậy là đổi giao thức nên cũng cần chủ dự án duyệt.
+
+### 11.5 Chi phí và giờ máy thật của vòng sửa §10
+- **API `claude -p` (lũy kế tập, `kiem-mu/cost.jsonl`): $8,82 / trần $11 (mốc dừng $10).**
+  - Chấm lần 1: $5,86 → $6,70.
+  - Chấm lần 2: RÀ GU $1,28, phần sửa $0,84.
+- **Ký tự ElevenLabs của vòng này: 0** (prep chạy với proxy chặn).
+- **Giờ máy thật:**
+  - r04_beach: 1217 khung, 3 tiến trình × 78 phút ≈ 3,9 giờ-tiến trình (≈ 15 giây/khung mỗi tiến trình khi chạy song song).
+  - f_liberty: < 1 phút.
+  - Build `render mix ghep shorts`: 5644 s (1,57 giờ). Cả 7 đoạn dựng lại lớp chữ, vì dấu cảnh nằm trong băm đoạn.
+
+### 11.6 Trạng thái các việc trước G2 (đã làm tới lúc dừng)
+- **Gói phát hành:** đã sinh lại với master mới (SHA256SUMS cập nhật). `release_check` v5a: **ĐẠT, 0 LỖI, 0 BÁO**.
+  - Tiêu đề CHÍNH 53, DỰ PHÒNG 1 55, DỰ PHÒNG 2 55 ký tự; mô tả 3607 ký tự; bình luận ghim 3960 ký tự.
+  - Có PACKAGING-BRIEF và 3 ảnh nền.
+- **Mã thời gian footage** đã điền vào `SOURCES-FOOTAGE.csv`. **Bản đồ nhịp** sinh lại (`g2/BAN-DO-NHIP.md`).
+- **Merge `main`:** origin/main không có commit mới.
+- **`versions.py check`: LỆCH, 2 mục chặn** (không tự cập nhật VERSIONS.yaml):
+  - `toolkit.k2v.tree_sha256` đổi (photo.js, hero.js `opt.oy`, rhythm.py, k2.js);
+  - `served_models` có `claude-haiku-5-5` ngoài model ghim. CLI `claude` tự dùng Haiku cho tác vụ phụ khi chạy `claude -p`; việc chấm ghim Sonnet.
+  - Báo thêm (không chặn): `claude_cli` 2.1.300 → 2.1.301.
+- **RÀ LUẬT (checks 1.10.2) — CHƯA XONG, chỉ có kết quả chạy thử, chưa phân tích.**
+  - Đạt: Q34 (`q_types`), Q33 (`q_scene`), `q_rights`.
+  - Trượt: `q_footage` Q32, `q_rhythm` Q14/Q15/Q17, `q_setting` Q26b.
+  - Lỗi cách gọi (cần đường dẫn mp4 hoặc chạy theo mô-đun): `q_diversity`, `q_av`, `q_chu`, `q_nhip`, `q_amthanh`.
+  - Chưa xác định mục nào áp cho kênh 2. Sẽ phân tích và ghi khi được tiếp tục; không kết luận ở đây.
+- **golden.py run:** đang chạy lúc dừng; kết quả ghi khi xong.
+- **k2check v1.11 (chỉ báo):** chưa chạy, vì dừng.
+
+**DỪNG chờ chủ dự án.**
+- **Cần quyết:**
+  1. Chọn sửa S1–S6, hoặc chấp nhận bản hiện tại.
+  2. Cho phép vượt mốc dừng $10 để chấm lần 3; hoặc chọn chỉ chấm lại phần sửa.
+  3. S6 có đổi Kinh thánh §4 (trần phóng 1,5×) hay không.

@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 5,
+    "flags": ["confusing"],
+    "note": "The 3D terrain map of the bay is attractive and has depth. The caption and source line are large and sit on a dark gradient, so they read well. The four icons (coin, document, ship, crane) have no labels, so a viewer can't tell what each 'factor' is or what it refers to. The source line is dim and small for a phone. The map and the caption are loosely tied together, because 'no source measures how much each factor counts' doesn't point to any icon."
+  },
+  "Y": {
+    "craft": 5,
+    "readability": 6,
+    "clarity": 7,
+    "flags": ["flat_slide_look"],
+    "note": "This is a clean recap card with a clear hierarchy: orange kicker, white title, and bold headings with grey subtext. The order is easy to follow. But it is a flat text slide over a dark blurred background with no visual support. The grey subtext is small and low-contrast for a phone, and the last line is long. The bottom third of the card is empty. The checkbox icons are decorative and carry no meaning."
+  },
+  "better": "X",
+  "why": "X has richer, more cinematic visuals and a readable caption, even though its icons are unlabeled, while Y is a flat, text-only slide with small low-contrast body text.",
+  "top_fix_for_weaker": "Make Y's subtext larger and brighter (about 1.3x, near-white). Shorten the bank-line sentence. Fill the empty lower half of the card with a simple visual for each lock (a map pin, a staircase, a bank icon) or tighten the card around the text."
+}
+```

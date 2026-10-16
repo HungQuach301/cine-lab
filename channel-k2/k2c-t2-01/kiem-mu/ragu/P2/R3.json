@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [],
+  "note": "Polished globe with Texas highlighted in orange and a clear callout, so it reads at once. The callout text is fairly small for a phone, and the sources line is tiny. The caption says 'cities' while the callout is about a Texas law, so the framing is slightly loose. There is no route or movement, only a single highlighted state."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Attractive relief terrain with shipping lanes fanning out from Ulsan. The '$107 output per person, 1962' label sits inland, far from Ulsan, and points at an unexplained small yellow box, so it is unclear what it marks. The lanes have no destinations or labels, so the 'customers abroad' point is only implied. The Ulsan label is small. The sources line is tiny."
+ },
+ "better": "X",
+ "why": "X shows its single message (Texas, the rule, the date) immediately, while Y's floating $107 label and unlabeled shipping lanes leave the viewer unsure what is being compared or where the ships go.",
+ "top_fix_for_weaker": "Link the $107 callout to Ulsan, or to a clearly marked yard location, with a leader line. Label the shipping lanes with destinations such as Japan, US and Europe. Enlarge the Ulsan and callout text to about 1.3x."
+}

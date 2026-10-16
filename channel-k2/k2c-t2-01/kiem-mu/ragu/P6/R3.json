@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Archival newsreel in a cream matte frame on a dark blurred backdrop. The year badge, caption and source credit are all high-contrast and easy to read, and the caption says exactly what is shown (Liberty ship, Richmond, 1944). The footage is grainy and the frame is small, so the image is less immersive, and there is a dead gap between the caption and the credit. The 1944 badge is neat and gives the period at once."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 5,
+  "flags": [
+   "illegible_text",
+   "confusing"
+  ],
+  "note": "The aerial footage is clean and attractive, but the white caption sits on busy rooftops and trees with no scrim, so it competes with the image and weakens toward its left side. The source line is small, grey and low-contrast, and would be hard to read on a phone. The caption 'how much of the map still works that way?' refers to a map and a 'way' that are never shown, so the shot doesn't explain itself. It is generic stock footage, labelled 'illustrative'."
+ },
+ "better": "X",
+ "why": "X has a clear period cue, a caption that matches the image and strong text contrast, while Y's caption is placed over busy footage and refers to something the viewer can't see.",
+ "top_fix_for_weaker": "Put a dark gradient or semi-opaque bar behind the caption and source line, and raise the source text to larger, brighter white. Add an on-screen cue such as a map overlay or a year or place badge so the 'map' question has something to point to."
+}

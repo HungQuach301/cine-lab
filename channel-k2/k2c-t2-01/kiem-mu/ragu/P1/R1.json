@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "Stylized relief terrain with isometric gantry cranes and ships. The year badge, place label and caption are clear. The Ulsan label sits away from the cranes, and the sources line is small on a phone. The ships and cranes tell the shipyard story right away."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "Satellite imagery with state borders looks realistic and well lit. It has no visual of the topic, only a pin and a label. The Minneapolis label is clear, but it names a Fed bank rather than a place, which muddies what is being shown. The sources line is tiny and wraps to two lines. The map is generic, with no state label or zoom context. The quote is the only link to the apartments topic."
+ },
+ "better": "X",
+ "why": "X puts the story on the map with cranes and ships plus a date badge, while Y is a bare pin on a generic satellite map with a tiny sources line.",
+ "top_fix_for_weaker": "Add illustrated apartment-building icons or a rent-growth number at the Minneapolis pin. Label the state, shorten the label to 'Minneapolis, Minnesota', and enlarge or drop the sources line."
+}

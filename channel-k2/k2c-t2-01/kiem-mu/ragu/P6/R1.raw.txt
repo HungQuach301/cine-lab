@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": [], "note": "Archival newsreel in a cream border over a blurred sepia backdrop, with a year badge and a clear caption that gives place and date. It reads well and the footage is authentic, but the blurred background is dull. The photo is small in the frame and low-res, and the large empty dark area at the bottom looks unfinished."},
+ "Y": {"craft": 7, "readability": 6, "clarity": 6, "flags": ["illegible_text"], "note": "Sharp, well-lit full-bleed aerial of Chicago with lake and skyline. It looks good, but the white caption sits over busy rooftops with only a weak gradient, so contrast is uneven. The small source line is hard to read on a phone. The caption ('the map') is vague without context and the footage is only generic illustrative stock."},
+ "better": "X",
+ "why": "X's text is clean and contrasted and tells you exactly what, where and when, whereas Y's prettier footage is undercut by a caption over clutter and a vague message.",
+ "top_fix_for_weaker": "Put a solid or darker gradient scrim behind the caption and source line, and make the source text larger. Add a concrete label (e.g. 'Chicago, 2025') so the shot says what it is."}
+```

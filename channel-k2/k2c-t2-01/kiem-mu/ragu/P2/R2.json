@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "The globe render is attractive. It has a satellite-style relief, an atmosphere rim and a highlighted Texas. The callout box is wide and its text is small for a phone. The leader line is tiny and the box covers the US interior. The 'As of' chip and the source line are small. The scene is a static state highlight with no route or movement, so it doesn't match the route-map brief. The globe is also too zoomed out for the single-state point."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The stylized relief terrain is a clean look. The shipping-lane lines fan out from Ulsan, which suggests a route. The callout text is larger and has better contrast than X's. The '$107 output per person' label is attached to a small yellow rectangle in the middle of inland hills. It looks unrelated to Ulsan, so the number's meaning is unclear. The route lines run off-frame with no destinations. The map has no labels for sea or country. The terrain is cropped awkwardly and the lower third is a dark gradient."
+ },
+ "better": "X",
+ "why": "X names its place and states one clear claim. Y has more motion-graphic intent but its stat marker is disconnected from the port and the routes go nowhere.",
+ "top_fix_for_weaker": "Tie the $107 stat to Ulsan: move the callout next to the port marker with a visible leader line, and make the route lines end at labeled destination ports. Zoom out a little so South Korea and the destinations are visible."
+}
