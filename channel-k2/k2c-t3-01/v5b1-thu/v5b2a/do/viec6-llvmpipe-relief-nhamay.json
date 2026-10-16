@@ -1,0 +1,142 @@
+{
+ "do_s_khung": {
+  "k2-relief-swiftshader": {
+   "rc": 0,
+   "wall_s": 8.1,
+   "warm_s": [
+    0.867,
+    0.885,
+    0.884
+   ],
+   "warm_mean": 0.879,
+   "frames": 6,
+   "log": [
+    "[gl_flags] swiftshader headless-shell --use-angle=swiftshader --enable-unsafe-swiftshader"
+   ]
+  },
+  "k2-relief-egl": {
+   "rc": 0,
+   "wall_s": 5.9,
+   "warm_s": [
+    0.456,
+    0.466,
+    0.459
+   ],
+   "warm_mean": 0.46,
+   "frames": 6,
+   "log": [
+    "[gl_flags] egl headless-shell --use-gl=angle --use-angle=gl-egl"
+   ]
+  },
+  "k2-mill-swiftshader": {
+   "rc": 0,
+   "wall_s": 10.1,
+   "warm_s": [
+    1.165,
+    1.242,
+    1.236
+   ],
+   "warm_mean": 1.214,
+   "frames": 6,
+   "log": [
+    "[gl_flags] swiftshader headless-shell --use-angle=swiftshader --enable-unsafe-swiftshader"
+   ]
+  },
+  "k2-mill-egl": {
+   "rc": 0,
+   "wall_s": 7.9,
+   "warm_s": [
+    0.572,
+    0.525,
+    0.533
+   ],
+   "warm_mean": 0.543,
+   "frames": 6,
+   "log": [
+    "[gl_flags] egl headless-shell --use-gl=angle --use-angle=gl-egl"
+   ]
+  },
+  "ll-mill-swiftshader": {
+   "rc": 0,
+   "wall_s": 9.7,
+   "warm_s": [
+    1.138,
+    1.225,
+    1.172
+   ],
+   "warm_mean": 1.178,
+   "frames": 6,
+   "log": [
+    "[gl_flags] swiftshader headless-shell --use-angle=swiftshader --enable-unsafe-swiftshader"
+   ]
+  },
+  "ll-mill-egl": {
+   "rc": 0,
+   "wall_s": 7.5,
+   "warm_s": [
+    0.535,
+    0.582,
+    0.554
+   ],
+   "warm_mean": 0.557,
+   "frames": 6,
+   "log": [
+    "[gl_flags] egl headless-shell --use-gl=angle --use-angle=gl-egl"
+   ]
+  }
+ },
+ "so_hinh": {
+  "k2-relief": {
+   "frames": 6,
+   "dat": 6,
+   "ty_le_dat": 1.0,
+   "psnr_min": 39.57,
+   "psnr_trung_vi": 39.625,
+   "dat_cau_truc": 6,
+   "lo_pct_max": 0.0,
+   "ssim_min": 0.9322,
+   "psnr_q4_min": 44.7,
+   "pct_diff_max": 0.034,
+   "tieu_chi": {
+    "psnr": 40.0,
+    "diff": 10,
+    "pct": 1.0
+   }
+  },
+  "k2-mill": {
+   "frames": 6,
+   "dat": 6,
+   "ty_le_dat": 1.0,
+   "psnr_min": 38.28,
+   "psnr_trung_vi": 38.355000000000004,
+   "dat_cau_truc": 6,
+   "lo_pct_max": 0.013,
+   "ssim_min": 0.9333,
+   "psnr_q4_min": 44.37,
+   "pct_diff_max": 0.258,
+   "tieu_chi": {
+    "psnr": 40.0,
+    "diff": 10,
+    "pct": 1.0
+   }
+  },
+  "ll-mill": {
+   "frames": 6,
+   "dat": 6,
+   "ty_le_dat": 1.0,
+   "psnr_min": 38.28,
+   "psnr_trung_vi": 38.355000000000004,
+   "dat_cau_truc": 6,
+   "lo_pct_max": 0.013,
+   "ssim_min": 0.9333,
+   "psnr_q4_min": 44.37,
+   "pct_diff_max": 0.258,
+   "tieu_chi": {
+    "psnr": 40.0,
+    "diff": 10,
+    "pct": 1.0
+   }
+  }
+ },
+ "ghi_chu": "3 khung ấm (25, 121, 217) mỗi cảnh, 1920×1080, SPP 1; s/khung = hiệu mtime tệp JPG liên tiếp (gồm finalize + mã hoá JPEG ffmpeg); bản trích chỉ đọc origin/k2c-t2 @382eeef (git archive), cờ GL bằng research/gpu/gl_flags.js (CINE_GL), nền relief thử v5b2a_sfbay (3DEP, bbox -122.6,37.7,-122.1,38.1, ppd 900) thay sfbay của T2 (bbox không ghi trong repo)"
+}

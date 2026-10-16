@@ -1,0 +1,362 @@
+[
+ {
+  "f": 10,
+  "label": "toàn cảnh 1 · mở đầu 1704",
+  "year": 1710.31,
+  "phase": "free",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00010.jpg",
+   "sat_med": 0.447,
+   "colorful": 80.2,
+   "detail": 21.2,
+   "clip_pct": 0.0,
+   "lum_mean": 144.1
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00010.jpg",
+   "sat_med": 0.427,
+   "colorful": 80.2,
+   "detail": 20.5,
+   "clip_pct": 0.0,
+   "lum_mean": 147.0
+  },
+  "before_mask": {
+   "f": 10,
+   "content_pct": 17.1,
+   "content_center_pct": 28.9,
+   "fabric_pct": 27.7
+  },
+  "mask": {
+   "f": 10,
+   "content_pct": 17.1,
+   "content_center_pct": 28.9,
+   "fabric_pct": 27.7,
+   "hero_id": "all",
+   "hero_pct": 0.09,
+   "hero_pct_by_id": {
+    "tower": 0.09,
+    "crossing": 0
+   },
+   "phase": "free",
+   "preset": null,
+   "year": 1710.31,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 580,
+  "label": "toàn cảnh 2 · kết 2026",
+  "year": 2026,
+  "phase": "free",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00580.jpg",
+   "sat_med": 0.443,
+   "colorful": 89.7,
+   "detail": 34.1,
+   "clip_pct": 0.0,
+   "lum_mean": 117.6
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00476.jpg",
+   "sat_med": 0.447,
+   "colorful": 90.4,
+   "detail": 34.0,
+   "clip_pct": 0.0,
+   "lum_mean": 117.5
+  },
+  "before_mask": {
+   "f": 476,
+   "content_pct": 31.8,
+   "content_center_pct": 35.7,
+   "fabric_pct": 59.8
+  },
+  "mask": {
+   "f": 580,
+   "content_pct": 31.7,
+   "content_center_pct": 35.5,
+   "fabric_pct": 59.5,
+   "hero_id": "all",
+   "hero_pct": 0.79,
+   "hero_pct_by_id": {
+    "tower": 0.02,
+    "crossing": 0.77
+   },
+   "phase": "free",
+   "preset": null,
+   "year": 2026,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 168,
+  "label": "cận hero 1 · Tower of Homage",
+  "year": 1882,
+  "phase": "free",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00168.jpg",
+   "sat_med": 0.42,
+   "colorful": 46.0,
+   "detail": 19.8,
+   "clip_pct": 0.0,
+   "lum_mean": 148.7
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00168.jpg",
+   "sat_med": 0.408,
+   "colorful": 46.1,
+   "detail": 18.6,
+   "clip_pct": 0.0,
+   "lum_mean": 151.6
+  },
+  "before_mask": {
+   "f": 168,
+   "content_pct": 42.7,
+   "content_center_pct": 47.4,
+   "fabric_pct": 69.2
+  },
+  "mask": {
+   "f": 168,
+   "content_pct": 42.7,
+   "content_center_pct": 47.4,
+   "fabric_pct": 69.2,
+   "hero_id": "tower",
+   "hero_pct": 3.01,
+   "hero_pct_by_id": {
+    "tower": 3.01,
+    "crossing": 0
+   },
+   "phase": "free",
+   "preset": null,
+   "year": 1882,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 320,
+  "label": "cận hero 2 · mốc đinh 1941 (orbit)",
+  "year": 1941,
+  "phase": "pin",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00320.jpg",
+   "sat_med": 0.404,
+   "colorful": 35.3,
+   "detail": 11.3,
+   "clip_pct": 0.0,
+   "lum_mean": 117.1
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00312.jpg",
+   "sat_med": 0.388,
+   "colorful": 39.0,
+   "detail": 15.9,
+   "clip_pct": 0.0,
+   "lum_mean": 130.4
+  },
+  "before_mask": {
+   "f": 312,
+   "content_pct": 18.7,
+   "content_center_pct": 26.6,
+   "fabric_pct": 21.5
+  },
+  "mask": {
+   "f": 320,
+   "content_pct": 32.9,
+   "content_center_pct": 33.2,
+   "fabric_pct": 35.2,
+   "hero_id": "crossing",
+   "hero_pct": 31.21,
+   "hero_pct_by_id": {
+    "tower": 0,
+    "crossing": 31.21
+   },
+   "phase": "pin",
+   "preset": "lien-hoan",
+   "year": 1941,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 214,
+  "label": "eo đất 1 · bay tuyến WCA",
+  "year": 1906.79,
+  "phase": "fly",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00214.jpg",
+   "sat_med": 0.455,
+   "colorful": 45.1,
+   "detail": 13.6,
+   "clip_pct": 0.0,
+   "lum_mean": 140.4
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00214.jpg",
+   "sat_med": 0.435,
+   "colorful": 36.6,
+   "detail": 15.8,
+   "clip_pct": 0.0,
+   "lum_mean": 147.6
+  },
+  "before_mask": {
+   "f": 214,
+   "content_pct": 20.9,
+   "content_center_pct": 24.7,
+   "fabric_pct": 26.3
+  },
+  "mask": {
+   "f": 214,
+   "content_pct": 6.8,
+   "content_center_pct": 10.7,
+   "fabric_pct": 8.1,
+   "hero_id": "all",
+   "hero_pct": 0,
+   "hero_pct_by_id": {
+    "tower": 0,
+    "crossing": 0
+   },
+   "phase": "fly",
+   "preset": "lien-hoan",
+   "year": 1906.79,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 250,
+  "label": "eo đất 2 · bay tuyến nhìn La Línea",
+  "year": 1921.29,
+  "phase": "fly",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00250.jpg",
+   "sat_med": 0.451,
+   "colorful": 44.9,
+   "detail": 14.0,
+   "clip_pct": 0.0,
+   "lum_mean": 140.7
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00240.jpg",
+   "sat_med": 0.435,
+   "colorful": 37.7,
+   "detail": 17.3,
+   "clip_pct": 0.0,
+   "lum_mean": 147.4
+  },
+  "before_mask": {
+   "f": 240,
+   "content_pct": 22.6,
+   "content_center_pct": 27,
+   "fabric_pct": 29
+  },
+  "mask": {
+   "f": 250,
+   "content_pct": 7.7,
+   "content_center_pct": 12.2,
+   "fabric_pct": 9.1,
+   "hero_id": "all",
+   "hero_pct": 0,
+   "hero_pct_by_id": {
+    "tower": 0,
+    "crossing": 0
+   },
+   "phase": "fly",
+   "preset": "lien-hoan",
+   "year": 1921.29,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 77,
+  "label": "phố dày · phố cổ 1753",
+  "year": 1752.58,
+  "phase": "free",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00077.jpg",
+   "sat_med": 0.424,
+   "colorful": 52.7,
+   "detail": 27.1,
+   "clip_pct": 0.0,
+   "lum_mean": 154.3
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00077.jpg",
+   "sat_med": 0.408,
+   "colorful": 52.2,
+   "detail": 26.3,
+   "clip_pct": 0.0,
+   "lum_mean": 157.8
+  },
+  "before_mask": {
+   "f": 77,
+   "content_pct": 33.5,
+   "content_center_pct": 47.7,
+   "fabric_pct": 49.3
+  },
+  "mask": {
+   "f": 77,
+   "content_pct": 33.5,
+   "content_center_pct": 47.7,
+   "fabric_pct": 49.3,
+   "hero_id": "all",
+   "hero_pct": 0.16,
+   "hero_pct_by_id": {
+    "tower": 0.16,
+    "crossing": 0
+   },
+   "phase": "free",
+   "preset": null,
+   "year": 1752.58,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ },
+ {
+  "f": 172,
+  "label": "cận hero 3 · tháp + phố quanh",
+  "year": 1884.92,
+  "phase": "free",
+  "after": {
+   "file": "/var/tmp/cine-out/v5b2a/khung-khong-chu/00172.jpg",
+   "sat_med": 0.455,
+   "colorful": 45.0,
+   "detail": 16.6,
+   "clip_pct": 0.0,
+   "lum_mean": 140.3
+  },
+  "before_v5b1b": {
+   "file": "/var/tmp/cine-out/after8/00172.jpg",
+   "sat_med": 0.431,
+   "colorful": 44.8,
+   "detail": 18.0,
+   "clip_pct": 0.0,
+   "lum_mean": 146.4
+  },
+  "before_mask": {
+   "f": 172,
+   "content_pct": 32.6,
+   "content_center_pct": 33.8,
+   "fabric_pct": 59.3
+  },
+  "mask": {
+   "f": 172,
+   "content_pct": 30.2,
+   "content_center_pct": 28.1,
+   "fabric_pct": 53.8,
+   "hero_id": "tower",
+   "hero_pct": 6.32,
+   "hero_pct_by_id": {
+    "tower": 6.32,
+    "crossing": 0
+   },
+   "phase": "free",
+   "preset": null,
+   "year": 1884.92,
+   "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "gl": "llvmpipe"
+  }
+ }
+]

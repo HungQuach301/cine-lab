@@ -12,7 +12,7 @@ CACHE = Path(os.environ.get("K2TL_CACHE", "/var/tmp/cine-out/k2tl-cache"))
 
 
 def gz(src, dst):
-    with open(src, "rb") as f, gzip.open(dst, "wb", compresslevel=9, mtime=0) as g: g.write(f.read())
+    with open(src, "rb") as f, open(dst, "wb") as raw, gzip.GzipFile(filename="", mode="wb", compresslevel=9, fileobj=raw, mtime=0) as g: g.write(f.read())   # mtime 0: tất định
 
 
 def sang(frames_dir, mask_dir, hero_b=2):

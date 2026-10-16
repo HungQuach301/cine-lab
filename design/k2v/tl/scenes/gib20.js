@@ -63,16 +63,17 @@ export async function build(ctx) {
     const p = popAt(st.year), counted = st.year >= LAST[0];
     const idx = p ? (counted ? `${fmt(LAST[1])} residents (${LAST[0]})` : '≈ ' + fmt(p) + ' residents') : null;
     const srcA = counted ? Math.max(0, Math.min(1, (st.year - LAST[0]) / 1.5)) : 0;
-    const ma = Math.max(Math.max(0, Math.min(1, (4.6 - t) / 0.35)), Math.max(0, Math.min(1, (t - END) / 0.35)));
+    const ma = Math.max(Math.max(0, Math.min(1, (4.45 - t) / 0.35)), Math.max(0, Math.min(1, (t - END) / 0.35)));
     const end = t > 10;
-    // HH3: dòng phương pháp đầu phim thứ hai "≈ = interpolated between counts" — hiện từ khi chỉ số "≈" xuất hiện (1753 ≈ 3,3 s) tới 6,0 s (trong 6 s đầu, TL-Q5e)
-    const la = Math.max(0, Math.min(1, (t - 3.2) / 0.35, (6.0 - t) / 0.35));
+    // HH3: dòng phương pháp đầu phim thứ hai "≈ = interpolated between counts" — hiện từ 3,3 s (chỉ số "≈" xuất hiện 1753; sau thẻ 1704) tới 6,0 s (trong 6 s đầu, TL-Q5e)
+    const la = Math.max(0, Math.min(1, (t - 3.3) / 0.35, (6.0 - t) / 0.35));
     const lines = end ? [{ s: '© OpenStreetMap contributors · Copernicus Sentinel data 2026', a: ma }]
       : [{ s: 'No AI imagery · Census · Catastro · Landsat 5', a: ma }, { s: '≈ = interpolated between counts', a: la }];
     T.chrome(t, st.year, st.pinZoom, idx, { lines, bottom: end }, srcA > 0 ? { s: `Count: Census of Gibraltar ${LAST[0]}, Table 1`, a: srcA } : null);
-    T.card(t, [0.1, 3.1], '1704 · British and Dutch forces capture Gibraltar', 'Gibraltar National Museum', null);
-    T.tag(t, [3.3, 4.7], 'reconstructed from LoC print, 1705', proj(V([-450, 30, -1150])));
-    T.card(t, [4.8, 7.9], 'Tower of Homage · stands 23 metres tall', 'Ministry for Heritage, Gibraltar', proj(TOP));
+    T.card(t, [0.1, 3.25], '1704 · British and Dutch forces capture Gibraltar', 'Gibraltar National Museum', null);
+    T.tag(t, [3.3, 4.45], 'reconstructed from LoC print, 1705', proj(V([-450, 30, -1150])));
+    // V5b-2a (K q_tl TL-Q5c): thẻ Tower kết thúc 7,65 s, ảnh LoC vào 7,9 s — khoảng trống 0,25 s để hai thẻ không bị tính là MỘT thẻ 6,5 s
+    T.card(t, [4.5, 7.65], 'Tower of Homage · stands 23 metres tall', 'Ministry for Heritage, Gibraltar', proj(TOP));
     T.tag(t, [6.7, 7.7], 'reconstructed from LoC photo, 1860–80', proj(V([-330, 60, -960])));
     // V5b-2a (K: thẻ ảnh 2,96 s < 3 s): cửa sổ 3,4 s → hiện ≈ 3,37 s; neo trên đồng trung lập phía trước đường bay
     T.photo(t, [7.9, 11.3], ctx.photo, 'c. 1900 · The neutral ground, before the runway', 'V.B. Cumbo · LoC · muted houses: reconstructed', proj(V([12, 3, 150])));

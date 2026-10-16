@@ -1,0 +1,84 @@
+{
+ "TL-Q1": {
+  "ok": false,
+  "ket_qua": null,
+  "loi": [
+   "(c) [12.4, 14.2]: sáng trong/ngoài công trình 0.59 < 1,5"
+  ],
+  "thieu": [],
+  "val": "1 mốc: 1941 1.79 s (khung 298–340)",
+  "muc": {
+   "a": [],
+   "b": [],
+   "c": [
+    "(c) [12.4, 14.2]: sáng trong/ngoài công trình 0.59 < 1,5"
+   ],
+   "d": [],
+   "e": []
+  },
+  "moc": [
+   [
+    298,
+    340
+   ]
+  ]
+ },
+ "TL-Q2": {
+  "ok": true,
+  "ket_qua": null,
+  "loi": [],
+  "thieu": [],
+  "val": "[7.8, 10.8]: 3.0 s ≤ 15 m/≤ 120 m, lệch TB 0.41 m, max 8.92 m, cao [97.9, 105.6], đích 4.4° (dev_m của campath (bộ dựng tính; tuyến không có trong repo))",
+  "tuyen": [
+   {
+    "t": [
+     7.8,
+     10.8
+    ],
+    "lien_tuc_s": 3.0,
+    "cach": "dev_m của campath (bộ dựng tính; tuyến không có trong repo)",
+    "lech_tb": 0.41,
+    "lech_max": 8.92,
+    "cao": [
+     97.9,
+     105.6
+    ],
+    "lech_truc": 4.4
+   }
+  ]
+ },
+ "TL-Q3": {
+  "ok": true,
+  "ket_qua": null,
+  "loi": [],
+  "thieu": [],
+  "val": "zoom_in 3.2–7.4 s: 1202 → 115 m ×10.4 trong 4.2 s; keo_lui 17.8–22.8 s: 268 → 3325 m ×12.4 trong 5.0 s"
+ },
+ "TL-Q4": {
+  "ok": false,
+  "ket_qua": null,
+  "loi": [
+   "(a) 2025710366: RIGHTS.md không có dòng nào"
+  ],
+  "thieu": [],
+  "val": "2025710366: RIGHTS thiếu"
+ },
+ "TL-Q5": {
+  "ok": true,
+  "ket_qua": null,
+  "loi": [],
+  "thieu": [],
+  "val": "khung thường max 14.8 % (trung vị 12.3 %; 35 khung trong ±5 % của 15 %) · mốc đinh max 15.2 % · vùng giữa không neo 0 khung · chữ min 38 px, tương phản min 8.11",
+  "sat_nguong": [
+   "(a) khung thường cao nhất 14.8 % (trần 15 %)",
+   "(f) chữ nhỏ nhất 38 px (ngưỡng 38 px)"
+  ]
+ },
+ "TL-Q6": {
+  "ok": true,
+  "ket_qua": null,
+  "loi": [],
+  "thieu": [],
+  "val": "Gibraltar (khối OSM, tầng chuẩn) (tang_chuan): 2451 toà, năm [1987, 2026]; đất theo năm (landY) (tang_chuan): 14267 toà, năm [1941, 1987, 2026]"
+ }
+}
