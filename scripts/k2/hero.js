@@ -68,7 +68,7 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   let frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
   const AF = path.join(OUT, 'anchors.json'); let ANC = {}; try { ANC = JSON.parse(fs.readFileSync(AF, 'utf8')); } catch (e) { ANC = {}; }
   if (process.argv.includes('--resume')) {   /* dựng tiếp sau khi job nền bị ngắt (giới hạn 2 giờ): bỏ khung đã có, dựng lại khung cuối có thể ghi dở */
-    const have = frames.filter((f) => { try { return fs.statSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg')).size > 0; } catch { return false; } });
+    const have = frames.filter((f) => { try { return fs.statSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg')).size > 0 && ANC[f] !== undefined; } catch { return false; } });   /* 17/10 (G2 §12): chỉ giữ khung có CẢ ảnh lẫn điểm neo — neo ghi mỗi 48 khung, ngắt giữa chừng làm mất neo các khung đã có ảnh (nhãn 2D biến mất) */
     const keep = new Set(have.slice(0, -1)); frames = frames.filter((f) => !keep.has(f)); console.error(`[hero ${arg('hero')}/${arg('variant', 'a')}] dựng tiếp: giữ ${keep.size} khung, còn ${frames.length}`); }
   for (const f of frames) {
     await page.evaluate(async (f) => await window.renderFrame(f), f);

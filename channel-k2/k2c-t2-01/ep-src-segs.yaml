@@ -89,6 +89,7 @@ segments:
                   {a: "col:s70", s: "15–25 ships/yr", sub: "U.S. yards, 1970s (~5% of world tonnage)", kind: null, num: n_5pct, at: "@fifteen", out: "@five#2", side: auto, prefer: [up], c: "#3CC2B0"},
                   {a: "col:now5", s: "~5 ships/yr", sub: "U.S. yards, new ships (2023 report)", kind: null, num: n_5yr, at: "@five#2", side: auto, prefer: [up, right], c: "#3CC2B0"}],
            stickers: [{a: "st:rep", img: "stk:document", at: "@congressional", px: 95}],
+           places: [{a: "st:rep", s: "2023 report", sub: "Congressional Research Service", kind: null, at: "@congressional+0.3", side: auto, prefer: [up, right], c: "#E6EBF0"}],
            cap: [{s: "Construction Differential Subsidy (federal)", at: "@Construction"}],
            src: "Source: CRS (2023) · Terrain: USGS 3DEP"}}
 
@@ -111,6 +112,7 @@ segments:
       - {tpl: plate, at: "@2019-0.3", type: map, scene_id: relief/map, camera_id: t2-03-tanker, places: [], p: {hero: r03_tanker, frame0: 0,
            tags: [{a: "col:world", s: "world price", at: 0.6, side: auto, prefer: [up, left], c: "#E6EBF0"},
                   {a: "col:us", s: "≈ 4×", sub: "U.S.-built tanker (one firm's estimate)", kind: estimate, num: n_tanker4, at: "@four", side: auto, prefer: [down, right], c: "#3CC2B0"}],
+           cap: [{s: "Building one tanker: U.S. price vs world price", at: 0.6}],
            src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@2023#1-0.6", type: map, scene_id: relief/map, camera_id: t2-03-scale, places: [], p: {hero: r03_scale, frame0: 0, kind: actual,
            stickers: [{a: "st:rep", img: "stk:document", at: 0.3, px: 110}, {a: "st:wl", img: {role: worker, hand: torch}, at: "@lists", px: 170}, {a: "st:tr", img: "stk:truck", at: "@truck", px: 90}, {a: "st:tn", img: "stk:train", at: "@train", px: 90}, {a: "st:pl", img: "stk:pipeline", at: "@pipeline", px: 80}],
@@ -120,9 +122,9 @@ segments:
            src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@together-0.6", type: map, scene_id: relief/map, camera_id: t2-03-loop, places: [], p: {hero: r03_loop, frame0: 0,
            stickers: [{a: "st:lo", img: "stk:order", at: "@orders#1", px: 70}, {a: "st:lc", img: "stk:crane", at: "@scale#2", px: 120}],
-           tags: [{a: "col:loopc", s: "high prices", at: "@High#2", out: "@pieces", side: auto, prefer: [up], c: "#F08A4B"}, {a: "st:lo", s: "few orders", at: "@Few#1", out: "@pieces", side: auto, prefer: [down, right], c: "#E6EBF0"}, {a: "st:lc", s: "no scale", at: "@No#1", out: "@pieces", side: auto, prefer: [right, up], c: "#3CC2B0"}],
+           tags: [{a: "col:loopc", s: "high prices", at: "@High#2", side: auto, prefer: [up], c: "#F08A4B"}, {a: "st:lo", s: "few orders", at: "@Few#1", side: auto, prefer: [down, right], c: "#E6EBF0"}, {a: "st:lc", s: "no scale", at: "@No#1", side: auto, prefer: [right, up], c: "#3CC2B0"}],
            cap: [{s: "Our read: the loop is our interpretation", at: "@pieces"}],
-           score: {corner: {at: "@emphasis", title: "The record:", sides: [{s: "Wages", c: "#F08A4B", icon: "role:worker", n: 1}, {s: "Scale", c: "#3CC2B0", icon: "stk:crane", n: 1}]}},
+           score: {corner: {at: "@emphasis", title: "Factors the record lists:", sides: [{s: "Wages", c: "#F08A4B", icon: "role:worker"}, {s: "Scale", c: "#3CC2B0", icon: "stk:crane"}]}},
            src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
 
   # ===== 04 CHUNG / ULSAN =====
@@ -152,10 +154,9 @@ segments:
            cap: [{s: "Munseob Lee, Korea Economic Institute of America (2023)", at: "@Institute"}],
            src: "Source: KEIA (2023) · Terrain: SRTM (USGS)"}}
       - {tpl: plate, at: "@Our#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-abroad, places: [], p: {hero: r04_abroad, frame0: 0, kind: actual,
-           places: [{a: ulsanx, s: "Ulsan", sub: "South Korea", at: 0.3, side: auto, prefer: [down, left]}],
-           tags: [{a: "col:k62", s: "$107", sub: "output per person, 1962 (current $)", kind: null, num: n_gdp62, at: 0.5, side: auto, prefer: [left, up], c: "#E6EBF0"},
-                  {a: "col:k25", s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [right, up], c: "#F2C14E"}],
-           cap: [{s: "Our read: the yard's customers were abroad", at: "@abroad#2"}],
+           places: [{a: ulsanx, s: "Ulsan, South Korea", sub: "1962: $107 output per person (current $)", kind: null, num: n_gdp62, at: 0.3, side: auto, prefer: [down, left]}],
+           tags: [{a: "col:k25", s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [right, up], c: "#F2C14E"}],
+           cap: [{s: "Our read: the yard's customers were abroad", at: 0.3}],
            src: "Sources: World Bank, company history · Terrain: SRTM (USGS)"}}
 
   # ===== 05 HIỆN TẠI =====

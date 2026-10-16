@@ -727,29 +727,29 @@ heroes:
         tilt: 61
         head: 0
       - t: '@1970s'
-        lon: -75.2
-        lat: 39.55
-        dist: 46
+        lon: -75.3
+        lat: 39.56
+        dist: 62
         tilt: 59
         head: 4
       - t: '@observers'
-        lon: -75.12
-        lat: 39.56
-        dist: 44
-        tilt: 60
-        head: 10
-      - t: '@Output'
-        lon: -75.05
+        lon: -75.32
         lat: 39.57
-        dist: 40
-        tilt: 61
-        head: 14
+        dist: 68
+        tilt: 60
+        head: 4
+      - t: '@Output'
+        lon: -75.32
+        lat: 39.58
+        dist: 70
+        tilt: 60
+        head: 4
       - t: '@rate'
-        lon: -75.0
+        lon: -75.31
         lat: 39.6
-        dist: 36
-        tilt: 62
-        head: 12
+        dist: 68
+        tilt: 61
+        head: 4
       pins:
       - id: rep
         at:
@@ -1371,6 +1371,18 @@ heroes:
         flow: 3
       cam:
       - t: 0
+        lon: 128.75
+        lat: 35.2
+        dist: 320
+        tilt: 46
+        head: 0
+      - t: 1.6
+        lon: 128.95
+        lat: 35.24
+        dist: 270
+        tilt: 52
+        head: 0
+      - t: '@abroad#2-0.4'
         lon: 129.4
         lat: 35.3
         dist: 110

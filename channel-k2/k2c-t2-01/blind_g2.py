@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); OUT = os.path.join(HERE, 'kie
 spec = importlib.util.spec_from_file_location('bv2', os.path.join(HERE, '..', 'k2v2-mau', 'blind_v2.py')); BV2 = importlib.util.module_from_spec(spec); spec.loader.exec_module(BV2)
 PROMPT, RATERS, MODEL, grab = BV2.PROMPT, BV2.RATERS, BV2.MODEL, BV2.grab
 assert MODEL == 'claude-sonnet-5-5'
-CAP, STOP = 11.0, 10.0
+CAP, STOP = 13.0, 12.0   # chủ dự án 17/10 (G2 §11): trần chấm mù tập $13, mốc dừng $12 (trước: $11/$10)
 V5 = os.path.join(HERE, '..', 'k2v4-mau', 'kiem-mu', 'blind')
 CAPS = os.path.join(HERE, 'g2', 'rague-cap.json')   # {"P1": giây T2, …} — khai trước lượt dựng 1080p
 # G2 §8 (16/10): chấm mù lại PHẦN BỊ SỬA (lời v3.4) — cặp E* = khung T2 ngay sau điểm sửa ↔ khung T1 cùng loại của cặp vòng 5 ghi ở cap_t1 (g2/sua-cap.json, khai trước khi ghép master)
