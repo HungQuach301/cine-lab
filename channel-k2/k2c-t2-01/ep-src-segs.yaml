@@ -45,7 +45,7 @@ segments:
                   {a: "col:d1943", s: "39 days", sub: "average, Dec. 1943", kind: null, num: n_d1943, at: "@thirty-nine", side: auto, prefer: [up, right], c: "#3CC2B0"},
                   {a: "col:dpeary", s: "4½ days", sub: "Robert E. Peary (publicity stunt)", kind: null, num: n_peary, at: "@Peary", side: auto, prefer: [right, down], c: "#F2C14E"}],
            src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@photographer-0.8", src_ss: 2, dur: 1.2, gain_db: -20, fade_ms: 60}], at: "@photographer-0.6", in: fade, type: photo, scene_id: loc_fsa_owens, camera_id: push, people: [Josie Lucille Owens], p: {hero: p01_owens, frame0: 0, photo: LOC-FSA-8D18716,
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@photographer-0.8", src_ss: 2, dur: 1.2, gain_db: -20, fade_ms: 60}], at: "@photographer-0.6", in: fade, type: photo, scene_id: loc_fsa_owens, camera_id: push, people: [Josie Lucille Owens], p: {hero: p01_owens, frame0: 0, photo: LOC-FSA-8D18716, clip: LOC-FSA-8D18716, file: /var/tmp/k2-footage/k2c-t2-01/LOC-FSA-8D18716.jpg, setting: ft/richmond-yard-1944,
            side: {at: "@Josie", x0: 0.71, lines: [{s: "Josie Lucille Owens", px: 52, w: 700, disp: true, at: "@Josie"}, {s: "welder trainee · Richmond, Calif. · 1943", px: 38, at: "@trainee"}, {s: "Liberty ship SS George Washington Carver", px: 38, at: "@Carver"}]},
            src: "Photo: E. F. Joseph, OWI, 1943 · Library of Congress"}}
       - {tpl: plate, at: "@four#2-0.3", type: map, scene_id: relief/map, camera_id: t2-01-yards, places: [], p: {hero: r01_yards, frame0: 0, kind: actual,
@@ -69,7 +69,7 @@ segments:
            stickers: [{a: "st:rail", img: "stk:train", at: "@rail", px: 90}, {a: "st:fship", img: "stk:freighter", at: "@foreign", px: 100}],
            places: [{a: seattle, s: "Seattle", at: 0.3, out: "@foreign", side: auto}, {a: vancouver, s: "Vancouver, B.C.", at: "@Vancouver", out: "@foreign", side: auto, prefer: [left, up]}, {a: alaska, s: "Alaska", at: "@foreign", side: auto}],
            src: "Source: CRS (2019) · Terrain: SRTM (USGS)"}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@Senator#1-0.5", src_ss: 8, dur: 1.2, gain_db: -21, fade_ms: 60}], at: "@Senator#1-0.3", in: fade, type: photo, scene_id: loc_npcc_jones, camera_id: push, people: [Wesley Jones], p: {hero: p02_jones, frame0: 0, photo: LOC-NPCC-21943,
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@Senator#1-0.5", src_ss: 8, dur: 1.2, gain_db: -21, fade_ms: 60}], at: "@Senator#1-0.3", in: fade, type: photo, scene_id: loc_npcc_jones, camera_id: push, people: [Wesley Jones], p: {hero: p02_jones, frame0: 0, photo: LOC-NPCC-21943, clip: LOC-NPCC-21943, file: /var/tmp/k2-footage/k2c-t2-01/LOC-NPCC-21943.jpg, setting: ft/washington-1921,
            side: {at: "@Wesley", x0: 0.68, lines: [{s: "Sen. Wesley L. Jones", px: 52, w: 700, disp: true, at: "@Wesley"}, {s: "Washington · chair, Commerce Committee", px: 38, at: "@chair"}, {s: "photo c. 1921", px: 38, at: "@chair+0.6"}, {s: "aim: Alaska cargo through Seattle", px: 38, at: "@requiring"}]},
            src: "Photo: National Photo Co., Library of Congress"}}
       - {tpl: plate, at: "@cargo#3-0.3", type: map, scene_id: relief/map, camera_id: t2-02-alaska2, places: [], p: {hero: r02_alaska2, frame0: 0,

@@ -369,3 +369,66 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   1. Chọn sửa S1–S6, hoặc chấp nhận bản hiện tại.
   2. Cho phép vượt mốc dừng $10 để chấm lần 3; hoặc chọn chỉ chấm lại phần sửa.
   3. S6 có đổi Kinh thánh §4 (trần phóng 1,5×) hay không.
+
+## 12. Áp quyết định §11 của chủ dự án (17/10)
+- **Quyết định:**
+  - Làm S1–S5. S6 = (c): giữ f_liberty 1,45×, không sửa Kinh thánh §4.
+  - Trần chấm mù của tập $13 (mốc dừng $12), sửa trong `blind_g2.py` dòng `CAP, STOP`.
+  - Chấm lần 3 đúng giao thức cũ; bản chấm lần 2 lưu thành `kiem-mu/ragu-l2/`, `kiem-mu/ragu-sua-l2/`, `*-score-l2.json`.
+
+### 12.1 Phát hiện mới khi sửa S1: điểm neo bị mất do `--resume` (lỗi hệ thống, ảnh hưởng cả phim)
+- **Triệu chứng (P3):** thẻ "world price" khai từ giây 0,6 nhưng không hiện ở giây 8,81. `anchors.json` của r03_tanker **không có khung 193–235**, nên ở các khung đó mọi nhãn 2D bám neo đều biến mất.
+- **Nguyên nhân (`scripts/k2/hero.js`):**
+  - Điểm neo chỉ ghi xuống đĩa mỗi 48 khung.
+  - Khi lượt dựng bị ngắt (giới hạn 2 giờ của job nền) rồi `--resume`, các khung đã có JPG bị bỏ qua, nên neo của chúng (dựng sau lần ghi cuối) **mất vĩnh viễn**.
+- **Phạm vi:** 21/44 cảnh, khoảng 550 khung (khoảng 23 s phim).
+  - Khoảng thiếu đều bắt đầu ở bội số của 48 cộng 1: 49, 97, 145, 193, 241, 433, 529, 673, 769.
+  - Có cả Short (s_loop, khung 193–217) và các cảnh ở giây khung chấm mù.
+- **Sửa:**
+  - (1) `hero.js --resume` nay chỉ giữ khung có **cả** JPG lẫn neo.
+  - (2) Vá dữ liệu: dựng lại **đúng các khung thiếu** bằng `--only` để lấy neo rồi gộp vào; giữ nguyên JPG và dấu (`va_neo.py` ở scratch, kết quả ghi ở 12.4).
+  - r02_subsidy và r04_abroad dựng lại toàn bộ theo S3/S4 nên không cần vá.
+- **Ghi cho P và Nền tảng:** T1 và các tập kênh 2 khác dựng bằng `--resume` có thể dính cùng lỗi. Đề xuất kiểm `anchors.json` đủ khung (số khóa = `meta.frames`) trong prep hoặc golden.
+
+### 12.2 S1–S5 đã áp (đặc tả `c9e127c8`)
+- **S1 r03_tanker:** vá neo (12.1), thẻ "world price" hiện đúng từ giây 0,6. Thêm chú thích "Building one tanker: U.S. price vs world price" (lời: "an American-built tanker, at about four times the global price of a similar vessel").
+- **S2 r04_abroad:**
+  - Một nhãn duy nhất bám Ulsan: "Ulsan, South Korea · 1962: $107 output per person (current $)" từ giây 0,3. Bỏ thẻ bám cột 1962 tí hon; cột vẫn đúng tỉ lệ.
+  - Chú thích "Our read: the yard's customers were abroad" từ giây 0,3, khớp lời đang đọc.
+- **S3 r04_abroad:** máy quay mở ở đông nam bán đảo Triều Tiên (dist 320), đẩy vào Ulsan tới "@abroad#2". Đã thử khung 0/20/30/50: không lộ mép bản đồ, Ulsan rõ trên bờ đông.
+- **S4 r02_subsidy:**
+  - Từ "@1970s", máy quay lùi và dịch tây (dist 62–70) để cả 4 vật (xu giá thế giới, xu giá Mỹ, cột thập niên 1970, khối "~5/yr") và tài liệu đều nằm trọn trong khung, không vật nào bị cắt mép (đã thử khung 700/780).
+  - Nhãn "2023 report · Congressional Research Service" cho icon tài liệu, khớp lời "a 2023 congressional report".
+- **S5 r03_loop:** ba thẻ "high prices / few orders / no scale" giữ tới hết cảnh; bảng góc đổi thành "Factors the record lists: Wages · Scale" (bỏ số "1" khó hiểu).
+- **Không đổi lời khoá, không ký tự ElevenLabs.** Nhịp đặc tả sau sửa: TB 2,23 s, dài nhất 5,11 s → ĐẠT.
+
+### 12.3 Việc trước G2 (mục 4 của quyết định)
+**(a) VERSIONS.yaml**
+- `toolkit.k2v` ghi lại theo bộ công cụ đã đổi trong phiên (commit `c9e127c8`, tree `4696ae8147cb…`; G1 giữ trong `cap_nhat`).
+- Thêm `served_note`. Kiểm lại served thì thấy **hai nguồn Haiku**, sửa lại mô tả ở §11.6 cho đúng:
+  - **96 lượt** ghim Sonnet/Opus có thêm Haiku trong `served`: tác vụ phụ của CLI; model ghim vẫn phục vụ.
+  - **4 lượt** Đóng gói gắn nhãn bình luận gọi Haiku **có chủ đích**: đã khai ở VERSIONS.md, nhưng VERSIONS.yaml lúc G1 không ghi vì `versions.py` chỉ quét `.py` trong thư mục tập.
+- `versions.py check` sau cập nhật:
+  - toolkit **hết lệch**;
+  - còn `episode.served_models` CHẶN (đã duyệt; `versions.py` chưa có cơ chế miễn trừ, đề xuất cho Nền tảng);
+  - BÁO `claude_cli` 2.1.300 → 2.1.302 (CLI tự cập nhật trong phiên).
+
+**(b) golden:** t1 lệch dòng nguồn là đổi kiểu đã duyệt 14/10 → **chấp nhận**. k2v4 là lỗi cache erie ngoài phiên (thiếu `mohawk`) → ghi cho Nền tảng, không chặn.
+
+**(c) RÀ LUẬT checks 1.10.2 — mục nào áp kênh 2.** Căn cứ: `checks/ll/RULES-LL.md` dòng phiên bản (Q32 mọi tập LL + kênh 2; Q26b đọc kênh 2 từ 1.10.2; Q33/Q34 kênh 2 từ K2 tập 2) và tiền lệ T1 G2.
+
+| Mục | Áp kênh 2? | Kết quả T2 (đặc tả + timeline hiện hành) | Phân tích |
+|---|---|---|---|
+| **Q34** loại shot | **Có** | **ĐẠT** · 42/42 có type · map 88,7 % · photo 10,4 % · footage 0,9 % · số neo 3D 67 % (ngưỡng 60 %, +11,7 %) | — |
+| **Q32** footage/ảnh nguồn ngoài | **Có** | **TRƯỢT** (b), (e) | Xem dưới. (a) đã sửa: `timecode_dung` đúng dạng; khai `clip/file/setting` cho 2 ảnh LoC như T1; tệp gốc liên kết cứng ở `/var/tmp/k2-footage/k2c-t2-01/`, SHA khớp sổ |
+| **Q26b** đa dạng bối cảnh | **Có** | **TRƯỢT** (c): nửa sau 0 bối cảnh (cần ≥ 3); trung tính 95,9 % | Bản đồ/ảnh tư liệu là trung tính theo 1.10.2. T2 dựng gần trọn bằng bản đồ (Q34 cho phép), nên nửa sau không còn bối cảnh nào được đếm. Mâu thuẫn cấu trúc giữa Q26b(c) và hình thức kênh 2 bản đồ → cần K/chủ dự án quyết (khiếu nại hoặc thêm cảnh 3D/thẻ ở nửa sau) |
+| **Q33** lặp cảnh | **Có** | **TRƯỢT** · 7 góc > 2 (pHash θ = 14 thêm 20 lần lặp) | Mọi shot bản đồ khai `scene_id: relief/map` nên luật coi là MỘT bộ cảnh; pHash ảnh xám 32×18 coi nhiều bản đồ khác vùng là cùng góc. Thử trên bản sao (không commit) khai theo vùng (`relief/sfbay`, `relief/eastus`…): còn **5 góc > 2**, đều là cặp cùng vùng trông giống nhau (vịnh SF chương 00–02, bờ Đông chương 03/05/06). Lỗi hình thật một phần, cần quyết |
+| Q14, Q15, Q17 (`q_rhythm`) | **Không** (luật nhịp LL) | TRƯỢT: Q14 không có câu hỏi trước 0:15; Q15 quãng 17,2 s; Q17 2,42 số/phút | Áp nhầm như T1 (khiếu nại 14/10 chờ K). Kênh 2 dùng `scripts/k2/rhythm.py` (TB ≤ 3,5 s, dài nhất ≤ 6 s): **ĐẠT**, TB 2,23 s, dài nhất 5,11 s |
+| `q_diversity`, `q_av`, `q_chu`, `q_nhip`, `q_amthanh` | Mục QC nhà máy | Lỗi cách gọi: CLI nhận mp4/master hoặc chạy theo mô-đun, không nhận `episode.yaml` | Không phải lỗi phim. Chạy đúng qua `bash scripts/ll/qc.sh <episode.yaml>` trên master cuối, như T1; kết quả ghi ở 12.5 |
+
+- **Q32 chi tiết:**
+  - **(b)** hai ảnh LoC hiện liên tục 10,57 s (Owens) và 9,36 s (Jones), vượt trần 8 s mỗi clip. Sửa được bằng cách chia mỗi ảnh thành 2 shot xen cảnh khác (như O2), nhưng ngoài S1–S5 đã duyệt → **chờ quyết**.
+  - **(e)** hai JPG LoC đang commit trong git (`assets/k2/archive/`), trùng SHA sổ. T1 để ảnh ngoài git (cache). Đã chép sang `k2v-cache/archive/`; **gỡ khỏi git bị chặn** vì là xoá tài sản đã commit → **chờ chủ dự án cho phép**.
+  - Sau khi gỡ, đổi đường dẫn `img` của p01_owens/p02_jones sang `/cache/archive/…` (cùng byte, chuyển dấu) và sửa dòng RIGHTS T2-PHO-1/2.
+  - Nguồn ngoài phim 11,3 % (trần 40 %).
+- **k2check 1.11.1 (chỉ báo):** chạy trên master cuối, ghi ở 12.5.

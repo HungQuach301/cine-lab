@@ -1,4 +1,5 @@
 # ĐÓNG BĂNG PHIÊN BẢN tập k2c-t2-01 — ghi lúc G1 bởi scripts/common/versions.py. KHÔNG sửa tay; G2 chạy `versions.py check`.
+# CẬP NHẬT G2 (17/10, chủ dự án duyệt §11 mục 4a): toolkit.k2v ghi lại theo bộ công cụ đã đổi trong phiên (giữ G1 trong cap_nhat); served_note giải thích Haiku.
 # GHI SAU (G2, 15/10): versions.py chưa có lúc G1 → ghi trên bản sao làm việc tại commit cuối G1b 8ec10632 (git worktree), cùng versions.py hiện hành. Mục relief_cache đọc từ cache HIỆN TẠI (nền đã dựng lại ở G1b/G2), không phải trạng thái G1b.
 schema: 1
 gate: G1
@@ -15,9 +16,10 @@ toolkit:
     paths:
     - design/k2v
     - scripts/k2
-    commit: 1ed08d56abbf90ef36ba9050b4b4797153ee756c
-    tree_sha256: b025f274bdf6b7badec414e1034fc4f96ad94d333fcd37b9f716a6f51c4cf5c3
+    commit: c9e127c8675bc8e2ef268d1a4476531685e31e4a
+    tree_sha256: 4696ae8147cb9a29d680c5dd02d4bb2e0e409a98583cb2fa2f8400b79a2f9ceb
     files: 85
+    cap_nhat: 'G2, chủ dự án duyệt 17/10 (§11 mục 4a): photo.js trang + tô dòng (O2), k2.js kind chuỗi (O5), rhythm.py frame0/off + hl số (O5), hero.js opt.oy (khung footage) + --resume giữ neo; G1 = 1ed08d56 / b025f274bdf6'
   ll-hero:
     paths:
     - design/ll-hero
@@ -63,3 +65,4 @@ episode:
   claude_models:
   - claude-opus-5-5
   - claude-sonnet-5-5
+  served_note: 'chủ dự án 17/10: claude-haiku-5-5 trong served là (1) tác vụ phụ của CLI claude -p chạy kèm model ghim (96 lượt Sonnet/Opus, model ghim vẫn phục vụ; việc chấm mù ghim Sonnet) và (2) 4 lượt Đóng gói gắn nhãn bình luận gọi Haiku có chủ đích (VERSIONS.md). versions.py chưa có cơ chế miễn trừ nên check vẫn in CHẶN served_models — đã duyệt, không phải chuyển model ngầm.'
