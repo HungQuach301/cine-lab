@@ -1,0 +1,152 @@
+{
+ "note": "Ngôn ngữ hình xương sống T6. Mốc đinh = bước ngoặt truyện của chương.",
+ "as_of": "2026-10-16",
+ "moc_dinh": [
+  {
+   "id": "M1",
+   "nam": 1950,
+   "su_kien": "đỉnh 1 849 568; Sanborn chỉnh tới 1950",
+   "noi": "Woodward / Campus Martius (42,3316, −83,0466)",
+   "claim": [
+    "D53",
+    "P01"
+   ],
+   "tu_lieu": "DPC 1917 Campus Martius (TN1 THEN); Sanborn 1949–51 (PD)",
+   "chuong": 1
+  },
+  {
+   "id": "M2",
+   "nam": 1958,
+   "su_kien": "Packard đóng cửa nhà máy E Grand Blvd",
+   "noi": "Packard (42,3796, −83,0487)",
+   "claim": [
+    "D07",
+    "D05",
+    "D06",
+    "D10"
+   ],
+   "tu_lieu": "Leffler 1958, ống khói PACKARD (LoC, giá trị cao)",
+   "chuong": 2
+  },
+  {
+   "id": "M3",
+   "nam": 1964,
+   "su_kien": "I-375 mở; Black Bottom và Paradise Valley đã bị phá để làm đường",
+   "noi": "I-375 (42,3370, −83,0410)",
+   "claim": [
+    "D17",
+    "D18",
+    "D30"
+   ],
+   "tu_lieu": "tài liệu MDOT (trích lời thừa nhận chính thức); Sanborn 1950 khu Black Bottom",
+   "chuong": 3
+  },
+  {
+   "id": "M4",
+   "nam": 1967,
+   "su_kien": "23/07/1967; Kerner: 43 người chết — đặt SAU số Census cho thấy thành phố đã giảm từ 1950",
+   "noi": "12th Street (Rosa Parks Blvd) (42,3760, −83,0870)",
+   "claim": [
+    "D26",
+    "D27",
+    "D29",
+    "P05"
+   ],
+   "tu_lieu": "trang báo cáo Kerner (hồ sơ văn bản); KHÔNG dùng ảnh bạo lực",
+   "chuong": 4
+  },
+  {
+   "id": "M5",
+   "nam": 1977,
+   "su_kien": "RenCen khai trương — nỗ lực hồi sinh downtown",
+   "noi": "RenCen (42,3293, −83,0398)",
+   "claim": [
+    "D63",
+    "D55"
+   ],
+   "tu_lieu": "Korab 1977 nhìn từ sông (LoC)",
+   "chuong": 5,
+   "ghi_chu": "năm 1977 mới có ảnh Korab + OSM; tìm nguồn gốc ở G1"
+  },
+  {
+   "id": "M6",
+   "nam": 2013,
+   "su_kien": "18/07/2013 nộp phá sản chapter 9 — ước tính $18 tỷ nợ",
+   "noi": "City Hall / CAYMC (42,3297, −83,0444)",
+   "claim": [
+    "D35",
+    "D40",
+    "D44"
+   ],
+   "tu_lieu": "trang đầu đơn toà (hồ sơ văn bản, tác phẩm toà liên bang)",
+   "chuong": 5
+  },
+  {
+   "id": "M7",
+   "nam": 2015,
+   "su_kien": "năm phá dỡ nhiều nhất trong sổ: 4 012",
+   "noi": "toàn thành phố (heat map 250 m)",
+   "claim": [
+    "P11",
+    "D46",
+    "D47"
+   ],
+   "tu_lieu": "3D + heat map; không ảnh nhà riêng (tránh nhắm cá nhân)",
+   "chuong": 6
+  },
+  {
+   "id": "M8",
+   "nam": 2024,
+   "su_kien": "06/06/2024 MCS mở lại sau 36 năm (chuyến tàu cuối 05/01/1988)",
+   "noi": "MCS (42,3289, −83,0777)",
+   "claim": [
+    "D59"
+   ],
+   "tu_lieu": "Highsmith 2020 trên không (LoC); 3D H1",
+   "chuong": 7
+  }
+ ],
+ "tuyen_bay_bat_buoc": [
+  "TB-woodward 14,7 km (sông → 8 Mile, qua Highland Park)",
+  "TB-river 10,5 km",
+  "TB-8mile 29,1 km (cắt ở G1)",
+  "TB-michigan 2,6 km",
+  "TB-i375 1,7 km"
+ ],
+ "mo_chuong": {
+  "0": "reveal: từ mặt sông Detroit kéo lên toàn cảnh, bộ đếm phá dỡ chạy",
+  "1": "glide → zoom-in: TB-woodward từ Hart Plaza lên phía bắc, sepia Sanborn 1950",
+  "2": "reveal: toàn vùng 3 hạt, nhà máy bật sáng ngoài ranh (Rouge, Warren, Highland Park)",
+  "3": "glide → zoom-in: theo TB-i375 xuống khu Black Bottom trên Sanborn 1950",
+  "4": "reveal: vạch ranh 8 Mile, hai bên đổi màu theo Census; rồi glide dọc TB-8mile",
+  "5": "glide → zoom-in: dọc TB-river tới RenCen, rồi vào City Hall",
+  "6": "reveal: heat map phá dỡ từng năm 2014→2026 trên toàn thành phố",
+  "7": "glide → zoom-in: TB-michigan tới MCS, quay về khung mở đầu (TB-river)"
+ },
+ "then_now": [
+  {
+   "id": "TN1",
+   "then": "DPC 1917 Campus Martius nhìn bắc (biển HUDSONS) — LoC 2016816051",
+   "now": "render 2026 cùng góc, tháp Hudson's Detroit",
+   "ket_luan": "GIỮ (đài Soldiers' and Sailors' + trục Woodward làm điểm khống chế)"
+  },
+  {
+   "id": "TN2",
+   "then": "Siegel 1939 (FSA, PD) từ Maccabees nhìn bắc tới Fisher",
+   "now": "render 2026",
+   "ket_luan": "ĐIỀU KIỆN: xác định tầng chụp"
+  }
+ ],
+ "ngan_sach": {
+  "footage_de_xuat": "≈ 6 % (~40 s): ảnh 1913 dây chuyền, Packard 1958, Sojourner Truth 1942 (FSA), Korab 1977, Highsmith 2020; ≤ 8 s phim PD nhà máy (NARA/Prelinger) nếu kiểm Content ID. Trần 20 % là tối đa",
+  "chu": "≤ 15 % diện tích khung",
+  "timelapse_troi": "≤ 15 % thời lượng: chỉ ở ch.4 (vùng loang 1950→2020) và ch.6 (heat map 2014→2026); mọi đoạn khác gắn câu lời/claim",
+  "ho_so_that": "10–15 %: bản đồ HOLC 1939 (NARA, PD), trang Kerner, đơn toà 2013, câu FAQ MDOT, hồ sơ NPS Birwood"
+ },
+ "chuan_4_lop": {
+  "hero": "H1 MCS, H4 Hudson's (chi tiết); H2 Packard, H3 RenCen (trung cảnh, không logo); H6 Guardian nền; H5 Highland Park ảnh 2.5D",
+  "nha_thuong": "khối thủ tục từ footprint (MS CDLA hoặc TIGER-dựng) theo mật độ; 3 khu hero từ Sanborn 1950",
+  "nen_song": "sông, xe, tàu A-lite; khói nhà máy 1950",
+  "anh_sang": "sepia trước 1958 → tự nhiên; mùa đông xám cho 2013"
+ }
+}

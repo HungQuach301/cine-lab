@@ -1,0 +1,26 @@
+==================================================================
+URL: https://www.arcgis.com/sharing/rest/search?q=orgid:qvkbeam7Wirps6zC (1 518 muc)
+FETCHED_UTC: 2026-10-16
+HTTP: 200
+SHA256: f232d767f42e279fa6d178ae73c492e6e0d519c5e6a946936bdfa1bcca670ebe
+------------------------------------------------------------------
+Cach doc: ArcGIS REST search + item JSON (curl/urllib).
+licenseInfo rong o 1 386/1 518 muc cua to chuc City of Detroit. Cac muc co chu thuong la ghi chu ky thuat ("as is", "FOR LOCATION REFERENCE ONLY", "No restrictions" x7 o muc khong lien quan).
+Cac lop da do:
+  Parcels (Current) | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/parcel_file_current/FeatureServer | licenseInfo='' | accessInformation='' | count=377940
+  City of Detroit Completed Demolitions | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/city_completed_demolitions/FeatureServer | licenseInfo=None | accessInformation='Construction and Demolition Department (CDD)' | count=31904
+  Buildings | https://services2.arcgis.com/qvkbeam7Wirps6zC/ArcGIS/rest/services/Base_Units_Bulk_Export/FeatureServer/3 | licenseInfo=None | accessInformation=None | count=None
+  buildings_20240604 | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/buildings_20240604/FeatureServer | licenseInfo=None | accessInformation=None | count=380445
+  Detroit Building Footprints (Public Safety) | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/Detroit_Building_Footprints_(Public_Safety)/FeatureServer | licenseInfo=None | accessInformation=None | count=380076
+  City of Detroit Boundary | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/City_of_Detroit_Boundary/FeatureServer | licenseInfo=None | accessInformation='Michigan Geographic Framework' | count=1
+  Development Opportunities DLBA Buildings | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/development_opportunities_dlba_buildings/FeatureServer | licenseInfo=None | accessInformation=None | count=1804
+  City of Detroit Commercial Demolitions | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/city_commercial_demolitions/FeatureServer | licenseInfo=None | accessInformation='Construction and Demolition Department (CDD)' | count=1296
+  Detroit National Register of Historic Places | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/national_register_of_historic_places/FeatureServer | licenseInfo='' | accessInformation='Historic Designation Advisory Board (HDAB)' | count=297
+  Building Permits | https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/bseed_building_permits/FeatureServer | licenseInfo='' | accessInformation='Buildings, Safety, Engineering and Environmental Department (BSEED)' | count=47655
+
+URL: https://data.detroitmi.gov/ (Hub site item c4f0193f90d44ec7a59236d681a74dbb) -> licenseInfo: 'null'; chan trang lien ket "Terms of Service & Privacy Policy" -> https://www.detroitmi.gov/Privacy
+URL: https://detroitmi.gov/Privacy -> HTTP 403 (Cloudflare "Just a moment..."); https://www.detroitmi.gov/Privacy -> 403
+URL: archive.org wayback -> 429 / "Temporarily Offline"
+KET LUAN: giay phep CHUA RO (nhu tienky-thanhpho). Khong dung hinh hoc/ban ghi theo toa de phat hanh cho toi khi co xac nhan bang van ban.
+Duong lien he: trang Department of Innovation & Technology (DoIT), City of Detroit — Open Data team (dia chi email da che: [email đã che]).
+Ghi chu: so tong hop (dem, ty le) doc trong loi la su kien; van ghi nguon "City of Detroit Open Data, read 16 Oct 2026".

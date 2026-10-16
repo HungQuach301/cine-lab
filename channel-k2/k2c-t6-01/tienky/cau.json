@@ -1,0 +1,360 @@
+{
+ "collected": "2026-10-16",
+ "as_of_note": "Số công khai YouTube Data API, đọc 16/10/2026 (UTC). Nhãn, tỷ lệ là tự tính.",
+ "quota_units": 135,
+ "quota_chi_tiet": {
+  "thu_ket_noi_videos": 1,
+  "search": 100,
+  "videos": 3,
+  "channels": 12,
+  "playlistItems": 17,
+  "commentThreads": 2
+ },
+ "S1": {
+  "q": "Detroit history|Detroit timelapse|why Detroit shrank",
+  "params": "search.list type=video order=relevance maxResults=50 relevanceLanguage=en regionCode=US",
+  "totalResults": 3,
+  "so_ket_qua": 3,
+  "ket_luan": "HỎNG: API trả 3 kết quả không liên quan (Detroit art 2013, Ground Zero 2015, digital painting 2019). Toán tử | không áp như phiên T5 (có lẽ do cụm nhiều từ ở hai đầu). Không chạy lại vì lượt search thứ hai đưa tổng lên 235 > trần 200.",
+  "ket_qua": [
+   {
+    "id": "1doTzx0guHY",
+    "pub": "2013-08-31",
+    "tuoi_ngay": 4794,
+    "dur_s": 27,
+    "views": 18,
+    "comments": 0,
+    "kenh": "Lulu J.",
+    "title": "Detroit art"
+   },
+   {
+    "id": "NAj7MqwCD-U",
+    "pub": "2015-07-21",
+    "tuoi_ngay": 4105,
+    "dur_s": 145,
+    "views": 711585,
+    "comments": 899,
+    "kenh": "AP Archive",
+    "title": "Final steel beam removed from Ground Zero"
+   },
+   {
+    "id": "m8uFgTVMB2k",
+    "pub": "2019-08-23",
+    "tuoi_ngay": 2611,
+    "dur_s": 923,
+    "views": 493,
+    "comments": 8,
+    "kenh": "Develv",
+    "title": "\"It's alright, my little friend...\" - Digital Painting Process by Develv"
+   }
+  ],
+  "sha256": "920b5c1195d3d1f3433091087bb4f6875e3a99dabe692f7ae17bc146522acb24"
+ },
+ "thay_the": "Đo lại 34 video Detroit của lượt S2 phiên chọn thành phố (\"why Zurich|…|Detroit\", 15/10) + kiểm uploads 17 kênh (11 kênh timelapse, Epoch Timeline, Epoch Timelapse, CityWise, IT'S HISTORY, Versed, Boundless Building) + 1 video Detroit tìm thấy trong uploads.",
+ "video_detroit_lich_su_co_che": [
+  {
+   "id": "0aA_6BTVyCs",
+   "pub": "2022-08-10",
+   "tuoi_ngay": 1528,
+   "dur_s": 786,
+   "views": 1982440,
+   "comments": 4695,
+   "kenh": "CNBC",
+   "title": "Why Detroit Is Tearing Down A Highway",
+   "views_15_10": 1982434
+  },
+  {
+   "id": "tQdGFufkrNg",
+   "pub": "2024-05-15",
+   "tuoi_ngay": 884,
+   "dur_s": 990,
+   "views": 203092,
+   "comments": 749,
+   "kenh": "Versed",
+   "title": "Why Basically Everyone Left Detroit",
+   "views_15_10": 203084
+  },
+  {
+   "id": "5gpaoteHU0s",
+   "pub": "2026-02-24",
+   "tuoi_ngay": 234,
+   "dur_s": 799,
+   "views": 198070,
+   "comments": 223,
+   "kenh": "IT'S HISTORY",
+   "title": "Why Detroit Built Secret Islands in the River",
+   "views_15_10": 197943
+  },
+  {
+   "id": "WVjuRC4p6QY",
+   "pub": "2022-06-01",
+   "tuoi_ngay": 1598,
+   "dur_s": 181,
+   "views": 135203,
+   "comments": 579,
+   "kenh": "The Why Minutes",
+   "title": "Why Detroit Became America’s Biggest Ghost Town",
+   "views_15_10": 135176
+  },
+  {
+   "id": "9Po9ftvZIPo",
+   "pub": "2026-07-09",
+   "tuoi_ngay": 99,
+   "dur_s": 746,
+   "views": 111927,
+   "comments": 111,
+   "kenh": "IT'S HISTORY",
+   "title": "Why Detroit has 100 Miles of Secret Tunnels Below the City",
+   "views_15_10": 111859
+  },
+  {
+   "id": "R4517uB788c",
+   "pub": "2026-09-21",
+   "tuoi_ngay": 25,
+   "dur_s": 966,
+   "views": 36914,
+   "comments": 56,
+   "kenh": "CityWise",
+   "title": "Why Detroit Fixed Its Downtown (And Baltimore Didn't)",
+   "views_15_10": 36892
+  },
+  {
+   "id": "FkQ2BsUhx5Q",
+   "pub": "2025-11-20",
+   "tuoi_ngay": 330,
+   "dur_s": 927,
+   "views": 15644,
+   "comments": 158,
+   "kenh": "Safe By Design",
+   "title": "Why Detroit is the Opposite of Every Other US City",
+   "views_15_10": 15636
+  },
+  {
+   "id": "Rs6TYfb8aoU",
+   "pub": "2025-11-21",
+   "tuoi_ngay": 329,
+   "dur_s": 321,
+   "views": 11506,
+   "comments": 114,
+   "kenh": "Spaces",
+   "title": "Why Everyone Abandoned Detroit",
+   "views_15_10": 11504
+  },
+  {
+   "id": "FCsJDSOjVjE",
+   "pub": "2026-09-21",
+   "tuoi_ngay": 25,
+   "dur_s": 797,
+   "views": 8553,
+   "comments": 60,
+   "kenh": "Boundless Building",
+   "title": "Why Detroit's Comeback Is Already Falling Apart",
+   "views_15_10": 8543
+  },
+  {
+   "id": "GSs06pUvaik",
+   "pub": "2026-07-19",
+   "tuoi_ngay": 89,
+   "dur_s": 487,
+   "views": 3595,
+   "comments": 22,
+   "kenh": "Epoch Timeline",
+   "title": "Evolution of Detroit (1000 AD–2026) | Fixed-Camera Historical Timelapse",
+   "views_15_10": null
+  },
+  {
+   "id": "dk4zNjcc5A8",
+   "pub": "2026-10-07",
+   "tuoi_ngay": 9,
+   "dur_s": 800,
+   "views": 3496,
+   "comments": 5,
+   "kenh": "Boundless Building",
+   "title": "The $2 Billion Megaproject That Quietly Broke Detroit",
+   "views_15_10": null
+  },
+  {
+   "id": "AYJyg1uhmq0",
+   "pub": "2026-08-10",
+   "tuoi_ngay": 67,
+   "dur_s": 799,
+   "views": 2162,
+   "comments": 4,
+   "kenh": "Boundless Building",
+   "title": "Inside Detroit's $30 Billion Transformation (The Comeback Nobody Expected)",
+   "views_15_10": null
+  },
+  {
+   "id": "Qlc6XVHrFXM",
+   "pub": "2026-03-31",
+   "tuoi_ngay": 199,
+   "dur_s": 550,
+   "views": 1226,
+   "comments": 14,
+   "kenh": "UrbanXplain",
+   "title": "Why Detroit is the Opposite of Every U.S. City",
+   "views_15_10": 1226
+  },
+  {
+   "id": "5N01B9pEk7o",
+   "pub": "2026-07-16",
+   "tuoi_ngay": 92,
+   "dur_s": 798,
+   "views": 346,
+   "comments": 2,
+   "kenh": "Boundless Building",
+   "title": "Detroit Was Supposed to Die: Inside the $25 Billion Rebuild Nobody Predicted",
+   "views_15_10": null
+  }
+ ],
+ "kiem_kenh_uploads": {
+  "IT'S HISTORY": {
+   "uploads_doc": 50,
+   "tu": "2026-05-30",
+   "den": "2026-10-15",
+   "video_detroit": [
+    [
+     "2026-07-09",
+     "Why Detroit has 100 Miles of Secret Tunnels Below the City",
+     "9Po9ftvZIPo"
+    ]
+   ]
+  },
+  "Restored Timeline": {
+   "uploads_doc": 31,
+   "tu": "2025-12-25",
+   "den": "2026-10-16",
+   "video_detroit": []
+  },
+  "Timeline Cities": {
+   "uploads_doc": 14,
+   "tu": "2026-09-29",
+   "den": "2026-10-15",
+   "video_detroit": []
+  },
+  "How Cities Grew": {
+   "uploads_doc": 4,
+   "tu": "2026-09-21",
+   "den": "2026-10-15",
+   "video_detroit": []
+  },
+  "Boundless Building": {
+   "uploads_doc": 50,
+   "tu": "2026-06-16",
+   "den": "2026-10-14",
+   "video_detroit": [
+    [
+     "2026-10-07",
+     "The $2 Billion Megaproject That Quietly Broke Detroit",
+     "dk4zNjcc5A8"
+    ],
+    [
+     "2026-09-21",
+     "Why Detroit's Comeback Is Already Falling Apart",
+     "FCsJDSOjVjE"
+    ],
+    [
+     "2026-08-10",
+     "Inside Detroit's $30 Billion Transformation (The Comeback Nobody Expected)",
+     "AYJyg1uhmq0"
+    ],
+    [
+     "2026-07-16",
+     "Detroit Was Supposed to Die: Inside the $25 Billion Rebuild Nobody Predicted",
+     "5N01B9pEk7o"
+    ]
+   ]
+  },
+  "DataShark": {
+   "uploads_doc": 11,
+   "tu": "2026-10-01",
+   "den": "2026-10-14",
+   "video_detroit": []
+  },
+  "Epoch Timelapse": {
+   "uploads_doc": 50,
+   "tu": "2026-07-05",
+   "den": "2026-10-14",
+   "video_detroit": []
+  },
+  "CITY 3D TIMELAPSE": {
+   "uploads_doc": 13,
+   "tu": "2025-09-02",
+   "den": "2026-10-03",
+   "video_detroit": []
+  },
+  "nobodycareswhatiswrittenhere": {
+   "uploads_doc": 29,
+   "tu": "2026-09-11",
+   "den": "2026-10-15",
+   "video_detroit": []
+  },
+  "Latos Charts": {
+   "uploads_doc": 15,
+   "tu": "2026-08-11",
+   "den": "2026-10-15",
+   "video_detroit": []
+  },
+  "Urbavision": {
+   "uploads_doc": 7,
+   "tu": "2026-10-07",
+   "den": "2026-10-13",
+   "video_detroit": []
+  },
+  "Versed": {
+   "uploads_doc": 50,
+   "tu": "2025-03-26",
+   "den": "2026-10-11",
+   "video_detroit": []
+  },
+  "CityWise": {
+   "uploads_doc": 50,
+   "tu": "2026-07-01",
+   "den": "2026-10-15",
+   "video_detroit": [
+    [
+     "2026-09-21",
+     "Why Detroit Fixed Its Downtown (And Baltimore Didn't)",
+     "R4517uB788c"
+    ]
+   ]
+  },
+  "timewarp cities": {
+   "uploads_doc": 50,
+   "tu": "2026-07-07",
+   "den": "2026-10-15",
+   "video_detroit": []
+  },
+  "Epoch Timeline": {
+   "uploads_doc": 50,
+   "tu": "2026-06-16",
+   "den": "2026-10-15",
+   "video_detroit": [
+    [
+     "2026-07-19",
+     "Evolution of Detroit (1000 AD–2026) | Fixed-Camera Historical Timelapse",
+     "GSs06pUvaik"
+    ]
+   ]
+  },
+  "CityEons": {
+   "uploads_doc": 3,
+   "tu": "2026-10-05",
+   "den": "2026-10-11",
+   "video_detroit": []
+  },
+  "Cornerstone Timelapse": {
+   "uploads_doc": 4,
+   "tu": "2026-10-02",
+   "den": "2026-10-15",
+   "video_detroit": []
+  }
+ },
+ "sha256": {
+  "yt_videos.json": "9824fd8339eaad29d1fd15d3da59a9e61b83ff4f52bbb40c1d4600175df80481",
+  "yt_videos2.json": "74a85ee6b2e65b3a199d05ecd67e90b5785e3be557b72ed63afe75a7bad948b8",
+  "yt_videos3.json": "3f634da62d349d146137c6197905bf33991561e34a6a09ac7666de9824e9d84f",
+  "cm_GSs06pUvaik.json": "c197e3f063afe307b95b6b7d1a5ff99570e6d947c93b307db2aaa8cb71ecf4bd",
+  "cm_tQdGFufkrNg.json": "9317c1b92a85638ea0391eb9242cdc38788694171726e1350bf7d03f9d8b5061"
+ }
+}

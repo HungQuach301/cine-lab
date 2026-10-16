@@ -1,0 +1,216 @@
+{
+ "note": "Đo nhanh dữ liệu theo toà/thửa của City of Detroit (ArcGIS org qvkbeam7Wirps6zC), chỉ thuộc tính, không hình học. Tệp thô ngoài git. GIẤY PHÉP: trường licenseInfo TRỐNG ở cả 4 lớp; 1 386/1 518 mục của tổ chức có licenseInfo trống; trang Terms (detroitmi.gov/Privacy) chặn Cloudflare 403; Wayback 429/offline → CHƯA RÕ.",
+ "as_of": "2026-10-16",
+ "gio_may_phut": {
+  "tai_thuoc_tinh": 10.1,
+  "do_va_noi": 2.5,
+  "mau_khong_gian_150_diem": 1.0
+ },
+ "lop": {
+  "footprints_ps": {
+   "title": "Detroit Building Footprints (Public Safety)",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/Detroit_Building_Footprints_(Public_Safety)/FeatureServer",
+   "licenseInfo": null,
+   "accessInformation": null,
+   "count": 380076
+  },
+  "demo": {
+   "title": "City of Detroit Completed Demolitions",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/city_completed_demolitions/FeatureServer",
+   "licenseInfo": null,
+   "accessInformation": "Construction and Demolition Department (CDD)",
+   "count": 31904
+  },
+  "commdemo": {
+   "title": "City of Detroit Commercial Demolitions",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/city_commercial_demolitions/FeatureServer",
+   "licenseInfo": null,
+   "accessInformation": "Construction and Demolition Department (CDD)",
+   "count": 1296
+  },
+  "parcels": {
+   "title": "Parcels (Current)",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/parcel_file_current/FeatureServer",
+   "licenseInfo": "",
+   "accessInformation": "",
+   "count": 377940
+  },
+  "permits": {
+   "title": "Building Permits",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/bseed_building_permits/FeatureServer",
+   "licenseInfo": "",
+   "accessInformation": "Buildings, Safety, Engineering and Environmental Department (BSEED)",
+   "count": 47655
+  },
+  "boundary": {
+   "title": "City of Detroit Boundary",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/City_of_Detroit_Boundary/FeatureServer",
+   "licenseInfo": null,
+   "accessInformation": "Michigan Geographic Framework",
+   "count": 1
+  },
+  "nrhp": {
+   "title": "Detroit National Register of Historic Places",
+   "url": "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/national_register_of_historic_places/FeatureServer",
+   "licenseInfo": "",
+   "accessInformation": "Historic Designation Advisory Board (HDAB)",
+   "count": 297
+  }
+ },
+ "footprint_toa": {
+  "tong": 380076,
+  "phu_tro_accessory": 135138,
+  "toa_chinh": 244938,
+  "co_nam_pct": 96.0,
+  "nam_max": 2010,
+  "nhan_dinh": "ảnh chụp ~2010 (năm xây lớn nhất 2010; YEAR_DEMO = 0 ở 380 075/380 076) — có trường semcogID: nhiều khả năng là lớp toà SEMCOG",
+  "toa_chinh_theo_thap_ky": {
+   "1840": 4,
+   "1850": 7,
+   "1860": 10,
+   "1870": 41,
+   "1880": 247,
+   "1890": 1120,
+   "1900": 6303,
+   "1910": 23776,
+   "1920": 62389,
+   "1930": 26938,
+   "1940": 64239,
+   "1950": 39793,
+   "1960": 6312,
+   "1970": 2177,
+   "1980": 722,
+   "1990": 901,
+   "2000": 1536,
+   "2010": 5
+  },
+  "truoc_1950_pct_toa_chinh": 78.2,
+  "don_0_5_pct": 22.7,
+  "don_0_5_truoc_1950_pct": 19.8,
+  "nam_dinh": [
+   [
+    1950,
+    17740
+   ],
+   [
+    1941,
+    15911
+   ],
+   [
+    1948,
+    15657
+   ],
+   [
+    1940,
+    14656
+   ],
+   [
+    1951,
+    13813
+   ]
+  ],
+  "tang": [
+   [
+    "1",
+    127418
+   ],
+   [
+    "1.25",
+    33531
+   ],
+   [
+    "2",
+    24323
+   ],
+   [
+    "1.5",
+    20036
+   ],
+   [
+    "1.75",
+    18132
+   ],
+   [
+    "2.25",
+    12141
+   ]
+  ],
+  "sha256": "4e1dc7ee65a60e396137d980f70e22e7f49c19a35e71f5c74549c266311cbd92"
+ },
+ "pha_do": {
+  "tong": 31904,
+  "tu": "2014-01-02",
+  "den": "2026-10-09",
+  "theo_nam": {
+   "2014": 3570,
+   "2015": 4012,
+   "2016": 3201,
+   "2017": 2507,
+   "2018": 3198,
+   "2019": 3530,
+   "2020": 1278,
+   "2021": 1489,
+   "2022": 2328,
+   "2023": 2574,
+   "2024": 2376,
+   "2025": 1510,
+   "2026": 331
+  },
+  "hhf": 15082,
+  "trai_phieu_bond": 8688,
+  "thuong_mai_trong_so": 1157,
+  "tong_gia_ghi_usd": 711390183,
+  "gia_trung_vi_usd": 17455.4,
+  "noi_footprint_theo_parcel_pct": 39.7,
+  "mau_khong_gian": {
+   "n_khong_noi": 19248,
+   "mau": 150,
+   "seed": 16,
+   "ket_qua": {
+    "khong": 46,
+    "co_toa_15m": 104
+   }
+  },
+  "nam_xay_trung_vi_cua_toa_bi_pha_noi_duoc": 1925,
+  "thuong_mai_rieng": {
+   "tong": 1296,
+   "Demolished": 1222,
+   "trung_parcel_voi_so_chinh": 1178
+  },
+  "sha256": {
+   "demo": "b4d4e457f9286be79de949e11602c6945d7ca7afedb35d30d1cf546b4d3d7a4e",
+   "cdemo": "a7fd4a9a5843ea387fff98054a5fce7e8ebb978e82ee849fab59e31d4a8935f0"
+  }
+ },
+ "thua_hien_nay": {
+  "tong": 377940,
+  "co_cong_trinh_is_improved": 227181,
+  "trong": 150730,
+  "residential_vacant": 120568,
+  "DLBA_so_huu": 57737,
+  "DLBA_trong": 53640,
+  "co_nam_xay_pct": 59.9,
+  "sha256": "2d4a4409f0bb51a2ee7c89407d378c9f3c881f80afcd66780aefb28c476450c8"
+ },
+ "giay_phep_xay_moi": {
+  "permit_type_New": 1112,
+  "tu": "2019-01-08",
+  "den": "2026-10-15",
+  "so_can": 7516,
+  "theo_nam": {
+   "2019": 183,
+   "2020": 98,
+   "2021": 119,
+   "2022": 130,
+   "2023": 159,
+   "2024": 108,
+   "2025": 193,
+   "2026": 122
+  },
+  "so_vu_pha_cung_cua_so_tu_2019_01_02": 15416,
+  "ty_le_pha_tren_giay_phep_moi": 13.9,
+  "ghi_chu": "giấy phép ≠ toà hoàn thành; tỷ lệ tự tính",
+  "sha256": "c37dd5e63200067efe2c4a02a2b3e2dedd8c90f76a24a6b2c95287e264acdb42"
+ },
+ "ket_luan_tang": "Có năm xây theo toà (footprint ~2010, 96 %) và ngày phá theo thửa (2014–2026), nhưng (1) giấy phép CHƯA RÕ ở mọi lớp, (2) footprint là ảnh chụp ~2010 nên toà phá 1950–2010 không có, (3) nối phá dỡ ↔ footprint theo parcel chỉ 39,7 %. → không đủ điều kiện TẦNG ĐẦY ĐỦ theo luật lệnh (năm xây/phá theo toà có giấy phép rõ)."
+}

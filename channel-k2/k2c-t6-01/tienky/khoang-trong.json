@@ -1,0 +1,47 @@
+{
+ "cach_cham": "Không có khoá Claude API trong môi trường phiên này (api.anthropic.com trả \"x-api-key header is required\"), nên KHÔNG chạy Haiku như T5. Phiên tự chấm bằng quy tắc máy: mô tả có chữ \"source/.gov/census/references\" hoặc dẫn tên cơ quan số liệu → \"có nguồn\"; mô tả nêu cơ chế (thuế, toàn cầu hoá, đường cao tốc, nhà ở) → \"có cơ chế\". Nhãn là tự tính.",
+ "top5_cau_hoi_chinh": [
+  {
+   "id": "tQdGFufkrNg",
+   "kenh": "Versed",
+   "co_nguon": false,
+   "co_co_che": "có (theo bình luận: ô tô, ngoại ô) — mô tả không nêu",
+   "ghi_chu": "mô tả không URL, không nguồn"
+  },
+  {
+   "id": "0aA_6BTVyCs",
+   "kenh": "CNBC",
+   "co_nguon": true,
+   "co_co_che": true,
+   "ghi_chu": "mô tả dẫn SEMCOG (\"708 new housing structures 2010–2019\") và \"economists\"; cơ chế thuế/abatement; trọng tâm I-375 và downtown, không phải 1950→nay"
+  },
+  {
+   "id": "WVjuRC4p6QY",
+   "kenh": "The Why Minutes",
+   "co_nguon": false,
+   "co_co_che": false,
+   "ghi_chu": "181 s"
+  },
+  {
+   "id": "Rs6TYfb8aoU",
+   "kenh": "Spaces",
+   "co_nguon": false,
+   "co_co_che": false,
+   "ghi_chu": "321 s"
+  },
+  {
+   "id": "FkQ2BsUhx5Q",
+   "kenh": "Safe By Design",
+   "co_nguon": false,
+   "co_co_che": "không rõ",
+   "ghi_chu": "1 URL, không phải nguồn số liệu"
+  }
+ ],
+ "ket_qua": "1/5 có dấu hiệu số liệu có nguồn (CNBC) → nhánh 1 ĐẠT (≤ 1/5). Nhánh 2 ĐẠT: bình luận chỉnh sai lặp lại ở cả hai video đã đọc (binh-luan.json).",
+ "dang_hinh_da_co": {
+  "co_dinh_camera": "Epoch Timeline \"Evolution of Detroit (1000 AD–2026)\", 19/07/2026, 3 595 lượt / 89 ngày, góc cố định Woodward/Sproat → khác hẳn ngôn ngữ bay dọc phố của mình; 7/10 bình luận chê sai",
+  "dong_kenh_boundless": "Boundless Building: 4 video Detroit 16/07–07/10/2026 (346–8 553 lượt), dạng \"comeback\"/megaproject, không nguồn trong mô tả",
+  "timelapse_3d_theo_toa": "0 video (11 kênh timelapse + Epoch Timelapse: không video Detroit trong 481 upload đọc được)",
+  "sua_tien_ky_thanh_pho": "TIEN-KY-THANHPHO ghi \"0 timelapse 3D\" cho Detroit — nay có 1 video máy quay cố định (Epoch Timeline). Khoảng trống dạng \"bay + từng toà + nguồn\" vẫn ĐẠT"
+ }
+}
