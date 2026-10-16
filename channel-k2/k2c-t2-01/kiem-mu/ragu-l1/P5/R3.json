@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark recap card over a blurred background. The text is clean, but the subtext is small and low-contrast grey, so it will be hard to read on a phone. The bottom third of the card is empty. The metaphors (\"locks\", \"bites\", \"sorts\") are vague. The checkbox bullets are generic. Nothing visual explains the topic, which looks like building or housing rules."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "A stylised 3D terrain map of the San Francisco Bay area with a compact comparison card. The contrast is clear: 3 ships/day in 1943 versus ~5 per year in 2023. The numbers are large and the colour coding is clear. The map gives a sense of place and the sources are credited. Weaknesses: the card sits over a busy map, the icons are tiny, the header text is small, and the source line is thin and could be hard to read."
+ },
+ "better": "Y",
+ "why": "Y shows a real place and one striking comparison in large numbers, while X is a text-heavy slide with small grey text, a half-empty card and no visual.",
+ "top_fix_for_weaker": "Cut the recap to three short lines with the key number or term in large bold type (for example '4 stories', '5 homes'). Raise the subtext size and contrast, remove the empty lower third, and add a simple icon or building diagram next to each lock."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 4, "clarity": 3, "flags": ["confusing", "empty_frame", "illegible_text"], "note": "The terrain relief is nice, but the frame has no country or region label and no route line. The only data is a tiny '$107 / 1962' tag beside an unexplained orange marker, so you can't tell what the $107 measures or where this is. Half the frame is empty ocean. The source line is small, and the dark gradient at the bottom is heavy-handed."},
+ "Y": {"craft": 8, "readability": 8, "clarity": 8, "flags": [], "note": "The globe render is rich and has depth, with an atmosphere glow and a clear Texas highlight. The callout, caption and date chip are all legible and well contrasted. The callout is long and slightly crowds the map, and it covers part of the US. The footer source line is small. It shows one state rather than a route, but the message is immediate."},
+ "better": "Y",
+ "why": "Y's highlighted region, readable callout and caption tell the viewer what, where and when at a glance, while X shows an unlabeled marker and a bare number on empty terrain.",
+ "top_fix_for_weaker": "Add a region/country label and a clear caption saying what the $107 is (e.g. 'GDP per capita, South Korea, 1962'). Draw the route or movement line with labeled start and end points. Enlarge the tag to at least 2x its current size. Reframe the camera so the subject fills the frame instead of leaving half of it as empty ocean."}
+```

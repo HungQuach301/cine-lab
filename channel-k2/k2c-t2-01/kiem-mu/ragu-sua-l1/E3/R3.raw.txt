@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 4,
+    "flags": ["confusing"],
+    "note": "The 3D terrain map of the San Francisco Bay is attractive and the white-outlined icons stand out. The icons (coin, document, ship, crane) have no labels. Nothing says which place or which 'factors' they stand for, and the caption 'each factor' points to icons the viewer can't decode. The caption and source line are white on a dark gradient and readable, but the source line is smallish and sits in a wide gap below the caption. The map has no place name."
+  },
+  "Y": {
+    "craft": 5,
+    "readability": 7,
+    "clarity": 8,
+    "flags": ["flat_slide_look"],
+    "note": "This is a clean recap card with a clear hierarchy: orange kicker, bold title, and three checklist items with a bold label and a grey explanation. It is understood in seconds. The grey subtext is small and low contrast for a phone, and the longest line runs wide. The blurred background is almost invisible, the bottom third of the card is empty, and the checkmarks on a recap are generic. Overall it looks like a plain text slide."
+  },
+  "better": "Y",
+  "why": "Y communicates its content immediately with legible structured text, while X has the more polished visuals but unlabeled icons and no stated location, so the viewer can't tell what the frame is saying.",
+  "top_fix_for_weaker": "Label X: add a place name (e.g. 'San Francisco Bay') and a short caption under each icon (e.g. 'Cost', 'Law', 'Ships', 'Ports'). Enlarge the icons, and make the source line larger and brighter, or move it closer to the caption."
+}
+```

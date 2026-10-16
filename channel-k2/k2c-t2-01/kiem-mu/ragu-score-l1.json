@@ -1,0 +1,136 @@
+{
+ "cap": [
+  {
+   "cap": "P1",
+   "kind": "a terrain map that sets up the story (where it happens)",
+   "t1": 6.33,
+   "t2": 6.33,
+   "t2_tung_nguoi": [
+    6,
+    6,
+    7
+   ],
+   "chon_t2": "0/3",
+   "co_t2": [
+    "cluttered",
+    "confusing"
+   ],
+   "doc_t2": 6.33,
+   "ro_t2": 4.33,
+   "thua": false
+  },
+  {
+   "cap": "P2",
+   "kind": "a map showing a route or movement across a region",
+   "t1": 7.33,
+   "t2": 6.67,
+   "t2_tung_nguoi": [
+    7,
+    7,
+    6
+   ],
+   "chon_t2": "0/3",
+   "co_t2": [
+    "confusing",
+    "empty_frame"
+   ],
+   "doc_t2": 6.67,
+   "ro_t2": 4.0,
+   "thua": true
+  },
+  {
+   "cap": "P3",
+   "kind": "numbers shown as 3D objects in a scene",
+   "t1": 5.0,
+   "t2": 6.67,
+   "t2_tung_nguoi": [
+    7,
+    6,
+    7
+   ],
+   "chon_t2": "2/3",
+   "co_t2": [
+    "confusing",
+    "empty_frame",
+    "illegible_text"
+   ],
+   "doc_t2": 3.67,
+   "ro_t2": 2.67,
+   "thua": false
+  },
+  {
+   "cap": "P4",
+   "kind": "a historical portrait or archival image with a caption",
+   "t1": 6.0,
+   "t2": 7.0,
+   "t2_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "chon_t2": "3/3",
+   "co_t2": [],
+   "doc_t2": 7.0,
+   "ro_t2": 8.0,
+   "thua": false
+  },
+  {
+   "cap": "P5",
+   "kind": "a summary / comparison screen",
+   "t1": 4.0,
+   "t2": 7.33,
+   "t2_tung_nguoi": [
+    8,
+    7,
+    7
+   ],
+   "chon_t2": "3/3",
+   "co_t2": [],
+   "doc_t2": 7.33,
+   "ro_t2": 8.0,
+   "thua": false
+  },
+  {
+   "cap": "P6",
+   "kind": "real video footage used in a documentary explainer",
+   "t1": 7.0,
+   "t2": 5.67,
+   "t2_tung_nguoi": [
+    5,
+    6,
+    6
+   ],
+   "chon_t2": "1/3",
+   "co_t2": [
+    "flat_slide_look"
+   ],
+   "doc_t2": 7.67,
+   "ro_t2": 8.0,
+   "thua": true
+  },
+  {
+   "cap": "P7",
+   "kind": "an archival photograph shown full screen",
+   "t1": 5.33,
+   "t2": 6.67,
+   "t2_tung_nguoi": [
+    7,
+    6,
+    7
+   ],
+   "chon_t2": "3/3",
+   "co_t2": [],
+   "doc_t2": 8.0,
+   "ro_t2": 8.0,
+   "thua": false
+  }
+ ],
+ "tb_t2": 6.62,
+ "tb_t1": 5.86,
+ "thua_cap": [
+  "P2",
+  "P6"
+ ],
+ "ket_qua": "TRƯỢT",
+ "chi_phi_tap": 6.7
+}

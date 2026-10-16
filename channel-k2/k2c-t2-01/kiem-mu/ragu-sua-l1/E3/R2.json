@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good 3D terrain map of the San Francisco Bay with a clean gradient lower third and sticker-style icons (coin, document, ship, crane) that have soft shadows. The tilted terrain looks premium. But the four icons float with no labels, so the viewer can't tell which factor each stands for. The caption says 'each factor counts' while the visuals don't name any factor. The source line is small for a phone."
+ },
+ "Y": {
+  "craft": 3,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark glass card on a blurred, murky background, in a standard slide layout. The text is clean, but the sub-lines are small, low-contrast gray and about 10 words long, which is hard to read on a phone. The bottom third of the card and the right side are empty. The blurred building background is barely visible, so there's no 3D or motion value. Checkboxes and bullets make it a PowerPoint recap. The heading 'Three locks' is metaphorical and the content is abstract, so the viewer must read it all."
+ },
+ "better": "X",
+ "why": "X has real 3D depth and a coherent visual metaphor, while Y is a flat text slide with a dead background and empty space.",
+ "top_fix_for_weaker": "Replace the text card with a 3D scene: three large labeled lock or building objects, each with a big number ('4 stories', '5 homes') as 60px+ text. Keep each description to 3 words or fewer, brighten the sub-line text, and make the background a sharp, lit model instead of a blur."
+}

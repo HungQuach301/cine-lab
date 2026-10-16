@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "Dark text-only checklist card over a blurred, near-invisible background. The orange accent is tidy, but it looks like a PowerPoint recap. The bottom third of the card is empty. The grey subtext is small and low-contrast for a phone. The long third line is dense. No visual shows what a lock, stairwell or bank line is."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Textured 3D terrain map of the San Francisco Bay area with isometric icons (coin, document, ship, gantry crane). It looks like real documentary B-roll, and the caption and source line are white on a dark gradient and readable. The icons are unlabeled and floating, so you can't tell what each factor is. The caption says 'each factor' but the factors aren't named. The sources line is small."},
+ "better": "Y",
+ "why": "Y looks like a produced documentary shot with a clear sense of place, while X is a flat, dim text slide with a large empty area.",
+ "top_fix_for_weaker": "Make X's background visible and relevant, for example a dimmed building cutaway or street photo. Then add a simple icon or diagram for each of the three locks, and use larger, brighter subtext of 28px or more, with the bank-line line shortened and the empty lower card space removed."}
+```

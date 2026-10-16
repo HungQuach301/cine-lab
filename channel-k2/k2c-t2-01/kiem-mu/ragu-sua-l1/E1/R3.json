@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The dark, moody scene is decent, but the three cubes are tiny and bunched together. The callout cards sit on top of the cubes. The right card ('13% of total construction cost') is semi-transparent and its text is overlapped by the middle cube's callout and the teal cube, so it is washed out and hard to read on a phone. The 'ACTUAL' badge is repeated four times, which is noise. The cube sizes don't match the values: 7%, 6% and 13% look nearly equal, and the 13% cube is not the biggest. The two different denominators (floor area vs. construction cost) are put side by side as if they were comparable. The big caption is readable but takes up a lot of space."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map is clean and pleasant, and the white-outlined coins and the gantry icon stand out against the green. The caption and source are legible. The scene itself explains nothing, though. There is no place name, no label on the loop and no numbers. The four coins, the document and the crane have no labels. The 'Wages 1 / Scale 1' chips are cryptic. The caption says the loop is 'our interpretation', which is honest, but a viewer still can't tell what area or what quantity is shown. The icons are small. The bottom third is a dead dark band."
+ },
+ "better": "Y",
+ "why": "Y is clean and fully legible with no overlaps, even though its meaning is vague. X has overlapping, washed-out callouts and cubes whose sizes contradict the numbers.",
+ "top_fix_for_weaker": "In X, pull the three callouts clear of the cubes, with one opaque card each and no overlap. Make the cubes bigger and scale their heights to 7/6/13. Show 'ACTUAL' once instead of four times. Label the units so floor area and construction cost are not read as the same measure."
+}

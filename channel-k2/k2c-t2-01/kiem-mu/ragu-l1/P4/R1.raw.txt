@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "Well-composed tilted archival print on a warm dark background. The photo is on the left and a name block with a gold accent bar is on the right, so the layout is balanced and the subject is clear at a glance. The name and role are large and crisp. The credit line is small, and its bottom-left placement over the print's gradient fade lowers its contrast. The right half is mostly empty, but that reads as breathing room."},
+ "Y": {"craft": 6, "readability": 5, "clarity": 7, "flags": ["illegible_text"], "note": "The tilted print is nicely lit and the subject is centered. The caption sits on a gradient that overlaps the bottom of the photo, so white text lands over the pale print border and the dark floor. The headline stays readable, but the small source line is tiny and low-contrast, and on a phone it would be hard to read. The photo is cropped at the bottom edge. There is a lot of empty space on the left and right, and the caption is just plain text with no hierarchy."},
+ "better": "X",
+ "why": "X gives the name and context its own high-contrast block beside the photo, while Y lays a caption over the print and fade, which hurts contrast and makes the small source line hard to read.",
+ "top_fix_for_weaker": "Move the caption off the photo into a solid dark panel or side block, as X does. Enlarge the source line to at least the headline's 60% size, and put the name 'Herbert Hoover' in bold with the role and year on a second line."}
+```

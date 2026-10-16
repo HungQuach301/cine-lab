@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 8, "clarity": 8, "flags": ["flat_slide_look"], "note": "Archival Liberty ship launch is small, matted in a framed box on a blurry brown background, so the footage fills only about a third of the frame. The caption and the 1944 badge are clear and large enough for a phone. The source line is small and grey but still readable. A lot of dead space around the clip, but it reads as a deliberate archival look."},
+ "Y": {"craft": 7, "readability": 6, "clarity": 6, "flags": ["cluttered"], "note": "Full-bleed, sharp, well-lit aerial of Chicago-area homes with the lake behind. It looks like real broadcast B-roll. The white caption sits over busy rooftops with only a weak gradient, so contrast is middling. The small source line is the hardest to read. The caption is a rhetorical question and the footage is generic, so the viewer can't tell what 'that way' refers to."},
+ "better": "Y",
+ "why": "Y is a full-frame, high-quality image with a legible caption, while X shrinks the footage into a small framed box with lots of empty space, though X's text is easier to read and its meaning is clearer.",
+ "top_fix_for_weaker": "Scale the archival clip up to near full-bleed (or Ken Burns push-in on the ship) and drop the heavy blurred brown backdrop, keeping the 1944 badge and caption on a darker bottom gradient."}
+```

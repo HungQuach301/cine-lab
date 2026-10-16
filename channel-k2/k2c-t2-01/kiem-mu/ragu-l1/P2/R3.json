@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "Polished satellite globe with Texas highlighted in orange and a clean callout card. The callout is a bit long and its small text is dense for a phone. The caption and source line are readable but the source line is small. The map shows a single location, not a route. The callout covers part of the Gulf and Southeast US, but that is minor. The 'As of' chip and ACTUAL tag are tidy."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Stylized terrain with good relief shading and a clean coastline. The '$107 / 1962' label has no unit or subject, so it is unclear whether it is GDP per capita, a price or something else. The yard marker is a tiny box. The three yellow dashed lines fanning from the coast have no destinations, labels or legend. The caption mentions customers abroad, but nothing on screen shows what the lines are. The place is never named. The lower third is dark and empty."
+ },
+ "better": "X",
+ "why": "X names the place and states the specific fact in readable text, while Y shows an unlabeled $107 figure and unlabeled route lines that a viewer cannot interpret.",
+ "top_fix_for_weaker": "Label the figure (e.g. 'GDP per capita, 1962: $107'), name the country and the shipyard, and put destination labels or flags at the ends of the route lines. Also zoom out or pan so the lines' endpoints are visible and the marker is larger."
+}

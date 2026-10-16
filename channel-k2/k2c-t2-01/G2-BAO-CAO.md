@@ -199,3 +199,42 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
 - **Cảnh đổi dấu vì v3.4: 4** (r02_subsidy, r03_loop, r04_state, r06_score2; 107,9 s cảnh) → dựng lại 1080p, gộp trong lượt dựng đang chạy. Các cảnh khác tính giờ theo cảnh nên không đổi.
 - **Đề xuất sửa Kinh thánh (chủ dự án, D5):** "lời mời đăng ký đặt ở cuối hoặc ở ranh chương, không chen trước luận điểm chính" — P ghi vào `docs/BIBLE-KENH2.md` (phiên này không sửa Kinh thánh).
 - **Tiêu đề dự phòng 1 DUYỆT** (16/10): "In 1943, America Launched 3 Ships a Day. What Happened?" (55 ký tự) — đã có trong `make_release.py`; chạy lại `release_check` ở bước gói.
+
+## 10. RÀ GU 1080p lần 1 — TRƯỢT → sửa đúng chỗ, dựng lại, chấm lại
+- **Bản chấm:** master 1080p v3.4 (SHA `86fc2866…`, 618,917 s), 3 người chấm mù (`claude -p`, chỉ công cụ Read), seed 20261015.
+  - Giây khung khai **trước khi ghép** (`g2/rague-cap.json`, `g2/sua-cap.json`); không đổi giây sau khi đã thấy bản dựng.
+- **RÀ GU (P1–P7, T2 vs T1): TB T2 6,62 / T1 5,86 → TRƯỢT** (dưới 7,0; thua 2 cặp).
+
+  | Cặp | Loại | T1 | T2 | Ghi chú người chấm (T2) |
+  |---|---|---|---|---|
+  | P1 | bản đồ địa hình mở chuyện | 6,33 | 6,33 (hoà) | icon chồng nhau thành cụm; không tên nơi; "LORE…" khó hiểu |
+  | **P2** | **bản đồ tuyến** | **7,33** | **6,67 (thua)** | "$107 1962" không đơn vị/chủ thể; tuyến chạy ra biển trống; không tên nơi |
+  | P3 | số liệu thành vật 3D | 5,00 | 6,67 | khung rơi trước khi thẻ "≈ 4×" hiện (chỉ có đồng xu) — giữ giây đã khai |
+  | P4 | chân dung tư liệu + chú thích | 6,00 | 7,00 | — |
+  | P5 | màn tóm tắt/so sánh | 4,00 | 7,33 | — |
+  | **P6** | **footage thật** | **7,00** | **5,67 (thua)** | newsreel là ô nhỏ ~1/3 khung trên nền mờ ("flat slide look") |
+  | P7 | ảnh tư liệu toàn khung | 5,33 | 6,67 | — |
+
+- **Phần bị sửa v3.4 (E1–E5, T2 vs T1): TB T2 6,47 / T1 5,27 → TRƯỢT**, thua E2 (6,00 so với 8,00). E2 là cùng cảnh với P2 (r04_abroad), cùng lý do.
+- **Chẩn đoán (xem khung thật, không chỉ đọc điểm):** đây là lỗi hình thật, không phải khẩu vị.
+  - **r04_beach (P1):** chú thích "LORE" **ở lại tới hết cảnh**, phủ lên cả phần lời về lịch sử công ty (động thổ 1972, hoàn thành 1974). Như vậy sự kiện có nguồn bị dán nhãn "lore": **lỗi nội dung**, sửa bất kể điểm.
+  - **r04_abroad (P2/E2):** số 1962 thiếu đơn vị và chủ thể; không có tên Ulsan / South Korea.
+  - **f_liberty (P6):** khung trong khung chỉ phóng 1,1× (Kinh thánh cho phép ≤ 1,5×) và nằm giữa khung dọc, nên không phóng thêm được mà không đè dải chú thích.
+- **Sửa (đúng chỗ, không thêm phần tử để vượt ngưỡng):**
+  - **r04_beach:**
+    - Chú thích LORE kết thúc tại "Hyundai's own history…" và thay bằng "By Hyundai's own history: ground broken 1972, yard done 1974".
+    - Phiếu đơn hàng và hai tờ tài liệu (ảnh bãi trống, tờ 500 won) rút khỏi khung cùng lúc.
+    - Nhãn "Ulsan · South Korea" giữ tới hết cảnh.
+    - Hai tàu Atlantic Baron/Baroness dời ghim ra biển, đứng cạnh nhau, không chồng lên cẩu.
+    - **Dựng lại cảnh 3D** (1217 khung; prop 3D nằm trong cảnh): chia 3 phần khung song song (`--only`), gộp khung + điểm neo, rồi ghi dấu.
+  - **r04_abroad:**
+    - Thẻ "$107 · output per person, 1962 (current $)", cùng cách ghi với thẻ 2025.
+    - Thêm nhãn "Ulsan · South Korea" (lớp 2D, không dựng lại 3D).
+    - Thử thêm thẻ "Customers abroad" ở đầu tuyến nhưng điểm neo nằm ngoài khung nên bỏ: chú thích "Our read…" đã nói điều đó.
+  - **f_liberty:**
+    - `maxScale` 1,1 → 1,45 (≤ 1,5 theo Kinh thánh §4).
+    - `crop 624:456:6:4` bỏ viền overscan đen của bản phát hình (không cắt nội dung).
+    - Khung dời lên 110 px bằng tuỳ chọn mới `opt.oy` trong `scripts/k2/hero.js`. Khung nay 904×662 thay 704×528 (diện tích ×1,61) và không chạm dải chú thích.
+  - **Dấu cảnh:** `hero.js` đổi nên mọi dấu đổi. Chuyển dấu cho 42 cảnh có tham số không đổi (so tham số cũ/mới, cùng cách đã dùng khi sửa photo.js); chỉ 2 cảnh dựng lại.
+- **Lưu bản chấm lần 1:** `kiem-mu/ragu-l1/`, `kiem-mu/ragu-sua-l1/`, điểm `kiem-mu/ragu-score-l1.json`, `kiem-mu/ragu-sua-score-l1.json` (chi phí API sau lần 1: $6,70 / trần $11).
+- **Kết quả chấm lại:** ghi ở §11 sau khi ghép lại và chấm lại cùng giây khung đã khai.

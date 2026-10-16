@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "Dark void with three small cubes whose heights barely differ, so they don't show the 7/6/13 quantities. The 13% label is faded and overlaps the 6% cube and its own cube, so its text is low-contrast. The 7% card covers the orange cube's top. The tiny 'ACTUAL' badges add clutter and no information. The cube order doesn't match the values, and nothing says what the cubes represent. The frame reads as a slide with cubes pasted on."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "empty_frame",
+   "confusing"
+  ],
+  "note": "The USGS terrain with a river is a good, well-lit base with soft shadows and a clean callout, and the text is crisp. But the subject is tiny. A lone cube, a small document icon and a half-cropped teal object sit on a huge empty map. It's not clear what place this is, what the document is, or why one cube means '~5 ships/yr'. Little hierarchy, and no cue for scale or location."
+ },
+ "better": "Y",
+ "why": "Y has a real 3D environment with clean, legible labelling and no collisions, while X has overlapping, washed-out text and cubes that don't visualize the numbers.",
+ "top_fix_for_weaker": "In X, move the three callouts apart so none overlaps a cube or another card. Give the 13% label a solid dark card at full contrast. Scale the cube heights to 7:6:13 and put a short label under each cube. Remove the redundant ACTUAL badges."
+}

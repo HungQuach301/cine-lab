@@ -209,7 +209,9 @@ heroes:
       ivtc: true
       lo: 26
       hi: 226
-      maxScale: 1.1
+      maxScale: 1.45
+      crop: 624:456:6:4
+      oy: -110
   r01_days:
     hero: relief/map
     opt:
@@ -1178,12 +1180,12 @@ heroes:
         - 35.497
       - id: s1
         at:
-        - 129.445
-        - 35.49
+        - 129.447
+        - 35.483
       - id: s2
         at:
-        - 129.452
-        - 35.502
+        - 129.466
+        - 35.482
       - id: photo
         at:
         - 129.4

@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Strong globe render with NASA imagery, atmosphere glow and a highlighted Texas. The callout text is small and dense for a phone (about 6 pt-equivalent), and the callout box covers the Gulf and Florida. The Texas pin is tiny and the 'As of' badge adds clutter. The map shows a single state, not a route or movement, so it reads as a location highlight. The headline is clear, but the callout and headline repeat each other and compete."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Attractive stylized terrain with good hillshade, a soft coastline glow and clean routes fanning out to sea. The '$107 1962' label is large and legible, but nothing says what it is (GDP per capita? a yard's revenue?). The small yard marker is easy to miss. The route lines end at nowhere with no destination labels, so the 'customers abroad' point isn't shown. The place is unnamed, so the viewer can't tell it's Korea. Much of the right half is empty ocean."
+ },
+ "better": "X",
+ "why": "X tells the viewer where and what, with a named place and a stated rule. Y looks comparable or slightly cleaner but leaves place, metric and destinations unlabeled.",
+ "top_fix_for_weaker": "Name the region and the yard (e.g. 'Ulsan shipyard, South Korea'). Label the number ('GDP per capita $107, 1962'). End each route at a labeled destination port or country. Zoom out or reframe so the routes and their endpoints fill the frame."
+}

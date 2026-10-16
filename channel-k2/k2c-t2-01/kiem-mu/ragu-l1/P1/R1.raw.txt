@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 6, "clarity": 4, "flags": ["confusing", "cluttered"], "note": "Stylized terrain with isometric cranes, ship and documents is charming and has a clear year badge. The icons overlap into a muddy cluster. There is no place name, so the viewer can't tell where this is. The caption 'LORE: one columnist's account, not a record' is cryptic. The source line is small and low-contrast for a phone."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "Real satellite-style terrain with clean state borders, and Minnesota is clearly highlighted. The Minneapolis callout is crisp and high-contrast. The caption quote is large and readable. The pin is tiny and the callout mostly repeats its source. The source line is small and dim, and the map is a bit dark and muddy."},
+ "better": "Y",
+ "why": "Y tells you the place and the point at a glance with legible labels, while X's overlapping icons and missing location leave you unsure what you're looking at.",
+ "top_fix_for_weaker": "Add a large, clear place label (e.g. 'Ulsan, South Korea') with a pin. Separate and enlarge the icons into one clean focal group (a single shipyard crane and ship, with the documents moved aside). Replace the cryptic 'LORE' caption with a plain sentence, and make the source line bigger and brighter."}
+```

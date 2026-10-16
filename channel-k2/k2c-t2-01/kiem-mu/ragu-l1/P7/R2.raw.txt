@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": [], "note": "Matted print on a dark vignette with a gold-bar name card. It identifies the person (name, state, role, date) clearly. The mat is not centered, because the left side is crowded and the card sits tight against the right. A gradient wash cuts across the bottom of the print and looks like an unintended artifact. The dark brown background is flat and slightly noisy. The photo is small, with a lot of dead space around it."},
+ "Y": {"craft": 5, "readability": 6, "clarity": 4, "flags": ["confusing"], "note": "The full-bleed street photo is atmospheric, and the bottom gradient helps the text. The caption 'judges deferred to local lawmakers' has no visible connection to a foggy street and a mansion, so the viewer cannot tell the place, the subject or the point. The source credit is small, low-contrast and long, and would be hard to read on a phone. There is no location or date, and the frame is just a stock image with a caption."},
+ "better": "X",
+ "why": "X tells the viewer who the person is and why they matter, with legible, structured text, while Y's image and caption don't connect and its credit line is weak.",
+ "top_fix_for_weaker": "Add a place and date label to the photo (e.g. 'Woodward Ave, Detroit, c.1905'). Tie the caption to the image, for example by naming the case or ordinance with a highlighted key phrase. Enlarge the source credit and raise its contrast, or shorten it, and add slow parallax or a push-in on the photo."}
+```

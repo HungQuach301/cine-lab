@@ -139,11 +139,11 @@ segments:
            cap: [{s: "\"no experience, capital, or shipbuilding technology whatsoever\" — company history", at: "@experience"}],
            src: "Source: HD Hyundai Heavy Industries history · Terrain: SRTM (USGS)"}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/gantry-crane.mp3, at: "@broken-0.6", src_ss: 20, dur: 10, gain_db: -27, fade_ms: 900}, {file: assets/k2/sfx/cutting-steel.mp3, at: "@completed", src_ss: 18, dur: 6, gain_db: -28, fade_ms: 700}], at: "@By#2-0.3", type: map, scene_id: relief/map, camera_id: t2-04-beach, places: [Ulsan], p: {hero: r04_beach, frame0: 0, year: {s: "1971–74", at: 0.3},
-           places: [{a: ulsan, s: "Ulsan", at: "@shipyard#1", out: "@column", side: auto, prefer: [left, up]}],
-           stickers: [{a: "st:ord", img: "stk:order", at: "@ordered", px: 150}, {a: "st:cr1", img: "stk:crane", at: "@broken", px: 210}, {a: "st:cr2", img: "stk:crane", at: "@largest", px: 210},
-                      {a: "st:photo", img: "stk:document", at: "@empty", px: 120}, {a: "st:note", img: "stk:document", at: "@banknote", px: 120}, {a: "st:s1", img: "stk:freighter", at: "@Baron", px: 170}, {a: "st:s2", img: "stk:freighter", at: "@Baroness", px: 170}],
+           places: [{a: ulsan, s: "Ulsan", sub: "South Korea", at: "@shipyard#1", side: auto, prefer: [left, up]}],
+           stickers: [{a: "st:ord", img: "stk:order", at: "@ordered", out: "@history#2-0.5", px: 150}, {a: "st:cr1", img: "stk:crane", at: "@broken", px: 210}, {a: "st:cr2", img: "stk:crane", at: "@largest", px: 210},
+                      {a: "st:photo", img: "stk:document", at: "@empty", out: "@history#2-0.5", px: 120}, {a: "st:note", img: "stk:document", at: "@banknote", out: "@history#2-0.5", px: 120}, {a: "st:s1", img: "stk:freighter", at: "@Baron", px: 170}, {a: "st:s2", img: "stk:freighter", at: "@Baroness", px: 170}],
            tags: [{a: "st:photo", s: "LORE", sub: "a photo of the empty beach (2010 column)", at: "@empty", out: "@banknote", side: auto, prefer: [up, left], c: "#F08A4B"}, {a: "st:note", s: "500-won note", sub: "turtle ship, a warship from Korea's history", at: "@turtle", out: "@lore", side: auto, prefer: [up, right], c: "#F08A4B"}],
-           cap: [{s: "LORE: one columnist's account, not a record", at: "@lore"}],
+           cap: [{s: "LORE: one columnist's account, not a record", at: "@lore"}, {s: "By Hyundai's own history: ground broken 1972, yard done 1974", at: "@history#2-0.5"}],
            src: "Sources: HD Hyundai history, Korea Times (2010) · Terrain: SRTM"}}
       - {tpl: plate, at: "@Meanwhile-0.3", type: map, scene_id: relief/map, camera_id: t2-04-state, places: [], people: [Park Chung Hee, Munseob Lee], p: {hero: r04_state, frame0: 0, year: {s: "1973", at: "@January"},
            stickers: [{a: "st:pol", img: "stk:document", at: "@government", px: 100}, {a: "st:hi1", img: "stk:factory", at: "@industry", px: 100}, {a: "st:hi2", img: "stk:crane", at: "@shipbuilding#3", px: 110}, {a: "st:hi3", img: "stk:freighter", at: "@exports", px: 100},
@@ -152,7 +152,8 @@ segments:
            cap: [{s: "Munseob Lee, Korea Economic Institute of America (2023)", at: "@Institute"}],
            src: "Source: KEIA (2023) · Terrain: SRTM (USGS)"}}
       - {tpl: plate, at: "@Our#1-0.3", type: map, scene_id: relief/map, camera_id: t2-04-abroad, places: [], p: {hero: r04_abroad, frame0: 0, kind: actual,
-           tags: [{a: "col:k62", s: "$107", sub: "1962", kind: null, num: n_gdp62, at: 0.5, side: auto, prefer: [left, up], c: "#E6EBF0"},
+           places: [{a: ulsanx, s: "Ulsan", sub: "South Korea", at: 0.3, side: auto, prefer: [down, left]}],
+           tags: [{a: "col:k62", s: "$107", sub: "output per person, 1962 (current $)", kind: null, num: n_gdp62, at: 0.5, side: auto, prefer: [left, up], c: "#E6EBF0"},
                   {a: "col:k25", s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [right, up], c: "#F2C14E"}],
            cap: [{s: "Our read: the yard's customers were abroad", at: "@abroad#2"}],
            src: "Sources: World Bank, company history · Terrain: SRTM (USGS)"}}

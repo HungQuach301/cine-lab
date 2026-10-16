@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark glass card with a checklist over a blurred, near-invisible background, so it reads as a PowerPoint recap. The text is clean, but the body copy is small and grey on dark for a phone. The bottom third of the card is empty. The checkboxes pair with 'locks', which is a loose metaphor. The background adds nothing, and the 'bank line' item is jargon-heavy."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "A stylized 3D terrain map with a bay, a ship, a crane, a document and a coin gives real depth, lighting and a sense of place. The icons are small and read as vague metaphors, because there are no labels linking them to the 'factors' in the caption. The caption and sources text sit on a gradient and are legible, but the sources line is small. The terrain is also quite generic, with no place label."
+ },
+ "better": "Y",
+ "why": "Y has actual 3D scene craft and spatial context, while X is a flat text card over a blur, even though X's text is somewhat cleaner.",
+ "top_fix_for_weaker": "Replace the blurred backdrop and static checklist with a lit 3D scene, such as a building with three lock icons or gates. Reveal each item one at a time with its icon, use larger and higher-contrast body text (about 36px or more), shrink the card, and fill or remove the empty lower area."
+}

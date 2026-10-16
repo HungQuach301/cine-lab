@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "cluttered",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The dark grid stage with orange and teal cubes looks clean. But the left label covers the orange cube, the right label is half-transparent and overlaps the second teal cube so '13%' and its caption are low-contrast, and the cubes are nearly the same size (7, 6 and 13%) so they don't show the quantities. A stray 'ACTUAL' badge sits on every label and again in the corner. The wide caption block and source line take up the bottom third. It reads as a slide with a few cubes on it, not a 3D scene."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 3,
+  "clarity": 3,
+  "flags": [
+   "empty_frame",
+   "confusing"
+  ],
+  "note": "The terrain with its river and hillshade, the outlined copper coins and the soft shadows are well made and look like a real map. But the only text is a tiny source line. There is no title, place name, number or label, so the viewer can't tell what the coins count or where. Five coins with a gap after the first carry no meaning on their own. The bottom third is a dead dark gradient. This may be a mid-animation frame."
+ },
+ "better": "Y",
+ "why": "Y has a cleaner, more cinematic 3D scene with no overlaps or broken elements, while X's labels collide with and cover its objects and its cubes don't show scale; Y's weakness is missing context, not a visible defect.",
+ "top_fix_for_weaker": "In X, move the three labels clear of the cubes (anchored above each with a leader line, each on a solid background and equal in size). Scale the cube heights to the values (7, 6, 13), drop the repeated 'ACTUAL' badges, and shorten the bottom caption to one line."
+}

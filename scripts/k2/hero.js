@@ -26,13 +26,13 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   const pre = [o.ivtc ? 'fieldmatch,yadif=deint=interlaced,decimate' : null, o.decimate ? 'decimate=cycle=5' : null, 'scale=trunc(iw*sar/2)*2:ih,setsar=1', o.pts ? `setpts=PTS/${o.pts}` : null, o.crop ? `crop=${o.crop}` : null, o.clean ? 'hqdn3d=1.5:1.5:5:5' : null];
   const post = ['fps=24', o.eq ? `eq=${o.eq}` : null, o.grade === 'sepia' ? sep : o.grade === 'natural' ? nat : null];
   // T2 0c (Kinh thánh §4, duyệt 15/10): nguồn < 720p → KHUNG TRONG KHUNG: giữ tỉ lệ gốc, phóng ≤ 1,5× (opt.maxScale), viền giấy + bóng đổ, nền = chính clip
-  //   phủ kín, làm mờ + tối (không phóng to cắt cúp). frame: 'auto' (mặc định: bật khi chiều cao nguồn sau crop < 720) | true | false.
+  //   phủ kín, làm mờ + tối (không phóng to cắt cúp). oy: dời khung theo chiều dọc (px, âm = lên). frame: 'auto' (mặc định: bật khi chiều cao nguồn sau crop < 720) | true | false.
   const probe = require('child_process').spawnSync('ffprobe', ['-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height,sample_aspect_ratio', '-of', 'json', o.file]);
   const st = (JSON.parse(String(probe.stdout || '{}')).streams || [{}])[0], sar = String(st.sample_aspect_ratio || '1:1').split(':').map(Number), sarv = sar[0] && sar[1] ? sar[0] / sar[1] : 1;
   let sw = Math.round(st.width * sarv / 2) * 2, sh = st.height; if (o.crop) { const c = String(o.crop).split(':'); if (/^\d+$/.test(c[0]) && /^\d+$/.test(c[1])) { sw = +c[0]; sh = +c[1]; } }
   const FRAME = o.frame === true || ((o.frame ?? 'auto') === 'auto' && sh < 720);
   let fr = null, args;
-  if (FRAME) { const k = Math.min(o.maxScale ?? 1.5, (H * 0.84) / sh, (W * 0.84) / sw), fw = Math.round(sw * k / 2) * 2, fh = Math.round(sh * k / 2) * 2, B = Math.round(H * 0.012) * 2, bx = (W - fw) / 2 - B / 2, by = (H - fh) / 2 - B / 2;
+  if (FRAME) { const k = Math.min(o.maxScale ?? 1.5, (H * 0.84) / sh, (W * 0.84) / sw), fw = Math.round(sw * k / 2) * 2, fh = Math.round(sh * k / 2) * 2, B = Math.round(H * 0.012) * 2, bx = (W - fw) / 2 - B / 2, by = Math.max(Math.round(H * 0.06), (H - fh) / 2 - B / 2 + (o.oy || 0));   // oy: dời khung lên/xuống (px @1080p) để khung không chạm dải chú thích (chấm mù P6, 16/10)
     fr = { src: [sw, sh], scale: +k.toFixed(3), box: [fw, fh], border: B / 2 };
     const fc = `[0:v]${pre.filter(Boolean).join(',')},split=2[a][b];[b]scale=${W}:${H}:force_original_aspect_ratio=increase,crop=${W}:${H},boxblur=28:2,eq=brightness=-0.20:saturation=0.55,drawbox=x=${bx + 14}:y=${by + 18}:w=${fw + B}:h=${fh + B}:color=black@0.55:t=fill,gblur=sigma=9[bg];`
       + `[a]scale=${fw}:${fh}:flags=lanczos${o.clean ? ',unsharp=5:5:0.45:5:5:0' : ''},pad=${fw + B}:${fh + B}:${B / 2}:${B / 2}:color=${o.border || '#f1e4c6'}[fg];[bg][fg]overlay=${bx}:${by},${post.filter(Boolean).join(',')}[v]`;

@@ -605,7 +605,9 @@ heroes:
       ivtc: true
       lo: 26
       hi: 226
-      maxScale: 1.1
+      maxScale: 1.45
+      crop: 624:456:6:4
+      oy: -110
   r01_days:
     hero: relief/map
     opt:
@@ -1574,12 +1576,12 @@ heroes:
         - 35.497
       - id: s1
         at:
-        - 129.445
-        - 35.49
+        - 129.447
+        - 35.483
       - id: s2
         at:
-        - 129.452
-        - 35.502
+        - 129.466
+        - 35.482
       - id: photo
         at:
         - 129.4
@@ -3525,8 +3527,8 @@ segments:
       places:
       - a: ulsan
         s: Ulsan
+        sub: South Korea
         at: '@shipyard#1'
-        out: '@column'
         side: auto
         prefer:
         - left
@@ -3535,6 +3537,7 @@ segments:
       - a: st:ord
         img: stk:order
         at: '@ordered'
+        out: '@history#2-0.5'
         px: 150
       - a: st:cr1
         img: stk:crane
@@ -3547,10 +3550,12 @@ segments:
       - a: st:photo
         img: stk:document
         at: '@empty'
+        out: '@history#2-0.5'
         px: 120
       - a: st:note
         img: stk:document
         at: '@banknote'
+        out: '@history#2-0.5'
         px: 120
       - a: st:s1
         img: stk:freighter
@@ -3584,6 +3589,8 @@ segments:
       cap:
       - s: 'LORE: one columnist''s account, not a record'
         at: '@lore'
+      - s: 'By Hyundai''s own history: ground broken 1972, yard done 1974'
+        at: '@history#2-0.5'
       src: 'Sources: HD Hyundai history, Korea Times (2010) · Terrain: SRTM'
   - tpl: plate
     at: '@Meanwhile-0.3'
@@ -3654,10 +3661,19 @@ segments:
       hero: r04_abroad
       frame0: 0
       kind: actual
+      places:
+      - a: ulsanx
+        s: Ulsan
+        sub: South Korea
+        at: '@Our#1+0.00'
+        side: auto
+        prefer:
+        - down
+        - left
       tags:
       - a: col:k62
         s: $107
-        sub: '1962'
+        sub: output per person, 1962 (current $)
         kind: null
         num: n_gdp62
         at: '@Our#1+0.20'
