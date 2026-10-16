@@ -1,0 +1,54 @@
+{
+ "lufs_I": -14.0,
+ "true_peak_dbtp": -1.7,
+ "music": "assets/k2/music/Half-Mystery.mp3",
+ "cues": {
+  "note": "Biến cố âm gắn hình đoạn thử gib20 (design/k2v/tl/scenes/gib20.js): mở vịnh 1704; ảnh LoC hiện 8,0 s; mốc đinh 1941 năm dừng 12,1 s; bùng nổ 1946–1995 trong reveal; hiện tại 18,4 s.",
+  "sfx": [
+   {
+    "at": 0.2,
+    "file": "assets/k2/sfx/ship-siren.mp3",
+    "ss": 0.5,
+    "dur": 3.2,
+    "fi": 0.4,
+    "fo": 1.6,
+    "db": -9
+   },
+   {
+    "at": 7.95,
+    "file": "assets/k2/sfx/camera-shutter.mp3",
+    "ss": 0.0,
+    "dur": 0.8,
+    "fi": 0.0,
+    "fo": 0.2,
+    "db": -8
+   },
+   {
+    "at": 15.2,
+    "file": "assets/k2/sfx/building-site.mp3",
+    "ss": 2.0,
+    "dur": 3.6,
+    "fi": 1.0,
+    "fo": 1.2,
+    "db": -11
+   },
+   {
+    "at": 18.0,
+    "file": "assets/k2/sfx/city-traffic.mp3",
+    "ss": 1.0,
+    "dur": 2.0,
+    "fi": 0.8,
+    "fo": 0.6,
+    "db": -12
+   }
+  ],
+  "ticks": [
+   0.1,
+   4.8,
+   12.1
+  ],
+  "booms": [
+   12.1
+  ]
+ }
+}

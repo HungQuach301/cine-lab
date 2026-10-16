@@ -15,7 +15,7 @@ import { loadCube, GRADE_GLSL } from './lut.js';
 
 let C, R, pipe, scene, cam, SC, ctx, outScene, quadCam, txt, stats = {};
 window.setup = async (cfg) => {
-  C = cfg; const T = Object.assign({ lod: true, ao: true, shadowCache: true, spp: 'adaptive', shadowRes: 4096, city: true, trees: true, baked: false, lambert: true }   // baked=false: nhiễu nướng sẵn lặp ô thấy rõ trên mặt biển/bãi trống (khung 1953 lượt 1), lợi chỉ ~3 %, cfg.tech || {}); C.tech = T;
+  C = cfg; const T = Object.assign({ lod: true, ao: true, shadowCache: true, spp: 'adaptive', shadowRes: 4096, city: true, trees: true, baked: false, lambert: true } /* baked: nhiễu nướng sẵn (chống lặp ô) — đo lại 16/10 không nhanh hơn nhiễu thủ tục → tắt mặc định */, cfg.tech || {}); C.tech = T;
   const t0 = performance.now(), base = cfg.pack;
   const M = await loadJSON(base + 'meta.json');
   R = createRenderer(cfg.W, cfg.H); R.shadowMap.type = THREE.PCFSoftShadowMap; R.shadowMap.autoUpdate = !T.shadowCache;
@@ -34,7 +34,8 @@ window.setup = async (cfg) => {
   const terr = await makeTerrain(base, M, U); scene.add(terr.group);
   const ws = makeWaterSky(U, scene.fog); scene.add(ws.water, ws.sky);
   let B = T.city ? await loadJSON(base + 'buildings.json') : [];
-  if (T.copies > 1) { const B0 = B; B = []; for (let k = 0; k < T.copies; k++) for (const b of B0) B.push(k ? [b[0], b[1], b[2], b[3], b[4], b[5], b[6].map(([e, n]) => [e + ((k % 4) - 1.5) * 3000, n + 4500 + Math.floor(k / 4) * 3500])] : b); }   // thử tải: nhân bản toà (đo trần toà/cảnh) const city = makeCity(B, U, { lod: T.lod }); scene.add(city.group);
+  if (T.copies > 1) { const B0 = B; B = []; for (let k = 0; k < T.copies; k++) for (const b of B0) B.push(k ? [b[0], b[1], b[2], b[3], b[4], b[5], b[6].map(([e, n]) => [e + ((k % 4) - 1.5) * 3000, n + 4500 + Math.floor(k / 4) * 3500])] : b); }   /* thử tải: nhân bản toà (đo trần toà/cảnh) */
+  const city = makeCity(B, U, { lod: T.lod }); scene.add(city.group);
   const roads = makeRoads(await loadJSON(base + 'roads.json'), terr.hAt, U); scene.add(roads.mesh);
   const trees = T.trees ? makeTrees(new Float32Array(await (await fetch(base + 'trees.f32')).arrayBuffer()), terr.hAt, U, { lod: T.lod }) : null; if (trees) scene.add(trees.group);
   const heroes = makeHeroes(await loadJSON(base + 'heroes.json'), terr.hAt, U, terr); scene.add(heroes.group);

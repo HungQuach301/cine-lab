@@ -11,7 +11,7 @@ export function makeWaterSky(U, fog) {
     uniforms: { tNoise: { value: noiseTex() }, uBaked: U.uBaked, uSun: sun, uT: U.uT, uFogD: { value: fog.density }, uFogC: { value: fog.color }, uDim: U.uDim, uExp: { value: 1.0 } },
     vertexShader: `varying vec3 vWP; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vWP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
     fragmentShader: `uniform float uT, uFogD, uDim, uBaked; uniform sampler2D tNoise; uniform vec3 uFogC; varying vec3 vWP; ${GLSL_NOISE} ${SKY}
-      float fbmT(vec2 p){ return uBaked > 0.5 ? texture(tNoise, p * 0.25).g : fbm(p); }
+      float fbmT(vec2 p){ if (uBaked < 0.5) return fbm(p); vec2 q = mat2(0.80, -0.60, 0.60, 0.80) * p * 0.173 + 0.37; return 0.6 * texture(tNoise, p * 0.25).g + 0.4 * texture(tNoise, q).a; }
       void main(){ vec3 V = normalize(cameraPosition - vWP); float dist = length(cameraPosition - vWP);
         vec2 p = vWP.xz; float a = smoothstep(4000.0, 200.0, dist);
         vec2 gr = vec2(fbmT(p * 0.045 + vec2(uT * 0.05, 0.0)) - fbmT(p * 0.045 + vec2(0.37, uT * 0.04)), fbmT(p * 0.11 - uT * 0.08) - fbmT(p * 0.11 + 3.1));

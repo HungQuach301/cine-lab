@@ -31,7 +31,7 @@ export async function makeTerrain(base, M, U) {
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
       uniform sampler2D tNat, tUrb, tYears, tAO, tNoise; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked; varying vec3 vWP; varying vec3 vWN;
       ${GLSL_YEAR} ${GLSL_NOISE}
-      float fbmT(vec2 p){ return uBaked > 0.5 ? texture(tNoise, p * 0.25).r : fbm(p); }   // nhiễu nướng sẵn (1 lần lấy mẫu) hoặc thủ tục`)
+      float fbmT(vec2 p){ if (uBaked < 0.5) return fbm(p); vec2 q = mat2(0.80, -0.60, 0.60, 0.80) * p * 0.173 + 0.37; return 0.6 * texture(tNoise, p * 0.25).r + 0.4 * texture(tNoise, q).b; }   // nhiễu nướng sẵn chống lặp ô: 2 mẫu, tỉ lệ không thông ước + xoay miền`)
       .replace('#include <map_fragment>', `
       vec2 guv = vec2((vWP.x - uExt.x) / uExt.z, (-vWP.z - uExt.y) / uExt.w);
       vec4 yv = texture(tYears, guv); float uy = decYear(yv.rg);
