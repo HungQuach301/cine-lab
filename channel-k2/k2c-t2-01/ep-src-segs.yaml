@@ -46,7 +46,7 @@ segments:
                   {a: "col:dpeary", s: "4½ days", sub: "Robert E. Peary (publicity stunt)", kind: null, num: n_peary, at: "@Peary", side: auto, prefer: [right, down], c: "#F2C14E"}],
            src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@photographer-0.8", src_ss: 2, dur: 1.2, gain_db: -20, fade_ms: 60}], at: "@photographer-0.6", in: fade, type: photo, scene_id: loc_fsa_owens, camera_id: push, people: [Josie Lucille Owens], p: {hero: p01_owens, frame0: 0, photo: LOC-FSA-8D18716,
-           side: {at: "@Josie", x0: 0.68, lines: [{s: "Josie Lucille Owens", px: 52, w: 700, disp: true, at: "@Josie"}, {s: "welder trainee · Richmond, Calif. · 1943", px: 38, at: "@trainee"}, {s: "Liberty ship SS George Washington Carver", px: 38, at: "@Carver"}]},
+           side: {at: "@Josie", x0: 0.71, lines: [{s: "Josie Lucille Owens", px: 52, w: 700, disp: true, at: "@Josie"}, {s: "welder trainee · Richmond, Calif. · 1943", px: 38, at: "@trainee"}, {s: "Liberty ship SS George Washington Carver", px: 38, at: "@Carver"}]},
            src: "Photo: E. F. Joseph, OWI, 1943 · Library of Congress"}}
       - {tpl: plate, at: "@four#2-0.3", type: map, scene_id: relief/map, camera_id: t2-01-yards, places: [], p: {hero: r01_yards, frame0: 0, kind: actual,
            stickers: [{a: "st:t1", img: "stk:town", at: "@grew", px: 110}, {a: "st:t2", img: "stk:town", at: "@nearly", px: 125}, {a: "st:t3", img: "stk:town", at: "@1943#2", px: 140}],
