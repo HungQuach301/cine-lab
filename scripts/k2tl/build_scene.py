@@ -73,7 +73,9 @@ def main(name):
     land26c, land87c = clean(land26), clean(land87)
     sea87 = ~land87c; dsea87 = ndimage.distance_transform_edt(~sea87) * STEP
     new = land26c & ~land87c & (dsea87 <= 1.0) | (land26c & ~land87c & (dsm < 20))
-    new = ndimage.binary_opening(new, iterations=1) & land26c
+    new = ndimage.binary_opening(new, iterations=2) & land26c
+    labn, nn_ = ndimage.label(new); szn = ndimage.sum(new, labn, range(1, nn_ + 1)); touch = ndimage.maximum(ndimage.binary_dilation(sea87, iterations=2), labn, range(1, nn_ + 1))
+    new = np.isin(labn, 1 + np.nonzero((szn >= 200) & (touch > 0))[0])   # V5b-1b: khai hoang = mảng ≥ 2 ha giáp biển 1987 (nhựa sân đỗ NIR thấp không phải 'đất mới')
     # năm có đất (bằng chứng sớm nhất): 0 = luôn là đất; 1941 = khai hoang đường băng (đủ năm 1943); 1987; 2026; 9999 = nước
     landY = np.where(land26c, 0, 9999).astype(np.float32)
     westold = west_of(OLD_BAY, X, Y)
@@ -82,6 +84,11 @@ def main(name):
     rw = pre87 & (Y > RUNWAY_RECL_N[0]) & (Y < RUNWAY_RECL_N[1]) & (X > -1400)
     landY[rw] = 1941
     landY[new] = 2026
+    # V5b-1b: vùng "chưa có đất" trước 1941/1987 phải NỐI LIỀN biển (nhiễu Landsat tạo ao lẻ giữa đất liền ở năm cũ — lỗi thấy ở khung 1916)
+    wet = landY != 0; wet = ndimage.binary_opening(wet, iterations=2) | (landY == 9999)
+    lab_w, _ = ndimage.label(wet); sea_id = np.bincount(lab_w[landY == 9999].ravel()).argmax() if (landY == 9999).any() else 0
+    orphan = (landY > 0) & (landY < 9999) & (lab_w != sea_id); landY[orphan] = 0
+    print("đất theo năm: bỏ", int(orphan.sum()), "ô khai hoang không nối biển")
     # ---- toà nhà
     V = json.loads((src / "v_osm.json").read_text()); C = json.loads((src / "v_catastro.json").read_text())
     oldtown = poly_mask(dsm.shape, ext, OLD_TOWN)
@@ -92,7 +99,7 @@ def main(name):
     bmask = raster_polys(dsm.shape, ext, allpolys, np.ones(len(allpolys)), init=0) > 0
     bzone = ndimage.binary_dilation(bmask, iterations=4)
     dtm = dsm.copy(); op = ndimage.grey_opening(dsm, size=(9, 9)); dtm[bzone] = np.minimum(dsm, op)[bzone]
-    dtm = np.where(land26c, np.maximum(dtm, 0.6), np.minimum(dtm, -12.0))   # đáy biển −12 m: mặt nước y = 0 không z-fight ở xa (lỗi lượt 2)
+    dtm = np.where(land26c, np.maximum(dtm, 1.2), np.minimum(dtm, -12.0))   # V5b-1b: đất ≥ 1,2 m (mức LOD thô hạ 0,6 m không chạm mặt nước y = 0)   # đáy biển −12 m: mặt nước y = 0 không z-fight ở xa (lỗi lượt 2)
     dtm = ndimage.gaussian_filter(dtm, 0.8)
     # vùng lõi La Línea c.1900 (ghost): toà Catastro còn đứng xây ≤ 1930 → giãn 60 m, đóng 120 m
     old = [p["p"] for p in C if 0 < p["y"] <= 1930]
@@ -141,7 +148,8 @@ def main(name):
     urbY = raster_polys(dsm.shape, ext, [b[6] for b in B], [b[1] if b[1] else b[0] for b in B], init=9999)
     urbY = ndimage.grey_erosion(urbY, size=(9, 9))   # lan 40 m: nền phố quanh toà
     roads = []
-    WID = dict(trunk=10, primary=9, secondary=8, tertiary=7, residential=6, living_street=5, unclassified=5, service=3.5, pedestrian=5, trunk_link=6, primary_link=6, secondary_link=5, tertiary_link=5)
+    WID = dict(trunk=10, primary=9, secondary=8, tertiary=7, residential=6, living_street=5, unclassified=5, service=3.5, pedestrian=5, trunk_link=6, primary_link=6, secondary_link=5, tertiary_link=5,
+               track=3.0, path=1.8, footway=2.0, steps=2.0, cycleway=2.0)   # V5b-1b: lối mòn/đường bộ (OSM) — vẽ như đất/đá, không vỉa hè
     for r in V["highway"]:
         hw = r["t"].get("highway")
         if hw not in WID or r["t"].get("tunnel") == "yes": continue
@@ -173,7 +181,7 @@ def main(name):
             im = Image.new("L", (W_, H_), 0); ImageDraw.Draw(im).line([((e - e0) / STEP, (n1 - n) / STEP) for e, n in a["p"]], fill=1, width=5); rwl |= np.array(im, bool)
     urbY = np.where(rwl & (urbY > 1941), 1941, urbY)                       # đường băng: 1941 (HMGoG 177/2023)
     urbY = np.where(aer & ~rwl & (urbY > 1987), np.maximum(1987, np.where(landY < 9999, landY, 1987)), urbY)   # sân đỗ/đường lăn/nhà ga: chưa có mốc riêng → 1987 (Landsat)
-    lu_y = ndimage.grey_erosion(np.where(urbY < 9999, urbY, 9999), size=(31, 31))   # khu đất: năm của toà gần nhất trong 150 m
+    lu_y = ndimage.grey_erosion(np.where((urbY < 9999) & ~aer & ~rwl, urbY, 9999), size=(31, 31))   # khu đất: năm của TOÀ gần nhất trong 150 m (V5b-1b: không lấy năm đường băng 1941 → sân bóng hiện đại không hiện năm 1941)
     urbY = np.where(lum & (urbY >= 9999), np.where(lu_y < 9999, lu_y, np.where(landY >= 1987, landY, 1987)), urbY)
     urb26 = (urbY < 9999) | ndimage.binary_dilation(bmask, iterations=2) | aer | lum
     print("aer px", int(aer.sum()), "lum px", int(lum.sum()), "urb26 px", int(urb26.sum())); Image.fromarray((np.stack([urb26, aer, land26c], -1) * 255).astype(np.uint8)).save(src / "dbg_urb26.png")
@@ -187,6 +195,7 @@ def main(name):
     nat = cv2.resize(nat, (W_, H_), interpolation=cv2.INTER_CUBIC)
     nat = np.where(urb26[..., None], nat, tci)
     Image.fromarray(nat).save(out / "ground_nat.jpg", quality=93); Image.fromarray(tci).save(out / "ground_urb.jpg", quality=93)
+    np.savez_compressed(src / "r_state.npz", dtm=dtm.astype(np.float32), landY=landY, urbY=urbY, urb26=urb26, land26=land26c, land87=land87c, lum=lum, aer=aer, rwl=rwl)   # V5b-1b: cho build_classes
     def enc(a):
         a = np.clip(a, 0, 9999).astype(np.uint16); return (a >> 8).astype(np.uint8), (a & 255).astype(np.uint8)
     uh, ul = enc(urbY); lh, ll = enc(landY)
@@ -206,10 +215,15 @@ def main(name):
         T += [e, n, float(rng.uniform(3.0, 8.0)), 0.0]
         if ndvi[::2, ::2][r_, c_] > 0.6: e2, n2 = e + rng.uniform(-8, 8), n + rng.uniform(-8, 8); T += [e2, n2, float(rng.uniform(2.5, 6.0)), 0.0]   # maquis dày: thêm cây con
     for e, n in V["tree"]:
-        T += [e, n, float(rng.uniform(5, 9)), float(min(at(urbY, e, n), 2026))]
+        ly_ = float(at(landY, e, n)); ty = float(min(at(urbY, e, n), 2026))
+        if 0 < ly_ < 9999: ty = max(ty, ly_ + 2)   # V5b-1b: cây trên đất khai hoang không mọc trước khi có đất (lỗi V5b-1: cây "nổi trên biển" năm cũ)
+        if ly_ >= 9999: continue
+        T += [e, n, float(rng.uniform(5, 9)), ty]
     np.array(T, np.float32).tofile(out / "trees.f32")
     # ---- hero: Tower of Homage (OSM 950058970 + 23 m, Ministry for Heritage), tường lâu đài (OSM barrier=city_wall), đường băng (OSM 157316482: 1798 × 45 m)
     H = dict(tower=None, castle_walls=[], runway=None, thresholds=[], citywalls=[])
+    import geo as _g; _O = _g.utm(*S["origin_ll"]); _e, _n = _g.utm(-5.3481492, 36.1556310)   # V5b-1b: trạm biên giới (OSM node 5029266974, barrier=border_control)
+    H["gate"] = [round(float(_e - _O[0]), 1), round(float(_n - _O[1]), 1)]
     for b in V["building"]:
         if b["id"] == "950058970": H["tower"] = dict(p=b["p"][:-1], h=23.0, base=float(min(at(dtm, e, n) for e, n in b["p"])), area_m2=round(area(b["p"][:-1]), 1))
     for w in V["wall"]:
@@ -219,7 +233,7 @@ def main(name):
         if a["id"] == "157316482": H["runway"] = dict(p=a["p"], w=45.0, len_osm=1798)
         if a["t"].get("runway") == "displaced_threshold": H["thresholds"].append(a["p"])
     # ---- tuyến bay thật: Winston Churchill Avenue (gộp các đoạn primary/trunk theo hướng bắc)
-    seg = [r["p"] for r in V["highway"] if r["t"].get("name", "").startswith("Winston Churchill") and r["t"].get("highway") in ("primary", "trunk", "tertiary")]
+    seg = [r["p"] for r in V["highway"] if r["t"].get("name", "").startswith("Winston Churchill") and r["t"].get("highway") in ("primary", "trunk", "tertiary", "secondary", "residential", "unclassified") and r["t"].get("tunnel") != "yes"]   # V5b-1b: gồm đoạn mặt đường qua đường băng (OSM ghi 'residential' — trước đây bị bỏ, tuyến nội suy lệch ~25 m)
     pts = np.array([q for s in seg for q in s]); pts = pts[np.argsort(pts[:, 1])]
     lines = dict(wca=pts.tolist())
     meta = dict(name=name, ext=ext, step_terrain=20.0, terrain_shape=list(t20.shape), ground_shape=[H_, W_], pop=POP, stat=stat,
@@ -232,7 +246,7 @@ def main(name):
     Image.fromarray(dbg).save(src / "dbg_years.png"); print(json.dumps(meta, indent=1)[:1500])
 
 if __name__ == "__main__":
-    a = argparse.ArgumentParser(); a.add_argument("--name", default="gib"); a.add_argument("--ao", action="store_true"); a.add_argument("--far", action="store_true"); o = a.parse_args(); main(o.name)
+    a = argparse.ArgumentParser(); a.add_argument("--name", default="gib"); a.add_argument("--ao", action="store_true"); a.add_argument("--far", action="store_true"); a.add_argument("--cls", action="store_true"); o = a.parse_args(); main(o.name)
 
 def bake_ao(name, res=4.0, box=(-2400, -4800, 1400, 4400)):
     """Nướng sẵn AO tiếp đất của toà theo NĂM (kỹ thuật 'AO tĩnh theo quãng năm'): R = độ tối (0..255), G/B = năm sớm nhất toà gây tối.
@@ -277,3 +291,64 @@ def build_far(name, step=150.0, box=(-22000, -12500, 22000, 26000)):
 
 if __name__ == "__main__" and "--far" in __import__("sys").argv:
     build_far("gib")
+
+# ---------------------------------------------------------------------------------------------------------------------------------
+# V5b-1b · PHÂN LỚP NỀN (cổng 16/10 TRƯỢT: "nền vệ tinh 10 m mờ, loang ở cận/trung cảnh"). Ảnh vệ tinh/NDVI/OSM CHỈ để PHÂN LỚP;
+# terrain.js tô vật liệu thủ tục theo lớp ở < 2 km, vệ tinh chỉ còn cho > 2 km. Ra pack/cls.png (10 m, đọc nearest):
+#   R = lớp TỰ NHIÊN (trạng thái trước đô thị hoá — dùng cho năm < năm đô thị của điểm), G = lớp ĐÔ THỊ 2026,
+#   B = khoảng cách tới biển theo bờ 1987 (m, ≤ 255), A = khoảng cách tới biển theo bờ 2026 (m, ≤ 255).
+# Lớp: 1 cát bãi · 2 cỏ khô · 3 bụi maquis · 4 đá vôi · 5 ruộng/vườn · 6 nhựa · 7 nền lát đô thị · 8 sân thể thao · 9 bãi đỗ
+#      10 bê tông cảng/công nghiệp · 11 đất trống/công trường · 12 cỏ công viên · 13 đồng cỏ (eo đất trước đô thị hoá)
+# Quy tắc (không bịa nội dung: lớp tự nhiên ở vùng nay là đô thị = đồng cỏ/cát theo độ cao + khoảng cách bờ — khớp ảnh LoC 2025710366
+# c.1900 "Neutral ground": đồng cỏ tối có lối mòn sáng, bãi cát dọc bờ — là PHONG CÁCH HOÁ, ghi trong báo cáo).
+CLS = dict(sand=1, dry=2, scrub=3, rock=4, farm=5, asph=6, paved=7, pitch=8, park_=9, port=10, bare=11, lawn=12, meadow=13)
+
+def build_classes(name):
+    src = CACHE / "scene" / name; out = src / "pack"; M = json.loads((src / "meta_rasters.json").read_text()); ext = M["ext"]; e0, n0, e1, n1 = ext
+    Z = np.load(src / "r_state.npz"); dtm, landY, urb26, land26, land87 = Z["dtm"], Z["landY"], Z["urb26"], Z["land26"], Z["land87"]
+    ndvi = np.load(src / "r_ndvi.npy"); tci = np.load(src / "r_s2tci.npy"); H_, W_ = dtm.shape
+    X, Y = np.meshgrid(np.arange(e0, e1 + 1e-6, STEP), np.arange(n1, n0 - 1e-6, -STEP))
+    gy_, gx_ = np.gradient(dtm, STEP); slope = np.degrees(np.arctan(np.hypot(gx_, gy_)))
+    d26 = ndimage.distance_transform_edt(land26) * STEP; d87 = ndimage.distance_transform_edt(land87 | (landY == 0) & land26) * STEP
+    bright = tci.mean(-1)
+    V = json.loads((src / "v_osm.json").read_text())
+    def burn(pred):
+        P = [a["p"] for a in V["area"] if pred(a["t"])]; return raster_polys(dtm.shape, ext, P, np.ones(len(P))) > 0 if P else np.zeros(dtm.shape, bool)
+    o_beach = burn(lambda t: t.get("natural") in ("beach", "sand")); o_rock = burn(lambda t: t.get("natural") in ("bare_rock", "cliff", "scree"))
+    o_scrub = burn(lambda t: t.get("natural") in ("scrub", "heath", "wood") or t.get("landuse") == "forest")
+    o_farm = burn(lambda t: t.get("landuse") in ("farmland", "orchard", "allotments", "farmyard", "vineyard"))
+    o_pitch = burn(lambda t: t.get("leisure") in ("pitch", "stadium", "sports_centre", "track"))
+    o_park = burn(lambda t: t.get("amenity") == "parking" or t.get("landuse") == "garages")
+    o_port = burn(lambda t: t.get("landuse") in ("industrial", "port", "railway", "landfill") or t.get("leisure") == "marina")
+    o_bare = burn(lambda t: t.get("landuse") in ("construction", "brownfield", "greenfield"))
+    o_lawn = burn(lambda t: t.get("landuse") in ("grass", "recreation_ground", "cemetery", "village_green") or t.get("leisure") in ("park", "garden", "playground"))
+    o_meadow = burn(lambda t: t.get("landuse") == "meadow" or t.get("natural") == "grassland")
+    rock_zone = (dtm > 25) | (slope > 12)
+    o_mil = burn(lambda t: t.get("landuse") == "military"); bz = Z["urbY"] < 9999   # gần toà (≤ 40 m): khu quân sự trống (Upper Rock) KHÔNG coi là phố
+    urb26 = urb26 & ~(o_mil & ~bz)
+    # ---- lớp tự nhiên (mọi điểm đất)
+    nat = np.full(dtm.shape, CLS["meadow"], np.uint8)
+    nat[(ndvi < 0.30) & ~rock_zone] = CLS["dry"]
+    nat[rock_zone & (ndvi >= 0.36)] = CLS["scrub"]; nat[rock_zone & (ndvi >= 0.22) & (ndvi < 0.36)] = CLS["dry"]
+    nat[rock_zone & (ndvi < 0.22)] = CLS["rock"]; nat[(slope > 38) | o_rock] = CLS["rock"]; nat[o_scrub & (slope <= 38)] = CLS["scrub"]
+    nat[~rock_zone & (ndvi >= 0.5) & ~urb26] = CLS["scrub"]
+    nat[urb26 & ~rock_zone] = CLS["meadow"]; nat[bz & rock_zone & (slope <= 38)] = CLS["dry"]   # sườn nay là phố: NDVI thấp do mái nhà, không phải đá   # nay là đô thị, đất thấp: đồng cỏ (ảnh LoC c.1900) — shader xen cỏ khô theo nhiễu
+    sandy = (~rock_zone) & ((d87 <= 45) | (d26 <= 45) & (landY == 0)) | o_beach
+    nat[sandy] = CLS["sand"]; nat[(landY >= 1987) & (landY < 9999)] = CLS["bare"]   # đất khai hoang: nền đổ, trống
+    nat[o_farm] = CLS["farm"]
+    # ---- lớp đô thị 2026
+    urb = nat.copy(); u = urb26 & land26
+    urb[u] = CLS["paved"]; urb[u & (ndvi > 0.42)] = CLS["lawn"]
+    for k, m in (("lawn", o_lawn), ("bare", o_bare), ("port", o_port), ("park_", o_park), ("pitch", o_pitch)): urb[m & land26] = CLS[k]
+    urb[Z["aer"] & land26] = CLS["asph"]; urb[o_beach] = CLS["sand"]
+    urb[~u & ~(o_lawn | o_pitch | o_park | o_port | o_bare)] = nat[~u & ~(o_lawn | o_pitch | o_park | o_port | o_bare)]
+    nat[~land26 & ~land87] = 0; urb[~land26] = 0
+    img = np.stack([nat, urb, np.clip(d87, 0, 255).astype(np.uint8), np.clip(d26, 0, 255).astype(np.uint8)], -1)
+    Image.fromarray(img, "RGBA").save(out / "cls.png")
+    pal = np.array([[30, 60, 110], [230, 210, 160], [180, 170, 100], [60, 100, 40], [200, 195, 180], [170, 140, 70], [60, 60, 65], [170, 165, 155], [60, 150, 60], [90, 90, 100], [140, 140, 140], [150, 110, 80], [90, 170, 80], [130, 150, 70]], np.uint8)
+    Image.fromarray(np.concatenate([pal[nat], pal[urb]], 1)).save(src / "dbg_cls.png")
+    cnt = {k: [int((nat == v).sum()), int((urb == v).sum())] for k, v in CLS.items()}
+    Mp = json.loads((out / "meta.json").read_text()); Mp["cls"] = dict(names=CLS, count_nat_urb=cnt); (out / "meta.json").write_text(json.dumps(Mp, indent=1)); print("cls", cnt)
+
+if __name__ == "__main__" and "--cls" in __import__("sys").argv:
+    build_classes("gib")

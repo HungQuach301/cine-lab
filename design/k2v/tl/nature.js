@@ -4,10 +4,11 @@
 import { THREE, rng } from './core.js';
 const TT = 600;
 export function makeTrees(T, hAt, U, { lod = true } = {}) {
-  const geo = (() => { const c = new THREE.IcosahedronGeometry(1, U.treeDetail ?? 0); c.scale(0.9, 0.75, 0.9); c.translate(0, 1.15, 0);   // tán 20 mặt (chi tiết 1 = 80 mặt: đo V5b-1)
+  const geo = (() => { const c = new THREE.IcosahedronGeometry(1, U.treeDetail ?? 1); c.scale(0.9, 0.75, 0.9); c.translate(0, 1.15, 0);   // V5b-1b: tán 80 mặt, đỉnh xô lệch (không tròn đều) + sáng ngọn / tối gốc tán
+    { const a = c.attributes.position; for (let i = 0; i < a.count; i++) { const x = a.getX(i), y = a.getY(i), z = a.getZ(i), h = Math.sin(x * 12.9898 + y * 78.233 + z * 37.719) * 43758.5453, k = 0.82 + 0.3 * (h - Math.floor(h)); a.setXYZ(i, x * k, 1.15 + (y - 1.15) * k, z * k); } c.computeVertexNormals(); }
     const t = new THREE.CylinderGeometry(0.09, 0.12, 0.6, 4, 1, true); t.translate(0, 0.3, 0);
     const P = [], N = [], C = [];
-    for (const [g, col] of [[c, [1, 1, 1]], [t, [0.42, 0.33, 0.24]]]) { const gg = g.toNonIndexed(); P.push(...gg.attributes.position.array); N.push(...gg.attributes.normal.array); for (let i = 0; i < gg.attributes.position.count; i++) C.push(...col); }
+    for (const [g, col] of [[c, null], [t, [0.42, 0.33, 0.24]]]) { const gg = g.toNonIndexed(); P.push(...gg.attributes.position.array); N.push(...gg.attributes.normal.array); for (let i = 0; i < gg.attributes.position.count; i++) { const y = gg.attributes.position.getY(i); const k = col ? 1 : 0.62 + 0.5 * Math.max(0, Math.min(1, (y - 0.5) / 1.4)); C.push(...(col || [k, k, k * 0.95])); } }
     const G = new THREE.BufferGeometry(); G.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); G.setAttribute('normal', new THREE.Float32BufferAttribute(N, 3)); G.setAttribute('color', new THREE.Float32BufferAttribute(C, 3)); return G; })();
   const mat = U.lambert ? new THREE.MeshLambertMaterial({ vertexColors: true }) : new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9 });
   mat.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim });
@@ -38,24 +39,32 @@ export function makeRoads(roads, hAt, U) {
     const Y = Array.isArray(r.y) ? r.y : r.p.map(() => r.y), pts = [], py = [];   // năm theo từng đỉnh (build_scene.py)
     for (let i = 0; i < r.p.length - 1; i++) { const [a, b] = [r.p[i], r.p[i + 1]], l = Math.hypot(b[0] - a[0], b[1] - a[1]), n = Math.max(1, Math.ceil(l / 12));
       for (let k = 0; k < n; k++) { pts.push([a[0] + (b[0] - a[0]) * k / n, a[1] + (b[1] - a[1]) * k / n]); py.push(Math.max(Y[i], Y[i + 1])); } } pts.push(r.p[r.p.length - 1]); py.push(Y[Y.length - 1]);
-    const hw = r.w / 2, cls = { trunk: 1, primary: 1, secondary: 1, tertiary: 0.8, pedestrian: 0.3, service: 0.5 }[r.c] ?? 0.6;
+    const cls = { trunk: 1, primary: 1, secondary: 1, tertiary: 0.8, pedestrian: 0.3, service: 0.5, path: 0.1, track: 0.12, footway: 0.15, steps: 0.15, cycleway: 0.15 }[r.c] ?? 0.6;
+    const sw = cls >= 0.6 ? 2.2 : 0, hw = r.w / 2 + sw, inner = (r.w / 2) / hw;   // V5b-1b: vỉa hè 2,2 m mỗi bên cho đường phố (shader: lát + bó vỉa)
     for (let i = 0; i < pts.length - 1; i++) { const [a, b] = [pts[i], pts[i + 1]], dx = b[0] - a[0], dn = b[1] - a[1], l = Math.hypot(dx, dn) || 1, ox = -dn / l * hw, on = dx / l * hw;
-      const yy = py[i], v = (e, n, s) => { P.push(e, Math.max(hAt(e, n), 0.2) + 0.25, -n); A.push(yy, cls, s); };
+      const yy = py[i], v = (e, n, s) => { P.push(e, Math.max(hAt(e, n), 0.2) + 0.25, -n); A.push(yy, cls, s, inner); };
       const q = [[a[0] + ox, a[1] + on, 1], [a[0] - ox, a[1] - on, -1], [b[0] + ox, b[1] + on, 1], [b[0] - ox, b[1] - on, -1]];
       for (const k of [0, 1, 2, 2, 1, 3]) v(...q[k]); }
   }
-  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('aRd', new THREE.Float32BufferAttribute(A, 3)); g.computeVertexNormals();
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('aRd', new THREE.Float32BufferAttribute(A, 4)); g.computeVertexNormals();
   const n = new Float32Array(P.length); for (let i = 1; i < n.length; i += 3) n[i] = 1; g.setAttribute('normal', new THREE.BufferAttribute(n, 3));
   const mat = (U.lambert ? new THREE.MeshLambertMaterial({ color: 0xffffff, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }) : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.92, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }));
   mat.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim });
-    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute vec3 aRd; varying vec3 vRd; varying vec3 vWP2;').replace('#include <begin_vertex>', '#include <begin_vertex>\n vRd = aRd; vWP2 = (modelMatrix * vec4(transformed,1.0)).xyz;');
-    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uYear, uDim; varying vec3 vRd; varying vec3 vWP2;')
+    sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute vec4 aRd; varying vec4 vRd; varying vec3 vWP2;').replace('#include <begin_vertex>', '#include <begin_vertex>\n vRd = aRd; vWP2 = (modelMatrix * vec4(transformed,1.0)).xyz;');
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uYear, uDim; varying vec4 vRd; varying vec3 vWP2;')
       .replace('#include <color_fragment>', `#include <color_fragment>
       float a = smoothstep(vRd.x - 1.0, vRd.x, uYear); if (a < 0.02) discard;
       vec3 dirt = vec3(0.70, 0.63, 0.50), asph = mix(vec3(0.30, 0.31, 0.33), vec3(0.55, 0.53, 0.50), 1.0 - vRd.y);
       vec3 c = mix(dirt, asph, smoothstep(1935.0, 1950.0, uYear));
-      float edge = smoothstep(0.80, 0.92, abs(vRd.z)) * step(0.7, vRd.y) * smoothstep(1955.0, 1965.0, uYear);   // vạch mép đường chính
+      float az = abs(vRd.z), rz = az / max(vRd.w, 0.01);   // rz: 0 tim → 1 mép lòng đường
+      float edge = smoothstep(0.80, 0.92, rz) * step(rz, 1.0) * step(0.7, vRd.y) * smoothstep(1955.0, 1965.0, uYear);   // vạch mép đường chính
       c = mix(c, vec3(0.82, 0.82, 0.80), edge * 0.6);
+      c *= 0.92 + 0.12 * fract(sin(dot(floor(vWP2.xz * 1.3), vec2(12.9898, 78.233))) * 43758.5453) * (1.0 - smoothstep(200.0, 600.0, length(vWP2 - cameraPosition)));   // đá dăm / vá
+      if (vRd.y < 0.2) c = mix(vec3(0.74, 0.68, 0.55), vec3(0.80, 0.77, 0.70), step(0.14, vRd.y) * smoothstep(1950.0, 1970.0, uYear));   // lối mòn đất / lối lát
+      if (rz > 1.0 && vRd.w < 0.999) {   // vỉa hè: lát gạch 0,6 m + bó vỉa tối (sau 1900; trước đó lề đất)
+        vec2 q = abs(fract(vWP2.xz / 0.6) - 0.5); float jn = step(0.45, max(q.x, q.y)) * (1.0 - smoothstep(80.0, 300.0, length(vWP2 - cameraPosition)));
+        vec3 sw = vec3(0.78, 0.76, 0.72) * (1.0 - 0.08 * jn); sw = mix(sw, vec3(0.45, 0.45, 0.46), 1.0 - smoothstep(1.0, 1.06, rz));
+        c = mix(dirt * 0.95, sw, smoothstep(1895.0, 1910.0, uYear)); }
       float L = dot(c, vec3(0.299,0.587,0.114)); c = mix(c, vec3(L), 0.55*uDim) * (1.0 - 0.36*uDim);
       diffuseColor.rgb = c; diffuseColor.a = a;`); };
   mat.transparent = true; mat.depthWrite = false;

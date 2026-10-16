@@ -11,24 +11,30 @@ export async function build(ctx) {
   const raw = lines.wca, bins = new Map(); for (const [e, n] of raw) { const k = Math.round(n / 20); if (!bins.has(k)) bins.set(k, []); bins.get(k).push(e); }
   const WCA = [...bins.entries()].sort((a, b) => a[0] - b[0]).map(([k, es]) => [es.reduce((s, v) => s + v, 0) / es.length, k * 20]);
   const TW = heroes.towerC, TOP = heroes.towerTop;
-  const year = track([[0, 1704], [3.5, 1757], [7.0, 1850], [7.8, 1875], [10.8, 1932], [12.1, 1941], [14.0, 1941], [14.5, 1946], [17.6, 1995], [18.9, 2026], [20, 2026]]);
+  // V5b-1b (cổng 16/10 TRƯỢT: khung trống, quét 226 °/s): máy nhìn vào NỘI DUNG (phố trong tường + tàu, tháp + phố cổ, La Línea, giao lộ + phố),
+  // ống kính dài hơn ở đoạn bay tuyến/mốc đinh (nén phố), tốc độ góc ≤ 90 °/s (đo campath.json). Năm 7,0 s = 1882 (cận tháp thấy phố sườn tây mốc 1880 mọc quanh lâu đài), 7,8 s = 1895 để đoạn bay thấy La Línea c.1900.
+  const year = track([[0, 1704], [3.5, 1757], [6.2, 1850], [7.0, 1882], [7.8, 1895], [10.8, 1932], [12.1, 1941], [14.0, 1941], [14.5, 1946], [17.6, 1995], [18.9, 2026], [20, 2026]]);
+  const LL = [320, 15, 1650];   // tâm nhìn La Línea
+  const flight = alongLine(WCA, { s0: 25, s1: 400, t0: 7.8, t1: 10.8, h: [300, 270], look: 260, dip: 32, dt: 0.2, hAt }).map((k, i, A) => {
+    const u = i / (A.length - 1), d = [LL[0] - k.p[0], LL[2] - 200 * u - k.p[2]], dl = Math.hypot(...d), r = 520;   // nhìn về La Línea, điểm nhìn cách máy 520 m (tiếp tuyến Hermite êm)
+    return Object.assign(k, { l: [k.p[0] + d[0] / dl * r, k.p[1] - 0.25 * r, k.p[2] + d[1] / dl * r], fov: 21 }); });
   const keys = [
-    { t: 0.0, p: [1950, 1150, 3300], l: [-260, 120, -1300] },
-    { t: 1.6, p: [1650, 960, 2500], l: [-240, 120, -1250] },
-    { t: 3.2, p: [1200, 740, 1550], l: [-220, 110, -1150] },
-    { t: 4.8, p: [380, 470, 280], l: [-170, 100, -900] },
-    { t: 6.0, p: [-420, 260, -420], l: [TW[0], 100, TW[1]] },
-    { t: 7.0, p: [TW[0] - 120, 150, TW[1] + 45], l: [TW[0], 103, TW[1]] },
-    { t: 7.4, p: [TW[0] - 95, 135, TW[1] + 110], l: [TW[0] + 30, 75, TW[1] + 220] },
-    ...alongLine(WCA, { s0: 60, s1: 770, t0: 7.8, t1: 10.8, h: [55, 70], look: 260, dip: 32, dt: 0.2, hAt }),
-    { t: 11.2, p: [125, 135, 425], l: [60, 25, 900] },     // ngẩng lên: La Línea đang mọc phía trước
-    { t: 11.6, p: [175, 150, 430], l: [-80, 20, 520] },    // quét trái qua mép phố về phía giao lộ (không quét ra biển)
-    { t: 12.2, p: [250, 165, 300], l: [-250, 10, -10] },
-    { t: 13.2, p: [380, 190, 90], l: [-250, 10, -10] },
-    { t: 14.4, p: [430, 240, -160], l: [-240, 10, -20] },
-    { t: 16.5, p: [1050, 800, 1500], l: [-260, 40, -700] },
-    { t: 18.6, p: [1850, 1850, 4200], l: [-300, 80, -950] },
-    { t: 20.0, p: [2050, 2150, 4950], l: [-300, 80, -1000] },
+    { t: 0.0, p: [-1650, 470, -1700], l: [-430, 60, -1180], fov: 30 },
+    { t: 1.6, p: [-1450, 430, -1480], l: [-420, 62, -1150], fov: 30 },
+    { t: 3.2, p: [-1200, 380, -1300], l: [-380, 70, -1090], fov: 32 },
+    { t: 4.8, p: [-780, 330, -1300], l: [-220, 92, -930], fov: 35 },
+    { t: 6.0, p: [-360, 215, -1170], l: [-140, 98, -850], fov: 35 },
+    { t: 7.0, p: [-200, 165, -1010], l: [-130, 98, -825], fov: 36 },
+    { t: 7.4, p: [-245, 190, -800], l: [-110, 90, -480], fov: 33 },
+    ...flight,
+    { t: 11.5, p: [-190, 170, -330], l: [30, 5, 260], fov: 26 },
+    { t: 12.3, p: [-150, 76, -235], l: [20, 2, 200], fov: 26 },   // MỐC ĐINH: chéo qua đường băng + hàng xe ở chắn, La Línea phía sau
+    { t: 13.2, p: [-120, 72, -248], l: [22, 2, 205], fov: 26 },
+    { t: 14.1, p: [-85, 85, -265], l: [25, 4, 215], fov: 26 },
+    { t: 15.0, p: [10, 420, -800], l: [20, 10, 420], fov: 27 },
+    { t: 16.5, p: [-900, 1100, -1300], l: [-80, 0, 500], fov: 30 },
+    { t: 18.6, p: [-2500, 2050, -250], l: [-150, 0, 300], fov: 33 },
+    { t: 20.0, p: [-2750, 2200, 50], l: [-150, 0, 350], fov: 33 },
   ];
   const path = makeCamPath(keys);
   const CEN = [0, 4, 0];   // giao lộ đường băng × đường (gốc toạ độ)
@@ -38,8 +44,8 @@ export async function build(ctx) {
   const pinK = (t) => ease((t - 12.0) / 0.35) * ease((14.3 - t) / 0.4);
   function state(t) {
     const y = year(t), c = path.at(t), pk = pinK(t);
-    let spp = 2; if ((t > 6.3 && t < 7.6) || (t > 12.0 && t < 14.3)) spp = 4; if (t > 7.9 && t < 10.9) spp = 1;   // SPP cao ở cận hero/mốc đinh, thấp khi bay nhanh dọc tuyến
-    return { year: y, cam: c, spp, dim: pk, pin: pk, pinZoom: ease((t - 12.1) / 0.3) * ease((14.0 - t) / 0.35) };
+    let spp = 2; if ((t > 6.3 && t < 7.3) || (t > 12.0 && t < 14.3)) spp = 4; if (t > 7.9 && t < 10.9) spp = 1;   // SPP cao ở cận hero/mốc đinh, thấp khi bay nhanh dọc tuyến
+    return { year: y, cam: c, spp, dim: pk * 0.45, pin: pk, pinZoom: ease((t - 12.1) / 0.3) * ease((14.0 - t) / 0.35) };
   }
   function apply(st, t) {
     heroes.hi.runway.value = st.pin; heroes.rwFrame.visible = st.pin > 0.01; heroes.rwFrameMat.opacity = 0.85 * st.pin; heroes.update(st.year);
@@ -55,8 +61,9 @@ export async function build(ctx) {
     T.card(t, [0.1, 3.1], '1704 · British and Dutch forces capture Gibraltar', 'Gibraltar National Museum', null);
     T.tag(t, [3.3, 4.7], 'reconstructed from LoC print, 1705', proj(V([-450, 30, -1150])));
     T.card(t, [4.8, 7.9], 'Tower of Homage · stands 23 metres tall', 'Ministry for Heritage, Gibraltar', proj(TOP));
-    T.photo(t, [8.0, 11.0], ctx.photo, 'c. 1900 · The neutral ground, before the runway', 'V.B. Cumbo · LoC · pale blocks: reconstructed', proj(V([15, 3, 260])));
-    T.card(t, [12.1, 15.2], '1941 · A runway is built across the only road', 'HM Government of Gibraltar, 2023', proj(V([-150, 6, -10])));
+    T.tag(t, [6.7, 7.7], 'reconstructed from LoC photo, 1860–80', proj(V([-330, 60, -960])));
+    T.photo(t, [8.0, 11.0], ctx.photo, 'c. 1900 · The neutral ground, before the runway', 'V.B. Cumbo · LoC · muted houses: reconstructed', proj(V([15, 3, 260])));
+    T.card(t, [12.1, 15.2], '1941 · A runway is built across the only road', 'HM Government of Gibraltar, 2023', proj(V([-45, 5, -4])));
   }
   return { N, fps, state, apply, overlay, path, year, wca: WCA,
     camLog: () => Object.assign(camLog(path, N, fps, year, { line: WCA, focus: { tower: [TW[0], 100, TW[1]], crossing: CEN } }), { wca_len_m: lineLen(WCA) }),

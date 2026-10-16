@@ -9,17 +9,23 @@ import { walls, roof } from './geom.js';
 import { GLSL_LAND } from './terrain.js';
 
 const TAPIA = `${GLSL_NOISE}
+uniform float uYearH;
 vec3 tapia(vec3 wp, vec3 n, float ly){ vec3 c = vec3(0.80, 0.62, 0.42);   // tapia: vữa vôi + cát đỏ, gạch gốm nghiền (ấm, đất)
+  float age = 0.35 + 0.65 * smoothstep(1700.0, 2026.0, uYearH);   // V5b-1b: loang theo NĂM (vệt mưa, rêu chân tường đậm dần)
+  c *= 0.94 + 0.12 * step(0.5, fract(floor(ly / 0.85) * 0.37 + floor((abs(n.x) > abs(n.z) ? wp.z : wp.x) / 3.2) * 0.21));   // mỗi mẻ đầm một tông (lớp có lớp)
   float course = smoothstep(0.0, 0.05, abs(fract(ly / 0.85) - 0.5) - 0.42);   // vạch giữa các lớp đầm
   c *= 1.0 - 0.22 * course; float u = abs(n.x) > abs(n.z) ? wp.z : wp.x;
   vec2 pl = vec2(fract(u / 1.6), fract(ly / 0.85)); float hole = step(0.47, pl.x) * step(pl.x, 0.53) * step(0.03, pl.y) * step(pl.y, 0.14);
   c *= 1.0 - 0.35 * hole; c *= 0.86 + 0.20 * fbm(vec2(u * 0.35, ly * 0.9)); c *= 0.82 + 0.18 * smoothstep(0.0, 6.0, ly);
-  c = mix(c, c * vec3(0.85, 0.83, 0.80), smoothstep(0.55, 0.9, fbm(vec2(u * 0.08, ly * 0.04 + 3.0))));   // vệt mưa
+  c = mix(c, c * vec3(0.78, 0.76, 0.72), age * smoothstep(0.45, 0.9, fbm(vec2(u * 0.35, ly * 0.03 + 3.0))));   // vệt mưa chảy dọc
+  c = mix(c, vec3(0.42, 0.44, 0.30), age * 0.35 * (1.0 - smoothstep(0.0, 2.5, ly)) * smoothstep(0.4, 0.7, fbm(vec2(u * 0.5, ly))));   // rêu/ẩm chân tường
+  c = mix(c, vec3(0.86, 0.74, 0.58), step(1995.0, uYearH) * 0.5 * smoothstep(0.66, 0.72, fbm(vec2(u * 0.05 + 11.0, ly * 0.05))));   // mảng trát tu bổ (sau 1995, tông nhạt)
   return c; }`;
 
 function stoneMat(U, hiU, kind) {
   const m = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.93 });
-  m.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uDim: U.uDim, uHi: hiU });
+  m.customProgramCacheKey = () => 'tl-stone-' + kind;   // V5b-1b: 'lime' và 'tapia' cùng mã nguồn onBeforeCompile → phải khác khoá, nếu không three dùng chung một shader
+  m.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uDim: U.uDim, uHi: hiU, uYearH: U.uYear });
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute float aLY; varying float vLY; varying vec3 vWPh; varying vec3 vWNh;')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\n vLY = aLY; vWPh = (modelMatrix * vec4(transformed,1.0)).xyz; vWNh = normalize(mat3(modelMatrix) * objectNormal);');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>\nuniform float uDim, uHi; varying float vLY; varying vec3 vWPh; varying vec3 vWNh; ${TAPIA}`)
@@ -41,9 +47,31 @@ function box(A, cx, cy, cz, w, h, d, rot) {   // hộp đặc (răng cưa, chắ
   for (const [n, q] of F) { const nn = [n[0] * c - n[2] * s, n[1], n[0] * s + n[2] * c], P = q.map(([x, y, z]) => V(x * w, y * h + h / 2, z * d));
     for (const k of [0, 1, 2, 0, 2, 3]) { A.p.push(...P[k]); A.n.push(...nn); A.l.push(P[k][1] - cy); } }
 }
-function crenel(A, ring, h, base, step = 2.2, mw = 1.1, mh = 1.6, md = 0.9) {   // răng cưa dọc mép đỉnh tường
+function pyr(A, cx, cy, cz, w, d, h, rot) {   // mũ chóp răng cưa kiểu Moor (4 tam giác, hướng ra ngoài)
+  const c = Math.cos(rot), s = Math.sin(rot), V = (x, z) => [cx + x * c - z * s, cy, cz + x * s + z * c], T = [cx, cy + h, cz];
+  const Q = [V(-w / 2, -d / 2), V(w / 2, -d / 2), V(w / 2, d / 2), V(-w / 2, d / 2)];
+  for (let i = 0; i < 4; i++) { const a = Q[i], b = Q[(i + 1) % 4], m = [(a[0] + b[0]) / 2 - cx, 0.0, (a[2] + b[2]) / 2 - cz];
+    const u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], v = [T[0] - a[0], T[1] - a[1], T[2] - a[2]]; let n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]];
+    let P = [a, b, T]; if (n[0] * m[0] + n[2] * m[2] < 0) { P = [a, T, b]; n = n.map((x) => -x); } const l = Math.hypot(...n) || 1;
+    for (const q of P) { A.p.push(...q); A.n.push(n[0] / l, n[1] / l, n[2] / l); A.l.push(q[1] - cy + 20); } }
+}
+function crenel(A, ring, h, base, step = 2.2, mw = 1.1, mh = 1.6, md = 0.9, cap = 0) {   // răng cưa dọc mép đỉnh tường (cap > 0: mũ chóp)
   for (let i = 0; i < ring.length - 1; i++) { const [a, b] = [ring[i], ring[i + 1]], l = Math.hypot(b[0] - a[0], b[1] - a[1]), rot = Math.atan2(-(b[1] - a[1]), b[0] - a[0]);
-    for (let s = step / 2; s < l; s += step) { const u = s / l; box(A, a[0] + (b[0] - a[0]) * u, base + h, -(a[1] + (b[1] - a[1]) * u), mw, mh, md, rot); } }
+    for (let s = step / 2; s < l; s += step) { const u = s / l, x = a[0] + (b[0] - a[0]) * u, z = -(a[1] + (b[1] - a[1]) * u); box(A, x, base + h, z, mw, mh, md, rot); if (cap) pyr(A, x, base + h + mh, z, mw, md, cap, rot); } }
+}
+// vòng nở ra ngoài d m (giao tuyến hai cạnh dịch — đủ cho vòng gần lồi)
+function offsetRing(r, d) { const n = r.length, sa = r.reduce((s, p, i) => s + p[0] * r[(i + 1) % n][1] - r[(i + 1) % n][0] * p[1], 0) > 0 ? 1 : -1;
+  return r.map((p, i) => { const a = r[(i + n - 1) % n], b = r[(i + 1) % n], e1 = [p[0] - a[0], p[1] - a[1]], e2 = [b[0] - p[0], b[1] - p[1]], l1 = Math.hypot(...e1) || 1, l2 = Math.hypot(...e2) || 1;
+    const n1 = [e1[1] / l1 * sa, -e1[0] / l1 * sa], n2 = [e2[1] / l2 * sa, -e2[0] / l2 * sa], m = [n1[0] + n2[0], n1[1] + n2[1]], ml = Math.max(0.5, (m[0] * n1[0] + m[1] * n1[1]));
+    return [p[0] + m[0] / ml * d, p[1] + m[1] / ml * d]; }); }
+// ô cửa vòm trên mặt tường: lõi tối + vòm bậc (xấp xỉ bán nguyệt) + viền đá sáng nhô; s dọc cạnh (m), y cao (m, tính từ chân), w × hh ô
+function archOpening(D, F, a, b, base, s, y, w, hh, proud = 0.12) {
+  const l = Math.hypot(b[0] - a[0], b[1] - a[1]), u = s / l, dx = (b[0] - a[0]) / l, dn = (b[1] - a[1]) / l, on = [dn, -dx], rot = Math.atan2(-(b[1] - a[1]), b[0] - a[0]);
+  const at = (o) => [a[0] + (b[0] - a[0]) * u + on[0] * o, a[1] + (b[1] - a[1]) * u + on[1] * o];
+  const [e1, n1] = at(proud * 0.5), [e2, n2] = at(proud * 0.35);
+  box(F, e2, base + y - 0.25, -n2, w + 0.7, hh + 0.25, proud * 0.7, rot);   // viền + bậu
+  box(D, e1, base + y, -n1, w, hh, proud, rot);
+  [0.96, 0.86, 0.68, 0.40].forEach((k, i) => { box(F, e2, base + y + hh + i * w * 0.13, -n2, (w + 0.7) * Math.max(k, 0.5) + 0.0, w * 0.13 + 0.05, proud * 0.7, rot); box(D, e1, base + y + hh + i * w * 0.12, -n1, w * k, w * 0.12, proud, rot); });
 }
 function wallLine(A, pts, hAt, h, thick) {   // tường dạng tuyến: dải hai mặt + đỉnh, chân bám địa hình
   for (let i = 0; i < pts.length - 1; i++) { const [a, b] = [pts[i], pts[i + 1]], l = Math.hypot(b[0] - a[0], b[1] - a[1]); if (l < 0.5) continue;
@@ -51,14 +79,38 @@ function wallLine(A, pts, hAt, h, thick) {   // tường dạng tuyến: dải h
     const n = Math.max(1, Math.round(l / 6)); for (let k = 0; k < n; k++) { const u = (k + 0.5) / n; box(A, a[0] + (b[0] - a[0]) * u, ha + (hb - ha) * u, -(a[1] + (b[1] - a[1]) * u), l / n + 0.3, h + 1.0, thick, rot); } }
 }
 
-export function makeHeroes(H, hAt, U, terr) {
+export function makeHeroes(H, hAt, U, terr, lines) {
   const group = new THREE.Group(), out = { group, hi: { tower: { value: 0 }, runway: { value: 0 } } };
   // ---- Tower of Homage + tường lâu đài
   const T = acc(), tw = H.tower; const base = tw.base - 1.5, ring = tw.p;
   walls(ring, tw.h + 1.5, push(T, base)); roof(ring, tw.h + 1.5, 0, (r) => THREE.ShapeUtils.triangulateShape(r.map(([x, y]) => new THREE.Vector2(x, y)), []), push(T, base));
-  crenel(T, ring.concat([ring[0]]), tw.h + 1.5, base);
-  const CW = acc(); for (const w of H.castle_walls) { wallLine(CW, w, hAt, 8.0, 2.2); }
+  const CW = acc(); for (const w of H.castle_walls) { wallLine(CW, w, hAt, 8.0, 2.2); for (let i = 0; i < w.length - 1; i++) { const a = w[i], b = w[i + 1], ha = Math.max(hAt(...a), 0.5) - 1.0 + 9.0;   // răng cưa dọc tường lâu đài
+      crenel(CW, [a, b], 0, ha, 2.4, 1.0, 1.2, 1.0, 0.0); } }
+  // V5b-1b · ĐẶC ĐIỂM NHẬN DIỆN (cổng 16/10: "hero khối + khe") — dựng bằng HÌNH HỌC, số đo ƯỚC theo ảnh tài sản công (heroes/tower-of-homage.json):
+  //  (1) chân tường choãi (talus) 2,5 m · (2) bậc thềm + cửa vào vòm mặt tây · (3) cửa sổ vòm hai tầng trên mỗi mặt dài · (4) răng cưa đúng nhịp 2,2 m có MŨ CHÓP kiểu Moor
+  //  (5) gờ đá dưới tường chắn + sàn đỉnh có lầu cầu thang · (6) tường lâu đài có THÁP GÓC ở chỗ gãy khúc (≥ 28°) — mỗi tháp có răng cưa
+  const LS = acc(), DK = acc(), rr = ring.map((p) => p.slice()); { const sa = rr.reduce((s, p, i) => s + p[0] * rr[(i + 1) % rr.length][1] - rr[(i + 1) % rr.length][0] * p[1], 0); if (sa < 0) rr.reverse(); }
+  walls(offsetRing(rr, 0.7), 2.5, push(T, base));   // (1) chân choãi
+  walls(offsetRing(rr, 0.28), tw.h + 1.5 - 1.6, push(LS, base), tw.h + 1.5 - 2.1);   // (5) gờ đá
+  crenel(T, ring.concat([ring[0]]), tw.h + 1.5, base, 2.2, 1.1, 1.6, 0.9, 0.7);   // (4) răng cưa + mũ chóp
+  const edges = rr.map((a, i) => [a, rr[(i + 1) % rr.length]]).map(([a, b]) => ({ a, b, l: Math.hypot(b[0] - a[0], b[1] - a[1]) })).filter((e) => e.l > 7).sort((x, y) => y.l - x.l);
+  for (const e of edges) for (const [y, k] of [[8.5, 0], [15.5, 1]]) { const nW = Math.max(1, Math.floor(e.l / 9)); for (let j = 0; j < nW; j++) archOpening(DK, LS, e.a, e.b, base, e.l * (j + 0.5 + 0.18 * (k ? -1 : 1)) / nW, y, 1.0, 1.7); }   // (3)
+  { const w = edges.reduce((m, e) => (((e.a[0] + e.b[0]) / 2 < (m.a[0] + m.b[0]) / 2) ? e : m), edges[0]); out.towerDoorEdge = w;   // (2) cửa vào mặt tây + bậc thềm
+    archOpening(DK, LS, w.a, w.b, base + 1.6, w.l * 0.5, 0.0, 1.8, 2.4, 0.2);
+    const l = w.l, dx = (w.b[0] - w.a[0]) / l, dn = (w.b[1] - w.a[1]) / l, on = [dn, -dx], rot = Math.atan2(-(w.b[1] - w.a[1]), w.b[0] - w.a[0]);
+    for (let k = 0; k < 6; k++) { const o = 0.9 + (5 - k) * 0.55, e = (w.a[0] + w.b[0]) / 2 + on[0] * o, n = (w.a[1] + w.b[1]) / 2 + on[1] * o; box(LS, e, Math.min(base, hAt(e, n)) - 0.5, -n, 3.4, base - Math.min(base, hAt(e, n)) + 0.5 + (k + 1) * 0.28, 0.6, rot); } }
+  { const c0 = rr[0], c1 = rr[1], dx = c1[0] - c0[0], dn = c1[1] - c0[1], l = Math.hypot(dx, dn), ctr = rr.reduce((s, p) => [s[0] + p[0] / rr.length, s[1] + p[1] / rr.length], [0, 0]);   // (5) lầu cầu thang trên sàn đỉnh
+    const e = c0[0] + (ctr[0] - c0[0]) * 0.32, n = c0[1] + (ctr[1] - c0[1]) * 0.32, rot = Math.atan2(-dn, dx); box(T, e, base + tw.h + 1.5, -n, 3.6, 3.0, 3.6, rot);
+    const sq = [[-1.8, -1.8], [1.8, -1.8], [1.8, 1.8], [-1.8, 1.8], [-1.8, -1.8]].map(([x, z]) => [e + x * Math.cos(rot) - z * Math.sin(rot), n - (x * Math.sin(rot) + z * Math.cos(rot))]); crenel(T, sq, tw.h + 4.5, base, 1.2, 0.6, 0.8, 0.5, 0.4); }
+  // (6) tháp góc tường lâu đài
+  for (const w of H.castle_walls) for (let i = 1; i < w.length - 1; i++) { const a = w[i - 1], p = w[i], b = w[i + 1], u = [p[0] - a[0], p[1] - a[1]], v = [b[0] - p[0], b[1] - p[1]];
+    const ang = Math.acos(Math.max(-1, Math.min(1, (u[0] * v[0] + u[1] * v[1]) / ((Math.hypot(...u) * Math.hypot(...v)) || 1)))) * 180 / Math.PI; if (ang < 28) continue;
+    const g = Math.max(hAt(...p), 0.5) - 1.0, rot = Math.atan2(-u[1], u[0]); box(CW, p[0], g, -p[1], 5.6, 12.0, 5.6, rot);
+    const sq = [[-2.8, -2.8], [2.8, -2.8], [2.8, 2.8], [-2.8, 2.8], [-2.8, -2.8]].map(([x, z]) => [p[0] + x * Math.cos(rot) - z * Math.sin(rot), p[1] - (x * Math.sin(rot) + z * Math.cos(rot))]);
+    crenel(CW, sq, 12.0, g, 1.9, 0.95, 1.3, 0.7, 0.55); out.cornerTowers = (out.cornerTowers || 0) + 1; }
   const towerM = new THREE.Mesh(geoFrom(T), stoneMat(U, out.hi.tower, 'tapia')), castleM = new THREE.Mesh(geoFrom(CW), stoneMat(U, out.hi.tower, 'tapia'));
+  const lsM = new THREE.Mesh(geoFrom(LS), stoneMat(U, out.hi.tower, 'lime')), dkM = new THREE.Mesh(geoFrom(DK), new THREE.MeshStandardMaterial({ color: 0x17120e, roughness: 1 }));
+  for (const m of [lsM, dkM]) { m.castShadow = m.receiveShadow = true; group.add(m); }
   // khe bắn tên: dải tối mảnh trên tường tháp (hộp lõm tối)
   const SL = acc(); { const r = ring; for (let i = 0; i < r.length; i++) { const a = r[i], b = r[(i + 1) % r.length], l = Math.hypot(b[0] - a[0], b[1] - a[1]); if (l < 6) continue;
       const rot = Math.atan2(-(b[1] - a[1]), b[0] - a[0]); for (const lv of [9, 16]) for (let s = l / 4; s < l; s += l / 2.01) { const u = s / l; box(SL, a[0] + (b[0] - a[0]) * u, base + lv, -(a[1] + (b[1] - a[1]) * u), 0.35, 1.8, 0.25, rot); } } }
@@ -107,7 +159,7 @@ export function makeHeroes(H, hAt, U, terr) {
       .replace('#include <map_fragment>', `#include <map_fragment>
       vec2 guv = vec2((vWPr.x - uExt.x) / uExt.z, (-vWPr.z - uExt.y) / uExt.w); float lk = landK(decYear(texture(tYears, guv).ba), uYear);
       if (uYear < 1941.0 || lk < 0.98) discard;
-      diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * vec3(1.25, 1.12, 0.85) + vec3(0.10, 0.07, 0.0), uHi);
+      diffuseColor.rgb = mix(diffuseColor.rgb, diffuseColor.rgb * 1.35 + vec3(0.06, 0.05, 0.02), uHi);   // V5b-1b: mốc đinh làm SÁNG (không ám nâu)
       { float L = dot(diffuseColor.rgb, vec3(0.299,0.587,0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55*uDim*(1.0-uHi)) * (1.0 - 0.36*uDim*(1.0-uHi)); }`); };
   const runway = new THREE.Mesh(rg, rmat); runway.receiveShadow = true; group.add(runway);
   // viền sáng đường băng (mốc đinh): khung chữ nhật phát sáng, chỉ phần trên đất
@@ -123,6 +175,39 @@ export function makeHeroes(H, hAt, U, terr) {
     for (let k = 0; k < 6; k++) { const arm = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.18, 0.18), new THREE.MeshStandardMaterial({ color: k % 2 ? 0xf2f2f2 : 0xc8322b })); arm.position.set(e + 4.2 - k * 1.6, h0 + 1.3, -n); bar.add(arm); } }
   bar.visible = false; group.add(bar); out.barriers = bar;
   out.runwayMid = new THREE.Vector3(0, 4, 0); out.runway = { W0, E0, L, dir, hw, dW, dE };
-  out.update = (year) => { bar.visible = year >= 1941; };
+  // ---- V5b-1b · MỐC 1941 A-lite: trạm biên giới (OSM node 5029266974) + hàng xe chờ ở chắn đường băng + người đi bộ (phẳng màu, đổ bóng thật).
+  // Hình dáng xe kiểu thập niên 1940 (thân hộp + cabin + bánh), KHÔNG mô phỏng mẫu xe cụ thể; chỉ hiện quanh mốc 1941 (1940,5–1946,5) — số lượng là minh hoạ.
+  const life = new THREE.Group(), RR = rng(41), M = (c) => new THREE.MeshLambertMaterial({ color: c });
+  const mBlk = M(0x15171a), mCols = [0x2b3a2f, 0x1c2230, 0x5a2a24, 0x2a2a2a, 0x6b5a3a].map(M), mGl = M(0x31414f), skin = [0xc99a78, 0xa8785a, 0xe0b896].map(M), coats = [0x30384a, 0x5a4a3a, 0x7a2e2a, 0xd8d0c0, 0x3c4a34, 0x24282e].map(M);
+  const put = (geo, mat, e, y, n, rot = 0) => { const m = new THREE.Mesh(geo, mat); m.position.set(e, y, -n); m.rotation.y = rot; m.castShadow = true; m.receiveShadow = true; life.add(m); return m; };
+  const car = (e, n, rot, kind) => { const g = Math.max(hAt(e, n), 3.0) + 0.45, c = mCols[Math.floor(RR() * mCols.length)], L_ = kind === 'bus' ? 9.0 : kind === 'truck' ? 6.0 : 4.3, W_ = kind === 'bus' ? 2.4 : 1.7;
+    const grp = new THREE.Group(); grp.position.set(e, g, -n); grp.rotation.y = rot; life.add(grp); const add = (geo, mat, x, y, z) => { const m = new THREE.Mesh(geo, mat); m.position.set(x, y, z); m.castShadow = m.receiveShadow = true; grp.add(m); };
+    if (kind === 'bus') { add(new THREE.BoxGeometry(L_, 2.3, W_), M(0xb8392e), 0, 1.45, 0); add(new THREE.BoxGeometry(L_ * 0.96, 0.7, W_ + 0.02), M(0xe8e0c8), 0, 1.95, 0); add(new THREE.BoxGeometry(L_ * 0.9, 0.5, W_ + 0.03), mGl, 0, 1.95, 0); }
+    else if (kind === 'truck') { add(new THREE.BoxGeometry(1.8, 1.7, W_), c, L_ / 2 - 0.9, 1.25, 0); add(new THREE.BoxGeometry(0.1, 0.6, W_ * 0.8), mGl, L_ / 2 - 0.02, 1.6, 0); add(new THREE.BoxGeometry(L_ - 2.0, 1.1, W_ + 0.1), M(0x6b5a3a), -1.0, 1.0, 0); }
+    else { add(new THREE.BoxGeometry(L_, 0.75, W_), c, 0, 0.75, 0); add(new THREE.BoxGeometry(L_ * 0.48, 0.65, W_ * 0.9), c, -0.25, 1.45, 0); add(new THREE.BoxGeometry(L_ * 0.46, 0.45, W_ * 0.92), mGl, -0.25, 1.45, 0);
+      add(new THREE.BoxGeometry(L_ * 0.22, 0.5, W_ * 1.08), c, L_ * 0.34, 0.7, 0); }
+    for (const x of [-L_ * 0.32, L_ * 0.32]) for (const z of [-W_ / 2, W_ / 2]) add(new THREE.BoxGeometry(0.7, 0.7, 0.25), mBlk, x, 0.35, z); };
+  const person = (e, n) => { const g = Math.max(hAt(e, n), 3.0) + 0.45, h = 1.6 + 0.2 * RR(), rot = RR() * 6.28;
+    put(new THREE.BoxGeometry(0.34, h * 0.45, 0.22), mBlk, e, g + h * 0.22, n, rot); put(new THREE.BoxGeometry(0.48, h * 0.38, 0.28), coats[Math.floor(RR() * coats.length)], e, g + h * 0.62, n, rot);
+    put(new THREE.BoxGeometry(0.22, 0.24, 0.22), skin[Math.floor(RR() * skin.length)], e, g + h * 0.92, n, rot); };
+  // hàng xe hai phía chắn, ĐẶT TRÊN tim Winston Churchill Ave (OSM, gộp hai chiều xe theo N mỗi 20 m như scenes/gib20.js)
+  const bins = new Map(); for (const [e, n] of (lines && lines.wca) || [[0, -300], [0, 600]]) { const k = Math.round(n / 20); if (!bins.has(k)) bins.set(k, []); bins.get(k).push(e); }
+  const WC = [...bins.entries()].sort((a, b) => a[0] - b[0]).map(([k, es]) => [es.reduce((s, v) => s + v, 0) / es.length, k * 20]);
+  const onRoad = (n, lane) => { let i = 1; while (i < WC.length - 1 && WC[i][1] < n) i++; const [a, b] = [WC[i - 1], WC[i]], u = Math.max(0, Math.min(1, (n - a[1]) / ((b[1] - a[1]) || 1))), dx = b[0] - a[0], dn = b[1] - a[1], l = Math.hypot(dx, dn) || 1;
+    return [a[0] + dx * u + dn / l * lane, n - dx / l * lane, Math.atan2(dn, dx)]; };
+  const carOn = (n, lane, dirN, kind) => { const [e, nn, ang] = onRoad(n, lane); car(e, nn, ang + (dirN > 0 ? 0 : Math.PI), kind); };
+  for (let k = 0; k < 6; k++) carOn(hw + 16 + k * 7.5 + RR() * 2, -2.4, -1, k === 3 ? 'truck' : 'car');   // chờ đi về phía nam
+  for (let k = 0; k < 5; k++) carOn(-hw - 16 - k * 7.5 - RR() * 2, 2.4, 1, k === 1 ? 'bus' : 'car');    // chờ đi về phía bắc
+  for (let k = 0; k < 4; k++) carOn(120 + k * 70 + RR() * 20, 2.4, 1, 'car');   // xe đang chạy về phía biên giới
+  for (let k = 0; k < 16; k++) { const [e, n] = onRoad(hw + 12 + RR() * 60, -7.0 - RR() * 2); person(e, n); }   // người đi bộ chờ qua đường băng (lề tây)
+  for (let k = 0; k < 8; k++) { const [e, n] = onRoad(-hw - 12 - RR() * 40, 7.0 + RR() * 2); person(e, n); }
+  if (H.gate) { const [ge, gn] = H.gate, g0 = Math.max(hAt(ge, gn), 3.0);   // trạm biên giới: nhà gác, chắn, bốt lính, người qua
+    put(new THREE.BoxGeometry(6, 3.2, 4), M(0xece6d8), ge - 9, g0 + 1.6, gn); put(new THREE.ConeGeometry(4.6, 1.4, 4, 1).rotateY(Math.PI / 4), M(0xa04a32), ge - 9, g0 + 3.9, gn);
+    put(new THREE.BoxGeometry(6, 3.2, 4), M(0xe2dccb), ge + 10, g0 + 1.6, gn + 3); put(new THREE.BoxGeometry(6.6, 0.3, 4.6), M(0x7a7266), ge + 10, g0 + 3.3, gn + 3);
+    put(new THREE.BoxGeometry(1.4, 2.6, 1.4), M(0x2c3e2e), ge - 4.5, g0 + 1.3, gn - 3); for (let k = 0; k < 5; k++) put(new THREE.BoxGeometry(1.5, 0.16, 0.16), M(k % 2 ? 0xf2f2f2 : 0xc8322b), ge - 3 + k * 1.5, g0 + 1.2, gn - 1);
+    for (let k = 0; k < 3; k++) carOn(gn - 14 - k * 8, 2.4, 1, k === 0 ? 'bus' : 'car');
+    for (let k = 0; k < 18; k++) person(ge + 4 + RR() * 5, gn - 30 + RR() * 45); }
+  life.visible = false; group.add(life); out.life = life;
+  out.update = (year) => { bar.visible = year >= 1941; life.visible = year >= 1940.5 && year <= 1946.5; };
   return out;
 }

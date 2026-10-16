@@ -16,25 +16,28 @@ Phiên V5b-1 (16/10/2026), chủ dự án duyệt Y1–Y7, Z1–Z2. Port từ `l
 |---|---|
 | `page.js` | trang dựng: đường ống post.js (tích luỹ SPP jitter → ACES → grade: lọc cạnh SPP1 + **LUT A** + vignette → grain), lớp chữ 2D vẽ sau; `window.setup/renderFrame/camLog/budgetAll`; kỹ thuật bật/tắt `cfg.tech` |
 | `core.js` | tiện ích, mã hoá năm 16 bit, nhiễu GLSL, **kết cấu nhiễu nướng sẵn** |
-| `terrain.js` | lớp 3: DTM (20 m gần / 60 m xa, **LOD theo ô 1 km**), vòng chân trời 150 m, phủ Sentinel-2 tự nhiên ↔ đô thị theo năm, đá vôi vách dốc, **AO nướng sẵn theo năm**, đất khai hoang nổi theo năm |
-| `water.js` | biển (sóng thủ tục, Fresnel, lấp lánh) + vòm trời; vẽ sau địa hình |
-| `city.js` | lớp 2: toà thủ tục gộp theo ô 500 m, **LOD** (gần mái dốc + cửa sổ shader / xa khối / rất xa impostor = nền vệ tinh), mọc theo năm, ghost |
+| `terrain.js` | lớp 3: DTM (20 m gần / 60 m xa, **LOD theo ô 1 km**), vòng chân trời 150 m; **V5b-1b: ≤ 2,6 km vật liệu thủ tục theo 13 lớp nền** (`cls.png` từ build_scene `--cls`: cát, cỏ khô/garrigue, maquis, đá vôi, ruộng, nhựa, nền lát, sân thể thao, bãi đỗ, bê tông cảng, đất trống, cỏ công viên, đồng cỏ eo đất) — vệ tinh chỉ để phân lớp + tông vùng mờ, ảnh vệ tinh chỉ ở xa; vách dốc → đá vôi; **AO nướng sẵn theo năm**, đất khai hoang nổi theo năm (chỉ vùng nối biển) |
+| `water.js` | biển (sóng thủ tục, Fresnel, lấp lánh) + vòm trời **gradient xanh + mây tích thưa** (V5b-1b); vẽ sau địa hình |
+| `city.js` | lớp 2: toà thủ tục gộp theo ô 500 m, **LOD**; **V5b-1b: 6 kiểu mặt đứng × 6 kiểu mái** (hai mái, mái hông có nóc, chóp, phẳng, tường chắn, sân thượng có bồn nước), cửa sổ căn giữa từng mặt (khung, kính phản trời, chớp lá sách, bậu, lanh tô, gờ), ban công sàn + lan can đục song, chia lô khối Gibraltar lớn, mọc theo năm, lớp tái dựng |
 | `geom.js` | hình học thuần (test Node: hướng mặt bằng tích có hướng) |
 | `nature.js` | cây instanced (NDVI + OSM, LOD 2 km, bóng theo năm) + đường OSM theo năm từng đỉnh |
-| `heroes.js` + `heroes/*.json` | lớp 1: Tower of Homage (tapia, răng cưa, khe bắn), tường lâu đài/thành, đường băng 09/27 (vạch ICAO, chắn đường ngang) — tệp nguồn kích thước ở `heroes/` |
+| `heroes.js` + `heroes/*.json` | lớp 1: Tower of Homage — **V5b-1b: chân choãi, bậc thềm + cửa vào vòm, cửa sổ vòm 2 tầng, răng cưa mũ chóp kiểu Moor, gờ đá + lầu cầu thang trên sàn đỉnh, tháp góc tường lâu đài**, tapia lớp đầm loang theo năm; tường thành; đường băng 09/27 (vạch ICAO, chắn đường ngang); **mốc 1941: trạm biên giới + xe/người A-lite** — tệp nguồn kích thước ở `heroes/` |
+| `ships.js` | V5b-1b: tàu theo thời kỳ (buồm 1704–1860, thuyền/hơi nước 1860–1965, tàu hàng/dầu/khách 1965–2026) — nội dung trung cảnh vịnh |
 | `campath.js` | ngữ pháp máy quay: Hermite theo thời gian, **bay dọc tuyến thật** (mốc dày trên hình học), nhật ký lệch tuyến/khoảng cách/tốc độ/đứng yên |
 | `text.js` | **ngân sách chữ**: năm + chỉ số (2 lớp thường trực), nhãn phương pháp đầu/cuối, ≤ 1 thẻ, thẻ neo, ảnh chú thích neo điểm 3D, nhãn ghost; đo % diện tích, vùng giữa, tương phản WCAG trên điểm ảnh thật |
-| `lut.js` | LUT .cube → Data3DTexture, áp trong grade (chỉ cảnh 3D; ảnh sepia/chữ vẽ sau) |
+| `lut.js` | LUT .cube → Data3DTexture, áp trong grade (chỉ cảnh 3D; ảnh sepia/chữ vẽ sau); **V5b-1b: `uLutMode` 1 = LUT A chỉ vùng tối + vibrance 0,35** (chọn bằng số đo, `reports/V5B1B-BAO-CAO.md` §2) |
 | `scenes/gib20.js` | đoạn thử Gibraltar 20 s |
 
 ## Chạy (công cụ ở `scripts/k2tl/`)
 ```bash
 export K2TL_CACHE=/var/tmp/cine-out/k2tl-cache            # dữ liệu thô + gói cảnh, NGOÀI git
-python scripts/k2tl/fetch_osm.py --name gib --bbox=-5.385,36.105,-5.320,36.185
+python scripts/k2tl/fetch_sources.py && python scripts/k2tl/fetch_osm.py --name gib --bbox=-5.385,36.105,-5.320,36.185   # V5b-1b: tải lại + kiểm SHA
 # tải tay (lệnh trong reports/V5B1-BAO-CAO.md §7): Copernicus GLO-30, Sentinel-2 S2C_30STF_20260415_0 (TCI+B08), Landsat 5 1987 (Planetary Computer), Catastro BU 11022, ảnh LoC, LUT A (git show origin/v5a)
-python scripts/k2tl/build_rasters.py --name gib && python scripts/k2tl/build_vectors.py --name gib && python scripts/k2tl/build_scene.py --name gib --ao --far
+python scripts/k2tl/build_rasters.py --name gib && python scripts/k2tl/build_vectors.py --name gib && python scripts/k2tl/build_scene.py --name gib --ao --far --cls
 node scripts/k2tl/render.js --scene gib20 --pack gib --w 1920 --h 1080 --out <thư mục>      # khung JPG + log.json (s/khung, spp, LOD, chữ, tương phản)
 node scripts/k2tl/render.js --campath <tệp>   |   --budget <tệp>                            # nhật ký máy quay / ngân sách chữ cả đoạn (không dựng hình)
+node scripts/k2tl/render.js --only 10,168 --maskonly <ra.json> --override '[{"noText":true}]'   # % diện tích nội dung (hình học + nền phố) — lượt RIÊNG
+python scripts/k2tl/measure_look.py <ảnh…>                                                   # bão hoà / colorfulness / chi tiết / cháy sáng (640×360, vùng giữa)
 bash scripts/k2tl/bench.sh <ra.jsonl> "470,175,300,470,175,300" '{"spp":2,"lod":false}' nhãn   # đo kỹ thuật → s/khung
 python scripts/k2tl/mix.py --cues channel-k2/k2c-t3-01/v5b1-thu/cues.json --dur 20 --out mix.wav   # −14 LUFS
 python scripts/k2tl/calib.py <điểm-khống-chế.json>                                           # then/now ≥ 6 điểm
@@ -45,3 +48,6 @@ Python: `/opt/cine/bin/python` (+ `imagecodecs` cho GeoTIFF nén dự đoán —
 ## Kỹ thuật CPU (đo trong `reports/V5B1-BAO-CAO.md` §5)
 `tech`: `lod` (toà/cây theo khoảng cách), `terrainLod`, `ao` (AO nướng theo năm), `shadowCache` (bóng 1 lần/khung, giữ khi khoá cảnh không đổi), `shadows`,
 `spp` (`'adaptive'` theo cảnh: 4 cận hero/mốc đinh, 2 thường, 1 + lọc cạnh khi bay nhanh), `baked` (nhiễu nướng sẵn), `lambert`, `treeDetail`, `city`, `trees`, `shadowRes`.
+
+## V5b-1b (16/10/2026) — vòng sửa CHUẨN HÌNH sau cổng TRƯỢT lần 1
+Ánh sáng/màu, nền phân lớp thủ tục, nhà đầy đủ + lớp tái dựng, hero 6 đặc điểm, tàu, xe/người 1941, bố cục máy ≥ nội dung, tốc độ góc ≤ 90 °/s. Số đo trước → sau: `reports/V5B1B-BAO-CAO.md`.

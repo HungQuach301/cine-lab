@@ -28,13 +28,13 @@ def main(name):
     for wid, (nd, t) in ways.items():
         pts = line(nd)
         if len(pts) < 2: continue
-        rec = dict(id=wid, p=pts, t={k: v for k, v in t.items() if k in ("building", "building:levels", "height", "roof:shape", "name", "highway", "width", "lanes", "aeroway", "historic", "barrier", "natural", "landuse", "leisure", "start_date", "layer", "tunnel", "bridge", "man_made", "runway", "surface", "castle_type", "defensive_works")})
+        rec = dict(id=wid, p=pts, t={k: v for k, v in t.items() if k in ("building", "building:levels", "height", "roof:shape", "name", "highway", "width", "lanes", "aeroway", "historic", "barrier", "natural", "landuse", "leisure", "start_date", "layer", "tunnel", "bridge", "man_made", "runway", "surface", "castle_type", "defensive_works", "amenity", "parking", "sport", "railway")})
         if "building" in t: R["building"].append(rec)
         elif "highway" in t: R["highway"].append(rec)
         elif "aeroway" in t: R["aeroway"].append(rec)
         elif t.get("barrier") in ("city_wall", "wall", "fence", "retaining_wall") or t.get("historic") in ("citywalls", "fort", "castle"): R["wall"].append(rec)
         elif t.get("natural") in ("coastline",): R["coast"].append(rec)
-        elif "natural" in t or "landuse" in t or "leisure" in t: R["area"].append(rec)
+        elif "natural" in t or "landuse" in t or "leisure" in t or t.get("amenity") in ("parking", "school", "hospital") or t.get("place") == "square": R["area"].append(rec)   # V5b-1b: + bãi đỗ, sân trường (phân lớp nền)
         elif t.get("man_made") in ("breakwater", "pier", "groyne"): R["pier"].append(rec)
     for rid, (mem, t) in rels.items():   # toà multipolygon: chỉ vòng ngoài
         if "building" in t:

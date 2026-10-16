@@ -17,7 +17,7 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   const bpid = browser.process ? browser.process().pid : null;
   const page = await browser.newPage({ viewport: { width: 800, height: 600 }, deviceScaleFactor: 1 });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; });
-  page.on('console', (m) => { const t = m.text(); if (/Shader Error|VALIDATE_STATUS false|ERROR: 0:/.test(t)) { console.error('[page] LỖI SHADER — dừng', t.slice(0, 1500)); process.exit(7); }
+  page.on('console', (m) => { const t = m.text(); if (/Shader Error|VALIDATE_STATUS false|ERROR: 0:/.test(t)) { console.error('[page] LỖI SHADER — dừng', t.slice(0, 4000)); process.exit(7); }
     if (!/GPU stall|GL Driver|swiftshader|Automatic fallback/i.test(t)) console.error('[page]', t.slice(0, 400)); });
   await page.route('http://cine.local/**', (route) => {
     const u = decodeURIComponent(new URL(route.request().url()).pathname);
@@ -29,7 +29,7 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   });
   await page.goto('http://cine.local/tl.html'); await page.waitForFunction(() => window.ready === true, null, { timeout: 60000 });
   const pack = arg('pack', 'gib');
-  const cfg = { W, H, scene: arg('scene', 'gib20'), pack: `/cache/scene/${pack}/pack/`, lut: '/cache/lut/k2-a-thep-lanh.cube', photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{}')), lutK: +arg('lutk', 1) };
+  const cfg = { W, H, scene: arg('scene', 'gib20'), pack: `/cache/scene/${pack}/pack/`, lut: '/cache/lut/' + arg('lut', 'k2-a-thep-lanh') + '.cube', lutMode: +arg('lutmode', 1), vib: +arg('vib', 0.35), look: JSON.parse(arg('look', '{}')), photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{}')), lutK: +arg('lutk', 1) };
   const tl0 = Date.now(); const info = await page.evaluate(async (c) => await window.setup(c), cfg); info.load_wall_s = (Date.now() - tl0) / 1000; info.rss_after_load_mb = rssAll();
   console.error('[info]', JSON.stringify(info));
   if (arg('campath')) { fs.writeFileSync(arg('campath'), JSON.stringify(await page.evaluate(() => window.camLog()))); await browser.close(); return; }
@@ -39,11 +39,14 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   const OV = JSON.parse(arg('override', '[]'));   // [{year, cam:{p,l,fov}, spp, noText}] theo thứ tự --only
   const MEAS = +arg('measure', 24), log = { info, cfg, frames: [] }, t0 = Date.now(), mem = [];
   for (const f of frames) {
+    if (arg('maskonly')) { const r = Object.assign({ f }, await page.evaluate(async ([f, ov]) => window.contentMask(f, ov), [f, OV[frames.indexOf(f)] || OV[0] || null])); log.frames.push(r); continue; }   // V5b-1b: đo mặt nạ nội dung ở LƯỢT RIÊNG (xen với dựng hình làm hỏng trạng thái bóng/terrain — lỗi phát hiện 16/10)
     const tf = Date.now(); const r = await page.evaluate(async ([f, m, ov]) => await window.renderFrame(f, m, ov), [f, f % MEAS === 0 || only.length > 0, OV[frames.indexOf(f)] || OV[0] || null]);
-    if (OUT) fs.writeFileSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg'), Buffer.from(r.img, 'base64')); delete r.img; r.wall_ms = Date.now() - tf; log.frames.push(r);
+    if (OUT) fs.writeFileSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg'), Buffer.from(r.img, 'base64')); delete r.img; r.wall_ms = Date.now() - tf;
+    log.frames.push(r);
     if ((frames.indexOf(f)) % 24 === 0) { const m = rssAll(); mem.push(m); console.error(`[tl] ${f} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung · gl ${r.gl_ms} ms · spp ${r.spp} · chữ ${r.budget.pct}% · rss ${m} MB`); }
     if (OUT && frames.indexOf(f) % 48 === 0) fs.writeFileSync(path.join(OUT, 'log.json'), JSON.stringify(log));
   }
+  if (arg('maskonly')) { fs.writeFileSync(arg('maskonly'), JSON.stringify(log.frames)); console.log(JSON.stringify(log.frames.map((r) => [r.f, r.content_pct, r.content_center_pct, r.fabric_pct]))); await browser.close(); return; }
   log.s_per_frame = +((Date.now() - t0) / 1000 / frames.length).toFixed(3); log.rss_mb_max = Math.max(...mem.filter(Boolean), 0); log.wall_s = (Date.now() - t0) / 1000;
   if (OUT) fs.writeFileSync(path.join(OUT, 'log.json'), JSON.stringify(log));
   console.log(JSON.stringify({ frames: frames.length, s_per_frame: log.s_per_frame, rss_mb_max: log.rss_mb_max, load_s: info.load_wall_s }));

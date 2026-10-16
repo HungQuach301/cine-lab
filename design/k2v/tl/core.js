@@ -39,3 +39,13 @@ export function noiseTex(N = 256) {
   const t = new THREE.DataTexture(d, N, N, THREE.RGBAFormat); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.magFilter = THREE.LinearFilter; t.minFilter = THREE.LinearMipmapLinearFilter; t.generateMipmaps = true; t.needsUpdate = true;
   return (_noise = t);
 }
+
+// V5b-1b · mặt nạ NỘI DUNG (đo "≥ 40 % khung là nội dung có nghĩa"): khi uMask = 1, vật liệu xuất màu cờ (1 = nội dung: toà, hero, tường, đường, xe/người; 0 = nền)
+export function maskify(mat, U, v) {
+  if (mat.userData.masked) return; mat.userData.masked = true; const prev = mat.onBeforeCompile;
+  const key0 = mat.customProgramCacheKey ? mat.customProgramCacheKey() : (prev ? prev.toString() : ''); mat.customProgramCacheKey = () => key0 + '|mask' + v;   // khoá bộ đệm chương trình: không để vật liệu khác dùng nhầm shader (lỗi phát hiện 16/10)
+  mat.onBeforeCompile = (sh, r) => { if (prev) prev(sh, r); sh.uniforms.uMask = U.uMask;
+    sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uMask;')
+      .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(${v ? '1.0, 0.0, 0.0' : '0.0, 0.0, 0.0'}, 1.0);`); };
+  mat.needsUpdate = true;
+}
