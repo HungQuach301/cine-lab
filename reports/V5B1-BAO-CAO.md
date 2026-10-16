@@ -217,7 +217,10 @@ Tệp giấy phép ở `channel-k2/k2c-t3-01/v5b1-thu/licenses/` (mới: `osm-od
 5. **`scripts/env/setup.sh`**: `imagecodecs`.
 
 ## 11. Preflight, ghép thử
-⟦PREFLIGHT⟧
+- Hook pre-commit/pre-push cài đầu phiên (`ln -sf ../../tools/preflight.sh .git/hooks/…`); `bash scripts/env/verify.sh` đầu phiên: 10 PASS, 3 FAIL (three.js, tifffile/pyshp, k2v node_modules) → đã cài theo hướng dẫn của verify → **13 PASS**. Thêm `imagecodecs` (cần cho GeoTIFF Copernicus).
+- `bash tools/preflight.sh --range origin/main..HEAD`: **ĐẠT** (58 tệp), `checks/lock.py --verify`: **KHỚP**. Không dùng `--no-verify`. Mọi tệp commit ≤ 5 MB (lớn nhất `gib20_540p.mp4` 4,5 MB); bản 1080p (84,9 MB) ngoài git.
+- **Ghép thử** (`git merge-tree`) với `origin/main`, `k2c-t2`, `k2c-t3-tienky`, `v5a`, `timelapse-rd`, `nen-tang`, `am-thanh`: **sạch** (chỉ thêm tệp mới trong 4 vùng).
+- Tiến trình nền: chạy bằng công cụ nền của harness. Một lượt dựng bị harness dừng ở giới hạn 30 phút (khung 356/480) → dựng tiếp 336–479; tiến trình trình duyệt còn sót dừng bằng PID (không `pkill -f`).
 
 ## 12. Việc chờ chủ dự án
 1. **Duyệt mô-đun + đoạn thử** (`v5b1-thu/gib20_540p.mp4`, 6 khung) và **chấm mù với đối thủ** (điều phối, ngoài repo).
