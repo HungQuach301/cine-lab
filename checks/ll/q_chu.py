@@ -15,6 +15,10 @@ Q35 — TRƯỢT khi, ở một khung (thời điểm) bất kỳ:
       khai và năm/ngày đó hiện thành chữ trong cùng khung (chip năm, chữ nhãn, chữ phụ, chú thích, thẻ) → không bắt buộc ACTUAL
   (b) nhãn ACTUAL hiện > 1 lần trong khung
   (c) số `estimate` đang hiện mà khung không có nhãn ESTIMATE; số `projection` đang hiện mà không có PROJECTION
+      1.12.1 (chủ dự án 16–17/10, HH3): NGOẠI LỆ cho BỘ ĐẾM LIÊN TỤC của shot timelapse (`type: timelapse` hoặc `tl: true`): chữ số bắt đầu
+      bằng "≈" trên khung được nhận là dấu ước tính THAY ESTIMATE, CHỈ KHI dòng phương pháp chứa "≈ = interpolated between counts" hiện
+      trong 6 s đầu phim chính. Thiếu dòng đó → TRƯỢT như cũ. Shot không phải timelapse, hoặc chữ không bắt đầu "≈" → luật cũ.
+      Trên bộ timelapse (q_tl.py, role index/method của log chữ) cùng luật: hàng Q35-TL.
   (d) tag/thẻ khai `kind` khác `numbers.<num>.kind` của số đi kèm; shot hiện ESTIMATE/PROJECTION mà không có số loại đó hiện trong shot
 Q36 — TRƯỢT khi:
   (a) dòng nguồn (16:9: `cap[].src` hoặc `p.src`, nối `· p.credit` như khi vẽ; nguồn của thẻ; chân bảng điểm) dài > 70 ký tự; có log:
@@ -36,6 +40,7 @@ SRC_MAX_CHARS, SRC_MIN_PX, CAP_RATIO = 70, 38.0, 0.727
 MIEN_WIN = 15.0   # 1.11.1 (O3): câu miễn trừ có "Facts as of" chỉ ở 0:00–0:15, một lần
 LBL = {'actual': 'ACTUAL', 'projection': 'PROJECTION', 'estimate': 'ESTIMATE'}
 POLICY = {'luat', 'chinh_sach', 'quy_dinh'}
+XAP_XI = re.compile(r'≈\s*=\s*interpolated between counts', re.I)   # 1.12.1 (HH3)
 MON = {m: i + 1 for i, m in enumerate('jan feb mar apr may jun jul aug sep oct nov dec'.split())}
 
 
@@ -186,6 +191,17 @@ def q35(E, TL, logdir=None):
                     for v in x: walk(v)
             walk(sh.get('p') or {})
     seen = set(); shown_lbl = {}; nmax = 0; at_max = None; tseg = {s['id']: s['t0'] for s in TL['segments']}
+    # 1.12.1 (HH3): dòng phương pháp "≈ = interpolated between counts" trong 6 s đầu phim → "≈" của bộ đếm timelapse là dấu ước tính
+    xap_xi = any(tseg[sid] + t <= 6.0 + 1e-6 and any(XAP_XI.search(x) for x in S) for sid, i, t, S, *_ in fr)
+    spec = {s['id']: s.get('shots') or [] for s in E.get('segments') or []}
+    def tl_shot(sid, i):
+        sh = TL_SHOT.get((sid, i))
+        if sh is None:
+            seg = next((x for x in TL['segments'] if x['id'] == sid), {}); t = (seg.get('shots') or [])[i] if i < len(seg.get('shots') or []) else {}
+            sp = spec.get(sid, [])[i] if i < len(spec.get(sid, [])) else {}
+            sh = TL_SHOT[(sid, i)] = any(x.get('type') == 'timelapse' or (x.get('p') or {}).get('type') == 'timelapse' or x.get('tl') is True or (x.get('p') or {}).get('tl') is True for x in (t, sp))
+        return sh
+    TL_SHOT = {}; n_xx = 0
     for sid, i, t, S, NV, L, *_ in fr:
         w = f'{sid}/{i} @{mmss(tseg[sid] + t)}'; lab = [l for l, _ in L]; na = lab.count('ACTUAL')
         if na > nmax: nmax, at_max = na, w
@@ -200,14 +216,19 @@ def q35(E, TL, logdir=None):
             if 'ACTUAL' not in lab and not dated(N[k], S): once('a', f'{w}: số {k} ({N[k].get("text")}) actual không có nhãn ACTUAL và không có năm/ngày rõ ràng trên khung')
         for kd in ('estimate', 'projection'):
             for k in kinds.get(kd, []):
-                if LBL[kd] not in lab: once('c', f'{w}: số {k} ({N[k].get("text")}) là {kd} mà khung không có nhãn {LBL[kd]}')
+                if LBL[kd] not in lab:
+                    if kd == 'estimate' and xap_xi and tl_shot(sid, i) and any(x.lstrip().startswith('≈') and not XAP_XI.search(x) for x in S): n_xx += 1; continue   # 1.12.1 (HH3)
+                    once('c', f'{w}: số {k} ({N[k].get("text")}) là {kd} mà khung không có nhãn {LBL[kd]}'
+                         + (' (shot timelapse có "≈" nhưng không có dòng phương pháp "≈ = interpolated between counts" trong 6 s đầu)' if kd == 'estimate' and tl_shot(sid, i) and not xap_xi
+                            and any(x.lstrip().startswith('≈') for x in S) else ''))
             if LBL[kd] in lab: shown_lbl.setdefault((sid, i), [w, set(), set()])[1].add(kd)
             if kinds.get(kd): shown_lbl.setdefault((sid, i), [w, set(), set()])[2].add(kd)
     for (sid, i), (w, lb, nk) in shown_lbl.items():   # (d) theo SHOT: nhãn góc hiện cả shot, số có thể hiện muộn hơn nhãn
         for kd in sorted(lb - nk): P['d'].append(f'{w}: shot hiện nhãn {LBL[kd]} mà không có số {kd} nào hiện trong shot')
     loi = [f'({k}) {x}' for k in 'abcd' for x in P[k]]
     return dict(ok=not loi, loi=loi, muc=P, nguon=mode, note='; '.join(loi[:6]),
-                val=f'{mode} · {len(fr)} khung xét · ACTUAL nhiều nhất {nmax}/khung' + (f' ({at_max})' if nmax > 1 else '') + f' · lỗi a {len(P["a"])} · b {len(P["b"])} · c {len(P["c"])} · d {len(P["d"])}')
+                val=f'{mode} · {len(fr)} khung xét · ACTUAL nhiều nhất {nmax}/khung' + (f' ({at_max})' if nmax > 1 else '') + (f' · {n_xx} khung bộ đếm timelapse "≈" nhận thay ESTIMATE (HH3)' if n_xx else '')
+                    + f' · lỗi a {len(P["a"])} · b {len(P["b"])} · c {len(P["c"])} · d {len(P["d"])}')
 
 
 def asof_date(s):

@@ -15,8 +15,18 @@ KHOP1 (a) khung vàng ghi `renderer` (chuỗi trình dựng WebGL, vd "ANGLE (�
     của một tập cùng MỘT chuỗi renderer (không trộn trình dựng); (c) khung mới so khung vàng cùng tên, đạt CẢ BỐN: tần thấp (Gauss σ 8) lệch
     > 3 mức ≤ 3 % điểm ảnh · dịch màu TB ≤ 1 mức/kênh · PSNR ở ¼ kích thước ≥ 40 dB · SSIM (xám, Gauss 11, σ 1,5) ≥ 0,90. Báo thêm tiêu chí chặt
     (PSNR ≥ 40 dB hoặc lệch > 10/255 ≤ 1 %) để tham khảo.
+    1.12.1 (chủ dự án 16–17/10, MM4) — KHAI KHUNG VÀNG (`khung-vang.json` cạnh khung vàng; `khung-moi.json` cạnh khung mới cùng dạng):
+      {"renderer": "<UNMASKED_RENDERER thật của lượt dựng>", "gl": "llvmpipe" | "swiftshader" | "gpu",
+       "goi_canh": {"ten": "<cảnh/gói>", "sha256": "<băm dữ liệu cảnh: tệp gói hoặc manifest>"}, "ma": "<commit mã dựng>",
+       "khung": {"<tên tệp>": "<sha256 tệp>", …}, "phien": "<phiên dựng>", "ngay": "YYYY-MM-DD"}
+    (a) TRƯỢT khi: không có `renderer`; `gl` không thuộc 3 lớp hoặc không khớp chuỗi renderer (llvmpipe ↔ /llvmpipe/, swiftshader ↔ /SwiftShader/,
+        gpu ↔ không chứa llvmpipe/SwiftShader); thiếu `goi_canh.sha256`; một khung vàng không có SHA trong `khung` hoặc SHA lệch tệp (khung vàng bị thay).
+    (b) TRƯỢT khi khung mới/log dựng của một tập có > 1 chuỗi renderer; khung mới không khai renderer → THIẾU. Lớp trình dựng mới ≠ lớp khung
+        vàng → "đổi trình dựng": (c) bắt buộc.
+    (d) TRƯỢT khi khung mới khai `goi_canh.sha256` khác khung vàng (dữ liệu cảnh khác → lệch hình KHÔNG do trình dựng, không so được);
+        khung mới không khai → THIẾU. Khung vàng cũ (1.12.0, chỉ `renderer`) phải khai lại theo mẫu trên.
 """
-import glob, json, os, statistics, sys
+import glob, hashlib, json, os, re, statistics, sys
 
 import cv2
 import numpy as np
@@ -121,20 +131,58 @@ def so_khung(a, b):
 def _rd(p): return cv2.cvtColor(cv2.imread(p, cv2.IMREAD_COLOR), cv2.COLOR_BGR2RGB)
 
 
+GL_LOP = {'llvmpipe': re.compile(r'llvmpipe', re.I), 'swiftshader': re.compile(r'SwiftShader', re.I)}
+
+
+def lop_renderer(rs):
+    """chuỗi renderer → lớp trình dựng: llvmpipe | swiftshader | gpu"""
+    for k, rx in GL_LOP.items():
+        if rx.search(rs or ''): return k
+    return 'gpu'
+
+
+def _sha(p):
+    h = hashlib.sha256()
+    with open(p, 'rb') as f:
+        for b in iter(lambda: f.read(1 << 20), b''): h.update(b)
+    return h.hexdigest()
+
+
+def khai_vang(d, ten='khung-vang.json', kiem_sha=True):
+    """đọc + kiểm khai khung vàng (1.12.1) → (khai, lỗi (a), thiếu)"""
+    mf = os.path.join(d, ten); G = json.load(open(mf)) if os.path.exists(mf) else {}; loi, th = [], []
+    rg = str(G.get('renderer') or '').strip(); gl = G.get('gl')
+    if not rg: loi.append(f'(a) {ten} không ghi renderer')
+    elif gl not in ('llvmpipe', 'swiftshader', 'gpu'): loi.append(f'(a) {ten}: gl {gl!r} không thuộc llvmpipe/swiftshader/gpu')
+    elif lop_renderer(rg) != gl: loi.append(f'(a) {ten}: gl {gl} không khớp renderer {rg[:60]!r} (lớp {lop_renderer(rg)})')
+    if not str((G.get('goi_canh') or {}).get('sha256') or '').strip(): loi.append(f'(a) {ten} không ghi goi_canh.sha256 (dữ liệu cảnh của khung)')
+    if kiem_sha:
+        K = G.get('khung') or {}
+        for p in sorted(glob.glob(os.path.join(d, '*.jpg')) + glob.glob(os.path.join(d, '*.png'))):
+            n = os.path.basename(p)
+            if n not in K: loi.append(f'(a) {ten}: khung vàng {n} không có SHA-256 trong `khung`')
+            elif K[n] != _sha(p): loi.append(f'(a) {ten}: khung vàng {n} lệch SHA khai ({K[n][:12]}… ≠ {_sha(p)[:12]}…) — khung vàng bị thay')
+    return G, loi, th
+
+
 def khop1(gold_dir, new_dir, logs=()):
-    """gold_dir chứa khung + khung-vang.json {renderer, frames?}; new_dir chứa khung cùng tên (+ khung-moi.json {renderer} nếu có);
+    """gold_dir chứa khung + khung-vang.json (khai 1.12.1); new_dir chứa khung cùng tên + khung-moi.json (renderer, gl, goi_canh);
     logs: các log dựng của tập (JSON có info.renderer hoặc renderer)"""
-    loi, th, rows = [], [], {}
-    mf = os.path.join(gold_dir, 'khung-vang.json'); G = json.load(open(mf)) if os.path.exists(mf) else {}
+    G, loi, th = khai_vang(gold_dir); rows = {}
     rg = str(G.get('renderer') or '').strip()
-    if not rg: loi.append('(a) khung vàng không ghi renderer (khung-vang.json)')
+    mn = os.path.join(new_dir, 'khung-moi.json'); NW = json.load(open(mn)) if os.path.exists(mn) else {}
     rn = []
-    for p in [os.path.join(new_dir, 'khung-moi.json')] + list(logs):
+    for p in [mn] + list(logs):
         if os.path.exists(p):
             x = json.load(open(p)); v = x.get('renderer') or (x.get('info') or {}).get('renderer')
             if v: rn.append(v)
+    doi = False
     if len(set(rn)) > 1: loi.append(f'(b) trộn trình dựng trong một tập: {sorted(set(rn))}')
     elif not rn: th.append('(b) khung mới/log dựng không ghi renderer')
+    elif rg and lop_renderer(rn[0]) != lop_renderer(rg): doi = True
+    sv, sn = str((G.get('goi_canh') or {}).get('sha256') or ''), str((NW.get('goi_canh') or {}).get('sha256') or '')
+    if not sn: th.append('(d) khung-moi.json không ghi goi_canh.sha256 — không chứng minh được cùng dữ liệu cảnh với khung vàng')
+    elif sv and sn != sv: loi.append(f'(d) khung mới dựng từ dữ liệu cảnh khác khung vàng (goi_canh {sn[:12]}… ≠ {sv[:12]}…) — lệch hình không do trình dựng, không so được')
     names = sorted(os.path.basename(p) for p in glob.glob(os.path.join(gold_dir, '*.jpg')) + glob.glob(os.path.join(gold_dir, '*.png')) if os.path.exists(os.path.join(new_dir, os.path.basename(p))))
     if not names: th.append('(c) không có khung chung giữa hai thư mục')
     for n in names:
@@ -149,8 +197,9 @@ def khop1(gold_dir, new_dir, logs=()):
         sat += [f'{n} {x}' for x in _sat('SSIM', r['ssim'], SSIM) + _sat('PSNR¼', r['psnr_q4'], PSNR4) + _sat('tần thấp %', r['lo_pct_gt3'], LO_PCT) + _sat('dịch màu', max(abs(v) for v in r['shift_rgb']), SHIFT)]
     kq = 'THIẾU' if th and not loi else None
     val = (f"{sum(r['dat_cau_truc'] for r in ok_rows)}/{len(ok_rows)} khung đạt cấu trúc ({sum(r['dat_chat'] for r in ok_rows)} đạt chặt) · SSIM min "
-           f"{min(r['ssim'] for r in ok_rows)} · PSNR¼ min {min(r['psnr_q4'] for r in ok_rows)} · renderer vàng {rg[:60] or '—'}") if ok_rows else 'không có khung so'
-    return dict(ok=not loi and not th, ket_qua=kq, loi=loi, thieu=th, sat_nguong=sat, frames=rows, val=val)
+           f"{min(r['ssim'] for r in ok_rows)} · PSNR¼ min {min(r['psnr_q4'] for r in ok_rows)} · vàng {G.get('gl') or lop_renderer(rg) if rg else '—'} → mới "
+           f"{lop_renderer(rn[0]) if rn else '—'}{' (ĐỔI TRÌNH DỰNG: (c) bắt buộc)' if doi else ''}") if ok_rows else 'không có khung so'
+    return dict(ok=not loi and not th, ket_qua=kq, loi=loi, thieu=th, sat_nguong=sat, frames=rows, val=val, doi_trinh_dung=doi)
 
 
 def khop1_so(rows, renderer_vang=None, renderer_moi=()):

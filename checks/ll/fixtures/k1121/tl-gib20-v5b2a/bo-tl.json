@@ -1,0 +1,196 @@
+{
+ "ten": "gib20 V5b-2a (origin/v5b2a b35995e, cú liên hoàn, llvmpipe)",
+ "ghi_chu": "Bộ timelapse V5b-2a (tl_bundle.py) + K thêm 17/10: mat_na (noi-dung-mask MỌI khung của V), dia_hinh (lưới DEM 20 m cắt từ gói cảnh K dựng lại, nguồn Copernicus GLO-30 KHỚP SHA; AGL K tính lệch agl tự khai ≤ 0,05 m), hero_anh (14 khung không chữ 640×360 + mặt nạ --maskpng do K dựng lại trên llvmpipe; khung 320 trùng byte khung vàng V). nhan_sang của V giữ để đối chiếu, 1.12.1 không dùng.",
+ "campath": "campath.json.gz",
+ "mat_bang": "xz",
+ "fps": 24,
+ "ngan_sach": "text-budget.json.gz",
+ "log_chu": "log-chu.json.gz",
+ "tuyen": [
+  {
+   "t": [
+    7.8,
+    10.8
+   ],
+   "dung_dev_m": true,
+   "nguon": "OSM Winston Churchill Avenue (tim tuyến gộp hai chiều, gib20.js)",
+   "dich": [
+    320,
+    15,
+    1650
+   ]
+  }
+ ],
+ "reveal": [
+  {
+   "t": [
+    3.2,
+    7.4
+   ],
+   "truong": "d_tower",
+   "kieu": "zoom_in"
+  },
+  {
+   "t": [
+    17.8,
+    22.8
+   ],
+   "truong": "d_crossing",
+   "kieu": "keo_lui"
+  }
+ ],
+ "anh": [
+  {
+   "id": "2025710366",
+   "rights": "../rights-v5b2a.txt",
+   "neo": true,
+   "neo_px_loi": [
+    0.07,
+    0.05,
+    0.02,
+    0.03,
+    0.02,
+    0.05,
+    0.05,
+    0.04,
+    0.06,
+    0.04,
+    0.04,
+    0.04,
+    0.06,
+    0.02,
+    0.04,
+    0.02,
+    0.03,
+    0.05,
+    0.04,
+    0.07,
+    0.0,
+    0.06,
+    0.04,
+    0.02,
+    0.06,
+    0.03,
+    0.01,
+    0.05,
+    0.03,
+    0.04,
+    0.06,
+    0.05,
+    0.05,
+    0.02,
+    0.03,
+    0.06,
+    0.04,
+    0.06,
+    0.05,
+    0.03,
+    0.04,
+    0.06,
+    0.06,
+    0.01,
+    0.05,
+    0.05,
+    0.02,
+    0.07,
+    0.03,
+    0.01,
+    0.09,
+    0.04,
+    0.05,
+    0.04,
+    0.05,
+    0.03,
+    0.06,
+    0.03,
+    0.06,
+    0.02,
+    0.03,
+    0.04,
+    0.0,
+    0.03,
+    0.05,
+    0.08,
+    0.05,
+    0.04,
+    0.09,
+    0.07,
+    0.05,
+    0.07,
+    0.04,
+    0.05,
+    0.04,
+    0.07,
+    0.04,
+    0.02,
+    0.03,
+    0.03,
+    0.04,
+    0.02
+   ]
+  }
+ ],
+ "ket": [
+  22.8,
+  24.5
+ ],
+ "nam_toa": {
+  "nam_hien_tai": 2026,
+  "moc": {
+   "1941": "HM Government of Gibraltar 199/2018, 177/2023 (đường băng lấn vịnh 1941–1943)",
+   "1987": "Landsat 5 TM 1987 (USGS)",
+   "2026": "Copernicus Sentinel-2, 15/04/2026"
+  },
+  "lop": {
+   "Gibraltar (khối OSM, tầng chuẩn)": {
+    "loai": "tang_chuan",
+    "nguon": "goi-canh-meta.json stat gib_1987 + gib_2026",
+    "nam": {
+     "1987": 1995,
+     "2026": 456
+    }
+   },
+   "đất theo năm (landY)": {
+    "loai": "tang_chuan",
+    "nguon": "goi-canh-meta.json landY_counts (0 = luôn là đất)",
+    "nam": {
+     "1941": 614,
+     "1987": 3626,
+     "2026": 10027
+    }
+   }
+  }
+ },
+ "nhan_sang": [
+  {
+   "t": [
+    12.4,
+    14.2
+   ],
+   "ti_le": 0.594
+  }
+ ],
+ "mat_na": "noi-dung-mask.json.gz",
+ "dia_hinh": {
+  "tep": "dia-hinh.json.gz",
+  "ext": [
+   -2960.0,
+   -1920.0,
+   200.0,
+   640.0
+  ],
+  "buoc": 20.0,
+  "shape": [
+   129,
+   159
+  ],
+  "nguon": "Copernicus GLO-30 (gói cảnh gib, terrain.f32 cắt)"
+ },
+ "hero_anh": {
+  "khung": "hero/khung",
+  "mat_na": "hero/mat-na",
+  "hero_id": 2,
+  "ten": "crossing (đường băng 09/27 + trạm biên giới 1941)",
+  "min_pct": 0.5
+ }
+}

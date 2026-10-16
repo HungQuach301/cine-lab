@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Tự kiểm luật kênh 2 bản 1.12.0 (phiên K, 16/10/2026): ML1–ML3, FT1, BC1, MAU1, KHOP1, TL-Q1…Q6. Mỗi luật ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT.
+"""Tự kiểm luật kênh 2 bản 1.12.0 (phiên K, 16/10/2026; 1.12.1, 17/10/2026: KHOP1 dùng khai khung vàng đủ trường, TL-Q2 AGL, TL-Q1c tương phản): ML1–ML3, FT1, BC1, MAU1, KHOP1, TL-Q1…Q6. Mỗi luật ≥ 1 ca ĐẠT + ≥ 1 ca TRƯỢT.
 Dữ liệu thật trong fixtures/k112/: lời T2 k2c-t2-01 v3.3 (trước cắt) và v3.4 (sau cắt) có mốc giây; đặc tả + timeline T2 v3.4 dựng lại ngoại tuyến;
 câu trả lời chấm ngữ nghĩa ML2 đã lưu (ml2-cache.json, mô hình ghim, gọi thật 16/10); bộ timelapse ams30 (timelapse-rd) và gib20 (v5b1b);
 số so hình 12 khung SwiftShader ↔ llvmpipe (gpu-rd). Còn lại tổng hợp trong thư mục tạm. KHÔNG gọi mạng, KHÔNG gọi API.
@@ -174,19 +174,27 @@ def pair(name, f):
     cv2.imwrite(os.path.join(G, name), base_im); cv2.imwrite(os.path.join(N, name), np.clip(f(base_im.astype(np.float64)), 0, 255).astype(np.uint8))
 
 
-json.dump(dict(renderer='ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)'), open(os.path.join(G, 'khung-vang.json'), 'w'))
-json.dump(dict(renderer='ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)'), open(os.path.join(N, 'khung-moi.json'), 'w'))
-pair('a.png', lambda x: x + rng.normal(0, 2.0, x.shape))
+RSS, RLV = 'ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)', 'ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)'
+
+
+def khai(rg=RSS, rn=RLV, gl=None):
+    """1.12.1 (MM4): khai khung vàng/khung mới đủ trường (renderer, gl, goi_canh, SHA từng khung) sau mỗi lần ghi khung"""
+    J = lambda r_, d: dict(renderer=r_, gl=gl or QH.lop_renderer(r_), goi_canh=dict(ten='tổng hợp', sha256='0' * 64),
+                           khung={n: QH._sha(os.path.join(d, n)) for n in os.listdir(d) if n.endswith('.png')})
+    json.dump(J(rg, G), open(os.path.join(G, 'khung-vang.json'), 'w')); json.dump(J(rn, N), open(os.path.join(N, 'khung-moi.json'), 'w'))
+
+
+pair('a.png', lambda x: x + rng.normal(0, 2.0, x.shape)); khai()
 r = QH.khop1(G, N)
 case('KHOP1', f"nhiễu hạt σ 2 (như llvmpipe ↔ SwiftShader): {r['val']}", bad(r), False)
-pair('a.png', lambda x: x + 2.0)
+pair('a.png', lambda x: x + 2.0); khai()
 case('KHOP1', 'dịch màu đều +2 mức/kênh → (c)', QH.khop1(G, N)['loi'], True)
-pair('a.png', lambda x: cv2.GaussianBlur(x, (0, 0), 3))
+pair('a.png', lambda x: cv2.GaussianBlur(x, (0, 0), 3)); khai()
 case('KHOP1', 'mờ Gauss σ 3 → SSIM < 0,90 (c)', QH.khop1(G, N)['loi'], True)
-pair('a.png', lambda x: x + rng.normal(0, 2.0, x.shape))
+pair('a.png', lambda x: x + rng.normal(0, 2.0, x.shape)); khai()
 os.remove(os.path.join(G, 'khung-vang.json'))
 case('KHOP1', 'khung vàng không ghi renderer → (a)', QH.khop1(G, N)['loi'], True)
-json.dump(dict(renderer='SwiftShader'), open(os.path.join(G, 'khung-vang.json'), 'w'))
+khai()
 lg1, lg2 = os.path.join(TMP, 'l1.json'), os.path.join(TMP, 'l2.json')
 json.dump(dict(info=dict(renderer='SwiftShader')), open(lg1, 'w')); json.dump(dict(info=dict(renderer='llvmpipe')), open(lg2, 'w'))
 case('KHOP1', 'log dựng của một tập có 2 renderer (SwiftShader + llvmpipe) → (b) trộn trình dựng', QH.khop1(G, N, logs=[lg1, lg2])['loi'], True)

@@ -12,7 +12,8 @@ Mỗi shot của phim chính khai `type` (cùng cấp với `tpl` trong đặc t
   anchors: [khoá numbers]                             số neo; không khai → mọi khoá `numbers` có hiện trên hình
 Shot `photo` trỏ ảnh bằng `p.photo` (hoặc `p.rid`, `p.clip`). Shot `document`: `p.paper` (tên báo) + `p.date` (YYYY-MM-DD).
 TRƯỢT khi:
-  (0) shot thiếu `type` hoặc `type` ngoài TYPES; số shot đặc tả ≠ timeline
+  (0) shot thiếu `type` hoặc `type` ngoài TYPES; số shot đặc tả ≠ timeline. 1.12.1 (chủ dự án 16–17/10): thêm `timelapse` (cảnh xương sống
+      thời gian `tl/<cảnh>`); số trên shot timelapse là lớp chữ 2D (bộ đếm), KHÔNG tính là hiện bằng 3D ở (c). ML1 vẫn nhận `tl: true`.
   (a) một địa danh không có shot `map` giao [t − 6 s, t + 6 s], t = lần đầu lời nhắc tên; tên không có trong lời
   (b) một nhân vật có ảnh hợp lệ (rid trong RIGHTS.md hoặc clip_id trong sổ footage) mà không có shot `photo` ảnh đó giao ±6 s quanh lần nhắc đầu;
       không có ảnh hợp lệ mà không ghi `ly_do` (≥ 20 ký tự)
@@ -34,7 +35,7 @@ import json, os, re, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 from checks.ll import base  # noqa: E402
 
-TYPES = ('scene3d', 'map', 'chart3d', 'photo', 'document', 'footage', 'card', 'record')   # 1.11.1: record = văn bản gốc (O2-B)
+TYPES = ('scene3d', 'map', 'chart3d', 'photo', 'document', 'footage', 'card', 'record', 'timelapse')   # 1.11.1: record = văn bản gốc (O2-B); 1.12.1: timelapse (xương sống thời gian, design/k2v/tl)
 EXT = ('photo', 'document', 'footage', 'record')      # tính chung trần nguồn ngoài của Q32
 WIN = 6.0
 MIN_3D, MAX_CARD = 60.0, 40.0
