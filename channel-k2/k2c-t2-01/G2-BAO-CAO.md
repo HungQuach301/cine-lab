@@ -351,7 +351,17 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   - Trượt: `q_footage` Q32, `q_rhythm` Q14/Q15/Q17, `q_setting` Q26b.
   - Lỗi cách gọi (cần đường dẫn mp4 hoặc chạy theo mô-đun): `q_diversity`, `q_av`, `q_chu`, `q_nhip`, `q_amthanh`.
   - Chưa xác định mục nào áp cho kênh 2. Sẽ phân tích và ghi khi được tiếp tục; không kết luận ở đây.
-- **golden.py run:** đang chạy lúc dừng; kết quả ghi khi xong.
+- **golden.py run** (HEAD `22191104`, 1032 s, `/var/tmp/golden/golden.json`):
+  - **steel** KHỚP (SSIM 0,978; pHash 0/64; 0 ô lệch).
+  - **ll08** KHỚP (SSIM 0,969; 0 ô lệch).
+  - **t1** LỆCH CỤC BỘ (SSIM 0,955; pHash 0/64; 22/144 ô lệch, **chỉ ở hàng 7–8 = dòng nguồn**).
+    - Bộ công cụ hiện hành vẽ dòng nguồn 38 px (2 dòng); master T1 dùng cỡ nhỏ hơn.
+    - Luật 38 px (`k2.js` SRCPX, Kinh thánh §4) được duyệt 14/10 20:45, **sau khi T1 phát hành**. Đây là đổi kiểu đã duyệt, không do mã phiên này.
+    - Cảnh 3D và thẻ số khớp.
+  - **k2v4** LỖI: `relief.js:150` đọc tuyến `{src: 'mohawk'}`, nhưng `k2v-cache/relief/erie/routes.json` (ngày 14/10 23:43) chỉ có `erie` và `hudson`.
+    - **Nguyên nhân là cache ngoài git bị dựng lại thiếu sông Mohawk**, không phải mã phiên này: `relief.js` không đổi trong phiên.
+    - Đề xuất cho phiên Nền tảng: (a) dựng lại cache erie kèm mohawk; (b) `routePts` báo lỗi rõ khi `src` thiếu, thay vì đổ ở `maskAt`. Chưa làm, vì đang dừng.
+  - **Thay đổi bộ công cụ của phiên này** (`photo.js` trang + tô dòng, `k2.js` kind chuỗi, `rhythm.py`, `hero.js opt.oy`) **không làm lệch ca nào dựng được.**
 - **k2check v1.11 (chỉ báo):** chưa chạy, vì dừng.
 
 **DỪNG chờ chủ dự án.**
