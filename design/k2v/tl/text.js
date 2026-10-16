@@ -4,7 +4,7 @@
 //  chữ ≥ 38 px@1080 cho nguồn đang hiện · tương phản ≥ 4,5:1 đo trên điểm ảnh thật. Vẽ SAU khi lấy khung WebGL (LUT/grain không chạm chữ).
 export function makeText(W, H) {
   const S = H / 1080, cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d', { willReadFrequently: true });
-  const FONT = '"DejaVu Sans", "Liberation Sans", Arial, sans-serif', RECTS = [], TXT = [], LOG = { cards: 0, overflow: [] };
+  const FONT = '"DejaVu Sans", "Liberation Sans", Arial, sans-serif', RECTS = [], TXT = [], LOG = { cards: 0, overflow: [], leaders: [] };
   let anch = false;
   const words = (s) => s.replace(/[·—–:“”]/g, ' ').split(/\s+/).filter(Boolean).length;
   function text(s, x, y, px, color, o = {}) {
@@ -18,6 +18,8 @@ export function makeText(W, H) {
     TXT.push({ s, px, box, alpha: o.alpha ?? 1, role: o.role || '' });
   }
   function plate(x0, y0, x1, y1, a) { RECTS.push({ r: [x0, y0, x1, y1], anchored: anch }); g.fillStyle = `rgba(12,16,22,${0.80 * a})`; g.beginPath(); g.roundRect(x0, y0, x1 - x0, y1 - y0, 14 * S); g.fill(); }
+  // V5b-2a (TL-Q4b): mỗi đường dẫn ghi đầu đường dẫn (điểm ảnh, ở độ phân giải khung) + điểm 3D neo (ENU) → đo lệch độc lập bằng campath (anchor_dev.py)
+  const leader = (role, s, from, end, a) => LOG.leaders.push({ role, s: s.slice(0, 40), from: from.map((v) => +v.toFixed(1)), end: end.map((v) => +v.toFixed(1)), world: a && a.w ? a.w.map((v) => +v.toFixed(2)) : null, W, H });
   const fade = (t, a, b, k = 0.35) => Math.max(0, Math.min(1, (t - a) / k, (b - t) / k));
   let YBOX = 0;
   // thẻ: dải dưới (bên phải hộp năm) hoặc neo vào điểm 3D (anchorPx = [x, y] màn hình)
@@ -31,7 +33,8 @@ export function makeText(W, H) {
     const w = Math.min(avail, Math.max(w1, w2) + 60 * S), hgt = 126 * S;
     let cx = Math.min(W - 36 * S - w / 2, Math.max(xl + w / 2, W / 2)), y1 = H - 40 * S;
     if (anchorPx) { const [ax, ay] = anchorPx; cx = Math.min(W - 36 * S - w / 2, Math.max(36 * S + w / 2, ax)); y1 = Math.max(hgt + 40 * S, Math.min(H * 0.62, ay - 70 * S));
-      anch = true; g.strokeStyle = '#ffd166'; g.lineWidth = 4 * S; g.beginPath(); g.moveTo(cx, y1); g.lineTo(ax, ay); g.stroke(); g.fillStyle = '#ffd166'; g.beginPath(); g.arc(ax, ay, 9 * S, 0, 7); g.fill(); }
+      anch = true; g.strokeStyle = '#ffd166'; g.lineWidth = 4 * S; g.beginPath(); g.moveTo(cx, y1); g.lineTo(ax, ay); g.stroke(); g.fillStyle = '#ffd166'; g.beginPath(); g.arc(ax, ay, 9 * S, 0, 7); g.fill();
+      leader('card', title, [cx, y1], [ax, ay], anchorPx); }
     const y0 = y1 - hgt; plate(cx - w / 2, y0, cx + w / 2, y1, 1); g.fillStyle = '#ffd166'; g.fillRect(cx - w / 2, y0, 8 * S, hgt);
     text(title, cx, y0 + 58 * S, tp, '#ffffff', { align: 'center', alpha: a, role: 'card' }); text(src, cx, y0 + 106 * S, 38, '#c9d3dd', { align: 'center', w: 500, alpha: a, role: 'src' });
     anch = false; g.globalAlpha = 1;
@@ -43,7 +46,7 @@ export function makeText(W, H) {
     g.font = `700 ${Math.round(44 * S)}px ${FONT}`; const wt1 = g.measureText(title).width; g.font = `500 ${Math.round(38 * S)}px ${FONT}`; const wt2 = g.measureText(src).width;
     const ih = 330 * S, iw = ih * img.width / img.height, cw = Math.max(wt1, wt2) + 48 * S, x1 = W - 36 * S, py0 = 210 * S, cy0 = py0 + ih + 10 * S, cy1 = cy0 + 116 * S;
     if (cw > W * 0.66) LOG.overflow.push('chú thích ảnh dài: ' + title);
-    g.strokeStyle = '#ffd166'; g.lineWidth = 4 * S; g.beginPath(); g.moveTo(x1 - iw, py0 + ih / 2); g.lineTo(ax, ay); g.stroke();
+    g.strokeStyle = '#ffd166'; g.lineWidth = 4 * S; g.beginPath(); g.moveTo(x1 - iw, py0 + ih / 2); g.lineTo(ax, ay); g.stroke(); leader('photo', title, [x1 - iw, py0 + ih / 2], [ax, ay], anchorPx);
     const k = (t * 1.2) % 1; g.beginPath(); g.arc(ax, ay, (10 + 26 * k) * S, 0, 7); g.strokeStyle = `rgba(255,209,102,${a * (1 - k)})`; g.stroke();
     g.fillStyle = '#ffd166'; g.beginPath(); g.arc(ax, ay, 9 * S, 0, 7); g.fill();
     g.filter = 'sepia(0.35) contrast(1.05)'; g.drawImage(img, x1 - iw, py0, iw, ih); g.filter = 'none'; g.strokeStyle = '#ffd166'; g.lineWidth = 3 * S; g.strokeRect(x1 - iw, py0, iw, ih);
@@ -53,24 +56,32 @@ export function makeText(W, H) {
   }
   function tag(t, win, s, anchorPx) {   // nhãn neo nhỏ (ghost: "reconstructed from …"), có quầng, không nền
     const a = fade(t, win[0], win[1]); if (a <= 0 || !anchorPx) return; g.globalAlpha = a; anch = true;
-    const [ax, ay] = anchorPx; g.strokeStyle = 'rgba(255,255,255,0.9)'; g.lineWidth = 3 * S; g.beginPath(); g.moveTo(ax, ay); g.lineTo(ax, ay - 64 * S); g.stroke();
+    const [ax, ay] = anchorPx; g.strokeStyle = 'rgba(255,255,255,0.9)'; g.lineWidth = 3 * S; g.beginPath(); g.moveTo(ax, ay); g.lineTo(ax, ay - 64 * S); g.stroke(); leader('tag', s, [ax, ay - 64 * S], [ax, ay], anchorPx);
     // nền tối (lượt 1 dùng quầng: trên trời sáng đo được 2,24:1 < 4,5 → trượt)
     g.font = `600 ${Math.round(38 * S)}px ${FONT}`; const tw = g.measureText(s).width; plate(ax - tw / 2 - 18 * S, ay - 64 * S - 58 * S, ax + tw / 2 + 18 * S, ay - 64 * S, 1);
     text(s, ax, ay - 64 * S - 16 * S, 38, '#ffffff', { align: 'center', w: 600, alpha: a, role: 'tag' }); anch = false; g.globalAlpha = 1;
   }
-  function chrome(t, year, pinZoom, idx, method) {   // năm + chỉ số + nhãn phương pháp
+  function chrome(t, year, pinZoom, idx, method, idxSrc) {   // năm + chỉ số + nhãn phương pháp (+ V5b-2a: dòng nguồn khi chỉ số là SỐ ĐẾM, role index_src)
     const y = Math.floor(year), zs = 1 + 0.45 * pinZoom, ys = String(y);
     g.font = `700 ${Math.round(96 * zs * S)}px ${FONT}`; const wy = g.measureText(ys).width; YBOX = 36 * S + wy + 48 * zs * S;
     plate(36 * S, H - 40 * S - 114 * zs * S, YBOX, H - 40 * S, 1);
     if (pinZoom > 0.01) { g.strokeStyle = `rgba(255,209,102,${pinZoom})`; g.lineWidth = 5 * S; g.strokeRect(36 * S, H - 40 * S - 114 * zs * S, wy + 48 * zs * S, 114 * zs * S); }
     text(ys, 36 * S + 24 * zs * S, H - 40 * S - 22 * zs * S, 96 * zs, pinZoom > 0.5 ? '#ffd166' : '#ffffff', { role: 'year' });
     let idxW = 0; if (idx) { g.font = `700 ${Math.round(60 * S)}px ${FONT}`; const wp = g.measureText(idx).width; idxW = wp + 52 * S; plate(W - 36 * S - wp - 52 * S, 36 * S, W - 36 * S, 36 * S + 98 * S, 1);
-      text(idx, W - 62 * S, 36 * S + 70 * S, 60, '#ffffff', { align: 'right', role: 'index' }); }
-    if (method && method.a > 0) { g.globalAlpha = method.a; g.font = `600 ${Math.round(38 * S)}px ${FONT}`; const w1 = g.measureText(method.s).width;
+      text(idx, W - 62 * S, 36 * S + 70 * S, 60, '#ffffff', { align: 'right', role: 'index' });
+      if (idxSrc && idxSrc.a > 0.001) { g.globalAlpha = idxSrc.a; g.font = `500 ${Math.round(38 * S)}px ${FONT}`; const ws = g.measureText(idxSrc.s).width;
+        plate(W - 36 * S - ws - 40 * S, 36 * S + 98 * S + 8 * S, W - 36 * S, 36 * S + 98 * S + 8 * S + 60 * S, 1);
+        text(idxSrc.s, W - 56 * S, 36 * S + 98 * S + 8 * S + 44 * S, 38, '#c9d3dd', { align: 'right', w: 500, alpha: idxSrc.a, role: 'index_src' }); g.globalAlpha = 1; } }
+    // nhãn phương pháp: 1 hoặc nhiều dòng (V5b-2a HH3: dòng "≈ = interpolated between counts" — mỗi dòng có alpha riêng, xếp dưới nhau trên-trái)
+    const ML = !method ? [] : (method.lines || [{ s: method.s, a: method.a }]).filter((m) => m.a > 0.001);
+    let yy = method && method.bottom ? H - 40 * S - 64 * S : 36 * S;
+    for (const m of ML) { g.globalAlpha = m.a; g.font = `600 ${Math.round(38 * S)}px ${FONT}`; const w1 = g.measureText(m.s).width;
       // đầu phim: trên-trái (không chạm hộp chỉ số); màn kết: dải dưới, bên phải hộp năm (không có thẻ ở màn kết)
-      const x0 = method.bottom ? YBOX + 24 * S : 36 * S, y0 = method.bottom ? H - 40 * S - 72 * S : 36 * S;
-      if (!method.bottom && idxW && x0 + w1 + 48 * S > W - 36 * S - idxW - 24 * S) LOG.overflow.push('nhãn phương pháp chạm hộp chỉ số');
-      plate(x0, y0, x0 + w1 + 48 * S, y0 + 72 * S, 1); text(method.s, x0 + 24 * S, y0 + 50 * S, 38, '#ffffff', { w: 600, alpha: method.a, role: 'method' }); g.globalAlpha = 1; }
+      const x0 = method.bottom ? YBOX + 24 * S : 36 * S, y0 = yy;
+      if (!method.bottom && idxW && y0 < 36 * S + 98 * S + 70 * S && x0 + w1 + 48 * S > W - 36 * S - idxW - 24 * S) LOG.overflow.push('nhãn phương pháp chạm hộp chỉ số');
+      // V5b-2a: tấm nền gọn hơn (cao 64, lề 20) để thêm dòng HH3 mà vẫn ≤ 15 % khung khi trùng thẻ Tower (đo budgetAll)
+      plate(x0, y0, x0 + w1 + 40 * S, y0 + 64 * S, 1); text(m.s, x0 + 20 * S, y0 + 45 * S, 38, '#ffffff', { w: 600, alpha: m.a, role: 'method' }); g.globalAlpha = 1;
+      yy += method.bottom ? -72 * S : 72 * S; }
   }
   function budget() {
     const q = 4, nx = Math.ceil(W / q), ny = Math.ceil(H / q), m = new Uint8Array(nx * ny);
@@ -90,6 +101,7 @@ export function makeText(W, H) {
       return { s: e.s.slice(0, 48), role: e.role, px1080: e.px, words: words(e.s), ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2) };
     });
   }
-  function begin(img) { RECTS.length = 0; TXT.length = 0; LOG.cards = 0; LOG.overflow = []; g.clearRect(0, 0, W, H); if (img) g.drawImage(img, 0, 0, W, H); }
-  return { cv, g, begin, chrome, card, photo, tag, budget, contrast, log: LOG, S };
+  const roles = () => [...new Set(TXT.filter((e) => e.alpha > 0.001).map((e) => e.role))];
+  function begin(img) { RECTS.length = 0; TXT.length = 0; LOG.cards = 0; LOG.overflow = []; LOG.leaders = []; g.clearRect(0, 0, W, H); if (img) g.drawImage(img, 0, 0, W, H); }
+  return { cv, g, begin, chrome, card, photo, tag, budget, contrast, roles, log: LOG, S };
 }

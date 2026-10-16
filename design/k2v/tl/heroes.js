@@ -209,5 +209,7 @@ export function makeHeroes(H, hAt, U, terr, lines) {
     for (let k = 0; k < 18; k++) person(ge + 4 + RR() * 5, gn - 30 + RR() * 45); }
   life.visible = false; group.add(life); out.life = life;
   out.update = (year) => { bar.visible = year >= 1941; life.visible = year >= 1940.5 && year <= 1946.5; };
+  // V5b-2a · id hero cho mặt nạ (BC1 / TL-Q1c / liên hoàn "hero ≥ 25 % khung"): 1 = Tower of Homage + lâu đài, 2 = giao lộ đường băng × WCA 1941 (đường băng, chắn, viền, xe/người, trạm biên giới)
+  out.heroIds = { tower: 1, crossing: 2 }; out.heroParts = { tower: [towerM, castleM, slitM, lsM, dkM], crossing: [runway, bar, fr, life] };
   return out;
 }

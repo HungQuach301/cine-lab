@@ -20,6 +20,9 @@ FILES = {
 }
 
 
+NG_CROP = (70, 66, 3315, 1611)   # hộp cắt TIF LoC 2025710366 (x0, y0, x1, y1): bỏ lề + chú thích in dưới ảnh
+
+
 def sha(p):
     h = hashlib.sha256()
     with open(p, "rb") as f:
@@ -59,6 +62,10 @@ def main(only):
             p.write_bytes(subprocess.run(["git", "-C", str(ROOT), "show", f"origin/v5a:assets/k2/lut/{n}.cube"], capture_output=True, check=True).stdout)
             rep[f"lut/{n}.cube"] = dict(sha=sha(p), khop=(sha(p) == want.get(f"lut/{n}.cube")) if want.get(f"lut/{n}.cube") else None)
             print(f"lut/{n}.cube", rep[f"lut/{n}.cube"]["sha"][:12])
+    if not only or "loc" in only or "ngcrop" in only:   # V5b-2a: ảnh cắt LoC ghi cách cắt (V5b-1/1b không ghi) — hộp tìm lại bằng đối khớp với bản 540p V5b-1b (tương quan 0,987)
+        from PIL import Image
+        im = Image.open(CACHE / "loc/1b07607u.tif").convert("RGB").crop(NG_CROP); im = im.resize((1600, round(1600 * im.height / im.width)), Image.LANCZOS)
+        p = CACHE / "loc/ng_crop.jpg"; im.save(p, quality=92); rep["loc/ng_crop.jpg"] = dict(sha=sha(p), khop=None, crop=NG_CROP, size=im.size); print("loc/ng_crop.jpg", NG_CROP, im.size, sha(p)[:12])
     (CACHE / "fetch_sources.json").write_text(json.dumps(rep, indent=1))
     bad = [k for k, v in rep.items() if v["khop"] is False]
     if bad: print("CẢNH BÁO SHA lệch:", bad, file=sys.stderr)

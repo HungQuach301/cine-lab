@@ -51,7 +51,8 @@ window.setup = async (cfg) => {
   ctx = { THREE, U, M, terr, city, roads, trees, heroes, ships, sun, sunDir, cam, photo, lines: LINES, W: cfg.W, H: cfg.H, track };
   SC = await mod.build(ctx);
   // mặt nạ nội dung: hero + đường = nội dung (city/terrain tự có mã mặt nạ); cây = nền
-  const mk = (obj, v) => obj && obj.traverse((o) => { if (o.isMesh) for (const m of [].concat(o.material)) if (!m.isShaderMaterial) maskify(m, U, v); });
+  const mk = (obj, v, hid = 0) => obj && obj.traverse((o) => { if (o.isMesh) for (const m of [].concat(o.material)) if (!m.isShaderMaterial) maskify(m, U, v, hid); });
+  for (const [k, objs] of Object.entries(heroes.heroParts || {})) for (const o of objs) mk(o, 1, heroes.heroIds[k]);   // V5b-2a: hero có id (trước mk chung — maskify bỏ qua vật liệu đã gắn)
   mk(heroes.group, 1); mk(roads.mesh, 1); mk(ships.group, 1); if (trees) mk(trees.group, 0); mk(terr.group.children.find((o) => o.material && o.material.map), 0);
   ctx.ws = ws;
   stats = { ships: ships.n, styles: city.styles, corner_towers: heroes.cornerTowers, load_s: +((performance.now() - t0) / 1000).toFixed(2), terrain_tris: terr.tris, city_tris: city.tris, city_tiles: city.nTiles, buildings: B.length, roads_tris: roads.tris, trees: trees ? trees.n : 0,
@@ -84,13 +85,17 @@ window.renderFrame = async (f, measure, ov) => {
   const ms = pipe.accumulate(scene, cam, spp, (i) => { U.uSample.value = i + f * 0.137; if (C.tech.shadowCache && i > 0) R.shadowMap.needsUpdate = false; });
   R.setRenderTarget(null); pipe.outMat.uniforms.frame.value = f; R.render(outScene, quadCam);
   const t1 = performance.now();
-  const t2 = performance.now(); txt.begin(R.domElement); const proj = (v) => { const p = v.clone().project(cam); return p.z < 1 && p.z > -1 ? [(p.x + 1) / 2 * C.W, (1 - p.y) / 2 * C.H] : null; };
-  if (!(ov && ov.noText)) SC.overlay(t, st, txt, proj);
-  const r = { f, year: +st.year.toFixed(2), spp, gl_ms: +ms.toFixed(1), post_ms: +(t1 - t0 - ms).toFixed(1), lod: ctx.city.stat(), tlod: ctx.terr.stat(), shadow_upd: shadowUpdates, budget: txt.budget(), overflow: txt.log.overflow.slice() };
-  if (measure) r.text = txt.contrast();
+  const t2 = performance.now(); txt.begin(R.domElement);
+  if (!(ov && ov.noText)) SC.overlay(t, st, txt, projOf());
+  const r = { f, year: +st.year.toFixed(2), spp, phase: st.phase || null, preset: st.preset || null, gl_ms: +ms.toFixed(1), post_ms: +(t1 - t0 - ms).toFixed(1), lod: ctx.city.stat(), tlod: ctx.terr.stat(), shadow_upd: shadowUpdates, budget: txt.budget(), overflow: txt.log.overflow.slice() };
+  // V5b-2a (K §7.1): log chữ MỌI khung có thẻ/ảnh/nhãn neo (không chỉ khung đo) + đường dẫn neo (đầu đường dẫn ↔ điểm 3D, TL-Q4b)
+  if (measure || txt.log.cards > 0 || txt.log.leaders.length) r.text = txt.contrast();
+  if (txt.log.leaders.length) r.leaders = txt.log.leaders.slice();
   const t3 = performance.now(); r.img = txt.cv.toDataURL('image/jpeg', 0.95).slice(23); r.ms = { acc: +ms.toFixed(0), out: +(t2 - t0 - ms).toFixed(0), overlay: +(t3 - t2).toFixed(0), encode: +(performance.now() - t3).toFixed(0) };
   return r;
 };
+// chiếu điểm 3D → điểm ảnh; mảng trả về mang .w = điểm 3D ENU [E, cao, N] (text.js ghi vào log đường dẫn để đo lệch độc lập từ campath)
+const projOf = () => (v) => { const p = v.clone().project(cam); if (!(p.z < 1 && p.z > -1)) return null; const a = [(p.x + 1) / 2 * C.W, (1 - p.y) / 2 * C.H]; a.w = [v.x, v.y, -v.z]; return a; };
 // tỉ lệ diện tích NỘI DUNG có nghĩa trong khung (cả khung + vùng giữa 15–85 %) — đo trên mặt nạ dựng cùng máy/năm, không tự khai
 let maskRT = null;
 window.contentMask = (f, ov) => {
@@ -100,10 +105,17 @@ window.contentMask = (f, ov) => {
   U.uMask.value = 1; ctx.ws.water.visible = ctx.ws.sky.visible = false; const sm = R.shadowMap.enabled; R.shadowMap.enabled = false; const cc = R.getClearColor(new THREE.Color()), ca = R.getClearAlpha(); R.setClearColor(0x000000, 1);
   R.setRenderTarget(maskRT); R.clear(); R.render(scene, cam); const px = new Uint8Array(w * h * 4); R.readRenderTargetPixels(maskRT, 0, 0, w, h, px); R.setRenderTarget(null);
   U.uMask.value = 0; ctx.ws.water.visible = ctx.ws.sky.visible = true; R.shadowMap.enabled = sm; R.setClearColor(cc, ca);
-  let n = 0, nc = 0, tc = 0, nf = 0; for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = (y * w + x) * 4, on = px[i] > 128 && px[i + 1] < 90, fb = px[i] < 90 && px[i + 1] > 128; n += on; nf += on || fb; if (x >= w * 0.15 && x < w * 0.85 && y >= h * 0.15 && y < h * 0.85) { tc++; nc += on; } }
+  const ids = ctx.heroes.heroIds || {}, hn = {}; for (const k in ids) hn[k] = 0;
+  let n = 0, nc = 0, tc = 0, nf = 0, nh = 0; for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = (y * w + x) * 4, on = px[i] > 128 && px[i + 1] < 90, fb = px[i] < 90 && px[i + 1] > 128; n += on; nf += on || fb; if (x >= w * 0.15 && x < w * 0.85 && y >= h * 0.15 && y < h * 0.85) { tc++; nc += on; }
+    if (on && px[i + 2] > 0) { nh++; for (const k in ids) if (Math.abs(px[i + 2] - ids[k]) < 0.5) hn[k]++; } }
   // content = HÌNH HỌC nội dung (toà, hero, tường, đường, tàu, xe/người); fabric = content + nền phố (mặt đất đô thị của năm đó: sân, phố, quảng trường)
-  return { content_pct: +(n / (w * h) * 100).toFixed(1), content_center_pct: +(nc / tc * 100).toFixed(1), fabric_pct: +(nf / (w * h) * 100).toFixed(1) };
+  // V5b-2a: hero_pct = % khung của hero ĐANG KỂ (st.hero = id tên trong heroIds; không khai → mọi hero), hero_pct_by_id theo từng hero
+  const P = (k) => +(k / (w * h) * 100).toFixed(2), by = {}; for (const k in hn) by[k] = P(hn[k]);
+  return { content_pct: +(n / (w * h) * 100).toFixed(1), content_center_pct: +(nc / tc * 100).toFixed(1), fabric_pct: +(nf / (w * h) * 100).toFixed(1),
+    hero_id: st.hero || 'all', hero_pct: st.hero ? by[st.hero] : P(nh), hero_pct_by_id: by, phase: st.phase || null, preset: st.preset || null, year: +st.year.toFixed(2) };
 };
 window.camLog = () => SC.camLog();
-window.budgetAll = () => { const out = []; for (let f = 0; f < SC.N; f++) { const t = f / SC.fps, st = SC.state(t); applyCam(cam, st.cam); txt.begin(null); const proj = (v) => { const p = v.clone().project(cam); return p.z < 1 && p.z > -1 ? [(p.x + 1) / 2 * C.W, (1 - p.y) / 2 * C.H] : null; }; SC.overlay(t, st, txt, proj); out.push(Object.assign({ f }, txt.budget(), { overflow: txt.log.overflow.length, msg: txt.log.overflow.slice(0, 2) })); } return out; };
+window.budgetAll = () => { const out = []; for (let f = 0; f < SC.N; f++) { const t = f / SC.fps, st = SC.state(t); applyCam(cam, st.cam); txt.begin(null); SC.overlay(t, st, txt, projOf());
+  out.push(Object.assign({ f }, txt.budget(), { overflow: txt.log.overflow.length, msg: txt.log.overflow.slice(0, 2), roles: txt.roles() }, txt.log.leaders.length ? { leaders: txt.log.leaders.slice() } : {})); } return out; };
+window.grammarLog = () => (SC.grammarLog ? SC.grammarLog() : null);
 window.ready = true;
