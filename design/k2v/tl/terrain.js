@@ -126,7 +126,10 @@ export async function makeTerrain(base, M, U) {
     const nx = Math.round((eB - eA) / s) + 1, nz = Math.round((nB - nA) / s) + 1, P = new Float32Array(nx * nz * 3), I = [];
     for (let j = 0; j < nz; j++) for (let i = 0; i < nx; i++) { const e = eA + i * s, n = nB - j * s, k = (j * nx + i) * 3;
       let h = hAt(e, n); if (sinkIn && e > IN[0] + s && e < IN[2] - s && n > IN[1] + s && n < IN[3] - s) h -= 40; P[k] = e; P[k + 1] = h; P[k + 2] = -n; }
-    for (let j = 0; j < nz - 1; j++) for (let i = 0; i < nx - 1; i++) { const a = j * nx + i, b = a + 1, c = a + nx, d = c + 1; I.push(a, c, b, b, c, d); }
+    // V5b-2a: lưới ngoài 60 m BỎ các ô nằm trọn trong vùng trong (đã có ô 20/60 m của LOD) — nội suy thô qua vách đứng (mặt bắc Rock cao ≈ 400 m) đâm xuyên lưới mịn dù đã hạ 40 m
+    const inIn = (e, n) => sinkIn && e > IN[0] + 2 * s && e < IN[2] - 2 * s && n > IN[1] + 2 * s && n < IN[3] - 2 * s;
+    for (let j = 0; j < nz - 1; j++) for (let i = 0; i < nx - 1; i++) { const a = j * nx + i, b = a + 1, c = a + nx, d = c + 1;
+      if (inIn(eA + i * s, nB - j * s) && inIn(eA + (i + 1) * s, nB - (j + 1) * s)) continue; I.push(a, c, b, b, c, d); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(P, 3)); g.setIndex(I); g.computeVertexNormals(); return g;
   };
   // LOD địa hình theo ô 1 km (kỹ thuật V5b-1): ô gần 20 m, ô xa 60 m; váy (skirt) 30 m che khe nứt giữa hai mức
@@ -148,7 +151,10 @@ export async function makeTerrain(base, M, U) {
     const P = new Float32Array(fr * fc * 3), UV = new Float32Array(fr * fc * 2), I = [];
     for (let j = 0; j < fr; j++) for (let i = 0; i < fc; i++) { const e = fe0 + i * fs, n = fn1 - j * fs, k = j * fc + i; let h = FH[k];
       if (e > e0 + 2 * fs && e < e1 - 2 * fs && n > n0 + 2 * fs && n < n1 - 2 * fs) h -= 60; P.set([e, h, -n], k * 3); UV.set([i / (fc - 1), 1 - j / (fr - 1)], k * 2); }
-    for (let j = 0; j < fr - 1; j++) for (let i = 0; i < fc - 1; i++) { const a = j * fc + i, b = a + 1, c = a + fc, d = c + 1; I.push(a, c, b, b, c, d); }
+    // V5b-2a: BỎ ô vòng xa nằm trọn trong gói cảnh (lỗi V5b-1 → V5b-2a: ô 150 m nội suy qua vách bắc Rock đâm xuyên lưới gần → mảng ảnh vệ tinh tối hình tam giác trên vách)
+    const inBox = (e, n) => e > e0 + 3 * fs && e < e1 - 3 * fs && n > n0 + 3 * fs && n < n1 - 3 * fs;
+    for (let j = 0; j < fr - 1; j++) for (let i = 0; i < fc - 1; i++) { const a = j * fc + i, b = a + 1, c = a + fc, d = c + 1;
+      if (inBox(fe0 + i * fs, fn1 - j * fs) && inBox(fe0 + (i + 1) * fs, fn1 - (j + 1) * fs)) continue; I.push(a, c, b, b, c, d); }
     const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(P, 3)); g.setAttribute('uv', new THREE.BufferAttribute(UV, 2)); g.setIndex(I); g.computeVertexNormals();
     const fm = new THREE.MeshStandardMaterial({ map: ftex, roughness: 1 }); fm.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uDim: U.uDim });
       sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uDim;').replace('#include <map_fragment>', '#include <map_fragment>\n diffuseColor.rgb *= 1.15; { float L = dot(diffuseColor.rgb, vec3(0.299,0.587,0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55*uDim) * (1.0 - 0.36*uDim); }'); };
