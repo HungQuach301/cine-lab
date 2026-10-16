@@ -1,0 +1,24 @@
+GIAY PHEP: Bundesamt für Statistik (BFS) - Eidg. Gebäude- und Wohnungsregister (GWR), doc qua lop api3.geo.admin.ch ch.bfs.gebaeude_wohnungs_register - EGID, nam xay (GBAUJ), dien tich (GAREA) cua cac HERO
+Ngay doc: 2026-10-16 (phien phu Tai lieu dung HERO)
+Nguoi giu: Bundesamt für Statistik (BFS)
+Giay phep: "Freie Nutzung. Quellenangabe ist Pflicht." - dung thuong mai duoc
+Ghi cong bat buoc: "Bundesamt für Statistik; Eidg. Gebäude- und Wohnungsregister"
+Tep tho luu ngoai git: .../scratchpad/hero/raw/geoadmin/
+
+======================================================================
+VAN BAN GIAY PHEP
+Trang https://www.housing-stat.ch/de/madd/public.html (chuyen huong -> /de/data/supply/public.html) HTTP 200, SHA-256 e722f685ff76d76473c29197f67edc3256b07dfae1888aaebc2031d9eaca7474 - noi dung dung JS, KHONG tach duoc chu hom nay.
+Do do trich lai nguyen van tu tep license.pdf trong goi BFS https://public.madd.bfs.admin.ch/zh.zip (SHA-256 license.pdf f2ab9273d325a0ec3d6c94398a61cc17cf3f119ef44265543f856027b0334bc8, ngay 2024-08-19), da doc ngay 2026-10-15 boi phien Tien ky thanh pho (repo nhanh origin/tienky-thanhpho: research/thanhpho/licenses/zurich-bfs-gwr.txt):
+  "Gemäss Art. 16 der Verordnung über das eidgenössische Gebäude- und Wohnungsregister vom 1. Juli 2017 (VGWR; SR 431.841) veröffentlicht das BFS die Daten der Berechtigungsstufen A im Internet. Freie Nutzung. Quellenangabe ist Pflicht. - Sie dürfen diesen Datensatz für nicht kommerzielle Zwecke nutzen. - Sie dürfen diesen Datensatz für kommerzielle Zwecke nutzen. - Eine Quellenangabe ist Pflicht (Bundesamt für Statistik; Eidg. Gebäude- und Wohnungsregister)."
+
+======================================================================
+BAN GHI DA DOC (https://api3.geo.admin.ch/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/<EGID>_0?sr=2056)
+  EGID 302040349  Zwingliplatz 7, gbez "Grossmünster"        GBAUJ 1100  GAREA 1295   SHA-256 70b746dc767af29f9ef5c0c024ee7c3fe2e2eaa99b2412f359bb4653a64cb426
+  EGID 302040792  Münsterhof 2, gbez "Fraumünster"           GBAUJ 1812  GAREA 1415   SHA-256 803a592f059886d0b25badeddd24daaf784ccaf960bf5b25b47ed488ad1f4ef3
+  EGID 302040793  St. Peterhofstatt 1, gbez "Kirche St.Peter" GBAUJ 1706 GAREA 777  (tu identify, SHA-256 0f0d7432878768953159425fb15b0cbe9a80842880cfd165fa06f15ee070fa6a)
+  EGID 302040601  St. Peterhofstatt 1a (thap)               GBAUJ 1705  GAREA 99    (cung tep identify tren)
+  EGID 140889     Bahnhofplatz 15, gbez "Bahnhof Zürich HB"  GBAUJ 1867  GAREA 15083  SHA-256 fe2f94ec337756fe7477b76f489b3f96f0e0594242da57cc07afe963e9131379
+  EGID 3169989    Rämistrasse 101, gbez "ETH Zentrum"        GBAUJ 1863  GAREA 12206  SHA-256 7f06dfc15eee5dfe1ffd7265de184fd797d31e856fd3311fc1968a9bc28751ef
+  EGID 302030099  Hardstrasse 201 (Prime Tower)             GBAUJ 2011  GAREA 1621  GASTW 39  SHA-256 a8370bae06310cee8145eba99330add9f334e604d006012111ab86a4e2d697e5
+  EGID 3169567    Limmatquai 55, gbez "Rathaus"              GBAUJ 1698  GAREA 596    SHA-256 c9cd2cdc5c45495704004a67f831846d83dfb93da31f3ddb2a329a333674f72b
+LUU Y: GBAUJ cua toa lich su la gia tri hanh chinh (vd Grossmünster "1100", Fraumünster "1812") - KHONG dung lam nam xay; chi dung EGID va GAREA de doi chieu.

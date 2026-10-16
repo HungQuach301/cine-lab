@@ -1,0 +1,102 @@
+GIAY PHEP: Stadt Zuerich Open Government Data (CC0) - ap dung cho cac lop ban do lich su, mo hinh 3D lich su, GWR, dan so
+Ngay doc: 2026-10-15 (phien Tien ky thanh pho, tac tu con zh_hel)
+Tep tho luu ngoai git o /var/tmp/thanhpho/<thu muc>/body; SHA-256 la cua tep body doc duoc.
+
+======================================================================
+URL: https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten/open-government-data/rahmenbedingungen.html
+HTTP: 200
+SHA-256 trang/tep: 5cbb051a1350526912344db1b4021d18e847445c51bd960bfd36260713d90c8a
+Thu muc tho: /var/tmp/thanhpho/zh_rahmen
+Trich nguyen van:
+  "Nutzungsbedingungen Lizenz Bis auf wenige Ausnahmen stehen sämtliche Datensätze unter der international gültigen Creative-Commons-Zero-Lizenz (CC0) . Diese Daten dürfen: vervielfältigt, verbreitet und weiter zugänglich gemacht werden angereichert und bearbeitet werden kommerziell genutzt werden Haftungsausschluss Die Verwaltung der Stadt Zürich schliesst jede Haftung für direkte und indirekte Schäden durch die Datennutzung aus. Sie übernimmt keine Garantie für die Aktualität, Richtigkeit, Vollständigkeit und Genauigkeit der veröffentlichten Daten."
+
+======================================================================
+URL: https://www.geocat.ch/geonetwork/srv/api/records/00a60ee9-cdf3-4338-8478-348e8927e69d/formatters/xml
+HTTP: 200
+SHA-256 trang/tep: cda8de2179cd814afdd3a136e92b64deae655c20b747b1698a64b32a81f9fe33
+Thu muc tho: /var/tmp/thanhpho/geocat_00a60ee9-cdf3-4338-8478-348e8927e69d
+Trich nguyen van:
+  (geocat.ch metadata "Historischer Übersichtsplan der Stadt Zürich um 1864"; cung cau nay co trong ban ghi geocat cua Gyger-Schanzenplanung 1644 [772e4fd2-...], Altstadtkataster 1859-1867 [88ab169f-...], Uebersichtsplan 1932-1961 [9e0ba615-...], 3D-Stadtmodell [c529432d-...])
+  "1. Nutzungsbestimmung Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). Sie dürfen: - vervielfältigt, verbreitet und weiter zugänglich gemacht werden, - angereichert und bearbeitet werden, - kommerziell genutzt werden. Eine Quellenangabe (CC-BY) wird empfohlen: Sie lautet: „Quelle: Stadt Zürich"."
+  spatialResolution (denominator) = 6600
+
+======================================================================
+URL: https://www.geocat.ch/geonetwork/srv/api/records/772e4fd2-a5af-4584-acaf-9a75fa6a27aa/formatters/xml
+HTTP: 200
+SHA-256 trang/tep: 7b7dcc1e722121982f7db876591512e34a8544d402d119359e1e25ba5b417bf5
+Thu muc tho: /var/tmp/thanhpho/geocat_772e4fd2-a5af-4584-acaf-9a75fa6a27aa
+Trich nguyen van:
+  (Gyger Schanzenplanung ca. 1644) cung doan "Nutzungsbestimmung ... CC-0 ... kommerziell genutzt werden ... Quelle: Stadt Zürich"
+
+======================================================================
+URL: https://www.geocat.ch/geonetwork/srv/api/records/88ab169f-95d4-47b0-bfa5-f84c107ed4e4/formatters/xml
+HTTP: 200
+SHA-256 trang/tep: 4ce1b8598d67d7647ceb45ca3f4f886778354132fd3751db2938938754aa3a50
+Thu muc tho: /var/tmp/thanhpho/geocat_88ab169f-95d4-47b0-bfa5-f84c107ed4e4
+Trich nguyen van:
+  (Altstadtkataster 1859-1867) cung doan CC-0; spatialResolution denominator = 200
+
+======================================================================
+URL: https://www.geocat.ch/geonetwork/srv/api/records/9e0ba615-7c9e-4d4b-9bfa-b56fbfdd7dcd/formatters/xml
+HTTP: 200
+SHA-256 trang/tep: 51576a5f2427154416fe4fb96b2bb392a63587febdb7c89792f32f429575591c
+Thu muc tho: /var/tmp/thanhpho/geocat_9e0ba615-7c9e-4d4b-9bfa-b56fbfdd7dcd
+Trich nguyen van:
+  (Uebersichtsplan 1932-1961) cung doan CC-0; spatialResolution denominator = 5000
+
+======================================================================
+URL: https://www.geocat.ch/geonetwork/srv/api/records/c529432d-de66-4d91-8a45-d1c33a19ff6c/formatters/xml
+HTTP: 200
+SHA-256 trang/tep: c1d3254673b1c9abf7624da601af808d3c123e813d26033ec339b5777da5d6e0
+Thu muc tho: /var/tmp/thanhpho/geocat_c529432d-de66-4d91-8a45-d1c33a19ff6c
+Trich nguyen van:
+  (3D-Stadtmodell Stadt Zuerich, gom Jahresendstand 3000 v.Chr./200/1200/1500/1800) cung doan CC-0
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_historischer_uebersichtsplan_der_stadt_zuerich_um_1864
+HTTP: 200
+SHA-256 trang/tep: 16c2af97fa46bab9e953dd34aa096ad8a740d8f76040e28ac1b2af9cb9dbbdd6
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_geo_historischer_uebersichtsplan_der_stadt_zuerich_um_1864
+Trich nguyen van:
+  CKAN package_show: license_id "cc-zero", license_title "Creative Commons CCZero"; author "Spezialsammlung / Digitalisierung, Zentralbibliothek Zürich, Universität Zürich"; notes "Georeferenzierter Grundriss der Stadt Zürich zu Anfang des Jahres 1864. Der sognannte «Kellerplan» wurde gezeichnet und herausgegeben von Heinrich Keller, der Stich stammt von Jakob Emanuel Scheuermann."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1800
+HTTP: 200
+SHA-256 trang/tep: 174c520171d6c10ad791de07ede9dd735e6c46dbf570623d76c74715c0aa31bc
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1800
+Trich nguyen van:
+  CKAN package_show: license_id "cc-zero"; "Das digitale 3D-Stadtmodell der Stadt Zürich um 1800 ist flächendeckend über das gesamte Gemeindegebiet verfügbar." ... "Zweck: ... Siedlungsgeschichte, Vermittlung, Lebensbilder, Tourismus, Spielentwicklung" ... "Bebauung Basierend auf historischem/zeitgenössischem Kartenmaterial, Archäologischen Untersuchungen, wissenschaftlichen Hypothesen und ergänzenden Vermutungen manuell erfasst."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=bev_bestand_jahr_od3243
+HTTP: 200
+SHA-256 trang/tep: b4338581671fe00485cbd05005ae9ba133a13f8a4409397d3f529294609a943d
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_pop
+Trich nguyen van:
+  CKAN package_show bev_bestand_jahr_od3243 "Bevölkerung der Stadt Zürich": license_id "cc-zero"; timeRange "1357–2025"; notes "Wirtschaftliche Wohnbevölkerung der Stadt Zürich nach Jahr."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_od3243/download/BEV324OD3243.csv
+HTTP: 200
+SHA-256 trang/tep: 309311a0866877dd02fcdcb6c7c35446b9cd47fa21df4bc828cfc2146fd1d425
+Thu muc tho: /var/tmp/thanhpho/zh_pop_csv
+Trich nguyen van:
+  CSV BEV324OD3243.csv (cot "StichtagDatJahr","AnzBestWir")
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=bau_gwr_gebaeude_best_od5501
+HTTP: 200
+SHA-256 trang/tep: a569b2b8b67ac285bcb276ce018609203f817f308e3706060ec6cc87ca204fdb
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_gwr
+Trich nguyen van:
+  CKAN package_show bau_gwr_gebaeude_best_od5501 "Gebäudebestand der Stadt Zürich ... GWR-Modell": license_id "cc-zero"; truong "Baujahr des Gebäudes (technisch: GBAUJ)", "Abbruchjahr des Gebäudes (technisch: GABBJ)"
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=foto-ansichten-1870-1900
+HTTP: 200
+SHA-256 trang/tep: cd164d107ed23d806445d38e9af562431e5f1e1ac75aa73662c5cc915901e3f5
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_foto-ansichten-1870-1900
+Trich nguyen van:
+  CKAN "Foto-Ansichten der Stadt Zürich aus den Jahren 1870 bis 1900": license_id "cc-zero"; "Die Bilder sind gemeinfrei, weil ihre urheberrechtliche Schutzfrist (70 Jahre nach dem Tod des Urhebers) abgelaufen ist."
+

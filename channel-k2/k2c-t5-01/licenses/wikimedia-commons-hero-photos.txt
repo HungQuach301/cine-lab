@@ -1,0 +1,67 @@
+GIAY PHEP: Wikimedia Commons - anh hien dai (kiem vat lieu/mau) cho cac HERO, kiem TUNG tep
+Ngay doc: 2026-10-16 (phien phu Tai lieu dung HERO)
+Nguoi giu: tung tac gia (ghi theo tep); nen tang Wikimedia Commons
+Cach doc: API commons.wikimedia.org action=query&prop=imageinfo&iiprop=url|size|sha1|extmetadata (truong LicenseShortName, LicenseUrl, Artist, DateTimeOriginal, AttributionRequired), nguyen van gia tri tra ve.
+TINH TRANG TAI: API va upload.wikimedia.org tra HTTP 429 ("You are making too many requests to the API") lien tuc trong phien -> CHUA tai tep anh; SHA-256 chua co. Moi tep duoi co SHA-1 do Commons cong bo de kiem khi tai sau.
+Luat ap dung: chi PD / CC0 / CC BY / CC BY-SA; KHONG NC/ND. CC BY-SA: ghi cong + share-alike neu sua doi chinh anh (dung lam tham chieu dung hinh 3D, khong dua anh vao khung hinh, thi khong phat sinh tac pham phai sinh cua anh).
+Ghi chu tu do toan canh: anh chup cong trinh tu khong gian cong cong; quyen kien truc khong thuoc pham vi tep nay.
+
+======================================================================
+URL ket qua API (lo 1): https://commons.wikimedia.org/w/api.php?action=query&format=json&titles=File:Grossmünster Zurich Switzerland 24Jun2021.jpg|File:Fraumuenster.jpg|File:Bild Fraumuenster.jpg|File:Zuerich Hauptbahnhof-2.jpg|File:Industriequartier - Prime Tower 2011-08-08 13-44-40.JPG&prop=imageinfo&...
+HTTP: 200   SHA-256 JSON: 266c32a25738019b45bbc0be167d9f8cd2687f4e6ac5828e890dc4e95e3eba07
+(Ten tep lay tu thuoc tinh P18 cua Wikidata Q684948 / Q690944 / Q224494 / Q683345, doc qua https://www.wikidata.org/wiki/Special:EntityData/<Q>.json)
+
+[C1] File:Grossmünster Zurich Switzerland 24Jun2021.jpg
+  Trang: https://commons.wikimedia.org/wiki/File:Grossm%C3%BCnster_Zurich_Switzerland_24Jun2021.jpg
+  Tep: https://upload.wikimedia.org/wikipedia/commons/9/9a/Grossm%C3%BCnster_Zurich_Switzerland_24Jun2021.jpg
+  1440x1795, 339 530 byte, SHA-1 85e10f397aa160355b1b6f252da3d40e6bdb187d
+  LicenseShortName: "CC BY-SA 4.0"  LicenseUrl: https://creativecommons.org/licenses/by-sa/4.0  Artist: "Ilya Hirschberg (Kreecher)"  Date: 2021-06-24  AttributionRequired: true
+  Ghi cong: "Ilya Hirschberg (Kreecher), CC BY-SA 4.0, via Wikimedia Commons"
+
+[C2] File:Fraumuenster.jpg
+  Trang: https://commons.wikimedia.org/wiki/File:Fraumuenster.jpg
+  Tep: https://upload.wikimedia.org/wikipedia/commons/f/f9/Fraumuenster.jpg
+  910x1213, 140 836 byte, SHA-1 aa7e527f0c53d0f7198e22770c8f7e6dbb098946
+  LicenseShortName: "CC BY-SA 2.5"  LicenseUrl: https://creativecommons.org/licenses/by-sa/2.5  Artist: "sidonius 12:59, 4 June 2006 (UTC)"  Date: 4.6.2006  AttributionRequired: true
+  Ghi cong: "sidonius, CC BY-SA 2.5, via Wikimedia Commons" (do phan giai thap - chi tham khao mau)
+
+[C3] File:Bild Fraumuenster.jpg
+  Trang: https://commons.wikimedia.org/wiki/File:Bild_Fraumuenster.jpg
+  Tep: https://upload.wikimedia.org/wikipedia/commons/f/fd/Bild_Fraumuenster.jpg
+  2000x1457, 1 056 174 byte, SHA-1 91b77c662664047f264a8a61d8dc22b429f99698
+  LicenseShortName: "Public domain"  Artist: "Franz Schmid"  Date: 1830  AttributionRequired: false
+  (tranh 1830 - truoc cai tao Gull; tham khao lich su, khong dung cho hinh dang hien nay)
+
+[C4] File:Zuerich Hauptbahnhof-2.jpg
+  Trang: https://commons.wikimedia.org/wiki/File:Zuerich_Hauptbahnhof-2.jpg
+  Tep: https://upload.wikimedia.org/wikipedia/commons/a/af/Zuerich_Hauptbahnhof-2.jpg
+  2000x1333, 3 045 255 byte, SHA-1 d15ef411a784567a9f94e7409092fc4193bea99a
+  LicenseShortName: "CC BY-SA 3.0"  LicenseUrl: http://creativecommons.org/licenses/by-sa/3.0/  Artist: "Ikiwaner"  Date: 2005-07-05  AttributionRequired: true
+  Ghi cong: "Ikiwaner, CC BY-SA 3.0, via Wikimedia Commons"
+
+[C5] File:Industriequartier - Prime Tower 2011-08-08 13-44-40.JPG
+  Trang: https://commons.wikimedia.org/wiki/File:Industriequartier_-_Prime_Tower_2011-08-08_13-44-40.JPG
+  Tep: https://upload.wikimedia.org/wikipedia/commons/8/86/Industriequartier_-_Prime_Tower_2011-08-08_13-44-40.JPG
+  2848x4288, 3 014 768 byte, SHA-1 a664e49a32c63fcb7d11fb83a023295d907c4b9b
+  LicenseShortName: "CC BY-SA 3.0"  LicenseUrl: https://creativecommons.org/licenses/by-sa/3.0  Artist: "Roland zh"  Date: 2011-08-08  AttributionRequired: true
+  Ghi cong: "Roland zh, CC BY-SA 3.0, via Wikimedia Commons"
+
+======================================================================
+URL ket qua API (lo 2): https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=categorymembers&gcmtitle=Category:St. Peter Church in Zürich&gcmtype=file&gcmlimit=40&prop=imageinfo&...
+HTTP: 200 (sau 3 lan 429)
+
+[C6] File:Turm Kirche St. Peter Zürich.JPG
+  Trang: https://commons.wikimedia.org/wiki/File:Turm_Kirche_St._Peter_Z%C3%BCrich.JPG
+  Tep: https://upload.wikimedia.org/wikipedia/commons/2/2d/Turm_Kirche_St._Peter_Z%C3%BCrich.JPG
+  2880x4320, 3 279 137 byte, SHA-1 7268787aa7f645d7fd43dd8459349fae27be6904
+  LicenseShortName: "CC0"  LicenseUrl: http://creativecommons.org/publicdomain/zero/1.0/deed.en  Artist: "Beat Rüst, CH-Schlieren"  Date: 2016-08-27  AttributionRequired: false
+  Ghi cong khuyen nghi: "Beat Rüst, CC0, via Wikimedia Commons"
+
+[C7] File:CH Zürich, St Peter 001.jpg
+  Trang: https://commons.wikimedia.org/wiki/File:CH_Z%C3%BCrich,_St_Peter_001.jpg
+  Tep: https://upload.wikimedia.org/wikipedia/commons/1/10/CH_Z%C3%BCrich%2C_St_Peter_001.jpg
+  3024x4032, 1 894 099 byte, SHA-1 32d3d7633d529e06baa0f5773cf00b04b79181db
+  LicenseShortName: "CC BY 4.0"  LicenseUrl: https://creativecommons.org/licenses/by/4.0  Artist: "-wuppertaler"  Date: 2022-10-03  AttributionRequired: true
+  Ghi cong: "-wuppertaler, CC BY 4.0, via Wikimedia Commons"
+
+ETH Hauptgebäude: chua lay duoc danh sach anh hien dai (API 429 o lan tim danh muc) - VIEC CON TREO.

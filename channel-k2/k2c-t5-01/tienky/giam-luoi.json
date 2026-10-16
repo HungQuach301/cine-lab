@@ -1,0 +1,504 @@
+{
+ "note": "Đo giảm lưới gói OBJ Zürich 4D (CC0, Stadt Zürich Amt für Städtebau). Tệp gói, OBJ gộp, ảnh render nằm NGOÀI git (scratch phiên). Trong git chỉ có số đo + lệnh. Máy: 4 vCPU, 15 GB RAM, không GPU; Blender 5.2.2 LTS (bpy), Workbench (dựng hình OpenGL phần mềm, không GPU; màu texture; AA 8).",
+ "as_of": "2026-10-16",
+ "goi": {
+  "1800": {
+   "url": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_1800.zip",
+   "bytes": 960243409,
+   "sha256": "48cd6c4dd1a2c84de0df0a9caf711a245cfd30b9fc849cb5fdc683dd1b589280",
+   "tai_s": 386,
+   "noi_dung": {
+    "obj": 5613,
+    "mtl": 5613,
+    "png": 146,
+    "obj_bytes": 33692600,
+    "png_MB": 949.7,
+    "v": 341686,
+    "vt": 440456,
+    "tam_giac_doc_tep": 300606,
+    "tam_giac_sau_import_blender": 300300,
+    "tam_giac_trung_vi_moi_toa": 40,
+    "p90": 64,
+    "nang_nhat": [
+     {
+      "tep": "Befestigungsanlage.Schanze_NoEGID_0.obj",
+      "tam_giac": 9769
+     },
+     {
+      "tep": "Sakralbau.Kirche_302040793_0_0.obj",
+      "tam_giac": 6886
+     },
+     {
+      "tep": "Sakralbau.Kirche_-100004339_0_0.obj",
+      "tam_giac": 5630
+     },
+     {
+      "tep": "Sakralbau.Kirche_302040792_0_0.obj",
+      "tam_giac": 3342
+     },
+     {
+      "tep": "Obrigkeitliche_Gebaeude_-100003227_0_0.obj",
+      "tam_giac": 2859
+     },
+     {
+      "tep": "Befestigungsanlage.Pallisade_NoEGID_18_0.obj",
+      "tam_giac": 2292
+     },
+     {
+      "tep": "Obrigkeitliche_Gebaeude.Rathaus_3169567_0_0.obj",
+      "tam_giac": 1973
+     },
+     {
+      "tep": "Befestigungsanlage.Pallisade_NoEGID_12_0.obj",
+      "tam_giac": 1660
+     }
+    ],
+    "texture_kich_thuoc": {
+     "8192²": 6,
+     "4096²": 13,
+     "2048²": 30,
+     "2000²": 2,
+     "1200²": 63,
+     "1024²": 1,
+     "800²": 1,
+     "600²": 27
+    },
+    "texture_8k": [
+     "Fraumuenster",
+     "StPeter",
+     "Rathaus",
+     "Grossmuenster",
+     "Helmhaus",
+     "Waisenhaus1770"
+    ],
+    "alpha": "kênh alpha toàn 255 ở 19/20 tệp lớn nhất → bỏ alpha được",
+    "he_toa_do": "LV95 tuyệt đối, trục Y lên (v = E, H, −N); CityEngine 2020.0"
+   }
+  },
+  "1200": {
+   "url": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_1200.zip",
+   "bytes": 529216387,
+   "sha256": "602632b5397777a6e08c958754194e3b95a7cae2442ac67c8d8ca0e9af3c0bd8",
+   "tai_s": 187,
+   "noi_dung": {
+    "obj": 68571,
+    "mtl": 4122,
+    "png": 61,
+    "jpg": 30,
+    "obj_bytes": 290976716,
+    "texture_MB": 430.5,
+    "tam_giac_doc_tep": 3066175,
+    "tam_giac_sau_import_blender": 2311189,
+    "theo_lop_doc_tep": {
+     "Befestigungsanlafe.Zaun (rào; tên lớp sai chính tả trong gói)": [
+      64450,
+      1546692
+     ],
+     "Befestigungsanlage.Pallisade (hàng cọc)": [
+      88,
+      1232766
+     ],
+     "toà nhà + còn lại": [
+      4033,
+      286717
+     ]
+    },
+    "sau_import": {
+     "rao_hang_coc": 2024789,
+     "toa_nha_con_lai": 286400
+    },
+    "texture_8k": [
+     "FraumSurface_Color",
+     "BurgV2Surface_Color",
+     "UmgV2Surface_Color",
+     "GrossmuensterSurface_Color"
+    ]
+   }
+  }
+ },
+ "phat_hien_chinh": [
+  "Gói 1800 nặng 960 MB nhưng 98,9 % là texture PNG (950 MB). Hình học chỉ 33,7 MB OBJ, 300 300 tam giác cho 5 613 toà/vật — nhẹ hơn trần R&D (300 nghìn toà/cảnh) rất nhiều. Việc cần làm là quản lý texture, không phải giảm lưới.",
+  "Gói 1200: 3,07 triệu tam giác khi đọc tệp (2,31 triệu sau import), trong đó ~90 % là rào (Zaun, 64 450 vật) và hàng cọc (Pallisade, 88 vật). Toà nhà chỉ ~286 nghìn tam giác.",
+  "Toạ độ LV95 tuyệt đối (~2,68 triệu m) vào float32 sẽ rung ~0,25 m → phải dời gốc trước khi import (merge_obj.py đã làm: E0 2 683 000, N0 1 247 000, H0 400).",
+  "Hero trong 4D (Grossmünster 3 622 đỉnh, Fraumünster 1 901, St. Peter 3 595) là khối đơn giản + mặt đứng VẼ trên texture 8K (cửa sổ, hoa văn là ảnh, không phải hình). Đủ cho toàn cảnh/trung cảnh; KHÔNG đủ cho cận cảnh hero → cần dựng hero riêng (tienky/hero.json)."
+ ],
+ "ket_qua_luoi": {
+  "1800_toan_canh": {
+   "planar1deg": {
+    "tri": 292046,
+    "vert": 337293,
+    "sec": 1.5,
+    "tri_pct": 97.3,
+    "err_m": {
+     "mean": 0.0,
+     "p95": 0.0,
+     "p99": 0.0,
+     "max": 0.101
+    },
+    "render_s": {
+     "toan": 0.89,
+     "gan": 0.74
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 0.65,
+      "pct_px_gt_10": 1.52,
+      "pct_px_gt_40": 0.2
+     },
+     "gan": {
+      "mean_abs_255": 0.33,
+      "pct_px_gt_10": 0.77,
+      "pct_px_gt_40": 0.12
+     }
+    },
+    "wall_s": 5.6
+   },
+   "collapse050": {
+    "tri": 150150,
+    "vert": 234131,
+    "sec": 0.7,
+    "tri_pct": 50.0,
+    "err_m": {
+     "mean": 0.113,
+     "p95": 0.645,
+     "p99": 2.388,
+     "max": 106.563
+    },
+    "render_s": {
+     "toan": 0.52,
+     "gan": 0.52
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 9.94,
+      "pct_px_gt_10": 27.93,
+      "pct_px_gt_40": 6.67
+     },
+     "gan": {
+      "mean_abs_255": 12.05,
+      "pct_px_gt_10": 30.66,
+      "pct_px_gt_40": 10.15
+     }
+    },
+    "wall_s": 3.9
+   },
+   "collapse025": {
+    "tri": 75075,
+    "vert": 169998,
+    "sec": 0.7,
+    "tri_pct": 25.0,
+    "err_m": {
+     "mean": 0.472,
+     "p95": 2.6,
+     "p99": 4.62,
+     "max": 150.376
+    },
+    "render_s": {
+     "toan": 0.43,
+     "gan": 0.41
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 14.51,
+      "pct_px_gt_10": 35.15,
+      "pct_px_gt_40": 12.16
+     },
+     "gan": {
+      "mean_abs_255": 16.74,
+      "pct_px_gt_10": 37.33,
+      "pct_px_gt_40": 16.14
+     }
+    },
+    "wall_s": 3.4
+   },
+   "collapse010": {
+    "tri": 30029,
+    "vert": 140016,
+    "sec": 0.8,
+    "tri_pct": 10.0,
+    "err_m": {
+     "mean": 2.323,
+     "p95": 9.573,
+     "p99": 23.317,
+     "max": 760.615
+    },
+    "render_s": {
+     "toan": 0.31,
+     "gan": 0.3
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 21.83,
+      "pct_px_gt_10": 41.74,
+      "pct_px_gt_40": 20.85
+     },
+     "gan": {
+      "mean_abs_255": 22.9,
+      "pct_px_gt_10": 42.21,
+      "pct_px_gt_40": 23.3
+     }
+    },
+    "wall_s": 3.0
+   }
+  },
+  "1200_chi_rao_hang_coc": {
+   "planar1deg": {
+    "tri": 1966274,
+    "vert": 2718342,
+    "sec": 10.8,
+    "tri_pct": 97.1,
+    "err_m": {
+     "mean": 0.0,
+     "p95": 0.0,
+     "p99": 0.0,
+     "max": 0.0
+    },
+    "render_s": {
+     "toan": 1.88,
+     "gan": 1.61
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 0.07,
+      "pct_px_gt_10": 0.18,
+      "pct_px_gt_40": 0.02
+     },
+     "gan": {
+      "mean_abs_255": 0.04,
+      "pct_px_gt_10": 0.11,
+      "pct_px_gt_40": 0.02
+     }
+    },
+    "wall_s": 21.2
+   },
+   "collapse050": {
+    "tri": 1012394,
+    "vert": 1902343,
+    "sec": 8.1,
+    "tri_pct": 50.0,
+    "err_m": {
+     "mean": 0.005,
+     "p95": 0.025,
+     "p99": 0.041,
+     "max": 0.229
+    },
+    "render_s": {
+     "toan": 1.28,
+     "gan": 1.4
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 0.1,
+      "pct_px_gt_10": 0.34,
+      "pct_px_gt_40": 0.02
+     },
+     "gan": {
+      "mean_abs_255": 0.08,
+      "pct_px_gt_10": 0.3,
+      "pct_px_gt_40": 0.02
+     }
+    },
+    "wall_s": 16.4
+   },
+   "collapse025": {
+    "tri": 506197,
+    "vert": 1396578,
+    "sec": 9.1,
+    "tri_pct": 25.0,
+    "err_m": {
+     "mean": 0.01,
+     "p95": 0.044,
+     "p99": 0.071,
+     "max": 0.971
+    },
+    "render_s": {
+     "toan": 0.92,
+     "gan": 0.98
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 0.11,
+      "pct_px_gt_10": 0.38,
+      "pct_px_gt_40": 0.03
+     },
+     "gan": {
+      "mean_abs_255": 0.09,
+      "pct_px_gt_10": 0.32,
+      "pct_px_gt_40": 0.02
+     }
+    },
+    "wall_s": 15.6
+   },
+   "collapse010": {
+    "tri": 202478,
+    "vert": 1104358,
+    "sec": 9.6,
+    "tri_pct": 10.0,
+    "err_m": {
+     "mean": 236.967,
+     "p95": 1397.628,
+     "p99": 2035.725,
+     "max": 59000.816
+    },
+    "render_s": {
+     "toan": 0.69,
+     "gan": 0.69
+    },
+    "pix": {
+     "toan": {
+      "mean_abs_255": 10.79,
+      "pct_px_gt_10": 9.49,
+      "pct_px_gt_40": 8.44
+     },
+     "gan": {
+      "mean_abs_255": 9.9,
+      "pct_px_gt_10": 8.3,
+      "pct_px_gt_40": 7.39
+     }
+    },
+    "wall_s": 15.5
+   }
+  },
+  "cach_do": "tam giác = Σ(số cạnh đa giác − 2) sau modifier Decimate (Blender). Sai số hình học = khoảng cách gần nhất đỉnh gốc → mặt mới và đỉnh mới → mặt gốc (mẫu ≤ 150 nghìn mỗi chiều; mean/p95/p99/max, mét). Khác biệt điểm ảnh = so render Workbench 960×540 cùng camera với bản gốc: |Δ| trung bình (thang 255), % điểm ảnh lệch > 10/255 và > 40/255. Hai khung: \"toan\" (toàn cảnh từ tây nam, ~600 m) và \"gan\" (Limmat/Wasserkirche, ~200 m).",
+  "doc": {
+   "1800": "planar 1° (delimit vật liệu+UV) chỉ bớt 2,7 % tam giác, gần như không mất gì. Collapse 0,5 bớt 50 % nhưng làm méo UV mặt đứng: 35 % điểm ảnh lệch > 10/255 ở toàn cảnh, nhìn thấy cửa sổ bị kéo xiên (đã xem ảnh so sánh). Collapse 0,25/0,10 hỏng nặng. → KHÔNG giảm lưới 1800; giữ nguyên 300 nghìn tam giác.",
+   "1200": "Chỉ giảm lớp rào + hàng cọc: collapse 0,25 bớt 75 % (2,02 tr → 0,51 tr tam giác), sai số p99 0,07 m, max 0,97 m, 0,3–0,4 % điểm ảnh lệch > 10/255 → ĐẠT, mắt không thấy. Collapse 0,10 hỏng (đỉnh bay, sai số tới km) → cấm. Đề xuất cảnh 1200 = 286 nghìn (toà, giữ nguyên) + 506 nghìn (rào/cọc, collapse 0,25) ≈ 0,79 triệu tam giác; tốt hơn nữa là thay rào bằng instancing (G1)."
+  }
+ },
+ "ket_qua_texture_1800": {
+  "tao_bo": [
+   {
+    "policy": "jpg",
+    "files": 146,
+    "MB": 387.7,
+    "sec": 85.9
+   },
+   {
+    "policy": "cap4096",
+    "files": 146,
+    "MB": 364.8,
+    "sec": 86.7
+   },
+   {
+    "policy": "cap2048",
+    "files": 146,
+    "MB": 338.7,
+    "sec": 87.6
+   }
+  ],
+  "render_1080p": {
+   "z1800_merged": {
+    "import_s": 1.4,
+    "gan_render_s": 59.24,
+    "hero_gross_render_s": 13.64,
+    "hero_peter_render_s": 13.02,
+    "gan": {
+     "mean_abs_255": 0.0,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 99.0
+    },
+    "hero_gross": {
+     "mean_abs_255": 0.0,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 99.0
+    },
+    "hero_peter": {
+     "mean_abs_255": 0.0,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 99.0
+    }
+   },
+   "z1800_jpg": {
+    "import_s": 1.5,
+    "gan_render_s": 44.5,
+    "hero_gross_render_s": 10.26,
+    "hero_peter_render_s": 14.4,
+    "gan": {
+     "mean_abs_255": 0.31,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 54.9
+    },
+    "hero_gross": {
+     "mean_abs_255": 0.51,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 52.6
+    },
+    "hero_peter": {
+     "mean_abs_255": 0.47,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 52.7
+    }
+   },
+   "z1800_cap4096": {
+    "import_s": 1.7,
+    "gan_render_s": 32.66,
+    "hero_gross_render_s": 11.57,
+    "hero_peter_render_s": 11.25,
+    "gan": {
+     "mean_abs_255": 0.37,
+     "pct_px_gt_10": 0.0,
+     "psnr_db": 53.0
+    },
+    "hero_gross": {
+     "mean_abs_255": 0.82,
+     "pct_px_gt_10": 0.1,
+     "psnr_db": 47.2
+    },
+    "hero_peter": {
+     "mean_abs_255": 0.74,
+     "pct_px_gt_10": 0.02,
+     "psnr_db": 48.7
+    }
+   },
+   "z1800_cap2048": {
+    "import_s": 1.5,
+    "gan_render_s": 21.52,
+    "hero_gross_render_s": 12.56,
+    "hero_peter_render_s": 11.27,
+    "gan": {
+     "mean_abs_255": 0.57,
+     "pct_px_gt_10": 0.22,
+     "psnr_db": 47.4
+    },
+    "hero_gross": {
+     "mean_abs_255": 1.61,
+     "pct_px_gt_10": 2.86,
+     "psnr_db": 39.4
+    },
+    "hero_peter": {
+     "mean_abs_255": 1.28,
+     "pct_px_gt_10": 0.96,
+     "psnr_db": 42.9
+    }
+   }
+  },
+  "cach_do": "render Workbench 1920×1080, 3 khung: gan (Limmat), hero_gross (Grossmünster ~95 m, ống 50 mm), hero_peter (St. Peter ~95 m). So với bản gốc PNG: |Δ|, % > 10/255, PSNR.",
+  "doc": "JPEG q90 cùng độ phân giải: PSNR 52–55 dB, 0 % điểm ảnh lệch > 10/255 → không mất gì, đĩa 950 → 388 MB. Trần 4096: hero PSNR 47–49 dB, ≤ 0,1 % lệch → chấp nhận cho trung cảnh. Trần 2048: hero 39–43 dB, 1–2,9 % lệch, mắt thấy mờ hoa văn tháp và ngói (đã xem ảnh) → chỉ cho nền/xa. RAM texture giải nén: 6 tệp 8K RGBA ≈ 1,6 GB; trần 4096 → ≈ 0,4 GB.",
+  "de_xuat": "JPEG q90 toàn bộ (bỏ alpha khi alpha = 255); hero 8K giữ nguyên cho cận/trung cảnh, bản 4K cho toàn cảnh; texture thủ tục (nhà thường) giữ ≤ 2048."
+ },
+ "gio_may": {
+  "tai_ve_s": 573,
+  "giai_nen_s": 29,
+  "gop_obj_s": {
+   "1800": 1.9,
+   "1200": 13.3
+  },
+  "blender_giam_luoi_s": {
+   "1800": 102,
+   "1200": 112
+  },
+  "tao_texture_s": 260,
+  "render_texture_s": 275,
+  "tong_tinh_toan_phut": 13.2,
+  "tong_ca_tai_phut": 22.8,
+  "tran": "≤ 2 giờ máy"
+ },
+ "lenh": {
+  "tai": "curl -sS -o BEBAUUNG_3D_1800.zip https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_1800.zip  (tương tự _1200)",
+  "dem": "python -I count_obj.py BEBAUUNG_3D",
+  "gop": "python -I merge_obj.py BEBAUUNG_3D z1800_merged.obj 2683000 1247000 400   |  1200: thêm đối số \"Befestigungsanlafe.Zaun,Befestigungsanlage.Pallisade\" (gom vào object DEC)",
+  "giam_luoi": "/opt/bpy/bin/python -I decimate_4d.py z1800_merged.obj out1800 z1800",
+  "texture": "python -I tex_policy.py BEBAUUNG_3D tex1800_<jpg|cap4096|cap2048> <policy>; /opt/bpy/bin/python -I tex_render.py outtex z1800_merged.obj z1800_jpg.obj z1800_cap4096.obj z1800_cap2048.obj",
+  "ma_nguon": "4 script (count_obj.py, merge_obj.py, decimate_4d.py, tex_policy.py, tex_render.py) ở scratch phiên; KHÔNG commit (lệnh chỉ cho ghi số đo + lệnh). P/V có thể yêu cầu đưa vào lab/ ở G1."
+ }
+}

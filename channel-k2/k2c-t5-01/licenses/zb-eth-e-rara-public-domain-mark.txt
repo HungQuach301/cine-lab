@@ -1,0 +1,52 @@
+GIAY PHEP: e-rara.ch (ETH-Bibliothek / Zentralbibliothek Zürich) - do hoa, ban ve va ban do the ky 19 ve cac HERO, Public Domain Mark 1.0
+Ngay doc: 2026-10-16 (phien phu Tai lieu dung HERO)
+Nguoi giu ban goc: Zentralbibliothek Zürich (ZB) hoac ETH-Bibliothek Zürich (ghi theo tung muc duoi); nen tang e-rara do ETH Library van hanh
+Giay phep: Public Domain Mark 1.0 (tung muc tro toi https://creativecommons.org/publicdomain/mark/1.0/deed.de) -> dung thuong mai duoc
+Ghi cong: theo dieu khoan e-rara, khi tai su dung "ist fur jedes Dokument ... der korrekte Zitiernachweis anzugeben" -> AP DUNG: "<Tac gia/nha in>, <Tieu de>, <nam>. <Thu vien giu>, <Signatur>. e-rara, DOI ..." (xem tung muc)
+Tep tho luu ngoai git: .../scratchpad/hero/raw/erara/ va raw/<toa>/erara_<pageid>.jpg
+
+======================================================================
+URL: https://www.e-rara.ch/wiki/termsOfUse
+HTTP: 200
+SHA-256 trang: 4c2bb066956f9f40fef21dfe187e9033361e621b3fa863146d037a01537f1f7a
+Trich nguyen van:
+  "Auf der Plattform e-rara stellen die beteiligten Institutionen ihre Digitalisate wann immer möglich kostenfrei zum Herunterladen zur Verfügung. Die Lizenzierungsart und die Nutzungsbedingungen sind individuell bei jedem Dokument angegeben. Es werden zwei Typen unterschieden: Urheberrechte an einem Werk sind abgelaufen: Die veröffentlichten Dokumente sind gemeinfrei und können ohne Einschränkung verwendet werden. Die Dokumente sind mit der Public Domain Mark versehen. Diese Dokumente können für wissenschaftliche, private, nicht-kommerzielle und kommerzielle Zwecke frei verwendet werden. Nutzungsrechte liegen bei den beteiligten Institutionen: Die veröffentlichten Dokumente können unter Angabe des korrekten Zitiernachweises für wissenschaftliche, private, nicht-kommerzielle und kommerzielle Zwecke frei verwendet und bei Veränderungen unter den gleichen Bedingungen weitergegeben werden. Der Zitiernachweis befindet sich in den Titelansichten. Die Dokumente sind unter Creative Commons BY-SA 4.0 lizenziert. Erwünscht ist das Setzen des persistenten Links DOI aus dem Angebot von e-rara, z.B. https://doi.org/10.3931/e-rara-8490 . Bei einer Vervielfältigung oder Verwertung ist für jedes Dokument oder Teile daraus der korrekte Zitiernachweis anzugeben."
+  (Dia chi lien he trong trang: [email đã che — xem URL gốc])
+
+======================================================================
+CAC MUC DA TAI (tep = IIIF https://www.e-rara.ch/i3f/v20/<pageid>/full/full/0/default.jpg, do phan giai day du)
+Moi trang titleinfo deu chua lien ket creativecommons.org/publicdomain/mark/1.0 (kiem bang grep tren HTML da tai).
+
+[1] Grossmünster - "[Das Grossmünster von Ao. 1450 mit Grundriss] / F. Hegi fec." Hegi, Franz [1774-1850]; Antiquarische Gesellschaft in Zürich, [1840]. Radierung und Aquatinta. ZB Zürich, Zürich D1, Grossmünster I, 1. DOI https://doi.org/10.3931/e-rara-60603
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/16392755  (SHA-256 HTML d762f537de0a1cac184ff95c9ff9d5454d59133b328fec83ccd6f050b79d59bc)
+    Tep: https://www.e-rara.ch/i3f/v20/16392756/full/full/0/default.jpg  4615x4583  SHA-256 adba8c3d95046a8316654afe0bbd4b9c31b6650eebf99c7c788ccba5f4cdf933
+    Luu y: tai dung trang thai gia dinh "1450" (truoc mu thap 1780s) - chi dung cho MAT BANG, khong dung cho hinh dang thap hien nay.
+
+[2] Fraumünster - "Das Fraumünster in seiner heutigen Gestalt / Gebr. Wehrli. Phot" Gebrüder Wehrli, Kilchberg, [zwischen 1897 und 1924?]. Lichtdruck. ZB Zürich, Zürich H1 Fraumünster I,27. DOI https://doi.org/10.3931/e-rara-57704
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/15555135  (SHA-256 HTML 7970d041ddd2daa6b1f3f991a7d6aca182fcd7f3284c18d45d4ddd5c608d26e3)
+    Tep: https://www.e-rara.ch/i3f/v20/15555136/full/full/0/default.jpg  4330x3809  SHA-256 e3ee68b29b065587f64d7ea2154da4ee856f9b4b25985d181c625618e5012180
+
+[3] St. Peter - "[Prospect von dem Bau der Kirchen zu St. Peter in Zürich] / [Johann Meyer?]" Meyer, Johann [1655-1712], [1706]. Radierung. ZB Zürich, STF IV, 20. DOI https://doi.org/10.3931/e-rara-63907
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/17391964  (SHA-256 HTML 7b20fe836ebdab8df7b8015a816565b412300399b8d4257363beafddea047831)
+    Tep: https://www.e-rara.ch/i3f/v20/17391965/full/full/0/default.jpg  7605x6486  SHA-256 7b814a0b8acc68db05cb66b484cd8860ab02577ec3883eeb07ec1c77f722f829
+    Luu y: tranh ngu ngon (Neujahrsblatt), nha tho chi hien qua cua so -> gia tri dung thap.
+
+[4] Hauptbahnhof - "Zürich, Bahnhof" Photoglob Co, [zwischen 1889 und 1900]. Lichtdruck. ZB Zürich, Zürich K3, Bahnhofplatz I, 11. DOI https://doi.org/10.3931/e-rara-63419
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/17349589  (SHA-256 HTML 33ea43495b55089d7132f38e80587d9b31580c86ea720f558af55233af8f25f2)
+    Tep: https://www.e-rara.ch/i3f/v20/17349590/full/full/0/default.jpg  5155x5207  SHA-256 26bfb9af9343fafd7efde3356900540873ed799bce65085ca613c122e5d3a409
+
+[5] Hauptbahnhof - "Bahnhof Zürich : Übersichtsplan, Bestand Ende 1898" [1898]. Plan farbig, 33 x 192 cm, 1:2 500. ZB Zürich, 4 Lc 46: 25. DOI https://doi.org/10.3931/e-rara-27592
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/8833969  (SHA-256 HTML a0cc32fee86274903801a98580dd4e778f81bd7d89c7fa28eabdd169e4253cde)
+    Tep: https://www.e-rara.ch/i3f/v20/8833971/full/full/0/default.jpg  30877x6514  SHA-256 7d036c77b8dd5b05ffb60b37e8a0371d257600e746f5e652ad7546fa99831998
+    (Ban trung lap tai ETH-Bibliothek, Rar KS 22, DOI https://doi.org/10.3931/e-rara-97978, titleinfo 27346221 - khong tai)
+
+[6] ETH Hauptgebäude - "Das eidgenössische Polytechnicum in Zürich / Nach der Originalzeichnung der Hr. Prof. Semper & Staatsbauinspector Wolf ; C. Huber sculp." Semper, Gottfried [1803-1879]; Wolff, Johann Caspar [1818-1891]; Huber, Kaspar Ulrich [1825-1882], [zwischen 1860 und 1865]. Radierung und Stahlstich. ZB Zürich, Zürich G1, Universitäts-Qu., Polytechnikum I, 4. DOI https://doi.org/10.3931/e-rara-63992
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/17415965  (SHA-256 HTML 8c389793e3b705f0066731a28052c2eb5760ba52e3766ccdf6e40501b2259bf5)
+    Tep: https://www.e-rara.ch/i3f/v20/17415966/full/full/0/default.jpg  4814x4196  SHA-256 843afcf6599e9e8b5a36a70a2b6e4d487c59cafb8b743292441c237f3785d8e5
+
+[7] ETH Hauptgebäude - "[Die No]rdfaçade des eidgenössischen Polytechnikums in Zürich" [Verlag von J.A. Preuss], [circa 1883]. Holzstich. ZB Zürich, Zürich G1, Universitäts-Qu., Polytechnikum I, 13. DOI https://doi.org/10.3931/e-rara-64003
+    Trang: https://www.e-rara.ch/zuz/content/titleinfo/17416013  (SHA-256 HTML 7a24d9d8cb532b4dbdf9871e7a22d975de69d219af9a246b62b038a0042729d4)
+    Tep: https://www.e-rara.ch/i3f/v20/17416014/full/full/0/default.jpg  4295x4340  SHA-256 f55a44f9a3cd4b6038df52c59218ae375f7a087feea400498bcbaaeee78d49b8
+    Luu y: mat dung chi tiet (sgraffito, cua so, phu dieu) mat Bac - tu lieu "ban ve mat dung" tot nhat tim duoc cho ETH.
+
+Muc da xem nhung KHONG tai (cung PDM): 17415991 Locher "Zürich Polytechnikum" (~1865, DOI 10.3931/e-rara-63998); 16259081 Isenring "Der Grossmünster in Zürich" (1840-41, DOI 10.3931/e-rara-60163); 15555145 "Zürich Fraumünster-Kirche" (~1910, DOI 10.3931/e-rara-57706); 15038833 "[Fraumünster]" (1853, DOI 10.3931/e-rara-55715); 17367208 "Der Bahnhof in Zürich" (nicht nach 1865?, DOI 10.3931/e-rara-63725).

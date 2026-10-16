@@ -1,0 +1,141 @@
+{
+ "video": "7kpjGoQu0mw (Epoch Timeline, Zürich)",
+ "lay": "commentThreads order=relevance maxResults=100 → có 20 bình luận (video có 48 bình luận theo statistics)",
+ "model": "claude-haiku-5-5 (served = claude-haiku-5-5)",
+ "nhan_dem": {
+  "request": 4,
+  "correction": 12,
+  "other": 3,
+  "praise": 1
+ },
+ "trong_so_like": {
+  "request": 2,
+  "correction": 42,
+  "other": 4,
+  "praise": 0
+ },
+ "ket_luan": "12/20 bình luận là chỉnh sai lịch sử/địa lý; nhóm chỉnh sai có tổng like cao nhất. Người xem là người Zürich soi chi tiết (St. Peter sai bờ, sông chảy ngược, nhà chọc trời 1793). Khớp nhánh \"bình luận chỉnh sai chỉ ra lỗi lặp lại\" của LUAT-CHON-DE-TAI ĐK2.",
+ "luu_y": "Văn bản bình luận gốc không đưa vào git; chỉ tóm tắt tiếng Việt do phiên viết.",
+ "binh_luan": [
+  {
+   "i": 0,
+   "likes": 0,
+   "nhan": "request",
+   "tom_tat_vi": "Hỏi khán giả muốn thành phố nào (của kênh)"
+  },
+  {
+   "i": 1,
+   "likes": 6,
+   "nhan": "correction",
+   "tom_tat_vi": "Người Zürich: quá nhiều lỗi; St. Peter đặt sai bờ sông"
+  },
+  {
+   "i": 2,
+   "likes": 9,
+   "nhan": "correction",
+   "tom_tat_vi": "Năm 1000 không có nhà khung gỗ; nhà đá/khung sau 1150–1200"
+  },
+  {
+   "i": 3,
+   "likes": 3,
+   "nhan": "correction",
+   "tom_tat_vi": "Cuối phim lẽ ra gần như không còn thấy (?)"
+  },
+  {
+   "i": 4,
+   "likes": 0,
+   "nhan": "request",
+   "tom_tat_vi": "Xin Banda Aceh"
+  },
+  {
+   "i": 5,
+   "likes": 8,
+   "nhan": "correction",
+   "tom_tat_vi": "Sông đổi cả chiều chảy"
+  },
+  {
+   "i": 6,
+   "likes": 1,
+   "nhan": "correction",
+   "tom_tat_vi": "Đầy lỗi; chỉ từ 1990 mới tạm đúng"
+  },
+  {
+   "i": 7,
+   "likes": 0,
+   "nhan": "other",
+   "tom_tat_vi": "AI nhảm"
+  },
+  {
+   "i": 8,
+   "likes": 1,
+   "nhan": "correction",
+   "tom_tat_vi": "Nhiều lỗi"
+  },
+  {
+   "i": 9,
+   "likes": 0,
+   "nhan": "praise",
+   "tom_tat_vi": "Khen"
+  },
+  {
+   "i": 10,
+   "likes": 1,
+   "nhan": "correction",
+   "tom_tat_vi": "Nhà chọc trời năm 1793?"
+  },
+  {
+   "i": 11,
+   "likes": 2,
+   "nhan": "request",
+   "tom_tat_vi": "Xin Lisbon"
+  },
+  {
+   "i": 12,
+   "likes": 1,
+   "nhan": "other",
+   "tom_tat_vi": "Nhận like đầu"
+  },
+  {
+   "i": 13,
+   "likes": 0,
+   "nhan": "request",
+   "tom_tat_vi": "Xin Warsaw, đừng bỏ 1939–45"
+  },
+  {
+   "i": 14,
+   "likes": 3,
+   "nhan": "correction",
+   "tom_tat_vi": "Hay nhưng đầy lỗi"
+  },
+  {
+   "i": 15,
+   "likes": 3,
+   "nhan": "other",
+   "tom_tat_vi": "Khen"
+  },
+  {
+   "i": 16,
+   "likes": 0,
+   "nhan": "correction",
+   "tom_tat_vi": "1889 thay chuông Grossmünster (sửa chi tiết)"
+  },
+  {
+   "i": 17,
+   "likes": 5,
+   "nhan": "correction",
+   "tom_tat_vi": "AI mất tập trung"
+  },
+  {
+   "i": 18,
+   "likes": 3,
+   "nhan": "correction",
+   "tom_tat_vi": "1791 quá sớm cho skyline Zürich-West"
+  },
+  {
+   "i": 19,
+   "likes": 2,
+   "nhan": "correction",
+   "tom_tat_vi": "Wollishofen có tường thành? (chế giễu lỗi)"
+  }
+ ]
+}

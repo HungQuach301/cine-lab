@@ -1,0 +1,255 @@
+{
+ "note": "Kế hoạch dữ liệu xương sống thời gian TẦNG ĐẦY ĐỦ cho K2C-T5-01. Số đếm đo trong phiên (16/10/2026) hoặc dùng lại tienky-thanhpho (ghi rõ). Ước giờ là (ước).",
+ "as_of": "2026-10-16",
+ "lop": [
+  {
+   "id": "L1",
+   "ten": "GWR — sổ toà nhà liên bang (BFS)",
+   "vai": "toà CÒN ĐỨNG mọc đúng năm GBAUJ; toà PHÁ 1999–2026 biến mất đúng năm GABBJ",
+   "dang": "điểm (toạ độ LV95) + thuộc tính; gói bang ZH",
+   "url": "https://public.madd.bfs.admin.ch/zh.zip",
+   "sha256": "d6babcae831fa83136f05f4b59fabad91780eec84df52e2d37de529ba780fcff",
+   "trich_xuat": "2026-10-15 (ngày trong zip)",
+   "giay_phep": "BFS: dùng tự do kể cả thương mại, ghi nguồn bắt buộc (licenses/zurich-bfs-gwr.txt)",
+   "ghi_cong": "Bundesamt für Statistik (BFS), Eidg. Gebäude- und Wohnungsregister (GWR)",
+   "so": {
+    "toa_thanh_pho_moi_trang_thai": 63986,
+    "dang_dung_1004": 54185,
+    "co_nam": "100 %",
+    "nam_gia_1812": 436,
+    "pha_co_nam_GABBJ": 8677,
+    "GABBJ": "1999–2026",
+    "xay_1999_2026_con_dung": 9784,
+    "don_0_5_truoc_1800": "57–58 %",
+    "don_0_5_1900_2026": "20,8 %"
+   },
+   "luat": [
+    "1812 (mã giả, 436 toà) → không \"mọc\"; hiện sẵn từ lát 1800 của 4D (nếu có EGID khớp) hoặc từ đầu đoạn 1800–1850 với nhãn \"before 1812\".",
+    "Trước 1800: nói \"accurate to the decade\" — không phóng năm từng toà.",
+    "Toà phá 1999–2026: tan đúng năm GABBJ (8 677). Toà phá TRƯỚC 1999 không có trong GWR → xem L3/L5."
+   ]
+  },
+  {
+   "id": "L2",
+   "ten": "3D-Dachmodell LoD2 Stadt Zürich",
+   "vai": "khối + mái thật cho toà còn đứng (GWR chỉ là điểm)",
+   "giay_phep": "CC0 (licenses/zurich-stadt-3d-dachmodell-lod2-cc0.txt)",
+   "ghep": "nối GWR theo EGID; thiếu EGID → điểm-trong-đa-giác; toà phá 1999–2026 không còn trong LoD2 hiện hành → khối đùn từ footprint lịch sử (Übersichtsplan/AV cũ) hoặc khối chung theo GASTW (số tầng, 100 % có) — ghi \"approximate massing\"",
+   "so": "xem hero.json (ô LoD2 đã tải cho hero); số toà toàn thành phố đo ở G1"
+  },
+  {
+   "id": "L3",
+   "ten": "Zürich 4D — mô hình 3D lịch sử (Amt für Städtebau, Stadtarchäologie)",
+   "vai": "toà ĐÃ MẤT ở các lát 1200 / 1500 / 1800 (+200 cho Statio Turicensis)",
+   "giay_phep": "CC0 (licenses/zurich-4d-historisches-3d-stadtmodell-cc0.txt)",
+   "lat": {
+    "200": {
+     "zip_MB": 349
+    },
+    "1200": {
+     "zip_MB": 529,
+     "obj": 68571,
+     "footprints_wfs": 16999,
+     "tin_cay": {
+      "tief": 15760,
+      "mittel": 1177,
+      "hoch": 50,
+      "keine": 12
+     },
+     "egid_duong": 0
+    },
+    "1500": {
+     "zip_MB": 361,
+     "footprints_wfs": 8665,
+     "tin_cay": {
+      "tief": 6825,
+      "mittel": 1757,
+      "hoch": 51,
+      "keine": 32
+     }
+    },
+    "1800": {
+     "zip_MB": 960,
+     "obj": 5613,
+     "footprints_wfs": 5688,
+     "tin_cay": {
+      "mittel (historische Quellen)": 5504,
+      "hoch": 157,
+      "mittel fragmentarisch": 23,
+      "keine": 3,
+      "tief": 1
+     },
+     "nguon_chinh": "Müllerplan 1788–93; Wild-Karte 1850 + Gebäudeversicherung 1812–1925"
+    }
+   },
+   "khop_egid_1800": {
+    "obj": {
+     "egid_am(gia)": 4699,
+     "egid_duong": 598,
+     "NoEGID": 316
+    },
+    "egid_duong_unique": 591,
+    "GSTAT": {
+     "1004": 588,
+     "khong_co_trong_GWR": 1,
+     "1007": 2
+    },
+    "nam_GWR_cua_toa_con_dung": {
+     "<=moc": 243,
+     ">moc": 181,
+     "1812(gia)": 164
+    },
+    "vi_du_nam_GWR_sau_moc": [
+     [
+      1803,
+      "Wohngebaeude_140135_0_0.obj"
+     ],
+     [
+      1815,
+      "Nebengebaeude_302040005_0_0.obj"
+     ],
+     [
+      1816,
+      "Nebengebaeude_157131_0_0.obj"
+     ],
+     [
+      1820,
+      "Nebengebaeude.Oekenomiegebaeude_302024387_0_0.obj"
+     ],
+     [
+      1820,
+      "Wohngebaeude_9011003_0_0.obj"
+     ],
+     [
+      1993,
+      "Nebengebaeude_2373754_0_0.obj"
+     ],
+     [
+      1996,
+      "Wohngebaeude.Baeuerliches_Mehrzweckgebaeude_3169793_0_0.obj"
+     ],
+     [
+      2004,
+      "Nebengebaeude.Oekenomiegebaeude_302019971_0_0.obj"
+     ],
+     [
+      2005,
+      "Nebengebaeude_302020715_0_0.obj"
+     ],
+     [
+      2005,
+      "Nebengebaeude_302020723_0_0.obj"
+     ]
+    ]
+   },
+   "doc_khop": "591 vật thể 1800 mang EGID thật (588 còn đứng theo GWR); 4 699 mang EGID âm (toà đã mất), 316 không EGID (tường, cọc…). Trong 588 toà còn đứng: GWR ghi năm ≤ 1800 cho 243, mã giả 1812 cho 164, và > 1800 cho 181 (vd 1803–1820, cả 1993–2005 = xây lại/cải tạo lớn cùng EGID).",
+   "luat": [
+    "tin cậy \"tief\"/\"keine\" → lớp ghost mờ (đề xuất alpha 0,35, viền sáng), nhãn \"reconstruction (hypothesis)\" khi lớp hiện lần đầu trong chương.",
+    "\"mittel\"/\"hoch\" → khối đặc nhạt hơn lớp GWR một bậc (phân biệt \"từ sổ đăng ký\" và \"từ bản dựng\"), không nhãn giả thuyết.",
+    "Lát 1800 → GWR: EGID khớp và GWR ≤ 1800 hoặc 1812 → cùng một toà, liền mạch. EGID khớp, GWR > 1800 → toà 4D tan, toà GWR mọc ở năm GWR (\"replaced on the same site\"); 181 ca, kiểm tay ca 1801–1850 (ước 2–3 giờ).",
+    "Toà 4D EGID âm (4 699 ở lát 1800): KHÔNG có năm phá. Đề xuất (G1): tan khi một toà GWR mọc chồng ≥ 30 % diện tích (tự động, nhãn phương pháp \"disappears when replaced\"); phần còn lại kẹp năm bằng các lớp bản đồ L5 (Altstadtkataster 1859–67, Siegfried 1880/1930, Übersichtsplan 1932–61) — số hoá tay.",
+    "Giữa các lát (1200→1500→1800): hoà chéo trong 2–3 s, KHÔNG nội suy từng toà; bộ đếm năm ghi \"c. 1500\"."
+   ]
+  },
+  {
+   "id": "L4",
+   "ten": "Chuỗi dân số",
+   "vai": "bộ đếm dân số + mốc đinh 1962/1989/2022",
+   "chi_tiet": "dan-so.json",
+   "luat": "bộ đếm dùng chuỗi Thành phố; nhảy 1893 và 1934 là SÁP NHẬP → bộ đếm đổi màu/có vạch ranh giới mới khi nhảy, lời nói rõ (claim Z04–Z18)."
+  },
+  {
+   "id": "L5",
+   "ten": "8 lớp bản đồ lịch sử có quyền",
+   "vai": "nước, tường, đường theo thời; kẹp năm cho toà mất 1800–1999",
+   "lop": [
+    {
+     "ten": "Murer 1566 (Kanton, ~1:56 000)",
+     "quyen": "CC0"
+    },
+    {
+     "ten": "Gyger Schanzenplanung ~1644 (Stadt)",
+     "quyen": "CC0"
+    },
+    {
+     "ten": "Gyger 1667 (Kanton, ~1:32 000)",
+     "quyen": "CC0"
+    },
+    {
+     "ten": "Wild-Karte 1843–51 (Kanton, 1:25 000, 2,5 m/px)",
+     "quyen": "CC0"
+    },
+    {
+     "ten": "Dufour 1844–64 (swisstopo)",
+     "quyen": "© swisstopo, thương mại được"
+    },
+    {
+     "ten": "Altstadtkataster 1859–67 (Stadt, 1:200, chu vi từng toà)",
+     "quyen": "CC0"
+    },
+    {
+     "ten": "Kellerplan 1864 (Stadt, 1:6 600)",
+     "quyen": "CC0"
+    },
+    {
+     "ten": "Siegfried 1870–1949 (swisstopo, nhiều ấn bản)",
+     "quyen": "© swisstopo"
+    },
+    {
+     "ten": "Übersichtsplan 1932–61 (+1937–45, 1958–61; Stadt, 1:5 000)",
+     "quyen": "CC0"
+    }
+   ],
+   "nguon": "tienky-thanhpho ban-do-cong-trinh-zh-hel.json (8/8 có toạ độ)"
+  },
+  {
+   "id": "L6",
+   "ten": "Ranh giới thành phố theo năm",
+   "vai": "vạch ranh giới sống trên bản đồ; tô vùng sáp nhập",
+   "cach": "gộp 34 Quartier thống kê (Stadt, CC0, SHA ee2b0ab8…) theo xã cũ: trước 1893 = 4 Quartier Kreis 1 (Rathaus, Hochschulen, Lindenhof, City) ≈ 180 ha; 1893–1933 = 24 Quartier ≈ 4 851 ha; 1934– = 34 Quartier ≈ 9 188 ha",
+   "doi_chieu": "số chính thức 4 480 ha (1933) và 8 773 ha (1934) (claim Z13) → phép gộp lệch +8 % (+5 %), phần lớn do mặt hồ nằm trong Quartier ven hồ. Trước G1: cắt mặt hồ bằng lớp Zürichsee (OGD Kanton) rồi đo lại; ranh xã cũ chi tiết đối chiếu Wild-Karte/Siegfried (ước 3–4 giờ). Trước 1833: tường thành theo 4D 1800 (Befestigungsanlage) và Gyger ~1644.",
+   "claim": [
+    "Z01",
+    "Z03",
+    "Z12",
+    "Z13"
+   ]
+  },
+  {
+   "id": "L7",
+   "ten": "Địa hình + mặt nước",
+   "vai": "nền 3D",
+   "nguon": "swissALTI3D (© swisstopo) hoặc DTM theo lát của bộ dữ liệu 4D (DTM_R.tif, DTM_GEWAESSER_R.tif — tải riêng, KHÔNG có trong zip OBJ; chưa tải) — nước theo thời lấy từ lớp gewaessernetz của 4D; hiện tại: OGD Kanton Fliessgewässer/Zürichsee",
+   "luat": "mặt nước theo lát 4D (không dùng bờ hồ hiện đại cho 1800 — bờ hồ Bürkli 1881–87 là đất lấp)."
+  },
+  {
+   "id": "L8",
+   "ten": "Ảnh hàng không / chỉnh hình",
+   "vai": "tầng giữa của zoom nhiều tầng; then/now hiện đại",
+   "nguon": "Orthofoto Kanton 2024/25 (CC0), Orthofoto Stadt 1975/76–2007 (CC0), SWISSIMAGE (© swisstopo)"
+  }
+ ],
+ "quy_trinh_ghep": [
+  "1) Dời gốc LV95 (E0 2 683 000, N0 1 247 000, H0 400) cho MỌI lớp trước khi vào float32 (giam-luoi.json).",
+  "2) Lát 4D 1200/1500/1800 → mesh + texture (JPEG q90); rào/cọc 1200 collapse 0,25.",
+  "3) GWR điểm ↔ LoD2 khối theo EGID; toà phá 1999–2026 ↔ footprint lịch sử.",
+  "4) Nối 1800 ↔ GWR theo EGID (luật L3); ghost cho tin cậy thấp.",
+  "5) Ranh giới năm (L6) + nước theo thời (L7) + 8 lớp bản đồ (L5) làm nền sepia.",
+  "6) Một BufferGeometry/shader năm như bản thử Amsterdam (R&D §6.1): mỗi đỉnh mang năm mọc, năm mất, cờ ghost."
+ ],
+ "so_hoa_tay_uoc_gio": {
+  "kiem_181_ca_EGID_lech_nam": "2–3",
+  "kep_nam_toa_mat_1800_1999 (phần không tự động được, ước 1 500–2 500 toà ở Altstadt/Aussersihl)": "40–70",
+  "ranh_gioi_xa_cu_doi_chieu": "3–4",
+  "tuong_thanh_luy_1642_1833_tu_Gyger_va_4D": "4–6",
+  "bo_ho_Bürkli_1881_87 và Bahnhofstrasse/Fröschengraben 1863–64": "4–6",
+  "hero (5 toà, xem hero.json)": "theo hero.json",
+  "tong_khong_ke_hero": "53–89",
+  "so_sanh_tienky_thanhpho": "80–130 (gồm cả kiểm, ghép) — số mới thấp hơn vì 4D đã có 5 613 vật thể 1800 kèm texture và 591 EGID nối sẵn"
+ },
+ "gioi_han": [
+  "Toà mất 1800–1999 không có năm phá trong bất kỳ sổ mở nào (GWR từ 1999) → phương pháp \"replaced\" là suy luận, phải ghi trên hình/mô tả.",
+  "4D 1200/1500 đa số \"tief\" → lớp ghost cả lát; không dùng 4D 1200/1500 làm bằng chứng số lượng toà trong lời.",
+  "LoD2 hiện hành không có toà đã phá."
+ ]
+}

@@ -1,0 +1,38 @@
+GIAY PHEP: swisstopo free geodata (OGD) - Siegfriedkarte, Dufourkarte, swissBUILDINGS3D
+Ngay doc: 2026-10-15 (phien Tien ky thanh pho, tac tu con zh_hel)
+Tep tho luu ngoai git o /var/tmp/thanhpho/<thu muc>/body; SHA-256 la cua tep body doc duoc.
+
+======================================================================
+URL: https://www.swisstopo.admin.ch/ogd-conditions
+HTTP: 200
+SHA-256 trang/tep: e9e1290683e52d0543dbb5f5d7e48a0816855ab845713ea7420b2e25d8490f45
+Thu muc tho: /var/tmp/thanhpho/stopo_ogd
+Trich nguyen van:
+  (redirect sang /en/terms-of-use-free-geodata-and-geoservices; "Published on 26 August 2022")
+  "2. Terms of use The free geodata and geoservices of swisstopo may be used, distributed and made accessible. Furthermore, they may be enriched and processed and also used commercially. A reference to the source is mandatory. In the case of digital or analogue representations and publications, as well as in the case of dissemination, one of the following source references must be attached in any case: Bundesamt für Landestopografie swisstopo ... Federal Office of Topography swisstopo ©swisstopo"
+
+======================================================================
+URL: https://ckan.opendata.swiss/api/3/action/package_search?q=Siegfried%20OR%20Dufour%20OR%20Zeitreise%20OR%20hiks&rows=30
+HTTP: 200
+SHA-256 trang/tep: fc1ead1581d489dd2f0a247c5b0ab5ee6000623305d9277d3128635ea6997208
+Thu muc tho: /var/tmp/thanhpho/odch_hiks
+Trich nguyen van:
+  opendata.swiss CKAN: package "topographischer-atlas-der-schweiz-siegfriedkarte" (org bundesamt-fur-landestopografie-swisstopo) - tat ca resource rights = "https://opendata.swiss/terms-of-use#terms_by"; layer ch.swisstopo.hiks-siegfried. Package "topographische-karte-der-schweiz-dufourkarte" - rights = "https://opendata.swiss/terms-of-use#terms_by"; layer ch.swisstopo.hiks-dufour.
+  "The Topographic Atlas of Switzerland was published between 1870 and 1926 ... at a scale of 1:25,000 for the Central Plateau"
+
+======================================================================
+URL: https://opendata.swiss/en/terms-of-use
+HTTP: 200
+SHA-256 trang/tep: 11a3bc5835ed668c8c8e12e3954824eeb12ba13dcd033e31e9e3d7ae89925023
+Thu muc tho: /var/tmp/thanhpho/odch_terms
+Trich nguyen van:
+  "Open use. Must provide the source. You may use this dataset for non-commercial purposes. You may use this dataset for commercial purposes. You must provide the source (author, title and link to the dataset)."
+
+======================================================================
+URL: https://ckan.opendata.swiss/api/3/action/package_search?q=swissBUILDINGS3D&rows=10
+HTTP: 200
+SHA-256 trang/tep: b1f6ea8f3f9ae84c526087e1f2b21918722413228a304cdbe802777764f98302
+Thu muc tho: /var/tmp/thanhpho/odch_sb3d
+Trich nguyen van:
+  opendata.swiss: "swissbuildings3d-3-0-beta" va "swissbuildings3d-2-0" (swisstopo) - rights = "https://opendata.swiss/terms-of-use#terms_by"
+
