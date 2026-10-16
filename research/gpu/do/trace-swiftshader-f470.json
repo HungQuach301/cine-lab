@@ -1,0 +1,252 @@
+{
+ "span_ms": 4974.0,
+ "threads": [
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "busy_ms": 4948.6
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "busy_ms": 4901.0
+  },
+  {
+   "process": "Browser",
+   "thread": "CrBrowserMain",
+   "busy_ms": 11.1
+  },
+  {
+   "process": "Renderer",
+   "thread": "Chrome_ChildIOThread",
+   "busy_ms": 2.8
+  },
+  {
+   "process": "Browser",
+   "thread": "Chrome_IOThread",
+   "busy_ms": 2.2
+  },
+  {
+   "process": "GPU Process",
+   "thread": "Chrome_ChildIOThread",
+   "busy_ms": 2.2
+  },
+  {
+   "process": "Browser",
+   "thread": "PerfettoTrace",
+   "busy_ms": 2.1
+  },
+  {
+   "process": "Browser",
+   "thread": "DevToolsPipeHandlerWriteThread",
+   "busy_ms": 2.0
+  },
+  {
+   "process": "Renderer",
+   "thread": "ThreadPoolForegroundWorker",
+   "busy_ms": 1.9
+  },
+  {
+   "process": "GPU Process",
+   "thread": "PerfettoTrace",
+   "busy_ms": 1.7
+  },
+  {
+   "process": "Renderer",
+   "thread": "PerfettoTrace",
+   "busy_ms": 1.3
+  },
+  {
+   "process": "Renderer",
+   "thread": "ThreadPoolForegroundWorker",
+   "busy_ms": 0.9
+  },
+  {
+   "process": "Renderer",
+   "thread": "ThreadPoolForegroundWorker",
+   "busy_ms": 0.5
+  }
+ ],
+ "top_events": [
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "RunTask",
+   "ms": 4948.6
+  },
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "ThreadControllerImpl::RunTask",
+   "ms": 4948.4
+  },
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "Receive mojo message",
+   "ms": 4947.9
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "RunTask",
+   "ms": 4901.0
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "ThreadControllerImpl::RunTask",
+   "ms": 4900.9
+  },
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "RasterImplementation::ReadbackImagePixels",
+   "ms": 4899.6
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "Scheduler::RunTask",
+   "ms": 4898.5
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "GpuChannel::ExecuteDeferredRequest",
+   "ms": 4898.5
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "GPUTask",
+   "ms": 4898.4
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "CommandBuffer::Flush",
+   "ms": 4898.0
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "CommandBufferStub::OnAsyncFlush",
+   "ms": 4898.0
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "CommandBufferService:PutChanged",
+   "ms": 4897.9
+  },
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "ImplementationBase::WaitForCmd",
+   "ms": 4894.6
+  },
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "CommandBufferHelper::Finish",
+   "ms": 4894.6
+  },
+  {
+   "process": "Renderer",
+   "thread": "CrRendererMain",
+   "name": "CommandBufferProxyImpl::WaitForGetOffset",
+   "ms": 4894.5
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "RendererMainThread",
+   "ms": 4893.9
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "RasterDecoderImpl::DoReadbackARGBImagePixelsINTERNAL",
+   "ms": 4893.0
+  },
+  {
+   "process": "Browser",
+   "thread": "CrBrowserMain",
+   "name": "RunTask",
+   "ms": 11.2
+  },
+  {
+   "process": "Browser",
+   "thread": "CrBrowserMain",
+   "name": "ThreadControllerImpl::RunTask",
+   "ms": 10.9
+  },
+  {
+   "process": "Browser",
+   "thread": "CrBrowserMain",
+   "name": "Receive mojo message",
+   "ms": 8.8
+  },
+  {
+   "process": "GPU Process",
+   "thread": "CrGpuMain",
+   "name": "WebGL",
+   "ms": 4.2
+  },
+  {
+   "process": "Renderer",
+   "thread": "ThreadPoolForegroundWorker",
+   "name": "ThreadPool_RunTask",
+   "ms": 3.3
+  },
+  {
+   "process": "GPU Process",
+   "thread": "Chrome_ChildIOThread",
+   "name": "EpollEvent",
+   "ms": 2.1
+  },
+  {
+   "process": "Renderer",
+   "thread": "Chrome_ChildIOThread",
+   "name": "EpollEvent",
+   "ms": 2.1
+  },
+  {
+   "process": "Browser",
+   "thread": "PerfettoTrace",
+   "name": "RunTask",
+   "ms": 2.1
+  },
+  {
+   "process": "Browser",
+   "thread": "DevToolsPipeHandlerWriteThread",
+   "name": "RunTask",
+   "ms": 2.0
+  },
+  {
+   "process": "Browser",
+   "thread": "Chrome_IOThread",
+   "name": "EpollEvent",
+   "ms": 1.9
+  },
+  {
+   "process": "Browser",
+   "thread": "DevToolsPipeHandlerWriteThread",
+   "name": "ThreadControllerImpl::RunTask",
+   "ms": 1.9
+  },
+  {
+   "process": "GPU Process",
+   "thread": "PerfettoTrace",
+   "name": "RunTask",
+   "ms": 1.7
+  },
+  {
+   "process": "Browser",
+   "thread": "PerfettoTrace",
+   "name": "ThreadControllerImpl::RunTask",
+   "ms": 1.6
+  }
+ ]
+}

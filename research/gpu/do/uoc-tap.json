@@ -1,0 +1,81 @@
+{
+ "s_khung_3d": {
+  "swiftshader": 5.744,
+  "llvmpipe": 1.094,
+  "gpu": {
+   "thấp": 0.712,
+   "giữa": 0.339,
+   "cao": 0.209
+  }
+ },
+ "bang": [
+  {
+   "kich_ban": "100 % 3D (kịch bản 2)",
+   "CPU SwiftShader (máy C / máy chậm)": [
+    23.0,
+    32.4
+   ],
+   "CPU llvmpipe, relief giữ SwiftShader (máy C / chậm ước)": [
+    4.4,
+    6.2
+   ],
+   "CPU llvmpipe 2 tiến trình (÷1,2 đo)": 3.7,
+   "GPU thấp ×10 (ước)": 2.85,
+   "GPU giữa ×30 (ước)": 1.36,
+   "GPU cao ×100 (ước)": 0.84
+  },
+  {
+   "kich_ban": "70 % 3D + 30 % relief (kịch bản 3)",
+   "CPU SwiftShader (máy C / máy chậm)": [
+    18.5,
+    26.0
+   ],
+   "CPU llvmpipe, relief giữ SwiftShader (máy C / chậm ước)": [
+    5.4,
+    7.7
+   ],
+   "CPU llvmpipe 2 tiến trình (÷1,2 đo)": 4.5,
+   "GPU thấp ×10 (ước)": 2.41,
+   "GPU giữa ×30 (ước)": 1.21,
+   "GPU cao ×100 (ước)": 0.79
+  }
+ ],
+ "chi_phi_gpu_kich_ban3": {
+  "thấp": {
+   "gio_thue": 2.91,
+   "usd": {
+    "AWS g4dn.xlarge T4 spot": 0.84,
+    "GCP g2-standard-4 L4 spot": 1.17,
+    "RunPod L4 community": 1.28,
+    "AWS g4dn.xlarge T4 theo yêu cầu": 1.53,
+    "RunPod L4 secure": 1.72,
+    "GCP g2-standard-4 L4 theo yêu cầu": 2.06,
+    "DigitalOcean RTX 4000 Ada": 2.21
+   }
+  },
+  "giữa": {
+   "gio_thue": 1.71,
+   "usd": {
+    "AWS g4dn.xlarge T4 spot": 0.49,
+    "GCP g2-standard-4 L4 spot": 0.69,
+    "RunPod L4 community": 0.75,
+    "AWS g4dn.xlarge T4 theo yêu cầu": 0.9,
+    "RunPod L4 secure": 1.01,
+    "GCP g2-standard-4 L4 theo yêu cầu": 1.21,
+    "DigitalOcean RTX 4000 Ada": 1.3
+   }
+  },
+  "cao": {
+   "gio_thue": 1.29,
+   "usd": {
+    "AWS g4dn.xlarge T4 spot": 0.37,
+    "GCP g2-standard-4 L4 spot": 0.52,
+    "RunPod L4 community": 0.57,
+    "AWS g4dn.xlarge T4 theo yêu cầu": 0.68,
+    "RunPod L4 secure": 0.76,
+    "GCP g2-standard-4 L4 theo yêu cầu": 0.91,
+    "DigitalOcean RTX 4000 Ada": 0.98
+   }
+  }
+ }
+}
