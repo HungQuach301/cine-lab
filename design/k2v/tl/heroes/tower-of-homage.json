@@ -1,0 +1,14 @@
+{
+ "hero": "Tower of Homage (Moorish Castle), Gibraltar",
+ "dung_trong": "design/k2v/tl/heroes.js (makeHeroes: tower, castle_walls)",
+ "hinh_dang": {"chan_toa": "vòng chân OSM way 950058970 (historic=castle, castle_type=tower; nguồn vẽ 'Bing'), © OpenStreetMap contributors, ODbL 1.0", "dien_tich_osm_m2": 334.1},
+ "kich_thuoc": [
+  {"muc": "cao", "gia_tri_m": 23, "nguon": "HM Government of Gibraltar, Ministry for Heritage — 'The Tower of Homage' (https://www.ministryforheritage.gi/heritage-and-antiquities/the-tower-of-homage-1114): 'standing 23 metres tall, it covers an impressive 320 m²'", "trang_thai": "trang trả 403 cho máy (curl/WebFetch 16/10); câu trích đọc qua kết quả tìm kiếm + Medievalists.net 09/2026 nhắc cùng số (23 m, 320 m²) — CHỜ chủ dự án đối chiếu trang gốc bằng mắt"},
+  {"muc": "dien_tich", "gia_tri_m2": 320, "nguon": "như trên", "doi_chieu": "vòng OSM 334,1 m² — lệch +4,4 % (trong ±5 %)"},
+  {"muc": "cot_chan", "gia_tri_m": 87.8, "nguon": "DTM dựng từ Copernicus GLO-30 (min cốt dưới vòng chân); nguồn khác ghi lâu đài ~100 m trên mặt biển (Ministry for Heritage, đọc thứ cấp)"}
+ ],
+ "vat_lieu": {"mo_ta": "tapia (vữa vôi đầm theo lớp, có gạch gốm nghiền) — Medievalists.net 09/2026: 'constructed using tapia, a durable material containing crushed pottery or pumice'", "dung": "shader TAPIA: màu đất ấm, vạch lớp đầm 0,85 m (ƯỚC — chưa có số đo lớp), lỗ giằng ván, vệt mưa"},
+ "chi_tiet_tu_dung": ["răng cưa đỉnh 1,1 × 1,6 m mỗi 2,2 m (ƯỚC theo ảnh, không có bản vẽ)", "khe bắn tên 0,35 × 1,8 m ở cao 9 m và 16 m (ƯỚC)", "tường lâu đài: OSM barrier=city_wall 'Moorish Castle Outer Keep', cao 8 m, dày 2,2 m (ƯỚC)"],
+ "nam": "có trước 1704 (Medievalists.net: dựng năm 1344 — nguồn thứ cấp, không đưa lên hình); trong đoạn thử: đứng suốt 1704–2026",
+ "cc0": "không có mô hình CC0 của công trình này (Poly Haven / Quaternius / ambientCG) — dựng thủ tục"
+}

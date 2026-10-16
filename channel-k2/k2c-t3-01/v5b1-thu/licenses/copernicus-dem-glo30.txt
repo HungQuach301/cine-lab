@@ -1,0 +1,233 @@
+==================================================================
+URL: https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM
+FETCHED_UTC: 2026-10-15T12:33:31Z
+HTTP: 200 https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM 110647
+SHA256: baab1e905bec2595d11fd8e3c00612462493ce4491cc46b2858922159993cbe0
+------------------------------------------------------------------
+More details on the Copernicus DEM eligibility and access conditions can be found in the ESA User License and relevant Mission Specific Annex. 
+The Copernicus DEM is accessible via the Copernicus Browser or API. For further guidance and technical support, please visit the documentation portal (e.g. the Copernicus DEM section) or see the CDSE Forum. For issues/bugs please submit a request. Full dataset downloads (bulk access) are supported via S3-compatible object storage and OData API using temporary credentials. For more information please consult the related FAQ item: How can I download Copernicus data in bulk mode?.
+
+Licensing and citation guidelines 
+The GLO-30 and GLO-90 datasets are available worldwide with a free license. 
+ESA – EU users who use the Copernicus DEM in their research are requested to use the following DOI when citing the data source in their publications: 
+https://doi.org/10.5270/ESA-c5d3d65
+User Obligations
+When communicating to the General Public or distributing the Copernicus WorldDEM-30 (GLO-30), the User shall inform the General Public of the source by using the following notice: 
+© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved
+Where the Copernicus WorldDEM-30 (GLO-30) data have been adapted or modified, the User shall provide the following notice: 
+"produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved”
+Where the Copernicus data have been adapted or modified, the User shall provide the following notice: 
+"produced using Copernicus WorldDEM-90 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved"
+
+==================================================================
+URL: https://docs.sentinel-hub.com/api/latest/static/files/data/dem/resources/license/License-COPDEM-30.pdf
+FETCHED_UTC: 2026-10-15T12:33:17Z
+HTTP: 200 https://docs.sentinel-hub.com/api/latest/static/files/data/dem/resources/license/License-COPDEM-30.pdf 113786
+SHA256: 9cd37d37ea654bbcaf0a2e059e6a3a5b5f76072824d8dd860ccf274ada8951bd
+------------------------------------------------------------------
+               Licence for Copernicus DEM instance COP-DEM-GLO-30-F Global 30m Full, Free & Open
+
+                                    Licence for the use of the Copernicus WorldDEM-301
+
+
+Preamble
+
+Copernicus is the European Union programme to observe and monitor the Earth. Copernicus is leveraging the strong
+experience of key European organisations to provide Earth observation data and value added information for environmental as
+well as civil security applications. For the space component, Copernicus relies on the expertise of ESA to deliver and operate,
+together with EUMETSAT, the space infrastructure, in particular the different Sentinel satellite missions dedicated to
+Copernicus. For the service component, Copernicus relies on the expertise in data analysis and modelling of ECMWF, JRC, the
+EEA, Mercator Océan, Frontex, EMSA, and the SatCen. The in situ component is shared between the different actors of the
+service component with the leading role of the EEA. The European Commission is responsible for the overall coordination of
+Copernicus.
+
+Copernicus data and information policy, regulated under European law 2, ensures access on a full, open and free-of-charge
+basis as a rule with rare exceptions when needed to protect the security interest of the Union and its Member States as well as
+third party IPRs.
+
+Copernicus aims at cross-consistency in the use of Digital Elevation Models (DEM) at different resolutions for Copernicus data
+and information as well as geo-referenced data and information used and generated in the context of the European Union
+public tasks. The purpose is to ensure the use of a stable reference DEM in the broader Copernicus data ecosystem to facilitate
+data comparison and fusion.
+
+This licence concerns the use of the Copernicus WorldDEM-30 and for the reason stated above it is important to make
+available this Copernicus WorldDEM-30 to as many users as possible, Copernicus is therefore making it available on a free
+basis for the general public under the terms and conditions of this Licence. The higher resolution, Copernicus WorldDEM-10 is
+subject of a separate licence and distribution to the general public of these higher resolution DEMs is expressly excluded from
+this Licence.
+
+Article 1. Acceptance
+
+The user must accept the terms and conditions of this licence to benefit from the rights of use granted in this licence.
+
+Article 2. Definitions
+
+The ‘licence’ means the present document defining the terms and conditions for the use of the Copernicus WorldDEM-30 by
+the general public;
+
+‘DEM’ (digital elevation model): is a general term for a grid-based digital representation for a topographic surface, composed
+of elevations on the Earth;
+
+‘Copernicus WorldDEM-30’ means the WorldDEM product derived from the TanDEM-X Mission data produced by Airbus
+Defence and Space GmbH in a “Copernicus DEM” version consisting of a Digital Surface Model providing a horizontal
+sampling of 30m with a worldwide/global coverage of all Earth landmasses provided by the Licensor to the User;
+
+‘Licensor’ means the entity offering these terms and conditions for the use of the Copernicus WorldDEM-30 in the framework
+of the European Union Copernicus Programme;
+
+‘Provider’ means the Copernicus WorldDEM-30 provider, i.e. Airbus Defence and Space GmbH, Germany;
+
+‘User’ shall mean the natural or legal person accepting this licence in order to obtain User rights to the Copernicus WorldDEM-
+30 from Licensor;
+
+‘Subsequent User’ any user who did not receive the Copernicus WorldDEM-30 from the Licensor;
+
+‘General Public’ shall mean any natural or legal person;
+
+‘Intellectual Property Rights (IPRs)’ shall mean the rights resulting from the creation, use and exploitation of mental or
+creative labour as defined through international Treaties and Conventions on Intellectual Property.
+
+
+
+
+1   Copernicus is a trade mark owned by the European Union, WorldDEM is a trade mark owned by Airbus Defence and Space GmbH.
+2   (Copernicus) Regulation (EU) No 377/2014 and Commission Delegated Regulation (EU) No 1159/2013.
+Article 3. Scope
+
+This licence governs the use of the Copernicus WorldDEM-30 when made available to the users by the Licensor. They do not
+confer to the users a right to request the availability of the Copernicus WorldDEM-30.
+
+The rights granted under this Licence are worldwide and without limitation in time.
+
+Article 4. Right of Use
+
+The Licensor grants to the User the following non-exclusive rights of use regarding the Copernicus WorldDEM-30:
+(a)        reproduction;
+
+(b)        distribution;
+
+(c)        communication to the General Public;
+
+(d)        adaptation, modification and combination with other data and information.
+
+Article 5. Financial Conditions
+
+The use rights granted under this licence are free of charge to the User.
+
+Article 6. User Obligations
+(a)        When communicating to the General Public or distributing the Copernicus WorldDEM-30, the User shall inform the
+           General Public of the source by using the following notice:
+
+                  © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS
+                  by the European Union and ESA; all rights reserved.
+
+(b)        Where the Copernicus WorldDEM-30 data have been adapted or modified, the User shall provide the following
+           notice:
+
+                  "produced using Copernicus WorldDEM-30 © DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH
+                  2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved”.
+
+(c)        Users exercising the right of distribution or communication to the General Public of the Copernicus WorldDEM-30,
+           modified or not, must ensure that the Subsequent Users understand that neither the Licensor nor any other legal
+           entities in charge of the Copernicus programme or the delivery of Copernicus data and information under the
+           Copernicus programme may be held liable with regard to any aspect of the Copernicus WorldDEM-30. The
+           following sentence or its translation in any language shall be added by such Users in a licence or any legal warning
+           or notice covering their distribution or communication to the General Public of the Copernicus WorldDEM-30: "The
+           organisations in charge of the Copernicus programme by law or by delegation do not incur any liability for any use
+           of the Copernicus WorldDEM-30".
+
+(d)        User shall make sure not to convey the impression to the General Public that the user's activities are officially
+           endorsed by the Provider, the Licensor or any other legal entities in charge of the Copernicus programme or the
+           delivery of Copernicus data and information under the Copernicus programme.
+
+(e)        Where the user grants to any Subsequent User the rights to distribute or communicate to the General Public the
+           Copernicus WorldDEM-30, modified or not, he shall ensure that its Subsequent Users are bound by the above
+           obligations.
+
+Article 7. Warranty and Liability
+
+The Copernicus WorldDEM-30 is made available to the Users 'as is'. The User uses it under its own responsibility. Neither the
+Licensor nor any other legal entities in charge of the Copernicus programme or the delivery of Copernicus data and
+information under the Copernicus programme nor the Provider may be held liable for any type of damages resulting from the
+use of the Copernicus WorldDEM-30. The User will protect the Licensor and these legal entities and the Provider against any
+liability claim resulting from its use of the Copernicus WorldDEM-30.
+
+Article 8. Technical specifications
+
+The technical specifications of the Copernicus WorldDEM-30 is documented by the Provider and the Licensor indicates to the
+Users how these technical specifications are made available to them.
+Article 9. IPRs and Related Rights
+
+The Intellectual Property Rights (IPRs) and related rights attached to the Copernicus WorldDEM-30 does not belong to
+Copernicus, the Licensor was granted the right to sublicense the use of the Copernicus WorldDEM-30 by the Provider. The
+Provider has not relinquished the IPR and related rights it or its licensors holds on the Copernicus WorldDEM™-30 and the
+User is not receiving any IPR titles on the Copernicus WorldDEM-30 through this Licence.
+
+This Licence does not confer any right to the use of the Provider’s trademarks or logos unless explicitly authorized by the
+Provider. The use of the trade mark WorldDEM is authorised when used in the context of these terms and conditions and
+referring to Copernicus WorldDEM-30.
+
+The use of the Copernicus trademark is authorised under the terms and conditions set out in the trademark licence available
+on the copernicus.eu website.
+
+Neither the Licensor nor the Provider will claim any IPRs recognised under International treaties or under the European
+Union law as obtained by the User through his own work while exercising the use rights granted in this licence.
+
+Article 9. Termination
+
+If the User breaches any of the obligations arising from this Licence, the Licensor may terminate it with the immediate result of
+the User losing all the rights granted under this Licence.
+
+==================================================================
+URL: https://raw.githubusercontent.com/awslabs/open-data-registry/main/datasets/copernicus-dem.yaml
+FETCHED_UTC: 2026-10-15T12:33:16Z
+HTTP: 200 https://raw.githubusercontent.com/awslabs/open-data-registry/main/datasets/copernicus-dem.yaml 2483
+SHA256: 6c87f5883878f1588289c8769223f2fb48a0a1decad2891a11afb2d765085d1b
+------------------------------------------------------------------
+Name: Copernicus Digital Elevation Model (DEM)
+Description: |
+  The Copernicus DEM is a Digital Surface Model (DSM) which represents the surface of the Earth including buildings, infrastructure and vegetation. We provide two instances of Copernicus DEM named GLO-30 Public and GLO-90. GLO-90 provides worldwide coverage at 90 meters. GLO-30 Public provides limited worldwide coverage at 30 meters because a small subset of tiles covering specific countries are not yet released to the public by the Copernicus Programme. Note that in both cases ocean areas do not have tiles, there one can assume height values equal to zero. Data is provided as Cloud Optimized GeoTIFFs and comes from Copernicus DEM 2021 release.
+Documentation: https://copernicus-dem-30m.s3.amazonaws.com/readme.html
+Contact: https://forum.sentinel-hub.com/c/aws-copdem/28
+ManagedBy: "[Sinergise](https://www.sinergise.com/)"
+UpdateFrequency: None, except GLO-30 Public can be updated if the public tile list changes.
+Collabs:
+  ASDI:
+    Tags:
+      - elevation
+Tags:
+  - aws-pds
+  - agriculture
+  - elevation
+  - earth observation
+  - satellite imagery
+  - geospatial
+  - disaster response
+  - cog
+License: |
+  GLO-30 Public and GLO-90 are available on a free basis for the general public under the terms and conditions of the Licence found on [here](https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM).
+Resources:
+  - Description: GLO-30 Public in S3 bucket. The list of tiles covering specific countries that are not yet released to the public is available [here](https://spacedata.copernicus.eu/documents/20123/121239/Non-released-tiles_GLO-30_PUBLIC_Dec+%282%29.xlsx).
+    ARN: arn:aws:s3:::copernicus-dem-30m
+    Region: eu-central-1
+    Type: S3 Bucket
+    Explore:
+      - '[STAC V1.0.0 endpoint](https://copernicus-dem-30m-stac.s3.amazonaws.com/)'
+  - Description: GLO-90 in S3 bucket.
+    ARN: arn:aws:s3:::copernicus-dem-90m
+    Region: eu-central-1
+    Type: S3 Bucket
+    Explore:
+      - '[STAC V1.0.0 endpoint](https://copernicus-dem-90m-stac.s3.amazonaws.com/)'
+DataAtWork:
+  Tools & Applications:
+    - Title: Sentinel Hub WMS/WMTS/WCS Service and Process API
+      URL: http://www.sentinel-hub.com/
+      AuthorName: Sinergise
+      AuthorURL: http://www.sinergise.com/
+    - Title: EO Browser
+      URL: http://apps.sentinel-hub.com/eo-browser/
+      AuthorName: Sinergise
+      AuthorURL: http://www.sinergise.com/
+ 
+
