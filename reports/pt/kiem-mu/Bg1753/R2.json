@@ -1,0 +1,30 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look",
+   "anachronism"
+  ],
+  "note": "Three-quarters of the frame is a blank gradient sky and a flat, featureless sand plane. The few props are scattered with no staging: peg-doll soldiers, black disc-wheel cannon carts, tiny cannonball pyramids and loose marble chunks. The facade is a bare white box with identical rectangular holes, no Georgian sashes, shutters, balconies or arcades, and no Main Street feel. There are no civilians, animals, or sense of life. The Union Jack on a pole in the middle of the parade ground is plausible but tiny. The caption is legible, but the 'procedural, not a photograph' disclaimer admits it is a placeholder. The soft sea and hills are the only pleasant part."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 7,
+  "period": 4,
+  "ai_look": 2,
+  "flags": [
+   "anachronism",
+   "text_issue",
+   "cluttered"
+  ],
+  "note": "This is a believable game-engine-style aerial city model. It has dense terracotta-roofed blocks, a street grid, varied building heights, hillside vegetation, a harbour mole and a hilltop tower. The lighting is soft with readable shadows, and the scale and composition read as a real place. Weaknesses: the terrain and water are flat, the saturated blue sea looks like a plain plane, and the green hillside patches are repetitive. The buildings look like a modern cadastral extrusion, with tight uniform blocks, some modern-looking windows, and dark black rectangle glitches. The town looks too modern and dense for 1752. The fading lower-third text overlaps the water and is illegible, and the top banner 'No AI imagery \u00b7 Census \u00b7 Catastro \u00b7 Landsat 5' is a technical credit line and not period-appropriate. No ships, walls or fortifications are visible, which matters for a besieged garrison town."
+ },
+ "better": "Y",
+ "why": "Y has a convincing, dense, lit 3D city with real scale and variety, while X is mostly empty sand and sky with toy-like peg figures and a bare white box facade.",
+ "top_fix_for_weaker": "Fill and restage X. Cut the sky to about 25% and drop the camera to street level. Build a proper Georgian Main Street facade with sash windows, shutters, balconies, a colonnade and varied rooflines. Replace the peg-doll soldiers with detailed redcoats in formation plus civilians, carts and animals. Add cobbles, texture and shadow to the ground, and layer foreground, midground and background depth."
+}

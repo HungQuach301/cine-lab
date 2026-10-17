@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 4,
+  "period": 4,
+  "ai_look": 4,
+  "flags": [
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "Bright, clean CGI with a pleasant pastel palette and good depth down the street. The people are blocky peg figures with no faces or clothing detail, which reads as toy-like. The plaza is nearly empty and the ship is a vague blob. The green shutters and clean stucco look more like a modern Mediterranean postcard than wartime Gibraltar."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "Same scene, but the weathered stone trim, darker and more muted shutters and grittier plaster look more lived-in. Contrast is better and the mood is more sober and wartime. The figures are still blocky pegs, though more of them are in khaki, which suits 1943 military Gibraltar better. The plaza is still sparse and the ship is still a blob."
+ },
+ "better": "Y",
+ "why": "Y has more believable weathered materials, a more sober palette and more khaki-clad figures that fit wartime Gibraltar, while X looks like a clean, cheerful postcard.",
+ "top_fix_for_weaker": "Replace the peg figures with properly modelled people in period uniforms and civilian clothes, add period vehicles and street clutter, and weather the walls and shutters with grime and wear so X doesn't look like a new, clean build."
+}

@@ -1,0 +1,30 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 4,
+  "period": 3,
+  "ai_look": 3,
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "anachronism",
+   "text_issue"
+  ],
+  "note": "Low-poly game-engine aerial. The huge empty olive plain and flat green hillside fill about half the frame. The town is toy-like blocks with uniform terracotta roofs. The 'Tower of Homage' is a generic crenellated box, not the real Moorish castle, and it looks too clean and new. The 'Tower of Homage' caption bar covers the town and the horizon. '\u224818,659 residents' is a precise, unsourced figure, and the 'Ministry for Heritage' credit is vague. The 1884 label is large and clear. Nothing shows the 1884 date: no harbour, no British-era buildings, no people."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "text_issue"
+  ],
+  "note": "Soft hazy light, a believable bay with ships, a Union flag and cannon with shot piles give a coherent military-parade mood. The parade ground is a huge flat, empty, noisy-textured plane. The upper half of the frame is blank sky. The soldiers are tiny peg figures, so they read as toys. The white blocky barracks look procedural and modern, with no Main Street or Grand Parade character. The flag is the post-1801 Union Jack, which is anachronistic for 1782. The caption is honest ('not a photograph', a named source) and readable, with decent contrast."
+ },
+ "better": "Y",
+ "why": "Y has a more cinematic, coherent atmosphere and honest sourcing, while X is a toy-like low-poly aerial dominated by empty terrain and a generic tower with a caption bar covering the town.",
+ "top_fix_for_weaker": "Re-frame X to a lower, closer street-level or tight aerial view of the town and the real castle, cutting the empty plain. Replace the generic tower with an accurate model. Add period-correct harbour and British-era details plus a few people. Use a sourced, rounded population figure ('about 19,000, 1881 census' or similar) and move the caption bar off the town."
+}

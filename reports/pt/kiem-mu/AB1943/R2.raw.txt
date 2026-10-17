@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "detail": 5, "period": 5, "ai_look": 3, "flags": ["toy_like", "empty_frame"], "note": "The lighting is clean and the pastel facades with green shutters are a pleasant palette. The materials look flat and CG-smooth. The people are blocky peg figures that read as toy-like, there are only a few of them, and they don't read as 1943 wartime life. The sandbag stacks look like wooden crates. The harbour and flag in the distance are tiny and low-detail. The plaza is large and empty."},
+ "Y": {"craft": 7, "detail": 6, "period": 6, "ai_look": 3, "flags": ["toy_like", "empty_frame"], "note": "The wall materials are more convincing, with weathered plaster, stone edging and darker shutters that look aged. The muted palette feels more wartime. Khaki and military-style figures fit 1943 Gibraltar better, and the sandbag stacks read as stacked sacks. The figures are still blocky peg dolls and the plaza is still sparse and empty. The composition is identical to X."}, 
+ "better": "Y",
+ "why": "Y has more believable weathered materials and a more wartime-appropriate colour palette and population, though both share the same toy-like figures and empty plaza.",
+ "top_fix_for_weaker": "Replace the peg-doll figures with properly modelled people in 1940s clothing (uniforms, civilians, naval ratings), and make the sandbags look like real burlap sacks. Add period props such as jeeps, signage, awnings and laundry, and age the plaster and shutters so the scene doesn't look newly painted."}
+```

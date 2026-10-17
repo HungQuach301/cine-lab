@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "detail": 3, "period": 4, "ai_look": 3, "flags": ["empty_frame", "toy_like", "flat_slide_look"], "note": "Same 3D scene as Y. The ground is a flat, untextured beige plane. Peg-doll soldiers look like toys. Cannons and balls are scattered at random. The sky takes up about half the frame. The white boxy buildings are clean and warm, but they are generic and read as Mediterranean rather than Gibraltar. No Main Street feel."},
+ "Y": {"craft": 5, "detail": 4, "period": 4, "ai_look": 3, "flags": ["empty_frame", "toy_like"], "note": "Same layout as X. The cobbled or gravel ground texture breaks up the flat plane and reads as more like a parade ground. The cooler grey-blue buildings and brick-toned rubble look a bit more weathered. The peg-doll soldiers are still toy-like and tiny. The scene is still sparse and empty, with half the frame as sky. Props are placed randomly."},
+ "better": "Y",
+ "why": "The geometry is identical, but Y's textured ground and weathered materials look less like a flat CG slide than X's smooth beige floor.",
+ "top_fix_for_weaker": "Replace X's untextured sand-coloured ground with a cobbled or compacted-gravel texture with wear and shadow variation. Swap the peg-doll figures for proper scaled 1782 redcoats, and crop or lower the horizon so the sky doesn't fill half the frame."}
+```

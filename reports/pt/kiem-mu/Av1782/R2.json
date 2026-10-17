@@ -1,0 +1,28 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "A huge flat gravel plain with a few scattered cannons and shot piles. The peg-doll soldiers are tiny, and the box-like white buildings have dark triangular wedges and bare black door holes. Hazy gradient sky, no people or life, and no Main Street character. The lighting is clean but flat. The flag and ships are the only convincing touches. Little here looks like a Grand Parade with a streetscape."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "An aerial view of terrain, sea, a walled town with terracotta roofs, and lollipop trees. It reads as a real place and shows scale and geography, with decent water and light. The low-poly trees, smooth terrain and no people give it a game-engine look. Stacked caption boxes cover the lower third. The roofs are uniform and the street-level detail is minimal. The Spanish-style roofs are plausible, but the 'two-storey' houses are estimated."
+ },
+ "better": "Y",
+ "why": "Y gives a legible, believable sense of place with a real town, coastline and fortifications, while X is a nearly empty plain with toy-like boxes and peg figures.",
+ "top_fix_for_weaker": "Replace the empty gravel plain in X with a dense, populated scene: add Main Street houses with balconies, shutters, tiled roofs and varied heights, plus dozens of period-dressed soldiers and civilians, carts, and layered ground textures. Lower the camera to eye level and add depth with foreground props, so it is not a flat wide shot."
+}

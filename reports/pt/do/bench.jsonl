@@ -1,0 +1,5 @@
+{"engine": "CYCLES", "W": 1280, "H": 720, "spp": 64, "denoise": true, "threads": 4, "setup_s": 0.22, "render_s": 106.5, "total_s": 106.72}
+{"engine": "CYCLES", "W": 1920, "H": 1080, "spp": 64, "denoise": true, "threads": 4, "setup_s": 0.27, "render_s": 223.12, "total_s": 223.39}
+{"engine": "CYCLES", "W": 1920, "H": 1080, "spp": 128, "denoise": true, "threads": 4, "setup_s": 0.21, "render_s": 443.63, "total_s": 443.84}
+{"engine": "CYCLES", "W": 1920, "H": 1080, "spp": 64, "denoise": false, "threads": 4, "setup_s": 0.26, "render_s": 214.84, "total_s": 215.1}
+{"engine": "BLENDER_EEVEE", "W": 1920, "H": 1080, "spp": 64, "denoise": false, "threads": 4, "setup_s": 0.2, "render_s": 126.22, "total_s": 126.41}

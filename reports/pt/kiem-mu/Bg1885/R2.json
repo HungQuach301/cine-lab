@@ -1,0 +1,30 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "The top 50% of the frame is blank gradient sky. The square is a flat tan plane with a few scattered props. The soldiers are peg-doll figures that look like toys. The cannon carriages are crude boxes with a single disc wheel. The cannonball piles are fine, but the buildings are plain white boxes with simple window holes and no Georgian or Spanish-colonial character, such as shutters, balconies or arcades. The soft haze and the water reflection are the best parts. The caption is honest, but it is large and sits on top of the scene."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 4,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism",
+   "flat_slide_look"
+  ],
+  "note": "The aerial view has real depth, plausible terracotta-roofed streets, and a reasonable sense of place. However, the terrain is a flat, low-poly olive plain with no real texture. The Rock itself is a smooth green slope, which is wrong for Gibraltar. The 'Tower of Homage' is a tan, game-asset box with crenellations. It is not the real Moorish Castle tower, and it is cut by the callout bar, which overlaps the town. The lagoon and plain are implausible for 1884 Gibraltar. The callout, the population box and the year badge crowd the frame. The pale cartoonish buildings look like a stock city-builder, but the frame is still more complete than X."
+ },
+ "better": "Y",
+ "why": "Y has a full composed scene with depth, dense urban fabric and a landmark, while X is half empty sky with toy-like props and plain boxes.",
+ "top_fix_for_weaker": "Recompose X with a low, tight camera on Main Street or the Grand Parade, and crop out most of the sky. Add detailed Georgian facades with balconies, shutters, arcades and chimneys. Replace the peg-doll figures with proper redcoat soldiers and civilians, and add ground texture, shadows and some atmosphere."
+}
