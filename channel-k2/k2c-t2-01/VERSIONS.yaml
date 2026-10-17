@@ -16,10 +16,10 @@ toolkit:
     paths:
     - design/k2v
     - scripts/k2
-    commit: c9e127c8675bc8e2ef268d1a4476531685e31e4a
-    tree_sha256: 4696ae8147cb9a29d680c5dd02d4bb2e0e409a98583cb2fa2f8400b79a2f9ceb
+    commit: 40bffdc96de59c4535b5ed4a91b904ed52f62ea6
+    tree_sha256: 72826bdc142a3c26ed12e8ffea62d8d2675986913fe39830adcc6314721ca4f8
     files: 85
-    cap_nhat: 'G2, chủ dự án duyệt 17/10 (§11 mục 4a): photo.js trang + tô dòng (O2), k2.js kind chuỗi (O5), rhythm.py frame0/off + hl số (O5), hero.js opt.oy (khung footage) + --resume giữ neo; G1 = 1ed08d56 / b025f274bdf6'
+    cap_nhat: 'G2 TT2 (chủ dự án 17/10): k2.js chip nơi dựng p.where, tấm chữ gọn 2 tấm trên ảnh/footage, nền nhãn loại số; hero.js setpts footage + --resume giữ neo; trước: 4696ae8147cb @c9e127c8 (G2 §11), G1 = 1ed08d56 / b025f274bdf6'
   ll-hero:
     paths:
     - design/ll-hero
@@ -29,9 +29,10 @@ toolkit:
   ll:
     paths:
     - scripts/ll
-    commit: 033b64d9d739a052c30c9601bc80e283693395ee
-    tree_sha256: c4d64bf44172ecc2b742cb987080e1bcbebc08967a55144dae3fec8476f19d8d
+    commit: 5e2807be81855f7dc8bae802aafb5a2de413a407
+    tree_sha256: e6e2a6fc57e3f48080b194432c3307deff54e3ba7330cbb23311b19eacbe2767
     files: 80
+    cap_nhat: 'G2 TT2 (chủ dự án 17/10): ll.py cờ src_co_dinh (khai nguồn chú thích không ghi đè dòng nguồn viết tay); G1 = 033b64d9 / c4d64bf44172'
   shared3d:
     paths:
     - design/cong3/shared
