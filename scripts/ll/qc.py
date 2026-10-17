@@ -125,7 +125,7 @@ worst = min(mincap.items(), key=lambda kv: kv[1][0] - kv[1][1]) if mincap else N
 row('Q6', 'Cỡ chữ hoa tối thiểu (mọi khung mẫu)', not badc, f'{worst[1][0]} px ({worst[0]} {worst[1][2]})' if worst else '—', '18 / 30 px',
     near=nearv(worst[1][0], worst[1][1], 'cỡ chữ') if worst else None, note=(f'mẫu tự nâng cỡ: {raised}' if raised else '') + (f' TRƯỢT {badc}' if badc else ''))
 # Q7 (khoá K v2): đủ nhãn của loại số trong shot, không nhãn của loại không có, kind khai trùng loại của num
-miss = K.q7(E, TL, logs)
+miss = K.q7(E, TL, logs, est=ll.is_k2(E))   # K-1.13 §8.3: kênh 2 nhận nhãn ESTIMATE
 row('Q7', 'Nhãn ACTUAL/PROJECTION khớp loại số', not miss, len(miss), 0, note='; '.join(miss[:6]))
 # Q8
 err, warn = ll.check(E)

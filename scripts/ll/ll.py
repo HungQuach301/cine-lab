@@ -68,8 +68,14 @@ def nums_in(x, acc):
     return acc
 
 
+def is_k2(E):
+    """tập kênh 2 (MOVING PARTS): thư mục lời/đặc tả nằm dưới channel-k2/ hoặc khai channel: k2 (V5b-2b, theo K-1.13 §8 mục 3)."""
+    return E.get('channel') == 'k2' or 'channel-k2/' in (E.get('vo_dir') or '') or E.get('brand') == 'MOVING PARTS'
+
+
 def check(E):
     err, warn = [], []
+    kinds = ('actual', 'projection', 'estimate') if is_k2(E) else ('actual', 'projection')   # K-1.13 §8.3: kênh 2 nhận 'estimate' (nhãn ESTIMATE), LL giữ 2 loại
     S, N = E.get('sources', {}), E.get('numbers', {})
     for k, s in S.items():
         if re.search(r'wikipedia\.org|wikimedia\.org', s.get('url', ''), re.I): err.append(f'nguồn {k}: Wikipedia/Wikimedia không được làm nguồn chính')
@@ -78,7 +84,7 @@ def check(E):
             if not s.get(f): err.append(f'nguồn {k}: thiếu {f}')
     for k, n in N.items():
         if n.get('src') not in S: err.append(f'số {k}: nguồn {n.get("src")} không có trong sources')
-        if n.get('kind') not in ('actual', 'projection'): err.append(f'số {k}: kind phải là actual hoặc projection')
+        if n.get('kind') not in kinds: err.append(f'số {k}: kind phải là ' + ' hoặc '.join(kinds))
         if n.get('kind') == 'projection' and not n.get('period'): err.append(f'số {k}: số dự báo phải ghi period (ví dụ 2024–34)')
     allv = E.get('segments', []) + E.get('shorts', [])
     for sg in allv:
