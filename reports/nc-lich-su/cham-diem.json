@@ -1,0 +1,30 @@
+{
+ "doc": "Chấm /25 theo thước tiền kỳ thành phố (origin/tienky-thanhpho research/thanhpho/cham-diem.json), đổi tiêu chí 3 thành 'dữ liệu timelapse' (năm xây theo toà, bản đồ pha, sơ đồ thành luỹ) và tiêu chí 4 thành 'bản đồ + tranh/ảnh có quyền'. Thang 0–5, phiên tự chấm. Cầu/khoảng trống từ de-tai-cau.json (17/10/2026). Dữ liệu/quyền là đánh giá tài liệu, CHƯA tải từng tệp trừ chỗ ghi 'đã có'.",
+ "tieu_chi": ["cau", "khoang_trong", "du_lieu_timelapse", "ban_do_tranh_co_quyen", "hero"],
+ "de_tai": {
+  "london1666": {"cau":5,"khoang_trong":3,"du_lieu_timelapse":3,"ban_do_tranh_co_quyen":5,"hero":5,"tong":21,"rui_ro":"XANH"},
+  "boston1775": {"cau":4,"khoang_trong":3,"du_lieu_timelapse":4,"ban_do_tranh_co_quyen":5,"hero":4,"tong":20,"rui_ro":"XANH"},
+  "vicksburg1863": {"cau":4,"khoang_trong":3,"du_lieu_timelapse":4,"ban_do_tranh_co_quyen":5,"hero":4,"tong":20,"rui_ro":"XANH (lưu ý tượng đài Liên minh miền Nam)"},
+  "vienna1683": {"cau":5,"khoang_trong":1,"du_lieu_timelapse":4,"ban_do_tranh_co_quyen":5,"hero":5,"tong":20,"rui_ro":"VÀNG (khung tôn giáo, bị lạm dụng làm biểu tượng cực đoan)"},
+  "gibraltar": {"cau":3,"khoang_trong":3,"du_lieu_timelapse":4,"ban_do_tranh_co_quyen":4,"hero":5,"tong":19,"rui_ro":"VÀNG (chủ quyền Anh–Tây Ban Nha)"},
+  "rotterdam1940": {"cau":2,"khoang_trong":4,"du_lieu_timelapse":5,"ban_do_tranh_co_quyen":4,"hero":4,"tong":19,"rui_ro":"XANH"},
+  "zurich1799": {"cau":1,"khoang_trong":5,"du_lieu_timelapse":5,"ban_do_tranh_co_quyen":5,"hero":3,"tong":19,"rui_ro":"XANH"},
+  "halifax1917": {"cau":5,"khoang_trong":4,"du_lieu_timelapse":2,"ban_do_tranh_co_quyen":3,"hero":4,"tong":18,"rui_ro":"XANH"},
+  "malta1565": {"cau":5,"khoang_trong":2,"du_lieu_timelapse":3,"ban_do_tranh_co_quyen":3,"hero":5,"tong":18,"rui_ro":"VÀNG (khung tôn giáo)"},
+  "paris1870": {"cau":4,"khoang_trong":3,"du_lieu_timelapse":3,"ban_do_tranh_co_quyen":3,"hero":5,"tong":18,"rui_ro":"XANH (Công xã 1871: trình bày hai phía)"},
+  "louisbourg1758": {"cau":1,"khoang_trong":5,"du_lieu_timelapse":3,"ban_do_tranh_co_quyen":4,"hero":5,"tong":18,"rui_ro":"XANH"},
+  "quebec1759": {"cau":3,"khoang_trong":3,"du_lieu_timelapse":3,"ban_do_tranh_co_quyen":4,"hero":4,"tong":17,"rui_ro":"XANH"},
+  "leiden1574": {"cau":2,"khoang_trong":3,"du_lieu_timelapse":5,"ban_do_tranh_co_quyen":4,"hero":3,"tong":17,"rui_ro":"XANH"},
+  "antwerp1585": {"cau":2,"khoang_trong":4,"du_lieu_timelapse":4,"ban_do_tranh_co_quyen":4,"hero":3,"tong":17,"rui_ro":"XANH"},
+  "copenhagen1807": {"cau":3,"khoang_trong":3,"du_lieu_timelapse":4,"ban_do_tranh_co_quyen":3,"hero":4,"tong":17,"rui_ro":"XANH"}
+ },
+ "loai_khoi_danh_sach": {
+  "sevastopol_crimea": "ĐỎ — chủ quyền đang tranh chấp, xung đột đang diễn ra",
+  "stalingrad_leningrad": "VÀNG/ĐỎ — Nga, đã bị làm dày",
+  "constantinople1453": "VÀNG/ĐỎ — điểm nóng tôn giáo/dân tộc Hy Lạp–Thổ",
+  "derry1689": "ĐỎ — giáo phái Bắc Ireland",
+  "acre1799_masada_jerusalem": "ĐỎ — Israel/Palestine",
+  "dresden1945": "VÀNG/ĐỎ — số người chết bị chính trị hoá",
+  "tenochtitlan1521": "VÀNG — thuộc địa/bản địa; đã có kênh AI làm Mexico City"
+ }
+}
