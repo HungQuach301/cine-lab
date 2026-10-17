@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 6, "flags": ["flat_slide_look", "empty_frame"], "note": "Dark recap card over a blurred background. The text is clean, but it looks like a PowerPoint slide. The subtext is small and low-contrast grey, and the long third line will be hard to read on a phone. The bottom third of the card is empty. The checkboxes are decorative and the blurred image adds nothing. The jargon ('locks', 'bank line', 'sorts at 5 homes') is not explained."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "A real terrain map of the SF Bay Area with a compact comparison card: 3/day in 1943 against ~5/year in 2023. The comparison reads at a glance and the sources are credited. The card text and the source line are small on a phone, and the card covers part of the map. The map has no label or marker for the shipyard location, and the ship icons are tiny."}, 
+ "better": "Y",
+ "why": "Y puts one striking comparison on a real, textured map, while X is a flat text slide with small grey text and unexplained jargon.",
+ "top_fix_for_weaker": "Cut X to three short lines and enlarge the type to at least 1.5x, with white text instead of grey. Replace the blurred background with a clear image of each building type, one per point, and remove the empty lower third of the card."}
+```

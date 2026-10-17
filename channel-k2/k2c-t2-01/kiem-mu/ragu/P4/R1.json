@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Tilted print on a dark leather-like backdrop with a clean side caption. The name, role, place and year are all clear, and the gold rule is a nice touch. The source credit is light grey on a pale gradient over the print border, so it is weak on a phone. The right third of the frame is mostly empty."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 8,
+  "flags": [
+   "illegible_text"
+  ],
+  "note": "Same tilted-print treatment, with a centered, well-lit portrait. The headline caption is bold white and readable, but it sits partly over the bright print edge and the gradient. The small grey source line is thin and low-contrast, and it runs across the photo's edge and the dark band. The portrait is clearly a person with an identified role."
+ },
+ "better": "X",
+ "why": "X's caption block sits on clean dark space with strong contrast and a clear hierarchy, while Y's caption and source line straddle the bright photo edge and gradient, which cuts contrast.",
+ "top_fix_for_weaker": "Move the caption off the photo onto a solid dark panel or a side column, as X does, or add a dark scrim behind it. Make the source line larger and brighter, and keep all text off the print border."
+}

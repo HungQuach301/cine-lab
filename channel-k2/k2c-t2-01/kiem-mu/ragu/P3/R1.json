@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "Three plain cubes on a dark grid. The orange 7% label sits on top of its cube and overlaps the 6% cube. The 13% card is semi-transparent and its text is low contrast, with the cube showing through. 'ACTUAL' badges are repeated four times and add noise. The cubes are close in size, so they don't show 7% vs 6% vs 13%. It's unclear what the three bars compare. The bottom caption and source line are easy to read."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Real terrain with a river, and shaded gold coin stacks with white outlines. One coin is labeled 'world price' and four coins are labeled \u22484\u00d7 U.S.-built tanker, so the 4\u00d7 is clear at a glance. Labels are high contrast and large enough for a phone. The tanker is only implied by the title, and the coins sit on a generic map with no clear place. The bottom third is a flat dark band, and there is a gap between the title and the source line."
+ },
+ "better": "Y",
+ "why": "Y's single comparison of one coin against four coins reads immediately with clean, legible labels, while X has overlapping, washed-out labels and cubes that don't show the numbers.",
+ "top_fix_for_weaker": "Make cube heights proportional to 13/7/6 and put each label above its own cube with no overlap. Use opaque cards for all three, with the same text color on each. Drop the repeated ACTUAL badges, and state in the title what the three bars are."
+}

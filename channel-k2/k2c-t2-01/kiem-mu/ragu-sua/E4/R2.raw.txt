@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 7, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark glass card with a checklist over a blurred, barely visible building backdrop. It looks like a PowerPoint recap. The text is clean, but the sub-lines are small and low-contrast grey for a phone screen. The bottom third of the card is empty, and the checkboxes are decorative. The 3D background adds nothing."},
+ "Y": {"craft": 8, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "A shaded-relief 3D map of the Bay Area with a clean tilt and good materials, plus isometric icons for a coin, a document, a ship and a crane. The caption and source line sit on a dark gradient and are legible. The icons are unlabeled and float arbitrarily, so the viewer can't tell which factor each one stands for. The source line is small. The caption says the factors are unmeasured, but nothing on screen names them."},
+ "better": "Y",
+ "why": "Y is a real 3D scene with depth, lighting and a clear sense of place, while X is a flat text card over a blurred background.",
+ "top_fix_for_weaker": "Drop the generic card. Make the three locks three labeled 3D objects on the building scene, such as a map pin, a staircase and a bank-line marker. Each one gets a large 40px+ keyword and a short number ('4 stories', '5 homes'), and the scene stays sharp rather than blurred."}
+```

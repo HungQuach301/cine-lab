@@ -448,3 +448,102 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
     - (ii) pHash ảnh xám 32×18 trên địa hình cùng vùng cho Hamming nhỏ dù góc máy khác, nên Q33 cộng lần lặp không khai.
   - Đề nghị K đặt luật riêng cho kênh 2: bối cảnh theo vùng/địa danh, và pHash có kiểm thêm khác biệt về máy quay.
 - **Q14, Q15, Q17 — áp nhầm như T1** (luật nhịp LL; khiếu nại 14/10 chờ K). Nhịp kênh 2 (`rhythm.py`) ĐẠT.
+
+### 12.5 Ghép master lần 3 và kiểm trước khi chấm
+- **Kiểm đủ điểm neo** (`kiem_neo.py` → `g2/kiem-neo.json`, chạy **trước** khi ghép): **ĐẠT 44/44 cảnh**.
+  - Đã vá 551 khung neo ở 19 cảnh: mọi khung "thiếu trước" nay đều có; khung vá cùng tên neo và liền mạch với khung kề.
+  - r02_subsidy và r04_abroad dựng lại trọn: 792/792 và 482/482 khung có neo.
+  - 3 cảnh không khai vật có neo (p01_owens, p02_jones, r06_score) có neo rỗng đúng thiết kế.
+- **Master lần 3:** **SHA256 `63568db928893e436ca4…`** (đầy đủ ở `phat-hanh/SHA256SUMS.txt` khi đóng gói); 618,917 s; −14,0 LUFS / −1,6 dBTP; 7/7 đoạn dựng lại lớp chữ.
+- **Short S1:**
+  - Hash bỏ qua dựng của Short chỉ băm đặc tả Short, không băm dấu cảnh hay neo. Mình xoá hash để ép dựng lại (256 s).
+  - Kết quả **trùng bit** với bản cũ (`9d4f3e45…`): các khung s_loop thiếu neo nằm ngoài phần Short dùng, nên Short không bị lỗi neo.
+  - Đề xuất cho Nền tảng: đưa dấu cảnh vào hash của Short.
+
+### 12.6 RÀ GU lần 3 — VẪN TRƯỢT → DỪNG CHỜ CHỦ DỰ ÁN (không tự sửa vòng 4)
+- **Giao thức giữ nguyên:**
+  - `g2/rague-cap.json` và `g2/sua-cap.json` không đổi từ commit `e4838057`.
+  - `blind_g2.py` chỉ đổi dòng trần ($13/$12).
+  - Seed 20261015/20261016; 3 người chấm; chỉ công cụ Read.
+  - Bản chấm: `kiem-mu/ragu/`, `kiem-mu/ragu-sua/`, `ragu-score.json`, `ragu-sua-score.json`.
+
+**RÀ GU (P1–P7): TB T2 6,62 → 6,81 → 6,76 (T1 5,86 → 5,81 → 5,62). TRƯỢT (dưới 7,0); không thua cặp nào ở L2 và L3.**
+
+| Cặp | Cảnh | T1 (L3) | T2 L1 → L2 → L3 | 3 người L3 | Chọn T2 L3 |
+|---|---|---|---|---|---|
+| P1 | r04_beach | 6,00 | 6,33 → 7,00 → 7,00 | 7/7/7 | 3/3 |
+| P2 | r04_abroad | 7,00 | 6,67 → 7,33 → 7,00 | 7/7/7 | **0/3** (hoà điểm) |
+| P3 | r03_tanker | 4,67 | 6,67 → 6,67 → 6,33 | 6/6/7 | 3/3 |
+| P4 | p01_owens | 5,67 | 7,00 → 6,67 → 6,67 | 7/6/7 | 3/3 |
+| P5 | r06 so sánh | 4,00 | 7,33 → 7,00 → 7,00 | 7/7/7 | 3/3 |
+| P6 | f_liberty | 6,33 | 5,67 → 6,33 → 6,67 | 7/7/6 | 3/3 |
+| P7 | p02_jones | 5,67 | 6,67 → 6,67 → 6,67 | 7/6/7 | 3/3 |
+
+**Phần sửa (E1–E5): TB T2 6,47 → 6,87 → 6,87 (T1 5,27 → 5,33 → 5,07). TRƯỢT: dưới 7,0 và thua E2 cả 3 lần.**
+
+| Cặp | Cảnh | T1 (L3) | T2 L1 → L2 → L3 | 3 người L3 | Chọn T2 L3 |
+|---|---|---|---|---|---|
+| E1 | r03_loop | 4,67 | 6,33 → 7,00 → 6,67 | 7/6/7 | 3/3 |
+| **E2** | **r04_abroad (385,93)** | **8,00** | **6,00 → 6,33 → 6,00** | 6/6/6 | **0/3 — THUA** |
+| E3 | r06 kết | 4,00 | 7,00 → 7,00 → 7,00 | 7/7/7 | 3/3 |
+| E4 | r06 kết | 4,00 | 7,00 → 7,67 → 8,00 | 8/8/8 | 3/3 |
+| E5 | r02_subsidy | 4,67 | 6,00 → 6,33 → 6,67 | 7/6/7 | 3/3 |
+
+- **Vùng ±5 % quanh 7,0 (nêu tên):**
+  - RÀ GU 6,76 (−3,4 %); phần sửa 6,87 (−1,9 %).
+  - Các cặp: P1, P2, P5, E3 = 7,00; P6, P4, P7, E1, E5 = 6,67 (−4,7 %).
+- **Độ nhiễu:** điểm khung T1 không đổi mà vẫn dao động (TB 5,86 → 5,81 → 5,62; P3 T1 5,00 → 5,33 → 4,67). Từ L2 sang L3, T2 lên ở các cặp đã sửa đúng lỗi (E5 +0,34, P6 +0,34, E4 +0,33) nhưng xuống ở P3 dù P3 đã hết lỗi hiển thị (6,67 → 6,33). Ba lần chấm cho thấy **TB T2 dừng quanh 6,8**, không phải ngẫu nhiên quanh 7,0.
+
+### 12.7 Ghi chú nguyên văn (L3) và chẩn đoán từ khung thật
+- **E2 (THUA), r04_abroad giây 2,1:**
+  - R1: "the frame is zoomed in so far that nothing says where Ulsan is. There is no country outline or label for context. The Ulsan marker is tiny and sits apart from its callout, and a stray yellow box and an orange pin sit near it. … The caption ('Our read: the yard's customers were abroad') is a claim that doesn't connect to what the map shows."
+  - R2: "nothing shows the route or movement the frame is supposed to be about."
+  - R3: "The callout gives a single 1962 number with nothing to compare it to, and no route or movement is shown."
+  - Khung T1 của cặp là quả địa cầu tô Texas (8,00 cả 3 lần).
+  - **Chẩn đoán — LỖI HÌNH THẬT, phần còn lại do mốc giây:**
+    - (1) ở giây 2,1, máy quay S3 đã đi giữa đường từ toàn đông nam Hàn Quốc vào Ulsan, nên khung chưa có viền hay tô quốc gia;
+    - (2) tuyến "abroad" chỉ vẽ từ "@abroad#2" (sau giây 2,1), nên khung chưa có chuyển động nào;
+    - (3) cột 1962 đúng tỉ lệ vẫn là "hộp vàng lạc", vì nó hiện từ giây 0,4 trong khi cột 2025 để so chỉ hiện ở "@thirty-six".
+- **P3 (6,33), r03_tanker:** người chấm nay đọc được "1 xu so 4 xu ≈ 4×" (cả 3 khen nhãn rõ), nhưng chê "coins for a ship price are only a loose metaphor", "the terrain has no link to a tanker or shipbuilding", "the 4× label is attached to the last coin only". → **Khẩu vị/ẩn dụ**; lỗi hiển thị đã hết.
+- **P6 (6,67):** "the photo takes up only about half the frame, which wastes space" → ràng buộc trần 1,5× (chủ dự án giữ 1,45×).
+- **P4/P7 (6,67):** "the bottom gradient washes out the lower part of the photo", "credit line … weak on a phone" → **chi tiết thiết kế chung** (dải tối dưới đè mép ảnh in).
+- **E1 (6,67):** "the place being shown is never named"; "'Wages' has no matching object" → nhãn đã rõ; còn thiếu tên nơi và vật cho "Wages".
+- **E5 (6,67):** "the document icon is half hidden behind the callout"; "two coin icons with no labels" → **lỗi bố cục thật nhỏ**: nhãn "2023 report" đè icon tài liệu; hai xu từ đoạn trước không còn nhãn.
+- **Chung cả 3 lần:** "place is never named", dải tối 1/3 dưới, dòng nguồn nhỏ → **hệ thống thiết kế khung bản đồ kênh 2**, không riêng cảnh nào.
+
+### 12.8 Đề xuất (chờ chủ dự án; chưa làm gì)
+| # | Việc | Dựng lại 3D | Giờ máy ước | API |
+|---|---|---|---|---|
+| T1 | E2: cột 1962 hiện cùng cột 2025 ở "@thirty-six" (hết "hộp lạc"); tuyến vẽ từ đầu cảnh; tô viền Hàn Quốc ở đoạn mở | r04_abroad (482 khung) | ≈ 1 giờ thật (chia 4) | 0 |
+| T2 | E5: nhãn "2023 report" đặt phía không đè icon; nhãn cho 2 xu ("world price" / "U.S. price") giữ tới hết cảnh | không | — | 0 |
+| T3 | E1: chip tên nơi cho bản đồ không có địa danh (vd "Philadelphia area" nếu đúng nơi dựng) — áp chung | không | — | 0 |
+| T4 | Hệ thống (chủ dự án quyết, có thể ghi Kinh thánh): dải tối dưới không đè ảnh in/khung footage; chip tên nơi mặc định cho mọi shot bản đồ | không / tuỳ | — | 0 |
+- **Sau sửa:** lớp chữ các đoạn bị đổi + ghép ≈ 1,5 giờ thật.
+- **Chấm lần 4 cùng giao thức ≈ $2,11** → lũy kế ≈ $13,04, **vượt trần $13** → cần chủ dự án nâng trần (đề xuất $15 / dừng $14), hoặc chọn chấm riêng phần sửa (≈ $0,84, đổi giao thức).
+- **Phương án khác để chủ dự án cân nhắc:** chấp nhận T2 ở 6,8 (đã vượt T1 cả 3 lần, T1 5,6–5,9) và đưa giao thức "≥ 7,0, không thua cặp nào" vào vòng sau cùng thay đổi hệ thống khung (T4), vì 3 lần chấm cho thấy giới hạn nằm ở thiết kế chung hơn là ở từng cảnh.
+
+### 12.9 Chi phí và giờ máy vòng §12
+- **API chấm mù lũy kế: $10,93 / trần $13 (mốc dừng $12).** Lần 3: $2,11 (RÀ GU $1,28, phần sửa $0,83).
+- **ElevenLabs: 0 ký tự.**
+- **Giờ máy thật:**
+  - Dựng lại r02_subsidy + r04_abroad (4 tiến trình, ≈ 2 giờ thật) ≈ 8 giờ-tiến trình.
+  - Vá neo 551 khung (1 tiến trình) ≈ 2,3 giờ.
+  - Build lớp chữ + ghép 5477 s (1,52 giờ); Short 256 s.
+  - Thử khung camera ≈ 0,3 giờ.
+
+### 12.10 QC nhà máy (`bash scripts/ll/qc.sh`, chỉ báo; T1 G2 26/29) và k2check 1.11.1
+- **Đạt:** Q2, Q3, Q4 (master −14,1/−1,6; S1 −14,0/−2,6), Q6, Q9, Q10, Q11, Q13, Q16, Q18, Q19, Q20, Q22, Q24, Q25, LOCK.
+- **Trượt áp nhầm như T1:** Q14, Q15, Q17. **Trượt đã có ngoại lệ:** Q32(b).
+- **Trượt MỚI so với T1 — chưa sửa, cần đánh giá (dừng theo luật):**
+  - **Q1** judder 1 lần ở đoạn 01: nghi ở footage newsreel (khung lặp của nguồn sau gỡ 3:2). Cần xem `sec/01.mkv.judder.json`.
+  - **Q5** tương phản 2,17 (< 4,5): nhãn "ACTUAL" ở Short S1 khung 300 nằm trên nền sáng → lỗi thật ở Short.
+  - **Q7, Q8** số `n_tanker4` loại `estimate`: QC LL chỉ nhận actual/projection (kênh 2 dùng nhãn ESTIMATE từ G1b) → phần lớn áp nhầm loại số; nhưng Q7 nêu shot thiếu nhãn góc ESTIMATE, cần xem.
+  - **Q21** 26 dòng: câu/thẻ có số/năm/cơ quan chưa khai `num`/`src`, vd thẻ miễn trừ "Facts as of", "Deadline: November 9, 2026", chú thích "Kaiser's first Richmond shipyard, Dec. 1940" → vệ sinh đặc tả.
+  - **Q23** 3 thẻ trộn đối tượng hoặc trộn ACTUAL/PROJECTION (01 @19,2 s; 05 @107 s) → cần xem.
+- **k2check 1.11.1** (worktree `origin/checks/v1.11` @ `b3caf9cc`; nối link `channel-k2/` vào worktree vì sparse checkout, không sửa mã): đang chạy lúc dừng, kết quả bổ sung khi xong.
+
+**DỪNG chờ chủ dự án.**
+- **Cần quyết:**
+  1. Sửa T1–T4 hay chấp nhận mức 6,8.
+  2. Nâng trần API nếu chấm lần 4.
+  3. Xử lý các mục QC mới (Q1, Q5, Q7/8, Q21, Q23) trước khi phát hành.

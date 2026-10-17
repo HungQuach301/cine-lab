@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 5, "clarity": 4, "flags": ["text_overlap", "cluttered", "flat_slide_look", "confusing"], "note": "Three tiny cubes sit on a dark grid, so the labels outweigh the 3D objects. The 13% card is half-faded and its text collides with the green cube. The 7% label covers the orange cube's top. The cubes are almost the same height, so the 7/6/13 values can't be compared by size. The 'ACTUAL' tags are redundant noise. The 6% label has no clear meaning. Two different levels of text, the caption and the footer, add to the clutter."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "The terrain relief map is attractive and gives a real sense of place, with clean high-contrast labels. The objects are unclear: a lone green bar for '~5 ships/yr' with no scale, two coin icons with no labels, and a tiny document icon half-hidden behind the label. The map location is not identified. The bottom caption text is large enough for a phone. The composition is empty on the left and top."},
+ "better": "Y",
+ "why": "Y has a real, well-lit terrain scene with clean, non-overlapping labels, while X is a murky grid with colliding labels and cubes that don't convey the numbers.",
+ "top_fix_for_weaker": "Make X's three cubes scale to 7, 6 and 13 and arrange them clearly spaced in a row. Give each a single non-overlapping label placed above or beside it, remove the faded third card, drop the repeated 'ACTUAL' tags, and add a lit floor or backdrop so it doesn't read as a dark slide."}
+```

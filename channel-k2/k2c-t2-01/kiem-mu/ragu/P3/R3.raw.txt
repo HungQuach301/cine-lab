@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 5,
+    "readability": 5,
+    "clarity": 3,
+    "flags": ["text_overlap", "illegible_text", "confusing", "cluttered"],
+    "note": "The 7% label card covers the top of the orange cube. The 13% card is washed out and its text sits on top of the 6% cube, so 'of total construction cost (range)' is low-contrast and hard to read. The 6% card has no description, so you can't tell what it measures. Every card carries an 'ACTUAL' badge, which adds noise and doesn't mean anything on screen. The cube heights don't match the values: the 6% cube looks as big as the 7% cube, and the 13% cube is no taller. The cubes sit on an empty dark grid with no real scene. The caption and source lines are readable."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 6,
+    "flags": [],
+    "note": "The terrain with a river looks good, and the white outlines make the coins stand out. The labels are crisp, high-contrast and large enough for a phone. The '4× ESTIMATE' callout is plain and honest. Four coins against one reads quickly as 'about 4× the world price'. Two weaknesses: nothing explains why terrain is the backdrop, and the callout leader line points at the last coin only, not the whole group. The caption is fine, with some dead space between the caption and the source line."
+  },
+  "better": "Y",
+  "why": "Y's labels are legible and its coin count shows the 4× comparison at once, while X's overlapping, faded cards and mismatched cube sizes make it hard to tell what the numbers mean.",
+  "top_fix_for_weaker": "Space the three X cards so none overlaps a cube or another card, and give the 13% card a solid dark background with full-contrast text. Add a description to the 6% card, drop the 'ACTUAL' badges, and size or space the cubes to match 7%, 6% and 13% so the heights agree with the values."
+}
+```

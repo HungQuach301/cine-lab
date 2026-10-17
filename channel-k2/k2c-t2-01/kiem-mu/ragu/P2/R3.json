@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good-looking globe with Texas highlighted. The callout box is large and its text is fairly small on a phone. It covers part of the map. The sources line is tiny. The view is zoomed far out, so Texas is small. There is no route or movement, only a static highlight. The claim mixes a policy detail with a vague caption ('Cities may allow...'). The 'As of 12 Oct 2026' tag is clear. The date and the 'since Sep 2025' wording could confuse."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Attractive 3D terrain with trade-route lines. The callout covers the coastline and the port, and the lines run through it. The yard marker is a tiny, unlabeled yellow rectangle. The route lines have no labels, so the viewer can't tell where the customers are. '$107 output per person (current $)' is a hard stat with no context or comparison. The subtitle 'Our read' is honest, but nothing on screen backs it up. The sources line is small."
+ },
+ "better": "X",
+ "why": "X shows one clear place, with a legible label and a simple message. In Y the callout hides the key coastline, and its unlabeled route lines and tiny marker leave the viewer guessing.",
+ "top_fix_for_weaker": "Move the Ulsan callout off the port and route lines into empty ocean or land. Label the shipyard marker and the route destinations (for example 'to Japan / US'). Enlarge the marker, and add a comparison or label for the $107 figure."
+}

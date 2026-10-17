@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 6, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark recap card over a blurred, barely visible background. The text is clean and the hierarchy is clear, but it reads as a PowerPoint bullet slide. The bottom third of the card is empty and the sub-lines are small, low-contrast grey, so they are marginal on a phone. The background gives no information. The checkbox icons are the only visual motif."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "A real 3D relief map of the SF Bay with a clean data card overlay. The comparison (3 ships/day in 1943 vs ~5/year in 2023) is understood almost instantly, and the terrain gives the place context. The card is small and its icons are tiny. The source line at the bottom left is thin but legible. The terrain looks somewhat synthetic and the bottom vignette is heavy. The card sits awkwardly over the landmass and does not point to a specific shipyard."},
+ "better": "Y",
+ "why": "Y has a real spatial setting and a comparison that is clear at a glance, while X is a flat text slide on a blurred, empty background.",
+ "top_fix_for_weaker": "Replace the blank blurred backdrop with a sharp, relevant 3D scene (the actual buildings from the topic). Enlarge the sub-line text to at least 1.3x with brighter contrast. Cut the empty lower third by tightening the card or adding a visual per bullet, such as an icon or mini-diagram for map, stairwell and bank line."}
+```

@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Archival newsreel framed as a matted photo on a dark blurred background, with a gold '1944' badge. The caption is large, white and sits on a dark band, so it is easy to read. The source line is small and grey but still readable. The footage is low-res and grainy, which suits the period, but the photo takes up only about half the frame, which wastes space. The shipyard scene is clear: a Liberty ship hull between scaffolding, with workers below."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "illegible_text"
+  ],
+  "note": "The drone shot of Chicago-area homes is sharp, bright and full-bleed. The white caption sits over busy rooftops and trees with only a weak gradient behind it. Contrast is uneven where the text crosses light rooftops, so the headline is partly noisy. The small grey source line is thin and low-contrast for a phone. The question 'how much of the map' refers to a map that isn't shown, so the viewer has to guess what is meant."
+ },
+ "better": "X",
+ "why": "X's text sits on a clean dark band, so it reads clearly on a phone, and the year badge and caption make the place and date obvious. Y has better footage, but its caption fights the busy background and its question points to a map that isn't on screen.",
+ "top_fix_for_weaker": "Put a solid or heavily darkened bar (about 60\u201370% opacity) behind the caption and source line, and make the source text larger and brighter. Add a visible location or date label, such as 'Chicago, today' or a map inset, so the 'map' reference makes sense."
+}

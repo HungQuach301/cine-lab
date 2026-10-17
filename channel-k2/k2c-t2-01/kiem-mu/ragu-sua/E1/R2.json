@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 4,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The three cubes are the same size even though the values are 7%, 6% and 13%, so the 3D objects carry no data. The orange label covers the left cube. The 13% label is faded, and its text collides with the green cube and the label box. The word 'ACTUAL' repeats four times and looks like a leftover debug tag. The scene is a dark, empty void with cubes small in the middle. The caption is large but sits apart from the graphic."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The terrain map is clean, and the coin stack, document and gantry icons are small but readable. The dark labels are crisp. A glowing loop ties the labels together. The lighting is flat and the terrain looks like a textured plane. The icons are tiny, and the place being shown is never named, so the viewer can't tell where this is. The 'Wages / Scale' chips are loosely connected to the icons. The lower third is mostly empty space."
+ },
+ "better": "Y",
+ "why": "Y reads cleanly and has a coherent map metaphor, while X has overlapping and faded labels and cubes that don't match their values.",
+ "top_fix_for_weaker": "Scale the cube heights to 7/6/13. Move the three labels clear of the cubes, either above them or in a row with leader lines. Make the 13% label fully opaque. Delete the repeated 'ACTUAL' tags. Add a ground reflection and rim light, and move the camera closer so the cubes fill the frame."
+}

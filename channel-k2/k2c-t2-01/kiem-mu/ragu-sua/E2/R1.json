@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The relief terrain looks good, but the frame is zoomed in so far that nothing says where Ulsan is. There is no country outline or label for context. The Ulsan marker is tiny and sits apart from its callout, and a stray yellow box and an orange pin sit near it. The callout text is readable. The source line is small and low contrast on the dark gradient. The caption ('Our read: the yard's customers were abroad') is a claim that doesn't connect to what the map shows. The $107 figure has no visual weight."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "The globe render is rich and broadcast-quality. The Texas highlight is a clear orange against the muted continent, and the state borders and Gulf give immediate geographic context. The callout is large and readable, and the 'As of' date chip helps. The callout text is a bit long and small for a phone. The footer sources are tiny. Part of the callout covers the Great Lakes/Midwest area, and the globe is a very generic way to show a single state."
+ },
+ "better": "Y",
+ "why": "Y shows at a glance where and what (Texas highlighted on a clearly framed globe), while X is a zoomed-in terrain close-up with no recognizable geography and a tiny marker.",
+ "top_fix_for_weaker": "Zoom out to show the Korean Peninsula and nearby coastlines with a country label or inset. Add a large, bright Ulsan marker with a leader line to the callout, drop the stray yellow box, and make the $107 figure big and bold."
+}
