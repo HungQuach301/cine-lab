@@ -1,0 +1,127 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "faction_id": "es",
+    "fill": "#c9a227",
+    "ten": "Spain"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -9.3,
+       43.2
+      ],
+      [
+       -1.8,
+       43.4
+      ],
+      [
+       3.2,
+       42.4
+      ],
+      [
+       0.3,
+       40.0
+      ],
+      [
+       -0.7,
+       37.6
+      ],
+      [
+       -2.1,
+       36.7
+      ],
+      [
+       -5.3,
+       36.2
+      ],
+      [
+       -6.4,
+       36.8
+      ],
+      [
+       -7.4,
+       37.2
+      ],
+      [
+       -6.9,
+       41.9
+      ],
+      [
+       -9.3,
+       43.2
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "faction_id": "fr",
+    "fill": "#2e5c8a",
+    "ten": "France"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -1.8,
+       43.4
+      ],
+      [
+       -1.2,
+       46.2
+      ],
+      [
+       -4.6,
+       48.4
+      ],
+      [
+       1.6,
+       50.9
+      ],
+      [
+       8.2,
+       49.0
+      ],
+      [
+       7.5,
+       43.8
+      ],
+      [
+       3.2,
+       42.4
+      ],
+      [
+       -1.8,
+       43.4
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "faction_id": "gb",
+    "fill": "#b03a2e",
+    "ten": "Gibraltar",
+    "ve": "diem"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -5.353,
+     36.135
+    ]
+   }
+  }
+ ]
+}

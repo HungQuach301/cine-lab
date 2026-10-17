@@ -1,0 +1,42 @@
+id: k2c-t7-dok
+title: 'Fixture DOK: the Dresden firestorm'
+rui_ro: do-k
+thu_tu: T7
+out: /var/tmp/cine-out/k2c-t7-dok
+numbers:
+  n_toll:
+    text: 25,000
+    claims:
+    - D01
+    kind: estimate
+segments:
+- id: '01'
+  vo: In February 1945, RAF Bomber Command and the US Eighth Air Force bombed Dresden.
+    Up to 25,000 people were killed, according to the city's historians' commission.
+    Historians still argue about whether the raid was necessary.
+  shots: []
+do_k:
+  tu_cam:
+  - tu-cam-chung.txt
+  - tu-cam-t7.txt
+  srt: dok.en.srt
+  mo_ta: description.en.txt
+  the:
+  - Dresden
+  - history
+  - firestorm
+  claims: claims.json
+  tai_san: tai-san.json
+  bieu_tuong_khung: bt-khung.json
+  thumbnail: thumbs.json
+  cham_mu: cham-mu-nhay-cam.json
+  binh_luan_ghim: binh-luan-ghim.txt
+  truyen_thong:
+    duc:
+    - Müller
+    - Bergander
+    anh:
+    - Frederick Taylor
+    - Webster & Frankland
+  khai: g1r-khai.yaml
+  hang_doi: HANG-DOI-mau.md

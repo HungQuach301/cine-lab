@@ -1,0 +1,152 @@
+id: k2c-t9-bd
+title: Fixture BD
+out: /var/tmp/cine-out/k2c-t9-bd
+places:
+- Gibraltar
+heroes:
+  r_iberia:
+    hero: relief/iberia
+    dur: 8
+    opt:
+      cam:
+      - t: 0
+        dist: 2600
+        tilt: 20
+      - t: 8
+        dist: 2400
+        tilt: 22
+  r_iberia2:
+    hero: relief/iberia
+    dur: 8
+    opt:
+      cam:
+      - t: 0
+        dist: 2000
+        tilt: 15
+      - t: 8
+        dist: 1900
+        tilt: 15
+  r_bay:
+    hero: relief/gibbay
+    dur: 20
+    opt:
+      cam:
+      - t: 0
+        dist: 8
+        tilt: 50
+      - t: 20
+        dist: 6
+        tilt: 55
+segments:
+- id: '01'
+  part: CH1
+  chuong: '1'
+  vo: x
+  shots:
+  - type: timelapse
+    scene_id: tl/gib20
+    p:
+      where: Gibraltar
+  - type: strategic
+    scene_id: relief/iberia
+    p:
+      hero: r_iberia
+      tags:
+      - s: Gibraltar
+      nghieng: 20
+      be_ngang_km:
+      - 2500
+      - 2300
+      year: 1782
+      chi_toi:
+      - Gibraltar
+      lop:
+      - r1782
+      dong:
+      - loai: route
+        t:
+        - 0.5
+        - 6.5
+        id: howe1782
+      - loai: arrow
+        t:
+        - 4.0
+        - 6.0
+      chu_giai:
+      - faction_id: gb
+        mau: '#b03a2e'
+        nhan: Britain
+      - faction_id: es
+        mau: '#c9a227'
+        nhan: Spain
+      - faction_id: fr
+        mau: '#2e5c8a'
+        nhan: France
+  - type: scene3d
+    scene_id: k2/gib-rock
+    p:
+      where: Gibraltar
+      src: 'Source: Drinkwater 1786'
+  - type: map
+    scene_id: relief/gibbay
+    p:
+      hero: r_bay
+      where: Bay of Gibraltar
+- id: '02'
+  part: CH2
+  chuong: '2'
+  vo: x
+  shots:
+  - type: photo
+    p:
+      photo: p1
+  - type: scene3d
+    scene_id: k2/gib-rock
+    p:
+      where: Gibraltar
+      src: 'Source: Drinkwater 1786'
+  - type: card
+    p:
+      card:
+        title: 47 ships of the line
+  - type: scene3d
+    scene_id: k2/gib-lines
+    p:
+      where: Gibraltar
+- id: '03'
+  part: CH3
+  chuong: '3'
+  vo: x
+  shots:
+  - type: strategic
+    scene_id: relief/iberia
+    p:
+      hero: r_iberia2
+      tags:
+      - s: Gibraltar
+      nghieng: 15
+      be_ngang_km: 2000
+      year: 1704
+      chi_toi:
+      - Gibraltar
+      dong:
+      - loai: fleet
+        t:
+        - 0.0
+        - 5.0
+      chu_giai:
+      - faction_id: gb
+        mau: '#b03a2e'
+        nhan: Britain
+      - faction_id: es
+        mau: '#c9a227'
+        nhan: Spain
+  - type: timelapse
+    scene_id: tl/gib20
+    p:
+      where: Gibraltar
+ban_do:
+  lop: lop-ranh.json
+  tuyen: routes.geojson
+  inset: inset.log.json
+  claims: claims.json
