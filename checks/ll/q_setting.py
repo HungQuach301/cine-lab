@@ -44,7 +44,7 @@ HALF_MIN_S = 3.0      # s tối thiểu để một bối cảnh được đếm
 CARD_TPL = ('bars', 'line', 'compare', 'quote', 'bignum', 'text')   # LL: mẫu thẻ giấy (kind 'card' trong scripts/ll/lib/charts.js)
 THE = 'the'          # 1.10.1 (chủ dự án 12/10/2026, bài học Steel G2 §5.3): bối cảnh "thẻ"
 OTHER_BREAK = 8.0     # s bối cảnh khác X cộng dồn (từ lần X gần nhất) làm dứt quãng của X
-K2_NEUTRAL = ('map', 'photo', 'document')   # 1.10.2: kênh 2 `type` bản đồ / ảnh tư liệu / ảnh chụp báo → trung tính (cùng nghĩa map, archive của LL)
+K2_NEUTRAL = ('map', 'photo', 'document', 'record')   # 1.11.1: record (văn bản gốc) như document. 1.10.2: kênh 2 `type` bản đồ / ảnh tư liệu / ảnh chụp báo → trung tính (cùng nghĩa map, archive của LL)
 
 
 def stype(sh, spec=None):

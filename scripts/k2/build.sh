@@ -1,5 +1,5 @@
 #!/bin/bash
-# KÊNH 2 (bản sao scripts/ll/build.sh): prep = scripts/k2/prep.py; cảnh 3D = scripts/k2/heroes_par.sh (P=3); render = scripts/k2/render.js + lib/k2.js; mix = scripts/ll/mix.py.
+# KÊNH 2 (bản sao scripts/ll/build.sh): prep = scripts/k2/prep.py; cảnh 3D = scripts/k2/heroes_par.sh (P=3); render = scripts/k2/render.js + lib/k2.js; mix = scripts/ll/mix.py (MIX=audio: scripts/audio/compose.py).
 #   Bỏ: test thư viện LL, luật nhịp LL (rhythm.py), ASR (đã chạy riêng: channel-k2/k2g-ep01/vo/asr-check.json). K2_DRAFT=1 + MW=960 = nháp 960×540.
 # Gốc: Last Lamplighters · nhà máy — MỘT LỆNH cho một tập: đặc tả → lời → render → mix → ghép master + bản xem 3 phần + Shorts.
 #   bash scripts/ll/build.sh <episode.yaml> [bước…]      bước: prep render mix ghep shorts (mặc định: tất cả)
@@ -34,7 +34,10 @@ heroes() { [ -f $O/heroes.json ] || return 0; $PY -c "import json;[print(k,v['he
 if has render; then disk "trước render"; rm -f $O/render.failed; P=${P:-3} bash $K2/heroes_par.sh "$EP" || touch $O/render.failed; [ -f $O/render.failed ] && { echo "Cảnh đinh lỗi — dừng"; exit 3; }
   for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"
   [ -f $O/render.failed ] && { echo "Có đoạn render lỗi — dừng, không ghép"; exit 3; }; fi
-if has mix; then $PY $LL/mix.py $TL $O/mix.wav; fi
+# MIX=audio (phiên Âm thanh 15/10): chuỗi mới scripts/audio/compose.py (nhạc theo chương đúng ô nhịp, SFX gắn hình, ducking thích ứng SMR ≥ 15 dB,
+#   loudness 2 lượt, đỉnh thật kiểm sau AAC) → mix.wav + mix.json. Mặc định giữ scripts/ll/mix.py (tập đang dựng không đổi tiếng).
+mixer() { if [ "${MIX:-ll}" = audio ]; then $PY $REPO/scripts/audio/compose.py "$1" "$2" --episode "$EP" ${3:+--short $3}; else $PY $LL/mix.py "$1" "$2" ${3:+--short $3}; fi; }
+if has mix; then mixer $TL $O/mix.wav; fi
 if has ghep; then
   $PY - "$TL" "$O" <<'E'
 import json, subprocess, sys
@@ -66,7 +69,7 @@ E
   sha256sum $O/$ID-$V-*.mp4 > $O/SHA256SUMS.txt; disk "sau ghép"
 fi
 if has shorts; then for s in $(segs shorts); do render_one shorts $s $O/shorts/$s.mkv
-  $PY $LL/mix.py $TL $O/shorts/$s.wav --short $s
+  mixer $TL $O/shorts/$s.wav $s
   ffmpeg -v error -y -i $O/shorts/$s.mkv -i $O/shorts/$s.wav -map 0:v -map 1:a -vf "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p" -c:v libx264 -preset slow -crf 18 -profile:v high -g 48 \
     -color_range tv -color_primaries bt709 -color_trc bt709 -colorspace bt709 -r 24 -c:a aac -b:a 192k -ar 48000 -movflags +faststart -shortest $O/shorts/$ID-short-$s.mp4; done; fi
 echo "{\"buoc\": \"$STEPS\", \"giay\": $(( $(date +%s) - T0 ))}" > $O/build.json; cat $O/build.json

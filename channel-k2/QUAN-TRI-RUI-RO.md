@@ -71,7 +71,7 @@ Cách đọc: `curl` trang Help Center (`hl=en`), tách chữ, trích **nguyên 
 | 2 | Tiêu đề và thumbnail chỉ hứa điều có trong video; thumbnail dùng hình hay số có trong video | |
 | 3 | Mức VÀNG: có "as of <ngày>", trình bày các phía, chủ dự án đã duyệt G1 (ghi `AUTHORSHIP.md`) | |
 | 4 | Không có mục nào thuộc danh sách ĐỎ 1.1; tập có gia tộc qua đủ 5 điểm 1.2 | |
-| 5 | Chạm đầu tư hay tài chính: câu miễn trừ trong 30 s đầu và dòng đầu mô tả | |
+| 5 | Chạm đầu tư hay tài chính: câu miễn trừ trong 30 s đầu và trong **3 dòng đầu mô tả** (dòng 1 dành cho câu móc) — chủ dự án duyệt 15/10 (O6/N4) | |
 | 6 | `SOURCES-FOOTAGE.csv` đủ dòng cho mọi clip, giấy phép hợp lệ, SHA256 khớp file đã render | |
 | 7 | Footage ≤ 40 % thời lượng, không clip nào > 8 s liên tục; footage lưu trữ có nhãn năm | |
 | 8 | Footage có người nhận diện được hay logo đã qua kiểm 6.4 (không đặt người vào thế xấu; logo không phải trọng tâm) | |

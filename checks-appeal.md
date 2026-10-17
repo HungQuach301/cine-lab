@@ -228,3 +228,22 @@ Phiên P không đọc mã `checks/`; chỉ chạy `scripts/ll/qc.py` và đọc
 - **Vì sao nêu:** kênh 2 không theo luật nhịp LL (K2G-01 G2 §5.1). Q17 ("anchors đúng 3 số") còn mâu thuẫn với Q34 của kênh 2 (anchors = mọi số neo, đo tỷ lệ hiện bằng 3D). Thay `anchors` để qua Q17 sẽ làm sai Q34.
 - **Đề nghị K:** nhận diện tập kênh 2 (đường dẫn `channel-k2/` hoặc khoá kênh trong đặc tả) và đánh Q14–Q18 "không áp", như K2G-01; hoặc quy định rõ phần nào của Q14–Q18 áp cho kênh 2.
 - **Phiên P không đổi gì** để vượt các mục này (không đổi id, không đổi anchors); báo cáo G2 ghi rõ ba mục TRƯỢT và lý do.
+
+## Phán quyết K — checks 1.11.0 (15/10/2026; chủ dự án duyệt L6 và các quyết định 14–15/10 trong lệnh mở phiên K)
+Báo cáo: `checks/K-1.11-BAO-CAO.md`. Nhánh `checks/v1.11` (chưa merge; P merge sau T2 G2, cùng `am-thanh`).
+- **Khiếu nại P 14/10 — Q14–Q18 áp nhầm cho kênh 2 (k2c-t1-06): CHẤP NHẬN.**
+  - **Nguyên nhân thật** (K đọc mã `scripts/ll/qc.py`): qc gọi Q14–Q18 khi đặc tả có `hook` **hoặc** `anchors`. Kênh 2 khai `anchors` cho Q34, nên T1 bị đo; K2G-01 không khai `anchors` nên ghi "không áp (tập ≤ 3)". Số tập suy từ mã (`ep(\d+)`) không khớp "k2c-t1-06", nên **không** phải nguyên nhân.
+  - **Sửa ở luật khoá** (`checks/ll/q_rhythm.py`, không cần sửa `qc.py`): tập kênh 2 (đặc tả dưới `channel-k2/` hoặc mã tập bắt đầu bằng `k2`) → Q14–Q18 trả "không áp (kênh 2 …)", ĐẠT. Kênh 2 đo nhịp bằng **Q37** (nhịp thị giác, Kinh thánh §4) và số neo bằng **Q34**; Q17 "đúng 3 số neo" không áp.
+  - Selftest (`selftest_k2.py`): T1 thật → 5/5 "không áp"; cùng dữ liệu T1 đội lốt tập LL → vẫn đo như LL (Q14, Q15, Q17 TRƯỢT — tái hiện đúng hiện tượng khiếu nại). LL tập 2–8: `selftest_ll.py` không đổi.
+  - **Ảnh hưởng T1 G2:** ba mục Q14, Q15, Q17 TRƯỢT trong `g2/qc-v1.md` là áp nhầm, không phải lỗi của tập. Không cần làm lại gì.
+- **Ghi thêm cho P (không phải khiếu nại):** `scripts/k2/rhythm.py` @T2 đọc `p.frame0`, nhưng `scripts/ll/ll.py` load() đổi tên `frame0` → `off`; trên đặc tả đã giải (est.py T2) mọi cảnh dùng lại bị coi là bắt đầu ở khung 0. Đo 15/10 trên T2: 5 biến cố khai lệch mốc thật (đoạn 01: 65,59 s, 67,97 s; đoạn 06: 37,77 s, 45,05 s, 54,97 s). Q37 của K đọc `off` khi thiếu `frame0`. Đề xuất P sửa `rhythm.py`/`est.py` ở T3.
+
+## Phán quyết K — checks 1.11.1 (15/10/2026; chủ dự án duyệt O1, O2-B, O3, O4, O6)
+- **Q-K111-3 (Q34(d) và văn bản gốc) → O2-B.** Thêm loại shot `record` (văn bản gốc: Federal Register, luật, thư, hợp đồng). Điều kiện:
+  - ≤ 12 s mỗi shot;
+  - bắt buộc có dòng tô hiện trong shot (`p.hl` hoặc `opt.hl` của cảnh);
+  - phải dẫn nguồn; nguồn là luật thì khai `loai`/`hieu_luc`.
+  - Trần 3 s của Q34(d) giữ cho ảnh chụp báo hiện đại.
+- **Q-K111-2 ("Facts as of" trong câu miễn trừ) → O3 = B.** Được một lần, trong 0:00–0:15, khi khai `mien_tru: true`. Ngoài câu miễn trừ giữ luật 1.11.0.
+- **Q-K111-1 (D5) → O4.** Giữ cách hiểu đã khoá: năm/ngày hiện trên khung thì miễn ACTUAL. `RULES-LL.md` ghi "duyệt 15/10".
+- **T2 vẫn ghim 1.10.2:** 5 shot `document` của T2 vẫn trượt Q34(d) cho tới khi chủ dự án cho T2 áp riêng Q34(e), hoặc T2 rút các shot đó ≤ 3 s. Chi tiết: `checks/K-1.11-BAO-CAO.md` mục 1.11.1.

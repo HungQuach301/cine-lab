@@ -1,0 +1,60 @@
+{
+ "loi": "In 1943, at the peak, America launched three cargo ships a day.\nIn a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at four hundredths of one percent. China's, in 2024: more than half.\nAnd the company that has announced plans to expand a Philadelphia shipyard is South Korean.\nSo why does America build so few ships? You'll often hear: wages. The record says something narrower. And there's a deadline in this story: November ninth, 2026.",
+ "ky_tu_moi_ban": 477,
+ "ky_tu_gui_lan_nay": 1431,
+ "cai_dat": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "speed": 1.0
+ },
+ "ban": [
+  {
+   "cau_hinh": "A-eric-v2-hien-tai",
+   "ghi": "Eric, eleven_multilingual_v2 — cấu hình T1/T2 hiện tại",
+   "voice_id": "cjVigY5qzO86Huf0OWal",
+   "model": "eleven_multilingual_v2",
+   "tep": "/var/tmp/cine-out/am-thanh/mau-giong/A-eric-v2-hien-tai.mp3",
+   "sha256": "ff61b903cfa386e1cc011e8a90a89ae3b63e9c4d1b08c8c03c87e4d7a31fc843",
+   "giay": 33.85,
+   "I": -16.3,
+   "TP": 4.1,
+   "LUFS_goc": -24.8,
+   "asr": "In 1943, at the peak, America launched three cargo ships a day. In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at four hundredths of one percent. China's in 2024 more than half. And the company that has announced plans to expand a Philadelphia shipyard is South Korean. So why does America build so few ships? You'll often hear wages. The record says something narrower, and there's a deadline in this story, November 9th, 2026.",
+   "wer_tho": 0.013,
+   "so_dung": true,
+   "tu_moi_phut": 140.0
+  },
+  {
+   "cau_hinh": "B-brian-v2",
+   "ghi": "Brian (ElevenLabs: \"Deep, Resonant and Comforting\", Mỹ, trung niên, gợi ý cho narration) — đổi GIỌNG, giữ model",
+   "voice_id": "nPczCjzI2devNBz1zQrb",
+   "model": "eleven_multilingual_v2",
+   "tep": "/var/tmp/cine-out/am-thanh/mau-giong/B-brian-v2.mp3",
+   "sha256": "d9d53eea03cb010d075682a2a3dc1141b2ad9c4c12dd91be3e01c57657b13f56",
+   "giay": 30.56,
+   "I": -16.3,
+   "TP": 5.9,
+   "LUFS_goc": -24.57,
+   "asr": "In 1943, at the peak, America launched three cargo ships a day. In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at four hundredths of one percent. China's in 2024, more than half. And the company that has announced plans to expand a Philadelphia shipyard is South Korean. So why does America build so few ships? You'll often hear wages. The record says something narrower. And there's a deadline in this story, November 9th, 2026.",
+   "wer_tho": 0.013,
+   "so_dung": true,
+   "tu_moi_phut": 155.1
+  },
+  {
+   "cau_hinh": "C-eric-v4",
+   "ghi": "Eric, eleven_v4 — giữ giọng (liền mạch với T1), đổi MODEL",
+   "voice_id": "cjVigY5qzO86Huf0OWal",
+   "model": "eleven_v4",
+   "tep": "/var/tmp/cine-out/am-thanh/mau-giong/C-eric-v4.mp3",
+   "sha256": "5b9749a0b7fac71a4467787e93b3c00e7dbd2c7f2800b675bf9e62e4dbcaceab",
+   "giay": 34.32,
+   "I": -16.3,
+   "TP": 5.3,
+   "LUFS_goc": -24.34,
+   "asr": "In 1943, at the peak, America launched three cargo ships a day. In a 2026 report, Congress's researchers put America's share of world shipbuilding tonnage at four hundredths of one percent. China's, in 2024, more than half. And the company that has announced plans to expand a Philadelphia shipyard is South Korean. So, why does America build so few ships? You'll often hear, wages. The record says something narrower, and there's a deadline in this story, November 9th, 2026.",
+   "wer_tho": 0.013,
+   "so_dung": true,
+   "tu_moi_phut": 138.1
+  }
+ ]
+}

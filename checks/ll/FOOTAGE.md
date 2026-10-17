@@ -1,4 +1,4 @@
-# Footage và ảnh nguồn ngoài — luật Q32 (checks LL v3 bản 1.10.0, phiên K, 12/10/2026)
+# Footage và ảnh nguồn ngoài — luật Q32 (checks LL v3 bản 1.10.0, phiên K, 12/10/2026; bản 1.11.0, 15/10/2026)
 
 Áp cho **Last Lamplighters** (`reports/m3/epXX/`) và **kênh 2** (`channel-k2/<tập>/`). Quyết định đầu vào: chủ dự án 12/10/2026 cho phép dùng footage/ảnh nguồn ngoài, ưu tiên miễn phí.
 Bảng luật rút gọn ở `RULES-LL.md` (dòng Q32). Phiên xưởng đọc tệp này và `RULES-LL.md`, **không đọc** `q_footage.py`.
@@ -13,9 +13,28 @@ Bảng luật rút gọn ở `RULES-LL.md` (dòng Q32). Phiên xưởng đọc t
 | Wikimedia Commons | `commons.wikimedia.org/wiki/File:…` (trang của **đúng tệp**) | PD, CC0, CC BY, CC BY-SA (kiểm từng file) |
 | Pexels | `pexels.com` | Pexels |
 | Pixabay | `pixabay.com` | Pixabay |
+| **DVIDS** (1.11.0, chủ dự án duyệt 15/10/2026) | `dvidshub.net` | PD (tác phẩm chính phủ Mỹ) — **có điều kiện**, xem §1b |
 | Nguồn khác | — | **Chủ dự án duyệt trước**, ghi `AUTHORSHIP.md`; sau đó phiên K thêm tên miền vào `DUYET_THEM` và khoá lại. Chưa có thì Q32a TRƯỢT |
 
 Giấy phép có NC hoặc ND: luôn TRƯỢT (CLAUDE.md, luật cứng).
+
+### 1b. Điều kiện DVIDS (Q32g, 1.11.0; Kinh thánh kênh 2 §4: "không có huy hiệu/logo, không làm nổi bật cá nhân, không hàm ý bảo trợ")
+- `giay_phep` bắt đầu bằng `PD`; tệp giấy phép (§1c) chép nguyên văn dòng "PUBLIC DOMAIN" của trang video và trang `dvidshub.net/about/copyright`.
+- `logo`: `khong`, hoặc `co` kèm ghi **đã cắt khỏi khung** (không dùng đoạn có huy hiệu). **Làm mờ không được nhận** (huy hiệu mờ vẫn hàm ý bảo trợ).
+- `nguoi_nhan_dien`: `khong`, hoặc `co` kèm ghi **"không nổi bật" / "không cận mặt"** (người ở xa, không phải chủ thể) hoặc đã làm mờ.
+- `yeu_cau_ghi_cong`: câu ghi công có cụm **"U.S. government work"**, ví dụ `co (ghi "Video: U.S. Army Corps of Engineers (U.S. government work)")`.
+  Khi tập có mô tả YouTube (`phat-hanh/*description*.txt`), mô tả phải có nguyên văn câu trong ngoặc kép đó.
+
+### 1c. Tệp giấy phép cho mọi dòng sổ (Q32h, 1.11.0, kênh 2; cách làm từ V4)
+- Mỗi dòng sổ có một tệp lưu trang giấy phép: đường dẫn `licenses/…` ghi trong cột `giay_phep`, hoặc mặc định `licenses/<clip_id viết thường>.txt` cạnh sổ (trùng `tools/preflight.sh` P5).
+- Tệp phải ghi **đúng SHA-256** của dòng sổ (để biết giấy phép thuộc đúng tệp đã dùng).
+
+### 1d. Trần thời lượng và độ phân giải (kênh 2, 1.11.0; Kinh thánh §4 F3 + V4 H1–H6)
+- **Q32b2:** footage thật (shot `type: footage`) ≤ **20 %** thời lượng phim (từng Short riêng). Trần 40 % chung cho footage + ảnh/tư liệu/báo giữ nguyên.
+- **Q32i:** clip footage có nguồn cao **< 720 điểm ảnh** (máy đo bằng ffprobe trên file đã dùng, rộng tính theo SAR) phải đặt **trong khung**: cảnh footage
+  (`heroes.<p.hero>.opt`) khai `fit: frame` (giữ tỉ lệ gốc, không cắt), `zoom: <số>` ≤ **1,5** (phóng so với điểm ảnh gốc) và `border: true` (có viền).
+  Phóng đầy khung rồi cắt (cách dựng hiện nay của `footage/clip`) → TRƯỢT. Không đo được độ phân giải → TRƯỢT.
+  Ví dụ đo 15/10: newsreel 1957 của cuộn K2V4 là 368×480, SAR 40:23 (= 640×480) → phải đặt trong khung, tối đa 960×720 trên khung 1920×1080.
 
 ## 2. Sổ nguồn: `SOURCES-FOOTAGE.csv` cạnh `episode.yaml`
 - LL: `reports/m3/epXX/SOURCES-FOOTAGE.csv`. Kênh 2: `channel-k2/<tập>/SOURCES-FOOTAGE.csv`.

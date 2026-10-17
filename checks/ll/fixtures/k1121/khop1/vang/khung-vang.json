@@ -1,0 +1,31 @@
+{
+ "renderer": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+ "gl": "llvmpipe",
+ "goi_canh": {
+  "ten": "gib — gói cảnh K dựng lại ngoài repo (scripts/k2tl build_rasters/vectors/scene --ao --far --cls + build_border @origin/v5b2a b35995e; nguồn thô KHỚP SHA V5b-1; KHÔNG chạy --plan1913; OSM tải 17/10)",
+  "sha256": "ca47cc167b9aaa43a3da0101d39ea087cd0c3ece194b2e1dfed2f4beda81fe1e",
+  "cach": "sha256 của manifest \"sha256  tệp\" 15 tệp pack/ sắp theo tên",
+  "ghi_chu": "V5b-2a không ghi SHA gói cảnh; K điền SHA gói K dựng lại vì hai khung cắt (320, 214) của V trùng khung K dựng llvmpipe (320 trùng byte, 214 PSNR 58 dB) — cùng dữ liệu trong vùng khung. Khung có phố (10, 77, 168, 172, 580) KHÔNG trùng: gói K thiếu bước --plan1913 và OSM tải lại."
+ },
+ "ma": "origin/v5b2a b35995e",
+ "phien": "V5b-2a (khung gốc); K cắt 480×270 giữa khung cho tự kiểm",
+ "khung": {
+  "00214.png": "b4c92f988b16b6c2664b653cec62dad3ef5b0037b5e4a4334d1c84bbcf60dbc0",
+  "00320.png": "97d90fb5ef092c24654674b65492984c45493fcf031ff4f61a47fcc26eeab78a"
+ },
+ "nguon": {
+  "00320": {
+   "nguon_vang": "origin/v5b2a channel-k2/k2c-t3-01/v5b1-thu/v5b2a/khung-khong-chu/can-hero-2-moc-dinh-1941-orbit.jpg",
+   "sha_vang_goc": "44052dbd4aa2ed9dae945249a79a5a009e0521aa6a7583be8798816bcd63500b",
+   "sha_k_llvmpipe_goc": "44052dbd4aa2ed9dae945249a79a5a009e0521aa6a7583be8798816bcd63500b",
+   "sha_k_swiftshader_goc": "19c9e565e1c4c6c2e1dfdb41e5c0de88d185a85967a3d7078db50fd0cd436cd3"
+  },
+  "00214": {
+   "nguon_vang": "origin/v5b2a channel-k2/k2c-t3-01/v5b1-thu/v5b2a/khung-khong-chu/eo-dat-1-bay-tuyen-wca-1907.jpg",
+   "sha_vang_goc": "efc51904ccb13313fc6a59c6601c58b20086be8d5693a4a4dd84f4adbb70ebb4",
+   "sha_k_llvmpipe_goc": "0e483fdd10174e4a0176f063a268c4e6035e2c8c20d396e458e761ba57c86d06",
+   "sha_k_swiftshader_goc": "f1a836003d25cb78911376de3e0609ddc4ce6b6f392e1209a57cee5675be023f"
+  }
+ },
+ "ngay": "2026-10-16"
+}

@@ -1,0 +1,600 @@
+{
+ "cong_cu": "scripts/audio/master.py",
+ "tham_so": {
+  "smr": 15.0,
+  "duck": -12.0,
+  "duck_floor": -30.0,
+  "merge_gap": 0.8,
+  "attack": 0.25,
+  "release": 0.45,
+  "sfx_duck_ratio": 0.5,
+  "vo_lufs": -17.0,
+  "I": -14.0,
+  "tp": -1.0,
+  "tp_margin": 0.5,
+  "fade_in": 0.0,
+  "fade_out": 3.0,
+  "aac": "256k",
+  "vo_chain": "highpass=f=70,deesser=i=0.35:m=0.5:f=0.5:s=o,acompressor=threshold=-24dB:ratio=2.5:attack=5:release=120:knee=6"
+ },
+ "tong_s": 941.042,
+ "loi_LUFS_truoc_chuan": -25.89,
+ "duck": {
+  "so_khoang": 29,
+  "trung_vi_db": -12.1,
+  "sau_nhat_db": -17.6,
+  "khoang_vuot_co_ban": 16,
+  "ds": [
+   {
+    "t0": 0.8,
+    "t1": 28.8,
+    "L_loi": -20.9,
+    "L_nen_max": -24.4,
+    "duck_db": -12.5
+   },
+   {
+    "t0": 30.59,
+    "t1": 47.36,
+    "L_loi": -20.0,
+    "L_nen_max": -24.4,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 48.17,
+    "t1": 73.61,
+    "L_loi": -20.4,
+    "L_nen_max": -24.3,
+    "duck_db": -12.1
+   },
+   {
+    "t0": 74.56,
+    "t1": 77.22,
+    "L_loi": -20.5,
+    "L_nen_max": -24.8,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 78.03,
+    "t1": 80.42,
+    "L_loi": -20.9,
+    "L_nen_max": -24.9,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 82.22,
+    "t1": 126.35,
+    "L_loi": -20.5,
+    "L_nen_max": -24.3,
+    "duck_db": -12.2
+   },
+   {
+    "t0": 127.16,
+    "t1": 175.37,
+    "L_loi": -20.5,
+    "L_nen_max": -24.8,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 177.18,
+    "t1": 216.43,
+    "L_loi": -20.6,
+    "L_nen_max": -24.5,
+    "duck_db": -12.1
+   },
+   {
+    "t0": 217.24,
+    "t1": 220.97,
+    "L_loi": -20.1,
+    "L_nen_max": -25.2,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 222.76,
+    "t1": 238.16,
+    "L_loi": -20.9,
+    "L_nen_max": -24.7,
+    "duck_db": -12.2
+   },
+   {
+    "t0": 238.98,
+    "t1": 255.78,
+    "L_loi": -20.3,
+    "L_nen_max": -23.4,
+    "duck_db": -12.9
+   },
+   {
+    "t0": 256.59,
+    "t1": 268.32,
+    "L_loi": -20.1,
+    "L_nen_max": -24.7,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 269.13,
+    "t1": 288.18,
+    "L_loi": -20.0,
+    "L_nen_max": -23.6,
+    "duck_db": -12.4
+   },
+   {
+    "t0": 288.99,
+    "t1": 318.73,
+    "L_loi": -20.3,
+    "L_nen_max": -23.5,
+    "duck_db": -12.8
+   },
+   {
+    "t0": 319.54,
+    "t1": 336.3,
+    "L_loi": -20.1,
+    "L_nen_max": -23.4,
+    "duck_db": -12.8
+   },
+   {
+    "t0": 338.09,
+    "t1": 419.84,
+    "L_loi": -20.4,
+    "L_nen_max": -23.4,
+    "duck_db": -13.0
+   },
+   {
+    "t0": 420.65,
+    "t1": 438.45,
+    "L_loi": -20.5,
+    "L_nen_max": -23.4,
+    "duck_db": -13.1
+   },
+   {
+    "t0": 440.26,
+    "t1": 503.97,
+    "L_loi": -20.3,
+    "L_nen_max": -26.6,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 505.76,
+    "t1": 512.18,
+    "L_loi": -20.4,
+    "L_nen_max": -26.5,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 512.99,
+    "t1": 529.51,
+    "L_loi": -20.3,
+    "L_nen_max": -26.5,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 530.33,
+    "t1": 568.08,
+    "L_loi": -20.7,
+    "L_nen_max": -26.6,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 569.88,
+    "t1": 625.94,
+    "L_loi": -20.2,
+    "L_nen_max": -24.9,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 626.75,
+    "t1": 658.12,
+    "L_loi": -20.2,
+    "L_nen_max": -27.0,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 659.92,
+    "t1": 733.9,
+    "L_loi": -20.4,
+    "L_nen_max": -22.4,
+    "duck_db": -14.0
+   },
+   {
+    "t0": 734.72,
+    "t1": 741.38,
+    "L_loi": -19.8,
+    "L_nen_max": -23.8,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 742.19,
+    "t1": 809.83,
+    "L_loi": -20.6,
+    "L_nen_max": -19.0,
+    "duck_db": -17.6
+   },
+   {
+    "t0": 811.63,
+    "t1": 831.56,
+    "L_loi": -20.0,
+    "L_nen_max": -21.7,
+    "duck_db": -14.3
+   },
+   {
+    "t0": 832.37,
+    "t1": 884.68,
+    "L_loi": -20.2,
+    "L_nen_max": -20.5,
+    "duck_db": -15.7
+   },
+   {
+    "t0": 886.47,
+    "t1": 940.06,
+    "L_loi": -20.5,
+    "L_nen_max": -24.3,
+    "duck_db": -12.1
+   }
+  ]
+ },
+ "fade": {
+  "nen_vao_s": 0.0,
+  "nen_ra_s": 3.0,
+  "ca_ban_ra_bat_dau_s": 940.36,
+  "ca_ban_ra_s": 0.68
+ },
+ "loudness": [
+  {
+   "luot1": {
+    "I": -17.08,
+    "TP": -2.85,
+    "LRA": 2.2
+   },
+   "gain_db": 3.08,
+   "bu_db": 0.0,
+   "tran_limiter_dbtp": -1.5,
+   "luot2": {
+    "I": -14.01,
+    "TP": -1.5,
+    "LRA": 2.3
+   },
+   "loudnorm": {
+    "normalization_type": "linear",
+    "output_i": -13.96,
+    "output_tp": -1.49,
+    "target_offset": -0.04
+   },
+   "aac": {
+    "I": -14.0,
+    "TP": -1.5
+   },
+   "ebur128": {
+    "I": -14.0,
+    "TP": -1.5
+   }
+  }
+ ],
+ "dau_ra": {
+  "I": -14.0,
+  "LRA": 2.2,
+  "TP": -1.5,
+  "TP_sau_aac": -1.5,
+  "lang_pct": 0.03,
+  "lang_bat_thuong": 0,
+  "cham_tran": 0
+ },
+ "smr": {
+  "cua_so": 694,
+  "trung_vi": 21.55,
+  "p10": 19.56,
+  "min": 17.23,
+  "duoi_nguong_pct": 0.0,
+  "nguong": 15.0
+ },
+ "dat": {
+  "I": true,
+  "TP": true,
+  "TP_sau_aac": true,
+  "SMR_p10": true,
+  "loudnorm_tuyen_tinh": true
+ },
+ "nhac": [
+  {
+   "file": "assets/k2/music/Half-Mystery.mp3",
+   "intensity": "mid",
+   "gain_db": -1.0,
+   "lpf": null,
+   "t0": 0.0,
+   "t1": 82.709,
+   "ranh_gioi": 0.0,
+   "diem_giao": 0.0,
+   "lech_ranh_gioi_s": 0.0,
+   "giao_s": 0.0,
+   "ss_doc": 0.0,
+   "src_to": 82.71,
+   "bpm": 71.78,
+   "tiep_bai": false,
+   "align": "bar"
+  },
+  {
+   "file": "assets/k2/music/Beauty-Flow.mp3",
+   "intensity": "mid",
+   "gain_db": -2.0,
+   "lpf": null,
+   "t0": 79.366,
+   "t1": 224.096,
+   "ranh_gioi": 81.417,
+   "diem_giao": 81.038,
+   "lech_ranh_gioi_s": -0.379,
+   "giao_s": 3.344,
+   "ss_doc": 0.604,
+   "src_to": 145.33,
+   "bpm": 107.67,
+   "tiep_bai": false,
+   "align": "bar"
+  },
+  {
+   "file": "assets/k2/music/Sincerely.mp3",
+   "intensity": "mid",
+   "gain_db": -2.0,
+   "lpf": null,
+   "t0": 221.867,
+   "t1": 441.318,
+   "ranh_gioi": 221.958,
+   "diem_giao": 222.981,
+   "lech_ranh_gioi_s": 1.023,
+   "giao_s": 2.229,
+   "ss_doc": 2.299,
+   "src_to": 221.75,
+   "bpm": 71.78,
+   "tiep_bai": false,
+   "align": "bar"
+  },
+  {
+   "file": "assets/k2/music/Tyrant.mp3",
+   "intensity": "mid",
+   "gain_db": -3.0,
+   "lpf": null,
+   "t0": 437.975,
+   "t1": 570.583,
+   "ranh_gioi": 439.458,
+   "diem_giao": 439.647,
+   "lech_ranh_gioi_s": 0.188,
+   "giao_s": 3.344,
+   "ss_doc": 1.718,
+   "src_to": 134.33,
+   "bpm": 71.78,
+   "tiep_bai": false,
+   "align": "bar"
+  },
+  {
+   "file": "assets/k2/music/Lightless-Dawn.mp3",
+   "intensity": "mid",
+   "gain_db": -2.0,
+   "lpf": null,
+   "t0": 567.583,
+   "t1": 887.167,
+   "ranh_gioi": 569.083,
+   "diem_giao": 569.083,
+   "lech_ranh_gioi_s": 0.0,
+   "giao_s": 3.0,
+   "ss_doc": 0.0,
+   "src_to": 319.58,
+   "bpm": 51.68,
+   "tiep_bai": false,
+   "align": "none"
+  },
+  {
+   "file": "assets/k2/music/Half-Mystery.mp3",
+   "intensity": "mid",
+   "gain_db": -1.0,
+   "lpf": null,
+   "t0": 884.167,
+   "t1": 941.042,
+   "ranh_gioi": 885.667,
+   "diem_giao": 885.667,
+   "lech_ranh_gioi_s": 0.0,
+   "giao_s": 3.0,
+   "ss_doc": 200.0,
+   "src_to": 256.88,
+   "bpm": 71.78,
+   "tiep_bai": false,
+   "align": "none"
+  }
+ ],
+ "sfx": [
+  {
+   "t": 0.2,
+   "tep": "assets/k2/sfx/traffic-lights.mp3",
+   "dur": 7,
+   "nguon": "timeline"
+  },
+  {
+   "t": 12.062,
+   "tep": "assets/k2/sfx/city-traffic.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 20.166,
+   "tep": "assets/k2/sfx/city-traffic.mp3",
+   "dur": 8,
+   "nguon": "timeline"
+  },
+  {
+   "t": 33.727,
+   "tep": "assets/k2/sfx/cash-register.mp3",
+   "dur": 3,
+   "nguon": "timeline"
+  },
+  {
+   "t": 38.138,
+   "tep": "assets/k2/sfx/estate-staircase.mp3",
+   "dur": 4,
+   "nguon": "timeline"
+  },
+  {
+   "t": 39.601,
+   "tep": "assets/k2/sfx/city-traffic.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 81.717,
+   "tep": "assets/k2/sfx/housing-estate.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 96.242,
+   "tep": "assets/k2/sfx/typewriter.mp3",
+   "dur": 2.5,
+   "nguon": "timeline"
+  },
+  {
+   "t": 114.805,
+   "tep": "assets/k2/sfx/housing-estate.mp3",
+   "dur": 10,
+   "nguon": "timeline"
+  },
+  {
+   "t": 135.657,
+   "tep": "assets/k2/sfx/typewriter.mp3",
+   "dur": 2.5,
+   "nguon": "timeline"
+  },
+  {
+   "t": 176.575,
+   "tep": "assets/k2/sfx/housing-estate.mp3",
+   "dur": 5,
+   "nguon": "timeline"
+  },
+  {
+   "t": 207.686,
+   "tep": "assets/k2/sfx/parking-space.mp3",
+   "dur": 10,
+   "nguon": "timeline"
+  },
+  {
+   "t": 222.258,
+   "tep": "assets/k2/sfx/estate-staircase.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 235.239,
+   "tep": "assets/k2/sfx/typewriter.mp3",
+   "dur": 2.5,
+   "nguon": "timeline"
+  },
+  {
+   "t": 239.534,
+   "tep": "assets/k2/sfx/stairwell.mp3",
+   "dur": 9,
+   "nguon": "timeline"
+  },
+  {
+   "t": 299.534,
+   "tep": "assets/k2/sfx/stairwell.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 310.041,
+   "tep": "assets/k2/sfx/stairwell.mp3",
+   "dur": 7,
+   "nguon": "timeline"
+  },
+  {
+   "t": 337.492,
+   "tep": "assets/k2/sfx/city-traffic.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 414.845,
+   "tep": "assets/k2/sfx/fire-alarm.mp3",
+   "dur": 2.5,
+   "nguon": "timeline"
+  },
+  {
+   "t": 444.925,
+   "tep": "assets/k2/sfx/stapler.mp3",
+   "dur": 2,
+   "nguon": "timeline"
+  },
+  {
+   "t": 452.739,
+   "tep": "assets/k2/sfx/typewriter.mp3",
+   "dur": 2,
+   "nguon": "timeline"
+  },
+  {
+   "t": 455.305,
+   "tep": "assets/k2/sfx/typewriter.mp3",
+   "dur": 5,
+   "nguon": "timeline"
+  },
+  {
+   "t": 471.129,
+   "tep": "assets/k2/sfx/cash-register.mp3",
+   "dur": 3,
+   "nguon": "timeline"
+  },
+  {
+   "t": 505.158,
+   "tep": "assets/k2/sfx/building-site.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 569.283,
+   "tep": "assets/k2/sfx/housing-estate.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 651.872,
+   "tep": "assets/k2/sfx/building-site.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 659.325,
+   "tep": "assets/k2/sfx/building-site.mp3",
+   "dur": 6,
+   "nguon": "timeline"
+  },
+  {
+   "t": 811.033,
+   "tep": "assets/k2/sfx/traffic-lights.mp3",
+   "dur": 7,
+   "nguon": "timeline"
+  },
+  {
+   "t": 822.686,
+   "tep": "assets/k2/sfx/city-traffic.mp3",
+   "dur": 7,
+   "nguon": "timeline"
+  },
+  {
+   "t": 885.867,
+   "tep": "assets/k2/sfx/traffic-lights.mp3",
+   "dur": 8,
+   "nguon": "timeline"
+  },
+  {
+   "t": 929.842,
+   "tep": "assets/k2/sfx/city-traffic.mp3",
+   "dur": 12,
+   "nguon": "timeline"
+  },
+  {
+   "t": 112.047,
+   "loai": "camera_move",
+   "tep": "assets/audio/sfx/whoosh-3.ogg",
+   "gain_db": -16.0,
+   "ly_do": "m_euclid: cam 1→2 ×7.5 trong 4.5 s"
+  },
+  {
+   "t": 183.679,
+   "loai": "camera_move",
+   "tep": "assets/audio/sfx/whoosh-3.ogg",
+   "gain_db": -16.0,
+   "ly_do": "m_colorado: cam 0→1 ×4.4 trong 5.8 s"
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "tep": "/var/tmp/cine-out/am-thanh/src/steel.m4a",
+ "I": -14.0,
+ "LRA": 2.3,
+ "TP": -1.6,
+ "LRA_low": -15.6,
+ "LRA_high": -13.3,
+ "tong_s": 1030.14,
+ "lang_pct": 0.0,
+ "lang_bat_thuong": {
+  "so": 0,
+  "ds": [],
+  "dinh_nghia": "≥ 1.0 s dưới -50.0 LUFS tức thời, bỏ 2.0 s đầu/cuối"
+ },
+ "cham_tran": 0,
+ "loi": {
+  "khoang": 171,
+  "ty_le_co_loi_pct": 86.4,
+  "quang_khong_loi_dai_nhat_s": 1.82,
+  "quang_khong_loi_gt8s": 0,
+  "chong_loi": 0
+ },
+ "smr": {
+  "cach": "stem",
+  "cua_so": 534,
+  "trung_vi": 20.88,
+  "p10": 18.92,
+  "min": 16.42,
+  "duoi_nguong_pct": 0.0,
+  "nguong": 15.0
+ },
+ "muc_tieu": {
+  "I": [
+   -15.0,
+   -14.0
+  ],
+  "TP_max": -1.0,
+  "SMR_min": 15.0
+ },
+ "dat": {
+  "I": true,
+  "TP": true,
+  "SMR": true
+ }
+}

@@ -12,7 +12,8 @@ Mỗi shot của phim chính khai `type` (cùng cấp với `tpl` trong đặc t
   anchors: [khoá numbers]                             số neo; không khai → mọi khoá `numbers` có hiện trên hình
 Shot `photo` trỏ ảnh bằng `p.photo` (hoặc `p.rid`, `p.clip`). Shot `document`: `p.paper` (tên báo) + `p.date` (YYYY-MM-DD).
 TRƯỢT khi:
-  (0) shot thiếu `type` hoặc `type` ngoài TYPES; số shot đặc tả ≠ timeline
+  (0) shot thiếu `type` hoặc `type` ngoài TYPES; số shot đặc tả ≠ timeline. 1.12.1 (chủ dự án 16–17/10): thêm `timelapse` (cảnh xương sống
+      thời gian `tl/<cảnh>`); số trên shot timelapse là lớp chữ 2D (bộ đếm), KHÔNG tính là hiện bằng 3D ở (c). ML1 vẫn nhận `tl: true`.
   (a) một địa danh không có shot `map` giao [t − 6 s, t + 6 s], t = lần đầu lời nhắc tên; tên không có trong lời
   (b) một nhân vật có ảnh hợp lệ (rid trong RIGHTS.md hoặc clip_id trong sổ footage) mà không có shot `photo` ảnh đó giao ±6 s quanh lần nhắc đầu;
       không có ảnh hợp lệ mà không ghi `ly_do` (≥ 20 ký tự)
@@ -21,17 +22,27 @@ TRƯỢT khi:
       3D nhô khỏi địa cầu) VÀ `<id>` là một cột khai trong `heroes.<p.hero>.opt.cols` (timeline, không có thì đặc tả). Số in chữ trên
       bản đồ, nhãn địa danh/ghim, neo `col:` không có cột khai → không tính 3D
   (d) shot `document` > 3 s, hoặc thiếu tên báo/ngày. Thời lượng photo/document/footage cộng vào trần 40 % của Q32 (q_footage.py)
+      1.11.0 (chủ dự án 15/10/2026, Q34(d)): `p.date` chỉ có năm (YYYY) HỢP LỆ khi nguồn chỉ ghi năm — khai `p.date_chi_nam`: lý do ≥ 20 ký tự
+      (trích chỗ nguồn ghi năm, vd "masthead chỉ in 'Spring 1926'"); không khai → vẫn TRƯỢT như 1.10.1. Ngày đủ YYYY-MM-DD giữ nguyên.
+      Trần 3 s của (d) chỉ dành cho `document` = ảnh chụp báo hiện đại.
+  (e) 1.11.1 (chủ dự án 15/10/2026, O2-B): shot `record` = VĂN BẢN GỐC (Federal Register, luật, thư, hợp đồng) TRƯỢT khi
+      > 12 s; không có dòng tô `hl` HIỆN TRONG SHOT — `p.hl: [{at: giây trong đoạn | [t0, t1]}]` hoặc `heroes.<p.hero>.opt.hl` (giờ cảnh, quy
+      về giờ đoạn theo off/frame0 và speed của shot); không dẫn nguồn (khoá `sources` khớp `short`/`short9` trên dòng nguồn `p.src`/`cap[].src`,
+      hoặc `p.nguon`/`p.luat`); nguồn là luật (`p.luat`, hoặc `sources.<k>.loai` ∈ luat/chinh_sach/quy_dinh) mà thiếu `loai`/`hieu_luc`.
 """
 import json, os, re, sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 from checks.ll import base  # noqa: E402
 
-TYPES = ('scene3d', 'map', 'chart3d', 'photo', 'document', 'footage', 'card')
-EXT = ('photo', 'document', 'footage')      # tính chung trần nguồn ngoài của Q32
+TYPES = ('scene3d', 'map', 'chart3d', 'photo', 'document', 'footage', 'card', 'record', 'timelapse')   # 1.11.1: record = văn bản gốc (O2-B); 1.12.1: timelapse (xương sống thời gian, design/k2v/tl)
+EXT = ('photo', 'document', 'footage', 'record')      # tính chung trần nguồn ngoài của Q32
 WIN = 6.0
 MIN_3D, MAX_CARD = 60.0, 40.0
 DOC_MAX = 3.0
+YEAR_ONLY_WHY = 20
+REC_MAX = 12.0                             # 1.11.1 (O2-B): trần một shot `record` (văn bản gốc)
+POLICY = {'luat', 'chinh_sach', 'quy_dinh'}                         # 1.11.0: lý do tối thiểu khi ngày chỉ có năm (nguồn chỉ ghi năm)
 COL = 'col:'                                # 1.10.2: neo đỉnh cột số liệu 3D của bản đồ (design/k2v/map.js `cols`)
 
 
@@ -94,9 +105,35 @@ def mmss(t): return f'{int(t // 60)}:{t % 60:04.1f}'
 def _photo_id(sh): p = sh.get('p') or {}; return p.get('photo') or p.get('rid') or p.get('clip')
 
 
+def cites(short, line):
+    """tên nguồn ngắn có trên dòng nguồn, trọn từ (\"90 FR 1\" không khớp \"90 FR 17114\")"""
+    return bool(re.search(r'(?<![\w])' + re.escape(short) + r'(?![\w])', line))
+
+
+def as_list(v): return v if isinstance(v, list) else [v] if v else []
+
+
+def _num(v): return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+
+
+def hl_in_shot(p, HE, t0, t1):
+    """(e) có dòng tô hiện trong shot [t0, t1) (giây trong đoạn): p.hl (giây đoạn) hoặc opt.hl của cảnh (giờ cảnh → giờ đoạn)"""
+    first = lambda x: x[0] if isinstance(x, list) and x else x
+    for x in as_list(p.get('hl')):
+        at = _num(first(x.get('at'))) if isinstance(x, dict) else None
+        if at is None or t0 - 1e-6 <= at < t1: return True
+    o = ((HE.get(p.get('hero')) or {}).get('opt') or {}); f0 = (_num(p.get('frame0', p.get('off', 0))) or 0.0) / 24; sp = _num(p.get('speed', 1)) or 1.0
+    for x in o.get('hl') if isinstance(o.get('hl'), list) else []:
+        tau = _num(first(x.get('at'))) if isinstance(x, dict) else None
+        if tau is None: continue
+        t = t0 + (tau - f0) / sp
+        if tau >= f0 and t < t1: return True
+    return False
+
+
 def q34(E, TL, ep_dir=None):
     from checks.ll import q_rights, q_footage
-    S, P0 = typed(E, TL); P = {k: [] for k in 'abcd'}
+    S, P0 = typed(E, TL); P = {k: [] for k in 'abcde'}
     P0 += [f"{sid}/{i} @{mmss(a)}: thiếu type" if not t else f"{sid}/{i}: type {t} ngoài {'/'.join(TYPES)}" for sid, i, a, b, t, *_ in S if t not in TYPES]
     W = None
     # (a) địa danh → map ±6 s
@@ -134,11 +171,34 @@ def q34(E, TL, ep_dir=None):
         if ty != 'document': continue
         p = sh.get('p') or {}
         if b - a > DOC_MAX + 1e-6: P['d'].append(f'{sid}/{i} @{mmss(a)}: document {b - a:.1f} s > {DOC_MAX:g} s')
-        if not str(p.get('paper') or '').strip() or not re.fullmatch(r'\d{4}-\d\d-\d\d', str(p.get('date') or '')): P['d'].append(f'{sid}/{i} @{mmss(a)}: document thiếu tên báo (p.paper) hoặc ngày (p.date YYYY-MM-DD)')
+        dt = str(p.get('date') or '').strip(); why = str(p.get('date_chi_nam') or '').strip()
+        if not str(p.get('paper') or '').strip(): P['d'].append(f'{sid}/{i} @{mmss(a)}: document thiếu tên báo (p.paper)')
+        if re.fullmatch(r'\d{4}-\d\d-\d\d', dt): pass
+        elif re.fullmatch(r'\d{4}', dt):
+            if len(why) < YEAR_ONLY_WHY: P['d'].append(f'{sid}/{i} @{mmss(a)}: ngày chỉ có năm ({dt}) mà không khai p.date_chi_nam (nguồn chỉ ghi năm, lý do ≥ {YEAR_ONLY_WHY} ký tự)')
+        else: P['d'].append(f'{sid}/{i} @{mmss(a)}: document thiếu ngày (p.date YYYY-MM-DD, hoặc YYYY khi nguồn chỉ ghi năm)')
+    # (e) record — văn bản gốc (1.11.1, O2-B)
+    SRC = E.get('sources') or {}
+    for sid, i, a, b, ty, sh, spec in S:
+        if ty != 'record': continue
+        p = sh.get('p') or {}; w = f'{sid}/{i} @{mmss(a)}'; t0, t1 = sh['t0'], sh['t1']
+        if b - a > REC_MAX + 1e-6: P['e'].append(f'{w}: record {b - a:.1f} s > {REC_MAX:g} s')
+        elif b - a >= 0.95 * REC_MAX: near.append(f'{w}: record {b - a:.1f} s (ngưỡng {REC_MAX:g} s)')
+        if not hl_in_shot(p, HE, t0, t1): P['e'].append(f'{w}: record không có dòng tô (p.hl hoặc opt.hl của cảnh) hiện trong shot')
+        lines = [str(p.get('src') or '')] + [str(c.get('src') or '') for c in p.get('cap') or [] if isinstance(c, dict)]
+        keys = {k for k, v in SRC.items() for f in ('short', 'short9') if str(v.get(f) or '').strip() and any(cites(str(v[f]).strip(), l) for l in lines)}
+        law = set(as_list(p.get('luat'))); keys |= set(as_list(p.get('nguon'))) | law
+        if not keys: P['e'].append(f'{w}: record không dẫn nguồn (sources khớp dòng nguồn, hoặc p.nguon/p.luat)'); continue
+        for k in sorted(keys):
+            v = SRC.get(k)
+            if v is None: P['e'].append(f'{w}: nguồn {k} không có trong sources'); continue
+            is_law = k in law or str(v.get('loai') or '') in POLICY
+            if is_law and (str(v.get('loai') or '') not in POLICY or v.get('hieu_luc') in (None, False, '')):
+                P['e'].append(f'{w}: nguồn luật {k} thiếu loai (luat/chinh_sach/quy_dinh) hoặc hieu_luc')
     T = float(TL['tong_s']); dur = {t: 0.0 for t in TYPES}
     for _, _, a, b, ty, *_ in S:
         if ty in dur: dur[ty] += b - a
-    loi = [f'(0) {x}' for x in P0] + [f'({k}) {x}' for k in 'abcd' for x in P[k]]
+    loi = [f'(0) {x}' for x in P0] + [f'({k}) {x}' for k in 'abcde' for x in P[k]]
     return dict(ok=not loi, loi=loi, muc=dict(P, **{'0': P0}), sat_nguong=near, note='; '.join(loi[:6]),
                 ty_le={t: round(100 * v / T, 1) for t, v in dur.items() if v}, so_neo=dict(n=len(A), ba_d=n3, card=nc),
                 val=f"{sum(1 for x in S if x[4] in TYPES)}/{len(S)} shot có type · " + ' · '.join(f'{t} {100 * v / T:.1f} %' for t, v in dur.items() if v)

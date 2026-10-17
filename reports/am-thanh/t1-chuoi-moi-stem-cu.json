@@ -1,0 +1,294 @@
+{
+ "cong_cu": "scripts/audio/master.py",
+ "tham_so": {
+  "smr": 15.0,
+  "duck": -12.0,
+  "duck_floor": -30.0,
+  "merge_gap": 0.8,
+  "attack": 0.25,
+  "release": 0.45,
+  "sfx_duck_ratio": 0.5,
+  "vo_lufs": -17.0,
+  "I": -14.0,
+  "tp": -1.0,
+  "tp_margin": 0.5,
+  "fade_in": 0.0,
+  "fade_out": 3.0,
+  "aac": "256k",
+  "vo_chain": "highpass=f=70,deesser=i=0.35:m=0.5:f=0.5:s=o,acompressor=threshold=-24dB:ratio=2.5:attack=5:release=120:knee=6"
+ },
+ "tong_s": 941.042,
+ "loi_LUFS_truoc_chuan": -25.89,
+ "duck": {
+  "so_khoang": 29,
+  "trung_vi_db": -12.2,
+  "sau_nhat_db": -17.7,
+  "khoang_vuot_co_ban": 17,
+  "ds": [
+   {
+    "t0": 0.8,
+    "t1": 28.8,
+    "L_loi": -20.9,
+    "L_nen_max": -24.3,
+    "duck_db": -12.6
+   },
+   {
+    "t0": 30.59,
+    "t1": 47.36,
+    "L_loi": -20.0,
+    "L_nen_max": -24.3,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 48.17,
+    "t1": 73.61,
+    "L_loi": -20.4,
+    "L_nen_max": -24.3,
+    "duck_db": -12.1
+   },
+   {
+    "t0": 74.56,
+    "t1": 77.22,
+    "L_loi": -20.5,
+    "L_nen_max": -24.7,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 78.03,
+    "t1": 80.42,
+    "L_loi": -20.9,
+    "L_nen_max": -24.8,
+    "duck_db": -12.1
+   },
+   {
+    "t0": 82.22,
+    "t1": 126.35,
+    "L_loi": -20.5,
+    "L_nen_max": -24.1,
+    "duck_db": -12.4
+   },
+   {
+    "t0": 127.16,
+    "t1": 175.37,
+    "L_loi": -20.5,
+    "L_nen_max": -24.7,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 177.18,
+    "t1": 216.43,
+    "L_loi": -20.6,
+    "L_nen_max": -24.4,
+    "duck_db": -12.3
+   },
+   {
+    "t0": 217.24,
+    "t1": 220.97,
+    "L_loi": -20.1,
+    "L_nen_max": -25.3,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 222.76,
+    "t1": 238.16,
+    "L_loi": -20.9,
+    "L_nen_max": -24.1,
+    "duck_db": -12.8
+   },
+   {
+    "t0": 238.98,
+    "t1": 255.78,
+    "L_loi": -20.3,
+    "L_nen_max": -23.4,
+    "duck_db": -13.0
+   },
+   {
+    "t0": 256.59,
+    "t1": 268.32,
+    "L_loi": -20.1,
+    "L_nen_max": -24.6,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 269.13,
+    "t1": 288.18,
+    "L_loi": -20.0,
+    "L_nen_max": -23.5,
+    "duck_db": -12.5
+   },
+   {
+    "t0": 288.99,
+    "t1": 318.73,
+    "L_loi": -20.3,
+    "L_nen_max": -23.4,
+    "duck_db": -12.8
+   },
+   {
+    "t0": 319.54,
+    "t1": 336.3,
+    "L_loi": -20.1,
+    "L_nen_max": -23.3,
+    "duck_db": -12.8
+   },
+   {
+    "t0": 338.09,
+    "t1": 419.84,
+    "L_loi": -20.4,
+    "L_nen_max": -23.3,
+    "duck_db": -13.1
+   },
+   {
+    "t0": 420.65,
+    "t1": 438.45,
+    "L_loi": -20.5,
+    "L_nen_max": -24.1,
+    "duck_db": -12.4
+   },
+   {
+    "t0": 440.26,
+    "t1": 503.97,
+    "L_loi": -20.3,
+    "L_nen_max": -26.5,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 505.76,
+    "t1": 512.18,
+    "L_loi": -20.4,
+    "L_nen_max": -26.5,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 512.99,
+    "t1": 529.51,
+    "L_loi": -20.3,
+    "L_nen_max": -26.4,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 530.33,
+    "t1": 568.08,
+    "L_loi": -20.7,
+    "L_nen_max": -26.5,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 569.88,
+    "t1": 625.94,
+    "L_loi": -20.2,
+    "L_nen_max": -24.9,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 626.75,
+    "t1": 658.12,
+    "L_loi": -20.2,
+    "L_nen_max": -26.5,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 659.92,
+    "t1": 733.9,
+    "L_loi": -20.4,
+    "L_nen_max": -22.3,
+    "duck_db": -14.0
+   },
+   {
+    "t0": 734.72,
+    "t1": 741.38,
+    "L_loi": -19.8,
+    "L_nen_max": -24.6,
+    "duck_db": -12.0
+   },
+   {
+    "t0": 742.19,
+    "t1": 809.83,
+    "L_loi": -20.6,
+    "L_nen_max": -19.0,
+    "duck_db": -17.7
+   },
+   {
+    "t0": 811.63,
+    "t1": 831.56,
+    "L_loi": -20.0,
+    "L_nen_max": -20.9,
+    "duck_db": -15.1
+   },
+   {
+    "t0": 832.37,
+    "t1": 884.68,
+    "L_loi": -20.2,
+    "L_nen_max": -20.5,
+    "duck_db": -15.7
+   },
+   {
+    "t0": 886.47,
+    "t1": 940.06,
+    "L_loi": -20.5,
+    "L_nen_max": -24.2,
+    "duck_db": -12.2
+   }
+  ]
+ },
+ "fade": {
+  "nen_vao_s": 0.0,
+  "nen_ra_s": 3.0,
+  "ca_ban_ra_bat_dau_s": 940.36,
+  "ca_ban_ra_s": 0.68
+ },
+ "loudness": [
+  {
+   "luot1": {
+    "I": -17.09,
+    "TP": -2.73,
+    "LRA": 2.2
+   },
+   "gain_db": 3.09,
+   "bu_db": 0.0,
+   "tran_limiter_dbtp": -1.5,
+   "luot2": {
+    "I": -14.0,
+    "TP": -1.5,
+    "LRA": 2.2
+   },
+   "loudnorm": {
+    "normalization_type": "linear",
+    "output_i": -13.97,
+    "output_tp": -1.5,
+    "target_offset": -0.03
+   },
+   "aac": {
+    "I": -14.0,
+    "TP": -1.5
+   },
+   "ebur128": {
+    "I": -14.0,
+    "TP": -1.5
+   }
+  }
+ ],
+ "dau_ra": {
+  "I": -14.0,
+  "LRA": 2.2,
+  "TP": -1.5,
+  "TP_sau_aac": -1.5,
+  "lang_pct": 0.06,
+  "lang_bat_thuong": 0,
+  "cham_tran": 0
+ },
+ "smr": {
+  "cua_so": 694,
+  "trung_vi": 21.59,
+  "p10": 19.57,
+  "min": 17.78,
+  "duoi_nguong_pct": 0.0,
+  "nguong": 15.0
+ },
+ "dat": {
+  "I": true,
+  "TP": true,
+  "TP_sau_aac": true,
+  "SMR_p10": true,
+  "loudnorm_tuyen_tinh": true
+ }
+}

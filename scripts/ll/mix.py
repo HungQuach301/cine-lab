@@ -17,6 +17,7 @@ SR = 48000
 REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 P = lambda p: p if os.path.isabs(p) else os.path.join(REPO, p)
 tl_p, out_p = sys.argv[1:3]; SHORT = sys.argv[sys.argv.index('--short') + 1] if '--short' in sys.argv else None
+STEMS = sys.argv[sys.argv.index('--stems') + 1] if '--stems' in sys.argv else None   # phiên Âm thanh 15/10: ghi stem để đo (scripts/audio/measure.py); không đổi bản mix
 TL = json.load(open(tl_p))
 SEGS = [s for s in TL['shorts'] if s['id'] == SHORT] if SHORT else TL['segments']
 DUR = SEGS[0]['t1'] if SHORT else TL['tong_s']
@@ -89,6 +90,14 @@ for d in SEGS:
         put(sfx, s * w[:, None] * 10 ** (c.get('gain_db', 0) / 20), c['at_abs']); log.append(c)
 
 mix = (vo_st + mus_st + sfx * 10 ** (-6 / 20)).astype(np.float32)
+if STEMS:   # old-vo/old-bed = đúng hai phần của bản mix này (trước gain master); raw-* = chất liệu chưa xử lý cho chuỗi scripts/audio/master.py
+    os.makedirs(STEMS, exist_ok=True); fl = lambda n, x: subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', str(x.shape[1] if x.ndim == 2 else 1), '-i', '-',
+                                                                         '-c:a', 'flac', '-sample_fmt', 's32', os.path.join(STEMS, n + '.flac')], input=np.ascontiguousarray(x, np.float32).tobytes(), check=True)
+    fl('old-vo', vo_st); fl('old-bed', mus_st + sfx * 10 ** (-6 / 20)); fl('raw-music', mus * fade[:, None]); fl('raw-sfx', sfx * 10 ** (-6 / 20))
+    raw = np.zeros(N)
+    for d in SEGS:
+        if d.get('vo_file'): put(raw, dec(d['vo_file'], 1)[:, 0], d['t0'] + d['vo_offset'])
+    fl('raw-vo', raw); json.dump(dict(tong_s=DUR, speech=mseg), open(os.path.join(STEMS, 'speech.json'), 'w'))
 raw = out_p.replace('.wav', '.pre.wav')
 subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'f32le', '-ar', str(SR), '-ac', '2', '-i', '-', '-c:a', 'pcm_f32le', raw], input=mix.tobytes(), check=True)
 
