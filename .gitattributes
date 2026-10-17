@@ -1,0 +1,7 @@
+# P-1710 (17/10/2026, chủ dự án): LFS chỉ cho master/Short/bản xem của gói phát hành ở nhánh release-* (khớp tools/lfs-allow.txt)
+# và bản 1080p đầy đủ của đoạn thử timelapse v5b1-thu (đề xuất V5b1 §10, chủ dự án duyệt 17/10).
+# Nhánh release-* hiện có giữ nguyên .gitattributes của nhánh (*.mp4 → LFS).
+*-master.mp4 filter=lfs diff=lfs merge=lfs -text
+*-short-*.mp4 filter=lfs diff=lfs merge=lfs -text
+*-v[0-9]-p[0-9].mp4 filter=lfs diff=lfs merge=lfs -text
+channel-k2/*/v5b1-thu/**/*-1080p.mp4 filter=lfs diff=lfs merge=lfs -text

@@ -5,3 +5,7 @@
 *-v[0-9]-p[0-9].mp4
 # V5a (15/10/2026): thư viện CC0 kênh 2 (Mốc D3) — tệp > 1 MB qua LFS, chủ dự án duyệt trong lệnh V5a việc 5 (tổng ≤ 300 MB; danh mục + SHA: assets/k2/cc0/catalog.json)
 assets/k2/cc0/*
+# P-1710 (17/10/2026): bản 1080p đầy đủ đoạn thử timelapse (đề xuất V5b1 §10.1, chủ dự án duyệt 17/10)
+channel-k2/*/v5b1-thu/**/*-1080p.mp4
+# cùng vùng, viết theo fnmatch của preflight_scan.py ('*' khớp qua '/', nên mẫu '**/' ở trên không khớp tệp nằm thẳng trong v5b1-thu/)
+channel-k2/*/v5b1-thu/*-1080p.mp4

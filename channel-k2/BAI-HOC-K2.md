@@ -67,3 +67,12 @@ Nguồn: chấm mù một lần trên 1080p (`k2c-t1-06/kiem-mu/blind-g2/`, Q27 
 - **Nhãn né vật phải tính từ MÉP hộp vật, không từ tâm neo:**
   - Khi nhãn bị kẹp vào lề an toàn, nó trượt ngược lại và đè lên vật.
   - Phép kiểm va chạm phải tính cả hộp của chính vật (nhãn "1/10" ở nháp).
+
+## K13–K17 · Bài học K2C-T2-01 "Shipbuilding" (không phát hành, VV1 — P-1710 ghi 17/10/2026)
+| # | Bài học | Số đo | Nguyên nhân | Luật hiện hành |
+|---|---|---|---|---|
+| K13 | Phim gần như chỉ có bản đồ | Bản đồ **88,7 %** thời lượng; nửa sau chỉ 2 loại cảnh; bờ Đông 37,8 % phim, liên tục 120,5 s (2:48–4:48) (K-1.12.2 Q26b-K2 TRƯỢT) | Bộ hình k2v mạnh nhất ở bản đồ nổi nên mọi ý đều đổ về bản đồ; không có ngân sách loại cảnh lúc viết đặc tả | Q26b-K2 (checks 1.12.2, CHỈ BÁO tới khi duyệt áp); đặt ngân sách loại cảnh từ G1 |
+| K14 | Nơi có thành phố (Richmond, Philadelphia, Ulsan) chỉ hiện địa hình/ảnh hàng không, không có nhà, phố đúng thời kỳ | Chấm mù E2/P2 ghi "map zoomed so far in… no context"; chip nơi dựng phải thêm cho 16 shot bản đồ (SS1) để người xem biết đang ở đâu | Bộ công cụ chưa có lớp nhà/phố theo thời kỳ; dùng DEM + NAIP thay cho thành phố | **VV2** (luật mới, chờ K): nơi có thành phố phải có nhà/phố đúng thời kỳ — `reports/K-HANG-DOI-KHIEU-NAI.md` |
+| K15 | Địa cầu và độ cao lớn bị dùng thừa | g05_china: máy 30 → 18 → 22 bán kính Trái Đất; r04_abroad mở xa rồi đẩy vào (G2 §13–§14) | Dùng tầm cao để "đổi cảnh" thay cho nội dung mới | **VV2:** địa cầu/độ cao lớn ≤ 1 lần/tập, ≤ 3 s (chờ K đo) |
+| K16 | Vòng sửa theo chấm mù tạo lỗi mới | L4: E2 0/3, P2 7,00 → 6,67, P6 6,67 → 6,00. Ba lỗi đều do chính lượt sửa: nhãn hiện dần chỉ đạt khoảng 20 % ở giây khung, viền vùng thành dải trắng, tấm chữ chừa khoảng trống | Sửa xong chấm ngay, không nhìn khung đúng giây đã khai | **TT3:** luôn **so khung trước khi chấm** (tờ trước ↔ sau, đúng giây đã khai, tự rà từng cặp) |
+| K17 | Năm vòng chấm mù không vượt được giới hạn thiết kế | RÀ GU 6,62 → 6,81 → 6,76 → 6,81 → 6,90; phần sửa 6,47 → 6,87 → 6,87 → 6,80 → 6,87; API chấm $15,16. Vẫn thua E2 (hình thức cảnh), P6 (nguồn 640×480, trần 1,45×) | Lỗi nằm ở hình thức cảnh và nguồn, không ở lớp chữ. Vòng sửa lớp chữ chỉ cải thiện biên | Lỗi thiết kế quyết ở G1/tờ khung (đổi hình thức cảnh, nguồn ≥ 720p); không mở thêm vòng chấm mù để vá thiết kế |

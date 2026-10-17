@@ -17,6 +17,19 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 17/10/2026 (phiên P-1710, chủ dự án duyệt VV1–VV4): trạng thái các tập kênh 2 đang mở
+> Ghi thêm, không xoá bảng cũ. Mục này đứng trên bảng 12/10 về **trạng thái và thứ tự** các tập đã có mã T2–T6.
+
+| Tập | Đề tài (tên làm việc) | Trạng thái 17/10 | Nguồn |
+|---|---|---|---|
+| K2C-T2-01 | Shipbuilding | **KHÔNG PHÁT HÀNH (VV1).** `release-k2c-t2-01-v1` (@784a58f1, master `f63b0b4b…`) giữ làm bản lưu. Bài học ở `BAI-HOC-K2.md` K13–K17 | `AUTHORSHIP.md` 17/10 VV1; `k2c-t2-01/G2-BAO-CAO.md` §14 |
+| K2C-T3-01 | Gibraltar ↔ La Línea | **CHỜ phiên nghiên cứu NC-LS**: dựng lại khung tập quanh **các cuộc vây hãm** (Đại vây hãm 1779–83 và các lần trước) thay cho khung "giàu dù không tài nguyên". Không vào G1 trước khi NC-LS xong | `k2c-t3-01/TIEN-KY.md`; lệnh chủ dự án 17/10 |
+| K2C-T4-01 | Las Vegas / lưu vực Colorado (góc "thành phố mọc / hồ tụt") | giữ thứ tự: tập kế sau T3 | `k2c-t4-01/TIEN-KY.md` |
+| K2C-T5-01 | Zürich | giữ thứ tự sau T4 | `k2c-t5-01/TIEN-KY.md`; `research/thanhpho/TIEN-KY-THANHPHO.md` |
+| K2C-T6-01 | Detroit (tầng chuẩn) | giữ thứ tự sau T5 | `k2c-t6-01/TIEN-KY.md` |
+
+- **Luật mới VV2 áp cho T3–T6** từ khi phiên K hiện thực (đề xuất đo ở `reports/K-HANG-DOI-KHIEU-NAI.md`): nơi có thành phố phải có nhà/phố đúng thời kỳ; địa cầu/độ cao lớn ≤ 1 lần/tập, ≤ 3 s.
+
 ## HÀNG ĐỢI HIỆU LỰC — định vị 12/10/2026 "cơ chế kinh tế của thành phố và ngành" (thay mọi bảng bên dưới)
 > **Chủ dự án quyết 12/10** (`AUTHORSHIP.md`): T1 thành phố là trụ chính, T2 ngành là trụ phụ, T3 mô hình kiếm tiền. Không đo thêm trên API, trừ hồ sơ cầu thí điểm T1 (3 search.list, `de-tai/mall-town.md`). Mọi nhãn là **tự tính, không phải chỉ số YouTube**.
 > - **Tên đề tài** là tên làm việc, diễn đạt lại theo góc cơ chế, **không chép tiêu đề đối thủ**. Tiêu đề thật đặt ở G1 từng tập.

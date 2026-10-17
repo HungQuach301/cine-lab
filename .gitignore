@@ -18,3 +18,8 @@ design/cong4/animatic/out/v2/audit_void_*/
 .claude/worktrees/
 design/cong5/layout/page-*.html
 
+# P-1710 (17/10/2026, chủ dự án): chặn video trung gian, chỉ ghi SHA. Lớp chữ sec/*.mkv và cache k2v (mặc định /var/tmp/cine-out/k2v-cache, ở đây phòng khi đặt trong repo)
+**/sec/*.mkv
+k2v-cache/
+# Thư mục out/ ở gốc repo. Không chặn */out/ vì design/cong3–5 đã có tệp out/ được theo dõi
+/out/
