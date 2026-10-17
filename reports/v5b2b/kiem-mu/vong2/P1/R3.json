@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "empty_frame"
+  ],
+  "note": "The terrain, walled town and water are a decent 3D reconstruction with a clear Gibraltar coastline. The bottom 45% of the frame is empty water, with no ship, route cue or focal point, so the shot has nothing to say. The date, location pin and source labels are legible white-on-dark pills, but the 'Map data: OpenStreetMap' credit is prominent and 'Reconstructed from J. Drinkwater\u2026' is small. The labels are scattered across the frame. The framing does not show what this moment is, which is the siege of 1782."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "This is a layered composition: a low flight over the neutral ground toward the town, with an archival photo inset, a leader line, a population stat and a year. The big numbers ('\u2248 19,630 residents', '1906') are very readable. The caption's second line ('V.B. Cumbo \u00b7 LoC \u00b7 muted houses: reconstructed') is small and low-contrast grey, so it will be hard to read on a phone. The inset and caption cover the middle of the frame, and the leader line ends at a vague point on the runway track. The photo is useful because it grounds the CGI in a real source. The foreground is a large flat green field. The 1906 versus c. 1900 mix and the runway mention are slightly confusing."
+ },
+ "better": "Y",
+ "why": "Y gives the viewer a clear quantity, a date and archival evidence layered over the flight, while X is mostly empty water with scattered small labels.",
+ "top_fix_for_weaker": "Reframe X so the shot shows the target, for example a lower and closer approach with the town and a ship or fortification in the frame, crop out the empty water, merge the credits into one larger caption, and add a short headline stating what happened here on 13 Sep 1782."
+}

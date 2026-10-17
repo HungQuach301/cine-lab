@@ -1,0 +1,96 @@
+{
+ "cap": [
+  {
+   "cap": "P1",
+   "kind": "low aerial flight toward a place (route flight)",
+   "moi": 6.0,
+   "gib20": 7.0,
+   "moi_tung_nguoi": [
+    6,
+    6,
+    6
+   ],
+   "gib20_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "chon_moi": "0/3",
+   "co_moi": [
+    "empty_frame"
+   ],
+   "doc_moi": 6.67,
+   "ro_moi": 6.0,
+   "sua_yeu_hon": [
+    "Lower the camera and tilt it up so the town and fortifications fill the middle of the frame instead of the water. Add one large label, such as 'Gibraltar, 1782 – Siege', and enlarge the small credit pills to at least 28px or move them out of the way.",
+    "Lower the camera pitch and push in toward the town so the waterfront and fortifications fill about 60% of the frame. Add foreground interest such as ships, wake or a coastline. Drop the 'Map data' pill into a small corner credit. Replace the mid-water credit line with a short place label like 'Gibraltar, 1782' attached to the town.",
+    "Reframe X so the shot shows the target, for example a lower and closer approach with the town and a ship or fortification in the frame, crop out the empty water, merge the credits into one larger caption, and add a short headline stating what happened here on 13 Sep 1782."
+   ],
+   "thua": true
+  },
+  {
+   "cap": "P2",
+   "kind": "orbit around a landmark at a frozen key date",
+   "moi": 6.0,
+   "gib20": 4.33,
+   "moi_tung_nguoi": [
+    6,
+    6,
+    6
+   ],
+   "gib20_tung_nguoi": [
+    4,
+    4,
+    5
+   ],
+   "chon_moi": "3/3",
+   "co_moi": [
+    "flat_slide_look"
+   ],
+   "doc_moi": 8.0,
+   "ro_moi": 7.33,
+   "sua_yeu_hon": [
+    "Move the leader line and caption off the cars and the '1941' box, and anchor the line to the runway or road. Tie the '19,047 residents' stat to the scene with a town or crowd in frame. Raise the contrast of the source line and enlarge it. Frame the runway or the crossing as the subject instead of empty grass.",
+    "Rebuild the layout. Remove the leader line crossing the year box and caption, give the title bar an opaque background, and put the source in a separate small line below it. Anchor the '19,047 residents' stat to the town with a pin or visible crowd. Frame the camera so the runway cuts across the single road, with the town and sea in the same shot, so the scene is no longer an empty field.",
+    "Reframe the camera so the road and runway crossing is central and large. Move the caption off the checkpoint, with more padding between headline and source. Delete the stray leader line. Label the stat clearly (for example 'Gibraltar population, 1941') and drop the '≈' or round the number."
+   ],
+   "thua": false
+  },
+  {
+   "cap": "P4",
+   "kind": "wide reveal of the whole place",
+   "moi": 5.67,
+   "gib20": 7.0,
+   "moi_tung_nguoi": [
+    6,
+    5,
+    6
+   ],
+   "gib20_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "chon_moi": "0/3",
+   "co_moi": [
+    "cluttered",
+    "confusing"
+   ],
+   "doc_moi": 7.0,
+   "ro_moi": 6.0,
+   "sua_yeu_hon": [
+    "Move the camera much closer and lower to the battery line, and scale up or add detail to the hulls so they read as warships. Cut the on-screen text to one large caption in a bigger font, and drop the leader line and the second caption bar.",
+    "Make the batteries much larger and more detailed, with visible gun ports and strong muzzle flashes and smoke. Pull the camera lower and closer to the line and the Rock. Merge the two caption boxes into one short headline of 28pt or larger, such as '10 floating batteries'. Move the source credit to a small footer, and keep every hull in frame.",
+    "Enlarge the ship line (bigger hulls, lower and closer camera, stronger gun smoke and fire), shorten the top caption to one short line, and move the source credit out of the ships' path so it doesn't overlap the last ship."
+   ],
+   "thua": true
+  }
+ ],
+ "tb_moi": 5.89,
+ "tb_gib20": 6.11,
+ "thua_cap": [
+  "P1",
+  "P4"
+ ],
+ "chi_phi": 1.61
+}

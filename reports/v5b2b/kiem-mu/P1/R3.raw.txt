@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 6,
+    "readability": 7,
+    "clarity": 6,
+    "flags": ["empty_frame"],
+    "note": "The hillside, the walled waterfront and the lighting look decent. The bottom half is flat water with a stray tan squiggle that reads as a glitch. The text boxes are cleanly placed, but the top-left 'Map data: OpenStreetMap' credit is the most prominent text and tells the viewer nothing. The bottom-left box has a clear date and time, but the caption is small and thin for a phone. The location is correct, and the walls and fort are visible but dark and hard to pick out. Nothing shows what the viewer should look at."
+  },
+  "Y": {
+    "craft": 6,
+    "readability": 7,
+    "clarity": 6,
+    "flags": ["cluttered", "confusing"],
+    "note": "The big '1906' and the '≈ 19,630 residents' stat read well on a phone, and the archival inset photo adds credibility. The 'c. 1900' caption box covers the runway and the lower edge of the inset. The caption's second line is small and low-contrast. The scene is 1906 but the inset and caption say c. 1900, and the caption mentions a runway that does not exist yet. The pointer line from the inset ends in a dot hidden behind the caption. The foreground is a large empty green field. The 3D terrain is flat and plain."
+  },
+  "better": "Y",
+  "why": "Y puts a large year, a headline number and a real archival photo on screen, so a viewer takes away a clear point about the place and its size. X shows a pretty but mostly empty coastline with a credit line and small captions that tell the viewer little.",
+  "top_fix_for_weaker": "In X, delete or shrink the OpenStreetMap credit and move it to the end of the video. Put a large label on the fortified waterfront, such as 'Gibraltar's sea walls, 1782', with arrows or highlights on the walls and batteries. Raise the camera or crop out the empty lower half of the water, and enlarge the caption text."
+}
+```

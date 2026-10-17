@@ -41,9 +41,9 @@ export async function build(ctx) {
     orbit: { c: [KBC[0], 6, KBC[2]], r: 100, h: 38, look: 4, a0: 182, a1: 330, t1: 10.6, fov: 34, heroId: 'kings_bastion' },
     crane: { t1: 12.0, h: 240, fov: 34, l: [-640, 30, -1280] },
     // reveal: lên + lùi về phía đông-bắc, tâm nhìn trượt từ bastion sang giữa hàng pin nổi (phố + bastion tiền cảnh, hàng pin nổi chiếm bề ngang khung)
-    reveal: { keys: [{ t: 13.7, p: [-1150, 280, -1420], l: [-700, 40, -1290], fov: 36 }, { t: 15.4, p: [-1700, 205, -1500], l: [-1080, 0, -1310], fov: 36 }, { t: 17.0, p: [-1950, 178, -1540], l: [-1150, -7, -1310], fov: 35 }] },   // lùi ra vịnh qua hàng pin nổi: pin nổi tiền cảnh, phố + Rock hậu cảnh (góc bản khắc nhìn từ vịnh)
+    reveal: { keys: [{ t: 13.7, p: [-1100, 300, -1650], l: [-700, 20, -1300], fov: 36 }, { t: 15.4, p: [-1650, 250, -2050], l: [-1000, 0, -1250], fov: 37 }, { t: 17.0, p: [-1900, 215, -2250], l: [-1150, 0, -1150], fov: 37 }] },   // lùi ra vịnh phía tây-nam: hàng 10 pin nổi chạy chéo khung, phố + Rock hậu cảnh phải (chấm mù P4: trước chỉ thấy 5/10)
     pin: PIN });
-  const G = grammar([lh], [{ t: 18.0, p: [-1975, 176, -1545], l: [-1155, -8, -1310], fov: 35 }]), path = G.path;
+  const G = grammar([lh], [{ t: 18.0, p: [-1925, 212, -2268], l: [-1160, 0, -1145], fov: 37 }]), path = G.path;
   const D0 = [1782, 9, 13];
   const jdAt = (h) => jdLocal(D0[0], D0[1], D0[2], h);
   const pinK = (t) => ease((t - (PIN[0] - 0.1)) / 0.35) * ease((PIN[1] + 0.3 - t) / 0.4);

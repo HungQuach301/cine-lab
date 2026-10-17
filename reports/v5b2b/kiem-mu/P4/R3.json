@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Simple low-poly boats on a flat blue sea with soft smoke puffs. The coast is hard to make out and the hill looks plain. The callout pins one boat, but the text says '10 batteries' and only 5 are in frame, and the line is faint. The captions are fairly small and the two-line callout is dense for a phone. 'Positions illustrative' is an honest disclaimer. The date and time chip reads well."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "A dense, detailed textured 3D city model with a clear runway and bay, so the place reads as Gibraltar. Real-looking geometry, but with melted or blurry texture patches and a flat blue sea. The large '37,936 residents' headline and the '2026' chip read easily. The secondary caption and the credit line are small. The headline figure isn't tied to anything visible, so it reads as a label rather than a quantity. The busy imagery behind the credit bar adds some clutter."
+ },
+ "better": "Y",
+ "why": "Y has richer, more convincing imagery and a clearer headline number, while X looks sparse and toy-like, with a callout that doesn't match what's on screen.",
+ "top_fix_for_weaker": "In X, show all 10 batteries in a clear line against the fortress (or change the count label to match), add a stronger coastline and fortification silhouette, and enlarge and shorten the callout text so it reads on a phone."
+}

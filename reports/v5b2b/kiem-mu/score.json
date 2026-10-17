@@ -1,0 +1,178 @@
+{
+ "cap": [
+  {
+   "cap": "P1",
+   "kind": "low aerial flight toward a place (route flight)",
+   "moi": 6.0,
+   "gib20": 6.67,
+   "moi_tung_nguoi": [
+    6,
+    6,
+    6
+   ],
+   "gib20_tung_nguoi": [
+    7,
+    7,
+    6
+   ],
+   "chon_moi": "0/3",
+   "co_moi": [
+    "confusing",
+    "empty_frame"
+   ],
+   "doc_moi": 7.0,
+   "ro_moi": 5.67,
+   "sua_yeu_hon": [
+    "Lower the camera or tilt it up so the town, walls and batteries fill the frame instead of the water. Replace the OSM credit chip with a label pointing at the key fortification, such as 'King's Bastion', and enlarge the date chip.",
+    "Raise the camera and pitch it down so the fortifications and town fill the frame and the horizon drops to the upper third. Remove the beige polygon artifact from the water. Replace the OSM credit chip with a short, large headline such as 'Siege of Gibraltar, 13 Sep 1782', and tint or label the batteries so they stand out from the terrain.",
+    "In X, delete or shrink the OpenStreetMap credit and move it to the end of the video. Put a large label on the fortified waterfront, such as 'Gibraltar's sea walls, 1782', with arrows or highlights on the walls and batteries. Raise the camera or crop out the empty lower half of the water, and enlarge the caption text."
+   ],
+   "thua": true
+  },
+  {
+   "cap": "P2",
+   "kind": "orbit around a landmark at a frozen key date",
+   "moi": 5.67,
+   "gib20": 5.0,
+   "moi_tung_nguoi": [
+    6,
+    5,
+    6
+   ],
+   "gib20_tung_nguoi": [
+    5,
+    5,
+    5
+   ],
+   "chon_moi": "2/3",
+   "co_moi": [
+    "flat_slide_look",
+    "text_overlap"
+   ],
+   "doc_moi": 6.0,
+   "ro_moi": 6.0,
+   "sua_yeu_hon": [
+    "Move the source caption away from the date chip so '13 Sep 1782 · 09:45' is fully visible, enlarge the caption text, and add visible action to the bastion: cannons, smoke, and gunners at the embrasures, with the leader line anchored to them.",
+    "Fix Y's text: remove the leader line crossing the year plate, move the source text off the busy scene into a cleaner caption with larger, higher-contrast type, and tie the residents stat to a label such as 'Gibraltar population, 1941'. Then add real scene content, such as a visible Rock, a denser town and crowds at the barrier, so the frame reads as Gibraltar.",
+    "Move the callout and leader line so they don't cover the road gate and cars. Redraw the leader to end on the roadblock without crossing the '1941' plate. Label the figure (for example 'Gibraltar population, 1941') and use a brighter, larger source line. Add scene detail, such as buildings, aircraft and people at readable scale, to the empty green field."
+   ],
+   "thua": false
+  },
+  {
+   "cap": "P3",
+   "kind": "close view of a historic landmark structure",
+   "moi": 6.67,
+   "gib20": 5.67,
+   "moi_tung_nguoi": [
+    7,
+    6,
+    7
+   ],
+   "gib20_tung_nguoi": [
+    6,
+    5,
+    6
+   ],
+   "chon_moi": "3/3",
+   "co_moi": [],
+   "doc_moi": 7.0,
+   "ro_moi": 7.33,
+   "sua_yeu_hon": [
+    "Cut the frame to one label, drop or move the residents stat to its own beat, and move the camera closer so the tower fills about a third of the frame with a thinner callout.",
+    "Push the camera in on the Tower of Homage so it fills about a third of the frame, and move the title card off the tower to a lower-third. Fold the residents figure into one consistent stat chip, and use a larger font for the sub-line.",
+    "Cut X to one callout: drop or properly label the '≈18,452 residents' box (round it, e.g. 'about 18,000 residents of Gibraltar, 1882') and merge the year into the tower label. Enlarge the source line, add a bold highlight outline on the tower, and add a scale cue such as a person or a height marker."
+   ],
+   "thua": false
+  },
+  {
+   "cap": "P4",
+   "kind": "wide reveal of the whole place",
+   "moi": 5.0,
+   "gib20": 7.0,
+   "moi_tung_nguoi": [
+    5,
+    5,
+    5
+   ],
+   "gib20_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "chon_moi": "0/3",
+   "co_moi": [
+    "cluttered",
+    "confusing"
+   ],
+   "doc_moi": 6.67,
+   "ro_moi": 5.67,
+   "sua_yeu_hon": [
+    "Pull the camera closer and lower, so the ships are larger and all ten fit in the frame without the right-edge crop. Replace the blocky hulls with detailed models with sails and gun ports. Anchor the smoke to the ships. Cut the label to one short line, such as '10 floating batteries', and move the sourcing text into a small footer.",
+    "Rebuild the shot to frame all 10 batteries in a visible line against the Gibraltar fortifications. Use a lower, wider, dusk-lit camera with real hull models, proper sea shading and wakes, and numbered markers or a bracket instead of a single leader line. Shrink the credits to a short footer, and enlarge the headline and subline text.",
+    "In X, show all 10 batteries in a clear line against the fortress (or change the count label to match), add a stronger coastline and fortification silhouette, and enlarge and shorten the callout text so it reads on a phone."
+   ],
+   "thua": true
+  },
+  {
+   "cap": "P5",
+   "kind": "3D street view of a dense old town with buildings",
+   "moi": 7.0,
+   "gib20": 7.0,
+   "moi_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "gib20_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "chon_moi": "3/3",
+   "co_moi": [
+    "cluttered"
+   ],
+   "doc_moi": 8.0,
+   "ro_moi": 8.0,
+   "sua_yeu_hon": [
+    "Remove or fully fade out the ghosted '1704 · British and Dutch...' caption, or re-render it at full opacity in a solid dark chip with 36px+ text. Replace the 'No AI imagery · Census · Catastro · Landsat 5' header with a plain place label such as 'Gibraltar, 1752'. Move the source credits to a small end-card.",
+    "In X, remove or fully fade in the lower-third so it is solid and fits on one line at 40px or larger, for example 'Gibraltar, 1752 · captured 1704 by British and Dutch forces'. Replace the banner with a short place label. Reframe the camera lower so the town fills more of the frame than the empty hillside.",
+    "Remove or fully fade out the leftover ghost caption ('1704 · British and Dutch for...'), or re-render it as a solid dark pill with large white text. Then replace the 'No AI imagery · Census · Catastro · Landsat 5' label with a plain location and date line such as 'Gibraltar, 1752', and move the source list to a small credit."
+   ],
+   "thua": false
+  },
+  {
+   "cap": "P6",
+   "kind": "3D town overview with landmark",
+   "moi": 7.0,
+   "gib20": 5.33,
+   "moi_tung_nguoi": [
+    7,
+    7,
+    7
+   ],
+   "gib20_tung_nguoi": [
+    5,
+    5,
+    6
+   ],
+   "chon_moi": "3/3",
+   "co_moi": [],
+   "doc_moi": 6.33,
+   "ro_moi": 7.33,
+   "sua_yeu_hon": [
+    "In X, shrink the callout and move it to the empty terrain, and attach it to the tower with a longer leader line. Reframe the camera so the whole tower and the town sit in the lower two-thirds. Then reduce the empty foreground, add texture and variation to the flat grass, and add soft shadows.",
+    "Reframe X so the Tower of Homage sits fully in frame as the focal point. Move the callout to a clear area with a leader line that visibly touches the tower. Cut the empty plain by lowering the horizon or moving the camera closer. Tie the resident count to the town, for example with a small label near it.",
+    "Move the tower callout off the town (for example to the top-left sky or the empty plain), reframe the camera so the whole tower sits clear of the bottom edge with a longer leader line, and add a place label such as 'Gibraltar' to the resident count so the number has context."
+   ],
+   "thua": false
+  }
+ ],
+ "tb_moi": 6.22,
+ "tb_gib20": 6.11,
+ "thua_cap": [
+  "P1",
+  "P4"
+ ],
+ "chi_phi": 1.1
+}

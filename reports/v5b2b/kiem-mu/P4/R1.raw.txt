@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 7, "clarity": 6, "flags": ["cluttered"], "note": "Game-like 3D scene with a nice water shader. The ships are tiny, blocky brown slabs. The town and the Rock are small and distant, and the fifth ship is cut off at the right edge. The caption box is large and covers the coastline. The 'positions illustrative' text is small and low-contrast. The smoke puffs float away from the ships and look like blobs. The scene reads as a toy diorama more than a reveal of the whole place."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 7, "flags": ["cluttered"], "note": "Dense photoreal-style 3D city model with the runway, harbour and Rock all visible, so it looks like a real place. The textures are smeared and blurry, there is a hard cut-off edge at the bottom, and the left side of the frame is a busy mass of buildings. The large '37,936 residents' text and the year are readable on a phone. The credit line is long, but it is small and unobtrusive."},
+ "better": "Y",
+ "why": "Y shows the whole place with real detail, a clear subject, and bold readable numbers, while X is sparse, toy-like, and overlaid with heavy caption boxes.",
+ "top_fix_for_weaker": "Pull the camera closer and lower, so the ships are larger and all ten fit in the frame without the right-edge crop. Replace the blocky hulls with detailed models with sails and gun ports. Anchor the smoke to the ships. Cut the label to one short line, such as '10 floating batteries', and move the sourcing text into a small footer."}
+```

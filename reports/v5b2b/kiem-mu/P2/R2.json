@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "text_overlap",
+   "flat_slide_look"
+  ],
+  "note": "The date plate '13 Sep 1782 \u00b7 09:45' is partly covered by the source caption, so '09:45' is cut off. The bastion is a huge, flat, untextured beige slab with no guns, smoke or figures, so the 'guns open fire' event is not shown. Water, terrain and rooftops are decent, and the pin line points at an empty surface. Three text boxes compete for attention. Text is high-contrast and sized well otherwise."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "text_overlap",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The runway, yellow edge lines and tiny blocky cars and people are clear, and the large '1941' plate reads easily. The source line is gray, small and sits over the cars and barrier, so it is hard to read. The callout leader line crosses the '1941' box. The '\u2248 19,047 residents' stat floats with no visual link to the scene and no label for what it counts. The terrain is a flat green plane, and the vehicles are crude voxel props. The scene reads as a runway but not clearly as Gibraltar."
+ },
+ "better": "X",
+ "why": "X has richer environment and lighting, with water, town and shadows, and its main text is crisp. Y's scene is emptier, its stat is disconnected and its source text is hard to read, though X's date plate collision is a real defect.",
+ "top_fix_for_weaker": "Fix Y's text: remove the leader line crossing the year plate, move the source text off the busy scene into a cleaner caption with larger, higher-contrast type, and tie the residents stat to a label such as 'Gibraltar population, 1941'. Then add real scene content, such as a visible Rock, a denser town and crowds at the barrier, so the frame reads as Gibraltar."
+}

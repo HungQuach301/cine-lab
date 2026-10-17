@@ -9,6 +9,9 @@ import importlib.util, json, os, random, re, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, '..', '..'))
 OUT = os.path.join(HERE, 'kiem-mu'); LOG = os.path.join(OUT, 'cost.jsonl')
+# vòng 2 (sau khi sửa theo vòng 1: nhãn ghost đè đồng hồ, đốm đất giả trên vịnh, reveal chỉ thấy 5/10 pin nổi): CHỈ chấm lại cặp đã sửa, cùng giây khai, cùng thứ tự X/Y; sổ chi phí chung
+V2 = '--vong2' in sys.argv; sys.argv = [x for x in sys.argv if x != '--vong2']
+if V2: OUT1, OUT = OUT, os.path.join(OUT, 'vong2')
 spec = importlib.util.spec_from_file_location('bv2', os.path.join(REPO, 'channel-k2', 'k2v2-mau', 'blind_v2.py')); BV2 = importlib.util.module_from_spec(spec); spec.loader.exec_module(BV2)
 PROMPT, RATERS, MODEL, grab = BV2.PROMPT, BV2.RATERS, BV2.MODEL, BV2.grab
 assert MODEL == 'claude-sonnet-5-5'
@@ -29,9 +32,10 @@ def spent():
     return sum(json.loads(l)['usd'] for l in open(LOG)) if os.path.exists(LOG) else 0.0
 
 
-def setup(master):
+def setup(master, only=None):
     os.makedirs(OUT, exist_ok=True); R = random.Random(20261017); key = {}
     for pid, P in PAIRS.items():
+        if only and pid not in only: R.random(); continue
         new_is_x = R.random() < 0.5; d = os.path.join(OUT, pid); os.makedirs(d, exist_ok=True)
         grab(master, P['t'], os.path.join(d, 'X.jpg' if new_is_x else 'Y.jpg'))
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', os.path.join(G20, P['g20']), '-vf', 'scale=1280:-2', '-q:v', '3', os.path.join(d, 'Y.jpg' if new_is_x else 'X.jpg')], check=True)
@@ -81,6 +85,6 @@ def score():
 
 if __name__ == '__main__':
     a = sys.argv[1]
-    if a == 'set': setup(sys.argv[2])
+    if a == 'set': setup(sys.argv[2], sys.argv[3:] or None)
     elif a == 'run': run()
     elif a == 'score': score()

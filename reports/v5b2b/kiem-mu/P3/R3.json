@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "cluttered",
+   "confusing"
+  ],
+  "note": "Good 3D city render with a clear tower and strong, large text. But the frame has three competing text boxes. The residents figure sits in the top-right with no label for what it counts. The 1882 year is far from the callout. A 23 m tower sits in a dense town with no scale cue. The sourcing line is the faint small subtitle 'Ministry for Heritage, Gibraltar'. The 'approx 18,452' is falsely precise. The callout floats over empty terrain and its pointer is a thin line that is easy to miss."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [],
+  "note": "Cleaner, more cinematic composition with a clear low-poly bastion as the subject and a tidy lower-third. Location pill, timestamp and source credit are consistent and honest: 'Reconstructed from...' states that this is a reconstruction. The text is small, so the source line and location are marginal on a phone. The bastion's walls and platform are flat and untextured, with little detail. The date/time is precise but its relevance is unexplained."
+ },
+ "better": "Y",
+ "why": "Y has a single clear subject, calmer composition and honest source labelling, while X crowds the frame with three disconnected text boxes and an unlabeled, falsely precise figure.",
+ "top_fix_for_weaker": "Cut X to one callout: drop or properly label the '\u224818,452 residents' box (round it, e.g. 'about 18,000 residents of Gibraltar, 1882') and merge the year into the tower label. Enlarge the source line, add a bold highlight outline on the tower, and add a scale cue such as a person or a height marker."
+}

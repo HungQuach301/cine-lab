@@ -71,6 +71,11 @@ def main(name):
     ships = np.isin(lab_, 1 + np.nonzero((szl < 500) & (mh < 0.5))[0])
     land26 = (land26 & ~ships) | (dsm > 1.2) | rwm; land87 = land87 | rwm
     land26c, land87c = clean(land26), clean(land87)
+    # V5b-2b: "dsm > 1,2" đưa lại tàu neo có trong DSM Copernicus (2011–15) thành đốm đất giữa vịnh (chấm mù V5b-2b-T: "stray tan artifact").
+    #  Vịnh không có đảo tự nhiên trong ext → bỏ mọi mảng đất rời < 2 000 ô (0,8 km²); bờ Gibraltar–Tây Ban Nha là một mảng liền.
+    def drop_islets(L, min_px=2000):
+        lab, n = ndimage.label(L); sz = ndimage.sum(L, lab, range(1, n + 1)); return np.isin(lab, 1 + np.nonzero(sz >= min_px)[0])
+    n0 = int(land26c.sum()); land26c, land87c = drop_islets(land26c), drop_islets(land87c); print("bỏ đốm đất rời giữa biển:", n0 - int(land26c.sum()), "ô")
     sea87 = ~land87c; dsea87 = ndimage.distance_transform_edt(~sea87) * STEP
     new = land26c & ~land87c & (dsea87 <= 1.0) | (land26c & ~land87c & (dsm < 20))
     new = ndimage.binary_opening(new, iterations=2) & land26c
@@ -201,7 +206,12 @@ def main(name):
     uh, ul = enc(urbY); lh, ll = enc(landY)
     Image.fromarray(np.stack([uh, ul, lh, ll], -1), "RGBA").save(out / "years.png")
     # ---- địa hình: lưới 20 m (mesh) Float32, hàng 0 = bắc
-    t20 = dtm[::2, ::2].astype(np.float32); t20.tofile(out / "terrain.f32")
+    # V5b-2b: lọc lần cuối trên lưới độ cao — mảng nổi khỏi mặt nước (> −0,5 m) rời bờ < 2 000 ô (tàu neo/phao trong DSM qua các bước nội suy) → đáy biển
+    lab_i, n_i = ndimage.label(dtm > -0.5); sz_i = ndimage.sum(dtm > -0.5, lab_i, range(1, n_i + 1)); isl = np.isin(lab_i, 1 + np.nonzero(sz_i < 2000)[0])
+    dtm = np.where(isl, -12.0, dtm); print("đảo giả trên lưới độ cao → đáy biển:", int(isl.sum()), "ô")
+    t20 = dtm[::2, ::2].astype(np.float32)
+    lab_t, n_t = ndimage.label(t20 > -0.5); sz_t = ndimage.sum(t20 > -0.5, lab_t, range(1, n_t + 1)); isl_t = np.isin(lab_t, 1 + np.nonzero(sz_t < 500)[0])   # lưới 20 m thực dùng: mảng rời < 20 ha
+    t20[isl_t] = -12.0; print("đảo giả trên lưới 20 m → đáy biển:", int(isl_t.sum()), "ô"); t20.tofile(out / "terrain.f32")
     # ---- cây: NDVI cao, ngoài vùng đô thị 2026 → tự nhiên (luôn có); cây OSM trong phố → năm đô thị
     rng = np.random.default_rng(7); T = []
     # cây tự nhiên: NDVI cao NGOÀI vùng nhân tạo + ngoài bãi bằng eo đất (cỏ sân bay/sân bóng không phải cây): chỉ sườn dốc > 4° hoặc vùng OSM rừng/bụi

@@ -56,7 +56,9 @@ function batteryGroup(R) {
   m(hullGeo(len, beam, 5.5, 0.16), L(0x3a2c20), 0, -2.6, 0);
   m(new THREE.BoxGeometry(len * 0.86, 2.2, beam * 0.9), L(0x4a3828), -len * 0.03, 3.4, 0);   // sàn pháo
   const roof = new THREE.BoxGeometry(len * 0.8, 0.7, beam * 0.62); const r1 = m(roof, L(0x5a4632), -len * 0.03, 6.2, beam * 0.2); r1.rotation.x = 0.42;   // mái nghiêng che sàn (phía hướng thành)
-  for (let k = 0; k < 11; k++) m(new THREE.BoxGeometry(1.1, 1.1, 0.3), L(0x15110d), -len * 0.38 + k * len * 0.068, 3.6, -beam * 0.455);   // hàng lỗ pháo
+  for (let k = 0; k < 11; k++) for (const sd of [-1, 1]) m(new THREE.BoxGeometry(1.3, 1.2, 0.3), L(0x120e0a), -len * 0.38 + k * len * 0.068, 3.6, sd * beam * 0.455);   // hàng lỗ pháo hai mạn
+  for (const sd of [-1, 1]) { m(new THREE.BoxGeometry(len * 0.88, 0.45, 0.35), L(0xb89a6a), -len * 0.03, 4.75, sd * beam * 0.46); m(new THREE.BoxGeometry(len * 0.9, 0.35, 0.3), L(0x8a6a44), 0, 1.6, sd * beam * 0.5); }   // mép boong gỗ sáng + gờ mạn (đọc được khối thân ở xa)
+  m(new THREE.BoxGeometry(len * 0.97, 0.5, beam * 0.98), L(0x1c1a17), 0, 0.15, 0);   // đường mớn nước tối
   for (const [x, hh] of [[-len * 0.2, 16], [len * 0.18, 14]]) { m(new THREE.CylinderGeometry(0.35, 0.45, hh, 5), L(0x2e241b), x, hh / 2 + 4, 0); m(new THREE.CylinderGeometry(0.5, 0.5, beam * 0.6, 5).rotateX(Math.PI / 2), L(0xd8ccb0), x + 0.4, hh * 0.72 + 4, 0); }   // cột ngắn + buồm cuộn
   return g;
 }

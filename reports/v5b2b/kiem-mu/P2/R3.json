@@ -1,0 +1,25 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "text_overlap",
+   "flat_slide_look"
+  ],
+  "note": "The date plate '13 Sep 1782 \u00b7 09:45' is partly covered by the source caption, so the time '09:45' is clipped. The bastion is a big flat beige slab with almost no texture or detail. The water, town and lighting look decent. The callout is clear and the leader line is fine, but it points at an empty plain. The source line is small on a phone. The time appears three times (date plate, callout, partly hidden)."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "text_overlap",
+   "confusing"
+  ],
+  "note": "The big '1941' plate and the '\u224819,047 residents' badge are very legible. However, the leader line cuts through the year plate, and the callout covers the gate and cars that it is meant to explain. The grey source line is low contrast and sits tight against the headline. The runway is clean and reads well, but the rest is a flat green field with little going on. '19,047 residents' has no label for what it counts, and the source is a 2023 government publication cited for a 1941 event. The tiny block-figure cars and people are too small to read."
+ },
+ "better": "X",
+ "why": "X has a richer scene and a clear, sourced callout, even though its date plate is clipped, while Y has a flat, empty field, a leader line through the year plate and an unexplained population figure.",
+ "top_fix_for_weaker": "Move the callout and leader line so they don't cover the road gate and cars. Redraw the leader to end on the roadblock without crossing the '1941' plate. Label the figure (for example 'Gibraltar population, 1941') and use a brighter, larger source line. Add scene detail, such as buildings, aircraft and people at readable scale, to the empty green field."
+}

@@ -1,0 +1,25 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 4,
+  "clarity": 5,
+  "flags": [
+   "illegible_text",
+   "text_overlap",
+   "cluttered"
+  ],
+  "note": "The dense terracotta town is rich and convincing, with good shadows and texture. A faded caption ('1704 \u00b7 British and Dutch for... Gibraltar / Gibraltar National Ma...') sits over the water at the bottom and is unreadable. The top chip reads like a metadata dump ('No AI imagery \u00b7 Census \u00b7 Catastro \u00b7 Landsat 5'). The year 1752 is big and clear. The viewer can't tell what the scene is about, because the main caption is a ghost."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Clean, high-contrast chips on a phone: place pin, year, a caption that explains what is drawn and how certain it is, and a source credit. The scene has good depth, with water, walls and hills. The buildings are sparse and low-poly, and the trees look toy-like. The four text chips crowd the frame and the lower-left caption covers some of the street. The viewer still knows quickly what they're looking at."
+ },
+ "better": "Y",
+ "why": "Y's overlays are legible and explain the scene at once, while X's more impressive dense town is undercut by a faded, illegible caption and a jargon-heavy header.",
+ "top_fix_for_weaker": "Remove or fully fade out the ghosted '1704 \u00b7 British and Dutch...' caption, or re-render it at full opacity in a solid dark chip with 36px+ text. Replace the 'No AI imagery \u00b7 Census \u00b7 Catastro \u00b7 Landsat 5' header with a plain place label such as 'Gibraltar, 1752'. Move the source credits to a small end-card."
+}

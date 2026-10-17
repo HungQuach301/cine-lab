@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Clean water and terrain with a readable line of ten barge-like batteries. The ships are tiny and look like floating planks. The Rock and the town are small and flat, and the smoke puffs are faint. The two-line caption is long, and the leader line points at one random ship. The source credit box floats mid-frame and is partly overlapped by the last ship. The date and time stamp is clear. The scene reads as a naval line, but the wide reveal is weak."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Dense photogrammetry-style city with the runway and the Rock. The scale impresses and the 37,936 headline is large and clear. The textures are smeared and blotchy, with green and brown patches, and the geometry is jagged at the edges. The tilted view is heavy. The attribution strip and the sub-caption are small on a phone but legible. The place is recognizable as Gibraltar from the runway. The '2026' badge and the 2022 figure mismatch slightly."
+ },
+ "better": "Y",
+ "why": "Y gives a richer, more immersive reveal with an instantly readable headline figure and a landmark runway, while X's tiny ships and long captions feel sparse and less clear.",
+ "top_fix_for_weaker": "Enlarge the ship line (bigger hulls, lower and closer camera, stronger gun smoke and fire), shorten the top caption to one short line, and move the source credit out of the ships' path so it doesn't overlap the last ship."
+}
