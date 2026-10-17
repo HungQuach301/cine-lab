@@ -205,7 +205,9 @@ Giao thức như V5b-2b: `claude -p` ghim **claude-sonnet-5-5**, chỉ công c�
 4. **Ảnh PD đúng phố** cho chiếu texture (§4.3) — cần Cowork/chủ dự án lấy (LoC bị Cloudflare chặn phiên).
 5. **Nhánh:** cần tên `pt-khung-neo` thì P tạo từ commit cuối của nhánh này.
 6. Ghi các đề xuất ngoài vùng §12 (RIGHTS, AUTHORSHIP, COST-LEDGER, verify.sh).
+8. **Preflight `origin/main..HEAD` của nhánh `v5b2b` TRƯỢT 35 mục** (§14) — P xử lý trước khi merge v5b2b (và nhánh này, vì dựng trên v5b2b).
 7. Nếu chọn H-B: chủ dự án quyết cách công bố AI (dòng chữ trên hình/mô tả) và có kiểm SynthID trên khung phim hay không (§8).
 
 ## 14. Preflight
 - `bash tools/preflight.sh` (137 tệp staged) **ĐẠT**, `checks/lock.py --verify` **KHỚP**. Lần chạy đầu **TRƯỢT 1 mục**: email liên hệ của tác giả Quaternius nằm trong văn bản FAQ chép nguyên văn → đã che trong `giay-phep/quaternius-faq.txt` (ghi chú ngay chỗ che), chạy lại ĐẠT. Hook pre-commit/pre-push chạy lại khi commit/đẩy; không dùng `--no-verify`.
+- `--range origin/main..HEAD` **TRƯỢT 35 mục** — cả 35 nằm trong nội dung `origin/v5b2b` (đã có trên remote; `--range origin/main..origin/v5b2b` cho đúng 35 mục: 5 tệp 13–16,5 MB ngoài LFS + 30 dòng thiếu tệp giấy phép ở `channel-k2/k2c-t1-06/SOURCES-*.csv`), **không phải tệp của PT**. Phần mới của phiên `--range origin/v5b2b..HEAD` (137 tệp) **ĐẠT**; hook pre-push cục bộ của phiên chạy đúng phạm vi này. Việc 35 mục của v5b2b → chờ P/V5b-2b (§13).
