@@ -2,7 +2,30 @@
 
 > Làm theo lệnh duyệt G1b (15/10, M1–M4). Nhánh **`k2c-t2`**, đẩy cả `ccr-bef6f172-fcqat9`. Không sửa `checks/` và không đọc mã trong đó; không sửa `docs/BIBLE-KENH2.md`.
 
-<!-- §0 tóm tắt: điền cuối -->
+## 0. Tóm tắt (cập nhật 17/10, sau chấm lần 4) — **TRƯỢT → DỪNG chờ chủ dự án**
+- **Bản hiện hành:**
+  - Master 1080p **`8fba1df2c961ebc038bac8602854b5735f9949e7f9fea491dd25b11b0b914ba2`**, 618,917 s, −14,0 LUFS / −1,6 dBTP.
+  - Short S1 **`e00eb9e07b91bb1eeb5328d16ced7d7029665d6f697d2e80f4e140fb4b8a5041`**.
+  - Gói `phat-hanh/` (SHA256SUMS theo master này); `release_check` v5a **0 LỖI, 0 BÁO**.
+  - Chưa tạo nhánh LFS (chờ G2).
+- **Lời v3.4 khoá SHA; ElevenLabs 0 ký tự** từ khi khoá. API chấm mù lũy kế **$13,04 / trần $15**.
+- **Chấm mù (cùng giây khung, seed, 3 người, chỉ Read):**
+  - RÀ GU T2 6,62 → 6,81 → 6,76 → **6,81**; phần sửa 6,47 → 6,87 → 6,87 → **6,80**.
+  - Luật SS3 (≥ 6,65 và không thua cặp): trung bình đạt, nhưng **thua P2, P6, E2** → TRƯỢT.
+  - Nguyên nhân cụ thể (§13.4): nhãn đích mờ đúng giây khung E2, viền trắng vùng South Korea, khoảng trống trong tấm nền chữ footage.
+  - Đề xuất U1–U3 (§13.5).
+- **Luật:**
+  - Q34 ĐẠT. Q21, Q23, Q1, Q5 nay ĐẠT.
+  - Q32(b) là ngoại lệ chủ dự án duyệt; Q26b, Q33 là ngoại lệ đã biết của kênh 2; Q14/Q15/Q17 và Q7/Q8 áp nhầm (khiếu nại K).
+  - k2check (chỉ báo): Q35 trượt do sửa Q7 (đề xuất hoàn tác); Q37 lộ đoạn tĩnh 12,83 s ở g05_china; Q36(b) còn 1.
+- **Kỹ thuật đã sửa tận gốc:**
+  - `hero.js --resume` mất điểm neo (551 khung / 21 cảnh; kiểm 44/44 ĐẠT);
+  - footage đứng 0,6 s (setpts);
+  - Short không dựng lại khi neo đổi (đề xuất cho Nền tảng).
+- **Golden:** steel / ll08 KHỚP; t1 lệch dòng nguồn — đổi kiểu đã duyệt; k2v4 lỗi cache erie — Nền tảng.
+- **versions:** toolkit k2v / ll đổi (chờ cập nhật VERSIONS.yaml); served Haiku đã duyệt.
+- **Việc chờ chủ dự án:** §13.8.
+
 
 ## 1. AUTHORSHIP, merge `main`
 - Ghi dòng "Kênh 2 K2C-T2-01 "Shipbuilding" (G1b — DUYỆT)" vào `AUTHORSHIP.md`: M1–M4 và 7 điểm hình chủ dự án tự rà.
@@ -695,3 +718,44 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   - f_liberty < 1 phút;
   - thử khung + lớp chữ xem trước ≈ 0,6 giờ;
   - build lớp chữ + ghép + Short 5702 s (1,58 giờ).
+
+### 13.7 QC nhà máy (`qc.sh`) và k2check 1.11.1 (chỉ báo): trước (master L3 `63568db9`) → sau (master L4 `8fba1df2`)
+| Mục | Trước | Sau | Ghi chú |
+|---|---|---|---|
+| Q1 judder | TRƯỢT (1, đoạn 01) | **ĐẠT** (0) | lỗi dựng footage, đã sửa (13.1) |
+| Q5 tương phản | TRƯỢT 2,17 | **ĐẠT 4,95** | nằm trong vùng +10 % của 4,5, không trong ±5 % |
+| Q7 nhãn loại số | TRƯỢT (thiếu ESTIMATE) | TRƯỢT (cùng mục) | QC LL không nhận nhãn góc/thẻ `estimate` → áp nhầm, khiếu nại K |
+| Q8 | TRƯỢT (n_tanker4 estimate) | TRƯỢT | áp nhầm (QC LL chỉ nhận actual/projection), khiếu nại K |
+| Q14, Q15, Q17 | TRƯỢT | TRƯỢT | luật nhịp LL áp nhầm như T1 |
+| Q21 nguồn trên hình | TRƯỢT 26 | **ĐẠT 0** | khai nguồn, chữ hiển thị không đổi |
+| Q23 thẻ nhiều số | TRƯỢT 3 | **ĐẠT 0** | tách lớp chữ |
+| Q32 | TRƯỢT (b) | TRƯỢT (b) | ngoại lệ chủ dự án 17/10 |
+| Còn lại (Q2–Q4, Q6, Q9–Q11, Q13, Q16, Q18–Q20, Q22, Q24, Q25, LOCK) | ĐẠT | ĐẠT | Q4 master −14,1 / −1,6; S1 −14,0 / −2,6 |
+| k2check Q26b, Q33 | TRƯỢT | TRƯỢT | ngoại lệ đã biết của kênh 2 (12.4). Q33 sau khai theo vùng: 3 góc > 2 |
+| k2check Q34 | ĐẠT | ĐẠT (45/45 shot) | — |
+| **k2check Q35 nhãn loại số** | ĐẠT | **TRƯỢT (b 1, c 1)** | **Do sửa lần này:** (c) Q7 chuyển ESTIMATE của r03_tanker lên nhãn góc nên mô hình k2check không còn thấy ESTIMATE; (b) shot r05_philly sau tách (`kind: ""`) bị mô hình tính thêm một ACTUAL góc (bản dựng thật không có góc). **Đề xuất: hoàn tác Q7** (ESTIMATE về thẻ) vì luật kênh 2 (Q35) mới là luật áp dụng; khai `kind` rõ cho shot tách |
+| k2check Q36 | TRƯỢT (b 2) | TRƯỢT (b 1) | câu miễn trừ nay 1 lần (0:05.6); vẫn bị tính vì shot g00_share không có nguồn `loai: luat/chinh_sach/quy_dinh` — cần K xác nhận cách đếm ngoại lệ "1 lần trong 0:00–0:15". "Thiếu log cỡ chữ" 45: lỗi công cụ |
+| k2check Q37 khung tĩnh | 14,08 s từ 9:48 | **12,83 s từ 6:54.9** | 9:48 đã hết (r06_score2 có chuyển động). Đoạn tĩnh dài nhất mới là quả địa cầu g05_china (6:54.9–7:12.0), trước đây bị che vì công cụ chỉ báo đoạn dài nhất → **phát hiện thật, chưa sửa** |
+| k2check A1–A3, A5–A8, A10 | ĐẠT | ĐẠT | −14,1 LUFS / −1,6 dBTP / LRA 2,2 |
+| k2check A9 | BÁO | BÁO | lỗi ASR (13.1), không phải lỗi đọc |
+| k2check A4, A11–A13 | không đo | không đo | thiếu stem — công cụ (V5b-2b/T3) |
+- **`versions.py check`:**
+  - **CHẶN** `toolkit.k2v` (4696ae81 → 30feba41: `k2.js` chip nơi dựng, dải chữ gọn, nền nhãn loại số; `hero.js` setpts footage).
+  - **CHẶN** `toolkit.ll` (c4d64bf4 → e6e2a6fc: `ll.py` cờ `src_co_dinh`).
+  - **CHẶN** `served_models` (Haiku, đã duyệt — 12.3).
+  - BÁO `claude_cli` 2.1.302.
+  - Không tự cập nhật VERSIONS.yaml (chờ chủ dự án như lần 12.3).
+
+### 13.8 Việc chờ chủ dự án
+1. **Kết quả lần 4 TRƯỢT** (thua P2, P6, E2). Chọn:
+   - (a) sửa U1–U3 rồi chấm lần 5 (≈ $2,11 → lũy kế ≈ $15,15, **vượt trần $15**);
+   - (b) chấp nhận T2 hiện tại;
+   - (c) hướng khác.
+2. Hoàn tác Q7 (ESTIMATE về thẻ) để k2check Q35 ĐẠT; khai `kind` rõ cho 3 shot r05_philly.
+3. Q37: thêm chuyển động cho g05_china (đoạn tĩnh 12,83 s) — cần dựng lại cảnh quả địa cầu.
+4. Cập nhật VERSIONS.yaml cho `toolkit.k2v` và `toolkit.ll` mới.
+5. Khiếu nại cho K: Q7/Q8 (`estimate` kênh 2), Q14/Q15/Q17 (nhịp LL), Q26b/Q33 (hình thức bản đồ), Q32(b) trần 8 s với ảnh tĩnh, Q36(b) cách đếm câu miễn trừ.
+6. Đề xuất Kinh thánh SS5 (a)–(c) — P ghi vào `docs/BIBLE-KENH2.md`.
+7. Nhánh LFS `release-k2c-t2-01-v1`: tạo khi G2 sẵn sàng.
+
+**DỪNG chờ chủ dự án.**
