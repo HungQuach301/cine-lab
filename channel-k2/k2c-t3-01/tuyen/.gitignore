@@ -1,0 +1,4 @@
+# Gói TUYẾN (17/10/2026): JSON/GeoJSON của gói này là kết quả nghiên cứu, không phải số liệu thô (tệp thô ở /var/tmp/cine-out/tuyen, SHA trong JSON).
+# channel-k2/.gitignore chặn *.json; phiên này chỉ được sửa tuyen/** nên mở lại ở đây.
+!*.json
+__pycache__/
