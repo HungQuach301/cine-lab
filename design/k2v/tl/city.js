@@ -45,7 +45,7 @@ export function styleOf(y, gy, h, reg, ar, R, pd) {
   return { sty, rf, gh };
 }
 
-export function makeCity(B, U, { lod = true } = {}) {
+export function makeCity(B, U, { lod = true, hid = 0 } = {}) {   // V5b-2b: hid > 0 = id hero của cả lớp (kênh B mặt nạ, hero_pct)
   const tiles = new Map(); const R = rng(17); const stats = { sty: [0, 0, 0, 0, 0, 0, 0], roof: {} , balc: 0 };
   const tri = (r) => THREE.ShapeUtils.triangulateShape(r.map(([x, y]) => new THREE.Vector2(x, y)), []);
   const add = (key) => { if (!tiles.has(key)) tiles.set(key, { L: [{ a: [] }, { a: [] }], c: null, n: 0 }); return tiles.get(key); };
@@ -88,7 +88,7 @@ export function makeCity(B, U, { lod = true } = {}) {
   const mkMat = (lodLevel, depth) => {
     const m = depth ? new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }) : U.lambert ? new THREE.MeshLambertMaterial({ vertexColors: true }) : new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0 });
     if (!depth && lodLevel === 0) m.side = THREE.DoubleSide;
-    m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '');   // tường chắn mái / lan can thấy cả mặt trong
+    m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid;   // tường chắn mái / lan can thấy cả mặt trong
     m.onBeforeCompile = (sh) => {
       Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uSample: U.uSample, uMask: U.uMask, uGhostDesat: { value: 0.22 } });
       sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>
@@ -167,7 +167,7 @@ export function makeCity(B, U, { lod = true } = {}) {
         }
         if (vGhost > 0.5) { float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), uGhostDesat); }   // lớp tái dựng: giảm bão hoà 22 %
         float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);`)
-        .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(1.0, vGhost > 0.5 ? 0.2 : 0.0, 0.0, 1.0);   /* V5b-2b: G = 0,2 → toà lớp TÁI DỰNG (ghost_pct, K-1.13) */');
+        .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(1.0, vGhost > 0.5 ? 0.2 : 0.0, ${(hid / 255).toFixed(6)}, 1.0);   /* V5b-2b: G = 0,2 → toà lớp TÁI DỰNG (ghost_pct, K-1.13); B = id hero của lớp */`);
     };
     return m;
   };

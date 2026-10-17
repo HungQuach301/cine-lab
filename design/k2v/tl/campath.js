@@ -53,7 +53,7 @@ export function camLog(path, N, fps, yearAt, opt = {}) {
 // ======================================================================================================================================
 export const VAI = ['co-che', 'buoc-ngoat', 'he-qua'];
 // HH2: độ cao bay TUYẾN so mặt đất theo loại tuyến — phố ≤ 120 m; eo đất / sông / đại lộ rộng ≤ 300 m
-export const ALT_MAX = { pho: 120, eo_dat: 300, song: 300, dai_lo: 300 };
+export const ALT_MAX = { pho: 120, eo_dat: 300, song: 300, dai_lo: 300, vinh: 300 };   // V5b-2b: mặt vịnh (cú #2 T3, bay ≈ 100 m) xếp như sông — HH2 chưa có loại này, chờ chủ dự án
 export const LIMITS = { year_rate: 10, ang_rate: 90, orbit_s: [4, 6], pin_s: [1.5, 2.0], hero_pct: 25 };
 const FAST = new Set(['fly', 'ramp', 'follow', 'trace']), HI = new Set(['orbit', 'pin', 'hero']);
 export const sppOf = (kind) => (HI.has(kind) ? 4 : FAST.has(kind) ? 1 : 2);

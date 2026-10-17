@@ -40,3 +40,39 @@ export function makeShips(U) {
   function update(year) { for (const s of ships) s.g.visible = year >= s.y0 && year < s.y1; }
   return { group, update, n: ships.length };
 }
+
+// ======================================================================================================================================
+// V5b-2b (T3 P0, M3 rút gọn) · HẠM ĐỘI THEO ĐỘI HÌNH + ĐƯỜNG ĐI THEO GIỜ. Mỗi tàu nội suy vị trí theo "giá trị thời gian" tv (giờ trong ngày ở cảnh mốc đinh,
+//  hoặc năm thập phân), hướng mũi theo chuyển động (đứng yên: hướng khai). Kiểu: 'battery' (pin nổi 1782 — hình dáng MINH HOẠ theo bản khắc Rijks RP-P-OB-19.249
+//  / Drinkwater view: thân thấp, mái nghiêng che sàn pháo, một hàng lỗ pháo, 2 cột ngắn; kích thước thân tàu CHƯA có nguồn → nhãn "illustrative"),
+//  'line' (tàu chiến tuyến), 'sail', 'boat' (như makeShips). Không người trên boong (luật hình chiến tranh §6.2).
+export function lineFormation({ n, center, axis = 0, spacing = 140, ...rest }) {   // n tàu xếp hàng dọc trục axis (độ, 0 = Bắc, chiều kim đồng hồ) quanh center [E, N]
+  const a = axis * Math.PI / 180, u = [Math.sin(a), Math.cos(a)];
+  return [...Array(n).keys()].map((i) => { const o = (i - (n - 1) / 2) * spacing; return Object.assign({ at: [center[0] + u[0] * o, center[1] + u[1] * o] }, rest); });
+}
+function batteryGroup(R) {
+  const g = new THREE.Group(), m = (geo, mat, x, y, z, ry = 0) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.rotation.y = ry; o.castShadow = o.receiveShadow = true; g.add(o); return o; };
+  const len = 50 + 6 * R(), beam = 15;
+  m(hullGeo(len, beam, 5.5, 0.16), L(0x3a2c20), 0, -2.6, 0);
+  m(new THREE.BoxGeometry(len * 0.86, 2.2, beam * 0.9), L(0x4a3828), -len * 0.03, 3.4, 0);   // sàn pháo
+  const roof = new THREE.BoxGeometry(len * 0.8, 0.7, beam * 0.62); const r1 = m(roof, L(0x5a4632), -len * 0.03, 6.2, beam * 0.2); r1.rotation.x = 0.42;   // mái nghiêng che sàn (phía hướng thành)
+  for (let k = 0; k < 11; k++) m(new THREE.BoxGeometry(1.1, 1.1, 0.3), L(0x15110d), -len * 0.38 + k * len * 0.068, 3.6, -beam * 0.455);   // hàng lỗ pháo
+  for (const [x, hh] of [[-len * 0.2, 16], [len * 0.18, 14]]) { m(new THREE.CylinderGeometry(0.35, 0.45, hh, 5), L(0x2e241b), x, hh / 2 + 4, 0); m(new THREE.CylinderGeometry(0.5, 0.5, beam * 0.6, 5).rotateX(Math.PI / 2), L(0xd8ccb0), x + 0.4, hh * 0.72 + 4, 0); }   // cột ngắn + buồm cuộn
+  return g;
+}
+export function makeFleet(U, specs) {
+  const group = new THREE.Group(), R = rng(1782), list = [];
+  for (const sp of specs) {   // sp: {kind, at:[E,N] | path:[[tv, E, N], …], heading (độ), t:[hiện, ẩn] (tv)}
+    let g; if (sp.kind === 'battery') g = batteryGroup(R);
+    else { const tmp = new THREE.Group(); g = tmp; const len = sp.kind === 'line' ? 52 + 8 * R() : 36; const mm = (geo, mat, x, y, z) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; g.add(o); };
+      mm(hullGeo(len, len * 0.27, 7, 0.2), L(0x3c2a1c), 0, -2.6, 0); mm(new THREE.BoxGeometry(len * 0.92, 1.0, len * 0.255), L(0xb09868), 0, 3.6, 0);
+      for (const [x, hh] of [[-len * 0.3, 28], [0, 34], [len * 0.28, 25]]) { mm(new THREE.CylinderGeometry(0.4, 0.5, hh, 5), L(0x3a2a1e), x, hh / 2 + 2, 0); for (let k = 0; k < 3; k++) mm(new THREE.BoxGeometry(0.4, hh * 0.22, len * 0.27 * (1 - k * 0.18)), L(0xece4d0), x + 0.6, 8 + k * hh * 0.26, 0); } }
+    g.visible = false; group.add(g); list.push({ sp, g });
+  }
+  const posAt = (sp, tv) => { if (!sp.path) return [sp.at[0], sp.at[1], null]; const P = sp.path; if (tv <= P[0][0]) return [P[0][1], P[0][2], null]; if (tv >= P[P.length - 1][0]) return [P[P.length - 1][1], P[P.length - 1][2], null];
+    let i = 1; while (P[i][0] < tv) i++; const [t0, e0, n0] = P[i - 1], [t1, e1, n1] = P[i], u = (tv - t0) / (t1 - t0), s = u * u * (3 - 2 * u); return [e0 + (e1 - e0) * s, n0 + (n1 - n0) * s, Math.atan2(n1 - n0, e1 - e0)]; };
+  return { group, list, n: list.length,
+    update(tv) { for (const { sp, g } of list) { const vis = !sp.t || (tv >= sp.t[0] && tv <= sp.t[1]); g.visible = vis; if (!vis) continue; const [e, n, hd] = posAt(sp, tv);
+      g.position.set(e, 0, -n); g.rotation.y = hd != null ? hd : (90 - (sp.heading || 0)) * Math.PI / 180; } },
+    positions(tv) { return list.map(({ sp }) => posAt(sp, tv)); } };
+}

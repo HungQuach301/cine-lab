@@ -71,6 +71,7 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   const RENDERER = await GLM.assertRenderer(GL, (SU && SU.renderer) || await GLM.rendererOf(page), browser, `gl ${arg('hero')}`);   // KHOP1(a): đúng trình dựng, sai → DỪNG mã 6
   const FM = {}; const MF = path.join(OUT, 'meta.json'); for (const q of [MF, MF + '.part']) try { Object.assign(FM, JSON.parse(fs.readFileSync(q, 'utf8')).frames_meta || {}); } catch (e) { /* lượt mới */ }   // --resume giữ AGL các khung đã có
   let frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
+  const NS = TL && SU && SU.N ? Math.min(N, SU.N) : N; if (NS < N) frames = frames.filter((f) => f < NS);   // cảnh tl có độ dài riêng: không dựng khung sau hết cảnh (render.js giữ khung cuối)
   const AF = path.join(OUT, 'anchors.json'); let ANC = {}; try { ANC = JSON.parse(fs.readFileSync(AF, 'utf8')); } catch (e) { ANC = {}; }
   if (process.argv.includes('--resume')) {   /* dựng tiếp sau khi job nền bị ngắt (giới hạn 2 giờ): bỏ khung đã có, dựng lại khung cuối có thể ghi dở */
     const have = frames.filter((f) => { try { return fs.statSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg')).size > 0 && ANC[f] !== undefined; } catch { return false; } });   /* 17/10 (G2 §12): chỉ giữ khung có CẢ ảnh lẫn điểm neo — neo ghi mỗi 48 khung, ngắt giữa chừng làm mất neo các khung đã có ảnh (nhãn 2D biến mất) */
@@ -89,7 +90,7 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   fs.writeFileSync(AF, JSON.stringify(ANC));
   const tlm = TL ? Object.assign({ tl: true, scene_meta: SU.scene_meta || null, frames_meta: FM }, (() => { const v = Object.values(FM), a = v.map((m) => m.agl_km).filter((x) => x != null);
     return { spp_set: [...new Set(v.map((m) => m.spp))].sort(), agl_km_max: a.length ? Math.max(...a) : null }; })()) : {};
-  fs.writeFileSync(MF, JSON.stringify(Object.assign({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, spp: +arg('spp', 1), max_tex: SU && SU.maxTex, renderer: RENDERER, gl: GL, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }, tlm)));   // V5b-2b: renderer + gl (KHOP1 a/b); cảnh tl: frames_meta mỗi khung
+  fs.writeFileSync(MF, JSON.stringify(Object.assign({ hero: arg('hero'), variant: arg('variant', 'a'), frames: NS, dur: DUR, w: W, h: H, spp: +arg('spp', 1), max_tex: SU && SU.maxTex, renderer: RENDERER, gl: GL, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }, tlm)));   // V5b-2b: renderer + gl (KHOP1 a/b); cảnh tl: frames_meta mỗi khung
   try { fs.unlinkSync(MF + '.part'); } catch (e) { /* không có */ }
   await browser.close();
 })();

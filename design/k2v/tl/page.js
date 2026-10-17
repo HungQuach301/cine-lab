@@ -46,6 +46,10 @@ window.setup = async (cfg) => {
   const ws = makeWaterSky(U, scene.fog);   /* ctx.ws: mặt nạ nội dung ẩn nước/trời */ scene.add(ws.water, ws.sky);
   let B = T.city ? await loadJSON(base + 'buildings.json') : [];
   if (T.copies > 1) { const B0 = B; B = []; for (let k = 0; k < T.copies; k++) for (const b of B0) B.push(k ? [b[0], b[1], b[2], b[3], b[4], b[5], b[6].map(([e, n]) => [e + ((k % 4) - 1.5) * 3000, n + 4500 + Math.floor(k / 4) * 3500])] : b); }   /* thử tải: nhân bản toà (đo trần toà/cảnh) */
+  // V5b-2b (M9): opt.cut = [lớp footprint] → bỏ toà của gói nằm trong các vòng đó (vd. công sự King's Bastion dựng riêng: không để nhà tái dựng mọc trên mặt sàn pháo)
+  if (cfg.opt && cfg.opt.cut) { const inside = (p, r) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > p[1]) !== (r[j][1] > p[1]) && p[0] < (r[j][0] - r[i][0]) * (p[1] - r[i][1]) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; };
+    const rings = []; for (const f of cfg.opt.cut) rings.push(...(await loadJSON(`${base}layers/${f}.json`)).records.map((r) => r[6]));
+    const n0 = B.length; B = B.filter((b) => { const cx = b[6].reduce((a, q) => a + q[0], 0) / b[6].length, cn = b[6].reduce((a, q) => a + q[1], 0) / b[6].length; return !rings.some((r) => inside([cx, cn], r)); }); stats.cut = n0 - B.length; }
   const city = makeCity(B, U, { lod: T.lod }); scene.add(city.group);
   const roads = makeRoads(await loadJSON(base + 'roads.json'), terr.hAt, U); scene.add(roads.mesh);
   const trees = T.trees ? makeTrees(new Float32Array(await (await fetch(base + 'trees.f32')).arrayBuffer()), terr.hAt, U, { lod: T.lod }) : null; if (trees) scene.add(trees.group);
@@ -62,7 +66,7 @@ window.setup = async (cfg) => {
   for (const [k, objs] of Object.entries(heroes.heroParts || {})) for (const o of objs) mk(o, 1, heroes.heroIds[k]);   // V5b-2a: hero có id (trước mk chung — maskify bỏ qua vật liệu đã gắn)
   mk(heroes.group, 1); mk(roads.mesh, 1); mk(ships.group, 1); if (trees) mk(trees.group, 0); mk(terr.group.children.find((o) => o.material && o.material.map), 0);
   ctx.ws = ws;
-  stats = { ships: ships.n, styles: city.styles, corner_towers: heroes.cornerTowers, load_s: +((performance.now() - t0) / 1000).toFixed(2), terrain_tris: terr.tris, city_tris: city.tris, city_tiles: city.nTiles, buildings: B.length, roads_tris: roads.tris, trees: trees ? trees.n : 0,
+  stats = { cut: stats.cut || 0, ships: ships.n, styles: city.styles, corner_towers: heroes.cornerTowers, load_s: +((performance.now() - t0) / 1000).toFixed(2), terrain_tris: terr.tris, city_tris: city.tris, city_tiles: city.nTiles, buildings: B.length, roads_tris: roads.tris, trees: trees ? trees.n : 0,
     renderer: (() => { const gl = R.getContext(), e = gl.getExtension('WEBGL_debug_renderer_info'); return e ? gl.getParameter(e.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER); })(), tech: T, N: SC.N, scene_meta: SC.meta || null };
   return stats;
 };
@@ -113,10 +117,11 @@ window.contentMask = (f, ov, png) => {
   const t = f / SC.fps, st = Object.assign(SC.state(t), ov || {}), U = ctx.U; U.uYear.value = st.year; U.uDim.value = 0; U.uT.value = t;
   applyCam(cam, st.cam); ctx.terr.update(cam); ctx.city.update(cam); if (ctx.trees) ctx.trees.update(cam); ctx.ships.update(st.year); SC.apply && SC.apply(st, t);
   const w = Math.round(C.W / 2), h = Math.round(C.H / 2); if (!maskRT) maskRT = new THREE.WebGLRenderTarget(w, h);
+  const MH = (ctx.maskHide || []).filter((o) => o.visible); for (const o of MH) o.visible = false;   // V5b-2b: khói/sprite không vào mặt nạ (nền)
   U.uMask.value = 1; ctx.ws.water.visible = ctx.ws.sky.visible = false; const sm = R.shadowMap.enabled; R.shadowMap.enabled = false; const cc = R.getClearColor(new THREE.Color()), ca = R.getClearAlpha(); R.setClearColor(0x000000, 1);
   R.setRenderTarget(maskRT); R.clear(); R.render(scene, cam); const px = new Uint8Array(w * h * 4); R.readRenderTargetPixels(maskRT, 0, 0, w, h, px); R.setRenderTarget(null);
-  U.uMask.value = 0; ctx.ws.water.visible = ctx.ws.sky.visible = true; R.shadowMap.enabled = sm; R.setClearColor(cc, ca);
-  const ids = ctx.heroes.heroIds || {}, hn = {}; for (const k in ids) hn[k] = 0;
+  U.uMask.value = 0; ctx.ws.water.visible = ctx.ws.sky.visible = true; for (const o of MH) o.visible = true; R.shadowMap.enabled = sm; R.setClearColor(cc, ca);
+  const ids = Object.assign({}, ctx.heroes.heroIds || {}, SC.heroIds || {}), hn = {};   // V5b-2b: cảnh thêm hero (lớp footprint có hid) for (const k in ids) hn[k] = 0;
   let n = 0, nc = 0, tc = 0, nf = 0, nh = 0, ng = 0; for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = (y * w + x) * 4, on = px[i] > 128 && px[i + 1] < 90, fb = px[i] < 90 && px[i + 1] > 128; n += on; nf += on || fb; ng += on && px[i + 1] > 30 && px[i + 2] === 0; if (x >= w * 0.15 && x < w * 0.85 && y >= h * 0.15 && y < h * 0.85) { tc++; nc += on; }
     if (on && px[i + 2] > 0) { nh++; for (const k in ids) if (Math.abs(px[i + 2] - ids[k]) < 0.5) hn[k]++; } }
   // content = HÌNH HỌC nội dung (toà, hero, tường, đường, tàu, xe/người); fabric = content + nền phố (mặt đất đô thị của năm đó: sân, phố, quảng trường)

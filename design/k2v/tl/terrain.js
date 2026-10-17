@@ -105,6 +105,8 @@ export async function makeTerrain(base, M, U) {
       float nearK = uNearK * (1.0 - smoothstep(2600.0, 3600.0, dd));
       if (nearK > 0.001) { vec2 p = vec2(vWP.x, -vWP.z); vec2 wv = (vec2(FBM(p * 0.021), FBM(p * 0.021 + 17.0)) - 0.5) * 56.0 + (vec2(VN(p * 0.17), VN(p * 0.17 + 5.0)) - 0.5) * 9.0;   // ranh lớp hữu cơ: cong vênh ±15 m + răng cưa nhỏ
         vec4 cl = texture(tCls, guv + wv / uExt.zw) * 255.0; float c = mix(cl.r, cl.g, step(0.5, uk));
+        // V5b-2b (T3 1782): lớp nền đô thị là của 2026 (OSM) — trước 1900 không có nhựa đường, sân thể thao, bãi đỗ, cỏ công viên: đổi về nền lát / đất trống (không bịa vật thể mới)
+        if (uYear < 1900.0 && uk > 0.5) { if (c > 5.5 && c < 6.5 || c > 7.5 && c < 8.5) c = 7.0; else if (c > 8.5 && c < 9.5 || c > 11.5 && c < 12.5) c = 11.0; }
         float dc = uYear < 1987.0 ? cl.b : cl.a; float sl = slope;
         if (c > 0.5) { vec3 pc = matC(c, p, dc, sl);
           if (c < 3.5 || c > 12.5) { vec3 tb = mix(textureLod(tNat, guv, 4.0).rgb, textureLod(tUrb, guv, 4.0).rgb, uk); pc = mix(pc, pc * (0.6 + 0.8 * dot(tb, vec3(0.333)) / max(dot(pc, vec3(0.333)), 0.05)), 0.18); }   // tông vùng từ vệ tinh (nhẹ)

@@ -34,7 +34,7 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   });
   await page.goto('http://cine.local/tl.html'); await page.waitForFunction(() => window.ready === true, null, { timeout: 60000 });
   const pack = arg('pack', 'gib');
-  const cfg = { W, H, scene: arg('scene', 'gib20'), pack: `/cache/scene/${pack}/pack/`, lut: '/cache/lut/' + arg('lut', 'k2-a-thep-lanh') + '.cube', lutMode: +arg('lutmode', 1), vib: +arg('vib', 0.35), look: JSON.parse(arg('look', '{}')), photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{}')), lutK: +arg('lutk', 1) };
+  const cfg = { W, H, scene: arg('scene', 'gib20'), pack: `/cache/scene/${pack}/pack/`, lut: '/cache/lut/' + arg('lut', 'k2-a-thep-lanh') + '.cube', lutMode: +arg('lutmode', 1), vib: +arg('vib', 0.35), look: JSON.parse(arg('look', '{}')), photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{}')), lutK: +arg('lutk', 1), opt: JSON.parse(arg('opt', '{}')) };   // V5b-2b: --opt = opt của shot (cut, layers…) như scripts/k2/hero.js
   const tl0 = Date.now(); const info = await page.evaluate(async (c) => await window.setup(c), cfg); info.load_wall_s = (Date.now() - tl0) / 1000; info.rss_after_load_mb = rssAll();
   console.error('[info]', JSON.stringify(info));
   info.gl = GL; const RD = { renderer: info.renderer, gl: GL };

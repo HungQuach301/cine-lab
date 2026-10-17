@@ -1,0 +1,54 @@
+# ĐOẠN THỬ V5b-2b-T (T3 "vây hãm", 2 cảnh theo bảng shot TIEN-KY-VAY-HAM §4.2) — dựng qua dây chuyền kênh 2 (scripts/k2/build.sh: prep → hero.js tl/<cảnh> → render.js + k2.js tlLayer → mix).
+# Không lời (ElevenLabs 0); nhạc có dòng RIGHTS (K2-MUS). Mỗi shot cảnh 3D khai `noi` (K-1.13, bắt buộc từ T3); cảnh (a) chia 3 shot cùng một plate (frame0 liên tục) để khai nơi theo cửa sổ.
+id: v5b2b-t
+title: V5b-2b-T — Gibraltar siege test (1782 bay + town)
+brand: MOVING PARTS
+channel: k2
+out: /var/tmp/cine-out/v5b2b-t
+music:
+- file: assets/k2/music/Tyrant.mp3
+  from: a
+  ss: 2.55
+  gain_db: -3
+sources: {}
+numbers: {}
+heroes:
+  a_vinh:
+    hero: tl/vinh1782
+    cam: lien-hoan
+    opt:
+      pack: gib
+      cut: [kings_bastion]
+      cau: lien-hoan
+  b_pho:
+    hero: tl/pho2026
+    opt:
+      pack: gib
+      cau: fly-pho
+segments:
+- id: a
+  part: TEST
+  dur: 18.0
+  fadeIn: 6
+  shots:
+  - tpl: plate
+    at: 0
+    noi: bien
+    p: {hero: a_vinh, kind: '', frame0: 0}
+  - tpl: plate
+    at: 5.6
+    noi: thanh_pho
+    p: {hero: a_vinh, kind: '', frame0: 134.4}
+  - tpl: plate
+    at: 12.0
+    noi: vung
+    p: {hero: a_vinh, kind: '', frame0: 288}
+- id: b
+  part: TEST
+  dur: 8.0
+  fadeOut: 8
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p: {hero: b_pho, kind: ''}

@@ -32,6 +32,7 @@ heroes() { [ -f $O/heroes.json ] || return 0; $PY -c "import json;[print(k,v['he
     echo "dựng cảnh đinh $k ($h/$v, $d s) $rs"; node $LL/hero.js --hero $h --variant $v --dur $d --w $w --h $h2 --spp ${SPP:-4} --opt "$opt" --out $dir.new $rs 2>>$O/hero-$k.err || { echo "LỖI cảnh đinh $k"; touch $O/render.failed; continue; }
     echo $st > $dir.new/stamp; rm -f $dir.new/pending; rm -rf "$dir"; mv "$dir.new" "$dir"; done; }   # dựng vào thư mục tạm, thay khi thành công (06/10: một lỗi cú pháp đã xoá cả 14 cảnh cũ)
 if has render; then disk "trước render"; rm -f $O/render.failed; P=${P:-3} bash $K2/heroes_par.sh "$EP" || touch $O/render.failed; [ -f $O/render.failed ] && { echo "Cảnh đinh lỗi — dừng"; exit 3; }
+  grep -q '"tl": true' $TL && $PY $K2/tl_post.py $TL   # V5b-2b: AGL mỗi khung của cảnh tl → p.agl trong timeline (K-1.13 NC-H2/H3) + cảnh báo VV2 địa cầu
   for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"
   [ -f $O/render.failed ] && { echo "Có đoạn render lỗi — dừng, không ghép"; exit 3; }; fi
 # MIX=audio (phiên Âm thanh 15/10): chuỗi mới scripts/audio/compose.py (nhạc theo chương đúng ô nhịp, SFX gắn hình, ducking thích ứng SMR ≥ 15 dB,
