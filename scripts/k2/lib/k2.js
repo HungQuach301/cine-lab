@@ -108,9 +108,12 @@ function caps(g, p, t) { const Cs = p.cap || []; let k = -1; Cs.forEach((c, i) =
   const y0 = (V ? H * 0.70 : H * 0.735) - Math.max(0, last0 - (srcTop - 18));
   const x = V ? W / 2 : SAFE.x0, al = V ? 'center' : 'left', mw = V ? W - 140 : 1500;
   if (!V && (p.photo || p.clip)) {   /* SS1-T4 (chủ dự án 17/10): ảnh in/khung footage — không phủ dải tối cả bề ngang (chấm mù P4/P6/P7: dải đè mép ảnh); chỉ một tấm nền sau đúng dòng chữ */
-    const lw = c ? wrap(g, c.s || '', mw, 44, 600).slice(0, 3).map((l) => tw(g, l, 44, 600)) : [], sw = srcS ? Math.min(smw, tw(g, srcS, SRCPX, 500)) : 0, bw = Math.max(sw, ...lw, c && c.big ? tw(g, c.big, 96, 700, true) + 200 : 0) + 56;
-    const top = c ? y0 + 50 + 10 - 44 - 22 : srcTop - 22, bot = srcS ? H - EDGE_B + 22 : y0 + 60 + Math.max(0, nL - 1) * lh0 + 22, al2 = Math.max(a, srcS ? 0.85 : 0);
-    panel(g, x - 28, top, bw, bot - top, { a: al2, fill: 'rgba(8,12,18,0.84)', r: 14 }); (LL.occ = LL.occ || []).push([x - 28, top, x - 28 + bw, bot]); }
+    /* TT1-U3 (chủ dự án 17/10; chấm mù P6 lần 4: "big empty gap between its two lines"): HAI tấm gọn — sau câu chú thích và sau dòng nguồn — không chừa khoảng trống giữa */
+    const lw = c && c.s ? wrap(g, c.s, mw, 44, 600).slice(0, 3).map((l) => tw(g, l, 44, 600)) : [], sw = srcS && String(srcS).trim() ? Math.min(smw, tw(g, srcS, SRCPX, 500)) : 0;
+    if (lw.length && a > 0.01) { const bw = Math.max(...lw) + 56, top = y0 + 60 - 44 - 16, bot = y0 + 60 + (lw.length - 1) * lh0 + 18;
+      panel(g, x - 28, top, bw, bot - top, { a, fill: 'rgba(8,12,18,0.84)', r: 14 }); (LL.occ = LL.occ || []).push([x - 28, top, x - 28 + bw, bot]); }
+    if (sw) { const top = srcTop - SRCPX * 0.1 - 14, bot = H - EDGE_B + SRCPX * 0.32 + 14;
+      panel(g, x - 28, top, sw + 56, bot - top, { a: Math.max(a, 0.85), fill: 'rgba(8,12,18,0.84)', r: 12 }); (LL.occ = LL.occ || []).push([x - 28, top, x + 28 + sw, bot]); } }
   else { const gr = g.createLinearGradient(0, y0 - (V ? 160 : 80), 0, H); gr.addColorStop(0, 'rgba(8,12,18,0)'); gr.addColorStop(0.35, `rgba(8,12,18,${0.78 * Math.max(a, srcS ? 0.85 : 0)})`); gr.addColorStop(1, `rgba(8,12,18,${0.9 * Math.max(a, srcS ? 0.85 : 0)})`);
     g.fillStyle = gr; g.fillRect(0, y0 - (V ? 160 : 80), W, H - y0 + 160); }
   if (c) { let y = y0 + (V ? 60 : 50); if (c.big) { text(g, c.big, x, y + (V ? 70 : 60), (V ? 110 : 96), c.kind === 'projection' ? K.amber : K.orange, { a, w: 700, disp: true, align: al }); if (c.kind) kindTag(g, c.kind, V ? W / 2 : x + tw(g, c.big, 96, 700, true) + 30, y + (V ? 130 : 30), a, V ? 'center' : 'left'); y += V ? 170 : 105; }

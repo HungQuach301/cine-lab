@@ -1323,16 +1323,6 @@ heroes:
     opt:
       relief: koreaw
       palette: natural
-      regions:
-      - id: kr
-        country: South Korea
-        color: '#3CC2B0'
-        at:
-        - 0.1
-        - 0.9
-        out: '@abroad#2+2.5'
-        lift: 3
-        fill: 0.3
       places:
       - id: ulsanx
         ll:
@@ -1518,6 +1508,23 @@ heroes:
     cam: orbit
     opt:
       focus: beijing
+      # TT2 Q37 (chủ dự án 17/10): preset orbit chỉ xoay 18° ở độ cao không đổi → khung tĩnh 12,8 s; máy quay riêng: xoay 42° + đẩy vào rồi lùi để thấy hai tuyến
+      cam:
+      - u: 0
+        lon: 86.4
+        lat: 29.9
+        alt: 30
+        mm: 35
+      - u: 0.5
+        lon: 110.4
+        lat: 37.9
+        alt: 18
+        mm: 35
+      - u: 1
+        lon: 128.4
+        lat: 41.9
+        alt: 22
+        mm: 35
       places:
       - id: cn2
         ll:

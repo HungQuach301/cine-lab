@@ -113,9 +113,9 @@ segments:
                   {a: "col:c90", s: "3×", sub: "1990s", kind: null, num: n_1990, at: "@three", side: auto, prefer: [up], c: "#3CC2B0"}],
            cap: [{s: "RECORD: U.S.-built vs foreign ship prices (government report, CRS)", at: "@gap"}],
            src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
-      - {tpl: plate, at: "@2019-0.3", type: map, scene_id: relief/eastus, camera_id: t2-03-tanker, places: [], p: {hero: r03_tanker, frame0: 0, kind: estimate, where: "Delaware River valley",
+      - {tpl: plate, at: "@2019-0.3", type: map, scene_id: relief/eastus, camera_id: t2-03-tanker, places: [], p: {hero: r03_tanker, frame0: 0, where: "Delaware River valley",
            tags: [{a: "col:world", s: "world price", at: 0.6, side: auto, prefer: [up, left], c: "#E6EBF0"},
-                  {a: "col:us", s: "≈ 4×", sub: "U.S.-built tanker (one firm's estimate)", kind: null, num: n_tanker4, at: "@four", side: auto, prefer: [down, right], c: "#3CC2B0"}],
+                  {a: "col:us", s: "≈ 4×", sub: "U.S.-built tanker (one firm's estimate)", kind: estimate, num: n_tanker4, at: "@four", side: auto, prefer: [down, right], c: "#3CC2B0"}],
            cap: [{s: "Building one tanker: U.S. price vs world price", at: 0.6}],
            src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
       - {tpl: plate, at: "@2023#1-0.6", type: map, scene_id: relief/eastus, camera_id: t2-03-scale, places: [], p: {hero: r03_scale, frame0: 0, where: "Philadelphia area", kind: actual,
@@ -159,7 +159,7 @@ segments:
            src: "Source: KEIA (2023) · Terrain: SRTM (USGS)"}}
       - {tpl: plate, at: "@Our#1-0.3", type: map, scene_id: relief/koreaw, camera_id: t2-04-abroad, places: [], p: {hero: r04_abroad, frame0: 0, kind: actual,
            places: [{a: krc, s: "South Korea", at: 0.2, out: "@abroad#2+2.5", side: auto, prefer: [up, left], c: "#3CC2B0"}, {a: ulsanx, s: "Ulsan", sub: "shipyard site", at: 0.3, out: "@thirty-six", side: auto, prefer: [left, up]},
-                    {a: dst1, s: "To foreign owners", sub: "our read", at: 2.0, out: "@thirty-six", side: auto, prefer: [up, left], c: "#F2C14E"}],
+                    {a: dst3, s: "to buyers abroad", at: 0.3, out: "@thirty-six", side: up, gap: 46, c: "#F2C14E"}],
            tags: [{a: "col:k62", s: "$107", sub: "output per person, 1962 (current $)", kind: null, num: n_gdp62, at: "@thirty-six", side: auto, prefer: [left, up], c: "#E6EBF0"},
                   {a: "col:k25", s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [right, up], c: "#F2C14E"}],
            cap: [{s: "Our read: the yard's customers were abroad", at: 0.3}],
@@ -203,22 +203,22 @@ segments:
            tags: [{a: "col:cost", s: "200+ groups", sub: "signed the joint letter, Sept. 2026 (our count)", kind: null, num: n_200, at: "@hundred", side: auto, prefer: [up, left], c: "#E6EBF0"}],
            cap: [{s: "Trade groups' letter to USTR: \"would add another cost layer to an already strained transportation system\"", at: "@Resuming", src: [NFTC]}, {s: "As of 15 Oct 2026: no extension published", at: "@As#1", src: [FRSUSP, NFTC]}],
            src: "Source: trade groups' letter to USTR, Sept. 2026 · Terrain: USGS 3DEP"}}
-      - {tpl: plate, sfx: [{file: assets/k2/sfx/container-terminal.mp3, at: "@Philadelphia#1-0.6", src_ss: 12, dur: 14, gain_db: -29, fade_ms: 1200}], at: "@Philadelphia#1-0.9", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [Philadelphia], p: {hero: r05_philly, frame0: 0, kind: "",
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/container-terminal.mp3, at: "@Philadelphia#1-0.6", src_ss: 12, dur: 14, gain_db: -29, fade_ms: 1200}], at: "@Philadelphia#1-0.9", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [Philadelphia], p: {hero: r05_philly, frame0: 0, kind: actual,
            places: [{a: phy, s: "Philly Shipyard", at: "@shipyard", side: auto, prefer: [left, up]}],
            stickers: [{a: "st:ord2", img: "stk:order", at: "@tapped", px: 150}, {a: "st:cr3", img: "stk:crane", at: "@missile-tracking", px: 190}],
-           tags: [{a: phy, s: "$100M", sub: "bought by Hanwha, Dec. 2024 (reported)", kind: actual, num: n_hanwha, at: "@hundred#2", out: "@August", side: auto, prefer: [up], c: "#F2C14E"},
-                  {a: phy, s: "$5B", sub: "investment announced, Aug. 2025", kind: actual, num: n_5b, at: "@investment#1", out: "@twenty", side: auto, prefer: [left, up], c: "#F2C14E"}],
+           tags: [{a: phy, s: "$100M", sub: "bought by Hanwha, Dec. 2024 (reported)", kind: null, num: n_hanwha, at: "@hundred#2", out: "@August", side: auto, prefer: [up], c: "#F2C14E"},
+                  {a: phy, s: "$5B", sub: "investment announced, Aug. 2025", kind: null, num: n_5b, at: "@investment#1", out: "@twenty", side: auto, prefer: [left, up], c: "#F2C14E"}],
            cap: [{s: "Aug. 2025: Hanwha announces an investment", at: "@August", src: [JAH]}],
            src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
       # Q23 (SS4, 17/10): tách lớp chữ — số ACTUAL / mục tiêu PROJECTION / tin Military Times thành 3 shot nối khung cùng cảnh 3D (frame0)
-      - {tpl: plate, at: "@twenty-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 417, kind: "",
+      - {tpl: plate, at: "@twenty-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 417, kind: projection,
            places: [{a: phy, s: "Philly Shipyard", at: -1, side: auto, prefer: [left, up]}],
-           tags: [{a: phy, s: "1.5 → 20 ships/yr", sub: "announced goal, no date given", kind: projection, num: n_goal20, at: "@twenty", side: auto, prefer: [right, down], c: "#F2C14E"}],
+           tags: [{a: phy, s: "1.5 → 20 ships/yr", sub: "announced goal, no date given", kind: null, num: n_goal20, at: "@twenty", side: auto, prefer: [right, down], c: "#F2C14E"}],
            cap: [{s: "Aug. 2025: Hanwha announces an investment", at: -1, src: [JAH]}],
            src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
-      - {tpl: plate, at: "@Military-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 642, kind: "",
+      - {tpl: plate, at: "@Military-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 642, kind: projection,
            places: [{a: phy, s: "Philly Shipyard", at: -1, side: auto, prefer: [left, up]}],
-           tags: [{a: "st:ord2", s: "June 2030", sub: "first missile-tracking ship, slated (Military Times)", kind: projection, num: n_2030, at: "@2030", side: auto, prefer: [up, right], c: "#3CC2B0"}],
+           tags: [{a: "st:ord2", s: "June 2030", sub: "first missile-tracking ship, slated (Military Times)", kind: null, num: n_2030, at: "@2030", side: auto, prefer: [up, right], c: "#3CC2B0"}],
            cap: [{s: "Military Times, July 2026", at: "@Military", src: [MT]}, {s: "Our read: an order again — this time after the investment", at: "@after", src: [JAH, MT]}],
            src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
 

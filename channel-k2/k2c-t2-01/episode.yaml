@@ -1733,16 +1733,6 @@ heroes:
     opt:
       relief: koreaw
       palette: natural
-      regions:
-      - id: kr
-        country: South Korea
-        color: '#3CC2B0'
-        at:
-        - 0.1
-        - 0.9
-        out: '@abroad#2+2.5'
-        lift: 3
-        fill: 0.3
       places:
       - id: ulsanx
         ll:
@@ -1928,6 +1918,22 @@ heroes:
     cam: orbit
     opt:
       focus: beijing
+      cam:
+      - u: 0
+        lon: 86.4
+        lat: 29.9
+        alt: 30
+        mm: 35
+      - u: 0.5
+        lon: 110.4
+        lat: 37.9
+        alt: 18
+        mm: 35
+      - u: 1
+        lon: 128.4
+        lat: 41.9
+        alt: 22
+        mm: 35
       places:
       - id: cn2
         ll:
@@ -3425,7 +3431,6 @@ segments:
     p:
       hero: r03_tanker
       frame0: 0
-      kind: estimate
       where: Delaware River valley
       tags:
       - a: col:world
@@ -3439,7 +3444,7 @@ segments:
       - a: col:us
         s: ≈ 4×
         sub: U.S.-built tanker (one firm's estimate)
-        kind: null
+        kind: estimate
         num: n_tanker4
         at: '@four'
         side: auto
@@ -3826,15 +3831,12 @@ segments:
         prefer:
         - left
         - up
-      - a: dst1
-        s: To foreign owners
-        sub: our read
-        at: '@Our#1+1.70'
+      - a: dst3
+        s: to buyers abroad
+        at: '@Our#1+0.00'
         out: '@thirty-six'
-        side: auto
-        prefer:
-        - up
-        - left
+        side: up
+        gap: 46
         c: '#F2C14E'
       tags:
       - a: col:k62
@@ -4197,7 +4199,7 @@ segments:
     p:
       hero: r05_philly
       frame0: 0
-      kind: ''
+      kind: actual
       places:
       - a: phy
         s: Philly Shipyard
@@ -4219,7 +4221,7 @@ segments:
       - a: phy
         s: $100M
         sub: bought by Hanwha, Dec. 2024 (reported)
-        kind: actual
+        kind: null
         num: n_hanwha
         at: '@hundred#2'
         out: '@August'
@@ -4230,7 +4232,7 @@ segments:
       - a: phy
         s: $5B
         sub: investment announced, Aug. 2025
-        kind: actual
+        kind: null
         num: n_5b
         at: '@investment#1'
         out: '@twenty'
@@ -4254,7 +4256,7 @@ segments:
     p:
       hero: r05_philly
       frame0: 417
-      kind: ''
+      kind: projection
       places:
       - a: phy
         s: Philly Shipyard
@@ -4267,7 +4269,7 @@ segments:
       - a: phy
         s: 1.5 → 20 ships/yr
         sub: announced goal, no date given
-        kind: projection
+        kind: null
         num: n_goal20
         at: '@twenty'
         side: auto
@@ -4290,7 +4292,7 @@ segments:
     p:
       hero: r05_philly
       frame0: 642
-      kind: ''
+      kind: projection
       places:
       - a: phy
         s: Philly Shipyard
@@ -4303,7 +4305,7 @@ segments:
       - a: st:ord2
         s: June 2030
         sub: first missile-tracking ship, slated (Military Times)
-        kind: projection
+        kind: null
         num: n_2030
         at: '@2030'
         side: auto
