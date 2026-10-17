@@ -1,0 +1,457 @@
+{
+ "pho_co_trong_tuong": {
+  "dien_tich_vung_km2": 1.074,
+  "so_toa": 706,
+  "tong_dien_tich_mai_m2": 281767,
+  "ty_le_phu_mai": 0.262,
+  "co_levels": 8,
+  "co_height": 0,
+  "co_start_date": 6,
+  "co_historic": 21,
+  "co_roof_shape": 1,
+  "toa_lon_500m2": 145,
+  "dien_tich_trung_vi": 173
+ },
+ "loi_2km2": {
+  "dien_tich_vung_km2": 3.728,
+  "so_toa": 1419,
+  "tong_dien_tich_mai_m2": 659857,
+  "ty_le_phu_mai": 0.177,
+  "co_levels": 74,
+  "co_height": 2,
+  "co_start_date": 9,
+  "co_historic": 29,
+  "co_roof_shape": 1,
+  "toa_lon_500m2": 346,
+  "dien_tich_trung_vi": 206
+ },
+ "ten_diem_khong_che_osm": [
+  [
+   "node",
+   "Cable Car Lower Station",
+   ""
+  ],
+  [
+   "node",
+   "Casemates Police Station",
+   ""
+  ],
+  [
+   "node",
+   "Casemates Rank",
+   ""
+  ],
+  [
+   "node",
+   "Cathedral Square",
+   ""
+  ],
+  [
+   "node",
+   "Convent Place",
+   ""
+  ],
+  [
+   "node",
+   "Devil's Tower Cave",
+   ""
+  ],
+  [
+   "node",
+   "Great Siege Tunnels",
+   "attraction"
+  ],
+  [
+   "node",
+   "King's Bastion",
+   ""
+  ],
+  [
+   "node",
+   "King's Bastion Arcade",
+   ""
+  ],
+  [
+   "node",
+   "Loreto Convent School",
+   ""
+  ],
+  [
+   "node",
+   "Montagu Gardens Terminus",
+   ""
+  ],
+  [
+   "node",
+   "Moorish Castle",
+   "castle"
+  ],
+  [
+   "node",
+   "Moorish Castle Estate",
+   ""
+  ],
+  [
+   "node",
+   "Orange Bastion",
+   ""
+  ],
+  [
+   "node",
+   "Prince edward's gate house",
+   "apartment"
+  ],
+  [
+   "node",
+   "Princess Anne's Battery",
+   "fort"
+  ],
+  [
+   "node",
+   "Southport Gates",
+   "city_gate"
+  ],
+  [
+   "node",
+   "The Trafalgar Cemetery",
+   "memorial"
+  ],
+  [
+   "node",
+   "The convent",
+   "apartment"
+  ],
+  [
+   "node",
+   "Trafalgar Cemetery",
+   ""
+  ],
+  [
+   "node",
+   "Trafalgar Cemetery Top",
+   ""
+  ],
+  [
+   "node",
+   "Waterport Casemates",
+   "fort"
+  ],
+  [
+   "node",
+   "Waterport Pharmacy",
+   ""
+  ],
+  [
+   "node",
+   "Waterport Road",
+   ""
+  ],
+  [
+   "way",
+   "Cable Car Lower Station",
+   "cable_car"
+  ],
+  [
+   "way",
+   "Casemates Ramp",
+   ""
+  ],
+  [
+   "way",
+   "Cathedral Square",
+   ""
+  ],
+  [
+   "way",
+   "Cathedral of St. Mary the Crowned",
+   "church"
+  ],
+  [
+   "way",
+   "Cathedral of the Holy Trinity",
+   "cathedral"
+  ],
+  [
+   "way",
+   "Charles V Ramp",
+   ""
+  ],
+  [
+   "way",
+   "Charles V Road",
+   ""
+  ],
+  [
+   "way",
+   "Charles V Wall",
+   "citywalls"
+  ],
+  [
+   "way",
+   "Convent Garden",
+   ""
+  ],
+  [
+   "way",
+   "Convent Place",
+   ""
+  ],
+  [
+   "way",
+   "Convent Ramp",
+   ""
+  ],
+  [
+   "way",
+   "Devil's Tower Camp",
+   ""
+  ],
+  [
+   "way",
+   "Devil's Tower Emplacement",
+   "yes"
+  ],
+  [
+   "way",
+   "Devil's Tower Road",
+   ""
+  ],
+  [
+   "way",
+   "Grand Battery House",
+   "yes"
+  ],
+  [
+   "way",
+   "Grand Casemates",
+   "fort"
+  ],
+  [
+   "way",
+   "Grand Casemates Gates",
+   "city_gate"
+  ],
+  [
+   "way",
+   "Grands Casemates Square",
+   ""
+  ],
+  [
+   "way",
+   "King's Bastion",
+   "fort"
+  ],
+  [
+   "way",
+   "Landport",
+   "city_gate"
+  ],
+  [
+   "way",
+   "Landport Ditch",
+   ""
+  ],
+  [
+   "way",
+   "Landport House",
+   "apartments"
+  ],
+  [
+   "way",
+   "Landport Tunnel",
+   ""
+  ],
+  [
+   "way",
+   "Montagu Bastion",
+   "fort"
+  ],
+  [
+   "way",
+   "Montagu Gardens",
+   ""
+  ],
+  [
+   "way",
+   "Montagu Gardens",
+   "apartments"
+  ],
+  [
+   "way",
+   "Montagu Pavilion",
+   "yes"
+  ],
+  [
+   "way",
+   "Moorish Castle Estate",
+   "garages"
+  ],
+  [
+   "way",
+   "Moorish Castle Outer Keep",
+   ""
+  ],
+  [
+   "way",
+   "Moorish Castle Ticket Office",
+   "yes"
+  ],
+  [
+   "way",
+   "North Bastion",
+   "fort"
+  ],
+  [
+   "way",
+   "Orange Bastion",
+   "fort"
+  ],
+  [
+   "way",
+   "Prince Edward's Gate",
+   "city_gate"
+  ],
+  [
+   "way",
+   "Prince Edward's Road",
+   ""
+  ],
+  [
+   "way",
+   "Princess Caroline's Battery",
+   "fort"
+  ],
+  [
+   "way",
+   "Ragged Staff Gates",
+   "city_gate"
+  ],
+  [
+   "way",
+   "Ragged Staff Magazine",
+   ""
+  ],
+  [
+   "way",
+   "Ragged Staff Road",
+   ""
+  ],
+  [
+   "way",
+   "Rosia Road",
+   ""
+  ],
+  [
+   "way",
+   "Rosia Road",
+   "shed"
+  ],
+  [
+   "way",
+   "South Bastion",
+   "citywalls"
+  ],
+  [
+   "way",
+   "South Bastion",
+   "fort"
+  ],
+  [
+   "way",
+   "The Convent Garden",
+   ""
+  ],
+  [
+   "way",
+   "The Convent Guardhouse",
+   "yes"
+  ],
+  [
+   "way",
+   "Tower of Homage",
+   "castle"
+  ],
+  [
+   "way",
+   "Trafalgar Cemetery",
+   ""
+  ],
+  [
+   "way",
+   "Waterport Road",
+   ""
+  ],
+  [
+   "way",
+   "Waterport Terraces",
+   ""
+  ]
+ ],
+ "so_relation_building": 20,
+ "tep_tho": [
+  {
+   "tep": "t1.osm",
+   "sha256": "59b9f15ccf575d974232ec9e905c972899464001fd9cd6662096291dc6419265"
+  },
+  {
+   "tep": "t2.osm",
+   "sha256": "698f4d3f238a1c70b5fc4e42fe3634c4652af983f2dec9ae9e1a6fccb76c391c"
+  },
+  {
+   "tep": "t3.osm",
+   "sha256": "719535fa3e3c06cd86fd217cb403019cccd1aff3f38fcfd374db20b0b19622ac"
+  },
+  {
+   "tep": "t4.osm",
+   "sha256": "976290e825d9d41c7f17a2397ad0b66f5a1ef0e24407a725f26cd4a5f4048a03"
+  }
+ ],
+ "bbox": [
+  "-5.3600,36.1250,-5.3450,36.1380",
+  "-5.3600,36.1380,-5.3450,36.1500",
+  "-5.3600,36.1500,-5.3350,36.1560",
+  "-5.3450,36.1250,-5.3350,36.1500"
+ ],
+ "nguon": "https://api.openstreetmap.org/api/0.6/map (đọc 17/10/2026), © OpenStreetMap contributors, ODbL",
+ "hero_osm": {
+  "kings_bastion": {
+   "way": 952588383,
+   "dien_tich_m2": 1294,
+   "bbox_m": "35x89"
+  },
+  "kings_bastion_leisure_centre": {
+   "way": 256821558,
+   "dien_tich_m2": 4231,
+   "bbox_m": "58x111"
+  },
+  "runway_09_27": {
+   "way": 157316482,
+   "length_tag_m": 1798,
+   "width_m": 45
+  },
+  "charles_v_wall": {
+   "ways": [
+    558332834,
+    257519169
+   ],
+   "len_m": [
+    292,
+    354
+   ],
+   "start_date": "1540"
+  },
+  "grand_casemates": {
+   "way": 137335923,
+   "dien_tich_m2": 2992,
+   "start_date": "1817"
+  },
+  "line_wall_curtain": {
+   "tong_len_m": 3435
+  },
+  "farringdons_battery": {
+   "way": 672708050,
+   "dien_tich_m2": 525
+  },
+  "great_siege_tunnels_node": "tourism=attraction (node)"
+ }
+}
