@@ -18,6 +18,11 @@ TRƯỢT khi:
   (b) khoảng biến cố trung bình (thời lượng / số biến cố sau khi gộp biến cố cách nhau < 0,25 s) > 3,5 s
   (c) khoảng dài nhất giữa hai biến cố (kể cả tới cuối phim) > 6 s
   (d) có master: khung tĩnh — chuỗi khung liền có sai khác trung bình < 0,6/255 (xám 160×90) dài nhất > 6 s
+      1.13 (khiếu nại T2 G2 §14.5, đo trên điểm ảnh trong checks — không dựa scripts/k2/rhythm.py): KHUNG TĨNH = quãng mà MỌI khung khác
+      KHUNG ĐẦU QUÃNG < STATIC_ANCHOR/255 (xám 160×90, mốc neo mỗi 0,5 s): ảnh không đổi rõ so với lúc bắt đầu. Ngưỡng 2,0 ≈ dịch 0,3 % bề
+      ngang hay zoom 0,6 % trên khung T2 (trung vị; nền nhiễu mã hoá 0,25–0,3). Thước cũ (từng khung liền < 0,6) coi máy trôi chậm là tĩnh:
+      T2 L5 r02_subsidy 3:01–3:12 "tĩnh 11,79 s" nhưng khung cuối khác khung đầu 10,6/255 (máy lùi 62 → 70 km). Mọi quãng > 6 s đều liệt kê
+      (trước chỉ báo quãng dài nhất nên che quãng sau); quãng "trôi chậm" (thước cũ > 6 s, không tĩnh) báo kèm, không tính lỗi.
 Không khai beats (tập cũ): báo thêm số đo "mốc đặc tả" (mọi mốc thật, cận trên số biến cố) để tham khảo — không thay được beats.
 Trong ±5 % quanh 3,5 s và 6 s: nêu tên.
 """
@@ -27,6 +32,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'
 from checks.ll import base  # noqa: E402
 
 TOL, MERGE, MEAN_MAX, GAP_MAX, STATIC_MAX, STATIC_DIFF = 0.3, 0.25, 3.5, 6.0, 6.0, 0.6
+STATIC_ANCHOR, ANCHOR_STEP = 2.0, 12   # 1.13: khung tĩnh theo khung neo (mỗi 12 khung = 0,5 s)
 
 
 def num(v): return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
@@ -98,16 +104,58 @@ def view(E, TL=None):
             for s in TL['segments']]
 
 
-def static_run(mp4):
+_G = {}
+
+
+def gray160(mp4):
     import numpy as np
+    k = (os.path.abspath(mp4), os.path.getmtime(mp4))
+    if k in _G: return _G[k]
+    _G.clear()
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-nostdin', '-i', mp4, '-map', '0:v:0', '-vf', 'scale=160:90,format=gray', '-f', 'rawvideo', '-'],
                          capture_output=True, check=True).stdout
-    F = np.frombuffer(raw, np.uint8).reshape(-1, 90, 160).astype(np.float32); d = np.abs(np.diff(F, axis=0)).mean(axis=(1, 2))
+    _G[k] = np.frombuffer(raw, np.uint8).reshape(-1, 90, 160).astype(np.float32); return _G[k]
+
+
+def static_run(mp4, F=None):
+    """thước cũ (1.11.0): chuỗi khung liền sai khác < STATIC_DIFF → (dài nhất s, từ s)"""
+    import numpy as np
+    F = gray160(mp4) if F is None else F; d = np.abs(np.diff(F, axis=0)).mean(axis=(1, 2))
     best = run = at = 0
     for i, v in enumerate(d):
         run = run + 1 if v < STATIC_DIFF else 0
         if run > best: best, at = run, i - run + 1
     return round(best / 24, 2), round(at / 24, 2)
+
+
+def _runs_cu(F, lim):
+    import numpy as np
+    d = np.abs(np.diff(F, axis=0)).mean(axis=(1, 2)); R, run = [], 0
+    for i, v in enumerate(list(d) + [99]):
+        if v < STATIC_DIFF: run += 1
+        else:
+            if run / 24 > lim: R.append((round(run / 24, 2), round((i - run) / 24, 2)))
+            run = 0
+    return R
+
+
+def static_anchor(F, th=STATIC_ANCHOR, step=ANCHOR_STEP, fps=24):
+    """1.13: mốc neo a (mỗi `step` khung) → khung đầu tiên sau a có |F − F[a]| trung bình ≥ th; quãng tĩnh = [a, đó).
+    → [(dài s, từ s)] mọi quãng tĩnh cực đại (không chồng), giảm dần theo độ dài"""
+    import numpy as np
+    n = len(F); best = []
+    for a in range(0, max(n - 1, 0), step):
+        e, CH = a + 1, 48
+        while e < n:
+            d = np.abs(F[e:e + CH] - F[a]).mean(axis=(1, 2)); k = np.nonzero(d >= th)[0]
+            if len(k): e += int(k[0]); break
+            e += CH
+        e = min(e, n); best.append((e - a, a))
+    best.sort(key=lambda z: -z[0]); out, used = [], []
+    for L, a in best:
+        if L < 2 or any(a < u1 and a + L > u0 for u0, u1 in used): continue
+        used.append((a, a + L)); out.append((round(L / fps, 2), round(a / fps, 2)))
+    return out
 
 
 def stats(ev, total):
@@ -120,7 +168,8 @@ def stats(ev, total):
     return dict(n=len(ev), gop=len(U), tb=round(total / len(U), 2), dai_nhat=round(g, 2), dai_nhat_tu=f'{U[i][1]} {U[i][0]:.2f}s ({U[i][2]})')
 
 
-def q37(E, TL=None, mp4=None):
+def q37(E, TL=None, mp4=None, F=None, v113=False):
+    """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0"""
     V = view(E, TL); bad, ev, mk, t_abs, nob = [], [], [], 0.0, []
     for sid, dur, HZ, shots, B in V:
         T = spec_times(HZ, shots, dur); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
@@ -140,15 +189,21 @@ def q37(E, TL=None, mp4=None):
         if S['dai_nhat'] > GAP_MAX: bad.append(f"(c) khoảng dài nhất {S['dai_nhat']} s > {GAP_MAX} s (từ {S['dai_nhat_tu']})")
         near += [f"TB {S['tb']} s (ngưỡng {MEAN_MAX})"] if abs(S['tb'] - MEAN_MAX) <= 0.05 * MEAN_MAX else []
         near += [f"khoảng dài nhất {S['dai_nhat']} s (ngưỡng {GAP_MAX})"] if abs(S['dai_nhat'] - GAP_MAX) <= 0.05 * GAP_MAX else []
-    st = None
-    if mp4 and os.path.exists(mp4):
-        st = static_run(mp4)
-        if st[0] > STATIC_MAX: bad.append(f'(d) khung tĩnh {st[0]} s > {STATIC_MAX} s (từ {st[1]} s)')
-        elif abs(st[0] - STATIC_MAX) <= 0.05 * STATIC_MAX: near.append(f'khung tĩnh {st[0]} s (ngưỡng {STATIC_MAX})')
+    st = None; troi = []; st_cu = None
+    if mp4 and os.path.exists(mp4) or F is not None:
+        F = gray160(mp4) if F is None else F
+        st_cu = static_run(None, F); A = static_anchor(F) if v113 else [st_cu]; st = A[0] if A else (0.0, 0.0)
+        for L, a in A:
+            if L > STATIC_MAX: bad.append(f'(d) khung tĩnh {L} s > {STATIC_MAX} s (từ {int(a // 60)}:{a % 60:04.1f})')
+            elif abs(L - STATIC_MAX) <= 0.05 * STATIC_MAX: near.append(f'khung tĩnh {L} s từ {int(a // 60)}:{a % 60:04.1f} (ngưỡng {STATIC_MAX})')
+        troi = [x for x in _runs_cu(F, STATIC_MAX) if not any(L > STATIC_MAX and a <= x[1] + x[0] and x[1] <= a + L for L, a in A)] if v113 else []
     val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n']} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
-           + (f" · khung tĩnh {st[0]} s (từ {int(st[1] // 60)}:{st[1] % 60:04.1f})" if st else ' · khung tĩnh: không đo (không có master)')
+           + (f" · khung tĩnh ({'neo, < ' + str(STATIC_ANCHOR) + '/255' if v113 else 'khung liền < ' + str(STATIC_DIFF) + '/255'}) dài nhất {st[0]} s (từ {int(st[1] // 60)}:{st[1] % 60:04.1f})"
+              + (f" · trôi chậm (thước cũ > {STATIC_MAX:g} s, không tĩnh): {len(troi)} quãng, dài nhất {max(troi)[0]} s từ {int(max(troi)[1] // 60)}:{max(troi)[1] % 60:04.1f}" if troi else '')
+              if st else ' · khung tĩnh: không đo (không có master)')
            + (f" · tham khảo mốc đặc tả: TB {M['tb']} s, dài nhất {M['dai_nhat']} s ({M['dai_nhat_tu']})" if M and not S else ''))
-    return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, tong_s=round(t_abs, 2))
+    return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, khung_tinh_cu=st_cu,
+                troi_cham=troi, tong_s=round(t_abs, 2))
 
 
 if __name__ == '__main__':

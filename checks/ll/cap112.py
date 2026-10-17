@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) (phiên K, 17/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) (phiên K, 17/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
 HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
 `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
 
@@ -31,6 +31,16 @@ CAP = {
     'Q26b-K2': ('Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b)', set('cde'), set('ab')),
     'Q33-K2': ('Chặn (như Q33)', {'*'}, set()),
     'Q32b-K2': ('Chặn (như Q32b)', {'*'}, set()),
+    # 1.13 (đề xuất, chờ chủ dự án duyệt — reports/K-1.13-BAO-CAO.md §2)
+    'NC-H1': ('Chặn (a), (b) (đúng lỗi chủ dự án nêu ở T2)', set('ab'), set()),
+    'NC-H2': ('Chặn (a), (b)', set('ab'), set()),
+    'NC-H3': ('Cảnh báo', set(), {'*'}),
+    'NC-H4': ('Chặn', {'*'}, set()),
+    'NC-H5': ('Chặn (a) · Cảnh báo (b)', set('a'), set('b')),
+    'Q7/Q8-K2': ('Chặn (thay Q7/Q8 cho kênh 2, như Q35)', {'*'}, set()),
+    'Q33 (1.13)': ('Chặn (thay Q33 cho kênh 2)', {'*'}, set()),
+    'Q36 (1.13)': ('Chặn (thay Q36 cho kênh 2)', {'*'}, set()),
+    'Q37 (1.13)': ('Chặn (thay Q37 cho kênh 2)', {'*'}, set()),
 }
 _M = re.compile(r'^\((\w)\)')
 
