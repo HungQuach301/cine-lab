@@ -1,0 +1,273 @@
+{
+ "summary": {
+  "frames": 12,
+  "dat": 2,
+  "ty_le_dat": 0.1667,
+  "psnr_min": 34.03,
+  "psnr_trung_vi": 35.57,
+  "dat_cau_truc": 12,
+  "lo_pct_max": 2.414,
+  "ssim_min": 0.9009,
+  "psnr_q4_min": 40.7,
+  "pct_diff_max": 3.072,
+  "tieu_chi": {
+   "psnr": 40.0,
+   "diff": 10,
+   "pct": 1.0
+  }
+ },
+ "frames": {
+  "00010.jpg": {
+   "psnr": 35.06,
+   "psnr_q4": 40.7,
+   "lo_pct_gt3": 1.827,
+   "shift_rgb": [
+    -0.19,
+    -0.34,
+    -0.45
+   ],
+   "pct_diff_gt": 2.745,
+   "ssim": 0.9154,
+   "mean_abs": 2.88,
+   "max_abs": 177,
+   "worst_tile": {
+    "x": 1856,
+    "y": 896,
+    "pct": 24.5
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00050.jpg": {
+   "psnr": 35.31,
+   "psnr_q4": 41.82,
+   "lo_pct_gt3": 1.529,
+   "shift_rgb": [
+    -0.23,
+    -0.34,
+    -0.42
+   ],
+   "pct_diff_gt": 2.338,
+   "ssim": 0.926,
+   "mean_abs": 2.822,
+   "max_abs": 163,
+   "worst_tile": {
+    "x": 1280,
+    "y": 832,
+    "pct": 12.5
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00090.jpg": {
+   "psnr": 34.99,
+   "psnr_q4": 42.87,
+   "lo_pct_gt3": 0.063,
+   "shift_rgb": [
+    -0.36,
+    -0.39,
+    -0.36
+   ],
+   "pct_diff_gt": 2.063,
+   "ssim": 0.9276,
+   "mean_abs": 2.873,
+   "max_abs": 199,
+   "worst_tile": {
+    "x": 1152,
+    "y": 768,
+    "pct": 8.5
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00130.jpg": {
+   "psnr": 36.02,
+   "psnr_q4": 43.46,
+   "lo_pct_gt3": 0.107,
+   "shift_rgb": [
+    -0.36,
+    -0.37,
+    -0.35
+   ],
+   "pct_diff_gt": 1.14,
+   "ssim": 0.919,
+   "mean_abs": 2.596,
+   "max_abs": 190,
+   "worst_tile": {
+    "x": 576,
+    "y": 704,
+    "pct": 8.6
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00170.jpg": {
+   "psnr": 35.72,
+   "psnr_q4": 41.83,
+   "lo_pct_gt3": 1.035,
+   "shift_rgb": [
+    -0.37,
+    -0.39,
+    -0.41
+   ],
+   "pct_diff_gt": 2.22,
+   "ssim": 0.9148,
+   "mean_abs": 2.731,
+   "max_abs": 164,
+   "worst_tile": {
+    "x": 0,
+    "y": 256,
+    "pct": 37.6
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00190.jpg": {
+   "psnr": 38.1,
+   "psnr_q4": 44.51,
+   "lo_pct_gt3": 0.002,
+   "shift_rgb": [
+    -0.44,
+    -0.44,
+    -0.45
+   ],
+   "pct_diff_gt": 0.423,
+   "ssim": 0.9023,
+   "mean_abs": 2.423,
+   "max_abs": 75,
+   "worst_tile": {
+    "x": 0,
+    "y": 640,
+    "pct": 16.9
+   },
+   "dat": true,
+   "dat_cau_truc": true
+  },
+  "00280.jpg": {
+   "psnr": 36.27,
+   "psnr_q4": 41.98,
+   "lo_pct_gt3": 0.978,
+   "shift_rgb": [
+    -0.52,
+    -0.46,
+    -0.41
+   ],
+   "pct_diff_gt": 1.284,
+   "ssim": 0.9009,
+   "mean_abs": 2.599,
+   "max_abs": 149,
+   "worst_tile": {
+    "x": 0,
+    "y": 576,
+    "pct": 44.6
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00320.jpg": {
+   "psnr": 38.03,
+   "psnr_q4": 44.84,
+   "lo_pct_gt3": 0.007,
+   "shift_rgb": [
+    -0.35,
+    -0.38,
+    -0.35
+   ],
+   "pct_diff_gt": 0.558,
+   "ssim": 0.9188,
+   "mean_abs": 2.305,
+   "max_abs": 163,
+   "worst_tile": {
+    "x": 1024,
+    "y": 256,
+    "pct": 6.3
+   },
+   "dat": true,
+   "dat_cau_truc": true
+  },
+  "00345.jpg": {
+   "psnr": 36.78,
+   "psnr_q4": 44.16,
+   "lo_pct_gt3": 0.004,
+   "shift_rgb": [
+    -0.32,
+    -0.41,
+    -0.37
+   ],
+   "pct_diff_gt": 1.026,
+   "ssim": 0.9205,
+   "mean_abs": 2.48,
+   "max_abs": 168,
+   "worst_tile": {
+    "x": 960,
+    "y": 128,
+    "pct": 8.7
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00380.jpg": {
+   "psnr": 35.36,
+   "psnr_q4": 42.95,
+   "lo_pct_gt3": 0.364,
+   "shift_rgb": [
+    -0.32,
+    -0.41,
+    -0.45
+   ],
+   "pct_diff_gt": 2.105,
+   "ssim": 0.9173,
+   "mean_abs": 2.855,
+   "max_abs": 164,
+   "worst_tile": {
+    "x": 320,
+    "y": 384,
+    "pct": 12.9
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00420.jpg": {
+   "psnr": 35.42,
+   "psnr_q4": 43.34,
+   "lo_pct_gt3": 0.229,
+   "shift_rgb": [
+    -0.12,
+    -0.42,
+    -0.39
+   ],
+   "pct_diff_gt": 2.308,
+   "ssim": 0.9391,
+   "mean_abs": 2.784,
+   "max_abs": 144,
+   "worst_tile": {
+    "x": 576,
+    "y": 64,
+    "pct": 8.5
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  },
+  "00460.jpg": {
+   "psnr": 34.03,
+   "psnr_q4": 41.07,
+   "lo_pct_gt3": 2.414,
+   "shift_rgb": [
+    -0.0,
+    -0.34,
+    -0.4
+   ],
+   "pct_diff_gt": 3.072,
+   "ssim": 0.9423,
+   "mean_abs": 2.899,
+   "max_abs": 178,
+   "worst_tile": {
+    "x": 1216,
+    "y": 704,
+    "pct": 12.8
+   },
+   "dat": false,
+   "dat_cau_truc": true
+  }
+ }
+}
