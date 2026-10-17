@@ -8,6 +8,7 @@ $PY scripts/k2tl/tests/test_look.py
 node --no-warnings scripts/k2tl/tests/test_geom.mjs
 node --no-warnings scripts/k2tl/tests/test_campath.mjs
 node --no-warnings scripts/k2tl/tests/test_grammar.mjs
+node --no-warnings scripts/k2tl/tests/test_t3.mjs   # V5b-2b: M6 sun.js, record.js
 # V5b-2a (GG1): test trình duyệt chạy với CẢ HAI trình dựng (llvmpipe mặc định, swiftshader giữ được); env_check kiểm Mesa 25.2.8 / LLVM 20
 bash scripts/k2tl/env_check.sh | tail -1
 if [ -f "${K2TL_CACHE:-/var/tmp/cine-out/k2tl-cache}/scene/gib/pack/meta.json" ]; then for g in llvmpipe swiftshader; do K2TL_GL=$g node scripts/k2tl/tests/test_browser.js; done; else echo "test_browser: BỎ QUA (chưa có gói cảnh)"; fi
