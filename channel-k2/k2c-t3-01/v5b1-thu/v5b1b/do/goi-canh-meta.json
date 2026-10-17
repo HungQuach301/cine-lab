@@ -1,0 +1,101 @@
+{
+ "stat": {
+  "lalinea": 26087,
+  "gib": 2451,
+  "ghost_ll": 12465,
+  "ghost_gib": 1608,
+  "gib_1987": 1995,
+  "gib_2026": 456,
+  "gib_levels": 110,
+  "gib_dsmh": 2341,
+  "ghost_1880": 1252
+ },
+ "n_buildings": 28538,
+ "n_roads": 6975,
+ "n_trees": 82533,
+ "landY_counts": {
+  "0": 592381,
+  "1941": 614,
+  "1987": 3626,
+  "2026": 10027
+ },
+ "cls": {
+  "names": {
+   "sand": 1,
+   "dry": 2,
+   "scrub": 3,
+   "rock": 4,
+   "farm": 5,
+   "asph": 6,
+   "paved": 7,
+   "pitch": 8,
+   "park_": 9,
+   "port": 10,
+   "bare": 11,
+   "lawn": 12,
+   "meadow": 13
+  },
+  "count_nat_urb": {
+   "sand": [
+    18068,
+    12786
+   ],
+   "dry": [
+    108078,
+    62026
+   ],
+   "scrub": [
+    282205,
+    282027
+   ],
+   "rock": [
+    54720,
+    50048
+   ],
+   "farm": [
+    673,
+    70
+   ],
+   "asph": [
+    0,
+    5021
+   ],
+   "paved": [
+    0,
+    100989
+   ],
+   "pitch": [
+    0,
+    4942
+   ],
+   "park_": [
+    0,
+    8564
+   ],
+   "port": [
+    0,
+    23366
+   ],
+   "bare": [
+    13653,
+    5202
+   ],
+   "lawn": [
+    0,
+    42065
+   ],
+   "meadow": [
+    131939,
+    9542
+   ]
+  }
+ },
+ "plan1913": {
+  "source": "Baedeker, Spain and Portugal (1913), Plan of Gibraltar 1:25 000, Wagner & Debes",
+  "gcp": 8,
+  "rms_m": 65.3,
+  "max_m": 102.0,
+  "buildings_1913": 11
+ },
+ "tower_area_m2": 334.1
+}
