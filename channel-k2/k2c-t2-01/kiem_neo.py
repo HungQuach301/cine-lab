@@ -1,6 +1,6 @@
 #!/opt/cine/bin/python
 """K2C-T2-01 · KIỂM ĐỦ ĐIỂM NEO cảnh 3D (G2 §12, chủ dự án 17/10) sau khi sửa lỗi hero.js --resume và vá neo:
-mỗi cảnh: (1) số khung có neo = meta.frames, không khung rỗng; (2) so với lượt dựng trước (danh sách khung thiếu ghi lúc phát hiện);
+mỗi cảnh: (1) số khung có neo = meta.frames, không khung rỗng (trừ cảnh không khai vật có neo); (2) so với lượt dựng trước (danh sách khung thiếu ghi lúc phát hiện);
 (3) khung đã vá liền mạch: cùng tập tên neo với khung kề, độ lệch vị trí so với khung kề ≤ max(0,02; 3 × độ lệch lớn nhất giữa hai khung kề tự nhiên của chính cảnh đó).
   kiem_neo.py → g2/kiem-neo.json"""
 import json, os
@@ -17,7 +17,8 @@ for k, v in HE.items():
     m = json.load(open(v['dir'] + '/meta.json')); N = m['frames']; foot = v['hero'].startswith('footage')
     A = json.load(open(v['dir'] + '/anchors.json'))
     thieu = [f for f in range(N) if str(f) not in A] if not foot else []
-    rong = [f for f in range(N) if str(f) in A and not A[str(f)] and not foot]
+    co_nguon = any(v['opt'].get(x) for x in ('pins', 'cols', 'props', 'places', 'routes', 'hl', 'page'))   # cảnh không khai vật nào có neo (vd r06_score: chỉ bảng điểm 2D) → neo rỗng là đúng
+    rong = [f for f in range(N) if str(f) in A and not A[str(f)] and not foot and co_nguon]
     vao = [f for a, b in TRUOC.get(k, []) for f in range(a, b + 1)]
     nat = max([step(A[str(f)], A[str(f + 1)]) for f in range(N - 1) if str(f) in A and str(f + 1) in A and f not in vao and f + 1 not in vao] or [0])
     lech = []
@@ -28,7 +29,7 @@ for k, v in HE.items():
                 if set(A[str(f)]) != set(A[str(g)]): lech.append([f, g, 'khác tên neo'])
                 elif step(A[str(f)], A[str(g)]) > max(0.02, 3 * nat): lech.append([f, g, round(step(A[str(f)], A[str(g)]), 4)])
     ok = not thieu and not rong and not lech; ok_all &= ok
-    out.append(dict(canh=k, khung=N, co_neo=len(A) if not foot else None, thieu=len(thieu), rong=len(rong), da_va=len(vao), thieu_truoc=len(vao), buoc_tu_nhien=round(nat, 4), lech=lech[:5], ket_qua='ĐẠT' if ok else 'TRƯỢT'))
+    out.append(dict(canh=k, khung=N, co_nguon_neo=co_nguon if not foot else None, co_neo=len(A) if not foot else None, thieu=len(thieu), rong=len(rong), da_va=len(vao), thieu_truoc=len(vao), buoc_tu_nhien=round(nat, 4), lech=lech[:5], ket_qua='ĐẠT' if ok else 'TRƯỢT'))
 json.dump(dict(ket_qua='ĐẠT' if ok_all else 'TRƯỢT', so_canh=len(out), canh=out), open(f'{H}/g2/kiem-neo.json', 'w'), indent=1, ensure_ascii=False)
 for r in out:
     if r['thieu_truoc'] or r['ket_qua'] != 'ĐẠT': print(r['canh'], r['ket_qua'], 'thiếu trước', r['thieu_truoc'], '→ nay', r['thieu'], 'rỗng', r['rong'], 'lệch', r['lech'][:2])
