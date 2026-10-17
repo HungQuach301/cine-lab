@@ -20,6 +20,7 @@ import geo  # noqa: E402
 
 CACHE = Path(os.environ.get("K2TL_CACHE", "/var/tmp/cine-out/k2tl-cache"))
 ORIGIN = {"gib": (-5.3487, 36.1513)}   # khớp build_vectors.SCENES (origin_ll trong meta.json của gói)
+SKIP = set()
 H_DEF = {0: 7.5, 1: 10.0, 2: 10.0}   # cao mặc định khi nguồn không có (m): ước theo thời kỳ, ghi trong lớp
 
 
@@ -33,7 +34,7 @@ def height_of(pr, period):
     for k in ("height", "h"):
         try: return float(re.sub(r"[^\d.]", "", str(pr[k]))), k
         except (KeyError, ValueError): pass
-    for k in ("building:levels", "levels"):
+    for k in ("building:levels", "levels", "so_tang_uoc"):   # so_tang_uoc: ghost của phiên SH (tầng chuẩn mốc)
         try: return 3.0 * float(pr[k]) + 1.0, k
         except (KeyError, ValueError): pass
     return H_DEF[period], "mặc định thời kỳ"
@@ -46,11 +47,14 @@ def year_of(pr):
     return None
 
 
-def rings_geojson(paths):
+def rings_geojson(paths, loai=None, do_tin=None):
     for p in paths:
         G = json.loads(Path(p).read_text())
         for f in G.get("features", [G] if G.get("type") == "Feature" else []):
             g, pr = f.get("geometry") or {}, f.get("properties") or {}
+            if loai and pr.get("loai") not in loai: continue   # ghost SH: khoi_pho | nha | cong_su | phao_dai | chien_tuyen
+            if do_tin and pr.get("do_tin") not in do_tin: continue   # cao | vua | thap
+            if pr.get("id") in SKIP: continue
             polys = [g["coordinates"]] if g.get("type") == "Polygon" else g.get("coordinates", []) if g.get("type") == "MultiPolygon" else []
             for poly in polys:
                 if poly and len(poly[0]) >= 4: yield poly[0], pr, os.path.basename(p)
@@ -72,13 +76,29 @@ def rings_osm(ways=None, bbox=None):
         yield pts, dict(tags, osm_way=wid), "osm"
 
 
+def lines_out(A):
+    out = []
+    for p in A.geojson:
+        for f in json.loads(Path(p).read_text())["features"]:
+            g, pr = f["geometry"], f["properties"]
+            if g["type"] != "LineString" or (A.loai and pr.get("loai") not in A.loai.split(",")) or (A.do_tin and pr.get("do_tin") not in A.do_tin.split(",")): continue
+            lon, lat = zip(*[(x, y) for x, y in g["coordinates"]]); E, N = enu(A.pack, lon, lat)
+            out.append(dict(id=pr.get("id"), ten=pr.get("ten"), loai=pr.get("loai"), do_tin=pr.get("do_tin"), pts=[[round(float(e), 1), round(float(n), 1)] for e, n in zip(E, N)]))
+    d = CACHE / "scene" / A.pack / "pack" / "layers"; d.mkdir(parents=True, exist_ok=True)
+    (d / f"{A.name}.json").write_text(json.dumps(dict(name=A.name, src=A.src, years=A.years, lines=out), ensure_ascii=False)); print(json.dumps(dict(name=A.name, n=len(out), ids=[o["id"] for o in out]), ensure_ascii=False))
+
+
 def main():
     a = argparse.ArgumentParser(); a.add_argument("--pack", default="gib"); a.add_argument("--name", required=True)
     a.add_argument("--geojson", nargs="*"); a.add_argument("--osm-ways"); a.add_argument("--osm-bbox")
     a.add_argument("--kind", choices=["real", "ghost"], default="real"); a.add_argument("--period", type=int, choices=[0, 1, 2], required=True)
     a.add_argument("--years", type=float, nargs=2, required=True); a.add_argument("--src", required=True); a.add_argument("--region", type=int, default=1)
+    a.add_argument("--loai", help="lọc thuộc tính loai (ghost SH), vd khoi_pho,nha"); a.add_argument("--do-tin", help="lọc do_tin, vd cao,vua (bỏ 'thap')")
+    a.add_argument("--skip", default="", help="bỏ feature theo id (vd C1782-01 khi đã dựng hero từ OSM)"); a.add_argument("--lines", action="store_true", help="xuất LineString (chiến tuyến) thay vì vòng nhà: [[E,N]…] + thuộc tính")
     A = a.parse_args()
-    if A.geojson: it = rings_geojson(A.geojson)
+    SKIP.update(x for x in A.skip.split(",") if x)
+    if A.lines: return lines_out(A)
+    if A.geojson: it = rings_geojson(A.geojson, A.loai and A.loai.split(","), A.do_tin and A.do_tin.split(","))
     else: it = rings_osm(set(A.osm_ways.split(",")) if A.osm_ways else None, [float(v) for v in A.osm_bbox.split(",")] if A.osm_bbox else None)
     recs, hsrc, n_year = [], {}, 0
     for ring, pr, srcf in it:

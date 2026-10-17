@@ -1,4 +1,4 @@
-// ĐOẠN THỬ V5b-2b-T · CẢNH (b) — 3D PHỐ GIBRALTAR CÓ NHÀ. Lệnh: phố 1782 bằng ghost của phiên SH (channel-k2/k2c-t3-01/ghost/1782/*.geojson, nhánh sh-ghost);
+// DỰ PHÒNG (không dùng trong đoạn thử sau lệnh AE: cảnh (b) = scenes/pho1782.js). 3D PHỐ GIBRALTAR 2026 CÓ NHÀ. Lệnh: phố 1782 bằng ghost của phiên SH (channel-k2/k2c-t3-01/ghost/1782/*.geojson, nhánh sh-ghost);
 // nhánh đó CHƯA có khi dựng (git fetch origin sh-ghost: không có ref, 17/10) → dựng bằng PHỐ 2026 (OSM, nhà thật, chiều cao ước từ DSM — gói cảnh V5b-1),
 // ghi rõ TRÊN HÌNH (dòng phương pháp) và trong báo cáo; KHÔNG tự vẽ ghost (việc của SH). Khi có ghost: đổi opt.layers = [{file: 'ghost1782', …}] + năm 1782.
 // Máy: bay thấp ≈ 70 m dọc tim Main Street (OSM ways 172387187 + 250867611, lệch tim ≤ 15 m, HH2 phố ≤ 120 m), nhìn trước-xuống — vai "hệ quả".
@@ -17,7 +17,7 @@ export async function build(ctx) {
   function overlay(t, st, T) {
     T.chrome(t, 2026, 0, null, { lines: [{ s: 'Shown: Gibraltar today · 1782 street plan not yet digitised', a: Math.max(0, Math.min(1, t / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
     T.where(t, [-1, DUR + 1], 'Main Street, Gibraltar');
-    T.card(t, [1.2, 5.2], 'Main Street · every building drawn from map data', 'Map data from OpenStreetMap (ODbL)', null);
+    T.card(t, [1.2, 5.2], 'Main Street · building footprints from map data', 'Map data from OpenStreetMap (ODbL)', null);
   }
   const N = Math.round(DUR * fps);
   const glog = () => grammarLog(G, N, fps, () => 2026, { hAt, line: MAIN });

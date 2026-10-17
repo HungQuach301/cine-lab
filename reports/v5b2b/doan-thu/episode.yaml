@@ -1,5 +1,5 @@
 # ĐOẠN THỬ V5b-2b-T (T3 "vây hãm", 2 cảnh theo bảng shot TIEN-KY-VAY-HAM §4.2) — dựng qua dây chuyền kênh 2 (scripts/k2/build.sh: prep → hero.js tl/<cảnh> → render.js + k2.js tlLayer → mix).
-# Không lời (ElevenLabs 0); nhạc có dòng RIGHTS (K2-MUS). Mỗi shot cảnh 3D khai `noi` (K-1.13, bắt buộc từ T3); cảnh (a) chia 3 shot cùng một plate (frame0 liên tục) để khai nơi theo cửa sổ.
+# Cảnh (b) = phố 1782 ghost của phiên SH (lệnh AE 17/10), không dùng phố 2026. Không lời (ElevenLabs 0); nhạc có dòng RIGHTS (K2-MUS). Mỗi shot cảnh 3D khai `noi` (K-1.13, bắt buộc từ T3); cảnh (a) chia 3 shot cùng một plate (frame0 liên tục) để khai nơi theo cửa sổ.
 id: v5b2b-t
 title: V5b-2b-T — Gibraltar siege test (1782 bay + town)
 brand: MOVING PARTS
@@ -21,7 +21,7 @@ heroes:
       cut: [kings_bastion]
       cau: lien-hoan
   b_pho:
-    hero: tl/pho2026
+    hero: tl/pho1782
     opt:
       pack: gib
       cau: fly-pho

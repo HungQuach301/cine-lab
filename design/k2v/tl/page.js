@@ -121,7 +121,7 @@ window.contentMask = (f, ov, png) => {
   U.uMask.value = 1; ctx.ws.water.visible = ctx.ws.sky.visible = false; const sm = R.shadowMap.enabled; R.shadowMap.enabled = false; const cc = R.getClearColor(new THREE.Color()), ca = R.getClearAlpha(); R.setClearColor(0x000000, 1);
   R.setRenderTarget(maskRT); R.clear(); R.render(scene, cam); const px = new Uint8Array(w * h * 4); R.readRenderTargetPixels(maskRT, 0, 0, w, h, px); R.setRenderTarget(null);
   U.uMask.value = 0; ctx.ws.water.visible = ctx.ws.sky.visible = true; for (const o of MH) o.visible = true; R.shadowMap.enabled = sm; R.setClearColor(cc, ca);
-  const ids = Object.assign({}, ctx.heroes.heroIds || {}, SC.heroIds || {}), hn = {};   // V5b-2b: cảnh thêm hero (lớp footprint có hid) for (const k in ids) hn[k] = 0;
+  const ids = Object.assign({}, ctx.heroes.heroIds || {}, SC.heroIds || {}), hn = {};   /* V5b-2b: cảnh thêm hero (lớp footprint có hid) */ for (const k in ids) hn[k] = 0;
   let n = 0, nc = 0, tc = 0, nf = 0, nh = 0, ng = 0; for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = (y * w + x) * 4, on = px[i] > 128 && px[i + 1] < 90, fb = px[i] < 90 && px[i + 1] > 128; n += on; nf += on || fb; ng += on && px[i + 1] > 30 && px[i + 2] === 0; if (x >= w * 0.15 && x < w * 0.85 && y >= h * 0.15 && y < h * 0.85) { tc++; nc += on; }
     if (on && px[i + 2] > 0) { nh++; for (const k in ids) if (Math.abs(px[i + 2] - ids[k]) < 0.5) hn[k]++; } }
   // content = HÌNH HỌC nội dung (toà, hero, tường, đường, tàu, xe/người); fabric = content + nền phố (mặt đất đô thị của năm đó: sân, phố, quảng trường)

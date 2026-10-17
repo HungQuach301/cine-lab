@@ -72,7 +72,7 @@ def main():
     while len(th) % cols: th.append(np.zeros_like(th[0]))
     cv2.imwrite(str(sheet), np.vstack([np.hstack(th[i:i + cols]) for i in range(0, len(th), cols)]), [cv2.IMWRITE_JPEG_QUALITY, 82])
     # log chữ
-    logs = {Path(f).stem.replace('.mkv', ''): json.load(open(f)) for f in glob.glob(str(O / 'sec' / '*.log.json'))}
+    logs = {Path(f).name.split('.')[0]: json.load(open(f)) for f in glob.glob(str(O / 'sec' / '*.log.json'))}
     roles, ghost_runs, low_alpha = {}, [], []
     for sid, L in sorted(logs.items()):
         seg = next(s for s in TL['segments'] if s['id'] == sid)
@@ -108,8 +108,32 @@ def main():
         neo[k] = dict(khung=n, co_neo=sum(1 for f in range(n) if str(f) in A), co_lop_chu=sum(1 for f in range(n) if str(f) in A and A[str(f)].get('_tl')))
     S['neo'] = neo
     json.dump(dict(tong=S, mau1=look, lua_do=reds), open(D / 'so-do.json', 'w'), ensure_ascii=False, indent=1)
-    bo = dict(ten='V5b-2b-T (đoạn thử T3, dây chuyền scripts/k2)', fps=FPS, mat_na='noi-dung-mask.json.gz', noi=[dict(t=w['t'], noi=w['noi']) for w in noi_win],
-              nam_khung=[dict(f=r['f'], nam_max=r['nam_khung']) for r in rows if r.get('nam_khung')], ghost_lan_dau_s=gfirst)
+    # campath theo khung TOÀN ĐOẠN (grammarLog của từng cảnh qua render.js --campath, ánh xạ khung cảnh → khung đoạn); agl (m) như gib20
+    cams = {}
+    for k, h in H.items():
+        if not h['hero'].startswith('tl/'): continue
+        cp = tmp / f'campath-{k}.json'
+        if not cp.exists(): subprocess.run(['node', str(HERE / 'render.js'), '--scene', h['hero'].split('/')[1], '--pack', h['opt'].get('pack', 'gib'), '--opt', json.dumps(h['opt']), '--campath', str(cp)], cwd=ROOT, check=True, capture_output=True)
+        cams[k] = json.load(open(cp))
+    cf, shots_c = [], []
+    for r in rows:
+        if not r['canh']: continue
+        c = cams[r['canh']]['frames'][min(r['f_canh'], len(cams[r['canh']]['frames']) - 1)]
+        cf.append(dict(c, f=r['f'], t=r['t'], f_canh=r['f_canh'], canh=r['canh']))
+    for k, c in cams.items():
+        for s0 in c.get('shots', []): shots_c.append(dict(s0, canh=k))
+    json.dump(dict(frames=cf, shots=shots_c, renderer=sorted({m.get('renderer') for m in metas.values()})), open(tmp / 'campath.json', 'w')); gz(tmp / 'campath.json', D / 'campath.json.gz')
+    # log chữ theo khung đoạn (render.js k2: cap = cỡ chữ hoa hiệu dụng → px1080 ≈ cap / 0,727)
+    lc = []
+    for sid, L in sorted(logs.items()):
+        seg = next(s for s in TL['segments'] if s['id'] == sid); F0 = int(round(seg['t0'] * FPS))
+        for e in L['text']: lc.append(dict(f=F0 + e['f'], text=[dict(s=it['s'], role=it.get('role') or '', px1080=round(it['cap'] / 0.727, 1), ratio=it['ratio']) for it in e['items']]))
+    json.dump(dict(nguon='scripts/k2/render.js *.log.json (mẫu mỗi 12 khung)', renderer=S['renderer'], frames=lc), open(D / 'log-chu.json', 'w'), ensure_ascii=False, separators=(',', ':'))
+    bo = dict(ten='V5b-2b-T (đoạn thử T3, dây chuyền scripts/k2)', ghi_chu='Bộ timelapse V5b-2b (scripts/k2tl/k2_measure.py): khung = khung TOÀN ĐOẠN thử (master).', fps=FPS,
+              campath='campath.json.gz', mat_bang='xz', mat_na='noi-dung-mask.json.gz', log_chu='log-chu.json', noi=[dict(t=w['t'], noi=w['noi']) for w in noi_win],
+              nam_khung=[dict(f=r['f'], nam_max=r['nam_khung']) for r in rows if r.get('nam_khung')], ghost_lan_dau_s=gfirst,
+              dia_danh=['Gibraltar', 'Bay of Gibraltar', "King's Bastion", 'Main Street'],
+              tuyen=[dict(t=[0.0, 4.0], loai='song', nguon='mặt vịnh (vinh1782.js; loại "vinh" chưa có trong HH2 → khai như sông ≤ 300 m)'), dict(t=[18.0, 26.0], loai='pho', nguon='OSM Main Street (pho2026.js)')])
     json.dump(bo, open(D / 'bo-tl.json', 'w'), ensure_ascii=False)
     print(json.dumps(S, ensure_ascii=False, indent=1, default=list))
 

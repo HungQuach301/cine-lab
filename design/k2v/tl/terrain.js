@@ -18,7 +18,9 @@ export async function makeTerrain(base, M, U) {
     tex(base + 'years.png', { srgb: false, nearest: true }), tex(base + 'ao.png', { srgb: false }), tex(base + 'cls.png', { srgb: false, nearest: true })]);
   const [Gh, Gw] = M.ground_shape;
   const uni = { uYear: U.uYear, uDim: U.uDim, tNat: { value: tNat }, tUrb: { value: tUrb }, tYears: { value: tYears }, tAO: { value: tAO }, tCls: { value: tCls }, uNearK: { value: U.groundNear ?? 1 },
-    uExt: { value: new THREE.Vector4(e0 - 5, n0 - 5, Gw * 10, Gh * 10) }, tNoise: { value: noiseTex() }, uBaked: U.uBaked, uAOBox: { value: new THREE.Vector4(...M.ao_box) }, uAOon: U.uAOon, uDetail: { value: 1 } };
+    uExt: { value: new THREE.Vector4(e0 - 5, n0 - 5, Gw * 10, Gh * 10) }, tNoise: { value: noiseTex() }, uBaked: U.uBaked, uAOBox: { value: new THREE.Vector4(...M.ao_box) }, uAOon: U.uAOon, uDetail: { value: 1 },
+    tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
+  uni.tGhostU.value.needsUpdate = true;
   const mat = U.lambert ? new THREE.MeshLambertMaterial({ color: 0xffffff }) : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.96, metalness: 0 });
   mat.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, uni, { uMask: U.uMask });
@@ -29,7 +31,7 @@ export async function makeTerrain(base, M, U) {
         float k = landK(decYear(yv.ba), uYear); transformed.y = mix(min(transformed.y, -10.0), transformed.y, k); }
       vWP = (modelMatrix * vec4(transformed, 1.0)).xyz; vWN = normalize(mat3(modelMatrix) * objectNormal);`);
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-      uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;
+      uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls, tGhostU; uniform vec4 uGhostBox; uniform float uGhostOn; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;
       ${GLSL_YEAR} ${GLSL_NOISE}
       float fbmT(vec2 p){ if (uBaked < 0.5) return fbm(p); vec2 q = mat2(0.80, -0.60, 0.60, 0.80) * p * 0.173 + 0.37; return 0.6 * texture(tNoise, p * 0.25).r + 0.4 * texture(tNoise, q).b; }   // nhiễu nướng sẵn chống lặp ô: 2 mẫu, tỉ lệ không thông ước + xoay miền
       // V5b-1b · VẬT LIỆU THỦ TỤC THEO LỚP (build_scene.build_classes): có biến thiên tầm trung + chi tiết nhỏ; mờ dần chi tiết theo fwidth (chống răng cưa)
@@ -90,6 +92,7 @@ export async function makeTerrain(base, M, U) {
       vec4 yv = texture(tYears, guv); float uy = decYear(yv.rg);
       vec3 cN = texture(tNat, guv).rgb, cU = texture(tUrb, guv).rgb;
       float uk = uy > 9000.0 ? 0.0 : smoothstep(uy - 1.0, uy, uYear);   // nền đô thị không hiện trước năm bằng chứng
+      if (uGhostOn > 0.5) { vec2 gq = (vec2(vWP.x, -vWP.z) - uGhostBox.xy) / uGhostBox.zw; uk *= (gq.x < 0.0 || gq.x > 1.0 || gq.y < 0.0 || gq.y > 1.0) ? 0.0 : texture(tGhostU, gq).r; }   /* V5b-2b: mốc có ghost → nền phố CHỈ quanh khối ghost (giãn 25 m), ngoài đó nền tự nhiên như bản đồ (vườn/sườn) */
       // nền tự nhiên (vùng đã vá): thêm biến thiên tầm trung (cát/cỏ khô/bụi) để không phẳng loang
       float nv = fbmT(vWP.xz * 0.006), nv2 = fbmT(vWP.xz * 0.035 + 7.0);
       float flat_ = (1.0 - smoothstep(0.08, 0.2, 1.0 - vWN.y)) * (1.0 - smoothstep(15.0, 40.0, vWP.y));   // chỉ bãi bằng thấp (eo đất), không loang lên sườn Rock

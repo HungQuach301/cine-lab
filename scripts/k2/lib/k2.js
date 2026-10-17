@@ -174,9 +174,11 @@ function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) r
     panel(g, x, y, sw, SRCPX * 1.6, { a: D.ghost_src.a, fill: 'rgba(12,18,27,0.9)', stroke: 'rgba(242,193,78,0.45)' }); text(g, s2, x + 20, y + SRCPX * 1.12, SRCPX, '#E6EBF0', { a: D.ghost_src.a, w: 500, role: 'ghost_src', maxW: W * 0.46 }); (LL.occ = LL.occ || []).push([x, y, x + sw, y + SRCPX * 1.6]); }
   // thẻ: neo (đường dẫn hổ phách) hoặc dải dưới bên phải hộp năm
   for (const c of D.cards || []) { const tp = 44 * S, w1 = tw(g, c.title, tp, 700, true), w2 = c.src ? tw(g, c.src, SRCPX, 500) : 0, bw = Math.min(W - 2 * SAFE.x0, Math.max(w1, w2) + 56), bh = tp * 1.3 + (c.src ? SRCPX * 1.35 : 0) + 30;
-    let bx, by; if (c.anchor) { const ax = c.anchor[0] * W, ay = c.anchor[1] * H; bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, ax - bw / 2)); by = Math.max(SAFE.y0 + 90, Math.min(H * 0.62 - bh, ay - 90 - bh));
+    // neo trong khung: thẻ ở dải TRÊN (dưới chip nơi), đường dẫn xuống điểm neo — không đè vật chính quanh điểm neo (tự rà V5b-2b-T: thẻ từng đè mặt bastion)
+    const inF = c.anchor && c.anchor[0] >= 0.02 && c.anchor[0] <= 0.98 && c.anchor[1] >= 0.04 && c.anchor[1] <= 0.96;
+    let bx, by; if (inF) { const ax = c.anchor[0] * W, ay = c.anchor[1] * H; bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, ax - bw / 2)); by = Math.max(SAFE.y0 + 90, Math.min(yR + 12, ay - 90 - bh));
       g.save(); g.globalAlpha *= c.a; g.strokeStyle = K.amber; g.lineWidth = 3; g.beginPath(); g.moveTo(Math.max(bx, Math.min(bx + bw, ax)), by + bh); g.lineTo(ax, ay); g.stroke(); g.fillStyle = K.amber; g.beginPath(); g.arc(ax, ay, 7, 0, 7); g.fill(); g.restore(); }
-    else { bx = Math.min(ybR + 24, W - SAFE.x0 - gw - bw); by = H - EDGE_B - bh + 8; }
+    else { bx = ybR + 24; by = H - EDGE_B - bh + 8; if (bx + bw > W - SAFE.x0 - gw) { bx = SAFE.x0; by = ybT - 16 - bh; } }   /* không neo / neo ngoài khung: dải dưới; không đủ chỗ cạnh nhãn ghost → hàng trên hộp năm (không bao giờ ra ngoài mép) */
     panel(g, bx, by, bw, bh, { a: c.a, accent: K.amber, fill: 'rgba(12,18,27,0.92)' }); text(g, c.title, bx + 28, by + 14 + tp, tp, K.text, { a: c.a, w: 700, disp: true, role: 'card', maxW: bw - 48 });
     if (c.src) text(g, c.src, bx + 28, by + 14 + tp * 1.3 + SRCPX * 1.05, SRCPX, '#D6DDE4', { a: c.a, w: 500, role: 'src', maxW: bw - 48 }); (LL.occ = LL.occ || []).push([bx, by, bx + bw, by + bh]); LL.fill = true; }
   // nhãn neo nhỏ (ghost/địa danh): quầng tối, đường dẫn trắng
