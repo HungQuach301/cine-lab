@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The 13% label is faded, and the dark green on dark gray makes its caption nearly unreadable. The label cards cover the cubes. The three cubes are almost the same size, yet the values are 7%, 6% and 13%, so the 3D bars misrepresent the numbers. The 13% cube is the same height as the 6% one. There is no axis or baseline and the background is empty dark gloom. 'ACTUAL' is stamped three times, which is redundant and meaningless to a viewer. The two bottom captions are legible."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map is textured and has a strong sense of place. The label cards are crisp, high-contrast and well sized for a phone, and none of them overlap. The coin discs, bar and document icon are readable. The meaning is weak, though. The 'world price' and 'U.S. price' discs have no values or visible size difference. The tall bar has no scale and sits away from its '~5 ships/yr' label. The small cube is not clearly tied to any label. The Delaware pin is only loosely connected to the objects. The title and source at the bottom are legible."
+ },
+ "better": "Y",
+ "why": "Y has a real location, clean readable cards and no overlaps, while X has a washed-out unreadable 13% label, cards covering the objects and cube sizes that contradict the numbers.",
+ "top_fix_for_weaker": "Spread the three cubes apart, scale their heights to 7/6/13 on a shared baseline, and put each label directly above its own cube. Give the 13% card the same opaque dark background and bright text as the other two, and drop the repeated ACTUAL tags. Add a lit, textured backdrop so the scene has something to look at."
+}

@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Nice shaded-relief terrain and clean dark labels. The route is weak: three short, faint lines fade out in open sea with no destination. The 'South Korea' label sits on an unspecific inland spot. The map is zoomed so far in that a viewer can't tell it is Korea without the label. The sources line is small on a phone."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Striking globe with a Texas highlight that reads instantly. The label is large and the date chip is clear. The label box covers part of the map and its long single line of text is small on a phone. The footer sources are tiny. There is no route or movement, only a single highlighted state, so it only partly fits the 'route across a region' type."
+ },
+ "better": "Y",
+ "why": "Y has a stronger, more cinematic image and a clear focal point (highlighted Texas with a legible label), while X's route is faint and undirected and its location is hard to identify.",
+ "top_fix_for_weaker": "Zoom out so Korea and the destination region are both visible, then draw thick, bright arrows with arrowheads from Ulsan to named destination ports or regions. Label the destinations, and enlarge the footer source text."
+}

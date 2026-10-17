@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "empty_frame"
+  ],
+  "note": "The 13% label is a faded, translucent card. It overlaps the green cube, and its caption is low-contrast and hard to read. The labels sit on top of the cubes and hide them. The cubes are nearly the same height even though 6, 7 and 13 are very different, so the 3D objects don't show the quantities. The upper half of the frame is dark and empty. The 'ACTUAL' badge is repeated four times and means nothing to a viewer. The orange 7% and the green 6% and 13% have no stated logic. The bottom caption and source are legible."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [],
+  "note": "A real terrain map with a clean palette. The labels are high-contrast and large enough for a phone. The coin stack, scale gantry and document icon are distinct and tied to their labels. The place is named. The loop is honestly flagged as an interpretation. The icons are small, and the meaning of the loop and of the four coins (no number is given) is vague. The wage and scale chips at the top are a bit redundant. Overall it is tidy and easy to read."
+ },
+ "better": "Y",
+ "why": "Y is clean, legible and clearly located, while X has a washed-out, overlapping 13% label and cubes whose sizes don't match the numbers.",
+ "top_fix_for_weaker": "Scale the cube heights to 6, 7 and 13. Move the labels above or beside the cubes so they don't overlap. Make the 13% card opaque with high contrast. Remove the repeated 'ACTUAL' badges. Move the objects up and enlarge them to fill the empty top half of the frame."
+}

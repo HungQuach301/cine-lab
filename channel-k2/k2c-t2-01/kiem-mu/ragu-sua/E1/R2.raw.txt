@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 5, "clarity": 4, "flags": ["text_overlap", "illegible_text", "cluttered", "confusing"], "note": "Three cubes are the same size even though the numbers differ (7%, 6%, 13%), so the 3D objects carry no data. The 13% label is faded and sits over the green cube, so its text is low contrast. The labels cover the cubes and overlap each other. Every box carries a redundant 'ACTUAL' tag, and the top half of the frame is empty. The dark grid floor and the cube materials look decent."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 7, "flags": [], "note": "A real terrain map with a river gives a clear sense of place. The coin stack, scale gantry and document icons are consistent in style. The dark chips are crisp and legible, and the loop outline is easy to follow. Weaknesses: the icons are small, 'Wages' and 'Scale' are cryptic chips that aren't tied to specific objects, and the bottom third is a dead gradient. The loop's meaning isn't obvious without narration."},
+ "better": "Y",
+ "why": "Y's labels are legible and each one sits next to a distinct, recognizable object on a real map, while X's labels overlap the cubes, one is faded, and the cubes are the same size despite different values.",
+ "top_fix_for_weaker": "Scale the cube heights to the values (6, 7 and 13), and give each cube its own label placed above or beside it so nothing overlaps. Make the 13% label opaque and high-contrast, drop the repeated 'ACTUAL' tags, and move the cluster up and enlarge it to fill the empty upper half of the frame."}
+```

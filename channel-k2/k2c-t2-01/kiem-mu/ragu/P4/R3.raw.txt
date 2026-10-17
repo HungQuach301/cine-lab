@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Tilted archival print on a dark warm background. The name, role, place and year sit in a clean right-hand column with a gold accent bar, so the subject is clear at a glance. The credit bar is white on dark and legible. It slightly overlaps the print's bottom edge, and the right column is somewhat sparse."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 8, "flags": ["text_overlap"], "note": "The photo is a good portrait and the main caption is large and clear. The caption sits on a gradient that cuts across the lower part of the print, and it overlaps the photo's bright edge and the man's legs. The small grey-blue source line is low-contrast and tiny for a phone. The frame is bottom-heavy, and the left and top are empty."},
+ "better": "X",
+ "why": "X gives the text its own clear space beside the photo with strong contrast, while Y lays its caption over the photo and the source line is small and low-contrast.",
+ "top_fix_for_weaker": "Move the Hoover caption off the photo, either to a side column as in X or onto a solid dark bar below the print. Make the source line larger and brighter (about 28px or more, near-white), and re-centre the print so it doesn't sit under the gradient."}
+```

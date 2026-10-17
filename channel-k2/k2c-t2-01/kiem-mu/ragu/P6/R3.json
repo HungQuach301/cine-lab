@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 9,
+  "clarity": 8,
+  "flags": [],
+  "note": "Framed newsreel photo on a blurred sepia background, with a clear year badge, a caption and a credit on dark pills. The caption states place, year and subject. The footage is small, low-res and muddy in the shadows, and the right third of the frame is dead dark space. The ship name on the hull can't be read."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 5,
+  "clarity": 6,
+  "flags": [
+   "illegible_text",
+   "confusing"
+  ],
+  "note": "Sharp, well-lit full-bleed aerial of Chicago-area homes that looks good. The white headline sits over bright rooftops with only a weak gradient, so contrast is poor, especially on the left word 'A century later'. The small grey source line is faint and tiny on a phone. The headline question doesn't say what 'that way' means or what the footage is meant to prove, and the footage is labelled 'illustrative', so it adds little."
+ },
+ "better": "X",
+ "why": "X's text is clear and high-contrast and its caption anchors place, year and subject, while Y's prettier footage has a weak-contrast headline and a vague message.",
+ "top_fix_for_weaker": "Put a solid or darker gradient scrim behind the headline and source line, make the source text larger and brighter, and rewrite the headline to name the specific thing being compared, such as the zoning or redlining map and the year."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 5, "clarity": 4, "flags": ["text_overlap", "illegible_text", "confusing", "empty_frame"], "note": "The dark void background has no place or context. The 13% label is faded and overlaps the green cube, so the text is washed out. The 7% card covers the orange cube and the 6% and 13% cubes touch. The cubes are nearly the same height, so they don't show the 7/6/13 differences. 'ACTUAL' badges repeat on every label and add noise. The caption is large and clear."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 6, "flags": ["confusing"], "note": "The real relief terrain with the river gives a clear sense of place, and the dark cards are crisp and readable. The paper document icon is recognisable. The price coins are tiny. The '~5 ships/yr' bar and cube have no scale, and the labels sit away from their objects. The cards are well separated, with no overlap or cut-off."},
+ "better": "Y",
+ "why": "Y has a real sense of place, clean non-overlapping labels and readable text, while X has a faded, overlapping 13% label, a blank background and cubes that don't show the quantities.",
+ "top_fix_for_weaker": "Make the three cubes different heights to match 7/6/13. Move the labels clear of the cubes and each other, so the 13% card is opaque and fully legible. Replace the empty dark void with a building or floor-plan context, and show 'ACTUAL' once instead of on every card."}
+```

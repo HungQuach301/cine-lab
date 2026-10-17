@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 5,
+    "readability": 5,
+    "clarity": 3,
+    "flags": ["text_overlap", "illegible_text", "confusing", "cluttered"],
+    "note": "The 13% label is semi-transparent and sits under the 7% card, so its text is low-contrast and half-covered. The label cards cover the cubes they describe. Three cubes are almost the same size, so the 7%, 6% and 13% values don't show in their heights. 13% looks smaller than 7%. The cubes float in a dark void with no sense of place. The 'ACTUAL' tag is repeated four times and adds noise. The caption and source text are readable. The 6% label has no description, so the viewer can't tell what it measures."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 7,
+    "flags": [],
+    "note": "The terrain, river and coins look polished, and the white outlines on the coins make them stand out. Labels are high-contrast and large enough for a phone. One coin against four is an easy way to see 'about 4×', and the place label (Delaware River valley) sets the scene. Weaknesses: the coins read as money rather than a tanker, so the link to the subject is loose. The 'world price' label sits far from the row of four coins. The terrain doesn't add much meaning, and there is some empty space. 'ESTIMATE' is clearly marked as an estimate."
+  },
+  "better": "Y",
+  "why": "Y shows its comparison clearly with legible labels on a real-looking location, while X's labels overlap, the 13% text is washed out, and the cube sizes don't match the numbers.",
+  "top_fix_for_weaker": "Move the three labels so they sit above or beside their cubes without overlapping. Make the 13% card fully opaque. Scale the cube heights to 7, 6 and 13 and give the 6% cube a descriptor. Drop the repeated ACTUAL tags and keep a single one."
+}
+```

@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "cluttered",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The 7% label card sits on top of the orange cube and hides it. The 13% card is semi-transparent and washed out, and the bar chart's own text runs through it, so it is barely legible. The three cubes are almost the same size, so they don't show 7 vs 6 vs 13. The cube heights contradict the numbers (the 13% cube is no taller than the 6% one). The cubes are also mismatched in scale and position. The 'ACTUAL' badge is repeated four times, which is noise. The dark empty grid and sky take up the top half of the frame. Overall it looks like a floating-labels slide over a generic dark grid, with no building or stair to ground the topic."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Real terrain with a river gives a clear sense of place, and the dark opaque label cards are crisp and high-contrast. The cream-and-teal palette is coherent and the document icon is readable. The weak point is the data objects. The coins (world vs U.S. price) are tiny and look almost the same size, so the price gap isn't shown. The tall green bar has no label of its own, so it isn't clear which card it belongs to. The 'ships/yr' card sits far from its cube. The objects are small and scattered, and the labels do most of the work. The map is only loosely tied to the topic."
+ },
+ "better": "Y",
+ "why": "Y has a real grounded scene and fully legible, non-overlapping labels, while X has a card covering its main object, a washed-out card, and bars that don't match their values.",
+ "top_fix_for_weaker": "Pull the three cards apart so none sits on a cube or on another card, and make all of them opaque with the same high-contrast style. Scale the cube heights to 7 : 6 : 13, put each label directly above its own cube, and keep one ACTUAL badge instead of four. Replace the empty grid with a scene that fits the topic, such as a simple floor plan or a building cross-section, with a brighter key light."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Good 3D terrain map with a clean location tag and icons. The four icons (coin, document, ship, crane) have no labels, so the 'factors' are unclear. The caption and the sources line are far apart, and the sources line is smaller and low-contrast over the dark gradient."},
+ "Y": {"craft": 4, "readability": 7, "clarity": 7, "flags": ["flat_slide_look"], "note": "Clean recap card with a clear hierarchy and orange accents, and the checklist is easy to follow. It's a flat text slide over a blurred, almost black background. The bottom third of the card is empty, the body text is small for a phone, and there's no visual of the buildings."},
+ "better": "X",
+ "why": "X is a real, visually rich scene that looks like broadcast work, while Y is a plain text card, although Y's message is clearer.",
+ "top_fix_for_weaker": "Replace the dark blurred background with illustrated building icons (a map pin, a staircase, a bank) beside each checklist row. Enlarge the sub-lines to at least 1.3x and cut the empty space at the bottom of the card."}
+```
