@@ -1,0 +1,13 @@
+=====
+URL: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/HHFM5E
+FETCHED_UTC: 2026-10-15T15:58:11Z
+HTTP: 200 https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/HHFM5E 5758
+SHA256: f7047e57be7975a02acdbe9ebaa30e46bf5981409e7ad338e944a8c3b391606e
+-----
+Harvard Dataverse dataset JSON (verbatim fields):
+persistentUrl: https://doi.org/10.7910/DVN/HHFM5E
+license: {"name": "CC0 1.0", "uri": "http://creativecommons.org/publicdomain/zero/1.0", "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png", "rightsIdentifier": "CC0-1.0", "rightsIdentifierScheme": "SPDX", "schemeUri": "https://spdx.org/licenses/", "languageCode": "en"}
+termsOfUse: None
+title: Historical settlement year built layer for the U.S. 1810 – 2020 Version II
+author: [{"authorName": {"typeName": "authorName", "multiple": false, "typeClass": "primitive", "value": "Ahn, Yoonjung"}, "authorAffiliation": {"typeName": "authorAffiliation", "multiple": false, "typeClass": "primitive", "value": "University of Colorado"}}, {"authorName": {"typeName": "authorName", "multiple": false, "typeClass": "primitive", "value": "Leyk, Stefan"}, "authorAffiliation": {"typeName": "authorAffiliation", "multiple": false, "typeClass": "primitive", "value": "University of Colorado"}}, {"authorName": {"typeName": "authorName", "multiple": false, "typeClass": "primitive", "value": "Uhl, Johannes H."}, "authorAffiliation": {"typeName": "authorAffiliation", "multiple": false, "typeClass": "primitive", "value": "University of Colorado"}}]
+dsDescription: [{"dsDescriptionValue": {"typeName": "dsDescriptionValue", "multiple": false, "typeClass": "primitive", "value": "This file is part of the dataset \"Historical settlement composite layer for the U.S. 1810 - 2020\", contained in the dataverse \u201cHISDAC-US: Historical Settlement Data Compilation for the United States\u201d (https://dataverse.harvard.edu/dataverse/hisdacus). These are geospatial raster layers with pixel values representing the year the first structure has been recorded (FBUY) at 250m spatial resolution and raster layer with pixel values representing the built structures without year-built information (NobuiltYear).  The readme file provides additional information. Data source: Zillow Transaction and Assessment Dataset (ZTRAX), Zillow Inc, Parcel (c) Parcel Atlas, and BuildZero Open City Model."}, "dsDescriptionDate": {"typeName": "dsDescriptionDate", "multiple": false, "typeClass": "primitive", "value": "2024-02-09"}}]

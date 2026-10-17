@@ -1,0 +1,315 @@
+{
+ "note": "Kiểm kho 15/10/2026: toàn bộ uploads (playlistItems) của 9 kênh lớn (danh sách T2 trừ Modern MBA, giữ trần quota) + FoN, GoDocs, Geography Effect + Latos Charts (kênh 3D timelapse thành phố, theo lệnh). Uncover History không quét (handle không phân giải, như T3). Kênh timelapse khác lấy qua WebSearch → videos.list (xem ngoai_kho). Lọc tiêu đề bằng regex (vegas|nevada|lake mead|hoover|boulder dam) + kề cạnh; chỉ lưu siêu dữ liệu công khai.",
+ "ket_luan": "2/13 kênh đã làm đúng câu hỏi 'vì sao Las Vegas tồn tại giữa sa mạc' (RealLifeLore 2022, Geography Effect 04/2026). Ngoài kho: Cornerstone Timelapse đăng 07/10/2026 'EVOLUTION OF LAS VEGAS | 3D CITY TIMELAPSE (1855–2026)' 494 376 lượt sau 8 ngày — trùng HÌNH xương sống thời gian (toà nhà mọc theo năm), không có cơ chế nước.",
+ "channels": {
+  "FoN": {
+   "channel_id": "UCK9xNYXhp2zL4_SIkd1AIEA",
+   "n_videos": 13,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "GoDocs": {
+   "channel_id": "UC771k8zqZmmIsRTvENq-voA",
+   "n_videos": 42,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "Geography Effect": {
+   "channel_id": "UCdYuVMwhxFLc-87sulUbIBg",
+   "n_videos": 72,
+   "scan_complete": true,
+   "las_vegas_hits": [
+    {
+     "id": "R0dr3SBmxLA",
+     "title": "Las Vegas Shouldn’t Exist — Here’s Why It Does",
+     "pub": "2026-04-07",
+     "views": 47675
+    }
+   ],
+   "ke_canh": [
+    {
+     "id": "1cUKk4l6d20",
+     "title": "Why Utah’s Great Salt Lake Is Disappearing",
+     "pub": "2026-05-30",
+     "views": 11536
+    },
+    {
+     "id": "yxG7oLQmVIQ",
+     "title": "Phoenix Shouldn’t Exist — Here’s Why It Does",
+     "pub": "2026-04-22",
+     "views": 92837
+    }
+   ],
+   "ghi_chu": "TRÙNG CÂU HỎI GỐC: 'Las Vegas Shouldn't Exist — Here's Why It Does' (04/2026, 8,3 phút, 47,7 nghìn): khung 3 lực (đập Hoover, luật cờ bạc, gần Los Angeles) + 'water may now determine'. Cùng loạt: Phoenix (92,8 nghìn), Los Angeles nước người khác (45 nghìn). Không nguồn trong mô tả."
+  },
+  "Wendover": {
+   "channel_id": "UC9RM-iSvTu1uPJb8X5yp3EQ",
+   "n_videos": 288,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": [
+    {
+     "id": "GeYvNkaLAqA",
+     "title": "California's Water Problem",
+     "pub": "2026-03-10",
+     "views": 872953
+    }
+   ]
+  },
+  "RealLifeLore": {
+   "channel_id": "UCP5tjEmvPItGyLhmjdwP7Ww",
+   "n_videos": 505,
+   "scan_complete": true,
+   "las_vegas_hits": [
+    {
+     "id": "4U1TkIdDbRA",
+     "title": "How Las Vegas Exists in America's Driest Desert",
+     "pub": "2022-07-20",
+     "views": 4143198
+    }
+   ],
+   "ke_canh": [
+    {
+     "id": "jq0FhcfAbG0",
+     "title": "Why Utah’s Great Salt Lake is Dying",
+     "pub": "2025-10-17",
+     "views": 844420
+    },
+    {
+     "id": "jJVtLbg98Yk",
+     "title": "Why California is Running Out of Water",
+     "pub": "2022-06-24",
+     "views": 3228129
+    }
+   ],
+   "ghi_chu": "TRÙNG CÂU HỎI GỐC: 'How Las Vegas Exists in America's Driest Desert' (07/2022, 18,6 phút, 4,14 triệu) — hạng 1 S1. Mô tả chỉ ghi công Getty/AP/OSM, không nguồn số."
+  },
+  "PolyMatter": {
+   "channel_id": "UCgNg3vwj3xt7QOrcIDaHdFg",
+   "n_videos": 189,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "Economics Explained": {
+   "channel_id": "UCZ4AMrDcNrfy3X6nsU8-rPg",
+   "n_videos": 452,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "Half as Interesting": {
+   "channel_id": "UCuCkxoKLYO_EQ2GeFtbM_bw",
+   "n_videos": 583,
+   "scan_complete": true,
+   "las_vegas_hits": [
+    {
+     "id": "-DAfmFdLIjo",
+     "title": "Why Isn’t There Public Transit from the Airport to the Vegas Strip?",
+     "pub": "2025-06-27",
+     "views": 514973
+    },
+    {
+     "id": "rWodJdGNgLM",
+     "title": "Why Nevada Created a County With No People, Buildings, or Roads",
+     "pub": "2020-10-29",
+     "views": 1157397
+    },
+    {
+     "id": "Sbygrr5q2Wg",
+     "title": "The Secretive Book That Names All the Cheaters in Vegas",
+     "pub": "2018-08-23"
+    }
+   ],
+   "ke_canh": [],
+   "ghi_chu": "3 video chạm Vegas/Nevada nhưng khác góc (giao thông sân bay, quận không người, sổ cấm cờ bạc). Không trùng."
+  },
+  "CaspianReport": {
+   "channel_id": "UCwnKziETDbHJtx78nIkfYug",
+   "n_videos": 573,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "Business Casual": {
+   "channel_id": "UC_E4px0RST-qFwXLJWBav8Q",
+   "n_videos": 91,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "Real Engineering": {
+   "channel_id": "UCR1IuLEqb6UEA_zQ81kwXfg",
+   "n_videos": 296,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": []
+  },
+  "Asianometry": {
+   "channel_id": "UC1LpsuAUaKoMzzJSEt5WImw",
+   "n_videos": 728,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": [
+    {
+     "id": "8YHAE9hP5xQ",
+     "title": "TSMC Arizona: What About the Water?",
+     "pub": "2025-11-16",
+     "views": 150729
+    },
+    {
+     "id": "7w_1sqJnmQ8",
+     "title": "When Your Reservoir Evaporates",
+     "pub": "2023-06-22",
+     "views": 135065
+    }
+   ]
+  },
+  "Latos Charts": {
+   "channel_id": "UCUp2zhqu3tRjmhXbtgyeBXA",
+   "n_videos": 15,
+   "scan_complete": true,
+   "las_vegas_hits": [],
+   "ke_canh": [
+    {
+     "id": "Q0DtyN8WNw0",
+     "title": "NEW YORK CITY - 3D Timelapse",
+     "pub": "2026-10-15",
+     "views": 9484
+    },
+    {
+     "id": "KRnE3NQIS2w",
+     "title": "WARSAW - 3D Timelapse",
+     "pub": "2026-10-15",
+     "views": 9860
+    },
+    {
+     "id": "9eqS6w6EDac",
+     "title": "VIENNA - 3D Timelapse",
+     "pub": "2026-10-13",
+     "views": 29971
+    },
+    {
+     "id": "6k-DgNmUNHA",
+     "title": "BERLIN - 3D Timelapse",
+     "pub": "2026-10-08",
+     "views": 100335
+    },
+    {
+     "id": "Vs0LO6HMxIw",
+     "title": "PRAGUE - 3D Timelapse",
+     "pub": "2026-10-05",
+     "views": 1138645
+    },
+    {
+     "id": "eKrpyA8muoM",
+     "title": "AMSTERDAM - 3D Timelapse",
+     "pub": "2026-10-04",
+     "views": 514829
+    },
+    {
+     "id": "VIfS8eqReWg",
+     "title": "BARCELONA - 3D Timelapse",
+     "pub": "2026-10-01",
+     "views": 348921
+    },
+    {
+     "id": "bFHteO3MFpQ",
+     "title": "LISBON - 3D Timelapse",
+     "pub": "2026-09-29",
+     "views": 629665
+    },
+    {
+     "id": "o8S8MYJi_GU",
+     "title": "MOSCOW - 3D Timelapse",
+     "pub": "2026-09-23",
+     "views": 554283
+    },
+    {
+     "id": "UqbSM0g5ytM",
+     "title": "ATHENS - 3D Timelapse",
+     "pub": "2026-09-18",
+     "views": 1021324
+    },
+    {
+     "id": "u9-UOYrUIUs",
+     "title": "DUBAI - 3D Timelapse",
+     "pub": "2026-09-12",
+     "views": 170738
+    },
+    {
+     "id": "v-IPX4INjhQ",
+     "title": "ISTANBUL  - 3D Timelapse",
+     "pub": "2026-09-03",
+     "views": 563579
+    },
+    {
+     "id": "TF-XKdfL4Q8",
+     "title": "PARIS - 3D Timelapse",
+     "pub": "2026-08-22",
+     "views": 240253
+    },
+    {
+     "id": "tHSBpP763Ks",
+     "title": "ROME - 3D Timelapse (Not AI)",
+     "pub": "2026-08-15",
+     "views": 608792
+    },
+    {
+     "id": "O-LcyCsmZ_A",
+     "title": "LONDON - 3D Timelapse (Not AI)",
+     "pub": "2026-08-11",
+     "views": 101373
+    }
+   ],
+   "ghi_chu": "Kênh 3D timelapse thành phố (Blender), 15 video, 08–10/2026: Prague 1,14 triệu (10 ngày), Athens 1,02 triệu; mới mở sang Mỹ (New York 15/10/2026). CHƯA có Las Vegas; rủi ro làm Las Vegas sớm."
+  }
+ },
+ "ngoai_kho": [
+  {
+   "id": "OnuZcxjyQzE",
+   "channel": "Cornerstone Timelapse",
+   "channel_id": "UCoYXFW0nrNphHzk0Vy51Mhw",
+   "title": "EVOLUTION OF LAS VEGAS | 3D CITY TIMELAPSE (1855–2026)",
+   "pub": "2026-10-07",
+   "dur_min": 8.8,
+   "views": 494376,
+   "ghi_chu": "chương theo năm 1855→2026, casino/khu Strip mọc và bị phá; mô tả không nhắc nước/Lake Mead. Sát ngưỡng Nổ-mẫu 500 nghìn (−1,1 %)."
+  },
+  {
+   "id": "avsVJ0Tbrp8",
+   "channel": "InfoGeek",
+   "title": "EVOLUTION of Las Vegas 1855 - 2025 | 3D Animation",
+   "pub": "2025-05-18",
+   "dur_min": 2.4,
+   "views": 195382
+  },
+  {
+   "id": "adAoosRTjws",
+   "channel": "The City Time-Lapse",
+   "title": "Urban growth of Las Vegas (1985 - 2021) - Time lapse",
+   "pub": "2021-09-15",
+   "dur_min": 0.5,
+   "views": 60151
+  },
+  {
+   "id": "wZJUdpPe_SI",
+   "channel": "US Weather Alert",
+   "title": "Las Vegas Isn’t the Real Lake Mead Problem — California Is",
+   "pub": "2026-09-26",
+   "dur_min": 23.0,
+   "views": 452111,
+   "ghi_chu": "trùng góc tương phản Las Vegas ↔ nông nghiệp California (Imperial Valley, All-American Canal) theo mô tả WebSearch"
+  },
+  {
+   "id": "lq5jC9R_bsY",
+   "channel": "The Infographics Show",
+   "title": "What the Colorado River Crisis Means for the American West",
+   "pub": "2026-10-04",
+   "dur_min": 15.6,
+   "views": 512350
+  }
+ ]
+}

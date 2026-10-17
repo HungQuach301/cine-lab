@@ -1,0 +1,13 @@
+=====
+URL: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/HXQWNJ
+FETCHED_UTC: 2026-10-15T15:58:12Z
+HTTP: 200 https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/HXQWNJ 15383
+SHA256: 3882b727559dbc7a621fa66a5a0d1358ef8b31dff4d27f8551df4e3d574e5933
+-----
+Harvard Dataverse dataset JSON (verbatim fields):
+persistentUrl: https://doi.org/10.7910/DVN/HXQWNJ
+license: {"name": "CC0 1.0", "uri": "http://creativecommons.org/publicdomain/zero/1.0", "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png", "rightsIdentifier": "CC0-1.0", "rightsIdentifierScheme": "SPDX", "schemeUri": "https://spdx.org/licenses/", "languageCode": "en"}
+termsOfUse: None
+title: Historical building footprint area (BUFA) - gridded surfaces for the conterminous U.S. from 1900 to 2010
+author: [{"authorName": {"typeName": "authorName", "multiple": false, "typeClass": "primitive", "value": "Uhl, Johannes H."}, "authorAffiliation": {"typeName": "authorAffiliation", "multiple": false, "typeClass": "primitive", "value": "University of Colorado Boulder"}, "authorIdentifierScheme": {"typeName": "authorIdentifierScheme", "multiple": false, "typeClass": "controlledVocabulary", "value": "ORCID"}, "authorIdentifier": {"typeName": "authorIdentifier", "multiple": false, "typeClass": "primitive", "value": "0000-0002-4861-5915"}}, {"authorName": {"typeName": "authorName", "multiple": false, "typeClass": "primitive", "value": "Leyk, Stefan"}, "authorAffiliation": {"typeName": "authorAffiliation", "multiple": false, "typeClass": "primitive", "value": "University of Colorado Boulder"}, "authorId
+dsDescription: [{"dsDescriptionValue": {"typeName": "dsDescriptionValue", "multiple": false, "typeClass": "primitive", "value": "These files are part of the dataset \"Historical building footprint areas (BUFA) - gridded surfaces for the conterminous U.S. from 1900 to 2010\", contained in the dataverse \u201cHISDAC-US: Historical Settlement Data Compilation for the United States\u201d (https://dataverse.harvard.edu/dataverse/hisdacus). Each GeoTIFF file contains a geospatial raster layer with pixel values representing the total building footprint area (i.e., the built-up surface in m\u00b2) within each 250 m x 250 m grid cell, at 10 years temporal resolution. The .readme file provides additional information on the underlying methodology. Data sources: Microsoft USBuildingFootprints v2019 + Zillow Transaction and Assessment Dataset (ZTRAX, Zillow Inc., v2017)."}}]
