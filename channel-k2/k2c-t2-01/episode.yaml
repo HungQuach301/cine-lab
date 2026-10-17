@@ -2907,11 +2907,11 @@ segments:
       kind: actual
       year:
         s: 1942–43
-        at: '@Peary-0.30'
+        at: '@Peary-1.30'
       places:
       - a: richmond2
         s: Richmond, Calif.
-        at: '@Peary-0.30'
+        at: '@Peary-1.30'
         side: auto
         prefer:
         - left
@@ -3268,10 +3268,8 @@ segments:
         s: world price
         sub: the subsidy's target for U.S. owners
         at: '@world'
-        side: auto
-        prefer:
-        - up
-        - left
+        side: up
+        gap: 80
         c: '#E6EBF0'
       - a: col:us1
         s: U.S. price
@@ -3279,8 +3277,8 @@ segments:
         at: '@owners'
         side: auto
         prefer:
-        - up
         - right
+        - down
         c: '#7fd3c6'
       - a: col:s70
         s: 15–25 ships/yr
@@ -3427,6 +3425,7 @@ segments:
     p:
       hero: r03_tanker
       frame0: 0
+      kind: estimate
       where: Delaware River valley
       tags:
       - a: col:world
@@ -3440,7 +3439,7 @@ segments:
       - a: col:us
         s: ≈ 4×
         sub: U.S.-built tanker (one firm's estimate)
-        kind: estimate
+        kind: null
         num: n_tanker4
         at: '@four'
         side: auto
@@ -4259,7 +4258,7 @@ segments:
       places:
       - a: phy
         s: Philly Shipyard
-        at: '@twenty-0.30'
+        at: '@twenty-1.30'
         side: auto
         prefer:
         - left
@@ -4278,7 +4277,7 @@ segments:
         c: '#F2C14E'
       cap:
       - s: 'Aug. 2025: Hanwha announces an investment'
-        at: '@twenty-0.30'
+        at: '@twenty-1.30'
         src:
         - JAH
       src: 'Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP'
@@ -4295,7 +4294,7 @@ segments:
       places:
       - a: phy
         s: Philly Shipyard
-        at: '@Military-0.30'
+        at: '@Military-1.30'
         side: auto
         prefer:
         - left

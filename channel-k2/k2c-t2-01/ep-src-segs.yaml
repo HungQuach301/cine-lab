@@ -44,8 +44,8 @@ segments:
                   {a: "col:d1943", s: "39 days", sub: "average, Dec. 1943", kind: null, num: n_d1943, at: "@thirty-nine", side: auto, prefer: [up, right], c: "#3CC2B0"}],
            src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
       # Q23 (SS4, 17/10): tách lớp chữ — số trung bình (Maritime Commission) và tàu quảng bá (NPS) không cùng một thẻ; cùng cảnh 3D, phát nối khung (frame0)
-      - {tpl: plate, at: "@Peary-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-01-days, places: [], p: {hero: r01_days, frame0: 244, kind: actual, year: {s: "1942–43", at: 0},
-           places: [{a: richmond2, s: "Richmond, Calif.", at: 0, side: auto, prefer: [left, up, down]}],
+      - {tpl: plate, at: "@Peary-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-01-days, places: [], p: {hero: r01_days, frame0: 244, kind: actual, year: {s: "1942–43", at: -1},
+           places: [{a: richmond2, s: "Richmond, Calif.", at: -1, side: auto, prefer: [left, up, down]}],
            tags: [{a: "col:dpeary", s: "4½ days", sub: "Robert E. Peary (publicity stunt)", kind: null, num: n_peary, at: "@Peary", side: auto, prefer: [right, down], c: "#F2C14E"}],
            src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
       - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@photographer-0.8", src_ss: 2, dur: 1.2, gain_db: -20, fade_ms: 60}], at: "@photographer-0.6", in: fade, type: photo, scene_id: loc_fsa_owens, camera_id: push, people: [Josie Lucille Owens], p: {hero: p01_owens, frame0: 0, photo: LOC-FSA-8D18716, clip: LOC-FSA-8D18716, file: /var/tmp/k2-footage/k2c-t2-01/LOC-FSA-8D18716.jpg, setting: ft/richmond-yard-1944,
@@ -88,8 +88,8 @@ segments:
            cap: [{s: "Their bill to repeal it: June 12, 2025", at: "@introduced", src: [MCC]}, {s: "", at: "@higher"}],
            src: "Sources: CRS, Am. Maritime Partnership, Rep. McClintock · SRTM"}}
       - {tpl: plate, at: "@There-0.3", type: map, scene_id: relief/eastus, camera_id: t2-02-subsidy, places: [], p: {hero: r02_subsidy, frame0: 0, where: "Delaware River valley", kind: actual,
-           tags: [{a: "col:wp", s: "world price", sub: "the subsidy's target for U.S. owners", at: "@world", side: auto, prefer: [up, left], c: "#E6EBF0"},
-                  {a: "col:us1", s: "U.S. price", sub: "American-built ship", at: "@owners", side: auto, prefer: [up, right], c: "#7fd3c6"},
+           tags: [{a: "col:wp", s: "world price", sub: "the subsidy's target for U.S. owners", at: "@world", side: up, gap: 80, c: "#E6EBF0"},
+                  {a: "col:us1", s: "U.S. price", sub: "American-built ship", at: "@owners", side: auto, prefer: [right, down], c: "#7fd3c6"},
                   {a: "col:s70", s: "15–25 ships/yr", sub: "U.S. yards, 1970s (~5% of world tonnage)", kind: null, num: n_5pct, at: "@fifteen", out: "@five#2", side: auto, prefer: [up], c: "#3CC2B0"},
                   {a: "col:now5", s: "~5 ships/yr", sub: "U.S. yards, new ships (2023 report)", kind: null, num: n_5yr, at: "@five#2", side: auto, prefer: [left, down], c: "#3CC2B0"}],
            stickers: [{a: "st:rep", img: "stk:document", at: "@congressional", px: 95}],
@@ -212,12 +212,12 @@ segments:
            src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
       # Q23 (SS4, 17/10): tách lớp chữ — số ACTUAL / mục tiêu PROJECTION / tin Military Times thành 3 shot nối khung cùng cảnh 3D (frame0)
       - {tpl: plate, at: "@twenty-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 417, kind: "",
-           places: [{a: phy, s: "Philly Shipyard", at: 0, side: auto, prefer: [left, up]}],
+           places: [{a: phy, s: "Philly Shipyard", at: -1, side: auto, prefer: [left, up]}],
            tags: [{a: phy, s: "1.5 → 20 ships/yr", sub: "announced goal, no date given", kind: projection, num: n_goal20, at: "@twenty", side: auto, prefer: [right, down], c: "#F2C14E"}],
-           cap: [{s: "Aug. 2025: Hanwha announces an investment", at: 0, src: [JAH]}],
+           cap: [{s: "Aug. 2025: Hanwha announces an investment", at: -1, src: [JAH]}],
            src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
       - {tpl: plate, at: "@Military-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 642, kind: "",
-           places: [{a: phy, s: "Philly Shipyard", at: 0, side: auto, prefer: [left, up]}],
+           places: [{a: phy, s: "Philly Shipyard", at: -1, side: auto, prefer: [left, up]}],
            tags: [{a: "st:ord2", s: "June 2030", sub: "first missile-tracking ship, slated (Military Times)", kind: projection, num: n_2030, at: "@2030", side: auto, prefer: [up, right], c: "#3CC2B0"}],
            cap: [{s: "Military Times, July 2026", at: "@Military", src: [MT]}, {s: "Our read: an order again — this time after the investment", at: "@after", src: [JAH, MT]}],
            src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
