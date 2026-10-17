@@ -107,6 +107,8 @@ def main():
         A = json.load(open(Path(h['dir']) / 'anchors.json')); n = metas[k]['frames'] if k in metas else 0
         neo[k] = dict(khung=n, co_neo=sum(1 for f in range(n) if str(f) in A), co_lop_chu=sum(1 for f in range(n) if str(f) in A and A[str(f)].get('_tl')))
     S['neo'] = neo
+    S['inset'] = [dict(doan=sid, n=len(L.get('inset') or []), area_pct_max=max([x['area_pct'] for x in L.get('inset') or []] or [0]), src=sorted({x['src'] for x in L.get('inset') or []}), bien=sorted({str(x['bien']) for x in L.get('inset') or []})) for sid, L in sorted(logs.items()) if L.get('inset')]
+    S['quan'] = {k: (m.get('frames_meta') or {}).get('0', {}).get('quan') for k, m in metas.items()}
     json.dump(dict(tong=S, mau1=look, lua_do=reds), open(D / 'so-do.json', 'w'), ensure_ascii=False, indent=1)
     # campath theo khung TOÀN ĐOẠN (grammarLog của từng cảnh qua render.js --campath, ánh xạ khung cảnh → khung đoạn); agl (m) như gib20
     cams = {}
@@ -132,7 +134,7 @@ def main():
     bo = dict(ten='V5b-2b-T (đoạn thử T3, dây chuyền scripts/k2)', ghi_chu='Bộ timelapse V5b-2b (scripts/k2tl/k2_measure.py): khung = khung TOÀN ĐOẠN thử (master).', fps=FPS,
               campath='campath.json.gz', mat_bang='xz', mat_na='noi-dung-mask.json.gz', log_chu='log-chu.json', noi=[dict(t=w['t'], noi=w['noi']) for w in noi_win],
               nam_khung=[dict(f=r['f'], nam_max=r['nam_khung']) for r in rows if r.get('nam_khung')], ghost_lan_dau_s=gfirst,
-              dia_danh=['Gibraltar', 'Bay of Gibraltar', "King's Bastion", 'Main Street'],
+              dia_danh=['Gibraltar', 'Bay of Gibraltar', "King's Bastion", 'Main Street', 'Isthmus of Gibraltar'],
               tuyen=[dict(t=[0.0, 4.0], loai='song', pts=[[-1700, -1236], [-1250, -1246], [-900, -1262], [-735, -1274]], dich=[-620, 6, -1274], nguon='mặt vịnh (vinh1782.js ROUTE; loại "vinh" chưa có trong HH2 → khai như sông ≤ 300 m)'),
                      dict(t=[18.0, 26.0], loai='pho', pts=[[-409, -1811], [-410, -1700], [-425, -1620], [-435, -1571], [-441, -1543], [-448, -1521], [-450, -1505], [-447, -1400], [-440, -1300], [-432, -1150], [-425, -1000], [-420, -880], [-417, -788]], dich=[-462, 15, -788], nguon='OSM Main Street (pho1782.js MAIN)')])
     json.dump(bo, open(D / 'bo-tl.json', 'w'), ensure_ascii=False)

@@ -148,6 +148,36 @@ function whereChip(g, p, t) { const Wh = p.where; if (!Wh || V) return; const o 
 function asof(g, p, t) { if (!p.asof) return; const u = vis(t, p.asofAt === undefined ? p.t0 : p.asofAt); const s = p.asof === true ? 'Facts as of 11 Oct 2026' : p.asof;
   const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = p.asofY !== undefined ? p.asofY : V ? 210 : (p.card ? 28 : 56);   /* asofY: Short có hook 2 dòng đặt nhãn dưới dải hook */ panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
 
+// ---------- BẢN ĐỒ ĐỊNH VỊ GÓC (inset — V5b-2b, lệnh AD3 chủ dự án 17/10) ----------
+// p.inset: true (3–5 s khi vào nơi mới, mặc định 4 s) | 'giu' (giữ suốt shot — cảnh chiến sự) | {dur}; p.inset_map: tên trong design/k2v/inset/ (đường bờ Natural Earth, KHÔNG ranh giới);
+// p.inset_dot: [lon, lat] chấm đỏ nơi đang xem (+ p.inset_label); p.inset_route: [[lon, lat]…] (+ p.inset_route_label) tuyến hạm đội/quân; p.inset_bien: GeoJSON có nguồn
+// (ranh giới thời kỳ — chỉ vẽ khi khai; KHÔNG tự vẽ). Góc trên trái, ≤ 12 % khung (đếm RIÊNG, LL.inset — không gộp ngân sách chữ), nền giấy, viền mảnh, hiện/ẩn mờ 0,4 s.
+const INSET_PAPER = { sea: '#D9D1BC', land: '#F2ECDE', coast: '#5E5446', frame: 'rgba(15,23,34,0.85)', dot: '#D9442B' };
+function insetLayer(g, p, t) { if (!p.inset || V) return; const M = (window.INSETS && window.INSETS.maps || {})[p.inset_map]; if (!M) return;
+  const giu = p.inset === 'giu' || (p.inset && p.inset.giu), dur = (p.inset && p.inset.dur) || 4, a = giu ? vis(t, p.t0, null, 0.4) : Math.min(vis(t, p.t0, null, 0.4), 1 - cl((t - (p.t0 + dur)) / 0.4));
+  if (a <= 0.01) { LL.inset = null; return; }
+  const D = p.tl ? tlData(p, t) : null, nm = D && D.chrome && D.chrome.method && !D.chrome.method.bottom ? D.chrome.method.lines.length : 0;
+  const w = 460 * S, h = w / M.aspect, x = SAFE.x0, y = 56 + nm * (SRCPX * 1.6 + 10), area = (w + 6) * (h + 6) / (W * H) * 100;
+  const X = (lo, la) => { const [lo0, la0, lo1, la1] = M.box, k = Math.cos(((la0 + la1) / 2) * Math.PI / 180); return [x + ((lo - lo0) * k) / ((lo1 - lo0) * k) * w, y + (la1 - la) / (la1 - la0) * h]; };
+  g.save(); g.globalAlpha *= a; g.shadowColor = 'rgba(0,0,0,0.35)'; g.shadowBlur = 18; g.fillStyle = INSET_PAPER.sea; g.fillRect(x, y, w, h); g.shadowColor = 'transparent';
+  g.beginPath(); g.rect(x, y, w, h); g.clip();
+  g.fillStyle = INSET_PAPER.land; g.strokeStyle = INSET_PAPER.coast; g.lineWidth = 1.3; g.lineJoin = 'round';
+  for (const r of M.rings) { g.beginPath(); r.forEach(([u, v], i) => (i ? g.lineTo : g.moveTo).call(g, x + u * w, y + v * h)); g.closePath(); g.fill(); g.stroke(); }
+  const B = (window.INSETS.bien || {})[p.inset_bien]; if (B) { g.strokeStyle = 'rgba(15,23,34,0.75)'; g.lineWidth = 2; g.setLineDash([6, 4]); for (const l of B.lines) { g.beginPath(); l.forEach(([lo, la], i) => (i ? g.lineTo : g.moveTo).call(g, ...X(lo, la))); g.stroke(); } g.setLineDash([]); }
+  if (p.inset_route) { const R2 = p.inset_route.map(([lo, la]) => X(lo, la)), u = giu ? cl((t - p.t0 - 0.4) / 2.0) : 1;   // tuyến mọc 2 s
+    g.strokeStyle = K.orange; g.lineWidth = 4; g.setLineDash([10, 7]); g.beginPath(); let len = 0; const tot = R2.slice(1).reduce((s2, q, i) => s2 + Math.hypot(q[0] - R2[i][0], q[1] - R2[i][1]), 0); g.moveTo(...R2[0]);
+    for (let i = 1; i < R2.length; i++) { const d = Math.hypot(R2[i][0] - R2[i - 1][0], R2[i][1] - R2[i - 1][1]); if (len + d >= u * tot) { const f = (u * tot - len) / d; g.lineTo(R2[i - 1][0] + (R2[i][0] - R2[i - 1][0]) * f, R2[i - 1][1] + (R2[i][1] - R2[i - 1][1]) * f); break; } g.lineTo(...R2[i]); len += d; }
+    g.stroke(); g.setLineDash([]); }
+  if (p.inset_dot) { const [dx, dy] = X(...p.inset_dot), k2 = (t * 1.1) % 1; g.fillStyle = INSET_PAPER.dot; g.beginPath(); g.arc(dx, dy, 9 * S, 0, 7); g.fill(); g.strokeStyle = `rgba(217,68,43,${1 - k2})`; g.lineWidth = 3; g.beginPath(); g.arc(dx, dy, (10 + 22 * k2) * S, 0, 7); g.stroke(); }
+  g.restore(); g.save(); g.globalAlpha *= a; g.strokeStyle = INSET_PAPER.frame; g.lineWidth = 2; g.strokeRect(x, y, w, h); g.restore();
+  // nhãn trong inset (30 px, quầng nền tối nhẹ, role 'inset'): nơi + tên tuyến
+  const lab = (s2, lx, ly, al = 'left') => { const pw = tw(g, s2, 30 * S, 700) + 20, bx = al === 'right' ? lx - pw : lx; panel(g, Math.max(x + 4, Math.min(x + w - pw - 4, bx)), ly - 22 * S, pw, 34 * S, { a, fill: 'rgba(15,23,34,0.86)', stroke: 'transparent', r: 6 });
+    text(g, s2, Math.max(x + 4, Math.min(x + w - pw - 4, bx)) + 10, ly + 3 * S, 30 * S, K.text, { a, w: 700, role: 'inset' }); };
+  if (p.inset_dot && p.inset_label) { const [dx, dy] = X(...p.inset_dot); lab(p.inset_label, dx + 18 * S, dy + 4 * S); }
+  if (p.inset_route && p.inset_route_label) { const [rx, ry] = X(...p.inset_route[0]); lab(p.inset_route_label, rx + 12 * S, ry + 36 * S); }
+  LL.inset = { box: [x, y, x + w, y + h].map(Math.round), area_pct: +area.toFixed(2), a: +a.toFixed(2), map: p.inset_map, src: M.src, bien: B ? B.src : null, route: !!p.inset_route };
+  (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
+
 // ---------- XƯƠNG SỐNG THỜI GIAN (V5b-2b, V5B2A §8.5): lớp chữ của cảnh 'tl/<cảnh>' ----------
 // Trang tl (design/k2v/tl/page.js) ghi lớp chữ từng khung vào anchors.json[f]._tl (record.js: cùng API text.js); ở đây vẽ lại bằng chữ + bảng màu kênh:
 //  bộ đếm năm / ngày-giờ dưới-trái (phóng 1,45× + viền hổ phách khi MỐC ĐINH), dòng lịch thứ hai (O.S./N.S.), chỉ số "≈" trên-phải + dòng nguồn (role index_src),
@@ -176,7 +206,7 @@ function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) r
   for (const c of D.cards || []) { const tp = 44 * S, w1 = tw(g, c.title, tp, 700, true), w2 = c.src ? tw(g, c.src, SRCPX, 500) : 0, bw = Math.min(W - 2 * SAFE.x0, Math.max(w1, w2) + 56), bh = tp * 1.3 + (c.src ? SRCPX * 1.35 : 0) + 30;
     // neo trong khung: thẻ ở dải TRÊN (dưới chip nơi), đường dẫn xuống điểm neo — không đè vật chính quanh điểm neo (tự rà V5b-2b-T: thẻ từng đè mặt bastion)
     const inF = c.anchor && c.anchor[0] >= 0.02 && c.anchor[0] <= 0.98 && c.anchor[1] >= 0.04 && c.anchor[1] <= 0.96;
-    let bx, by; if (inF) { const ax = c.anchor[0] * W, ay = c.anchor[1] * H; bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, ax - bw / 2)); by = Math.max(SAFE.y0 + 90, Math.min(yR + 12, ay - 90 - bh));
+    let bx, by; if (inF) { const ax = c.anchor[0] * W, ay = c.anchor[1] * H; bx = Math.max(LL.inset ? LL.inset.box[2] + 24 : SAFE.x0, Math.min(SAFE.x1 - bw, ax - bw / 2));   /* không đè inset góc trên trái */ by = Math.max(SAFE.y0 + 90, Math.min(yR + 12, ay - 90 - bh));
       g.save(); g.globalAlpha *= c.a; g.strokeStyle = K.amber; g.lineWidth = 3; g.beginPath(); g.moveTo(Math.max(bx, Math.min(bx + bw, ax)), by + bh); g.lineTo(ax, ay); g.stroke(); g.fillStyle = K.amber; g.beginPath(); g.arc(ax, ay, 7, 0, 7); g.fill(); g.restore(); }
     else { bx = ybR + 24; by = H - EDGE_B - bh + 8; if (ghostUp || bx + bw > W - SAFE.x0 - gw) { bx = SAFE.x0; by = ybT - 16 - bh; } }   /* nhãn ghost đã lên hàng trên → thẻ lên trên cả hai hàng (tự rà 14,75 s) */   /* không neo / neo ngoài khung: dải dưới; không đủ chỗ cạnh nhãn ghost → hàng trên hộp năm (không bao giờ ra ngoài mép) */
     panel(g, bx, by, bw, bh, { a: c.a, accent: K.amber, fill: 'rgba(12,18,27,0.92)' }); text(g, c.title, bx + 28, by + 14 + tp, tp, K.text, { a: c.a, w: 700, disp: true, role: 'card', maxW: bw - 48 });
@@ -350,7 +380,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
-  else { colOcc(p, t); yearChip(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
+  else { colOcc(p, t); yearChip(g, p, t); insetLayer(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = typeof p.kind === 'string' ? p.kind : /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;   // G2 (K 1.11 O5): p.kind khai rõ nhãn góc ('' = không nhãn góc, khi các thẻ tự mang nhãn) — thẻ dưới nhãn góc thôi khai kind → 1 ACTUAL/khung
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });
@@ -382,4 +412,4 @@ TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGrad
 function frameAt(g, t) { g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0); g.filter = 'none'; LL.SEG.frame(g, t); g.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0);
   const S2 = LL.SEG, fi = S2.fadeIn === undefined || S2.fadeIn === null ? 6 : S2.fadeIn, fo = S2.fadeOut === undefined || S2.fadeOut === null ? 6 : S2.fadeOut, fr = t * FPS, N = S2.frames; let k = 0;
   if (fi > 0 && fr < fi) k = Math.max(k, 1 - sm((fr + 1) / (fi + 1))); if (fo > 0 && fr > N - 1 - fo) k = Math.max(k, sm((fr - (N - 1 - fo)) / (fo + 1))); if (k > 0) { g.fillStyle = `rgba(3,4,8,${k})`; g.fillRect(0, 0, W, H); if (k > 0.2 && LL.tlog) LL.tlog.length = 0; } }   // khung đang tối dần (chuyển đoạn): không tính chữ cho Q5
-window.drawFrame = (f) => { LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };
+window.drawFrame = (f) => { LL.inset = null; LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };

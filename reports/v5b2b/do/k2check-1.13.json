@@ -4,13 +4,12 @@
    "q": "Q26b",
    "ten": "Đa dạng bối cảnh",
    "kq": "TRƯỢT",
-   "val": "2 bối cảnh · lớn nhất tl/vinh1782 69.2 % · liên tục dài nhất tl/vinh1782 18.0 s · nửa sau 2 · trung tính 0.0 %",
+   "val": "3 bối cảnh · lớn nhất tl/vinh1782 60.0 % · liên tục dài nhất tl/vinh1782 18.0 s · nửa sau 3 · trung tính 0.0 %",
    "nguong": "≤ 25 % · ≤ 90 s · nửa sau ≥ 3",
-   "sat": "",
+   "sat": "nửa sau đúng 3 bối cảnh (bằng ngưỡng)",
    "loi": [
-    "tl/vinh1782 chiếm 69.2 % thời lượng (> 25 %)",
-    "tl/pho1782 chiếm 30.8 % thời lượng (> 25 %)",
-    "nửa sau (0:13.0–0:26.0) chỉ có 2 bối cảnh (≥ 3 s): tl/pho1782, tl/vinh1782"
+    "tl/vinh1782 chiếm 60.0 % thời lượng (> 25 %)",
+    "tl/pho1782 chiếm 26.7 % thời lượng (> 25 %)"
    ]
   },
   {
@@ -26,7 +25,7 @@
    "q": "Q33",
    "ten": "Lặp cảnh",
    "kq": "ĐẠT",
-   "val": "2 góc máy · 2 lần xuất hiện · nhiều nhất tl/pho1782 · b_pho 1 lần · 0 góc > 2 · pHash xám toàn khung θ=14, thêm 0 lần lặp không khai",
+   "val": "3 góc máy · 3 lần xuất hiện · nhiều nhất tl/eo1782 · c_eo 1 lần · 0 góc > 2 · pHash xám toàn khung θ=14, thêm 0 lần lặp không khai",
    "nguong": "≤ 2 lần",
    "sat": "",
    "loi": []
@@ -35,7 +34,7 @@
    "q": "Q34",
    "ten": "Loại shot",
    "kq": "ĐẠT",
-   "val": "4/4 shot có type · scene3d 100.0 % · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0",
+   "val": "5/5 shot có type · scene3d 100.0 % · số neo 3D 100 %, chỉ card 0 % (0 số) · địa danh 0 · nhân vật 0",
    "nguong": "type · map ±6 s · photo ±6 s · số neo 3D ≥ 60 % · document ≤ 3 s · record ≤ 12 s + dòng tô + nguồn",
    "sat": "",
    "loi": []
@@ -44,7 +43,7 @@
    "q": "Q35",
    "ten": "Nhãn loại số (D5)",
    "kq": "ĐẠT",
-   "val": "log render (2 đoạn) · 52 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0",
+   "val": "log render (3 đoạn) · 60 khung xét · ACTUAL nhiều nhất 0/khung · lỗi a 0 · b 0 · c 0 · d 0",
    "nguong": "ACTUAL ≤ 1/khung · ESTIMATE bắt buộc · số có năm rõ không cần ACTUAL",
    "sat": "",
    "loi": []
@@ -53,7 +52,7 @@
    "q": "Q36",
    "ten": "Chữ trên màn hình",
    "kq": "ĐẠT",
-   "val": "0 dòng nguồn · dài nhất 0 ký tự · log 2 đoạn · lỗi a 0 · b 0 · thiếu 0",
+   "val": "0 dòng nguồn · dài nhất 0 ký tự · log 3 đoạn · lỗi a 0 · b 0 · thiếu 0",
    "nguong": "nguồn ≥ 38 px, 1 dòng, ≤ 70 ký tự · Facts as of chỉ với luật hiệu lực (+ 1 lần trong câu miễn trừ 0:00–0:15)",
    "sat": "",
    "loi": []
@@ -62,11 +61,11 @@
    "q": "Q37",
    "ten": "Nhịp thị giác",
    "kq": "TRƯỢT",
-   "val": "26.0 s · biến cố khai 4 (gộp 4) · TB 6.5 s · dài nhất 8.0 s · khung tĩnh (khung liền < 0.6/255) dài nhất 0.25 s (từ 0:17.4)",
+   "val": "30.0 s · biến cố khai 5 (gộp 5) · TB 6.0 s · dài nhất 8.0 s · khung tĩnh (khung liền < 0.6/255) dài nhất 2.88 s (từ 0:26.8)",
    "nguong": "TB ≤ 3,5 s · dài nhất ≤ 6 s · khung tĩnh ≤ 6 s",
    "sat": "",
    "loi": [
-    "(b) khoảng biến cố trung bình 6.5 s > 3.5 s",
+    "(b) khoảng biến cố trung bình 6.0 s > 3.5 s",
     "(c) khoảng dài nhất 8.0 s > 6.0 s (từ b 18.00s (cut))"
    ]
   },
@@ -74,7 +73,7 @@
    "q": "A1–A13",
    "ten": "Âm thanh (tập cũ — chỉ báo)",
    "kq": "CHỈ BÁO",
-   "val": "CHỈ BÁO · A1 -14.1 LUFS · A2 -0.6 dBTP · A5 0 đoạn · A7 0 · A4 không có stem (--vo/--bed) và mix.json không có smr · A8 0",
+   "val": "CHỈ BÁO · A1 -14.1 LUFS · A2 -0.7 dBTP · A5 0 đoạn · A7 0 · A4 không có stem (--vo/--bed) và mix.json không có smr · A8 0",
    "nguong": "docs/AUDIO-THUOC-DO.md",
    "sat": "A1 I = -14.1 LUFS (ngưỡng -15 / -13.8)",
    "loi": []
@@ -83,11 +82,11 @@
    "q": "ML1",
    "ten": "Mạch truyện",
    "kq": "CHỈ BÁO (TRƯỢT)",
-   "val": "0/4 shot gắn (0 suy từ mốc @từ) · timelapse 26.0 s, trôi 100.0 %",
+   "val": "0/5 shot gắn (0 suy từ mốc @từ) · timelapse 30.0 s, trôi 100.0 %",
    "nguong": "mỗi shot gắn câu/claim · timelapse trôi ≤ 15 %",
    "sat": "",
    "loi": [
-    "timelapse trôi 26.0 s = 100.0 % > 15 %"
+    "timelapse trôi 30.0 s = 100.0 % > 15 %"
    ],
    "cap": "Chặn (b), (c) · Cảnh báo (a) ở T3 (Chặn từ T4)",
    "chan": 1,
@@ -145,26 +144,25 @@
    "q": "Q26b-K2",
    "ten": "Đa dạng loại cảnh + vùng",
    "kq": "CHỈ BÁO (TRƯỢT)",
-   "val": "loại: 3d 100.0 % · 2 vùng, lớn nhất tl/vinh1782 69.2 % · nửa sau 2 vùng · không vùng 0.0 %",
+   "val": "loại: 3d 100.0 % · 3 vùng, lớn nhất tl/vinh1782 60.0 % · nửa sau 3 vùng · không vùng 0.0 %",
    "nguong": "≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3",
-   "sat": "",
+   "sat": "nửa sau đúng 3 vùng (bằng ngưỡng)",
    "loi": [
     "(a) nửa đầu: 1 loại cảnh ≥ 3 s (3d) < 3",
     "(a) nửa sau: 1 loại cảnh ≥ 3 s (3d) < 3",
     "(b) loại 3d chiếm 100.0 % > 70 %",
-    "(c) vùng tl/vinh1782 chiếm 69.2 % > 25 %",
-    "(c) vùng tl/pho1782 chiếm 30.8 % > 25 %",
-    "(e) nửa sau (0:13.0–0:26.0) 2 vùng ≥ 3 s (tl/pho1782, tl/vinh1782) < 3"
+    "(c) vùng tl/vinh1782 chiếm 60.0 % > 25 %",
+    "(c) vùng tl/pho1782 chiếm 26.7 % > 25 %"
    ],
    "cap": "Chặn (c), (d), (e) (như Q26b) · Cảnh báo (a), (b)",
-   "chan": 3,
+   "chan": 2,
    "canh_bao": 3
   },
   {
    "q": "Q33-K2",
    "ten": "Lặp cảnh (vùng, góc) + pHash L/ΔE",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "2 khoá (vùng, góc) · 2 lần xuất hiện · nhiều nhất tl/pho1782 · b_pho 1 · 0 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 0 lần lặp không khai, miễn 0",
+   "val": "3 khoá (vùng, góc) · 3 lần xuất hiện · nhiều nhất tl/eo1782 · c_eo 1 · 0 khoá > 2 · pHash L θ=16 + ΔE ≤ 10, thêm 0 lần lặp không khai, miễn 0",
    "nguong": "≤ 2 lần (miễn: khác chương + khác năm/lớp)",
    "sat": "",
    "loi": [],
@@ -192,7 +190,7 @@
    "nguong": "research/timelapse/BAO-CAO.md §6.8",
    "sat": "",
    "loi": [
-    "(e) 0 mốc đinh < 1 (≥ 1 mỗi 3 phút, phim 26.0 s)",
+    "(e) 0 mốc đinh < 1 (≥ 1 mỗi 3 phút, phim 30.0 s)",
     "(c) không có khung không chữ + mặt nạ hero (hero_anh) để đo tương phản cục bộ (1.12.1; nhan_sang sáng trong/ngoài không còn dùng)",
     "(d) ngân sách chữ không có số thẻ mỗi khung (cards)"
    ],
@@ -344,7 +342,7 @@
    "q": "NC-H3",
    "ten": "Tầm mặc định",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "3D địa lý 14.2 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 100.0 % · có thành phố: có",
+   "val": "3D địa lý 16.5 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 100.0 % · có thành phố: có",
    "nguong": "AGL ≤ 60 km ≥ 70 % 3D · có thành phố: AGL ≤ 3 km ≥ 40 %",
    "sat": "",
    "loi": [],
@@ -380,7 +378,7 @@
    "q": "NC-H1 [do]",
    "ten": "Thành phố có nhà (bộ timelapse)",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "345/624 khung thành phố (khai noi) · fabric trung vị 40.0 % · min 24.6 % · khung < 15 % (ngoài đuôi reveal) 0",
+   "val": "345/720 khung thành phố (khai noi) · fabric trung vị 40.0 % · min 24.6 % · khung < 15 % (ngoài đuôi reveal) 0",
    "nguong": "fabric trung vị ≥ 25 % · không khung < 15 % (trừ ≤ 3 s cuối reveal)",
    "sat": "",
    "loi": [],
@@ -404,7 +402,7 @@
    "q": "NC-H3 [do]",
    "ten": "Tầm mặc định (bộ timelapse)",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "3D 26.0 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 100.0 %",
+   "val": "3D 30.0 s · AGL ≤ 60 km 100.0 % · ≤ 3 km 100.0 %",
    "nguong": "AGL ≤ 60 km ≥ 70 % 3D · có thành phố: AGL ≤ 3 km ≥ 40 %",
    "sat": "",
    "loi": [],
@@ -416,7 +414,7 @@
    "q": "NC-H4 [do]",
    "ten": "Nơi có tên (bộ timelapse)",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "55 mục chữ nơi/địa danh trong log · role: card, clock, ghost_src, method, src, where, year",
+   "val": "69 mục chữ nơi/địa danh trong log · role: card, clock, ghost_src, inset, method, src, where, year",
    "nguong": "mọi shot bản đồ: chip nơi hoặc nhãn địa danh",
    "sat": "",
    "loi": [],
@@ -428,7 +426,7 @@
    "q": "NC-H5 [do]",
    "ten": "Đúng thời kỳ (bộ timelapse)",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "nhãn ghost: \"Reconstructed from J. Drinkwater, Plan o\" 38.0 px · quãng ≥ 38 px: 0:00.5–0:18.0 (17.50 s), 0:18.5–0:26.0 (7.50 s) · ghost lần đầu: 0:00.0",
+   "val": "nhãn ghost: \"Lines: reconstructed from J. Drinkwater,\" 38.0 px; \"Reconstructed from J. Drinkwater, Plan o\" 38.0 px · quãng ≥ 38 px: 0:00.5–0:18.0 (17.50 s), 0:18.5–0:26.0 (7.50 s), 0:26.5–0:30.0 (3.50 s) · ghost lần đầu: 0:00.0",
    "nguong": "năm xây ≤ bộ đếm · ghost: nhãn nguồn ≥ 38 px, ≥ 3 s lần đầu",
    "sat": "",
    "loi": [],
@@ -440,7 +438,7 @@
    "q": "Q7/Q8-K2",
    "ten": "Nhãn/loại số nhận estimate (khiếu nại TT5 i)",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "Q7 nhận ESTIMATE: 0 lỗi (log 2 đoạn) · Q8 loại số: 0 lỗi",
+   "val": "Q7 nhận ESTIMATE: 0 lỗi (log 3 đoạn) · Q8 loại số: 0 lỗi",
    "nguong": "kind ∈ actual/projection/estimate (kênh 2) · đủ nhãn, không thừa nhãn",
    "sat": "",
    "loi": [],
@@ -452,7 +450,7 @@
    "q": "Q33 (1.13)",
    "ten": "Lặp cảnh — pHash bỏ lớp chữ cố định",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "2 góc máy · 2 lần xuất hiện · nhiều nhất tl/pho1782 · b_pho 1 lần · 0 góc > 2 · pHash L vùng nội dung (bỏ lớp chữ cố định) θ=16, thêm 0 lần lặp không khai",
+   "val": "3 góc máy · 3 lần xuất hiện · nhiều nhất tl/eo1782 · c_eo 1 lần · 0 góc > 2 · pHash L vùng nội dung (bỏ lớp chữ cố định) θ=16, thêm 0 lần lặp không khai",
    "nguong": "≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16",
    "sat": "",
    "loi": [],
@@ -464,7 +462,7 @@
    "q": "Q36 (1.13)",
    "ten": "Chữ — câu miễn trừ nhận theo chữ",
    "kq": "CHỈ BÁO (ĐẠT)",
-   "val": "0 dòng nguồn · dài nhất 0 ký tự · log 2 đoạn · lỗi a 0 · b 0 · thiếu 0",
+   "val": "0 dòng nguồn · dài nhất 0 ký tự · log 3 đoạn · lỗi a 0 · b 0 · thiếu 0",
    "nguong": "\"This video explains… Facts as of\" 1 lần trong 0:00–0:15 không đòi nguồn luật",
    "sat": "",
    "loi": [],
@@ -476,11 +474,11 @@
    "q": "Q37 (1.13)",
    "ten": "Nhịp — khung tĩnh theo khung neo",
    "kq": "CHỈ BÁO (TRƯỢT)",
-   "val": "26.0 s · biến cố khai 4 (gộp 4) · TB 6.5 s · dài nhất 8.0 s · khung tĩnh (neo, < 2.0/255) dài nhất 0.25 s (từ 0:17.5)",
+   "val": "30.0 s · biến cố khai 5 (gộp 5) · TB 6.0 s · dài nhất 8.0 s · khung tĩnh (neo, < 2.0/255) dài nhất 0.83 s (từ 0:28.0)",
    "nguong": "khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s",
    "sat": "",
    "loi": [
-    "(b) khoảng biến cố trung bình 6.5 s > 3.5 s",
+    "(b) khoảng biến cố trung bình 6.0 s > 3.5 s",
     "(c) khoảng dài nhất 8.0 s > 6.0 s (từ b 18.00s (cut))"
    ],
    "cap": "Chặn (thay Q37 cho kênh 2)",
@@ -514,7 +512,7 @@
     "ma": "A2",
     "ten": "Đỉnh thật sau AAC",
     "ok": false,
-    "gia_tri": "-0.6 dBTP",
+    "gia_tri": "-0.7 dBTP",
     "nguong": "≤ -1.0",
     "chan": false
    },
@@ -522,7 +520,7 @@
     "ma": "A3",
     "ten": "Biên độ loudness LRA",
     "ok": false,
-    "gia_tri": "1.0 LU",
+    "gia_tri": "0.9 LU",
     "nguong": "2–8 (báo)",
     "chan": false
    },
@@ -609,8 +607,8 @@
   ],
   "loi": [],
   "bao": [
-   "A2 Đỉnh thật sau AAC: -0.6 dBTP",
-   "A3 Biên độ loudness LRA: 1.0 LU",
+   "A2 Đỉnh thật sau AAC: -0.7 dBTP",
+   "A3 Biên độ loudness LRA: 0.9 LU",
    "A4 Lời trên nhạc (SMR): không có stem (--vo/--bed) và mix.json không có smr",
    "A9 ASR hai cách nghe: không chạy (--no-asr)"
   ],
@@ -619,7 +617,7 @@
   ],
   "mien_asr": [],
   "note": "",
-  "val": "CHỈ BÁO · A1 -14.1 LUFS · A2 -0.6 dBTP · A5 0 đoạn · A7 0 · A4 không có stem (--vo/--bed) và mix.json không có smr · A8 0"
+  "val": "CHỈ BÁO · A1 -14.1 LUFS · A2 -0.7 dBTP · A5 0 đoạn · A7 0 · A4 không có stem (--vo/--bed) và mix.json không có smr · A8 0"
  },
  "version": "1.13.0"
 }

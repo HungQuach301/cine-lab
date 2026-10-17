@@ -141,7 +141,7 @@ window.anchorsAt = () => { if (!last) return null; const { t, st } = last, P = p
   rec.begin(); SC.overlay(t, st, rec, P); out._tl = rec.data(); return out; };
 window.frameMeta = () => { if (!last) return null; const { f, t, st } = last, c = st.cam, g = Math.max(0, ctx.terr.hAt(c.p[0], c.p[2])), agl = c.p[1] - g;
   return { f, t: +t.toFixed(3), agl_m: +agl.toFixed(1), agl_km: +(agl / 1000).toFixed(4), spp: C.tech.spp === 'adaptive' ? st.spp : +C.tech.spp, phase: st.phase || null, preset: st.preset || null, vai: st.vai || null,
-    year: +st.year.toFixed(3), clock: st.clock ? st.clock.s : null, noi: st.noi || null, hero: st.hero || null, sun: st.sun ? { el: +st.sun.el.toFixed(2), az: +st.sun.az.toFixed(2) } : null }; };
+    year: +st.year.toFixed(3), clock: st.clock ? st.clock.s : null, noi: st.noi || null, hero: st.hero || null, sun: st.sun ? { el: +st.sun.el.toFixed(2), az: +st.sun.az.toFixed(2) } : null, quan: SC.troops ? SC.troops() : null }; };   /* V5b-2b (AC1): khối quân hiện / ẩn vì khói */
 window.budgetAll = () => { const out = []; for (let f = 0; f < SC.N; f++) { const t = f / SC.fps, st = SC.state(t); applyCam(cam, st.cam); txt.begin(null); SC.overlay(t, st, txt, projOf());
   out.push(Object.assign({ f }, txt.budget(), { overflow: txt.log.overflow.length, msg: txt.log.overflow.slice(0, 2), roles: txt.roles() }, txt.log.leaders.length ? { leaders: txt.log.leaders.slice() } : {})); } return out; };
 window.grammarLog = () => (SC.grammarLog ? SC.grammarLog() : null);

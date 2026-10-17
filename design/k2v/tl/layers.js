@@ -87,13 +87,13 @@ export function frontLines(specs, ctx) {
   for (const sp of specs || []) {
     const col = new THREE.Color(sp.color || FACTION[sp.side] || FACTION.neutral);
     const band = ribbonGeo(sp.pts, ctx.terr.hAt, sp.w || 26, 0.5, 0), berm = ribbonGeo(sp.pts, ctx.terr.hAt, (sp.w || 26) * 0.45, 0.4, sp.berm ?? 2.2);
-    const mb = growMat(col.clone().lerp(new THREE.Color('#2a2420'), 0.15), ctx.U, 0.62), mk = growMat(new THREE.Color('#8a7356').lerp(col, 0.35), ctx.U, 1);   // dải phe (bán trong) + gờ đất (màu đất pha phe)
+    const mb = growMat(col.clone().lerp(new THREE.Color('#2a2420'), 0.15), ctx.U, sp.bandA ?? 0.45), mk = growMat(new THREE.Color('#9a8566').lerp(col, 0.22), ctx.U, 1);   // V5b-2b: dải phe nhạt hơn, gờ màu đất/đá pha phe (đọc là công trình, không phải nét vẽ)   // dải phe (bán trong) + gờ đất (màu đất pha phe)
     if (sp.stone) mk.color.set(sp.stone);   // tường đá (Line Wall): gờ cao màu đá vôi, không dải phe
     const a = new THREE.Mesh(band.g, mb), b = new THREE.Mesh(berm.g, mk); b.castShadow = b.receiveShadow = true; a.renderOrder = 2; group.add(b); if (sp.band !== false) group.add(a);
     list.push({ sp, len: band.len, mats: [mb, mk], meshes: [a, b] });
   }
   return { group, list, update(tv) { for (const l of list) { const [t0, t1] = l.sp.grow, u = Math.max(0, Math.min(1, (tv - t0) / Math.max(1e-6, t1 - t0))), fadeOut = l.sp.fade ? win(tv, [t0, l.sp.fade[1]], l.sp.fade[1] - l.sp.fade[0]) : 1;
-    for (const m of l.mats) m.userData.uGrow.value = u * l.len + 0.01; l.mats[0].opacity = 0.62 * fadeOut; for (const o of l.meshes) o.visible = u > 0 && fadeOut > 0.01; } } };
+    for (const m of l.mats) m.userData.uGrow.value = u * l.len + 0.01; l.mats[0].opacity = (l.sp.bandA ?? 0.45) * fadeOut; for (const o of l.meshes) o.visible = u > 0 && fadeOut > 0.01; } } };
 }
 
 // ---------- M1: mũi tên ruy băng bám địa hình ----------
@@ -147,7 +147,7 @@ export async function town1782(ctx, { hidPack = true } = {}) {
   if (hidPack) ctx.city.group.visible = false;
   const FP = await footprints([{ file: 'ghost1782' }, { file: 'fort1782', fort: true, h: 8 }], ctx); ctx.scene.add(FP.group);
   const L = await loadJSON(`${ctx.base}layers/lines1782.json`);
-  const FL = frontLines(L.lines.map((l) => (l.loai === 'chien_tuyen' ? { pts: l.pts, side: 'es', grow: [1700, 1701], w: 26, berm: 3.0 } : { pts: l.pts, grow: [1700, 1701], w: 7, berm: 7.5, band: false, stone: '#c9bfa8' })), ctx); ctx.scene.add(FL.group);
+  const FL = frontLines(L.lines.map((l) => (l.loai === 'chien_tuyen' ? { pts: l.pts, side: 'es', grow: [1700, 1701], w: 16, berm: 4.5, band: false } : { pts: l.pts, grow: [1700, 1701], w: 7, berm: 7.5, band: false, stone: '#c9bfa8' })), ctx); ctx.scene.add(FL.group);
   // nền phố của địa hình CHỈ quanh khối ghost + công sự (giãn 25 m, 2 m/điểm ảnh); đường OSM 2026 ẩn (đường giữa các khối là nền phố)
   const recs = []; for (const f of ['ghost1782', 'fort1782']) recs.push(...(await loadJSON(`${ctx.base}layers/${f}.json`)).records.map((r) => r[6]));
   const all = recs.flat(), e0 = Math.min(...all.map((q) => q[0])) - 80, e1 = Math.max(...all.map((q) => q[0])) + 80, n0 = Math.min(...all.map((q) => q[1])) - 80, n1 = Math.max(...all.map((q) => q[1])) + 80, res = 2;
@@ -157,4 +157,43 @@ export async function town1782(ctx, { hidPack = true } = {}) {
   g.filter = 'blur(4px)'; g.drawImage(cv, 0, 0); const tx = new THREE.CanvasTexture(cv); tx.minFilter = THREE.LinearFilter;
   const u = ctx.terr.uni; u.tGhostU.value = tx; u.uGhostBox.value.set(e0, n0, e1 - e0, n1 - n0); u.uGhostOn.value = 1; if (ctx.roads) ctx.roads.mesh.visible = false;
   return { FP, FL, update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782 };
+}
+
+// ---------- M2 RÚT GỌN (lệnh AC1, chủ dự án 17/10): KHỐI ĐƠN VỊ QUÂN instanced ----------
+//  Mỗi đơn vị = đội hình hàng × cột hình người A-lite (thân + mũ, cao 1,75 m, cách 0,9 m × 1,3 m), KHÔNG cận mặt, KHÔNG người ngã/chết; màu phe cố định (FACTION).
+//  Vị trí lấy từ hình học đã nắn có nguồn: spec.pts = tuyến (vd Línea de Contravalación, ghost SH từ Drinkwater 1786) + s (m dọc tuyến) + off (m vuông góc, sau tường chắn);
+//  hoặc spec.at = [E, N]. Mọc theo ngày: day = [xuất hiện, rút] (đơn vị "ngày" do cảnh chọn: uDay), mọc 0,5 ngày từ mặt đất; dịch: move = [[day, dE, dN], …].
+//  update(day, zones): đơn vị có tâm trong vùng khói/lửa (layers.smoke zones) bị ẨN và đếm (luật hình chiến tranh §6.2: không người trong vùng khói).
+export function units(specs, ctx) {
+  const fig = { body: new THREE.BoxGeometry(0.5, 1.35, 0.32).translate(0, 0.68, 0), hat: new THREE.BoxGeometry(0.42, 0.3, 0.42).translate(0, 1.55, 0) };
+  const slots = [];
+  for (const sp of specs || []) {
+    let E, N, hd;
+    if (sp.pts) { const C = cumLen(sp.pts); let i = 1; while (i < sp.pts.length - 1 && C[i] < sp.s) i++; const a = sp.pts[i - 1], b = sp.pts[i], u = Math.max(0, Math.min(1, (sp.s - C[i - 1]) / ((C[i] - C[i - 1]) || 1)));
+      const d = [b[0] - a[0], b[1] - a[1]], l = Math.hypot(...d) || 1, nn = [-d[1] / l, d[0] / l]; E = a[0] + d[0] * u + nn[0] * (sp.off || 0); N = a[1] + d[1] * u + nn[1] * (sp.off || 0); hd = Math.atan2(d[1], d[0]); }
+    else { E = sp.at[0]; N = sp.at[1]; hd = (90 - (sp.heading || 0)) * Math.PI / 180; }
+    const rows = sp.rows || 3, cols = sp.cols || 24, R = rng(sp.seed || 7);
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) slots.push({ sp, E, N, hd, x: (c - (cols - 1) / 2) * 0.9 + (R() - 0.5) * 0.12, z: (r - (rows - 1) / 2) * 1.3 + (R() - 0.5) * 0.1, k: 0.95 + 0.1 * R() });
+  }
+  const group = new THREE.Group(), mats = {}, meshes = [];
+  const byColor = {}; for (const s of slots) { const col = s.sp.color || FACTION[s.sp.side] || FACTION.neutral; (byColor[col] = byColor[col] || []).push(s); }
+  for (const [col, S] of Object.entries(byColor)) {
+    const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(col).multiplyScalar(0.82) }), mh = new THREE.MeshLambertMaterial({ color: 0x1d1b19 });
+    maskify(mb, ctx.U, 1); maskify(mh, ctx.U, 1);
+    const ib = new THREE.InstancedMesh(fig.body, mb, S.length), ih = new THREE.InstancedMesh(fig.hat, mh, S.length); ib.castShadow = ih.castShadow = true; ib.receiveShadow = true;
+    group.add(ib, ih); meshes.push({ S, ib, ih }); mats[col] = mb;
+  }
+  const m4 = new THREE.Matrix4(), q = new THREE.Quaternion(), v = new THREE.Vector3(), sc = new THREE.Vector3(), Y = new THREE.Vector3(0, 1, 0);
+  let stat = { don_vi: specs ? specs.length : 0, nguoi: slots.length, an_vi_khoi: 0, hien: 0 };
+  return { group, meshes, stat: () => stat,
+    update(day, zones = []) {
+      const hidUnits = new Set(); let shown = 0;
+      for (const { S, ib, ih } of meshes) { S.forEach((s, i) => {
+        const [d0, d1] = s.sp.day || [-1e9, 1e9]; let g = Math.max(0, Math.min(1, (day - d0) / 0.5)) * (day <= d1 ? 1 : 0);
+        let dE = 0, dN = 0; if (s.sp.move) { const M = s.sp.move; let j = 0; while (j < M.length - 1 && M[j + 1][0] <= day) j++; const A = M[j], B = M[Math.min(M.length - 1, j + 1)], u = B[0] > A[0] ? Math.max(0, Math.min(1, (day - A[0]) / (B[0] - A[0]))) : 0; dE = A[1] + (B[1] - A[1]) * u; dN = A[2] + (B[2] - A[2]) * u; }
+        const E = s.E + dE, N = s.N + dN; if (zones.some((z) => Math.hypot(E - z.c[0], N - z.c[1]) < z.r + 15)) { g = 0; hidUnits.add(s.sp); }
+        const ce = Math.cos(s.hd), sn = Math.sin(s.hd), e = E + ce * s.x - sn * s.z, n = N + sn * s.x + ce * s.z;
+        v.set(e, Math.max(ctx.terr.hAt(e, n), 0.4) - 0.05, -n); q.setFromAxisAngle(Y, s.hd); sc.set(g > 0 ? 1 : 0, g * s.k, g > 0 ? 1 : 0); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); if (g > 0) shown++; });
+        ib.instanceMatrix.needsUpdate = ih.instanceMatrix.needsUpdate = true; }
+      stat = { don_vi: specs.length, nguoi: slots.length, an_vi_khoi: hidUnits.size, hien: shown }; return stat; } };
 }

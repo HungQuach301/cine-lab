@@ -40,8 +40,14 @@ const SAMPLE = +arg('sample', 12);
     return need; };
   const stkjs = stks.map((n) => `IMGS['stk:${n}']=Object.assign(new Image(),{src:'data:image/png;base64,${fs.readFileSync(path.join(REPO, 'design/k2v/stickers', n + '.png')).toString('base64')}'});`).join('');
   const imgjs = stkjs + imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
+  // V5b-2b (AD3): bản đồ định vị góc — dữ liệu đường bờ design/k2v/inset/<tên>.json + ranh giới thời kỳ GeoJSON có nguồn (p.inset_bien, đường dẫn repo)
+  const INS = { maps: {}, bien: {} }; for (const s of spec.shots) { const q = s.p || {}; if (!q.inset) continue;
+    if (q.inset_map && !INS.maps[q.inset_map]) INS.maps[q.inset_map] = JSON.parse(fs.readFileSync(path.join(REPO, 'design/k2v/inset', q.inset_map + '.json'), 'utf8'));
+    if (q.inset_bien && !INS.bien[q.inset_bien]) { const G = JSON.parse(fs.readFileSync(path.join(REPO, q.inset_bien), 'utf8')), lines = [];
+      for (const f of G.features || []) { const gg = f.geometry || {}; const L = gg.type === 'LineString' ? [gg.coordinates] : gg.type === 'MultiLineString' || gg.type === 'Polygon' ? gg.coordinates : gg.type === 'MultiPolygon' ? gg.coordinates.flat() : []; lines.push(...L); }
+      INS.bien[q.inset_bien] = { lines, src: (G.nguon || G.source || (G.ghost && G.ghost.ghi_cong) || q.inset_bien) }; } }
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>
-<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};window.ANC=${JSON.stringify(ANCS)};${imgjs}</script><script>${libs}</script></body></html>`;
+<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};window.ANC=${JSON.stringify(ANCS)};window.INSETS=${JSON.stringify(INS)};${imgjs}</script><script>${libs}</script></body></html>`;
   await page.setContent(html); await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(Object.values(window.IMGS).map((i) => i.decode())));
   const loadPlates = async (f) => { const need = plateFor(f); if (!need.length && !plates.length) return;
     await page.evaluate(async (L) => { const keep = new Set(L.map((x) => x[0])); for (const k of Object.keys(window.PLATES)) if (!keep.has(k)) delete window.PLATES[k];
@@ -54,12 +60,12 @@ const SAMPLE = +arg('sample', 12);
     await browser.close(); return; }
   const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', '24', '-i', '-',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
-  const act = [], fill = [], cam = [], texts = [], hit = []; const t0 = Date.now();
+  const act = [], fill = [], cam = [], texts = [], hit = [], insets = [], smpOk = (f) => f % SAMPLE === 0; const t0 = Date.now();   /* V5b-2b: log inset (diện tích riêng, nguồn) ở khung mẫu */
   for (let f = F0; f < F1; f++) {
     await loadPlates(f);
     const r = await page.evaluate(([f, smp]) => {
       LL.tlog = smp ? [] : null; window.drawFrame(f);
-      const c = document.getElementById('c'), out = { hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
+      const c = document.getElementById('c'), out = { inset: LL.inset, hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
       if (smp) { const g = c.getContext('2d'), lum = (r, g2, b) => [r, g2, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
         const parse = (s) => { if (s[0] === '#') return [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16)); const m = s.match(/[\d.]+/g).map(Number); return m.slice(0, 3); };
         out.text = LL.tlog.filter((e) => e.alpha >= 0.95).map((e) => { const [x0, y0, x1, y1] = e.box, X0 = Math.max(0, x0 - 5), Y0 = Math.max(0, y0 - 5), X1 = Math.min(c.width - 1, x1 + 5), Y1 = Math.min(c.height - 1, y1 + 5);
@@ -71,12 +77,12 @@ const SAMPLE = +arg('sample', 12);
           I.sort((a, b) => a - b); const ft = !I.length ? nom : nom < bg ? I[Math.floor(I.length * 0.05)] : I[Math.floor(I.length * 0.95)];   // màu chữ đo trên điểm ảnh (đã qua ánh rọi)
           return { s: e.s, role: e.role || undefined, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
       return out; }, [f, f % SAMPLE === 0]);
-    act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [] });
+    if (r.inset && smpOk(f)) insets.push(Object.assign({ f }, r.inset)); act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [] });
     if (!ff.stdin.write(Buffer.from(r.img, 'base64'))) await new Promise((res) => ff.stdin.once('drain', res));
     if ((f - F0) % 120 === 0) console.error(`[render ${SEG || SH}] ${f}/${F1} ${((Date.now() - t0) / 1000 / (f - F0 + 1)).toFixed(2)} s/khung`);
   }
   ff.stdin.end(); await new Promise((res) => ff.on('close', res));
   const raised = await page.evaluate(() => LL.stat); await browser.close();
-  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), hit: hit.join(''), fill: fill.join(''), cam, raised, text: texts, renderers: RENDS, renderer_set: [...new Set(Object.values(RENDS).filter((r) => r !== 'footage'))] }));
+  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), hit: hit.join(''), fill: fill.join(''), cam, raised, text: texts, inset: insets, renderers: RENDS, renderer_set: [...new Set(Object.values(RENDS).filter((r) => r !== 'footage'))] }));
   console.log(JSON.stringify({ id: SEG || SH, frames: F1 - F0, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3) }));
 })().catch((e) => { console.error(e); process.exit(1); });

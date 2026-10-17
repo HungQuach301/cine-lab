@@ -1,6 +1,6 @@
 # V5b-2b — Gắn mô-đun timelapse vào dây chuyền kênh 2 + P0 cho T3 "vây hãm" + đoạn thử phố Gibraltar 1782 — BÁO CÁO
 
-> Phiên V5b-2b, 17/10/2026, theo lệnh chủ dự án (duyệt WW5, D6, VV2, K-1.13 17/10) + **lệnh bổ sung AE** (17/10, nhận giữa phiên: ghost SH ở nhánh `claude/sh-ghost-gibraltar-t3-1gkftx`, cảnh (b) dùng ghost 1782 thật).
+> Phiên V5b-2b, 17/10/2026, theo lệnh chủ dự án (duyệt WW5, D6, VV2, K-1.13 17/10) + **lệnh bổ sung AE** (17/10, nhận giữa phiên: ghost SH ở nhánh `claude/sh-ghost-gibraltar-t3-1gkftx`, cảnh (b) dùng ghost 1782 thật). + **lệnh bổ sung AC1 + AD3** (17/10, sau khi nộp: M2 rút gọn + bản đồ định vị góc — §12).
 > Nhánh `v5b2b` từ `origin/main` @ `82a17ae`. **Không merge. DỪNG chờ chủ dự án.** Mọi số là số đo thật trong phiên (tệp ở `reports/v5b2b/`) hoặc ghi rõ **(ước)**. Email người dùng không xuất hiện trong repo/báo cáo.
 
 ## 0. Khối điều lệ (lệnh + thực tế)
@@ -9,7 +9,7 @@
 | Loại phiên | V (bộ công cụ hình) | đúng |
 | Nhánh | `v5b2b` từ `origin/main` @ `82a17ae` | đúng; đẩy `v5b2b`, không merge (nhánh harness `ccr-…` không dùng — lệnh nêu tên nhánh) |
 | Tệp được sửa | `scripts/k2/**`, `scripts/k2tl/**`, `scripts/ll/hero.js`, `scripts/ll/ll.py` + `qc.py` (chỉ K-1.13 §8.3), `design/k2v/**`, `scripts/env/verify.sh`, `scripts/common/versions.py` (GROUPS + khối môi trường), `reports/V5B2B-BAO-CAO.md`, `reports/v5b2b/**` | chỉ các vùng này (§9). `checks/**` chỉ merge 1.13, không sửa, **không đọc mã** (chỉ chạy công cụ + đọc `RULES-LL.md`/báo cáo K). Không ghi `channel-k2/k2c-t3-01/**` (ghost SH chỉ đọc bằng `git show`, chép GeoJSON ra `/var/tmp/cine-out/ghost/`), không sửa `docs/BIBLE-KENH2.md`, `main` |
-| Trần | Claude API ≤ $2 (ghim, chỉ chấm mù) · ElevenLabs 0 · YouTube 0 · giờ máy ≤ 8 h · llvmpipe | **$1,61** (27 lượt, ghim `claude-sonnet-5-5`) · **0** · **0** · **≈ 3,3 h** (§7) · dựng trọn trên llvmpipe (`--use-gl=angle --use-angle=gl-egl`) |
+| Trần | Claude API ≤ $2 (ghim, chỉ chấm mù) · ElevenLabs 0 · YouTube 0 · giờ máy ≤ 8 h · llvmpipe | **$1,61** (27 lượt, ghim `claude-sonnet-5-5`) · **0** · **0** · **≈ 4,1 h** (§7: 3,3 h + 0,75 h cho AC1/AD3) · dựng trọn trên llvmpipe (`--use-gl=angle --use-angle=gl-egl`) |
 | Preflight | bắt buộc; che email | hook pre-commit/pre-push cài đầu phiên; **mọi commit + push PREFLIGHT ĐẠT, `lock.py --verify` KHỚP** (1.13.0 `d1161ebe…`) |
 | Điều kiện dừng | xong → đẩy → dừng; không dừng hỏi | (1) xong việc. Câu hỏi không chặn đã tự quyết (§10) |
 
@@ -27,7 +27,7 @@
 
    **P1:** làm **M1** (mũi tên) và **M7** (khói/lửa sprite); **chưa làm M8, M11** (§3).
 5. **Đầu ra cho checks 1.13 (§8.1) đủ:** `p.agl`, `fabric_pct`, `ghost_pct`, `nam_khung`, `noi` theo cửa sổ, role `where`/`ghost_src`, `*.log.json` cùng master. Luật hình VV2 cảnh báo ngay khi prep (thành phố không lớp nhà, địa cầu > 1 lần/> 3 s, shot chưa khai `noi`).
-6. **Đoạn thử V5b-2b-T, 1080p, 26,0 s, 2 cảnh, phố 1782 = ghost SH thật (lệnh AE).** Dựng qua đúng dây chuyền `scripts/k2/build.sh`. Master LFS `reports/v5b2b/v5b2b-t-1080p-master.mp4`, SHA `43da3d93…`.
+6. **Đoạn thử V5b-2b-T, 1080p, 26,0 s, 2 cảnh, phố 1782 = ghost SH thật (lệnh AE)** — sau lệnh AC1 + AD3 thêm cảnh (c) eo đất 4 s → **30,0 s, 3 cảnh** (§12). Dựng qua đúng dây chuyền `scripts/k2/build.sh`. Master LFS `reports/v5b2b/v5b2b-t-1080p-master.mp4`, SHA `43da3d93…`.
    - **k2check 1.13: NC-H1…H5 [bộ] đều ĐẠT.** NC-H1…H4 cấp tập ĐẠT (NC-H5 tập: không áp). TL-Q2/Q7/Q8/Q9, Q33/Q36 (1.13), Q34, Q35, Q7/Q8-K2 ĐẠT.
    - Còn TRƯỢT: Q37, ML1, Q26b, TL-Q1. Đây là đặc thù đoạn thử 2 cảnh hoặc luật chưa nhận biến cố bên trong cảnh tl (§4.4).
 7. **Số đo chính:**
@@ -90,7 +90,8 @@
 | P1 | **M7** khói/lửa sprite 2D | **XONG** | `layers.smoke`: cụm khói thủ tục tất định (billboard, tích luỹ SPP), lửa nhỏ tuỳ chọn; ẩn khỏi mặt nạ (nền); `zones()` trả vùng khói để kiểm "không người trong khói". Đoạn thử: lửa đỏ ≤ **0,63 %** khung (≤ 15 %) |
 | P1 | M8 Ken Burns tranh trong tl | **CHƯA** | ưu tiên đoạn thử + 3 vòng sửa theo tự rà/chấm mù; dự phòng của TIEN-KY: plate k2v ngoài tl (cắt cảnh) |
 | P1 | M11 mặt cắt hầm | **CHƯA** | như trên; dự phòng: bản đồ hầm phẳng có nhãn |
-| — | M2 | không làm (lệnh) | |
+| P0+ | **M2 rút gọn** (lệnh AC1, sau lệnh gốc) | **XONG** | `layers.units` — khối quân instanced theo đội hình, mọc/dịch theo `uDay`, ẩn trong vùng khói; §12.1 |
+| P0+ | **Bản đồ định vị góc** (lệnh AD3) | **XONG** | `k2.js insetLayer` + `inset_build.js`; §12.2 |
 
 ### 3.2 Đầu ra cho checks 1.13 (K-1.13 §8.1) + luật hình VV2
 | Yêu cầu | Làm |
@@ -139,7 +140,7 @@
   - nhãn nguồn đúng SH §5: **"Reconstructed from J. Drinkwater, Plan of the Batteries, 1782"**, role `ghost_src`, 38 px, hiện suốt cảnh;
   - không commit lại tệp ghost vào v5b2b.
 - **Ra:**
-  - master `reports/v5b2b/v5b2b-t-1080p-master.mp4` (LFS, 120,2 MB, 1920×1080, 24 fps, 624 khung, −14,1 LUFS / −1,6 dBTP, SHA-256 `43da3d93d3734b2013ce4a3d0be3c0eb14b2acd4ec783f484f859a598c1afeb1`);
+  - master `reports/v5b2b/v5b2b-t-1080p-master.mp4` (LFS). Bản 26 s ở §4 (SHA `43da3d93…`) đã được **thay** bằng bản 30 s có cảnh (c) (§12, SHA `b4684810…`); số đo §4 là của bản 26 s, số của bản 30 s ở §12;
   - tờ khung mỗi 1 s `reports/v5b2b/do/to-khung-moi-1s.jpg` (0,8 MB);
   - số đo `reports/v5b2b/do/`.
 
@@ -249,6 +250,7 @@ Cặp và giây V5b-2b-T khai **trước** khi có master (commit `blind_v5b2b.p
 | True peak master | −1,6 dBTP | ≤ −1,5 dBTP (kênh) | biên 0,1 dB |
 | Loudness master | −14,1 LUFS | −14 | −0,7 % |
 | Đồng hồ dừng mốc đinh | 1,8 s | 1,5–2,0 s | trong khoảng |
+| Tương phản chữ nhỏ nhất, test SwiftShader gib20 (sau lọc đảo giả) | 4,61 | ≥ 4,5 | +2,4 % |
 
 ## 7. Giờ máy + chi phí
 | Khoản | Trần | Thực tế |
@@ -258,7 +260,7 @@ Cặp và giây V5b-2b-T khai **trước** khi có master (commit `blind_v5b2b.p
 | Giờ máy | ≤ 8 h | **≈ 3,3 h** (ước theo log, 4 vCPU): dựng gói cảnh 3 lần ≈ 0,15 h · test k2tl ≈ 0,25 h · golden 3 lượt ≈ 0,6 h · 6 lượt dây chuyền đoạn thử ≈ 1,2 h · khung thử ≈ 0,3 h · đo + k2check ×7 ≈ 0,45 h · selftest ≈ 0,2 h · chấm mù (mạng) ≈ 0,15 h |
 | Mạng | — | ≈ 1,4 GB dữ liệu thô (10/10 tệp nguồn KHỚP SHA), OSM 70 MB, LFS 119 MB × 2 |
 
-Đề xuất dòng `COST-LEDGER.csv` (P ghi): `V5b2b,gắn tl vào kênh 2 + P0 T3 + đoạn thử 1782,V,2026-10-17,,,,,1.61,2,claude-sonnet-5-5,0,0,≈ 3,3,,0,26,,reports/V5B2B-BAO-CAO.md,YouTube 0; không merge`
+Đề xuất dòng `COST-LEDGER.csv` (P ghi): `V5b2b,gắn tl vào kênh 2 + P0 T3 + M2 rút gọn + inset + đoạn thử 1782,V,2026-10-17,,,,,1.61,2,claude-sonnet-5-5,0,0,≈ 4,1,,0,30,,reports/V5B2B-BAO-CAO.md,YouTube 0; không merge`
 
 ## 8. Golden lượt cuối (mã cuối phiên)
 `reports/v5b2b/golden/golden-llvmpipe-cuoi.json` (247,7 s): **steel KHỚP** (pHash 0, SSIM 0,9449, 0 ô) · **ll08 KHỚP** (0, 0,9307, 0 ô) · **t1 LỆCH CỤC BỘ** (0, 0,9082, 22 ô) — trùng từng số với lượt ngay sau tích hợp; các sửa sau đó (`k2.js` lớp tl, `prep.py`, `build_scene.py`) không đổi hình tập cũ.
@@ -266,14 +268,14 @@ Cặp và giây V5b-2b-T khai **trước** khi có master (commit `blind_v5b2b.p
 ## 9. Tệp đã sửa (`git diff --name-only origin/main..HEAD`, trừ `checks/` + `reports/K-1.13-BAO-CAO.md` đến từ merge 1.13)
 - **`scripts/k2/`:**
   - sửa: `hero.js`, `render.js`, `prep.py`, `build.sh`, `lib/k2.js`;
-  - mới: `tl_post.py`.
+  - mới: `tl_post.py`, `inset_build.js` (AD3).
 - **`scripts/k2tl/`:**
   - sửa: `render.js`, `tl_bundle.py`, `build_scene.py`, `tests/run.sh`;
   - mới: `gl.js`, `load_footprints.py`, `k2_measure.py`, `tests/test_t3.mjs`.
 - **`scripts/ll/`:** `hero.js`, `ll.py`, `qc.py` (chỉ K-1.13 §8.3).
 - **`design/k2v/`:**
   - sửa: `page.js` (LUT A opt-in), `tl/page.js`, `tl/city.js`, `tl/terrain.js`, `tl/text.js`, `tl/ships.js`, `tl/campath.js` (ALT_MAX `vinh`);
-  - mới: `tl/record.js`, `tl/sun.js`, `tl/layers.js`, `tl/scenes/vinh1782.js`, `tl/scenes/pho1782.js`, `tl/scenes/pho2026.js` (dự phòng), `tl/scenes/t3lab.js` (cảnh kiểm máy).
+  - mới: `tl/record.js`, `tl/sun.js`, `tl/layers.js`, `tl/scenes/vinh1782.js`, `tl/scenes/pho1782.js`, `tl/scenes/pho2026.js` (dự phòng), `tl/scenes/t3lab.js` (cảnh kiểm máy), `tl/scenes/eo1782.js` + `inset/w-europe.json` (AC1/AD3).
 - **`scripts/env/verify.sh`, `scripts/common/versions.py`.**
 - **`reports/V5B2B-BAO-CAO.md` + `reports/v5b2b/**`:**
   - 4,3 MB thường ≤ 20 MB;
@@ -294,6 +296,75 @@ Cặp và giây V5b-2b-T khai **trước** khi có master (commit `blind_v5b2b.p
 6. **TL-Q1:** mốc đinh T3 là **dừng giờ** (13/9/1782 09:45), không phải dừng năm. Đề xuất K đọc `frames_meta.clock`/pha `pin` thay vì năm.
 7. **Sửa dữ liệu gói cảnh** (`build_scene.py`): bỏ đốm đất giả do tàu neo trong DSM. Việc này đổi hình gib20 cũ ở các khung có vịnh (chỉ bỏ vật sai).
 
+## 12. Lệnh bổ sung AC1 + AD3 (M2 rút gọn + bản đồ định vị góc) — làm sau P0, trước M1/M7/M8/M11 theo lệnh
+### 12.1 M2 rút gọn — `layers.units` (`design/k2v/tl/layers.js`)
+- **Khối quân:**
+  - mỗi đơn vị là đội hình hàng × cột hình người A-lite: thân + mũ, cao 1,75 m, cách 0,9 × 1,3 m;
+  - một `InstancedMesh` cho mỗi màu phe;
+  - không cận mặt, không người ngã/chết; màu phe cố định (`FACTION`: cam Pháp–TBN, lục lam đồn trú).
+- **Vị trí:** lấy từ hình học đã nắn có nguồn — `pts` + `s` (m dọc tuyến) + `off` (m vuông góc, sau tường chắn), hoặc `at`. Đoạn thử dùng **Línea de Contravalación** (ghost SH T1782-01, Drinkwater 1786, RMS 4,2 m) và tâm 2 pháo đài F1782-01/02.
+- **Thời gian:** mọc theo `uDay` (`day: [xuất hiện, rút]`, mọc 0,5 ngày), dịch theo `move: [[day, dE, dN]…]`.
+- **Vùng khói/lửa:** `update(day, zones)` ẩn đơn vị có tâm trong vùng khói/lửa (`layers.smoke().zones()`, lề 15 m) và đếm. Cảnh kiểm `t3lab` (khối giữa đặt cố ý trong vùng khói):
+  - t = 0,25: 0 người (chưa tới ngày 0,5);
+  - t ≥ 1,25: hiện 120 người, **1 khối bị ẩn vì khói**;
+  - khối thứ 3 dịch 60 m theo ngày.
+- **Không có trong repo:** vị trí từng đơn vị lịch sử (plan cuộc xuất kích chưa nắn đạt — SH §0). Số lượng và cách xếp vì vậy là **MINH HOẠ**, ghi trên hình bằng dòng phương pháp "Troop blocks: illustrative".
+
+### 12.2 Bản đồ định vị góc (inset) — `insetLayer` (`scripts/k2/lib/k2.js`) + nạp dữ liệu ở `scripts/k2/render.js`
+- **Dữ liệu:**
+  - `scripts/k2/inset_build.js` → `design/k2v/inset/w-europe.json` (42 KB): đường bờ Natural Earth 1:50m, `world-atlas` land-50m, public domain, dòng RIGHTS **K2V-MAP-1** có sẵn;
+  - **không có ranh giới quốc gia** (hiện đại = sai thời kỳ);
+  - ranh giới thời kỳ chỉ vẽ khi shot khai `inset_bien: <GeoJSON có nguồn>`. Đoạn thử **chưa có** dữ liệu ranh giới lịch sử → chỉ đường bờ + chấm + tuyến; **không tự vẽ**.
+- **Đặc tả shot:**
+  - `inset: true | giu | {dur}`: 3–5 s khi vào nơi mới, mặc định 4 s; `giu` = giữ suốt cảnh chiến sự;
+  - `inset_map`, `inset_dot` [lon, lat] + `inset_label`;
+  - `inset_route` [[lon, lat]…] + `inset_route_label` (tuyến mọc 2 s);
+  - `inset_bien`.
+- **Hình:**
+  - góc trên trái, dưới dòng phương pháp nếu có — không đè chip nơi (trên phải), bộ đếm (dưới trái), dòng nguồn/nhãn ghost (dưới);
+  - thẻ neo tự dịch sang phải inset;
+  - nền giấy (biển `#D9D1BC`, đất `#F2ECDE`, đường bờ mực `#5E5446`), viền mảnh;
+  - chấm đỏ có vòng nhịp; hiện/ẩn mờ 0,4 s.
+- **Log:**
+  - `*.log.json` có `inset[]` ở khung mẫu: hộp, **`area_pct` đếm riêng** (không gộp ngân sách chữ), nguồn đường bờ, nguồn ranh giới;
+  - nhãn trong inset ghi role `inset`, 30 px.
+- **Đo trên đoạn thử:** inset **8,73 %** khung (≤ 12 %), 7 khung mẫu, nguồn "Coast: Natural Earth 1:50m (public domain)", `bien: None`.
+
+### 12.3 Dùng trong đoạn thử — cảnh (c) `scenes/eo1782.js`, 4 s, cuối đoạn (26–30 s; giây khai cho chấm mù không đổi)
+- **Góc máy:** "nhìn Gibraltar từ chiến tuyến Tây Ban Nha" — máy phía bắc tuyến, cao 110 m (eo đất ≤ 300 m), lateral 110 m nhìn thẳng nam, vai "cơ chế".
+- **Trong khung:**
+  - Línea (gờ đất/đá 4,5 m, ghost SH) + **13 khối quân TBN** (9 dọc tuyến, 4 ở 2 pháo đài; ≈ 1 370 người A-lite) ở tiền cảnh;
+  - vách bắc Rock, phố 1782 + Old Mole ở hậu cảnh;
+  - bộ đếm "13 Sep 1782 · 10:32", mặt trời đúng giờ.
+- **Inset `giu`:** Tây Âu, chấm đỏ Gibraltar, tuyến "Relief convoys (schematic)" — sơ đồ ba đoàn tiếp tế từ Anh 1780–82 (claims S054–S056), điểm ngoài khơi, **không** phải hải trình thật.
+- **Chữ:**
+  - thẻ "Spanish lines, built 1730–35 / Línea de Contravalación" (rút gọn sau tự rà: bản đầu quá nhiều chữ trong 4 s);
+  - nhãn ghost "Lines: reconstructed from J. Drinkwater, Plan of the Batteries, 1782";
+  - chip "Isthmus of Gibraltar".
+- **Không khói ở cảnh này:** dải khẩu đội trên bộ tiền phương `do_tin` thấp → không dùng. Vì vậy không có khối quân nào bị ẩn vì khói.
+- **Tự rà:** thử 5 góc máy. Góc tây-nam/đông-nam thì nửa khung là cỏ trống, Línea đọc như nét vẽ cam (dải phe đè lên gờ) → bỏ dải phe ở Línea, màu phe chỉ còn ở khối quân.
+
+### 12.4 Số đo bản 30 s (720 khung; `reports/v5b2b/do/`, master SHA `b4684810e12de7b578f60f469448ce29babfc59d68392084dd443ecc02f60ff6`, 133,9 MB, −14,1 LUFS / −1,6 dBTP)
+| Chỉ số | Bản 26 s (§4) | **Bản 30 s** |
+|---|---|---|
+| k2check 1.13 | NC-H1…H5 [bộ] ĐẠT · NC-H1…H4 tập ĐẠT · Q37/ML1/Q26b/TL-Q1 TRƯỢT | **giữ nguyên từng hàng** |
+| fabric shot thành phố / hero orbit | 40,1 % / 29,6 % | 40,1 % / 29,6 % (không đổi) |
+| content trung vị · BC1 < 30 % | 17,0 % · 442/624 | 15,5 % · 537/720 (eo đất trống — đúng sự thật 1782) |
+| MAU1 (mỗi 1 s) | 16/26 · 26/26 · 20/26 | bão hoà **20/30** · colorfulness **30/30** · chi tiết **20/30** |
+| AGL / lửa đỏ | ≤ 0,30 km / 0,63 % | ≤ 0,30 km / 0,64 % |
+| neo + lớp chữ | 624/624 | **720/720** |
+| s/khung cảnh 3D (3 cảnh, 2 tiến trình) | 1,52 / 1,71 | 1,50 / 1,53 / **1,62** (c: 1 368 người instanced) |
+
+- **Golden trên mã cuối** (`reports/v5b2b/golden/golden-llvmpipe-ac.json`): steel KHỚP 0,9449 · ll08 KHỚP 0,9307 · t1 22 ô — **không đổi**.
+- **`tests/run.sh`:** TẤT CẢ ĐẠT. Tương phản chữ nhỏ nhất trong test SwiftShader gib20 giảm **5,26 → 4,61** (ngưỡng 4,5, **+2,4 %**). Nguyên nhân: gói cảnh đã lọc đảo giả, khung test đổi nền sau một nhãn.
+
+### 12.5 Giờ máy thêm (AC1 + AD3)
+- Khung thử cảnh (c) ×5 + t3lab ≈ 0,15 h.
+- 3 lượt dây chuyền ≈ 0,53 h (675 + 294 + 949 s; lượt 1 hỏng ở render 2D vì lỗi chú thích `//` nuốt `const t0` — **bài học lặp lần thứ hai trong phiên**, đề xuất BAI-HOC: dùng `/* */` cho chú thích cuối dòng có mã phía sau).
+- Đo + k2check ≈ 0,07 h. Golden + test ≈ 0,3 h.
+- **Cộng ≈ 0,75 h (ước theo log) → tổng phiên ≈ 4,1 h ≤ 8 h.** Không dùng thêm API ($1,61 giữ nguyên).
+- **Cảnh báo chi phí dựng lại:** dấu cảnh tl gồm cả thư mục `design/k2v/tl` → sửa MỘT cảnh làm dựng lại MỌI cảnh tl của tập (lượt 8: 3 cảnh, 949 s). Đề xuất V sau: dấu theo cảnh (mã chung + tệp cảnh của chính nó).
+
 ## 11. Việc chờ chủ dự án
 1. **Xem duyệt đoạn thử** `reports/v5b2b/v5b2b-t-1080p-master.mp4` (LFS) + `reports/v5b2b/do/to-khung-moi-1s.jpg`: cú liên hoàn #2 (đồng hồ dừng 09:45, 10 pin nổi), phố 1782 ghost.
 2. **Hai cặp chấm mù còn thua gib20 (P1, P4).** Hướng sửa (chưa làm, cần một vòng dựng + chấm, ước $0,6):
@@ -308,4 +379,9 @@ Cặp và giây V5b-2b-T khai **trước** khi có master (commit `blind_v5b2b.p
    - LFS mẫu (§10.4);
    - `AUTHORSHIP` (quyết định sáng tạo chờ duyệt: đường máy cú #2, góc reveal tây-nam, chọn ghost cao/vừa, câu chữ trên hình §4.1);
    - `RIGHTS` (không có tài sản mới; OSM/Drinkwater đã có dòng qua T3b/SH).
-7. **P1 còn lại** M8 (Ken Burns trong tl), M11 (mặt cắt hầm) và **tồn đọng** chấm be ≈ 12 px trên nước ở vài khung reveal — giao phiên V sau.
+7. **AC1 + AD3:**
+   - xem cảnh (c) 26–30 s (khối quân minh hoạ dọc Línea + inset);
+   - duyệt dữ liệu ranh giới thời kỳ cho inset khi có (cần GeoJSON có nguồn — chưa có, không tự vẽ);
+   - duyệt tuyến "schematic" cho đoàn tiếp tế;
+   - nếu muốn vị trí từng đơn vị theo plan cuộc xuất kích, cần SH nắn lại (SH §0: nắn thử không đạt).
+8. **P1 còn lại** M8 (Ken Burns trong tl), M11 (mặt cắt hầm) và **tồn đọng** chấm be ≈ 12 px trên nước ở vài khung reveal — giao phiên V sau.

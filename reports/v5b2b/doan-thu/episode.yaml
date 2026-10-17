@@ -20,6 +20,11 @@ heroes:
       pack: gib
       cut: [kings_bastion]
       cau: lien-hoan
+  c_eo:
+    hero: tl/eo1782
+    opt:
+      pack: gib
+      cau: lateral-parallax
   b_pho:
     hero: tl/pho1782
     opt:
@@ -50,7 +55,6 @@ segments:
 - id: b
   part: TEST
   dur: 8.0
-  fadeOut: 8
   beats: [{t: 0.0, k: cut, s: low over Main Street 1782}]   # thẻ của lớp tl (k2.js tlLayer) không phải mốc đặc tả
   shots:
   - tpl: plate
@@ -58,3 +62,23 @@ segments:
     at: 0
     noi: thanh_pho
     p: {hero: b_pho, kind: '', ghost: ghost-1782, city: true}
+- id: c
+  part: TEST
+  dur: 4.0
+  fadeOut: 8
+  beats: [{t: 0.0, k: cut, s: Spanish lines on the isthmus}]   # lệnh AC1 + AD3: khối quân (M2 rút gọn) + bản đồ định vị góc
+  shots:
+  - tpl: plate
+    type: scene3d
+    at: 0
+    noi: eo_dat
+    p:
+      hero: c_eo
+      kind: ''
+      inset: giu
+      inset_map: w-europe
+      inset_dot: [-5.35, 36.14]
+      inset_label: Gibraltar
+      # tuyến SƠ ĐỒ ba đoàn tiếp tế từ Anh 1780–82 (claims S054–S056; ghi "schematic" trên hình) — điểm ngoài khơi, không phải hải trình thật
+      inset_route: [[-6.4, 45.5], [-10.4, 43.4], [-10.1, 38.7], [-9.3, 36.9], [-6.2, 35.95], [-5.45, 36.08]]
+      inset_route_label: Relief convoys (schematic)
