@@ -17,18 +17,26 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
-## CẬP NHẬT 17/10/2026 (phiên P-1710, chủ dự án duyệt VV1–VV4): trạng thái các tập kênh 2 đang mở
-> Ghi thêm, không xoá bảng cũ. Mục này đứng trên bảng 12/10 về **trạng thái và thứ tự** các tập đã có mã T2–T6.
+## LỊCH HIỆU LỰC 17/10/2026 (phiên P2-1710, chủ dự án duyệt WW4, YY1–YY3) — thay lịch "CẬP NHẬT 17/10" của P-1710
+> Mục này đứng trên mọi bảng bên dưới về **trạng thái và thứ tự** tập kênh 2. Series lịch sử "Contested Places" trong Moving Parts (WW1), lời hứa L1 (WW2). Nguồn: `AUTHORSHIP.md` 17/10 WW1–WW8, XX1–XX2, YY1–YY6; `reports/NC-LICH-SU-BAO-CAO.md` §8; `reports/NC-LICH-SU-2-BAO-CAO.md` §5–§6. Mức: XANH / VÀNG / ĐỎ-K theo `QUAN-TRI-RUI-RO.md` §1.
 
-| Tập | Đề tài (tên làm việc) | Trạng thái 17/10 | Nguồn |
-|---|---|---|---|
-| K2C-T2-01 | Shipbuilding | **KHÔNG PHÁT HÀNH (VV1).** `release-k2c-t2-01-v1` (@784a58f1, master `f63b0b4b…`) giữ làm bản lưu. Bài học ở `BAI-HOC-K2.md` K13–K17 | `AUTHORSHIP.md` 17/10 VV1; `k2c-t2-01/G2-BAO-CAO.md` §14 |
-| K2C-T3-01 | Gibraltar ↔ La Línea | **CHỜ phiên nghiên cứu NC-LS**: dựng lại khung tập quanh **các cuộc vây hãm** (Đại vây hãm 1779–83 và các lần trước) thay cho khung "giàu dù không tài nguyên". Không vào G1 trước khi NC-LS xong | `k2c-t3-01/TIEN-KY.md`; lệnh chủ dự án 17/10 |
-| K2C-T4-01 | Las Vegas / lưu vực Colorado (góc "thành phố mọc / hồ tụt") | giữ thứ tự: tập kế sau T3 | `k2c-t4-01/TIEN-KY.md` |
-| K2C-T5-01 | Zürich | giữ thứ tự sau T4 | `k2c-t5-01/TIEN-KY.md`; `research/thanhpho/TIEN-KY-THANHPHO.md` |
-| K2C-T6-01 | Detroit (tầng chuẩn) | giữ thứ tự sau T5 | `k2c-t6-01/TIEN-KY.md` |
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 17/10 |
+|---|---|---|---|---|
+| T2 | K2C-T2-01 | Shipbuilding | VÀNG | **KHÔNG PHÁT HÀNH (VV1).** `release-k2c-t2-01-v1` (@784a58f1, master `f63b0b4b…`) giữ làm bản lưu; bài học `BAI-HOC-K2.md` K13–K17 |
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** (1704 / 1779–83 / 1941 / 2026) | VÀNG | **phát hành trước 14/12/2026** (WW3). Tiền kỳ T3b duyệt D1–D8, D10 (D9 không làm): `k2c-t3-01/TIEN-KY-VAY-HAM.md` |
+| T4 | — | **London 1666** (cháy và dựng lại) | XANH | sau T3 (WW4) |
+| T5 | — | **Boston 1775–76** (+ đất lấn) | XANH | sau T4 (WW4) |
+| **Cổng** | — | **Cổng quyết định sau 3 tập lịch sử T3–T5** (WW1; NC-LS §2.2) | — | chủ dự án quyết hướng series |
+| T6 | — | (XANH, chọn sau cổng) | XANH | — |
+| T7 | — | **Dresden 1945** (khung "cháy và dựng lại") | **ĐỎ-K** | ĐỎ-K đầu tiên (YY1). Mở tiền kỳ chỉ khi **G0** (NC-LS2 §5.1) ĐÚNG 12/12; tư vấn luật / người đọc quyết ở G0 Dresden (YY6) |
 
-- **Luật mới VV2 áp cho T3–T6** từ khi phiên K hiện thực (đề xuất đo ở `reports/K-HANG-DOI-KHIEU-NAI.md`): nơi có thành phố phải có nhà/phố đúng thời kỳ; địa cầu/độ cao lớn ≤ 1 lần/tập, ≤ 3 s.
+- **Lùi sau cổng (tiền kỳ giữ nguyên, không xoá):** Las Vegas / lưu vực Colorado (`k2c-t4-01/TIEN-KY.md`), Zürich (`k2c-t5-01/TIEN-KY.md`), Detroit (`k2c-t6-01/TIEN-KY.md`), thành phố cổ (`research/thanhpho/`). Mã thư mục `k2c-t4-01`…`k2c-t6-01` giữ nguyên; thứ tự phát theo bảng trên.
+- **Hàng đợi NC-LS (sau cổng, theo thứ tự NC-LS §8.3):** Vicksburg 1863 · Rotterdam 1940 · Antwerp 1585 → Amsterdam · Malta 1565 (VÀNG) · Halifax 1917 · Zürich 1799 · Leiden 1574; **Vienna 1683 cuối** (VÀNG).
+- **Berlin 1945: có điều kiện** (YY2) — chỉ khi Dresden qua **mọi** ngưỡng NC-LS2 §5.4 ở 28 ngày.
+- **Stalingrad: xét có điều kiện** (YY3) — chỉ xét sau khi Dresden **và** Berlin qua chỉ số sau đăng.
+- **Bỏ:** Jerusalem 1099/1187, Derry 1689, Nanjing 1937 (YY4).
+- **Nhịp ĐỎ-K** (`QUAN-TRI-RUI-RO.md` §1): ≤ 1 ĐỎ-K trong mọi cửa sổ 4 tập liền; tập liền trước/sau không phải VÀNG; không ở T3–T5.
+- **Luật VV2** (nhà/phố đúng thời kỳ; địa cầu/độ cao lớn ≤ 1 lần/tập, ≤ 3 s) áp từ T3 khi phiên K hiện thực (WW6, K 1.13).
 
 ## HÀNG ĐỢI HIỆU LỰC — định vị 12/10/2026 "cơ chế kinh tế của thành phố và ngành" (thay mọi bảng bên dưới)
 > **Chủ dự án quyết 12/10** (`AUTHORSHIP.md`): T1 thành phố là trụ chính, T2 ngành là trụ phụ, T3 mô hình kiếm tiền. Không đo thêm trên API, trừ hồ sơ cầu thí điểm T1 (3 search.list, `de-tai/mall-town.md`). Mọi nhãn là **tự tính, không phải chỉ số YouTube**.

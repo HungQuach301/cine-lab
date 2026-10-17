@@ -9,3 +9,5 @@ assets/k2/cc0/*
 channel-k2/*/v5b1-thu/**/*-1080p.mp4
 # cùng vùng, viết theo fnmatch của preflight_scan.py ('*' khớp qua '/', nên mẫu '**/' ở trên không khớp tệp nằm thẳng trong v5b1-thu/)
 channel-k2/*/v5b1-thu/*-1080p.mp4
+# P2-1710 (17/10/2026, ZZ4 chủ dự án duyệt): bản 1080p V5b-1 khi đẩy LFS PHẢI đổi tên thành `gib20-1080p.mp4` (gạch nối, khớp mẫu trên).
+# KHÔNG thêm mẫu gạch dưới `*_1080p.mp4`; tệp `gib20_1080p.mp4` không được đẩy dưới tên đó.

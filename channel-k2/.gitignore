@@ -32,3 +32,5 @@ k2c-t1-06/kiem-mu/blind-g2/**/*.jpg
 # K2C-T2-01 G1b: số đo nhịp/footage/sổ vai + sổ ảnh hàng không (SHA từng tầng); tờ khung mp4 không commit
 !k2c-t2-01/g1b/*.json
 !k2c-t2-01/aerial/*.json
+# K2C-T3-01 T3b tiền kỳ vây hãm (P2-1710, 17/10/2026): claims, tài sản, treatment, tự kiểm, số đo OSM, chi phí
+!k2c-t3-01/vay-ham/*.json

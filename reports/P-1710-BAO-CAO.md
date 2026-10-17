@@ -128,3 +128,15 @@ Merge:             13 nhánh theo thứ tự; main ff nếu mọi kiểm đạt 
 6. **Phiên K kế:** mở theo `reports/K-HANG-DOI-KHIEU-NAI.md` (KN-1…KN-6; KN-4 có thể chuyển phiên NT).
 7. **Phiên NC-LS** cho T3 Gibraltar (khung lại quanh các cuộc vây hãm) trước G1 T3.
 8. **VERSIONS T2:** giữ nguyên (bản lưu, không phát hành), hay ghi lại một bản chụp "sau hợp nhất" để đối chiếu.
+
+## 2. Sau duyệt 17/10 (ZZ1–ZZ6; ghi bởi phiên P2-1710)
+| Mã | Việc chờ (§1) | Quyết định của chủ dự án | Thực hiện |
+|---|---|---|---|
+| **ZZ1** | 1. Cập nhật main | **Duyệt ff** `main` ← `origin/p-1710`. 5 mục CHẶN của `versions.py` (§0.2) là băm trôi do nhánh đã duyệt, không chặn | P2-1710: `main` `7255aa42` → `b240b521` (ff), rồi merge `--no-ff` `nc-lich-su`, `nc-lich-su-2`, `k2c-t3-tienky-b`; **không** merge `checks/v1.13` (K đang chạy). Chi tiết: `reports/P2-1710-BAO-CAO.md` |
+| **ZZ2** | 2. QQ5 | Nguyên văn: "QQ5 (chủ dự án duyệt 17/10 08:40): T2 Q33-K2 — 4 khoá bờ Đông lặp thật ghi là ngoại lệ (như NN3; T2 ghim checks 1.10.2), không sửa phim; bài học đưa vào T3. P merge checks/v1.12.2 sau 1.12.0 → 1.12.1." | dòng QQ5 trong `AUTHORSHIP.md` đã sửa thành nguyên văn |
+| **ZZ3** | 3. COST-LEDGER K2C-T2-01 | lệnh P2 không nêu nguyên văn | giữ dòng `K2C-T2-01` ($15,16) như đã ghi; ánh xạ ZZ3 ↔ việc chờ 3 là cách P đọc theo thứ tự |
+| **ZZ4** | 4. Tệp 1080p V5b-1 | đẩy LFS phải tên **`gib20-1080p.mp4`**; **không** thêm mẫu gạch dưới | ghi chú vào `tools/lfs-allow.txt` |
+| **ZZ5** | 5. RR2 | **RR2 đóng, giữ LFS** | không viết `publish_release.py`; RUNBOOK không đổi |
+| **ZZ6** | 8. VERSIONS T2 | **giữ nguyên** `channel-k2/k2c-t2-01/VERSIONS.yaml` (bản lưu, không phát hành) | không sửa |
+
+- Việc chờ 6 (phiên K kế) và 7 (NC-LS cho T3) đã được mở thành phiên K 1.13 và hai phiên NC-LS/NC-LS2 + T3b; kết quả NC-LS, NC-LS2, T3b đã merge vào `main` (ZZ1).
