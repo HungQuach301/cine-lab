@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Dark recap card over a blurred, near-invisible background. It looks like a PowerPoint bullet slide. The bottom third of the card is empty. The gray subtext is small and low-contrast on a phone. The checkboxes and the 'locks' metaphor don't match the content. Readable, but dull and with no visual anchor."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Shaded-relief terrain map of San Francisco Bay with a location pin and a clean comparison card (1943 peak: 3 ships/day vs CRS 2023: ~5/year). The numbers are large and color-coded, so the contrast is immediate. The map is rich and looks broadcast-quality. The source line at bottom left is small. The card covers part of the map, and the ship icons are tiny. The map doesn't clearly relate to the stat, but it sets the place."
+ },
+ "better": "Y",
+ "why": "Y pairs a real, polished map with a bold two-number comparison that lands instantly, while X is a flat text slide over a blurred background with a lot of dead space.",
+ "top_fix_for_weaker": "Replace the blurred backdrop and bullet list with a sharp, relevant visual (the building types or a stairwell/floor-plan graphic). Make the three rules three separate cards with large icons and the key numbers (4 stories, 4 homes, 5 homes) set big and highlighted. Brighten the subtext and fill the empty lower third."
+}

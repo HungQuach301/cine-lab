@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 5, "clarity": 5, "flags": ["text_overlap", "illegible_text", "confusing"], "note": "Dark grid stage with glossy cubes looks decent, but the 13% label card is faded and sits on top of the 6% cube, and the 7% card covers the orange cube. Cube heights barely differ, so they don't show the values (7, 6, 13). The 13% text is low contrast. The empty top half wastes space. The caption and source are readable, but the 'ACTUAL' tag repeats four times and adds clutter."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 4, "flags": ["confusing", "empty_frame"], "note": "The USGS terrain looks good, and the single label (~5 ships/yr) is crisp and high contrast. But the frame is mostly empty beige terrain. One small cube, a tiny document icon and a cut-off cube at the left edge give no clear place or comparison. The caption says 'Construction Differential Subsidy' but nothing in the frame connects to it, and one cube for '5 ships' has no scale. The viewer can't tell where this is or why."},
+ "better": "Y",
+ "why": "Y is cleaner and its one label can be read on a phone, while X has overlapping, faded cards over cubes that don't show their values. Y is also weak on meaning, so the margin is small.",
+ "top_fix_for_weaker": "In X, spread the three cubes apart. Scale their heights to 7/6/13. Move each label card above or beside its cube so none overlaps a cube or another card. Give the 13% card full opacity and contrast, and drop the repeated ACTUAL tags."}
+```

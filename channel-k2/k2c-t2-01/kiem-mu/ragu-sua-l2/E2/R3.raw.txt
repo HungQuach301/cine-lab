@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 6,
+    "readability": 7,
+    "clarity": 5,
+    "flags": ["confusing", "empty_frame"],
+    "note": "The terrain render is decent, but half the frame is blank ocean. The $107 callout floats far from the Ulsan label, and the small yellow box between them has no explanation. A viewer can't tell if $107 belongs to Ulsan, to the box, or to the country. There's no route, no movement and no context such as a comparison or timeline. The source line is the largest text at the bottom and it competes with the callouts. The map is zoomed too far in to show where Ulsan sits in Korea."
+  },
+  "Y": {
+    "craft": 8,
+    "readability": 8,
+    "clarity": 8,
+    "flags": [],
+    "note": "The globe view with atmosphere glow looks like broadcast quality. Texas is highlighted in orange, with a clear label that links to it and a caption that states the point. The date badge adds context. The callout text is a bit small on a phone and the long source line is tiny. The callout box covers part of the map. There's still no actual route or movement, only a single region."
+  },
+  "better": "Y",
+  "why": "Y highlights a clear region, ties the label to it and adds a caption, while X has disconnected labels, a mystery marker and a lot of dead space.",
+  "top_fix_for_weaker": "Zoom out so Korea and the Ulsan site are both visible, and merge the two callouts into one label attached to Ulsan, such as 'Ulsan, South Korea: $107 output per person, 1962'. Drop the unexplained yellow box or label it. Add a one-line caption saying what the number means, and crop the empty ocean."
+}
+```

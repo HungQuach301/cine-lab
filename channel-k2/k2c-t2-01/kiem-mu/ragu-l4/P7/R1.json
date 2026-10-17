@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "Matted archival print on a dark vignetted background with a clear name/title/date caption on the right. It looks like a deliberate documentary lower-third. The photo is small, so the portrait is not very large on a phone. The credit bar at the bottom overlaps the print edge slightly. The framing is a bit off-center, with dead space at the top right."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Full-bleed, atmospheric foggy street photo that looks cinematic. The caption, 'judges deferred to local lawmakers', has nothing to do with the image, which is a tree-lined street with a mansion. The viewer can't tell what is being shown, or which place or person. The source line is small, low-contrast grey on a dark gradient, and long, so it is weak on a phone. The headline is readable but modest in size."
+ },
+ "better": "X",
+ "why": "X tells the viewer exactly who and when with large, high-contrast text and a deliberate presentation, while Y's pretty but generic street scene carries a caption that doesn't match it and a hard-to-read source line.",
+ "top_fix_for_weaker": "Add a specific location and date label that matches the photo, such as 'Woodward Ave, Detroit, c. 1905', and tie the point to a visual anchor like a highlighted building. Enlarge the text and put it on a solid or darker scrim, and shorten the source line to 'Detroit Publishing Co. / Library of Congress' in brighter, larger type."
+}

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 7, "clarity": 8, "flags": [], "note": "The tilted archival print sits on the left and a clean name block with a gold accent bar sits on the right. The layout is balanced and the name, role, place and year are all visible. The right half is mostly empty dark brown. The bottom gradient washes out the lower part of the photo. The credit line is small and sits over the white border, where it is low contrast. Overall it looks like a competent template, not a 3D scene."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 8, "flags": ["text_overlap"], "note": "The portrait is larger and sharper than X's photo, and it has stronger depth, with the foliage and the figure well separated. The caption 'Herbert Hoover, Secretary of Commerce' runs over the lower part of the print and the dark gradient. The white text over the cream border and the light photo is low contrast in places. The source line is small, grey and hard to read on a phone. The caption is also not tied to the print, so the text and the image feel like two separate layers."},
+ "better": "X",
+ "why": "X gives the caption its own clean space beside the photo and so reads more reliably on a phone, while Y's caption collides with the print and its small source line is weak.",
+ "top_fix_for_weaker": "Move the Hoover title out of the photo area into a clear dark panel or side column, as X does, and make the source line larger and brighter. Alternatively, shift the print up and left so no text crosses the cream border."}
+```

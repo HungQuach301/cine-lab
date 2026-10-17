@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Good 3D terrain map (looks like San Francisco Bay) with clean isometric icons and a soft gradient behind the caption. The coin, document, ship and crane are unlabeled, so the viewer can't tell what the 'factors' are or where they sit. The caption and source line are white on dark and readable, but the source line is small on a phone. The icons are small for the space and nothing links them to the caption."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark card over a blurred background, so it reads as a plain slide. The checklist is clear and well structured, with an orange accent and a good hierarchy. The grey sub-lines are small and low-contrast on a phone, and the longest line is crowded. The lower third of the card is empty, the text sits in the top-left, and there is no visual content."},
+ "better": "X",
+ "why": "X is a real, cinematic visual with a broadcast feel, while Y is a flat text slide, even though Y's message is easier to grasp.",
+ "top_fix_for_weaker": "Replace the blank blurred slide with a small visual for each lock (a map pin, a staircase, a bank icon). Make the grey sub-lines larger and brighter, shrink the card to fit its content or enlarge the text to fill it, and shorten the long third line."}
+```

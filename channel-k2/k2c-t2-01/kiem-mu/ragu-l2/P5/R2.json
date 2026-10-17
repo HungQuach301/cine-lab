@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 3,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "This is a dark PowerPoint-style card over a blurred, nearly invisible 3D background. The left-aligned text leaves the lower third and right half empty. The grey subtext is small and low-contrast for a phone. The checkbox icons suggest a to-do list, not a recap. The card hides the scene it is recapping. It is clean, but there is nothing visual to remember."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "A shaded-relief 3D terrain map of the San Francisco Bay area carries a compact comparison card. The card has clear gold and teal column headers and icons. The key numbers (3 / day vs ~5 / year) are large and instantly show the collapse. The terrain is a little soft and cartoon-green. The card is small and sits over a busy area. The source line is thin but legible. The map does not point to any specific shipyard."
+ },
+ "better": "Y",
+ "why": "Y puts a large, readable data comparison on a real 3D map that sets the place, while X is a text-heavy flat slide over a blurred background.",
+ "top_fix_for_weaker": "Drop the full-frame text card. Use three large icon-led tiles (map, stairs, bank) with one bold keyword and one number each (4 stories, 5 homes). Put them over a sharp, lit 3D building scene instead of a blurred one, and raise the subtext size and contrast so it reads on a phone."
+}

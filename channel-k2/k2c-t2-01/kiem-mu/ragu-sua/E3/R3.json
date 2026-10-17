@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good-looking 3D terrain map with a location pill and sticker-style icons. The caption is big and clear, but the 'Sources' line is small and low-contrast for a phone. The four icons (coin, document, ship, crane) have no labels, so the viewer can't tell which 'factor' each one stands for. The caption says 'each factor counts', but nothing shows what the factors are."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark card over a blurred background, essentially a PowerPoint recap slide. The structure is clear: heading, three checkbox rows, bold label plus a gray sub-line. The sub-lines are small and dim gray on dark, which is marginal on a phone. The bottom third of the card is empty, and the checkboxes read as decoration. The wording ('locks', 'the map', 'bank line') is jargon-like without context."
+ },
+ "better": "X",
+ "why": "X has far more visual craft and a real sense of place, though its unlabeled icons weaken the message, while Y is clearer but is a flat slide with small gray text.",
+ "top_fix_for_weaker": "Make Y a designed frame, not a text card. Cut the empty bottom third and enlarge the card text, with sub-lines at least ~36px and brighter (near-white). Put a distinct icon or number on each lock (map, stairs, bank) and animate the rows in, so the recap shows the three locks instead of listing them."
+}

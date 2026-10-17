@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "The tilted print sits on the left and the caption sits cleanly in the dark space on the right, with a gold rule. The name, role, place and year are all clear. The credit pill overlaps the bottom edge of the photo and print border, and its text is small. Overall it's a polished layout with good hierarchy."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 8,
+  "flags": [
+   "text_overlap"
+  ],
+  "note": "The portrait is nicely framed, but the caption sits on a gradient scrim that crosses the bright print. The title is white on a pale, washed-out area, so contrast is weak. The source line is small, grey and low-contrast, and is the hardest text to read on a phone. The headline is readable but not strong. The caption covers the bottom of the photo, and the rest of the frame is empty."
+ },
+ "better": "X",
+ "why": "X puts its text on a clean dark panel with clear hierarchy and good contrast, while Y overlays a low-contrast caption and a tiny grey source line on the photo.",
+ "top_fix_for_weaker": "Move the title and source into a solid dark side panel, or shift the photo up and put the caption on an opaque dark bar below it. Raise the source line to at least the title's size minus 15%, in near-white, so nothing sits on the pale print."
+}

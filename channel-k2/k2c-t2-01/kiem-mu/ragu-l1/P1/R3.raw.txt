@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 5,
+    "flags": ["confusing", "cluttered"],
+    "note": "The stylised relief map and the gold date badge look good. The cranes, ship and two overlapping document icons are clumped together and tiny. There is no place label, so the viewer can't tell where this is. The 'LORE: one columnist's account, not a record' caption is cryptic. The icons overlap each other. The sources line is small. The bottom third is a dark band with little in it."
+  },
+  "Y": {
+    "craft": 6,
+    "readability": 8,
+    "clarity": 7,
+    "flags": ["flat_slide_look"],
+    "note": "The satellite-textured map has state borders and a clean callout pinned on Minneapolis, so the place is obvious right away. The caption is large and high-contrast. The Minnesota region is dull olive and the map is muted and murky. The callout points at a dot that is hard to see. The sources line is small and wraps onto two lines. The callout reads as a UI label, not as part of the scene."
+  },
+  "better": "Y",
+  "why": "Y says where it is at once with a legible pin label and a readable caption, while X's tiny clustered icons and missing location label leave the viewer unsure what they are looking at, even though X has the more stylised look.",
+  "top_fix_for_weaker": "For X, add a bold place label (e.g. 'Ulsan, South Korea') with a pin. Scale the crane, ship and document icons up about 2x and separate them so they don't overlap. Replace the 'LORE' caption with a plain one-line statement of what happened, and make the sources line larger."
+}
+```

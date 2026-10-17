@@ -5,8 +5,8 @@
 const { chromium } = require('/opt/pw/node_modules/playwright');
 const fs = require('fs'), path = require('path'), crypto = require('crypto'), { spawnSync } = require('child_process');
 const ROOT = path.resolve(__dirname, '../../design'), OUT = path.join(ROOT, 'k2v/stickers'), LIB = path.join(__dirname, 'lib/sticker.js');
-const OBJ = ['furnace', 'factory', 'house', 'town', 'mine', 'ship', 'boat', 'coin', 'coins', 'document', 'bank', 'flag', 'wagon', 'sack', 'barrel', 'mountain'];
-const SRC = { furnace: 'design/ll-hero/k2g01.js blastFurnace (K2G-01)', factory: 'design/ll-hero/k2g01.js shed (K2G-01) + ống khói mới', house: 'design/ll-hero/k2c106.js house (K2C-T1-06)', town: 'design/ll-hero/k2c106.js house ×3 (K2C-T1-06)' };
+const OBJ = ['furnace', 'factory', 'house', 'town', 'mine', 'ship', 'boat', 'coin', 'coins', 'document', 'bank', 'flag', 'wagon', 'sack', 'barrel', 'mountain', 'freighter', 'crane', 'order', 'truck', 'train', 'pipeline'];
+const SRC = { furnace: 'design/ll-hero/k2g01.js blastFurnace (K2G-01)', factory: 'design/ll-hero/k2g01.js shed (K2G-01) + ống khói mới', house: 'design/ll-hero/k2c106.js house (K2C-T1-06)', town: 'design/ll-hero/k2c106.js house ×3 (K2C-T1-06)' , freighter: 'mới T2 (K2C-T2-01): tàu hàng kiểu Liberty', crane: 'mới T2: cẩu cổng trục ụ tàu', order: 'mới T2: phiếu đơn hàng (motif)', truck: 'mới T2 G1b: xe tải', train: 'mới T2 G1b: tàu hoả', pipeline: 'mới T2 G1b: đường ống'};
 const ROLES = ['worker', 'merchant', 'banker', 'soldier', 'official', 'engineer', 'farmer', 'sailor'];
 (async () => {
   fs.mkdirSync(OUT, { recursive: true }); const only = process.argv.slice(2);

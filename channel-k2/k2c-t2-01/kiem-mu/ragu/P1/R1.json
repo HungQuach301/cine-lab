@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Stylized relief terrain with contour-line sea, gantry cranes and ships. The year chip and the Ulsan label are large and clear. The shipyard story is told visually. The icons look a bit flat, and the Ulsan pin is far from the yard icons. The sources line is small."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Realistic satellite-style imagery with state borders looks decent, but nothing shows what the story is about. The Minneapolis callout has a long subtitle that is really a source citation and crowds the label. The pin sits ambiguously in a large area, and the state is not named. The source text is small and low contrast on the dark gradient."
+ },
+ "better": "X",
+ "why": "X shows a place, a date and a subject (the shipyard) in one glance, while Y is a generic map with a source-heavy label that doesn't say what is happening.",
+ "top_fix_for_weaker": "Zoom in on the Twin Cities and add a visual or number tied to the story, such as an apartment-building icon or a rent-growth figure. Shorten the callout to just 'Minneapolis', move the Fed citation to the footer, and enlarge the footer source text."
+}

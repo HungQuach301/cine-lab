@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": [], "note": "The tilted photo print with a film-border frame, a warm vignette and a yellow-rule name block reads well and looks like a designed layout. The photo is large and sharp and sits clearly on the left. The credit pill overlaps the bottom of the print and the film border, which is slightly clumsy. The right half is mostly empty dark space, and the lighting and depth are flat, so it still looks like a 2D layout."},
+ "Y": {"craft": 5, "readability": 6, "clarity": 7, "flags": ["text_overlap", "flat_slide_look"], "note": "The same tilted-print treatment, but a dark gradient band is laid over the bottom of the photo and the print's lower edge, and the caption sits on top of it. The caption crosses the print edge and the photo, so its contrast varies. The grey source line is small and low-contrast and would be hard to read on a phone. The figure is small in the frame and the top-left is empty. The subject and date are still clear."},
+ "better": "X",
+ "why": "X keeps the caption in a separate, high-contrast panel beside the photo, while Y's caption gradient covers the bottom of the photo and its small grey source line is hard to read.",
+ "top_fix_for_weaker": "Move the title out of the gradient over the photo into a clean side panel or a solid lower-third that doesn't cross the print. Make the source line larger and brighter. Scale the photo up and re-centre it so the subject is bigger and the empty top-left is filled."}
+```

@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Dark text card over a blurred, near-invisible background. It reads like a PowerPoint recap. The text is clean, but the sub-lines are small and low-contrast grey on a phone. The bottom third of the card is empty and the background adds nothing."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good stylized 3D terrain map with a gradient scrim and clean icons. The caption and source line are legible. The four icons (coin, document, ship, crane) have no labels, so what each 'factor' is has to be guessed. The source line is small and sits close to the bottom edge."
+ },
+ "better": "Y",
+ "why": "Y looks like a real documentary visual with depth and a place, while X is a flat text slide on a muddy blurred background.",
+ "top_fix_for_weaker": "Drop the empty card area and the invisible blurred background. Use a sharp, relevant building image or a three-row layout with large icons, and enlarge the grey sub-lines to at least 150% with higher contrast."
+}

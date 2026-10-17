@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 6, "clarity": 3, "flags": ["confusing", "empty_frame"], "note": "The terrain render is attractive, but nothing is labelled: no country, city or route name. A tiny '$107 / 1962' tag points to an unlabelled orange rectangle. There is no unit, no explanation of what the $107 measures, and no narrative caption. About half the frame is empty ocean. The source line is readable, but the tag text is small for a phone."},
+ "Y": {"craft": 8, "readability": 8, "clarity": 8, "flags": [], "note": "The globe view of North America is rich and cinematic. Texas is highlighted and carries a clear callout with a rule ('single-stair up to 6 stories, ≤4 homes per floor, since Sep 2025'). There is a headline caption and an 'As of' date badge. The callout and sources are somewhat small on a phone, and the map shows no route or movement, only a region highlight."},
+ "better": "Y",
+ "why": "Y tells the viewer where, what and when through a legible callout and caption, while X shows an unexplained '$107, 1962' tag on an unlabelled map.",
+ "top_fix_for_weaker": "Label the place on the map (country or region and a key city). Replace the tag with a larger one that includes the unit and what it measures, for example 'GDP per capita: $107 (1962)'. Add a headline caption, and zoom or reframe so the subject fills the frame instead of empty ocean."}
+```

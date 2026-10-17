@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 3,
+  "flags": [
+   "confusing",
+   "empty_frame"
+  ],
+  "note": "The terrain render is attractive, but nothing tells you where this is. There is no place name or country, only a '$107 / 1962' tag with no label for what the figure measures. The route is just a tiny orange marker with no visible path. Half the frame is empty ocean. The callout is small and the source line is small."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "The globe render is polished, and Texas is highlighted clearly. The callout states the rule in full, and the 'As of' date badge and the caption support it. The callout and source text are small on a phone, but the contrast is good. There is no movement or route, but the place and the claim are obvious."
+ },
+ "better": "Y",
+ "why": "Y tells the viewer where and what within a second, and X shows a nice map with an unlabeled number in an unidentified place.",
+ "top_fix_for_weaker": "Add a place label (country or city) and a caption saying what the $107 is (for example 'GDP per capita, 1962'). Draw the route as a visible line, zoom in so the subject fills the frame instead of empty ocean, and make the callout text larger."
+}

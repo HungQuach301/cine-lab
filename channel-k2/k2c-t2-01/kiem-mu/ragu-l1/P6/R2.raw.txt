@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 7, "clarity": 8, "flags": ["flat_slide_look"], "note": "The 1944 newsreel is clearly identified: the year badge, the caption and the archive credit all agree. But the footage is a small, low-resolution postage-stamp inset on a blurry brown background, so it fills only about a third of the frame. The sepia framing is coherent. The footage is hard to see on a phone, and the left and right of the frame are empty."},
+ "Y": {"craft": 7, "readability": 6, "clarity": 6, "flags": ["illegible_text"], "note": "The footage is full-bleed, sharp and well lit, and it is the better shot. The white caption sits over busy rooftops with only a weak gradient behind it, so contrast is poor in places. The small source line is low-contrast and tiny. The question caption is vague about what 'that way' refers to, and the footage is generic and labelled 'illustrative'."},
+ "better": "Y",
+ "why": "Y has the stronger, full-frame broadcast-quality footage, though its caption contrast is weaker; X is clearer in context but the footage is a tiny, soft inset on a dead background.",
+ "top_fix_for_weaker": "Scale the X newsreel up to fill most of the frame (or full-bleed with a vignette), and drop the blurred empty background. Keep the year badge and move the caption and credit onto a solid dark lower-third bar."}
+```

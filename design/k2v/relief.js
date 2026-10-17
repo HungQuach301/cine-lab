@@ -181,10 +181,14 @@ export const HEROES = {
     for (const c of o.cols || []) { const [lon, lat] = LL(c.at), x = X(lon) + (c.dx || 0), z = Z(lat) + (c.dy || 0), lonA = lon + (c.dx || 0) / kx, latA = lat - (c.dy || 0) / kz;
       const grp = new THREE.Group(); scene.add(grp); const r = c.r || 7, items = [];
       const sh = new THREE.Mesh(new THREE.PlaneGeometry(r * 3.4, r * 3.4), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false })); sh.rotation.x = -Math.PI / 2; sh.position.y = 0.15; sh.renderOrder = 3; grp.add(sh);
-      if ((c.kind || 'coins') === 'coins') { const th = c.th || r * 0.24, n = c.n ?? Math.round(c.v / (c.unit || 1));
+      if ((c.kind || 'coins') === 'coins') { const ROW = c.layout === 'row', th = c.th || r * (ROW ? 0.42 : 0.24), n = c.n ?? Math.round(c.v / (c.unit || 1));   /* T2 0c (Kinh thánh §4, duyệt 15/10): hàng xu có ĐỘ DÀY thấy được (0,42 r so với 0,24 r của chồng) */
         const gold = new THREE.MeshStandardMaterial({ color: c.color || '#e8b54a', metalness: 0.55, roughness: 0.3, envMapIntensity: 1.6, emissive: '#5a3a08', emissiveIntensity: 0.35 }), rim = new THREE.MeshStandardMaterial({ color: '#c99a3a', metalness: 0.6, roughness: 0.4, emissive: '#3a2604', emissiveIntensity: 0.3 });   /* nháp V2: metalness 1 + phòng phản xạ tối → xu nâu đen; vàng sáng như sticker */
         const cg = new THREE.CylinderGeometry(r, r, th * 0.86, 56), eg = new THREE.TorusGeometry(r * 0.97, th * 0.07, 6, 56); eg.rotateX(Math.PI / 2);
-        for (let i = 0; i < n; i++) { const g = new THREE.Group(); g.add(new THREE.Mesh(cg, gold)); const e1 = new THREE.Mesh(eg, rim); e1.position.y = th * 0.43; const e2 = e1.clone(); e2.position.y = -th * 0.43; g.add(e1, e2);
+        const edge = ROW ? (() => { const cv = document.createElement('canvas'); cv.width = 512; cv.height = 8; const g2 = cv.getContext('2d'); for (let x = 0; x < 512; x++) { const v = 128 + 110 * Math.sin(x / 512 * Math.PI * 2 * 96); g2.fillStyle = `rgb(${v | 0},${v | 0},${v | 0})`; g2.fillRect(x, 0, 1, 8); } const tx = new THREE.CanvasTexture(cv); tx.wrapS = THREE.RepeatWrapping;   /* cạnh khía 96 răng: bump + tối hơn mặt → cạnh đọc được ở máy thấp */
+          return new THREE.MeshStandardMaterial({ color: '#c08f2f', metalness: 0.6, roughness: 0.42, bumpMap: tx, bumpScale: 2.2, envMapIntensity: 1.3, emissive: '#3a2604', emissiveIntensity: 0.3 }); })() : null;
+        const ring = ROW ? new THREE.TorusGeometry(r * 0.7, th * 0.05, 6, 48) : null; if (ring) ring.rotateX(Math.PI / 2);   /* gờ nổi trong mặt xu: mặt trên không còn là "đĩa trơn" */
+        for (let i = 0; i < n; i++) { const g = new THREE.Group(); g.add(new THREE.Mesh(cg, ROW ? [edge, gold, gold] : gold)); const e1 = new THREE.Mesh(eg, rim); e1.position.y = th * 0.43; const e2 = e1.clone(); e2.position.y = -th * 0.43; g.add(e1, e2);
+          if (ring) { const e3 = new THREE.Mesh(ring, rim); e3.position.y = th * 0.43; g.add(e3); }
           g.userData = { y: th * (i + 0.5), rz: (Math.sin(i * 12.9898) * 0.5) * 0.06, ox: Math.sin(i * 78.233) * r * 0.05, oz: Math.cos(i * 37.71) * r * 0.05 };
           if (c.layout === 'row') { const hd = (c.rowDir ?? 0) * D2R, gp = (c.gap ?? 2.3) * r; g.userData = { y: th * 0.5, rz: (Math.sin(i * 12.9898) * 0.5) * 0.02, ox: Math.cos(hd) * gp * i, oz: Math.sin(hd) * gp * i }; }   /* V4 (G2): HÀNG xu nằm phẳng cạnh nhau → đếm được bằng mắt */
           grp.add(g); items.push(g); }
@@ -200,8 +204,9 @@ export const HEROES = {
       anchors['col:' + c.id] = () => tp.set(cc.x, cc.grp.position.y + cc.top() + 0.6, cc.z);
       if (cc.items.row) { const last = () => { let L = cc.items[0]; for (const g of cc.items) if (g.visible) L = g; return L; };   /* V4 (G2): hàng xu — nhãn bám đồng cuối đã rơi; hộp chiếu = đồng đầu ↔ đồng cuối */
         anchors['col:' + c.id] = () => { const L = last(); return tp.set(cc.x + L.position.x, cc.grp.position.y + cc.th + 0.6, cc.z + L.position.z); };
-        anchors['colL:' + c.id] = () => cc.grp.visible ? pl.set(cc.x + cc.items[0].userData.ox - r * 1.1, cc.grp.position.y, cc.z + cc.items[0].userData.oz) : null;
-        anchors['colR:' + c.id] = () => { const L = last(); return cc.grp.visible ? pr.set(cc.x + L.userData.ox + r * 1.1, cc.grp.position.y, cc.z + L.userData.oz) : null; };
+        const fwd = new THREE.Vector3(), front = () => fwd.setFromMatrixColumn(cam.matrixWorld, 2).setY(0).normalize().multiplyScalar(r * 1.05);   /* T2 0c: máy thấp → mép TRƯỚC của đồng xu nằm thấp hơn điểm neo trên màn hình; hộp né lấy mép trước (nhãn "1/10" từng chạm hàng xu ở khung thử) */
+        anchors['colL:' + c.id] = () => cc.grp.visible ? pl.set(cc.x + cc.items[0].userData.ox - r * 1.1, cc.grp.position.y, cc.z + cc.items[0].userData.oz).add(front()) : null;
+        anchors['colR:' + c.id] = () => { const L = last(); return cc.grp.visible ? pr.set(cc.x + L.userData.ox + r * 1.1, cc.grp.position.y, cc.z + L.userData.oz).add(front()) : null; };
         continue; }
       if (cc.items.ruler) { const rp = new THREE.Vector3(); anchors['rul:' + c.id] = () => { if (!cc.grp.visible || !cc.items.ruler.visible) return null; cc.items.ruler.updateMatrixWorld(); return rp.set(0, cc.th * cc.items.ruler.userData.N * cc.items.ruler.scale.y + 0.3, 0).applyMatrix4(cc.items.ruler.matrixWorld); }; }
       // mép trái/phải ở chân (theo hướng phải của máy quay) → lớp 2D dựng hộp chiếu của chồng xu để nhãn né (BAI-HOC-K2 K11)

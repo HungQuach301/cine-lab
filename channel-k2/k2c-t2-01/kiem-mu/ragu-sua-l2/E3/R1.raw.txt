@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Good 3D terrain map of the San Francisco Bay with clean icons. The icons (coin, document, ship, crane) have no labels, so the viewer can't tell what each factor is or where the place is. The caption sits on a dark gradient and reads fine. The source line is small and low in the frame, so it is borderline on a phone."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark UI card with a checklist over a blurred background. The structure is clear and the headline is legible. The sub-lines are small, low-contrast gray text that will strain on a phone. The bottom third of the card is empty and the blurred background adds nothing. It looks like a PowerPoint slide. The wording ('locks', 'bank line') is vague without context."},
+ "better": "X",
+ "why": "X has real visual depth and a sense of place, while Y is a flat, dim text slide, even though Y's message is easier to parse.",
+ "top_fix_for_weaker": "Make the sub-lines at least 1.5x larger and brighter, cut the empty bottom of the card, and replace the blurred background with a clear visual for each lock (a map pin, a stair icon, a bank icon) so it doesn't look like a text-only slide."}
+```

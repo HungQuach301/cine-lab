@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "illegible_text"
+  ],
+  "note": "Dark glass card over a blurred, near-invisible background. The empty bottom third of the card makes it feel like a PowerPoint recap. The grey subtext (~22px at 720p) is small and low-contrast on a phone. The orange 'TO RECAP' label is tiny. The copy is jargon-heavy ('three locks', 'bank line', 'sorts at 5 homes') and never explains what the locks are. The meaning depends on earlier context. The checkbox icons suggest to-dos rather than constraints. The card has no numbers or visuals to anchor the claims."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Stylized 3D terrain map (a bay with a strait) with clean isometric icons: coin, document, ship, crane. The lighting and depth are polished and look like broadcast quality. The caption and sources line are large, white and sit on a dark gradient, so they read well on a phone. The icons are small and unlabeled, so the viewer can't tell which factor each one stands for. The caption says 'each factor' but doesn't name any. The sources line is thin and sits near the bottom edge. The map doesn't say which place this is."
+ },
+ "better": "Y",
+ "why": "Y is a real, visually rich scene with clear high-contrast captions, while X is a text-heavy dark slide with small grey text, an empty lower half and jargon that leaves the viewer unsure what the 'locks' are.",
+ "top_fix_for_weaker": "Rebuild X as three large rows with one big number each (e.g. '4 stories', '5 homes') and a plain-language label, make the text at least 1.5x larger and white or near-white, crop the card to its content to remove the dead space, and show the blurred building image sharply behind or beside the text so the viewer can see what is being locked."
+}

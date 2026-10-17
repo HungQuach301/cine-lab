@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [],
+  "note": "Globe render with atmosphere glow and a highlighted Texas looks like real broadcast imagery. The label card is clean, and the callout leader is short and clear. The sources line is small and low-contrast on a phone. The callout text is long and sits at about phone-minimum size. Texas is tinted but there's no motion or route, only a static region. The wide view leaves most of the frame as unused ocean and continent."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The relief terrain is attractive, but the coast is a thick blown-out white band that looks like a rendering artifact. The three route lines end in ripples at random points in open water, with no destinations, no names and no scale. The 'To foreign owners / our read' label sits awkwardly on one endpoint and doesn't say which line it describes. The scene shows no recognisable geography beyond 'Ulsan', so the viewer can't tell where the ships go. The sources line is small."
+ },
+ "better": "X",
+ "why": "X shows a recognisable place with a clear single callout, while Y's unlabeled route lines and the glowing coast band leave the viewer unsure what the movement means.",
+ "top_fix_for_weaker": "Zoom out so the lines run to real, labeled destination ports or countries (e.g. Japan, Greece, Norway) with animated arcs. Replace the thick white coastline band with a thin, soft shoreline. Label each route, or one legend, with the quantity it shows (ships or $), and enlarge the sources line."
+}

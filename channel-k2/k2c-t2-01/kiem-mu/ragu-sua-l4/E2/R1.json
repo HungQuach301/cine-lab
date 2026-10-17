@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 5,
+  "flags": [
+   "illegible_text",
+   "confusing"
+  ],
+  "note": "The shaded relief terrain is nice, but the 'To foreign owners / our read' label is faded to near-invisible grey. The three thin orange lines going out to sea don't show where they end or what they mean. The coastline glow is thick and white, and a stray white border runs across the bottom-left. The caption and source line are readable, but the source line is small. Ulsan is clear."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "The globe view with Texas highlighted in orange reads in an instant. The callout is large and high-contrast, and the caption is clear. The date chip is legible. The callout's long text ('\u2264 4 homes per floor') is smallish on a phone, and the source line is tiny. The callout box covers part of the map but doesn't hide anything important. It looks like a polished broadcast frame."
+ },
+ "better": "Y",
+ "why": "Y shows one clear place and one clear message with legible callouts, while X has a faded, near-unreadable label and unexplained route lines.",
+ "top_fix_for_weaker": "Make the 'To foreign owners' label fully opaque and larger. Put real destination markers (ports or countries) at the ends of the route lines, and add arrowheads so the route reads as shipments going out. Also thin the coastline glow."
+}

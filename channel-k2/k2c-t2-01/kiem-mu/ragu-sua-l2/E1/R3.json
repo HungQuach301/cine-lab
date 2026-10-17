@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "cluttered"
+  ],
+  "note": "The dark scene with 3D bars is decent, but the orange label card covers the top of the orange bar. The third label (13%) is semi-transparent and partly hidden behind the 6% bar and the green bar, so the 'of total construction cost' text is low-contrast and hard to read. 'ACTUAL' is repeated on every label and again as a corner badge, which is noisy and looks like a placeholder. The 6% label has no description, so the viewer can't tell what it measures. The bars are blocky cubes whose sizes don't match their values (6% looks about as big as 7% and 13% is about the same size). The stripped-down chart gets in the way of the data."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map is clean and well lit, and the text is large with strong contrast. The icons (coin stack, document, crane) are small and fairly generic. There are no labels on the objects. The viewer can't tell what the four coins, the document or the crane stand for, or where this is. 'Wages 1 / Scale 1' counters are cryptic. The yellow loop is only explained by the caption 'the loop is our interpretation', which doesn't say what it means. The place isn't named, and a lower third with bare sources is empty. The frame looks good, but it doesn't communicate much."
+ },
+ "better": "Y",
+ "why": "Y is clean and fully legible, though vague. X has overlapping, semi-hidden labels, a mismatch between bar sizes and values, and repeated 'ACTUAL' stamps that make the key numbers hard to read on a phone.",
+ "top_fix_for_weaker": "Re-lay out X: space the three bars apart, put each label above its own bar in fully opaque cards with no overlap, give 6% a description, scale bar heights to the values (6, 7, 13), and drop the repeated 'ACTUAL' tags, keeping one at most."
+}

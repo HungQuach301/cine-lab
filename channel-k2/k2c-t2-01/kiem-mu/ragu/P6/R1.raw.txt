@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 8, "flags": ["flat_slide_look"], "note": "Archival newsreel in a cream matte frame over a blurred sepia backdrop, with a year badge and a caption chip. Caption and source read cleanly. The 1944, Richmond and Liberty ship context is clear at once. The frame floats in a large dark void with empty space on the right, and the footage is small and soft. It looks templated, but it is tidy and credible."},
+ "Y": {"craft": 7, "readability": 5, "clarity": 6, "flags": ["illegible_text"], "note": "Sharp, full-bleed aerial of Chicago-area homes with good light and depth. The caption sits directly over busy rooftops, with only a weak gradient behind it. The source line is small, thin and low-contrast, so it is hard to read on a phone. The caption is a vague rhetorical question ('the map'), so the viewer has to infer what is being shown. Strong footage, weak text treatment."},
+ "better": "X",
+ "why": "X's text is reliably legible and anchors place, date and subject immediately, whereas Y has better footage but its caption and source line fight a busy background and say little about what is shown.",
+ "top_fix_for_weaker": "Put the caption and source on a solid or heavily darkened lower-third bar (or a stronger gradient scrim) with larger, bolder type, and make the caption state the subject concretely (e.g. 'Chicago bungalow and two-flat neighborhood today') instead of an abstract question."}
+```

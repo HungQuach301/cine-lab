@@ -1,0 +1,379 @@
+{
+ "cut_or_shorten": [
+  {
+   "t0": 198.6,
+   "t1": 204,
+   "why": "Mid-video 'subscribe' ask breaks the flow right before the wages argument; cut it or move it to the end."
+  },
+  {
+   "t0": 142.5,
+   "t1": 176,
+   "why": "Jones Act plus the AMP and critics quotes plus the subsidy is about 35s of names, dates and quotes while the picture is a static Seattle map. Trim the AMP and Lee/McClintock detail here, since it is repeated at 620–631."
+  },
+  {
+   "t0": 210,
+   "t1": 235,
+   "why": "Price-gap stats (1922, 1950s, 1990s, 2019 tanker) are delivered as a list over barely changing visuals. Keep two of them."
+  },
+  {
+   "t0": 273,
+   "t1": 305,
+   "why": "The loop is explained, then recapped with a hedge at 287–305 ('wages are one factor', 'only partly supports'), then recapped again at 604–631. The hedge repeats itself and the picture is static."
+  },
+  {
+   "t0": 305,
+   "t1": 340,
+   "why": "Korea's GDP per person in 1962 and the Hyundai 'no experience' quote are slow, with a dull beige map and no motion."
+  },
+  {
+   "t0": 339,
+   "t1": 357,
+   "why": "The turtle-ship banknote lore is a tangent. It is 18s of 'we found no documents' over a static map, so cut it to one line."
+  },
+  {
+   "t0": 386,
+   "t1": 421,
+   "why": "Munseob Lee's list, then 'sources don't say', then the per-person output figures with a 'not in our sources' disclaimer is a homework-style hedge run. Shorten it."
+  },
+  {
+   "t0": 423,
+   "t1": 528,
+   "why": "About 105s of USTR bureaucracy: petition, findings, fee mechanics, China's objection, suspension and trade-group letter. It is document pages and globe, with the same two shots reused. Roughly halve it."
+  },
+  {
+   "t0": 592,
+   "t1": 640,
+   "why": "The scoreboard is a third recap: the 'what to watch' list, then the scoreboard, then the verdict, then supporters and critics again. About 45s over a nearly empty map. Merge into one conclusion."
+  }
+ ],
+ "redundant_captions": [
+  {
+   "id": "C02",
+   "why": "too_long"
+  },
+  {
+   "id": "C05",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C08",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C10",
+   "why": "adds_nothing"
+  },
+  {
+   "id": "C11",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C12",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C13",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C14",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C16",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C17",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C19",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C21",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C22",
+   "why": "clutters_picture"
+  },
+  {
+   "id": "C23",
+   "why": "clutters_picture"
+  },
+  {
+   "id": "C26",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C28",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C29",
+   "why": "adds_nothing"
+  },
+  {
+   "id": "C31",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C32",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C33",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C34",
+   "why": "adds_nothing"
+  },
+  {
+   "id": "C35",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C36",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C38",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C40",
+   "why": "adds_nothing"
+  },
+  {
+   "id": "C41",
+   "why": "too_long"
+  },
+  {
+   "id": "C43",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C44",
+   "why": "adds_nothing"
+  },
+  {
+   "id": "C47",
+   "why": "adds_nothing"
+  },
+  {
+   "id": "C48",
+   "why": "too_long"
+  },
+  {
+   "id": "C51",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C54",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C55",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C56",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C57",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C58",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C60",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C61",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C62",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C63",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C64",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C65",
+   "why": "repeats_narration"
+  },
+  {
+   "id": "C66",
+   "why": "repeats_narration"
+  }
+ ],
+ "broken_transitions": [
+  {
+   "t": 3,
+   "why": "The disclaimer caption (C01) lands over the globe in the first seconds of the hook and stays up for about 10s, so it fights the cold open."
+  },
+  {
+   "t": 17.3,
+   "why": "The Philadelphia shot starts at 17–18s but the caption is not cleared. 'Owner announced plans' stays up through the 'Why so few ships?' title at 22–28s, so two messages overlap."
+  },
+  {
+   "t": 34,
+   "why": "The hook jumps straight into a 1940 Richmond map with no cue that the video is going back in time. The 'November ninth' deadline is dropped and not revisited for 8 minutes."
+  },
+  {
+   "t": 47,
+   "why": "Cut from the map to a dim film frame and an archival photo. The caption says '1944 newsreel' while the narration is about 1942–43 build times, and the film frame is nearly black."
+  },
+  {
+   "t": 110,
+   "why": "After 'cargo to Vancouver' the map jumps to the Pacific Northwest with no caption or label for about 8s, and the Wesley Jones photo name overlaps the picture at 122s."
+  },
+  {
+   "t": 170,
+   "why": "Seattle jumps to an unlabeled sandy map for the subsidy. The 15–25 ships bar appears at 178s, long after narration starts at 176s."
+  },
+  {
+   "t": 205,
+   "why": "Hard jump from a sandy 1970s map to a green generic map with a tiny figure and the 'COMMON CLAIM' tag. The geography is unclear."
+  },
+  {
+   "t": 306,
+   "why": "Jumps to a full US globe and a spinning Earth, then to Korea, with the map visuals unrelated to the 1962 GDP narration. The sudden move from the US to Korea is not signposted."
+  },
+  {
+   "t": 421,
+   "why": "A sudden switch from the Korea map to a blank white document page for 12s, with a 'Which brings us to the present' line that has no visual setup."
+  },
+  {
+   "t": 463,
+   "why": "The fee explanation sits on a Philadelphia map with 'Port of Philadelphia', which was never introduced. The viewer has no reason to expect Philadelphia here."
+  },
+  {
+   "t": 576,
+   "why": "Three stretches of the recap are separate beats ('what to watch', then scoreboard, then verdict) with the same empty green map reused."
+  }
+ ],
+ "empty_or_cluttered": [
+  {
+   "t": 2,
+   "kind": "empty",
+   "why": "The opening frame is a bare terrain with no subject while the narration makes its biggest claim, so the hook has no striking visual."
+  },
+  {
+   "t": 22,
+   "kind": "text_overlap",
+   "why": "The 'Why does America build so few ships?' title, the Philadelphia tag and the C02 caption all compete."
+  },
+  {
+   "t": 47,
+   "kind": "hard_to_read",
+   "why": "A dark, low-contrast film frame with the tiny archival caption at the bottom."
+  },
+  {
+   "t": 79,
+   "kind": "empty",
+   "why": "A pale map with one tiny shipyard icon during the '747 ships' stat, so the stat has no visual weight."
+  },
+  {
+   "t": 67,
+   "kind": "cluttered",
+   "why": "The 122/39/4.5-day labels, two bars, a ship and a ghost frame all show at once, with tiny text on a phone."
+  },
+  {
+   "t": 110,
+   "kind": "empty",
+   "why": "A bare terrain with no caption or label while the Jones/Alaska backstory is narrated."
+  },
+  {
+   "t": 142,
+   "kind": "empty",
+   "why": "A Seattle map with only a tag, then at 158s stacked quote tags and a source line crowd the lower-left."
+  },
+  {
+   "t": 198,
+   "kind": "text_overlap",
+   "why": "The '15–25 ships/yr' label overlaps the top-left edge and its text is clipped."
+  },
+  {
+   "t": 237,
+   "kind": "empty",
+   "why": "A plain green map with one tiny figure for about 12s, with no caption."
+  },
+  {
+   "t": 261,
+   "kind": "hard_to_read",
+   "why": "The '99 ships' and 'wages (welders)' tags are tiny and low-contrast on a phone."
+  },
+  {
+   "t": 289,
+   "kind": "hard_to_read",
+   "why": "The Wages/Scale chips are tiny and the loop graphic is faint, then the picture darkens at 304s."
+  },
+  {
+   "t": 314,
+   "kind": "empty",
+   "why": "A beige Korea map with one small label while the Hyundai story is narrated."
+  },
+  {
+   "t": 374,
+   "kind": "empty",
+   "why": "No caption and a bare map for 'government set its own targets'."
+  },
+  {
+   "t": 423,
+   "kind": "empty",
+   "why": "A white document page with unreadable text and no caption for about 4s."
+  },
+  {
+   "t": 455,
+   "kind": "hard_to_read",
+   "why": "The document text is a blurred, unreadable scan with a tiny highlight."
+  },
+  {
+   "t": 471,
+   "kind": "cluttered",
+   "why": "Fee tags ($18 / $50 per net ton) overlap the ship and the 'Port of Philadelphia' label, with tiny text."
+  },
+  {
+   "t": 543,
+   "kind": "cluttered",
+   "why": "Several tags ($5B, 1.5→20, Philly Shipyard) stack in the middle of a busy aerial photo."
+  },
+  {
+   "t": 576,
+   "kind": "empty",
+   "why": "A green river map with a source line only, for about 20s of the 'what to watch' list."
+  },
+  {
+   "t": 600,
+   "kind": "hard_to_read",
+   "why": "The small scoreboard tag is the only content, and the wording at 620s fades out."
+  },
+  {
+   "t": 628,
+   "kind": "empty",
+   "why": "A bare map under the Critics caption, with nothing else on screen."
+  }
+ ],
+ "pace_1to10": 4,
+ "visual_variety_1to10": 4,
+ "overall_1to10": 4,
+ "top3_fixes": [
+  "Cut the caption count from 66 to about 40 by dropping every caption that repeats the voice-over (C05, C08, C10, C11–C14, C16, C17, C19, C21–C24, C26, C28, C29, C31–C36, C38, C40, C43, C44, C47, C51, C54–C58, C60–C66). Keep the source, date, 'Our read', LORE, 'as of' and deadline lines.",
+  "Cut about 2.5–3 minutes: the subscribe ask, the Jones Act quote stack, the price-gap list, the loop recap and its hedge, the turtle-ship lore, and half the USTR fee detail. Collapse the three ending recaps (what to watch, scoreboard, verdict) into one 30s close.",
+  "Replace the empty green or beige maps and the blank document pages with a single clear visual per beat (one big number, one photo, one chart). Keep tags large enough to read on a phone and remove the stacked tags at 67s, 471s and 543s."
+ ]
+}

@@ -1,0 +1,15 @@
+# K2C-T2-01 · VERSIONS (ghim ở G1, 15/10/2026)
+| Thành phần | Ghim | Kiểm |
+|---|---|---|
+| Luật kiểm (phiên K) | `checks/` **1.10.2**, LOCK TREE_SHA256 `c598467f2283b141b8a14382c18dbe23b370522ef2a1afb31856399f7eb4549e` | `checks/lock.py --verify` → **KHỚP** (15/10); phiên T2 không sửa, không đọc mã `checks/` |
+| Bộ công cụ k2v (sau Bước 0c) | `design/k2v/`, `scripts/k2/` tại commit G1 của nhánh `k2c-t2` (xem `git log -1 -- design/k2v scripts/k2` tại thẻ G1); thay đổi trong T2: hàng xu dày + cạnh khía + gờ (`relief.js`), hộp né mép trước hàng xu, footage khung trong khung (`hero.js`), DEM SRTM ngoài Mỹ + đệm ô 3DEP lệch cỡ (`relief_build.py`), nhãn ESTIMATE (`lib/k2.js`), đạo cụ `freighter`/`crane`/`order` (`sticker-lab.js`, `stickers/`) | `scripts/k2/test_k2v.py` (kết quả ở G1-BAO-CAO §8) |
+| Model viết/điều phối | phiên Claude Code này (`claude-opus-5-5` theo cấu hình phiên); tác tử tra nguồn: Sonnet (`model: sonnet` của Agent) | — |
+| Model kiểm (`claude -p`, ghim) | người đọc mù + chấm "xem tiếp": `claude-sonnet-5-5`; REVIEWER lời + tiêu đề: `claude-opus-5-5`; gắn nhãn bình luận: `claude-haiku-5-5` | mỗi lượt ghi model yêu cầu + model chạy thật (`served`) ở `kiem-mu/cost.jsonl` |
+| Claude Code CLI | 2.1.300 | `claude --version` |
+| Giọng | như T1: ElevenLabs voice `cjVigY5qzO86Huf0OWal` (Eric), `eleven_multilingual_v2`, stability 0,5, similarity 0,75 (`k2c-t1-06/episode.yaml`) | chưa thu (sau G1) |
+| three.js | 0.180.0 (`design/cong3/shared` package-lock, `npm ci` 15/10) | — |
+| Nền bản đồ (cache ngoài git) | `erie` (3DEP), `sfbay` (3DEP, ppd 900), `korea` (SRTM skadi, ppd 600) — SHA từng tệp trong `$K2V_CACHE/relief/<tên>/meta.json` | dựng lại được bằng `relief_build.py` |
+| **G1b (15/10)** — bộ công cụ | thêm: `relief_build.py --coast dem` (biển = ô DEM ≤ 0 m/trống nối với biển Natural Earth), hằng số vẽ quy theo ppd/600, mặt nạ nước làm mượt, cắt nét sông/ranh giới Natural Earth chạy dọc mặt nước > 3 km, nối đầu sông nhánh tới mặt nước; `aerial.py --meta-dir` (sửa: dòng ghi sổ meta bị nuốt vào chú thích); `rhythm.py` quy mốc opt của cảnh dùng lại theo frame0/speed, bỏ mốc ngoài khung shot; đạo cụ `truck`/`train`/`pipeline`, tay `torch`; trang tài liệu t2-fr-*/t2-nftc (`k2v_assets.py`); mặt nạ tách nền LoC Owens/Jones (chuẩn bị) | `test_k2v.py` **26/26** (+1 test nhịp cảnh dùng lại); `checks/lock.py --verify` **KHỚP** |
+| **G1b** — đặc tả | `ep-src*.yaml` + `make_spec.py` (kiểm SHA lời khoá) → `episode.yaml`; `est.py` (ước timeline Eric 151,2 từ/phút, giải mốc, nhịp, footage, đặc tả con tờ khung) | — |
+| **G1b** — nền mới | `pnw` (SRTM skadi, ppd 150); dựng lại ở **ppd 1800** sau khi rà khung (mép nước bậc thang ở tầm 5–20 km): `eastus` (3DEP, `--coast dem`, tuyến Delaware, mesh 12), `korea` (SRTM skadi, `--coast dem`, mesh 12), `sfbay` (3DEP, mesh 8); ảnh hàng không NAIP `philly`, `richmond` (3 tầng; sổ `aerial/aerial-*-meta.json`) | — |
+| **G1b** — lời | KHOÁ v3.3: `script.md` SHA-256 `4554b69708a1ab08a7ffbe7ef3fb0f7e92aaac8a04fb8d57d2325dbb11d20473` (`LOI-KHOA.sha256`) | `make_spec.py` dừng nếu lệch |

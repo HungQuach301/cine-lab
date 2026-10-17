@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The 13% card is dimmed and overlaps the green cube, so its text is low contrast and hard to read. The 7% card sits on top of the orange cube. The 'ACTUAL' tag is repeated four times and adds noise. The 7%, 6% and 13% cubes are nearly the same size, so they don't show the difference in the numbers. The scene is a dark, empty void with no place context. The caption and source lines are readable."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map is a strong backdrop, and the callouts are crisp and high contrast. The document icon is half hidden behind the callout. The coins have no label or meaning. The single bar is labeled '~5 ships/yr' but has no scale. The map location is not named, so the viewer can't tell where this is."
+ },
+ "better": "Y",
+ "why": "Y has a real textured setting and clean, readable labels, while X has an overlapping, faded 13% label and an empty dark scene with near-identical cubes.",
+ "top_fix_for_weaker": "Separate the three labels so none overlaps a cube or another label, and restore the 13% card to full contrast. Scale the cube heights to 7, 6 and 13. Drop the repeated 'ACTUAL' tags. Put the cubes in a recognisable building or street scene."
+}

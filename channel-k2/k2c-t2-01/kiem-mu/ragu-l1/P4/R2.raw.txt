@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "Tilted archival print on a dark textured table. The side caption has a gold rule and clear hierarchy (name, then role, place and year), so the layout is balanced and the subject is identified immediately. The credit line is small and sits on the bottom gradient over the pale print border, so contrast is weak there. The bottom fade washes out the lower part of the photo."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 7, "flags": ["text_overlap"], "note": "Same tilted-print treatment, but the print is centered and large and the caption sits across the photo's bottom. The headline and the source line both run over the white border and the photo's lower edge, so the white-to-dark gradient behind them gives uneven contrast. The headline's right end ('1928)') lands on the busy fence and print. The source line is tiny and low-contrast. The left half of the frame is empty. The caption does name the person, role and year."},
+ "better": "X",
+ "why": "X keeps its caption on a clean dark area beside the photo, so it reads cleanly and the frame is balanced, while Y's text runs over the print and its edge.",
+ "top_fix_for_weaker": "Move the caption off the print into the empty left or right dark area, or give it a solid dark lower-third bar behind it. Make the source line larger and brighter. Reposition the print so the frame isn't lopsided."}
+```

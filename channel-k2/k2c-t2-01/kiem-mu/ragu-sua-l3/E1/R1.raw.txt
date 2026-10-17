@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 5, "clarity": 4, "flags": ["text_overlap", "cluttered", "confusing"], "note": "The three cubes are nearly the same size, so they don't show 7% vs 6% vs 13%. The 13% label sits half-transparent over the green cube, and its text is dim and collides with the cube edge. The orange label covers the top of its cube. 'ACTUAL' is repeated four times and means nothing to a viewer. Most of the frame is empty dark floor, and the footer text is large for what it says."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 5, "flags": ["confusing"], "note": "Terrain map with a clean, soft look. The labels are high-contrast and big enough for a phone. The coins, the document and the crane read as icons placed around a loop. The 'high prices / few orders / no scale' logic is vague, and the loop is explicitly the channel's own interpretation. There are no numbers, and the layout is a bit sparse, but nothing overlaps or is cut off."},
+ "better": "Y",
+ "why": "Y is clean and legible with no collisions, while X has a faded label overlapping a cube and cube sizes that don't match the data.",
+ "top_fix_for_weaker": "Scale the cube heights to the values (6, 7, 13), move the labels clear of the cubes in solid, high-contrast boxes (especially the 13% one), and drop the repeated ACTUAL badges."}
+```

@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The year badge, caption and archive credit are all legible and clearly sourced, and the Liberty ship launch reads quickly. The newsreel is a small, low-res inset on a blurred brown background, so most of the frame is dead space. The credit line is small for a phone."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "illegible_text"
+  ],
+  "note": "Full-bleed aerial of Chicago-area homes is bright and attractive. The white caption sits over busy rooftops with only a weak gradient behind it. The small gray source line at the bottom is low-contrast and hard to read on a phone. The caption asks a question but the image doesn't show a map or answer it, so the link to the 'map' is unclear."
+ },
+ "better": "X",
+ "why": "X is easier to read and understand: it has a clear year, place and source, while Y is prettier but its text sits on busy footage and its meaning is vague.",
+ "top_fix_for_weaker": "Put a darker gradient or semi-opaque band behind the bottom text in Y, enlarge and brighten the source line, and add a concrete on-screen cue (a place label or map overlay) so the 'map' question connects to the image."
+}

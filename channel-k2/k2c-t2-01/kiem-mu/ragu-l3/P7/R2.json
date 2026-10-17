@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The matted print is tilted slightly and lit with a vignette, so it reads as a physical object. The Sen. Wesley L. Jones name card is clear, with an accent bar and a good hierarchy of name, role and date. The weak spots are the grey gradient band that washes out the bottom of the print and the empty left third of the frame. The photo itself is small. The credit text is small but legible."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The full-bleed street photo is atmospheric. The caption 'judges deferred to local lawmakers' has no visual link to the image: it shows a street of mansions, with no judge, court or lawmaker. The caption sits over busy tree and street detail, and only the dark gradient keeps it readable. The long source line is small and low-contrast. There is no camera move or depth to lift it above a static photo with a caption."
+ },
+ "better": "X",
+ "why": "X identifies its subject (a named person, role and date) with a clean card layout and a staged print, while Y's caption doesn't match its generic street scene and the frame is a plain photo with text on top.",
+ "top_fix_for_weaker": "Replace the generic street photo with an image tied to the claim, such as a courthouse, a statute page or a legislature. Failing that, add a bold, larger key-phrase title on a solid or heavier gradient panel. Add slow parallax or a push-in, and shorten the source line to 'Detroit Publishing Co., Library of Congress' at a larger size."
+}

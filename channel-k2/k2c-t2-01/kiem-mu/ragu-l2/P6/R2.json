@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The 1944 newsreel is framed like a mounted archival photo, with a gold year badge, a clear caption and a proper source credit. That makes it trustworthy and instantly understandable. The footage is small and sits in a big, dark, empty blurred border. The lower third has a lot of dead space, and the source line is small and gray."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 6,
+  "flags": [
+   "illegible_text"
+  ],
+  "note": "The full-bleed aerial of Chicago is sharp, bright and attractive, and the footage itself is the strongest asset. The white caption sits directly over busy rooftops and trees with only a weak gradient, so contrast is poor. The small gray source line is nearly lost on the dark roofs. The question caption doesn't say what 'that way' refers to, and the shot is generic illustrative footage."
+ },
+ "better": "X",
+ "why": "X's caption, year badge and source are clean and legible on a calm dark panel, while Y's text fights a busy image and its message is vague.",
+ "top_fix_for_weaker": "Put a stronger dark gradient or solid lower-third band behind the caption and source line. Enlarge and brighten the source text, and make the caption name the subject (e.g. 'Chicago, 1920s zoning: how much of this map still works that way?') with a year or place badge."
+}

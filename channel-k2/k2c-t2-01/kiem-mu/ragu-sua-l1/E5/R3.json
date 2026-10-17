@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The glossy 3D bars on a dark grid look decent. The labels cover the bars they describe. The 13% card is semi-transparent and sits on top of the green cube, so its 'of total construction cost (range)' line is low-contrast and partly illegible. 'ACTUAL' is repeated on every label, which is noise. The three bars have no clear baseline or axis. The 7% bar is taller than the 13% bar, which misrepresents the numbers. 7%, 6% and 13% measure different things, so comparing them side by side is misleading. The small label text will be hard to read on a phone."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 5,
+  "flags": [
+   "confusing",
+   "empty_frame"
+  ],
+  "note": "The terrain is nicely textured, and the single dark callout is high-contrast and large enough for a phone. The lower-third title and source are clean. The scene is mostly empty. The tiny cube and a document icon sit in a large area of beige terrain, and half of a second object is cut off at the left edge. It is unclear which place is shown. The document icon is not tied to the 'Construction Differential Subsidy' title, and the cube's scale (~5 ships/yr) is not intuitive. The map shows no locator for where the yards are."
+ },
+ "better": "Y",
+ "why": "Y's single high-contrast callout and clean lower-third are readable on a phone, while X has overlapping labels, one of them washed out over a cube, and bar heights that don't match the numbers.",
+ "top_fix_for_weaker": "In X, drop the repeated ACTUAL tags and put the three labels in separate, non-overlapping, fully opaque cards, with each card's contrast raised to match the 6% card. Keep the cards off the bars. Show the 13% cost figure separately from the 7% and 6% figures, or scale the bar heights to the values."
+}

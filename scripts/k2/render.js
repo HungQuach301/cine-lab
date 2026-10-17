@@ -26,7 +26,7 @@ const SAMPLE = +arg('sample', 12);
   const REPO = path.join(__dirname, '..', '..');
   // cảnh đinh 3D (mẫu plate): đếm khung của mỗi thư mục, ghi p.n vào đặc tả; nạp đúng khung trước mỗi drawFrame (xem vòng lặp)
   const plates = spec.shots.filter((s) => s.tpl === 'plate').map((s) => { const d = path.isAbsolute(s.p.dir) ? s.p.dir : path.join(path.join(__dirname, '..', '..'), s.p.dir);
-    s.p.n = fs.existsSync(d) ? fs.readdirSync(d).filter((x) => /^\d{5}\.jpg$/.test(x)).length : 0; if (!s.p.n) { console.error('thiếu khung plate', d); process.exitCode = 3; } return { s, d }; });
+    s.p.n = fs.existsSync(d) ? fs.readdirSync(d).filter((x) => /^\d{5}\.jpg$/.test(x)).reduce((m, x) => Math.max(m, +x.slice(0, 5) + 1), 0) : 0;   /* T2 G1b: số khung = chỉ số lớn nhất + 1 (cảnh dựng --only từ frame0 không có khung đầu) */ if (!s.p.n) { console.error('thiếu khung plate', d); process.exitCode = 3; } return { s, d }; });
   const ANCS = {}; for (const { s, d } of plates) { const af = path.join(d, 'anchors.json'); if (!ANCS[s.p.dir] && fs.existsSync(af)) ANCS[s.p.dir] = JSON.parse(fs.readFileSync(af, 'utf8')); }
   const plateFor = (f) => { const t = f / 24, need = [];
     // cửa sổ nạp khung sau t1 phải ≥ thời lượng hoà (fade mặc định 0,7 s, có hoà 1,0–1,4 s): 0,6 s cũ làm hiện "missing plate" khi hoà dài (G2 tập 8, T01)

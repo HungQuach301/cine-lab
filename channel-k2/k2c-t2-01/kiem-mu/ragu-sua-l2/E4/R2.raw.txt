@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 7, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark glass card with a checklist over a blurred, barely visible building backdrop. The text is clean and the hierarchy is clear, but it reads as a PowerPoint recap slide. The bottom third of the card is empty, the grey subtext is low-contrast and small on a phone, and the checkbox icons add nothing. The backdrop is so dark and blurred that it contributes no 3D value."},
+ "Y": {"craft": 8, "readability": 7, "clarity": 6, "flags": ["confusing"], "note": "A stylized 3D terrain map with a strait, a ship, a crane, a document and a coin. It has good depth, relief shading and soft shadows, and it looks like broadcast work. The icons are small and unlabeled, so what each factor means isn't clear. The caption and source text are white on a dark gradient, legible but small, and the source line is close to the bottom edge. The place (a Bay Area-like strait) is not named."},
+ "better": "Y",
+ "why": "Y is a real 3D-lit map scene with depth and a legible caption, while X is a flat text card over a dark blur that adds no visual information.",
+ "top_fix_for_weaker": "Drop the empty card. Put the three locks on a lit 3D scene (the actual building, with a map pin, stair and bank icons), and show each as a large icon with a one-line label of at least 48 px. Raise the subtext contrast, and reveal the items one at a time so the card isn't a static list."}
+```

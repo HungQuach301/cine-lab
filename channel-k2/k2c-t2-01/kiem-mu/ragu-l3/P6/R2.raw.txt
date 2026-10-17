@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Archival newsreel is framed like a mounted photo on a darkened, blurred sepia background. The tone is cohesive and documentary-appropriate. The year badge and caption are clean and high-contrast, and the caption states place, subject and date. The footage is small and low-res, and the large empty areas left and right are wasted. The source line is small but legible."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 6, "flags": ["illegible_text"], "note": "Full-bleed aerial of Chicago residential blocks is crisp, well lit and attractive. The caption sits directly over busy rooftops with only a faint gradient, so contrast is uneven. The small source line is weak on a phone. The caption is a rhetorical question and does not say what is shown; the footage is generic 'illustrative' stock. Nothing anchors the place or the claim."}, 
+ "better": "X",
+ "why": "X has a clear framed subject, a strong text hierarchy and a caption that says exactly what is shown, while Y puts text over busy imagery and shows generic stock.",
+ "top_fix_for_weaker": "Put a solid or darker gradient scrim behind the bottom text, and increase the source line size and contrast. Add a specific on-screen anchor such as a place label or a data callout (for example a map pin, a year, or a number) so the shot supports the claim instead of acting as generic filler."}
+```

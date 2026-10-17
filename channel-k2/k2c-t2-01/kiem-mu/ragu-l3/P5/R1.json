@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "confusing"
+  ],
+  "note": "Dark text card over a blurred, nearly invisible background, so it looks like a PowerPoint recap. Titles are legible, but the grey sub-lines are small and low-contrast on a phone. The bottom third of the card is empty. 'Locks', 'stairwell' and 'bank line' are jargon with no visual anchor, so the viewer has to read everything to get it."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "A shaded-relief terrain map (SF Bay look) with a compact comparison card: 3 ships/day in 1943 against ~5 a year in 2023. The contrast is immediate and the gold and teal headers separate the two columns. The card text is smallish on a phone and the source line is thin. The map has no marker for a specific shipyard, so the place is implied rather than labelled."
+ },
+ "better": "Y",
+ "why": "Y shows one striking comparison over a real, rich map background, while X is a text-only checklist on a blurred backdrop.",
+ "top_fix_for_weaker": "Make X's background a clear image of the building types, or add an icon or diagram for each lock (map, stairwell, bank line). Enlarge the sub-lines to at least 1.5x with brighter text, cut the card height to fit the content, and shorten the last bullet."
+}

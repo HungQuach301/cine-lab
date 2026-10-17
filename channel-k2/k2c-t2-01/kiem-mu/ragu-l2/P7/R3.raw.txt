@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "A matted archival print sits on a dark vignette with a gold-rule caption. It reads as a polished, intentional layout. The name, role and date are legible. The gradient over the bottom of the mat is slightly muddy, and the print is off-center and small. The credit line is fine."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "A full-bleed street photo has a gradient at the bottom for text. The headline is white on a mid-tone area, with moderate contrast. The source line is small, low-contrast gray, and will be hard to read on a phone. The image shows an anonymous street with no place or era given, so the caption 'judges deferred to local lawmakers' has no visible link to the picture. The photo is atmospheric but generic."},
+ "better": "X",
+ "why": "X identifies its subject (who, role, date) with clean hierarchy and strong contrast, while Y pairs a generic street scene with an abstract caption and a tiny low-contrast source line.",
+ "top_fix_for_weaker": "Add a location and year label to the photo, for example 'Detroit, c. 1905'. Make the source line larger and brighter, on a darker gradient. Tie the headline to the image, or use a more relevant image."}
+```

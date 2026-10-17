@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Dark text-only recap card over a blurred background. It looks like a PowerPoint bullet slide. The orange accent bar and checkbox icons help a little. The bottom third of the card is empty, and the card holds no visual of the buildings it discusses. Body text is small and low-contrast grey, and the long third line is hard to read on a phone. Content is abstract ('locks', 'bank line') with no concrete anchor."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "A real 3D terrain render of San Francisco Bay with a clear location pill and a compact comparison card (3/day in 1943 vs ~5/year in 2023). The contrast is immediately legible. The terrain is slightly CG-flat. The card covers part of the map and is smallish for a phone. The source line at bottom left is small and low-contrast, and the dark vignette is a bit muddy. Overall it reads fast, and the place and quantity are clear."
+ },
+ "better": "Y",
+ "why": "Y puts a striking number comparison on a real, place-specific 3D map, while X is a plain text slide with empty space and no visual evidence.",
+ "top_fix_for_weaker": "Replace the bullet slide with a visual: show the three building types or a stairwell/bank-line diagram. Give each lock a big icon and one large keyword or number (e.g. '4 stories', '5 homes'). Raise body text to at least 36px with higher-contrast white, and cut the long third line."
+}

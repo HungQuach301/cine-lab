@@ -1,0 +1,263 @@
+# K2C-T2-01 — ĐẶC TẢ NGUỒN, phần đoạn (make_spec.py ghép). vo: "@script" = nguyên văn đoạn trong script.md (lời KHOÁ v3.3).
+# Mẫu `plate` (scripts/k2/lib/k2.js). Đạo cụ trong cảnh relief khai ở p.stickers (prep.lift_props đưa vào cảnh 3D). Nhãn số khai num + kind.
+# J3 (chủ dự án 15/10): câu miễn trừ + "Facts as of" là CHỮ TRÊN HÌNH 0:03–0:12 (dải cap 44 px ≥ 38 px; 19 từ ≈ 7,5 s đọc ở 151 từ/phút < 9 s hiện).
+segments:
+  # ===== 00 MÓC (nghịch lý trước — J2) =====
+  - id: "00"
+    part: HOOK
+    vo: "@script"
+    fadeIn: 0
+    shots:
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/gantry-crane.mp3, at: 0.2, src_ss: 4, dur: 9, gain_db: -27, fade_ms: 900}, {file: assets/k2/sfx/ship-siren.mp3, at: "@launched", src_ss: 0, dur: 3.5, gain_db: -24, fade_ms: 400}], at: 0, type: map, scene_id: relief/sfbay, camera_id: t2-00-launch, places: [], p: {hero: r00_launch, frame0: 0, where: "Richmond, Calif.", kind: actual, year: {s: "1943", at: 0.2},
+           stickers: [{a: "st:y1", img: "stk:freighter", at: "@launched", px: 120}, {a: "st:y2", img: "stk:freighter", at: "@three", px: 120}, {a: "st:y3", img: "stk:freighter", at: "@cargo", px: 120}],
+           tags: [{a: "st:y2", s: "3 a day", sub: "Liberty ships launched, at the 1943 peak", big: true, kind: null, num: n_peak3, at: "@day", side: auto, prefer: [up, right], c: "#3CC2B0"}],
+           src: "Source: National Park Service · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@In#2-0.3", type: map, scene_id: map/globe, camera_id: pair, places: [China], p: {hero: g00_share, frame0: 0, kind: actual,
+           cap: [{s: "This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.", at: 5.6, seg: true, src: []}, {s: "", at: 12.0, seg: true}],
+           tags: [{a: "col:us", s: "0.04%", sub: "U.S. share of world shipbuilding tonnage (2026 report)", big: true, kind: null, num: n_us004, at: "@percent", side: auto, prefer: [down, left], c: "#3CC2B0"},
+                  {a: "col:cn", s: "54.6%", sub: "China's share (2024)", big: true, kind: null, num: n_cn546, at: "@half", side: auto, prefer: [up, right], c: "#8E7CC3"}],
+           src: "Source: CRS (2026) · Map: Natural Earth · Imagery: NASA"}}
+      - {tpl: plate, at: "@And#1-0.3", type: map, scene_id: relief/eastus, camera_id: t2-00-philly, places: [Philadelphia], p: {hero: r00_philly, frame0: 0,
+           places: [{a: philly, s: "Philadelphia", at: "@Philadelphia", side: auto}],
+           stickers: [{a: "st:yard", img: "stk:order", at: "@South", px: 90}],
+           cap: [{s: "Deadline: November 9, 2026", at: "@deadline", src: [FRSUSP]}],
+           title: {t: "Why does America build so few ships?", at: "@So", scale: 0.6},
+           src: "Source: Korea JoongAng Daily, 27 Aug 2025 · USTR · Terrain: USGS 3DEP"}}
+
+  # ===== 01 KAISER =====
+  - id: "01"
+    part: CH1
+    vo: "@script"
+    shots:
+      - {tpl: plate, at: 0, type: map, scene_id: relief/sfbay, camera_id: t2-01-dive, places: [Richmond], p: {hero: r01_dive, frame0: 0, year: {s: "1940", at: "@December"},
+           places: [{a: richmond, s: "Richmond, Calif.", at: "@Richmond", side: auto, prefer: [left, up]}],
+           stickers: [{a: "st:ord", img: "stk:order", at: "@orders", px: 110}, {a: "st:cr1", img: "stk:crane", at: "@British", px: 130}, {a: "st:cr2", img: "stk:crane", at: "@war", px: 130}],
+           cap: [{s: "Henry J. Kaiser's first Richmond shipyard, Dec. 1940", at: "@Kaiser", src: [NPSRICH]}],
+           src: "Source: National Park Service · Terrain: USGS 3DEP"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/ship-siren.mp3, at: "@Liberty#1-0.8", src_ss: 4, dur: 4, gain_db: -23, fade_ms: 300}], at: "@Liberty#1+0.15", type: footage, scene_id: f_liberty_launch_1944, camera_id: clip, places: [Richmond], p: {hero: f_liberty, frame0: 0, clip: NARA-39018, setting: ft/richmond-yard-1944,
+           year: {s: "1944", at: 0.2},
+           cap: [{s: "A Liberty ship launched at Richmond, Calif., 1944 (newsreel)", at: "@emergency", src: []}], src: "Film: United News (1944) · U.S. National Archives"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/cutting-steel.mp3, at: "@Peary-0.4", src_ss: 6, dur: 6, gain_db: -27, fade_ms: 700}], at: "@June-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-01-days, places: [], p: {hero: r01_days, frame0: 0, kind: actual, year: {s: "1942–43", at: 0.2},
+           places: [{a: richmond2, s: "Richmond, Calif.", at: 0.3, side: auto, prefer: [left, up, down]}],
+           stickers: [{a: "st:ship", img: "stk:freighter", at: "@Peary", px: 120}],
+           tags: [{a: "col:d1942", s: "122 days", sub: "average Liberty ship, June 1942", kind: null, num: n_d1942, at: "@hundred", side: auto, prefer: [right, up], c: "#3CC2B0"},
+                  {a: "col:d1943", s: "39 days", sub: "average, Dec. 1943", kind: null, num: n_d1943, at: "@thirty-nine", side: auto, prefer: [up, right], c: "#3CC2B0"}],
+           src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
+      # Q23 (SS4, 17/10): tách lớp chữ — số trung bình (Maritime Commission) và tàu quảng bá (NPS) không cùng một thẻ; cùng cảnh 3D, phát nối khung (frame0)
+      - {tpl: plate, at: "@Peary-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-01-days, places: [], p: {hero: r01_days, frame0: 244, kind: actual, year: {s: "1942–43", at: -1},
+           places: [{a: richmond2, s: "Richmond, Calif.", at: -1, side: auto, prefer: [left, up, down]}],
+           tags: [{a: "col:dpeary", s: "4½ days", sub: "Robert E. Peary (publicity stunt)", kind: null, num: n_peary, at: "@Peary", side: auto, prefer: [right, down], c: "#F2C14E"}],
+           src: "Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@photographer-0.8", src_ss: 2, dur: 1.2, gain_db: -20, fade_ms: 60}], at: "@photographer-0.6", in: fade, type: photo, scene_id: loc_fsa_owens, camera_id: push, people: [Josie Lucille Owens], p: {hero: p01_owens, frame0: 0, photo: LOC-FSA-8D18716, clip: LOC-FSA-8D18716, file: /var/tmp/k2-footage/k2c-t2-01/LOC-FSA-8D18716.jpg, setting: ft/richmond-yard-1944,
+           side: {at: "@Josie", x0: 0.71, lines: [{s: "Josie Lucille Owens", px: 52, w: 700, disp: true, at: "@Josie"}, {s: "welder trainee · Richmond, Calif. · 1943", px: 38, at: "@trainee"}, {s: "Liberty ship SS George Washington Carver", px: 38, at: "@Carver"}]},
+           src: "Photo: E. F. Joseph, OWI, 1943 · Library of Congress"}}
+      - {tpl: plate, at: "@four#2-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-01-yards, places: [], p: {hero: r01_yards, frame0: 0, where: "Richmond, Calif.", kind: actual,
+           stickers: [{a: "st:t1", img: "stk:town", at: "@grew", px: 110}, {a: "st:t2", img: "stk:town", at: "@nearly", px: 125}, {a: "st:t3", img: "stk:town", at: "@1943#2", px: 140}],
+           tags: [{a: "st:t2", s: "747 ships", sub: "four Richmond yards, 1940s", kind: null, num: n_747, at: "@747", side: auto, c: "#3CC2B0"},
+                  {a: "st:t3", s: "~24,000 → ~100,000", sub: "Richmond residents, 1940 → 1943", kind: null, num: n_pop, at: "@nearly", side: auto, prefer: [up, left], c: "#F2C14E"}],
+           src: "Source: National Park Service · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@notice-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-01-dive, places: [], p: {hero: r01_dive, frame0: 260, where: "Richmond, Calif.", speed: 0.5,
+           cap: [{s: "Our read: the customers were governments, in wartime", at: "@notice"}],
+           src: "Sources: NPS, U.S. Maritime Commission · Terrain: USGS 3DEP"}}
+
+  # ===== 02 JONES =====
+  - id: "02"
+    part: CH2
+    vo: "@script"
+    shots:
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@contracts", src_ss: 10, dur: 2.5, gain_db: -25, fade_ms: 200}], at: 0, type: map, scene_id: relief/sfbay, camera_id: t2-02-cut, places: [], p: {hero: r02_cut, frame0: 0, where: "Richmond, Calif.", year: {s: "1944", at: 0.2},
+           stickers: [{a: "st:c1", img: "stk:crane", at: 0.0, px: 130}, {a: "st:c2", img: "stk:crane", at: 0.0, px: 130}, {a: "st:o1", img: "stk:order", at: 0.0, out: "@April", px: 100}],
+           src: "Source: U.S. Maritime Commission (1945) · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@America#1-0.3", type: map, scene_id: relief/pnw, camera_id: t2-02-alaska, places: [Alaska, Vancouver, Seattle], p: {hero: r02_alaska, frame0: 0, year: {s: "1920", at: "@1920"},
+           stickers: [{a: "st:rail", img: "stk:train", at: "@rail", px: 90}, {a: "st:fship", img: "stk:freighter", at: "@foreign", px: 100}],
+           places: [{a: seattle, s: "Seattle", at: 0.3, out: "@foreign", side: auto}, {a: vancouver, s: "Vancouver, B.C.", at: "@Vancouver", out: "@foreign", side: auto, prefer: [left, up]}, {a: alaska, s: "Alaska", at: "@foreign", side: auto}],
+           src: "Source: CRS (2019) · Terrain: SRTM (USGS)"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/camera-shutter.mp3, at: "@Senator#1-0.5", src_ss: 8, dur: 1.2, gain_db: -21, fade_ms: 60}], at: "@Senator#1-0.3", in: fade, type: photo, scene_id: loc_npcc_jones, camera_id: push, people: [Wesley Jones], p: {hero: p02_jones, frame0: 0, photo: LOC-NPCC-21943, clip: LOC-NPCC-21943, file: /var/tmp/k2-footage/k2c-t2-01/LOC-NPCC-21943.jpg, setting: ft/washington-1921,
+           side: {at: "@Wesley", x0: 0.68, lines: [{s: "Sen. Wesley L. Jones", px: 52, w: 700, disp: true, at: "@Wesley"}, {s: "Washington · chair, Commerce Committee", px: 38, at: "@chair"}, {s: "photo c. 1921", px: 38, at: "@chair+0.6"}, {s: "aim: Alaska cargo through Seattle", px: 38, at: "@requiring"}]},
+           src: "Photo: National Photo Co., Library of Congress"}}
+      - {tpl: plate, at: "@cargo#3-0.3", type: map, scene_id: relief/pnw, camera_id: t2-02-alaska2, places: [], p: {hero: r02_alaska2, frame0: 0,
+           places: [{a: seattle, s: "Seattle", at: "@cargo#3", side: auto}], stickers: [{a: "st:ship", img: "stk:freighter", at: "@carrying", px: 110, walk: true, yaw: 90}],
+           tags: [{a: "st:ship", s: "built · owned · crewed in the U.S.", sub: "Jones Act, Sec. 27 (1920)", at: "@American-built", side: auto, prefer: [up, left], c: "#3CC2B0"}],
+           cap: [{s: "Merchant Marine Act of 1920, Section 27: the \"Jones Act\"", at: "@Section", src: [CRS19]}], src: "Source: CRS (2019) · Terrain: SRTM (USGS)"}}
+      - {tpl: plate, at: "@Congress's#1-0.3", type: map, scene_id: relief/pnw, camera_id: t2-02-quotes, places: [], p: {hero: r02_quotes, frame0: 0,
+           places: [{a: seattle2, s: "Seattle", at: 0.2, side: auto}],
+           tags: [{a: seattle2, s: "\"a significant degree of protection\"", sub: "CRS (2019)", at: "@protection", out: "@Jobs", side: auto, prefer: [up, left], c: "#E6EBF0"},
+                  {a: seattle2, s: "\"American Jobs. American Security.\"", sub: "SUPPORTERS · American Maritime Partnership", at: "@Jobs", out: "@higher", side: auto, prefer: [left, down], c: "#3CC2B0"},
+                  {a: "st:jship", s: "\"higher prices for Americans\"", sub: "CRITICS · Sen. Lee, Rep. McClintock (bill, Jun 12, 2025)", at: "@higher", side: auto, prefer: [up, right], c: "#F08A4B"}],
+           stickers: [{a: "st:jship", img: "stk:freighter", at: 0.4, px: 90}],
+           cap: [{s: "Their bill to repeal it: June 12, 2025", at: "@introduced", src: [MCC]}, {s: "", at: "@higher"}],
+           src: "Sources: CRS, Am. Maritime Partnership, Rep. McClintock · SRTM"}}
+      - {tpl: plate, at: "@There-0.3", type: map, scene_id: relief/eastus, camera_id: t2-02-subsidy, places: [], p: {hero: r02_subsidy, frame0: 0, where: "Delaware River valley", kind: actual,
+           tags: [{a: "col:wp", s: "world price", sub: "the subsidy's target for U.S. owners", at: "@world", side: up, gap: 80, c: "#E6EBF0"},
+                  {a: "col:us1", s: "U.S. price", sub: "American-built ship", at: "@owners", side: auto, prefer: [right, down], c: "#7fd3c6"},
+                  {a: "col:s70", s: "15–25 ships/yr", sub: "U.S. yards, 1970s (~5% of world tonnage)", kind: null, num: n_5pct, at: "@fifteen", out: "@five#2", side: auto, prefer: [up], c: "#3CC2B0"},
+                  {a: "col:now5", s: "~5 ships/yr", sub: "U.S. yards, new ships (2023 report)", kind: null, num: n_5yr, at: "@five#2", side: auto, prefer: [left, down], c: "#3CC2B0"}],
+           stickers: [{a: "st:rep", img: "stk:document", at: "@congressional", px: 95}],
+           places: [{a: "st:rep", s: "2023 report", sub: "Congressional Research Service", kind: null, at: "@congressional+0.3", side: up, gap: 120, c: "#E6EBF0"}],
+           cap: [{s: "Construction Differential Subsidy (federal)", at: "@Construction"}],
+           src: "Source: CRS (2023) · Terrain: USGS 3DEP"}}
+
+  # ===== 03 HUYỀN THOẠI vs HỒ SƠ =====
+  - id: "03"
+    part: CH3
+    vo: "@script"
+    shots:
+      - {tpl: plate, at: 0, type: map, scene_id: relief/eastus, camera_id: t2-03-myth, places: [], p: {hero: r03_myth, frame0: 0, where: "Philadelphia area",
+           stickers: [{a: "st:w", img: {role: worker, hand: torch}, at: 0.3, px: 230}, {a: "st:c", img: "stk:coin", at: "@cost", px: 90}],
+           tags: [{a: "st:w", s: "COMMON CLAIM", sub: "\"American workers cost too much\"", at: "@workers", side: auto, prefer: [up, right], c: "#F08A4B"}],
+           src: "3D illustration"}}
+      - {tpl: plate, at: "@gap-0.3", type: map, scene_id: relief/eastus, camera_id: t2-03-ladder, places: [], p: {hero: r03_ladder, frame0: 0, where: "Delaware Bay", kind: actual,
+           tags: [{a: "col:f1", s: "foreign yard", sub: "= 1", at: 0.6, side: auto, prefer: [up], c: "#E6EBF0"},
+                  {a: "col:c22", s: "+20%", sub: "1922", kind: null, num: n_1922, at: "@twenty", side: auto, prefer: [up], c: "#3CC2B0"},
+                  {a: "col:c50", s: "2×", sub: "1950s", kind: null, num: n_1950, at: "@double", side: auto, prefer: [up], c: "#3CC2B0"},
+                  {a: "col:c90", s: "3×", sub: "1990s", kind: null, num: n_1990, at: "@three", side: auto, prefer: [up], c: "#3CC2B0"}],
+           cap: [{s: "RECORD: U.S.-built vs foreign ship prices (government report, CRS)", at: "@gap"}],
+           src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@2019-0.3", type: map, scene_id: relief/eastus, camera_id: t2-03-tanker, places: [], p: {hero: r03_tanker, frame0: 0, where: "Delaware River valley",
+           tags: [{a: "col:world", s: "world price", at: 0.6, side: auto, prefer: [up, left], c: "#E6EBF0"},
+                  {a: "col:us", s: "≈ 4×", sub: "U.S.-built tanker (one firm's estimate)", kind: estimate, num: n_tanker4, at: "@four", side: auto, prefer: [down, right], c: "#3CC2B0"}],
+           cap: [{s: "Building one tanker: U.S. price vs world price", at: 0.6}],
+           src: "Source: CRS (2019) · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@2023#1-0.6", type: map, scene_id: relief/eastus, camera_id: t2-03-scale, places: [], p: {hero: r03_scale, frame0: 0, where: "Philadelphia area", kind: actual,
+           stickers: [{a: "st:rep", img: "stk:document", at: 0.3, px: 110}, {a: "st:wl", img: {role: worker, hand: torch}, at: "@lists", px: 170}, {a: "st:tr", img: "stk:truck", at: "@truck", px: 90}, {a: "st:tn", img: "stk:train", at: "@train", px: 90}, {a: "st:pl", img: "stk:pipeline", at: "@pipeline", px: 80}],
+           tags: [{a: "st:wl", s: "wages (welders)", sub: "one factor listed", at: "@welders", side: auto, c: "#F08A4B"},
+                  {a: "st:tn", s: "99 ships", sub: "Jones Act oceangoing fleet, Mar. 2018", kind: null, num: n_99, at: "@ninety-nine", side: auto, prefer: [up], c: "#3CC2B0"}],
+           cap: [{s: "Our read: the protected home market is small", at: "@protected", src: [CRS19, CRS23]}],
+           src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@together-0.6", type: map, scene_id: relief/eastus, camera_id: t2-03-loop, places: [], p: {hero: r03_loop, frame0: 0, where: "Delaware River valley",
+           stickers: [{a: "st:lo", img: "stk:order", at: "@orders#1", px: 70}, {a: "st:lc", img: "stk:crane", at: "@scale#2", px: 120}],
+           tags: [{a: "col:loopc", s: "high prices", at: "@High#2", side: auto, prefer: [up], c: "#F08A4B"}, {a: "st:lo", s: "few orders", at: "@Few#1", side: auto, prefer: [down, right], c: "#E6EBF0"}, {a: "st:lc", s: "no scale", at: "@No#1", side: auto, prefer: [right, up], c: "#3CC2B0"}],
+           cap: [{s: "Our read: the loop is our interpretation", at: "@pieces"}],
+           score: {corner: {at: "@emphasis", title: "Factors the record lists:", sides: [{s: "Wages", c: "#F08A4B", icon: "role:worker"}, {s: "Scale", c: "#3CC2B0", icon: "stk:crane"}]}},
+           src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
+
+  # ===== 04 CHUNG / ULSAN =====
+  - id: "04"
+    part: CH4
+    vo: "@script"
+    shots:
+      - {tpl: plate, at: 0, type: map, scene_id: map/globe, camera_id: flyto, places: ["South Korea's"], p: {hero: g04_pacific, frame0: 0, kind: actual,
+           tags: [{a: "col:kr", s: "$107", sub: "South Korea, output per person, 1962 (current $)", big: true, kind: null, num: n_gdp62, at: "@hundred", side: auto, c: "#F2C14E"}],
+           src: "Source: World Bank · Map: Natural Earth · Imagery: NASA"}}
+      - {tpl: plate, at: "@Chung#1-0.3", type: map, scene_id: relief/koreaw, camera_id: t2-04-chung, places: [], people: [Chung Ju-yung], p: {hero: r04_chung, frame0: 0, where: "South Korea", year: {s: "early 1970s", at: "@1970s"},
+           stickers: [{a: "st:chung", img: {role: engineer, hand: blueprint, hat: hardhat}, at: 0.3, px: 165, walk: true}],
+           tags: [{a: "st:chung", s: "Chung Ju-yung", sub: "Hyundai (by the company's own account)", at: "@Ju-yung", side: auto, prefer: [up, right], c: "#F2C14E"}],
+           cap: [{s: "\"no experience, capital, or shipbuilding technology whatsoever\" — company history", at: "@experience"}],
+           src: "Source: HD Hyundai Heavy Industries history · Terrain: SRTM (USGS)"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/gantry-crane.mp3, at: "@broken-0.6", src_ss: 20, dur: 10, gain_db: -27, fade_ms: 900}, {file: assets/k2/sfx/cutting-steel.mp3, at: "@completed", src_ss: 18, dur: 6, gain_db: -28, fade_ms: 700}], at: "@By#2-0.3", type: map, scene_id: relief/korea, camera_id: t2-04-beach, places: [Ulsan], p: {hero: r04_beach, frame0: 0, year: {s: "1971–74", at: 0.3},
+           places: [{a: ulsan, s: "Ulsan", sub: "South Korea", at: "@shipyard#1", side: auto, prefer: [left, up]}],
+           stickers: [{a: "st:ord", img: "stk:order", at: "@ordered", out: "@history#2-0.5", px: 150}, {a: "st:cr1", img: "stk:crane", at: "@broken", px: 210}, {a: "st:cr2", img: "stk:crane", at: "@largest", px: 210},
+                      {a: "st:photo", img: "stk:document", at: "@empty", out: "@history#2-0.5", px: 120}, {a: "st:note", img: "stk:document", at: "@banknote", out: "@history#2-0.5", px: 120}, {a: "st:s1", img: "stk:freighter", at: "@Baron", px: 170}, {a: "st:s2", img: "stk:freighter", at: "@Baroness", px: 170}],
+           tags: [{a: "st:photo", s: "LORE", sub: "a photo of the empty beach (2010 column)", at: "@empty", out: "@banknote", side: auto, prefer: [up, left], c: "#F08A4B"}, {a: "st:note", s: "500-won note", sub: "turtle ship, a warship from Korea's history", at: "@turtle", out: "@lore", side: auto, prefer: [up, right], c: "#F08A4B"}],
+           cap: [{s: "LORE: one columnist's account, not a record", at: "@lore"}, {s: "By Hyundai's own history: ground broken 1972, yard done 1974", at: "@history#2-0.5", src: [HHI]}],
+           src: "Sources: HD Hyundai history, Korea Times (2010) · Terrain: SRTM"}}
+      - {tpl: plate, at: "@Meanwhile-0.3", type: map, scene_id: relief/koreaw, camera_id: t2-04-state, places: [], people: [Park Chung Hee, Munseob Lee], p: {hero: r04_state, frame0: 0, where: "South Korea", year: {s: "1973", at: "@January"},
+           stickers: [{a: "st:pol", img: "stk:document", at: "@government", px: 100}, {a: "st:hi1", img: "stk:factory", at: "@industry", px: 100}, {a: "st:hi2", img: "stk:crane", at: "@shipbuilding#3", px: 110}, {a: "st:hi3", img: "stk:freighter", at: "@exports", px: 100},
+                      {a: "st:tax", img: "stk:document", at: "@tax", px: 90}, {a: "st:loan", img: "stk:bank", at: "@loans", px: 100}, {a: "st:plant", img: "stk:factory", at: "@complexes", px: 110}],
+           tags: [{a: "st:pol", s: "Heavy-industry drive (Jan. 1973)", sub: "shipbuilding named · goal: exports", at: "@announced", out: "@tax", side: auto, prefer: [up, left], c: "#F2C14E"}],
+           cap: [{s: "Munseob Lee, Korea Economic Institute of America (2023)", at: "@Institute", src: [KEIA]}],
+           src: "Source: KEIA (2023) · Terrain: SRTM (USGS)"}}
+      - {tpl: plate, at: "@Our#1-0.3", type: map, scene_id: relief/koreaw, camera_id: t2-04-abroad, places: [], p: {hero: r04_abroad, frame0: 0, kind: actual,
+           places: [{a: krc, s: "South Korea", at: 0.2, out: "@abroad#2+2.5", side: auto, prefer: [up, left], c: "#3CC2B0"}, {a: ulsanx, s: "Ulsan", sub: "shipyard site", at: 0.3, out: "@thirty-six", side: auto, prefer: [left, up]},
+                    {a: dst3, s: "to buyers abroad", at: 0.3, out: "@thirty-six", side: up, gap: 46, c: "#F2C14E"}],
+           tags: [{a: "col:k62", s: "$107", sub: "output per person, 1962 (current $)", kind: null, num: n_gdp62, at: "@thirty-six", side: auto, prefer: [left, up], c: "#E6EBF0"},
+                  {a: "col:k25", s: "$36,227", sub: "output per person, 2025 (current $)", kind: null, num: n_gdp25, at: "@thirty-six", side: auto, prefer: [right, up], c: "#F2C14E"}],
+           cap: [{s: "Our read: the yard's customers were abroad", at: 0.3}],
+           src: "Sources: World Bank, company history · Terrain: SRTM (USGS)"}}
+
+  # ===== 05 HIỆN TẠI =====
+  - id: "05"
+    part: CH5
+    vo: "@script"
+    shots:
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: 0.1, src_ss: 30, dur: 2.2, gain_db: -26, fade_ms: 200}], at: 0, type: photo, scene_id: doc_fr_act_p2, camera_id: detail, places: [], p: {hero: d05_unions, frame0: 0, paper: "Federal Register, 90 FR 17114", date: "2025-04-23", luat: [FRACT],
+           cap: [{s: "March 2024: five U.S. labor unions petition the U.S. Trade Representative", at: "@March", src: [FRACT]}], src: "Source: Federal Register (USTR)"}}
+      - {tpl: plate, at: "@including-0.3", type: photo, scene_id: doc_fr_act_p2, camera_id: push, places: [], p: {hero: d05_unions2, frame0: 0, paper: "Federal Register, 90 FR 17114", date: "2025-04-23", luat: [FRACT], src: "Source: Federal Register (USTR)"}}
+      - {tpl: plate, at: "@Congress's-0.3", type: map, scene_id: map/globe, camera_id: orbit, places: [China], p: {hero: g05_china, frame0: 0, kind: actual,
+           places: [{a: cn2, s: "China", at: "@findings", side: auto}],
+           tags: [{a: cn2, s: "state targets · subsidies · state financing", sub: "USTR findings, as summarized by CRS (2026)", at: "@targets", out: "@ninety", side: auto, prefer: [up, right], c: "#8E7CC3"},
+                  {a: cn2, s: "90%", sub: "of ships Chinese shipbuilders made in 2025 were exported", kind: null, num: n_exp90, at: "@ninety", side: auto, c: "#8E7CC3"}],
+           src: "Source: CRS (2026) · Map: Natural Earth · Imagery: NASA"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/typewriter.mp3, at: "@January-0.5", src_ss: 40, dur: 2.0, gain_db: -26, fade_ms: 200}], at: "@January-0.3", type: photo, scene_id: doc_fr_det, camera_id: push, places: [], p: {hero: d05_det, frame0: 0, paper: "USTR, Federal Register 90 FR 8089", date: "2025-01-23", luat: [FRDET],
+           cap: [{s: "USTR finding, Jan. 2025: \"unreasonable\"", at: "@dominance", src: [FRDET]}], src: "Source: USTR"}}
+      - {tpl: plate, at: "@burdens-0.3", type: photo, scene_id: doc_fr_det, camera_id: detail, places: [], p: {hero: d05_det2, frame0: 0, paper: "USTR, Federal Register 90 FR 8089", date: "2025-01-23", luat: [FRDET], src: "Source: USTR"}}
+      - {tpl: plate, at: "@Then-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-fees, places: [], p: {hero: r05_fees, frame0: 0, kind: actual,
+           places: [{a: port, s: "Port of Philadelphia", at: 0.4, side: auto}],
+           stickers: [{a: "st:cnship", img: "stk:freighter", at: 0.4, px: 110}],
+           tags: [{a: "st:cnship", s: "$50 / net ton", sub: "Chinese-owned or -operated ships (from Oct 2025)", kind: null, num: n_fee50, at: "@owned", out: "@built#1", side: auto, prefer: [right, down], c: "#8E7CC3"},
+                  {a: port, s: "$18 / net ton", sub: "China-built ships, from Oct 2025 · ≤ 5×/yr", kind: null, num: n_fee18, at: "@built#1", side: auto, prefer: [left, down], c: "#8E7CC3"}],
+           asof: "Facts as of 15 Oct 2026", asofAt: "@fees", luat: [FRACT, FRSUSP],
+           src: "Source: Federal Register (USTR) · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@stated-0.3", type: photo, scene_id: doc_fr_act_p5, camera_id: detail, places: [], p: {hero: d05_aim, frame0: 0, paper: "Federal Register, 90 FR 17114", date: "2025-04-23", luat: [FRACT], src: "Source: Federal Register (USTR)"}}
+      - {tpl: plate, at: "@press-0.6", type: photo, scene_id: doc_fr_act_p5, camera_id: push, places: [], p: {hero: d05_aim2, frame0: 0, paper: "Federal Register, 90 FR 17114", date: "2025-04-23", luat: [FRACT], src: "Source: Federal Register (USTR)"}}
+      - {tpl: plate, at: "@Ministry-0.6", type: map, scene_id: map/globe, camera_id: pan, places: [], p: {hero: g05_mofcom, frame0: 0,
+           tags: [{a: bj, s: "\"fail to revitalize\" U.S. shipbuilding", sub: "China's Ministry of Commerce, Feb. 2025", at: "@fail", side: auto, c: "#8E7CC3"}],
+           cap: [{s: "Feb. 2025, before the fees: China's Ministry of Commerce objects", at: "@February", src: [MOFCOM]}],
+           src: "Sources: USTR · Xinhua via China Daily · Map: Natural Earth"}}
+      - {tpl: plate, at: "@Within-0.3", type: photo, scene_id: doc_fr_susp, camera_id: push, places: [], p: {hero: d05_susp, frame0: 0, paper: "Federal Register, 90 FR 50947", date: "2025-11-13", luat: [FRSUSP],
+           cap: [{s: "After a Trump–Xi trade deal (Nov. 2025)", at: "@deal", src: [FRSUSP]}], src: "Source: Federal Register (USTR)"}}
+      - {tpl: plate, at: "@says", type: photo, scene_id: doc_fr_susp, camera_id: detail, places: [], p: {hero: d05_susp2, frame0: 0, paper: "Federal Register, 90 FR 50947", date: "2025-11-13", luat: [FRSUSP],
+           asof: "Facts as of 15 Oct 2026", asofAt: "@suspended", src: "Source: Federal Register (USTR)"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/foghorn.mp3, at: "@September-0.6", src_ss: 3, dur: 5, gain_db: -26, fade_ms: 600}], at: "@September-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-cost, places: [Philadelphia], p: {hero: r05_cost, frame0: 0, where: "Delaware River valley", kind: actual,
+           stickers: [{a: "st:q1", img: "stk:freighter", at: "@letter", px: 100}, {a: "st:q2", img: "stk:freighter", at: "@extended", px: 100}],
+           tags: [{a: "col:cost", s: "200+ groups", sub: "signed the joint letter, Sept. 2026 (our count)", kind: null, num: n_200, at: "@hundred", side: auto, prefer: [up, left], c: "#E6EBF0"}],
+           cap: [{s: "Trade groups' letter to USTR: \"would add another cost layer to an already strained transportation system\"", at: "@Resuming", src: [NFTC]}, {s: "As of 15 Oct 2026: no extension published", at: "@As#1", src: [FRSUSP, NFTC]}],
+           src: "Source: trade groups' letter to USTR, Sept. 2026 · Terrain: USGS 3DEP"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/container-terminal.mp3, at: "@Philadelphia#1-0.6", src_ss: 12, dur: 14, gain_db: -29, fade_ms: 1200}], at: "@Philadelphia#1-0.9", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [Philadelphia], p: {hero: r05_philly, frame0: 0, kind: actual,
+           places: [{a: phy, s: "Philly Shipyard", at: "@shipyard", side: auto, prefer: [left, up]}],
+           stickers: [{a: "st:ord2", img: "stk:order", at: "@tapped", px: 150}, {a: "st:cr3", img: "stk:crane", at: "@missile-tracking", px: 190}],
+           tags: [{a: phy, s: "$100M", sub: "bought by Hanwha, Dec. 2024 (reported)", kind: null, num: n_hanwha, at: "@hundred#2", out: "@August", side: auto, prefer: [up], c: "#F2C14E"},
+                  {a: phy, s: "$5B", sub: "investment announced, Aug. 2025", kind: null, num: n_5b, at: "@investment#1", out: "@twenty", side: auto, prefer: [left, up], c: "#F2C14E"}],
+           cap: [{s: "Aug. 2025: Hanwha announces an investment", at: "@August", src: [JAH]}],
+           src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
+      # Q23 (SS4, 17/10): tách lớp chữ — số ACTUAL / mục tiêu PROJECTION / tin Military Times thành 3 shot nối khung cùng cảnh 3D (frame0)
+      - {tpl: plate, at: "@twenty-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 417, kind: projection,
+           places: [{a: phy, s: "Philly Shipyard", at: -1, side: auto, prefer: [left, up]}],
+           tags: [{a: phy, s: "1.5 → 20 ships/yr", sub: "announced goal, no date given", kind: null, num: n_goal20, at: "@twenty", side: auto, prefer: [right, down], c: "#F2C14E"}],
+           cap: [{s: "Aug. 2025: Hanwha announces an investment", at: -1, src: [JAH]}],
+           src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
+      - {tpl: plate, at: "@Military-0.3", type: map, scene_id: relief/eastus, camera_id: t2-05-philly, places: [], p: {hero: r05_philly, frame0: 642, kind: projection,
+           places: [{a: phy, s: "Philly Shipyard", at: -1, side: auto, prefer: [left, up]}],
+           tags: [{a: "st:ord2", s: "June 2030", sub: "first missile-tracking ship, slated (Military Times)", kind: null, num: n_2030, at: "@2030", side: auto, prefer: [up, right], c: "#3CC2B0"}],
+           cap: [{s: "Military Times, July 2026", at: "@Military", src: [MT]}, {s: "Our read: an order again — this time after the investment", at: "@after", src: [JAH, MT]}],
+           src: "Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP"}}
+
+  # ===== 06 KẾT =====
+  - id: "06"
+    part: END
+    vo: "@script"
+    shots:
+      - {tpl: plate, at: 0, type: map, scene_id: relief/eastus, camera_id: t2-06-watch, places: [Philadelphia], p: {hero: r06_watch, frame0: 0, where: "Delaware River valley",
+           stickers: [{a: "st:wd", img: "stk:document", at: "@November", px: 95}, {a: "st:wc", img: "stk:crane", at: "@Philadelphia", px: 120}, {a: "st:wf", img: "stk:freighter", at: "@June", px: 110}],
+           cap: [{s: "1 · Nov 9, 2026: fee pause extended or not", at: "@November", src: [FRSUSP]}, {s: "2 · Philadelphia: new capacity?", at: "@Philadelphia", src: [MT]}, {s: "3 · June 2030: first new ship slated", at: "@June", src: [MT]}],
+           asof: "Facts as of 15 Oct 2026", asofAt: "@November", luat: [FRSUSP], src: "Sources: USTR, Military Times · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@scoreboard-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-06-score, places: [], p: {hero: r06_score, frame0: 0, where: "San Francisco Bay, Calif.",
+           score: {board: {at: "@scoreboard", title: "U.S. shipbuilding", align: right, w: 768, sides: [{s: "1943 (peak)", c: "#F2C14E", icon: "stk:freighter"}, {s: "CRS 2023", c: "#3CC2B0", icon: "stk:crane"}],
+                   rows: [{k: "New ships", icon: "stk:freighter", v: ["3 / day", "~5 / year"], at: "@peak"}]}},
+           src: "Sources: National Park Service, CRS (2023) · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@Our-0.3", type: map, scene_id: relief/sfbay, camera_id: t2-06-score2, places: [], p: {hero: r06_score2, frame0: 0, where: "San Francisco Bay, Calif.",
+           stickers: [{a: "st:kc", img: "stk:coin", at: "@high", px: 90}, {a: "st:ko", img: "stk:order", at: "@purchases", px: 95}, {a: "st:kf", img: "stk:freighter", at: "@exports", px: 105}, {a: "st:kk", img: "stk:crane", at: "@scale", px: 120}],
+           cap: [{s: "Our read: America didn't forget how to build ships", at: "@forget"}, {s: "No source measures how much each factor counts", at: "@measures"}],
+           src: "Sources: CRS, American Maritime Partnership, Rep. McClintock"}}
+      - {tpl: plate, sfx: [{file: assets/k2/sfx/ship-siren.mp3, at: "@Back-0.5", src_ss: 0, dur: 5, gain_db: -27, fade_ms: 800}], at: "@Back-0.3", in: fade, type: map, scene_id: relief/sfbay, camera_id: t2-06-home, places: [Richmond], p: {hero: r06_home, frame0: 0,
+           places: [{a: y3, s: "Richmond Shipyard No. 3 — now a national park", at: "@Three#2", side: auto}],
+           stickers: [{a: "st:nx", img: "stk:freighter", at: "@shipping", px: 110}],
+           src: "Sources: NPS, CRS (2026) · Imagery: USDA NAIP · Terrain: USGS 3DEP"}}
+
+# Gói phát hành: đúng 1 Short (CHUAN-KENH-K2 §1). Lời = nguyên văn câu của lời KHOÁ (đoạn 00 + 06), make_spec ghép theo vo_from.
+shorts:
+  - id: S1
+    hook: "Three ships a day. Now 0.04%. What happened?"
+    vo_from: [["00", "In 1943", "In a 2026"], ["06", "Our read of the record", "Since the 1980s"]]
+    shots:
+      - {tpl: plate, at: 0, type: map, scene_id: relief/sfbay, camera_id: s-launch, places: [Richmond], p: {hero: s_launch, frame0: 0, kind: actual, year: {s: "1943", at: 0.2},
+           stickers: [{a: "st:y1", img: "stk:freighter", at: "@launched", px: 120}, {a: "st:y2", img: "stk:freighter", at: "@three", px: 120}, {a: "st:y3", img: "stk:freighter", at: "@cargo", px: 120}],
+           tags: [{a: "st:y2", s: "3 a day", sub: "Liberty ships launched, 1943 peak", big: true, kind: null, num: n_peak3, at: "@day", side: auto, prefer: [up], c: "#3CC2B0"}],
+           src: "Source: National Park Service · Terrain: USGS 3DEP"}}
+      - {tpl: plate, at: "@In#2-0.3", in: fade, type: map, scene_id: map/globe, camera_id: s-share, places: [], p: {hero: s_share, frame0: 0, kind: actual,
+           tags: [{a: "col:us", s: "0.04%", sub: "U.S. share of world shipbuilding tonnage (2026 report)", big: true, kind: null, num: n_us004, at: "@percent", side: auto, prefer: [up], c: "#3CC2B0"}],
+           src: "Source: CRS (2026)"}}
+      - {tpl: plate, at: "@Our-0.3", in: fade, type: map, scene_id: relief/eastus, camera_id: s-loop, places: [], p: {hero: s_loop, frame0: 0,
+           cap: [{s: "Our read: few orders since the 1980s", at: "@1980s", src: [CRS23]}, {s: "Record: high prices → fewer purchases · no exports → no scale", at: "@ties"}],
+           src: "Sources: CRS (2023, 2019) · Terrain: USGS 3DEP"}}
+

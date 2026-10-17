@@ -1,0 +1,25 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The 13% label is semi-transparent and sits over the green cube, so its subtext 'of total construction cost (range)' is washed out. The 7% label card covers the top of the orange cube. 'ACTUAL' is repeated in every label and again bottom-right, which is noise. The blocks are nearly the same size (7%, 6%, 13%), so height doesn't show the quantities, and the 13% block looks no bigger than the 6% one. The 6% label has no description, so the viewer can't tell what it measures. The scene is a dark empty void with little context. The caption text is large and legible."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The USGS terrain map of the Delaware River valley looks rich and grounded, and the opaque dark label cards are crisp and readable on a phone. The document icon with a 'CRS 2023 report' card is a clear way to show a source. The coin discs for world price and U.S. price are tiny, and the viewer can't see how they differ. The green bar and cube are unlabeled except by the '~5 ships/yr' card, which sits off to one side. The leader lines are faint. The 'ACTUAL' badge is unexplained but only appears once. Layout is balanced with no overlaps."
+ },
+ "better": "Y",
+ "why": "Y has a grounded 3D map, opaque readable labels and no overlaps, while X has a washed-out overlapping 13% label, an unlabeled 6% block and a bland void background.",
+ "top_fix_for_weaker": "Make all three labels opaque and spread them so none touches another cube, give the 6% block a description, scale the block heights to the values (7, 6, 13), and drop the repeated 'ACTUAL' tags."
+}

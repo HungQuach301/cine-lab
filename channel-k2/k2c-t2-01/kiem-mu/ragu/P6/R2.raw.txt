@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "The framed archival newsreel sits on a blurred sepia backdrop, with a year badge and a caption pill. The look is cohesive and documentary-style, and the caption states place, year and source. The photo is small in the frame, and the right side is empty and dark, so the layout is slightly left-heavy. The source line is smaller and lower in contrast, but still readable."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 6, "flags": ["illegible_text"], "note": "This is full-bleed aerial stock footage of Chicago with good light and depth. The caption is white text placed directly over busy rooftops, with only a weak gradient behind it. The 'map' line loses contrast over the light roofs. The small source line is low-contrast and hard to read on a phone. The caption is a vague rhetorical question, and nothing in the frame says what 'that way' means. The image looks like generic b-roll."},
+ "better": "X",
+ "why": "X's caption and badge are on solid backing and give clear context (year, place, source), while Y's captions are on busy imagery and refer to something the frame never shows.",
+ "top_fix_for_weaker": "Put the caption and source on a solid or heavily darkened pill or bottom gradient, as X does. Increase the source text size and contrast. Add a location or year tag and a highlight (such as an outlined overlay on the housing blocks) so the footage ties to the 'map' claim."}
+```

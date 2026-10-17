@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "cluttered"
+  ],
+  "note": "The three cards crowd the three small bars. The 13% card is semi-transparent and sits behind the green cube, so 'of total construction cost (range)' is low-contrast and muddy. The 6% card has no description, so the viewer can't tell what 6% measures. The cubes are nearly the same height even though the values are 7, 6 and 13, so the bars are dishonest or meaningless as a scale. 'ACTUAL' appears on every label and again as a corner badge. It adds noise and its meaning is unclear. The 7% label covers part of the orange cube. The dark scene is flat and the bottom caption is long. The cubes look decent but are tiny, with a lot of empty dark space above them."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [],
+  "note": "A clean terrain map with a loop and icons. The labels are short, high-contrast and large enough for a phone: 'high prices', 'few orders', 'no scale'. The coin stack, document and gantry-crane icons are readable and sit clearly in the scene. Weaknesses: the place is never named, so there's no sense of where this is. The 'Wages' and 'Scale' chips at the top are small and their link to the objects is loose. 'Wages' has no matching object. The loop's meaning is vague, though the caption admits it is an interpretation. Four coins for 'high prices' show no actual quantity. The bottom caption is faint but readable."
+ },
+ "better": "Y",
+ "why": "Y has short, legible labels over a clean map with no collisions. X has overlapping, partly transparent cards and bars that don't match their numbers.",
+ "top_fix_for_weaker": "Make the bars proportional (13 about twice 7) and larger, with the labels spaced out, fully opaque and clear of the cubes. Give the 6% a description, and drop the repeated 'ACTUAL' tags or explain what they mean."
+}

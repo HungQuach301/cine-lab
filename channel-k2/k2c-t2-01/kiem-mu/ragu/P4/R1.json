@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The tilted archival print sits on a dark warm background with a clean side caption: name, role, place and year. The framing is balanced and the subject is clear. The credit bar overlaps the bottom of the print, and the right third is empty dark space. The caption text is large enough for a phone."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "The photo is a good portrait. The gradient caption band sits over the bottom of the print and cuts the white border and the man's lower legs. The main caption is readable. The small grey source line is weak on a phone. The headline text runs across the white photo edge, which reduces contrast there. The left side is empty."
+ },
+ "better": "X",
+ "why": "X puts its caption in a clean side panel that doesn't cover the photo, with a clear name/role/place/year hierarchy, while Y's caption gradient overlaps the print and its small source line is hard to read.",
+ "top_fix_for_weaker": "Move the caption off the photo into the empty left or right area, or shift the print up so the gradient band doesn't cover it. Enlarge the source line to about 60% of the headline size and brighten it for contrast."
+}

@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "cluttered"
+  ],
+  "note": "The dark stage with 3D cubes looks decent. The 13% label is faded and overlaps the green cube, so it is nearly unreadable. The 'ACTUAL' tags are repeated four times and read as leftover placeholder text. The cubes are nearly equal in size, so 7%, 6% and 13% are not shown proportionally (13% is no bigger than 6%). The labels sit on top of the cubes. The frame has no place or subject context. Two lines of caption plus a source line crowd the lower third."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "A real terrain map with a river, a location chip ('Delaware River valley'), and simple 3D props: coins, a gantry crane and a document. Labels are high-contrast and large enough for a phone. The yellow loop is clearly marked as the creator's interpretation. The props are small and the meaning of the loop is vague, but it is clean and uncluttered. The bottom caption area is a bit empty."
+ },
+ "better": "Y",
+ "why": "Y has a clear place, legible labels and a clean layout, while X has an overlapping, washed-out 13% label, stray 'ACTUAL' tags and cubes that don't show the quantities.",
+ "top_fix_for_weaker": "Scale the cube heights to 7/6/13, with the 13% cube clearly the tallest. Space the three labels so none overlaps a cube or another label, and render the 13% label in full-contrast white like the others. Remove the repeated 'ACTUAL' tags, and add a headline such as 'Cost of a second stairway' so the subject is clear."
+}

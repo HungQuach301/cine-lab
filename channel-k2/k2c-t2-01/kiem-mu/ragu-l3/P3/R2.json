@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 5,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "cluttered",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The left label card covers the orange block. The 13% card is ghosted and sits on top of the green block. The word 'ACTUAL' is repeated four times with no clear meaning. The three blocks have no readable scale and are nearly the same size, so 7%, 6% and 13% don't compare visually. The 13% block is not taller than the others. The dark void and floor grid add nothing. The materials are clean but generic."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [],
+  "note": "The USGS terrain, river and outlined gold coins make a clean, coherent scene. The labels are crisp and high-contrast. The 1 coin versus 4 coins ratio reads quickly. The coins are small and flat, and the white outlines look a bit sticker-like. The terrain has no link to a tanker or shipbuilding. The lower third is empty. Coins for a ship price are only a loose metaphor. The 4\u00d7 label is attached to the last coin only."
+ },
+ "better": "Y",
+ "why": "Y has a clear one-versus-four comparison with legible, non-overlapping labels on a grounded scene, while X has overlapping cards, a confusing repeated 'ACTUAL' tag and blocks that don't show the numbers.",
+ "top_fix_for_weaker": "Rebuild X as a proper bar chart with heights proportional to 7, 6 and 13, and place the three labels in separate non-overlapping positions above the bars. Remove the repeated ACTUAL badges, or define them once in a legend. Give the scene a real backdrop, such as a building cutaway or street, instead of an empty grid."
+}

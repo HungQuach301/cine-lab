@@ -3,6 +3,7 @@
 Luật: trung bình ≤ 3,5 s có một biến cố hình mới (máy đổi hướng/tầm, vùng/tuyến/sticker/số liệu xuất hiện, chuyển bảng màu, cắt cảnh);
 cắt cứng chỉ khi đổi cảnh; không giữ khung tĩnh > 6 s.
 Khai biến cố ở đặc tả: segments[].beats: [{t (giây trong đoạn), k: cut|cam|region|route|ring|sticker|number|label|text|palette|score, s}].
+(T2 G1b: thêm mốc opt.hl (tô dòng/tô quốc gia), opt.arcs.draw, opt.cols.grow (địa cầu), p.title; mốc opt của cảnh dùng lại quy theo frame0/speed của shot, ngoài khung shot không tính.)
   rhythm.py <spec.yaml> [--mp4 <shot.mp4>] [--json out.json]
 Đo:
   (1) mỗi biến cố khai phải KHỚP một mốc thật trong đặc tả (±0,3 s): opt (sepia/natural, regions.at, routes.draw, rings.t, cols.t, cam[].t, walkers.t, props.t)
@@ -28,9 +29,15 @@ def spec_times(E, sg):
     """mọi mốc thời gian (giây trong đoạn) mà đặc tả thật sự làm xuất hiện/đổi cái gì đó"""
     T = {0.0}
     HZ = E.get('heroes') or {}
-    for sh in sg.get('shots', []):
+    SH = sg.get('shots', [])
+    for j, sh in enumerate(SH):
         off = num(sh.get('at', 0)) or 0.0; T.add(off); p = sh.get('p') or {}; h = HZ.get(p.get('hero')) or {}; o = h.get('opt') or {}
-        add = lambda v, base=off: T.add(base + v) if num(v) is not None and v >= 0 else None
+        end = num(SH[j + 1].get('at')) if j + 1 < len(SH) else num(sg.get('dur'))
+        f0 = (num(p['frame0'] if 'frame0' in p else p.get('off', 0)) or 0.0) / 24; sp = num(p.get('speed', 1)) or 1.0   # G2 (K 1.11 O5): ll.load đổi frame0 → off; đặc tả đã giải chỉ còn off
+        def add(v, base=off, f0=f0, sp=sp, end=end):   # T2 G1b: mốc opt là giờ CẢNH; cảnh dùng lại (frame0, speed) → giờ đoạn = at + (τ − frame0/24)/speed, chỉ tính trong khung shot
+            if num(v) is None or v < f0: return
+            t = base + (v - f0) / sp
+            if end is None or t < end: T.add(t)
         for k in ('sepia', 'natural'):
             if isinstance(o.get(k), list): add(o[k][0])
         for r in o.get('regions', []): add(r['at'][0] if isinstance(r.get('at'), list) else r.get('at'))
@@ -41,12 +48,18 @@ def spec_times(E, sg):
         for w in o.get('walkers', []): add((w.get('t') or [None])[0])
         for q in o.get('props', []): add(q.get('t'))
         if isinstance(o.get('close'), dict): add((o['close'].get('at') or [None])[0])   # V4: tầng gần của zoom nhiều tầng hoà vào
+        for x in o.get('hl') if isinstance(o.get('hl'), list) else []:   # (K 1.11 O5: opt.hl dạng số của T1 → bỏ qua) T2 G1b: dải tô dòng trang tài liệu (photo/doc: at [t0,t1]) · vùng tô quốc gia trên địa cầu (map/globe: at)
+            if isinstance(x, dict): add(x['at'][0] if isinstance(x.get('at'), list) else x.get('at'))
+        for x in o.get('arcs', []) or []: add((x.get('draw') or [None])[0] if isinstance(x.get('draw'), list) else x.get('draw'))   # cung đại vòng vẽ dần (map/globe)
+        for x in o.get('cols', []) or []:
+            if isinstance(x.get('grow'), list): add(x['grow'][0])   # cột trên địa cầu mọc (map/globe)
         add = lambda v, base=0.0: T.add(base + v) if num(v) is not None and v >= 0 else None   # V4: mốc lớp 2D (p.*) là giây TRONG ĐOẠN (k2.js vis(t, at), t = giờ đoạn) — không cộng mốc shot
         for k in ('places', 'tags', 'stickers', 'labels'):
             for x in p.get(k, []) or []:
                 if isinstance(x, dict): add(x.get('at'))
         for c in p.get('cap', []) or []: add(c.get('at'))
         if isinstance(p.get('year'), dict): add(p['year'].get('at'))
+        if isinstance(p.get('title'), dict): add(p['title'].get('at'))   # T2 G1b: tựa đề hiện
         sd = p.get('side') or {}
         add(sd.get('at'))
         for l in sd.get('lines', []): add(l.get('at'))

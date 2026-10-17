@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good 3D terrain map of the San Francisco Bay with clean icons, but the four icons (coin, document, ship, crane) have no labels. The caption 'no source measures how much each factor counts' doesn't say which factor each icon stands for. The caption and source line are legible, but the gradient behind them is dark and low in contrast at the bottom. No place labels, so you can't tell it is San Francisco."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A plain dark recap card over a blurred, almost black background. The hierarchy is clear (orange kicker, white title, three checkbox items). The grey subtext is small and low in contrast on a phone. The bottom third of the card is empty. It looks like a PowerPoint slide with no visual interest."
+ },
+ "better": "X",
+ "why": "X has real depth and visual richness and looks like a produced explainer, while Y is a flat dark text card, though Y is clearer in meaning.",
+ "top_fix_for_weaker": "Put a real visual behind or beside the list, such as a sharp building or stair or bank illustration for each lock. Enlarge the grey subtext by about 30% and brighten it. Cut the empty bottom third of the card or fill it with the key numbers (4 stories, 5 homes) as large callouts."
+}

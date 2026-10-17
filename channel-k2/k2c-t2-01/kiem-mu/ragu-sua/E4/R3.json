@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Dark card with a checklist over a blurred background. The text is clean, but the sub-lines are small and low-contrast grey, so they will be hard to read on a phone. The bottom third of the card is empty and the blurred background shows nothing. The check-box icons are all ticked, which implies the items are done rather than recapped. 'Locks', 'bank line' and 'stairwell' are only vaguely explained."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "A stylised 3D terrain map of San Francisco Bay with a location tag and small icons (coin, document, ship, crane). It looks polished and gives a clear sense of place. The icons are unlabeled and the caption 'No source measures how much each factor counts' does not tie to them, so the viewer has to guess what the icons stand for. The caption and sources line are legible but small and sit on a darkened gradient. The icons are small for a phone screen."
+ },
+ "better": "Y",
+ "why": "Y has real visual craft and a clear sense of place, while X is a flat, mostly empty text slide with small, low-contrast sub-text.",
+ "top_fix_for_weaker": "Enlarge the sub-lines to at least the heading size and raise their contrast to near-white. Fill or shrink the empty bottom of the card. Add a simple icon or diagram per lock (map, stairs, bank) in place of the identical ticks. Replace the blurred background with a recognisable building image."
+}

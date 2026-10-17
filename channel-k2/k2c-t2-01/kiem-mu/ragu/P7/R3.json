@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 9,
+  "flags": [],
+  "note": "The matted print is staged on a dark textured background with a vignette, so it reads like a physical archival object. The name, role and date sit in a clean hierarchy beside it. The source credit bar slightly overlaps the mat's bottom-left corner, and the credit text is smallish for a phone. The photo itself is soft and low-contrast, and the lower third of the frame is dead space."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The full-bleed street photo has good atmosphere, but the text is weak. The caption is white on a hazy, low-contrast base, and the long source line is small and grey and will be hard to read on a phone. The caption ('judges deferred to local lawmakers') has no visible link to a leafless tree-lined street and a mansion. The viewer can't tell the place, date or subject, and the image seems to be filler."
+ },
+ "better": "X",
+ "why": "X tells the viewer who and when at a glance with a clear label and good type hierarchy, while Y's caption doesn't match its image and its small grey source line is hard to read.",
+ "top_fix_for_weaker": "Add a place and date label to Y's image (e.g. 'Detroit street, c. 1900s') and tie it to the claim. Put a stronger dark gradient behind the caption, enlarge the caption, and shorten the source line to 'Detroit Publishing Co., Library of Congress' in brighter, larger text."
+}

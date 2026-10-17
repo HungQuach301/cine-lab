@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 9, "flags": [], "note": "Archival newsreel frame in a cream matte over a blurred sepia backdrop. The year badge and caption state the place, event and date at once. The footage is small in the frame, with dead space on the sides and a large gap above the source line, but the look is clean and documentary."},
+ "Y": {"craft": 7, "readability": 5, "clarity": 6, "flags": ["illegible_text"], "note": "Good-looking full-bleed aerial of Chicago-area homes and the lake. The white caption sits over busy rooftops with only a weak dark gradient behind it, so contrast is uneven. The small source line is hard to read on a phone. The rhetorical caption does not say what the image shows, and the 'illustrative' source credit confirms it is stock footage."},
+ "better": "X",
+ "why": "X tells the viewer exactly what, where and when, and its text is clean and high-contrast, while Y has the nicer footage but a caption that is weaker in contrast and less informative.",
+ "top_fix_for_weaker": "Put a solid or much darker gradient scrim behind the caption and source line, and make the caption concrete (for example 'Chicago two-flat neighborhood today') with larger, bolder text."}
+```

@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 7, "flags": [], "note": "Globe with satellite imagery, atmospheric rim glow and a highlighted Texas looks polished and reads at once. The Texas callout is wide and its text is small for a phone. The callout box covers part of the Gulf and Florida. The route or movement the brief asked for is missing: this is a single highlighted region, so the frame is static."},
+ "Y": {"craft": 7, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "Stylized terrain with relief shading and a dark gradient at the bottom looks good. The callout covers the coastline and the Ulsan marker. The orange/white route lines run off-frame without arrowheads or labels, so you can't tell what they mean. The yellow box inland is unexplained. The 'yard' caption isn't tied to anything visible. The callout text is small."},
+ "better": "X",
+ "why": "X puts one clear place, one highlight and one message on screen. Y's unlabeled route lines, covered coastline and unexplained marker make the viewer work out what they are looking at.",
+ "top_fix_for_weaker": "Zoom out so Ulsan and the destination ports are both visible. Label the route endpoints and add arrowheads. Move the callout off the coast. Make the yard marker a clear pin with a label. Increase the callout font size."}
+```

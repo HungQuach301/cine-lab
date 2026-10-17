@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Good 3D terrain map of the SF Bay with clean icons (coin, document, ship, crane) and a legible caption. The icons have no labels, so you can't tell which factor each one stands for. The caption says 'each factor' and the viewer can't map it to anything. The source line is small and low in the frame, and it sits in the phone UI overlay zone."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 6, "flags": ["flat_slide_look", "empty_frame"], "note": "A plain dark text card over a heavily blurred background, so it looks like a PowerPoint recap. The title and bold lead-ins are readable. The grey sub-lines are small and low-contrast, and the longest one will be hard to read on a phone. The bottom third of the card is empty and there are no visuals. The meaning ('locks', 'bank line') is abstract and needs the narration to make sense."},
+ "better": "X",
+ "why": "X has real visual craft and a sense of place, while Y is a flat text slide with small grey text and dead space.",
+ "top_fix_for_weaker": "Replace the blurred-card slide with a visual recap: one icon or illustration per lock (map, stairwell, bank), with the headline at 2x size and the sub-lines cut to about 6 words in brighter white. Fill or remove the empty lower half of the card."}
+```

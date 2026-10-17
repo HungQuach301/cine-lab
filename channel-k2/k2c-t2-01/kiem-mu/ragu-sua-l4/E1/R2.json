@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The three cubes are small and sit in the middle of a dark, empty floor. The 7% and 13% callouts overlap the cubes and each other. The 13% card is semi-transparent, so its text is washed out and low-contrast against the cube behind it. The cubes don't show their values: the 7% cube is only slightly taller than the 6% cube, and the 13% cube is no bigger than the 6% one. 'ACTUAL' is repeated four times as a badge and adds noise. The caption block takes up a lot of the frame, so the data reads like a slide."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "A real terrain map with a river gives a clear sense of place, labeled 'Delaware River valley'. The coin stack, document and gantry icons are readable. The dark label chips have strong contrast and the layout is clean. The yellow loop ties the three factors together. The icons are small and the loop is vague. There is a lot of empty green terrain, and the bottom caption area is a plain dark gradient. The 'Wages' and 'Scale' chips at top left are only loosely linked to the icons on the map."
+ },
+ "better": "Y",
+ "why": "Y has a clear spatial anchor, high-contrast labels and no overlaps, while X has colliding, semi-transparent callouts and cubes that don't show their values.",
+ "top_fix_for_weaker": "Space the three callouts apart so none overlaps a cube or another card. Make the 13% card fully opaque. Scale the cubes to their values (7:6:13) and enlarge them to fill the frame. Remove the repeated ACTUAL badges and shrink the caption block."
+}

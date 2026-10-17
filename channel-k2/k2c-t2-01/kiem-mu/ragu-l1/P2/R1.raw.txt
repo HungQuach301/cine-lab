@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 8,
+    "readability": 8,
+    "clarity": 8,
+    "flags": [],
+    "note": "Globe view with satellite imagery and a highlighted Texas. The callout is crisp, high contrast and clearly tied to Texas. The caption and 'as of' badge are legible. The callout text is smallish on a phone but still readable. The tiny source line is marginal. The globe is rather generic, and Texas is only a small part of the frame."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 6,
+    "clarity": 4,
+    "flags": ["confusing", "empty_frame"],
+    "note": "Nice stylized terrain with clean relief, but the story is unclear. '$107 1962' has no unit or label, so it's unclear whether it's GDP per capita or something else. The tiny yard polygon is unexplained. The three yellow dashed lines fan out from the coast into empty ocean with no destinations or labels. The caption mentions 'the yard's customers' but nothing on screen identifies the yard or any country. The right half of the frame is blank sea. The place is never named."
+  },
+  "better": "X",
+  "why": "X names the place, states the quantity and shows the context, while Y has pretty terrain but unlabeled numbers, unlabeled routes and no named location.",
+  "top_fix_for_weaker": "Name the place and label the route endpoints (e.g. 'Ulsan shipyard → Japan/US/Europe'). Add the unit to the figure ('GDP per capita $107, 1962'). Zoom out or reframe so the destinations and the route fill the empty ocean, and enlarge the callout text for phone screens."
+}
+```

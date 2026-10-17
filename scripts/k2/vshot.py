@@ -41,16 +41,22 @@ def main():
         for i, sh in enumerate(sg['shots']):
             t0, t1 = ats[i], (ats[i + 1] if i + 1 < len(ats) else dur); k = sh['p']['hero']; h = E['heroes'][k]
             hdir = os.path.join(out, f'hero{gi}-{"d" if draft else "f"}-spp{spp}'); gi += 1; hd = round(t1 - t0 + 0.5, 2)
+            # T2 G1b: shot bắt đầu giữa cảnh (p.frame0, speed) — trước đây vshot bỏ qua frame0 (lớp 2D đọc p.off) nên cảnh 3D luôn chạy từ giây 0, lệch với chữ/mốc.
+            # Nay: dựng đúng các khung frame0 … frame0 + (t1 − t0)·speed·24 (+12), lớp 2D đọc từ khung frame0 (p.off).
+            f0 = int(sh['p'].get('frame0', sh['p'].get('off', 0)) or 0); nneed = int(-(-(t1 - t0) * float(sh['p'].get('speed', 1)) * FPS // 1)) + 12
+            if f0 or float(sh['p'].get('speed', 1)) != 1: hd = round((f0 + nneed) / FPS, 3)
             cmd = ['node', os.path.join(REPO, 'scripts/k2/hero.js'), '--hero', h['hero'], '--variant', h.get('variant', 'a'), '--dur', str(hd),
                    '--w', str(W), '--h', str(H), '--spp', str(spp), '--opt', json.dumps(h.get('opt', {})), '--out', hdir]
             if meas: cmd += ['--only', ','.join(str(f) for f in range(0, int(hd * FPS), max(1, int(hd * FPS) // meas)))]
-            st = prep.hashlib.sha1((prep.code_bytes() + json.dumps([h['hero'], h.get('opt', {}), hd, W, H, spp], sort_keys=True).encode())).hexdigest()[:12]
+            elif f0: cmd += ['--only', ','.join(str(f) for f in range(f0, f0 + nneed))]
+            st = prep.hashlib.sha1((prep.code_bytes() + json.dumps([h['hero'], h.get('opt', {}), hd, W, H, spp, f0], sort_keys=True).encode())).hexdigest()[:12]
             sf = os.path.join(hdir, 'vshot.stamp'); fresh = os.path.exists(os.path.join(hdir, 'meta.json')) and open(sf).read() == st if os.path.exists(sf) else False
             if meas or not fresh:
                 if not meas and os.path.isdir(hdir) and not os.path.exists(sf) and os.path.exists(os.path.join(hdir, 'meta.json')) and '--keep' in sys.argv: fresh = True   # khung dựng trước khi có stamp
             if meas or not fresh: JOBS.append((cmd, None if meas else (sf, st), f'{sg["id"]}/{i}'))
             MT = prep.shot_meta(E, sh); M.append(dict(seg=sg['id'], shot=i, hero=h['hero'], type=MT['type'], w=W, h=H, spp=spp, _dir=hdir))
             p = dict(sh['p']); p['dir'] = hdir; p['stamp'] = 'vshot'
+            if 'frame0' in p: p['off'] = p.pop('frame0')   # lớp 2D (k2.js plateX) đọc p.off
             shots.append(dict(tpl=sh.get('tpl', 'plate'), t0=t0, t1=t1, p=p, **({'in': {'type': sh.get('in', 'cut'), 'd': 0.7}} if i else {}), **MT))
             TL['heroes'][k] = dict(hero=h['hero'], variant=h.get('variant', 'a'), opt=h.get('opt', {}), dur=hd, size=[W, H], dir=hdir, stamp='vshot')
         TL['segments'].append(dict(id=sg['id'], part=sg.get('part', 'BODY'), t0=round(t_abs, 4), t1=round(t_abs + dur, 4), frames=frames, vo_file=None, vo_offset=0, vo_len=0,

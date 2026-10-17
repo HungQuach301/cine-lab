@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 5, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark text card over a blurred, unreadable background. It is a bullet-list slide with no visual evidence. The sub-lines are small and low-contrast grey, so they will be hard to read on a phone. The bottom third of the card is empty. The 'locks' metaphor is never shown. The buildings behind the card are too blurred to identify."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": ["cluttered"], "note": "A real 3D terrain map of San Francisco Bay with a location pill and a compact comparison card (3/day in 1943 vs ~5/year in 2023). The terrain relief and water gradient are good. The card hides part of the bay. The card text and the source line are small for a phone, and the source line sits over a dark gradient. The pill is small. The icons are tiny, and the two column icons are hard to tell apart. The contrast is a striking, easily understood number comparison."},
+ "better": "Y",
+ "why": "Y ties the data to a concrete place with real terrain and a clear, striking number contrast, while X is a generic text-only recap card with weak contrast and no visuals.",
+ "top_fix_for_weaker": "Replace the text slide with a visual recap. Show three lock icons or mini 3D building models, each with a large one-line label (e.g. 'MAP', '4 stories', '5 homes') in 40px+ white type, and use the blurred background as a sharp, lit scene. Raise the sub-line contrast and size, and cut the empty lower third."}
+```

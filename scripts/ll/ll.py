@@ -324,8 +324,9 @@ def build_seg(E, sg, W, off, dur, ctx_short=False):
                 own = ({N[c['num']]['src']} if c.get('num') else set()) | set(c.pop('src') if isinstance(c.get('src'), list) else [])
                 vis = tsrc | own
                 CAPSRC[f"{sg['id']}/{i}/{j}"] = dict(srcs=sorted(vis), declared=decl, text=c.get('s', ''))
-                if decl and (not vis <= srcs or not vis): c['src'] = lab(vis) or ' '   # dòng chung thiếu nguồn của câu → ghi riêng; ' ' = không ghi nguồn
-                if ctx_short: c['src'] = (lab(vis) if decl else p.get('src', '')) or ' '
+                keep = bool(E.get('src_co_dinh')) and isinstance(p.get('src'), str)   # kênh 2 (K2C-T2-01, 17/10): dòng nguồn viết tay đã nêu nguồn — khai num/src chỉ để kiểm Q21, không ghi đè chữ hiển thị
+                if decl and (not vis <= srcs or not vis) and not keep: c['src'] = lab(vis) or ' '   # dòng chung thiếu nguồn của câu → ghi riêng; ' ' = không ghi nguồn
+                if ctx_short: c['src'] = (p.get('src', '') if keep else (lab(vis) if decl else p.get('src', ''))) or ' '
             if ctx_short: p.pop('src', None)   # Shorts: chỉ dải chú thích ghi nguồn (mẫu v2 không vẽ thêm dòng thứ hai)
         t1 = ats[i + 1] if i + 1 < len(ats) else dur
         tr = sh.get('in', 'cut'); tr = tr if isinstance(tr, dict) else {'type': tr, 'd': 0.7}

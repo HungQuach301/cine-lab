@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 7, "flags": [], "note": "Stylized relief terrain with bathymetry contour rings. Cranes and ships with white outlines give a clear story hook (shipyard, 1971–74). Warm and cool tones separate land from sea. Weaknesses: the Ulsan pin is disconnected from the yard, the cranes and ships are small and floating with weak ground contact, and the caption and source lines sit far apart in a dead bottom gradient. The terrain looks a bit low-res and blocky at the coast."},
+ "Y": {"craft": 5, "readability": 7, "clarity": 5, "flags": ["flat_slide_look", "confusing"], "note": "Satellite imagery with state borders in a tilted view. It reads as a generic map. There is no relief or depth, and Minnesota is only subtly distinguished. The label card says Minneapolis but also carries a source-like string, and the pin sits in an arbitrary spot. The sources line is long and low-contrast, and the large bottom area is dark and empty. Nothing visual connects to the multifamily-rent story."},
+ "better": "X",
+ "why": "X has real terrain depth, story-specific illustrated props and a clear place/time anchor, while Y is a flat satellite map with a muddled label and nothing tied to the topic.",
+ "top_fix_for_weaker": "Highlight and extrude Minnesota (or the Twin Cities metro) with a dimmed surround, add real terrain relief and a camera push-in on a clean 'Minneapolis' pin with apartment-block props or a rent figure, and move the Fed source text out of the label card into the footer."}
+```

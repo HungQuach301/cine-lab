@@ -1,0 +1,191 @@
+{
+ "name": "richmond",
+ "center": [
+  -122.36,
+  37.91
+ ],
+ "service": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer",
+ "tiers": [
+  {
+   "i": 0,
+   "km": 40.0,
+   "px": 2048,
+   "m_per_px": 19.53,
+   "bbox": [
+    -122.587715,
+    37.729119,
+    -122.132285,
+    38.090881
+   ],
+   "raw_sha256": "1c84aa6927038dc8b0ec5147b902193d07955ed44cd727e3b46e0551b0c1e328",
+   "sha256": "2bf2a09f2afdb153e6aaa0b4343dfe316a3674994980c5b193c631a7b0a896c5",
+   "file": "t0.png",
+   "nodata_pct": 3.6,
+   "naip": [
+    {
+     "Name": "m_3712206_sw_10_060_20220518",
+     "Category": 1,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R00000163_C00000041.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B1_C00000020.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L03_R00000058_C00000010.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002C_C00000008",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000004",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 1,
+   "km": 8.0,
+   "px": 2048,
+   "m_per_px": 3.91,
+   "bbox": [
+    -122.405543,
+    37.873824,
+    -122.314457,
+    37.946176
+   ],
+   "raw_sha256": "caa0293ddc6288da735c21b76f5276d293acf9b0d99ed8494bc2a123417e83d5",
+   "sha256": "05430c0072373478d0c7409135911d9de7e4e4075316724d3518494b3fbb58af",
+   "file": "t1.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_3712206_sw_10_060_20220518",
+     "Category": 1,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R00000163_C00000041.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B1_C00000020.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L03_R00000058_C00000010.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002C_C00000008",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000004",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  },
+  {
+   "i": 2,
+   "km": 1.8,
+   "px": 2048,
+   "m_per_px": 0.88,
+   "bbox": [
+    -122.370247,
+    37.90186,
+    -122.349753,
+    37.91814
+   ],
+   "raw_sha256": "946bc4839cf0e03475173eb49a20036fde99707ddbec0a11fd5de15d2f180e2d",
+   "sha256": "5faf7a955ba824ad96c39158f1c3b5b7014dae423a1d92c0236489cf8c9386be",
+   "file": "t2.png",
+   "nodata_pct": 0.0,
+   "naip": [
+    {
+     "Name": "m_3712206_sw_10_060_20220518",
+     "Category": 1,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R00000163_C00000041.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L02_R000000B1_C00000020.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L03_R00000058_C00000010.tif",
+     "Category": 2,
+     "State": "CA",
+     "Year": 2022
+    },
+    {
+     "Name": "Ov_i02_L01_R0000002C_C00000008",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    },
+    {
+     "Name": "Ov_i02_L02_R00000016_C00000004",
+     "Category": 2,
+     "State": null,
+     "Year": null
+    }
+   ]
+  }
+ ],
+ "color_match": {
+  "mu_s": [
+   53.70802688598633,
+   -5.494852542877197,
+   0.5112190842628479
+  ],
+  "mu_r": [
+   54.846405029296875,
+   -14.521965026855469,
+   7.141599178314209
+  ],
+  "k": [
+   0.8500000238418579,
+   1.3046107292175293,
+   3.4349122047424316
+  ],
+  "strength": 0.6
+ },
+ "license": "USDA FSA NAIP — public domain (U.S. Government work); xem channel-k2/k2v4-mau/licenses/NAIP.txt"
+}

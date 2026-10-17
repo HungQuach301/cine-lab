@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Dark card with a blurred, unrecognizable background. The title and headings read fine. The grey sub-lines are small and low-contrast for a phone. The bottom third of the card is empty. The recap is clear but visually generic. The checkboxes and 'locks' metaphor have no visual support. The 'bank line' item is jargon and its text runs long."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Attractive stylised 3D terrain map with clean icons and good depth. The caption is white on a dark gradient and readable. The sources line is small and thin. The four icons (coin, document, ship, crane) have no labels, so the viewer can't tell which factor each one stands for. The caption says 'each factor', but nothing links factors to icons. The map location is not named."
+ },
+ "better": "Y",
+ "why": "Y is a real designed scene with depth and a legible caption, while X is a flat text card with low-contrast secondary text and a lot of dead space, though X's message is more explicit.",
+ "top_fix_for_weaker": "Redesign X: shrink the card or fill it by enlarging the text. Make the sub-lines brighter and at least about 36px. Cut the third bullet to a short phrase. Add a sharper, relevant image (building, stairwell, bank) or an icon per row, instead of the blurred background."
+}

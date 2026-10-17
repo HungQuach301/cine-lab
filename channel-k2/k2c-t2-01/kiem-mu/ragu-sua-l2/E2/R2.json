@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing",
+   "empty_frame"
+  ],
+  "note": "Nice relief terrain, but the right half is empty ocean. The $107 callout leader points to an unexplained small yellow rectangle that is not Ulsan. The Ulsan label floats away from its pin, and no country or region context is shown. There is no route or movement, so the frame does not read as a route map. Source text is tiny and low-contrast."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Globe with atmosphere glow, rich satellite imagery, and Texas highlighted in orange. The callout is clear and well placed. The caption is large and legible, and the date badge is useful. The callout text is a little small on a phone, the source line is tiny, and the callout box partly covers the Gulf and Florida. There is no route shown either."
+ },
+ "better": "Y",
+ "why": "Y has stronger depth, lighting and focal hierarchy and shows where the subject is at a glance, while X is half-empty with an ambiguous marker and a callout that is not tied to the place.",
+ "top_fix_for_weaker": "Zoom out or reframe so Ulsan sits centered with Korea and Japan visible. Attach the $107 stat directly to the Ulsan pin and remove the stray yellow box. Fill or crop the empty ocean, add a route or arrow, enlarge the callout text to at least 36px, and brighten the source line."
+}

@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [],
+  "note": "Good-looking globe with realistic imagery and a clear Texas highlight. The callout is readable, but its 'single-stair, \u22644 homes per floor' text is small on a phone. The callout box covers part of the map, and the dot is tiny. There are no route lines, and the Texas fill looks like a flat tint. The globe covers a huge area for one state, so the framing is loose. The date chip and source line are tiny."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Attractive shaded-relief terrain, with a tidy Ulsan label and shipping-lane lines that suggest overseas movement. The '$107 output per person' label points at a small yellow box inland that doesn't connect to the Ulsan pin or the lanes. The figure is not explained, and the lines run off-frame with no destinations named. The caption is large and clear. The source line is small."
+ },
+ "better": "Y",
+ "why": "Y has a more cinematic, convincing terrain map and the route lines carry the movement idea, while X is a competent but more static location highlight, though Y's disconnected $107 callout slightly muddies its message.",
+ "top_fix_for_weaker": "Zoom X in to Texas and the Gulf, with a tighter crop. Make the callout text larger and shorten it to something like 'Texas: single-stair to 6 floors (Sep 2025)'. Use a bold, glowing state outline with a leader line instead of a flat tint. Add animated or arrowed lines to show the policy spreading to other states or cities."
+}

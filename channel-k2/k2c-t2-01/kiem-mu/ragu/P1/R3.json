@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The terrain relief, bathymetry contours and cut-out gantry cranes and ships make a stylised map that reads fast. The year badge, the Ulsan label and the caption are all large and high-contrast. The weak points are the Ulsan label pointing at an empty bay when the cranes sit well to its right, and the faint source line at the bottom. The ships and cranes have a slightly clip-art look, but the frame still tells a story."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "confusing"
+  ],
+  "note": "This is a competent satellite-imagery map with state borders, but it is murky and low-contrast, and nothing visual shows what the story is about. The label pairs 'Minneapolis' with 'Federal Reserve Bank of Minneapolis, Oct 2026', which reads as a source credit, not a place description. The pin is tiny, and the long label crowds the right edge. The quote and the small grey source text will be hard to read on a phone. The caption describes housing but the map shows no housing, so the viewer sees a generic region."
+ },
+ "better": "X",
+ "why": "X puts a clear date, place and subject (shipyard cranes and ships) on a terrain map, while Y shows an unlabeled generic Midwest map with a source-style tag and no visual tie to apartments or rents.",
+ "top_fix_for_weaker": "Add a visual for the subject, such as a cluster of apartment-block icons or a rent-growth number tied to the Minneapolis pin. Make the pin larger and label the state or region. Cut the label to 'Minneapolis, Minnesota' and move the Fed credit into the sources line. Brighten and desaturate the map, and make the source text larger."
+}

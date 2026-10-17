@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 6, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark card with a checklist over a blurred, almost invisible background. The text is clean, but the sub-lines are small, grey and low-contrast on a phone. The last line is long. The bottom third of the card is empty. The card has no imagery, and the checkbox icons add nothing. It reads like a PowerPoint recap. The topic (locks and costs on buildings) is only understood from the words."},
+ "Y": {"craft": 8, "readability": 7, "clarity": 6, "flags": ["confusing"], "note": "A strong 3D terrain map of San Francisco Bay with a location pill and clear isometric icons (coin, document, ship, crane). The caption sits on a dark gradient and is legible. The source line is small and sits close to the bottom edge. The icons are unlabeled, so it is unclear which factor each one stands for. The caption says 'each factor', yet no factor names appear. The icons are fairly small and sit loosely over the map."},
+ "better": "Y",
+ "why": "Y is a real, place-anchored broadcast-style visual with legible captions, while X is a flat, dim text slide with a blurred background that has no visual content.",
+ "top_fix_for_weaker": "Replace the flat card with a bold, high-contrast layout: three large numbered rows, each with a big keyword (MAP, 4 STORIES, 5 HOMES) and a real icon or building image, in white text at least 40px. Lighten the sub-text, shorten the third line, fill or remove the empty lower third, and use a crisp background image instead of a blur."}
+```

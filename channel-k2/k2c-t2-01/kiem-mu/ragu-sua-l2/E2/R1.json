@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain relief is attractive and the dark callouts are clean. The $107 callout is tied to a tiny yellow box by a thin line. The Ulsan marker is a faint dot, and the callout sits well away from it. Half the frame is empty ocean. The source line is small, and a viewer can't tell where Ulsan sits in Korea. No route or movement is visible, so the frame reads as two disconnected labels."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The globe is rich and cinematic, with the Texas region highlighted in orange. The callout is bold and tied to the highlighted state. The caption is large and readable on a phone, and the date badge adds context. The callout text is a bit long and the source line is small, but nothing overlaps or is cut off. The viewer understands the place and the claim at once, though this is a highlight, not a route."
+ },
+ "better": "Y",
+ "why": "Y shows its place and its claim at a glance with a highlighted region, a readable caption and a clear callout, while X has weakly anchored labels and a lot of dead ocean.",
+ "top_fix_for_weaker": "Zoom out so Ulsan is placed within the Korean peninsula, with an inset or labeled country outline. Add a strong marker and pin the Ulsan label to it. Merge the $107 figure into that callout as one large number, and crop out or fill the empty ocean."
+}

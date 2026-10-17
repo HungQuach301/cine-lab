@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "Framed archival newsreel photo with a year badge and a caption box. The sourcing is clear and the caption is large and legible. The footage is small, only about half the frame, on a blurred sepia background. The caption box has a big empty gap between its two lines. It reads like a slide with a picture pasted in, but it is coherent."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 5,
+  "clarity": 6,
+  "flags": [
+   "illegible_text",
+   "cluttered"
+  ],
+  "note": "Full-bleed, sharp, well-lit aerial footage of Chicago with a lake horizon. It looks much more cinematic. The white caption sits directly over busy rooftops with only a weak dark gradient behind it. The source line is small and low-contrast, and will be hard to read on a phone. The caption is a vague rhetorical question, so it doesn't say what the viewer is looking at."
+ },
+ "better": "Y",
+ "why": "Y has the more immersive, higher-quality full-frame footage, but X is easier to read and understand, so Y wins only narrowly on craft.",
+ "top_fix_for_weaker": "X: enlarge the footage to near full-bleed and shrink the caption into a tight lower-third without the empty gap, so it looks like a documentary shot and not a framed slide."
+}

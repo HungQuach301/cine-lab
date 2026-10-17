@@ -1,0 +1,282 @@
+{
+ "verdict": "lock_with_fixes",
+ "issues": [
+  {
+   "seg": "05",
+   "rule": "2-causality / G§1",
+   "severity": "major",
+   "quote": "Which brings us to the present, and to the people who set it in motion.",
+   "problem": "This gives the five unions credit for the whole present: the fees, the suspension, the Hanwha investment and the MRIV order. The sources only say they filed a petition that came before an investigation. The Hanwha investment and the Korea-U.S. package are linked in the sources to the trade deal, not to the petition.",
+   "fix": "Which brings us to the present. In the record, this part starts with a petition."
+  },
+  {
+   "seg": "05",
+   "rule": "1-sources / YELLOW(1)",
+   "severity": "major",
+   "quote": "The Trade Representative opened an investigation that April.",
+   "problem": "The verified quote in C55 (FR-DET) only says USTR 'requested consultations' on April 17, 2024. The initiation notice 89 FR 29424 was read by the agent and is not marked ✔P. The wording goes beyond the verified source.",
+   "fix": "Before lock, grep 89 FR 29424 (22/04/2024) on govinfo and add the verbatim initiation sentence to C55 with ✔P. Until then use: \"That April, the Trade Representative requested consultations with China's government.\""
+  },
+  {
+   "seg": "06",
+   "rule": "2-fact/opinion",
+   "severity": "major",
+   "quote": "and in the record, high prices and a small home market are part of why.",
+   "problem": "'Small home market' was the channel's own read in seg 03, labelled 'Our read'. Here it is presented as what the record says. The record (CRS-23) says high prices limit domestic purchases and that the lack of exports prevents economies of scale.",
+   "fix": "and the record ties high prices to fewer domestic purchases, and the lack of exports to missing economies of scale. {C46} {C25}"
+  },
+  {
+   "seg": "06",
+   "rule": "3-sides / YELLOW(5)",
+   "severity": "major",
+   "quote": "Critics of the Jones Act, and the cost estimates we quoted, put more weight on price; no source we found settles how much each counts.",
+   "problem": "The ending gives only the critics' side and misstates it. The McClintock release is about higher prices for Americans on goods, not about why shipbuilding declined. Cost estimates do not 'put weight' on anything. Supporters (AMP) are left out of the conclusion.",
+   "fix": "Supporters, like the American Maritime Partnership, make their case on jobs and security. Critics, like Senator Lee and Representative McClintock, make theirs on higher prices for Americans. No source we found measures how much each factor counts. {C47} {C48} {C36}"
+  },
+  {
+   "seg": "04",
+   "rule": "1-sources (beyond source wording)",
+   "severity": "major",
+   "quote": "So, by that account, the yard's first order came from a foreign owner.",
+   "problem": "HHI says the Livanos order came 'while Hyundai's Shipyard was still in the planning stages'. It does not say this was the first order. The 'our read' in seg 04 leans on this word.",
+   "fix": "So, by that account, an order from a foreign owner came before the yard existed."
+  },
+  {
+   "seg": "03",
+   "rule": "2-causality / opinion label",
+   "severity": "minor",
+   "quote": "Put those together and you get a loop. High prices mean few orders. Few orders mean no scale. No scale keeps prices high. That loop is our read; its pieces draw on the record.",
+   "problem": "Three causal claims are stated as plain facts before the 'our read' label appears. A listener hears them as record.",
+   "fix": "Our read: put those together and you get a loop. High prices mean few orders, few orders mean no scale, and no scale keeps prices high. The pieces come from the record; the loop is our interpretation."
+  },
+  {
+   "seg": "03",
+   "rule": "5-time / 1-attribution",
+   "severity": "minor",
+   "quote": "Our read: the protected home market is small. In March 2018, the Jones Act fleet had ninety-nine oceangoing ships.",
+   "problem": "A 2018 count backs a present-tense claim in a 2026 video. The count comes from the 2019 report but is not attributed, which makes 'that report' in the next sentence ambiguous.",
+   "fix": "Our read: the protected home market is small. A 2019 congressional report counted ninety-nine oceangoing ships in the Jones Act fleet as of March 2018."
+  },
+  {
+   "seg": "03",
+   "rule": "1-attribution",
+   "severity": "minor",
+   "quote": "At home, that report adds, high prices hold buyers back wherever a truck, a train or a pipeline can do the job.",
+   "problem": "'That report' now points at the 2019 report (CRS-19), but C46 comes from the 2023 report (CRS-23).",
+   "fix": "At home, the 2023 report adds, high prices hold buyers back wherever a truck, a train or a pipeline can do the job."
+  },
+  {
+   "seg": "03",
+   "rule": "1-source wording",
+   "severity": "minor",
+   "quote": "Currency policy, too.",
+   "problem": "The source says 'currency exchange rate policy'.",
+   "fix": "Exchange-rate policy, too."
+  },
+  {
+   "seg": "03",
+   "rule": "1-cross-basis",
+   "severity": "minor",
+   "quote": "In 2019, Congress's researchers cited one consulting firm's estimate: an American-built tanker costs about four times the world price.",
+   "problem": "This one tanker estimate sits in a series about all ship prices (1922 to the 1990s). 'Costs' presents an estimate as a measured price.",
+   "fix": "In 2019, Congress's researchers cited one consulting firm's estimate for one ship type: an American-built tanker, at about four times the global price of a similar vessel."
+  },
+  {
+   "seg": "01",
+   "rule": "1-beyond source",
+   "severity": "minor",
+   "quote": "The four Richmond yards produced 747 ships of all kinds.",
+   "problem": "'Of all kinds' is not in NPS-RICH.",
+   "fix": "The four Richmond yards produced 747 ships, more than any other shipyard complex in the country."
+  },
+  {
+   "seg": "01",
+   "rule": "1-accuracy",
+   "severity": "minor",
+   "quote": "In 1943, a government photographer pictured one of the people doing that work:",
+   "problem": "This comes right after the Peary stunt, so it implies Owens worked on the Peary. C54 says she worked on the George Washington Carver.",
+   "fix": "In 1943, a government photographer pictured one of the people building Liberty ships in Richmond:"
+  },
+  {
+   "seg": "01",
+   "rule": "9-story through people",
+   "severity": "minor",
+   "quote": "What allowed it to grow, the Park Service says, were orders: ships for the British government, already at war.",
+   "problem": "Kaiser and Owens have no sourced need or obstacle, and nothing connects the two. C45 (✔P) supplies it.",
+   "fix": "Append: \"He hired a diverse workforce, the Park Service says, including women and minorities, challenging societal norms and expanding the labor pool. {C45}\""
+  },
+  {
+   "seg": "01",
+   "rule": "2-fact/opinion",
+   "severity": "minor",
+   "quote": "The Liberty was a plain cargo ship, designed as an emergency answer to a shortage of ships.",
+   "problem": "'Plain' is the channel's own description (noted in C09) but is not labelled. The source says 'shortage of cargo ships'.",
+   "fix": "The Liberty was a slow cargo ship, eleven knots, designed as an emergency answer to a shortage of cargo ships."
+  },
+  {
+   "seg": "01",
+   "rule": "1-sources",
+   "severity": "minor",
+   "quote": "Our read: notice who the customers were. The British government, and America's own Maritime Commission. Governments, in wartime.",
+   "problem": "The Maritime Commission has not been introduced as a customer. C15 is cited but its fact is never narrated.",
+   "fix": "Insert before it: \"Almost eighty yards held Maritime Commission contracts, and at the program's height they employed 702,000 people. {C15}\""
+  },
+  {
+   "seg": "00",
+   "rule": "G§5 as-of",
+   "severity": "minor",
+   "quote": "runs through November ninth.",
+   "problem": "The deadline has no year.",
+   "fix": "runs through November ninth, 2026."
+  },
+  {
+   "seg": "00",
+   "rule": "8-hook",
+   "severity": "minor",
+   "quote": "In 1943, at the peak, America launched three cargo ships a day.",
+   "problem": "The hook opens with history and gets to the news only in paragraph 4, which breaks the order news -> paradox -> twist. The title is not supplied, so the question cannot be checked against it.",
+   "fix": "Either get the v3 order explicitly approved at G1 as a documented deviation, or move the \"Now, a deadline…\" paragraph to the top. Confirm the final title asks \"why does America build so few ships\" or close wording."
+  },
+  {
+   "seg": "00",
+   "rule": "1-cross-basis",
+   "severity": "minor",
+   "quote": "So why does America build so few ships?",
+   "problem": "The 'one number' just given is a tonnage share, but the question is about ship counts.",
+   "fix": "So why does America build so little of the world's shipping?  (or keep the question and make sure the title, seg 02 and seg 06 all use the same basis)"
+  },
+  {
+   "seg": "02",
+   "rule": "G§5 as-of",
+   "severity": "minor",
+   "quote": "who introduced a bill on June twelfth, 2025, to repeal it",
+   "problem": "The bill is still pending (S. 2043 / H.R. 3940). Its status was checked on 15/10 only through a third-party tracker.",
+   "fix": "Put \"Facts as of 14 Oct 2026\" on this frame and re-check congress.gov before recording. If the bill has moved, add one sentence with an as-of date."
+  },
+  {
+   "seg": "04",
+   "rule": "1-source wording / clarity",
+   "severity": "minor",
+   "quote": "He found the targeted industries' output grew faster, but their total factor productivity didn't rise significantly.",
+   "problem": "The comparison group (non-targeted industries) and the faster labor-productivity growth are dropped. 'He' follows a sentence about 'the sources we used', so the referent is unclear.",
+   "fix": "Lee found that output, input use and labor productivity in the targeted industries grew faster than in non-targeted ones, but total factor productivity didn't increase significantly. {C51} The sources we used don't say how much of that support went to Hyundai's yard."
+  },
+  {
+   "seg": "04",
+   "rule": "1-sources",
+   "severity": "minor",
+   "quote": "Munseob Lee, an economist writing for the Korea Economic Institute of America in 2023",
+   "problem": "'Economist' is not covered by C49.",
+   "fix": "Munseob Lee, writing for the Korea Economic Institute of America in 2023  (or add a source for the title to C49)"
+  },
+  {
+   "seg": "04",
+   "rule": "3-no motive / 2",
+   "severity": "minor",
+   "quote": "Our read: from the start, this yard was built to sell abroad.",
+   "problem": "'Built to' states a purpose, which comes close to guessing a motive.",
+   "fix": "Our read: from the start, this yard's customers were abroad."
+  },
+  {
+   "seg": "04",
+   "rule": "2-causality",
+   "severity": "minor",
+   "quote": "The government also stepped in.",
+   "problem": "This implies the government intervened for Hyundai. The source describes a general heavy-industry drive.",
+   "fix": "Meanwhile, the government set its own targets."
+  },
+  {
+   "seg": "05",
+   "rule": "1-attribution",
+   "severity": "minor",
+   "quote": "Congress's researchers summarize the findings:",
+   "problem": "In CRS-26 these are USTR's findings ('It found…'). The script does not say whose they are.",
+   "fix": "Congress's researchers summarize the Trade Representative's findings:"
+  },
+  {
+   "seg": "05",
+   "rule": "4-named decisions with dates",
+   "severity": "minor",
+   "quote": "Then came the fees. From October fourteenth, 2025,",
+   "problem": "The deciding body and the date of the action are missing.",
+   "fix": "Then came the fees. Under an action the Trade Representative took on April 17, 2025, from October fourteenth, 2025,"
+  },
+  {
+   "seg": "05",
+   "rule": "2-calc label",
+   "severity": "minor",
+   "quote": "a letter signed by more than two hundred trade groups",
+   "problem": "The signatory count is the channel's own line count (≈230) and is not labelled.",
+   "fix": "a letter from more than two hundred trade groups, by our count of its signatories,"
+  },
+  {
+   "seg": "05",
+   "rule": "2-causality (attributed)",
+   "severity": "minor",
+   "quote": "following a trade deal between President Trump and President Xi",
+   "problem": "'Following' is only a time word. The notice itself gives the reason, and that reason should be quoted and attributed.",
+   "fix": "\"in light of\" a trade deal between President Trump and President Xi, the notice says,"
+  },
+  {
+   "seg": "05",
+   "rule": "3-sides / 1",
+   "severity": "minor",
+   "quote": "with a goal of raising output from one and a half ships a year to twenty",
+   "problem": "The claims table records a conflicting figure from the CEO (about 10 a year after 10 years, via USNI) that the script leaves out.",
+   "fix": "Add USNI to the sources with ✔P and say: \"…to twenty, the paper reported; the company's chief executive has also cited about ten a year within a decade.\" Otherwise keep the wording and put both figures in the description."
+  },
+  {
+   "seg": "05",
+   "rule": "4-political neutrality (visuals)",
+   "severity": "minor",
+   "quote": "And Philadelphia. According to Korea JoongAng Daily,",
+   "problem": "The source headline contains \"'MASGA' push\", a campaign-derived slogan, and it could appear in the on-screen source line.",
+   "fix": "Show the source line as \"Korea JoongAng Daily, 27 Aug 2025\" without the headline, and do the same in the description."
+  },
+  {
+   "seg": "05",
+   "rule": "G§5 as-of",
+   "severity": "minor",
+   "quote": "As of October fourteenth, 2026, no extension had been published.",
+   "problem": "federalregister.gov was blocked during the 14/10 check. The video loses its premise if it publishes after 9/11.",
+   "fix": "Re-check govinfo.gov and log the result in claims §3 before lock and again before recording. If the video publishes after 9 Nov 2026, rewrite segs 00, 05 and 06 to the new status."
+  },
+  {
+   "seg": "06",
+   "rule": "G§5 / accuracy",
+   "severity": "minor",
+   "quote": "November ninth: whether the fee pause ends.",
+   "problem": "There is no year. Under the notice the pause ends by its own terms, so the open question is whether it is extended.",
+   "fix": "November ninth, 2026: whether the fee pause is extended or runs out as the notice sets."
+  },
+  {
+   "seg": "03",
+   "rule": "G§3 myth vs record",
+   "severity": "minor",
+   "quote": "Now the answer you'll often hear: American shipyards lost because American workers cost too much.",
+   "problem": "The evidence that this myth is common is thin: one pushback comment plus a reading of competitor videos. The COMMON CLAIM ↔ RECORD frame is not specified in the script.",
+   "fix": "Add a search-result sample to the C22 entry in claims.md, and add a visual note: \"COMMON CLAIM ↔ RECORD frame, CRS-23 source line on the RECORD side.\""
+  }
+ ],
+ "missing_from_claims": [
+  "\"Henry J.\" Kaiser: the full name is not in the C07 quote",
+  "\"Chung Ju-yung\": the full name is not in the C28 quote (HHI says only \"Chung\")",
+  "Munseob Lee described as \"an economist\"",
+  "\"747 ships of all kinds\": 'of all kinds' is not in NPS-RICH",
+  "\"the yard's first order\": HHI does not say 'first'",
+  "\"opened an investigation that April\": 89 FR 29424 is not ✔P",
+  "\"more than two hundred trade groups\": channel line count, not labelled as a calculation",
+  "Maritime Commission as the Richmond yards' customer: C15 is cited but its fact is not narrated",
+  "\"Within a month\": channel date arithmetic (14 Oct 2025 to 10 Nov 2025), not labelled"
+ ],
+ "strengths": [
+  "Every factual sentence carries a claim ID. Almost all quotes match ✔P source wording exactly.",
+  "Company lore is handled well: 'by the company's own account' and 'treat both the banknote and the bank deal as lore'.",
+  "The myth beat is narrow and fair. Wages are named as one listed factor, with no 'debunked' language.",
+  "Current dollars are labelled twice, and the script says no source measures how much of the rise came from shipbuilding.",
+  "The port-fee debate is given both sides with named sources: the USTR finding and the union petition against MOFCOM and the trade-group letter.",
+  "Politically neutral: no party labels, no MASGA slogan in the narration, officials named only through official acts with dates.",
+  "The disclaimer and the as-of date come within the first 30 seconds. The MRIV date is attributed with 'slated'.",
+  "The ending answers the hook's question and returns to Richmond (1943 scoreboard, the national park). The script itself flags the scoreboard's cross-era comparison."
+ ]
+}

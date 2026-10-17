@@ -12,6 +12,8 @@ Ra (<cache>/relief/<tên>/):
   meta.json    bbox, kích thước, SHA nguồn, giấy phép
 Dùng:
   relief_build.py build --name erie --bbox -81,39,-72,45 [--ppd 600] [--mesh 5]
+  relief_build.py build --name korea --bbox 125,33.5,130.5,38.7 --dem skadi [--coast dem]   (T2: ngoài Mỹ — SRTM 1", USGS, tài sản công; --coast dem = bờ suy từ DEM)
+  (T2 G1b: ppd cao (1800) cho shot tầm 5–20 km: hằng số vẽ quy theo ppd/600, mặt nạ nước làm mượt, mesh giữ cỡ bằng --mesh lớn hơn; ppd phải chia hết 3600)
 """
 import hashlib, json, math, os, subprocess, sys
 import numpy as np
@@ -52,6 +54,27 @@ def tiles(b):
             yield n, w, f'n{n:02d}w{w:03d}'
 
 
+URLSKADI = 'https://s3.amazonaws.com/elevation-tiles-prod/skadi/{d}/{t}.hgt.gz'   # T2 (K2C-T2-01): ngoài Mỹ — SRTM 1" (USGS, tài sản công) qua AWS Terrain Tiles
+
+
+def mosaic_skadi(b, ppd):
+    """ô SRTM 1" dạng HGT (3601 px, int16 big-endian; ô biển/thiếu = NaN) → lưới ppd điểm/độ. Dùng cho vùng ngoài nước Mỹ (--dem skadi)."""
+    import gzip
+    lon0, lat0, lon1, lat1 = b; W, H = round((lon1 - lon0) * ppd), round((lat1 - lat0) * ppd); Z = np.full((H, W), np.nan, np.float32); k = 3600 // ppd; src = {}
+    for la in range(int(math.floor(lat0)), int(math.ceil(lat1))):
+        for lo in range(int(math.floor(lon0)), int(math.ceil(lon1))):
+            d = f"{'N' if la >= 0 else 'S'}{abs(la):02d}"; t = d + f"{'E' if lo >= 0 else 'W'}{abs(lo):03d}"; f = os.path.join(DEM, 'skadi', t + '.hgt.gz')
+            if not fetch(URLSKADI.format(d=d, t=t), f): print('  (không có ô)', t); continue
+            a = np.frombuffer(gzip.open(f).read(), dtype='>i2').astype(np.float32); n = int(round(math.sqrt(a.size))); a = a.reshape(n, n)[:3600, :3600]; a[a < -1000] = np.nan
+            if n != 3601: print('  (ô SRTM không phải 1", bỏ)', t, n); continue
+            a = np.nanmean(a.reshape(ppd, k, ppd, k), axis=(1, 3)) if k > 1 else a
+            x0, y0 = round((lo - lon0) * ppd), round((lat1 - (la + 1)) * ppd)
+            xs, ys = slice(max(0, x0), min(W, x0 + ppd)), slice(max(0, y0), min(H, y0 + ppd))
+            if xs.start < xs.stop and ys.start < ys.stop: Z[ys, xs] = a[ys.start - y0:ys.stop - y0, xs.start - x0:xs.stop - x0]
+            src[t] = sha(f)
+    return Z, src
+
+
 def mosaic(b, ppd):
     """ô 3DEP 1" (3612 px, đệm 6 px) → lưới ppd điểm/độ bằng trung bình khối; ô thiếu (biển) = NaN"""
     import tifffile
@@ -59,7 +82,9 @@ def mosaic(b, ppd):
     for n, w, t in tiles(b):
         f = os.path.join(DEM, t + '.tif')
         if not fetch(URL3DEP.format(t=t), f): print('  (không có ô)', t); continue
-        a = tifffile.imread(f)[6:3606, 6:3606].astype(np.float32); a[a < -1000] = np.nan
+        a = tifffile.imread(f).astype(np.float32)
+        if a.shape != (3612, 3612): print('  (ô lệch cỡ, đệm NaN)', t, a.shape); a = np.pad(a, ((0, max(0, 3612 - a.shape[0])), (0, max(0, 3612 - a.shape[1]))), constant_values=np.nan)[:3612, :3612]   # T2: vài ô ven biển 3DEP không đủ 3612 px
+        a = a[6:3606, 6:3606]; a[a < -1000] = np.nan
         a = np.nanmean(a.reshape(ppd, k, ppd, k), axis=(1, 3)) if k > 1 else a
         x0, y0 = round((-w - lon0) * ppd), round((lat1 - n) * ppd)
         xs, ys = slice(max(0, x0), min(W, x0 + ppd)), slice(max(0, y0), min(H, y0 + ppd))
@@ -138,11 +163,22 @@ def draw_lines(img, L, color, wfn, scale=1.0):
 def build():
     name = arg('name'); b = [float(x) for x in arg('bbox').split(',')]; ppd = int(arg('ppd', 600)); mk = int(arg('mesh', 5))
     out = os.path.join(CACHE, 'relief', name); os.makedirs(out, exist_ok=True)
-    print('[relief] ghép DEM 3DEP 1"…'); Z, src = mosaic(b, ppd); H, W = Z.shape
+    SK = arg('dem', '3dep') == 'skadi'
+    print('[relief] ghép DEM', 'SRTM 1" (skadi)…' if SK else '3DEP 1"…'); Z, src = (mosaic_skadi if SK else mosaic)(b, ppd); H, W = Z.shape
     print('[relief] mặt nạ nước Natural Earth 10m…')
     ocean = poly_mask('ne_10m_ocean', b, W, H)
+    if arg('coast', 'ne') == 'dem':   # T2 G1b: đường bờ suy từ DEM (ô ≤ 0 m hoặc trống, nối với biển Natural Earth) — bỏ dải lệch bờ NE 10m ↔ SRTM/3DEP ở tầm < 50 km
+        sea = np.isnan(Z) | (Z <= 0.0); lab, n = ndimage.label(sea)
+        keep = np.unique(lab[ocean & sea]); keep = keep[keep > 0]
+        dem_ocean = np.isin(lab, keep)
+        print(f'[relief] bờ từ DEM: {int(dem_ocean.sum())} ô biển (NE: {int(ocean.sum())}), lệch {int((dem_ocean ^ ocean).sum())} ô')
+        ocean = dem_ocean
     lakes = poly_mask('ne_10m_lakes', b, W, H) | poly_mask('ne_10m_lakes_north_america', b, W, H)
     water = ocean | lakes | np.isnan(Z)
+    u = max(1.0, ppd / 600.0)   # T2 G1b: hằng số vẽ (px) thiết kế ở ppd 600 → quy theo ppd để nền độ phân giải cao giữ cùng dáng theo km (nền thô < 600 giữ nét theo px: nhìn ở tầm vùng)
+    if u > 1.01:   # mép nước: làm mượt mặt nạ nhị phân (σ ~ 0,6 px) rồi lấy ngưỡng — bỏ răng cưa bậc thang 1 ô khi máy ở tầm < 20 km
+        sm = lambda m: ndimage.gaussian_filter(m.astype(np.float32), 0.6 * u) > 0.5
+        ocean, lakes = sm(ocean), sm(lakes) & ~sm(ocean); water = ocean | lakes | np.isnan(Z)
     Zf = np.where(np.isnan(Z), 0, Z)
     # mặt hồ phẳng: độ cao trung vị của DEM trong hồ (hồ lớn ~75 m Ontario, ~174 m Erie); biển 0
     lab, nl = ndimage.label(lakes & ~ocean)
@@ -152,10 +188,10 @@ def build():
     land = ~water
     hs, slope = hillshade(np.where(water, ndimage.grey_dilation(Zf, 3), Zf), b, ppd, zf=float(arg('zf', 2.2)))
     hs = np.where(water, 0.75, hs)
-    dist_in = ndimage.distance_transform_edt(water)   # khoảng cách từ bờ vào nước (px)
-    dist_out = ndimage.distance_transform_edt(land)
+    dist_in = ndimage.distance_transform_edt(water) / u   # khoảng cách từ bờ vào nước (px ở ppd 600)
+    dist_out = ndimage.distance_transform_edt(land) / u
     E = np.clip(Zf / 1000.0, 0, 2)   # km
-    R = np.random.default_rng(7); fibn = ndimage.gaussian_filter(R.standard_normal((H, W)).astype(np.float32), 3) * 3
+    R = np.random.default_rng(7); fibn = ndimage.gaussian_filter(R.standard_normal((H, W)).astype(np.float32), 3 * u) * 3 * u
     print('[relief] bảng màu tự nhiên…')
     hyp = ramp([(0.0, (104, 140, 92)), (0.12, (121, 152, 98)), (0.25, (150, 168, 112)), (0.45, (181, 176, 128)), (0.7, (196, 178, 140)), (1.0, (214, 202, 176)), (1.6, (236, 232, 222))], E)
     shade = (0.35 + 0.95 * hs)[..., None]; nat = hyp * shade
@@ -166,7 +202,7 @@ def build():
     shore = np.clip(1 - dist_out / 2.5, 0, 1) * land; nat = nat * (1 - 0.25 * shore)[..., None]
     nat_im = Image.fromarray((np.clip(nat, 0, 1) * 255).astype(np.uint8))
     print('[relief] bảng màu sepia…')
-    R = np.random.default_rng(7); fib = ndimage.gaussian_filter(R.standard_normal((H, W)).astype(np.float32), 1.2) * 0.5 + ndimage.gaussian_filter(R.standard_normal((H, W)).astype(np.float32), 9) * 2.0
+    R = np.random.default_rng(7); fib = ndimage.gaussian_filter(R.standard_normal((H, W)).astype(np.float32), 1.2) * 0.5 + ndimage.gaussian_filter(R.standard_normal((H, W)).astype(np.float32), 9 * u) * 2.0 * u
     paper = hexrgb('#e6d3a8')[None, None] * (1 + 0.035 * fib[..., None]); ink = hexrgb('#4a3220')
     k = np.clip(1.10 - 1.2 * hs, 0, 1) ** 1.0; k = 0.86 * k + 0.20 * np.clip(E / 1.1, 0, 1) ** 0.8
     sep = paper * (1 - k[..., None]) + ink * k[..., None] * 1.0 + paper * 0.0
@@ -182,8 +218,43 @@ def build():
     big = {'Hudson', 'Mohawk', 'Susquehanna', 'W. Branch Susquehanna', 'Allegheny', 'Ohio', 'Monongahela', 'Delaware', 'Niagara', 'Saint Lawrence', 'Potomac', 'Connecticut', 'Genesee', 'Juniata'}
     rv = lines('ne_10m_rivers_lake_centerlines', b, W, H) + lines('ne_10m_rivers_north_america', b, W, H, lambda r: (r.get('scalerank') or 12) <= 10 and 'Canal' not in (r.get('name') or ''))
     wf = lambda r: 3.2 if r.get('name') in big else 1.8
+    # T2 G1b: cắt bỏ phần nét sông Natural Earth nằm sát mặt nước đã vẽ (sông/cửa sông suy từ DEM, hồ): hai đường cùng một sông lệch nhau 1–2 km thấy được ở tầm gần
+    dw, (iy, ix) = ndimage.distance_transform_edt(~water, return_indices=True); dw = dw / ppd * 111.0   # km tới mặt nước gần nhất (+ chỉ số ô nước gần nhất)
+    def runs(l):   # tách theo đoạn sát nước (< 1,5 km); bỏ đoạn sát nước dài > 3 km (đường chạy song song mặt nước = trùng/lệch); đoạn ngắn (nhánh sông chạm nước, ranh giới cắt ngang sông) giữ nguyên
+        rec, pts, P = l
+        if len(pts) < 2: return []
+        near = [dw[min(H - 1, max(0, int(y))), min(W - 1, max(0, int(x)))] <= 1.5 for x, y in pts]
+        km = lambda a, b: np.hypot(a[0] - b[0], a[1] - b[1]) / ppd * 111.0
+        out, cur, k = [], [pts[0]], 0
+        for i in range(1, len(pts) + 1):
+            if i == len(pts) or near[i] != near[k]:
+                seg = cur
+                if near[k] and sum(km(seg[m], seg[m + 1]) for m in range(len(seg) - 1)) > 3.0: out.append(None)
+                else: out.append(seg)
+                if i < len(pts): cur, k = [pts[i - 1], pts[i]], i
+            else: cur.append(pts[i])
+        res, acc = [], []
+        for seg in out:   # nối các đoạn giữ liền nhau thành một nét
+            if seg is None:
+                if len(acc) > 1: res.append(acc)
+                acc = []
+            else: acc = acc + seg[(1 if acc else 0):]
+        if len(acc) > 1: res.append(acc)
+        return [(rec, c, None) for c in res]
+    def touch(l):   # đầu nét sông cách mặt nước ≤ 1,5 km → nối tới ô nước gần nhất (nhánh sông chạm sông chính/biển, không hụt)
+        rec, pts, P = l; pts = list(pts)
+        for e in (0, -1):
+            x, y = pts[e]; yy, xx = min(H - 1, max(0, int(y))), min(W - 1, max(0, int(x)))
+            if 0 < dw[yy, xx] <= 1.5:
+                q = (float(ix[yy, xx]) + 0.5, float(iy[yy, xx]) + 0.5)
+                if e == 0: pts.insert(0, q)
+                else: pts.append(q)
+        return (rec, pts, P)
+    rv = [touch(l) for l in rv]
+    n0 = sum(len(l[1]) for l in rv); rv = [r for l in rv for r in runs(l)]; print(f'[relief] sông NE: bỏ {n0 - sum(len(l[1]) for l in rv)}/{n0} điểm (đoạn chạy dọc mặt nước > 3 km)')
     draw_lines(nat_im, rv, (92, 140, 176, 235), wf, ppd / 600); draw_lines(sep_im, rv, (74, 50, 32, 200), wf, ppd / 600 * 0.85)
     adm = lines('ne_10m_admin_1_states_provinces_lakes', b, W, H)   # polygon → vẽ viền
+    adm = [r for l in adm for r in runs(l) if sum(np.hypot(r[1][m][0] - r[1][m + 1][0], r[1][m][1] - r[1][m + 1][1]) for m in range(len(r[1]) - 1)) / ppd * 111.0 > 5.0]   # bỏ cả mẩu ranh giới < 5 km còn sót   # T2 G1b: ranh giới bang theo dòng sông (PA–NJ trên sông Delaware) lệch khỏi mặt nước DEM → cắt phần sát nước
     draw_lines(nat_im, adm, (245, 242, 232, 110), lambda r: 1.6, ppd / 600); draw_lines(sep_im, adm, (74, 50, 32, 90), lambda r: 1.4, ppd / 600)
     nat_im.save(os.path.join(out, 'natural.jpg'), quality=93); sep_im.save(os.path.join(out, 'sepia.jpg'), quality=93)
     # lưới độ cao cho 3D (trung bình khối mk×mk)
@@ -198,7 +269,7 @@ def build():
         RT[rid] = chain(segs)
     json.dump(RT, open(os.path.join(out, 'routes.json'), 'w'))
     meta = dict(name=name, bbox=b, ppd=ppd, size=[W, H], mesh=[w2, h2], zmax=float(np.nanmax(Zf)), files={f: sha(os.path.join(out, f)) for f in ('natural.jpg', 'sepia.jpg', 'height.f32', 'routes.json')},
-                src=dict(dem='USGS 3DEP 1 arc-second (public domain, U.S. Government work)', dem_tiles=src, vector='Natural Earth 1:10m 5.1 (public domain)',
+                src=dict(dem=('SRTM 1 arc-second via AWS Terrain Tiles (USGS, public domain; attribution: SRTM terrain data courtesy of the U.S. Geological Survey)' if SK else 'USGS 3DEP 1 arc-second (public domain, U.S. Government work)'), dem_tiles=src, vector='Natural Earth 1:10m 5.1 (public domain)',
                          ne_zip={n: sha(os.path.join(NE, n + '.zip')) for _, n in NEFILES if os.path.exists(os.path.join(NE, n + '.zip'))}))
     json.dump(meta, open(os.path.join(out, 'meta.json'), 'w'), indent=1); print(json.dumps({k: v for k, v in meta.items() if k != 'src'}, indent=1))
 

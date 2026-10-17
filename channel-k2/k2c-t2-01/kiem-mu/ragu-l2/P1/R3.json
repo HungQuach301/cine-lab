@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "Stylized relief terrain with bathymetry contours, and gantry cranes and ships as illustrated props. It reads as a shipyard at a glance, and the 1971\u201374 badge and the Ulsan label are large and high-contrast. The source line is small but legible. Weak points: the Ulsan marker's leader line is tiny and points at nothing obvious, so the cranes don't visibly sit at the labeled spot. The ships look like pasted-on sprites. Nothing on the map shows where South Korea is, since there's no locator or country outline."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "confusing"
+  ],
+  "note": "Satellite imagery with state borders in a tilted view is realistic and clean. But nothing shows what is being said: a pin at Minneapolis with a long Fed-bank source string as its label, and no data, no figure and no visual for rents or apartments. The state outlines are unlabeled, so the viewer must already know that is Minnesota. The caption is legible, but the source block is small, gray, and wraps to two lines on a phone. The label mixes place and citation, which muddies the message. The lower third darkens heavily."
+ },
+ "better": "X",
+ "why": "X's props and date badge show what happened and when, while Y is an unlabeled map with a pin and a citation and nothing that illustrates the claim.",
+ "top_fix_for_weaker": "Make the pin label just 'Minneapolis' (or 'Minnesota') and move the Fed citation to the source line. Add a visual or number for the claim, such as an apartment-building icon with a rent-growth figure ('+X% rent vs +Y% costs'). Also label the state, enlarge the source text, and cut it to one line."
+}

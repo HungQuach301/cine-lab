@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The shaded-relief terrain is decent. The Ulsan marker is a tiny white box that sits apart from an orange pin, and the callout isn't clearly tied to either. The box looks like a stray UI element. The map has no country, region or border context, and nothing shows the route or movement the frame is supposed to be about. The green terrain with a dark bottom gradient looks like a generic GIS render. The sources line is small."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "The globe view has atmosphere glow, satellite imagery and a highlighted Texas, which gives depth and instant place recognition. The callout is clean and anchored to a dot inside Texas, and the date chip adds context. The callout text is fairly small for a phone, and the sources line is tiny. The callout covers part of the Midwest map. There is no route or movement shown, just a single highlighted region."
+ },
+ "better": "Y",
+ "why": "Y has a richer 3D globe with a clear highlighted subject and a callout anchored to it, while X is a flat terrain map with an ambiguous marker and no visible route or context.",
+ "top_fix_for_weaker": "Zoom out so Korea and its surroundings are visible, with the coastline and neighbouring countries labelled. Replace the tiny white box and the separate pin with one large glowing Ulsan marker. Connect it to the callout with a leader line. Draw the actual route or arrows toward the overseas customers. Enlarge the callout text and the sources line."
+}

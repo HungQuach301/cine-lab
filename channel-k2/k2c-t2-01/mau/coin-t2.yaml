@@ -1,0 +1,209 @@
+places:
+- Lockport
+- Mohawk Valley
+- Buffalo
+- Albany
+- New York
+people:
+- name: DeWitt Clinton
+  photo: MET-11602
+- name: Stephen Van Rensselaer
+  photo: MET-10991
+anchors:
+- wagon_cost
+- canal_tenth
+numbers:
+  wagon_cost:
+    v: 90
+    text: $90–125
+    kind: actual
+    year: 1825
+    unit: $/ton
+    src: NYSAPT
+    say: ninety to one hundred twenty-five dollars
+  canal_tenth:
+    v: 0.1
+    text: 1/10
+    kind: actual
+    year: 1825
+    unit: ratio
+    src: ECNHC-NS
+    say: a tenth
+sources:
+  NYSAPT:
+    short: NYS Archives Partnership Trust, "Canal at Work"
+    url: https://www.nysarchivestrust.org/exhibits/erie-canal/canal-work
+  ECNHC-NS:
+    short: Erie Canalway NHC, National Significance
+    url: https://eriecanalway.org/application/files/9814/5133/0135/07-2_National_Significance_Final.pdf
+  ECNHC-FF:
+    short: Erie Canalway NHC, Fast Facts
+    url: https://eriecanalway.org/learn/history-culture/fast-facts
+  NPS-ALPO:
+    short: NPS, Allegheny Portage Railroad NHS
+    url: https://www.nps.gov/alpo/learn/historyculture/allegheny-portage-railroad.htm
+  NPS-ALPO-ML:
+    short: NPS, Pennsylvania Main Line Canal
+    url: https://www.nps.gov/alpo/learn/historyculture/pennsylvania-main-line-canal.htm
+  LOC:
+    short: Library of Congress, Opening of the Erie Canal
+    url: https://guides.loc.gov/this-month-in-business-history/october/opening-erie-canal
+  ECNHC-LOCK:
+    short: Erie Canalway NHC, Lockport Locks District
+    url: https://eriecanalway.org/find-resources/case-studies/lockport-locks
+  DVIDS-978155:
+    short: USACE Buffalo District via DVIDS
+    url: https://www.dvidshub.net/video/978155
+  PRELINGER-NEWSMAG1957:
+    short: Prelinger Archives
+    url: https://archive.org/details/NewsMaga1957
+id: coin-t2
+title: T2 0c coin row test t2
+out: /var/tmp/cine-out/k2v-shots/coin-t2
+heroes:
+  h_num:
+    hero: relief/map
+    opt:
+      relief: erie
+      palette: sepia
+      regions:
+      - id: ny
+        state: New York
+        color: '#3CC2B0'
+        at: -1
+        lift: 3
+        fill: 0.16
+      places:
+      - buffalo
+      cols:
+      - id: wagon
+        at:
+        - -78.45
+        - 42.8
+        kind: coins
+        layout: row
+        rowDir: 0
+        n: 10
+        t:
+        - 0.6
+        - 2.6
+        r: 4.6
+        gap: 2.35
+      - id: canal
+        at:
+        - -78.45
+        - 42.665
+        kind: coins
+        layout: row
+        n: 1
+        t:
+        - 3.5
+        - 3.6
+        r: 4.6
+      pins:
+      - id: wagon
+        at:
+        - -78.79
+        - 42.8
+      - id: boat
+        at:
+        - -78.79
+        - 42.62
+      cam:
+      - t: 0
+        lon: -78.25
+        lat: 42.69
+        dist: 146
+        tilt: 58
+        head: 0
+      - t: 5.6
+        lon: -78.23
+        lat: 42.7
+        dist: 134
+        tilt: 60
+        head: 2
+      - t: 7
+        lon: -78.22
+        lat: 42.705
+        dist: 130
+        tilt: 61
+        head: 3
+segments:
+- id: N
+  part: BODY
+  dur: 7
+  beats:
+  - t: 0
+    k: cut
+    s: bản đồ gần Buffalo
+  - t: 0.3
+    k: sticker
+    s: xe hàng (vật 3D)
+  - t: 0.6
+    k: number
+    s: hàng 10 xu rơi lần lượt
+  - t: 2.2
+    k: number
+    s: nhãn $90–125
+  - t: 3.3
+    k: sticker
+    s: thuyền (vật 3D)
+  - t: 3.5
+    k: number
+    s: 1 đồng xu kênh
+  - t: 4.1
+    k: number
+    s: nhãn 1/10
+  - t: 5.6
+    k: cam
+    s: máy đổi hướng, tiến vào
+  shots:
+  - tpl: plate
+    at: 0
+    type: map
+    scene_id: relief/map
+    camera_id: relief-num-push
+    places:
+    - buffalo
+    p:
+      hero: h_num
+      stickers:
+      - a: st:wagon
+        img: stk:wagon
+        at: 0.3
+        px: 135
+      - a: st:boat
+        img: stk:boat
+        at: 3.3
+        px: 125
+      tags:
+      - a: col:wagon
+        s: $90–125
+        sub: a ton, Buffalo to New York, by wagon
+        big: true
+        kind: actual
+        at: 2.2
+        side: auto
+        prefer:
+        - left
+        - up
+        - right
+        c: '#F2C14E'
+        num: wagon_cost
+      - a: col:canal
+        s: 1/10
+        sub: of the overland cost, by canal
+        big: true
+        kind: actual
+        at: 4.1
+        side: auto
+        prefer:
+        - down
+        - right
+        - left
+        c: '#3CC2B0'
+        num: canal_tenth
+      cap:
+      - s: Each coin is one tenth of the wagon cost
+        at: 0.8
+      src: 'Source: NYS Archives, Erie Canalway NHC · Terrain: USGS 3DEP'

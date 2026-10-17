@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "Stylized relief terrain with bathymetry contours, gantry cranes and ships. The year badge and Ulsan label are bold and clear, and the visuals show a shipyard being built. The sources line is small and low-contrast on a phone. The cranes and ships are flat sticker-like icons floating on the map. The Ulsan pin is a little detached from the yard."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 6, "flags": ["confusing"], "note": "Satellite-style terrain with state borders looks photoreal and moody. The map does not make clear which state or region this is. The Minneapolis callout is overloaded: a city name plus the Fed bank name and date, and the pin is tiny. The bottom text is a quote and a two-line sources block, and the sources text is small and gray on dark, so it is hard to read on a phone. The map is flat and murky, and there is no visual subject beyond a dot."},
+ "better": "X",
+ "why": "X shows what the story is about (a shipyard in Ulsan, 1971–74) with a clear year badge and place label, while Y is a murky map with a tiny pin and a cluttered callout that makes the place and the point hard to take in.",
+ "top_fix_for_weaker": "Make the map readable and the callout tighter. Brighten and add contrast to the terrain, highlight Minnesota with a lighter fill and a thicker outline, enlarge the Minneapolis pin, and shorten the callout to 'Minneapolis' alone. Move the Fed attribution and date into the sources line, and enlarge the sources text."}
+```

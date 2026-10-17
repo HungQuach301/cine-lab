@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good terrain render with a real 3D feel, soft lighting and consistent icon style with drop shadows. But the four icons (coin, document, ship, gantry crane) have no labels and no visible relation to the caption. 'No source measures how much each factor counts' does not tell you what the factors are. The map location is also unclear. The caption text is large enough and sits on a gradient, but the sources line is small for a phone. The icons are small."
+ },
+ "Y": {
+  "craft": 3,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A flat dark UI card on a blurred background with a checklist. It looks like a PowerPoint slide, with no 3D, no motion cues and no visual content. The lower third of the card is empty, and the background buildings are too blurred and dark to mean anything. The structure is clear: a heading plus three items. The grey sub-lines are small and low contrast, and the longest line is too small for a phone."
+ },
+ "better": "X",
+ "why": "X is a real 3D-rendered scene with depth and lighting, while Y is a flat text slide, although Y is easier to understand at a glance.",
+ "top_fix_for_weaker": "Replace the text card with a 3D scene of the three locks (map, stairwell, bank line) as labeled objects, each lighting up in turn. Keep only 2\u20134 words per lock on screen, at least 2x larger, with high-contrast white text, and drop the grey sub-lines to voiceover or captions."
+}

@@ -1,0 +1,60 @@
+```json
+{
+  "main_message": "The US didn't lose shipbuilding mainly because of high wages. It stopped getting orders: wartime government demand ended, the subsidy ended, and the Jones Act market is too small for scale. Korea and China built yards around export orders and state support. Philadelphia is now getting orders again, from a Korean owner.",
+  "hook_strength_1to10": 6,
+  "would_keep_watching_after_15s": true,
+  "why_hook": "The Nov 9 deadline, the 3-ships-a-day vs 0.04% contrast and the Korean-owned Philly yard are good. But the first minute is a stack of statistics plus a disclaimer, and it mixes units: ship counts and 'ships a day' against tonnage share. I stayed because the 'wages' question promises a counterintuitive answer.",
+  "story_through_people_1to10": 5,
+  "people_you_remember": "Henry Kaiser built Richmond yards for the British and then for the Maritime Commission. Chung Ju-yung wanted to build Hyundai's yard and ships at the same time, with a Greek owner's order in hand. Wesley Jones wanted Alaska cargo routed through Seattle. Park Chung Hee pushed heavy industry for export. Lee and McClintock want the Jones Act repealed. They're mostly names with one-line motives, and the Chung turtle-banknote story is the only real scene.",
+  "mechanisms_build_on_each_other_1to10": 7,
+  "mechanisms_in_your_words": "1) Wartime government orders created the boom, then ended. 2) The Jones Act gave a protected but small market. 3) The construction subsidy ended in the 1980s, which may explain the output drop. 4) The loop: high price, few orders, no scale, high price. 5) Korea and China built for export with state support, and the first order came before the yard existed. 6) Today's fees and Hanwha's investment are an attempt to restart the order flow. They connect fairly well, but the video never says how the Jones Act, the subsidy and naval work fit together.",
+  "ending_answers_opening_question": true,
+  "ending_comment": "Roughly yes: 'stopped getting the orders' answers 'why so few ships'. But it then hedges with 'no source settles it', and the line 'America didn't forget how to build ships' is rhetorical. The video never shows that modern yards can build competitive commercial ships. Navy work, which keeps the surviving yards alive, is almost absent.",
+  "boring_or_slow": [
+    {"seg": "00", "why": "Disclaimer and a barrage of figures before any story starts."},
+    {"seg": "01", "why": "Long run of numbers (122 days, 39 days, 2,710, 747, 702,000) with little to hold onto."},
+    {"seg": "03", "why": "Subscribe plug dropped into the middle of the central argument, then a run of cost ratios."}
+  ],
+  "confusing": [
+    {"seg": "00", "quote": "four hundredths of one percent", "why": "This is tonnage share. It's then followed by ship-count and 'ships a day' stats, so the unit keeps changing."},
+    {"seg": "02", "quote": "around five ships a year", "why": "Ship counts across eras, with no tonnage and no ship type. The 1970s '15-25 ships' vs today's 5 hides size, naval vs commercial, and Jones Act vs ocean-going."},
+    {"seg": "02", "quote": "federal subsidy", "why": "Never named. It was the Construction Differential Subsidy, a 1936 Act program that ended around 1981. Nothing is said about Title XI loan guarantees, cargo preference or Navy work."},
+    {"seg": "07", "quote": "Less than a month later... suspended", "why": "It doesn't say why. The suspension came out of the US-China trade truce, which is the key context."},
+    {"seg": "03", "quote": "Our read", "why": "'Our read', 'honest part' and 'the record says' keep shifting between sourced fact and the channel's own inference."},
+    {"seg": "all", "quote": "[06]", "why": "The segment numbering skips from 05 to 07, so something may be missing."}
+  ],
+  "felt_biased_or_one_sided": [
+    {"seg": "02", "quote": "higher prices for Americans", "direction": "Slight tilt toward Jones Act critics.", "why": "Supporters get one sentence and critics get named politicians, and the video never explains what the Jones Act actually does for yards. In practice it is the main reason any US commercial yard survives, which cuts against the video's own claim about missing orders."},
+    {"seg": "04", "quote": "Our read: from the start, this yard was built to sell abroad", "direction": "Toward the export-order thesis.", "why": "Korea's success is framed as a clean story of a single customer. It skips Japanese competition and the role of state-directed credit (Korea Eximbank), which came before the first order."},
+    {"seg": "08", "quote": "didn't forget how to build ships", "direction": "Toward the 'orders, not wages' thesis.", "why": "The video has already conceded that cost, including wages, matters. A reader could fairly say wages and productivity matter more than this line allows."}
+  ],
+  "political_lean_detected": "none",
+  "lean_detail": "It's even-handed on the fees (it quotes the Chinese ministry and the trade associations) and on the Jones Act (supporters and critics). If anything it leans slightly toward a structural, demand-side view over the wages and protectionist stories.",
+  "blames_a_group_of_people": false,
+  "blame_detail": "",
+  "claims_you_doubt": [
+    {"seg": "00", "quote": "three cargo ships a day", "why": "The ~3/day figure is across all merchant types and yards at the 1943 peak, mostly Liberties, and the one-off 4-day Peary was a stunt. Using it as the baseline for 'what America could do' compares Liberty hulls to modern ships and ignores wartime cost-no-object conditions."},
+    {"seg": "02", "quote": "Jones... Port of Seattle", "why": "The Seattle/Alaska motive is a popular but contested origin story, and the 1920 Act had broader purposes, such as keeping a merchant marine built in WWI."},
+    {"seg": "02", "quote": "owned and crewed by Americans", "why": "A simplification. It means US-citizen-owned (75% citizen ownership rules) and mostly US-citizen crew, and the shipbuilding requirement is about the hull's build, not the whole cost."},
+    {"seg": "02", "quote": "some observers see its end as the main reason", "why": "The CDS ended in 1981 (OBRA). The 1970s five-percent share was already propped up by subsidy and Navy work, and the video doesn't mention the shipbuilding boom/bust of the 1970s-80s, so attribution to the subsidy ending is thin."},
+    {"seg": "03", "quote": "four times the world price", "why": "A single consultant estimate, and the 20%/double/triple series are not like-for-like across eras, ship types or sources."},
+    {"seg": "05", "quote": "ninety-one billion dollars from 2006 to 2013", "why": "A contested academic estimate, presented without much caution next to a government claim."},
+    {"seg": "07", "quote": "from one and a half ships a year to twenty", "why": "Twenty a year at Philly is a very large jump for one yard. The video does flag it as unbuilt, but it never says how large that is in tonnage or ship type."}
+  ],
+  "questions_left_unanswered": [
+    "How much of the surviving US yard base depends on Navy and Coast Guard work, and how does that interact with the commercial-order story?",
+    "Why was the fee suspended? What did the US-China deal give or take?",
+    "What about Japan, and Korea's later rise to dominance in LNG carriers and complex ships?",
+    "Where do ship finance (Title XI, export credit, Korean state banks) and the missing US export financing fit?",
+    "What is the actual current US commercial output in tonnage, versus the 'five ships a year' count?",
+    "Why does the video skip from segment 05 to 07, and what happened to 06?"
+  ],
+  "trust_1to10": 7,
+  "best_moment": "[03]: the loop of high prices, few orders and no scale. It reframes the wage question and is clearly labelled as the channel's own inference, and I'd credit that honesty.",
+  "top3_fixes": [
+    "Fix the units: use deadweight or gross tons, or compensated gross tons, for every era comparison. Separate Jones Act hulls, Navy builds and ocean-going commercial ships, and drop 'ships per year' comparisons across eras.",
+    "Add the missing mechanisms: name the Construction Differential Subsidy and its 1981 end, Title XI, cargo preference, and Navy work as the real base load for yards. Explain why the Jones Act protected market stayed small, and give a sentence on Japan and Korean financing.",
+    "Cut the opening stat barrage and the mid-argument subscribe plug. Open on the Nov 9 deadline and one character, such as Kaiser or Chung, then give the context for the fee suspension. Fix the segment numbering."
+  ]
+}
+```

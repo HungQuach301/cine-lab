@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "A matted archival print sits on a dark vignette, with a gold-rule name card beside it. The framing looks designed and the person is identified at once. The bottom gradient washes out the lower part of the mat, and the large empty dark areas on the left and right are a bit wasteful. The credit line is small but readable."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "A full-bleed foggy sepia street scene with a caption at the bottom. The photo is atmospheric. The caption 'judges deferred to local lawmakers' has no visible link to a tree-lined street and a mansion, so the viewer can't tell what place or document this is. The credit line is long and low-contrast over the dark gradient, and it will be small on a phone."
+ },
+ "better": "X",
+ "why": "X tells you who the person is and when the photo was taken and has a deliberate layout, while Y is a pretty but generic street with a caption that doesn't match the image.",
+ "top_fix_for_weaker": "Add a specific location and date label (for example 'Detroit, c. 1905'). Tie the image to the claim, for example with a highlighted building and a callout. Enlarge the credit text and give it a stronger backing."
+}

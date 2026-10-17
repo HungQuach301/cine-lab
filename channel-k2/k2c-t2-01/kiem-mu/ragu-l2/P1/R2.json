@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Stylized relief terrain with bathymetry contours and gantry cranes and ships. It has a clear focal point, a story-relevant visual and a readable date chip. Weaknesses: the Ulsan label is small and its leader dot is faint, and the cranes and ships look like clip-art stickers pasted on the map (no shadow integration, too small for the frame). The right half is a wasted empty sea. The terrain is a bit muddy and low-contrast. The source line is small, but the caption is fine."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Satellite imagery with state borders has a moody, believable look, but it is dim and murky. There is no zoom or focus on the city. The tiny pin is almost lost, and the large callout box carries the source text (Federal Reserve Bank, Oct 2026) instead of place information. The viewer cannot tell which state this is or why Minneapolis matters, and the map gives no apartment or rent context. The caption and source lines are small and crowd the bottom, and the callout label sits far from its pin. It looks like a generic map, not a story-setting visual."
+ },
+ "better": "X",
+ "why": "X ties place, era and subject (shipyard) together in a legible stylized scene, while Y shows a dim generic map with a source label standing in for meaning and a barely visible pin.",
+ "top_fix_for_weaker": "Zoom the camera into the Twin Cities metro and brighten the imagery. Put a clear state name and a large pin on it, add a 3D apartment-block or building cluster with the rent-growth figure on the map, and change the callout to say what happens there (move the Fed source into the credits line)."
+}

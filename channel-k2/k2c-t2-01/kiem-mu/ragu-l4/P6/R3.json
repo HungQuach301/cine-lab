@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "Archival newsreel in a cream border with a clear '1944' badge and a caption that names place, event and source. The footage is small and soft, and the background is a muddy blur. The caption box has a dead gap between the two lines, so the frame feels a bit like a template slide."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 5,
+  "clarity": 6,
+  "flags": [
+   "illegible_text",
+   "confusing"
+  ],
+  "note": "Sharp, full-bleed aerial footage in good light, which looks more cinematic. The white caption sits over busy rooftops and trees with no scrim, so contrast is weak. The small gray source line is nearly unreadable on a phone. The question 'works that way?' has no context in the frame, and nothing says that this is Chicago or what the map refers to."
+ },
+ "better": "X",
+ "why": "X is easier to read on a phone and its caption anchors place, year and source, while Y's text fights a busy background and its message is vague.",
+ "top_fix_for_weaker": "Put a dark gradient or solid scrim behind the bottom text, make the source line larger and brighter, and add a clear location or year label, for example 'Chicago, today', so the question has context."
+}

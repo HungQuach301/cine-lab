@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "A dark card holds a three-item checklist over a blurred background. The text is clean and the hierarchy is clear. The body text is small and gray, and the card's lower third is empty. The blurred 3D buildings are too dim to read as anything, so this looks like a PowerPoint recap. The checkmarks are decorative. The three 'locks' have no visuals, and the numbers (4 stories, 5 homes) don't stand out."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "A 3D terrain map of San Francisco Bay, with soft lighting, depth and a gradient under the caption. The location tag and the caption are large and high-contrast. The four icons (coin, document, ship, crane) are small and unlabeled, so the viewer can't tell which 'factor' each stands for. The icons are also too small for a phone. The sources line sits at the very bottom, close to the title-safe edge. Overall it looks like a proper documentary visual."
+ },
+ "better": "Y",
+ "why": "Y has real spatial depth, a clear place cue and high-contrast text, while X is a flat dark text card with an empty lower third and tiny gray body copy.",
+ "top_fix_for_weaker": "Replace the checklist card with three large icon tiles (map, stairs, bank) that fill the frame. Give each tile a bold 1\u20132 word label and a big number ('4 stories', '5 homes'). Brighten the 3D background so it reads as a scene, and raise the body text to about 36px or more in near-white."
+}

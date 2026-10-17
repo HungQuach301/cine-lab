@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "cluttered",
+   "confusing",
+   "illegible_text"
+  ],
+  "note": "The labels sit on top of the bars they describe. The orange label covers its own bar and the left label's callout line crosses the 6% label. The 13% label is faded and overlaps the second green bar, so 'of total construction cost' is low contrast. The 6% label has no description, so the viewer can't tell what it measures. Every label carries an 'ACTUAL' badge, and a second 'ACTUAL' box sits at bottom right. This reads as a leftover debug or status tag and adds noise. The bars are nearly the same height, so 6%, 7% and 13% don't look proportional (13% should be about twice 6%). The bar materials and dark floor grid are decent, but the scene is mostly empty dark space. The bottom caption text is large and legible."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 3,
+  "clarity": 2,
+  "flags": [
+   "confusing",
+   "illegible_text"
+  ],
+  "note": "The terrain render is clean: shaded relief, river, white-outlined coins and soft shadows. But there is no title, label or number, and the only text is a small source credit. Six coins on a map mean nothing without a caption. It isn't clear what place this is, what the coins count, or why one coin is separated from the other five. The source line is legible but tells the viewer nothing about the content. The bottom third is a dark gradient with nothing in it."
+ },
+ "better": "tie",
+ "why": "X has numbers and context but they are poorly placed, while Y is better looking but gives the viewer no way to understand what it shows, so each fails differently.",
+ "top_fix_for_weaker": "For X: lift the labels clear of the bars with a single clear leader line each. Remove the 'ACTUAL' badges. Give 6% a description. Make the 13% label opaque and high contrast. Scale the bar heights to the values."
+}

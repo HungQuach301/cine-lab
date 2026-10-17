@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "Framed sepia newsreel still on a blurred brown background, with a clear year badge and a caption that says exactly what the shot is. The caption box has a big dead gap between the title and the source line. The scene is small in the frame, so the footage is soft and low-res. It also looks like a slide rather than motion footage. The year badge and caption are legible. The credit line is small on a phone."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "illegible_text"
+  ],
+  "note": "Sharp, full-bleed aerial footage with good light and depth, which looks much more cinematic. White caption text sits over busy rooftops with only a faint gradient, so contrast is uneven. The source line is tiny and low-contrast and would be hard to read on a phone. The caption is a rhetorical question about 'the map' that doesn't match the image, so it is unclear what the viewer is looking at or what it shows."
+ },
+ "better": "Y",
+ "why": "Y has far stronger footage and composition, while X's slide-like framing and wasted caption box hold it back, though X is more informative.",
+ "top_fix_for_weaker": "In X, run the footage full-bleed or much larger with a slow push-in, and replace the tall caption box with a compact lower-third. Keep the year badge, and make the source line bigger."
+}

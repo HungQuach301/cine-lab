@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "A matted archival print sits on a dark vignetted background with a clear name/role/date lockup and a credit chip. The text is large and high-contrast, and it tells you who the person is. The photo is small and off-center, and the left half is empty. The right-hand text block is slightly detached from the photo. The credit chip overlaps the bottom edge of the mat, which is minor."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "confusing",
+   "illegible_text"
+  ],
+  "note": "A full-bleed street photo is atmospheric and well toned. White text sits on a light, hazy area with only a thin gradient behind it, so contrast is weak. The source line is small and thin, and it is long and low-contrast on a phone. The caption 'judges deferred to local lawmakers' has nothing to do with the image, a street of mansions. The viewer can't tell what place or subject is shown."
+ },
+ "better": "X",
+ "why": "X names its subject clearly with large, high-contrast text. Y has a pretty but unrelated image, and its caption and source line sit on a washed-out background.",
+ "top_fix_for_weaker": "Put the caption on a solid or much darker bottom scrim at a larger size, and add a place and date label (e.g. 'Detroit, c.1900s'). Shorten the source line and enlarge it. Pick an image that actually illustrates the claim, or caption what the image shows."
+}

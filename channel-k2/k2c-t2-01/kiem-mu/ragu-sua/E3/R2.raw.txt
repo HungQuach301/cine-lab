@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "Good stylized terrain map with soft water gradient and a location tag. The four sticker icons (coin, document, ship, crane) are small and unlabeled, so the viewer can't tell what the 'factors' are. The caption says 'each factor' but no factor is named. The sources line is small and sits low and far from the caption. The bottom gradient is dark enough to keep the text legible."},
+ "Y": {"craft": 3, "readability": 6, "clarity": 6, "flags": ["flat_slide_look", "empty_frame", "illegible_text"], "note": "This is a dark PowerPoint-style recap card over a blurred background. The title and bullets are cleanly set, but the sub-lines are small, low-contrast grey and will be hard to read on a phone, especially the long third one. The bottom third of the card is empty. The background is murky, with no visual tie to buildings, stairwells or banks. The abstract metaphors ('map', 'stairwell', 'bank line') are never shown."},
+ "better": "X",
+ "why": "X is a real designed scene with depth and a clear sense of place, while Y is a flat text card with small grey text and wasted space.",
+ "top_fix_for_weaker": "Replace the static card with a visual per item (a building with a stairwell and a bank icon). Make the three headings large, put each factor's key number (4 stories, 5 homes) in big type at 40px or more, use brighter sub-text, and reveal the items one at a time. Fill or shrink the card so the empty bottom area is gone."}
+```

@@ -190,6 +190,46 @@ class T(unittest.TestCase):
                 p = sh['p']
                 for x in filter(None, [p.get('src'), ((p.get('score') or {}).get('board') or {}).get('foot')]): self.assertLessEqual(len(x), 70, x)
 
+    def test_t2_coin_row_thickness(self):
+        """T2 0c (Kinh thánh §4, duyệt 15/10): hàng xu có độ dày (0,42 r), cạnh khía (bumpMap) + gờ mặt; shot số liệu mẫu nghiêng máy thấp (tilt ≥ 55° khỏi phương đứng)"""
+        import yaml
+        js = open(os.path.join(prep.REPO, 'design/k2v/relief.js')).read()
+        for k in ("th = c.th || r * (ROW ? 0.42 : 0.24)", "bumpMap: tx", "ROW ? [edge, gold, gold] : gold", "new THREE.TorusGeometry(r * 0.7"): self.assertIn(k, js)
+        E = yaml.safe_load(open(os.path.join(prep.REPO, 'channel-k2/k2c-t2-01/mau/coin-t2.yaml')))
+        self.assertTrue(all(k['tilt'] >= 55 for k in E['heroes']['h_num']['opt']['cam']))
+
+    def test_t2_footage_frame_in_frame(self):
+        """T2 0c: nguồn < 720p → khung trong khung (tỉ lệ gốc, phóng ≤ 1,5×, viền); nguồn ≥ 720p → phủ kín như cũ"""
+        import json, subprocess, tempfile
+        with tempfile.TemporaryDirectory() as d:
+            for name, size, want in (('lo', '480x360', True), ('hi', '1280x720', False)):
+                f = os.path.join(d, name + '.mp4')
+                subprocess.run(['ffmpeg', '-v', 'error', '-y', '-f', 'lavfi', '-i', f'testsrc2=size={size}:rate=24', '-t', '1.5', '-pix_fmt', 'yuv420p', f], check=True)
+                o = os.path.join(d, 'o' + name)
+                r = subprocess.run(['node', os.path.join(prep.REPO, 'scripts/k2/hero.js'), '--hero', 'footage/clip', '--out', o, '--dur', '0.5', '--opt', json.dumps({'file': f, 'grade': 'sepia'})], capture_output=True, text=True)
+                self.assertEqual(r.returncode, 0, r.stderr[-800:])
+                fr = json.load(open(os.path.join(o, 'meta.json')))['footage']['frame']
+                if want:
+                    self.assertIsNotNone(fr); self.assertLessEqual(fr['scale'], 1.5); self.assertAlmostEqual(fr['box'][0] / fr['box'][1], 480 / 360, places=2); self.assertGreater(fr['border'], 0)
+                else:
+                    self.assertIsNone(fr)
+
+    def test_t2_rhythm_reused_hero(self):
+        """T2 G1b: mốc opt của cảnh dùng lại quy theo frame0/speed của shot; mốc ngoài khung shot không tính"""
+        import importlib.util
+        sp = importlib.util.spec_from_file_location('k2rhythm', os.path.join(prep.REPO, 'scripts/k2/rhythm.py')); r = importlib.util.module_from_spec(sp); sp.loader.exec_module(r)
+        E = {'heroes': {'h': {'opt': {'cam': [{'t': 0}, {'t': 5}, {'t': 12}, {'t': 30}]}}}}
+        sg = {'dur': 30, 'shots': [{'at': 0, 'p': {'hero': 'h'}}, {'at': 10, 'p': {'hero': 'h', 'frame0': 240, 'speed': 0.5}}]}
+        T = r.spec_times(E, sg)
+        self.assertIn(5.0, T); self.assertNotIn(12.0, T)   # shot 1: 0–10 s; mốc 12 thuộc giờ cảnh, không phải giờ đoạn
+        self.assertIn(14.0, T)                                # shot 2: 10 + (12 − 10)/0,5
+        self.assertNotIn(50.0, T); self.assertNotIn(40.0, T)  # 10 + (30 − 10)/0,5 = 50 > hết đoạn
+        # K 1.11 O5: đặc tả đã giải (ll.load) đổi frame0 → off — đọc off khi không có frame0; opt.hl dạng số (T1) bỏ qua, không lỗi
+        sg2 = {'dur': 30, 'shots': [{'at': 0, 'p': {'hero': 'h'}}, {'at': 10, 'p': {'hero': 'h', 'off': 240, 'speed': 0.5}}]}
+        self.assertEqual(r.spec_times(E, sg2), T)
+        E3 = {'heroes': {'g': {'opt': {'hl': 2}}}}
+        self.assertEqual(r.spec_times(E3, {'dur': 5, 'shots': [{'at': 0, 'p': {'hero': 'g'}}]}), [0.0])
+
 
 if __name__ == '__main__':
     unittest.main(verbosity=1)

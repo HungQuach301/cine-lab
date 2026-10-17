@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 5,
+  "clarity": 3,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "flat_slide_look"
+  ],
+  "note": "The three cubes are nearly the same size, so 7%, 6% and 13% can't be compared by height. The 13% card is semi-transparent and sits on the cube, so its text is low-contrast and muddy. The left label covers the orange cube. The 'ACTUAL' tag repeats four times and means nothing to a viewer. The dark empty grid floor wastes space. The cards read as flat UI boxes."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "Real terrain with a river, and a readable 'Delaware River valley' place tag. One coin labeled 'world price' next to four coins labeled '\u22484\u00d7 ESTIMATE' shows the ratio at a glance. The coins have white outlines and a decent material, though the terrain looks a bit plain and flat. The labels are clean and high-contrast, and the layout is uncluttered. Minor issues: the coins are small, a coin is a slightly odd metaphor for a tanker, and the bottom caption area is a dead dark band."
+ },
+ "better": "Y",
+ "why": "Y shows the 1-vs-4 ratio at a glance in a clear place context with clean, legible labels, while X has overlapping, partly transparent labels and cubes that don't visually match their numbers.",
+ "top_fix_for_weaker": "Scale the cube heights to 6/7/13 so the 13% bar is about twice as tall as the others. Put the labels above or beside each bar with solid opaque cards and no overlap. Drop the repeated 'ACTUAL' tags. Add a ground reference or scene context instead of the empty dark grid."
+}

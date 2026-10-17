@@ -1,0 +1,60 @@
+{
+ "id": "LOC-FSA-8D18716",
+ "img": "/var/tmp/cine-out/k2v-cache/archive/loc-fsa-8d18716-owens.jpg",
+ "img_sha256": "fb76508a94c411f6a33393af3be627ac488e2f5b0d144c51512466543c81dff8",
+ "size": [
+  2400,
+  1948
+ ],
+ "mask": "design/k2v/cutouts/LOC-FSA-8D18716-mask.png",
+ "mask_sha256": "e0aa64d618f1bfbd40ccf9a428afc1a0c268d8f2b2f93c65679f95baf6e1f316",
+ "bg": "design/k2v/cutouts/LOC-FSA-8D18716-bg.jpg",
+ "bg_sha256": "cabf33fd6056c7c3a0861dafa7be227dd701b520be218cd7cceda45eed75ec12",
+ "model": "birefnet-general",
+ "model_file": "BiRefNet-general-epoch_244.onnx",
+ "model_sha256": "58f621f00f5d756097615970a88a791584600dcf7c45b18a0a6267535a1ebd3c",
+ "model_license": "MIT (ZhengPeng7/BiRefNet)",
+ "runtime": "rembg 2.0.85 + onnxruntime 1.31.0 (CPU, cục bộ)",
+ "steps": [
+  "model:birefnet-general",
+  "clean"
+ ],
+ "clean": {
+  "manh_roi_bo": 0,
+  "lo_lap": 0
+ },
+ "edge": {
+  "duong_vien_px": 6289,
+  "lech_tb_px": 0.216,
+  "lech_p95_px": 0.417,
+  "dai_mem_tb_px": 2.87
+ },
+ "edge_points_2x": [
+  [
+   1392,
+   522
+  ],
+  [
+   1063,
+   440
+  ],
+  [
+   1338,
+   225
+  ],
+  [
+   1424,
+   1187
+  ],
+  [
+   882,
+   594
+  ],
+  [
+   1725,
+   1213
+  ]
+ ],
+ "canh_bao": [],
+ "note": "Chỉ tách nền: lớp người = điểm ảnh gốc × alpha; không sinh hay vẽ lại điểm ảnh nào. Nền -bg.jpg = nền gốc lấp chỗ người + mờ (chỉ làm nền mờ/tối)."
+}

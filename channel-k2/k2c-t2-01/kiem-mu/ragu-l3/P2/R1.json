@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [],
+  "note": "Good-looking globe with satellite imagery. The Texas highlight is clear and the label is a clean card. The callout text is small on a phone. The frame shows a static region, not a route or movement. The globe is cropped and a lot of ocean is empty. The 'As of 12 Oct 2026' badge, the lower-third caption and the source line are all small."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Nice terrain render with a good sense of depth, and the route lines out to sea fit the 'customers abroad' point. The label card sits on top of the coastline and hides the city marker, and the orange pin is tiny. The yard marker is an unexplained yellow box. The route lines have no destination labels and run off the frame. The callout and source text are small, and '$107 output per person' needs a beat to parse."
+ },
+ "better": "X",
+ "why": "X has a clearly marked focal region and a label that names it, while Y's label hides the marker and its routes have no endpoints or labels.",
+ "top_fix_for_weaker": "Move the Ulsan label off the coast so the pin shows, make the pin and yard marker larger, label the route destinations, and raise the callout and source text size for phones."
+}

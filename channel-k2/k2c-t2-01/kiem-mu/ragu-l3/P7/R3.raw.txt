@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 9, "flags": [], "note": "Matted archival print on a dark vignette with a clean name lockup (name, role, date) beside it. Identifies who the person is at a glance. The gray gradient band at the bottom of the mat looks slightly muddy. The credit is small but readable. The print is off-center, but the text balances it."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "Full-bleed hazy street photo that looks good, but the caption sits on a busy, mid-tone dark gradient. The credit line is thin and small for a phone screen. 'In plain terms: judges deferred to local lawmakers' has no visual link to a tree-lined street with a mansion. It is unclear what the viewer should look at, and there is no place or date label."},
+ "better": "X",
+ "why": "X tells the viewer exactly who and when with a large, high-contrast label, while Y's generic street scene has a caption that doesn't match the image and a small credit line.",
+ "top_fix_for_weaker": "Add a place/date label to the photo (e.g. 'Detroit, c. 1900') or crop to the building the caption refers to. Make the caption larger on a solid or stronger dark scrim. Enlarge the source line and shorten it to 'Photo: Detroit Publishing Co., Library of Congress'."}
+```

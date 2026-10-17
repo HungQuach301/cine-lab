@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 5, "flags": ["flat_slide_look", "empty_frame"], "note": "A dark text card over a blurred, nearly invisible background. It is a plain checklist slide with no visual support. Body text is small, grey and low-contrast. The bottom third of the card is empty, and the checkbox icons carry no meaning."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 8, "flags": [], "note": "A shaded-relief terrain map of the San Francisco Bay with a clean comparison card (3/day in 1943 vs ~5/year in 2023). The contrast reads instantly and the place is clear. The card covers part of the map and its text is a bit small for a phone. The source credit at bottom left is thin but legible. The terrain looks a little synthetic, but it is well lit and has depth."}, 
+ "better": "Y",
+ "why": "Y puts a striking number comparison on a real, recognizable map, while X is a flat text slide on a blurred, empty background.",
+ "top_fix_for_weaker": "Replace the blurred backdrop with a sharp, relevant visual, such as a clear 3D building cutaway or diagram. Show each of the three locks as its own icon or visual with a large short label, and reveal them one at a time. Raise the sub-text size and contrast, and shrink the card so it doesn't leave empty space."}
+```

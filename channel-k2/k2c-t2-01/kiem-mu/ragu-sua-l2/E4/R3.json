@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "This is a plain dark text card over a blurred background, and the bottom third of the card is empty. The headline is fine. The sub-lines are small, thin and low-contrast grey, so they will be hard to read on a phone. The orange checkboxes and the 'three locks' heading are a clear structure, but the card has no visual anchor, and the 'locks' metaphor never shows up as an image. The recap is understandable but uninspiring."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map is attractive, with real depth, and the isometric icons are clean. The caption is white on a dark gradient, so it is readable. The icons (coin, document, ship, crane) have no labels, so the viewer can't tell which factor each one stands for, or what 'each factor' refers to. The 'Sources' line is small and sits at the bottom edge, where phone UI may crop it. The place is unclear: it looks like San Francisco Bay but nothing says so. The caption is a caveat, not a summary."
+ },
+ "better": "Y",
+ "why": "Y has real visual craft and a legible caption, while X is a flat, half-empty text card, even though Y's unlabeled icons make its message less clear.",
+ "top_fix_for_weaker": "Rework X so it isn't a bare text card. Enlarge the text, use brighter body text with more contrast, and fill the card height. Give each lock (map, stairwell, bank line) a bold icon or a number, and use a relevant background image instead of a blurred one."
+}

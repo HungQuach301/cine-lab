@@ -1,0 +1,10 @@
+Assets: relief backgrounds built by scripts/k2/relief_build.py
+  korea (Ulsan; --dem skadi --coast dem), pnw (Seattle–Alaska; --dem skadi, ppd 150), sfbay (Richmond; USGS 3DEP), eastus (Philadelphia/Delaware; USGS 3DEP --coast dem)
+Skadi tiles: AWS Open Data "Terrain Tiles" (s3://elevation-tiles-prod/skadi/), Mapzen/Tilezen joerd.
+Attribution text (verbatim, tilezen/joerd docs/attribution.md, fetched 2026-10-15; full copy: terrain-tiles-joerd-attribution.md):
+  "United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey."
+  "SRTM is a public domain dataset ... No domestic copyright will be asserted." / "3DEP ... in the public domain and may be used without restriction."
+  "Canada terrain data contains information licensed under the Open Government Licence – Canada;"  (pnw tiles north of 49°N may draw on Canadian data → credit kept in the description)
+  "Global ETOPO1 terrain data U.S. National Oceanic and Atmospheric Administration" (ocean floor, if used by the tiles)
+Credits: on screen "Terrain: SRTM (USGS)" / "Terrain: USGS 3DEP"; description adds the Canada OGL line and NOAA ETOPO1.
+Coastline: Natural Earth 1:10m (public domain) for sea mask, replaced near Ulsan by a DEM-derived shoreline (--coast dem, G1b fix (c)).

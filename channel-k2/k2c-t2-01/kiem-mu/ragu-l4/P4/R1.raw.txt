@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 9, "clarity": 9, "flags": [], "note": "The tilted print sits on a warm brown background with a clean side caption: a gold rule, a bold name, and a role/place/year line. The name, job and location are readable at a glance. The credit pill overlaps the bottom of the photo edge slightly. The right third is somewhat empty, but that reads as intentional negative space."},
+ "Y": {"craft": 6, "readability": 6, "clarity": 7, "flags": ["cluttered"], "note": "The photo is a nice tilted print, but the dark gradient bar covers the bottom of the print and the photo's lower edge. The headline caption runs over the white mat, so the text sits on a mixed background. The source line is small and low-contrast grey, so it is hard to read on a phone. The headline itself is legible, and the subject is clear because the caption names him."},
+ "better": "X",
+ "why": "X has a clean caption block on a plain dark area with high contrast and a clear name/role/place/year hierarchy, while Y's caption bar overlaps the photo and its small source line is weak on a phone.",
+ "top_fix_for_weaker": "Move the caption off the photo into the empty dark area, as X does: put the name on one line with the role and year beneath it. Make the source line larger and brighter, or drop it. Shift the print up or aside so the gradient bar doesn't cover the bottom of the photo."}
+```

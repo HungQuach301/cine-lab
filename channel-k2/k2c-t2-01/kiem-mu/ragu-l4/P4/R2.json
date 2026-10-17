@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "The tilted print has a good frame and shadow. The warm sepia background and the yellow accent bar next to the name block give a clean split layout. The credit pill overlaps the bottom edge of the print and is a bit heavy. The right column is empty and dark, so the balance is slightly lopsided. The name, role, place and year are large and easy to read."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "text_overlap",
+   "cluttered"
+  ],
+  "note": "The print is well lit and has a nice torn-edge detail. A dark gradient band cuts across the bottom of the photo, and the caption sits on top of the print, which is a white-to-grey patch that lowers contrast. The source line is small and low-contrast, and it is cropped awkwardly against the tilted print. The headline caption is readable but busy against the photo. Hoover is identified clearly, but the band hides the lower part of the photo, including his legs."
+ },
+ "better": "X",
+ "why": "X keeps its text in a separate, clean, high-contrast panel and shows the whole photo, while Y puts its caption on top of the photo, which lowers legibility and hides part of the image.",
+ "top_fix_for_weaker": "Move the caption and source out of the photo into a clean dark area. For example, shift the tilted print left, as in X, and put the title and source in a right-hand column. Increase the source text size, or use a solid caption pill instead of a gradient that overlaps the photo."
+}
