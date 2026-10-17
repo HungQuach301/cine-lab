@@ -62,11 +62,14 @@ export function makeText(W, H) {
     text(s, ax, ay - 64 * S - 16 * S, 38, '#ffffff', { align: 'center', w: 600, alpha: a, role: 'tag' }); anch = false; g.globalAlpha = 1;
   }
   function chrome(t, year, pinZoom, idx, method, idxSrc) {   // năm + chỉ số + nhãn phương pháp (+ V5b-2a: dòng nguồn khi chỉ số là SỐ ĐẾM, role index_src)
-    const y = Math.floor(year), zs = 1 + 0.45 * pinZoom, ys = String(y);
+    // V5b-2b (M6): year là số (năm) HOẶC {s, sub} — bộ đếm ngày/giờ "13 Sep 1782 · 09:45" (sub: dòng lịch thứ hai "O.S. 24 Jul · N.S. 4 Aug 1704")
+    const clk = typeof year === 'object' && year, y = clk ? 0 : Math.floor(year), zs = 1 + 0.45 * pinZoom, ys = clk ? clk.s : String(y);
     g.font = `700 ${Math.round(96 * zs * S)}px ${FONT}`; const wy = g.measureText(ys).width; YBOX = 36 * S + wy + 48 * zs * S;
     plate(36 * S, H - 40 * S - 114 * zs * S, YBOX, H - 40 * S, 1);
     if (pinZoom > 0.01) { g.strokeStyle = `rgba(255,209,102,${pinZoom})`; g.lineWidth = 5 * S; g.strokeRect(36 * S, H - 40 * S - 114 * zs * S, wy + 48 * zs * S, 114 * zs * S); }
-    text(ys, 36 * S + 24 * zs * S, H - 40 * S - 22 * zs * S, 96 * zs, pinZoom > 0.5 ? '#ffd166' : '#ffffff', { role: 'year' });
+    text(ys, 36 * S + 24 * zs * S, H - 40 * S - 22 * zs * S, 96 * zs, pinZoom > 0.5 ? '#ffd166' : '#ffffff', { role: clk ? 'clock' : 'year' });
+    if (clk && clk.sub) { g.font = `600 ${Math.round(38 * S)}px ${FONT}`; const w2 = g.measureText(clk.sub).width, yb = H - 40 * S - 114 * zs * S - 8 * S;
+      plate(36 * S, yb - 60 * S, 36 * S + w2 + 40 * S, yb, 1); text(clk.sub, 56 * S, yb - 16 * S, 38, '#e8edf2', { w: 600, role: 'calendar' }); }
     let idxW = 0; if (idx) { g.font = `700 ${Math.round(60 * S)}px ${FONT}`; const wp = g.measureText(idx).width; idxW = wp + 52 * S; plate(W - 36 * S - wp - 52 * S, 36 * S, W - 36 * S, 36 * S + 98 * S, 1);
       text(idx, W - 62 * S, 36 * S + 70 * S, 60, '#ffffff', { align: 'right', role: 'index' });
       if (idxSrc && idxSrc.a > 0.001) { g.globalAlpha = idxSrc.a; g.font = `500 ${Math.round(38 * S)}px ${FONT}`; const ws = g.measureText(idxSrc.s).width;
@@ -83,6 +86,12 @@ export function makeText(W, H) {
       plate(x0, y0, x0 + w1 + 40 * S, y0 + 64 * S, 1); text(m.s, x0 + 20 * S, y0 + 45 * S, 38, '#ffffff', { w: 600, alpha: m.a, role: 'method' }); g.globalAlpha = 1;
       yy += method.bottom ? -72 * S : 72 * S; }
   }
+  // V5b-2b (T2 TT6 / K-1.13): chip NƠI (trên-phải, dưới hộp chỉ số nếu có) và nhãn NGUỒN GHOST (dưới-phải, ≥ 38 px, role ghost_src)
+  function where(t, win, s) { const a = fade(t, win[0], win[1]); if (a <= 0 || !s) return; g.globalAlpha = a; g.font = `600 ${Math.round(38 * S)}px ${FONT}`; const w = g.measureText(s).width;
+    const x1 = W - 36 * S, y0 = 36 * S; plate(x1 - w - 76 * S, y0, x1, y0 + 64 * S, 1); g.fillStyle = '#F08A4B'; g.beginPath(); g.arc(x1 - w - 46 * S, y0 + 28 * S, 10 * S, Math.PI, 0); g.lineTo(x1 - w - 46 * S, y0 + 50 * S); g.closePath(); g.fill();
+    text(s, x1 - 20 * S, y0 + 45 * S, 38, '#ffffff', { align: 'right', w: 600, alpha: a, role: 'where' }); g.globalAlpha = 1; }
+  function ghostSrc(t, win, s) { const a = fade(t, win[0], win[1]); if (a <= 0 || !s) return; g.globalAlpha = a; g.font = `500 ${Math.round(38 * S)}px ${FONT}`; const w = g.measureText(s).width;
+    const x1 = W - 36 * S, y1 = H - 40 * S; plate(x1 - w - 40 * S, y1 - 60 * S, x1, y1, 1); text(s, x1 - 20 * S, y1 - 16 * S, 38, '#c9d3dd', { align: 'right', w: 500, alpha: a, role: 'ghost_src' }); g.globalAlpha = 1; }
   function budget() {
     const q = 4, nx = Math.ceil(W / q), ny = Math.ceil(H / q), m = new Uint8Array(nx * ny);
     for (const { r: [x0, y0, x1, y1], anchored } of RECTS) for (let j = Math.max(0, Math.floor(y0 / q)); j < Math.min(ny, Math.ceil(y1 / q)); j++) for (let i = Math.max(0, Math.floor(x0 / q)); i < Math.min(nx, Math.ceil(x1 / q)); i++) m[j * nx + i] |= anchored ? 2 : 1;
@@ -103,5 +112,5 @@ export function makeText(W, H) {
   }
   const roles = () => [...new Set(TXT.filter((e) => e.alpha > 0.001).map((e) => e.role))];
   function begin(img) { RECTS.length = 0; TXT.length = 0; LOG.cards = 0; LOG.overflow = []; LOG.leaders = []; g.clearRect(0, 0, W, H); if (img) g.drawImage(img, 0, 0, W, H); }
-  return { cv, g, begin, chrome, card, photo, tag, budget, contrast, roles, log: LOG, S };
+  return { cv, g, begin, chrome, card, photo, tag, where, ghostSrc, budget, contrast, roles, log: LOG, S };
 }

@@ -26,9 +26,13 @@ const TILE_C = [[0.70, 0.36, 0.24], [0.62, 0.30, 0.20], [0.74, 0.44, 0.30], [0.5
 const TILE = 500, NA = 19;
 
 // chọn kiểu mặt đứng + mái (tất định theo băm). Trả { sty, roof: 'flat'|'parapet'|'terrace'|'gable'|'hipr'|'pyr', gh (cao lớp tái dựng) }
-export function styleOf(y, gy, h, reg, ar, R) {
+// V5b-2b (M9): pd = THỜI KỲ của lớp footprint (bản ghi phần tử 8): 0 = 1704–1782 (mái ngói thấp + sân thượng phẳng, 2–3 tầng, không ban công sắt)
+//  · 1 = 1900–1943 (mái ngói + mái bằng có tường chắn, ban công) · 2 / không khai = như cũ (theo năm + vùng).
+export function styleOf(y, gy, h, reg, ar, R, pd) {
   const r = R(), r2 = R(), old = gy > 0 || (reg === 0 && y < 1960), smallish = ar < 260 && h <= 13;
   let sty, rf;
+  if (pd === 0) { sty = reg === 1 ? (r < 0.75 ? 0 : 6) : 1; rf = r2 < 0.38 ? 'gable' : r2 < 0.6 ? 'hipr' : 'terrace'; return { sty, rf, gh: Math.min(h, 6.0 + Math.floor(R() * 2) * 3.0), noBalc: true }; }
+  if (pd === 1) { sty = reg === 1 ? (r < 0.6 ? 0 : 2) : (r < 0.8 ? 1 : 0); rf = r2 < 0.3 ? 'gable' : r2 < 0.5 ? 'hipr' : r2 < 0.8 ? 'parapet' : 'terrace'; return { sty, rf, gh: Math.min(h, 7.5 + Math.floor(R() * 3) * 3.0) }; }
   if (reg === 1 && old) { sty = ar > 700 ? 6 : r < 0.68 ? 0 : 2; }
   else if (reg === 0 && old) { sty = ar > 900 && h <= 7 ? 4 : r < 0.85 ? 1 : 0; }
   else { sty = ar > 1200 && h <= 12 ? 4 : h > 28 && y >= 1990 ? 5 : r < 0.15 && y >= 1995 ? 5 : 3; }
@@ -49,14 +53,14 @@ export function makeCity(B, U, { lod = true } = {}) {
   const B2 = []; let nSplit = 0;
   for (const b of B) { const ar = Math.abs(signedArea(b[6]));
     if (b[5] === 1 && ar > 320 && b[6].length >= 3) { const ps = parcels(b[6], R); nSplit++;
-      for (const p of ps) { const old = b[1] > 0, dh = old ? (Math.floor(R() * 3) - 1) * 3.0 : 0; B2.push([b[0], b[1], Math.max(4, b[2] + dh), b[3], b[4], b[5], p]); } }
+      for (const p of ps) { const old = b[1] > 0, dh = old ? (Math.floor(R() * 3) - 1) * 3.0 : 0; B2.push([b[0], b[1], Math.max(4, b[2] + dh), b[3], b[4], b[5], p, b[7]]); } }
     else B2.push(b); }
   stats.split = nSplit; stats.parcels = B2.length;
   for (const b of B2) {
-    const [y, gy, h, base, rf0, reg, ring] = b; if (ring.length < 3) continue;
+    const [y, gy, h, base, rf0, reg, ring, pd] = b; if (ring.length < 3) continue;
     let cx = 0, cn = 0; for (const p of ring) { cx += p[0]; cn += p[1]; } cx /= ring.length; cn /= ring.length;
     const T = add(Math.floor(cx / TILE) + ',' + Math.floor(cn / TILE)); T.n++;
-    const ar = Math.abs(signedArea(ring)), S = styleOf(y, gy, h, reg, ar, R);
+    const ar = Math.abs(signedArea(ring)), S = styleOf(y, gy, h, reg, ar, R, pd);
     let rfK = S.rf; if (rf0 && (rfK === 'flat' || rfK === 'parapet') && ar < 250) rfK = 'hipr';   // dữ liệu gói cảnh: nhà thấp cũ → mái dốc
     const P = PAL[S.sty], wc = P[Math.floor(R() * P.length)].map((v) => v * (0.93 + 0.1 * R()));
     const pitchedK = rfK === 'gable' || rfK === 'hipr' || rfK === 'pyr';
@@ -77,7 +81,7 @@ export function makeCity(B, U, { lod = true } = {}) {
         for (let k = 0; k < n; k++) { const u = (R() - 0.5) * 0.5, v = (R() - 0.5) * 0.5, sz = 1.4 + R() * 2.2, L_ = Rr ? Rr.L : Math.sqrt(ar), W_ = Rr ? Rr.W : Math.sqrt(ar);
           const e = cx + (Rr ? Rr.ax[0] * u * L_ - Rr.ax[1] * v * W_ : u * L_), nn = cn + (Rr ? Rr.ax[1] * u * L_ + Rr.ax[0] * v * W_ : v * W_);
           boxAt(e, h, nn, sz, sz * (0.7 + 0.5 * R()), 1.0 + R() * 1.8, rot, emit(k === 0 ? wc.map((v) => v * 0.92) : [0.82, 0.83, 0.84]), -3); } }
-      if ((S.sty === 0 || S.sty === 1 || S.sty === 3) && h >= 6 && R() < (S.sty === 3 ? 0.8 : 0.6)) stats.balc += balconies(rr, Math.min(h, S.sty === 3 ? h : 1e9), 3.0, emit(S.sty === 1 ? [0.25, 0.24, 0.24] : S.sty === 3 ? wc : [0.18, 0.22, 0.20]), S.sty === 3 ? 0.9 : 0.62);
+      if (!S.noBalc && (S.sty === 0 || S.sty === 1 || S.sty === 3) && h >= 6 && R() < (S.sty === 3 ? 0.8 : 0.6)) stats.balc += balconies(rr, Math.min(h, S.sty === 3 ? h : 1e9), 3.0, emit(S.sty === 1 ? [0.25, 0.24, 0.24] : S.sty === 3 ? wc : [0.18, 0.22, 0.20]), S.sty === 3 ? 0.9 : 0.62);
       stats.roof[rfK] = (stats.roof[rfK] || 0) + 1;
     }
   }
@@ -163,7 +167,7 @@ export function makeCity(B, U, { lod = true } = {}) {
         }
         if (vGhost > 0.5) { float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), uGhostDesat); }   // lớp tái dựng: giảm bão hoà 22 %
         float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);`)
-        .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);');
+        .replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(1.0, vGhost > 0.5 ? 0.2 : 0.0, 0.0, 1.0);   /* V5b-2b: G = 0,2 → toà lớp TÁI DỰNG (ghost_pct, K-1.13) */');
     };
     return m;
   };

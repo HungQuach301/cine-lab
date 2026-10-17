@@ -27,6 +27,9 @@ const SAMPLE = +arg('sample', 12);
   // cảnh đinh 3D (mẫu plate): đếm khung của mỗi thư mục, ghi p.n vào đặc tả; nạp đúng khung trước mỗi drawFrame (xem vòng lặp)
   const plates = spec.shots.filter((s) => s.tpl === 'plate').map((s) => { const d = path.isAbsolute(s.p.dir) ? s.p.dir : path.join(path.join(__dirname, '..', '..'), s.p.dir);
     s.p.n = fs.existsSync(d) ? fs.readdirSync(d).filter((x) => /^\d{5}\.jpg$/.test(x)).reduce((m, x) => Math.max(m, +x.slice(0, 5) + 1), 0) : 0;   /* T2 G1b: số khung = chỉ số lớn nhất + 1 (cảnh dựng --only từ frame0 không có khung đầu) */ if (!s.p.n) { console.error('thiếu khung plate', d); process.exitCode = 3; } return { s, d }; });
+  // V5b-2b (V5B2A §8.4, KHOP1 b): gom renderer từ meta.json của MỌI plate (và ô diptych) → .log.json, để bộ kiểm bắt trộn trình dựng trong một tập
+  const RENDS = {}; for (const d of new Set([...plates.map((x) => x.d), ...spec.shots.filter((s) => s.tpl === 'diptych').flatMap((s) => [s.p.left, s.p.right]).filter((q) => q && q.dir).map((q) => path.isAbsolute(q.dir) ? q.dir : path.join(REPO, q.dir))]))
+    try { const m = JSON.parse(fs.readFileSync(path.join(d, 'meta.json'), 'utf8')); RENDS[path.basename(d)] = m.renderer || (m.footage ? 'footage' : 'không ghi (trước V5b-2b)'); } catch (e) { RENDS[path.basename(d)] = 'thiếu meta.json'; }
   const ANCS = {}; for (const { s, d } of plates) { const af = path.join(d, 'anchors.json'); if (!ANCS[s.p.dir] && fs.existsSync(af)) ANCS[s.p.dir] = JSON.parse(fs.readFileSync(af, 'utf8')); }
   const plateFor = (f) => { const t = f / 24, need = [];
     // cửa sổ nạp khung sau t1 phải ≥ thời lượng hoà (fade mặc định 0,7 s, có hoà 1,0–1,4 s): 0,6 s cũ làm hiện "missing plate" khi hoà dài (G2 tập 8, T01)
@@ -66,7 +69,7 @@ const SAMPLE = +arg('sample', 12);
           L.sort((a, b) => a - b); const bg = L[Math.floor(L.length / 2)], [cr, cg, cb] = parse(e.color), nom = lum(cr, cg, cb), I = [];
           for (let y = 5; y < hh - 5; y++) for (let x = 5; x < w - 5; x++) { const i = (y * w + x) * 4; I.push(lum(d[i], d[i + 1], d[i + 2])); }
           I.sort((a, b) => a - b); const ft = !I.length ? nom : nom < bg ? I[Math.floor(I.length * 0.05)] : I[Math.floor(I.length * 0.95)];   // màu chữ đo trên điểm ảnh (đã qua ánh rọi)
-          return { s: e.s, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
+          return { s: e.s, role: e.role || undefined, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
       return out; }, [f, f % SAMPLE === 0]);
     act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [] });
     if (!ff.stdin.write(Buffer.from(r.img, 'base64'))) await new Promise((res) => ff.stdin.once('drain', res));
@@ -74,6 +77,6 @@ const SAMPLE = +arg('sample', 12);
   }
   ff.stdin.end(); await new Promise((res) => ff.on('close', res));
   const raised = await page.evaluate(() => LL.stat); await browser.close();
-  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), hit: hit.join(''), fill: fill.join(''), cam, raised, text: texts }));
+  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), hit: hit.join(''), fill: fill.join(''), cam, raised, text: texts, renderers: RENDS, renderer_set: [...new Set(Object.values(RENDS).filter((r) => r !== 'footage'))] }));
   console.log(JSON.stringify({ id: SEG || SH, frames: F1 - F0, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3) }));
 })().catch((e) => { console.error(e); process.exit(1); });

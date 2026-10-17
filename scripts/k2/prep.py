@@ -21,12 +21,20 @@ REPO, FPS = ll.REPO, ll.FPS
 DRAFT = os.environ.get('K2_DRAFT') == '1'
 CODE = ['design/ll-hero/k2g01.js', 'design/ll-hero/k2c106.js', 'design/ll-hero/k2page.js', 'design/ll-hero/kit.js', 'scripts/k2/hero.js',
         'design/k2v/page.js', 'design/k2v/common.js', 'design/k2v/map.js', 'design/k2v/chart3d.js', 'design/k2v/photo.js', 'design/k2v/relief.js', 'design/k2v/sticker-lab.js', 'scripts/k2/lib/sticker.js']
+# V5b-2b (V5B2A §8.6): cảnh xương sống thời gian 'tl/<cảnh>' — mã riêng vào dấu cảnh CHỈ của cảnh tl (cảnh k2v/LL cũ không đổi dấu, không dựng lại)
+TL_CODE = sorted(os.path.relpath(os.path.join(dp, f), REPO) for dp, _, fs in os.walk(os.path.join(REPO, 'design/k2v/tl')) for f in fs if f.endswith('.js')) + ['scripts/k2tl/render.js', 'scripts/k2tl/gl.js']
+TL_PRESETS = {'lien-hoan', 'push-in', 'boundary-trace', 'follow-object', 'lateral-parallax', 'top-down-rise', 'vertigo'}   # campath.js (JJ1/KK1)
+NOI = {'thanh_pho', 'eo_dat', 'vung', 'bien', 'song', 'trong_nha'}   # K-1.13 NC-H1: khai nơi theo cửa sổ (T3 trở đi BẮT BUỘC cho shot cảnh 3D địa lý)
 CAMS = os.path.join(REPO, 'scripts/k2/cams.yaml')
 MAX_SAME = 2   # cùng góc máy (scene_id + camera_id) tối đa 2 lần/tập
 
 
-def code_bytes():
-    return b''.join(open(os.path.join(REPO, f), 'rb').read() for f in CODE)
+def code_bytes(tl=False):
+    return b''.join(open(os.path.join(REPO, f), 'rb').read() for f in CODE + (TL_CODE if tl else []))
+
+
+def is_tl(hero):
+    return str(hero or '').startswith('tl/')
 
 
 def cam_lib():
@@ -64,6 +72,10 @@ def resolve_cams(E):
     for k, h in (E.get('heroes') or {}).items():
         o = h.setdefault('opt', {}); c = h.get('cam')
         if isinstance(o.get('cam'), str): c = o.pop('cam')
+        if is_tl(h['hero']):   # V5b-2b: máy của cảnh tl là cú ngữ pháp (campath.js) khai trong cảnh; camera_id = preset (lien-hoan…) hoặc 'cau' (ML1) của shot
+            pr = c or o.get('preset') or o.get('cau') or 'default'
+            if pr != 'default' and pr not in TL_PRESETS and not o.get('cau'): raise SystemExit(f'heroes.{k}: preset máy "{pr}" không có trong ngữ pháp tl ({", ".join(sorted(TL_PRESETS))})')
+            h['_camera_id'] = pr; h['_cam_geo'] = None; continue
         if c:
             P = (L.get(h['hero']) or {}).get(c)
             if not P: raise SystemExit(f'heroes.{k}: không có preset máy quay "{c}" cho cảnh {h["hero"]} trong scripts/k2/cams.yaml')
@@ -98,6 +110,7 @@ def shot_type(hero):
     if not hero: return 'card'
     m, n = hero.split('/')[0], hero.split('/')[-1]
     # relief/map (V2): bản đồ nổi = map
+    # tl (V5b-2b, V5B2A §8.6): cảnh 3D xương sống thời gian = scene3d trong danh sách Q34 (khai thêm tl: true ở shots-meta; K §7.4 đề xuất loại 'timelapse')
     return {'map': 'map', 'relief': 'map', 'chart3d': 'chart3d', 'footage': 'footage'}.get(m) or ({'print': 'photo', 'doc': 'document', 'headline': 'document'}.get(n) if m == 'photo' else 'scene3d')
 
 
@@ -106,7 +119,9 @@ def shot_meta(E, sh):
     card = bool(p.get('card'))
     M = dict(type='card' if card else shot_type(h['hero'] if h else None), scene_id=h['hero'] if h else None, camera_id=h.get('_camera_id') if h else None,
              places=[x['a'] if isinstance(x, dict) else x for x in p.get('places', [])], people=[])
-    for f in ('type', 'scene_id', 'camera_id', 'places', 'people'):
+    if h and is_tl(h['hero']): M.update(tl=True, cau=(h.get('opt') or {}).get('cau') or h.get('_camera_id'))
+    if p.get('noi') or sh.get('noi'): M['noi'] = sh.get('noi') or p.get('noi')
+    for f in ('type', 'scene_id', 'camera_id', 'places', 'people', 'noi'):
         if f in sh: M[f] = sh[f]
     return M
 
@@ -145,13 +160,16 @@ def heroes_plan(E, TL):
         for sg, esg in zip(TL[kind], E.get(ek, [])):
             for sh, esh in zip(sg['shots'], esg.get('shots', [])):
                 sh.update(shot_meta(E, esh)); meta.append(dict(seg=sg['id'], kind=kind, t0=round(sg.get('t0', 0) + sh['t0'], 3), t1=round(sg.get('t0', 0) + sh['t1'], 3),
-                                                               **{f: sh[f] for f in ('type', 'scene_id', 'camera_id', 'places', 'people')}))
+                                                               **{f: sh[f] for f in ('type', 'scene_id', 'camera_id', 'places', 'people', 'tl', 'cau', 'noi') if f in sh}))
+                if sh.get('tl'): sh['p']['tl'] = True   # lớp chữ tl (k2.js tlLayer)
+                if sh.get('noi'): sh['p']['noi'] = sh['noi']
     json.dump(meta, open(os.path.join(E['out'], 'shots-meta.json'), 'w'), indent=1, ensure_ascii=False)
+    for w in vv2_warn(E, meta): print('CẢNH BÁO VV2:', w, file=sys.stderr)
     bad = [f"{sg['id']}/{i}" for kind in ('segments', 'shorts') for sg in TL[kind] for i, sh in enumerate(sg['shots']) if sh['t1'] <= sh['t0'] + 0.3]
     if bad: raise SystemExit('Shot sai thứ tự hoặc < 0,3 s (mốc "@từ" khớp nhầm lần xuất hiện? dùng #n): ' + ', '.join(bad))
     HZ = E.get('heroes') or {}
     if not HZ: return
-    code = b''.join(open(os.path.join(REPO, f), 'rb').read() for f in CODE)
+    code, code_tl = code_bytes(), code_bytes(True)
     need, first = {}, {}
     for kind in ('segments', 'shorts'):
         for sg in TL[kind]:
@@ -177,7 +195,7 @@ def heroes_plan(E, TL):
         h = {kk: v for kk, v in HZ[k].items() if not kk.startswith('_') and kk != 'cam'}; h['opt'] = res(h.get('opt', {}), k, f'heroes.{k}.opt')
         dur = round(max(2.0, d) + 0.5, 1); size = h.get('size', [1920, 1080])
         if DRAFT: size = [size[0] // 2, size[1] // 2]
-        stamp = hashlib.sha1(code + json.dumps([h, dur, size], sort_keys=True).encode()).hexdigest()[:12]
+        stamp = hashlib.sha1((code_tl if is_tl(h['hero']) else code) + json.dumps([h, dur, size], sort_keys=True).encode()).hexdigest()[:12]
         plan[k] = dict(hero=h['hero'], variant=h.get('variant', 'a'), opt=h['opt'], dur=dur, size=size, dir=f"{ll.HERO_ROOT}/{E['id']}-{k}{'-d' if DRAFT else ''}", stamp=stamp)
     for kind in ('segments', 'shorts'):
         for sg in TL[kind]:
@@ -189,6 +207,27 @@ def heroes_plan(E, TL):
 
 
 ll.heroes_plan = heroes_plan
+
+
+def vv2_warn(E, meta):
+    """Luật hình VV2 (chủ dự án 17/10) trong máy dựng — CẢNH BÁO khi prep (không chặn; bộ kiểm K NC-H1/H2 mới là luật):
+    (1) shot khai/ suy thành phố mà không có lớp nhà; (2) địa cầu (AGL > 50 km) xuất hiện > 1 lần hoặc một lần > 3 s; (3) shot cảnh 3D địa lý từ T3 phải khai `noi`."""
+    HZ, out, globe = E.get('heroes') or {}, [], []
+    for m in meta:
+        if m.get('type') not in ('scene3d', 'map') or not m.get('scene_id'): continue
+        sid = m['scene_id']
+        h = next((v for v in HZ.values() if v.get('hero') == sid), {}); o = h.get('opt') or {}
+        geo = is_tl(sid) or sid.split('/')[0] in ('relief', 'map')
+        if geo and not m.get('noi'): out.append(f"{m['seg']} @{m['t0']}: shot cảnh địa lý {sid} chưa khai noi (thanh_pho | eo_dat | vung | bien | song)")
+        if m.get('noi') and m['noi'] not in NOI: out.append(f"{m['seg']} @{m['t0']}: noi '{m['noi']}' không hợp lệ ({', '.join(sorted(NOI))})")
+        if m.get('noi') == 'thanh_pho':
+            nha = (is_tl(sid) and (o.get('tech') or {}).get('city', True) is not False) or bool(o.get('aerial') or o.get('buildings') or o.get('layers'))
+            if not nha: out.append(f"{m['seg']} @{m['t0']}: shot khai thành phố ({sid}) nhưng cảnh không có lớp nhà (NC-H1/VV2)")
+        if sid.startswith('map/globe') or (sid.startswith('relief/') and max([0] + [float(c.get('km', c.get('alt', 0)) or 0) for c in (o.get('cam') if isinstance(o.get('cam'), list) else []) if isinstance(c, dict)]) > 50):
+            globe.append((m['seg'], m['t0'], m['t1']))
+    if len(globe) > 1: out.append(f"địa cầu / tầm cao > 50 km xuất hiện {len(globe)} lần (> 1): " + ', '.join(f'{a}@{b}' for a, b, _ in globe))
+    out += [f"địa cầu {a} @{b}: {c - b:.1f} s > 3 s" for a, b, c in globe if c - b > 3]
+    return out
 _load = ll.load
 
 

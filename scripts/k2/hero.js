@@ -7,7 +7,10 @@ const fs = require('fs'), path = require('path');
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(__dirname, '../../design');   // trang: design/ll-hero/k2page.js, hoặc design/k2v/page.js khi cảnh thuộc module hình k2v (map, chart3d, photo)
 const CACHE = process.env.K2V_CACHE || '/var/tmp/cine-out/k2v-cache';   // tài sản ngoài git (Blue Marble, ảnh LoC, trang PDF): /cache/<tệp>
-const PAGE = fs.existsSync(path.join(ROOT, 'k2v', String(arg('hero', '')).split('/')[0] + '.js')) ? 'k2v' : 'll-hero';
+const TL = String(arg('hero', '')).startsWith('tl/');   // V5b-2b (V5B2A §8.2): cảnh xương sống thời gian 'tl/<cảnh>' → design/k2v/tl/page.js, /cache/ → $K2TL_CACHE
+const PAGE = TL ? 'k2v/tl' : fs.existsSync(path.join(ROOT, 'k2v', String(arg('hero', '')).split('/')[0] + '.js')) ? 'k2v' : 'll-hero';
+const CACHE_TL = process.env.K2TL_CACHE || '/var/tmp/cine-out/k2tl-cache';
+const GLM = require('../k2tl/gl.js'), { gl: GL, flags: GLFLAGS } = GLM.pick();   // V5b-2b (V5B2A §8.1/§8.8): K2TL_GL = llvmpipe (mặc định) | swiftshader | vulkan | egl-gpu
 const W = +arg('w', 1920), H = +arg('h', 1080), OUT = path.resolve(arg('out')), DUR = +arg('dur', 6), N = Math.ceil(DUR * 24);
 const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
 // FOOTAGE nguồn ngoài (K2C-T1-06, 13/10/2026): --hero footage/clip, opt {file: '<đường dẫn tệp clip ngoài git>', sha256, ss (giây trong clip), crop?, eq?}  · decimate: true = bỏ khung nhồi 24p→29,97 (chu kỳ 5) trước fps=24 (Q2, PX-36624235)
@@ -49,22 +52,24 @@ if (String(arg('hero', '')).startsWith('footage/')) {
 }
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  const browser = await chromium.launch({ args: [...GLFLAGS, '--ignore-gpu-blocklist', ...(TL ? ['--font-render-hinting=none', '--force-color-profile=srgb', '--js-flags=--max-old-space-size=12000'] : [])] });
   const page = await browser.newPage({ viewport: { width: 800, height: 600 } });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; });
   page.on('console', (m) => { const t = m.text(); if (/Shader Error|VALIDATE_STATUS false/.test(t)) { console.error('[page] LỖI SHADER — dừng (V2 14/10: lỗi biên dịch từng cho ra khung thiếu địa hình mà không báo)', t.slice(0, 600)); process.exit(7); }
-    if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader/i.test(t)) console.error('[page]', t); });
+    if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader|Automatic fallback|llvmpipe|Mesa/i.test(t)) console.error('[page]', t); });
   await page.route('http://cine.local/**', (route) => {
-    const U2 = new URL(route.request().url()), u = decodeURIComponent(U2.pathname), p = u.startsWith('/cache/') ? path.join(CACHE, u.slice(7)) : u.startsWith('/assets/') ? path.join(ROOT, '..', u) : u.startsWith('/k2lib/') ? path.join(__dirname, 'lib', u.slice(7)) : path.join(ROOT, u);   // /assets/: tư liệu tài sản công đã commit (RIGHTS.md) · /k2lib/: scripts/k2/lib (STK, V2b)
+    const U2 = new URL(route.request().url()), u = decodeURIComponent(U2.pathname), p = u.startsWith('/cache/') ? path.join(TL ? CACHE_TL : CACHE, u.slice(7)) : u.startsWith('/assets/') ? path.join(ROOT, '..', u) : u.startsWith('/k2lib/') ? path.join(__dirname, 'lib', u.slice(7)) : path.join(ROOT, u);   // /assets/: tư liệu tài sản công đã commit (RIGHTS.md) · /k2lib/: scripts/k2/lib (STK, V2b)
     const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : p.endsWith('.jpg') ? 'image/jpeg' : 'text/html';
     if (!fs.existsSync(p)) return route.fulfill({ status: 404, body: 'not found ' + p });
     let body = fs.readFileSync(p); const rx = U2.searchParams.get('rx'); if (rx && /^[\w,]+$/.test(rx)) body = Buffer.concat([body, Buffer.from(`\nexport { ${rx} };\n`)]);   // ?rx=: nạp hàm của mô hình tập mà không sửa tệp tập (V2b, như stickers_build.js)
     route.fulfill({ status: 200, contentType: type, body });
   });
   const pf = path.join(ROOT, `${PAGE}/page-${process.pid}.html`);
-  fs.writeFileSync(pf, `<!doctype html><html><body style="margin:0"><script type="module" src="/${PAGE}/${PAGE === 'k2v' ? 'page' : 'k2page'}.js"></script></body></html>`);
+  fs.writeFileSync(pf, `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0"><script type="module" src="/${PAGE}/${PAGE === 'll-hero' ? 'k2page' : 'page'}.js"></script></body></html>`);
   await page.goto(`http://cine.local/${PAGE}/${path.basename(pf)}`); await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 }); fs.unlinkSync(pf);
   const SU = await page.evaluate(async (c) => await window.setup(c), { W, H, hero: arg('hero'), variant: arg('variant', 'a'), dur: DUR, spp: +arg('spp', 1), opt: JSON.parse(arg('opt', '{}')) });
+  const RENDERER = await GLM.assertRenderer(GL, (SU && SU.renderer) || await GLM.rendererOf(page), browser, `gl ${arg('hero')}`);   // KHOP1(a): đúng trình dựng, sai → DỪNG mã 6
+  const FM = {}; const MF = path.join(OUT, 'meta.json'); for (const q of [MF, MF + '.part']) try { Object.assign(FM, JSON.parse(fs.readFileSync(q, 'utf8')).frames_meta || {}); } catch (e) { /* lượt mới */ }   // --resume giữ AGL các khung đã có
   let frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
   const AF = path.join(OUT, 'anchors.json'); let ANC = {}; try { ANC = JSON.parse(fs.readFileSync(AF, 'utf8')); } catch (e) { ANC = {}; }
   if (process.argv.includes('--resume')) {   /* dựng tiếp sau khi job nền bị ngắt (giới hạn 2 giờ): bỏ khung đã có, dựng lại khung cuối có thể ghi dở */
@@ -74,13 +79,17 @@ if (String(arg('hero', '')).startsWith('footage/')) {
     await page.evaluate(async (f) => await window.renderFrame(f), f);
     const b64 = await page.evaluate((f) => window.finalize(f), f);
     const an = await page.evaluate(() => window.anchorsAt()); if (an) ANC[f] = an;
-    if (f % 48 === 0) fs.writeFileSync(AF, JSON.stringify(ANC));
+    if (TL) FM[f] = await page.evaluate(() => window.frameMeta());   // V5b-2b (T3 P0): AGL, SPP theo pha, pha, năm/giờ mỗi khung → meta.json (NC-H2/H3)
+    if (f % 48 === 0) { fs.writeFileSync(AF, JSON.stringify(ANC)); if (TL) fs.writeFileSync(MF + '.part', JSON.stringify({ frames_meta: FM })); }
     const raw = Buffer.from(b64, 'base64');
     const enc = spawn('ffmpeg', ['-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', `${W}x${H}`, '-i', '-', '-vf', 'vflip', '-q:v', '2', path.join(OUT, String(f).padStart(5, '0') + '.jpg')]);
     enc.stdin.end(raw); await new Promise((r) => enc.on('close', r));
     if (f % 48 === 0) console.error(`[hero ${arg('hero')}/${arg('variant', 'a')}] ${f}/${N} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung`);
   }
   fs.writeFileSync(AF, JSON.stringify(ANC));
-  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, spp: +arg('spp', 1), max_tex: SU && SU.maxTex, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }));
+  const tlm = TL ? Object.assign({ tl: true, scene_meta: SU.scene_meta || null, frames_meta: FM }, (() => { const v = Object.values(FM), a = v.map((m) => m.agl_km).filter((x) => x != null);
+    return { spp_set: [...new Set(v.map((m) => m.spp))].sort(), agl_km_max: a.length ? Math.max(...a) : null }; })()) : {};
+  fs.writeFileSync(MF, JSON.stringify(Object.assign({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, spp: +arg('spp', 1), max_tex: SU && SU.maxTex, renderer: RENDERER, gl: GL, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }, tlm)));   // V5b-2b: renderer + gl (KHOP1 a/b); cảnh tl: frames_meta mỗi khung
+  try { fs.unlinkSync(MF + '.part'); } catch (e) { /* không có */ }
   await browser.close();
 })();

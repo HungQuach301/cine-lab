@@ -8,12 +8,13 @@ const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ?
 const ROOT = path.resolve(__dirname, '../../design');
 const W = +arg('w', 1920), H = +arg('h', 1080), OUT = path.resolve(arg('out')), DUR = +arg('dur', 6), N = Math.ceil(DUR * 24);
 const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
+const GLM = require('../k2tl/gl.js'), { gl: GL, flags: GLFLAGS } = GLM.pick();   // V5b-2b (V5B2A §8.1): K2TL_GL = llvmpipe (mặc định) | swiftshader | vulkan | egl-gpu; sai trình dựng → DỪNG mã 6
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
-  const browser = await chromium.launch({ args: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist'] });
+  const browser = await chromium.launch({ args: [...GLFLAGS, '--ignore-gpu-blocklist'] });
   const page = await browser.newPage({ viewport: { width: 800, height: 600 } });
   page.on('pageerror', (e) => { console.error('[pageerror]', e.message); process.exitCode = 3; });
-  page.on('console', (m) => { const t = m.text(); if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader/i.test(t)) console.error('[page]', t); });
+  page.on('console', (m) => { const t = m.text(); if (!/GPU stall|GL Driver|WebGLRenderer|swiftshader|Automatic fallback|llvmpipe|Mesa/i.test(t)) console.error('[page]', t); });
   await page.route('http://cine.local/**', (route) => {
     const p = path.join(ROOT, decodeURIComponent(new URL(route.request().url()).pathname));
     const type = p.endsWith('.js') ? 'text/javascript' : p.endsWith('.json') ? 'application/json' : p.endsWith('.png') ? 'image/png' : p.endsWith('.jpg') ? 'image/jpeg' : 'text/html';
@@ -24,6 +25,7 @@ const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
   fs.writeFileSync(pf, '<!doctype html><html><body style="margin:0"><script type="module" src="/ll-hero/page.js"></script></body></html>');
   await page.goto(`http://cine.local/ll-hero/${path.basename(pf)}`); await page.waitForFunction(() => typeof window.setup === 'function', null, { timeout: 60000 }); fs.unlinkSync(pf);
   await page.evaluate(async (c) => await window.setup(c), { W, H, hero: arg('hero'), variant: arg('variant', 'a'), dur: DUR, spp: +arg('spp', 1), opt: JSON.parse(arg('opt', '{}')) });
+  const RENDERER = await GLM.assertRenderer(GL, await GLM.rendererOf(page), browser, `gl ${arg('hero')}`);
   let frames = ONLY.length ? ONLY : [...Array(N).keys()]; const t0 = Date.now();
   if (process.argv.includes('--resume')) {   /* dựng tiếp sau khi job nền bị ngắt (giới hạn 2 giờ): bỏ khung đã có, dựng lại khung cuối có thể ghi dở */
     const have = frames.filter((f) => { try { return fs.statSync(path.join(OUT, String(f).padStart(5, '0') + '.jpg')).size > 0; } catch { return false; } });
@@ -36,6 +38,6 @@ const ONLY = (arg('only', '') || '').split(',').filter(Boolean).map(Number);
     enc.stdin.end(raw); await new Promise((r) => enc.on('close', r));
     if (f % 48 === 0) console.error(`[hero ${arg('hero')}/${arg('variant', 'a')}] ${f}/${N} ${((Date.now() - t0) / 1000 / (frames.indexOf(f) + 1)).toFixed(2)} s/khung`);
   }
-  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }));
+  fs.writeFileSync(path.join(OUT, 'meta.json'), JSON.stringify({ hero: arg('hero'), variant: arg('variant', 'a'), frames: N, dur: DUR, w: W, h: H, renderer: RENDERER, gl: GL, s_per_frame: +((Date.now() - t0) / 1000 / Math.max(1, frames.length)).toFixed(2) }));
   await browser.close();
 })();

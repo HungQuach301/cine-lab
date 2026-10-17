@@ -33,7 +33,7 @@ function text(g, s, x, y, px, color, o = {}) {
   if (LL.tlog && g.globalAlpha > 0.5 && !o.deco) { const m = g.getTransform(), al = g.textAlign, bl = g.textBaseline;
     const x0 = al === 'center' ? x - wd / 2 : al === 'right' ? x - wd : x, cap = p * 0.727, yb = bl === 'middle' ? y + cap / 2 : bl === 'top' ? y + cap : y;
     const P = [[x0, yb - cap], [x0 + wd, yb - cap], [x0, yb], [x0 + wd, yb]].map(([u, v]) => [m.a * u + m.c * v + m.e, m.b * u + m.d * v + m.f]);
-    LL.tlog.push({ s: s.slice(0, 40), color, alpha: +g.globalAlpha.toFixed(2), cap: +(cap * effScale(g)).toFixed(1), box: [Math.min(...P.map((q) => q[0])), Math.min(...P.map((q) => q[1])), Math.max(...P.map((q) => q[0])), Math.max(...P.map((q) => q[1]))].map(Math.round) }); }
+    LL.tlog.push({ s: s.slice(0, 40), role: o.role, color, alpha: +g.globalAlpha.toFixed(2), cap: +(cap * effScale(g)).toFixed(1), box: [Math.min(...P.map((q) => q[0])), Math.min(...P.map((q) => q[1])), Math.max(...P.map((q) => q[0])), Math.max(...P.map((q) => q[1]))].map(Math.round) }); }
   g.restore(); return wd; }
 function wrap(g, s, maxW, px, w = 600, disp = false) { g.save(); g.font = font(fitPx(g, px), w, disp); const out = []; let a = ''; for (const wd of String(s).split(' ')) { const n = a ? a + ' ' + wd : wd; if (g.measureText(n).width > maxW && a) { out.push(a); a = wd; } else a = n; } out.push(a); g.restore(); return out; }
 function para(g, s, x, y, maxW, px, color, o = {}) { const L = wrap(g, s, maxW, px, o.w, o.disp), lh = o.lh || px * 1.28; L.forEach((l, i) => text(g, l, x, y + i * lh, px, color, o)); return y + (L.length - 1) * lh; }
@@ -137,16 +137,53 @@ function sideCap(g, p, t) { const Sd = p.side; if (!Sd) return; const x = W * (S
 function yearChip(g, p, t) { const Y = p.year; if (!Y) return; const u = vis(t, Y.at === undefined ? p.t0 : Y.at, Y.out, 0.5); if (u <= 0.01) return;
   const px = 64 * S, w = tw(g, Y.s, px, 700, true) + 56, h = px * 1.45, x = SAFE.x0, y = V ? 210 : 62, sc = backOut(cl((t - (Y.at || 0)) / 0.45));
   g.save(); g.translate(x + w / 2, y + h / 2); g.scale(sc, sc); g.translate(-(x + w / 2), -(y + h / 2)); panel(g, x, y, w, h, { a: u, fill: 'rgba(12,18,27,0.92)', stroke: Y.c || K.amber, r: 12 });
-  text(g, Y.s, x + w / 2, y + h / 2 + px * 0.36, px, Y.c || K.amber, { a: u, w: 700, disp: true, align: 'center' }); g.restore(); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
+  text(g, Y.s, x + w / 2, y + h / 2 + px * 0.36, px, Y.c || K.amber, { a: u, w: 700, disp: true, align: 'center', role: 'year' }); g.restore(); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
 // chip nơi dựng (SS1-T3, chủ dự án 17/10; chấm mù: "the place is never named"): p.where = 'tên' | {s, at, out}; góc trên phải, dưới nhãn "Facts as of" nếu có
 function whereChip(g, p, t) { const Wh = p.where; if (!Wh || V) return; const o = typeof Wh === 'string' ? { s: Wh } : Wh; const u = vis(t, o.at === undefined ? p.t0 : o.at, o.out, 0.5); if (u <= 0.01) return;
   const px = 30 * S, ic = px * 0.9, wd = tw(g, o.s, px, 600) + 40 + ic + 12, h = px * 1.7, x = W - SAFE.x0 - wd, y = (p.asof ? (p.asofY !== undefined ? p.asofY : (p.card ? 28 : 56)) + px * 1.7 + 12 : 56);
   panel(g, x, y, wd, h, { a: u, fill: 'rgba(12,18,27,0.9)', stroke: 'rgba(230,235,240,0.35)' });
   g.save(); g.globalAlpha *= u; const cx = x + 20 + ic / 2, cy = y + h / 2 - ic * 0.12; g.fillStyle = K.orange; g.beginPath(); g.arc(cx, cy - ic * 0.12, ic * 0.34, Math.PI, 0); g.lineTo(cx, cy + ic * 0.46); g.closePath(); g.fill();
   g.fillStyle = 'rgba(12,18,27,1)'; g.beginPath(); g.arc(cx, cy - ic * 0.12, ic * 0.13, 0, 7); g.fill(); g.restore();
-  text(g, o.s, x + 20 + ic + 12, y + px * 1.18, px, K.text, { a: u, w: 600 }); (LL.occ = LL.occ || []).push([x, y, x + wd, y + h]); }
+  text(g, o.s, x + 20 + ic + 12, y + px * 1.18, px, K.text, { a: u, w: 600, role: 'where' }); (LL.occ = LL.occ || []).push([x, y, x + wd, y + h]); }
 function asof(g, p, t) { if (!p.asof) return; const u = vis(t, p.asofAt === undefined ? p.t0 : p.asofAt); const s = p.asof === true ? 'Facts as of 11 Oct 2026' : p.asof;
   const px = 30 * S, wd = tw(g, s, px, 600) + 40, x = W - SAFE.x0 - wd, y = p.asofY !== undefined ? p.asofY : V ? 210 : (p.card ? 28 : 56);   /* asofY: Short có hook 2 dòng đặt nhãn dưới dải hook */ panel(g, x, y, wd, px * 1.7, { a: u, stroke: 'rgba(242,193,78,0.6)' }); text(g, s, x + 20, y + px * 1.18, px, K.amber, { a: u, w: 600 }); }
+
+// ---------- XƯƠNG SỐNG THỜI GIAN (V5b-2b, V5B2A §8.5): lớp chữ của cảnh 'tl/<cảnh>' ----------
+// Trang tl (design/k2v/tl/page.js) ghi lớp chữ từng khung vào anchors.json[f]._tl (record.js: cùng API text.js); ở đây vẽ lại bằng chữ + bảng màu kênh:
+//  bộ đếm năm / ngày-giờ dưới-trái (phóng 1,45× + viền hổ phách khi MỐC ĐINH), dòng lịch thứ hai (O.S./N.S.), chỉ số "≈" trên-phải + dòng nguồn (role index_src),
+//  dòng phương pháp (HH3, role method), thẻ ≤ 1 (neo điểm 3D có đường dẫn, hoặc dải dưới), nhãn neo (tag), nhãn nguồn ghost dưới-phải (role ghost_src, ≥ 38 px),
+//  chip nơi (p.where thắng; không khai → chip của cảnh). Bật bằng p.tl = true (prep.py tự đặt cho cảnh tl/…). Cỡ chữ ≥ 30 px, nguồn ≥ 38 px (SRCPX).
+function tlData(p, t) { const A = window.ANC[p.dir]; if (!A) return null; const fr = A[plateIdx(p, t)] || A[String(plateIdx(p, t))]; return fr && fr._tl ? fr._tl : null; }
+function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) return; const Ch = D.chrome || {};
+  const pin = Ch.pin || 0, zs = 1 + 0.45 * pin, ys = Ch.clock ? Ch.clock.s : (Ch.year != null ? String(Math.floor(Ch.year)) : null); let ybR = SAFE.x0, ybT = H - EDGE_B;
+  if (ys) { const px = (Ch.clock ? 56 : 72) * S * zs, w = tw(g, ys, px, 700, true) + 52 * zs, h = px * 1.42, x = SAFE.x0, y = H - EDGE_B - h + 8;
+    panel(g, x, y, w, h, { a: 1, fill: 'rgba(12,18,27,0.9)', stroke: pin > 0.01 ? `rgba(242,193,78,${0.4 + 0.6 * pin})` : 'rgba(230,235,240,0.30)', r: 12 });
+    text(g, ys, x + 26 * zs, y + h / 2 + px * 0.36, px, pin > 0.5 ? K.amber : K.text, { w: 700, disp: true, role: Ch.clock ? 'clock' : 'year' }); ybR = x + w; ybT = y;
+    (LL.occ = LL.occ || []).push([x, y, x + w, y + h]);
+    if (Ch.clock && Ch.clock.sub) { const sp = 32 * S, sw = tw(g, Ch.clock.sub, sp, 600) + 40, sy = y - sp * 1.7 - 10; panel(g, x, sy, sw, sp * 1.7, { fill: 'rgba(12,18,27,0.88)' }); text(g, Ch.clock.sub, x + 20, sy + sp * 1.18, sp, K.dim, { w: 600, role: 'calendar' }); ybT = sy; } }
+  // trên-phải: chip nơi rồi chỉ số + dòng nguồn
+  let yR = 56; const wh = p.where || (D.where ? { s: D.where.s } : null);
+  if (wh) { whereChip(g, Object.assign({}, p, { where: wh }), t); yR += 30 * S * 1.7 + 12; }
+  if (Ch.idx) { const px = 48 * S, w = tw(g, Ch.idx, px, 700, true) + 48, h = px * 1.45, x = W - SAFE.x0 - w; panel(g, x, yR, w, h, { fill: 'rgba(12,18,27,0.9)' }); text(g, Ch.idx, x + 24, yR + h / 2 + px * 0.36, px, K.text, { w: 700, disp: true, role: 'index' }); yR += h + 10;
+    if (Ch.idxSrc) { const sw = tw(g, Ch.idxSrc.s, SRCPX, 500) + 40, x2 = W - SAFE.x0 - sw; panel(g, x2, yR, sw, SRCPX * 1.6, { a: Ch.idxSrc.a, fill: 'rgba(12,18,27,0.88)' }); text(g, Ch.idxSrc.s, x2 + 20, yR + SRCPX * 1.12, SRCPX, '#D6DDE4', { a: Ch.idxSrc.a, w: 500, role: 'index_src' }); yR += SRCPX * 1.6 + 10; } }
+  // dòng phương pháp: đầu phim trên-trái; màn kết dưới, bên phải hộp năm
+  if (Ch.method) { let yy = Ch.method.bottom ? H - EDGE_B - SRCPX * 1.6 : 56; for (const m of Ch.method.lines) { const w = tw(g, m.s, SRCPX, 600) + 40, x = Ch.method.bottom ? ybR + 20 : SAFE.x0;
+    panel(g, x, yy, w, SRCPX * 1.6, { a: m.a, fill: 'rgba(12,18,27,0.88)' }); text(g, m.s, x + 20, yy + SRCPX * 1.12, SRCPX, K.text, { a: m.a, w: 600, role: 'method' }); yy += (Ch.method.bottom ? -1 : 1) * (SRCPX * 1.6 + 10); } }
+  // nguồn ghost: dưới-phải
+  let gw = 0; if (D.ghost_src) { const s2 = D.ghost_src.s, sw = Math.min(W * 0.46, tw(g, s2, SRCPX, 500)) + 40, x = W - SAFE.x0 - sw, y = H - EDGE_B - SRCPX * 1.6 + 8; gw = sw + 20;
+    panel(g, x, y, sw, SRCPX * 1.6, { a: D.ghost_src.a, fill: 'rgba(12,18,27,0.9)', stroke: 'rgba(242,193,78,0.45)' }); text(g, s2, x + 20, y + SRCPX * 1.12, SRCPX, '#E6EBF0', { a: D.ghost_src.a, w: 500, role: 'ghost_src', maxW: W * 0.46 }); (LL.occ = LL.occ || []).push([x, y, x + sw, y + SRCPX * 1.6]); }
+  // thẻ: neo (đường dẫn hổ phách) hoặc dải dưới bên phải hộp năm
+  for (const c of D.cards || []) { const tp = 44 * S, w1 = tw(g, c.title, tp, 700, true), w2 = c.src ? tw(g, c.src, SRCPX, 500) : 0, bw = Math.min(W - 2 * SAFE.x0, Math.max(w1, w2) + 56), bh = tp * 1.3 + (c.src ? SRCPX * 1.35 : 0) + 30;
+    let bx, by; if (c.anchor) { const ax = c.anchor[0] * W, ay = c.anchor[1] * H; bx = Math.max(SAFE.x0, Math.min(SAFE.x1 - bw, ax - bw / 2)); by = Math.max(SAFE.y0 + 90, Math.min(H * 0.62 - bh, ay - 90 - bh));
+      g.save(); g.globalAlpha *= c.a; g.strokeStyle = K.amber; g.lineWidth = 3; g.beginPath(); g.moveTo(Math.max(bx, Math.min(bx + bw, ax)), by + bh); g.lineTo(ax, ay); g.stroke(); g.fillStyle = K.amber; g.beginPath(); g.arc(ax, ay, 7, 0, 7); g.fill(); g.restore(); }
+    else { bx = Math.min(ybR + 24, W - SAFE.x0 - gw - bw); by = H - EDGE_B - bh + 8; }
+    panel(g, bx, by, bw, bh, { a: c.a, accent: K.amber, fill: 'rgba(12,18,27,0.92)' }); text(g, c.title, bx + 28, by + 14 + tp, tp, K.text, { a: c.a, w: 700, disp: true, role: 'card', maxW: bw - 48 });
+    if (c.src) text(g, c.src, bx + 28, by + 14 + tp * 1.3 + SRCPX * 1.05, SRCPX, '#D6DDE4', { a: c.a, w: 500, role: 'src', maxW: bw - 48 }); (LL.occ = LL.occ || []).push([bx, by, bx + bw, by + bh]); LL.fill = true; }
+  // nhãn neo nhỏ (ghost/địa danh): quầng tối, đường dẫn trắng
+  for (const L of D.tags || []) { if (!L.anchor) continue; const ax = L.anchor[0] * W, ay = L.anchor[1] * H, px = 34 * S, w = tw(g, L.s, px, 600) + 36, h = px * 1.6, x = Math.max(SAFE.x0, Math.min(SAFE.x1 - w, ax - w / 2)), y = Math.max(SAFE.y0, ay - 70 - h);
+    g.save(); g.globalAlpha *= L.a; g.strokeStyle = 'rgba(238,241,244,0.9)'; g.lineWidth = 2.5; g.beginPath(); g.moveTo(ax, ay); g.lineTo(Math.max(x, Math.min(x + w, ax)), y + h); g.stroke(); g.fillStyle = K.text; g.beginPath(); g.arc(ax, ay, 5.5, 0, 7); g.fill(); g.restore();
+    panel(g, x, y, w, h, { a: L.a, fill: 'rgba(12,18,27,0.9)' }); text(g, L.s, x + 18, y + h / 2 + px * 0.36, px, K.text, { a: L.a, w: 600, role: 'tag' }); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
+  LL.fill = true; }
 
 // ---------- STICKER + BẢNG ĐIỂM (phiên V2, 14/10/2026; scripts/k2/lib/sticker.js) ----------
 // p.stickers: [{a: 'st:<id>' | 'col:<id>' | địa danh, img: 'stk:<tên thư viện>' | 'role:<vai>' | {role, hat, hand}, at, out, px (cao, px @1080p),
@@ -311,7 +348,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
     if (p.src) srcLine(g, p.src, CARD.x + 50, CARD.y + CARD.h - 34, u); }
-  else { colOcc(p, t); yearChip(g, p, t); whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
+  else { colOcc(p, t); yearChip(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = typeof p.kind === 'string' ? p.kind : /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;   // G2 (K 1.11 O5): p.kind khai rõ nhãn góc ('' = không nhãn góc, khi các thẻ tự mang nhãn) — thẻ dưới nhãn góc thôi khai kind → 1 ACTUAL/khung
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
   asof(g, p, t); } });
