@@ -1,0 +1,803 @@
+{
+ "collected": "2026-10-16",
+ "as_of_note": "Số công khai YouTube Data API, đọc 16/10/2026 (UTC). Nhãn, tỷ lệ là tự tính.",
+ "quota_units": 125,
+ "quota_chi_tiet": {
+  "search": 100,
+  "videos": 1,
+  "commentThreads": 1,
+  "channels": 12,
+  "playlistItems": 11
+ },
+ "S1": {
+  "q": "Zurich history|Zürich history|Zurich timelapse",
+  "params": "search.list type=video order=relevance maxResults=50 relevanceLanguage=en regionCode=US, không giới hạn ngày; videos.list 50 video",
+  "totalResults": 82589
+ },
+ "video_lich_su_zurich": [
+  {
+   "rank": 1,
+   "id": "7kpjGoQu0mw",
+   "pub": "2026-09-13",
+   "tuoi_ngay": 33,
+   "dur_s": 571,
+   "views": 34505,
+   "comments": 48,
+   "kenh": "Epoch Timeline",
+   "title": "Evolution of ZÜRICH: 1,126 Years of History | Fixed-Camera Timelapse",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 2,
+   "id": "RFAr-xQbb-E",
+   "pub": "2026-09-13",
+   "tuoi_ngay": 33,
+   "dur_s": 60,
+   "views": 281,
+   "comments": 0,
+   "kenh": "EraScapes",
+   "title": "1,100 Years of Zurich in 60 Seconds #zurich #history #timelapse",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 9,
+   "id": "C6iTDVWEYUU",
+   "pub": "2026-09-23",
+   "tuoi_ngay": 23,
+   "dur_s": 27,
+   "views": 975,
+   "comments": 0,
+   "kenh": "History Unsealed ",
+   "title": "Zurich in 1,000 Years — From Medieval Town to Modern City | 1000–2026",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 16,
+   "id": "mDrAZwOsBPg",
+   "pub": "2026-10-04",
+   "tuoi_ngay": 12,
+   "dur_s": 645,
+   "views": 19,
+   "comments": 0,
+   "kenh": "Distant Rain Memories",
+   "title": "Zurich, Switzerland: From Early Settlement to Modern City | Historical Timelapse 8000 BC–2026",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 24,
+   "id": "tT5xO827ls4",
+   "pub": "2026-10-12",
+   "tuoi_ngay": 4,
+   "dur_s": 494,
+   "views": 787,
+   "comments": 3,
+   "kenh": "Epoch Timelapse",
+   "title": "Evolution of Zürich: 12,000 Years Fixed-Camera Timelapse (10,000 BC to 2026)",
+   "lich_su_zurich": true
+  }
+ ],
+ "kenh_cung_loai": [
+  {
+   "kenh": "Epoch Timeline",
+   "tao": "2026-06-10",
+   "subs": 3510,
+   "videos": 51,
+   "views": 1240834
+  },
+  {
+   "kenh": "Epoch Timelapse",
+   "tao": "2026-04-26",
+   "subs": 5900,
+   "videos": 74,
+   "views": 1449516
+  }
+ ],
+ "nhan_cau": {
+  "Cau-ngach": {
+   "ket_qua": "ĐẠT",
+   "can_cu": "Epoch Timeline «Evolution of ZÜRICH: 1,126 Years of History | Fixed-Camera Timelapse» 34 505 lượt, 571 s (9,5 phút), đăng 13/09/2026 (33 ngày) — trong dải 10–50 nghìn, ≤ 90 ngày, ≥ 8 phút"
+  },
+  "No-mau": {
+   "ket_qua": "KHÔNG (cho Zürich riêng); dạng \"thành phố mọc 3D\" là Nổ-mẫu theo R&D"
+  },
+  "Cau-ben": {
+   "ket_qua": "KHÔNG",
+   "can_cu": "video dài lớn nhất có \"Zurich\" trong S1 là Epoch Timeline 34 505; video 4,73 triệu là Short 60 s về Thụy Sĩ (Knowledgia)"
+  },
+  "so_sanh_tienky_thanhpho": "Phiên chọn thành phố (S1 gộp 5 thành phố, 15/10) chỉ thấy 1 Short Zürich vì bị Budapest lấn chỗ; đo riêng cho Zürich thấy 5 video lịch sử Zürich đăng 13/09–12/10/2026. Điểm Cầu 2 → nên sửa thành 3; điểm Khoảng trống 5 → 4 (đã có cung, nhưng 0/5 có nguồn)."
+ },
+ "tat_ca_video_S1": [
+  {
+   "rank": 1,
+   "id": "7kpjGoQu0mw",
+   "pub": "2026-09-13",
+   "tuoi_ngay": 33,
+   "dur_s": 571,
+   "views": 34505,
+   "comments": 48,
+   "kenh": "Epoch Timeline",
+   "title": "Evolution of ZÜRICH: 1,126 Years of History | Fixed-Camera Timelapse",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 2,
+   "id": "RFAr-xQbb-E",
+   "pub": "2026-09-13",
+   "tuoi_ngay": 33,
+   "dur_s": 60,
+   "views": 281,
+   "comments": 0,
+   "kenh": "EraScapes",
+   "title": "1,100 Years of Zurich in 60 Seconds #zurich #history #timelapse",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 3,
+   "id": "WyB2tE5kjTI",
+   "pub": "2012-11-18",
+   "tuoi_ngay": 5080,
+   "dur_s": 190,
+   "views": 42387,
+   "comments": 12,
+   "kenh": "helvetiabynight",
+   "title": "Timelapse: Helvetia by Night - FRENETIC ZURICH - Switzerland",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 4,
+   "id": "wL8J0Vj46jg",
+   "pub": "2012-03-04",
+   "tuoi_ngay": 5339,
+   "dur_s": 364,
+   "views": 105224,
+   "comments": 105,
+   "kenh": "trainfart",
+   "title": "Trains Time Lapse - Zurich Main Station",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 5,
+   "id": "nALvIYd_r-s",
+   "pub": "2023-06-25",
+   "tuoi_ngay": 1209,
+   "dur_s": 268,
+   "views": 7504,
+   "comments": 9,
+   "kenh": "TC Rail",
+   "title": "20 minutes of trains at Zurich main station (5x timelapse)",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 6,
+   "id": "a6LPWoTq1zE",
+   "pub": "2026-08-15",
+   "tuoi_ngay": 62,
+   "dur_s": 9,
+   "views": 97,
+   "comments": 0,
+   "kenh": "Timelapse World Atlas",
+   "title": "Zurich Old Town Day to Night Timelapse | Cozy Swiss River Ambience",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 7,
+   "id": "3GiOjozOfMg",
+   "pub": "2023-03-26",
+   "tuoi_ngay": 1300,
+   "dur_s": 181,
+   "views": 777,
+   "comments": 5,
+   "kenh": "NicosWorld",
+   "title": "4K Timelapse of Zürich",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 8,
+   "id": "uiuuO57B9SM",
+   "pub": "2016-04-11",
+   "tuoi_ngay": 3840,
+   "dur_s": 172,
+   "views": 258495,
+   "comments": 128,
+   "kenh": "helvetiabynight",
+   "title": "Zurich by Night",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 9,
+   "id": "C6iTDVWEYUU",
+   "pub": "2026-09-23",
+   "tuoi_ngay": 23,
+   "dur_s": 27,
+   "views": 975,
+   "comments": 0,
+   "kenh": "History Unsealed ",
+   "title": "Zurich in 1,000 Years — From Medieval Town to Modern City | 1000–2026",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 10,
+   "id": "S2WjcvPTwMQ",
+   "pub": "2026-08-12",
+   "tuoi_ngay": 65,
+   "dur_s": 53,
+   "views": 929,
+   "comments": 0,
+   "kenh": "Travel with NJ ",
+   "title": "Zurich Went Dark 🌘 | Solar Eclipse Timelapse 🇨🇭",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 11,
+   "id": "qZp13nm30Ds",
+   "pub": "2023-07-20",
+   "tuoi_ngay": 1184,
+   "dur_s": 16,
+   "views": 643,
+   "comments": 0,
+   "kenh": "Machines & Miles",
+   "title": "City Time-lapse,  Zürich Switzerland  #zürich #switzerland #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 12,
+   "id": "Oy7auG1n7j8",
+   "pub": "2025-09-13",
+   "tuoi_ngay": 398,
+   "dur_s": 24,
+   "views": 1809,
+   "comments": 0,
+   "kenh": "Gwendosworld",
+   "title": "Timelapse Take off from Zürich, Switzerland. #takeoff #flying #timelapse #zurich #switzerland",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 13,
+   "id": "wOPwaFmC7QI",
+   "pub": "2020-08-26",
+   "tuoi_ngay": 2242,
+   "dur_s": 58,
+   "views": 1282,
+   "comments": 9,
+   "kenh": "Philipp Pley",
+   "title": "Zurich Paradeplatz Timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 14,
+   "id": "EfE-l0YoaTY",
+   "pub": "2026-09-04",
+   "tuoi_ngay": 42,
+   "dur_s": 28,
+   "views": 18332,
+   "comments": 33,
+   "kenh": "Skyline Aviation",
+   "title": "Dubai 🇦🇪 to Zurich 🇨🇭 #aviation #airplane #aircraft #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 15,
+   "id": "7xOD1X101zI",
+   "pub": "2011-05-29",
+   "tuoi_ngay": 5619,
+   "dur_s": 314,
+   "views": 34834,
+   "comments": 94,
+   "kenh": "trainfart",
+   "title": "Züge am Hauptbahnhof Zürich - Zurich Timelapse Video 2011",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 16,
+   "id": "mDrAZwOsBPg",
+   "pub": "2026-10-04",
+   "tuoi_ngay": 12,
+   "dur_s": 645,
+   "views": 19,
+   "comments": 0,
+   "kenh": "Distant Rain Memories",
+   "title": "Zurich, Switzerland: From Early Settlement to Modern City | Historical Timelapse 8000 BC–2026",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 17,
+   "id": "aJRwOzpRFQA",
+   "pub": "2022-04-27",
+   "tuoi_ngay": 1633,
+   "dur_s": 16,
+   "views": 4,
+   "comments": 0,
+   "kenh": "MaViSt",
+   "title": "Rigiblick Zürich Switzerland! #zurich #switzerland #shorts #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 18,
+   "id": "d5jQ72l56ZI",
+   "pub": "2019-10-21",
+   "tuoi_ngay": 2552,
+   "dur_s": 58,
+   "views": 1956,
+   "comments": 0,
+   "kenh": "Ank Kumar",
+   "title": "Zurich Diaries - SBB Train Timelapse @ Zürich HB[2019]",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 19,
+   "id": "Zi6tPTMlxao",
+   "pub": "2018-01-08",
+   "tuoi_ngay": 3203,
+   "dur_s": 135,
+   "views": 6119,
+   "comments": 6,
+   "kenh": "Driveon",
+   "title": "Zürich in Motion (Timelapse / Hyperlapse )",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 20,
+   "id": "TsI6AgfXygY",
+   "pub": "2023-01-27",
+   "tuoi_ngay": 1358,
+   "dur_s": 16,
+   "views": 40,
+   "comments": 0,
+   "kenh": "Motial",
+   "title": "Cityvibes Zürich #2023 #shorts #youtubeshorts #zurich #switzerland #zurich #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 21,
+   "id": "0TAFwsDVAFs",
+   "pub": "2014-12-09",
+   "tuoi_ngay": 4329,
+   "dur_s": 217,
+   "views": 21464,
+   "comments": 25,
+   "kenh": "Tolis Art.com",
+   "title": "I love Zürich Timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 22,
+   "id": "g15gDmCrKqk",
+   "pub": "2011-10-13",
+   "tuoi_ngay": 5482,
+   "dur_s": 206,
+   "views": 2271,
+   "comments": 0,
+   "kenh": "Forrer Remo",
+   "title": "Daily Traffic- Zurich City - TIMELAPSE",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 23,
+   "id": "imPGfIB8FE4",
+   "pub": "2014-08-23",
+   "tuoi_ngay": 4437,
+   "dur_s": 124,
+   "views": 3003,
+   "comments": 2,
+   "kenh": "Canon Film Guy",
+   "title": "One Day in Zurich - Timelapse Tiltshift",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 24,
+   "id": "tT5xO827ls4",
+   "pub": "2026-10-12",
+   "tuoi_ngay": 4,
+   "dur_s": 494,
+   "views": 787,
+   "comments": 3,
+   "kenh": "Epoch Timelapse",
+   "title": "Evolution of Zürich: 12,000 Years Fixed-Camera Timelapse (10,000 BC to 2026)",
+   "lich_su_zurich": true
+  },
+  {
+   "rank": 25,
+   "id": "0IrjY0nDwXk",
+   "pub": "2026-09-29",
+   "tuoi_ngay": 17,
+   "dur_s": 101,
+   "views": 279,
+   "comments": 0,
+   "kenh": "crosswind",
+   "title": "Timelapse TakeOFF Runway32 Zurich Airport 31.08.2026 #timelapse #planelapse #RushHour",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 26,
+   "id": "H68aFbAsE6M",
+   "pub": "2023-05-12",
+   "tuoi_ngay": 1253,
+   "dur_s": 17,
+   "views": 551,
+   "comments": 0,
+   "kenh": "RiShu Travel Diaries",
+   "title": "UBS Polybahn | Zurich | Time lapse #switzerland #polybahn #zurich #shorts",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 27,
+   "id": "v1U-h-ZXfYU",
+   "pub": "2024-07-09",
+   "tuoi_ngay": 829,
+   "dur_s": 35,
+   "views": 28,
+   "comments": 0,
+   "kenh": "Cloudia Chen",
+   "title": "Zürich🇨🇭 ‘s Skyline Transformed: A Sunset Timelapse #sunset #zurich",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 28,
+   "id": "adQJZxMXfOk",
+   "pub": "2023-06-19",
+   "tuoi_ngay": 1215,
+   "dur_s": 6,
+   "views": 88,
+   "comments": 0,
+   "kenh": "drone.republic",
+   "title": "WOW! INCREDIBLE TIMELAPSE! #hyperlapse #timelapse #drone #dronevideo #digitalart #zurich #shorts",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 29,
+   "id": "Bm9G6va0A-c",
+   "pub": "2025-09-11",
+   "tuoi_ngay": 400,
+   "dur_s": 9,
+   "views": 188,
+   "comments": 0,
+   "kenh": "Ivo Vidakovic",
+   "title": "Zurich Sunset Timelapse | Ivo Vidakovic",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 30,
+   "id": "iOrr9DtLDfA",
+   "pub": "2024-07-11",
+   "tuoi_ngay": 827,
+   "dur_s": 12,
+   "views": 253,
+   "comments": 0,
+   "kenh": "Vibrant Voyages",
+   "title": "Timelapse | Zürich Hauptbahnhof (HB) | #timelapse #train #travel",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 31,
+   "id": "pflGKexi8kQ",
+   "pub": "2018-11-17",
+   "tuoi_ngay": 2890,
+   "dur_s": 121,
+   "views": 506,
+   "comments": 1,
+   "kenh": "TimelapseD",
+   "title": "Zurich Timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 32,
+   "id": "WXI8RuQ6cOU",
+   "pub": "2026-07-18",
+   "tuoi_ngay": 90,
+   "dur_s": 28,
+   "views": 24,
+   "comments": 0,
+   "kenh": "Information Brother",
+   "title": "Time-lapse flight takeoff from Zurich. #timelapse #airport #zurich #switzerland #dhanbadyoutuber",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 33,
+   "id": "3D25_wfRwbE",
+   "pub": "2024-10-11",
+   "tuoi_ngay": 735,
+   "dur_s": 60,
+   "views": 4732669,
+   "comments": 1170,
+   "kenh": "Knowledgia",
+   "title": "How was Switzerland Formed? #map  #historicalmaps #switzerland",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 34,
+   "id": "S4xymXHFOxE",
+   "pub": "2026-09-28",
+   "tuoi_ngay": 18,
+   "dur_s": 48,
+   "views": 374,
+   "comments": 1,
+   "kenh": "crosswind",
+   "title": "Timelapse TakeOFF Runway32 Zurich Airport 31.08.2026 #timelapse #planelapse #RushHour #Planespotting",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 35,
+   "id": "24NTFALimQE",
+   "pub": "2023-07-30",
+   "tuoi_ngay": 1174,
+   "dur_s": 25,
+   "views": 115,
+   "comments": 0,
+   "kenh": "Crispy Matters",
+   "title": "Amazing timelapse of take-off from Zurich airport #timelapse #flight #zurich #switzerland",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 36,
+   "id": "KQ6OrDnUjTE",
+   "pub": "2016-09-03",
+   "tuoi_ngay": 3695,
+   "dur_s": 14,
+   "views": 146,
+   "comments": 0,
+   "kenh": "Sultan AlKhulaifi",
+   "title": "Lake Zurich, Zürichsee Timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 37,
+   "id": "wgTR59elY80",
+   "pub": "2018-12-01",
+   "tuoi_ngay": 2876,
+   "dur_s": 159,
+   "views": 87,
+   "comments": 0,
+   "kenh": "BauhoferProductions",
+   "title": "A timelapse journey 6: Zurich",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 38,
+   "id": "vtxeo7map7w",
+   "pub": "2026-04-14",
+   "tuoi_ngay": 185,
+   "dur_s": 45,
+   "views": 900,
+   "comments": 0,
+   "kenh": "crosswind",
+   "title": "Timelapse Snowy Zürich Airport 10.01.2026 #snowyairport #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 39,
+   "id": "uALgozoDVeE",
+   "pub": "2024-03-29",
+   "tuoi_ngay": 931,
+   "dur_s": 57,
+   "views": 3122,
+   "comments": 6,
+   "kenh": "Hugo Bazin",
+   "title": "🇨🇭 Cab Ride Timelapse Zurich Switzerland Tram 10 Part 1#shorts #switzerland #cabride #travel #tram",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 40,
+   "id": "2FvCe_mI1lA",
+   "pub": "2026-09-22",
+   "tuoi_ngay": 24,
+   "dur_s": 49,
+   "views": 801,
+   "comments": 0,
+   "kenh": "crosswind",
+   "title": "Timelapse Rush Hour Runway32 Planespotting Zurich Airport 31.08.2026 #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 41,
+   "id": "0kGxEDvoGEQ",
+   "pub": "2013-03-27",
+   "tuoi_ngay": 4951,
+   "dur_s": 48,
+   "views": 92,
+   "comments": 0,
+   "kenh": "Tatyana Mishchenko",
+   "title": "Zurich Timelapse Photography",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 42,
+   "id": "9IZBMJO_7Qo",
+   "pub": "2023-02-07",
+   "tuoi_ngay": 1347,
+   "dur_s": 8,
+   "views": 1685,
+   "comments": 0,
+   "kenh": "Chronicles of PriPal",
+   "title": "Zürich Opera House, Switzerland #shorts",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 43,
+   "id": "bIedNEAeBdg",
+   "pub": "2024-10-15",
+   "tuoi_ngay": 731,
+   "dur_s": 16,
+   "views": 46,
+   "comments": 1,
+   "kenh": "Rachel Morena",
+   "title": "#zurich #switzerland #timelapse #switzerlandtrip #europetravel #travelvlog #europetravelvlog #europe",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 44,
+   "id": "ww_0JitbNn8",
+   "pub": "2019-12-11",
+   "tuoi_ngay": 2501,
+   "dur_s": 20,
+   "views": 264,
+   "comments": 1,
+   "kenh": "Our Earth",
+   "title": "A tour of Zurich Switzerland Timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 45,
+   "id": "XRtniW0pQIk",
+   "pub": "2023-03-01",
+   "tuoi_ngay": 1325,
+   "dur_s": 16,
+   "views": 594,
+   "comments": 0,
+   "kenh": "On Feet and Wheels",
+   "title": "🇨🇭 | The cloud above the snow #zurich #swiss #switzerland #timelapse #hyperlapse #shorts",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 46,
+   "id": "MAEwfrsbEH4",
+   "pub": "2023-05-31",
+   "tuoi_ngay": 1234,
+   "dur_s": 61,
+   "views": 64,
+   "comments": 0,
+   "kenh": "Ciao Rambler",
+   "title": "Zurich City Timelapse View #shorts #switzerland #zurich #timelapse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 47,
+   "id": "EwhzEJivmQY",
+   "pub": "2016-05-31",
+   "tuoi_ngay": 3790,
+   "dur_s": 210,
+   "views": 1770,
+   "comments": 4,
+   "kenh": "P. P",
+   "title": "Zurich Timelapse - One Day of Pulse",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 48,
+   "id": "DSlzu6scE2A",
+   "pub": "2016-02-07",
+   "tuoi_ngay": 3904,
+   "dur_s": 101,
+   "views": 701,
+   "comments": 0,
+   "kenh": "garlicplatypus",
+   "title": "Zurich Timelapse 2016-02-06",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 49,
+   "id": "WHccNINckgQ",
+   "pub": "2019-07-20",
+   "tuoi_ngay": 2645,
+   "dur_s": 99,
+   "views": 42,
+   "comments": 0,
+   "kenh": "737Cockpit.info",
+   "title": "Timelapse Video - Landing in Zurich",
+   "lich_su_zurich": false
+  },
+  {
+   "rank": 50,
+   "id": "KjRXsft_qSQ",
+   "pub": "2020-02-03",
+   "tuoi_ngay": 2447,
+   "dur_s": 21,
+   "views": 154,
+   "comments": 3,
+   "kenh": "Frequnix",
+   "title": "Zurich Timelapse 4K | From day to night",
+   "lich_su_zurich": false
+  }
+ ],
+ "kiem_kenh_timelapse_tu_15_10": {
+  "3dtimelapse-w9e": {
+   "uploads_doc": 13,
+   "tu_15_10": [],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "cityeons": {
+   "uploads_doc": 3,
+   "tu_15_10": [],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "cornerstonetimelapse": {
+   "uploads_doc": 4,
+   "tu_15_10": [
+    [
+     "2026-10-15",
+     "EVOLUTION OF LOS ANGELES | 3D CITY TIMELAPSE (1781–NOW)"
+    ]
+   ],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "datasharkyt": {
+   "uploads_doc": 11,
+   "tu_15_10": [],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "howcitiesgrew": {
+   "uploads_doc": 4,
+   "tu_15_10": [
+    [
+     "2026-10-15",
+     "CONSTANTINOPLE - 3D TIMELAPSE - 680 BC to AD 1453"
+    ]
+   ],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "latoscharts": {
+   "uploads_doc": 15,
+   "tu_15_10": [
+    [
+     "2026-10-15",
+     "NEW YORK CITY - 3D Timelapse"
+    ],
+    [
+     "2026-10-15",
+     "WARSAW - 3D Timelapse"
+    ]
+   ],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "nobodycareswhatiswrittenhere": {
+   "uploads_doc": 20,
+   "tu_15_10": [
+    [
+     "2026-10-15",
+     "3D Timelapse – Shanghai (1000–2026)"
+    ]
+   ],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "restoredtimeline": {
+   "uploads_doc": 20,
+   "tu_15_10": [],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "timelinecities4k": {
+   "uploads_doc": 14,
+   "tu_15_10": [
+    [
+     "2026-10-15",
+     "Watch ROME Grow for 2,800 Years - 3D Timelapse"
+    ]
+   ],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "timewarpcities": {
+   "uploads_doc": 20,
+   "tu_15_10": [
+    [
+     "2026-10-15",
+     "Why the Samnites Feared Rome Long Before Hannibal Ever Did"
+    ]
+   ],
+   "co_zurich_helsinki_detroit_sevilla": []
+  },
+  "urbavision": {
+   "uploads_doc": 7,
+   "tu_15_10": [],
+   "co_zurich_helsinki_detroit_sevilla": []
+  }
+ },
+ "loc_lich_su": "tiêu đề có Zurich/Zürich và một trong history/histor*/evolution/years/1000/timeline"
+}

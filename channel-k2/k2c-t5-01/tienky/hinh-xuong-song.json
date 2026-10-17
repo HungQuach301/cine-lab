@@ -1,0 +1,218 @@
+{
+ "note": "Ngôn ngữ hình xương sống thời gian K2C-T5-01 (theo mẫu T4 §9 + R&D timelapse §6.6–6.8). Toạ độ LV95.",
+ "as_of": "2026-10-16",
+ "moc_dinh": [
+  {
+   "id": "M1",
+   "nam": "c. 200",
+   "su_kien": "Statio Turicensis — trạm thuế 2,5 % ở cửa hồ chảy ra Limmat",
+   "dia_diem": "Lindenhof (≈ 2 683 150, 1 247 450)",
+   "lop_hinh": "4D lát 200 (ghost nếu tin cậy thấp) + mặt nước lát 200",
+   "claim": [
+    "Z28",
+    "Z29",
+    "Z30",
+    "Z31",
+    "Z32",
+    "Z33",
+    "Z34",
+    "Z38"
+   ]
+  },
+  {
+   "id": "M2",
+   "nam": "853",
+   "su_kien": "Fraumünster được lập; Grossmünster 1100–1230 (tháp 1488–92) bên kia sông",
+   "dia_diem": "Fraumünster (2 683 289, 1 247 137); Grossmünster (2 683 479, 1 247 178)",
+   "lop_hinh": "hero H2 + H1; 4D 1200 ghost \"reconstruction (hypothesis)\"",
+   "claim": [
+    "Z46",
+    "Z47",
+    "Z94"
+   ]
+  },
+  {
+   "id": "M3",
+   "nam": "1642",
+   "su_kien": "Vành thành luỹ Barock hình sao, gấp đôi diện tích trong tường",
+   "dia_diem": "Schanzengraben (TB-schanzengraben)",
+   "lop_hinh": "Gyger ~1644 (CC0) sepia → 4D 1800 Befestigungsanlage.Schanze (9 769 tam giác)",
+   "claim": [
+    "Z52"
+   ]
+  },
+  {
+   "id": "M4",
+   "nam": "1833",
+   "su_kien": "Quyết định phá toàn bộ thành luỹ (30.1.1833)",
+   "dia_diem": "vành Schanzen",
+   "lop_hinh": "luỹ tan dần 1833 → Wild-Karte 1843–51",
+   "claim": [
+    "Z53",
+    "Z54"
+   ]
+  },
+  {
+   "id": "M5",
+   "nam": "1847",
+   "su_kien": "Spanisch-Brötli-Bahn Zürich–Baden (9.8.1847); ga Wanner 1865–71; Bahnhofstrasse trên hào Fröschengraben 1863–64",
+   "dia_diem": "Hauptbahnhof (H4, EGID 140889)",
+   "lop_hinh": "hero H4; TB-bahnhofstrasse",
+   "claim": [
+    "Z55",
+    "Z56",
+    "Z57",
+    "Z58"
+   ]
+  },
+  {
+   "id": "M6",
+   "nam": "1893",
+   "su_kien": "Sáp nhập 11 xã — Zürich thành thành phố lớn nhất Thuỵ Sĩ",
+   "dia_diem": "ranh giới L6 (180 ha → ≈ 4 851 ha)",
+   "lop_hinh": "vạch ranh giới nở; bộ đếm nhảy, đổi màu, ghi \"merger\"",
+   "claim": [
+    "Z04",
+    "Z05",
+    "Z08",
+    "Z09",
+    "Z11",
+    "P01"
+   ]
+  },
+  {
+   "id": "M7",
+   "nam": "1934",
+   "su_kien": "Sáp nhập 8 xã — ranh giới hiện nay; không sáp nhập thêm từ đó",
+   "dia_diem": "ranh giới L6 (→ ≈ 9 188 ha thống kê; 8 773 ha chính thức)",
+   "lop_hinh": "vạch ranh giới khoá lại (đổi sang nét đứt cố định đến 2026)",
+   "claim": [
+    "Z01",
+    "Z12",
+    "Z13",
+    "Z16",
+    "Z17"
+   ]
+  },
+  {
+   "id": "M8",
+   "nam": "1962",
+   "su_kien": "Đỉnh 440 180 dân; cùng năm Altstadt được bảo vệ",
+   "dia_diem": "toàn thành phố",
+   "lop_hinh": "bộ đếm dừng 1,5–2 s, phóng 1,45×; rồi đảo chiều",
+   "claim": [
+    "Z63",
+    "Z60"
+   ]
+  }
+ ],
+ "ket_khong_phai_moc": {
+  "nam": "2022",
+  "noi_dung": "vượt đỉnh theo số của Thành phố (443 037) → 2025: 452 421; bảng điểm cuối",
+  "claim": [
+   "Z66",
+   "Z67",
+   "K04"
+  ]
+ },
+ "then_now": [
+  {
+   "id": "TN1",
+   "then": "BAZ hist124 «Bahnhofplatz Hauptbahnhof», um 1893, 1920×1357, CC0 (OGD geo_historische_bilder)",
+   "now": "render LoD2 + hero H4 cùng pose",
+   "huong": "từ Bahnhofplatz/đầu Bahnhofstrasse nhìn bắc về cổng vòm (tượng Escher còn tại chỗ — điểm khống chế tốt)",
+   "ket_luan": "GIỮ (điều kiện: ≥ 6 điểm khống chế, RMS ≤ 1 % rộng ảnh + ảnh chồng 50 %, như TL-Q4). Mặt Wanner gần như không đổi → khớp góc khả thi."
+  },
+  {
+   "id": "TN2",
+   "then": "BAZ hist135 «Rathausbrücke, Hotel Schwert», um 1900, CC0",
+   "now": "render cùng pose; mặt đồng hồ St. Peter làm mốc",
+   "huong": "từ Rathausbrücke nhìn tây-nam lên Weinplatz/tháp St. Peter",
+   "ket_luan": "ĐIỀU KIỆN: chỉ giữ nếu đủ điểm khống chế ở mặt nhà Weinplatz còn tồn tại; không khớp thì bỏ, không tìm thêm."
+  }
+ ],
+ "tuyen_bay": {
+  "tep": "tuyen-bay.json",
+  "dung": {
+   "TB-limmat": "ch.1 (cửa hồ → sông; cơ chế chuyển tải) và ch.7 (2026)",
+   "TB-schanzengraben": "ch.2 (thành luỹ còn lại)",
+   "TB-bahnhofstrasse": "ch.3 (hào Fröschengraben → phố, 1863–64)",
+   "TB-limmatquai": "dự phòng / ch.5"
+  },
+  "so_tuyen": "4 (≥ 3)"
+ },
+ "mo_dau_chuong": [
+  {
+   "ch": 0,
+   "kieu": "reveal toàn cảnh",
+   "de_xuat": "mở sát một toà đang bị phá năm 2026 (GWR), máy kéo lui thành toàn thành phố; 504 chấm đỏ của năm 2026 nhấp nháy; bộ đếm tua về c. 200"
+  },
+  {
+   "ch": 1,
+   "kieu": "glide → zoom-in",
+   "de_xuat": "trượt trên mặt hồ về phía bắc, hạ xuống chỗ hồ thắt thành sông, lặn vào Lindenhof (M1)"
+  },
+  {
+   "ch": 2,
+   "kieu": "reveal toàn cảnh",
+   "de_xuat": "kéo lên cao thấy vành sao Barock 1642 (M3); 4D 1500 ghost → 1800 đặc"
+  },
+  {
+   "ch": 3,
+   "kieu": "glide → zoom-in",
+   "de_xuat": "bay TB-schanzengraben 2026 → hoà về hào 1800 → luỹ tan (M4) → rẽ vào TB-bahnhofstrasse tới ga (M5)"
+  },
+  {
+   "ch": 4,
+   "kieu": "reveal toàn cảnh",
+   "de_xuat": "từ ga kéo lùi ra vùng: 11 xã sáng lên trước khi vạch ranh giới nở (M6), rồi 8 xã (M7)"
+  },
+  {
+   "ch": 5,
+   "kieu": "glide → zoom-in",
+   "de_xuat": "lướt qua thành phố 1950s đặc dần tới đỉnh 1962 (M8), lặn vào một căn hộ: 2,7 → 1,8 người"
+  },
+  {
+   "ch": 6,
+   "kieu": "reveal toàn cảnh",
+   "de_xuat": "kéo ra khỏi ranh giới thành phố tới vành xã: thành phố tối dần, vành xã sáng lên (Greifensee ×12)"
+  },
+  {
+   "ch": 7,
+   "kieu": "glide → zoom-in",
+   "de_xuat": "bay TB-limmat 2026, toà 1920s–60s tan đúng năm (8 677), toà mới mọc; kết về khung mở đầu"
+  }
+ ],
+ "footage_ty_le": {
+  "de_xuat": "≈ 5 % (~30 s / ~10:30), trần 20 % là TỐI ĐA",
+  "thanh_phan": [
+   {
+    "loai": "ảnh BAZ/LoC/e-rara 1890–1902 (Ken Burns 2.5D / neo 3D)",
+    "s": 24,
+    "ly_do": "a bằng chứng sự việc (ga, phố, cầu đã đổi), c quy mô"
+   },
+   {
+    "loai": "hồ sơ văn bản (không tính footage): kết quả bỏ phiếu 1891/1931, Jahrbuch 1963 \"Seit 1934 heutiges Stadtgebiet\", bia mộ Statio Turicensis",
+    "s": "50–70",
+    "ly_do": "hồ sơ thật 10–15 %"
+   },
+   {
+    "loai": "footage phim",
+    "s": 0,
+    "ly_do": "chưa tìm được footage có quyền rõ đúng câu lời; 3D + ảnh làm tốt hơn"
+   },
+   {
+    "loai": "stock hiện đại",
+    "s": 0,
+    "ly_do": "2026 dựng bằng 3D + chỉnh hình CC0"
+   }
+  ]
+ },
+ "ngan_sach_chu": "≤ 15 % diện tích (khung thường), ≤ 25 % (mốc đinh); ≤ 1 thẻ; 2 lớp thường trực (năm, dân số); dòng phương pháp \"Standing buildings: federal register · Lost buildings: city 3D reconstructions (hypothesis where marked)\" chỉ ở 6 s đầu + màn kết (theo R&D §6.7).",
+ "chuan_hinh_4_lop": {
+  "hero": "H1–H6 (hero.json): cận cảnh dựng chi tiết; trạng thái 1800 lấy mesh 4D có texture 8K",
+  "nha_thuong": "4D 1800: texture thủ tục Fachwerk/Steinwand có cửa sổ (Stadt/Land); hiện đại: LoD2 mái thật + shader cửa sổ theo số tầng GWR (GASTW 100 %)",
+  "nen_song": "mặt nước theo lát, cây (4D baumbestand_p), thuyền A-lite trên Limmat ở M1, tàu 1847 ở M5, người A-lite ở then/now",
+  "anh_sang": "ánh sáng theo hồi (sepia trước 1847 → tự nhiên); bóng đổ PCF; quầng mốc đinh như R&D E1"
+ }
+}

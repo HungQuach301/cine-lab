@@ -1,0 +1,29 @@
+GIAY PHEP: swisstopo - swissBUILDINGS3D 2.0 (o 1091-41, DXF) va dich vu api3.geo.admin.ch (do cao swissALTI3D, tim dia chi, doi toa do) - dung doi chieu hinh hoc HERO
+Ngay doc: 2026-10-16 (phien phu Tai lieu dung HERO)
+Nguoi giu: Bundesamt für Landestopografie swisstopo
+Giay phep: dieu khoan "free geodata and geoservices" cua swisstopo (OGD) - dung thuong mai duoc, BAT BUOC ghi nguon
+Ghi cong bat buoc: "© swisstopo" (hoac "Federal Office of Topography swisstopo")
+Tep tho luu ngoai git: .../scratchpad/hero/raw/{sb3d,geoadmin,terms}/
+
+======================================================================
+URL: https://www.swisstopo.admin.ch/en/terms-of-use-free-geodata-and-geoservices
+HTTP: 200
+SHA-256 trang: c653e21f58688fded224e6021f87b7fa4981b122e50da98b472bc41b8287c8c0
+Trich nguyen van:
+  "2. Terms of use The free geodata and geoservices of swisstopo may be used, distributed and made accessible. Furthermore, they may be enriched and processed and also used commercially. A reference to the source is mandatory. In the case of digital or analogue representations and publications, as well as in the case of dissemination, one of the following source references must be attached in any case: Bundesamt für Landestopografie swisstopo Office fédéral de topographie swisstopo Ufficio federale di topografia swisstopo Uffizi federal da topografia swisstopo Federal Office of Topography swisstopo ©swisstopo"
+
+======================================================================
+TAI SAN DA TAI
+STAC: https://data.geo.admin.ch/api/stac/v0.9/collections/ch.swisstopo.swissbuildings3d_2/items?bbox=8.540,47.369,8.5445,47.3715
+Tep: https://data.geo.admin.ch/ch.swisstopo.swissbuildings3d_2/swissbuildings3d_2_2021-05_1091-41/swissbuildings3d_2_2021-05_1091-41_2056_5728.dxf.zip
+  HTTP 200, 41 325 276 byte, SHA-256 2739900ede225245064ee19477c23c1af93154304ee267d7538f9978f3ec52e3
+  Ben trong: SWISSBUILDINGS3D_2_0_CHLV95LN02_1091-41.dxf (714 148 171 byte, POLYLINE polyface; lop "Sakraler Turm", "Sakrales Gebaeude", "Gebaeude Einzelhaus", "Hochhaus"...). Da xoa ban giai nen sau khi do.
+  Pham vi o (STAC bbox WGS84): 8.5139758, 47.3502913, 8.5724451, 47.3778253 -> KHONG chua Prime Tower; toa HB bi cat o bien o (khong doi chieu duoc).
+KHONG tai: swissBUILDINGS3D 3.0 o 1091-41 CityGML (251 354 356 byte > tran 200 MB).
+
+DICH VU api3.geo.admin.ch da goi (khong tai tep, chi doc gia tri):
+  /rest/services/height?easting=..&northing=..&sr=2056  (do cao dia hinh swissALTI3D)
+  /rest/services/api/SearchServer?type=locations (tim dia chi -> featureId = EGID_EDID)
+  https://geodesy.geo.admin.ch/reframe/lv95towgs84 (doi LV95 -> WGS84)
+  /rest/services/api/MapServer/identify layers=ch.babs.kulturgueter (KGS-Inventar) - SHA-256 ket qua d7782f87bf73e8c65959fcbbb650070327e3bca591d856c57ded888a8b0d2d8c
+    LUU Y: anh KGS (data.geo.admin.ch/ch.babs.kulturgueter/image/...) mang "© BABS, Fachbereich Kulturgüterschutz" - giay phep anh CHUA xac minh (opendata.swiss tra 403) -> KHONG dung anh KGS; chi dung so KGS va ten muc.

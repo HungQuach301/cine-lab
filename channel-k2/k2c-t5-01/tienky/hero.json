@@ -1,0 +1,996 @@
+{
+ "note": "Tài liệu dựng HERO cho tập k2c-t5-01 'Why Zürich Shrank While Getting Rich' (kênh Moving Parts). Hình học đo từ 3D-Dachmodell LoD2 Stadt Zürich (CC0) qua WFS, đối chiếu swissBUILDINGS3D 2.0 (© swisstopo) và GWR (BFS). Chiều cao tính trên địa hình swissALTI3D vì mặt GroundSurface LoD2 thấp hơn DTM 3–6 m. Tệp giấy phép nằm ở channel-k2/k2c-t5-01/licenses/. Ảnh Commons chưa tải được (HTTP 429) – có SHA-1 Commons để kiểm khi tải. Phương án dự phòng: Rathaus (EGID 3169567, KGS 7871) LoD2 41.6×18.2 m, cao ~25 m, tệp rathaus.geojson SHA-256 b7f56684338afbb5f074012952ee907ec5ffdc2bbf217498fa6714bcf0976ba3.",
+ "as_of": "2026-10-16",
+ "hero": [
+  {
+   "id": "H1",
+   "ten": "Grossmünster",
+   "dia_chi": "Zwingliplatz 7, 8001 Zürich",
+   "kgs": "KGS 7864 (A)",
+   "lv95": [
+    2683479.4,
+    1247177.6
+   ],
+   "wgs84": [
+    47.370151,
+    8.543884
+   ],
+   "egid": 302040349,
+   "hinh_hoc": {
+    "nguon": "Stadt Zürich, Bauten - Dachmodell (3D) LoD2, WFS bauten_dachmodell_3d (CC0); doi chieu swissBUILDINGS3D 2.0 o 1091-41 (© swisstopo); dia hinh swissALTI3D qua api3.geo.admin.ch",
+    "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&outputFormat=application/vnd.geo%2Bjson&BBOX=2683440,1247130,2683530,1247215,EPSG:2056",
+    "sha256": "3af2905dd6d4dd9dd748cdd19f1dd57626e22f73e7d186acfefe5018b13f18d0",
+    "dinh_dang_goc": "GeoJSON MultiPolygon 3D (WFS); goc: CityGML LoD2 / DXF / GPKG",
+    "kich_thuoc": {
+     "hop_bao_dinh_huong_m": [
+      55.5,
+      28.2
+     ],
+     "truc_doc_deg": 144.8,
+     "dien_tich_GroundSurface_m2": 1293.7,
+     "GWR_GAREA_m2": 1295,
+     "thap": {
+      "so_thap": 2,
+      "mat_bang_moi_thap_m": "~12.2 x 12.3 va ~12.0 x 11.9 (bbox swissBUILDINGS3D)",
+      "khoang_cach_tam_hai_dinh_m": 17.9
+     }
+    },
+    "chieu_cao_m": {
+     "dinh_thap_tuyet_doi_m": 472.33,
+     "dia_hinh_quanh_chan_m": [
+      414.6,
+      418.6
+     ],
+     "dinh_thap_tren_dia_hinh_m": "55.7-57.7 (~57.2 so voi trung vi 415.1)",
+     "than_chinh_cao_nhat_tuyet_doi_m": 466.57,
+     "GroundSurface_LoD2_m": 411.53
+    },
+    "tam_giac": 1196,
+    "da_giac": {
+     "RoofSurface": 333,
+     "WallSurface": 194,
+     "GroundSurface": 1
+    },
+    "doi_chieu_swissbuildings3d": "2 mesh 'Sakraler Turm' (482 va 486 mat tam giac, zmax 472.32) + 'Sakrales Gebaeude' (293 mat, zmax 466.57): khop LoD2 thanh pho den cm",
+    "ghi_chu": "LoD2 co MO HINH HOA 2 thap rieng va mu thap dang 'chanh ep' o muc tho (~480 tam giac/thap) - khong co cua so, vom tran, phu dieu, dong ho. Chieu cao tinh tren dia hinh vi mat GroundSurface LoD2 thap hon DTM 3-6 m. Chu so huu ghi platform Karlsturm ~50 m."
+   },
+   "nam": [
+    {
+     "su_kien": "Mu thap (Turmhelme) hien nay, sau hoa hoan",
+     "nam": "1786 (theo van ban chu so huu)",
+     "nguon": "Reformierte Kirche Zürich (chu so huu) - Karlsturm",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/grossmuenster/geschichte-bauwerk/karlsturm/",
+     "trich": "Die heutigen Turmhelme erhielten die Türme nach einem Brand im Jahr 1786. Wegen ihrer Form werden sie bisweilen scherzhaft «Zitronenpressen» genannt; zugleich zählen sie zu den frühen neugotischen Turmabschlüssen."
+    },
+    {
+     "su_kien": "Plattform Karlsturm",
+     "nam": null,
+     "nguon": "Reformierte Kirche Zürich - Karlsturm",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/grossmuenster/geschichte-bauwerk/karlsturm/",
+     "trich": "Über 187 Stufen gelangt man zur Plattform in rund 50 Metern Höhe"
+    },
+    {
+     "su_kien": "Ten 'Grossmünster' xuat hien",
+     "nam": "the ky 14",
+     "nguon": "Reformierte Kirche Zürich - Name & Gründungslegende",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/grossmuenster/geschichte-bauwerk/name-gruendungslegende/",
+     "trich": "Der Name «Grossmünster» taucht erst im 14. Jahrhundert auf."
+    }
+   ],
+   "tu_lieu": [
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Grossmünster (BAZ hist002, 12790_1.jpg)",
+     "nam": "um 1890",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist002/image/12790_1.jpg",
+     "px": "1510x1920",
+     "sha256": "d76d374fbe285feb57cf3e5973ba516709527d3a6b4e8f6ca1190990b1f84589",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Mat Tay + hai thap toan canh, mu thap ro: tham chieu chinh cho hinh dang thap va nhip cua so tang."
+    },
+    {
+     "loai": "ban_ve",
+     "tieu_de": "[Das Grossmünster von Ao. 1450 mit Grundriss] / F. Hegi fec. (Antiquarische Gesellschaft in Zürich)",
+     "nam": "1840",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/16392755",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/16392756/full/full/0/default.jpg",
+     "px": "4615x4583",
+     "sha256": "adba8c3d95046a8316654afe0bbd4b9c31b6650eebf99c7c788ccba5f4cdf933",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "Franz Hegi, 1840. Zentralbibliothek Zürich, Zürich D1, Grossmünster I, 1. e-rara, https://doi.org/10.3931/e-rara-60603",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "dieu_kien",
+     "ly_do": "Dung MAT BANG (Grundriss) va ty le than; phan dung la trang thai gia dinh nam 1450 (thap truoc 1786) - khong dung cho hinh thap hien nay."
+    },
+    {
+     "loai": "anh_hien_dai",
+     "tieu_de": "File:Grossmünster Zurich Switzerland 24Jun2021.jpg",
+     "nam": null,
+     "url_trang": "https://commons.wikimedia.org/wiki/File:Grossm%C3%BCnster_Zurich_Switzerland_24Jun2021.jpg",
+     "url_tep": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Grossm%C3%BCnster_Zurich_Switzerland_24Jun2021.jpg",
+     "px": "1440x1795",
+     "sha256": null,
+     "sha1_commons": "85e10f397aa160355b1b6f252da3d40e6bdb187d",
+     "giay_phep": "CC BY-SA 4.0",
+     "ghi_cong": "Ilya Hirschberg (Kreecher), CC BY-SA 4.0, via Wikimedia Commons",
+     "license_file": "licenses/wikimedia-commons-hero-photos.txt",
+     "dung_duoc": "co",
+     "ly_do": "Giay phep hop le; chua tai duoc (HTTP 429) - tai lai va ghi SHA-256 truoc khi giao xuong. Dung kiem mau sa thach/mu thap."
+    }
+   ],
+   "ghi_chu_dung": {
+    "lop1_hero": "Hai thap vuong ~12 x 12 m, dinh 472.3 m tuyet doi (~57 m tren mat dat), cach tam 17.9 m; mu thap tam giac-vom 'Zitronenpresse' (chu so huu) - dung tu anh BAZ 1890 + anh C1. Than nha tho Roman 3 gian, mai doc; than cao nhat 466.6 m. Cua so tang thap, dai cot, cua chinh mat Tay: lay tu anh BAZ.",
+    "lop2_nha_thuong": "Day nha Kirchgasse/Zwingliplatz quanh nha tho: dung LoD2 nguyen trang (mai dung, them cua so lap theo tang).",
+    "lop3_nen_song": "San Zwingliplatz, Grossmünsterplatz, bac thang xuong Limmatquai; Wasserkirche/Helmhaus phia song (anh BAZ hist015).",
+    "lop4_anh_sang": "Vat lieu va mau: chua kiem bang tu lieu mau trong phien (anh C1 chua tai) - KHONG doan; kiem anh C1 truoc khi khoa bang mau. Mu thap la diem bat sang hoang hon tu bo Tay.",
+    "muc_chi_tiet_de_xuat": "HERO cao nhat: thap 2-5k tam giac/thap o tam trung, mat Tay chi tiet; LoD2 lam khung ty le."
+   },
+   "uoc_gio_dung": "40-60 gio (ước)"
+  },
+  {
+   "id": "H2",
+   "ten": "Fraumünster",
+   "dia_chi": "Münsterhof 2, 8001 Zürich",
+   "kgs": "KGS 7863 (A)",
+   "lv95": [
+    2683282.8,
+    1247127.7
+   ],
+   "wgs84": [
+    47.369727,
+    8.541272
+   ],
+   "egid": 302040792,
+   "hinh_hoc": {
+    "nguon": "Stadt Zürich LoD2 WFS (CC0); doi chieu swissBUILDINGS3D 2.0 (© swisstopo); swissALTI3D",
+    "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&outputFormat=application/vnd.geo%2Bjson&BBOX=2683230,1247080,2683320,1247170,EPSG:2056",
+    "sha256": "68e79e1f4cd9bd24f88aa0a5dc23135b5f0e3611851185e612f5fd0c2a82ee2b",
+    "dinh_dang_goc": "GeoJSON MultiPolygon 3D (WFS)",
+    "kich_thuoc": {
+     "hop_bao_dinh_huong_m": [
+      62.3,
+      31.1
+     ],
+     "truc_doc_deg": 174.4,
+     "dien_tich_GroundSurface_m2": 1415.1,
+     "GWR_GAREA_m2": 1415,
+     "thap": {
+      "so_thap": 1,
+      "mat_bang_thap_m": "~8.2 x 8.7 (bbox swissBUILDINGS3D 'Sakraler Turm')",
+      "vi_tri_dinh_lv95": [
+       2683293.6,
+       1247136.5
+      ]
+     }
+    },
+    "chieu_cao_m": {
+     "dinh_mui_nhon_tuyet_doi_m": 484.78,
+     "dia_hinh_quanh_chan_m": [
+      408.0,
+      409.3
+     ],
+     "dinh_tren_dia_hinh_m": "~76 (75.5-76.8)",
+     "noc_than_tuyet_doi_m": 435.79,
+     "noc_than_tren_dia_hinh_m": "~27",
+     "GroundSurface_LoD2_m": 405.4
+    },
+    "tam_giac": 737,
+    "da_giac": {
+     "RoofSurface": 87,
+     "WallSurface": 215,
+     "GroundSurface": 1
+    },
+    "doi_chieu_swissbuildings3d": "'Sakraler Turm' 131 mat, zmax 484.78; 'Sakrales Gebaeude' 501 mat, zmax 435.79 - khop",
+    "ghi_chu": "LoD2 co mui nhon thap dang tho (131 tam giac) - khong co mat dong ho, cua so, dau hoi gothic. Theo chu so huu Fraumünster co hai thap lich su (Nam/Bac); LoD2 va swissBUILDINGS3D chi tach MOT khoi 'Sakraler Turm' cao - phan con lai gop vao than."
+   },
+   "nam": [
+    {
+     "su_kien": "Thap Nam / thap Bac",
+     "nam": "nua dau the ky 12 / khoang 1220-1230",
+     "nguon": "Reformierte Kirche Zürich - Name und Entstehung",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/fraumuenster/geschichte-bauwerk/name-und-entstehung/",
+     "trich": "Der Südturm dürfte in der ersten Hälfte des 12. Jahrhunderts errichtet worden sein, der Nordturm um 1220–1230."
+    },
+    {
+     "su_kien": "Cai tao gian giua va thap; dien mao hien nay qua trung tu Gustav Gull",
+     "nam": "the ky 18; the ky 20",
+     "nguon": "Reformierte Kirche Zürich - Name und Entstehung",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/fraumuenster/geschichte-bauwerk/name-und-entstehung/",
+     "trich": "Im 18. Jahrhundert wurden Mittelschiff und Türme umgebaut; im 20. Jahrhundert erhielt die Kirche durch die Restaurierung von Gustav Gull ihr heutiges Erscheinungsbild."
+    },
+    {
+     "su_kien": "Thanh lap tu vien / nha tho dau tien",
+     "nam": "853 / 874",
+     "nguon": "Reformierte Kirche Zürich - Name und Entstehung",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/fraumuenster/geschichte-bauwerk/name-und-entstehung/",
+     "trich": "Laut der ältesten Zürcher Urkunde gründete König Ludwig der Deutsche 853 für seine Tochter Hildegard ein Frauenkloster in Zürich. Schon 874 wurde am heutigen Standort eine erste Kirche geweiht."
+    }
+   ],
+   "tu_lieu": [
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "\"Meise\" Zunfthaus (BAZ hist054, 6337_1.jpg) - thap Fraumünster + dong ho phia sau",
+     "nam": "1901",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist054/image/6337_1.jpg",
+     "px": "1920x1488",
+     "sha256": "ac525b07e5b7fee14e5162a64073390f7393c5ba5d05bbf0786ba8e178d3ea67",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Thap, mat dong ho va mui nhon nhin tu Limmat - truoc trung tu Gull."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Stadthausquai (BAZ hist007, 1493.jpg)",
+     "nam": "1902",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist007/image/1493.jpg",
+     "px": "1920x1417",
+     "sha256": "bc609a137cccbab26c976970192186cdbe293bb716394b97169b380eede11d65",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Bo Limmat voi thap Fraumünster o xa - boi canh tuyen pho."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "[From Peter Church, with Fraumünster and Alpenkette, Zurich, Switzerland] (Photochrom, LC-DIG-ppmsc-07927)",
+     "nam": "ca. 1890-1900",
+     "url_trang": "https://www.loc.gov/item/2001703359/",
+     "url_tep": "https://tile.loc.gov/storage-services/master/pnp/ppmsc/07900/07927u.tif",
+     "px": "3586x2664",
+     "sha256": "855b49f8a484c506f4ed56ebdbcaa79122c2c3112cc0724bc97157e31fc10df4",
+     "giay_phep": "No known restrictions on reproduction (LoC)",
+     "ghi_cong": "Library of Congress, Prints & Photographs Division, Photochrom Prints Collection, LC-DIG-ppmsc-07927",
+     "license_file": "licenses/loc-photochrom-zurich-heroes.txt",
+     "dung_duoc": "co",
+     "ly_do": "Anh MAU can canh thap + mui nhon (mau phuc che Photochrom, khong phai mau thuc do) - tham chieu bang mau lich su."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Das Fraumünster in seiner heutigen Gestalt / Gebr. Wehrli. Phot",
+     "nam": "zwischen 1897 und 1924?",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/15555135",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/15555136/full/full/0/default.jpg",
+     "px": "4330x3809",
+     "sha256": "e3ee68b29b065587f64d7ea2154da4ee856f9b4b25985d181c625618e5012180",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "Gebrüder Wehrli, Kilchberg. Zentralbibliothek Zürich, Zürich H1 Fraumünster I,27. e-rara, https://doi.org/10.3931/e-rara-57704",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "co",
+     "ly_do": "Toan canh Stadthaus-Fraumünster-St. Peter tu Limmat; dung de dat ty le giua ba HERO."
+    },
+    {
+     "loai": "anh_hien_dai",
+     "tieu_de": "File:Fraumuenster.jpg",
+     "nam": null,
+     "url_trang": "https://commons.wikimedia.org/wiki/File:Fraumuenster.jpg",
+     "url_tep": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Fraumuenster.jpg",
+     "px": "910x1213",
+     "sha256": null,
+     "sha1_commons": "aa7e527f0c53d0f7198e22770c8f7e6dbb098946",
+     "giay_phep": "CC BY-SA 2.5",
+     "ghi_cong": "sidonius, CC BY-SA 2.5, via Wikimedia Commons",
+     "license_file": "licenses/wikimedia-commons-hero-photos.txt",
+     "dung_duoc": "dieu_kien",
+     "ly_do": "Giay phep hop le nhung do phan giai thap (910 px) va chua tai (429); can tim anh hien dai lon hon."
+    }
+   ],
+   "ghi_chu_dung": {
+    "lop1_hero": "Mot thap noi bat ~8 x 9 m mat bang, mui nhon manh den 484.8 m (~76 m tren mat dat), mat dong ho tren than thap (anh BAZ 1901). Than nha tho 62 x 31 m, noc ~27 m, cua so gothic chi.",
+    "lop2_nha_thuong": "Münsterhof (Zunfthaus zur Meisen KGS 7878), Stadthaus: LoD2 + cua so lap.",
+    "lop3_nen_song": "Quang truong Münsterhof, Münsterbrücke, bo Limmat.",
+    "lop4_anh_sang": "Mau mui nhon: Photochrom cho tong sam xanh-xam; KHONG khoa mau tu ban phuc che - doi anh hien dai do phan giai cao. Can phan biet trang thai truoc/sau trung tu Gull cho canh lich su.",
+    "muc_chi_tiet_de_xuat": "HERO cao: mui nhon + thap 2-4k tam giac, mat dong ho texture rieng."
+   },
+   "uoc_gio_dung": "35-50 gio (ước)"
+  },
+  {
+   "id": "H3",
+   "ten": "St. Peter (Kirche St. Peter)",
+   "dia_chi": "St. Peterhofstatt 1 (nha tho) / 1a (thap), 8001 Zürich",
+   "kgs": "KGS 7866 (A)",
+   "lv95": [
+    2683258.4,
+    1247283.4
+   ],
+   "wgs84": [
+    47.37113,
+    8.540978
+   ],
+   "egid": [
+    302040601,
+    302040793
+   ],
+   "hinh_hoc": {
+    "nguon": "Stadt Zürich LoD2 WFS (CC0); doi chieu swissBUILDINGS3D 2.0 (© swisstopo); swissALTI3D",
+    "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&outputFormat=application/vnd.geo%2Bjson&BBOX=2683200,1247250,2683275,1247310,EPSG:2056",
+    "sha256": "2798d36b5c2a29f431373a838e7e0166e57a89f39455b910b802af446f33dc2e",
+    "dinh_dang_goc": "GeoJSON MultiPolygon 3D (WFS)",
+    "kich_thuoc": {
+     "thap_EGID_302040601": {
+      "mat_bang_m": [
+       10.7,
+       10.5
+      ],
+      "dien_tich_m2": 99.1
+     },
+     "than_EGID_302040793": {
+      "hop_bao_dinh_huong_m": [
+       40.0,
+       29.5
+      ],
+      "dien_tich_m2": 777.1
+     },
+     "so_thap": 1
+    },
+    "chieu_cao_m": {
+     "dinh_thap_tuyet_doi_m": 478.61,
+     "dia_hinh_quanh_thap_m": [
+      415.5,
+      420.6
+     ],
+     "dinh_thap_tren_dia_hinh_m": "~58.5 (phia Hofstatt ~420) den ~63 (phia thap ~415.5)",
+     "noc_than_tuyet_doi_m": 439.14,
+     "noc_than_tren_Hofstatt_m": "~19-20"
+    },
+    "tam_giac": {
+     "thap": 104,
+     "than": 194
+    },
+    "da_giac": {
+     "thap": {
+      "RoofSurface": 28,
+      "WallSurface": 30,
+      "GroundSurface": 1
+     },
+     "than": {
+      "RoofSurface": 20,
+      "WallSurface": 66,
+      "GroundSurface": 1
+     }
+    },
+    "doi_chieu_swissbuildings3d": "'Sakraler Turm' bbox 12.2 x 12.0 m, 117 mat, zmax 478.60; than 201 mat, zmax 439.14 - khop",
+    "ghi_chu": "Thap la toa rieng trong GWR (EGID 302040601) - chu so huu xac nhan thap thuoc Stadt Zürich, than thuoc Kirchgemeinde. LoD2 khong co mat dong ho (dac diem nhan dien so 1). Them 4 khoi 'uebriger_Gebaeudeteil' thap (~424-425 m) quanh than."
+   },
+   "nam": [
+    {
+     "su_kien": "Mat dong ho thap (lon nhat chau Au theo chu so huu), duong kinh ngoai",
+     "nam": null,
+     "nguon": "Reformierte Kirche Zürich - Turm & Zifferblatt",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/st-peter/geschichte-bauwerk/turm-zifferblatt/",
+     "trich": "Mit einem äusseren Durchmesser von 8,64 Metern besitzt St. Peter das grösste Turmzifferblatt Europas."
+    },
+    {
+     "su_kien": "Thap kien co dau tien; mu thap lop lai",
+     "nam": "dau the ky 13; 1996",
+     "nguon": "Reformierte Kirche Zürich - Turm & Zifferblatt",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/st-peter/geschichte-bauwerk/turm-zifferblatt/",
+     "trich": "Der erste massive Turm entstand Anfang des 13. Jahrhunderts und wurde später erhöht. Sein Helm mit rund 42’000 Lärchenschindeln wurde 1996 neu gedeckt."
+    },
+    {
+     "su_kien": "Dong ho thap dau tien",
+     "nam": "1366",
+     "nguon": "Reformierte Kirche Zürich - Turm & Zifferblatt",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/st-peter/geschichte-bauwerk/turm-zifferblatt/",
+     "trich": "Die erste Turmuhr wurde 1366 eingebaut und zeigte zunächst nur volle Stunden an."
+    },
+    {
+     "su_kien": "Gian thanh duong Baroque hoan thanh",
+     "nam": "1705",
+     "nguon": "Reformierte Kirche Zürich - Barocker Kirchenraum",
+     "url": "https://reformiert-zuerich.ch/kirchgemeinde/kirchen/st-peter/geschichte-bauwerk/barocker-kirchenraum/",
+     "trich": "Der 1705 vollendete Emporensaal prägt St."
+    }
+   ],
+   "tu_lieu": [
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Rathausbrücke, Hotel Schwert (BAZ hist135, DMP_007390.jpg) - thap St. Peter voi mat dong ho",
+     "nam": "um 1900",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist135/image/DMP_007390.jpg",
+     "px": "1920x1219",
+     "sha256": "488e38b35de232570cb2211ea7be22017d07d6986c109986af41f815936fa819",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Mat dong ho lon va phan than thap tren mai nha Weinplatz - tham chieu ty le dong ho/thap."
+    },
+    {
+     "loai": "ban_ve",
+     "tieu_de": "[Prospect von dem Bau der Kirchen zu St. Peter in Zürich] / [Johann Meyer?]",
+     "nam": "1706",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/17391964",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/17391965/full/full/0/default.jpg",
+     "px": "7605x6486",
+     "sha256": "7b814a0b8acc68db05cb66b484cd8860ab02577ec3883eeb07ec1c77f722f829",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "Johann Meyer (?), 1706. Zentralbibliothek Zürich, STF IV, 20. e-rara, https://doi.org/10.3931/e-rara-63907",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "dieu_kien",
+     "ly_do": "Ban khac Neujahrsblatt, nha tho chi hien qua khung cua - gia tri dung thap; khong co ban ve mat dung/mat cat that cho St. Peter trong phien."
+    },
+    {
+     "loai": "anh_hien_dai",
+     "tieu_de": "File:Turm Kirche St. Peter Zürich.JPG",
+     "nam": null,
+     "url_trang": "https://commons.wikimedia.org/wiki/File:Turm_Kirche_St._Peter_Z%C3%BCrich.JPG",
+     "url_tep": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Turm_Kirche_St._Peter_Z%C3%BCrich.JPG",
+     "px": "2880x4320",
+     "sha256": null,
+     "sha1_commons": "7268787aa7f645d7fd43dd8459349fae27be6904",
+     "giay_phep": "CC0",
+     "ghi_cong": "Beat Rüst, CC0, via Wikimedia Commons (khuyen nghi)",
+     "license_file": "licenses/wikimedia-commons-hero-photos.txt",
+     "dung_duoc": "co",
+     "ly_do": "CC0, do phan giai cao, chup rieng thap - tot nhat cho mat dong ho/mu thap; chua tai (429)."
+    },
+    {
+     "loai": "anh_hien_dai",
+     "tieu_de": "File:CH Zürich, St Peter 001.jpg",
+     "nam": null,
+     "url_trang": "https://commons.wikimedia.org/wiki/File:CH_Z%C3%BCrich,_St_Peter_001.jpg",
+     "url_tep": "https://upload.wikimedia.org/wikipedia/commons/1/10/CH_Z%C3%BCrich%2C_St_Peter_001.jpg",
+     "px": "3024x4032",
+     "sha256": null,
+     "sha1_commons": "32d3d7633d529e06baa0f5773cf00b04b79181db",
+     "giay_phep": "CC BY 4.0",
+     "ghi_cong": "-wuppertaler, CC BY 4.0, via Wikimedia Commons",
+     "license_file": "licenses/wikimedia-commons-hero-photos.txt",
+     "dung_duoc": "co",
+     "ly_do": "Anh du phong; chua tai (429)."
+    }
+   ],
+   "ghi_chu_dung": {
+    "lop1_hero": "Thap vuong ~10.7 x 10.5 m, dinh 478.6 m; 4 mat dong ho duong kinh ngoai 8.64 m (chu so huu: 'vier Zeigerpaare'); mu thap phu ~42 000 ngoi go thong rung la (Lärchenschindeln, chu so huu). Than Baroque 40 x 29.5 m, noc 439.1 m.",
+    "lop2_nha_thuong": "Day nha St. Peterhofstatt / Schlüsselgasse / In Gassen: LoD2 + cua so lap.",
+    "lop3_nen_song": "San St. Peterhofstatt (doc), cay, bac thang.",
+    "lop4_anh_sang": "Mat dong ho la diem nhan sang - texture rieng 2k-4k moi mat; vat lieu mu thap theo chu so huu la ngoi go (mau phai kiem bang anh C6).",
+    "muc_chi_tiet_de_xuat": "HERO trung-cao: thap 2-3k tam giac + 4 mat dong ho; than muc 'nha thuong' cao."
+   },
+   "uoc_gio_dung": "25-35 gio (ước)"
+  },
+  {
+   "id": "H4",
+   "ten": "Zürich Hauptbahnhof (toà ga chính / Wanner, Bahnhofplatz 15)",
+   "dia_chi": "Bahnhofplatz 15, 8001 Zürich",
+   "kgs": "KGS 7852 (A)",
+   "lv95": [
+    2683188.2,
+    1247994.4
+   ],
+   "wgs84": [
+    47.377533,
+    8.540181
+   ],
+   "egid": 140889,
+   "hinh_hoc": {
+    "nguon": "Stadt Zürich LoD2 WFS (CC0); swissALTI3D. swissBUILDINGS3D 2.0 o 1091-41 KHONG chua khoi nay (bi cat o bien o) -> chua doi chieu.",
+    "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&outputFormat=application/vnd.geo%2Bjson&BBOX=2683080,1247920,2683330,1248130,EPSG:2056",
+    "sha256": "15271852ebb9ecfec9139b3ee04c0774fadf638c5ad1115e38ce13903b12e4c7",
+    "dinh_dang_goc": "GeoJSON MultiPolygon 3D (WFS)",
+    "kich_thuoc": {
+     "khoi_Gebaeude_Verkehr": {
+      "hop_bao_dinh_huong_m": [
+       139.4,
+       44.3
+      ],
+      "truc_deg": 158.5,
+      "dien_tich_m2": 4789.5
+     },
+     "toan_EGID_ke_ca_mai_che_Unterstand_va_Hochkamin": {
+      "hop_bao_dinh_huong_m": [
+       444.5,
+       144.6
+      ],
+      "dien_tich_GroundSurface_m2": 53036.0
+     },
+     "GWR_GAREA_m2": 15083
+    },
+    "chieu_cao_m": {
+     "dinh_cao_nhat_tuyet_doi_m": 433.02,
+     "dia_hinh_m": 408.0,
+     "dinh_tren_dia_hinh_m": "~25.0",
+     "noc_mai_tuyet_doi_m": "~430.6",
+     "noc_tren_dia_hinh_m": "~22.6",
+     "GroundSurface_LoD2_m": 402.66
+    },
+    "tam_giac": {
+     "khoi_Gebaeude_Verkehr": 2383,
+     "toan_EGID": 4775
+    },
+    "da_giac": {
+     "khoi_Gebaeude_Verkehr": {
+      "RoofSurface": 114,
+      "WallSurface": 455,
+      "GroundSurface": 27
+     }
+    },
+    "ghi_chu": "EGID 140889 gom nhieu phan (art: Gebaeude_Verkehr, Unterstand, Hochkamin). Phan chia mat bang giua toa Wanner lich su va cac phan bo sung KHONG suy duoc tu LoD2 - can doi chieu ban do 1898 (e-rara) va anh. LoD2 khong co cong vom khai hoan, tuong, phu dieu."
+   },
+   "nam": [
+    {
+     "su_kien": "Nam xay theo GWR (gia tri hanh chinh, khong phai nguon lich su)",
+     "nam": "1867 (GBAUJ)",
+     "nguon": "BFS GWR qua api3.geo.admin.ch",
+     "url": "https://api3.geo.admin.ch/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/140889_0?sr=2056",
+     "trich": "gbez \"Bahnhof Zürich HB\", gbauj 1867, garea 15083"
+    },
+    {
+     "su_kien": "Hien trang mang luoi ga cuoi 1898 (ban do)",
+     "nam": "1898",
+     "nguon": "e-rara / ZB Zürich",
+     "url": "https://www.e-rara.ch/zuz/content/titleinfo/8833969",
+     "trich": "Bahnhof Zürich : Übersichtsplan, Bestand Ende 1898"
+    }
+   ],
+   "nam_chua_xac_minh": "Nam xay toa Wanner (thuong neu 1865-1871) - KHONG ghi vi HLS (403) va SBB (403/JS) bi chan trong phien.",
+   "tu_lieu": [
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Bahnhofplatz Hauptbahnhof (BAZ hist124, DMP_005782.jpg)",
+     "nam": "um 1893",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist124/image/DMP_005782.jpg",
+     "px": "1920x1357",
+     "sha256": "4d406f35ad9a7e71c34a17fbfd504e939fed606cb19394870c80d2f4890501ca",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Cong vom trung tam + tuong dai Escher + xe ngua/tram ngua - canh mo dau ly tuong 1890s."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Hauptbahnhof und Landesmuseum (BAZ hist125, DMP_005789.jpg)",
+     "nam": "um 1900",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist125/image/DMP_005789.jpg",
+     "px": "1920x986",
+     "sha256": "115d5ed5e0e83b96515c8008285938cea136b77f8d447c4d2be4f99fc8932288",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Mat sau/nha ga vom va Landesmuseum - hinh khoi phia Bac."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Zürich. Bahnhofplatz & Polytechnikum (Photochrom, LC-DIG-ppmsca-52873)",
+     "nam": "between 1890 and 1900",
+     "url_trang": "https://www.loc.gov/item/93506994/",
+     "url_tep": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/52800/52873u.tif",
+     "px": "7323x5524",
+     "sha256": "9a1089fa226d71ae8dc88fe863f1d331839fc72f8cc23630be4cec0ecad242d3",
+     "giay_phep": "No known restrictions on publication (LoC)",
+     "ghi_cong": "Library of Congress, Prints & Photographs Division, Photochrom Prints Collection, LC-DIG-ppmsca-52873",
+     "license_file": "licenses/loc-photochrom-zurich-heroes.txt",
+     "dung_duoc": "co",
+     "ly_do": "Anh MAU do phan giai rat cao (7323 px): cong vom, tuong, nhom tuong tren dinh; ETH (Semper, chua vom) tren doi."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Zürich, Bahnhof (Photoglob Co, Lichtdruck)",
+     "nam": "zwischen 1889 und 1900",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/17349589",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/17349590/full/full/0/default.jpg",
+     "px": "5155x5207",
+     "sha256": "26bfb9af9343fafd7efde3356900540873ed799bce65085ca613c122e5d3a409",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "Photoglob Co. Zentralbibliothek Zürich, Zürich K3, Bahnhofplatz I, 11. e-rara, https://doi.org/10.3931/e-rara-63419",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "co",
+     "ly_do": "Mat dung Bahnhofplatz gan chinh dien - dung de dung nhip cua so/tru."
+    },
+    {
+     "loai": "ban_ve",
+     "tieu_de": "Bahnhof Zürich : Übersichtsplan, Bestand Ende 1898 (1:2 500)",
+     "nam": "1898",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/8833969",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/8833971/full/full/0/default.jpg",
+     "px": "30877x6514",
+     "sha256": "7d036c77b8dd5b05ffb60b37e8a0371d257600e746f5e652ad7546fa99831998",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "Bahnhof Zürich: Übersichtsplan, Bestand Ende 1898. Zentralbibliothek Zürich, 4 Lc 46: 25. e-rara, https://doi.org/10.3931/e-rara-27592",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "co",
+     "ly_do": "Mat bang ga + duong ray den Altstetten 1898 - nen cho canh ban do/khung rong."
+    },
+    {
+     "loai": "anh_hien_dai",
+     "tieu_de": "File:Zuerich Hauptbahnhof-2.jpg",
+     "nam": null,
+     "url_trang": "https://commons.wikimedia.org/wiki/File:Zuerich_Hauptbahnhof-2.jpg",
+     "url_tep": "https://upload.wikimedia.org/wikipedia/commons/a/af/Zuerich_Hauptbahnhof-2.jpg",
+     "px": "2000x1333",
+     "sha256": null,
+     "sha1_commons": "d15ef411a784567a9f94e7409092fc4193bea99a",
+     "giay_phep": "CC BY-SA 3.0",
+     "ghi_cong": "Ikiwaner, CC BY-SA 3.0, via Wikimedia Commons",
+     "license_file": "licenses/wikimedia-commons-hero-photos.txt",
+     "dung_duoc": "co",
+     "ly_do": "Anh hien dai mat Bahnhofplatz; chua tai (429)."
+    }
+   ],
+   "ghi_chu_dung": {
+    "lop1_hero": "Mat Bahnhofplatz: cong vom khai hoan trung tam co nhom tuong tren dinh (Photochrom/BAZ), hai canh dai co hang cua vom; cao ~25 m den dinh, ~22.6 m den noc. Khoi chinh LoD2 139 x 44 m.",
+    "lop2_nha_thuong": "Day nha Bahnhofplatz/Bahnhofstrasse (hotel goc phai trong Photochrom): LoD2 + cua so.",
+    "lop3_nen_song": "Tuong dai Alfred Escher, tram ngua/xe ngua 1890s (BAZ), quang truong lat da.",
+    "lop4_anh_sang": "Mau da trong Photochrom la phuc che - doi anh hien dai (C4) de khoa mau; vom nha ga phia sau chi can silhouette.",
+    "muc_chi_tiet_de_xuat": "HERO cao cho mat Bahnhofplatz (5-8k tam giac); phan con lai muc trung."
+   },
+   "uoc_gio_dung": "50-70 gio (ước)"
+  },
+  {
+   "id": "H5",
+   "ten": "ETH Zürich Hauptgebäude (Semper; vòm Gull)",
+   "dia_chi": "Rämistrasse 101, 8006 Zürich",
+   "kgs": "KGS 7850 (A)",
+   "lv95": [
+    2683773.9,
+    1247877.0
+   ],
+   "wgs84": [
+    47.376403,
+    8.547914
+   ],
+   "egid": 3169989,
+   "hinh_hoc": {
+    "nguon": "Stadt Zürich LoD2 WFS (CC0); doi chieu swissBUILDINGS3D 2.0 (© swisstopo); swissALTI3D",
+    "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&outputFormat=application/vnd.geo%2Bjson&BBOX=2683680,1247790,2683840,1247960,EPSG:2056",
+    "sha256": "b3f14d859b8dec4c22b2cd7dd192011d57858e5f294344ca6d3f052f5d9d84e7",
+    "dinh_dang_goc": "GeoJSON MultiPolygon 3D (WFS)",
+    "kich_thuoc": {
+     "hop_bao_dinh_huong_m": [
+      151.4,
+      117.7
+     ],
+     "truc_deg": 108.0,
+     "dien_tich_GroundSurface_m2": 12202.1,
+     "GWR_GAREA_m2": 12206,
+     "sai_lech_GWR": "-0.03%"
+    },
+    "chieu_cao_m": {
+     "dinh_vom_tuyet_doi_m": 499.69,
+     "vi_tri_dinh_lv95": [
+      2683784.3,
+      1247880.7
+     ],
+     "dia_hinh_quanh_chan_m": [
+      451.0,
+      454.9
+     ],
+     "dinh_vom_tren_dia_hinh_m": "~46 (44.8-48.7)",
+     "mai_p10_tuyet_doi_m": 472.73,
+     "GroundSurface_LoD2_m": 447.34
+    },
+    "tam_giac": 5022,
+    "da_giac": {
+     "RoofSurface": 1082,
+     "WallSurface": 708,
+     "GroundSurface": 1
+    },
+    "doi_chieu_swissbuildings3d": "1 mesh 'Gebaeude Einzelhaus' 3096 mat, zmax 499.32 (chenh 0.37 m) - khop",
+    "ghi_chu": "LoD2 chi tiet mai (1082 da giac, ca vom va san trong) nhung mat dung phang - khong co cua so, sgraffito, cot. Tinh trang 1860-1919 KHONG co vom (vom xay 1919/20 theo ETH) -> canh lich su can ban khong vom."
+   },
+   "nam": [
+    {
+     "su_kien": "Xay vom ETH",
+     "nam": "1919/20",
+     "nguon": "ETH Zürich - Geschichte",
+     "url": "https://ethz.ch/de/die-eth-zuerich/portraet/geschichte.html",
+     "trich": "Der Bau der ETH-Kuppel 1919/20 war sowohl eine Reverenz an die Vergangenheit wie auch Zeichen eines erstarkten Selbstbewusstseins"
+    },
+    {
+     "su_kien": "Thanh lap Polytechnikum",
+     "nam": "1855",
+     "nguon": "ETH Zürich - Geschichte",
+     "url": "https://ethz.ch/de/die-eth-zuerich/portraet/geschichte.html",
+     "trich": "1855 unter dem Namen «Polytechnikum» gegründet"
+    },
+    {
+     "su_kien": "Ban khac theo ban ve goc Semper & Wolff (moc nien dai toa Semper)",
+     "nam": "zwischen 1860 und 1865",
+     "nguon": "e-rara / ZB Zürich",
+     "url": "https://www.e-rara.ch/zuz/content/titleinfo/17415965",
+     "trich": "Das eidgenössische Polytechnicum in Zürich / Nach der Originalzeichnung der Hr. Prof. Semper & Staatsbauinspector Wolf"
+    },
+    {
+     "su_kien": "Nam xay theo GWR (gia tri hanh chinh)",
+     "nam": "1863 (GBAUJ)",
+     "nguon": "BFS GWR",
+     "url": "https://api3.geo.admin.ch/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/3169989_0?sr=2056",
+     "trich": "gbez \"ETH Zentrum\", gbauj 1863, garea 12206"
+    }
+   ],
+   "tu_lieu": [
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "ETH-Hauptgebäude (BAZ hist064, BAZ_001332.jpg)",
+     "nam": "um 1900",
+     "url_trang": "https://data.stadt-zuerich.ch/dataset/geo_historische_bilder",
+     "url_tep": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip :: Historische_Bilder/hist064/image/BAZ_001332.jpg",
+     "px": "1920x1478",
+     "sha256": "a63c94fca43a37c4f1adb4a3f446c2130d06f901592044f08a8baf74ad15b4c8",
+     "giay_phep": "CC0 (bo OGD geo_historische_bilder); anh het bao ho",
+     "ghi_cong": "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich",
+     "license_file": "licenses/zurich-baz-historische-bilder-cc0.txt",
+     "dung_duoc": "co",
+     "ly_do": "Goc nhin cheo, toa Semper truoc vom - trang thai dung cho cac canh 1890-1915."
+    },
+    {
+     "loai": "ban_ve",
+     "tieu_de": "Das eidgenössische Polytechnicum in Zürich / Nach der Originalzeichnung der Hr. Prof. Semper & Staatsbauinspector Wolf ; C. Huber sculp.",
+     "nam": "zwischen 1860 und 1865",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/17415965",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/17415966/full/full/0/default.jpg",
+     "px": "4814x4196",
+     "sha256": "843afcf6599e9e8b5a36a70a2b6e4d487c59cafb8b743292441c237f3785d8e5",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "nach G. Semper & J.C. Wolff, gest. K.U. Huber. Zentralbibliothek Zürich, Zürich G1, Universitäts-Qu., Polytechnikum I, 4. e-rara, https://doi.org/10.3931/e-rara-63992",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "co",
+     "ly_do": "Phoi canh theo ban ve goc cua Semper - khoi tong the, nhip than giua/canh."
+    },
+    {
+     "loai": "ban_ve",
+     "tieu_de": "[Die No]rdfaçade des eidgenössischen Polytechnikums in Zürich (Holzstich)",
+     "nam": "circa 1883",
+     "url_trang": "https://www.e-rara.ch/zuz/content/titleinfo/17416013",
+     "url_tep": "https://www.e-rara.ch/i3f/v20/17416014/full/full/0/default.jpg",
+     "px": "4295x4340",
+     "sha256": "f55a44f9a3cd4b6038df52c59218ae375f7a087feea400498bcbaaeee78d49b8",
+     "giay_phep": "Public Domain Mark 1.0",
+     "ghi_cong": "Verlag J.A. Preuss. Zentralbibliothek Zürich, Zürich G1, Universitäts-Qu., Polytechnikum I, 13. e-rara, https://doi.org/10.3931/e-rara-64003",
+     "license_file": "licenses/zb-eth-e-rara-public-domain-mark.txt",
+     "dung_duoc": "co",
+     "ly_do": "Ban khac MAT DUNG chi tiet mat Bac (sgraffito, cua so, phu dieu, cong) - tu lieu mat dung tot nhat."
+    },
+    {
+     "loai": "anh_lich_su",
+     "tieu_de": "Zürich. Bahnhofplatz & Polytechnikum (Photochrom) - ETH tren doi, chua vom",
+     "nam": "between 1890 and 1900",
+     "url_trang": "https://www.loc.gov/item/93506994/",
+     "url_tep": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/52800/52873u.tif",
+     "px": "7323x5524",
+     "sha256": "9a1089fa226d71ae8dc88fe863f1d331839fc72f8cc23630be4cec0ecad242d3",
+     "giay_phep": "No known restrictions on publication (LoC)",
+     "ghi_cong": "Library of Congress, Prints & Photographs Division, Photochrom Prints Collection, LC-DIG-ppmsca-52873",
+     "license_file": "licenses/loc-photochrom-zurich-heroes.txt",
+     "dung_duoc": "co",
+     "ly_do": "Silhouette ETH nhin tu thanh pho (mau phuc che)."
+    }
+   ],
+   "tu_lieu_thieu": "Anh hien dai CC cua ETH: chua lay duoc (Commons 429). Anh KGS 7850 '© BABS' chua xac minh giay phep -> khong dung.",
+   "ghi_chu_dung": {
+    "lop1_hero": "Khoi 151 x 118 m quanh san trong; vom Gull dinh 499.7 m (~46 m tren mat dat) - chi cho canh sau 1920. Mat Bac theo ban khac 1883 (sgraffito, tang tret da moc). Mai LoD2 dung truc tiep lam khung.",
+    "lop2_nha_thuong": "Universitätstrasse/Rämistrasse: LoD2 + cua so.",
+    "lop3_nen_song": "Polyterrasse, tuong chan, cay (anh BAZ 1900).",
+    "lop4_anh_sang": "Hai trang thai (khong vom / co vom) phai tach thanh hai bien the tai san; mau mat dung doi anh hien dai.",
+    "muc_chi_tiet_de_xuat": "HERO trung-cao: mat Bac va mat Tay chi tiet; cac mat khac muc trung."
+   },
+   "uoc_gio_dung": "45-65 gio (ước), +8-12 gio cho bien the co vom (ước)"
+  },
+  {
+   "id": "H6",
+   "ten": "Prime Tower (tuỳ chọn - biểu tượng Zürich giàu lên)",
+   "dia_chi": "Hardstrasse 201, 8005 Zürich",
+   "kgs": null,
+   "lv95": [
+    2681444.7,
+    1248922.6
+   ],
+   "wgs84": [
+    47.386099,
+    8.517266
+   ],
+   "egid": 302030099,
+   "hinh_hoc": {
+    "nguon": "Stadt Zürich LoD2 WFS (CC0); swissALTI3D. Ngoai o swissBUILDINGS3D 1091-41 -> chua doi chieu swisstopo.",
+    "url": "https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&outputFormat=application/vnd.geo%2Bjson&BBOX=2681420,1248895,2681475,1248950,EPSG:2056",
+    "sha256": "b9ef0c673e5c3ad37475a9ce4edbbd5cee66cb2036a43417565a13139be9fcd2",
+    "dinh_dang_goc": "GeoJSON MultiPolygon 3D (WFS)",
+    "kich_thuoc": {
+     "hop_bao_dinh_huong_m": [
+      64.9,
+      33.1
+     ],
+     "truc_deg": 84.7,
+     "dien_tich_GroundSurface_m2": 1590.7,
+     "GWR_GAREA_m2": 1621,
+     "sai_lech_GWR": "-1.9%",
+     "GWR_GASTW": 39
+    },
+    "chieu_cao_m": {
+     "mai_tuyet_doi_m": 530.21,
+     "dia_hinh_m": 404.4,
+     "mai_tren_dia_hinh_m": 125.8,
+     "chu_so_huu_m": 126,
+     "sai_lech_vs_chu_so_huu": "-0.2%"
+    },
+    "tam_giac": 144,
+    "da_giac": {
+     "RoofSurface": 2,
+     "WallSurface": 38,
+     "GroundSurface": 1
+    },
+    "ghi_chu": "LoD2 la lang tru dung (2 mat mai) - khong the hien cac doan nho ra/thut vao cua mat kinh; chi dung lam khoi ty le."
+   },
+   "nam": [
+    {
+     "su_kien": "Chieu cao, so tang, kien truc su",
+     "nam": null,
+     "nguon": "primetower.ch (chu so huu/van hanh)",
+     "url": "https://www.primetower.ch/",
+     "trich": "Der 126 Meter hohe Prime Tower überragt mit seinen 36 Etagen nicht nur die Skyline der City"
+    },
+    {
+     "su_kien": "Kien truc su",
+     "nam": null,
+     "nguon": "primetower.ch",
+     "url": "https://www.primetower.ch/",
+     "trich": "Das architektonisch herausragende Bauwerk von Gigon/Guyer ist das Wahrzeichen des wachsenden Businessbezirks von Zürich-West"
+    },
+    {
+     "su_kien": "Nam xay theo GWR",
+     "nam": "2011 (GBAUJ)",
+     "nguon": "BFS GWR",
+     "url": "https://api3.geo.admin.ch/rest/services/ech/MapServer/ch.bfs.gebaeude_wohnungs_register/302030099_0?sr=2056",
+     "trich": "gbauj 2011, gastw 39, garea 1621"
+    }
+   ],
+   "tu_lieu": [
+    {
+     "loai": "anh_hien_dai",
+     "tieu_de": "File:Industriequartier - Prime Tower 2011-08-08 13-44-40.JPG",
+     "nam": null,
+     "url_trang": "https://commons.wikimedia.org/wiki/File:Industriequartier_-_Prime_Tower_2011-08-08_13-44-40.JPG",
+     "url_tep": "https://upload.wikimedia.org/wikipedia/commons/8/86/Industriequartier_-_Prime_Tower_2011-08-08_13-44-40.JPG",
+     "px": "2848x4288",
+     "sha256": null,
+     "sha1_commons": "a664e49a32c63fcb7d11fb83a023295d907c4b9b",
+     "giay_phep": "CC BY-SA 3.0",
+     "ghi_cong": "Roland zh, CC BY-SA 3.0, via Wikimedia Commons",
+     "license_file": "licenses/wikimedia-commons-hero-photos.txt",
+     "dung_duoc": "co",
+     "ly_do": "Anh doc toan than thap 2011; chua tai (429)."
+    }
+   ],
+   "tu_lieu_thieu": "Anh lich su: khong ap dung (xay 2011). Ban ve mat dung: khong co nguon mo.",
+   "ghi_chu_dung": {
+    "lop1_hero": "Thap mat kinh 126 m (mau kinh kiem anh C5) / 36 tang (chu so huu); khoi 65 x 33 m; mat kinh voi cac doan nho ra - dung tu anh C5, KHONG sao chep ban ve thiet ke.",
+    "lop2_nha_thuong": "Khu Zürich-West (Hardbrücke) LoD2.",
+    "lop3_nen_song": "Ga Hardbrücke, cau Hardbrücke.",
+    "lop4_anh_sang": "Phan chieu bau troi la chi tiet chinh - shader kinh, khong can nhieu hinh hoc.",
+    "muc_chi_tiet_de_xuat": "Trung: 1-2k tam giac + shader; dung o canh doi lap 'giau len'."
+   },
+   "uoc_gio_dung": "15-25 gio (ước)"
+  }
+ ],
+ "khong_dung": [
+  {
+   "muc": "Ảnh KGS-Inventar (data.geo.admin.ch/ch.babs.kulturgueter/image/kgs_07850_*, 07852_*, 07863_*, 07864_*, 07866_*)",
+   "ly_do": "Ghi '© BABS, Fachbereich Kulturgüterschutz'; giấy phép ảnh chưa xác minh (opendata.swiss 403)."
+  },
+  {
+   "muc": "LoC 'Zurich, Grossmunster mit alpen' (LC-DIG-pcrd-1b13385)",
+   "url": "https://www.loc.gov/item/2025716194/",
+   "ly_do": "Niên đại 1900–1940, tác giả chưa rõ – chưa chắc hết bảo hộ tại CH; đã có ảnh BAZ thay thế."
+  },
+  {
+   "muc": "LoD2_CityGML.zip toàn thành phố",
+   "url": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/LoD2_CityGML.zip",
+   "ly_do": "270 039 812 byte > trần 200 MB; dùng WFS theo ô."
+  },
+  {
+   "muc": "swissBUILDINGS3D 3.0 ô 1091-41 CityGML",
+   "url": "https://data.geo.admin.ch/ch.swisstopo.swissbuildings3d_3_0/swissbuildings3d_3_0_2019_1091-41/swissbuildings3d_3_0_2019_1091-41_2056_5728.citygml.zip",
+   "ly_do": "251 354 356 byte > trần 200 MB."
+  },
+  {
+   "muc": "Ảnh BAZ trên E-Pics loại CC BY-NC 4.0 / 'eingeschränkt'",
+   "ly_do": "Luật cứng: không NC; không truy vấn được giấy phép từng ảnh (API cần token)."
+  },
+  {
+   "muc": "GWR GBAUJ của toà lịch sử (Grossmünster 1100, Fraumünster 1812, HB 1867)",
+   "ly_do": "Giá trị hành chính, không phải năm xây có nguồn – không dùng làm dữ kiện lịch sử."
+  },
+  {
+   "muc": "BAZ hist038 'St. Peterhofstatt' 1895 (3140_1.jpg)",
+   "ly_do": "Không thấy tháp St. Peter trong khung – không hữu ích cho dựng."
+  }
+ ],
+ "bi_chan": [
+  {
+   "url": "https://hls-dhs-dss.ch/de/search/?text=Grossm%C3%BCnster",
+   "ma": "403 (Cloudflare 'Just a moment...')",
+   "so_lan": 1
+  },
+  {
+   "url": "https://commons.wikimedia.org/w/api.php (search/categorymembers)",
+   "ma": "429 (rate limit) – xen kẽ 200",
+   "so_lan": "nhiều truy vấn khác nhau; mỗi truy vấn ≤ 2 lần"
+  },
+  {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/... (gốc và thumb)",
+   "ma": "429",
+   "so_lan": 2
+  },
+  {
+   "url": "https://www.wikidata.org/w/api.php?action=wbsearchentities",
+   "ma": "429 (một phần)",
+   "so_lan": 2
+  },
+  {
+   "url": "https://api.ethz.sharedien.com (API E-Pics BAZ/BA)",
+   "ma": "cần OAuth token; giao diện baz.e-pics.ethz.ch là JS",
+   "so_lan": 0
+  },
+  {
+   "url": "https://ckan.opendata.swiss/api/3/action/package_search?q=Kulturgüter KGS Inventar",
+   "ma": "403 (nginx)",
+   "so_lan": 1
+  },
+  {
+   "url": "https://www.sbb.ch/de/bahnhof-services/am-bahnhof/bahnhoefe/bahnhof-zuerich-hb.html",
+   "ma": "403",
+   "so_lan": 1
+  },
+  {
+   "url": "https://www.sbbhistoric.ch/",
+   "ma": "200 nhưng chỉ 'Loading...' (JS); /geschichte/zeitreise 404",
+   "so_lan": 1
+  },
+  {
+   "url": "https://www.housing-stat.ch/de/madd/public.html",
+   "ma": "200 nhưng nội dung JS – dùng lại văn bản license.pdf đã ghi 2026-10-15",
+   "so_lan": 1
+  },
+  {
+   "url": "https://www.loc.gov/photos/?q=...&fo=json",
+   "ma": "429 tạm thời (lần 2 thành công cho item)",
+   "so_lan": 2
+  },
+  {
+   "url": "https://tile.loc.gov/storage-services/master/pnp/ppmsc/07900/07927u.tif",
+   "ma": "520 lần 1, 200 lần 2",
+   "so_lan": 2
+  }
+ ],
+ "viec_con_treo": [
+  "Tải 7 ảnh Commons (C1–C7) khi hết 429, ghi SHA-256 và kiểm khớp SHA-1 Commons.",
+  "Tìm ảnh hiện đại CC cho ETH Hauptgebäude (Commons).",
+  "Năm xây toà Wanner (HB) và thân Grossmünster từ HLS/SBB Historic khi truy cập được.",
+  "Khoá bảng màu vật liệu cho 6 hero từ ảnh hiện đại (chưa khoá trong phiên này – không đoán)."
+ ],
+ "co_san_4D_1800": {
+  "note": "Phiên P đo trong gói 4D 1800 (giam-luoi.json): Grossmünster, Fraumünster, St. Peter, Rathaus, Helmhaus, Waisenhaus có mesh riêng + texture 8K (mặt đứng vẽ trên ảnh). Dùng làm bản trạng thái ~1800 và tham chiếu tỷ lệ; hero cận cảnh vẫn phải dựng hình chi tiết.",
+  "Grossmünster": {
+   "tep": "Sakralbau.Kirche_-100004339_0_0.obj",
+   "dinh": 3622,
+   "tam_giac": 5630,
+   "cao_nhat_m_tuyet_doi": 473.9
+  },
+  "Fraumünster": {
+   "tep": "Sakralbau.Kirche_302040792_0_0.obj",
+   "dinh": 1901,
+   "tam_giac": 3342,
+   "cao_nhat_m_tuyet_doi": 480.2
+  },
+  "St. Peter": {
+   "tep": "Sakralbau.Kirche_302040793_0_0.obj",
+   "dinh": 3595,
+   "tam_giac": 6886,
+   "cao_nhat_m_tuyet_doi": 483.2
+  }
+ }
+}

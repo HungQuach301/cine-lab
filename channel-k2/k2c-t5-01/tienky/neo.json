@@ -1,0 +1,61 @@
+{
+ "note": "Neo của công thức chủ dự án (16/10) — kiểm bằng nguồn gốc.",
+ "as_of": "2026-10-16",
+ "neo": [
+  {
+   "id": "N1",
+   "neo": "đỉnh 440 180 năm 1962",
+   "ket_luan": "ĐÚNG",
+   "nguon": "Statistik Stadt Zürich BEV324OD3243 (SHA 309311a0…)",
+   "claim": "Z63"
+  },
+  {
+   "id": "N2",
+   "neo": "đáy 355 901 năm 1989; 27 năm giảm",
+   "ket_luan": "ĐÚNG theo chuỗi Thành phố (giảm mỗi năm 1963–1989, Z65). Chuỗi Bang: đáy 1999 (333 486)",
+   "claim": "Z64, Z65"
+  },
+  {
+   "id": "N3",
+   "neo": "vượt đỉnh 2022",
+   "ket_luan": "ĐÚNG KÈM ĐIỀU KIỆN: chỉ theo số của Thành phố (443 037). Theo Bang chưa vượt (2025: 439 039 < 440 784)",
+   "claim": "Z66, K04"
+  },
+  {
+   "id": "N4",
+   "neo": "8 677 toà phá 1999–2026, 9 784 xây",
+   "ket_luan": "ĐÚNG (GWR 15.10.2026; 2026 chưa trọn)",
+   "claim": "G01"
+  },
+  {
+   "id": "N5",
+   "neo": "năm giả 1812 ×436",
+   "ket_luan": "ĐÚNG",
+   "claim": "G03"
+  },
+  {
+   "id": "N6",
+   "neo": "không sáp nhập sau 1934",
+   "ket_luan": "ĐÚNG — Stadtarchiv 1994 \"1934 erreichte die Stadt Zürich ihre heutige Ausdehnung\"; Jahrbuch 1963 \"Seit 1934 heutiges Stadtgebiet\"; Klöti mong sáp nhập thêm \"erfüllte sich allerdings nie\". Chưa có câu nguồn hiện hành (2026) → lời nói \"has not grown since 1934\" kèm nguồn 1994 + ranh giới OGD hiện nay",
+   "claim": "Z01–Z03"
+  },
+  {
+   "id": "N7",
+   "neo": "1880→1893: tách phần do sáp nhập",
+   "ket_luan": "ĐÃ TÁCH: 1888 thành phố cũ 27 644 + 11 xã 66 485; trên lãnh thổ 1893 dân tăng 78 339 (1880) → 107 416 (1.1.1893), +37 %; ~7/10 dân mới ở ngoài thành phố cũ. CSV \"1893\" = 1.1.1894",
+   "claim": "Z04–Z09, P01"
+  },
+  {
+   "id": "N8",
+   "neo": "năm St. Peter, ETH, Prime Tower",
+   "ket_luan": "St. Peter: nhắc lần đầu 857, mặt đồng hồ 1538, xây lại 1705–06; ETH: lập 1855, toà Semper 1859/61–1864 (MÂU THUẪN năm khởi công), vòm 1919/20; Prime Tower: 126 m, khánh thành 6.12.2011",
+   "claim": "Z19–Z27, Z91"
+  },
+  {
+   "id": "N9",
+   "neo": "cơ chế hồ → Limmat",
+   "ket_luan": "CÓ NGUỒN: HLS Limmat \"tritt bei Zürich aus dem Zürichsee\"; Stadtarchäologie \"Umlad- und Etappenort\"; thuyền Limmat bán ở Baden/Basel; thuế quadragesima 2,5 %",
+   "claim": "Z28–Z41"
+  }
+ ]
+}

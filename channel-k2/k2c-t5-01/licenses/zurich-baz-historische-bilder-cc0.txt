@@ -1,0 +1,66 @@
+GIAY PHEP: Baugeschichtliches Archiv der Stadt Zürich (BAZ) - bo OGD "Historische Bilder" (anh lich su ~1890-1909) + dieu khoan BAZ tren E-Pics
+Ngay doc: 2026-10-16 (phien phu Tai lieu dung HERO)
+Nguoi giu: Baugeschichtliches Archiv (BAZ), Amt für Städtebau, Hochbaudepartement, Stadt Zürich
+Giay phep bo du lieu: CC0 (CKAN license_id "cc-zero"). Anh chup ~1890-1909: tac pham het bao ho (theo chinh BAZ trong cac bo OGD cung nguon, xem duoi).
+Ghi cong bat buoc: CC0 khong bat buoc; NHUNG dieu khoan BAZ tren E-Pics yeu cau khi xuat ban ghi "Baugeschichtliches Archiv" + ten nhiep anh gia neu biet -> AP DUNG ghi cong: "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich" (truong "quelle" cua tung anh).
+Tep tho luu ngoai git: .../scratchpad/hero/raw/{ckan,histbilder,epics}/
+
+======================================================================
+URL trang: https://data.stadt-zuerich.ch/dataset/geo_historische_bilder
+URL API: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_historische_bilder
+HTTP: 200
+SHA-256 JSON: 5a5bfe00fef11bace8d6bdc437343423e5c2a60054c02cc19b94fbbae747ffaf
+Trich nguyen van:
+  license_id "cc-zero", license_title "Creative Commons CCZero"; author "Baugeschichtliches Archiv (BAZ), Amt für Städtebau, Hochbaudepartement"
+  notes: "Historische Bilder der Stadt Zürich. Punktegeometrie mit Link auf Foto. **Zweck**: Dokumentation der Stadt Zürich"
+
+======================================================================
+URL tep tai san (goi anh): https://www.ogd.stadt-zuerich.ch/geoportal_data_static/Historische_Bilder.zip
+HTTP: 200 (104 989 661 byte)
+SHA-256 zip: cc510fde5a720f223ad4df9b486f3c9a5b506af170e687ab6ffa39ac3f489007
+Chi muc diem (WFS bilder_baz): https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Historische_Bilder?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bilder_baz&SRSNAME=EPSG:2056&BBOX=2682900,1246800,2684000,1248300,EPSG:2056&outputFormat=application/vnd.geo%2Bjson
+  SHA-256 city.geojson: d26d6faa20a5f73191c42cf0ccda84f51a25490a2fed997d7188ecaf914c7e37
+Anh trich tu zip (truong "quelle" moi anh = "Baugeschichtliches Archiv, Amt für Städtebau, Stadt Zürich"):
+  hist002/image/12790_1.jpg   "Grossmünster", um 1890                     1510x1920  SHA-256 d76d374fbe285feb57cf3e5973ba516709527d3a6b4e8f6ca1190990b1f84589
+  hist054/image/6337_1.jpg    "\"Meise\" Zunfthaus", 1901 (Fraumünster)   1920x1488  SHA-256 ac525b07e5b7fee14e5162a64073390f7393c5ba5d05bbf0786ba8e178d3ea67
+  hist007/image/1493.jpg      "Stadthausquai", 1902 (thap Fraumünster)    1920x1417  SHA-256 bc609a137cccbab26c976970192186cdbe293bb716394b97169b380eede11d65
+  hist135/image/DMP_007390.jpg "Rathausbrücke, Hotel Schwert", um 1900 (thap St. Peter + mat dong ho)  1920x1219  SHA-256 488e38b35de232570cb2211ea7be22017d07d6986c109986af41f815936fa819
+  hist124/image/DMP_005782.jpg "Bahnhofplatz Hauptbahnhof", um 1893         1920x1357  SHA-256 4d406f35ad9a7e71c34a17fbfd504e939fed606cb19394870c80d2f4890501ca
+  hist125/image/DMP_005789.jpg "Hauptbahnhof und Landesmuseum", um 1900      1920x986   SHA-256 115d5ed5e0e83b96515c8008285938cea136b77f8d447c4d2be4f99fc8932288
+  hist064/image/BAZ_001332.jpg "ETH-Hauptgebäude", um 1900                  1920x1478  SHA-256 a63c94fca43a37c4f1adb4a3f446c2130d06f901592044f08a8baf74ad15b4c8
+  (Do phan giai trong goi OGD: canh dai 1920 px; ban goc cao hon chi co tren E-Pics.)
+
+======================================================================
+Doi chieu: hai bo OGD khac cua cung BAZ (CKAN, doc 2026-10-16) noi ro trang thai ban quyen:
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=foto-ansichten-1870-1900  (license_id "cc-zero"; SHA-256 cd164d107ed23d806445d38e9af562431e5f1e1ac75aa73662c5cc915901e3f5)
+  "Die Bilder sind gemeinfrei, weil ihre urheberrechtliche Schutzfrist (70 Jahre nach dem Tod des Urhebers) abgelaufen ist."
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=baz_zuerich_um_1910  (license_id "cc-by"; SHA-256 ac4cb72a4b62d9c7ae48699f9690dfde1af54947a110a80d960e0001454cd0ba)
+  "Die Bilder sind gemeinfrei, weil ihre urheberrechtliche Schutzfrist (70 Jahre nach dem Tod der Urheberin/des Urhebers) abgelaufen ist. Über 160'000 Fotografien des BAZ finden sich online und in offener Lizenz auf der Plattform e-Pics der ETH-Bibliothek."
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=fotosammlung-des-baugeschichtlichen-archivs-bar  (license_id "cc-by"; SHA-256 d09fcbf6e0bec1bb92fdfd01c205ac336be01116e607d30040367f928e2c39a9)
+  "Rund 100'000 Bilder sind auf der Plattform E-Pics öffentlich, kostenlos und unter freier Lizenz zum Download verfügbar."
+
+======================================================================
+DIEU KHOAN BAZ TREN E-PICS (ap dung cho moi anh lay truc tiep tu baz.e-pics.ethz.ch)
+URL (EN): https://e-pics.ethz.ch/en/baz_use/   (link tu https://baz.e-pics.ethz.ch/ "Terms of use")
+HTTP: 200
+SHA-256: 6f929173f2bcffed1d25e539e7f795e81ad7a12b06d81b9a4e5522384a2e0be3
+Trich nguyen van:
+  "Baugeschichtliches Archiv provides digitised images for download free of charge whenever possible. The type of licensing and terms of use are stated per individual image. Four broad types exist: Copyright of a work has expired: such images are in the public domain and can be used without restriction. They carry a Public Domain Mark . These images can be freely used for scientific, private, non-commercial and commercial purposes. Right of use belongs to Baugeschichtliches Archiv: the images can be freely used for scientific, private, non-commercial and commercial purposes; the same terms apply to propagated modifications of these images. The images are licensed under Creative Commons BY-SA 4.0 . The images may be used for non-commercial purposes only: These images are licensed under Creative Commons BY-NC 4.0 Restricted right of use: although these images are not freely available for download, they can be ordered. Written consent of the copyright holder is required for anyl forms of use, and must be presented to Baugeschichtliches Archiv."
+  "In the case of a publication, the photo credit must be given for each image. The photo credit cites Baugeschichtliches Archiv as the source as well as the name of the photographer, if known."
+URL (DE): https://e-pics.ethz.ch/de/baz_nutzungsbedingungen/
+HTTP: 200
+SHA-256: f2271ec753a16bd6795908105dcc3d82e797a7a94c16778e9a58ad429489307f
+Trich nguyen van:
+  "Das Baugeschichtliche Archiv stellt die digitalisierten Bilder wann immer möglich kostenfrei zum Herunterladen zur Verfügung. Die Lizenzierungsart und die Nutzungsbedingungen sind bei jedem Bild angegeben. Es werden vier Typen von Lizenzen unterschieden. Die Urheberrechte an einem Werk sind abgelaufen. Diese Bilder sind gemeinfrei und können ohne Einschränkung verwendet werden. Die Bilder sind mit der Lizenz Public Domain Mark versehen. ... Die Bilder dürfen nur für nicht-kommerzielle Zwecke verwenden werden: Diese Bilder sind mit der Lizenz Creative Commons BY-NC 4.0 versehen."
+
+KET LUAN SU DUNG:
+  - Anh lay tu goi OGD "Historische Bilder" (CC0): DUNG DUOC cho phim thuong mai; van ghi cong BAZ.
+  - Anh lay truc tiep tren E-Pics BAZ: kiem TUNG anh. Public Domain Mark / CC BY-SA 4.0 -> dung duoc (BY-SA: ghi cong + share-alike cho ban sua doi anh). CC BY-NC 4.0 hoac "eingeschränkt" -> KHONG dung (luat cung: khong NC).
+  - Giao dien E-Pics la ung dung JS; API (api.ethz.sharedien.com) can token -> phien nay KHONG truy van duoc giay phep tung anh tren E-Pics.
+
+======================================================================
+THAM KHAO: dieu khoan Bildarchiv ETH-Bibliothek (ba.e-pics.ethz.ch)
+URL: https://e-pics.ethz.ch/en/ba_use/   HTTP 200   SHA-256 7be141f6cf2bf921c4d6fd4cf661818ce7daf81cec108d964340630c70be3422
+Trich nguyen van:
+  "Copyright has expired : The images are in the public domain. The images are marked with the public domain mark . The images can be freely used for private, scientific, non-commercial and commercial purposes. ... Rights of use are held by the ETH Library : The images are licensed under Creative Commons BY-SA 4.0 . ... Restricted rights of use: These images cannot be freely downloaded but can be ordered free of charge. Permitted is the exclusive use within the legally permitted personal use. For commercial use, the written consent of the copyright holder is required."
+  "In the case of a publication of a licensed image, the correct credit must be given for each image document, at least ETH-Bibliothek Zurich, Image Archive ."

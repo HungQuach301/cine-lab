@@ -1,0 +1,37 @@
+GIAY PHEP: Stadt Zuerich - "Bauten - Dachmodell (3D)" (mo hinh mai LoD2 hien trang), dung lam hinh hoc goc cho 6 toa HERO tap k2c-t5-01 "Why Zürich Shrank While Getting Rich"
+Ngay doc: 2026-10-16 (phien phu Tai lieu dung HERO)
+Nguoi giu: Stadt Zürich - GIS-Zentrum, Geomatik + Vermessung, Tiefbau- und Entsorgungsdepartement (CKAN author); maintainer "Open Data Zürich"
+Giay phep: CC0 1.0 (Creative Commons Zero) - dung thuong mai duoc, sua doi duoc
+Ghi cong bat buoc: KHONG bat buoc (CC0). Ghi cong khuyen nghi (theo ban ghi geocat cung bo 3D-Stadtmodell): "Quelle: Stadt Zürich"
+Tep tho luu ngoai git (scratchpad phien phu): .../scratchpad/hero/raw/{ckan,wfs}/
+
+======================================================================
+URL trang (CKAN): https://data.stadt-zuerich.ch/dataset/geo_bauten___dachmodell
+URL API: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_bauten___dachmodell
+HTTP: 200
+SHA-256 tep JSON doc duoc: b85e854a764e0fe1d5c74f9aaae57fae1344c228bb3a9704dc20ba883f01c9a9
+Trich nguyen van (CKAN):
+  license_id "cc-zero", license_title "Creative Commons CCZero", license_url "http://www.opendefinition.org/licenses/cc-zero"
+  notes: "Das 3D-Dachmodell basiert auf den Grundrissen der Amtlichen Vermessung. Zusätzlich sind die Dachstrukturen photogrammetrisch bestimmt worden."
+  Tai nguyen liet ke: DXF, GDB, GPKG, "CityGML gesamte Stadt" (https://www.ogd.stadt-zuerich.ch/geoportal_data_static/LoD2_CityGML.zip), WFS, WMS, WMTS
+
+======================================================================
+URL: https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten/open-government-data/rahmenbedingungen.html
+HTTP: 200
+SHA-256 trang: 5cbb051a1350526912344db1b4021d18e847445c51bd960bfd36260713d90c8a
+Trich nguyen van:
+  "Nutzungsbedingungen Lizenz Bis auf wenige Ausnahmen stehen sämtliche Datensätze unter der international gültigen Creative-Commons-Zero-Lizenz (CC0) . Diese Daten dürfen: vervielfältigt, verbreitet und weiter zugänglich gemacht werden angereichert und bearbeitet werden kommerziell genutzt werden Haftungsausschluss Die Verwaltung der Stadt Zürich schliesst jede Haftung für direkte und indirekte Schäden durch die Datennutzung aus. Sie übernimmt keine Garantie für die Aktualität, Richtigkeit, Vollständigkeit und Genauigkeit der veröffentlichten Daten."
+
+======================================================================
+TEP TAI SAN DA TAI (WFS GetFeature, GeoJSON, EPSG:2056, typename bauten_dachmodell_3d)
+Mau URL: https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&VERSION=1.1.0&REQUEST=GetFeature&TYPENAME=bauten_dachmodell_3d&SRSNAME=EPSG:2056&BBOX=<xmin,ymin,xmax,ymax>,EPSG:2056&outputFormat=application/vnd.geo%2Bjson
+GetCapabilities: https://www.ogd.stadt-zuerich.ch/wfs/geoportal/Bauten___Dachmodell?SERVICE=WFS&REQUEST=GetCapabilities&VERSION=1.1.0  (SHA-256 b64b635926aece40bcf53927edec28313d8556f84a5b4e8c884a67a86ec61501)
+  grossmuenster.geojson  BBOX 2683440,1247130,2683530,1247215  SHA-256 3af2905dd6d4dd9dd748cdd19f1dd57626e22f73e7d186acfefe5018b13f18d0
+  fraumuenster.geojson   BBOX 2683230,1247080,2683320,1247170  SHA-256 68e79e1f4cd9bd24f88aa0a5dc23135b5f0e3611851185e612f5fd0c2a82ee2b
+  stpeter.geojson        BBOX 2683200,1247250,2683275,1247310  SHA-256 2798d36b5c2a29f431373a838e7e0166e57a89f39455b910b802af446f33dc2e
+  hb.geojson             BBOX 2683080,1247920,2683330,1248130  SHA-256 15271852ebb9ecfec9139b3ee04c0774fadf638c5ad1115e38ce13903b12e4c7
+  eth.geojson            BBOX 2683680,1247790,2683840,1247960  SHA-256 b3f14d859b8dec4c22b2cd7dd192011d57858e5f294344ca6d3f052f5d9d84e7
+  prime.geojson          BBOX 2681420,1248895,2681475,1248950  SHA-256 b9ef0c673e5c3ad37475a9ce4edbbd5cee66cb2036a43417565a13139be9fcd2
+  rathaus.geojson        BBOX 2683365,1247305,2683405,1247350  SHA-256 b7f56684338afbb5f074012952ee907ec5ffdc2bbf217498fa6714bcf0976ba3
+Ghi chu: Tep CityGML toan thanh pho (LoD2_CityGML.zip) nang 270 039 812 byte (HEAD, last-modified 2024-03-12) > tran 200 MB cua phien -> KHONG tai; dung WFS theo o thay the.
+Ghi chu do cao: mat GroundSurface cua LoD2 thap hon dia hinh swissALTI3D 3-6 m (do bang api3.geo.admin.ch/rest/services/height); chieu cao HERO tinh theo dia hinh (DTM), xem hero.json.
