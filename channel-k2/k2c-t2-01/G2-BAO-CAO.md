@@ -2,30 +2,28 @@
 
 > Làm theo lệnh duyệt G1b (15/10, M1–M4). Nhánh **`k2c-t2`**, đẩy cả `ccr-bef6f172-fcqat9`. Không sửa `checks/` và không đọc mã trong đó; không sửa `docs/BIBLE-KENH2.md`.
 
-## 0. Tóm tắt (cập nhật 17/10, sau chấm lần 4) — **TRƯỢT → DỪNG chờ chủ dự án**
-- **Bản hiện hành:**
-  - Master 1080p **`8fba1df2c961ebc038bac8602854b5735f9949e7f9fea491dd25b11b0b914ba2`**, 618,917 s, −14,0 LUFS / −1,6 dBTP.
-  - Short S1 **`e00eb9e07b91bb1eeb5328d16ced7d7029665d6f697d2e80f4e140fb4b8a5041`**.
-  - Gói `phat-hanh/` (SHA256SUMS theo master này); `release_check` v5a **0 LỖI, 0 BÁO**.
-  - Chưa tạo nhánh LFS (chờ G2).
-- **Lời v3.4 khoá SHA; ElevenLabs 0 ký tự** từ khi khoá. API chấm mù lũy kế **$13,04 / trần $15**.
+## 0. Tóm tắt (cập nhật 17/10, sau chấm lần 5 — vòng cuối) — **G2: chủ dự án xem trực tiếp. DỪNG chờ chủ dự án**
+- **Bản tốt nhất L5:**
+  - master 1080p **`f63b0b4b8d90de4c3a35959d95805a81126058b208653e0a9e80528094aff593`** (= oid LFS), 618,917 s, −14,0 LUFS / −1,6 dBTP;
+  - Short S1 **`e00eb9e07b91bb1eeb5328d16ced7d7029665d6f697d2e80f4e140fb4b8a5041`**;
+  - **nhánh LFS `release-k2c-t2-01-v1`** (commit `784a58f1`): master + Short + gói, `release_check` 0 LỖI.
+- **Lời v3.4 khoá SHA; ElevenLabs 0 ký tự.** API chấm mù lũy kế **$15,16 / trần $17**.
 - **Chấm mù (cùng giây khung, seed, 3 người, chỉ Read):**
-  - RÀ GU T2 6,62 → 6,81 → 6,76 → **6,81**; phần sửa 6,47 → 6,87 → 6,87 → **6,80**.
-  - Luật SS3 (≥ 6,65 và không thua cặp): trung bình đạt, nhưng **thua P2, P6, E2** → TRƯỢT.
-  - Nguyên nhân cụ thể (§13.4): nhãn đích mờ đúng giây khung E2, viền trắng vùng South Korea, khoảng trống trong tấm nền chữ footage.
-  - Đề xuất U1–U3 (§13.5).
+  - RÀ GU T2 6,62 → 6,81 → 6,76 → 6,81 → **6,90**; phần sửa 6,47 → 6,87 → 6,87 → 6,80 → **6,87** (T1 5,0–5,9).
+  - Lần 5: trung bình ≥ 6,65 nhưng **thua P6** (6,33 so 6,67, dù chọn T2 3/3) và **E2** (6,33 so 8,00, 0/3) → không ĐẠT; không sửa / chấm thêm theo lệnh.
+  - Lỗi do sửa ở L4 (nhãn mờ, dải trắng, khoảng trống tấm chữ) đã hết; phần còn lại là hình thức cảnh E2 và trần 1,45× của footage P6 (§14.4).
 - **Luật:**
-  - Q34 ĐẠT. Q21, Q23, Q1, Q5 nay ĐẠT.
-  - Q32(b) là ngoại lệ chủ dự án duyệt; Q26b, Q33 là ngoại lệ đã biết của kênh 2; Q14/Q15/Q17 và Q7/Q8 áp nhầm (khiếu nại K).
-  - k2check (chỉ báo): Q35 trượt do sửa Q7 (đề xuất hoàn tác); Q37 lộ đoạn tĩnh 12,83 s ở g05_china; Q36(b) còn 1.
-- **Kỹ thuật đã sửa tận gốc:**
-  - `hero.js --resume` mất điểm neo (551 khung / 21 cảnh; kiểm 44/44 ĐẠT);
+  - Q34, k2check Q35 ĐẠT; Q1, Q5, Q21, Q23 ĐẠT.
+  - Q32(b) là ngoại lệ chủ dự án duyệt; Q26b / Q33 là ngoại lệ kênh 2; Q14/15/17 nhịp LL; Q7/Q8 và Q36(b) khiếu nại K (TT5).
+  - k2check Q37 còn 11,79 s ở r02_subsidy (chưa sửa).
+- **Kỹ thuật sửa tận gốc trong G2:**
+  - `hero.js --resume` mất điểm neo (551 khung; kiểm 44/44 ĐẠT mọi lần dựng);
   - footage đứng 0,6 s (setpts);
-  - Short không dựng lại khi neo đổi (đề xuất cho Nền tảng).
-- **Golden:** steel / ll08 KHỚP; t1 lệch dòng nguồn — đổi kiểu đã duyệt; k2v4 lỗi cache erie — Nền tảng.
-- **versions:** toolkit k2v / ll đổi (chờ cập nhật VERSIONS.yaml); served Haiku đã duyệt.
-- **Việc chờ chủ dự án:** §13.8.
-
+  - Short không dựng lại khi neo đổi (đề xuất Nền tảng);
+  - Q21 khai nguồn không đổi chữ hiển thị (`src_co_dinh`).
+- **versions:** toolkit k2v / ll đã cập nhật (duyệt); còn `served_models` Haiku (đã duyệt, chưa có cơ chế miễn trừ).
+- **Golden:** steel / ll08 KHỚP; t1 lệch dòng nguồn (đổi kiểu đã duyệt); k2v4 lỗi cache erie (Nền tảng).
+- **Việc chờ chủ dự án:** §14.7 — xem trực tiếp L5 và quyết G2.
 
 ## 1. AUTHORSHIP, merge `main`
 - Ghi dòng "Kênh 2 K2C-T2-01 "Shipbuilding" (G1b — DUYỆT)" vào `AUTHORSHIP.md`: M1–M4 và 7 điểm hình chủ dự án tự rà.
@@ -759,3 +757,141 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
 7. Nhánh LFS `release-k2c-t2-01-v1`: tạo khi G2 sẵn sàng.
 
 **DỪNG chờ chủ dự án.**
+
+## 14. Lệnh TT1–TT6 (chủ dự án 17/10, vòng chấm cuối) — chấm lần 5 còn thua P6, E2 → G2: chủ dự án xem trực tiếp
+### 14.1 Việc đã làm
+**TT1 — U1–U3 (đúng chẩn đoán §13.4):**
+- **U1:** một nhãn chung **"to buyers abroad"** cho chùm tuyến, đặt trên điểm đích phía bắc, phía trên tuyến (`side: up`, `gap` 46), nên không tuyến nào chạy qua nhãn.
+  - Nhãn hiện từ 0,3 s, hiện đủ trước 0,8 s, tức ≥ 1,3 s trước giây khung E2 (2,1 s).
+  - Bỏ "our read" lặp (chú thích dưới đã nói).
+- **U2:** **bỏ hẳn `regions` South Korea** trong r04_abroad; chỉ giữ nhãn quốc gia. `edgeW` không tắt được viền (`r.edgeW || 5`), nên không giữ được tô nhạt mà không có viền. Dựng lại 482 khung.
+- **U3:** tấm chữ gọn tách **hai tấm** (sau câu chú thích / sau dòng nguồn), không còn khoảng trống giữa; áp chung mọi shot `p.photo`/`p.clip` (`scripts/k2/lib/k2.js`).
+
+**TT2:**
+- **Hoàn tác Q7:** ESTIMATE của r03_tanker về lại thẻ như L3.
+- **`kind` rõ cho 3 shot r05_philly** (actual / projection / projection; thẻ bỏ `kind` trùng nhãn góc theo O5) → **k2check Q35 ĐẠT lại** (ACTUAL ≤ 1/khung, lỗi a–d = 0).
+- **Q37 g05_china:** máy quay riêng (xoay 42°, đẩy từ 30 → 18 rồi lùi 22 bán kính Trái Đất để thấy hai tuyến Thượng Hải → Rotterdam / Los Angeles). Dựng lại 468 khung → **đoạn tĩnh 6:54.9 đã hết**.
+- **kiem_neo.py: ĐẠT 44/44** sau mọi lần dựng lại.
+- **VERSIONS.yaml:**
+  - `toolkit.k2v` = `40bffdc9` / `72826bdc142a…`;
+  - `toolkit.ll` = `5e2807be` / `e6e2a6fc57e3…` (chủ dự án duyệt);
+  - `versions.py check`: **hết CHẶN toolkit**; còn `served_models` (Haiku, đã duyệt §12.3, `versions.py` chưa có miễn trừ) và BÁO `claude_cli` 2.1.302.
+
+**TT3 — chống lỗi mới trước khi chấm:**
+- Tờ so sánh **`g2/so-sanh-l5.jpg`** (1,04 MB; 12 cặp; khung **đúng giây đã khai**, `so_sanh_l5.py` assert từng giây với `rague-cap.json` / `sua-cap.json`; trái L4, phải L5).
+- **Tự rà từng cặp — không cặp nào xấu hơn L4:**
+  - **E2/P2:** hết dải trắng dọc bờ và đường trắng góc trái dưới; nhãn "to buyers abroad" đục hoàn toàn ở 2,1 s; không tuyến nào xuyên nhãn.
+  - **P6/P4/P7:** hai tấm chữ gọn, không khoảng trống, không đè ảnh/khung footage.
+  - **P3:** ESTIMATE ở thẻ.
+  - Các cặp khác giống L4.
+  - → Không phải sửa thêm trước khi chấm.
+
+**TT4:**
+- `blind_g2.py` `CAP, STOP = 17.0, 16.0`.
+- Chấm lần 5 đúng giao thức (giây khung không đổi từ `e4838057`, seed, 3 người, chỉ Read). Lần 4 lưu thành `*-l4`.
+
+**TT5 — khiếu nại cho phiên K kế** (không sửa `checks/`):
+- (i) **Q7/Q8** (QC LL `qc.py` / `llcheck`): nhận `kind: estimate` của kênh 2 như một loại số hợp lệ (nhãn ESTIMATE). Hiện Q7 đòi nhãn ESTIMATE nhưng không nhận nhãn thẻ, còn Q8 đòi `kind ∈ {actual, projection}`, mâu thuẫn với k2check Q35 ("ESTIMATE bắt buộc").
+- (ii) **Q36(b)** (k2check 1.11.1): câu miễn trừ "This video explains… Facts as of…" chỉ hiện **1 lần** (0:05.6–0:12.0, trong 0:00–0:15) nhưng vẫn bị tính lỗi vì shot không dẫn nguồn `loai: luat/chinh_sach/quy_dinh`. Đề nghị K làm rõ ngoại lệ "1 lần trong câu miễn trừ 0:00–0:15" không đòi nguồn luật.
+- **Dẫn chiếu:** Q14/Q15/Q17, Q26b, Q33, Q32(b) đã có biến thể kênh 2 ở checks 1.12.2 (theo lệnh). Tập này vẫn ghim 1.10.2 + chạy 1.11.1 chỉ báo.
+
+**TT6 — đề xuất Kinh thánh** (P ghi vào `docs/BIBLE-KENH2.md`; phiên này không sửa):
+- (a) chip nơi dựng cho mọi shot bản đồ không có nhãn địa danh;
+- (b) dải tối dưới không phủ cả bề ngang trên ảnh/footage;
+- (c) nhãn chủ chốt hiện đủ trước mọi giây khung chấm mù đã khai;
+- **(d)** tấm chữ trên ảnh/footage gồm **hai tấm gọn** (câu chú thích, dòng nguồn), **không khoảng trống**;
+- **(e)** viền vùng quốc gia **không dùng nét sáng dày** (relief `regions` vẽ viền trắng 5 px → đọc như lỗi dựng; cần nét mảnh/tối hoặc bỏ viền).
+
+### 14.2 Master, Short, LFS
+- **Master L5:** **SHA256 `f63b0b4b8d90de4c3a35959d95805a81126058b208653e0a9e80528094aff593`** = **oid LFS** (1 285 887 105 byte); 618,917 s; 14 854 khung; −14,0 LUFS / −1,6 dBTP / LRA 2,2.
+- **Short S1:** **`e00eb9e07b91bb1eeb5328d16ced7d7029665d6f697d2e80f4e140fb4b8a5041`** = oid LFS (không đổi so với L4).
+- **Nhánh LFS `release-k2c-t2-01-v1`** (commit `784a58f1`, nhánh mồ côi như T1; `.gitattributes *.mp4` LFS):
+  - gồm master, Short, `.srt`, mô tả, bình luận ghim, tiêu đề, PACKAGING-BRIEF, `nen-1..3.jpg`, SHA256SUMS (`sha256sum -c` ĐẠT) và README;
+  - `git lfs push` xác nhận object đã có trên remote.
+  - **Đây là bản tốt nhất L5:** không cặp nào xấu hơn L4 về khung (P4 6,67 < 7,00 điểm nhưng khung L4 và L5 gần như trùng — lệch tuyệt đối trung bình 1,26/255 → nhiễu người chấm). **Chưa phải bản duyệt đăng.**
+- **Gói `phat-hanh/`:** `release_check` v5a **0 LỖI, 0 BÁO**.
+
+### 14.3 Điểm từng cặp L1 → L5
+**RÀ GU (P1–P7): TB T2 6,62 → 6,81 → 6,76 → 6,81 → 6,90** (T1 L5 5,57)
+
+| Cặp | Cảnh | T1 (L5) | T2 L1 → L2 → L3 → L4 → L5 | 3 người L5 | Chọn T2 L5 | Kết quả L5 |
+|---|---|---|---|---|---|---|
+| P1 | r04_beach | 5,67 | 6,33 → 7,00 → 7,00 → 7,00 → 7,00 | 7/7/7 | 3/3 | thắng |
+| P2 | r04_abroad | 7,00 | 6,67 → 7,33 → 7,00 → 6,67 → **7,00** | 7/7/7 | **3/3** | hoà điểm, thắng lựa chọn (hết thua) |
+| P3 | r03_tanker | 4,33 | 6,67 → 6,67 → 6,33 → 6,67 → **7,00** | 7/7/7 | 3/3 | thắng |
+| P4 | p01_owens | 5,67 | 7,00 → 6,67 → 6,67 → 7,00 → 6,67 | 7/6/7 | 3/3 | thắng |
+| P5 | r06 so sánh | 4,00 | 7,33 → 7,00 → 7,00 → 7,33 → 7,33 | 8/7/7 | 3/3 | thắng |
+| **P6** | **f_liberty** | **6,67** | 5,67 → 6,33 → 6,67 → 6,00 → **6,33** | 6/7/6 | **3/3** | **THUA điểm** (thắng lựa chọn) |
+| P7 | p02_jones | 5,67 | 6,67 → 6,67 → 6,67 → 7,00 → 7,00 | 7/7/7 | 3/3 | thắng |
+
+**Phần sửa (E1–E5): TB T2 6,47 → 6,87 → 6,87 → 6,80 → 6,87** (T1 L5 5,07)
+
+| Cặp | Cảnh | T1 (L5) | T2 L1 → L5 | 3 người L5 | Chọn T2 L5 | Kết quả L5 |
+|---|---|---|---|---|---|---|
+| E1 | r03_loop | 5,00 | 6,33 → 7,00 → 6,67 → 7,00 → 7,00 | 7/7/7 | 3/3 | thắng |
+| **E2** | **r04_abroad (385,93)** | **8,00** | 6,00 → 6,33 → 6,00 → 6,00 → **6,33** | 7/6/6 | **0/3** | **THUA** |
+| E3 | r06 kết | 3,67 | 7,00 → 7,00 → 7,00 → 7,00 → 7,00 | 7/7/7 | 3/3 | thắng |
+| E4 | r06 kết | 4,00 | 7,00 → 7,67 → 8,00 → 7,33 → 7,33 | 8/7/7 | 3/3 | thắng |
+| E5 | r02_subsidy | 4,67 | 6,00 → 6,33 → 6,67 → 6,67 → 6,67 | 7/6/7 | 3/3 | thắng |
+
+- **Luật TT4:** RÀ GU 6,90 và phần sửa 6,87 đều ≥ 6,65, nhưng **thua 2 cặp (P6 theo điểm; E2)** → không ĐẠT; không sửa tiếp, không chấm thêm (theo lệnh).
+- **Vùng ±5 % (nêu tên):**
+  - Quanh 7,0: RÀ GU 6,90 (−1,4 %), phần sửa 6,87 (−1,9 %); các cặp 6,67 (P4, E5; −4,7 %) và 7,00 (P1, P2, P3, P7, E1, E3).
+  - Quanh 6,65 (ngưỡng TT4): **RÀ GU 6,90 (+3,8 %) và phần sửa 6,87 (+3,3 %) đều nằm trong ±5 %**.
+  - P6 6,33 so T1 6,67 (−5,1 %).
+
+### 14.4 Ghi chú nguyên văn (L5) các cặp < 7,0 và chẩn đoán
+- **E2 (THUA, 0/3), r04_abroad 2,1 s:**
+  - R1: "the route is weak: three short, faint lines fade out in open sea with no destination. The 'South Korea' label sits on an unspecific inland spot. The map is zoomed so far in that a viewer can't tell it is Korea without the label."
+  - R2: "the route is three short, stubby gradient streaks fanning into empty sea, so it reads as an unfinished animation and not as a trade route … The Ulsan label box covers the coast and the origin point. The frame has no regional context: no Japan, no destinations, no scale."
+  - R3: "'to buyers abroad' points at a single dot, so it reads as one vague spot and not a route … The map is zoomed so far in that the viewer has no context."
+  - Khung T1 của cặp (quả địa cầu tô Texas) giữ 8,00 cả 5 lần.
+  - **Chẩn đoán:** các lỗi L4 (nhãn mờ, dải trắng) **đã hết** — không người chấm nào còn nêu. Phần còn lại là **thiết kế cảnh**: ở 2,1 s tuyến mới vẽ được một phần (vẽ 0,4–2,3 s) nên "ngắn, cụt"; khung đã đẩy vào gần Ulsan nên thiếu bối cảnh vùng (Nhật Bản, điểm đến).
+  - Cách sửa đúng nằm ở hình thức cảnh (mở bằng quả địa cầu / bản đồ Đông Á có điểm đến thật), không phải lớp chữ — **ngoài phạm vi vòng cuối**.
+- **P6 (THUA điểm, nhưng chọn T2 3/3), f_liberty:**
+  - R1: "The frame floats in a large dark void with empty space on the right, and the footage is small and soft. It looks templated, but it is tidy and credible."
+  - R2: "The photo is small in the frame, and the right side is empty and dark, so the layout is slightly left-heavy."
+  - R3: "the right third of the frame is dead dark space. The ship name on the hull can't be read."
+  - **Chẩn đoán:** khoảng trống tấm chữ L4 **đã hết** (không ai nêu). Còn lại là **ràng buộc trần 1,45×** (chủ dự án giữ, Kinh thánh §4) với nguồn 640×480; cả 3 người vẫn chọn T2 vì chữ rõ và có ngữ cảnh.
+- **P4 (6,67), p01_owens:** "The credit bar overlaps the bottom of the print, and the right third is empty dark space." Khung L4 ↔ L5 gần như trùng (MAD 1,26/255) → **nhiễu người chấm** (L4 7,00).
+- **E5 (6,67), r02_subsidy:** "The coins (world vs U.S. price) are tiny and look almost the same size, so the price gap isn't shown. The tall green bar has no label of its own" → **thiết kế số liệu** (hai xu cùng cỡ là đúng nghĩa "giá thế giới" là mục tiêu; không có số chênh để vẽ). Ghi nhận.
+
+### 14.5 QC nhà máy và k2check 1.11.1 (chỉ báo): L4 (`8fba1df2`) → L5 (`f63b0b4b`)
+| Mục | L4 | L5 | Ghi chú |
+|---|---|---|---|
+| qc Q1, Q5, Q21, Q23 | ĐẠT | ĐẠT | Q5 4,95 |
+| qc Q7, Q8 | TRƯỢT | TRƯỢT | áp nhầm `estimate` — khiếu nại TT5 (i) |
+| qc Q14, Q15, Q17 | TRƯỢT | TRƯỢT | nhịp LL — biến thể kênh 2 ở checks 1.12.2 |
+| qc Q32 | TRƯỢT (b) | TRƯỢT (b) | ngoại lệ chủ dự án 17/10 |
+| qc còn lại | ĐẠT | ĐẠT | Q4 master −14,1 / −1,6; S1 −14,0 / −2,6; Q9 14 854/14 854 |
+| k2check Q34 | ĐẠT | ĐẠT (45/45) | — |
+| **k2check Q35** | **TRƯỢT** | **ĐẠT** | hoàn tác Q7 + `kind` rõ r05_philly |
+| k2check Q36 | TRƯỢT (b 1) | TRƯỢT (b 1) | khiếu nại TT5 (ii); "thiếu log cỡ chữ" 45 là lỗi công cụ |
+| **k2check Q37** | 12,83 s (6:54.9, g05_china) | **11,79 s (3:01.0)** | g05_china đã hết; đoạn tĩnh dài nhất mới ở r02_subsidy 3:01–3:12 (nghi do máy quay S4 lùi xa 62–70 km, chuyển động chậm; chưa xem khung để xác nhận). **Chưa sửa** (vòng cuối) |
+| k2check Q26b | TRƯỢT | TRƯỢT | ngoại lệ kênh 2 |
+| k2check Q33 | TRƯỢT (3 góc > 2) | TRƯỢT (9 góc > 2; pHash thêm 26) | ngoại lệ kênh 2. pHash tăng sau khi thêm chip nơi dựng và hai tấm chữ giống nhau trên nhiều khung (ảnh xám 32×18 giống hơn). Ghi cho K: pHash nên bỏ lớp chữ cố định |
+| k2check A1–A3, A5–A8, A10 | ĐẠT | ĐẠT | −14,1 LUFS / −1,6 dBTP / LRA 2,2 |
+| k2check A9 | BÁO | BÁO | lỗi ASR (§13.1) |
+| k2check A4, A11–A13 | không đo | không đo | thiếu stem — V5b-2b/T3 |
+
+- **versions:** hết CHẶN toolkit; còn `served_models` (đã duyệt), BÁO CLI.
+- **Golden:** không chạy lại ở vòng này. Thay đổi `k2.js` chỉ ở nhánh ảnh/footage + chip mới (khai theo shot) và nền nhãn loại số → ca t1 sẽ lệch thêm ở nhãn ACTUAL (nền tối), là đổi kiểu đã duyệt (Q5).
+
+### 14.6 Chi phí và giờ máy
+- **API chấm mù lũy kế: $15,16 / trần $17 (mốc dừng $16).** Lần 5: $2,12.
+- **ElevenLabs: 0 ký tự.**
+- **Giờ máy vòng TT:**
+  - dựng lại r04_abroad (482 khung) + g05_china (468 khung), 4 tiến trình ≈ 1,1 giờ thật;
+  - thử khung + xem trước ≈ 0,4 giờ;
+  - build lớp chữ + ghép + Short 6044 s (1,68 giờ);
+  - tờ so sánh < 1 phút;
+  - đẩy LFS 1,29 GB.
+- **Đĩa:** đã xoá `sec/*.mkv` (3,0 GB, lớp chữ trung gian đã ghép vào master, dựng lại được) để đủ chỗ cho object LFS.
+
+### 14.7 Việc chờ chủ dự án (G2 — quyết định cuối thuộc chủ dự án)
+1. **Xem trực tiếp bản L5** ở nhánh `release-k2c-t2-01-v1` (hoặc `/var/tmp/cine-out/k2c-t2-01/`) và quyết G2: duyệt đăng / sửa tiếp (E2: đổi hình thức cảnh mở r04_abroad; P6: nới trần 1,45× hoặc nguồn ≥ 720p; Q37 r02_subsidy) / hướng khác.
+2. Khiếu nại TT5 cho phiên K kế.
+3. P ghi đề xuất Kinh thánh TT6 (a)–(e) vào `docs/BIBLE-KENH2.md`.
+4. Trước khi đăng: kiểm lại các dòng "Facts as of 15 Oct 2026" (tạm dừng phí cảng tới 9/11/2026); cài đặt "AI use" để TẮT; thumbnail theo PACKAGING-BRIEF.
+
+**G2 — chủ dự án xem trực tiếp. DỪNG chờ chủ dự án.**
