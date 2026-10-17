@@ -1,0 +1,28 @@
+Nguồn 1: https://osmfoundation.org/wiki/Licence/Attribution_Guidelines (đọc 17/10/2026; SHA-256 HTML 3c4103c4758199112180381b2412ae5eeddf249917b9259aeb3b760cbaa49f8b)
+Trích nguyên văn (Adopted by the OpenStreetMap Foundation board on 2021-06-25):
+
+Attribution text
+Attribution must be to “OpenStreetMap”.
+Attribution must also make it clear that the data is available under the Open Database License. This may be done by making the text “OpenStreetMap” a link to openstreetmap.org/copyright, which has information about OpenStreetMap’s data sources (which OpenStreetMap needs to credit) as well as the ODbL.
+The text must be easily readable and understandable, taking into consideration the font, size, colour, contrast, positioning and amount of time that it is visible. We recommend you follow accessibility guidelines such as WCAG, and any other locally relevant regulations.
+OSM does not wish to claim credit for data or other material that did not come from it, so feel free to qualify the credit to explain what OSM content you are using. For example, if you have rendered OSM data to your own design, you may wish to use “Map data from OpenStreetMap.”
+The historical forms of attribution “© OpenStreetMap contributors” or “© OpenStreetMap” are acceptable.
+
+Static images
+Static images must be generally attributed the same way as interactive maps. However, if multiple static images appear on the same document, one instance of attribution is sufficient. (For images where hyperlinking is not possible, see the “Books, magazines and printed maps” section.)
+In accordance with the Substantial Guideline, static images of fewer than 100 features do not require attribution. In addition, static images of areas less than 10,000 m2 do not require attribution. Small thumbnails/icons do not require attribution.
+
+TV, film, or video productions
+For fictional productions or where the map is not the focus of the production, attribution may be given on the map, in end credits, or, if the video is distributed via a digital format that includes a description, within the description. When attributing via the end credits or the description, the URL to openstreetmap.org/copyright must be included.
+For incidental footage of a third party map that uses OSM as a source, you must not digitally alter or erase the existing attribution on that map, but you do not need to do anything further (for example, if you film a person typing on their laptop and a map is visible on their laptop screen).
+For productions where an OpenStreetMap map is a major component of what is shown to users, the attribution should typically appear in a corner of the map, in addition to attribution in the end credits or description. As long as the credit is on screen long enough to be read, it does not have to remain in view during panning or zooming.
+
+Nguồn 2: https://www.openstreetmap.org/copyright — bản chép đọc 16/10/2026 ở origin/v5b2a:channel-k2/k2c-t3-01/v5b1-thu/licenses/osm-odbl.txt. Câu chính:
+"OpenStreetMap is open data, licensed under the Open Data Commons Open Database License (ODbL) by the OpenStreetMap Foundation (OSMF)."
+"You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors. If you alter or build upon our data, you may distribute the result only under the same license."
+
+Áp dụng cho T3 (ghi chú của phiên tiền kỳ T3b):
+- Phim là 'Produced Work' (ODbL §4.3): KHÔNG phải phát hành phim theo ODbL; chỉ bắt buộc ghi công.
+- OSM là thành phần chính của hình (khối nhà, đường) → ghi ở GÓC KHUNG đủ lâu để đọc khi cảnh dùng OSM xuất hiện lần đầu + ở màn kết/mô tả kèm URL https://www.openstreetmap.org/copyright.
+- Chữ đề xuất: 'Map data from OpenStreetMap (ODbL)' ≥ 38 px (Kinh thánh §4) — OSMF cho phép 'Map data from OpenStreetMap' hoặc '© OpenStreetMap contributors'.
+- Cơ sở dữ liệu dẫn xuất (footprint OSM + khối ghost tự vẽ) nếu PHÁT HÀNH công khai thì phải theo ODbL; nhà máy chỉ dùng nội bộ → không phát hành dữ liệu.
