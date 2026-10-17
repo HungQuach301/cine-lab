@@ -170,8 +170,8 @@ function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) r
   if (Ch.method) { let yy = Ch.method.bottom ? H - EDGE_B - SRCPX * 1.6 : 56; for (const m of Ch.method.lines) { const w = tw(g, m.s, SRCPX, 600) + 40, x = Ch.method.bottom ? ybR + 20 : SAFE.x0;
     panel(g, x, yy, w, SRCPX * 1.6, { a: m.a, fill: 'rgba(12,18,27,0.88)' }); text(g, m.s, x + 20, yy + SRCPX * 1.12, SRCPX, K.text, { a: m.a, w: 600, role: 'method' }); yy += (Ch.method.bottom ? -1 : 1) * (SRCPX * 1.6 + 10); } }
   // nguồn ghost: dưới-phải
-  let gw = 0; if (D.ghost_src) { const s2 = D.ghost_src.s, sw = Math.min(W * 0.46, tw(g, s2, SRCPX, 500)) + 40, x = W - SAFE.x0 - sw, y = H - EDGE_B - SRCPX * 1.6 + 8; gw = sw + 20;
-    panel(g, x, y, sw, SRCPX * 1.6, { a: D.ghost_src.a, fill: 'rgba(12,18,27,0.9)', stroke: 'rgba(242,193,78,0.45)' }); text(g, s2, x + 20, y + SRCPX * 1.12, SRCPX, '#E6EBF0', { a: D.ghost_src.a, w: 500, role: 'ghost_src', maxW: W * 0.46 }); (LL.occ = LL.occ || []).push([x, y, x + sw, y + SRCPX * 1.6]); }
+  let gw = 0; if (D.ghost_src) { const s2 = D.ghost_src.s, sw = Math.min(W * 0.64, tw(g, s2, SRCPX, 500)) + 40,   /* nhãn nguồn ghost GIỮ ≥ 38 px (NC-H5b): bề ngang tới 64 % khung, không thu chữ */ x = W - SAFE.x0 - sw, y = H - EDGE_B - SRCPX * 1.6 + 8; gw = sw + 20;
+    panel(g, x, y, sw, SRCPX * 1.6, { a: D.ghost_src.a, fill: 'rgba(12,18,27,0.9)', stroke: 'rgba(242,193,78,0.45)' }); text(g, s2, x + 20, y + SRCPX * 1.12, SRCPX, '#E6EBF0', { a: D.ghost_src.a, w: 500, role: 'ghost_src', maxW: W * 0.64 }); (LL.occ = LL.occ || []).push([x, y, x + sw, y + SRCPX * 1.6]); }
   // thẻ: neo (đường dẫn hổ phách) hoặc dải dưới bên phải hộp năm
   for (const c of D.cards || []) { const tp = 44 * S, w1 = tw(g, c.title, tp, 700, true), w2 = c.src ? tw(g, c.src, SRCPX, 500) : 0, bw = Math.min(W - 2 * SAFE.x0, Math.max(w1, w2) + 56), bh = tp * 1.3 + (c.src ? SRCPX * 1.35 : 0) + 30;
     // neo trong khung: thẻ ở dải TRÊN (dưới chip nơi), đường dẫn xuống điểm neo — không đè vật chính quanh điểm neo (tự rà V5b-2b-T: thẻ từng đè mặt bastion)

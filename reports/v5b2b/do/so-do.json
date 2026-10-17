@@ -1,0 +1,626 @@
+{
+ "tong": {
+  "khung": 624,
+  "renderer": {
+   "a_vinh": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)",
+   "b_pho": "ANGLE (Mesa, llvmpipe (LLVM 20.1.2 256 bits), OpenGL ES 3.2)"
+  },
+  "s_khung_hero": {
+   "a_vinh": 1.34,
+   "b_pho": 1.47
+  },
+  "agl_km": {
+   "min": 0.037,
+   "max": 0.2821,
+   "tren_50km": 0,
+   "tren_3km": 0
+  },
+  "fabric": {
+   "n": 624,
+   "trung_vi": 29.0,
+   "min": 4.5,
+   "p10": 5.4,
+   "max": 64
+  },
+  "fabric_thanh_pho": {
+   "n": 346,
+   "trung_vi": 40.2,
+   "min": 24.8,
+   "p10": 27.25,
+   "max": 64
+  },
+  "content": {
+   "n": 624,
+   "trung_vi": 17.6,
+   "min": 4,
+   "p10": 4.6,
+   "max": 60
+  },
+  "hero": {
+   "n": 120,
+   "trung_vi": 29.58,
+   "min": 27.92,
+   "p10": 28.08,
+   "max": 45.77
+  },
+  "ghost": {
+   "n": 624,
+   "trung_vi": 6.34,
+   "min": 0,
+   "p10": 0.85,
+   "max": 31.04
+  },
+  "ghost_lan_dau_s": 0.0,
+  "nhan_ghost_lien_s": 17.5,
+  "nhan_ghost_dau_s": 0.5,
+  "bc1_duoi30_khung": 441,
+  "lua_do_max_pct": 0.535,
+  "roles": [
+   "card",
+   "clock",
+   "ghost_src",
+   "method",
+   "src",
+   "where",
+   "year"
+  ],
+  "noi": [
+   {
+    "t": [
+     0.0,
+     5.6
+    ],
+    "noi": "bien",
+    "shot": "a/0.0",
+    "where_chip": null
+   },
+   {
+    "t": [
+     5.6,
+     12.0
+    ],
+    "noi": "thanh_pho",
+    "shot": "a/5.6",
+    "where_chip": null
+   },
+   {
+    "t": [
+     12.0,
+     18.0
+    ],
+    "noi": "vung",
+    "shot": "a/12.0",
+    "where_chip": null
+   },
+   {
+    "t": [
+     18.0,
+     26.0
+    ],
+    "noi": "thanh_pho",
+    "shot": "b/0.0",
+    "where_chip": null
+   }
+  ],
+  "mau1": {
+   "n": 26,
+   "sat_trung_vi": 0.407,
+   "colorful_trung_vi": 61.8,
+   "detail_trung_vi": 17.2,
+   "chay_max": 0.0,
+   "dat_sat": 16,
+   "dat_colorful": 26,
+   "dat_detail": 20
+  },
+  "neo": {
+   "a_vinh": {
+    "khung": 432,
+    "co_neo": 432,
+    "co_lop_chu": 432
+   },
+   "b_pho": {
+    "khung": 192,
+    "co_neo": 192,
+    "co_lop_chu": 192
+   }
+  }
+ },
+ "mau1": [
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00000.jpg",
+   "sat_med": 0.443,
+   "colorful": 64.5,
+   "detail": 17.3,
+   "clip_pct": 0.0,
+   "lum_mean": 127.9,
+   "f": 0,
+   "t": 0.0,
+   "content": 4
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00024.jpg",
+   "sat_med": 0.455,
+   "colorful": 65.9,
+   "detail": 17.5,
+   "clip_pct": 0.0,
+   "lum_mean": 126.8,
+   "f": 24,
+   "t": 1.0,
+   "content": 4.7
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00048.jpg",
+   "sat_med": 0.463,
+   "colorful": 67.5,
+   "detail": 17.5,
+   "clip_pct": 0.0,
+   "lum_mean": 125.4,
+   "f": 48,
+   "t": 2.0,
+   "content": 5.6
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00072.jpg",
+   "sat_med": 0.471,
+   "colorful": 68.7,
+   "detail": 17.7,
+   "clip_pct": 0.0,
+   "lum_mean": 123.7,
+   "f": 72,
+   "t": 3.0,
+   "content": 6.6
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00096.jpg",
+   "sat_med": 0.475,
+   "colorful": 69.9,
+   "detail": 18.1,
+   "clip_pct": 0.0,
+   "lum_mean": 121.4,
+   "f": 96,
+   "t": 4.0,
+   "content": 7.8
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00120.jpg",
+   "sat_med": 0.482,
+   "colorful": 69.4,
+   "detail": 17.1,
+   "clip_pct": 0.0,
+   "lum_mean": 115.1,
+   "f": 120,
+   "t": 5.0,
+   "content": 13.2
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00144.jpg",
+   "sat_med": 0.435,
+   "colorful": 44.7,
+   "detail": 18.8,
+   "clip_pct": 0.0,
+   "lum_mean": 107.1,
+   "f": 144,
+   "t": 6.0,
+   "content": 57.6
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00168.jpg",
+   "sat_med": 0.337,
+   "colorful": 48.3,
+   "detail": 17.7,
+   "clip_pct": 0.0,
+   "lum_mean": 121.1,
+   "f": 168,
+   "t": 7.0,
+   "content": 57.6
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00192.jpg",
+   "sat_med": 0.263,
+   "colorful": 43.1,
+   "detail": 15.1,
+   "clip_pct": 0.0,
+   "lum_mean": 139.8,
+   "f": 192,
+   "t": 8.0,
+   "content": 55.3
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00216.jpg",
+   "sat_med": 0.251,
+   "colorful": 47.7,
+   "detail": 10.6,
+   "clip_pct": 0.0,
+   "lum_mean": 164.6,
+   "f": 216,
+   "t": 9.0,
+   "content": 51.9
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00240.jpg",
+   "sat_med": 0.263,
+   "colorful": 56.9,
+   "detail": 8.5,
+   "clip_pct": 0.0,
+   "lum_mean": 169.7,
+   "f": 240,
+   "t": 10.0,
+   "content": 45.4
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00264.jpg",
+   "sat_med": 0.267,
+   "colorful": 92.2,
+   "detail": 5.9,
+   "clip_pct": 0.0,
+   "lum_mean": 141.2,
+   "f": 264,
+   "t": 11.0,
+   "content": 37.6
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00288.jpg",
+   "sat_med": 0.933,
+   "colorful": 103.4,
+   "detail": 6.3,
+   "clip_pct": 0.0,
+   "lum_mean": 112.3,
+   "f": 288,
+   "t": 12.0,
+   "content": 18.4
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00312.jpg",
+   "sat_med": 0.529,
+   "colorful": 103.9,
+   "detail": 15.5,
+   "clip_pct": 0.0,
+   "lum_mean": 111.2,
+   "f": 312,
+   "t": 13.0,
+   "content": 22.9
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00336.jpg",
+   "sat_med": 0.659,
+   "colorful": 100.5,
+   "detail": 19.0,
+   "clip_pct": 0.0,
+   "lum_mean": 108.9,
+   "f": 336,
+   "t": 14.0,
+   "content": 9.3
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00360.jpg",
+   "sat_med": 0.58,
+   "colorful": 84.1,
+   "detail": 16.4,
+   "clip_pct": 0.0,
+   "lum_mean": 117.2,
+   "f": 360,
+   "t": 15.0,
+   "content": 4.8
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00384.jpg",
+   "sat_med": 0.478,
+   "colorful": 77.7,
+   "detail": 16.9,
+   "clip_pct": 0.0,
+   "lum_mean": 127.8,
+   "f": 384,
+   "t": 16.0,
+   "content": 5
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-a_vinh/00408.jpg",
+   "sat_med": 0.475,
+   "colorful": 76.0,
+   "detail": 17.2,
+   "clip_pct": 0.0,
+   "lum_mean": 134.4,
+   "f": 408,
+   "t": 17.0,
+   "content": 4.1
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00000.jpg",
+   "sat_med": 0.302,
+   "colorful": 59.0,
+   "detail": 20.0,
+   "clip_pct": 0.0,
+   "lum_mean": 164.4,
+   "f": 432,
+   "t": 18.0,
+   "content": 34.4
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00024.jpg",
+   "sat_med": 0.278,
+   "colorful": 55.8,
+   "detail": 19.8,
+   "clip_pct": 0.0,
+   "lum_mean": 164.5,
+   "f": 456,
+   "t": 19.0,
+   "content": 34.1
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00048.jpg",
+   "sat_med": 0.286,
+   "colorful": 55.7,
+   "detail": 19.6,
+   "clip_pct": 0.0,
+   "lum_mean": 161.2,
+   "f": 480,
+   "t": 20.0,
+   "content": 27
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00072.jpg",
+   "sat_med": 0.306,
+   "colorful": 56.0,
+   "detail": 18.1,
+   "clip_pct": 0.0,
+   "lum_mean": 159.6,
+   "f": 504,
+   "t": 21.0,
+   "content": 20.3
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00096.jpg",
+   "sat_med": 0.369,
+   "colorful": 57.8,
+   "detail": 18.1,
+   "clip_pct": 0.0,
+   "lum_mean": 159.1,
+   "f": 528,
+   "t": 22.0,
+   "content": 17.3
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00120.jpg",
+   "sat_med": 0.38,
+   "colorful": 57.6,
+   "detail": 17.2,
+   "clip_pct": 0.0,
+   "lum_mean": 159.6,
+   "f": 552,
+   "t": 23.0,
+   "content": 17.2
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00144.jpg",
+   "sat_med": 0.376,
+   "colorful": 56.4,
+   "detail": 17.0,
+   "clip_pct": 0.0,
+   "lum_mean": 158.8,
+   "f": 576,
+   "t": 24.0,
+   "content": 15.2
+  },
+  {
+   "file": "/var/tmp/cine-out/hero/v5b2b-t-b_pho/00168.jpg",
+   "sat_med": 0.341,
+   "colorful": 56.5,
+   "detail": 16.4,
+   "clip_pct": 0.0,
+   "lum_mean": 161.7,
+   "f": 600,
+   "t": 25.0,
+   "content": 15.8
+  }
+ ],
+ "lua_do": [
+  {
+   "t": 0.25,
+   "red_pct": 0.005
+  },
+  {
+   "t": 0.75,
+   "red_pct": 0.012
+  },
+  {
+   "t": 1.25,
+   "red_pct": 0.013
+  },
+  {
+   "t": 1.75,
+   "red_pct": 0.018
+  },
+  {
+   "t": 2.25,
+   "red_pct": 0.022
+  },
+  {
+   "t": 2.75,
+   "red_pct": 0.025
+  },
+  {
+   "t": 3.25,
+   "red_pct": 0.032
+  },
+  {
+   "t": 3.75,
+   "red_pct": 0.041
+  },
+  {
+   "t": 4.25,
+   "red_pct": 0.048
+  },
+  {
+   "t": 4.75,
+   "red_pct": 0.069
+  },
+  {
+   "t": 5.25,
+   "red_pct": 0.144
+  },
+  {
+   "t": 5.75,
+   "red_pct": 0.257
+  },
+  {
+   "t": 6.25,
+   "red_pct": 0.291
+  },
+  {
+   "t": 6.75,
+   "red_pct": 0.298
+  },
+  {
+   "t": 7.25,
+   "red_pct": 0.252
+  },
+  {
+   "t": 7.75,
+   "red_pct": 0.493
+  },
+  {
+   "t": 8.25,
+   "red_pct": 0.535
+  },
+  {
+   "t": 8.75,
+   "red_pct": 0.531
+  },
+  {
+   "t": 9.25,
+   "red_pct": 0.048
+  },
+  {
+   "t": 9.75,
+   "red_pct": 0.028
+  },
+  {
+   "t": 10.25,
+   "red_pct": 0.028
+  },
+  {
+   "t": 10.75,
+   "red_pct": 0.008
+  },
+  {
+   "t": 11.25,
+   "red_pct": 0.008
+  },
+  {
+   "t": 11.75,
+   "red_pct": 0.022
+  },
+  {
+   "t": 12.25,
+   "red_pct": 0.194
+  },
+  {
+   "t": 12.75,
+   "red_pct": 0.308
+  },
+  {
+   "t": 13.25,
+   "red_pct": 0.155
+  },
+  {
+   "t": 13.75,
+   "red_pct": 0.072
+  },
+  {
+   "t": 14.25,
+   "red_pct": 0.04
+  },
+  {
+   "t": 14.75,
+   "red_pct": 0.044
+  },
+  {
+   "t": 15.25,
+   "red_pct": 0.034
+  },
+  {
+   "t": 15.75,
+   "red_pct": 0.034
+  },
+  {
+   "t": 16.25,
+   "red_pct": 0.04
+  },
+  {
+   "t": 16.75,
+   "red_pct": 0.037
+  },
+  {
+   "t": 17.25,
+   "red_pct": 0.039
+  },
+  {
+   "t": 17.75,
+   "red_pct": 0.044
+  },
+  {
+   "t": 18.25,
+   "red_pct": 0.096
+  },
+  {
+   "t": 18.75,
+   "red_pct": 0.115
+  },
+  {
+   "t": 19.25,
+   "red_pct": 0.109
+  },
+  {
+   "t": 19.75,
+   "red_pct": 0.121
+  },
+  {
+   "t": 20.25,
+   "red_pct": 0.154
+  },
+  {
+   "t": 20.75,
+   "red_pct": 0.131
+  },
+  {
+   "t": 21.25,
+   "red_pct": 0.146
+  },
+  {
+   "t": 21.75,
+   "red_pct": 0.189
+  },
+  {
+   "t": 22.25,
+   "red_pct": 0.2
+  },
+  {
+   "t": 22.75,
+   "red_pct": 0.175
+  },
+  {
+   "t": 23.25,
+   "red_pct": 0.281
+  },
+  {
+   "t": 23.75,
+   "red_pct": 0.238
+  },
+  {
+   "t": 24.25,
+   "red_pct": 0.177
+  },
+  {
+   "t": 24.75,
+   "red_pct": 0.183
+  },
+  {
+   "t": 25.25,
+   "red_pct": 0.228
+  },
+  {
+   "t": 25.75,
+   "red_pct": 0.152
+  }
+ ]
+}

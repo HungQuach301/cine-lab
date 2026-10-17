@@ -30,16 +30,20 @@ segments:
   part: TEST
   dur: 18.0
   fadeIn: 6
+  beats: [{t: 0.0, k: cut, s: fly over the bay}, {t: 5.6, k: cut, s: orbit King's Bastion (same plate, new noi window)}, {t: 12.0, k: cut, s: pull back over the bay}]   # biến cố trong cảnh tl (ramp 4,0 · đồng hồ dừng 7,4–9,2 · crane 10,6 · pin nổi vào khung 15,2) không phải mốc đặc tả → không khai (đề xuất K: V5B2B §6)
   shots:
   - tpl: plate
+    type: scene3d
     at: 0
     noi: bien
     p: {hero: a_vinh, kind: '', frame0: 0}
   - tpl: plate
+    type: scene3d
     at: 5.6
     noi: thanh_pho
-    p: {hero: a_vinh, kind: '', frame0: 134.4}
+    p: {hero: a_vinh, kind: '', frame0: 134.4, ghost: ghost-1782, city: true}
   - tpl: plate
+    type: scene3d
     at: 12.0
     noi: vung
     p: {hero: a_vinh, kind: '', frame0: 288}
@@ -47,8 +51,10 @@ segments:
   part: TEST
   dur: 8.0
   fadeOut: 8
+  beats: [{t: 0.0, k: cut, s: low over Main Street 1782}]   # thẻ của lớp tl (k2.js tlLayer) không phải mốc đặc tả
   shots:
   - tpl: plate
+    type: scene3d
     at: 0
     noi: thanh_pho
-    p: {hero: b_pho, kind: ''}
+    p: {hero: b_pho, kind: '', ghost: ghost-1782, city: true}

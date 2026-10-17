@@ -133,7 +133,8 @@ def main():
               campath='campath.json.gz', mat_bang='xz', mat_na='noi-dung-mask.json.gz', log_chu='log-chu.json', noi=[dict(t=w['t'], noi=w['noi']) for w in noi_win],
               nam_khung=[dict(f=r['f'], nam_max=r['nam_khung']) for r in rows if r.get('nam_khung')], ghost_lan_dau_s=gfirst,
               dia_danh=['Gibraltar', 'Bay of Gibraltar', "King's Bastion", 'Main Street'],
-              tuyen=[dict(t=[0.0, 4.0], loai='song', nguon='mặt vịnh (vinh1782.js; loại "vinh" chưa có trong HH2 → khai như sông ≤ 300 m)'), dict(t=[18.0, 26.0], loai='pho', nguon='OSM Main Street (pho2026.js)')])
+              tuyen=[dict(t=[0.0, 4.0], loai='song', pts=[[-1700, -1236], [-1250, -1246], [-900, -1262], [-735, -1274]], dich=[-620, 6, -1274], nguon='mặt vịnh (vinh1782.js ROUTE; loại "vinh" chưa có trong HH2 → khai như sông ≤ 300 m)'),
+                     dict(t=[18.0, 26.0], loai='pho', pts=[[-409, -1811], [-410, -1700], [-425, -1620], [-435, -1571], [-441, -1543], [-448, -1521], [-450, -1505], [-447, -1400], [-440, -1300], [-432, -1150], [-425, -1000], [-420, -880], [-417, -788]], dich=[-462, 15, -788], nguon='OSM Main Street (pho1782.js MAIN)')])
     json.dump(bo, open(D / 'bo-tl.json', 'w'), ensure_ascii=False)
     print(json.dumps(S, ensure_ascii=False, indent=1, default=list))
 
