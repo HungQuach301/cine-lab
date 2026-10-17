@@ -1,0 +1,43 @@
+{
+ "X": {
+  "craft": 8,
+  "detail": 9,
+  "period": 8,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Best frame by a wide margin. The ground is worn and rutted, and the buildings are weathered and war-damaged with broken roofs and exposed brick. Props, carts, barrels, timber and rubble are all plausible. Red-coated soldiers, working figures and a Union flag sit naturally in the scene, and the haze gives depth. Figures are small and slightly stiff, and the Union flag is only barely right for 1782. It is a convincing broadcast-quality CG reconstruction, and it stays readable at small size."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 2,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "Same layout as X but stripped back to primitive 3D. The two soldiers are peg-doll figures, one red and one blue, with stick legs and no faces. The ground is a flat, featureless beige plane. Cannon carts are black discs, and the buildings are smooth clean boxes with no damage or texture. Large empty areas. It reads as a game placeholder, not a documentary. The Union flag and ship silhouettes are fine."
+ },
+ "Z": {
+  "craft": 3,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "Same primitive models as Y. The ground is a darker, noisy gravel texture with a faint purple cast, which is slightly more textured than Y but still looks like a flat plane. The two soldiers are peg-dolls and one is blue. The carts are black discs, and the buildings are clean boxes. It is marginally better than Y because of the surface texture, and it is still toy-like."
+ },
+ "best": "X",
+ "worst": "Y",
+ "why": "X has weathered, damaged buildings, dense believable props, a worn ground surface and real soldier figures, while Y and Z are the same scene as bare toy-like primitives. Y is worse than Z only because its ground is a flat featureless plane.",
+ "anachronisms_seen": [
+  "Union flag shows the post-1801 design with the Irish saltire (all three frames); the 1782 flag would have only the crosses of St George and St Andrew",
+  "peg-doll soldiers in Y and Z wear blue coats mixed with red, which is unclear for a British garrison",
+  "pristine, undamaged buildings in Y and Z, when the 1782 siege left Gibraltar heavily bombarded",
+  "no obvious anachronism in X beyond the flag"
+ ]
+}

@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
 import pt_site as S
 ap = argparse.ArgumentParser(); ap.add_argument('--tex', default='A'); ap.add_argument('--out', required=True)
 ap.add_argument('--bg', default='/var/tmp/pt/final'); ap.add_argument('--spr', default='/var/tmp/pt/spr')
-ap.add_argument('--video', default=''); ap.add_argument('--stills', default=''); ap.add_argument('--frames', default=''); ap.add_argument('--notext', action='store_true')
+ap.add_argument('--video', default=''); ap.add_argument('--stills', default=''); ap.add_argument('--frames', default=''); ap.add_argument('--notext', action='store_true'); ap.add_argument('--stillset', default='')   # 'tên:khung,…' (nhánh C)
 A = ap.parse_args(); os.makedirs(A.out, exist_ok=True)
 FPS = 24; SEG = 9.0; TR = 2.0; TOTAL = SEG * 2 + TR      # 9 s 1782 · 2 s chuyển · 9 s 1943
 PASS_H = json.load(open(os.path.join(HERE, 'passes.json'))); PASS_H['n'] = 20.6
@@ -367,6 +367,7 @@ if __name__ == '__main__':
           fr_of(1943, 12.8): '1943-trua', fr_of(1943, 17.55): '1943-chieu', fr_of(1943, 21.8): '1943-dem', int((SEG + TR / 2) * FPS): 'chuyen'}
     if A.video:
         W, H = map(int, A.video.split('x')); run(W, H, frames, True, {}, A.notext)
+    if A.stillset: ST = {int(x.split(':')[1]): x.split(':')[0] for x in A.stillset.split(',')}
     if A.stills:
         W, H = map(int, A.stills.split('x')); run(W, H, sorted(ST), False, ST, A.notext)
     json.dump({'stills': {str(k): v for k, v in ST.items()}, 'fps': FPS, 'seg': SEG, 'tr': TR}, open(os.path.join(A.out, 'stills.json'), 'w'), indent=1)

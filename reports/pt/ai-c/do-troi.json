@@ -1,0 +1,434 @@
+{
+ "1782-dau": {
+  "canny_tinh": {
+   "iou": 0.278,
+   "recall": 0.884,
+   "precision": 0.307,
+   "mat_do_A": 0.0262,
+   "mat_do_C": 0.087
+  },
+  "canny_tho": {
+   "iou": 0.294,
+   "recall": 0.871,
+   "precision": 0.329,
+   "mat_do_A": 0.0405,
+   "mat_do_C": 0.1115
+  },
+  "ssim_canh_tho": 0.624,
+  "ssim_xam_tho": 0.756,
+  "khoi_nha": {
+   "iou_khong_troi_segA_vs_segC": 0.9981,
+   "do_tin_phan_vung_A_vs_do_sau": 0.997,
+   "cot_tin_duoc_pct": 96.4,
+   "lech_chan_troi_px_TB": 1.71,
+   "lech_chan_troi_px_p95": 2.0
+  },
+  "dem_toi": false,
+  "toa": [
+   {
+    "ma": 7,
+    "px": 3690,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.938,
+    "ssim_xam": 0.785,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 8,
+    "px": 42894,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.897,
+    "ssim_xam": 0.669,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 9,
+    "px": 220593,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.945,
+    "ssim_xam": 0.597,
+    "ket_luan": "giữ"
+   }
+  ],
+  "xuat_hien": {
+   "so_vung": 0,
+   "px": [],
+   "tong_pct": 0.095
+  },
+  "dem": {
+   "giữ": 3,
+   "ĐỔI HÌNH": 0,
+   "BIẾN MẤT": 0
+  }
+ },
+ "1782-giua": {
+  "canny_tinh": {
+   "iou": 0.19,
+   "recall": 0.92,
+   "precision": 0.198,
+   "mat_do_A": 0.0191,
+   "mat_do_C": 0.1073
+  },
+  "canny_tho": {
+   "iou": 0.252,
+   "recall": 0.901,
+   "precision": 0.271,
+   "mat_do_A": 0.0392,
+   "mat_do_C": 0.1355
+  },
+  "ssim_canh_tho": 0.605,
+  "ssim_xam_tho": 0.721,
+  "khoi_nha": {
+   "iou_khong_troi_segA_vs_segC": 0.9991,
+   "do_tin_phan_vung_A_vs_do_sau": 0.997,
+   "cot_tin_duoc_pct": 97.4,
+   "lech_chan_troi_px_TB": 0.5,
+   "lech_chan_troi_px_p95": 2.0
+  },
+  "dem_toi": false,
+  "toa": [
+   {
+    "ma": 7,
+    "px": 3690,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.914,
+    "ssim_xam": 0.857,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 8,
+    "px": 42894,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.949,
+    "ssim_xam": 0.774,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 9,
+    "px": 220593,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.959,
+    "ssim_xam": 0.534,
+    "ket_luan": "giữ"
+   }
+  ],
+  "xuat_hien": {
+   "so_vung": 0,
+   "px": [],
+   "tong_pct": 0.044
+  },
+  "dem": {
+   "giữ": 3,
+   "ĐỔI HÌNH": 0,
+   "BIẾN MẤT": 0
+  }
+ },
+ "1782-cuoi": {
+  "canny_tinh": {
+   "iou": 0.005,
+   "recall": 0.689,
+   "precision": 0.006,
+   "mat_do_A": 0.0001,
+   "mat_do_C": 0.0106
+  },
+  "canny_tho": {
+   "iou": 0.197,
+   "recall": 0.734,
+   "precision": 0.216,
+   "mat_do_A": 0.0119,
+   "mat_do_C": 0.0423
+  },
+  "ssim_canh_tho": 0.748,
+  "ssim_xam_tho": 0.778,
+  "khoi_nha": {
+   "iou_khong_troi_segA_vs_segC": 0.9975,
+   "do_tin_phan_vung_A_vs_do_sau": 0.9945,
+   "cot_tin_duoc_pct": 60.5,
+   "lech_chan_troi_px_TB": 30.14,
+   "lech_chan_troi_px_p95": 292.0
+  },
+  "dem_toi": true,
+  "toa": [
+   {
+    "ma": 7,
+    "px": 3690,
+    "troi_o_C": 0.001,
+    "recall_canh_tho": 1.0,
+    "ssim_xam": 0.72,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 8,
+    "px": 42894,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.925,
+    "ssim_xam": 0.56,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 9,
+    "px": 220593,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.82,
+    "ssim_xam": 0.563,
+    "ket_luan": "giữ"
+   }
+  ],
+  "xuat_hien": {
+   "so_vung": 0,
+   "px": [],
+   "tong_pct": 0.064
+  },
+  "dem": {
+   "giữ": 3,
+   "ĐỔI HÌNH": 0,
+   "BIẾN MẤT": 0
+  }
+ },
+ "1943-dau": {
+  "canny_tinh": {
+   "iou": 0.404,
+   "recall": 0.929,
+   "precision": 0.457,
+   "mat_do_A": 0.0474,
+   "mat_do_C": 0.102
+  },
+  "canny_tho": {
+   "iou": 0.475,
+   "recall": 0.931,
+   "precision": 0.541,
+   "mat_do_A": 0.0986,
+   "mat_do_C": 0.1728
+  },
+  "ssim_canh_tho": 0.537,
+  "ssim_xam_tho": 0.742,
+  "khoi_nha": {
+   "iou_khong_troi_segA_vs_segC": 0.852,
+   "do_tin_phan_vung_A_vs_do_sau": 0.8472,
+   "cot_tin_duoc_pct": 50.3,
+   "lech_chan_troi_px_TB": 0.14,
+   "lech_chan_troi_px_p95": 1.0
+  },
+  "dem_toi": false,
+  "toa": [
+   {
+    "ma": 2,
+    "px": 2255,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.935,
+    "ssim_xam": null,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 6,
+    "px": 4985,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.971,
+    "ssim_xam": 0.873,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 7,
+    "px": 643067,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.948,
+    "ssim_xam": 0.705,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 46,
+    "px": 834921,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.957,
+    "ssim_xam": 0.734,
+    "ket_luan": "giữ"
+   }
+  ],
+  "xuat_hien": {
+   "so_vung": 0,
+   "px": [],
+   "tong_pct": 0.0
+  },
+  "dem": {
+   "giữ": 4,
+   "ĐỔI HÌNH": 0,
+   "BIẾN MẤT": 0
+  }
+ },
+ "1943-giua": {
+  "canny_tinh": {
+   "iou": 0.466,
+   "recall": 0.89,
+   "precision": 0.551,
+   "mat_do_A": 0.0507,
+   "mat_do_C": 0.0847
+  },
+  "canny_tho": {
+   "iou": 0.52,
+   "recall": 0.888,
+   "precision": 0.612,
+   "mat_do_A": 0.1063,
+   "mat_do_C": 0.1552
+  },
+  "ssim_canh_tho": 0.562,
+  "ssim_xam_tho": 0.749,
+  "khoi_nha": {
+   "iou_khong_troi_segA_vs_segC": 0.9016,
+   "do_tin_phan_vung_A_vs_do_sau": 0.8538,
+   "cot_tin_duoc_pct": 51.4,
+   "lech_chan_troi_px_TB": 0.08,
+   "lech_chan_troi_px_p95": 0.0
+  },
+  "dem_toi": false,
+  "toa": [
+   {
+    "ma": 2,
+    "px": 2255,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 1.0,
+    "ssim_xam": null,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 6,
+    "px": 4985,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.909,
+    "ssim_xam": 0.943,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 7,
+    "px": 643067,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.863,
+    "ssim_xam": 0.696,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 46,
+    "px": 834921,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.941,
+    "ssim_xam": 0.759,
+    "ket_luan": "giữ"
+   }
+  ],
+  "xuat_hien": {
+   "so_vung": 0,
+   "px": [],
+   "tong_pct": 0.0
+  },
+  "dem": {
+   "giữ": 4,
+   "ĐỔI HÌNH": 0,
+   "BIẾN MẤT": 0
+  }
+ },
+ "1943-cuoi": {
+  "canny_tinh": {
+   "iou": 0.03,
+   "recall": 0.888,
+   "precision": 0.034,
+   "mat_do_A": 0.0006,
+   "mat_do_C": 0.0172
+  },
+  "canny_tho": {
+   "iou": 0.151,
+   "recall": 0.748,
+   "precision": 0.178,
+   "mat_do_A": 0.0144,
+   "mat_do_C": 0.0617
+  },
+  "ssim_canh_tho": 0.642,
+  "ssim_xam_tho": 0.488,
+  "khoi_nha": {
+   "iou_khong_troi_segA_vs_segC": 0.5171,
+   "do_tin_phan_vung_A_vs_do_sau": 0.2463,
+   "cot_tin_duoc_pct": 9.4,
+   "lech_chan_troi_px_TB": 1.09,
+   "lech_chan_troi_px_p95": 3.0
+  },
+  "dem_toi": true,
+  "toa": [
+   {
+    "ma": 2,
+    "px": 2255,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.636,
+    "ssim_xam": null,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 6,
+    "px": 4985,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 1.0,
+    "ssim_xam": 0.644,
+    "ket_luan": "giữ"
+   },
+   {
+    "ma": 7,
+    "px": 643067,
+    "troi_o_C": 0.0,
+    "recall_canh_tho": 0.481,
+    "ssim_xam": 0.378,
+    "ket_luan": "ĐỔI HÌNH"
+   },
+   {
+    "ma": 46,
+    "px": 834921,
+    "troi_o_C": 0.007,
+    "recall_canh_tho": 0.899,
+    "ssim_xam": 0.456,
+    "ket_luan": "giữ"
+   }
+  ],
+  "xuat_hien": {
+   "so_vung": 0,
+   "px": [],
+   "tong_pct": 0.0
+  },
+  "dem": {
+   "giữ": 3,
+   "ĐỔI HÌNH": 1,
+   "BIẾN MẤT": 0
+  }
+ },
+ "_nhat_quan_giua_tam": {
+  "1782-dau~1782-giua": {
+   "A_iou_vung_nha": 0.655,
+   "C_iou_vung_nha": 0.501
+  },
+  "1782-dau~1782-cuoi": {
+   "A_iou_vung_nha": 0.304,
+   "C_iou_vung_nha": 0.408
+  },
+  "1782-giua~1782-cuoi": {
+   "A_iou_vung_nha": 0.309,
+   "C_iou_vung_nha": 0.396
+  },
+  "1943-dau~1943-giua": {
+   "A_iou_vung_nha": 0.592,
+   "C_iou_vung_nha": 0.481
+  },
+  "1943-dau~1943-cuoi": {
+   "A_iou_vung_nha": 0.106,
+   "C_iou_vung_nha": 0.271
+  },
+  "1943-giua~1943-cuoi": {
+   "A_iou_vung_nha": 0.105,
+   "C_iou_vung_nha": 0.298
+  }
+ },
+ "_cung_vat_hai_moc": {
+  "cot_tin_duoc": 0,
+  "A_that_1782_vs_1943_px_TB": null,
+  "vat": "đường đồi bên kia vịnh (mã 9600), cột không bị nhà che ở cả hai mốc",
+  "so_cot": 272,
+  "A1782_vs_A1943_px_TB": NaN,
+  "C1782_vs_C1943_px_TB": NaN,
+  "C1782_vs_A_px_TB": NaN,
+  "C1943_vs_A_px_TB": NaN
+ }
+}

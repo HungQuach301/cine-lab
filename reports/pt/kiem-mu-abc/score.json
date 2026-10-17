@@ -1,0 +1,640 @@
+{
+ "khung": {
+  "1782-dau": {
+   "C_craft": [
+    8,
+    8,
+    8
+   ],
+   "C_detail": [
+    9,
+    9,
+    9
+   ],
+   "C_period": [
+    8,
+    7,
+    8
+   ],
+   "C_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "C_flags": [
+    "cluttered"
+   ],
+   "B_craft": [
+    3,
+    3,
+    3
+   ],
+   "B_detail": [
+    2,
+    2,
+    2
+   ],
+   "B_period": [
+    4,
+    4,
+    4
+   ],
+   "B_ai_look": [
+    2,
+    2,
+    3
+   ],
+   "B_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "A_craft": [
+    3,
+    3,
+    3
+   ],
+   "A_detail": [
+    2,
+    2,
+    3
+   ],
+   "A_period": [
+    4,
+    4,
+    4
+   ],
+   "A_ai_look": [
+    2,
+    2,
+    3
+   ],
+   "A_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "C",
+    "R2": "C",
+    "R3": "C"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "B"
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Jack with the St Patrick's cross (post-1801 design) in all three frames",
+     "Possibly the blue-coated figures and the neat uniform shapes in Y and Z, which look generic rather than period-specific",
+     "Clean, undamaged buildings in Y and Z, with no 1782 siege damage"
+    ],
+    "R2": [
+     "Union Jack shows the 1801 design with the St Patrick's saltire, not the pre-1801 flag (all frames)",
+     "Soldiers in Y and Z are peg-doll figures with white legs and no real uniform detail",
+     "Clean, undamaged, modern-looking smooth plastered walls in Y and Z, which does not fit a besieged 1782 garrison",
+     "Possible modern-looking wall-mounted square boxes and blocks on the facades (all frames)"
+    ],
+    "R3": [
+     "Union flag shows the post-1801 design with the Irish saltire (all three frames); the 1782 flag would have only the crosses of St George and St Andrew",
+     "peg-doll soldiers in Y and Z wear blue coats mixed with red, which is unclear for a British garrison",
+     "pristine, undamaged buildings in Y and Z, when the 1782 siege left Gibraltar heavily bombarded",
+     "no obvious anachronism in X beyond the flag"
+    ]
+   }
+  },
+  "1943-dau": {
+   "C_craft": [
+    8,
+    8,
+    8
+   ],
+   "C_detail": [
+    9,
+    9,
+    8
+   ],
+   "C_period": [
+    7,
+    7,
+    7
+   ],
+   "C_ai_look": [
+    6,
+    5,
+    5
+   ],
+   "C_flags": [
+    "anachronism"
+   ],
+   "B_craft": [
+    5,
+    5,
+    5
+   ],
+   "B_detail": [
+    3,
+    3,
+    3
+   ],
+   "B_period": [
+    4,
+    4,
+    5
+   ],
+   "B_ai_look": [
+    4,
+    1,
+    4
+   ],
+   "B_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "A_craft": [
+    5,
+    5,
+    5
+   ],
+   "A_detail": [
+    3,
+    4,
+    3
+   ],
+   "A_period": [
+    4,
+    4,
+    5
+   ],
+   "A_ai_look": [
+    4,
+    1,
+    4
+   ],
+   "A_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "C",
+    "R2": "C",
+    "R3": "C"
+   },
+   "worst": {
+    "R1": "B",
+    "R2": "B",
+    "R3": "B"
+   },
+   "anachronisms": {
+    "R1": [
+     "Pristine, unweathered buildings with no wartime wear, in Y and Z",
+     "Toy-like stacked wooden blocks that don't read as period cargo or barriers, in Y and Z",
+     "No people, vehicles or wartime markers (sandbags, uniforms) in Y and Z, so the scene could be any year",
+     "Spotless, crisp Union flag and over-clean CG look in X, though this is minor",
+     "Bicycle in X is plausible but looks generically modern in its frame"
+    ],
+    "R2": [
+     "X: the bicycle and wheeled cart look generic and are not clearly of the period",
+     "X: the tidy modern-looking plastic-like wrapping on some sacks",
+     "Y/Z: blocky orange bollards or crates with no period logic",
+     "Y/Z: spotless, modern-looking painted facades and glazing",
+     "All: the Union Jack is the correct flag for the period, so no issue there"
+    ],
+    "R3": [
+     "None clear in X; the bicycle and handcart are plausible, though the soldiers' uniforms are generic",
+     "Y and Z: no wartime elements at all, only a Union Jack, and the clean resort-like finish feels modern",
+     "Y and Z: the orange blocks look like modern jersey barriers or placeholder bollards",
+     "Y and Z: the ship is too small and toy-like to date"
+    ]
+   }
+  },
+  "1782-giua": {
+   "B_craft": [
+    3,
+    3,
+    3
+   ],
+   "B_detail": [
+    2,
+    2,
+    2
+   ],
+   "B_period": [
+    4,
+    4,
+    5
+   ],
+   "B_ai_look": [
+    3,
+    2,
+    3
+   ],
+   "B_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "A_craft": [
+    3,
+    3,
+    3
+   ],
+   "A_detail": [
+    2,
+    2,
+    2
+   ],
+   "A_period": [
+    3,
+    3,
+    4
+   ],
+   "A_ai_look": [
+    3,
+    2,
+    3
+   ],
+   "A_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "C_craft": [
+    8,
+    8,
+    8
+   ],
+   "C_detail": [
+    8,
+    8,
+    9
+   ],
+   "C_period": [
+    7,
+    7,
+    8
+   ],
+   "C_ai_look": [
+    3,
+    3,
+    4
+   ],
+   "C_flags": [],
+   "best": {
+    "R1": "C",
+    "R2": "C",
+    "R3": "C"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "anachronisms": {
+    "R1": [
+     "Y: blue-coated soldiers under a British flag",
+     "Union flag with the 1801 design (all frames; the 1606 Union flag would be correct for 1782)",
+     "X/Y: clean modern-looking blank white walls with no weathering or siege damage"
+    ],
+    "R2": [
+     "Y: blue-coated soldiers where the British garrison would wear red",
+     "X and Y: cannon carriages with solid black disc wheels, not spoked wooden wheels",
+     "X and Y: smooth, untextured, modern-looking white walls and plain ground, with no sign of siege damage"
+    ],
+    "R3": [
+     "Y: soldiers in blue coats with white trousers instead of British red (X and Z show red coats)",
+     "Y: generic or non-British-looking uniforms for a British garrison",
+     "X/Y: unweathered smooth modern-looking white box buildings that read more like a modern CG mock-up than 18th-century masonry"
+    ]
+   }
+  },
+  "1943-giua": {
+   "B_craft": [
+    4,
+    4,
+    4
+   ],
+   "B_detail": [
+    3,
+    3,
+    3
+   ],
+   "B_period": [
+    5,
+    5,
+    5
+   ],
+   "B_ai_look": [
+    2,
+    2,
+    2
+   ],
+   "B_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "C_craft": [
+    8,
+    8,
+    8
+   ],
+   "C_detail": [
+    9,
+    9,
+    9
+   ],
+   "C_period": [
+    8,
+    8,
+    8
+   ],
+   "C_ai_look": [
+    5,
+    6,
+    6
+   ],
+   "C_flags": [],
+   "A_craft": [
+    4,
+    5,
+    4
+   ],
+   "A_detail": [
+    3,
+    4,
+    3
+   ],
+   "A_period": [
+    5,
+    5,
+    5
+   ],
+   "A_ai_look": [
+    2,
+    2,
+    2
+   ],
+   "A_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "C",
+    "R2": "C",
+    "R3": "C"
+   },
+   "worst": {
+    "R1": "B",
+    "R2": "B",
+    "R3": "B"
+   },
+   "anachronisms": {
+    "R1": [
+     "Y: all the Union Jack flags and the ships are tiny and indistinct, so I can't verify the ensign or the vessel type",
+     "Y: crates and sandbags look suspiciously neat and new",
+     "X/Z: figures are too crude to judge uniforms, so the period cannot be confirmed"
+    ],
+    "R2": [
+     "Union Jack looks like a modern flag proportion/design but is acceptable for 1943",
+     "Y: the ship in the harbour has a modern-looking funnel/superstructure and is ambiguous for a 1943 warship or liner",
+     "X/Z: blocky pixel-style figures with no period-accurate uniform detail (X's blue-grey suit, Z's blue-clad figure)",
+     "Gibraltar's Main Street area shown as a quiet, near-empty plaza, unlike the crowded, busy military-port character of 1943"
+    ],
+    "R3": [
+     "No hard anachronisms in any frame. The flag, ship, truck, bicycle and handcart all fit the period.",
+     "X: the civilian figure in a pale blue suit and the featureless, pristine, freshly painted facades look modern or generic rather than wartime Gibraltar.",
+     "Y: the truck is a generic military lorry, plausible but not clearly identifiable."
+    ]
+   }
+  },
+  "1782-cuoi": {
+   "A_craft": [
+    2,
+    2,
+    2
+   ],
+   "A_detail": [
+    2,
+    2,
+    2
+   ],
+   "A_period": [
+    4,
+    4,
+    4
+   ],
+   "A_ai_look": [
+    3,
+    2,
+    2
+   ],
+   "A_flags": [
+    "broken_render",
+    "cluttered",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "B_craft": [
+    3,
+    3,
+    3
+   ],
+   "B_detail": [
+    2,
+    2,
+    2
+   ],
+   "B_period": [
+    4,
+    4,
+    4
+   ],
+   "B_ai_look": [
+    3,
+    2,
+    2
+   ],
+   "B_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "C_craft": [
+    7,
+    7,
+    7
+   ],
+   "C_detail": [
+    8,
+    7,
+    8
+   ],
+   "C_period": [
+    7,
+    6,
+    7
+   ],
+   "C_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "C_flags": [
+    "cluttered"
+   ],
+   "best": {
+    "R1": "C",
+    "R2": "C",
+    "R3": "C"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Jack with the 1801 St Patrick's cross (the 1606 flag had only two crosses) in all frames",
+     "Buildings are too plain and clean in X/Y for a battered siege-era town"
+    ],
+    "R2": [
+     "Union Jack with the post-1801 design is unlikely to be exact: it appears to show the saltire of St Patrick, which wasn't added until 1801, so the 1782 flag should be the 1606 Union (St George and St Andrew only), but at this size it can't be confirmed",
+     "Plain, uniform cubic white stone blocks along the waterfront look like modern bollards or markers",
+     "Slightly modern-looking flat-roofed, boxy building massing"
+    ],
+    "R3": [
+     "No clear anachronisms in any frame. The Union flag with St Patrick's saltire is correct for 1782, and the cannon, round shot, barrels, carts and uniforms are plausible.",
+     "X and Y: the generic block buildings and primitive props do not read as 1780s Gibraltar, but nothing in them is specifically wrong."
+    ]
+   }
+  },
+  "1943-cuoi": {
+   "C_craft": [
+    8,
+    8,
+    7
+   ],
+   "C_detail": [
+    8,
+    8,
+    8
+   ],
+   "C_period": [
+    8,
+    8,
+    8
+   ],
+   "C_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "C_flags": [],
+   "A_craft": [
+    3,
+    4,
+    3
+   ],
+   "A_detail": [
+    3,
+    3,
+    3
+   ],
+   "A_period": [
+    5,
+    5,
+    5
+   ],
+   "A_ai_look": [
+    4,
+    2,
+    3
+   ],
+   "A_flags": [
+    "broken_render",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "B_craft": [
+    3,
+    4,
+    3
+   ],
+   "B_detail": [
+    3,
+    3,
+    3
+   ],
+   "B_period": [
+    5,
+    5,
+    5
+   ],
+   "B_ai_look": [
+    4,
+    2,
+    3
+   ],
+   "B_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "C",
+    "R2": "C",
+    "R3": "C"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "B"
+   },
+   "anachronisms": {
+    "R1": [
+     "none obvious; the bicycles, sandbags and Union flag fit 1943",
+     "Y/Z: blocky primitive stack at the right edge looks like a rendering placeholder, not a period object"
+    ],
+    "R2": [
+     "none obvious; the only faint concern is the rubbish-bin-like barrels in X, which are plausible for the period"
+    ],
+    "R3": [
+     "none clear; the Union Jack, sandbags, bicycles, barrels and shuttered balconies are all plausible for 1943. The flag is too small to check for design errors."
+    ]
+   }
+  }
+ },
+ "tb": {
+  "A": {
+   "craft": 3.44,
+   "detail": 2.67,
+   "period": 4.28,
+   "ai_look": 2.56
+  },
+  "B": {
+   "craft": 3.56,
+   "detail": 2.5,
+   "period": 4.44,
+   "ai_look": 2.56
+  },
+  "C": {
+   "craft": 7.78,
+   "detail": 8.44,
+   "period": 7.44,
+   "ai_look": 3.89
+  }
+ },
+ "chi_phi_tong_phien": 2.641
+}

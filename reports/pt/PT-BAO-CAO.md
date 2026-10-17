@@ -3,7 +3,7 @@ Nhánh thật: `claude/pt-khung-neo-ab-test-njr9wp` (harness buộc nhánh `clau
 # PT — Phim trường khung neo + thử A/B "không AI" (H-A) vs "AI chỉ cho vân vật liệu" (H-B) — BÁO CÁO
 
 > Phiên R&D PT, 17/10/2026, theo lệnh chủ dự án (duyệt F1–F8, G1–G5; yêu cầu thử H-A/H-B 17/10). **Không merge. DỪNG chờ chủ dự án.**
-> Mọi số là số đo thật trong phiên (tệp ở `reports/pt/`) hoặc ghi rõ **(ước)**. Không có email, không có khoá API trong repo/báo cáo.
+> **Bổ sung 18/10: nhánh C (sửa ảnh AI, chỉ nghiên cứu) ở §15.** Mọi số là số đo thật trong phiên (tệp ở `reports/pt/`) hoặc ghi rõ **(ước)**. Không có email, không có khoá API trong repo/báo cáo.
 
 ## 0. Khối điều lệ (lệnh + thực tế)
 | Trường | Lệnh | Thực tế |
@@ -11,7 +11,7 @@ Nhánh thật: `claude/pt-khung-neo-ab-test-njr9wp` (harness buộc nhánh `clau
 | Loại phiên | R&D PT | đúng |
 | Nhánh | `pt-khung-neo` từ `origin/v5b2b` | `claude/pt-khung-neo-ab-test-njr9wp` (harness) từ `origin/v5b2b` @ `4bce864e`; ghi ở dòng đầu |
 | Tệp được sửa | CHỈ `design/pt/**` + `reports/pt/**` | chỉ hai vùng này. `scripts/` chỉ **đọc/chạy** (`scripts/k2tl/measure_look.py` được nhập để đo; `scripts/env/verify.sh`); `checks/` không đọc mã; ghost SH đọc bằng `git show` ra `/var/tmp/pt/ghost/` |
-| Trần | Claude API ≤ $3 (chỉ chấm mù) · OpenAI ≤ $5 (chỉ nhánh B) · YouTube 0 · ElevenLabs 0 · giờ máy ≤ 4 h | **$1,467** (24 lượt, ghim `claude-sonnet-5-5`, phục vụ đúng model đó) · **$0,4795** (9 lệnh `gpt-image-2.5-flare`) · **0** · **0** · **≈ 1,8 h** (§9) |
+| Trần | Claude API ≤ $3 (chỉ chấm mù) · OpenAI ≤ $5 (chỉ nhánh B; **18/10 nâng ≤ $15 cho B + C**) · YouTube 0 · ElevenLabs 0 · giờ máy ≤ 4 h | **$2,641** (24 lượt A\|B + 18 lượt A\|B\|C, ghim `claude-sonnet-5-5`) · **$0,863** (B $0,480 + C $0,383) · **0** · **0** · **≈ 1,9 h** (§9, §15.6) |
 | Preflight | bắt buộc; che email; không in/ghi khoá | hook pre-commit/pre-push cài đầu phiên; kết quả §12. Khoá OpenAI do proxy gắn — mã không đọc biến khoá; khoá Claude chỉ truyền qua biến môi trường cho `claude -p` như giao thức V5b-2b |
 | Video thử | không LFS; 540p ≤ 15 MB + ảnh tĩnh ≤ 30 MB | 2 video 540p **1,7 + 1,6 MB**; khung/tờ khung **3,4 MB**; ảnh AI gốc (bắt buộc lưu) **25 MB** ở `reports/pt/ai/` — §9 |
 | Dừng | không dừng hỏi giữa chừng | xong việc; câu hỏi không chặn đã tự quyết, liệt kê ở §13 |
@@ -211,3 +211,115 @@ Giao thức như V5b-2b: `claude -p` ghim **claude-sonnet-5-5**, chỉ công c�
 ## 14. Preflight
 - `bash tools/preflight.sh` (137 tệp staged) **ĐẠT**, `checks/lock.py --verify` **KHỚP**. Lần chạy đầu **TRƯỢT 1 mục**: email liên hệ của tác giả Quaternius nằm trong văn bản FAQ chép nguyên văn → đã che trong `giay-phep/quaternius-faq.txt` (ghi chú ngay chỗ che), chạy lại ĐẠT. Hook pre-commit/pre-push chạy lại khi commit/đẩy; không dùng `--no-verify`.
 - `--range origin/main..HEAD` **TRƯỢT 35 mục** — cả 35 nằm trong nội dung `origin/v5b2b` (đã có trên remote; `--range origin/main..origin/v5b2b` cho đúng 35 mục: 5 tệp 13–16,5 MB ngoài LFS + 30 dòng thiếu tệp giấy phép ở `channel-k2/k2c-t1-06/SOURCES-*.csv`), **không phải tệp của PT**. Phần mới của phiên `--range origin/v5b2b..HEAD` (137 tệp) **ĐẠT**; hook pre-push cục bộ của phiên chạy đúng phạm vi này. Việc 35 mục của v5b2b → chờ P/V5b-2b (§13).
+
+---
+
+## 15. Nhánh C (H-C) — CHỈ NGHIÊN CỨU, KHÔNG dùng lên kênh (lệnh bổ sung 18/10)
+> Làm sau khi xong A và B. Vùng tệp: `design/pt/**` + `reports/pt/ai-c/**` (+ `reports/pt/kiem-mu-abc/`, `reports/pt/to-khung-ABC.jpg`, bổ sung `giay-phep/openai.md`, `giay-phep/youtube-*.txt`). Trần OpenAI B + C ≤ $15.
+
+### 15.1 Tóm tắt
+1. **Ảnh tĩnh C: 6/6 xong** (1782 và 1943 × đầu/giữa/cuối của khung neo), `gpt-image-2.5-sunburst` qua **`POST /v1/images/edits`**, 2048×1152, `quality: high`, **$0,0624–0,0626/ảnh**; cả 6 có **C2PA `caBX`**. Mọi khung C gắn `ai_image: true` (`reports/pt/ai-c/goi-api.jsonl`).
+2. **VIDEO C CHƯA CHẠY**: `sora-2`/`sora-2-pro` vẫn có trong `/v1/models`, nhưng tài liệu hiện hành ghi "The Sora 2 models and Videos API were shut down on September 24, 2026 and are no longer available. No one-to-one replacement API is available"; kiểm thật `GET /v1/videos` và `POST /v1/videos` đều **HTTP 404** (không tính phí). Không tìm đường khác (đúng lệnh).
+3. **Trôi hình học (đo bằng máy, khung ngày):** C **giữ hình khối**: recall cạnh khối thô 0,87–0,93, chân trời lệch TB **0,1–1,7 px**, **0 toà biến mất, 0 đổi hình, 0 vùng xuất hiện** trên 4 khung ngày. Nhưng **độ chính xác cạnh tinh chỉ 0,20–0,55** → AI thêm/thay rất nhiều chi tiết nhỏ, và **hai tấm C cùng mốc kém nhất quán hơn hai tấm A** (IoU cạnh vùng nhà 0,50 vs 0,66; 0,48 vs 0,59) — đúng điểm yếu "đồ vật đổi giữa hai tấm" của đối thủ, ở mức đồ vật/người chứ không ở mức nhà.
+4. **Lỗi dữ kiện: 4 lỗi chắc + 3 nghi vấn / 6 khung (≈ 0,67 lỗi chắc/khung).** Nặng nhất: **AI đổi cờ Union đúng mẫu 1707 của khung A thành mẫu 1801 ở cả 3 khung 1782** (prompt đã yêu cầu giữ nguyên cờ); thêm đèn sáng vào đêm phong toả 1943.
+5. **Chấm mù ba nhánh (cùng khung, ẩn nhãn): C thắng 18/18 phiếu "đẹp nhất"**, craft **C 7,78** vs B 3,56 vs A 3,44; chi tiết C 8,44; đúng thời kỳ C 7,44 (dù có lỗi cờ); **"trông như ảnh AI": C 3,89 vs A/B 2,56** (1943: C 4,67). Cả 3 người **không bắt được** lỗi cờ ở C mà **gán nhầm** lỗi cờ cho cả A và B.
+6. **Chi phí thật C: $0,383** (6 ảnh + 1 lệnh thử nhỏ + 2 lệnh lỗi 502 $0). **Tổng OpenAI B + C: $0,862 / $15.** Claude cả phiên **$2,641 / $3**.
+
+### 15.2 Tài liệu + cách gọi (nguyên văn ở `giay-phep/openai.md` §5)
+- Hướng dẫn: "Choose Sunburst for workflows where editing precision matters most" → chọn `gpt-image-2.5-sunburst` (cũng là mặc định của `/v1/images/edits`). `input_fidelity` "Supports high and low on gpt-image-1 and gpt-image-1.5… For gpt-image-2, omit" → **không có tham số giữ chi tiết cho dòng 2.5**; giữ bố cục chỉ bằng prompt (khối "KEEP EXACTLY UNCHANGED…", `design/pt/tools/gen_c.py`). Không dùng mask (mask = sửa vùng; lệnh cần thêm chi tiết khắp khung).
+- Kích thước: 2048×1152 (bội 16, 16:9, dưới ngưỡng "experimental" 2560×1440); khung A 1920×1080 phóng LANCZOS, gửi JPEG q95; ảnh C thu về 1920×1080 để đo.
+- **Đường truyền:** hai lệnh không stream đầu tiên bị **502 "upstream request failed" đúng 30,4 s** (không ảnh, $0); lệnh nhỏ 1088×608 `low` xong trong 14 s ($0,0082) → kết luận đường truyền cắt khi chờ > 30 s; chuyển sang `stream: true` + `partial_images: 1` (thêm 100 token ra/ảnh tạm, đã cộng vào chi phí) → 6/6 thành công (28,8–33,4 s).
+- **"Tối đa 2 lần thử/ảnh":** mỗi ảnh C đúng **1 lần sinh**; riêng `1943-giua` có thêm 2 lệnh 502 không sinh ảnh — tính là lỗi đường truyền, không phải lần thử của model (ghi đủ trong sổ). Không dùng lần thử 2 vì không ảnh nào trượt ngưỡng trôi.
+- Prompt nguyên văn từng ảnh (vật liệu/đồ vật/trang phục theo TIEN-KY; không tên người thật; giữ đúng MỘT cờ có sẵn; cấm chữ/biển hiệu/cờ mới/phù hiệu; người ≥ 10 m, không cận mặt, không người nằm) trong `goi-api.jsonl`. **API không có seed.**
+
+### 15.3 Độ trôi hình học A → C (`design/pt/tools/drift_c.py`, `reports/pt/ai-c/do-troi.json`)
+Thước: Canny tinh (60/150, dung sai 2 px) và thô (480×270, làm mờ, dung sai 1 px); SSIM bản đồ cạnh thô; mặt nạ "không phải trời" (A: lượt độ sâu; C: loang trời từ mép trên — **cùng bộ phân vùng chạy trên A để kiểm độ tin**, chỉ tính cột mà phân vùng A khớp độ sâu ≤ 3 px); từng toà theo **lượt mã toà** dựng lại từ cùng cảnh (hình học trùng từng mặt với nền A: 33 393 / 143 146 mặt).
+
+| Khung | Canny tinh IoU / recall / precision | Canny thô IoU / recall | SSIM cạnh thô | SSIM xám thô | IoU không-trời (độ tin phân vùng A) | Chân trời lệch TB / p95 px (cột tin được) | Toà giữ / đổi hình / biến mất | Vùng xuất hiện |
+|---|---|---|---|---|---|---|---|---|
+| 1782 đầu | 0,278 / 0,884 / 0,307 | 0,294 / 0,871 | 0,624 | 0,756 | 0,998 (0,997) | 1,71 / 2,0 (96 %) | 3 / 0 / 0 | 0 |
+| 1782 giữa | 0,190 / 0,920 / 0,198 | 0,252 / 0,901 | 0,605 | 0,721 | 0,999 (0,997) | 0,50 / 2,0 (97 %) | 3 / 0 / 0 | 0 |
+| 1782 cuối (đêm) | 0,005 / 0,689 / 0,006 | 0,197 / 0,734 | 0,748 | 0,778 | 0,998 (0,995) | 30,1 / 292 (61 %) | 3 / 0 / 0 | 0 |
+| 1943 đầu | 0,404 / 0,929 / 0,457 | 0,475 / 0,931 | 0,537 | 0,742 | 0,852 (0,847) | 0,14 / 1,0 (50 %) | 4 / 0 / 0 | 0 |
+| 1943 giữa | 0,466 / 0,890 / 0,551 | 0,520 / 0,888 | 0,562 | 0,749 | 0,902 (0,854) | 0,08 / 0,0 (51 %) | 4 / 0 / 0 | 0 |
+| 1943 cuối (đêm) | 0,030 / 0,888 / 0,034 | 0,151 / 0,748 | 0,642 | 0,488 | 0,517 (0,246) | 1,09 / 3,0 (9 %) | 3 / 1 / 0 | 0 |
+
+- **Đọc:** recall cao + precision thấp = hình khối A còn nguyên, AI phủ thêm rất nhiều cạnh mới (vết bong vữa, gạch vụn, thùng, người). Khung **đêm không tin cậy** (A gần như không có cạnh; phân vùng trời chỉ tin 9–61 % cột) — "1 toà đổi hình" ở 1943 đêm (toà mã 7, recall 0,48 — ngay dưới ngưỡng 0,5) nằm trong nhóm không tin cậy; ghi, không kết luận.
+- **Nhất quán giữa các tấm C cùng mốc** (IoU cạnh thô trong vùng nhà; đối chứng A–A cùng hình học, khác ánh sáng): 1782 đầu~giữa **C 0,501 vs A 0,655**; 1943 đầu~giữa **C 0,481 vs A 0,592**. Cặp có đêm: C cao hơn A (0,27–0,41 vs 0,11–0,31) vì C làm sáng đêm. ⇒ giữa hai tấm ngày, C **đổi đồ vật/người/vết bẩn** (thấy bằng mắt: số xe kéo, thùng, đống gạch, người khác nhau) dù nhà giữ nguyên.
+- **Cùng một toà ở 1782 và 1943:** không có — hai mốc dựng từ hai nguồn khác nhau (Drinkwater vs OSM+AMS), không toà nào chung mã. Vật chung duy nhất là Line Wall + đường đồi bên kia vịnh; phân vùng trời **không tách được đồi mờ khỏi trời** (0 cột tin được) → **không đo được**, ghi là chưa đo.
+- **Video:** không có (§15.1 mục 2) → không có số trôi theo thời gian 0/2/4/6/8 s.
+
+### 15.4 Kiểm dữ kiện từng khung C (`reports/pt/ai-c/kiem-du-kien.json`)
+| Khung | Lỗi chắc (sai thời kỳ / trái lệnh) | Nghi vấn | Đổi vật (không phải lỗi thời kỳ) |
+|---|---|---|---|
+| 1782 đầu | cờ Union mẫu **1801** (khung A: mẫu 1707, phóng to xác nhận) | — | pháo tiền cảnh → xe kéo chở thùng; tàu buồm xa đổi hình |
+| 1782 giữa | cờ mẫu 1801 | — | thêm pháo dọc Line Wall |
+| 1782 cuối | cờ mẫu 1801 | lính áo đỏ sáng rõ dưới trăng | — |
+| 1943 đầu | — | tàu khách thân trắng ống khói cam (sơn thời bình; tàu thời chiến sơn xám) | tàu chiến đổi hình/vị trí |
+| 1943 giữa | — | như trên | thêm xe tải mui bạt (hợp thời kỳ, không phù hiệu); xoá 2 người ~10–12 m |
+| 1943 cuối | **đèn tường sáng** ở toà cuối phố — trái blackout và trái prompt | — | đêm sáng hơn A |
+- **Tổng: 4 lỗi chắc + 3 nghi vấn / 6 khung.** Chữ giả: 0. Vật hiện đại rõ ràng: 0. Cách kiểm: rà tay 100–400 %, đối chiếu khung A cùng máy và mô tả nguồn TIEN-KY (Drinkwater 1786, Copley/Sharp, NARA 342-FH 1943). Phiên không có ảnh gốc của các nguồn đó trên máy (ngoài git, máy khác) → đối chiếu theo mô tả + khung A.
+- **Bài học chính:** AI **kéo chi tiết về mẫu quen thuộc hiện đại** (cờ 1801), kể cả khi khung vào đã đúng và prompt cấm đổi; lỗi này nhỏ trên khung (≈ 30×25 px) nên **người chấm mù không bắt được** — mà còn gán nhầm cho A/B.
+
+### 15.5 Chấm mù ba nhánh (`design/pt/tools/blind_abc.py`, `reports/pt/kiem-mu-abc/`)
+Giao thức như §7.2: ghim `claude-sonnet-5-5`, chỉ Read, ba ảnh X/Y/Z hoán vị ngẫu nhiên (hạt giống 20261018), nhãn nhánh ẩn, 3 vai nguyên văn; 6 khung × 3 người = 18 phiếu.
+
+| Mốc | Nhánh | craft | chi tiết | đúng thời kỳ | ai_look |
+|---|---|---|---|---|---|
+| 1782 (3 khung) | A | 2,67 | 2,11 | 3,78 | 2,44 |
+| | B | 3,00 | 2,00 | 4,11 | 2,44 |
+| | **C** | **7,67** | **8,33** | **7,22** | **3,11** |
+| 1943 (3 khung) | A | 4,22 | 3,22 | 4,78 | 2,67 |
+| | B | 4,11 | 3,00 | 4,78 | 2,67 |
+| | **C** | **7,89** | **8,56** | **7,67** | **4,67** |
+| **Cả 6 khung** | A / B / C | 3,44 / 3,56 / **7,78** | 2,67 / 2,50 / **8,44** | 4,28 / 4,44 / **7,44** | 2,56 / 2,56 / **3,89** |
+- "Đẹp nhất": **C 18/18**. "Kém nhất": A 10/18, B 8/18.
+- **Thang tương đối:** cùng khung A 1943 được craft **7,0** khi đặt cạnh B (§7.2) nhưng **4,2** khi đặt cạnh C — đọc theo bộ khung, không so tuyệt đối giữa các vòng.
+- **"Trông như ảnh AI" tăng ở C** (+1,33 TB; 1943 +2,0, một khung 1943 giữa: 5/6/6). A và B bằng nhau.
+- **Lỗi người chấm:** 1782 cả 3 người ghi "Union Jack with the St Patrick's cross (post-1801 design) in all three frames" — sai với A/B (đã phóng to), đúng với C; R3 còn ghi ngược "The Union flag with St Patrick's saltire is correct for 1782". ⇒ chấm mù bằng mô hình **không thay được kiểm dữ kiện**.
+- Cặp đối thủ: không có khung đối thủ trong repo/API; điều phối tự so A/B/C với đối thủ trong chat (gợi ý dùng `reports/pt/to-khung-ABC.jpg`).
+
+### 15.6 Chi phí thật từng lệnh gọi (OpenAI, nhánh C — `reports/pt/ai-c/goi-api.jsonl`)
+| # | Ảnh | HTTP | Token vào (ảnh+chữ) | Token ra | $ | C2PA | Giây |
+|---|---|---|---|---|---|---|---|
+| 1 | 1943-giua (không stream, PNG) | 502 | — | — | 0 | — | 30,4 |
+| 2 | 1943-giua (không stream, JPEG) | 502 | — | — | 0 | — | 30,4 |
+| 3 | thử nhỏ 1088×608 `low` (không phải ảnh C) | 200 | 682 | 96 | 0,00823 | JPEG, không kiểm | 14 |
+| 4 | 1943-giua | 200 | 1 850 | 1 522 | 0,06243 | có | 30,8 |
+| 5 | 1782-dau | 200 | 1 856 | 1 522 | 0,06246 | có | 33,4 |
+| 6 | 1782-giua | 200 | 1 856 | 1 522 | 0,06246 | có | 28,8 |
+| 7 | 1782-cuoi | 200 | 1 877 | 1 522 | 0,06257 | có | 30,8 |
+| 8 | 1943-dau | 200 | 1 850 | 1 522 | 0,06243 | có | 32,0 |
+| 9 | 1943-cuoi | 200 | 1 873 | 1 522 | 0,06255 | có | 31,9 |
+| | **Tổng C** | | | | **0,38313** | | |
+- Tổng OpenAI phiên: B $0,47953 + C $0,38313 = **$0,86266 / $15**. Claude phiên: $1,467 (A|B) + $1,174 (A|B|C) = **$2,641 / $3**. Giờ máy thêm cho C ≈ 0,1 h (lượt mã toà 2 × ~10 s, khung A/B mới 2 × ~40 s, đo trôi ~1 phút) → **cả phiên ≈ 1,9 h / 4 h**.
+- Dung lượng thêm: 6 PNG C gốc **20 MB** (mỗi tệp 2,7–4,1 MB < 5 MB, không LFS) + tờ khung A|B|C 0,65 MB.
+
+### 15.7 Giờ người rà nếu dùng C (ước)
+- Rà một ảnh C để bắt lỗi kiểu cờ 1801 cần phóng 400 % từng vật (cờ, tàu, đèn, trang phục): **≈ 4–6 phút/ảnh** (phiên này: 6 ảnh ≈ 30 phút có đối chiếu khung A); ≈ 0,67 lỗi chắc/ảnh → sửa lại (≤ 2 lần thử) thêm ≈ 3 phút/ảnh.
+- C **không dùng được cho video liên tục** (đồ vật/người đổi giữa hai tấm, §15.3; không có API video). Chỉ dùng được như **ảnh tĩnh Ken Burns**: 1 phút phim ≈ 15–30 ảnh (2–4 s/ảnh) ⇒ **≈ 1,5–4,5 giờ người/phút phim** (ước), chưa gồm kiểm nguồn cho từng chi tiết AI thêm (không có nguồn nào cho các thùng/xe/người do AI đặt).
+
+### 15.8 Rủi ro công bố AI — chính sách YouTube hiện hành (nguyên văn trong `giay-phep/youtube-disclosing-genai.txt`, đọc 18/10; chỉ dữ kiện)
+- "We require creators to disclose AI-generated or altered content that seems realistic… Creators must disclose GenAI content that… Generates a realistic scene that didn't actually occur."
+- Ví dụ phải công bố có: "AI generated extra footage of a real place, like a video of a surfer in Maui for a promotional travel video". Ví dụ không cần: "Color adjustment or lighting filters", "Video sharpening, upscaling or repair", "AI generating or extending a backdrop to simulate a moving car".
+- "YouTube may automatically apply an AI label… for: Content made using YouTube's GenAI tools · Content that contains C2PA metadata · Content that our internal systems detect is AI generated or altered… content containing C2PA metadata… can not be adjusted."
+- "Creators who consistently choose not to disclose this information may be subject to manual application of a label, or penalties from YouTube, including removal of content or suspension from the YouTube Partner Program." · "Disclosing AI content alone won't limit a video's audience or impact its eligibility to earn money."
+- Chính sách kiếm tiền (`giay-phep/youtube-monetization-policies.txt`): nội dung phải "Not be mass-produced, generic, repetitive, or manipulative" (cập nhật 15/7/2025: "repetitious content" đổi tên "inauthentic content").
+- Dữ kiện liên quan PT: 6/6 ảnh C và 9/9 vân B có C2PA khi tải về; OpenAI nói ảnh có SynthID trong điểm ảnh; khung C là cảnh tả thực về nơi có thật, năm có thật, với chi tiết do AI đặt.
+
+### 15.9 Đề xuất A / B / C
+| Phương án | Ưu | Nhược | Tác động | Rủi ro |
+|---|---|---|---|---|
+| **A (không AI) — đề xuất cho kênh** | mọi chi tiết có nguồn hoặc ghi "procedural"; cờ/đồ vật đúng mẫu do người đặt; hình nhất quán tuyệt đối giữa tấm; giữ "No AI imagery"; $0 API | chấm cạnh C thua xa (craft 3,4 vs 7,8); người thủ tục "búp bê"; khung trống | tiếp tục §10 (người, bố cục, 1782) | khoảng cách chất lượng thấy được với kênh dùng AI |
+| B (vân AI) | rẻ | không hơn A (3,56 vs 3,44 cạnh C; thua A ở vòng A\|B); C2PA | như §11 | như §8 |
+| C (sửa ảnh AI) — **chỉ nghiên cứu** | chi tiết/craft cao nhất (7,8; 18/18 đẹp nhất); giữ hình khối (recall 0,87–0,93, chân trời ≤ 1,7 px, 0 nhà mất); rẻ ($0,06/ảnh) | **0,67 lỗi chắc/khung**, gồm sửa SAI cái A đã đúng (cờ 1801), người chấm không bắt được; đồ vật đổi giữa tấm; không seed; không video (API ngừng); đêm bị làm sáng | nếu dùng: thêm 1,5–4,5 giờ người rà/phút (ước), dán nhãn AI | công bố AI bắt buộc theo YouTube (cảnh tả thực, nơi có thật); nhãn tự động do C2PA không gỡ được; nghĩa vụ kiểm nguồn cho chi tiết AI tự thêm |
+| Hướng lai để nghiên cứu tiếp (không lên kênh khi chưa duyệt) | dùng C làm **bảng tham chiếu** cho người dựng A (vết bong vữa, mật độ đồ vật, cách bày) rồi dựng lại bằng A | thêm giờ dựng | học "mật độ chi tiết" mà không có điểm ảnh AI lên hình | thấp (C không lên hình) |
+
+### 15.10 Chỉ số trong ±5 % quanh ngưỡng (bổ sung)
+- Toà mã 7 ở **1943 đêm**: recall cạnh thô **0,481** vs ngưỡng "đổi hình" 0,5 (−3,8 %) — trong ±5 %, nằm ở khung đêm không tin cậy.
+- Claude phiên **$2,641 / $3** (88 %); không chỉ số nào khác trong ±5 %.
+
+### 15.11 Việc chờ chủ dự án (bổ sung)
+9. Quyết định A/B/C (§15.9) — đề xuất: kênh giữ **A**; C chỉ là bảng tham chiếu nội bộ, không lên hình.
+10. Nếu muốn video C: OpenAI đã ngừng Videos API (24/9/2026) — cần chủ dự án quyết có xét nhà cung cấp khác hay không (lệnh cấm phiên tự tìm đường khác).
+11. RIGHTS/AUTHORSHIP: ghi rằng 6 ảnh C + 9 vân B là ảnh AI **chỉ nghiên cứu**, không vào gói phát hành.

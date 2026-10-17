@@ -11,7 +11,7 @@ import pt_site as S
 ap = argparse.ArgumentParser()
 ap.add_argument('--epoch', type=int, required=True); ap.add_argument('--tex', default='A'); ap.add_argument('--passes', default='d2')
 ap.add_argument('--res', default='1920x1080'); ap.add_argument('--spp', type=int, default=64); ap.add_argument('--out', required=True)
-ap.add_argument('--depth', action='store_true'); ap.add_argument('--blend', default='')
+ap.add_argument('--depth', action='store_true'); ap.add_argument('--idpass', action='store_true'); ap.add_argument('--blend', default='')
 A = ap.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:])
 EP = A.epoch; os.makedirs(A.out, exist_ok=True)
 T0 = time.time()
@@ -152,10 +152,11 @@ M['den'] = m_plain('den_dau', (1, 0.8, 0.5), 0.5, emit=(1.0, 0.6, 0.28), estr=0.
 M['cat'] = m_textured('m_bao_cat', 'vai')   # bao cát (vải bố) — tô màu kaki qua tint
 
 # ---------------------------------------------------------------- bộ đệm lưới theo vật liệu (mỗi mặt có 'tint', 'lit')
+CUR = [0]   # mã lớp của mặt đang dựng (lượt ID cho đo trôi nhánh C): 1..N toà · 9000 Line Wall · 9500 đồ phố · 9600 đồi · 9700 biển · 9800 mặt đất · 9900 tàu
 class Buf:
-    def __init__(s): s.v = []; s.f = []; s.tint = []; s.lit = []
+    def __init__(s): s.v = []; s.f = []; s.tint = []; s.lit = []; s.bid = []
     def face(s, pts, tint=(1, 1, 1), lit=0.0):
-        i = len(s.v); s.v.extend(pts); s.f.append(tuple(range(i, i + len(pts)))); s.tint.append(tint); s.lit.append(lit)
+        i = len(s.v); s.v.extend(pts); s.f.append(tuple(range(i, i + len(pts)))); s.tint.append(tint); s.lit.append(lit); s.bid.append(CUR[0])
 B = {k: Buf() for k in M}
 
 def box(mat, c, size, yaw=0.0, tint=(1, 1, 1), lit=0.0, faces='all', pitch=0.0):
@@ -276,7 +277,7 @@ def facade(fr, H, storeys, spec, rng):
 
 def fr_rev(fr, a0, a1, b0, b1, d, wc):
     fr.quad('vua', a0, a0, b0, b1, tint=wc)  # placeholder (không diện tích)
-    B['vua'].f.pop(); B['vua'].tint.pop(); B['vua'].lit.pop(); [B['vua'].v.pop() for _ in range(4)]
+    B['vua'].f.pop(); B['vua'].tint.pop(); B['vua'].lit.pop(); B['vua'].bid.pop(); [B['vua'].v.pop() for _ in range(4)]
     P = fr.P
     B['vua'].face([P(a0, b0, 0), P(a0, b1, 0), P(a0, b1, -d), P(a0, b0, -d)], wc)
     B['vua'].face([P(a1, b0, -d), P(a1, b1, -d), P(a1, b1, 0), P(a1, b0, 0)], wc)
@@ -418,6 +419,7 @@ def house_spec(rng, ruin=False):
                 lit_p=0.02, awning_p=0.35, shop_closed=0.45, blank=0.04, ruin=None, sandbag=0.25)
 
 def building(poly, polys, me, storeys_n, rng, ruin_p=0.0, max_d=170.0):
+    CUR[0] = me + 1
     if S.area(poly) < 0: poly = poly[::-1]
     spec = house_spec(rng); LOG['houses'] += 1
     gfh = 3.9 if EP == 1943 else 3.4; uh = 3.4 if EP == 1943 else 3.1
@@ -499,6 +501,7 @@ else:
         meta_bl.append(b['id'])
 LOG['ghost_ids'] = meta_bl
 
+CUR[0] = 9000
 # ---------------------------------------------------------------- mặt đất, Line Wall, biển, đồi bên kia vịnh
 WALLX = None
 for b in S.load(1782, kinds=['chien_tuyen'], R=400):
@@ -508,9 +511,10 @@ if not WALLX: WALLX = [(-112, -250), (-110, 250)]
 WALLX = sorted(WALLX, key=lambda p: p[1])
 wx = lambda y: min(WALLX, key=lambda p: abs(p[1] - y))[0]
 gx0 = -125
-B['lat'].face([(gx0, -260, 0), (260, -260, 0), (260, 260, 0), (gx0, 260, 0)])
-B['bien'].face([(-16000, -16000, -5.5), (gx0, -16000, -5.5), (gx0, 16000, -5.5), (-16000, 16000, -5.5)])
+CUR[0] = 9800; B['lat'].face([(gx0, -260, 0), (260, -260, 0), (260, 260, 0), (gx0, 260, 0)])
+CUR[0] = 9700; B['bien'].face([(-16000, -16000, -5.5), (gx0, -16000, -5.5), (gx0, 16000, -5.5), (-16000, 16000, -5.5)])
 # Line Wall: mặt tường đá dốc ra biển + tường chắn có lỗ châu mai (1782) / lan can (1943)
+CUR[0] = 9000
 ys = list(range(-250, 251, 6))
 for k in range(len(ys) - 1):
     y0, y1 = ys[k], ys[k + 1]; x0, x1 = wx(y0), wx(y1)
@@ -524,7 +528,7 @@ gnd_w = wx(0)
 B['lat'].face([(gnd_w, -260, 0), (gx0, -260, 0), (gx0, 260, 0), (gnd_w, 260, 0)][::-1])
 
 def hills():
-    rng = random.Random(11); pts = []
+    CUR[0] = 9600; rng = random.Random(11); pts = []
     for k in range(121):
         az = math.radians(170 + k * 1.2)      # cung tây nam → tây bắc (bờ vịnh Algeciras / Sierra)
         dist = 9000 + 2500 * math.sin(k * 0.13)
@@ -565,6 +569,7 @@ def ship_steam(x, y, yaw, L, rng, kind):
         for f in (0.28, -0.32): box('son', (x + math.cos(yaw) * L * f, y + math.sin(yaw) * L * f, -5.5 + h * 1.25), (L * 0.06, L * 0.05, h * 0.5), yaw, tint=grey)
 
 rs = random.Random(5)
+CUR[0] = 9900
 if EP == 1782:
     for (dx, dy, L, ss) in ((-650, -220, 48, False), (-1100, 130, 52, False), (-1900, -600, 55, True), (-2600, 420, 50, False), (-3400, -150, 45, True), (-4200, -900, 40, False)):
         ship_sail(dx, dy, rs.uniform(0, math.pi), L, rs, ss)
@@ -647,7 +652,7 @@ def shelter():   # lối xuống hầm trú ẩn dưới Commercial Square (xây
     box('vua', (x, y, 1.1), (5.0, 3.2, 2.2), 0.1, tint=(0.62, 0.6, 0.55)); box('vua', (x, y, 2.3), (5.4, 3.6, 0.2), 0.1, tint=(0.55, 0.53, 0.5))
     box('trong', (x + 2.51, y + 0.25, 0.9), (0.02, 1.4, 1.8), 0.1); sandbags(Frame((x + 2.6, y - 1.8), (x + 2.6, y + 1.8)), 0.0, 1.2, rng=R)
 
-EXTRA = []; LAMPS = []; FLAGS = []
+EXTRA = []; LAMPS = []; FLAGS = []; CUR[0] = 9500
 if EP == 1782:
     for (x, y) in ((-30, -8), (-36, -2), (-55, 14)):
         if free(x, y): shot_pile(x, y, R)
@@ -688,7 +693,8 @@ LOG['lamps'] = LAMPS; LOG['flags'] = FLAGS; LOG['chimneys'] = CHIM
 def flush(name, buf, mat):
     if not buf.f: return
     me = bpy.data.meshes.new(name); me.from_pydata(buf.v, [], buf.f); me.update()
-    at = me.attributes.new('tint', 'FLOAT_COLOR', 'FACE'); lt = me.attributes.new('lit', 'FLOAT', 'FACE')
+    at = me.attributes.new('tint', 'FLOAT_COLOR', 'FACE'); lt = me.attributes.new('lit', 'FLOAT', 'FACE'); bt = me.attributes.new('bid', 'FLOAT', 'FACE')
+    for i, b in enumerate(buf.bid): bt.data[i].value = float(b)
     for i, c in enumerate(buf.tint): at.data[i].color = (*c, 1.0)
     for i, l in enumerate(buf.lit): lt.data[i].value = l
     me.validate(); o = bpy.data.objects.new(name, me); o.data.materials.append(mat); sc.collection.objects.link(o)
@@ -791,6 +797,21 @@ if A.depth:   # lượt khoảng cách (m) từ chính hình học cảnh — d�
     try: sc.render.image_settings.view_settings.view_transform = 'Raw'
     except Exception: pass
     sc.render.filepath = os.path.join(A.out, 'depth.exr'); t = time.time(); bpy.ops.render.render(write_still=True); LOG['depth_s'] = round(time.time() - t, 1)
+
+if A.idpass:   # lượt mã toà (EXR, giá trị = mã lớp 'bid'; vật tạo bằng bpy.ops = 0) — chỉ để đo trôi hình học nhánh C
+    im_ = bpy.data.materials.new('bidmat'); im_.use_nodes = True; N = im_.node_tree.nodes; L = im_.node_tree.links
+    for n in list(N): N.remove(n)
+    at_ = N.new('ShaderNodeAttribute'); at_.attribute_name = 'bid'; em = N.new('ShaderNodeEmission'); out = N.new('ShaderNodeOutputMaterial')
+    L.new(at_.outputs['Fac'], em.inputs['Strength']); em.inputs['Color'].default_value = (1, 1, 1, 1); L.new(em.outputs[0], out.inputs[0])
+    sc.view_layers[0].material_override = im_
+    if bg.inputs[0].links: wl.remove(bg.inputs[0].links[0])
+    bg.inputs[0].default_value = (0, 0, 0, 1); bg.inputs[1].default_value = 0.0
+    sun.hide_render = True; moon.hide_render = True
+    for l in lamp_objs: l.hide_render = True
+    sc.cycles.samples = 1; sc.cycles.use_denoising = False; sc.cycles.use_adaptive_sampling = False; sc.cycles.max_bounces = 0
+    sc.cycles.filter_width = 0.01; sc.view_settings.view_transform = 'Standard'; sc.view_settings.exposure = 0
+    sc.render.image_settings.file_format = 'OPEN_EXR'; sc.render.image_settings.color_depth = '32'
+    sc.render.filepath = os.path.join(A.out, 'id.exr'); bpy.ops.render.render(write_still=True)
 
 # camera intrinsics cho lớp sống
 fpx = S.CAM_MM / S.SENSOR * W

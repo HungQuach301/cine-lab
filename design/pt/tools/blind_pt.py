@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""PT · CHẤM MÙ khung neo (giao thức như blind_g2/V5b-2b): `claude -p` GHIM claude-sonnet-5-5, chỉ công cụ Read, thư mục tạm trống chỉ chứa X.jpg/Y.jpg,
+"""(bản gốc A|B; bản ba nhánh ở blind_abc.py) PT · CHẤM MÙ khung neo (giao thức như blind_g2/V5b-2b): `claude -p` GHIM claude-sonnet-5-5, chỉ công cụ Read, thư mục tạm trống chỉ chứa X.jpg/Y.jpg,
 3 vai (RATERS nạp nguyên văn từ channel-k2/k2v2-mau/blind_v2.py), ẩn nhãn nhánh, thứ tự X/Y theo hạt giống cố định 20261017.
 Câu hỏi riêng của lệnh PT: craft, chi tiết công trình/vật/người, đúng thời kỳ, "khung này có trông như ảnh AI không? (0–10)".
 Cặp: A vs B mỗi mốc (1782, 1943) + mỗi nhánh (khung 1782 trưa) vs 3 khung cùng nơi của kênh (gib20 ×2, V5b-2b-T 21,0 s).

@@ -1,0 +1,42 @@
+{
+ "X": {
+  "craft": 2,
+  "detail": 2,
+  "period": 4,
+  "ai_look": 2,
+  "flags": [
+   "broken_render",
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "Almost black. Buildings are plain grey blocks with no texture. Guns and shot piles are blobs. No people. The flag is the only readable element, and on a phone it would be lost in the dark."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 2,
+  "period": 4,
+  "ai_look": 2,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "Same geometry as X, slightly brighter, with a warm ground tone and an orange awning patch. Still untextured primitives and no people. Slightly more readable than X, but it looks like a game blockout."
+ },
+ "Z": {
+  "craft": 7,
+  "detail": 8,
+  "period": 7,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Clearly the best. Weathered, damaged masonry, rubble, barrels, a cart, a lantern glow and red-coated soldiers give a believable siege-night scene. Tracks in the ground add depth. It is still dark overall, and the figures are tiny and fairly soft, so a small screen loses some of it. The ruin in the right-hand building fits a besieged garrison."
+ },
+ "best": "Z",
+ "worst": "X",
+ "why": "Z has textured, damaged buildings, props, people and a warm light source, while X is a near-black frame of untextured blocks with nothing to see.",
+ "anachronisms_seen": [
+  "No clear anachronisms in any frame. The Union flag with St Patrick's saltire is correct for 1782, and the cannon, round shot, barrels, carts and uniforms are plausible.",
+  "X and Y: the generic block buildings and primitive props do not read as 1780s Gibraltar, but nothing in them is specifically wrong."
+ ]
+}

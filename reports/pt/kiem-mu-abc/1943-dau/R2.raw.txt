@@ -1,0 +1,38 @@
+```json
+{
+  "X": {
+    "craft": 8,
+    "detail": 9,
+    "period": 7,
+    "ai_look": 5,
+    "flags": ["anachronism"],
+    "note": "Photoreal weathered plaster, cobbles, sandbags, crates, cart, bicycle, soldiers and a sailor in whites. Gives a strong lived-in wartime feel. The geometry is the same as Y and Z but dressed with props and people. The people are tiny and the haze is soft. The lamp post and the ships are plausible. The ship is a funnelled civilian-looking steamer, which is fine. The sailor's whites and the khaki battledress are broadly right for 1943. The pink and ochre walls are a bit too uniformly grungy, and the hazy distance has a slight generative look."
+  },
+  "Y": {
+    "craft": 5,
+    "detail": 3,
+    "period": 4,
+    "ai_look": 1,
+    "flags": ["empty_frame", "flat_slide_look", "toy_like"],
+    "note": "Clean, pastel CG render. The walls are plain smooth colour and the street is bare. The only props are a few blocky beige bollards or crates that look like toy bricks. There are no people, vehicles or wartime markers beyond the flag. The distant harbour is washed out and the ship is a low-poly blob. It looks like a game or architectural viz, not 1943 Gibraltar."
+  },
+  "Z": {
+    "craft": 5,
+    "detail": 4,
+    "period": 4,
+    "ai_look": 1,
+    "flags": ["empty_frame", "flat_slide_look", "toy_like"],
+    "note": "Almost identical to Y, with a slightly better stone plinth and slightly more weathered cornices. The walls are still clean flat colour and there are no people. The orange block props look like toy building blocks. The ship is a low-poly blob. It reads as an empty architectural render, with no sense of 1943 or of a busy square."
+  },
+  "best": "X",
+  "worst": "Y",
+  "why": "X is the only frame with believable weathering, wartime props and people that make it read as a real 1943 place, while Y is a sterile, toy-like and empty CG render with the least texture and no life.",
+  "anachronisms_seen": [
+    "X: the bicycle and wheeled cart look generic and are not clearly of the period",
+    "X: the tidy modern-looking plastic-like wrapping on some sacks",
+    "Y/Z: blocky orange bollards or crates with no period logic",
+    "Y/Z: spotless, modern-looking painted facades and glazing",
+    "All: the Union Jack is the correct flag for the period, so no issue there"
+  ]
+}
+```
