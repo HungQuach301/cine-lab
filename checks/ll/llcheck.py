@@ -2,6 +2,11 @@
 
   q7(E, TL, logs)        nhãn ACTUAL/PROJECTION: hiện đủ nhãn của loại số có trong shot VÀ không hiện nhãn của loại không có;
                          tham số `kind` khai trên mẫu phải trùng loại của `num` đi kèm (lỗi S2 tập 2: ACTUAL trên −5,3 % dự báo)
+                         1.13 (khiếu nại T2 G2 §13–§14, TT5 (i)): loại `estimate` (kênh 2, khớp Q35) là loại hợp lệ — nhãn ESTIMATE
+                         được đọc như ACTUAL/PROJECTION (đủ nhãn, không thừa nhãn, `kind` khai trùng loại của `num`) — q7(…, est=True);
+                         mặc định giữ luật v2 tới khi chủ dự án duyệt (k2check: hàng CHỈ BÁO "Q7/Q8-K2")
+  q8k(E)                 1.13: `numbers.<k>.kind` ∈ {actual, projection} (LL) hoặc ∪ {estimate} (kênh 2, `q_k2var.is_k2`); projection phải
+                         có period — bản sao độc lập của phần "kind" trong ll.py check (Q8 của P) để Q8 không áp nhầm kênh 2
   q12(paths)             thumbnail 1280×720, hộp chữ trong lề an toàn 5 % (lỗi T1 tập 2: chữ S bị cắt)
   q13(E, D, thumbs)      số trên tiêu đề/thumbnail/mô tả/Shorts truy về `numbers`; đúng dấu; số dự báo có dấu hiệu dự báo
   q20(logs, iso)         chữ không đè hình: cờ `hit` của log = 0 và (khi log có `zones`) mọi hộp chữ không giao vùng hình
@@ -80,14 +85,29 @@ def sentences(t): return [x.strip() for x in re.split(r'(?<=[.!?])\s+', (t or ''
 
 
 # ---------- Q7 ----------
-def q7(E, TL, logs):
+KINDS = ('actual', 'projection', 'estimate')   # 1.13: estimate (kênh 2, Q35) — trước 1.13 chỉ actual/projection nên số estimate luôn "thiếu nhãn"
+
+
+def q8k(E):
+    """1.13 — phần loại số của Q8 (ll.py check dòng `kind phải là actual hoặc projection`), nhận estimate cho kênh 2"""
+    from checks.ll.q_k2var import is_k2
+    ok = KINDS if is_k2(E) else KINDS[:2]; bad = []
+    for k, n in (E.get('numbers') or {}).items():
+        if (n or {}).get('kind') not in ok: bad.append(f"số {k}: kind {n.get('kind')!r} phải là {' / '.join(ok)}")
+        elif n.get('kind') == 'projection' and not n.get('period'): bad.append(f'số {k}: số dự báo phải ghi period (ví dụ 2024–34)')
+    return bad
+
+
+def q7(E, TL, logs, est=False):
+    """est=True: luật 1.13 (nhận estimate) — CHỈ BÁO tới khi chủ dự án duyệt; mặc định giữ luật khoá v2"""
     N, bad = E.get('numbers', {}), []
+    KD = KINDS if est else KINDS[:2]
     def walk(x, path):
         if isinstance(x, dict):
-            if x.get('kind') in ('actual', 'projection') and isinstance(x.get('num'), str) and kind(N, x['num']) and kind(N, x['num']) != x['kind']:
+            if x.get('kind') in KD and isinstance(x.get('num'), str) and kind(N, x['num']) and kind(N, x['num']) != x['kind']:
                 bad.append(f"{path}: khai kind={x['kind']} nhưng {x['num']} là {kind(N, x['num'])}")
             sub = base.nums_in(x.get('nums', []), [], True)
-            if x.get('kind') in ('actual', 'projection') and sub and 'num' not in x and any(kind(N, k) and kind(N, k) != x['kind'] for k in sub):
+            if x.get('kind') in KD and sub and 'num' not in x and any(kind(N, k) and kind(N, k) != x['kind'] for k in sub):
                 bad.append(f"{path}: khai kind={x['kind']} cho {', '.join(k for k in sub if kind(N, k) != x['kind'])} ({'/'.join(sorted({kind(N, k) for k in sub}))})")
             for kk, v in x.items(): walk(v, path)
         elif isinstance(x, list):
@@ -99,11 +119,11 @@ def q7(E, TL, logs):
                 L = logs.get(sg['id'])
                 if not L: continue
                 ks = {kind(N, k) for k in base.nums_in(sh.get('p', {}), [], True)} - {None}
-                ks |= set(re.findall(r"'kind': '(actual|projection)'", str(sh.get('p'))))
+                ks |= set(re.findall(r"'kind': '(" + '|'.join(KD) + r")'", str(sh.get('p'))))
                 win = [e for e in L.get('text', []) if sh['t0'] * 24 <= e['f'] < sh['t1'] * 24]
                 if not win: continue   # không có khung mẫu trong shot: không đo được ở đây
                 seen = ' '.join(it['s'] for e in win for it in e['items'])
-                tags = set(re.findall(r'\b(ACTUAL|PROJECTION)\b', seen))
+                tags = set(re.findall(r'\b(' + '|'.join(k.upper() for k in KD) + r')\b', seen))
                 for kd2 in ks:
                     if kd2.upper() not in tags: bad.append(f"{sg['id']}/{sh['tpl']}@{sh['t0']:.1f}: thiếu nhãn {kd2.upper()}")
                 for tg in tags:
