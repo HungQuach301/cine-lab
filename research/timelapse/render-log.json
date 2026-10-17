@@ -1,0 +1,223 @@
+{
+ "clip": "research/timelapse/ams30_540p_A.mp4",
+ "resolution": [
+  960,
+  540
+ ],
+ "fps": 24,
+ "frames": 720,
+ "cpu": "4 lõi, 15,7 GB RAM, không GPU; ANGLE SwiftShader (Subzero)",
+ "v1": {
+  "note": "bản đầu (trước bổ sung 22:47)",
+  "s_per_frame": 1.407,
+  "minutes": 16.9,
+  "rss_peak_mb": 2940
+ },
+ "final": {
+  "s_per_frame": 1.238,
+  "machine_min": 14.9,
+  "rss_peak_mb": 1909,
+  "buildings": 75534,
+  "tris": 1300822,
+  "note": "khung 0–599 từ lượt v3 (1,232 s/khung), 600–719 dựng lại sau khi sửa thứ tự lớp then/now (1,345 s/khung)"
+ },
+ "elements": {
+  "E2 bay dọc phố (Damrak, NWB)": {
+   "t": [
+    8.5,
+    12.8
+   ],
+   "frames": 103,
+   "s_per_frame": 1.049,
+   "machine_s": 108.1
+  },
+  "E1 mốc đinh 1655": {
+   "t": [
+    12.8,
+    16.4
+   ],
+   "frames": 86,
+   "s_per_frame": 0.992,
+   "machine_s": 85.3
+  },
+  "E4a ảnh 1886 neo 3D": {
+   "t": [
+    17.6,
+    20.6
+   ],
+   "frames": 72,
+   "s_per_frame": 1.088,
+   "machine_s": 78.4
+  },
+  "E3 reveal kéo lùi": {
+   "t": [
+    20.6,
+    24.0
+   ],
+   "frames": 82,
+   "s_per_frame": 1.563,
+   "machine_s": 128.2
+  },
+  "glide→zoom-in": {
+   "t": [
+    24.0,
+    26.0
+   ],
+   "frames": 48,
+   "s_per_frame": 1.524,
+   "machine_s": 73.2
+  },
+  "E4b then/now": {
+   "t": [
+    26.0,
+    29.0
+   ],
+   "frames": 72,
+   "s_per_frame": 1.313,
+   "machine_s": 94.5
+  }
+ },
+ "fx_extra_s_per_frame": {
+  "E1": {
+   "on_s": 1.287,
+   "off_s": 1.256,
+   "delta_s": 0.03
+  },
+  "E4a": {
+   "on_s": 1.168,
+   "off_s": 1.033,
+   "delta_s": 0.135
+  },
+  "E4b": {
+   "on_s": 1.326,
+   "off_s": 1.166,
+   "delta_s": 0.16
+  }
+ },
+ "camera_metrics": {
+  "E2": {
+   "frames": 85,
+   "seconds": 3.5416666666666665,
+   "dist_to_damrak_m": {
+    "max": 10.5,
+    "mean": 2.6
+   },
+   "alt_m": [
+    54.3,
+    72
+   ],
+   "path_len_m": 475.6
+  },
+  "E2_palace_offaxis_deg_12.0": 0.0,
+  "E2_palace_offaxis_deg_12.8": 0.0,
+  "E3": {
+   "t": [
+    20.6,
+    24.0
+   ],
+   "dist_m": [
+    1505,
+    3947
+   ],
+   "ratio": 2.62
+  },
+  "glide_zoom": {
+   "t": [
+    24.0,
+    27.0
+   ],
+   "dist_m": [
+    3947,
+    98
+   ],
+   "ratio": 40.3
+  },
+  "E1_freeze": {
+   "first_f": 312,
+   "last_f": 355,
+   "seconds": 1.83
+  },
+  "E4b_lock_s": 1.58,
+  "E4b_lock_frames": [
+   648,
+   685
+  ]
+ },
+ "text_budget": {
+  "rule": "hợp các hình chữ nhật chữ + nền chữ, lưới 4 px; vùng giữa = 20–80 % rộng × 20–80 % cao; thẻ neo công trình được miễn vùng giữa",
+  "before_60_frames": {
+   "median": 32.4,
+   "max": 43.6,
+   "frames_center_intrusion": 60
+  },
+  "after_720_frames": {
+   "median": 10.8,
+   "normal_max": 14.7,
+   "normal_p90": 14.5,
+   "pin_max": 16,
+   "frames_over_15_normal": 0,
+   "frames_center_intrusion": 0,
+   "frames_within_5pct_of_15": 72
+  },
+  "same_60_frames_after": {
+   "median": 10.8,
+   "max": 16
+  }
+ },
+ "contrast_min": [
+  {
+   "text": "Source: CBS StatLine",
+   "px1080": 38,
+   "min_ratio": 8.26,
+   "n": 6
+  },
+  {
+   "text": "Primary source pending · flight path: Da",
+   "px1080": 38,
+   "min_ratio": 8.39,
+   "n": 4
+  },
+  {
+   "text": "Toll privilege of Floris V, 27 Oct 1275 ",
+   "px1080": 38,
+   "min_ratio": 8.42,
+   "n": 3
+  },
+  {
+   "text": "Photo: anonymous · Rijksmuseum RP-F-00-5",
+   "px1080": 38,
+   "min_ratio": 8.51,
+   "n": 3
+  },
+  {
+   "text": "Standing buildings, by year built · BAG ",
+   "px1080": 38,
+   "min_ratio": 8.63,
+   "n": 3
+  },
+  {
+   "text": "Year: BAG register, building 03631000121",
+   "px1080": 38,
+   "min_ratio": 9.02,
+   "n": 2
+  }
+ ],
+ "audio": {
+  "lufs_I": -14.0,
+  "true_peak_dbtp": -1.8,
+  "cues": [
+   [
+    8.5,
+    "assets/k2/sfx/ship-siren.mp3"
+   ],
+   [
+    20.4,
+    "assets/k2/sfx/building-site.mp3"
+   ],
+   [
+    27.9,
+    "assets/k2/sfx/city-traffic.mp3"
+   ]
+  ]
+ }
+}
