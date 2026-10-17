@@ -1,0 +1,72 @@
+{
+ "nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+ "anh": "rijks_RP-P-OB-83.400_exact_plan_1705.jpg (5240×3292)",
+ "sha256_anh": "d7a903a616adb6bd5e5523c60b7363c2d922fd0889b7e79067258a433bdbf73e",
+ "he_toa_do": "px = (cột, hàng) ảnh gốc; utm = UTM 30N từ OSM 17/10/2026",
+ "vung": {
+  "bac": {
+   "bien_doi": "sim",
+   "diem": "bac",
+   "ly_do": "phần bắc phố (Barcina + Old Mole) — chỉ phần này có trên bản đồ"
+  },
+  "bac_aff": {
+   "bien_doi": "affine",
+   "diem": "bac",
+   "ly_do": "đối chứng"
+  }
+ },
+ "gcp": [
+  {
+   "ten": "T — Land Gate = Landport",
+   "px": [
+    3985,
+    1820
+   ],
+   "osm": "way/951660527 tâm",
+   "utm": [
+    288438,
+    4002609
+   ],
+   "vung": "bac"
+  },
+  {
+   "ten": "A — St Paul's Bastion = North Bastion (tâm)",
+   "px": [
+    3880,
+    2215
+   ],
+   "osm": "way/968308092 tâm",
+   "utm": [
+    288318,
+    4002682
+   ],
+   "vung": "bac"
+  },
+  {
+   "ten": "X — The Castle (tháp chữ nhật) = Tower of Homage",
+   "px": [
+    4174,
+    1426
+   ],
+   "osm": "way/950058970 tâm",
+   "utm": [
+    288572,
+    4002466
+   ],
+   "vung": "bac"
+  },
+  {
+   "ten": "N — gốc Old Mole (từ ghost 1782, ±35 m)",
+   "px": [
+    4283,
+    2343
+   ],
+   "osm": "không còn; nắn 1782",
+   "utm": [
+    288179,
+    4002635
+   ],
+   "vung": "bac"
+  }
+ ]
+}

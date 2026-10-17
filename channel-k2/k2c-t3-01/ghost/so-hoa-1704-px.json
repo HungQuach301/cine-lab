@@ -1,0 +1,959 @@
+{
+ "moc": 1704,
+ "nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+ "gcp": "gcp-1704-exact-plan.json",
+ "ghi_chu": "Toạ độ điểm ảnh trên ảnh gốc 5240×3292 (SHA-256 d7a903a6…). Khối dò tay trên ảnh phân đoạn màu (vùng hồng) + ảnh gốc. Bản đồ chỉ có phần BẮC phố (Barcina, lâu đài, Old Mole, rìa bắc Turba); phần nam bị cắt mép khung. Bắc ≈ −x, đông ≈ −y.",
+ "nguon": {
+  "rijks-rp-p-ob-83400-exact-plan-1705": "An Exact Plan of the Town, Castle, Moles and Bay of Gibraltar, and the Enemies Approaches to the 7/18 of January 1704/5 (London: E. Castle & D. Mortier; J. Kip sculp.), Rijksmuseum RP-P-OB-83.400"
+ },
+ "giay_phep": "Bản đồ: Rijksmuseum CC0 1.0 — licenses/rijks-rp-p-ob-83400-exact-plan-1705.txt. Toạ độ điểm khống chế từ OpenStreetMap (ODbL 1.0) — licenses/osm-odbl-attribution.txt; dữ liệu dẫn xuất KHÔNG phát hành.",
+ "ghi_cong": "Reconstructed from 'An Exact Plan of the Town … of Gibraltar', 1705 (Rijksmuseum). Map data from OpenStreetMap (ODbL) — https://www.openstreetmap.org/copyright",
+ "mac_dinh": {
+  "khoi_pho": {
+   "so_tang_uoc": 2,
+   "cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)"
+  },
+  "nha": {
+   "so_tang_uoc": 3,
+   "cach_uoc_tang": "tháp — ước ≈ 3 tầng tương đương, không có số đo"
+  },
+  "cong_su": {
+   "so_tang_uoc": 0,
+   "cach_uoc_tang": "không áp dụng — công sự/tường"
+  }
+ },
+ "features": [
+  {
+   "id": "K1704-01",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4295,
+     1288
+    ],
+    [
+     4374,
+     1235
+    ],
+    [
+     4327,
+     1356
+    ],
+    [
+     4295,
+     1349
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài (khối cắt mép)"
+  },
+  {
+   "id": "K1704-02",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4463,
+     1299
+    ],
+    [
+     4548,
+     1299
+    ],
+    [
+     4545,
+     1406
+    ],
+    [
+     4463,
+     1395
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài"
+  },
+  {
+   "id": "K1704-03",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4327,
+     1377
+    ],
+    [
+     4363,
+     1374
+    ],
+    [
+     4363,
+     1438
+    ],
+    [
+     4327,
+     1441
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài"
+  },
+  {
+   "id": "K1704-04",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4367,
+     1391
+    ],
+    [
+     4424,
+     1391
+    ],
+    [
+     4424,
+     1445
+    ],
+    [
+     4367,
+     1445
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài"
+  },
+  {
+   "id": "K1704-05",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4434,
+     1424
+    ],
+    [
+     4477,
+     1422
+    ],
+    [
+     4477,
+     1459
+    ],
+    [
+     4434,
+     1459
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài"
+  },
+  {
+   "id": "K1704-06",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4530,
+     1381
+    ],
+    [
+     4577,
+     1374
+    ],
+    [
+     4605,
+     1395
+    ],
+    [
+     4594,
+     1459
+    ],
+    [
+     4530,
+     1459
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài"
+  },
+  {
+   "id": "K1704-07",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4302,
+     1459
+    ],
+    [
+     4342,
+     1459
+    ],
+    [
+     4331,
+     1580
+    ],
+    [
+     4295,
+     1573
+    ]
+   ],
+   "ten": "nhà trong thành lâu đài"
+  },
+  {
+   "id": "K1704-08",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4327,
+     1470
+    ],
+    [
+     4502,
+     1477
+    ],
+    [
+     4505,
+     1530
+    ],
+    [
+     4484,
+     1587
+    ],
+    [
+     4413,
+     1609
+    ],
+    [
+     4334,
+     1587
+    ]
+   ],
+   "ten": "khối vòng quanh sân trong (gộp)"
+  },
+  {
+   "id": "K1704-09",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4267,
+     1630
+    ],
+    [
+     4356,
+     1634
+    ],
+    [
+     4424,
+     1691
+    ],
+    [
+     4399,
+     1723
+    ],
+    [
+     4334,
+     1740
+    ],
+    [
+     4270,
+     1708
+    ]
+   ]
+  },
+  {
+   "id": "K1704-10",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4402,
+     1765
+    ],
+    [
+     4441,
+     1751
+    ],
+    [
+     4498,
+     1787
+    ],
+    [
+     4570,
+     1822
+    ],
+    [
+     4612,
+     1894
+    ],
+    [
+     4584,
+     1904
+    ],
+    [
+     4441,
+     1872
+    ],
+    [
+     4406,
+     1830
+    ]
+   ]
+  },
+  {
+   "id": "K1704-11",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4039,
+     1780
+    ],
+    [
+     4185,
+     1773
+    ],
+    [
+     4192,
+     1830
+    ],
+    [
+     4149,
+     1901
+    ],
+    [
+     4071,
+     1872
+    ],
+    [
+     4039,
+     1833
+    ]
+   ]
+  },
+  {
+   "id": "K1704-12",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4206,
+     1890
+    ],
+    [
+     4299,
+     1897
+    ],
+    [
+     4545,
+     1990
+    ],
+    [
+     4441,
+     1972
+    ],
+    [
+     4270,
+     1951
+    ],
+    [
+     4203,
+     1933
+    ]
+   ],
+   "ten": "dải dọc tường ngăn (Barcina)"
+  },
+  {
+   "id": "K1704-13",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4089,
+     1943
+    ],
+    [
+     4235,
+     1958
+    ],
+    [
+     4235,
+     2043
+    ],
+    [
+     4206,
+     2114
+    ],
+    [
+     4117,
+     2111
+    ],
+    [
+     4089,
+     2065
+    ]
+   ],
+   "ten": "khối 'U' (bãi tập dự kiến)"
+  },
+  {
+   "id": "K1704-14",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4245,
+     1979
+    ],
+    [
+     4424,
+     2008
+    ],
+    [
+     4424,
+     2050
+    ],
+    [
+     4359,
+     2100
+    ],
+    [
+     4228,
+     2114
+    ]
+   ]
+  },
+  {
+   "id": "K1704-15",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4470,
+     2033
+    ],
+    [
+     4498,
+     2033
+    ],
+    [
+     4441,
+     2122
+    ],
+    [
+     4413,
+     2164
+    ],
+    [
+     4345,
+     2161
+    ],
+    [
+     4342,
+     2129
+    ]
+   ]
+  },
+  {
+   "id": "K1704-16",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     3932,
+     1879
+    ],
+    [
+     4032,
+     1879
+    ],
+    [
+     4032,
+     1936
+    ],
+    [
+     3932,
+     1936
+    ]
+   ],
+   "ten": "sát courtine St Bernard"
+  },
+  {
+   "id": "K1704-17",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     3953,
+     1951
+    ],
+    [
+     4014,
+     1947
+    ],
+    [
+     4053,
+     2086
+    ],
+    [
+     3971,
+     2111
+    ],
+    [
+     3953,
+     2050
+    ]
+   ],
+   "ten": "sát courtine St Bernard"
+  },
+  {
+   "id": "K1704-18",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     3975,
+     2118
+    ],
+    [
+     4114,
+     2118
+    ],
+    [
+     4135,
+     2157
+    ],
+    [
+     4014,
+     2175
+    ],
+    [
+     3971,
+     2157
+    ]
+   ],
+   "ten": "sau bastion St Paul"
+  },
+  {
+   "id": "K1704-19",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "vua",
+   "px": [
+    [
+     4156,
+     2146
+    ],
+    [
+     4327,
+     2146
+    ],
+    [
+     4334,
+     2207
+    ],
+    [
+     4206,
+     2214
+    ],
+    [
+     4156,
+     2186
+    ]
+   ],
+   "ten": "cạnh cổng nước (V)"
+  },
+  {
+   "id": "K1704-20",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4616,
+     1794
+    ],
+    [
+     4683,
+     1723
+    ],
+    [
+     4990,
+     1555
+    ],
+    [
+     4990,
+     1765
+    ],
+    [
+     4669,
+     1872
+    ]
+   ],
+   "ten": "Turba — ngoài vùng điểm khống chế"
+  },
+  {
+   "id": "K1704-21",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4698,
+     1897
+    ],
+    [
+     4968,
+     1801
+    ],
+    [
+     5008,
+     1854
+    ],
+    [
+     4954,
+     1901
+    ],
+    [
+     4719,
+     1943
+    ]
+   ],
+   "ten": "Turba"
+  },
+  {
+   "id": "K1704-22",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4676,
+     2033
+    ],
+    [
+     4990,
+     1976
+    ],
+    [
+     4990,
+     2143
+    ],
+    [
+     4812,
+     2146
+    ]
+   ],
+   "ten": "Turba"
+  },
+  {
+   "id": "K1704-23",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4484,
+     2111
+    ],
+    [
+     4570,
+     2107
+    ],
+    [
+     4584,
+     2171
+    ],
+    [
+     4541,
+     2228
+    ],
+    [
+     4463,
+     2221
+    ],
+    [
+     4456,
+     2171
+    ]
+   ],
+   "ten": "Turba"
+  },
+  {
+   "id": "K1704-24",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4537,
+     2061
+    ],
+    [
+     4584,
+     2047
+    ],
+    [
+     4683,
+     2079
+    ],
+    [
+     4755,
+     2136
+    ],
+    [
+     4805,
+     2193
+    ],
+    [
+     4641,
+     2186
+    ],
+    [
+     4555,
+     2114
+    ]
+   ],
+   "ten": "Turba"
+  },
+  {
+   "id": "K1704-25",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4370,
+     2250
+    ],
+    [
+     4598,
+     2211
+    ],
+    [
+     4755,
+     2193
+    ],
+    [
+     4805,
+     2189
+    ],
+    [
+     4812,
+     2221
+    ],
+    [
+     4441,
+     2292
+    ],
+    [
+     4384,
+     2292
+    ]
+   ],
+   "ten": "Turba — dải dọc tường biển"
+  },
+  {
+   "id": "K1704-26",
+   "loai": "khoi_pho",
+   "vung": "bac",
+   "do_tin": "thap",
+   "px": [
+    [
+     4840,
+     2157
+    ],
+    [
+     4990,
+     2154
+    ],
+    [
+     4990,
+     2300
+    ],
+    [
+     4911,
+     2307
+    ]
+   ],
+   "ten": "Turba"
+  },
+  {
+   "id": "N1704-01",
+   "loai": "nha",
+   "vung": "bac",
+   "do_tin": "vua",
+   "ten": "X — The Castle (tháp chữ nhật) = Tower of Homage",
+   "px": [
+    [
+     4142,
+     1379
+    ],
+    [
+     4206,
+     1379
+    ],
+    [
+     4206,
+     1473
+    ],
+    [
+     4142,
+     1473
+    ]
+   ]
+  },
+  {
+   "id": "C1704-01",
+   "loai": "cong_su",
+   "vung": "bac",
+   "do_tin": "vua",
+   "ten": "A — St Paul's Bastion",
+   "px": [
+    [
+     3830,
+     2170
+    ],
+    [
+     3940,
+     2170
+    ],
+    [
+     3940,
+     2270
+    ],
+    [
+     3830,
+     2275
+    ]
+   ]
+  },
+  {
+   "id": "C1704-02",
+   "loai": "cong_su",
+   "vung": "bac",
+   "do_tin": "vua",
+   "hinh": "line",
+   "ten": "B — Curtain of St Bernard (mặt đất liền, có T — Land Gate)",
+   "px": [
+    [
+     3930,
+     1700
+    ],
+    [
+     3928,
+     1820
+    ],
+    [
+     3925,
+     2160
+    ]
+   ]
+  },
+  {
+   "id": "C1704-03",
+   "loai": "cong_su",
+   "vung": "bac",
+   "do_tin": "vua",
+   "hinh": "line",
+   "ten": "O — curtain dọc biển từ St Paul qua V — Water Gate",
+   "px": [
+    [
+     3940,
+     2200
+    ],
+    [
+     4170,
+     2215
+    ],
+    [
+     4290,
+     2335
+    ]
+   ]
+  },
+  {
+   "id": "C1704-04",
+   "loai": "cong_su",
+   "vung": "bac",
+   "do_tin": "vua",
+   "hinh": "line",
+   "ten": "tường ngăn Barcina | Turba (từ lâu đài xuống biển)",
+   "px": [
+    [
+     4600,
+     1700
+    ],
+    [
+     4560,
+     2005
+    ],
+    [
+     4283,
+     2348
+    ]
+   ]
+  },
+  {
+   "id": "C1704-05",
+   "loai": "cong_su",
+   "vung": "bac",
+   "do_tin": "vua",
+   "ten": "N — Old Mole",
+   "px": [
+    [
+     4275,
+     2335
+    ],
+    [
+     4300,
+     2350
+    ],
+    [
+     4165,
+     2900
+    ],
+    [
+     4140,
+     2895
+    ]
+   ]
+  },
+  {
+   "id": "C1704-06",
+   "loai": "cong_su",
+   "vung": "bac",
+   "do_tin": "thap",
+   "hinh": "line",
+   "ten": "tường biển Turba (tới mép khung bản đồ)",
+   "px": [
+    [
+     4290,
+     2335
+    ],
+    [
+     4560,
+     2270
+    ],
+    [
+     4990,
+     2290
+    ]
+   ]
+  }
+ ]
+}

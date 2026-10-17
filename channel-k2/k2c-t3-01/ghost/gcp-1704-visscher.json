@@ -1,0 +1,141 @@
+{
+ "nguon_id": "loc-2008621715-visscher-1706",
+ "anh": "visscher_1706_full.jpg (chuyển từ TIFF gốc loc_2008621715_ca000022_visscher_1706.tif 9619×8244, cùng lưới điểm ảnh)",
+ "sha256_anh": "42241a7b055917cf34de3b81cb209bdc4900c4fb0980b63abcd2d68b73afe241",
+ "he_toa_do": "px = (cột, hàng) trên TIFF gốc 9619×8244; utm = UTM 30N (EPSG:32630) từ OSM 17/10/2026",
+ "vung": {
+  "pho": {
+   "bien_doi": "tps",
+   "diem": "pho",
+   "lam": 0.01,
+   "ly_do": "bản khắc méo không đều (nửa nam nén); affine 7 điểm đặt tường biển lệch 120–150 m vào trong phố → TPS 9 điểm (gồm 2 điểm tuyến trên tường biển) để khối nằm đúng giữa mặt đất liền, lâu đài và Line Wall"
+  },
+  "affine": {
+   "bien_doi": "affine",
+   "diem": "pho",
+   "ly_do": "đối chứng"
+  }
+ },
+ "gcp": [
+  {
+   "ten": "Porte de la Campagne (Land Gate) = Landport",
+   "px": [
+    4775,
+    3100
+   ],
+   "osm": "way/951660527 tâm",
+   "utm": [
+    288438,
+    4002609
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Bastion de S. Paul = North Bastion — tâm",
+   "px": [
+    4720,
+    3620
+   ],
+   "osm": "way/968308092 tâm",
+   "utm": [
+    288318,
+    4002682
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "le Château — tháp chính = Tower of Homage",
+   "px": [
+    5055,
+    2625
+   ],
+   "osm": "way/950058970 tâm",
+   "utm": [
+    288572,
+    4002466
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "bastion góc tây nam Ville Neuve = South Bastion — tâm",
+   "px": [
+    7255,
+    3050
+   ],
+   "osm": "way/963314875 tâm",
+   "utm": [
+    288230,
+    4001449
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Porte (cổng lâu đài) = Gatehouse Moorish Castle",
+   "px": [
+    4930,
+    2700
+   ],
+   "osm": "way/257436455 tâm",
+   "utm": [
+    288478,
+    4002393
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "gốc Vieux Mole (Old Mole) — lấy từ ghost 1782 (C1782-05)",
+   "px": [
+    5180,
+    3770
+   ],
+   "osm": "không còn; toạ độ từ nắn 1782 (affine phố, ±35 m)",
+   "utm": [
+    288179,
+    4002635
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "góc đông nam grande Enceinte = đầu đông Charles V Wall đoạn dưới",
+   "px": [
+    7480,
+    2860
+   ],
+   "osm": "way/257519169 đỉnh (288503,4001493)",
+   "utm": [
+    288503,
+    4001493
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "tường biển 1/3 chiều dài (gốc Old Mole → South Bastion) = Line Wall",
+   "px": [
+    5914,
+    3589
+   ],
+   "osm": "way/556814047… Line Wall Curtain (288122,4002244)",
+   "utm": [
+    288122,
+    4002244
+   ],
+   "vung": "pho",
+   "kieu": "điểm tuyến — giả định tỉ lệ đều dọc tường biển"
+  },
+  {
+   "ten": "tường biển 2/3 chiều dài = Line Wall",
+   "px": [
+    6635,
+    3355
+   ],
+   "osm": "way/556814047 Line Wall Curtain (288112,4001880)",
+   "utm": [
+    288112,
+    4001880
+   ],
+   "vung": "pho",
+   "kieu": "điểm tuyến — giả định tỉ lệ đều dọc tường biển"
+  }
+ ],
+ "ket_luan": "KHÔNG ĐẠT ngưỡng 120 m → không dựng từ Visscher: 9 điểm (gồm 2 điểm tuyến Line Wall), affine RMS 99,5 m / LOO 162 m; TPS LOO 158,8 m; đồng dạng 7 điểm RMS 122 m. Bản khắc méo không đều (nửa nam 'Ville Neuve' nén, tường biển cong vào). Lần dựng thử (tách màu 27 khối) đặt khối ra biển/sườn đồi trên ảnh kiểm → loại. Phần nam phố 1704 (Turba/Ville Neuve) dùng bản đồ phẳng."
+}
