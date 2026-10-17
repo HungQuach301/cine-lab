@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [],
+  "note": "Framed matted print on a dark vignetted background with a yellow accent bar and a clean name, role and date lockup. It has depth and a clear hierarchy, so it reads as a person. The photo sits slightly left of center and the credit chip crowds the photo's bottom-left corner. The background texture is a bit noisy, and the right side is empty."
+ },
+ "Y": {
+  "craft": 5,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "flat_slide_look",
+   "confusing"
+  ],
+  "note": "Full-bleed sepia street scene with a gradient scrim. The photo is atmospheric but generic. The caption 'judges deferred to local lawmakers' has no visible link to the image, which shows a street and a mansion. The white caption sits over mid-gray tree and street detail with only moderate contrast, and the source line is small and long. Nothing marks the place, date or subject."
+ },
+ "better": "X",
+ "why": "X identifies its subject at a glance with a framed photo, a clear hierarchy and strong text contrast, while Y is a generic full-bleed image whose caption doesn't match what's shown and has weaker contrast.",
+ "top_fix_for_weaker": "Add a lockup naming the place and year (for example 'Detroit, c.1905'). Darken the lower scrim behind the caption or put it on a solid chip, and use a larger, shorter source line. Add a slow push-in or a framed treatment so the photo carries a point, such as highlighting the mansion or the courthouse when the caption refers to judges."
+}

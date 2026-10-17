@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 4, "readability": 6, "clarity": 7, "flags": ["flat_slide_look", "empty_frame"], "note": "Dark text-only checklist card on a blurred background. The card is clean and the hierarchy is tidy, but it looks like a PowerPoint slide. The grey subtext is small and low-contrast for a phone. The bottom third of the card is empty and the blurred background adds nothing. The recap is easy to follow, though 'locks' and 'bank line' are jargon with no visual support."},
+ "Y": {"craft": 7, "readability": 7, "clarity": 5, "flags": ["confusing"], "note": "A 3D terrain map of San Francisco Bay with a location pill and flat icons (coin, document, ship, crane). It has real depth and broadcast-style production. The caption and source line are legible white on a dark gradient, though the source line is small. The icons are unlabeled and floating, so the viewer can't tell which factor each one stands for. The caption 'No source measures how much each factor counts' doesn't match anything visible."},
+ "better": "Y",
+ "why": "Y looks like an actual documentary visual with a sense of place and depth, while X is a plain text slide.",
+ "top_fix_for_weaker": "Fill the card with visuals: replace the checkboxes with three large icons or building illustrations. Add a big number for each lock ('4 stories', '5 homes'). Bump the subtext to white at 1.3x size, and use a sharper, relevant background instead of a blur."}
+```

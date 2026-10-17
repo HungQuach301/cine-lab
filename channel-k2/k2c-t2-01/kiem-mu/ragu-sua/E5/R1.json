@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 4,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "confusing",
+   "empty_frame"
+  ],
+  "note": "The left card covers the orange cube. The 13% card sits on top of the green cube and its body text is washed out. The scene is a dark void, and the cubes are all the same size, so 7%, 6% and 13% don't read as different quantities. The 13% cube is shorter than the 6% one, and the stacked 'ACTUAL' tags are redundant. The caption and source text are clear."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain map is textured and sits well with the dark labels. The callouts are crisp, don't overlap, and are readable on a phone. It is clear this is Delaware River valley, a 2023 CRS report and a subsidy. The bar, discs and cube have no values or scale, so the quantities are vague. The lone tall bar has no label and the callout leaders are loose."
+ },
+ "better": "Y",
+ "why": "Y has a real textured map, clean non-overlapping labels and a clear sense of place, while X has overlapping cards, a washed-out 13% label and bars that don't match their values.",
+ "top_fix_for_weaker": "Space the three cards so none overlaps a cube or another card, and give the 13% card the same opaque dark background and bright text as the others. Then scale the cube heights to 7/6/13 and put the scene on a lit, textured surface or building context instead of an empty dark grid."
+}

@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 5,
+    "readability": 5,
+    "clarity": 4,
+    "flags": ["text_overlap", "illegible_text", "confusing", "empty_frame"],
+    "note": "The 13% label is faded and sits on top of the green cube, so 'of total construction cost (range)' is low-contrast and partly overlaps the cube. The cubes are almost the same size, so 7%, 6% and 13% do not read as different quantities. The 13% cube is the same height as the 6% cube, which is misleading. The 6% label has no description. 'ACTUAL' is stamped on every label and in the corner, which is noise and means nothing to a viewer. The top half of the frame is empty dark space. The cubes sit in the middle with no real scene around them."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 6,
+    "flags": [],
+    "note": "The terrain map is clean and the labels are high-contrast. Each label sits next to its icon: coin stack, gantry and document. The pale-green and dark text bars are legible on a phone. The caption '[Our read: the loop is our interpretation]' is honest framing. It is unclear what the loop is and what the four coins show. The coins have no number, so 'high prices' has no quantity. The pills and labels are small. The bottom third is a dark band with little in it."
+  },
+  "better": "Y",
+  "why": "Y is readable and has a real scene with icons placed next to their labels. X's key 13% label is washed out and overlaps a cube, and its cubes don't scale to the numbers.",
+  "top_fix_for_weaker": "Scale the cube heights to 7 / 6 / 13 and put them on a clear background. Move the labels clear of the cubes and make every label the same solid, high-contrast style, with the 13% fully opaque. Add a description to the 6% label. Delete the repeated 'ACTUAL' stamps. Fill the empty top half or move the group up."
+}
+```

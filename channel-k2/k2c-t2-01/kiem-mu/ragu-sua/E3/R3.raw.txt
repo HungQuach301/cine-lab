@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 6, "clarity": 5, "flags": ["confusing"], "note": "Good 3D terrain map with a clear SF Bay location tag and clean isometric icons. The four icons (coin, document, ship, crane) are unlabeled, so the caption 'each factor' can't be matched to any of them. The caption and sources text is white on a dark gradient and readable, but the sources line is small for a phone. The icons are small and scattered."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 7, "flags": ["flat_slide_look", "illegible_text"], "note": "A dark recap card over a blurred background with a clear title and three checklist items. It reads as a plain slide. The grey sub-lines are small and low contrast, and the longest line is dense for a phone. The bottom third of the card is empty. There is no visual tie to the topic. The structure is logical and quick to scan."},
+ "better": "X",
+ "why": "X has real visual depth and a clear sense of place, while Y is a flat text slide, even though Y's message is easier to parse.",
+ "top_fix_for_weaker": "Turn the recap into three large visual rows, each with an icon or building illustration and a short number. Make the sub-lines about 1.5x larger and brighter, shorten the bank-line sentence, and fill or crop the empty lower card area."}
+```

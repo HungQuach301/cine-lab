@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 4,
+    "readability": 5,
+    "clarity": 3,
+    "flags": ["text_overlap", "cluttered", "confusing", "illegible_text"],
+    "note": "The 7% card sits on top of the orange cube and hides its top. The 13% card is semi-transparent and ghosted, and its teal text is low-contrast and runs over the green cube. The three cubes are crammed together with no clear height scale. The bars look nearly equal even though 7%, 6% and 13% should differ a lot. The dark floor grid is empty and generic. Every label says 'ACTUAL', which is redundant, and the 'ACTUAL' badge is repeated four times. The bottom caption is large and readable, but the viewer can't tell what is being compared."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 7,
+    "flags": [],
+    "note": "A real terrain map with a river, the location pin 'Delaware River valley' and coins in a clean row. The coin material and white outline look good, and the labels are crisp and high-contrast. The idea of one world-price coin against four U.S. coins reads quickly as roughly 4×. Weak spots: the coins are small and float with a flat sticker look. The terrain is a bit muddy green. The '≈4×' text is small, and the leader line to the 4th coin is ambiguous. The lower third has a lot of dead space. The coins don't look like a tanker or anything of the right scale."
+  },
+  "better": "Y",
+  "why": "Y gets its point across with a clear place, a simple quantity metaphor and clean, readable labels. X has overlapping, ghosted labels and bars that mean nothing.",
+  "top_fix_for_weaker": "Rebuild X as one clear bar chart. Scale the bar heights to 7, 6 and 13, spread them apart, and put each value label above its own bar on an opaque card that doesn't touch the geometry. Delete the repeated 'ACTUAL' tags, and give each bar a short axis label and a distinct colour."
+}
+```

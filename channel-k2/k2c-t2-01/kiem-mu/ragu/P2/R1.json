@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [],
+  "note": "Globe render with atmosphere glow looks good. Texas is highlighted clearly. The callout text is small and sits on a wide dark bar, so the phone read is marginal. The Sources line is tiny. Dim state borders. There is no route or movement, only a single dot. Subtitle and callout say nearly the same thing."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain relief is attractive and the lines fan out from the coast. But the 'To foreign owners / our read' label is vague. The three lines end at unlabeled dots in empty ocean, so no destination is named. The label sits on one line's endpoint. The Ulsan pin is small and its dot is offset from the coast origin. The 'our read' hedge is repeated. Large empty ocean area. The Sources text is tiny."
+ },
+ "better": "X",
+ "why": "X states a specific place and fact at a glance, while Y's route lines go to unnamed dots and don't show where the ships go.",
+ "top_fix_for_weaker": "Label each route endpoint with a real destination (e.g. Greece, Norway, Japan) and a ship count or value. Add arrowheads, zoom out to show Korea and the destination regions, and enlarge the callout text and Sources line for phone viewing."
+}

@@ -1,0 +1,24 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good-looking stylized 3D terrain map with a location pin. The four icons (coin, document, ship, crane) have no labels, so you can't tell what each factor is. The caption 'No source measures how much each factor counts' refers to factors the viewer can't identify. The small caption and sources text sit on a dark gradient and are readable, but the sources line is small on a phone."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Plain dark recap card over a blurred background. It looks like a PowerPoint slide. Text is clean, but the subtext is small and low-contrast grey on a phone. The bottom third of the card is empty and the recap has no visuals. The structure is clear: heading plus three checked items with metaphor names."
+ },
+ "better": "X",
+ "why": "X has much more visual craft and a real sense of place, while Y is a flat text slide, even though Y is easier to understand at a glance.",
+ "top_fix_for_weaker": "Make the recap card visual: add an icon or mini-illustration for each lock (map, stairwell, bank line). Enlarge the grey subtext to about 1.4x and brighten it. Fill or shrink the empty lower third of the card. Show the blurred building background more clearly instead of a near-black panel."
+}

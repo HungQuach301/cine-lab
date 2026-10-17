@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "The globe render is good-looking and Texas is clearly highlighted. The callout is wide and packs in three facts (6 stories, \u22644 homes per floor, since Sep 2025), and its body text is small for a phone. The sources line is tiny and low-contrast. The 'As of 12 Oct 2026' badge adds clutter. The callout box covers part of the Gulf and Southeast. The caption says 'Cities may allow\u2026' while the map shows only a Texas state-level rule, which is a mild mismatch. The map is a single static point with no route or movement, and the globe shows far more area than the story needs."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "note": "The terrain render is attractive and uncluttered, and the labels are short and large. The routes are unclear. Three lines run out to sea and end in unlabeled dots with no destinations, so 'To foreign owners' points at only one of them. The 'our read' tag on the label and again in the caption hedges the claim. The map has no geographic context (no country or sea names, no scale), so a viewer who doesn't know Ulsan can't place it. The lower third is dark and empty and the sources line is small."
+ },
+ "better": "Y",
+ "why": "Y is simpler and its short labels read more easily on a phone, whereas X crams a long, multi-fact callout over a busy globe, though Y's route endpoints are vague.",
+ "top_fix_for_weaker": "In X, cut the callout to a large 'Texas: single-stair up to 6 stories' and move '\u22644 homes per floor \u00b7 since Sep 2025' to the caption. Zoom the camera in on the US, enlarge the sources text and remove the date badge or merge it into the caption."
+}

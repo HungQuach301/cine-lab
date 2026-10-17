@@ -556,3 +556,142 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   1. Sửa T1–T4 hay chấp nhận mức 6,8.
   2. Nâng trần API nếu chấm lần 4.
   3. Xử lý các mục QC mới (Q1, Q5, Q7/8, Q21, Q23) và k2check (Q37 khung tĩnh 14 s, Q36b) trước khi phát hành.
+
+## 13. Lệnh SS1–SS5 của chủ dự án (17/10) và chấm lần 4 — TRƯỢT → DỪNG CHỜ CHỦ DỰ ÁN
+- **Luật kết quả đã duyệt trước (SS3):** ĐẠT nếu RÀ GU và phần sửa đều ≥ 6,65 **và** không thua cặp nào (E2 chọn T2 ≥ 2/3).
+- **Lần 4:**
+  - RÀ GU **6,81**, phần sửa **6,80**: đều ≥ 6,65.
+  - **Thua 3 cặp: P2, P6, E2** (E2 chọn T2 0/3).
+  - → **TRƯỢT. Không sửa vòng 5.**
+
+### 13.1 Việc đã làm
+**SS1 — T1 (E2, r04_abroad, dựng lại 3D 482 khung):**
+- Tô và viền **South Korea** ở đoạn mở (`regions` theo Natural Earth "South Korea"), kèm nhãn "South Korea".
+- Ba tuyến vẽ **từ đầu cảnh** (0,4–2,3 s), có **vòng sáng ở điểm đích** và nhãn đích "To foreign owners · our read".
+- Cột 1962 **chỉ hiện cùng cột 2025** ở "@thirty-six"; thẻ $107 và $36,227 hiện cùng lúc.
+- Nhãn Ulsan đặt bên trái chấm vị trí và tắt khi hai cột hiện.
+
+**SS1 — T2 (E5, r02_subsidy, lớp chữ):**
+- Nhãn "2023 report" đặt trên icon (`gap` 120), không đè icon.
+- Hai xu có nhãn "world price" và "U.S. price" tới hết cảnh.
+- Thẻ "~5 ships/yr" chuyển sang trái cột.
+
+**SS1 — T3/T4 (lớp chữ, `scripts/k2/lib/k2.js`):**
+- **Chip nơi dựng `p.where`** (góc trên phải; dưới "Facts as of" nếu có) cho **16 shot bản đồ** chưa có địa danh. Tên theo toạ độ tâm máy quay:
+  - Richmond, Calif. ×4;
+  - San Francisco Bay, Calif. ×2;
+  - Philadelphia area ×2;
+  - Delaware River valley ×5;
+  - Delaware Bay ×1;
+  - South Korea ×2.
+- **Dải tối dưới không phủ ảnh in hay khung footage:** shot có `p.photo` hoặc `p.clip` dùng một tấm nền gọn sau đúng dòng chữ, thay dải gradient cả bề ngang.
+
+**SS2:** `blind_g2.py` dòng `CAP, STOP = 15.0, 14.0` (trước $13/$12).
+
+**SS4 (sửa trong cùng lượt dựng, trước khi chấm lần 4):**
+- **Q5:** `kindTag` có nền tối đặc (Short S1 khung 300 "ACTUAL" từng chỉ có viền trên nền sa mạc). Short dựng lại, SHA mới.
+- **Q37 (khung tĩnh 14,08 s từ 9:48):**
+  - Xem khung thật: **không phải màn kết.** Đó là cảnh r06_score2 (lời "Since the 1980s…"); máy quay chỉ lùi 52 → 46 km và các sticker chỉ hiện từ giây 9,8 của cảnh.
+  - → **Thêm chuyển động máy quay**: mở rộng toàn vịnh 78 km, head 18°, rồi đẩy vào 44 km, head −10°. Dựng lại 3D 619 khung.
+- **Q36(b):** câu miễn trừ "This video explains… Facts as of" nay **chỉ khai một lần** (shot g00_share, 0:05.6–0:12.0); trước đây khai ở cả shot 0:00 lẫn 0:05.
+- **Q21: 26 → 0.**
+  - Khai `src: [KEY]` hoặc `src: []` cho 22 chú thích.
+  - `short` của 13 nguồn chỉnh khớp tên đang hiện trên hình; tên đầy đủ chuyển sang `long`, bình luận ghim dùng `long` nên không đổi chữ nào.
+  - Thêm cờ chọn bật `src_co_dinh` (`scripts/ll/ll.py`) để khai nguồn **không ghi đè dòng nguồn viết tay**.
+  - Đã so timeline trước/sau: **chữ hiển thị không đổi**; khác duy nhất là câu miễn trừ của Q36b.
+- **Q23:** tách lớp chữ theo đúng điểm đổi loại số. Các shot sau phát nối khung cùng cảnh 3D qua `frame0`, lệch < 0,4 khung, nhãn hiện sẵn nên không nháy tại điểm cắt. Dấu cảnh không đổi, không dựng lại 3D.
+  - r01_days thành 2 shot: số trung bình (Maritime Commission) | tàu quảng bá (NPS).
+  - r05_philly thành 3 shot: ACTUAL JoongAng | mục tiêu PROJECTION | Military Times.
+- **Q7:** r03_tanker có nhãn góc **ESTIMATE** (`p.kind`; thẻ bỏ `kind` trùng).
+  - **Q7/Q8 phần áp nhầm:** QC LL chỉ nhận actual/projection, còn kênh 2 dùng `estimate` có chủ đích (k2check Q35 ĐẠT) → **khiếu nại cho K**, không sửa.
+- **Q1 (judder đoạn 01) — LỖI DỰNG, ĐÃ SỬA:**
+  - 15 khung đầu của f_liberty trùng nhau (đứng 0,6 s). Nguồn không đứng hình: framemd5 sau gỡ 3:2 toàn khung khác nhau.
+  - Nguyên nhân: mốc thời gian sau `-ss` + `fieldmatch/decimate` không bắt đầu từ 0, bộ ghi ảnh lặp khung đầu.
+  - Sửa trong `scripts/k2/hero.js`: `setpts=PTS-STARTPTS` cuối chuỗi tiền xử lý footage. Dựng lại f_liberty: chuỗi trùng dài nhất = 1.
+- **A9 (nghe lại 3 chỗ, ASR hai mô hình small.en + medium.en, cửa sổ ±2,5 s):**
+  - "critics" (02) và "Alaska-bound" (02) **nghe đúng** ở cả hai mô hình → k2check bỏ sót khi nhận dạng cả đoạn dài, là **lỗi ASR**.
+  - "500-won" (04) cả hai ra "501": "won" và "one" **đồng âm** trong tiếng Anh → **lỗi ASR**, không phải lỗi đọc.
+  - Không thu lại; lời khoá SHA giữ nguyên.
+- **Q36 thiếu log cỡ chữ, A4/A11–A13 thiếu stem:** lỗi công cụ → ghi cho V5b-2b/T3, không chặn.
+
+**SS5 — đề xuất Kinh thánh (P ghi vào `docs/BIBLE-KENH2.md`; phiên này không sửa):**
+- (a) Mọi shot bản đồ không có nhãn địa danh phải có **chip nơi dựng** (tên vùng thật theo toạ độ máy quay) ở góc trên phải.
+- (b) Trên ảnh tư liệu và khung footage, **dải tối dưới không phủ cả bề ngang**: dùng nền gọn sau đúng dòng chữ, và câu chú thích sát dòng nguồn, không chừa khoảng trống (xem 13.3, P6).
+- (c) Nhãn chủ chốt của một cảnh phải **hiện đủ (đã qua hiệu ứng hiện dần) trước mọi giây khung chấm mù đã khai** — rút từ lỗi E2 lần 4.
+
+**Kiểm trước ghép (mục 4 lệnh 17/10):** `kiem_neo.py` **ĐẠT 44/44 cảnh** sau khi dựng lại r04_abroad, r06_score2 và f_liberty, và chuyển dấu 41 cảnh (`hero.js` đổi; tham số không đổi).
+
+### 13.2 Master lần 4 và gói
+- **Master:** **SHA256 `8fba1df2c961ebc038bac8602854b5735f9949e7f9fea491dd25b11b0b914ba2`**; 618,917 s; 1920×1080, 24 fps; −14,0 LUFS / −1,6 dBTP / LRA 2,2.
+- **Short S1:** **`e00eb9e07b91bb1eeb5328d16ced7d7029665d6f697d2e80f4e140fb4b8a5041`** (30,46 s; −14,0 LUFS / −2,5 dBTP).
+- **Gói phát hành** sinh lại theo master mới; `release_check` v5a **ĐẠT, 0 LỖI, 0 BÁO**.
+- **LFS:** **chưa tạo nhánh `release-k2c-t2-01-v1`**. Theo luật SS3, lần 4 trượt thì dừng; nhánh phát hành chỉ tạo khi G2 sẵn sàng. Master và Short ở `/var/tmp/cine-out/k2c-t2-01/` (SHA ở trên và trong `phat-hanh/SHA256SUMS.txt`).
+
+### 13.3 Điểm từng cặp L1 → L2 → L3 → L4
+**RÀ GU (P1–P7): TB T2 6,62 → 6,81 → 6,76 → 6,81** (T1 5,86 → 5,81 → 5,62 → 5,57)
+
+| Cặp | Cảnh | T1 (L4) | T2 L1 → L2 → L3 → L4 | 3 người L4 | Chọn T2 L4 |
+|---|---|---|---|---|---|
+| P1 | r04_beach | 5,33 | 6,33 → 7,00 → 7,00 → 7,00 | 7/7/7 | 3/3 |
+| **P2** | **r04_abroad** | **7,00** | 6,67 → 7,33 → 7,00 → **6,67** | 7/6/7 | **1/3 — THUA** |
+| P3 | r03_tanker | 4,33 | 6,67 → 6,67 → 6,33 → 6,67 | 6/7/7 | 3/3 |
+| P4 | p01_owens | 6,00 | 7,00 → 6,67 → 6,67 → 7,00 | 7/7/7 | 3/3 |
+| P5 | r06 so sánh | 3,67 | 7,33 → 7,00 → 7,00 → 7,33 | 7/7/8 | 3/3 |
+| **P6** | **f_liberty** | **7,00** | 5,67 → 6,33 → 6,67 → **6,00** | 6/6/6 | **1/3 — THUA** |
+| P7 | p02_jones | 5,67 | 6,67 → 6,67 → 6,67 → 7,00 | 7/7/7 | 3/3 |
+
+**Phần sửa (E1–E5): TB T2 6,47 → 6,87 → 6,87 → 6,80** (T1 5,27 → 5,33 → 5,07 → 5,00)
+
+| Cặp | Cảnh | T1 (L4) | T2 L1 → L2 → L3 → L4 | 3 người L4 | Chọn T2 L4 |
+|---|---|---|---|---|---|
+| E1 | r03_loop | 4,67 | 6,33 → 7,00 → 6,67 → 7,00 | 7/7/7 | 3/3 |
+| **E2** | **r04_abroad (385,93)** | **8,00** | 6,00 → 6,33 → 6,00 → **6,00** | 6/6/6 | **0/3 — THUA** |
+| E3 | r06 kết | 4,00 | 7,00 → 7,00 → 7,00 → 7,00 | 7/7/7 | 3/3 |
+| E4 | r06 kết | 3,67 | 7,00 → 7,67 → 8,00 → 7,33 | 7/7/8 | 3/3 |
+| E5 | r02_subsidy | 4,67 | 6,00 → 6,33 → 6,67 → 6,67 | 7/6/7 | 3/3 |
+
+- **Vùng ±5 % quanh ngưỡng (nêu tên):**
+  - Quanh 7,0: RÀ GU 6,81 (−2,7 %); phần sửa 6,80 (−2,9 %); các cặp P2, P3, E5 = 6,67 (−4,7 %); P1, P4, P7, E1, E3 = 7,00.
+  - Quanh 6,65 (ngưỡng SS3): RÀ GU 6,81 (+2,4 %); phần sửa 6,80 (+2,3 %).
+
+### 13.4 Ghi chú nguyên văn (L4) và chẩn đoán từ khung thật
+- **E2 (THUA 0/3), r04_abroad giây 2,1:**
+  - R1: "the 'To foreign owners / our read' label is faded to near-invisible grey. The three thin orange lines going out to sea don't show where they end or what they mean. The coastline glow is thick and white, and a stray white border runs across the bottom-left."
+  - R2: "the coastline glow is a thick white band that looks like a border. The 'To foreign owners / our read' label is ghosted out and nearly unreadable."
+  - R3: "The 'To foreign owners / our read' label is a faded, low-contrast ghost box, and the arrow lines run through it. … 'South Korea' is placed inland, away from the point being made. The white border glow is odd."
+  - **Chẩn đoán — LỖI DO SỬA LẦN NÀY:**
+    - (1) nhãn đích hiện ở giây 2,0 và hiện dần trong 0,45 s, nên **đúng giây khung 2,1 nó chỉ hiện khoảng 20 %** ("bóng mờ"); mình đặt mốc quá sát giây khung đã khai;
+    - (2) **viền vùng** của `regions` (South Korea) vẽ thành **dải trắng dày dọc bờ** và một đường viền trắng ở góc trái dưới (biên quốc gia ở eo biển), cả 3 người chấm thấy như lỗi dựng;
+    - (3) ba tuyến kết thúc ở vòng sáng không tên; chỉ một tuyến có nhãn.
+- **P2 (THUA 1/3), r04_abroad giây 5,5:**
+  - R1: "the 'To foreign owners / our read' label is vague. The three lines end at unlabeled dots in empty ocean, so no destination is named."
+  - R2: "the coast is a thick blown-out white band that looks like a rendering artifact."
+  - → **Cùng nguyên nhân (2)–(3)**; nhãn "our read" lặp với chú thích dưới.
+- **P6 (THUA 1/3), f_liberty:**
+  - R1/R2/R3: "The caption box has a big empty gap between its two lines"; "the frame feels a bit like a template slide"; "The footage is small, only about half the frame".
+  - → **LỖI DO SỬA LẦN NÀY (T4):** tấm nền gọn bao từ câu chú thích tới dòng nguồn, chừa **khoảng trống lớn giữa hai dòng** (vị trí dòng nguồn cố định ở đáy). Điểm 6,67 → 6,00. Phần còn lại (footage ~½ khung) là ràng buộc 1,45× chủ dự án đã quyết giữ.
+- **Cặp đã cải thiện nhờ SS1/SS4:**
+  - P3 (6,33 → 6,67; cả 3 người: "the location pin 'Delaware River valley' makes the place clear");
+  - P4, P7 (dải tối không còn đè ảnh in: 6,67 → 7,00);
+  - E1 (6,67 → 7,00);
+  - E5 (giữ 6,67; "callouts are crisp, don't overlap").
+
+### 13.5 Đề xuất (chờ chủ dự án; chưa làm)
+| # | Việc | Dựng lại 3D | Giờ máy ước | API |
+|---|---|---|---|---|
+| U1 | E2/P2: nhãn đích hiện ≥ 0,6 s trước giây khung (hoặc từ đầu cảnh); một nhãn chung cho chùm tuyến ("to buyers abroad — our read") thay vì gắn một điểm đích; bỏ "our read" lặp ở nhãn | không | — | 0 |
+| U2 | E2/P2: bỏ **viền** vùng South Korea, chỉ giữ tô nhạt (hoặc tắt `regions`, dùng nhãn quốc gia) để hết "dải trắng" | r04_abroad 482 khung | ≈ 1 giờ thật (4 tiến trình) | 0 |
+| U3 | P6: tấm nền gọn tách thành **hai tấm** — sau câu chú thích và sau dòng nguồn — không chừa khoảng trống (áp chung cho ảnh/footage) | không | — | 0 |
+- **Sau sửa:** lớp chữ + ghép ≈ 1,6 giờ thật.
+- **Chấm lần 5 ≈ $2,11** → lũy kế ≈ $15,15, **vượt trần $15** → cần chủ dự án quyết.
+- **Phương án khác:** RÀ GU và phần sửa đã ≥ 6,65 ở cả 4 lần đo của T2 sau sửa (6,76–6,87). Ba cặp thua lần 4 có nguyên nhân cụ thể, sửa được trong lớp chữ hoặc một cảnh; hai trong ba (E2-nhãn mờ, P6-khoảng trống) là lỗi mới đưa vào ở lượt này.
+
+### 13.6 Chi phí và giờ máy
+- **API chấm mù lũy kế: $13,04 / trần $15 (mốc dừng $14).** Lần 4: $2,11 (RÀ GU $1,28, phần sửa $0,83).
+- **ElevenLabs: 0 ký tự** (prep chạy với proxy chặn).
+- **Giờ máy lượt SS:**
+  - r04_abroad 482 khung, 4 tiến trình ≈ 1,0 giờ thật (≈ 4 giờ-tiến trình);
+  - r06_score2 619 khung, 4 tiến trình ≈ 0,8 giờ thật (≈ 3,2 giờ-tiến trình);
+  - f_liberty < 1 phút;
+  - thử khung + lớp chữ xem trước ≈ 0,6 giờ;
+  - build lớp chữ + ghép + Short 5702 s (1,58 giờ).

@@ -1,0 +1,6 @@
+```json
+{"X": {"craft": 3, "readability": 6, "clarity": 5, "flags": ["flat_slide_look", "empty_frame"], "note": "Dark recap card over a blurred background that shows nothing. It looks like a PowerPoint slide. The subtext is small and low-contrast grey, and the third line is long and dense for a phone. The bottom third of the card is empty. Jargon like 'locks', 'stairwell bites' and 'bank line' is not explained visually."},
+ "Y": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Shaded-relief 3D terrain map with a location pin and a compact comparison card (3/day vs ~5/year) with icons and colour-coded columns. The numbers are large and easy to read. The source line at the bottom left is small but legible. The card sits over detailed terrain and hides part of the map. The map of San Francisco Bay is only loosely tied to the shipbuilding data. The card header row has some empty space."},
+ "better": "Y", "why": "Y has a real visual setting and a quick, quantified comparison, while X is a text-only slide over a blurred, empty background.",
+ "top_fix_for_weaker": "Replace the text slide with a visual: three icon cards or a diagram of a building, with the key thresholds ('4 stories', '5 homes') as large numbers. Use a sharp, relevant background instead of the blur, and make the subtext larger and brighter."}
+```

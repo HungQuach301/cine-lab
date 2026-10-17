@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 5,
+  "flags": [
+   "confusing"
+  ],
+  "note": "Good 3D terrain map with a gradient and a location pill, so the place is clear. The three icons (coin, document, ship, crane) have no labels, so the viewer can't tell what 'each factor' means. The caption text is large and clear, but the sources line is small and low in the frame. The icons are small and flat sticker-style against the rich terrain."
+ },
+ "Y": {
+  "craft": 4,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "A dark card with a checklist, clean typography and a clear hierarchy. It is a flat slide over a blurred background that reads as nothing. The bottom third of the card is empty, and the body text is small and low-contrast grey for a phone screen. The title and the bold lead words are readable, and the recap is easy to follow."
+ },
+ "better": "X",
+ "why": "X has real spatial and 3D production value and a clear location, while Y is a plain text slide, although Y is easier to read and understand.",
+ "top_fix_for_weaker": "Replace the flat text card with a 3D scene. Show one building per lock (map, stairwell, bank line) with big labelled icons or numbers such as '4 stories' and '5 homes'. Make the body text at least 1.3x larger and brighter, and remove the dead space at the bottom of the card."
+}

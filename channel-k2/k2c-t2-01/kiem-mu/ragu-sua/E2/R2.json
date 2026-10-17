@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "illegible_text",
+   "confusing"
+  ],
+  "note": "The relief terrain is decent, but the coastline glow is a thick white band that looks like a border. The 'To foreign owners / our read' label is ghosted out and nearly unreadable. The route lines are short, thin and unexplained: they fan out from the coast with no destination or arrows. The tiny 'South Korea' label sits in the middle of nowhere. The bottom caption and source line are legible, but the source line is small."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [],
+  "note": "The globe is lit well, with an atmospheric rim and real imagery. Texas is clearly highlighted in orange and the callout is crisp, high-contrast and phone-legible. The 'As of' badge is clear. The sources line is small and low-contrast. The callout runs long, and it hides the Gulf and Mexico border area a little. The map shows a place, not a route, but it reads instantly."
+ },
+ "better": "Y",
+ "why": "Y has a clear focal point, strong lighting and a legible callout, while X's key label is faded to illegibility and its route graphic is vague.",
+ "top_fix_for_weaker": "Make the 'To foreign owners' label fully opaque with high contrast. Replace the three stubby lines with thick, animated arcs that run to labelled destination ports or countries, and thin the coastline glow so it stops reading as a border."
+}
