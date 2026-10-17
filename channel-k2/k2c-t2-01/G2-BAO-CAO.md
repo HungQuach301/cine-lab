@@ -540,10 +540,19 @@ Giây theo timeline master (lời và giờ không đổi giữa nháp và 1080p
   - **Q7, Q8** số `n_tanker4` loại `estimate`: QC LL chỉ nhận actual/projection (kênh 2 dùng nhãn ESTIMATE từ G1b) → phần lớn áp nhầm loại số; nhưng Q7 nêu shot thiếu nhãn góc ESTIMATE, cần xem.
   - **Q21** 26 dòng: câu/thẻ có số/năm/cơ quan chưa khai `num`/`src`, vd thẻ miễn trừ "Facts as of", "Deadline: November 9, 2026", chú thích "Kaiser's first Richmond shipyard, Dec. 1940" → vệ sinh đặc tả.
   - **Q23** 3 thẻ trộn đối tượng hoặc trộn ACTUAL/PROJECTION (01 @19,2 s; 05 @107 s) → cần xem.
-- **k2check 1.11.1** (worktree `origin/checks/v1.11` @ `b3caf9cc`; nối link `channel-k2/` vào worktree vì sparse checkout, không sửa mã): đang chạy lúc dừng, kết quả bổ sung khi xong.
+- **k2check 1.11.1 — CHỈ BÁO** (worktree `origin/checks/v1.11` @ `b3caf9cc`; nối link `channel-k2/`, `assets/`, `RIGHTS.md` vào worktree vì sparse checkout, không sửa mã; bản đầy đủ ở scratch `raluat/k2check.txt`). Kết quả chung TRƯỢT:
+  - **ĐẠT:** Q34; Q35 nhãn loại số (184 khung, ACTUAL ≤ 1/khung, ESTIMATE đúng); LOCK; âm thanh A1 −14,1 LUFS, A2 −1,6 dBTP, A3 LRA 2,2, A5, A6, A7, A8, A10.
+  - **TRƯỢT đã biết/ngoại lệ:** Q26b(c), Q32(b), Q33 (3 góc > 2).
+  - **Q36 chữ trên màn hình** (luật mới 1.11):
+    - (b) 2 lỗi: câu miễn trừ "This video explains… Facts as of" ở 0:00 và 0:05 nằm trên shot không dẫn nguồn luật/chính sách hiệu lực (luật 1.11 cho phép 1 lần trong 0:00–0:15, cần xem lại cách đếm);
+    - 42 shot "thiếu log cỡ chữ" vì render kênh 2 không ghi log theo định dạng k2check đọc (lỗi công cụ, không phải lỗi hình);
+    - 3 dòng nguồn 67–69 ký tự trong vùng ±5 % của ngưỡng 70 (nêu tên: 00/2 @0:16.7, 05/11 @8:11.0, 05/12 @8:28.6).
+  - **Q37 nhịp thị giác:** **khung tĩnh 14,08 s từ 9:48.0** (đo trên điểm ảnh thật; ngưỡng 6 s). `rhythm.py` của kênh 2 chỉ đếm biến cố đặc tả (TB 2,23 s, dài nhất 5,11 s) nên **không bắt được**. Đây là **phát hiện thật** cần xem (đoạn 06, cảnh cuối trước màn kết); chưa sửa vì đang dừng.
+  - **A9 ASR (BÁO):** 5/7 đoạn đủ số và tên riêng ở cả hai cách nghe. Thiếu "critics" (02), "Alaska-bound" (02, cách tham lam) và "500" (04, "500-won"). Cần nghe lại 3 chỗ để phân biệt lỗi ASR với lỗi đọc.
+  - **A4, A11–A13:** không đo được (mix.json chưa theo chuỗi âm thanh mới, không có stem) — chỉ báo, T3 cần xuất stem.
 
 **DỪNG chờ chủ dự án.**
 - **Cần quyết:**
   1. Sửa T1–T4 hay chấp nhận mức 6,8.
   2. Nâng trần API nếu chấm lần 4.
-  3. Xử lý các mục QC mới (Q1, Q5, Q7/8, Q21, Q23) trước khi phát hành.
+  3. Xử lý các mục QC mới (Q1, Q5, Q7/8, Q21, Q23) và k2check (Q37 khung tĩnh 14 s, Q36b) trước khi phát hành.
