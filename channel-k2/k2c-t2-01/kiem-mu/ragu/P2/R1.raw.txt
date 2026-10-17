@@ -1,0 +1,21 @@
+```json
+{
+  "X": {
+    "craft": 7,
+    "readability": 7,
+    "clarity": 6,
+    "flags": ["cluttered"],
+    "note": "The globe render is good-looking and the highlighted Texas is clear. The callout is long and fairly small for a phone, and the Texas dot sits under the callout's edge. The framing is a mismatch: it shows all of North America and the Caribbean for a Texas-only point. The 'As of' tag, the caption and the sources line add three more text layers. The callout is a single dense line (single-stair, 6 stories, ≤4 homes per floor, since Sep 2025), and the caption partly repeats it. The sources line is tiny. It's a pin on a map and shows no route or movement."
+  },
+  "Y": {
+    "craft": 7,
+    "readability": 8,
+    "clarity": 8,
+    "flags": [],
+    "note": "The terrain map is clean and the framing is tight. The Ulsan label is short and bold, and the three route lines fan out to the sea so the movement reads at once. The route lines are a bit thin. The 'to buyers abroad' endpoints are anonymous dots with no destination names or quantities. There's a lot of empty blue sea on the right. The caption is large and clear, and the sources line is small but tolerable."
+  },
+  "better": "Y",
+  "why": "Y shows a route in one glance with short, large labels, while X buries a long, small callout on a wide, cluttered globe and shows a single pin instead of a movement.",
+  "top_fix_for_weaker": "Zoom the camera in on Texas, or crop the globe so the state fills the frame. Cut the callout to a short bold headline such as 'Texas: single-stair up to 6 stories' with the rest as a second line at a larger size, and drop the duplicate caption or the sources line."
+}
+```
