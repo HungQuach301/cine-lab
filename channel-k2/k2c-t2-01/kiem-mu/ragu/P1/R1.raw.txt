@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "readability": 8, "clarity": 8, "flags": [], "note": "Stylized relief terrain with contour-line sea, gantry cranes and ships. The icons are on-topic (shipyard at Ulsan), and the gold year chip and place label are clear. The Ulsan pin is small and sits well away from the icons. Source line is small on a phone. Cranes and ships look a bit clip-art, but the frame is cohesive and tells you where, when and what."},
+ "Y": {"craft": 6, "readability": 7, "clarity": 6, "flags": ["confusing"], "note": "Realistic satellite-style Minnesota with borders and a highlighted state. Looks solid, but the label 'Minneapolis' carries a source credit ('Federal Reserve Bank of Minneapolis, Oct 2026') instead of place info, which is confusing. The pin is a tiny dot with no zoom to the city. Nothing marks the topic (apartments, rent). The two-line caption and source text are small, dense and sit on a dark gradient. The frame is generic, and the muddy brown-green state fill has weak contrast."},
+ "better": "X",
+ "why": "X shows the place, the date and the subject (shipyard) at a glance with clean labels, while Y is a generic map whose label mixes the city with a source credit and shows nothing about the topic.",
+ "top_fix_for_weaker": "Make the label just 'Minneapolis, Minnesota', and move the Fed attribution to the source line. Zoom in on the Twin Cities with a bigger pin, add a topical icon such as apartment blocks and a rent stat or date chip, and move the small source text out of the dark gradient or make it larger."}
+```
