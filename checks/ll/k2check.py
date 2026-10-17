@@ -20,7 +20,7 @@ Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 n�
 import glob, json, os, subprocess, sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
-from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, cap112  # noqa: E402
+from checks.ll import base, q_setting, q_footage, q_scene, q_types, q_chu, q_nhip, q_amthanh, q_mach, q_ftg, q_hinh, q_tl, q_k2var, cap112  # noqa: E402
 from checks.cinecheck import VERSION  # noqa: E402
 
 
@@ -74,6 +74,12 @@ def main():
         fs = sorted(glob.glob(os.path.join(g('look'), '*.jpg')) + glob.glob(os.path.join(g('look'), '*.png')))
         bao('MAU1', 'Màu/chi tiết', lambda: q_hinh.mau1([(os.path.splitext(os.path.basename(p))[0], p) for p in fs]), 'bão hoà ≥ 0,35 · colorfulness ≥ 35 · chi tiết ≥ 16 · cháy ≤ 1 %')
     if g('vang') and g('moi'): bao('KHOP1', 'Khớp cấu trúc khi đổi trình dựng', lambda: q_hinh.khop1(g('vang'), g('moi')), 'tần thấp ≤ 3 % · dịch ≤ 1 · PSNR¼ ≥ 40 · SSIM ≥ 0,90 · renderer ghi rõ, không trộn')
+    # ---- 1.12.2: biến thể kênh 2 (NN2, NN3, khiếu nại Q14/Q15/Q17) — CHỈ BÁO cạnh luật cũ tới khi chủ dự án duyệt thay
+    mv = m if m and os.path.exists(m) else None
+    bao('NHIP-K2', 'Nhịp kênh 2 (Q14–Q18 không áp → Q37)', lambda: q_k2var.nhip_k2(E, TL, mv), 'TB ≤ 3,5 s · dài nhất ≤ 6 s')
+    bao('Q26b-K2', 'Đa dạng loại cảnh + vùng', lambda: q_k2var.q26b_k2(E, TL), '≥ 3 loại/nửa · loại ≤ 70 % · vùng ≤ 25 %, ≤ 90 s, nửa sau ≥ 3')
+    bao('Q33-K2', 'Lặp cảnh (vùng, góc) + pHash L/ΔE', lambda: {k: v for k, v in q_k2var.q33_k2(E, TL, mv).items() if k != 'aps'}, '≤ 2 lần (miễn: khác chương + khác năm/lớp)')
+    bao('Q32b-K2', 'Trần clip/ảnh', lambda: q_k2var.q32b_k2(E, TL), 'footage ≤ 8 s · ảnh có máy/chú thích đổi ≤ 12 s · ảnh tĩnh ≤ 8 s')
     BT = [a[i + 1] for i, x in enumerate(a) if x == '--bo-tl']
     NG = {'Q35-TL': '"≈" bộ đếm chỉ khi dòng phương pháp "≈ = interpolated between counts" trong 6 s đầu', 'TL-Q7': 'bay thấp (AGL ≤ 150 m) ≤ 10 năm/s · crane/reveal ≤ 20 năm/s',
           'TL-Q8': 'bay thấp của cú liên hoàn: content_pct trung vị ≥ 30 %', 'TL-Q2': '≥ 3 s ≤ 15 m · AGL ≤ 120 m phố / ≤ 300 m eo đất, sông, đại lộ',

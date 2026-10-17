@@ -16,6 +16,8 @@ Q18 thẻ trống: shot số liệu (bars/line/compare/bignum) phải có số �
 1.11.0 (K, 15/10/2026; khiếu nại P 14/10 về k2c-t1-06): Q14–Q18 KHÔNG ÁP cho tập kênh 2 (đặc tả dưới channel-k2/ hoặc mã k2…); measure() trả
 "không áp". Nguyên nhân thật của lần áp nhầm: qc.py gọi Q14–Q18 khi đặc tả có `hook` hoặc `anchors` (kênh 2 khai `anchors` cho Q34), không
 phải số tập suy từ mã "-06". Kênh 2 đo nhịp bằng Q37 (q_nhip.py).
+1.12.2 (K, 17/10/2026; khiếu nại 14/10 + T2 G2 §12.4): T2 vẫn thấy Q14/Q15/Q17 TRƯỢT vì T2 ghim checks 1.10.2 (VERSIONS.yaml lúc G1), trước
+is_k2. Thêm khai rõ `kenh: 2 | 1` ở đặc tả (thắng suy đoán theo đường dẫn/mã). Hàng NHIP-K2 (q_k2var.py) gộp: Q14–Q18 không áp + Q37.
 """
 import json, os, re, sys
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
@@ -77,6 +79,7 @@ K2_NA = 'không áp (kênh 2 — luật nhịp LL; kênh 2 đo Q37 nhịp thị 
 def is_k2(E):
     """1.11.0 (khiếu nại P 14/10/2026, K chấp nhận): tập kênh 2 = đặc tả nằm dưới channel-k2/ (E['_path'] do qc.py ghi) hoặc mã tập bắt đầu
     bằng 'k2'. Luật nhịp LL Q14–Q18 không áp cho kênh 2 (Q17 'đúng 3 số neo' mâu thuẫn Q34; Q14 đọc tựa LL/map.act; Q15 thay bằng Q37)."""
+    if E.get('kenh') is not None: return str(E['kenh']).strip() in ('2', 'k2')   # 1.12.2: khai rõ `kenh: 2` (hoặc `kenh: 1` cho LL) thắng mọi suy đoán
     return '/channel-k2/' in str(E.get('_path') or '').replace(os.sep, '/') or str(E.get('id') or '').startswith('k2')
 
 
