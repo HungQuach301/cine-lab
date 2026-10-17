@@ -1,0 +1,927 @@
+{
+ "note": "Tư liệu HERO cho 'Why Detroit shrank'. Số trong 'nam'/'hinh_hoc' chỉ là số đọc hoặc đo được; '(ước)' = ước tính. Thẻ OSM là nguồn thứ cấp (ODbL), không thay NRHP. Lớp ArcGIS Detroit không ghi giấy phép → chỉ đối chiếu. Vòng bổ sung 16/10/2026: thêm nguồn chủ sở hữu (GM, Ford/Michigan Central), City of Detroit, State of Michigan, NHL Fisher; mốc Hudson's 1983/1998 chỉ có báo chí (ghi loai_nguon).",
+ "as_of": "2026-10-16",
+ "hero": [
+  {
+   "id": "H1",
+   "ten": "Michigan Central Station",
+   "dia_chi": "2405 W Vernor Hwy, Corktown, Detroit (theo OSM/Nominatim)",
+   "wgs84": [
+    42.32879,
+    -83.07772
+   ],
+   "nam": {
+    "xay_mo": "đưa vào dùng 12/1913, trước lễ khánh thành (CPC Detroit); 'first opened its doors in 1913' (Ford/MC)",
+    "dong": "chuyến tàu cuối 1988-01-05 (CPC Detroit); OSM ghi 1988-01-06 → dùng 05/01/1988",
+    "ford_mua": "2018; công bố 06/2018 (CPC Detroit)",
+    "mo_lai": "lễ mở 06/06/2024, OPEN 6–16/06/2024 (Ford/MC)",
+    "do_tin_cay": "CAO (năm); TRUNG BÌNH (số tầng); không có chiều cao",
+    "tang": "tháp 18 tầng + ga 3 tầng (CPC Detroit); 15 tầng trên đế 3 tầng (State of Michigan) → LỆCH, cách đếm khác nhau",
+    "cao_m": "KHÔNG tìm được số đo"
+   },
+   "nguon_nam": [
+    {
+     "url": "https://www.loc.gov/item/2020741981/?fo=json",
+     "sha256": "af1438c122bee4aba298a7843afd8eab7aba1a4a06adcaef85465ba46fa0bad9",
+     "trich_nguyen_van": "In 2018 as well, Ford Motor Co. bought the building and began restoring it as an office building"
+    },
+    {
+     "url": "https://api.openstreetmap.org/api/0.6/way/805151309/full",
+     "sha256": "be3267b46e29a611d9b3d4b8d3c3c64c27d503317f31cc937e8356aeffcac5d3",
+     "trich_nguyen_van": "<tag k=\"start_date\" v=\"1913-12-26;2024-06-06\"/> <tag k=\"end_date\" v=\"1988-01-06\"/> <tag k=\"building:levels\" v=\"18\"/> <tag k=\"owner\" v=\"Ford Motor Company\"/>"
+    },
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/75000969_text",
+     "sha256": "f0b8ff177968f4c0fb57869813efb4e45a5051cb0fd8d949a7072063d7e60dfc",
+     "trich_nguyen_van": "The PDF file for this National Register record has not yet been digitized."
+    },
+    {
+     "url": "https://michigancentral.com/a-new-beginning-ford-to-reopen-michigan-central-station-after-multi-year-historic-restoration/",
+     "fetched_utc": "2026-10-16T09:58:27Z",
+     "sha256": "ea7b87c902664477aaab5c3c80889d7ae6d31274c004c6c7b01a6e4241933f37",
+     "loai_nguon": "Thông cáo Ford/Michigan Central (michigancentral.com)",
+     "trich_nguyen_van": "Michigan Central Station first opened its doors in 1913 as one of the country’s most spectacular transportation terminals."
+    },
+    {
+     "url": "https://michigancentral.com/michigan-central-station-begins-next-chapter/",
+     "fetched_utc": "2026-10-16T09:58:28Z",
+     "sha256": "0ffe5dff301b45383513b70c2d5222bf5b68fc6f80b1bdee9a61b26506919ad0",
+     "loai_nguon": "Thông cáo Ford/Michigan Central (michigancentral.com)",
+     "trich_nguyen_van": "The Station was closed in 1988 and remained vacant until Ford’s acquisition of the property in 2018"
+    },
+    {
+     "url": "https://michigancentral.com/michigan-central-station-begins-next-chapter/",
+     "fetched_utc": "2026-10-16T09:58:28Z",
+     "sha256": "0ffe5dff301b45383513b70c2d5222bf5b68fc6f80b1bdee9a61b26506919ad0",
+     "loai_nguon": "Thông cáo Ford/Michigan Central (michigancentral.com)",
+     "trich_nguyen_van": "an 11-day celebration beginning June 6 with an outdoor concert featuring iconic Detroit artists."
+    },
+    {
+     "url": "https://michigancentral.com/a-new-beginning-ford-to-reopen-michigan-central-station-after-multi-year-historic-restoration/",
+     "fetched_utc": "2026-10-16T09:58:27Z",
+     "sha256": "ea7b87c902664477aaab5c3c80889d7ae6d31274c004c6c7b01a6e4241933f37",
+     "loai_nguon": "Thông cáo Ford/Michigan Central (michigancentral.com)",
+     "trich_nguyen_van": "Ford embarked on the preservation project after acquiring the abandoned train station in 2018"
+    },
+    {
+     "url": "https://web.archive.org/web/2024id_/https://detroitmi.gov/sites/detroitmi.localhost/files/events/2024-02/Staff%20Report%20-%20Michigan%20Central%20Train%20Station.pdf",
+     "fetched_utc": "2026-10-16T10:01Z",
+     "sha256": "f1a8f1767fbfdd71257125a31370634091c444c107bbfa9e216ccfcf5fb81ba1",
+     "loai_nguon": "Báo cáo City Planning Commission, City of Detroit (02/2024), bản Wayback",
+     "trich_nguyen_van": "The station was put into use before formal dedication in December 1913 due to a fire destroying the Third Street station."
+    },
+    {
+     "url": "https://web.archive.org/web/2024id_/https://detroitmi.gov/sites/detroitmi.localhost/files/events/2024-02/Staff%20Report%20-%20Michigan%20Central%20Train%20Station.pdf",
+     "fetched_utc": "2026-10-16T10:01Z",
+     "sha256": "f1a8f1767fbfdd71257125a31370634091c444c107bbfa9e216ccfcf5fb81ba1",
+     "loai_nguon": "Báo cáo City Planning Commission, City of Detroit (02/2024), bản Wayback",
+     "trich_nguyen_van": "The building consists of a three-story depot with 10 gates for trains, and an 18-story tower with more than 500 offices."
+    },
+    {
+     "url": "https://web.archive.org/web/2024id_/https://detroitmi.gov/sites/detroitmi.localhost/files/events/2024-02/Staff%20Report%20-%20Michigan%20Central%20Train%20Station.pdf",
+     "fetched_utc": "2026-10-16T10:01Z",
+     "sha256": "f1a8f1767fbfdd71257125a31370634091c444c107bbfa9e216ccfcf5fb81ba1",
+     "loai_nguon": "Báo cáo City Planning Commission, City of Detroit (02/2024), bản Wayback",
+     "trich_nguyen_van": "the final train departed on January 5, 1988, bound for Chicago."
+    },
+    {
+     "url": "https://web.archive.org/web/2024id_/https://detroitmi.gov/sites/detroitmi.localhost/files/events/2024-02/Staff%20Report%20-%20Michigan%20Central%20Train%20Station.pdf",
+     "fetched_utc": "2026-10-16T10:01Z",
+     "sha256": "f1a8f1767fbfdd71257125a31370634091c444c107bbfa9e216ccfcf5fb81ba1",
+     "loai_nguon": "Báo cáo City Planning Commission, City of Detroit (02/2024), bản Wayback",
+     "trich_nguyen_van": "In June 2018, Ford Motor Company announced their purchase of the building"
+    },
+    {
+     "url": "https://michigan.gov/som/0,4669,7-192-26847-551595--,00.html",
+     "fetched_utc": "2026-10-16T10:00:57Z",
+     "sha256": "3246f6659a626164b59ca354a92c4eb160b486289ddc622421037a6819ae508d",
+     "loai_nguon": "Thông cáo State of Michigan (LEO/MIOSHA)",
+     "trich_nguyen_van": "The 647,000 square foot building consists of a 15-story office tower set atop a 3-story base that includes a vaulted waiting room, arcade, ticket lobby and concourse."
+    }
+   ],
+   "hinh_hoc": {
+    "nguon": "OpenStreetMap way/805151309 (đường bao toà nhà ga + tháp văn phòng)",
+    "url": "https://api.openstreetmap.org/api/0.6/way/805151309/full",
+    "giay_phep": "ODbL 1.0 — © OpenStreetMap contributors (https://www.openstreetmap.org/copyright)",
+    "sha256": "be3267b46e29a611d9b3d4b8d3c3c64c27d503317f31cc937e8356aeffcac5d3",
+    "hop_bao_m": {
+     "dai": 128.2,
+     "rong": 103.6,
+     "phuong_vi_truc_dai_deg": 108.5
+    },
+    "dien_tich_m2": 10065.0,
+    "cao_m": null,
+    "so_tang": 18,
+    "the_osm_lien_quan": {
+     "architect": "Warren &amp; Wetmore",
+     "building:levels": "18",
+     "end_date": "1988-01-06",
+     "owner": "Ford Motor Company",
+     "start_date": "1913-12-26;2024-06-06"
+    },
+    "phep_do": "UTM 17N (WGS84, công thức TM Snyder tự viết; kiểm 42N/81W → N=4649776.2 m), diện tích shoelace, hộp bao định hướng diện tích nhỏ nhất (rotating calipers trên bao lồi)",
+    "ghi_chu": "OSM không có thẻ height; 18 tầng theo thẻ building:levels. Lớp ArcGIS thương mại Detroit KHÔNG trả đa giác tại điểm này (bán kính 40 m).",
+    "so_tang_nguon_chinh": "18 (tháp, CPC Detroit) / 15 + đế 3 (State of Michigan)"
+   },
+   "tu_lieu": [
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2020741981/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/highsm/63400/63405v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/highsm/63400/63405u.tif (88219992 B)",
+     "tieu_de": "Aerial view of a portion of Detroit, Michigan, with a focus on the historic Michigan Central Station train depot. According to a 2018 Historic Detroit.org artic",
+     "ngay": "2020-01-01",
+     "tac_gia": "Highsmith, Carol M., 1946-, photographer",
+     "px": "1024x764",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "888b552e6d6b4c59ecc6962cd456492fe741246b80e396b1f91811fb3421eb7c",
+     "fetched_utc": "2026-10-16T09:52:52Z",
+     "ly_do": "a bằng chứng sự việc (trạng thái 2020, trước mở lại) + c quy mô (nhìn từ trên cao)",
+     "gia_tri": "cao",
+     "ghi_chu": "Ảnh hàng không màu, tốt để dựng khối 3D. Chú thích dài có trích Historic Detroit.org — chỉ dùng ảnh, không dùng chú thích như lời thoại."
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2017668528/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/anrc/02500/02544v.jpg",
+     "tieu_de": "Showing North and Main room in Red Cross Canteen Detroit, Mich. Central Depot, Electric Stove and steam table in foreground",
+     "ngay": "1918",
+     "px": "1024x748",
+     "rights_nguyen_van": "No known restrictions on publication. For information, see \"American National Red Cross photograph collection,\" https://www.loc.gov/rr/print/res/717_anrc.html",
+     "sha256": "16df825374d6876236295bef5315e8c08194d16c51773f510291f91eba274760",
+     "fetched_utc": "2026-10-16T10:01:18Z",
+     "ly_do": "b con người/đời sống — căng tin Hội Chữ thập đỏ trong 'Mich. Central Depot' năm 1918",
+     "gia_tri": "thấp",
+     "ghi_chu": "Đã xem bằng mắt: phòng căng tin tiện ích (bếp, bàn dài, 10 tình nguyện viên Chữ thập đỏ) — không thấy kiến trúc đặc trưng của ga; tiêu đề chỉ ghi 'Central Depot'. Chỉ dùng cho nhịp con người 1918, không dùng làm tham chiếu dựng."
+    }
+   ],
+   "tu_lieu_loai_bo": [
+    {
+     "url": "https://www.loc.gov/item/2020700111/ (và 2020698602, 2022644736)",
+     "ly_do": "Camilo Vergara — 'Publication may be restricted' → KHÔNG dùng"
+    }
+   ],
+   "ban_ve_do_dac": "Không tìm thấy HABS/HAER cho nhà ga trong bộ sưu tập LoC (truy vấn 'Michigan Central Railroad Detroit' chỉ ra mi0705, mi0747 không liên quan).",
+   "uoc_gio": {
+    "chi_tiet": "60–80 (ước)",
+    "trung_canh": "20–30 (ước)"
+   },
+   "de_xuat": "CHỌN — mức CHI TIẾT. Biểu tượng mạnh nhất cho vòng cung bỏ hoang → hồi sinh 2018/2024. Thiếu ảnh PD trước 1988: cần nguồn bổ sung (Burton Historical Collection/NARA) — chưa kiểm."
+  },
+  {
+   "id": "H2",
+   "ten": "Packard Automotive Plant",
+   "dia_chi": "E. Grand Blvd at Concord St., Detroit (chú thích LoC 2014648604; OSM: Frederick Street)",
+   "wgs84": [
+    42.37863,
+    -83.02761
+   ],
+   "nam": {
+    "xay": 1903,
+    "dong": 1958,
+    "pha_do": "CHƯA XÁC MINH trong phiên (không lấy được nguồn chính phủ/báo chí)",
+    "do_tin_cay": "CAO (City of Detroit)",
+    "pha_do_bat_dau": "2017 (thành phố bắt đầu); đợt chính cuối 09/2022 tại 6199 Concord",
+    "pha_do_hoan_tat": "dự kiến hết 2024 (thông cáo RFP); chưa có thông báo hoàn tất; giữ cánh trước 1539 E. Grand Blvd",
+    "tai_phat_trien": "Packard Park 28 acre, dự kiến xong 2029"
+   },
+   "nguon_nam": [
+    {
+     "url": "https://api.openstreetmap.org/api/0.6/way/321493643/full",
+     "sha256": "2bbd1addf706b3c4a4788be0b664e999295286ca377c464de0ae6507e476cf79",
+     "trich_nguyen_van": "<tag k=\"start_date\" v=\"1903\"/> <tag k=\"end_date\" v=\"1958\"/> <tag k=\"architect\" v=\"Albert Kahn\"/> <tag k=\"landuse\" v=\"brownfield\"/> <tag k=\"abandoned:landuse\" v=\"industrial\"/>"
+    },
+    {
+     "url": "https://www.loc.gov/item/2022887112/?fo=json",
+     "sha256": "8116c011a60dcf034cc4cc28afb980adc53ab3ddbcd971c7c53bbee57f2ac305",
+     "trich_nguyen_van": "[Exterior view of the Packard Motor Co. factory with smokestacks, Detroit, Michigan] — date 1958-01-01"
+    },
+    {
+     "url": "https://web.archive.org/web/20250723215919/https://detroitmi.gov/news/city-detroit-and-detroit-economic-growth-corporation-announce-request-proposals-redevelopment-former",
+     "fetched_utc": "2026-10-16T09:58:58Z",
+     "sha256": "122f6246260ff96becb6c1f2f6acf7b862fd8de50637bffbd280d77a9b42e96c",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "The Packard Plant, originally operational from 1903 to 1958, has been the subject of various renovation, demolition and redevelopment efforts since the 1990s."
+    },
+    {
+     "url": "https://web.archive.org/web/20250723215919/https://detroitmi.gov/news/city-detroit-and-detroit-economic-growth-corporation-announce-request-proposals-redevelopment-former",
+     "fetched_utc": "2026-10-16T09:58:58Z",
+     "sha256": "122f6246260ff96becb6c1f2f6acf7b862fd8de50637bffbd280d77a9b42e96c",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "In 2017, the City of Detroit began demolishing the former plant, and since 2022 has been undertaking demolition work on the parcels included in the proposed development site."
+    },
+    {
+     "url": "https://web.archive.org/web/20250723215919/https://detroitmi.gov/news/city-detroit-and-detroit-economic-growth-corporation-announce-request-proposals-redevelopment-former",
+     "fetched_utc": "2026-10-16T09:58:58Z",
+     "sha256": "122f6246260ff96becb6c1f2f6acf7b862fd8de50637bffbd280d77a9b42e96c",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "Demolition is expected to be completed by the end of 2024."
+    },
+    {
+     "url": "https://web.archive.org/web/20231002180756id_/https://detroitmi.gov/news/city-begins-demolition-second-portion-packard-plant-ramps-efforts-remove-remaining-sections",
+     "fetched_utc": "2026-10-16T09:59:39Z",
+     "sha256": "ae40f9f4b1912c88dbd22a1afe12eeaeeaf34b2449062a500bf6ccbee24827fc",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "Emergency demolition began on the first portion the plant at 6199 Concord in late September 2022."
+    },
+    {
+     "url": "https://web.archive.org/web/20231002180756id_/https://detroitmi.gov/news/city-begins-demolition-second-portion-packard-plant-ramps-efforts-remove-remaining-sections",
+     "fetched_utc": "2026-10-16T09:59:39Z",
+     "sha256": "ae40f9f4b1912c88dbd22a1afe12eeaeeaf34b2449062a500bf6ccbee24827fc",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "the front wing of 1539 E. Grand Boulevard will remain and be marketed for redevelopment in an effort to retain a portion of the plant’s history."
+    },
+    {
+     "url": "https://web.archive.org/web/20251204135606id_/https://detroitmi.gov/news/mayor-duggan-announces-proposed-28-acre-redevelopment-southern-half-packard-plant",
+     "fetched_utc": "2026-10-16T09:59:41Z",
+     "sha256": "86802e475b291b8ef828f1261b4ad897cdab4c427e9e0b07791098d9d055166c",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "It took an incredible amount of work to gain title to the property and tear down everything that could not be saved in hopes for a day like this,” said Mayor Mike Duggan."
+    },
+    {
+     "url": "https://web.archive.org/web/20251204135606id_/https://detroitmi.gov/news/mayor-duggan-announces-proposed-28-acre-redevelopment-southern-half-packard-plant",
+     "fetched_utc": "2026-10-16T09:59:41Z",
+     "sha256": "86802e475b291b8ef828f1261b4ad897cdab4c427e9e0b07791098d9d055166c",
+     "loai_nguon": "Thông cáo City of Detroit (bản Wayback; detroitmi.gov trả 403 Cloudflare)",
+     "trich_nguyen_van": "The developers expect the project to be complete by 2029."
+    }
+   ],
+   "hinh_hoc": {
+    "nguon": "OpenStreetMap way/321493643 (vùng di tích/brownfield toàn khu, KHÔNG phải một toà nhà)",
+    "url": "https://api.openstreetmap.org/api/0.6/way/321493643/full",
+    "giay_phep": "ODbL 1.0 — © OpenStreetMap contributors (https://www.openstreetmap.org/copyright)",
+    "sha256": "2bbd1addf706b3c4a4788be0b664e999295286ca377c464de0ae6507e476cf79",
+    "hop_bao_m": {
+     "dai": 1231.9,
+     "rong": 176.4,
+     "phuong_vi_truc_dai_deg": 155.3
+    },
+    "dien_tich_m2": 191598.0,
+    "cao_m": null,
+    "so_tang": null,
+    "the_osm_lien_quan": {
+     "architect": "Albert Kahn",
+     "end_date": "1958",
+     "start_date": "1903"
+    },
+    "phep_do": "UTM 17N (WGS84, công thức TM Snyder tự viết; kiểm 42N/81W → N=4649776.2 m), diện tích shoelace, hộp bao định hướng diện tích nhỏ nhất (rotating calipers trên bao lồi)",
+    "ghi_chu": "Khu dài 1231.9 m × 176.4 m. ArcGIS Detroit còn một đa giác 'WAREHOUSE STORAGE' tại 5869 Concord: 380.9 × 157.2 m, 42 902 m² (đo UTM, Item dc0b3425fc824776a496d4d66500cdc2: licenseInfo='' ; accessInformation='' (TRỐNG) — không có giấy phép nêu rõ → chỉ dùng đối chiếu nội bộ, không phát hành hình học)."
+   },
+   "tu_lieu": [
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2022887112/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/77900/77930v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/77900/77930u.tif (19358166 B)",
+     "tieu_de": "[Exterior view of the Packard Motor Co. factory with smokestacks, Detroit, Michigan] / WKL.",
+     "ngay": "1958-01-01",
+     "tac_gia": "Leffler, Warren K., photographer",
+     "px": "1024x692",
+     "rights_nguyen_van": "No known restrictions on publication. For information see \"U.S. News & World Report Magazine Collection,\" https://www.loc.gov/rr/print/res/078_usnw.html",
+     "sha256": "d5fe298343ce705ca5f221aa9121cce1b6814d8980765f770b60807aaea55370",
+     "fetched_utc": "2026-10-16T09:52:53Z",
+     "ly_do": "d khoảnh khắc biểu tượng (năm đóng cửa) + c chất liệu (gạch, ống khói chữ PACKARD)",
+     "gia_tri": "cao",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2016795766/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a21000/4a21000/4a21022v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/det/4a20000/4a21000/4a21000/4a21022u.tif (20540834 B)",
+     "tieu_de": "Boulevard view, Packard auto plant, Detroit, Mich.",
+     "ngay": "1900-01-01",
+     "tac_gia": "Detroit Publishing Co., publisher",
+     "px": "1024x822",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "9d4c05e7a99cbd4a69e86a6666bc93adc68d8648e1dd9d33d14fccdaaf610fad",
+     "fetched_utc": "2026-10-16T09:52:53Z",
+     "ly_do": "c quy mô/chất liệu — hai khối bê tông Kahn hai bên đại lộ, đang xây",
+     "gia_tri": "cao",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2016812956/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a21000/4a21300/4a21336v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/det/4a20000/4a21000/4a21300/4a21336u.tif (20561086 B)",
+     "tieu_de": "Packard [Motor Car Company] Auto Plant, Detroit, Mich.",
+     "ngay": "1900-01-01",
+     "tac_gia": "Detroit Publishing Co., publisher",
+     "px": "1024x823",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "cdfb1ee38c1f90c58542142a9fdee888ea9d2d01ae0ce98ac46ed6b9056e512c",
+     "fetched_utc": "2026-10-16T09:52:53Z",
+     "ly_do": "c quy mô — toàn cảnh nhà máy",
+     "gia_tri": "trung bình",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2017841392/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/fsa/8d11000/8d11500/8d11531v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/fsa/8d11000/8d11500/8d11531u.tif (252154 B)",
+     "tieu_de": "Detroit, Michigan. Assembly of Rolls Royce engines at the Packard Motor Car Company. Going home",
+     "ngay": "1943-01-01",
+     "tac_gia": "Siegel, Arthur S., photographer",
+     "px": "1024x820",
+     "rights_nguyen_van": "No known restrictions. For information, see U.S. Farm Security Administration/Office of War Information Black & White Photographs https://www.loc.gov/rr/print/res/071_fsab.html",
+     "sha256": "690366e25addcd9dfb2e9a93fc70be6c0b8a1c22a5bcb4b61fd94d0b2111c628",
+     "fetched_utc": "2026-10-16T09:52:54Z",
+     "ly_do": "b con người/đời sống — công nhân lắp động cơ Rolls Royce thời chiến",
+     "gia_tri": "trung bình",
+     "ghi_chu": ""
+    }
+   ],
+   "tu_lieu_loai_bo": [
+    {
+     "url": "https://www.loc.gov/item/2014648604/",
+     "ly_do": "Vergara 1991 — 'Publication may be restricted'"
+    }
+   ],
+   "ban_ve_do_dac": "Không tìm thấy HABS/HAER (truy vấn 'Packard Detroit' trong bộ HABS/HAER/HALS rỗng).",
+   "uoc_gio": {
+    "chi_tiet": "50–70 (ước; mô-đun lặp khung bê tông giúp giảm)",
+    "trung_canh": "25–35 (ước)"
+   },
+   "de_xuat": "CHỌN — mức TRUNG CẢNH (khối mô-đun + trạng thái đổ nát). Ảnh 1958 là bằng chứng mạnh nhất cho 'đóng cửa'."
+  },
+  {
+   "id": "H3",
+   "ten": "Renaissance Center",
+   "dia_chi": "100 Renaissance Center / 400 E Jefferson Ave, Detroit",
+   "wgs84": [
+    42.32925,
+    -83.03985
+   ],
+   "nam": {
+    "khanh_thanh_giai_doan_1": "1977 (ảnh Korab LoC 'Phase 1' 1977; thẻ OSM) — chưa có thông cáo gốc",
+    "tru_so_GM": "thẻ OSM operator=General Motors, alt_name 'General Motors World Headquarters' — năm GM vào/rời CHƯA XÁC MINH",
+    "do_tin_cay": "CAO (GM 1996/2024/2026); TRUNG BÌNH (1977)",
+    "GM_mua": "1996 (GM)",
+    "GM_roi": "GM công bố 15/04/2024 chuyển trụ sở sang Hudson's Detroit 'in 2025'; bài GM ngày 12/01/2026 xác nhận đã chuyển về Woodward"
+   },
+   "nguon_nam": [
+    {
+     "url": "https://api.openstreetmap.org/api/0.6/relation/10011997/full",
+     "sha256": "7961f4ce97e971603241687f6e2b89234fc0f4c5d47bdcf2988b7fb96ff405f5",
+     "trich_nguyen_van": "<tag k=\"start_date\" v=\"1977\"/> <tag k=\"height\" v=\"221.5\"/> <tag k=\"alt_name\" v=\"General Motors World Headquarters\"/> <tag k=\"operator\" v=\"General Motors\"/>"
+    },
+    {
+     "url": "https://www.loc.gov/item/2022654440/?fo=json",
+     "sha256": "759521047c79ef535a1b625a11ddb74a3e83669cd73694887e09a7f6519c8e95",
+     "trich_nguyen_van": "[Detroit Renaissance Center, Phase 1, Detroit, Michigan. View from waterfront] — date 1977-01-01"
+    },
+    {
+     "url": "https://news.gm.com/home.detail.html/Pages/news/us/en/2024/apr/0415-headquarters.html",
+     "fetched_utc": "2026-10-16T09:58:24Z",
+     "sha256": "f5af67e3bf3e62e2e6ec9c114e14df68cb29f492a481a22d036cbb99aead5dd5",
+     "loai_nguon": "Thông cáo chủ sở hữu (GM newsroom)",
+     "trich_nguyen_van": "When GM acquired the Renaissance Center in 1996 it was a catalyst for the revitalization of the city and the transformation of the Detroit riverfront."
+    },
+    {
+     "url": "https://news.gm.com/home.detail.html/Pages/news/us/en/2024/apr/0415-headquarters.html",
+     "fetched_utc": "2026-10-16T09:58:24Z",
+     "sha256": "f5af67e3bf3e62e2e6ec9c114e14df68cb29f492a481a22d036cbb99aead5dd5",
+     "loai_nguon": "Thông cáo chủ sở hữu (GM newsroom)",
+     "trich_nguyen_van": "General Motors will relocate its global headquarters to Hudson’s Detroit in 2025, becoming the anchor tenant at Bedrock’s development on the historic site of the former J.L. Hudson Department Store."
+    },
+    {
+     "url": "https://news.gm.com/home.detail.html/Pages/news/us/en/2026/jan/0112-General-Motors-new-home-Detroit.html",
+     "fetched_utc": "2026-10-16T09:58:25Z",
+     "sha256": "e9f8c585b173459c4b5f6de78553eae63ec5590550f4803167a0c377070efb5c",
+     "loai_nguon": "Thông cáo chủ sở hữu (GM newsroom) — ngày đăng 2026-01-12",
+     "trich_nguyen_van": "Today, we are returning to Woodward Avenue and launching a bold new era for the company."
+    }
+   ],
+   "hinh_hoc": {
+    "nguon": "OpenStreetMap relation/10011997 (multipolygon 2 vành ngoài — toàn phức hợp)",
+    "url": "https://api.openstreetmap.org/api/0.6/relation/10011997/full",
+    "giay_phep": "ODbL 1.0 — © OpenStreetMap contributors (https://www.openstreetmap.org/copyright)",
+    "sha256": "7961f4ce97e971603241687f6e2b89234fc0f4c5d47bdcf2988b7fb96ff405f5",
+    "hop_bao_m": {
+     "dai": 324.1,
+     "rong": 218.7,
+     "phuong_vi_truc_dai_deg": 61.4
+    },
+    "dien_tich_m2": 46139.0,
+    "cao_m": 221.5,
+    "so_tang": null,
+    "the_osm_lien_quan": {
+     "height": "221.5",
+     "operator": "General Motors",
+     "start_date": "1977"
+    },
+    "phep_do": "UTM 17N (WGS84, công thức TM Snyder tự viết; kiểm 42N/81W → N=4649776.2 m), diện tích shoelace, hộp bao định hướng diện tích nhỏ nhất (rotating calipers trên bao lồi)",
+    "ghi_chu": "cao_m 221.5 là tháp giữa (thẻ của relation). Số tầng: OSM không có. ArcGIS Detroit 400 E JEFFERSON: 221.6 × 200.6 m, 39 220 m² (đo UTM; Item dc0b3425fc824776a496d4d66500cdc2: licenseInfo='' ; accessInformation='' (TRỐNG) — không có giấy phép nêu rõ → chỉ dùng đối chiếu nội bộ, không phát hành hình học)."
+   },
+   "tu_lieu": [
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2022654440/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/83700/83711v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/83700/83711u.tif (178828733 B)",
+     "tieu_de": "[Detroit Renaissance Center, Phase 1, Detroit, Michigan. View from waterfront]",
+     "ngay": "1977-01-01",
+     "tac_gia": "Korab, Balthazar, photographer",
+     "px": "824x1024",
+     "rights_nguyen_van": "No known restrictions on publication. For information see: \"Balthazar Korab collection,\" https://hdl.loc.gov/loc.pnp/res.598.kora",
+     "sha256": "ff30531bae72258b7f5a551dd869589b8a3503cf8e63a718fe34ffb930690e4c",
+     "fetched_utc": "2026-10-16T09:52:54Z",
+     "ly_do": "d khoảnh khắc biểu tượng — phức hợp mới khánh thành nhìn từ sông",
+     "gia_tri": "cao",
+     "ghi_chu": "Korab: chú thích LoC ghi No known restrictions; vẫn kiểm trang res.598.kora trước phát hành"
+    }
+   ],
+   "tu_lieu_loai_bo": [
+    {
+     "url": "https://www.loc.gov/item/2020696141/",
+     "ly_do": "Vergara 1995 — 'Publication may be restricted'"
+    }
+   ],
+   "ban_ve_do_dac": "Không có (công trình 1977, ngoài HABS).",
+   "uoc_gio": {
+    "chi_tiet": "35–45 (ước)",
+    "trung_canh": "15–20 (ước; hình trụ kính đơn giản)"
+   },
+   "de_xuat": "CHỌN — mức TRUNG CẢNH/đường chân trời. Biểu tượng 'nỗ lực phục hưng 1977'. Rủi ro logo GM (xem báo cáo)."
+  },
+  {
+   "id": "H4",
+   "ten": "J.L. Hudson's department store (nền cũ) → Hudson's Detroit",
+   "dia_chi": "1208 Woodward Ave, Detroit (khối phố Woodward–Gratiot)",
+   "wgs84": [
+    42.3336,
+    -83.0477
+   ],
+   "nam": {
+    "cua_hang_ton_tai": "đã đứng trên Woodward năm 1917 và 1925 (ảnh LoC có biển 'HUDSON'S')",
+    "cac_dot_xay_1911_1946_dong_1983_no_pha_1998_10_24": "CHƯA XÁC MINH bằng nguồn chính trong phiên",
+    "toa_moi": "12 tầng + tháp 45 tầng (GM 2024) ↔ OSM 49 tầng / 208.9 m → LỆCH",
+    "do_tin_cay": "TRUNG BÌNH-THẤP: mốc 1983/1998 chỉ có báo chí; chưa có nguồn chính phủ",
+    "khoi_cong_cua_hang_dau": "1891 (GM)",
+    "dong_cua": "1983-01-17 (báo chí)",
+    "no_pha": "1998-10-24 (báo chí)",
+    "cao_toa_cu": "410 ft ≈ 125 m (CBS dẫn Detroit Historical Society; FOX 2: 'over 400 feet') — số báo chí",
+    "so_tang_toa_cu": "25 tầng + 2 nửa tầng + lửng + 4 hầm (CBS)",
+    "bai_do_ngam": "2001 (FOX 2)",
+    "nam_mo_toa_Woodward_1911": "CHƯA có nguồn chính (chỉ Wikipedia)"
+   },
+   "nguon_nam": [
+    {
+     "url": "https://www.loc.gov/item/2016816051/?fo=json",
+     "sha256": "34a79a0567891efdb0cffc044a4c030f78e17218a8088a213eac9ee30ba9fbc5",
+     "trich_nguyen_van": "[Looking up Woodward Avenue, Detroit, Mich.] — date 1917-01-01 (biển HUDSONS nhìn thấy trong ảnh, đã kiểm bằng mắt)"
+    },
+    {
+     "url": "https://www.loc.gov/item/2007680472/?fo=json",
+     "sha256": "f648df5a10fccbf76919672531042146751f76ee56df542fd9898f556e61d80d",
+     "trich_nguyen_van": "Woodward Avenue from City Hall, Detroit, Mich. — date 1925-01-01 (biển HUDSON'S nhìn thấy)"
+    },
+    {
+     "url": "https://api.openstreetmap.org/api/0.6/way/1105871812/full",
+     "sha256": "287b1fd8ab90ec277917c3db25050c04dbca5c8f63545e5569523a9c6b352751",
+     "trich_nguyen_van": "<tag k=\"height\" v=\"208.9\"/> <tag k=\"building:levels\" v=\"49\"/> <tag k=\"start_date\" v=\"2025-08-22\"/> <tag k=\"operator\" v=\"Bedrock Detroit\"/>"
+    },
+    {
+     "url": "https://news.gm.com/home.detail.html/Pages/news/us/en/2024/apr/0415-headquarters.html",
+     "fetched_utc": "2026-10-16T09:58:24Z",
+     "sha256": "f5af67e3bf3e62e2e6ec9c114e14df68cb29f492a481a22d036cbb99aead5dd5",
+     "loai_nguon": "Thông cáo chủ sở hữu (GM newsroom)",
+     "trich_nguyen_van": "The Hudson’s department store, known as the “Big Store” and “J.L. Hudson,” broke ground in 1891"
+    },
+    {
+     "url": "https://news.gm.com/home.detail.html/Pages/news/us/en/2024/apr/0415-headquarters.html",
+     "fetched_utc": "2026-10-16T09:58:24Z",
+     "sha256": "f5af67e3bf3e62e2e6ec9c114e14df68cb29f492a481a22d036cbb99aead5dd5",
+     "loai_nguon": "Thông cáo chủ sở hữu (GM newsroom)",
+     "trich_nguyen_van": "Comprised of a 12-story office building with event and retail spaces, and adjacent 45 floor hotel and residential tower"
+    },
+    {
+     "url": "https://www.cbsnews.com/detroit/news/this-day-in-history-hudsons-downtown-detroit-store-closes-in-1983/",
+     "fetched_utc": "2026-10-16T10:00:58Z",
+     "sha256": "fbc16b97ca9f5df083f1c22c26f8cc9aeb215e5bc113b889b91db4be65412b11",
+     "loai_nguon": "BÁO CHÍ (thứ cấp, không phải nguồn chính) — CBS Detroit",
+     "trich_nguyen_van": "Hudson's closed on Jan. 17, 1983"
+    },
+    {
+     "url": "https://www.cbsnews.com/detroit/news/this-day-in-history-hudsons-downtown-detroit-store-closes-in-1983/",
+     "fetched_utc": "2026-10-16T10:00:58Z",
+     "sha256": "fbc16b97ca9f5df083f1c22c26f8cc9aeb215e5bc113b889b91db4be65412b11",
+     "loai_nguon": "BÁO CHÍ (thứ cấp, không phải nguồn chính) — CBS Detroit",
+     "trich_nguyen_van": "on Oct. 24, 1998, the building was imploded."
+    },
+    {
+     "url": "https://www.cbsnews.com/detroit/news/this-day-in-history-hudsons-downtown-detroit-store-closes-in-1983/",
+     "fetched_utc": "2026-10-16T10:00:58Z",
+     "sha256": "fbc16b97ca9f5df083f1c22c26f8cc9aeb215e5bc113b889b91db4be65412b11",
+     "loai_nguon": "BÁO CHÍ (thứ cấp, không phải nguồn chính) — CBS Detroit (dẫn Detroit Historical Society)",
+     "trich_nguyen_van": "Hudson's was also the tallest department store in the world at 410 feet."
+    },
+    {
+     "url": "https://www.cbsnews.com/detroit/news/this-day-in-history-hudsons-downtown-detroit-store-closes-in-1983/",
+     "fetched_utc": "2026-10-16T10:00:58Z",
+     "sha256": "fbc16b97ca9f5df083f1c22c26f8cc9aeb215e5bc113b889b91db4be65412b11",
+     "loai_nguon": "BÁO CHÍ (thứ cấp, không phải nguồn chính) — CBS Detroit",
+     "trich_nguyen_van": "The store eventually consisted of 25 floors, two half-floors, a mezzanine and four basements."
+    },
+    {
+     "url": "https://fox2detroit.com/news/hudsons-building-implosion-25-years-since-the-dust-cloud-engulfed-the-city-of-detroit",
+     "fetched_utc": "2026-10-16T10:01:00Z",
+     "sha256": "0511ac1bcb72550f4d92b10b6b0715e5cd611feb852f51b1bb3165ee47fe6d47",
+     "loai_nguon": "BÁO CHÍ (thứ cấp, không phải nguồn chính) — FOX 2 Detroit",
+     "trich_nguyen_van": "After the implosion, the lot was turned into a four-level underground parking garage in 2001."
+    }
+   ],
+   "hinh_hoc": {
+    "nguon": "OpenStreetMap way/1105871812 (tháp Hudson's Detroit mới)",
+    "url": "https://api.openstreetmap.org/api/0.6/way/1105871812/full",
+    "giay_phep": "ODbL 1.0 — © OpenStreetMap contributors (https://www.openstreetmap.org/copyright)",
+    "sha256": "287b1fd8ab90ec277917c3db25050c04dbca5c8f63545e5569523a9c6b352751",
+    "hop_bao_m": {
+     "dai": 67.1,
+     "rong": 30.5,
+     "phuong_vi_truc_dai_deg": 61.4
+    },
+    "dien_tich_m2": 2046.0,
+    "cao_m": 208.9,
+    "so_tang": 49,
+    "the_osm_lien_quan": {
+     "building:levels": "49",
+     "height": "208.9",
+     "operator": "Bedrock Detroit",
+     "start_date": "2025-08-22"
+    },
+    "phep_do": "UTM 17N (WGS84, công thức TM Snyder tự viết; kiểm 42N/81W → N=4649776.2 m), diện tích shoelace, hộp bao định hướng diện tích nhỏ nhất (rotating calipers trên bao lồi)",
+    "ghi_chu": "Kích thước toà cũ (chiều cao, số tầng) KHÔNG có số đo trong phiên; khối phố ~129.6 × 68.6 m là giới hạn mặt bằng (đo được).",
+    "khoi_thap_moi_way_1105871813": {
+     "hop_bao_m": {
+      "dai": 80.4,
+      "rong": 67.6,
+      "phuong_vi_truc_dai_deg": 151.2
+     },
+     "dien_tich_m2": 5420.0,
+     "sha256": "a19a6226962baede758361789a669179798494ad46d6b156b72229e99dbd9243",
+     "cao_m": 70.7,
+     "so_tang": 12
+    },
+    "nen_khoi_pho_cu_arcgis": {
+     "nguon": "Detroit ArcGIS Commercial_Industrial_or_Institutional_Building_Footprints, 1208 WOODWARD AVENUE (GARAGE-PARKING-UNDERGROUND)",
+     "hop_bao_m": {
+      "dai": 129.6,
+      "rong": 68.6,
+      "phuong_vi_truc_dai_deg": 150.8
+     },
+     "dien_tich_m2": 8799,
+     "sha256": "b84196726213cf55a6ca0a276d4debbbc3e52d51ac39c536ba489e39b923be81",
+     "giay_phep": "Item dc0b3425fc824776a496d4d66500cdc2: licenseInfo='' ; accessInformation='' (TRỐNG) — không có giấy phép nêu rõ → chỉ dùng đối chiếu nội bộ, không phát hành hình học"
+    },
+    "cao_toa_cu_m": "≈125 (410 ft, báo chí; ước-thứ cấp)"
+   },
+   "tu_lieu": [
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2016816051/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a25000/4a25600/4a25686v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/det/4a20000/4a25000/4a25600/4a25686u.tif (20605694 B)",
+     "tieu_de": "[Looking up Woodward Avenue, Detroit, Mich.]",
+     "ngay": "1917-01-01",
+     "tac_gia": "Detroit Publishing Co., publisher",
+     "px": "1024x818",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "52215f3de049c8e91fe0896a5c08f65034c90e19e3897563ea5ac05da4a9c0f9",
+     "fetched_utc": "2026-10-16T09:52:55Z",
+     "ly_do": "c quy mô trong đô thị + d (Campus Martius, đài tưởng niệm làm điểm khống chế)",
+     "gia_tri": "cao",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2007680472/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/15300/15307v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/15300/15307u.tif (29389198 B)",
+     "tieu_de": "Woodward Avenue from City Hall, Detroit, Mich.",
+     "ngay": "1925-01-01",
+     "tac_gia": "Keystone View Company.",
+     "px": "1024x526",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "463efadb085b083a08950cdf19479d9216f1b6edabb8588bb197f80882a38dfa",
+     "fetched_utc": "2026-10-16T09:52:54Z",
+     "ly_do": "b con người/đời sống — đám đông Woodward, ảnh lập thể Keystone",
+     "gia_tri": "cao",
+     "ghi_chu": "Ảnh lập thể: cắt một nửa; xuất bản 1925 → PD tại Mỹ (trước 1931)"
+    }
+   ],
+   "ban_ve_do_dac": "Không tìm thấy HABS (truy vấn 'Hudson Detroit' lỗi HTTP/2 một lần, truy vấn 'J.L. Hudson Company Detroit' rỗng). Cần thử lại.",
+   "uoc_gio": {
+    "chi_tiet": "50–70 (ước; thiếu bản vẽ, dựng từ ảnh)",
+    "trung_canh": "25–35 (ước)"
+   },
+   "de_xuat": "CHỌN — mức CHI TIẾT. Đường cong rõ nhất: cửa hàng → bãi trống → tháp mới trên cùng nền. Cặp then/now tốt nhất."
+  },
+  {
+   "id": "H5",
+   "ten": "Ford Highland Park Plant",
+   "dia_chi": "91 Manchester Avenue, Highland Park (NRHP form); Woodward Ave",
+   "wgs84": [
+    42.4105,
+    -83.09956
+   ],
+   "nam": {
+    "chuyen_den": 1910,
+    "day_chuyen_di_dong": 1913,
+    "lap_rap_cuoi_chuyen_Rouge": 1927,
+    "nguon": "NRHP 73000961",
+    "do_tin_cay": "CAO"
+   },
+   "nguon_nam": [
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/73000961_text",
+     "sha256": "b6f1ec6c0b6e07290785499be8d3ae4b233b0d885618f367bf49bf8f1415ac8c",
+     "trich_nguyen_van": "Designed for the most part by noted industrial architect Albert Kahn, the plant from 1910 to 1927 was the scene of numerous advances in the development of mass production techniques."
+    },
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/73000961_text",
+     "sha256": "b6f1ec6c0b6e07290785499be8d3ae4b233b0d885618f367bf49bf8f1415ac8c",
+     "trich_nguyen_van": "Gradually .the Rouge Plant surpassed Highland Park in size and importance, and in 1927 the final assembly line Troved to the new facility. [OCR nguyên văn; 'Troved' = moved]"
+    },
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/73000961_text",
+     "sha256": "0cffefe1779c69b0b6b68cda3ae221064076e56ef2f68eb8dc58f706f22e722c",
+     "trich_nguyen_van": "(bản NHL, cùng nội dung; form ngày May 1977, Ralph J. Christian)"
+    }
+   ],
+   "hinh_hoc": {
+    "nguon": "NRHP 73000961 (kích thước từng xưởng) + OSM way 113033769 (mảnh nhỏ)",
+    "url": "https://npgallery.nps.gov/NRHP/GetAsset/NRHP/73000961_text",
+    "giay_phep": "Tài liệu chính phủ Mỹ (NPS) — public domain",
+    "sha256": "b6f1ec6c0b6e07290785499be8d3ae4b233b0d885618f367bf49bf8f1415ac8c",
+    "trich_kich_thuoc": [
+     "Completed around 1911, the 75-by~ 760-foot edifice [Factory H] (= 22.9 × 231.6 m)",
+     "Factories W, X, Y, and Z and Craneways WX y XY« and YZ. These six-story structures of reinforced concrete and brick",
+     "Each factory measured 60 by 840 feet (= 18.3 × 256.0 m)",
+     "ACREAGE OF NOMINATED PROPERTY 55 (= 22.3 ha)",
+     "When Henry Ford transferred his company's operations to Highland Park in 1910, the plant consisted of a four-story main factory building"
+    ],
+    "osm_way_113033769": {
+     "hop_bao_m": {
+      "dai": 61.2,
+      "rong": 14.8,
+      "phuong_vi_truc_dai_deg": 154.8
+     },
+     "dien_tich_m2": 903.0,
+     "sha256": "7a9ef9c350f80cc06df1454a1d9adad5e8b44de38b030a586ec650525d276057",
+     "ghi_chu": "chỉ 903 m² — một phần nhỏ, KHÔNG đại diện nhà máy"
+    },
+    "hop_bao_m": null,
+    "dien_tich_m2": null,
+    "cao_m": null,
+    "so_tang": "4 (Factory H, toà chính 1910); 6 (Factories W–Z)"
+   },
+   "tu_lieu": [
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2011661021/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/cph/3a20000/3a20000/3a20500/3a20510r.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/cph/3a20000/3a20000/3a20500/3a20510u.tif (1900930 B)",
+     "tieu_de": "[Assembly line at the Ford Motor Company's Highland Park plant]",
+     "ngay": "1913-01-01",
+     "tac_gia": "",
+     "px": "640x515",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "1eeaac9760e26ae558742f52507d825cf227a2353797d82de44230c30541a1ad",
+     "fetched_utc": "2026-10-16T09:52:55Z",
+     "ly_do": "d khoảnh khắc biểu tượng — dây chuyền lắp ráp 1913",
+     "gia_tri": "cao",
+     "ghi_chu": "Chỉ có bản 640 px trong JSON; TIFF gốc xem master_tiff"
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2011661047/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/cph/3a20000/3a21000/3a21200/3a21293r.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/cph/3a20000/3a21000/3a21200/3a21293u.tif (1880938 B)",
+     "tieu_de": "[Model T's coming off the assembly line at the Highland Park plant]",
+     "ngay": "1900-01-01",
+     "tac_gia": "",
+     "px": "640x510",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "e9819d1a802d6b809245b74ca5f0027317fd0b23c64a17d077db4928b274af53",
+     "fetched_utc": "2026-10-16T09:52:55Z",
+     "ly_do": "b con người — Model T ra khỏi dây chuyền",
+     "gia_tri": "trung bình",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2016816218/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/det/4a20000/4a25000/4a25800/4a25870v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/det/4a20000/4a25000/4a25800/4a25870u.tif (20577330 B)",
+     "tieu_de": "[Ford Motor Company plant, Highland Park, Detroit, Michigan]",
+     "ngay": "1900-01-01",
+     "tac_gia": "Detroit Publishing Co., publisher",
+     "px": "1024x822",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "c736439c575c1e0bbf1f679ea27059cc3acf407e283e9a2ed69c4d34d18805fd",
+     "fetched_utc": "2026-10-16T09:52:56Z",
+     "ly_do": "c quy mô — toàn cảnh nhà máy (DPC)",
+     "gia_tri": "cao",
+     "ghi_chu": ""
+    }
+   ],
+   "ban_ve_do_dac": "Không tìm thấy HABS/HAER (truy vấn 'Highland Park Ford' chỉ ra mi0713 Ford Service Building ở Detroit).",
+   "uoc_gio": {
+    "chi_tiet": "40–60 (ước)",
+    "trung_canh": "20–30 (ước)"
+   },
+   "de_xuat": "DỰ PHÒNG / chỉ tư liệu lưu trữ. Mốc 1910–1927 nằm trước khung 1950→2026 và ở thành phố Highland Park (ngoài Detroit). Dùng ảnh 1913 cho đoạn mở 'vì sao Detroit lớn'."
+  },
+  {
+   "id": "H6",
+   "ten": "Guardian Building (chính) / Fisher Building (phụ)",
+   "dia_chi": "500 Griswold St (Guardian); 3011 W Grand Blvd (Fisher)",
+   "wgs84": [
+    42.32946,
+    -83.04597
+   ],
+   "nam": {
+    "guardian_hoan_thanh": "1929 (NHL)",
+    "guardian_pha_nha_cu_bat_dau": "1927-03-01 (NHL)",
+    "fisher": "NHL 80001922: mốc 1927-1928; tháp 28 tầng, 442 ft (134.7 m); hai cánh 11 tầng",
+    "do_tin_cay": "CAO"
+   },
+   "nguon_nam": [
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/89001165_text",
+     "sha256": "ddaba9e610cebf1a04900f55f6e702f7cafb09430cb82c4903a6ab3f7204abba",
+     "trich_nguyen_van": "Completed in 1929, the Guardian Building, then known as the New Union Trust Building, cost $12 million to build. It rises 40 stories from the street to 485 feet."
+    },
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/89001165_text",
+     "sha256": "ddaba9e610cebf1a04900f55f6e702f7cafb09430cb82c4903a6ab3f7204abba",
+     "trich_nguyen_van": "It rests upon 72 caissons sunk through hardpan to bedrock 120 feet below the surface of the ground."
+    },
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/80001922_text",
+     "fetched_utc": "2026-10-16T10:00Z",
+     "sha256": "8e9dac8ba264cbf6bbcbe61f9732d523ede403c91be2971ba2f03eae4fa200fc",
+     "loai_nguon": "NHL nomination Fisher Building (NPS, PD)",
+     "trich_nguyen_van": "with a 28-story central office tower (442 feet high) with two flat-roof ed wings of 11 stories extending to the north and west."
+    },
+    {
+     "url": "https://npgallery.nps.gov/NRHP/GetAsset/NHLS/80001922_text",
+     "fetched_utc": "2026-10-16T10:00Z",
+     "sha256": "8e9dac8ba264cbf6bbcbe61f9732d523ede403c91be2971ba2f03eae4fa200fc",
+     "loai_nguon": "NHL nomination Fisher Building (NPS, PD)",
+     "trich_nguyen_van": "Mục 8 SIGNIFICANT DATES (bảng biểu, OCR): '1927-1928'; mục 'Specific dates' ghi '1927 to present' cho kiến trúc"
+    },
+    {
+     "url": "https://web.archive.org/web/20121006234422/http://tps.cr.nps.gov/nhl/detail.cfm?ResourceId=1827&ResourceType=Building",
+     "fetched_utc": "2026-10-16T09:58:29Z",
+     "sha256": "5fe22dcede560093c689332cc0e4b595e138681d48b30567c2758b7c983142a5",
+     "loai_nguon": "NPS NHL program (tps.cr.nps.gov, bản Wayback 2012)",
+     "trich_nguyen_van": "The Fisher Building (1927) contains some of the most beautiful detailing of any American skyscraper ever built."
+    }
+   ],
+   "hinh_hoc": {
+    "nguon": "OpenStreetMap way/330839648 (Guardian Building)",
+    "url": "https://api.openstreetmap.org/api/0.6/way/330839648/full",
+    "giay_phep": "ODbL 1.0 — © OpenStreetMap contributors (https://www.openstreetmap.org/copyright)",
+    "sha256": "fa2def8a56e278642546d70d3f9c6471fd6416f84e0ac3721f9a9a8f5570730d",
+    "hop_bao_m": {
+     "dai": 82.8,
+     "rong": 24.8,
+     "phuong_vi_truc_dai_deg": 151.1
+    },
+    "dien_tich_m2": 2039.0,
+    "cao_m": 151.0,
+    "so_tang": 36,
+    "the_osm_lien_quan": {
+     "architect": "Smith, Hinchman &amp; Grylls, Wirt C. Rowland",
+     "building:levels": "36",
+     "height": "151",
+     "start_date": "1928"
+    },
+    "phep_do": "UTM 17N (WGS84, công thức TM Snyder tự viết; kiểm 42N/81W → N=4649776.2 m), diện tích shoelace, hộp bao định hướng diện tích nhỏ nhất (rotating calipers trên bao lồi)",
+    "ghi_chu": "LỆCH: NHL ghi 40 tầng / 485 ft (147.8 m); OSM ghi 36 tầng / 151 m. NHL cũng ghi 'The plans for the building called for a thirty-six story structure' → dùng số NHL, ghi chú lệch. ArcGIS 500 GRISWOLD: 87.3 × 25.6 m, 1 982 m² (đo UTM; Item dc0b3425fc824776a496d4d66500cdc2: licenseInfo='' ; accessInformation='' (TRỐNG) — không có giấy phép nêu rõ → chỉ dùng đối chiếu nội bộ, không phát hành hình học).",
+    "cao_m_nhl": 147.8,
+    "so_tang_nhl": 40,
+    "fisher_osm_way_112057847": {
+     "hop_bao_m": {
+      "dai": 116.5,
+      "rong": 109.7,
+      "phuong_vi_truc_dai_deg": 155.2
+     },
+     "dien_tich_m2": 8198.0,
+     "sha256": "eff222dc75d7c380c1f29539a9d728cc60fd353e3bb4ff8cfa45e2352aaac106",
+     "cao_m_osm": 52,
+     "so_tang_osm": 11,
+     "ghi_chu": "thẻ height=52 của way là khối đế, không phải tháp — không dùng cho chiều cao tháp"
+    },
+    "fisher_nhl": {
+     "cao_m": 134.7,
+     "so_tang": 28,
+     "canh_tang": 11,
+     "nguon": "NHL 80001922"
+    }
+   },
+   "tu_lieu": [
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2017826190/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/fsa/8c28000/8c28600/8c28625v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/fsa/8c28000/8c28600/8c28625u.tif (257194 B)",
+     "tieu_de": "Detroit, Michigan. Looking down Griswold Street towards the Union Guardian Building",
+     "ngay": "1942-01-01",
+     "tac_gia": "Siegel, Arthur S., photographer",
+     "px": "818x1024",
+     "rights_nguyen_van": "No known restrictions. For information, see U.S. Farm Security Administration/Office of War Information Black & White Photographs https://www.loc.gov/rr/print/res/071_fsab.html",
+     "sha256": "7daf1fe00f52036cfdfe8c2141085913693a762f3ec76962e625b5fb5a0b0817",
+     "fetched_utc": "2026-10-16T09:52:56Z",
+     "ly_do": "c quy mô — hẻm Griswold nhìn về Guardian, 1942",
+     "gia_tri": "cao",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2021641679/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/ppmsca/72200/72237v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/ppmsca/72200/72237u.tif (28804865 B)",
+     "tieu_de": "[Guardian Building, Detroit, Michigan]. [Exterior]",
+     "ngay": "1981-01-01",
+     "tac_gia": "Balthazar Korab Studios, Ltd., photographer",
+     "px": "819x1024",
+     "rights_nguyen_van": "No known restrictions on publication. For information see: \"Balthazar Korab collection,\" https://hdl.loc.gov/loc.pnp/res.598.kora",
+     "sha256": "9ed5446bdca8b40016cf3a2c5487513851f521640d20b45df613f6f3af6c48e7",
+     "fetched_utc": "2026-10-16T09:52:57Z",
+     "ly_do": "c chất liệu — ngoại thất 1981 (Korab)",
+     "gia_tri": "trung bình",
+     "ghi_chu": ""
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2017878613/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/fsac/1a35000/1a35400/1a35409v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/fsac/1a35000/1a35400/1a35409u.tif (202893494 B)",
+     "tieu_de": "Looking north on Woodward Ave., from the Maccabee[s] Building with the Fisher Building at the far left, and the Wardell Hotel at the middle right, Detroit, Mich",
+     "ngay": "1939",
+     "tac_gia": "Siegel, Arthur S., photographer",
+     "px": "1024x819",
+     "rights_nguyen_van": "No known restrictions on publication.",
+     "sha256": "797d761482fc5619791a51fe003c8868b1b8edc818f84b769a24e0c19d2430c2",
+     "fetched_utc": "2026-10-16T09:52:57Z",
+     "ly_do": "d mốc \"đỉnh giàu\" — Woodward nhìn bắc tới Fisher, 1939",
+     "gia_tri": "cao",
+     "ghi_chu": "Ảnh từ Maccabees Building — cả hai toà còn đứng: then/now"
+    },
+    {
+     "loai": "anh",
+     "loc_item": "https://www.loc.gov/item/2017826070/",
+     "url": "https://tile.loc.gov/storage-services/service/pnp/fsa/8c28000/8c28500/8c28583v.jpg",
+     "master_tiff": "https://tile.loc.gov/storage-services/master/pnp/fsa/8c28000/8c28500/8c28583u.tif (247666 B)",
+     "tieu_de": "Detroit, Michigan. Back of the Fisher Building",
+     "ngay": "1942-01-01",
+     "tac_gia": "Siegel, Arthur S., photographer",
+     "px": "1024x819",
+     "rights_nguyen_van": "No known restrictions. For information, see U.S. Farm Security Administration/Office of War Information Black & White Photographs https://www.loc.gov/rr/print/res/071_fsab.html",
+     "sha256": "fdbf8c471575a6143a3220a9bde4e67fa240d3dd26489b687a5d7e68d5c56a88",
+     "fetched_utc": "2026-10-16T09:52:57Z",
+     "ly_do": "c quy mô — mặt sau Fisher, 1942",
+     "gia_tri": "thấp",
+     "ghi_chu": ""
+    }
+   ],
+   "ban_ve_do_dac": "Không tìm thấy HABS cho Guardian/Fisher. LoC có 'Proposed decorations for the Fisher Building' 1928 (2018654603, 2018664369…) — bản vẽ trang trí, CHƯA kiểm rights.",
+   "uoc_gio": {
+    "chi_tiet": "50–70 (ước; gạch men trang trí)",
+    "trung_canh": "20–25 (ước)"
+   },
+   "de_xuat": "CHỌN Guardian — mức TRUNG CẢNH (đường chân trời 1929 'đỉnh giàu'). Fisher chỉ dùng ảnh lưu trữ."
+  }
+ ],
+ "then_now": [
+  {
+   "id": "TN1",
+   "hero": "H4",
+   "anh_cu": "https://www.loc.gov/item/2016816051/ (DPC 1917)",
+   "diem_khong_che": "Đài tưởng niệm Soldiers' and Sailors' (bên phải ảnh) + trục Woodward + đường ray",
+   "goc_render": "Từ Campus Martius nhìn bắc lên Woodward; 2026: tháp Hudson's Detroit 208.9 m trên nền cũ",
+   "rui_ro": "Vị trí đài tưởng niệm có thể đã dịch khi cải tạo Campus Martius — CHƯA XÁC MINH; Majestic Building (trái) không còn"
+  },
+  {
+   "id": "TN2",
+   "hero": "H6",
+   "anh_cu": "https://www.loc.gov/item/2017878613/ (Siegel 1939)",
+   "diem_khong_che": "Fisher Building ở cuối trục Woodward, nhìn từ Maccabees Building",
+   "goc_render": "Cùng góc cao từ Maccabees Building nhìn bắc; đối chiếu 1939 ↔ 2026",
+   "rui_ro": "Cần xác định tầng chụp (ước) để khớp tiêu cự"
+  },
+  {
+   "id": "TN3",
+   "hero": "H2",
+   "anh_cu": "https://www.loc.gov/item/2016795766/ (DPC, Boulevard view)",
+   "diem_khong_che": "Trục E. Grand Blvd + dải phân cách",
+   "goc_render": "Nhà máy mới xây → nền trống/đổ nát",
+   "rui_ro": "Điểm khống chế yếu nếu hai khối đã phá — phải kiểm hiện trạng"
+  }
+ ]
+}

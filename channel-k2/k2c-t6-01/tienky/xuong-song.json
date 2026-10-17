@@ -1,0 +1,102 @@
+{
+ "note": "Kế hoạch dữ liệu xương sống T6 Detroit — TẦNG CHUẨN (quyết ở TIEN-KY §11). Giờ là giờ người (ước).",
+ "as_of": "2026-10-16",
+ "quyet_tang": {
+  "ket_luan": "TẦNG CHUẨN",
+  "ly_do": [
+   "luật lệnh: tầng đầy đủ chỉ khi có năm xây/phá THEO TOÀ với giấy phép rõ",
+   "City of Detroit: licenseInfo trống ở footprint, phá dỡ, thửa, giấy phép xây; Terms bị chặn 403 → CHƯA RÕ",
+   "footprint có năm là ảnh ~2010: toà phá 1950–2010 (phần lớn cú co lại) không có bản ghi → thiên lệch sống sót giống T5 nhưng không có mô hình 4D bù",
+   "Wayne County / DLBA: không có lớp năm xây/phá theo toà với giấy phép rõ (DLBA nằm trong cùng cổng ArcGIS, licenseInfo trống)",
+   "Sanborn PD có đủ bộ 1949–51 (2 647 tờ) nhưng số hoá từng toà cả thành phố quá lớn (bảng phuong_an)"
+  ],
+  "nang_cap_co_dieu_kien": "Nếu DoIT xác nhận giấy phép bằng văn bản trước G1: nâng lớp L5 (31 904 vụ phá 2014–2026 theo điểm, có ngày) lên \"từng nhà biến mất đúng ngày\" cho chương 6 — vẫn là tầng chuẩn cho 1950–2013."
+ },
+ "phuong_an": [
+  {
+   "ten": "A. TẦNG ĐẦY ĐỦ (Sanborn 1950 toàn thành phố + footprint 2010 + phá dỡ 2014–2026)",
+   "gio_so_hoa": "≈ 1 300–2 700 giờ nếu số hoá tay ~250 000–400 000 toà chính (100–200 toà/giờ); 400–800 giờ nếu vector hoá bán tự động + kiểm tay (ước, chưa thử)",
+   "giay_phep": "Sanborn PD; lớp thành phố CHƯA RÕ",
+   "danh_gia": "LOẠI — vượt xa ước 180–330 giờ của phiên chọn thành phố (ước cũ không tính hết 2 647 tờ) và vẫn vướng giấy phép"
+  },
+  {
+   "ten": "B. TẦNG CHUẨN (đề xuất)",
+   "gio_so_hoa": "≈ 45–75 giờ",
+   "chi_tiet": {
+    "ranh_gioi_theo_nam (USGS topo 1940/1947/1952/1968 + Gibson diện tích)": "6–10",
+    "vung_xay_dung_1900–1950 (HISDAC-US FBUY CC0, tự động)": "1–2",
+    "duong_cao_toc_theo_nam_mo (TIGER PD + năm mở từ claims)": "6–10",
+    "3_khu_hero_tu_Sanborn_1950 (Black Bottom/I-375 ~10 tờ, Campus Martius–Hudson's ~4 tờ, Packard–E Grand Blvd ~6 tờ)": "20–35",
+    "then_now_khop_goc (TN1–TN2)": "4–6",
+    "HOLC 1939 ban quet NARA (PD) tu georeference, KHONG dung lop Mapping Inequality (CC BY-NC)": "6–10"
+   },
+   "giay_phep": "PD/CC0 toàn bộ",
+   "danh_gia": "CHỌN"
+  },
+  {
+   "ten": "C. Chuyển sang Helsinki",
+   "gio_so_hoa": "theo TIEN-KY-THANHPHO",
+   "danh_gia": "không cần: Detroit tầng chuẩn đủ cho lời hứa \"co lại\" và có cầu rõ hơn; xem TIEN-KY §1"
+  }
+ ],
+ "lop": [
+  {
+   "id": "L1",
+   "ten": "Dân số thành phố + 3 hạt theo thập niên 1840–2020 + Vintage 2025",
+   "nguon": "Census (dan-so.json)",
+   "vai": "bộ đếm, cặp tương phản, bảng điểm",
+   "luat": "giữa các mốc thập niên: nội suy tuyến tính, ghi \"interpolated\"; 2021–2025 ghi \"estimate (Vintage 2025)\""
+  },
+  {
+   "id": "L2",
+   "ten": "Ranh giới thành phố theo năm",
+   "nguon": "Gibson: 40,8 dặm² (1910) → 77,9 (1920) → 137,9 (1930) → 139,6 (1950) → 138,7 (1990); TIGER 2020 138,7 dặm²; vạch theo năm số hoá từ USGS topo (PD)",
+   "vai": "vạch ranh sống ở ch.1 và ch.4",
+   "luat": "từ 1930 ranh gần như đứng yên → \"the city could not grow outward after the 1920s\" (giống Zürich 1934); Hamtramck, Highland Park luôn khoét lỗ"
+  },
+  {
+   "id": "L3",
+   "ten": "Vùng đô thị theo năm 1900–1950 và ngoại ô 1950–2020",
+   "nguon": "HISDAC-US FBUY v2 (CC0, 250 m) đến 1985 → Annual NLCD (PD, 30 m) 1985–2025",
+   "vai": "loang ra 3 hạt trong ch.4",
+   "luat": "chuyển mềm ở 1985 như T4"
+  },
+  {
+   "id": "L4",
+   "ten": "Sanborn 1949–1951 (sepia)",
+   "nguon": "LoC, PD, 28 tập / 2 647 tờ",
+   "vai": "nền 1950 cho 3 khu hero; zoom từ ảnh hàng không vào tờ bản đồ",
+   "luat": "chỉ số hoá khối toà ở 3 khu; còn lại dùng tờ quét làm texture nền"
+  },
+  {
+   "id": "L5",
+   "ten": "Phá dỡ 2014–2026",
+   "nguon": "City of Detroit Completed Demolitions (31 904 điểm có ngày) — GIẤY PHÉP CHƯA RÕ",
+   "vai": "ch.6: chấm đỏ tắt dần theo ngày",
+   "luat": "mặc định: heat map tổng hợp theo năm và theo ô 250 m (số liệu tổng hợp); điểm từng nhà chỉ khi có xác nhận giấy phép"
+  },
+  {
+   "id": "L6",
+   "ten": "Đường cao tốc theo năm mở",
+   "nguon": "TIGER (hình học PD) + năm mở từ claims (MDOT/FHWA)",
+   "vai": "ch.3",
+   "luat": "mỗi đoạn hiện đúng năm mở có nguồn; đoạn không có năm nguồn → không hiện"
+  },
+  {
+   "id": "L7",
+   "ten": "Thửa hiện nay: có công trình / trống / DLBA",
+   "nguon": "Parcels (Current) — GIẤY PHÉP CHƯA RÕ",
+   "vai": "chỉ đọc số trong lời (150 730 thửa trống; DLBA 57 737)",
+   "luat": "không vẽ theo thửa cho tới khi có giấy phép"
+  },
+  {
+   "id": "L8",
+   "ten": "Địa hình, nước, ảnh hàng không NOW",
+   "nguon": "USGS 3DEP (PD), NHD (PD), NAIP (PD)",
+   "vai": "nền 2026, then/now",
+   "luat": "—"
+  }
+ ],
+ "ghep": "Thứ tự lặn (Kinh thánh §4 zoom nhiều tầng): L3 vùng → L2 ranh → NAIP/USGS topo → L4 Sanborn ở khu hero → hero 3D. Gốc toạ độ: UTM 17N (EPSG:26917), dời gốc về Campus Martius trước khi vào float32 (bài học T5 §12).",
+ "do_nhanh_du_lieu_toa": "xem du-lieu-toa.json (≈ 13,6 phút máy)"
+}
