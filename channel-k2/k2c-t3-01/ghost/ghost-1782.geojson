@@ -1,0 +1,2836 @@
+{
+"type": "FeatureCollection",
+"name": "ghost-1782",
+"ghost": {
+"moc": 1782,
+"crs": "EPSG:4326",
+"nguon": {
+"ia-drinkwater1786-plan-batteries": "John Drinkwater, 'A Plan of the Batteries erected before Gibraltar … 13th of September 1782', trong A History of the Late Siege of Gibraltar (London, 1786); bản quét Internet Archive (historyoflatesie00drin, leaf373), University of Pittsburgh Library System"
+},
+"ghi_cong": "Reconstructed from J. Drinkwater, Plan of the Batteries, 1782 (pub. 1786). Map data from OpenStreetMap (ODbL) — https://www.openstreetmap.org/copyright",
+"giay_phep": "Bản đồ: phạm vi công cộng (xuất bản 1786) — licenses/ia-drinkwater1786-plan-batteries.txt. Toạ độ điểm khống chế lấy từ OpenStreetMap (ODbL 1.0) — licenses/osm-odbl-attribution.txt; GeoJSON này là dữ liệu dẫn xuất, KHÔNG phát hành (chỉ dùng nội bộ để dựng hình = Produced Work).",
+"nan": {
+"pho": {
+"bien_doi": "affine",
+"so_diem": 9,
+"rms_m": 21.2,
+"loo_rms_m": 33.3
+},
+"eo_dat": {
+"bien_doi": "sim",
+"so_diem": 3,
+"rms_m": 4.2,
+"loo_rms_m": 22.8
+},
+"giua": {
+"bien_doi": "tps",
+"so_diem": 12,
+"rms_m": 1.0,
+"loo_rms_m": 39.3
+}
+},
+"so_khoi": 22,
+"so_nha": 13,
+"dien_tich_khoi_m2": 84663,
+"ghi_chu_sai_so": "Dải giữa (công sự tiền phương TBN): đối chiếu độc lập với Faden 1783 (gcp-1782-faden-doi-chieu.json) lệch 99–157 m (Mahon Redoubt 280 m — nhận dạng chưa chắc) → mọi nét dải giữa do_tin=thấp, sai số vị trí ≥ 160 m.",
+"tao_boi": "channel-k2/k2c-t3-01/ghost/tools/ghost.py build so-hoa-1782-px.json",
+"ghi_chu": "Toạ độ điểm ảnh trên bản quét gốc 3995×2837 (SHA-256 476cb89b…). Bắc ≈ +x, tây ≈ −y. Dò tay trên ảnh phóng có lưới (phiên SH, 17/10/2026). Vùng: pho = affine 9 điểm; eo_dat = đồng dạng 3 điểm Línea; giua = TPS 12 điểm."
+},
+"features": [
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-01",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"ten": "khối trong cổng Southport (có 2 toà đậm)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 6178
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3535441,
+36.1349987
+],
+[
+-5.3536662,
+36.1360131
+],
+[
+-5.3530593,
+36.1360357
+],
+[
+-5.3529372,
+36.1350213
+],
+[
+-5.3535441,
+36.1349987
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-02",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"ten": "khối South Port",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 5462
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3528947,
+36.135048
+],
+[
+-5.3530098,
+36.1360041
+],
+[
+-5.3529379,
+36.1360402
+],
+[
+-5.3525282,
+36.1360555
+],
+[
+-5.3524605,
+36.1359996
+],
+[
+-5.3523535,
+36.1351099
+],
+[
+-5.3524072,
+36.1350494
+],
+[
+-5.352832,
+36.1350336
+],
+[
+-5.3528947,
+36.135048
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-03",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 2769
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3530036,
+36.1360795
+],
+[
+-5.3530666,
+36.1366034
+],
+[
+-5.3525356,
+36.1366232
+],
+[
+-5.3524735,
+36.1361077
+],
+[
+-5.3530036,
+36.1360795
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-04",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 3743
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3530726,
+36.1366533
+],
+[
+-5.3531527,
+36.1373184
+],
+[
+-5.3526009,
+36.1373557
+],
+[
+-5.3525188,
+36.1366739
+],
+[
+-5.3530726,
+36.1366533
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-05",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối dài phía đông Main St (chữ 'Governor' đè, không thấy ngõ cắt ngang)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 9369
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3531759,
+36.1373844
+],
+[
+-5.35336,
+36.1389143
+],
+[
+-5.3527551,
+36.1389535
+],
+[
+-5.352569,
+36.137407
+],
+[
+-5.3531759,
+36.1373844
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-06",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 3426
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3540545,
+36.1372764
+],
+[
+-5.3541881,
+36.1375638
+],
+[
+-5.3543664,
+36.1381585
+],
+[
+-5.3540326,
+36.1381709
+],
+[
+-5.3536524,
+36.1372914
+],
+[
+-5.3540545,
+36.1372764
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-07",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối nhà Phó Thống đốc (Lt Governor Boyd's)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 8015
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3536289,
+36.1374761
+],
+[
+-5.3539416,
+36.1381743
+],
+[
+-5.3541359,
+36.138902
+],
+[
+-5.3534531,
+36.1389275
+],
+[
+-5.3532648,
+36.1374896
+],
+[
+-5.3536289,
+36.1374761
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-08",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "khối nhỏ sát Line Wall (chữ đè)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1329
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3543843,
+36.1384334
+],
+[
+-5.3544343,
+36.1388492
+],
+[
+-5.3541536,
+36.1388596
+],
+[
+-5.3540277,
+36.1384467
+],
+[
+-5.3543843,
+36.1384334
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-09",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối giữa (chữ 'GIBRALTAR' đè)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 8467
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3544064,
+36.1389337
+],
+[
+-5.3545135,
+36.1398234
+],
+[
+-5.3535651,
+36.1398587
+],
+[
+-5.3534581,
+36.1389691
+],
+[
+-5.3544064,
+36.1389337
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-10",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"ten": "khối phía nam Grand Parade",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 6278
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3545215,
+36.1398899
+],
+[
+-5.3545814,
+36.1405141
+],
+[
+-5.3535703,
+36.1405351
+],
+[
+-5.3534973,
+36.1399281
+],
+[
+-5.3545215,
+36.1398899
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-11",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 510
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3547273,
+36.1410933
+],
+[
+-5.3547624,
+36.1413843
+],
+[
+-5.3545879,
+36.1413908
+],
+[
+-5.3545528,
+36.1410998
+],
+[
+-5.3547273,
+36.1410933
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-12",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối bắc Grand Parade, tây Irish Town",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1031
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3545119,
+36.1410762
+],
+[
+-5.3545559,
+36.1414421
+],
+[
+-5.3542752,
+36.1414525
+],
+[
+-5.3542312,
+36.1410867
+],
+[
+-5.3545119,
+36.1410762
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-13",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối bắc Grand Parade, đông Irish Town",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 2061
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3541553,
+36.1410895
+],
+[
+-5.3541993,
+36.1414554
+],
+[
+-5.3536379,
+36.1414763
+],
+[
+-5.3535939,
+36.1411105
+],
+[
+-5.3541553,
+36.1410895
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-14",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"ten": "Irish Town, dãy tây",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1636
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3545847,
+36.1414911
+],
+[
+-5.3546528,
+36.1420565
+],
+[
+-5.3543645,
+36.1420673
+],
+[
+-5.3542964,
+36.1415019
+],
+[
+-5.3545847,
+36.1414911
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-15",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"ten": "Irish Town, dãy đông (có toà đậm chữ L)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 3133
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3542053,
+36.1415053
+],
+[
+-5.3542714,
+36.142054
+],
+[
+-5.3537024,
+36.1420752
+],
+[
+-5.3536363,
+36.1415265
+],
+[
+-5.3542053,
+36.1415053
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-16",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "cao",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1572
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3546436,
+36.142107
+],
+[
+-5.3546929,
+36.1427065
+],
+[
+-5.3544425,
+36.1427158
+],
+[
+-5.3543705,
+36.1421171
+],
+[
+-5.3546436,
+36.142107
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-17",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối cuối bắc trước Orange's Bastion",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1076
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3546953,
+36.1427899
+],
+[
+-5.3547454,
+36.1432056
+],
+[
+-5.3544874,
+36.1432152
+],
+[
+-5.3544374,
+36.1427995
+],
+[
+-5.3546953,
+36.1427899
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-18",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 3494
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3542642,
+36.1421211
+],
+[
+-5.3543333,
+36.1426948
+],
+[
+-5.3539641,
+36.1426668
+],
+[
+-5.3537036,
+36.1427183
+],
+[
+-5.3536345,
+36.1421446
+],
+[
+-5.3542642,
+36.1421211
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-19",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "dãy đông sau Spanish Church (phố cong sườn đồi)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 6243
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3534192,
+36.1397222
+],
+[
+-5.3535092,
+36.1404705
+],
+[
+-5.3529332,
+36.1404335
+],
+[
+-5.3525858,
+36.1403964
+],
+[
+-5.3525188,
+36.1398393
+],
+[
+-5.3528502,
+36.1397434
+],
+[
+-5.3534192,
+36.1397222
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-20",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 2288
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3534631,
+36.1405307
+],
+[
+-5.3535614,
+36.1412203
+],
+[
+-5.3532549,
+36.1412066
+],
+[
+-5.3530963,
+36.1410288
+],
+[
+-5.353198,
+36.1406074
+],
+[
+-5.3534631,
+36.1405307
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-21",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 2703
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.353097,
+36.1405277
+],
+[
+-5.3530382,
+36.1409892
+],
+[
+-5.3527098,
+36.14111
+],
+[
+-5.352588,
+36.1410478
+],
+[
+-5.3525811,
+36.1405469
+],
+[
+-5.3528593,
+36.140453
+],
+[
+-5.353097,
+36.1405277
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1782-22",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "khối có chữ 'RUINS'",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 2–3, theo lớp tái dựng city.js (2–4 tầng theo thời kỳ); phố 1782 phần lớn đổ nát sau đợt pháo 4/1781 (bản đồ ghi 'RUINS') → dùng cận dưới",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 3880
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3535057,
+36.1412641
+],
+[
+-5.3535785,
+36.141679
+],
+[
+-5.3530873,
+36.141714
+],
+[
+-5.3527799,
+36.1416921
+],
+[
+-5.3527198,
+36.1411932
+],
+[
+-5.3530173,
+36.141132
+],
+[
+-5.3531441,
+36.1412358
+],
+[
+-5.3535057,
+36.1412641
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-01",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "toà đậm (thanh tây) trong K1782-01",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 609,
+"trong_khoi": "K1782-01"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3535289,
+36.1349993
+],
+[
+-5.3535419,
+36.1351073
+],
+[
+-5.3529806,
+36.1351283
+],
+[
+-5.3529675,
+36.1350202
+],
+[
+-5.3535289,
+36.1349993
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-02",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "toà đậm chữ L trong K1782-01",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1280,
+"trong_khoi": "K1782-01"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.35356,
+36.135257
+],
+[
+-5.353651,
+36.1360136
+],
+[
+-5.35356,
+36.136017
+],
+[
+-5.3534839,
+36.1353851
+],
+[
+-5.3530136,
+36.1354027
+],
+[
+-5.3529986,
+36.1352779
+],
+[
+-5.35356,
+36.135257
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-03",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "dãy kho (Victualling Office) 1",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 760
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3523521,
+36.1357948
+],
+[
+-5.3524321,
+36.13646
+],
+[
+-5.3523183,
+36.1364642
+],
+[
+-5.3522383,
+36.1357991
+],
+[
+-5.3523521,
+36.1357948
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-04",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "dãy kho (Victualling Office) 2",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 741
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3521832,
+36.1357844
+],
+[
+-5.3522612,
+36.136433
+],
+[
+-5.3521474,
+36.1364372
+],
+[
+-5.3520694,
+36.1357886
+],
+[
+-5.3521832,
+36.1357844
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-05",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "dãy nhà dài sườn đồi 1",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1044
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3524371,
+36.1365016
+],
+[
+-5.352532,
+36.1374167
+],
+[
+-5.3524182,
+36.137421
+],
+[
+-5.3523233,
+36.1365058
+],
+[
+-5.3524371,
+36.1365016
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-06",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "dãy nhà dài sườn đồi 2",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1538
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.352549,
+36.1375581
+],
+[
+-5.3526614,
+36.1386814
+],
+[
+-5.3525172,
+36.1386868
+],
+[
+-5.3524201,
+36.1375629
+],
+[
+-5.352549,
+36.1375581
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-07",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "dinh Thống đốc Eliott (ô vuông có sân trong)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 317
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3534653,
+36.1372567
+],
+[
+-5.3534903,
+36.1374645
+],
+[
+-5.3533386,
+36.1374702
+],
+[
+-5.3533136,
+36.1372623
+],
+[
+-5.3534653,
+36.1372567
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-08",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "nhà Phó Thống đốc Boyd",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 334,
+"trong_khoi": "K1782-07"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3537958,
+36.1382299
+],
+[
+-5.3538199,
+36.1384294
+],
+[
+-5.353653,
+36.1384356
+],
+[
+-5.3536289,
+36.1382361
+],
+[
+-5.3537958,
+36.1382299
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-09",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "Spanish Church (nay St Mary the Crowned)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 335
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3533987,
+36.1394891
+],
+[
+-5.3534217,
+36.1396804
+],
+[
+-5.3532472,
+36.1396869
+],
+[
+-5.3532242,
+36.1394956
+],
+[
+-5.3533987,
+36.1394891
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-10",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "toà đậm sát Grand Parade",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 253,
+"trong_khoi": "K1782-10"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3542431,
+36.1404265
+],
+[
+-5.3542532,
+36.1405096
+],
+[
+-5.3539497,
+36.1405209
+],
+[
+-5.3539397,
+36.1404378
+],
+[
+-5.3542431,
+36.1404265
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-11",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"ten": "toà đậm chữ L",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 354,
+"trong_khoi": "K1782-15"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3542084,
+36.1415302
+],
+[
+-5.3542464,
+36.1418462
+],
+[
+-5.3541705,
+36.141849
+],
+[
+-5.3541425,
+36.1416162
+],
+[
+-5.3540059,
+36.1416213
+],
+[
+-5.3539959,
+36.1415381
+],
+[
+-5.3542084,
+36.1415302
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-12",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "cao",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 337,
+"trong_khoi": "K1782-18"
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3539188,
+36.1421006
+],
+[
+-5.3539569,
+36.1424165
+],
+[
+-5.3538506,
+36.1424205
+],
+[
+-5.3538126,
+36.1421045
+],
+[
+-5.3539188,
+36.1421006
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1782-13",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "nha",
+"do_tin": "vua",
+"ten": "toà đậm xiên sườn đồi",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "toà tô đậm trên bản đồ (còn đứng/quân dụng); 2 tầng theo tầng chuẩn mốc, không có số đo",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 718
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3532112,
+36.1421103
+],
+[
+-5.3532533,
+36.1424595
+],
+[
+-5.3530484,
+36.1424671
+],
+[
+-5.3530064,
+36.1421179
+],
+[
+-5.3532112,
+36.1421103
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-01",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "King's Bastion (xây 1773)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 4646
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3546938,
+36.139232
+],
+[
+-5.3550711,
+36.1392012
+],
+[
+-5.3553917,
+36.1396486
+],
+[
+-5.3551585,
+36.1401167
+],
+[
+-5.3548039,
+36.1401466
+],
+[
+-5.3546938,
+36.139232
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-02",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "Orange's Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 570
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.354828,
+36.1430689
+],
+[
+-5.3550685,
+36.1432938
+],
+[
+-5.354916,
+36.1434832
+],
+[
+-5.3548129,
+36.1433868
+],
+[
+-5.354828,
+36.1430689
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-03",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "Montague Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 1772
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3543332,
+36.1447828
+],
+[
+-5.3545227,
+36.144901
+],
+[
+-5.3545659,
+36.1451333
+],
+[
+-5.3544312,
+36.1452803
+],
+[
+-5.3541227,
+36.14525
+],
+[
+-5.3540547,
+36.145002
+],
+[
+-5.3543332,
+36.1447828
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-04",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "South Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 4386
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3539066,
+36.1342753
+],
+[
+-5.354001,
+36.1352489
+],
+[
+-5.3537961,
+36.1352566
+],
+[
+-5.3536962,
+36.1347425
+],
+[
+-5.3530741,
+36.1347657
+],
+[
+-5.3530421,
+36.1344996
+],
+[
+-5.3539066,
+36.1342753
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-05",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "Old Mole (nay bị lấp dưới đất lấn biển)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dien_tich_m2": 7201
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3543782,
+36.145157
+],
+[
+-5.3564932,
+36.1465814
+],
+[
+-5.3563715,
+36.1468365
+],
+[
+-5.3543424,
+36.1454924
+],
+[
+-5.3543782,
+36.145157
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-06",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "Line Wall — đoạn South Bastion → King's Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dai_m": 454
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3537961,
+36.1352566
+],
+[
+-5.3537452,
+36.1359099
+],
+[
+-5.3538543,
+36.1360562
+],
+[
+-5.3539922,
+36.1365689
+],
+[
+-5.3539943,
+36.1369029
+],
+[
+-5.3541481,
+36.1372312
+],
+[
+-5.3543247,
+36.1375587
+],
+[
+-5.3544606,
+36.1380547
+],
+[
+-5.3546938,
+36.139232
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-07",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "Line Wall — đoạn King's Bastion → Orange's Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dai_m": 325
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3548039,
+36.1401466
+],
+[
+-5.3547609,
+36.1405491
+],
+[
+-5.3547654,
+36.1409666
+],
+[
+-5.3548103,
+36.141466
+],
+[
+-5.3547896,
+36.1418008
+],
+[
+-5.3548166,
+36.142468
+],
+[
+-5.354828,
+36.1430689
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-08",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "tường Orange's → Montague Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dai_m": 165
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3548129,
+36.1433868
+],
+[
+-5.3545115,
+36.1437322
+],
+[
+-5.3544578,
+36.1442353
+],
+[
+-5.3543332,
+36.1447828
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1782-09",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "tường nam thị trấn (Southport – Charles V)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "pho",
+"bien_doi": "affine",
+"sai_so_vi_tri_uoc_m": 33,
+"dai_m": 226
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3536962,
+36.1347425
+],
+[
+-5.3511927,
+36.1348358
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "F1782-01",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "phao_dai",
+"do_tin": "vua",
+"ten": "Fort San Felipe (Fort St Philip)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — pháo đài đất/đá thấp",
+"vung_nan": "eo_dat",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 23,
+"dien_tich_m2": 12002
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3558345,
+36.1607932
+],
+[
+-5.3549193,
+36.1610369
+],
+[
+-5.3545874,
+36.1609191
+],
+[
+-5.3537124,
+36.1608127
+],
+[
+-5.3534469,
+36.1605273
+],
+[
+-5.3534376,
+36.1602364
+],
+[
+-5.3544411,
+36.1601904
+],
+[
+-5.3551378,
+36.1604918
+],
+[
+-5.3558345,
+36.1607932
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "F1782-02",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "phao_dai",
+"do_tin": "cao",
+"ten": "Fort Santa Bárbara",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — pháo đài đất/đá thấp",
+"vung_nan": "eo_dat",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 23,
+"dien_tich_m2": 11251
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3394029,
+36.1600308
+],
+[
+-5.3395264,
+36.1606935
+],
+[
+-5.3389975,
+36.1608292
+],
+[
+-5.338539,
+36.160922
+],
+[
+-5.3380442,
+36.1605165
+],
+[
+-5.3381553,
+36.16014
+],
+[
+-5.3388122,
+36.1598352
+],
+[
+-5.3394029,
+36.1600308
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-01",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "cao",
+"ten": "Línea de Contravalación (tường và các bastion, San Felipe → Santa Bárbara)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "eo_dat",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 23,
+"dai_m": 1386
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3534408,
+36.1603361
+],
+[
+-5.3529313,
+36.1604383
+],
+[
+-5.3518471,
+36.1602032
+],
+[
+-5.3517603,
+36.159731
+],
+[
+-5.3509589,
+36.1596813
+],
+[
+-5.3505294,
+36.1590749
+],
+[
+-5.3495131,
+36.1593623
+],
+[
+-5.349048,
+36.1592473
+],
+[
+-5.3487944,
+36.1593358
+],
+[
+-5.3477697,
+36.1593572
+],
+[
+-5.3471234,
+36.1599944
+],
+[
+-5.3462545,
+36.1600791
+],
+[
+-5.3447178,
+36.1601278
+],
+[
+-5.3420027,
+36.1602011
+],
+[
+-5.339512,
+36.1602364
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-02",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "tuyến song song tiền phương (paralela) — đoạn bắc, từ bờ vịnh",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 181,
+"dai_m": 319
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.351462,
+36.1565152
+],
+[
+-5.3500594,
+36.1556638
+],
+[
+-5.3486304,
+36.1547806
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-03",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "tuyến khẩu đội số 15 (paralela, đoạn giữa)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 214,
+"dai_m": 375
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3486304,
+36.1547806
+],
+[
+-5.3481168,
+36.1546711
+],
+[
+-5.3472545,
+36.1545274
+],
+[
+-5.3467807,
+36.1544159
+],
+[
+-5.3463171,
+36.154264
+],
+[
+-5.3458504,
+36.1541118
+],
+[
+-5.345381,
+36.1539596
+],
+[
+-5.3449483,
+36.1538465
+],
+[
+-5.3446589,
+36.1537711
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-04",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "tuyến khẩu đội số 17 (tới bờ Địa Trung Hải)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 254,
+"dai_m": 409
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3445667,
+36.1537326
+],
+[
+-5.3437468,
+36.1535059
+],
+[
+-5.3428694,
+36.1532805
+],
+[
+-5.3422023,
+36.1530531
+],
+[
+-5.3417743,
+36.1529017
+],
+[
+-5.3413245,
+36.1523191
+],
+[
+-5.3406393,
+36.1521342
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-05",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "khẩu đội số 5 (bờ vịnh, cạnh Old Windmill)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 171,
+"dai_m": 135
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3516099,
+36.1552975
+],
+[
+-5.3509169,
+36.1550909
+],
+[
+-5.3502009,
+36.1548681
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-06",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "tuyến tây số 18–19 (sát Gardens)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 284,
+"dai_m": 522
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3506968,
+36.1514346
+],
+[
+-5.3492593,
+36.1523879
+],
+[
+-5.3467744,
+36.1538182
+],
+[
+-5.3459547,
+36.1541102
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-07",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "hào giao thông số 16 (a)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 187,
+"dai_m": 294
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3465275,
+36.1546516
+],
+[
+-5.3439638,
+36.1562994
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-08",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "hào giao thông số 16 (b)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 208,
+"dai_m": 202
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3442567,
+36.1539039
+],
+[
+-5.3424215,
+36.1549446
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-09",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "hào giao thông dài: bờ Địa Trung Hải → Barrier của Línea",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 250,
+"dai_m": 902
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3404958,
+36.152254
+],
+[
+-5.3404804,
+36.152803
+],
+[
+-5.3410988,
+36.153502
+],
+[
+-5.341711,
+36.1538889
+],
+[
+-5.3420811,
+36.1543599
+],
+[
+-5.3424476,
+36.1549922
+],
+[
+-5.3463993,
+36.1586119
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-10",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "hào chữ chi gần Fort San Felipe",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 160,
+"dai_m": 282
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3511029,
+36.1567213
+],
+[
+-5.3496402,
+36.1575758
+],
+[
+-5.3508234,
+36.158069
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "T1782-11",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "chien_tuyen",
+"do_tin": "thap",
+"ten": "tuyến tới Centre Guard House",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — hào/ụ đất",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 160,
+"dai_m": 116
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3496447,
+36.1555939
+],
+[
+-5.3484116,
+36.1559003
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "F1782-03",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "thap",
+"ten": "đồn nhỏ đầu khẩu đội số 5 (bờ vịnh)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 160,
+"dien_tich_m2": 543
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3518948,
+36.1552286
+],
+[
+-5.3518251,
+36.1554507
+],
+[
+-5.3515787,
+36.155456
+],
+[
+-5.3516489,
+36.1552336
+],
+[
+-5.3518948,
+36.1552286
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "F1782-04",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "thap",
+"ten": "cụm Old Windmill (khẩu đội + nhà)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 199,
+"dien_tich_m2": 6624
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3509874,
+36.1541247
+],
+[
+-5.3508551,
+36.1545385
+],
+[
+-5.3492441,
+36.1545698
+],
+[
+-5.3493801,
+36.1541541
+],
+[
+-5.3509874,
+36.1541247
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "F1782-05",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "thap",
+"ten": "đồn số 12 (redoubt)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 201,
+"dien_tich_m2": 1533
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3492904,
+36.1541876
+],
+[
+-5.3492172,
+36.1544114
+],
+[
+-5.3487727,
+36.1544994
+],
+[
+-5.3486505,
+36.1543267
+],
+[
+-5.348891,
+36.1541393
+],
+[
+-5.3492904,
+36.1541876
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "F1782-06",
+"moc": 1782,
+"nguon_id": "ia-drinkwater1786-plan-batteries",
+"loai": "cong_su",
+"do_tin": "thap",
+"ten": "Centre Guard House (fortified)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường; cao theo tường đá (≈ 8–12 m ở Line Wall hiện nay, chưa đo)",
+"vung_nan": "giua",
+"bien_doi": "tps",
+"sai_so_vi_tri_uoc_m": 160,
+"dien_tich_m2": 4085
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.348471,
+36.1557795
+],
+[
+-5.3482981,
+36.1559427
+],
+[
+-5.3467875,
+36.1559348
+],
+[
+-5.3476354,
+36.1555181
+],
+[
+-5.348471,
+36.1557795
+]
+]
+]
+}
+}
+]
+}
