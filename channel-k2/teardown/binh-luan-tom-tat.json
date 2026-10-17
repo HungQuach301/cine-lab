@@ -1,0 +1,1164 @@
+{
+ "note": "100 bình luận hàng đầu (order=relevance) của 3 video nhiều lượt xem nhất mỗi kênh; video Thuỵ Sĩ chỉ có 45, Suez 77 bình luận gốc. Gắn nhãn: claude-haiku-5-5 (ghim, sổ cost). 'point' là Haiku DIỄN ĐẠT LẠI tiếng Anh, không phải nguyên văn; không lưu tên người bình luận. Trọng số = 1 + like + số phản hồi.",
+ "videos": {
+  "GD7x6sXMnNI": {
+   "channel": "FoN",
+   "title": "Why Did the US Get Rich But Latin America Never Did?",
+   "n": 100,
+   "labeled": 100,
+   "count_by_cat": {
+    "question": 5,
+    "other": 44,
+    "correction": 8,
+    "praise": 26,
+    "disagree_debate": 15,
+    "personal": 2
+   },
+   "weight_by_cat": {
+    "question": 17,
+    "other": 2407,
+    "correction": 185,
+    "praise": 101,
+    "disagree_debate": 920,
+    "personal": 101
+   },
+   "praise_aspect_weight": {
+    "visuals_animation": 62,
+    "length_pacing": 2,
+    "storytelling": 1,
+    "general": 35,
+    "research_sources": 1
+   },
+   "topic_requests": [],
+   "top_points": {
+    "question": [
+     {
+      "w": 9,
+      "point": "Asks whether adopting the US political system in 1800 would have changed Latin America's outcome."
+     },
+     {
+      "w": 5,
+      "point": "Asks what software makes the map animations and smooth zoom transitions."
+     },
+     {
+      "w": 1,
+      "point": "Thanks the creator for the lesson and asks how to get in touch."
+     },
+     {
+      "w": 1,
+      "point": "Asks which historical factors had the biggest long-term impact on development differences, and why."
+     },
+     {
+      "w": 1,
+      "point": "Asks whether extraction-boom dependence explains Argentina's decline after its 1900 beef and grain boom."
+     }
+    ],
+    "other": [
+     {
+      "w": 621,
+      "point": "Manufacturing creates more value than extracting natural resources."
+     },
+     {
+      "w": 430,
+      "point": "Argentina was wealthy, but bad policies and governments squandered that advantage."
+     },
+     {
+      "w": 272,
+      "point": "Notes that corruption among politicians is widespread in Brazil."
+     },
+     {
+      "w": 245,
+      "point": "Credits English inheritance like land rights and Magna Carta for the prosperity gap."
+     },
+     {
+      "w": 189,
+      "point": "Suggests the answer is simpler than the video's complex framing implies."
+     },
+     {
+      "w": 178,
+      "point": "Argentine millionaires existed when beef was valued like gold on the hoof."
+     },
+     {
+      "w": 141,
+      "point": "Extractive systems treat people as a resource more valuable than silver and gold."
+     },
+     {
+      "w": 54,
+      "point": "Attributes the difference to who lived there."
+     }
+    ],
+    "correction": [
+     {
+      "w": 102,
+      "point": "Early US voting required land ownership, so not all white men could vote."
+     },
+     {
+      "w": 32,
+      "point": "Chile and Argentina were among the world's richest countries around 1900, so the claim is wrong."
+     },
+     {
+      "w": 12,
+      "point": "South America was prosperous under Spain, with GDP near Europe's until the 20th century."
+     },
+     {
+      "w": 12,
+      "point": "Most Latin American countries are middle income, not underdeveloped."
+     },
+     {
+      "w": 11,
+      "point": "Venezuela was once fourth richest by GDP per capita, behind US, Switzerland, New Zealand."
+     },
+     {
+      "w": 9,
+      "point": "The video's 0:53 depiction is anachronistic, since the Panama Canal did not exist during Spanish rule."
+     },
+     {
+      "w": 5,
+      "point": "Video omits how UK-backed independence led to regional wars and elite conflicts."
+     },
+     {
+      "w": 2,
+      "point": "Spanish American kingdoms had stronger economies than Iberia, and England exploited independence wars for influence."
+     }
+    ],
+    "praise": [
+     {
+      "w": 37,
+      "point": "Sincere thanks and appreciation for the animation team's work."
+     },
+     {
+      "w": 16,
+      "point": "Animation is smooth and impressive; asks for more videos."
+     },
+     {
+      "w": 7,
+      "point": "Praises the channel's excellent videos and their information."
+     },
+     {
+      "w": 5,
+      "point": "Found the video interesting and thanks the creators."
+     },
+     {
+      "w": 3,
+      "point": "Video is informative and well animated; cuts through complexity."
+     },
+     {
+      "w": 3,
+      "point": "Simple praise calling the explanation great, with emojis."
+     },
+     {
+      "w": 3,
+      "point": "Enthusiastic praise for the channel, with flag emojis."
+     },
+     {
+      "w": 2,
+      "point": "Simple praise calling the explanation great, with emoji."
+     }
+    ],
+    "disagree_debate": [
+     {
+      "w": 744,
+      "point": "Argues Protestant decentralization and personal incentives outperform Catholic hierarchy."
+     },
+     {
+      "w": 68,
+      "point": "Minerals run out once extracted, while crops and skilled labor can be renewed."
+     },
+     {
+      "w": 27,
+      "point": "Had England colonized South America, it would be rich, so resources are not the cause."
+     },
+     {
+      "w": 23,
+      "point": "Spanish colonies succeeded from an imperialist view, since extraction was the goal."
+     },
+     {
+      "w": 11,
+      "point": "Says priorities vary, and not all cultures value material wealth over lifestyle or happiness."
+     },
+     {
+      "w": 10,
+      "point": "Missing factors: state subsoil ownership, repeated expropriations, and weak rule of law under dictators."
+     },
+     {
+      "w": 8,
+      "point": "Latin America's troubles are not strange; the Monroe Doctrine, interference, and terrorism explain them."
+     },
+     {
+      "w": 8,
+      "point": "Claims national average IQ fully explains whether countries are wealthy or poor."
+     }
+    ]
+   }
+  },
+  "DCxcPj1oKjM": {
+   "channel": "FoN",
+   "title": "Why Britain's Decline Is Making Ireland Rich",
+   "n": 100,
+   "labeled": 100,
+   "count_by_cat": {
+    "question": 7,
+    "personal": 10,
+    "disagree_debate": 34,
+    "correction": 21,
+    "praise": 7,
+    "other": 20,
+    "topic_request": 1
+   },
+   "weight_by_cat": {
+    "question": 136,
+    "personal": 456,
+    "disagree_debate": 295,
+    "correction": 267,
+    "praise": 13,
+    "other": 127,
+    "topic_request": 1
+   },
+   "praise_aspect_weight": {
+    "visuals_animation": 2,
+    "storytelling": 1,
+    "general": 8,
+    "balance_honesty": 2
+   },
+   "topic_requests": [
+    {
+     "w": 51,
+     "topic": "unspecified country"
+    },
+    {
+     "w": 1,
+     "topic": "video editing technique tutorial"
+    }
+   ],
+   "top_points": {
+    "question": [
+     {
+      "w": 78,
+      "point": "Puzzled that Spain and Germany have higher or lower pensions than expected for rich countries"
+     },
+     {
+      "w": 51,
+      "point": "Asks whether Ireland's economy is sustainable or too reliant on multinationals; requests next country"
+     },
+     {
+      "w": 2,
+      "point": "Asks whether the video was edited using AI"
+     },
+     {
+      "w": 2,
+      "point": "Asks what Brexit refers to, sounding confused or sarcastic"
+     },
+     {
+      "w": 1,
+      "point": "Former soldier asks why the Republic of Ireland is neutral, perhaps misremembering 1968"
+     },
+     {
+      "w": 1,
+      "point": "Asks whether the video's graphics were AI-generated"
+     },
+     {
+      "w": 1,
+      "point": "Asks what famine is being referred to"
+     }
+    ],
+    "disagree_debate": [
+     {
+      "w": 53,
+      "point": "Suggests wealth seems to trickle upward rather than down in Ireland"
+     },
+     {
+      "w": 32,
+      "point": "Northern Ireland is declining, with failing services and trade profits taxed back to London"
+     },
+     {
+      "w": 31,
+      "point": "GDP growth benefits only a few people as wealth hoarding makes everyday life less affordable"
+     },
+     {
+      "w": 29,
+      "point": "Cites Ireland's high global rankings and urges critics of the country to stop complaining"
+     },
+     {
+      "w": 20,
+      "point": "Ireland is richer because it stayed in the EU; UK tax take has collapsed since Brexit"
+     },
+     {
+      "w": 20,
+      "point": "Britain should build on its strengths; British wealth was extracted from Ireland historically"
+     },
+     {
+      "w": 16,
+      "point": "Everyone is financially squeezed; government is rich but does not reinvest"
+     },
+     {
+      "w": 13,
+      "point": "Ireland is not rich; high prices stem from tax haven policies and a downturn would hurt"
+     }
+    ],
+    "correction": [
+     {
+      "w": 64,
+      "point": "Video omitted Irish positive attitudes toward education and strong further education attainment"
+     },
+     {
+      "w": 34,
+      "point": "Low effective tax comes from writing off debts and losses, not the headline corporate rate"
+     },
+     {
+      "w": 30,
+      "point": "Ireland's wealth comes from decades of education and stable economic policy; Brexit is minor"
+     },
+     {
+      "w": 26,
+      "point": "Argues the Irish Famine wasn't a natural famine because Britain exported food from Ireland"
+     },
+     {
+      "w": 23,
+      "point": "It was the Great Hunger, not a famine; food existed but the English seized it"
+     },
+     {
+      "w": 22,
+      "point": "Blight was not the real cause; British landowners exported food, starving the local population"
+     },
+     {
+      "w": 20,
+      "point": "Ireland never left the EU, correcting the video's framing"
+     },
+     {
+      "w": 13,
+      "point": "Video misjudges national wealth; consumption is modest and assets like infrastructure depreciate"
+     }
+    ],
+    "praise": [
+     {
+      "w": 4,
+      "point": "Calls the video an excellent short summary"
+     },
+     {
+      "w": 2,
+      "point": "The animations are very engaging to watch"
+     },
+     {
+      "w": 2,
+      "point": "Says the video or point is more accurate"
+     },
+     {
+      "w": 2,
+      "point": "Calls the videos cool and impressive"
+     },
+     {
+      "w": 1,
+      "point": "From India; appreciates the video's effort and expresses love for Ireland"
+     },
+     {
+      "w": 1,
+      "point": "Enjoys watching the channel because its content is interesting"
+     },
+     {
+      "w": 1,
+      "point": "Calls the video a great, clear and simple explanation"
+     }
+    ],
+    "other": [
+     {
+      "w": 20,
+      "point": "Apple's first foreign factory was in Cork, drawn by an educated workforce; praises socialism"
+     },
+     {
+      "w": 15,
+      "point": "Claims 67% of Scots want Scotland to remain in the EU"
+     },
+     {
+      "w": 13,
+      "point": "Describes the Irish Empire as an empire of the heart"
+     },
+     {
+      "w": 12,
+      "point": "Says Irish morality is a greater strength than its economics"
+     },
+     {
+      "w": 12,
+      "point": "Sarcastically thanks Britain for boosting Ireland's wealth by leaving the EU"
+     },
+     {
+      "w": 10,
+      "point": "Ireland ranked second most peaceful in 2024 and 2025; both Ireland and Iceland recovered from 2008"
+     },
+     {
+      "w": 9,
+      "point": "Recalls a 1990s report of offshore oil and gas that lacked extraction technology"
+     },
+     {
+      "w": 6,
+      "point": "Northern Ireland has one of Europe's largest gold deposits"
+     }
+    ],
+    "topic_request": [
+     {
+      "w": 1,
+      "point": "Requests a tutorial on how to achieve this video's editing style without relying on AI"
+     }
+    ]
+   }
+  },
+  "gP4ihbNXFrY": {
+   "channel": "FoN",
+   "title": "Switzerland Should Be Poor. Here's Why It Isn't",
+   "n": 45,
+   "labeled": 45,
+   "count_by_cat": {
+    "other": 19,
+    "praise": 7,
+    "disagree_debate": 11,
+    "correction": 4,
+    "topic_request": 3,
+    "personal": 1
+   },
+   "weight_by_cat": {
+    "other": 151,
+    "praise": 32,
+    "disagree_debate": 119,
+    "correction": 11,
+    "topic_request": 6,
+    "personal": 1
+   },
+   "praise_aspect_weight": {
+    "storytelling": 22,
+    "general": 10
+   },
+   "topic_requests": [
+    {
+     "w": 4,
+     "topic": "Hong Kong, Singapore, Middle East"
+    },
+    {
+     "w": 1,
+     "topic": "Spain"
+    },
+    {
+     "w": 1,
+     "topic": "Singapore"
+    }
+   ],
+   "top_points": {
+    "other": [
+     {
+      "w": 66,
+      "point": "Mildly positive, but wants AI-sounding narration and forced captions removed"
+     },
+     {
+      "w": 17,
+      "point": "Wonders how developed Switzerland would be after six centuries of Ottoman rule"
+     },
+     {
+      "w": 13,
+      "point": "Avoiding both world wars is near the top of reasons for Swiss prosperity"
+     },
+     {
+      "w": 10,
+      "point": "Switzerland is rich because it is one of the smartest countries"
+     },
+     {
+      "w": 8,
+      "point": "Rhine reaches the sea, so Basel gets river trade to the Netherlands"
+     },
+     {
+      "w": 8,
+      "point": "Credits avoiding war and respecting democracy for the country's success"
+     },
+     {
+      "w": 5,
+      "point": "Small, wealthy country, but its economy depends heavily on a few vulnerable sectors"
+     },
+     {
+      "w": 4,
+      "point": "Switzerland joining the CRS information-sharing standard means the end of banking secrecy"
+     }
+    ],
+    "praise": [
+     {
+      "w": 22,
+      "point": "The 1817 famine-to-banking opener is a gripping hook against geographic odds"
+     },
+     {
+      "w": 3,
+      "point": "Finds the video's analysis very interesting"
+     },
+     {
+      "w": 2,
+      "point": "Says the video is good"
+     },
+     {
+      "w": 2,
+      "point": "Good video; gives it a like"
+     },
+     {
+      "w": 1,
+      "point": "Says the video is great and they are glad they found it"
+     },
+     {
+      "w": 1,
+      "point": "Says the video is good"
+     },
+     {
+      "w": 1,
+      "point": "Calls the video great"
+     }
+    ],
+    "disagree_debate": [
+     {
+      "w": 65,
+      "point": "Neutrality guarantees failed in Belgium 1914, so Swiss neutrality needs other explanations"
+     },
+     {
+      "w": 22,
+      "point": "Wealth comes from low-tariff watch exports to the US while Swiss block American food imports"
+     },
+     {
+      "w": 6,
+      "point": "Success comes from honest work rather than exploitation, citing resource-poor countries like Japan"
+     },
+     {
+      "w": 6,
+      "point": "Claims Switzerland held Germany's stolen gold and kept it after the war"
+     },
+     {
+      "w": 5,
+      "point": "Swiss soldier exports resemble Nepal's Gurkhas, but Nepal stays poor, so the parallel breaks down"
+     },
+     {
+      "w": 4,
+      "point": "Switzerland is a global hub for money laundering"
+     },
+     {
+      "w": 3,
+      "point": "Swiss wealth is blood money, and the country is dull to visit"
+     },
+     {
+      "w": 3,
+      "point": "Swiss wealth comes from marking up cheap goods into overpriced luxury, as all Europe does"
+     }
+    ],
+    "correction": [
+     {
+      "w": 5,
+      "point": "Video overstresses finance; manufacturing made Switzerland richer per capita than Britain by 1885"
+     },
+     {
+      "w": 3,
+      "point": "Video omits research and development and technology as a major factor"
+     },
+     {
+      "w": 2,
+      "point": "Switzerland was not historically poor; it had water, hydropower, forests, farming, and tourism"
+     },
+     {
+      "w": 1,
+      "point": "Switzerland was the second industrializing nation after Britain; video focuses on wrong things"
+     }
+    ],
+    "topic_request": [
+     {
+      "w": 4,
+      "point": "Praises the channel and requests videos on Hong Kong, Singapore, or the Middle East"
+     },
+     {
+      "w": 1,
+      "point": "Requests a video about Spain"
+     },
+     {
+      "w": 1,
+      "point": "Requests a follow-up video on Singapore"
+     }
+    ]
+   }
+  },
+  "gFZlrdfpfRA": {
+   "channel": "GoDocs",
+   "title": "Why Isn't Dubai's Palm Jumeirah Sinking? How Engineers Turned Sand into Steel",
+   "n": 100,
+   "labeled": 100,
+   "count_by_cat": {
+    "praise": 55,
+    "personal": 4,
+    "correction": 10,
+    "other": 17,
+    "topic_request": 1,
+    "question": 5,
+    "disagree_debate": 8
+   },
+   "weight_by_cat": {
+    "praise": 494,
+    "personal": 47,
+    "correction": 67,
+    "other": 107,
+    "topic_request": 2,
+    "question": 44,
+    "disagree_debate": 44
+   },
+   "praise_aspect_weight": {
+    "general": 476,
+    "visuals_animation": 18
+   },
+   "topic_requests": [],
+   "top_points": {
+    "praise": [
+     {
+      "w": 121,
+      "point": "Admires the soil mechanics and the engineering breakdown, calling the foundation method magical."
+     },
+     {
+      "w": 111,
+      "point": "Amazed that a sand island survives the ocean; foundation engineering exceeded expectations."
+     },
+     {
+      "w": 26,
+      "point": "Finds turning sand into something this massive incredible."
+     },
+     {
+      "w": 15,
+      "point": "Physics and brilliant engineers are the power behind this achievement."
+     },
+     {
+      "w": 11,
+      "point": "Really liked the video and gained new insight into their own construction field."
+     },
+     {
+      "w": 8,
+      "point": "Thanks for an informative video; Palm Jumeirah is one of humanity's most beautiful projects."
+     },
+     {
+      "w": 8,
+      "point": "Good documentary, well directed and nicely animated."
+     },
+     {
+      "w": 8,
+      "point": "Calls it a genius project and a wonderful video; offers blessings."
+     }
+    ],
+    "correction": [
+     {
+      "w": 28,
+      "point": "The no-concrete premise is false; towers rest on reinforced-concrete piles through the sand."
+     },
+     {
+      "w": 10,
+      "point": "Says at 7:53 the video wrongly labels Palm Jumeirah as in Qatar."
+     },
+     {
+      "w": 7,
+      "point": "Says the excavator bucket at 3:18 is oriented wrongly, so the physics looks unrealistic."
+     },
+     {
+      "w": 5,
+      "point": "States the island does in fact sink, contradicting the video's premise."
+     },
+     {
+      "w": 5,
+      "point": "Says some parts of the island's ground are sinking into the sea."
+     },
+     {
+      "w": 3,
+      "point": "Says sea salt is what causes the stone to harden."
+     },
+     {
+      "w": 3,
+      "point": "Claims the islands were built to extend maritime borders for oil."
+     },
+     {
+      "w": 2,
+      "point": "Says the tree shown is a date palm, not a palm tree."
+     }
+    ],
+    "other": [
+     {
+      "w": 15,
+      "point": "Says nature is incredibly strong and never expected anything to beat it; remark is unclear."
+     },
+     {
+      "w": 15,
+      "point": "Quotes Quran about Iram of the pillars and human knowledge's wonders."
+     },
+     {
+      "w": 14,
+      "point": "Laments that meaningful content like this channel's gets little popularity."
+     },
+     {
+      "w": 12,
+      "point": "One tsunami would end the island, which they consider tacky."
+     },
+     {
+      "w": 8,
+      "point": "A tsunami would mean the end of the island."
+     },
+     {
+      "w": 6,
+      "point": "Says the project simply reflects enormous human ambition."
+     },
+     {
+      "w": 5,
+      "point": "Offers a religious blessing and approval; does not comment on specific content."
+     },
+     {
+      "w": 4,
+      "point": "Predicts a reckoning someday; would never live on sand-built city."
+     }
+    ],
+    "topic_request": [
+     {
+      "w": 2,
+      "point": "Loves this documentary and asks for more content like it, useful for engineers."
+     }
+    ],
+    "question": [
+     {
+      "w": 34,
+      "point": "Asks why rocks weren't used instead of sand, and whether that would be more stable and cost-effective long term."
+     },
+     {
+      "w": 4,
+      "point": "Asks why the moon's tidal effects don't affect this island."
+     },
+     {
+      "w": 3,
+      "point": "Asks why concrete can't be used for the foundations."
+     },
+     {
+      "w": 2,
+      "point": "Asks how long the fabric laid on the seabed will last."
+     },
+     {
+      "w": 1,
+      "point": "Asks how tall buildings stand without pile foundations."
+     }
+    ],
+    "disagree_debate": [
+     {
+      "w": 12,
+      "point": "Recalls another video saying the island is slowly sinking; finds it odd."
+     },
+     {
+      "w": 8,
+      "point": "Heard from a recent video it is sinking, but very slowly."
+     },
+     {
+      "w": 7,
+      "point": "Predicts the island will sink someday, possibly sooner than expected."
+     },
+     {
+      "w": 5,
+      "point": "Another video says the island sinks 3mm yearly and that large sums are spent to slow it."
+     },
+     {
+      "w": 4,
+      "point": "Predicts it will sink one day, God willing, calling the emirate evil."
+     },
+     {
+      "w": 4,
+      "point": "Calls the project slanderous, extravagant, and wasteful."
+     },
+     {
+      "w": 2,
+      "point": "Says the island would vanish if oil revenue falls; cost too high."
+     },
+     {
+      "w": 2,
+      "point": "Predicts the island will be destroyed by 2030; don't worry."
+     }
+    ]
+   }
+  },
+  "gyuGHA8N_NU": {
+   "channel": "GoDocs",
+   "title": "How a 3,000-Year-Old Obsession Built the Suez Canal",
+   "n": 77,
+   "labeled": 77,
+   "count_by_cat": {
+    "other": 17,
+    "praise": 36,
+    "correction": 9,
+    "personal": 1,
+    "disagree_debate": 7,
+    "question": 7
+   },
+   "weight_by_cat": {
+    "other": 69,
+    "praise": 126,
+    "correction": 43,
+    "personal": 2,
+    "disagree_debate": 17,
+    "question": 32
+   },
+   "praise_aspect_weight": {
+    "storytelling": 7,
+    "topic_choice": 10,
+    "general": 100,
+    "narration_voice": 3,
+    "visuals_animation": 6
+   },
+   "topic_requests": [],
+   "top_points": {
+    "other": [
+     {
+      "w": 15,
+      "point": "Canal earns Egypt billions, yet Egyptians remain among the region's poorest."
+     },
+     {
+      "w": 9,
+      "point": "Jokes that a Roman emperor is running away, with laughing emojis."
+     },
+     {
+      "w": 6,
+      "point": "Suggests adding real photographs alongside the illustrations."
+     },
+     {
+      "w": 6,
+      "point": "Repeats the video's opening hook about cutting the desert in two."
+     },
+     {
+      "w": 4,
+      "point": "Says the pride goes to France."
+     },
+     {
+      "w": 4,
+      "point": "Canal aided trade and flood control; now filling seas and rivers causes flooding."
+     },
+     {
+      "w": 3,
+      "point": "Suggests making the canal wider."
+     },
+     {
+      "w": 3,
+      "point": "Proposes collaborating and asks how to get in touch."
+     }
+    ],
+    "praise": [
+     {
+      "w": 18,
+      "point": "Calls it the best AI-produced work."
+     },
+     {
+      "w": 9,
+      "point": "Excellent documentary; researching Egypt's decline and found the perspective useful."
+     },
+     {
+      "w": 8,
+      "point": "Calls it an extraordinary project."
+     },
+     {
+      "w": 6,
+      "point": "Simple thank-you reaction."
+     },
+     {
+      "w": 6,
+      "point": "Praises AI use; wants more consistent visuals, sound, and music."
+     },
+     {
+      "w": 5,
+      "point": "Simple positive reaction, written in Arabic."
+     },
+     {
+      "w": 5,
+      "point": "Expresses pride in Egypt through the canal's history."
+     },
+     {
+      "w": 4,
+      "point": "Simply says it is a good video."
+     }
+    ],
+    "correction": [
+     {
+      "w": 13,
+      "point": "Lock idea credited to Ptolemy II; Trajan's Romans re-dug and rerouted it."
+     },
+     {
+      "w": 6,
+      "point": "Says the Egyptians, not others, were the ones who dug the canal."
+     },
+     {
+      "w": 6,
+      "point": "Canal links Mediterranean and Red Sea; digging took ten years from 1859."
+     },
+     {
+      "w": 4,
+      "point": "Says a canal linked the Red Sea and Mediterranean since Ptolemaic times, closed later by Arabs."
+     },
+     {
+      "w": 4,
+      "point": "Credits Nasser's 1956 nationalization for Egypt regaining control of the canal."
+     },
+     {
+      "w": 3,
+      "point": "Points out several errors in the drawings."
+     },
+     {
+      "w": 3,
+      "point": "Lists errors on stock shares, 1882 British control, and dredger water use."
+     },
+     {
+      "w": 2,
+      "point": "Says the video contains inaccurate information, without specifying which parts."
+     }
+    ],
+    "disagree_debate": [
+     {
+      "w": 4,
+      "point": "Ending rushes 1869–1956 too quickly; wants dredging earth-volume figures added."
+     },
+     {
+      "w": 3,
+      "point": "Refuses further engagement, calling history retellings recycled copies from old books."
+     },
+     {
+      "w": 3,
+      "point": "Claims the video is false and misleading about the truth."
+     },
+     {
+      "w": 2,
+      "point": "Sarcastically says they believed the claims, mocking the video."
+     },
+     {
+      "w": 2,
+      "point": "Dismisses the video as nonsense."
+     },
+     {
+      "w": 2,
+      "point": "Dismisses cheap AI tools and criticizes AI-made content generally."
+     },
+     {
+      "w": 1,
+      "point": "Claims ancient Egyptians were only Black Africans and denies pyramids elsewhere."
+     }
+    ],
+    "question": [
+     {
+      "w": 6,
+      "point": "Asks which tool was used for the dubbed audio tracks."
+     },
+     {
+      "w": 6,
+      "point": "Asks how the video was made."
+     },
+     {
+      "w": 4,
+      "point": "Requests the prompt used to generate the video."
+     },
+     {
+      "w": 4,
+      "point": "Asks which tool was used to make the video."
+     },
+     {
+      "w": 4,
+      "point": "Asks which AI tool was used to make this video."
+     },
+     {
+      "w": 4,
+      "point": "Asks how these interesting videos are created."
+     },
+     {
+      "w": 4,
+      "point": "Asks for the animation trick used in the video."
+     }
+    ]
+   }
+  },
+  "zAISigbynHM": {
+   "channel": "GoDocs",
+   "title": "No Rock to Hold Onto - Why the Burj Khalifa Hasn't Collapsed Yet",
+   "n": 100,
+   "labeled": 100,
+   "count_by_cat": {
+    "correction": 15,
+    "disagree_debate": 23,
+    "praise": 22,
+    "question": 7,
+    "other": 31,
+    "personal": 2
+   },
+   "weight_by_cat": {
+    "correction": 96,
+    "disagree_debate": 86,
+    "praise": 78,
+    "question": 20,
+    "other": 69,
+    "personal": 7
+   },
+   "praise_aspect_weight": {
+    "general": 39,
+    "narration_voice": 19,
+    "visuals_animation": 10,
+    "topic_choice": 5,
+    "storytelling": 5
+   },
+   "topic_requests": [],
+   "top_points": {
+    "correction": [
+     {
+      "w": 27,
+      "point": "Despite its ingenuity, the design omitted any sewage system."
+     },
+     {
+      "w": 21,
+      "point": "Pile reinforcement is centuries old; Sinan and Süleymaniye Mosque used similar wooden piles."
+     },
+     {
+      "w": 13,
+      "point": "This construction method isn't new; the scale here is just much larger."
+     },
+     {
+      "w": 11,
+      "point": "Notes the video says nothing about the sewage system."
+     },
+     {
+      "w": 4,
+      "point": "Says the technique is the Mimar Sinan system."
+     },
+     {
+      "w": 3,
+      "point": "Says there are at least a hundred meters of foundation beneath it."
+     },
+     {
+      "w": 3,
+      "point": "Says glass heat isn't escaping to space; it stays trapped on Earth."
+     },
+     {
+      "w": 3,
+      "point": "Many sand-built structures stay stable with proper foundations, just like rock-based ones."
+     }
+    ],
+    "disagree_debate": [
+     {
+      "w": 26,
+      "point": "Asks what practical problem it solves; argues talent should target everyday needs instead."
+     },
+     {
+      "w": 5,
+      "point": "Says the tower will age short; costs and upkeep make it impractical despite engineering marvels."
+     },
+     {
+      "w": 4,
+      "point": "Says the video should have explained the omitted wastewater lines."
+     },
+     {
+      "w": 4,
+      "point": "Says the tower will collapse eventually; water is patient."
+     },
+     {
+      "w": 4,
+      "point": "Says seawater will eventually erode everything; it's just a matter of time."
+     },
+     {
+      "w": 4,
+      "point": "Says dam construction uses far more advanced techniques than those shown."
+     },
+     {
+      "w": 4,
+      "point": "Questions what benefit the building brings the world, given its cost."
+     },
+     {
+      "w": 3,
+      "point": "Says the height is cheating, not real."
+     }
+    ],
+    "praise": [
+     {
+      "w": 11,
+      "point": "Thanks for the Thai narration; very clear and easy to follow."
+     },
+     {
+      "w": 10,
+      "point": "Illustrations plus narration make the content visual and easier to understand."
+     },
+     {
+      "w": 5,
+      "point": "Says the foundation is even more impressive than the tower itself."
+     },
+     {
+      "w": 5,
+      "point": "Says height and foundation feel more impressive; highlights controlling unseen forces."
+     },
+     {
+      "w": 5,
+      "point": "Jokes the tower stays standing only for the story's sake; approves of the video."
+     },
+     {
+      "w": 5,
+      "point": "Finds the concept incredibly simple and inspiring, like a desert flower."
+     },
+     {
+      "w": 4,
+      "point": "Thanks the channel for the Arabic translation."
+     },
+     {
+      "w": 4,
+      "point": "Thanks for the Thai dub; enjoyable to watch."
+     }
+    ],
+    "question": [
+     {
+      "w": 5,
+      "point": "Asks who the architect and engineers behind the building were."
+     },
+     {
+      "w": 3,
+      "point": "Asks why not pour one solid concrete block instead of pillars."
+     },
+     {
+      "w": 3,
+      "point": "Asks whether the video implies the tower will eventually collapse."
+     },
+     {
+      "w": 3,
+      "point": "Asks if rain or leaking drains would make the tower tilt, like fluid."
+     },
+     {
+      "w": 2,
+      "point": "Asks how the video was made and requests the master prompt."
+     },
+     {
+      "w": 2,
+      "point": "Asks how the narrator knows this."
+     },
+     {
+      "w": 2,
+      "point": "Asks how it stands so tall without solid rock underneath."
+     }
+    ],
+    "other": [
+     {
+      "w": 5,
+      "point": "Says no one could live here; a ground-level house is better."
+     },
+     {
+      "w": 4,
+      "point": "Says anything can be done if you have enough money."
+     },
+     {
+      "w": 4,
+      "point": "Jokes the tower resembles an octopus, with pillars as tentacles."
+     },
+     {
+      "w": 3,
+      "point": "Says human engineering is admirable, but the Creator deserves greater awe and worship."
+     },
+     {
+      "w": 3,
+      "point": "Quotes the video's line about engineers devising a clever solution."
+     },
+     {
+      "w": 3,
+      "point": "Prays for an end to wars across Yemen."
+     },
+     {
+      "w": 3,
+      "point": "Posts a Brazilian church blessing with heart emojis."
+     },
+     {
+      "w": 3,
+      "point": "Notes the tower is built on sand, with sand, and from sand."
+     }
+    ]
+   }
+  }
+ }
+}
