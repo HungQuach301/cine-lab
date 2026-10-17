@@ -1,0 +1,189 @@
+{
+ "doc": "100 bình luận hàng đầu (order=relevance) mỗi video, đọc 17/10/2026. Nhãn bằng regex + phiên đọc tay, KHÔNG gọi Claude API. Trọng số = 1 + like. Văn bản bình luận để ngoài git (~/.cache/nc-ls).",
+ "video": {
+  "roNC2MfV7fU": {
+   "kenh": "Epic History",
+   "luot": 335688,
+   "n": 100,
+   "dem": {
+    "sua_sai": 2,
+    "xin_de_tai": 3,
+    "khen_hinh": 8,
+    "nhac_AI": 0,
+    "nguon_sach": 2,
+    "giong_doc": 11,
+    "gan_voi_noi_chon": 8
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 0.3,
+    "xin_de_tai": 0.2,
+    "khen_hinh": 2.0,
+    "nhac_AI": 0.0,
+    "nguon_sach": 2.4,
+    "giong_doc": 40.6,
+    "gan_voi_noi_chon": 11.4
+   }
+  },
+  "uMrhIXPvHh4": {
+   "kenh": "Epic History",
+   "luot": 708472,
+   "n": 100,
+   "dem": {
+    "sua_sai": 0,
+    "xin_de_tai": 3,
+    "khen_hinh": 8,
+    "nhac_AI": 0,
+    "nguon_sach": 0,
+    "giong_doc": 0,
+    "gan_voi_noi_chon": 0
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 0.0,
+    "xin_de_tai": 0.8,
+    "khen_hinh": 5.9,
+    "nhac_AI": 0.0,
+    "nguon_sach": 0.0,
+    "giong_doc": 0.0,
+    "gan_voi_noi_chon": 0.0
+   }
+  },
+  "7GbINMis_Qs": {
+   "kenh": "Matt Reconstructs History",
+   "luot": 468264,
+   "n": 100,
+   "dem": {
+    "sua_sai": 9,
+    "xin_de_tai": 5,
+    "khen_hinh": 7,
+    "nhac_AI": 21,
+    "nguon_sach": 0,
+    "giong_doc": 3,
+    "gan_voi_noi_chon": 18
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 7.2,
+    "xin_de_tai": 2.3,
+    "khen_hinh": 14.9,
+    "nhac_AI": 28.0,
+    "nguon_sach": 0.0,
+    "giong_doc": 1.0,
+    "gan_voi_noi_chon": 34.2
+   }
+  },
+  "koARN2hi4Ic": {
+   "kenh": "Restored Timeline",
+   "luot": 1827802,
+   "n": 100,
+   "dem": {
+    "sua_sai": 3,
+    "xin_de_tai": 1,
+    "khen_hinh": 0,
+    "nhac_AI": 2,
+    "nguon_sach": 0,
+    "giong_doc": 0,
+    "gan_voi_noi_chon": 4
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 1.1,
+    "xin_de_tai": 0.2,
+    "khen_hinh": 0.0,
+    "nhac_AI": 2.3,
+    "nguon_sach": 0.0,
+    "giong_doc": 0.0,
+    "gan_voi_noi_chon": 10.1
+   }
+  },
+  "p0MmMCJyL9I": {
+   "kenh": "SandRhoman History",
+   "luot": 622350,
+   "n": 100,
+   "dem": {
+    "sua_sai": 1,
+    "xin_de_tai": 1,
+    "khen_hinh": 0,
+    "nhac_AI": 0,
+    "nguon_sach": 0,
+    "giong_doc": 0,
+    "gan_voi_noi_chon": 2
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 0.0,
+    "xin_de_tai": 0.0,
+    "khen_hinh": 0.0,
+    "nhac_AI": 0.0,
+    "nguon_sach": 0.0,
+    "giong_doc": 0.0,
+    "gan_voi_noi_chon": 1.5
+   }
+  },
+  "nZGprMwHVOA": {
+   "kenh": "Kings and Generals",
+   "luot": 284111,
+   "n": 100,
+   "dem": {
+    "sua_sai": 4,
+    "xin_de_tai": 1,
+    "khen_hinh": 4,
+    "nhac_AI": 0,
+    "nguon_sach": 3,
+    "giong_doc": 0,
+    "gan_voi_noi_chon": 3
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 0.5,
+    "xin_de_tai": 11.2,
+    "khen_hinh": 0.4,
+    "nhac_AI": 0.0,
+    "nguon_sach": 4.8,
+    "giong_doc": 0.0,
+    "gan_voi_noi_chon": 5.2
+   }
+  },
+  "m2IU1hi_gug": {
+   "kenh": "History Mapped Out",
+   "luot": 380088,
+   "n": 76,
+   "dem": {
+    "sua_sai": 7,
+    "xin_de_tai": 0,
+    "khen_hinh": 2,
+    "nhac_AI": 4,
+    "nguon_sach": 1,
+    "giong_doc": 4,
+    "gan_voi_noi_chon": 2
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 18.5,
+    "xin_de_tai": 0.0,
+    "khen_hinh": 2.7,
+    "nhac_AI": 5.3,
+    "nguon_sach": 0.2,
+    "giong_doc": 2.9,
+    "gan_voi_noi_chon": 5.1
+   }
+  },
+  "25v3B2TUXFo": {
+   "kenh": "The Operations Room",
+   "luot": 781622,
+   "n": 100,
+   "dem": {
+    "sua_sai": 5,
+    "xin_de_tai": 2,
+    "khen_hinh": 3,
+    "nhac_AI": 1,
+    "nguon_sach": 1,
+    "giong_doc": 2,
+    "gan_voi_noi_chon": 1
+   },
+   "ty_trong_like_pct": {
+    "sua_sai": 4.7,
+    "xin_de_tai": 0.1,
+    "khen_hinh": 0.4,
+    "nhac_AI": 10.2,
+    "nguon_sach": 0.0,
+    "giong_doc": 0.1,
+    "gan_voi_noi_chon": 0.2
+   }
+  }
+ }
+}
