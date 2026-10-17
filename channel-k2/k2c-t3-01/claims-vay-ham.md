@@ -2,7 +2,7 @@
 
 > Phiên tiền kỳ T3b, 17/10/2026. Bổ sung cho `tienky/claims.json` (C01–C35, hiệp ước 2026 + kinh tế — giữ nguyên, không sửa).
 > Mọi câu trích là **nguyên văn** từ tệp tải bằng curl (ngoài git: `/var/tmp/cine-out/t3b/a1…a3/`), SHA-256 ở cột nguồn. Lỗi OCR giữ nguyên trong trích, chú giải ở "ghi chú".
-> **Kiểm độc lập** (phiên P, `verify_quotes.py` ngoài git): so lại mọi câu trích với văn bản tách từ tệp có đúng SHA. "khớp nguyên khối" = toàn câu có trong tệp (bỏ dấu câu/khoảng trắng, ſ/f); "khớp theo mảnh" = mọi mảnh trừ một mảnh do ngắt dòng/OCR → **đối chiếu ảnh trang trước khi đưa lên hình**.
+> **Kiểm độc lập** (phiên P, `vay-ham/verify_quotes.py`, đọc tệp thô ngoài git): so lại mọi câu trích với văn bản tách từ tệp có đúng SHA. "khớp nguyên khối" = toàn câu có trong tệp (bỏ dấu câu/khoảng trắng, ſ/f); "khớp theo mảnh" = mọi mảnh trừ một mảnh do ngắt dòng/OCR → **đối chiếu ảnh trang trước khi đưa lên hình**.
 > Máy đọc: `vay-ham/claims-vay-ham.json` (cùng nội dung + bảng số hai phía, lịch sự kiện, số đo đường băng/đường hầm).
 
 **Tổng: 123 claim** — XÁC MINH 99 · MÂU THUẪN 21 · CHƯA XÁC MINH 3 · kiểm độc lập: khớp nguyên khối 116, khớp theo mảnh 7.

@@ -37,7 +37,7 @@ st = Counter(c['status'] for c in out['claims'])
 L = ['# CLAIMS VÂY HÃM — T3b Gibraltar "vì sao ai cũng tranh giành Rock" (K2C-T3-01)', '',
      '> Phiên tiền kỳ T3b, 17/10/2026. Bổ sung cho `tienky/claims.json` (C01–C35, hiệp ước 2026 + kinh tế — giữ nguyên, không sửa).',
      '> Mọi câu trích là **nguyên văn** từ tệp tải bằng curl (ngoài git: `/var/tmp/cine-out/t3b/a1…a3/`), SHA-256 ở cột nguồn. Lỗi OCR giữ nguyên trong trích, chú giải ở "ghi chú".',
-     '> **Kiểm độc lập** (phiên P, `verify_quotes.py` ngoài git): so lại mọi câu trích với văn bản tách từ tệp có đúng SHA. "khớp nguyên khối" = toàn câu có trong tệp (bỏ dấu câu/khoảng trắng, ſ/f); "khớp theo mảnh" = mọi mảnh trừ một mảnh do ngắt dòng/OCR → **đối chiếu ảnh trang trước khi đưa lên hình**.',
+     '> **Kiểm độc lập** (phiên P, `vay-ham/verify_quotes.py`, đọc tệp thô ngoài git): so lại mọi câu trích với văn bản tách từ tệp có đúng SHA. "khớp nguyên khối" = toàn câu có trong tệp (bỏ dấu câu/khoảng trắng, ſ/f); "khớp theo mảnh" = mọi mảnh trừ một mảnh do ngắt dòng/OCR → **đối chiếu ảnh trang trước khi đưa lên hình**.',
      '> Máy đọc: `vay-ham/claims-vay-ham.json` (cùng nội dung + bảng số hai phía, lịch sự kiện, số đo đường băng/đường hầm).', '',
      f'**Tổng: {len(out["claims"])} claim** — ' + ' · '.join(f'{k} {v}' for k, v in st.most_common()) +
      f' · kiểm độc lập: khớp nguyên khối {sum(1 for c in out["claims"] if c["kiem_doc_lap"].startswith("khớp nguyên"))}, khớp theo mảnh {sum(1 for c in out["claims"] if c["kiem_doc_lap"].startswith("khớp theo"))}.', '',
