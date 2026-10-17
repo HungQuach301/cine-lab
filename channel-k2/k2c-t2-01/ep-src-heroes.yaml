@@ -1323,22 +1323,74 @@ heroes:
     opt:
       relief: koreaw
       palette: natural
+      regions:
+      - id: kr
+        country: South Korea
+        color: '#3CC2B0'
+        at:
+        - 0.1
+        - 0.9
+        out: '@abroad#2+2.5'
+        lift: 3
+        fill: 0.3
       places:
       - id: ulsanx
         ll:
         - 129.42
         - 35.5
         name: Ulsan
+      - id: krc
+        ll:
+        - 128.1
+        - 35.9
+        name: South Korea
+      - id: dst1
+        ll:
+        - 129.86
+        - 35.26
+        name: sea route east
+      - id: dst2
+        ll:
+        - 129.76
+        - 35.2
+        name: sea route south
+      - id: dst3
+        ll:
+        - 129.84
+        - 35.56
+        name: sea route north
+      rings:
+      - id: r1
+        at:
+        - 129.86
+        - 35.26
+        t: 1.9
+        color: '#F2C14E'
+        r: 2.5
+      - id: r2
+        at:
+        - 129.76
+        - 35.2
+        t: 2.1
+        color: '#F2C14E'
+        r: 2.5
+      - id: r3
+        at:
+        - 129.84
+        - 35.56
+        t: 2.3
+        color: '#F2C14E'
+        r: 2.5
       routes:
       - id: e1
         pts:
         - - 129.45
           - 35.48
-        - - 130.1
-          - 35.1
+        - - 129.86
+          - 35.26
         draw:
-        - '@abroad#2'
-        - '@abroad#2+1.2'
+        - 0.4
+        - 1.9
         style: dashed
         color: '#F2C14E'
         w: 6
@@ -1347,11 +1399,11 @@ heroes:
         pts:
         - - 129.45
           - 35.48
-        - - 129.6
-          - 34.6
+        - - 129.76
+          - 35.2
         draw:
-        - '@abroad#2+0.4'
-        - '@abroad#2+1.6'
+        - 0.6
+        - 2.1
         style: dashed
         color: '#F2C14E'
         w: 6
@@ -1360,11 +1412,11 @@ heroes:
         pts:
         - - 129.45
           - 35.48
-        - - 130.2
-          - 36.2
+        - - 129.84
+          - 35.56
         draw:
-        - '@abroad#2+0.8'
-        - '@abroad#2+2.0'
+        - 0.8
+        - 2.3
         style: dashed
         color: '#F2C14E'
         w: 6
@@ -1414,8 +1466,8 @@ heroes:
         kind: bar
         v: 0.035
         t:
-        - 0.4
-        - 0.6
+        - '@thirty-six'
+        - '@thirty-six+0.3'
         r: 2.6
         color: '#F2C14E'
       - id: k25
@@ -1901,35 +1953,35 @@ heroes:
       palette: natural
       cam:
       - t: 0
+        lon: -122.22
+        lat: 37.66
+        dist: 78
+        tilt: 46
+        head: 18
+      - t: '@1980s'
+        lon: -122.26
+        lat: 37.69
+        dist: 66
+        tilt: 48
+        head: 12
+      - t: '@ties'
         lon: -122.3
         lat: 37.72
-        dist: 52
+        dist: 54
         tilt: 50
         head: 4
-      - t: '@1980s'
-        lon: -122.305
-        lat: 37.725
-        dist: 51
-        tilt: 50
-        head: 6
-      - t: '@ties'
-        lon: -122.31
-        lat: 37.73
-        dist: 50
-        tilt: 51
-        head: 2
       - t: '@measures'
-        lon: -122.31
-        lat: 37.737
+        lon: -122.32
+        lat: 37.735
         dist: 48
         tilt: 51
-        head: -2
+        head: -4
       - t: '@counts+1'
-        lon: -122.315
+        lon: -122.33
         lat: 37.745
-        dist: 46
+        dist: 44
         tilt: 52
-        head: -6
+        head: -10
       - t: '@subscribing'
         lon: -122.32
         lat: 37.745

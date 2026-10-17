@@ -33,7 +33,7 @@ missing = [u for u in used if u not in RC]
 assert not missing, f'thiếu ghi công RIGHTS.md: {missing}'
 mus = [RC[u] for u in used if '/music/' in u]; sfx = [RC[u] for u in used if '/sfx/' in u]
 SF = list(csv.DictReader(open(f'{H}/SOURCES-FOOTAGE.csv')))
-src_lines = [f"- {s['short']}: {s['url']} (accessed {s['accessed']})" for s in E['sources'].values()]
+src_lines = [f"- {s.get('long', s['short'])}: {s['url']} (accessed {s['accessed']})" for s in E['sources'].values()]
 item_lines = [f"- {r['clip_id']}: {r['url_trang']} — {r['giay_phep'].split(' (licenses')[0]}" for r in SF]
 item_lines += ["- Aerial imagery: USDA FSA NAIP 2022 via USGS The National Map (USGSNAIPPlus), public domain",
                "- Terrain: USGS 3DEP; SRTM / GMTED2010 (USGS) via AWS Terrain Tiles; Canada: Open Government Licence – Canada; Natural Earth (public domain); NASA Blue Marble",

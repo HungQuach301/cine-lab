@@ -77,6 +77,7 @@ anchors:
 - n_gdp25
 - n_exp90
 - n_goal20
+src_co_dinh: true
 sources:
   NPS:
     short: National Park Service
@@ -94,43 +95,50 @@ sources:
     read: fulltext
     accessed: 2026-10-14
   CRS26:
-    short: CRS (2026)
+    short: CRS
+    long: CRS (2026)
     url: https://www.everycrsreport.com/files/2026-08-26_IF12666_1aacdd58a4f8f1cc88913d8d75c81df7f0284616.html
     read: fulltext
     accessed: 2026-10-14
   CRS23:
-    short: CRS (2023)
+    short: CRS
+    long: CRS (2023)
     url: https://www.everycrsreport.com/files/2023-11-15_IF12534_dc64343953cbeb745275d998c39d542b5dfa0b2c.html
     read: fulltext
     accessed: 2026-10-14
   CRS19:
-    short: CRS (2019)
+    short: CRS
+    long: CRS (2019)
     url: https://www.everycrsreport.com/files/20191121_R45725_4b1d41c49c7314e0ecdd2bdf7e042f2e27d04ade.html
     read: fulltext
     accessed: 2026-10-14
   FRDET:
-    short: USTR (Jan 2025)
+    short: USTR
+    long: USTR (Jan 2025)
     url: https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf
     read: fulltext
     accessed: 2026-10-14
     loai: chinh_sach
     hieu_luc: '2025-01-17'
   FRACT:
-    short: USTR, Federal Register (Apr 2025)
+    short: USTR
+    long: USTR, Federal Register (Apr 2025)
     url: https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf
     read: fulltext
     accessed: 2026-10-14
     loai: quy_dinh
     hieu_luc: '2025-10-14'
   FRSUSP:
-    short: USTR, Federal Register (Nov 2025)
+    short: USTR
+    long: USTR, Federal Register (Nov 2025)
     url: https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf
     read: fulltext
     accessed: 2026-10-15
     loai: quy_dinh
     hieu_luc: '2025-11-10'
   USTRPR:
-    short: USTR (Jan 2025)
+    short: USTR
+    long: USTR (Jan 2025)
     url: https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2025/january/ustr-finds-chinas-targeting-maritime-logistics-and-shipbuilding-sectors-dominance-actionable-under
     read: fulltext
     accessed: 2026-10-14
@@ -140,7 +148,8 @@ sources:
     read: fulltext
     accessed: 2026-10-14
   HHI:
-    short: HD Hyundai Heavy Industries history
+    short: HD Hyundai history
+    long: HD Hyundai Heavy Industries history
     url: https://ewh.ieee.org/soc/ras/conf/technicallycosponsored/iccas/iccas2011/english.hhi.co.kr/about/history.html
     read: fulltext
     accessed: 2026-10-14
@@ -155,22 +164,26 @@ sources:
     read: fulltext
     accessed: 2026-10-14
   JAH:
-    short: Korea JoongAng Daily, 27 Aug 2025
+    short: JoongAng Daily
+    long: Korea JoongAng Daily, 27 Aug 2025
     url: https://www.koreajoongangdaily.com/business/hanwha-invests-5-billion-in-philly-shipyard-as-part-of-masga-push/12398569
     read: fulltext
     accessed: 2026-10-14
   MT:
-    short: Military Times, 21 Jul 2026
+    short: Military Times
+    long: Military Times, 21 Jul 2026
     url: https://www.militarytimes.com/pentagon/2026/07/21/hanwha-philly-shipyard-awarded-2-billion-to-build-2-missile-tracking-vessels
     read: fulltext
     accessed: 2026-10-14
   NFTC:
-    short: Joint letter to USTR (Sep 2026)
+    short: letter to USTR
+    long: Joint letter to USTR (Sep 2026)
     url: https://www.nftc.org/wp-content/uploads/2026/09/Joint-Association-USTR-Letter-Sec-301-Vessel-Fee-Suspension-Extension-Request-Final-092326.pdf
     read: fulltext
     accessed: 2026-10-14
   MOFCOM:
-    short: Xinhua via China Daily (Feb 2025)
+    short: Xinhua via China Daily
+    long: Xinhua via China Daily (Feb 2025)
     url: https://www.chinadailyhk.com/hk/article/605277
     read: fulltext
     accessed: 2026-10-15
@@ -180,7 +193,8 @@ sources:
     read: fulltext
     accessed: 2026-10-15
   MCC:
-    short: Rep. McClintock (Jun 2025)
+    short: Rep. McClintock
+    long: Rep. McClintock (Jun 2025)
     url: https://mcclintock.house.gov/newsroom/press-releases/mcclintock-lee-introduce-open-americas-waters-act-repeal-jones-act-boost
     read: fulltext
     accessed: 2026-10-15
@@ -1719,22 +1733,74 @@ heroes:
     opt:
       relief: koreaw
       palette: natural
+      regions:
+      - id: kr
+        country: South Korea
+        color: '#3CC2B0'
+        at:
+        - 0.1
+        - 0.9
+        out: '@abroad#2+2.5'
+        lift: 3
+        fill: 0.3
       places:
       - id: ulsanx
         ll:
         - 129.42
         - 35.5
         name: Ulsan
+      - id: krc
+        ll:
+        - 128.1
+        - 35.9
+        name: South Korea
+      - id: dst1
+        ll:
+        - 129.86
+        - 35.26
+        name: sea route east
+      - id: dst2
+        ll:
+        - 129.76
+        - 35.2
+        name: sea route south
+      - id: dst3
+        ll:
+        - 129.84
+        - 35.56
+        name: sea route north
+      rings:
+      - id: r1
+        at:
+        - 129.86
+        - 35.26
+        t: 1.9
+        color: '#F2C14E'
+        r: 2.5
+      - id: r2
+        at:
+        - 129.76
+        - 35.2
+        t: 2.1
+        color: '#F2C14E'
+        r: 2.5
+      - id: r3
+        at:
+        - 129.84
+        - 35.56
+        t: 2.3
+        color: '#F2C14E'
+        r: 2.5
       routes:
       - id: e1
         pts:
         - - 129.45
           - 35.48
-        - - 130.1
-          - 35.1
+        - - 129.86
+          - 35.26
         draw:
-        - '@abroad#2'
-        - '@abroad#2+1.2'
+        - 0.4
+        - 1.9
         style: dashed
         color: '#F2C14E'
         w: 6
@@ -1743,11 +1809,11 @@ heroes:
         pts:
         - - 129.45
           - 35.48
-        - - 129.6
-          - 34.6
+        - - 129.76
+          - 35.2
         draw:
-        - '@abroad#2+0.4'
-        - '@abroad#2+1.6'
+        - 0.6
+        - 2.1
         style: dashed
         color: '#F2C14E'
         w: 6
@@ -1756,11 +1822,11 @@ heroes:
         pts:
         - - 129.45
           - 35.48
-        - - 130.2
-          - 36.2
+        - - 129.84
+          - 35.56
         draw:
-        - '@abroad#2+0.8'
-        - '@abroad#2+2.0'
+        - 0.8
+        - 2.3
         style: dashed
         color: '#F2C14E'
         w: 6
@@ -1810,8 +1876,8 @@ heroes:
         kind: bar
         v: 0.035
         t:
-        - 0.4
-        - 0.6
+        - '@thirty-six'
+        - '@thirty-six+0.3'
         r: 2.6
         color: '#F2C14E'
       - id: k25
@@ -2305,35 +2371,35 @@ heroes:
       palette: natural
       cam:
       - t: 0
+        lon: -122.22
+        lat: 37.66
+        dist: 78
+        tilt: 46
+        head: 18
+      - t: '@1980s'
+        lon: -122.26
+        lat: 37.69
+        dist: 66
+        tilt: 48
+        head: 12
+      - t: '@ties'
         lon: -122.3
         lat: 37.72
-        dist: 52
+        dist: 54
         tilt: 50
         head: 4
-      - t: '@1980s'
-        lon: -122.305
-        lat: 37.725
-        dist: 51
-        tilt: 50
-        head: 6
-      - t: '@ties'
-        lon: -122.31
-        lat: 37.73
-        dist: 50
-        tilt: 51
-        head: 2
       - t: '@measures'
-        lon: -122.31
-        lat: 37.737
+        lon: -122.32
+        lat: 37.735
         dist: 48
         tilt: 51
-        head: -2
+        head: -4
       - t: '@counts+1'
-        lon: -122.315
+        lon: -122.33
         lat: 37.745
-        dist: 46
+        dist: 44
         tilt: 52
-        head: -6
+        head: -10
       - t: '@subscribing'
         lon: -122.32
         lat: 37.745
@@ -2588,6 +2654,7 @@ segments:
     p:
       hero: r00_launch
       frame0: 0
+      where: Richmond, Calif.
       kind: actual
       year:
         s: '1943'
@@ -2618,11 +2685,6 @@ segments:
         - up
         - right
         c: '#3CC2B0'
-      cap:
-      - s: This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.
-        at: 3.0
-      - s: ''
-        at: 12.0
       src: 'Source: National Park Service · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@In#2-0.3'
@@ -2637,8 +2699,9 @@ segments:
       kind: actual
       cap:
       - s: This video explains how the system works. It isn't financial or investment advice. Facts as of 15 Oct 2026.
-        at: 3.0
+        at: 5.6
         seg: true
+        src: []
       - s: ''
         at: 12.0
         seg: true
@@ -2691,6 +2754,8 @@ segments:
       cap:
       - s: 'Deadline: November 9, 2026'
         at: '@deadline'
+        src:
+        - FRSUSP
       title:
         t: Why does America build so few ships?
         at: '@So'
@@ -2742,6 +2807,8 @@ segments:
       cap:
       - s: Henry J. Kaiser's first Richmond shipyard, Dec. 1940
         at: '@Kaiser'
+        src:
+        - NPSRICH
       src: 'Source: National Park Service · Terrain: USGS 3DEP'
   - tpl: plate
     sfx:
@@ -2768,6 +2835,7 @@ segments:
       cap:
       - s: A Liberty ship launched at Richmond, Calif., 1944 (newsreel)
         at: '@emergency'
+        src: []
       src: 'Film: United News (1944) · U.S. National Archives'
   - tpl: plate
     sfx:
@@ -2826,6 +2894,30 @@ segments:
         - up
         - right
         c: '#3CC2B0'
+      src: 'Sources: U.S. Maritime Commission, NPS · Terrain: USGS 3DEP'
+  - tpl: plate
+    at: '@Peary-0.3'
+    type: map
+    scene_id: relief/sfbay
+    camera_id: t2-01-days
+    places: []
+    p:
+      hero: r01_days
+      frame0: 244
+      kind: actual
+      year:
+        s: 1942–43
+        at: '@Peary-0.30'
+      places:
+      - a: richmond2
+        s: Richmond, Calif.
+        at: '@Peary-0.30'
+        side: auto
+        prefer:
+        - left
+        - up
+        - down
+      tags:
       - a: col:dpeary
         s: 4½ days
         sub: Robert E. Peary (publicity stunt)
@@ -2885,6 +2977,7 @@ segments:
     p:
       hero: r01_yards
       frame0: 0
+      where: Richmond, Calif.
       kind: actual
       stickers:
       - a: st:t1
@@ -2929,6 +3022,7 @@ segments:
     p:
       hero: r01_dive
       frame0: 260
+      where: Richmond, Calif.
       speed: 0.5
       cap:
       - s: 'Our read: the customers were governments, in wartime'
@@ -2961,6 +3055,7 @@ segments:
     p:
       hero: r02_cut
       frame0: 0
+      where: Richmond, Calif.
       year:
         s: '1944'
         at: 0.2
@@ -3097,6 +3192,8 @@ segments:
       cap:
       - s: 'Merchant Marine Act of 1920, Section 27: the "Jones Act"'
         at: '@Section'
+        src:
+        - CRS19
       src: 'Source: CRS (2019) · Terrain: SRTM (USGS)'
   - tpl: plate
     at: '@Congress''s#1-0.3'
@@ -3150,6 +3247,8 @@ segments:
       cap:
       - s: 'Their bill to repeal it: June 12, 2025'
         at: '@introduced'
+        src:
+        - MCC
       - s: ''
         at: '@higher'
       src: 'Sources: CRS, Am. Maritime Partnership, Rep. McClintock · SRTM'
@@ -3162,18 +3261,27 @@ segments:
     p:
       hero: r02_subsidy
       frame0: 0
+      where: Delaware River valley
       kind: actual
       tags:
       - a: col:wp
         s: world price
         sub: the subsidy's target for U.S. owners
         at: '@world'
-        out: '@1970s'
         side: auto
         prefer:
         - up
         - left
         c: '#E6EBF0'
+      - a: col:us1
+        s: U.S. price
+        sub: American-built ship
+        at: '@owners'
+        side: auto
+        prefer:
+        - up
+        - right
+        c: '#7fd3c6'
       - a: col:s70
         s: 15–25 ships/yr
         sub: U.S. yards, 1970s (~5% of world tonnage)
@@ -3193,8 +3301,8 @@ segments:
         at: '@five#2'
         side: auto
         prefer:
-        - up
-        - right
+        - left
+        - down
         c: '#3CC2B0'
       stickers:
       - a: st:rep
@@ -3207,10 +3315,8 @@ segments:
         sub: Congressional Research Service
         kind: null
         at: '@congressional+0.3'
-        side: auto
-        prefer:
-        - up
-        - right
+        side: up
+        gap: 120
         c: '#E6EBF0'
       cap:
       - s: Construction Differential Subsidy (federal)
@@ -3235,6 +3341,7 @@ segments:
     p:
       hero: r03_myth
       frame0: 0
+      where: Philadelphia area
       stickers:
       - a: st:w
         img:
@@ -3266,6 +3373,7 @@ segments:
     p:
       hero: r03_ladder
       frame0: 0
+      where: Delaware Bay
       kind: actual
       tags:
       - a: col:f1
@@ -3319,6 +3427,7 @@ segments:
     p:
       hero: r03_tanker
       frame0: 0
+      where: Delaware River valley
       tags:
       - a: col:world
         s: world price
@@ -3352,6 +3461,7 @@ segments:
     p:
       hero: r03_scale
       frame0: 0
+      where: Philadelphia area
       kind: actual
       stickers:
       - a: st:rep
@@ -3396,6 +3506,9 @@ segments:
       cap:
       - s: 'Our read: the protected home market is small'
         at: '@protected'
+        src:
+        - CRS19
+        - CRS23
       src: 'Sources: CRS (2023, 2019) · Terrain: USGS 3DEP'
   - tpl: plate
     at: '@together-0.6'
@@ -3406,6 +3519,7 @@ segments:
     p:
       hero: r03_loop
       frame0: 0
+      where: Delaware River valley
       stickers:
       - a: st:lo
         img: stk:order
@@ -3499,6 +3613,7 @@ segments:
     p:
       hero: r04_chung
       frame0: 0
+      where: South Korea
       year:
         s: early 1970s
         at: '@1970s'
@@ -3618,6 +3733,8 @@ segments:
         at: '@lore'
       - s: 'By Hyundai''s own history: ground broken 1972, yard done 1974'
         at: '@history#2-0.5'
+        src:
+        - HHI
       src: 'Sources: HD Hyundai history, Korea Times (2010) · Terrain: SRTM'
   - tpl: plate
     at: '@Meanwhile-0.3'
@@ -3631,6 +3748,7 @@ segments:
     p:
       hero: r04_state
       frame0: 0
+      where: South Korea
       year:
         s: '1973'
         at: '@January'
@@ -3677,6 +3795,8 @@ segments:
       cap:
       - s: Munseob Lee, Korea Economic Institute of America (2023)
         at: '@Institute'
+        src:
+        - KEIA
       src: 'Source: KEIA (2023) · Terrain: SRTM (USGS)'
   - tpl: plate
     at: '@Our#1-0.3'
@@ -3689,17 +3809,46 @@ segments:
       frame0: 0
       kind: actual
       places:
-      - a: ulsanx
-        s: Ulsan, South Korea
-        sub: '1962: $107 output per person (current $)'
-        kind: null
-        num: n_gdp62
-        at: '@Our#1+0.00'
+      - a: krc
+        s: South Korea
+        at: '@Our#1-0.10'
+        out: '@abroad#2+2.5'
         side: auto
         prefer:
-        - down
+        - up
         - left
+        c: '#3CC2B0'
+      - a: ulsanx
+        s: Ulsan
+        sub: shipyard site
+        at: '@Our#1+0.00'
+        out: '@thirty-six'
+        side: auto
+        prefer:
+        - left
+        - up
+      - a: dst1
+        s: To foreign owners
+        sub: our read
+        at: '@Our#1+1.70'
+        out: '@thirty-six'
+        side: auto
+        prefer:
+        - up
+        - left
+        c: '#F2C14E'
       tags:
+      - a: col:k62
+        s: $107
+        sub: output per person, 1962 (current $)
+        kind: null
+        num: n_gdp62
+        at: '@thirty-six'
+        side: auto
+        prefer:
+        - left
+        - up
+        c: '#E6EBF0'
       - a: col:k25
         s: $36,227
         sub: output per person, 2025 (current $)
@@ -3753,6 +3902,8 @@ segments:
       cap:
       - s: 'March 2024: five U.S. labor unions petition the U.S. Trade Representative'
         at: '@March'
+        src:
+        - FRACT
       src: 'Source: Federal Register (USTR)'
   - tpl: plate
     at: '@including-0.3'
@@ -3827,6 +3978,8 @@ segments:
       cap:
       - s: 'USTR finding, Jan. 2025: "unreasonable"'
         at: '@dominance'
+        src:
+        - FRDET
       src: 'Source: USTR'
   - tpl: plate
     at: '@burdens-0.3'
@@ -3939,6 +4092,8 @@ segments:
       cap:
       - s: 'Feb. 2025, before the fees: China''s Ministry of Commerce objects'
         at: '@February'
+        src:
+        - MOFCOM
       src: 'Sources: USTR · Xinhua via China Daily · Map: Natural Earth'
   - tpl: plate
     at: '@Within-0.3'
@@ -3956,6 +4111,8 @@ segments:
       cap:
       - s: After a Trump–Xi trade deal (Nov. 2025)
         at: '@deal'
+        src:
+        - FRSUSP
       src: 'Source: Federal Register (USTR)'
   - tpl: plate
     at: '@says'
@@ -3990,6 +4147,7 @@ segments:
     p:
       hero: r05_cost
       frame0: 0
+      where: Delaware River valley
       kind: actual
       stickers:
       - a: st:q1
@@ -4015,8 +4173,13 @@ segments:
       cap:
       - s: 'Trade groups'' letter to USTR: "would add another cost layer to an already strained transportation system"'
         at: '@Resuming'
+        src:
+        - NFTC
       - s: 'As of 15 Oct 2026: no extension published'
         at: '@As#1'
+        src:
+        - FRSUSP
+        - NFTC
       src: 'Source: trade groups'' letter to USTR, Sept. 2026 · Terrain: USGS 3DEP'
   - tpl: plate
     sfx:
@@ -4077,18 +4240,67 @@ segments:
         - left
         - up
         c: '#F2C14E'
+      cap:
+      - s: 'Aug. 2025: Hanwha announces an investment'
+        at: '@August'
+        src:
+        - JAH
+      src: 'Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP'
+  - tpl: plate
+    at: '@twenty-0.3'
+    type: map
+    scene_id: relief/eastus
+    camera_id: t2-05-philly
+    places: []
+    p:
+      hero: r05_philly
+      frame0: 417
+      kind: ''
+      places:
+      - a: phy
+        s: Philly Shipyard
+        at: '@twenty-0.30'
+        side: auto
+        prefer:
+        - left
+        - up
+      tags:
       - a: phy
         s: 1.5 → 20 ships/yr
         sub: announced goal, no date given
         kind: projection
         num: n_goal20
         at: '@twenty'
-        out: '@Military'
         side: auto
         prefer:
         - right
         - down
         c: '#F2C14E'
+      cap:
+      - s: 'Aug. 2025: Hanwha announces an investment'
+        at: '@twenty-0.30'
+        src:
+        - JAH
+      src: 'Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP'
+  - tpl: plate
+    at: '@Military-0.3'
+    type: map
+    scene_id: relief/eastus
+    camera_id: t2-05-philly
+    places: []
+    p:
+      hero: r05_philly
+      frame0: 642
+      kind: ''
+      places:
+      - a: phy
+        s: Philly Shipyard
+        at: '@Military-0.30'
+        side: auto
+        prefer:
+        - left
+        - up
+      tags:
       - a: st:ord2
         s: June 2030
         sub: first missile-tracking ship, slated (Military Times)
@@ -4101,12 +4313,15 @@ segments:
         - right
         c: '#3CC2B0'
       cap:
-      - s: 'Aug. 2025: Hanwha announces an investment'
-        at: '@August'
       - s: Military Times, July 2026
         at: '@Military'
+        src:
+        - MT
       - s: 'Our read: an order again — this time after the investment'
         at: '@after'
+        src:
+        - JAH
+        - MT
       src: 'Sources: JoongAng Daily, Military Times · Imagery: NAIP · USGS 3DEP'
 - id: '06'
   part: END
@@ -4126,6 +4341,7 @@ segments:
     p:
       hero: r06_watch
       frame0: 0
+      where: Delaware River valley
       stickers:
       - a: st:wd
         img: stk:document
@@ -4142,10 +4358,16 @@ segments:
       cap:
       - s: '1 · Nov 9, 2026: fee pause extended or not'
         at: '@November'
+        src:
+        - FRSUSP
       - s: '2 · Philadelphia: new capacity?'
         at: '@Philadelphia'
+        src:
+        - MT
       - s: '3 · June 2030: first new ship slated'
         at: '@June'
+        src:
+        - MT
       asof: Facts as of 15 Oct 2026
       asofAt: '@November'
       luat:
@@ -4160,6 +4382,7 @@ segments:
     p:
       hero: r06_score
       frame0: 0
+      where: San Francisco Bay, Calif.
       score:
         board:
           at: '@scoreboard'
@@ -4190,6 +4413,7 @@ segments:
     p:
       hero: r06_score2
       frame0: 0
+      where: San Francisco Bay, Calif.
       stickers:
       - a: st:kc
         img: stk:coin
@@ -4323,6 +4547,8 @@ shorts:
       cap:
       - s: 'Our read: few orders since the 1980s'
         at: '@1980s'
+        src:
+        - CRS23
       - s: 'Record: high prices → fewer purchases · no exports → no scale'
         at: '@ties'
       src: 'Sources: CRS (2023, 2019) · Terrain: USGS 3DEP'

@@ -23,7 +23,7 @@ if (String(arg('hero', '')).startsWith('footage/')) {
   const hx = (c) => [1, 3, 5].map((i) => parseInt(c.slice(i, i + 2), 16)), INK = hx(o.ink || '#2a1c10'), PAP = hx(o.paper || '#f1e4c6'), RGB = ['r', 'g', 'b'];
   const sep = `format=gray,format=rgb24,lutrgb=${RGB.map((k, i) => `${k}='${INK[i]}+(${PAP[i] - INK[i]})*clip((val-${o.lo ?? 12})/(${(o.hi ?? 244) - (o.lo ?? 12)})\,0\,1)'`).join(':')}`;
   const nat = `eq=saturation=${o.sat ?? 0.86}:contrast=${o.con ?? 1.03},colorbalance=rh=0.025:gh=0.01:bh=-0.03:rs=-0.01:bs=0.02`;
-  const pre = [o.ivtc ? 'fieldmatch,yadif=deint=interlaced,decimate' : null, o.decimate ? 'decimate=cycle=5' : null, 'scale=trunc(iw*sar/2)*2:ih,setsar=1', o.pts ? `setpts=PTS/${o.pts}` : null, o.crop ? `crop=${o.crop}` : null, o.clean ? 'hqdn3d=1.5:1.5:5:5' : null];
+  const pre = [o.ivtc ? 'fieldmatch,yadif=deint=interlaced,decimate' : null, o.decimate ? 'decimate=cycle=5' : null, 'scale=trunc(iw*sar/2)*2:ih,setsar=1', o.pts ? `setpts=PTS/${o.pts}` : null, o.crop ? `crop=${o.crop}` : null, o.clean ? 'hqdn3d=1.5:1.5:5:5' : null, 'setpts=PTS-STARTPTS'];   /* 17/10 (SS4 Q1): mốc thời gian sau -ss + gỡ 3:2 không bắt đầu từ 0 → bộ ghi ảnh lặp khung đầu (~0,6 s đứng hình ở f_liberty); đặt lại mốc 0 */
   const post = ['fps=24', o.eq ? `eq=${o.eq}` : null, o.grade === 'sepia' ? sep : o.grade === 'natural' ? nat : null];
   // T2 0c (Kinh thánh §4, duyệt 15/10): nguồn < 720p → KHUNG TRONG KHUNG: giữ tỉ lệ gốc, phóng ≤ 1,5× (opt.maxScale), viền giấy + bóng đổ, nền = chính clip
   //   phủ kín, làm mờ + tối (không phóng to cắt cúp). oy: dời khung theo chiều dọc (px, âm = lên). frame: 'auto' (mặc định: bật khi chiều cao nguồn sau crop < 720) | true | false.

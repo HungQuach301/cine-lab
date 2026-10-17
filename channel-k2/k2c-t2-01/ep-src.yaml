@@ -32,27 +32,28 @@ people:
   - {name: Munseob Lee, ly_do: "Living researcher; name and article on screen only."}
 anchors: [n_peak3, n_us004, n_cn546, n_d1942, n_d1943, n_peary, n_747, n_tanker4, n_gdp62, n_gdp25, n_exp90, n_goal20]
 
+src_co_dinh: true   # 17/10 (SS4 Q21): dòng nguồn viết tay giữ nguyên; num/src của chú thích chỉ để kiểm
 sources:
   NPS: {short: "National Park Service", url: "https://www.nps.gov/articles/s-s-scotts-bluff-forgotten-contributor.htm", read: fulltext, accessed: 2026-10-14}
   NPSRICH: {short: "National Park Service", url: "https://www.nps.gov/rori/learn/historyculture/richmond-california.htm", read: fulltext, accessed: 2026-10-14}
   USMC45: {short: "U.S. Maritime Commission (1945)", url: "https://www.fmc.gov/wp-content/uploads/2019/04/REPORT_TO_CONGRESS_1945.pdf", read: fulltext, accessed: 2026-10-14}
-  CRS26: {short: "CRS (2026)", url: "https://www.everycrsreport.com/files/2026-08-26_IF12666_1aacdd58a4f8f1cc88913d8d75c81df7f0284616.html", read: fulltext, accessed: 2026-10-14}
-  CRS23: {short: "CRS (2023)", url: "https://www.everycrsreport.com/files/2023-11-15_IF12534_dc64343953cbeb745275d998c39d542b5dfa0b2c.html", read: fulltext, accessed: 2026-10-14}
-  CRS19: {short: "CRS (2019)", url: "https://www.everycrsreport.com/files/20191121_R45725_4b1d41c49c7314e0ecdd2bdf7e042f2e27d04ade.html", read: fulltext, accessed: 2026-10-14}
-  FRDET: {short: "USTR (Jan 2025)", url: "https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf", read: fulltext, accessed: 2026-10-14, loai: chinh_sach, hieu_luc: "2025-01-17"}   # K 1.11 O5: quyết định USTR (Decided: January 17, 2025)
-  FRACT: {short: "USTR, Federal Register (Apr 2025)", url: "https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf", read: fulltext, accessed: 2026-10-14, loai: quy_dinh, hieu_luc: "2025-10-14"}   # phí hiệu lực 14/10/2025 (Phụ lục I "Effective as of October 14, 2025"); tạm hoãn từ 10/11/2025 theo FRSUSP
-  FRSUSP: {short: "USTR, Federal Register (Nov 2025)", url: "https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf", read: fulltext, accessed: 2026-10-15, loai: quy_dinh, hieu_luc: "2025-11-10"}   # tạm hoãn "as of 12:01 a.m. … November 10, 2025" tới 9/11/2026; tra lại 15/10/2026 (claims.md §3): chưa có văn bản mới
-  USTRPR: {short: "USTR (Jan 2025)", url: "https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2025/january/ustr-finds-chinas-targeting-maritime-logistics-and-shipbuilding-sectors-dominance-actionable-under", read: fulltext, accessed: 2026-10-14}
+  CRS26: {short: "CRS", long: "CRS (2026)", url: "https://www.everycrsreport.com/files/2026-08-26_IF12666_1aacdd58a4f8f1cc88913d8d75c81df7f0284616.html", read: fulltext, accessed: 2026-10-14}
+  CRS23: {short: "CRS", long: "CRS (2023)", url: "https://www.everycrsreport.com/files/2023-11-15_IF12534_dc64343953cbeb745275d998c39d542b5dfa0b2c.html", read: fulltext, accessed: 2026-10-14}
+  CRS19: {short: "CRS", long: "CRS (2019)", url: "https://www.everycrsreport.com/files/20191121_R45725_4b1d41c49c7314e0ecdd2bdf7e042f2e27d04ade.html", read: fulltext, accessed: 2026-10-14}
+  FRDET: {short: "USTR", long: "USTR (Jan 2025)", url: "https://ustr.gov/sites/default/files/files/Issue_Areas/Enforcement/FRNActionabilityChinaTargetingMaritime.pdf", read: fulltext, accessed: 2026-10-14, loai: chinh_sach, hieu_luc: "2025-01-17"}   # K 1.11 O5: quyết định USTR (Decided: January 17, 2025)
+  FRACT: {short: "USTR", long: "USTR, Federal Register (Apr 2025)", url: "https://www.govinfo.gov/content/pkg/FR-2025-04-23/pdf/2025-06927.pdf", read: fulltext, accessed: 2026-10-14, loai: quy_dinh, hieu_luc: "2025-10-14"}   # phí hiệu lực 14/10/2025 (Phụ lục I "Effective as of October 14, 2025"); tạm hoãn từ 10/11/2025 theo FRSUSP
+  FRSUSP: {short: "USTR", long: "USTR, Federal Register (Nov 2025)", url: "https://www.govinfo.gov/content/pkg/FR-2025-11-13/pdf/2025-19873.pdf", read: fulltext, accessed: 2026-10-15, loai: quy_dinh, hieu_luc: "2025-11-10"}   # tạm hoãn "as of 12:01 a.m. … November 10, 2025" tới 9/11/2026; tra lại 15/10/2026 (claims.md §3): chưa có văn bản mới
+  USTRPR: {short: "USTR", long: "USTR (Jan 2025)", url: "https://www.ustr.gov/about-us/policy-offices/press-office/press-releases/2025/january/ustr-finds-chinas-targeting-maritime-logistics-and-shipbuilding-sectors-dominance-actionable-under", read: fulltext, accessed: 2026-10-14}
   WB: {short: "World Bank", url: "https://api.worldbank.org/v2/country/KOR/indicator/NY.GDP.PCAP.CD?format=json", read: fulltext, accessed: 2026-10-14}
-  HHI: {short: "HD Hyundai Heavy Industries history", url: "https://ewh.ieee.org/soc/ras/conf/technicallycosponsored/iccas/iccas2011/english.hhi.co.kr/about/history.html", read: fulltext, accessed: 2026-10-14}
+  HHI: {short: "HD Hyundai history", long: "HD Hyundai Heavy Industries history", url: "https://ewh.ieee.org/soc/ras/conf/technicallycosponsored/iccas/iccas2011/english.hhi.co.kr/about/history.html", read: fulltext, accessed: 2026-10-14}
   KT2010: {short: "The Korea Times (2010 column)", url: "https://www.koreatimes.co.kr/economy/others/20100716/korea-builds-worlds-largest-shipyard-out-of-nothing", read: fulltext, accessed: 2026-10-14}
   KEIA: {short: "KEIA (2023)", url: "https://keia.org/the-peninsula/industrial-policy-did-it-work-in-korea-50-years-ago", read: fulltext, accessed: 2026-10-14}
-  JAH: {short: "Korea JoongAng Daily, 27 Aug 2025", url: "https://www.koreajoongangdaily.com/business/hanwha-invests-5-billion-in-philly-shipyard-as-part-of-masga-push/12398569", read: fulltext, accessed: 2026-10-14}
-  MT: {short: "Military Times, 21 Jul 2026", url: "https://www.militarytimes.com/pentagon/2026/07/21/hanwha-philly-shipyard-awarded-2-billion-to-build-2-missile-tracking-vessels", read: fulltext, accessed: 2026-10-14}
-  NFTC: {short: "Joint letter to USTR (Sep 2026)", url: "https://www.nftc.org/wp-content/uploads/2026/09/Joint-Association-USTR-Letter-Sec-301-Vessel-Fee-Suspension-Extension-Request-Final-092326.pdf", read: fulltext, accessed: 2026-10-14}
-  MOFCOM: {short: "Xinhua via China Daily (Feb 2025)", url: "https://www.chinadailyhk.com/hk/article/605277", read: fulltext, accessed: 2026-10-15}
+  JAH: {short: "JoongAng Daily", long: "Korea JoongAng Daily, 27 Aug 2025", url: "https://www.koreajoongangdaily.com/business/hanwha-invests-5-billion-in-philly-shipyard-as-part-of-masga-push/12398569", read: fulltext, accessed: 2026-10-14}
+  MT: {short: "Military Times", long: "Military Times, 21 Jul 2026", url: "https://www.militarytimes.com/pentagon/2026/07/21/hanwha-philly-shipyard-awarded-2-billion-to-build-2-missile-tracking-vessels", read: fulltext, accessed: 2026-10-14}
+  NFTC: {short: "letter to USTR", long: "Joint letter to USTR (Sep 2026)", url: "https://www.nftc.org/wp-content/uploads/2026/09/Joint-Association-USTR-Letter-Sec-301-Vessel-Fee-Suspension-Extension-Request-Final-092326.pdf", read: fulltext, accessed: 2026-10-14}
+  MOFCOM: {short: "Xinhua via China Daily", long: "Xinhua via China Daily (Feb 2025)", url: "https://www.chinadailyhk.com/hk/article/605277", read: fulltext, accessed: 2026-10-15}
   AMP: {short: "American Maritime Partnership", url: "https://www.americanmaritimepartnership.com/", read: fulltext, accessed: 2026-10-15}
-  MCC: {short: "Rep. McClintock (Jun 2025)", url: "https://mcclintock.house.gov/newsroom/press-releases/mcclintock-lee-introduce-open-americas-waters-act-repeal-jones-act-boost", read: fulltext, accessed: 2026-10-15}
+  MCC: {short: "Rep. McClintock", long: "Rep. McClintock (Jun 2025)", url: "https://mcclintock.house.gov/newsroom/press-releases/mcclintock-lee-introduce-open-americas-waters-act-repeal-jones-act-boost", read: fulltext, accessed: 2026-10-15}
   LOCOWENS: {short: "Photo: OWI, Library of Congress", url: "https://www.loc.gov/item/2017854462/", read: fulltext, accessed: 2026-10-15}
   LOCJONES: {short: "Photo: National Photo Co., LoC", url: "https://www.loc.gov/item/2016845467/", read: fulltext, accessed: 2026-10-15}
 
