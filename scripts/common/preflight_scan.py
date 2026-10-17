@@ -12,7 +12,7 @@ Mục kiểm (CHẶN = mã thoát 1; BÁO = in ra, không chặn):
   P3 CHẶN  tệp > 5 MB không phải con trỏ LFS; con trỏ LFS ngoài vùng LFS cho phép (tools/lfs-allow.txt)
   P4 CHẶN  dấu xung đột merge (<<<<<<< , >>>>>>> , ======= đứng một dòng) trong tệp văn bản
   P5 CHẶN  mỗi dòng SOURCES-FOOTAGE.csv / SOURCES-NGOAI-SO.csv đổi trong khoảng phải có tệp giấy phép: đường dẫn licenses/… ghi trong cột
-           giay_phep tồn tại, hoặc licenses/<clip_id viết thường>.txt cạnh sổ
+           giay_phep tồn tại, hoặc licenses/<clip_id viết thường>.txt cạnh sổ (licenses/… nằm trong URL không tính là đường dẫn)
   P6 BÁO   ảnh mới (jpg/png/tif/webp) ở vùng tư liệu (assets/, */photo/, */nguon/, */footage/, design/k2v/cutouts/ ảnh gốc) mà SHA-256 hoặc
            tên tệp không xuất hiện trong RIGHTS.md, SOURCES-*.csv, licenses/*.txt hay sổ *.json cùng tập
 (lock.py --verify chạy trong tools/preflight.sh.)"""
@@ -60,6 +60,14 @@ def added(mode, rng, f):
     return b'\n'.join(l[1:] for l in d.split(b'\n') if l.startswith(b'+') and not l.startswith(b'+++'))
 
 
+# P5: đường dẫn licenses/… đứng riêng (đầu ô, sau khoảng trắng/dấu câu, hoặc ./licenses/…); KHÔNG bắt licenses/… nằm trong URL
+# (vd http://creativecommons.org/licenses/publicdomain/ của archive.org) — trước đây URL bị coi là tệp giấy phép và chặn nhầm (V5a, 15/10).
+LIC_REF = re.compile(r'(?<![\w/.:\-])(?:\./)?(licenses/[\w.\-]+)')
+
+
+def license_refs(cell): return LIC_REF.findall(cell)
+
+
 def is_lfs_ptr(b): return b.startswith(b'version https://git-lfs.github.com/spec/v1')
 
 
@@ -98,7 +106,7 @@ def main():
             for row in csv.DictReader(io.StringIO(b.decode('utf-8', 'replace'))):
                 cid = (row.get('clip_id') or row.get('id') or '').strip()
                 if not cid: continue
-                refs = re.findall(r'licenses/[\w.\-]+', row.get('giay_phep', '') or '')
+                refs = license_refs(row.get('giay_phep', '') or '')
                 cand = [os.path.join(d, r) for r in refs] or [os.path.join(d, 'licenses', cid.lower() + '.txt')]
                 if not any(os.path.exists(os.path.join(REPO, c)) for c in cand):
                     block.append(f'P5 thiếu tệp giấy phép cho {cid} ({f}): cần {cand[0]}')

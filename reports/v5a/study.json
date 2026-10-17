@@ -1,0 +1,311 @@
+{
+ "nguon": "LFS release-k2c-t1-06-v1:k2c-t1-06-v1-master.mp4 oid 4f2d280bc649",
+ "bang_mau": {
+  "ink": "#0F1722",
+  "ink2": "#16212F",
+  "text": "#EEF1F4",
+  "steel": "#9AA7B5",
+  "dim": "#B9C3CE",
+  "orange": "#F08A4B",
+  "teal": "#3CC2B0",
+  "amber": "#F2C14E",
+  "sepia_ink": "#2A1C10",
+  "sepia_paper": "#F1E4C6"
+ },
+ "luts": {
+  "k2-a-thep-lanh.cube": {
+   "de_trung_thanh": {
+    "ink": 0.13,
+    "ink2": 0.04,
+    "text": 0.01,
+    "steel": 0.03,
+    "dim": 0.03,
+    "orange": 0.04,
+    "teal": 0.08,
+    "amber": 0.09
+   },
+   "de_trung_thanh_max": 0.13,
+   "tuong_phan_chu": 15.9,
+   "de_sepia": {
+    "sepia_ink": 0.79,
+    "sepia_paper": 1.89
+   },
+   "de_bang_mau_tb": 6.94,
+   "de_dich_tb": 2.07,
+   "khung_gan_hon": 12
+  },
+  "k2-b-trung-tinh.cube": {
+   "de_trung_thanh": {
+    "ink": 0.09,
+    "ink2": 0.07,
+    "text": 0.01,
+    "steel": 0.02,
+    "dim": 0.02,
+    "orange": 0.0,
+    "teal": 0.03,
+    "amber": 0.03
+   },
+   "de_trung_thanh_max": 0.09,
+   "tuong_phan_chu": 15.89,
+   "de_sepia": {
+    "sepia_ink": 2.79,
+    "sepia_paper": 0.71
+   },
+   "de_bang_mau_tb": 7.45,
+   "de_dich_tb": 1.48,
+   "khung_gan_hon": 12
+  },
+  "k2-c-cam-lam.cube": {
+   "de_trung_thanh": {
+    "ink": 6.81,
+    "ink2": 6.73,
+    "text": 19.68,
+    "steel": 13.97,
+    "dim": 17.92,
+    "orange": 5.9,
+    "teal": 8.96,
+    "amber": 4.77
+   },
+   "de_trung_thanh_max": 19.68,
+   "tuong_phan_chu": 14.72,
+   "de_sepia": {
+    "sepia_ink": 23.83,
+    "sepia_paper": 12.71
+   },
+   "de_bang_mau_tb": 12.18,
+   "de_dich_tb": 12.23,
+   "khung_gan_hon": 0
+  }
+ },
+ "khung": [
+  {
+   "f": "f01.png",
+   "t": 8.0,
+   "goc": {
+    "de_bang_mau": 4.6
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 4.01,
+    "de_dich": 1.79
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 4.16,
+    "de_dich": 1.25
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 8.19,
+    "de_dich": 8.85
+   }
+  },
+  {
+   "f": "f02.png",
+   "t": 44.0,
+   "goc": {
+    "de_bang_mau": 7.2
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 5.84,
+    "de_dich": 2.35
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 6.65,
+    "de_dich": 2.32
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 13.55,
+    "de_dich": 16.85
+   }
+  },
+  {
+   "f": "f03.png",
+   "t": 95.0,
+   "goc": {
+    "de_bang_mau": 6.78
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 5.79,
+    "de_dich": 2.08
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 6.22,
+    "de_dich": 1.91
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 14.94,
+    "de_dich": 18.63
+   }
+  },
+  {
+   "f": "f04.png",
+   "t": 178.5,
+   "goc": {
+    "de_bang_mau": 11.77
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 10.73,
+    "de_dich": 2.28
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 11.14,
+    "de_dich": 1.41
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 16.52,
+    "de_dich": 12.09
+   }
+  },
+  {
+   "f": "f05.png",
+   "t": 190.0,
+   "goc": {
+    "de_bang_mau": 3.98
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 3.22,
+    "de_dich": 1.42
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 3.51,
+    "de_dich": 1.02
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 7.64,
+    "de_dich": 9.25
+   }
+  },
+  {
+   "f": "f06.png",
+   "t": 340.0,
+   "goc": {
+    "de_bang_mau": 12.89
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 11.06,
+    "de_dich": 2.23
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 11.83,
+    "de_dich": 1.6
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 13.74,
+    "de_dich": 12.38
+   }
+  },
+  {
+   "f": "f07.png",
+   "t": 470.0,
+   "goc": {
+    "de_bang_mau": 6.02
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 5.2,
+    "de_dich": 2.5
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 5.41,
+    "de_dich": 1.59
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 8.36,
+    "de_dich": 9.98
+   }
+  },
+  {
+   "f": "f08.png",
+   "t": 509.0,
+   "goc": {
+    "de_bang_mau": 6.99
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 5.93,
+    "de_dich": 1.81
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 6.63,
+    "de_dich": 1.1
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 10.92,
+    "de_dich": 15.25
+   }
+  },
+  {
+   "f": "f09.png",
+   "t": 515.0,
+   "goc": {
+    "de_bang_mau": 20.2
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 18.49,
+    "de_dich": 3.27
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 19.57,
+    "de_dich": 1.82
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 24.66,
+    "de_dich": 10.21
+   }
+  },
+  {
+   "f": "f10.png",
+   "t": 600.0,
+   "goc": {
+    "de_bang_mau": 4.62
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 4.0,
+    "de_dich": 1.79
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 4.28,
+    "de_dich": 1.25
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 8.05,
+    "de_dich": 8.93
+   }
+  },
+  {
+   "f": "f11.png",
+   "t": 830.0,
+   "goc": {
+    "de_bang_mau": 6.52
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 5.9,
+    "de_dich": 1.92
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 6.42,
+    "de_dich": 1.49
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 11.95,
+    "de_dich": 15.01
+   }
+  },
+  {
+   "f": "f12.png",
+   "t": 900.0,
+   "goc": {
+    "de_bang_mau": 4.07
+   },
+   "k2-a-thep-lanh": {
+    "de_bang_mau": 3.12,
+    "de_dich": 1.43
+   },
+   "k2-b-trung-tinh": {
+    "de_bang_mau": 3.58,
+    "de_dich": 1.04
+   },
+   "k2-c-cam-lam": {
+    "de_bang_mau": 7.64,
+    "de_dich": 9.33
+   }
+  }
+ ],
+ "goc_de_bang_mau_tb": 7.97
+}
