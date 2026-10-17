@@ -1,0 +1,338 @@
+{
+ "note": "100 bình luận gốc hàng đầu (order=relevance) × 3 video (VisualPolitik EN 2J1Ro-XCF2A, Travel Explorer c3G16DCoiFc [thu 94], DW News 6Le4lWqk9XQ). Haiku 5.5 (ghim) gắn nhãn 294/294. Trọng số = 1 + thích + phản hồi (tự tính). Chỉ lưu ý DIỄN ĐẠT LẠI ≤ 10 từ, không nguyên văn; số thô ngoài git.",
+ "videos": {
+  "6Le4lWqk9XQ": {
+   "n": 100,
+   "n_hoi_yeucau_suasai_tranhluan": 27,
+   "n_hoi_yeucau": 14,
+   "kind_weight": {
+    "other": 1409,
+    "correction": 521,
+    "question": 430,
+    "sovereignty_opinion": 317,
+    "praise": 126,
+    "cause_debate": 23
+   },
+   "topic_weight": {
+    "other": 1066,
+    "brexit_treaty": 1005,
+    "border_workers": 561,
+    "sovereignty": 557,
+    "gambling": 104,
+    "cost_of_living": 41,
+    "tax": 27,
+    "finance": 16,
+    "military": 5,
+    "la_linea_spain_poverty": 2
+   },
+   "top_y": [
+    {
+     "w": 210,
+     "kind": "correction",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Southernmost Iberian point is Tarifa, not Gibraltar"
+    },
+    {
+     "w": 168,
+     "kind": "question",
+     "topics": [
+      "brexit_treaty",
+      "border_workers"
+     ],
+     "y_dien_dat_lai": "Do Brits now face EU customs and immigration at Gibraltar"
+    },
+    {
+     "w": 166,
+     "kind": "correction",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Tarifa area is not Spain's most southern peninsula"
+    },
+    {
+     "w": 92,
+     "kind": "question",
+     "topics": [
+      "sovereignty",
+      "brexit_treaty"
+     ],
+     "y_dien_dat_lai": "Is Gibraltar now effectively part of Schengen"
+    },
+    {
+     "w": 85,
+     "kind": "correction",
+     "topics": [
+      "sovereignty"
+     ],
+     "y_dien_dat_lai": "UK can rescind the open border; giving up Gibraltar is clickbait"
+    },
+    {
+     "w": 75,
+     "kind": "question",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks if both sides are happy with this"
+    },
+    {
+     "w": 69,
+     "kind": "question",
+     "topics": [
+      "border_workers",
+      "brexit_treaty"
+     ],
+     "y_dien_dat_lai": "Do British passport holders need EES registration flying to Gibraltar"
+    },
+    {
+     "w": 50,
+     "kind": "correction",
+     "topics": [
+      "sovereignty"
+     ],
+     "y_dien_dat_lai": "Gibraltar is not southernmost; Spain built the wall"
+    },
+    {
+     "w": 12,
+     "kind": "question",
+     "topics": [
+      "border_workers",
+      "brexit_treaty"
+     ],
+     "y_dien_dat_lai": "Do British travellers to Gibraltar need Spanish visas"
+    },
+    {
+     "w": 11,
+     "kind": "cause_debate",
+     "topics": [
+      "sovereignty",
+      "border_workers"
+     ],
+     "y_dien_dat_lai": "Gibraltar wanted Spain immigration arrangement; UK ties unchanged"
+    }
+   ]
+  },
+  "2J1Ro-XCF2A": {
+   "n": 100,
+   "n_hoi_yeucau_suasai_tranhluan": 25,
+   "n_hoi_yeucau": 8,
+   "kind_weight": {
+    "sovereignty_opinion": 783,
+    "cause_debate": 512,
+    "praise": 414,
+    "other": 404,
+    "correction": 215,
+    "question": 65
+   },
+   "topic_weight": {
+    "sovereignty": 982,
+    "other": 841,
+    "finance": 379,
+    "tax": 312,
+    "brexit_treaty": 175,
+    "military": 74,
+    "gambling": 25,
+    "cost_of_living": 21,
+    "smuggling": 20,
+    "la_linea_spain_poverty": 14,
+    "border_workers": 8
+   },
+   "top_y": [
+    {
+     "w": 262,
+     "kind": "cause_debate",
+     "topics": [
+      "tax",
+      "finance"
+     ],
+     "y_dien_dat_lai": "Success comes from tax haven status and wealthy visitors"
+    },
+    {
+     "w": 130,
+     "kind": "correction",
+     "topics": [
+      "sovereignty"
+     ],
+     "y_dien_dat_lai": "Gibraltarian is correct; la verja reflects Spanish sovereignty claims"
+    },
+    {
+     "w": 81,
+     "kind": "cause_debate",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Self-government and British influence made Hong Kong and Singapore successful"
+    },
+    {
+     "w": 55,
+     "kind": "cause_debate",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Spanish politicians drain wealth; Gibraltar must be efficient"
+    },
+    {
+     "w": 50,
+     "kind": "cause_debate",
+     "topics": [
+      "finance"
+     ],
+     "y_dien_dat_lai": "Asks if Luxembourg's high income means Gibraltar is not successful"
+    },
+    {
+     "w": 49,
+     "kind": "correction",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Says demonym is Gibraltarian, not Gibraltian"
+    },
+    {
+     "w": 30,
+     "kind": "cause_debate",
+     "topics": [
+      "sovereignty"
+     ],
+     "y_dien_dat_lai": "Small efficient governments outperform large stagnant ones"
+    },
+    {
+     "w": 20,
+     "kind": "question",
+     "topics": [
+      "smuggling"
+     ],
+     "y_dien_dat_lai": "Asks how a public subsidy can be smuggled"
+    },
+    {
+     "w": 19,
+     "kind": "cause_debate",
+     "topics": [
+      "tax",
+      "sovereignty"
+     ],
+     "y_dien_dat_lai": "Small sovereign state with low taxes becomes rich"
+    },
+    {
+     "w": 16,
+     "kind": "correction",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Says the demonym is Gibraltarian, not Gibraltarans"
+    }
+   ]
+  },
+  "c3G16DCoiFc": {
+   "n": 94,
+   "n_hoi_yeucau_suasai_tranhluan": 22,
+   "n_hoi_yeucau": 11,
+   "kind_weight": {
+    "other": 268,
+    "praise": 135,
+    "question": 106,
+    "sovereignty_opinion": 101,
+    "cause_debate": 28,
+    "correction": 21,
+    "request": 17
+   },
+   "topic_weight": {
+    "other": 427,
+    "sovereignty": 139,
+    "military": 34,
+    "finance": 30,
+    "brexit_treaty": 27,
+    "border_workers": 15,
+    "tax": 15,
+    "smuggling": 13,
+    "history_1704_1713": 11,
+    "cost_of_living": 7,
+    "gambling": 3
+   },
+   "top_y": [
+    {
+     "w": 56,
+     "kind": "question",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks why rainwater isn't used instead of desalination"
+    },
+    {
+     "w": 22,
+     "kind": "question",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks why soil with plants can't grow food"
+    },
+    {
+     "w": 17,
+     "kind": "question",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks why there are no small private gardens"
+    },
+    {
+     "w": 11,
+     "kind": "correction",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Corrects desalination claims, land reclamation, and UK inequity"
+    },
+    {
+     "w": 11,
+     "kind": "cause_debate",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "European wealth came from colonial plunder of resources"
+    },
+    {
+     "w": 9,
+     "kind": "request",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks to drop the music"
+    },
+    {
+     "w": 6,
+     "kind": "cause_debate",
+     "topics": [
+      "tax",
+      "finance"
+     ],
+     "y_dien_dat_lai": "Tax haven is how it makes its economic output"
+    },
+    {
+     "w": 6,
+     "kind": "question",
+     "topics": [
+      "other"
+     ],
+     "y_dien_dat_lai": "Asks why the music is odd"
+    },
+    {
+     "w": 5,
+     "kind": "request",
+     "topics": [
+      "military"
+     ],
+     "y_dien_dat_lai": "Wants conscription revived to put Brits on guns"
+    },
+    {
+     "w": 5,
+     "kind": "cause_debate",
+     "topics": [
+      "finance",
+      "other"
+     ],
+     "y_dien_dat_lai": "Why are resource-rich countries poor and resource-poor rich"
+    }
+   ]
+  }
+ }
+}
