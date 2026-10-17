@@ -31,8 +31,8 @@ class Fit:
             n = len(s); P = np.c_[np.ones(n), s]; L = np.zeros((n + 3, n + 3))
             L[:n, :n] = self._U(s, s) + lam * np.eye(n); L[:n, n:] = P; L[n:, :n] = P.T
             Y = np.zeros((n + 3, 2)); Y[:n] = dst; self.W = np.linalg.solve(L, Y); self.s = s
-        elif kind == 'sim':
-            s = s * [1, -1]; n = len(s); A = np.zeros((2 * n, 4))
+        elif kind in ('sim', 'simg'):   # sim: nguồn là điểm ảnh (y xuống) → lật; simg: nguồn là toạ độ mét (y lên)
+            s = s * ([1, -1] if kind == 'sim' else [1, 1]); n = len(s); A = np.zeros((2 * n, 4))
             A[0::2] = np.c_[s[:, 0], -s[:, 1], np.ones(n), np.zeros(n)]; A[1::2] = np.c_[s[:, 1], s[:, 0], np.zeros(n), np.ones(n)]
             self.q, *_ = np.linalg.lstsq(A, dst.reshape(-1), rcond=None)
         else:
@@ -47,8 +47,8 @@ class Fit:
         p = (np.atleast_2d(np.asarray(p, float)) - self.mu) / self.sd
         if self.kind == 'tps':
             n = len(self.s); return self._U(p, self.s) @ self.W[:n] + np.c_[np.ones(len(p)), p] @ self.W[n:]
-        if self.kind == 'sim':
-            p = p * [1, -1]; a, b, tx, ty = self.q; return np.c_[a * p[:, 0] - b * p[:, 1] + tx, b * p[:, 0] + a * p[:, 1] + ty]
+        if self.kind in ('sim', 'simg'):
+            p = p * ([1, -1] if self.kind == 'sim' else [1, 1]); a, b, tx, ty = self.q; return np.c_[a * p[:, 0] - b * p[:, 1] + tx, b * p[:, 0] + a * p[:, 1] + ty]
         return design(p, self.kind) @ self.C
 
 
