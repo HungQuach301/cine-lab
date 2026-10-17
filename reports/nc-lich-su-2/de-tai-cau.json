@@ -1,0 +1,1390 @@
+{
+ "doc": "NC-LS2, YouTube Data API search.list (type=video, relevance, 50, regionCode=US, relevanceLanguage=en, không giới hạn ngày) + videos.list, đọc 17/10/2026 UTC. Dài ≥ 480 s, Short ≤ 180 s. Video lạc đề loại tay (số ở 'loai_tay'; chỉ duyệt tay video dài ≥ 20 nghìn và Short ≥ 100 nghìn). 'mo_ta_co_nguon' = mô tả có mục Sources/Bibliography/References/Further reading (regex, tự tính). 'nhac_AI' = tiêu đề/mô tả có 'AI'/'generated' (regex). 'khung_tieu_de_top20_dai' = số tiêu đề trong 20 video dài lớn nhất khớp regex khung (đếm, không chép tiêu đề). Mọi số ngoài lượt xem/bình luận là tự tính, không phải chỉ số YouTube. Không lưu tiêu đề/mô tả/bình luận của kênh khác.",
+ "de_tai": {
+  "constantinople1453": {
+   "truy_van": "fall of constantinople 1453",
+   "so_ket_qua": 50,
+   "loai_tay": 2,
+   "video_dai_ge8p": 20,
+   "short_le3p": 21,
+   "dai_lon_nhat": 4048324,
+   "dai_ge100k": 11,
+   "dai_ge500k": 7,
+   "dai_ge1m": 6,
+   "trung_vi_top10_dai": 1089292,
+   "short_lon_nhat": 8822384,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "Stone Before Kings",
+     "luot": 15,
+     "phut": 14
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Kings and Generals",
+     "luot": 4048324,
+     "phut": 12,
+     "ngay": "2018-02-04",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 12742
+    },
+    {
+     "kenh": "Flash Point History",
+     "luot": 2159678,
+     "phut": 144,
+     "ngay": "2021-06-14",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1500
+    },
+    {
+     "kenh": "The Infographics Show",
+     "luot": 1778931,
+     "phut": 11,
+     "ngay": "2019-07-08",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 6557
+    },
+    {
+     "kenh": "Kings and Generals",
+     "luot": 1143381,
+     "phut": 52,
+     "ngay": "2024-11-07",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 2616
+    },
+    {
+     "kenh": "SandRhoman History",
+     "luot": 1134179,
+     "phut": 48,
+     "ngay": "2022-04-03",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 2483
+    }
+   ],
+   "top5_co_nguon": 3,
+   "dai_nhac_AI": 4,
+   "kenh_lam_dai": [
+    "Captivating History",
+    "Chronicle - Medieval History Documentaries",
+    "Flash Point History",
+    "Historical Total War Battles",
+    "History Class",
+    "HistoryInShells",
+    "Kings and Generals",
+    "Reply History",
+    "Richard - Epic History Reforged",
+    "Ryan M Reeves",
+    "SandRhoman History",
+    "Stone Before Kings",
+    "TRUE HISTORY LEGENDS",
+    "The Forgotten",
+    "The Infographics Show",
+    "The Quiet Conquest",
+    "Thomas Relives History",
+    "WarsofTheWorld",
+    "timewarp cities"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 2,
+    "phan_xet": 0,
+    "AI_tai_dung": 3,
+    "comments_tat": 0
+   }
+  },
+  "vienna1683": {
+   "truy_van": "siege of vienna 1683",
+   "so_ket_qua": 40,
+   "loai_tay": 3,
+   "video_dai_ge8p": 28,
+   "short_le3p": 7,
+   "dai_lon_nhat": 3051746,
+   "dai_ge100k": 15,
+   "dai_ge500k": 9,
+   "dai_ge1m": 8,
+   "trung_vi_top10_dai": 1681957,
+   "short_lon_nhat": 969982,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "The History Machine",
+     "luot": 1405,
+     "phut": 12
+    },
+    {
+     "kenh": "Pandion",
+     "luot": 1276,
+     "phut": 17
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Extra History",
+     "luot": 3051746,
+     "phut": 11,
+     "ngay": "2019-04-13",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1593
+    },
+    {
+     "kenh": "Extra History",
+     "luot": 2439197,
+     "phut": 12,
+     "ngay": "2019-04-06",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 2857
+    },
+    {
+     "kenh": "Extra History",
+     "luot": 2333956,
+     "phut": 11,
+     "ngay": "2019-04-20",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 2917
+    },
+    {
+     "kenh": "SandRhoman History",
+     "luot": 2270590,
+     "phut": 30,
+     "ngay": "2020-10-04",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 3877
+    },
+    {
+     "kenh": "Extra History",
+     "luot": 1793060,
+     "phut": 35,
+     "ngay": "2024-07-06",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1094
+    }
+   ],
+   "top5_co_nguon": 1,
+   "dai_nhac_AI": 3,
+   "kenh_lam_dai": [
+    "Battle Chronicles",
+    "Behind The Battle",
+    "EPIC MASJID",
+    "Empires Unearthed",
+    "Extra History",
+    "Herr Hauptberger",
+    "Historiarch",
+    "Historical Club",
+    "Historical Total War Battles",
+    "History & Weapon",
+    "HistoryMarche",
+    "Historypolis",
+    "Marcus Ward — History",
+    "Ottoman Engine",
+    "Pandion",
+    "Past Compass",
+    "Real Crusades History",
+    "Resource777",
+    "Saga of Battles",
+    "SandRhoman History",
+    "The Armchair Historian",
+    "The History Machine",
+    "The War Archive",
+    "War History",
+    "a mad biscuit"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 5,
+    "giat_gan_kinh_di": 0,
+    "phan_xet": 0,
+    "AI_tai_dung": 1,
+    "comments_tat": 0
+   }
+  },
+  "malta1565": {
+   "truy_van": "great siege of malta",
+   "so_ket_qua": 47,
+   "loai_tay": 3,
+   "video_dai_ge8p": 32,
+   "short_le3p": 7,
+   "dai_lon_nhat": 1339767,
+   "dai_ge100k": 15,
+   "dai_ge500k": 3,
+   "dai_ge1m": 2,
+   "trung_vi_top10_dai": 319496,
+   "short_lon_nhat": 157950,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "History Mapped Out",
+     "luot": 380646,
+     "phut": 24
+    },
+    {
+     "kenh": "Dan Snow's History Hit",
+     "luot": 220757,
+     "phut": 29
+    },
+    {
+     "kenh": "Kings and Queens Channel",
+     "luot": 67,
+     "phut": 50
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Kings and Generals",
+     "luot": 1339767,
+     "phut": 23,
+     "ngay": "2019-09-15",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 2498
+    },
+    {
+     "kenh": "SandRhoman History",
+     "luot": 1235433,
+     "phut": 41,
+     "ngay": "2022-10-16",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 1123
+    },
+    {
+     "kenh": "Crusaders Guild USA",
+     "luot": 927105,
+     "phut": 12,
+     "ngay": "2025-10-11",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 5762
+    },
+    {
+     "kenh": "Crusade Tales",
+     "luot": 428321,
+     "phut": 36,
+     "ngay": "2025-11-23",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 162
+    },
+    {
+     "kenh": "History Mapped Out",
+     "luot": 380646,
+     "phut": 24,
+     "ngay": "2026-09-22",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 204
+    }
+   ],
+   "top5_co_nguon": 1,
+   "dai_nhac_AI": 2,
+   "kenh_lam_dai": [
+    "AIgless Stories",
+    "Ancient Battles Stories",
+    "Battle Chronicles",
+    "Battlefields of History",
+    "Catholic Journey",
+    "Crusade Tales",
+    "Crusaders Guild USA",
+    "Dan Snow's History Hit",
+    "EuropaRise",
+    "Free Documentary - History",
+    "GREAT HISTORY EN",
+    "Heroes and Legends Documentary Channel",
+    "History Mapped Out",
+    "History Teller YT",
+    "History Undone",
+    "Journeyman Pictures",
+    "Kings and Generals",
+    "Kings and Queens Channel",
+    "Knowledgia",
+    "Ottoman Engine",
+    "Real Crusades History",
+    "Saga of Battles",
+    "SandRhoman History",
+    "Sensus Fidelium",
+    "StreamVault",
+    "THE WORLD WE DON'T SEE",
+    "TRUE HAPPENED",
+    "WarFronts",
+    "Wars in History"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 4,
+    "giat_gan_kinh_di": 2,
+    "phan_xet": 0,
+    "AI_tai_dung": 0,
+    "comments_tat": 0
+   }
+  },
+  "stalingrad": {
+   "truy_van": "battle of stalingrad",
+   "so_ket_qua": 50,
+   "loai_tay": 1,
+   "video_dai_ge8p": 33,
+   "short_le3p": 14,
+   "dai_lon_nhat": 6806440,
+   "dai_ge100k": 25,
+   "dai_ge500k": 16,
+   "dai_ge1m": 12,
+   "trung_vi_top10_dai": 3407421,
+   "short_lon_nhat": 9305570,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "Timeline - World History Documentaries",
+     "luot": 260355,
+     "phut": 147
+    },
+    {
+     "kenh": "EpicWar",
+     "luot": 180913,
+     "phut": 57
+    },
+    {
+     "kenh": "Military Heroes",
+     "luot": 13648,
+     "phut": 45
+    },
+    {
+     "kenh": "Pillows of the Past",
+     "luot": 3629,
+     "phut": 188
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "History Hit",
+     "luot": 6806440,
+     "phut": 112,
+     "ngay": "2024-10-10",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 5185
+    },
+    {
+     "kenh": "The Armchair Historian",
+     "luot": 4288371,
+     "phut": 27,
+     "ngay": "2021-12-17",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 6249
+    },
+    {
+     "kenh": "Imperial War Museums",
+     "luot": 4252356,
+     "phut": 17,
+     "ngay": "2023-02-15",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 4169
+    },
+    {
+     "kenh": "Battle Guide",
+     "luot": 3602781,
+     "phut": 25,
+     "ngay": "2025-06-27",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": true,
+     "binh_luan": 1623
+    },
+    {
+     "kenh": "Vasile Iuga",
+     "luot": 3595781,
+     "phut": 115,
+     "ngay": "2012-10-10",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 2968
+    }
+   ],
+   "top5_co_nguon": 2,
+   "dai_nhac_AI": 1,
+   "kenh_lam_dai": [
+    "Battle Guide",
+    "BlueCrystalGem",
+    "Der Legionär English",
+    "Disturban History",
+    "EpicWar",
+    "Flashback History",
+    "Free Documentary - History",
+    "HISTORY",
+    "History Hit",
+    "History Mapped Out",
+    "Imperial War Museums",
+    "In&Out Nazi Germany",
+    "Kings and Generals",
+    "Knowledgia",
+    "Lex Clips",
+    "Mighty Monk",
+    "Military Heroes",
+    "Pillows of the Past",
+    "Real History",
+    "StormofSteel",
+    "The Armchair Historian",
+    "The Infographics Show",
+    "The Rest Is History",
+    "Timeline - World History Documentaries",
+    "Vasile Iuga",
+    "War Stories",
+    "WarsofTheWorld",
+    "World War Two"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 7,
+    "phan_xet": 0,
+    "AI_tai_dung": 1,
+    "comments_tat": 1
+   }
+  },
+  "dresden1945": {
+   "truy_van": "bombing of dresden 1945",
+   "so_ket_qua": 50,
+   "loai_tay": 3,
+   "video_dai_ge8p": 25,
+   "short_le3p": 11,
+   "dai_lon_nhat": 669578,
+   "dai_ge100k": 9,
+   "dai_ge500k": 2,
+   "dai_ge1m": 0,
+   "trung_vi_top10_dai": 317221,
+   "short_lon_nhat": 1217763,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "The History Archive",
+     "luot": 55379,
+     "phut": 11
+    },
+    {
+     "kenh": "WARSTICKS",
+     "luot": 364,
+     "phut": 15
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "TIKhistory",
+     "luot": 669578,
+     "phut": 57,
+     "ngay": "2022-04-11",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 6273
+    },
+    {
+     "kenh": "The Operations Room",
+     "luot": 520400,
+     "phut": 46,
+     "ngay": "2025-09-05",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 4812
+    },
+    {
+     "kenh": "Disturban History",
+     "luot": 429664,
+     "phut": 16,
+     "ngay": "2024-06-29",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 4622
+    },
+    {
+     "kenh": "DW News",
+     "luot": 390814,
+     "phut": 9,
+     "ngay": "2020-02-13",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 4294
+    },
+    {
+     "kenh": "Flashback History",
+     "luot": 347554,
+     "phut": 27,
+     "ngay": "2025-07-04",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 2449
+    }
+   ],
+   "top5_co_nguon": 0,
+   "dai_nhac_AI": 1,
+   "kenh_lam_dai": [
+    "DW News",
+    "Disturban History",
+    "Endless Wars",
+    "Flashback History",
+    "Good Morning Britain",
+    "HardThrasher",
+    "History Command",
+    "History Hustle",
+    "History In Color",
+    "Into the Shadows",
+    "Jeffrey Holder",
+    "Larry Kendrick",
+    "SinceWWII",
+    "Sir Martin Gilbert Learning Centre",
+    "TIKhistory",
+    "TYSONGREER SHADY",
+    "The History Archive",
+    "The Operations Room",
+    "The War Archive",
+    "US National Archives",
+    "WARSTICKS",
+    "WW2 Raw Archives",
+    "WW2 Stories",
+    "World of Warfare"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 7,
+    "phan_xet": 4,
+    "AI_tai_dung": 0,
+    "comments_tat": 2
+   }
+  },
+  "warsaw1944": {
+   "truy_van": "warsaw uprising 1944",
+   "so_ket_qua": 50,
+   "loai_tay": 3,
+   "video_dai_ge8p": 18,
+   "short_le3p": 20,
+   "dai_lon_nhat": 2264069,
+   "dai_ge100k": 5,
+   "dai_ge500k": 1,
+   "dai_ge1m": 1,
+   "trung_vi_top10_dai": 102431,
+   "short_lon_nhat": 290353,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "War Stories",
+     "luot": 49050,
+     "phut": 52
+    },
+    {
+     "kenh": "TALKING WITH TVP WORLD",
+     "luot": 904,
+     "phut": 13
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Extra History",
+     "luot": 2264069,
+     "phut": 11,
+     "ngay": "2019-08-01",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 4692
+    },
+    {
+     "kenh": "World War Two",
+     "luot": 331911,
+     "phut": 25,
+     "ngay": "2023-08-05",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 888
+    },
+    {
+     "kenh": "Sabaton History",
+     "luot": 185483,
+     "phut": 21,
+     "ngay": "2020-07-16",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 1126
+    },
+    {
+     "kenh": "Warsaw Uprising 1944",
+     "luot": 182177,
+     "phut": 49,
+     "ngay": "2016-07-04",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 517
+    },
+    {
+     "kenh": "World at War",
+     "luot": 110534,
+     "phut": 54,
+     "ngay": "2025-05-26",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 215
+    }
+   ],
+   "top5_co_nguon": 2,
+   "dai_nhac_AI": 0,
+   "kenh_lam_dai": [
+    "EPIC WORLD WAR II",
+    "Echoes of Valor: Untold Stories of WW2",
+    "Extra History",
+    "Mazovian",
+    "Patrick Ney",
+    "Pure WW2",
+    "Sabaton History",
+    "TALKING WITH TVP WORLD",
+    "TopTenz",
+    "WW2 Raw Archives",
+    "WW2TV",
+    "War Stories",
+    "Warsaw Uprising 1944",
+    "World War Footage",
+    "World War Two",
+    "World at War",
+    "World of Warfare"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 18,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 4,
+    "phan_xet": 0,
+    "AI_tai_dung": 0,
+    "comments_tat": 0
+   }
+  },
+  "hiroshima1945": {
+   "truy_van": "hiroshima atomic bombing 1945",
+   "so_ket_qua": 50,
+   "loai_tay": 2,
+   "video_dai_ge8p": 25,
+   "short_le3p": 15,
+   "dai_lon_nhat": 13408216,
+   "dai_ge100k": 24,
+   "dai_ge500k": 17,
+   "dai_ge1m": 14,
+   "trung_vi_top10_dai": 3734468,
+   "short_lon_nhat": 3036371,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "footagefarm",
+     "luot": 287242,
+     "phut": 16
+    },
+    {
+     "kenh": "Kinda Smart",
+     "luot": 15965,
+     "phut": 25
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "War Stories",
+     "luot": 13408216,
+     "phut": 46,
+     "ngay": "2025-11-07",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 16022
+    },
+    {
+     "kenh": "Kyle Hill",
+     "luot": 11874531,
+     "phut": 13,
+     "ngay": "2023-07-13",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 20157
+    },
+    {
+     "kenh": "SLICE History",
+     "luot": 4881194,
+     "phut": 48,
+     "ngay": "2023-06-29",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 4166
+    },
+    {
+     "kenh": "The Operations Room",
+     "luot": 3911425,
+     "phut": 23,
+     "ngay": "2023-07-21",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 6727
+    },
+    {
+     "kenh": "The Infographics Show",
+     "luot": 3879143,
+     "phut": 20,
+     "ngay": "2022-06-30",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 8199
+    }
+   ],
+   "top5_co_nguon": 1,
+   "dai_nhac_AI": 0,
+   "kenh_lam_dai": [
+    "BBC News",
+    "BBC News Africa",
+    "BBC News اردو",
+    "BBC World Service",
+    "Best History Documentaries",
+    "CBS Mornings",
+    "CBS News",
+    "Imperial War Museums",
+    "Kinda Smart",
+    "Kyle Hill",
+    "Mark Felton Productions",
+    "Modern Muscle",
+    "NBC News",
+    "ONLY in JAPAN * John Daub",
+    "SLICE Full Doc",
+    "SLICE History",
+    "Shaun",
+    "The Infographics Show",
+    "The Operations Room",
+    "The World History Channel",
+    "Timeline - World History Documentaries",
+    "War Stories",
+    "footagefarm"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 2,
+    "phan_xet": 0,
+    "AI_tai_dung": 0,
+    "comments_tat": 0
+   }
+  },
+  "berlin1945": {
+   "truy_van": "battle of berlin 1945",
+   "so_ket_qua": 50,
+   "loai_tay": 3,
+   "video_dai_ge8p": 30,
+   "short_le3p": 13,
+   "dai_lon_nhat": 8166613,
+   "dai_ge100k": 22,
+   "dai_ge500k": 12,
+   "dai_ge1m": 8,
+   "trung_vi_top10_dai": 2980711,
+   "short_lon_nhat": 12642692,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "Warfare",
+     "luot": 53503,
+     "phut": 49
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Mark Felton Productions",
+     "luot": 8166613,
+     "phut": 10,
+     "ngay": "2019-05-28",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1305
+    },
+    {
+     "kenh": "Vasile Iuga",
+     "luot": 4011499,
+     "phut": 115,
+     "ngay": "2012-10-10",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 3566
+    },
+    {
+     "kenh": "The Armchair Historian",
+     "luot": 3640395,
+     "phut": 15,
+     "ngay": "2019-04-26",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 5317
+    },
+    {
+     "kenh": "Real Time History",
+     "luot": 3605243,
+     "phut": 23,
+     "ngay": "2024-12-06",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": true,
+     "binh_luan": 1040
+    },
+    {
+     "kenh": "The Armchair Historian",
+     "luot": 3330939,
+     "phut": 23,
+     "ngay": "2022-12-03",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 4030
+    }
+   ],
+   "top5_co_nguon": 3,
+   "dai_nhac_AI": 3,
+   "kenh_lam_dai": [
+    "Ashes of the Century",
+    "Battle Guide",
+    "Battlefields of History",
+    "CINE_HUB",
+    "Dan Snow's History Hit",
+    "Dino5500",
+    "EASTERN FRONT",
+    "Flashback History",
+    "HistoryAtWar",
+    "Mark Felton Productions",
+    "Pillows of the Past",
+    "Real Time History",
+    "Steve’s Experience Berlin Tours",
+    "The Armchair Historian",
+    "Timeline - World History Documentaries",
+    "Vasile Iuga",
+    "WAR MEMORIES",
+    "WW2 Raw Archives",
+    "WW2 Wayfinder",
+    "War Stories",
+    "Warfare",
+    "WarsofTheWorld",
+    "World War Two",
+    "hazards and catastrophes"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 2,
+    "phan_xet": 1,
+    "AI_tai_dung": 1,
+    "comments_tat": 0
+   }
+  },
+  "nanjing1937": {
+   "truy_van": "nanjing massacre 1937",
+   "so_ket_qua": 50,
+   "loai_tay": 1,
+   "video_dai_ge8p": 14,
+   "short_le3p": 29,
+   "dai_lon_nhat": 2154926,
+   "dai_ge100k": 8,
+   "dai_ge500k": 5,
+   "dai_ge1m": 3,
+   "trung_vi_top10_dai": 615799,
+   "short_lon_nhat": 6489390,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "Audio Documentary",
+     "luot": 236,
+     "phut": 9
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Into the Shadows",
+     "luot": 2154926,
+     "phut": 17,
+     "ngay": "2023-11-25",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 9173
+    },
+    {
+     "kenh": "TheUntoldPast",
+     "luot": 1197594,
+     "phut": 11,
+     "ngay": "2022-07-07",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1817
+    },
+    {
+     "kenh": "Simple History",
+     "luot": 1117702,
+     "phut": 10,
+     "ngay": "2025-03-11",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 4663
+    },
+    {
+     "kenh": "Historias Innecesarias",
+     "luot": 906576,
+     "phut": 37,
+     "ngay": "2026-05-04",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1866
+    },
+    {
+     "kenh": "aini",
+     "luot": 812405,
+     "phut": 25,
+     "ngay": "2025-09-13",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 10254
+    }
+   ],
+   "top5_co_nguon": 2,
+   "dai_nhac_AI": 0,
+   "kenh_lam_dai": [
+    "Almost Known",
+    "Audio Documentary",
+    "CGTN",
+    "Captivating History",
+    "Historias Innecesarias",
+    "Into the Shadows",
+    "O2 IAS Academy",
+    "Simple History",
+    "The Dark History of War Crimes",
+    "The Time Scroll",
+    "TheUntoldPast",
+    "USC Shoah Foundation",
+    "World History",
+    "aini"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 14,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 12,
+    "phan_xet": 1,
+    "AI_tai_dung": 0,
+    "comments_tat": 0
+   }
+  },
+  "tenochtitlan1521": {
+   "truy_van": "fall of tenochtitlan 1521",
+   "so_ket_qua": 50,
+   "loai_tay": 0,
+   "video_dai_ge8p": 15,
+   "short_le3p": 26,
+   "dai_lon_nhat": 2415485,
+   "dai_ge100k": 4,
+   "dai_ge500k": 3,
+   "dai_ge1m": 2,
+   "trung_vi_top10_dai": 9302,
+   "short_lon_nhat": 104527,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "Echoes of Time-EOT",
+     "luot": 1197,
+     "phut": 12
+    },
+    {
+     "kenh": "Chronicles of Steel",
+     "luot": 1050,
+     "phut": 12
+    },
+    {
+     "kenh": "Chronicle Vault",
+     "luot": 70,
+     "phut": 26
+    },
+    {
+     "kenh": "WhereHistoryTurned",
+     "luot": 10,
+     "phut": 15
+    },
+    {
+     "kenh": "Echoes Empires",
+     "luot": 0,
+     "phut": 12
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "Invicta",
+     "luot": 2415485,
+     "phut": 8,
+     "ngay": "2018-11-30",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 5590
+    },
+    {
+     "kenh": "The Armchair Historian",
+     "luot": 1361916,
+     "phut": 20,
+     "ngay": "2023-10-28",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 3618
+    },
+    {
+     "kenh": "Kings and Generals",
+     "luot": 973723,
+     "phut": 15,
+     "ngay": "2018-10-14",
+     "mo_ta_co_nguon": true,
+     "nhac_AI": false,
+     "binh_luan": 2639
+    },
+    {
+     "kenh": "Chronicle - Medieval History Documentaries",
+     "luot": 241243,
+     "phut": 49,
+     "ngay": "2023-08-12",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 1021
+    },
+    {
+     "kenh": "Origins OSU",
+     "luot": 16987,
+     "phut": 9,
+     "ngay": "2022-09-22",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 36
+    }
+   ],
+   "top5_co_nguon": 3,
+   "dai_nhac_AI": 3,
+   "kenh_lam_dai": [
+    "Ancient Accounts",
+    "Chronicle - Medieval History Documentaries",
+    "Chronicle Vault",
+    "Chronicles of Steel",
+    "Echoes Empires",
+    "Echoes of Time-EOT",
+    "Forbidden Chronicle",
+    "Invicta",
+    "Kings and Generals",
+    "Mystic Passage",
+    "Mythic History",
+    "Origins OSU",
+    "The Armchair Historian",
+    "Veiled Epochs",
+    "WhereHistoryTurned"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 15,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 0,
+    "phan_xet": 0,
+    "AI_tai_dung": 0,
+    "comments_tat": 0
+   }
+  },
+  "derry1689": {
+   "truy_van": "siege of derry 1689",
+   "so_ket_qua": 50,
+   "loai_tay": 0,
+   "video_dai_ge8p": 22,
+   "short_le3p": 18,
+   "dai_lon_nhat": 338958,
+   "dai_ge100k": 1,
+   "dai_ge500k": 0,
+   "dai_ge1m": 0,
+   "trung_vi_top10_dai": 2175,
+   "short_lon_nhat": 22023,
+   "dai_trong_90_ngay": [
+    {
+     "kenh": "Cultural Archives Society",
+     "luot": 0,
+     "phut": 24
+    }
+   ],
+   "top5_dai": [
+    {
+     "kenh": "mickyk879",
+     "luot": 338958,
+     "phut": 58,
+     "ngay": "2013-10-19",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 843
+    },
+    {
+     "kenh": "P Mulholland",
+     "luot": 17201,
+     "phut": 20,
+     "ngay": "2017-05-22",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 0
+    },
+    {
+     "kenh": "OceanCreativeNI",
+     "luot": 14412,
+     "phut": 9,
+     "ngay": "2014-07-09",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 26
+    },
+    {
+     "kenh": "ASG McC",
+     "luot": 3331,
+     "phut": 62,
+     "ngay": "2017-03-07",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 0
+    },
+    {
+     "kenh": "Trasna na Tire",
+     "luot": 2249,
+     "phut": 77,
+     "ngay": "2021-09-20",
+     "mo_ta_co_nguon": false,
+     "nhac_AI": false,
+     "binh_luan": 3
+    }
+   ],
+   "top5_co_nguon": 0,
+   "dai_nhac_AI": 1,
+   "kenh_lam_dai": [
+    "ASG McC",
+    "An Irish History Podcast",
+    "Aodhán",
+    "Cultural Archives Society",
+    "Culture Vulture Rises",
+    "DownBoy",
+    "Historical clashes",
+    "Irish American Heritage Museum",
+    "John Chambers",
+    "KilsallyLives",
+    "Liliana Rupert",
+    "OceanCreativeNI",
+    "P Mulholland",
+    "Pennie Patricio",
+    "Samuel McKittrick",
+    "THE CHURCH HISTORY TRAIL Mark Porter",
+    "TheOrangeChronicle",
+    "Trasna na Tire",
+    "mickyk879",
+    "rendurosren"
+   ],
+   "khung_tieu_de_top20_dai": {
+    "n_top20_dai": 20,
+    "van_minh_ton_giao": 0,
+    "giat_gan_kinh_di": 0,
+    "phan_xet": 0,
+    "AI_tai_dung": 0,
+    "comments_tat": 2
+   }
+  }
+ },
+ "sat_nguong_5pct": [
+  {
+   "de_tai": "constantinople1453",
+   "kenh": "Reply History",
+   "luot": 1044405,
+   "nguong": 1000000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "constantinople1453",
+   "kenh": "Chronicle - Medieval History Documentaries",
+   "luot": 989235,
+   "nguong": 1000000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "constantinople1453",
+   "kenh": "itsaihistory",
+   "luot": 1025339,
+   "nguong": 1000000,
+   "loai": "short"
+  },
+  {
+   "de_tai": "vienna1683",
+   "kenh": "History & Weapon",
+   "luot": 1030239,
+   "nguong": 1000000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "vienna1683",
+   "kenh": "History Vault",
+   "luot": 969982,
+   "nguong": 1000000,
+   "loai": "short"
+  },
+  {
+   "de_tai": "malta1565",
+   "kenh": "Battle Chronicles",
+   "luot": 102930,
+   "nguong": 100000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "malta1565",
+   "kenh": "The Catholic Couple",
+   "luot": 97699,
+   "nguong": 100000,
+   "loai": "short"
+  },
+  {
+   "de_tai": "stalingrad",
+   "kenh": "Disturban History",
+   "luot": 501694,
+   "nguong": 500000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "stalingrad",
+   "kenh": "EpicWar",
+   "luot": 95090,
+   "nguong": 100000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "stalingrad",
+   "kenh": "Renfald",
+   "luot": 1035206,
+   "nguong": 1000000,
+   "loai": "short"
+  },
+  {
+   "de_tai": "dresden1945",
+   "kenh": "The Operations Room",
+   "luot": 520400,
+   "nguong": 500000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "hiroshima1945",
+   "kenh": "BBC News اردو",
+   "luot": 1039304,
+   "nguong": 1000000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "hiroshima1945",
+   "kenh": "Timeline - World History Documentaries",
+   "luot": 1009029,
+   "nguong": 1000000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "hiroshima1945",
+   "kenh": "THETCH",
+   "luot": 995953,
+   "nguong": 1000000,
+   "loai": "short"
+  },
+  {
+   "de_tai": "berlin1945",
+   "kenh": "Flashback History",
+   "luot": 480610,
+   "nguong": 500000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "berlin1945",
+   "kenh": "EASTERN FRONT",
+   "luot": 477422,
+   "nguong": 500000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "nanjing1937",
+   "kenh": "WorstCrime",
+   "luot": 99555,
+   "nguong": 100000,
+   "loai": "short"
+  },
+  {
+   "de_tai": "tenochtitlan1521",
+   "kenh": "Kings and Generals",
+   "luot": 973723,
+   "nguong": 1000000,
+   "loai": "dai"
+  },
+  {
+   "de_tai": "tenochtitlan1521",
+   "kenh": "Histslxleçxmd",
+   "luot": 104527,
+   "nguong": 100000,
+   "loai": "short"
+  }
+ ],
+ "tim_bo_sung_khong_vao_thuoc": {
+  "sup_warsaw_rebuilt": {
+   "truy_van": "warsaw old town destroyed and rebuilt",
+   "video_ge40k": [
+    {
+     "kenh": "Go2Warsaw",
+     "luot": 570580,
+     "phut": 1,
+     "ngay": "2023-11-02"
+    },
+    {
+     "kenh": "Earth Then & Now",
+     "luot": 262977,
+     "phut": 0,
+     "ngay": "2026-08-01"
+    },
+    {
+     "kenh": "Megaprojects",
+     "luot": 219720,
+     "phut": 20,
+     "ngay": "2022-10-17"
+    },
+    {
+     "kenh": "Timeline - World History Documentaries",
+     "luot": 48624,
+     "phut": 50,
+     "ngay": "2025-11-04"
+    }
+   ]
+  },
+  "sup_dresden_rebuilt": {
+   "truy_van": "dresden frauenkirche destroyed rebuilt",
+   "video_ge40k": [
+    {
+     "kenh": "The Aesthetic City",
+     "luot": 560197,
+     "phut": 21,
+     "ngay": "2023-11-30"
+    },
+    {
+     "kenh": "Frede Farmandsite",
+     "luot": 285959,
+     "phut": 13,
+     "ngay": "2014-05-13"
+    },
+    {
+     "kenh": "Earth Then & Now",
+     "luot": 211086,
+     "phut": 0,
+     "ngay": "2026-07-15"
+    },
+    {
+     "kenh": "Cornishpastyman",
+     "luot": 159542,
+     "phut": 6,
+     "ngay": "2009-12-07"
+    },
+    {
+     "kenh": "Megaprojects",
+     "luot": 130120,
+     "phut": 19,
+     "ngay": "2023-03-06"
+    },
+    {
+     "kenh": "Rick Steves' Europe",
+     "luot": 113585,
+     "phut": 4,
+     "ngay": "2017-01-04"
+    },
+    {
+     "kenh": "Old Money Mansions",
+     "luot": 40907,
+     "phut": 22,
+     "ngay": "2024-11-22"
+    }
+   ]
+  }
+ }
+}
