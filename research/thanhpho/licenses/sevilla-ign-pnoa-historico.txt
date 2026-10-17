@@ -1,0 +1,24 @@
+==================================================================
+URL: https://www.ign.es/wms/pnoa-historico?request=GetCapabilities&service=WMS
+FETCHED_UTC: 2026-10-15T23:49:46Z
+HTTP: 200 https://www.ign.es/wms/pnoa-historico?request=GetCapabilities&service=WMS 113091
+SHA256: bddbee49043fa90032b9c38ee8653d13feb17a42ca63cdd43144cc4d1cd6947d
+------------------------------------------------------------------
+Cach doc: WMS GetCapabilities (curl). Trich nguyen van:
+<Title>Ortofotos históricas de España y PNOA anual
+<Fees>No se aplican condiciones
+<AccessConstraints>CC BY 4.0 scne.es
+<Abstract>Ortoimágenes del vuelo nacional realizado entre 1981 y 1986 sobre la totalidad del territorio español a escala 1 30.000 y realizado por empresas privadas contratas por el IGN. Esta capa permite consultar la fecha del vuelo y la resolución de la ortoimagen, que varía entre 0,5 y un metro.
+<Abstract>Ortoimágenes del vuelo realizado entre noviembre de 1976 y julio de 1986 por el Ministerio de Agricultura, el M.O.P.U , Hacienda y el Ministerio del Aire. La resolución de la ortoimagen es de 0,5 m.
+<Abstract>Ortoimágenes del vuelo realizado por el Army Map Service de EEUU entre enero de 1956 y noviembre de 1957 sobre parte del territorio español, conocido como Vuelo Americano, serie B. Esta capa permite consultar la resolución de la ortoimagen que varía entre 0,5m para Cantabria, País Vasco, La Rioja, parte de Aragón y de Castilla-La Mancha y 1 metro para el resto
+Giay phep chung CNIG/IGN CC BY 4.0: xem sevilla-ign-cnig.txt (Condiciones_licenciaUso_IGN.pdf).
+
+==================================================================
+URL: https://www.ign.es/wms/pnoa-historico?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=infoVuelos&QUERY_LAYERS=infoVuelos&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html&FEATURE_COUNT=50
+FETCHED_UTC: 2026-10-15T23:49:57Z
+HTTP: 200 https://www.ign.es/wms/pnoa-historico?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=infoVuelos&QUERY_LAYERS=infoVuelos&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html&FEATURE_COUNT=50 1529
+SHA256: dbc6660fee2411e5cd793a96873a650b3fb3f4e16a3295abcd3962dcabee0453
+------------------------------------------------------------------
+Cach doc: WMS GetFeatureInfo layer infoVuelos tai Sevilla (curl):
+ Vuelos PNOA Vuelos disponibles --> --> Vuelos disponibles Año Resolución (m) OLISTAT 1997-1998 1.00 Americano-Serie B 1956-1957 1.00 SIGPAC 1997-2003 0.50 Nacional 1981-1986 1.00 Interministerial 1973-1986 0.50 PNOA 2004 2004 0.50 PNOA 2006 2006 0.50 PNOA 2008 2008 0.50 PNOA 2010 2010 0.50 PNOA 2013 2013 0.50 PNOA 2016 2016 0.25 PNOA 2019 2019 0.25 PNOA 2022 2022 0.22 
+

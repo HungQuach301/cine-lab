@@ -1,0 +1,63 @@
+GIAY PHEP: Zuerich 4D / historische 3D-Stadtmodelle (Amt fuer Staedtebau, Stadt Zuerich) - CC0 qua OGD Stadt Zuerich
+Ngay doc: 2026-10-15 (phien Tien ky thanh pho, tac tu con zh_hel)
+Tep tho luu ngoai git o /var/tmp/thanhpho/<thu muc>/body; SHA-256 la cua tep body doc duoc.
+
+======================================================================
+URL: https://www.stadt-zuerich.ch/de/stadtleben/stadtportraet/zuerichs-geschichte/archaeologie/stadt/3d-stadtmodelle.html
+HTTP: 200
+SHA-256 trang/tep: baaf427cd9a4b371459883adc8b17350857d5cd7a678be5474198553327088d7
+Thu muc tho: /var/tmp/thanhpho/zh4d_page
+Trich nguyen van:
+  "Die historischen 3D-Stadtmodelle werden mit ihrer Veröffentlichung auf Zürich 4D freigeschaltet und können direkt erkundet werden. Die total sechs Zeitschnitte erweitern so den bestehenden Digitalen Zwilling, das räumliche, digitale Abbild der Stadt Zürich." ... "Die im Amt für Städtebau erarbeiteten Grundlagen stehen als Open Government Data für versierte Nutzer*innen zum Download zur Verfügung."
+  "Als Datenquellen stehen historische Karten, Grabungsauswertungen und verschiedenste historische Dokumente und Abbildungen zur Verfügung. Fehlen jegliche Informationen, so schliessen aktuelle, wissenschaftliche Hypothesen diese Lücken."
+  "Das neuste historische 3D-Stadtmodell in «Zürich 4D» zeigt die Stadt um das Jahr 1200."
+
+======================================================================
+URL: https://www.geocat.ch/geonetwork/srv/api/records/c529432d-de66-4d91-8a45-d1c33a19ff6c/formatters/xml
+HTTP: 200
+SHA-256 trang/tep: c1d3254673b1c9abf7624da601af808d3c123e813d26033ec339b5777da5d6e0
+Thu muc tho: /var/tmp/thanhpho/geocat_c529432d-de66-4d91-8a45-d1c33a19ff6c
+Trich nguyen van:
+  (geocat "3D-Stadtmodell Stadt Zürich") "1. Nutzungsbestimmung Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). Sie dürfen: - vervielfältigt, verbreitet und weiter zugänglich gemacht werden, - angereichert und bearbeitet werden, - kommerziell genutzt werden. Eine Quellenangabe (CC-BY) wird empfohlen: Sie lautet: „Quelle: Stadt Zürich"."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1800
+HTTP: 200
+SHA-256 trang/tep: 174c520171d6c10ad791de07ede9dd735e6c46dbf570623d76c74715c0aa31bc
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1800
+Trich nguyen van:
+  CKAN license_id "cc-zero" (tuong tu cho _1200, _1500, _200, _3000_v_chr - xem zh_pkg_3d1200, zh_pkg_3d1500, zh_pkg_3d200)
+  "Die photorealistischen Fassaden haben exemplarischen Charakter und die Dachstrukturen sind, wo bekannt, aus historischen Karten und Abbildungen übernommen worden oder orientieren sich an zu erwartenden Grundformen."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1500
+HTTP: 200
+SHA-256 trang/tep: 3e7cac67de88405a5b178cab580fc53fcb9479a562957b5bb8c9da5c66b9e06a
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_3d1500
+Trich nguyen van:
+  CKAN geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1500: license_id "cc-zero"
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1200
+HTTP: 200
+SHA-256 trang/tep: 4c884a5212313f6f35e5ef1493b6b21c3e195cbf26d20f0bc9361ef5dec5722f
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_3d1200
+Trich nguyen van:
+  CKAN geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1200: license_id "cc-zero"
+
+======================================================================
+URL: https://www.ogd.stadt-zuerich.ch/wfs/geoportal/3D_Stadtmodell_Stadt_Zuerich_Jahresendstand_1500?SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=bebauung_a&MAXFEATURES=20000
+HTTP: 200
+SHA-256 trang/tep: 81ce7d26db0de6deaed9196790c1d8274e0f60f1e10d530f4bb5273b2d774b20
+Thu muc tho: /var/tmp/thanhpho/zh4d_b1500
+Trich nguyen van:
+  WFS GetFeature bebauung_a (Jahresendstand 1500): 8665 doi tuong; truong quelle vd "Jos Murer, Zürich von Westen. Holzschnitt 1576. Zentralbibliothek Zürich, Kartensammlung." (555), "Johannes Müller, Grund-Riss der Stadt Zürich, ausgemessen und gezeichnet 1788-1793, erschienen 1794." (666), "Hans Leu d.Ä., Stadtpanorama ... 1497/1502" (65)
+
+======================================================================
+URL: https://www.ogd.stadt-zuerich.ch/wfs/geoportal/3D_Stadtmodell_Stadt_Zuerich_Jahresendstand_1800?SERVICE=WFS&REQUEST=GetFeature&VERSION=1.1.0&TYPENAME=bebauung_a&MAXFEATURES=60000
+HTTP: 200
+SHA-256 trang/tep: 415e6441923c2c8d6c76d0d0c6d3d8e26698155a6d3cb1d1918d241b84ae489b
+Thu muc tho: /var/tmp/thanhpho/zh4d_b1800
+Trich nguyen van:
+  WFS GetFeature bebauung_a (Jahresendstand 1800): 5688 doi tuong; quelle "Muellerplan 1793", "Wildkarte 1850, Gebaeudeversicherung 1812-1925"; verlaesslichkeit "mittel: historische Quellen (Karten, Schrift, ...)" 5504
+

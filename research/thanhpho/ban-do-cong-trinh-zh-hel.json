@@ -1,0 +1,823 @@
+{
+ "checked": "2026-10-15",
+ "cities": {
+  "Zurich": {
+   "maps": [
+    {
+     "name": "Hans Conrad Gyger - Schanzenplanung (ca. 1644)",
+     "year": "ca. 1644",
+     "holder": "Stadt Zürich, Stadtarchäologie (Amt für Städtebau)",
+     "catalog": "https://data.stadt-zuerich.ch/dataset/geo_historische_karte_von_hans_conrad_gyger___schanzenplanung__ca-_1644_",
+     "access": "https://www.ogd.stadt-zuerich.ch/wms/geoportal/Historische_Karte_von_Hans_Conrad_Gyger___Schanzenplanung__ca._1644_?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0 ; WMTS https://www.ogd.stadt-zuerich.ch/mapproxy/wmts/1.0.0/WMTSCapabilities.xml ; TIFF qua trang tai geodaten (tra ve form HTML, chua do co tep)",
+     "resolution": "chua_ro (geocat khong ghi ti le)",
+     "georeferenced": true,
+     "license": "CC0 (OGD Stadt Zürich)",
+     "commercial": "co",
+     "quote": "Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). Sie dürfen: ... kommerziell genutzt werden.",
+     "attribution": "Khong bat buoc (CC0); khuyen nghi 'Quelle: Stadt Zürich'",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-stadt-ogd-cc0.txt",
+     "note": "Quy hoach thanh luy Barock - dung cho moc 'Schanzen' 1642-1830s."
+    },
+    {
+     "name": "Historischer Übersichtsplan um 1859-1867 (Altstadtkataster, 246 to 1:200)",
+     "year": "1859-1867",
+     "holder": "Stadt Zürich, Stadtarchäologie; ban goc GeoZ",
+     "catalog": "https://data.stadt-zuerich.ch/dataset/geo_historischer_uebersichtsplan_der_stadt_zuerich_um_1859_1867__altstadtkataster_",
+     "access": "https://www.ogd.stadt-zuerich.ch/wms/geoportal/Historischer_Uebersichtsplan_der_Stadt_Zuerich_um_1859_1867__Altstadtkataster_?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0",
+     "resolution": "ti le 1:200 (geocat denominator 200); m/px chua do",
+     "georeferenced": true,
+     "license": "CC0",
+     "commercial": "co",
+     "quote": "Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). Sie dürfen: ... kommerziell genutzt werden.",
+     "attribution": "Khong bat buoc (CC0); khuyen nghi 'Quelle: Stadt Zürich'",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-stadt-ogd-cc0.txt",
+     "note": "Chu vi tung toa o tang tret, phan biet nha o/nha phu - nen footprint cuc tot cho pho co."
+    },
+    {
+     "name": "Kellerplan - Historischer Übersichtsplan um 1864 (Heinrich Keller, Stich J. E. Scheuermann)",
+     "year": "1864 (Stichtag 31.01.1864)",
+     "holder": "Zentralbibliothek Zürich (so hoa) / Stadt Zürich OGD",
+     "catalog": "https://data.stadt-zuerich.ch/dataset/geo_historischer_uebersichtsplan_der_stadt_zuerich_um_1864",
+     "access": "https://www.ogd.stadt-zuerich.ch/wms/geoportal/Historischer_Uebersichtsplan_der_Stadt_Zuerich_um_1864?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0",
+     "resolution": "ti le ~1:6600 (geocat denominator 6600); m/px chua do",
+     "georeferenced": true,
+     "license": "CC0",
+     "commercial": "co",
+     "quote": "Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). Sie dürfen: ... kommerziell genutzt werden.",
+     "attribution": "Khong bat buoc (CC0); khuyen nghi 'Quelle: Stadt Zürich'",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-stadt-ogd-cc0.txt",
+     "note": "'Georeferenzierter Grundriss'; cho thay quy hoach Bahnhofstrasse."
+    },
+    {
+     "name": "Wild-Karte (Topographische Karte des Kantons Zürich 1:25000)",
+     "year": "1843-1851 (Datenstand ~1850)",
+     "holder": "Kanton Zürich, Amt für Raumentwicklung, Geoinformation",
+     "catalog": "https://data.stadt-zuerich.ch/dataset/ktzh_historische_karte_j-_wild___1850___ogd_",
+     "access": "WMS https://wms.zh.ch/WildkarteZHWMS ; WMS https://wms.zh.ch/HistKartenZHWMS (lop 'wild'); JPEG+worldfile qua GIS-Browser",
+     "resolution": "1:25000, 2.5 m/px (geolion 'Auflösung 2.5 [m]'), LV95",
+     "georeferenced": true,
+     "license": "OGD Kanton Zürich / CC0 tren CKAN",
+     "commercial": "co",
+     "quote": "Sie dürfen offene Daten vervielfältigen, verbreiten und weiter zugänglich machen anreichern und bearbeiten kommerziell nutzen",
+     "attribution": "Khong bat buoc (CC0); nen ghi 'Kanton Zürich, Wild-Karte'",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-kanton-ogd.txt",
+     "note": "Lop toan vung ~1850 - truoc pha thanh luy hoan toan va truoc duong sat 1847? (khao sat 1843-51, giao thoi)."
+    },
+    {
+     "name": "Siegfriedkarte (Topographischer Atlas der Schweiz) 1:25000",
+     "year": "1870-1926, cap nhat den 1949 (nhieu an ban cho to Zürich)",
+     "holder": "swisstopo",
+     "catalog": "https://opendata.swiss/de/dataset/topographischer-atlas-der-schweiz-siegfriedkarte",
+     "access": "WMTS/WMS geo.admin.ch layer ch.swisstopo.hiks-siegfried; WMS Kanton HistKartenZHWMS lop sf1880/sf1930",
+     "resolution": "1:25000; m/px theo muc zoom WMTS (chua do)",
+     "georeferenced": true,
+     "license": "opendata.swiss terms_by + swisstopo OGD",
+     "commercial": "co",
+     "quote": "The free geodata and geoservices of swisstopo may be used, distributed and made accessible. Furthermore, they may be enriched and processed and also used commercially. A reference to the source is mandatory.",
+     "attribution": "Bat buoc: '© swisstopo' hoac 'Bundesamt für Landestopografie swisstopo'",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-swisstopo-ogd.txt",
+     "note": "Giai quyet 'chua ro' lan truoc: Siegfried & Dufour co rights terms_by (thuong mai duoc, phai ghi nguon)."
+    },
+    {
+     "name": "Dufourkarte 1:100000",
+     "year": "1844-1864 (cap nhat den 1939)",
+     "holder": "swisstopo",
+     "catalog": "https://opendata.swiss/de/dataset/topographische-karte-der-schweiz-dufourkarte",
+     "access": "geo.admin.ch layer ch.swisstopo.hiks-dufour; Kanton WMS lop dufour-erst/dufour-letzt",
+     "resolution": "1:100000 (qua tho cho cap toa nha)",
+     "georeferenced": true,
+     "license": "terms_by",
+     "commercial": "co",
+     "quote": "Open use. Must provide the source. ... You may use this dataset for commercial purposes.",
+     "attribution": "© swisstopo",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-swisstopo-ogd.txt",
+     "note": "Chi dung cho canh toan vung."
+    },
+    {
+     "name": "Historischer Übersichtsplan zwischen 1932 und 1961 (28 Einzelblätter, khong day du)",
+     "year": "1932-1961",
+     "holder": "Stadt Zürich, Geomatik + Vermessung",
+     "catalog": "https://data.stadt-zuerich.ch/dataset/geo_historischer_uebersichtsplan_der_stadt_zuerich_zwischen_1932_und_1961",
+     "access": "https://www.ogd.stadt-zuerich.ch/wms/geoportal/Historischer_Uebersichtsplan_der_Stadt_Zuerich_zwischen_1932_und_1961?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0",
+     "resolution": "1:5000 (geocat denominator 5000)",
+     "georeferenced": true,
+     "license": "CC0",
+     "commercial": "co",
+     "quote": "Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). Sie dürfen: ... kommerziell genutzt werden.",
+     "attribution": "Khong bat buoc (CC0); khuyen nghi 'Quelle: Stadt Zürich'",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-stadt-ogd-cc0.txt",
+     "note": "Them lop 1937-1945 va 1958-1961 cung CC0 (geo_historischer_uebersichtsplan_..._zwischen_1937_und_1945 / _1958_und_1961); orthofoto 1975/76-2007 CC0."
+    },
+    {
+     "name": "Hans Conrad Gyger - Kartengemälde 1667 (Kanton)",
+     "year": "1667",
+     "holder": "Staatsarchiv / Kanton Zürich ARE",
+     "catalog": "https://data.stadt-zuerich.ch/dataset/ktzh_historische_karte_von_hans_conrad_gyger__1667___ogd_",
+     "access": "TIFF https://www.ogd.stadt-zuerich.ch/geodaten/download/488?format=21 (tra ve form HTML)",
+     "resolution": "~1:32000; da 'entzerrt' bang Passpunkte",
+     "georeferenced": true,
+     "license": "CC0",
+     "commercial": "co",
+     "quote": "license_id cc-zero; 'Mit Passpunkten wurde versucht, das Gemälde zu entzerren.'",
+     "attribution": "Khong bat buoc",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-kanton-ogd.txt",
+     "note": "Canh vung; Murer 1566 (Kanton, ~1:56000, CC0) cung co."
+    }
+   ],
+   "historical_3d": {
+    "name": "Zürich 4D - historische 3D-Stadtmodelle (Historischer Digitaler Zwilling, Amt für Städtebau)",
+    "official_page": "https://www.stadt-zuerich.ch/de/stadtleben/stadtportraet/zuerichs-geschichte/archaeologie/stadt/3d-stadtmodelle.html",
+    "timeslices": [
+     {
+      "year": "ca. 3000 v.Chr.",
+      "catalog": "https://data.stadt-zuerich.ch/dataset/geo_3d_stadtmodell_stadt_zuerich_jahresendstand_3000_v_chr",
+      "obj_zip": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_3000vChr.zip",
+      "size_bytes": 30440329
+     },
+     {
+      "year": "ca. 200 n.Chr. (Turicum)",
+      "catalog": "https://data.stadt-zuerich.ch/dataset/geo_3d_stadtmodell_stadt_zuerich_jahresendstand_200",
+      "obj_zip": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_200.zip",
+      "size_bytes": 348972904
+     },
+     {
+      "year": "ca. 1200",
+      "catalog": "https://data.stadt-zuerich.ch/dataset/geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1200",
+      "obj_zip": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_1200.zip",
+      "size_bytes": 529216387,
+      "footprints_wfs": 16999,
+      "reliability_counts": {
+       "tief": 15760,
+       "mittel": 1177,
+       "hoch": 50,
+       "keine": 12
+      }
+     },
+     {
+      "year": "ca. 1500",
+      "catalog": "https://data.stadt-zuerich.ch/dataset/geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1500",
+      "obj_zip": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_1500.zip",
+      "size_bytes": 360659517,
+      "footprints_wfs": 8665,
+      "reliability_counts": {
+       "tief": 6825,
+       "mittel": 1757,
+       "hoch": 51,
+       "keine": 32
+      },
+      "top_sources": [
+       "Johannes Müller, Grund-Riss 1788-1793 (666 doi tuong)",
+       "Jos Murer, Zürich von Westen, Holzschnitt 1576, ZB Zürich (555)",
+       "Martin Illi, HDZ Zeitschnitt 1500 (84)",
+       "Hans Leu d.Ä., Stadtpanorama 1497/1502 (65)",
+       "Merian 1638 (56)"
+      ]
+     },
+     {
+      "year": "ca. 1800",
+      "catalog": "https://data.stadt-zuerich.ch/dataset/geo_3d_stadtmodell_stadt_zuerich_jahresendstand_1800",
+      "obj_zip": "https://www.ogd.stadt-zuerich.ch/geoportal_data_static/BEBAUUNG_3D_1800.zip",
+      "size_bytes": 960243409,
+      "footprints_wfs": 5688,
+      "reliability_counts": {
+       "mittel (historische Quellen)": 5504,
+       "hoch": 157,
+       "mittel fragmentarisch": 23,
+       "keine": 3,
+       "tief": 1
+      },
+      "top_sources": [
+       "Muellerplan 1793",
+       "Wildkarte 1850 + Gebaeudeversicherung 1812-1925"
+      ]
+     }
+    ],
+    "formats": "Moi moc: DXF, GPKG, SHP, WFS, WMS, WMTS (2D: bebauung_a, bodenbedeckung_a, strassennetz_l, gewaessernetz_l, baumbestand_p, hoehenlinien_l, hoehenkoten_p) + OBJ Wavefront trong ZIP + raster DTM_R.tif, DTM_GEWAESSER_R.tif, BODENBEDECKUNG_R.tif",
+    "detail": "Tung toa: moi footprint co 'art' (Wohngebaeude, Sakralbau.Kirche, Befestigungsanlage.Turm...), 'quelle', 'quelle_art' (Karte/Bildquelle/Vermutung...), 'verlaesslichkeit', mot so co 'egid' (noi toa hien nay) va 'eigennamen'. 3D = ban tu dong tu 2D + mo hinh tay cho cong trinh phuc tap; mat tien photorealistic 'exemplarischen Charakter'.",
+    "sources_note": "Murerplan 1576 va Müllerplan 1788-93 DA duoc dung lam nguon (truong quelle) - nghia la lop 'pho da mat' duoc dung tu cac ban do nay ma khong can tu xin quyen ZB cho ban quet.",
+    "license": "CC0 (OGD Stadt Zürich; geocat c529432d-...)",
+    "commercial": "co",
+    "quote": "Diese Geodaten stehen unter der international gültigen Creative-Commons-Zero-Lizenz (CC-0). ... kommerziell genutzt werden. Eine Quellenangabe (CC-BY) wird empfohlen: Sie lautet: „Quelle: Stadt Zürich“.",
+    "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-4d-historisches-3d-stadtmodell-cc0.txt",
+    "caveats": [
+     "Do tin cay 1200/1500 phan lon 'tief' (gia thuyet) - can ghi chu trong phim la tai dung khoa hoc, khong phai anh chup.",
+     "Moc 3000 v.Chr. ZIP OBJ ten tep khac link CKAN (BEBAUUNG_3D_3000vChr.zip; link _3000_V_CHR -> 404).",
+     "OBJ 1800 = 960 MB > 50 MB: chua tai, chi HEAD; WFS 2D tai duoc (GML 7-21 MB)."
+    ],
+    "survival_bias": "Giai duoc thien lech song sot: 1800 co 5688 footprint, 1500 co 8665 doi tuong (gom hang rao/tuong), 1200 co 16999 - gom toa nha da bien mat (vd Stadtburg Lindenhof, Gemüsebrücke)."
+   },
+   "building_years": {
+    "name": "Gebäudebestand GWR (bau_gwr_gebaeude_best_od5501)",
+    "catalog": "https://data.stadt-zuerich.ch/dataset/bau_gwr_gebaeude_best_od5501",
+    "fields": [
+     "EGID",
+     "GKODE",
+     "GKODN",
+     "GBAUJ (Baujahr)",
+     "GBAUP",
+     "GABBJ (Abbruchjahr)"
+    ],
+    "csv_size_bytes": 35640252,
+    "license": "CC0",
+    "commercial": "co",
+    "license_file": "/home/user/cine-lab/research/thanhpho/licenses/zurich-stadt-ogd-cc0.txt"
+   },
+   "landmarks": [
+    {
+     "name": "Grossmünster",
+     "year": "xay moi 1100-1230 (spaetromanisch); thap neo-Gothic cuoi the ky 18",
+     "year_source": "https://hls-dhs-dss.ch/de/articles/000171/ (HLS 'Zürich (Gemeinde)', doc qua WebFetch: 'Die Grossmünsterkirche wurde zwischen 1100 und 1230 als spätromanischer Bau ... neu errichtet.')",
+     "geometry": "Stadt Zürich 3D-Dachmodell LoD2 / 'Bauten - Dachmodell' CityGML (CC0, https://www.ogd.stadt-zuerich.ch/geoportal_data_static/LoD2_CityGML.zip) + mo hinh lich su 1200/1500/1800 (CC0) ; swissBUILDINGS3D 3.0 (terms_by)",
+     "photos": "Foto-Ansichten 1870-1900 (BAZ, CC0, gemeinfrei) qua https://baz.e-pics.ethz.ch/ ; geo_historische_bilder (CC0)",
+     "drawings": "chua_ro (Kantonale Denkmalpflege / Baugeschichtliches Archiv - chua tim thay ban ve do dac mo)"
+    },
+    {
+     "name": "Fraumünster",
+     "year": "tu vien duoc ban cap dat 853",
+     "year_source": "HLS 000171: 'Ludwig der Deutsche in einer 853 beurkundeten Schenkung das Kloster Fraumünster'",
+     "geometry": "LoD2 CC0 + 3D 1200/1500/1800 CC0 (trang chinh thuc: Fraumünster 'im 3D-Stadtmodell von 1200 bereits gut erkennbar')",
+     "photos": "BAZ CC0",
+     "drawings": "chua_ro"
+    },
+    {
+     "name": "St. Peter",
+     "year": "chua_ro (khong tim duoc nguon chinh thuc doc duoc trong phien)",
+     "year_source": "Trang 3D-Stadtmodelle: 'Die Grossbauten Fraumünster und St. Peterkirche sowie das Grossmünster sind im 3D-Stadtmodell von 1200 bereits gut erkennbar.'",
+     "geometry": "LoD2 CC0 + 3D lich su CC0",
+     "photos": "BAZ CC0",
+     "drawings": "chua_ro"
+    },
+    {
+     "name": "Hauptbahnhof Zürich (Aufnahmegebäude J. F. Wanner)",
+     "year": "1865-1871; ga dau 1847",
+     "year_source": "Kanton Zürich Inventar (odb.zh.ch) https://odb.zh.ch/odbwiki/mediawiki/files/pdfs/Zuerich-Inventar_7025_1-festgesetzt_2020.pdf (theo ket qua tim kiem, chua doc toan van) ; HLS 000171: 'Der 1847 eröffnete Bahnhof ausserhalb der Altstadt ...'",
+     "geometry": "LoD2 CC0 ; swissBUILDINGS3D",
+     "photos": "BAZ CC0 (1870-1900)",
+     "drawings": "Ban ve Wanner ~1865-1871 o helveticarchives.ch (SBB Historic?) - quyen chua_ro"
+    },
+    {
+     "name": "ETH Hauptgebäude (Semper)",
+     "year": "chua_ro trong phien (trang ETH chi ghi 'ETH-Kuppel 1919/20')",
+     "year_source": "https://ethz.ch/de/die-eth-zuerich/portraet/geschichte.html",
+     "geometry": "LoD2 CC0",
+     "photos": "BAZ CC0",
+     "drawings": "gta Archiv ETH - quyen chua_ro"
+    },
+    {
+     "name": "Prime Tower",
+     "year": "chua_ro (khong kiem trong phien)",
+     "year_source": "-",
+     "geometry": "Stadt Zürich 'Hochhäuser (3D)' CC0 (geo_hochhaeuser) + LoD2",
+     "photos": "anh hien dai - can tu chup hoac CC0",
+     "drawings": "kien truc duong dai (Gigon/Guyer) - ban quyen kien truc con hieu luc, nhung chi dung khoi tong quat"
+    }
+   ],
+   "population": {
+    "dataset": "Bevölkerung der Stadt Zürich (bev_bestand_jahr_od3243)",
+    "publisher": "Statistik Stadt Zürich / Bevölkerungsamt",
+    "catalog": "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_od3243",
+    "csv_url": "https://data.stadt-zuerich.ch/dataset/bev_bestand_jahr_od3243/download/BEV324OD3243.csv",
+    "csv_sha256": "309311a0866877dd02fcdcb6c7c35446b9cd47fa21df4bc828cfc2146fd1d425",
+    "columns": {
+     "year": "StichtagDatJahr",
+     "value": "AnzBestWir"
+    },
+    "unit": "Wirtschaftliche Wohnbevölkerung (dan so kinh te - 'wirtschaftlich anwesende Personen'), KHONG phai dan so thuong tru theo dinh nghia BFS",
+    "boundary": "Ranh gioi lich su (dien tich thanh pho tai thoi diem): buoc nhay 1880 25102 -> 1893 117044 (sap nhap 1893) va 1933 264043 -> 1934 315864 (sap nhap 1934). Metadata KHONG ghi ro - suy tu chuoi so.",
+    "license": "CC0",
+    "earliest": 1357,
+    "points": [
+     [
+      1357,
+      6600
+     ],
+     [
+      1529,
+      5080
+     ],
+     [
+      1637,
+      8621
+     ],
+     [
+      1762,
+      11452
+     ],
+     [
+      1799,
+      10000
+     ],
+     [
+      1836,
+      14243
+     ],
+     [
+      1870,
+      20760
+     ],
+     [
+      1880,
+      25102
+     ],
+     [
+      1893,
+      117044
+     ],
+     [
+      1900,
+      150547
+     ],
+     [
+      1933,
+      264043
+     ],
+     [
+      1934,
+      315864
+     ],
+     [
+      1962,
+      440180
+     ],
+     [
+      2025,
+      452421
+     ]
+    ],
+    "caveat": "HLS dua so khac (vd 1850: 41585, 1900: 168021) - nhieu kha nang theo ranh gioi hien nay; khong tron hai chuoi."
+   },
+   "milestones": [
+    {
+     "year": "ca. 200",
+     "event": "Grabstein nennt die Statio Turicensis (tram thue)",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "early 4th c.",
+     "event": "Kastell tren doi Lindenhof",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "853",
+     "event": "Ludwig der Deutsche cap dat cho tu vien Fraumünster",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "1100-1230",
+     "event": "Grossmünster xay moi",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "1642 - 18th c.",
+     "event": "Thanh luy Barock (Schanzen); Gyger lap quy hoach ~1644",
+     "source": "HLS 000171 + CKAN Gyger-Schanzenplanung"
+    },
+    {
+     "year": "1833",
+     "event": "'1833 begann der Kanton mit dem Schanzenabbruch'",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "1847",
+     "event": "Ga duong sat dau tien ben ngoai pho co; mo dau thoi ky xay dung 1860-1890",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "1893",
+     "event": "Stadtvereinigung: sap nhap Aussersihl, Enge, Fluntern, Hirslanden... -> thanh pho lon nhat Thuy Si",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "1934",
+     "event": "Sap nhap Affoltern, Albisrieden, Altstetten, Höngg, Oerlikon, Schwamendingen, Seebach, Witikon",
+     "source": "https://hls-dhs-dss.ch/de/articles/000171/"
+    },
+    {
+     "year": "ho -> Limmat (co che thuy van)",
+     "event": "chua_ro: chua tim duoc nguon chinh thuc doc duoc ve su hinh thanh cua thoat ho/Limmat (bang ha, moraine) trong phien",
+     "source": "-"
+    }
+   ],
+   "digitization_estimate": {
+    "Altstadtkataster 1859-67 (1:200)": "Da georef. Vector hoa footprint pho co (~1500-2500 khoi, uoc) - phan lon da co san o 3D-1800 + GWR; 15-25 gio nguoi (uoc) neu chi kiem/ghep.",
+    "Kellerplan 1864": "Da georef. Vector hoa khoi + duong bo ho/Limmat + Schanzen con lai: 20-30 gio (uoc).",
+    "Gyger Schanzen 1644": "Da georef. Vector hoa tuong thanh/hao: 4-6 gio (uoc).",
+    "Wild-Karte 1850": "Da georef 2.5 m/px. Vector hoa lang/toa ngoai pho co + nuoc: 10-15 gio (uoc).",
+    "Siegfried (vd 1880/1900/1930)": "Da georef. Vector hoa mo rong do thi 3-4 moc: 6-10 gio/moc (uoc).",
+    "Uebersichtsplan 1932-61": "Da georef, khong day du (28 to). 8-12 gio (uoc).",
+    "Zürich 4D (3D lich su) + GWR Baujahr": "Khong can so hoa: footprint+OBJ co san (CC0). Viec chinh: noi EGID voi GWR GBAUJ/GABBJ (CSV 35.6 MB, CC0) de 'moc dung nam'; lam sach/giam luoi OBJ cho Blender: 15-30 gio (uoc).",
+    "tong_uoc": "80-130 gio nguoi (uoc) cho Zürich"
+   },
+   "unclear_sources": [
+    {
+     "name": "e-rara.ch / Zentralbibliothek Zürich: Murerplan 1576, Müllerplan 1788-93, Breitinger-Plan 1814 (ban quet goc)",
+     "why": "e-rara chan bang trang 'Verifying your browser' (JS) - khong doc duoc nhan quyen tung muc; Wikimedia Commons API 429.",
+     "contact_path": "Zentralbibliothek Zürich, Kartensammlung - trang lien he https://www.zb.uzh.ch/de/kontakt ; e-rara - https://www.e-rara.ch (muc 'Kontakt')"
+    },
+    {
+     "name": "ETH-Bibliothek gta Archiv (ban ve Semper) / helveticarchives (ban ve Wanner HB)",
+     "why": "Chua doc dieu khoan trong phien",
+     "contact_path": "gta Archiv ETH Zürich - https://archiv.gta.arch.ethz.ch ; SBB Historic - https://www.sbbhistoric.ch (Kontakt)"
+    },
+    {
+     "name": "Siegfried tren WMS Kanton (sf1880 '© 2005')",
+     "why": "Lop swisstopo tai lai qua WMS Kanton - dung theo dieu khoan swisstopo, nen lay truc tiep tu geo.admin.ch",
+     "contact_path": "swisstopo, muc lien he geodata tren trang dieu khoan - https://www.swisstopo.admin.ch/en/terms-of-use-free-geodata-and-geoservices"
+    },
+    {
+     "name": "Nam xay St. Peter, ETH Hauptgebäude, Prime Tower",
+     "why": "HLS chan curl (403) - chi doc 1 bai qua WebFetch; chua co nguon chinh thuc khac",
+     "contact_path": "Open Data Stadt Zürich - https://www.stadt-zuerich.ch/de/politik-und-verwaltung/statistik-und-daten/open-government-data.html"
+    }
+   ]
+  },
+  "Helsinki": {
+   "maps": [
+    {
+     "name": "Pitäjänkuvauskartta - Geographisk charta öfver Helsinge sokn (Fr. J. Fonseen)",
+     "year": "1749",
+     "holder": "Ban goc: Riksarkivet (Thuy Dien); so hoa+georef: Helsingin kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-kartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Pitajakuvauskartta_1749, EPSG:3879)",
+     "resolution": "~1:5000 (theo HRI)",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Ban goc giu o Riksarkivet; HRI cap CC BY cho ban so hoa (ban goc 1749 da het bao ho do tuoi)."
+    },
+    {
+     "name": "Rekognosointikartta (Kuninkaan kartasto) composite",
+     "year": "1780-1782",
+     "holder": "Ban goc: Krigsarkivet (Thuy Dien); ghep: Kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-kartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Rekognosointikartta_1780_1782, EPSG:3879)",
+     "resolution": "~1:20000",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Thoi Sveaborg dang xay."
+    },
+    {
+     "name": "Plan öfver Helsingfors stad i början af 1800 talet",
+     "year": "1803 (theo City Archives)",
+     "holder": "Helsingin kaupunginarkisto",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-asemakaavakartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Plan_ofver_Helsingfors_stad_i_borjan_af_1800_talet, EPSG:3879)",
+     "resolution": "chua_ro",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Truoc hoa hoan 1808 - lop 'thanh pho go cu'."
+    },
+    {
+     "name": "Asemakaavakartta 1820 (Ehrenström)",
+     "year": "1820",
+     "holder": "Kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-asemakaavakartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Asemakaavakartta_1820, EPSG:3879) ; TIFF zip https://kartta.hel.fi/avoindata/Historialliset_asemakaavakartat.zip (812.9 MB, chi HEAD)",
+     "resolution": "chua_ro",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Quy hoach Ehrenström/Engel sau 1808/1812 - lop then chot."
+    },
+    {
+     "name": "Asemakaavakartta 1878 (Claes Kjerrström)",
+     "year": "1878",
+     "holder": "Kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-asemakaavakartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Asemakaavakartta_1878, EPSG:3879)",
+     "resolution": "chua_ro ('very detailed', chia lo)",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Thanh pho go truoc lan song nha da; con lop 1838 (Gylden)."
+    },
+    {
+     "name": "Senaatinkartta (Russian General Staff 1:21000)",
+     "year": "1870-1907",
+     "holder": "Ban goc: Kansallisarkisto; ghep: Kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-kartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Senaatinkartta_1870, EPSG:3879)",
+     "resolution": "1:21000",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": ""
+    },
+    {
+     "name": "Plan af Helsingfors stad 1900 / Kartta Helsingin kaupungista ja sen alueista 1909",
+     "year": "1900; 1909",
+     "holder": "Kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-historialliset-kartat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Plan_af_Helsingfors_1900 / Kartta_Helsingin_kaupungista_ja_sen_alueista_1909, EPSG:3879) ; TIFF 1900: https://datastore.hri.fi/Helsinki/kartat/1900_Plan_af_Helsingfors_stad.tif (88.2 MB) ; 1909: .../Helsingin_kartta_1909.TIF (395.2 MB)",
+     "resolution": "1900: 1:12000, 400 dpi (~0.76 m/px tinh tu ti le, uoc); 1909: ~1:8000, 300 dpi (~0.68 m/px, uoc)",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Ban TIFF co the chua georef (1925 co ten '_georeferoitu'); WMS da georef."
+    },
+    {
+     "name": "Ortoilmakuva 1932 / 1943 / 1950 (anh hang khong chinh hinh)",
+     "year": "1932, 1943, 1950 (+1954, 1956, 1964, 1969, 1976, 1988)",
+     "holder": "Kaupunkiympäristön toimiala",
+     "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-ortoilmakuvat",
+     "access": "https://kartta.hel.fi/ws/geoserver/avoindata/wms (lop avoindata:Ortoilmakuva_1932 / _1943 / _1950, EPSG:3879) ; ZIP 1932 https://datastore.hri.fi/Helsinki/kuvat/1932_Helsinki_ortokuva.zip (67.8 MB) ; 1950 (530 MB)",
+     "resolution": "chua_ro (khong ghi m/px trong metadata HRI)",
+     "georeferenced": true,
+     "license": "CC BY 4.0",
+     "commercial": "co",
+     "quote": "The data may be used for commercial and non-commercial purposes. It is a condition of use that the publisher of the dataset must be attributed.",
+     "attribution": "Bat buoc ghi cong nha xuat ban: 'Helsingin kaupunkiympäristön toimiala / Kaupunkimittauspalvelut, CC BY 4.0' (+ ten ban do, nguon HRI)",
+     "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+     "note": "Anh that - doi chieu chieu cao/mai."
+    }
+   ],
+   "historical_3d": {
+    "name": "Munkkiniemi-Haaga 1915 model (quy hoach Saarinen, khong xay)",
+    "url": "https://3d.hel.ninja/data/saarinen/Helsinki3D-MESH-Munkkiniemi-Haaga_OBJ.zip",
+    "size_bytes": 8907200269,
+    "license": "CC BY 4.0 (thuoc bo helsingin-3d-kaupunkimalli)",
+    "commercial": "co",
+    "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+    "note": "8.9 GB - khong tai. Day la quy hoach chua thuc hien, KHONG phai thanh pho da co; Helsinki KHONG co mo hinh 3D lich su tuong duong Zürich 4D."
+   },
+   "building_years": {
+    "name": "Helsingin rakennukset - Rakennukset_alue_rekisteritiedot (WFS)",
+    "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-rakennukset",
+    "fields": [
+     "ratu",
+     "vtj_prt",
+     "c_valmpvm (ngay hoan thanh)",
+     "c_kayttark",
+     "i_kerrlkm"
+    ],
+    "license": "CC BY 4.0",
+    "commercial": "co",
+    "license_file": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt"
+   },
+   "landmarks": [
+    {
+     "name": "Tuomiokirkko (Nikolainkirkko), C. L. Engel",
+     "year": "hoan thanh 1852",
+     "year_source": "https://www.myhelsinki.fi/fi/places/helsingin-tuomiokirkko/ (trang du lich chinh thuc City of Helsinki, qua ket qua tim kiem) ; tpr.hel.fi/TPRalusta/en/notification/info/226",
+     "geometry": "Helsinki 3D city information model LoD2 textured, CityGML (CC BY 4.0) https://kartta.hel.fi/3d/ ; mesh model 2015/2017 OBJ http://3d.hel.ninja/data/mesh/",
+     "photos": "Helsingin kaupunginmuseo/Finna PDM: hkm.58c68808-2263-43df-8fb7-829490399ae4 (1901), hkm.D0A765B2-8B8E-42C2-A8B3-D8F72A9A2841 'Senaatintori ja Nikolainkirkko' (1890)",
+     "drawings": "Kaupunginarkisto Sinetti (20000 ban ve, CC BY 4.0 'Digitized data') - chua tim muc cu the"
+    },
+    {
+     "name": "Senaatintori (quan the Engel)",
+     "year": "quy hoach 1820 (Ehrenström); cac toa Engel 1820s-1852",
+     "year_source": "HRI asemakaavakartat: 'The buildings in the monumental centre around Senate Square were designed by the German C. L. Engel.'",
+     "geometry": "LoD2 CC BY 4.0",
+     "photos": "hkm.5015BBDB-6171-4558-9D62-BD0E2A66ABF8 'Markkinat Senaatintorilla' 1880, Max Krook (PDM)",
+     "drawings": "chua_ro"
+    },
+    {
+     "name": "Uspenskin katedraali (Gornostajev)",
+     "year": "thanh hien 1868 (xay 1862-1868)",
+     "year_source": "https://finnisharchitecture.fi/uspenski-cathedral/ (qua ket qua tim kiem; nguon ban chinh thuc - nen xac minh voi Helsingin ortodoksinen seurakunta)",
+     "geometry": "LoD2 CC BY 4.0",
+     "photos": "Finna hkm PDM (vd hkm.35B0B0BE-... 1952 - CANH BAO PDM tren anh 1952)",
+     "drawings": "chua_ro"
+    },
+    {
+     "name": "Rautatieasema (Eliel Saarinen)",
+     "year": "khanh thanh 1919 (khoi cong 1905)",
+     "year_source": "https://www.myhelsinki.fi/?p=5121 (qua ket qua tim kiem)",
+     "geometry": "LoD2 CC BY 4.0",
+     "photos": "hkm.5836CE4C-62A3-40DC-A1DB-7CD90671603E 'rakennustöitä' 1913, Eric Sundström (PDM); hkm.E0ED6FEC-AFD0-4051-B903-CD4827BBF06D (1907, Signe Brander, ga cu)",
+     "drawings": "chua_ro (Saarinen mat 1950 -> quyen kien truc het han cuoi 2020 theo 70 nam, uoc - can kiem luat)"
+    },
+    {
+     "name": "Suomenlinna / Viapori (Sveaborg)",
+     "year": "khoi cong 1748 (Augustin Ehrensvärd)",
+     "year_source": "https://historia.hel.fi/fi/alueet/kaakkoinen/herttoniemi-kyla-kartano-kaupunginosa (qua ket qua tim kiem: 'johti vuodesta 1748 Viaporin linnoituksen rakentamista')",
+     "geometry": "LoD2 CC BY 4.0 + Rekognosointikartta 1780-82",
+     "photos": "Finna hkm",
+     "drawings": "chua_ro (Kansallisarkisto / Krigsarkivet)"
+    }
+   ],
+   "population": {
+    "dataset": "Helsingin henkikirjoitettu väestö kaupunginosittain 1.1.1875-1960 (PxWeb his_vaerak_023o) - HRI 'helsingin-vakiluku-1-1-1875-1993...'",
+    "publisher": "Helsingin kaupunginkanslia / Kaupunkitieto",
+    "catalog": "https://hri.fi/data/en_GB/dataset/helsingin-vakiluku-1-1-1875-1993-ja-vuodenvaihteissa-1993-94-2013-14",
+    "csv_url": "https://stat.hel.fi/api/v1/fi/Aluesarjat/his/vrm/vaerak/his_vaerak_023o.px (POST Kaupunginosa=ALL, format csv)",
+    "csv_sha256": "e2a0cac8ecb9372db7007292b39056ed3ec60fd320633bf31f81da1483872004",
+    "columns": {
+     "row": "Kaupunginosa = 'Koko kaupunki'",
+     "value": "'Henkikirjoitettu väestö <nam>'"
+    },
+    "unit": "Henkikirjoitettu väestö (dan so dang ky ho tich/henkikirja), khong phai dan so thuong tru hien dai",
+    "boundary": "Ranh gioi lich su: buoc nhay 1945 276277 -> 1950 370962 trung voi 'suuri alueliitos' 1.1.1946. Buoc nhay 1875->1880 (23070->36346) chua giai thich (chua_ro). '1960a/1960b' chua ro y nghia.",
+    "license": "CC BY 4.0",
+    "earliest": 1875,
+    "points": [
+     [
+      1875,
+      23070
+     ],
+     [
+      1880,
+      36346
+     ],
+     [
+      1890,
+      56236
+     ],
+     [
+      1900,
+      79126
+     ],
+     [
+      1910,
+      118736
+     ],
+     [
+      1920,
+      152200
+     ],
+     [
+      1930,
+      205833
+     ],
+     [
+      1940,
+      252484
+     ],
+     [
+      1945,
+      276277
+     ],
+     [
+      1950,
+      370962
+     ],
+     [
+      1955,
+      403970
+     ],
+     [
+      1960,
+      448315
+     ]
+    ],
+    "pre1875_text_only": {
+     "source": "https://historia.hel.fi/en/ilmiot/helsinki-residents/demographic-trends-in-helsinki",
+     "values": [
+      [
+       "16th c.",
+       "about 800"
+      ],
+      [
+       "17th c.",
+       "around 2,000"
+      ],
+      [
+       1722,
+       "around 800"
+      ],
+      [
+       1747,
+       "roughly 1,375"
+      ],
+      [
+       1810,
+       "around 4,000"
+      ]
+     ],
+     "note": "So tron trong van ban, khong phai bang du lieu."
+    }
+   },
+   "milestones": [
+    {
+     "year": "1550",
+     "event": "Helsinki perustetaan (Gustav Vasa, cua song Vantaa)",
+     "source": "https://www.hel.fi/fi/paatoksenteko-ja-hallinto/tietoa-helsingista/historia-ja-arkistot"
+    },
+    {
+     "year": "1640s (lenh 1639)",
+     "event": "Thanh pho doi den Vironniemi",
+     "source": "https://www.senaatti.fi/app/uploads/2023/10/978-952-368-119-4_2023_Arkkitehtitoimisto-Freese_K12-arkeologiset-tutkimukset_s.pdf (qua ket qua tim kiem, chua doc toan van)"
+    },
+    {
+     "year": "1748",
+     "event": "Khoi cong Viapori/Sveaborg - 'Viaporin perustaminen 1748 oli käänne'",
+     "source": "https://historia.hel.fi/fi/alueet/kaakkoinen/herttoniemi-kyla-kartano-kaupunginosa"
+    },
+    {
+     "year": "11/1808",
+     "event": "Hoa hoan pha phan lon trung tam go",
+     "source": "https://historia.hel.fi/fi/kaannekohdat/1800-luku/keisarillisen-helsingin-rakentaminen (qua ket qua tim kiem)"
+    },
+    {
+     "year": "1812",
+     "event": "'Helsingistä tulee Suomen pääkaupunki'",
+     "source": "https://www.hel.fi/fi/paatoksenteko-ja-hallinto/tietoa-helsingista/historia-ja-arkistot"
+    },
+    {
+     "year": "1820",
+     "event": "Quy hoach Ehrenström duoc duyet; Engel thiet ke trung tam Senaatintori",
+     "source": "HRI helsingin-historialliset-asemakaavakartat (doc trong phien)"
+    },
+    {
+     "year": "1862",
+     "event": "Tuyen Helsinki-Hämeenlinna, duong sat dau tien cua Phan Lan",
+     "source": "historia.hel.fi (qua ket qua tim kiem; URL trang cu the chua xac dinh)"
+    },
+    {
+     "year": "1946",
+     "event": "Suuri alueliitos 1.1.1946 - dat ranh gioi gan nhu hien nay",
+     "source": "https://historia.hel.fi/fi/kaannekohdat/1900-luku/suuri-alueliitos"
+    },
+    {
+     "year": "1952",
+     "event": "Olympic Helsinki",
+     "source": "https://www.hel.fi/fi/paatoksenteko-ja-hallinto/tietoa-helsingista/historia-ja-arkistot"
+    }
+   ],
+   "digitization_estimate": {
+    "1749 / 1780-82": "Da georef. Vector hoa lang/ruong/duong bo: 6-10 gio moi lop (uoc).",
+    "1803 + 1820 + 1878 asemakaava": "Da georef (WMS). Vector hoa khoi/lo pho go 1803 va 1878: 15-25 gio moi lop (uoc).",
+    "1900 / 1909 / 1925": "WMS da georef; TIFF can kiem worldfile. Vector hoa khoi: 10-15 gio moi lop (uoc).",
+    "Ortho 1932/1943/1950": "Da chinh hinh. Dung de kiem chieu cao/mai, khong can vector: 3-5 gio (uoc).",
+    "Rakennukset (c_valmpvm) + 3D LoD2": "Noi id toa voi nam hoan thanh de 'moc dung nam' cho toa con ton tai: 10-20 gio (uoc). Toa da mat KHONG co trong du lieu nay -> phai dung tu 1803/1878/1900 (thien lech song sot).",
+    "tong_uoc": "90-150 gio nguoi (uoc) cho Helsinki"
+   },
+   "unclear_sources": [
+    {
+     "name": "Kansallisarkisto (National Archives of Finland) - ban goc Senaatinkartasto, ban do cu",
+     "why": "Chua doc dieu khoan su dung ban so hoa trong phien",
+     "contact_path": "Kansallisarkisto - https://kansallisarkisto.fi (trang lien he; site tra 403 voi curl trong phien, chua xac minh URL con)"
+    },
+    {
+     "name": "Kansalliskirjasto / Doria (vd 'Karta öfver Helsingfors' 1860, doria.10024_92045)",
+     "why": "Finna API khong tra imageRights cho ban ghi nay",
+     "contact_path": "Kansalliskirjasto - https://www.kansalliskirjasto.fi/en/contact-information"
+    },
+    {
+     "name": "Riksarkivet / Krigsarkivet (ban goc 1749, 1780-82)",
+     "why": "HRI cap CC BY cho ban so hoa; dieu khoan cua Riksarkivet voi ban quet goc chua doc",
+     "contact_path": "Riksarkivet - https://riksarkivet.se/kontakt"
+    },
+    {
+     "name": "Anh Finna gan PDM cho anh sau 1950",
+     "why": "PDM gan dai tra; nhiep anh gia hien dai (vd von Bonin 1973) - rui ro",
+     "contact_path": "Helsingin kaupunginmuseo - https://www.helsinginkaupunginmuseo.fi (muc yhteystiedot)"
+    },
+    {
+     "name": "Do phan giai m/px ortho 1932-1950",
+     "why": "Metadata HRI khong ghi; paikkatietohakemisto chua doc",
+     "contact_path": "Kaupunkimittauspalvelut - https://kartta.hel.fi/paikkatietohakemisto/"
+    }
+   ]
+  }
+ },
+ "license_files": [
+  {
+   "path": "/home/user/cine-lab/research/thanhpho/licenses/zurich-stadt-ogd-cc0.txt",
+   "sha256": "f66d6865c1182de001a9f5d098116be17477d154dd75ef24e8a3034edefa7f45"
+  },
+  {
+   "path": "/home/user/cine-lab/research/thanhpho/licenses/zurich-kanton-ogd.txt",
+   "sha256": "37b4dc95586d6841b7bbdb27b3ccc482f9fd61d472783c1aa4e5f19b3e1fbe94"
+  },
+  {
+   "path": "/home/user/cine-lab/research/thanhpho/licenses/zurich-swisstopo-ogd.txt",
+   "sha256": "d10071da9dab893e44e027de5af868a44c4246fac3419f9298a6738aead03efa"
+  },
+  {
+   "path": "/home/user/cine-lab/research/thanhpho/licenses/zurich-4d-historisches-3d-stadtmodell-cc0.txt",
+   "sha256": "5eb70ce2f8409b0ac891af37c466958f5954d748f82d9022b359fc44062a4934"
+  },
+  {
+   "path": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-hri-cc-by-4.txt",
+   "sha256": "a3dd5ca1eaa95583daa6d19b1de3ff4a22616a3adf55619a15ea1cd6606b8f30"
+  },
+  {
+   "path": "/home/user/cine-lab/research/thanhpho/licenses/helsinki-kaupunginmuseo-finna.txt",
+   "sha256": "33417b7121cbde19de59bbdc4695de5e1bb6287329cc93127aa31c23b0dda030"
+  }
+ ]
+}

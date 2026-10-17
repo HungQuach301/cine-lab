@@ -1,0 +1,54 @@
+GIAY PHEP: Kanton Zuerich OGD - Wild-Karte ~1850, Gyger 1667, Murer 1566 (canh), WMS Historische Karten
+Ngay doc: 2026-10-15 (phien Tien ky thanh pho, tac tu con zh_hel)
+Tep tho luu ngoai git o /var/tmp/thanhpho/<thu muc>/body; SHA-256 la cua tep body doc duoc.
+
+======================================================================
+URL: https://www.zh.ch/de/politik-staat/opendata.html
+HTTP: 200
+SHA-256 trang/tep: aeea4bae444efafad35f218432e5a41bac7203e67a7ec4b1c9a2adb431320ad7
+Thu muc tho: /var/tmp/thanhpho/zhk_ogd2
+Trich nguyen van:
+  "Nutzungsbedingungen Offene Daten sind nicht schützenswerte Daten. Sie verletzen nicht die Privatsphäre, sind nicht sicherheitskritisch und unterliegen keinen Drittrechten (wie Copyrights). Sie dürfen offene Daten vervielfältigen, verbreiten und weiter zugänglich machen anreichern und bearbeiten kommerziell nutzen Haftungsausschluss Der Kanton Zürich schliesst jede Haftung für direkte und indirekte Schäden durch die Datennutzung aus."
+  "Offene Behördendaten dürfen von Allen für Alles verwendet werden."
+
+======================================================================
+URL: https://geolion.zh.ch/geodatensatz/show?gdsid=187
+HTTP: 200
+SHA-256 trang/tep: 0f109a18fcc042c736acdbbc6ae547db47047810aebe07f0463a170379fb010e
+Thu muc tho: /var/tmp/thanhpho/zh_wild_geolion
+Trich nguyen van:
+  geolion gdsid=187 "Historische Karte J. Wild (~1850)": "Referenzsystem CH1903+_LV95" "Erfassungsmassstab 1:25000" "Auflösung 2.5 [m]" "Abgabeformat JPEG/Worldfile (.jpg/.jgw)" "OGD-Daten (kostenlos)" "Datenbezugsart OGD - freie Nutzung und Weitergabe"
+  LUU Y: cung trang liet ke WMS "Historische Karten" gom ca lop swisstopo (Siegfried 1880/1930, Dufour, LK25 1956-65) -> cac lop swisstopo theo dieu khoan swisstopo, KHONG theo OGD Kanton.
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=ktzh_historische_karte_j-_wild___1850___ogd_
+HTTP: 200
+SHA-256 trang/tep: 1d5edb58213e4022e22164bbb74c05b659837f63de7ca7a547784b6848aace61
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_ktzh_historische_karte_j-_wild___1850___ogd_
+Trich nguyen van:
+  CKAN: license_id "cc-zero"; "In der Zeit von 1843 bis 1851 entstanden unter der Leitung von Johannes Wild aus Richterswil 27 Original-Messtischblätter im Massstab 1:25000."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=ktzh_historische_karte_von_hans_conrad_gyger__1667___ogd_
+HTTP: 200
+SHA-256 trang/tep: 93cb989abe5ff7b9a9d036b354a7c3a2f5068acf3b3da5d3ff5b02827f2e65bc
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_ktzh_historische_karte_von_hans_conrad_gyger__1667___ogd_
+Trich nguyen van:
+  CKAN: license_id "cc-zero"; "Massstab: ca. 1:32'000 ... Mit Passpunkten wurde versucht, das Gemälde zu entzerren."
+
+======================================================================
+URL: https://data.stadt-zuerich.ch/api/3/action/package_show?id=ktzh_historische_karte_von_jos_murer__1566___ogd_
+HTTP: 200
+SHA-256 trang/tep: 8cca5e60805a37e6a0e40ff71f75640ff9ae58dc5d8f6e6590e71c35a26d5db0
+Thu muc tho: /var/tmp/thanhpho/zh_pkg_ktzh_historische_karte_von_jos_murer__1566___ogd_
+Trich nguyen van:
+  CKAN: license_id "cc-zero"; "Die Karte des Zürcher Gebiets von Jos Murer (1530-1580) ist die älteste gedruckte Karte des Kantons Zürich. Massstab: ca. 1:56'000"
+
+======================================================================
+URL: https://wms.zh.ch/HistKartenZHWMS?SERVICE=WMS&REQUEST=GetCapabilities&VERSION=1.3.0
+HTTP: 200
+SHA-256 trang/tep: a1e02468605a78c7ef8a73093ae9755a0fbf6e58a06311a968a1a555e9f340ff
+Thu muc tho: /var/tmp/thanhpho/zhk_histwms
+Trich nguyen van:
+  WMS GetCapabilities HistKartenZHWMS: "<Fees>none</Fees>" "<AccessConstraints>none</AccessConstraints>"; lop "wild", "sf1880" (Siegfriedkarte 1880 © 2005), "sf1930", "dufour-erst", "dufour-letzt", "lk25_1956 ... © 2000 swisstopo (DV 593.3)"
+

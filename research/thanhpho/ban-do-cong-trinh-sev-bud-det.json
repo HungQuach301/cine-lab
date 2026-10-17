@@ -1,0 +1,1372 @@
+{
+ "checked": "2026-10-15",
+ "fetched_utc_note": "Thoi diem doc that (UTC) nam trong tung tep giay phep; mot so lan doc roi sang 2026-10-16 UTC.",
+ "cities": {
+  "Seville": {
+   "maps": [
+    {
+     "name": "Plano topográphico de la M. N. y M. L. ciudad de Sevilla (Plano de Olavide)",
+     "year": 1771,
+     "holder": "Real Academia de la Historia (Biblioteca Digital RAH), qua Europeana",
+     "item_url": "https://bibliotecadigital.rah.es/es/consulta/registro.do?id=12767",
+     "service_url": "https://bibliotecadigital.rah.es/es/catalogo_imagenes/imagen_id.do?idImagen=10142078",
+     "resolution": "6627 x 4795 px cho to 93,5 x 137 cm (~48 px/cm); ti le chua ghi trong ban ghi",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0 (theo ban ghi Europeana do RAH cung cap)",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "Ghi nguon: Real Academia de la Historia",
+     "caveat": "Trang goc RAH bi chan (Anubis) tu container; nhan quyen doc qua Europeana Record API. Nen mo trang RAH bang trinh duyet de doi chieu truoc khi khoa.",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/344/https___hispana_mcu_es_lod_oai_bibliotecadigital_rah_es_12767_ent0.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:42Z",
+      "sha256": "0f4b768d6bc7eb5519eca695fbed29abbe46c79488720b09432ec30d6cd96e13"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-europeana-rah-bde.txt"
+    },
+    {
+     "name": "Plano geométrico de la ciudad de Sevilla (dedicado a Pedro López de Lerena)",
+     "year": 1788,
+     "holder": "Real Academia de la Historia, qua Europeana",
+     "item_url": "https://bibliotecadigital.rah.es/es/consulta/registro.do?id=12668",
+     "service_url": "https://bibliotecadigital.rah.es/es/catalogo_imagenes/imagen_id.do?idImagen=10141893",
+     "resolution": "3552 x 2308 px cho to 87,5 x 140 cm (~25 px/cm, thap); ti le chua ghi",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0 (ban ghi Europeana)",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "Ghi nguon: Real Academia de la Historia",
+     "caveat": "Ban ghi mo ta cac cong trinh sau 'riada de 1783' (lu). Do phan giai cong khai thap; can xin ban cao hon.",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/344/https___hispana_mcu_es_lod_oai_bibliotecadigital_rah_es_12668_ent0.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:42Z",
+      "sha256": "b0875cd2878f23c548f3489d0769429897b2dcd8f9003577958610e11d93ea15"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-europeana-rah-bde.txt"
+    },
+    {
+     "name": "Plano de la M.N. M.I. M.H. é I. ciudad de Sevilla con las mejoras hechas hasta 1848 (Herrera Dávila)",
+     "year": "1848-1850",
+     "holder": "Institut Cartogràfic i Geològic de Catalunya (ICGC), Cartoteca Digital",
+     "item_url": "https://cartotecadigital.icgc.cat/digital/collection/fonscec/id/825",
+     "service_url": "IIIF https://cartotecadigital.icgc.cat/iiif/2/fonscec:825/info.json",
+     "resolution": "8617 x 6270 px cho to 49 x 68 cm (~127 px/cm); ti le ban ghi ghi '[1:1 300 aprox.]' (nghi sai so, chua kiem)",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0 (truong 'Drets' cua ICGC)",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "Ghi nguon: Cartoteca Digital ICGC",
+     "evidence": {
+      "url": "https://cartotecadigital.icgc.cat/digital/api/singleitem/collection/fonscec/id/825",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:57Z",
+      "sha256": "4264aa6b9f6121e2b2c6da18d1472fb252f4c1b161eadabb83d6c44f2c045478"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-icgc.txt"
+    },
+    {
+     "name": "Plano de Sevilla (Banco de España)",
+     "year": 1860,
+     "holder": "Repositorio Institucional del Banco de España, qua Europeana",
+     "item_url": "https://repositorio.bde.es/handle/123456789/35377",
+     "service_url": "https://repositorio.bde.es/bitstream/123456789/35377/1/fev-av-p-02375.pdf",
+     "resolution": "chua do (PDF, chua tai)",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "CC0 1.0 (ban ghi Europeana)",
+     "quote": "Europeana edmRights: http://creativecommons.org/publicdomain/zero/1.0/",
+     "attribution": "Khong bat buoc (CC0); nen ghi Banco de España",
+     "caveat": "Chua doc trang goc repositorio.bde.es; chua tai PDF.",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/591/https___hispana_mcu_es_lod_oai_repositorio_bde_es_123456789____35377_ent1.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:44Z",
+      "sha256": "cb59e8ce230cd33d64c3de91854defdcb7f8bdb65a935281e424b0cb87072e6d"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-europeana-rah-bde.txt"
+    },
+    {
+     "name": "Plano de Sevilla / facilitado por el Ayuntamiento (Benito Chias Carbó)",
+     "year": 1904,
+     "holder": "ICGC Cartoteca Digital",
+     "item_url": "https://cartotecadigital.icgc.cat/digital/collection/espanya/id/1699",
+     "service_url": "IIIF https://cartotecadigital.icgc.cat/iiif/2/espanya:1699/info.json",
+     "resolution": "7156 x 5963 px, 300 ppi, ti le 1:7 500 -> ~0,64 m/px",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0 (truong 'Drets' ICGC)",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "Ghi nguon: Cartoteca Digital ICGC",
+     "evidence": {
+      "url": "https://cartotecadigital.icgc.cat/digital/api/singleitem/collection/espanya/id/1699",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:59Z",
+      "sha256": "3fc85e544894933557af345942be22f027afddce4fa92c2386737637750d9285"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-icgc.txt"
+    },
+    {
+     "name": "Planimetría municipal de Sevilla (minuta manuscrita IGN)",
+     "year": "1873 (fecha 1873-03-31)",
+     "holder": "IGN Archivo Topográfico / CNIG",
+     "item_url": "https://www.ign.es/wms/minutas-cartograficas (GetFeatureInfo: Documento 410943)",
+     "service_url": "WMS https://www.ign.es/wms/minutas-cartograficas layer 'Minutas'; tai qua CNIG Centro de Descargas (familia MIPAC)",
+     "resolution": "chua do (WMS)",
+     "georeferenced": true,
+     "commercial": "co",
+     "license": "IGN: AccessConstraints WMS = '© Instituto Geográfico Nacional de España' + licencia general CC BY 4.0",
+     "quote": "Se permite el acceso a este servicio en cualquier caso siempre que se mencionen la autoría y propiedad del IGN del siguiente modo: «© Instituto Geográfico Nacional de España»",
+     "attribution": "© Instituto Geográfico Nacional de España",
+     "evidence": {
+      "url": "https://www.ign.es/wms/minutas-cartograficas?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=Minutas&QUERY_LAYERS=Minutas&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:49:05Z",
+      "sha256": "7c8fcc94c88c3493fe3c2b7f0da5e22c40e7ac6b00f3b434085ed9646b0df591"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-ign-cnig.txt"
+    },
+    {
+     "name": "Minuta MTN50 hoja 0984 Sevilla (catastrón 1:25 000)",
+     "year": 1917,
+     "holder": "IGN Cartoteca / CNIG",
+     "item_url": "https://www.ign.es/wms/primera-edicion-mtn (layer catastrones, GetFeatureInfo)",
+     "service_url": "https://centrodedescargas.cnig.es/CentroDescargas/busquedaRedirigida.do?ruta=PUBLICACION_CNIG_DATOS_VARIOS/Minutas_MTN50/MinutaMTN50-0984-Sevilla.zip",
+     "resolution": "chua do (tai zip that bai: may chu tra rong tu container)",
+     "georeferenced": true,
+     "commercial": "co",
+     "license": "CC BY 4.0 ign.es (AccessConstraints WMS)",
+     "quote": "AccessConstraints: CC BY 4.0 ign.es / el uso de los productos y servicios de información geográfica del IGN ... conlleva la aceptación por el usuario de una licencia CC-BY 4.0",
+     "attribution": "Mencion obligatoria visible a pie de mapa/imagen: '<producto> <fecha> CC-BY 4.0 ign.es' (theo Condiciones_licenciaUso_IGN.pdf)",
+     "evidence": {
+      "url": "https://www.ign.es/wms/primera-edicion-mtn?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=catastrones&QUERY_LAYERS=catastrones&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:49:04Z",
+      "sha256": "d1eb2ea3d839c86272a7545a55612cedf6e3599b88600daf395e3f09abbecae5"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-ign-cnig.txt"
+    },
+    {
+     "name": "MTN50 primera edición hoja 0984 Sevilla",
+     "year": 1918,
+     "holder": "IGN / CNIG",
+     "item_url": "http://centrodedescargas.cnig.es/CentroDescargas/buscar.do?filtro.codFamilia=02307&filtro.numeroHoja=0984",
+     "service_url": "WMS https://www.ign.es/wms/primera-edicion-mtn layer MTN50",
+     "resolution": "ti le 1:50 000; px chua do",
+     "georeferenced": true,
+     "commercial": "co",
+     "license": "CC BY 4.0 ign.es",
+     "quote": "AccessConstraints: CC BY 4.0 ign.es / el uso de los productos y servicios de información geográfica del IGN ... conlleva la aceptación por el usuario de una licencia CC-BY 4.0",
+     "attribution": "Mencion obligatoria visible a pie de mapa/imagen: '<producto> <fecha> CC-BY 4.0 ign.es' (theo Condiciones_licenciaUso_IGN.pdf)",
+     "evidence": {
+      "url": "https://www.ign.es/wms/primera-edicion-mtn?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=Enlace&QUERY_LAYERS=Enlace&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:49:04Z",
+      "sha256": "c25682f0fb05329daecd08b9b078e773af3dc9a0e7d5ce3e2467ab6327a8aa33"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-ign-cnig.txt"
+    },
+    {
+     "name": "Sevilla: Plano de la Zona de Ensanche (Instituto Geográfico y Catastral, F. Uriol)",
+     "year": 1929,
+     "holder": "IGN Cartoteca (signatura 31-E-6)",
+     "item_url": "https://www.ign.es/web/catalogo-cartoteca/resources/html/008319.html",
+     "service_url": "https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj01.jpg ... hoj20 (+ Cuadricula, PDF)",
+     "resolution": "23 to; to 1: 8400 x 6466 px, 254 dpi; ti le 1:2 000 -> ~0,20 m/px",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Política de datos IGN, compatible CC BY 4.0",
+     "quote": "...concretada en la siguiente licencia de uso, compatible con CC-BY 4.0",
+     "attribution": "Mencion obligatoria visible a pie de mapa/imagen: '<producto> <fecha> CC-BY 4.0 ign.es' (theo Condiciones_licenciaUso_IGN.pdf)",
+     "evidence": {
+      "url": "https://www.ign.es/web/catalogo-cartoteca/resources/html/008319.html",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:46:28Z",
+      "sha256": "b4d22009487997b776ad7c6edbb45a81f84978d34ad9188cc03c6d874745ed7b"
+     },
+     "image_evidence": {
+      "url": "https://www.ign.es/web/BibliotecaIGN/31-E-6_hoj01.jpg",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:47:18Z",
+      "sha256": "5b9de77f7b6d0c862091b458ddaceeeaad7ccfa39b4263939863354a1465e56e"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-ign-cnig.txt"
+    },
+    {
+     "name": "Sevilla (plano 1:10 000, s.n.)",
+     "year": "[1929?]",
+     "holder": "IGN Cartoteca (31-E-5)",
+     "item_url": "https://www.ign.es/web/catalogo-cartoteca/resources/html/016386.html",
+     "service_url": "https://www.ign.es/web/BibliotecaIGN/31-E-5_01.JPG",
+     "resolution": "7454 x 5400 px, 254 dpi; 1:10 000 -> ~1,0 m/px",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Política de datos IGN, compatible CC BY 4.0",
+     "quote": "...concretada en la siguiente licencia de uso, compatible con CC-BY 4.0",
+     "attribution": "Mencion obligatoria visible a pie de mapa/imagen: '<producto> <fecha> CC-BY 4.0 ign.es' (theo Condiciones_licenciaUso_IGN.pdf)",
+     "caveat": "Tac gia khong ghi (s.n.); IGN ap chinh sach du lieu len muc nay.",
+     "evidence": {
+      "url": "https://www.ign.es/web/catalogo-cartoteca/resources/html/016386.html",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:46:52Z",
+      "sha256": "f977ed62cc98db6eb9a532177b8e7c9b10bc65a90a28339e26f5c3e671ecbeb6"
+     },
+     "image_evidence": {
+      "url": "https://www.ign.es/web/BibliotecaIGN/31-E-5_01.JPG",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:47:30Z",
+      "sha256": "b99abc6330fa7ffb2eb4bf72f184757eab06981436aa0ff7480f93a170182e3e"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-ign-cnig.txt"
+    },
+    {
+     "name": "Ortofoto Vuelo Americano Serie B (AMS)",
+     "year": "1956-1957",
+     "holder": "IGN/CNIG (PNOA histórico)",
+     "item_url": "https://www.ign.es/wms/pnoa-historico",
+     "service_url": "WMS https://www.ign.es/wms/pnoa-historico layer AMS_1956-1957 (va Interministerial_1973-1986 0,5 m; Nacional_1981-1986 1,0 m)",
+     "resolution": "1,00 m/px tai Sevilla (GetFeatureInfo infoVuelos)",
+     "georeferenced": true,
+     "commercial": "co",
+     "license": "CC BY 4.0 scne.es",
+     "quote": "AccessConstraints: CC BY 4.0 scne.es",
+     "attribution": "'<producto> <fecha> CC-BY 4.0 scne.es' (theo licencia IGN)",
+     "evidence": {
+      "url": "https://www.ign.es/wms/pnoa-historico?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetFeatureInfo&LAYERS=infoVuelos&QUERY_LAYERS=infoVuelos&SRS=EPSG:4326&BBOX=-6.05,37.33,-5.93,37.43&WIDTH=100&HEIGHT=100&X=50&Y=50&INFO_FORMAT=text/html&FEATURE_COUNT=50",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:49:57Z",
+      "sha256": "dbc6660fee2411e5cd793a96873a650b3fb3f4e16a3295abcd3962dcabee0453"
+     },
+     "license_file": "research/thanhpho/licenses/sevilla-ign-pnoa-historico.txt"
+    }
+   ],
+   "landmarks": [
+    {
+     "name": "La Giralda / Catedral de Sevilla",
+     "year_completed": "Than: minaret Almohad (the ky XII, nguon khong ghi nam cu the); phan dinh Phuc Hung cua Hernán Ruiz the ky XVI",
+     "year_source": {
+      "url": "https://www.catedraldesevilla.es/la-catedral/edificio/la-giralda/",
+      "sha256": "431e37b7299ce8d23d33390fb8f8a599589aa56a1661d02f0636fdfcba27a0dc",
+      "quote": "El último cuerpo de la torre almohade fue sustituido por el deterioro sufrido en el siglo XVI por Hernán Ruiz mediante un remate renacentista"
+     },
+     "geometry_sources": [
+      "PNOA LiDAR / ortofoto (CC BY 4.0 theo licencia IGN chung; chua doc trang san pham LiDAR rieng)",
+      "Catastro INSPIRE BU (so tang, nam xay; thuong mai chi sau khi bien doi - xem sevilla-catastro-inspire.txt)",
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2017660786/",
+       "label": "No known restrictions on publication.",
+       "year": 1890
+      },
+      {
+       "url": "https://www.loc.gov/item/90708231/",
+       "label": "No known restrictions on publication.",
+       "year": "c.1900"
+      }
+     ]
+    },
+    {
+     "name": "Torre del Oro",
+     "year_completed": "the ky XIII (Almohad) - nguon khong ghi nam cu the",
+     "year_source": {
+      "url": "https://visitasevilla.es/en/torre-del-oro/",
+      "sha256": "3a3e67c640b5b7b331f78ce70d12bd957f0dbae9f0e4c5142b27c66234d8bc31",
+      "quote": "Built in the 13th century as part of the Almohad defensive system"
+     },
+     "geometry_sources": [
+      "PNOA LiDAR (CC BY 4.0)",
+      "Catastro INSPIRE BU",
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2025715577/",
+       "label": "No known restrictions on publication.",
+       "year": 1929
+      },
+      {
+       "url": "https://www.loc.gov/item/94512140/",
+       "label": "No known restrictions on publication in the U.S. Use elsewhere may be restricted by other countries' laws.",
+       "year": "c.1860 (J. Laurent)"
+      }
+     ]
+    },
+    {
+     "name": "Real Alcázar",
+     "year_completed": "goc the ky X; Palacio Mudéjar cua Pedro I the ky XIV",
+     "year_source": {
+      "url": "https://visitasevilla.es/en/real-alcazar-de-sevilla/",
+      "sha256": "1c4ef4edaa4c9e5be739987df88e236fd4f9b9f5ab0c05e77a2f951f8393a056",
+      "quote": "The origin of the Alcázar dates back to the 10th century ... renovation carried out by Peter I in the 14th century"
+     },
+     "geometry_sources": [
+      "PNOA LiDAR (CC BY 4.0)",
+      "Catastro INSPIRE BU",
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2017660780/",
+       "label": "No known restrictions on publication.",
+       "year": 1890
+      }
+     ]
+    },
+    {
+     "name": "Plaza de España (Exposición Iberoamericana)",
+     "year_completed": 1929,
+     "year_source": {
+      "url": "https://visitasevilla.es/en/plaza-de-espana/",
+      "sha256": "dd71c925c68f03ee8cb467f49806180c07eda9b7e1f7f8a7918acd5d2c84d5a7",
+      "quote": "In 1929 the inauguration of the Ibero-American Exposition took place here."
+     },
+     "geometry_sources": [
+      "PNOA LiDAR (CC BY 4.0)",
+      "Catastro INSPIRE BU",
+      "OSM (ODbL)",
+      "IGN Plano Zona de Ensanche 1929 1:2 000 (CC BY 4.0) cho mat bang luc khanh thanh"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2025715589/",
+       "label": "No known restrictions on publication.",
+       "year": 1929
+      }
+     ]
+    },
+    {
+     "name": "Puente de Isabel II (Puente de Triana)",
+     "year_completed": 1852,
+     "year_source": {
+      "url": "https://visitasevilla.es/en/triana-bridge/",
+      "sha256": "34d7c19cd909d940bbebf7ac05a011450b438c41acb36f57204dc2b5c1976ea0",
+      "quote": "its construction was completed in 1852 ... until 1845, when construction began"
+     },
+     "geometry_sources": [
+      "PNOA LiDAR (CC BY 4.0)",
+      "OSM (ODbL)",
+      "Plano 1848-1850 ICGC (PD) co 'Vista del puente nuevo colgante'"
+     ],
+     "historic_photos": []
+    },
+    {
+     "name": "Metropol Parasol (Setas de Sevilla)",
+     "year_completed": "chua co nguon doc duoc (trang setasdesevilla.com khong ghi nam trong noi dung doc duoc)",
+     "year_source": {
+      "url": "https://setasdesevilla.com/en/",
+      "sha256": "47f2d8db8bb37c1a4c00acc44fbad32d53ea4bc5e1c152e246778b4571cf2dbd",
+      "quote": null
+     },
+     "geometry_sources": [
+      "PNOA LiDAR 2nd coverage (CC BY 4.0)",
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [],
+     "note": "Cong trinh duong dai: thiet ke kien truc con ban quyen (J. Mayer H.) - chi dung hinh khoi tong quat, khong sao chep thiet ke."
+    }
+   ],
+   "population": {
+    "source": "INE - Alteraciones de los municipios en los Censos de Población desde 1842, municipio 41091 Sevilla",
+    "url": "https://www.ine.es/intercensal/intercensal.do?search=3&codigoProvincia=41&codigoMunicipio=91",
+    "read_method": "curl co cookie phien (truy van GET lan dau tra 500)",
+    "sha256": "50f0c135a32f620b62134ad9e2b97781bc72023a2b63ccbd1626c56b78d81279",
+    "fetched_utc": "2026-10-15T23:55:26Z",
+    "earliest_year": 1842,
+    "boundary": "Ranh gioi municipio tai tung nam dieu tra (bang INE dung de theo doi thay doi lanh tho; ky hieu thay doi xem metodologia)",
+    "series_de_hecho": {
+     "1857": 112529,
+     "1860": 118298,
+     "1877": 134318,
+     "1887": 143182,
+     "1897": 146205,
+     "1900": 148315,
+     "1910": 158287,
+     "1920": 205529,
+     "1930": 228729,
+     "1940": 312123,
+     "1950": 376627,
+     "1960": 442300,
+     "1970": 548072,
+     "1981": 653833,
+     "1991": 704857
+    },
+    "series_de_derecho": {
+     "1842": 100498,
+     "1877": 133247,
+     "1900": 147271,
+     "1950": 374138,
+     "1981": 645817,
+     "2001": 684633,
+     "2011": 698042,
+     "2021": 684340
+    },
+    "notes": "INE: 'En el Censo de 2001, la poblacion que aparece es la poblacion residente, equivalente a la de derecho.' 1842 chi co poblacion de derecho."
+   },
+   "milestones": [
+    {
+     "year": 1503,
+     "event": "Thanh lap Casa de la Contratación tai Sevilla (doc quyen thuong mai voi chau My)",
+     "url": "https://mucain.com/en/collection/the-house-of-trade/",
+     "sha256": "0805ae6e9f218597d863261d09c31c8fc394c99b9fb65ce08f22023c20b8d90c",
+     "quote": "the Casa de la Contratación in Seville, established by the Catholic Monarchs in 1503"
+    },
+    {
+     "year": 1717,
+     "event": "Casa de la Contratación doi ve Cádiz",
+     "url": "https://mucain.com/en/collection/the-house-of-trade/",
+     "sha256": "0805ae6e9f218597d863261d09c31c8fc394c99b9fb65ce08f22023c20b8d90c",
+     "quote": "In 1717, after more than two centuries of competing with Seville for control of trade, Cádiz finally succeeded in obtaining the transfer of the Casa de la Contratación."
+    },
+    {
+     "year": 1771,
+     "event": "Plano de Olavide - ban do do dac khoa hoc dau tien cua thanh pho (211 dia diem)",
+     "url": "https://bibliotecadigital.rah.es/es/consulta/registro.do?id=12767 (qua Europeana)",
+     "sha256": "0f4b768d6bc7eb5519eca695fbed29abbe46c79488720b09432ec30d6cd96e13",
+     "quote": "una 'Explicacion de este mapa', con una nomina de 211 lugares"
+    },
+    {
+     "year": 1783,
+     "event": "Lu song Guadalquivir (riada); ke chan song duoc xay sau do",
+     "url": "https://bibliotecadigital.rah.es/es/consulta/registro.do?id=12668 (qua Europeana)",
+     "sha256": "b0875cd2878f23c548f3489d0769429897b2dcd8f9003577958610e11d93ea15",
+     "quote": "las obras nuevas realizadas despues la riada de 1783 ... Un Malecon desde la muralla del Blanquillo"
+    },
+    {
+     "year": 1852,
+     "event": "Hoan thanh cau sat Isabel II (Triana), thay cau phao",
+     "url": "https://visitasevilla.es/en/triana-bridge/",
+     "sha256": "34d7c19cd909d940bbebf7ac05a011450b438c41acb36f57204dc2b5c1976ea0",
+     "quote": "its construction was completed in 1852"
+    },
+    {
+     "year": 1929,
+     "event": "Exposición Iberoamericana, Plaza de España",
+     "url": "https://visitasevilla.es/en/plaza-de-espana/",
+     "sha256": "dd71c925c68f03ee8cb467f49806180c07eda9b7e1f7f8a7918acd5d2c84d5a7",
+     "quote": "In 1929 the inauguration of the Ibero-American Exposition took place here."
+    },
+    {
+     "year": 1992,
+     "event": "Expo '92 tren Isla de la Cartuja (20/4-12/10/1992)",
+     "url": "https://www.upo.es/patio-colorado/2025/05/11/expo-92-el-patrimonio-inolvidable/",
+     "sha256": "f3283fe3cbe6437570f2057ccb6cf455b5cdc880ecaef02a7b3594df30e94f36",
+     "quote": "Desde el 20 de abril hasta el 12 de octubre de 1992 se celebro en la ciudad la Exposicion Universal",
+     "note": "Nguon dai hoc (UPO), khong phai BIE (BIE tra 403)."
+    }
+   ],
+   "digitization_estimate": {
+    "unit": "gio nguoi (uoc)",
+    "items": [
+     {
+      "layer": "Olavide 1771",
+      "georef_h": "3-5 (uoc; ban do khong chuan hinh hoc, can nhieu GCP)",
+      "vector_h": "12-20 (uoc; khoi nha + 211 dia diem)"
+     },
+     {
+      "layer": "1788 Plano geometrico",
+      "georef_h": "2-4 (uoc)",
+      "vector_h": "8-12 (uoc; do phan giai thap)"
+     },
+     {
+      "layer": "1848-1850 Herrera Davila (ICGC)",
+      "georef_h": "2-3 (uoc)",
+      "vector_h": "10-15 (uoc)"
+     },
+     {
+      "layer": "1904 Chias (ICGC) / 1929 IGN 1:10 000",
+      "georef_h": "1-2 moi lop (uoc)",
+      "vector_h": "8-12 moi lop (uoc; khoi pho, khong tung nha)"
+     },
+     {
+      "layer": "1929 Zona de Ensanche 1:2 000 (23 to)",
+      "georef_h": "6-10 (uoc; ghep 23 to)",
+      "vector_h": "20-35 (uoc; tung lo dat vung mo rong)"
+     },
+     {
+      "layer": "MTN50 1918 / Minuta 1917 / Planimetria 1873 (WMS da georeference)",
+      "georef_h": "0-0,5 (uoc)",
+      "vector_h": "4-8 moi lop (uoc; chi ranh do thi)"
+     },
+     {
+      "layer": "Ortofoto AMS 1956-57 / 1977-86 (WMS)",
+      "georef_h": "0 (da orthorectify)",
+      "vector_h": "10-20 (uoc; ve vet do thi theo khoi)"
+     }
+    ],
+    "total_h": "~90-150 (uoc)"
+   },
+   "unclear_sources": [
+    {
+     "name": "Biblioteca Digital Hispánica (BNE) - ban sao Olavide/1788",
+     "why": "Dieu khoan BNE (PDF 22/10/2020) cho phep dung tac pham cong cong theo CC BY 4.0, co yeu cau ghi 'Imagenes procedentes de los fondos de la Biblioteca Nacional de Espana' va gui 1 ban an pham xuat ban o nuoc ngoai; nhung trang tim kiem BDH tra 403 tu container nen chua xac dinh muc cu the.",
+     "contact_path": "Biblioteca Nacional de Espana - Servicio de Suministro de Documentos, trang https://www.bne.es/ (muc Servicios; URL lien he cu the tra 403 tu container, chua xac minh)",
+     "license_file": "research/thanhpho/licenses/sevilla-bne-normas.txt"
+    },
+    {
+     "name": "IGN Cartoteca - Plano de Sevilla J. Soler 1910/1918 (1:7 500)",
+     "why": "Tac gia tu nhan (Soler, fl. 1907-1933); IGN gan chinh sach du lieu CC BY nhung khong chac IGN so huu quyen tac gia; anh 1910 tra 404.",
+     "contact_path": "IGN Cartoteca, trang muc https://www.ign.es/web/catalogo-cartoteca/resources/html/031500.html (muc 'Contacto' tren ign.es)"
+    },
+    {
+     "name": "IGN Cartoteca - Plano Galiano 1839 (31-E-3)",
+     "why": "Trang muc khong co anh truc tuyen.",
+     "contact_path": "IGN Cartoteca, https://www.ign.es/web/catalogo-cartoteca/resources/html/005470.html"
+    },
+    {
+     "name": "Junta de Andalucia (IECA/REDIAM) ortofoto 1956/1977/1984",
+     "why": "Chua doc dieu khoan trong phien (da dung PNOA historico IGN thay the).",
+     "contact_path": "Instituto de Estadistica y Cartografia de Andalucia, https://www.juntadeandalucia.es/institutodeestadisticaycartografia/ (chua xac minh)"
+    },
+    {
+     "name": "Ayuntamiento de Sevilla - Cartografia historica (planos s. XVI-XX)",
+     "why": "Chua doc dieu khoan; sevilla.org khong ket noi duoc tu container.",
+     "contact_path": "Ayuntamiento de Sevilla, https://www.sevilla.org/ (khong truy cap duoc tu container)"
+    },
+    {
+     "name": "IAPH (Instituto Andaluz del Patrimonio Historico)",
+     "why": "Chua doc dieu khoan tai lieu/anh.",
+     "contact_path": "IAPH, https://www.iaph.es/ (trang lien he chua xac minh - 404)"
+    }
+   ]
+  },
+  "Budapest": {
+   "maps": [
+    {
+     "name": "Plan von Ofen nebst denen Attaquen (ke hoach vay Buda)",
+     "year": "chua ghi trong ban ghi (nhan de goi y cuoc vay Buda; khong doan nam)",
+     "holder": "SLUB Dresden / Deutsche Fotothek, qua Europeana",
+     "item_url": "http://www.deutschefotothek.de/documents/obj/70300002",
+     "service_url": "http://fotothek.slub-dresden.de/fotos/df_dz_0000421.jpg",
+     "resolution": "1156 x 1600 px cong khai (thap); to 64 x 47,5 cm",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "SLUB / Deutsche Fotothek",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/188/item_GLVGUTUPN7T2YC52K7W4VIVZ6HFT5EI3.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:01Z",
+      "sha256": "c26ae623daa7d94d30b7d087d69fd08073e8b3146488518ae2bdd8d35fa1e3a0"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-icgc-europeana.txt"
+    },
+    {
+     "name": "Plan von Ofen und Pest (Walzel, Emich) - Stadtplan von Budapest ca. 1:9 200",
+     "year": 1849,
+     "holder": "SLUB / Deutsche Fotothek (KS 2840)",
+     "item_url": "http://www.deutschefotothek.de/documents/obj/90056796",
+     "service_url": "http://fotothek.slub-dresden.de/fotos/df_dk_0011742.jpg",
+     "resolution": "1600 x 1117 px cong khai cho 52,7 cm (~3 m/px); ban cao hon phai xin",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "CC BY-SA 4.0",
+     "quote": "Adapt - remix, transform, and build upon the material for any purpose, even commercially.",
+     "attribution": "SLUB Dresden / Deutsche Fotothek, CC BY-SA 4.0",
+     "caveat": "ShareAlike: lop so hoa phai phat hanh cung giay phep neu phan phoi; can danh gia anh huong len phim.",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/463/item_Y7ZRR3LTLMT2W2CIFQOHTU4DIFYDZRDJ.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:00Z",
+      "sha256": "91527e1913d64b118bf0037e4c8ef6e868635f0a333f533351a65afcebb74f3f"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-icgc-europeana.txt"
+    },
+    {
+     "name": "Ban do trong 'Buda-Pest es kornyekenek helyrajzi tortenete' (MTA)",
+     "year": 1868,
+     "holder": "British Library (Flickr Commons), qua Europeana",
+     "item_url": "https://flickr.com/photos/britishlibrary/11084277194",
+     "service_url": "https://farm6.staticflickr.com/5515/11084277194_a201e26552_o.jpg",
+     "resolution": "3272 x 3754 px; ti le chua ro",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "British Library",
+     "caveat": "Noi dung ban do (lich su/hien trang) chua kiem - nhan de do nguoi dung Flickr gan.",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/2059209/5515_11084277194_a201e26552_o_jpg.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:01Z",
+      "sha256": "5ab0ffe8f4fb0960bb6ea8441d0cebc0a1b4eac622fced696a3b833aafd7930d"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-icgc-europeana.txt"
+    },
+    {
+     "name": "Budapest: szekes fovaros egesz teruletenek terkepe (Kogutowicz / Magyar Foldrajzi Intezet) 1:25 000",
+     "year": 1920,
+     "holder": "ICGC Cartoteca Digital (Fons Leonor Ferrer)",
+     "item_url": "https://cartotecadigital.icgc.cat/digital/collection/europa/id/2709",
+     "service_url": "IIIF https://cartotecadigital.icgc.cat/iiif/2/europa:2709/info.json",
+     "resolution": "10816 x 8934 px, 300 ppi, 1:25 000 -> ~2,1 m/px",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0 (truong 'Drets' ICGC)",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "Cartoteca Digital ICGC",
+     "evidence": {
+      "url": "https://cartotecadigital.icgc.cat/digital/api/singleitem/collection/europa/id/2709",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:23Z",
+      "sha256": "bfed10389fd45045442f900faccf6607d25867fb2813e7a3ed7c59b5ac6cec43"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-icgc-europeana.txt"
+    },
+    {
+     "name": "Budapest Szekesfovaros Terkepe (M. kir. Allami Terkepeszet), 2 to",
+     "year": 1942,
+     "holder": "National Library of Israel, qua Europeana",
+     "item_url": "https://www.nli.org.il/ (ban ghi NNL_ALEPH002552118; trang muc tra 403)",
+     "service_url": "IIIF https://iiif.nli.org.il/IIIFv21/FL35076829/info.json",
+     "resolution": "12223 x 17783 px; ti le chua ro",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public Domain Mark 1.0 (ban ghi Europeana do NLI cung cap)",
+     "quote": "You can copy, modify, distribute and perform the work, even for commercial purposes, all without asking permission.",
+     "attribution": "National Library of Israel",
+     "caveat": "Tac pham nha nuoc Hungary 1942: NLI danh dau PD; nen doi chieu luat Hungary truoc khi khoa.",
+     "evidence": {
+      "url": "https://api.europeana.eu/record/v2/318/marc_nli_002552118.json?wskey=api2demo",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:58:59Z",
+      "sha256": "dfdf5d55010f62c09314578e1d4c4b52c9b11d4ef75cbe0d43fa66bc4bd167c3"
+     },
+     "iiif_evidence": {
+      "url": "https://iiif.nli.org.il/IIIFv21/FL35076829/info.json",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:59:12Z",
+      "sha256": "6e212b1590f9899e601af7959dc34099ffa8f3f68941a9f5eb67b0b93e36e15a"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-icgc-europeana.txt"
+    },
+    {
+     "name": "Plan der Uberschwemmung von Ofen und Pesth (lu 1838, ve them muc nuoc 1876)",
+     "year": 1838,
+     "holder": "Magyar Nemzeti Leveltar (MNL) qua Hungaricana",
+     "item_url": "https://maps.hungaricana.hu/en/MOLTerkeptar/11351/",
+     "service_url": "Hungaricana viewer",
+     "resolution": "chua do",
+     "georeferenced": false,
+     "commercial": "khong",
+     "license": "Can xin phep",
+     "quote": "Any publication of the present digital material requires permission from the content provider.",
+     "attribution": "-",
+     "evidence": {
+      "url": "https://maps.hungaricana.hu/en/MOLTerkeptar/11351/",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:57:29Z",
+      "sha256": "4be30ffd9998417d8190402f202bff2a0d8462904166cda3b8d83499b61a718c"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-hungaricana.txt"
+    },
+    {
+     "name": "Plan der konigl. ungarischen freyen Stadte Ofen und Pesth (BFL, 3. kiadas)",
+     "year": "chua ro (truoc 1873)",
+     "holder": "Budapest Fovaros Leveltara qua Hungaricana",
+     "item_url": "https://maps.hungaricana.hu/en/BFLTerkeptar/123/",
+     "service_url": "Hungaricana viewer",
+     "resolution": "chua do",
+     "georeferenced": false,
+     "commercial": "khong",
+     "license": "Can xin phep",
+     "quote": "Any publication of the present digital material requires permission from the content provider.",
+     "attribution": "-",
+     "evidence": {
+      "url": "https://maps.hungaricana.hu/en/BFLTerkeptar/123/",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:57:15Z",
+      "sha256": "6ebf20eb47f0e666e2026c62fe6ae2ee299923eebe5358c2a1fc34152e35de98"
+     },
+     "license_file": "research/thanhpho/licenses/budapest-hungaricana.txt"
+    }
+   ],
+   "landmarks": [
+    {
+     "name": "Szechenyi Lanchid (Chain Bridge)",
+     "year_completed": 1849,
+     "year_source": {
+      "url": "https://bea.fszek.hu/bitstreams/62ed4277-a7e7-44a8-aa5e-e25de293c693/download",
+      "sha256": "893684698567ff85447e531a8c2b8c579a7a4162d47189183981d338ce515cfb",
+      "quote": "Chain Bridge was inaugurated on November 20, 1849."
+     },
+     "geometry_sources": [
+      "OSM (ODbL)",
+      "Ban do 1920 ICGC (PD)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2020681124/",
+       "label": "No known restrictions on publication.",
+       "year": 1902,
+       "title": "The suspension bridge, Budapest"
+      },
+      {
+       "url": "https://www.loc.gov/item/2008681156/",
+       "label": "Rights status not evaluated. (KHONG dung khi chua danh gia)",
+       "year": 1920
+      }
+     ]
+    },
+    {
+     "name": "Orszaghaz (Parliament)",
+     "year_completed": "chua co nguon doc duoc (parlament.hu tra CAPTCHA/503); bang chung: dang xay nam 1892 (anh FSZEK), anh LoC 1902 'new parliament building'",
+     "year_source": {
+      "url": "https://bea.fszek.hu/handle/20.500.14711/159996",
+      "sha256": "2b523ab1ee040e008d692499b9b6ea7148a45d05f3c94d2a549ff7c9a04c9321",
+      "quote": "[Az epulo Orszaghaz homlokzata Buda felol] dc.date.created: 1892"
+     },
+     "geometry_sources": [
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2025710639/",
+       "label": "No known restrictions on publication.",
+       "year": 1900
+      }
+     ]
+    },
+    {
+     "name": "Budai Var / Kiralyi Palota (Royal Palace)",
+     "year_completed": "chua co nguon doc duoc",
+     "year_source": null,
+     "geometry_sources": [
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2002710866/",
+       "label": "No known restrictions on publication.",
+       "year": 1890
+      }
+     ]
+    },
+    {
+     "name": "Szent Istvan-bazilika",
+     "year_completed": "chua co nguon doc duoc",
+     "year_source": null,
+     "geometry_sources": [
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/2005687007/",
+       "label": "Rights status not evaluated. (KHONG dung khi chua danh gia)",
+       "year": 1900
+      }
+     ]
+    },
+    {
+     "name": "Millennium foldalatti vasut (M1)",
+     "year_completed": 1896,
+     "year_source": {
+      "url": "https://www.erih.net/i-want-to-go-there/site/millenium-underground-museum",
+      "sha256": "556d6228892c99a18a768bddf346e74c66f0ef5852d00328b50ec98635a38b52",
+      "quote": "An underground electric railway, 3.7 km in length, was opened in Budapest in 1896"
+     },
+     "geometry_sources": [
+      "OSM (ODbL)"
+     ],
+     "historic_photos": []
+    }
+   ],
+   "population": {
+    "source": "KSH - Budapest Statisztikai Evkonyve 2010, bang 4.1 'A nepesseg szama hosszu idosorban'",
+    "url": "https://www.ksh.hu/evkonyvek/2010/megyei-evkonyvek-2010/budapest-statisztikai-evkonyve-2010/pdf/stat2010_04.pdf",
+    "sha256": "1bf63cc1e2af0765649ff357c032a2efb1ebb1e08cc73b0cddb77de6ef868d57",
+    "fetched_utc": "2026-10-16T00:00:54Z",
+    "earliest_year": 1870,
+    "boundary": "Bang KHONG ghi ro lanh tho; ghi chu bang: '1870-1960 kozott jelenlevo, 1960-tol lakonepesseg' (dan so hien dien 1870-1960, thuong tru tu 1960). Nguon thu cap (Enyedi, 'A fovaros 120 eve') cho so khac 1870-1890 -> ranh gioi CHUA RO; can bang KSH goc truoc khi dung cho do hoa. Truoc 1873 la Pest, Buda, Obuda rieng.",
+    "series": {
+     "1870": 302086,
+     "1880": 402706,
+     "1890": 560079,
+     "1900": 861434,
+     "1910": 1110453,
+     "1920": 1232026,
+     "1930": 1442869,
+     "1941": 1712791,
+     "1949": 1590316,
+     "1960": 1804606,
+     "1970": 2001083,
+     "1980": 2059347,
+     "1990": 2016774,
+     "2000": 1791098,
+     "2011": 1733685
+    },
+    "series_note": "So 'ev eleje' (dau nam). 1960 co hai dong (1 804 606 va 1 783 167) do doi khai niem."
+   },
+   "milestones": [
+    {
+     "year": 1838,
+     "event": "Lu Danube nhan chim Pest-Buda",
+     "url": "https://maps.hungaricana.hu/en/MOLTerkeptar/11351/",
+     "sha256": "4be30ffd9998417d8190402f202bff2a0d8462904166cda3b8d83499b61a718c",
+     "quote": "Buda es Pest 1838. evi aradast mutato terkepe"
+    },
+    {
+     "year": 1849,
+     "event": "Khanh thanh Cau Xich (Lanchid), cau co dinh dau tien qua Danube giua Buda va Pest",
+     "url": "https://bea.fszek.hu/bitstreams/62ed4277-a7e7-44a8-aa5e-e25de293c693/download",
+     "sha256": "893684698567ff85447e531a8c2b8c579a7a4162d47189183981d338ce515cfb",
+     "quote": "Chain Bridge was inaugurated on November 20, 1849."
+    },
+    {
+     "year": 1873,
+     "event": "Hop nhat Pest, Buda, Obuda thanh Budapest",
+     "url": "https://bparchiv.hu/wp-content/uploads/2023/10/bfl.pdf",
+     "sha256": "d6a75884240c3a3d47f82842e5c81716b3d6e6776aad1afc1057190ac3262207",
+     "quote": "Pest, Buda es Obuda 1873. evi egyesiteseig mindharom varosresz onallo telepuleskent elte eletet"
+    },
+    {
+     "year": 1892,
+     "event": "Toa Quoc hoi dang xay (anh)",
+     "url": "https://bea.fszek.hu/handle/20.500.14711/159996",
+     "sha256": "2b523ab1ee040e008d692499b9b6ea7148a45d05f3c94d2a549ff7c9a04c9321",
+     "quote": "[Az epulo Orszaghaz homlokzata Buda felol] 1892"
+    },
+    {
+     "year": 1896,
+     "event": "Duong ngam Millennium (M1) mo cho trien lam Thien nien ky",
+     "url": "https://www.erih.net/i-want-to-go-there/site/millenium-underground-museum",
+     "sha256": "556d6228892c99a18a768bddf346e74c66f0ef5852d00328b50ec98635a38b52",
+     "quote": "was opened in Budapest in 1896 to convey visitors to the exhibition staged in that year to mark the millennium"
+    },
+    {
+     "year": 1945,
+     "event": "Vay Budapest 1944-45: quan Duc rut lui no tung cac cau (18/1/1945)",
+     "url": "https://bea.fszek.hu/bitstreams/62ed4277-a7e7-44a8-aa5e-e25de293c693/download",
+     "sha256": "893684698567ff85447e531a8c2b8c579a7a4162d47189183981d338ce515cfb",
+     "quote": "Lanchid, like all the other Budapest bridges, was blown up by the retreating German troops on January 18, 1945."
+    }
+   ],
+   "digitization_estimate": {
+    "unit": "gio nguoi (uoc)",
+    "items": [
+     {
+      "layer": "1849 Walzel (Fotothek)",
+      "georef_h": "2-3 (uoc)",
+      "vector_h": "8-12 (uoc; khoi pho; do phan giai cong khai thap)"
+     },
+     {
+      "layer": "1868 BL",
+      "georef_h": "2-4 (uoc)",
+      "vector_h": "6-10 (uoc)"
+     },
+     {
+      "layer": "1920 Kogutowicz 1:25 000 (ICGC)",
+      "georef_h": "1-2 (uoc)",
+      "vector_h": "10-16 (uoc; khoi pho toan thanh pho)"
+     },
+     {
+      "layer": "1942 Allami Terkepeszet (NLI, 2 to)",
+      "georef_h": "2-3 (uoc)",
+      "vector_h": "12-20 (uoc)"
+     },
+     {
+      "layer": "Plan von Ofen (vay)",
+      "georef_h": "2-4 (uoc; hinh hoc phong khoang)",
+      "vector_h": "4-6 (uoc; chi thanh luy)"
+     }
+    ],
+    "total_h": "~50-80 (uoc), chua tinh lop Hungaricana (can xin phep)"
+   },
+   "unclear_sources": [
+    {
+     "name": "Hungaricana - ban do BFL va MNL (vd 1838 lu, BFL 118)",
+     "why": "Van ban nguyen van: can xin phep nha cung cap noi dung truoc khi cong bo.",
+     "contact_path": "Hungaricana - nut 'Contact' tren tung trang muc, vd https://www.hungaricana.hu/en/contact-request?source=LT_BFL_FABO&record=https%3A//maps.hungaricana.hu/en/BFLTerkeptar/123/"
+    },
+    {
+     "name": "Arcanum MAPIRE (khao sat quan su Habsburg, ban do Budapest)",
+     "why": "mapire.eu tra 202 rong / 403 tu container va WebFetch; khong doc duoc dieu khoan.",
+     "contact_path": "Arcanum Adatbazis Kft., https://mapire.eu/en/ (trang lien he tra 403 tu container, chua xac minh)"
+    },
+    {
+     "name": "FSZEK Budapest-kepar-chivum (anh lich su)",
+     "why": "Truong quyen ghi 'Jogok: FSZEK' - khong co giay phep mo.",
+     "contact_path": "Fovarosi Szabo Ervin Konyvtar, kho https://bea.fszek.hu/"
+    },
+    {
+     "name": "Fortepan (anh)",
+     "why": "CC BY-SA 3.0 cho phep thuong mai nhung ShareAlike; can danh gia phap ly neu anh duoc dung/bien doi trong phim.",
+     "contact_path": "Fortepan, https://fortepan.hu/en/about-us/ (muc 'Contact us')",
+     "license_file": "research/thanhpho/licenses/budapest-fortepan.txt"
+    },
+    {
+     "name": "opendata.budapest.hu",
+     "why": "Proxy tu choi ket noi (connect_rejected).",
+     "contact_path": "Budapest Fovaros Onkormanyzata, https://opendata.budapest.hu/ (khong truy cap duoc)"
+    },
+    {
+     "name": "Library of Congress - ban do Budapest",
+     "why": "Tim kiem loc.gov/maps chi tra 2 ban do chau Au tong quat (1919); khong thay ban do thanh pho Budapest da so hoa.",
+     "contact_path": "Library of Congress Ask a Librarian, https://ask.loc.gov/"
+    },
+    {
+     "name": "Parlament.hu (lich su toa nha)",
+     "why": "CAPTCHA/503; nam hoan thanh Orszaghaz chua co nguon doc duoc.",
+     "contact_path": "Orszaggyules, https://www.parlament.hu/"
+    }
+   ]
+  },
+  "Detroit": {
+   "maps": [
+    {
+     "name": "Map of the city of Detroit in the State of Michigan (John Farmer), cadastral, 1:2 400",
+     "year": 1835,
+     "holder": "Library of Congress G&M (G4114.D4 1835 .F3)",
+     "item_url": "https://www.loc.gov/item/79691130/",
+     "service_url": "IIIF https://tile.loc.gov/image-services/iiif/service:gmd:gmd411:g4114:g4114d:ct002016/info.json ; JP2 https://tile.loc.gov/storage-services/service/gmd/gmd411/g4114/g4114d/ct002016.jp2",
+     "resolution": "13624 x 9162 px cho 111 cm; 1:2 400 -> ~0,20 m/px",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "No known restrictions (G&M digitized collections)",
+     "quote": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise.",
+     "attribution": "Credit Line: Library of Congress, Geography and Map Division.",
+     "evidence": {
+      "url": "https://www.loc.gov/item/79691130/?fo=json",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:38:06Z",
+      "sha256": "ca9b070605ad19e8956438d43f7803a5326f7e9c8994ed567a111cb1b635d54c"
+     },
+     "license_file": "research/thanhpho/licenses/detroit-loc-gmd.txt"
+    },
+    {
+     "name": "Sanborn Fire Insurance Map Detroit, Vol. 1 (76 to)",
+     "year": 1884,
+     "holder": "Library of Congress, Sanborn Maps Collection",
+     "item_url": "https://www.loc.gov/item/sanborn03985_001/",
+     "service_url": "IIIF (moi to); JP2 to 1: https://tile.loc.gov/storage-services/service/gmd/gmd411m/g4114m/g4114dm/g03985188401/03985_01_1884-0000L.jp2",
+     "resolution": "to 1: 5513 x 7796 px; ti le khong ghi trong metadata",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "Public domain",
+     "quote": "The content of the Library of Congress online Sanborn Maps Collection is in the public domain and is free to use and reuse.",
+     "attribution": "Credit Line: Library of Congress, Geography and Map Division, Sanborn Maps Collection.",
+     "evidence": {
+      "url": "https://www.loc.gov/item/sanborn03985_001/?fo=json",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:37:16Z",
+      "sha256": "02ccd21ab3527c454971f38a08a33a111373781e98874ada865f132278a248bf"
+     },
+     "license_file": "research/thanhpho/licenses/detroit-loc-sanborn.txt",
+     "other_volumes": {
+      "1897 Vol.2 (107 to)": "https://www.loc.gov/item/sanborn03985_005/",
+      "1910 Vol.6 (104 to)": "https://www.loc.gov/item/sanborn03985_012/",
+      "1929 Vol.11 (104 to)": "https://www.loc.gov/item/sanborn03985_041/",
+      "1921-Nov 1950 Vol.3 (118 to)": "https://www.loc.gov/item/sanborn03985_052/"
+     }
+    },
+    {
+     "name": "Birds eye view ... central portion of the city of Detroit (phoi canh)",
+     "year": "1889?",
+     "holder": "Library of Congress G&M (Panoramic maps)",
+     "item_url": "https://www.loc.gov/item/76693077/",
+     "service_url": "JP2 https://tile.loc.gov/storage-services/service/gmd/gmd411/g4114/g4114d/pm003420.jp2",
+     "resolution": "6815 x 4184 px; phoi canh, khong theo ti le",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "No known restrictions",
+     "quote": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise.",
+     "attribution": "Credit Line: Library of Congress, Geography and Map Division.",
+     "evidence": {
+      "url": "https://www.loc.gov/item/76693077/?fo=json",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:38:07Z",
+      "sha256": "7c41d610256a1a8172c8201f88508ae3598f8162feced6d2a128eaf2e38bd81a"
+     },
+     "license_file": "research/thanhpho/licenses/detroit-loc-gmd.txt"
+    },
+    {
+     "name": "General official atlas of Wayne County ... city of Detroit (Wm. C. Sauer)",
+     "year": 1893,
+     "holder": "Library of Congress G&M",
+     "item_url": "https://www.loc.gov/item/map50000701/",
+     "service_url": "IIIF; 41 tep",
+     "resolution": "to 1: 6716 x 8566 px",
+     "georeferenced": false,
+     "commercial": "co",
+     "license": "No known restrictions",
+     "quote": "The content of the Library of Congress Geography and Map Division digitized collections is free to use and reuse unless a Rights Advisory statement is present that indicates otherwise.",
+     "attribution": "Credit Line: Library of Congress, Geography and Map Division.",
+     "evidence": {
+      "url": "https://www.loc.gov/item/map50000701/?fo=json",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:38:08Z",
+      "sha256": "8e3cb25a111a7b4d13ecdbdeac818bf290cfb3220bbef5c051a63b6cc22ab5e9"
+     },
+     "license_file": "research/thanhpho/licenses/detroit-loc-gmd.txt"
+    },
+    {
+     "name": "USGS Historical Topographic Map - Detroit quad 1:62 500",
+     "year": "1905 (va 1918, 1924, 1934; 1:31 680 1937; 1:24 000 1940, 1947, 1952, 1968)",
+     "holder": "U.S. Geological Survey (HTMC)",
+     "item_url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Historical%20Topographic%20Maps",
+     "service_url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/PDF/MI/62500/MI_Detroit_278077_1905_62500_geo.pdf",
+     "resolution": "GeoPDF ~6-8 MB moi to (1:62 500); px chua do",
+     "georeferenced": true,
+     "commercial": "co",
+     "license": "U.S. Public Domain",
+     "quote": "USGS-authored or produced data and information are considered to be in the U.S. Public Domain.",
+     "attribution": "Credit: U.S. Geological Survey (yeu cau lich su)",
+     "evidence": {
+      "url": "https://tnmaccess.nationalmap.gov/api/v1/products?datasets=Historical%20Topographic%20Maps&bbox=-83.10,42.30,-83.00,42.38&max=60&outputFormat=JSON",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:38:24Z",
+      "sha256": "7c317888aa24962b495628258ff2b918a811d4bada391f60673299d0d7c3a16f"
+     },
+     "license_evidence": {
+      "url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:38:23Z",
+      "sha256": "3a88f0e1468915ca7825a59aa465165dce2bcf0b55d9cf68290bed6207c2ecec"
+     },
+     "license_file": "research/thanhpho/licenses/detroit-usgs-topo.txt"
+    },
+    {
+     "name": "HOLC 'redlining' map Detroit (ban quet NARA City Survey Files)",
+     "year": "1935-1940 (Detroit thuong ghi 1939 - chua kiem tren muc NARA)",
+     "holder": "NARA (ban quet); Mapping Inequality (lop georectified)",
+     "item_url": "https://catalog.archives.gov/id/720357",
+     "service_url": "Mapping Inequality /data (JS app)",
+     "resolution": "chua do",
+     "georeferenced": "ban georectified ton tai nhung la CC BY-NC -> KHONG dung; phai tu georeference ban quet",
+     "commercial": "co",
+     "license": "Ban quet: public domain; lop khong gian Mapping Inequality: CC-BY-NC (khong dung)",
+     "quote": "The scans of maps and area descriptions are in the public domain. ... The georectified rasters and spatial data are available under a CC-BY-NC license.",
+     "attribution": "Nen ghi: National Archives (City Survey Files, 1935-1940)",
+     "caveat": "Chua doc truc tiep muc NARA (catalog JS). Chu de nhay cam - can xu ly bien tap can trong.",
+     "evidence": {
+      "url": "https://dsl.richmond.edu/panorama/redlining/index.js",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:39:14Z",
+      "sha256": "e01471e3a700c47c9602b280ecbad39c734de23d83eccad301193d968d88ccd9"
+     },
+     "license_file": "research/thanhpho/licenses/detroit-mapping-inequality.txt"
+    }
+   ],
+   "landmarks": [
+    {
+     "name": "Guardian Building (Union Trust Building, 500 Griswold)",
+     "year_completed": 1929,
+     "year_source": {
+      "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/guardian-building",
+      "sha256": "3765d3848a1d788ae16b295070507792f423e1921233f43453f1e874ca850a5b",
+      "quote": "The design for the 40-story Union Trust Building was completed in 1927 and construction concluded in 1929."
+     },
+     "geometry_sources": [
+      "HABS MI-273 (15 anh, 2 trang du lieu: '40 stories, 485' high'; khong co ban ve do dac) https://www.loc.gov/item/mi0024/",
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/mi0024/",
+       "label": "No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted."
+      }
+     ],
+     "warning": "Anh LoC 2016803107 'Union Trust Building' (1900-1906) la toa CU, khong phai Guardian."
+    },
+    {
+     "name": "Michigan Central Station",
+     "year_completed": 1913,
+     "year_source": {
+      "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/michigan-central-station",
+      "sha256": "f253dcf7ad7766e9ac8fa78e115f7117b47365512c53c147aab45b2cd6c2d104",
+      "quote": "The station was put into use before a formal dedication in December 1913"
+     },
+     "geometry_sources": [
+      "OSM (ODbL)",
+      "Sanborn 1921-1950 (PD)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/pictures/item/2020700082/",
+       "label": "Publication may be restricted (Camilo Vergara) -> KHONG dung"
+      }
+     ]
+    },
+    {
+     "name": "Olympia Arena (Olympia Stadium)",
+     "year_completed": 1927,
+     "year_removed": 1986,
+     "year_source": {
+      "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/olympia-stadium",
+      "sha256": "6e6e34b273174b187490841f0c7128a34d0a78ceae95ee76648a1893fa4b1ad9",
+      "quote": "stood ... for nearly 60 years before its demolition in 1986"
+     },
+     "geometry_sources": [
+      "HABS MI-252 (16 anh, 13 trang du lieu; 'Building/structure dates: 1927 Initial Construction') https://www.loc.gov/item/mi0185/"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/mi0185/",
+       "label": "No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted."
+      }
+     ],
+     "note": "Phu hop dang 'thanh pho co lai' (toa bien mat 1986)."
+    },
+    {
+     "name": "Ford Piquette Avenue Plant",
+     "year_completed": "Ford su dung 1904-1910 (nam xay chua co nguon rieng)",
+     "year_source": {
+      "url": "https://www.loc.gov/item/mi0706/",
+      "sha256": "69db8271666029719c72301bc6f1da3812f4c1b01b4ec21d6550d48617a041d6",
+      "quote": "Ford occupied the Piquette Avenue building from 1904-10."
+     },
+     "geometry_sources": [
+      "HAER MI-347 (5 anh)",
+      "OSM (ODbL)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/mi0706/",
+       "label": "No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted."
+      }
+     ]
+    },
+    {
+     "name": "Tuller Hotel (Grand Circus Park)",
+     "year_completed": "chua co nguon nam",
+     "year_source": {
+      "url": "https://www.loc.gov/item/mi0247/",
+      "sha256": "636b4819117dfc4a38cd087319dc8fba4cc1f8573f655acedab3efe3d4ec6aec",
+      "quote": "It was also the first hotel built in Detroit's Grand Circus Park district."
+     },
+     "geometry_sources": [
+      "HABS MI-335 (30 anh, 28 trang du lieu)"
+     ],
+     "historic_photos": [
+      {
+       "url": "https://www.loc.gov/item/mi0247/",
+       "label": "No known restrictions on images made by the U.S. Government; images copied from other sources may be restricted."
+      }
+     ],
+     "note": "Trang thai pha do chua kiem trong phien."
+    }
+   ],
+   "population": {
+    "source": "U.S. Census Bureau, Working Paper POP-WP027 (Gibson 1998), tab07-tab22; 2000/2010/2020 tu tep Population Estimates (sub-est00int, SUB-EST2020_26, sub-est2024_26)",
+    "url": "https://www.census.gov/library/working-papers/1998/demo/POP-twps0027.html",
+    "table_sha256": {
+     "tab07": "deaba9886bc1cb38ff9f63909de0e6f4ae3098930c6b40f5b8a127bbc39736a8",
+     "tab08": "2e5dfd2408c80087d6b2940f33d6583d7afd11fb9300bb08c908b31312b539e5",
+     "tab09": "4eaa510b8accbddb1a12ab763d1cabb35cdabc0ee177fddd5d6200cda9315482",
+     "tab10": "b2928640d5daa0896cf241915ad7a54a7e66ccaf22252f5e3141e125a8637e90",
+     "tab11": "a1e36af27b0bf53493f5c4a2d2540e3b676be6e0f41a79eb6623972ef8fe8886",
+     "tab12": "58b5b560fb25d3a8d66a2fdc416db89e07bdffbb30f043832db10a5c57cda371",
+     "tab13": "e436fdf515b785335faabf8847ff9a31949d1bda9690ced3ac756706df932e91",
+     "tab14": "4dc4d074627a93988f5117b95046eb48699a03130bc64d5c6ab45a184e833427",
+     "tab15": "7e377eb267548882f67f68f3a4601619fb13c54c02842cfc08e6e86adf699d91",
+     "tab16": "9013a673ad31a74a8c4df090bd97f3d8d5e3ffb86c637d74b8d5d53c17934ec8",
+     "tab17": "69fdd2a93da8403db36ec0e9e663cfc796d96de8fbe3cec602d83f69681c6135",
+     "tab18": "6562bfe0b7799f817f113f36af8df1d577bf443307d99ef3fe8d295044362ace",
+     "tab19": "e89b2e23182f2027b3f887e154e56c76dc3fbfa58545eda85d3f8cadb51f5805",
+     "tab20": "46317aaf1ebed0ac9b511cd1b2d8d748e7f0cb7b9d94eaca7b428410aba6ca14",
+     "tab21": "bac3461708ef3c0fcc1edc9c06d654283360457b59832c45ab2bee6e2750d7d7",
+     "tab22": "c46d474569822d1e9043229e2c9c67e8b43d200225d7f70bc1e854835423d896"
+    },
+    "estimates_files": {
+     "sub-est00int.csv": {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2000-2010/intercensal/cities/sub-est00int.csv",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:42:21Z",
+      "sha256": "401fe5599b9dbbba53baefad5b2e9736b87026e1756d40db72d747107e3fda6c"
+     },
+     "SUB-EST2020_26.csv": {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2010-2020/cities/SUB-EST2020_26.csv",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:42:20Z",
+      "sha256": "e9cfcda98d9634cd4bf1f8cc34fe1cbaf3b4c9978a749321a33ebc7c241dab32"
+     },
+     "sub-est2024_26.csv": {
+      "url": "https://www2.census.gov/programs-surveys/popest/datasets/2020-2024/cities/totals/sub-est2024_26.csv",
+      "http": "200",
+      "fetched_utc": "2026-10-15T23:42:20Z",
+      "sha256": "bdd95b3089e9a35975e1ef44cdd2e3946e223c3f60a5c1012cf759d5d71d6566"
+     }
+    },
+    "earliest_year": "1840 trong bang da tai (WP027 tab06 1830 khong co Detroit trong top 90)",
+    "boundary": "Ranh gioi thanh pho Detroit tai tung thoi diem dieu tra (urban place)",
+    "series": {
+     "1840": 9102,
+     "1850": 21019,
+     "1860": 45619,
+     "1870": 79577,
+     "1880": 116340,
+     "1890": 205876,
+     "1900": 285704,
+     "1910": 465766,
+     "1920": 993078,
+     "1930": 1568662,
+     "1940": 1623452,
+     "1950": 1849568,
+     "1960": 1670144,
+     "1970": 1511482,
+     "1980": 1203339,
+     "1990": 1027974,
+     "2000": 951232,
+     "2010": 713777,
+     "2020": 639471
+    },
+    "notes": "2000 = ESTIMATESBASE2000 (951 232), 2010 = CENSUS2010POP (713 777), 2020 = ESTIMATESBASE2020 (639 471) - khong phai so dem dieu tra 2000/2020 (API data.census.gov can khoa). Dinh 1950: 1 849 568."
+   },
+   "milestones": [
+    {
+     "year": 1701,
+     "event": "Cadillac lap Fort Pontchartrain du Detroit",
+     "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/cadillac-antoine-de-la-mothe",
+     "sha256": "c28ee978d46b942bdfe25c52a597252dcffed42a0819b8fbce6daf79470f8df3",
+     "quote": "In 1701 Antoine de la Mothe Cadillac founded the site that would become the city of Detroit."
+    },
+    {
+     "year": 1805,
+     "event": "Dai hoa hoan 11/6/1805; Woodward lap so do duong kieu Washington",
+     "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/great-fire-1805",
+     "sha256": "f445c31561d5287d8640d2c7fd03c7b0f829ad4efab2676a3d1856dc207e4b7f",
+     "quote": "On the morning of June 11, 1805, the city of Detroit caught fire, and nearly everything was destroyed. ... Territorial Judge Augustus Woodward created a street plan modeled after Washington, D.C."
+    },
+    {
+     "year": 1913,
+     "event": "Day chuyen lap rap di dong tai Ford Highland Park",
+     "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/ford-highland-park-plant",
+     "sha256": "93ac157b006523c1243f636c53c50e60be173363852455f7fcbc515bceff655e",
+     "quote": "in 1913 Ford began using a moving assembly line to first assemble automobiles"
+    },
+    {
+     "year": 1950,
+     "event": "Dan so dinh 1 849 568",
+     "url": "https://www2.census.gov/library/working-papers/1998/demographics/pop-twps0027/tab18.txt",
+     "sha256": "6562bfe0b7799f817f113f36af8df1d577bf443307d99ef3fe8d295044362ace",
+     "quote": "5 Detroit city, MI......... 1,849,568"
+    },
+    {
+     "year": 1967,
+     "event": "Bao loan thang 7/1967 (bat dau 23/7 tai 12th Street & Clairmount)",
+     "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/uprising-1967",
+     "sha256": "23fab015a4db968c49e83948c6a48a4d953a53306294ef331fb70ff9e840ea8b",
+     "quote": "At 3:15am on July 23rd, the vice squad of the Detroit Police Department executed a raid on a blind pig at 12th Street and Clairmount."
+    },
+    {
+     "year": 1986,
+     "event": "Pha do Olympia Stadium",
+     "url": "https://detroithistorical.org/learn/encyclopedia-of-detroit/olympia-stadium",
+     "sha256": "6e6e34b273174b187490841f0c7128a34d0a78ceae95ee76648a1893fa4b1ad9",
+     "quote": "before its demolition in 1986"
+    },
+    {
+     "year": 2013,
+     "event": "Thanh pho nop don pha san Chapter 9 (18/7/2013), vu an 13-53846",
+     "url": "https://www.mieb.uscourts.gov/sites/mieb/files/city-detroit-13-53846/docket1027.pdf",
+     "sha256": "94588cc66a1a2dd45505e95931a172b21c611a1f452b9440b0ef322c77522950",
+     "quote": "On July 18, 2013 (the \"Petition Date\"), the City filed a petition"
+    }
+   ],
+   "digitization_estimate": {
+    "unit": "gio nguoi (uoc)",
+    "items": [
+     {
+      "layer": "1835 Farmer 1:2 400",
+      "georef_h": "2-3 (uoc)",
+      "vector_h": "10-15 (uoc; lo dat)"
+     },
+     {
+      "layer": "Sanborn 1884/1897/1910/1929/1950 (chi khu trung tam ~15-25 to moi nam)",
+      "georef_h": "8-15 moi nam (uoc)",
+      "vector_h": "20-40 moi nam (uoc; tung toa + so tang)"
+     },
+     {
+      "layer": "USGS 1905-1968 (GeoPDF da georeference)",
+      "georef_h": "0-0,5 moi to (uoc)",
+      "vector_h": "4-8 moi to (uoc; vet do thi)"
+     },
+     {
+      "layer": "HOLC (NARA scan)",
+      "georef_h": "2-3 (uoc)",
+      "vector_h": "6-10 (uoc)"
+     },
+     {
+      "layer": "Parcels year_built + Demolitions (vector san co, giay phep chua ro)",
+      "georef_h": "0",
+      "vector_h": "4-8 (uoc; lam sach)"
+     }
+    ],
+    "total_h": "~180-330 (uoc) neu so hoa 5 nam Sanborn"
+   },
+   "unclear_sources": [
+    {
+     "name": "City of Detroit Open Data - Completed Demolitions / Parcels (year_built)",
+     "why": "Truong licenseInfo tren muc ArcGIS RONG; khong thay van ban giay phep.",
+     "contact_path": "City of Detroit Open Data Portal, https://data.detroitmi.gov/pages/contact-us",
+     "license_file": "research/thanhpho/licenses/detroit-opendata.txt"
+    },
+    {
+     "name": "Mapping Inequality - lop georectified/vector HOLC",
+     "why": "CC-BY-NC -> khong dung cho thuong mai; ban quet NARA la PD.",
+     "contact_path": "Digital Scholarship Lab, University of Richmond, https://dsl.richmond.edu/panorama/redlining/contactus"
+    },
+    {
+     "name": "Camilo Vergara photos (LoC) - Michigan Central Station",
+     "why": "'Publication may be restricted.'",
+     "contact_path": "Library of Congress Prints & Photographs, https://ask.loc.gov/"
+    },
+    {
+     "name": "UT Austin PCL Map Collection (AMS city plans)",
+     "why": "Bi chan bot (Anubis) - khong doc duoc.",
+     "contact_path": "UT Libraries, https://maps.lib.utexas.edu/ (khong truy cap duoc tu container)"
+    },
+    {
+     "name": "U.S. Census API (dem dieu tra 2000/2020 chinh xac)",
+     "why": "API yeu cau khoa; da dung tep estimates base thay the.",
+     "contact_path": "U.S. Census Bureau, https://api.census.gov/data/key_signup.html"
+    },
+    {
+     "name": "NARA catalog muc HOLC Detroit",
+     "why": "Catalog la ung dung JS; chua doc muc cu the.",
+     "contact_path": "National Archives, https://www.archives.gov/contact"
+    },
+    {
+     "name": "USGS EarthExplorer / SEMCOG anh hang khong 1949",
+     "why": "Chua kiem trong phien.",
+     "contact_path": "USGS EROS, https://earthexplorer.usgs.gov/"
+    }
+   ]
+  }
+ },
+ "geometry_common": {
+  "OSM": {
+   "license": "ODbL 1.0",
+   "quote": "You are free to copy, distribute, transmit and adapt our data, as long as you credit OpenStreetMap and its contributors.",
+   "license_file": "research/thanhpho/licenses/chung-osm-odbl.txt"
+  },
+  "Catastro_INSPIRE_Spain": {
+   "commercial": "co (chi sau khi bien doi)",
+   "quote": "Se autoriza el uso publico, incluido el comercial, de la informacion catastral que haya sido sometida a cualquier proceso previo de transformacion",
+   "license_file": "research/thanhpho/licenses/sevilla-catastro-inspire.txt",
+   "note": "Tep co san trong repo (phien me ghi); tac tu nay doc lai PDF goc trong phien: SHA-256 9265a9c05ad0cf5a4366c59a4b16168eda9cf792ec1279e2c52a53f3f622d652 khop."
+  }
+ },
+ "license_files": [
+  "research/thanhpho/licenses/budapest-fortepan.txt",
+  "research/thanhpho/licenses/budapest-hungaricana.txt",
+  "research/thanhpho/licenses/budapest-icgc-europeana.txt",
+  "research/thanhpho/licenses/budapest-loc-fotos.txt",
+  "research/thanhpho/licenses/chung-osm-odbl.txt",
+  "research/thanhpho/licenses/detroit-loc-gmd.txt",
+  "research/thanhpho/licenses/detroit-loc-habs.txt",
+  "research/thanhpho/licenses/detroit-loc-sanborn.txt",
+  "research/thanhpho/licenses/detroit-mapping-inequality.txt",
+  "research/thanhpho/licenses/detroit-opendata.txt",
+  "research/thanhpho/licenses/detroit-usgs-topo.txt",
+  "research/thanhpho/licenses/sevilla-bne-normas.txt",
+  "research/thanhpho/licenses/sevilla-europeana-rah-bde.txt",
+  "research/thanhpho/licenses/sevilla-icgc.txt",
+  "research/thanhpho/licenses/sevilla-ign-cnig.txt",
+  "research/thanhpho/licenses/sevilla-ign-pnoa-historico.txt",
+  "research/thanhpho/licenses/sevilla-loc-fotos.txt"
+ ]
+}

@@ -1,0 +1,567 @@
+{
+ "checked": "2026-10-15",
+ "method": "Tải/truy vấn thật trong phiên; dồn 0/5 = % năm tận cùng 0 hoặc 5 (≈ 20 % nếu năm thật). Tệp thô ngoài git (/var/tmp/thanhpho/), chỉ ghi SHA-256.",
+ "Zurich": {
+  "source": "BFS GWR, gói bang ZH",
+  "url": "https://public.madd.bfs.admin.ch/zh.zip",
+  "sha256": "d6babcae831fa83136f05f4b59fabad91780eec84df52e2d37de529ba780fcff",
+  "license": "BFS: Freie Nutzung, thương mại được, ghi nguồn bắt buộc (licenses/zurich-bfs-gwr.txt)",
+  "commercial": "co",
+  "measured": {
+   "municipality": "Zürich (BFS 261)",
+   "gstat": {
+    "1004": 54185,
+    "1007": 8679,
+    "1003": 615,
+    "1008": 106,
+    "1001": 391,
+    "1002": 10
+   },
+   "existing": 54185,
+   "existing_with_GBAUJ": 54185,
+   "existing_with_GBAUP_only": 0,
+   "pct_with_year": 100.0,
+   "placeholder_1812": 436,
+   "placeholder_1000": 0,
+   "all_existing": {
+    "label": "city existing, ohne 1812/1000",
+    "n": 53749,
+    "heap05": 21.2,
+    "top": [
+     [
+      1931,
+      1174
+     ],
+     [
+      1929,
+      1004
+     ],
+     [
+      1928,
+      971
+     ],
+     [
+      1948,
+      905
+     ],
+     [
+      1930,
+      800
+     ],
+     [
+      1951,
+      782
+     ]
+    ],
+    "n_pre1800": 588,
+    "heap05_pre1800": 58.2,
+    "n_pre1900": 6465,
+    "heap05_pre1900": 23.6,
+    "heap05_1900_2026": 20.8,
+    "min": 1100,
+    "max": 2026
+   },
+   "core": {
+    "bbox": "LV95 E 2682500–2684000 N 1246500–1248500",
+    "n": 3107,
+    "pct_1812": 8.9,
+    "stats": {
+     "label": "core ohne 1812",
+     "n": 2832,
+     "heap05": 26.1,
+     "top": [
+      [
+       1879,
+       55
+      ],
+      [
+       1896,
+       53
+      ],
+      [
+       1897,
+       50
+      ],
+      [
+       1894,
+       48
+      ],
+      [
+       1880,
+       42
+      ],
+      [
+       2005,
+       39
+      ]
+     ],
+     "n_pre1800": 419,
+     "heap05_pre1800": 57.0,
+     "n_pre1900": 1494,
+     "heap05_pre1900": 29.8,
+     "heap05_1900_2026": 21.9,
+     "min": 1100,
+     "max": 2026
+    }
+   },
+   "core_incl_1812": {
+    "label": "core incl 1812",
+    "n": 3107,
+    "heap05": 23.8,
+    "top": [
+     [
+      1812,
+      275
+     ],
+     [
+      1879,
+      55
+     ],
+     [
+      1896,
+      53
+     ],
+     [
+      1897,
+      50
+     ],
+     [
+      1894,
+      48
+     ],
+     [
+      1880,
+      42
+     ]
+    ],
+    "n_pre1800": 419,
+    "heap05_pre1800": 57.0,
+    "n_pre1900": 1769,
+    "heap05_pre1900": 25.2,
+    "heap05_1900_2026": 21.9,
+    "min": 1100,
+    "max": 2026
+   },
+   "demolished": {
+    "n": 8679,
+    "with_GABBJ": 8677,
+    "GABBJ_range": [
+     1999,
+     2026
+    ],
+    "demolished_with_GBAUJ": 8528
+   },
+   "floors_GASTW_pct": 100.0,
+   "survivorship": {
+    "1500": 188,
+    "1600": 314,
+    "1700": 447,
+    "1800": 632,
+    "1812": 1090,
+    "1850": 1612,
+    "1893": 4628,
+    "1900": 7111,
+    "1934": 20506,
+    "1950": 27540,
+    "2000": 44908,
+    "2026": 54185
+   }
+  },
+  "demolitions_1999_2026": {
+   "by_year": {
+    "1999": 179,
+    "2000": 305,
+    "2001": 229,
+    "2002": 307,
+    "2003": 239,
+    "2004": 347,
+    "2005": 316,
+    "2006": 183,
+    "2007": 192,
+    "2008": 189,
+    "2009": 328,
+    "2010": 426,
+    "2011": 337,
+    "2012": 280,
+    "2013": 238,
+    "2014": 366,
+    "2015": 311,
+    "2016": 440,
+    "2017": 285,
+    "2018": 200,
+    "2019": 166,
+    "2020": 236,
+    "2021": 472,
+    "2022": 314,
+    "2023": 467,
+    "2024": 290,
+    "2025": 531,
+    "2026": 504
+   },
+   "total_with_GABBJ": 8677,
+   "existing_built_1999_2026": 9784,
+   "demolished_by_decade_built": {
+    "1920": 790,
+    "1930": 1130,
+    "1940": 1836,
+    "1950": 1520,
+    "1960": 664
+   },
+   "note": "GABBJ chỉ có từ 1999 (thời kỳ sổ GWR); toà phá trước 1999 không có trong sổ"
+  }
+ },
+ "Seville": {
+  "source": "Catastro INSPIRE BU 41900",
+  "url": "https://www.catastro.hacienda.gob.es/INSPIRE/Buildings/41/41900-SEVILLA/A.ES.SDGC.BU.41900.zip",
+  "sha256": "192f915f33b4132facb1a53c639577fc5fe6a41358e3df8635c621a9260d9a42",
+  "license": "Catastro INSPIRE v1.0: thương mại chỉ với thông tin đã biến đổi; không được gọi là 'cartografía catastral' (licenses/sevilla-catastro-inspire.txt)",
+  "commercial": "co_dieu_kien",
+  "measured": {
+   "n_buildings": 58723,
+   "conditions": {
+    "functional": 58220,
+    "null": 173,
+    "declined": 290,
+    "ruin": 40
+   },
+   "pct_with_year": 99.7,
+   "beginning_ne_end_pct": 11.0,
+   "city": {
+    "label": "city beginning",
+    "n": 58549,
+    "heap05": 41.5,
+    "top": [
+     [
+      1970,
+      3226
+     ],
+     [
+      1960,
+      2630
+     ],
+     [
+      1950,
+      2487
+     ],
+     [
+      1965,
+      2408
+     ],
+     [
+      1940,
+      1772
+     ],
+     [
+      1975,
+      1518
+     ]
+    ],
+    "n_pre1800": 22,
+    "heap05_pre1800": 68.2,
+    "n_pre1900": 154,
+    "heap05_pre1900": 72.7,
+    "heap05_1900_2026": 41.5,
+    "min": 1023,
+    "max": 2026
+   },
+   "core": {
+    "bbox": "EPSG:25830 E 234500–236500 N 4141500–4143800 (Casco Antiguo, góc dưới-trái envelope)",
+    "stats": {
+     "label": "core beginning",
+     "n": 9211,
+     "heap05": 65.0,
+     "top": [
+      [
+       1900,
+       939
+      ],
+      [
+       1940,
+       915
+      ],
+      [
+       1950,
+       764
+      ],
+      [
+       1930,
+       689
+      ],
+      [
+       1920,
+       507
+      ],
+      [
+       1960,
+       452
+      ]
+     ],
+     "n_pre1800": 20,
+     "heap05_pre1800": 65.0,
+     "n_pre1900": 109,
+     "heap05_pre1900": 77.1,
+     "heap05_1900_2026": 64.9,
+     "min": 1023,
+     "max": 2026
+    }
+   },
+   "survivorship": {
+    "1500": 4,
+    "1600": 7,
+    "1700": 11,
+    "1717": 12,
+    "1800": 25,
+    "1900": 1195,
+    "1929": 4034,
+    "1950": 11392,
+    "1992": 50173,
+    "2026": 58549
+   }
+  },
+  "finding": "Trường 'beginning' phản ánh năm xây/cải tạo lớn gần nhất: chỉ 25 toà ≤ 1800 và 12 toà ≤ 1717 trong 58 549 toà có năm; Casco Antiguo dồn 0/5 = 65,0 %. Không dựng được thời hoàng kim 1503–1717 bằng năm toà."
+ },
+ "Helsinki": {
+  "source": "Rakennukset_alue_rekisteritiedot (WFS kartta.hel.fi)",
+  "url": "https://kartta.hel.fi/ws/geoserver/avoindata/wfs",
+  "license": "CC BY 4.0 (HRI)",
+  "commercial": "co",
+  "measured": {
+   "n_features": 84958,
+   "unique_ids": 84958,
+   "tila": {
+    "voimassa": 84958
+   },
+   "current": 84958,
+   "current_with_date": 50305,
+   "pct_with_year": 59.2,
+   "placeholder_1000": 1,
+   "date_is_12-31_or_01-01_pct": 72.5,
+   "top_month_day": [
+    [
+     "12-31",
+     36030
+    ],
+    [
+     "01-01",
+     443
+    ],
+    [
+     "06-27",
+     126
+    ],
+    [
+     "07-01",
+     106
+    ],
+    [
+     "08-30",
+     105
+    ]
+   ],
+   "city": {
+    "label": "city",
+    "n": 50304,
+    "heap05": 21.6,
+    "top": [
+     [
+      1989,
+      1235
+     ],
+     [
+      1987,
+      1093
+     ],
+     [
+      1990,
+      1092
+     ],
+     [
+      1988,
+      1090
+     ],
+     [
+      1985,
+      1021
+     ],
+     [
+      1986,
+      973
+     ]
+    ],
+    "n_pre1800": 29,
+    "heap05_pre1800": 48.3,
+    "n_pre1900": 584,
+    "heap05_pre1900": 43.5,
+    "heap05_1900_2026": 21.3,
+    "min": 1001,
+    "max": 2026
+   },
+   "core": {
+    "bbox": "EPSG:3879 N 6670500–6675500 E 25494000–25500000",
+    "n": 4411,
+    "pct_with_year": 98.6,
+    "stats": {
+     "label": "core",
+     "n": 4351,
+     "heap05": 21.6,
+     "top": [
+      [
+       1928,
+       138
+      ],
+      [
+       1927,
+       123
+      ],
+      [
+       1938,
+       118
+      ],
+      [
+       1939,
+       113
+      ],
+      [
+       1937,
+       111
+      ],
+      [
+       1912,
+       94
+      ]
+     ],
+     "n_pre1800": 4,
+     "heap05_pre1800": 25.0,
+     "n_pre1900": 399,
+     "heap05_pre1900": 38.8,
+     "heap05_1900_2026": 19.9,
+     "min": 1757,
+     "max": 2026
+    }
+   },
+   "by_type_missing": [
+    [
+     "Vaja",
+     10687
+    ],
+    [
+     "Varastorakennus",
+     9991
+    ],
+    [
+     "Talousrakennus",
+     3482
+    ],
+    [
+     "Vapaa-ajan rakennus",
+     3295
+    ],
+    [
+     "Muu rakennus",
+     1689
+    ],
+    [
+     "Autotalli",
+     1563
+    ]
+   ],
+   "survivorship": {
+    "1700": 5,
+    "1748": 6,
+    "1800": 39,
+    "1812": 43,
+    "1850": 131,
+    "1862": 155,
+    "1900": 754,
+    "1950": 7627,
+    "2000": 37669,
+    "2026": 50304
+   }
+  },
+  "finding": "72,5 % ngày hoàn thành là 31/12 hoặc 01/01 → thực chất chỉ đúng đến năm (sửa nhận định R&D 'ngày hoàn công thật'). Lõi (lọc theo toạ độ điểm i_nkoord/i_ekoord) 98,6 % có năm — khác R&D 75,6 % (R&D lọc theo polygon)."
+ },
+ "Budapest": {
+  "source": "OpenStreetMap qua ohsome API (snapshot 2026-07-27)",
+  "url": "https://api.ohsome.org/v1/elements/count",
+  "license": "ODbL 1.0 (share-alike cho CSDL; video là Produced Work, ghi công)",
+  "commercial": "co_dieu_kien",
+  "measured": {
+   "bbox": "18.925,47.349,19.335,47.613",
+   "buildings": 352125,
+   "with_start_date": 3529,
+   "pct_with_year": 1.0,
+   "with_building_year_or_construction_date": 23,
+   "year4_n": 3442,
+   "heap05": 18.4,
+   "top": [
+    [
+     1924,
+     337
+    ],
+    [
+     1912,
+     333
+    ],
+    [
+     1911,
+     306
+    ],
+    [
+     1910,
+     167
+    ]
+   ],
+   "pre1900": 337,
+   "groupby_sha256": "48328eca8e98b408521536beb1ea87bbd487d84265a249a97c1f8622ebeb32f6"
+  },
+  "finding": "Không có sổ năm xây mở theo toà; OSM chỉ 1,0 % — KHÔNG đạt H1. Overpass/Geofabrik bị chặn qua proxy; geometry ohsome trả 403, chỉ đếm được."
+ },
+ "Detroit": {
+  "source": "City of Detroit Open Data — Parcels (Current) + City of Detroit Completed Demolitions",
+  "url": [
+   "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/parcel_file_current/FeatureServer/0",
+   "https://services2.arcgis.com/qvkbeam7Wirps6zC/arcgis/rest/services/city_completed_demolitions/FeatureServer/0"
+  ],
+  "license": "chưa rõ — API hub ghi license 'none'; trang terms-of-use dựng bằng JS, không đọc được chữ (xem licenses/detroit-opendata.txt của tác tử con)",
+  "commercial": "chua_ro",
+  "measured": {
+   "parcels": 377940,
+   "parcels_with_year_built": 226543,
+   "pct_with_year": 59.9,
+   "heap05": 23.4,
+   "heap05_pre1950": 20.4,
+   "top": [
+    [
+     1950,
+     10635
+    ],
+    [
+     1948,
+     9340
+    ],
+    [
+     1941,
+     8971
+    ],
+    [
+     1940,
+     8408
+    ],
+    [
+     1925,
+     8388
+    ]
+   ],
+   "pre1900": 1402,
+   "no_year_parcels": 151397,
+   "yb_groupby_sha256": "6f7aefb515f3cd114fafb72ee19c0b0ad7378131eb2cc0821a6c7e0aaedfc8a9",
+   "demolitions_completed": 31904,
+   "demolition_date_range": [
+    "2014-01-02",
+    "2026-10-09"
+   ],
+   "demolition_fields": "demolition_date, parcel_id, latitude, longitude"
+  },
+  "finding": "Mức THỬA (parcel), không phải toà; ~151 nghìn thửa không năm (nhiều là đất trống). Sổ phá dỡ chỉ từ 2014; phá dỡ 1950–2013 phải dựng từ Sanborn/ảnh hàng không."
+ }
+}
