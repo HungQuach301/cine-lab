@@ -17,6 +17,12 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 18/10/2026 tối (phiên P-1810c: T3, T8) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 18/10 tối (P-1810c) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** ("Why Gibraltar Was Besieged 14 Times") | VÀNG | **Cổng chuẩn hình ĐẠT** (V6; Claude điều phối chấm 23:10: **thua 2, hoà 4** — đạt luật "không thua ≥ 4/6", Kinh thánh §11.4) → **G1b** (animatic) theo Kinh thánh §12 (khung sạch §12.1; mức dựng SẢN XUẤT V6 §12.5). **Chọn giọng series: đang chạy** (phiên casting-giong, chưa merge). VL1 = (a) đã rõ: KA2026 theo phương án (a), tổng 721,2 s. LK4 xem lại ở G1b |
+| T8 | — | **Antwerp 1585 → Amsterdam** (Q2, 09:23) | **XANH (tạm)** | Đề xuất của P-1810 (bảng K4 bên dưới) nay **chủ dự án duyệt** (Q2, 09:23) — tạm; chờ G0 |
+
 ## CẬP NHẬT 18/10/2026 chiều (phiên P-1810b: T3) — bổ sung, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 18/10 (P-1810b) |
 |---|---|---|---|---|
