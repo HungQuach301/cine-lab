@@ -29,6 +29,9 @@ Q36 — TRƯỢT khi:
       1.11.1 (chủ dự án 15/10/2026, O3): NGOẠI LỆ — "Facts as of" trong CÂU MIỄN TRỪ trên hình (chú thích `cap` có `mien_tru: true`, hoặc
       shot khai `p.mien_tru: true`) được phép MỘT lần, hiện trọn trong 0:00–0:15 phim chính (cùng câu nối qua các shot liền nhau = một lần).
       Lần thứ hai, hoặc ngoài 0:00–0:15 → TRƯỢT. Ngoài câu miễn trừ: giữ luật trên.
+      1.13 (khiếu nại T2 G2 §13–§14, TT5 (ii)): chú thích có cả "This video explains" và "Facts as of" là CÂU MIỄN TRỪ dù không khai
+      `mien_tru` (T2 không khai: câu nằm ở `cap`, shot không dẫn nguồn luật nên 1.11.1 vẫn tính lỗi) — cùng giới hạn một lần, trong 0:00–0:15.
+      q36(…, v113=True) — CHỈ BÁO (k2check hàng "Q36 (1.13)") tới khi chủ dự án duyệt; mặc định giữ 1.11.1.
 """
 import glob, json, os, re, sys
 from datetime import date
@@ -38,6 +41,7 @@ from checks.ll import base  # noqa: E402
 
 SRC_MAX_CHARS, SRC_MIN_PX, CAP_RATIO = 70, 38.0, 0.727
 MIEN_WIN = 15.0   # 1.11.1 (O3): câu miễn trừ có "Facts as of" chỉ ở 0:00–0:15, một lần
+MIEN_TXT = re.compile(r'\bthis video explains\b', re.I)   # 1.13: câu miễn trừ nhận theo chữ (không cần khai mien_tru)
 LBL = {'actual': 'ACTUAL', 'projection': 'PROJECTION', 'estimate': 'ESTIMATE'}
 POLICY = {'luat', 'chinh_sach', 'quy_dinh'}
 XAP_XI = re.compile(r'≈\s*=\s*interpolated between counts', re.I)   # 1.12.1 (HH3)
@@ -257,7 +261,7 @@ def in_force(src, when):
     return True
 
 
-def q36(E, TL, logdir=None):
+def q36(E, TL, logdir=None, v113=False):
     SRC = E.get('sources') or {}; N = E.get('numbers') or {}; P = {'a': [], 'b': []}; thieu = []; near = []
     logs = {}
     if logdir:
@@ -297,7 +301,7 @@ def q36(E, TL, logdir=None):
             for j, cp in enumerate(caps):   # 1.11.1 (O3): câu miễn trừ có "Facts as of" được MỘT lần ở 0:00–0:15
                 cs = str(cp.get('s', ''))
                 if not re.search(r'facts as of', cs, re.I): continue
-                if p.get('mien_tru') is True or cp.get('mien_tru') is True:
+                if p.get('mien_tru') is True or cp.get('mien_tru') is True or (v113 and MIEN_TXT.search(cs)):
                     at = _n(cp.get('at')); a0 = s['t0'] + max(sh['t0'], at if at is not None else sh['t0'])
                     nx = next((_n(c2.get('at')) for c2 in caps[j + 1:] if _n(c2.get('at')) is not None), None)
                     a1 = s['t0'] + min(sh['t1'], nx if nx is not None else sh['t1'])

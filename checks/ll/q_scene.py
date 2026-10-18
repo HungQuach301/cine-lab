@@ -17,6 +17,11 @@ TRƯỢT khi một (scene_id, camera_id) xuất hiện > 2 lần. Đúng 2 lần
 THETA tự hiệu chuẩn trên Steel (K2G-01 bản phát hành, master 28e4d113…): θ lớn nhất để cặp KHÁC bộ cảnh bị coi là giống ≤ 1 % và cặp
   cùng bộ cảnh đã khai khác góc ≤ 2 % (calibrate(); dữ liệu: checks/ll/fixtures/k2g01/q33-steel.json). Kiểm bằng mắt trên Steel: θ = 16
   gộp nhầm v_rail↔v_coke, v_bf↔v_night (thung lũng tối); θ = 14 chỉ nối c_draw↔c_own (đúng là cùng góc bản đồ).
+1.13 (khiếu nại T2 G2 §14.5; q33(…, k2=True), CHỈ BÁO tới khi duyệt): KÊNH 2 băm SAU KHI BỎ LỚP CHỮ CỐ ĐỊNH — chip nơi + "Facts as of" (dải trên) và dải chú thích +
+  dòng nguồn / tấm chữ gọn (dải dưới) giống nhau ở mọi khung kênh 2, kéo pHash toàn khung lại gần nhau (T2 L5: thêm chip nơi + hai tấm chữ →
+  pHash thêm 26 lần lặp). Băm = pHash 63 bit kênh L (Lab) trên VÙNG NỘI DUNG y 18–72 % (cùng hàm Q33-K2, `q_k2var.phash_video`),
+  θ = q_k2var.THETA_L (16; hiệu chuẩn 1.12.2 trên master Steel + T1 cùng vùng: khác bộ ≤ θ 0,65 %, cùng bộ khác góc 1,8 % — đạt tiêu chí 1 %/2 %
+  của calibrate()). LL giữ pHash xám toàn khung, θ 14.
 """
 import json, os, subprocess, sys
 
@@ -86,10 +91,11 @@ def phash_frame(video, t):
 def ham(a, b): return bin(a ^ b).count('1')
 
 
-def hashes(video, aps):
+def hashes(video, aps, k2=False):
+    from checks.ll import q_k2var
     for ap in aps:
         d = ap['t1'] - ap['t0']
-        ap['ph'] = [phash_frame(video, ap['t0'] + f * d) for f in SAMPLES]
+        ap['ph'] = [q_k2var.phash_video(video, ap['t0'] + f * d)[0] if k2 else phash_frame(video, ap['t0'] + f * d) for f in SAMPLES]
     return aps
 
 
@@ -110,9 +116,12 @@ def calibrate(aps):
                     hist_khac_bo=hist(neg), hist_cung_bo_khac_goc=hist(sam), hist_khai_cung_goc=hist(pos))
 
 
-def q33(E, TL, video=None, theta=THETA, aps=None):
+def q33(E, TL, video=None, theta=None, aps=None, k2=False):
+    """k2=True: băm 1.13 bỏ lớp chữ cố định (kênh 2) — CHỈ BÁO (k2check hàng "Q33 (1.13)") tới khi chủ dự án duyệt; mặc định luật 1.10.1"""
+    from checks.ll import q_k2var
+    theta = theta if theta is not None else (q_k2var.THETA_L if k2 else THETA)
     aps = aps if aps is not None else appearances(E, TL)
-    if video and aps and 'ph' not in aps[0]: hashes(video, aps)
+    if video and aps and 'ph' not in aps[0]: hashes(video, aps, k2)
     hp = bool(aps) and 'ph' in aps[0]
     G = {}
     for ap in aps: G.setdefault((ap['scene'], ap['cam']), []).append(ap)
@@ -128,7 +137,7 @@ def q33(E, TL, video=None, theta=THETA, aps=None):
     top = max(rows.items(), key=lambda z: z[1]['tong']) if rows else ('—', dict(tong=0))
     return dict(ok=not bad, loi=bad, sat_nguong=near, note='; '.join(bad[:6]), bang=rows,
                 val=f"{len(G)} góc máy · {len(aps)} lần xuất hiện · nhiều nhất {top[0]} {top[1]['tong']} lần · {len(bad)} góc > {MAX_APPEAR}"
-                    + (f' · pHash θ={theta}, thêm {sum(r["phash_them"] for r in rows.values())} lần lặp không khai' if hp else ' · chưa đo pHash (không có master)'))
+                    + (f' · pHash {"L vùng nội dung (bỏ lớp chữ cố định)" if k2 else "xám toàn khung"} θ={theta}, thêm {sum(r["phash_them"] for r in rows.values())} lần lặp không khai' if hp else ' · chưa đo pHash (không có master)'))
 
 
 if __name__ == '__main__':
