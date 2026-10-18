@@ -17,6 +17,11 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 18/10/2026 chiều (phiên P-1810b: T3) — bổ sung, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 18/10 (P-1810b) |
+|---|---|---|---|---|
+| T3 | K2C-T3-01 | **Gibraltar — khung vây hãm** ("Why Gibraltar Was Besieged 14 Times") | VÀNG | **Lời khoá v4.1** (`channel-k2/k2c-t3-01/loi-khoa.txt` SHA-256 `0fdc72ce81e33b6f4efc8234a52dafc5410d4448c26c0a0feb3eb01abaa71753`; G1 duyệt 09:35, LK1–LK4 10:44). **Chờ cổng hình (V6) → G1b** (animatic). Cần chủ dự án xác nhận: tấm im lặng KA2026 bị lời 5j đè 1,4 s (`KHOA-LOI-41-BAO-CAO.md` §6 mục 1, phương án a/b/c) — P chưa rõ "VL1 = (a)" (12:05) có phải quyết định cho mục này không; LK4 xem lại "fourteen sieges" + thứ tự đoạn hầm 1782 ở G1b |
+
 ## CẬP NHẬT 18/10/2026 (phiên P-1810: K4 và F8) — bổ sung lịch hiệu lực 17/10 bên dưới, không thay
 | Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 18/10 |
 |---|---|---|---|---|
