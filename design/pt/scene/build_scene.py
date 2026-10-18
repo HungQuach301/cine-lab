@@ -19,6 +19,7 @@ A = ap.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else s
 EP = A.epoch; os.makedirs(A.out, exist_ok=True)
 T0 = time.time()
 NO_SANDBAG = os.environ.get('PT2_NO_SANDBAG') == '1'
+PT4 = os.environ.get('PT4') == '1'   # PT4: dựng lại vật BẢO VỆ của A (lòng nhà đổ nát 1782, tàu 1943, hầm) — RNG riêng, không đổi chuỗi ngẫu nhiên của cảnh
 TEXDIR = {'A': os.environ.get('PT_TEXA', '/var/tmp/pt/texA'), 'B': os.environ.get('PT_TEXB', '/var/tmp/pt/texB')}[A.tex]
 # 9 khe vân lát được (đúng danh sách được phép của H-B) → tệp nhánh A (Poly Haven CC0)
 SLOTS = {'vua': 'painted_plaster_wall', 'da_voi': 'white_sandstone_blocks_02', 'gach': 'red_brick_plaster_patch_02', 'da_hoc': 'old_stone_wall',
@@ -258,6 +259,12 @@ def facade(fr, H, storeys, spec, rng):
         for k in range(int(L / 1.5)):
             c = P(rng.uniform(0.3, L - 0.3), storeys[0][1] - 0.1, -rng.uniform(1, 5)); sz = rng.uniform(0.3, 0.9)
             box('da_hoc_do' if k % 2 else 'gach_do', c, (sz, sz, sz * 0.5), fr.yaw + rng.uniform(0, 3))
+        if PT4:
+            r4 = random.Random(int(abs(fr.p0[0]) * 1000 + abs(fr.p0[1]) * 7)); ruin_interior_pt4(fr, L, H, storeys, r4)
+            for i in range(nb):   # đỉnh tường gãy răng cưa: đá rời so le trên mặt cắt
+                u0, u1 = i * bw, (i + 1) * bw; tH = top_at(i)
+                for q in range(int((u1 - u0) / 0.32)):
+                    rock('da_hoc_do' if q % 2 else 'gach_do', fr.P(u0 + 0.16 + q * 0.32, tH + r4.uniform(-0.05, 0.25), -0.22), r4.uniform(0.12, 0.24), r4, tint=(0.62, 0.58, 0.52))
         for i in range(nb):
             u0, u1 = i * bw, (i + 1) * bw; tH = top_at(i)
             fr.box('gach_do', u0, u1, tH - 0.25, tH, -0.45, 0.0)
@@ -284,6 +291,43 @@ def facade(fr, H, storeys, spec, rng):
         for v in range(int(H / 0.5)):
             wq = 0.55 if v % 2 else 0.35
             for uu in (0.0, L - wq): fr.box('da_voi', uu, uu + wq, v * 0.5 + 0.02, v * 0.5 + 0.48, 0, 0.035)
+
+def rock(key, c, size, rng, flat=0.55, tint=(1, 1, 1)):
+    """PT4: hòn đá/gạch vỡ không đều (khối 20 mặt, đỉnh xô lệch) thay hộp vuông."""
+    bm = bmesh.new(); bmesh.ops.create_icosphere(bm, subdivisions=1, radius=1.0)
+    for v in bm.verts:
+        k = rng.uniform(0.72, 1.18); v.co.x *= size * k; v.co.y *= size * k * rng.uniform(0.8, 1.1); v.co.z *= size * k * flat
+    yaw = rng.uniform(0, 6.3); cy, sy = math.cos(yaw), math.sin(yaw)
+    for f in bm.faces:
+        B[key].face([(c[0] + v.co.x * cy - v.co.y * sy, c[1] + v.co.x * sy + v.co.y * cy, c[2] + v.co.z) for v in f.verts], tint)
+    bm.free()
+
+def ruin_interior_pt4(fr, L, H, storeys, rng):
+    """PT4: lòng nhà cháy nhìn được qua ô cửa vỡ và đỉnh tường gãy — tường sau ám khói theo dải (đậm dần lên trên, loang quanh lỗ dầm),
+    lỗ đặt dầm + dầm cháy gãy chúc xuống, mảng sàn tầng trên còn sót, đống đá/gạch vỡ không đều dồn chân tường, đỉnh tường răng cưa."""
+    P = fr.P; nu, nv = max(2, int(L / 1.4)), 6
+    for i in range(nu):
+        for j in range(nv):
+            u0, u1 = L * i / nu, L * (i + 1) / nu; v0, v1 = (H + 0.8) * j / nv, (H + 0.8) * (j + 1) / nv
+            k = 0.5 - 0.32 * (j / (nv - 1)) + rng.uniform(-0.06, 0.06)            # muội: tối dần lên trên
+            B['da_hoc_do'].face([P(u0, v0, -5.49), P(u1, v0, -5.49), P(u1, v1, -5.49), P(u0, v1, -5.49)], (k, k * 0.92, k * 0.85))
+    for si, (v0, v1) in enumerate(storeys[1:], 1):
+        n = int(L / 0.9)
+        for q in range(n):
+            u = (q + 0.5) * L / n
+            fr.box('trong', u - 0.12, u + 0.12, v0 - 0.3, v0 - 0.05, -5.5, -5.42)          # lỗ dầm trên tường sau
+            if rng.random() < 0.45:                                                     # dầm cháy: còn cắm, gãy chúc
+                ln = rng.uniform(0.8, 3.4); drop = rng.uniform(0.0, 0.9) if ln > 1.5 else 0.0
+                a = P(u, v0 - 0.17, -5.45); b = P(u + rng.uniform(-0.2, 0.2), v0 - 0.17 - drop, -5.45 + ln)
+                c = ((a[0] + b[0]) / 2, (a[1] + b[1]) / 2, (a[2] + b[2]) / 2)
+                box('go', c, (0.18, ln, 0.2), fr.yaw, tint=(0.07, 0.06, 0.05), pitch=math.atan2(drop, ln))
+        if rng.random() < 0.6:                                                          # mảng sàn sót (ván cháy)
+            u0 = rng.uniform(0, L * 0.5); w = rng.uniform(1.0, 2.6)
+            fr.box('go', u0, min(L, u0 + w), v0 - 0.08, v0, -5.45, -5.45 + rng.uniform(0.6, 1.6), tint=(0.12, 0.1, 0.08))
+    for q in range(int(L * 9)):                                                         # đống vỡ dồn chân tường + giữa lô
+        x = rng.uniform(0.2, L - 0.2); dep = -rng.uniform(0.6, 5.2); hh = storeys[0][1] - 0.2
+        h0 = max(0.0, 0.9 * (1 - abs(dep + 3) / 3)) * rng.random()
+        rock('da_hoc_do' if q % 3 else 'gach_do', P(x, hh + h0 * 0.5, dep), rng.uniform(0.1, 0.38), rng, tint=(0.55, 0.5, 0.45) if q % 4 else (0.3, 0.27, 0.24))
 
 def fr_rev(fr, a0, a1, b0, b1, d, wc):
     fr.quad('vua', a0, a0, b0, b1, tint=wc)  # placeholder (không diện tích)
@@ -578,6 +622,71 @@ def ship_steam(x, y, yaw, L, rng, kind):
     if kind == 'chien':
         for f in (0.28, -0.32): box('son', (x + math.cos(yaw) * L * f, y + math.sin(yaw) * L * f, -5.5 + h * 1.25), (L * 0.06, L * 0.05, h * 0.5), yaw, tint=grey)
 
+def ship_steam_pt4(x, y, yaw, L, kind, seed):
+    """PT4: tàu máy 1943 dựng lại (thay khối hộp): thân thuôn mũi/đuôi có độ cong boong, đai mớn nước, 2–3 tầng thượng tầng có dải cửa,
+    đài chỉ huy có cánh, ống khói thon có chóp, cột buồm + xà, cần cẩu (tàu hàng), xuồng cứu sinh trên giá; tàu chiến: 2 tháp pháo + nòng, cột ba chân.
+    Sơn xám (tàu chiến) / thân tối thượng tầng sáng (tàu hàng) — không có nguồn màu cụ thể; không cờ, không chữ."""
+    rng = random.Random(seed); note('tau_may_' + kind)
+    cy, sy = math.cos(yaw), math.sin(yaw); W = L * (0.12 if kind == 'chien' else 0.14); D = L * 0.085; z0 = -5.5 - D * 0.35
+    hull = (0.42, 0.44, 0.46) if kind == 'chien' else (0.16, 0.15, 0.15); sup = (0.5, 0.51, 0.52) if kind == 'chien' else (0.82, 0.8, 0.74)
+    def Pw(u, v, z): return (x + u * cy - v * sy, y + u * sy + v * cy, z)
+    N = 24; st = []
+    for i in range(N + 1):
+        t = i / N; u = (t - 0.5) * L
+        hb = W / 2 * (min(1.0, (1 - t) / 0.28) ** 0.65 if t > 0.72 else (0.62 + 0.38 * min(1.0, t / 0.16) ** 0.5))   # mũi nhọn, đuôi tròn
+        sheer = D * (0.18 * ((t - 0.45) / 0.55) ** 2 * 2.2 if t > 0.45 else 0.1 * ((0.45 - t) / 0.45) ** 2)
+        st.append((u, max(0.05, hb), z0 + D + sheer))
+    for i in range(N):
+        (u0, b0, t0), (u1, b1, t1) = st[i], st[i + 1]
+        for s_ in (1, -1):
+            B['son'].face([Pw(u0, s_ * b0 * 0.82, z0), Pw(u1, s_ * b1 * 0.82, z0), Pw(u1, s_ * b1, t1), Pw(u0, s_ * b0, t0)][::(1 if s_ > 0 else -1)], hull)
+            B['son'].face([Pw(u0, s_ * b0 * 1.003, -5.5 + 0.15), Pw(u1, s_ * b1 * 1.003, -5.5 + 0.15), Pw(u1, s_ * b1 * 1.003, -5.5 + 0.6), Pw(u0, s_ * b0 * 1.003, -5.5 + 0.6)][::(1 if s_ > 0 else -1)], (0.32, 0.1, 0.08))   # đai mớn nước
+            B['son'].face([Pw(u0, s_ * b0, t0), Pw(u1, s_ * b1, t1), Pw(u1, s_ * b1, t1 + 0.9), Pw(u0, s_ * b0, t0 + 0.9)][::(1 if s_ > 0 else -1)], hull)          # mạn chắn sóng
+        B['son'].face([Pw(u0, -b0, t0), Pw(u1, -b1, t1), Pw(u1, b1, t1), Pw(u0, b0, t0)], (0.3, 0.27, 0.22))                  # boong
+    deck = z0 + D
+    tiers = [(-0.05, 0.22, 0.74, 2.6), (-0.04, 0.16, 0.62, 2.4), (-0.02, 0.09, 0.5, 2.3)] if kind == 'hang' else [(0.02, 0.2, 0.6, 2.5), (0.04, 0.12, 0.48, 2.4)]
+    zc = deck
+    for (uc, ln, wf, hh) in tiers:
+        c = Pw(uc * L, 0, zc + hh / 2); box('son', c, (ln * L, W * wf, hh), yaw, tint=sup)
+        for s_ in (1, -1):   # dải cửa sổ/cửa tròn
+            c2 = Pw(uc * L, s_ * (W * wf / 2 + 0.02), zc + hh * 0.6); box('kinh', c2, (ln * L * 0.9, 0.04, 0.35), yaw)
+        zc += hh
+    br = Pw((tiers[-1][0] + tiers[-1][1] * 0.35) * L, 0, zc + 1.2); box('son', br, (2.6, W * 1.05, 2.4), yaw, tint=sup)   # đài chỉ huy + cánh
+    box('kinh', Pw((tiers[-1][0] + tiers[-1][1] * 0.35) * L + 1.31, 0, zc + 1.6), (0.04, W * 0.8, 0.6), yaw)
+    fu = (tiers[0][0] - 0.03) * L; fh = L * 0.11
+    for k in range(6):   # ống khói thon, nghiêng nhẹ về sau
+        z1 = zc - tiers[-1][3] + fh * k / 6; wk = L * (0.05 - 0.006 * k / 6)
+        box('son', Pw(fu - k * 0.15, 0, z1 + fh / 12), (wk * 1.2, wk, fh / 6 + 0.02), yaw, tint=(0.14, 0.14, 0.14) if (kind == 'chien' or k == 5) else (0.55, 0.28, 0.14))
+    CHIM.append(Pw(fu - 0.9, 0, zc - tiers[-1][3] + fh + 0.3))
+    for f in ((0.3, -0.3) if kind == 'hang' else (0.12,)):   # cột + xà
+        mh = L * 0.2; m = Pw(f * L, 0, deck + mh / 2); box('sat', m, (0.35, 0.35, mh), yaw); box('sat', Pw(f * L, 0, deck + mh * 0.82), (0.25, W * 0.7, 0.2), yaw)
+        if kind == 'hang':   # cần cẩu hàng
+            for s_ in (1, -1): box('sat', Pw(f * L + s_ * L * 0.06, 0, deck + mh * 0.28), (L * 0.13, 0.18, 0.18), yaw, pitch=0.0)
+    if kind == 'chien':
+        for f in (0.3, -0.33):
+            t_ = Pw(f * L, 0, deck + 0.9); box('son', t_, (L * 0.07, W * 0.5, 1.8), yaw, tint=sup)
+            for s_ in (0.6, -0.6): box('sat', Pw(f * L + math.copysign(L * 0.07, f), s_, deck + 1.1), (L * 0.09, 0.25, 0.25), yaw)
+    for k in range(3):   # xuồng cứu sinh
+        for s_ in (1, -1): box('son', Pw((tiers[0][0] + (k - 1) * 0.05) * L, s_ * (W * 0.38), deck + tiers[0][3] + 0.55), (L * 0.045, 1.6, 0.8), yaw, tint=(0.88, 0.87, 0.82))
+
+def shelter_pt4():
+    """PT4: lối xuống hầm trú ẩn dựng lại — khối vữa có mái bê tông dày, bậc xuống tối, tường chắn mảnh trước cửa,
+    bao cát hình gối (không hộp vuông) xếp so le, khung cửa thép. Vị trí như PT; hình dáng chung (không nguồn chi tiết) — ghi trong báo cáo."""
+    note('ham_tru_an'); x, y, yw = -40, 12, 0.1; rng = random.Random(1939)
+    cy, sy = math.cos(yw), math.sin(yw); Pw = lambda u, v, z: (x + u * cy - v * sy, y + u * sy + v * cy, z)
+    box('vua', Pw(0, 0, 1.15), (5.0, 3.2, 2.3), yw, tint=(0.66, 0.63, 0.57)); box('vua', Pw(0, 0, 2.42), (5.5, 3.7, 0.28), yw, tint=(0.58, 0.56, 0.52))
+    box('trong', Pw(2.51, 0.3, 0.95), (0.02, 1.3, 1.9), yw); box('sat', Pw(2.53, 0.3, 1.92), (0.06, 1.45, 0.1), yw)
+    for s_ in (-0.38, 0.98): box('sat', Pw(2.53, s_, 0.95), (0.06, 0.08, 1.9), yw)
+    for k in range(5): box('trong', Pw(2.6 + 0.0, 0.3, 0.12 - 0.0), (0.02, 1.2, 0.02), yw)
+    for row in range(6):   # tường chắn bao cát trước cửa, cách 1,4 m
+        for q in range(9):
+            u = 3.9 + rng.uniform(-0.03, 0.03); v = -1.6 + q * 0.42 + (0.21 if row % 2 else 0); z = 0.11 + row * 0.2
+            bm = bmesh.new(); bmesh.ops.create_uvsphere(bm, u_segments=10, v_segments=6, radius=1.0)
+            c = Pw(u, v, z)
+            for vv in bm.verts: vv.co.x *= 0.24; vv.co.y *= 0.21; vv.co.z *= 0.1
+            for f in bm.faces: B['cat'].face([Pw(u + vv.co.x, v + vv.co.y, z + vv.co.z) for vv in f.verts], (0.62, 0.56, 0.42) if (row + q) % 3 else (0.55, 0.5, 0.38))
+            bm.free()
+
 rs = random.Random(5)
 CUR[0] = 9900
 if EP == 1782:
@@ -585,8 +694,10 @@ if EP == 1782:
         ship_sail(dx, dy, rs.uniform(0, math.pi), L, rs, ss)
     for k in range(5): box('son', (-300 - k * 140, -60 + k * 70, -5.3), (6, 2.2, 0.8), rs.uniform(0, 3), tint=(0.25, 0.18, 0.12)); note('thuyen_nho')
 else:
-    for (dx, dy, L, kd) in ((-700, -160, 110, 'chien'), (-1250, 220, 140, 'hang'), (-2100, -450, 160, 'hang'), (-2900, 260, 120, 'chien'), (-3800, -800, 150, 'hang')):
-        ship_steam(dx, dy, rs.uniform(0, math.pi), L, rs, kd)
+    for k_, (dx, dy, L, kd) in enumerate(((-700, -160, 110, 'chien'), (-1250, 220, 140, 'hang'), (-2100, -450, 160, 'hang'), (-2900, 260, 120, 'chien'), (-3800, -800, 150, 'hang'))):
+        yw_ = rs.uniform(0, math.pi)
+        if PT4: ship_steam_pt4(dx, dy, yw_, L, kd, 400 + k_)
+        else: ship_steam(dx, dy, yw_, L, rs, kd)
     ship_sail(-520, 90, 0.4, 14, rs, True)     # thuyền buồm đánh cá nhỏ trong cảng (còn thấy ở vịnh thập niên 1940)
 
 # ---------------------------------------------------------------- đồ phố theo thời kỳ (đặt trong vùng trống trước máy)
@@ -667,7 +778,7 @@ class XList(list):
 EXTRA = XList(); LAMPS = []; FLAGS = []; CUR[0] = 9500
 # PT2: mã vùng đồ phố theo loại (mặt nạ bảo vệ dữ kiện): 951x đồ nền cho phép sửa bề mặt; 952x+ mang dữ kiện (bảo vệ)
 PROPCODE = {'barrel': 9510, 'cart': 9511, 'rubble': 9514, 'timber': 9515, 'stall': 9513, 'shot_pile': 9521, 'cannon': 9520, 'lamp_post': 9530,
-            'flagpole': 9540, 'sentry_box': 9541, 'shelter': 9542, 'truck': 9550}
+            'flagpole': 9540, 'sentry_box': 9541, 'shelter': 9542, 'shelter_pt4': 9542, 'truck': 9550}
 def tag(fn):
     code = PROPCODE[fn.__name__]
     def w(*a, **k):
@@ -677,6 +788,7 @@ def tag(fn):
         finally: CUR[0] = old
     return w
 barrel, cart, rubble, stall, shot_pile, cannon, lamp_post, flagpole, sentry_box, shelter, truck = map(tag, (barrel, cart, rubble, stall, shot_pile, cannon, lamp_post, flagpole, sentry_box, shelter, truck))
+shelter_pt4 = tag(shelter_pt4)
 if EP == 1782 and S.CAMK == 'k1782':
     # PT2 hẻm 1782 (sau pháo kích 4/1781 — Drinkwater ghi RUINS): đồ nền dọc chân tường hai bên, lòng hẻm để trống cho người qua lại.
     # Hẻm: y ∈ (−3,0; 4,8) ở x = 6, hẹp dần về tây; đầu tây mở ra Line Wall (x ≈ −99).
@@ -721,7 +833,8 @@ elif EP == 1782:
     for (x, y) in ((-10, -6), (-10.8, -6.6), (-36, 10), (-36.7, 10.6), (-37.4, 10.1)):
         if free(x, y, 0.5): barrel(x, y, R)
 else:
-    shelter()
+    if PT4: shelter_pt4()
+    else: shelter()
     for (x, y) in ((-6, -10), (-28, 26), (-52, -6), (-75, 22), (-95, 0)):
         if free(x, y, 0.6): lamp_post(x, y, R)
     for (x, y, yw) in ((-58, 26, 0.3),):
