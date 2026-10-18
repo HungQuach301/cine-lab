@@ -64,13 +64,13 @@ def era_push(eras, fr, to, look, fov=42, base=None):
 
 LIFE_WCA = lambda n=60, women=True: dict(walkers=[dict(line='WCA', n=n, width=6, women=women)], birds=dict(c=[0, -200], r=200, h=60, n=10))
 S3 = {
- '0a': T3(year=2026, date=[2026, 10, 18, 17.80, 17.86], dayCycle=True, exposure=0.62, noi='thanh_pho', counter={'s': '2026'},
+ '0a': T3(year=2026, date=[2026, 10, 18, 16.80, 16.86], dayCycle=True, noi='thanh_pho', counter={'s': '2026'},
           cams=[push([-30, 3, 230], [-45, 3, 120], [250, 140, -1600], 3.5, fov=48), lat([0, 2, -30], -90, 45, 26, 3, None, fov=42)],
-          life=dict(walkers=[dict(line='WCA', n=70, width=6)], crowds=[dict(line='WCA', groups=5, size=[4, 10], speed=1.2)], birds=dict(c=[0, 0], r=180, h=50, n=8)), ghi='nửa đêm → hoàng hôn xanh (máy dựng chưa có đêm có đèn) — đề xuất'),
+          life=dict(walkers=[dict(line='WCA', n=70, width=6)], crowds=[dict(line='WCA', groups=5, size=[4, 10], speed=1.2)], birds=dict(c=[0, 0], r=180, h=50, n=8)), ghi='lời nói NỬA ĐÊM nhưng máy dựng V6 chưa có cảnh đêm có đèn đường → animatic dùng nắng chiều thấp (mặt trời ≈ 4°) — đề xuất làm đêm (lượt chiếu sáng + đèn có nguồn) trước bản sản xuất'),
  '0b': T3(year=2026, date=[2026, 10, 18, 9, 9.2], noi='eo_dat', cams=[push([61, 8, 430], [30, 380, 820], [230, 150, -1000], fov=46)], life=LIFE_WCA(60)),
  '0e': era_push([dict(d=1.375, year=2026), dict(d=1.375, year=1943, town='1943'), dict(d=1.375, year=1782.6, town='1782', tech=dict(v6=dict(earth=True))), dict(d=1.375, year=1704.6, town='1704', hideTrees=OLDBOX)],
                 [-1500, 200, -1500], [-980, 130, -1340], [-450, 0, -1260], base=dict(noi='thanh_pho', date=[2026, 6, 15, 10, 10.1])),
- '0g': T3(year=1941, date=[1941, 6, 15, 11, 11.2], noi='eo_dat', cams=[orbit([0, 5, 0], 150, 55, 205, 250, fov=40)], life=dict(walkers=[dict(line='WCA', n=30, width=5, women=False, colors=MIL43)], birds=dict(c=[0, 0], r=200, h=60, n=8))),
+ '0g': T3(year=1941, date=[1941, 6, 15, 11, 11.2], noi='eo_dat', cams=[orbit([0, 2, 0], 95, 36, -100, -150, fov=34, up=14)], life=dict(walkers=[dict(line='WCA', n=30, width=5, women=False, colors=MIL43)], birds=dict(c=[0, 0], r=200, h=60, n=8))),
  '0h': T3(year=2026, date=[2026, 10, 18, 10, 10.2], noi='eo_dat', cams=[push([-700, 600, -400], [-620, 560, -220], [100, 0, 900], fov=46)], life=LIFE_WCA(80)),
  '1a': T3(year=1704.58, date=[1704, 8, 1, 9, 9.5], dual=True, counter='clockdual', julian=False, noi='bien', ships=True,
           cams=[lat([-2600, 0, -1600], 60, 7000, 2600, 3500, fov=36)], fleet=dict(n=18, center=[-3200, -2200], axis=35, spacing=230, kind='line', heading=55)),
@@ -82,9 +82,9 @@ S3 = {
           cams=[push([-2200, 120, -1700], [-1700, 100, -1550], [-480, 20, -1300], 5.0, fov=40), push([-900, 50, -1420], [-800, 45, -1390], [-470, 25, -1300], fov=40)],
           fleet=dict(n=14, center=[-1900, -1600], axis=170, spacing=170, kind='line', heading=80), life=dict(walkers=[dict(line='MAIN', n=40, width=4, colors=ES1704)], chimney=10)),
  '1g': T3(year=1704.6, date=[1704, 8, 7, 9, 11], noi='eo_dat', town='1704', hideTrees=OLDBOX,
-          cams=[top([-200, 0, -300], 900, 1300, 4.5, 0, 8), top([60, 0, 800], 1200, 1700, 4.5, 8, 14), push([0, 1300, 400], [0, 1500, 1300], [400, 0, 7000], fov=44)],
+          cams=[push([-260, 70, -520], [-150, 75, -260], [60, 0, 600], 4.5, fov=44), lat([60, 0, 300], 160, 260, 360, 45, 4.5, fov=36), push([-200, 260, 200], [-100, 320, 700], [400, 0, 6000], fov=44)],
           life=dict(walkers=[dict(line=ISTH_N, n=140, width=10, colors=CIV, free=False)], crowds=[dict(line=ISTH_N, groups=14, size=[8, 24], speed=0.9, colors=CIV)])),
- '1i': T3(year=1713, date=[1713, 7, 13, 10, 11], noi='eo_dat', cams=[lat([0, 0, 600], 180, 900, 700, 260, 4.5, fov=38), push([-900, 420, -300], [-800, 400, -100], [100, 0, 900], 4.5, fov=42), top([60, 0, 500], 1100, 1400, None, 0, 10)]),
+ '1i': T3(year=1713, date=[1713, 7, 13, 10, 11], noi='eo_dat', cams=[push([300, 220, 1500], [250, 200, 1250], [0, 60, -900], 4.5, fov=42), lat([0, 0, 300], -90, 800, 700, 160, 4.5, fov=38), push([-700, 360, 900], [-600, 330, 750], [-200, 40, -1200], fov=42)]),
  '1j': T3(year=1704.9, yearAt=[[0, 1704.9], [5.0, 1727.3]], date=[1727, 3, 1, 10, 11], noi='eo_dat',
           cams=[push([-600, 260, 1500], [-500, 240, 1300], [100, 0, -500], 5.0, fov=42), push([700, 260, 1500], [600, 240, 1300], [0, 0, -400], fov=42)],
           front=[dict(pts=[[-500, 900], [-100, 880], [300, 900], [700, 920]], side='es', grow=[0.5, 4.5], w=18)],
@@ -109,8 +109,8 @@ S3 = {
           life=dict(walkers=[dict(line='MAIN', n=110, width=4, colors=GB1782), dict(line='GPR', n=60, width=5, colors=GB1782)], birds=dict(c=[-500, -1200], r=150, h=60, n=12), chimney=18),
           smoke=[dict(at=[-600, 14, -1276], n=12, size=36, rise=55, drift=[-3, 1], period=0.1, seed=11, alpha=0.75), dict(at=[-585, 12, -1500], n=8, size=30, rise=45, drift=[-3, 1], period=0.12, seed=12, alpha=0.7)]),
  '2o': T3(year=1782.5, date=[1782, 7, 15, 10, 11], noi='ham', counter={'s': 'Jul 1782'}, linea=True,
-          cams=[push([300, 80, 600], [280, 120, 200], [260, 200, -900], 4.5, fov=40), push([150, 140, -300], [170, 150, -420], [240, 230, -900], 4.0, fov=34), lat([250, 200, -880], -90, 380, 300, 180, None, fov=30)],
-          smoke=[dict(at=[240, 210, -860], n=6, size=14, rise=25, drift=[1, 0], period=0.3, seed=9, alpha=0.6)], ghi='M11 mặt cắt hầm CHƯA có trong máy dựng — animatic dùng mặt ngoài vách bắc (vị trí hầm) — đề xuất'),
+          cams=[push([300, 70, 700], [280, 80, 300], [250, -40, -850], 4.5, fov=40), push([180, 90, 100], [190, 95, -60], [240, -20, -850], 4.0, fov=34), lat([250, -30, -850], -90, 700, 400, 120, None, fov=30)],
+           ghi='M11 mặt cắt hầm CHƯA có trong máy dựng — animatic dùng mặt ngoài vách bắc (vị trí hầm) — đề xuất'),
  '2q': T3(year=1783.1, date=[1783, 2, 5, 11, 12], counter={'s': '5 Feb 1783'}, noi='eo_dat', linea=True, cams=[lat([0, 0, 1050], -90, 700, 900, 140, 5.5, fov=34), push([-200, 300, 200], [-150, 280, 350], [200, 0, 1080], fov=42)],
           units=[dict(at=[e, 1120], heading=180, rows=3, cols=16, side='es', day=[0, 99], seed=50 + i) for i, e in enumerate([-200, 150, 450])]),
  '3a': T3(year=1783.5, yearAt=[[0, 1783.5], [6.0, 1805]], date=[1790, 6, 1, 10, 11], noi='eo_dat', linea=True, cams=[top([40, 0, 520], 1000, 1300, 6.0, 0, 10), lat([0, 0, 520], 90, 1100, 900, 300, fov=36)]),
@@ -127,7 +127,7 @@ S3 = {
  '3h': T3(year=1920, yearAt=[[0, 1920], [5.0, 1938.5]], date=[1938, 6, 15, 10, 11], noi='eo_dat', cams=[top([0, 0, 150], 900, 1150, 5.0, 0, 8), lat([0, 0, 100], 0, 700, 800, 160, fov=36)]),
  '4c': T3(year=1941.5, yearAt=[[0, 1941.5], [4.5, 1943.5]], date=[1943, 6, 15, 10, 11], noi='eo_dat', cams=[lat([-700, 0, 0], 90, 900, 700, 220, 4.5, fov=36), push([-1500, 300, -600], [-1350, 280, -450], [-500, 0, 0], fov=42)],
           life=dict(boats=[dict(pts=[[-1400, -700], [-1200, -300], [-1100, 300]], len=10, speed=4, s0=0.1)])),
- '4d': T3(year=1943, date=[1943, 6, 15, 10, 11], noi='ham', town='1943', cams=[push([400, 120, 700], [360, 150, 300], [260, 200, -1000], 5.5, fov=40), lat([200, 120, -800], -60, 520, 500, 160, fov=32)],
+ '4d': T3(year=1943, date=[1943, 6, 15, 10, 11], noi='ham', town='1943', cams=[push([400, 120, 800], [360, 130, 400], [260, -40, -900], 5.5, fov=40), lat([200, -30, -850], -70, 750, 500, 140, fov=32)],
           life=dict(walkers=[dict(line='WCA', n=30, width=5, women=False, colors=MIL43)]), ghi='M11 mặt cắt khối Rock CHƯA có — animatic dùng mặt ngoài + đá thải ra đường băng — đề xuất'),
  '4g': T3(year=1940.4, date=[1940, 5, 22, 10, 11], noi='bien', ships=False, cams=[lat([-1500, 0, -1300], 200, 1900, 1500, 220, fov=34)],
           fleet=dict(n=6, center=[-1600, -1400], axis=200, spacing=320, kind='line', heading=200), life=dict(boats=[dict(pts=[[-900, -1200], [-1500, -1500], [-2400, -2000]], len=14, speed=5, s0=0.2)])),
@@ -147,10 +147,10 @@ S3 = {
  '5h': T3(year=2026, date=[2026, 10, 18, 11, 12], noi='thanh_pho', cams=[orbit([GATE[0], 5, GATE[1]], 130, 40, 230, 280, 5.5), orbit([GATE[0], 5, GATE[1]], 130, 40, 280, 330, 5.5), push([GATE[0] + 300, 120, GATE[1] + 260], [GATE[0] + 240, 100, GATE[1] + 200], [GATE[0], 0, GATE[1]], fov=40)],
           life=LIFE_WCA(120), ghi='hàng rào cũ/mới 2026 chưa có mô hình (C03) — đề xuất'),
  '5j': era_push([dict(d=3.7, year=1704.6, town='1704', hideTrees=OLDBOX), dict(d=3.7, year=1735, linea=True), dict(d=3.7, year=1910, front=[dict(pts=[[-290, 395], [100, 405], [520, 408]], side='gb', grow=[0, 0.1], w=4)]),
-                dict(d=3.7, year=1943), dict(d=3.7, year=2026)], [-150, 600, -300], [-600, 2100, -1200], [100, 0, 600], fov=44, base=dict(noi='eo_dat', date=[2026, 10, 18, 16, 16.3])),
- 'KA2026': T3(year=2026, date=[2026, 10, 18, 9, 17], dayCycle=True, noi='thanh_pho', neo=True, cams=[neo(-433.5, -1365.0, 2.2, 0, fov=44)],
-          life=dict(walkers=[dict(line='MAIN', n=50, width=3)], birds=dict(c=[-430, -1300], r=40, h=20, n=6)), ghi='tư thế máy hẻm K09 lấy gần đúng trên Main Street (pose PT K09 nằm trong design/pt — bản sản xuất dùng đúng pose + nền PT)'),
- '5k': T3(year=2026, date=[2026, 10, 18, 17.70, 17.86], dayCycle=True, exposure=0.7, noi='thanh_pho',
+                dict(d=3.7, year=1943), dict(d=3.7, year=2026)], [-700, 450, -1500], [-1000, 1900, -2400], [0, 0, 300], fov=44, base=dict(noi='eo_dat', date=[2026, 10, 18, 16, 16.3])),
+ 'KA2026': T3(year=2026, date=[2026, 10, 18, 9, 17], dayCycle=True, noi='thanh_pho', neo=True, cams=[neo(-447.0, -1256.0, 3.4, 268.7, fov=43.6)],
+          life=dict(walkers=[dict(line='MAIN', n=50, width=3)], birds=dict(c=[-430, -1300], r=40, h=20, n=6)), ghi='tư thế máy = khung neo PT2 k1782 (design/pt/scene/pt_site.py, hẻm K1782-09/10; bỏ dịch +6 m Đông của nắn 1782) trên phố 2026 OSM — bản sản xuất: nền PT 2026'),
+ '5k': T3(year=2026, date=[2026, 10, 18, 16.55, 16.85], dayCycle=True, ghi='góc ngược 0a — cùng thay nắng chiều cho đêm (xem 0a)', noi='thanh_pho',
           cams=[push([40, 3, -260], [30, 3, -150], [61, 2, 479], 5.0, fov=46), lat([0, 2, 20], 180, 45, 30, 3, 5.0, fov=40), push([-60, 6, 240], [0, 10, 380], [61, 3, 600], 5.0, fov=44), push([61, 20, 300], [-100, 520, -500], [100, 0, 1200], fov=46)],
           life=dict(walkers=[dict(line='WCA', n=80, width=6)], crowds=[dict(line='WCA', groups=6, size=[4, 10], speed=1.2)], birds=dict(c=[0, 0], r=180, h=50, n=8))),
 }
@@ -264,6 +264,7 @@ def main():
                     one = dict(sh, at=round(t, 4)); one['p'] = dict(sh['p'], hero=key, frame0=0)
                     if j: one['p'].pop('so', None); one['p'].pop('where', None)
                     if j: seg['beats'].append(dict(t=round(t, 3), k='cut', s=f'{sid} mốc'))
+                if j: seg['beats'].append(dict(t=round(t, 3), k='cut', s=f'{sid} cảnh {j}'))
                 one['ai_texture'] = bool(pt.get('ai_texture')); seg['shots'].append(one); t += pd
                 if first is None: first = key
             prev3d = first; cutplan[sid] = [b['t'] for b in seg['beats']]
@@ -280,7 +281,7 @@ def main():
                 seg['shots'].append(sh); L['nguon'] = os.path.basename(ph['img'])
             else:
                 D = DOC[sid]; key = f'g1b_{sid}'; heroes[key] = dict(hero='photo/print', opt=P(D['bg'], (0.5, 0.5), 0.15, preset='drift-l'), dur=d)
-                sh['type'] = 'card'; sh['p'].update(hero=key, frame0=0, card=dict(type='quote', q=D['q'], by=D['by'], at=0.3)); sh['p']['so'] = []
+                sh['type'] = 'card'; sh['p'].update(hero=key, frame0=0, card=dict(type='quote', q=D['q'], by=D['by'], at=0.3)); sh['p']['so'] = [dict(s=D['by'], at=round(d / 3, 2), dur=3.0, role='src_ngan', x='left', y='bottom')]
                 seg['shots'].append(sh); L['nguon'] = D['by']; L['ghi'] = 'ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất'
             L['bac'] = 'tư liệu thời đó (bậc 1/4) — Ken Burns'
         elif sid in CARD:
@@ -291,12 +292,13 @@ def main():
             else: card = dict(type='list', title=C['title'], items=[dict(s=f'{a} — {b}', at=0.3 + 1.4 * i) for i, (a, b) in enumerate(C['items'])])
             bg = prev3d or 'g1b_0b_0'
             sh['type'] = 'card'; sh['p'].update(hero=bg, frame0=0, speed=0.0, off=0, card=card)
-            if src: sh['p']['so'] = [dict(s=src, at=round(min(d - 3.2, 0.8), 2), dur=3.0, role='src_ngan', x='left', y='bottom')]
+            if src: sh['p']['so'] = [dict(s=src, at=round(max(0.8, min(d - 3.2, d / 2 - 1.2)), 2), dur=3.0, role='src_ngan', x='left', y='bottom')]
             seg['shots'].append(sh); L['nguon'] = src; L['bac'] = 'văn bản/sổ thời đó (bậc 2) hoặc nguồn hiện đại có tên'
         elif sid in SM_IDS:
             fr = HERE / 'sm' / f'{sid}.yaml'
-            if fr.exists():
-                import yaml; Y = yaml.safe_load(fr.read_text()); heroes.update(Y['heroes']); sm = Y['shot']; sm.setdefault('p', {})['sach'] = True; sm['at'] = 0
+            import yaml; Y = yaml.safe_load(fr.read_text()) if fr.exists() else None
+            if Y and 'shot' in Y and 'heroes' in Y:
+                heroes.update(Y['heroes']); sm = Y['shot']; sm.setdefault('p', {})['sach'] = True; sm['at'] = 0
                 seg['shots'].append(sm); L['nguon'] = 'g1b/sm/' + fr.name; L['bac'] = 'bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)'
             else:
                 bg = prev3d or 'g1b_0b_0'; sh['type'] = 'card'; sh['p'].update(hero=bg, frame0=0, speed=0.0, card=dict(type='end', lines=[dict(s=f'{sid} — strategic map', px=56, at=0.2), dict(s='(rendering)', px=40, at=0.4)]))
@@ -308,6 +310,13 @@ def main():
             for i, x in enumerate(sents):
                 a = t_abs + t_of(i); b = t_abs + t_of(i + 1)
                 srt.append((a, b, x))
+        # biến cố thật (Q37): số/câu trích hiện, mục thẻ hiện, chip nơi — khai beat (không thêm phần tử: chỉ ghi biến cố đã có trên hình)
+        for sh2 in seg['shots']:
+            pp = sh2.get('p', {})
+            for q in pp.get('so', []) or []: seg['beats'].append(dict(t=round(q['at'], 3), k='so', s=(q.get('s') or '')[:30]))
+            for it in ((pp.get('card') or {}).get('items') or []): seg['beats'].append(dict(t=round(it['at'], 3), k='the', s=str(it.get('s', ''))[:30]))
+        seg['beats'] = sorted({round(b['t'], 2): b for b in seg['beats'] if b['t'] < d - 0.2}.values(), key=lambda b: b['t'])
+        L['bien_co'] = [b['t'] for b in seg['beats']]; gaps = [b - a for a, b in zip(L['bien_co'], L['bien_co'][1:] + [d])]; L['khoang_max_s'] = round(max(gaps), 2)
         log.append(L); segs.append(seg); t_abs += d
     # thẻ phương pháp cuối (4,5 s) — "How this film was made" (§12.1 b)
     TP = EP / 'phat-hanh/the-phuong-phap.json'
@@ -319,20 +328,33 @@ def main():
     log.append(dict(shot='PP', loai='thẻ phương pháp', nguon='phat-hanh/the-phuong-phap.json', ghi='5 s (trần §12.1); ngoài 721,2 s của bảng shot'))
     E = dict(id='k2c-t3-g1b', title='Why Gibraltar Was Besieged 14 Times — G1b animatic (540p, temporary narration rail)', brand='MOVING PARTS', channel='k2', out=OUT,
              music=[dict(file='assets/k2/music/Tyrant.mp3', **{'from': '0a'}, ss=2.55, gain_db=-6)], sources={}, numbers={}, khung_sach=True, heroes=heroes, segments=segs)
+    # ảnh/tranh/bản đồ/văn bản > 6 s: máy Ken Burns HAI CHẶNG (tiến về điểm chính → trôi ngang lộ chi tiết thứ hai), đổi hướng ở giữa = biến cố thật (Q37 dài nhất ≤ 6 s)
+    seg_by = {x['id']: x for x in segs}
+    for k, h in heroes.items():
+        if h['hero'] != 'photo/print' or h['dur'] <= 6.0: continue
+        sid = k[4:]; sg = seg_by.get(sid)
+        if not sg: continue
+        h['opt']['_hai_chang'] = True; tm = round(h['dur'] / 2, 2)
+        sg['beats'] = sorted(sg['beats'] + [dict(t=tm, k='phase', s=f'{sid} máy đổi hướng')], key=lambda b: b['t'])
+        for L in log:
+            if L['shot'] == sid: L['bien_co'] = sorted(set(L.get('bien_co', []) + [tm])); g2 = [b - a for a, b in zip(L['bien_co'], L['bien_co'][1:] + [h['dur']])]; L['khoang_max_s'] = round(max(g2), 2)
     # chống lặp góc máy (prep.py: cùng scene_id + camera_id ≤ 2/tập): photo/print vượt 2 lần cùng preset → máy Ken Burns khai trực tiếp (o.cam, công thức kenburns() của photo.js) theo điểm chính riêng của shot
     from PIL import Image
     used = {}
     for k, h in heroes.items():
         if h['hero'] != 'photo/print': continue
         o = h['opt']; pr = o.get('preset', 'push'); used[pr] = used.get(pr, 0) + 1
-        if used[pr] <= 2: continue
+        if used[pr] <= 2 and not o.get('_hai_chang'): continue
         im = Image.open('/var/tmp/cine-out/k2v-cache/g1b/' + os.path.basename(o['img'])); ar = im.width / im.height; ph = o.get('h', 2.6); pw = ph * ar; mh = ph + 0.62
-        fx, fz = (o['focus'][0] - 0.5) * pw, (o['focus'][1] - 0.5) * ph; mm = 50; fov = 2 * math.atan(12 / mm); dist = (mh * 0.62) / math.tan(fov / 2); tilt = 0.32; pu = o.get('push', 0.2); dd = h['dur']
+        ix = sum(used.values()) - 1; fx, fz = (o['focus'][0] - 0.5) * pw, (o['focus'][1] - 0.5) * ph; mm = [40, 58, 85][(ix // 10) % 3]; fov = 2 * math.atan(12 / mm); dist = (mh * 0.62) / math.tan(fov / 2); tilt = 0.32; pu = o.get('push', 0.2); dd = h['dur']
         k0 = dict(t=0, p=[-0.12, dist * math.cos(tilt), dist * math.sin(tilt)], l=[0, 0, 0], mm=mm); d1 = dist * (1 - pu)
         k1 = dict(t=dd, p=[fx * 0.5 + 0.1, d1 * math.cos(tilt * 0.85), fz * 0.5 + d1 * math.sin(tilt * 0.85)], l=[fx * 0.55, 0, fz * 0.55], mm=mm)
-        az = math.radians([40, -40, 80, -80, 125, -125, 160][(sum(used.values()) - 1) % 7]); rot = lambda q, c: [c[0] + (q[0] - c[0]) * math.cos(az) + (q[2] - c[2]) * math.sin(az), q[1], c[2] - (q[0] - c[0]) * math.sin(az) + (q[2] - c[2]) * math.cos(az)]
+        az = math.radians((ix % 10) * 36); rot = lambda q, c: [c[0] + (q[0] - c[0]) * math.cos(az) + (q[2] - c[2]) * math.sin(az), q[1], c[2] - (q[0] - c[0]) * math.sin(az) + (q[2] - c[2]) * math.cos(az)]
         k0['p'] = rot(k0['p'], k0['l']); k1['p'] = rot(k1['p'], k1['l'])   # xoay phương vị máy quanh điểm nhìn: mỗi shot một góc (cam_near: lệch ≥ 25°)
-        o['cam'] = [{a: ([round(x, 4) for x in b] if isinstance(b, list) else b) for a, b in kk.items()} for kk in (k0, k1)]; o.pop('preset', None)
+        if o.pop('_hai_chang', False):   # chặng 2: từ điểm chính trôi ngang 0,35 bề rộng bản in, giữ độ cao
+            km = dict(k1); km['t'] = round(dd / 2, 3); k1 = dict(t=dd, p=[km['p'][0] + 0.35 * pw * math.cos(az), km['p'][1], km['p'][2] - 0.35 * pw * math.sin(az)], l=[km['l'][0] + 0.35 * pw, 0, km['l'][2]], mm=mm); keys = (k0, km, k1)
+        else: keys = (k0, k1)
+        o['cam'] = [{a: ([round(x, 4) for x in b] if isinstance(b, list) else b) for a, b in kk.items()} for kk in keys]; o.pop('preset', None)
     import yaml
     hdr = '# TỆP SINH TỰ ĐỘNG bởi g1b/mk_ep_g1b.py từ vay-ham/treatment.json + script-v4.1-KHOA.md (lời khoá v4.1, SHA LOI-KHOA.sha256). Đừng sửa tay.\n'
     (HERE / 'episode.yaml').write_text(hdr + yaml.safe_dump(E, allow_unicode=True, sort_keys=False, width=200))
@@ -340,6 +362,8 @@ def main():
     (HERE / 'ray-loi.srt').write_text(''.join(f'{i + 1}\n{ts(a)} --> {ts(b)}\n{x}\n\n' for i, (a, b, x) in enumerate(srt)))
     (HERE / 'log-shot.json').write_text(json.dumps(log, ensure_ascii=False, indent=1) + '\n')
     (HERE / 'cut-plan.json').write_text(json.dumps(cutplan, ensure_ascii=False) + '\n')
+    G = [x for L in log if 'khoang_max_s' in L for x in [L['khoang_max_s']]]; ev = sum(len(L.get('bien_co', [])) for L in log)
+    print(f'biến cố khai {ev} · khoảng TB {sum(x["dur"] for x in segs) / max(1, ev):.2f} s · dài nhất {max(G):.2f} s (' + ', '.join(L['shot'] for L in log if L.get('khoang_max_s', 0) > 6) + ' > 6 s)')
     tot = sum(x['dur'] for x in segs)
     print(f'{len(segs)} đoạn, {len(heroes)} cảnh, tổng {tot:.2f} s (bảng shot {sum(float(s["dur"]) for s in TR):.2f} s + thẻ phương pháp 5 s), {len(srt)} dòng ray lời')
 

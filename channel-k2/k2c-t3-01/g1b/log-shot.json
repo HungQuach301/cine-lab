@@ -14,7 +14,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "nửa đêm → hoàng hôn xanh (máy dựng chưa có đêm có đèn) — đề xuất"
+  "ghi": "lời nói NỬA ĐÊM nhưng máy dựng V6 chưa có cảnh đêm có đèn đường → animatic dùng nắng chiều thấp (mặt trời ≈ 4°) — đề xuất làm đêm (lượt chiếu sáng + đèn có nguồn) trước bản sản xuất",
+  "bien_co": [
+   0.0,
+   3.5
+  ],
+  "khoang_max_s": 3.5
  },
  {
   "shot": "0b",
@@ -31,7 +36,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "0c",
@@ -47,7 +56,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "3D vùng tầm eo biển (hai lục địa) cần nền xa ngoài gói gib (Africa > 22 km) — animatic: bản đồ eo biển 1704 (Rijks, CC0)"
+  "ghi": "3D vùng tầm eo biển (hai lục địa) cần nền xa ngoài gói gib (Africa > 22 km) — animatic: bản đồ eo biển 1704 (Rijks, CC0)",
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 3.0
  },
  {
   "shot": "0d",
@@ -64,7 +77,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   2.55
+  ],
+  "khoang_max_s": 4.95
  },
  {
   "shot": "0e",
@@ -83,7 +101,15 @@
   "chu_tat": [
    "bối cảnh giáo dục trên hình (0b–0e) — §12.1 bỏ; lời 0e vẫn nói"
   ],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.3,
+   1.375,
+   2.75,
+   4.125
+  ],
+  "khoang_max_s": 1.38
  },
  {
   "shot": "0f",
@@ -99,7 +125,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "0g",
@@ -115,7 +145,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "0h",
@@ -132,7 +166,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "SM1",
@@ -148,12 +186,16 @@
    "S012",
    "S013"
   ],
-  "nguon": null,
-  "bac": null,
+  "nguon": "g1b/sm/SM1.yaml",
+  "bac": "bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)",
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "bản đồ chiến lược chưa có tệp phiên con → thẻ chờ"
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 6.5
  },
  {
   "shot": "1a",
@@ -169,7 +211,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "1b",
@@ -185,7 +231,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "Rooke (Rijks RP-P-OB-33.529, CC0); chân dung Hesse-Darmstadt chưa có tệp — thẻ tên ở bản sản xuất"
+  "ghi": "Rooke (Rijks RP-P-OB-33.529, CC0); chân dung Hesse-Darmstadt chưa có tệp — thẻ tên ở bản sản xuất",
+  "bien_co": [
+   0.0,
+   4.0
+  ],
+  "khoang_max_s": 4.0
  },
  {
   "shot": "1c",
@@ -201,7 +252,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   5.25
+  ],
+  "khoang_max_s": 5.25
  },
  {
   "shot": "1d",
@@ -218,7 +275,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   4.5,
+   9.0
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "1e",
@@ -234,7 +298,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   5.0
+  ],
+  "khoang_max_s": 4.8
  },
  {
   "shot": "1f",
@@ -250,7 +320,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.3,
+   1.6
+  ],
+  "khoang_max_s": 4.03
  },
  {
   "shot": "1g",
@@ -266,7 +342,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   4.5,
+   9.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "1h",
@@ -283,7 +366,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất"
+  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất",
+  "bien_co": [
+   0.0,
+   4.0,
+   6.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "1i",
@@ -300,7 +389,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.5,
+   9.0
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "1j",
@@ -316,7 +411,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "1k",
@@ -331,7 +431,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   1.4,
+   5.0,
+   10.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "2a",
@@ -348,7 +455,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.0,
+   9.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "2b",
@@ -364,7 +477,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   5.25
+  ],
+  "khoang_max_s": 5.25
  },
  {
   "shot": "2c",
@@ -380,7 +499,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.4,
+   6.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "2d",
@@ -396,7 +521,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.3,
+   1.5,
+   2.61
+  ],
+  "khoang_max_s": 5.02
  },
  {
   "shot": "2e",
@@ -411,7 +543,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   3.25
+  ],
+  "khoang_max_s": 3.25
  },
  {
   "shot": "SM2",
@@ -432,12 +569,16 @@
    "S055",
    "S056"
   ],
-  "nguon": null,
-  "bac": null,
+  "nguon": "g1b/sm/SM2.yaml",
+  "bac": "bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)",
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "bản đồ chiến lược chưa có tệp phiên con → thẻ chờ"
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 7.5
  },
  {
   "shot": "2f",
@@ -455,7 +596,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "2g",
@@ -471,7 +616,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.5,
+   8.5
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "2h",
@@ -487,7 +638,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "phố sau bắn phá: chi tiết chữ \"THE RUINS OF GIBRALTAR\" trên plan Drinkwater (PD)"
+  "ghi": "phố sau bắn phá: chi tiết chữ \"THE RUINS OF GIBRALTAR\" trên plan Drinkwater (PD)",
+  "bien_co": [
+   0.0,
+   3.5
+  ],
+  "khoang_max_s": 3.5
  },
  {
   "shot": "2i",
@@ -502,7 +658,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.3,
+   1.6,
+   1.8
+  ],
+  "khoang_max_s": 4.2
  },
  {
   "shot": "KA1782",
@@ -520,7 +683,11 @@
   "chu_tat": [
    "dòng nguồn + nhãn AI (đã nung trong bản LAI) — cắt khỏi khung"
   ],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 8.0
  },
  {
   "shot": "2j",
@@ -537,7 +704,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.5,
+   8.5
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "2k",
@@ -553,7 +726,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   6.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "2l",
@@ -569,7 +748,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "chưa có chân dung d'Arçon PD — phác thảo Copley người trên pin nổi (Met, CC0)"
+  "ghi": "chưa có chân dung d'Arçon PD — phác thảo Copley người trên pin nổi (Met, CC0)",
+  "bien_co": [
+   0.0,
+   6.0,
+   7.2
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "2m",
@@ -588,7 +773,17 @@
   "chu_tat": [
    "nhãn AI (HC7) — §12.1 tắt trên hình, giữ ai_texture trong log"
   ],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.4,
+   5.9,
+   8.7,
+   10.6,
+   12.0,
+   14.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "2n",
@@ -606,7 +801,15 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.3,
+   1.5,
+   2.7,
+   2.8
+  ],
+  "khoang_max_s": 5.2
  },
  {
   "shot": "2o",
@@ -624,7 +827,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "M11 mặt cắt hầm CHƯA có trong máy dựng — animatic dùng mặt ngoài vách bắc (vị trí hầm) — đề xuất"
+  "ghi": "M11 mặt cắt hầm CHƯA có trong máy dựng — animatic dùng mặt ngoài vách bắc (vị trí hầm) — đề xuất",
+  "bien_co": [
+   0.0,
+   4.5,
+   8.5
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "2p",
@@ -639,7 +848,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "footage hầm hôm nay chưa có clip giấy phép → ảnh 1860 vách bắc (Rijks CC0) — đề xuất"
+  "ghi": "footage hầm hôm nay chưa có clip giấy phép → ảnh 1860 vách bắc (Rijks CC0) — đề xuất",
+  "bien_co": [
+   0.0,
+   4.0,
+   5.1
+  ],
+  "khoang_max_s": 4.0
  },
  {
   "shot": "2q",
@@ -656,7 +871,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.5
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "2r",
@@ -673,7 +893,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất"
+  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất",
+  "bien_co": [
+   0.0,
+   4.0,
+   6.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "3a",
@@ -689,7 +915,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   6.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "3b",
@@ -704,7 +935,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.0,
+   6.73
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "3c",
@@ -719,7 +956,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   2.8,
+   4.25
+  ],
+  "khoang_max_s": 4.25
  },
  {
   "shot": "3d",
@@ -734,7 +977,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "KC1910",
@@ -749,7 +997,11 @@
   "ai_image": true,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 7.0
  },
  {
   "shot": "3e",
@@ -765,7 +1017,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 6.0
  },
  {
   "shot": "3f",
@@ -781,7 +1037,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   5.5,
+   10.5
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "3g",
@@ -796,7 +1059,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "stereograph: dùng nửa trái"
+  "ghi": "stereograph: dùng nửa trái",
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "3h",
@@ -813,7 +1080,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "4a",
@@ -828,7 +1100,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.25
+  ],
+  "khoang_max_s": 5.25
  },
  {
   "shot": "4b",
@@ -845,7 +1122,16 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.2,
+   2.6,
+   7.6,
+   8.8,
+   12.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "4c",
@@ -861,7 +1147,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.5
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "4d",
@@ -878,7 +1169,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "M11 mặt cắt khối Rock CHƯA có — animatic dùng mặt ngoài + đá thải ra đường băng — đề xuất"
+  "ghi": "M11 mặt cắt khối Rock CHƯA có — animatic dùng mặt ngoài + đá thải ra đường băng — đề xuất",
+  "bien_co": [
+   0.0,
+   5.5
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "4e",
@@ -895,7 +1191,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   2.55
+  ],
+  "khoang_max_s": 4.95
  },
  {
   "shot": "4f",
@@ -910,7 +1211,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.5
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "SM3",
@@ -935,7 +1241,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "bản đồ chiến lược chưa có tệp phiên con → thẻ chờ"
+  "ghi": "bản đồ chiến lược chưa có tệp phiên con → thẻ chờ",
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 8.0
  },
  {
   "shot": "4g",
@@ -953,7 +1263,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "KB1943",
@@ -971,7 +1285,11 @@
   "chu_tat": [
    "dòng nguồn + nhãn AI (đã nung trong bản LAI) — cắt khỏi khung"
   ],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 8.0
  },
  {
   "shot": "4h",
@@ -989,7 +1307,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất"
+  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất",
+  "bien_co": [
+   0.0,
+   3.83,
+   5.75
+  ],
+  "khoang_max_s": 5.75
  },
  {
   "shot": "4i",
@@ -1005,7 +1329,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "máy bay 1942 chưa có mô hình — animatic: đường băng + người; đề xuất khối máy bay có nguồn"
+  "ghi": "máy bay 1942 chưa có mô hình — animatic: đường băng + người; đề xuất khối máy bay có nguồn",
+  "bien_co": [
+   0.0,
+   5.5,
+   11.0
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "5a",
@@ -1020,7 +1350,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.0,
+   9.5
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "5b",
@@ -1036,7 +1372,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   2.8
+  ],
+  "khoang_max_s": 5.2
  },
  {
   "shot": "KB2026",
@@ -1051,7 +1392,11 @@
   "ai_image": true,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 9.5
  },
  {
   "shot": "5c",
@@ -1068,7 +1413,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   4.0
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "5d",
@@ -1084,7 +1434,11 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 4.5
  },
  {
   "shot": "KC2026",
@@ -1100,7 +1454,11 @@
   "ai_image": true,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 10.0
  },
  {
   "shot": "5e",
@@ -1117,7 +1475,12 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   2.01
+  ],
+  "khoang_max_s": 4.41
  },
  {
   "shot": "5f",
@@ -1134,7 +1497,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   5.5,
+   11.0
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "5g",
@@ -1150,7 +1519,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất"
+  "ghi": "ảnh văn bản gốc chưa có trong repo → thẻ trích nguyên văn (by = nguồn) trên nền tư liệu liên quan — đề xuất",
+  "bien_co": [
+   0.0,
+   2.67,
+   4.0
+  ],
+  "khoang_max_s": 4.0
  },
  {
   "shot": "5h",
@@ -1166,7 +1541,13 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "hàng rào cũ/mới 2026 chưa có mô hình (C03) — đề xuất"
+  "ghi": "hàng rào cũ/mới 2026 chưa có mô hình (C03) — đề xuất",
+  "bien_co": [
+   0.0,
+   5.5,
+   11.0
+  ],
+  "khoang_max_s": 5.5
  },
  {
   "shot": "5i",
@@ -1182,7 +1563,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   0.3,
+   1.7,
+   3.1
+  ],
+  "khoang_max_s": 4.9
  },
  {
   "shot": "5j",
@@ -1199,7 +1587,15 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": null,
+  "bien_co": [
+   0.0,
+   3.7,
+   7.4,
+   11.1,
+   14.8
+  ],
+  "khoang_max_s": 3.7
  },
  {
   "shot": "KA2026",
@@ -1215,7 +1611,11 @@
   "ai_image": true,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": "tư thế máy hẻm K09 lấy gần đúng trên Main Street (pose PT K09 nằm trong design/pt — bản sản xuất dùng đúng pose + nền PT)"
+  "ghi": "tư thế máy = khung neo PT2 k1782 (design/pt/scene/pt_site.py, hẻm K1782-09/10; bỏ dịch +6 m Đông của nắn 1782) trên phố 2026 OSM — bản sản xuất: nền PT 2026",
+  "bien_co": [
+   0.0
+  ],
+  "khoang_max_s": 8.0
  },
  {
   "shot": "5k",
@@ -1230,7 +1630,14 @@
   "ai_image": false,
   "ai_texture": false,
   "chu_tat": [],
-  "ghi": null
+  "ghi": "góc ngược 0a — cùng thay nắng chiều cho đêm (xem 0a)",
+  "bien_co": [
+   0.0,
+   5.0,
+   10.0,
+   15.0
+  ],
+  "khoang_max_s": 5.0
  },
  {
   "shot": "PP",

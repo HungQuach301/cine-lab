@@ -83,7 +83,7 @@ export async function build(ctx) {
   const recs = (TOWN ? TOWN.FP.list.flatMap((l) => l.recs) : []).concat(FP ? FP.list.flatMap((l) => l.recs) : []);
   const L0 = o.life || {};
   const fix = (w) => Object.assign({}, w, { pts: w.free === false || !recs.length ? line(w.line || w.pts) : freePath(line(w.line || w.pts), recs) });
-  const LF = life({ seed: o.seed || 1704, walkers: (L0.walkers || []).map(fix), crowds: (L0.crowds || []).map(fix), birds: L0.birds, boats: L0.boats,
+  const LF = life({ era: o.year, seed: o.seed || 1704, walkers: (L0.walkers || []).map(fix), crowds: (L0.crowds || []).map(fix), birds: L0.birds, boats: L0.boats,
     chimney: L0.chimney && recs.length ? { at: chimneysFrom(recs, L0.chimney), drift: [-1.4, 0.4] } : undefined }, ctx); scene.add(LF.group);
   const TR = o.units && o.units.length ? units(o.units, ctx) : null; if (TR) scene.add(TR.group);
   const H = (h, m) => h + m / 60;
