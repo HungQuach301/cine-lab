@@ -20,3 +20,7 @@
 | /var/tmp/cine-out/k2v-cache/g1b (ảnh ref + 3 ảnh tải: rooke 7f24f0bb…, capture1704 710731a6…, loc 2020680546 57fbdfc5…) | cp vay-ham/ref/*.jpg + curl Special:FilePath (UA CineLab) |
 | /var/tmp/cine-out/hero/k2c-t3-g1b-* , /var/tmp/cine-out/k2c-t3-g1b | bash scripts/k2tl/g1b_animatic.sh |
 | /var/tmp/cine-out/k2tl-cache (≈ 1,1 GB) | fetch_sources.py → fetch_osm.py --name gib --bbox=-5.385,36.105,-5.320,36.185 → build_rasters/vectors/scene(--ao --far --cls)/border → pack_1782.sh origin/main → pack_g1b.sh |
+
+## Dừng phiên (worker khởi động lại)
+- Tiến trình dựng chết ≈ 19:40 UTC (máy khởi động lại; phát hiện 22:22). /var/tmp còn nguyên: 10 cảnh đã xong giữ nguyên (stamp), 2 cảnh dở dựng tiếp `--resume`. Chạy lại 22:23 UTC cùng lệnh. Không mất tệp.
+- SM1–SM3 xong (phiên con, commit 0deffd63); người + phục chế xong (phiên con, commit d9c496c0).
