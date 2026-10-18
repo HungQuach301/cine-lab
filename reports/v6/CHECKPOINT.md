@@ -1,4 +1,4 @@
-# V6 — CHECKPOINT 08:22 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
+# V6 — CHECKPOINT 08:45 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
 
 Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-nuong @685f11bb, pt4-song @5a7c9a27, claude/checks-v1-15-1qzf9z @001ee5d (0 xung đột); `checks/lock.py --verify` KHỚP 1.15.0 f4fa0349….
 
@@ -13,7 +13,9 @@ Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-n
 8. reports/v6/blind_v6.py (chấm mù 3 bản) viết xong, chưa chạy.
 
 ## Đang dở
-- TỐT NHẤT: P2 + P4 đang dựng lại với bộ xuất đã sửa; rồi P1, P3, P5, P6 + 2 khung neo.
+- TỐT NHẤT: P2 (Cycles 526 s) + P4 (628 s) XONG (P4 làm lại lượt albedo sau khi sửa cờ); P1 + P3 đang dựng; còn P5, P6 + 2 khung neo; P1 phải làm lại lượt albedo (xuất trước khi sửa cờ).
+- Cờ: hook cờ (props.js) ghi đè hook mặt nạ → cờ không có lượt albedo/pháp tuyến/mặt nạ → đã sửa; thêm vải xuyên sáng cho cờ ở bản SẢN XUẤT V6 (cờ ngược nắng gần đen). → cần DỰNG LẠI 6 khung SẢN XUẤT (lượt 3).
+- Golden steel/ll08: KHỚP (SSIM 0,9449 / 0,9307; pHash 0/64; ô lệch 0/144) → reports/v6/do/golden-steel-ll08.json.
 - **Khung neo** (phiên con, design/pt/song/*6.py, reports/v6/khung-neo/): nền A dựng xong, sprite người V6 1782 xong, 1943 đang dựng; tấm C 1943 lần 3 (mặt nạ đất xa) đã sinh 1 lệnh $0,063 + kiểm dữ kiện.
 
 ## Chưa làm
@@ -40,4 +42,4 @@ Bước 7 chạy Cycles 6+2 khung · đoạn thử 540p qua dây chuyền k2 (re
 - Claude API: **$0,037** (1 lệnh kiểm đường gọi; reports/v6/log/claude-cost.jsonl) — phiên con chưa chấm mù.
 - OpenAI: **$0,063** (1 lệnh tấm C 1943 lần 3; reports/v6/khung-neo/ai-c/goi-api.jsonl).
 - YouTube 0 · ElevenLabs 0.
-- Giờ máy: đồng hồ tường ≈ 06:00 → 08:22 UTC ≈ 2,4 h (bản 07:36 ghi nhầm mốc đầu 05:37); tải CPU song song (llvmpipe phiên chính + 2 Blender phiên con) ≈ 4 nhân bận phần lớn thời gian.
+- Giờ máy: đồng hồ tường ≈ 06:00 → 08:45 UTC ≈ 2,75 h (bản 07:36 ghi nhầm mốc đầu 05:37); tải CPU song song (llvmpipe phiên chính + 2 Blender phiên con) ≈ 4 nhân bận phần lớn thời gian.

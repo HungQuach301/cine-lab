@@ -34,10 +34,13 @@ export function flags(specs, ctx) {
     const pole = sp.pole || 12, w = sp.w || 4.2, h = w / 2, base = sp.base ?? Math.max(0.3, ctx.terr.hAt(sp.at[0], sp.at[1]));
     const p = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.14, pole, 6).translate(0, pole / 2, 0), poleM); p.position.set(sp.at[0], base, -sp.at[1]); p.castShadow = true; group.add(p);
     const k = sp.kind || 'union1707'; tex[k] = tex[k] || flagTex(k);
-    const m = new THREE.MeshLambertMaterial({ map: tex[k], side: THREE.DoubleSide }); maskify(m, ctx.U, 1);
+    const m = new THREE.MeshLambertMaterial({ map: tex[k], side: THREE.DoubleSide });
     m.onBeforeCompile = (sh) => { sh.uniforms.uT = U.uT; sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float uT;')
-      .replace('#include <begin_vertex>', `#include <begin_vertex>\n float fx = clamp(position.x / ${w.toFixed(2)}, 0.0, 1.0); transformed.z += sin(position.x * 1.7 - uT * 6.0 + ${(sp.phase || 0).toFixed(2)}) * 0.35 * fx; transformed.y -= 0.25 * fx * fx;`); };
-    m.customProgramCacheKey = () => 'tl-flag-' + w.toFixed(2);
+      .replace('#include <begin_vertex>', `#include <begin_vertex>\n float fx = clamp(position.x / ${w.toFixed(2)}, 0.0, 1.0); transformed.z += sin(position.x * 1.7 - uT * 6.0 + ${(sp.phase || 0).toFixed(2)}) * 0.35 * fx; transformed.y -= 0.25 * fx * fx;`);
+      if (ctx.v6) sh.fragmentShader = sh.fragmentShader.replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\n totalEmissiveRadiance += diffuseColor.rgb * 0.4;');   // V6: vải XUYÊN SÁNG — cờ ngược nắng vẫn đọc được (vật mang dữ kiện; như lượt Cycles)
+    };
+    m.customProgramCacheKey = () => 'tl-flag-' + w.toFixed(2) + (ctx.v6 ? '-v6' : '');
+    maskify(m, ctx.U, 1);   // V6: SAU onBeforeCompile (trước đây hook cờ ghi đè hook mặt nạ → cờ không vào mặt nạ nội dung / lượt pháp tuyến / lượt albedo)
     const cl = new THREE.Mesh(new THREE.PlaneGeometry(w, h, 12, 2).translate(w / 2, -h / 2, 0), m); cl.position.set(sp.at[0], base + pole - 0.1, -sp.at[1]);
     cl.rotation.y = (90 - (sp.toward ?? 135)) * Math.PI / 180; group.add(cl);   // toward: hướng gió thổi tới (độ, 0 = Bắc) — cờ bay theo gió
   }
