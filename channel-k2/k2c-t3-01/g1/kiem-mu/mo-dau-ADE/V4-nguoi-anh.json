@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "Opens with a Spanish historian and a British one quoting the same phrase, which is a fair and interesting hook. 'Told from both sides' records' promises history rather than polemic. The 'Montero 1860' and 'Sayer 1862' sourcing looks scholarly.",
+  "moment_you_would_leave_or_doubt": "The 2026 border gate and runway opening is mildly modern, and the 'Spanish historian first' framing makes me watch for tilt. If the rewind to 1704 turns into a 'whose Rock is it' argument I'd be gone. Otherwise I'd stay."
+ },
+ "Y": {
+  "keep_watching": false,
+  "chance_0to10": 3,
+  "why": "'Midnight at the edge of Spain' puts Gibraltar as Spain's edge, and the treaty-and-no-checks line is current politics. That is the modern political framing I leave over. The 'Only five changed who ruled it' line sounds like it is building a point about the sieges mostly failing or about legitimacy, and could be read either way.",
+  "moment_you_would_leave_or_doubt": "'Midnight at the edge of Spain' in the first sentence, then 'Since July, under a new UK–EU treaty' in the second. I'd expect the video to drift into the sovereignty debate and I'd click away around the 10-second mark."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "'Midnight at the Gibraltar frontier' is neutral. It states the no-checks fact plainly without a treaty lecture, then goes straight to the Rock's strategic position and the fourteen sieges. 'Historians on both sides' and the dated map rewind to 1943, 1782 and 1704 (Great Siege territory my father would have known) suggest proper history with the 1782 siege shown.",
+  "moment_you_would_leave_or_doubt": "'Since July 2026, this gate has had no routine checks' is a little topical for a siege video, so I'd be watching whether it stays a short aside. If the narrator spends the next minute on the treaty, I'd leave."
+ },
+ "ranking_best_first": [
+  "Z",
+  "X",
+  "Y"
+ ],
+ "one_change_to_the_best_version": "Cut or shorten the 'no routine checks since July 2026' line, or move it to the end of the video, so the first 30 seconds are all history and nothing reads as current politics.",
+ "_nhan": {
+  "X": "D",
+  "Y": "A",
+  "Z": "E"
+ },
+ "_prompt": "You are 61, British, your father served in the Gibraltar garrison; you enjoy history videos but you leave when one sneers at Britain or turns Gibraltar's story into a modern political rant.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the Gibraltar frontier. To walk in from Spain, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July 2026, this gate has had no routine checks.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] The Rock sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

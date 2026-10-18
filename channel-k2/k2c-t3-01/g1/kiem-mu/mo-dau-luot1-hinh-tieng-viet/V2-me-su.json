@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "The paired quotes from Sayer and Montero are a nice sign the channel uses sources, and 'told from both sides' records' promises balance. The 'same rock, opposite sides' line is a bit cute. The 'key of the Mediterranean' hook is a well-worn cliché, and the first 20 seconds are all framing with no actual history.",
+  "moment_you_would_leave_or_doubt": "'Historians count fourteen sieges' with no word on how they're counted. Gibraltar's siege count varies by author (often 14 in Sayer-style lists, but definitions of 'siege' differ), so I'd be watching for a hand-wave. I'd also doubt it if the 'precious key' quote turns out to be loosely translated or isn't really in Montero."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "It opens with the number, which is concrete, and then adds the sharper fact that only five sieges changed hands. That tells me the video separates 'besieged' from 'conquered', which is the distinction I care about. The title's promise is answered straight away, with no filler.",
+  "moment_you_would_leave_or_doubt": "'British and Spanish historians count the same way.' That is a strong claim and probably false or oversimplified, because the count depends on the definition and the sources (Sayer, Montero and others) don't agree on every siege. If the next minute treats the 14 as settled fact, I'd leave. 'Only five changed who ruled it' also makes me check it against the Moorish, Castilian and Anglo-Dutch changes, plus 1309, 1333 and 1704. I'd want that list soon."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "It's the most cinematic and grounded of the three: the midnight runway crossing, then the treaty detail, then the siege count with a named source (Sayer 1862 · Gibraltar National Museum). The rewind through 1943, 1782 and 1704 with year labels and sources promises real chronology. Only five changed rulers, and it says so briefly. It reads like someone who has been there and knows the material, not like clickbait.",
+  "moment_you_would_leave_or_doubt": "'Since July, under a new UK–EU treaty, there are no routine checks at this gate.' I'd doubt it unless the date and the treaty status are stated precisely, because that's a current-affairs claim and a place to get it wrong. The runway crossing and the treaty also push the actual history back by about 15 seconds, so if the sieges don't start within the first minute I'd drift off."
+ },
+ "ranking_best_first": [
+  "Z",
+  "Y",
+  "X"
+ ],
+ "one_change_to_the_best_version": "Name the treaty and give the month and year ('Since July 2026, under the UK–EU treaty on Gibraltar…') on screen, and change 'Historians count fourteen sieges' to 'Sayer counts fourteen' so the number is attributed to its source rather than presented as settled.",
+ "_nhan": {
+  "X": "C",
+  "Y": "B",
+  "Z": "A"
+ },
+ "_prompt": "You are 54, a history enthusiast who watches long military-history and siege documentaries; you have read about Gibraltar and you leave when a video oversimplifies, gets a date wrong or sounds like clickbait.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[nửa đêm 2026 ở cổng, người đi bộ qua đường băng; chữ trích Sayer 1862 hiện góc dưới] A British historian called it \"the key of the Mediterranean.\"\n[crane lên → eo đất; chữ trích Montero 1860 «la preciosa llave del Mediterráneo»] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[zoom 90 km: eo biển giữa hai lục địa] Same rock. Same image. Opposite sides.\n[thẻ \"14 sieges · 1309–1783\"] Historians count fourteen sieges of it, between 1309 and 1783.\n[push-in vào phố \"tua ngược\" 2026 → 1704] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[thẻ \"14\" hiện trên nền tối mờ Rock (thẻ 0d đưa lên đầu)] Fourteen.\n[crane lên từ cổng → eo đất, đường băng, vách bắc (bình minh)] That's how many times historians count Gibraltar being besieged, between 1309 and 1783.\n[zoom nhiều tầng chạm 90 km rồi lặn lại] British and Spanish historians count the same way.\n[thẻ hai cột: tên sử gia Anh ↔ Tây Ban Nha, cùng số 14] And only five of those sieges changed who ruled it.\n[push-in vào phố \"tua ngược\" 2026 → 1704] This is how a rock of under six square kilometres became the place everyone fought over, told from both sides' records.\n\n--- Version Z ---\n[nửa đêm 2026, máy 3 m theo người đi bộ băng qua đường băng về phía Rock; chip \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[crane lên từ cổng → eo đất, đường băng, vách bắc] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[zoom nhiều tầng chạm 90 km (2,5 s) rồi lặn lại: cửa Địa Trung Hải, hai lục địa] But look where it sits.\n[thẻ \"14 sieges · 1309–1783\", nguồn ngắn Sayer 1862 · Gibraltar National Museum] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[push-in từ vịnh vào phố, phố \"tua ngược\" 2026 → 1943 → 1782 → 1704 (mỗi mốc có nhãn năm + nguồn)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

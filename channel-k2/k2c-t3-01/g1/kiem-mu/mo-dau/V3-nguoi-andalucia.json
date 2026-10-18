@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "Opens neutral and concrete, which I like. But 'Only five changed who ruled it' is fine, while the first thing it does is frame Gibraltar from the Spanish border as 'the edge of Spain' and then immediately drops the new treaty with no checks, which feels slightly political and ambiguous about whose side it's on. 'Told from both sides' records' is a good promise, but it comes at the very end and the rest felt British-sourced: Sayer 1862 and the Gibraltar National Museum are both British/Gibraltarian sources.",
+  "moment_you_would_leave_or_doubt": "The source line 'Sayer 1862 · Gibraltar National Museum' on the 14-sieges card. Both sources are British or Gibraltarian, so the 'both sides' promise a few seconds later sounds hollow. I would also wince at 'the new UK–EU treaty' being presented as a done deal without any mention of Spain's position."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "Opens by putting a British historian and a Spanish historian side by side, with Montero 1860 quoted in Spanish. That tells me straight away that Spanish sources count and that Spain is not going to be the villain. 'Same rock. Same image. Opposite sides.' is a neat, fair-minded line, and it makes me curious to see how each side tells it.",
+  "moment_you_would_leave_or_doubt": "The British quote comes first and Sayer gets the headline slot. If the 'both sides' equality turns out to be only the opening gimmick and the siege narration then follows the British account, I would leave. I would also check whether the 'key' framing is only used to flatter the British military story."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "Starts with a big '14', which is a strong hook, and says right away that British and Spanish historians count the same way, then shows the two columns with 14 under each. That is balanced and sounds careful and factual. 'Only five changed who ruled it' is a precise, neutral fact. It is less emotional than Y, so it hooks me a bit less.",
+  "moment_you_would_leave_or_doubt": "The two-column card showing the same 14 under both. It is a bit too neat, and I doubt that British and Spanish historians really agree on every siege (some Spanish accounts count differently, and which ones count as proper sieges is debatable). It feels like a claim made to look balanced."
+ },
+ "ranking_best_first": [
+  "Y",
+  "Z",
+  "X"
+ ],
+ "one_change_to_the_best_version": "Put the Spanish historian's line first, or show both quotes on screen at the same time, so the British one does not get the first slot. Then, before the 30 seconds end, name which Spanish source the siege count rests on (not only Montero's quote), so 'told from both sides' is shown and not just claimed.",
+ "_nhan": {
+  "X": "A",
+  "Y": "C",
+  "Z": "B"
+ },
+ "_prompt": "You are 38 and live in Cádiz province, Spain; you watch English-language history videos and you are quick to leave when a video about Gibraltar takes the British side or treats Spain as the villain.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Z ---\n[a large \"14\" appears over a dark, blurred view of the Rock] Fourteen.\n[camera cranes up from the border gate at dawn: the isthmus, the runway, the Rock's north face] That's how many times historians count Gibraltar being besieged, between 1309 and 1783.\n[quick zoom out to the whole Strait between Europe and Africa, and back down] British and Spanish historians count the same way.\n[two-column card: British historians ↔ Spanish historians, the same \"14\" under each] And only five of those sieges changed who ruled it.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is how a rock of under six square kilometres became the place everyone fought over, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

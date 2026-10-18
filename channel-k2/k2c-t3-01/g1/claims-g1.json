@@ -1,0 +1,69 @@
+{
+ "note": "Claim mới của phiên G1 (18/10/2026). Cùng schema claims-tuyen.json (nguon_doi_chieu). Tệp thô ngoài git: /var/tmp/cine-out/g1/raw/ (SHA dưới đây). Trích nguyên văn: chuỗi con của văn bản sau khi bỏ thẻ HTML/JSON và gộp khoảng trắng (g1/verify_quotes_g1.py).",
+ "claims": [
+  {
+   "id": "G001",
+   "nhom": "wwii-1942",
+   "claim_en": "The Operation Torch invasion fleets entered the Mediterranean through the Strait of Gibraltar (early November 1942).",
+   "trich_nguyen_van": "the safe delivery through the Straits of Gibraltar of the largest expeditionary armada in history for the invasion of North Africa",
+   "lang": "en",
+   "nguon": "UK Hansard, Commons, 3 March 1943, Navy Estimates — statement of the First Lord of the Admiralty (A. V. Alexander)",
+   "loai_nguon": "chinh-thuc",
+   "url": "https://hansard-api.parliament.uk/debates/debate/d57e8c7d-9741-41db-a21c-530e65a58d1b.json",
+   "file_sha256": "b5a9d031ff7f0d1dc42a778fed2a8bbc002d9165510dcb32c2cef6e76ed544fd",
+   "vi_tri": "đóng góp ab8a71e2-3e02-4455-b0b1-b0a81f75dc75",
+   "as_of": "đọc 2026-10-18",
+   "phia": "Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Thay chữ 'qua eo' của lệnh bằng claim ≥ 2 nguồn (Hansard 1943 + Howe 1957 ch. XIII + Hansard 3/12/1942). Không nói đoàn tàu xuất phát từ Gibraltar (Howe ch. IV: chỉ một số tàu phụ trợ chậm được gửi trước tới Gibraltar). Howe ch. XIII chỉ nêu đoàn Algiers; Hansard 1943 nói chung toàn hạm đội → lời nói 'the invasion fleets … through the Strait' (số nhiều, không nêu từng đoàn).",
+   "kiem_doc_lap": "khớp nguyên khối (verify_quotes_g1.py)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "George F. Howe, Northwest Africa: Seizing the Initiative in the West (US Army in WWII, CMH, 1957), ch. XIII \"The Occupation of Algiers\" (HyperWar)",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)", "phia": "Mỹ", "lang": "en",
+     "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-13.html",
+     "file_sha256": "c61c7d558204ece351381064ceb952450fb8c0ee7f06d8bbdf014fbe09065659",
+     "vi_tri": "ch. XIII (tệp trùng SHA với claims-tuyen T023)",
+     "trich_nguyen_van": "after passing through the Strait of Gibraltar on 6 November"
+    },
+    {
+     "nguon": "UK Hansard, Commons, 3 December 1942, \"Naval Operations, North Africa\" — First Lord of the Admiralty (A. V. Alexander)",
+     "loai_nguon": "chinh-thuc", "phia": "Anh", "lang": "en",
+     "url": "https://hansard-api.parliament.uk/debates/debate/c4e0c5dd-6e70-434f-9246-3dd83fdb48c6.json",
+     "file_sha256": "271abe2a283c96de34ce76206ce35c53a4dfbb5764aaba335553cc2524fd144e",
+     "vi_tri": "đóng góp aee9d84d-a4d7-4b2d-9696-05d45b2a4f74",
+     "trich_nguyen_van": "manœuvring large numbers of vessels in the Straits of Gibraltar"
+    }
+   ]
+  },
+  {
+   "id": "G002",
+   "nhom": "wwii-1942",
+   "claim_en": "The Torch armada sailed from the United States and from Britain (not from Gibraltar).",
+   "trich_nguyen_van": "from the United States and from this country",
+   "lang": "en",
+   "nguon": "UK Hansard, Commons, 3 December 1942, \"Naval Operations, North Africa\" — First Lord of the Admiralty (A. V. Alexander)",
+   "loai_nguon": "chinh-thuc",
+   "url": "https://hansard-api.parliament.uk/debates/debate/c4e0c5dd-6e70-434f-9246-3dd83fdb48c6.json",
+   "file_sha256": "271abe2a283c96de34ce76206ce35c53a4dfbb5764aaba335553cc2524fd144e",
+   "vi_tri": "đóng góp aee9d84d-a4d7-4b2d-9696-05d45b2a4f74",
+   "as_of": "đọc 2026-10-18",
+   "phia": "Anh",
+   "status": "XÁC MINH",
+   "nhay_cam": "THẤP",
+   "ghi_chu": "Nguồn thứ hai cho T025 (trước đây CHƯA XÁC MINH, một nguồn Howe). Chỉ đủ cho 'from Britain and the United States' — KHÔNG đủ cho tên cảng (Hampton Roads, Clyde) → SM3 giữ mũi tên vào từ mép, nhãn tuỳ chọn 'from Britain' / 'from the USA' (đề xuất chờ duyệt). Ngoại lệ trong Howe: tàu New Jersey từ New York; tàu phụ trợ chậm gửi trước tới Gibraltar.",
+   "kiem_doc_lap": "khớp nguyên khối (verify_quotes_g1.py)",
+   "nguon_doi_chieu": [
+    {
+     "nguon": "George F. Howe, Northwest Africa (CMH, 1957), ch. IV (HyperWar) — = nguồn chính của T025",
+     "loai_nguon": "chinh-thuc (sử quân đội Mỹ)", "phia": "Mỹ", "lang": "en",
+     "url": "https://www.ibiblio.org/hyperwar/USA/USA-MTO-NWA/USA-MTO-NWA-4.html",
+     "file_sha256": "dc5ff5c6e210f8f9aae950b3703efb18a24953ecf2a6ef646b8ff2b38b33157a",
+     "vi_tri": "ch. IV (tệp trùng SHA với claims-tuyen T024/T025)",
+     "trich_nguyen_van": "all combat-loaded ships from the United States departed from the Hampton Roads Port of Embarkation"
+    }
+   ]
+  }
+ ]
+}

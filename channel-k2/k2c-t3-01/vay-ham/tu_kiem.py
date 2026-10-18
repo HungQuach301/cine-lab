@@ -6,7 +6,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-LOAI = ["3D phố", "3D vùng", "bản đồ lịch sử", "tranh Ken Burns", "ảnh", "footage", "thẻ số"]
+LOAI = ["3D phố", "3D vùng", "bản đồ lịch sử", "tranh Ken Burns", "ảnh", "footage", "thẻ số", "bản đồ chiến lược"]  # [TUYẾN] loại mới B3
 LOAI_3D = {"3D phố", "3D vùng"}
 
 
@@ -34,7 +34,7 @@ def main():
     out["Q26b_K2"] = q26
 
     # NC-H2: AGL > 50 km ≤ 1 lần, ≤ 3 s
-    glob = [s for s in shots if s.get("agl_max_km", 0) > 50]
+    glob = [s for s in shots if s.get("agl_max_km", 0) > 50 and s["loai"] != "bản đồ chiến lược"]  # [TUYẾN] B3: strategic không tính NC-H2
     out["NC_H2"] = {"so_lan": len(glob), "giay": [s.get("s_tren_50km", s["dur"]) for s in glob], "shot": [s["id"] for s in glob],
                     "dat": len(glob) <= 1 and all(s.get("s_tren_50km", s["dur"]) <= 3 for s in glob)}
 
@@ -81,11 +81,31 @@ def main():
     chk("NC-H3 ≤ 60 km", out["NC_H3"]["le60km"], 0.70); chk("NC-H3 ≤ 3 km", out["NC_H3"]["le3km"], 0.40)
     chk("footage", out["footage"]["ty_le"], 0.20)
     for g in out["NC_H2"]["giay"]: chk("NC-H2 giây trên 50 km", g, 3.0)
+
+    # [TUYẾN] luật strategic B3 (đề xuất NC-BD §3.1): ≤ 15 % thời lượng, ≤ 8 s/lần, ≤ 2 lần/chương, không hai shot strategic liền nhau
+    st = [s for s in shots if s["loai"] == "bản đồ chiến lược"]
+    per_ch = Counter(s["ch"] for s in st)
+    lien = [[a["id"], b["id"]] for a, b in zip(shots, shots[1:]) if a["loai"] == b["loai"] == "bản đồ chiến lược"]
+    out["strategic"] = {"so_lan": len(st), "tong_s": sum(s["dur"] for s in st), "ty_le": round(sum(s["dur"] for s in st) / T, 4), "dai_nhat_s": max([s["dur"] for s in st] or [0]),
+                        "moi_chuong": dict(per_ch), "lien_nhau": lien, "shot": [s["id"] for s in st],
+                        "dat": (sum(s["dur"] for s in st) / T <= 0.15) and all(s["dur"] <= 8 for s in st) and all(v <= 2 for v in per_ch.values()) and not lien}
+    chk("strategic tỷ trọng", out["strategic"]["ty_le"], 0.15)
+    for s in st: chk(f"strategic {s['id']} giây", s["dur"], 8.0)
+
+    # [G1] khung neo + AI trên hình + tấm im lặng (Kinh thánh §11.2, §11.3): 4–6 khung neo, mỗi khung 6–10 s; ai_image/ai_texture ≤ 20 % thời lượng; 1–2 tấm im lặng 8–10 s
+    neo = [s for s in shots if s.get("neo")]
+    ai = sum(s["dur"] for s in shots if s.get("ai_image") or s.get("ai_texture"))
+    im = [s for s in shots if s.get("im_lang")]
+    out["khung_neo"] = {"so_khung": len(neo), "shot": [s["id"] for s in neo], "giay": [s["dur"] for s in neo], "vi_tri": sorted({s["vung"] for s in neo}),
+                        "ai_image_s": ai, "ai_image_ty_le": round(ai / T, 4), "im_lang": [[s["id"], s["dur"]] for s in im],
+                        "dat": 4 <= len(neo) <= 6 and all(6 <= s["dur"] <= 10 for s in neo) and ai / T <= 0.20 and 1 <= len(im) <= 2 and all(8 <= s["dur"] <= 10 for s in im)}
+    chk("ai_image tỷ trọng", out["khung_neo"]["ai_image_ty_le"], 0.20)
+    for s in neo: chk(f"khung neo {s['id']} giây (trần 10)", s["dur"], 10.0); chk(f"khung neo {s['id']} giây (sàn 6)", s["dur"], 6.0)
     out["sat_nguong_5pct"] = near
 
     (HERE / "tu-kiem.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
     print(json.dumps(out, ensure_ascii=False, indent=1))
-    ok = all([q26[0]["dat"], q26[1]["dat"], out["NC_H2"]["dat"], out["NC_H3"]["dat"], out["NC_H1"]["dat"], out["lap_vung_goc"]["dat"], out["footage"]["dat"], not out["shot_khong_claim"]])
+    ok = all([q26[0]["dat"], q26[1]["dat"], out["NC_H2"]["dat"], out["NC_H3"]["dat"], out["NC_H1"]["dat"], out["lap_vung_goc"]["dat"], out["footage"]["dat"], not out["shot_khong_claim"], out["strategic"]["dat"], out["khung_neo"]["dat"]])
     print("TU KIEM:", "ĐẠT" if ok else "TRƯỢT", file=sys.stderr)
     return 0 if ok else 1
 

@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "The runway walk is a great hook, and the 2026 treaty detail makes it feel current. 'But look where it sits' with the Strait zoom promises a geography-as-mechanism story. The stat that only 5 of 14 sieges changed hands is a real hook, because it asks why so many attacks failed. I'd stay for the economics and geography of the place.",
+  "moment_you_would_leave_or_doubt": "'This is why everyone fought over it' is a vague promise that leans on 'it sits at the Strait' without saying what that position actually gives anyone. If the next minute is just a list of sieges with dates, I'm gone. I also doubt the 'July' treaty claim a little until I see it sourced."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "The two-historians-same-phrase setup is clever and the sourcing is more rigorous. But it spends the first 15 seconds on a quote rather than a mechanism, and 'key of the Mediterranean' is a cliché I've heard in every Gibraltar video. The 'western gate' line is the first actual geography, and it comes late and is thin.",
+  "moment_you_would_leave_or_doubt": "At the second quote. I've already been told 'key' twice, so I now expect a historiography lecture or a battles-and-dates video instead of an explanation of why the place is valuable. The 'key' metaphor stands in for the mechanism instead of explaining it."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "'Same rock. Same image. Opposite sides.' is the punchiest line of the three, and the mirrored quotes are neat. It signals a both-sides treatment. But it frames the video as about narratives, not about why Gibraltar matters economically or geographically, which is what I came for.",
+  "moment_you_would_leave_or_doubt": "'Same rock. Same image. Opposite sides.' When I hear that I'm expecting a nationalism and memory video. The treaty and border hook is gone, and 'Here's why everyone fought over this key' just repeats the metaphor without telling me anything about trade, shipping or strategy."
+ },
+ "ranking_best_first": [
+  "X",
+  "Z",
+  "Y"
+ ],
+ "one_change_to_the_best_version": "Replace 'This is why everyone fought over it' with one concrete, checkable mechanism claim over the Strait zoom: the Strait is about 14 km wide, so whoever holds the Rock can watch or contest every ship passing between the Atlantic and the Mediterranean. Then say the video will test that against why 9 of the 14 sieges still failed. That turns the vague promise into a question I want answered.",
+ "_nhan": {
+  "X": "A",
+  "Y": "D",
+  "Z": "C"
+ },
+ "_prompt": "You are 31 and watch economics and geography explainer videos about why places get rich or poor; you came for the mechanism behind a place, and you leave if a video is only battles and dates.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

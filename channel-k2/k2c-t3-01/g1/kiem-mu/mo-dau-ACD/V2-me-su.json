@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "It cites its sources on screen: Montero 1860, Sayer 1862, García Sanz, and the National Museum. It says the fourteen-siege count comes from historians on both sides. The framing is measured and not clickbait. The 'key of the Mediterranean' line is a stale cliché, though, and the opening spends 20 seconds on two quotes before any actual history.",
+  "moment_you_would_leave_or_doubt": "'Why everyone fought over this key' after two quotes about a key. It is a metaphor standing in for strategy. I would also check the 'two years later' claim and whether Sayer was really answering Montero."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "It has the same two quotes and the same count of fourteen sieges, but it is more slogan-like. 'Same rock. Same image. Opposite sides.' sounds like a trailer. The source line on the 1309–1783 card is vague, and the opening gives no concrete historical content beyond the quotes.",
+  "moment_you_would_leave_or_doubt": "'Same rock. Same image. Opposite sides.' It is a dramatic flourish with no content, and it implies the two historians disagree when they say almost the same thing."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "Walking across the runway is a concrete, real hook, and it goes straight into geography. It then makes a specific, checkable claim: 'Only five changed who ruled it.' That matches my count: Castile 1309, the Marinids 1333, Granada 1374, Castile 1462, Britain 1704. The 1943 → 1782 → 1704 rewind has labelled years and source maps, and the 'both sides' records promise is credible.",
+  "moment_you_would_leave_or_doubt": "'Since July, under a new UK–EU treaty, there are no routine checks.' I would verify that the treaty's status and date are right, because that is a recent-events claim that could easily be wrong. The 1943 stop in the rewind is also odd if the video is about the sieges."
+ },
+ "ranking_best_first": [
+  "Z",
+  "X",
+  "Y"
+ ],
+ "one_change_to_the_best_version": "Make the treaty line safe or drop it. Either state the exact status and date (signed or provisionally applied, and when), or replace it with a neutral line about the frontier. Also explain why the rewind stops at 1943, or swap that stop for a siege-era date.",
+ "_nhan": {
+  "X": "D",
+  "Y": "C",
+  "Z": "A"
+ },
+ "_prompt": "You are 54, a history enthusiast who watches long military-history and siege documentaries; you have read about Gibraltar and you leave when a video oversimplifies, gets a date wrong or sounds like clickbait.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 5,
+  "why": "The midnight runway walk is a cool hook visually, but the narration starts with two near-identical quotes, so it feels like a homework citation. Neither quote tells me anything new, and it takes about 10 seconds to get to 'it sits at the western gate.' The dates and sources are fine, but they make it feel like a lecture.",
+  "moment_you_would_leave_or_doubt": "Around second 8, when the British quote repeats the Spanish one. I think 'ok, same thing twice, where's the story?' and my thumb starts moving."
+ },
+ "Y": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "'To walk into Gibraltar, you cross an airport runway' is a fact I didn't know, and it hooks me right away. The new treaty and no-checks detail makes it feel current. 'But look where it sits' pairs well with the zoom-out. Then '14 sieges, only five changed who ruled it' is a real curiosity gap: why so many attacks and so few wins? It's concrete and moves quickly.",
+  "moment_you_would_leave_or_doubt": "A small doubt at the treaty line, because it's a bit of a politics detour and I'm not sure how it connects to sieges. 'But look where it sits' is vague for a second, but the zoom-out fixes it. I'd stay."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 6,
+  "why": "'Same rock. Same image. Opposite sides.' is punchy and I like the two-sides angle. The quotes are the same device as X but tighter. However, there's no surprising fact or number until the sieges card, and 'same image' is a bit abstract. It's a clever setup, but it's more about historians than about the rock.",
+  "moment_you_would_leave_or_doubt": "At the second quote, which comes before I've been given a reason to care. 'Same image' is also vague until I realise it means the 'key' metaphor, so I'd be lightly confused."
+ },
+ "ranking_best_first": [
+  "Y",
+  "Z",
+  "X"
+ ],
+ "one_change_to_the_best_version": "Cut or shorten the treaty line ('Since July... no routine checks') so the runway hook goes straight to 'look where it sits.' Or tie it to the sieges, for example 'This gate has been contested for 700 years.' Also put 'only five changed who ruled it' right next to the 14 sieges number so the hook lands in one beat.",
+ "_nhan": {
+  "X": "D",
+  "Y": "A",
+  "Z": "C"
+ },
+ "_prompt": "You are 23, you scroll YouTube on your phone on the bus, mostly short history and geography videos; you leave in seconds if an opening feels slow, vague or like a lecture.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway toward the Rock; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[camera cranes up over the isthmus and the runway to the Rock's north face; on screen: \"the key of the Mediterranean\" — Sayer, 1862] A British one, two years later: \"the key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and straight back down] It sits at the western gate of the Mediterranean.\n[title card \"14 sieges · 1309–1783\", source line \"Sayer 1862 · García Sanz 2022 · Gibraltar National Museum\"] Historians on both sides count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}

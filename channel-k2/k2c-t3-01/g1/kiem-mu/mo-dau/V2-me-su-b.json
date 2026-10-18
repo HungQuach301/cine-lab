@@ -1,0 +1,32 @@
+{
+ "X": {
+  "keep_watching": true,
+  "chance_0to10": 7,
+  "why": "The dual-historian hook (Sayer 1862 vs Montero 1860) with on-screen sources shows the maker knows the historiography. Presenting both sides' records is exactly what I want. It promises 'told from both sides' records', and the 14 sieges, 1309-1783 framing is the standard count (Sayer). It doesn't oversell.",
+  "moment_you_would_leave_or_doubt": "'Same rock. Same image. Opposite sides.' is a bit of a slogan, and the 'midnight 2026 at the border gate' image is a slightly gimmicky opener. Also, the 'key' quote is a well-worn cliché, and I'd doubt it if the video then just recited it without questioning where the 14 comes from. I'd bail if the 'both sides' promise turned out to be only a rhetorical device."
+ },
+ "Y": {
+  "keep_watching": false,
+  "chance_0to10": 4,
+  "why": "Opens with a bare, dramatic 'Fourteen.' over a blurred Rock, which is clickbait cadence. The claim that British and Spanish historians count 'the same way' is shaky: counts of the sieges vary by source and by how you define a siege, and I don't believe the two traditions line up that neatly. The 'only five changed who ruled it' line is a punchy stat I'd want to verify, and no source is given at all.",
+  "moment_you_would_leave_or_doubt": "'British and Spanish historians count the same way' with the identical '14' under both columns. That feels invented for tidiness, and I'd start doubting the whole count. Also, the '14' hook with no source on screen."
+ },
+ "Z": {
+  "keep_watching": true,
+  "chance_0to10": 8,
+  "why": "It grounds the viewer in a concrete place, with a correct, current detail (the runway crossing, the frontier). The sourced title card ('Sayer 1862 · Gibraltar National Museum') is exactly the credibility signal I look for, and the rewind through 1943, 1782 and 1704 with source maps promises real historical depth. The tone is measured, not shouty.",
+  "moment_you_would_leave_or_doubt": "'Since July, under a new UK–EU treaty, there are no routine checks at this gate' is a present-day claim I'd want to verify, and if it were wrong or overstated I'd leave. 'Only five changed who ruled it' is also tossed off without support. And '1943' is an odd stop (the 1943 Liberator crash, presumably), so it had better be explained."
+ },
+ "ranking_best_first": [
+  "Z",
+  "X",
+  "Y"
+ ],
+ "one_change_to_the_best_version": "Drop the unsupported 'Only five changed who ruled it' line, or put the list of the five on screen with dates and a source, and add the Spanish-side source (e.g., Montero) next to Sayer's so the 'both sides' promise is visibly kept from the start.",
+ "_nhan": {
+  "X": "C",
+  "Y": "B",
+  "Z": "A"
+ },
+ "_prompt": "You are 54, a history enthusiast who watches long military-history and siege documentaries; you have read about Gibraltar and you leave when a video oversimplifies, gets a date wrong or sounds like clickbait.\n\nYou just clicked a YouTube video titled \"Why Gibraltar Was Besieged 14 Times\". Below are three different versions of its first ~30 seconds (X, Y and Z). Each line gives the picture on screen in [brackets] and then the narration. After these 30 seconds, all three versions continue identically.\n\n--- Version X ---\n[midnight 2026 at the border gate, a pedestrian crossing the runway; the quote appears on screen credited \"Sayer, 1862\"] A British historian called it \"the key of the Mediterranean.\"\n[camera cranes up over the isthmus; on screen: «la preciosa llave del Mediterráneo» — Montero, 1860] A Spanish historian called it \"the precious key of the Mediterranean.\"\n[quick zoom out to the Strait between Europe and Africa, and back down] Same rock. Same image. Opposite sides.\n[title card \"14 sieges · 1309–1783\" with a small source line] Historians count fourteen sieges of it, between 1309 and 1783.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] Here's why everyone fought over this key, told from both sides' records.\n\n--- Version Y ---\n[a large \"14\" appears over a dark, blurred view of the Rock] Fourteen.\n[camera cranes up from the border gate at dawn: the isthmus, the runway, the Rock's north face] That's how many times historians count Gibraltar being besieged, between 1309 and 1783.\n[quick zoom out to the whole Strait between Europe and Africa, and back down] British and Spanish historians count the same way.\n[two-column card: British historians ↔ Spanish historians, the same \"14\" under each] And only five of those sieges changed who ruled it.\n[camera pushes into the old town, which rewinds 2026 → 1704, each step labelled with year and source] This is how a rock of under six square kilometres became the place everyone fought over, told from both sides' records.\n\n--- Version Z ---\n[midnight 2026, camera at walking height follows a pedestrian crossing an airport runway toward a huge rock; small place label \"Gibraltar–La Línea frontier\"] Midnight at the edge of Spain. To walk into Gibraltar, you cross an airport runway.\n[camera cranes up from the border gate: the sandy isthmus, the runway across it, the Rock's sheer north face] Since July, under a new UK–EU treaty, there are no routine checks at this gate.\n[quick zoom out to the whole Strait — Europe and Africa, the mouth of the Mediterranean — and straight back down] But look where it sits.\n[title card \"14 sieges · 1309–1783\", small source line \"Sayer 1862 · Gibraltar National Museum\"] Historians count fourteen sieges of Gibraltar between 1309 and 1783.\n[camera pushes in from the bay into the old town, which rewinds 2026 → 1943 → 1782 → 1704 (each step labelled with year and source map)] Only five changed who ruled it. This is why everyone fought over it, told from both sides' records.\n\nFor EACH version, answer honestly as yourself: after these 30 seconds, would you keep watching? Then rank the three. Do not be polite; you have no stake in who made it.\nReply with ONLY this JSON (no other text):\n{\"X\": {\"keep_watching\": true|false, \"chance_0to10\": n, \"why\": \"...\", \"moment_you_would_leave_or_doubt\": \"...\"},\n \"Y\": {...}, \"Z\": {...},\n \"ranking_best_first\": [\"?\", \"?\", \"?\"], \"one_change_to_the_best_version\": \"...\"}"
+}
