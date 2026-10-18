@@ -30,6 +30,15 @@ if XL:
     reg_, mat_, mc_, _ = LC.load_cls(BG); xm = np.zeros_like(prot)
     for k in XL: xm |= (reg_ == int(k)) if k.isdigit() else (mat_ == mc_[k])
     prot |= cv2.dilate(xm.astype(np.uint8), cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (5, 5))) > 0
+if '--dat-xa' in sys.argv:   # PT4 HC4 W7: mặt đất xa hơn N m — AI vẽ thêm tường thấp + bậc ở cuối quảng trường 1943 → thay C bằng A đã KHỚP ĐỘ LỢI màu
+    nm = float(sys.argv[sys.argv.index('--dat-xa') + 1]); reg_d, _, _, _ = LC.load_cls(BG); dep_d = LC.exr(os.path.join(BG, 'depth.exr'))
+    gnd = reg_d == 9800; ref = gnd & (dep_d > nm - 25) & (dep_d < nm - 10)              # dải đá C ngay trước vùng xa để khớp màu
+    yc_ = C.mean(-1); ref &= yc_ > np.percentile(yc_[ref], 65)   # chỉ phần sáng (có nắng) — vùng xa đang có nắng ở d2
+    gain = np.median(C[ref] / np.maximum(A2old[ref], 1e-4), 0).astype(np.float32)   # trung vị TỈ SỐ (chiếu sáng triệt tiêu)
+    w = np.clip((dep_d - (nm - 10)) / 10.0, 0, 1) * gnd                                    # hoà dần 10 m
+    w = cv2.GaussianBlur(w.astype(np.float32), (0, 0), 2.0) * gnd
+    C = C * (1 - w[..., None]) + (A2old * gain) * w[..., None]
+    print('dat-xa gain', gain.round(3), 'pct', round(float((w > 0.5).mean() * 100), 2))
 edit = ~prot
 k21 = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (21, 21))
 lt = np.log(np.clip(((C + 2e-3) / (A2old + 2e-3)).mean(-1), 1e-3, 1e3)); med = cv2.GaussianBlur(lt, (0, 0), 40)

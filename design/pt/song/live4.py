@@ -11,7 +11,7 @@
 import os, sys, json, math, argparse, subprocess, random
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFont
-HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(HERE, '..', 'scene'))
+HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, '..', 'lai')); sys.path.insert(0, os.path.join(HERE, '..', 'scene'))
 import lai_common as LC
 os.environ['PT_CAM'] = 'pt'
 import pt_site as S
@@ -36,7 +36,7 @@ CAMK = {1782: 'k1782', 1943: 'pt'}
 # vai và tỉ lệ theo thời kỳ: 1782 phố sau pháo kích 4/1781 dân chạy về nam (S062) → chủ yếu quân đồn trú; 1943 KHÔNG phụ nữ/trẻ em (sơ tán 1940, S114)
 PMAP = {'d1': 'd1', 'd2': 'd2', 'd3': 'd4', 'd4': 'd4', 'n': 'd2'}   # sprite dựng 3 lượt; d3 dùng d4, đêm dùng d2 tối + lam (NIGHT)
 NIGHT = np.array([0.022, 0.026, 0.038], np.float32)
-WORKER = {1782: ('linh2', 'phao_binh'), 1943: ('tho',)}             # tổ việc sát tường: chữa tường 1782 (dầm chống, S063) / thợ 1943
+WORKER = {1782: ('linh2', 'phao_binh'), 1943: ()}                   # tổ việc sát tường: chữa tường 1782 (dầm chống, S063); 1943 không (tư thế hai tay giơ trước tường đọc như bị khám xét — bỏ sau rà)
 ROLEW = {1782: {'linh': 0.34, 'linh2': 0.22, 'phao_binh': 0.16, 'thuy_thu': 0.12, 'dan_nam': 0.12, 'dan_nu': 0.04},
          1943: {'linh': 0.28, 'linh2': 0.22, 'thuy_thu': 0.17, 'thuy_thu_trang': 0.08, 'raf': 0.12, 'tho': 0.13}}
 
@@ -77,7 +77,7 @@ class Epoch:
         for role in s.sm:
             for p in sorted(set(PMAP.values())):
                 c = OpenEXR.File(os.path.join(sp, f'{role}_{p}.exr')).parts[0].channels['ViewLayer.Combined'].pixels.astype(np.float32)
-                s.sheet[(role, p)] = np.pad(c, ((PAD, PAD), (PAD, PAD), (0, 0)))
+                s.sheet[(role, p)] = c.astype(np.float16)   # float16, không đệm (13 vai × 3 lượt × 2 mốc phải vừa RAM 15 GB)
         s.dirs = {}; s.cell = {}
         for role, rm in s.sm.items():
             for c in rm['cells']: s.dirs[(role, c['a'])] = np.array(c['dir']); s.cell[(role, c['a'], c['pose'])] = c
@@ -142,7 +142,7 @@ class Epoch:
         nhóm đứng 2–4 người quay vào tâm nhóm (nói/nhìn/chắp tay), tổ việc sát tường, gác cặp — KHÔNG xếp hàng."""
         R = s.rng; s.walk = []; s.stand = []; s.n_group = 0; s.n_work = 0
         tries = 0
-        while len(s.walk) < 120 and tries < 20000:
+        while len(s.walk) < (60 if s.ep == 1782 else 70) and tries < 20000:   # hẻm 1782 hẹp 7–8 m: ít người hơn quảng trường 1943
             tries += 1
             t0 = R.uniform(-8.0, SEG); hr = H0 + (H1 - H0) * max(0, t0) / SEG
             if R.random() > busy(hr) * (0.12 if hr > 19.6 else 1.0): continue
@@ -169,7 +169,7 @@ class Epoch:
                 fd = (c[0] - x, c[1] - y); grp.append((x, y, role, R.randrange(2), pose, fd, R.uniform(0.94, 1.06), R.uniform(0.88, 1.1)))
             if len(grp) >= 2:
                 s.stand.append({'t0': (hr - H0) / (H1 - H0) * SEG, 't1': (hr - H0) / (H1 - H0) * SEG + dur, 'people': grp, 'kind': 'nhom'}); s.n_group += 1
-        for k in range(5):    # tổ việc sát tường: 1–3 người làm, 0–1 người đứng xem
+        for k in range(5 if WORKER[s.ep] else 0):    # tổ việc sát tường: 1–3 người làm, 0–1 người đứng xem
             hr = R.uniform(8.8, 18.0); pos, nrm = s.near_wall(R)
             if not pos: continue
             grp = []
@@ -210,11 +210,13 @@ class Epoch:
 
     def sprite(s, w, role, ai, pose):
         rk = role if role in s.sm else role
-        c = s.cell[(rk, ai, pose)]; fx, fy = c['foot_px'][0] + PAD, c['foot_px'][1] + PAD; px = s.pxm; hw = s.sm[rk]['cellx'] / 2
+        c = s.cell[(rk, ai, pose)]; fx, fy = c['foot_px'][0], c['foot_px'][1]; px = s.pxm; hw = s.sm[rk]['cellx'] / 2
         x0, x1 = int(fx - hw * px), int(fx + hw * px); y0, y1 = int(fy - 2.08 * px), int(fy + 0.12 * px)
         im = 0
         for p, wt in w.items():
-            sh = s.sheet[(rk, PMAP[p])][y0:y1, x0:x1]
+            SH = s.sheet[(rk, PMAP[p])]; Hs, Ws = SH.shape[:2]
+            sh = SH[max(0, y0):min(Hs, y1), max(0, x0):min(Ws, x1)].astype(np.float32)
+            sh = np.pad(sh, ((max(0, -y0), max(0, y1 - Hs)), (max(0, -x0), max(0, x1 - Ws)), (0, 0)))
             if p == 'n': sh = sh * np.concatenate([NIGHT / 0.5, [1.0]]).astype(np.float32)   # đêm: sprite d2 tối + lam (alpha giữ)
             im = im + sh * wt
         return im, (fx - x0, fy - y0)
@@ -257,6 +259,10 @@ class Epoch:
         X0, Y0 = max(0, ox), max(0, oy); X1, Y1 = min(s.W, ox + nw), min(s.H, oy + nh)
         if X1 <= X0 or Y1 <= Y0: return
         sub_c = col[Y0 - oy:Y1 - oy, X0 - ox:X1 - ox]; sub_a = al[Y0 - oy:Y1 - oy, X0 - ox:X1 - ox]
+        if nh > 40:   # viền mềm (ống kính thật không cắt sắc như alpha CG) + quấn sáng: nền mờ tràn vào mép người
+            sub_a = cv2.GaussianBlur(sub_a, (0, 0), 0.6); sub_c = cv2.GaussianBlur(sub_c, (0, 0), 0.45)
+            bgl = cv2.GaussianBlur(img[Y0:Y1, X0:X1], (0, 0), 3.0); edge = np.clip(sub_a * (1 - sub_a) * 4, 0, 1)[..., None]
+            sub_c = sub_c * (1 - 0.35 * edge) + bgl * sub_a[..., None] * 0.35 * edge
         vis = (s.depth[Y0:Y1, X0:X1] > p[3] - 0.6).astype(np.float32)
         k = vis * op                                  # EXR của Cycles (nền trong suốt): màu đã nhân alpha
         img[Y0:Y1, X0:X1] = img[Y0:Y1, X0:X1] * (1 - (sub_a * k)[..., None]) + sub_c * k[..., None]
@@ -300,7 +306,7 @@ class Epoch:
             rk = wk['role'] if wk['role'] == 'khieng' else f"{wk['role']}~{wk['b_']}"
             ai = s.face_index(rk, (ux, uy)); fade = min(1.0, dt / 0.25, (dur - dt) / 0.25)
             n_wk += 1 + (wk['role'] == 'khieng'); n_carry += bool(wk['carry']); n_pair += wk['role'] == 'khieng'
-            for j, op in enumerate((1.0, 0.24, 0.12, 0.06, 0.03)):
+            for j, op in enumerate((1.0, 0.12, 0.06, 0.03)):   # vệt phơi sáng nhẹ hơn PT2 (khung tĩnh lộ bóng người trong suốt)
                 d = dt * v - j * 0.18 * wk['spd']
                 if d < 0: break
                 x, y = wk['a'][0] + ux * d, wk['a'][1] + uy * d
@@ -363,9 +369,9 @@ class Epoch:
         col = sum(s.hz_col[p] * wt for p, wt in w.items()); night = w.get('n', 0.0)
         dpt = np.minimum(s.depth, 4000.0)
         morning = math.exp(-((hr - 8.8) / 1.3) ** 2); evening = math.exp(-((hr - 18.3) / 1.2) ** 2)   # khói bếp sáng/chiều
-        dens = (0.0042 + 0.004 * morning + 0.003 * evening) * (1 - 0.6 * night)
+        dens = (0.0024 + 0.0018 * morning + 0.0014 * evening) * (1 - 0.6 * night)
         sh = int((t * 6) % s.W); nz = s.noise[:, sh:sh + s.W] if sh + s.W <= s.noise.shape[1] else np.roll(s.noise, -sh, 1)[:, :s.W]
-        fog = 1 - np.exp(-dpt * dens * (0.7 + 0.6 * nz))
+        fog = 1 - np.exp(-np.maximum(dpt - 20.0, 0.0) * dens * 1.4 * (0.7 + 0.6 * nz))   # sương bắt đầu sau 20 m: giữ chi tiết tường gần, xa đặc dần
         fog = np.where(s.sky, 0.0, fog)[..., None]
         fcol = col * (1 - night) * 0.95 + night * np.array([0.004, 0.006, 0.011]) + (np.array([0.02, 0.015, 0.01]) * (morning + evening) * (1 - night))
         img = img * (1 - fog) + fcol * fog
@@ -379,14 +385,14 @@ class Epoch:
                 sd = np.array([math.sin(math.radians(az)) * math.cos(math.radians(alt)), math.cos(math.radians(az)) * math.cos(math.radians(alt)), math.sin(math.radians(alt))])
                 zc = sd @ s.f; sx = s.W / 2 + s.fpx * (sd @ s.r) / max(zc, 0.05); sy = s.H / 2 - s.fpx * (sd @ s.u) / max(zc, 0.05)
                 back = max(0.0, zc)                                   # ngược sáng: tán xạ mạnh khi mặt trời trước máy
-                src = (sv * (dpt < 120) + 1.4 * s.sky).astype(np.float32) * (s.depth > 6)
+                src = (sv * (dpt < 120) + 1.0 * s.sky).astype(np.float32) * (s.depth > 6)
                 acc = np.zeros_like(src); k = 0
                 for q in np.linspace(0.0, 0.32, 9):                     # mờ hướng tâm về phía mặt trời
                     M = np.float32([[1 - q, 0, q * sx], [0, 1 - q, q * sy]]); acc += cv2.warpAffine(src, M, (s.W, s.H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT); k += 1
                 acc /= k
                 warm = w.get('d4', 0) + 0.5 * w.get('d3', 0)
                 scol = np.array([1.0, 0.93 - 0.15 * warm, 0.82 - 0.3 * warm]) * float(np.mean(col)) * 1.6
-                amt = (0.05 + 0.22 * back) * day * (1 - np.exp(-dpt / 60.0))
+                amt = (0.015 + 0.11 * back) * day * (1 - np.exp(-dpt / 60.0))
                 img = img + (acc * amt)[..., None] * scol
                 # bụi: hạt sáng nhỏ trôi chậm, chỉ trong không khí có nắng ở 8–30 m
                 dd = s.dust; xs = ((dd[:, 0] * s.W + t * 9 * (dd[:, 2] - 0.3)) % s.W).astype(int); ys = ((dd[:, 1] * s.H * 0.9 + t * 4 * (dd[:, 3] - 0.5)) % s.H).astype(int)
@@ -433,7 +439,7 @@ class Epoch:
             if s.sky[y, x]: img[y, x] += b
 
 GRADE = {'sat': 1.85, 'contrast': 0.42, 'warm': 0.04}   # chỉnh màu chung PT (A-thuần, và LAI khi --grade chung)
-GRADE_LAI = {'sat': 1.18, 'contrast': 0.46, 'warm': 0.025, 'sat_hi': 0.82}   # P2-3: LAI riêng — tấm C đã giàu màu; bớt bão hoà, giữ tương phản (đo §5)
+GRADE_LAI = {'sat': 1.5, 'contrast': 0.46, 'warm': 0.025, 'sat_hi': 0.8}   # P2-3: LAI riêng — tấm C đã giàu màu; bớt bão hoà, giữ tương phản (đo §5)
 def grade(img):
     if (A.grade or ('lai' if A.ban == 'LAI' else 'chung')) == 'lai': return grade_lai(img)
     x = np.clip(img, 0, None); out = LC.lin2srgb(x / (1 + 0.15 * x))
@@ -487,7 +493,10 @@ def run(W, H, frames, write_video, stills_at, notext):
             img = a_img * (1 - mix) + b_img * mix; info = {'tr': round(mix, 3), 'a': ia, 'b': ib}; lab = 1782 if mix < 0.5 else 1943
         else:
             img, info = E[ep].frame(tt, hr, f * 7919 + ep)
-        rgb = overlay((grade(img) * 255 + 0.5).astype(np.uint8), yr, lab, notext, scale)
+        g = grade(img)
+        rs_ = np.random.RandomState(f % 100000); gr = cv2.GaussianBlur(rs_.randn(H, W).astype(np.float32), (0, 0), 0.7 * scale + 0.3)   # hạt phim chung (cả nền + người)
+        g = np.clip(g + (gr * 0.022 * (0.35 + 0.65 * np.sqrt(np.clip(g.mean(-1), 0, 1))))[..., None], 0, 1)
+        rgb = overlay((g * 255 + 0.5).astype(np.uint8), yr, lab, notext, scale)
         rec = {'f': f, 't': round(t, 3), 'epoch': ep, 'gio_ao': None if hr is None else round(hr, 3), 'nam': yr, 'ban': A.ban, 'ai_image': A.ban == 'LAI',
                'nhan_phuong_phap': (not notext) and A.ban == 'LAI', **info}
         log.write(json.dumps(rec, ensure_ascii=False) + '\n')
