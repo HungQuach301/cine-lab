@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""NC-H1…NC-H5 luật hình "nơi chốn" rút từ đánh giá T2 của chủ dự án — bản 1.13.0 (phiên K, 17/10/2026). Mặc định CHỈ BÁO (cấp đề xuất:
+"""NC-H1…NC-H5 luật hình "nơi chốn" rút từ đánh giá T2 của chủ dự án — bản 1.13.0 (phiên K, 17/10/2026); 1.14.0: loại `strategic` (B3). Mặc định CHỈ BÁO (cấp đề xuất:
 reports/K-1.13-BAO-CAO.md, cap112.py). Căn cứ: reports/NC-LICH-SU-BAO-CAO.md §6 (origin/nc-lich-su @a30af04): chủ dự án xem T2 "Shipbuilding" —
 (1) nơi thành phố chỉ là địa hình, không có nhà; (2) địa cầu/độ cao lớn không cần thiết. Định nghĩa: checks/ll/RULES-LL.md mục "1.13".
 
@@ -26,6 +26,10 @@ NC-H1 Thành phố có nhà. Đơn vị = shot (tập) hoặc cửa sổ `noi` (
   (b) có khung fabric_pct < FAB_MIN %, TRỪ khung trong ≤ REVEAL_TAIL s cuối một cú reveal kéo lùi (bo-tl.reveal kieu keo_lui) → TRƯỢT
   Tập không có mặt nạ fabric: shot thành phố có lớp nhà khai (opt.aerial ảnh hàng không, opt.city/buildings/ghost, ảnh/footage) → "khai, không
   đo fabric" (ĐẠT theo đặc tả, ghi THIẾU số đo); bản đồ nổi/địa cầu không lớp nhà → fabric = 0 theo đặc tả → TRƯỢT (a).
+1.14 (chủ dự án duyệt B3 17/10): shot `type: strategic` ĐẠT định nghĩa BD-1 (e) (q_bando.strat_info: nghiêng ≤ 30°, bề ngang 300–5 000 km,
+  không phải map/globe) KHÔNG tính vào NC-H2 và bị loại khỏi CẢ tử số LẪN mẫu số NC-H3 (mẫu số = thời lượng 3D địa lý trừ shot strategic hợp lệ;
+  nên bản đồ phẳng tầm cao không kéo tỷ lệ AGL thấp xuống, và cũng không có giây nào được cộng vào phần "AGL thấp"). Shot strategic SAI định nghĩa
+  tính như cảnh bản đồ thường (NC-H2/H3 áp đủ). Mọi shot type strategic (đúng hay sai định nghĩa) KHÔNG bao giờ là đơn vị "thành phố" của NC-H1.
 NC-H2 Địa cầu. Khung AGL > GLOBE_KM km là "địa cầu". Một LẦN = chuỗi khung địa cầu liền nhau (qua mối cắt vẫn là một lần).
   (a) > GLOBE_N lần/tập → TRƯỢT;  (b) một lần dài > GLOBE_S s → TRƯỢT. Báo kèm: lần nào là map/globe, lần nào là bản đồ nổi tầm cao.
 NC-H3 Tầm mặc định. Trên thời lượng 3D địa lý (khung có AGL): (a) phần AGL ≤ RANGE_KM km < RANGE_PCT % → TRƯỢT;
@@ -163,8 +167,10 @@ def shots(E, TL):
                     km = v[0] * math.cos(math.radians(v[1])) if v else None
                 else: km = globe_at(keys, dur, tau)
                 if km is not None: agl.append((round(tt, 3), round(km, 3)))
+        from checks.ll import q_bando
+        sok, swhy = q_bando.strat_info(z['ty'], sc, z['spec'], p, o)
         out.append(dict(seg=z['seg'], i=z['i'], t0=z['t0'], t1=z['t1'], ty=z['ty'], scene=sc, geo=geo, hero=k, p=p, h=h, o=o, spec=z['spec'],
-                        agl=agl, agl_src=src, noi=noi, where=str(p.get('where') or '').strip()))
+                        agl=agl, agl_src=src, noi=noi, where=str(p.get('where') or '').strip(), strat=z['ty'] == 'strategic', strat_ok=sok, strat_why=swhy))
     return out
 
 
@@ -197,10 +203,13 @@ def _segs_from_frames(frames, dt):
 # ================================================================ NC-H1 … NC-H4 trên tập
 def nc_tap(E, TL):
     S = shots(E, TL); T = float(TL['tong_s'])
-    geo = [z for z in S if z['agl']]
+    geo = [z for z in S if z['agl'] and not z['strat_ok']]   # 1.14: strategic hợp lệ ra khỏi NC-H2/H3
+    so = [z for z in S if z['strat_ok']]; sx = (f" · loại strategic hợp lệ {len(so)} shot ({sum(z['t1'] - z['t0'] for z in so):.1f} s) khỏi NC-H2/H3"
+                                               if any(z['strat'] for z in S) else '')
     # ---- NC-H1
     L1, th1, units, rows1, near1 = [], [], [], [], []
     for z in S:
+        if z['strat']: continue   # 1.14: bản đồ chiến lược không bao giờ là cảnh thành phố
         if z['geo'] is None and not z['noi']: continue
         lowalt = any(km <= CITY_KM for _, km in z['agl'])
         if z['noi']: city, why = str(z['noi']).strip().lower() in ('thanh_pho', 'thành phố', 'city'), f"khai noi: {z['noi']}"
@@ -240,7 +249,7 @@ def nc_tap(E, TL):
     tg = sum(x['d'] for x in runs)
     H2 = r(True, L2, [] if geo else ['không có shot bản đồ/địa cầu có máy quay đọc được'],
            val=f"{len(runs)} lần · {tg:.1f} s ({100 * tg / T:.1f} % phim) · map/globe {sum(x['d'] for x in runs if x['geo'] == {'globe'}):.1f} s"
-               f" · bản đồ nổi tầm cao {sum(x['d'] for x in runs if 'relief' in x['geo']):.1f} s · dài nhất {max([x['d'] for x in runs] or [0])} s", sat_nguong=near2, lan=runs and [
+               f" · bản đồ nổi tầm cao {sum(x['d'] for x in runs if 'relief' in x['geo']):.1f} s · dài nhất {max([x['d'] for x in runs] or [0])} s" + sx, sat_nguong=near2, lan=runs and [
                dict(t0=round(x['t0'], 2), t1=round(x['t1'], 2), d=x['d'], max_km=round(x['max']), geo=sorted(x['geo']), shot=sorted(x['z'])) for x in runs])
     # ---- NC-H3
     d3 = len(fr) * STEP; lo = sum(STEP for _, km, _ in fr if km <= RANGE_KM); ci = sum(STEP for _, km, _ in fr if km <= CITY_KM)
@@ -248,7 +257,7 @@ def nc_tap(E, TL):
     if d3 and p_lo < RANGE_PCT: L3.append(f"(a) AGL ≤ {RANGE_KM:g} km {p_lo:.1f} % thời lượng 3D địa lý < {RANGE_PCT:g} %")
     if d3 and units and p_ci < CITY_PCT: L3.append(f"(b) tập có thành phố ({len(units)} shot): AGL ≤ {CITY_KM:g} km {p_ci:.1f} % < {CITY_PCT:g} %")
     H3 = r(True, L3, [] if d3 else ['không có thời lượng 3D địa lý'], val=f"3D địa lý {d3:.1f} s · AGL ≤ {RANGE_KM:g} km {p_lo:.1f} % · ≤ {CITY_KM:g} km {p_ci:.1f} %"
-           f" · có thành phố: {'có' if units else 'không'}", sat_nguong=_sat('AGL ≤ 60 km %', round(p_lo, 1), RANGE_PCT) + (_sat('AGL ≤ 3 km %', round(p_ci, 1), CITY_PCT) if units else []),
+           f" · có thành phố: {'có' if units else 'không'}" + sx, sat_nguong=_sat('AGL ≤ 60 km %', round(p_lo, 1), RANGE_PCT) + (_sat('AGL ≤ 3 km %', round(p_ci, 1), CITY_PCT) if units else []),
            pct_60=round(p_lo, 1), pct_3=round(p_ci, 1), giay_3d=round(d3, 2))
     # ---- NC-H4
     names = {str(x).strip().lower() for x in E.get('places') or [] if str(x).strip()}

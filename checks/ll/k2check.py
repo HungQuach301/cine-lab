@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Bộ luật kênh 2 — một lệnh (phiên K, bản 1.11.0, 15/10/2026; 1.12.0, 16/10/2026; 1.12.1, 17/10/2026; 1.13.0, 17/10/2026). Áp cho tập kênh 2 từ K2 tập 3 (T2 chạy checks 1.10.2 đã ghim).
+"""Bộ luật kênh 2 — một lệnh (phiên K, bản 1.11.0, 15/10/2026; 1.12.0, 16/10/2026; 1.12.1, 17/10/2026; 1.13.0, 17/10/2026; 1.14.0, 17/10/2026). Áp cho tập kênh 2 từ K2 tập 3 (T2 chạy checks 1.10.2 đã ghim).
 Phiên xưởng chỉ CHẠY (không đọc mã). Định nghĩa: checks/ll/RULES-LL.md.
 
   k2check.py <episode.yaml> [--tl timeline.json] [--master master.mp4] [--mix mix.json] [--logs <thư mục *.log.json>]
@@ -18,6 +18,8 @@ FT1 chỉ báo footage · BC1 bố cục (khi có --mask) · MAU1 màu/chi tiế
 1.13.0 (17/10, CHỈ BÁO, chờ duyệt): NC-H1 thành phố có nhà · NC-H2 địa cầu · NC-H3 tầm mặc định · NC-H4 nơi có tên · NC-H5 đúng thời kỳ (tập; và
 mỗi --bo-tl: hàng "NC-Hx [bộ]") · Q7/Q8-K2 nhận estimate · Q33 (1.13) pHash bỏ lớp chữ cố định · Q36 (1.13) câu miễn trừ theo chữ · Q37 (1.13)
 khung tĩnh theo khung neo. Hàng Q33/Q36/Q37 cũ giữ nguyên mã thoát tới khi chủ dự án duyệt thay.
+1.14.0 (17/10, CHỈ BÁO; chủ dự án duyệt B1–B8, YY5): BD-1…BD-8 bản đồ chiến lược `type: strategic` / inset / ranh lịch sử (khối `ban_do:` của
+episode.yaml + --logs) · K-R1…K-R9 khi episode.yaml khai `rui_ro: do-k` (khối `do_k:`; [--hang-doi HANG-DOI.md]) · NC-H2/H3 loại strategic hợp lệ.
 Mặc định: timeline <out>/timeline.json, master <out>/<id>-v1-master.mp4 nếu có, mix <out>/mix.json, log <out>/ nếu có *.mkv.log.json.
 """
 import glob, json, os, subprocess, sys
@@ -125,6 +127,30 @@ def main():
     bao('Q33 (1.13)', 'Lặp cảnh — pHash bỏ lớp chữ cố định', lambda: q_scene.q33(E, TL, video=mv, k2=True), '≤ 2 lần · pHash L vùng nội dung y 18–72 %, θ 16')
     bao('Q36 (1.13)', 'Chữ — câu miễn trừ nhận theo chữ', lambda: q_chu.q36(E, TL, logs, v113=True), '"This video explains… Facts as of" 1 lần trong 0:00–0:15 không đòi nguồn luật')
     bao('Q37 (1.13)', 'Nhịp — khung tĩnh theo khung neo', lambda: q_nhip.q37(E, TL, mv, v113=True), 'khung tĩnh (mọi khung khác khung đầu quãng < 2,0/255) ≤ 6 s')
+    # ---- 1.14: BD-1…BD-8 bản đồ chiến lược/inset/ranh (NC-BD §3.4; chủ dự án duyệt B1–B8 17/10) + K-R1…K-R9 ĐỎ-K (NC-LS2 §5.3; YY5) — CHỈ BÁO
+    from checks.ll import q_bando, q_dok
+    BDT = {'BD-1': 'Bản đồ chiến lược: tỷ trọng + định nghĩa', 'BD-2': 'Bản đồ chiến lược: chuyển động', 'BD-3': 'Nhãn ranh "approx. borders c. YYYY — nguồn"',
+           'BD-4': 'Manifest lớp ranh', 'BD-5': 'Biên hiện đại tranh chấp + lãnh thổ nhỏ', 'BD-6': 'Tuyến biển không cắt đất', 'BD-7': 'Màu phe cố định (+ B8 bản địa)',
+           'BD-8': 'Inset định vị'}
+    BDN = {'BD-1': '≤ 15 % · ≤ 8 s · ≤ 2/chương · không liền nhau · nghiêng ≤ 30°, 300–5 000 km · mốc thời gian, chú giải ≤ 3 phe, kề 3D nơi chỉ tới',
+           'BD-2': 'phần tử chuyển động bắt đầu ≤ 1,5 s, phủ ≥ 60 %', 'BD-3': 'nhãn regex ≥ 38 px ở ≥ 95 % khung có ranh',
+           'BD-4': 'nam/nguon/nguon_doi_chieu/lech_tb_px/giay_phep ∈ CC0·PD·CC-BY-4.0; lệch > 4 px → mép mềm/gạch', 'BD-5': '∩ (NE disputed ⊕ 10 km) = ∅ · lãnh thổ < 8 px là điểm',
+           'BD-6': 'tuyến biển ∩ đất NE 1:10m (trừ 5 km quanh cảng) = ∅ · ≥ 1 claim', 'BD-7': 'một faction_id một màu · không cờ/biểu tượng làm fill · bản địa không tô như đất trống',
+           'BD-8': '≤ 12 % khung · góc trên trái, an toàn 5 % · 2,5–4 s · không giao chữ/LL.occ · không trong liên hoàn/thẻ số/ảnh lưu trữ/2 s sau cắt cứng'}
+    try: BD = q_bando.check(E, TL, ep_dir, logs)
+    except Exception as e: BD = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in BDT}
+    if all(v.get('ket_qua') == 'KHÔNG ÁP' for v in BD.values()): bao('BD-1…BD-8', 'Bản đồ chiến lược / inset / ranh', lambda: dict(ok=True, loi=[], val='không có shot strategic, lớp ranh, tuyến hay inset', ket_qua='KHÔNG ÁP'))
+    else:
+        for k in BDT: bao(k, BDT[k], lambda k=k: BD[k], BDN[k])
+    KRT = {'K-R1': 'Từ cấm', 'K-R2': 'Biểu tượng trong khung', 'K-R3': 'Biên giới hiện đại', 'K-R4': 'Thương vong có claim', 'K-R5': 'Hình bạo lực',
+           'K-R6': 'Thumbnail', 'K-R7': 'Nhịp ĐỎ-K (HANG-DOI)', 'K-R8': 'Chấm mù 3 góc', 'K-R9': 'Mô tả + bình luận ghim'}
+    KRN = {'K-R1': '0 lần', 'K-R2': 'cuc_doan/ton_giao 0 khung · co_lich_su ≤ 2 %, ≤ 3 s, ≤ 3 lần', 'K-R3': '0 giao (NE disputed ⊕ 10 km)', 'K-R4': '100 % số có claim khoảng / ≥ 2 truyền thống',
+           'K-R5': '0', 'K-R6': '0 vi phạm', 'K-R7': '≤ 1 ĐỎ-K/4 tập · kề ≠ VÀNG · không T3–T5', 'K-R8': '3 vai · 0 cờ · ≥ 4/5', 'K-R9': 'as of · ≥ 2 truyền thống · ghim · từ chặn (khai)'}
+    if not q_dok.la_do_k(E): bao('K-R1…K-R9', 'ĐỎ-K', lambda: dict(ok=True, loi=[], val='tập không khai rui_ro: do-k', ket_qua='KHÔNG ÁP'))
+    else:
+        try: DK = q_dok.check(E, TL, ep_dir, logs, g('hang-doi'))
+        except Exception as e: DK = {k: dict(ok=False, ket_qua='THIẾU', loi=[], thieu=[f'không chạy được: {e}'], val='—') for k in KRT}
+        for k in KRT: bao(k, KRT[k], lambda k=k: DK[k], KRN[k])
     lk = subprocess.run([sys.executable, os.path.join(base.REPO, 'checks', 'lock.py'), '--verify'], capture_output=True, text=True)
     rows.append(dict(q='LOCK', ten=f'checks/ khớp LOCK ({VERSION})', kq='ĐẠT' if lk.returncode == 0 else 'TRƯỢT', val='KHỚP' if lk.returncode == 0 else 'KHÔNG KHỚP', nguong='', sat='', loi=[]))
     ok = all(r['kq'] in ('ĐẠT', 'CẢNH BÁO') or r['kq'].startswith('CHỈ BÁO') for r in rows)
