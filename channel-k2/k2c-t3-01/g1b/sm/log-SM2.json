@@ -1,0 +1,594 @@
+{
+ "shot": "SM2",
+ "dur": 7.5,
+ "tao_boi": "scripts/k2/hist/g1b_sm.py",
+ "khung_sach": "§12.1 (CHU-1 = A) — p.sach: true",
+ "nguon_ranh": [
+  {
+   "id": "sm2-1782",
+   "nam": 1782,
+   "ngay": "1780-01 → 1782-10 (Minorca đổi chủ 1782-02-05)",
+   "nguon": "Cliopatria (Seshat)",
+   "giay_phep": "CC-BY-4.0",
+   "doi_chieu": "OpenHistoricalMap",
+   "giay_phep_doi_chieu": "CC0",
+   "km_px": 0.755,
+   "lech_tb_px": 17.77,
+   "kieu_mep": "mem",
+   "ghi_cong": "Borders: Cliopatria v0.2.1 (Seshat Global History Databank), CC BY 4.0, changed (clipped to Natural Earth land, simplified; Minorca owner set by date from claim T020); cross-checked with OpenHistoricalMap contributors (CC0; includes data © Instituto Geográfico Nacional (CNIG), CC BY 4.0). Coast/land: Natural Earth (public domain). Relief: ETOPO 2022 (NOAA NCEI, CC0).",
+   "chinh_tay": [
+    "Minorca tách khỏi 'Kingdom of Spain' (Cliopatria tô TBN từ 1781 — sai; OHM 1782-01-05 — sai): Anh trước 1782-02-05, TBN từ 1782-02-05 (T020)",
+    "'British Colonial Empire' (Gibraltar polygon) bỏ — Gibraltar là ĐIỂM (< 8 px)",
+    "Presidio Oran (TBN 1732–1792) có trong Cliopatria, không có trong mẫu OHM → giữ theo Cliopatria (đúng thời kỳ), ghi lệch nguồn ở đây; lệch biên đo theo HÀNH LANG Tây Ban Nha–Bồ Đào Nha (−7,6…−6,0°)",
+    "Chú giải ≤ 3 phe: Britain · Spain · France (đồng minh TBN, giữ màu riêng — E4); Bồ Đào Nha, Ma-rốc, Algiers xám \"không tham chiến\" ghi bằng TÊN trên bản đồ, không thêm mục chú giải"
+   ],
+   "features": [
+    {
+     "id": "spain",
+     "ten": "Spain",
+     "faction_id": "spain",
+     "fill": "#c9a227",
+     "ve": "dac",
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 11.66,
+      "max_km": 91.2,
+      "n_diem": 16,
+      "lech_tb_px": 15.44,
+      "lech_max_px": 120.8,
+      "dt_lech_pct": 6.9
+     },
+     "claims": [
+      "T006"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "minorca",
+     "ten": "Minorca",
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [
+      "T020"
+     ],
+     "doi_chu": [
+      {
+       "ngay": "1782-02-05",
+       "faction_id": "spain",
+       "fill": "#c9a227",
+       "claims": [
+        "T020"
+       ]
+      }
+     ]
+    },
+    {
+     "id": "france",
+     "ten": "France",
+     "faction_id": "france",
+     "fill": "#2e5c8a",
+     "ve": "dac",
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 13.42,
+      "max_km": 73.7,
+      "n_diem": 7,
+      "lech_tb_px": 17.77,
+      "lech_max_px": 97.6,
+      "dt_lech_pct": 7.5
+     },
+     "claims": [
+      "T018"
+     ],
+     "doi_chu": []
+    },
+    {
+     "id": "portugal",
+     "ten": "Portugal",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 4.13,
+      "max_km": 7.48,
+      "n_diem": 8,
+      "lech_tb_px": 5.47,
+      "lech_max_px": 9.9,
+      "dt_lech_pct": 11.4
+     },
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "morocco",
+     "ten": "Morocco",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "algiers",
+     "ten": "Regency of Algiers",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    },
+    {
+     "id": "others",
+     "ten": "Other states (not at war)",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "kieu_mep": "lien",
+     "lech": null,
+     "claims": [],
+     "doi_chu": []
+    }
+   ],
+   "diem": [
+    {
+     "id": "gibraltar",
+     "ten": "Gibraltar",
+     "ll": [
+      -5.353,
+      36.14
+     ],
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "doi_chu": [],
+     "claims": [
+      "S040",
+      "S042"
+     ],
+     "ly_do": "≈ 6 km ở khung 1 450 km (≈ 0,76 km/px) → ≈ 8 px chiều dài, 1–2 px bề ngang: ĐIỂM (B5)"
+    }
+   ],
+   "nhan_cu_tren_hinh_da_bo": "approx. borders c. 1782 — Cliopatria (Seshat)"
+  }
+ ],
+ "nguon_tuyen": {
+  "tep": "channel-k2/k2c-t3-01/tuyen/routes.geojson",
+  "claims_md": "channel-k2/k2c-t3-01/tuyen/claims-tuyen.md",
+  "tuyen": [
+   {
+    "id": "R1780-RODNEY",
+    "ten": "Relief 1: Rodney",
+    "ngay": "1779-12-27/1780-01-18",
+    "mode": "sea",
+    "claims": [
+     "S054",
+     "T009",
+     "T010",
+     "T011"
+    ],
+    "doan_approx": [
+     {
+      "tu": "e_west_portugal",
+      "den": "off_st_vincent",
+      "approx": true,
+      "so_diem_dieu_khien": 1
+     },
+     {
+      "tu": "off_st_vincent",
+      "den": "gib_bay",
+      "approx": true,
+      "so_diem_dieu_khien": 6
+     }
+    ],
+    "vao_tu_mep": true,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1780-RODNEY",
+     "mode": "sea",
+     "dai_km": 967.8,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 1.92,
+     "dat": true
+    },
+    "so_diem_ve": 119
+   },
+   {
+    "id": "R1781-DARBY",
+    "ten": "Relief 2: Darby",
+    "ngay": "1781-03 (13/3 theo nguồn Anh; ~28/3 theo Fernández Duro)/1781-04-12",
+    "mode": "sea",
+    "claims": [
+     "S055",
+     "S062",
+     "T013",
+     "T014"
+    ],
+    "doan_approx": [
+     {
+      "tu": "st_helens",
+      "den": "off_cork",
+      "approx": true,
+      "so_diem_dieu_khien": 6
+     },
+     {
+      "tu": "off_cork",
+      "den": "off_spartel",
+      "approx": true,
+      "so_diem_dieu_khien": 7
+     },
+     {
+      "tu": "off_spartel",
+      "den": "gib_bay",
+      "approx": true,
+      "so_diem_dieu_khien": 4
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1781-DARBY",
+     "mode": "sea",
+     "dai_km": 2825.6,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 1.23,
+     "dat": true
+    },
+    "so_diem_ve": 169
+   },
+   {
+    "id": "R1782-HOWE",
+    "ten": "Relief 3: Howe (swept into the Mediterranean, then back; action 20 Oct)",
+    "ngay": "1782-09-11/1782-10-20",
+    "mode": "sea",
+    "claims": [
+     "S056",
+     "T015",
+     "T016",
+     "T017"
+    ],
+    "doan_approx": [
+     {
+      "tu": "spithead",
+      "den": "off_st_vincent",
+      "approx": true,
+      "so_diem_dieu_khien": 7
+     },
+     {
+      "tu": "off_st_vincent",
+      "den": "c_strait_mid",
+      "approx": true,
+      "so_diem_dieu_khien": 3
+     },
+     {
+      "tu": "c_strait_mid",
+      "den": "off_fuengirola",
+      "approx": true,
+      "so_diem_dieu_khien": 3
+     },
+     {
+      "tu": "off_fuengirola",
+      "den": "gib_bay",
+      "approx": true,
+      "so_diem_dieu_khien": 2
+     },
+     {
+      "tu": "gib_bay",
+      "den": "off_spartel",
+      "approx": true,
+      "so_diem_dieu_khien": 4
+     }
+    ],
+    "vao_tu_mep": false,
+    "ra_mep": false,
+    "kiem_dat_goc": {
+     "tuyen": "R1782-HOWE",
+     "mode": "sea",
+     "dai_km": 2489.1,
+     "cat_dat_km": 0.0,
+     "gan_bo_nhat_km": 1.61,
+     "dat": true
+    },
+    "so_diem_ve": 187
+   },
+   {
+    "id": "Z1779-BLOCKADE",
+    "ten": "Spanish blockade 1779–83 (Algeciras · Cabrita Point · Ceuta)",
+    "ngay": null,
+    "mode": null,
+    "claims": [],
+    "doan_approx": [],
+    "vao_tu_mep": null,
+    "ra_mep": null,
+    "kiem_dat_goc": null,
+    "so_diem_ve": 18
+   }
+  ]
+ },
+ "nen": {
+  "dem": "ETOPO 2022 15 arc-second surface (NOAA NCEI, CC0-1.0, DOI 10.25921/fd45-gt74)",
+  "bo_bien": "Natural Earth 1:10m (PD)"
+ },
+ "bac_can_cu": [
+  {
+   "phan_tu": "ranh giới chính thể",
+   "bac": 1,
+   "can_cu": "Cliopatria v0.2.1 (tổng hợp bản đồ lịch sử, tầm châu lục) đối chiếu OpenHistoricalMap; lệch đo trong lop-ranh.json"
+  },
+  {
+   "phan_tu": "màu phe / liên minh",
+   "bac": 2,
+   "can_cu": "claim văn bản (T004/T005 SM1; T006… SM2; T021–T026 SM3) — màu không lấy từ nguồn ranh"
+  },
+  {
+   "phan_tu": "điểm mốc tuyến (cảng, ngày)",
+   "bac": 2,
+   "can_cu": "claims-tuyen.md (trích nguyên văn, ≥ 2 nguồn khi XÁC MINH)"
+  },
+  {
+   "phan_tu": "đường đi giữa hai điểm mốc",
+   "bac": 5,
+   "can_cu": "điểm điều khiển ven bờ (routes.geojson doan[].approx = true), kiểm không cắt đất NE 1:10m — \"route approx.\" chỉ ghi ở log/mô tả"
+  },
+  {
+   "phan_tu": "địa hình nền",
+   "bac": 1,
+   "can_cu": "ETOPO 2022 15″ (NOAA NCEI, CC0) + bờ Natural Earth 1:10m (PD) — địa hình hiện đại, không phải bờ biển lịch sử"
+  }
+ ],
+ "chu_da_bo_khoi_hinh": [
+  "p.bnote \"approx. borders c. YYYY — <nguồn>\" (§11.1 cũ → §12.1: chuyển sang mô tả/bình luận ghim/thẻ \"How this film was made\")",
+  "sub \"route approx.\" ở nhãn đoàn/tuyến (§12.1)",
+  "mọi dòng nguồn \"Map: …\"/\"Borders: …\"/\"Relief: …\" (§12.1)",
+  "p.tags (k2.js sach lọc bỏ thẻ không phải số/câu trích) → nhãn tuyến/đoàn đặt ở p.places (nhãn địa danh/điểm, được giữ)"
+ ],
+ "ban_do": {
+  "nghieng": [
+   22,
+   29
+  ],
+  "be_ngang_km": [
+   1500,
+   340
+  ],
+  "dong": [
+   {
+    "loai": "route",
+    "t": [
+     0.6,
+     6.4
+    ]
+   },
+   {
+    "loai": "blockade",
+    "t": [
+     0.0,
+     0.9
+    ]
+   },
+   {
+    "loai": "camera",
+    "t": [
+     0.0,
+     7.5
+    ]
+   }
+  ],
+  "chu_giai": [
+   "Britain",
+   "Spain",
+   "France"
+  ],
+  "chi_toi": "Strait of Gibraltar (2f, 3D eo biển)",
+  "lop": "sm2-1782",
+  "nam": 1782,
+  "tuyen": [
+   "R1780-RODNEY",
+   "R1781-DARBY",
+   "R1782-HOWE",
+   "Z1779-BLOCKADE"
+  ],
+  "claims": [
+   "T006",
+   "T007",
+   "T009",
+   "T011",
+   "T013",
+   "T014",
+   "T015",
+   "T016",
+   "T020",
+   "S054",
+   "S055",
+   "S056"
+  ]
+ },
+ "soi": {
+  "tuyen_bien": [
+   {
+    "id": "R1780-RODNEY",
+    "shot": "SM2",
+    "dai_km": 965.8,
+    "min_bo_km": 1.92,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     2.61,
+     2.61
+    ],
+    "km_net_cham_bo": 1.5,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1781-DARBY",
+    "shot": "SM2",
+    "dai_km": 1381.7,
+    "min_bo_km": 1.92,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     2.58,
+     2.58
+    ],
+    "km_net_cham_bo": 1.5,
+    "dat": "ĐẠT"
+   },
+   {
+    "id": "R1782-HOWE",
+    "shot": "SM2",
+    "dai_km": 1533.3,
+    "min_bo_km": 3.35,
+    "cat_dat_km_ngoai_cang": 0,
+    "cat_dat_km_trong_dem_cang": 0,
+    "w_px_1080": 6.5,
+    "nua_net_km": [
+     2.52,
+     2.4
+    ],
+    "km_net_cham_bo": 0,
+    "dat": "ĐẠT"
+   }
+  ],
+  "tuyen_cat_dat": "ĐẠT",
+  "chu_giai_so_muc": [
+   3
+  ],
+  "chu_giai": "ĐẠT",
+  "co_chu_nho_nhat_px1080": {
+   "vai": "place:blockade",
+   "px": 30,
+   "px540": 15.0,
+   "dat": "ĐẠT"
+  },
+  "may": [
+   {
+    "dist_dau": 1500,
+    "dist_cuoi": 340,
+    "dich_lon": 0.6
+   }
+  ],
+  "chuyen_dong": {
+   "khung": 180,
+   "nguong_xam": 0.15,
+   "bat_dau_s": 0.042,
+   "phu_pct": 100.0,
+   "hieu_tb": 2.355,
+   "hieu_min": 0.918
+  },
+  "chu_tren_hinh": {
+   "tep": "sm2.mkv.log.json",
+   "so_khung_mau": 15,
+   "chu": {
+    "Britain": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 14
+    },
+    "Spain": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 14
+    },
+    "France": {
+     "vai": "chu_giai",
+     "cap_min": 24.7,
+     "n": 14
+    },
+    "Jan 1780": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 5
+    },
+    "Gibraltar": {
+     "vai": "diem",
+     "cap_min": 23.3,
+     "n": 14
+    },
+    "blockade": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 3
+    },
+    "Relief 1 · Rodney": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 3
+    },
+    "from England": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 3
+    },
+    "Apr 1781": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 3
+    },
+    "Relief 2 · Darby": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 3
+    },
+    "from Spithead": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 3
+    },
+    "5 Feb 1782": {
+     "vai": "year",
+     "cap_min": 21.8,
+     "n": 3
+    },
+    "Oct 1782": {
+     "vai": "year",
+     "cap_min": 52.3,
+     "n": 5
+    },
+    "Minorca → Spain": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 2
+    },
+    "Relief 3 · Howe": {
+     "vai": null,
+     "cap_min": 24.7,
+     "n": 4
+    },
+    "swept into the Med": {
+     "vai": null,
+     "cap_min": 21.8,
+     "n": 4
+    }
+   },
+   "cap_min_px1080": 21.8,
+   "chu_cam": [],
+   "vai_cam": []
+  },
+  "chu_nguon_tren_hinh": "ĐẠT",
+  "chuyen_dong_dat": "ĐẠT"
+ },
+ "dung": {
+  "bo_dem_ngoai_git": [
+   "mkdir -p /var/tmp/cine-out/g1b/sm/pylib && /opt/cine/bin/python -m pip install --target /var/tmp/cine-out/g1b/sm/pylib pyproj   # pyproj không có trong /opt/cine",
+   "/opt/cine/bin/python scripts/k2/hist/bd_raw_prep.py   # NE 1:10m land + minor islands → /var/tmp/cine-out/bd/raw; fr-metro.geojson → /var/tmp/cine-out/bd",
+   "curl -L -A 'CineLab-research (+https://github.com/HungQuach301/cine-lab)' -o /var/tmp/cine-out/bd/raw/clio/cliopatria-v0.2.1.zip https://zenodo.org/api/records/23128623/files/Seshat-Global-History-Databank/cliopatria-v0.2.1.zip/content  # md5 caeecf41…; trong đó cliopatria.geojson.zip SHA-256 e10a4e42… (khớp NC-BD) → unzip → cliopatria_polities_only_v021.geojson SHA-256 fc6f0d1e…",
+   "ETOPO 2022 15\" 15 ô N30/N45/N60 × W045/W030/W015/E000/E015 → /var/tmp/cine-out/bd/raw/etopo15s_<ô>.tif (relief_build.py tự tải nếu thiếu)",
+   "export ETOPO_DIR=/var/tmp/cine-out/bd/raw K2V_CACHE=/var/tmp/cine-out/k2v-cache",
+   "relief_build.py build --name sm1 --bbox -34,27,26,60 --ppd 120 --mesh 5 --dem etopo --admin none",
+   "relief_build.py build --name sm2 --bbox -18,30,10,47 --ppd 240 --mesh 8 --dem etopo --admin none",
+   "relief_build.py build --name sm3 --bbox -36,22,22,60 --ppd 120 --mesh 5 --dem etopo --admin none",
+   "PYTHONPATH=/var/tmp/cine-out/g1b/sm/pylib hist_borders.py scripts/k2/hist/lop-sm1-1704.json --out $K2V_CACHE/hist/sm1-1704 (tương tự design/k2v/hist/sm2-1782.json → sm2-1782, sm3-1941.json → sm3-1941)"
+  ],
+  "dung_shot": "bash scripts/k2/hist/g1b_sm_render.sh   # sinh yaml + prep + cảnh đinh (hero.js, nice 10, 1 tiến trình) + build.sh render + video thử",
+  "tu_soi": "PYTHONPATH=/var/tmp/cine-out/g1b/sm/pylib /opt/cine/bin/python scripts/k2/hist/g1b_soi.py",
+  "ghi_chu_thoi_diem_p": "mốc thời gian trong p (lớp chữ k2.js) tính theo giây của ĐOẠN; shot đặt ở at ≠ 0 trong đoạn phải cộng at (g1b_sm.shift_p). Cảnh đinh (heroes.opt) tính theo giây của shot."
+ }
+}

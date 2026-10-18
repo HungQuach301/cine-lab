@@ -1,0 +1,34 @@
+{
+  "id": "sm1-1704",
+  "_ghi_chu": "G1b T3 · lớp ranh SM1 (1704) cho scripts/k2/hist/hist_borders.py, theo channel-k2/k2c-t3-01/tuyen/ranh-gioi.json mốc 1704 (gói TUYẾN, E1–E9 duyệt 17/10) + §11.1 (nguồn được phép: Cliopatria CC BY 4.0, OpenHistoricalMap CC0, Natural Earth PD). Nguồn HÌNH HỌC chính = Cliopatria v0.2.1 năm 1704 (phủ đủ khung 2 600 km); OHM chỉ ĐỐI CHIẾU (mẫu NC-BD cắt −10,5…4,5 / 35,5…52 — ngoài mẫu không đối chiếu được). Lệch so với ranh-gioi.json (OHM chính): mẫu OHM không phủ khung mở (Áo, Ý, Bắc Phi) → đảo vai, ghi vào log. Đặt ở scripts/k2/hist/ vì phiên xưởng G1b không được ghi design/k2v/hist/ — phiên chính có thể chuyển.",
+  "bbox": [-26.0, 29.0, 22.0, 60.0],
+  "_bbox": "= nền relief sm1 (lớp ranh −26…22 / 29…60; nền relief rộng hơn để mép khung nghiêng không lộ giấy: relief_build.py --name sm1 --bbox -34,27,26,60 --ppd 120 --mesh 5 --dem etopo --admin none)",
+  "khung_rong_km": 2600,
+  "khung_px": 1920,
+  "raster_w": 4200,
+  "nam": 1704,
+  "ngay_ranh": "1704-02 → 1704-08 (N.S.); Gibraltar đổi phe 1704-08-01 N.S. = 21/7 O.S. (S012) — ĐIỂM, đổi màu ở lớp 2D",
+  "nguon_ngan": "Cliopatria (Seshat)",
+  "giay_phep": "CC-BY-4.0",
+  "nhan": "approx. borders c. 1704 — Cliopatria (Seshat)",
+  "doi_chieu": {"ten": "OpenHistoricalMap", "giay_phep": "CC0 (một số đường CC BY 4.0 CNIG/IGN)", "tep": "reports/nc-ban-do/mau/ohm-1704-tay-au.geojson", "ngay": "1704-08-05", "bbox": [-10.5, 35.5, 4.5, 52.0]},
+  "ghi_cong": "Borders: Cliopatria v0.2.1 (Seshat Global History Databank), CC BY 4.0, changed (clipped to Natural Earth land, simplified; 'Pro-Habsburg Spain' merged into Spain; alliance colouring from claims T004/T005); cross-checked with OpenHistoricalMap contributors (CC0; includes data © Instituto Geográfico Nacional (CNIG), CC BY 4.0). Coast/land: Natural Earth (public domain). Relief: ETOPO 2022 (NOAA NCEI, CC0).",
+  "chinh_tay": [
+    "GỘP 'Pro-Habsburg Spain' (Cliopatria 1702–1705, sai thời điểm — NC-BD bẫy d; Catalonia nổi dậy 1705) vào 'Spain (Philip V)'; không tô phe trong lòng Tây Ban Nha (ranh-gioi.json chinh_tay 1)",
+    "'Kingdom of Spain' của Cliopatria gồm Hà Lan thuộc TBN, Milan, Naples, Sardinia, Sicily (dưới Philip V năm 1704) + 'Spanish Empire' (Ceuta, Oran, Canarias) → cùng màu TBN; không có claim riêng ngoài T004 — theo nguồn ranh",
+    "Đại Liên minh (T004: England, the Emperor (Austria), the Dutch) + Bồ Đào Nha (T005, 5/1703): England đặc đỏ; Dutch Republic, Habsburg Monarchy, Portugal = đỏ pha 85 % giấy + gạch 45° (ranh-gioi.json phương án A). Cliopatria/OHM không mang liên minh — tô theo claim",
+    "Các nước KHÔNG có claim phe trong khung (Bavaria — thực tế theo Pháp 1704 —, các tiểu quốc Thánh chế, Phổ, Savoy, Thuỵ Sĩ, Ý, Đan Mạch–Na Uy, Ottoman…): KHÔNG TÔ (giữ nền giấy) — không gán phe khi không có claim",
+    "Ma-rốc (Morocco) xám 'không tham chiến' như ranh-gioi.json; không thêm mục chú giải",
+    "Gibraltar = ĐIỂM (< 8 px ở khung 2 600 km); màu TBN tới 1704-08-01 N.S., đỏ Đại Liên minh từ đó (S012) — vẽ bằng hai mục p.points nối nhau (k2.js), không phải polygon"
+  ],
+  "thuc_the": [
+    {"id": "england", "ten": "England", "cliopatria": ["Kingdom of England"], "faction_id": "britain", "mau": "#b03a2e", "claims": ["T004"], "_ghi_chu": "Cliopatria 1691–1705 gồm cả Scotland + Ireland (cùng quân chủ Anne); OHM tách England/Scotland/Ireland và không có biên đất chung tương ứng → không đối chiếu (lần đo đầu: 81 km giả do khác cách chia thực thể)"},
+    {"id": "dutch", "ten": "Dutch Republic", "cliopatria": ["Dutch Republic"], "ohm": ["Republic of the Seven United Netherlands"], "vung_do": [[3.3, 50.7, 7.3, 53.6]], "faction_id": "britain", "mau": "#ba5446", "ve": "gach", "claims": ["T004"]},
+    {"id": "portugal", "ten": "Portugal (allied from 1703)", "cliopatria": ["Kingdom of Portugal"], "ohm": ["Kingdom of Portugal"], "vung_do": [[-7.6, 36.9, -6.0, 42.2]], "faction_id": "britain", "mau": "#ba5446", "ve": "gach", "claims": ["T005"]},
+    {"id": "austria", "ten": "Austria (Habsburg Monarchy)", "cliopatria": ["Habsburg Monarchy"], "faction_id": "britain", "mau": "#ba5446", "ve": "gach", "claims": ["T004"], "_ghi_chu": "OHM mẫu không có Habsburg (chỉ 'Holy Roman Empire') → không đối chiếu"},
+    {"id": "france", "ten": "France", "cliopatria": ["Kingdom of France"], "ohm": ["Kingdom of France"], "vung_do": [[-1.9, 42.2, 3.2, 43.4]], "faction_id": "france", "mau": "#2e5c8a", "claims": ["T004"]},
+    {"id": "spain", "ten": "Spain (Philip V)", "cliopatria": ["Kingdom of Spain", "Pro-Habsburg Spain", "Spanish Empire"], "ohm": ["Spain"], "vung_do": [[-7.6, 36.9, -6.0, 42.2], [-1.9, 42.2, 3.2, 43.4]], "faction_id": "spain", "mau": "#c9a227", "claims": ["T004", "S012"]},
+    {"id": "morocco", "ten": "Morocco", "cliopatria": ["Morocco"], "ohm": ["Alawi Sultanate"], "vung_do": [[-2.6, 34.0, -1.0, 35.5]], "faction_id": "neutral", "mau": "#a89f8a"},
+    {"id": "gibraltar", "ten": "Gibraltar", "diem": [-5.353, 36.140], "faction_id": "spain", "mau": "#c9a227", "doi_chu": [{"ngay": "1704-08-01", "faction_id": "britain", "fill": "#b03a2e", "claims": ["S012", "S013"]}], "claims": ["S012", "S013"], "ly_do_diem": "≈ 6 km ở khung 2 600 km (≈ 1,35 km/px) → < 5 px: ĐIỂM (B5)"}
+  ]
+}

@@ -297,9 +297,13 @@ def main():
         elif sid in SM_IDS:
             fr = HERE / 'sm' / f'{sid}.yaml'
             import yaml; Y = yaml.safe_load(fr.read_text()) if fr.exists() else None
-            if Y and 'shot' in Y and 'heroes' in Y:
-                heroes.update(Y['heroes']); sm = Y['shot']; sm.setdefault('p', {})['sach'] = True; sm['at'] = 0
-                seg['shots'].append(sm); L['nguon'] = 'g1b/sm/' + fr.name; L['bac'] = 'bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)'
+            if Y and ('shot' in Y or 'shots' in Y) and 'heroes' in Y:
+                heroes.update(Y['heroes']); SMS = Y.get('shots') or [dict(Y['shot'], at=0)]
+                for sm in SMS:
+                    sm.setdefault('p', {})['sach'] = True; seg['shots'].append(sm)
+                    if sm.get('at'): seg['beats'].append(dict(t=round(float(sm['at']), 3), k='cut', s=f'{sid} b'))
+                    for c in sm['p'].get('counter') or []: seg['beats'].append(dict(t=round(float(sm.get('at', 0)) + float(c['t']), 3), k='dem', s=str(c.get('s'))[:20]))
+                if False: L['nguon'] = 'g1b/sm/' + fr.name; L['bac'] = 'bậc 1 (ranh Cliopatria/OHM; tuyến claim T…)'
             else:
                 bg = prev3d or 'g1b_0b_0'; sh['type'] = 'card'; sh['p'].update(hero=bg, frame0=0, speed=0.0, card=dict(type='end', lines=[dict(s=f'{sid} — strategic map', px=56, at=0.2), dict(s='(rendering)', px=40, at=0.4)]))
                 seg['shots'].append(sh); L['ghi'] = 'bản đồ chiến lược chưa có tệp phiên con → thẻ chờ'
