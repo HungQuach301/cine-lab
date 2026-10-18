@@ -1,0 +1,5315 @@
+# TỆP SINH TỰ ĐỘNG bởi g1b/mk_ep_g1b.py từ vay-ham/treatment.json + script-v4.1-KHOA.md (lời khoá v4.1, SHA LOI-KHOA.sha256). Đừng sửa tay.
+id: k2c-t3-g1b
+title: Why Gibraltar Was Besieged 14 Times — G1b animatic (540p, temporary narration rail)
+brand: MOVING PARTS
+channel: k2
+out: /var/tmp/cine-out/k2c-t3-g1b
+music:
+- file: assets/k2/music/Tyrant.mp3
+  from: 0a
+  ss: 2.55
+  gain_db: -6
+sources: {}
+numbers: {}
+khung_sach: true
+heroes:
+  g1b_0a_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 17.8
+      - 17.86
+      dayCycle: true
+      exposure: 0.62
+      noi: thanh_pho
+      counter:
+        s: '2026'
+      cams:
+      - k: push
+        from:
+        - -30
+        - 3
+        - 230
+        to:
+        - -45
+        - 3
+        - 120
+        look:
+        - 250
+        - 140
+        - -1600
+        dur: 3.5
+        fov: 48
+      - k: lateral
+        c:
+        - 0
+        - 2
+        - -30
+        yaw: -90
+        dist: 45
+        len: 26
+        h: 3
+        dur: 3.0
+        fov: 42
+      life:
+        walkers:
+        - line: WCA
+          n: 70
+          width: 6
+        crowds:
+        - line: WCA
+          groups: 5
+          size:
+          - 4
+          - 10
+          speed: 1.2
+        birds:
+          c:
+          - 0
+          - 0
+          r: 180
+          h: 50
+          n: 8
+      pack: gib
+      shot: 0a
+      cau: g1b-0a-0
+      dur: 6.5
+    dur: 6.5
+  g1b_0b_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 9
+      - 9.2
+      noi: eo_dat
+      cams:
+      - k: push
+        from:
+        - 61
+        - 8
+        - 430
+        to:
+        - 30
+        - 380
+        - 820
+        look:
+        - 230
+        - 150
+        - -1000
+        dur: 5.5
+        fov: 46
+      life:
+        walkers:
+        - line: WCA
+          n: 60
+          width: 6
+          women: true
+        birds:
+          c:
+          - 0
+          - -200
+          r: 200
+          h: 60
+          n: 10
+      pack: gib
+      shot: 0b
+      cau: g1b-0b-0
+      dur: 5.5
+    dur: 5.5
+  g1b_0c:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-P-OB-83.395_kaart_1704.jpg
+      focus:
+      - 0.55
+      - 0.5
+      push: 0.25
+      preset: push
+    dur: 3.0
+  g1b_0e_0:
+    hero: tl/t3s
+    opt:
+      noi: thanh_pho
+      date: &id001
+      - 2026
+      - 6
+      - 15
+      - 10
+      - 10.1
+      year: 2026
+      cams:
+      - k: push
+        from:
+        - -1500.0
+        - 200.0
+        - -1500.0
+        to:
+        - -1370.0
+        - 182.5
+        - -1460.0
+        look: &id002
+        - -450
+        - 0
+        - -1260
+        dur: 1.375
+        fov: 42
+        hold: 0.05
+      dur: 1.375
+      pack: gib
+      shot: 0e
+      cau: g1b-0e-0
+    dur: 1.375
+  g1b_0e_1:
+    hero: tl/t3s
+    opt:
+      noi: thanh_pho
+      date: *id001
+      year: 1943
+      town: '1943'
+      cams:
+      - k: push
+        from:
+        - -1370.0
+        - 182.5
+        - -1460.0
+        to:
+        - -1240.0
+        - 165.0
+        - -1420.0
+        look: *id002
+        dur: 1.375
+        fov: 42
+        hold: 0.05
+      dur: 1.375
+      pack: gib
+      shot: 0e
+      cau: g1b-0e-1
+    dur: 1.375
+  g1b_0e_2:
+    hero: tl/t3s
+    opt:
+      noi: thanh_pho
+      date: *id001
+      year: 1782.6
+      town: '1782'
+      tech:
+        v6:
+          earth: true
+      cams:
+      - k: push
+        from:
+        - -1240.0
+        - 165.0
+        - -1420.0
+        to:
+        - -1110.0
+        - 147.5
+        - -1380.0
+        look: *id002
+        dur: 1.375
+        fov: 42
+        hold: 0.05
+      dur: 1.375
+      pack: gib
+      shot: 0e
+      cau: g1b-0e-2
+    dur: 1.375
+  g1b_0e_3:
+    hero: tl/t3s
+    opt:
+      noi: thanh_pho
+      date: *id001
+      year: 1704.6
+      town: '1704'
+      hideTrees: &id003
+      - -800
+      - -1950
+      - -150
+      - -640
+      cams:
+      - k: push
+        from:
+        - -1110.0
+        - 147.5
+        - -1380.0
+        to:
+        - -980.0
+        - 130.0
+        - -1340.0
+        look: *id002
+        dur: 1.375
+        fov: 42
+        hold: 0.05
+      dur: 1.375
+      pack: gib
+      shot: 0e
+      cau: g1b-0e-3
+    dur: 1.375
+  g1b_0f:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-P-OB-19.249_destruction_floating_batteries_1782.jpg
+      focus:
+      - 0.5
+      - 0.55
+      push: 0.3
+      preset: push
+    dur: 5.0
+  g1b_0g_0:
+    hero: tl/t3s
+    opt:
+      year: 1941
+      date:
+      - 1941
+      - 6
+      - 15
+      - 11
+      - 11.2
+      noi: eo_dat
+      cams:
+      - k: orbit
+        c:
+        - 0
+        - 5
+        - 0
+        r: 150
+        h: 55
+        a0: 205
+        a1: 250
+        dur: 6.0
+        fov: 40
+        lookUp: 0
+      life:
+        walkers:
+        - line: WCA
+          n: 30
+          width: 5
+          women: false
+          colors: &id009
+          - '#6b6a4a'
+          - '#7a7656'
+          - '#2f3d5c'
+          - '#e7e0cf'
+          - '#6b6a4a'
+        birds:
+          c:
+          - 0
+          - 0
+          r: 200
+          h: 60
+          n: 8
+      pack: gib
+      shot: 0g
+      cau: g1b-0g-0
+      dur: 6.0
+    dur: 6.0
+  g1b_0h_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 10
+      - 10.2
+      noi: eo_dat
+      cams:
+      - k: push
+        from:
+        - -700
+        - 600
+        - -400
+        to:
+        - -620
+        - 560
+        - -220
+        look:
+        - 100
+        - 0
+        - 900
+        dur: 5.5
+        fov: 46
+      life:
+        walkers:
+        - line: WCA
+          n: 80
+          width: 6
+          women: true
+        birds:
+          c:
+          - 0
+          - -200
+          r: 200
+          h: 60
+          n: 10
+      pack: gib
+      shot: 0h
+      cau: g1b-0h-0
+      dur: 5.5
+    dur: 5.5
+  g1b_1a_0:
+    hero: tl/t3s
+    opt:
+      year: 1704.58
+      date:
+      - 1704
+      - 8
+      - 1
+      - 9
+      - 9.5
+      dual: true
+      counter: clockdual
+      julian: false
+      noi: bien
+      ships: true
+      cams:
+      - k: lateral
+        c:
+        - -2600
+        - 0
+        - -1600
+        yaw: 60
+        dist: 7000
+        len: 2600
+        h: 3500
+        dur: 5.0
+        fov: 36
+      fleet:
+        n: 18
+        center:
+        - -3200
+        - -2200
+        axis: 35
+        spacing: 230
+        kind: line
+        heading: 55
+      pack: gib
+      shot: 1a
+      cau: g1b-1a-0
+      dur: 5.0
+    dur: 5.0
+  g1b_1b:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rooke_rijks_33529.jpg
+      focus:
+      - 0.5
+      - 0.3
+      push: 0.2
+      preset: pull
+    dur: 8.0
+  g1b_1c:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-P-OB-83.400_exact_plan_1705.jpg
+      focus:
+      - 0.45
+      - 0.5
+      push: 0.35
+      cam:
+      - t: 0
+        p:
+        - -2.5978
+        - 7.8961
+        - 0.3362
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 10.5
+        p:
+        - -1.5252
+        - 5.2081
+        - 0.3609
+        l:
+        - -0.1138
+        - 0
+        - 0.0
+        mm: 50
+    dur: 10.5
+  g1b_1d_0:
+    hero: tl/t3s
+    opt:
+      year: 1704.6
+      date:
+      - 1704
+      - 8
+      - 3
+      - 10
+      - 12
+      noi: thanh_pho
+      town: '1704'
+      hideTrees: *id003
+      cams:
+      - k: push
+        from:
+        - -1150
+        - 60
+        - -1500
+        to:
+        - -980
+        - 55
+        - -1450
+        look:
+        - -500
+        - 10
+        - -1350
+        dur: 4.5
+        fov: 44
+      - k: line
+        line: MAIN
+        s0: 200
+        s1: 420
+        h: 45
+        dur: 4.5
+        look: 160
+        dip: 40
+        fov: 44
+        type: pho
+        east: 0
+        north: 0
+      - k: orbit
+        c:
+        - -430
+        - 0
+        - -1300
+        r: 520
+        h: 170
+        a0: 185
+        a1: 150
+        dur: 4.5
+        fov: 42
+        lookUp: 0
+      life:
+        walkers:
+        - line: MAIN
+          n: 60
+          width: 4
+          colors: &id004
+          - '#e7e0cf'
+          - '#c9a227'
+          - '#5e4a38'
+          - '#3d4a5a'
+        birds:
+          c:
+          - -430
+          - -1300
+          r: 170
+          h: 70
+          n: 12
+        chimney: 14
+      fleet:
+        n: 10
+        center:
+        - -1700
+        - -1500
+        axis: 172
+        spacing: 180
+        kind: line
+        heading: 80
+      smoke:
+      - at:
+        - -560
+        - 10
+        - -1400
+        n: 10
+        size: 30
+        rise: 50
+        drift:
+        - -2
+        - 1
+        period: 0.12
+        seed: 3
+        alpha: 0.7
+      pack: gib
+      shot: 1d
+      cau: g1b-1d-0
+      dur: 13.5
+    dur: 13.5
+  g1b_1e_0:
+    hero: tl/t3s
+    opt:
+      year: 1704.6
+      date:
+      - 1704
+      - 8
+      - 4
+      - 9
+      - 10
+      dual: true
+      counter: clockdual
+      noi: thanh_pho
+      town: '1704'
+      hideTrees: *id003
+      pin:
+      - 5.0
+      - 7.0
+      cams:
+      - k: push
+        from:
+        - -2200
+        - 120
+        - -1700
+        to:
+        - -1700
+        - 100
+        - -1550
+        look:
+        - -480
+        - 20
+        - -1300
+        dur: 5.0
+        fov: 40
+      - k: push
+        from:
+        - -900
+        - 50
+        - -1420
+        to:
+        - -800
+        - 45
+        - -1390
+        look:
+        - -470
+        - 25
+        - -1300
+        dur: 4.5
+        fov: 40
+      fleet:
+        n: 14
+        center:
+        - -1900
+        - -1600
+        axis: 170
+        spacing: 170
+        kind: line
+        heading: 80
+      life:
+        walkers:
+        - line: MAIN
+          n: 40
+          width: 4
+          colors: *id004
+        chimney: 10
+      pack: gib
+      shot: 1e
+      cau: g1b-1e-0
+      dur: 9.5
+    dur: 9.5
+  g1b_1g_0:
+    hero: tl/t3s
+    opt:
+      year: 1704.6
+      date:
+      - 1704
+      - 8
+      - 7
+      - 9
+      - 11
+      noi: eo_dat
+      town: '1704'
+      hideTrees: *id003
+      cams:
+      - k: top
+        c:
+        - -200
+        - 0
+        - -300
+        h0: 900
+        h1: 1300
+        dur: 4.5
+        yaw0: 0
+        yaw1: 8
+        fov: 40
+      - k: top
+        c:
+        - 60
+        - 0
+        - 800
+        h0: 1200
+        h1: 1700
+        dur: 4.5
+        yaw0: 8
+        yaw1: 14
+        fov: 40
+      - k: push
+        from:
+        - 0
+        - 1300
+        - 400
+        to:
+        - 0
+        - 1500
+        - 1300
+        look:
+        - 400
+        - 0
+        - 7000
+        dur: 5.0
+        fov: 44
+      life:
+        walkers:
+        - line: &id005
+          - - -300
+            - -600
+          - - -120
+            - -200
+          - - 0
+            - 0
+          - - 40
+            - 300
+          - - 70
+            - 520
+          - - 110
+            - 900
+          - - 160
+            - 1400
+          - - 230
+            - 2200
+          - - 320
+            - 3200
+          n: 140
+          width: 10
+          colors: &id006
+          - '#e7e0cf'
+          - '#5e4a38'
+          - '#3d4a5a'
+          - '#7a5a3a'
+          - '#a89f8a'
+          free: false
+        crowds:
+        - line: *id005
+          groups: 14
+          size:
+          - 8
+          - 24
+          speed: 0.9
+          colors: *id006
+      pack: gib
+      shot: 1g
+      cau: g1b-1g-0
+      dur: 14.0
+    dur: 14.0
+  g1b_1h:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-P-2018-1131_plan_1733.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.15
+      preset: drift-l
+    dur: 12.0
+  g1b_1i_0:
+    hero: tl/t3s
+    opt:
+      year: 1713
+      date:
+      - 1713
+      - 7
+      - 13
+      - 10
+      - 11
+      noi: eo_dat
+      cams:
+      - k: lateral
+        c:
+        - 0
+        - 0
+        - 600
+        yaw: 180
+        dist: 900
+        len: 700
+        h: 260
+        dur: 4.5
+        fov: 38
+      - k: push
+        from:
+        - -900
+        - 420
+        - -300
+        to:
+        - -800
+        - 400
+        - -100
+        look:
+        - 100
+        - 0
+        - 900
+        dur: 4.5
+        fov: 42
+      - k: top
+        c:
+        - 60
+        - 0
+        - 500
+        h0: 1100
+        h1: 1400
+        dur: 4.0
+        yaw0: 0
+        yaw1: 10
+        fov: 40
+      pack: gib
+      shot: 1i
+      cau: g1b-1i-0
+      dur: 13.0
+    dur: 13.0
+  g1b_1j_0:
+    hero: tl/t3s
+    opt:
+      year: 1704.9
+      yearAt:
+      - - 0
+        - 1704.9
+      - - 5.0
+        - 1727.3
+      date:
+      - 1727
+      - 3
+      - 1
+      - 10
+      - 11
+      noi: eo_dat
+      cams:
+      - k: push
+        from:
+        - -600
+        - 260
+        - 1500
+        to:
+        - -500
+        - 240
+        - 1300
+        look:
+        - 100
+        - 0
+        - -500
+        dur: 5.0
+        fov: 42
+      - k: push
+        from:
+        - 700
+        - 260
+        - 1500
+        to:
+        - 600
+        - 240
+        - 1300
+        look:
+        - 0
+        - 0
+        - -400
+        dur: 5.0
+        fov: 42
+      front:
+      - pts:
+        - - -500
+          - 900
+        - - -100
+          - 880
+        - - 300
+          - 900
+        - - 700
+          - 920
+        side: es
+        grow:
+        - 0.5
+        - 4.5
+        w: 18
+      smoke:
+      - at:
+        - -200
+        - 10
+        - 880
+        n: 12
+        size: 34
+        rise: 45
+        drift:
+        - -2
+        - 1
+        period: 0.14
+        seed: 5
+        alpha: 0.75
+      - at:
+        - 300
+        - 10
+        - 900
+        n: 10
+        size: 30
+        rise: 40
+        drift:
+        - -2
+        - 1
+        period: 0.15
+        seed: 6
+        alpha: 0.7
+      pack: gib
+      shot: 1j
+      cau: g1b-1j-0
+      dur: 10.0
+    dur: 10.0
+  g1b_1k_0:
+    hero: tl/t3s
+    opt:
+      year: 1730.8
+      yearAt:
+      - - 0
+        - 1730.8
+      - - 5.0
+        - 1732.5
+      - - 10.0
+        - 1735
+      date:
+      - 1730
+      - 10
+      - 8
+      - 10
+      - 11
+      noi: eo_dat
+      linea: true
+      lineaAt:
+      - - 0
+        - 0.15
+      - - 5.0
+        - 0.55
+      - - 10.0
+        - 1.0
+      cams:
+      - k: top
+        c:
+        - 0
+        - 0
+        - 1000
+        h0: 1300
+        h1: 1500
+        dur: 5.0
+        yaw0: 0
+        yaw1: 6
+        fov: 40
+      - k: lateral
+        c:
+        - 0
+        - 0
+        - 1020
+        yaw: 90
+        dist: 600
+        len: 600
+        h: 120
+        dur: 5.0
+        fov: 36
+      - k: push
+        from:
+        - -700
+        - 300
+        - 400
+        to:
+        - -600
+        - 280
+        - 600
+        look:
+        - 300
+        - 0
+        - 1050
+        dur: 4.5
+        fov: 42
+      pack: gib
+      shot: 1k
+      cau: g1b-1k-0
+      dur: 14.5
+    dur: 14.5
+  g1b_2a_0:
+    hero: tl/t3s
+    opt:
+      year: 1779.47
+      date:
+      - 1779
+      - 6
+      - 21
+      - 10
+      - 11
+      noi: eo_dat
+      linea: true
+      counter:
+        s: 21 Jun 1779
+      cams:
+      - k: push
+        from:
+        - 0
+        - 60
+        - 300
+        to:
+        - 20
+        - 55
+        - 420
+        look:
+        - 0
+        - 0
+        - 1100
+        dur: 5.0
+        fov: 44
+      - k: lateral
+        c:
+        - 0
+        - 0
+        - 1030
+        yaw: -90
+        dist: 420
+        len: 500
+        h: 60
+        dur: 4.0
+        fov: 34
+      - k: top
+        c:
+        - 0
+        - 0
+        - 650
+        h0: 900
+        h1: 1200
+        dur: 3.0
+        yaw0: 0
+        yaw1: 12
+        fov: 40
+      units:
+      - at:
+        - -300
+        - 1110
+        heading: 180
+        rows: 4
+        cols: 20
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 30
+      - at:
+        - -60
+        - 1110
+        heading: 180
+        rows: 4
+        cols: 20
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 31
+      - at:
+        - 200
+        - 1110
+        heading: 180
+        rows: 4
+        cols: 20
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 32
+      - at:
+        - 460
+        - 1110
+        heading: 180
+        rows: 4
+        cols: 20
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 33
+      pack: gib
+      shot: 2a
+      cau: g1b-2a-0
+      dur: 12.0
+    dur: 12.0
+  g1b_2b:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/yale_2046612_faden_1783_spanish_works.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.3
+      preset: drift-r
+    dur: 10.5
+  g1b_2c_0:
+    hero: tl/t3s
+    opt:
+      year: 1779.6
+      date:
+      - 1779
+      - 7
+      - 16
+      - 10
+      - 11
+      noi: bien
+      counter:
+        s: Jul 1779
+      ships: false
+      cams:
+      - k: lateral
+        c:
+        - -2500
+        - 0
+        - -1500
+        yaw: 0
+        dist: 2600
+        len: 1800
+        h: 300
+        dur: 6.0
+        fov: 34
+      - k: push
+        from:
+        - -900
+        - 160
+        - -1300
+        to:
+        - -1200
+        - 150
+        - -1300
+        look:
+        - -7000
+        - 0
+        - -1800
+        dur: 6.0
+        fov: 40
+      fleet:
+        n: 12
+        center:
+        - -3000
+        - -1600
+        axis: 5
+        spacing: 320
+        kind: line
+        heading: 0
+      life:
+        boats:
+        - pts:
+          - - -2600
+            - -600
+          - - -2800
+            - -1600
+          - - -2500
+            - -2600
+          len: 12
+          speed: 4.5
+          s0: 0.2
+        - pts:
+          - - -3300
+            - -2600
+          - - -3500
+            - -1400
+          - - -3200
+            - -500
+          len: 11
+          speed: 4.0
+          s0: 0.6
+      pack: gib
+      shot: 2c
+      cau: g1b-2c-0
+      dur: 12.0
+    dur: 12.0
+  g1b_2e:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-P-OB-53.323_eliott_portrait_1784.jpg
+      focus:
+      - 0.5
+      - 0.32
+      push: 0.2
+      preset: pull
+    dur: 6.5
+  g1b_2f_0:
+    hero: tl/t3s
+    opt:
+      year: 1781.3
+      date:
+      - 1781
+      - 4
+      - 12
+      - 9
+      - 9.3
+      noi: bien
+      ships: false
+      cams:
+      - k: lateral
+        c:
+        - -1800
+        - 0
+        - -1500
+        yaw: 30
+        dist: 2400
+        len: 1500
+        h: 260
+        dur: 6.0
+        fov: 34
+      fleet:
+        n: 16
+        center:
+        - -2100
+        - -1700
+        axis: 150
+        spacing: 200
+        kind: line
+        heading: 60
+      life:
+        boats:
+        - pts:
+          - - -1500
+            - -1200
+          - - -1000
+            - -1350
+          - - -750
+            - -1450
+          len: 9
+          speed: 4
+          s0: 0.3
+      pack: gib
+      shot: 2f
+      cau: g1b-2f-0
+      dur: 6.0
+    dur: 6.0
+  g1b_2g_0:
+    hero: tl/t3s
+    opt:
+      year: 1781.28
+      date:
+      - 1781
+      - 4
+      - 12
+      - 10.6
+      - 10.9
+      counter: clock
+      noi: thanh_pho
+      town: '1782'
+      tech:
+        v6:
+          earth: true
+      pin:
+      - 0.3
+      - 2.3
+      cams:
+      - k: push
+        from:
+        - -1700
+        - 120
+        - -1500
+        to:
+        - -1300
+        - 100
+        - -1420
+        look:
+        - -480
+        - 20
+        - -1300
+        dur: 4.5
+        fov: 42
+      - k: line
+        line: MAIN
+        s0: 300
+        s1: 520
+        h: 55
+        dur: 4.0
+        look: 160
+        dip: 45
+        fov: 46
+        type: pho
+        east: 0
+        north: 0
+      - k: push
+        from:
+        - -750
+        - 80
+        - -1150
+        to:
+        - -700
+        - 70
+        - -1180
+        look:
+        - -430
+        - 0
+        - -1330
+        dur: 4.0
+        fov: 44
+      fleet:
+        n: 12
+        center:
+        - -1300
+        - -1550
+        axis: 170
+        spacing: 150
+        kind: line
+        heading: 80
+      smoke:
+      - at:
+        - -470
+        - 12
+        - -1420
+        n: 10
+        size: 34
+        rise: 60
+        drift:
+        - -2.5
+        - 1
+        period: 0.11
+        seed: 40
+        alpha: 0.8
+      - at:
+        - -420
+        - 12
+        - -1250
+        n: 10
+        size: 34
+        rise: 60
+        drift:
+        - -2.5
+        - 1
+        period: 0.11
+        seed: 41
+        alpha: 0.8
+      - at:
+        - -450
+        - 12
+        - -1080
+        n: 10
+        size: 34
+        rise: 60
+        drift:
+        - -2.5
+        - 1
+        period: 0.11
+        seed: 42
+        alpha: 0.8
+      - at:
+        - -380
+        - 12
+        - -1500
+        n: 10
+        size: 34
+        rise: 60
+        drift:
+        - -2.5
+        - 1
+        period: 0.11
+        seed: 43
+        alpha: 0.8
+      life:
+        walkers:
+        - line:
+          - - -430
+            - -1820
+          - - -330
+            - -2150
+          - - -250
+            - -2500
+          - - -150
+            - -2850
+          n: 60
+          width: 8
+          colors: *id006
+          free: false
+        birds:
+          c:
+          - -430
+          - -1300
+          r: 200
+          h: 90
+          n: 10
+      pack: gib
+      shot: 2g
+      cau: g1b-2g-0
+      dur: 12.5
+    dur: 12.5
+  g1b_2h:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/ia_historyoflatesie00drin_leaf373_drinkwater1786_plan_batteries_13sep1782.jpg
+      focus:
+      - 0.62
+      - 0.58
+      push: 0.55
+      preset: detail
+    dur: 7.0
+  g1b_KA1782:
+    hero: footage/lai
+    opt:
+      file: /home/user/cine-lab/reports/v6/khung-neo/v6-LAI-960x540-1782.mp4
+      crop: 810:456:0:0
+      frame: false
+      ss: 0.5
+    dur: 8.0
+  g1b_2j_0:
+    hero: tl/t3s
+    opt:
+      year: 1782.69
+      date:
+      - 1782
+      - 9
+      - 8
+      - 7
+      - 8
+      counter:
+        s: 8 Sep 1782
+      noi: thanh_pho
+      town: '1782'
+      tech:
+        v6:
+          earth: true
+      cams:
+      - k: push
+        from:
+        - -640
+        - 60
+        - -1190
+        to:
+        - -620
+        - 56
+        - -1180
+        look:
+        - -480
+        - 0
+        - -1160
+        dur: 4.5
+        fov: 42
+      - k: lateral
+        c:
+        - -575
+        - 10
+        - -1240
+        yaw: 180
+        dist: 160
+        len: 180
+        h: 26
+        dur: 4.0
+        fov: 36
+      - k: push
+        from:
+        - -800
+        - 40
+        - -1300
+        to:
+        - -760
+        - 36
+        - -1290
+        look:
+        - -602
+        - 6
+        - -1276
+        dur: 4.0
+        fov: 38
+      units:
+      - at:
+        - -521
+        - -1189
+        heading: 270
+        rows: 5
+        cols: 24
+        side: gb
+        day:
+        - 0
+        - 99
+        seed: 21
+      - at:
+        - -489
+        - -1189
+        heading: 270
+        rows: 5
+        cols: 24
+        side: gb
+        day:
+        - 0
+        - 99
+        seed: 22
+      - at:
+        - -521
+        - -1141
+        heading: 270
+        rows: 5
+        cols: 24
+        side: gb
+        day:
+        - 0
+        - 99
+        seed: 23
+      - at:
+        - -489
+        - -1141
+        heading: 270
+        rows: 5
+        cols: 24
+        side: gb
+        day:
+        - 0
+        - 99
+        seed: 24
+      life:
+        walkers:
+        - line: MAIN
+          n: 110
+          width: 4
+          colors: &id007
+          - '#b03a2e'
+          - '#a8402e'
+          - '#b03a2e'
+          - '#e7e0cf'
+          - '#5e4a38'
+        - line: GPR
+          n: 60
+          width: 5
+          colors: *id007
+        birds:
+          c:
+          - -500
+          - -1200
+          r: 150
+          h: 60
+          n: 12
+        chimney: 18
+      smoke:
+      - at:
+        - -600
+        - 14
+        - -1276
+        n: 12
+        size: 36
+        rise: 55
+        drift:
+        - -3
+        - 1
+        period: 0.1
+        seed: 11
+        alpha: 0.75
+      - at:
+        - -585
+        - 12
+        - -1500
+        n: 8
+        size: 30
+        rise: 45
+        drift:
+        - -3
+        - 1
+        period: 0.12
+        seed: 12
+        alpha: 0.7
+      pack: gib
+      shot: 2j
+      cau: g1b-2j-0
+      dur: 12.5
+    dur: 12.5
+  g1b_2k:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/ia_historyoflatesie00drin_leaf87_drinkwater1786_plan_bay.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.25
+      preset: drift-l
+    dur: 12.0
+  g1b_2l:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/met_10547.jpg
+      focus:
+      - 0.5
+      - 0.45
+      push: 0.25
+      cam:
+      - t: 0
+        p:
+        - 2.5561
+        - 7.8961
+        - 0.5726
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 12.0
+        p:
+        - 1.6744
+        - 6.0094
+        - 0.1222
+        l:
+        - 0.0
+        - 0
+        - -0.0715
+        mm: 50
+    dur: 12.0
+  g1b_2m_0:
+    hero: tl/vinh6
+    opt:
+      pack: gib
+      cau: g1b-2m-0
+    dur: 14.0
+  g1b_2m_1:
+    hero: tl/bo6
+    opt:
+      pack: gib
+      cau: g1b-2m-1
+    dur: 6.0
+  g1b_2o_0:
+    hero: tl/t3s
+    opt:
+      year: 1782.5
+      date:
+      - 1782
+      - 7
+      - 15
+      - 10
+      - 11
+      noi: ham
+      counter:
+        s: Jul 1782
+      linea: true
+      cams:
+      - k: push
+        from:
+        - 300
+        - 80
+        - 600
+        to:
+        - 280
+        - 120
+        - 200
+        look:
+        - 260
+        - 200
+        - -900
+        dur: 4.5
+        fov: 40
+      - k: push
+        from:
+        - 150
+        - 140
+        - -300
+        to:
+        - 170
+        - 150
+        - -420
+        look:
+        - 240
+        - 230
+        - -900
+        dur: 4.0
+        fov: 34
+      - k: lateral
+        c:
+        - 250
+        - 200
+        - -880
+        yaw: -90
+        dist: 380
+        len: 300
+        h: 180
+        dur: 4.0
+        fov: 30
+      smoke:
+      - at:
+        - 240
+        - 210
+        - -860
+        n: 6
+        size: 14
+        rise: 25
+        drift:
+        - 1
+        - 0
+        period: 0.3
+        seed: 9
+        alpha: 0.6
+      pack: gib
+      shot: 2o
+      cau: g1b-2o-0
+      dur: 12.5
+    dur: 12.5
+  g1b_2p:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-F-2001-7-257-1_rock_from_fort_san_felipe_1860.jpg
+      focus:
+      - 0.5
+      - 0.4
+      push: 0.25
+      preset: detail
+    dur: 8.0
+  g1b_2q_0:
+    hero: tl/t3s
+    opt:
+      year: 1783.1
+      date:
+      - 1783
+      - 2
+      - 5
+      - 11
+      - 12
+      counter:
+        s: 5 Feb 1783
+      noi: eo_dat
+      linea: true
+      cams:
+      - k: lateral
+        c:
+        - 0
+        - 0
+        - 1050
+        yaw: -90
+        dist: 700
+        len: 900
+        h: 140
+        dur: 5.5
+        fov: 34
+      - k: push
+        from:
+        - -200
+        - 300
+        - 200
+        to:
+        - -150
+        - 280
+        - 350
+        look:
+        - 200
+        - 0
+        - 1080
+        dur: 5.5
+        fov: 42
+      units:
+      - at:
+        - -200
+        - 1120
+        heading: 180
+        rows: 3
+        cols: 16
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 50
+      - at:
+        - 150
+        - 1120
+        heading: 180
+        rows: 3
+        cols: 16
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 51
+      - at:
+        - 450
+        - 1120
+        heading: 180
+        rows: 3
+        cols: 16
+        side: es
+        day:
+        - 0
+        - 99
+        seed: 52
+      pack: gib
+      shot: 2q
+      cau: g1b-2q-0
+      dur: 11.0
+    dur: 11.0
+  g1b_2r:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-P-OB-70.560_emes_scene_14sep1782.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.15
+      cam:
+      - t: 0
+        p:
+        - 2.2123
+        - 7.8961
+        - -1.4026
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 12.0
+        p:
+        - 1.4987
+        - 6.8106
+        - -1.1715
+        l:
+        - 0.0
+        - 0
+        - 0.0
+        mm: 50
+    dur: 12.0
+  g1b_3a_0:
+    hero: tl/t3s
+    opt:
+      year: 1783.5
+      yearAt:
+      - - 0
+        - 1783.5
+      - - 6.0
+        - 1805
+      date:
+      - 1790
+      - 6
+      - 1
+      - 10
+      - 11
+      noi: eo_dat
+      linea: true
+      cams:
+      - k: top
+        c:
+        - 40
+        - 0
+        - 520
+        h0: 1000
+        h1: 1300
+        dur: 6.0
+        yaw0: 0
+        yaw1: 10
+        fov: 40
+      - k: lateral
+        c:
+        - 0
+        - 0
+        - 520
+        yaw: 90
+        dist: 1100
+        len: 900
+        h: 300
+        dur: 6.0
+        fov: 36
+      pack: gib
+      shot: 3a
+      cau: g1b-3a-0
+      dur: 12.0
+    dur: 12.0
+  g1b_3b_0:
+    hero: tl/t3s
+    opt:
+      year: 1810.1
+      date:
+      - 1810
+      - 2
+      - 14
+      - 10
+      - 11
+      noi: eo_dat
+      linea: true
+      pin:
+      - 0.5
+      - 2.5
+      cams:
+      - k: push
+        from:
+        - -900
+        - 200
+        - 400
+        to:
+        - -800
+        - 190
+        - 600
+        look:
+        - -300
+        - 0
+        - 1050
+        dur: 5.0
+        fov: 42
+      - k: push
+        from:
+        - 1200
+        - 200
+        - 500
+        to:
+        - 1100
+        - 190
+        - 650
+        look:
+        - 600
+        - 0
+        - 1060
+        dur: 5.5
+        fov: 42
+      smoke:
+      - at:
+        - -380
+        - 8
+        - 1030
+        n: 22
+        size: 60
+        rise: 110
+        drift:
+        - -2
+        - 1
+        period: 0.07
+        seed: 21
+        alpha: 0.9
+      - at:
+        - 640
+        - 8
+        - 1080
+        n: 20
+        size: 55
+        rise: 100
+        drift:
+        - -2
+        - 1
+        period: 0.07
+        seed: 22
+        alpha: 0.9
+      pack: gib
+      shot: 3b
+      cau: g1b-3b-0
+      dur: 10.5
+    dur: 10.5
+  g1b_3c:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/ia_historyofgibralt00saye_leaf500_sayer1865_plan_rock_town_territory.jpg
+      focus:
+      - 0.5
+      - 0.35
+      push: 0.35
+      preset: tilt-low
+    dur: 8.5
+  g1b_3d_0:
+    hero: tl/t3s
+    opt:
+      year: 1849
+      yearAt:
+      - - 0
+        - 1849
+      - - 3.4
+        - 1870
+      - - 6.7
+        - 1905
+      date:
+      - 1870
+      - 6
+      - 15
+      - 10
+      - 11
+      noi: thanh_pho
+      cams:
+      - k: push
+        from:
+        - -500
+        - 300
+        - 900
+        to:
+        - -400
+        - 280
+        - 1100
+        look:
+        - 300
+        - 0
+        - 2000
+        dur: 5.0
+        fov: 44
+      - k: push
+        from:
+        - 700
+        - 260
+        - 900
+        to:
+        - 620
+        - 240
+        - 1050
+        look:
+        - 100
+        - 0
+        - 2100
+        dur: 5.0
+        fov: 44
+      life:
+        walkers:
+        - line: &id008
+          - - 103
+            - 1114
+          - - 115
+            - 1162
+          - - 122
+            - 1195
+          - - 132
+            - 1257
+          - - 138
+            - 1285
+          - - 156
+            - 1379
+          - - 169
+            - 1443
+          - - 180
+            - 1499
+          - - 195
+            - 1574
+          - - 205
+            - 1619
+          - - 213
+            - 1654
+          - - 219
+            - 1688
+          - - 235
+            - 1759
+          - - 243
+            - 1787
+          n: 50
+          width: 5
+          colors: *id006
+          free: false
+      pack: gib
+      shot: 3d
+      cau: g1b-3d-0
+      dur: 10.0
+    dur: 10.0
+  g1b_KC1910_0:
+    hero: tl/t3s
+    opt:
+      year: 1910
+      date:
+      - 1910
+      - 6
+      - 15
+      - 10
+      - 11.5
+      noi: thanh_pho
+      cams:
+      - k: neo
+        pose:
+          E: 150
+          N: 1340
+          h: 2.6
+          heading: 12
+          pitch: 2
+          fovV: 40
+          nguon: G1b
+        dur: 7.0
+      neo: true
+      life:
+        walkers:
+        - line: *id008
+          n: 60
+          width: 7
+          colors: *id006
+          free: false
+        crowds:
+        - line: *id008
+          groups: 6
+          size:
+          - 3
+          - 8
+          speed: 0.8
+          colors: *id006
+        birds:
+          c:
+          - 160
+          - 1500
+          r: 80
+          h: 30
+          n: 8
+      pack: gib
+      shot: KC1910
+      cau: g1b-KC1910-0
+      dur: 7.0
+    dur: 7.0
+  g1b_3e:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/loc_2025710366_neutral_ground.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.2
+      preset: drift-r
+    dur: 6.0
+  g1b_3f_0:
+    hero: tl/t3s
+    opt:
+      year: 1900
+      yearAt:
+      - - 0
+        - 1900
+      - - 5.5
+        - 1908.6
+      - - 10.5
+        - 1910
+      date:
+      - 1909
+      - 6
+      - 15
+      - 10
+      - 11
+      noi: thanh_pho
+      pin:
+      - 5.5
+      - 7.5
+      cams:
+      - k: push
+        from:
+        - -300
+        - 90
+        - 900
+        to:
+        - -260
+        - 85
+        - 760
+        look:
+        - 100
+        - 0
+        - 300
+        dur: 5.5
+        fov: 42
+      - k: lateral
+        c:
+        - 60
+        - 0
+        - 420
+        yaw: -90
+        dist: 260
+        len: 400
+        h: 60
+        dur: 5.0
+        fov: 34
+      - k: push
+        from:
+        - 400
+        - 120
+        - 800
+        to:
+        - 360
+        - 110
+        - 680
+        look:
+        - 0
+        - 0
+        - 380
+        dur: 5.5
+        fov: 40
+      front:
+      - pts:
+        - - -290
+          - 395
+        - - -100
+          - 404
+        - - 100
+          - 405
+        - - 300
+          - 406
+        - - 520
+          - 408
+        side: gb
+        grow:
+        - 5.6
+        - 7.4
+        w: 4
+      life:
+        walkers:
+        - line: *id008
+          n: 40
+          width: 5
+          colors: *id006
+          free: false
+      pack: gib
+      shot: 3f
+      cau: g1b-3f-0
+      dur: 16.0
+    dur: 16.0
+  g1b_3g:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/loc_2020680546_northtown1905.jpg
+      focus:
+      - 0.25
+      - 0.5
+      push: 0.2
+      cam:
+      - t: 0
+        p:
+        - 1.59
+        - 7.8961
+        - 2.0816
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 5.0
+        p:
+        - 0.5733
+        - 6.41
+        - 1.2643
+        l:
+        - -0.7013
+        - 0
+        - 0.0
+        mm: 50
+    dur: 5.0
+  g1b_3h_0:
+    hero: tl/t3s
+    opt:
+      year: 1920
+      yearAt:
+      - - 0
+        - 1920
+      - - 5.0
+        - 1938.5
+      date:
+      - 1938
+      - 6
+      - 15
+      - 10
+      - 11
+      noi: eo_dat
+      cams:
+      - k: top
+        c:
+        - 0
+        - 0
+        - 150
+        h0: 900
+        h1: 1150
+        dur: 5.0
+        yaw0: 0
+        yaw1: 8
+        fov: 40
+      - k: lateral
+        c:
+        - 0
+        - 0
+        - 100
+        yaw: 0
+        dist: 700
+        len: 800
+        h: 160
+        dur: 4.5
+        fov: 36
+      pack: gib
+      shot: 3h
+      cau: g1b-3h-0
+      dur: 9.5
+    dur: 9.5
+  g1b_4a:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/nara_204918839_342-FH_000761.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.2
+      cam:
+      - t: 0
+        p:
+        - -1.7739
+        - 7.8961
+        - 1.9274
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 10.5
+        p:
+        - -1.0726
+        - 6.41
+        - 1.4338
+        l:
+        - 0.0
+        - 0
+        - 0.0
+        mm: 50
+    dur: 10.5
+  g1b_4b_0:
+    hero: tl/gib20
+    opt:
+      pack: gib
+      cau: g1b-4b-0
+      tech:
+        v6: {}
+    dur: 24.5
+  g1b_4c_0:
+    hero: tl/t3s
+    opt:
+      year: 1941.5
+      yearAt:
+      - - 0
+        - 1941.5
+      - - 4.5
+        - 1943.5
+      date:
+      - 1943
+      - 6
+      - 15
+      - 10
+      - 11
+      noi: eo_dat
+      cams:
+      - k: lateral
+        c:
+        - -700
+        - 0
+        - 0
+        yaw: 90
+        dist: 900
+        len: 700
+        h: 220
+        dur: 4.5
+        fov: 36
+      - k: push
+        from:
+        - -1500
+        - 300
+        - -600
+        to:
+        - -1350
+        - 280
+        - -450
+        look:
+        - -500
+        - 0
+        - 0
+        dur: 4.5
+        fov: 42
+      life:
+        boats:
+        - pts:
+          - - -1400
+            - -700
+          - - -1200
+            - -300
+          - - -1100
+            - 300
+          len: 10
+          speed: 4
+          s0: 0.1
+      pack: gib
+      shot: 4c
+      cau: g1b-4c-0
+      dur: 9.0
+    dur: 9.0
+  g1b_4d_0:
+    hero: tl/t3s
+    opt:
+      year: 1943
+      date:
+      - 1943
+      - 6
+      - 15
+      - 10
+      - 11
+      noi: ham
+      town: '1943'
+      cams:
+      - k: push
+        from:
+        - 400
+        - 120
+        - 700
+        to:
+        - 360
+        - 150
+        - 300
+        look:
+        - 260
+        - 200
+        - -1000
+        dur: 5.5
+        fov: 40
+      - k: lateral
+        c:
+        - 200
+        - 120
+        - -800
+        yaw: -60
+        dist: 520
+        len: 500
+        h: 160
+        dur: 5.0
+        fov: 32
+      life:
+        walkers:
+        - line: WCA
+          n: 30
+          width: 5
+          women: false
+          colors: *id009
+      pack: gib
+      shot: 4d
+      cau: g1b-4d-0
+      dur: 10.5
+    dur: 10.5
+  g1b_4f:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/pu_ams_m981_gibraltar_1943.jpg
+      focus:
+      - 0.45
+      - 0.4
+      push: 0.35
+      preset: tilt-low
+    dur: 9.0
+  g1b_4g_0:
+    hero: tl/t3s
+    opt:
+      year: 1940.4
+      date:
+      - 1940
+      - 5
+      - 22
+      - 10
+      - 11
+      noi: bien
+      ships: false
+      cams:
+      - k: lateral
+        c:
+        - -1500
+        - 0
+        - -1300
+        yaw: 200
+        dist: 1900
+        len: 1500
+        h: 220
+        dur: 5.5
+        fov: 34
+      fleet:
+        n: 6
+        center:
+        - -1600
+        - -1400
+        axis: 200
+        spacing: 320
+        kind: line
+        heading: 200
+      life:
+        boats:
+        - pts:
+          - - -900
+            - -1200
+          - - -1500
+            - -1500
+          - - -2400
+            - -2000
+          len: 14
+          speed: 5
+          s0: 0.2
+      pack: gib
+      shot: 4g
+      cau: g1b-4g-0
+      dur: 5.5
+    dur: 5.5
+  g1b_KB1943:
+    hero: footage/lai
+    opt:
+      file: /home/user/cine-lab/reports/v6/khung-neo/v6-LAI-960x540-1943.mp4
+      crop: 810:456:0:0
+      frame: false
+      ss: 0.5
+    dur: 8.0
+  g1b_4h:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/pu_ams_m981_lalinea_1943.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.15
+      cam:
+      - t: 0
+        p:
+        - -2.5978
+        - 7.8961
+        - 0.3362
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 11.5
+        p:
+        - -1.8533
+        - 6.8106
+        - 0.4283
+        l:
+        - 0.0
+        - 0
+        - 0.0
+        mm: 50
+    dur: 11.5
+  g1b_4i_0:
+    hero: tl/t3s
+    opt:
+      year: 1942.85
+      date:
+      - 1942
+      - 11
+      - 7
+      - 15
+      - 16
+      noi: eo_dat
+      cams:
+      - k: lateral
+        c:
+        - -200
+        - 0
+        - 0
+        yaw: 0
+        dist: 380
+        len: 500
+        h: 80
+        dur: 5.5
+        fov: 34
+      - k: lateral
+        c:
+        - 300
+        - 0
+        - 0
+        yaw: 180
+        dist: 380
+        len: 500
+        h: 80
+        dur: 5.5
+        fov: 34
+      - k: push
+        from:
+        - -1300
+        - 240
+        - -300
+        to:
+        - -1150
+        - 220
+        - -200
+        look:
+        - 300
+        - 0
+        - 0
+        dur: 5.0
+        fov: 40
+      life:
+        walkers:
+        - line: WCA
+          n: 60
+          width: 8
+          women: false
+          colors: *id009
+      pack: gib
+      shot: 4i
+      cau: g1b-4i-0
+      dur: 16.0
+    dur: 16.0
+  g1b_5a_0:
+    hero: tl/t3s
+    opt:
+      year: 1969.45
+      date:
+      - 1969
+      - 6
+      - 9
+      - 10
+      - 11
+      counter:
+        s: Jun 1969
+      noi: thanh_pho
+      cams:
+      - k: push
+        from:
+        - 0
+        - 30
+        - -200
+        to:
+        - 10
+        - 28
+        - 120
+        look:
+        - 61
+        - 2
+        - 479
+        dur: 5.0
+        fov: 42
+      - k: lateral
+        c:
+        - 61
+        - 2
+        - 470
+        yaw: 90
+        dist: 160
+        len: 220
+        h: 25
+        dur: 4.5
+        fov: 34
+      - k: push
+        from:
+        - 400
+        - 300
+        - 1200
+        to:
+        - 350
+        - 280
+        - 1000
+        look:
+        - 61
+        - 0
+        - 470
+        dur: 4.5
+        fov: 40
+      pack: gib
+      shot: 5a
+      cau: g1b-5a-0
+      dur: 14.0
+    dur: 14.0
+  g1b_KB2026_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 11
+      - 12
+      noi: thanh_pho
+      neo: true
+      cams:
+      - k: neo
+        pose:
+          E: -459.6
+          N: -1139.9
+          h: 4.6
+          heading: 281
+          pitch: 2
+          fovV: 41.1
+          nguon: G1b
+        dur: 9.5
+      life:
+        walkers:
+        - line: GPR
+          n: 90
+          width: 8
+        - line: MAIN
+          n: 60
+          width: 4
+        crowds:
+        - line: GPR
+          groups: 10
+          size:
+          - 3
+          - 9
+          speed: 0.8
+        birds:
+          c:
+          - -500
+          - -1150
+          r: 60
+          h: 25
+          n: 8
+      pack: gib
+      shot: KB2026
+      cau: g1b-KB2026-0
+      dur: 9.5
+    dur: 9.5
+  g1b_5c_0:
+    hero: tl/t3s
+    opt:
+      year: 1985.1
+      yearAt:
+      - - 0
+        - 1985.1
+      - - 4.0
+        - 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 8
+      - 8.3
+      noi: thanh_pho
+      cams:
+      - k: push
+        from:
+        - -120
+        - 18
+        - 260
+        to:
+        - -100
+        - 16
+        - 150
+        look:
+        - 0
+        - 2
+        - -300
+        dur: 4.0
+        fov: 44
+      - k: lateral
+        c:
+        - 0
+        - 2
+        - 20
+        yaw: 0
+        dist: 60
+        len: 60
+        h: 4
+        dur: 4.5
+        fov: 40
+      life:
+        walkers:
+        - line: WCA
+          n: 140
+          width: 7
+        crowds:
+        - line: WCA
+          groups: 12
+          size:
+          - 5
+          - 14
+          speed: 1.2
+      pack: gib
+      shot: 5c
+      cau: g1b-5c-0
+      dur: 8.5
+    dur: 8.5
+  g1b_5d_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 10
+      - 10.2
+      noi: thanh_pho
+      cams:
+      - k: push
+        from:
+        - 61
+        - 20
+        - 460
+        to:
+        - 100
+        - 60
+        - 700
+        look:
+        - 220
+        - 0
+        - 1700
+        dur: 4.5
+        fov: 44
+      life:
+        walkers:
+        - line: *id008
+          n: 50
+          width: 6
+          free: false
+      pack: gib
+      shot: 5d
+      cau: g1b-5d-0
+      dur: 4.5
+    dur: 4.5
+  g1b_KC2026_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 10
+      - 11.5
+      noi: thanh_pho
+      neo: true
+      cams:
+      - k: neo
+        pose:
+          E: 150
+          N: 1340
+          h: 2.6
+          heading: 12
+          pitch: 2
+          fovV: 40
+          nguon: G1b
+        dur: 10.0
+      life:
+        walkers:
+        - line: *id008
+          n: 60
+          width: 7
+          free: false
+        crowds:
+        - line: *id008
+          groups: 5
+          size:
+          - 3
+          - 7
+          speed: 0.8
+        birds:
+          c:
+          - 160
+          - 1500
+          r: 80
+          h: 30
+          n: 8
+      pack: gib
+      shot: KC2026
+      cau: g1b-KC2026-0
+      dur: 10.0
+    dur: 10.0
+  g1b_5f_0:
+    hero: tl/t3s
+    opt:
+      year: 1960
+      yearAt:
+      - - 0
+        - 1960
+      - - 5.5
+        - 1990
+      - - 11.0
+        - 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 10
+      - 11
+      noi: eo_dat
+      ribbons: true
+      cams:
+      - k: line
+        line: BORDER
+        s0: 0
+        s1: 260
+        h: 95
+        dur: 5.5
+        look: 180
+        dip: 70
+        fov: 36
+        type: eo_dat
+        east: 0
+        north: 0
+      - k: line
+        line: BORDER
+        s0: 260
+        s1: 520
+        h: 95
+        dur: 5.5
+        look: 180
+        dip: 70
+        fov: 36
+        type: eo_dat
+        east: 0
+        north: 0
+      - k: push
+        from:
+        - 400
+        - 260
+        - 900
+        to:
+        - 360
+        - 240
+        - 800
+        look:
+        - 60
+        - 0
+        - 400
+        dur: 5.5
+        fov: 40
+      life:
+        walkers:
+        - line: WCA
+          n: 80
+          width: 6
+          women: true
+        birds:
+          c:
+          - 0
+          - -200
+          r: 200
+          h: 60
+          n: 10
+      pack: gib
+      shot: 5f
+      cau: g1b-5f-0
+      dur: 16.5
+    dur: 16.5
+  g1b_5g:
+    hero: photo/print
+    opt:
+      img: /cache/g1b/rijks_RP-F-2001-7-257-16_neutral_ground_1860.jpg
+      focus:
+      - 0.5
+      - 0.5
+      push: 0.15
+      cam:
+      - t: 0
+        p:
+        - 2.2123
+        - 7.8961
+        - -1.4026
+        l:
+        - 0
+        - 0
+        - 0
+        mm: 50
+      - t: 8.0
+        p:
+        - 1.4987
+        - 6.8106
+        - -1.1715
+        l:
+        - 0.0
+        - 0
+        - 0.0
+        mm: 50
+    dur: 8.0
+  g1b_5h_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 11
+      - 12
+      noi: thanh_pho
+      cams:
+      - k: orbit
+        c:
+        - 61
+        - 5
+        - 479
+        r: 130
+        h: 40
+        a0: 230
+        a1: 280
+        dur: 5.5
+        fov: 38
+        lookUp: 0
+      - k: orbit
+        c:
+        - 61
+        - 5
+        - 479
+        r: 130
+        h: 40
+        a0: 280
+        a1: 330
+        dur: 5.5
+        fov: 38
+        lookUp: 0
+      - k: push
+        from:
+        - 361
+        - 120
+        - 739
+        to:
+        - 301
+        - 100
+        - 679
+        look:
+        - 61
+        - 0
+        - 479
+        dur: 5.0
+        fov: 40
+      life:
+        walkers:
+        - line: WCA
+          n: 120
+          width: 6
+          women: true
+        birds:
+          c:
+          - 0
+          - -200
+          r: 200
+          h: 60
+          n: 10
+      pack: gib
+      shot: 5h
+      cau: g1b-5h-0
+      dur: 16.0
+    dur: 16.0
+  g1b_5j_0:
+    hero: tl/t3s
+    opt:
+      noi: eo_dat
+      date: &id010
+      - 2026
+      - 10
+      - 18
+      - 16
+      - 16.3
+      year: 1704.6
+      town: '1704'
+      hideTrees: *id003
+      cams:
+      - k: push
+        from:
+        - -150.0
+        - 600.0
+        - -300.0
+        to:
+        - -240.0
+        - 900.0
+        - -480.0
+        look: &id011
+        - 100
+        - 0
+        - 600
+        dur: 3.7
+        fov: 44
+        hold: 0.05
+      dur: 3.7
+      pack: gib
+      shot: 5j
+      cau: g1b-5j-0
+    dur: 3.7
+  g1b_5j_1:
+    hero: tl/t3s
+    opt:
+      noi: eo_dat
+      date: *id010
+      year: 1735
+      linea: true
+      cams:
+      - k: push
+        from:
+        - -240.0
+        - 900.0
+        - -480.0
+        to:
+        - -330.0
+        - 1200.0
+        - -660.0
+        look: *id011
+        dur: 3.7
+        fov: 44
+        hold: 0.05
+      dur: 3.7
+      pack: gib
+      shot: 5j
+      cau: g1b-5j-1
+    dur: 3.7
+  g1b_5j_2:
+    hero: tl/t3s
+    opt:
+      noi: eo_dat
+      date: *id010
+      year: 1910
+      front:
+      - pts:
+        - - -290
+          - 395
+        - - 100
+          - 405
+        - - 520
+          - 408
+        side: gb
+        grow:
+        - 0
+        - 0.1
+        w: 4
+      cams:
+      - k: push
+        from:
+        - -330.0
+        - 1200.0
+        - -660.0
+        to:
+        - -420.00000000000006
+        - 1500.0
+        - -840.0000000000001
+        look: *id011
+        dur: 3.7
+        fov: 44
+        hold: 0.05
+      dur: 3.7
+      pack: gib
+      shot: 5j
+      cau: g1b-5j-2
+    dur: 3.7
+  g1b_5j_3:
+    hero: tl/t3s
+    opt:
+      noi: eo_dat
+      date: *id010
+      year: 1943
+      cams:
+      - k: push
+        from:
+        - -420.00000000000006
+        - 1500.0
+        - -840.0000000000001
+        to:
+        - -510.0
+        - 1800.0
+        - -1020.0
+        look: *id011
+        dur: 3.7
+        fov: 44
+        hold: 0.05
+      dur: 3.7
+      pack: gib
+      shot: 5j
+      cau: g1b-5j-3
+    dur: 3.7
+  g1b_5j_4:
+    hero: tl/t3s
+    opt:
+      noi: eo_dat
+      date: *id010
+      year: 2026
+      cams:
+      - k: push
+        from:
+        - -510.0
+        - 1800.0
+        - -1020.0
+        to:
+        - -600.0
+        - 2100.0
+        - -1200.0
+        look: *id011
+        dur: 3.7
+        fov: 44
+        hold: 0.05
+      dur: 3.7
+      pack: gib
+      shot: 5j
+      cau: g1b-5j-4
+    dur: 3.7
+  g1b_KA2026_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 9
+      - 17
+      dayCycle: true
+      noi: thanh_pho
+      neo: true
+      cams:
+      - k: neo
+        pose:
+          E: -433.5
+          N: -1365.0
+          h: 2.2
+          heading: 0
+          pitch: 2
+          fovV: 44
+          nguon: G1b
+        dur: 8.0
+      life:
+        walkers:
+        - line: MAIN
+          n: 50
+          width: 3
+        birds:
+          c:
+          - -430
+          - -1300
+          r: 40
+          h: 20
+          n: 6
+      pack: gib
+      shot: KA2026
+      cau: g1b-KA2026-0
+      dur: 8.0
+    dur: 8.0
+  g1b_5k_0:
+    hero: tl/t3s
+    opt:
+      year: 2026
+      date:
+      - 2026
+      - 10
+      - 18
+      - 17.7
+      - 17.86
+      dayCycle: true
+      exposure: 0.7
+      noi: thanh_pho
+      cams:
+      - k: push
+        from:
+        - 40
+        - 3
+        - -260
+        to:
+        - 30
+        - 3
+        - -150
+        look:
+        - 61
+        - 2
+        - 479
+        dur: 5.0
+        fov: 46
+      - k: lateral
+        c:
+        - 0
+        - 2
+        - 20
+        yaw: 180
+        dist: 45
+        len: 30
+        h: 3
+        dur: 5.0
+        fov: 40
+      - k: push
+        from:
+        - -60
+        - 6
+        - 240
+        to:
+        - 0
+        - 10
+        - 380
+        look:
+        - 61
+        - 3
+        - 600
+        dur: 5.0
+        fov: 44
+      - k: push
+        from:
+        - 61
+        - 20
+        - 300
+        to:
+        - -100
+        - 520
+        - -500
+        look:
+        - 100
+        - 0
+        - 1200
+        dur: 5.0
+        fov: 46
+      life:
+        walkers:
+        - line: WCA
+          n: 80
+          width: 6
+        crowds:
+        - line: WCA
+          groups: 6
+          size:
+          - 4
+          - 10
+          speed: 1.2
+        birds:
+          c:
+          - 0
+          - 0
+          r: 180
+          h: 50
+          n: 8
+      pack: gib
+      shot: 5k
+      cau: g1b-5k-0
+      dur: 20.0
+    dur: 20.0
+segments:
+- id: 0a
+  part: CH0
+  chuong: '0'
+  dur: 6.5
+  fadeIn: 6
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0a
+  - t: 3.5
+    k: cut
+    s: 0a cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar–La Línea frontier
+      where_moi: true
+      hero: g1b_0a_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 0b
+  part: CH0
+  chuong: '0'
+  dur: 5.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0b
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      hero: g1b_0b_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 0c
+  part: CH0
+  chuong: '0'
+  dur: 3.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0c
+  shots:
+  - tpl: plate
+    at: 0
+    noi: bien
+    p:
+      sach: true
+      hero: g1b_0c
+      frame0: 0
+      photo: rijks_RP-P-OB-83.395_kaart_1704.jpg
+    type: photo
+- id: 0d
+  part: CH0
+  chuong: '0'
+  dur: 7.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0d
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_0b_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: num
+        big: '14'
+        unit: sieges · 1309–1783
+        at: 0.3
+      so:
+      - s: Sayer 1862 · García Sanz 2022 · Gibraltar National Museum
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: 0e
+  part: CH0
+  chuong: '0'
+  dur: 5.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0e
+  - t: 1.375
+    k: cut
+    s: 0e mốc
+  - t: 2.75
+    k: cut
+    s: 0e mốc
+  - t: 4.125
+    k: cut
+    s: 0e mốc
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar old town
+      where_moi: true
+      so:
+      - s: 14 sieges · 1309–1783
+        sub: null
+        src: null
+        at: 0.3
+        dur: 3.0
+      hero: g1b_0e_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 1.375
+    noi: thanh_pho
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_0e_1
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 2.75
+    noi: thanh_pho
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_0e_2
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 4.125
+    noi: thanh_pho
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_0e_3
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 0f
+  part: CH0
+  chuong: '0'
+  dur: 5.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0f
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_0f
+      frame0: 0
+      photo: rijks_RP-P-OB-19.249_destruction_floating_batteries_1782.jpg
+    type: photo
+- id: 0g
+  part: CH0
+  chuong: '0'
+  dur: 6.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0g
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: Runway crossing, Gibraltar
+      where_moi: true
+      hero: g1b_0g_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 0h
+  part: CH0
+  chuong: '0'
+  dur: 5.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 0h
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: North face of the Rock
+      where_moi: true
+      hero: g1b_0h_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: SM1
+  part: CH1
+  chuong: '1'
+  dur: 6.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: SM1
+  shots:
+  - tpl: plate
+    at: 0
+    noi: luc_dia
+    p:
+      sach: true
+      hero: g1b_0h_0
+      frame0: 0
+      speed: 0.0
+      card:
+        type: end
+        lines:
+        - s: SM1 — strategic map
+          px: 56
+          at: 0.2
+        - s: (rendering)
+          px: 40
+          at: 0.4
+    type: card
+- id: 1a
+  part: CH1
+  chuong: '1'
+  dur: 5.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1a
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: bien
+    p:
+      sach: true
+      where: Bay of Gibraltar
+      where_moi: true
+      hero: g1b_1a_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 1b
+  part: CH1
+  chuong: '1'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1b
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_1b
+      frame0: 0
+      photo: rooke_rijks_33529.jpg
+    type: photo
+- id: 1c
+  part: CH1
+  chuong: '1'
+  dur: 10.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1c
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p:
+      sach: true
+      so:
+      - s: «la preciosa llave del Mediterráneo»
+        sub: the precious key of the Mediterranean
+        src: Montero, 1860
+        at: 0.2
+        dur: 3.0
+      hero: g1b_1c
+      frame0: 0
+      photo: rijks_RP-P-OB-83.400_exact_plan_1705.jpg
+    type: photo
+- id: 1d
+  part: CH1
+  chuong: '1'
+  dur: 13.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1d
+  - t: 4.5
+    k: cut
+    s: 1d cú
+  - t: 9.0
+    k: cut
+    s: 1d cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar old town
+      where_moi: true
+      so:
+      - s: «con cien hombres de guarnición … no había artilleros que las sirvieran»
+        sub: a garrison of a hundred men … there were no gunners to serve them
+        src: Montero, 1860
+        at: 0.2
+        dur: 3.0
+      hero: g1b_1d_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 1e
+  part: CH1
+  chuong: '1'
+  dur: 9.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1e
+  - t: 5.0
+    k: cut
+    s: 1e cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      so:
+      - s: '4 August 1704 · English histories: 24 July 1704 (old calendar)'
+        sub: null
+        src: null
+        at: 0.2
+        dur: 3.0
+      hero: g1b_1e_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 1f
+  part: CH1
+  chuong: '1'
+  dur: 5.625
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1f
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_1e_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: list
+        title: Defenders, 1704
+        items:
+        - s: ~100 soldiers — Spanish count (Montero)
+          at: 0.3
+        - s: up to 500 — British accounts, incl. armed townsmen
+          at: 1.6
+    type: card
+- id: 1g
+  part: CH1
+  chuong: '1'
+  dur: 14.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1g
+  - t: 4.5
+    k: cut
+    s: 1g cú
+  - t: 9.0
+    k: cut
+    s: 1g cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      so:
+      - s: «se habia acampado en las haciendas cercanas á la ermita de San Roque»
+        sub: had camped on the farms near the hermitage of San Roque
+        src: Montero, 1860
+        at: 0.2
+        dur: 3.0
+      hero: g1b_1g_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 1h
+  part: CH1
+  chuong: '1'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1h
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_1h
+      frame0: 0
+      card:
+        type: quote
+        q: '"…without any territorial jurisdiction, and without any open communication by land…"'
+        by: Treaty of Utrecht, Article X (1713)
+        at: 0.3
+      so: []
+    type: card
+- id: 1i
+  part: CH1
+  chuong: '1'
+  dur: 13.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1i
+  - t: 4.5
+    k: cut
+    s: 1i cú
+  - t: 9.0
+    k: cut
+    s: 1i cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_1i_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 1j
+  part: CH1
+  chuong: '1'
+  dur: 10.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1j
+  - t: 5.0
+    k: cut
+    s: 1j cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_1j_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 1k
+  part: CH1
+  chuong: '1'
+  dur: 14.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 1k
+  - t: 5.0
+    k: cut
+    s: 1k cú
+  - t: 10.0
+    k: cut
+    s: 1k cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      so:
+      - s: «bloquear definitivamente la correspondencia y paso a la plaza por tierra»
+        sub: to block, once and for all, all contact with and passage to the town by land
+        src: Gómez Nadal (Almoraima), on Philip V's order of 8 Oct 1730
+        at: 1.4
+        dur: 3.0
+      hero: g1b_1k_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2a
+  part: CH2
+  chuong: '2'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2a
+  - t: 5.0
+    k: cut
+    s: 2a cú
+  - t: 9.0
+    k: cut
+    s: 2a cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_2a_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2b
+  part: CH2
+  chuong: '2'
+  dur: 10.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2b
+  shots:
+  - tpl: plate
+    at: 0
+    noi: eo_dat
+    p:
+      sach: true
+      so:
+      - s: «Carlos III declaró la guerra á Inglaterra y se unió á Francia»
+        sub: Charles III declared war on England and joined France
+        src: Montero, 1860
+        at: 0.2
+        dur: 3.0
+      hero: g1b_2b
+      frame0: 0
+      photo: yale_2046612_faden_1783_spanish_works.jpg
+    type: photo
+- id: 2c
+  part: CH2
+  chuong: '2'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2c
+  - t: 6.0
+    k: cut
+    s: 2c cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: bien
+    p:
+      sach: true
+      where: Bay of Gibraltar
+      where_moi: true
+      so:
+      - s: «encaminado principalmente á privar a la plaza de los viveres que le llegaban de las costas de África»
+        sub: aimed above all at depriving the town of the food that reached it from the coasts of Africa
+        src: Montero, 1860
+        at: 4.4
+        dur: 3.0
+      hero: g1b_2c_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2d
+  part: CH2
+  chuong: '2'
+  dur: 7.625
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2d
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_2c_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: list
+        title: January 1780
+        items:
+        - s: Thistles, dandelions, wild leeks
+          at: 0.3
+        - s: 'One egg: sixpence'
+          at: 1.5
+      so:
+      - s: Garrison diaries (Drinkwater)
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: 2e
+  part: CH2
+  chuong: '2'
+  dur: 6.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2e
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_2e
+      frame0: 0
+      photo: rijks_RP-P-OB-53.323_eliott_portrait_1784.jpg
+    type: photo
+- id: SM2
+  part: CH2
+  chuong: '2'
+  dur: 7.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: SM2
+  shots:
+  - tpl: plate
+    at: 0
+    noi: bien
+    p:
+      sach: true
+      hero: g1b_2c_0
+      frame0: 0
+      speed: 0.0
+      card:
+        type: end
+        lines:
+        - s: SM2 — strategic map
+          px: 56
+          at: 0.2
+        - s: (rendering)
+          px: 40
+          at: 0.4
+    type: card
+- id: 2f
+  part: CH2
+  chuong: '2'
+  dur: 6.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2f
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: bien
+    p:
+      sach: true
+      hero: g1b_2f_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2g
+  part: CH2
+  chuong: '2'
+  dur: 12.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2g
+  - t: 4.5
+    k: cut
+    s: 2g cú
+  - t: 8.5
+    k: cut
+    s: 2g cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar old town
+      where_moi: true
+      hero: g1b_2g_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2h
+  part: CH2
+  chuong: '2'
+  dur: 7.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2h
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_2h
+      frame0: 0
+      photo: ia_historyoflatesie00drin_leaf373_drinkwater1786_plan_batteries_13sep1782.jpg
+    type: photo
+- id: 2i
+  part: CH2
+  chuong: '2'
+  dur: 6.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2i
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_2g_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: list
+        title: Rounds fired (from April 1781)
+        items:
+        - s: 205,328 — garrison
+          at: 0.3
+        - s: 258,387 — besiegers
+          at: 1.6
+      so:
+      - s: Drinkwater, 1785
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: KA1782
+  part: CH2
+  chuong: '2'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KA1782
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar old town
+      where_moi: true
+      hero: g1b_KA1782
+      frame0: 0
+    type: scene3d
+    khung_neo: true
+    ai_image: true
+- id: 2j
+  part: CH2
+  chuong: '2'
+  dur: 12.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2j
+  - t: 4.5
+    k: cut
+    s: 2j cú
+  - t: 8.5
+    k: cut
+    s: 2j cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_2j_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2k
+  part: CH2
+  chuong: '2'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2k
+  shots:
+  - tpl: plate
+    at: 0
+    noi: bien
+    p:
+      sach: true
+      so:
+      - s: «alegrando la vista los 50 navios que se juntaron en Algeciras»
+        sub: the 50 ships of the line that gathered at Algeciras, a joy to see
+        src: Fernández Duro, Armada española (1901)
+        at: 0.2
+        dur: 3.0
+      hero: g1b_2k
+      frame0: 0
+      photo: ia_historyoflatesie00drin_leaf87_drinkwater1786_plan_bay.jpg
+    type: photo
+- id: 2l
+  part: CH2
+  chuong: '2'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2l
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      so:
+      - s: «l'expérience que l'inventeur avoit demandée … à l'épreuve des boulets rouges»
+        sub: the test the inventor had asked for … against red-hot shot
+        src: Conseil de guerre privé (1785)
+        at: 7.2
+        dur: 3.0
+      hero: g1b_2l
+      frame0: 0
+      photo: met_10547.jpg
+    type: photo
+- id: 2m
+  part: CH2
+  chuong: '2'
+  dur: 20.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2m
+  - t: 4.4
+    k: cut
+    s: 2m pha
+  - t: 5.9
+    k: phase
+    s: 2m pha
+  - t: 10.6
+    k: phase
+    s: 2m pha
+  - t: 12.0
+    k: phase
+    s: 2m pha
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: bien
+    p:
+      sach: true
+      where: Bay of Gibraltar
+      where_moi: true
+      so:
+      - s: «á las diez y veinte y cinco minutos de la mañana … rompieron á un tiempo el fuego»
+        sub: at twenty-five past ten in the morning … opened fire all at once
+        src: Montero, 1860
+        at: 8.7
+        dur: 3.0
+      hero: g1b_2m_0
+      frame0: 0
+    type: scene3d
+    ai_texture: true
+  - tpl: plate
+    at: 14.0
+    noi: bien
+    p:
+      sach: true
+      where: Bay of Gibraltar
+      where_moi: true
+      hero: g1b_2m_1
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2n
+  part: CH2
+  chuong: '2'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2n
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_2m_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: list
+        title: 13–14 September 1782
+        items:
+        - s: '> 2,000 attackers lost, prisoners included'
+          at: 0.3
+        - s: 357 rescued by the British
+          at: 1.5
+        - s: 'Garrison: 16 killed'
+          at: 2.6999999999999997
+      so:
+      - s: British estimate & Montero · British return
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: 2o
+  part: CH2
+  chuong: '2'
+  dur: 12.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2o
+  - t: 4.5
+    k: cut
+    s: 2o cú
+  - t: 8.5
+    k: cut
+    s: 2o cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: vung
+    p:
+      sach: true
+      where: North face of the Rock
+      where_moi: true
+      hero: g1b_2o_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2p
+  part: CH2
+  chuong: '2'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2p
+  shots:
+  - tpl: plate
+    at: 0
+    noi: vung
+    p:
+      sach: true
+      so:
+      - s: «se formó un boquete tan grande … que pareció bien colocar en el un cañón»
+        sub: an opening was made so large … that it seemed right to place a cannon in it
+        src: Montero, 1860
+        at: 5.1
+        dur: 3.0
+      hero: g1b_2p
+      frame0: 0
+      photo: rijks_RP-F-2001-7-257-1_rock_from_fort_san_felipe_1860.jpg
+    type: photo
+- id: 2q
+  part: CH2
+  chuong: '2'
+  dur: 11.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2q
+  - t: 5.5
+    k: cut
+    s: 2q cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      hero: g1b_2q_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 2r
+  part: CH2
+  chuong: '2'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 2r
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      so: []
+      hero: g1b_2r
+      frame0: 0
+      card:
+        type: quote
+        q: Spain recovers Minorca and the Floridas; Gibraltar stays British.
+        by: Peace of Versailles, 3 September 1783
+        at: 0.3
+    type: card
+- id: 3a
+  part: CH3
+  chuong: '3'
+  dur: 12.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3a
+  - t: 6.0
+    k: cut
+    s: 3a cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_3a_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 3b
+  part: CH3
+  chuong: '3'
+  dur: 10.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3b
+  - t: 5.0
+    k: cut
+    s: 3b cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      so:
+      - s: «con autorización española, fueran destruidos por los ingleses»
+        sub: with Spanish authorisation, they were destroyed by the British
+        src: Gómez de Avellaneda
+        at: 6.73
+        dur: 3.0
+      hero: g1b_3b_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 3c
+  part: CH3
+  chuong: '3'
+  dur: 8.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3c
+  shots:
+  - tpl: plate
+    at: 0
+    noi: eo_dat
+    p:
+      sach: true
+      so:
+      - s: «el progresivo avance de la frontera sobre la zona neutral»
+        sub: the gradual advance of the frontier over the neutral zone
+        src: García Sanz, 2022
+        at: 2.8
+        dur: 3.0
+      hero: g1b_3c
+      frame0: 0
+      photo: ia_historyofgibralt00saye_leaf500_sayer1865_plan_rock_town_territory.jpg
+    type: photo
+- id: 3d
+  part: CH3
+  chuong: '3'
+  dur: 10.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3d
+  - t: 5.0
+    k: cut
+    s: 3d cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: La Línea de la Concepción
+      where_moi: true
+      hero: g1b_3d_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: KC1910
+  part: CH3
+  chuong: '3'
+  dur: 7.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KC1910
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_KC1910_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 3e
+  part: CH3
+  chuong: '3'
+  dur: 6.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3e
+  shots:
+  - tpl: plate
+    at: 0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_3e
+      frame0: 0
+      photo: loc_2025710366_neutral_ground.jpg
+    type: photo
+- id: 3f
+  part: CH3
+  chuong: '3'
+  dur: 16.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3f
+  - t: 5.5
+    k: cut
+    s: 3f cú
+  - t: 10.5
+    k: cut
+    s: 3f cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: North Front, Gibraltar
+      where_moi: true
+      so:
+      - s: «"como acto de cortesía"»
+        sub: como acto de cortesía
+        src: García Sanz, 2022
+        at: 0.2
+        dur: 3.0
+      hero: g1b_3f_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 3g
+  part: CH3
+  chuong: '3'
+  dur: 5.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3g
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_3g
+      frame0: 0
+      photo: loc_2020680546_northtown1905.jpg
+    type: photo
+- id: 3h
+  part: CH3
+  chuong: '3'
+  dur: 9.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 3h
+  - t: 5.0
+    k: cut
+    s: 3h cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      hero: g1b_3h_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 4a
+  part: CH4
+  chuong: '4'
+  dur: 10.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4a
+  shots:
+  - tpl: plate
+    at: 0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_4a
+      frame0: 0
+      photo: nara_204918839_342-FH_000761.jpg
+    type: photo
+- id: 4b
+  part: CH4
+  chuong: '4'
+  dur: 15.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4b
+  - t: 2.6
+    k: cut
+    s: 4b pha
+  - t: 7.6
+    k: phase
+    s: 4b pha
+  - t: 8.8
+    k: phase
+    s: 4b pha
+  - t: 12.0
+    k: phase
+    s: 4b pha
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: Runway crossing, Gibraltar
+      where_moi: true
+      so:
+      - s: «una porción usurpada del territorio nacional»
+        sub: a usurped portion of the national territory
+        src: Spanish government to its London ambassador, 4 Mar 1939 (Marquina Barrio, 1981)
+        at: 0.2
+        dur: 3.0
+      hero: g1b_4b_0
+      frame0: 216
+    type: scene3d
+    ai_texture: false
+- id: 4c
+  part: CH4
+  chuong: '4'
+  dur: 9.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4c
+  - t: 4.5
+    k: cut
+    s: 4c cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      hero: g1b_4c_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 4d
+  part: CH4
+  chuong: '4'
+  dur: 10.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4d
+  - t: 5.5
+    k: cut
+    s: 4d cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: vung
+    p:
+      sach: true
+      where: Inside the Rock
+      where_moi: true
+      hero: g1b_4d_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 4e
+  part: CH4
+  chuong: '4'
+  dur: 7.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4e
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_4d_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: num
+        big: ~55 km
+        unit: of tunnels — more than the roads above
+        at: 0.3
+      so:
+      - s: HM Government of Gibraltar, 2017
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: 4f
+  part: CH4
+  chuong: '4'
+  dur: 9.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4f
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_4f
+      frame0: 0
+      photo: pu_ams_m981_gibraltar_1943.jpg
+    type: photo
+- id: SM3
+  part: CH4
+  chuong: '4'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: SM3
+  shots:
+  - tpl: plate
+    at: 0
+    noi: luc_dia
+    p:
+      sach: true
+      hero: g1b_4d_0
+      frame0: 0
+      speed: 0.0
+      card:
+        type: end
+        lines:
+        - s: SM3 — strategic map
+          px: 56
+          at: 0.2
+        - s: (rendering)
+          px: 40
+          at: 0.4
+    type: card
+- id: 4g
+  part: CH4
+  chuong: '4'
+  dur: 5.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4g
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: bien
+    p:
+      sach: true
+      where: Bay of Gibraltar
+      where_moi: true
+      hero: g1b_4g_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: KB1943
+  part: CH4
+  chuong: '4'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KB1943
+  shots:
+  - tpl: plate
+    at: 0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_KB1943
+      frame0: 0
+    type: scene3d
+    khung_neo: true
+    ai_image: true
+- id: 4h
+  part: CH4
+  chuong: '4'
+  dur: 11.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4h
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      so: []
+      hero: g1b_4h
+      frame0: 0
+      card:
+        type: quote
+        q: «una porción usurpada del territorio nacional» — "a usurped portion of the national territory"
+        by: Spanish government, 4 Mar 1939 (Marquina Barrio, 1981)
+        at: 0.3
+    type: card
+- id: 4i
+  part: CH4
+  chuong: '4'
+  dur: 16.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 4i
+  - t: 5.5
+    k: cut
+    s: 4i cú
+  - t: 11.0
+    k: cut
+    s: 4i cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      hero: g1b_4i_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5a
+  part: CH5
+  chuong: '5'
+  dur: 14.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5a
+  - t: 5.0
+    k: cut
+    s: 5a cú
+  - t: 9.5
+    k: cut
+    s: 5a cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar–La Línea frontier
+      where_moi: true
+      hero: g1b_5a_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5b
+  part: CH5
+  chuong: '5'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5b
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_5a_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: num
+        big: ~4,600
+        unit: Spanish day workers cut off, 1969
+        at: 0.3
+      so:
+      - s: C19 (UK record)
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: KB2026
+  part: CH5
+  chuong: '5'
+  dur: 9.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KB2026
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_KB2026_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5c
+  part: CH5
+  chuong: '5'
+  dur: 8.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5c
+  - t: 4.0
+    k: cut
+    s: 5c cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_5c_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5d
+  part: CH5
+  chuong: '5'
+  dur: 4.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5d
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: La Línea de la Concepción
+      where_moi: true
+      hero: g1b_5d_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: KC2026
+  part: CH5
+  chuong: '5'
+  dur: 10.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KC2026
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      hero: g1b_KC2026_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5e
+  part: CH5
+  chuong: '5'
+  dur: 6.4167
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5e
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_KC2026_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: num
+        big: £85,000
+        unit: output per resident (Gibraltar government)
+        at: 0.3
+      so:
+      - s: HM Government of Gibraltar
+        at: 0.8
+        dur: 3.0
+        role: src_ngan
+        x: left
+        y: bottom
+    type: card
+- id: 5f
+  part: CH5
+  chuong: '5'
+  dur: 16.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5f
+  - t: 5.5
+    k: cut
+    s: 5f cú
+  - t: 11.0
+    k: cut
+    s: 5f cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      hero: g1b_5f_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5g
+  part: CH5
+  chuong: '5'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5g
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_5g
+      frame0: 0
+      card:
+        type: quote
+        q: Nothing in the treaty changes either side's position on sovereignty.
+        by: UK–EU treaty on Gibraltar, July 2026 (paraphrase of the sovereignty clause)
+        at: 0.3
+      so: []
+    type: card
+- id: 5h
+  part: CH5
+  chuong: '5'
+  dur: 16.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5h
+  - t: 5.5
+    k: cut
+    s: 5h cú
+  - t: 11.0
+    k: cut
+    s: 5h cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar–La Línea frontier
+      where_moi: true
+      hero: g1b_5h_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5i
+  part: CH5
+  chuong: '5'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5i
+  shots:
+  - tpl: plate
+    at: 0
+    noi: —
+    p:
+      sach: true
+      hero: g1b_5h_0
+      frame0: 0
+      speed: 0.0
+      'off': 0
+      card:
+        type: list
+        title: As of 18 October 2026
+        items:
+        - s: Jul 2026 — treaty signed · checks end
+          at: 0.3
+        - s: now — in force provisionally
+          at: 1.7
+        - s: 14 Dec 2026 — European Parliament vote indicated
+          at: 3.0999999999999996
+    type: card
+- id: 5j
+  part: CH5
+  chuong: '5'
+  dur: 18.5
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5j
+  - t: 3.7
+    k: cut
+    s: 5j mốc
+  - t: 7.4
+    k: cut
+    s: 5j mốc
+  - t: 11.1
+    k: cut
+    s: 5j mốc
+  - t: 14.8
+    k: cut
+    s: 5j mốc
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: eo_dat
+    p:
+      sach: true
+      where: The isthmus, Gibraltar
+      where_moi: true
+      hero: g1b_5j_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 3.7
+    noi: eo_dat
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_5j_1
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 7.4
+    noi: eo_dat
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_5j_2
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 11.1
+    noi: eo_dat
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_5j_3
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+  - tpl: plate
+    at: 14.8
+    noi: eo_dat
+    p:
+      sach: true
+      where_moi: true
+      hero: g1b_5j_4
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: KA2026
+  part: CH5
+  chuong: '5'
+  dur: 8.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: KA2026
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar old town
+      where_moi: true
+      hero: g1b_KA2026_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: 5k
+  part: CH5
+  chuong: '5'
+  dur: 20.0
+  fadeIn: 0
+  fadeOut: 0
+  beats:
+  - t: 0.0
+    k: cut
+    s: 5k
+  - t: 5.0
+    k: cut
+    s: 5k cú
+  - t: 10.0
+    k: cut
+    s: 5k cú
+  - t: 15.0
+    k: cut
+    s: 5k cú
+  shots:
+  - tpl: plate
+    at: 0.0
+    noi: thanh_pho
+    p:
+      sach: true
+      where: Gibraltar–La Línea frontier
+      where_moi: true
+      hero: g1b_5k_0
+      frame0: 0
+    type: scene3d
+    ai_texture: false
+- id: PP
+  part: END
+  chuong: '5'
+  dur: 5.0
+  fadeIn: 0
+  fadeOut: 10
+  beats:
+  - t: 0.0
+    k: cut
+    s: How this film was made
+  shots:
+  - tpl: plate
+    at: 0
+    type: card
+    p:
+      sach: true
+      hero: g1b_5k_0
+      frame0: 0
+      speed: 0.0
+      card:
+        type: list
+        title: How this film was made
+        px: 40
+        gap: 30
+        items:
+        - s: 'Built from British and Spanish records: Drinkwater 1786, Montero 1860, Utrecht 1713.'
+          at: 0.2
+        - s: Every source, page by page, is in the description.
+          at: 0.55
+        - s: 'Estimated: ruined 1782 houses, building heights, coastline, borders, sea routes.'
+          at: 0.8999999999999999
+        - s: Troop and crowd numbers and layouts are illustrative.
+          at: 1.2499999999999998
+        - s: AI retouched surfaces on two street frames and read old diaries. No facts.
+          at: 1.5999999999999999
+        - s: AI images carry C2PA, so YouTube may label this video AI-altered.
+          at: 1.95
