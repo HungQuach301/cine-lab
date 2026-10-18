@@ -24,7 +24,7 @@
 
 ‹0g› In 1941, a runway was laid across the only road to Spain. {C33} {S091}
 
-‹0h› And why is the fight over it today about paperwork, and payrolls? {C08} {C26}
+‹0h› So why, today, is the fight over it about paperwork and payrolls? {C08} {C26}
 
 [01 ROCK] 1704: A Rock Changes Hands
 
@@ -40,11 +40,11 @@
 ‹1d› Inside, Governor Diego de Salinas had barely a hundred soldiers, by a Spanish count. {S015} He refused to surrender. The fleet answered with some fifteen thousand rounds. {S016}
 [TRÊN HÌNH] Montero, 1860: «con cien hombres de guarnición … no había artilleros que las sirvieran» — "a garrison of a hundred men … there were no gunners to serve them"
 
-‹1e› On the fourth of August 1704, Gibraltar surrendered. English histories say the twenty-fourth of July: the old calendar. {S013}
+‹1e› On the fourth of August 1704, Gibraltar surrendered. English histories say the twenty-fourth of July, on the old calendar. {S013}
 
 ‹1f› British accounts put the defenders at up to five hundred, counting armed townsmen. {S014}
 
-‹1g› Almost all the townspeople left rather than swear loyalty to "Charles the Third." {S017} {S018} By Spanish accounts, most settled a league to the north-east, at San Roque. {S019}
+‹1g› Townspeople could stay if they swore loyalty to "Charles the Third." {S018} Almost all of them left. {S017} By Spanish accounts, most settled a league to the north-east, at San Roque. {S019}
 [TRÊN HÌNH] Montero, 1860: «se habia acampado en las haciendas cercanas á la ermita de San Roque» — "had camped on the farms near the hermitage of San Roque"
 
 ‹1h› In 1713, the Treaty of Utrecht made it permanent: the town, castle and port went to the British Crown, "for ever." {S022} {S028} {S029} But "without any territorial jurisdiction, and without any open communication by land." {S023} {S027}
@@ -60,19 +60,19 @@
 
 ‹2a› Half a century later came a different question: can you starve a rock? {S039} On the twenty-first of June 1779, Madrid closed every link with Gibraltar. {S040}
 
-‹2b› Spain had joined France in its war with Britain. {S039} By October, the army on the isthmus had about fourteen thousand men. {S048}
+‹2b› Spain had joined France in its war with Britain. {S039} By autumn, about fourteen thousand men faced the Rock across the isthmus. {S048}
 [TRÊN HÌNH] Montero, 1860: «Carlos III declaró la guerra á Inglaterra y se unió á Francia» — "Charles III declared war on England and joined France"
 
-‹2c› In July, a Spanish squadron sealed the port. {S042} Its boats at Algeciras had one job: to cut off the food reaching the Rock from Africa. {T006} {T007}
+‹2c› At sea, from mid-July, a Spanish squadron sealed the port. {S042} Its boats at Algeciras had one job: to cut off the food reaching the Rock from Africa. {T006} {T007}
 [TRÊN HÌNH] Montero, 1860: «encaminado principalmente á privar a la plaza de los viveres que le llegaban de las costas de África» — "aimed above all at depriving the town of the food that reached it from the coasts of Africa"
 
-‹2d› By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence. {S052} {S078}
+‹2d› By January 1780, thistles, dandelions and wild leeks were daily food for many; an egg cost sixpence. {S052}
 
 ‹2e› The governor, General Eliott, could hold the walls. The food had to come by sea. {S040} {S042}
 
 ‹SM2› To break the blockade, Britain sent three relief fleets: 1780, 1781, 1782. {T006} {T009} {T013} {T015} {S054} {S055} {S056}
 
-‹2f› And the scurvy broke when a Danish ship full of lemons was brought in. {S053} {S057}
+‹2f› Scurvy spread, until a Danish ship full of lemons was brought in. {S053} {S057}
 
 ‹2g› On the twelfth of April 1781, the second relief convoy dropped anchor, and Spain's batteries opened fire on the town. {S055} {S062} The townspeople fled south. {S062}
 
@@ -82,9 +82,10 @@
 
 ‹KA1782› By September 1782, about seven and a half thousand men held the Rock. {S079}
 
-‹2j› Their best weapon was heat: cannonballs heated red-hot, so that whatever they hit caught fire. {S058} {S060} On the eighth of September, they used them in earnest against the Spanish works. {S059}
+‹2j› The garrison's answer was heat: cannonballs heated red-hot, so that whatever they hit caught fire. {S058} {S060} On the eighth of September, they used them in earnest against the Spanish works. {S059}
 
 ‹2k› Four days later, the French and Spanish fleets sailed in, under the Duc de Crillon: forty-seven ships of the line by the British count, fifty by the Spanish. {S065} {T018} {S049}
+[TRÊN HÌNH] Fernández Duro, Armada española (1901): «alegrando la vista los 50 navios que se juntaron en Algeciras» — "the 50 ships of the line that gathered at Algeciras, a joy to see"
 
 ‹2l› Their answer to red-hot shot: ten floating batteries, designed by the French engineer d'Arçon. {S050} {S068} A French account says he'd asked to test them against red-hot shot first. It was refused. {S073}
 [TRÊN HÌNH] Conseil de guerre privé (1785): «l'expérience que l'inventeur avoit demandée … à l'épreuve des boulets rouges» — "the test the inventor had asked for … against red-hot shot"
@@ -92,8 +93,8 @@
 ‹2m› The thirteenth of September 1782. At half past nine, the batteries moved into position. At a quarter to ten, the garrison opened fire. {S066} At ten twenty-five, by the Spanish account, some four hundred guns answered together. {S067} By the next morning, all ten batteries were gone. {S074}
 [TRÊN HÌNH] Montero, 1860: «á las diez y veinte y cinco minutos de la mañana … rompieron á un tiempo el fuego» — "at twenty-five past ten in the morning … opened fire all at once"
 
-‹2n› More than two thousand lost, by British and Spanish counts. {S069} British records say three hundred and fifty-seven were pulled from the water. {S069}
-[TRÊN HÌNH] thẻ số: "> 2,000 lost — British estimate & Montero (Spain)" · "185 hit by gunfire before the fires — French account, 1785" · "357 rescued" · "Garrison: 16 killed — its own return" {S069} {S070} {S071}
+‹2n› More than two thousand attackers were lost, by British and Spanish counts; three hundred and fifty-seven were rescued. {S069}
+[TRÊN HÌNH] thẻ số: "> 2,000 lost, prisoners included — British estimate & Montero (Spain)" · "185 hit by gunfire before the fires — French account, 1785" · "357 rescued — British return" · "Garrison: 16 killed — its own return" {S069} {S070} {S071}
 
 ‹2o› All that summer, the garrison had also been digging through the north face. {S080} By early July, Sergeant Ince's thirteen men had cut about eighty-two feet of solid rock. {S081}
 
@@ -102,8 +103,8 @@
 
 ‹2q› The Rock was never starved out. In February 1783, word came of a preliminary peace, and on the fifth, the last shot was fired. {S045} {S046}
 
-‹2r› By its own return, the garrison lost three hundred and thirty-three killed and five hundred and thirty-six to sickness. {S076} Montero put the besiegers' losses near six thousand. {S077} Gibraltar stayed British. {S038}
-[TRÊN HÌNH] Montero, 1860: «La nuestra se aproximó á seis mil por todas causas» — "Ours came close to six thousand, from all causes"
+‹2r› From all causes, Montero put the losses near two thousand inside and six thousand outside. {S077} The garrison's own records count at least eight hundred and seventy dead. {S076} Gibraltar stayed British. {S038}
+[TRÊN HÌNH] Montero, 1860: «Los últimos sufrieron una pérdida de cerca de dos mil hombres. La nuestra se aproximó á seis mil por todas causas» — "The latter [the besieged] suffered a loss of nearly two thousand men. Ours came close to six thousand, from all causes" · thẻ: "Garrison return (Drinkwater): 333 killed or died of wounds · 536 died of sickness (scurvy deaths 1779–80 not included)"
 
 [03 NEUTRAL] The Neutral Ground
 
@@ -124,13 +125,13 @@
 ‹3f› In 1908, Britain told Spain, "as an act of courtesy," that it would fence the edge of the neutral ground. {S036} The fence went up in 1909; Spain has never recognised it as a border. {S036} {S030}
 [TRÊN HÌNH] García Sanz, 2022: «"como acto de cortesía"» — "as an act of courtesy"
 
-‹3g› Behind the fence, the ground filled up: a garrison camp, gardens, rifle ranges, and a racecourse. {S088} {S089}
+‹3g› Behind the fence: a garrison camp, gardens, rifle ranges, a racecourse. {S088} {S089}
 
 ‹3h› And in 1934, part of the old racecourse became a grass airstrip. {S090} {S089} Subscribe if you'd like the next place in this series.
 
 [04 RUNWAY] A Runway on the Isthmus
 
-‹4a› Why build an airfield on ground two countries argue over? {S095} In March 1939, Spain protested that the works stood on "a usurped portion" of its territory. {S096}
+‹4a› Why build an airfield on disputed ground? {S095} In March 1939, Spain protested that the works stood on "a usurped portion" of its territory. {S096}
 
 ‹4b› That November, Spain's foreign minister called the strip a fait accompli, like the Rock itself. {S098} Late in 1939, Britain began a hard runway; {S091} in 1941, it was laid across the only road to Spain. {C33}
 [TRÊN HÌNH] Spanish government to its London ambassador, 4 Mar 1939 (Marquina Barrio, 1981): «una porción usurpada del territorio nacional» — "a usurped portion of the national territory"
@@ -149,7 +150,7 @@
 
 ‹KB1943› [IM LẶNG] {S114} {S120}
 
-‹4h› Spain kept protesting British ships in its waters. But a Spanish scholar found no record of protests over the airstrip for the rest of the war. {S105}
+‹4h› For the rest of the war, a Spanish scholar found, Spain protested British ships in its waters, but not the airstrip. {S105}
 [TRÊN HÌNH] Marquina Barrio, 1981: «no queda constancia de reclamaciones por el uso de la pista» — "there is no record of complaints over the use of the strip"
 
 ‹4i› On the night of the seventh of November 1942, at least six hundred and fifty aircraft lined the runway. {S123} The invasion fleets, from Britain and the United States, came through the Strait. {G002} {G001}
@@ -158,7 +159,7 @@
 
 ‹5a› After the war, the argument returned to the gate. In June 1969, Spain closed the land frontier completely. {C19}
 
-‹5b› About four thousand six hundred Spanish day workers were cut off from their jobs. {C19} It fully reopened in 1985. {C19b}
+‹5b› Some four thousand six hundred Spanish day workers were cut off. {C19} The gate fully reopened in 1985. {C19b}
 
 ‹KB2026› The same square, today. In October 2025, people living in Spain held more than four in ten of Gibraltar's jobs. {C08}
 
@@ -172,11 +173,11 @@
 
 ‹5f› That divides by the thirty-eight thousand who live there, and leaves out the people in Spain who hold fourteen thousand of its jobs. {C11} {C08} ‹Our read› Our read: the rich-looking number partly rests on the other side. {C08} {C14}
 
-‹5g› In July 2026, Britain and the EU signed a treaty to take the checks off this border. {C01} {C02} It says it changes neither side's position on sovereignty. {C07}
+‹5g› In July 2026, Britain and the EU signed a treaty to take the checks off this border. {C01} {C02}
 
-‹5h› The old fence is coming down, but a new one stands a few metres behind it, with about a hundred and fifty metres left open. {C03}
+‹5h› It says it changes neither side's position on sovereignty. {C07} The old fence is coming down, but a new one stands a few metres behind it, with about a hundred and fifty metres left open. {C03}
 
-‹5i› As of [ngày khoá lời], the treaty applies only provisionally; the European Parliament's consent vote is indicated for the fourteenth of December. {C26}
+‹5i› As of [ngày khoá lời], the treaty is provisional, pending a European Parliament vote indicated for the fourteenth of December. {C26}
 
 ‹5j› So why did everyone fight over this place? Where it sits, and the sea that could feed it. {S009} {S054} {S055} {S056} A wall in 1704. A line in 1730. A fence in 1909. A runway in 1941. {S012} {S032} {S036} {C33}
 
