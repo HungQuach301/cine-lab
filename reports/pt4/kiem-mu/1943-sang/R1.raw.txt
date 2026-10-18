@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 6, "detail": 6, "period": 6, "ai_look": 3, "toy_like": 8, "flags": ["toy_like", "cluttered"], "note": "Warm, dramatic CGI light and rich peeling plaster, with a sea backdrop that has a ship and a flag. The figures are faceless mannequins in a loose crowd. They read as game assets, and the blue ones look semi-transparent. The left wall glows with a blown-out orange patch."},
+ "Y": {"craft": 5, "detail": 5, "period": 6, "ai_look": 3, "toy_like": 8, "flags": ["toy_like", "empty_frame"], "note": "The buildings are similar and the light is flatter and hazier. The sea and ship are gone, so the end of the street fades into a blank beige void. The mannequin figures are clumped and ghostly, and one blue figure is translucent. The plaster texture is okay but repetitive."},
+ "better": "X",
+ "why": "X has a legible harbour with a ship and a flag, stronger light and depth, and a more convincing end of the street, while Y washes out into an empty haze with the same toy-like figures.",
+ "top_fix_for_weaker": "Restore the harbour water and ships at the end of the square, add contrast and warm directional light, and replace the glassy mannequins with opaque, varied period figures (uniforms, civilians, vehicles) spread across the square.",
+ "anachronisms_seen": ["Modern generic mannequin figures with no period detail", "Clean uniform-looking balcony railings that look CG-modern", "Translucent blue figures that look like game placeholders", "No vehicles, signage or wartime features (sandbags, blackout) to anchor 1943"]}
+```

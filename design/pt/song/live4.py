@@ -369,9 +369,10 @@ class Epoch:
         col = sum(s.hz_col[p] * wt for p, wt in w.items()); night = w.get('n', 0.0)
         dpt = np.minimum(s.depth, 4000.0)
         morning = math.exp(-((hr - 8.8) / 1.3) ** 2); evening = math.exp(-((hr - 18.3) / 1.2) ** 2)   # khói bếp sáng/chiều
-        dens = (0.0024 + 0.0018 * morning + 0.0014 * evening) * (1 - 0.6 * night)
+        dens = (0.0024 + 0.0010 * morning + 0.0010 * evening) * (1 - 0.6 * night)
         sh = int((t * 6) % s.W); nz = s.noise[:, sh:sh + s.W] if sh + s.W <= s.noise.shape[1] else np.roll(s.noise, -sh, 1)[:, :s.W]
         fog = 1 - np.exp(-np.maximum(dpt - 20.0, 0.0) * dens * 1.4 * (0.7 + 0.6 * nz))   # sương bắt đầu sau 20 m: giữ chi tiết tường gần, xa đặc dần
+        fog = np.minimum(fog, 0.28)   # trần sương: biển, tàu, cờ, đồi cuối khung phải còn đọc được (chấm mù vòng 1: "empty haze" làm mất mốc)
         fog = np.where(s.sky, 0.0, fog)[..., None]
         fcol = col * (1 - night) * 0.95 + night * np.array([0.004, 0.006, 0.011]) + (np.array([0.02, 0.015, 0.01]) * (morning + evening) * (1 - night))
         img = img * (1 - fog) + fcol * fog

@@ -9,7 +9,7 @@ KHÔNG dùng để kiểm dữ kiện (HC4d) — chỉ đo cảm nhận. Sổ ch
 import importlib.util, json, os, random, re, shutil, subprocess, sys, tempfile
 from concurrent.futures import ThreadPoolExecutor
 HERE = os.path.dirname(os.path.abspath(__file__)); REPO = os.path.abspath(os.path.join(HERE, '..', '..', '..'))
-OUT = os.path.join(REPO, 'reports', 'pt4', 'kiem-mu'); PT2K = os.path.join(REPO, 'reports', 'pt2', 'khung'); LOG = os.path.join(OUT, 'cost.jsonl')
+OUT = os.path.join(REPO, 'reports', 'pt4', os.environ.get('PT4_VONG', 'kiem-mu')); PT2K = os.path.join(REPO, 'reports', 'pt2', 'khung'); LOG = os.path.join(OUT, 'cost.jsonl')
 spec = importlib.util.spec_from_file_location('bv2', os.path.join(REPO, 'channel-k2', 'k2v2-mau', 'blind_v2.py')); BV2 = importlib.util.module_from_spec(spec); spec.loader.exec_module(BV2)
 RATERS, MODEL = BV2.RATERS, BV2.MODEL; assert MODEL == 'claude-sonnet-5-5'
 STOP = 2.7
@@ -32,7 +32,13 @@ Return ONLY JSON:
 YEAR = {'1782': 'a narrow lane in the town of Gibraltar in September 1782, during the Great Siege', '1943': 'Commercial Square by Main Street, Gibraltar, in September 1943'}
 # khai TRƯỚC khi chấm: 4 thời điểm khai trước trong live2.py (sáng 10,0 · trưa 12,8 · chiều vàng 17,55 · đêm 21,8) × 2 khung neo
 FR = [f'{e}-{t}' for t in ('trua', 'sang', 'chieu', 'dem') for e in (1782, 1943)]
-def spent(): return sum(json.loads(l)['usd'] for l in open(LOG)) if os.path.exists(LOG) else 0.0
+if os.environ.get('PT4_VONG') == 'kiem-mu-v2': FR = [f for f in FR if not f.endswith('dem')]   # vòng 2: chỉ 6 khung ngày (đêm gần như trùng, trần Claude)
+def spent():   # cộng mọi sổ chấm của phiên PT4 (trần Claude $3, dừng $2,7)
+    t = 0.0
+    for v in ('kiem-mu', 'kiem-mu-v2'):
+        f = os.path.join(REPO, 'reports', 'pt4', v, 'cost.jsonl')
+        if os.path.exists(f): t += sum(json.loads(l)['usd'] for l in open(f))
+    return t
 def setup(d):
     os.makedirs(OUT, exist_ok=True); R = random.Random(20261019); key = {}
     for f in FR:

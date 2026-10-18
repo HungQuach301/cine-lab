@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 4, "detail": 4, "period": 6, "ai_look": 4, "toy_like": 4, "flags": ["cluttered"], "note": "Very dark 3D render with the left third crushed to black. The right facade has rust-orange blotchy texture that reads as CG grunge. Several small figures are visible in the square but they are dark, stiff silhouettes. The flag, distant hill, lamp and dark water give some depth, and the scene has some life. The harsh orange stain pattern is distracting."},
+ "Y": {"craft": 4, "detail": 3, "period": 6, "ai_look": 4, "toy_like": 4, "flags": ["empty_frame"], "note": "Nearly the same dark render and identical composition. The facade texture is more muted and plausible, with a stone-like plinth along the base. The square is almost empty, with just one dim blue-tinted figure that looks game-asset-like and a faint second one. The paving is flat and low-contrast. Less visual interest than X."},
+ "better": "X",
+ "why": "X has the same composition and darkness as Y but more readable figures and a richer square, while Y's near-empty plaza and one blue game-asset figure leave it feeling vacant.",
+ "top_fix_for_weaker": "Raise the exposure and add warm practical lighting (lamplight pools, a lit window or two) so the square and facade read. Populate the plaza with several properly lit 1940s figures (uniformed soldiers, civilians) and add paving detail, plus a rim light on the left building to break up the black void.",
+ "anachronisms_seen": ["none obvious; the Union Jack is plausible for 1943", "the distant structure and white lamp are unclear at this darkness"]}
+```

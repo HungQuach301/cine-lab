@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 6, "detail": 5, "period": 6, "ai_look": 5, "toy_like": 7, "flags": ["toy_like", "empty_frame"], "note": "Warm, strong light and rich weathered plaster. The harbour view has a ship and a Union flag. The figures are faceless mannequin-like 3D models, scattered evenly and mostly standing still. The pastel haze is more CGI than documentary."},
+ "Y": {"craft": 5, "detail": 5, "period": 6, "ai_look": 5, "toy_like": 8, "flags": ["toy_like", "empty_frame", "flat_slide_look"], "note": "Same scene and mannequins, with the left building recoloured. The light is flatter and the haze heavy. The harbour and ship have vanished into a blank beige void at the end of the street. The crowd is larger but identical clay figures, and it looks like a game asset."},
+ "better": "X",
+ "why": "X keeps the harbour and ship as a readable focal point with better light contrast, while Y washes out its background into an empty beige haze and its mannequins look slightly more toy-like.",
+ "top_fix_for_weaker": "Remove the heavy fog so the bay, ship and horizon show again. Replace the identical mannequin figures with varied 1943-appropriate people (sailors, soldiers, civilians) with faces, natural poses and some motion. Add some street furniture such as carts, signs and lamps.",
+ "anachronisms_seen": ["No clear anachronisms", "Mannequin figures with uniform-like clothing that is too generic to confirm as 1943 dress", "Modern-looking flat metal balcony railings and clean shutters (minor)"]}
+```
