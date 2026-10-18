@@ -60,7 +60,7 @@ export async function build(ctx) {
   function apply(st, t) { TOWN.update(st.year, ctx.cam); FW.update(st.year); SMK.update(t ?? 0); const z = SMK.zones(t ?? 0); troops = TR.update(st.day, z); song = LF.update(t ?? 0, z); FG.update(t ?? 0); GD.update(ctx.cam); }
   const V = (p) => new THREE.Vector3(p[0], p[1], -p[2]);
   function overlay(t, st, T, proj) {
-    T.chrome(t, { s: st.clock.s }, 0, null, { lines: [{ s: 'Forward works, gardens: approx. · troop blocks (≈ 29,000 shown), flags, boats: illustrative', a: Math.max(0, Math.min(1, t / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
+    T.chrome(t, { s: st.clock.s }, 0, null, { lines: [{ s: 'Works, gardens: approx. · ~29,000 troops, flags: illustrative', a: Math.max(0, Math.min(1, t / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
     T.where(t, [-1, DUR + 1], 'Isthmus of Gibraltar');
     T.ghostSrc(t, [-1, DUR + 1], 'Lines: reconstructed from J. Drinkwater, Plan of the Batteries, 1782');
     T.card(t, [0.4, DUR + 0.5], 'Spanish lines open fire, 10:25', 'Línea de Contravalación · Montero 1860', proj(V([mid[0], 6, mid[1]])));

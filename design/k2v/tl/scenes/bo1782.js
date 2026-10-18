@@ -54,9 +54,9 @@ export async function build(ctx) {
   function apply(st, t) { fleet.update(st.hours); sm.update(st.hours); TOWN.update(st.year, ctx.cam); song = LF.update(t ?? 0, sm.zones(st.hours)); }
   const V = (p) => new THREE.Vector3(p[0], p[1], -p[2]);
   function overlay(t, st, T, proj) {
-    T.where(t, [-1, DUR + 1], 'Bay of Gibraltar, 13 Sep 1782');
+    T.where(t, [-1, DUR + 1], 'Bay of Gibraltar');
     T.ghostSrc(t, [-1, DUR + 1], TOWN.src);
-    T.chrome(t, { s: st.clock.s }, 0, null, { lines: [{ s: 'Battery positions, boats: illustrative · fire from c. 17:00 (Montero; Spilsbury)', a: Math.max(0, Math.min(1, (t + 0.3) / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
+    T.chrome(t, { s: st.clock.s }, 0, null, { lines: [{ s: 'Positions, boats: illustrative · fire c. 17:00 (Montero)', a: Math.max(0, Math.min(1, (t + 0.3) / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
     T.card(t, [0.8, DUR], 'Flagship and her second on fire', 'Drinkwater 1785: smoke from the flagship "appeared to prevail"', proj(V([FIN[PAST].at[0], 20, FIN[PAST].at[1]])));
   }
   const N = Math.round(DUR * fps);

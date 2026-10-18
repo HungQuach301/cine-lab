@@ -60,19 +60,19 @@ def tach(routes, hero_opt, p, out):
     A_ = [shift(r, 0.0 if r['id'] == 'R1940-EV-CASA' else 1.6, 3.5) for r in routes if r['id'].startswith('R1940')]
     A_ = [dict(r, draw=[0.2, 1.4]) if r['id'] == 'R1940-EV-CASA' else r for r in A_]
     B_ = [shift(r, 4.4, 3.5) for r in routes if r['id'].startswith('R1942')]
-    camA = [dict(t=0.0, lon=-7.0, lat=39.6, dist=2650, tilt=20, head=0, mm=35), dict(t=3.5, lon=-7.0, lat=39.6, dist=2650, tilt=20, head=0, mm=35)]
+    camA = [dict(t=0.0, lon=-7.4, lat=38.6, dist=2650, tilt=20, head=0, mm=35), dict(t=3.5, lon=-7.4, lat=38.6, dist=2650, tilt=20, head=0, mm=35)]   # khung lệch nam/tây: cuối cung Madeira/Casablanca ra khỏi góc bộ đếm (dựng thử lần 1: bị che)
     camB = [dict(t=0.0, lon=-3.6, lat=37.4, dist=2600, tilt=20, head=0, mm=35), dict(t=3.5, lon=-3.6, lat=37.4, dist=2600, tilt=20, head=0, mm=35)]
     tg = {t['a']: t for t in p['tags']}
     tagsA = [dict(tg['rt:R1940-EV-CASA'], at=0.4, out=3.4), dict(tg['lon_l'], at=1.9, out=3.4), dict(tg['mad_l'], at=1.9, out=3.4), dict(tg['jam_l'], at=2.0, out=3.4)]   # một nhóm: nơi sơ tán tới
     tagsB = [dict(tg['rt:R1942-AIR-ORAN'], at=0.8, out=3.4), dict(tg['rt:R1942-SEA-ALG'], at=1.1, out=3.4)]   # một nhóm: Torch
-    gib = [dict(p['points'][0], at=0.0, out=3.4)]
+    gib = [dict(p['points'][0], at=0.0, out=3.4)]; gibB = [dict(p['points'][0], at=0.0, out=3.4, side='up')]   # SM3b: nhãn Gibraltar lên trên (lần 1 đè đầu đường bay nét đứt)
     base = {k: v for k, v in p.items() if k not in ('tags', 'points', 'counter', 'counterOut', 'legend', 'bnoteOut')}
     SA = dict(hero_opt=dict(hero_opt, cam=camA, routes=A_, borders=dict(hero_opt['borders'], dates=[[0.0, '1940-07-15']])),
               p=dict(base, tags=tagsA, points=gib, counter=[dict(t=0.0, s='May–Aug 1940')], counterOut=3.4, bnoteOut=3.4,
                      legend=dict(items=[dict(s='Evacuation of civilians', c='#efe6cf'), dict(s='Britain', c='#b03a2e')], at=0.0, out=3.4)), n_tuyen=len(A_), dur=3.5)
     SB = dict(hero_opt=dict(hero_opt, cam=camB, routes=B_, borders=dict(hero_opt['borders'], dates=[[0.0, '1942-11-08']])),
-              p=dict(base, tags=tagsB, points=gib, counter=[dict(t=0.0, s='8 Nov 1942')], counterOut=3.4, bnoteOut=3.4,
-                     legend=dict(items=[dict(s='Allied landings (Torch)', c='#b03a2e'), dict(s='Vichy France (hatched)', c='#2e5c8a', hatch=True)], at=0.0, out=3.4)), n_tuyen=len(B_), dur=3.5)
+              p=dict(base, tags=tagsB, points=gibB, counter=[dict(t=0.0, s='8 Nov 1942')], counterOut=3.4, bnoteOut=3.4,
+                     legend=dict(items=[dict(s='Allied landings (Torch)', c='#b03a2e'), dict(s='Vichy France', c='#2e5c8a'), dict(s='German-occupied (hatched)', c='#8f8676', hatch=True)], at=0.0, out=3.4)), n_tuyen=len(B_), dur=3.5)
     for k, S in (('a', SA), ('b', SB)):
         o = out.replace('.json', f'-{k}.json'); json.dump(S, open(o, 'w'), ensure_ascii=False, indent=1); print('SM3' + k, 'tuyến', S['n_tuyen'], 'nhãn', len(S['p']['tags']), '→', o)
 
