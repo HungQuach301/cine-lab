@@ -4,7 +4,7 @@
 - Tỷ lệ từ đúng (so lời KHOÁ, chuẩn hoá số), mọi số/năm (theo giá trị), mọi tên riêng (khớp mờ ≥ 0,75 với chữ viết hoặc alias).
 - Phát âm 47 mục (40 ở bảng + 7 trong đoạn thử): ĐÚNG khi đạt ở CẢ HAI cách nghe.
 - Nối 3 đoạn (lặng 0,8 s) → chuẩn −14 LUFS, đỉnh thật ≤ −1 dBTP (alimiter khi cần) → MP3 192 kb/s; đo lại bằng ebur128.
-- Tốc độ: từ viết / thời lượng lời (từ đầu từ đầu tiên tới cuối từ cuối, theo dấu thời gian ASR); ước lời T3 = 1 557 từ / tốc độ."""
+- Tốc độ: từ viết / thời lượng lời (từ đầu từ đầu tiên tới cuối từ cuối, theo dấu thời gian ASR); ước lời T3 = số từ viết của loi-khoa.txt (1 571, split()) / tốc độ."""
 import json, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import kiem_lib as K, cg_lib as L
 sys.path.insert(0, str(K.R / 'scripts/audio')); import lib as AL
