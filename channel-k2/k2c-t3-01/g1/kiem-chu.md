@@ -1,21 +1,21 @@
-# T3 · Kiểm chữ lời v1 (lệnh G1 mục 5) — sinh bằng `g1/bang_kiem_chu.py`
+# T3 · Kiểm chữ lời KHOÁ v4 (khoá lời 18/10/2026; trước là lời v1 G1) — sinh bằng `g1/bang_kiem_chu.py`
 
-Nguồn: `script-v1.md` × `vay-ham/treatment.json` (bản G1). Ước **2,5 từ NÓI/s** (Kinh thánh §3: ~150 từ/phút; số đọc thành chữ, tách gạch nối — cùng cách đếm gói TUYẾN). Đối chiếu: Eric đo thật ở T2 = 151,2 từ VIẾT/phút.
+Nguồn: `script-v4-KHOA.md` × `vay-ham/treatment.json` (bản G1). Ước **2,5 từ NÓI/s** (Kinh thánh §3: ~150 từ/phút; số đọc thành chữ, tách gạch nối — cùng cách đếm gói TUYẾN). Đối chiếu: Eric đo thật ở T2 = 151,2 từ VIẾT/phút.
 
 ## 0. Tổng
 
-- Từ viết **1512** · từ nói **1593** · ước lời **637.2 s** (2,5 từ nói/s) · ước theo nhịp Eric T2 **600.0 s** · tổng phim (bảng shot) **702.0 s**.
+- Từ viết **1574** · từ nói **1656** · ước lời **662.4 s** (2,5 từ nói/s) · ước theo nhịp Eric T2 **624.6 s** · tổng phim (bảng shot) **718.0 s**.
 - Lỗi: không
-- Cảnh báo tràn > 1,5 s: 1h: lời tràn 1.6 s sang shot sau; SM3: lời tràn 4.8 s sang shot sau
+- Cảnh báo tràn > 1,5 s: 1h: lời tràn 3.2 s sang shot sau; 1i: lời tràn 2.6 s sang shot sau; 2l: lời tràn 2.0 s sang shot sau; 2n: lời tràn 2.4 s sang shot sau; 2o: lời tràn 1.9 s sang shot sau; 2r: lời tràn 1.7 s sang shot sau; 4b: lời tràn 3.0 s sang shot sau; 4c: lời tràn 2.0 s sang shot sau; SM3: lời tràn 4.8 s sang shot sau; 5i: lời tràn 2.0 s sang shot sau
 
 | Chương | Dài (s) | Từ nói | Ước lời (s) | Lời/cửa sổ |
 |---|---|---|---|---|
 | 00 | 44.5 | 103 | 41.2 | 0.926 |
-| 01 | 117.5 | 278 | 111.2 | 0.946 |
-| 02 | 201.5 | 469 | 187.6 | 0.931 |
-| 03 | 84.0 | 186 | 74.4 | 0.886 |
-| 04 | 107.0 | 231 | 92.4 | 0.864 |
-| 05 | 147.5 | 326 | 130.4 | 0.884 |
+| 01 | 122.5 | 287 | 114.8 | 0.937 |
+| 02 | 204.0 | 488 | 195.2 | 0.957 |
+| 03 | 84.5 | 189 | 75.6 | 0.895 |
+| 04 | 111.5 | 248 | 99.2 | 0.890 |
+| 05 | 151.0 | 341 | 136.4 | 0.903 |
 
 ## 1. Từ điển đọc số (áp khi khoá lời, BAI-HOC #19/#59/#104)
 
@@ -29,6 +29,7 @@ Nguồn: `script-v1.md` × `vay-ham/treatment.json` (bản G1). Ước **2,5 t�
 | 1705 | seventeen oh-five |
 | 1704 | seventeen oh-four |
 | 1713 | seventeen thirteen |
+| 2015 | twenty fifteen |
 | 1727 | seventeen twenty-seven |
 | 1730 | seventeen thirty |
 | 1779 | seventeen seventy-nine |
@@ -47,6 +48,7 @@ Nguồn: `script-v1.md` × `vay-ham/treatment.json` (bản G1). Ước **2,5 t�
 | 1985 | nineteen eighty-five |
 | 2025 | twenty twenty-five |
 | 2024 | twenty twenty-four |
+| 18 | eighteen |
 | 1666 | sixteen sixty-six |
 
 Số lớn đã viết bằng chữ ngay trong lời (fifteen thousand, three hundred and fifty-seven, twenty-eight point six percent…) để giọng đọc không đoán cách đọc.
@@ -69,76 +71,77 @@ Số lớn đã viết bằng chữ ngay trong lời (fifteen thousand, three hu
 | 1a | 01 | 5.0 | 10 | 4.0 | 0.0 | 0.0 |  |
 | 1b | 01 | 8.0 | 19 | 7.6 | 0.0 | 0.0 |  |
 | 1c | 01 | 10.5 | 25 | 10.0 | 0.0 | 0.0 |  |
-| 1d | 01 | 11.5 | 26 | 10.4 | 0.0 | 0.0 |  |
-| 1e | 01 | 9.5 | 22 | 8.8 | 0.0 | 0.0 |  |
+| 1d | 01 | 13.5 | 32 | 12.8 | 0.0 | 0.0 |  |
+| 1e | 01 | 9.5 | 14 | 5.6 | 0.0 | 0.0 |  |
 | 1f | 01 | 6.0 | 13 | 5.2 | 0.0 | 0.0 |  |
-| 1g | 01 | 12.5 | 30 | 12.0 | 0.0 | 0.0 |  |
-| 1h | 01 | 12 | 34 | 13.6 | 0.0 | 1.6 |  |
-| 1i | 01 | 10.0 | 22 | 8.8 | 1.6 | 0.4 |  |
-| 1j | 01 | 11.5 | 27 | 10.8 | 0.4 | 0.0 |  |
-| 1k | 01 | 14.5 | 35 | 14.0 | 0.0 | 0.0 |  |
-| 2a | 02 | 12.0 | 28 | 11.2 | 0.0 | 0.0 |  |
-| 2b | 02 | 9.0 | 21 | 8.4 | 0.0 | 0.0 |  |
+| 1g | 01 | 14.0 | 33 | 13.2 | 0.0 | 0.0 |  |
+| 1h | 01 | 12 | 38 | 15.2 | 0.0 | 3.2 |  |
+| 1i | 01 | 13.0 | 31 | 12.4 | 3.2 | 2.6 |  |
+| 1j | 01 | 10.0 | 22 | 8.8 | 2.6 | 1.4 |  |
+| 1k | 01 | 14.5 | 35 | 14.0 | 1.4 | 0.9 |  |
+| 2a | 02 | 12.0 | 28 | 11.2 | 0.9 | 0.1 |  |
+| 2b | 02 | 10.5 | 25 | 10.0 | 0.1 | 0.0 |  |
 | 2c | 02 | 12.0 | 28 | 11.2 | 0.0 | 0.0 |  |
 | 2d | 02 | 8.0 | 18 | 7.2 | 0.0 | 0.0 |  |
 | 2e | 02 | 6.5 | 15 | 6.0 | 0.0 | 0.0 |  |
 | SM2 | 02 | 7.5 | 17 | 6.8 | 0.0 | 0.0 |  |
-| 2f | 02 | 5.5 | 12 | 4.8 | 0.0 | 0.0 |  |
+| 2f | 02 | 6.0 | 14 | 5.6 | 0.0 | 0.0 |  |
 | 2g | 02 | 12.5 | 26 | 10.4 | 0.0 | 0.0 |  |
 | 2h | 02 | 7.0 | 16 | 6.4 | 0.0 | 0.0 |  |
-| 2i | 02 | 5.5 | 11 | 4.4 | 0.0 | 0.0 |  |
+| 2i | 02 | 6.0 | 14 | 5.6 | 0.0 | 0.0 |  |
 | KA1782 | 02 | 8.0 | 15 | 6.0 | 0.0 | 0.0 |  |
 | 2j | 02 | 12.5 | 30 | 12.0 | 0.0 | 0.0 |  |
-| 2k | 02 | 12.0 | 29 | 11.6 | 0.0 | 0.0 |  |
-| 2l | 02 | 12 | 32 | 12.8 | 0.0 | 0.8 |  |
-| 2m | 02 | 20.0 | 48 | 19.2 | 0.8 | 0.0 |  |
-| 2n | 02 | 8.0 | 19 | 7.6 | 0.0 | 0.0 |  |
-| 2o | 02 | 12.5 | 29 | 11.6 | 0.0 | 0.0 |  |
-| 2p | 02 | 8.0 | 19 | 7.6 | 0.0 | 0.0 |  |
-| 2q | 02 | 11.0 | 26 | 10.4 | 0.0 | 0.0 |  |
-| 2r | 02 | 12 | 30 | 12.0 | 0.0 | 0.0 |  |
-| 3a | 03 | 12.0 | 28 | 11.2 | 0.0 | 0.0 |  |
-| 3b | 03 | 10.5 | 25 | 10.0 | 0.0 | 0.0 |  |
-| 3c | 03 | 8.5 | 19 | 7.6 | 0.0 | 0.0 |  |
+| 2k | 02 | 12.0 | 33 | 13.2 | 0.0 | 1.2 |  |
+| 2l | 02 | 12 | 32 | 12.8 | 1.2 | 2.0 |  |
+| 2m | 02 | 20.0 | 44 | 17.6 | 2.0 | 0.0 |  |
+| 2n | 02 | 8.0 | 26 | 10.4 | 0.0 | 2.4 |  |
+| 2o | 02 | 12.5 | 30 | 12.0 | 2.4 | 1.9 |  |
+| 2p | 02 | 8.0 | 19 | 7.6 | 1.9 | 1.5 |  |
+| 2q | 02 | 11.0 | 26 | 10.4 | 1.5 | 0.9 |  |
+| 2r | 02 | 12 | 32 | 12.8 | 0.9 | 1.7 |  |
+| 3a | 03 | 12.0 | 28 | 11.2 | 1.7 | 0.9 |  |
+| 3b | 03 | 10.5 | 25 | 10.0 | 0.9 | 0.4 |  |
+| 3c | 03 | 8.5 | 19 | 7.6 | 0.4 | 0.0 |  |
 | 3d | 03 | 10.0 | 22 | 8.8 | 0.0 | 0.0 |  |
-| KC1910 | 03 | 7.0 | 8 | 3.2 | 0.0 | 0.0 |  |
-| 3e | 03 | 5.0 | 11 | 4.4 | 0.0 | 0.0 |  |
+| KC1910 | 03 | 7.0 | 11 | 4.4 | 0.0 | 0.0 |  |
+| 3e | 03 | 6.0 | 14 | 5.6 | 0.0 | 0.0 |  |
 | 3f | 03 | 16.0 | 38 | 15.2 | 0.0 | 0.0 |  |
 | 3g | 03 | 5.0 | 11 | 4.4 | 0.0 | 0.0 |  |
-| 3h | 03 | 10.0 | 24 | 9.6 | 0.0 | 0.0 |  |
+| 3h | 03 | 9.5 | 21 | 8.4 | 0.0 | 0.0 |  |
 | 4a | 04 | 10.5 | 25 | 10.0 | 0.0 | 0.0 |  |
-| 4b | 04 | 15.0 | 38 | 15.2 | 0.0 | 0.2 |  |
-| 4c | 04 | 9.0 | 20 | 8.0 | 0.2 | 0.0 |  |
-| 4d | 04 | 11.0 | 25 | 10.0 | 0.0 | 0.0 |  |
-| 4e | 04 | 7.0 | 16 | 6.4 | 0.0 | 0.0 |  |
-| 4f | 04 | 9.0 | 20 | 8.0 | 0.0 | 0.0 |  |
+| 4b | 04 | 15.0 | 45 | 18.0 | 0.0 | 3.0 |  |
+| 4c | 04 | 9.0 | 20 | 8.0 | 3.0 | 2.0 |  |
+| 4d | 04 | 10.5 | 24 | 9.6 | 2.0 | 1.1 |  |
+| 4e | 04 | 7.5 | 17 | 6.8 | 1.1 | 0.4 |  |
+| 4f | 04 | 9.0 | 20 | 8.0 | 0.4 | 0.0 |  |
 | SM3 | 04 | 8 | 32 | 12.8 | 0.0 | 4.8 |  |
 | 4g | 04 | 5.5 | 0 | 0.0 | 4.8 | 0.0 |  |
 | KB1943 | 04 | 9.0 | 0 | 0.0 | 0.0 | 0.0 | IM LẶNG |
-| 4h | 04 | 9.0 | 21 | 8.4 | 0.0 | 0.0 |  |
-| 4i | 04 | 14.0 | 34 | 13.6 | 0.0 | 0.0 |  |
+| 4h | 04 | 11.5 | 27 | 10.8 | 0.0 | 0.0 |  |
+| 4i | 04 | 16.0 | 38 | 15.2 | 0.0 | 0.0 |  |
 | 5a | 05 | 9.0 | 20 | 8.0 | 0.0 | 0.0 |  |
-| 5b | 05 | 8.0 | 19 | 7.6 | 0.0 | 0.0 |  |
+| 5b | 05 | 8.0 | 20 | 8.0 | 0.0 | 0.0 |  |
 | KB2026 | 05 | 9.5 | 22 | 8.8 | 0.0 | 0.0 |  |
-| 5c | 05 | 8.5 | 18 | 7.2 | 0.0 | 0.0 |  |
+| 5c | 05 | 8.5 | 19 | 7.6 | 0.0 | 0.0 |  |
 | 5d | 05 | 4.5 | 8 | 3.2 | 0.0 | 0.0 |  |
 | KC2026 | 05 | 10.0 | 25 | 10.0 | 0.0 | 0.0 |  |
 | 5e | 05 | 7.0 | 15 | 6.0 | 0.0 | 0.0 |  |
-| 5f | 05 | 15.0 | 36 | 14.4 | 0.0 | 0.0 |  |
+| 5f | 05 | 16.5 | 40 | 16.0 | 0.0 | 0.0 |  |
 | 5g | 05 | 8.0 | 19 | 7.6 | 0.0 | 0.0 |  |
-| 5h | 05 | 14.0 | 34 | 13.6 | 0.0 | 0.0 |  |
-| 5i | 05 | 8 | 20 | 8.0 | 0.0 | 0.0 |  |
-| 5j | 05 | 17.0 | 41 | 16.4 | 0.0 | 0.0 |  |
-| KA2026 | 05 | 9.0 | 0 | 0.0 | 0.0 | 0.0 | IM LẶNG |
+| 5h | 05 | 16.0 | 38 | 15.2 | 0.0 | 0.0 |  |
+| 5i | 05 | 8 | 25 | 10.0 | 0.0 | 2.0 |  |
+| 5j | 05 | 17.0 | 41 | 16.4 | 2.0 | 1.4 |  |
+| KA2026 | 05 | 9.0 | 0 | 0.0 | 1.4 | 0.0 | IM LẶNG |
 | 5k | 05 | 20.0 | 49 | 19.6 | 0.0 | 0.0 |  |
 
 ## 3. Câu nhạy cảm (§10.6, TIEN-KY-VAY-HAM §6.1 CS1–CS10) — bộ lọc bắt và cách xử lý
 
 | Shot | Luật | Câu | Xử lý |
 |---|---|---|---|
-| 2k | CS3 dân tộc như một khối (xem ngữ cảnh) | Four days later, the French and Spanish fleets sailed in, under the Duc de Crillon: | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
+| 2k | CS3 dân tộc như một khối (xem ngữ cảnh) | Four days later, the French and Spanish fleets gathered in the bay: | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
 | 2k | CS3 dân tộc như một khối (xem ngữ cảnh) | forty-seven ships of the line by the British count, fifty by the Spanish. | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
 | 2l | CS3 dân tộc như một khối (xem ngữ cảnh) | ten floating batteries, designed by the French engineer d'Arçon. | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
+| 2n | CS3 dân tộc như một khối (xem ngữ cảnh) | Over two thousand attackers were lost, by a British estimate that includes prisoners, and by a Spanish one; the British rescued three hundred and fifty-seven. | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
 | 3a | CS3 dân tộc như một khối (xem ngữ cảnh) | Between the walls and the Spanish line lay a strip of sand: | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
 | 3b | CS3 dân tộc như một khối (xem ngữ cảnh) | With Spain's consent, the British blew up the Spanish forts. | giữ — chủ thể cụ thể (hạm đội, chiến tuyến, pháo đài, kỹ sư, cách đếm), không phải dân tộc như một khối đạo đức |
 | 4a | CS1 (chỉ trong trích có ghi nguồn) | In March 1939, Spain protested that the works stood on "a usurped portion" of its territory. | giữ — trích nguyên văn chính phủ TBN 4/3/1939 (S096), có ghi ai nói + chữ gốc trên hình |

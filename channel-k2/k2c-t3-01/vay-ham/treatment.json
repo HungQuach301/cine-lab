@@ -1,5 +1,5 @@
 {
- "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ).",
+ "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1).",
  "shots": [
   {
    "id": "0a",
@@ -348,7 +348,7 @@
   {
    "id": "1d",
    "ch": 1,
-   "dur": 11.5,
+   "dur": 13.5,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "pho-co",
@@ -402,7 +402,8 @@
     "dau_chan_uoc_km": 0.81,
     "ghi_chu": "lần đầu ở phố 1704 (máy ≤ 3 km tại nơi có tên); hộp đỏ ≈ 0,8 km → ≈ 4 px ở 5 px/km: vẽ đúng tỉ lệ + vòng định vị 16 px"
    },
-   "dur_t3b": 12.5
+   "dur_t3b": 12.5,
+   "dur_g1": 11.5
   },
   {
    "id": "1e",
@@ -453,7 +454,7 @@
   {
    "id": "1g",
    "ch": 1,
-   "dur": 12.5,
+   "dur": 14.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -471,7 +472,8 @@
    "hero": "—",
    "engine": "M1",
    "mo_ta": "Hệ quả: gần hết dân rời lên bắc, lập San Roque",
-   "dur_t3b": 10.0
+   "dur_t3b": 10.0,
+   "dur_g1": 12.5
   },
   {
    "id": "1h",
@@ -500,7 +502,7 @@
   {
    "id": "1i",
    "ch": 1,
-   "dur": 10.0,
+   "dur": 13.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -518,12 +520,13 @@
    "du_lieu_nha": "ghost 1704–1713",
    "hero": "tường bắc",
    "engine": "M12",
-   "mo_ta": "Hai cách hiểu cùng một câu: TBN (S030) ↔ Anh (S031)"
+   "mo_ta": "Hai cách hiểu cùng một câu: TBN (S030) ↔ Anh (S031)",
+   "dur_g1": 10.0
   },
   {
    "id": "1j",
    "ch": 1,
-   "dur": 11.5,
+   "dur": 10.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -541,7 +544,8 @@
    "hero": "—",
    "engine": "M4,M6",
    "mo_ta": "Tây Ban Nha thử lại hai lần (1704–05, 1727) — cuộc vây thứ 12 và 13 theo bảo tàng",
-   "dur_t3b": 11.0
+   "dur_t3b": 11.0,
+   "dur_g1": 11.5
   },
   {
    "id": "1k",
@@ -627,7 +631,7 @@
   {
    "id": "2b",
    "ch": 2,
-   "dur": 9.0,
+   "dur": 10.5,
    "loai": "bản đồ lịch sử",
    "noi": "eo_dat",
    "vung": "bd-faden-1781",
@@ -644,7 +648,8 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "M12",
-   "mo_ta": "Hồ sơ thật: vịnh, chiến tuyến, hai thành phố đối diện"
+   "mo_ta": "Hồ sơ thật: vịnh, chiến tuyến, hai thành phố đối diện",
+   "dur_g1": 9.0
   },
   {
    "id": "2c",
@@ -823,7 +828,7 @@
   {
    "id": "2f",
    "ch": 2,
-   "dur": 5.5,
+   "dur": 6.0,
    "loai": "3D vùng",
    "noi": "bien",
    "vung": "eo-bien",
@@ -843,7 +848,8 @@
    "hero": "—",
    "engine": "M1,M3,M6",
    "mo_ta": "Ba đoàn tiếp tế; scorbut được chữa bằng chanh — hậu cần khán giả hỏi",
-   "dur_t3b": 4.0
+   "dur_t3b": 4.0,
+   "dur_g1": 5.5
   },
   {
    "id": "2g",
@@ -894,7 +900,7 @@
   {
    "id": "2i",
    "ch": 2,
-   "dur": 5.5,
+   "dur": 6.0,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -911,7 +917,8 @@
    "hero": "—",
    "engine": "—",
    "mo_ta": "Hậu cần đạn dược hai phía (Drinkwater ↔ Montero)",
-   "dur_t3b": 7.0
+   "dur_t3b": 7.0,
+   "dur_g1": 5.5
   },
   {
    "id": "KA1782",
@@ -1324,7 +1331,7 @@
   {
    "id": "3e",
    "ch": 3,
-   "dur": 5.0,
+   "dur": 6.0,
    "loai": "ảnh",
    "noi": "eo_dat",
    "vung": "anh-neutral-ground",
@@ -1341,7 +1348,8 @@
    "du_lieu_nha": "",
    "hero": "—",
    "engine": "—",
-   "mo_ta": "Hồ sơ thật: khoảng giữa c.1900"
+   "mo_ta": "Hồ sơ thật: khoảng giữa c.1900",
+   "dur_g1": 5.0
   },
   {
    "id": "3f",
@@ -1391,7 +1399,7 @@
   {
    "id": "3h",
    "ch": 3,
-   "dur": 10.0,
+   "dur": 9.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1410,7 +1418,8 @@
    "hero": "dải cỏ 1936",
    "engine": "M12,M6",
    "mo_ta": "Eo đất trước chiến tranh: trường đua thành dải cỏ hạ cánh (£573)",
-   "dur_t3b": 9.0
+   "dur_t3b": 9.0,
+   "dur_g1": 10.0
   },
   {
    "id": "4a",
@@ -1486,7 +1495,7 @@
   {
    "id": "4d",
    "ch": 4,
-   "dur": 11.0,
+   "dur": 10.5,
    "loai": "3D phố",
    "noi": "ham",
    "vung": "ham-wwii",
@@ -1505,12 +1514,13 @@
    "hero": "mạng hầm WWII (sơ đồ)",
    "engine": "M11,M1",
    "mo_ta": "\"Thành phố ngầm\": Great North Road ~1 dặm, bệnh viện, nhà máy điện",
-   "dur_t3b": 12.5
+   "dur_t3b": 12.5,
+   "dur_g1": 11.0
   },
   {
    "id": "4e",
    "ch": 4,
-   "dur": 7.0,
+   "dur": 7.5,
    "loai": "thẻ số",
    "noi": "—",
    "vung": "the",
@@ -1529,7 +1539,8 @@
    "hero": "—",
    "engine": "—",
    "mo_ta": "Một con số quy tầm người; ~30 km đào trong WWII (một nguồn)",
-   "dur_t3b": 5.0
+   "dur_t3b": 5.0,
+   "dur_g1": 7.0
   },
   {
    "id": "4f",
@@ -1711,7 +1722,7 @@
   {
    "id": "4h",
    "ch": 4,
-   "dur": 9.0,
+   "dur": 11.5,
    "loai": "ảnh",
    "noi": "—",
    "vung": "van-ban-tbn",
@@ -1731,12 +1742,13 @@
    "hero": "—",
    "engine": "—",
    "mo_ta": "Hai phía: \"porción usurpada\" (TBN 1939), \"ilegal\" (MAEUEC) ↔ Anh (Hansard 1991)",
-   "dur_t3b": 6.0
+   "dur_t3b": 6.0,
+   "dur_g1": 9.0
   },
   {
    "id": "4i",
    "ch": 4,
-   "dur": 14.0,
+   "dur": 16.0,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1754,7 +1766,8 @@
    "hero": "đường băng 1942",
    "engine": "M6",
    "mo_ta": "Hệ quả: đường băng thành bàn đạp Torch — 650 máy bay",
-   "dur_t3b": 7.5
+   "dur_t3b": 7.5,
+   "dur_g1": 14.0
   },
   {
    "id": "5a",
@@ -1976,7 +1989,7 @@
   {
    "id": "5f",
    "ch": 5,
-   "dur": 15.0,
+   "dur": 16.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -1995,7 +2008,8 @@
    "hero": "biên giới OSM admin_level=2",
    "engine": "—",
    "mo_ta": "Hai thành phố cùng một cổng — tô theo số, không vẽ lại biên giới",
-   "dur_t3b": 11.0
+   "dur_t3b": 11.0,
+   "dur_g1": 15.0
   },
   {
    "id": "5g",
@@ -2023,7 +2037,7 @@
   {
    "id": "5h",
    "ch": 5,
-   "dur": 14.0,
+   "dur": 16.0,
    "loai": "3D phố",
    "noi": "thanh_pho",
    "vung": "cong-bien-gioi",
@@ -2041,7 +2055,8 @@
    "hero": "cổng, hàng rào 2026",
    "engine": "—",
    "mo_ta": "Đúng C03: không phải \"hàng rào đã đổ\"",
-   "dur_t3b": 10.0
+   "dur_t3b": 10.0,
+   "dur_g1": 14.0
   },
   {
    "id": "5i",

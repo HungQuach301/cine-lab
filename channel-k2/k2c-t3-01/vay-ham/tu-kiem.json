@@ -1,21 +1,21 @@
 {
- "tong_s": 702.0,
+ "tong_s": 718.0,
  "so_shot": 74,
  "Q26b_K2": [
   {
    "nua": 1,
    "so_loai": 8,
    "loai_lon_nhat": "3D vùng",
-   "ty_le_lon_nhat": 0.363,
+   "ty_le_lon_nhat": 0.366,
    "chia": {
-    "3D vùng": 0.363,
+    "3D vùng": 0.366,
     "3D phố": 0.241,
-    "thẻ số": 0.1,
-    "tranh Ken Burns": 0.09,
-    "bản đồ lịch sử": 0.09,
-    "ảnh": 0.054,
-    "bản đồ chiến lược": 0.04,
-    "footage": 0.023
+    "thẻ số": 0.099,
+    "bản đồ lịch sử": 0.092,
+    "tranh Ken Burns": 0.088,
+    "ảnh": 0.053,
+    "bản đồ chiến lược": 0.039,
+    "footage": 0.022
    },
    "dat": true
   },
@@ -23,14 +23,14 @@
    "nua": 2,
    "so_loai": 6,
    "loai_lon_nhat": "3D phố",
-   "ty_le_lon_nhat": 0.434,
+   "ty_le_lon_nhat": 0.429,
    "chia": {
-    "3D phố": 0.434,
-    "3D vùng": 0.266,
-    "ảnh": 0.141,
+    "3D phố": 0.429,
+    "3D vùng": 0.267,
+    "ảnh": 0.148,
     "thẻ số": 0.085,
-    "bản đồ lịch sử": 0.05,
-    "bản đồ chiến lược": 0.023
+    "bản đồ lịch sử": 0.049,
+    "bản đồ chiến lược": 0.022
    },
    "dat": true
   }
@@ -46,9 +46,9 @@
   "dat": true
  },
  "NC_H3": {
-  "tong_3D_s": 458.0,
+  "tong_3D_s": 468.0,
   "ty_le_3D_phim": 0.652,
-  "le60km": 0.993,
+  "le60km": 0.994,
   "le3km": 0.924,
   "dat": true
  },
@@ -84,12 +84,12 @@
   "dat": true
  },
  "ty_le_loai": {
-  "3D phố": 0.338,
-  "3D vùng": 0.315,
-  "ảnh": 0.098,
-  "thẻ số": 0.093,
+  "3D phố": 0.335,
+  "3D vùng": 0.317,
+  "ảnh": 0.1,
+  "thẻ số": 0.092,
   "bản đồ lịch sử": 0.07,
-  "tranh Ken Burns": 0.045,
+  "tranh Ken Burns": 0.044,
   "bản đồ chiến lược": 0.031,
   "footage": 0.011
  },
@@ -97,37 +97,37 @@
   "ty_le": 0.011,
   "dat": true
  },
- "ho_so_that": 0.212,
+ "ho_so_that": 0.214,
  "shot_khong_claim": [],
  "moc_dinh": [
   {
    "shot": "1e",
-   "t": 86.0,
+   "t": 88.0,
    "moc": "4/8/1704 (N.S.) = 24/7 (O.S.)"
   },
   {
    "shot": "2g",
-   "t": 222.5,
+   "t": 229.5,
    "moc": "12/4/1781 10"
   },
   {
    "shot": "2m",
-   "t": 292.0,
+   "t": 299.5,
    "moc": "13/9/1782"
   },
   {
    "shot": "3b",
-   "t": 375.5,
+   "t": 383.0,
    "moc": "1810"
   },
   {
    "shot": "3f",
-   "t": 416.5,
+   "t": 425.0,
    "moc": "1909"
   },
   {
    "shot": "4b",
-   "t": 458.0,
+   "t": 466.0,
    "moc": "1941 (đã dựng ở gib20)"
   }
  ],
@@ -137,16 +137,16 @@
  ],
  "chuong_s": {
   "0": 44.5,
-  "1": 117.5,
-  "2": 201.5,
-  "3": 84.0,
-  "4": 107.0,
-  "5": 147.5
+  "1": 122.5,
+  "2": 204.0,
+  "3": 84.5,
+  "4": 111.5,
+  "5": 151.0
  },
  "strategic": {
   "so_lan": 3,
   "tong_s": 22.0,
-  "ty_le": 0.0313,
+  "ty_le": 0.0306,
   "dai_nhat_s": 8,
   "moi_chuong": {
    "1": 1,
@@ -185,7 +185,7 @@
    "neo-la-linea"
   ],
   "ai_image_s": 52.5,
-  "ai_image_ty_le": 0.0748,
+  "ai_image_ty_le": 0.0731,
   "im_lang": [
    [
     "KB1943",
