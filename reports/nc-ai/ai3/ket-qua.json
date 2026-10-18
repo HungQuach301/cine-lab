@@ -1,0 +1,92 @@
+{
+ "tile": [
+  {
+   "o": [
+    3274,
+    1215
+   ],
+   "psnr_bicubic": 17.67,
+   "psnr_swin2sr": 17.46,
+   "ssim_bicubic": 0.268,
+   "ssim_swin2sr": 0.354,
+   "canh_dung_bicubic": 1.0,
+   "canh_dung_swin2sr": 1.0
+  },
+  {
+   "o": [
+    1445,
+    1470
+   ],
+   "psnr_bicubic": 12.4,
+   "psnr_swin2sr": 12.14,
+   "ssim_bicubic": 0.228,
+   "ssim_swin2sr": 0.313,
+   "canh_dung_bicubic": 1.0,
+   "canh_dung_swin2sr": 1.0
+  },
+  {
+   "o": [
+    127,
+    1021
+   ],
+   "psnr_bicubic": 21.04,
+   "psnr_swin2sr": 20.45,
+   "ssim_bicubic": 0.455,
+   "ssim_swin2sr": 0.477,
+   "canh_dung_bicubic": 1.0,
+   "canh_dung_swin2sr": 0.995
+  },
+  {
+   "o": [
+    2748,
+    1230
+   ],
+   "psnr_bicubic": 14.81,
+   "psnr_swin2sr": 14.64,
+   "ssim_bicubic": 0.267,
+   "ssim_swin2sr": 0.357,
+   "canh_dung_bicubic": 0.999,
+   "canh_dung_swin2sr": 0.999
+  },
+  {
+   "o": [
+    3216,
+    53
+   ],
+   "psnr_bicubic": 17.7,
+   "psnr_swin2sr": 17.7,
+   "ssim_bicubic": 0.309,
+   "ssim_swin2sr": 0.329,
+   "canh_dung_bicubic": 1.0,
+   "canh_dung_swin2sr": 0.984
+  },
+  {
+   "o": [
+    2494,
+    1212
+   ],
+   "psnr_bicubic": 14.65,
+   "psnr_swin2sr": 14.23,
+   "ssim_bicubic": 0.208,
+   "ssim_swin2sr": 0.258,
+   "canh_dung_bicubic": 0.999,
+   "canh_dung_swin2sr": 1.0
+  }
+ ],
+ "tb": {
+  "psnr_bicubic": 16.378,
+  "psnr_swin2sr": 16.103,
+  "ssim_bicubic": 0.289,
+  "ssim_swin2sr": 0.348,
+  "canh_dung_bicubic": 1.0,
+  "canh_dung_swin2sr": 0.996
+ },
+ "giay_swin2sr_moi_o_64to256": 1.14,
+ "do_sau": {
+  "model": "depth-anything/Depth-Anything-V2-Small-hf",
+  "giay": 8.5,
+  "pt_diem_buoc_nhay_gt_0_02": 2.61,
+  "disparity_trung_vi_1_5_tren": 0.068,
+  "disparity_trung_vi_1_5_duoi": 0.911
+ }
+}
