@@ -1,0 +1,33 @@
+{
+ "X1-X4": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "confusing",
+   "cluttered"
+  ],
+  "from": "Gibraltar (Allied HQ), civilians evacuated",
+  "route": "to Casablanca (X1 only), then London, Madeira and Jamaica. Lines run out through the Strait and off the frame edge. The Casablanca label disappears by X3.",
+  "when": "May\u2013Aug 1940 (the Casablanca label says May\u2013Jun 1940). The footer says 'approx. borders c. 1941'.",
+  "where": "The southern tip of Iberia, at the Strait of Gibraltar. A red dot sits on a thin strait with a tiny glowing node beside it.",
+  "note": "The dark label cards are legible, but the cream route lines are thin and low-contrast on the pale sea. The Madeira and Jamaica labels sit almost on top of each other. The lines head off the left edge, so the destinations are never shown. The legend swatch for 'Britain' (red) is used nowhere on the map. The 'Evacuation' cream swatch looks like the land colour of Portugal. The labels are small for a phone."
+ },
+ "X5-X8": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "confusing",
+   "illegible_text"
+  ],
+  "from": "Gibraltar (Allied HQ) and two arrows from the open Atlantic on the left",
+  "route": "Two red arrows come in from the west. One runs through the Strait. The other runs along the Moroccan coast. An arrow then goes east to Algiers or Oran, and a dotted line marks aircraft to Oran. The landing label reads 'Casablanca \u00b7 Oran \u00b7 Algiers'.",
+  "when": "8 Nov 1942",
+  "where": "The small red-ringed dot at Gibraltar on Iberia's southern tip. The map is re-framed in this shot.",
+  "note": "X5 has a ghost label ('8 Nov\u2026') faded to near invisibility, plus a stray pink dot at left. Both are leftover artifacts. The arrowheads in X5 are tiny. The final label covers the coastline. The legend entries 'Vichy France' and 'German-occupied' are barely visible at the map edge. The 'aircraft to Oran' arrowhead is a tangled blob near the label. The Atlantic arrows have no origin or label, and the arrow toward Casablanca ends short of the coast."
+ },
+ "split": true,
+ "why_split": "The two periods (May\u2013Aug 1940 evacuations and 8 Nov 1942 Torch) are different stories, so the cut, the re-frame, the new legend and the new colour all signal the change. Merging them would force both sets of overlays onto one map.",
+ "top_fix": "Make route lines about twice as thick and use a high-contrast colour. Start each route at the Gibraltar dot and end it on a named destination dot that stays inside the frame. Space the labels so they do not crowd each other. Remove the ghost '8 Nov' label and the stray dot in X5. In shot 1, show Casablanca, Madeira, Jamaica and London as destination dots. In shot 2, draw the Torch arrows as separate lines to Casablanca, Oran and Algiers. Enlarge all label text. Cut the legend entries the map doesn't use."
+}

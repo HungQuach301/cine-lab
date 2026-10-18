@@ -12,11 +12,12 @@ Nhánh thật: `ccr-8f16467a-mhu954` (harness buộc tên này; lệnh yêu cầ
 | P6 bờ + chiến sự | Cảnh mới `bo1782` 17:28–17:32 ngày 13/9: soái hạm Pastora + "admiral's second" cháy (Drinkwater p. 298; lửa bùng ~17:00 — S066), khói dày toàn tuyến trôi đông-bắc theo gió tây-nam (p. 298), xuồng chèo quanh hai pin nổi (p. 295, 298), máy thấp 16 m ống dài 13° nhìn đông vào Line Wall + phố + Rock. **Bờ 54,3 %** khung, **lửa đỏ 0,24 %**. |
 | P2/P3 | P2: bay ≈ 110 m qua mặt vịnh trước Old Mole nhìn xuống — 3 tàu neo tiền cảnh, Old Mole, phố, Rock. P3: đoạn nam Main Street, phố dày (50,1 %), tháp St Mary, ngói đa sắc (8 tông). |
 | C2-2 / C2-7 | Khung AGL ≤ 150 m: bỏ khối lấp ước tính trong 150 m quanh vết máy (P3 bỏ 26 khối, P2/P4 bỏ 4). Người đơn chỉ hiện trong 150 m quanh máy; xa hơn là cụm đám đông / khối đội hình (không phóng to); kíp pháo chỉ hiện ≤ 300 m. |
-| C2-9 | Đối chiếu ảnh PD LoC 2025710362 (vách bắc gần đứng): DEM nâng đỉnh 359 → **412 m** (Rock Gun), làm sắc vách bắc k 1,3 → 1,8. |
-| C2-4 | SM3 tách SM3a 1940 (3,5 s) + SM3b 1942 (3,5 s), máy khoá, một nhóm nhãn/shot — **đã dựng hình 1080p** (§6). |
+| C2-9 | Đối chiếu ảnh PD LoC 2025710362 (vách bắc gần đứng): DEM nâng đỉnh 359 → **412 m** (Rock Gun), làm sắc vách bắc k 1,3 → 1,8. Ảnh so: `khung/c2-9-doi-chieu-vach-bac.jpg` (ảnh tham chiếu SHA-256 `67fb23dc…7b03a`, `do/loc-2025710362-item.json`). Còn lệch: vách DEM 30 m vẫn kém đứng hơn ảnh. |
+| C2-4 | SM3 tách SM3a 1940 (3,5 s) + SM3b 1942 (3,5 s), máy khoá, một nhóm nhãn/shot — **đã dựng 1080p**; chấm mù độ rõ **5,5–6** (bản gộp V5b-2c: 4), craft 6–7 (V5b-2c: 6), giữ tách **3/3** (§6.1). |
 | C2-5 | Đoạn thử theo thứ tự thời gian 09:05 → 10:27 → 10:32 → 10:40 → 17:28; SM2 ("Oct 1782") đặt **sau** cảnh 13/9 (không hoà thẳng). |
 | Chấm mù | V5b-2d vs V5b-2c cùng loại cảnh: **V5b-2d được chọn 17/18 lượt** (P1–P2, P4–P6: 3/3; P3: 2/3). |
-| Chi phí | Claude API **$1,61** (trần $2) · OpenAI 0 · YouTube 0 · ElevenLabs 0 ký tự · giờ máy ≈ **2,6 h** (cận trên, đồng hồ tường; trần 6 h). |
+| k2check 1.14 | LOCK 1.14.0 **KHỚP** (`feb4141d…`); chạy trên tập SM3 tách (§9). K 1.15: nhánh chưa có. |
+| Chi phí | Claude API **$1,918** (trần $2; −4,1 % — sát trần) · OpenAI 0 · YouTube 0 · ElevenLabs 0 ký tự · giờ máy ≈ **2,4 h** (đồng hồ tường 02:33 → 04:57; trần 6 h). |
 
 Video thử 540p, 42 s, **11,5 MB** (ngoài LFS): `reports/v5b2d/khung/v5b2d-t-540p.mp4`. Tờ so 6 khung V5b-2c | V5b-2d: `reports/v5b2d/khung/so-sanh-6-khung.jpg`. Khung sạch + khung có chữ: `reports/v5b2d/khung/d-*.jpg`.
 
@@ -67,6 +68,7 @@ Video thử 540p, 42 s, **11,5 MB** (ngoài LFS): `reports/v5b2d/khung/v5b2d-t-5
 - Số đầy đủ: `reports/v5b2d/do/6-khung.json`, mặt nạ `do/mat-na-*.json`, máy `do/cam-*.json`.
 
 ### 3.1 Chỉ số trong ±5 % quanh ngưỡng (luật cứng) và chỉ số trượt
+- Claude API $1,918 vs trần $2 (−4,1 %).
 - sat trung vị **0,412** vs 0,40 (+3,0 %); khung có chữ 0,400 (đúng ngưỡng); P1 0,408 (+2 %), P5 0,404 (+1 %), P3 0,416 (+4 %).
 - Nội dung P3 **50,1 %** vs ≥ 50 % (+0,2 %).
 - **TRƯỢT nhẹ:** cỏ trống P1 **34,1 %** vs ≤ 33,3 % (+2,4 %) — sau khi giảm quân số xuống dưới số nguồn; không thêm vật để vượt (xem §7). Nước P2 **43 %** > 1/3 (shot cảng, `noi: bien`). P6: đất bằng 33,7 % (+1,1 % — gồm sườn Rock), bờ 54,3 % (+8,6 %, ngoài ±5 %).
@@ -86,20 +88,25 @@ Giao thức blind_v5b2c: `claude -p` ghim claude-sonnet-5-5, chỉ công cụ Re
 
 - Vòng: P2, P4, P5, P6 chấm trên khung r3 (trước đổi màu mũ khối quân — khác biệt nhỏ ở P4/P5); P3 chấm lại sau sửa theo góp ý vòng 1 (vòng 1: 1/3 — "ruộng sọc + cây kẹo mút"; lưu `kiem-mu/vong1/`); P1 chấm lại sau giảm quân số (bản 43 000 người: 3/3, lưu `kiem-mu/vong2-P1-43k/`).
 - Góp ý chung cho bản V5b-2d (để làm tiếp): người/khối là trụ hộp → "toy look"; khói là sprite mờ; P3 vùng trống bên phải (do C2-2 bỏ lấp gần); P6 khung phẳng ngang, nước phẳng, pin nổi giống hộp.
-- Chi phí chấm: **$1,606** (27 lượt, `kiem-mu/cost.jsonl`).
+- Chi phí chấm khung: **$1,606** (27 lượt, `kiem-mu/cost.jsonl`).
 
 ## §5 Video thử
 `reports/v5b2d/khung/v5b2d-t-540p.mp4` — 42 s, 960×540 dựng thẳng (lớp chữ của trang tl), x264 crf 25, 11,5 MB, không tiếng: vịnh 09:05–10:27 (cảng → hero King's Bastion 09:45 → reveal pin nổi) · eo đất 10:32 · toàn cảnh 10:40 · Main Street · bờ 17:28. `scripts/k2tl/v5b2d_video.sh`.
 
 ## §6 SM3 tách (C2-4) và thứ tự SM2 (C2-5)
 - `sm3_spec.py --tach` → `-a.json` (1940: 4 cung sơ tán, nhãn nơi đến, bộ đếm "May–Aug 1940", chú giải 2 mục) và `-b.json` (1942: đường bay + 3 mũi biển Torch, bộ đếm "8 Nov 1942", chú giải 3 mục). Máy khoá (cùng tư thế đầu–cuối).
-- Dựng (phiên phụ trong phiên này, rồi sửa 3 lỗi thấy trên khung lần 1: chú giải SM3b ghi "Vichy (hatched)" sai so với hình → "Vichy France" đặc + "German-occupied (hatched)"; cuối cung Madeira/Casablanca bị hộp bộ đếm che → khung SM3a lệch nam-tây; nhãn Gibraltar đè đầu đường bay → lên trên). Kết quả: xem §6.1 (điền sau lượt dựng cuối).
+- Dựng (phiên phụ trong phiên này, rồi sửa 3 lỗi thấy trên khung lần 1: chú giải SM3b ghi "Vichy (hatched)" sai so với hình → "Vichy France" đặc + "German-occupied (hatched)"; cuối cung Madeira/Casablanca bị hộp bộ đếm che → khung SM3a lệch nam-tây; nhãn Gibraltar đè đầu đường bay → lên trên).
+
+### 6.1 Kết quả SM3 tách
+- Master 1080p 7,0 s (84 + 84 khung), nhạc Tyrant.mp3 (dòng RIGHTS K2-MUS có sẵn), I −14,2 LUFS, TP −1,1 dBTP sau AAC; ngoài git (26,5 MB): `/var/tmp/cine-out/v5b2d-sm3/v5b2d-sm3-v1-master.mp4`. Bản 540p trong repo: `reports/v5b2d/sm3/v5b2d-sm3-tach-540p.mp4`; tờ 8 khung `sm3/sm3-tach-8khung.jpg`; đặc tả `sm3/sm3-spec-{a,b}.json`, `sm3/episode-sm3-tach.yaml`.
+- Chấm mù độ rõ (giao thức + đáp án khai trước của `blind_v5b2c.py`, 8 khung: 4 SM3a + 4 SM3b, `kiem-mu/SM3tach/`): craft 7 · 6 · 6–7 · độ rõ **6 · 3–6 · 5–6** (R2 chấm từng khung: thấp nhất ở khung chuyển cảnh 4,3 s), giữ tách **3/3** ("hai câu chuyện khác chiều, khác ngày, khác màu — cắt + đổi khung + đổi chú giải báo rõ"). So V5b-2c bản gộp: craft 6, độ rõ 4.
+- Góp ý còn lại (chưa sửa): cung sơ tán mảnh/nhạt và điểm đến London/Madeira/Jamaica nằm ngoài khung (cần chấm điểm đến trong khung); nhãn "Allied landings" nên bám mũi tên đổ bộ; khung chuyển 4,3 s có hộp nhãn mờ đang hiện.
 - Dữ liệu dựng lại: ETOPO 2022 9 ô (SHA **khớp** `reports/v5b2c/giay-phep/ETOPO-2022.md`), Cliopatria v0.2.1 (zip SHA `d71bde2e…` khớp V5b-2c), Natural Earth 10m; `fr-metro.geojson` không có trong repo → tái dựng từ NE admin_0 (France, hộp −6…10°Đ, 41…52°B); số lệch biên ra trùng V5b-2c (Spain 3,61 km, Portugal 3,04 km). pyproj cài riêng vào `/var/tmp/cine-out/v5b2d-sm3/pylib` (không đụng `/opt/cine`).
 - **C2-5:** ở phim SM2 (kết "Oct 1782" — đoàn Howe) đặt SAU khối cảnh 13/9/1782; đoạn thử 3D xếp theo giờ (toàn cảnh dời 09:52 → 10:40 để sau eo đất 10:32).
 
 ## §7 Giờ máy và chi phí thật
-- Đồng hồ tường phiên chính 02:33 → ≈ 05:10 ≈ **2,6 h** (gồm phiên phụ SM3 ≈ 1,05 h chạy song song, `nice`). Dựng 1080p llvmpipe 7–14 s/khung (đơn tiến trình, có tải song song).
-- Claude API $1,606 (trần $2). OpenAI 0. YouTube 0. ElevenLabs 0 ký tự (prep SM3 `el` gửi 0).
+- Đồng hồ tường 02:33 → 04:57 ≈ **2,4 h** (phiên phụ SM3 ≈ 1,05 h + lượt dựng lại SM3a 11 min chạy song song trong khoảng này, `nice`). Dựng 1080p llvmpipe 7–14 s/khung (đơn tiến trình, có tải song song).
+- Claude API **$1,918** = 27 lượt chấm khung ($1,606) + 3 lượt SM3 ($0,311) (`kiem-mu/cost.jsonl`; máy chủ có gọi kèm claude-haiku-5-5). OpenAI 0. YouTube 0. ElevenLabs 0 ký tự.
 
 ## §8 Quyết định đề xuất (ưu · nhược · tác động · rủi ro)
 
@@ -114,14 +121,14 @@ Giao thức blind_v5b2c: `claude -p` ghim claude-sonnet-5-5, chỉ công cụ Re
 | 7 | RIGHTS (P ghi): ảnh LoC 2025710362 (chỉ tham chiếu, "No known restrictions on publication."); Drinkwater 1785 OCR (PD); Cliopatria/ETOPO/NE như đề xuất 7 V5b-2c; `fr-metro.geojson` dẫn xuất NE (PD) | đủ hồ sơ tài sản | — | bắt buộc trước phát hành | không |
 
 ## §9 Kiểm định
-- **k2check 1.14:** đoạn thử V5b-2d là chuỗi cảnh tl dựng trực tiếp (không qua `scripts/k2/build.sh`), nên **không có đặc tả/timeline tập** để chạy `k2check.py` toàn tập như V5b-2c; kết quả chạy trên tập SM3 tách: xem §6.1. **K 1.15:** nhánh `checks/v1.15` **chưa tồn tại** trên origin → không chạy.
+- **k2check 1.14** (`git archive origin/p-1810 checks` + `RIGHTS.md` của p-1810, không đọc mã; `reports/v5b2d/do/k2check-1.14-sm3-tach.txt`): chạy trên tập SM3 tách (tập duy nhất của vòng này dựng qua `scripts/k2/build.sh`; đoạn thử 3D dựng thẳng bằng `scripts/k2tl/render.js` nên không có đặc tả tập). LOCK **KHỚP**; A1 −14,2 LUFS ĐẠT, A2 −1,1 dBTP ĐẠT; Q33/Q34/Q35/Q36/Q37 ĐẠT; Q26b, Q32, BD-1 (strategic 100 % phim), BD-2 ("không có phần tử chuyển động" — tập thử không khai khối `ban_do` nên tuyến không vào log), NC-H2/H3 TRƯỢT — đều do tập thử chỉ gồm 2 shot bản đồ, không phải lỗi của shot. **K 1.15:** nhánh `checks/v1.15` **chưa tồn tại** trên origin → không chạy.
 - Luật cảnh (tự kiểm trong mã, log `scene_meta`): 0 người trong vùng khói; lửa ≤ 15 %; quân/tàu ≥ 6 px (trừ 10 cụm đám đông xa ở P3 — §3); vị trí công sự/khẩu đội/hào theo nguồn, do_tin thấp có "approx.".
 - Tốc độ máy P2 mới: góc ≤ 78,8 °/s (< 90), orbit 4,7 s, ghim 1,79 s; tốc độ tịnh tiến lớn nhất 533 m/s ở speed-ramp (V5b-2c chưa ghi số này — nêu để K xem).
 
 ## §10 Việc đang chờ chủ dự án
 1. Duyệt 6 khung + video 540p (§0, tờ so `so-sanh-6-khung.jpg`); gửi điều phối chấm cổng lại vs CITYTONS/Barcelona.
 2. Chọn hướng P1 (đề xuất 2) và P3 (đề xuất 4); duyệt hướng "người low-poly + khói lớp" (đề xuất 3).
-3. Duyệt SM3a/SM3b (§6.1) thay bản 7 s; xác nhận thứ tự SM2 sau 13/9 ở phim.
+3. Duyệt SM3a/SM3b (§6.1) thay bản 7 s (+ hướng sửa góp ý còn lại); xác nhận thứ tự SM2 sau 13/9 ở phim; duyệt `fr-metro.geojson` tái dựng từ NE thay tệp gốc V5b-2c (không có trong repo).
 4. Duyệt các đổi thiết kế: đỉnh Rock 412 m + vách sắc hơn (C2-9); ngói 8 tông; cảnh mới `bo1782` (17:30); P5 đổi máy sang mặt vịnh; P2 đổi đường bay.
 5. Ghi `AUTHORSHIP.md` (P): các quyết định C2-1…C2-9 của chủ dự án áp ở đây.
 6. RIGHTS (đề xuất 7) — P thêm.

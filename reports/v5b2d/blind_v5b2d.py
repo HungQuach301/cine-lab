@@ -99,8 +99,34 @@ def score():
     print('chi phí', R['chi_phi'])
 
 
+# --- SM3 tách: độ rõ (giao thức V5b-2c PROMPT_ONE + đáp án khai trước KEYS['SM3'] của blind_v5b2c.py) — 8 khung: X1–X4 = SM3a, X5–X8 = SM3b ---
+def sm3(master):
+    sp = importlib.util.spec_from_file_location('b2c', os.path.join(REPO, 'reports', 'v5b2c', 'blind_v5b2c.py')); B = importlib.util.module_from_spec(sp); sp.loader.exec_module(B)
+    d = os.path.join(OUT, 'SM3tach'); os.makedirs(d, exist_ok=True); T = [0.8, 1.8, 2.8, 3.3, 4.3, 5.2, 6.0, 6.6]
+    for i, t in enumerate(T, 1): subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t:.2f}', '-i', master, '-frames:v', '1', '-vf', 'scale=1280:-2', '-q:v', '3', os.path.join(d, f'X{i}.jpg')], check=True)
+    prompt0 = B.PROMPT_ONE.replace('four still frames from one short animated map ({kind}): X1.jpg–X4.jpg, in time order over about 7 seconds. Open all four',
+        'eight still frames from two consecutive short shots of an animated map ({kind}): X1.jpg–X4.jpg are shot 1 and X5.jpg–X8.jpg are shot 2, each in time order over about 3.5 seconds. Open all eight')
+    prompt0 = prompt0.replace('Finally say whether the two periods shown would be clearer as two separate shots ("split": true/false) and why.', 'Finally say whether splitting the two periods into these two shots works ("split": true/false = keep split / merge back) and why.')
+    env = dict(os.environ, ANTHROPIC_API_KEY=os.environ['CONSOLE_API_KEY']); res = {}
+    for rk in RATERS:
+        if os.path.exists(os.path.join(d, f'{rk}.json')): continue
+        if spent() > 1.9: break
+        with tempfile.TemporaryDirectory() as cwd:
+            for i in range(1, 9): shutil.copy(os.path.join(d, f'X{i}.jpg'), cwd)
+            r = subprocess.run(['claude', '-p', '--model', MODEL, '--output-format', 'json', '--allowedTools', 'Read'], input=prompt0.format(persona=RATERS[rk], kind=B.KIND['SM3']), capture_output=True, text=True, env=env, cwd=cwd, timeout=900)
+            dd = json.loads(r.stdout)
+            with open(LOG, 'a') as f: f.write(json.dumps({'tag': f'v5b2d:SM3tach-{rk}', 'model': MODEL, 'served': sorted(dd.get('modelUsage', {})), 'usd': dd.get('total_cost_usd', 0)}) + '\n')
+            m = re.search(r'\{.*\}', dd.get('result', ''), re.S); j = json.loads(m.group(0)); json.dump(j, open(os.path.join(d, f'{rk}.json'), 'w'), indent=1)
+    J = {rk: json.load(open(os.path.join(d, f'{rk}.json'))) for rk in RATERS if os.path.exists(os.path.join(d, f'{rk}.json'))}
+    R = dict(nguoi=len(J), craft=[J[r]['X']['craft'] for r in J], clarity=[J[r]['X']['clarity'] for r in J], readability=[J[r]['X']['readability'] for r in J],
+             dung=[B.right('SM3', J[r]['X']) for r in J], tra_loi=[{q: J[r]['X'].get(q) for q in ('from', 'route', 'when', 'where')} for r in J], flags=sorted({f for r in J for f in J[r]['X'].get('flags', [])}),
+             giu_tach=[J[r].get('split') for r in J], why=[J[r].get('why_split') for r in J], top_fix=[J[r].get('top_fix') for r in J], chi_phi=round(spent(), 3), so_v5b2c=dict(craft=[6, 6, 6], clarity=[4, 4, 4]))
+    json.dump(R, open(os.path.join(d, 'score.json'), 'w'), indent=1, ensure_ascii=False); print(json.dumps(R, ensure_ascii=False, indent=1))
+
+
 if __name__ == '__main__':
     a = sys.argv[1]
+    if a == 'sm3': sm3(sys.argv[2])
     if a == 'set': setup(sys.argv[2])
     elif a == 'run': run()
     elif a == 'score': score()
