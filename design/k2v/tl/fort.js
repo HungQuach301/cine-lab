@@ -106,12 +106,15 @@ export function fortify(recs, ctx, o = {}) {
   // hình học → BufferGeometry (pháp tuyến phẳng theo tam giác)
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('aK', new THREE.Float32BufferAttribute(K, 1)); g.setAttribute('aUV', new THREE.Float32BufferAttribute(UV, 2)); g.computeVertexNormals();
   const m = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }), seedC = (o.seed || 53) * 0.37;
-  m.customProgramCacheKey = () => 'tl-fort' + (o.soot ? '-s' + o.soot : '');   // V5b-2d: vết ám khói nướng vào shader → khoá chương trình theo mức
+  m.customProgramCacheKey = () => 'tl-fort' + (o.soot ? '-s' + o.soot : '') + (o.hc7 ? '-hc7' : '');
+  const yTop = recs.length ? (recs[0][3] || 0) + (o.h || recs[0][2] || 9) : 9;   // V6: đỉnh tường dốc (để ánh xạ cao độ vân HC7)   // V5b-2d: vết ám khói nướng vào shader → khoá chương trình theo mức
   m.onBeforeCompile = (sh) => {
+    if (o.hc7) Object.assign(sh.uniforms, { tHC7: { value: o.hc7.tex }, uHC7L: { value: o.hc7.L }, uHC7Top: { value: yTop }, uHC7k: o.hc7.k || { value: 1 } });
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute float aK; attribute vec2 aUV; varying float vK; varying vec2 vUV; varying vec3 vWPf;')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvK = aK; vUV = aUV; vWPf = (modelMatrix * vec4(transformed, 1.0)).xyz;');
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
       varying float vK; varying vec2 vUV; varying vec3 vWPf;
+      ${o.hc7 ? 'uniform sampler2D tHC7; uniform float uHC7L, uHC7Top, uHC7k;' : ''}
       float hf(vec2 p){ return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
       float vnf(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f); return mix(mix(hf(i), hf(i + vec2(1, 0)), f.x), mix(hf(i + vec2(0, 1)), hf(i + vec2(1, 1)), f.x), f.y); }
       // đá vôi Gibraltar: khối mật ong ↔ xám tro, mạch vữa sáng-tối, loang ẩm chân tường, vệt nước mưa dọc
@@ -127,7 +130,11 @@ export function fortify(recs, ctx, o = {}) {
       { int k = int(vK + 0.5); vec3 c;
         if (k == 0 || k == 8 || k == 10) { float wet = 0.55 * (1.0 - smoothstep(0.0, 2.2, vWPf.y)) * (k == 0 ? 1.0 : 0.0); c = ashlar(vec2(vUV.x, vWPf.y), wet); if (k == 8) c *= 0.80;
           if (k == 10) c *= 1.0 - ${(o.soot ?? 0).toFixed(2)} * smoothstep(0.42, 0.78, vnf(vec2(vUV.x * 0.45, vWPf.y * 0.9)));   // V5b-2d: vết ám khói thuốc súng trên mặt ngoài tường chắn
-          if (k == 0) c *= 1.0 - ${(o.soot ?? 0).toFixed(2)} * 0.45 * smoothstep(0.55, 0.85, vnf(vec2(vUV.x * 0.25, vWPf.y * 0.15))); }
+          if (k == 0) c *= 1.0 - ${(o.soot ?? 0).toFixed(2)} * 0.45 * smoothstep(0.55, 0.85, vnf(vec2(vUV.x * 0.25, vWPf.y * 0.15)));
+          ${o.hc7 ? `if (k == 0) {   // V6 HC7 (Q-PT3-1): tường dốc = màu đá tầm lớn của máy dựng × CHI TIẾT AI < 1 m (PT3 King's Bastion, neo σ 1 m); cao độ: mặt biển → đỉnh tường dốc ↦ z PT3 −5,5 → +1,2 m
+            float zp = -5.5 + clamp(vWPf.y / uHC7Top, 0.0, 1.05) * 6.7; vec3 D = mix(vec3(1.0), texture(tHC7, vec2(fract(vUV.x / uHC7L), (zp + 5.5) / 8.7)).rgb * 2.0, uHC7k);   // uHC7k: cảnh hoà vào/ra (giới hạn thời lượng khung AI)
+            vec3 base = mix(vec3(0.84, 0.70, 0.50), vec3(0.76, 0.69, 0.56), smoothstep(0.3, 0.8, vnf(vec2(vUV.x * 0.04, vWPf.y * 0.08))));
+            c = base * D * (1.0 - ${(o.soot ?? 0).toFixed(2)} * 0.35 * smoothstep(0.55, 0.85, vnf(vec2(vUV.x * 0.25, vWPf.y * 0.15)))); }` : ''} }
         else if (k == 1) c = vec3(0.92, 0.84, 0.68) * (0.92 + 0.1 * vnf(vec2(vUV.x * 1.5, 0.0)));   // gờ đá sáng
         else if (k == 2) c = vec3(0.82, 0.68, 0.48) * (0.88 + 0.16 * vnf(vWPf.xz * 1.7));
         else if (k == 3) { vec2 p = vWPf.xz; vec2 g = abs(fract(p / 1.2 + vec2(0.0, 0.5 * step(0.5, fract(p.x / 2.4)))) - 0.5); float aa = clamp(length(fwidth(p)) * 1.5, 0.0, 1.0);

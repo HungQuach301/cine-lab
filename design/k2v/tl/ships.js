@@ -3,6 +3,7 @@
 //   buồm 1704–1860 (vịnh phía tây phố trong tường; mở đầu kể "British and Dutch forces capture Gibraltar" — số lượng MINH HOẠ, không theo sổ hạm đội)
 //   · thuyền nhỏ + tàu hơi nước 1860–1965 (ảnh LoC 2025710366 c.1900 cho thấy nhiều thuyền neo vịnh phía tây eo đất)
 //   · tàu hàng/tàu dầu tiếp nhiên liệu/tàu khách 1965–2026 (neo vịnh Gibraltar — đặc trưng hiện nay). Hình khối cách điệu, không mô phỏng tàu cụ thể.
+import { batteryV6 } from './ships6.js';
 import { THREE, rng } from './core.js';
 
 const L = (c) => new THREE.MeshLambertMaterial({ color: c });
@@ -72,7 +73,7 @@ function batteryGroup(R) {
 export function makeFleet(U, specs) {
   const group = new THREE.Group(), R = rng(1782), list = [];
   for (const sp of specs) {   // sp: {kind, at:[E,N] | path:[[tv, E, N], …], heading (độ), t:[hiện, ẩn] (tv)}
-    let g; if (sp.kind === 'battery') g = batteryGroup(R);
+    let g; if (sp.kind === 'battery') g = sp.v6 ? batteryV6(R, { side: sp.side ?? -1, burning: !!sp.burning }) : batteryGroup(R);   // V6: pin nổi chi tiết theo bản khắc (ships6.js)
     else { const tmp = new THREE.Group(); g = tmp; const len = sp.kind === 'line' ? 52 + 8 * R() : 36; const mm = (geo, mat, x, y, z) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; g.add(o); };
       mm(hullGeo(len, len * 0.27, 7, 0.2), L(0x3c2a1c), 0, -2.6, 0); mm(new THREE.BoxGeometry(len * 0.92, 1.0, len * 0.255), L(0xb09868), 0, 3.6, 0);
       for (const [x, hh] of [[-len * 0.3, 28], [0, 34], [len * 0.28, 25]]) { mm(new THREE.CylinderGeometry(0.4, 0.5, hh, 5), L(0x3a2a1e), x, hh / 2 + 2, 0); for (let k = 0; k < 3; k++) mm(new THREE.BoxGeometry(0.4, hh * 0.22, len * 0.27 * (1 - k * 0.18)), L(0xece4d0), x + 0.6, 8 + k * hh * 0.26, 0); } }

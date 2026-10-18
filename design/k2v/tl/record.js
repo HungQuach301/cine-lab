@@ -21,6 +21,7 @@ export function makeRecorder(W, H) {
     tag(t, win, s, anchorPx) { const a = fade(t, win[0], win[1]); if (a <= 0 || !anchorPx) return; D.tags.push({ s, a: +a.toFixed(3), anchor: nx(anchorPx), world: w3(anchorPx) }); },
     where(t, win, s) { const a = fade(t, win[0], win[1]); if (a > 0 && s) D.where = { s, a: +a.toFixed(3) }; },
     ghostSrc(t, win, s) { const a = fade(t, win[0], win[1]); if (a > 0 && s) D.ghost_src = { s, a: +a.toFixed(3) }; },
+    aiLabel(on, zs = 1) { if (on) D.ai_label = { s: 'Surface detail AI-assisted · layout, landmarks & flags from sources' }; },   // V6 (§11.3, K-LAI-2): k2.js vẽ dưới-trái trên hộp năm/giờ, ≥ 38 px
     data() { return D; },
     // không có ngân sách/tương phản ở đây: đo trên khung thật ở render.js (k2) — giữ hàm rỗng để cảnh gọi được
     budget() { return null; }, contrast() { return []; }, roles() { return []; }, log: { cards: 0, overflow: [], leaders: [] },

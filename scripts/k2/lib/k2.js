@@ -221,6 +221,9 @@ function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) r
     text(g, ys, x + 26 * zs, y + h / 2 + px * 0.36, px, pin > 0.5 ? K.amber : K.text, { w: 700, disp: true, role: Ch.clock ? 'clock' : 'year' }); ybR = x + w; ybT = y;
     (LL.occ = LL.occ || []).push([x, y, x + w, y + h]);
     if (Ch.clock && Ch.clock.sub) { const sp = 32 * S, sw = tw(g, Ch.clock.sub, sp, 600) + 40, sy = y - sp * 1.7 - 10; panel(g, x, sy, sw, sp * 1.7, { fill: 'rgba(12,18,27,0.88)' }); text(g, Ch.clock.sub, x + 20, sy + sp * 1.18, sp, K.dim, { w: 600, role: 'calendar' }); ybT = sy; } }
+  // V6 (Kinh thánh §11.3, K-LAI-2): nhãn VÂN AI dưới-trái ngay trên hộp năm/giờ (suốt shot có ai_texture; chỉ khi cảnh tl ghi D.ai_label)
+  if (D.ai_label) { const s2 = D.ai_label.s, sw = tw(g, s2, SRCPX, 600) + 40, hh = SRCPX * 1.6, x = SAFE.x0, y = ybT - 12 - hh; panel(g, x, y, sw, hh, { fill: 'rgba(12,18,27,0.9)' });
+    text(g, s2, x + 20, y + SRCPX * 1.12, SRCPX, K.text, { w: 600, role: 'ai_label' }); (LL.occ = LL.occ || []).push([x, y, x + sw, y + hh]); ybT = y; }
   // trên-phải: chip nơi rồi chỉ số + dòng nguồn
   let yR = 56; const wh = p.where || (D.where ? { s: D.where.s } : null);
   if (wh) { whereChip(g, Object.assign({}, p, { where: wh }), t); yR += 30 * S * 1.7 + 12; }

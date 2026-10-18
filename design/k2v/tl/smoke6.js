@@ -31,7 +31,9 @@ const FS = `precision highp float;
     float l = clamp(dot(n, uSunV) * 0.8 + 0.3, 0.0, 1.0), self = 0.7 + 0.3 * clamp(pr.y * 0.5 + 0.5, 0.0, 1.0);
     vec3 alb = kind > 1.5 ? vec3(0.13, 0.115, 0.10) : vec3(0.80, 0.78, 0.74);
     float dark = clamp(age * 0.45 + clamp(vWP.y / 260.0, 0.0, 1.0) * 0.3, 0.0, 0.62); alb *= 1.0 - dark * (kind > 1.5 ? 0.3 : 1.0);
-    vec3 col = alb * (uSunC * l * self + uAmb * (0.75 + 0.25 * n.y));
+    // tán xạ thuận (khói ngược sáng sáng viền, như khói thật): mạnh khi mặt trời ở phía sau khói (sunV.z < 0), nhiều ở rìa loãng
+    float back = pow(max(0.0, -uSunV.z), 2.0), fwd = back * (0.55 + 0.45 * (1.0 - dens));
+    vec3 col = alb * (uSunC * (l * self + 1.1 * fwd) + uAmb * 1.5 * (0.75 + 0.25 * n.y));
     float f = 1.0 - exp(-uFogD * uFogD * vDist * vDist); col = mix(col, uFogC, f);
     o = vec4(col, dens * vA.x); }`;
 

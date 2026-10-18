@@ -42,7 +42,7 @@ function kernel(n, seed) {   // bán cầu (z+) dồn về tâm, tất định
   return out;
 }
 export function makeSSAO(R, W, H, opt = {}) {
-  const O = Object.assign({ n1: 12, n2: 10, k1: 0.005, r1: [0.35, 5.0], k2: 0.03, r2: [3.0, 45.0], s1: 0.85, s2: 0.6, strength: 1.0, maxD: 9000 }, opt);
+  const O = Object.assign({ n1: 12, n2: 10, k1: 0.005, r1: [0.35, 5.0], k2: 0.03, r2: [3.0, 45.0], s1: 0.75, s2: 0.45, strength: 1.0, maxD: 9000 }, opt);   // V6: s1/s2 hạ sau rà khung P1 (khối người quá tối)
   const dt = new THREE.DepthTexture(W, H); dt.type = THREE.FloatType;
   const nRT = new THREE.WebGLRenderTarget(W, H, { type: THREE.UnsignedByteType, depthTexture: dt, depthBuffer: true });
   const aRT = new THREE.WebGLRenderTarget(W, H, { type: THREE.UnsignedByteType }), bRT = new THREE.WebGLRenderTarget(W, H, { type: THREE.UnsignedByteType });

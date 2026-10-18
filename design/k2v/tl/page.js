@@ -17,7 +17,7 @@ import { makeRecorder } from './record.js';
 import { sunDirENU } from './sun.js';
 import { fitShadowView, makeSSAO } from './light6.js';   // V6: bóng khít khung nhìn + SSAO + chỉnh màu
 
-let C, R, pipe, scene, cam, SC, ctx, outScene, quadCam, txt, rec, HERO = false, last = null, stats = {}, V6 = null, SSAO = null, aoHide = [], v6Key = null, v6Shadow = null;
+let C, R, pipe, scene, cam, SC, ctx, outScene, quadCam, txt, rec, HERO = false, last = null, stats = {}, V6 = null, SSAO = null, aoHide = [], v6Key = null, v6Shadow = null, REFL = null;
 // V5b-2b (V5B2A §8.2): trang dựng được gọi từ scripts/k2/hero.js ('tl/<cảnh>', opt = {pack, lut, lutMode, vib, look, photo, tech, layers, …}) —
 //  chế độ HERO: khung KHÔNG chữ (window.finalize → RGB), lớp chữ ghi lại bằng record.js vào anchorsAt()._tl để scripts/k2/lib/k2.js vẽ; frameMeta() mỗi khung (AGL, SPP, pha).
 function heroCfg(c) { const o = c.opt || {}; return { W: c.W, H: c.H, hero: c.hero, scene: c.hero.split('/')[1], opt: o, pack: `/cache/scene/${o.pack || 'gib'}/pack/`, lut: '/cache/lut/' + (o.lut || 'k2-a-thep-lanh') + '.cube',
@@ -50,7 +50,7 @@ window.setup = async (cfg) => {
   const sun = new THREE.DirectionalLight(L.sunC, L.sunI); sun.castShadow = T.shadows !== false; sun.shadow.mapSize.set(T.shadowRes, T.shadowRes); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.6; sun.shadow.radius = L.shR;
   scene.add(sun, sun.target);
   const terr = await makeTerrain(base, M, U, Object.assign({}, mod.TERRAIN || {}, (cfg.opt && cfg.opt.terrain) || {})); scene.add(terr.group);
-  const ws = makeWaterSky(U, scene.fog, L.skyHor);   /* ctx.ws: mặt nạ nội dung ẩn nước/trời */ scene.add(ws.water, ws.sky);
+  const ws = makeWaterSky(U, scene.fog, L.skyHor, V6 ? { wave: V6.wave ?? 1.6 } : null);   /* ctx.ws: mặt nạ nội dung ẩn nước/trời */ scene.add(ws.water, ws.sky);
   let B = T.city ? await loadJSON(base + 'buildings.json') : [];
   if (T.copies > 1) { const B0 = B; B = []; for (let k = 0; k < T.copies; k++) for (const b of B0) B.push(k ? [b[0], b[1], b[2], b[3], b[4], b[5], b[6].map(([e, n]) => [e + ((k % 4) - 1.5) * 3000, n + 4500 + Math.floor(k / 4) * 3500])] : b); }   /* thử tải: nhân bản toà (đo trần toà/cảnh) */
   // V5b-2b (M9): opt.cut = [lớp footprint] → bỏ toà của gói nằm trong các vòng đó (vd. công sự King's Bastion dựng riêng: không để nhà tái dựng mọc trên mặt sàn pháo)
@@ -73,6 +73,9 @@ window.setup = async (cfg) => {
   for (const [k, objs] of Object.entries(heroes.heroParts || {})) for (const o of objs) mk(o, 1, heroes.heroIds[k]);   // V5b-2a: hero có id (trước mk chung — maskify bỏ qua vật liệu đã gắn)
   mk(heroes.group, 1); mk(roads.mesh, 1); mk(ships.group, 1); if (trees) mk(trees.group, 0); mk(terr.group.children.find((o) => o.material && o.material.map), 0);
   ctx.ws = ws;
+  // V6: PHẢN CHIẾU MẶT NƯỚC — máy gương (đối xứng qua y = 0, máy đúng chiều), nửa độ phân giải, cắt mọi thứ dưới mặt nước; nền trong suốt (trời dùng skyCol)
+  if (V6 && V6.refl !== false) { const rt = new THREE.WebGLRenderTarget(Math.round(cfg.W / 2), Math.round(cfg.H / 2), { type: THREE.HalfFloatType, colorSpace: THREE.LinearSRGBColorSpace });
+    REFL = { rt, cam: new THREE.PerspectiveCamera(38, cfg.W / cfg.H, 5, 80000), clip: [new THREE.Plane(new THREE.Vector3(0, 1, 0), -0.3)], ms: 0 }; ws.water.material.uniforms.tRefl.value = rt.texture; ws.water.material.uniforms.uRefl.value = 1; }
   // V6: SSAO + danh sách vật KHÔNG vào lượt pháp tuyến (nước, trời, khói/sprite, vật liệu không có nhánh uMask)
   if (V6) { SSAO = makeSSAO(R, cfg.W, cfg.H, V6.ao); const hid = new Set([ws.water, ws.sky]);
     scene.traverse((o) => { if (!(o.isMesh || o.isSprite || o.isPoints || o.isLine)) return; const ms = [].concat(o.material || []); if (o.isSprite || !ms.some((m) => m && (m.userData.masked || m.userData.v6n))) hid.add(o); });
@@ -112,6 +115,12 @@ window.renderFrame = async (f, measure, ov) => {
     if (!C.tech.shadowCache || key !== v6Key) { R.shadowMap.needsUpdate = true; shadowUpdates++; } v6Key = key; }
   else if (C.tech.shadowCache) { if (fitShadow(st)) { R.shadowMap.needsUpdate = true; shadowUpdates++; } }
   else fitShadow(st);
+  if (REFL) { const t0r = performance.now(), mc = REFL.cam; cam.updateMatrixWorld(); mc.fov = cam.fov; mc.aspect = cam.aspect; mc.near = cam.near; mc.far = cam.far; mc.updateProjectionMatrix();
+    const dir = new THREE.Vector3(); cam.getWorldDirection(dir); mc.position.set(cam.position.x, -cam.position.y, cam.position.z); mc.up.set(0, 1, 0); mc.lookAt(mc.position.x + dir.x, mc.position.y - dir.y, mc.position.z + dir.z); mc.updateMatrixWorld();
+    const wv = ctx.ws.water.visible, sv = ctx.ws.sky.visible; ctx.ws.water.visible = ctx.ws.sky.visible = false; const cc = R.getClearColor(new THREE.Color()), ca = R.getClearAlpha(), sm = R.shadowMap.autoUpdate, nu = R.shadowMap.needsUpdate;
+    R.shadowMap.autoUpdate = false; R.shadowMap.needsUpdate = false; R.clippingPlanes = REFL.clip; R.setRenderTarget(REFL.rt); R.setClearColor(0x000000, 0); R.clear(); R.render(scene, mc); R.setRenderTarget(null); R.clippingPlanes = [];
+    R.setClearColor(cc, ca); R.shadowMap.autoUpdate = sm; R.shadowMap.needsUpdate = nu; ctx.ws.water.visible = wv; ctx.ws.sky.visible = sv;
+    ctx.ws.water.material.uniforms.uReflVP.value.multiplyMatrices(mc.projectionMatrix, mc.matrixWorldInverse); REFL.ms = performance.now() - t0r; }
   const ms = pipe.accumulate(scene, cam, spp, (i) => { U.uSample.value = i + f * 0.137; if ((C.tech.shadowCache || V6) && i > 0) R.shadowMap.needsUpdate = false; });
   const aoMs = SSAO ? SSAO.apply(scene, cam, pipe.accRT, U.uMask, aoHide) : 0;   // V6: AO nhân vào bộ tích luỹ HDR
   R.setRenderTarget(null); pipe.outMat.uniforms.frame.value = f; R.render(outScene, quadCam);
@@ -121,7 +130,9 @@ window.renderFrame = async (f, measure, ov) => {
   if (!(ov && ov.noText)) SC.overlay(t, st, txt, projOf());
   const r = { f, year: +st.year.toFixed(2), spp, phase: st.phase || null, preset: st.preset || null, gl_ms: +ms.toFixed(1), ao_ms: +aoMs.toFixed(1), shadow: v6Shadow, post_ms: +(t1 - t0 - ms - aoMs).toFixed(1), lod: ctx.city.stat(), tlod: ctx.terr.stat(), shadow_upd: shadowUpdates, budget: txt.budget(), overflow: txt.log.overflow.slice() };
   // V5b-2a (K §7.1): log chữ MỌI khung có thẻ/ảnh/nhãn neo (không chỉ khung đo) + đường dẫn neo (đầu đường dẫn ↔ điểm 3D, TL-Q4b)
-  if (measure || txt.log.cards > 0 || txt.log.leaders.length) r.text = txt.contrast();
+  if (measure || txt.log.cards > 0 || txt.log.leaders.length || txt.log.ai) r.text = txt.contrast();
+  if (SC.aiTexture) r.ai_texture = !!SC.aiTexture(st, t);
+  if (SC.troops) r.quan = SC.troops(); if (SC.song) r.song = SC.song();   // V6: số người/quân đang hiện (đo người/khung, BC3)   // V6: khung có vân AI (HC7) — log cho K-LAI-1/2
   if (txt.log.leaders.length) r.leaders = txt.log.leaders.slice();
   const t3 = performance.now(); r.img = txt.cv.toDataURL('image/jpeg', 0.95).slice(23); r.ms = { acc: +ms.toFixed(0), out: +(t2 - t0 - ms).toFixed(0), overlay: +(t3 - t2).toFixed(0), encode: +(performance.now() - t3).toFixed(0) };
   return r;
@@ -140,20 +151,49 @@ window.contentMask = (f, ov, png) => {
   U.uMask.value = 0; ctx.ws.water.visible = ctx.ws.sky.visible = true; for (const o of MH) o.visible = true; R.shadowMap.enabled = sm; R.setClearColor(cc, ca);
   const ids = Object.assign({}, ctx.heroes.heroIds || {}, SC.heroIds || {}), hn = {};   /* V5b-2b: cảnh thêm hero (lớp footprint có hid) */ for (const k in ids) hn[k] = 0;
   // V5b-2c (luật bố cục I3): 'trống' = nước (điểm đen DƯỚI chân trời: nước/trời bị ẩn ở lượt mặt nạ) + đất tự nhiên bằng (lam 0,5 ở terrain.js); trời = đen TRÊN chân trời
-  cam.updateMatrixWorld(); const ivp = new THREE.Matrix4().multiplyMatrices(cam.matrixWorld, cam.projectionMatrixInverse), rv = new THREE.Vector3(); let nWater = 0, nFlat = 0, nSky = 0, nRock = 0;
+  cam.updateMatrixWorld(); const ivp = new THREE.Matrix4().multiplyMatrices(cam.matrixWorld, cam.projectionMatrixInverse), rv = new THREE.Vector3(); let nWater = 0, nFlat = 0, nSky = 0, nRock = 0, nSlope = 0;
   const below = new Uint8Array(w * h); for (let y = 0; y < h; y++) for (let x = 0; x < w; x += 8) { rv.set((x + 0.5) / w * 2 - 1, (y + 0.5) / h * 2 - 1, 0.5).applyMatrix4(ivp).sub(cam.position); const b = rv.y < 0 ? 1 : 0; for (let k = x; k < Math.min(w, x + 8); k++) below[y * w + k] = b; }
   let n = 0, nc = 0, tc = 0, nf = 0, nh = 0, ng = 0; for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { const i = (y * w + x) * 4, on = px[i] > 128 && px[i + 1] < 90, fb = px[i] < 90 && px[i + 1] > 128; n += on; nf += on || fb; ng += on && px[i + 1] > 30 && px[i + 2] === 0; if (x >= w * 0.15 && x < w * 0.85 && y >= h * 0.15 && y < h * 0.85) { tc++; nc += on; }
-    if (!on && !fb) { const blk = px[i] < 20 && px[i + 1] < 20 && px[i + 2] < 20; if (blk) { if (below[y * w + x]) nWater++; else nSky++; } else if (px[i + 2] > 90 && px[i + 2] < 170) nFlat++; else if (px[i + 2] > 40 && px[i + 2] <= 90) nWater++; else if (px[i + 2] >= 200) nRock++; }   /* V5b-2d: đất dốc tự nhiên riêng */
+    if (!on && !fb) { const blk = px[i] < 20 && px[i + 1] < 20 && px[i + 2] < 20; if (blk) { if (below[y * w + x]) nWater++; else nSky++; } else if (px[i + 2] > 90 && px[i + 2] < 160) nFlat++; else if (px[i + 2] >= 160 && px[i + 2] < 200) nSlope++; else if (px[i + 2] > 40 && px[i + 2] <= 90) nWater++; else if (px[i + 2] >= 200) nRock++; }   /* V6 (V2D-5): sườn đồi bằng > 30 m (lam 0,70) tách khỏi cỏ trống */   /* V5b-2d: đất dốc tự nhiên riêng */
     if (on && px[i + 2] > 0) { nh++; for (const k in ids) if (Math.abs(px[i + 2] - ids[k]) < 0.5) hn[k]++; } }
   // content = HÌNH HỌC nội dung (toà, hero, tường, đường, tàu, xe/người); fabric = content + nền phố (mặt đất đô thị của năm đó: sân, phố, quảng trường)
   // V5b-2a: hero_pct = % khung của hero ĐANG KỂ (st.hero = id tên trong heroIds; không khai → mọi hero), hero_pct_by_id theo từng hero
   const P = (k) => +(k / (w * h) * 100).toFixed(2), by = {}; for (const k in hn) by[k] = P(hn[k]);
   let png_b64 = null; if (png) { const cv = document.createElement('canvas'); cv.width = w; cv.height = h; const g = cv.getContext('2d'), im = g.createImageData(w, h);   // V5b-2a: ảnh mặt nạ (lật dọc về chiều ảnh) cho đo sáng công trình (TL-Q1c)
     for (let y = 0; y < h; y++) im.data.set(px.subarray((h - 1 - y) * w * 4, (h - y) * w * 4), y * w * 4); g.putImageData(im, 0, 0); png_b64 = cv.toDataURL('image/png').slice(22); }
-  return { empty_pct: +((nWater + nFlat) / (w * h) * 100).toFixed(1), water_pct: +(nWater / (w * h) * 100).toFixed(1), flat_nat_pct: +(nFlat / (w * h) * 100).toFixed(1), sky_pct: +(nSky / (w * h) * 100).toFixed(1), dat_doc_pct: +(nRock / (w * h) * 100).toFixed(1), bo_pct: +(100 - (nWater + nSky) / (w * h) * 100).toFixed(1),   /* V5b-2d: bờ = mọi thứ trừ nước + trời */ content_pct: +(n / (w * h) * 100).toFixed(1), content_center_pct: +(nc / tc * 100).toFixed(1), fabric_pct: +(nf / (w * h) * 100).toFixed(1), ghost_pct: +(ng / (w * h) * 100).toFixed(2), noi: st.noi || null, nam_khung: SC.namKhung ? SC.namKhung(st) : null,
+  return { empty_pct: +((nWater + nFlat) / (w * h) * 100).toFixed(1), water_pct: +(nWater / (w * h) * 100).toFixed(1), flat_nat_pct: +(nFlat / (w * h) * 100).toFixed(1), sky_pct: +(nSky / (w * h) * 100).toFixed(1), dat_doc_pct: +(nRock / (w * h) * 100).toFixed(1), suon_pct: +(nSlope / (w * h) * 100).toFixed(1), co_trong_pct: +(nFlat / (w * h) * 100).toFixed(1), nuoc_pct: +(nWater / (w * h) * 100).toFixed(1), troi_pct: +(nSky / (w * h) * 100).toFixed(1),   /* V6 (K-1.15 §8b): tên trường cho BC2 */ bo_pct: +(100 - (nWater + nSky) / (w * h) * 100).toFixed(1),   /* V5b-2d: bờ = mọi thứ trừ nước + trời */ content_pct: +(n / (w * h) * 100).toFixed(1), content_center_pct: +(nc / tc * 100).toFixed(1), fabric_pct: +(nf / (w * h) * 100).toFixed(1), ghost_pct: +(ng / (w * h) * 100).toFixed(2), noi: st.noi || null, nam_khung: SC.namKhung ? SC.namKhung(st) : null,
     hero_id: st.hero || 'all', hero_pct: st.hero ? by[st.hero] : P(nh), hero_pct_by_id: by, phase: st.phase || null, preset: st.preset || null, year: +st.year.toFixed(2), png_b64 };
 };
 window.camLog = () => SC.camLog();
+// V6 bước 7 (bản TỐT NHẤT, scripts/k2tl/export6.js): xuất cảnh + các lượt + chỉnh màu ảnh HDR ghép bằng chính đường ống này
+let EXP = null;
+window.exportFrame = async (o) => { const { makeExporter } = await import('./export6.js'); EXP = makeExporter({ scene, cam, ctx, R, pipe, C, SC }); return EXP.frame(o || {}); };
+window.exportBuf = (i) => EXP.buf(i);
+const f32b64 = (a) => { const u8 = new Uint8Array(a.buffer); let s = ''; for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(s); };
+window.passFrame = async (f, pass) => {   // trạng thái khung f đã áp (renderFrame); trả RGBA float32 base64 (hàng từ dưới lên)
+  const W = C.W, H = C.H, px = new Float32Array(W * H * 4), hideL = (ctx.maskHide || []).filter((o) => o.visible), U = ctx.U;
+  if (pass === 'albedo' || pass === 'nosmoke') { for (const o of hideL) o.visible = false; const wv = ctx.ws.water.visible, sv = ctx.ws.sky.visible;
+    if (pass === 'albedo') { ctx.ws.water.visible = ctx.ws.sky.visible = false; U.uMask.value = 3; const fog = scene.fog; scene.fog = null; const sm = R.shadowMap.enabled; R.shadowMap.enabled = false;
+      pipe.accumulate(scene, cam, 4, () => {}); U.uMask.value = 0; scene.fog = fog; R.shadowMap.enabled = sm; }
+    else { R.shadowMap.needsUpdate = true; pipe.accumulate(scene, cam, 4, (i) => { U.uSample.value = i + f * 0.137; if (i > 0) R.shadowMap.needsUpdate = false; }); if (SSAO) SSAO.apply(scene, cam, pipe.accRT, U.uMask, aoHide); }
+    ctx.ws.water.visible = wv; ctx.ws.sky.visible = sv; for (const o of hideL) o.visible = true; R.readRenderTargetPixels(pipe.accRT, 0, 0, W, H, px); R.setRenderTarget(null); return f32b64(px); }
+  if (pass === 'smoke') {   // độ sâu cảnh (không ghi màu) rồi CHỈ khói, nền trong suốt
+    const rt = new THREE.WebGLRenderTarget(W, H, { type: THREE.FloatType, depthBuffer: true }), keep = new Set(); for (const g of hideL) g.traverse((o) => keep.add(o));
+    const ac = R.autoClear, cc = R.getClearColor(new THREE.Color()), ca = R.getClearAlpha(); R.setRenderTarget(rt); R.setClearColor(0x000000, 0); R.clear();
+    for (const o of hideL) o.visible = false; const dm = new THREE.MeshBasicMaterial({ colorWrite: false }); scene.overrideMaterial = dm; const sv = ctx.ws.sky.visible; ctx.ws.sky.visible = false; R.render(scene, cam); scene.overrideMaterial = null; ctx.ws.sky.visible = sv;
+    const vis = []; scene.traverse((o) => { if ((o.isMesh || o.isSprite || o.isPoints) && !keep.has(o) && o.visible) { vis.push(o); o.visible = false; } }); for (const o of hideL) o.visible = true;
+    R.autoClear = false; R.render(scene, cam); R.autoClear = ac; for (const o of vis) o.visible = true; R.setClearColor(cc, ca);
+    R.readRenderTargetPixels(rt, 0, 0, W, H, px); R.setRenderTarget(null); rt.dispose(); return f32b64(px); }
+  throw new Error('lượt ' + pass);
+};
+window.gradeHDR = async (f, b64, withText) => {   // HDR tuyến tính ghép (RGBA float32, hàng từ dưới lên) → tone ACES + grade + hạt như khung thường (+ lớp chữ)
+  const W = C.W, H = C.H, bin = atob(b64), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+  const tex = new THREE.DataTexture(new Float32Array(u8.buffer), W, H, THREE.RGBAFormat, THREE.FloatType); tex.needsUpdate = true;
+  const m = new THREE.RawShaderMaterial({ glslVersion: THREE.GLSL3, uniforms: { t: { value: tex } }, vertexShader: 'in vec3 position; out vec2 v; void main(){ v = position.xy * 0.5 + 0.5; gl_Position = vec4(position.xy, 0.0, 1.0); }',
+    fragmentShader: 'precision highp float; uniform sampler2D t; in vec2 v; out vec4 o; void main(){ o = texture(t, v); }', depthTest: false, depthWrite: false });
+  const sc = new THREE.Scene(); sc.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), m)); R.setRenderTarget(pipe.accRT); R.render(sc, quadCam);
+  pipe.outMat.uniforms.uAA.value = 0; R.setRenderTarget(null); pipe.outMat.uniforms.frame.value = f; R.render(outScene, quadCam);
+  txt.begin(R.domElement); if (withText && last) SC.overlay(last.t, last.st, txt, projOf()); return txt.cv.toDataURL('image/png').slice(22); };
 // V5b-2b (hero.js): RGB không chữ; điểm neo đặt tên (SC.anchors: {tên: [E, cao, N] | () => …}) chuẩn hoá 0..1 + lớp chữ ghi lại (_tl); siêu dữ liệu khung
 window.finalize = (f) => pipe.finalize(f);
 window.anchorsAt = () => { if (!last) return null; const { t, st } = last, P = projOf(), out = {};
@@ -168,7 +208,7 @@ function footprint() { cam.updateMatrixWorld(); const ivp = new THREE.Matrix4().
   return out; }
 window.frameMeta = () => { if (!last) return null; const { f, t, st } = last, c = st.cam, g = Math.max(0, ctx.terr.hAt(c.p[0], c.p[2])), agl = c.p[1] - g;
   return { f, t: +t.toFixed(3), agl_m: +agl.toFixed(1), agl_km: +(agl / 1000).toFixed(4), spp: C.tech.spp === 'adaptive' ? st.spp : +C.tech.spp, phase: st.phase || null, preset: st.preset || null, vai: st.vai || null,
-    year: +st.year.toFixed(3), clock: st.clock ? st.clock.s : null, noi: st.noi || null, hero: st.hero || null, sun: st.sun ? { el: +st.sun.el.toFixed(2), az: +st.sun.az.toFixed(2) } : null, quan: SC.troops ? SC.troops() : null, song: SC.song ? SC.song() : null, foot: footprint() }; };   /* V5b-2c: lớp sống — số vật chuyển động theo loại */   /* V5b-2b (AC1): khối quân hiện / ẩn vì khói */
+    year: +st.year.toFixed(3), clock: st.clock ? st.clock.s : null, noi: st.noi || null, hero: st.hero || null, sun: st.sun ? { el: +st.sun.el.toFixed(2), az: +st.sun.az.toFixed(2) } : null, quan: SC.troops ? SC.troops() : null, song: SC.song ? SC.song() : null, foot: footprint(), ai_texture: SC.aiTexture ? !!SC.aiTexture(st, t) : false }; };   /* V6: khung có vân AI (K-LAI-1) */   /* V5b-2c: lớp sống — số vật chuyển động theo loại */   /* V5b-2b (AC1): khối quân hiện / ẩn vì khói */
 window.budgetAll = () => { const out = []; for (let f = 0; f < SC.N; f++) { const t = f / SC.fps, st = SC.state(t); applyCam(cam, st.cam); txt.begin(null); SC.overlay(t, st, txt, projOf());
   out.push(Object.assign({ f }, txt.budget(), { overflow: txt.log.overflow.length, msg: txt.log.overflow.slice(0, 2), roles: txt.roles() }, txt.log.leaders.length ? { leaders: txt.log.leaders.slice() } : {})); } return out; };
 window.grammarLog = () => (SC.grammarLog ? SC.grammarLog() : null);

@@ -12,20 +12,23 @@ export const SKY = `uniform vec3 uSun; uniform vec3 uHor; vec3 skyCol(vec3 d){ f
     vec3 lit = mix(vec3(0.74, 0.79, 0.88), vec3(1.0, 0.97, 0.92), smoothstep(0.45, 0.85, m)) + vec3(0.10, 0.07, 0.02) * pow(s, 4.0);
     c = mix(c, lit, cov * 0.92); }
   return c; }`;
-export function makeWaterSky(U, fog, hor = [0.60, 0.74, 0.90]) {
+export function makeWaterSky(U, fog, hor = [0.60, 0.74, 0.90], v6 = null) {   // V6: v6 = {refl: true, wave: k} → phản chiếu phẳng (page.js dựng gương) + sóng mạnh hơn
   const sun = { value: U.sunDir }, uHor = { value: new THREE.Vector3(...hor) };
   const water = new THREE.Mesh(new THREE.PlaneGeometry(90000, 90000, 1, 1).rotateX(-Math.PI / 2), new THREE.ShaderMaterial({
-    uniforms: { tNoise: { value: noiseTex() }, uBaked: U.uBaked, uSun: sun, uHor, uT: U.uT, uFogD: { value: fog.density }, uFogC: { value: fog.color }, uDim: U.uDim, uExp: { value: 1.0 } },
+    uniforms: { tNoise: { value: noiseTex() }, uBaked: U.uBaked, uSun: sun, uHor, uT: U.uT, uFogD: { value: fog.density }, uFogC: { value: fog.color }, uDim: U.uDim, uExp: { value: 1.0 }, tRefl: { value: null }, uRefl: { value: 0 }, uReflVP: { value: new THREE.Matrix4() }, uWave: { value: v6 ? (v6.wave ?? 1.6) : 1.0 } },
     vertexShader: `varying vec3 vWP; void main(){ vec4 w = modelMatrix * vec4(position, 1.0); vWP = w.xyz; gl_Position = projectionMatrix * viewMatrix * w; }`,
-    fragmentShader: `uniform float uT, uFogD, uDim, uBaked; uniform sampler2D tNoise; uniform vec3 uFogC; varying vec3 vWP; ${GLSL_NOISE} ${SKY}
+    fragmentShader: `uniform float uT, uFogD, uDim, uBaked, uRefl, uWave; uniform sampler2D tNoise, tRefl; uniform mat4 uReflVP; uniform vec3 uFogC; varying vec3 vWP; ${GLSL_NOISE} ${SKY}
       float fbmT(vec2 p){ if (uBaked < 0.5) return fbm(p); vec2 q = mat2(0.80, -0.60, 0.60, 0.80) * p * 0.173 + 0.37; return 0.6 * texture(tNoise, p * 0.25).g + 0.4 * texture(tNoise, q).a; }
       void main(){ vec3 V = normalize(cameraPosition - vWP); float dist = length(cameraPosition - vWP);
         vec2 p = vWP.xz; float a = smoothstep(4000.0, 200.0, dist);
         vec2 gr = vec2(fbmT(p * 0.045 + vec2(uT * 0.05, 0.0)) - fbmT(p * 0.045 + vec2(0.37, uT * 0.04)), fbmT(p * 0.11 - uT * 0.08) - fbmT(p * 0.11 + 3.1));
-        vec3 N = normalize(vec3(gr.x * 0.35 * a + gr.y * 0.12 * a, 1.0, gr.y * 0.35 * a - gr.x * 0.1 * a));
+        vec3 N = normalize(vec3((gr.x * 0.35 * a + gr.y * 0.12 * a) * uWave, 1.0, (gr.y * 0.35 * a - gr.x * 0.1 * a) * uWave));
         vec3 R = reflect(-V, N); R.y = abs(R.y);
         float F = 0.02 + 0.98 * pow(1.0 - max(dot(N, V), 0.0), 5.0);
-        vec3 deep = vec3(0.015, 0.12, 0.22), c = mix(deep, skyCol(R), F);
+        vec3 env = skyCol(R);
+        if (uRefl > 0.5) { vec4 cp = uReflVP * vec4(vWP + vec3(N.x, 0.0, N.z) * 14.0 * uWave * min(dist / 120.0, 6.0), 1.0); vec2 ruv = cp.xy / cp.w * 0.5 + 0.5;   // V6: phản chiếu phẳng (vật trên mặt nước), méo theo sóng
+          if (ruv.x > 0.0 && ruv.x < 1.0 && ruv.y > 0.0 && ruv.y < 1.0) { vec4 rc = texture2D(tRefl, ruv); env = mix(env, rc.rgb, clamp(rc.a, 0.0, 1.0) * 0.8); } }
+        vec3 deep = vec3(0.015, 0.12, 0.22), c = mix(deep, env, F);
         c += vec3(1.0, 0.92, 0.75) * pow(max(dot(R, uSun), 0.0), 600.0) * 3.0 * (0.4 + 0.6 * a);
         float L = dot(c, vec3(0.299, 0.587, 0.114)); c = mix(c, vec3(L), 0.5 * uDim) * (1.0 - 0.34 * uDim);
         float f = 1.0 - exp(-pow(uFogD * dist, 2.0)); gl_FragColor = vec4(mix(c, uFogC, f), 1.0); }`,

@@ -1,0 +1,133 @@
+# ĐOẠN THỬ V6 (phương án A, lệnh 18/10): bản SẢN XUẤT llvmpipe sau bước 1–6 — 5 cảnh tl *6.js theo THỨ TỰ GIỜ 13/9/1782 (như V5b-2d C2-5):
+#  vịnh 09:05→10:27 (cú liên hoàn, orbit King's Bastion có vân HC7 — ai_texture) → eo đất 10:32 → Grand Parade 10:40 → Main Street (sáng) → bờ + chiến sự 17:28.
+#  Không lời (ElevenLabs 0). Nhạc: assets/k2/music/Tyrant.mp3 (dòng RIGHTS K2-MUS có sẵn, như V5b-2c/V5b-2d).
+id: v6-t
+title: V6-T — Gibraltar 13 Sep 1782 (production llvmpipe)
+brand: MOVING PARTS
+channel: k2
+out: /var/tmp/cine-out/v6-t
+music:
+- file: assets/k2/music/Tyrant.mp3
+  from: a
+  ss: 2.55
+  gain_db: -3
+sources: {}
+numbers: {}
+heroes:
+  a_vinh:
+    hero: tl/vinh6
+    cam: lien-hoan
+    opt:
+      pack: gib
+      cau: lien-hoan
+  b_eo:
+    hero: tl/eo6
+    opt:
+      pack: gib
+      cau: lateral-parallax
+  c_toan:
+    hero: tl/toan6
+    opt:
+      pack: gib
+      cau: push-in
+  d_pho:
+    hero: tl/pho6
+    opt:
+      pack: gib
+      cau: fly-pho
+  e_bo:
+    hero: tl/bo6
+    opt:
+      pack: gib
+      cau: lateral-parallax
+segments:
+- id: a
+  part: TEST
+  chuong: '2'
+  dur: 18.0
+  fadeIn: 6
+  beats:
+  - t: 0.0
+    k: cut
+    s: into the bay, 13 Sep 1782
+  shots:
+  - tpl: plate
+    type: scene3d
+    at: 0
+    noi: thanh_pho
+    ai_texture: true
+    p:
+      hero: a_vinh
+      kind: ''
+      ghost: ghost-1782
+      city: true
+- id: b
+  part: TEST
+  chuong: '2'
+  dur: 4.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: Spanish lines open fire, 10:25
+  shots:
+  - tpl: plate
+    type: scene3d
+    at: 0
+    noi: eo_dat
+    p:
+      hero: b_eo
+      kind: ''
+- id: c
+  part: TEST
+  chuong: '2'
+  dur: 6.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: Grand Parade, garrison under fire
+  shots:
+  - tpl: plate
+    type: scene3d
+    at: 0
+    noi: thanh_pho
+    p:
+      hero: c_toan
+      kind: ''
+      ghost: ghost-1782
+      city: true
+- id: d
+  part: TEST
+  chuong: '2'
+  dur: 8.0
+  beats:
+  - t: 0.0
+    k: cut
+    s: the ruins of Gibraltar
+  shots:
+  - tpl: plate
+    type: scene3d
+    at: 0
+    noi: thanh_pho
+    p:
+      hero: d_pho
+      kind: ''
+      ghost: ghost-1782
+      city: true
+- id: e
+  part: TEST
+  chuong: '2'
+  dur: 6.0
+  fadeOut: 8
+  beats:
+  - t: 0.0
+    k: cut
+    s: flagship and her second on fire
+  shots:
+  - tpl: plate
+    type: scene3d
+    at: 0
+    noi: bien
+    p:
+      hero: e_bo
+      kind: ''
+      ghost: ghost-1782

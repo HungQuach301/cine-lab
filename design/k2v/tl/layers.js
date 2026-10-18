@@ -13,6 +13,7 @@ import { fortify, wallRing } from './fort.js';   // V5b-2c: M5 thành luỹ tham
 import { gardens, landmarks } from './props.js';   // V5b-2d: vườn có nguồn + điểm nhấn
 import { makeKit, makeSet, uniOf } from './people.js';   // V6: người low-poly có khớp thay trụ hộp
 import { smokeV6 } from './smoke6.js';   // V6: khói giả thể tích
+import { ruins, pipRing } from './ruins.js';   // V6: phố đổ nát (vùng 'THE RUINS OF GIBRALTAR')
 
 // V5b-2c: màu phe theo B6 (chủ dự án duyệt 17/10, cố định cả series, BD-7 — 3D và bản đồ chiến lược cùng một màu): Anh đỏ gạch, TBN vàng đất, Pháp lam; dân thường kem
 export const FACTION = { es: '#c9a227', fr: '#2e5c8a', gb: '#b03a2e', civ: '#efe6cf', neutral: '#a89f8a' };   // nhận diện kênh: cam = Pháp–TBN, lục lam = đồn trú; KHÔNG đỏ máu (§6.2)
@@ -102,7 +103,11 @@ export function frontLines(specs, ctx) {
     const mb = growMat(col.clone().lerp(new THREE.Color('#2a2420'), 0.15), ctx.U, sp.bandA ?? 0.45), mk = growMat(new THREE.Color('#9a8566').lerp(col, 0.22), ctx.U, 1);   // V5b-2b: dải phe nhạt hơn, gờ màu đất/đá pha phe (đọc là công trình, không phải nét vẽ)   // dải phe (bán trong) + gờ đất (màu đất pha phe)
     if (sp.stone) mk.color.set(sp.stone);   // tường đá (Line Wall): gờ cao màu đá vôi, không dải phe
     const a = new THREE.Mesh(band.g, mb), b = new THREE.Mesh(berm.g, mk); b.castShadow = b.receiveShadow = true; a.renderOrder = 2; group.add(b); if (sp.band !== false) group.add(a);
-    list.push({ sp, len: band.len, mats: [mb, mk], meshes: [a, b] });
+    const L = { sp, len: band.len, mats: [mb, mk], meshes: [a, b] };
+    // V6 (P1 "hào không đọc được"): sp.trench → rãnh hào TỐI phía sau gờ đất (phía người đào, +pháp tuyến trái của tuyến), rộng 0,28 w; gờ màu đất cát (sp.stone)
+    if (sp.trench) { const off = sp.pts.map((q, i) => { const a = sp.pts[Math.max(0, i - 1)], b2 = sp.pts[Math.min(sp.pts.length - 1, i + 1)], d = [b2[0] - a[0], b2[1] - a[1]], l = Math.hypot(...d) || 1; const o = (sp.w || 26) * 0.42 * (sp.trench < 0 ? -1 : 1); return [q[0] - d[1] / l * o, q[1] + d[0] / l * o]; });
+      const tg = ribbonGeo(off, ctx.terr.hAt, (sp.w || 26) * 0.28, 0.35, 0), mt = growMat(new THREE.Color('#3b3229'), ctx.U, 1), t = new THREE.Mesh(tg.g, mt); t.receiveShadow = true; group.add(t); L.mats.push(mt); L.meshes.push(t); }
+    list.push(L);
   }
   return { group, list, update(tv) { for (const l of list) { const [t0, t1] = l.sp.grow, u = Math.max(0, Math.min(1, (tv - t0) / Math.max(1e-6, t1 - t0))), fadeOut = l.sp.fade ? win(tv, [t0, l.sp.fade[1]], l.sp.fade[1] - l.sp.fade[0]) : 1;
     for (const m of l.mats) m.userData.uGrow.value = u * l.len + 0.01; l.mats[0].opacity = (l.sp.bandA ?? 0.45) * fadeOut; for (const o of l.meshes) o.visible = u > 0 && fadeOut > 0.01; } } };
@@ -165,17 +170,21 @@ export function smoke(specs, ctx) {
 export const SRC1782 = 'Reconstructed from J. Drinkwater, Plan of the Batteries, 1782';
 // V5b-2d: near = {track: [[E, N]…], r} (C2-2) — KHUNG GẦN (AGL ≤ 150 m): tiền cảnh CHỈ khối có nguồn → bỏ khối lấp ước tính có tâm trong r m quanh vết máy;
 //  extra = lớp extra1782 (so_hoa_v5b2d.py): vườn trong phố (luống + cây chỉ trong vòng vườn) + điểm nhấn (St Mary the Crowned, Convent).
-export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {}, near = null, extra = true, gardenTrees = { 'V1782-02': 10, 'V1782-03': 8 } } = {}) {
+export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {}, near = null, extra = true, gardenTrees = { 'V1782-02': 10, 'V1782-03': 8 }, ruinsZone = false } = {}) {
+  // V6 (P3): ruinsZone → khối LẤP ƯỚC TÍNH có tâm trong vùng chữ 'THE RUINS OF GIBRALTAR' (data/ruins-zone-1782.json) dựng thành PHỐ ĐỔ NÁT (ruins.js), kể cả ở tiền cảnh gần
+  const RZ = ruinsZone ? (await loadJSON('/k2v/tl/data/ruins-zone-1782.json')).zone_enu : null, inRZ = (r) => RZ && pipRing([r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length], RZ);
   if (hidPack) ctx.city.group.visible = false;
   // V5b-2c (I2): + lớp LẤP ƯỚC TÍNH infill1782 (scripts/k2tl/infill_1782.py, do_tin uoc, tông lệch nhẹ) — dòng phương pháp "Grey-washed blocks: estimated infill" do cảnh hiện
   // bastion của plan (Orange's, Montague, South Bastion, Old Mole…) có ≥ 6 điểm tường OSM trong 75 m → thay vòng bằng bao lồi điểm OSM (vị trí thật), bỏ các điểm đó khỏi tuyến tường
   const H = await loadJSON(`${ctx.base}heroes.json`), osmPts = H.citywalls.flat(), used = [];
   const fortRemap = (r) => { const c = [r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length], near = osmPts.filter((p) => Math.hypot(p[0] - c[0], p[1] - c[1]) < 75);
     if (near.length < 6 || c[1] > 600) return r; const hr = hull2(near); used.push(hr); return Object.assign(r.slice(), { 6: hr }); };
-  const nearStat = { bo: 0, r: near ? near.r : 0 }, keepInfill = near ? (r) => { const c = [r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length];
+  const nearStat = { bo: 0, r: near ? near.r : 0, do_nat: 0 }, keepNear = near ? (r) => { const c = [r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length];
     const k = !near.track.some((p) => Math.hypot(p[0] - c[0], p[1] - c[1]) < near.r); if (!k) nearStat.bo++; return k; } : null;
+  const keepInfill = RZ ? (r) => (inRZ(r) ? (nearStat.do_nat++, false) : (keepNear ? keepNear(r) : true)) : keepNear;
   const FP = await footprints([{ file: 'ghost1782', ghostDesat: 0.08 }, { file: 'fort1782', fort: true, h: 8, remap: fortRemap }].concat(infill ? [{ file: 'infill1782', ghostDesat: 0.08, keep: keepInfill }] : []), ctx);   // V5b-2c (I5): giảm bão hoà lớp tái dựng 22 % → 8 % (vẫn nhận ra là tái dựng nhờ nhãn nguồn + tông lệch)
   ctx.scene.add(FP.group); ctx.scene.add(FP.group);
+  let RU = null; if (RZ) { const IR = (await loadJSON(`${ctx.base}layers/infill1782.json`)).records.filter(inRZ); RU = ruins(IR, ctx, { seed: 1781 }); ctx.scene.add(RU.group); }
   const L = await loadJSON(`${ctx.base}layers/lines1782.json`);
   // V5b-2c (M5): Line Wall + tường nam dựng như tường thành đá (gờ, tường chắn, lỗ châu mai, pháo mỗi 2 lỗ); Línea (đất + đá TBN) giữ gờ chiến tuyến
   // Línea de Contravalación (TBN, xây 1730–35, tường đá + bastion — SH ghi "tường và các bastion"): V5b-2c dựng như tường đá thấp 5,5 m, mặt chính quay NAM (về Gibraltar)
@@ -189,6 +198,8 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {},
   const KBc = [-602, -1276], inB = (p) => p[0] > -800 && p[0] < -150 && p[1] > -1950 && p[1] < -640;
   const kbPts = H.citywalls.flat().filter((p) => Math.hypot(p[0] - KBc[0], p[1] - KBc[1]) < 85), kbRing = hull2(kbPts);
   if (ctx.heroes && ctx.heroes.citywallMesh) ctx.heroes.citywallMesh.visible = false;
+  // V6 bước 4 (Q-PT3-1): kbOpt.hc7 → vân chi tiết HC7 của PT3 (scripts/k2tl/v6_hc7_kb.py → data/hc7-kb-detail.jpg) trên tường dốc King's Bastion
+  if (kbOpt.hc7 === true) { const t = await new THREE.TextureLoader().loadAsync('/k2v/tl/data/hc7-kb-detail.jpg'); t.colorSpace = THREE.NoColorSpace; t.wrapS = THREE.RepeatWrapping; t.anisotropy = 8; kbOpt = Object.assign({}, kbOpt, { hc7: { tex: t, L: 208.99, k: { value: 1 } } }); }
   const KB = kbRing.length > 3 ? fortify([[0, 0, kbOpt.h || 9, Math.max(0.3, Math.min(...kbRing.map(([e, n]) => ctx.terr.hAt(e, n)))), 0, 1, kbRing, 0]], ctx, Object.assign({ hid: kbOpt.hid || 0, seed: 53 }, kbOpt)) : null; if (KB) ctx.scene.add(KB.group);
   const inKB = (p) => (kbRing.length > 3 && pip(p, kbRing)) || used.some((r) => pip(p, r));
   const wallRecs = [], slopeRecs = []; const osmLines = H.citywalls.filter((w) => w.some(inB)).map((w) => ({ pts: w.filter((p) => !inKB(p)) })).filter((l) => l.pts.length > 1);
@@ -212,6 +223,8 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {},
   for (const r of recs) { g.beginPath(); r.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); g.stroke(); }
   // V5b-2d: GRAND PARADE (bãi tập đất nện giữa khối K1782-10 và K1782-12/13 trên plan 1782 — mép bãi xấp xỉ theo các khối bao quanh) là NỀN PHỐ, không phải cỏ công viên 2026
   { const GP = [[-548, -1205], [-470, -1205], [-470, -1128], [-548, -1128]]; g.beginPath(); GP.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); }
+  // V6 (P3): vùng chữ 'THE RUINS OF GIBRALTAR' = nền phố đổ nát (không để lộ cỏ công viên 2026 giữa các lô)
+  if (RZ) { g.beginPath(); RZ.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); }
   // cây 2026 trong phố cổ (trong hộp ghost, dưới 70 m cao độ) ẩn ở mốc 1782 — không có nguồn vườn/cây 1782
   if (ctx.trees && ctx.trees.hideWhere) ctx._treesHid = ctx.trees.hideWhere((e, n) => e > e0 + 40 && e < e1 - 20 && n > n0 + 40 && n < n1 - 40 && ctx.terr.hAt(e, n) < 70);
   g.filter = 'blur(4px)'; g.drawImage(cv, 0, 0); const tx = new THREE.CanvasTexture(cv); tx.minFilter = THREE.LinearFilter;
@@ -221,7 +234,7 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {},
   if (extra) { try { EX = await loadJSON(`${ctx.base}layers/extra1782.json`); } catch (e) { EX = null; }
     if (EX) { GD = gardens(EX.features.filter((f) => f.vung === 'pho'), ctx, { trees: gardenTrees, houses: false, seed: 17 }); ctx.scene.add(GD.group); LM = landmarks(EX.landmarks, ctx); ctx.scene.add(LM.group); } }
   return { FP, FL, WL, LN, KB, kbRing, infill, GD, LM, EX, nearStat, INFILL_SRC: 'Grey-washed blocks: estimated infill', update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782,
-    stat: () => ({ lap_bo_gan: nearStat, vuon: GD ? GD.stat : null, diem_nhan: LM ? LM.stat : null }) };
+    RU, hc7k: kbOpt.hc7 && kbOpt.hc7.k ? kbOpt.hc7.k : null, RUINS_SRC: 'Ruins: estimated (plan 1786: "The Ruins of Gibraltar")', stat: () => ({ lap_bo_gan: nearStat, vuon: GD ? GD.stat : null, diem_nhan: LM ? LM.stat : null, do_nat: RU ? RU.stat : null }) };
 }
 
 // ---------- M2 RÚT GỌN (lệnh AC1, chủ dự án 17/10): KHỐI ĐƠN VỊ QUÂN instanced ----------
@@ -288,7 +301,7 @@ function unitsV6(specs, ctx) {
   const group = new THREE.Group(); for (const S of sets) group.add(S.group);
   let stat = { don_vi: specs ? specs.length : 0, nguoi: slots.length, an_vi_khoi: 0, hien: 0, v6: true };
   return { group, sets, stat: () => stat,
-    update(day, zones = []) {
+    update(day, zones = [], t = 0) {
       const hidUnits = new Set(); let shown = 0; for (const S of sets) S.begin();
       for (const s of slots) {
         const [d0, d1] = s.sp.day || [-1e9, 1e9]; let g = Math.max(0, Math.min(1, (day - d0) / 0.5)) * (day <= d1 ? 1 : 0);
@@ -296,8 +309,12 @@ function unitsV6(specs, ctx) {
         const E = s.E + dE, N = s.N + dN; if (zones.some((z) => Math.hypot(E - z.c[0], N - z.c[1]) < z.r + 15)) { g = 0; hidUnits.add(s.sp); }
         if (s.sp.near && ctx.cam && Math.hypot(E - ctx.cam.position.x, N + ctx.cam.position.z) > s.sp.near) g = 0;
         // khối: trục x dọc mặt khối (vuông góc hướng mặt), z theo chiều sâu; sĩ quan đứng trước mặt khối
-        const fx = Math.cos(s.bface), fy = Math.sin(s.bface), lx = -fy, ly = fx, dz = s.front ? s.front : -s.z, e = E + lx * s.x + fx * dz, n = N + ly * s.x + fy * dz;
-        if (g > 0) { s.S.put(s.idx, e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.03, n, s.face, true, s.k * Math.min(1, g * 2)); shown++; }
+        let fx = Math.cos(s.bface), fy = Math.sin(s.bface); const lx = -fy, ly = fx, dz = s.front ? s.front : -s.z;
+        // V6 (P5 "đồn trú tập trên bãi"): sp.march = {dist, speed} → khối đi tới–lui theo hướng mặt (đổi hướng ở hai đầu, quay 180°), bước chân theo tốc độ
+        let mv = 0, back = false; if (s.sp.march) { const L = s.sp.march.dist, v = s.sp.march.speed || 1.1, ph = ((t * v + (s.sp.march.phase || 0) * L) % (2 * L) + 2 * L) % (2 * L); back = ph > L; mv = back ? 2 * L - ph : ph; }
+        const e = E + lx * s.x + fx * (dz + mv), n = N + ly * s.x + fy * (dz + mv);
+        if (s.sp.march) s.S.setGait(s.idx, 1, (s.sp.march.speed || 1.1) / 1.45);
+        if (g > 0) { s.S.put(s.idx, e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.03, n, s.face + (back ? Math.PI : 0), true, s.k * Math.min(1, g * 2)); shown++; }
       }
       for (const S of sets) S.end();
       stat = { don_vi: specs.length, nguoi: slots.length, an_vi_khoi: hidUnits.size, hien: shown, v6: true, lod: sets.map((S) => S.stat()) }; return stat; } };

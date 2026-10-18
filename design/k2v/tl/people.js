@@ -137,7 +137,9 @@ function patch(sh, U, depth) {
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
       varying float vPart; varying float vHair; varying vec3 vC0; varying vec3 vC1; varying vec3 vC2; varying vec3 vC3; varying vec3 vSk;`)
       .replace('vec4 diffuseColor = vec4( diffuse, opacity );', `vec3 pc = vPart < 0.5 ? vC0 : vPart < 1.5 ? vC1 : vPart < 2.5 ? vC2 : vPart < 3.5 ? vC3 : vPart < 4.5 ? vSk : vPart < 5.5 ? vec3(0.012, 0.010, 0.008) : vPart < 6.5 ? vec3(0.010, 0.008, 0.006) : vPart < 7.5 ? vec3(0.13, 0.065, 0.03) : vPart < 8.5 ? vec3(0.32, 0.33, 0.34) : mix(vec3(0.045, 0.03, 0.02), vec3(0.62, 0.6, 0.55), vHair);   // tóc: aV.w 0 tối … 1 rắc bột
-      vec4 diffuseColor = vec4( pc, opacity );`);
+      vec4 diffuseColor = vec4( pc, opacity );`)
+      // ánh dội nhiều lần trên vải (đất sáng + trời): mặt khuất của áo trắng vẫn xám sáng, không đen — tăng phần gián tiếp ×2 riêng cho người
+      .replace('#include <lights_fragment_end>', '#include <lights_fragment_end>\n reflectedLight.indirectDiffuse *= 2.0;');
   }
 }
 export function makeKit(ctx) {

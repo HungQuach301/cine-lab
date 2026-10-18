@@ -107,10 +107,14 @@ export function makeText(W, H) {
       for (let x = 0; x < w; x++) for (const yy of [0, h - 1]) { const i = (yy * w + x) * 4; L.push(lum(d[i], d[i + 1], d[i + 2])); }
       for (let yy = 3; yy < h - 3; yy++) for (let x = 3; x < w - 3; x++) { const i = (yy * w + x) * 4; I.push(lum(d[i], d[i + 1], d[i + 2])); }
       L.sort((a, b) => a - b); I.sort((a, b) => a - b); const bg = L[Math.floor(L.length / 2)], ft = I[Math.floor(I.length * 0.97)] ?? bg;
-      return { s: e.s.slice(0, 48), role: e.role, px1080: e.px, words: words(e.s), ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2) };
+      return { s: e.s.slice(0, 48), role: e.role, px1080: e.px, box: e.box.map((v) => Math.round(v)), words: words(e.s), ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2) };
     });
   }
   const roles = () => [...new Set(TXT.filter((e) => e.alpha > 0.001).map((e) => e.role))];
-  function begin(img) { RECTS.length = 0; TXT.length = 0; LOG.cards = 0; LOG.overflow = []; LOG.leaders = []; g.clearRect(0, 0, W, H); if (img) g.drawImage(img, 0, 0, W, H); }
-  return { cv, g, begin, chrome, card, photo, tag, where, ghostSrc, budget, contrast, roles, log: LOG, S };
+  // V6 (§11.3, Q-PT3-3 2, K-LAI-2): nhãn VÂN AI — "Surface detail AI-assisted · layout, landmarks & flags from sources", 38 px @1080, DƯỚI-TRÁI ngay trên hộp năm/giờ, suốt shot có ai_texture
+  const AI_LABEL = 'Surface detail AI-assisted · layout, landmarks & flags from sources';
+  function aiLabel(on, zs = 1) { if (!on) return; g.font = `600 ${Math.round(38 * S)}px ${FONT}`; const w = g.measureText(AI_LABEL).width, y1 = H - 40 * S - 114 * zs * S - 12 * S;   // zs: phóng hộp giờ khi dừng (pinZoom)
+    plate(36 * S, y1 - 64 * S, 36 * S + w + 40 * S, y1, 1); text(AI_LABEL, 56 * S, y1 - 19 * S, 38, '#ffffff', { w: 600, role: 'ai_label' }); LOG.ai = 1; }
+  function begin(img) { RECTS.length = 0; TXT.length = 0; LOG.cards = 0; LOG.ai = 0; LOG.overflow = []; LOG.leaders = []; g.clearRect(0, 0, W, H); if (img) g.drawImage(img, 0, 0, W, H); }
+  return { cv, g, begin, chrome, card, photo, tag, where, ghostSrc, aiLabel, budget, contrast, roles, log: LOG, S };
 }
