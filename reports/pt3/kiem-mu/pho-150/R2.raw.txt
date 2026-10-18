@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 5, "detail": 4, "period": 5, "ai_look": 3, "flicker": "no", "flags": ["toy_like", "flat_slide_look", "cluttered"], "note": "This is a clean CG blockout. The roofs are huge, flat, featureless planes. The facades are plain with little weathering. The distant hill is a flat cut-out slab, and the street is a dark, empty strip. The lighting is soft and pleasant. Textures stay fixed to the buildings across the four frames."},
+ "Y": {"craft": 5, "detail": 5, "period": 5, "ai_look": 3, "flicker": "no", "flags": ["toy_like", "flat_slide_look"], "note": "The geometry and composition are the same as X. The left facade is slightly grungier, with streaking and stains, and the cobbles are a little more varied. The huge flat roofs are still empty and look like a model. There is no flicker."},
+ "best": "Y",
+ "worst": "X",
+ "why": "The two shots are nearly identical, but Y's slightly richer facade weathering and street texture give it a small edge over X's cleaner, more sterile surfaces.",
+ "anachronisms_seen": ["flat featureless modern-looking concrete roof slabs", "no period signage, vehicles or people to anchor 1943", "flat cut-out hill silhouette"]}
+```

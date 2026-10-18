@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 4,
+  "period": 6,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "toy_like",
+   "flat_slide_look",
+   "cluttered"
+  ],
+  "note": "This is a clean 3D block-out seen from above, not a low flight along Main Street. Roofs and flat tops dominate the frame. Facades are tiny and low-res with only repeated window grids. Terracotta roof texture is repetitive and the street is a dark blank strip. Lighting is flat and overcast. Textures stay fixed across the four frames."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 4,
+  "period": 6,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "toy_like",
+   "flat_slide_look",
+   "cluttered"
+  ],
+  "note": "Practically identical to X. The only difference I can see is a slightly cooler, cleaner facade tint on the left buildings. It has the same overhead view, mostly roof, toy-like massing and blank street. Textures stay stable across the frames."
+ },
+ "best": "X",
+ "worst": "Y",
+ "why": "The two are nearly indistinguishable, and X is only marginally better because its facade tones are a little warmer and more varied, while Y's are slightly cooler and sterile.",
+ "anachronisms_seen": [
+  "white flat concrete-looking roofs",
+  "uniform modern-looking window grids"
+ ]
+}
