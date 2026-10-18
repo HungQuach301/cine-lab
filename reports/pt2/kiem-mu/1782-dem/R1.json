@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "toy_like"
+  ],
+  "note": "Clean, smooth CG walls with almost no texture. The scene is very dark and reads like a game or sim blockout. There is a faint silhouette figure in the lane. The street is a dark void with a pale curb strip. The flag and lit windows are the only interest. The Union flag is on a pole at the end of the lane, which is questionable for 1782 (a 1707-1800 Union flag would lack the St Patrick's cross)."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 5,
+  "toy_like": 3,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Peeling plaster, exposed brick, rubble and stains give the walls believable siege-damaged weathering. The lighting, with warm windows against a blue dusk, is more atmospheric. The lane is still very dark and empty, with no clear people. The texture looks procedural and somewhat noisy and repetitive. The flag is the same as in X, so it has the same questionable Union flag."
+ },
+ "better": "Y",
+ "why": "Y has weathered, damaged materials and rubble that sell a besieged town, while X's walls are plain, untextured surfaces that look like a game asset.",
+ "top_fix_for_weaker": "Add plaster and stone texture variation, weathering, shutters and ironwork, and debris on the street. Also add a few lit, readable figures or objects in the lane, and lift the exposure so the street isn't a black void.",
+ "anachronisms_seen": [
+  "Union flag with only the St George and St Andrew crosses is acceptable for 1782, but a modern-style flag proportion looks off",
+  "Large uniform glass-like lit windows and plain shutters, unlike typical Gibraltar Genoese-style housing with balconies and louvred shutters",
+  "Uniform, modern-looking continuous stucco facades and a clean curb (X)"
+ ]
+}

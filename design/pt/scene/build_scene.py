@@ -12,9 +12,13 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--epoch', type=int, required=True); ap.add_argument('--tex', default='A'); ap.add_argument('--passes', default='d2')
 ap.add_argument('--res', default='1920x1080'); ap.add_argument('--spp', type=int, default=64); ap.add_argument('--out', required=True)
 ap.add_argument('--depth', action='store_true'); ap.add_argument('--idpass', action='store_true'); ap.add_argument('--blend', default='')
+# PT2: lượt mã lớp (cls = mã vùng × 64 + mã vật liệu → mặt nạ bảo vệ dữ kiện) + lượt nắng (chỉ mặt trời, vật liệu trắng → bóng nhà cho lớp sống)
+ap.add_argument('--clspass', action='store_true'); ap.add_argument('--sunvis', default='')   # --sunvis d1,d2,d3,d4
+ap.add_argument('--sunvis_res', default='960x540')
 A = ap.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:])
 EP = A.epoch; os.makedirs(A.out, exist_ok=True)
 T0 = time.time()
+NO_SANDBAG = os.environ.get('PT2_NO_SANDBAG') == '1'
 TEXDIR = {'A': os.environ.get('PT_TEXA', '/var/tmp/pt/texA'), 'B': os.environ.get('PT_TEXB', '/var/tmp/pt/texB')}[A.tex]
 # 9 khe vân lát được (đúng danh sách được phép của H-B) → tệp nhánh A (Poly Haven CC0)
 SLOTS = {'vua': 'painted_plaster_wall', 'da_voi': 'white_sandstone_blocks_02', 'gach': 'red_brick_plaster_patch_02', 'da_hoc': 'old_stone_wall',
@@ -150,6 +154,11 @@ M['son'] = m_plain('son', (1, 1, 1), 0.55, tint_attr=True)   # sơn trơn (thân
 M['bien'] = m_sea(); M['doi'] = m_hills()
 M['den'] = m_plain('den_dau', (1, 0.8, 0.5), 0.5, emit=(1.0, 0.6, 0.28), estr=0.0)
 M['cat'] = m_textured('m_bao_cat', 'vai')   # bao cát (vải bố) — tô màu kaki qua tint
+M['vua_do'] = M['vua']; M['gach_do'] = M['gach']; M['da_hoc_do'] = M['da_hoc']   # PT2: phần ĐỔ NÁT (tường sau, sàn cháy, gạch vụn trong lô, đỉnh tường gãy) — bảo vệ hình đổ nát
+M['vua_go'] = M['vua']   # PT2: gờ tầng + gờ mái (vữa) — bảo vệ: AI xoá gờ → bóng gờ của A thành vệt mảnh như dây điện
+M['vua_mo'] = M['vua']   # PT2: má cửa (lòng ô cửa) tách bộ đệm riêng — cùng vật liệu vữa — để mặt nạ bảo vệ hình ô cửa
+M['bien_hieu'] = M['go']   # PT2: dải biển hiệu trơn tách bộ đệm riêng (cùng vật liệu gỗ) để mặt nạ bảo vệ biết đâu là biển hiệu
+MATCODE = {k: i + 1 for i, k in enumerate(M)}
 
 # ---------------------------------------------------------------- bộ đệm lưới theo vật liệu (mỗi mặt có 'tint', 'lit')
 CUR = [0]   # mã lớp của mặt đang dựng (lượt ID cho đo trôi nhánh C): 1..N toà · 9000 Line Wall · 9500 đồ phố · 9600 đồi · 9700 biển · 9800 mặt đất · 9900 tàu
@@ -242,24 +251,25 @@ def facade(fr, H, storeys, spec, rng):
     # đầu tường đổ nát: mặt trên tường hở (dày 0,45 m) + thanh dầm cháy chìa ra
     if ruin_top:   # lô đổ nát: tường ngăn phía sau (sâu 5,5 m) + sàn cháy + đống gạch → không lộ lòng khối rỗng
         P = fr.P; bt = tuple(c * 0.9 for c in wc)
-        B['vua'].face([P(0, 0, -5.5), P(L, 0, -5.5), P(L, H + 0.8, -5.5), P(0, H + 0.8, -5.5)], bt)
-        B['gach'].face([P(0, storeys[0][1] - 0.2, -0.3), P(L, storeys[0][1] - 0.2, -0.3), P(L, storeys[0][1] - 0.2, -5.5), P(0, storeys[0][1] - 0.2, -5.5)][::-1])
-        for uu in (0.0, L): B['vua'].face([P(uu, 0, 0), P(uu, 0, -5.5), P(uu, H, -5.5), P(uu, H * 0.7, 0)], bt)
+        sot = (0.4, 0.35, 0.3)   # PT2: lòng nhà cháy = tường đá hộc ám khói (bản PT: vữa nhạt → trông như hộp vữa xanh nhạt dưới ánh trời)
+        B['da_hoc_do'].face([P(0, 0, -5.5), P(L, 0, -5.5), P(L, H + 0.8, -5.5), P(0, H + 0.8, -5.5)], sot)
+        B['gach_do'].face([P(0, storeys[0][1] - 0.2, -0.3), P(L, storeys[0][1] - 0.2, -0.3), P(L, storeys[0][1] - 0.2, -5.5), P(0, storeys[0][1] - 0.2, -5.5)][::-1], (0.3, 0.25, 0.21))
+        for uu in (0.0, L): B['da_hoc_do'].face([P(uu, 0, 0), P(uu, 0, -5.5), P(uu, H, -5.5), P(uu, H * 0.7, 0)], sot)
         for k in range(int(L / 1.5)):
             c = P(rng.uniform(0.3, L - 0.3), storeys[0][1] - 0.1, -rng.uniform(1, 5)); sz = rng.uniform(0.3, 0.9)
-            box('da_hoc' if k % 2 else 'gach', c, (sz, sz, sz * 0.5), fr.yaw + rng.uniform(0, 3))
+            box('da_hoc_do' if k % 2 else 'gach_do', c, (sz, sz, sz * 0.5), fr.yaw + rng.uniform(0, 3))
         for i in range(nb):
             u0, u1 = i * bw, (i + 1) * bw; tH = top_at(i)
-            fr.box('gach', u0, u1, tH - 0.25, tH, -0.45, 0.0)
+            fr.box('gach_do', u0, u1, tH - 0.25, tH, -0.45, 0.0)
             if rng.random() < 0.5:
                 fr.box('go', u0 + 0.3, u0 + 0.5, tH - 0.9 - rng.random(), tH - 0.7, -1.6, 0.25 + rng.random() * 0.4, tint=(0.18, 0.15, 0.12))
     else:
         # gờ tầng + gờ mái
         for si, (v0, v1) in enumerate(storeys[1:], 1):
-            fr.box('vua' if EP == 1782 else 'da_voi', -0.02, L + 0.02, v0 - 0.12, v0 + 0.06, 0, spec['band'], tint=spec['trim'])
+            fr.box('vua_go' if EP == 1782 else 'da_voi', -0.02, L + 0.02, v0 - 0.12, v0 + 0.06, 0, spec['band'], tint=spec['trim'])
         c = spec['cornice']
-        fr.box('vua', -0.05, L + 0.05, H - 0.32, H - 0.1, 0, c * 0.6, tint=spec['trim'])
-        fr.box('vua', -0.1, L + 0.1, H - 0.1, H + 0.06, 0, c, tint=spec['trim'])
+        fr.box('vua_go', -0.05, L + 0.05, H - 0.32, H - 0.1, 0, c * 0.6, tint=spec['trim'])
+        fr.box('vua_go', -0.1, L + 0.1, H - 0.1, H + 0.06, 0, c, tint=spec['trim'])
         if spec['roof'] == 'hip' and EP == 1782:   # mái ngói một dốc theo lô (nhìn thấy từ đường), không phủ cả khối phố
             rise = math.tan(math.radians(spec['pitch'])) * 5.5; P = fr.P
             B['ngoi'].face([P(-0.1, H + 0.04, 0.5), P(L + 0.1, H + 0.04, 0.5), P(L + 0.1, H + rise, -5.0), P(-0.1, H + rise, -5.0)])
@@ -279,16 +289,16 @@ def fr_rev(fr, a0, a1, b0, b1, d, wc):
     fr.quad('vua', a0, a0, b0, b1, tint=wc)  # placeholder (không diện tích)
     B['vua'].f.pop(); B['vua'].tint.pop(); B['vua'].lit.pop(); B['vua'].bid.pop(); [B['vua'].v.pop() for _ in range(4)]
     P = fr.P
-    B['vua'].face([P(a0, b0, 0), P(a0, b1, 0), P(a0, b1, -d), P(a0, b0, -d)], wc)
-    B['vua'].face([P(a1, b0, -d), P(a1, b1, -d), P(a1, b1, 0), P(a1, b0, 0)], wc)
-    B['vua'].face([P(a0, b1, 0), P(a1, b1, 0), P(a1, b1, -d), P(a0, b1, -d)], wc)
-    B['vua'].face([P(a0, b0, -d), P(a1, b0, -d), P(a1, b0, 0), P(a0, b0, 0)], wc)
+    B['vua_mo'].face([P(a0, b0, 0), P(a0, b1, 0), P(a0, b1, -d), P(a0, b0, -d)], wc)
+    B['vua_mo'].face([P(a1, b0, -d), P(a1, b1, -d), P(a1, b1, 0), P(a1, b0, 0)], wc)
+    B['vua_mo'].face([P(a0, b1, 0), P(a1, b1, 0), P(a1, b1, -d), P(a0, b1, -d)], wc)
+    B['vua_mo'].face([P(a0, b0, -d), P(a1, b0, -d), P(a1, b0, 0), P(a0, b0, 0)], wc)
 
 def win_fill(fr, a0, a1, b0, b1, d, spec, rng, broken, lit):
     sh = spec['shut']; st = rng.random()
     if broken:   # cửa vỡ: lỗ tối, khung gãy, muội
         fr.quad('trong', a0, a1, b0, b1, -d - 0.6)
-        fr.quad('vua', a0 - 0.25, a1 + 0.25, b1, b1 + 0.6, 0.005, tint=(0.25, 0.22, 0.2))
+        fr.quad('vua_do', a0 - 0.25, a1 + 0.25, b1, b1 + 0.6, 0.005, tint=(0.25, 0.22, 0.2))
         if rng.random() < 0.5: fr.box('go', a0, a1, b0 + 0.4, b0 + 0.5, -d, -d + 0.05, tint=(0.2, 0.16, 0.12))
         return
     fr.quad('trong', a0, a1, b0, b1, -d - 0.5, lit=lit)
@@ -331,10 +341,10 @@ def gf_fill(fr, kind, a0, a1, b0, b1, d, spec, rng, broken):
             for k in range(0, 4):
                 x = a0 + (a1 - a0) * k / 3; fr.box('go', x - 0.04, x + 0.04, b0, b1, -d, -d + 0.08, tint=spec['frame'])
             fr.box('go', a0, a1, b0, b0 + 0.75, -d, -d + 0.1, tint=spec['door']); fr.quad('kinh', a0, a1, b0 + 0.75, b1, -d + 0.03)
-            fr.box('go', a0, a1, b1 - 0.35, b1, -d, -d + 0.08, tint=spec['door'])   # dải biển hiệu trơn (KHÔNG chữ)
+            fr.box('bien_hieu', a0, a1, b1 - 0.35, b1, -d, -d + 0.08, tint=spec['door'])   # dải biển hiệu trơn (KHÔNG chữ)
         if spec['awning_p'] > rng.random():
             awning(fr, a0 - 0.2, a1 + 0.2, b1 + 0.15, spec, rng)
-    if EP == 1943 and spec.get('sandbag') and rng.random() < spec['sandbag']:
+    if EP == 1943 and spec.get('sandbag') and rng.random() < spec['sandbag'] and not NO_SANDBAG:   # PT2: bao cát cửa không có nguồn TIEN-KY → tắt (giữ lượt rng)
         sandbags(fr, a0 - 0.3, a1 + 0.3, rng)
 
 def balcony(fr, a0, a1, v, spec, rng):
@@ -370,11 +380,11 @@ def sandbags(fr, a0, a1, rng):
             w = 0.55; fr.box('cat', x, x + w - 0.03, row * 0.2, row * 0.2 + 0.19, 0.3, 0.75, tint=(0.62, 0.55, 0.4)); x += w
 
 # ---------------------------------------------------------------- khối nhà
-def roof_flat(poly, H, spec):
+def roof_flat(poly, H, spec, key='vua'):
     bm = bmesh.new(); vs = [bm.verts.new((x, y, H + 0.05)) for x, y in poly]
     try: bm.faces.new(vs)
     except ValueError: pass
-    for f in bm.faces: B['vua'].face([tuple(v.co) for v in f.verts], spec['wall'])
+    for f in bm.faces: B[key].face([tuple(v.co) for v in f.verts], spec['wall'])
     bm.free()
 
 def roof_hip(poly, H, spec):
@@ -457,7 +467,7 @@ def building(poly, polys, me, storeys_n, rng, ruin_p=0.0, max_d=170.0):
             # mặt khuất/xa: tường trơn (vẫn có vân vữa)
             B['vua'].face([(p0[0], p0[1], 0), (p1[0], p1[1], 0), (p1[0], p1[1], H), (p0[0], p0[1], H)], spec['wall'])
     if ruin:   # nhà đổ nát: không mái, sàn cháy, tường trong lộ
-        roof_flat(poly, gfh - 0.2, {'wall': (0.42, 0.36, 0.3)})
+        roof_flat(poly, gfh - 0.2, {'wall': (0.42, 0.36, 0.3)}, key='vua_do')
         cx = sum(p[0] for p in poly) / n; cy = sum(p[1] for p in poly) / n
         for k in range(6): box('go', (cx + rng.uniform(-3, 3), cy + rng.uniform(-3, 3), gfh + rng.uniform(0, 2)), (rng.uniform(2, 4), 0.2, 0.22), rng.uniform(0, 3), tint=(0.12, 0.1, 0.08), pitch=rng.uniform(-0.5, 0.5))
         rubble(cx, cy, rng, 8)
@@ -473,7 +483,7 @@ def building(poly, polys, me, storeys_n, rng, ruin_p=0.0, max_d=170.0):
 def rubble(cx, cy, rng, n):
     note('dong_gach_vun', n)
     for k in range(n):
-        s = rng.uniform(0.3, 1.1); box('da_hoc' if k % 3 else 'gach', (cx + rng.uniform(-2.5, 2.5), cy + rng.uniform(-2.5, 2.5), s * 0.25), (s, s * 0.8, s * 0.5), rng.uniform(0, 3), pitch=rng.uniform(-0.4, 0.4))
+        s = rng.uniform(0.3, 1.1); box(('da_hoc' if k % 3 else 'gach') + ('_do' if CUR[0] < 9000 else ''), (cx + rng.uniform(-2.5, 2.5), cy + rng.uniform(-2.5, 2.5), s * 0.25), (s, s * 0.8, s * 0.5), rng.uniform(0, 3), pitch=rng.uniform(-0.4, 0.4))
 
 # ---------------------------------------------------------------- đặt khối nhà theo mốc
 blocks = S.load(EP, kinds=['nha', 'khoi_pho', 'phao_dai', 'cong_su'], R=330)
@@ -652,8 +662,44 @@ def shelter():   # lối xuống hầm trú ẩn dưới Commercial Square (xây
     box('vua', (x, y, 1.1), (5.0, 3.2, 2.2), 0.1, tint=(0.62, 0.6, 0.55)); box('vua', (x, y, 2.3), (5.4, 3.6, 0.2), 0.1, tint=(0.55, 0.53, 0.5))
     box('trong', (x + 2.51, y + 0.25, 0.9), (0.02, 1.4, 1.8), 0.1); sandbags(Frame((x + 2.6, y - 1.8), (x + 2.6, y + 1.8)), 0.0, 1.2, rng=R)
 
-EXTRA = []; LAMPS = []; FLAGS = []; CUR[0] = 9500
-if EP == 1782:
+class XList(list):
+    def append(self, o): o['cur'] = CUR[0]; super().append(o)
+EXTRA = XList(); LAMPS = []; FLAGS = []; CUR[0] = 9500
+# PT2: mã vùng đồ phố theo loại (mặt nạ bảo vệ dữ kiện): 951x đồ nền cho phép sửa bề mặt; 952x+ mang dữ kiện (bảo vệ)
+PROPCODE = {'barrel': 9510, 'cart': 9511, 'rubble': 9514, 'timber': 9515, 'stall': 9513, 'shot_pile': 9521, 'cannon': 9520, 'lamp_post': 9530,
+            'flagpole': 9540, 'sentry_box': 9541, 'shelter': 9542, 'truck': 9550}
+def tag(fn):
+    code = PROPCODE[fn.__name__]
+    def w(*a, **k):
+        old = CUR[0]
+        if old >= 9000: CUR[0] = code      # trong khối nhà (đổ nát) giữ mã toà
+        try: return fn(*a, **k)
+        finally: CUR[0] = old
+    return w
+barrel, cart, rubble, stall, shot_pile, cannon, lamp_post, flagpole, sentry_box, shelter, truck = map(tag, (barrel, cart, rubble, stall, shot_pile, cannon, lamp_post, flagpole, sentry_box, shelter, truck))
+if EP == 1782 and S.CAMK == 'k1782':
+    # PT2 hẻm 1782 (sau pháo kích 4/1781 — Drinkwater ghi RUINS): đồ nền dọc chân tường hai bên, lòng hẻm để trống cho người qua lại.
+    # Hẻm: y ∈ (−3,0; 4,8) ở x = 6, hẹp dần về tây; đầu tây mở ra Line Wall (x ≈ −99).
+    yS = lambda x: -3.05 + (x - 6) * 0.0235 + 0.0; yN = lambda x: 4.8 + (x - 6) * 0.0215
+    for (x, side) in ((-14, 'S'), (-14.8, 'S'), (-31, 'N'), (-46, 'S'), (-46.8, 'S'), (-47.4, 'S'), (-63, 'N')):
+        y = yS(x) + 0.55 if side == 'S' else yN(x) - 0.55
+        if free(x, y, 0.3): barrel(x, y, R)
+    for (x, side) in ((-22, 'N'), (-52, 'N')):
+        y = yN(x) - 1.6
+        if free(x, y, 0.9): cart(x, y, math.pi + 0.05 if side == 'N' else 0.05, R)
+    for (x, side) in ((-9, 'N'), (-27, 'S'), (-39, 'N'), (-58, 'S'), (-71, 'N')):
+        y = yS(x) + 1.0 if side == 'S' else yN(x) - 1.0
+        if free(x, y, 0.6): rubble(x, y, R, 5)
+    for k in range(5):   # dầm gỗ dựng tạm chống tường (sửa chữa sau pháo kích)
+        x = -35 + R.uniform(-1.5, 1.5); y = yS(x) + 0.5
+        if free(x, y, 0.2): CUR[0] = 9515; box('go', (x, y, 0.12 + 0.22 * (k % 3)), (3.4, 0.22, 0.2), math.pi - 0.02, tint=(0.42, 0.32, 0.22)); note('dong_go'); CUR[0] = 9500
+    for (x, side) in ((-19, 'S'), (-66, 'S')):
+        y = yS(x) + 0.7
+        if free(x, y, 0.5): shot_pile(x, y, R)
+    lamp_post(-30.0, yN(-30) - 0.4, R)          # đèn dầu trên cột sát tường (một nguồn sáng đêm như PT)
+    cannon(wx(-1.5) + 2.2, -1.5, math.pi)       # pháo trên Line Wall cuối hẻm
+    flagpole(wx(-1.4) + 4.0, -1.4, 12.0)        # cột cờ cuối hẻm (vị trí dựng — không có nguồn vị trí; mẫu cờ 1707 có nguồn)
+elif EP == 1782:
     for (x, y) in ((-30, -8), (-36, -2), (-55, 14)):
         if free(x, y): shot_pile(x, y, R)
     for (x, y, yw) in ((-20, -18, 0.4), (-62, 4, 2.0)):
@@ -690,19 +736,26 @@ else:
 LOG['lamps'] = LAMPS; LOG['flags'] = FLAGS; LOG['chimneys'] = CHIM
 
 # ---------------------------------------------------------------- tạo đối tượng từ bộ đệm
-def flush(name, buf, mat):
+def flush(name, buf, mat, key=None):
     if not buf.f: return
     me = bpy.data.meshes.new(name); me.from_pydata(buf.v, [], buf.f); me.update()
     at = me.attributes.new('tint', 'FLOAT_COLOR', 'FACE'); lt = me.attributes.new('lit', 'FLOAT', 'FACE'); bt = me.attributes.new('bid', 'FLOAT', 'FACE')
-    for i, b in enumerate(buf.bid): bt.data[i].value = float(b)
+    ct = me.attributes.new('cls', 'FLOAT', 'FACE')
+    for i, b in enumerate(buf.bid): bt.data[i].value = float(b); ct.data[i].value = float(b * 64 + MATCODE[key])
     for i, c in enumerate(buf.tint): at.data[i].color = (*c, 1.0)
     for i, l in enumerate(buf.lit): lt.data[i].value = l
     me.validate(); o = bpy.data.objects.new(name, me); o.data.materials.append(mat); sc.collection.objects.link(o)
     for p in me.polygons: p.use_smooth = False
     return o
 NF = 0
-for k, buf in B.items(): flush('g_' + k, buf, M[k]); NF += len(buf.f)
+for k, buf in B.items(): flush('g_' + k, buf, M[k], k); NF += len(buf.f)
 LOG['faces'] = NF
+MAT2KEY = {}
+for k, m in M.items(): MAT2KEY.setdefault(m.name, k)
+for o in EXTRA:   # vật tạo bằng bpy.ops: mã lớp = mã vùng lúc tạo × 64 + mã vật liệu
+    ct = o.data.attributes.new('cls', 'FLOAT', 'FACE'); v = float(int(o.get('cur', 9500)) * 64 + MATCODE[MAT2KEY[o.data.materials[0].name]])
+    for i in range(len(ct.data)): ct.data[i].value = v
+LOG['matcode'] = MATCODE
 
 # ---------------------------------------------------------------- máy quay
 cam = bpy.data.cameras.new('cam'); cam.lens = S.CAM_MM; cam.sensor_width = S.SENSOR; cam.clip_end = 40000
@@ -753,7 +806,7 @@ def set_pass(p):
     sky.sun_elevation = math.radians(-12); bg.inputs[1].default_value = 0.0
     wl.remove(bg.inputs[0].links[0]) if bg.inputs[0].links else None
     bg.inputs[0].default_value = (0.0035, 0.005, 0.011, 1); bg.inputs[1].default_value = 1.0
-    gain = 6.0 if EP == 1782 else 0.6
+    gain = 6.0 if EP == 1782 else 0.0   # PT2: 1943 phong toả ánh sáng → KHÔNG cửa sổ sáng (PT để 0,6: một ô cửa sáng = trái blackout)
     for m in (M['kinh'], M['trong']): m.node_tree.nodes['litgain'].inputs[1].default_value = gain
     M['den'].node_tree.nodes['Principled BSDF'].inputs['Emission Strength'].default_value = 25.0 if EP == 1782 else 2.0
     for l in lamp_objs: l.data.energy = 90.0 if EP == 1782 else 6.0
@@ -813,9 +866,41 @@ if A.idpass:   # lượt mã toà (EXR, giá trị = mã lớp 'bid'; vật tạ
     sc.render.image_settings.file_format = 'OPEN_EXR'; sc.render.image_settings.color_depth = '32'
     sc.render.filepath = os.path.join(A.out, 'id.exr'); bpy.ops.render.render(write_still=True)
 
+def override_emit(attr):
+    m_ = bpy.data.materials.new('ov_' + attr); m_.use_nodes = True; N = m_.node_tree.nodes; L = m_.node_tree.links
+    for n in list(N): N.remove(n)
+    at_ = N.new('ShaderNodeAttribute'); at_.attribute_name = attr; em = N.new('ShaderNodeEmission'); out = N.new('ShaderNodeOutputMaterial')
+    L.new(at_.outputs['Fac'], em.inputs['Strength']); em.inputs['Color'].default_value = (1, 1, 1, 1); L.new(em.outputs[0], out.inputs[0]); return m_
+if A.clspass:   # PT2: lượt mã lớp (EXR float32, giá trị nguyên chính xác; 1 mẫu/điểm ảnh, lọc 0,01 → không pha trộn mép)
+    sc.view_layers[0].material_override = override_emit('cls')
+    if bg.inputs[0].links: wl.remove(bg.inputs[0].links[0])
+    bg.inputs[0].default_value = (0, 0, 0, 1); bg.inputs[1].default_value = 0.0
+    sun.hide_render = True; moon.hide_render = True
+    for l in lamp_objs: l.hide_render = True
+    sc.cycles.samples = 1; sc.cycles.use_denoising = False; sc.cycles.use_adaptive_sampling = False; sc.cycles.max_bounces = 0
+    sc.cycles.filter_width = 0.01; sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'; sc.view_settings.exposure = 0
+    sc.render.image_settings.file_format = 'OPEN_EXR'; sc.render.image_settings.color_depth = '32'
+    sc.render.filepath = os.path.join(A.out, 'cls.exr'); t = time.time(); bpy.ops.render.render(write_still=True); LOG['cls_s'] = round(time.time() - t, 1)
+if A.sunvis:    # PT2: lượt nắng — chỉ mặt trời của lượt đó, mọi vật liệu trắng khuếch tán, không trời, không nảy → 0 = trong bóng nhà
+    wm = bpy.data.materials.new('trang'); wm.use_nodes = True; wm.node_tree.nodes['Principled BSDF'].inputs['Base Color'].default_value = (1, 1, 1, 1)
+    wm.node_tree.nodes['Principled BSDF'].inputs['Roughness'].default_value = 1.0
+    sc.view_layers[0].material_override = wm
+    sw, sh_ = map(int, A.sunvis_res.split('x')); sc.render.resolution_x, sc.render.resolution_y = sw, sh_
+    sc.cycles.samples = 4; sc.cycles.use_denoising = False; sc.cycles.use_adaptive_sampling = False; sc.cycles.max_bounces = 0; sc.cycles.filter_width = 1.0
+    sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'; sc.view_settings.exposure = 0
+    sc.render.image_settings.file_format = 'OPEN_EXR'; sc.render.image_settings.color_depth = '32'
+    for l in lamp_objs: l.hide_render = True
+    LOG['sunvis'] = {}
+    for p in [x for x in A.sunvis.split(',') if x]:
+        info = set_pass(p); sun.hide_render = False; moon.hide_render = True
+        if bg.inputs[0].links: wl.remove(bg.inputs[0].links[0])
+        bg.inputs[0].default_value = (0, 0, 0, 1); bg.inputs[1].default_value = 0.0
+        sc.render.filepath = os.path.join(A.out, f'sunvis_{p}.exr'); t = time.time(); bpy.ops.render.render(write_still=True)
+        LOG['sunvis'][p] = round(time.time() - t, 1)
+    sc.render.resolution_x, sc.render.resolution_y = W, H
 # camera intrinsics cho lớp sống
 fpx = S.CAM_MM / S.SENSOR * W
-LOG['camera'] = {'pos': [0, 0, S.CAM_H], 'head': S.CAM_HEAD, 'pitch': S.CAM_PITCH, 'mm': S.CAM_MM, 'sensor': S.SENSOR, 'W': W, 'H': H, 'fpx': fpx,
+LOG['camera'] = {'preset': S.CAMK, 'pos': [0, 0, S.CAM_H], 'head': S.CAM_HEAD, 'pitch': S.CAM_PITCH, 'mm': S.CAM_MM, 'sensor': S.SENSOR, 'W': W, 'H': H, 'fpx': fpx,
                  'utm': [S.CAM_E, S.CAM_N]}
 LOG['total_s'] = round(time.time() - T0, 1)
 json.dump(LOG, open(os.path.join(A.out, 'meta.json'), 'w'), indent=1, ensure_ascii=False)

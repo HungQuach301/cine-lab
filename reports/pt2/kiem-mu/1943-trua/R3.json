@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 4,
+  "period": 6,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "Clean but sterile CG. Walls are smooth plastic-looking pink and cream with no weathering. The paving is a flat blue-grey. Ghostly semi-transparent figures in the foreground are a render glitch. The crowd is stiff, low-poly mannequins. The blue paving and clean walls don't read as a wartime Mediterranean port."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 7,
+  "period": 7,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Same scene and crowd, but the weathered peeling plaster, stained stone, cobbles with cast shadows and warm light give believable texture and atmosphere. The wall damage is a little over-saturated and repetitive. The figures are still stiff, mannequin-like game assets, which is the main flaw. There are no ghost figures."
+ },
+ "better": "Y",
+ "why": "Y has convincing aged materials, cobbles and lighting and none of X's ghosted figures, while the identical stiff mannequin crowd drags both down.",
+ "top_fix_for_weaker": "Fix the transparent ghost figures in the foreground. Replace the smooth plastic walls and flat blue paving with weathered plaster, stained stone and cobbles with shadow. Vary the crowd's poses and scale so they stop looking like toys.",
+ "anachronisms_seen": [
+  "No clear anachronisms in either frame. The ship in the bay is too small to judge. The Union Jack is plausible.",
+  "X's pristine, freshly painted walls and blue paving look too clean for 1943 wartime Gibraltar.",
+  "Neither frame has any text, so there is no text to check."
+ ]
+}
