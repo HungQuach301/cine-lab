@@ -23,6 +23,10 @@ Mục nào thiếu đầu vào → THIẾU (không ĐẠT), ghi rõ trong `thieu
 TL-Q1 mốc đinh: mốc = quãng năm KHÔNG ĐỔI ≥ 1,0 s (bỏ quãng chạm khung đầu/cuối phim). (a) mỗi mốc 1,5–2,0 s; (b) cỡ chữ năm trong mốc
        / trung vị ngoài mốc ≥ 1,4×; (c) sáng TB trong mặt nạ công trình / phần còn lại ≥ 1,5; (d) có thẻ (cards > 0) giao mốc, liền ≥ 3 s,
        dòng nguồn (role src) không rỗng ≥ 38 px; (e) số mốc ≥ ⌈thời lượng / 180 s⌉.
+       1.15 (I8, chủ dự án duyệt 18/10; V5B2B §10.6): ngoài "dừng năm", mốc đinh còn là "DỪNG GIỜ" — quãng pha máy `pin` liền (campath.frames[].phase,
+       cùng `canh`) hoặc quãng đồng hồ dừng THEO KHUNG (campath.frames[].clock hoặc frames_meta; log chữ mẫu thưa không dùng cho TL-Q1) dài
+       ≥ 1,0 s, không chạm khung đầu/cuối, KHÔNG giao mốc dừng năm nào (giao → mốc năm giữ nguyên, không đổi kết quả cũ). Với mốc dừng giờ,
+       (b) so chữ role `clock` (không có → `year`) trong/ngoài mốc.
 TL-Q2 bay dọc phố/sông: ≥ 3 s liên tục máy cách tuyến (mặt bằng) ≤ 15 m và AGL ≤ trần loại tuyến (1.12.1, HH2: pho 120 m; eo_dat/song/dai_lo
        300 m; thiếu loại → pho); tuyến có nguồn; cuối quãng, đích lệch trục nhìn ≤ 10°.
 TL-Q1(c) 1.12.1 (MM3): tương phản cục bộ hero ↔ vành 1,5× (Weber đối xứng, độ chói tuyến tính) ≥ 1,3 HOẶC L_hero mốc / L_hero ngoài mốc ≥ 1,3.
@@ -76,6 +80,38 @@ def pins(F, fps):
         while j + 1 < n and round(F[j + 1]['year'], 2) == round(F[i]['year'], 2): j += 1
         if (j - i + 1) / fps >= 1.0 and i > 0 and j < n - 1: out.append((F[i]['f'], F[j]['f']))
         i = j + 1
+    return out
+
+
+def pins_gio(F, fps, P, B=None, base='.'):
+    """1.15 (I8): mốc dừng giờ = quãng pha `pin` liền (cùng canh) ∪ quãng đồng hồ dừng theo khung, ≥ 1,0 s, không chạm khung đầu/cuối,
+    không giao mốc năm P → [(f0, f1, nhãn)]"""
+    from checks.ll import q_nhip
+    n = len(F); C = []; i = 0
+    while i < n:
+        if F[i].get('phase') == 'pin':
+            j = i
+            while j + 1 < n and F[j + 1].get('phase') == 'pin' and F[j + 1].get('canh') == F[i].get('canh'): j += 1
+            C.append((F[i]['f'], F[j]['f'], 'pha pin')); i = j + 1
+        else: i += 1
+    clk = {}
+    if any(f.get('clock') for f in F):
+        for f in F:
+            if f.get('clock'): clk.setdefault(f.get('canh'), []).append((f['f'], str(f['clock'])))
+    elif B and B.get('frames_meta') and all(f.get('canh') is not None and f.get('f_canh') is not None for f in F):
+        inv = {(f['canh'], int(f['f_canh'])): f['f'] for f in F}
+        for c, m in (B['frames_meta'].items() if isinstance(B['frames_meta'], dict) else []):
+            M = _ld(base, m); M = M.get('frames_meta', M) if isinstance(M, dict) else {}
+            for k, v in M.items():
+                if isinstance(v, dict) and v.get('clock') and (c, int(k)) in inv:
+                    clk.setdefault(c, []).append((inv[(c, int(k))], str(v['clock'] if not isinstance(v['clock'], dict) else v['clock'].get('s'))))
+    for c, sq in clk.items():
+        for a, b, lab, _ in q_nhip.clock_stops(sorted(sq), 1, fps): C.append((a, b, f'đồng hồ "{lab}"'))
+    C.sort(); out = []
+    for a, b, lab in C:
+        if (b - a + 1) / fps < 1.0 or a <= F[0]['f'] or b >= F[-1]['f']: continue
+        if any(a <= y1 and y0 <= b for y0, y1 in P) or any(a <= y1 and y0 <= b for y0, y1, _ in out): continue
+        out.append((a, b, lab))
     return out
 
 
@@ -152,16 +188,21 @@ def tuong_phan_hero(H, base, P):
 
 
 def tlq1(B, F, fps, T):
-    P = pins(F, fps); M = {k: [] for k in 'abcde'}; th = []; TX = _text(B.get('log_chu')); NS = B.get('ngan_sach')
+    PY = pins(F, fps); PG = pins_gio(F, fps, PY, B, B.get('_base', '.')); GIO = {(a, b): lab for a, b, lab in PG}
+    P = sorted(PY + [(a, b) for a, b, _ in PG]); M = {k: [] for k in 'abcde'}; th = []; TX = _text(B.get('log_chu')); NS = B.get('ngan_sach')
+    ten = lambda f0, f1: f'mốc dừng giờ ({GIO[(f0, f1)]})' if (f0, f1) in GIO else f'mốc {F[f0]["year"]:.0f}'
     for f0, f1 in P:
         d = (f1 - f0 + 1) / fps
-        if not 1.5 <= d <= 2.0: M['a'].append(f'mốc {F[f0]["year"]:.0f} khung {f0}–{f1}: năm dừng {d:.2f} s ngoài 1,5–2,0 s')
+        if not 1.5 <= d <= 2.0: M['a'].append(f'{ten(f0, f1)} khung {f0}–{f1}: ' + ('giờ' if (f0, f1) in GIO else 'năm') + f' dừng {d:.2f} s ngoài 1,5–2,0 s')
     if TX:
-        yo = [t['px1080'] for f, its in TX.items() for t in its if t.get('role') == 'year' and not any(a <= f <= b for a, b in P)]
         for f0, f1 in P:
-            yi = [t['px1080'] for f, its in TX.items() if f0 <= f <= f1 for t in its if t.get('role') == 'year']
-            if not yi or not yo: th.append(f'(b) mốc khung {f0}–{f1}: log chữ không có mẫu chữ năm trong/ngoài mốc')
-            elif max(yi) / statistics.median(yo) < 1.4: M['b'].append(f'(b) mốc khung {f0}–{f1}: chữ năm {max(yi):.0f} px / {statistics.median(yo):.0f} px = {max(yi) / statistics.median(yo):.2f}× < 1,4×')
+            rl = 'year'
+            if (f0, f1) in GIO and any(t.get('role') == 'clock' for its in TX.values() for t in its): rl = 'clock'
+            yo = [t['px1080'] for f, its in TX.items() for t in its if t.get('role') == rl and not any(a <= f <= b for a, b in P)]
+            yi = [t['px1080'] for f, its in TX.items() if f0 <= f <= f1 for t in its if t.get('role') == rl]
+            nm = 'chữ năm' if rl == 'year' else 'chữ đồng hồ'
+            if not yi or not yo: th.append(f'(b) mốc khung {f0}–{f1}: log chữ không có mẫu {nm} trong/ngoài mốc')
+            elif max(yi) / statistics.median(yo) < 1.4: M['b'].append(f'(b) mốc khung {f0}–{f1}: {nm} {max(yi):.0f} px / {statistics.median(yo):.0f} px = {max(yi) / statistics.median(yo):.2f}× < 1,4×')
     else: th.append('(b), (d) dòng nguồn: không có log chữ')
     TC = None
     if B.get('hero_anh'):   # 1.12.1 (MM3): K đo tương phản cục bộ trên khung không chữ + mặt nạ hero
@@ -192,8 +233,8 @@ def tlq1(B, F, fps, T):
     if len(P) < need: M['e'].append(f'(e) {len(P)} mốc đinh < {need} (≥ 1 mỗi 3 phút, phim {T:.1f} s)')
     loi = sum(M.values(), [])
     sat = TC['sat'] if TC else []
-    return r(True, loi, th, sat_nguong=sat, val=f"{len(P)} mốc: " + ', '.join(f"{F[a]['year']:.0f} {(b - a + 1) / fps:.2f} s (khung {a}–{b})" for a, b in P)
-             + (f" · (c) {TC['val']}" if TC else ''), muc=M, moc=P, tuong_phan=TC)
+    return r(True, loi, th, sat_nguong=sat, val=f"{len(P)} mốc: " + ', '.join((f"dừng giờ [{GIO[(a, b)]}]" if (a, b) in GIO else f"{F[a]['year']:.0f}") + f" {(b - a + 1) / fps:.2f} s (khung {a}–{b})" for a, b in P)
+             + (f" · (c) {TC['val']}" if TC else ''), muc=M, moc=P, moc_gio=PG, tuong_phan=TC)
 
 
 def _plan(p, mb): return (p[0], -p[2]) if mb == 'x-z' else (p[0], p[2])

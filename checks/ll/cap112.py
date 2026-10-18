@@ -1,5 +1,5 @@
 #!/opt/cine/bin/python
-"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) (phiên K, 17/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
+"""Cấp Chặn / Cảnh báo của luật 1.12 + 1.12.1 + 1.12.2 (biến thể kênh 2, đề xuất) + 1.13 (NC-H1…H5, hàng đợi khiếu nại T2; đề xuất) + 1.14 (BD-1…BD-8, K-R1…K-R9) + 1.15 (K-LAI-1…6, K-LAI-B, O2, BC2–BC4) (phiên K, 17–18/10/2026). Cấp = cột "Cấp đề xuất" của reports/K-1.12-BAO-CAO.md §2 (chủ dự án duyệt
 HH1) và các luật 1.12.1 (chủ dự án duyệt 16–17/10: HH2, HH3, MM1–MM4, JJ1–JJ2, KK1). Mặc định `k2check.py` vẫn CHỈ BÁO (ghi cấp cạnh kết quả);
 `--cap` áp cấp vào mã thoát: hàng có lỗi thuộc phần Chặn → TRƯỢT, chỉ có lỗi phần Cảnh báo → CẢNH BÁO (không tính vào mã thoát).
 
@@ -41,6 +41,25 @@ CAP = {
     'Q33 (1.13)': ('Chặn (thay Q33 cho kênh 2)', {'*'}, set()),
     'Q36 (1.13)': ('Chặn (thay Q36 cho kênh 2)', {'*'}, set()),
     'Q37 (1.13)': ('Chặn (thay Q37 cho kênh 2)', {'*'}, set()),
+    # 1.14 (chủ dự án duyệt B1–B8 + YY5 17/10; mức theo lệnh phiên K-1.14; đề xuất mức cuối: reports/K-1.14-BAO-CAO.md §5)
+    'BD-1': ('Chặn', {'*'}, set()),
+    'BD-2': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+    'BD-3': ('Chặn (a) · Cảnh báo (c) năm nhãn ≠ năm lớp (K thêm, chờ duyệt)', set('a'), set('c')),
+    'BD-4': ('Chặn', {'*'}, set()),
+    'BD-5': ('Chặn', {'*'}, set()),
+    'BD-6': ('Chặn', {'*'}, set()),
+    'BD-7': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+    'BD-8': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+    'K-R1': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()), 'K-R2': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()), 'K-R3': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()),
+    'K-R4': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()), 'K-R5': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()), 'K-R6': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()),
+    'K-R7': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()), 'K-R8': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()), 'K-R9': ('Chặn (đề xuất; ĐỎ-K)', {'*'}, set()),
+    # 1.15 (chủ dự án duyệt P2-2 [K-LAI-1…6 Chặn], P2-3 [bão hoà Cảnh báo], O2 [Cảnh báo], I3 [Cảnh báo tới V5b-2c], I8 ngày 18/10)
+    'K-LAI-1': ('Chặn (P2-2)', {'*'}, set()), 'K-LAI-2': ('Chặn (P2-2)', {'*'}, set()), 'K-LAI-3': ('Chặn (P2-2)', {'*'}, set()),
+    'K-LAI-4': ('Chặn (P2-2)', {'*'}, set()), 'K-LAI-5': ('Chặn (P2-2)', {'*'}, set()), 'K-LAI-6': ('Chặn (P2-2)', {'*'}, set()),
+    'K-LAI-B': ('Cảnh báo (P2-3)', set(), {'*'}),
+    'O2': ('Cảnh báo (lưới lọc thứ hai — không thay kiểm nguồn)', set(), {'*'}),
+    'BC2': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}), 'BC3': ('Cảnh báo (tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
+    'BC4': ('Cảnh báo (chỉ báo; tới khi hiệu chuẩn trên V5b-2c)', set(), {'*'}),
 }
 _M = re.compile(r'^\((\w)\)')
 

@@ -1,0 +1,273 @@
+{
+ "tong_s": 120.0,
+ "segments": [
+  {
+   "id": "01",
+   "part": "CH1",
+   "t0": 0.0,
+   "t1": 40.0,
+   "frames": 960,
+   "fadeIn": 0,
+   "shots": [
+    {
+     "tpl": "plate",
+     "t0": 0.0,
+     "t1": 6.0,
+     "p": {
+      "where": "Gibraltar"
+     },
+     "type": "timelapse"
+    },
+    {
+     "tpl": "plate",
+     "t0": 6.0,
+     "t1": 13.0,
+     "p": {
+      "hero": "r_iberia",
+      "tags": [
+       {
+        "s": "Gibraltar"
+       }
+      ],
+      "nghieng": 20,
+      "be_ngang_km": [
+       2500,
+       2300
+      ],
+      "year": 1782,
+      "chi_toi": [
+       "Gibraltar"
+      ],
+      "lop": [
+       "r1782"
+      ],
+      "dong": [
+       {
+        "loai": "route",
+        "t": [
+         0.5,
+         6.5
+        ],
+        "id": "howe1782"
+       },
+       {
+        "loai": "arrow",
+        "t": [
+         4.0,
+         6.0
+        ]
+       }
+      ],
+      "chu_giai": [
+       {
+        "faction_id": "gb",
+        "mau": "#b03a2e",
+        "nhan": "Britain"
+       },
+       {
+        "faction_id": "es",
+        "mau": "#c9a227",
+        "nhan": "Spain"
+       },
+       {
+        "faction_id": "fr",
+        "mau": "#2e5c8a",
+        "nhan": "France"
+       }
+      ]
+     },
+     "type": "strategic"
+    },
+    {
+     "tpl": "plate",
+     "t0": 13.0,
+     "t1": 20.0,
+     "p": {
+      "where": "Gibraltar",
+      "src": "Source: Drinkwater 1786"
+     },
+     "type": "scene3d",
+     "in": {
+      "type": "dissolve",
+      "d": 0.7
+     }
+    },
+    {
+     "tpl": "plate",
+     "t0": 20.0,
+     "t1": 40.0,
+     "p": {
+      "hero": "r_bay",
+      "where": "Bay of Gibraltar"
+     },
+     "type": "map"
+    }
+   ]
+  },
+  {
+   "id": "02",
+   "part": "CH2",
+   "t0": 40.0,
+   "t1": 80.0,
+   "frames": 960,
+   "fadeIn": 0,
+   "shots": [
+    {
+     "tpl": "plate",
+     "t0": 0.0,
+     "t1": 5.0,
+     "p": {
+      "photo": "p1"
+     },
+     "type": "photo"
+    },
+    {
+     "tpl": "plate",
+     "t0": 5.0,
+     "t1": 20.0,
+     "p": {
+      "where": "Gibraltar",
+      "src": "Source: Drinkwater 1786"
+     },
+     "type": "scene3d"
+    },
+    {
+     "tpl": "plate",
+     "t0": 20.0,
+     "t1": 25.0,
+     "p": {
+      "card": {
+       "title": "47 ships of the line"
+      }
+     },
+     "type": "card"
+    },
+    {
+     "tpl": "plate",
+     "t0": 25.0,
+     "t1": 40.0,
+     "p": {
+      "where": "Gibraltar"
+     },
+     "type": "scene3d"
+    }
+   ]
+  },
+  {
+   "id": "03",
+   "part": "CH3",
+   "t0": 80.0,
+   "t1": 120.0,
+   "frames": 960,
+   "fadeIn": 0,
+   "shots": [
+    {
+     "tpl": "plate",
+     "t0": 0.0,
+     "t1": 6.0,
+     "p": {
+      "hero": "r_iberia2",
+      "tags": [
+       {
+        "s": "Gibraltar"
+       }
+      ],
+      "nghieng": 15,
+      "be_ngang_km": 2000,
+      "year": 1704,
+      "chi_toi": [
+       "Gibraltar"
+      ],
+      "dong": [
+       {
+        "loai": "fleet",
+        "t": [
+         0.0,
+         5.0
+        ]
+       }
+      ],
+      "chu_giai": [
+       {
+        "faction_id": "gb",
+        "mau": "#b03a2e",
+        "nhan": "Britain"
+       },
+       {
+        "faction_id": "es",
+        "mau": "#c9a227",
+        "nhan": "Spain"
+       }
+      ]
+     },
+     "type": "strategic"
+    },
+    {
+     "tpl": "plate",
+     "t0": 6.0,
+     "t1": 40.0,
+     "p": {
+      "where": "Gibraltar"
+     },
+     "type": "timelapse"
+    }
+   ]
+  }
+ ],
+ "heroes": {
+  "r_iberia": {
+   "hero": "relief/iberia",
+   "dur": 8,
+   "opt": {
+    "cam": [
+     {
+      "t": 0,
+      "dist": 2600,
+      "tilt": 20
+     },
+     {
+      "t": 8,
+      "dist": 2400,
+      "tilt": 22
+     }
+    ]
+   }
+  },
+  "r_iberia2": {
+   "hero": "relief/iberia",
+   "dur": 8,
+   "opt": {
+    "cam": [
+     {
+      "t": 0,
+      "dist": 2000,
+      "tilt": 15
+     },
+     {
+      "t": 8,
+      "dist": 1900,
+      "tilt": 15
+     }
+    ]
+   }
+  },
+  "r_bay": {
+   "hero": "relief/gibbay",
+   "dur": 20,
+   "opt": {
+    "cam": [
+     {
+      "t": 0,
+      "dist": 8,
+      "tilt": 50
+     },
+     {
+      "t": 20,
+      "dist": 6,
+      "tilt": 55
+     }
+    ]
+   }
+  }
+ }
+}

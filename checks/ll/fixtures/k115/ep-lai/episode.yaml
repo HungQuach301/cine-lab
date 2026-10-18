@@ -1,0 +1,39 @@
+# Fixture K-1.15: tập 60 s, shot b/0 (30–36 s, khung 720–863) là khung neo LAI 1782.
+id: k2c-t9-lai
+title: Fixture LAI
+out: /var/tmp/cine-out/k2c-t9-lai
+segments:
+- id: a
+  dur: 30.0
+  shots:
+  - type: scene3d
+    p:
+      where: Gibraltar
+  - type: scene3d
+    p:
+      where: Gibraltar
+- id: b
+  dur: 30.0
+  shots:
+  - type: scene3d
+    khung_neo: true
+    ai_image: true
+    p:
+      where: Gibraltar
+  - type: card
+    p: {}
+lai:
+  log_khung: log-khung.jsonl
+  log_chu: log-chu.json
+  kiem_du_kien: kiem-du-kien.json
+  goi_api: goi-api.jsonl
+  duyet: duyet.yaml
+  bao_ve:
+  - lai: bao-ve/lai.png
+    a: bao-ve/a.png
+    mat_na: bao-ve/mat-na.png
+    bat_buoc: bao-ve/bat-buoc.png
+  dem:
+  - lai: dem/lai.png
+    a: dem/a.png
+  khung_lai: khung-lai
