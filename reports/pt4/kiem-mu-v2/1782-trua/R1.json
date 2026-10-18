@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "The weathered walls and the narrow street composition are strong. The soldiers look like stiff plastic figurines with grey, faceless heads, uneven scale and ghostly translucent bodies. They are bunched into a crowd that blocks the middle of the lane, and several have raised arms in odd poses. The flag is large and clear, with the distant sea behind it. Weak spots: grey bicorne-like hats on some figures, a brown civilian figure in a smock, and a blurry crowd."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "The environment is identical to X: the same convincing crumbling plaster and brick, with warm light. The soldiers are again game-asset or toy figures, with flat blue-grey legs, no faces and uniform poses. They form a marching column that reads slightly better as a unit. One figure at left is semi-transparent or ghosted, and black barrels or cylinders sit at the front. The flag is the same size, and the sea and ship are visible. Overall it is marginally less chaotic than X."
+ },
+ "better": "Y",
+ "why": "The setting is identical, but Y's soldiers form a more coherent marching column, with fewer floating or ghosted figures and less crowd blur, so it looks slightly less like a pile of figurines.",
+ "top_fix_for_weaker": "X: swap the clumped plastic-looking crowd for a few well-lit, properly scaled, grounded figures with faces, hats and shadows, and drop the grey hats and the ghosted bodies. Leave open street space so the lane reads, and add some period civilian life such as washing, carts and smoke.",
+ "anachronisms_seen": [
+  "Hat shapes: grey flat-topped or bicorne-like hats look more like 19th-century shakos or toy hats than 1782 cocked hats",
+  "Soldiers in blue coats mixed with red-coated ones: blue is plausible for Hanoverian or artillery units, but here it looks like a generic game-asset palette",
+  "Union flag with the post-1801 St Patrick's cross: the 1782 flag should show only the crosses of St George and St Andrew",
+  "Rectangular modern-looking dark shutters and windows, and flat wooden balconies that look like modern construction"
+ ]
+}

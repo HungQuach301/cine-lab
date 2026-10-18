@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Good weathered stucco, shutters, balconies and cobbles with hazy atmospheric depth. The crowd is a clump of small, stiff, mannequin-like figures with flat blue and khaki colouring and no faces. The central cluster is dense and overlapping. The Union Jack is tiny, and the ship and the waterfront are vague."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "cluttered"
+  ],
+  "note": "The ochre and orange walls are more saturated and read as a more pleasant, sunlit render. The figures are larger and more evenly spread, but they look like game assets and stand in rigid poses. Several are semi-transparent or ghostly (a pale figure and a translucent shadow-figure near the centre), which is a render glitch. The sailors' caps and flat colours look like toys. The waterfront is cleaner, but the ship is a blurry blob."
+ },
+ "better": "X",
+ "why": "The buildings and scene are nearly identical, but X's figures are smaller and more integrated into the haze and shadow, so they look less like toys, and it has no ghost or transparency artefacts. Y's larger, more visible figures expose the toy look and the transparent glitches.",
+ "top_fix_for_weaker": "Replace the figures in Y with properly lit, grounded people: remove the translucent ghost figures, give them contact shadows, varied period clothing (civilians, dockworkers, uniformed sailors and soldiers) and natural poses. Also reduce the toy-like uniform colours, and add period vehicles or signage, or a clearer ship.",
+ "anachronisms_seen": [
+  "Pristine modern-looking steel balcony railings and uniform dark green shutters",
+  "Identical generic uniforms (blue sailor tops and khaki) that are not period-accurate",
+  "Modern-looking clean white bollards and promenade wall",
+  "Small white kiosk or box shape at the left of the square, of unclear era",
+  "Ship in the bay is indistinct and cannot be confirmed as 1943"
+ ]
+}
