@@ -1,4 +1,4 @@
-# V6 — CHECKPOINT 13:20 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
+# V6 — CHECKPOINT 13:34 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
 
 Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-nuong @685f11bb, pt4-song @5a7c9a27, claude/checks-v1-15-1qzf9z @001ee5d (0 xung đột); `checks/lock.py --verify` KHỚP 1.15.0 f4fa0349….
 
@@ -17,7 +17,7 @@ Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-n
 
 ## Đang dở
 - Chấm mù lượt 2 XONG (reports/v6/kiem-mu): TỐT NHẤT hạng 1 11/18, SX 1/18, V5b-2d 6/18; P3, P5 vẫn thua 3/3 (lý do bố cục: phế tích / quảng trường trống — theo lệnh; chờ chủ dự án).
-- Đoạn thử 540p: cảnh đinh phải dựng lại toàn bộ với mã mới (đã xoá bản dở cũ); chạy P=1 (RAM).
+- Đoạn thử 540p: 4/5 cảnh đinh xong (a_vinh 14 phút, d_pho 6, c_toan 5; ≈ 1,8 s/khung 540p), e_bo đang dựng (--resume) → render đoạn → mix → ghép.
 - Khung neo: chờ phiên con (hạn mức API) — sẽ gửi tin nhắn tiếp tục sau 13:00 UTC hoặc tự thu kết quả đã có.
 
 ## Chưa làm
