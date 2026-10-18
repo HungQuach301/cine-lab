@@ -12,7 +12,7 @@ import { life, chimneysFrom, freePath } from '../life.js';
 
 export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };   // V5b-2d (C2-9): vách bắc sắc hơn + đỉnh 412 m theo ảnh PD LoC 2025710362 (terrain.js)
 export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.30, 0.52, 0.90], fogC: [0.40, 0.60, 0.90] };   // trời Địa Trung Hải sáng tháng 9: chân trời xanh hơn (S 0,33 → 0,46)   // V5b-2c (I5): bóng đổ bớt xám-lam, ánh dội đất ấm (0,74: không cháy sáng)
-export const GRADE = { vib: 0.62 };
+export const GRADE = { vib: 0.78 };   // V6: S-curve + tách tông làm giảm bão hoà → vibrance 0,62 → 0,78 (đo lại: trung vị ≥ 0,40)
 export const V6 = { sunK: 1.1, hemiK: 1.0, grade: [1.0, 0.35, 0.6] };   // V5b-2c (I5): vibrance 0,35 → 0,62 (vữa/đá nhạt lên màu; màu đã đậm gần như giữ)
 export const META = { cau: 'fly-pho', vai: 'he-qua', noi: [[0, 99, 'thanh_pho']], nam: 1782, ghost: 'ghost-1782 (SH @ 54185b3)' };
 const MAIN = [[-409, -1811], [-410, -1700], [-425, -1620], [-435, -1571], [-441, -1543], [-448, -1521], [-450, -1505], [-447, -1400], [-440, -1300], [-432, -1150], [-425, -1000], [-420, -880], [-417, -788]];
@@ -22,12 +22,12 @@ export async function build(ctx) {
   ctx.ships.group.visible = false;
   // V5b-2d (C2-2): bay phố 70 m trên đất = khung gần → tiền cảnh chỉ khối có nguồn: bỏ lấp ước tính trong 150 m quanh vết máy (vết tính trước khi dựng phố)
   //  → bay ĐOẠN NAM Main Street (Southport → nhà Phó Thống đốc), nơi plan 1782 có khối/toà hai bên phố; nhìn bắc dọc phố: lấp ước tính chỉ ở trung/hậu cảnh (> 150 m)
-  const K0 = alongLine(MAIN, { s0: (ctx.opt.s0 ?? 640), s1: (ctx.opt.s1 ?? 800), t0: 0, t1: DUR, h: [ctx.opt.h ?? 36, (ctx.opt.h ?? 36) - 4], look: ctx.opt.look ?? 160, dip: ctx.opt.dip ?? 24, dt: 0.25, hAt });   // khung giữa cú: máy đã qua vườn Convent (chấm mù: 'ruộng sọc' chiếm 1/3 khung)
+  const K0 = alongLine(MAIN, { s0: (ctx.opt.s0 ?? 640), s1: (ctx.opt.s1 ?? 800), t0: 0, t1: DUR, h: [ctx.opt.h ?? 48, (ctx.opt.h ?? 48) - 4], look: ctx.opt.look ?? 140, dip: ctx.opt.dip ?? 60, dt: 0.25, hAt });   // khung giữa cú: máy đã qua vườn Convent (chấm mù: 'ruộng sọc' chiếm 1/3 khung)
   const TOWN = await town1782(ctx, { near: { track: K0.map((k) => [k.p[0], k.p[2]]), r: 150 }, ruinsZone: true });
   // dọc tim tuyến, nhìn trước 230 m và lệch 45 m về phía tây (vịnh) để khung là phần phố bản đồ có vẽ
   // V5b-2c (I3): phố đã lấp ước tính cả mé đông → nhìn trước-xuống dốc hơn, lệch nhẹ về ĐÔNG (phố dày chiếm ≥ 50 % khung, mặt nước ≤ 1/3)
   // V5b-2d: nhìn dọc Main Street (lệch đông 15 m)
-  const K = K0.map((k) => Object.assign(k, { fov: ctx.opt.fov ?? 44, l: [k.l[0] + (ctx.opt.east ?? 4), k.l[1], k.l[2]] }));
+  const K = K0.map((k) => Object.assign(k, { fov: ctx.opt.fov ?? 46, l: [k.l[0] + (ctx.opt.east ?? 4), k.l[1], k.l[2]] }));
   // LỚP SỐNG (F3): người đi dọc Main Street (lính áo đỏ đồn trú + dân — minh hoạ), hải âu, khói bếp
   const recs = TOWN.FP.list.flatMap((l) => (l.kind === 'ghost' ? l.recs : []));
   // C2-7: người đơn chỉ trong 150 m quanh máy; xa hơn là đám đông (cụm, cỡ thật)

@@ -21,7 +21,7 @@ import { life, chimneysFrom } from '../life.js';
 
 export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };   // V5b-2d (C2-9): vách bắc sắc hơn + đỉnh 412 m theo ảnh PD LoC 2025710362 (terrain.js)
 export const LOOK = { hemiI: 0.58, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.34, 0.52, 0.86], fogC: [0.52, 0.58, 0.78], sunC: '#ffcf96', sunI: 3.1 };   // chiều muộn: nắng thấp ngả vàng cam (11° trên chân trời), fill dịu → mặt phố có khối
-export const GRADE = { vib: 0.62 };
+export const GRADE = { vib: 0.78 };   // V6: S-curve + tách tông làm giảm bão hoà → vibrance 0,62 → 0,78 (đo lại: trung vị ≥ 0,40)
 export const V6 = { sunK: 1.1, hemiK: 1.0, grade: [1.0, 0.35, 0.6], wave: 2.6 };
 export const META = { cau: 'lateral-parallax', vai: 'he-qua', moc_dinh: '1782-09-13T17:30 LMT', noi: [[0, 99, 'bien']], nam: 1782 };
 export async function build(ctx) {
@@ -46,7 +46,7 @@ export async function build(ctx) {
   const recs1782 = TOWN.FP.list.flatMap((l) => (l.kind === 'ghost' ? l.recs : []));
   const LF = life({ seed: 1309, birds: [{ c: [-900, -1300], r: 220, h: 60, n: 10 }],
     boats: [{ pts: ring(FIN[PAST].at, 75, 0), len: 10, speed: 2.4, s0: 0.1 }, { pts: ring(FIN[PAST].at, 90, 2), len: 9, speed: 2.0, s0: 0.55 }, { pts: ring(FIN[SEC].at, 80, 1), len: 10, speed: 2.2, s0: 0.3 },
-      { pts: ring(FIN[SEC].at, 64, 4), len: 8, speed: 1.8, s0: 0.8 }, { pts: [[-1760, -1650], [-1690, -1560], [-1640, -1480]], len: 9, speed: 1.4, s0: 0.3 }, { pts: [[-1700, -1720], [-1610, -1650], [-1560, -1590]], len: 10, speed: 1.2, s0: 0.6 },   // V6: xuồng tiền cảnh (Drinkwater p. 295, 298; vị trí minh hoạ) { pts: [[FIN[PAST].at[0] - 260, FIN[PAST].at[1] + 120], [FIN[PAST].at[0] - 90, FIN[PAST].at[1] + 30]], len: 11, speed: 1.6, s0: 0.2 }],
+      { pts: ring(FIN[SEC].at, 64, 4), len: 8, speed: 1.8, s0: 0.8 }, { pts: [[-1760, -1650], [-1690, -1560], [-1640, -1480]], len: 9, speed: 1.4, s0: 0.3 }, { pts: [[-1700, -1720], [-1610, -1650], [-1560, -1590]], len: 10, speed: 1.2, s0: 0.6 }, /* V6: xuồng tiền cảnh (Drinkwater p. 295, 298; vị trí minh hoạ) */ { pts: [[FIN[PAST].at[0] - 260, FIN[PAST].at[1] + 120], [FIN[PAST].at[0] - 90, FIN[PAST].at[1] + 30]], len: 11, speed: 1.6, s0: 0.2 }],
     chimney: { at: chimneysFrom(recs1782, 10), drift: [1.4, 1.2] } }, ctx);
   scene.add(LF.group); ctx.maskHide = [sm.group].concat(LF.smokeGroup ? [LF.smokeGroup] : []);
   // máy: tây hàng pin nổi ~900 m, cao 16 m, ống dài 16°, trượt ngang 90 m (parallax pin nổi ↔ phố)

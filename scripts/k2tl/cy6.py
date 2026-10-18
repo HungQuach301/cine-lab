@@ -3,7 +3,7 @@
 Cycles tính ÁNH SÁNG THẬT (mặt trời mềm 0,53°, trời bán cầu khớp ánh trời k2v, GI 4 nảy, AO thật, bóng mềm) trên vật liệu khuếch tán xám theo loại vật
 (albedo GI hợp lý); màu bề mặt cuối = albedo k2v (lượt albedo không chiếu sáng — gồm vân thủ tục, cửa sổ, vân HC7) × ánh sáng Cycles (ghép ở cy6_ghep.py).
 Vân CC0 (Poly Haven, nếu có --cc0): bản đồ pháp tuyến/độ gồ cho mái ngói, tường vữa, đá công sự, đất → vi chi tiết bóng đổ trong lượt ánh sáng.
-Nước: mặt phẳng z = 0 kiểu HOLDOUT (che phần ngập, trong suốt) — nước/trời/khói lấy từ k2v. Ra: EXR đa lớp (Combined đã khử nhiễu OIDN, DiffCol, Depth, Alpha)."""
+Nước: mặt phẳng z = 0 kiểu HOLDOUT (che phần ngập, trong suốt) — nước/trời/khói lấy từ k2v. Ra: EXR Combined (khử nhiễu OIDN, alpha) + <ra>-aux.exr (R = albedo GI, G = độ sâu Z/1000; xem lượt phụ)."""
 import sys, os, json, math, time
 import numpy as np
 import bpy, mathutils
@@ -11,7 +11,7 @@ import bpy, mathutils
 a = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else sys.argv[1:]
 D, OUT = a[0], a[1]
 opt = {k: v for k, v in zip(a[2::2], a[3::2])}
-SPP = int(opt.get('--spp', 192)); TH = int(opt.get('--threads', 3)); RES = opt.get('--res'); CC0 = opt.get('--cc0')
+SPP = int(opt.get('--spp', 192)); TH = int(opt.get('--threads', 3)); RES = opt.get('--res'); CC0 = opt.get('--cc0'); AUX = opt.get('--aux', '0')   # --aux only: chỉ dựng lượt phụ
 t0 = time.time()
 M = json.load(open(os.path.join(D, 'manifest.json')))
 bpy.ops.wm.read_factory_settings(use_empty=True)
@@ -96,7 +96,19 @@ sc.render.engine = 'CYCLES'; cy = sc.cycles; cy.device = 'CPU'; cy.samples = SPP
 cy.use_adaptive_sampling = True; cy.adaptive_threshold = 0.01; sc.render.film_transparent = True; sc.render.threads_mode = 'FIXED'; sc.render.threads = TH
 sc.view_settings.view_transform = 'Standard'; sc.view_settings.look = 'None'
 vl = sc.view_layers[0]; vl.use_pass_diffuse_color = True; vl.use_pass_z = True; vl.use_pass_combined = True
-sc.render.image_settings.file_format = 'OPEN_EXR_MULTILAYER'; sc.render.image_settings.color_depth = '32'; sc.render.filepath = OUT
-t1 = time.time(); bpy.ops.render.render(write_still=True); t2 = time.time()
-json.dump(dict(stat, spp=SPP, threads=TH, res=[W, H], nap_s=round(t1 - t0, 1), dung_s=round(t2 - t1, 1), blender=bpy.app.version_string), open(OUT + '.json', 'w'), ensure_ascii=False)
-print('CY6', json.dumps(dict(stat, nap_s=round(t1 - t0, 1), dung_s=round(t2 - t1, 1))))
+(setattr(sc.render.image_settings, 'media_type', 'MULTI_LAYER_IMAGE') if hasattr(sc.render.image_settings, 'media_type') else None); sc.render.image_settings.file_format = 'OPEN_EXR_MULTILAYER'; sc.render.image_settings.color_depth = '32'; sc.render.filepath = OUT
+t1 = time.time()
+if AUX != 'only': bpy.ops.render.render(write_still=True)
+t2 = time.time()
+# LƯỢT PHỤ (Blender 5.2 bpy KHÔNG ghi DiffCol/Depth vào EXR đa lớp — đã thử write_still, save_render, nút File Output): dựng lại 4 spp, vật liệu PHÁT XẠ
+#  R = albedo GI của loại vật (= DiffCol), G = độ sâu nhìn Z/1000 (cùng định nghĩa sương FogExp2 của three), không nảy, không khử nhiễu → <ra>-aux.exr (Combined, nhân alpha)
+for m in [m for m in bpy.data.materials if m.name.startswith('m_')]:
+    nt = m.node_tree; v = ALB.get(m.name[2:], 0.45); cd = nt.nodes.new('ShaderNodeCameraData'); mt = nt.nodes.new('ShaderNodeMath'); mt.operation = 'MULTIPLY'; mt.inputs[1].default_value = 1e-3
+    cc = nt.nodes.new('ShaderNodeCombineColor'); cc.inputs[0].default_value = v; em = nt.nodes.new('ShaderNodeEmission'); em.inputs['Strength'].default_value = 1
+    nt.links.new(cd.outputs['View Z Depth'], mt.inputs[0]); nt.links.new(mt.outputs[0], cc.inputs[1]); nt.links.new(cc.outputs[0], em.inputs['Color'])
+    nt.links.new(em.outputs[0], [n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL'][0].inputs['Surface'])
+bg.inputs['Strength'].default_value = 0; sl.energy = 0
+cy.samples = 4; cy.use_denoising = False; cy.use_adaptive_sampling = False; cy.max_bounces = 0
+sc.render.filepath = OUT[:-4] + '-aux.exr'; bpy.ops.render.render(write_still=True); t3 = time.time()
+json.dump(dict(stat, spp=SPP, threads=TH, res=[W, H], nap_s=round(t1 - t0, 1), dung_s=round(t2 - t1, 1), phu_s=round(t3 - t2, 1), blender=bpy.app.version_string), open(OUT + ('.aux.json' if AUX == 'only' else '.json'), 'w'), ensure_ascii=False)
+print('CY6', json.dumps(dict(stat, nap_s=round(t1 - t0, 1), dung_s=round(t2 - t1, 1), phu_s=round(t3 - t2, 1))))

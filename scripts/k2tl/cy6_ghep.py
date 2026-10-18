@@ -15,7 +15,9 @@ f = OpenEXR.InputFile(EXR); hd = f.header(); dw = hd['dataWindow']; ew, eh = dw.
 chans = list(hd['channels'].keys()); FT = Imath.PixelType(Imath.PixelType.FLOAT)
 def ch(name): k = [c for c in chans if c.endswith(name)]; assert k, (name, chans); return np.frombuffer(f.channel(k[0], FT), np.float32).reshape(H, W)
 def rgb(layer): return np.stack([ch(f'{layer}.R'), ch(f'{layer}.G'), ch(f'{layer}.B')], -1)
-comb = rgb('Combined'); alpha = ch('Combined.A'); dcol = rgb('DiffCol'); Z = ch('Depth.Z')
+comb = rgb('Combined'); alpha = ch('Combined.A')
+f = OpenEXR.InputFile(EXR[:-4] + '-aux.exr'); chans = list(f.header()['channels'].keys())   # lượt phụ cy6.py: R = albedo GI, G = Z/1000 (nhân alpha)
+xa = ch('Combined.A'); dcol = np.repeat(ch('Combined.R')[..., None], 3, -1); Z = ch('Combined.G') * 1000 / np.maximum(xa, 1e-3); Z[xa < 1e-3] = 1e6
 irr = comb / np.maximum(dcol, 1e-4); irr[dcol.max(-1) < 1e-4] = 0
 lit = alb[..., :3] * irr
 fog = M.get('fog')
