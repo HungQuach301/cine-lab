@@ -433,9 +433,11 @@ for role in roles:
                 sun.data.energy = 4.2 if alt > 12 else 2.0 + 2.2 * max(0, alt) / 12; sun.data.color = (1.0, 1.0 - 0.4 * warm, 1.0 - 0.7 * warm)
                 bgn.inputs[0].default_value = (0.45, 0.55, 0.75, 1) if alt > 12 else (0.35, 0.33, 0.4, 1); bgn.inputs[1].default_value = 0.35
             sun.rotation_euler = (math.radians(90 - alt), 0, math.radians(-az + 180)); sun.data.angle = math.radians(1.5)
-            t = time.time(); sc.render.filepath = os.path.join(A.out, f'{rname}_{p}.exr'); bpy.ops.render.render(write_still=True)
+            t = time.time(); sc.render.filepath = os.path.join(A.out, f'{rname}_{p}.exr')
+            if not os.path.exists(sc.render.filepath): bpy.ops.render.render(write_still=True)   # tiếp tục sau khi bị cắt: giữ EXR đã dựng (cùng hạt giống ⇒ cùng ô)
             rmeta['passes'][p] = {'sun_alt': round(alt, 2), 'sun_az': round(az, 2)}; rmeta['render_s'][p] = round(time.time() - t, 1)
             print('SPRITE', rname, p, W, H, rmeta['render_s'][p], round(time.time() - T0), flush=True)
         meta['roles'][rname] = rmeta
+        json.dump(meta, open(os.path.join(A.out, f'sprites-{"-".join(roles)}.json'), 'w'), indent=1, ensure_ascii=False)   # ghi sau mỗi dáng
 json.dump(meta, open(os.path.join(A.out, f'sprites-{"-".join(roles)}.json'), 'w'), indent=1, ensure_ascii=False)
 print('DONE', round(time.time() - T0, 1))
