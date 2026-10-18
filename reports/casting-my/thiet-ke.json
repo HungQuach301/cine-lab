@@ -1,0 +1,130 @@
+{
+ "A1": {
+  "mo_ta": "A deep, older American male narrator in his sixties for a cinematic historical documentary. Dramatic yet measured, rich low voice with a slight gravel. Credible and grounded, never a movie-trailer announcer. Clean studio recording.",
+  "model": "eleven_multilingual_ttv_v2",
+  "seed": 18102026,
+  "guidance_scale": 5,
+  "chu_thu": "The thirteenth of September seventeen eighty-two. By the next afternoon, all ten batteries were lost.",
+  "ky_tu": 101,
+  "bien_the": [
+   {
+    "bien_the": 1,
+    "generated_voice_id": "x6SggWyetuAObcDBlZFL",
+    "tep": "/var/tmp/cine-out/casting-my/thiet-ke-A1-1.mp3",
+    "giay": 8.387125,
+    "xet": true,
+    "tu_dung": [
+     1.0,
+     1.0
+    ],
+    "f0": [
+     91.7,
+     72.4,
+     107.2
+    ],
+    "tu_giay": 2.049
+   },
+   {
+    "bien_the": 2,
+    "generated_voice_id": "1K08hmaUm6TgNqGPT87I",
+    "tep": "/var/tmp/cine-out/casting-my/thiet-ke-A1-2.mp3",
+    "giay": 6.767541666666666,
+    "xet": true,
+    "tu_dung": [
+     1.0,
+     1.0
+    ],
+    "f0": [
+     69.5,
+     61.2,
+     81.4
+    ],
+    "tu_giay": 2.366
+   },
+   {
+    "bien_the": 3,
+    "generated_voice_id": "QXW5tdJ7CsP0uj3otIV9",
+    "tep": "/var/tmp/cine-out/casting-my/thiet-ke-A1-3.mp3",
+    "giay": 7.603458333333333,
+    "xet": false,
+    "tu_dung": [
+     1.0,
+     1.0
+    ],
+    "f0": [
+     79.8,
+     59.1,
+     108.2
+    ],
+    "tu_giay": 2.107
+   }
+  ],
+  "chon": 2,
+  "ly_do_chon": "từ đúng 1.0 (thấp hơn của 2 cách nghe), F0 trung vị 69.5 Hz",
+  "voice_id": "1K08hmaUm6TgNqGPT87I"
+ },
+ "A2": {
+  "mo_ta": "An older American man with a deep, resonant voice. Serious war-documentary narrator with controlled intensity, unhurried and grave, General American accent. Not exaggerated, not an advertisement. High quality studio recording.",
+  "model": "eleven_multilingual_ttv_v2",
+  "seed": 18102026,
+  "guidance_scale": 5,
+  "chu_thu": "The thirteenth of September seventeen eighty-two. By the next afternoon, all ten batteries were lost.",
+  "ky_tu": 101,
+  "bien_the": [
+   {
+    "bien_the": 1,
+    "generated_voice_id": "z0DNM3gzZX7XNcxmuKyM",
+    "tep": "/var/tmp/cine-out/casting-my/thiet-ke-A2-1.mp3",
+    "giay": 7.943041666666667,
+    "xet": true,
+    "tu_dung": [
+     1.0,
+     1.0
+    ],
+    "f0": [
+     82.2,
+     67.8,
+     110.4
+    ],
+    "tu_giay": 2.199
+   },
+   {
+    "bien_the": 2,
+    "generated_voice_id": "gWR1B4JC9a1r8sYB9XBQ",
+    "tep": "/var/tmp/cine-out/casting-my/thiet-ke-A2-2.mp3",
+    "giay": 6.349583333333333,
+    "xet": true,
+    "tu_dung": [
+     1.0,
+     1.0
+    ],
+    "f0": [
+     80.3,
+     61.2,
+     111.8
+    ],
+    "tu_giay": 2.568
+   },
+   {
+    "bien_the": 3,
+    "generated_voice_id": "s10dEyg70F5958HOYcd8",
+    "tep": "/var/tmp/cine-out/casting-my/thiet-ke-A2-3.mp3",
+    "giay": 6.92425,
+    "xet": false,
+    "tu_dung": [
+     1.0,
+     1.0
+    ],
+    "f0": [
+     101.2,
+     58.8,
+     113.6
+    ],
+    "tu_giay": 2.315
+   }
+  ],
+  "chon": 2,
+  "ly_do_chon": "từ đúng 1.0 (thấp hơn của 2 cách nghe), F0 trung vị 80.3 Hz",
+  "voice_id": "gWR1B4JC9a1r8sYB9XBQ"
+ }
+}
