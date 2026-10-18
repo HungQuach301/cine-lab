@@ -1,0 +1,10 @@
+```json
+{
+  "A": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 4, "period": 6, "flags": ["empty_frame", "toy_look", "confusing"], "note": "Ruined quarter with a lone intact block. The ruins are beige, thin, plank-like walls and cone-shaped rubble piles, and they read as a game map. The big right half is empty sand. A tiny cluster of red-coat troops at the bottom is the only life. There is no smoke or fire, so the bombardment isn't visible. The framing is slightly better than B because the walls are more varied."},
+  "B": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 4, "period": 6, "flags": ["empty_frame", "toy_look", "confusing"], "note": "Almost identical to A. The ruin walls are a bit taller and denser, and the shadows are marginally harder. It has the same empty dune on the right, the same umbrella-like rubble blobs and the same tiny troop clump. Nothing separates it from A in a meaningful way."},
+  "C": {"craft": 6, "detail": 7, "toy_like": 5, "ai_look": 4, "period": 7, "flags": ["toy_look", "unreadable_scale"], "note": "The only frame that reads as a town. It has a coherent street grid, a bell tower, gardens, a fortified seawall, hills, sky and a horizon. The colour is warm and pleasant. The buildings are repetitive orange-roofed boxes that look like a city-builder game. The people are a few red specks too small to read. There is no ships, smoke or damage. It doesn't match the 'partly in ruins' brief, but it is the most watchable."},
+  "rank": ["C", "B", "A"],
+  "why": "C has depth, a sky, a horizon and a dense, readable town. A and B are near-duplicates: sparse beige rubble, an empty right half and no sky, which makes them feel like a game level.",
+  "top_fix_for_best": "Break up the repeated box houses with varied roof heights, chimneys and street clutter. Add bombardment damage (broken roofs, smoke plumes, a few burnt shells) and a few ships in the harbour. Put larger, readable troop and civilian groups in the foreground so the scale reads."
+}
+```

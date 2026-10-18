@@ -1,0 +1,47 @@
+{
+ "A": {
+  "craft": 4,
+  "detail": 3,
+  "toy_like": 9,
+  "ai_look": 5,
+  "period": 3,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "confusing",
+   "anachronism"
+  ],
+  "note": "The Rock is the best element, but the troops are black-dotted amber slabs that look like cake trays or LEGO baseplates and have no human read. The lines are bare ruler-straight walls with tiny black pole flags. The town is a speck. The smoke is wispy and there are no ships. The scale is confusing and the foreground is a big empty green field."
+ },
+ "B": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "period": 6,
+  "flags": [
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "The troops read as grey-white lines of figures with Bourbon-style flags, which is plausible for 1782 at distance. The town, bell tower, bastion walls on the slope and the sea are readable. Lighting is flat, the grass is a plain green carpet, and the wall texture is a repeated pattern. The smoke puffs look like fuzzy sprites. There are no ships or guns visible, and the formations are uniform and rigid. The Rock is cropped out, which loses the landmark."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "period": 6,
+  "flags": [
+   "flat_slide_look",
+   "toy_look"
+  ],
+  "note": "This is the same composition as B. The wall now has buttress and bastion shading and the hillside has warmer, more varied lighting. The troops are darker, so they read as less like paper cut-outs but also less legible. The hill has a few ugly low-poly shadow blocks at the top left. The foreground is still empty and there are still no ships."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "B and C have readable, believable troop lines, a town and bastions, while A's amber slab formations look like toys and make the scene confusing. C edges B on better wall modelling and lighting.",
+ "top_fix_for_best": "Break up the empty foreground and the rigid grid of troops. Add trenches, gabions, batteries with guns, camp tents and carts, vary the formations, add a few Royal Navy and Spanish ships and gunboats on the water, and fix the blocky hill shadow at top left."
+}

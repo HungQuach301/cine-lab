@@ -1,0 +1,47 @@
+{
+ "A": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 4,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Reads as a coherent fortress. The stone walls, sea and hillside town are decent. The troops are tiny stick figures on a huge empty sand-coloured parade ground. The ships are blocky and tiny, and the smoke is faint. The lighting is flat and bright, so there is little drama and no clear sign of a battle."
+ },
+ "B": {
+  "craft": 3,
+  "detail": 3,
+  "toy_like": 10,
+  "ai_look": 3,
+  "period": 3,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "confusing",
+   "unreadable_scale",
+   "anachronism"
+  ],
+  "note": "The troops are red and blue cylinders, like game pieces or pegs. The brick walls are a flat repeating tile. The water is washed out and the smoke is nearly gone. Of the three, it is the least believable as a battle."
+ },
+ "C": {
+  "craft": 7,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 4,
+  "period": 6,
+  "flags": [
+   "unreadable_scale"
+  ],
+  "note": "The same scene as A with better lighting. It has warmer light, soft shadows, a more textured stone face and visible smoke puffs. The rendering is richer and more cinematic. The troops are still tiny and sparse, the parade ground is still empty, and the ships are still blocky."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C has the best light, materials and smoke on the same layout as A, while B turns the troops into toy-like cylinders and flattens the textures.",
+ "top_fix_for_best": "Make the troops larger and denser, with readable tricorne silhouettes and firing crews at the embrasures. Add thick cannon smoke and incoming-fire impacts on the bastion, and shrink the empty parade ground. This would fix the toy-scale people and make the frame read as a battle."
+}

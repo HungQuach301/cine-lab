@@ -1,0 +1,13 @@
+```json
+{
+  "A": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "empty_frame", "unreadable_scale"],
+        "note": "Flatter, softer lighting. The water is calm and even, and it looks like a game-engine terrain. The ships are three identical black slabs with flat paper-like sails. The foreground is a big empty blue plane. The town is a decent cluster of orange roofs. The walls are plain brown boxes with no readable bastion geometry, and no people, smoke or activity."},
+  "B": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "empty_frame", "unreadable_scale"],
+        "note": "The town, ships and terrain are the same as A. The water has more sparkle and foam, which adds some life, but the whitecaps are pasted-on blobs. The terrain lighting is still flat. The ships are still toy-like, with no crew, rigging or wakes."},
+  "C": {"craft": 6, "detail": 5, "toy_like": 5, "ai_look": 3, "period": 5, "flags": ["toy_look", "empty_frame", "unreadable_scale"],
+        "note": "The best of the three, but the gap is small. The hillside has stronger directional light and shadow. It has visible ridges and contour paths, so it reads as terrain with some depth. The town roofs have better warm/cool contrast. The water is punchy but over-saturated, like a stock game ocean. The ships are unchanged: black hulls with flat card sails, no rigging and no wake. The scale is still miniature and diorama-like."},
+  "rank": ["C", "B", "A"],
+  "why": "All three share identical geometry and the same toy-like ships and empty water. C wins on stronger terrain lighting and modelling, and B beats A only because its water has more surface life.",
+  "top_fix_for_best": "Rebuild the ships with proper hull curvature, gun ports, rigging and billowing sails, and add bow wakes and a few small boats. Then tone down the oversaturated water, and add smoke, flags and tiny figures on the ramparts and quay to give the scene believable scale."
+}
+```

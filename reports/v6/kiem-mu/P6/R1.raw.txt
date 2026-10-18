@@ -1,0 +1,12 @@
+```json
+{
+  "A": {"craft": 4, "detail": 4, "toy_like": 7, "ai_look": 4, "period": 4, "flags": ["flat_slide_look", "toy_look", "unreadable_scale", "confusing"],
+    "note": "Dead-flat side-on lineup of three tiny, identical slab boats on a flat blue plane. Blurry grey smoke patches look like a blur filter, not smoke. The hill is large and the town is a thin strip, so the ships are tiny and static. There is no sense of attack or depth. The boats are too low and bare to read as floating batteries. They have no sails, guns or casemate detail."},
+  "B": {"craft": 6, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look"],
+    "note": "Best of the three. The lower, angled camera gives depth, and the rippled water has believable sun reflections. A rising smoke column, muzzle flashes and wall smoke give a sense of action. The ships are still blocky pixel-textured boxes with stick masts and no rigging, guns or crew. The town is cubes, the hill has a dark jagged edge artifact at the top, and the water texture is a bit noisy."},
+  "C": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look"],
+    "note": "Nearly identical to B. The hill silhouette is cleaner and the black edge artifact is gone, but the right-hand smoke bank is a milky haze that wipes out the town and wall, which cuts the detail. One muzzle flash has also disappeared. The ships are the same blocky boxes."},
+  "rank": ["B", "C", "A"],
+  "why": "B has the most dynamic camera, lighting and smoke action, and the ships are readable at a larger size. C is almost the same but loses the town to haze, and A is a flat, tiny, static lineup.",
+  "top_fix_for_best": "Rebuild the batteries as large, detailed hulls with sloped timber casemates, open gun ports, rigging and crew. Frame them close and low with a diagonal composition. Fix the hill's black edge artifact, replace the pixel-block hull texture with weathered wood, and add shot splashes and return fire from the walls."}
+```

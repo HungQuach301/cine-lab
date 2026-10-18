@@ -1,0 +1,10 @@
+```json
+{
+  "A": {"craft": 5, "detail": 4, "toy_like": 6, "ai_look": 4, "period": 6, "flags": ["empty_frame", "toy_look", "unreadable_scale"], "note": "A huge flat beige plaza with tiny troop blocks and a few specks. Bright lighting gives a clean look. The buildings are simple boxes with orange roofs and the ruins are grey blobs. The foreground is dominated by big roofs, so the garrison is hard to read."},
+  "B": {"craft": 4, "detail": 4, "toy_like": 6, "ai_look": 4, "period": 6, "flags": ["empty_frame", "toy_look", "unreadable_scale"], "note": "Almost the same as A, but the ruins are darker and more contrasty and the colour is a bit more saturated. It has the same big empty plaza and tiny troops. The dark ruin chunks look like broken geometry, so it is slightly worse than A."},
+  "C": {"craft": 7, "detail": 7, "toy_like": 5, "ai_look": 3, "period": 7, "flags": ["toy_look", "unreadable_scale"], "note": "A dense town with a bastioned wall, a church tower, allotments, a green space and water. It reads as a fortified town and has depth and scale. The buildings are still low-poly boxes and the water is a flat saturated blue. Troops and people are almost invisible, so it does not show a garrison. The wall is a plain tan slab with little masonry detail."}, 
+  "rank": ["C", "A", "B"],
+  "why": "C is the only one that reads as a fortified 18th-century town, with wall, bastion, church and dense streets, while A and B are near-identical empty sand plazas with tiny troop blocks.",
+  "top_fix_for_best": "Make the garrison visible: add clearly readable troop columns, gun crews and sentries on the bastion and in the streets, plus ships in the water. Also texture the wall with masonry and add chimney smoke, and use a more natural, less saturated water colour."
+}
+```

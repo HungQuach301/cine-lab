@@ -1,0 +1,8 @@
+```json
+{"A": {"craft": 6, "detail": 6, "toy_like": 6, "ai_look": 4, "period": 6, "flags": ["toy_look", "unreadable_scale"], "note": "Reads as a real fortress with tiny soldiers in red and blue coats. The stone texture is good and the colours are clean. The parade ground is a huge flat empty tan slab. The troops are tiny stick figures and the ships are blocky. The smoke puffs over the water look like cotton wool."},
+ "B": {"craft": 4, "detail": 3, "toy_like": 9, "ai_look": 3, "period": 4, "flags": ["toy_look", "flat_slide_look", "unreadable_scale", "anachronism"], "note": "The troops are plain red and blue cylinders, like game pieces or pegs, so you can't tell they are soldiers. The brick texture is cartoonish. The smoke is faint and the lighting is flat. It looks like a board game."},
+ "C": {"craft": 7, "detail": 6, "toy_like": 5, "ai_look": 4, "period": 6, "flags": ["unreadable_scale"], "note": "Same scene as A with warmer, more contrasted light and soft shadows on the wall. The stone looks heavier and more atmospheric. The grading is more cinematic. The figures are still tiny and a bit stiff, and the parade ground is still empty."},
+ "rank": ["C", "A", "B"],
+ "why": "C and A have the same geometry and recognisable soldiers, but C's lighting and shadows give it more depth and a more cinematic look, while B's cylinder troops look like a board game.",
+ "top_fix_for_best": "Make the troops bigger and better modelled, with tricorns, coats and muskets. Add dense cannon smoke and drifting haze across the bastion, and break up the empty parade ground with ammunition crates, gun crews and wounded."}
+```

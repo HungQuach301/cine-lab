@@ -1,0 +1,48 @@
+{
+ "A": {
+  "craft": 5,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Warm golden grade and soft light look pleasant. The huge empty sand plaza leaves tiny troop blocks as the only life. Houses are clean, box-like, and read as game or model pieces. The ruined walls are blobby and washed out, and the troops are dense red smears with no readable uniforms."
+ },
+ "B": {
+  "craft": 5,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Nearly identical to A. It has slightly more contrast and darker ruin shadows, so the ruins read a bit better as burnt or collapsed structures. The same empty plaza, tiny unreadable troops and flat sand texture remain. It is marginally punchier than A and no more detailed."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "cluttered"
+  ],
+  "note": "This is the only true panorama. It has a bastioned star-fort wall, a dense town fabric, a church tower, a harbour and fields, so the composition and sense of place are far better. The sea is flat saturated blue, the bastion tops are bare textureless slabs, and the garrison and ships are almost absent. The roofs are repetitive orange boxes, so it still looks like a low-poly city-builder."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "C shows an actual fortified town with walls, harbour and dense streets, while A and B are near-identical shots of an empty sand plaza with unreadable troop specks.",
+ "top_fix_for_best": "Put the garrison and ships in the shot: visible white-coated troops on the bastions and in the streets, a few period ships on the water, and cannon smoke. Add texture to the bastion tops and sea, and vary the building heights and roof colours to break the repetition."
+}

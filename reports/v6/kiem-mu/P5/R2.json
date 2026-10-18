@@ -1,0 +1,47 @@
+{
+ "A": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "A huge, empty sand-coloured plaza fills the middle of the frame. Troops are tiny red block formations and the people are specks. The ruined walls are jagged grey lumps. The roofs are a saturated orange, and the flat white roofs with cube vents look modern. The warm lighting is pleasant but flat, and the foreground buildings look like game assets."
+ },
+ "B": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Same layout as A. The ruins are darker, near-black and harsher, which reads as burnt but also as crude low-poly shapes. The contrast is slightly higher and the troops are slightly more legible. The empty plaza, tiny figures and modern-looking flat roofs are unchanged."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 7,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "cluttered"
+  ],
+  "note": "This is a real establishing panorama. It has a dense town, a bastioned wall with a sea edge, a church tower, fields and a green. The scale and depth read well. The wall is flat and untextured and the water is a plain saturated blue. The houses are repetitive boxes, and the troops and ships are almost absent, so the garrison isn't visible."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C is the only frame that reads as a fortified town, with dense layered urban fabric, a bastion and a landmark tower. A and B are near-identical, empty sand plazas with toy-like blocks and tiny troops.",
+ "top_fix_for_best": "Add the garrison and ships: visible red-coated regiments on the bastion and in the streets, plus period vessels in the harbour. Texture the stone walls with masonry, and replace the flat blue water with a darker, shaded sea with wave detail. Add chimney smoke and a haze or depth grade to break up the repetition."
+}
