@@ -1,0 +1,229 @@
+{
+ "phien": "PT2",
+ "ngay": "2026-10-18",
+ "cach_kiem": "(a) so A↔LAI theo vùng (bản đồ khác biệt cấu trúc + màu bão hoà, design/pt/lai/kiem_c.py) và rà tay 16 ô 200 % mỗi khung + phóng 400 % các vật nghi ngờ (thùng, gờ, công-xon, bao cát); (b) đối chiếu danh sách vật nền cho phép có nguồn TIEN-KY/claims; (c) chỉ dùng tấm C khi 0 lỗi chắc; (d) KHÔNG dùng chấm mù để kiểm dữ kiện. Kiểm trên KẾT QUẢ GHÉP thật (nền LAI d2), vì vùng bảo vệ đã thay bằng điểm ảnh A.",
+ "nguon": {
+  "S051": "Drinkwater 1785/1905, Appendix p.368: \"The garrison expended very near 8,000 barrels of powder\" (claims-vay-ham.md S051)",
+  "S062": "Drinkwater, Ch. V pp.148-149: pháo kích 12/4/1781, dân bỏ phố chạy về nam (claims-vay-ham.md S062)",
+  "S063": "Drinkwater, Ch. V p.152: \"four or five houses were burnt to the ground\" (14/4/1781) (claims-vay-ham.md S063)",
+  "RUINS": "ghost SH 1782 (Drinkwater 1786 Plan of the Batteries) — lô ghi \"RUINS\" (PT §4.2)",
+  "S114": "HMGoG Press Release 85/2015: 22/5/1940 phụ nữ, trẻ em, người già sơ tán (claims-vay-ham.md S114)"
+ },
+ "danh_sach_vat_nen_cho_phep": {
+  "1782": [
+   {
+    "vat": "thùng gỗ (barrel)",
+    "nguon": [
+     "S051"
+    ],
+    "ghi_chu": "thùng thuốc súng/hàng tiếp tế của đồn trú"
+   },
+   {
+    "vat": "gạch đá vụn, mảnh vữa rơi (rubble)",
+    "nguon": [
+     "S062",
+     "S063",
+     "RUINS"
+    ]
+   },
+   {
+    "vat": "dầm/ván gỗ cháy, gỗ rời",
+    "nguon": [
+     "S063"
+    ]
+   },
+   {
+    "vat": "vết bong vữa lộ đá hộc/gạch, muội, vết mảnh pháo trên tường",
+    "nguon": [
+     "S062",
+     "S063"
+    ]
+   },
+   {
+    "vat": "bề mặt: đất nện có vệt bánh xe, ngói mòn, vữa loang",
+    "nguon": [
+     "bề mặt — không phải vật"
+    ]
+   }
+  ],
+  "1943": [
+   {
+    "vat": "bề mặt: vữa sơn bong, loang ẩm, bẩn; đá lát mòn",
+    "nguon": [
+     "bề mặt — không phải vật"
+    ]
+   },
+   {
+    "vat": "KHÔNG vật nào: TIEN-KY T3 không có nguồn mô tả đồ phố 1943 (thùng/hòm/bao cát) → prompt cấm thêm vật",
+    "nguon": []
+   }
+  ]
+ },
+ "khung_neo": {
+  "1782-hem-K09-K10": {
+   "tam_C_dung": "1782-d2-lan2.png (lần sinh 2 — 1 lần sinh lại / tối đa 2; sinh từ nền A v1 — v2 chỉ đổi vật liệu lòng nhà đổ nát, vùng bảo vệ)",
+   "lan_1_bi_loai": [
+    {
+     "loai": "LỖI CHẮC — đổi dữ kiện",
+     "mo_ta": "AI dựng lại mái + tường liền cho các lô ĐỔ NÁT (Drinkwater ghi RUINS) → phố thành nguyên vẹn",
+     "xu_ly": "sinh lại + bảo vệ phần đổ nát bằng lớp mã *_do"
+    },
+    {
+     "loai": "trái HC1 (không phải dữ kiện)",
+     "mo_ta": "AI bỏ bóng nhà trên lòng hẻm (ánh sáng đổi)",
+     "xu_ly": "sinh lại với ràng buộc bóng"
+    }
+   ],
+   "lan_2_vi_pham_mat_na_da_chan": [
+    {
+     "mo_ta": "AI vẫn vẽ lại lô đổ nát (tường có gờ) trong vùng BẢO VỆ",
+     "xu_ly": "HC2 ghép lại điểm ảnh A — không còn trong kết quả"
+    }
+   ],
+   "vat_them_doi_trong_ket_qua": [
+    {
+     "id": "V1",
+     "vat": "3 thùng gỗ mới chân tường (2 trái, 1 phải)",
+     "thuoc_danh_sach": true,
+     "nguon": [
+      "S051"
+     ],
+     "ket_luan": "giữ"
+    },
+    {
+     "id": "V2",
+     "vat": "đống gạch đá vụn dọc hai chân tường + mảnh vụn rải lòng hẻm",
+     "thuoc_danh_sach": true,
+     "nguon": [
+      "S062",
+      "S063",
+      "RUINS"
+     ],
+     "ket_luan": "giữ"
+    },
+    {
+     "id": "V3",
+     "vat": "≈ 6 dầm/ván gỗ cháy nằm và dựng chân tường",
+     "thuoc_danh_sach": true,
+     "nguon": [
+      "S063"
+     ],
+     "ket_luan": "giữ"
+    },
+    {
+     "id": "V4",
+     "vat": "bong vữa lộ đá hộc/gạch, muội, vết mảnh pháo trên mọi mặt tường",
+     "thuoc_danh_sach": true,
+     "nguon": [
+      "S062",
+      "S063"
+     ],
+     "ket_luan": "giữ"
+    },
+    {
+     "id": "V5",
+     "vat": "mặt hẻm đất nện + vệt bánh xe; ngói mòn",
+     "thuoc_danh_sach": true,
+     "nguon": [
+      "bề mặt"
+     ],
+     "ket_luan": "giữ"
+    },
+    {
+     "id": "V6",
+     "vat": "AI thay 2 thùng (đen) của A bằng gạch vụn + 1 thùng đổ; khi chiếu sáng theo lượt, bóng của thùng A in lên gạch vụn thành \"bóng ma\"",
+     "thuoc_danh_sach": null,
+     "muc": "lỗi GHÉP (không phải dữ kiện). Ghi chú sửa sổ: bản rà đầu ghi \"thùng kim loại đục lỗ\" — đó là sản phẩm của bước ghép bản đầu (chuyển chi tiết tách vùng), KHÔNG phải ảnh AI; phát hiện khi rà 400 % lần 2",
+     "ket_luan": "ghép lại thùng A (lớp 9510)"
+    },
+    {
+     "id": "V7",
+     "vat": "gờ tầng/gờ mái thủ tục của A bị AI xoá (tường phẳng)",
+     "thuoc_danh_sach": null,
+     "muc": "không phải vật thêm; gờ A không có nguồn",
+     "ket_luan": "giữ C; vệt bóng gờ của A lọc khi chiếu sáng (mở/đóng 21 px)"
+    }
+   ],
+   "kiem_vat_cam": {
+    "nguoi": 0,
+    "co_moi": 0,
+    "chu_bien_hieu": 0,
+    "tau_moi": 0,
+    "nguon_sang_moi": 0,
+    "vat_hien_dai_con_lai": 0,
+    "ghi_chu": "trời, Line Wall, tàu, cột cờ, pháo, đạn pháo, đèn, mọi ô cửa/cửa chớp/kính = điểm ảnh A (sai khác 0,000/255 cả 5 lượt); cờ Union mẫu 1707 do lớp sống vẽ"
+   },
+   "loi_chac_cuoi": 0,
+   "nghi_van_con_lai": 0,
+   "duoc_dung": true
+  },
+  "1943-commercial-square": {
+   "tam_C_dung": "1943-d2.png (lần sinh 1; sinh từ nền A v1 còn bao cát — vùng bao cát nay là mặt đất được sửa)",
+   "vat_them_doi_trong_ket_qua": [
+    {
+     "id": "W1",
+     "vat": "đổi màu sơn: toà trái hồng → vàng đất; toà phải kem → hồng loang",
+     "thuoc_danh_sach": null,
+     "muc": "không phải lỗi dữ kiện: màu A là bảng màu thủ tục, không nguồn từng toà",
+     "ket_luan": "giữ, ghi để chủ dự án quyết (W1 ở §9)"
+    },
+    {
+     "id": "W2",
+     "vat": "vữa sơn bong, loang ẩm, bẩn; đá lát mòn",
+     "thuoc_danh_sach": true,
+     "nguon": [
+      "bề mặt"
+     ],
+     "ket_luan": "giữ"
+    },
+    {
+     "id": "W3",
+     "vat": "AI đổi mép mái/gờ mái thành gờ đá chạm trổ + công-xon (chi tiết kiến trúc)",
+     "thuoc_danh_sach": false,
+     "muc": "ngoài danh sách, không nguồn",
+     "ket_luan": "XOÁ — ghép lại gờ (vua_go) + ngói (ngoi) của A. Lần rà 400 % thứ 2 thấy chạm trổ nằm trên lớp NGÓI (lần 1 chỉ loại lớp gờ). Sót: vài vệt công-xon nhỏ trên tường ngay dưới mái trái (≈ 0,05 % khung) — nghi vấn nhẹ, ghi"
+    },
+    {
+     "id": "W4",
+     "vat": "bao cát cửa (PT đặt trong A, KHÔNG có nguồn TIEN-KY)",
+     "thuoc_danh_sach": null,
+     "muc": "vật không nguồn trong chính nền A",
+     "ket_luan": "BỎ khỏi nền A 1943 (PT2_NO_SANDBAG=1, giữ chuỗi ngẫu nhiên → mọi hình học khác trùng) ở CẢ HAI bản; tấm C sinh từ nền A còn bao cát (C tự xoá bao cát)"
+    },
+    {
+     "id": "W5",
+     "vat": "công-xon đỡ dưới 3 ban công (AI vẽ trên tường, không bóng) — 0,35 % khung",
+     "thuoc_danh_sach": false,
+     "muc": "NGOẠI LỆ: chi tiết phụ của ban công (ban công = vật bảo vệ, điểm ảnh A), không mang dữ kiện thời kỳ",
+     "ket_luan": "giữ C (đã thử ghép A / vá ảnh: để lại mảng tròn thấy rõ ở 400 %) — CHỜ chủ dự án; nếu không chấp nhận: sinh lại lần 2"
+    }
+   ],
+   "kiem_vat_cam": {
+    "nguoi": 0,
+    "co_moi": 0,
+    "chu_bien_hieu": 0,
+    "tau_moi": 0,
+    "nguon_sang_moi": 0,
+    "vat_hien_dai": 0,
+    "ghi_chu": "trời, đồi, biển, tàu, Line Wall, cột cờ, đèn, hầm trú ẩn, mọi ô cửa/cửa chớp/ban công/biển hiệu trơn = điểm ảnh A; đêm phong toả: trần độ sáng 1,5× A, không cửa sổ sáng"
+   },
+   "loi_chac_cuoi": 0,
+   "nghi_van_con_lai": 0,
+   "ngoai_le_cho_duyet": [
+    "W5"
+   ],
+   "duoc_dung": true
+  }
+ },
+ "tong": {
+  "loi_chac_truoc_xu_ly": 1,
+  "nghi_van_truoc_xu_ly": 1,
+  "loi_ghep_cua_phien": 2,
+  "loi_chac_cuoi": 0,
+  "nghi_van_cuoi_nhe": 1,
+  "ngoai_le_cho_duyet": 1,
+  "chi_tiet": "lỗi chắc = lô đổ nát bị dựng lại (lần 1, sinh lại); nghi vấn = gờ mái chạm trổ (W3, đã xoá, còn sót ≈ 0,05 %); lỗi ghép = thùng (V6) + bao cát (W4); ngoại lệ = công-xon ban công (W5)",
+  "gio_nguoi_ra_thuc": "≈ 1 h phiên rà (2 khung neo × 16 ô 200 % × 3 vòng + 6 vật 400 % + bảng chứng)"
+ },
+ "bang_chung": "reports/pt2/kiem/bang-chung-400.jpg"
+}

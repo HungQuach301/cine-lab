@@ -1,0 +1,28 @@
+{
+ "ten": "fixture BC (K-1.15)",
+ "fps": 24,
+ "mat_na": "noi-dung-mask.json",
+ "noi": [
+  {
+   "t": [
+    0.0,
+    5.0
+   ],
+   "noi": "thanh_pho"
+  },
+  {
+   "t": [
+    5.0,
+    10.0
+   ],
+   "noi": "bien"
+  }
+ ],
+ "log_vat": "log-vat.json",
+ "hero_anh": {
+  "khung": "hero/khung",
+  "mat_na": "hero/mat-na",
+  "phap_tuyen": "hero/phap-tuyen",
+  "hero_id": 7
+ }
+}

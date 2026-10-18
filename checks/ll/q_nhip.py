@@ -10,7 +10,7 @@ khung bắt đầu của cảnh dùng lại đọc `p.frame0`, KHÔNG có thì `
 
   q_nhip.py <spec.yaml>                              đặc tả có segments[].dur và beats (định dạng rhythm.py: cuộn mẫu, tờ khung)
   q_nhip.py <episode.yaml> --tl <timeline.json>      tập: thời lượng + mốc lớp 2D/cảnh lấy từ timeline (đã quy giây), beats từ đặc tả
-            [--mp4 <master.mp4>] [--json ra.json]
+            [--mp4 <master.mp4>] [--bo-tl bo-tl.json …] [--json ra.json]     (--bo-tl: 1.15 biến cố cảnh tl; dùng được cả ở chế độ đặc tả)
 
 Biến cố khai ở đặc tả: segments[].beats: [{t (giây trong đoạn, SỐ), k: cut|cam|region|route|ring|sticker|number|label|text|palette|score, s}].
 TRƯỢT khi:
@@ -25,6 +25,15 @@ TRƯỢT khi:
       (trước chỉ báo quãng dài nhất nên che quãng sau); quãng "trôi chậm" (thước cũ > 6 s, không tĩnh) báo kèm, không tính lỗi.
 Không khai beats (tập cũ): báo thêm số đo "mốc đặc tả" (mọi mốc thật, cận trên số biến cố) để tham khảo — không thay được beats.
 Trong ±5 % quanh 3,5 s và 6 s: nêu tên.
+1.15 (I8, chủ dự án duyệt 18/10; V5B2B §10.5): BIẾN CỐ CẢNH TL — với mỗi bộ timelapse (k2check --bo-tl), biến cố thị giác bên trong cảnh tl được
+      ĐO (không khai) và cộng vào (b), (c):
+      · đổi pha máy sang một pha thuộc PHASE_EV (ramp, orbit, pin, crane, reveal): `campath.shots[].phases` [{k|kind|phase, t: [a, b] giây cảnh
+        | f: [a, b] khung cảnh}] nếu có, không thì chuyển pha giữa hai khung liền của `campath.frames[].phase` (cùng `canh`);
+      · đồng hồ dừng: nhãn đồng hồ không đổi ≥ CLOCK_MIN_S (1,0 s) VÀ ≥ CLOCK_K (2) × trung vị độ dài các quãng nhãn của cảnh đó (đồng hồ chạy
+        1 phút/s không bị tính là dừng). Nguồn nhãn: `campath.frames[].clock` → `frames_meta` (bo-tl: {canh: meta.json của hero.js}, khoá
+        frames_meta[f].clock) → log chữ của bộ (role clock, mẫu thưa; độ dài quãng tính theo bước mẫu). Biến cố = khung đầu quãng dừng.
+      Ánh xạ khung cảnh → giây phim qua shot đặc tả/timeline có `p.hero` (hoặc `p.dir` = heroes[k].dir) = `canh`: t = đầu shot +
+      (f_cảnh − frame0) / (24 · speed), chỉ trong khung shot. Campath không có `canh` → không ánh xạ (không thêm biến cố). Biến cố đo không qua (a).
 """
 import json, os, subprocess, sys
 
@@ -33,6 +42,7 @@ from checks.ll import base  # noqa: E402
 
 TOL, MERGE, MEAN_MAX, GAP_MAX, STATIC_MAX, STATIC_DIFF = 0.3, 0.25, 3.5, 6.0, 6.0, 0.6
 STATIC_ANCHOR, ANCHOR_STEP = 2.0, 12   # 1.13: khung tĩnh theo khung neo (mỗi 12 khung = 0,5 s)
+PHASE_EV, CLOCK_MIN_S, CLOCK_K = ('ramp', 'orbit', 'pin', 'crane', 'reveal'), 1.0, 2.0   # 1.15 (I8): biến cố cảnh tl
 
 
 def num(v): return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
@@ -158,6 +168,95 @@ def static_anchor(F, th=STATIC_ANCHOR, step=ANCHOR_STEP, fps=24):
     return out
 
 
+# ------------------------------------------------------------------ 1.15 (I8): biến cố cảnh tl
+def _clock_runs(seq, step_f, fps=24):
+    """seq: [(f, nhãn)] tăng dần theo f (một cảnh) → [(f đầu, f cuối, nhãn, dài s)] các quãng nhãn không đổi"""
+    out, i = [], 0
+    while i < len(seq):
+        j = i
+        while j + 1 < len(seq) and seq[j + 1][1] == seq[i][1] and seq[j + 1][0] - seq[j][0] <= 1.5 * step_f: j += 1
+        out.append((seq[i][0], seq[j][0], seq[i][1], (seq[j][0] - seq[i][0] + step_f) / fps)); i = j + 1
+    return out
+
+
+def clock_stops(seq, step_f, fps=24):
+    """quãng đồng hồ dừng của một cảnh: dài ≥ CLOCK_MIN_S và ≥ CLOCK_K × trung vị độ dài quãng nhãn → [(f đầu, f cuối, nhãn, dài s)]"""
+    import statistics
+    R = _clock_runs(seq, step_f, fps)
+    if len(R) < 2: return []
+    md = statistics.median(x[3] for x in R)
+    return [x for x in R if x[3] >= CLOCK_MIN_S and x[3] >= CLOCK_K * md]
+
+
+def _ld(base, p):
+    if p is None or isinstance(p, (list, dict)): return p
+    q = p if os.path.isabs(p) else os.path.join(base, p)
+    if q.endswith('.gz'):
+        import gzip; return json.load(gzip.open(q))
+    return json.load(open(q))
+
+
+def tl_su_kien(B, base, fps=24):
+    """một bộ timelapse → {canh: [(f_cảnh, loại, mô tả)]} biến cố thị giác đo được trong cảnh tl (pha máy + đồng hồ dừng)"""
+    CP = _ld(base, B.get('campath')); F = CP['frames'] if isinstance(CP, dict) and 'frames' in CP else (CP or [])
+    SH = CP.get('shots') if isinstance(CP, dict) else None; ev = {}
+    has_ph = [s for s in SH or [] if isinstance(s, dict) and isinstance(s.get('phases'), list) and s.get('canh')]
+    for s in has_ph:
+        for p in s['phases']:
+            k = p.get('k') or p.get('kind') or p.get('phase')
+            a = (p.get('f') or [None])[0] if p.get('f') else (round(float(p['t'][0]) * fps) if p.get('t') else None)
+            if k in PHASE_EV and a is not None: ev.setdefault(s['canh'], []).append((int(a), f'pha {k}', 'campath.shots[].phases'))
+    done = {s['canh'] for s in has_ph}
+    for x, y in zip(F, F[1:]):
+        c = y.get('canh')
+        if c is None or c in done or x.get('canh') != c or y.get('phase') == x.get('phase') or y.get('phase') not in PHASE_EV: continue
+        if y.get('f_canh') is None: continue
+        ev.setdefault(c, []).append((int(y['f_canh']), f"pha {y['phase']}", 'campath.frames[].phase'))
+    # đồng hồ
+    seqs, step = {}, 1
+    if any(f.get('clock') for f in F):
+        for f in F:
+            if f.get('clock') and f.get('canh') is not None and f.get('f_canh') is not None: seqs.setdefault(f['canh'], []).append((int(f['f_canh']), str(f['clock'])))
+        src = 'campath.frames[].clock'
+    elif B.get('frames_meta'):
+        FM = B['frames_meta']; src = 'frames_meta'
+        for c, m in (FM.items() if isinstance(FM, dict) else []):
+            M = _ld(base, m); M = M.get('frames_meta', M) if isinstance(M, dict) else {}
+            seqs[c] = sorted((int(k), str(v['clock'] if not isinstance(v['clock'], dict) else v['clock'].get('s'))) for k, v in M.items() if isinstance(v, dict) and v.get('clock'))
+    elif B.get('log_chu'):
+        L = _ld(base, B['log_chu']); L = L['frames'] if isinstance(L, dict) and 'frames' in L else L; byf = {f.get('f'): f for f in F}; src = 'log chữ (role clock, mẫu thưa)'
+        fs = sorted(int(x['f']) for x in L or [])
+        step = min((b - a for a, b in zip(fs, fs[1:]) if b > a), default=1)
+        for x in L or []:
+            c = next((it.get('s') for it in x.get('text') or x.get('items') or [] if it.get('role') == 'clock'), None); m = byf.get(x['f'])
+            if c and m and m.get('canh') is not None and m.get('f_canh') is not None: seqs.setdefault(m['canh'], []).append((int(m['f_canh']), str(c)))
+    else: src = None
+    for c, sq in seqs.items():
+        for a, b, lab, d in clock_stops(sorted(sq), step, fps): ev.setdefault(c, []).append((a, 'đồng hồ dừng', f'"{lab}" {d:.2f} s ({src})'))
+    return ev
+
+
+def tl_bien_co(V, bundles, heroes=None, fps=24):
+    """V = view(); bundles = [(B, base)] → [(giây phim, đoạn, loại, mô tả)] biến cố cảnh tl ánh xạ qua shot có p.hero = canh"""
+    EV = {}
+    for B, base in bundles or []:
+        for c, xs in tl_su_kien(B, base, fps).items(): EV.setdefault(c, []).extend(xs)
+    if not EV: return []
+    dir2k = {str(h.get('dir')): k for k, h in (heroes or {}).items() if isinstance(h, dict) and h.get('dir')}
+    out, t_abs = [], 0.0
+    for sid, dur, HZ, shots, _ in V:
+        for j, sh in enumerate(shots):
+            p = sh.get('p') or {}; c = p.get('hero') if p.get('hero') in EV else dir2k.get(str(p.get('dir')))
+            if c not in EV: continue
+            at = num(sh.get('at', 0)) or 0.0; end = num(shots[j + 1].get('at')) if j + 1 < len(shots) else dur
+            f0 = num(p.get('frame0', p.get('off', 0))) or 0.0; sp = num(p.get('speed', 1)) or 1.0
+            for fc, k, s in EV[c]:
+                t = at + (fc - f0) / (fps * sp)
+                if fc >= f0 and at <= t < end: out.append((round(t_abs + t, 3), sid, f'tl:{k}', f'{c} khung {fc}: {s}'))
+        t_abs += dur
+    return sorted(set(out))
+
+
 def stats(ev, total):
     ev.sort(); U = []
     for e in ev:
@@ -168,8 +267,9 @@ def stats(ev, total):
     return dict(n=len(ev), gop=len(U), tb=round(total / len(U), 2), dai_nhat=round(g, 2), dai_nhat_tu=f'{U[i][1]} {U[i][0]:.2f}s ({U[i][2]})')
 
 
-def q37(E, TL=None, mp4=None, F=None, v113=False):
-    """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0"""
+def q37(E, TL=None, mp4=None, F=None, v113=False, tl=None):
+    """v113=True: (d) khung tĩnh theo khung neo (1.13) — CHỈ BÁO (k2check hàng "Q37 (1.13)") tới khi chủ dự án duyệt; mặc định thước 1.11.0.
+    tl = [(bộ timelapse, thư mục)] (1.15, I8): cộng biến cố đo trong cảnh tl vào (b), (c)."""
     V = view(E, TL); bad, ev, mk, t_abs, nob = [], [], [], 0.0, []
     for sid, dur, HZ, shots, B in V:
         T = spec_times(HZ, shots, dur); mk += [(t_abs + x, sid, 'mốc', '') for x in T if x < dur]
@@ -183,6 +283,8 @@ def q37(E, TL=None, mp4=None, F=None, v113=False):
                 ev.append((t_abs + t, sid, b.get('k'), b.get('s')))
         t_abs += dur
     if nob: bad.append(f'(a) {len(nob)}/{len(V)} đoạn không khai beats ({", ".join(nob[:6])}{"…" if len(nob) > 6 else ""})')
+    TE = tl_bien_co(V, tl, dict(E.get('heroes') or {}, **((TL or {}).get('heroes') or {}))) if tl else []
+    ev += [(t, sid, k, s) for t, sid, k, s in TE]
     S = stats(ev, t_abs) if ev else None; M = stats(mk, t_abs); near = []
     if S:
         if S['tb'] > MEAN_MAX: bad.append(f"(b) khoảng biến cố trung bình {S['tb']} s > {MEAN_MAX} s")
@@ -197,13 +299,14 @@ def q37(E, TL=None, mp4=None, F=None, v113=False):
             if L > STATIC_MAX: bad.append(f'(d) khung tĩnh {L} s > {STATIC_MAX} s (từ {int(a // 60)}:{a % 60:04.1f})')
             elif abs(L - STATIC_MAX) <= 0.05 * STATIC_MAX: near.append(f'khung tĩnh {L} s từ {int(a // 60)}:{a % 60:04.1f} (ngưỡng {STATIC_MAX})')
         troi = [x for x in _runs_cu(F, STATIC_MAX) if not any(L > STATIC_MAX and a <= x[1] + x[0] and x[1] <= a + L for L, a in A)] if v113 else []
-    val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n']} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
+    val = (f"{t_abs:.1f} s · " + (f"biến cố khai {S['n'] - len(TE)}{' + đo cảnh tl ' + str(len(TE)) if TE else ''} (gộp {S['gop']}) · TB {S['tb']} s · dài nhất {S['dai_nhat']} s" if S else 'không khai beats')
            + (f" · khung tĩnh ({'neo, < ' + str(STATIC_ANCHOR) + '/255' if v113 else 'khung liền < ' + str(STATIC_DIFF) + '/255'}) dài nhất {st[0]} s (từ {int(st[1] // 60)}:{st[1] % 60:04.1f})"
               + (f" · trôi chậm (thước cũ > {STATIC_MAX:g} s, không tĩnh): {len(troi)} quãng, dài nhất {max(troi)[0]} s từ {int(max(troi)[1] // 60)}:{max(troi)[1] % 60:04.1f}" if troi else '')
               if st else ' · khung tĩnh: không đo (không có master)')
-           + (f" · tham khảo mốc đặc tả: TB {M['tb']} s, dài nhất {M['dai_nhat']} s ({M['dai_nhat_tu']})" if M and not S else ''))
+           + (f" · tham khảo mốc đặc tả: TB {M['tb']} s, dài nhất {M['dai_nhat']} s ({M['dai_nhat_tu']})" if M and not S else '')
+           + (f" · biến cố cảnh tl (đo, I8): {len(TE)} (" + ', '.join(f'{k[3:]} {sum(1 for x in TE if x[2] == k)}' for k in sorted({x[2] for x in TE})) + ')' if TE else ''))
     return dict(ok=not bad, loi=bad, val=val, note='; '.join(bad[:5]), sat_nguong=near, bien_co=S, moc_dac_ta=M, khung_tinh=st, khung_tinh_cu=st_cu,
-                troi_cham=troi, tong_s=round(t_abs, 2))
+                troi_cham=troi, tong_s=round(t_abs, 2), bien_co_tl=TE)
 
 
 if __name__ == '__main__':
@@ -211,7 +314,8 @@ if __name__ == '__main__':
     if not a: sys.exit(__doc__)
     g = lambda k: a[a.index('--' + k) + 1] if '--' + k in a else None
     E = base.load(a[0]); TL = json.load(open(g('tl'))) if g('tl') else None
-    r = q37(E, TL, g('mp4'))
+    BT = [(json.load(open(a[i + 1])), os.path.dirname(os.path.abspath(a[i + 1]))) for i, x in enumerate(a) if x == '--bo-tl']
+    r = q37(E, TL, g('mp4'), tl=BT or None)
     print('Q37 ' + ('ĐẠT' if r['ok'] else 'TRƯỢT') + ' · ' + r['val'] + ''.join('\n  ' + x for x in r['loi'][:30])
           + ('\n  sát ngưỡng: ' + '; '.join(r['sat_nguong']) if r['sat_nguong'] else ''))
     if g('json'): json.dump(r, open(g('json'), 'w'), ensure_ascii=False, indent=1)
