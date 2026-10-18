@@ -1,4 +1,4 @@
-# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11)
+# KINH THÁNH KÊNH 2 — Moving Parts (chủ dự án duyệt 13/10/2026 22:49; bổ sung 14/10/2026 10:41, 18:08, 20:45, 22:11, 15/10/2026, 16–17/10/2026 — §10 và 17–18/10/2026 — §11; bổ sung 18/10/2026 tối — §12)
 
 Nguồn hình thành: phân tích đối thủ "Fortune of Nations Animated" (lời + 14 khung, 13/10) và "GoDocs" (video Suez 11:00 đo bằng máy, 14/10) + định hướng nâng cấp nhà máy (Bảng trạng thái) + Teardown số liệu 15/10 (channel-k2/TEARDOWN-FON.md) + NC-LS / NC-LS2 (17/10). Nguyên tắc: học CÔNG THỨC, không sao chép sản phẩm (không dùng câu chữ, hình, thumbnail, nhận diện, danh sách đề tài của đối thủ; lời/video của đối thủ không đưa vào repo).
 
@@ -93,15 +93,15 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Hero nổi bật: tương phản Weber hero ↔ vành ≥ 1,3 hoặc hero ở mốc / ngoài mốc ≥ 1,3.
 
 ### 10.4 Nơi chốn thật (VV2, K-1.13 NC-H1…H5, AB1–AB4, 17/10)
-- **Thành phố phải có nhà và đường đúng thời kỳ** (tầng ĐẦY ĐỦ, GHOST có nhãn nguồn, hoặc ảnh/bản đồ lịch sử neo). Không dùng địa hình trống đại diện thành phố; không có dữ liệu → bản đồ lịch sử phẳng có nhãn, không giả nhà. Đo: trung vị phần nhà + đường ≥ 25 % shot thành phố, không khung < 15 % (trừ ≤ 3 s cuối reveal) — CHẶN.
+- **Thành phố phải có nhà và đường đúng thời kỳ** (tầng ĐẦY ĐỦ, GHOST có nhãn nguồn, hoặc ảnh/bản đồ lịch sử neo). Không dùng địa hình trống đại diện thành phố; không có dữ liệu → bản đồ lịch sử phẳng có nhãn, không giả nhà. Đo: trung vị phần nhà + đường ≥ 25 % shot thành phố, không khung < 15 % (trừ ≤ 3 s cuối reveal) — CHẶN. (chữ trên hình: theo §12.1)
 - **Địa cầu / độ cao lớn:** mọi khung AGL > 50 km (gồm bản đồ nổi tầm vùng) tính là "địa cầu": ≤ 1 lần/tập, ≤ 3 s, chỉ khi khán giả cần định vị — CHẶN. Mặc định tầm vùng/thành phố: ≥ 70 % thời lượng 3D ở AGL ≤ 60 km; tập có thành phố ≥ 40 % ở AGL ≤ 3 km — CẢNH BÁO.
-- Mọi shot bản đồ có chip nơi dựng hoặc nhãn địa danh — CHẶN.
-- Không phần tử nào có năm xây > năm bộ đếm — CHẶN; ghost lần đầu có nhãn nguồn ≥ 38 px liền ≥ 3 s — CẢNH BÁO.
+- Mọi shot bản đồ có chip nơi dựng hoặc nhãn địa danh — CHẶN. (chữ trên hình: theo §12.1)
+- Không phần tử nào có năm xây > năm bộ đếm — CHẶN; ghost lần đầu có nhãn nguồn ≥ 38 px liền ≥ 3 s — CẢNH BÁO. (chữ trên hình: theo §12.1)
 - Bắt buộc khai `noi` cho từng shot (thanh_pho / eo_dat / …); đoạn trống khai đúng, không dựng nhà giả.
 
 ### 10.5 Khung chữ trên bản đồ/ảnh (T2 SS5, TT6, 17/10)
-- Nhãn chủ chốt hiện đủ (đã qua hiệu ứng) trước mọi giây khung chấm mù; tuyến/chuyển động hiện ngay khi shot mở; số so sánh hiện cùng lúc với số được so.
-- Dải tối dưới không phủ cả bề ngang trên ảnh/footage; tấm chữ gồm hai tấm gọn (chú thích / dòng nguồn), không khoảng trống.
+- Nhãn chủ chốt hiện đủ (đã qua hiệu ứng) trước mọi giây khung chấm mù; tuyến/chuyển động hiện ngay khi shot mở; số so sánh hiện cùng lúc với số được so. (chữ trên hình: theo §12.1)
+- Dải tối dưới không phủ cả bề ngang trên ảnh/footage; tấm chữ gồm hai tấm gọn (chú thích / dòng nguồn), không khoảng trống. (chữ trên hình: theo §12.1)
 - Viền vùng quốc gia không dùng nét sáng dày.
 - Bản đồ tuyến phải có điểm đến thật + bối cảnh vùng ngay khung mở.
 - Đa dạng cảnh (QQ2): mỗi nửa phim ≥ 3 loại cảnh, một loại ≤ 70 %; cùng vùng + cùng góc ≤ 2 lần.
@@ -131,11 +131,11 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 
 ### 11.1 Bản đồ chiến lược + inset (B1–B8 17/10 22:15; E1–E9 23:02; K1–K6 18/10)
 - Nguồn ranh: Cliopatria (CC BY 4.0) tầm châu lục + OpenHistoricalMap (CC0, nhiều đường CC BY 4.0 CNIG/IGN → ghi công) theo ngày; Newberry AHCB cho Mỹ 1783–1900; Natural Earth (PD) cho bờ biển. KHÔNG dùng historical-basemaps, CShapes, Rumsey, GeaCron, NHGIS; Euratlas không mua.
-- Loại cảnh `strategic` (2D/2.5D, nghiêng ≤ 30°, bề ngang ≈ 300–5 000 km): ≤ 15 % thời lượng, ≤ 8 s/lần, ≤ 2/chương, không liền nhau; chuyển động bắt đầu ≤ 1,5 s và phủ ≥ 60 % shot; nhãn mốc thời gian; chú giải ≤ 3 phe; shot kề là 3D tại nơi được chỉ tới. Không tính vào NC-H2; không là "thành phố" của NC-H1.
-- Inset: góc TRÊN TRÁI (chip nơi ở trên phải), ≤ 12 % khung, 2,5–4 s, mờ 0,3 s; bờ biển + hộp đỏ dấu chân khung máy (vòng định vị 16 px khi hộp < 16 px) + 1–2 nhãn; không ranh giới; "Map: Natural Earth"; khu ≈ 120 km.
-- Ranh lịch sử: nhãn "approx. borders c. YYYY — <nguồn>" ≥ 38 px dưới trái, năm nhãn = năm lớp; hai nguồn đo lệch (> 4 px → mép mềm/gạch); lãnh thổ < 8 px vẽ điểm; đệm 10 km quanh vùng tranh chấp hiện đại (eo đất Gibraltar không vẽ biên); đổi chủ đúng ngày có claim (Minorca 5/2/1782 cho cả series); vùng không rõ trong quá khứ gạch hai màu + "contested"; thực thể bản địa có tên.
+- Loại cảnh `strategic` (2D/2.5D, nghiêng ≤ 30°, bề ngang ≈ 300–5 000 km): ≤ 15 % thời lượng, ≤ 8 s/lần, ≤ 2/chương, không liền nhau; chuyển động bắt đầu ≤ 1,5 s và phủ ≥ 60 % shot; nhãn mốc thời gian; chú giải ≤ 3 phe; shot kề là 3D tại nơi được chỉ tới. Không tính vào NC-H2; không là "thành phố" của NC-H1. (chữ trên hình: theo §12.1)
+- Inset: góc TRÊN TRÁI (chip nơi ở trên phải), ≤ 12 % khung, 2,5–4 s, mờ 0,3 s; bờ biển + hộp đỏ dấu chân khung máy (vòng định vị 16 px khi hộp < 16 px) + 1–2 nhãn; không ranh giới; "Map: Natural Earth"; khu ≈ 120 km. (chữ trên hình: theo §12.1)
+- Ranh lịch sử: nhãn "approx. borders c. YYYY — <nguồn>" ≥ 38 px dưới trái, năm nhãn = năm lớp; hai nguồn đo lệch (> 4 px → mép mềm/gạch); lãnh thổ < 8 px vẽ điểm; đệm 10 km quanh vùng tranh chấp hiện đại (eo đất Gibraltar không vẽ biên); đổi chủ đúng ngày có claim (Minorca 5/2/1782 cho cả series); vùng không rõ trong quá khứ gạch hai màu + "contested"; thực thể bản địa có tên. (chữ trên hình: theo §12.1)
 - Màu phe cố định: Anh #b03a2e, Tây Ban Nha #c9a227, Pháp #2e5c8a, không tham chiến #a89f8a, dân thường kem #efe6cf; đồng minh = màu phe dẫn đầu pha 85 % + gạch 45° (nét ≥ 6 px); một nước giữ một màu suốt tập (Tây Ban Nha 1941 vàng đất + nhãn "non-belligerent"); không dùng cờ/biểu tượng chế độ làm màu tô.
-- Tuyến: tuyến biển không cắt đất (NE 1:10m, đệm 5 km quanh cảng); mỗi tuyến ≥ 1 claim; đoạn giữa hai điểm có claim ghi "route approx."; thiếu cảng đi → vào từ mép khung; vị trí MÂU THUẪN → vẽ VÙNG, không vẽ điểm; CHƯA XÁC MINH → không vẽ.
+- Tuyến: tuyến biển không cắt đất (NE 1:10m, đệm 5 km quanh cảng); mỗi tuyến ≥ 1 claim; đoạn giữa hai điểm có claim ghi "route approx."; thiếu cảng đi → vào từ mép khung; vị trí MÂU THUẪN → vẽ VÙNG, không vẽ điểm; CHƯA XÁC MINH → không vẽ. (chữ trên hình: theo §12.1)
 - Checks 1.14: BD-1…BD-8 (BD-1/3a/4/5/6 Chặn; BD-2/7/8 Cảnh báo tới khi hiệu chuẩn trên đoạn thử V5b-2c), K-R1…K-R9 ĐỎ-K Chặn, K-R7 bật cả cho tập VÀNG kề ĐỎ-K.
 
 ### 11.2 Khung neo, bộ đếm, sự sống, nhịp (F1–F8 17/10 23:29; G1–G5 23:50)
@@ -149,10 +149,10 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Berlin 1945: đối thủ (Timelapse Studio) đã thử nghiệm → chấm lại /25 ở G0; khác biệt của ta là nguồn, bản đồ chiến lược, cơ chế.
 
 ### 11.3 AI trên hình — có rào chắn dữ kiện (HC1–HC9 18/10 06:26–07:10; N1–N4 06:51; P2-1…P2-5 08:43; J1, J5)
-- GIÁ TRỊ KHÔNG ĐÁNH ĐỔI: mọi mốc/dữ kiện có nguồn trên hình; bố cục, công trình mốc, cờ, tàu, quân phục, đèn lấy từ nguồn và không đổi hình giữa các tấm; câu chuyện "tại sao" + cơ chế; minh bạch cách làm. "No AI imagery" là tuyên ngôn cũ, đã thay (N1).
-- Được dùng: (a) tấm C khung neo phố hẹp — MỘT tấm ban ngày cho mỗi khung neo × mốc, sửa ảnh có mặt nạ (chỉ tường/mái/mặt đất/đồ nền), KHÔNG người/cờ/chữ/biển hiệu/tàu/nguồn sáng mới/khối kiến trúc mới; (b) vân AI "nướng" lên mặt tiền cho cảnh bay cận (một bộ vân/toà × mốc, albedo phẳng không bóng nướng) và tấm chiếu cho cảnh điểm nhấn trong cung máy ±20–25° (HC7–HC8, sau PT3); (c) thumbnail AI-sửa từ render của mình, giữ lớp dữ kiện (N2); (d) minh hoạ lời nhân chứng kiểu bản khắc/tranh thời kỳ, nhãn "illustration" — chỉ sau khi thử (N3).
+- GIÁ TRỊ KHÔNG ĐÁNH ĐỔI: mọi mốc/dữ kiện có nguồn, người xem tra được (mô tả, bình luận ghim, thẻ phương pháp — §12.1); bố cục, công trình mốc, cờ, tàu, quân phục, đèn lấy từ nguồn và không đổi hình giữa các tấm; câu chuyện "tại sao" + cơ chế; minh bạch cách làm. "No AI imagery" là tuyên ngôn cũ, đã thay (N1).
+- Được dùng: (a) tấm C khung neo phố hẹp — MỘT tấm ban ngày cho mỗi khung neo × mốc, sửa ảnh có mặt nạ (chỉ tường/mái/mặt đất/đồ nền), KHÔNG người/cờ/chữ/biển hiệu/tàu/nguồn sáng mới/khối kiến trúc mới; (b) vân AI "nướng" lên mặt tiền cho cảnh bay cận (một bộ vân/toà × mốc, albedo phẳng không bóng nướng) và tấm chiếu cho cảnh điểm nhấn trong cung máy ±20–25° (HC7–HC8, sau PT3); (c) thumbnail AI-sửa từ render của mình, giữ lớp dữ kiện (N2); (d) minh hoạ lời nhân chứng kiểu bản khắc/tranh thời kỳ, nhãn "illustration" — chỉ sau khi thử (N3). (chữ trên hình: theo §12.1)
 - Rào chắn bắt buộc: ghép lại điểm ảnh A cho mọi vật mang dữ kiện (vùng bảo vệ sai khác < 1/255); lớp sống (người, khói, xe) do mình dựng, đặt trên; đêm làm từ các lượt chiếu sáng A, không sinh ảnh đêm, đêm không sáng hơn 1,5× A; kiểm dữ kiện từng tấm/vân trên kết quả ghép thật — 0 lỗi chắc mới dùng, ngoại lệ phải chủ dự án duyệt; chi tiết kiến trúc AI tự thêm (công-xon, gờ chạm, cửa) = không chấp nhận; sổ AI ghi mọi lệnh gọi (model, prompt nguyên văn, % mặt nạ, chi phí, C2PA).
-- Nhãn + công bố: khung có ảnh/vân AI mang dòng "Surface detail AI-assisted · layout, landmarks & flags from sources" ≥ 38 px góc dưới trái suốt shot; bật khai báo nội dung AI trên YouTube; mô tả theo §10.6.
+- Nhãn + công bố: khung có ảnh/vân AI mang dòng "Surface detail AI-assisted · layout, landmarks & flags from sources" ≥ 38 px góc dưới trái suốt shot; bật khai báo nội dung AI trên YouTube; mô tả theo §10.6. (chữ trên hình: theo §12.1)
 - Trần: thời lượng khung `ai_image`/`ai_texture` ≤ 20 % tập; khung lai bão hoà trung vị ≤ 0,40 và chỉnh màu riêng; màu sơn mặt tiền do AI đổi chỉ tạm chấp nhận tới khi có nguồn màu.
 - KHÔNG: AI video sinh từng khung (nhấp nháy, trôi hình; API video OpenAI ngừng 24/9/2026); AI cho cảnh bay trên không tầm cao, bản đồ chiến lược; ước độ sâu bằng AI; vân vật liệu AI kiểu "B" (thua vân CC0 ở chấm mù).
 - Đo khán giả từ T3: bình luận chê AI ≤ 2 % (mẫu 100); vượt → giảm tỷ lệ khung AI tập sau.
@@ -161,7 +161,7 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 ### 11.4 Chuẩn hình 3D (I1–I8 18/10 00:05)
 - Cổng chuẩn hình so ĐỐI THỦ cùng loại cảnh (CITYTONS/Barcelona cho bay 3D; Timelapse Studio cho phố tầm mắt), 6 loại cảnh: vây hãm, cảng/bờ, phố dày, công trình hero, toàn cảnh đông người, bờ biển + chiến sự; đạt khi không thua ≥ 4/6. Chấm so bản cũ của mình không thay cổng này.
 - Bố cục: shot thành phố nội dung ≥ 50 % khung, nước/cỏ trống ≤ 1/3; khối quân/tàu cao ≥ 6 px ở 1080p; công trình hero dựng tham số (ụ pháo, lỗ châu mai, pháo, vân đá, gờ) — không "tấm phẳng".
-- Phố có nguồn nhưng bản đồ không vẽ hết: lấp khối ước tính trong ranh phố có nguồn, tông hơi khác + dòng "estimated infill", ghi % diện tích lấp.
+- Phố có nguồn nhưng bản đồ không vẽ hết: lấp khối ước tính trong ranh phố có nguồn, tông hơi khác + dòng "estimated infill", ghi % diện tích lấp. (chữ trên hình: theo §12.1)
 - Màu cảnh 3D bay: bão hoà trung vị ≥ 0,40 (vùng giữa 640×360), mái ngói đất nung bão hoà, không cháy sáng. Địa hình mốc (Rock) phải khớp ảnh/bản khắc (vách bắc dựng đứng).
 - Trình dựng chuẩn kênh 2: llvmpipe (khung vàng dựng lại trên llvmpipe); bay mặt vịnh ≤ 300 m.
 
@@ -173,3 +173,37 @@ Bị xem là bản sao (giảm bằng nhận diện, màu, đề tài riêng, h�
 - Video thử: 540p ≤ 15 MB, KHÔNG vào LFS; chỉ master phát hành vào LFS (LFS đã vượt 10 GiB miễn phí ≈ 0,7 GiB).
 - Blender bpy 5.2.2: Cycles CPU 1080p ≈ 223 s/khung @64 spp (4 lõi) → chỉ dùng kiểu phim trường; người: MakeHuman/MPFB (CC0) qua bộ nạp chỉ đọc dữ liệu.
 - OpenAI: khoá qua credential proxy của môi trường cine-lab-av (không in/ghi khoá); model ảnh chọn theo tài liệu hiện hành mỗi phiên; trần chi phí ghi trong lệnh.
+
+## 12. Bổ sung 18/10/2026 tối (chủ dự án duyệt; áp từ T3)
+
+### 12.1 Khung sạch (CHU-1 = A, 23:15)
+- Trên hình CHỈ có: bộ đếm năm/ngày (chữ chính, suốt tập); chip tên nơi khi vào một nơi mới, ≤ 3 s rồi tắt; số liệu hoặc câu trích khi lời đang nói tới, kèm tên nguồn ngắn cỡ nhỏ, ≤ 3 s.
+- KHÔNG hiện trên hình: dòng nguồn cho mọi cảnh 3D/bản đồ; nhãn "Surface detail AI-assisted"; "approx. borders", "estimated infill", "Ruins: estimated", "illustrative". Các thông tin này chuyển sang: (a) mô tả + bình luận ghim (nguồn đầy đủ); (b) thẻ "How this film was made" 4–5 s ở cuối video (bản đồ/nguồn chính, chỗ nào là ước tính, AI dùng vào việc gì); (c) nút khai báo nội dung AI của YouTube khi chính sách hiện hành yêu cầu (kiểm trang chính sách mỗi lần đăng).
+- Giá trị cốt lõi ở §11.3 đổi từ "mọi mốc/dữ kiện có nguồn trên hình" thành "mọi mốc/dữ kiện có nguồn, người xem tra được (mô tả, bình luận ghim, thẻ phương pháp)". Các câu yêu cầu nhãn trên hình ở §10.4 (nhãn nguồn ghost), §10.5, §11.1 (nhãn "approx. borders…"), §11.3 (nhãn AI suốt shot), §11.4 ("estimated infill") được thay bằng §12.1. Dữ liệu nguồn/bậc/ai_image/ai_texture vẫn ghi đầy đủ trong log và bảng shot để kiểm bằng máy.
+
+### 12.2 Tái dựng có căn cứ — 5 bậc (AI-A; NCAI-2; NCAI-3 = B, 20:57–20:59)
+- Mọi phần tử nhìn thấy trong cảnh dựng (công trình, phố, vật, người, trang phục, động tác, mật độ người) mang một bậc căn cứ trong bảng shot: (1) bản đồ/sơ đồ đo đạc thời đó → bố cục, vị trí; (2) văn bản thời đó (nhật ký, sổ quân, điều lệnh) → hoạt động, mật độ người, động tác; (3) công trình/hiện vật còn lại, bảo tàng mở dữ liệu (CC0/PD) → hình khối, vật liệu, trang phục; (4) tranh/bản khắc thời đó → không khí, màu, chỉ sau đối chiếu chéo ≥ 2 tác phẩm; (5) tương đồng cùng vùng + thời kỳ → chỉ vật nền phụ. Không có căn cứ → không dựng; kể bằng bản đồ/tài liệu/lời.
+- Vị trí chỉ lấy từ bậc 1; văn bản (bậc 2) không tự cho vị trí. Trang phục đám đông lấy từ bậc 3–4.
+- AI chỉ được TÌM, ĐỌC, ĐỐI CHIẾU, PHỤC CHẾ, LÀM SỐNG cái đã có nguồn; không sinh dữ kiện (vị trí, công trình, cờ, quân phục, ngày, số). Phép thử: bỏ AI ra mà dữ kiện trên hình đổi → không được dùng.
+- Đề tài trước ~1850 (cổng mềm B): bắt buộc bậc 1 + ít nhất 1 trong bậc 2–4; "mức tư liệu" là trục điểm /5 trong thước /25 (thay "dữ liệu timelapse"), không phải cổng chặn.
+
+### 12.3 AI ngoài hình mở rộng (NCAI-1, NCAI-4, AI-T3; AI-5 bỏ 20:30)
+- Dùng: AI đọc nguồn — mọi mục trích khớp NGUYÊN VĂN trong tệp có SHA-256 (kiểm bằng máy), kèm trang/mục ngày, lượt đọc thứ hai bằng mô hình khác; mục lệch ngày/lệch loại/"hiểu quá" không lên hình khi người chưa duyệt. Chép trang bằng mô hình nhìn chỉ là tệp làm việc; câu lên hình đối chiếu ảnh trang. Số hoá bản đồ bán tự động: người chỉ định khối, máy vẽ bao (SAM 1 click/khối); nhận lô khi IoU với mẫu dò tay ≥ 0,7 trên ô kiểm. Lớp kiểm (kiểm chéo nhiều mô hình, soi lỗi thời đại) là lưới lọc thứ hai, không thay kiểm nguồn.
+- Thử có điều kiện: âm thanh môi trường AI (chấm mù bằng tai so Freesound CC0; mỗi tiếng ghi RIGHTS).
+- Chuyển động người: dữ liệu bắt chuyển động giấy phép mở (ví dụ CMU, 100STYLE CC BY, Quaternius CC0 — kiểm giấy phép nguyên văn) cho đi/đứng/khiêng; động tác quân sự theo sách điều lệnh PD của thời kỳ; chưa lấy chuyển động từ footage khi chưa gắn năm cho từng đoạn.
+- Phục chế (khử nhiễu, làm nét ≤ ×2) CHỈ cho ảnh chụp, kiểm có đáp án (thu nhỏ → phục chế → so gốc) trước khi dùng công cụ mới; KHÔNG cho bản khắc/tranh (thêm nét giả — NC-AI §3.2); trọng số phải cho phép thương mại (loại CodeFormer, SUPIR, GFPGAN, Depth Pro, Depth Anything V2 Base/Large).
+- KHÔNG: ước độ sâu/2,5D bằng AI (kể cả ảnh lưu trữ); tô màu khi không có nguồn màu; video AI.
+- T3: dùng AI đọc nguồn (danh sách 9/1782), lớp kiểm, phục chế chỉ ảnh chụp 1940s. Từ T4: lời nhân chứng đọc bằng giọng tổng hợp, âm thanh AI, minh hoạ kiểu bản khắc (N3).
+
+### 12.4 Vật trên hình — hai tầng (Q-PT4-3 sửa 12:55)
+- Vật mang dữ kiện (cờ, công trình/công sự, pháo, tàu, quân phục, đèn/nguồn sáng, biển hiệu/chữ, xe): bắt buộc có nguồn; thiếu nguồn ghi "illustrative" trong thẻ phương pháp + log.
+- Vật nền phụ (chậu cây, mái che, đồ phơi, thùng, bao, ghế, giỏ, dụng cụ): được đặt không cần nguồn riêng nếu kiểu dáng/vật liệu đúng thời kỳ, không trái hoàn cảnh có nguồn, không vật hiện đại, không chữ, mật độ vừa phải, qua soi lỗi thời đại; ghi danh sách + lý do trong báo cáo phiên.
+
+### 12.5 Dựng và vận hành (V6-1…V6-7, 23:15; chi phí 12:57)
+- Mức dựng T3: bản SẢN XUẤT V6 (llvmpipe: bóng đổ khít khung, SSAO hai tầng, chỉnh màu V6, người có khớp, khói giả thể tích); render song song nhiều phiên chia theo shot (ngoại lệ EE2-A) để mỗi phiên ≤ 12 h đồng hồ. Cycles chỉ cho khung tĩnh, poster, thumbnail. Nướng GI bằng Cycles (mức C) nghiên cứu sau T3.
+- Phế tích 1782 giữ đúng nguồn; mỗi tập có ≥ 1 cảnh phố dày còn nguyên ở một mốc khác.
+- Người: mục tiêu toy_like ≤ 4; không chặn phát hành T3.
+- Video trong git ≤ 5 MB (preflight); bản lớn hơn để ngoài git, ghi SHA-256; master phát hành qua LFS.
+- Chi phí: không trần cứng; mốc theo dõi (vượt thì ghi một dòng lợi ích rồi làm tiếp) + chặn an toàn chống vòng lặp (cùng lỗi ≥ 3 lần → đổi cách; ngưỡng dừng tổng ghi trong lệnh).
+- Phiên dài (> 1 h): đẩy việc dở sau mỗi lượt dựng hoặc ≤ 30 phút + reports/<phiên>/CHECKPOINT.md.
+- Không đưa email chủ dự án vào header/URL/payload/User-Agent; User-Agent dùng "CineLab-research (+https://github.com/HungQuach301/cine-lab)".
