@@ -11,6 +11,8 @@ import { makeCity } from './city.js';
 import { walls, roof } from './geom.js';
 import { fortify, wallRing } from './fort.js';   // V5b-2c: M5 thành luỹ tham số
 import { gardens, landmarks } from './props.js';   // V5b-2d: vườn có nguồn + điểm nhấn
+import { makeKit, makeSet, uniOf } from './people.js';   // V6: người low-poly có khớp thay trụ hộp
+import { smokeV6 } from './smoke6.js';   // V6: khói giả thể tích
 
 // V5b-2c: màu phe theo B6 (chủ dự án duyệt 17/10, cố định cả series, BD-7 — 3D và bản đồ chiến lược cùng một màu): Anh đỏ gạch, TBN vàng đất, Pháp lam; dân thường kem
 export const FACTION = { es: '#c9a227', fr: '#2e5c8a', gb: '#b03a2e', civ: '#efe6cf', neutral: '#a89f8a' };   // nhận diện kênh: cam = Pháp–TBN, lục lam = đồn trú; KHÔNG đỏ máu (§6.2)
@@ -132,6 +134,7 @@ function puffTex(seed, warm) {   // kết cấu cụm khói thủ tục (tất �
   const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
 }
 export function smoke(specs, ctx) {
+  if (ctx.v6smoke) return smokeV6(specs, ctx);
   const group = new THREE.Group(), list = [], texS = [0, 1, 2].map((i) => puffTex(91 + i, false)), texF = puffTex(7, true);
   for (const sp of specs || []) {   // sp: {at:[E, cao, N], t:[bắt đầu, hết], n (số cụm), size, rise (m/đơn vị tv), drift [dE, dN] (m/đơn vị tv), fire (0..1), dark}
     const R = rng(sp.seed || 5), puffs = [];
@@ -227,6 +230,7 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {},
 //  hoặc spec.at = [E, N]. Mọc theo ngày: day = [xuất hiện, rút] (đơn vị "ngày" do cảnh chọn: uDay), mọc 0,5 ngày từ mặt đất; dịch: move = [[day, dE, dN], …].
 //  update(day, zones): đơn vị có tâm trong vùng khói/lửa (layers.smoke zones) bị ẨN và đếm (luật hình chiến tranh §6.2: không người trong vùng khói).
 export function units(specs, ctx) {
+  if (ctx.v6people) return unitsV6(specs, ctx);
   const fig = { body: new THREE.BoxGeometry(0.5, 1.35, 0.32).translate(0, 0.68, 0), hat: new THREE.BoxGeometry(0.36, 0.22, 0.36).translate(0, 1.5, 0) };   // V5b-2d: mũ nhỏ + nâu xám (chấm mù: 'trụ đen' — đỉnh mũ đen lấn màu áo)
   const slots = [];
   for (const sp of specs || []) {
@@ -259,4 +263,42 @@ export function units(specs, ctx) {
         v.set(e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.05, -n); q.setFromAxisAngle(Y, s.hd); sc.set(g > 0 ? 1 : 0, g * s.k, g > 0 ? 1 : 0); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); if (g > 0) shown++; });
         ib.instanceMatrix.needsUpdate = ih.instanceMatrix.needsUpdate = true; }
       stat = { don_vi: specs.length, nguoi: slots.length, an_vi_khoi: hidUnits.size, hien: shown }; return stat; } };
+}
+
+// ---------- V6 (V2D-1): KHỐI QUÂN = ĐỘI HÌNH NGƯỜI THẬT (people.js) — cùng vị trí/hàng/cột/ngày/khói như units() cũ, cỡ người thật 1,0× (không phóng to) ----------
+//  khối hàng × cột: lính đứng súng dựng ('order'), quay mặt về phía trước khối (tuyến: vuông góc tuyến về phía Gibraltar; at: theo heading); lệch hàng ±0,15 m, quay ±5°,
+//  cao 0,95–1,05; mỗi khối ≥ 3 × 3 có 1 sĩ quan đứng trước khối (không súng, quay vào khối, nhìn quanh). Kíp pháo (khối nhỏ ≤ 2 × 2): người không súng, đứng–cúi việc nhẹ.
+//  Viền màu trung đoàn (es_inf): một màu mỗi khối (minh hoạ). Bảng quân phục: people.js UNIFORMS (nguồn ở báo cáo V6 §2).
+function unitsV6(specs, ctx) {
+  const kit = ctx.peopleKit || (ctx.peopleKit = makeKit(ctx)), slots = [], groups = {};
+  specs.forEach((sp, si) => {
+    let E, N, hd, face;
+    if (sp.pts) { const C = cumLen(sp.pts); let i = 1; while (i < sp.pts.length - 1 && C[i] < sp.s) i++; const a = sp.pts[i - 1], b = sp.pts[i], u = Math.max(0, Math.min(1, (sp.s - C[i - 1]) / ((C[i] - C[i - 1]) || 1)));
+      const d = [b[0] - a[0], b[1] - a[1]], l = Math.hypot(...d) || 1, nn = [-d[1] / l, d[0] / l]; E = a[0] + d[0] * u + nn[0] * (sp.off || 0); N = a[1] + d[1] * u + nn[1] * (sp.off || 0); hd = Math.atan2(d[1], d[0]); face = hd + ((sp.off || 0) >= 0 ? -Math.PI / 2 : Math.PI / 2); }
+    else { E = sp.at[0]; N = sp.at[1]; hd = (90 - (sp.heading || 0)) * Math.PI / 180; face = hd; }
+    if (sp.face != null) face = (90 - sp.face) * Math.PI / 180;
+    const rows = sp.rows || 3, cols = sp.cols || 24, R = rng(sp.seed || 7), small = rows * cols <= 4 || sp.crew, uni = uniOf(sp), kind = sp.kind || (small ? 'civ' : 'order'), key = kind + '|' + uni;
+    const G = groups[key] || (groups[key] = { kind, uni, n: 0, items: [] }); const acc = Math.floor(R() * 5);
+    const add = (x, z, fc, k, extra = {}) => { const it = { sp, E, N, hd, x, z, face: fc, bface: face, k, idx: G.n++, R: rng((sp.seed || 7) * 131 + G.n), acc, gait: 0, ...extra }; G.items.push(it); slots.push(it); };
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) add((c - (cols - 1) / 2) * 0.9 * (sp.sx || 1) + (R() - 0.5) * 0.3 * (sp.sx || 1), (r - (rows - 1) / 2) * 1.3 * (sp.sz || 1) + (R() - 0.5) * 0.25 * (sp.sz || 1), face + (R() - 0.5) * (small ? 1.6 : 0.16), 0.95 + 0.1 * R());
+    if (!small && rows >= 3 && cols >= 3) { const key2 = 'civ|' + uni, G2 = groups[key2] || (groups[key2] = { kind: 'civ', uni, n: 0, items: [] });   // sĩ quan trước khối
+      const fz = (rows - 1) / 2 * 1.3 + 3.2, it = { sp, E, N, hd, x: (R() - 0.5) * cols * 0.4, z: 0, face: face + Math.PI, bface: face, k: 1.02, idx: G2.n++, R: rng((sp.seed || 7) * 977), acc, gait: 0, front: fz }; G2.items.push(it); slots.push(it); }
+  });
+  const sets = []; for (const G of Object.values(groups)) { const S = makeSet(kit, ctx, { kind: G.kind, n: G.n, lodPx: 22 }); for (const it of G.items) { S.look(it.idx, G.uni, it.R, { gait: 0, acc: it.acc }); it.S = S; } sets.push(S); }
+  const group = new THREE.Group(); for (const S of sets) group.add(S.group);
+  let stat = { don_vi: specs ? specs.length : 0, nguoi: slots.length, an_vi_khoi: 0, hien: 0, v6: true };
+  return { group, sets, stat: () => stat,
+    update(day, zones = []) {
+      const hidUnits = new Set(); let shown = 0; for (const S of sets) S.begin();
+      for (const s of slots) {
+        const [d0, d1] = s.sp.day || [-1e9, 1e9]; let g = Math.max(0, Math.min(1, (day - d0) / 0.5)) * (day <= d1 ? 1 : 0);
+        let dE = 0, dN = 0; if (s.sp.move) { const M = s.sp.move; let j = 0; while (j < M.length - 1 && M[j + 1][0] <= day) j++; const A = M[j], B = M[Math.min(M.length - 1, j + 1)], u = B[0] > A[0] ? Math.max(0, Math.min(1, (day - A[0]) / (B[0] - A[0]))) : 0; dE = A[1] + (B[1] - A[1]) * u; dN = A[2] + (B[2] - A[2]) * u; }
+        const E = s.E + dE, N = s.N + dN; if (zones.some((z) => Math.hypot(E - z.c[0], N - z.c[1]) < z.r + 15)) { g = 0; hidUnits.add(s.sp); }
+        if (s.sp.near && ctx.cam && Math.hypot(E - ctx.cam.position.x, N + ctx.cam.position.z) > s.sp.near) g = 0;
+        // khối: trục x dọc mặt khối (vuông góc hướng mặt), z theo chiều sâu; sĩ quan đứng trước mặt khối
+        const fx = Math.cos(s.bface), fy = Math.sin(s.bface), lx = -fy, ly = fx, dz = s.front ? s.front : -s.z, e = E + lx * s.x + fx * dz, n = N + ly * s.x + fy * dz;
+        if (g > 0) { s.S.put(s.idx, e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.03, n, s.face, true, s.k * Math.min(1, g * 2)); shown++; }
+      }
+      for (const S of sets) S.end();
+      stat = { don_vi: specs.length, nguoi: slots.length, an_vi_khoi: hidUnits.size, hien: shown, v6: true, lod: sets.map((S) => S.stat()) }; return stat; } };
 }

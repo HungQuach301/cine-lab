@@ -91,7 +91,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
     }
   }
   const mkMat = (lodLevel, depth) => {
-    const m = depth ? new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }) : U.lambert ? new THREE.MeshLambertMaterial({ vertexColors: true }) : new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0 });
+    const m = depth ? new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }) : U.lambert ? new THREE.MeshLambertMaterial({ vertexColors: true }) : new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0 }); m.userData.v6n = true;   /* V6: có lượt pháp tuyến (uMask 2) */
     if (!depth && lodLevel === 0) m.side = THREE.DoubleSide;
     m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid + '-g' + ghostDesat;   // tường chắn mái / lan can thấy cả mặt trong
     m.onBeforeCompile = (sh) => {
@@ -172,7 +172,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
         }
         if (vGhost > 0.5) { float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), uGhostDesat); }   // lớp tái dựng: giảm bão hoà 22 %
         float L = dot(diffuseColor.rgb, vec3(0.299, 0.587, 0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);`)
-        .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(1.0, vGhost > 0.5 ? 0.2 : 0.0, ${(hid / 255).toFixed(6)}, 1.0);   /* V5b-2b: G = 0,2 → toà lớp TÁI DỰNG (ghost_pct, K-1.13); B = id hero của lớp */`);
+        .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n if (uMask > 1.5) gl_FragColor = vec4(normalize(normal) * 0.5 + 0.5, 1.0); else if (uMask > 0.5) gl_FragColor = vec4(1.0, vGhost > 0.5 ? 0.2 : 0.0, ${(hid / 255).toFixed(6)}, 1.0);   /* V5b-2b: G = 0,2 → toà lớp TÁI DỰNG (ghost_pct, K-1.13); B = id hero của lớp */`);
     };
     return m;
   };

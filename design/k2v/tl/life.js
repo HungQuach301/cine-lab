@@ -8,6 +8,7 @@
 // stat() trả số vật chuyển động đang hiện theo loại → log cho K (song_n ≥ 3).
 import { THREE, rng, maskify } from './core.js';
 import { smoke } from './layers.js';
+import { makeKit, makeSet, walkerLook } from './people.js';   // V6: người có khớp + chu kỳ đi
 
 const cum = (pts) => { const c = [0]; for (let i = 1; i < pts.length; i++) c.push(c[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return c; };
 function along(pts, C, s) { const L = C[C.length - 1]; s = ((s % L) + L) % L; let i = 1; while (i < pts.length - 1 && C[i] < s) i++; const a = pts[i - 1], b = pts[i], u = (s - C[i - 1]) / ((C[i] - C[i - 1]) || 1);
@@ -27,8 +28,36 @@ export function life(spec, ctx) {
       for (const [M, sd] of [[L_, 1], [Rw, -1]]) { q.setFromAxisAngle(Y, hd).multiply(new THREE.Quaternion().setFromAxisAngle(X, sd * flap)); if (sd < 0) q.multiply(new THREE.Quaternion().setFromAxisAngle(Y, Math.PI)); sc.set(s, s, s); m4.compose(v, q, sc); M.setMatrixAt(i, m4); } });
       L_.instanceMatrix.needsUpdate = Rw.instanceMatrix.needsUpdate = true; return n; } });
   }
+  // --- V6: người đi bộ / đám đông = người low-poly có khớp (people.js), bước chân theo tốc độ; cùng tuyến, cùng luật near/khói như bản cũ ---
+  if (ctx.v6people && (spec.walkers || spec.crowds)) {
+    const kit = ctx.peopleKit || (ctx.peopleKit = makeKit(ctx));
+    const mkSets = (list) => { const by = {}; for (const p of list) { const k = p.kind + '|' + p.uni; (by[k] = by[k] || { kind: p.kind, uni: p.uni, L: [] }).L.push(p); }
+      return Object.values(by).map((G) => { const S = makeSet(kit, ctx, { kind: G.kind, n: G.L.length, lodPx: 22 }); G.L.forEach((p, i) => { p.i = i; p.S = S; S.look(i, G.uni, p.R, { gait: p.gait, freq: p.freq }); }); group.add(S.group); return S; }); };
+    for (const w of [].concat(spec.walkers || [])) {
+      const C = cum(w.pts), n = w.n || 30, cols = w.colors || ['#b8402f', '#6b5a48', '#d8d0bc', '#3b4a5c'];
+      const P = [...Array(n).keys()].map((k) => { const sp = (1.1 + 0.4 * R()) * (R() < 0.5 ? 1 : -1), [kind, uni] = walkerLook(cols[Math.floor(R() * cols.length)], R, w.women !== false); return { s: R() * C[C.length - 1], sp, lat: (R() - 0.5) * (w.width || 5), kind, uni, R: rng((spec.seed || 404) * 7 + k), gait: 1, freq: Math.abs(sp) / 1.45 }; });
+      const sets = mkSets(P); let shown = 0;
+      parts.push({ kind: 'nguoi', n, update(t, zones) { shown = 0; const cp = ctx.cam ? ctx.cam.position : null; for (const S of sets) S.begin();
+        for (const p of P) { const [e0, n0, hd] = along(w.pts, C, p.s + p.sp * t), nn = [-Math.sin(hd), Math.cos(hd)], e = e0 + nn[0] * p.lat, n_ = n0 + nn[1] * p.lat;
+          const far = w.near && cp && Math.hypot(e - cp.x, n_ + cp.z, (w.y != null ? w.y : 0) - cp.y) > w.near, hidden = far || (zones && zones.some((z) => Math.hypot(e - z.c[0], n_ - z.c[1]) < z.r + 15));
+          if (!hidden) { p.S.put(p.i, e, w.y != null ? w.y : hAt(e, n_), n_, hd + (p.sp < 0 ? Math.PI : 0), true, w.scale || 1); shown++; } }
+        for (const S of sets) S.end(); return shown; } });
+    }
+    for (const cw of [].concat(spec.crowds || [])) {
+      const C = cum(cw.pts), L = C[C.length - 1], cols = cw.colors || ['#b03a2e', '#e7e0cf', '#5e4a38'], M = [];
+      for (let g = 0; g < (cw.groups || 8); g++) { const s0 = (g + R() * 0.6) / (cw.groups || 8) * L, sz = Math.round((cw.size || [12, 40])[0] + R() * ((cw.size || [12, 40])[1] - (cw.size || [12, 40])[0])), sp = (cw.speed || 0.6) * (R() < 0.5 ? 1 : -1) * (0.6 + 0.6 * R());
+        const rad = Math.sqrt(sz) * 0.55; for (let k = 0; k < sz; k++) { const a = R() * 6.283, rr = Math.sqrt(R()) * rad, [kind, uni] = walkerLook(cols[Math.floor(R() * cols.length)], R, cw.women !== false), stand = R() < 0.3;
+          M.push({ g, s0, sp, dx: Math.cos(a) * rr * 1.6, dy: Math.sin(a) * rr * 0.8, kind, uni, ph: R() * 6.28, R: rng((spec.seed || 404) * 13 + M.length), gait: stand ? 0 : 1, freq: Math.abs(sp) / 1.2 + 0.2 }); } }
+      const sets = mkSets(M);
+      parts.push({ kind: 'dam_dong', n: M.length, update(t, zones) { let shown = 0; for (const S of sets) S.begin();
+        for (const p of M) { const [e0, n0, hd] = along(cw.pts, C, p.s0 + p.sp * t), u = [Math.cos(hd), Math.sin(hd)], e = e0 + u[0] * p.dx - u[1] * p.dy, n_ = n0 + u[1] * p.dx + u[0] * p.dy;
+          const hidden = zones && zones.some((z) => Math.hypot(e - z.c[0], n_ - z.c[1]) < z.r + 15); if (hidden) continue;
+          p.S.put(p.i, e, hAt(e, n_), n_, hd + (p.sp < 0 ? Math.PI : 0) + Math.sin(p.ph) * (p.gait ? 0.3 : 1.6), true, 1); shown++; }
+        for (const S of sets) S.end(); return shown; } });
+    }
+  }
   // --- người đi bộ ---
-  if (spec.walkers) {
+  if (spec.walkers && !ctx.v6people) {
     const body = new THREE.BoxGeometry(0.5, 1.35, 0.34).translate(0, 0.68, 0), hat = new THREE.BoxGeometry(0.44, 0.28, 0.44).translate(0, 1.54, 0);
     for (const w of [].concat(spec.walkers)) {
       const C = cum(w.pts), n = w.n || 30, cols = w.colors || ['#b8402f', '#6b5a48', '#d8d0bc', '#3b4a5c'];
@@ -45,7 +74,7 @@ export function life(spec, ctx) {
     }
   }
   // --- V5b-2d (C2-7): ĐÁM ĐÔNG — cụm người dày đi chậm theo tuyến (đọc được ở tầm ≥ 150 m mà KHÔNG phóng to người: cụm 12–60 người, cách 0,8 m) ---
-  if (spec.crowds) {
+  if (spec.crowds && !ctx.v6people) {
     const body = new THREE.BoxGeometry(0.5, 1.35, 0.34).translate(0, 0.68, 0), hat = new THREE.BoxGeometry(0.44, 0.28, 0.44).translate(0, 1.54, 0);
     for (const cw of [].concat(spec.crowds)) {
       const C = cum(cw.pts), L = C[C.length - 1], cols = cw.colors || ['#b03a2e', '#e7e0cf', '#5e4a38'], M = [];

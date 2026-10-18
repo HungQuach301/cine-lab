@@ -48,7 +48,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
     uExt: { value: new THREE.Vector4(e0 - 5, n0 - 5, Gw * 10, Gh * 10) }, tNoise: { value: noiseTex() }, uBaked: U.uBaked, uAOBox: { value: new THREE.Vector4(...M.ao_box) }, uAOon: U.uAOon, uDetail: { value: 1 },
     tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 }, uCliff: { value: TO.cliff ? 1 : 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
   uni.tGhostU.value.needsUpdate = true;
-  const mat = U.lambert ? new THREE.MeshLambertMaterial({ color: 0xffffff }) : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.96, metalness: 0 });
+  const mat = U.lambert ? new THREE.MeshLambertMaterial({ color: 0xffffff }) : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.96, metalness: 0 }); mat.userData.v6n = true;   /* V6: lượt pháp tuyến */
   mat.onBeforeCompile = (sh) => {
     Object.assign(sh.uniforms, uni, { uMask: U.uMask });
     sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>
@@ -160,7 +160,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
         if (auv.x > 0.0 && auv.x < 1.0 && auv.y > 0.0 && auv.y < 1.0) { vec3 a = texture(tAO, auv).rgb; float ay = decYear(a.gb);
           g *= 1.0 - 0.5 * a.r * smoothstep(ay - 2.0, ay, uYear); } }
       float L = dot(g, vec3(0.299, 0.587, 0.114)); g = mix(g, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);
-      diffuseColor.rgb = g;`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(0.0, step(0.5, uk), vWP.y < 0.2 ? 0.25 : (1.0 - step(0.5, uk)) * mix(0.9, 0.5, 1.0 - step(0.2, 1.0 - clamp(vWN.y, 0.0, 1.0))), 1.0);   /* V5b-2d: lam 0,9 = đất tự nhiên DỐC (vách/sườn Rock) — trước: đen (lẫn vào nước/trời) */   /* mặt nạ: xanh = nền phố (đô thị theo năm); V5b-2c: lam 0,5 = đất tự nhiên BẰNG (cỏ/cát trống, dốc < ~37°), lam 0,25 = đáy dưới mặt nước (= nước) */');
+      diffuseColor.rgb = g;`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 1.5) gl_FragColor = vec4(normalize(normal) * 0.5 + 0.5, 1.0); else if (uMask > 0.5) gl_FragColor = vec4(0.0, step(0.5, uk), vWP.y < 0.2 ? 0.25 : (1.0 - step(0.5, uk)) * mix(0.9, 0.5, 1.0 - step(0.2, 1.0 - clamp(vWN.y, 0.0, 1.0))), 1.0);   /* V5b-2d: lam 0,9 = đất tự nhiên DỐC (vách/sườn Rock) — trước: đen (lẫn vào nước/trời) */   /* mặt nạ: xanh = nền phố (đô thị theo năm); V5b-2c: lam 0,5 = đất tự nhiên BẰNG (cỏ/cát trống, dốc < ~37°), lam 0,25 = đáy dưới mặt nước (= nước) */');
   };
   // lưới trong 20 m + lưới ngoài 60 m (đỉnh nằm trong vùng trong bị hạ 40 m → không lộ, không z-fight)
   const IN = [-3000, -5500, 2000, 5000];

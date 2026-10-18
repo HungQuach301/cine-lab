@@ -15,8 +15,9 @@ import { makeText } from './text.js';
 import { loadCube, GRADE_GLSL } from './lut.js';
 import { makeRecorder } from './record.js';
 import { sunDirENU } from './sun.js';
+import { fitShadowView, makeSSAO } from './light6.js';   // V6: bóng khít khung nhìn + SSAO + chỉnh màu
 
-let C, R, pipe, scene, cam, SC, ctx, outScene, quadCam, txt, rec, HERO = false, last = null, stats = {};
+let C, R, pipe, scene, cam, SC, ctx, outScene, quadCam, txt, rec, HERO = false, last = null, stats = {}, V6 = null, SSAO = null, aoHide = [], v6Key = null, v6Shadow = null;
 // V5b-2b (V5B2A §8.2): trang dựng được gọi từ scripts/k2/hero.js ('tl/<cảnh>', opt = {pack, lut, lutMode, vib, look, photo, tech, layers, …}) —
 //  chế độ HERO: khung KHÔNG chữ (window.finalize → RGB), lớp chữ ghi lại bằng record.js vào anchorsAt()._tl để scripts/k2/lib/k2.js vẽ; frameMeta() mỗi khung (AGL, SPP, pha).
 function heroCfg(c) { const o = c.opt || {}; return { W: c.W, H: c.H, hero: c.hero, scene: c.hero.split('/')[1], opt: o, pack: `/cache/scene/${o.pack || 'gib'}/pack/`, lut: '/cache/lut/' + (o.lut || 'k2-a-thep-lanh') + '.cube',
@@ -28,11 +29,14 @@ window.setup = async (cfg) => {
   const M = await loadJSON(base + 'meta.json');
   R = createRenderer(cfg.W, cfg.H); R.shadowMap.type = THREE.PCFSoftShadowMap; R.shadowMap.autoUpdate = !T.shadowCache;
   const lut = await loadCube(cfg.lut);   /* V5b-1b: LUT chọn bằng số đo (reports/V5B1B-BAO-CAO.md §2) */
-  const LU = { tLut: { value: lut.tex }, uLutK: { value: cfg.lutK ?? 1.0 }, uLutN: { value: lut.N }, uVig: { value: 0.16 }, uAA: { value: 0 }, uLutMode: { value: cfg.lutMode ?? 1 }, uVib: { value: cfg.vib ?? 0.35 } };
+  const LU = { tLut: { value: lut.tex }, uLutK: { value: cfg.lutK ?? 1.0 }, uLutN: { value: lut.N }, uVig: { value: 0.16 }, uAA: { value: 0 }, uLutMode: { value: cfg.lutMode ?? 1 }, uVib: { value: cfg.vib ?? 0.35 }, uV6: { value: 0 }, uV6c: { value: new THREE.Vector3(1, 0.35, 1) } };
   pipe = createPipeline(R, cfg.W, cfg.H, { exposure: cfg.exposure ?? 1.0, gradeGLSL: GRADE_GLSL, uniforms: LU });
   quadCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1); outScene = new THREE.Scene(); outScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), pipe.outMat));
   scene = new THREE.Scene();
-  const mod = await import(`./scenes/${cfg.scene}.js`);   // V5b-2c: nạp cảnh TRƯỚC địa hình/ánh sáng — cảnh khai TERRAIN (vách bắc Rock), LOOK mà không đổi cảnh cũ
+  const mod = await import(`./scenes/${cfg.scene}.js`);
+  // V6 (V2D-1): cảnh khai V6 = {…} (hoặc tech.v6) → bóng khít khung 8192², SSAO hai tầng, chỉnh màu V6, tỉ lệ nắng/trời; tech.v6 === false tắt (đo trước/sau)
+  V6 = T.v6 === false ? null : (T.v6 || mod.V6 ? Object.assign({ shadowRes: 8192, sunK: 1.0, hemiK: 1.0, grade: [1.0, 0.35, 1.0], ao: {} }, mod.V6 || {}, typeof T.v6 === 'object' ? T.v6 : {}) : null);
+  if (V6) { T.shadowRes = V6.shadowRes; LU.uV6.value = 1; LU.uV6c.value.set(...V6.grade); }   // V5b-2c: nạp cảnh TRƯỚC địa hình/ánh sáng — cảnh khai TERRAIN (vách bắc Rock), LOOK mà không đổi cảnh cũ
   if (mod.GRADE) { if (mod.GRADE.vib != null && cfg.vib == null) LU.uVib.value = mod.GRADE.vib; if (mod.GRADE.exposure != null && pipe.setExposure) pipe.setExposure(mod.GRADE.exposure); }   // V5b-2c (I5): vibrance riêng cảnh (opt.vib của shot vẫn thắng)
   const sunEl = 31 * Math.PI / 180, sunAz = 238 * Math.PI / 180;   // nắng chiều hướng tây-nam (nổi mặt tây Rock, vách bắc vào bóng)
   const sunDir = new THREE.Vector3(Math.sin(sunAz) * Math.cos(sunEl), Math.sin(sunEl), -Math.cos(sunAz) * Math.cos(sunEl)).normalize();
@@ -40,6 +44,7 @@ window.setup = async (cfg) => {
   // V5b-1b: sương CHỈ ở xa, ngả xanh (cùng màu chân trời trời mới), mật độ thấp hơn → cận/trung cảnh trong; nắng thấp có hướng mạnh hơn,
   // ánh trời xanh làm bóng ngả lạnh (tương phản ấm–lạnh), bóng sắc hơn (bán kính PCF 3 → 1,5).
   const L = Object.assign({ fogC: [0.60, 0.74, 0.90], fogD: 0.0000175, hemiSky: '#9cbcf0', hemiGnd: '#7a6648', hemiI: 0.62, sunC: '#ffe3b8', sunI: 3.3, shR: 1.5 }, cfg.look || {}, mod.LOOK || {}); C.look = L;   /* V5b-2c: cảnh khai LOOK (ánh sáng riêng) */
+  if (V6) { L.sunI *= V6.sunK; L.hemiI *= V6.hemiK; }   // V6: nắng mạnh hơn / trời dịu hơn → bóng đổ đọc được (AO thay phần tối của ánh trời)
   const fogC = new THREE.Color(...L.fogC); scene.fog = new THREE.FogExp2(fogC, L.fogD);
   const hemi = new THREE.HemisphereLight(L.hemiSky, L.hemiGnd, L.hemiI); scene.add(hemi);
   const sun = new THREE.DirectionalLight(L.sunC, L.sunI); sun.castShadow = T.shadows !== false; sun.shadow.mapSize.set(T.shadowRes, T.shadowRes); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.6; sun.shadow.radius = L.shR;
@@ -61,12 +66,17 @@ window.setup = async (cfg) => {
   txt = makeText(cfg.W, cfg.H); rec = makeRecorder(cfg.W, cfg.H);
   const photo = cfg.photo ? await loadImg(cfg.photo) : null;
   ctx = { hemi, THREE, U, M, terr, city, roads, trees, heroes, ships, sun, sunDir, cam, photo, lines: LINES, W: cfg.W, H: cfg.H, track, scene, maskify, base, opt: cfg.opt || {}, makeCity, loadJSON, R };   /* V5b-2b: opt của shot + makeCity (lớp footprint M9) */   /* V5b-2a: cảnh thêm phần tử 3D riêng (overlay3d.js) */
+  if (V6) { ctx.v6people = V6.people !== false; ctx.v6smoke = V6.smoke !== false; }   // V6: người/quân có khớp (people.js), khói giả thể tích (smoke6.js)
   SC = await mod.build(ctx);
   // mặt nạ nội dung: hero + đường = nội dung (city/terrain tự có mã mặt nạ); cây = nền
   const mk = (obj, v, hid = 0) => obj && obj.traverse((o) => { if (o.isMesh) for (const m of [].concat(o.material)) if (!m.isShaderMaterial) maskify(m, U, v, hid); });
   for (const [k, objs] of Object.entries(heroes.heroParts || {})) for (const o of objs) mk(o, 1, heroes.heroIds[k]);   // V5b-2a: hero có id (trước mk chung — maskify bỏ qua vật liệu đã gắn)
   mk(heroes.group, 1); mk(roads.mesh, 1); mk(ships.group, 1); if (trees) mk(trees.group, 0); mk(terr.group.children.find((o) => o.material && o.material.map), 0);
   ctx.ws = ws;
+  // V6: SSAO + danh sách vật KHÔNG vào lượt pháp tuyến (nước, trời, khói/sprite, vật liệu không có nhánh uMask)
+  if (V6) { SSAO = makeSSAO(R, cfg.W, cfg.H, V6.ao); const hid = new Set([ws.water, ws.sky]);
+    scene.traverse((o) => { if (!(o.isMesh || o.isSprite || o.isPoints || o.isLine)) return; const ms = [].concat(o.material || []); if (o.isSprite || !ms.some((m) => m && (m.userData.masked || m.userData.v6n))) hid.add(o); });
+    aoHide = [...hid]; }
   stats = { cut: stats.cut || 0, ships: ships.n, styles: city.styles, corner_towers: heroes.cornerTowers, load_s: +((performance.now() - t0) / 1000).toFixed(2), terrain_tris: terr.tris, city_tris: city.tris, city_tiles: city.nTiles, buildings: B.length, roads_tris: roads.tris, trees: trees ? trees.n : 0,
     renderer: (() => { const gl = R.getContext(), e = gl.getExtension('WEBGL_debug_renderer_info'); return e ? gl.getParameter(e.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER); })(), tech: T, N: SC.N, scene_meta: SC.meta || null, cliff: terr.cliffStat || null };
   return stats;
@@ -98,15 +108,18 @@ window.renderFrame = async (f, measure, ov) => {
   pipe.outMat.uniforms.uAA.value = spp === 1 ? 1 : 0;
   const t0 = performance.now();
   let shadowDone = false;
-  if (C.tech.shadowCache) { if (fitShadow(st)) { R.shadowMap.needsUpdate = true; shadowUpdates++; } }
+  if (V6) { applyCam(cam, st.cam); const fs = fitShadowView(ctx.sun, ctx.sunDir, cam, { res: C.tech.shadowRes, dmax: V6.shadowDmax || 3000 }); v6Shadow = fs; const key = fs.key + '|' + ctx.sunDir.toArray().map((x) => x.toFixed(5)).join(',') + '|' + (Math.round(st.year * 4) / 4);
+    if (!C.tech.shadowCache || key !== v6Key) { R.shadowMap.needsUpdate = true; shadowUpdates++; } v6Key = key; }
+  else if (C.tech.shadowCache) { if (fitShadow(st)) { R.shadowMap.needsUpdate = true; shadowUpdates++; } }
   else fitShadow(st);
-  const ms = pipe.accumulate(scene, cam, spp, (i) => { U.uSample.value = i + f * 0.137; if (C.tech.shadowCache && i > 0) R.shadowMap.needsUpdate = false; });
+  const ms = pipe.accumulate(scene, cam, spp, (i) => { U.uSample.value = i + f * 0.137; if ((C.tech.shadowCache || V6) && i > 0) R.shadowMap.needsUpdate = false; });
+  const aoMs = SSAO ? SSAO.apply(scene, cam, pipe.accRT, U.uMask, aoHide) : 0;   // V6: AO nhân vào bộ tích luỹ HDR
   R.setRenderTarget(null); pipe.outMat.uniforms.frame.value = f; R.render(outScene, quadCam);
   const t1 = performance.now();
-  if (HERO) return { f, spp, gl_ms: +ms.toFixed(1), phase: st.phase || null };   // chế độ hero: chữ do k2.js vẽ (anchorsAt()._tl)
+  if (HERO) return { f, spp, gl_ms: +ms.toFixed(1), ao_ms: +aoMs.toFixed(1), phase: st.phase || null };   // chế độ hero: chữ do k2.js vẽ (anchorsAt()._tl)
   const t2 = performance.now(); txt.begin(R.domElement);
   if (!(ov && ov.noText)) SC.overlay(t, st, txt, projOf());
-  const r = { f, year: +st.year.toFixed(2), spp, phase: st.phase || null, preset: st.preset || null, gl_ms: +ms.toFixed(1), post_ms: +(t1 - t0 - ms).toFixed(1), lod: ctx.city.stat(), tlod: ctx.terr.stat(), shadow_upd: shadowUpdates, budget: txt.budget(), overflow: txt.log.overflow.slice() };
+  const r = { f, year: +st.year.toFixed(2), spp, phase: st.phase || null, preset: st.preset || null, gl_ms: +ms.toFixed(1), ao_ms: +aoMs.toFixed(1), shadow: v6Shadow, post_ms: +(t1 - t0 - ms - aoMs).toFixed(1), lod: ctx.city.stat(), tlod: ctx.terr.stat(), shadow_upd: shadowUpdates, budget: txt.budget(), overflow: txt.log.overflow.slice() };
   // V5b-2a (K §7.1): log chữ MỌI khung có thẻ/ảnh/nhãn neo (không chỉ khung đo) + đường dẫn neo (đầu đường dẫn ↔ điểm 3D, TL-Q4b)
   if (measure || txt.log.cards > 0 || txt.log.leaders.length) r.text = txt.contrast();
   if (txt.log.leaders.length) r.leaders = txt.log.leaders.slice();

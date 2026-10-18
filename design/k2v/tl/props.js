@@ -68,6 +68,13 @@ export function gardens(feats, ctx, { trees = {}, houses = true, seed = 5 } = {}
     const o = new THREE.Mesh(g, mat); o.receiveShadow = true; group.add(o); stat.vuon++;
     const tr = trees[f.id]; if (tr) { let got = 0; for (let k = 0; k < tr * 20 && got < tr; k++) { const p = [e0 + R() * (e1 - e0), n0 + R() * (n1 - n0)]; if (pip(p, r)) { treeRecs.push(p); got++; } } }   // tr = số cây (minh hoạ) TRONG vòng vườn
   }
+  if (treeRecs.length && ctx.v6people) {   // V6 (V2D-1): cây vườn ĐỊA TRUNG HẢI (cam/vả/ô liu — loài minh hoạ): tán nhiều cụm méo, sáng trên/tối dưới, thân + 2–3 cành; thay "cây kẹo mút"
+    const geo = treeGeoV6(rng(seed * 7 + 3)), mc = new THREE.MeshLambertMaterial({ vertexColors: true }); maskify(mc, ctx.U, 1);
+    const ic = new THREE.InstancedMesh(geo, mc, treeRecs.length), m4 = new THREE.Matrix4(), col = new THREE.Color();
+    treeRecs.forEach(([e, n], i) => { const s = 0.75 + 0.5 * R(); m4.compose(new THREE.Vector3(e, hAt(e, n) - 0.1, -n), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), R() * 6.28), new THREE.Vector3(s * (0.9 + 0.2 * R()), s * (0.85 + 0.3 * R()), s * (0.9 + 0.2 * R())));
+      ic.setMatrixAt(i, m4); col.setRGB(0.85 + 0.25 * R(), 0.88 + 0.22 * R(), 0.8 + 0.25 * R()); ic.setColorAt(i, col); });
+    ic.castShadow = ic.receiveShadow = true; group.add(ic); stat.cay = treeRecs.length; treeRecs.length = 0;
+  }
   if (treeRecs.length) {   // cây vườn: tán tròn lục đậm + thân (cùng kiểu nature.js), cao 4–7 m
     const geo = new THREE.IcosahedronGeometry(1, 1); geo.scale(1.5, 1.1, 1.5); geo.translate(0, 2.2, 0); { const ps = geo.attributes.position; for (let i = 0; i < ps.count; i++) { const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), h = Math.sin(x * 12.9 + y * 78.2 + z * 37.7) * 43758.5, k = 0.8 + 0.35 * (h - Math.floor(h)); ps.setXYZ(i, x * k, 2.2 + (y - 2.2) * k, z * k); } geo.computeVertexNormals(); }   // tán xô lệch (không 'kẹo mút')
     const trunk = new THREE.CylinderGeometry(0.12, 0.16, 1.6, 5).translate(0, 0.8, 0);
@@ -144,4 +151,19 @@ export function battery(guns, floor, y, ctx, { seed = 7, sheds = 3, kegs = 4, fu
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(C, 3)); g.computeVertexNormals();
   const m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }); maskify(m, ctx.U, 1); const o = new THREE.Mesh(g, m); o.castShadow = o.receiveShadow = true; group.add(o);
   return { group, stat, crews };
+}
+
+// V6: lưới cây vườn (≈ 5 m): thân thon + 3 cành, tán = 5–7 cụm cầu méo nhiễu, màu đỉnh sáng/đáy tối (giả AO), xen lá vàng-xanh
+export function treeGeoV6(R) {
+  const P = [], C = [], push = (g, colf) => { const ps = g.attributes.position, nonIdx = g.index ? g.toNonIndexed() : g, q = nonIdx.attributes.position; for (let i = 0; i < q.count; i++) { const x = q.getX(i), y = q.getY(i), z = q.getZ(i); P.push(x, y, z); C.push(...colf(x, y, z)); } };
+  const bark = () => [0.24, 0.18, 0.13];
+  const trunk = new THREE.CylinderGeometry(0.11, 0.2, 2.3, 6, 2).translate(0, 1.15, 0); push(trunk, bark);
+  for (let k = 0; k < 3; k++) { const a = k * 2.1 + R(), b = new THREE.CylinderGeometry(0.05, 0.09, 1.6, 5).translate(0, 0.8, 0); b.rotateZ(0.7 + 0.2 * R()); b.rotateY(a); b.translate(0, 1.9, 0); push(b, bark); }
+  const nb = 5 + Math.floor(R() * 3);
+  for (let k = 0; k < nb; k++) { const a = R() * 6.283, rr = k === 0 ? 0 : 0.9 + 0.7 * R(), cy = 3.0 + (k === 0 ? 0.6 : R() * 1.3), sz = k === 0 ? 1.6 : 0.9 + 0.6 * R();
+    const g = new THREE.IcosahedronGeometry(sz, 1); const ps = g.attributes.position; for (let i = 0; i < ps.count; i++) { const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), h = Math.sin(x * 12.9 + y * 78.2 + z * 37.7 + k * 3.1) * 43758.5, f = 0.78 + 0.4 * (h - Math.floor(h)); ps.setXYZ(i, x * f, y * f * 0.85, z * f); }
+    g.translate(Math.cos(a) * rr, cy, Math.sin(a) * rr);
+    const tint = R() < 0.25 ? [0.30, 0.36, 0.14] : [0.17, 0.27, 0.10];
+    push(g, (x, y, z) => { const t = Math.max(0, Math.min(1, (y - 2.0) / 3.2)), k2 = 0.55 + 0.6 * t; return tint.map((v) => v * k2); }); }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(C, 3)); g.computeVertexNormals(); return g;
 }
