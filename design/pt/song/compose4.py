@@ -4,7 +4,7 @@
    vùng bảo vệ = hợp của mã lớp mới và cũ (nơi C không được phép sửa ở lần sinh).
 2) --sac-A: biến thể "độ sáng chi tiết từ C + sắc độ từ A": ở vùng được sửa, màu = A_p × (Y_LAI / Y_A) (giữ tông màu/bão hoà của A, chi tiết sáng tối của C).
 3) Vùng bảo vệ = đúng giá trị 16 bit của A (như PT2); --xoa-lop như PT2.
-  /opt/cine/bin/python -I compose4.py <nền A> <ảnh C> <ra> [--nen-cu DIR] [--xoa-lop 9510] [--sac-A]"""
+  /opt/cine/bin/python -I compose4.py <nền A> <ảnh C> <ra> [--nen-cu DIR] [--xoa-lop 9510] [--sac-A] [--mat-na <mặt nạ RGBA đã gửi>]"""
 import sys, os, json, shutil, numpy as np, cv2
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(HERE, '..', 'lai'))
 import lai_common as LC
@@ -18,8 +18,13 @@ lin = lambda a16: LC.srgb2lin(a16.astype(np.float32) / 65535.0)
 A2 = lin(A16['d2']); A2old = lin(rd16(os.path.join(OLD, 'd2.png'))) if OLD else A2
 C8 = cv2.imread(CP, cv2.IMREAD_UNCHANGED)[..., :3][..., ::-1]
 C = LC.srgb2lin(cv2.resize(C8, (W, H), interpolation=cv2.INTER_AREA).astype(np.float32) / 255.0)
-prot = LC.protected_mask(BG, reveals=True)
-if OLD: prot |= LC.protected_mask(OLD, reveals=True)
+RV = '--ma-cua-A' not in sys.argv   # --ma-cua-A: má ô cửa lấy từ A (PT4 HC4 W6: AI vẽ thanh kim loại trong lòng cửa tầng trệt 1943)
+prot = LC.protected_mask(BG, reveals=RV)
+if OLD: prot |= LC.protected_mask(OLD, reveals=RV)
+if '--mat-na' in sys.argv:   # PT4: vùng GIỮ của chính mặt nạ đã gửi AI (gồm dải chặn kiến trúc) cũng ghép lại A — trừ má ô cửa (lấy C như PT2)
+    mk = cv2.imread(sys.argv[sys.argv.index('--mat-na') + 1], cv2.IMREAD_UNCHANGED)[..., 3]
+    mk = cv2.resize(mk, (W, H), interpolation=cv2.INTER_NEAREST) > 127
+    reg_m, mat_m, mc_m, _ = LC.load_cls(BG); prot |= mk & ~(mat_m == mc_m['vua_mo'])
 XL = sys.argv[sys.argv.index('--xoa-lop') + 1].split(',') if '--xoa-lop' in sys.argv else []
 if XL:
     reg_, mat_, mc_, _ = LC.load_cls(BG); xm = np.zeros_like(prot)
@@ -45,7 +50,7 @@ dist = cv2.distanceTransform(edit.astype(np.uint8), cv2.DIST_L2, 3)
 alpha = np.clip(dist / 2.0, 0, 1)[..., None]; alpha[prot] = 0
 LUM = np.array([0.2126, 0.7152, 0.0722], np.float32)
 stat = {'xoa_lop': XL, 'nen_cu': bool(OLD), 'sac_A': SAC_A, 'pct_bao_ve': round(float(prot.mean() * 100), 2), 'pct_duoc_sua': round(float(edit.mean() * 100), 2),
-        'pct_hinh_hoc_doi': round(float(((dnew != 0) & edit).mean() * 100), 2), 'luot': {}}
+        'pct_hinh_hoc_doi': round(float(((dnew != 0).any(-1) & edit).mean() * 100), 2), 'luot': {}}
 for p in ORDER:
     Ap = lin(A16[p]); L = C * shade(Ap)
     if p == 'n': L = np.minimum(L, 1.5 * Ap + 1e-4)
