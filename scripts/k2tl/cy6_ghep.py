@@ -20,6 +20,12 @@ f = OpenEXR.InputFile(EXR[:-4] + '-aux.exr'); chans = list(f.header()['channels'
 xa = ch('Combined.A'); dcol = np.repeat(ch('Combined.R')[..., None], 3, -1); Z = ch('Combined.G') * 1000 / np.maximum(xa, 1e-3); Z[xa < 1e-3] = 1e6
 irr = comb / np.maximum(dcol, 1e-4); irr[dcol.max(-1) < 1e-4] = 0
 lit = alb[..., :3] * irr
+# AN TOÀN: điểm ảnh hình học mà Cycles gần như không nhận sáng (irr < 3 % trung vị) trong khi k2v thấy mặt được chiếu (lượt không khói sáng > 25 % albedo)
+#  = lệch hình học giữa bộ xuất và shader k2v (vd. mái bị vật khác bịt) → lấy lại điểm ảnh k2v; ghi % vào thống kê (lui_k2v_pct)
+geo = alpha > 0.5; med = float(np.median(irr[geo].mean(-1))) if geo.any() else 1.0
+nl, al = nos[..., :3].mean(-1), alb[..., :3].mean(-1)
+bad = geo & (irr.mean(-1) < 0.03 * med) & (nl > 0.25 * al) & (al > 0.02)
+lit[bad] = nos[..., :3][bad]
 fog = M.get('fog')
 if fog:
     fz = 1 - np.exp(-(fog['density'] * np.minimum(Z, 1e6)) ** 2); lit = lit * (1 - fz[..., None]) + np.array(fog['color'], np.float32) * fz[..., None]
@@ -29,7 +35,7 @@ out = smk[..., :3] + out * (1 - np.clip(smk[..., 3:4], 0, 1))
 o4 = np.concatenate([out, np.ones((H, W, 1), np.float32)], -1)[::-1].astype(np.float32)
 o4.tofile(OUT)
 st = {'hinh_hoc_pct': round(float((alpha > 0.5).mean() * 100), 2), 'irr_tb': [round(float(x), 4) for x in irr[alpha > 0.5].mean(0)] if (alpha > 0.5).any() else None,
-      'khoi_pct': round(float((smk[..., 3] > 0.05).mean() * 100), 2)}
+      'khoi_pct': round(float((smk[..., 3] > 0.05).mean() * 100), 2), 'lui_k2v_pct': round(float(bad.mean() * 100), 3)}
 if '--irr-png' in sys.argv:
     from PIL import Image
     p = sys.argv[sys.argv.index('--irr-png') + 1]; im = np.clip((irr / (irr.max() * 0.5 + 1e-6)) ** (1 / 2.2), 0, 1); Image.fromarray((im * 255).astype(np.uint8)).save(p)
