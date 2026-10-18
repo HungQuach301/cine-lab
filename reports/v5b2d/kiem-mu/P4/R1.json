@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 3,
+  "fit": 4,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "The scenery is decent: the water, the red-roofed town and the hill fort all look fine. The bastion's gun platform is a huge empty tan slab with tiny cannons. There are no people, no smoke and no flag. The ships are small and barely visible, so nothing says battle."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 7,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The bastion is populated with a flag, red and blue troops in formation, cannonball piles, boxy buildings and some smoke wisps. It reads as a garrison in action. The soldiers are plain cylinders, so they look like toy pegs or bowling pins. They are also oversized relative to the guns, and the smoke is faint."
+ },
+ "better": "Y",
+ "why": "Y puts a flag, troops and smoke on the bastion so it reads as a defended fort during a battle, while X is an empty sand-coloured platform.",
+ "top_fix_for_weaker": "Fill the platform with gun crews, gunpowder smoke and muzzle flashes. Add a flag, shot piles and enemy ships firing in the foreground, so the bastion looks like it is under attack.",
+ "top_fix_for_better": "Replace the cylinder soldiers with simple humanoid figures at correct scale. Add real cannon smoke and muzzle flashes, and put visible incoming fire or enemy ships on the water."
+}

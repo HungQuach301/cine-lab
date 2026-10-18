@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 6,
+  "richness": 3,
+  "fit": 4,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "The lighting, water and town backdrop are decent. The bastion's huge terreplein is a blank sand-coloured slab with tiny cannon stubs along the edges. There are no troops, no smoke and no flag, so nothing says 'battle'. Ships are small and sit at the far edge. The left haze looks like a lens smear."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 7,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The same scene, now populated: a Union flag, red and blue soldiers in formation, gun crews, shot piles, outbuildings and a few puffs of smoke. The frame reads as a garrisoned fort in action. The soldiers are bare cylinders, like skittles or peg figures, so the look is toy-like. Their scale against the guns and the wall is hard to judge. The smoke is faint, there is no sign of an enemy or incoming fire, and the pale haze patches over the water look like artifacts."
+ },
+ "better": "Y",
+ "why": "Y fills the otherwise empty bastion with a flag, troops, gun crews and smoke, so it reads as a fort in battle, while X is a blank sand deck.",
+ "top_fix_for_weaker": "Add many detailed gun crews, a flag, muzzle flashes and heavy smoke along the parapet. Add enemy ships firing, with splashes, in the foreground water. Break up the empty terreplein with props, shadows and texture, and remove the left-hand haze smear.",
+ "top_fix_for_better": "Swap the cylinder soldiers for proper stylised figures with heads, hats and muskets at a believable scale. Add dense gun smoke and flashes, and enemy ships firing with shot splashes, so the battle is visible. Drop the haze patches on the water."
+}

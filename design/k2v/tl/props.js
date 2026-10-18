@@ -58,9 +58,9 @@ export function gardens(feats, ctx, { trees = {}, houses = true, seed = 5 } = {}
     for (let e = e0; e < e1; e += st) for (let n = n0; n < n1; n += st) {
       const c = [e + st / 2, n + st / 2]; if (!pip(c, r)) continue;
       const u = (c[0] * ca + c[1] * sa), v = (-c[0] * sa + c[1] * ca), plot = Math.floor(v / plots + 100) * 7 + Math.floor(u / (plots * 1.7) + 100), row = Math.floor(u / 1.5 + 1000) % 2;   // lô (ô lớn) × luống (sọc 1,5 m)
-      const pr = rng(plot * 31 + seed)(), base = pr < 0.45 ? [0.30, 0.46, 0.18] : pr < 0.75 ? [0.44, 0.50, 0.22] : pr < 0.9 ? [0.36, 0.40, 0.16] : [0.26, 0.40, 0.20];
+      const pr = rng(plot * 31 + seed)(), base = pr < 0.45 ? [0.24, 0.34, 0.15] : pr < 0.75 ? [0.32, 0.38, 0.17] : pr < 0.9 ? [0.30, 0.31, 0.14] : [0.22, 0.31, 0.16];   // V5b-2d: lục trầm (chấm mù: 'ruộng sọc đồ chơi')
       const walk = (((u % 12) + 12) % 12) < 1.4 || (((v % 16) + 16) % 16) < 1.4;   // lối đi đất nện giữa các lô
-      const col = walk ? [0.66, 0.56, 0.42] : row ? base : [0.50, 0.38, 0.25], q = [[e, n], [e + st, n], [e + st, n + st], [e, n + st]];   // luống: sọc cây xanh xen sọc đất
+      const col = walk ? [0.62, 0.53, 0.40] : row ? base : [0.42, 0.33, 0.23], q = [[e, n], [e + st, n], [e + st, n + st], [e, n + st]];   // luống: sọc cây xanh xen sọc đất
       for (const k of [0, 1, 2, 0, 2, 3]) { const [qe, qn] = q[k]; P.push(qe, hAt(qe, qn) + 0.15, -qn); C.push(...col); }
       stat.m2 += st * st;
     }
@@ -69,11 +69,11 @@ export function gardens(feats, ctx, { trees = {}, houses = true, seed = 5 } = {}
     const tr = trees[f.id]; if (tr) { let got = 0; for (let k = 0; k < tr * 20 && got < tr; k++) { const p = [e0 + R() * (e1 - e0), n0 + R() * (n1 - n0)]; if (pip(p, r)) { treeRecs.push(p); got++; } } }   // tr = số cây (minh hoạ) TRONG vòng vườn
   }
   if (treeRecs.length) {   // cây vườn: tán tròn lục đậm + thân (cùng kiểu nature.js), cao 4–7 m
-    const geo = new THREE.IcosahedronGeometry(1, 1); geo.scale(1.6, 1.3, 1.6); geo.translate(0, 2.6, 0);
+    const geo = new THREE.IcosahedronGeometry(1, 1); geo.scale(1.5, 1.1, 1.5); geo.translate(0, 2.2, 0); { const ps = geo.attributes.position; for (let i = 0; i < ps.count; i++) { const x = ps.getX(i), y = ps.getY(i), z = ps.getZ(i), h = Math.sin(x * 12.9 + y * 78.2 + z * 37.7) * 43758.5, k = 0.8 + 0.35 * (h - Math.floor(h)); ps.setXYZ(i, x * k, 2.2 + (y - 2.2) * k, z * k); } geo.computeVertexNormals(); }   // tán xô lệch (không 'kẹo mút')
     const trunk = new THREE.CylinderGeometry(0.12, 0.16, 1.6, 5).translate(0, 0.8, 0);
-    const mc = new THREE.MeshLambertMaterial({ color: 0x3e6b2c }), mt = new THREE.MeshLambertMaterial({ color: 0x5a4330 }); maskify(mc, ctx.U, 1); maskify(mt, ctx.U, 1);
+    const mc = new THREE.MeshLambertMaterial({ color: 0x33522a }), mt = new THREE.MeshLambertMaterial({ color: 0x5a4330 }); maskify(mc, ctx.U, 1); maskify(mt, ctx.U, 1);
     const ic = new THREE.InstancedMesh(geo, mc, treeRecs.length), it = new THREE.InstancedMesh(trunk, mt, treeRecs.length), m4 = new THREE.Matrix4(), col = new THREE.Color();
-    treeRecs.forEach(([e, n], i) => { const s = 0.75 + 0.5 * R(); m4.compose(new THREE.Vector3(e, hAt(e, n), -n), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), R() * 6.28), new THREE.Vector3(s, s * (0.9 + 0.3 * R()), s));
+    treeRecs.forEach(([e, n], i) => { const s = 0.6 + 0.45 * R(); m4.compose(new THREE.Vector3(e, hAt(e, n), -n), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), R() * 6.28), new THREE.Vector3(s, s * (0.9 + 0.3 * R()), s));
       ic.setMatrixAt(i, m4); it.setMatrixAt(i, m4); col.setRGB(0.8 + 0.35 * R(), 0.85 + 0.3 * R(), 0.75 + 0.3 * R()); ic.setColorAt(i, col); });
     ic.castShadow = it.castShadow = true; group.add(ic, it); stat.cay = treeRecs.length;
   }

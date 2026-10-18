@@ -1,0 +1,28 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 5,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "cluttered",
+   "unreadable_scale"
+  ],
+  "note": "The frame is full of dense, uniform orange-roofed blocks, and the low angle reads as a town more than Y does. But the buildings are blocky, repetitive and sit on a flat sand ground. Streets are barely legible. Several orange roof slabs float on bare ground at lower left. Troops are tiny red specks and the people are almost invisible. There is no smoke, no ships and no street-level life. The result looks like a game-engine terrain mock-up."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 5,
+  "fit": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "This version has better lighting, depth, sky and sea, and the fortified seafront wall and bell tower read well. The lower-left third is a toy-like striped green field with lollipop trees, which looks like a placeholder. Troops are tiny red dots. The buildings are far away and the camera is high, so this is an aerial town view rather than a dense street. The street grid is not readable."
+ },
+ "better": "X",
+ "why": "X delivers the dense-street brief better, because the buildings fill the frame and the camera is closer, whereas Y's prettier atmosphere is undercut by a large toy-like field and a distant, aerial framing.",
+ "top_fix_for_weaker": "Replace the striped green field and lollipop trees with buildings, a market square or textured ground, and drop the camera to a lower, closer street-level angle with visible streets and larger people.",
+ "top_fix_for_better": "Add visible street lanes with cobble texture and larger crowds, soldiers and carts, and add chimney smoke and roof and wall variation. Remove the floating roof slabs and the flat sand ground, and add ambient occlusion and atmospheric depth haze."
+}

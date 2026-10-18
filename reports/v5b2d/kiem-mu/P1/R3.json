@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 4,
+  "richness": 2,
+  "fit": 3,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "unreadable_scale"
+  ],
+  "note": "The rock and sky are pleasant, but the middle ground is a bare green plain. The only content is a long wall, a thin trench line and one small block of troops. There are almost no besiegers, and the town is a speck. Nothing tells you this is a siege."
+ },
+ "Y": {
+  "craft": 5,
+  "richness": 7,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "cluttered"
+  ],
+  "note": "Dense formations, entrenchment walls, drifting smoke, the rock and a visible town, with the sea on the right. It reads as a besieging army on the isthmus. The troops are black cylinder blocks on gold slabs, so they look like toy or array primitives, and the repetition is mechanical. The camera angle and depth are better than X's."
+ },
+ "better": "Y",
+ "why": "Y has an actual army, smoke and a layered siege setting, while X is a mostly empty field with a rock.",
+ "top_fix_for_weaker": "Fill the foreground and middle ground with besieging troops, batteries and tents. Move the camera lower and closer to the lines, make the town and fortifications on the rock readable, and add cannon smoke.",
+ "top_fix_for_better": "Replace the black cylinder blocks with varied figures in coloured uniforms. Break up the grid layout, add guns, tents and a few ships offshore, and put the town and fortress walls on the rock in clearer focus."
+}

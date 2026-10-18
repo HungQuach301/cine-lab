@@ -18,7 +18,7 @@ export async function build(ctx) {
   ctx.ships.group.visible = false;
   // V5b-2d (C2-2): bay phố 70 m trên đất = khung gần → tiền cảnh chỉ khối có nguồn: bỏ lấp ước tính trong 150 m quanh vết máy (vết tính trước khi dựng phố)
   //  → bay ĐOẠN NAM Main Street (Southport → nhà Phó Thống đốc), nơi plan 1782 có khối/toà hai bên phố; nhìn bắc dọc phố: lấp ước tính chỉ ở trung/hậu cảnh (> 150 m)
-  const K0 = alongLine(MAIN, { s0: 0, s1: 170, t0: 0, t1: DUR, h: [H, H - 4], look: 230, dip: 64, dt: 0.25, hAt });
+  const K0 = alongLine(MAIN, { s0: 90, s1: 260, t0: 0, t1: DUR, h: [H, H - 4], look: 230, dip: 64, dt: 0.25, hAt });   // khung giữa cú: máy đã qua vườn Convent (chấm mù: 'ruộng sọc' chiếm 1/3 khung)
   const TOWN = await town1782(ctx, { near: { track: K0.map((k) => [k.p[0], k.p[2]]), r: 150 } });
   // dọc tim tuyến, nhìn trước 230 m và lệch 45 m về phía tây (vịnh) để khung là phần phố bản đồ có vẽ
   // V5b-2c (I3): phố đã lấp ước tính cả mé đông → nhìn trước-xuống dốc hơn, lệch nhẹ về ĐÔNG (phố dày chiếm ≥ 50 % khung, mặt nước ≤ 1/3)

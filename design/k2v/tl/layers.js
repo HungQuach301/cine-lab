@@ -162,7 +162,7 @@ export function smoke(specs, ctx) {
 export const SRC1782 = 'Reconstructed from J. Drinkwater, Plan of the Batteries, 1782';
 // V5b-2d: near = {track: [[E, N]…], r} (C2-2) — KHUNG GẦN (AGL ≤ 150 m): tiền cảnh CHỈ khối có nguồn → bỏ khối lấp ước tính có tâm trong r m quanh vết máy;
 //  extra = lớp extra1782 (so_hoa_v5b2d.py): vườn trong phố (luống + cây chỉ trong vòng vườn) + điểm nhấn (St Mary the Crowned, Convent).
-export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {}, near = null, extra = true, gardenTrees = { 'V1782-02': 16, 'V1782-03': 10 } } = {}) {
+export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {}, near = null, extra = true, gardenTrees = { 'V1782-02': 10, 'V1782-03': 8 } } = {}) {
   if (hidPack) ctx.city.group.visible = false;
   // V5b-2c (I2): + lớp LẤP ƯỚC TÍNH infill1782 (scripts/k2tl/infill_1782.py, do_tin uoc, tông lệch nhẹ) — dòng phương pháp "Grey-washed blocks: estimated infill" do cảnh hiện
   // bastion của plan (Orange's, Montague, South Bastion, Old Mole…) có ≥ 6 điểm tường OSM trong 75 m → thay vòng bằng bao lồi điểm OSM (vị trí thật), bỏ các điểm đó khỏi tuyến tường
@@ -227,7 +227,7 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {},
 //  hoặc spec.at = [E, N]. Mọc theo ngày: day = [xuất hiện, rút] (đơn vị "ngày" do cảnh chọn: uDay), mọc 0,5 ngày từ mặt đất; dịch: move = [[day, dE, dN], …].
 //  update(day, zones): đơn vị có tâm trong vùng khói/lửa (layers.smoke zones) bị ẨN và đếm (luật hình chiến tranh §6.2: không người trong vùng khói).
 export function units(specs, ctx) {
-  const fig = { body: new THREE.BoxGeometry(0.5, 1.35, 0.32).translate(0, 0.68, 0), hat: new THREE.BoxGeometry(0.42, 0.3, 0.42).translate(0, 1.55, 0) };
+  const fig = { body: new THREE.BoxGeometry(0.5, 1.35, 0.32).translate(0, 0.68, 0), hat: new THREE.BoxGeometry(0.36, 0.22, 0.36).translate(0, 1.5, 0) };   // V5b-2d: mũ nhỏ + nâu xám (chấm mù: 'trụ đen' — đỉnh mũ đen lấn màu áo)
   const slots = [];
   for (const sp of specs || []) {
     let E, N, hd;
@@ -240,7 +240,7 @@ export function units(specs, ctx) {
   const group = new THREE.Group(), mats = {}, meshes = [];
   const byColor = {}; for (const s of slots) { const col = s.sp.color || FACTION[s.sp.side] || FACTION.neutral; (byColor[col] = byColor[col] || []).push(s); }
   for (const [col, S] of Object.entries(byColor)) {
-    const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(col).multiplyScalar(0.82), emissive: new THREE.Color(col).multiplyScalar(0.22) }), mh = new THREE.MeshLambertMaterial({ color: 0x1d1b19 });   // V5b-2d: ánh dội đất sáng lên áo (khối đọc được màu phe khi ngược sáng)
+    const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(col).multiplyScalar(0.82), emissive: new THREE.Color(col).multiplyScalar(0.22) }), mh = new THREE.MeshLambertMaterial({ color: 0x3b342c });   // V5b-2d: ánh dội đất sáng lên áo (khối đọc được màu phe khi ngược sáng)
     maskify(mb, ctx.U, 1); maskify(mh, ctx.U, 1);
     const ib = new THREE.InstancedMesh(fig.body, mb, S.length), ih = new THREE.InstancedMesh(fig.hat, mh, S.length); ib.castShadow = ih.castShadow = true; ib.receiveShadow = true;
     group.add(ib, ih); meshes.push({ S, ib, ih }); mats[col] = mb;

@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 5, "richness": 3, "fit": 4, "flags": ["empty_frame", "flat_slide_look"], "note": "The city, water and hills are decent. The bastion terrace is a huge empty tan slab with only tiny cannon silhouettes. There are no troops, smoke, flag or sign of battle. The bright haze patch at upper left looks like an artifact. The enemy ships are small and barely readable. It reads as a static architectural model, not a battle."},
+ "Y": {"craft": 5, "richness": 7, "fit": 7, "flags": ["toy_look"], "note": "The same scene, now with a Union flag, red and blue soldiers in formation, cannonball piles, crates and smoke puffs along the wall and in the distance. The soldiers are bare cylinders, like toy pegs, and the proportions are crude. Even so, the terrace has scale, life and a sense of action, and the flag gives the bastion an identity. There is still no real fire, smoke or hero-level action."},
+ "better": "Y",
+ "why": "Y fills the bastion with a flag, troops, ammunition and smoke, so it reads as a battle fort, while X is an empty plaza with the same camera and set.",
+ "top_fix_for_weaker": "Populate the terrace with gun crews, officers and powder smoke and add a flag. Add muzzle flashes and incoming shot splashes, and remove the haze artifact at upper left.",
+ "top_fix_for_better": "Replace the peg-like cylinder soldiers with proper humanoid figures with varied poses and scale. Add thick gun smoke, muzzle flashes and enemy ships firing, and add shadow and ambient occlusion so the figures sit on the ground."}
+```

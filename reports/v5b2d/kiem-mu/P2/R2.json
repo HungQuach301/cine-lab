@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 6,
+  "richness": 6,
+  "fit": 7,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Elevated three-quarter view that reads well. The dense terracotta rooftops, bastion walls and hillside give a clear town-and-fortress layout. The ships are small, blocky and stiff, with flat sail slabs, and they sit isolated on a large empty stretch of water. There are no people, smoke or wakes. The lighting is flat and the water is too saturated."
+ },
+ "Y": {
+  "craft": 5,
+  "richness": 3,
+  "fit": 5,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Low water-level camera gives a nice sky and water sheen. About 60% of the frame is empty water and sky. The town is squeezed into the right corner and is too small to read. The ships are tiny, blocky and lined up in a row, and the sails look like cardboard. The wall is a featureless brown strip, and there is nothing alive in the scene."
+ },
+ "better": "X",
+ "why": "X shows the fortified town, walls and ships with real density and clear geography, while Y leaves most of the frame as empty water and sky with a tiny, hard-to-read town.",
+ "top_fix_for_weaker": "Reframe closer and higher so the town, walls and quay fill at least half the frame. Make the ships larger, put them in the foreground at varied angles and distances, and add wakes, flags, smoke and people on the quay and walls.",
+ "top_fix_for_better": "Add life and scale cues: bigger, better-modelled ships with curved sails, wakes and rigging. Add smoke from the town and bastions, figures and boats at the quay, and atmospheric haze and warmer, directional light to break the flat lighting."
+}

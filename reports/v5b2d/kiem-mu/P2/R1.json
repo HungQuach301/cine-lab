@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 6,
+  "richness": 6,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Elevated view. The walled town with its terracotta roofs reads clearly against the hillside, and the water is vivid. The ships are small, flat-sailed, toy-like blocks. They float in a big empty blue foreground and look out of scale with the town. The hillside is smeared and blobby."
+ },
+ "Y": {
+  "craft": 5,
+  "richness": 3,
+  "fit": 5,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The low-angle sea view has a nice sky and clouds. About 75% of the frame is empty water and sky. The town is squeezed into the right edge and is tiny. The four ships in a row look like pasted-on cardboard cutouts. The wall runs behind the ships as a flat brown strip."
+ },
+ "better": "X",
+ "why": "X shows the town, walls and harbour clearly in one frame, while Y is mostly empty water and sky with the port pushed to the corner.",
+ "top_fix_for_weaker": "Move the camera closer and higher, and frame the town and quay across the middle of the frame. Crop out most of the water. Add harbour activity such as boats, wharves, smoke and people, and scale the ships up so they read as large vessels.",
+ "top_fix_for_better": "Scale the ships up and give them real hull and sail shapes, with wakes and flags. Fill the empty foreground water with small boats or a quay edge. Add smoke and people on the walls and docks, and add atmospheric haze for depth."
+}

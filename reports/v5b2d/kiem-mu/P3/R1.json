@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 5,
+  "fit": 6,
+  "flags": [
+   "toy_look",
+   "cluttered",
+   "unreadable_scale"
+  ],
+  "note": "It's a dense sea of orange roofs that fills the frame, so it reads as a crowded town. But there are no people or street life, only a tiny red troop strip at left. Floating orange roof slabs at lower left look like glitches. The ground is flat beige, the scale is odd and the view is more aerial than street level."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 5,
+  "fit": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The composition is clearer, with sea, walls, a bell tower and the fortress giving depth, and the lighting and sky are nicer. But a big striped green field with lollipop trees takes up the lower left, and a few red soldiers sit in it. It looks like a toy diorama, and the buildings are sparser. It reads as a town overview, not a dense street."
+ },
+ "better": "X",
+ "why": "X is fuller and denser, so it fits a dense old-town street shot better, while Y spends a third of the frame on a toy-like farm field and sparse buildings.",
+ "top_fix_for_weaker": "Remove or shrink the striped field with its lollipop trees and replace it with more buildings. Lower the camera into an actual street, and add crowds, carts and smoke so it isn't an aerial overview.",
+ "top_fix_for_better": "Delete the floating roof slabs and the empty beige plaza. Add street-level people, market stalls, smoke and ships in the harbour, and use more varied materials and colours to break up the uniform orange."
+}
