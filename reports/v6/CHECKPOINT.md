@@ -1,4 +1,4 @@
-# V6 — CHECKPOINT 13:34 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
+# V6 — CHECKPOINT 14:12 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
 
 Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-nuong @685f11bb, pt4-song @5a7c9a27, claude/checks-v1-15-1qzf9z @001ee5d (0 xung đột); `checks/lock.py --verify` KHỚP 1.15.0 f4fa0349….
 
@@ -17,7 +17,7 @@ Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-n
 
 ## Đang dở
 - Chấm mù lượt 2 XONG (reports/v6/kiem-mu): TỐT NHẤT hạng 1 11/18, SX 1/18, V5b-2d 6/18; P3, P5 vẫn thua 3/3 (lý do bố cục: phế tích / quảng trường trống — theo lệnh; chờ chủ dự án).
-- Đoạn thử 540p: 4/5 cảnh đinh xong (a_vinh 14 phút, d_pho 6, c_toan 5; ≈ 1,8 s/khung 540p), e_bo đang dựng (--resume) → render đoạn → mix → ghép.
+- Đoạn thử 540p lượt 1 XONG 13:59 (42 s, 13,7 MB; A1 −14,0 LUFS). k2check 1.15: LOCK KHỚP; NC-H1…H4 ĐẠT, NC-H5/BD-* không áp; Q37/Q26b/ML1 TRƯỢT (cấu trúc đoạn thử 3D liền); A2 đỉnh thật sau AAC +0,1 dBTP TRƯỢT; K-LAI thiếu khối lai → thêm khối `lai:` (log khung 1008 khung, log chữ) → K-LAI-1 ĐẠT 19,5 %; K-LAI-2 bắt 2 lỗi thật (khung 0 trong hoà đen không có nhãn; nhãn 37,96 px) → sửa k2.js (vẽ nhãn AI trên lớp hoà, 40 px) + dòng nguồn P3 đè chip nơi + thẻ P6 đè pin nổi → đang dựng lại lượt 2.
 - Khung neo: chờ phiên con (hạn mức API) — sẽ gửi tin nhắn tiếp tục sau 13:00 UTC hoặc tự thu kết quả đã có.
 
 ## Chưa làm

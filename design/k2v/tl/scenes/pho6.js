@@ -41,7 +41,7 @@ export async function build(ctx) {
   let song = null;
   function apply(st, t) { TOWN.update(st.year, ctx.cam); song = LF.update(t ?? 0, []); TR.update(0.5, []); }
   function overlay(t, st, T) {
-    T.chrome(t, 1782, 0, null, { lines: [{ s: 'Houses: 2-storey standard for 1782 (estimated) · church tower height illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (5.6 - t) / 0.35)) }, { s: TOWN.RUINS_SRC + ' · ' + TOWN.INFILL_SRC + ' · people: illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (DUR + 1 - t) / 0.35)) }] }, null);
+    /* V6: dòng nguồn ngắn lại + tách 3 dòng — dòng dài cũ chạy dưới chip nơi (đoạn thử, khung 25 s) */ T.chrome(t, 1782, 0, null, { lines: [{ s: 'Houses: 2-storey (estimated) · tower height illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (5.6 - t) / 0.35)) }, { s: TOWN.RUINS_SRC, a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (DUR + 1 - t) / 0.35)) }, { s: TOWN.INFILL_SRC + ' · people: illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (DUR + 1 - t) / 0.35)) }] }, null);
     T.where(t, [-1, DUR + 1], 'Main Street, Gibraltar');
     T.ghostSrc(t, [-1, DUR + 1], TOWN.src);
     T.card(t, [1.4, 5.4], 'Main Street, 1782 · blocks from the siege plan', 'Positions within ~21 m · east side not on the plan: estimated', null);

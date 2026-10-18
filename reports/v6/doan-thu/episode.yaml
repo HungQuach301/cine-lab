@@ -131,3 +131,11 @@ segments:
       hero: e_bo
       kind: ''
       ghost: ghost-1782
+# V6 (K-1.15 §3.1/§8b): khối LAI cho vân HC7 King's Bastion (vân AI trên bề mặt đá — KHÔNG có tấm C khung neo trong đoạn thử):
+#  log_khung = ai_texture từng khung lấy từ frames_meta của cảnh đinh (tl/vinh6), có 'shot' → K-LAI-2 xét suốt shot; log chữ = log đoạn k2.js (role ai_label, box);
+#  kiem_du_kien + goi_api = sổ PT3 của các khối AI King's Bastion (quy trình 5 điểm PT3 §9). bao_ve / dem / khung_lai: không áp (không có tấm C).
+lai:
+  log_khung: lai/log-khung.jsonl
+  kiem_du_kien: ../../pt3/ai/kiem-du-kien.json
+  goi_api: ../../pt3/ai/goi-api.jsonl
+  log_chu: lai/log-chu.jsonl

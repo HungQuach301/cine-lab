@@ -222,8 +222,10 @@ function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) r
     (LL.occ = LL.occ || []).push([x, y, x + w, y + h]);
     if (Ch.clock && Ch.clock.sub) { const sp = 32 * S, sw = tw(g, Ch.clock.sub, sp, 600) + 40, sy = y - sp * 1.7 - 10; panel(g, x, sy, sw, sp * 1.7, { fill: 'rgba(12,18,27,0.88)' }); text(g, Ch.clock.sub, x + 20, sy + sp * 1.18, sp, K.dim, { w: 600, role: 'calendar' }); ybT = sy; } }
   // V6 (Kinh thánh §11.3, K-LAI-2): nhãn VÂN AI dưới-trái ngay trên hộp năm/giờ (suốt shot có ai_texture; chỉ khi cảnh tl ghi D.ai_label)
-  if (D.ai_label) { const s2 = D.ai_label.s, sw = tw(g, s2, SRCPX, 600) + 40, hh = SRCPX * 1.6, x = SAFE.x0, y = ybT - 12 - hh; panel(g, x, y, sw, hh, { fill: 'rgba(12,18,27,0.9)' });
-    text(g, s2, x + 20, y + SRCPX * 1.12, SRCPX, K.text, { w: 600, role: 'ai_label' }); (LL.occ = LL.occ || []).push([x, y, x + sw, y + hh]); ybT = y; }
+  //  40 px (≥ 38 px có biên — đo K-LAI-2 ở bản nháp 960 ra 37,96 px với 38); vẽ lại TRÊN lớp hoà đen đầu/cuối đoạn (frameAt) → nhãn có ở MỌI khung của shot
+  if (D.ai_label) { const AP = Math.max(SRCPX, 40), s2 = D.ai_label.s, sw = tw(g, s2, AP, 600) + 40, hh = AP * 1.6, x = SAFE.x0, y = ybT - 12 - hh;
+    LL.aiDraw = (g2) => { panel(g2, x, y, sw, hh, { fill: 'rgba(12,18,27,0.9)' }); text(g2, s2, x + 20, y + AP * 1.12, AP, K.text, { w: 600, role: 'ai_label' }); }; LL.aiDraw(g);
+    (LL.occ = LL.occ || []).push([x, y, x + sw, y + hh]); ybT = y; }
   // trên-phải: chip nơi rồi chỉ số + dòng nguồn
   let yR = 56; const wh = p.where || (D.where ? { s: D.where.s } : null);
   if (wh) { whereChip(g, Object.assign({}, p, { where: wh }), t); yR += 30 * S * 1.7 + 12; }
@@ -444,5 +446,5 @@ TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGrad
 })();
 function frameAt(g, t) { g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; g.setTransform(1, 0, 0, 1, 0, 0); g.filter = 'none'; LL.SEG.frame(g, t); g.globalAlpha = 1; g.setTransform(1, 0, 0, 1, 0, 0);
   const S2 = LL.SEG, fi = S2.fadeIn === undefined || S2.fadeIn === null ? 6 : S2.fadeIn, fo = S2.fadeOut === undefined || S2.fadeOut === null ? 6 : S2.fadeOut, fr = t * FPS, N = S2.frames; let k = 0;
-  if (fi > 0 && fr < fi) k = Math.max(k, 1 - sm((fr + 1) / (fi + 1))); if (fo > 0 && fr > N - 1 - fo) k = Math.max(k, sm((fr - (N - 1 - fo)) / (fo + 1))); if (k > 0) { g.fillStyle = `rgba(3,4,8,${k})`; g.fillRect(0, 0, W, H); if (k > 0.2 && LL.tlog) LL.tlog.length = 0; } }   // khung đang tối dần (chuyển đoạn): không tính chữ cho Q5
-window.drawFrame = (f) => { LL.inset = null; LL.legend = null; LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };
+  if (fi > 0 && fr < fi) k = Math.max(k, 1 - sm((fr + 1) / (fi + 1))); if (fo > 0 && fr > N - 1 - fo) k = Math.max(k, sm((fr - (N - 1 - fo)) / (fo + 1))); if (k > 0) { g.fillStyle = `rgba(3,4,8,${k})`; g.fillRect(0, 0, W, H); if (k > 0.2 && LL.tlog) LL.tlog.length = 0; if (LL.aiDraw) LL.aiDraw(g); } }   // khung đang tối dần (chuyển đoạn): không tính chữ cho Q5
+window.drawFrame = (f) => { LL.aiDraw = null; LL.inset = null; LL.legend = null; LL.occ = []; LL.act = false; LL.fill = false; LL.camNear = Infinity; LL.zones = []; LL.hit = 0; frameAt(X, f / FPS); };
