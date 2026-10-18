@@ -203,7 +203,7 @@ function insetLayer(g, p, t) { if (!p.inset || V) return; const M = (window.INSE
     text(g, s2, bx + 10, ly + 3 * S, 30 * S, K.text, { a, w: 700, role: 'inset' }); };
   const LBS = (p.inset_labels || (p.inset_label ? [{ s: p.inset_label, ll: p.inset_dot }] : [])).slice(0, 2);
   for (const L of LBS) { const [lx, ly] = L.ll ? X(...L.ll) : fc || [x + w / 2, y + h / 2]; lab(L.s, lx + (L.dx ?? 22) * S, ly + (L.dy ?? 6) * S); }
-  text(g, M.src && /Natural Earth/.test(M.src) ? 'Map: Natural Earth' : (M.src || 'Map: Natural Earth'), x + w - 10, y + h - 10, MINPX, '#3a3226', { a: a * 0.95, w: 600, align: 'right', role: 'inset_src', deco: true });
+  if (!p.sach) text(g, M.src && /Natural Earth/.test(M.src) ? 'Map: Natural Earth' : (M.src || 'Map: Natural Earth'), x + w - 10, y + h - 10, MINPX, '#3a3226', { a: a * 0.95, w: 600, align: 'right', role: 'inset_src', deco: true });
   LL.inset = { box: [x, y, x + w, y + h].map(Math.round), area_pct: +area.toFixed(2), a: +a.toFixed(2), t: [+tin.toFixed(2), +(tin + dur).toFixed(2)], inset_goc: 'tren-trai', ly_do: p.inset_ly_do || 'B4: góc trên trái',
     map: p.inset_map, src: M.src, bien: null, route: false, foot_px: fpx === null ? null : +fpx.toFixed(1), vong_dinh_vi: fpx !== null && fpx < 16 * S, giu_bo: p.inset === 'giu' };
   (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); }
@@ -214,7 +214,13 @@ function insetLayer(g, p, t) { if (!p.inset || V) return; const M = (window.INSE
 //  dòng phương pháp (HH3, role method), thẻ ≤ 1 (neo điểm 3D có đường dẫn, hoặc dải dưới), nhãn neo (tag), nhãn nguồn ghost dưới-phải (role ghost_src, ≥ 38 px),
 //  chip nơi (p.where thắng; không khai → chip của cảnh). Bật bằng p.tl = true (prep.py tự đặt cho cảnh tl/…). Cỡ chữ ≥ 30 px, nguồn ≥ 38 px (SRCPX).
 function tlData(p, t) { const A = window.ANC[p.dir]; if (!A) return null; const fr = A[plateIdx(p, t)] || A[String(plateIdx(p, t))]; return fr && fr._tl ? fr._tl : null; }
-function tlLayer(g, p, t) { if (!p.tl) return; const D = tlData(p, t); if (!D) return; const Ch = D.chrome || {};
+function tlLayer(g, p, t) { if (!p.tl) return; const D0 = tlData(p, t); if (!D0) return;
+  // KHUNG SẠCH (§12.1): chỉ giữ bộ đếm năm/giờ (+ dòng lịch O.S./N.S. của bộ đếm) và chip nơi của shot (p.where ≤ 3 s, cảnh không tự đặt chip); bỏ thẻ chỉ giữ thẻ khai so
+  const D = !p.sach ? D0 : (() => { const q = Object.assign({}, D0, { where: null, ghost_src: null, tags: [], ai_label: null, cards: (D0.cards || []).filter((c) => c.so) });
+    q.chrome = Object.assign({}, D0.chrome || {}, { method: null, idx: null, idxSrc: null });
+    if (D0.ai_label) sachTat('ai_label'); if (D0.ghost_src) sachTat('ghost_src'); if ((D0.chrome || {}).method) sachTat('method'); if ((D0.chrome || {}).idxSrc) sachTat('index_src');
+    if ((D0.tags || []).length) sachTat('tag'); if ((D0.cards || []).length > q.cards.length) sachTat('card'); return q; })();
+  const Ch = D.chrome || {};
   const pin = Ch.pin || 0, zs = 1 + 0.45 * pin, ys = Ch.clock ? Ch.clock.s : (Ch.year != null ? String(Math.floor(Ch.year)) : null); let ybR = SAFE.x0, ybT = H - EDGE_B;
   if (ys) { const px = (Ch.clock ? 56 : 72) * S * zs, w = tw(g, ys, px, 700, true) + 52 * zs, h = px * 1.42, x = SAFE.x0, y = H - EDGE_B - h + 8;
     panel(g, x, y, w, h, { a: 1, fill: 'rgba(12,18,27,0.9)', stroke: pin > 0.01 ? `rgba(242,193,78,${0.4 + 0.6 * pin})` : 'rgba(230,235,240,0.30)', r: 12 });
@@ -409,9 +415,29 @@ TPLC.layers = (g, c, t, u) => { const R = CARD, n = c.rows.length, top = R.y + (
 // thẻ kết
 TPLC.end = (g, c, t, u) => { const R = CARD, cx = R.x + R.w / 2; let y = R.y + R.h * 0.34; (c.lines || []).forEach((l) => { text(g, l.s, cx, y, (l.px || 48) * S, l.c || K.text, { a: rv(t, l.at, 0.6) * u, w: l.w || 600, disp: !!l.disp, align: 'center', maxW: R.w - 120 }); y += (l.gap || ((l.px || 48) * 1.9)) * S; }); };
 
+// ---------- KHUNG SẠCH (G1b T3, Kinh thánh §12.1, CHU-1 = A, chủ dự án duyệt 18/10 23:15) ----------
+// p.sach = true → trên hình CHỈ có: bộ đếm năm/ngày (suốt: p.year / bộ đếm cảnh tl / p.counter), chip nơi ≤ 3 s khi vào nơi mới (p.where + p.where_moi),
+//   số liệu/câu trích khi lời nói tới + tên nguồn ngắn cỡ nhỏ, ≤ 3 s (p.so: [{s, sub, src, at, dur ≤ 3}]). Bản đồ giữ nhãn địa danh (p.places, p.points) và chú giải phe (p.legend).
+// TẮT trên hình (dữ liệu vẫn ở timeline/log: nguon, bac, ai_image, ai_texture): dòng nguồn (p.src, p.credit, cap.src, nguồn trong inset), nhãn AI, dòng phương pháp, nguồn ghost,
+//   "approx. borders" (p.bnote), thẻ/nhãn mô tả của cảnh tl, dải chú thích không phải số/câu trích, nhãn ACTUAL/PROJECTION. Vai chữ đã tắt ghi vào LL.sachTat (đếm theo khung).
+const SACH_MAX = 3.0;
+function sachP(p) { if (!p.sach || p.__sach) return p;
+  const wh = p.where && p.where_moi ? Object.assign({}, typeof p.where === 'string' ? { s: p.where } : p.where) : null; if (wh) { wh.at = wh.at ?? p.t0; wh.out = Math.min(wh.out ?? 1e9, wh.at + SACH_MAX - 0.35); }
+  return Object.assign({}, p, { __sach: true, src: null, credit: null, bnote: null, title: null, side: null, asof: null, cap: [], kind: '', where: wh, tags: (p.tags || []).filter((L) => L.so) }); }
+const sachTat = (role) => { (LL.sachTat = LL.sachTat || {})[role] = (LL.sachTat[role] || 0) + 1; };
+// số/câu trích ≤ 3 s: tấm gọn trên dải dưới, bên phải bộ đếm; chữ chính ≥ 44 px, nguồn ngắn 34 px (cỡ nhỏ, vẫn ≥ MINPX 30)
+function soLayer(g, p, t) { for (const Q of p.so || []) { const d = Math.min(SACH_MAX, Q.dur || SACH_MAX), u = vis(t, Q.at, Q.at + d - 0.35, 0.35); if (u <= 0.01) continue;
+  const big = !!Q.big, px = (big ? 72 : 44) * S, spx = 34 * S, mw = W - 2 * SAFE.x0 - 420, L = wrap(g, Q.s, mw, px, 700, big).slice(0, 3), Ls = Q.sub ? wrap(g, Q.sub, mw, 38 * S, 500).slice(0, 2) : [];
+  const w = Math.max(...L.map((l) => tw(g, l, px, 700, big)), ...Ls.map((l) => tw(g, l, 38 * S, 500)), Q.src ? tw(g, Q.src, spx, 500) : 0) + 64;
+  const h = L.length * px * 1.22 + Ls.length * 38 * S * 1.3 + (Q.src ? spx * 1.5 : 0) + 40, x = Q.x === 'left' ? SAFE.x0 : W - SAFE.x0 - w, y = Q.y === 'top' ? 150 : H - EDGE_B - h - 150;
+  panel(g, x, y, w, h, { a: u, accent: Q.c || K.amber, fill: 'rgba(12,18,27,0.92)' }); let yy = y + 20 + px;
+  L.forEach((l) => { text(g, l, x + 32, yy, px, big ? (Q.c || K.amber) : K.text, { a: u, w: 700, disp: big, role: Q.role || (big ? 'so' : 'trich') }); yy += px * 1.22; });
+  Ls.forEach((l) => { text(g, l, x + 32, yy - px * 0.22 + 38 * S * 0.9, 38 * S, '#E6EBF0', { a: u, w: 500, role: 'trich_dich' }); yy += 38 * S * 1.3; });
+  if (Q.src) text(g, Q.src, x + 32, y + h - 20, spx, '#B9C3CE', { a: u, w: 500, role: 'src_ngan' }); (LL.occ = LL.occ || []).push([x, y, x + w, y + h]); LL.fill = true; } }
+
 // ---------- mẫu plate (duy nhất) ----------
 const TPL = {};
-TPL.plate = (p) => ({ kind: 'full', full(g, t) {
+TPL.plate = (p0) => { const p = sachP(p0); return ({ kind: 'full', full(g, t) {
   const c = p.card, blur = c ? (p.blur === undefined ? 14 : p.blur) : (p.blur || 0), dim = c ? (p.dim === undefined ? 0.45 : p.dim) : (p.dim || 0);
   drawPlate(g, p, t, blur, dim); if (!c) { labels(g, p, t); title(g, p, t); }
   if (c) { const u = vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5); cardFrame(g, c, t, u); (TPLC[c.type] || (() => {}))(g, c, t, u); LL.fill = true;
@@ -419,7 +445,7 @@ TPL.plate = (p) => ({ kind: 'full', full(g, t) {
   else { colOcc(p, t); yearChip(g, p, t); stratLayer(g, p, t); insetLayer(g, p, t); if (p.tl) tlLayer(g, p, t); else whereChip(g, p, t); stickers(g, p, t); caps(g, p, t); sideCap(g, p, t); tags(g, p, t, p.places); tags(g, p, t, p.tags); score(g, p, t); }   // V2: sticker dưới dải chú thích; bảng điểm trên cùng   // nhãn k2v vẽ SAU dải chú thích/nguồn: dải tối của caps phủ mờ nhãn ở 1/3 dưới khung (chấm mù P2, 12/10)
   const kd = p.__kind === undefined ? (p.__kind = typeof p.kind === 'string' ? p.kind : /"kind":"projection"/.test(JSON.stringify(p)) ? 'projection' : /"kind":"actual"/.test(JSON.stringify(p)) ? 'actual' : '') : p.__kind;   // G2 (K 1.11 O5): p.kind khai rõ nhãn góc ('' = không nhãn góc, khi các thẻ tự mang nhãn) — thẻ dưới nhãn góc thôi khai kind → 1 ACTUAL/khung
   if (kd) { if (c) kindTag(g, kd, CARD.x + CARD.w - 40, CARD.y + CARD.h - 44, vis(t, c.in === undefined ? p.t0 : c.in, c.out, 0.5), 'right'); else if (V) kindTag(g, kd, W / 2, H * 0.70 - 24, 1, 'center'); else kindTag(g, kd, W - SAFE.x0, H - (EDGE_B + 14), 1, 'right'); }   // 9:16: trên dải chú thích (13/10: ở H−330 đè dòng nguồn 2 dòng)   // Q7: shot có số → nhãn ACTUAL/PROJECTION
-  asof(g, p, t); } });
+  if (p.sach) soLayer(g, p, t); asof(g, p, t); } }); };
 
 // thẻ cuối Short (ll.py tự chèn tpl 'endcard', p.line)
 TPL.endcard = (p) => ({ kind: 'full', full(g, t) { const gr = g.createRadialGradient(W / 2, H * 0.45, 40, W / 2, H * 0.45, H * 0.8); gr.addColorStop(0, '#1b2738'); gr.addColorStop(1, K.ink); g.fillStyle = gr; g.fillRect(0, 0, W, H);

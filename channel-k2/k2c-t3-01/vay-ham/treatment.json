@@ -1,5 +1,5 @@
 {
- "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1).",
+ "note": "Bảng shot T3b (tiền kỳ, KHÔNG phải lời). Thời lượng ước theo treatment, chốt ở G1 theo lời thật. claims: S.. = claims-vay-ham.md; C.. = tienky/claims.json. | G1 (18/10/2026): đã áp tuyen/treatment-patch.json (SM1–SM3 strategic + 4 inset). | G1 18/10: + 6 khung neo (g1/neo.json) + thời lượng theo lời v1 (g1/dur-g1.json; dur_t3b = giá trị cũ). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | Khoá lời 18/10: thời lượng theo lời khoá (khoa-loi/dur-khoa.json; dur_g1 = giá trị G1). | G1b 18/10 (VL1 = a): 5j 17,0 → 18,5 s (dur_kl41 = giá trị khoá lời v4.1); tổng 721,2 s.",
  "shots": [
   {
    "id": "0a",
@@ -2089,7 +2089,7 @@
   {
    "id": "5j",
    "ch": 5,
-   "dur": 17.0,
+   "dur": 18.5,
    "loai": "3D vùng",
    "noi": "eo_dat",
    "vung": "eo-dat",
@@ -2108,7 +2108,9 @@
    "hero": "tất cả hero",
    "engine": "M4,M12",
    "mo_ta": "Bảng điểm tổng kết bằng địa hình",
-   "dur_t3b": 15.0
+   "dur_t3b": 15.0,
+   "dur_kl41": 17.0,
+   "vl1": "G1b 18/10: +1,5 s để tấm im lặng KA2026 đủ 8 s không lời (VL1 = a, chủ dự án duyệt 18/10 23:49)"
   },
   {
    "id": "KA2026",
