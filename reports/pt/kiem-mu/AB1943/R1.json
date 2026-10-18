@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 4,
+  "flags": [
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "Bright, clean Mediterranean palette with green shutters and a warm pink and cream facade. The composition is pleasant, with a leading street to the bay and a flag. The people are blocky peg-figures that look like game placeholders. The lighting is a bit too clean and saturated for 1943 wartime Gibraltar. Sandbag stacks read as crates. The square is mostly empty."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "Same scene with more weathered, desaturated plaster, dark shutters and rough stone edging. This feels grimmer and more wartime, and the muted palette is more documentary-like. The blocky peg-figures are still toy-like, but khaki uniforms dominate, which fits wartime better. The crates and sandbags look more believable. The square is still sparse."
+ },
+ "better": "Y",
+ "why": "Y's weathered, muted materials, darker blackout-style shutters and khaki-heavy figures suit wartime 1943 Gibraltar better and look more like a real documentary render, while X looks like a clean tourist-brochure render.",
+ "top_fix_for_weaker": "Replace the blocky peg-figures with properly modelled people in period uniforms and civilian clothing, and add weathering, wear and wartime elements (sandbag walls, blackout paint, signage, vehicles) so the street stops looking pristine and empty."
+}

@@ -1,0 +1,41 @@
+{
+ "X": {
+  "craft": 8,
+  "detail": 8,
+  "period": 8,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Best of the three. Weathered plaster, wet-looking cobbles, sandbags, bicycles, barrels, and a small group of soldiers and sailors in the distance. Lit balcony window, Union flag and lamp give focal points and depth. It reads as CGI/game-engine rather than photo, but it is moody, readable and convincing for wartime. The figures are tiny and generic."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 4,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "broken_render"
+  ],
+  "note": "Crushed to near-black. The left building is a black void and the street is an empty flat dark plane. Only the lit window and flag read. No people, props or sandbags, and the textures are barely visible. It reads as an unfinished render with the lighting off, not a deliberate night shot."
+ },
+ "Z": {
+  "craft": 3,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 4,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "Nearly identical to Y, slightly lighter. Smooth, clean, low-poly-looking facades, a blocky stack at the right edge that looks like a primitive, and an empty street with no life. It feels like a game-engine placeholder. The red left building is only faintly visible."
+ },
+ "best": "X",
+ "worst": "Y",
+ "why": "X has lived-in wartime props, people, texture and readable lighting, while Y and Z are underlit, empty and look like untextured placeholder scenes.",
+ "anachronisms_seen": [
+  "none obvious; the bicycles, sandbags and Union flag fit 1943",
+  "Y/Z: blocky primitive stack at the right edge looks like a rendering placeholder, not a period object"
+ ]
+}

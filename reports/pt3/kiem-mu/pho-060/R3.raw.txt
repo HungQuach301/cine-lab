@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 4, "detail": 3, "period": 5, "ai_look": 4, "flicker": "no", "flags": ["toy_like", "flat_slide_look", "stretched_texture"], "note": "This is a clean 3D block-model render, not a documentary shot. Roofs and terraces are large, flat, uniform, and look low-poly. The grey roofs have almost no weathering, and the terracotta roof texture is a repeating tile. Facades have tiny repeated window grids and no shutters, signage, washing lines, or street life. The street is a dark, featureless slab. The camera is high above the rooftops, not low along the street. Textures stay locked to the buildings across the four frames."},
+ "Y": {"craft": 4, "detail": 3, "period": 5, "ai_look": 4, "flicker": "no", "flags": ["toy_like", "flat_slide_look", "stretched_texture"], "note": "Practically identical to X. The facades are very slightly cooler and cleaner, with the same plain grey roofs, the same repeated tile texture, and the same empty street. It is still a toy-like massing model, and the camera is still too high to read as a low drone pass. Textures are stable across frames."},
+ "best": "X",
+ "worst": "Y",
+ "why": "The two are near-identical clinical block models with no flicker, and X is only marginally warmer and less sterile.",
+ "anachronisms_seen": ["flat bare modern-looking concrete-style roofs", "uniform identical window grids", "no period signage, shopfronts or street life", "no visible 1943 wartime details such as sandbags or blackout markings"]}
+```

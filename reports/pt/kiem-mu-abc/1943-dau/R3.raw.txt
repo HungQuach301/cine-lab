@@ -1,0 +1,9 @@
+```json
+{"X": {"craft": 8, "detail": 8, "period": 7, "ai_look": 5, "flags": [], "note": "Weathered plaster, patchy stucco, cobbles, sandbags, crates, a handcart and a bicycle. Soldiers and a sailor in white give it life and scale. The tiny ship and flag are soft but fit the haze. Slightly too clean and symmetrical, and the figures are small and generic. Reads well on a phone."},
+ "Y": {"craft": 5, "detail": 3, "period": 5, "ai_look": 4, "flags": ["empty_frame", "flat_slide_look", "toy_like"], "note": "Clean 3D render. Walls are smooth, pastel and uniform, like a Mediterranean resort. The square is empty, with no people, vehicles or wartime traces, and only a few beige block props. The harbour is washed out, with a toy-like ship. Technically coherent but sterile."},
+ "Z": {"craft": 5, "detail": 3, "period": 5, "ai_look": 4, "flags": ["empty_frame", "flat_slide_look", "toy_like"], "note": "Almost the same as Y, with slightly more worn stone trim and a dustier pink wall. The empty street and orange block props still look like placeholder geometry. The scene has no life and no 1943 context beyond the flag."},
+ "best": "X",
+ "worst": "Y",
+ "why": "X is the only frame with lived-in texture, wartime props and people that make it read as Gibraltar in 1943, while Y and Z are empty, sterile CG sets that look like untextured game levels and Y is the blandest.",
+ "anachronisms_seen": ["None clear in X; the bicycle and handcart are plausible, though the soldiers' uniforms are generic", "Y and Z: no wartime elements at all, only a Union Jack, and the clean resort-like finish feels modern", "Y and Z: the orange blocks look like modern jersey barriers or placeholder bollards", "Y and Z: the ship is too small and toy-like to date"]}
+```

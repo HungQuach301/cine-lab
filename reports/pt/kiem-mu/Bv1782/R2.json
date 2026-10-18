@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 3,
+  "detail": 2,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like",
+   "text_issue"
+  ],
+  "note": "Half the frame is blank gradient sky and a bare tan plane. Soldiers are peg-doll figures with no faces or limbs. Cannon carriages are blocky, cannonball piles are tiny, and the rubble is sparse. The facades are flat white boxes with plain black door and window holes, with no shutters, balconies or roofs. The Union flag is a tiny speck, and the ships and hills are hazy and generic. The caption lines are legible but heavy, and they cover the lower-left of the scene."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The aerial view has real depth: water, terrain, the Rock and the walls. Terracotta-roofed blocks follow a plausible street layout and the lighting is soft. The trees are low-poly lollipops, the terrain texture is smeared, and the water is a generic shader. There are no people, ships or batteries. Three overlapping text boxes crowd the frame and cover the foreground, though the estimated and uncertain labels are honest."
+ },
+ "better": "Y",
+ "why": "Y reads as a real place with scale, depth and a believable town layout, while X is an empty plane with peg-doll figures and box facades.",
+ "top_fix_for_weaker": "Fill the plaza with a dense, varied scene: give the facades arcades, shutters, tiled roofs and balconies, and add a crowd of properly modelled 18th-century soldiers and civilians, limber wheels and gun crews. Crop the frame so the horizon sits higher and sky takes up no more than 20-25% of it. Use a lower, more dramatic camera with warm directional light and long shadows, and cut the caption to one slim line."
+}

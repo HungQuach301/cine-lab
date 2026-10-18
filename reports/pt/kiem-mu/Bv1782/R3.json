@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Half the frame is blank pale sky. The ground is a flat orange plane with a few scattered props: cannonball piles, two gun carriages with solid black disc wheels, barrels and marble chunks. The soldiers are peg-doll figures with no real detail. The facades are blank white boxes with identical dark door and window holes and odd triangular wedge shapes on the roof. There are no Main Street shopfronts, balconies or roofs, and no real Grand Parade character. The Union flag flies on a pole, but a 1782 British flag at Gibraltar would be the pre-1801 Union flag, so it is plausible. The caption is legible and honest ('not a photograph'). The 1782 badge is clear."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "text_issue"
+  ],
+  "note": "A readable aerial view of the town. Terracotta-roofed blocks cluster along the shoreline, with a sea wall, bay, hills, scrubby slope and lollipop trees. The water and terrain lighting is decent and the scene reads as a real place. The buildings are low-poly and the trees are cartoonish. Four overlapping text boxes crowd the frame, and the lower-left caption box covers part of the town. The captions are honest ('estimated', 'east side not drawn on the plan') but small for a phone. The roofs are pantile-like, which suits the period, though the scrubby green slope looks more like a game engine than 18th-century Gibraltar."
+ },
+ "better": "Y",
+ "why": "Y shows an actual town in context with believable scale, terrain and lighting, while X is a mostly empty orange plane with a few props and featureless boxes.",
+ "top_fix_for_weaker": "Crop or lower the horizon to remove the empty sky and fill the foreground. Give the facades Main Street detail: shuttered windows, balconies, tiled roofs, arches and varied heights. Replace the peg-doll soldiers with scaled figures in red coats and add people, carts and clutter on the Parade. Replace the flat orange ground with textured paving."
+}

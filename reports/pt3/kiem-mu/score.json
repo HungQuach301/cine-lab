@@ -1,0 +1,560 @@
+{
+ "muc": {
+  "pho-060": {
+   "HC7_craft": [
+    5,
+    4,
+    4
+   ],
+   "HC7_detail": [
+    4,
+    3,
+    3
+   ],
+   "HC7_period": [
+    6,
+    5,
+    5
+   ],
+   "HC7_ai_look": [
+    4,
+    3,
+    4
+   ],
+   "HC7_flicker_yes": 0,
+   "HC7_flags": [
+    "cluttered",
+    "flat_slide_look",
+    "stretched_texture",
+    "toy_like"
+   ],
+   "A_craft": [
+    5,
+    4,
+    4
+   ],
+   "A_detail": [
+    4,
+    3,
+    3
+   ],
+   "A_period": [
+    6,
+    5,
+    5
+   ],
+   "A_ai_look": [
+    4,
+    3,
+    4
+   ],
+   "A_flicker_yes": 0,
+   "A_flags": [
+    "cluttered",
+    "flat_slide_look",
+    "stretched_texture",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "HC7",
+    "R2": "A",
+    "R3": "HC7"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "HC7",
+    "R3": "A"
+   },
+   "why": {
+    "R1": "The two are nearly indistinguishable, and X is only marginally better because its facade tones are a little warmer and more varied, while Y's are slightly cooler and sterile.",
+    "R2": "The two are almost identical, both toy-like block models with flat roofs and sparse façade detail, and Y's façades are only marginally cleaner.",
+    "R3": "The two are near-identical clinical block models with no flicker, and X is only marginally warmer and less sterile."
+   },
+   "anachronisms": {
+    "R1": [
+     "white flat concrete-looking roofs",
+     "uniform modern-looking window grids"
+    ],
+    "R2": [
+     "flat concrete-style roofs with no period rooftop clutter or water tanks",
+     "no vehicles, signage or people to anchor 1943",
+     "uniform modern-looking window grids"
+    ],
+    "R3": [
+     "flat bare modern-looking concrete-style roofs",
+     "uniform identical window grids",
+     "no period signage, shopfronts or street life",
+     "no visible 1943 wartime details such as sandbags or blackout markings"
+    ]
+   }
+  },
+  "pho-150": {
+   "A_craft": [
+    5,
+    5,
+    5
+   ],
+   "A_detail": [
+    4,
+    4,
+    3
+   ],
+   "A_period": [
+    6,
+    5,
+    5
+   ],
+   "A_ai_look": [
+    5,
+    3,
+    6
+   ],
+   "A_flicker_yes": 0,
+   "A_flags": [
+    "cluttered",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "HC7_craft": [
+    5,
+    5,
+    5
+   ],
+   "HC7_detail": [
+    5,
+    5,
+    4
+   ],
+   "HC7_period": [
+    6,
+    5,
+    5
+   ],
+   "HC7_ai_look": [
+    5,
+    3,
+    6
+   ],
+   "HC7_flicker_yes": 0,
+   "HC7_flags": [
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "HC7",
+    "R2": "HC7",
+    "R3": "HC7"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "why": {
+    "R1": "The two shots are nearly identical, but Y's slightly richer facade weathering makes the buildings a bit less sterile.",
+    "R2": "The two shots are nearly identical, but Y's slightly richer facade weathering and street texture give it a small edge over X's cleaner, more sterile surfaces.",
+    "R3": "The two renders are almost identical, but Y has slightly more facade weathering and surface variation, so it looks a little less sterile."
+   },
+   "anachronisms": {
+    "R1": [
+     "flat concrete-like modern roof slabs with no period clutter",
+     "no 1943 street life, signage or vehicles"
+    ],
+    "R2": [
+     "flat featureless modern-looking concrete roof slabs",
+     "no period signage, vehicles or people to anchor 1943",
+     "flat cut-out hill silhouette"
+    ],
+    "R3": [
+     "flat concrete-style roof slabs and a modern, clean look",
+     "no period signage, vehicles or people to anchor 1943"
+    ]
+   }
+  },
+  "kb-030": {
+   "HC8_craft": [
+    5,
+    5,
+    5
+   ],
+   "HC8_detail": [
+    7,
+    7,
+    7
+   ],
+   "HC8_period": [
+    5,
+    4,
+    5
+   ],
+   "HC8_ai_look": [
+    3,
+    3,
+    4
+   ],
+   "HC8_flicker_yes": 0,
+   "HC8_flags": [
+    "broken_render",
+    "seams",
+    "stretched_texture",
+    "toy_like"
+   ],
+   "HC7_craft": [
+    6,
+    6,
+    6
+   ],
+   "HC7_detail": [
+    5,
+    5,
+    5
+   ],
+   "HC7_period": [
+    6,
+    5,
+    6
+   ],
+   "HC7_ai_look": [
+    3,
+    2,
+    3
+   ],
+   "HC7_flicker_yes": 0,
+   "HC7_flags": [
+    "cluttered",
+    "flat_slide_look",
+    "seams",
+    "toy_like"
+   ],
+   "A_craft": [
+    5,
+    5,
+    5
+   ],
+   "A_detail": [
+    3,
+    3,
+    3
+   ],
+   "A_period": [
+    4,
+    4,
+    4
+   ],
+   "A_ai_look": [
+    2,
+    2,
+    4
+   ],
+   "A_flicker_yes": 0,
+   "A_flags": [
+    "anachronism",
+    "flat_slide_look",
+    "stretched_texture",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "HC7",
+    "R2": "HC7",
+    "R3": "HC7"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "why": {
+    "R1": "Y is clean and free of artifacts and has believable limestone and rubble surfaces. X has richer stone but visible broken geometry, and Z is smooth and looks like asphalt.",
+    "R2": "Y has a clean, intact, believable stone bastion with a gravel terrace and no render defects, whereas X has the best material richness but visible holes and seam artifacts, and Z is sterile, featureless and asphalt-like.",
+    "R3": "Y has the most believable stone, a coherent parapet and gravel deck, and no render breakage, while Z is blank and plasticky with an asphalt-like deck, and X has visible geometry and texture errors."
+   },
+   "anachronisms": {
+    "R1": [
+     "asphalt-like dark terreplein surface (Z)",
+     "modern-looking kerb or rail strip along the road (Y, Z)",
+     "uniform blank grey block buildings with regular window grids in all three"
+    ],
+    "R2": [
+     "smooth grey tarmac-like road around the bastion",
+     "kerb or paved strip along the road edge",
+     "dark asphalt-like terrace surface (Z)",
+     "untextured modern-looking grey box buildings",
+     "uniform pale clean masonry that looks newly cut rather than 1782 weathered limestone (Y, Z)"
+    ],
+    "R3": [
+     "asphalt-like tarmac deck (Z, and the dark road in all three)",
+     "untextured modern-looking grey block buildings behind the bastion (all)",
+     "curb-like pale edging along the road (Y, Z)"
+    ]
+   }
+  },
+  "kb-072": {
+   "HC7_craft": [
+    5,
+    5,
+    5
+   ],
+   "HC7_detail": [
+    5,
+    5,
+    5
+   ],
+   "HC7_period": [
+    5,
+    5,
+    5
+   ],
+   "HC7_ai_look": [
+    4,
+    5,
+    5
+   ],
+   "HC7_flicker_yes": 0,
+   "HC7_flags": [
+    "broken_render",
+    "cluttered",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "A_craft": [
+    3,
+    3,
+    3
+   ],
+   "A_detail": [
+    2,
+    2,
+    2
+   ],
+   "A_period": [
+    3,
+    3,
+    3
+   ],
+   "A_ai_look": [
+    5,
+    4,
+    6
+   ],
+   "A_flicker_yes": 0,
+   "A_flags": [
+    "broken_render",
+    "flat_slide_look",
+    "stretched_texture",
+    "toy_like"
+   ],
+   "HC8_craft": [
+    7,
+    7,
+    7
+   ],
+   "HC8_detail": [
+    8,
+    8,
+    8
+   ],
+   "HC8_period": [
+    7,
+    7,
+    7
+   ],
+   "HC8_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "HC8_flicker_yes": 0,
+   "HC8_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "HC8",
+    "R2": "HC8",
+    "R3": "HC8"
+   },
+   "worst": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "why": {
+    "R1": "Z's weathered coursed masonry, waterline staining and earthen terreplein make the bastion look like real stone fortification, while Y is a smooth white toy-like shell with a tarmac-looking top.",
+    "R2": "Z has the convincing weathered coursed masonry, a parapet and an earthen gun terrace, while Y is a smooth, toy-like white shape with an asphalt-looking deck and X sits in between with a missing parapet and a pale clean wall.",
+    "R3": "Z has a convincingly weathered masonry wall, a complete parapet and an earthen deck, while Y is a smooth white plastic form with an asphalt-like deck and X has no parapet and a sunken rubble surface."
+   },
+   "anachronisms": {
+    "R1": [
+     "Y: dark uniform asphalt-like platform surface",
+     "X: terrazzo or concrete-looking speckled parade surface",
+     "Y: smooth plastered, modern-looking wall with no joints",
+     "Backdrop buildings in all three are plain grey massing blocks with a uniform grid of small windows, which reads modern"
+    ],
+    "R2": [
+     "asphalt/tarmac-like dark deck surface (Y, partly X)",
+     "no parapet on the gun platform (X, Y)",
+     "untextured modern-looking flat-roofed grey block buildings in the background (all)",
+     "clean, modern-looking pale concrete-like wall (Y)"
+    ],
+    "R3": [
+     "asphalt-like uniform dark grey deck (Y)",
+     "smooth plastic-white concrete-like wall (Y)",
+     "plain untextured grey modern-looking block buildings in background (all)",
+     "missing parapet leaving the bastion looking like a modern quay slab (X, Y)"
+    ]
+   }
+  },
+  "kb-120": {
+   "HC7_craft": [
+    6,
+    6,
+    6
+   ],
+   "HC7_detail": [
+    6,
+    6,
+    6
+   ],
+   "HC7_period": [
+    6,
+    6,
+    5
+   ],
+   "HC7_ai_look": [
+    4,
+    3,
+    4
+   ],
+   "HC7_flicker_yes": 0,
+   "HC7_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "HC8_craft": [
+    3,
+    3,
+    3
+   ],
+   "HC8_detail": [
+    7,
+    7,
+    7
+   ],
+   "HC8_period": [
+    4,
+    4,
+    3
+   ],
+   "HC8_ai_look": [
+    5,
+    4,
+    5
+   ],
+   "HC8_flicker_yes": 0,
+   "HC8_flags": [
+    "broken_render",
+    "cluttered",
+    "seams",
+    "stretched_texture",
+    "toy_like"
+   ],
+   "A_craft": [
+    4,
+    5,
+    5
+   ],
+   "A_detail": [
+    3,
+    3,
+    3
+   ],
+   "A_period": [
+    4,
+    5,
+    5
+   ],
+   "A_ai_look": [
+    5,
+    4,
+    4
+   ],
+   "A_flicker_yes": 0,
+   "A_flags": [
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "best": {
+    "R1": "HC7",
+    "R2": "HC7",
+    "R3": "HC7"
+   },
+   "worst": {
+    "R1": "HC8",
+    "R2": "HC8",
+    "R3": "HC8"
+   },
+   "why": {
+    "R1": "X is the only version that is coherent, stable and textured like weathered limestone masonry, while Y has visible broken geometry and Z is bland plastic-looking surfaces.",
+    "R2": "X is the only version with believable weathered masonry and ground that is both coherent and stable, while Y has broken geometry and pop-in slabs and Z looks like smooth plastic with tarmac.",
+    "R3": "X combines intact bastion geometry with believable weathered masonry and a stable texture, whereas Y has broken geometry and mismatched textures and Z is a blank white model with an asphalt-looking terrace."
+   },
+   "anachronisms": {
+    "R1": [
+     "Z's platform surface looks like modern asphalt",
+     "the barrack blocks look like bare modern concrete boxes",
+     "X's bastion top is a flat, clean gravel plane with no gun platforms, embrasures or defenders",
+     "pale, uniform white walls in Z that look like modern render"
+    ],
+    "R2": [
+     "asphalt-like uniform dark paving on the terreplein (Z, and the road in all three)",
+     "blank modern-looking grey box buildings in the background",
+     "empty, pristine, unpopulated bastion with no siege-era clutter (gun platforms, carriages, shot)"
+    ],
+    "R3": [
+     "Z: smooth dark tarmac-like terrace surface",
+     "All: barracks behind are bare, untextured modern-looking massing blocks with a flat grey ground plane",
+     "Y: scanned-ruin / eroded rock texture that does not match a maintained 1782 fortification",
+     "Z: bright, uniform white wall that looks modern, not weathered limestone"
+    ]
+   }
+  }
+ },
+ "tb": {
+  "street/HC7": {
+   "craft": 4.67,
+   "detail": 4.0,
+   "period": 5.33,
+   "ai_look": 4.17,
+   "flicker": "0/6"
+  },
+  "street/A": {
+   "craft": 4.67,
+   "detail": 3.5,
+   "period": 5.33,
+   "ai_look": 4.17,
+   "flicker": "0/6"
+  },
+  "kb/HC8": {
+   "craft": 5.0,
+   "detail": 7.33,
+   "period": 5.11,
+   "ai_look": 3.67,
+   "flicker": "0/9"
+  },
+  "kb/HC7": {
+   "craft": 5.67,
+   "detail": 5.33,
+   "period": 5.44,
+   "ai_look": 3.67,
+   "flicker": "0/9"
+  },
+  "kb/A": {
+   "craft": 4.22,
+   "detail": 2.67,
+   "period": 3.89,
+   "ai_look": 4.0,
+   "flicker": "0/9"
+  }
+ },
+ "chi_phi": 1.17
+}

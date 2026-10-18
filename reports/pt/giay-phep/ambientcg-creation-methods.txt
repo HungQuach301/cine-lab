@@ -1,0 +1,93 @@
+URL: https://docs.ambientcg.com/creation-methods/
+HTTP: 200
+Đọc: 2026-10-17 16:57 UTC (phiên PT)
+SHA-256 HTML gốc: cbcd45c7fe46a834f2538854469f29c85a31d57bf59383384ca06d0356c98374
+--- NGUYÊN VĂN (chữ trích từ HTML, không sửa nội dung) ---
+Creation Methods - ambientCG Docs
+ Skip to content
+ ambientCG Docs
+ Creation Methods
+ Home
+ License
+ Asset Types
+ Creation Methods
+ Patreon Rewards
+ API
+ Technical Updates
+ Logo
+ Legal/Imprint
+ ambientCG Docs
+ Home
+ License
+ Asset Types
+ Creation Methods
+ Patreon Rewards
+ Patreon Rewards
+ Getting Started
+ Discord
+ Nextcloud Access
+ Nextcloud Access
+ Getting Started
+ Downloading Files
+ Downloading Files
+ Start Downloading
+ Official Nextcloud Client
+ Windows Explorer
+ MacOS Finder
+ WinSCP
+ Synology Cloud Sync
+ Other WebDAV Clients
+ Blender Assets
+ Early Access
+ API
+ API
+ About the API
+ v1
+ v1
+ Home
+ /downloads_csv
+ /full_json
+ v2
+ v2
+ Home
+ /downloads_csv
+ /full_json
+ /categories_json
+ /releases_rss
+ v3
+ v3
+ Home
+ /assets
+ /categories
+ /collections
+ /rss
+ Technical Updates
+ Logo
+ Legal/Imprint
+Creation methods¶
+The 3D assets on ambientCG were created using a variety of methods. You can select them using the dropdown on the /list page.
+Method
+Description
+Example
+Approximated
+The material has been approximated from just a color map.
+Photogrammetry
+The material’s displacement map was created using photogrammetry.
+Procedural
+The material was created fully procedurally - usually in Adobe Substance 3D Designer.
+Multi Angle Lighting
+The material was created using multi-angle approximation. By shining light on a surface from different angles it is possible to create a height profile. This is usually done for leaves.
+Plain Photo
+Just a plain photo, no further material processing was done. This is usually used for backdrops.
+Stitched HDRI
+An HDRI environment that was stitched from numerous photos.
+Stitched HDRI (Edited)
+An HDRI environment that was stitched from numerous photos with additional heavy processing, like "cleaning" the horizon and removing the bottom half.
+3D Photogrammetry
+This asset is a 3D model that was created using photogrammetry.
+ Previous
+ Asset Types
+ Next
+ Getting Started
+ Made with
+ Material for MkDocs

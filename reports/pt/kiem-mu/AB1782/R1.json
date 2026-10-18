@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 4,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Smooth sandy ground with no texture. Peg-doll soldiers, simple cannon carts and blank white boxy buildings read as a low-poly mock-up. The sky takes up about half the frame. The flag and harbor are fine, but nothing feels like a lived-in Grand Parade."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 4,
+  "period": 4,
+  "ai_look": 4,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Same scene and layout. The grey cobbled or gravel ground texture gives it some grit and is more plausible than flat sand. The cooler, bluish building tint and the brick edges on the rubble add slight material variety. The peg-doll soldiers, empty space and boxy buildings are unchanged."
+ },
+ "better": "Y",
+ "why": "The textured paving and slightly richer materials make Y a little more believable, though both are equally sparse and toy-like.",
+ "top_fix_for_weaker": "Replace the flat sand with textured stone paving or packed earth, and add weathered plaster, shutters, roof tiles and balconies to the buildings. Swap the peg-doll figures for properly proportioned redcoats and civilians in groups, and add foreground props or a lower camera angle so the sky stops dominating the frame."
+}

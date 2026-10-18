@@ -1,0 +1,42 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "Clean 3D render but the walls are smooth and untextured. The two figures are blocky, peg-like mannequins and the crates are plain stacked bricks. The street is almost empty, with no sense of wartime activity. The Union Jack and the harbour are fine but tiny. Colours are saturated and look like a game or architectural viz."
+ },
+ "Y": {
+  "craft": 8,
+  "detail": 9,
+  "period": 8,
+  "ai_look": 6,
+  "flags": [],
+  "note": "Weathered plaster, rust-stained peeling walls, cobbles, sandbags, barrels, a handcart, a bicycle, a military truck and small soldier and sailor figures give a convincing, lived-in wartime harbour. Lighting is soft and atmospheric. Distant figures are slightly mushy and some prop placement is a bit too neat. The glossy photoreal polish and the repeating sack piles hint at generation or heavy post-processing."
+ },
+ "Z": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "Same low-poly render as X with slightly better wall and shutter materials and a more muted palette. The two foreground figures are still blocky pegs, the crates are bare brick stacks and the plaza is empty. A soldier in a tin hat and a sailor give a faint period cue, but the figures read as game assets."
+ },
+ "best": "Y",
+ "worst": "X",
+ "why": "Y is the only frame that looks like a real, populated 1943 wartime harbour with believable texture and props, while X and Z are empty, toy-like renders with peg-figure people; X is worse because it is flatter, more saturated and has the weakest figures.",
+ "anachronisms_seen": [
+  "No hard anachronisms in any frame. The flag, ship, truck, bicycle and handcart all fit the period.",
+  "X: the civilian figure in a pale blue suit and the featureless, pristine, freshly painted facades look modern or generic rather than wartime Gibraltar.",
+  "Y: the truck is a generic military lorry, plausible but not clearly identifiable."
+ ]
+}

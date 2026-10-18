@@ -1,0 +1,48 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "toy_like"
+  ],
+  "note": "The most coherent version. The bastion wall has believable weathered ashlar with a waterline stain, and the gun terrace has mottled stone paving. The barracks behind are bare grey blocks with no texture. The terrace and wall texture stays locked to the geometry across the four frames. The overall look is still CG architectural model, not broadcast quality."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 7,
+  "period": 3,
+  "ai_look": 5,
+  "flicker": "no",
+  "flags": [
+   "broken_render",
+   "seams",
+   "stretched_texture",
+   "toy_like"
+  ],
+  "note": "A photoscan-style rock-and-earth texture is mapped onto a mesh that doesn't match the bastion. It shows a collapsed or eroded ramp profile, a floating pale-blue plane at left, and white patches that cut through the wall. In the sequence a white wall slab pops into view and slides across the foreground, so the geometry is broken. The texture is rich but doesn't read as a masonry bastion. The reflection is cut off with a hard edge."
+ },
+ "Z": {
+  "craft": 5,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "The geometry is clean and stable, but the wall is a uniform white, smooth and plasticky. The terrace is dark asphalt-like grey, which looks like a modern tarmac car park. It has little material variation, so it looks like a clay or white-card architectural model. It is stable and tidy but lifeless."
+ },
+ "best": "X",
+ "worst": "Y",
+ "why": "X combines intact bastion geometry with believable weathered masonry and a stable texture, whereas Y has broken geometry and mismatched textures and Z is a blank white model with an asphalt-looking terrace.",
+ "anachronisms_seen": [
+  "Z: smooth dark tarmac-like terrace surface",
+  "All: barracks behind are bare, untextured modern-looking massing blocks with a flat grey ground plane",
+  "Y: scanned-ruin / eroded rock texture that does not match a maintained 1782 fortification",
+  "Z: bright, uniform white wall that looks modern, not weathered limestone"
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 5,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "cluttered"
+  ],
+  "note": "The bastion wall has a decent limestone texture, but the parapet is missing and the gun deck is a flat, blotchy gravel slab, so the top reads like a cut-off platform. The wall is pale and clean with no weathering. The background buildings are untextured grey boxes. The frames look stable."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 2,
+  "period": 3,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "stretched_texture"
+  ],
+  "note": "The wall is a smooth, pale, near-featureless extrusion with only faint fine noise. The deck is a dark asphalt-like slab that looks like a modern tarmac roof. It reads as a clay or white-card model, with a modern feel and no weathering. The frames are stable."
+ },
+ "Z": {
+  "craft": 7,
+  "detail": 8,
+  "period": 7,
+  "ai_look": 3,
+  "flicker": "no",
+  "flags": [],
+  "note": "The bastion has a coursed ashlar wall with a stone parapet, a string course, waterline algae staining and weathering. The earthen terreplein with guns reads as a plausible 18th-century gun platform. The texture stays locked to the wall across the frames. The weak spots are the untextured grey block buildings behind it and the slightly uniform staining."
+ },
+ "best": "Z",
+ "worst": "Y",
+ "why": "Z has the convincing weathered coursed masonry, a parapet and an earthen gun terrace, while Y is a smooth, toy-like white shape with an asphalt-looking deck and X sits in between with a missing parapet and a pale clean wall.",
+ "anachronisms_seen": [
+  "asphalt/tarmac-like dark deck surface (Y, partly X)",
+  "no parapet on the gun platform (X, Y)",
+  "untextured modern-looking flat-roofed grey block buildings in the background (all)",
+  "clean, modern-looking pale concrete-like wall (Y)"
+ ]
+}
