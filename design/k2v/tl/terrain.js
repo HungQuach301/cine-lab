@@ -8,9 +8,29 @@ export const GLSL_LAND = `${GLSL_YEAR}
 float landK(float ly, float y){ if (ly < 1.0) return 1.0; if (ly > 9000.0) return 0.0;
   if (abs(ly - 1941.0) < 0.5) return clamp((y - 1941.0) / 2.0, 0.0, 1.0); return clamp((y - (ly - 1.5)) / 1.5, 0.0, 1.0); }`;
 
-export async function makeTerrain(base, M, U) {
+// V5b-2c (lệnh V0 18/10, mục 5): VÁCH BẮC ROCK. Copernicus GLO-30 (30 m) làm mượt vách: đỉnh gói 359 m (thật ≈ 412–426 m), dốc lớn nhất ≈ 54°, nên Rock
+//  nhìn từ bắc thành "đồi tròn phủ cỏ". opt.cliff (cảnh tự khai TERRAIN.cliff): (1) làm sắc vách bắc bằng unsharp DEM trong hộp vách (dốc > 25°, mặt quay bắc;
+//  σ ≈ 40 m, k, nâng ≤ capUp m, chân không xuống dưới 1 m) — XẤP XỈ hình thái (không phải số đo mới), ghi báo cáo; (2) vật liệu VÁCH ĐÁ VÔI từ dốc > ~30°
+//  (trước: > ~63°) với vân lớp đá + khe nứt dọc theo mặt đứng. Cảnh không khai → địa hình/vật liệu như cũ (golden giữ nguyên).
+function sharpenCliff(H, R, Cn, e0, n1, st, o) {
+  const [E0, N0, E1, N1] = o.box || [-100, -1100, 950, -420], k = o.k ?? 1.3, cap = o.capUp ?? 55, it = o.iters ?? 2;
+  const r0 = Math.max(1, Math.floor((n1 - N1) / st)), r1 = Math.min(R - 2, Math.ceil((n1 - N0) / st)), c0 = Math.max(1, Math.floor((E0 - e0) / st)), c1 = Math.min(Cn - 2, Math.ceil((E1 - e0) / st));
+  let B = Float32Array.from(H); const tmp = new Float32Array(H.length);
+  for (let i = 0; i < it; i++) { for (let r = r0 - 3; r <= r1 + 3; r++) for (let c = c0 - 3; c <= c1 + 3; c++) { let a = 0; for (let d = -2; d <= 2; d++) a += B[r * Cn + c + d] * [1, 4, 6, 4, 1][d + 2]; tmp[r * Cn + c] = a / 16; }
+    for (let r = r0 - 1; r <= r1 + 1; r++) for (let c = c0 - 1; c <= c1 + 1; c++) { let a = 0; for (let d = -2; d <= 2; d++) a += tmp[(r + d) * Cn + c] * [1, 4, 6, 4, 1][d + 2]; B[r * Cn + c] = a / 16; } }
+  let n = 0, up = 0, dn = 0;
+  for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) { const i = r * Cn + c, dzN = (H[i - Cn] - H[i + Cn]) / (2 * st), dzE = (H[i + 1] - H[i - 1]) / (2 * st), sl = Math.atan(Math.hypot(dzN, dzE)) * 57.3;
+    if (sl < 25 || dzN > -0.25) continue;   // chỉ mặt dốc quay bắc (cao lên khi đi về nam)
+    const w = Math.min(1, (sl - 25) / 10), d = (H[i] - B[i]) * k * w, v = Math.max(Math.min(H[i], 1.0), Math.min(H[i] + cap, H[i] + d));
+    tmp[i] = v; n++; up = Math.max(up, v - H[i]); dn = Math.min(dn, v - H[i]); }
+  for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) { const i = r * Cn + c, dzN = (H[i - Cn] - H[i + Cn]) / (2 * st), dzE = (H[i + 1] - H[i - 1]) / (2 * st), sl = Math.atan(Math.hypot(dzN, dzE)) * 57.3;
+    if (!(sl < 25 || dzN > -0.25)) H[i] = tmp[i]; }
+  return { o_sua: n, nang_max_m: +up.toFixed(1), ha_max_m: +dn.toFixed(1) };
+}
+export async function makeTerrain(base, M, U, TO = {}) {
   const [e0, n0, e1, n1] = M.ext, [R, Cn] = M.terrain_shape, st = M.step_terrain;
   const Hh = await loadF32(base + 'terrain.f32');
+  const cliffStat = TO.cliff ? sharpenCliff(Hh, R, Cn, e0, n1, st, TO.cliff === true ? {} : TO.cliff) : null;
   const hAt = (e, n) => { const fc = Math.max(0, Math.min(Cn - 1.001, (e - e0) / st)), fr = Math.max(0, Math.min(R - 1.001, (n1 - n) / st));
     const c = Math.floor(fc), r = Math.floor(fr), a = fc - c, b = fr - r, g = (rr, cc) => Hh[rr * Cn + cc];
     return (g(r, c) * (1 - a) + g(r, c + 1) * a) * (1 - b) + (g(r + 1, c) * (1 - a) + g(r + 1, c + 1) * a) * b; };
@@ -19,7 +39,7 @@ export async function makeTerrain(base, M, U) {
   const [Gh, Gw] = M.ground_shape;
   const uni = { uYear: U.uYear, uDim: U.uDim, tNat: { value: tNat }, tUrb: { value: tUrb }, tYears: { value: tYears }, tAO: { value: tAO }, tCls: { value: tCls }, uNearK: { value: U.groundNear ?? 1 },
     uExt: { value: new THREE.Vector4(e0 - 5, n0 - 5, Gw * 10, Gh * 10) }, tNoise: { value: noiseTex() }, uBaked: U.uBaked, uAOBox: { value: new THREE.Vector4(...M.ao_box) }, uAOon: U.uAOon, uDetail: { value: 1 },
-    tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
+    tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 }, uCliff: { value: TO.cliff ? 1 : 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
   uni.tGhostU.value.needsUpdate = true;
   const mat = U.lambert ? new THREE.MeshLambertMaterial({ color: 0xffffff }) : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.96, metalness: 0 });
   mat.onBeforeCompile = (sh) => {
@@ -31,7 +51,7 @@ export async function makeTerrain(base, M, U) {
         float k = landK(decYear(yv.ba), uYear); transformed.y = mix(min(transformed.y, -10.0), transformed.y, k); }
       vWP = (modelMatrix * vec4(transformed, 1.0)).xyz; vWN = normalize(mat3(modelMatrix) * objectNormal);`);
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-      uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls, tGhostU; uniform vec4 uGhostBox; uniform float uGhostOn; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;
+      uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls, tGhostU; uniform vec4 uGhostBox; uniform float uGhostOn, uCliff; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;
       ${GLSL_YEAR} ${GLSL_NOISE}
       float fbmT(vec2 p){ if (uBaked < 0.5) return fbm(p); vec2 q = mat2(0.80, -0.60, 0.60, 0.80) * p * 0.173 + 0.37; return 0.6 * texture(tNoise, p * 0.25).r + 0.4 * texture(tNoise, q).b; }   // nhiễu nướng sẵn chống lặp ô: 2 mẫu, tỉ lệ không thông ước + xoay miền
       // V5b-1b · VẬT LIỆU THỦ TỤC THEO LỚP (build_scene.build_classes): có biến thiên tầm trung + chi tiết nhỏ; mờ dần chi tiết theo fwidth (chống răng cưa)
@@ -72,7 +92,7 @@ export async function makeTerrain(base, M, U) {
           vec3 s = mix(vec3(0.46, 0.38, 0.26), vec3(0.36, 0.48, 0.20), step(0.5, h21(cell + 3.0))); return s * (0.82 + 0.22 * lineAA(r, 0.22, 0.05) * fw(p, 0.6)) * (0.9 + 0.15 * m1); }
         if (c < 6.5) { vec3 s = vec3(0.27, 0.28, 0.30) * (0.88 + 0.2 * m1) * (0.93 + 0.12 * mi); return mix(s, vec3(0.20, 0.20, 0.22), smoothstep(0.6, 0.75, m2) * 0.5); }   // 6 nhựa: vá, đá dăm
         if (c < 7.5) {   // 7 nền lát đô thị: tấm 2 m, vết ố, ron
-          vec2 g = abs(fract(p / 2.0) - 0.5); float j = (1.0 - smoothstep(0.44, 0.48, max(g.x, g.y))) ; vec3 s = mix(vec3(0.72, 0.69, 0.64), vec3(0.62, 0.60, 0.57), m1);
+          vec2 g = abs(fract(p / 2.0) - 0.5); float j = (1.0 - smoothstep(0.44, 0.48, max(g.x, g.y))) ; vec3 s = mix(vec3(0.72, 0.69, 0.64), vec3(0.62, 0.60, 0.57), m1); if (uCliff > 0.5) s = mix(vec3(0.78, 0.66, 0.50), vec3(0.68, 0.58, 0.46), m1);   /* V5b-2c: phố 1782 lát đá vôi địa phương (ấm) */
           s *= mix(0.86, 1.0, j * fw(p, 0.5) + (1.0 - fw(p, 0.5))); return s * (0.9 + 0.14 * mi) * (1.0 - 0.15 * smoothstep(0.65, 0.85, m2)); }
         if (c < 8.5) {   // 8 sân thể thao: cỏ xén sọc 5 m
           vec3 s = vec3(0.22, 0.50, 0.22) * (0.9 + 0.12 * step(0.5, fract(p.x / 10.0)) * fw(p, 0.1)); return s * (0.92 + 0.1 * mi); }
@@ -86,7 +106,15 @@ export async function makeTerrain(base, M, U) {
         // 13 đồng cỏ eo đất (trước đô thị hoá): cỏ xanh-ô liu xen mảng cỏ khô + lối mòn sáng (phong cách hoá theo ảnh LoC c.1900)
         vec3 s = mix(vec3(0.40, 0.48, 0.24), vec3(0.54, 0.55, 0.32), m1); s = mix(s, vec3(0.68, 0.63, 0.40), smoothstep(0.55, 0.72, m3) * 0.7);
         float tr = (1.0 - smoothstep(0.0, 0.005, abs(FBM(p * 0.0032 + 9.0) - 0.5))) * fw(p, 0.25); s = mix(s, vec3(0.76, 0.71, 0.56), tr * 0.5);
-        return tufts(s, p, vec3(0.24, 0.30, 0.14)) * (0.84 + 0.24 * mi); }`)
+        return tufts(s, p, vec3(0.24, 0.30, 0.14)) * (0.84 + 0.24 * mi); }
+      // V5b-2c: VÁCH ĐÁ VÔI theo mặt đứng (toạ độ ngang dọc vách × cao độ): lớp đá nghiêng, khe nứt dọc, vệt ố, gờ đá có bụi lẻ
+      vec3 cliffC(vec3 w, float sl){ float hz = w.x * 0.83 + w.z * 0.55, y = w.y;
+        float bed = FBM(vec2(hz * 0.02, y * 0.11 + hz * 0.012)); vec3 s = mix(vec3(0.80, 0.77, 0.70), vec3(0.64, 0.62, 0.58), smoothstep(0.3, 0.75, bed));
+        s = mix(s, vec3(0.86, 0.80, 0.66), smoothstep(0.62, 0.8, FBM(vec2(hz * 0.05, y * 0.03) + 3.0)) * 0.5);   // mảng đá vàng ngà
+        float jt = VN(vec2(hz * 0.35, y * 0.025)) * VN(vec2(hz * 0.11 + 4.0, y * 0.01)); s *= 1.0 - 0.45 * smoothstep(0.32, 0.55, jt);   // khe nứt dọc tối
+        s *= 1.0 - 0.25 * smoothstep(0.55, 0.8, VN(vec2(hz * 0.08, y * 0.004)));   // vệt nước chảy
+        float ledge = smoothstep(0.62, 0.42, sl) * smoothstep(0.55, 0.7, FBM(vec2(hz * 0.04, y * 0.06) + 9.0)); s = mix(s, vec3(0.28, 0.34, 0.17) * (0.8 + 0.4 * VN(w.xz * 0.3)), ledge * 0.75);   // bụi trên gờ
+        return s; }`)
       .replace('#include <map_fragment>', `
       vec2 guv = vec2((vWP.x - uExt.x) / uExt.z, (-vWP.z - uExt.y) / uExt.w);
       vec4 yv = texture(tYears, guv); float uy = decYear(yv.rg);
@@ -102,7 +130,8 @@ export async function makeTerrain(base, M, U) {
       float slope = 1.0 - clamp(vWN.y, 0.0, 1.0);
       float strata = 0.82 + 0.22 * fbmT(vec2(vWP.x * 0.015 + vWP.z * 0.011, vWP.y * 0.35)) ;
       vec3 rock = vec3(0.70, 0.67, 0.60) * strata;
-      g = mix(g, rock, smoothstep(0.30, 0.55, slope) * (1.0 - uk));
+      g = mix(g, rock, smoothstep(mix(0.30, 0.16, uCliff), mix(0.55, 0.30, uCliff), slope) * (1.0 - uk));
+      if (uCliff > 0.5) g = mix(g, cliffC(vWP, slope), smoothstep(0.16, 0.30, slope) * (1.0 - uk));
       float dd = length(vWP - cameraPosition);
       // V5b-1b: GẦN (≤ 2,6 km, mờ dần tới 3,6 km): vật liệu thủ tục theo lớp, KHÔNG trải ảnh vệ tinh (chỉ tông vùng ≤ 18 % từ mip mờ ~160 m); XA: ảnh vệ tinh như cũ
       float nearK = uNearK * (1.0 - smoothstep(2600.0, 3600.0, dd));
@@ -113,7 +142,8 @@ export async function makeTerrain(base, M, U) {
         float dc = uYear < 1987.0 ? cl.b : cl.a; float sl = slope;
         if (c > 0.5) { vec3 pc = matC(c, p, dc, sl);
           if (c < 3.5 || c > 12.5) { vec3 tb = mix(textureLod(tNat, guv, 4.0).rgb, textureLod(tUrb, guv, 4.0).rgb, uk); pc = mix(pc, pc * (0.6 + 0.8 * dot(tb, vec3(0.333)) / max(dot(pc, vec3(0.333)), 0.05)), 0.18); }   // tông vùng từ vệ tinh (nhẹ)
-          if (sl > 0.45) pc = mix(pc, matC(4.0, p, dc, sl), smoothstep(0.45, 0.62, sl));   // vách rất dốc → đá vôi, không loang
+          if (sl > 0.45) pc = mix(pc, matC(4.0, p, dc, sl), smoothstep(0.45, 0.62, sl));
+          if (uCliff > 0.5) pc = mix(pc, cliffC(vWP, sl), smoothstep(0.16, 0.30, sl) * (1.0 - uk));   // vách rất dốc → đá vôi, không loang
           g = mix(g, pc, nearK); } }
       float det = mix(0.80 + 0.40 * fbmT(vWP.xz * 0.21) , 1.0, max(smoothstep(600.0, 2500.0, dd), nearK));
       g *= mix(1.0, det, uDetail) * (0.94 + 0.12 * fbmT(vWP.xz * 0.012));
@@ -123,7 +153,7 @@ export async function makeTerrain(base, M, U) {
         if (auv.x > 0.0 && auv.x < 1.0 && auv.y > 0.0 && auv.y < 1.0) { vec3 a = texture(tAO, auv).rgb; float ay = decYear(a.gb);
           g *= 1.0 - 0.5 * a.r * smoothstep(ay - 2.0, ay, uYear); } }
       float L = dot(g, vec3(0.299, 0.587, 0.114)); g = mix(g, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);
-      diffuseColor.rgb = g;`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(0.0, step(0.5, uk), 0.0, 1.0);   /* mặt nạ: xanh = nền phố (đô thị theo năm) */');
+      diffuseColor.rgb = g;`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(0.0, step(0.5, uk), vWP.y < 0.2 ? 0.25 : (1.0 - step(0.5, uk)) * (1.0 - step(0.2, 1.0 - clamp(vWN.y, 0.0, 1.0))) * 0.5, 1.0);   /* mặt nạ: xanh = nền phố (đô thị theo năm); V5b-2c: lam 0,5 = đất tự nhiên BẰNG (cỏ/cát trống, dốc < ~37°), lam 0,25 = đáy dưới mặt nước (= nước) */');
   };
   // lưới trong 20 m + lưới ngoài 60 m (đỉnh nằm trong vùng trong bị hạ 40 m → không lộ, không z-fight)
   const IN = [-3000, -5500, 2000, 5000];
@@ -164,5 +194,5 @@ export async function makeTerrain(base, M, U) {
     const fm = new THREE.MeshStandardMaterial({ map: ftex, roughness: 1 }); fm.onBeforeCompile = (sh) => { Object.assign(sh.uniforms, { uDim: U.uDim });
       sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uDim;').replace('#include <map_fragment>', '#include <map_fragment>\n diffuseColor.rgb *= 1.15; { float L = dot(diffuseColor.rgb, vec3(0.299,0.587,0.114)); diffuseColor.rgb = mix(diffuseColor.rgb, vec3(L), 0.55*uDim) * (1.0 - 0.36*uDim); }'); };
     const far = new THREE.Mesh(g, fm); far.frustumCulled = false; far.receiveShadow = false; group.add(far); farTris = I.length / 3; }
-  return { group, hAt, mat, uni, update, stat: () => terrStat, tris: chunks.reduce((s, k) => s + k.hi.geometry.index.count / 3, 0) + outer.geometry.index.count / 3 + farTris };
+  return { group, hAt, mat, uni, update, cliffStat, stat: () => terrStat, tris: chunks.reduce((s, k) => s + k.hi.geometry.index.count / 3, 0) + outer.geometry.index.count / 3 + farTris };
 }

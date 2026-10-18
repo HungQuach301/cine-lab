@@ -21,7 +21,7 @@ import geo  # noqa: E402
 CACHE = Path(os.environ.get("K2TL_CACHE", "/var/tmp/cine-out/k2tl-cache"))
 ORIGIN = {"gib": (-5.3487, 36.1513)}   # khớp build_vectors.SCENES (origin_ll trong meta.json của gói)
 SKIP = set()
-H_DEF = {0: 7.5, 1: 10.0, 2: 10.0}   # cao mặc định khi nguồn không có (m): ước theo thời kỳ, ghi trong lớp
+H_DEF = {0: 7.5, 1: 10.0, 2: 10.0, 3: 7.5}   # cao mặc định khi nguồn không có (m): ước theo thời kỳ, ghi trong lớp
 
 
 def enu(pack, lon, lat):
@@ -91,7 +91,7 @@ def lines_out(A):
 def main():
     a = argparse.ArgumentParser(); a.add_argument("--pack", default="gib"); a.add_argument("--name", required=True)
     a.add_argument("--geojson", nargs="*"); a.add_argument("--osm-ways"); a.add_argument("--osm-bbox")
-    a.add_argument("--kind", choices=["real", "ghost"], default="real"); a.add_argument("--period", type=int, choices=[0, 1, 2], required=True)
+    a.add_argument("--kind", choices=["real", "ghost"], default="real"); a.add_argument("--period", type=int, choices=[0, 1, 2, 3], required=True)   # V5b-2c: 3 = thời kỳ 0 phần LẤP ƯỚC TÍNH (do_tin uoc, tông khác nhẹ)
     a.add_argument("--years", type=float, nargs=2, required=True); a.add_argument("--src", required=True); a.add_argument("--region", type=int, default=1)
     a.add_argument("--loai", help="lọc thuộc tính loai (ghost SH), vd khoi_pho,nha"); a.add_argument("--do-tin", help="lọc do_tin, vd cao,vua (bỏ 'thap')")
     a.add_argument("--skip", default="", help="bỏ feature theo id (vd C1782-01 khi đã dựng hero từ OSM)"); a.add_argument("--lines", action="store_true", help="xuất LineString (chiến tuyến) thay vì vòng nhà: [[E,N]…] + thuộc tính")

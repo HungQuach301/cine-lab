@@ -124,6 +124,7 @@ export function makeHeroes(H, hAt, U, terr, lines) {
   // ---- tường thành thành phố (đá vôi)
   const LW = acc(); for (const w of H.citywalls) wallLine(LW, w, hAt, 6.0, 3.0);
   const lw = new THREE.Mesh(geoFrom(LW), stoneMat(U, { value: 0 }, 'lime')); lw.castShadow = lw.receiveShadow = true; group.add(lw);
+  out.citywallMesh = lw;   // V5b-2c: cảnh 1782 ẩn bản tường giản lược này và dựng lại tường OSM bằng M5 (fort.js)
   // ---- đường băng
   // hai đầu đường băng = cực trị của tim OSM + đoạn ngưỡng lùi (displaced_threshold) chiếu lên trục
   const rp = H.runway.p.concat(...H.thresholds), a0 = H.runway.p[0], b0 = H.runway.p[H.runway.p.length - 1], ax = [b0[0] - a0[0], b0[1] - a0[1]], al = Math.hypot(...ax);

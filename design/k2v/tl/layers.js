@@ -9,8 +9,10 @@
 import { THREE, rng, loadJSON, maskify } from './core.js';
 import { makeCity } from './city.js';
 import { walls, roof } from './geom.js';
+import { fortify, wallRing } from './fort.js';   // V5b-2c: M5 thành luỹ tham số
 
-export const FACTION = { es: '#F08A4B', fr: '#F08A4B', gb: '#3CC2B0', civ: '#B9C3CE', neutral: '#B9C3CE' };   // nhận diện kênh: cam = Pháp–TBN, lục lam = đồn trú; KHÔNG đỏ máu (§6.2)
+// V5b-2c: màu phe theo B6 (chủ dự án duyệt 17/10, cố định cả series, BD-7 — 3D và bản đồ chiến lược cùng một màu): Anh đỏ gạch, TBN vàng đất, Pháp lam; dân thường kem
+export const FACTION = { es: '#c9a227', fr: '#2e5c8a', gb: '#b03a2e', civ: '#efe6cf', neutral: '#a89f8a' };   // nhận diện kênh: cam = Pháp–TBN, lục lam = đồn trú; KHÔNG đỏ máu (§6.2)
 const win = (tv, w, fade = 0) => { if (!w) return 1; const [a, b] = w; if (fade <= 0) return tv >= a && tv <= b ? 1 : 0; return Math.max(0, Math.min(1, (tv - a) / fade + 1, (b - tv) / fade + 1)); };
 
 // ---------- công sự (bastion / tường thành): footprint đùn bằng đá vôi, mặt sàn pháo phẳng, tường chắn mái có lỗ châu mai — KHÔNG dựng như nhà ở ----------
@@ -36,8 +38,10 @@ export async function footprints(specs, ctx) {
   for (const sp of specs || []) {
     const L = await loadJSON(`${ctx.base}layers/${sp.file}.json`);
     const recs = L.records.map((r) => { const base = r[3] != null ? r[3] : Math.min(...r[6].map(([e, n]) => ctx.terr.hAt(e, n))); return [r[0], r[1], r[2], Math.max(0.3, base), r[4], r[5], r[6], r[7]]; });
-    const c = sp.fort ? fortMesh(recs.map((r) => (sp.h ? Object.assign(r.slice(), { 2: sp.h }) : r)), ctx, sp.hid || 0) : makeCity(recs, ctx.U, { lod: true, hid: sp.hid || 0 }); group.add(c.group);
-    list.push({ name: L.name, kind: L.kind, src: sp.src || L.src, years: sp.years || L.years, period: L.period, n: L.n, city: c, yearMax: L.kind === 'ghost' ? (sp.years || L.years)[0] : Math.max(...L.records.map((r) => r[0] < 9999 ? r[0] : 0)) });
+    if (sp.remap) for (let i = 0; i < recs.length; i++) recs[i] = sp.remap(recs[i]);
+    if (sp.largest) { const ar = (q) => Math.abs(q.reduce((a, p, i) => a + p[0] * q[(i + 1) % q.length][1] - q[(i + 1) % q.length][0] * p[1], 0)) / 2; recs.sort((a, b) => ar(b[6]) - ar(a[6])); recs.length = 1; }   // V5b-2c: King's Bastion = vòng lớn nhất (vòng nhỏ trong là toà/bậc thang hiện đại)
+    const c = sp.fort ? fortify(recs.map((r) => (sp.h ? Object.assign(r.slice(), { 2: sp.h }) : r)), ctx, Object.assign({ hid: sp.hid || 0 }, sp.fortOpt || {})) : makeCity(recs, ctx.U, { lod: true, hid: sp.hid || 0, ghostDesat: sp.ghostDesat ?? 0.22 }); group.add(c.group);
+    list.push({ recs, name: L.name, kind: L.kind, src: sp.src || L.src, years: sp.years || L.years, period: L.period, n: L.n, city: c, yearMax: L.kind === 'ghost' ? (sp.years || L.years)[0] : Math.max(...L.records.map((r) => r[0] < 9999 ? r[0] : 0)) });
   }
   return { group, list,
     update(year, cam) { for (const l of list) { l.city.group.visible = win(year, l.years) > 0; if (l.city.group.visible && cam) l.city.update(cam); } },
@@ -66,6 +70,10 @@ export async function phaseMaps(specs, ctx) {
 }
 
 // ---------- M4: chiến tuyến / hào mọc theo thời gian ----------
+function hull2(P) { const p = P.slice().sort((a, b) => a[0] - b[0] || a[1] - b[1]); if (p.length < 3) return p; const cr = (o, a, b) => (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0]);
+  const lo = [], up = []; for (const q of p) { while (lo.length >= 2 && cr(lo[lo.length - 2], lo[lo.length - 1], q) <= 0) lo.pop(); lo.push(q); } for (const q of p.reverse()) { while (up.length >= 2 && cr(up[up.length - 2], up[up.length - 1], q) <= 0) up.pop(); up.push(q); }
+  return lo.slice(0, -1).concat(up.slice(0, -1)); }
+function pip(p, r) { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > p[1]) !== (r[j][1] > p[1]) && p[0] < (r[j][0] - r[i][0]) * (p[1] - r[i][1]) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; }
 const cumLen = (pts) => { const c = [0]; for (let i = 1; i < pts.length; i++) c.push(c[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])); return c; };
 function ribbonGeo(pts, hAt, w, lift, berm) {   // dải rộng w bám DTM; berm > 0: gờ đất (mặt cắt hình thang cao berm m) dọc tim tuyến
   const P = [], I = [], S = [], C = cumLen(pts), prof = berm > 0 ? [[-1, 0], [-0.35, berm], [0.35, berm], [1, 0]] : [[-1, 0], [1, 0]], np = prof.length;
@@ -143,20 +151,52 @@ export function smoke(specs, ctx) {
 //  King's Bastion lấy footprint OSM — chính xác hơn RMS 21 m), lines1782 (Line Wall + tường nam: gờ đá; Línea de Contravalación: chiến tuyến phe TBN). Feature do_tin = thấp KHÔNG dùng.
 //  Lớp tái dựng 1705 của gói cảnh (V5b-1) bị ẩn: một mốc, một nguồn. Nửa đông phố cổ: bản đồ vẽ sườn đồi không viền → để trống (SH không bịa).
 export const SRC1782 = 'Reconstructed from J. Drinkwater, Plan of the Batteries, 1782';
-export async function town1782(ctx, { hidPack = true } = {}) {
+export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {} } = {}) {
   if (hidPack) ctx.city.group.visible = false;
-  const FP = await footprints([{ file: 'ghost1782' }, { file: 'fort1782', fort: true, h: 8 }], ctx); ctx.scene.add(FP.group);
+  // V5b-2c (I2): + lớp LẤP ƯỚC TÍNH infill1782 (scripts/k2tl/infill_1782.py, do_tin uoc, tông lệch nhẹ) — dòng phương pháp "Grey-washed blocks: estimated infill" do cảnh hiện
+  // bastion của plan (Orange's, Montague, South Bastion, Old Mole…) có ≥ 6 điểm tường OSM trong 75 m → thay vòng bằng bao lồi điểm OSM (vị trí thật), bỏ các điểm đó khỏi tuyến tường
+  const H = await loadJSON(`${ctx.base}heroes.json`), osmPts = H.citywalls.flat(), used = [];
+  const fortRemap = (r) => { const c = [r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length], near = osmPts.filter((p) => Math.hypot(p[0] - c[0], p[1] - c[1]) < 75);
+    if (near.length < 6 || c[1] > 600) return r; const hr = hull2(near); used.push(hr); return Object.assign(r.slice(), { 6: hr }); };
+  const FP = await footprints([{ file: 'ghost1782', ghostDesat: 0.08 }, { file: 'fort1782', fort: true, h: 8, remap: fortRemap }].concat(infill ? [{ file: 'infill1782', ghostDesat: 0.08 }] : []), ctx);   // V5b-2c (I5): giảm bão hoà lớp tái dựng 22 % → 8 % (vẫn nhận ra là tái dựng nhờ nhãn nguồn + tông lệch)
+  ctx.scene.add(FP.group); ctx.scene.add(FP.group);
   const L = await loadJSON(`${ctx.base}layers/lines1782.json`);
-  const FL = frontLines(L.lines.map((l) => (l.loai === 'chien_tuyen' ? { pts: l.pts, side: 'es', grow: [1700, 1701], w: 16, berm: 4.5, band: false } : { pts: l.pts, grow: [1700, 1701], w: 7, berm: 7.5, band: false, stone: '#c9bfa8' })), ctx); ctx.scene.add(FL.group);
+  // V5b-2c (M5): Line Wall + tường nam dựng như tường thành đá (gờ, tường chắn, lỗ châu mai, pháo mỗi 2 lỗ); Línea (đất + đá TBN) giữ gờ chiến tuyến
+  // Línea de Contravalación (TBN, xây 1730–35, tường đá + bastion — SH ghi "tường và các bastion"): V5b-2c dựng như tường đá thấp 5,5 m, mặt chính quay NAM (về Gibraltar)
+  const FL = frontLines([], ctx), lineaRecs = [];
+  for (const l of L.lines.filter((x) => x.loai === 'chien_tuyen')) { for (let i = 0; i < l.pts.length - 1; i++) { const a = l.pts[i], b = l.pts[i + 1], hs = [a, b].map(([e, n]) => ctx.terr.hAt(e, n)), lo = Math.max(0.3, Math.min(...hs)), hi = Math.max(0.3, ...hs);
+    lineaRecs.push([0, 0, 5.5 + (hi - lo), lo, 0, 1, wallRing([a, b], 3, 3), 0]); } }
+  const LN = fortify(lineaRecs, ctx, { thick: 2.0, batter: 0.12, embr: 9, gunEvery: 2, garita: true, seed: 71, face: [0, -1] }); ctx.scene.add(LN.group);
+  // tường leo dốc (tường nam Charles V): cắt đoạn ≤ 24 m, mỗi đoạn cốt chân riêng, đỉnh = 7,5 m trên điểm cao nhất của đoạn
+  // V5b-2c: Line Wall + King's Bastion lấy hình học OSM historic=citywalls (heroes.json — đúng vị trí thật, không lệch RMS 21 m của plan), dựng bằng M5;
+  //  tường cùng tên của plan (C1782-06…09) chỉ còn dùng khi không có OSM. Bastion = bao lồi điểm tường OSM quanh tâm; tường giản lược cũ của gói (heroes) ẩn.
+  const KBc = [-602, -1276], inB = (p) => p[0] > -800 && p[0] < -150 && p[1] > -1950 && p[1] < -640;
+  const kbPts = H.citywalls.flat().filter((p) => Math.hypot(p[0] - KBc[0], p[1] - KBc[1]) < 85), kbRing = hull2(kbPts);
+  if (ctx.heroes && ctx.heroes.citywallMesh) ctx.heroes.citywallMesh.visible = false;
+  const KB = kbRing.length > 3 ? fortify([[0, 0, kbOpt.h || 9, Math.max(0.3, Math.min(...kbRing.map(([e, n]) => ctx.terr.hAt(e, n)))), 0, 1, kbRing, 0]], ctx, Object.assign({ hid: kbOpt.hid || 0, seed: 53 }, kbOpt)) : null; if (KB) ctx.scene.add(KB.group);
+  const inKB = (p) => (kbRing.length > 3 && pip(p, kbRing)) || used.some((r) => pip(p, r));
+  const wallRecs = [], slopeRecs = []; const osmLines = H.citywalls.filter((w) => w.some(inB)).map((w) => ({ pts: w.filter((p) => !inKB(p)) })).filter((l) => l.pts.length > 1);
+  for (const l of osmLines) { const C = cumLen(l.pts), tot = C[C.length - 1], steep = Math.max(...l.pts.map(([e, n]) => ctx.terr.hAt(e, n))) > 18, ns = Math.max(1, Math.ceil(tot / (steep ? 7 : 24)));   // tường leo sườn (Charles V, tường Moor): đoạn 7 m, mỏng, không terreplein
+    const at = (sv) => { let i = 1; while (i < l.pts.length - 1 && C[i] < sv) i++; const a = l.pts[i - 1], b = l.pts[i], u = Math.max(0, Math.min(1, (sv - C[i - 1]) / ((C[i] - C[i - 1]) || 1))); return [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u]; };
+    for (let k = 0; k < ns; k++) { const s0 = tot * k / ns, s1 = Math.min(tot, tot * (k + 1) / ns + 0.6), seg = [at(s0)]; for (let i = 0; i < l.pts.length; i++) if (C[i] > s0 && C[i] < s1) seg.push(l.pts[i]); seg.push(at(s1));
+      const hs = seg.map(([e, n]) => ctx.terr.hAt(e, n)), lo = Math.max(0.3, Math.min(...hs)), hi = Math.max(0.3, ...hs);
+      // bên phố được đắp 26 m (terreplein), bên biển 4 m
+      const m0 = seg[0], m1 = seg[seg.length - 1], dd = [m1[0] - m0[0], m1[1] - m0[1]], dl = Math.hypot(...dd) || 1, nl = [-dd[1] / dl, dd[0] / dl], mc = [(m0[0] + m1[0]) / 2, (m0[1] + m1[1]) / 2];
+      const left = nl[0] * (-430 - mc[0]) + nl[1] * (-1300 - mc[1]) > 0;   // bên PHỐ (tâm phố cổ 1782 ≈ E −430, N −1300; DEM 2026 có đất lấn biển nên không dùng cao độ)
+      // từng đoạn THẲNG (vòng lồi → sàn tam giác hoá đúng; đoạn gãy khúc cho vòng tự cắt → mất sàn, lộ nước), nối đè 3 m ở khớp
+      for (let j = 0; j < seg.length - 1; j++) { const a0 = seg[j], b0 = seg[j + 1], dv = [b0[0] - a0[0], b0[1] - a0[1]], ll = Math.hypot(...dv); if (ll < 1) continue; const u = [dv[0] / ll, dv[1] / ll], A = [a0[0] - u[0] * 3, a0[1] - u[1] * 3], B = [b0[0] + u[0] * 3, b0[1] + u[1] * 3];
+        (steep ? slopeRecs : wallRecs).push([0, 0, (steep ? 5.5 : 7.5) + (hi - lo), lo, 0, 1, steep ? wallRing([A, B], 1.6, 1.6) : left ? wallRing([A, B], 26, 4) : wallRing([A, B], 4, 26), 0]); } } }
+  const WL = fortify(wallRecs, ctx, { thick: 2.4, batter: 0.1, gunEvery: 2, garita: false, seed: 61 }); ctx.scene.add(WL.group);
+  const WS = fortify(slopeRecs, ctx, { thick: 0.7, batter: 0.0, embr: 1e9, guns: false, garita: false, seed: 62 }); ctx.scene.add(WS.group);   // tường sườn: mỏng, không lỗ châu mai/pháo
   // nền phố của địa hình CHỈ quanh khối ghost + công sự (giãn 25 m, 2 m/điểm ảnh); đường OSM 2026 ẩn (đường giữa các khối là nền phố)
-  const recs = []; for (const f of ['ghost1782', 'fort1782']) recs.push(...(await loadJSON(`${ctx.base}layers/${f}.json`)).records.map((r) => r[6]));
+  const recs = []; for (const f of ['ghost1782', 'fort1782'].concat(infill ? ['infill1782'] : [])) recs.push(...(await loadJSON(`${ctx.base}layers/${f}.json`)).records.map((r) => r[6]));
   const all = recs.flat(), e0 = Math.min(...all.map((q) => q[0])) - 80, e1 = Math.max(...all.map((q) => q[0])) + 80, n0 = Math.min(...all.map((q) => q[1])) - 80, n1 = Math.max(...all.map((q) => q[1])) + 80, res = 2;
   const cv = document.createElement('canvas'); cv.width = Math.ceil((e1 - e0) / res); cv.height = Math.ceil((n1 - n0) / res); const g = cv.getContext('2d');
   g.fillStyle = '#000'; g.fillRect(0, 0, cv.width, cv.height); g.fillStyle = g.strokeStyle = '#fff'; g.lineWidth = 50 / res; g.lineJoin = 'round';
   for (const r of recs) { g.beginPath(); r.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); g.stroke(); }
   g.filter = 'blur(4px)'; g.drawImage(cv, 0, 0); const tx = new THREE.CanvasTexture(cv); tx.minFilter = THREE.LinearFilter;
   const u = ctx.terr.uni; u.tGhostU.value = tx; u.uGhostBox.value.set(e0, n0, e1 - e0, n1 - n0); u.uGhostOn.value = 1; if (ctx.roads) ctx.roads.mesh.visible = false;
-  return { FP, FL, update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782 };
+  return { FP, FL, WL, LN, KB, kbRing, infill, INFILL_SRC: 'Grey-washed blocks: estimated infill', update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782 };
 }
 
 // ---------- M2 RÚT GỌN (lệnh AC1, chủ dự án 17/10): KHỐI ĐƠN VỊ QUÂN instanced ----------

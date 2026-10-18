@@ -24,6 +24,8 @@ const PAL = {
 };
 const TILE_C = [[0.70, 0.36, 0.24], [0.62, 0.30, 0.20], [0.74, 0.44, 0.30], [0.58, 0.34, 0.26]], FLAT_C = [[0.80, 0.78, 0.74], [0.72, 0.70, 0.67], [0.84, 0.80, 0.72], [0.62, 0.62, 0.62]];
 const TILE = 500, NA = 19;
+// V5b-2c (lệnh V0 mục d, I5): ngói đất nung thế kỷ 18 bão hoà hơn (S ≈ 0,72–0,78 trước ánh sáng) cho phố 1782 — không cháy sáng (giá trị ≤ 0,8)
+const TILE_1782 = [[0.76, 0.33, 0.17], [0.70, 0.28, 0.15], [0.80, 0.40, 0.20], [0.66, 0.31, 0.18]];
 
 // chọn kiểu mặt đứng + mái (tất định theo băm). Trả { sty, roof: 'flat'|'parapet'|'terrace'|'gable'|'hipr'|'pyr', gh (cao lớp tái dựng) }
 // V5b-2b (M9): pd = THỜI KỲ của lớp footprint (bản ghi phần tử 8): 0 = 1704–1782 (mái ngói thấp + sân thượng phẳng, 2–3 tầng, không ban công sắt)
@@ -31,6 +33,7 @@ const TILE = 500, NA = 19;
 export function styleOf(y, gy, h, reg, ar, R, pd) {
   const r = R(), r2 = R(), old = gy > 0 || (reg === 0 && y < 1960), smallish = ar < 260 && h <= 13;
   let sty, rf;
+  if (pd === 3) { sty = 0; rf = r2 < 0.45 ? 'gable' : r2 < 0.7 ? 'hipr' : 'terrace'; return { sty, rf, gh: Math.min(h, 6.0 + Math.floor(R() * 2) * 3.0), noBalc: true, uoc: true }; }   // V5b-2c: phố 1782 LẤP ƯỚC TÍNH (I2) — như thời kỳ 0, tông vữa lệch nhẹ
   if (pd === 0) { sty = reg === 1 ? (r < 0.75 ? 0 : 6) : 1; rf = r2 < 0.38 ? 'gable' : r2 < 0.6 ? 'hipr' : 'terrace'; return { sty, rf, gh: Math.min(h, 6.0 + Math.floor(R() * 2) * 3.0), noBalc: true }; }
   if (pd === 1) { sty = reg === 1 ? (r < 0.6 ? 0 : 2) : (r < 0.8 ? 1 : 0); rf = r2 < 0.3 ? 'gable' : r2 < 0.5 ? 'hipr' : r2 < 0.8 ? 'parapet' : 'terrace'; return { sty, rf, gh: Math.min(h, 7.5 + Math.floor(R() * 3) * 3.0) }; }
   if (reg === 1 && old) { sty = ar > 700 ? 6 : r < 0.68 ? 0 : 2; }
@@ -45,7 +48,7 @@ export function styleOf(y, gy, h, reg, ar, R, pd) {
   return { sty, rf, gh };
 }
 
-export function makeCity(B, U, { lod = true, hid = 0 } = {}) {   // V5b-2b: hid > 0 = id hero của cả lớp (kênh B mặt nạ, hero_pct)
+export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) {   // V5b-2b: hid > 0 = id hero của cả lớp (kênh B mặt nạ, hero_pct)
   const tiles = new Map(); const R = rng(17); const stats = { sty: [0, 0, 0, 0, 0, 0, 0], roof: {} , balc: 0 };
   const tri = (r) => THREE.ShapeUtils.triangulateShape(r.map(([x, y]) => new THREE.Vector2(x, y)), []);
   const add = (key) => { if (!tiles.has(key)) tiles.set(key, { L: [{ a: [] }, { a: [] }], c: null, n: 0 }); return tiles.get(key); };
@@ -62,9 +65,10 @@ export function makeCity(B, U, { lod = true, hid = 0 } = {}) {   // V5b-2b: hid 
     const T = add(Math.floor(cx / TILE) + ',' + Math.floor(cn / TILE)); T.n++;
     const ar = Math.abs(signedArea(ring)), S = styleOf(y, gy, h, reg, ar, R, pd);
     let rfK = S.rf; if (rf0 && (rfK === 'flat' || rfK === 'parapet') && ar < 250) rfK = 'hipr';   // dữ liệu gói cảnh: nhà thấp cũ → mái dốc
-    const P = PAL[S.sty], wc = P[Math.floor(R() * P.length)].map((v) => v * (0.93 + 0.1 * R()));
+    const P = PAL[S.sty]; let wc = P[Math.floor(R() * P.length)].map((v) => v * (0.93 + 0.1 * R()));
+    if (S.uoc) wc = [wc[0] * 0.95 + 0.03, wc[1] * 0.97 + 0.03, wc[2] * 1.0 + 0.04].map((v) => Math.min(1, v));   // lấp ước tính: vữa ngả xám-lam nhẹ (khác tông, không trong suốt)
     const pitchedK = rfK === 'gable' || rfK === 'hipr' || rfK === 'pyr';
-    const rc = (pitchedK ? TILE_C[Math.floor(R() * 4)] : FLAT_C[Math.floor(R() * 4)]).map((v) => v * (0.9 + 0.15 * R()));
+    const rc = (pitchedK ? (pd === 0 || pd === 3 ? TILE_1782 : TILE_C)[Math.floor(R() * 4)] : FLAT_C[Math.floor(R() * 4)]).map((v) => v * (0.9 + 0.15 * R()));
     const dur = reg === 1 ? 1.5 : 4.0, seed = R();
     stats.sty[S.sty]++;
     for (let l = 0; l < 2; l++) {
@@ -88,9 +92,9 @@ export function makeCity(B, U, { lod = true, hid = 0 } = {}) {   // V5b-2b: hid 
   const mkMat = (lodLevel, depth) => {
     const m = depth ? new THREE.MeshDepthMaterial({ depthPacking: THREE.RGBADepthPacking }) : U.lambert ? new THREE.MeshLambertMaterial({ vertexColors: true }) : new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.88, metalness: 0 });
     if (!depth && lodLevel === 0) m.side = THREE.DoubleSide;
-    m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid;   // tường chắn mái / lan can thấy cả mặt trong
+    m.customProgramCacheKey = () => 'tl-city-' + lodLevel + (depth ? '-d' : '') + '-h' + hid + '-g' + ghostDesat;   // tường chắn mái / lan can thấy cả mặt trong
     m.onBeforeCompile = (sh) => {
-      Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uSample: U.uSample, uMask: U.uMask, uGhostDesat: { value: 0.22 } });
+      Object.assign(sh.uniforms, { uYear: U.uYear, uDim: U.uDim, uSample: U.uSample, uMask: U.uMask, uGhostDesat: { value: ghostDesat } });
       sh.vertexShader = sh.vertexShader.replace('#include <common>', `#include <common>
         attribute float aYear; attribute float aGhost; attribute float aBase; attribute float aU; attribute float aDur; attribute float aH; attribute float aReg; attribute float aEL; attribute float aSty; attribute float aGH;
         uniform float uYear; varying float vU; varying float vLY; varying float vGhost; varying float vReg; varying float vH; varying float vYear; varying float vEL; varying float vSty; varying vec3 vObjN; varying vec3 vWPc;
