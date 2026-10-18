@@ -8,20 +8,20 @@
    "flat_slide_look",
    "unreadable_scale"
   ],
-  "note": "Half the frame is flat blue sky. Large empty green plain. The rock is a decent hero object but small and distant. The town is a barely visible sliver. Only one tiny troop block and a few stray posts. Long straight walls and trenches look like untextured primitives. Smoke is faint and doesn't read as a siege. Nothing in the frame says the line is occupied or a battle is under way."
+  "note": "The rock is decently sculpted and the sky is clean. But the foreground is a big empty green plain with a single long wall, one tiny troop block and a few stray posts. Nothing reads as a besieging army. The town is a speck. The trenches are thin orange lines. The result looks like a bare terrain demo, not a siege."
  },
  "Y": {
-  "craft": 6,
+  "craft": 5,
   "richness": 7,
-  "fit": 7,
+  "fit": 6,
   "flags": [
    "toy_look",
    "cluttered"
   ],
-  "note": "Lower camera angle and better composition. Rock sits left of centre, sea on the right, and the town with its church tower is visible on the spit. Many regiment blocks fill the foreground and lead the eye toward the walls and the rock. Smoke drifts across the middle distance, which adds some atmosphere. But the troops are black cylinder grids on gold slabs, which reads as toy blocks or a Lego parade rather than soldiers. The foreground blocks are repetitive and cropped, and the pale smoke looks like flat sprites. There are no guns, no ships, and no human-scale detail."
+  "note": "The frame is full of troop formations in rows, with flags, drifting smoke, the sea and a visible town on the rock. This reads as a besieging camp in front of a fortress. The troops are uniform black-dot cylinder blocks on yellow slabs, which looks like toy tiles or pin-cushions rather than soldiers. The formations are too dense and repetitive, the lighting is flat, and the scale is unconvincing. There are no guns, no ships and no fire on the fortress."
  },
  "better": "Y",
- "why": "Y has a stronger composition with a dense, readable besieging army, sea and town in view, and smoke. X is mostly empty sky and grass with almost no troops.",
- "top_fix_for_weaker": "Lower the camera and push in on the isthmus. Fill the plain with many troop columns, gun batteries, tents and campfire smoke. Cut the sky to about 25% of the frame. Add depth with foreground props such as gabions and cannons, and shift the walls and rock into a clear diagonal composition.",
- "top_fix_for_better": "Replace the cylinder-grid regiments with varied soldier figures in red or blue coats. Break up the uniform blocks with columns, officers, cannons, gabions, tents and ships in the bay. Add warm directional light and volumetric cannon smoke to get away from the toy look."
+ "why": "Y actually shows a massed besieging army with smoke, sea and town in a readable composition, while X is mostly empty grass with a wall.",
+ "top_fix_for_weaker": "Fill the foreground and midground with the siege: batteries of guns with crews and smoke, trench works with fascines, several troop columns, and a camera lowered or moved closer to the lines. Add warships in the bay and put visible fire on the rock.",
+ "top_fix_for_better": "Replace the cylinder-tile troop blocks with varied, properly scaled soldiers in red, white and blue coats. Break up the grid with guns, tents, wagons and trenches. Add warm directional light with long shadows, and add ships and bombardment fire at the fortress."
 }

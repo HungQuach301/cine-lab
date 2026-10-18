@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 5,
+  "fit": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "cluttered"
+  ],
+  "note": "The frame is wall-to-wall roofs and reads as a dense town, but it is a uniform orange-box carpet with no focal point. The street is hard to find. Floating orange roof slabs and stray flat tiles at lower left look like glitches. The few red soldiers are tiny specks and the people are almost invisible, so the scale reads as a miniature model. Palette and lighting are flat."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 5,
+  "fit": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The composition is better: water, a bastion wall, a church tower, a hillside fortress and a sky with clouds give depth and a sense of place. The lighting is warmer, with better shadows. But about a third of the frame is a striped green field with lollipop trees, which reads as a toy and a placeholder. The buildings are sparser, so it is less a dense street than a town overview. The people are tiny specks, and the soldier cluster in the field has no context."
+ },
+ "better": "Y",
+ "why": "Y has stronger cinematic depth, lighting and sense of place, and no glitchy floating geometry, although X is denser and fits the 'dense street' brief more literally.",
+ "top_fix_for_weaker": "Remove the floating roof slabs and flat tiles at lower left. Drop the camera lower, into a real street, with a visible street axis, lamp or washing props and clearly readable figures, and vary building heights, colours and roof shapes to break up the uniform orange.",
+ "top_fix_for_better": "Replace the striped crop field with built-up street or plaza fill, since the shot is meant to be dense. Lower the camera and add legible foreground people, carts and smoke to give human scale. Replace the lollipop trees with more natural ones."
+}

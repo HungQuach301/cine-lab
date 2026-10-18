@@ -5,10 +5,10 @@
   "fit": 3,
   "flags": [
    "empty_frame",
-   "flat_slide_look",
-   "unreadable_scale"
+   "unreadable_scale",
+   "flat_slide_look"
   ],
-  "note": "The rock and sky are pleasant, but the middle ground is a bare green plain. The only content is a long wall, a thin trench line and one small block of troops. There are almost no besiegers, and the town is a speck. Nothing tells you this is a siege."
+  "note": "The rock is decently modelled under a clean sky. Most of the frame is empty green plain and sky. Besieger works are thin brown lines and one low wall. One tiny troop block is visible in the corner, plus a few stray posts. The town is a barely visible smudge. There is no sense of an army, a siege or any drama."
  },
  "Y": {
   "craft": 5,
@@ -18,10 +18,10 @@
    "toy_look",
    "cluttered"
   ],
-  "note": "Dense formations, entrenchment walls, drifting smoke, the rock and a visible town, with the sea on the right. It reads as a besieging army on the isthmus. The troops are black cylinder blocks on gold slabs, so they look like toy or array primitives, and the repetition is mechanical. The camera angle and depth are better than X's."
+  "note": "The camera is lower and the rock is larger. Dozens of dense troop blocks fill the foreground, with entrenchment walls behind them. Smoke wisps, flags, the sea and a visible town with a tower sit in the background. It reads clearly as an army massed before a fortified rock. The troops are uniform black-and-gold peg or cylinder blocks that look like toy or LEGO pieces, with no individual figures. The ground is flat and repetitive and the lighting is plain. There are no ships, guns or fire."
  },
  "better": "Y",
- "why": "Y has an actual army, smoke and a layered siege setting, while X is a mostly empty field with a rock.",
- "top_fix_for_weaker": "Fill the foreground and middle ground with besieging troops, batteries and tents. Move the camera lower and closer to the lines, make the town and fortifications on the rock readable, and add cannon smoke.",
- "top_fix_for_better": "Replace the black cylinder blocks with varied figures in coloured uniforms. Break up the grid layout, add guns, tents and a few ships offshore, and put the town and fortress walls on the rock in clearer focus."
+ "why": "Y actually shows a besieging army, trenches, smoke and the town in front of the rock, while X is mostly empty grass and sky with one tiny troop block.",
+ "top_fix_for_weaker": "Fill the plain with many troop formations, batteries and trench lines. Add smoke and cannon fire aimed at the rock. Lower the camera and push closer so the rock and town fill more of the frame, and cut the sky to about a third.",
+ "top_fix_for_better": "Replace the cylinder-block troops with distinct soldier figures that vary in colour, add guns, gabions and mortar fire, break up the flat ground with trenches and shadows, and add warships or gunboats on the water."
 }

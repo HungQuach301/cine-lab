@@ -25,9 +25,9 @@ export async function build(ctx) {
   const F = (await ctx.loadJSON(`${ctx.base}layers/fort1782.json`)).records.map((r) => r[6]).filter((ring) => ring.reduce((s, q) => s + q[1], 0) / ring.length > 800);   // 2 pháo đài TBN
   const cen = (r) => [r.reduce((s, q) => s + q[0], 0) / r.length, r.reduce((s, q) => s + q[1], 0) / r.length];
   const len = L.pts.slice(1).reduce((s, q, i) => s + Math.hypot(q[0] - L.pts[i][0], q[1] - L.pts[i][1]), 0);
-  // KHỐI QUÂN (minh hoạ): 6 tuyến tiểu đoàn sau Línea (cách tường 32 … 192 m về bắc), mỗi khối 12 hàng × 34 người (≈ 31 × 15 m), cách 41 m dọc tuyến
+  // KHỐI QUÂN (minh hoạ): 6 tuyến tiểu đoàn sau Línea (cách tường 32 … 192 m về bắc), mỗi khối 9 hàng × 30 người (≈ 27 × 12 m), cách 41 m dọc tuyến — TỔNG ≈ 29 000 người < ước tính quân vây 33 000 (Montero) – 40 000 (Drinkwater) (S065); số khối/cách xếp minh hoạ
   const U = [];
-  for (let rk = 0; rk < 6; rk++) for (let s = 30 + rk * 15; s < 760; s += 41) U.push({ pts: L.pts, s, off: 32 + rk * 32, rows: 12, cols: 34, side: 'es', day: [0, 99], seed: 11 + rk * 40 + Math.round(s) });
+  for (let rk = 0; rk < 6; rk++) for (let s = 30 + rk * 15; s < 760; s += 41) U.push({ pts: L.pts, s, off: 32 + rk * 32, rows: 9, cols: 30, side: 'es', day: [0, 99], seed: 11 + rk * 40 + Math.round(s) });
   for (const r of F) { const [e, n] = cen(r); U.push({ at: [e - 12, n + 40], heading: 90, rows: 6, cols: 22, side: 'es', day: [0, 99], seed: 3 }, { at: [e + 14, n + 62], heading: 90, rows: 6, cols: 22, side: 'es', day: [0, 99], seed: 4 }); }
   const TR = units(U, ctx); scene.add(TR.group);
   // cờ: một cờ mỗi khối tuyến đầu (đứng trước khối), + trên hai pháo đài — gió NW → cờ bay về đông-nam (135°)
@@ -60,7 +60,7 @@ export async function build(ctx) {
   function apply(st, t) { TOWN.update(st.year, ctx.cam); FW.update(st.year); SMK.update(t ?? 0); const z = SMK.zones(t ?? 0); troops = TR.update(st.day, z); song = LF.update(t ?? 0, z); FG.update(t ?? 0); GD.update(ctx.cam); }
   const V = (p) => new THREE.Vector3(p[0], p[1], -p[2]);
   function overlay(t, st, T, proj) {
-    T.chrome(t, { s: st.clock.s }, 0, null, { lines: [{ s: 'Forward works, gardens: approx. · troops, flags, boats: illustrative', a: Math.max(0, Math.min(1, t / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
+    T.chrome(t, { s: st.clock.s }, 0, null, { lines: [{ s: 'Forward works, gardens: approx. · troop blocks (≈ 29,000 shown), flags, boats: illustrative', a: Math.max(0, Math.min(1, t / 0.35, (DUR + 0.5 - t) / 0.35)) }] }, null);
     T.where(t, [-1, DUR + 1], 'Isthmus of Gibraltar');
     T.ghostSrc(t, [-1, DUR + 1], 'Lines: reconstructed from J. Drinkwater, Plan of the Batteries, 1782');
     T.card(t, [0.4, DUR + 0.5], 'Spanish lines open fire, 10:25', 'Línea de Contravalación · Montero 1860', proj(V([mid[0], 6, mid[1]])));
@@ -68,5 +68,5 @@ export async function build(ctx) {
   const N = Math.round(DUR * fps);
   const glog = () => grammarLog(G, N, fps, () => 1782.7, { hAt });
   return { N, fps, state, apply, overlay, path: G.path, grammarLog: glog, camLog: glog, anchors: { linea: [mid[0], 6, mid[1]] }, namKhung: (st) => TOWN.namMax(st.year), smokeZones: () => SMK.zones(0),
-    meta: Object.assign({ quan: TR.stat(), co: FG.n, khoi: SMS.length, vuon: GD.stat, town: TOWN.stat(), doPx: { quan: U.map((u) => { const p = u.pts ? atLine(u.s, u.off) : u.at; return [p[0], hAt(p[0], p[1]), p[1]]; }) } }, META), troops: () => troops, song: () => song };
+    meta: Object.assign({ quan: TR.stat(), co: FG.n, khoi: SMS.length, vuon: GD.stat, town: TOWN.stat(), doPx: { khoi: [27, 12], quan: U.map((u) => { const p = u.pts ? atLine(u.s, u.off) : u.at; return [p[0], hAt(p[0], p[1]), p[1]]; }) } }, META), troops: () => troops, song: () => song };
 }

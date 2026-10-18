@@ -5,7 +5,7 @@
   "v5b2d": {
    "craft": [
     5,
-    6,
+    5,
     5
    ],
    "richness": [
@@ -14,11 +14,11 @@
     7
    ],
    "fit": [
-    6,
     7,
+    6,
     7
    ],
-   "tb_craft": 5.33,
+   "tb_craft": 5.0,
    "tb_richness": 7.0,
    "tb_fit": 6.67,
    "flags": [
@@ -26,9 +26,9 @@
     "toy_look"
    ],
    "note": [
-    "Many troop blocks fill the foreground, with entrenchment walls, flags, smoke wisps, the sea and the town on the rock. It reads as a besieging army on the isthmus. The troops are identical black cylinders on gold slabs, which looks like a toy or board-game tabletop. The lighting is flat, the smoke is smudgy, and the blocks are uniformly placed. There are no ships and no visible guns.",
-    "Lower camera angle and better composition. Rock sits left of centre, sea on the right, and the town with its church tower is visible on the spit. Many regiment blocks fill the foreground and lead the eye toward the walls and the rock. Smoke drifts across the middle distance, which adds some atmosphere. But the troops are black cylinder grids on gold slabs, which reads as toy blocks or a Lego parade rather than soldiers. The foreground blocks are repetitive and cropped, and the pale smoke looks like flat sprites. There are no guns, no ships, and no human-scale detail.",
-    "Dense formations, entrenchment walls, drifting smoke, the rock and a visible town, with the sea on the right. It reads as a besieging army on the isthmus. The troops are black cylinder blocks on gold slabs, so they look like toy or array primitives, and the repetition is mechanical. The camera angle and depth are better than X's."
+    "Dense blocks of troops in formation fill the foreground, with smoke wisps, flags, siege lines, the sea and the rock behind them. Layering is better and the scene shows an army massed in front of the fortress. The troops are uniform dark cylinders on brown slabs, which look like pegboards or LEGO. The repeated blocks and the flat lime ground are artificial, and the town is still tiny. It does read as a besieging force.",
+    "The frame is full of troop formations in rows, with flags, drifting smoke, the sea and a visible town on the rock. This reads as a besieging camp in front of a fortress. The troops are uniform black-dot cylinder blocks on yellow slabs, which looks like toy tiles or pin-cushions rather than soldiers. The formations are too dense and repetitive, the lighting is flat, and the scale is unconvincing. There are no guns, no ships and no fire on the fortress.",
+    "The camera is lower and the rock is larger. Dozens of dense troop blocks fill the foreground, with entrenchment walls behind them. Smoke wisps, flags, the sea and a visible town with a tower sit in the background. It reads clearly as an army massed before a fortified rock. The troops are uniform black-and-gold peg or cylinder blocks that look like toy or LEGO pieces, with no individual figures. The ground is flat and repetitive and the lighting is plain. There are no ships, guns or fire."
    ]
   },
   "v5b2c": {
@@ -53,30 +53,31 @@
    "flags": [
     "empty_frame",
     "flat_slide_look",
+    "toy_look",
     "unreadable_scale"
    ],
    "note": [
-    "The rock is decent, but half the frame is flat blue sky and the foreground is empty green field. There is one tiny troop block and a few specks, and the earthworks are thin lines. It reads as a landscape with no army. The town is a barely visible sliver. No ships, no smoke worth noting, and no sense of a siege.",
-    "Half the frame is flat blue sky. Large empty green plain. The rock is a decent hero object but small and distant. The town is a barely visible sliver. Only one tiny troop block and a few stray posts. Long straight walls and trenches look like untextured primitives. Smoke is faint and doesn't read as a siege. Nothing in the frame says the line is occupied or a battle is under way.",
-    "The rock and sky are pleasant, but the middle ground is a bare green plain. The only content is a long wall, a thin trench line and one small block of troops. There are almost no besiegers, and the town is a speck. Nothing tells you this is a siege."
+    "The rock is decent and the sky is clean. The foreground is mostly flat green field with long thin brick-textured walls and a few stray posts. One tiny block of troops is the only sign of an army. The town is a barely visible sliver at the right edge. There is almost no smoke, no ships and no action, so it reads as an empty landscape and not a siege.",
+    "The rock is decently sculpted and the sky is clean. But the foreground is a big empty green plain with a single long wall, one tiny troop block and a few stray posts. Nothing reads as a besieging army. The town is a speck. The trenches are thin orange lines. The result looks like a bare terrain demo, not a siege.",
+    "The rock is decently modelled under a clean sky. Most of the frame is empty green plain and sky. Besieger works are thin brown lines and one low wall. One tiny troop block is visible in the corner, plus a few stray posts. The town is a barely visible smudge. There is no sense of an army, a siege or any drama."
    ]
   },
   "chon_v5b2d": "3/3",
   "hoa": 0,
   "why": [
-   "Y shows a big besieging army, trenches and a fortified rock, while X is mostly empty sky and grass with almost no troops.",
-   "Y has a stronger composition with a dense, readable besieging army, sea and town in view, and smoke. X is mostly empty sky and grass with almost no troops.",
-   "Y has an actual army, smoke and a layered siege setting, while X is a mostly empty field with a rock."
+   "Y shows a massed besieging army with smoke and the sea in front of the rock, while X is mostly empty grass and a bare wall.",
+   "Y actually shows a massed besieging army with smoke, sea and town in a readable composition, while X is mostly empty grass with a wall.",
+   "Y actually shows a besieging army, trenches, smoke and the town in front of the rock, while X is mostly empty grass and sky with one tiny troop block."
   ],
   "sua_ban_tot": [
-   "Replace the identical black cylinder blocks with varied, colour-coded soldiers and add siege guns, tents and camp clutter. Break up the grid placement and add warm directional light with long shadows and firing smoke. Add ships or gunboats in the bay to sell the siege.",
-   "Replace the cylinder-grid regiments with varied soldier figures in red or blue coats. Break up the uniform blocks with columns, officers, cannons, gabions, tents and ships in the bay. Add warm directional light and volumetric cannon smoke to get away from the toy look.",
-   "Replace the black cylinder blocks with varied figures in coloured uniforms. Break up the grid layout, add guns, tents and a few ships offshore, and put the town and fortress walls on the rock in clearer focus."
+   "Replace the identical cylinder blocks with varied, individually readable soldiers in colour-coded regiments, and add cannons, tents and muzzle flashes. Break up the lime-green ground with dirt and shadow, add warm directional lighting, and make the fortified town and its walls larger and clearer on the rock.",
+   "Replace the cylinder-tile troop blocks with varied, properly scaled soldiers in red, white and blue coats. Break up the grid with guns, tents, wagons and trenches. Add warm directional light with long shadows, and add ships and bombardment fire at the fortress.",
+   "Replace the cylinder-block troops with distinct soldier figures that vary in colour, add guns, gabions and mortar fire, break up the flat ground with trenches and shadows, and add warships or gunboats on the water."
   ],
   "sua_ban_yeu": [
-   "Fill the foreground with the besieging army: dense, varied troop formations, gun batteries and trench lines with firing smoke. Lower the camera and crop the sky to about 25% of the frame. Add ships in the bay and make the town and fortress walls on the rock readable.",
-   "Lower the camera and push in on the isthmus. Fill the plain with many troop columns, gun batteries, tents and campfire smoke. Cut the sky to about 25% of the frame. Add depth with foreground props such as gabions and cannons, and shift the walls and rock into a clear diagonal composition.",
-   "Fill the foreground and middle ground with besieging troops, batteries and tents. Move the camera lower and closer to the lines, make the town and fortifications on the rock readable, and add cannon smoke."
+   "Fill the foreground and midground with many troop units, batteries firing with smoke plumes, and ships in the bay. Replace the flat green plane with textured, trampled earth. Bring the camera in lower and closer so the wall and trenches have scale and the town is clearly visible.",
+   "Fill the foreground and midground with the siege: batteries of guns with crews and smoke, trench works with fascines, several troop columns, and a camera lowered or moved closer to the lines. Add warships in the bay and put visible fire on the rock.",
+   "Fill the plain with many troop formations, batteries and trench lines. Add smoke and cannon fire aimed at the rock. Lower the camera and push closer so the rock and town fill more of the frame, and cut the sky to about a third."
   ]
  },
  "P2": {
@@ -165,31 +166,31 @@
   "v5b2d": {
    "craft": [
     6,
-    6,
+    5,
     6
    ],
    "richness": [
     5,
-    5,
+    4,
     5
    ],
    "fit": [
+    5,
     4,
-    4,
-    4
+    5
    ],
-   "tb_craft": 6.0,
-   "tb_richness": 5.0,
-   "tb_fit": 4.0,
+   "tb_craft": 5.67,
+   "tb_richness": 4.67,
+   "tb_fit": 4.67,
    "flags": [
     "empty_frame",
     "toy_look",
     "unreadable_scale"
    ],
    "note": [
-    "The composition is clearer, with sea, walls, a bell tower and the fortress giving depth, and the lighting and sky are nicer. But a big striped green field with lollipop trees takes up the lower left, and a few red soldiers sit in it. It looks like a toy diorama, and the buildings are sparser. It reads as a town overview, not a dense street.",
-    "This version has better lighting, depth, sky and sea, and the fortified seafront wall and bell tower read well. The lower-left third is a toy-like striped green field with lollipop trees, which looks like a placeholder. Troops are tiny red dots. The buildings are far away and the camera is high, so this is an aerial town view rather than a dense street. The street grid is not readable.",
-    "The composition is better: water, a bastion wall, a church tower, a hillside fortress and a sky with clouds give depth and a sense of place. The lighting is warmer, with better shadows. But about a third of the frame is a striped green field with lollipop trees, which reads as a toy and a placeholder. The buildings are sparser, so it is less a dense street than a town overview. The people are tiny specks, and the soldier cluster in the field has no context."
+    "Cleaner composition. The sea, sea wall, a church tower, green plots and the hilltop fort give a good sense of place, with better depth and more varied roof colour. Streets are slightly more legible. But the right third is bare sand and shadow, the buildings are sparser, and there are almost no people (a few red dots). It reads as a town model seen from above, not a lived-in street.",
+    "This is a higher, more aerial view with a clearer composition: sea, sea wall, town, fortress tower and hills. The colours are slightly more varied and the sky is better. The blocks are neatly spaced like a model village, with large empty sand on the right and in the foreground. There are almost no people, just a few red dots, and no smoke, ships or street life. It reads as an overview, not a dense street.",
+    "The composition is cleaner. It has a readable sea wall, a bell tower, a green plaza with a tree grid, and a good sky and sea. It looks like a model viewed from a drone, not a street at low altitude. The wide beige ground at right is empty, and the blocky houses are sparse. The few figures are tiny."
    ]
   },
   "v5b2c": {
@@ -199,45 +200,45 @@
     5
    ],
    "richness": [
-    5,
+    6,
     5,
     5
    ],
    "fit": [
-    6,
-    7,
+    5,
+    5,
     5
    ],
    "tb_craft": 5.0,
-   "tb_richness": 5.0,
-   "tb_fit": 6.0,
+   "tb_richness": 5.33,
+   "tb_fit": 5.0,
    "flags": [
     "cluttered",
     "toy_look",
     "unreadable_scale"
    ],
    "note": [
-    "It's a dense sea of orange roofs that fills the frame, so it reads as a crowded town. But there are no people or street life, only a tiny red troop strip at left. Floating orange roof slabs at lower left look like glitches. The ground is flat beige, the scale is odd and the view is more aerial than street level.",
-    "The frame is full of dense, uniform orange-roofed blocks, and the low angle reads as a town more than Y does. But the buildings are blocky, repetitive and sit on a flat sand ground. Streets are barely legible. Several orange roof slabs float on bare ground at lower left. Troops are tiny red specks and the people are almost invisible. There is no smoke, no ships and no street-level life. The result looks like a game-engine terrain mock-up.",
-    "The frame is wall-to-wall roofs and reads as a dense town, but it is a uniform orange-box carpet with no focal point. The street is hard to find. Floating orange roof slabs and stray flat tiles at lower left look like glitches. The few red soldiers are tiny specks and the people are almost invisible, so the scale reads as a miniature model. Palette and lighting are flat."
+    "Very dense, packed rooftops with a small red troop column on the left and a castle on the hill. It looks like a diorama of orange blocks, not a street. There are no street-level views, and the camera sits at rooftop height. Streets are hard to read, and stray orange roof slabs float on the bare ground at lower left. The colour is a uniform orange mass with little tonal variety.",
+    "Camera is roughly rooftop height, so the buildings are dense and fill the frame. The roofs are a uniform saturated orange with flat, untextured walls. There are floating orange roof slabs at left and a bare grid-textured ground plane. Troops are only a tiny red smear at left, and the few street figures are specks. Lighting is flat, and the view reads as a block model, not a lived-in street. It has more depth and building mass than Y, but the shot isn't a street-level view.",
+    "Buildings are packed tightly and the lighting and colour are warm and decent. The tiles floating off the left buildings are glitchy, and the ground reads as flat beige. The only troops are a small red line and a few specks, too small to read. The rooftops form a dense orange mass with little street structure, so it's hard to tell where the streets run."
    ]
   },
-  "chon_v5b2d": "1/3",
+  "chon_v5b2d": "2/3",
   "hoa": 0,
   "why": [
-   "X is fuller and denser, so it fits a dense old-town street shot better, while Y spends a third of the frame on a toy-like farm field and sparse buildings.",
-   "X delivers the dense-street brief better, because the buildings fill the frame and the camera is closer, whereas Y's prettier atmosphere is undercut by a large toy-like field and a distant, aerial framing.",
-   "Y has stronger cinematic depth, lighting and sense of place, and no glitchy floating geometry, although X is denser and fits the 'dense street' brief more literally."
+   "Y has the better composition, depth and landmark readability, though X is denser and has visible troops.",
+   "X packs the frame more densely with buildings and has a nearer, more street-like viewpoint with a hint of troops, while Y is sparse, aerial and model-village-like.",
+   "Y has clearer composition and landmarks (wall, tower, plaza) and no floating-roof glitches, though neither frame delivers a lively street scene."
   ],
   "sua_ban_tot": [
-   "Delete the floating roof slabs and the empty beige plaza. Add street-level people, market stalls, smoke and ships in the harbour, and use more varied materials and colours to break up the uniform orange.",
-   "Add visible street lanes with cobble texture and larger crowds, soldiers and carts, and add chimney smoke and roof and wall variation. Remove the floating roof slabs and the flat sand ground, and add ambient occlusion and atmospheric depth haze.",
-   "Replace the striped crop field with built-up street or plaza fill, since the shot is meant to be dense. Lower the camera and add legible foreground people, carts and smoke to give human scale. Replace the lollipop trees with more natural ones."
+   "Fill the empty right side and foreground with buildings, plots and walls. Add many visible figures (troops, civilians, carts), chimney smoke and street detail. Lower the camera and add depth haze so it reads as a street, not a model.",
+   "Remove the floating roof slabs and the grid-textured ground. Add readable street-scale figures (marching troops, civilians, carts), chimney smoke, varied roof colours and weathered wall textures, and use a low sun angle to create real depth and shadow.",
+   "Fill the empty right-hand ground with buildings, texture and people. Lower and tighten the camera into a street, and add larger troops, market stalls, smoke and shadows so it reads as a lived-in street, not an aerial model."
   ],
   "sua_ban_yeu": [
-   "Remove or shrink the striped field with its lollipop trees and replace it with more buildings. Lower the camera into an actual street, and add crowds, carts and smoke so it isn't an aerial overview.",
-   "Replace the striped green field and lollipop trees with buildings, a market square or textured ground, and drop the camera to a lower, closer street-level angle with visible streets and larger people.",
-   "Remove the floating roof slabs and flat tiles at lower left. Drop the camera lower, into a real street, with a visible street axis, lamp or washing props and clearly readable figures, and vary building heights, colours and roof shapes to break up the uniform orange."
+   "Drop the camera to street level, between buildings. Remove the floating roof slabs and add visible street geometry with people, carts and smoke. Vary roof and wall colours and add atmospheric haze for depth.",
+   "Drop the camera to eye level or just above the rooftops. Fill the streets and the empty sand with crowds, carts, troops and smoke, and add wall texture and ground detail so the blocks no longer look like a diorama.",
+   "Remove the floating roof tiles in the left foreground. Drop the camera lower, with narrower streets and visible street-level detail. Add readable, larger troop and civilian groups, with smoke, so the shot reads as a street."
   ]
  },
  "P4": {
@@ -480,5 +481,5 @@
    "Move the camera closer and lower, with the batteries large in the foreground and the town and walls filling the right two-thirds. Add visible gun flashes, shot splashes and denser dark smoke at the walls. Cut the empty water to under 30% of the frame and give the batteries real hull and gun-port detail."
   ]
  },
- "chi_phi": 1.095
+ "chi_phi": 1.436
 }
