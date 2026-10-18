@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 5,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Backlit haze and long shadows look good, and the crowd is read as silhouettes, which hides the weak figure models. The figures are faceless, dark, near-identical gray mannequins, and many seem to float over the cobbles. The crowd is a dense clump with little variation. The buildings are good, with peeling stucco, shutters and balconies. The Union Jack, harbor and ship are fine. The cobbles and warm light are the best part of the frame."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 3,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "The buildings, flag and sky are identical to X. The people are clearly low-poly game assets with flat colors, blocky heads and a semi-transparent ghosted look. Several are translucent, some figures overlap or clip into each other, and there is a stray black cube or bollard. The lit figures are exposed against the haze, so the toy look is much more obvious. The crowd is more spread out and varied in uniform color, which is a better idea. The sailors in whites are a nice period touch but are poorly executed."
+ },
+ "better": "X",
+ "why": "The environment is identical in both, but X's backlit silhouetted crowd hides the weak figure models, while Y's flat, translucent, lit mannequins look like toys.",
+ "top_fix_for_weaker": "Replace the low-poly flat-shaded figures with properly rigged, textured period characters, giving them opaque materials, grounded contact shadows, correct scale and cloth detail. Failing that, push them into backlit silhouette or haze as in X, and remove the ghost transparency and the stray black block.",
+ "anachronisms_seen": [
+  "none obvious; the Union Jack and ship are plausible, but the figures' uniforms are too generic to check",
+  "possible modern-looking shuttered balconies, which are plausible for Gibraltar",
+  "the stray black box in Y reads as an unexplained modern object"
+ ]
+}

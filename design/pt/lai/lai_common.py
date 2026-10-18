@@ -37,7 +37,8 @@ def protected_mask(d, grow=3, reveals=False):
     ed = editable_raw(d, reveals); prot = ~ed
     reg, mat, mc, meta = load_cls(d); onb = (reg >= 1) & (reg < 9000)
     k = lambda r: cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * r + 1, 2 * r + 1))
-    big = cv2.dilate((prot & ~onb).astype(np.uint8), k(grow)) > 0 if grow else (prot & ~onb)
+    nguoi = reg == 9560   # V6 bản tốt nhất: người 3D — KHÔNG nở (nở 3 px để lộ viền đất A sáng quanh người)
+    big = cv2.dilate((prot & ~onb & ~nguoi).astype(np.uint8), k(grow)) > 0 if grow else (prot & ~onb)
     small = cv2.dilate((prot & onb).astype(np.uint8), k(1)) > 0
     return big | small | prot
 

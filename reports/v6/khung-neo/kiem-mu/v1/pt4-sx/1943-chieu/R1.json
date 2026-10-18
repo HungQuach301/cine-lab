@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Backlit haze gives atmosphere, and the glowing cobbles and long shadows are good. The people are a crowd of near-identical dark, faceless silhouettes with ghostly translucent edges. They read as low-poly game extras. The crowd is dense but gives no individual detail."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "broken_render",
+   "anachronism"
+  ],
+  "note": "The buildings and lighting are identical to X. The figures are larger, flat-shaded, blocky mannequins in beige, grey and white, with no shading or faces. Some are semi-transparent. The sailors in white look like plastic game assets. The square is mostly empty and the figures bunch together, so it looks sparse and unconvincing. Legibility is better than X, but they look more like dolls."
+ },
+ "better": "X",
+ "why": "The scene is the same in both, but X's hazy silhouettes hide the weak figures and feel more like a real crowd, while Y's bright flat-shaded mannequins look obviously like toys or game assets.",
+ "top_fix_for_weaker": "Replace the blocky flat figures with properly shaded, varied 1943 people (naval whites, khaki, civilian suits and hats). Add contact shadows and ground reflections, remove the translucent ghosting, and spread them across the square in natural groups, not a cluster at the bottom.",
+ "anachronisms_seen": [
+  "Flat modern-looking game-asset mannequins in uniform-like beige/grey that don't read as 1943 dress",
+  "Clean white-painted bollards or blocks at the quay look uncertain for the period",
+  "Blue canopy or kiosk at the right edge looks generic"
+ ]
+}

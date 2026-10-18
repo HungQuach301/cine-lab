@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "broken_render"
+  ],
+  "note": "The buildings are strong, with believable weathered plaster and exposed brick. The figures are the problem. They are a muddled, semi-transparent crowd of stiff mannequins with ghosting and no grounded shadows. Red and blue uniforms are mixed together with no logic, and some figures have mismatched faces and heads. The foreground clump is a confusing pile, and the street is mostly cluttered with people."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The setting is the same strong, weathered street. The figures are slightly more legible, with white breeches, cross-belts and tricorne-like hats. Barrels, a cannonball stack and sunlit rubble give the street more story and a sense of scale. The soldiers are still stiff, plastic-looking game figures lined up like toy soldiers, and the crowd is still dense and ambiguous. The blue-coated figures on the right are odd. Ground contact is better than in X."
+ },
+ "better": "Y",
+ "why": "Y has the same strong environment but cleaner, more readable figures with better ground contact, plus props (barrels, shot) that add siege context, whereas X's figures are ghosted and muddled.",
+ "top_fix_for_weaker": "Replace the ghosted, semi-transparent crowd with a few (4-6) solid, properly lit and shadowed British redcoats in a coherent uniform scheme (no random blue), and add siege props such as shot, powder barrels and damaged masonry.",
+ "anachronisms_seen": [
+  "Union Flag with St Patrick's saltire (post-1801 design; the 1782 flag would be the 1707 Union without the Irish cross)",
+  "blue-coated soldiers mixed in with the British redcoats, which makes no sense for a British garrison",
+  "shutters and wall fronts look pristine, with no siege bombardment damage beyond generic decay",
+  "flat, even daylight with no smoke or haze from the bombardment"
+ ]
+}

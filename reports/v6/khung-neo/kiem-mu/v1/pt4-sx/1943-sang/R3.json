@@ -1,0 +1,33 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "Good CG buildings with peeling plaster and a believable light. But the people are matte olive and grey-blue mannequins with no faces, uniforms or costume. They are unreadable as sailors or soldiers and look like clay or game placeholders. Their shadows and scale are inconsistent, and some are half-transparent."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 7,
+  "ai_look": 5,
+  "toy_like": 5,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "Same set, but the figures are now identifiable: white-uniformed sailors, khaki soldiers and a few dark-clad figures. They are grouped in a plausible parade or crowd, and sandbags are stacked at the lower left. They are still low-poly and stiff, and the sailors' faces and hats look odd. The street is emptier and the people are small, but it reads as a staged scene rather than a placeholder."
+ },
+ "better": "Y",
+ "why": "Y's figures have recognisable period uniforms, grouping and props like sandbags, while X's are featureless matte mannequins that look like game placeholders.",
+ "top_fix_for_weaker": "Replace the mannequin figures in X with properly textured people in period uniforms. Use correct 1943 Royal Navy and Army dress, with faces, shoes and cast shadows grounded on the cobbles, and put them in fewer, deliberate groups instead of scattering them across the street.",
+ "anachronisms_seen": [
+  "X: no identifiable period costume, so the people read as generic modern or placeholder figures",
+  "Y: sailor caps and tops look generic and slightly stylised",
+  "Both: the harbour ship is a vague sailing-ship silhouette that is questionable for 1943"
+ ]
+}

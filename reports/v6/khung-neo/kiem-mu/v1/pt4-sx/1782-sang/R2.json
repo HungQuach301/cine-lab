@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The environment is strong: convincing crumbling plaster and brick, good depth, and warm light in the windows. The figures are the weak point. They are small, smooth mannequins with a stiff march pose, a ghostly white-legged blue figure, and a dark smear shadow. They read as game assets. The lane is a bit too clean and symmetrical, and the buildings look more like ruined barracks than a lived-in town."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 9,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "The environment is identical to X. The figures are larger and clearly painted wooden or plastic toy soldiers, with pale mint-green faces and coats, doll-like heads, and mismatched hats. They are clumped into an overlapping crowd, so limbs and legs merge. The foreground blue figure is a blank mannequin. The crowd blocks the lane and the scale and perspective feel off."
+ },
+ "better": "X",
+ "why": "The environment is identical, but X's smaller, sparser figures are less obviously toy-like and don't clutter the lane, while Y's large, clumped, doll-like soldiers hurt the frame.",
+ "top_fix_for_weaker": "Replace the large, clumped toy-like figures with a few correctly scaled soldiers in varied poses, with proper skin, faces and fabric, grounded contact shadows, and civilians and carts mixed in. Add dust, smoke and atmospheric haze for depth.",
+ "anachronisms_seen": [
+  "Union Jack with the post-1801 design (the 1782 flag would lack the St Patrick's cross)",
+  "Uniform details are generic or incorrect (white crossbelts on blue coats, mint-green coats in Y)",
+  "Hats are unclear or inconsistent",
+  "Mannequin and toy-like proportions rather than 1782 soldiers",
+  "Ruined, uniform-looking barracks facades rather than a lived-in Gibraltar town lane"
+ ]
+}

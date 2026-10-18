@@ -59,6 +59,9 @@ def add_people():
             c = Vector((P['x'], P['y'], 0.5)); item = ns['prim']('cyl' if EP == 1782 else 'cube', c, (0.27, 0.27, 0.36) if EP == 1782 else (0.4, 0.3, 0.24), (0.32, 0.22, 0.13),
                                                                (0, math.pi / 2, yaw + math.pi / 2) if EP == 1782 else (0, 0, yaw), 'wood'); tag_cls(item)
     bpy.context.view_layer.update()
+    if os.environ.get('BEST_BORDER'):   # dựng theo dải ngang (mỗi lần ≤ 29 phút theo lệnh phiên chính) rồi ghép (best_ghep6.py)
+        y0, y1 = map(float, os.environ['BEST_BORDER'].split(',')); sc.render.use_border = True; sc.render.use_crop_to_border = False
+        sc.render.border_min_x, sc.render.border_max_x, sc.render.border_min_y, sc.render.border_max_y = 0.0, 1.0, y0, y1; STATS['dai'] = [y0, y1]
     STATS.update(nguoi=n, mau=len(protos), dung_s=round(time.time() - t0, 1)); print('NGUOI3D', STATS, flush=True)
 
 src = open(os.path.join(HERE, '..', 'scene', 'build_scene.py')).read()

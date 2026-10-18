@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 5, "detail": 5, "period": 5, "ai_look": 5, "toy_like": 8, "flags": ["toy_like", "cluttered"], "note": "The buildings are well weathered and the lighting and haze are good. The people are faceless, clay-coloured mannequins in a loose scatter. They have no readable uniforms or roles, and some are semi-transparent. The scene looks like a game-engine crowd test and gives no sense of 1943 Gibraltar."},
+ "Y": {"craft": 6, "detail": 6, "period": 7, "ai_look": 4, "toy_like": 5, "flags": ["toy_like"], "note": "The setting is the same, but the figures are clearly Royal Navy sailors in white, khaki-clad soldiers in shorts and pith helmets, and a group around crates at the end of the street. The staging has more purpose. The figures are still smooth, low-poly dolls with no faces and are partly washed out by haze. The foreground soldiers are stiff, and the stacked barrels or sandbags are crude."},
+ "better": "Y",
+ "why": "Y's figures have recognisable period roles (sailors in whites, khaki soldiers) and a clearer focal group, while X's are uniform grey-beige mannequins.",
+ "top_fix_for_weaker": "Replace X's clay mannequins with properly textured, period-correct figures: Royal Navy whites, khaki drill, civilians in 1940s clothing, with faces and varied poses. Cut the crowd to a few purposeful groups and ground them with contact shadows, so they are no longer transparent or floating.",
+ "anachronisms_seen": ["No hard anachronisms found, but most of X's figures have no identifiable period clothing", "Y's foreground soldiers in shorts and pith helmets look more colonial-era than 1943 wartime Gibraltar", "No vehicles, signage or wartime features (shelter, sandbags, blackout gear) in either frame"]}
+```

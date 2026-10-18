@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The buildings are convincing. The weathered stucco, shutters and balconies hold up as a 3D render. The people are the problem: grey-green mannequin or clay figures with no faces, scattered at random, with a few blue ghost-like ones. They look like unfinished game assets. The scale is also off, and the figures in the foreground are too close to the camera to pass."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 6,
+  "period": 7,
+  "ai_look": 3,
+  "toy_like": 5,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "The same environment, but the people read as sailors in white uniforms, soldiers in khaki and a few civilians. They are grouped in a plausible way, so the plaza looks like it has an event on. There are sandbags in the lower left. The figures are still small, low-poly and stiff, with blobby faces, but they look like people in period uniforms and not blank dummies. The render feels cleaner and more deliberate."
+ },
+ "better": "Y",
+ "why": "Y's figures have recognisable period uniforms (sailors, khaki soldiers) and sensible grouping and add a sandbag detail, while X's people are faceless mannequins that look like game placeholders.",
+ "top_fix_for_weaker": "Replace the grey-green mannequins with properly textured, clothed figures: period uniforms and civilian clothing, varied poses, and shadows that match the sunlit street. Cut the crowd to a few grouped people at believable scale, and add details such as sandbags, vehicles or signage.",
+ "anachronisms_seen": [
+  "X: figures are untextured mannequins with no period clothing, so nothing marks the date as 1943",
+  "X: some figures are tinted blue and semi-transparent, like ghost or placeholder assets",
+  "Both: pristine modern-looking 3D rendering with no film grain or period photographic character",
+  "Both: the harbour ship and flag are plausible, but the Union Jack is too clean and sharp for the scene"
+ ]
+}

@@ -53,6 +53,10 @@ ROLEW = {1782: {'linh': 0.34, 'linh2': 0.22, 'phao_binh': 0.16, 'thuy_thu': 0.12
 
 def busy(hr): return max(0.66 if hr < 19.6 else 0.04, math.exp(-((hr - 11.5) / 3.2) ** 2) + 0.8 * math.exp(-((hr - 17.5) / 1.8) ** 2))   # sàn ban ngày: ≥ 30 người/khung (HC3)
 
+WARM_SKY = np.array([1.12, 1.0, 0.8], np.float32)   # V6: phần ánh trời của sprite thêm hắt sáng ấm (tường vôi + đất phố nắng), rà khung thử 1
+SKY_K = {1782: 0.68, 1943: 0.85}   # V6: mặt đứng của người trong phố thấy ít trời hơn thẻ xám nằm ngang (hẻm 7–8 m / quảng trường) — rà khung thử 2
+SAT_NGUOI = 0.66                                     # V6: bão hoà màu áo (khung thử 1: áo đỏ rực + trắng sạch → "lính chì")
+DIRT = np.array([0.93, 0.92, 0.9], np.float32)        # bụi/ố phố (giảm nhẹ độ sáng vải trắng)
 _G = np.logspace(-4, 2, 400).astype(np.float32)
 _GD = agx6.srgb2lin(agx6.agx(np.stack([_G] * 3, -1)[None])[0, :, 1])
 def inv_lum(y): return np.interp(y, _GD, _G)            # đảo AgX theo trục xám: độ chói hiển thị-tuyến tính → độ chói cảnh
@@ -128,7 +132,7 @@ class Epoch:
         if zc < 0.5: return None
         return (s.W / 2 + s.fpx * (d @ s.r) / zc, s.H / 2 - s.fpx * (d @ s.u) / zc, zc, float(np.linalg.norm(d)))
 
-    def ground_pt(s, dmin=10.0, dmax=60.0):
+    def ground_pt(s, dmin=14.0, dmax=60.0):   # V6 vòng 2: người gần nhất 14 m (chấm mù v1: "large foreground dolls")
         for _ in range(800):
             u, v = s.rng.uniform(0, s.W - 1), s.rng.uniform(s.H * 0.5, s.H - 1)
             d = s.f + ((u - s.W / 2) / s.fpx) * s.r - ((v - s.H / 2) / s.fpx) * s.u
@@ -146,13 +150,13 @@ class Epoch:
         return bool(s.ground[int(p[1]), int(p[0])]) and abs(s.depth[int(p[1]), int(p[0])] - p[3]) < 0.05 * p[3] + 0.4 and 10.0 <= p[3] <= 62.0
 
     def pick_role(s, R):
-        w = ROLEW[s.ep]; x = R.random() * sum(w.values())
+        w = {k: v for k, v in ROLEW[s.ep].items() if f'{k}~0' in s.sm} or ROLEW[s.ep]; x = R.random() * sum(w.values())   # chỉ vai có tờ sprite
         for k, v in w.items():
             x -= v
             if x <= 0: return k
         return k
 
-    def near_wall(s, R, dmin=11.0, dmax=45.0):
+    def near_wall(s, R, dmin=14.0, dmax=48.0):
         """điểm mặt đất sát chân tường nhà (≤ 1,2 m) + hướng NHÌN vào tường (pháp tuyến cạnh gần nhất) — cho tổ chữa tường / thợ."""
         for _ in range(400):
             c = s.ground_pt(dmin, dmax)
@@ -202,7 +206,7 @@ class Epoch:
             if 0 <= dt <= dur and not (hr > 19.6 and wk['u'] > 0.15): n += 1 + (wk['role'] == 'khieng')
         return n
 
-    def fill_min(s, nmin=18):
+    def fill_min(s, nmin=22):
         """V6 (Q-PT4-4): mọi khung NGÀY (giờ ảo ≤ 19,6) có ≥ nmin người (luật ≥ 15 + đệm 3); thêm người đi có tuyến phủ đúng quãng thiếu."""
         R = random.Random(s.ep * 97 + 5); added = 0
         for it in range(4000):
@@ -221,7 +225,7 @@ class Epoch:
         nhóm đứng 2–4 người quay vào tâm nhóm (nói/nhìn/chắp tay), tổ việc sát tường, gác cặp — KHÔNG xếp hàng."""
         R = s.rng; s.walk = []; s.stand = []; s.n_group = 0; s.n_work = 0
         tries = 0
-        while len(s.walk) < (60 if s.ep == 1782 else 70) and tries < 20000:   # hẻm 1782 hẹp 7–8 m: ít người hơn quảng trường 1943
+        while len(s.walk) < (95 if s.ep == 1782 else 105) and tries < 20000:   # hẻm 1782 hẹp 7–8 m: ít người hơn quảng trường 1943
             tries += 1
             t0 = R.uniform(-8.0, SEG); hr = H0 + (H1 - H0) * max(0, t0) / SEG
             if R.random() > busy(hr) * (0.12 if hr > 19.6 else 1.0): continue
@@ -233,7 +237,7 @@ class Epoch:
         for k in range(16):   # nhóm trò chuyện 2–4 người (quay vào tâm)
             hr = R.uniform(H0, H1 - 1.2)
             if R.random() > busy(hr): continue
-            c = s.ground_pt(10.5, 50.0)
+            c = s.ground_pt(15.0, 55.0)
             if not c: continue
             n = R.choice((2, 2, 3, 3, 4)); dur = R.uniform(1.4, 3.6); grp = []
             for j in range(n):
@@ -251,7 +255,7 @@ class Epoch:
             for j in range(R.choice((1, 2, 2, 3))):
                 off = (j - 1) * 1.1; x, y = pos[0] - nrm[1] * off, pos[1] + nrm[0] * off
                 if s.on_ground(x, y) and s.pt_clear(x, y, 0.2):
-                    role = R.choice(WORKER[s.ep]); grp.append((x, y, role, R.randrange(s.nbuild(role)), s.work.get(role) or 'st', nrm, R.uniform(0.95, 1.05), R.uniform(0.9, 1.08)))
+                    role = R.choice([r_ for r_ in WORKER[s.ep] if f'{r_}~0' in s.sm] or [s.pick_role(R)]); grp.append((x, y, role, R.randrange(s.nbuild(role)), s.work.get(role) or 'st', nrm, R.uniform(0.95, 1.05), R.uniform(0.9, 1.08)))
             if R.random() < 0.6:
                 x, y = pos[0] - nrm[0] * 2.2, pos[1] - nrm[1] * 2.2
                 rl_ = s.pick_role(R)
@@ -294,12 +298,18 @@ class Epoch:
         rm = s.sm[role]; px = s.pxm
         if not os.path.exists(cf):
             import OpenEXR
-            ch = {}
-            for part in OpenEXR.File(os.path.join(s.sp, f'{role}_{p}.exr')).parts: ch.update({k: v.pixels for k, v in part.channels.items()})
-            comb = ch['ViewLayer.Combined']; ng = ch['ViewLayer.Combined_nang']; tr = ch['ViewLayer.Combined_troi']
+            opened = {}
+            def sheet(a_):   # V6: tờ dựng theo hàng (file '{role}_{p}_r{a}.exr'); tờ cũ = cả tờ (liên kết)
+                fn = os.path.realpath(os.path.join(s.sp, rm.get('file', '{role}_{p}.exr').format(role=role, p=p, a=a_)))
+                if fn not in opened:
+                    ch = {}
+                    for part in OpenEXR.File(fn).parts: ch.update({k: v.pixels for k, v in part.channels.items()})
+                    opened.clear(); opened[fn] = (ch['ViewLayer.Combined'], ch['ViewLayer.Combined_nang'], ch['ViewLayer.Combined_troi'])
+                return opened[fn]
             out = {}; hw = rm['cellx'] / 2
-            for c in rm['cells']:
-                fx, fy = c['foot_px']; x0, x1 = int(fx - hw * px), int(fx + hw * px); y0, y1 = int(fy - 2.15 * px), int(fy + 0.12 * px)
+            for c in sorted(rm['cells'], key=lambda c: c['a']):
+                comb, ng, tr = sheet(c['a']); oy = rm.get('row_y0', {}).get(str(c['a']), 0)   # ảnh hàng cắt: gốc y trong toạ độ tờ
+                fx, fy = c['foot_px'][0], c['foot_px'][1] - oy; x0, x1 = int(fx - hw * px), int(fx + hw * px); y0, y1 = max(0, int(fy - 2.15 * px)), int(fy + 0.12 * px)
                 a = comb[y0:y1, x0:x1, 3].astype(np.float32); ys, xs = np.nonzero(a > 0.004)
                 if not len(xs): continue
                 bx0, bx1, by0, by1 = max(0, xs.min() - 2), min(a.shape[1], xs.max() + 3), max(0, ys.min() - 2), min(a.shape[0], ys.max() + 3)
@@ -309,7 +319,7 @@ class Epoch:
                 k = f"{c['a']}|{c['pose']}"
                 out[k + '|C'] = comb[sl][..., :3].astype(np.float16); out[k + '|A'] = comb[sl][..., 3].astype(np.float16); out[k + '|F'] = F.astype(np.float16)
                 out[k + '|foot'] = np.array([fx - (x0 + bx0), fy - (y0 + by0)], np.float32)
-            cx, cy = rm['card_px']; sl = (slice(int(cy) - 3, int(cy) + 3), slice(int(cx) - 25, int(cx) + 25))
+            comb, ng, tr = sheet(0); cx, cy = rm['card_px']; cy -= rm.get('row_y0', {}).get('0', 0); sl = (slice(int(cy) - 3, int(cy) + 3), slice(int(cx) - 25, int(cx) + 25))
             out['card'] = np.array([float(ng[sl].astype(np.float32).mean()), float(tr[sl].astype(np.float32).mean())], np.float32)
             np.savez(cf, **out)
         z = np.load(cf); d = {}
@@ -322,7 +332,7 @@ class Epoch:
                     a = v[f].astype(np.float32); v[f] = cv2.resize(a, (max(1, int(a.shape[1] * s.kfac)), max(1, int(a.shape[0] * s.kfac))), interpolation=cv2.INTER_AREA).astype(np.float16)
                 v['foot'] = v['foot'] * s.kfac
         s.cells_cache[key] = d
-        while sum(sum(x.nbytes for v in dd.values() for x in v.values()) for dd in s.cells_cache.values()) > 3.5e9 and len(s.cells_cache) > 4:
+        while sum(sum(x.nbytes for v in dd.values() for x in v.values()) for dd in s.cells_cache.values()) > 2.0e9 and len(s.cells_cache) > 4:
             s.cells_cache.pop(next(iter(s.cells_cache)))
         return d
 
@@ -353,11 +363,11 @@ class Epoch:
                 L = C * s.k_night * np.array([0.72, 0.88, 1.4], np.float32)
             else:
                 ks = lit + (1 - lit) * s.kshade(pp)
-                L = C * (lit * F + (1 - F) * ks)
+                L = C * (lit * F + (1 - F) * ks * WARM_SKY * SKY_K[s.ep])   # ánh trời + hắt sáng ấm của tường/đất phố (sprite chỉ có trời + đất)
             if acc is None: acc = L * wt; A_ = v['A'].astype(np.float32); foot = v['foot']
             elif L.shape == acc.shape: acc = acc + L * wt
         A_ = np.clip(A_, 0, 1); un = acc * tone / np.maximum(A_, 1e-3)[..., None]
-        yl = (un * np.array([0.2126, 0.7152, 0.0722], np.float32)).sum(-1, keepdims=True); un = yl + (un - yl) * 0.92   # vải nhuộm thời kỳ: bớt bão hoà nhẹ
+        yl = (un * np.array([0.2126, 0.7152, 0.0722], np.float32)).sum(-1, keepdims=True); un = (yl + (un - yl) * SAT_NGUOI) * DIRT   # vải nhuộm thời kỳ bạc màu, bụi phố
         disp = agx6.srgb2lin(agx6.agx(un)) * A_[..., None]
         im = np.concatenate([disp, A_[..., None]], -1).astype(np.float32)
         if mirror: im = im[:, ::-1].copy(); foot = np.array([im.shape[1] - foot[0], foot[1]])
@@ -432,7 +442,7 @@ class Epoch:
         R = random.Random(fseed); people = []; n_carry = 0; n_pair = 0
         for g in s.stand:
             if g['t0'] <= t <= g['t1']:
-                fade = min(1.0, (t - g['t0']) / 0.3, (g['t1'] - t) / 0.3)
+                fade = min(1.0, (t - g['t0']) / 0.12, (g["t1"] - t) / 0.12)
                 if hr > 19.6 and g['kind'] != 'gac': continue
                 for (x, y, role, bi, pose, fd, sc_, tone) in g['people']:
                     rk = f'{role}~{int(bi)}'; ai = s.face_index(rk, fd); pp = s.proj(x, y, 0)
@@ -444,7 +454,7 @@ class Epoch:
             if hr > 19.6 and wk['u'] > 0.15: continue
             ux, uy = (wk['b'][0] - wk['a'][0]) / wk['L'], (wk['b'][1] - wk['a'][1]) / wk['L']
             rk = wk['role'] if wk['role'] == 'khieng' else f"{wk['role']}~{wk['b_']}"
-            ai = s.face_index(rk, (ux, uy)); fade = min(1.0, dt / 0.25, (dur - dt) / 0.25)
+            ai = s.face_index(rk, (ux, uy)); fade = min(1.0, dt / 0.1, (dur - dt) / 0.1)
             n_wk += 1 + (wk['role'] == 'khieng'); n_carry += bool(wk['carry']); n_pair += wk['role'] == 'khieng'
             for j, op in enumerate((1.0,)):   # V6: bỏ vệt phơi sáng (chấm mù PT4: "ghosted figures")
                 d = dt * v - j * 0.18 * wk['spd']
@@ -455,7 +465,13 @@ class Epoch:
                 pose = (f"c{wk['carry']}{ph}" if wk['carry'] else (f'w{look}{ph}' if look else f'w{ph}'))   # V6 (e): đầu quay khi đi
                 pp = s.proj(x, y, 0)
                 if pp: people.append((pp[2], 'wk', x, y, rk, ai, pose, wk['sc'], fade * op * (1.0 if j == 0 else 0.9), wk['tone']))
-        if A.nonguoi: people = []
+        if A.nonguoi:   # bản tốt nhất: người là lưới 3D trong nền (mã 9560) → cùng xử lý màu vải như sprite (bão hoà SAT_NGUOI, bụi DIRT)
+            people = []
+            if not hasattr(s, 'pmask'):
+                rg = np.round(LC.exr(os.path.join(s.bgdir, 'cls.exr'))).astype(np.int64) // 64
+                s.pmask = cv2.GaussianBlur(cv2.resize((rg == 9560).astype(np.float32), (s.W, s.H), interpolation=cv2.INTER_AREA), (0, 0), 0.6)[..., None]
+            yl = (img * np.array([0.2126, 0.7152, 0.0722], np.float32)).sum(-1, keepdims=True)
+            img = img * (1 - s.pmask) + ((yl + (img - yl) * SAT_NGUOI) * DIRT) * s.pmask
         people.sort(key=lambda r: -r[0])
         for (_, kind, x, y, rk, ai, pose, sc_, op, tone) in people:
             im, foot = s.sprite(w, rk, ai, pose, s.lit_at(x, y, w), tone)

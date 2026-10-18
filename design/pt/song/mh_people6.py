@@ -65,7 +65,7 @@ def mat(kind):
     b.inputs['Roughness'].default_value = {'cloth': 0.86, 'wool': 0.9, 'leather': 0.42, 'skin': 0.52, 'hair': 0.55, 'metal': 0.32, 'wood': 0.7, 'straw': 0.8}[kind]
     if kind == 'metal': b.inputs['Metallic'].default_value = 0.9
     try:
-        if kind in ('wool', 'cloth'): b.inputs['Sheen Weight'].default_value = 0.35 if kind == 'wool' else 0.2; b.inputs['Sheen Roughness'].default_value = 0.6
+        if kind in ('wool', 'cloth'): b.inputs['Sheen Weight'].default_value = 0.06 if kind == 'wool' else 0.04; b.inputs['Sheen Roughness'].default_value = 0.8   # V6: sheen cao làm vải đen thành xám pastel (khung thử)
         if kind == 'skin': b.inputs['Subsurface Weight'].default_value = 0.0; b.inputs['Coat Weight'].default_value = 0.05
         if kind == 'hair': b.inputs['Sheen Weight'].default_value = 0.4
     except Exception: pass
@@ -80,6 +80,9 @@ def paint(o, cols):
 def verts_of(o):
     a = np.empty(len(o.data.vertices) * 3, np.float32); o.data.vertices.foreach_get('co', a); return a.reshape(-1, 3)
 
+# ngân sách mặt/người (RAM: 232 bản sao có khung xương/tờ; 78 k mặt/người làm tràn 15 GB khi 2 mốc chạy song song) — bản tốt nhất dùng FB_HI
+FB = dict(than=6000, dau=4500, toc=2000, tay=2500, ao_lon=3500, ao_nho=1400)
+if os.environ.get('N6_FB_HI'): FB = dict(than=14000, dau=9000, toc=5000, tay=5000, ao_lon=6000, ao_nho=2500)
 # ---------------------------------------------------------------- dựng MỘT người mẫu
 def build_person(role, R, bi, name):
     t0 = time.time(); bd = N6.builds(R['sex'])[bi]; rr = random.Random(hash((role, bi, EP)) & 0xffffff)
@@ -90,11 +93,11 @@ def build_person(role, R, bi, name):
     # thân (không đầu)
     h = 0.0055; lo = (-0.3, -0.24, -0.02); hi = (0.3, 0.2, z['neck'] + 0.12)
     G, xs = grid(lo, hi, h); Dc = body.core(G)
-    v, f = mc(Dc, xs, h); ob = to_mesh(name + '_than', v, f, 14000); ob.data.materials.append(mat('skin')); paint(ob, np.tile(skin, (len(ob.data.vertices), 1))); objs.append((ob, 'core', 0.0))
+    v, f = mc(Dc, xs, h); ob = to_mesh(name + '_than', v, f, FB['than']); ob.data.materials.append(mat('skin')); paint(ob, np.tile(skin, (len(ob.data.vertices), 1))); objs.append((ob, 'core', 0.0))
     band = np.abs(Dc) < 0.075
     # đầu (lưới mịn) + tóc + mắt
     hh = 0.0026; c = z['headc']; GH, xh = grid((-0.11, -0.15, c - 0.2), (0.11, 0.13, c + 0.13), hh); DH = body.head(GH)
-    v, f = mc(DH, xh, hh); oh = to_mesh(name + '_dau', v, f, 9000); oh.data.materials.append(mat('skin'))
+    v, f = mc(DH, xh, hh); oh = to_mesh(name + '_dau', v, f, FB['dau']); oh.data.materials.append(mat('skin'))
     P = verts_of(oh); col = np.tile(np.array(skin, np.float32), (len(P), 1))
     for sg in (1, -1):   # lông mày (dải cong trên hốc mắt, mặt trước), môi hồng hơn
         e = np.array([sg * 0.033, -0.09, c + 0.024]) * [body.head_k, body.head_k, 1] + [0, 0, 0]
@@ -118,13 +121,13 @@ def build_person(role, R, bi, name):
         if R['hair'] == 'bun': Dh = np.minimum(Dh, N6.sd_ell(GH, N6.V(0, 0.1, c - 0.01), (0.04, 0.035, 0.035)))
         v, f = mc(Dh, xh, hh)
         if v is not None:
-            ohr = to_mesh(name + '_toc', v, f, 5000); ohr.data.materials.append(mat('hair')); paint(ohr, np.tile(hair, (len(ohr.data.vertices), 1))); objs.append((ohr, 'head', 0.0))
+            ohr = to_mesh(name + '_toc', v, f, FB['toc']); ohr.data.materials.append(mat('hair')); paint(ohr, np.tile(hair, (len(ohr.data.vertices), 1))); objs.append((ohr, 'head', 0.0))
     # tay (lưới riêng, tư thế dựng giạng 30°)
     DA = {}
     for sd in 'LR':
         S, Wt = body.J['sh' + sd], body.J['hand_t' + sd]; lo_a = np.minimum(S, Wt) - 0.09; hi_a = np.maximum(S, Wt) + 0.09
         GA, xa = grid(tuple(lo_a), tuple(hi_a), 0.0045); D = body.arm(GA, sd); DA[sd] = (GA, xa, D)
-        v, f = mc(D, xa, 0.0045); oa = to_mesh(f'{name}_tay{sd}', v, f, 5000); oa.data.materials.append(mat('skin')); paint(oa, np.tile(skin, (len(oa.data.vertices), 1))); objs.append((oa, 'arm' + sd, 0.0))
+        v, f = mc(D, xa, 0.0045); oa = to_mesh(f'{name}_tay{sd}', v, f, FB['tay']); oa.data.materials.append(mat('skin')); paint(oa, np.tile(skin, (len(oa.data.vertices), 1))); objs.append((oa, 'arm' + sd, 0.0))
     # quần áo: vỏ có bề dày
     Dl = {}
     for gi, g in enumerate(N6.garments(body, R, bi)):
@@ -148,7 +151,7 @@ def build_person(role, R, bi, name):
             D[m_] = sh; lin = None
         v, f = mc(D, xg, xg[0][1] - xg[0][0])
         if v is None: print('  (bỏ, rỗng)', g['name']); continue
-        og = to_mesh(f"{name}_{g['name']}", v, f, 6000 if g['name'] in ('ao', 'quan', 'vat', 'vay', 'quan_chen') else 2500)
+        og = to_mesh(f"{name}_{g['name']}", v, f, FB['ao_lon'] if g['name'] in ('ao', 'quan', 'vat', 'vay', 'quan_chen') else FB['ao_nho'])
         kind = g['kind'] if g['kind'] != 'cloth' else ('wool' if EP == 1782 or 'blouse' in R else 'cloth')
         og.data.materials.append(mat(kind)); Pg = verts_of(og); colg = np.tile(np.array(g['col'], np.float32), (len(Pg), 1))
         for fn, cc in g['regions']:
@@ -398,7 +401,7 @@ for role in roles:
     nb = 1 if pair else NB.get(role, 3)
     for bi in range(nb):
         rname = role if pair else f'{role}~{bi}'
-        if rname in meta['roles'] and all(os.path.exists(os.path.join(A.out, f'{rname}_{p}.exr')) for p in A.passes.split(',')):
+        if rname in meta['roles'] and all(os.path.exists(os.path.join(A.out, f'{rname}_{p}_r{a_}.exr')) for p in A.passes.split(',') for a_ in meta['roles'][rname].get('rows', [])):
             print('đã có', rname); continue
         bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene; MATS.clear()
         PS = poses_for(R0, R); CELLX = 3.6 if pair else 1.5; NP = len(PS); cells = []
@@ -423,27 +426,33 @@ for role in roles:
                 if 'giay' in o.name or 'than' in o.name or 'vay' in o.name:
                     me_ = o.evaluated_get(dg).to_mesh(); zmin = min(zmin, min(v_.co.z for v_ in me_.vertices)); o.evaluated_get(dg).to_mesh_clear()
             CACHE[(j, pn_)] = ({pb.name: pb.matrix_basis.copy() for pb in ao_.pose.bones}, zmin, its); return CACHE[(j, pn_)]
-        for ai in range(NA):
-            if A.test and ai not in (0, 1, 2, 4): continue
+        ROWS = [ai for ai in range(NA) if not (A.test and ai not in (0, 1, 2, 4))]
+        for ai in ROWS:   # vị trí ô (chưa dựng người — dựng theo TỪNG HÀNG khi dựng ảnh để giữ RAM: 8 GB/tờ khi dựng cả tờ → OOM)
             for pi, pn in enumerate(PS):
                 d = (-fwd); a = math.radians(45 * ai); d = Vector((d.x * math.cos(a) - d.y * math.sin(a), d.x * math.sin(a) + d.y * math.cos(a), 0))
-                yaw = math.atan2(d.y, d.x) - math.atan2(-1, 0)
                 u = (pi - (NP - 1) / 2) * CELLX; v = ai * ROWD; pos = right * u + fwd * v
+                cells.append({'a': ai, 'p': pi, 'pose': pn, 'world': [pos.x, pos.y], 'dir': [d.x, d.y]})
+        def make_row(ai):
+            made = []
+            for c_ in [c for c in cells if c['a'] == ai]:
+                pn = c_['pose']; d = Vector((c_['dir'][0], c_['dir'][1], 0)); pos = Vector((c_['world'][0], c_['world'][1], 0))
+                yaw = math.atan2(d.y, d.x) - math.atan2(-1, 0)
                 mem = [(0, f'cbarrow{int(pn[1:])}', 0.85), (1, f'cbarrow{(int(pn[1:]) + 4) % 8}', -0.85)] if pair else [(0, pn, 0.0)]
                 for j, pn_, off in mem:
                     basis, zmin, its = posed(j, pn_)
-                    ao_, pa_, ob_, _ = protos[j]; a2 = clone(ao_, pa_, ob_, f'{rname}_{ai}_{pi}_{j}')
+                    ao_, pa_, ob_, _ = protos[j]; a2 = clone(ao_, pa_, ob_, f'{rname}_{ai}_{c_["p"]}_{j}')
                     for bn, mb in basis.items(): a2.pose.bones[bn].matrix_basis = mb
                     for p in its:
                         p2 = p.copy(); sc.collection.objects.link(p2); p2.parent = a2; p2.hide_render = False
                     p_ = pos + d * off; a2.location = (p_.x, p_.y, -zmin + 0.004); a2.rotation_euler = (0, 0, yaw)
+                    made += [a2] + list(a2.children)
                 if pair:   # thùng (1782) / hòm (1943) giữa hai người, hai đòn khiêng dọc hướng đi
                     c = pos + Vector((0, 0, 0.5))
-                    if R0['item'] == 'barrel': prim('cyl', c, (0.27, 0.27, 0.36), (0.32, 0.22, 0.13), (0, math.pi / 2, yaw + math.pi / 2), 'wood')
-                    else: prim('cube', c, (0.4, 0.3, 0.24), (0.36, 0.33, 0.22), (0, 0, yaw), 'wood')
+                    if R0['item'] == 'barrel': made.append(prim('cyl', c, (0.27, 0.27, 0.36), (0.32, 0.22, 0.13), (0, math.pi / 2, yaw + math.pi / 2), 'wood'))
+                    else: made.append(prim('cube', c, (0.4, 0.3, 0.24), (0.36, 0.33, 0.22), (0, 0, yaw), 'wood'))
                     for s_ in (-1, 1):
-                        side = Vector((-d.y, d.x, 0)) * 0.25 * s_; prim('cube', pos + side + Vector((0, 0, 0.66)), (0.022, 1.15, 0.022), (0.28, 0.2, 0.12), (0, 0, yaw), 'wood')
-                cells.append({'a': ai, 'p': pi, 'pose': pn, 'world': [pos.x, pos.y], 'dir': [d.x, d.y]})
+                        side = Vector((-d.y, d.x, 0)) * 0.25 * s_; made.append(prim('cube', pos + side + Vector((0, 0, 0.66)), (0.022, 1.15, 0.022), (0.28, 0.2, 0.12), (0, 0, yaw), 'wood'))
+            bpy.context.view_layer.update(); return made
         # thẻ xám 18 % nằm ngang (hiệu chuẩn tỉ số bóng/nắng của sprite cho live6) — ô riêng cuối hàng 0
         u = (NP + 0.6 - (NP - 1) / 2) * CELLX; pc = right * u
         bpy.ops.mesh.primitive_plane_add(size=0.8, location=(pc.x, pc.y, 0.01)); card = bpy.context.object; card.data.materials.append(mat('cloth')); paint(card, np.tile((0.18, 0.18, 0.18), (4, 1)))
@@ -464,11 +473,6 @@ for role in roles:
         for c_ in cells:
             p = world_to_camera_view(sc, co, Vector((c_['world'][0], c_['world'][1], 0))); c_['foot_px'] = [round(p.x * W, 1), round((1 - p.y) * H, 1)]
         pcard = world_to_camera_view(sc, co, Vector((pc.x, pc.y, 0.01))); card_px = [round(pcard.x * W, 1), round((1 - pcard.y) * H, 1)]
-        if A.test:
-            xs_ = [c_['foot_px'][0] for c_ in cells] + [card_px[0]]; ys_ = [c_['foot_px'][1] for c_ in cells]
-            sc.render.use_border = True; sc.render.use_crop_to_border = False
-            sc.render.border_min_x = max(0, (min(xs_) - CELLX * A.pxm) / W); sc.render.border_max_x = min(1, (max(xs_) + CELLX * A.pxm) / W)
-            sc.render.border_min_y = max(0, 1 - (max(ys_) + 0.3 * A.pxm) / H); sc.render.border_max_y = min(1, 1 - (min(ys_) - 2.3 * A.pxm) / H)
         sc.render.film_transparent = True
         sun, sky, bgn = setup_light(sc)
         sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = A.spp; sc.cycles.use_denoising = True; sc.render.use_persistent_data = True
@@ -482,12 +486,31 @@ for role in roles:
         except Exception: pass
         rmeta = {'W': W, 'H': H, 'cellx': CELLX, 'poses': PS, 'cells': cells, 'card_px': card_px, 'passes': {}, 'render_s': {}, 'pair': bool(pair),
                  'faces': int(sum(len(o.data.polygons) for _, _, ob_, _ in protos for o, _, _ in ob_))}
-        for p in A.passes.split(','):
-            alt, az = set_pass(p, sun, sky, bgn)
-            t = time.time(); sc.render.filepath = os.path.join(A.out, f'{rname}_{p}.exr')
-            if not os.path.exists(sc.render.filepath): bpy.ops.render.render(write_still=True)
-            rmeta['passes'][p] = {'sun_alt': round(alt, 2), 'sun_az': round(az, 2)}; rmeta['render_s'][p] = round(time.time() - t, 1)
-            print('SPRITE', rname, p, W, H, rmeta['render_s'][p], round(time.time() - T0), flush=True)
+        PSS = A.passes.split(','); rmeta['render_s'] = {p: 0.0 for p in PSS}; rmeta['rows'] = ROWS; rmeta['file'] = '{role}_{p}_r{a}.exr'
+        sc.render.use_border = True; sc.render.use_crop_to_border = True; rmeta['row_y0'] = {}   # ảnh hàng cắt sát vùng (ghi nhanh, khử nhiễu nhỏ); row_y0 = gốc y trong toạ độ tờ
+        GR = int(os.environ.get('N6_ROWS_PER', '2'))   # số hàng/lần dựng (RAM ~0,6 GB/hàng; 8 hàng/lần → OOM 15 GB khi 2 mốc song song)
+        for gi in range(0, len(ROWS), GR):
+            grp = ROWS[gi:gi + GR]; a0 = grp[0]
+            files = {p: os.path.join(A.out, f'{rname}_{p}_r{a0}.exr') for p in PSS}
+            yb = max(c_['foot_px'][1] for c_ in cells if c_['a'] in grp); yt = min(c_['foot_px'][1] for c_ in cells if c_['a'] in grp)
+            sc.render.border_min_x, sc.render.border_max_x = 0.0, 1.0
+            sc.render.border_min_y = max(0.0, 1 - (yb + 0.3 * A.pxm) / H); sc.render.border_max_y = min(1.0, 1 - (yt - 2.45 * A.pxm) / H)
+            for ai in grp: rmeta['row_y0'][str(ai)] = int(round((1 - sc.render.border_max_y) * H))
+            if not all(os.path.exists(f_) for f_ in files.values()):
+                made = []
+                for ai in grp: made += make_row(ai)
+                for p in PSS:
+                    alt, az = set_pass(p, sun, sky, bgn); rmeta['passes'][p] = {'sun_alt': round(alt, 2), 'sun_az': round(az, 2)}
+                    t = time.time(); sc.render.filepath = files[p]
+                    if not os.path.exists(files[p]): bpy.ops.render.render(write_still=True)
+                    rmeta['render_s'][p] = round(rmeta['render_s'][p] + time.time() - t, 1)
+                print('SPRITE', rname, 'hang', grp, W, H, {p: rmeta['render_s'][p] for p in PSS}, round(time.time() - T0), flush=True)
+                for o in made: bpy.data.objects.remove(o, do_unlink=True)
+            for ai in grp[1:]:   # các hàng cùng ảnh → liên kết tên file theo hàng
+                for p in PSS:
+                    l = os.path.join(A.out, f'{rname}_{p}_r{ai}.exr')
+                    if not os.path.lexists(l): os.symlink(os.path.basename(files[p]), l)
+        for p in PSS: rmeta['passes'].setdefault(p, dict(zip(('sun_alt', 'sun_az'), [round(x, 2) for x in sun_at(PASSES[p])])))
         meta['roles'][rname] = rmeta
         json.dump(meta, open(jf, 'w'), indent=1, ensure_ascii=False)
         if A.blend and bi == 0: bpy.ops.wm.save_as_mainfile(filepath=A.blend.replace('.blend', f'-{rname}.blend'))
