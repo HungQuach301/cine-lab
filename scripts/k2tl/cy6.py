@@ -21,7 +21,7 @@ def load(i):
     meta = M['bufs'][i]; dt = {'Float32Array': np.float32, 'Uint32Array': np.uint32, 'Uint16Array': np.uint16}[meta['type']]
     return np.fromfile(os.path.join(D, f'b{i}.bin'), dtype=dt)
 # ---------- vật liệu theo loại (albedo GI) ----------
-ALB = {'dia_hinh': 0.32, 'nha': 0.58, 'cong_su': 0.55, 'nguoi': 0.42, 'cay': 0.18, 'khac': 0.45, 'tau': 0.22, 'do_nat': 0.52}
+ALB = {'dia_hinh': 0.32, 'nha': 0.58, 'cong_su': 0.55, 'nguoi': 0.42, 'cay': 0.18, 'khac': 0.45, 'tau': 0.22, 'do_nat': 0.52, 'co': 0.6}
 def mat(kind):
     name = 'm_' + kind
     if name in bpy.data.materials: return bpy.data.materials[name]
@@ -29,6 +29,9 @@ def mat(kind):
     v = ALB.get(kind, 0.45); b.inputs['Base Color'].default_value = (v, v, v, 1); b.inputs['Roughness'].default_value = 0.92
     for k in ('Specular IOR Level', 'Specular'):
         if k in b.inputs: b.inputs[k].default_value = 0.08
+    if kind == 'co':   # cờ = vải: ánh nắng XUYÊN qua khi ngược sáng (như cờ thật) — tránh cờ đen đặc làm mất dấu hiệu nhận biết (vật mang dữ kiện)
+        tl = nt.nodes.new('ShaderNodeBsdfTranslucent'); tl.inputs['Color'].default_value = (v, v, v, 1); mx = nt.nodes.new('ShaderNodeMixShader'); mx.inputs['Fac'].default_value = 0.45
+        o = [n for n in nt.nodes if n.type == 'OUTPUT_MATERIAL'][0]; nt.links.new(b.outputs[0], mx.inputs[1]); nt.links.new(tl.outputs[0], mx.inputs[2]); nt.links.new(mx.outputs[0], o.inputs['Surface'])
     if CC0 and kind in ('nha', 'cong_su', 'dia_hinh', 'do_nat'):   # vi chi tiết CC0 (pháp tuyến), toạ độ tam phẳng theo thế giới
         f = {'nha': 'plaster', 'cong_su': 'stone', 'dia_hinh': 'ground', 'do_nat': 'stone'}[kind]; p = os.path.join(CC0, f + '_nor.jpg')
         if os.path.exists(p):
