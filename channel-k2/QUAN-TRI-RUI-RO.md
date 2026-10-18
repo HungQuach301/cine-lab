@@ -33,6 +33,14 @@
   5. **Bình luận:** bật lọc từ khoá; xoá bình luận bài Do Thái hay âm mưu và **không trả lời** chúng (mục 5).
   6. Đề tài gia tộc luôn ở mức **VÀNG**: REVIEWER Opus kiểm riêng 5 điểm trên.
 
+### 1.3 Rủi ro "AI trên hình" (Kinh thánh §11.3, bản Project 18/10; phiên P-1810 ghi)
+| Rủi ro | Rào chắn | Trần | Đo sau đăng | Nguồn |
+|---|---|---|---|---|
+| Khán giả nhận ra hoặc chê ảnh AI; AI bịa dữ kiện lịch sử (dựng lại nhà đổ nát, thêm người/cờ/chữ/tàu); đồ vật đổi giữa hai tấm | **Rào chắn bắt buộc** cho mọi khung có AI: nền dựng bằng mã (A) trước; AI chỉ sửa trong mặt nạ, **lớp dữ kiện được bảo vệ** ghép lại từ A; kiểm dữ kiện từng tấm, vật sai thì xoá/ghép lại A; nhãn trên hình + công bố (`ai_texture: true` trong log, dòng chữ trên hình, công bố GenAI của YouTube `answer/14328491`) — quy trình HC1–HC9 (AUTHORSHIP 18/10) | **≤ 20 %** (theo §11.3) | **Bình luận chê AI ≤ 2 %** (đếm trên bình luận hàng đầu, 7 và 28 ngày); vượt thì dừng dùng AI ở tập kế và báo chủ dự án | Kinh thánh §11.3 (bản Project 18/10, chưa có trong repo); M1–M6 HỦY 06:48: "No AI imagery" là tuyên ngôn điều chỉnh được, giá trị cốt lõi không đánh đổi |
+
+- Ảnh AI của PT/PT2 hiện **chỉ để nghiên cứu**, không vào gói phát hành (`RIGHTS.md` mã `P1810-AI`).
+- Đơn vị của trần 20 % và cách đếm 2 % theo văn bản §11.3; khi §11 vào `docs/BIBLE-KENH2.md`, đối chiếu lại dòng này.
+
 ## 2. Đối chiếu chính sách YouTube hiện hành (đọc nguyên văn 12/10/2026)
 Cách đọc: `curl` trang Help Center (`hl=en`), tách chữ, trích **nguyên văn**. Mỗi trang trả HTTP 200.
 

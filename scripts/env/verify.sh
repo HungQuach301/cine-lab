@@ -13,8 +13,13 @@ command -v ffmpeg >/dev/null && ok "ffmpeg $(ffmpeg -version | head -1 | cut -d'
 ffmpeg -hide_banner -filters 2>/dev/null | grep -q ebur128 && ok "ffmpeg ebur128 (đo LUFS)" || ko ebur128 "thiếu filter"
 [ -x "$CINE_PY" ] && $CINE_PY -c "import faster_whisper, pyloudnorm, cv2, scenedetect, elevenlabs, librosa" 2>/dev/null \
   && ok "Python chính: faster-whisper, pyloudnorm, opencv, scenedetect, elevenlabs, librosa" || ko "Python chính" "thiếu gói trong /opt/cine"
-[ -x "$CINE_BPY" ] && $CINE_BPY -c "import bpy; print(bpy.app.version_string)" >/tmp/bpyv 2>/dev/null \
-  && ok "Blender bpy $(tail -1 /tmp/bpyv)" || ko "bpy" "chưa cài hoặc thiếu thư viện hệ thống"
+# bpy (Blender làm module Python) ở /opt/bpy; CINE_BPY thiếu thì dùng đường mặc định
+BPY="${CINE_BPY:-/opt/bpy/bin/python}"
+[ -x "$BPY" ] && $BPY -c "import bpy; print(bpy.app.version_string)" >/tmp/bpyv 2>/dev/null \
+  && ok "Blender bpy $(tail -1 /tmp/bpyv) ($BPY)" || ko "bpy" "chưa cài ở $BPY hoặc thiếu thư viện hệ thống"
+# OpenEXR: đọc lượt pos/aux EXR của Blender (OpenCV của môi trường không đọc EXR; PT §12 mục 8)
+$CINE_PY -c "import OpenEXR" 2>/dev/null && ok "Python chính: OpenEXR $($CINE_PY -c 'import importlib.metadata as m; print(m.version("OpenEXR"))' 2>/dev/null)" \
+  || ko "OpenEXR" "thiếu — chạy: /opt/cine/bin/pip install OpenEXR"
 # three.js cho trang render: không nằm trong git; container mới phải chạy npm ci (xem setup.sh bước 5)
 SH="$(cd "$(dirname "$0")/../.." && pwd)/design/cong3/shared"
 TV=$(node -p "require('$SH/node_modules/three/package.json').version" 2>/dev/null)

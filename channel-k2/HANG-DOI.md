@@ -17,6 +17,15 @@
 >
 > Cả hai phép đo đều chỉ đọc chữ.
 
+## CẬP NHẬT 18/10/2026 (phiên P-1810: K4 và F8) — bổ sung lịch hiệu lực 17/10 bên dưới, không thay
+| Thứ tự | Tập | Đề tài (tên làm việc) | Mức | Trạng thái 18/10 |
+|---|---|---|---|---|
+| T8 | — | **Antwerp 1585 → Amsterdam** ("Why did one bridge across the Scheldt make Amsterdam rich?") — **đề xuất của P, CHỜ CHỦ DỰ ÁN DUYỆT** | XANH | K4 (`reports/K-1.14-BAO-CAO.md` §13 mục 4): xếp T8 = một đề tài XANH; K-R7 Dresden đang THIẾU tập kề sau |
+
+- **Lý do chọn (1 đề xuất):** (1) **XANH** từ hàng đợi NC-LS hiện có (`reports/NC-LICH-SU-BAO-CAO.md` §8 mục 3, thứ tự 4, điểm 17) → đúng nhịp ĐỎ-K: tập liền sau Dresden (T7) không phải VÀNG. (2) **Cầu nối mạnh nhất với Moving Parts**: "dòng tiền dời đi khi Scheldt bị chặn" là câu "vì sao nơi này có giá" trong cùng một câu (NC-LS §2.3), kéo series về trục kinh tế ngay sau tập chiến tranh nặng nhất. (3) **Đổi chất liệu sau Dresden**: vây hãm + cầu chặn sông + thương nhân dời đi, không phải ném bom thành phố — tránh hai tập "thành phố cháy" liền nhau (vì vậy không chọn Rotterdam 1940). (4) Dùng lại dữ liệu R&D Amsterdam (TL-RD, Rijksmuseum `P1710-02` trong RIGHTS). (5) Khoảng trống: NC-LS §3.2 đo 12 video dài, lớn nhất 269 101 lượt, 1 video ≥ 100 nghìn, top 5 chỉ 1/5 có nguồn; kênh đã làm: SandRhoman và Charles Reconstructs (ảnh AI, Antwerp 1560).
+- **Nhược / rủi ro:** cầu nhỏ (12 video dài; Vicksburg 29 video, lớn nhất 2 335 925) → lượt xem kỳ vọng thấp hơn Vicksburg; cần tiền kỳ riêng cho cầu phao Farnese và tàu lửa Giambelli (chưa có claim). **Phương án thay:** Vicksburg 1863 (XANH, điểm 20, cầu lớn hơn; nhưng là vây hãm có dân ở hang ngay sau Dresden). T6 vẫn chọn ở cổng; nếu cổng chọn Antwerp cho T6 thì T8 lấy Vicksburg.
+- **Ghi chú Berlin (F8):** Berlin 1945 (YY2, có điều kiện) phải **chấm lại ở G0** vì đối thủ đã thử nghiệm đề tài này; điểm khoảng trống/cầu của NC-LS2 không còn dùng nguyên.
+
 ## LỊCH HIỆU LỰC 17/10/2026 (phiên P2-1710, chủ dự án duyệt WW4, YY1–YY3) — thay lịch "CẬP NHẬT 17/10" của P-1710
 > Mục này đứng trên mọi bảng bên dưới về **trạng thái và thứ tự** tập kênh 2. Series lịch sử "Contested Places" trong Moving Parts (WW1), lời hứa L1 (WW2). Nguồn: `AUTHORSHIP.md` 17/10 WW1–WW8, XX1–XX2, YY1–YY6; `reports/NC-LICH-SU-BAO-CAO.md` §8; `reports/NC-LICH-SU-2-BAO-CAO.md` §5–§6. Mức: XANH / VÀNG / ĐỎ-K theo `QUAN-TRI-RUI-RO.md` §1.
 
