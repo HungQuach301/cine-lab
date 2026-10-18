@@ -1,0 +1,8 @@
+```json
+{"A": {"craft": 4, "detail": 4, "toy_like": 6, "ai_look": 5, "period": 4, "flags": ["empty_frame", "cluttered", "confusing", "unreadable_scale"], "note": "Large empty tiled plaza with tiny troop blocks and a few specks. Foreground roofs are oversized flat boxes, and the ruins read as random grey debris. Warm, softer lighting, but the scale is incoherent. The buildings look more 19th-century/Mediterranean than 1782 fortification."},
+ "B": {"craft": 3, "detail": 4, "toy_like": 7, "ai_look": 4, "period": 4, "flags": ["empty_frame", "toy_look", "confusing", "unreadable_scale"], "note": "Same scene as A with harsher contrast and crushed black ruins that look like unfinished geometry. Troops are dark tiny clumps. The grid floor and box buildings read as a game map."},
+ "C": {"craft": 6, "detail": 7, "toy_like": 5, "ai_look": 3, "period": 6, "flags": ["toy_look"], "note": "Dense town, bastioned wall with embrasures, church tower, fields, water and a clear sense of scale and depth. Buildings are still boxy, with uniform textures and saturated flat blue water. The garrison is nearly invisible and there are no ships or smoke."},
+ "rank": ["C", "A", "B"],
+ "why": "C is the only frame that reads as a fortified town panorama, with depth, density and a recognisable bastion wall; A and B are near-empty plazas with toy-like blocks, and B is the harsher of the two.",
+ "top_fix_for_best": "Put the garrison and harbour life into frame: visible red-coated regiments on the bastion terrepleins and in the streets, ships at anchor on the water with proper rigging, and smoke and flags. Also replace the flat saturated blue water with a darker, textured sea, and add roof, wall and chimney variation to break up the repeated box buildings."}
+```

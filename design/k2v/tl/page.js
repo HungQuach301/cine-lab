@@ -66,6 +66,7 @@ window.setup = async (cfg) => {
   txt = makeText(cfg.W, cfg.H); rec = makeRecorder(cfg.W, cfg.H);
   const photo = cfg.photo ? await loadImg(cfg.photo) : null;
   ctx = { hemi, THREE, U, M, terr, city, roads, trees, heroes, ships, sun, sunDir, cam, photo, lines: LINES, W: cfg.W, H: cfg.H, track, scene, maskify, base, opt: cfg.opt || {}, makeCity, loadJSON, R };   /* V5b-2b: opt của shot + makeCity (lớp footprint M9) */   /* V5b-2a: cảnh thêm phần tử 3D riêng (overlay3d.js) */
+  if (V6 && ctx.terr.uni.uEarth && (V6.earth ?? (mod.META && mod.META.nam === 1782))) ctx.terr.uni.uEarth.value = 1;   // V6: nền phố 1782 đất nện (terrain.js lớp 7)
   if (V6) { ctx.v6 = V6; ctx.v6people = V6.people !== false; ctx.v6smoke = V6.smoke !== false; }   // V6: người/quân có khớp (people.js), khói giả thể tích (smoke6.js)
   SC = await mod.build(ctx);
   // mặt nạ nội dung: hero + đường = nội dung (city/terrain tự có mã mặt nạ); cây = nền

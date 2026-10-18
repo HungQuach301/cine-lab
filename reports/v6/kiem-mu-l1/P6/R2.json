@@ -1,0 +1,46 @@
+{
+ "A": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 4,
+  "period": 4,
+  "flags": [
+   "flat_slide_look",
+   "toy_look",
+   "unreadable_scale",
+   "confusing"
+  ],
+  "note": "Flat, centred, frontal layout with three identical box-barge ships lined up on a dead-flat blue plane. The hill fills half the frame and the town is a thin strip. Smoke is blurry grey fog that looks like a smudged overlay. The water is a plain gradient with no waves or reflections. Ships are tiny and read as game pieces. The town reads reasonably but is small. The lighting is flat."
+ },
+ "B": {
+  "craft": 6,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Much stronger composition. Ships are larger in the foreground, the water has real reflections and ripples, and the angled hill gives depth. The dark smoke column and the muzzle flashes add drama and a clear action cue. Ships are still blocky voxel-like boxes with pixelated hull textures and stick masts, with no rigging, sails or gun ports. The town is a cluster of cubes. The smoke wall hides the target. Black wedges at the hill edge look like a rendering glitch."
+ },
+ "C": {
+  "craft": 5,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "confusing"
+  ],
+  "note": "Same scene as B, but the heavy smoke wash now erases much of the town and the hillside buildings, leaving ghosted white rectangles that look like a rendering or transparency error. One fewer muzzle flash. The hill silhouette is cleaner than in B, with no black wedges. Overall less readable than B, so the target of the attack is lost."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B has the best composition, water and action cues, and the town stays legible through the smoke. C loses the town in the smoke, and A is a flat, tiny, static line-up.",
+ "top_fix_for_best": "Rebuild the floating batteries as proper 1782 vessels: sloped armoured sides, visible gun ports with cannon run out, rigging, a flag, and crew on deck. Add smooth hull materials and wake foam at the waterline. Thin the smoke in front of the town and add muzzle plumes and cannonball splashes so the bombardment of the fortified walls reads clearly. Remove the black hill-edge artefacts."
+}

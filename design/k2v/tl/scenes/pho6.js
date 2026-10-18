@@ -13,7 +13,7 @@ import { life, chimneysFrom, freePath } from '../life.js';
 export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };   // V5b-2d (C2-9): vách bắc sắc hơn + đỉnh 412 m theo ảnh PD LoC 2025710362 (terrain.js)
 export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.30, 0.52, 0.90], fogC: [0.40, 0.60, 0.90] };   // trời Địa Trung Hải sáng tháng 9: chân trời xanh hơn (S 0,33 → 0,46)   // V5b-2c (I5): bóng đổ bớt xám-lam, ánh dội đất ấm (0,74: không cháy sáng)
 export const GRADE = { vib: 0.78 };   // V6: S-curve + tách tông làm giảm bão hoà → vibrance 0,62 → 0,78 (đo lại: trung vị ≥ 0,40)
-export const V6 = { sunK: 1.1, hemiK: 1.0, grade: [1.0, 0.35, 0.6] };   // V5b-2c (I5): vibrance 0,35 → 0,62 (vữa/đá nhạt lên màu; màu đã đậm gần như giữ)
+export const V6 = { sunK: 1.1, hemiK: 1.2, grade: [1.0, 0.35, 0.6] };   // V5b-2c (I5): vibrance 0,35 → 0,62 (vữa/đá nhạt lên màu; màu đã đậm gần như giữ)
 export const META = { cau: 'fly-pho', vai: 'he-qua', noi: [[0, 99, 'thanh_pho']], nam: 1782, ghost: 'ghost-1782 (SH @ 54185b3)' };
 const MAIN = [[-409, -1811], [-410, -1700], [-425, -1620], [-435, -1571], [-441, -1543], [-448, -1521], [-450, -1505], [-447, -1400], [-440, -1300], [-432, -1150], [-425, -1000], [-420, -880], [-417, -788]];
 export async function build(ctx) {

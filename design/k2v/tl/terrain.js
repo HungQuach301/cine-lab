@@ -46,7 +46,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
   const [Gh, Gw] = M.ground_shape;
   const uni = { uYear: U.uYear, uDim: U.uDim, tNat: { value: tNat }, tUrb: { value: tUrb }, tYears: { value: tYears }, tAO: { value: tAO }, tCls: { value: tCls }, uNearK: { value: U.groundNear ?? 1 },
     uExt: { value: new THREE.Vector4(e0 - 5, n0 - 5, Gw * 10, Gh * 10) }, tNoise: { value: noiseTex() }, uBaked: U.uBaked, uAOBox: { value: new THREE.Vector4(...M.ao_box) }, uAOon: U.uAOon, uDetail: { value: 1 },
-    tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 }, uCliff: { value: TO.cliff ? 1 : 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
+    tGhostU: { value: new THREE.DataTexture(new Uint8Array([255, 255, 255, 255]), 1, 1) }, uGhostBox: { value: new THREE.Vector4(0, 0, 1, 1) }, uGhostOn: { value: 0 }, uCliff: { value: TO.cliff ? 1 : 0 }, uEarth: { value: 0 } };   // V5b-2b: nền đô thị theo vùng ghost (layers.town1782)
   uni.tGhostU.value.needsUpdate = true;
   const mat = U.lambert ? new THREE.MeshLambertMaterial({ color: 0xffffff }) : new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.96, metalness: 0 }); mat.userData.v6n = true;   /* V6: lượt pháp tuyến */
   mat.onBeforeCompile = (sh) => {
@@ -58,7 +58,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
         float k = landK(decYear(yv.ba), uYear); transformed.y = mix(min(transformed.y, -10.0), transformed.y, k); }
       vWP = (modelMatrix * vec4(transformed, 1.0)).xyz; vWN = normalize(mat3(modelMatrix) * objectNormal);`);
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', `#include <common>
-      uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls, tGhostU; uniform vec4 uGhostBox; uniform float uGhostOn, uCliff; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;
+      uniform sampler2D tNat, tUrb, tYears, tAO, tNoise, tCls, tGhostU; uniform vec4 uGhostBox; uniform float uGhostOn, uCliff, uEarth; uniform vec4 uExt, uAOBox; uniform float uYear, uDim, uAOon, uDetail, uBaked, uNearK, uMask; varying vec3 vWP; varying vec3 vWN;
       ${GLSL_YEAR} ${GLSL_NOISE}
       float fbmT(vec2 p){ if (uBaked < 0.5) return fbm(p); vec2 q = mat2(0.80, -0.60, 0.60, 0.80) * p * 0.173 + 0.37; return 0.6 * texture(tNoise, p * 0.25).r + 0.4 * texture(tNoise, q).b; }   // nhiễu nướng sẵn chống lặp ô: 2 mẫu, tỉ lệ không thông ước + xoay miền
       // V5b-1b · VẬT LIỆU THỦ TỤC THEO LỚP (build_scene.build_classes): có biến thiên tầm trung + chi tiết nhỏ; mờ dần chi tiết theo fwidth (chống răng cưa)
@@ -99,6 +99,10 @@ export async function makeTerrain(base, M, U, TO = {}) {
           vec3 s = mix(vec3(0.46, 0.38, 0.26), vec3(0.36, 0.48, 0.20), step(0.5, h21(cell + 3.0))); return s * (0.82 + 0.22 * lineAA(r, 0.22, 0.05) * fw(p, 0.6)) * (0.9 + 0.15 * m1); }
         if (c < 6.5) { vec3 s = vec3(0.27, 0.28, 0.30) * (0.88 + 0.2 * m1) * (0.93 + 0.12 * mi); return mix(s, vec3(0.20, 0.20, 0.22), smoothstep(0.6, 0.75, m2) * 0.5); }   // 6 nhựa: vá, đá dăm
         if (c < 7.5) {   // 7 nền lát đô thị: tấm 2 m, vết ố, ron
+          if (uEarth > 0.5) {   // V6 (1782): nền phố/quảng trường ĐẤT NỆN + sỏi (không lưới tấm lát 2 m — không có nguồn; chấm mù V6: 'visible tile grid'); vệt bánh xe/chân người loang theo nhiễu
+            vec3 s = mix(vec3(0.71, 0.61, 0.46), vec3(0.60, 0.51, 0.38), m1); s = mix(s, vec3(0.52, 0.45, 0.35), smoothstep(0.55, 0.8, m2) * 0.45);
+            float gr = h21(floor(p * 2.7)); s *= 1.0 - 0.10 * step(0.93, gr) * fw(p, 0.35) + 0.06 * step(gr, 0.05) * fw(p, 0.35);
+            return s * (0.9 + 0.14 * mi); }
           vec2 g = abs(fract(p / 2.0) - 0.5); float j = (1.0 - smoothstep(0.44, 0.48, max(g.x, g.y))) ; vec3 s = mix(vec3(0.72, 0.69, 0.64), vec3(0.62, 0.60, 0.57), m1); if (uCliff > 0.5) s = mix(vec3(0.78, 0.66, 0.50), vec3(0.68, 0.58, 0.46), m1);   /* V5b-2c: phố 1782 lát đá vôi địa phương (ấm) */
           s *= mix(0.86, 1.0, j * fw(p, 0.5) + (1.0 - fw(p, 0.5))); return s * (0.9 + 0.14 * mi) * (1.0 - 0.15 * smoothstep(0.65, 0.85, m2)); }
         if (c < 8.5) {   // 8 sân thể thao: cỏ xén sọc 5 m
