@@ -21,7 +21,7 @@ Nhánh thật: `ccr-fcb0e150-g16lfi`. Harness của phiên chỉ định nhánh 
 
 ## §0. Tóm tắt (đọc 2 phút) + bảng quyết định đề xuất
 
-**Kết luận chung.** AI giúp nhiều nhất ở **khâu đọc và số hoá**: đọc nguồn, trích nguyên văn, chép trang, vẽ bao khối nhà khi người click chỉ định. Ở các khâu đó, mọi kết quả đều kiểm lại được bằng máy, đối chiếu với tệp có SHA. AI rủi ro nhất ở **khâu sinh điểm ảnh**: phóng to ảnh khắc, sinh video. Ở các khâu này AI tự thêm nét, và người chấm (kể cả mô hình chấm) không bắt được.
+**Kết luận chung.** AI giúp nhiều nhất ở **khâu đọc và số hoá**: đọc nguồn, trích nguyên văn, chép trang, vẽ bao khối nhà khi người click chỉ định. Ở các khâu đó, mọi kết quả đều kiểm lại được bằng máy, đối chiếu với tệp có SHA. AI rủi ro nhất ở **khâu sinh điểm ảnh**: phóng to ảnh khắc, sửa ảnh bằng AI (PT §15.4). Ở các khâu này AI tự thêm nét, và người chấm (kể cả mô hình chấm) không bắt được.
 
 Số đo chính trong phiên:
 
@@ -56,9 +56,7 @@ Số đo chính trong phiên:
    - Nhìn bằng mắt: Swin2SR **biến nét gạch khắc thành vệt loang và thêm mảng tối trên mặt người lính** (bịa nét).
    - Độ sâu Depth Anything V2 Small (Apache-2.0, 8,5 s): thứ tự trời/xa/gần hợp lý (disparity trên 0,07, dưới 0,91), 2,6 % điểm ảnh ở bước nhảy độ sâu. Lề giấy bị coi là "gần".
 7. **Tài liệu hiện hành** (4 gói tra cứu, ≈ 230 URL đọc ngày 18/10, nguồn ở `reports/nc-ai/nguon/`):
-   - OpenAI Videos/Sora **đã tắt 24/9/2026**.
-   - Video AI qua API còn sống: Veo 3.1, Runway gen4.5, Luma Ray3.2, MiniMax H3. Giá ≈ $0,20–1,20 cho mỗi 4–6 s.
-   - Bị loại vì NC/SA/vùng lãnh thổ: CodeFormer, SUPIR, GFPGAN (phần StyleGAN2 NC), Depth Pro, DA2 Base/Large, SMPL (kéo theo 4DHumans/WHAM/TRAM), OpenPose, YOLO-pose (AGPL), AMASS, LaFAN1, Bandai Namco, AudioGen, Tango, HunyuanVideo (loại trừ EU/UK).
+   - Bị loại vì NC/SA/vùng lãnh thổ: CodeFormer, SUPIR, GFPGAN (phần StyleGAN2 NC), Depth Pro, DA2 Base/Large, SMPL (kéo theo 4DHumans/WHAM/TRAM), OpenPose, YOLO-pose (AGPL), AMASS, LaFAN1, Bandai Namco, AudioGen, Tango.
 
 ### Bảng quyết định đề xuất (xếp theo lợi ích/rủi ro, cao → thấp)
 | # | Mục | Đề xuất | Ưu | Nhược | Tác động | Rủi ro dữ kiện → cách kiểm bằng máy |
@@ -71,7 +69,7 @@ Số đo chính trong phiên:
 | 6 | **AI-2 sự sống**: mocap mở (CMU, 100STYLE CC BY, Quaternius CC0) + động tác theo điều lệnh PD | **DÙNG** dữ liệu mở; **CHƯA** dùng ước tư thế từ footage | Dáng đi/khiêng thật hơn búp bê (điểm yếu số 1 ở PT4) | Mocap hiện đại ≠ dáng người thế kỷ 18 → chỉ dùng cho đi/đứng/khiêng; động tác quân sự theo bản khắc điều lệnh | Giảm toy_like (PT4 vẫn 6,67) | Không có dữ kiện trong dáng đi; động tác súng phải khớp bản khắc tư thế (1764 / Ordenanzas 1762) — so tay |
 | 7 | **AI-3 phục chế ảnh/tranh lưu trữ** (khử nhiễu, làm nét ×2) | **CHỈ** cho ảnh chụp thế kỷ 20 có nhãn; **KHÔNG** cho bản khắc | YouTube xếp "upscaling or repair" vào nhóm không cần công khai | Bản khắc bị thêm nét giả (đo được); bản quét của ta đã 3 000–9 000 px nên không cần phóng | Nhỏ | Kiểm có đáp án (thu nhỏ → phóng → so gốc); cạnh mới > 5 % → loại |
 | 8 | **2,5D parallax ảnh lưu trữ** | **GIỮ CẤM** trong Kinh thánh; mở phiên thử riêng nếu chủ dự án muốn | DA2-Small chạy CPU 8,5 s, thứ tự độ sâu hợp lý | Tách người khỏi nền tạo rìa giả; YouTube không có ví dụ cho trường hợp này; "Alters footage of a real event or place" có thể áp | Thêm chuyển động cho ảnh tĩnh | Độ sâu do AI suy ra là dữ kiện không có nguồn (cái gì đứng trước cái gì); bậc 5 |
-| 9 | **AI-5 video image-to-video** (biển, trời, khói xa) | **CHƯA DÙNG**; chỉ giữ tài liệu | Rẻ (Veo 3.1 Lite $0,05–0,08/s) | Phải công khai AI; C2PA/SynthID gắn nhãn tự động không gỡ được; không có khoá trong môi trường; OpenAI đã tắt | Ít, vì cảnh biển/trời dựng được bằng Blender | Thước đo trôi/nhấp nháy §5; chỉ dùng khi chủ dự án duyệt nhà cung cấp |
+| — | AI-5: bỏ theo quyết định chủ dự án 18/10 20:30 | — | — | — | — | — |
 
 ---
 
@@ -271,35 +269,8 @@ Chất lượng AI so CC0: **chưa đo**; §11.5 đã ghi "đo trước". Đề 
 
 ---
 
-## §5. AI-5 Video AI có rào — CHỈ TÀI LIỆU (không gọi API video)
-
-| Nhà cung cấp | Còn sống (18/10) | Giá ≈ 5 s | Quyền đầu ra (nguyên văn) | Watermark/C2PA |
-|---|---|---|---|---|
-| Google Veo 3.1 (`veo-3.1-generate-preview`/`-fast-`/`-lite-`) | Có (preview); Veo 3.0 "Deprecated" | Lite 720p 4 s $0,20; Fast $0,10–0,12/s; Std $0,40/s; 1080p chỉ 8 s | "won't claim ownership" | SynthID |
-| Runway gen4.5 / gen4_turbo | Có | $0,60 / $0,25 | "does not claim ownership", "does not restrict your commercial use" | chưa đọc được |
-| Luma Ray3.2 | Có | 720p $0,30; 1080p $1,20 | Customer "owns and retains all right, title, and interest in and to the Output"; thương mại chỉ khi đang thuê bao | — |
-| MiniMax H3 | Có | $0,08/s ≈ $0,40 | chưa đọc | — |
-| Kling 3.0, Seedance 2.0, Pika | Có (thứ cấp) | $0,42–1,87 (thứ cấp) | chưa đọc gốc | — |
-| Wan 2.2 (mở) | trọng số có | GPU tự chạy | "licensed under the Apache 2.0 License" | — |
-| LTX-2 (mở) | có | — | doanh thu ≥ $10 000 000/năm phải mua giấy phép | — |
-| HunyuanVideo-I2V | có | — | "excluding … European Union, United Kingdom and South Korea" → **loại** | — |
-| **OpenAI Sora / Videos API** | **ĐÃ TẮT 24/9/2026** (trang deprecations) | — | — | — |
-
-**Phạm vi nếu được duyệt:**
-- Chỉ cảnh không mang dữ kiện: biển, trời, khói ở xa ≥ 2 km, không tàu, không bờ có công trình.
-- Khung đầu là render của mình.
-- ≤ 4 s mỗi lần.
-- Tính vào trần AI ≤ 20 % (§11.3).
-- Bật công khai AI trên YouTube.
-
-**Thước đo bằng máy** (kế thừa PT §15.3 và PT3):
-1. Ghép lại điểm ảnh A cho mọi vùng bảo vệ (đường chân trời có đồi, bờ, công trình); sai khác < 1/255.
-2. Trôi hình: IoU cạnh Canny thô trong vùng không-trời giữa khung 0 và khung 2/4/6/8 s ≥ 0,85; đường chân trời lệch ≤ 2 px.
-3. Nhấp nháy: chiếu ngược t→t+1 theo luồng quang học trên vùng AI; |Δ| trung bình ≤ 1,1× nền A; tỷ lệ điểm chớp (|Δ| > 12) ≤ 2 % (PT3: A 0,90–2,05 %).
-4. Kiểm C2PA đầu ra bằng `c2patool` ("MIT OR Apache-2.0") và ghi vào sổ AI.
-5. Rà mắt 100 % khung có xuất hiện vật mới (tàu, chim, cờ) → loại.
-
-**Đề xuất:** **CHƯA DÙNG**, vì biển/trời/khói xa dựng được bằng Blender mà không phải công khai AI hay chịu nhãn C2PA. Mở lại khi chủ dự án duyệt nhà cung cấp và có khoá trong môi trường.
+## §5. AI-5
+AI-5: bỏ theo quyết định chủ dự án 18/10 20:30.
 
 ---
 
@@ -474,7 +445,7 @@ Một tập lịch sử với 60 trang nguồn, 40 trang chép, 6 tấm C và 24
 
 ## §13. Sự cố cần chủ dự án biết
 - Một subagent tra cứu (gói R4, London 1666) **đã lỡ đặt email chủ dự án vào header User-Agent** khi gọi API Wikimedia Commons. Các yêu cầu đó đều bị trả 429 và không được lặp lại. Email **không** có trong repo; mọi tệp nguồn đưa vào repo đã được lọc email (2 email công khai của bên thứ ba trong R2 cũng đã che).
-- Proxy chặn: GitHub API/releases (403), si.edu, rct.uk, Europeana, Mixamo FAQ, Adobe helpx (403), Freesound (403). Trang JS (Kling, Stability pricing) trả về rỗng. Dữ kiện từ các nguồn này ghi "[thứ cấp]" hoặc "chưa đọc".
+- Proxy chặn: GitHub API/releases (403), si.edu, rct.uk, Europeana, Mixamo FAQ, Adobe helpx (403), Freesound (403). Trang JS (Stability pricing) trả về rỗng. Dữ kiện từ các nguồn này ghi "[thứ cấp]" hoặc "chưa đọc".
 
 ## §14. Tệp
 | Đường dẫn | Nội dung |
@@ -489,11 +460,11 @@ Một tập lịch sử với 60 trang nguồn, 40 trang chép, 6 tấm C và 24
 Tệp thô (sách djvu.txt, bản đồ, ảnh trang, video) để ngoài git (scratchpad); mọi SHA đã ghi ở trên.
 
 ## §15. Việc chờ chủ dự án
-1. **Duyệt bảng quyết định §0.** Đề xuất: DÙNG mục 1–4 · THỬ CÓ ĐIỀU KIỆN mục 5 · DÙNG dữ liệu mở mục 6 · mục 7 chỉ cho ảnh chụp · GIỮ CẤM mục 8 · CHƯA DÙNG mục 9.
+1. **Duyệt bảng quyết định §0.** Đề xuất: DÙNG mục 1–4 · THỬ CÓ ĐIỀU KIỆN mục 5 · DÙNG dữ liệu mở mục 6 · mục 7 chỉ cho ảnh chụp · GIỮ CẤM mục 8. AI-5 đã bỏ (18/10 20:30).
 2. **Duyệt văn bản đổi Kinh thánh §9:** thêm §11.7 (5 bậc), sửa dòng "KHÔNG" của §11.3, sửa §11.5. Ghi vào AUTHORSHIP.
 3. **Duyệt trục "mức tư liệu" /5 và cổng bậc 1–3** cho thước đề tài (§7.4). Lưu ý London 1666 chấm 3,5/5 và **cổng bậc 3 đang yếu**.
 4. **Quyết định 2,5D lưu trữ:** giữ cấm (đề xuất) hay mở một phiên thử riêng có rào §3.3.
-5. **Quyết định nhà cung cấp video AI:** chưa dùng (đề xuất); nếu muốn thử, chọn nhà cung cấp và cấp khoá vào môi trường.
+5. AI-5: bỏ theo quyết định chủ dự án 18/10 20:30 — không còn việc chờ.
 6. **RIGHTS:**
    - Nếu dùng CATMuS (CC-BY-4.0), 100STYLE (CC BY 4.0), CMU mocap thì cần dòng ghi công.
    - Chủ dự án hoặc phiên tiền kỳ mở tay và lưu điều khoản gốc của Mixamo, Smithsonian, RCT, Europeana, Freesound API (bị chặn trong phiên).

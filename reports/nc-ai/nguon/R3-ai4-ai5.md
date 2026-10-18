@@ -1,4 +1,4 @@
-# R3 — AI4/AI5: SFX/ambience AI, giọng đọc ElevenLabs, image-to-video, chính sách YouTube
+# R3 — AI-4: SFX/ambience AI, giọng đọc ElevenLabs, chính sách YouTube (phần AI-5 đã xoá theo quyết định chủ dự án 18/10 20:30)
 
 Ngày đọc: **2026-10-18** (mọi URL dưới đây đọc ngày này, trừ khi ghi khác). Không gọi API trả phí nào.
 
@@ -42,8 +42,6 @@ Ngày đọc: **2026-10-18** (mọi URL dưới đây đọc ngày này, trừ k
 | AudioLDM 2 | "License: cc-by-nc-sa-4.0" | https://huggingface.co/cvssp/audioldm2 | Loại (NC) |
 | Tango 2 | "License: cc-by-nc-sa-4.0" | https://huggingface.co/declare-lab/tango2 | Loại (NC) |
 | Mirelo SFX (video→âm) | Chưa tìm thấy điều khoản chính thức | fal.ai: v1.5 $0.01/giây **[thứ cấp]**; SFX 2.0 ra ngày 14/10/2026 theo một blog | Chưa đủ căn cứ; cần đọc ToS của Mirelo |
-| Adobe Firefly Sound Effects | helpx.adobe.com **[BỊ CHẶN: 403]** | Tubefilter (02/10/2026) dẫn blog Adobe gọi bộ âm thanh là "commercially safe" **[thứ cấp]**; trang Firefly nói có cả "partner models from Google, OpenAI, ElevenLabs, Luma AI, Runway, and others" | Phải biết mỗi lần tạo dùng mô hình Adobe hay mô hình đối tác; cần đọc Adobe Generative AI Product Specific Terms |
-| Google (Lyria / âm của Veo) | Không đọc riêng trong đợt này | Âm đi kèm Veo 3.1 có trong giá "with audio" | Xem mục C |
 
 ### A5. Freesound (đối chứng)
 - FAQ (https://freesound.org/help/faq/):
@@ -86,26 +84,8 @@ Ngày đọc: **2026-10-18** (mọi URL dưới đây đọc ngày này, trừ k
 
 ---
 
-## C. Image-to-video (chỉ cho cảnh phi sự thật: biển, trời, khói xa)
-
-Giá 5 giây được tính từ đơn giá chính thức, trừ chỗ ghi khác. "API generic server" nghĩa là gọi được bằng REST với key từ một máy chủ bất kỳ.
-
-| Nhà cung cấp / mô hình | Còn hoạt động? | Giá ~5 s | Thời lượng tối đa mỗi lần | Quyền đầu ra (nguyên văn) | Watermark / C2PA | API từ server |
-|---|---|---|---|---|---|---|
-| **Google Veo 3.1** (`veo-3.1-generate-preview`, `-fast-`, `-lite-`) | Có (preview); Veo 3.0 "Deprecated" | Đơn giá/giây: Std 720p/1080p $0.40, 4K $0.60; Fast $0.10/$0.12/$0.30; Lite $0.05/$0.08. Không có lựa chọn 5 s: Lite 720p 4 s = $0.20, 6 s = $0.30; 1080p bắt buộc 8 s (Lite $0.64, Fast $0.96, Std $3.20) | 4/6/8 s; "8 seconds only if 1080p or 4k" | Gemini API Terms (cập nhật 2026-04-28): "Google won't claim ownership over that content." | "Videos created by Veo are watermarked using" SynthID; trang không nói về C2PA | Có. Lưu ý: ở EEA/CH/UK chỉ được dùng Paid Services; I2V chỉ "allow_adult"; video lưu trên server 2 ngày |
-| **Runway** `gen4.5`, `gen4_turbo` | Có | $0.01/credit. gen4.5 12 cr/s → **$0.60**; gen4_turbo 5 cr/s → **$0.25**; còn có veo3.1 qua Runway (40 cr/s có audio) | Chưa đọc được (trang API bị cắt) | Terms (cập nhật 15/09/2026): "The Company does not claim ownership of any of your Inputs or Outputs." "...does not restrict your commercial use of your Outputs." Runway có quyền dùng Input/Output để huấn luyện | Footer có link "Verify Content Credentials"; ToS không nói | Có |
-| **Luma Ray3.2** (`ray-3.2`) | Có | I2V 5 s: 720p **$0.30**, 1080p **$1.20** (SDR; HDR gấp 2) | Có bảng giá 10 s | ToS (14/05/2026) mục 4.9.1: Customer "owns and retains all right, title, and interest in and to the Output"; thương mại chỉ khi Output "were produced during an active Subscription Term" thuộc gói cho phép; API có API Terms riêng (chưa đọc) | Luma có thể nhúng "watermarks, content credentials, provenance metadata" và người dùng không được gỡ; Output giống người thật phải ghi là AI | Có |
-| **Kling 3.0** | Có (theo bên thứ ba) | **[thứ cấp]** 720p không audio $0.084/s → ~$0.42; 1080p $0.112/s → ~$0.56 | — | Trang chính thức **[BỊ CHẶN: JS]**; theo nguồn thứ cấp gói trả phí được dùng thương mại và Kuaishou có licence rộng trên nội dung | Gói free có watermark hiện **[thứ cấp]** | Có, mua theo gói tài nguyên |
-| **MiniMax** (H3; Hailuo 2.3/02 là "Legacy") | Có | H3 768P $0.08/s → ~$0.40; Hailuo-2.3 1080P 6 s $0.49; 2.3-Fast 1080P 6 s $0.33 | Hailuo: 6/10 s | Chưa đọc ToS | Trang giá không nói | Có |
-| **Pika 2.2 / 2.5** | Pika 2.2 còn trên fal.ai; Pika không có API riêng rõ ràng | **[thứ cấp]** fal: 5 s 720p $0.20, 1080p $0.45 | 5–10 s | Chưa đọc | — | Qua fal.ai |
-| **ByteDance Seedance 2.0** (BytePlus ModelArk) | Có | **[thứ cấp, dẫn trang giá BytePlus]** 5 s 16:9: 720p ~$0.76, 1080p ~$1.87; Fast 720p ~$0.60 | — | Chưa đọc | — | Có (ModelArk) |
-| **Alibaba Wan 2.2** (mở) | Trọng số Wan 2.2 có thật; Wan 2.6/2.7/3.0 không có trọng số mở được xác nhận **[thứ cấp]** | Tự chạy (chi phí GPU) | ~5 s | "The models in this repository are licensed under the Apache 2.0 License."; "We claim no rights over the your generated contents" (https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B) | Không có | Tự host |
-| **LTX-2** (Lightricks, mở) | Có | Tự chạy | — | "ltx-2-community-license-agreement": doanh nghiệp có "annual revenues of at least $10,000,000" phải "obtain a paid commercial use license"; "Licensor claims no rights in the Output you generate using LTX-2" | Không | Tự host |
-| **HunyuanVideo-I2V** (Tencent, mở) | Có | Tự chạy | — | Territory: "the worldwide territory, excluding the territory of the European Union, United Kingdom and South Korea."; trên 100 triệu MAU phải xin giấy phép | Không | Tự host. **Rủi ro** nếu bán phim ở EU/UK/Hàn: nên loại |
-| **Stable Video Diffusion** | Trọng số còn trên HF | Tự chạy | ~2–4 s (25 khung) | "License: stable-video-diffusion-community"; theo Community License (ngưỡng $1M doanh thu/năm) | Không | Tự host; chất lượng thấp hơn hẳn các mô hình 2026 |
-| **OpenAI Sora / Videos API** | **ĐÃ TẮT** | — | — | https://developers.openai.com/api/docs/deprecations: "On March 24th, 2026, we notified developers using the Videos API and Sora 2 video generation model aliases and snapshots" "of their deprecation and removal from the API on September 24, 2026." Áp dụng cho `sora-2`, `sora-2-pro` và các snapshot; trang không nêu mô hình thay thế | — | Không |
-
----
+## C. (đã cắt)
+AI-5: bỏ theo quyết định chủ dự án 18/10 20:30; phần tra cứu nhà cung cấp video đã xoá khỏi tệp này.
 
 ## D. YouTube
 
@@ -124,7 +104,6 @@ Nguồn: https://support.google.com/youtube/answer/14328491
   - "Cloning one's own voice to create voice overs or dubs"
 - Trang **không có** ví dụ nào về sky/sea hay sự kiện lịch sử.
 - Cách nhãn hiển thị: với "non-photorealistic or animated content" thì "Labels may appear in the expanded description"; với nội dung photorealistic thì "a label in the video player may also appear".
-- **Diễn giải cho Cine Lab:** phim hoạt hình phong cách hoá, không photoreal, thuộc nhóm "non-realistic", nên phần hình nói chung không bắt buộc khai báo. Tuy vậy, nếu cảnh I2V trông thật và tả một địa điểm hay sự kiện có thật (cảng, trận đánh, khói ở một thành phố cụ thể), nó gần với ví dụ "extra footage of a real place" và "alters footage of a real event". Giọng tổng hợp đọc lời nhân chứng có thật cũng gần với "real person appear to say". **Khuyến nghị: bật khai báo** để an toàn; với hoạt hình, nhãn chỉ nằm trong mô tả.
 
 ### D2. Kiếm tiền: "inauthentic content"
 Nguồn: https://support.google.com/youtube/answer/1311392
@@ -151,15 +130,8 @@ Nguồn: https://support.google.com/youtube/answer/1311392
 2. **Giọng:**
    - Dùng ElevenLabs gói trả phí (Creator $22 để có MP3 192 kbps; Pro nếu cần PCM 44.1 kHz), mô hình "v3"/"v4" ở $0.08/1K ký tự, với giọng tổng hợp, **không** nhân bản giọng người thật.
    - Ghi rõ "synthetic voice" trong mô tả và credits, đồng thời bật khai báo AI trên YouTube.
-3. **I2V (chỉ cảnh phi sự thật):**
-   - Ưu tiên **Veo 3.1 Fast/Lite** (rẻ, có SynthID; điều khoản "won't claim ownership") hoặc **Runway gen4.5** (điều khoản sở hữu và thương mại rõ nhất).
-   - **Luma Ray3.2** chỉ khi duy trì gói thuê bao có quyền thương mại.
-   - Nếu tự host: **Wan 2.2 (Apache 2.0)** là sạch nhất về giấy phép; LTX-2 dùng được khi doanh thu dưới $10M.
-   - Loại HunyuanVideo (không có quyền ở EU/UK/KR) và Sora (đã tắt từ 24/09/2026).
-   - Mọi cảnh I2V phải qua cổng chất lượng về liền mạch phong cách với khung hình render gốc.
 4. **Việc cần chủ dự án hoặc người kiểm tay:**
    - Đối chiếu nguyên văn các điều khoản then chốt.
-   - Mở các trang bị chặn: Kling, BytePlus pricing, Adobe, Stability pricing.
    - Xác nhận đơn vị tính tiền SFX của ElevenLabs bằng một lần tạo thử có giám sát.
 
 ---
@@ -174,7 +146,6 @@ Nguồn: https://support.google.com/youtube/answer/1311392
 5. https://elevenlabs.io/docs/eleven-creative/audio-tools/audio-detector
 6. https://stability.ai/community-license-agreement
 7. https://huggingface.co/stabilityai/stable-audio-open-1.0
-8. https://huggingface.co/stabilityai/stable-video-diffusion-img2vid-xt
 9. https://github.com/facebookresearch/audiocraft/blob/main/LICENSE_weights
 10. https://huggingface.co/cvssp/audioldm2
 11. https://huggingface.co/declare-lab/tango2
@@ -184,29 +155,14 @@ Nguồn: https://support.google.com/youtube/answer/1311392
 15. https://freesound.org/help/tos_api/
 16. https://ai.google.dev/gemini-api/docs/pricing
 17. https://ai.google.dev/gemini-api/docs/video
-18. https://ai.google.dev/gemini-api/docs/veo
 19. https://ai.google.dev/gemini-api/terms
-20. https://docs.dev.runwayml.com/guides/pricing/
-21. https://docs.dev.runwayml.com/guides/models/
-22. https://runway.com/terms-of-use
-23. https://lumalabs.ai/api/pricing
-24. https://lumalabs.ai/legal/tos
-25. https://platform.minimax.io/docs/guides/pricing
 26. https://developers.openai.com/api/docs/deprecations
-27. https://huggingface.co/Lightricks/LTX-2
-28. https://huggingface.co/Lightricks/LTX-2/blob/main/LICENSE
-29. https://huggingface.co/tencent/HunyuanVideo-I2V/blob/main/LICENSE
-30. https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B
 31. https://support.google.com/youtube/answer/14328491 và https://support.google.com/youtube/answer/1311392
 
 ### Bị chặn hoặc trống: 7
 - https://platform.stability.ai/pricing (JS, trống)
 - helpx.adobe.com (Firefly sound effects, 403)
-- https://kling.ai/document-api/productBilling/billingMethod (JS, trống)
-- https://docs.dev.runwayml.com/api/ (bị cắt)
-- https://docs.byteplus.com/en/docs/ModelArk/1544106 (không có bảng giá)
 - https://elevenlabs.io/blog/synthid (404)
 - help.elevenlabs.io (403)
 
 ### Tìm kiếm web: 9 truy vấn
-Gồm Stable Audio 2.5, Adobe Firefly, Mirelo, Kling ToS, Kling giá, Seedance giá, Pika, ElevenLabs C2PA và Wan. Các số liệu lấy từ tìm kiếm được đánh dấu **[thứ cấp]**.
