@@ -11,9 +11,9 @@ Nhánh thật: `pt4-song` (đúng lệnh) — tạo từ `origin/pt2-lai` @ `d0a
 | Loại phiên | R&D PT4 | đúng |
 | Nhánh | `pt4-song` từ `origin/pt2-lai` (@d0a3b36) | đúng; ghi ở dòng đầu |
 | Tệp được sửa | CHỈ `design/pt/**` + `reports/pt4/**`; không `design/pt3/` | mới `design/pt/song/**` (7 tệp); sửa `design/pt/scene/build_scene.py` **chỉ thêm nhánh `PT4=1`** (mặc định ra đúng cảnh PT2 — kiểm: vùng bảo vệ 1782 dựng lại ⊂ mặt nạ PT2, lệch 0,016 % khung); mới `reports/pt4/**`. Không chạm `design/pt3/`, `main`, `scripts/`, `checks/`, `docs/`, `channel-*/` (chỉ đọc) |
-| Trần | Claude ≤ $3 · OpenAI ≤ $2 (chỉ tấm C 1943) · YouTube 0 · EL 0 · máy ≤ 6 h | **$2,458** (42 lượt chấm mù) · **$0,0629** (1 lệnh, tấm C 1943 lần 2) · **0** · **0** · **≈ 4,1 h tiến trình** (§7) |
+| Trần | Claude ≤ $3 · OpenAI ≤ $2 (chỉ tấm C 1943) · YouTube 0 · EL 0 · máy ≤ 6 h | **$2,458** (42 lượt chấm mù) · **$0,0629** (1 lệnh, tấm C 1943 lần 2) · **0** · **0** · **≈ 4,0 h tiến trình** (§7) |
 | Preflight | bắt buộc; che email; không in/ghi khoá | `tools/preflight.sh` **ĐẠT** mọi commit; `checks/lock.py --verify` **KHỚP**. Khoá OpenAI do proxy gắn (mã không đọc biến khoá); khoá Claude chỉ qua biến môi trường cho `claude -p` |
-| Video / ảnh | 540p ≤ 15 MB, không LFS; ảnh ≤ 30 MB | 2 video 540p **3,7 + 3,3 MB**; ảnh **≈ 17 MB** (§7) |
+| Video / ảnh | 540p ≤ 15 MB, không LFS; ảnh ≤ 30 MB | 2 video 540p **3,6 + 3,3 MB**; ảnh **20,6 MB** (§7) |
 | Kinh thánh §11.3 (HC1–HC9) | luật | **Không tìm thấy §11.3/HC7–HC9 trong repo** (`docs/BIBLE-KENH2.md` ở mọi nhánh chỉ tới §9). Phiên áp các rào nêu trong lệnh: C chỉ bề mặt, ghép lại lớp dữ kiện A, lớp sống tự dựng, kiểm dữ kiện 0 lỗi, nhãn; người ≥ 10 m, không cận mặt, không người ngã/chết — cộng HC1–HC6 của PT2 |
 | Dừng | không dừng hỏi giữa chừng | xong việc; câu hỏi không chặn tự quyết, liệt kê §12 |
 
@@ -130,9 +130,9 @@ Giao thức như PT2: `claude -p` ghim **claude-sonnet-5-5** (sổ ghi phục v�
 | Claude API | $3 | **$2,458** (42 lượt: 24 vòng 1 + 18 vòng 2; `kiem-mu*/cost.jsonl`) |
 | OpenAI API | $2 | **$0,0629** (1 lệnh `/v1/images/edits`, `reports/pt4/ai-c/goi-api.jsonl`) |
 | YouTube / ElevenLabs | 0 / 0 | 0 / 0 |
-| Giờ máy | ≤ 6 h | **≈ 4,1 h tiến trình** (sổ 14 735 s ≈ 4,09 h + ≈ 4 phút lượt thử không ghi sổ), ≈ 3,6 h đồng hồ: sprite 1782 bị cắt ở 30 phút (1 800 s, giữ 20 EXR) + 1 258 s tiếp, sprite 1943 3 177 s (chạy song song nền A 1943 1 986 s — tranh lõi làm cả hai chậm), nền A 1782 995 s + d2 cũ 249 s, thử sprite ≈ 1 000 s, thử ghép/lớp sống ≈ 900 s, sản xuất 2 lượt ≈ 2 600 s |
-| Dung lượng | video ≤ 15 MB; ảnh ≤ 30 MB | video **3,7 + 3,3 MB**; ảnh **≈ 17 MB** (tấm C 1943 gốc 4,3 MB bắt buộc lưu) |
-- **Dòng COST-LEDGER đề xuất (P ghi):** `PT4-01,khung neo LAI nâng sự sống + không khí (P2-1…P2-6),R&D,2026-10-18,,,,,2.46,3,claude-sonnet-5-5,0,0,≈ 4,1,,0,20,OpenAI $0.063 (gpt-image-2.5-sunburst ×1),reports/pt4/PT4-BAO-CAO.md,YouTube 0; không merge`
+| Giờ máy | ≤ 6 h | **≈ 4,0 h tiến trình** (sổ 14 081 s ≈ 3,91 h + ≈ 4 phút lượt thử không ghi sổ), ≈ 3,7 h đồng hồ: sprite 1782 bị cắt ở 30 phút (1 800 s, giữ 20 EXR) + 1 258 s tiếp, sprite 1943 3 177 s (chạy song song nền A 1943 1 986 s — tranh lõi làm cả hai chậm), nền A 1782 995 s + d2 cũ 249 s, thử sprite ≈ 1 000 s, thử ghép/lớp sống ≈ 900 s, sản xuất 2 lượt + khung A cùng màu ≈ 2 900 s |
+| Dung lượng | video ≤ 15 MB; ảnh ≤ 30 MB | video **3,6 + 3,3 MB**; ảnh **20,6 MB** (tấm C 1943 gốc 4,3 MB bắt buộc lưu) |
+- **Dòng COST-LEDGER đề xuất (P ghi):** `PT4-01,khung neo LAI nâng sự sống + không khí (P2-1…P2-6),R&D,2026-10-18,,,,,2.46,3,claude-sonnet-5-5,0,0,≈ 4,0,,0,20,OpenAI $0.063 (gpt-image-2.5-sunburst ×1),reports/pt4/PT4-BAO-CAO.md,YouTube 0; không merge`
 
 ## 8. Việc chuyển vào V6 + ước giờ máy
 | # | Việc | Ước giờ máy (4 lõi CPU) |
@@ -167,7 +167,7 @@ Giao thức như PT2: `claude -p` ghim **claude-sonnet-5-5** (sổ ghi phục v�
 - **Chu kỳ đi 8 khung** = ngưỡng ≥ 8 (0 %) ở tốc độ 1×; người chậm (0,75×) có chu kỳ 10,7 khung.
 - **Khoảng cách người tối thiểu 10,0 m** = ngưỡng (luật trong mã).
 - **Bão hoà 1943 trưa 0,278** — cách mốc đối thủ 0,28 −0,7 % (mốc so sánh, không phải ngưỡng); ngưỡng ≤ 0,40 còn −18…−30 %.
-- Không chỉ số nào khác trong ±5 %: Claude $2,458/$3 (−18 %); OpenAI $0,063/$2; giờ máy ≈ 4,1/6 h (−32 %); ảnh ≈ 17/30 MB; video 7,0/15 MB; vùng bảo vệ ≤ 0,0007/1 (/255).
+- Không chỉ số nào khác trong ±5 %: Claude $2,458/$3 (−18 %); OpenAI $0,063/$2; giờ máy ≈ 4,0/6 h (−33 %); ảnh 20,6/30 MB (−31 %); video 6,9/15 MB; vùng bảo vệ ≤ 0,0007/1 (/255).
 - **Lệch luật PT2 HC3 "30–80 người/khung ngày":** PT4 TB 31,6 (1782) / 38,3 (1943) nhưng **tối thiểu 19 / 14** ở đầu đoạn (khi tuyến đi chưa vào khung) — PT4 cố ý giảm người (phiếu "cluttered"); chờ chủ dự án quyết ngưỡng.
 
 ## 11. Tệp
