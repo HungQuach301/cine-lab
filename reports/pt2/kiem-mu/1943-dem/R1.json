@@ -1,0 +1,33 @@
+{
+ "X": {
+  "craft": 3,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "toy_like"
+  ],
+  "note": "Very dark 3D-render look. Walls are smooth and untextured. The ground is a flat plane. The people are black cut-out silhouettes with no definition. About 40% of the frame is a black void on the left. The only visible details are the tiny Union Jack and the balcony railings."
+ },
+ "Y": {
+  "craft": 4,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 4,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Same scene and same underexposure, but with weathered rust-and-plaster wall textures and a cobbled or flagstone ground that catch some light. The people are less visible, so they read less like game assets. The wall texture is blotchy and looks procedural. The left half is still a black void."
+ },
+ "better": "Y",
+ "why": "Y's surface texture on the facade and paving gives it some believable material and weathering, where X's walls and ground are smooth, flat game-engine surfaces.",
+ "top_fix_for_weaker": "Add real surface texture (plaster, stone paving, weathered shutters). Lift the exposure and add practical light sources such as dim lamps or moonlight on the facades. Replace the black cut-out figures with lit, detailed period figures, and fill in the dead left-hand building.",
+ "anachronisms_seen": [
+  "none obvious; the flag is the Union Jack, which is plausible, but it is too tiny to verify",
+  "blackout conditions would be plausible, but the scene reads as a 3D render rather than a photo"
+ ]
+}

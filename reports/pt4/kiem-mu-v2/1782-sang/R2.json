@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The wall textures, rubble and low haze look good. The figures are smooth mannequins with fused crossbelts and no real faces. White trousers on the blue-coated men look like game assets. The crowd is a tight clump in the centre. The black barrel and cannonball stack on the left is a silhouette with no detail. A large dark shadow sits under the lead soldier. The Union flag is the post-1801 version (period issue), though a Union Jack is plausible for 1782 if it shows the 1707 design."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Same strong environment as X. The soldiers are spread out more, in varied poses and with some tricorne-like hats, so the street feels more populated and has more depth. The figures are still stiff, plastic-looking mannequins. The red barrel with a white cross looks odd. A ship is visible on the horizon, and the warm light on the ground adds some life. The figures still look game-like at this scale."
+ },
+ "better": "Y",
+ "why": "Same environment, but Y's more spread-out and varied figures with tricorne-like hats, plus the ship on the horizon, give a more believable populated lane than X's cluster of identical mannequins.",
+ "top_fix_for_weaker": "Replace the mannequin soldiers in X with properly sculpted, individually varied 1782 figures (tricorne hats, faces, cloth folds, muskets, gaiters), spread them across the depth of the lane, and remove the white trousers on the blue-coated men. Also fix the flag to the 1707 Union design and add detail to the black barrel and cannonball props.",
+ "anachronisms_seen": [
+  "Union Jack looks like the post-1801 design",
+  "Blue-coated figures in white trousers and bare heads in X",
+  "Red barrel with a white cross in Y",
+  "Possibly clean, uniform modern-looking shutters"
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The wall materials and lighting are good. The figures are stiff, doll-like game assets with blocky heads and hats, and they are bunched into a clump. The hazy, empty horizon doesn't read as a harbour. The flag floats at mid-height with no clear mast base."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The environment is the same as X. The blue sea and ship in the gap give the street a clear sense of place and depth, and the colours are slightly crisper. The soldiers are still low-poly mannequins with a ghosted, semi-transparent figure at lower left. The crowd is a bit more spread out, and a black barrel and cask add foreground clutter."
+ },
+ "better": "Y",
+ "why": "The environments are essentially identical, but Y's sea and ship vista and slightly more readable soldiers, with a clearer sense of place, make it marginally stronger, even though both are undermined by toy-like mannequin soldiers.",
+ "top_fix_for_weaker": "Replace the clumped, stiff mannequin soldiers in X with fewer, properly modelled and posed figures in period-correct detail, such as tricorns, coats, belts and muskets. Spread them across the street at varied depths. Fill the blank horizon with the bay and shipping, and add atmospheric dust, smoke and ground-level interaction shadows.",
+ "anachronisms_seen": [
+  "Flag looks like the post-1801 Union Jack (red St Patrick's saltire); in 1782 it should be the 1707 flag without the saltire of St Patrick",
+  "Soldiers wear bicorn or round hats in an inconsistent style, with no clear tricorns",
+  "Blue-coated soldiers look like Hanoverian or French troops mixed in without clear logic",
+  "Modern-looking louvred or panelled shutters and plain rectangular windows",
+  "Cross-belts that look flat and painted on"
+ ]
+}

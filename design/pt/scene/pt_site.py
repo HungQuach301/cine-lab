@@ -3,11 +3,21 @@
 import json, math, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 # máy neo: góc đông-nam quảng trường, mép Main Street; nhìn tây-tây-bắc qua quảng trường ra Line Wall và vịnh
-CAM_E, CAM_N = 288244.6, 4002145.8   # mép nam dãy nhà phía bắc quảng trường (cách mặt tiền ~6 m), sát Main Street
-CAM_H = 4.6            # m trên mặt đường (tầng một/ban công — trong dải 2–10 m của lệnh)
-CAM_HEAD = 281.0       # độ, theo phương vị (0 = Bắc, 90 = Đông)
-CAM_PITCH = 2.0        # độ ngẩng lên
-CAM_MM, SENSOR = 32.0, 36.0
+# PT2 (18/10): nhiều máy neo, chọn bằng biến môi trường PT_CAM (mặc định 'pt' = máy PT, kết quả PT không đổi)
+CAMS = {
+    # PT: mép nam dãy nhà phía bắc quảng trường (cách mặt tiền ~6 m), sát Main Street; 1943 = khung neo Commercial Square của PT2
+    'pt': dict(E=288244.6, N=4002145.8, H=4.6, HEAD=281.0, PITCH=2.0, MM=32.0),
+    # PT2 góc mới 1782: hẻm giữa khối Drinkwater K1782-09 (nam) và K1782-10 (bắc), rộng 7–8 m theo bản nắn, đầu đông sát Main Street,
+    # nhìn tây dọc hẻm ra Line Wall (toạ độ đã tính SHIFT 1782 +6 m Đông); trục hẻm lệch nam 1,3° so với hướng tây
+    'k1782': dict(E=288237.2, N=4002030.7, H=3.4, HEAD=268.7, PITCH=1.0, MM=30.0),
+}
+CAMK = os.environ.get('PT_CAM', 'pt')
+_C = CAMS[CAMK]
+CAM_E, CAM_N = _C['E'], _C['N']
+CAM_H = _C['H']        # m trên mặt đường (trong dải 2–10 m của lệnh)
+CAM_HEAD = _C['HEAD']  # độ, theo phương vị (0 = Bắc, 90 = Đông)
+CAM_PITCH = _C['PITCH']   # độ ngẩng lên
+CAM_MM, SENSOR = _C['MM'], 36.0
 GHOST = os.environ.get('PT_GHOST', '/var/tmp/pt/ghost')
 
 def utm(lon, lat, zone=30):

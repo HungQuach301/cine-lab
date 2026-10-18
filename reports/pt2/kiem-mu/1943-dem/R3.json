@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 3,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "toy_like"
+  ],
+  "note": "A very dark CGI night frame. The left third is a black void, and the facade and plaza are flat and untextured. The people are a few faint silhouettes. The Union Jack on its pole and the bay are the only readable elements. It looks like an untextured game-engine render."
+ },
+ "Y": {
+  "craft": 4,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 4,
+  "flags": [
+   "empty_frame",
+   "cluttered"
+  ],
+  "note": "The geometry and framing are identical to X, but it adds weathered stucco, rust stains and cobbled paving that suggest age. It is still far too dark, with the left third pure black and only a handful of faint figures. The texture looks somewhat noisy and blotchy, but it is more believable than X."
+ },
+ "better": "Y",
+ "why": "Y has the same scene with a weathered facade and cobbled paving, so it reads as a real old place, whereas X's surfaces are flat, plastic-looking and game-like.",
+ "top_fix_for_weaker": "Raise exposure and fill light so the left building and plaza are readable. Add surface texture (stucco, stone paving) and clearer, better-lit figures in 1943 dress, so the frame stops looking like an untextured game render.",
+ "anachronisms_seen": [
+  "none clear; the Union Jack is plausible for Gibraltar",
+  "the figures are too dark to judge clothing"
+ ]
+}

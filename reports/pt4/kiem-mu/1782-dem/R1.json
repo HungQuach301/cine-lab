@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 3,
+  "flags": [
+   "empty_frame",
+   "anachronism"
+  ],
+  "note": "Symmetrical 3D-render alley with a strong dusk mood and a few warm lit windows. The walls have peeling-plaster texture. The sky is a flat saturated blue gradient. The lane is mostly black and empty, with only a faint dark figure or bollard shape near the center-right. The Union flag is tiny and looks like the modern 1801 pattern. The buildings are generic Mediterranean blocks with boxy shutters and modern-looking rooflines, and there is no visible siege damage beyond rubble."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 3,
+  "flags": [
+   "empty_frame",
+   "anachronism"
+  ],
+  "note": "Practically the same render as X. The sky is a flat blue with no visible gradient. The lane is just as dark and empty, with only an almost invisible figure far down the street. The same tiny modern-style Union flag, boxy windows and generic architecture. It has no extra people, objects or atmosphere to set it apart."
+ },
+ "better": "tie",
+ "why": "The two frames are nearly identical, with the same geometry, textures, lighting and empty dark lane, and the only differences are a barely visible figure and slightly different sky shading.",
+ "top_fix_for_weaker": "Light the lane, since the ground is a black void. Add visible period life such as soldiers or civilians in 1780s dress, carts, barrels, lanterns and smoke or dust, plus siege damage like shell holes and shuttered or boarded windows. Use a correct 1707-pattern Union flag at a readable size.",
+ "anachronisms_seen": [
+  "Union flag looks like the post-1801 pattern with St Patrick's saltire",
+  "uniform boxy shutters and window openings that look modern",
+  "clean, regular rooflines and eaves that look modern",
+  "no visible siege damage or 1782 garrison life"
+ ]
+}

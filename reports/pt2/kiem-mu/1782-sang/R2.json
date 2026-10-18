@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 3,
+  "toy_like": 7,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "The weathered, bombarded plaster, exposed brick, rubble, barrels and warm glowing doorways make a convincing siege-damaged street with believable materials and lighting. The figures spoil it: they are stiff, clustered, mannequin-like game assets with flat uniform colours, and one is ghostly and semi-transparent. A dark blocky glitch sits in the middle of the lane, and some wall damage looks a little too procedural."
+ },
+ "Y": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 3,
+  "toy_like": 8,
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "The walls are clean, flat, blue-grey slabs with no weathering, no siege damage and almost no texture. The cobbles are a uniform noisy pattern with a neat kerb, and there is almost no debris. This reads as a sterile CG blockout, not a besieged town. The same stiff, toy-like soldiers stand in it, now fully visible and clearly doll-like."
+ },
+ "better": "X",
+ "why": "X's textured, damaged, atmospheric walls and rubble sell a besieged town, while Y is a sterile, flat-shaded blockout that exposes the toy-like figures even more.",
+ "top_fix_for_weaker": "Add heavy weathering to Y's walls (peeling lime plaster, exposed rubble and brick, cannon-shot damage, stains), replace the uniform cobble texture with uneven dirt and rubble, add props and varied warm and cool light, and rework the soldiers with varied poses, spacing and fabric detail.",
+ "anachronisms_seen": [
+  "Union Jack with a modern-looking flag design, though plausibly the 1606 Union flag, which is fine; the flag is tiny and unreadable",
+  "Soldier figures with uniform mannequin-like hats and cross-belts that look generic rather than 1782 regimental detail",
+  "Very regular, machine-straight window and shutter openings in Y that look modern",
+  "Spotless smooth rendered facades in Y are inconsistent with a town under siege"
+ ]
+}

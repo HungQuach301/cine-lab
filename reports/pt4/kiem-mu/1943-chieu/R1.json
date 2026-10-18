@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Rich peeling-plaster walls and warm light, but the figures are flat, semi-transparent cutout silhouettes with uniform grey and blue colouring. They look pasted on and don't sit in the scene's lighting or shadows. A ship and a flag are visible at the harbour end. The saturated orange texture is over-uniform and CG-looking."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 5,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "Atmospheric haze gives depth, and the stone courses, cornices and plaster wear read as more believable architecture. The warm light and long shadows work well. The figures are still dark, low-detail mannequins, but the haze hides most of the flaws and they blend in better. The harbour and ship are almost washed out, so the sea setting is lost."
+ },
+ "better": "Y",
+ "why": "Y has more convincing wall materials, atmospheric depth and better-integrated crowd figures, while X's cutout-looking people and over-saturated walls look more like game assets.",
+ "top_fix_for_weaker": "Replace the flat, translucent figure sprites with properly lit, grounded 3D or photo-composited people in varied period dress (khaki battledress, civilian suits and hats, Gibraltarian women). Give them contact shadows that match the light direction, and reduce the wall saturation and repeated orange blotches.",
+ "anachronisms_seen": [
+  "Union Jack flag has no clear 1943 context (a Red Ensign or garrison flag would be equally plausible)",
+  "figures too uniform and indistinct to confirm 1943 uniforms or dress",
+  "modern-looking blue box or kiosk at the street end",
+  "balcony railings and shutters look generic Mediterranean rather than specifically Gibraltarian"
+ ]
+}

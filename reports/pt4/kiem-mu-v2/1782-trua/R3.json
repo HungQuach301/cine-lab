@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The walls are strong, but the figures look like pasted game assets. Some have arms raised in odd poses, bodies are muddled and blended together, and some have no clear faces. The crowd bunches up in the foreground, and the uniform colours are muddy blue and red. The Union Flag is tiny, and the ship in the harbour is barely visible."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "The lane and lighting are the same as in X, and the harbour is clearer. The figures are stiff, doll-like game assets with grey legs and visible ghosting or semi-transparent smearing on the left. A black barrel blocks the foreground. The soldiers form a loose marching column, which reads more clearly than X's crowd."
+ },
+ "better": "Y",
+ "why": "Y has the same strong set, but its soldiers read more clearly as a column and the harbour and ship are easier to see, even though both frames have toy-like figures and Y has a ghosting glitch.",
+ "top_fix_for_weaker": "Replace the pasted figures with properly lit, grounded soldiers in a small number of clear poses. Give them contact shadows, correct scale and period-accurate coats, and remove the raised-arm poses and the overlapping bodies.",
+ "anachronisms_seen": [
+  "Union Flag with the post-1801 cross of St Patrick is not visible. The small flag looks like the 1606 Union Flag, which is plausible for 1782.",
+  "Blue-and-red mixed uniforms look generic, and some soldiers are in blue coats, which suggest Hanoverian or other troops rather than a clear British line.",
+  "Tricorne hats look flat or like bicorns on some figures.",
+  "Shuttered windows and rendered facades look more Mediterranean-colonial than a bombed 1782 Gibraltar lane, and the buildings are not visibly damaged by the siege."
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The atmospheric haze, backlight and warm dirt road give depth, and the weathered walls are convincing. The figures are flat, cut-out-looking game assets with odd proportions and unclear poses. The foreground figure is a dark, faceless silhouette. The hazy sky and distant bay read well. The Union Flag in 1782 is a period problem."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "The environment is identical to X, but the sky is flat and clean and the haze is gone, so depth drops. The soldiers are a dense, repetitive crowd of identical low-poly sprites in red and blue with white cross-belts, and they merge in the midground. Figures are tiny and read poorly on a small screen. The Union Flag is the same period issue."
+ },
+ "better": "X",
+ "why": "X has the same strong environment but fewer, more readable figures plus atmospheric haze, while Y's repetitive crowd of toy-like soldiers is cluttered and flatter.",
+ "top_fix_for_weaker": "Thin the crowd to about 6\u20138 distinct, properly modelled soldiers with varied poses, uniform details and spacing. Restore the haze and depth falloff, and add foreground figures that are lit and not just silhouettes.",
+ "anachronisms_seen": [
+  "Union Jack with the post-1801 design (St Patrick's cross) on the flagpole, whereas 1782 flags would be the 1606 Union without St Patrick's saltire",
+  "Uniform-look soldiers in blue coats with white cross-belts and tricorn/bicorne-style hats look generic and inconsistent with 1782 regimental coats",
+  "Shutters and window frames look like generic modern game-asset geometry"
+ ]
+}

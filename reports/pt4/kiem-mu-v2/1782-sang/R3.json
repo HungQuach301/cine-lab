@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "cluttered"
+  ],
+  "note": "The wall textures are strong and the light is good. The figures are stiff, mannequin-like and plastic, with smooth blank faces, white legs and a flat red/blue palette. The soldiers bunch up in the centre and the foreground shadow is odd. The black barrels and cannonballs read as game assets. The tall pole with a Union Jack is the flag from 1801 onwards, so it is wrong for 1782."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "cluttered"
+  ],
+  "note": "The environment is identical to X. The figures are even more doll-like, with thin stick legs, floating feet and cross-belts painted on flat. Some figures have missing or odd heads. The clump of figures looks like a pasted-in crowd. The brown civilian is a nice variety touch. The ship on the horizon adds some context. It has the same wrong 1801 Union Jack."
+ },
+ "better": "X",
+ "why": "The environment is identical, but X's figures are slightly more solid and grounded, with a clearer red/blue read and less of the floating, stick-legged crowd that makes Y look more like a game.",
+ "top_fix_for_weaker": "Replace the stick-legged mannequin figures with properly scaled, grounded period soldiers in fewer, more varied groups with correct tricorne hats, coats and gaiters, and contact shadows. Swap the 1801 Union Jack for the 1782 King's Colours or a Hanoverian/Royal ensign.",
+ "anachronisms_seen": [
+  "Union Jack with the Irish saltire (post-1801) on a tall flagpole",
+  "Red cross-belts drawn as flat white X shapes on the chest",
+  "Clean, modern-looking black cylindrical barrels",
+  "White trousers or leggings on the blue-coated figures, which look like modern tights"
+ ]
+}

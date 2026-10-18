@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "Clean but sterile CG. Walls are smooth flat colour, like an architectural viz or game level. Pavement is a uniform blue-grey with no texture. Ghostly semi-transparent figures in the foreground are a visible render bug. The crowd is a stiff mannequin cluster."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 5,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Same geometry and crowd, but weathered plaster, peeling paint, stained stone, real cobbles and raking light give it a believable lived-in Mediterranean street. Walls are somewhat over-saturated orange. The identical mannequin crowd is the weak point: stiff, uniform poses, sitting on the ground without proper contact shadows. The ghost figures are gone."
+ },
+ "better": "Y",
+ "why": "Y's textured, weathered buildings and cobbles make the scene feel real, while X's flat untextured surfaces and transparent ghost figures look like an unfinished game level.",
+ "top_fix_for_weaker": "Add weathering and texture to the plaster and pavement, as Y does. Remove the semi-transparent ghost figures. Then replace the mannequin crowd with varied poses and grounded contact shadows.",
+ "anachronisms_seen": [
+  "No glaring ones",
+  "Modern-looking clean railings and shutters in X",
+  "Uniform, generic crowd uniforms with unclear period accuracy",
+  "Tiny ship and flag are barely legible"
+ ]
+}

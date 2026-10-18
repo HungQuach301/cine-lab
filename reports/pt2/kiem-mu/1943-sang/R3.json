@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The weathered stucco with peeling paint, the warm raking light and the cobbles are rich and atmospheric. Some of the wall texture is over-saturated, with orange and pink blotches that look procedural. The figures are the weak point: stiff, faceless mannequins in identical poses, clustered in the middle."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 4,
+  "period": 6,
+  "ai_look": 3,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "The walls are clean, flat-shaded and uniform, which reads as a game-engine or CAD render. The cobbles are replaced by smooth blue-grey paving with a visible hard shadow edge. The tonal palette is more coherent and the figures are readable, but they are the same mannequins, and the wall mass is bland."
+ },
+ "better": "X",
+ "why": "X has far richer material detail and lighting that make the street feel lived-in, and both frames have the same toy-like mannequin crowd, so the difference comes down to the surfaces.",
+ "top_fix_for_weaker": "Add weathering to the facades (stucco patina, stains, uneven paint, shutter wear) and put real cobble texture and variation on the ground. Then replace the identical mannequin figures with varied, properly posed people.",
+ "anachronisms_seen": [
+  "Uniformly clean, modern-looking plaster and stone trim on Y, which looks new rather than 1943",
+  "Identical, faceless uniformed figures with inconsistent uniforms, such as sky-blue tunics that look more RAF or modern than 1943 khaki",
+  "Frame shows no wartime signage, blackout measures or military vehicles typical of Gibraltar in 1943",
+  "Black-painted iron balcony railings that look modern and generic"
+ ]
+}
