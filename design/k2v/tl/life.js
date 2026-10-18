@@ -36,10 +36,26 @@ export function life(spec, ctx) {
       const byC = cols.map((c, k) => { const S = P.filter((p) => p.col === k); const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(c) }), mh = new THREE.MeshLambertMaterial({ color: 0x1e1b18 }); maskify(mb, ctx.U, 1); maskify(mh, ctx.U, 1);
         const ib = new THREE.InstancedMesh(body, mb, Math.max(1, S.length)), ih = new THREE.InstancedMesh(hat, mh, Math.max(1, S.length)); ib.castShadow = ih.castShadow = true; group.add(ib, ih); return { S, ib, ih }; });
       let shown = 0;
-      parts.push({ kind: 'nguoi', n, update(t, zones) { shown = 0; for (const { S, ib, ih } of byC) { S.forEach((p, i) => { const [e0, n0, hd] = along(w.pts, C, p.s + p.sp * t), nn = [-Math.sin(hd), Math.cos(hd)], e = e0 + nn[0] * p.lat, n_ = n0 + nn[1] * p.lat;
-          const hidden = zones && zones.some((z) => Math.hypot(e - z.c[0], n_ - z.c[1]) < z.r + 15); const k = w.scale || 1;
+      // V5b-2d (C2-7): w.near (m) — người ĐƠN chỉ hiện trong tầm near quanh máy; xa hơn → ẩn (đám đông ở tầm xa do spec.crowds đảm nhận, không phóng to người)
+      parts.push({ kind: 'nguoi', n, update(t, zones) { shown = 0; const cp = ctx.cam ? ctx.cam.position : null; for (const { S, ib, ih } of byC) { S.forEach((p, i) => { const [e0, n0, hd] = along(w.pts, C, p.s + p.sp * t), nn = [-Math.sin(hd), Math.cos(hd)], e = e0 + nn[0] * p.lat, n_ = n0 + nn[1] * p.lat;
+          const far = w.near && cp && Math.hypot(e - cp.x, n_ + cp.z, (w.y != null ? w.y : 0) - cp.y) > w.near;
+          const hidden = far || (zones && zones.some((z) => Math.hypot(e - z.c[0], n_ - z.c[1]) < z.r + 15)); const k = w.scale || 1;
           v.set(e, (w.y != null ? w.y : hAt(e, n_)) + Math.abs(Math.sin(t * 7 + p.ph)) * 0.06, -n_); q.setFromAxisAngle(Y, hd + (p.sp < 0 ? Math.PI : 0)); sc.set(hidden ? 0 : k, hidden ? 0 : k, hidden ? 0 : k); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); shown += hidden ? 0 : 1; });
           ib.instanceMatrix.needsUpdate = ih.instanceMatrix.needsUpdate = true; } return shown; } });
+    }
+  }
+  // --- V5b-2d (C2-7): ĐÁM ĐÔNG — cụm người dày đi chậm theo tuyến (đọc được ở tầm ≥ 150 m mà KHÔNG phóng to người: cụm 12–60 người, cách 0,8 m) ---
+  if (spec.crowds) {
+    const body = new THREE.BoxGeometry(0.5, 1.35, 0.34).translate(0, 0.68, 0), hat = new THREE.BoxGeometry(0.44, 0.28, 0.44).translate(0, 1.54, 0);
+    for (const cw of [].concat(spec.crowds)) {
+      const C = cum(cw.pts), L = C[C.length - 1], cols = cw.colors || ['#b03a2e', '#e7e0cf', '#5e4a38'], M = [];
+      for (let g = 0; g < (cw.groups || 8); g++) { const s0 = (g + R() * 0.6) / (cw.groups || 8) * L, sz = Math.round((cw.size || [12, 40])[0] + R() * ((cw.size || [12, 40])[1] - (cw.size || [12, 40])[0])), sp = (cw.speed || 0.6) * (R() < 0.5 ? 1 : -1) * (0.6 + 0.6 * R());
+        const rad = Math.sqrt(sz) * 0.55; for (let k = 0; k < sz; k++) { const a = R() * 6.283, rr = Math.sqrt(R()) * rad; M.push({ g, s0, sp, dx: Math.cos(a) * rr * 1.6, dy: Math.sin(a) * rr * 0.8, col: Math.floor(R() * cols.length), ph: R() * 6.28 }); } }
+      const byC = cols.map((c, k) => { const S = M.filter((p) => p.col === k); const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(c) }), mh = new THREE.MeshLambertMaterial({ color: 0x1e1b18 }); maskify(mb, ctx.U, 1); maskify(mh, ctx.U, 1);
+        const ib = new THREE.InstancedMesh(body, mb, Math.max(1, S.length)), ih = new THREE.InstancedMesh(hat, mh, Math.max(1, S.length)); ib.castShadow = ih.castShadow = true; group.add(ib, ih); return { S, ib, ih }; });
+      parts.push({ kind: 'dam_dong', n: M.length, update(t, zones) { let shown = 0; for (const { S, ib, ih } of byC) { S.forEach((p, i) => { const [e0, n0, hd] = along(cw.pts, C, p.s0 + p.sp * t), u = [Math.cos(hd), Math.sin(hd)], e = e0 + u[0] * p.dx - u[1] * p.dy, n_ = n0 + u[1] * p.dx + u[0] * p.dy;
+          const hidden = zones && zones.some((z) => Math.hypot(e - z.c[0], n_ - z.c[1]) < z.r + 15); v.set(e, hAt(e, n_) + Math.abs(Math.sin(t * 6 + p.ph)) * 0.04, -n_); q.setFromAxisAngle(Y, hd + (p.sp < 0 ? Math.PI : 0) + Math.sin(p.ph) * 0.6);
+          sc.set(hidden ? 0 : 1, hidden ? 0 : 1, hidden ? 0 : 1); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); shown += hidden ? 0 : 1; }); ib.instanceMatrix.needsUpdate = ih.instanceMatrix.needsUpdate = true; } sc.set(1, 1, 1); return shown; } });
     }
   }
   // --- thuyền nhỏ + vệt sóng ---

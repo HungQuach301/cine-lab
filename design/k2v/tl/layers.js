@@ -10,6 +10,7 @@ import { THREE, rng, loadJSON, maskify } from './core.js';
 import { makeCity } from './city.js';
 import { walls, roof } from './geom.js';
 import { fortify, wallRing } from './fort.js';   // V5b-2c: M5 thành luỹ tham số
+import { gardens, landmarks } from './props.js';   // V5b-2d: vườn có nguồn + điểm nhấn
 
 // V5b-2c: màu phe theo B6 (chủ dự án duyệt 17/10, cố định cả series, BD-7 — 3D và bản đồ chiến lược cùng một màu): Anh đỏ gạch, TBN vàng đất, Pháp lam; dân thường kem
 export const FACTION = { es: '#c9a227', fr: '#2e5c8a', gb: '#b03a2e', civ: '#efe6cf', neutral: '#a89f8a' };   // nhận diện kênh: cam = Pháp–TBN, lục lam = đồn trú; KHÔNG đỏ máu (§6.2)
@@ -39,6 +40,7 @@ export async function footprints(specs, ctx) {
     const L = await loadJSON(`${ctx.base}layers/${sp.file}.json`);
     const recs = L.records.map((r) => { const base = r[3] != null ? r[3] : Math.min(...r[6].map(([e, n]) => ctx.terr.hAt(e, n))); return [r[0], r[1], r[2], Math.max(0.3, base), r[4], r[5], r[6], r[7]]; });
     if (sp.remap) for (let i = 0; i < recs.length; i++) recs[i] = sp.remap(recs[i]);
+    if (sp.keep) { const k = recs.filter(sp.keep); recs.length = 0; recs.push(...k); }   // V5b-2d: lọc bản ghi (C2-2 bỏ lấp ước tính ở tiền cảnh gần)
     if (sp.largest) { const ar = (q) => Math.abs(q.reduce((a, p, i) => a + p[0] * q[(i + 1) % q.length][1] - q[(i + 1) % q.length][0] * p[1], 0)) / 2; recs.sort((a, b) => ar(b[6]) - ar(a[6])); recs.length = 1; }   // V5b-2c: King's Bastion = vòng lớn nhất (vòng nhỏ trong là toà/bậc thang hiện đại)
     const c = sp.fort ? fortify(recs.map((r) => (sp.h ? Object.assign(r.slice(), { 2: sp.h }) : r)), ctx, Object.assign({ hid: sp.hid || 0 }, sp.fortOpt || {})) : makeCity(recs, ctx.U, { lod: true, hid: sp.hid || 0, ghostDesat: sp.ghostDesat ?? 0.22 }); group.add(c.group);
     list.push({ recs, name: L.name, kind: L.kind, src: sp.src || L.src, years: sp.years || L.years, period: L.period, n: L.n, city: c, yearMax: L.kind === 'ghost' ? (sp.years || L.years)[0] : Math.max(...L.records.map((r) => r[0] < 9999 ? r[0] : 0)) });
@@ -143,7 +145,14 @@ export function smoke(specs, ctx) {
       const life = (sp.period || 0.12) * age; p.s.position.set(sp.at[0] + d[0] * life / (sp.period || 0.12) * 6 + p.j[0] * sz * 0.6, sp.at[1] + (p.fire ? sz * 0.2 : (sp.rise || 60) * age + sz * 0.3), -(sp.at[2] + d[1] * life / (sp.period || 0.12) * 6 + p.j[1] * sz * 0.6));
       p.s.scale.set(sz, sz, 1); p.m.opacity = p.fire ? 0.85 * (sp.fire || 0) : Math.min(1, age * 5) * (1 - age) * (sp.alpha ?? 0.85); p.s.visible = true; } } },
     // vùng khói (hình chiếu tròn trên mặt đất, m) — cảnh kiểm KHÔNG có người/xe A-lite trong vùng này (luật hình chiến tranh §6.2)
-    zones(tv) { return list.filter(({ sp }) => tv >= sp.t[0] && tv <= sp.t[1]).map(({ sp }) => ({ c: [sp.at[0], sp.at[2]], r: (sp.size || 40) * 2.5 + 30, fire: !!sp.fire })); } };
+    // V5b-2d: sp.zone === 'path' → vùng CHÍNH XÁC theo hình học cụm (chuỗi vòng dọc đường trôi at → at + 6·drift, bán kính = nửa cỡ cụm lớn nhất tại đó + lệch jitter 0,3·cỡ + 2 m);
+    //  mặc định giữ công thức bảo thủ cũ (size·2,5 + 30) cho các cảnh đã đo.
+    zones(tv) { return list.filter(({ sp }) => tv >= sp.t[0] && tv <= sp.t[1]).flatMap(({ sp }) => {
+      if (sp.zone !== 'path') return [{ c: [sp.at[0], sp.at[2]], r: (sp.size || 40) * 2.5 + 30, fire: !!sp.fire }];
+      const d = sp.drift || [6, 2], S = sp.size || 40, out = [];
+      for (let k = 0; k <= 4; k++) { const a = k / 4, sz = S * (0.6 + 1.6 * a); out.push({ c: [sp.at[0] + d[0] * 6 * a, sp.at[2] + d[1] * 6 * a], r: 0.8 * sz + 2, fire: !!sp.fire && k === 0 }); }
+      if (sp.fire) out.push({ c: [sp.at[0], sp.at[2]], r: S * 0.45 + 2, fire: true });
+      return out; }); } };
 }
 
 // ---------- V5b-2b (lệnh AE, chủ dự án 17/10): PHỐ 1782 từ ghost của phiên SH (channel-k2/k2c-t3-01/ghost/ghost-1782.geojson, nhánh claude/sh-ghost-gibraltar-t3-1gkftx @ 54185b3) ----------
@@ -151,14 +160,18 @@ export function smoke(specs, ctx) {
 //  King's Bastion lấy footprint OSM — chính xác hơn RMS 21 m), lines1782 (Line Wall + tường nam: gờ đá; Línea de Contravalación: chiến tuyến phe TBN). Feature do_tin = thấp KHÔNG dùng.
 //  Lớp tái dựng 1705 của gói cảnh (V5b-1) bị ẩn: một mốc, một nguồn. Nửa đông phố cổ: bản đồ vẽ sườn đồi không viền → để trống (SH không bịa).
 export const SRC1782 = 'Reconstructed from J. Drinkwater, Plan of the Batteries, 1782';
-export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {} } = {}) {
+// V5b-2d: near = {track: [[E, N]…], r} (C2-2) — KHUNG GẦN (AGL ≤ 150 m): tiền cảnh CHỈ khối có nguồn → bỏ khối lấp ước tính có tâm trong r m quanh vết máy;
+//  extra = lớp extra1782 (so_hoa_v5b2d.py): vườn trong phố (luống + cây chỉ trong vòng vườn) + điểm nhấn (St Mary the Crowned, Convent).
+export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {}, near = null, extra = true, gardenTrees = { 'V1782-02': 16, 'V1782-03': 10 } } = {}) {
   if (hidPack) ctx.city.group.visible = false;
   // V5b-2c (I2): + lớp LẤP ƯỚC TÍNH infill1782 (scripts/k2tl/infill_1782.py, do_tin uoc, tông lệch nhẹ) — dòng phương pháp "Grey-washed blocks: estimated infill" do cảnh hiện
   // bastion của plan (Orange's, Montague, South Bastion, Old Mole…) có ≥ 6 điểm tường OSM trong 75 m → thay vòng bằng bao lồi điểm OSM (vị trí thật), bỏ các điểm đó khỏi tuyến tường
   const H = await loadJSON(`${ctx.base}heroes.json`), osmPts = H.citywalls.flat(), used = [];
   const fortRemap = (r) => { const c = [r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length], near = osmPts.filter((p) => Math.hypot(p[0] - c[0], p[1] - c[1]) < 75);
     if (near.length < 6 || c[1] > 600) return r; const hr = hull2(near); used.push(hr); return Object.assign(r.slice(), { 6: hr }); };
-  const FP = await footprints([{ file: 'ghost1782', ghostDesat: 0.08 }, { file: 'fort1782', fort: true, h: 8, remap: fortRemap }].concat(infill ? [{ file: 'infill1782', ghostDesat: 0.08 }] : []), ctx);   // V5b-2c (I5): giảm bão hoà lớp tái dựng 22 % → 8 % (vẫn nhận ra là tái dựng nhờ nhãn nguồn + tông lệch)
+  const nearStat = { bo: 0, r: near ? near.r : 0 }, keepInfill = near ? (r) => { const c = [r[6].reduce((a, q) => a + q[0], 0) / r[6].length, r[6].reduce((a, q) => a + q[1], 0) / r[6].length];
+    const k = !near.track.some((p) => Math.hypot(p[0] - c[0], p[1] - c[1]) < near.r); if (!k) nearStat.bo++; return k; } : null;
+  const FP = await footprints([{ file: 'ghost1782', ghostDesat: 0.08 }, { file: 'fort1782', fort: true, h: 8, remap: fortRemap }].concat(infill ? [{ file: 'infill1782', ghostDesat: 0.08, keep: keepInfill }] : []), ctx);   // V5b-2c (I5): giảm bão hoà lớp tái dựng 22 % → 8 % (vẫn nhận ra là tái dựng nhờ nhãn nguồn + tông lệch)
   ctx.scene.add(FP.group); ctx.scene.add(FP.group);
   const L = await loadJSON(`${ctx.base}layers/lines1782.json`);
   // V5b-2c (M5): Line Wall + tường nam dựng như tường thành đá (gờ, tường chắn, lỗ châu mai, pháo mỗi 2 lỗ); Línea (đất + đá TBN) giữ gờ chiến tuyến
@@ -194,11 +207,18 @@ export async function town1782(ctx, { hidPack = true, infill = true, kbOpt = {} 
   const cv = document.createElement('canvas'); cv.width = Math.ceil((e1 - e0) / res); cv.height = Math.ceil((n1 - n0) / res); const g = cv.getContext('2d');
   g.fillStyle = '#000'; g.fillRect(0, 0, cv.width, cv.height); g.fillStyle = g.strokeStyle = '#fff'; g.lineWidth = 50 / res; g.lineJoin = 'round';
   for (const r of recs) { g.beginPath(); r.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); g.stroke(); }
+  // V5b-2d: GRAND PARADE (bãi tập đất nện giữa khối K1782-10 và K1782-12/13 trên plan 1782 — mép bãi xấp xỉ theo các khối bao quanh) là NỀN PHỐ, không phải cỏ công viên 2026
+  { const GP = [[-548, -1205], [-470, -1205], [-470, -1128], [-548, -1128]]; g.beginPath(); GP.forEach(([e, n], i) => (i ? g.lineTo : g.moveTo).call(g, (e - e0) / res, (n1 - n) / res)); g.closePath(); g.fill(); }
   // cây 2026 trong phố cổ (trong hộp ghost, dưới 70 m cao độ) ẩn ở mốc 1782 — không có nguồn vườn/cây 1782
   if (ctx.trees && ctx.trees.hideWhere) ctx._treesHid = ctx.trees.hideWhere((e, n) => e > e0 + 40 && e < e1 - 20 && n > n0 + 40 && n < n1 - 40 && ctx.terr.hAt(e, n) < 70);
   g.filter = 'blur(4px)'; g.drawImage(cv, 0, 0); const tx = new THREE.CanvasTexture(cv); tx.minFilter = THREE.LinearFilter;
   const u = ctx.terr.uni; u.tGhostU.value = tx; u.uGhostBox.value.set(e0, n0, e1 - e0, n1 - n0); u.uGhostOn.value = 1; if (ctx.roads) ctx.roads.mesh.visible = false;
-  return { FP, FL, WL, LN, KB, kbRing, infill, INFILL_SRC: 'Grey-washed blocks: estimated infill', update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782 };
+  // V5b-2d: vườn + điểm nhấn có nguồn (extra1782)
+  let GD = null, LM = null, EX = null;
+  if (extra) { try { EX = await loadJSON(`${ctx.base}layers/extra1782.json`); } catch (e) { EX = null; }
+    if (EX) { GD = gardens(EX.features.filter((f) => f.vung === 'pho'), ctx, { trees: gardenTrees, houses: false, seed: 17 }); ctx.scene.add(GD.group); LM = landmarks(EX.landmarks, ctx); ctx.scene.add(LM.group); } }
+  return { FP, FL, WL, LN, KB, kbRing, infill, GD, LM, EX, nearStat, INFILL_SRC: 'Grey-washed blocks: estimated infill', update(year, cam) { FP.update(year, cam); FL.update(year); }, namMax: (y) => FP.namMax(y), src: SRC1782,
+    stat: () => ({ lap_bo_gan: nearStat, vuon: GD ? GD.stat : null, diem_nhan: LM ? LM.stat : null }) };
 }
 
 // ---------- M2 RÚT GỌN (lệnh AC1, chủ dự án 17/10): KHỐI ĐƠN VỊ QUÂN instanced ----------
@@ -215,12 +235,12 @@ export function units(specs, ctx) {
       const d = [b[0] - a[0], b[1] - a[1]], l = Math.hypot(...d) || 1, nn = [-d[1] / l, d[0] / l]; E = a[0] + d[0] * u + nn[0] * (sp.off || 0); N = a[1] + d[1] * u + nn[1] * (sp.off || 0); hd = Math.atan2(d[1], d[0]); }
     else { E = sp.at[0]; N = sp.at[1]; hd = (90 - (sp.heading || 0)) * Math.PI / 180; }
     const rows = sp.rows || 3, cols = sp.cols || 24, R = rng(sp.seed || 7);
-    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) slots.push({ sp, E, N, hd, x: (c - (cols - 1) / 2) * 0.9 + (R() - 0.5) * 0.12, z: (r - (rows - 1) / 2) * 1.3 + (R() - 0.5) * 0.1, k: 0.95 + 0.1 * R() });
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) slots.push({ sp, E, N, hd, x: (c - (cols - 1) / 2) * 0.9 * (sp.sx || 1) + (R() - 0.5) * 0.12 * (sp.sx || 1), z: (r - (rows - 1) / 2) * 1.3 * (sp.sz || 1) + (R() - 0.5) * 0.1 * (sp.sz || 1), k: 0.95 + 0.1 * R() });   // V5b-2d: sx/sz giãn khoảng (kíp pháo quanh bệ)
   }
   const group = new THREE.Group(), mats = {}, meshes = [];
   const byColor = {}; for (const s of slots) { const col = s.sp.color || FACTION[s.sp.side] || FACTION.neutral; (byColor[col] = byColor[col] || []).push(s); }
   for (const [col, S] of Object.entries(byColor)) {
-    const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(col).multiplyScalar(0.82) }), mh = new THREE.MeshLambertMaterial({ color: 0x1d1b19 });
+    const mb = new THREE.MeshLambertMaterial({ color: new THREE.Color(col).multiplyScalar(0.82), emissive: new THREE.Color(col).multiplyScalar(0.22) }), mh = new THREE.MeshLambertMaterial({ color: 0x1d1b19 });   // V5b-2d: ánh dội đất sáng lên áo (khối đọc được màu phe khi ngược sáng)
     maskify(mb, ctx.U, 1); maskify(mh, ctx.U, 1);
     const ib = new THREE.InstancedMesh(fig.body, mb, S.length), ih = new THREE.InstancedMesh(fig.hat, mh, S.length); ib.castShadow = ih.castShadow = true; ib.receiveShadow = true;
     group.add(ib, ih); meshes.push({ S, ib, ih }); mats[col] = mb;
@@ -235,7 +255,7 @@ export function units(specs, ctx) {
         let dE = 0, dN = 0; if (s.sp.move) { const M = s.sp.move; let j = 0; while (j < M.length - 1 && M[j + 1][0] <= day) j++; const A = M[j], B = M[Math.min(M.length - 1, j + 1)], u = B[0] > A[0] ? Math.max(0, Math.min(1, (day - A[0]) / (B[0] - A[0]))) : 0; dE = A[1] + (B[1] - A[1]) * u; dN = A[2] + (B[2] - A[2]) * u; }
         const E = s.E + dE, N = s.N + dN; if (zones.some((z) => Math.hypot(E - z.c[0], N - z.c[1]) < z.r + 15)) { g = 0; hidUnits.add(s.sp); }
         const ce = Math.cos(s.hd), sn = Math.sin(s.hd), e = E + ce * s.x - sn * s.z, n = N + sn * s.x + ce * s.z;
-        v.set(e, Math.max(ctx.terr.hAt(e, n), 0.4) - 0.05, -n); q.setFromAxisAngle(Y, s.hd); sc.set(g > 0 ? 1 : 0, g * s.k, g > 0 ? 1 : 0); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); if (g > 0) shown++; });
+        v.set(e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.05, -n); q.setFromAxisAngle(Y, s.hd); sc.set(g > 0 ? 1 : 0, g * s.k, g > 0 ? 1 : 0); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); if (g > 0) shown++; });
         ib.instanceMatrix.needsUpdate = ih.instanceMatrix.needsUpdate = true; }
       stat = { don_vi: specs.length, nguoi: slots.length, an_vi_khoi: hidUnits.size, hien: shown }; return stat; } };
 }

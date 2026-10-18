@@ -10,7 +10,7 @@
 // Mặt nạ: toàn bộ là NỘI DUNG (maskify v = 1, id hero hid). Không Math.random (rng tất định).
 import { THREE, rng, maskify } from './core.js';
 
-const KIND = { wall: 0, cordon: 1, ptop: 2, floor: 3, iron: 4, wood: 5, garita: 6, shot: 7, pinner: 8, plank: 9 };
+const KIND = { wall: 0, cordon: 1, ptop: 2, floor: 3, iron: 4, wood: 5, garita: 6, shot: 7, pinner: 8, plank: 9, pouter: 10 };   // V5b-2d: pouter = mặt ngoài tường chắn (vết ám khói quanh lỗ châu mai)
 
 function orient(ring) { let a = 0; for (let i = 0; i < ring.length; i++) { const p = ring[i], q = ring[(i + 1) % ring.length]; a += p[0] * q[1] - q[0] * p[1]; } return a > 0 ? 1 : -1; }   // +1 = ngược chiều kim đồng hồ (E bên phải, N lên)
 function clean(ring) { const r = ring.slice(); if (r.length > 2 && r[0][0] === r[r.length - 1][0] && r[0][1] === r[r.length - 1][1]) r.pop();
@@ -27,7 +27,7 @@ function inset(ring, d, s) {
 }
 
 export function fortify(recs, ctx, o = {}) {
-  const P = [], K = [], UV = [], R = rng(o.seed || 53), stat = { luy: 0, lo_chau_mai: 0, phao: 0, garita: 0, dan: 0 };
+  const P = [], K = [], UV = [], R = rng(o.seed || 53), stat = { luy: 0, lo_chau_mai: 0, phao: 0, garita: 0, dan: 0 }, guns = [], floors = [];   // V5b-2d: guns/floors cho đồ sàn pháo + pháo thủ (props.battery)
   const tri = (a, b, c, k, ua, ub, uc) => { P.push(...a, ...b, ...c); K.push(k, k, k); UV.push(...(ua || [0, 0]), ...(ub || [0, 0]), ...(uc || [0, 0])); };
   const quad = (a, b, c, d, k, u0 = 0, u1 = 1) => { tri(a, b, c, k, [u0, a[1]], [u1, b[1]], [u1, c[1]]); tri(a, c, d, k, [u0, a[1]], [u1, c[1]], [u0, d[1]]); };
   const V = (e, y, n) => [e, y, -n];
@@ -61,19 +61,19 @@ export function fortify(recs, ctx, o = {}) {
       quad(V(c0[0], base + h - 0.2, c0[1]), V(c1[0], base + h - 0.2, c1[1]), V(c1[0], base + h + 0.15, c1[1]), V(c0[0], base + h + 0.15, c0[1]), KIND.cordon, U0, U0 + L);
       quad(V(c0[0], base + h + 0.15, c0[1]), V(c1[0], base + h + 0.15, c1[1]), V(tb[0], base + h + 0.3, tb[1]), V(ta[0], base + h + 0.3, ta[1]), KIND.cordon, U0, U0 + L);
       // 3) tường chắn: phần dưới liền (h → đế lỗ châu mai), mặt ngoài + mặt trong
-      quad(V(ta[0], base + h + 0.3, ta[1]), V(tb[0], base + h + 0.3, tb[1]), V(tb[0], base + sole, tb[1]), V(ta[0], base + sole, ta[1]), KIND.wall, U0, U0 + L);
+      quad(V(ta[0], base + h + 0.3, ta[1]), V(tb[0], base + h + 0.3, tb[1]), V(tb[0], base + sole, tb[1]), V(ta[0], base + sole, ta[1]), KIND.pouter, U0, U0 + L);
       const ia = inner[i], ib = inner[(i + 1) % n];
       quad(V(ib[0], base + h, ib[1]), V(ia[0], base + h, ia[1]), V(ia[0], base + sole, ia[1]), V(ib[0], base + sole, ib[1]), KIND.pinner, U0, U0 + L);
       // merlon giữa lỗ châu mai: lỗ mỗi `embr` m (bỏ 3 m sát góc); lỗ loe: ngoài 0,9 m, trong 2,2 m
       // mặt hậu (gorge) quay vào đất liền cao ngang đỉnh luỹ: không lỗ châu mai/pháo, chỉ tường chắn thấp (đo cao độ 18 m ra ngoài giữa cạnh)
-      const mid = [(a[0] + b[0]) / 2 + on[0] / 0.35 * 18, (a[1] + b[1]) / 2 + on[1] / 0.35 * 18], gorge = (ctx.terr && ctx.terr.hAt(mid[0], mid[1]) > base + h * 0.55) || (o.face && (on[0] * o.face[0] + on[1] * o.face[1]) / 0.35 < 0.3);   // o.face: chỉ mặt quay về hướng địch có lỗ châu mai
+      const mid = [(a[0] + b[0]) / 2 + on[0] / 0.35 * 18, (a[1] + b[1]) / 2 + on[1] / 0.35 * 18], gorge = (ctx.terr && ctx.terr.hAt(mid[0], mid[1]) > base + h * 0.55) || (o.face && (on[0] * o.face[0] + on[1] * o.face[1]) / 0.35 < (o.faceMin ?? 0.3));   // V5b-2d: faceMin — ngưỡng cos với hướng địch (âm: cho cả mặt sườn)   // o.face: chỉ mặt quay về hướng địch có lỗ châu mai
       const step = o.embr ?? 6.5, emb = [];
       if (L > 8 && !gorge) { const k = Math.max(1, Math.floor((L - 6) / step)), sp = (L - 6) / k; for (let j = 0; j <= k; j++) emb.push(3 + j * sp); }
       const at = (A, B, t) => [A[0] + (B[0] - A[0]) * t / L, A[1] + (B[1] - A[1]) * t / L];
       const cuts = [[0, 0, 0, 0]]; for (const e of emb) cuts.push([e - 0.45, e + 0.45, e - 1.1, e + 1.1]); cuts.push([L, L, L, L]);
       for (let j = 0; j < cuts.length - 1; j++) { const o0 = cuts[j][1], o1 = cuts[j + 1][0], i0 = cuts[j][3], i1 = cuts[j + 1][2]; if (o1 - o0 < 0.3) continue;
         const A0 = at(ta, tb, o0), A1 = at(ta, tb, o1), B0 = at(ia, ib, i0), B1 = at(ia, ib, i1), y0 = base + sole, y1 = base + pt, yi = base + pt - 0.35;   // mặt trên dốc nhẹ vào trong
-        quad(V(A0[0], y0, A0[1]), V(A1[0], y0, A1[1]), V(A1[0], y1, A1[1]), V(A0[0], y1, A0[1]), KIND.wall, U0 + o0, U0 + o1);
+        quad(V(A0[0], y0, A0[1]), V(A1[0], y0, A1[1]), V(A1[0], y1, A1[1]), V(A0[0], y1, A0[1]), KIND.pouter, U0 + o0, U0 + o1);
         quad(V(B1[0], y0, B1[1]), V(B0[0], y0, B0[1]), V(B0[0], yi, B0[1]), V(B1[0], yi, B1[1]), KIND.pinner, U0 + i1, U0 + i0);
         quad(V(A0[0], y1, A0[1]), V(A1[0], y1, A1[1]), V(B1[0], yi, B1[1]), V(B0[0], yi, B0[1]), KIND.ptop);
         quad(V(B0[0], y0, B0[1]), V(A0[0], y0, A0[1]), V(A0[0], y1, A0[1]), V(B0[0], yi, B0[1]), KIND.pinner);   // má lỗ châu mai
@@ -88,10 +88,12 @@ export function fortify(recs, ctx, o = {}) {
         box(gx, gy + 0.32, gn, 1.7, 0.55, 0.9, outRot, KIND.wood);
         for (const [x, z] of [[-0.6, -0.5], [0.6, -0.5], [-0.6, 0.5], [0.6, 0.5]]) { const c = Math.cos(outRot), sn = Math.sin(outRot); box(gx + c * x - sn * z, gy, gn + sn * x + c * z, 0.5, 0.5, 0.18, outRot, KIND.wood); }
         cyl(gx - Math.cos(outRot) * 0.6, gy + 1.05, gn - Math.sin(outRot) * 0.6, 0.24, 0.17, 2.9, outRot, 0.03, KIND.iron); stat.phao++;
+        guns.push({ e: gx, n: gn, rot: outRot, y: gy, muzzle: [gx + Math.cos(outRot) * 2.3, gn + Math.sin(outRot) * 2.3], face: i });
         if (R() < 0.35) { const bx = gx - Math.cos(outRot) * 2.6, bn = gn - Math.sin(outRot) * 2.6; for (let lv = 0; lv < 3; lv++) for (let q = 0; q < 3 - lv; q++) box(bx + (q - (2 - lv) / 2) * 0.32, gy + lv * 0.27, bn, 0.27, 0.27, 0.27, outRot, KIND.shot); stat.dan++; } }
       U0 += L;
     }
     // 4) sàn pháo
+    floors.push({ ring: inner, y: base + h });
     const tr = THREE.ShapeUtils.triangulateShape(inner.map(([x, y]) => new THREE.Vector2(x, y)), []);
     for (const [a, b, c] of tr) { const A = inner[a], B = inner[b], C = inner[c]; tri(V(A[0], base + h, A[1]), V(B[0], base + h, B[1]), V(C[0], base + h, C[1]), KIND.floor); }
     // 6) chòi gác ở góc lồi nhọn (< 125°), nhô 0,6 m ra ngoài, trên đỉnh tường chắn
@@ -104,7 +106,7 @@ export function fortify(recs, ctx, o = {}) {
   // hình học → BufferGeometry (pháp tuyến phẳng theo tam giác)
   const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('aK', new THREE.Float32BufferAttribute(K, 1)); g.setAttribute('aUV', new THREE.Float32BufferAttribute(UV, 2)); g.computeVertexNormals();
   const m = new THREE.MeshLambertMaterial({ color: 0xffffff, side: THREE.DoubleSide }), seedC = (o.seed || 53) * 0.37;
-  m.customProgramCacheKey = () => 'tl-fort';
+  m.customProgramCacheKey = () => 'tl-fort' + (o.soot ? '-s' + o.soot : '');   // V5b-2d: vết ám khói nướng vào shader → khoá chương trình theo mức
   m.onBeforeCompile = (sh) => {
     sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nattribute float aK; attribute vec2 aUV; varying float vK; varying vec2 vUV; varying vec3 vWPf;')
       .replace('#include <begin_vertex>', '#include <begin_vertex>\nvK = aK; vUV = aUV; vWPf = (modelMatrix * vec4(transformed, 1.0)).xyz;');
@@ -123,12 +125,15 @@ export function fortify(recs, ctx, o = {}) {
         return c; }`)
       .replace('#include <color_fragment>', `#include <color_fragment>
       { int k = int(vK + 0.5); vec3 c;
-        if (k == 0 || k == 8) { float wet = 0.55 * (1.0 - smoothstep(0.0, 2.2, vWPf.y)) * (k == 0 ? 1.0 : 0.0); c = ashlar(vec2(vUV.x, vWPf.y), wet); if (k == 8) c *= 0.92; }
+        if (k == 0 || k == 8 || k == 10) { float wet = 0.55 * (1.0 - smoothstep(0.0, 2.2, vWPf.y)) * (k == 0 ? 1.0 : 0.0); c = ashlar(vec2(vUV.x, vWPf.y), wet); if (k == 8) c *= 0.80;
+          if (k == 10) c *= 1.0 - ${(o.soot ?? 0).toFixed(2)} * smoothstep(0.42, 0.78, vnf(vec2(vUV.x * 0.45, vWPf.y * 0.9)));   // V5b-2d: vết ám khói thuốc súng trên mặt ngoài tường chắn
+          if (k == 0) c *= 1.0 - ${(o.soot ?? 0).toFixed(2)} * 0.45 * smoothstep(0.55, 0.85, vnf(vec2(vUV.x * 0.25, vWPf.y * 0.15))); }
         else if (k == 1) c = vec3(0.92, 0.84, 0.68) * (0.92 + 0.1 * vnf(vec2(vUV.x * 1.5, 0.0)));   // gờ đá sáng
         else if (k == 2) c = vec3(0.82, 0.68, 0.48) * (0.88 + 0.16 * vnf(vWPf.xz * 1.7));
         else if (k == 3) { vec2 p = vWPf.xz; vec2 g = abs(fract(p / 1.2 + vec2(0.0, 0.5 * step(0.5, fract(p.x / 2.4)))) - 0.5); float aa = clamp(length(fwidth(p)) * 1.5, 0.0, 1.0);
           float jt = (1.0 - aa) * step(0.46, max(g.x, g.y)); c = mix(vec3(0.80, 0.60, 0.36), vec3(0.70, 0.55, 0.38), vnf(floor(p / 1.2) * 3.1)) * (0.86 + 0.2 * vnf(p * 0.35));
-          c *= 1.0 - 0.12 * jt; c *= 1.0 - 0.18 * smoothstep(0.6, 0.85, vnf(p * 0.08)); }   // sàn pháo lát tấm + vết ố
+          c *= 1.0 - 0.12 * jt; c *= 1.0 - 0.18 * smoothstep(0.6, 0.85, vnf(p * 0.08));
+          c *= 1.0 - ${(o.soot ?? 0).toFixed(2)} * (0.35 * smoothstep(0.45, 0.8, vnf(p * 0.21)) + 0.12);   /* V5b-2d: sàn dùng nhiều — vết bánh xe, ố thuốc súng, đất */ }   // sàn pháo lát tấm + vết ố
         else if (k == 4) c = vec3(0.10, 0.10, 0.11);   // gang
         else if (k == 5) c = vec3(0.42, 0.27, 0.15) * (0.85 + 0.2 * vnf(vWPf.xz * 4.0));   // gỗ bệ pháo
         else if (k == 9) { float pl = step(0.5, fract(dot(vWPf.xz, vec2(0.7071)) * 3.3)); c = mix(vec3(0.55, 0.40, 0.24), vec3(0.48, 0.34, 0.20), pl) * (0.85 + 0.2 * vnf(vWPf.xz * 2.0)); }
@@ -139,7 +144,7 @@ export function fortify(recs, ctx, o = {}) {
   maskify(m, ctx.U, 1, o.hid || 0);
   const mesh = new THREE.Mesh(g, m); mesh.castShadow = mesh.receiveShadow = true;
   const group = new THREE.Group(); group.add(mesh);
-  return { group, stat, update() {} };
+  return { group, stat, guns, floors, update() {} };
 }
 
 // tường thành dọc tuyến (Line Wall…): đệm tuyến thành dải dày `thick` → vòng → fortify (lỗ châu mai, gờ, đá khối như luỹ)

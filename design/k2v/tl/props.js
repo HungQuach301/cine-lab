@@ -1,0 +1,147 @@
+// K2V tl · V5b-2d · ĐẠO CỤ CẢNH 1782 (lệnh V5b-2d chủ dự án 18/10, C2-1…C2-9): cờ, vườn có nguồn, điểm nhấn phố, đồ trên sàn pháo.
+//  · flags(specs)     — cột + lá cờ vải gợn (shader, theo thời gian cảnh), mẫu vẽ canvas: 'union1707' (Great Union 1707: chữ thập St George đỏ viền trắng trên
+//                       chéo St Andrew trắng nền lam — trước 1801, không có chéo St Patrick) · 'burgundy' (Cruz de Borgoña: chéo đỏ răng cưa trên nền trắng — cờ quân TBN 1506–1843);
+//  · gardens(feats)   — LUỐNG VƯỜN chỉ nơi bản đồ Drinkwater 1786 vẽ luống/ghi GARDENS (lớp extra1782 của scripts/k2tl/so_hoa_v5b2d.py): mặt luống sọc xanh–đất
+//                       bám DTM + cây chỉ trong vòng vườn (opt.trees) + nhà vườn (ô □ trên bản đồ); KHÔNG cây ngoài vòng vườn;
+//  · landmarks(L)     — St Mary the Crowned (Spanish Church, N1782-09: thân nhà thờ + tháp chuông) và dinh Thống đốc (Convent, N1782-07: khối có sân trong) dựng
+//                       trên footprint ghost SH; chiều cao MINH HOẠ (ghi dòng phương pháp của cảnh);
+//  · battery(guns)    — đồ trên sàn pháo King's Bastion: đống đạn, thùng thuốc súng, lán chắn mảnh (splinter-proof), lò nung đạn (Drinkwater 1785: "grates and furnaces for heating
+//                       shot") — vị trí theo khẩu pháo của fort.js, số lượng minh hoạ.
+// Mặt nạ: cờ, luống, cây, nhà, điểm nhấn, đồ sàn pháo = NỘI DUNG (maskify 1). Không Math.random (rng tất định).
+import { THREE, rng, maskify } from './core.js';
+import { makeCity } from './city.js';
+
+function flagTex(kind) {
+  const W = 192, H = 96, cv = document.createElement('canvas'); cv.width = W; cv.height = H; const g = cv.getContext('2d');
+  if (kind === 'union1707') {
+    g.fillStyle = '#1f3a7a'; g.fillRect(0, 0, W, H);
+    g.strokeStyle = '#f4f1ea'; g.lineWidth = H * 0.2; g.beginPath(); g.moveTo(0, 0); g.lineTo(W, H); g.moveTo(W, 0); g.lineTo(0, H); g.stroke();   // chéo St Andrew
+    g.fillStyle = '#f4f1ea'; g.fillRect(W / 2 - H * 0.17, 0, H * 0.34, H); g.fillRect(0, H / 2 - H * 0.17, W, H * 0.34);   // viền trắng
+    g.fillStyle = '#c8202f'; g.fillRect(W / 2 - H * 0.1, 0, H * 0.2, H); g.fillRect(0, H / 2 - H * 0.1, W, H * 0.2);   // chữ thập St George
+  } else {   // Cruz de Borgoña
+    g.fillStyle = '#f3efe4'; g.fillRect(0, 0, W, H); g.strokeStyle = '#b8232b'; g.lineWidth = H * 0.13; g.lineCap = 'round';
+    for (const [x0, y0, x1, y1] of [[W * 0.08, H * 0.1, W * 0.92, H * 0.9], [W * 0.92, H * 0.1, W * 0.08, H * 0.9]]) { g.beginPath(); g.moveTo(x0, y0); g.lineTo(x1, y1); g.stroke();
+      for (let k = 1; k < 6; k++) { const u = k / 6, x = x0 + (x1 - x0) * u, y = y0 + (y1 - y0) * u; g.beginPath(); g.moveTo(x, y); g.lineTo(x + (k % 2 ? 1 : -1) * H * 0.09, y - H * 0.06); g.stroke(); } }   // mấu cành (ragged staff)
+  }
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; return t;
+}
+
+// specs: [{at:[E, N], base (cốt chân, mặc định DTM), pole (m), w, kind, phase}]
+export function flags(specs, ctx) {
+  const group = new THREE.Group(), U = { uT: { value: 0 } }, tex = {};
+  const poleM = new THREE.MeshLambertMaterial({ color: 0x5b4632 }); maskify(poleM, ctx.U, 1);
+  for (const sp of specs || []) {
+    const pole = sp.pole || 12, w = sp.w || 4.2, h = w / 2, base = sp.base ?? Math.max(0.3, ctx.terr.hAt(sp.at[0], sp.at[1]));
+    const p = new THREE.Mesh(new THREE.CylinderGeometry(0.09, 0.14, pole, 6).translate(0, pole / 2, 0), poleM); p.position.set(sp.at[0], base, -sp.at[1]); p.castShadow = true; group.add(p);
+    const k = sp.kind || 'union1707'; tex[k] = tex[k] || flagTex(k);
+    const m = new THREE.MeshLambertMaterial({ map: tex[k], side: THREE.DoubleSide }); maskify(m, ctx.U, 1);
+    m.onBeforeCompile = (sh) => { sh.uniforms.uT = U.uT; sh.vertexShader = sh.vertexShader.replace('#include <common>', '#include <common>\nuniform float uT;')
+      .replace('#include <begin_vertex>', `#include <begin_vertex>\n float fx = clamp(position.x / ${w.toFixed(2)}, 0.0, 1.0); transformed.z += sin(position.x * 1.7 - uT * 6.0 + ${(sp.phase || 0).toFixed(2)}) * 0.35 * fx; transformed.y -= 0.25 * fx * fx;`); };
+    m.customProgramCacheKey = () => 'tl-flag-' + w.toFixed(2);
+    const cl = new THREE.Mesh(new THREE.PlaneGeometry(w, h, 12, 2).translate(w / 2, -h / 2, 0), m); cl.position.set(sp.at[0], base + pole - 0.1, -sp.at[1]);
+    cl.rotation.y = (90 - (sp.toward ?? 135)) * Math.PI / 180; group.add(cl);   // toward: hướng gió thổi tới (độ, 0 = Bắc) — cờ bay theo gió
+  }
+  return { group, n: (specs || []).length, update(t) { U.uT.value = t; } };
+}
+
+function pip(p, r) { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) if ((r[i][1] > p[1]) !== (r[j][1] > p[1]) && p[0] < (r[j][0] - r[i][0]) * (p[1] - r[i][1]) / (r[j][1] - r[i][1]) + r[i][0]) c = !c; return c; }
+
+// luống vườn: lưới bám DTM trong hộp bao vòng, loại ô ngoài vòng; sọc luống xanh lá / xanh vàng / đất theo hướng lô (bản đồ: sọc luống); cây (tuỳ chọn) trong vòng
+export function gardens(feats, ctx, { trees = {}, houses = true, seed = 5 } = {}) {
+  const group = new THREE.Group(), R = rng(seed), stat = { vuon: 0, cay: 0, nha: 0, m2: 0 };
+  const hAt = (e, n) => Math.max(ctx.terr.hAt(e, n), 0.3);
+  const mat = new THREE.MeshLambertMaterial({ vertexColors: true, polygonOffset: true, polygonOffsetFactor: -2, polygonOffsetUnits: -2 }); maskify(mat, ctx.U, 1);
+  const treeRecs = [], houseRecs = [];
+  for (const f of feats.filter((x) => x.loai === 'vuon')) {
+    const r = f.ring, xs = r.map((p) => p[0]), ys = r.map((p) => p[1]), e0 = Math.min(...xs), e1 = Math.max(...xs), n0 = Math.min(...ys), n1 = Math.max(...ys), st = 1.5, P = [], C = [];
+    const ang = R() * Math.PI, ca = Math.cos(ang), sa = Math.sin(ang), plots = 18 + Math.floor(R() * 10);
+    for (let e = e0; e < e1; e += st) for (let n = n0; n < n1; n += st) {
+      const c = [e + st / 2, n + st / 2]; if (!pip(c, r)) continue;
+      const u = (c[0] * ca + c[1] * sa), v = (-c[0] * sa + c[1] * ca), plot = Math.floor(v / plots + 100) * 7 + Math.floor(u / (plots * 1.7) + 100), row = Math.floor(u / 1.5 + 1000) % 2;   // lô (ô lớn) × luống (sọc 1,5 m)
+      const pr = rng(plot * 31 + seed)(), base = pr < 0.45 ? [0.30, 0.46, 0.18] : pr < 0.75 ? [0.44, 0.50, 0.22] : pr < 0.9 ? [0.36, 0.40, 0.16] : [0.26, 0.40, 0.20];
+      const walk = (((u % 12) + 12) % 12) < 1.4 || (((v % 16) + 16) % 16) < 1.4;   // lối đi đất nện giữa các lô
+      const col = walk ? [0.66, 0.56, 0.42] : row ? base : [0.50, 0.38, 0.25], q = [[e, n], [e + st, n], [e + st, n + st], [e, n + st]];   // luống: sọc cây xanh xen sọc đất
+      for (const k of [0, 1, 2, 0, 2, 3]) { const [qe, qn] = q[k]; P.push(qe, hAt(qe, qn) + 0.15, -qn); C.push(...col); }
+      stat.m2 += st * st;
+    }
+    const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(C, 3)); g.computeVertexNormals();
+    const o = new THREE.Mesh(g, mat); o.receiveShadow = true; group.add(o); stat.vuon++;
+    const tr = trees[f.id]; if (tr) { let got = 0; for (let k = 0; k < tr * 20 && got < tr; k++) { const p = [e0 + R() * (e1 - e0), n0 + R() * (n1 - n0)]; if (pip(p, r)) { treeRecs.push(p); got++; } } }   // tr = số cây (minh hoạ) TRONG vòng vườn
+  }
+  if (treeRecs.length) {   // cây vườn: tán tròn lục đậm + thân (cùng kiểu nature.js), cao 4–7 m
+    const geo = new THREE.IcosahedronGeometry(1, 1); geo.scale(1.6, 1.3, 1.6); geo.translate(0, 2.6, 0);
+    const trunk = new THREE.CylinderGeometry(0.12, 0.16, 1.6, 5).translate(0, 0.8, 0);
+    const mc = new THREE.MeshLambertMaterial({ color: 0x3e6b2c }), mt = new THREE.MeshLambertMaterial({ color: 0x5a4330 }); maskify(mc, ctx.U, 1); maskify(mt, ctx.U, 1);
+    const ic = new THREE.InstancedMesh(geo, mc, treeRecs.length), it = new THREE.InstancedMesh(trunk, mt, treeRecs.length), m4 = new THREE.Matrix4(), col = new THREE.Color();
+    treeRecs.forEach(([e, n], i) => { const s = 0.75 + 0.5 * R(); m4.compose(new THREE.Vector3(e, hAt(e, n), -n), new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), R() * 6.28), new THREE.Vector3(s, s * (0.9 + 0.3 * R()), s));
+      ic.setMatrixAt(i, m4); it.setMatrixAt(i, m4); col.setRGB(0.8 + 0.35 * R(), 0.85 + 0.3 * R(), 0.75 + 0.3 * R()); ic.setColorAt(i, col); });
+    ic.castShadow = it.castShadow = true; group.add(ic, it); stat.cay = treeRecs.length;
+  }
+  if (houses) for (const f of feats.filter((x) => x.loai === 'nha_vuon')) houseRecs.push([1700, 0, 4.2, null, 1, 1, f.ring, 0]);
+  if (houseRecs.length) { const recs = houseRecs.map((r) => [r[0], r[1], r[2], Math.min(...r[6].map(([e, n]) => hAt(e, n))), r[4], r[5], r[6], r[7]]); const c = makeCity(recs, ctx.U, { lod: false }); group.add(c.group); stat.nha = recs.length; group.userData.city = c; }
+  return { group, stat, update(cam) { if (group.userData.city && cam) group.userData.city.update(cam); } };
+}
+
+// ---------- điểm nhấn phố 1782 ----------
+function ringBox(P, N, C, ring, y0, y1, col, R) {   // tường đùn của vòng (pháp tuyến phẳng), mặt trên phẳng
+  const tri = THREE.ShapeUtils.triangulateShape(ring.map(([x, y]) => new THREE.Vector2(x, y)), []);
+  const push = (a, b, c, cc) => { P.push(...a, ...b, ...c); C.push(...cc, ...cc, ...cc); };
+  for (let i = 0; i < ring.length; i++) { const a = ring[i], b = ring[(i + 1) % ring.length], k = 0.9 + 0.12 * R(), cc = col.map((v) => v * k);
+    push([a[0], y0, -a[1]], [b[0], y0, -b[1]], [b[0], y1, -b[1]], cc); push([a[0], y0, -a[1]], [b[0], y1, -b[1]], [a[0], y1, -a[1]], cc); }
+  for (const [a, b, c] of tri) push([ring[a][0], y1, -ring[a][1]], [ring[b][0], y1, -ring[b][1]], [ring[c][0], y1, -ring[c][1]], col.map((v) => v * 0.86));
+}
+function pyramid(P, C, cx, cn, half, y0, hh, col) { const q = [[cx - half, cn - half], [cx + half, cn - half], [cx + half, cn + half], [cx - half, cn + half]];
+  for (let i = 0; i < 4; i++) { const a = q[i], b = q[(i + 1) % 4]; P.push(a[0], y0, -a[1], b[0], y0, -b[1], cx, y0 + hh, -cn); C.push(...col, ...col, ...col.map((v) => v * 0.8)); } }
+const cen = (r) => [r.reduce((s, q) => s + q[0], 0) / r.length, r.reduce((s, q) => s + q[1], 0) / r.length];
+function inset(r, d) { const c = cen(r); return r.map(([e, n]) => { const v = [e - c[0], n - c[1]], l = Math.hypot(...v) || 1; return [e - v[0] / l * d, n - v[1] / l * d]; }); }
+export function landmarks(L, ctx) {
+  const group = new THREE.Group(), R = rng(911), stat = {};
+  const P = [], N = [], C = [], hAt = (e, n) => Math.max(ctx.terr.hAt(e, n), 0.3);
+  const lime = [0.93, 0.89, 0.80], ochre = [0.86, 0.72, 0.50], tile = [0.72, 0.30, 0.16], dark = [0.16, 0.13, 0.12];
+  const ch = L['N1782-09'];   // Spanish Church (St Mary the Crowned): thân 13 m + tháp chuông vuông 7 m cạnh, cao 24 m, mái chóp ngói (minh hoạ chiều cao)
+  if (ch) { const r = ch.ring, b = Math.min(...r.map(([e, n]) => hAt(e, n))) - 0.5, c = cen(r);
+    ringBox(P, N, C, inset(r, 2.5), b, b + 13, lime, R);
+    const tw = [c[0] + 8, c[1] + 8], hs = 3.5, tr = [[tw[0] - hs, tw[1] - hs], [tw[0] + hs, tw[1] - hs], [tw[0] + hs, tw[1] + hs], [tw[0] - hs, tw[1] + hs]];
+    ringBox(P, N, C, tr, b, b + 24, ochre, R);
+    for (const [dx, dn] of [[0, -hs - 0.05], [hs + 0.05, 0], [0, hs + 0.05], [-hs - 0.05, 0]]) {   // ô cửa chuông tối ở 4 mặt
+      const o = [tw[0] + dx, tw[1] + dn], along = dx === 0 ? [1, 0] : [0, 1], w = 1.3, y0 = b + 19.5, y1 = b + 22.5, A = [o[0] - along[0] * w, o[1] - along[1] * w], B = [o[0] + along[0] * w, o[1] + along[1] * w];
+      P.push(A[0], y0, -A[1], B[0], y0, -B[1], B[0], y1, -B[1], A[0], y0, -A[1], B[0], y1, -B[1], A[0], y1, -A[1]); for (let k = 0; k < 6; k++) C.push(...dark); }
+    pyramid(P, C, tw[0], tw[1], hs + 0.4, b + 24, 4.5, tile); stat.nha_tho = { tam: c.map(Math.round), cao_than: 13, cao_thap: 28.5 }; }
+  const cv = L['N1782-07'];   // dinh Thống đốc (Convent): khối 3 tầng 11 m quanh sân trong (vòng ghost SH là ô vuông có sân), vữa vàng nhạt
+  if (cv) { const r = cv.ring, b = Math.min(...r.map(([e, n]) => hAt(e, n))) - 0.5; ringBox(P, N, C, r, b, b + 11, [0.92, 0.84, 0.66], R);
+    const c = cen(r); pyramid(P, C, c[0], c[1], Math.max(4, Math.sqrt(Math.abs(r.reduce((a, p, i) => a + p[0] * r[(i + 1) % r.length][1] - r[(i + 1) % r.length][0] * p[1], 0)) / 2) / 2), b + 11, 2.2, tile); stat.convent = { tam: c.map(Math.round), cao: 11 }; }
+  if (P.length) { const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(C, 3)); g.computeVertexNormals();
+    const m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }); maskify(m, ctx.U, 1); const o = new THREE.Mesh(g, m); o.castShadow = o.receiveShadow = true; group.add(o); }
+  return { group, stat };
+}
+
+// ---------- đồ trên sàn pháo (King's Bastion) ----------
+//  guns: [{e, n, rot, y}] (fort.js stat.guns) · floor: vòng sàn pháo (ENU) · y: cốt sàn. Trả vị trí PHÁO THỦ đề xuất (sau bệ pháo, tránh đồ) cho layers.units.
+export function battery(guns, floor, y, ctx, { seed = 7, sheds = 3, kegs = 4, furnace = true } = {}) {
+  const group = new THREE.Group(), R = rng(seed), P = [], C = [], stat = { dan: 0, thung: 0, lan: 0, lo: 0 };
+  const box = (cx, cy, cn, L, H, W, rot, col) => { const c = Math.cos(rot), s = Math.sin(rot), pt = (x, z) => [cx + c * x - s * z, cn + s * x + c * z], q = [pt(-L / 2, -W / 2), pt(L / 2, -W / 2), pt(L / 2, W / 2), pt(-L / 2, W / 2)];
+    const k = 0.9 + 0.15 * R(), cc = col.map((v) => v * k);
+    for (let i = 0; i < 4; i++) { const a = q[i], b = q[(i + 1) % 4]; P.push(a[0], cy, -a[1], b[0], cy, -b[1], b[0], cy + H, -b[1], a[0], cy, -a[1], b[0], cy + H, -b[1], a[0], cy + H, -a[1]); for (let j = 0; j < 6; j++) C.push(...cc); }
+    P.push(q[0][0], cy + H, -q[0][1], q[1][0], cy + H, -q[1][1], q[2][0], cy + H, -q[2][1], q[0][0], cy + H, -q[0][1], q[2][0], cy + H, -q[2][1], q[3][0], cy + H, -q[3][1]); for (let j = 0; j < 6; j++) C.push(...cc.map((v) => v * 1.08)); };
+  const crews = [];
+  for (const g of guns) {
+    const back = [-Math.cos(g.rot), -Math.sin(g.rot)], side = [-back[1], back[0]];
+    // pháo thủ: 4 người quanh đuôi bệ (2 bên + 2 sau) — vị trí cho units()
+    crews.push({ at: [g.e + back[0] * 3.6, g.n + back[1] * 3.6], heading: (90 - g.rot * 180 / Math.PI + 360) % 360, gun: g });
+    { const b = [g.e + back[0] * 6.0 + side[0] * 2.6, g.n + back[1] * 6.0 + side[1] * 2.6]; box(b[0] + back[0] * 1.6, y, b[1] + back[1] * 1.6, 1.4, 0.55, 0.8, g.rot, [0.46, 0.33, 0.20]); box(b[0] + back[0] * 1.6, y + 0.55, b[1] + back[1] * 1.6, 1.5, 0.06, 0.9, g.rot, [0.30, 0.24, 0.17]); }   // hòm đạn/dụng cụ sau mỗi khẩu
+    if (R() < 0.85) { const b = [g.e + back[0] * 5.5 + side[0] * 2.2, g.n + back[1] * 5.5 + side[1] * 2.2];   // đống đạn tròn xếp tháp
+      for (let lv = 0; lv < 4; lv++) for (let i = 0; i < 4 - lv; i++) for (let j = 0; j < 4 - lv; j++) box(b[0] + (i - (3 - lv) / 2) * 0.3, y + lv * 0.26, b[1] + (j - (3 - lv) / 2) * 0.3, 0.27, 0.27, 0.27, g.rot, [0.14, 0.13, 0.13]); stat.dan++; }
+  }
+  // thùng thuốc súng: cụm sau tuyến pháo, gần mặt hậu (che khuất khỏi hướng địch)
+  const fc = cen(floor), far = floor.slice().sort((a, b) => Math.hypot(b[0] - fc[0], b[1] - fc[1]) - Math.hypot(a[0] - fc[0], a[1] - fc[1]));
+  const gorge = floor.reduce((m, p) => (p[0] > m[0] ? p : m), floor[0]);   // đỉnh cực đông = phía hậu (về phố)
+  for (let k = 0; k < kegs; k++) { const c = [fc[0] + (gorge[0] - fc[0]) * 0.55 + (R() - 0.5) * 14, fc[1] + (gorge[1] - fc[1]) * 0.55 + (R() - 0.5) * 18];
+    for (let i = 0; i < 6; i++) { const e = c[0] + (i % 3) * 0.75, n = c[1] + Math.floor(i / 3) * 0.75; box(e, y, n, 0.6, 0.8, 0.6, 0.3, [0.42, 0.29, 0.17]); box(e, y + 0.18, n, 0.64, 0.08, 0.64, 0.3, [0.2, 0.18, 0.16]); box(e, y + 0.58, n, 0.64, 0.08, 0.64, 0.3, [0.2, 0.18, 0.16]); } stat.thung += 6; }
+  // lán chắn mảnh (splinter-proof): khung gỗ + mái ván nghiêng phủ đất, dọc phía hậu
+  for (let k = 0; k < sheds; k++) { const u = (k + 0.5) / sheds, p = [fc[0] + (gorge[0] - fc[0]) * 0.8, fc[1] - 30 + 60 * u], rot = Math.PI / 2;
+    box(p[0], y, p[1], 9, 2.4, 4, rot, [0.48, 0.36, 0.24]); box(p[0] + 0.3, y + 2.4, p[1], 9.6, 0.5, 4.6, rot, [0.56, 0.46, 0.32]); stat.lan++; }
+  if (furnace) { const p = [fc[0] + (gorge[0] - fc[0]) * 0.35, fc[1] + 22]; box(p[0], y, p[1], 3.2, 1.8, 2.4, 0, [0.56, 0.36, 0.26]); box(p[0] + 0.9, y + 1.8, p[1], 0.7, 2.6, 0.7, 0, [0.46, 0.30, 0.22]); stat.lo = 1; stat.lo_at = p; }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(P, 3)); g.setAttribute('color', new THREE.Float32BufferAttribute(C, 3)); g.computeVertexNormals();
+  const m = new THREE.MeshLambertMaterial({ vertexColors: true, side: THREE.DoubleSide }); maskify(m, ctx.U, 1); const o = new THREE.Mesh(g, m); o.castShadow = o.receiveShadow = true; group.add(o);
+  return { group, stat, crews };
+}

@@ -7,7 +7,7 @@ import { town1782, units } from '../layers.js';
 import { jdLocal, sunPos } from '../sun.js';
 import { life, chimneysFrom, freePath } from '../life.js';
 
-export const TERRAIN = { cliff: true };
+export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };   // V5b-2d (C2-9): vách bắc sắc hơn + đỉnh 412 m theo ảnh PD LoC 2025710362 (terrain.js)
 export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.30, 0.52, 0.90], fogC: [0.40, 0.60, 0.90] };   // trời Địa Trung Hải sáng tháng 9: chân trời xanh hơn (S 0,33 → 0,46)   // V5b-2c (I5): bóng đổ bớt xám-lam, ánh dội đất ấm (0,74: không cháy sáng)
 export const GRADE = { vib: 0.62 };   // V5b-2c (I5): vibrance 0,35 → 0,62 (vữa/đá nhạt lên màu; màu đã đậm gần như giữ)
 export const META = { cau: 'fly-pho', vai: 'he-qua', noi: [[0, 99, 'thanh_pho']], nam: 1782, ghost: 'ghost-1782 (SH @ 54185b3)' };
@@ -16,13 +16,19 @@ export async function build(ctx) {
   const { terr } = ctx, fps = 24, hAt = (e, n) => Math.max(0, terr.hAt(e, n)), DUR = 8.0, H = 70;
   if (H > ALT_MAX.pho) throw new Error('bay phố > ALT_MAX.pho');
   ctx.ships.group.visible = false;
-  const TOWN = await town1782(ctx);
+  // V5b-2d (C2-2): bay phố 70 m trên đất = khung gần → tiền cảnh chỉ khối có nguồn: bỏ lấp ước tính trong 150 m quanh vết máy (vết tính trước khi dựng phố)
+  //  → bay ĐOẠN NAM Main Street (Southport → nhà Phó Thống đốc), nơi plan 1782 có khối/toà hai bên phố; nhìn bắc dọc phố: lấp ước tính chỉ ở trung/hậu cảnh (> 150 m)
+  const K0 = alongLine(MAIN, { s0: 0, s1: 170, t0: 0, t1: DUR, h: [H, H - 4], look: 230, dip: 64, dt: 0.25, hAt });
+  const TOWN = await town1782(ctx, { near: { track: K0.map((k) => [k.p[0], k.p[2]]), r: 150 } });
   // dọc tim tuyến, nhìn trước 230 m và lệch 45 m về phía tây (vịnh) để khung là phần phố bản đồ có vẽ
   // V5b-2c (I3): phố đã lấp ước tính cả mé đông → nhìn trước-xuống dốc hơn, lệch nhẹ về ĐÔNG (phố dày chiếm ≥ 50 % khung, mặt nước ≤ 1/3)
-  const K = alongLine(MAIN, { s0: 160, s1: 620, t0: 0, t1: DUR, h: [H, H - 4], look: 200, dip: 64, dt: 0.25, hAt }).map((k) => Object.assign(k, { fov: 42, l: [k.l[0] + 35, k.l[1], k.l[2]] }));
+  // V5b-2d: nhìn dọc Main Street (lệch đông 15 m)
+  const K = K0.map((k) => Object.assign(k, { fov: 42, l: [k.l[0] + 15, k.l[1], k.l[2]] }));
   // LỚP SỐNG (F3): người đi dọc Main Street (lính áo đỏ đồn trú + dân — minh hoạ), hải âu, khói bếp
   const recs = TOWN.FP.list.flatMap((l) => (l.kind === 'ghost' ? l.recs : []));
-  const LF = life({ seed: 1786, walkers: [{ pts: freePath(MAIN, TOWN.FP.list.flatMap((l) => l.recs)), n: 90, width: 3, colors: ['#b03a2e', '#a8402e', '#e7e0cf', '#5e4a38', '#3d4a5a'] }], birds: { c: [-430, -1300], r: 170, h: 70, n: 14 },
+  // C2-7: người đơn chỉ trong 150 m quanh máy; xa hơn là đám đông (cụm, cỡ thật)
+  const MP = freePath(MAIN, TOWN.FP.list.flatMap((l) => l.recs));
+  const LF = life({ seed: 1786, walkers: [{ pts: MP, n: 90, width: 3, near: 150, colors: ['#b03a2e', '#a8402e', '#e7e0cf', '#5e4a38', '#3d4a5a'] }], crowds: [{ pts: MP, groups: 12, size: [12, 36], speed: 0.5, colors: ['#b03a2e', '#a8402e', '#e7e0cf', '#5e4a38'] }], birds: { c: [-430, -1300], r: 170, h: 70, n: 14 },
     chimney: { at: chimneysFrom(recs, 24), drift: [-1.4, 0.4] } }, ctx); ctx.scene.add(LF.group);
   const GP = [-505, -1165], TR = units([[-22, -14], [14, -14], [-22, 12], [14, 12]].map(([de, dn], i) => ({ at: [GP[0] + de, GP[1] + dn], heading: 270, rows: 6, cols: 26, side: 'gb', day: [0, 99], seed: 21 + i })), ctx); ctx.scene.add(TR.group);   // đồn trú trên Grand Parade (minh hoạ) ctx.maskHide = LF.smokeGroup ? [LF.smokeGroup] : [];
   const shot = { preset: 'fly-pho', vai: 'he-qua', t: [0, DUR], keys: K, phases: [{ kind: 'fly', t: [0, DUR] }], route: { line: MAIN, type: 'pho', nguon: 'OSM Main Street ways 172387187 + 250867611' } };
@@ -31,12 +37,12 @@ export async function build(ctx) {
   let song = null;
   function apply(st, t) { TOWN.update(st.year, ctx.cam); song = LF.update(t ?? 0, []); TR.update(0.5, []); }
   function overlay(t, st, T) {
-    T.chrome(t, 1782, 0, null, { lines: [{ s: 'Houses: 2-storey standard for 1782 (estimated)', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (5.6 - t) / 0.35)) }, { s: TOWN.INFILL_SRC + ' · people: illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (DUR + 1 - t) / 0.35)) }] }, null);
+    T.chrome(t, 1782, 0, null, { lines: [{ s: 'Houses: 2-storey standard for 1782 (estimated) · church tower height illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (5.6 - t) / 0.35)) }, { s: TOWN.INFILL_SRC + ' · people: illustrative', a: Math.max(0, Math.min(1, (t - 0.3) / 0.35, (DUR + 1 - t) / 0.35)) }] }, null);
     T.where(t, [-1, DUR + 1], 'Main Street, Gibraltar');
     T.ghostSrc(t, [-1, DUR + 1], TOWN.src);
     T.card(t, [1.4, 5.4], 'Main Street, 1782 · blocks from the siege plan', 'Positions within ~21 m · east side not on the plan: estimated', null);
   }
   const N = Math.round(DUR * fps);
   const glog = () => grammarLog(G, N, fps, () => 1782.7, { hAt, line: MAIN });
-  return { N, fps, state, apply, overlay, path, grammarLog: glog, camLog: glog, anchors: { main_street: [-445, 20, -1400] }, namKhung: (st) => TOWN.namMax(st.year), meta: META, song: () => song };
+  return { N, fps, state, apply, overlay, path, grammarLog: glog, camLog: glog, anchors: { main_street: [-445, 20, -1400] }, namKhung: (st) => TOWN.namMax(st.year), meta: Object.assign({ town: TOWN.stat(), doPx: { dam_dong: MP.filter((_, i) => i % 3 === 0).map(([e, n]) => [e, hAt(e, n), n]) } }, META), song: () => song };
 }

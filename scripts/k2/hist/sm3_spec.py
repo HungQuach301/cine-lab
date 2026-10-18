@@ -4,8 +4,8 @@
           + 3 mũi tên biển vào từ mép tây, KHÔNG ghi nơi đi (E2, T025 CHƯA XÁC MINH); điểm Gibraltar "Allied HQ" (E2)
   ranh  = /cache/hist/sm3-1941 (Tangier đổi 1940-06-14; Pháp chia hai từ bộ đếm 'Jul–Oct 1940')
   nhịp  = treatment-patch SM3 (0,0 / 1,0 / 2,2 / 5,0 / 6,5); máy: trượt nhẹ nam → bắc, MỘT lần zoom ra cho cung London/Jamaica ra mép.
-  --nhip tach: phương án tách nhịp 1940 | 1942 (hai shot 3,5 s) — dùng khi chấm mù báo rối.
-  sm3_spec.py --routes <routes.geojson> --out <tệp.json>"""
+  --tach (V5b-2d, C2-4): tách nhịp 1940 | 1942 (hai shot 3,5 s, máy khoá, một nhóm nhãn mỗi shot) → <out>-a.json, <out>-b.json.
+  sm3_spec.py --routes <routes.geojson> --out <tệp.json> [--tach]"""
 import argparse, json, math
 
 COL = {'britain': '#b03a2e', 'spain': '#c9a227', 'france': '#2e5c8a', 'neutral': '#a89f8a', 'civ': '#efe6cf'}
@@ -20,7 +20,7 @@ def thin(C, km=8.0):
 
 
 def main():
-    a = argparse.ArgumentParser(); a.add_argument('--routes', required=True); a.add_argument('--out', required=True); A = a.parse_args()
+    a = argparse.ArgumentParser(); a.add_argument('--routes', required=True); a.add_argument('--out', required=True); a.add_argument('--tach', action='store_true', help='V5b-2d: tách SM3a 1940 | SM3b 1942'); A = a.parse_args()
     G = {f['properties']['id']: f for f in json.load(open(A.routes))['features']}
     L = lambda rid: thin(G[rid]['geometry']['coordinates'])
     civ = lambda rid, draw: dict(id=rid, pts=L(rid), draw=draw, style='solid', color=COL['civ'], ink='#3a3326', w=5.0, smooth=1, dim=[[5.0, 1.0], [5.3, 0.3]])
@@ -48,7 +48,33 @@ def main():
              bnote='approx. borders c. 1941 — Cliopatria (Seshat)', bnoteAt=-0.4, bnoteOut=6.9,
              counter=[dict(t=0.0, s='May 1940'), dict(t=1.0, s='12–14 Jun 1940'), dict(t=2.2, s='Jul–Oct 1940'), dict(t=5.0, s='8 Nov 1942')], counterOut=6.9,
              points=[dict(a='pt:gibraltar', s='Gibraltar · Allied HQ', c=COL['britain'], at=0.0, out=6.9, side='auto')], tags=tags, kind='')
+    if A.tach: return tach(routes, hero_opt, p, A.out)
     json.dump(dict(hero_opt=hero_opt, p=p, n_tuyen=len(routes)), open(A.out, 'w'), ensure_ascii=False, indent=1); print('SM3 tuyến', len(routes))
+
+
+def tach(routes, hero_opt, p, out):
+    """V5b-2d (C2-4, chủ dự án duyệt 18/10): TÁCH SM3 thành hai shot 3,5 s — SM3a 1940 (sơ tán dân) | SM3b 1942 (Torch), MÁY KHOÁ (một khung cố định mỗi shot,
+    không zoom/lia), MỘT nhóm nhãn mỗi shot (chỉ nhãn của câu chuyện đó + Gibraltar + chú giải + bộ đếm). Nhịp vẽ tuyến dời về gốc 0 của từng shot.
+    Khung: SM3a = khung rộng chứa cả bốn cung sơ tán (London/Jamaica/Madeira ra mép) — tầm 2 650 km như khung zoom-ra cũ; SM3b = khung lia nam cũ (bờ Bắc Phi)."""
+    def shift(rt, t0, dur): r = dict(rt, draw=[round(max(0.1, rt['draw'][0] - t0), 2), round(min(dur - 0.3, rt['draw'][1] - t0), 2)]); r.pop('dim', None); return r
+    A_ = [shift(r, 0.0 if r['id'] == 'R1940-EV-CASA' else 1.6, 3.5) for r in routes if r['id'].startswith('R1940')]
+    A_ = [dict(r, draw=[0.2, 1.4]) if r['id'] == 'R1940-EV-CASA' else r for r in A_]
+    B_ = [shift(r, 4.4, 3.5) for r in routes if r['id'].startswith('R1942')]
+    camA = [dict(t=0.0, lon=-7.0, lat=39.6, dist=2650, tilt=20, head=0, mm=35), dict(t=3.5, lon=-7.0, lat=39.6, dist=2650, tilt=20, head=0, mm=35)]
+    camB = [dict(t=0.0, lon=-3.6, lat=37.4, dist=2600, tilt=20, head=0, mm=35), dict(t=3.5, lon=-3.6, lat=37.4, dist=2600, tilt=20, head=0, mm=35)]
+    tg = {t['a']: t for t in p['tags']}
+    tagsA = [dict(tg['rt:R1940-EV-CASA'], at=0.4, out=3.4), dict(tg['lon_l'], at=1.9, out=3.4), dict(tg['mad_l'], at=1.9, out=3.4), dict(tg['jam_l'], at=2.0, out=3.4)]   # một nhóm: nơi sơ tán tới
+    tagsB = [dict(tg['rt:R1942-AIR-ORAN'], at=0.8, out=3.4), dict(tg['rt:R1942-SEA-ALG'], at=1.1, out=3.4)]   # một nhóm: Torch
+    gib = [dict(p['points'][0], at=0.0, out=3.4)]
+    base = {k: v for k, v in p.items() if k not in ('tags', 'points', 'counter', 'counterOut', 'legend', 'bnoteOut')}
+    SA = dict(hero_opt=dict(hero_opt, cam=camA, routes=A_, borders=dict(hero_opt['borders'], dates=[[0.0, '1940-07-15']])),
+              p=dict(base, tags=tagsA, points=gib, counter=[dict(t=0.0, s='May–Aug 1940')], counterOut=3.4, bnoteOut=3.4,
+                     legend=dict(items=[dict(s='Evacuation of civilians', c='#efe6cf'), dict(s='Britain', c='#b03a2e')], at=0.0, out=3.4)), n_tuyen=len(A_), dur=3.5)
+    SB = dict(hero_opt=dict(hero_opt, cam=camB, routes=B_, borders=dict(hero_opt['borders'], dates=[[0.0, '1942-11-08']])),
+              p=dict(base, tags=tagsB, points=gib, counter=[dict(t=0.0, s='8 Nov 1942')], counterOut=3.4, bnoteOut=3.4,
+                     legend=dict(items=[dict(s='Allied landings (Torch)', c='#b03a2e'), dict(s='Vichy France (hatched)', c='#2e5c8a', hatch=True)], at=0.0, out=3.4)), n_tuyen=len(B_), dur=3.5)
+    for k, S in (('a', SA), ('b', SB)):
+        o = out.replace('.json', f'-{k}.json'); json.dump(S, open(o, 'w'), ensure_ascii=False, indent=1); print('SM3' + k, 'tuyến', S['n_tuyen'], 'nhãn', len(S['p']['tags']), '→', o)
 
 
 if __name__ == '__main__':

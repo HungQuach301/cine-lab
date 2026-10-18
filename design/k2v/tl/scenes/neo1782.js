@@ -9,7 +9,7 @@ import { life, chimneysFrom, freePath } from '../life.js';
 import { makeFleet } from '../ships.js';
 import { jdLocal, sunPos } from '../sun.js';
 
-export const TERRAIN = { cliff: true };
+export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };   // V5b-2d (C2-9): vách bắc sắc hơn + đỉnh 412 m theo ảnh PD LoC 2025710362 (terrain.js)
 export const LOOK = { hemiI: 0.74, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.30, 0.52, 0.90], fogC: [0.40, 0.60, 0.90] };
 export const GRADE = { vib: 0.62 };
 export const META = { cau: 'neo', vai: 'co-che', noi: [[0, 99, 'thanh_pho']], nam: 1782, neo: NEO_PT };
@@ -21,7 +21,7 @@ export async function build(ctx) {
   const GP = [-505, -1165];
   const TR = units([0, 1].map((k) => ({ at: [GP[0] - 10 + k * 22, GP[1] - 6], heading: 270, rows: 4, cols: 12, side: 'gb', day: [0, 99], seed: 31 + k, move: [[0, 0, 0], [4, -26, 4], [8, -6, 16]] })), ctx); scene.add(TR.group);
   const cross = [[GP[0] + 40, GP[1] - 40], [GP[0] - 10, GP[1] + 5], [GP[0] - 60, GP[1] + 30]], edge = freePath([[P.E + 5, P.N - 60], [P.E + 2, P.N + 80]], recs, 20);
-  const LF = life({ seed: 1781, walkers: [{ pts: cross, n: 26, width: 30, colors: ['#e7e0cf', '#5e4a38', '#3d4a5a', '#b03a2e'] }, { pts: edge.length > 1 ? edge : cross, n: 14, width: 2, colors: ['#b03a2e', '#e7e0cf', '#6b5a48'] }],
+  const LF = life({ seed: 1781, walkers: [{ pts: cross, n: 26, width: 30, near: 150, colors: ['#e7e0cf', '#5e4a38', '#3d4a5a', '#b03a2e'] }, { pts: edge.length > 1 ? edge : cross, n: 14, width: 2, near: 150, colors: ['#b03a2e', '#e7e0cf', '#6b5a48'] }],
     birds: [{ c: [GP[0] - 120, GP[1] + 20], r: 90, h: 30, n: 10 }], boats: [{ pts: [[-650, -900], [-680, -1150], [-660, -1400]], len: 11, speed: 3.0, s0: 0.3 }, { pts: [[-700, -1350], [-720, -1100], [-690, -880]], len: 9, speed: 2.4, s0: 0.7, sail: true }],
     chimney: { at: chimneysFrom(recs.filter((r) => r[1] > 0), 18), drift: [-1.2, 0.4] } }, ctx);
   scene.add(LF.group); ctx.maskHide = LF.smokeGroup ? [LF.smokeGroup] : [];

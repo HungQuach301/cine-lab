@@ -25,7 +25,8 @@ const PAL = {
 const TILE_C = [[0.70, 0.36, 0.24], [0.62, 0.30, 0.20], [0.74, 0.44, 0.30], [0.58, 0.34, 0.26]], FLAT_C = [[0.80, 0.78, 0.74], [0.72, 0.70, 0.67], [0.84, 0.80, 0.72], [0.62, 0.62, 0.62]];
 const TILE = 500, NA = 19;
 // V5b-2c (lệnh V0 mục d, I5): ngói đất nung thế kỷ 18 bão hoà hơn (S ≈ 0,72–0,78 trước ánh sáng) cho phố 1782 — không cháy sáng (giá trị ≤ 0,8)
-const TILE_1782 = [[0.76, 0.33, 0.17], [0.70, 0.28, 0.15], [0.80, 0.40, 0.20], [0.66, 0.31, 0.18]];
+const TILE_1782 = [[0.76, 0.33, 0.17], [0.70, 0.28, 0.15], [0.80, 0.40, 0.20], [0.66, 0.31, 0.18],
+  [0.62, 0.34, 0.22], [0.78, 0.46, 0.26], [0.58, 0.27, 0.17], [0.74, 0.38, 0.28]];   // V5b-2d (C2-1 mục 5): ngói ĐA SẮC NHẸ — thêm nâu cũ, cam nhạt bạc nắng, đỏ sẫm, hồng đất (ngói thủ công nhiều mẻ nung)
 
 // chọn kiểu mặt đứng + mái (tất định theo băm). Trả { sty, roof: 'flat'|'parapet'|'terrace'|'gable'|'hipr'|'pyr', gh (cao lớp tái dựng) }
 // V5b-2b (M9): pd = THỜI KỲ của lớp footprint (bản ghi phần tử 8): 0 = 1704–1782 (mái ngói thấp + sân thượng phẳng, 2–3 tầng, không ban công sắt)
@@ -68,7 +69,7 @@ export function makeCity(B, U, { lod = true, hid = 0, ghostDesat = 0.22 } = {}) 
     const P = PAL[S.sty]; let wc = P[Math.floor(R() * P.length)].map((v) => v * (0.93 + 0.1 * R()));
     if (S.uoc) wc = [wc[0] * 0.95 + 0.03, wc[1] * 0.97 + 0.03, wc[2] * 1.0 + 0.04].map((v) => Math.min(1, v));   // lấp ước tính: vữa ngả xám-lam nhẹ (khác tông, không trong suốt)
     const pitchedK = rfK === 'gable' || rfK === 'hipr' || rfK === 'pyr';
-    const rc = (pitchedK ? (pd === 0 || pd === 3 ? TILE_1782 : TILE_C)[Math.floor(R() * 4)] : FLAT_C[Math.floor(R() * 4)]).map((v) => v * (0.9 + 0.15 * R()));
+    const rc = (pitchedK ? (pd === 0 || pd === 3 ? TILE_1782 : TILE_C)[Math.floor(R() * (pd === 0 || pd === 3 ? TILE_1782.length : 4))] : FLAT_C[Math.floor(R() * 4)]).map((v) => v * (0.9 + 0.15 * R()));
     const dur = reg === 1 ? 1.5 : 4.0, seed = R();
     stats.sty[S.sty]++;
     for (let l = 0; l < 2; l++) {

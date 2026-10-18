@@ -31,6 +31,13 @@ export async function makeTerrain(base, M, U, TO = {}) {
   const [e0, n0, e1, n1] = M.ext, [R, Cn] = M.terrain_shape, st = M.step_terrain;
   const Hh = await loadF32(base + 'terrain.f32');
   const cliffStat = TO.cliff ? sharpenCliff(Hh, R, Cn, e0, n1, st, TO.cliff === true ? {} : TO.cliff) : null;
+  // V5b-2d (C2-9): ĐỐI CHIẾU ẢNH PD (LoC 2025710362 "Gibraltar. Rock from neutral ground", c. 1900–10, "No known restrictions on publication"): vách bắc là vách gần
+  //  đứng, đỉnh bắc cao hơn hẳn DEM (Copernicus 359 m; thật: Rock Gun ≈ 412 m, O'Hara's ≈ 426 m) → nâng phần cao của Rock theo luỹ thừa (chân giữ nguyên) để đỉnh = peak m.
+  if (cliffStat && TO.cliff.peak) { const [E0, N0, E1, N1] = TO.cliff.peakBox || [-450, -5200, 1600, -350], base = TO.cliff.peakBase ?? 120;
+    let mx = 0; for (let r = 0; r < R; r++) for (let c = 0; c < Cn; c++) { const e = e0 + c * st, n = n1 - r * st; if (e > E0 && e < E1 && n > N0 && n < N1) mx = Math.max(mx, Hh[r * Cn + c]); }
+    let k = 0; if (mx > base + 1) for (let r = 0; r < R; r++) for (let c = 0; c < Cn; c++) { const e = e0 + c * st, n = n1 - r * st, i = r * Cn + c; if (!(e > E0 && e < E1 && n > N0 && n < N1) || Hh[i] <= base) continue;
+      Hh[i] += Math.pow((Hh[i] - base) / (mx - base), 1.6) * (TO.cliff.peak - mx); k++; }
+    Object.assign(cliffStat, { dinh_dem_m: +mx.toFixed(1), dinh_moi_m: TO.cliff.peak, o_nang: k, nguon_anh: 'LoC 2025710362 (PD — No known restrictions)' }); }
   const hAt = (e, n) => { const fc = Math.max(0, Math.min(Cn - 1.001, (e - e0) / st)), fr = Math.max(0, Math.min(R - 1.001, (n1 - n) / st));
     const c = Math.floor(fc), r = Math.floor(fr), a = fc - c, b = fr - r, g = (rr, cc) => Hh[rr * Cn + cc];
     return (g(r, c) * (1 - a) + g(r, c + 1) * a) * (1 - b) + (g(r + 1, c) * (1 - a) + g(r + 1, c + 1) * a) * b; };
@@ -153,7 +160,7 @@ export async function makeTerrain(base, M, U, TO = {}) {
         if (auv.x > 0.0 && auv.x < 1.0 && auv.y > 0.0 && auv.y < 1.0) { vec3 a = texture(tAO, auv).rgb; float ay = decYear(a.gb);
           g *= 1.0 - 0.5 * a.r * smoothstep(ay - 2.0, ay, uYear); } }
       float L = dot(g, vec3(0.299, 0.587, 0.114)); g = mix(g, vec3(L), 0.55 * uDim) * (1.0 - 0.36 * uDim);
-      diffuseColor.rgb = g;`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(0.0, step(0.5, uk), vWP.y < 0.2 ? 0.25 : (1.0 - step(0.5, uk)) * (1.0 - step(0.2, 1.0 - clamp(vWN.y, 0.0, 1.0))) * 0.5, 1.0);   /* mặt nạ: xanh = nền phố (đô thị theo năm); V5b-2c: lam 0,5 = đất tự nhiên BẰNG (cỏ/cát trống, dốc < ~37°), lam 0,25 = đáy dưới mặt nước (= nước) */');
+      diffuseColor.rgb = g;`).replace('#include <dithering_fragment>', '#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(0.0, step(0.5, uk), vWP.y < 0.2 ? 0.25 : (1.0 - step(0.5, uk)) * mix(0.9, 0.5, 1.0 - step(0.2, 1.0 - clamp(vWN.y, 0.0, 1.0))), 1.0);   /* V5b-2d: lam 0,9 = đất tự nhiên DỐC (vách/sườn Rock) — trước: đen (lẫn vào nước/trời) */   /* mặt nạ: xanh = nền phố (đô thị theo năm); V5b-2c: lam 0,5 = đất tự nhiên BẰNG (cỏ/cát trống, dốc < ~37°), lam 0,25 = đáy dưới mặt nước (= nước) */');
   };
   // lưới trong 20 m + lưới ngoài 60 m (đỉnh nằm trong vùng trong bị hạ 40 m → không lộ, không z-fight)
   const IN = [-3000, -5500, 2000, 5000];
