@@ -19,7 +19,8 @@ A = ap.parse_args(sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else s
 EP = A.epoch; os.makedirs(A.out, exist_ok=True)
 T0 = time.time()
 NO_SANDBAG = os.environ.get('PT2_NO_SANDBAG') == '1'
-PT4 = os.environ.get('PT4') == '1'   # PT4: dựng lại vật BẢO VỆ của A (lòng nhà đổ nát 1782, tàu 1943, hầm) — RNG riêng, không đổi chuỗi ngẫu nhiên của cảnh
+PT6 = os.environ.get('PT6') == '1'   # V6 khung neo (18/10): luật vật hai tầng Q-PT4-3 — bỏ chậu cây 1943 + mái che 1782, thưa mái che 1943, thêm vật nền phụ (mã 9516, BẢO VỆ = điểm ảnh A); RNG cảnh giữ nguyên
+PT4 = os.environ.get('PT4') == '1' or PT6   # PT4: dựng lại vật BẢO VỆ của A (lòng nhà đổ nát 1782, tàu 1943, hầm) — RNG riêng, không đổi chuỗi ngẫu nhiên của cảnh
 TEXDIR = {'A': os.environ.get('PT_TEXA', '/var/tmp/pt/texA'), 'B': os.environ.get('PT_TEXB', '/var/tmp/pt/texB')}[A.tex]
 # 9 khe vân lát được (đúng danh sách được phép của H-B) → tệp nhánh A (Poly Haven CC0)
 SLOTS = {'vua': 'painted_plaster_wall', 'da_voi': 'white_sandstone_blocks_02', 'gach': 'red_brick_plaster_patch_02', 'da_hoc': 'old_stone_wall',
@@ -373,11 +374,13 @@ def gf_fill(fr, kind, a0, a1, b0, b1, d, spec, rng, broken):
         if rng.random() < 0.6: fr.box('go', a0 + 0.1, a1 - 0.1, b0, b0 + (b1 - b0) * rng.uniform(0.3, 0.7), -d + 0.02, -d + 0.07, tint=(0.25, 0.2, 0.15))  # ván bít
         return
     if kind == 'door':
+        if PT6 and EP == 1943: v6_door_sandbags(fr, a0, a1)
         fr.box('go', a0, a1, b0, b1, -d, -d + 0.06, tint=spec['door'])
         for k in range(1, 4): x = a0 + (a1 - a0) * k / 4; fr.box('go', x - 0.015, x + 0.015, b0, b1, -d + 0.06, -d + 0.075, tint=spec['door'])
         fr.box('sat', (a0 + a1) / 2 + 0.15, (a0 + a1) / 2 + 0.22, b0 + 1.0, b0 + 1.08, -d + 0.06, -d + 0.1)
     else:   # cửa hàng: khung gỗ, kính ô, quầy; hoặc cánh gỗ khép
-        if rng.random() < spec['shop_closed']:
+        closed = rng.random() < spec['shop_closed']
+        if closed:
             fr.box('go', a0, a1, b0, b1, -d, -d + 0.05, tint=spec['door'])
             for k in range(1, 6): x = a0 + (a1 - a0) * k / 6; fr.box('go', x - 0.012, x + 0.012, b0, b1, -d + 0.05, -d + 0.065, tint=spec['door'])
         else:
@@ -387,7 +390,7 @@ def gf_fill(fr, kind, a0, a1, b0, b1, d, spec, rng, broken):
             fr.box('go', a0, a1, b0, b0 + 0.75, -d, -d + 0.1, tint=spec['door']); fr.quad('kinh', a0, a1, b0 + 0.75, b1, -d + 0.03)
             fr.box('bien_hieu', a0, a1, b1 - 0.35, b1, -d, -d + 0.08, tint=spec['door'])   # dải biển hiệu trơn (KHÔNG chữ)
         if spec['awning_p'] > rng.random():
-            awning(fr, a0 - 0.2, a1 + 0.2, b1 + 0.15, spec, rng)
+            awning(fr, a0 - 0.2, a1 + 0.2, b1 + 0.15, spec, rng, closed)
     if EP == 1943 and spec.get('sandbag') and rng.random() < spec['sandbag'] and not NO_SANDBAG:   # PT2: bao cát cửa không có nguồn TIEN-KY → tắt (giữ lượt rng)
         sandbags(fr, a0 - 0.3, a1 + 0.3, rng)
 
@@ -406,15 +409,54 @@ def balcony(fr, a0, a1, v, spec, rng):
         for k in range(4):
             w = dep * k / 4; fr.box(mat, side - bar / 2, side + bar / 2, v, v + hgt, w, w + bar, tint=tn)
     if iron and rng.random() < 0.35:   # chậu cây
+        if PT6: note('chau_cay_bo_V6'); return   # V6 (Q-PT4-3 b): 1943 dân thường đã sơ tán 1940 → bỏ đồ gia đình trên ban công (giữ lượt rng)
         fr.box('vua', a0 + 0.2, a0 + 0.45, v, v + 0.25, dep - 0.35, dep - 0.1, tint=(0.55, 0.3, 0.2)); note('chau_cay')
 
-def awning(fr, a0, a1, v, spec, rng):
-    note('mai_che')
+def awning(fr, a0, a1, v, spec, rng, closed=False):
     proj = 1.3 + rng.random() * 0.5; drop = 0.6; P = fr.P
     tint = rng.choice([(0.85, 0.82, 0.72), (0.55, 0.25, 0.2), (0.35, 0.4, 0.3), (0.8, 0.7, 0.5)])
+    if PT6:   # V6 (Q-PT4-3 b): 1782 phố bị bắn phá, dân bỏ đi từ 4/1781, kho bị cướp (S062, S063) → không mái che cửa hàng;
+              # 1943 cửa hàng phục vụ đồn trú: chỉ giữ trên cửa hàng MỞ, thưa ~1/2 (mật độ vừa phải). Quyết định theo vị trí (không đổi lượt rng).
+        c = fr.P((a0 + a1) / 2, v, 0); hsh = (math.sin(c[0] * 12.9898 + c[1] * 78.233) * 43758.5453) % 1.0
+        keep = EP == 1943 and not closed and hsh < 0.5
+        LOG.setdefault('v6_mai_che', []).append({'xy': [round(c[0], 2), round(c[1], 2)], 'z': round(v, 2), 'giu': keep, 'cua_dong': closed})
+        if not keep: note('mai_che_bo_V6'); return
+    note('mai_che')
     B['vai'].face([P(a0, v + 0.3, 0.02), P(a1, v + 0.3, 0.02), P(a1, v + 0.3 - drop, proj), P(a0, v + 0.3 - drop, proj)][::-1], tint)
     B['vai'].face([P(a0, v + 0.3 - drop, proj), P(a1, v + 0.3 - drop, proj), P(a1, v + 0.3 - drop - 0.25, proj + 0.02), P(a0, v + 0.3 - drop - 0.25, proj + 0.02)][::-1], tint)
     for x in (a0 + 0.05, a1 - 0.05): fr.box('sat', x - 0.012, x + 0.012, v + 0.3 - drop - 0.02, v + 0.3, proj - 0.03, proj, faces='all')
+
+V6R = random.Random(6006)   # V6: RNG riêng cho vật nền phụ (không đổi chuỗi ngẫu nhiên của cảnh)
+V6N = {'bao_cat_cua': 0}
+def sandbag(key, c, yaw, tint, sx=0.27, sy=0.15, sz=0.085):
+    """V6: một bao cát hình gối (uv-sphere dẹt, mép ép phẳng) — vải bố 'cat'."""
+    bm = bmesh.new(); bmesh.ops.create_uvsphere(bm, u_segments=10, v_segments=6, radius=1.0)
+    cy, sy_ = math.cos(yaw), math.sin(yaw)
+    for v in bm.verts:
+        x, y, z = v.co.x * sx, v.co.y * sy, v.co.z * sz
+        z = max(-sz * 0.8, min(sz * 0.85, z))            # đáy/đỉnh ép phẳng như bao cát chất chồng
+        v.co.x, v.co.y, v.co.z = c[0] + x * cy - y * sy_, c[1] + x * sy_ + y * cy, c[2] + z
+    for f in bm.faces: B[key].face([tuple(v.co) for v in f.verts], tint)
+    bm.free()
+
+def v6_door_sandbags(fr, a0, a1):
+    """V6 vật nền phụ 1943: tường bao cát chắn mảnh trước cửa ra vào (đặc trưng thị trấn đồn trú thời chiến; không chữ).
+    Chọn theo vị trí (hash) ~1/5 cửa nhìn thấy ở 14–70 m, tối đa 5; mã vùng 9516 (BẢO VỆ: điểm ảnh A)."""
+    c = fr.P((a0 + a1) / 2, 0, 0); dist = math.hypot(c[0], c[1])
+    hsh = (math.sin(c[0] * 39.346 + c[1] * 11.135) * 24634.6345) % 1.0
+    if not (14 <= dist <= 70) or hsh > 0.22 or V6N['bao_cat_cua'] >= 5: return
+    V6N['bao_cat_cua'] += 1; note('bao_cat_cua_V6'); old = CUR[0]; CUR[0] = 9516
+    L0, L1 = a0 - 0.5, a1 + 0.5; rows = 4 + (hsh < 0.08)
+    for row in range(rows):
+        u = L0 + (0.27 if row % 2 else 0.0)
+        while u < L1 - 0.2:
+            t = 0.55 + 0.1 * ((row * 7 + int(u * 10)) % 3) / 2
+            tint = (0.6, 0.54, 0.4) if (row + int(u * 3)) % 3 else (0.52, 0.47, 0.35)
+            sandbag('cat', fr.P(u + 0.27, 0.08 + row * 0.165, 1.05), fr.yaw, tint)
+            u += 0.54
+    OBST.append((round(fr.P((L0 + L1) / 2, 0, 1.05)[0], 2), round(fr.P((L0 + L1) / 2, 0, 1.05)[1], 2), round((L1 - L0) / 2 + 0.3, 2)))
+    CUR[0] = old
+OBST = []
 
 def sandbags(fr, a0, a1, rng):
     note('bao_cat')
@@ -705,6 +747,15 @@ def free(x, y, r=1.5):
     if x < wx(y) + 2: return False
     return all(not S.inside(x + dx, y + dy, q) for q in polys for dx, dy in ((0, 0), (r, 0), (-r, 0), (0, r), (0, -r)))
 
+def near_free(x, y, r, reach=3.0):
+    """V6: điểm trống gần (x, y) nhất (xoắn ốc bước 0,25 m, ≤ reach) — None nếu không có."""
+    for k in range(int(reach / 0.25) + 1):
+        d = k * 0.25
+        for j in range(max(1, int(6 * k))):
+            a = 2 * math.pi * j / max(1, int(6 * k)); px, py = x + d * math.cos(a), y + d * math.sin(a)
+            if free(px, py, r): return (px, py)
+    return None
+
 def barrel(x, y, rng, tint=(0.35, 0.25, 0.15)):
     note('thung')
     bpy.ops.mesh.primitive_cylinder_add(vertices=16, radius=0.33, depth=0.85, location=(x, y, 0.425)); o = bpy.context.object
@@ -779,16 +830,67 @@ EXTRA = XList(); LAMPS = []; FLAGS = []; CUR[0] = 9500
 # PT2: mã vùng đồ phố theo loại (mặt nạ bảo vệ dữ kiện): 951x đồ nền cho phép sửa bề mặt; 952x+ mang dữ kiện (bảo vệ)
 PROPCODE = {'barrel': 9510, 'cart': 9511, 'rubble': 9514, 'timber': 9515, 'stall': 9513, 'shot_pile': 9521, 'cannon': 9520, 'lamp_post': 9530,
             'flagpole': 9540, 'sentry_box': 9541, 'shelter': 9542, 'shelter_pt4': 9542, 'truck': 9550}
+RAD = {'barrel': 0.5, 'cart': 1.8, 'rubble': 2.0, 'stall': 1.8, 'shot_pile': 0.7, 'cannon': 1.6, 'lamp_post': 0.4, 'flagpole': 0.4, 'sentry_box': 1.0,
+       'shelter': 3.8, 'shelter_pt4': 4.2, 'truck': 3.5, 'v6_cask': 0.9, 'v6_crates': 1.0, 'v6_drums': 0.9, 'v6_basket': 0.5}
 def tag(fn):
     code = PROPCODE[fn.__name__]
     def w(*a, **k):
         old = CUR[0]
         if old >= 9000: CUR[0] = code      # trong khối nhà (đổ nát) giữ mã toà
+        if fn.__name__.startswith('shelter'): OBST.append((-40.0, 12.0, RAD[fn.__name__]))
+        elif len(a) >= 2 and all(isinstance(q, (int, float)) for q in a[:2]): OBST.append((round(a[0], 2), round(a[1], 2), RAD.get(fn.__name__, 1.0)))
         try: return fn(*a, **k)
         finally: CUR[0] = old
     return w
+
+# ---- V6 vật nền phụ (Q-PT4-3 b, sửa 12:55): kiểu dáng/vật liệu đúng thời kỳ, không chữ, mật độ vừa phải; mã 9516 → BẢO VỆ (điểm ảnh A, không qua AI)
+def v6_cask(x, y, rng):
+    """1782: thùng gỗ VỠ (S063: lính phá kho rượu 4/1781) — vành ván cong, thiếu 3–5 ván, vài ván bật ra; một đai sắt; ván rời quanh."""
+    note('thung_vo_V6'); n = 16; miss = set(rng.sample(range(n), rng.randint(3, 5))); tilt = rng.uniform(0, 6.28)
+    for i in range(n):
+        if i in miss: continue
+        a = 2 * math.pi * i / n + tilt; r = 0.31; splay = rng.uniform(0.0, 0.25) if (i - 1) % n in miss or (i + 1) % n in miss else 0.0
+        h = rng.uniform(0.55, 0.86) if splay else 0.86
+        c = (x + math.cos(a) * (r + splay * 0.3), y + math.sin(a) * (r + splay * 0.3), h / 2 - 0.02)
+        box('go', c, (0.025, 0.12, h), a, tint=(0.33, 0.24, 0.15), pitch=-splay)
+    bpy.ops.mesh.primitive_torus_add(major_radius=0.33, minor_radius=0.012, location=(x, y, 0.22)); t = bpy.context.object; t.data.materials.append(M['sat']); EXTRA.append(t)
+    for k in range(rng.randint(3, 6)):   # ván rời trên đất
+        a = rng.uniform(0, 6.28); d = rng.uniform(0.5, 1.3)
+        box('go', (x + math.cos(a) * d, y + math.sin(a) * d, 0.015), (0.8, 0.11, 0.025), rng.uniform(0, 3.14), tint=(0.3, 0.22, 0.14))
+
+def v6_basket(x, y, rng):
+    """1782: giỏ đan (cói/liễu) lật nghiêng cạnh đống vụn — đồ chở đất/đá của tổ sửa chữa; vật liệu 'vai' tông rơm."""
+    note('gio_V6'); yaw = rng.uniform(0, 6.28); cy, sy = math.cos(yaw), math.sin(yaw)
+    bm = bmesh.new(); bmesh.ops.create_cone(bm, cap_ends=False, segments=14, radius1=0.2, radius2=0.27, depth=0.38)
+    for v in bm.verts:   # nằm nghiêng (trục ngang), đáy chạm đất
+        X, Y, Z = v.co.z, v.co.y, -v.co.x
+        v.co.x, v.co.y, v.co.z = x + X * cy - Y * sy, y + X * sy + Y * cy, Z + 0.25
+    for f in bm.faces: B['vai'].face([tuple(v.co) for v in f.verts], (0.62, 0.5, 0.3))
+    bm.free()
+
+def v6_crates(x, y, yaw, rng):
+    """1943: chồng hòm gỗ quân dụng (không chữ/số) — gỗ sơn ô-liu/để mộc; 4–7 hòm."""
+    note('hom_quan_dung_V6'); cy, sy = math.cos(yaw), math.sin(yaw); k = 0
+    for lv in range(2):
+        for i in range(3 - lv):
+            if rng.random() < 0.15: continue
+            u = (i - (2 - lv) / 2) * 0.66 + rng.uniform(-0.04, 0.04); sz = (0.6, 0.42, 0.36)
+            tn = (0.3, 0.31, 0.2) if rng.random() < 0.6 else (0.46, 0.38, 0.26)
+            c = (x + u * cy, y + u * sy, sz[2] / 2 + lv * sz[2]); box('go', c, sz, yaw + rng.uniform(-0.06, 0.06), tint=tn)
+            box('go', (c[0], c[1], c[2] + sz[2] / 2 + 0.008), (sz[0] + 0.02, sz[1] + 0.02, 0.016), yaw, tint=tuple(q * 0.85 for q in tn)); k += 1
+
+def v6_drums(x, y, rng):
+    """1943: 2–3 thùng phuy thép 40 gallon (sơn tối, không chữ) dựng sát tường."""
+    note('phuy_V6')
+    for i in range(rng.randint(2, 3)):
+        a = rng.uniform(0, 6.28); px, py = x + math.cos(a) * 0.35 * i, y + math.sin(a) * 0.35 * i
+        bpy.ops.mesh.primitive_cylinder_add(vertices=20, radius=0.29, depth=0.88, location=(px, py, 0.44)); o = bpy.context.object; o.data.materials.append(M['son'])
+        o.data.attributes.new('tint', 'FLOAT_COLOR', 'FACE'); [setattr(dd, 'color', (0.17, 0.19, 0.15, 1)) for dd in o.data.attributes['tint'].data]; EXTRA.append(o)
+        for z in (0.29, 0.59):
+            bpy.ops.mesh.primitive_torus_add(major_radius=0.295, minor_radius=0.012, location=(px, py, z)); t = bpy.context.object; t.data.materials.append(M['sat']); EXTRA.append(t)
+PROPCODE.update({'v6_cask': 9516, 'v6_basket': 9516, 'v6_crates': 9516, 'v6_drums': 9516})
 barrel, cart, rubble, stall, shot_pile, cannon, lamp_post, flagpole, sentry_box, shelter, truck = map(tag, (barrel, cart, rubble, stall, shot_pile, cannon, lamp_post, flagpole, sentry_box, shelter, truck))
-shelter_pt4 = tag(shelter_pt4)
+shelter_pt4 = tag(shelter_pt4); v6_cask, v6_basket, v6_crates, v6_drums = map(tag, (v6_cask, v6_basket, v6_crates, v6_drums))
 if EP == 1782 and S.CAMK == 'k1782':
     # PT2 hẻm 1782 (sau pháo kích 4/1781 — Drinkwater ghi RUINS): đồ nền dọc chân tường hai bên, lòng hẻm để trống cho người qua lại.
     # Hẻm: y ∈ (−3,0; 4,8) ở x = 6, hẹp dần về tây; đầu tây mở ra Line Wall (x ≈ −99).
@@ -811,6 +913,13 @@ if EP == 1782 and S.CAMK == 'k1782':
     lamp_post(-30.0, yN(-30) - 0.4, R)          # đèn dầu trên cột sát tường (một nguồn sáng đêm như PT)
     cannon(wx(-1.5) + 2.2, -1.5, math.pi)       # pháo trên Line Wall cuối hẻm
     flagpole(wx(-1.4) + 4.0, -1.4, 12.0)        # cột cờ cuối hẻm (vị trí dựng — không có nguồn vị trí; mẫu cờ 1707 có nguồn)
+    if PT6:   # V6 vật nền phụ (mật độ vừa phải): 2 thùng vỡ + 1 giỏ lật, sát chân tường
+        for (x, side) in ((-24.5, 'S'), (-56.0, 'N')):
+            y = yS(x) + 0.65 if side == 'S' else yN(x) - 0.65
+            q = near_free(x, y, 0.45)
+            if q: v6_cask(q[0], q[1], V6R)
+        x = -40.5; q = near_free(x, yN(x) - 0.7, 0.35)
+        if q: v6_basket(q[0], q[1], V6R)
 elif EP == 1782:
     for (x, y) in ((-30, -8), (-36, -2), (-55, 14)):
         if free(x, y): shot_pile(x, y, R)
@@ -846,7 +955,14 @@ else:
     for (x, y) in ((-12, -14), (-12.8, -13.2), (-48, 20), (-49, 21)):
         if free(x, y, 0.5): barrel(x, y, R)
     flagpole(wx(8) + 4, 8, 12.0)
-LOG['lamps'] = LAMPS; LOG['flags'] = FLAGS; LOG['chimneys'] = CHIM
+    if PT6:   # V6 vật nền phụ 1943: hòm quân dụng cạnh hầm + 1 chồng sát tường; phuy thép
+        for (x, y, yw) in ((-36.2, 15.8, 0.1), (-44.5, 7.2, 0.1), (-22.0, 19.5, 1.65)):
+            q = near_free(x, y, 0.8)
+            if q: v6_crates(q[0], q[1], yw, V6R)
+        for (x, y) in ((-50.5, 17.0), (-30.0, -12.5)):
+            q = near_free(x, y, 0.6)
+            if q: v6_drums(q[0], q[1], V6R)
+LOG['lamps'] = LAMPS; LOG['flags'] = FLAGS; LOG['chimneys'] = CHIM; LOG['vat_can'] = OBST   # V6: vật trên mặt đất (x, y, bán kính m) — lớp sống tránh đi xuyên
 
 # ---------------------------------------------------------------- tạo đối tượng từ bộ đệm
 def flush(name, buf, mat, key=None):
@@ -927,6 +1043,7 @@ def set_pass(p):
 
 # ---------------------------------------------------------------- dựng
 sc.render.engine = 'CYCLES'; sc.cycles.device = 'CPU'; sc.cycles.samples = A.spp; sc.cycles.use_denoising = True
+if os.environ.get('PT_THREADS'): sc.render.threads_mode = 'FIXED'; sc.render.threads = int(os.environ['PT_THREADS'])   # V6: máy dùng chung
 sc.cycles.denoiser = 'OPENIMAGEDENOISE'; sc.cycles.use_adaptive_sampling = True; sc.cycles.adaptive_threshold = 0.02
 sc.cycles.max_bounces = 4; sc.cycles.diffuse_bounces = 2; sc.cycles.glossy_bounces = 2; sc.cycles.transmission_bounces = 2; sc.cycles.transparent_max_bounces = 4
 sc.cycles.caustics_reflective = False; sc.cycles.caustics_refractive = False; sc.render.use_persistent_data = True

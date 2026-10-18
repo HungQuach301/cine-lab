@@ -11,7 +11,7 @@ def lin2srgb(a): a = np.clip(a, 0, 1); return np.where(a <= 0.0031308, a * 12.92
 
 # vùng (mã CUR của build_scene.py)
 REG_NAMES = {9000: 'Line Wall (công trình mốc)', 9510: 'thùng', 9511: 'xe kéo', 9513: 'quầy hàng', 9514: 'gạch vụn', 9515: 'dầm gỗ', 9520: 'pháo',
-             9521: 'đống đạn pháo', 9530: 'đèn', 9540: 'cột cờ', 9541: 'chốt gác', 9542: 'hầm trú ẩn', 9550: 'xe tải quân sự', 9600: 'đồi bên kia vịnh / đường chân trời',
+             9521: 'đống đạn pháo', 9530: 'đèn', 9540: 'cột cờ', 9541: 'chốt gác', 9542: 'hầm trú ẩn', 9550: 'xe tải quân sự', 9516: 'vật nền phụ V6 (bảo vệ)', 9560: 'người 3D (bản tốt nhất, bảo vệ)', 9600: 'đồi bên kia vịnh / đường chân trời',
              9700: 'biển', 9800: 'mặt đất', 9900: 'tàu'}
 # ĐƯỢC SỬA (HC1): bề mặt tường/mái của toà (vật liệu vữa, gạch, đá, ngói, bao cát) · mặt đất · đồ vật nền (thùng, xe kéo, quầy, gạch vụn, dầm gỗ)
 EDIT_MATS_BUILDING = ('vua', 'gach', 'da_voi', 'da_hoc', 'ngoi', 'cat', 'vua_go')   # gờ tầng/gờ mái: bề mặt tường (vệt bóng gờ xử lý khi ghép)
