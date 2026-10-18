@@ -8,7 +8,7 @@ TOT, SX, OUT = sys.argv[1:4]; CW = int(sys.argv[sys.argv.index('--cot') + 1]) if
 OLD = {1: 'd-1-vay-ham.jpg', 2: 'd-2-cang-bo.jpg', 3: 'd-3-pho-day.jpg', 4: 'd-4-hero.jpg', 5: 'd-5-toan-canh.jpg', 6: 'd-6-bo-chien-su.jpg'}
 TEN = {1: 'P1 siege', 2: 'P2 harbour', 3: 'P3 dense street', 4: 'P4 hero fort', 5: 'P5 panorama', 6: 'P6 shore battle'}
 COT = ('BEST (Cycles hybrid)', 'PRODUCTION (llvmpipe V6)', 'V5b-2d')
-TOP, LW = 40, 150
+TOP, LW = 40, 215
 F = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', 22)
 sheet = Image.new('RGB', (LW + 3 * CW, TOP + 6 * CH), (18, 18, 18)); d = ImageDraw.Draw(sheet)
 for j, t in enumerate(COT): d.text((LW + j * CW + 12, 8), t, fill=(235, 235, 235), font=F)

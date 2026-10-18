@@ -1,0 +1,14 @@
+```json
+{
+  "A": {"craft": 6, "detail": 6, "toy_like": 6, "ai_look": 4, "period": 6, "flags": ["toy_look", "unreadable_scale"],
+        "note": "Same scene as C with flatter, lower-contrast lighting and a cleaner wall texture. Figures are tiny but read as uniformed soldiers. The parade ground is a large empty tan plane. The smoke is a few faint puffs. The enemy ships are blocky and tiny."},
+  "B": {"craft": 4, "detail": 3, "toy_like": 9, "ai_look": 3, "period": 3, "flags": ["toy_look", "flat_slide_look", "anachronism", "unreadable_scale", "confusing"],
+        "note": "The troops are red and blue cylinders, like skittles or game pegs. They have no uniforms, no faces and no human shape. The wall texture is a repeating brick tile. Smoke is almost absent. The scene geometry is the same as A and C, but this is the weakest version by a wide margin."},
+  "C": {"craft": 7, "detail": 7, "toy_like": 4, "ai_look": 4, "period": 7, "flags": ["unreadable_scale"],
+        "note": "The best of the three. Stronger directional light and shadows give the wall and parade ground more depth. The wall stone texture is richer. The water sparkles more. Smoke plumes are more visible. The tricorne-wearing figures, cannon, shot piles and Union flag read as 18th-century garrison troops. Weak points: the figures are still too small and static, the ground is still flat and empty, there is little action for a battle shot, and the ships are crude blocks."}
+  ,
+  "rank": ["C", "A", "B"],
+  "why": "C has the most convincing lighting, materials and period-correct figures. A has the same assets with flatter lighting. B replaces the people with coloured cylinders, which is unusable.",
+  "top_fix_for_best": "Make it read as a battle. Add dense, layered smoke and muzzle flashes along the parapet, with splash and impact effects. Add crews in action at the guns, and enlarge or move the camera closer to the foreground figures so they have visible uniform detail. Add dirt, scorch marks and rubble to the empty parade ground. Replace the block ships with proper ships of the line with rigging, sails and a hull silhouette."
+}
+```

@@ -1,0 +1,44 @@
+{
+ "A": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 8,
+  "ai_look": 4,
+  "period": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "confusing"
+  ],
+  "note": "The troops are tiled black-and-gold blocks that look like LEGO plates or barcodes, and they are far too big for the rock and walls. The rock is a good hero shape, and the sky and sea are decent. The walls are flat slabs with a repeating texture. The orange borders and black pegs look like game pieces. The rock is so far away that it reads as a backdrop, and the foreground is empty grass with strange scale."
+ },
+ "B": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "period": 6,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "The infantry are dense grey-blue ranks that read as an army from a distance. The red-cross flags give a period feel. Smoke columns, the bay, the town with its tower and the walls up the hill add depth. The walls are still flat textured slabs, and the grass is plain with no earthworks. The hill has a slightly smeary texture. The soldiers are tiny and uniform."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 4,
+  "ai_look": 4,
+  "period": 6,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "This is almost identical to B but warmer, with more golden walls and a more saturated hill. The hill has visible faceted, low-poly shading patches. The soldiers are darker and a bit muddier, so the ranks are less readable than in B. The walls are cleaner and brighter. The extra warmth helps it look like sunlit stone, but the polygon patches on the hill look like artefacts."
+ },
+ "rank": [
+  "B",
+  "C",
+  "A"
+ ],
+ "why": "B and C have a believable scale relationship between troops, walls, bay and town, and the ranks read as armies, while A's block-like troops look like toys.",
+ "top_fix_for_best": "Break up the flat grass and straight wall slabs with trenches, gabions, batteries, tents and dirt tracks, add some figures that stand out from the ranks (officers, guns, horses), and add real shadows and haze so the foreground has depth."
+}

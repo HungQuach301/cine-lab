@@ -1,0 +1,8 @@
+```json
+{"A": {"craft": 6, "detail": 7, "toy_like": 5, "ai_look": 3, "period": 7, "flags": ["toy_look", "unreadable_scale"], "note": "Tricorn-hatted figures in red and blue coats read as actual soldiers, with proper cannon and shot piles. The stone wall is good. The parade ground is a big flat empty beige expanse, the figures are tiny and stiff, and the ships in the distance are crude blocks. Lighting is a bit flat but clean."},
+ "B": {"craft": 3, "detail": 3, "toy_like": 9, "ai_look": 2, "period": 4, "flags": ["toy_look", "flat_slide_look", "unreadable_scale", "confusing"], "note": "The troops are plain red and blue cylinders, like game pawns or bowling pins. Wall texture is a repetitive brick-tile pattern, and the water and smoke are washed out. The scene looks like a prototype and isn't believable as soldiers."},
+ "C": {"craft": 7, "detail": 7, "toy_like": 4, "ai_look": 3, "period": 7, "flags": ["unreadable_scale"], "note": "Same scene as A with better contrast and a warmer golden-hour grade. The stone has better texture, the shadows are stronger, and the water is more dynamic. Small figures and dull flat terrain remain, but it looks the most cinematic."},
+ "rank": ["C", "A", "B"],
+ "why": "C and A have recognisable 18th-century soldiers, but C's richer lighting, wall texture and shadows give it more depth. B's cylinder 'troops' look like a game prototype.",
+ "top_fix_for_best": "Break up the empty parade ground with dense, varied action (firing lines, gun crews mid-recoil, drifting powder smoke, ground texture and scorch marks), and make the figures larger and in the foreground. Add a close foreground element such as a gabion or cannon for scale and depth."}
+```

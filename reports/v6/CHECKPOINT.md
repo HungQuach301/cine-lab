@@ -1,4 +1,4 @@
-# V6 — CHECKPOINT 09:40 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
+# V6 — CHECKPOINT 10:02 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
 
 Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-nuong @685f11bb, pt4-song @5a7c9a27, claude/checks-v1-15-1qzf9z @001ee5d (0 xung đột); `checks/lock.py --verify` KHỚP 1.15.0 f4fa0349….
 
@@ -14,8 +14,9 @@ Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-n
 
 ## Đang dở
 - **6 khung SẢN XUẤT lượt 3** (cờ xuyên sáng + sửa hook mặt nạ cờ) XONG + đo lại: bão hoà trung vị 0,417 (V5b-2d 0,412), colorful 79,8 (70,0), cạnh 41,9 (27,5), lửa đỏ 0,048 %.
-- **TỐT NHẤT (Cycles lai)** — lỗi phát hiện khi soi và đã sửa trong export6.js / cy6.py: (1) nhà city.js xuất sai cốt (shader cộng aBase + co theo năm); (2) cây năm 2026 nổi trên nước (co theo aYear); (3) lớp dán polygonOffset; (4) cờ đen (hook cờ ghi đè hook mặt nạ → lượt albedo sai; cờ = vải xuyên sáng); (5) địa hình gãy mặt → pháp tuyến mượt; (6) ô LOD thô đâm xuyên ô mịn ở vách bắc → xuất toàn ô mịn. (7) ghép: điểm ảnh Cycles không nhận sáng mà k2v thấy sáng (mái bị bịt) → lấy điểm ảnh k2v (P3 0,093 %, P2 0,004 %, P1 0 %). XONG: P1 (Cycles 421 s), P2 (305 s), P3 (619 s). Đang: P4, P5; còn P6. Mọi lượt trình duyệt chạy TUẦN TỰ (lỗi 'Target crashed' do thiếu RAM khi chạy song song).
-- **Đoạn thử 540p**: lượt 1 các cảnh đinh lỗi "Target crashed" (thiếu RAM: 15 GB, phiên con Blender 8,4 GB + Cycles + 2 cảnh đinh song song) → dựng lại P=1 khi RAM rảnh.
+- **TỐT NHẤT (Cycles lai)** — lỗi phát hiện khi soi và đã sửa trong export6.js / cy6.py: (1) nhà city.js xuất sai cốt (shader cộng aBase + co theo năm); (2) cây năm 2026 nổi trên nước (co theo aYear); (3) lớp dán polygonOffset; (4) cờ đen (hook cờ ghi đè hook mặt nạ → lượt albedo sai; cờ = vải xuyên sáng); (5) địa hình gãy mặt → pháp tuyến mượt; (6) ô LOD thô đâm xuyên ô mịn ở vách bắc → xuất toàn ô mịn. (7) ghép: điểm ảnh Cycles không nhận sáng mà k2v thấy sáng (mái bị bịt) → lấy điểm ảnh k2v (P3 0,093 %, P2 0,004 %, P1 0 %). **6/6 khung TỐT NHẤT XONG** (Cycles 96 spp 2 luồng: 194–619 s; tổng mỗi khung 273–707 s; reports/v6/do/tot-gio/). Ảnh sạch + tờ so trong reports/v6/khung/. Đo: bão hoà trung vị TỐT NHẤT 0,451 · SX 0,417 · V5b-2d 0,412. Đang: P4, P5; còn P6. Mọi lượt trình duyệt chạy TUẦN TỰ (lỗi 'Target crashed' do thiếu RAM khi chạy song song).
+- **Chấm mù 3 bản** đang chạy (18 lệnh claude -p).
+- **Đoạn thử 540p**: đang dựng cảnh đinh P=1 (có --resume). Lượt 1 các cảnh đinh lỗi "Target crashed" (thiếu RAM: 15 GB, phiên con Blender 8,4 GB + Cycles + 2 cảnh đinh song song) → dựng lại P=1 khi RAM rảnh.
 - **Khung neo** (phiên con): đang dựng tờ sprite 1782 + 1943.
 - Golden steel/ll08: KHỚP (SSIM 0,9449 / 0,9307; pHash 0/64; ô lệch 0/144).
 
@@ -43,4 +44,4 @@ Bước 7 chạy Cycles 6+2 khung · đoạn thử 540p qua dây chuyền k2 (re
 - Claude API: **$0,037** (1 lệnh kiểm đường gọi; reports/v6/log/claude-cost.jsonl) — phiên con chưa chấm mù.
 - OpenAI: **$0,063** (1 lệnh tấm C 1943 lần 3; reports/v6/khung-neo/ai-c/goi-api.jsonl).
 - YouTube 0 · ElevenLabs 0.
-- Giờ máy: đồng hồ tường ≈ 06:00 → 09:40 UTC ≈ 3,7 h (bản 07:36 ghi nhầm mốc đầu 05:37); tải CPU song song (llvmpipe phiên chính + 2 Blender phiên con) ≈ 4 nhân bận phần lớn thời gian.
+- Giờ máy: đồng hồ tường ≈ 06:00 → 10:02 UTC ≈ 4,0 h (bản 07:36 ghi nhầm mốc đầu 05:37); tải CPU song song (llvmpipe phiên chính + 2 Blender phiên con) ≈ 4 nhân bận phần lớn thời gian.

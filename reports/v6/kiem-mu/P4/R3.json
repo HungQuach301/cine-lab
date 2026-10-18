@@ -1,0 +1,48 @@
+{
+ "A": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "cluttered"
+  ],
+  "note": "Clean, readable composition with real figures and masonry texture. The parade ground is a large empty tan slab. Figures are tiny and stiff. Smoke puffs over the water look like cotton wool. The flag is oversized relative to the troops. Lighting is flat compared with C."
+ },
+ "B": {
+  "craft": 3,
+  "detail": 2,
+  "toy_like": 10,
+  "ai_look": 3,
+  "period": 3,
+  "flags": [
+   "toy_look",
+   "confusing",
+   "unreadable_scale",
+   "flat_slide_look"
+  ],
+  "note": "Soldiers are red and blue cylinders, like skittles or game pegs. They cannot be read as troops or tell the two sides apart. It has the same bastion and town as A and C but loses all human detail. The brick texture is repetitive and the water is flat."
+ },
+ "C": {
+  "craft": 7,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Same geometry as A with better lighting: warmer sun, stronger cast shadows and richer stonework. Water and smoke have more depth. Figures are still tiny and doll-like. The parade ground is still bare and the flag is still too big."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C has the same readable uniformed figures as A but with more cinematic lighting, shadow and material depth, while B reduces the troops to coloured cylinders that look like game pieces.",
+ "top_fix_for_best": "Move the camera closer, or scale up and vary the figures (crews at the guns, officers, wounded, ramrod and lunge poses). Break up the empty parade ground with gun carriages, powder kegs, shot piles and ground texture. Replace the cotton-wool smoke with volumetric, directional gun smoke and add incoming fire or impact splashes so it reads as a battle. Scale the flag down."
+}

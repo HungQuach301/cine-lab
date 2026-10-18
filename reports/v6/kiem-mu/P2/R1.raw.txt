@@ -1,0 +1,10 @@
+```json
+{
+  "A": {"craft": 5, "detail": 5, "toy_like": 7, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Flat, evenly lit scene. The water is smooth and the ships are black slab hulls with paper-thin sails that look like game pieces. The town is a decent cluster, but there are no people or smoke, and the wall tops are plain and sandy."},
+  "B": {"craft": 6, "detail": 5, "toy_like": 7, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Better water, with sparkle and foam highlights and stronger contrast and saturation. The ships are still the same toy-like silhouettes, with sails like flat cards and no rigging. The water is slightly oversaturated, but it reads livelier than A."},
+  "C": {"craft": 7, "detail": 6, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Richest lighting. Warm sun on the hills, defined contour shading and shadows on the terrain, and better depth and separation in the town and walls. The water is the same as B. The ships are still toy-like and the frame has no people or life, but it looks the most cinematic."},
+  "rank": ["C", "B", "A"],
+  "why": "C has the strongest light, terrain modelling and depth, B has livelier water than A, and all three share the same toy-like ships and lifeless harbour.",
+  "top_fix_for_best": "Rebuild the ships with proper hull curvature, gun ports, billowed canvas sails, rigging and wakes, then add harbour life such as small boats, smoke from batteries, flags and tiny figures on the walls, so the frame stops looking like an empty game map."
+}
+```

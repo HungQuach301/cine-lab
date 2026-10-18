@@ -1,0 +1,14 @@
+```json
+{
+  "A": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "flat_slide_look", "unreadable_scale"],
+        "note": "Ruined quarter is a sea of beige slabs and low-poly rubble blobs on a visible tile grid. Almost no sky, no smoke or fire, so the bombardment doesn't read. A tiny troop cluster at the bottom edge is too small to register. The intact buildings on the left are clean but look like game assets. Slightly more readable than B because the ruin walls are darker and more varied."},
+  "B": {"craft": 4, "detail": 4, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "flat_slide_look", "cluttered", "unreadable_scale"],
+        "note": "Near-identical to A, but the ruin walls are flatter and merge into one tan mass, which is muddier. The troops are a slightly larger red clump, but the scale still doesn't read. The ground tile grid is obvious. It is the same monochrome beige with no smoke, fire or atmosphere."},
+  "C": {"craft": 7, "detail": 7, "toy_like": 4, "ai_look": 3, "period": 7, "flags": ["toy_look"],
+        "note": "Best frame. Blue sky, hills and sea give depth and atmosphere. Dense terracotta-roofed old town leads the eye to a bell tower and a hilltop fort, and the sea wall adds context. Roof colours are varied and warm. Still clean game-like blocks with repeated house modules and tiny troops, and no destruction or smoke, so it doesn't match the 'partly in ruins' brief."}
+  ,
+  "rank": ["C", "A", "B"],
+  "why": "C has real depth, sky, a clear focal path and dense believable town fabric, while A and B are beige rubble on a visible tile grid with no atmosphere.",
+  "top_fix_for_best": "Add smoke columns, a few damaged or burning roofs, and a haze or grade over the town, and make the troops larger or add ships so the scale reads. Also break up the repeated house modules and hide the ground tile pattern."
+}
+```

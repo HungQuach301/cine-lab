@@ -1,0 +1,13 @@
+```json
+{
+  "A": {"craft": 4, "detail": 3, "toy_like": 8, "ai_look": 3, "period": 4, "flags": ["toy_look", "unreadable_scale", "flat_slide_look", "confusing"],
+        "note": "The rock is the best asset, with believable rock and grass texture. The troops are black pegs on orange slabs, like game trays or Lego plates, and read as neither soldiers nor uniforms. The walls are flat, featureless brown bands. Stray lamp-post-like flags and grey cylinders float among the blocks. There is no town or ships, and the sea is a thin strip. The foreground is a dull green plane."},
+  "B": {"craft": 6, "detail": 6, "toy_like": 4, "ai_look": 3, "period": 6, "flags": ["flat_slide_look", "unreadable_scale"],
+        "note": "Much better. The troops are dense grey-blue ranks with individual silhouettes. Flags with red crosses, a bastioned wall with a textured face, a hillside fortification, a red-roofed town with a bell tower, and drifting smoke plumes all give depth and a sense of place. The troops are still repeated clones in ruler-straight lines on a flat, untextured lawn. The smoke is noisy and sprite-like. The water is a plain flat plane, and the wall is too clean and uniform."},
+  "C": {"craft": 6, "detail": 6, "toy_like": 4, "ai_look": 3, "period": 6, "flags": ["flat_slide_look", "unreadable_scale"],
+        "note": "Nearly identical to B in composition. The warmer, more saturated sand-coloured walls have clearer buttress and masonry articulation, and the hill has stronger faceted shading. The hillside has visible low-poly banding and hard-edged dark facets, which look like a rendering artefact. The troops are slightly browner and darker, so they read less clearly against the grass. The grass is still flat and the lighting is flat."},
+  "rank": ["B", "C", "A"],
+  "why": "B and C are the only versions that read as a real siege, with recognisable troops, flags, a bastioned wall, a town and smoke, while A is a field of black pegs on orange trays. B edges C on a cleaner hill and better troop contrast.",
+  "top_fix_for_best": "Break up the ruler-straight clone ranks and flat lawn: add varied troop poses, colours and spacing, and add trenches, gabions, tents, cannon batteries and some ground texture or shadowed depth in the foreground. Also give the sea waves, foam and some ships so the shot reads as a siege and not a parade ground."
+}
+```
