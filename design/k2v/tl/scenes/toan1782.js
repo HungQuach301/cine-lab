@@ -58,6 +58,6 @@ export async function build(ctx) {
   const N = Math.round(DUR * fps);
   const glog = () => grammarLog(G, N, fps, () => 1782.7, { hAt });
   return { N, fps, state, apply, overlay, path: G.path, grammarLog: glog, camLog: glog, anchors: { grand_parade: [GP[0], 8, GP[1]] }, namKhung: (st) => TOWN.namMax(st.year),
-    meta: Object.assign({ quan: TR.stat(), town: TOWN.stat(), doPx: { quan: [[-16, -26], [16, -26], [-16, 0], [16, 0], [-16, 26], [16, 26]].map(([de, dn]) => [GP[0] + de, hAt(GP[0] + de, GP[1] + dn), GP[1] + dn]),
+    meta: Object.assign({ quan: TR.stat(), town: TOWN.stat(), doPx: { khoi: [27, 10], quan: [[-16, -26], [16, -26], [-16, 0], [16, 0], [-16, 26], [16, 26]].map(([de, dn]) => [GP[0] + de, hAt(GP[0] + de, GP[1] + dn), GP[1] + dn]),
       dam_dong: freePath(MAIN, recs).filter((_, i) => i % 3 === 0).map(([e, n]) => [e, hAt(e, n), n]) } }, META), troops: () => troops, song: () => song, smokeZones: (st) => sm.zones(st.hours) };
 }

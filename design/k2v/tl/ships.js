@@ -60,6 +60,13 @@ function batteryGroup(R) {
   for (const sd of [-1, 1]) { m(new THREE.BoxGeometry(len * 0.88, 0.45, 0.35), L(0xb89a6a), -len * 0.03, 4.75, sd * beam * 0.46); m(new THREE.BoxGeometry(len * 0.9, 0.35, 0.3), L(0x8a6a44), 0, 1.6, sd * beam * 0.5); }   // mép boong gỗ sáng + gờ mạn (đọc được khối thân ở xa)
   m(new THREE.BoxGeometry(len * 0.97, 0.5, beam * 0.98), L(0x1c1a17), 0, 0.15, 0);   // đường mớn nước tối
   for (const [x, hh] of [[-len * 0.2, 16], [len * 0.18, 14]]) { m(new THREE.CylinderGeometry(0.35, 0.45, hh, 5), L(0x2e241b), x, hh / 2 + 4, 0); m(new THREE.CylinderGeometry(0.5, 0.5, beam * 0.6, 5).rotateX(Math.PI / 2), L(0xd8ccb0), x + 0.4, hh * 0.72 + 4, 0); }   // cột ngắn + buồm cuộn
+  // V5b-2d: đọc được ở xa — cột chính cao + trục ngang + buồm thu nửa (bản khắc RP-P-OB-19.249 vẽ pin nổi có cột buồm), dải mạn sơn vàng đất, nòng pháo ló ở lỗ pháo,
+  //  mái che phủ da sống ướt (màu nâu đỏ — chống đạn nung theo thiết kế d'Arçon), cột cờ đuôi (cờ trắng hải quân Bourbon trước 1785 — minh hoạ)
+  m(new THREE.CylinderGeometry(0.4, 0.55, 26, 6), L(0x2e241b), 0, 17, 0); for (const [y, w] of [[14, 0.62], [22, 0.48]]) { m(new THREE.CylinderGeometry(0.22, 0.22, beam * w * 1.6, 5).rotateX(Math.PI / 2), L(0x2e241b), 0.3, y, 0); m(new THREE.BoxGeometry(0.3, 4.2, beam * w * 1.5), L(0xe6dcc4), 0.7, y - 2.2, 0); }
+  for (const sd of [-1, 1]) m(new THREE.BoxGeometry(len * 0.86, 0.9, 0.2), L(0xa8823e), -len * 0.03, 2.5, sd * beam * 0.49);
+  for (let k = 0; k < 11; k++) m(new THREE.CylinderGeometry(0.22, 0.26, 1.4, 6).rotateX(Math.PI / 2), L(0x0c0c0d), -len * 0.38 + k * len * 0.068, 3.6, beam * 0.5 + 0.4);
+  r1.material = L(0x6e3b28);
+  m(new THREE.CylinderGeometry(0.12, 0.15, 8, 4), L(0x2e241b), -len * 0.47, 9, 0); m(new THREE.BoxGeometry(0.06, 2.0, 3.2), L(0xf2efe6), -len * 0.47, 11.8, -1.6);
   return g;
 }
 export function makeFleet(U, specs) {

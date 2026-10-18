@@ -19,7 +19,7 @@ import { life, chimneysFrom } from '../life.js';
 export const TERRAIN = { cliff: { k: 1.8, capUp: 80, peak: 412 } };   // V5b-2d (C2-9): vách bắc sắc hơn + đỉnh 412 m theo ảnh PD LoC 2025710362 (terrain.js)
 export const LOOK = { hemiI: 0.58, hemiSky: '#a9c0e2', hemiGnd: '#b0845a', skyHor: [0.34, 0.52, 0.86], fogC: [0.52, 0.58, 0.78], sunC: '#ffcf96', sunI: 3.1 };   // chiều muộn: nắng thấp ngả vàng cam (11° trên chân trời), fill dịu → mặt phố có khối
 export const GRADE = { vib: 0.62 };
-export const META = { cau: 'lateral-parallax', vai: 'he-qua', moc_dinh: '1782-09-13T17:15 LMT', noi: [[0, 99, 'bien']], nam: 1782 };
+export const META = { cau: 'lateral-parallax', vai: 'he-qua', moc_dinh: '1782-09-13T17:30 LMT', noi: [[0, 99, 'bien']], nam: 1782 };
 export async function build(ctx) {
   const { THREE, terr, scene } = ctx, fps = 24, DUR = 6.0, hAt = (e, n) => Math.max(0, terr.hAt(e, n)), H = (h, m) => h + m / 60;
   ctx.ships.group.visible = false;
@@ -46,9 +46,9 @@ export async function build(ctx) {
     chimney: { at: chimneysFrom(recs1782, 10), drift: [1.4, 1.2] } }, ctx);
   scene.add(LF.group); ctx.maskHide = [sm.group].concat(LF.smokeGroup ? [LF.smokeGroup] : []);
   // máy: tây hàng pin nổi ~900 m, cao 16 m, ống dài 16°, trượt ngang 90 m (parallax pin nổi ↔ phố)
-  const sh = lateral({ vai: 'he-qua', c: [-800, 100, -1330], yaw: 6.3, dist: 1560, len: 90, h: 16, t0: 0, t1: DUR, fov: 15, hAt });
+  const sh = lateral({ vai: 'he-qua', c: [-800, 112, -1330], yaw: 6.3, dist: 1560, len: 90, h: 16, t0: 0, t1: DUR, fov: 13, hAt });
   const G = grammar([sh]);
-  const clockH = (t) => H(17, 13) + t * (4 / 60) / DUR;
+  const clockH = (t) => H(17, 28) + t * (4 / 60) / DUR;   // 17:28–17:32: nắng 7–8° (sau lửa bùng ~17:00)
   function state(t) { const hh = clockH(t), jd = jdLocal(1782, 9, 13, hh), ph = G.phaseAt(t); return { year: 1782.70, day: 0.5, cam: G.path.at(t), spp: 2, phase: ph.kind, preset: 'lateral-parallax', vai: 'he-qua', hero: null, noi: 'bien', hours: hh, clock: clockLabel(jd), sun: sunPos(jd) }; }
   let song = null;
   function apply(st, t) { fleet.update(st.hours); sm.update(st.hours); TOWN.update(st.year, ctx.cam); song = LF.update(t ?? 0, sm.zones(st.hours)); }

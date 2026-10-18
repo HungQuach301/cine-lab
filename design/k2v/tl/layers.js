@@ -254,6 +254,7 @@ export function units(specs, ctx) {
         const [d0, d1] = s.sp.day || [-1e9, 1e9]; let g = Math.max(0, Math.min(1, (day - d0) / 0.5)) * (day <= d1 ? 1 : 0);
         let dE = 0, dN = 0; if (s.sp.move) { const M = s.sp.move; let j = 0; while (j < M.length - 1 && M[j + 1][0] <= day) j++; const A = M[j], B = M[Math.min(M.length - 1, j + 1)], u = B[0] > A[0] ? Math.max(0, Math.min(1, (day - A[0]) / (B[0] - A[0]))) : 0; dE = A[1] + (B[1] - A[1]) * u; dN = A[2] + (B[2] - A[2]) * u; }
         const E = s.E + dE, N = s.N + dN; if (zones.some((z) => Math.hypot(E - z.c[0], N - z.c[1]) < z.r + 15)) { g = 0; hidUnits.add(s.sp); }
+        if (s.sp.near && ctx.cam && Math.hypot(E - ctx.cam.position.x, N + ctx.cam.position.z) > s.sp.near) g = 0;   // V5b-2d (C2-7): nhóm nhỏ (kíp pháo) chỉ hiện ở tầm gần — xa là chấm < 6 px
         const ce = Math.cos(s.hd), sn = Math.sin(s.hd), e = E + ce * s.x - sn * s.z, n = N + sn * s.x + ce * s.z;
         v.set(e, s.sp.y != null ? s.sp.y : Math.max(ctx.terr.hAt(e, n), 0.4) - 0.05, -n); q.setFromAxisAngle(Y, s.hd); sc.set(g > 0 ? 1 : 0, g * s.k, g > 0 ? 1 : 0); m4.compose(v, q, sc); ib.setMatrixAt(i, m4); ih.setMatrixAt(i, m4); if (g > 0) shown++; });
         ib.instanceMatrix.needsUpdate = ih.instanceMatrix.needsUpdate = true; }

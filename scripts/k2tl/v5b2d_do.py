@@ -14,7 +14,30 @@ LOAI = {1: ('vay_ham', 'eo1782', 48, 'v0-1-vay-ham.jpg'), 2: ('cang_bo', 'vinh17
         4: ('hero', 'vinh1782', 192, 'v0-4-hero.jpg'), 5: ('toan_canh', 'toan1782', 72, 'v0-5-toan-canh.jpg'), 6: ('bo_chien_su', 'bo1782', 72, 'v0-6-bien-chien-su.jpg')}
 
 
-def proj_px(cam, pts, h, W=1920, H=1080):
+def proj_px(cam, pts, h, W=1920, H=1080, box=None):
+    """box = (rộng, sâu) m: đo chiều cao HÌNH CHIẾU của khối (hộp rộng × sâu × h, 8 góc) thay vì một người — 'mỗi khối ≥ 6 px cao'."""
+    if box:
+        out = []
+        for q in pts:
+            cs = [[q[0] + dx, q[1] + dy, q[2] + dz] for dx in (-box[0] / 2, box[0] / 2) for dz in (-box[1] / 2, box[1] / 2) for dy in (0, h)]
+            r = proj_px_raw(cam, cs, W, H)
+            if r: out.append(dict(px=max(y for _, y, _ in r) - min(y for _, y, _ in r), d=r[0][2]))
+        return out
+    return [dict(px=x['px'], d=x['d']) for x in proj_px_pt(cam, pts, h, W, H)]
+
+
+def proj_px_raw(cam, pts, W, H):
+    p = np.array(cam['p'], float); l = np.array(cam['l'], float); f = l - p; f /= np.linalg.norm(f); r = np.cross(f, [0, 1.0, 0]); r /= np.linalg.norm(r); u = np.cross(r, f)
+    fy = H / 2 / math.tan(math.radians(cam['fov']) / 2); out = []
+    for q in pts:
+        v = np.array(q, float) - p; d = v @ f
+        if d <= 1: return None
+        out.append((W / 2 + fy * (v @ r) / d, H / 2 - fy * (v @ u) / d, float(np.hypot(v[0], v[2]))))
+    cx = np.mean([o[0] for o in out]); cy = np.mean([o[1] for o in out])
+    return out if (0 <= cx < W and 0 <= cy < H) else None
+
+
+def proj_px_pt(cam, pts, h, W=1920, H=1080):
     p = np.array([cam['p'][0], cam['p'][1], cam['p'][2]], float); l = np.array([cam['l'][0], cam['l'][1], cam['l'][2]], float)
     f = l - p; f /= np.linalg.norm(f); up = np.array([0, 1.0, 0]); r = np.cross(f, up); r /= np.linalg.norm(r); u = np.cross(r, f)
     fy = H / 2 / math.tan(math.radians(cam['fov']) / 2); fx = fy; out = []
@@ -26,7 +49,8 @@ def proj_px(cam, pts, h, W=1920, H=1080):
     return out
 
 
-def stat(rows):
+def stat(rows, near=None):
+    if near: rows = [r for r in rows if r['d'] <= near]   # chỉ vật đang hiện (units near)
     if not rows: return None
     a = np.array([r['px'] for r in rows]); d = np.array([r['d'] for r in rows])
     return dict(n=len(a), px_min=round(float(a.min()), 1), px_med=round(float(np.median(a)), 1), px_max=round(float(a.max()), 1), n_duoi_6px=int((a < 6).sum()), tam_m=[round(float(d.min())), round(float(d.max()))])
@@ -47,8 +71,8 @@ def main():
             L = json.load(open(glob.glob(f'{K}/sach-{k}/log.json')[0])); meta = L['info'].get('scene_meta') or {}
             C = json.load(open(f'{K}/cam-{sc}.json')); fr = (C.get('frames') or C.get('rows') or C)[f] if isinstance(C, dict) else C[f]
             cam = dict(p=fr['pos'], l=fr['look'], fov=fr['fov']) if 'pos' in fr else (fr.get('cam') or fr); dp = (meta.get('doPx') or {}); R['px'] = {}
-            if dp.get('quan'): R['px']['quan_1m75'] = stat(proj_px(cam, dp['quan'], 1.75))
-            if dp.get('dam_dong'): R['px']['dam_dong_1m75'] = stat(proj_px(cam, dp['dam_dong'], 1.75))
+            if dp.get('quan'): R['px']['quan_1m75'] = stat(proj_px(cam, dp['quan'], 1.75), dp.get('near')); R['px']['khoi_quan'] = stat(proj_px(cam, dp['quan'], 1.75, box=dp.get('khoi', (31, 15))), dp.get('near'))
+            if dp.get('dam_dong'): R['px']['dam_dong_1m75'] = stat(proj_px(cam, dp['dam_dong'], 1.75)); R['px']['khoi_dam_dong'] = stat(proj_px(cam, dp['dam_dong'], 1.75, box=(8, 5)))
             if dp.get('tau'): R['px']['tau_than_6m'] = stat(proj_px(cam, [[q[0], 0, q[2]] for q in dp['tau']], 6.0))
             R['scene_meta'] = {x: meta.get(x) for x in ('quan', 'town', 'kb_san', 'kb_phao', 'khoi_dau_nong', 'co', 'khoi', 'vuon', 'chay')}
         except Exception as e: R['px'] = f'lỗi {e}'

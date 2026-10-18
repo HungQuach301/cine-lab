@@ -33,7 +33,7 @@ export async function build(ctx) {
   const MZ = west.filter((g, i) => i % 2 === 0).map((g, i) => { const u = out(g); return { at: [g.muzzle[0] + u[0] * 26, 11, g.muzzle[1] + u[1] * 26], t: [9.7495 - 0.0004 * i, 24], n: 9, size: 8, rise: 14, drift: [u[0] * 1.2 + 0.2, u[1] * 1.2 - 0.6], period: 0.08, seed: 600 + i, alpha: 1.0, zone: 'path' }; });
   // + đội dự bị/khuân đạn giữa sàn (2 khối nhỏ, minh hoạ — Drinkwater: thuỷ thủ hải quân phụ pháo binh ngày 13/9)
   const KC = [KBF.ring.reduce((a, p) => a + p[0], 0) / KBF.ring.length, KBF.ring.reduce((a, p) => a + p[1], 0) / KBF.ring.length];
-  const CREW = units(BAT.crews.map((c, i) => ({ at: c.at, heading: c.heading, rows: 2, cols: 2, sx: 2.6, sz: 1.6, y: KBF.y, color: i % 4 === 3 ? '#a8392c' : '#2f3d5c', day: [0, 99], seed: 900 + i }))
+  const CREW = units(BAT.crews.map((c, i) => ({ at: c.at, heading: c.heading, rows: 2, cols: 2, sx: 2.6, sz: 1.6, near: 300, y: KBF.y, color: i % 4 === 3 ? '#a8392c' : '#2f3d5c', day: [0, 99], seed: 900 + i }))
     .concat([{ at: [KC[0] + 6, KC[1] - 10], heading: 270, rows: 3, cols: 8, y: KBF.y, color: '#a8392c', day: [0, 99], seed: 951 }, { at: [KC[0] + 10, KC[1] + 14], heading: 250, rows: 2, cols: 7, y: KBF.y, color: '#3b4a66', day: [0, 99], seed: 952 }]), ctx); scene.add(CREW.group);   // áo lam pháo binh Hoàng gia + vài lính bộ binh phụ (minh hoạ)
   const FLG = flags([{ at: [KBF.ring.reduce((m, p) => (p[0] > m[0] ? p : m), KBF.ring[0])[0] - 6, -1276], base: KBF.y, pole: 14, w: 4.6, kind: 'union1707', toward: 150 }], ctx); scene.add(FLG.group);
   const KBC = [-620, 0, -1274];   // tâm (E, cao, N)
@@ -63,7 +63,7 @@ export async function build(ctx) {
   const ROUTE = [[-1250, -380], [-980, -620], [-850, -900], [-735, -1274]];   // V5b-2d (C2-1 mục 5, loại 'cảng'): bay cao hơn (≈ 110 m) qua mặt vịnh trước Old Mole — tàu neo tiền cảnh, Old Mole + phố + Rock hậu cảnh; rồi hạ về King's Bastion
   const lh = lienHoan({ vai: 'buoc-ngoat', hAt: (e, n) => Math.max(0, hAt(e, n)),
     route: { line: ROUTE, type: 'vinh', nguon: 'mặt vịnh Gibraltar, đường thẳng Algeciras → King\'s Bastion (vinh1782.js)' },
-    fly: { s0: 0, s1: 560, t: [0.0, 4.0], h: [122, 100], target: [-600, 0, -880], r: 600, pitch: 0.0, fov: 36 },   // V5b-2d: đích nhìn dời về phố (Old Mole → Orange's Bastion): khối phố chiếm nhiều hơn, tàu neo vẫn trong khung   // V5b-2c (I3): thấp hơn (62 → 56 m) — mặt nước nén lại, bờ phố + Line Wall + tàu neo chiếm giữa khung
+    fly: { s0: 0, s1: 480, t: [0.0, 4.0], h: [122, 100], target: [-600, 0, -880], r: 600, pitch: 0.22, fov: 36 },   // nhìn xuống ≈ 12°: tàu neo + Old Mole + phố   // V5b-2d: đích nhìn dời về phố (Old Mole → Orange's Bastion): khối phố chiếm nhiều hơn, tàu neo vẫn trong khung   // V5b-2c (I3): thấp hơn (62 → 56 m) — mặt nước nén lại, bờ phố + Line Wall + tàu neo chiếm giữa khung
     ramp: { t1: 5.9, k: 2.2 },   // V5b-2d: ramp dài hơn 0,3 s (tuyến bay mới xa bastion hơn) — orbit 5,9 → 10,6 s (4,7 s, trong 4–6 s)
     orbit: { c: [KBC[0], 6, KBC[2]], r: 84, h: 27, look: 4, a0: 182, a1: 330, t1: 10.6, fov: 36, heroId: 'kings_bastion' },   // V5b-2c: orbit sát + thấp hơn — mặt tường, lỗ châu mai, pháo đầy khung
     crane: { t1: 12.0, h: 240, fov: 34, l: [-640, 30, -1280] },
@@ -98,5 +98,5 @@ export async function build(ctx) {
   return { N, fps, state, apply, overlay, path, grammarLog: glog, camLog: glog, heroIds: { kings_bastion: 3 },
     anchors: { kings_bastion: [KBC[0], 12, KBC[2]], battery_mid: [mid[0], 12, mid[1]] },
     namKhung: (st) => Object.assign({}, TOWN.namMax(st.year), KB.namMax(st.year)), smokeZones: (st) => sm.zones(st.hours),
-    meta: Object.assign({ alt_vinh: ALT_MAX.vinh, ghost_src: GHOST, fleet: FIN.filter((s) => s.kind === 'battery').length, kb_san: BAT.stat, kb_phao: KBG.length, khoi_dau_nong: MZ.length, town: TOWN.stat(), doPx: { quan: BAT.crews.map((c) => [c.at[0], KBF.y, c.at[1]]), tau: FIN.map((s) => [s.at[0], 0, s.at[1], s.kind]) } }, META), song: () => song, troops: () => crew };
+    meta: Object.assign({ alt_vinh: ALT_MAX.vinh, ghost_src: GHOST, fleet: FIN.filter((s) => s.kind === 'battery').length, kb_san: BAT.stat, kb_phao: KBG.length, khoi_dau_nong: MZ.length, town: TOWN.stat(), doPx: { khoi: [3, 2.5], near: 300, quan: BAT.crews.map((c) => [c.at[0], KBF.y, c.at[1]]), tau: FIN.map((s) => [s.at[0], 0, s.at[1], s.kind]) } }, META), song: () => song, troops: () => crew };
 }
