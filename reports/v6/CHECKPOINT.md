@@ -1,4 +1,4 @@
-# V6 — CHECKPOINT 08:45 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
+# V6 — CHECKPOINT 09:15 UTC 18/10/2026 (nhánh thật: `ccr-0e3bf8dd-nst2mv`; lệnh yêu cầu `v6` — harness buộc tên này)
 
 Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-nuong @685f11bb, pt4-song @5a7c9a27, claude/checks-v1-15-1qzf9z @001ee5d (0 xung đột); `checks/lock.py --verify` KHỚP 1.15.0 f4fa0349….
 
@@ -13,10 +13,11 @@ Nhánh = origin/ccr-8f16467a-mhu954 (V5b-2d @1eecfec2) + merge --no-ff pt3-van-n
 8. reports/v6/blind_v6.py (chấm mù 3 bản) viết xong, chưa chạy.
 
 ## Đang dở
-- TỐT NHẤT: P2 (Cycles 526 s) + P4 (628 s) XONG (P4 làm lại lượt albedo sau khi sửa cờ); P1 + P3 đang dựng; còn P5, P6 + 2 khung neo; P1 phải làm lại lượt albedo (xuất trước khi sửa cờ).
-- Cờ: hook cờ (props.js) ghi đè hook mặt nạ → cờ không có lượt albedo/pháp tuyến/mặt nạ → đã sửa; thêm vải xuyên sáng cho cờ ở bản SẢN XUẤT V6 (cờ ngược nắng gần đen). → cần DỰNG LẠI 6 khung SẢN XUẤT (lượt 3).
-- Golden steel/ll08: KHỚP (SSIM 0,9449 / 0,9307; pHash 0/64; ô lệch 0/144) → reports/v6/do/golden-steel-ll08.json.
-- **Khung neo** (phiên con, design/pt/song/*6.py, reports/v6/khung-neo/): nền A dựng xong, sprite người V6 1782 xong, 1943 đang dựng; tấm C 1943 lần 3 (mặt nạ đất xa) đã sinh 1 lệnh $0,063 + kiểm dữ kiện.
+- **6 khung SẢN XUẤT lượt 3** (cờ xuyên sáng + sửa hook mặt nạ cờ) XONG + đo lại: bão hoà trung vị 0,417 (V5b-2d 0,412), colorful 79,8 (70,0), cạnh 41,9 (27,5), lửa đỏ 0,048 %.
+- **TỐT NHẤT (Cycles lai)** — lỗi phát hiện khi soi và đã sửa trong export6.js / cy6.py: (1) nhà city.js xuất sai cốt (shader cộng aBase + co theo năm); (2) cây năm 2026 nổi trên nước (co theo aYear); (3) lớp dán polygonOffset; (4) cờ đen (hook cờ ghi đè hook mặt nạ → lượt albedo sai; cờ = vải xuyên sáng); (5) địa hình gãy mặt → pháp tuyến mượt; (6) ô LOD thô đâm xuyên ô mịn ở vách bắc → xuất toàn ô mịn. Phải dựng lại Cycles P1, P2, P4 (+ P5, P6 chưa dựng); P3 đang dựng (bộ xuất trước sửa (6) — cảnh phố thấp, ít địa hình).
+- **Đoạn thử 540p**: lượt 1 các cảnh đinh lỗi "Target crashed" (thiếu RAM: 15 GB, phiên con Blender 8,4 GB + Cycles + 2 cảnh đinh song song) → dựng lại P=1 khi RAM rảnh.
+- **Khung neo** (phiên con): đang dựng tờ sprite 1782 + 1943.
+- Golden steel/ll08: KHỚP (SSIM 0,9449 / 0,9307; pHash 0/64; ô lệch 0/144).
 
 ## Chưa làm
 Bước 7 chạy Cycles 6+2 khung · đoạn thử 540p qua dây chuyền k2 (reports/v6/doan-thu/episode.yaml đã viết) · k2check 1.15 · đo + chấm mù 3 bản · tờ so · golden steel/ll08 · báo cáo V6.
@@ -42,4 +43,4 @@ Bước 7 chạy Cycles 6+2 khung · đoạn thử 540p qua dây chuyền k2 (re
 - Claude API: **$0,037** (1 lệnh kiểm đường gọi; reports/v6/log/claude-cost.jsonl) — phiên con chưa chấm mù.
 - OpenAI: **$0,063** (1 lệnh tấm C 1943 lần 3; reports/v6/khung-neo/ai-c/goi-api.jsonl).
 - YouTube 0 · ElevenLabs 0.
-- Giờ máy: đồng hồ tường ≈ 06:00 → 08:45 UTC ≈ 2,75 h (bản 07:36 ghi nhầm mốc đầu 05:37); tải CPU song song (llvmpipe phiên chính + 2 Blender phiên con) ≈ 4 nhân bận phần lớn thời gian.
+- Giờ máy: đồng hồ tường ≈ 06:00 → 09:15 UTC ≈ 3,25 h (bản 07:36 ghi nhầm mốc đầu 05:37); tải CPU song song (llvmpipe phiên chính + 2 Blender phiên con) ≈ 4 nhân bận phần lớn thời gian.

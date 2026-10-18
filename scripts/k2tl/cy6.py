@@ -40,7 +40,7 @@ def mat(kind):
             tco = nt.nodes.new('ShaderNodeNewGeometry'); nt.links.new(tco.outputs['Position'], mp.inputs['Vector'])
             nt.links.new(mp.outputs['Vector'], im.inputs['Vector']); nt.links.new(im.outputs['Color'], nm.inputs['Color']); nt.links.new(nm.outputs['Normal'], b.inputs['Normal'])
     return m
-def mesh_from(P, I, name):
+def mesh_from(P, I, name, smooth=False):
     me = bpy.data.meshes.new(name); n = len(P) // 3
     V = P.reshape(-1, 3)[:, [0, 2, 1]] * np.array([1, -1, 1], np.float32)   # (x, y, z)three → (x, −z, y)
     if I is None: I = np.arange(n, dtype=np.uint32)
@@ -49,12 +49,12 @@ def mesh_from(P, I, name):
     nl = len(I); me.loops.add(nl * 3); me.loops.foreach_set('vertex_index', I.ravel().astype(np.int32))
     me.polygons.add(nl); me.polygons.foreach_set('loop_start', np.arange(0, nl * 3, 3, dtype=np.int32)); me.polygons.foreach_set('loop_total', np.full(nl, 3, np.int32))
     me.update(calc_edges=False); me.validate(clean_customdata=False)
-    me.polygons.foreach_set('use_smooth', np.zeros(nl, bool)); return me
+    me.polygons.foreach_set('use_smooth', np.full(nl, smooth, bool)); return me   # địa hình/cây: pháp tuyến mượt như k2v (computeVertexNormals) — không thì mặt gãy + khía bóng trên Rock
 col = bpy.data.collections.new('k2v'); sc.collection.children.link(col); base_col = bpy.data.collections.new('k2v_goc'); sc.collection.children.link(base_col)
 stat = {'vat': 0, 'tam_giac': 0, 'ban_sao': 0}
 for k, o in enumerate(M['objs']):
     P = load(o['buf']['P']); I = load(o['buf']['I']) if 'I' in o['buf'] else None
-    me = mesh_from(P, I, f"o{k}_{o['kind']}"); me.materials.append(mat(o['kind']))
+    me = mesh_from(P, I, f"o{k}_{o['kind']}", smooth=o['kind'] in ('dia_hinh', 'cay')); me.materials.append(mat(o['kind']))
     if 'M' in o['buf']:   # bản sao: lưới gốc (ẩn) + đám điểm có rot/scale → Geometry Nodes Instance on Points
         base = bpy.data.objects.new(f"goc{k}", me); base_col.objects.link(base)
         Mx = load(o['buf']['M']).reshape(-1, 16); pts, rot, scl = [], [], []

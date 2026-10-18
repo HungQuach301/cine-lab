@@ -24,6 +24,10 @@ export function makeExporter(G) {   // G = window.__tl(): { scene, cam, ctx, R, 
     const { scene, cam, ctx } = G; if (year == null) year = ctx.U && ctx.U.uYear ? ctx.U.uYear.value : 1782.7; const out = [], cp = cam.position, look = new THREE.Vector3(); cam.getWorldDirection(look); const tgt = cp.clone().addScaledVector(look, 1200);
     const skip = new Set([ctx.ws.water, ctx.ws.sky]); let Y = null;
     const terrMat = ctx.terr.mat, ext = ctx.terr.uni.uExt.value;
+    // địa hình LOD (terrain.js: mỗi ô 1 km có cặp [mịn 20 m, thô 60 m hạ 0,6 m]): XUẤT TOÀN Ô MỊN — ô thô nội suy qua vách bắc Rock đâm xuyên ô mịn kề bên,
+    //  k2v không lộ (tô cùng albedo) nhưng Cycles đổ bóng khía hình nêm lên vách. Khôi phục hiện/ẩn sau khi gom.
+    const kids = ctx.terr.group.children, keep = kids.map((c) => c.visible);
+    kids.forEach((c, i) => { if (c.isMesh && Math.abs(c.position.y + 0.6) < 1e-6 && i > 0 && kids[i - 1].isMesh && kids[i - 1].position.y === 0) { c.visible = false; kids[i - 1].visible = true; } });
     scene.updateMatrixWorld(true);
     const visible = (o) => { for (let p = o; p; p = p.parent) if (!p.visible) return false; return true; };
     const kindOf = (o) => { let k = 'khac'; if (o.isInstancedMesh && o.geometry && o.geometry.attributes.aYear) return 'cay'; for (let p = o; p; p = p.parent) { if (p === ctx.terr.group) return 'dia_hinh'; if (ctx.city && p === ctx.city.group) return 'nha'; if (p.userData && p.userData.k6) return p.userData.k6; } const m = [].concat(o.material)[0];
@@ -58,7 +62,7 @@ export function makeExporter(G) {   // G = window.__tl(): { scene, cam, ctx, R, 
         if (o.instanceColor) { BUF.push(new Float32Array(o.instanceColor.array.slice(0, o.count * 3))); rec.buf.IC = BUF.length - 1; } }
       rec.side = m.side === THREE.DoubleSide ? 2 : 0; out.push(rec); note(o, 'XUAT');
     });
-    out.why = why; return out;
+    kids.forEach((c, i) => { c.visible = keep[i]; }); out.why = why; return out;
   }
   return {
     // khung f (trạng thái đã áp bằng renderFrame trước đó): danh sách vật + máy + ánh sáng; bộ đệm lấy riêng bằng buf(i)
