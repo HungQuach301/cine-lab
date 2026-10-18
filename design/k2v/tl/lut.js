@@ -1,6 +1,7 @@
 // K2V tl · LUT A "k2-a-thep-lanh" (V5a, chủ dự án chọn A) áp trong grade() của đường ống post.js — CHỈ lên cảnh 3D tự nhiên;
 // chữ, thẻ, ảnh sepia vẽ sau ở lớp 2D nên không qua LUT (lệnh 16/10: không áp sepia). .cube 33³ → Data3DTexture (lọc tuyến tính).
 import { THREE } from './core.js';
+import { GRADE_V6 } from './light6.js';   // V6: chỉnh màu chung (bật bằng uV6)
 export async function loadCube(url) {
   const t = await (await fetch(url)).text(); let N = 0; const v = [];
   for (const ln of t.split('\n')) { const s = ln.trim(); if (!s || s[0] === '#') continue; if (s.startsWith('LUT_3D_SIZE')) { N = +s.split(/\s+/)[1]; continue; } if (/^[A-Z_]/.test(s)) continue; v.push(...s.split(/\s+/).map(Number)); }
@@ -11,12 +12,13 @@ export async function loadCube(url) {
 }
 // .cube: R chạy nhanh nhất → toạ độ texture (r, g, b) = (x, y, z)
 export const GRADE_GLSL = `
-uniform highp sampler3D tLut; uniform float uLutK, uLutN, uVig, uAA, uLutMode, uVib;
+uniform highp sampler3D tLut; uniform float uLutK, uLutN, uVig, uAA, uLutMode, uVib, uV6; uniform vec3 uV6c;
 vec3 aaS(vec2 p){ return pow(tonemap(max(texture(tAcc, p).rgb, 0.0)), vec3(1.0 / 2.2)); }
 vec3 aaFilter(vec3 c, vec2 uv){ vec2 px = 1.0 / res; vec3 a = aaS(uv + vec2(px.x, 0.0)), b = aaS(uv - vec2(px.x, 0.0)), d = aaS(uv + vec2(0.0, px.y)), e = aaS(uv - vec2(0.0, px.y));
   vec3 W3 = vec3(0.299, 0.587, 0.114); float lc = dot(c, W3), la = dot(a, W3), lb = dot(b, W3), ld = dot(d, W3), le = dot(e, W3);
   float mx = max(lc, max(max(la, lb), max(ld, le))), mn = min(lc, min(min(la, lb), min(ld, le))), rg = mx - mn; if (rg < max(0.07, mx * 0.16)) return c;
   float h = abs(la + lb - 2.0 * lc), v = abs(ld + le - 2.0 * lc); vec3 bl = h > v ? (a + b) * 0.5 : (d + e) * 0.5; return mix(c, bl, clamp(rg * 1.6, 0.0, 0.55)); }
+${GRADE_V6}
 vec3 grade(vec3 c, vec2 uv){
   if (uAA > 0.5) c = aaFilter(c, uv);   // khung SPP1 (bay nhanh): lọc cạnh như k2v V3 E6b
   vec3 q = clamp(c, 0.0, 1.0) * ((uLutN - 1.0) / uLutN) + 0.5 / uLutN; float Y0 = dot(c, vec3(0.2126, 0.7152, 0.0722));
@@ -24,5 +26,6 @@ vec3 grade(vec3 c, vec2 uv){
   float wl = uLutMode > 0.5 ? 1.0 - smoothstep(0.10, 0.42, Y0) : 1.0; c = mix(c, texture(tLut, q).rgb, uLutK * wl);
   // vibrance (bù phần ACES làm nhạt): tăng bão hoà màu nhạt nhiều hơn màu đã đậm, giữ độ sáng
   { float Y = dot(c, vec3(0.2126, 0.7152, 0.0722)), s = max(c.r, max(c.g, c.b)) - min(c.r, min(c.g, c.b)); c = max(mix(vec3(Y), c, 1.0 + uVib * (1.0 - s)), 0.0); }
+  if (uV6 > 0.5) c = v6grade(c, uv);   // V6: S nhẹ + tách tông + clarity
   vec2 d = (uv - 0.5) * vec2(1.0, 0.82); c *= mix(1.0, 1.0 - uVig, smoothstep(0.30, 0.78, length(d)));
   return c; }`;

@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 7,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Weathered plaster with exposed brick, rubble, barrels and debris give strong materials and believable siege damage, with warm light. The figures are stiff, faceless mannequins, bunched together and clearly the weakest element. The ruin also reads more like a bombarded ruin than an inhabited street."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 3,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Clean, flat, uniform blue-grey walls look like an untextured CG architectural mock-up. The pavement is tidy, there is no siege damage, and the scene is sterile with no grime or props. It uses the same toy-like figures as X, and in Y they look more pasted in against the featureless surroundings."
+ },
+ "better": "X",
+ "why": "X has far richer, believable surface detail and atmosphere that suit a besieged town, while Y is sterile and flat, and both share the same stiff mannequin soldiers.",
+ "top_fix_for_weaker": "Add weathered plaster, stains and cracks, plus shell damage, rubble, debris and laundry or market clutter, to Y's walls and street. Replace the mannequin soldiers with posed, varied, properly shaded figures, and warm up the lighting to give some contrast.",
+ "anachronisms_seen": [
+  "Union Jack with the post-1801 St Patrick's cross layout (small flag, hard to confirm)",
+  "Soldiers in tricorne-like hats with crossbelts that read more as generic than 1782 Hanoverian uniform",
+  "Large glazed, shuttered windows with regular modern-looking proportions",
+  "Clean, uniform stucco facades and kerbed paving in Y look modern"
+ ]
+}

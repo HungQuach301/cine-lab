@@ -1,0 +1,26 @@
+{
+ "X": {
+  "craft": 4,
+  "richness": 4,
+  "fit": 3,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "confusing"
+  ],
+  "note": "The camera is too close and too low, so it reads as a rooftop close-up and not a panorama. The top third is flat blue water with two tiny boats. The roofs are oversized, saturated orange blocks, and the troops are a small red smudge. The fortress wall is a thin strip and there is no sense of the town's extent. The smoke is faint and looks like a smear."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 7,
+  "fit": 7,
+  "flags": [
+   "toy_look"
+  ],
+  "note": "Higher camera angle with real depth. It shows bastion walls, a dense town, a church tower, gardens, open fields and distant outskirts. The lighting and shadows are softer and more cinematic. The people and troops are tiny and almost invisible, and the bastion in the foreground is a large empty tan slab. The buildings are still box-like and the ground texture is bland."
+ },
+ "better": "Y",
+ "why": "Y delivers an actual panorama, with the fortification, town density, landmarks and depth all readable, while X is a cramped close-up of roofs with a big empty water band.",
+ "top_fix_for_weaker": "Raise the camera and pull it back to show the whole town and its walls. Crop out most of the empty water and add visible troops, ships and smoke with real scale.",
+ "top_fix_for_better": "Add visible life: troop columns, cannon smoke, ships in the harbour and people in the streets. Fill the empty bastion platform with guns or soldiers, and add atmospheric haze for depth."
+}

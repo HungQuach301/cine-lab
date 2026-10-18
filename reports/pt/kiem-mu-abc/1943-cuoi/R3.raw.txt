@@ -1,0 +1,9 @@
+```json
+{"X": {"craft": 7, "detail": 8, "period": 8, "ai_look": 3, "flags": [], "note": "The only frame with a readable scene. Weathered plaster, cobbles, sandbags, bicycles, barrels, soldiers and sailors in the distance, and a warm window and lamp against a blue dusk. It is clearly a CG render, with slightly clean geometry and tiny figures. It still reads as a believable wartime Gibraltar street at night, and it holds up on a phone."},
+ "Y": {"craft": 3, "detail": 3, "period": 5, "ai_look": 3, "flags": ["empty_frame", "flat_slide_look", "toy_like"], "note": "The left third is a black void and the square is empty and unlit. There are no people, sandbags or props to anchor 1943. The facade is smooth with little texture. The orange window is the only thing that reads. On a small screen most of the image is black."},
+ "Z": {"craft": 3, "detail": 3, "period": 5, "ai_look": 3, "flags": ["empty_frame", "flat_slide_look", "toy_like"], "note": "Almost the same as Y, with a faint red left building and a flat, noisy ground. There is no life, no props and no wartime cues. The facade is simple and untextured, and the whole frame is underexposed. A few cube-like blocks at the lower right look like placeholder geometry."},
+ "best": "X",
+ "worst": "Z",
+ "why": "X has the textures, props, people and lighting that make it a convincing wartime street, while Y and Z are mostly black, empty, untextured renders, and Z is slightly the flattest.",
+ "anachronisms_seen": ["none clear; the Union Jack, sandbags, bicycles, barrels and shuttered balconies are all plausible for 1943. The flag is too small to check for design errors."]}
+```

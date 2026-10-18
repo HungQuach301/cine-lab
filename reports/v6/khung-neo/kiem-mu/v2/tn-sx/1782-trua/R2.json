@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Strong, convincing wall and rubble materials with a believable perspective and light. The soldiers are small, glossy, over-clean CG figures with a uniform pose and scale, and they are packed into one blob. The red and blue coats, white cross-belts and aimed muskets are plausible. The Union flag and sea at the end of the lane read well. The lane has far too little street life and no civilians."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The environment is the same as X. The figures are fewer, flatter and more saturated, like painted plastic miniatures. A few figures, such as the one at left with the yellow sash and the one at the barrel, have muddy, ill-defined shapes. The crowd is a dense cluster without depth. The barrel on the right adds a little clutter and does not help."
+ },
+ "better": "X",
+ "why": "The environment is nearly identical, but X has a slightly richer, better-shaded and more legible group of soldiers, while Y's figures look flatter, more plastic and more like toys.",
+ "top_fix_for_weaker": "Replace the flat, saturated figures with properly scaled, desaturated, varied soldiers (different poses, dirt and wear on the uniforms) with real contact shadows. Spread them along the lane in depth with a few civilians, smoke and haze, instead of one clump, and add period street props such as handcarts, water casks and shuttered stalls.",
+ "anachronisms_seen": [
+  "Overly clean, uniform uniforms and white trousers for the 3rd year of the siege",
+  "Black plastic-looking barrels",
+  "Bright, intact modern-looking dark shutters and window frames",
+  "Union flag is correct for 1782, so no issue, but it is oversized and pristine"
+ ]
+}

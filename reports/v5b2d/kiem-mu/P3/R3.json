@@ -1,0 +1,28 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 5,
+  "fit": 5,
+  "flags": [
+   "toy_look",
+   "cluttered",
+   "unreadable_scale"
+  ],
+  "note": "Buildings are packed tightly and the lighting and colour are warm and decent. The tiles floating off the left buildings are glitchy, and the ground reads as flat beige. The only troops are a small red line and a few specks, too small to read. The rooftops form a dense orange mass with little street structure, so it's hard to tell where the streets run."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 5,
+  "fit": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "The composition is cleaner. It has a readable sea wall, a bell tower, a green plaza with a tree grid, and a good sky and sea. It looks like a model viewed from a drone, not a street at low altitude. The wide beige ground at right is empty, and the blocky houses are sparse. The few figures are tiny."
+ },
+ "better": "Y",
+ "why": "Y has clearer composition and landmarks (wall, tower, plaza) and no floating-roof glitches, though neither frame delivers a lively street scene.",
+ "top_fix_for_weaker": "Remove the floating roof tiles in the left foreground. Drop the camera lower, with narrower streets and visible street-level detail. Add readable, larger troop and civilian groups, with smoke, so the shot reads as a street.",
+ "top_fix_for_better": "Fill the empty right-hand ground with buildings, texture and people. Lower and tighten the camera into a street, and add larger troops, market stalls, smoke and shadows so it reads as a lived-in street, not an aerial model."
+}

@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Large, empty, noisy-textured parade ground fills the lower half, and the sky takes up the top half. The few cannons are crude black blocks, and the cannonball piles and crates are sparse and scattered. The soldiers are peg-like figures, which look toy-like and tiny. The buildings are plain white boxes with dark rectangular openings and no Mediterranean character such as shutters, balconies, arcades or chimneys. Nothing in the frame shows Main Street or any urban life, so it does not read as Grand Parade by Main Street. The Union flag, the bay and the ships give a small amount of period context, though the 1782 flag would be the pre-1801 Union Jack. The soft haze is pleasant, but the composition is flat and the focus is weak."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "anachronism",
+   "text_issue",
+   "cluttered"
+  ],
+  "note": "The oblique aerial view of a dense terracotta-roofed town between hill and sea reads as a real GIS-style 3D city model. It has coherent massing, streets, a bastion/fortification, a harbour mole and vegetation, and the scale is convincing. Problems: the buildings are repetitive extruded blocks with tile-colored roofs and no variation. The modern-looking terrain and vegetation texture is also repetitive. The 'Landsat 5' and 'Catastro' sourcing in the label points to modern data, and the layout looks like the present-day town rather than 1752. The bottom caption is ghosted and overlaps the water so it cannot be read, and its text is garbled, which is a clear text bug. Window details such as the black openings are odd. The town fabric is much too dense and uniform, and it includes some modern-looking buildings. The water is a flat saturated blue with no wave detail."
+ },
+ "better": "Y",
+ "why": "Y delivers a coherent, detailed, believable town-scale reconstruction, while X is a mostly empty plane with toy-like props and generic white boxes.",
+ "top_fix_for_weaker": "Rebuild X as a street-level view of Grand Parade that actually shows Main Street. Use varied Georgian/Genoese-style facades with shutters, balconies, arcades and chimneys, dress the square with soldiers in red coats, townspeople, carts and garrison props, and put a detailed ground texture and a lower camera in the foreground so the lower half is not an empty plain."
+}

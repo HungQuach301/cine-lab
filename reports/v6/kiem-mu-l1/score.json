@@ -1,0 +1,446 @@
+{
+ "P1": {
+  "loai": "siege",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": 4.0,
+   "detail": 3.33,
+   "toy_like": 8.33,
+   "ai_look": 3.67,
+   "period": 3.67,
+   "flags": [
+    "anachronism",
+    "confusing",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The troops are tiled black-and-gold blocks that look like LEGO plates or barcodes, and they are far too big for the rock and walls. The rock is a good hero shape, and the sky and sea are decent. The walls are flat slabs with a repeating texture. The orange borders and black pegs look like game pieces. The rock is so far away that it reads as a backdrop, and the foreground is empty grass with strange scale.",
+    "The rock is the best asset, with believable rock and grass texture. The troops are black pegs on orange slabs, like game trays or Lego plates, and read as neither soldiers nor uniforms. The walls are flat, featureless brown bands. Stray lamp-post-like flags and grey cylinders float among the blocks. There is no town or ships, and the sea is a thin strip. The foreground is a dull green plane.",
+    "The rock is the best thing in the frame: readable and nicely lit. The troops are black cylinders on tan slab bases, so they read as game pieces or barcode blocks, not soldiers. The ground is flat and the walls are plain boxes. Smoke is faint, and the town is a tiny sliver in the distance."
+   ],
+   "hang1": 0
+  },
+  "sx": {
+   "craft": 6.0,
+   "detail": 6.0,
+   "toy_like": 4.33,
+   "ai_look": 3.67,
+   "period": 6.0,
+   "flags": [
+    "flat_slide_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The infantry are dense grey-blue ranks that read as an army from a distance. The red-cross flags give a period feel. Smoke columns, the bay, the town with its tower and the walls up the hill add depth. The walls are still flat textured slabs, and the grass is plain with no earthworks. The hill has a slightly smeary texture. The soldiers are tiny and uniform.",
+    "Much better. The troops are dense grey-blue ranks with individual silhouettes. Flags with red crosses, a bastioned wall with a textured face, a hillside fortification, a red-roofed town with a bell tower, and drifting smoke plumes all give depth and a sense of place. The troops are still repeated clones in ruler-straight lines on a flat, untextured lawn. The smoke is noisy and sprite-like. The water is a plain flat plane, and the wall is too clean and uniform.",
+    "Troops are dense ranks of grey-blue figures that read as formations. Flags carry a red cross motif. The foreground works, with a trench or parapet, a bay and a rock slope with fortifications, and the red-roofed town and church tower show in the distance. The smoke plumes are believable. Weaknesses: the grass is flat and saturated, the walls are plain extruded boxes, and the troops are tiny, similar-looking texture blobs. The rock is cropped out of the frame."
+   ],
+   "hang1": 2
+  },
+  "tot": {
+   "craft": 6.0,
+   "detail": 6.0,
+   "toy_like": 4.33,
+   "ai_look": 3.67,
+   "period": 6.0,
+   "flags": [
+    "flat_slide_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "This is almost identical to B but warmer, with more golden walls and a more saturated hill. The hill has visible faceted, low-poly shading patches. The soldiers are darker and a bit muddier, so the ranks are less readable than in B. The walls are cleaner and brighter. The extra warmth helps it look like sunlit stone, but the polygon patches on the hill look like artefacts.",
+    "Nearly identical to B in composition. The warmer, more saturated sand-coloured walls have clearer buttress and masonry articulation, and the hill has stronger faceted shading. The hillside has visible low-poly banding and hard-edged dark facets, which look like a rendering artefact. The troops are slightly browner and darker, so they read less clearly against the grass. The grass is still flat and the lighting is flat.",
+    "Same composition as B. The walls have lighter, warmer stone with buttress-like bracing, which gives slightly better material read. The hillside is more faceted and has a hard-edged low-poly look. The troops are slightly darker and browner, which reads a little more like uniforms. Overall it is nearly identical to B, with a somewhat more stylised, polygonal hill."
+   ],
+   "hang1": 1
+  },
+  "why": [
+   "B and C have a believable scale relationship between troops, walls, bay and town, and the ranks read as armies, while A's block-like troops look like toys.",
+   "B and C are the only versions that read as a real siege, with recognisable troops, flags, a bastioned wall, a town and smoke, while A is a field of black pegs on orange trays. B edges C on a cleaner hill and better troop contrast.",
+   "B and C show readable massed infantry formations, flags, smoke and a believable bay and town setting, while A's black-cylinder-on-slab troops look like game pieces and its walls are bare boxes. C edges B on wall material and troop colour."
+  ],
+  "sua_ban_tot": [
+   "Break up the flat grass and straight wall slabs with trenches, gabions, batteries, tents and dirt tracks, add some figures that stand out from the ranks (officers, guns, horses), and add real shadows and haze so the foreground has depth.",
+   "Break up the ruler-straight clone ranks and flat lawn: add varied troop poses, colours and spacing, and add trenches, gabions, tents, cannon batteries and some ground texture or shadowed depth in the foreground. Also give the sea waves, foam and some ships so the shot reads as a siege and not a parade ground.",
+   "Reduce the soldiers' toy look: give each rank varied heights, poses and muskets, break the uniform spacing, and add some individual figures, such as officers or gun crews, at a larger scale in the foreground. Also give the walls real structure (embrasures, gabions, fascines) and break up the flat green ground with trenches, tracks and earth spoil, so the siege lines read as works instead of plain boxes."
+  ]
+ },
+ "P2": {
+  "loai": "harbour",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": 5.0,
+   "detail": 5.0,
+   "toy_like": 6.67,
+   "ai_look": 3.0,
+   "period": 5.0,
+   "flags": [
+    "empty_frame",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Flat, evenly lit scene. The water is smooth and the ships are black slab hulls with paper-thin sails that look like game pieces. The town is a decent cluster, but there are no people or smoke, and the wall tops are plain and sandy.",
+    "Calmest and cleanest of the three. The water is soft and uniform, so the lower half is a large empty blue slab. The ships are black slabs with sails like flat cards, and they float with no wake or interaction with the water. The town is a decent cluster of terracotta roofs, but the fortress walls look like cardboard. The lighting is flat.",
+    "Flat, evenly lit and washed out. Smooth water has little sparkle. The ships are slab hulls with floating flat sail cards, like game pieces. The town reads at a distance but has no people, smoke or life. Fortification walls are plain extruded boxes."
+   ],
+   "hang1": 0
+  },
+  "sx": {
+   "craft": 5.67,
+   "detail": 5.0,
+   "toy_like": 6.67,
+   "ai_look": 3.0,
+   "period": 5.0,
+   "flags": [
+    "empty_frame",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Better water, with sparkle and foam highlights and stronger contrast and saturation. The ships are still the same toy-like silhouettes, with sails like flat cards and no rigging. The water is slightly oversaturated, but it reads livelier than A.",
+    "Same geometry as A with a busier, sparklier water surface. The white foam flecks are scattered at random and read as noise, not wave breaks. The ships are still flat, untextured black hulls with card sails. The terrain and town look the same as A, with slightly more contrast.",
+    "Same geometry as A, with more saturated colour and a livelier water surface with foam highlights. The ships are still toy-like, with no rigging, no wake and no crew. The water is a bit oversaturated and cartoonish, but it adds energy."
+   ],
+   "hang1": 0
+  },
+  "tot": {
+   "craft": 6.67,
+   "detail": 6.0,
+   "toy_like": 5.67,
+   "ai_look": 3.0,
+   "period": 5.0,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Richest lighting. Warm sun on the hills, defined contour shading and shadows on the terrain, and better depth and separation in the town and walls. The water is the same as B. The ships are still toy-like and the frame has no people or life, but it looks the most cinematic.",
+    "The strongest grade of the three. The warm raking light gives the hillside real relief, with visible terraces and shadow. The town and walls pick up depth and the sun reads as directional. The water is the most dramatic, but the blobby foam is arbitrary and the water is still a bit saturated and plasticky. The ships are unchanged and are the weakest element: they have no rigging, no gunports and no hull shape, so they read as game pieces. There are no people, troops, smoke or flags anywhere. The oversized fortress shows the same building blocks over and over.",
+    "Same geometry as B, with the best grading. Warm sunlight, stronger terrain shadows and contrast, and better material separation on the roofs and walls. It reads as a more cinematic golden-hour scene. The ships remain the weakest element: dark slab hulls with floating sail cards. Still no life in the harbour."
+   ],
+   "hang1": 3
+  },
+  "why": [
+   "C has the strongest light, terrain modelling and depth, B has livelier water than A, and all three share the same toy-like ships and lifeless harbour.",
+   "Only the lighting and grade differ between the three, and C's directional light and terrain relief give the most depth and cinematic feel. B is livelier than A, but its foam is noisy and A is the emptiest.",
+   "The geometry is identical in all three, so the ranking comes down to lighting and grading. C has the warmest, most directional light and the best depth. B has livelier water. A is flat and washed out."
+  ],
+  "sua_ban_tot": [
+   "Rebuild the ships with proper hull curvature, gun ports, billowed canvas sails, rigging and wakes, then add harbour life such as small boats, smoke from batteries, flags and tiny figures on the walls, so the frame stops looking like an empty game map.",
+   "Replace the three slab-hull ships with properly modelled 1780s ships of the line and frigates: curved hulls with gunport rows, yards, rigging, billowing sails with a wake and bow spray. Give them varied scale and heading. Then add life to the town and fortress: gun smoke, flags, small boats, and tiny troops or crowds on the bastions. Also desaturate the water towards a harbour green-grey and replace the random foam blobs with wave-aligned highlights.",
+   "Rebuild the three ships with proper hull curvature, gunports, rigging, billowing sails and bow wakes. Then add harbour life: small boats, smoke from chimneys and batteries, and a few flags. The ships are the toy-like element that most undermines the otherwise convincing town."
+  ]
+ },
+ "P3": {
+  "loai": "dense_street",
+  "nguoi": 3,
+  "sx": {
+   "craft": 4.33,
+   "detail": 4.33,
+   "toy_like": 6.67,
+   "ai_look": 3.33,
+   "period": 5.0,
+   "flags": [
+    "confusing",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Ruined quarter is a sea of beige slabs and low-poly rubble blobs on a visible tile grid. Almost no sky, no smoke or fire, so the bombardment doesn't read. A tiny troop cluster at the bottom edge is too small to register. The intact buildings on the left are clean but look like game assets. Slightly more readable than B because the ruin walls are darker and more varied.",
+    "Monochrome beige ruin field with a visible tile grid on the ground. Rubble is low-poly blobs and plank sticks. The ruined walls are thin extruded slabs. The tiny troop cluster at the bottom is lost in the frame. There is no smoke, fire or ships, so the bombardment reads as debris scattered on a flat plane. Intact buildings are clean, saturated boxes next to the sand-coloured ruin, which looks inconsistent.",
+    "Monochrome beige ruins on a visible tile grid. Debris is low-poly lumps and sticks. The intact orange-roofed blocks on the left look like game pieces. The tiny troop group at the bottom is lost in a huge empty plaza, and there is no smoke, fire or ships. The ruins don't read as bombardment damage, only as a beige mess."
+   ],
+   "hang1": 0
+  },
+  "tot": {
+   "craft": 4.0,
+   "detail": 4.0,
+   "toy_like": 6.67,
+   "ai_look": 3.33,
+   "period": 5.0,
+   "flags": [
+    "cluttered",
+    "confusing",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Near-identical to A, but the ruin walls are flatter and merge into one tan mass, which is muddier. The troops are a slightly larger red clump, but the scale still doesn't read. The ground tile grid is obvious. It is the same monochrome beige with no smoke, fire or atmosphere.",
+    "Nearly the same as A. The ruin walls are slightly taller and more tangled, and the troop group is a bit denser. It still has the grid-textured ground, blob rubble, no smoke and a lost focal point. The ruins merge into a beige mush that is slightly less legible than A.",
+    "Nearly identical to A. The ruin walls are slightly taller and more chaotic, and the troops form a denser red clump at the bottom. The tile grid, flat colour, tiny people and empty right half are all unchanged. It is marginally busier than A but no clearer."
+   ],
+   "hang1": 0
+  },
+  "v5b2d": {
+   "craft": 6.33,
+   "detail": 6.33,
+   "toy_like": 5.0,
+   "ai_look": 3.33,
+   "period": 6.33,
+   "flags": [
+    "cluttered",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Best frame. Blue sky, hills and sea give depth and atmosphere. Dense terracotta-roofed old town leads the eye to a bell tower and a hilltop fort, and the sea wall adds context. Roof colours are varied and warm. Still clean game-like blocks with repeated house modules and tiny troops, and no destruction or smoke, so it doesn't match the 'partly in ruins' brief.",
+    "The best frame. It has a real sense of place: sea, sky, hills, a citadel on the ridge, a bell tower, garden plots and a bastioned sea wall. The dense town carpet of terracotta roofs gives scale and depth. Weaknesses: identical box buildings with repeated roofs and chimney cubes, a visible ground grid, tiny troops, no smoke or ships, and no sign of bombardment, so it doesn't match the 'partly in ruins' brief. The Mediterranean look is plausible for the period but generic.",
+    "The only frame with a sky, hills, a distant citadel, a bell tower, garden plots and a dense intact town. Roof colour and rhythm are good and the depth is clear. The buildings are still repeated boxes with a ground tile grid. The people are tiny specks, and there are no ships, smoke or ruin, so the bombardment story is missing."
+   ],
+   "hang1": 3
+  },
+  "why": [
+   "C has real depth, sky, a clear focal path and dense believable town fabric, while A and B are beige rubble on a visible tile grid with no atmosphere.",
+   "C is the only frame with environmental context, depth, sky and a dense, readable town, while A and B are near-identical beige ruin fields with grid-textured ground, blob rubble and a barely visible troop group.",
+   "C is the only frame with real depth, atmosphere and a coherent, readable town; A and B are near-identical beige rubble fields with a visible grid and microscopic troops."
+  ],
+  "sua_ban_tot": [
+   "Add smoke columns, a few damaged or burning roofs, and a haze or grade over the town, and make the troops larger or add ships so the scale reads. Also break up the repeated house modules and hide the ground tile pattern.",
+   "Break up the repeated box-and-roof pattern with varied building heights, footprints and roof types. Remove the visible ground tile grid with a proper textured street and earth material. Then add narrative: smoke columns, damaged buildings and a few ships in the harbour, plus larger troops or civilians in the foreground for scale. A lower, closer camera with depth-of-field and atmospheric haze would sell it as cinematic.",
+   "Bring the camera lower and closer so the troops, streets and façades are readable at phone size. Add smoke columns, ships in the harbour and some bombardment damage. Break up the tile-grid ground with real street and dirt textures. Vary the building heights and rooflines so the repeated boxes stop reading as game pieces."
+  ]
+ },
+ "P4": {
+  "loai": "hero_fort",
+  "nguoi": 3,
+  "sx": {
+   "craft": 6.0,
+   "detail": 6.33,
+   "toy_like": 5.67,
+   "ai_look": 3.33,
+   "period": 6.33,
+   "flags": [
+    "cluttered",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Tricorn-hatted figures in red and blue coats read as actual soldiers, with proper cannon and shot piles. The stone wall is good. The parade ground is a big flat empty beige expanse, the figures are tiny and stiff, and the ships in the distance are crude blocks. Lighting is a bit flat but clean.",
+    "Same scene as C with flatter, lower-contrast lighting and a cleaner wall texture. Figures are tiny but read as uniformed soldiers. The parade ground is a large empty tan plane. The smoke is a few faint puffs. The enemy ships are blocky and tiny.",
+    "Clean, readable composition with real figures and masonry texture. The parade ground is a large empty tan slab. Figures are tiny and stiff. Smoke puffs over the water look like cotton wool. The flag is oversized relative to the troops. Lighting is flat compared with C."
+   ],
+   "hang1": 0
+  },
+  "v5b2d": {
+   "craft": 3.33,
+   "detail": 2.67,
+   "toy_like": 9.33,
+   "ai_look": 2.67,
+   "period": 3.33,
+   "flags": [
+    "anachronism",
+    "confusing",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The troops are plain red and blue cylinders, like game pawns or bowling pins. Wall texture is a repetitive brick-tile pattern, and the water and smoke are washed out. The scene looks like a prototype and isn't believable as soldiers.",
+    "The troops are red and blue cylinders, like skittles or game pegs. They have no uniforms, no faces and no human shape. The wall texture is a repeating brick tile. Smoke is almost absent. The scene geometry is the same as A and C, but this is the weakest version by a wide margin.",
+    "Soldiers are red and blue cylinders, like skittles or game pegs. They cannot be read as troops or tell the two sides apart. It has the same bastion and town as A and C but loses all human detail. The brick texture is repetitive and the water is flat."
+   ],
+   "hang1": 0
+  },
+  "tot": {
+   "craft": 7.0,
+   "detail": 6.67,
+   "toy_like": 4.33,
+   "ai_look": 3.33,
+   "period": 6.67,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Same scene as A with better contrast and a warmer golden-hour grade. The stone has better texture, the shadows are stronger, and the water is more dynamic. Small figures and dull flat terrain remain, but it looks the most cinematic.",
+    "The best of the three. Stronger directional light and shadows give the wall and parade ground more depth. The wall stone texture is richer. The water sparkles more. Smoke plumes are more visible. The tricorne-wearing figures, cannon, shot piles and Union flag read as 18th-century garrison troops. Weak points: the figures are still too small and static, the ground is still flat and empty, there is little action for a battle shot, and the ships are crude blocks.",
+    "Same geometry as A with better lighting: warmer sun, stronger cast shadows and richer stonework. Water and smoke have more depth. Figures are still tiny and doll-like. The parade ground is still bare and the flag is still too big."
+   ],
+   "hang1": 3
+  },
+  "why": [
+   "C and A have recognisable 18th-century soldiers, but C's richer lighting, wall texture and shadows give it more depth. B's cylinder 'troops' look like a game prototype.",
+   "C has the most convincing lighting, materials and period-correct figures. A has the same assets with flatter lighting. B replaces the people with coloured cylinders, which is unusable.",
+   "C has the same readable uniformed figures as A but with more cinematic lighting, shadow and material depth, while B reduces the troops to coloured cylinders that look like game pieces."
+  ],
+  "sua_ban_tot": [
+   "Break up the empty parade ground with dense, varied action (firing lines, gun crews mid-recoil, drifting powder smoke, ground texture and scorch marks), and make the figures larger and in the foreground. Add a close foreground element such as a gabion or cannon for scale and depth.",
+   "Make it read as a battle. Add dense, layered smoke and muzzle flashes along the parapet, with splash and impact effects. Add crews in action at the guns, and enlarge or move the camera closer to the foreground figures so they have visible uniform detail. Add dirt, scorch marks and rubble to the empty parade ground. Replace the block ships with proper ships of the line with rigging, sails and a hull silhouette.",
+   "Move the camera closer, or scale up and vary the figures (crews at the guns, officers, wounded, ramrod and lunge poses). Break up the empty parade ground with gun carriages, powder kegs, shot piles and ground texture. Replace the cotton-wool smoke with volumetric, directional gun smoke and add incoming fire or impact splashes so it reads as a battle. Scale the flag down."
+  ]
+ },
+ "P5": {
+  "loai": "panorama",
+  "nguoi": 3,
+  "tot": {
+   "craft": 4.67,
+   "detail": 4.0,
+   "toy_like": 6.0,
+   "ai_look": 4.33,
+   "period": 4.67,
+   "flags": [
+    "cluttered",
+    "confusing",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Warm, softer lighting and slightly better shading than B. But the middle of the frame is a huge empty tiled plaza with tiny troop blocks. The ruins look like grey blocks. The buildings are plain extruded boxes with orange roofs and rooftop cubes that look modern. The tile grid shows on the ground.",
+    "Large empty tiled plaza with tiny troop blocks and a few specks. Foreground roofs are oversized flat boxes, and the ruins read as random grey debris. Warm, softer lighting, but the scale is incoherent. The buildings look more 19th-century/Mediterranean than 1782 fortification.",
+    "Same scene as B but with warmer, softer lighting. The huge flat tiled plaza is mostly empty. The troops are tiny blocks, and the ruins look like grey scraps. The right-hand foreground roofs are big, flat, clean slabs with white boxes on top that look modern. The upper-left fortress is cropped awkwardly. It's the least dark of the A/B pair, but it still reads like a game map."
+   ],
+   "hang1": 0
+  },
+  "sx": {
+   "craft": 3.67,
+   "detail": 4.0,
+   "toy_like": 7.0,
+   "ai_look": 3.33,
+   "period": 4.67,
+   "flags": [
+    "anachronism",
+    "confusing",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Almost the same scene as A with harsher, more contrasty shading. The ruins are near-black and read as rendering artefacts. The troops are pixel-like clumps. It looks like a game prototype. The flat-roofed, cube-topped blocks feel modern.",
+    "Same scene as A with harsher contrast and crushed black ruins that look like unfinished geometry. Troops are dark tiny clumps. The grid floor and box buildings read as a game map.",
+    "Same layout as A but harsher and more contrasty. The ruins are black, which makes them look like holes. The troop blocks are tiny and dark, with no smoke and no real activity. The plaza is empty, and the flat roof boxes look like modern HVAC units. It's more game-engine than A."
+   ],
+   "hang1": 0
+  },
+  "v5b2d": {
+   "craft": 6.67,
+   "detail": 7.33,
+   "toy_like": 4.67,
+   "ai_look": 3.0,
+   "period": 6.33,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Much stronger. A dense town grid, a bell tower, bastioned walls with crenellations, a harbour, fields and a green. The scale reads and the depth and composition are good. The water is a flat saturated blue and the walls look like cardboard. The garrison is almost invisible, and the roofs and walls look low-poly and repetitive.",
+    "Dense town, bastioned wall with embrasures, church tower, fields, water and a clear sense of scale and depth. Buildings are still boxy, with uniform textures and saturated flat blue water. The garrison is nearly invisible and there are no ships or smoke.",
+    "A dense, believable town of varied rooflines, a bell tower, a bastioned wall with embrasures, and a river and fields. It has real depth and scale, and the lighting is clean. Still weak: the garrison and ships are almost invisible, the water is a flat saturated blue, and the wall is a smooth tan slab with repeated tiny notches. The buildings are low-poly blocks with a uniform orange palette, so it reads as a city-builder game."
+   ],
+   "hang1": 3
+  },
+  "why": [
+   "C is a real panorama with density, depth and readable fortifications, while A and B are the same sparse, empty plaza with tiny troop blobs and box buildings, and B's shading is harsher.",
+   "C is the only frame that reads as a fortified town panorama, with depth, density and a recognisable bastion wall; A and B are near-empty plazas with toy-like blocks, and B is the harsher of the two.",
+   "C is the only frame that shows a convincing fortified town with density and scale, while A and B are near-identical empty plazas with tiny toy-like troop blocks and modern-looking roof boxes, and B is the harsher of the two."
+  ],
+  "sua_ban_tot": [
+   "Make the garrison visible: add many more troops, with readable red and white uniforms, in formation on the bastions and in the streets, and add smoke and flags. Give the walls stone texture and the sea a proper water shader with a darker, less saturated tint and foam at the shoreline.",
+   "Put the garrison and harbour life into frame: visible red-coated regiments on the bastion terrepleins and in the streets, ships at anchor on the water with proper rigging, and smoke and flags. Also replace the flat saturated blue water with a darker, textured sea, and add roof, wall and chimney variation to break up the repeated box buildings.",
+   "Bring the garrison into view: add visible troop formations, flags and cannon smoke on the bastion and in the streets, and ships in the bay, at a scale that reads on a phone. Then break up the smooth wall and flat blue water with texture, stonework detail and wave or foam variation, and vary the roof colours so the palette isn't a uniform orange."
+  ]
+ },
+ "P6": {
+  "loai": "shore_battle",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": 4.0,
+   "detail": 4.0,
+   "toy_like": 7.0,
+   "ai_look": 4.33,
+   "period": 4.0,
+   "flags": [
+    "confusing",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Flat, centred, symmetrical layout with three identical box-like barges sitting in a row. The water is plain blue with no texture. The smoke is a blurry grey haze that muddies the town and hill. The town looks like tiny white blocks, and the ships are far too small to read as gun batteries.",
+    "Flat, centred, frontal layout with three identical box-barge ships lined up on a dead-flat blue plane. The hill fills half the frame and the town is a thin strip. Smoke is blurry grey fog that looks like a smudged overlay. The water is a plain gradient with no waves or reflections. Ships are tiny and read as game pieces. The town reads reasonably but is small. The lighting is flat.",
+    "Straight-on, symmetrical frame with three identical flat slab ships lined up like game pieces. Their masts are thin sticks and their hulls are tiny, so scale is unreadable. The smoke is a blurry grey haze that smears over the hill and town and looks like a bad overlay. The water is flat blue with no reflections or motion. The town is a strip of tiny white cubes. The hill is the strongest element but is flat and low-res. No sense of attack or impact."
+   ],
+   "hang1": 0
+  },
+  "tot": {
+   "craft": 6.0,
+   "detail": 5.0,
+   "toy_like": 5.67,
+   "ai_look": 4.0,
+   "period": 4.67,
+   "flags": [
+    "anachronism",
+    "toy_look"
+   ],
+   "note": [
+    "The strongest of the three. The lower camera angle, rippled reflective water, warm muzzle flashes and dark smoke column give it real depth and drama. The ships are still blocky pixelated boxes with no visible guns or rigging, and the terrain is low-poly. Smoke and flash are the best storytelling here.",
+    "Much stronger composition. Ships are larger in the foreground, the water has real reflections and ripples, and the angled hill gives depth. The dark smoke column and the muzzle flashes add drama and a clear action cue. Ships are still blocky voxel-like boxes with pixelated hull textures and stick masts, with no rigging, sails or gun ports. The town is a cluster of cubes. The smoke wall hides the target. Black wedges at the hill edge look like a rendering glitch.",
+    "Best frame. The angle is lower and diagonal, the water has real specular reflections, and there is a dark rising smoke column plus a warm haze bank. Muzzle flashes sit on the battery. The ships are still blocky brown boxes with pixelated hull textures, no sails or rigging, and cross-shaped masts. They look like rafts or barges, not the armoured floating batteries of 1782. The town is distant and cube-like. The hill has a hard black edge artefact at the ridge. Better than A and C, but the ships still read as game assets."
+   ],
+   "hang1": 3
+  },
+  "sx": {
+   "craft": 5.33,
+   "detail": 4.33,
+   "toy_like": 5.67,
+   "ai_look": 4.0,
+   "period": 4.67,
+   "flags": [
+    "anachronism",
+    "cluttered",
+    "confusing",
+    "toy_look"
+   ],
+   "note": [
+    "Nearly identical to B. The pale smoke bank washes out the right half of the town, and the flash on the left ship is weaker. The hill is smoother with the dark ridge edge removed. It reads as a slightly worse B.",
+    "Same scene as B, but the heavy smoke wash now erases much of the town and the hillside buildings, leaving ghosted white rectangles that look like a rendering or transparency error. One fewer muzzle flash. The hill silhouette is cleaner than in B, with no black wedges. Overall less readable than B, so the target of the attack is lost.",
+    "Almost the same as B, but the town on the right is washed out into a flat beige fog, which loses the target. The smoke there looks like a pale overlay. One fewer muzzle flash. The ridge is cleaner, without B's black edge. The ships have the same blocky pixel-textured, rigging-free look. The town is less readable than in B, so the shot has less narrative clarity."
+   ],
+   "hang1": 0
+  },
+  "why": [
+   "B and C share the dramatic low angle, reflective water and smoke column, and B keeps more muzzle-flash punch and town legibility, while A is a flat, blurry, symmetrical slide with tiny toy-like boats.",
+   "B has the best composition, water and action cues, and the town stays legible through the smoke. C loses the town in the smoke, and A is a flat, tiny, static line-up.",
+   "B has the best sense of action, depth and legibility of the target (dark smoke column, muzzle flashes, reflective water, visible town). C is nearly the same but its fog hides the town. A is a flat, symmetrical, blurry lineup of toy-like ships."
+  ],
+  "sua_ban_tot": [
+   "Redo the batteries as large, hull-detailed floating batteries with visible gun ports, cannon muzzles and a sloped roof, and bring them closer to camera. Replace the pixelated box textures with proper wood and add red-hot shot trails arcing to the town, so the scene reads as a bombardment, not boxes on water.",
+   "Rebuild the floating batteries as proper 1782 vessels: sloped armoured sides, visible gun ports with cannon run out, rigging, a flag, and crew on deck. Add smooth hull materials and wake foam at the waterline. Thin the smoke in front of the town and add muzzle plumes and cannonball splashes so the bombardment of the fortified walls reads clearly. Remove the black hill-edge artefacts.",
+   "Rebuild the batteries as heavy, high-sided, roofed hulls with visible gun ports, rigging, flags and a few figures for scale, with proper wood and pixel-free textures. Then fix the black ridge-line artefact and put a few visible fire or impact points on the fortifications, so it reads as an attack on a town and not boxes on water."
+  ]
+ },
+ "tb_tot": {
+  "craft": 5.72,
+  "detail": 5.28,
+  "toy_like": 5.45,
+  "ai_look": 3.61,
+  "period": 5.33,
+  "hang1": 10
+ },
+ "tb_sx": {
+  "craft": 5.17,
+  "detail": 5.0,
+  "toy_like": 6.0,
+  "ai_look": 3.44,
+  "period": 5.28,
+  "hang1": 2
+ },
+ "tb_v5b2d": {
+  "craft": 4.89,
+  "detail": 4.78,
+  "toy_like": 6.83,
+  "ai_look": 3.33,
+  "period": 4.78,
+  "hang1": 6
+ },
+ "chi_phi": 0.95
+}

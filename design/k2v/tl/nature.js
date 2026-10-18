@@ -27,10 +27,13 @@ export function makeTrees(T, hAt, U, { lod = true } = {}) {
       q.setFromAxisAngle(new THREE.Vector3(0, 1, 0), R() * 6.28); m4.compose(p, q, s); im.setMatrixAt(j, m4); const g = greens[Math.floor(R() * 4)]; im.setColorAt(j, new THREE.Color(g[0], g[1], g[2])); yr[j] = T[i + 3]; });
     im.geometry = geo.clone(); im.geometry.setAttribute('aYear', new THREE.InstancedBufferAttribute(yr, 1));
     im.customDepthMaterial = dmat; im.castShadow = true; im.receiveShadow = true; im.frustumCulled = false; const [tx, tn] = k.split(',').map(Number); im.userData.c = [(tx + 0.5) * TT, -(tn + 0.5) * TT];
-    group.add(im); tiles.push(im);
+    im.userData.idx = idx; group.add(im); tiles.push(im);
   }
   function update(cam) { for (const im of tiles) { const d = Math.hypot(cam.position.x - im.userData.c[0], cam.position.z - im.userData.c[1]) - cam.position.y * 0.3; im.visible = !lod || d < 2000; } }
-  return { group, update, n: T.length / 4 };
+  // V5b-2c: ẩn cây (NDVI/OSM 2026) trong vùng test(e, n) — cảnh 1782 bỏ cây hiện đại trong phố cổ (không có nguồn vườn 1782 → không vẽ). Trả số cây ẩn.
+  function hideWhere(test) { let k = 0; const z = new THREE.Matrix4().makeScale(0, 0, 0);
+    for (const im of tiles) { let ch = false; im.userData.idx.forEach((i, j) => { if (test(T[i], T[i + 1])) { im.setMatrixAt(j, z); k++; ch = true; } }); if (ch) im.instanceMatrix.needsUpdate = true; } return k; }
+  return { group, update, hideWhere, n: T.length / 4 };
 }
 
 export function makeRoads(roads, hAt, U) {

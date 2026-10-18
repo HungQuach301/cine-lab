@@ -1,0 +1,792 @@
+{
+ "khung": {
+  "1782-trua": {
+   "PT4_craft": [
+    5,
+    5,
+    5
+   ],
+   "PT4_detail": [
+    6,
+    5,
+    5
+   ],
+   "PT4_period": [
+    5,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    6,
+    4,
+    6
+   ],
+   "PT4_toy_like": [
+    8,
+    8,
+    8
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "broken_render",
+    "cluttered",
+    "toy_like"
+   ],
+   "PT2_craft": [
+    6,
+    6,
+    6
+   ],
+   "PT2_detail": [
+    6,
+    5,
+    6
+   ],
+   "PT2_period": [
+    5,
+    5,
+    5
+   ],
+   "PT2_ai_look": [
+    6,
+    4,
+    6
+   ],
+   "PT2_toy_like": [
+    8,
+    8,
+    7
+   ],
+   "PT2_flags": [
+    "anachronism",
+    "broken_render",
+    "cluttered",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "PT2",
+    "R2": "PT2",
+    "R3": "PT2"
+   },
+   "why": {
+    "R1": "Identical environment, but Y's visible sea and ship tell you where you are, the lighting is cleaner, and the crowd is slightly less clumped, though both have the same toy-like soldiers.",
+    "R2": "The environments are essentially identical, but Y's sea and ship vista and slightly more readable soldiers, with a clearer sense of place, make it marginally stronger, even though both are undermined by toy-like mannequin soldiers.",
+    "R3": "Same environment, but Y has a believable view of the sea and ship at the end of the lane, and its soldiers are slightly better grounded and more varied, although both still read as game assets."
+   },
+   "anachronisms": {
+    "R1": [
+     "Hats and tricorns look like modern flat-topped caps or bowlers on some figures",
+     "Uniform cuts and the bright blue/red mix look like generic game-style costumes rather than 1782 Gibraltar garrison dress",
+     "Large Union Flag on a tall pole: the 1782 Union flag would lack the St Patrick's saltire (added 1801), so it is likely the wrong design",
+     "Modern-looking louvred shutters and pristine window frames in otherwise ruined walls",
+     "Garrison under siege shown in clean, ordered ranks"
+    ],
+    "R2": [
+     "Flag looks like the post-1801 Union Jack (red St Patrick's saltire); in 1782 it should be the 1707 flag without the saltire of St Patrick",
+     "Soldiers wear bicorn or round hats in an inconsistent style, with no clear tricorns",
+     "Blue-coated soldiers look like Hanoverian or French troops mixed in without clear logic",
+     "Modern-looking louvred or panelled shutters and plain rectangular windows",
+     "Cross-belts that look flat and painted on"
+    ],
+    "R3": [
+     "Union Flag details unverifiable at this size (the 1707–1801 flag has no Irish saltire)",
+     "uniform colours and cut look generic, with blue coats worn alongside red ones and no clear regiment distinctions",
+     "identical clone figures that look like game assets rather than a real garrison"
+    ]
+   }
+  },
+  "1943-trua": {
+   "PT4_craft": [
+    6,
+    7,
+    6
+   ],
+   "PT4_detail": [
+    6,
+    6,
+    6
+   ],
+   "PT4_period": [
+    5,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    5,
+    4,
+    6
+   ],
+   "PT4_toy_like": [
+    7,
+    6,
+    8
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "cluttered",
+    "toy_like"
+   ],
+   "PT2_craft": [
+    6,
+    6,
+    6
+   ],
+   "PT2_detail": [
+    6,
+    6,
+    6
+   ],
+   "PT2_period": [
+    5,
+    5,
+    5
+   ],
+   "PT2_ai_look": [
+    5,
+    4,
+    6
+   ],
+   "PT2_toy_like": [
+    8,
+    7,
+    8
+   ],
+   "PT2_flags": [
+    "anachronism",
+    "broken_render",
+    "cluttered",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "PT4",
+    "R2": "PT4",
+    "R3": "PT2"
+   },
+   "why": {
+    "R1": "X's atmospheric haze and smaller, less prominent figures hide the toy-like mannequins and render glitches, while Y's larger translucent dolls and artifacted harbour break the illusion.",
+    "R2": "X has better atmospheric depth, a more restrained colour grade and cleaner background elements, while Y's dolls and glitchy sea band are more obviously CG.",
+    "R3": "Y has a clearer, more readable layout with visible sea, better figure spacing and larger foreground figures, though both frames suffer from the same toy-like, translucent mannequins."
+   },
+   "anachronisms": {
+    "R1": [
+     "Mediterranean or Caribbean-style building with louvered shutters and iron balconies instead of Gibraltar's Georgian/Genoese frontages",
+     "Generic mannequin uniforms with no clear period insignia",
+     "Union Jack flag proportions and pole look generic",
+     "Ship silhouette looks like a modern or generic sailing-ship model",
+     "Pristine, unweathered balcony railings"
+    ],
+    "R2": [
+     "No vehicles, signage, shopfronts or wartime street furniture, so the square doesn't read as Commercial Square",
+     "Plain modern-looking identical balconies and louvred shutters",
+     "Uniform-looking figures of mixed colours with no clear 1943 military or civilian detail",
+     "Crisp modern-looking dark doors"
+    ],
+    "R3": [
+     "Modern-looking uniform-less identical mannequin figures with uniform pastel blue and khaki palette",
+     "Clean modern balcony railings and shutters in uniform condition",
+     "Flat blue rectangle/ship sprite on the water (Y)",
+     "Generic Mediterranean architecture rather than Gibraltar's British-colonial style"
+    ]
+   }
+  },
+  "1782-sang": {
+   "PT4_craft": [
+    6,
+    5,
+    6
+   ],
+   "PT4_detail": [
+    6,
+    5,
+    6
+   ],
+   "PT4_period": [
+    5,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    6,
+    4,
+    5
+   ],
+   "PT4_toy_like": [
+    7,
+    7,
+    7
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "PT2_craft": [
+    6,
+    6,
+    7
+   ],
+   "PT2_detail": [
+    6,
+    6,
+    7
+   ],
+   "PT2_period": [
+    5,
+    5,
+    5
+   ],
+   "PT2_ai_look": [
+    6,
+    4,
+    5
+   ],
+   "PT2_toy_like": [
+    7,
+    6,
+    6
+   ],
+   "PT2_flags": [
+    "anachronism",
+    "cluttered",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "PT2",
+    "R2": "PT2",
+    "R3": "PT2"
+   },
+   "why": {
+    "R1": "Same set, but Y has a clearer sense of place (flagpole, sea, ship), warmer light and more varied figures, though both crowds look like game mannequins and Y's overlapping figures are messier.",
+    "R2": "The environment is identical, but Y has more varied and better-integrated figures, tricorne hats, a visible harbour with a ship and warmer light, while X's bald, blank-faced mannequins look worse.",
+    "R3": "Y has the same strong environment plus better depth, a visible sea and ship, and more varied figures, while X's figures are slightly more toy-like and its background is empty."
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Jack with the post-1801 cross layout (the 1782 flag had no St Patrick's cross)",
+     "Modern-looking dark shutters and flush rectangular window frames",
+     "Tidy uniform plaster-and-brick texture that looks like a modern PBR material",
+     "Black cylindrical barrels or drums that look too modern",
+     "Blue coats and white trousers that do not match the 1782 British line uniform of red coats with white or buff breeches and gaiters"
+    ],
+    "R2": [
+     "Union Jack with the 1801 St Patrick's saltire (the 1782 flag had no saltire)",
+     "Very uniform, smooth, unweathered uniforms and mannequin figures",
+     "Sheet-like even plaster and brick, plausibly Mediterranean but with modern-looking uniform shutters",
+     "Bare-headed soldiers (X) and a blue-uniformed group that is unclear for Gibraltar in 1782"
+    ],
+    "R3": [
+     "Union Jack with the post-1801 St Patrick's cross design, wrong for 1782 (the 1606 Union flag lacked it)",
+     "Red coats with white cross-belts in a pose and cut closer to the 1790s",
+     "Glossy plastic-looking figures and what look like modern asphalt-style paving patches",
+     "A red barrel with a soldier-style cross-belt pattern painted on it in Y"
+    ]
+   }
+  },
+  "1943-sang": {
+   "PT2_craft": [
+    6,
+    6,
+    6
+   ],
+   "PT2_detail": [
+    6,
+    5,
+    5
+   ],
+   "PT2_period": [
+    6,
+    5,
+    6
+   ],
+   "PT2_ai_look": [
+    3,
+    3,
+    5
+   ],
+   "PT2_toy_like": [
+    8,
+    7,
+    7
+   ],
+   "PT2_flags": [
+    "cluttered",
+    "empty_frame",
+    "toy_like"
+   ],
+   "PT4_craft": [
+    5,
+    5,
+    5
+   ],
+   "PT4_detail": [
+    5,
+    5,
+    5
+   ],
+   "PT4_period": [
+    6,
+    5,
+    6
+   ],
+   "PT4_ai_look": [
+    3,
+    3,
+    5
+   ],
+   "PT4_toy_like": [
+    8,
+    7,
+    8
+   ],
+   "PT4_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "PT2",
+    "R2": "PT2",
+    "R3": "PT2"
+   },
+   "why": {
+    "R1": "X has a legible harbour with a ship and a flag, stronger light and depth, and a more convincing end of the street, while Y washes out into an empty haze with the same toy-like figures.",
+    "R2": "X keeps a readable harbour with a ship and a flag, and its lighting is more dramatic, while Y's background is washed out and empty and its figures are ghosted and clumped.",
+    "R3": "X keeps the harbour and ship as a readable focal point with better light contrast, while Y washes out its background into an empty beige haze and its mannequins look slightly more toy-like."
+   },
+   "anachronisms": {
+    "R1": [
+     "Modern generic mannequin figures with no period detail",
+     "Clean uniform-looking balcony railings that look CG-modern",
+     "Translucent blue figures that look like game placeholders",
+     "No vehicles, signage or wartime features (sandbags, blackout) to anchor 1943"
+    ],
+    "R2": [
+     "Union Jack flag drawn as a modern rectangular graphic, in the same form in both frames",
+     "Uniform-less, generic mannequin figures whose clothing does not read as 1943 military dress",
+     "Modern-looking dark metal balcony railings and clean louvered shutters"
+    ],
+    "R3": [
+     "No clear anachronisms",
+     "Mannequin figures with uniform-like clothing that is too generic to confirm as 1943 dress",
+     "Modern-looking flat metal balcony railings and clean shutters (minor)"
+    ]
+   }
+  },
+  "1782-chieu": {
+   "PT4_craft": [
+    6,
+    6,
+    6
+   ],
+   "PT4_detail": [
+    6,
+    5,
+    6
+   ],
+   "PT4_period": [
+    6,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    4,
+    5,
+    5
+   ],
+   "PT4_toy_like": [
+    6,
+    6,
+    6
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "toy_like"
+   ],
+   "PT2_craft": [
+    6,
+    6,
+    7
+   ],
+   "PT2_detail": [
+    6,
+    5,
+    7
+   ],
+   "PT2_period": [
+    6,
+    6,
+    5
+   ],
+   "PT2_ai_look": [
+    5,
+    5,
+    5
+   ],
+   "PT2_toy_like": [
+    7,
+    7,
+    6
+   ],
+   "PT2_flags": [
+    "anachronism",
+    "cluttered",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "PT4",
+    "R2": "PT2",
+    "R3": "PT2"
+   },
+   "why": {
+    "R1": "The walls and lighting are the same in both, but X's smaller, hazier group of figures reads less like a pile of cloned game assets and leaves the lane visible, while Y's dense, identical, toy-like crowd is distracting.",
+    "R2": "The environment is identical, but Y's tricorn-hatted red and blue infantry column and visible harbour read as more period-correct and give the lane a purpose, whereas X's ghostly, semi-transparent silhouettes and odd central figure look broken.",
+    "R3": "Y gives a clearer sense of place with the visible sea and ships. Its uniformed formation is more believable and reads better than X's ghostly, semi-transparent figures."
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Jack flag design (the 1801 version with St Patrick's cross); the 1606 Union flag would be correct for 1782",
+     "Blue-coated soldiers mixed in with redcoats (Y)",
+     "Bare-chested, kilt-like central figure (X)",
+     "Cloned figures with uniform modern-looking crossbelts and hats",
+     "Rendered, clean, non-bombarded buildings, which don't look like a town under months of bombardment"
+    ],
+    "R2": [
+     "Union Flag with the 1801 St Patrick's cross design (the 1782 flag lacks it)",
+     "Central figure in X with a kilt-like skirt and a shako-like hat",
+     "Intact shuttered windows and dilapidated buildings that are too ruined and uniform for a town in 1782 (bombardment damage is plausible, but the rubble looks like a later-era ruin)"
+    ],
+    "R3": [
+     "Union Jack with the 1801 St Patrick's cross (the 1606 flag was in use in 1782)",
+     "Intact, pristine-looking buildings with no siege damage",
+     "Tall louvered window shutters and neat rectangular door openings that look more modern",
+     "Possibly shako-like headgear on some figures in X"
+    ]
+   }
+  },
+  "1943-chieu": {
+   "PT2_craft": [
+    6,
+    6,
+    6
+   ],
+   "PT2_detail": [
+    6,
+    5,
+    5
+   ],
+   "PT2_period": [
+    6,
+    5,
+    6
+   ],
+   "PT2_ai_look": [
+    4,
+    4,
+    5
+   ],
+   "PT2_toy_like": [
+    7,
+    7,
+    6
+   ],
+   "PT2_flags": [
+    "anachronism",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "PT4_craft": [
+    7,
+    7,
+    7
+   ],
+   "PT4_detail": [
+    7,
+    6,
+    6
+   ],
+   "PT4_period": [
+    6,
+    6,
+    6
+   ],
+   "PT4_ai_look": [
+    4,
+    4,
+    4
+   ],
+   "PT4_toy_like": [
+    5,
+    5,
+    5
+   ],
+   "PT4_flags": [
+    "toy_like"
+   ],
+   "better": {
+    "R1": "PT4",
+    "R2": "PT4",
+    "R3": "PT4"
+   },
+   "why": {
+    "R1": "Y has more convincing wall materials, atmospheric depth and better-integrated crowd figures, while X's cutout-looking people and over-saturated walls look more like game assets.",
+    "R2": "Y has more believable materials and architectural articulation, and its haze and silhouetted crowd hide the weak figures, whereas X exposes flat, ghostly cutout people and a pasted-looking harbour.",
+    "R3": "Y has more credible architecture (cornices, stone base, varied wear) and haze that hides the weak figures, while X's figures are flat translucent cutouts and its facades look like streaky texture."
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Jack flag has no clear 1943 context (a Red Ensign or garrison flag would be equally plausible)",
+     "figures too uniform and indistinct to confirm 1943 uniforms or dress",
+     "modern-looking blue box or kiosk at the street end",
+     "balcony railings and shutters look generic Mediterranean rather than specifically Gibraltarian"
+    ],
+    "R2": [
+     "Modern-looking uniform-like figures in generic grey and blue caps, not clearly 1943 British service dress",
+     "Clean, uniform modern-looking balconies, railings and shutters",
+     "Blue box or kiosk with a modern look",
+     "Union Jack in a mid-air pose with no clear period context"
+    ],
+    "R3": [
+     "none obvious; the wall-mounted blue box at right is ambiguous",
+     "the uniforms are too generic to verify as 1943"
+    ]
+   }
+  },
+  "1782-dem": {
+   "PT2_craft": [
+    5,
+    5,
+    5
+   ],
+   "PT2_detail": [
+    5,
+    4,
+    5
+   ],
+   "PT2_period": [
+    5,
+    6,
+    5
+   ],
+   "PT2_ai_look": [
+    6,
+    4,
+    5
+   ],
+   "PT2_toy_like": [
+    3,
+    2,
+    3
+   ],
+   "PT2_flags": [
+    "anachronism",
+    "broken_render",
+    "empty_frame",
+    "flat_slide_look"
+   ],
+   "PT4_craft": [
+    5,
+    5,
+    5
+   ],
+   "PT4_detail": [
+    4,
+    3,
+    4
+   ],
+   "PT4_period": [
+    5,
+    6,
+    5
+   ],
+   "PT4_ai_look": [
+    6,
+    4,
+    5
+   ],
+   "PT4_toy_like": [
+    3,
+    2,
+    3
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "broken_render",
+    "empty_frame",
+    "flat_slide_look"
+   ],
+   "better": {
+    "R1": "tie",
+    "R2": "PT2",
+    "R3": "PT2"
+   },
+   "why": {
+    "R1": "The two frames are nearly identical, with the same geometry, textures, lighting and empty dark lane, and the only differences are a barely visible figure and slightly different sky shading.",
+    "R2": "The two frames are nearly the same scene, but X keeps slightly more readable lane detail, rubble and a figure for scale, while Y is murkier.",
+    "R3": "The two frames are nearly identical, but X is slightly brighter and has a faint figure in the lane that gives it some life and scale, while Y reads as an empty dark corridor."
+   },
+   "anachronisms": {
+    "R1": [
+     "Union flag looks like the post-1801 pattern with St Patrick's saltire",
+     "uniform boxy shutters and window openings that look modern",
+     "clean, regular rooflines and eaves that look modern",
+     "no visible siege damage or 1782 garrison life"
+    ],
+    "R2": [
+     "Union flag looks plausible for 1782 (pre-1801 design), no clear anachronism",
+     "Wall-mounted rectangular utility-like boxes or pipes on the right midground are ambiguous and read as modern",
+     "Long straight horizontal wire or cable line across the right wall looks modern",
+     "Tall thin flagpole with a small modern-proportioned flag"
+    ],
+    "R3": [
+     "Plain flat slab roofs and uniform modern-looking stucco with no tile or timber detail",
+     "Flat, uniform window glow that looks like emissive game lights rather than candle or lantern light",
+     "A thin horizontal cable or pipe line across the right facade",
+     "Rectangular recessed doorways of uniform modern proportions"
+    ]
+   }
+  },
+  "1943-dem": {
+   "PT2_craft": [
+    3,
+    4,
+    4
+   ],
+   "PT2_detail": [
+    4,
+    4,
+    4
+   ],
+   "PT2_period": [
+    5,
+    6,
+    6
+   ],
+   "PT2_ai_look": [
+    4,
+    4,
+    6
+   ],
+   "PT2_toy_like": [
+    5,
+    4,
+    5
+   ],
+   "PT2_flags": [
+    "cluttered",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "PT4_craft": [
+    3,
+    4,
+    4
+   ],
+   "PT4_detail": [
+    3,
+    3,
+    3
+   ],
+   "PT4_period": [
+    5,
+    6,
+    6
+   ],
+   "PT4_ai_look": [
+    4,
+    4,
+    6
+   ],
+   "PT4_toy_like": [
+    4,
+    4,
+    4
+   ],
+   "PT4_flags": [
+    "empty_frame",
+    "flat_slide_look"
+   ],
+   "better": {
+    "R1": "tie",
+    "R2": "PT2",
+    "R3": "tie"
+   },
+   "why": {
+    "R1": "Both are nearly identical, murky night renders with a black void on the left; X has slightly more visible people and surface texture, while Y has a more natural facade but an emptier square.",
+    "R2": "X has the same composition and darkness as Y but more readable figures and a richer square, while Y's near-empty plaza and one blue game-asset figure leave it feeling vacant.",
+    "R3": "Both are underexposed CG renders with the same black left mass and the same flag. X has more life and texture but looks more like game assets, and Y looks more natural but is emptier and has less detail."
+   },
+   "anachronisms": {
+    "R1": [
+     "none obvious; the Union Jack and shuttered Mediterranean facades are plausible",
+     "the stained texture and the people look like game assets rather than a 1943 scene"
+    ],
+    "R2": [
+     "none obvious; the Union Jack is plausible for 1943",
+     "the distant structure and white lamp are unclear at this darkness"
+    ],
+    "R3": [
+     "none obvious, but the scene is too dark to verify",
+     "orange rust-like blotches on the X facade",
+     "modern-looking CG pavement tiling"
+    ]
+   }
+  }
+ },
+ "tb": {
+  "PT4": {
+   "craft": 5.46,
+   "detail": 5.08,
+   "period": 5.38,
+   "ai_look": 4.67,
+   "toy_like": 5.92
+  },
+  "PT2": {
+   "craft": 5.67,
+   "detail": 5.42,
+   "period": 5.38,
+   "ai_look": 4.75,
+   "toy_like": 6.21
+  }
+ },
+ "tb_theo_moc": {
+  "1782": {
+   "PT4": {
+    "craft": 5.42,
+    "detail": 5.08,
+    "period": 5.17,
+    "ai_look": 5.0,
+    "toy_like": 5.92
+   },
+   "PT2": {
+    "craft": 5.92,
+    "detail": 5.67,
+    "period": 5.25,
+    "ai_look": 5.08,
+    "toy_like": 5.83
+   }
+  },
+  "1943": {
+   "PT4": {
+    "craft": 5.5,
+    "detail": 5.08,
+    "period": 5.58,
+    "ai_look": 4.33,
+    "toy_like": 5.92
+   },
+   "PT2": {
+    "craft": 5.42,
+    "detail": 5.17,
+    "period": 5.5,
+    "ai_look": 4.42,
+    "toy_like": 6.58
+   }
+  }
+ },
+ "phieu_better": {
+  "PT4": 6,
+  "PT2": 15,
+  "tie": 3
+ },
+ "chi_phi": 1.416
+}

@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 5,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "Backlit haze and long shadows give a cohesive, atmospheric mood. The crowd is a mass of dark, faceless, ghostly silhouettes that are semi-transparent and look like cut-outs or game placeholders, though the haze hides most of the crudeness. Buildings are well textured. The flag, ship and Rock-like hill read plausibly as Gibraltar. There are no uniforms or items I can identify, so the people are generic."
+ },
+ "Y": {
+  "craft": 4,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "Same set and lighting, but the foreground figures are flat, plastic, low-poly dolls in saturated tan, grey and white. They are semi-transparent, with ghosting on the right. They are posed at odd scales and some float or overlap. White sailor outfits and a black pram-like or bin object near the bottom are unclear. Paving is flat and washed out compared with X. The crowd looks like a game asset sheet placed on a photoreal street."
+ },
+ "better": "X",
+ "why": "Both share the same strong set, but X's hazy silhouetted crowd hides the crude people, while Y puts clearly visible, plastic, doll-like figures in the foreground and breaks believability.",
+ "top_fix_for_weaker": "Replace the doll-like foreground figures with properly modelled and lit 1943 people: opaque, correctly scaled, grounded with contact shadows, and in period dress (khaki battledress, RN whites, civilians). Cut the count, and add backlit rim light and haze like X so they sit in the scene.",
+ "anachronisms_seen": [
+  "Plain white sailor outfits and generic tan uniforms with no 1943 detail (caps, webbing, insignia)",
+  "Unidentifiable black object (pram or bin) at lower left in Y",
+  "Semi-transparent ghost figures, a render artifact rather than a period error",
+  "Union Jack is plausible, but the flag's small size and ratio are indistinct"
+ ]
+}

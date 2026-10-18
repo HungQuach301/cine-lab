@@ -1,0 +1,45 @@
+{
+ "A": {
+  "craft": 5,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Cleanest and calmest of the three. The water is smooth and plausible. The terrain is flat and the lighting is dull. The ships are black slabs with paper-thin sail planes and no rigging, and they sit on the water like game pieces. The fort walls are bland brown extrusions. The town reads well as a cluster of roofs, but it is small and uniform."
+ },
+ "B": {
+  "craft": 5,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Almost the same scene as A with busier, more saturated water and white foam specks. The hills and town are unchanged and flat. The ships still look like toys and are out of scale with the town. The foam looks like noise, not wake. Everything is a little more game-engine than A."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Best lighting of the three. The hillside has contrast, contour shading, ridge detail and warmer, richer colour. The town and walls get stronger shadows and more texture, so they read as masonry and not flat blocks. The water is as busy and over-saturated as B. The ships are still the same dark toy-like shapes with no hull detail or rigging, and the fort interiors are empty sand."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C has the richest light, terrain relief and wall and roof texture, while A and B differ mainly in water treatment, and B's noisy foam is the weakest. All three share the same flat toy-like ships and empty forts.",
+ "top_fix_for_best": "Rebuild the three ships with proper hulls (curved sheer, gun ports, visible rigging and furled or billowed sails) and scale them to the town. Calm the water, then add wake, smoke and small figures on the walls, quays and boats so the frame reads as a lived-in 1782 port and not a diorama."
+}

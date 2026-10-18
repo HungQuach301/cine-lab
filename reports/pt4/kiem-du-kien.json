@@ -1,0 +1,63 @@
+{
+ "phien": "PT4",
+ "ngay": "2026-10-18",
+ "cach_kiem": "Như PT2 (HC4): kiem_c.py (bản đồ khác biệt cấu trúc + màu bão hoà) trên KẾT QUẢ GHÉP thật (nền LAI d2) + rà tay 200 % theo ô + phóng 400–600 % từng ứng viên; đối chiếu danh sách vật nền cho phép có nguồn (giữ nguyên PT2: 1782 thùng/gạch vụn/dầm cháy/bong vữa; 1943 chỉ bề mặt). Không dùng chấm mù để kiểm dữ kiện.",
+ "tam": [
+  {
+   "tam": "1943-d2-lan2",
+   "model": "gpt-image-2.5-sunburst",
+   "ly_do_sinh_lai": "P2-5: bỏ ngoại lệ W5 (công-xon dưới ban công AI vẽ ở lần 1 PT2)",
+   "mat_na": "PT2 + chặn kiến trúc PT4: đá viền (bệ cửa, sàn ban công, gờ tầng, đá góc), gờ mái, lan can sắt + dải tường 0,7 m dưới chúng — 43,0 % khung được sửa (PT2 lần 1: 62–66 %)",
+   "phat_hien": [
+    {
+     "ma": "W5",
+     "mo_ta": "công-xon dưới sàn ban công",
+     "ket_qua": "KHÔNG còn ở lần 2 (rà 200 % mọi ban công trong khung)",
+     "loai": "đã hết"
+    },
+    {
+     "ma": "W3",
+     "mo_ta": "gờ đá chạm trổ ở mép mái (PT2 lần 1)",
+     "ket_qua": "không thấy ở lần 2; gờ mái nằm trong vùng bảo vệ",
+     "loai": "đã hết"
+    },
+    {
+     "ma": "W6",
+     "mo_ta": "trong LÒNG Ô CỬA tầng trệt toà phải AI vẽ thanh kim loại sáng có móc ở đỉnh (giống ống/khung kim loại) — vật mới ngoài danh sách",
+     "loai": "NGHI VẤN (vật mới)",
+     "xu_ly": "má ô cửa lấy từ A (compose4 --ma-cua-A) → hết; còn viền vữa xám mảnh của A quanh lòng cửa"
+    },
+    {
+     "ma": "W7",
+     "mo_ta": "cuối quảng trường (mặt đất 62–100 m) AI vẽ thêm tường đá thấp nối các cột lan can Line Wall + vài bậc thang ở góc trái",
+     "loai": "NGHI VẤN (kiến trúc mới trên vùng mặt đất)",
+     "xu_ly": "mặt đất > 62 m thay bằng A đã khớp độ lợi màu (trung vị tỉ số C/A trên đá có nắng 37–52 m), hoà 10 m (compose4 --dat-xa 62) → hết; dải xa 1,4 % khung mất vân đá lát (mịn)"
+    },
+    {
+     "ma": "W1b",
+     "mo_ta": "màu sơn: toà trái giữ hồng; toà phải kem → vàng đất loang (nhẹ hơn lần 1)",
+     "loai": "không lỗi dữ kiện (màu A là bảng màu thủ tục, không nguồn)",
+     "xu_ly": "giữ; chỉnh màu LAI riêng; biến thể sắc độ A được dựng để so (§5)"
+    },
+    {
+     "ma": "W2",
+     "mo_ta": "vữa bong lộ đá/gạch, loang ẩm, đá lát mòn",
+     "loai": "bề mặt — trong danh sách",
+     "xu_ly": "giữ"
+    }
+   ],
+   "vat_cam": "0 người, 0 cờ, 0 chữ/biển, 0 tàu mới, 0 nguồn sáng mới, 0 cây, 0 vật hiện đại trong kết quả ghép",
+   "ket_luan": "0 lỗi chắc; 2 nghi vấn (W6, W7) đã xử lý bằng ghép A; 0 ngoại lệ chờ duyệt (W5 hết)",
+   "bang_chung": "reports/pt4/kiem/bang-chung-1943-lan2.jpg"
+  },
+  {
+   "tam": "1782-d2-lan2 (PT2, dùng lại)",
+   "ly_do": "không sinh lại (trần OpenAI PT4 chỉ cho 1943); hình học A 1782 PT4 = PT2 + lòng nhà đổ nát (vùng BẢO VỆ) — kiểm: vùng bảo vệ mới ⊂ mặt nạ PT2 (lệch 0,016 % khung); 1,31 % khung được sửa có hình học đổi (bóng của lòng nhà mới) → chuyển bằng tỉ số A_d2/A_cũ_d2",
+   "ket_luan": "giữ kết luận PT2 (0 lỗi chắc, 1 sót nhẹ ≈ 0,05 %); lòng nhà đổ nát mới là điểm ảnh A (không qua AI)"
+  }
+ ],
+ "nguon_vat_nen": {
+  "1782": "không có nguồn mô tả quầy/mái che/gà/chó/la/ngựa/đồ phơi cho phố tháng 9/1782 trong TIEN-KY-VAY-HAM/claims (S062: dân bỏ phố chạy về nam từ 12/4/1781) → KHÔNG thêm",
+  "1943": "tra ảnh PD (Commons/LoC, reports/pt4/nguon/KET-QUA.md): không có ảnh phố thị trấn 1939–45 → KHÔNG thêm vật phố"
+ }
+}

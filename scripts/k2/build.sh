@@ -32,6 +32,7 @@ heroes() { [ -f $O/heroes.json ] || return 0; $PY -c "import json;[print(k,v['he
     echo "dựng cảnh đinh $k ($h/$v, $d s) $rs"; node $LL/hero.js --hero $h --variant $v --dur $d --w $w --h $h2 --spp ${SPP:-4} --opt "$opt" --out $dir.new $rs 2>>$O/hero-$k.err || { echo "LỖI cảnh đinh $k"; touch $O/render.failed; continue; }
     echo $st > $dir.new/stamp; rm -f $dir.new/pending; rm -rf "$dir"; mv "$dir.new" "$dir"; done; }   # dựng vào thư mục tạm, thay khi thành công (06/10: một lỗi cú pháp đã xoá cả 14 cảnh cũ)
 if has render; then disk "trước render"; rm -f $O/render.failed; P=${P:-3} bash $K2/heroes_par.sh "$EP" || touch $O/render.failed; [ -f $O/render.failed ] && { echo "Cảnh đinh lỗi — dừng"; exit 3; }
+  grep -q '"tl": true' $TL && $PY $K2/tl_post.py $TL   # V5b-2b: AGL mỗi khung của cảnh tl → p.agl trong timeline (K-1.13 NC-H2/H3) + cảnh báo VV2 địa cầu
   for s in ${ONLY:-$(segs segments)}; do while [ $(jobs -rp | wc -l) -ge $J ]; do sleep 2; done; render_one segments $s $O/sec/$s.mkv & done; wait; disk "sau render"
   [ -f $O/render.failed ] && { echo "Có đoạn render lỗi — dừng, không ghép"; exit 3; }; fi
 # MIX=audio (phiên Âm thanh 15/10): chuỗi mới scripts/audio/compose.py (nhạc theo chương đúng ô nhịp, SFX gắn hình, ducking thích ứng SMR ≥ 15 dB,
@@ -50,9 +51,11 @@ open(f'{O}/list.txt', 'w').write('\n'.join(L) + '\n')
 if bad: sys.exit('LỆCH số khung: ' + ', '.join(bad))
 # 3 phần: cắt ở ranh giới đoạn gần 1/3 và 2/3 tổng thời lượng nhất
 T = tl['tong_s']; b = [s['t1'] for s in tl['segments'][:-1]]
-c1 = min(b, key=lambda x: abs(x - T / 3)); c2 = min([x for x in b if x > c1] or [T], key=lambda x: abs(x - 2 * T / 3))
+c1 = min(b or [T], key=lambda x: abs(x - T / 3));   # V5b-2c: tập 1 đoạn (SM3 thử) không có ranh giới đoạn
+c2 = min([x for x in b if x > c1] or [T], key=lambda x: abs(x - 2 * T / 3))
 for k, (a, z) in enumerate([(0, c1), (c1, c2), (c2, T)], 1):
     ds = [s for s in tl['segments'] if s['t0'] >= a - 1e-6 and s['t1'] <= z + 1e-6]
+    if not ds: ds = tl['segments'][-1:]   # V5b-2b: đoạn thử ít đoạn (< 3) → phần rỗng lấy đoạn cuối (PARTS=0 không mã hoá phần nào)
     open(f'{O}/list-p{k}.txt', 'w').write(''.join(f"file '{O}/sec/{s['id']}.mkv'\n" for s in ds)); open(f'{O}/p{k}.range', 'w').write(f"{a} {z - a} {ds[0]['id']}-{ds[-1]['id']}\n")
 E
   DUR=$($PY -c "import json;print(json.load(open('$TL'))['tong_s'])")

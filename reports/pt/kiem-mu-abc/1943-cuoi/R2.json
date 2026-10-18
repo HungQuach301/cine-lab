@@ -1,0 +1,40 @@
+{
+ "X": {
+  "craft": 8,
+  "detail": 8,
+  "period": 8,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Best frame. Weathered stucco, wet cobbles, sandbags, bicycles, barrels, soldiers and sailors, and a warm window all read clearly. The grading is moody and legible. Slight CG sheen, and the figures are small and stiff. The left building is a little muddy, but the frame reads as a real wartime night street."
+ },
+ "Y": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 2,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "broken_render"
+  ],
+  "note": "Underexposed. The left half is a black void, and the square is empty with no people, sandbags or props. The facade is smooth and low-poly, the cobbles are barely visible, and only the window and flag register. It looks like a 3D viewport render, not documentary footage."
+ },
+ "Z": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 2,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "Nearly the same as Y. The left building is slightly more visible, but it is still mostly dark. The stucco is flat and clean, the square is empty, and a few blocky box props sit at the right base. No life, no wartime clutter, and little material depth."
+ },
+ "best": "X",
+ "worst": "Y",
+ "why": "X has believable weathering, wartime props (sandbags, bicycles, barrels) and people that give a sense of place and period, while Y and Z are dark, empty and sterile, and Y is the worst because its left half is a black void.",
+ "anachronisms_seen": [
+  "none obvious; the only faint concern is the rubbish-bin-like barrels in X, which are plausible for the period"
+ ]
+}

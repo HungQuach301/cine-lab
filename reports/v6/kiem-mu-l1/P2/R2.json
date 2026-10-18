@@ -1,0 +1,47 @@
+{
+ "A": {
+  "craft": 5,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Calmest and cleanest of the three. The water is soft and uniform, so the lower half is a large empty blue slab. The ships are black slabs with sails like flat cards, and they float with no wake or interaction with the water. The town is a decent cluster of terracotta roofs, but the fortress walls look like cardboard. The lighting is flat."
+ },
+ "B": {
+  "craft": 5,
+  "detail": 5,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "Same geometry as A with a busier, sparklier water surface. The white foam flecks are scattered at random and read as noise, not wave breaks. The ships are still flat, untextured black hulls with card sails. The terrain and town look the same as A, with slightly more contrast."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The strongest grade of the three. The warm raking light gives the hillside real relief, with visible terraces and shadow. The town and walls pick up depth and the sun reads as directional. The water is the most dramatic, but the blobby foam is arbitrary and the water is still a bit saturated and plasticky. The ships are unchanged and are the weakest element: they have no rigging, no gunports and no hull shape, so they read as game pieces. There are no people, troops, smoke or flags anywhere. The oversized fortress shows the same building blocks over and over."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "Only the lighting and grade differ between the three, and C's directional light and terrain relief give the most depth and cinematic feel. B is livelier than A, but its foam is noisy and A is the emptiest.",
+ "top_fix_for_best": "Replace the three slab-hull ships with properly modelled 1780s ships of the line and frigates: curved hulls with gunport rows, yards, rigging, billowing sails with a wake and bow spray. Give them varied scale and heading. Then add life to the town and fortress: gun smoke, flags, small boats, and tiny troops or crowds on the bastions. Also desaturate the water towards a harbour green-grey and replace the random foam blobs with wave-aligned highlights."
+}

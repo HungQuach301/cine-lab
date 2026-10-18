@@ -42,11 +42,14 @@ export function noiseTex(N = 256) {
 
 // V5b-1b · mặt nạ NỘI DUNG (đo "≥ 40 % khung là nội dung có nghĩa"): khi uMask = 1, vật liệu xuất màu cờ (1 = nội dung: toà, hero, tường, đường, xe/người; 0 = nền)
 // V5b-2a: hid > 0 = id hero (kênh B = hid/255) — đo hero_pct theo id ở page.js contentMask
+// V6: uMask = 2 → LƯỢT PHÁP TUYẾN cho SSAO (light6.js): vật liệu có pháp tuyến xuất pháp tuyến không gian nhìn; vật liệu không pháp tuyến (Basic, Sprite) bị bỏ khỏi lượt
+// V6 bước 7: uMask = 3 → LƯỢT ALBEDO (diffuseColor tuyến tính, không chiếu sáng/sương) cho bản Cycles (export6.js)
+export const N6 = (mat) => (mat.isMeshLambertMaterial || mat.isMeshStandardMaterial || mat.isMeshPhongMaterial) ? 'if (uMask > 2.5) gl_FragColor = vec4(diffuseColor.rgb, 1.0); else if (uMask > 1.5) gl_FragColor = vec4(normalize(normal) * 0.5 + 0.5, 1.0); else ' : 'if (uMask > 2.5) gl_FragColor = vec4(diffuseColor.rgb, 1.0); else if (uMask > 1.5) discard; else ';
 export function maskify(mat, U, v, hid = 0) {
   if (mat.userData.masked) return; mat.userData.masked = true; const prev = mat.onBeforeCompile;
   const key0 = mat.customProgramCacheKey ? mat.customProgramCacheKey() : (prev ? prev.toString() : ''); mat.customProgramCacheKey = () => key0 + '|mask' + v + '|h' + hid;   // khoá bộ đệm chương trình: không để vật liệu khác dùng nhầm shader (lỗi phát hiện 16/10)
   mat.onBeforeCompile = (sh, r) => { if (prev) prev(sh, r); sh.uniforms.uMask = U.uMask;
     sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uMask;')
-      .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n if (uMask > 0.5) gl_FragColor = vec4(${v ? '1.0, 0.0, ' + (hid / 255).toFixed(6) : '0.0, 0.0, 0.0'}, 1.0);`); };
+      .replace('#include <dithering_fragment>', `#include <dithering_fragment>\n ${N6(mat)}if (uMask > 0.5) gl_FragColor = vec4(${v ? '1.0, 0.0, ' + (hid / 255).toFixed(6) : '0.0, 0.0, 0.0'}, 1.0);`); };
   mat.needsUpdate = true;
 }

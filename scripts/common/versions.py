@@ -28,6 +28,8 @@ GROUPS = {
     'market': ['toolkit/market'],
     # tài sản kênh 2: thư viện CC0 băm qua catalog.json (SHA từng tệp; không băm tệp LFS vì bản clone có thể chỉ có con trỏ) + LUT ứng viên
     'assets_k2': ['assets/k2/cc0/catalog.json', 'assets/k2/lut'],
+    # V5b-2b (V5B2A §8.9): mô-đun xương sống thời gian (trang tl + công cụ dựng/đo) — nhóm riêng để tập có cảnh tl bắt được đổi mã tl
+    'k2tl': ['design/k2v/tl', 'scripts/k2tl'],
 }
 SKIP = re.compile(r'(^|/)(node_modules|__pycache__|\.pytest_cache)(/|$)|\.pyc$')
 MODEL_RE = re.compile(r"claude-(?:opus|sonnet|haiku|fable)-\d+-\d+(?:-\d{8})?")
@@ -95,7 +97,10 @@ def tools_info():
             'git_lfs': v(['git', 'lfs', 'version'], r'git-lfs/(\S+)'), 'opencv': cv,
             'ffmpeg': v(['ffmpeg', '-version'], r'ffmpeg version (\S+)'), 'node': v(['node', '--version'], r'v(\S+)'),
             'python_cine': v(['/opt/cine/bin/python', '--version']), 'three': three, 'playwright': pw,
-            'chromium': os.path.basename(chromium[-1]) if chromium else None}
+            'chromium': os.path.basename(chromium[-1]) if chromium else None,
+            # V5b-2b: trình dựng llvmpipe (gói hệ thống — nâng cấp image có thể đổi hình, GPU-RD §5.3)
+            'mesa_libgallium': v(['dpkg-query', '-W', '-f=${Version}', 'mesa-libgallium'], r'(\S+)'), 'libllvm20': v(['dpkg-query', '-W', '-f=${Version}', 'libllvm20'], r'(\S+)'),
+            'k2tl_gl': os.environ.get('K2TL_GL', 'llvmpipe')}
 
 
 def episode_info(ep):

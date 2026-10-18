@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "flat_slide_look",
+   "cluttered"
+  ],
+  "note": "Strong, saturated wall textures and warm light, but the figures look like flat, semi-transparent cardboard cutouts or game billboards. They are pale and ghostly, with uneven scale and no grounding shadows. The orange blotches on the right wall look like a texture glitch. The walls have no cornices or string courses. The ship in the harbor is a tiny blob."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 4,
+  "flags": [
+   "flat_slide_look"
+  ],
+  "note": "Better atmospheric haze, depth and light falloff. Cornices, string courses and a stone plinth add architectural believability. The sunlit cobbles cast long shadows. The figures are dark, backlit silhouettes, which hides their flaws, but they still look like generic dark cutouts with no readable uniform detail. The harbor ship and ground in the distance are washed out. Texture on the left wall is somewhat blotchy and repetitive."
+ },
+ "better": "Y",
+ "why": "Y has more convincing atmosphere, architectural detail and grounded silhouettes, while X's pale cutout figures and flat, garish textures read as game assets.",
+ "top_fix_for_weaker": "Replace the flat translucent figures with properly lit 3D or photo-matted people. Give them correct scale, period uniforms, contact shadows and some motion blur. Also tone down the orange wall texture and add cornices and string courses.",
+ "anachronisms_seen": [
+  "Union Jack flag has a modern, clean look, but is plausible for 1943",
+  "Generic modern-looking balcony railings and louvered shutters",
+  "Blue box or kiosk at the end of the street is not identifiable",
+  "Figures lack identifiable 1940s uniforms"
+ ]
+}

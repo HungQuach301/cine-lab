@@ -1,0 +1,17 @@
+```json
+{
+  "A": {"craft": 4, "detail": 4, "toy_like": 7, "ai_look": 5, "period": 4,
+        "flags": ["flat_slide_look", "toy_look", "unreadable_scale", "confusing"],
+        "note": "Dead-flat side-on view. Three identical box barges sit in a row like game pieces, with tiny stick masts. Grey smoke blobs are blurry smudges that wash out the town. The water is a flat blue plane with no reflections or waves. The terrain texture is decent, but the town reads as a scatter of white cubes. There is no sense of attack and no depth."},
+  "B": {"craft": 6, "detail": 5, "toy_like": 6, "ai_look": 4, "period": 4,
+        "flags": ["toy_look", "anachronism"],
+        "note": "Best of the three. Low-angle water with reflections, a strong diagonal hillside, muzzle flashes, and a brown smoke column that adds drama. The hull is a blocky, pixelated box with thin crosses for masts. The ships do not look like 1782 floating batteries, which were heavily armoured, sloped-sided hulks with several decks of guns. The town is a pile of white blocks. The smoke is better but still sprite-like. Dark jagged edges on the hilltop are a render artifact."},
+  "C": {"craft": 6, "detail": 5, "toy_like": 6, "ai_look": 4, "period": 4,
+        "flags": ["toy_look", "anachronism"],
+        "note": "Almost identical to B, with a cleaner hill silhouette and no dark edge artifact. The smoke bank on the right hides the town and wall more, which reads as haze and hurts clarity. Only one muzzle flash is visible on the left ship, so the action is weaker. The ships have the same blocky, pixelated hull problem."}
+  ,
+  "rank": ["B", "C", "A"],
+  "why": "B and C have depth, a dynamic camera angle, reflective water and visible gunfire. A is a flat, static row of toy-like boxes with smudgy smoke. B edges out C because it keeps more muzzle flash and a clearer view of the town.",
+  "top_fix_for_best": "Replace the box hulls with proper floating-battery models: tall sloped armoured sides, gun ports with visible cannon, rigging and flags, plus crew figures for scale. Then add return fire and splashes from the town's ramparts, and fix the dark artifact edges on the hilltop."
+}
+```

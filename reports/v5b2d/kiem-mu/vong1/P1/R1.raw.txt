@@ -1,0 +1,22 @@
+```json
+{
+  "X": {
+    "craft": 4,
+    "richness": 2,
+    "fit": 3,
+    "flags": ["empty_frame", "flat_slide_look", "unreadable_scale"],
+    "note": "The rock is decent, but half the frame is flat blue sky and the foreground is empty green field. There is one tiny troop block and a few specks, and the earthworks are thin lines. It reads as a landscape with no army. The town is a barely visible sliver. No ships, no smoke worth noting, and no sense of a siege."
+  },
+  "Y": {
+    "craft": 5,
+    "richness": 7,
+    "fit": 6,
+    "flags": ["toy_look", "cluttered"],
+    "note": "Many troop blocks fill the foreground, with entrenchment walls, flags, smoke wisps, the sea and the town on the rock. It reads as a besieging army on the isthmus. The troops are identical black cylinders on gold slabs, which looks like a toy or board-game tabletop. The lighting is flat, the smoke is smudgy, and the blocks are uniformly placed. There are no ships and no visible guns."
+  },
+  "better": "Y",
+  "why": "Y shows a big besieging army, trenches and a fortified rock, while X is mostly empty sky and grass with almost no troops.",
+  "top_fix_for_weaker": "Fill the foreground with the besieging army: dense, varied troop formations, gun batteries and trench lines with firing smoke. Lower the camera and crop the sky to about 25% of the frame. Add ships in the bay and make the town and fortress walls on the rock readable.",
+  "top_fix_for_better": "Replace the identical black cylinder blocks with varied, colour-coded soldiers and add siege guns, tents and camp clutter. Break up the grid placement and add warm directional light with long shadows and firing smoke. Add ships or gunboats in the bay to sell the siege."
+}
+```

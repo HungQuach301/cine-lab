@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 6,
+  "flags": [
+   "empty_frame"
+  ],
+  "note": "Decent 3D terrain with a walled town and animated-looking water. The bottom half is empty flat water, and the town is a thin strip at the horizon. The pills are readable but small. The attribution text (\"Map data: OpenStreetMap\", \"Reconstructed from J. Drinkwater...\") is tiny on a phone. The date and place are clear. It's unclear what the viewer should look at, since there is no subject or story beat."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Better composition: the town is on the horizon, the runway leads the eye, and there's a period photo inset with a leader line to the location. The big year and resident count are legible. The subtitle line is small and low-contrast. The photo inset covers the right side of the town, and the caption pill sits on top of the runway. The foreground is a big flat green plain with little texture. Several overlays compete, but each one adds information."
+ },
+ "better": "Y",
+ "why": "Y gives a clear subject, a period photo and a headline number, while X is mostly empty water with small attribution text.",
+ "top_fix_for_weaker": "Lower the camera and tilt it up so the town and fortifications fill the middle of the frame instead of the water. Add one large label, such as 'Gibraltar, 1782 \u2013 Siege', and enlarge the small credit pills to at least 28px or move them out of the way."
+}

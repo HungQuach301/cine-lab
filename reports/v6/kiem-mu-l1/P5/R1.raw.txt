@@ -1,0 +1,14 @@
+```json
+{
+  "A": {"craft": 5, "detail": 4, "toy_like": 6, "ai_look": 4, "period": 5, "flags": ["toy_look", "unreadable_scale", "empty_frame", "flat_slide_look"],
+        "note": "Warm, softer lighting and slightly better shading than B. But the middle of the frame is a huge empty tiled plaza with tiny troop blocks. The ruins look like grey blocks. The buildings are plain extruded boxes with orange roofs and rooftop cubes that look modern. The tile grid shows on the ground."},
+  "B": {"craft": 4, "detail": 4, "toy_like": 7, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale", "empty_frame", "flat_slide_look", "anachronism"],
+        "note": "Almost the same scene as A with harsher, more contrasty shading. The ruins are near-black and read as rendering artefacts. The troops are pixel-like clumps. It looks like a game prototype. The flat-roofed, cube-topped blocks feel modern."},
+  "C": {"craft": 7, "detail": 7, "toy_like": 4, "ai_look": 3, "period": 7, "flags": ["toy_look"],
+        "note": "Much stronger. A dense town grid, a bell tower, bastioned walls with crenellations, a harbour, fields and a green. The scale reads and the depth and composition are good. The water is a flat saturated blue and the walls look like cardboard. The garrison is almost invisible, and the roofs and walls look low-poly and repetitive."}
+,
+  "rank": ["C", "A", "B"],
+  "why": "C is a real panorama with density, depth and readable fortifications, while A and B are the same sparse, empty plaza with tiny troop blobs and box buildings, and B's shading is harsher.",
+  "top_fix_for_best": "Make the garrison visible: add many more troops, with readable red and white uniforms, in formation on the bastions and in the streets, and add smoke and flags. Give the walls stone texture and the sea a proper water shader with a darker, less saturated tint and foam at the shoreline."
+}
+```

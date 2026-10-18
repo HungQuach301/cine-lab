@@ -3,6 +3,7 @@
 //   buồm 1704–1860 (vịnh phía tây phố trong tường; mở đầu kể "British and Dutch forces capture Gibraltar" — số lượng MINH HOẠ, không theo sổ hạm đội)
 //   · thuyền nhỏ + tàu hơi nước 1860–1965 (ảnh LoC 2025710366 c.1900 cho thấy nhiều thuyền neo vịnh phía tây eo đất)
 //   · tàu hàng/tàu dầu tiếp nhiên liệu/tàu khách 1965–2026 (neo vịnh Gibraltar — đặc trưng hiện nay). Hình khối cách điệu, không mô phỏng tàu cụ thể.
+import { batteryV6 } from './ships6.js';
 import { THREE, rng } from './core.js';
 
 const L = (c) => new THREE.MeshLambertMaterial({ color: c });
@@ -39,4 +40,49 @@ export function makeShips(U) {
   add('cruise', -1180, -1250, -0.25, 2008, 2100);
   function update(year) { for (const s of ships) s.g.visible = year >= s.y0 && year < s.y1; }
   return { group, update, n: ships.length };
+}
+
+// ======================================================================================================================================
+// V5b-2b (T3 P0, M3 rút gọn) · HẠM ĐỘI THEO ĐỘI HÌNH + ĐƯỜNG ĐI THEO GIỜ. Mỗi tàu nội suy vị trí theo "giá trị thời gian" tv (giờ trong ngày ở cảnh mốc đinh,
+//  hoặc năm thập phân), hướng mũi theo chuyển động (đứng yên: hướng khai). Kiểu: 'battery' (pin nổi 1782 — hình dáng MINH HOẠ theo bản khắc Rijks RP-P-OB-19.249
+//  / Drinkwater view: thân thấp, mái nghiêng che sàn pháo, một hàng lỗ pháo, 2 cột ngắn; kích thước thân tàu CHƯA có nguồn → nhãn "illustrative"),
+//  'line' (tàu chiến tuyến), 'sail', 'boat' (như makeShips). Không người trên boong (luật hình chiến tranh §6.2).
+export function lineFormation({ n, center, axis = 0, spacing = 140, ...rest }) {   // n tàu xếp hàng dọc trục axis (độ, 0 = Bắc, chiều kim đồng hồ) quanh center [E, N]
+  const a = axis * Math.PI / 180, u = [Math.sin(a), Math.cos(a)];
+  return [...Array(n).keys()].map((i) => { const o = (i - (n - 1) / 2) * spacing; return Object.assign({ at: [center[0] + u[0] * o, center[1] + u[1] * o] }, rest); });
+}
+function batteryGroup(R) {
+  const g = new THREE.Group(), m = (geo, mat, x, y, z, ry = 0) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.rotation.y = ry; o.castShadow = o.receiveShadow = true; g.add(o); return o; };
+  const len = 50 + 6 * R(), beam = 15;
+  m(hullGeo(len, beam, 5.5, 0.16), L(0x3a2c20), 0, -2.6, 0);
+  m(new THREE.BoxGeometry(len * 0.86, 2.2, beam * 0.9), L(0x4a3828), -len * 0.03, 3.4, 0);   // sàn pháo
+  const roof = new THREE.BoxGeometry(len * 0.8, 0.7, beam * 0.62); const r1 = m(roof, L(0x5a4632), -len * 0.03, 6.2, beam * 0.2); r1.rotation.x = 0.42;   // mái nghiêng che sàn (phía hướng thành)
+  for (let k = 0; k < 11; k++) for (const sd of [-1, 1]) m(new THREE.BoxGeometry(1.3, 1.2, 0.3), L(0x120e0a), -len * 0.38 + k * len * 0.068, 3.6, sd * beam * 0.455);   // hàng lỗ pháo hai mạn
+  for (const sd of [-1, 1]) { m(new THREE.BoxGeometry(len * 0.88, 0.45, 0.35), L(0xb89a6a), -len * 0.03, 4.75, sd * beam * 0.46); m(new THREE.BoxGeometry(len * 0.9, 0.35, 0.3), L(0x8a6a44), 0, 1.6, sd * beam * 0.5); }   // mép boong gỗ sáng + gờ mạn (đọc được khối thân ở xa)
+  m(new THREE.BoxGeometry(len * 0.97, 0.5, beam * 0.98), L(0x1c1a17), 0, 0.15, 0);   // đường mớn nước tối
+  for (const [x, hh] of [[-len * 0.2, 16], [len * 0.18, 14]]) { m(new THREE.CylinderGeometry(0.35, 0.45, hh, 5), L(0x2e241b), x, hh / 2 + 4, 0); m(new THREE.CylinderGeometry(0.5, 0.5, beam * 0.6, 5).rotateX(Math.PI / 2), L(0xd8ccb0), x + 0.4, hh * 0.72 + 4, 0); }   // cột ngắn + buồm cuộn
+  // V5b-2d: đọc được ở xa — cột chính cao + trục ngang + buồm thu nửa (bản khắc RP-P-OB-19.249 vẽ pin nổi có cột buồm), dải mạn sơn vàng đất, nòng pháo ló ở lỗ pháo,
+  //  mái che phủ da sống ướt (màu nâu đỏ — chống đạn nung theo thiết kế d'Arçon), cột cờ đuôi (cờ trắng hải quân Bourbon trước 1785 — minh hoạ)
+  m(new THREE.CylinderGeometry(0.4, 0.55, 26, 6), L(0x2e241b), 0, 17, 0); for (const [y, w] of [[14, 0.62], [22, 0.48]]) { m(new THREE.CylinderGeometry(0.22, 0.22, beam * w * 1.6, 5).rotateX(Math.PI / 2), L(0x2e241b), 0.3, y, 0); m(new THREE.BoxGeometry(0.3, 4.2, beam * w * 1.5), L(0xe6dcc4), 0.7, y - 2.2, 0); }
+  for (const sd of [-1, 1]) m(new THREE.BoxGeometry(len * 0.86, 0.9, 0.2), L(0xa8823e), -len * 0.03, 2.5, sd * beam * 0.49);
+  for (let k = 0; k < 11; k++) m(new THREE.CylinderGeometry(0.22, 0.26, 1.4, 6).rotateX(Math.PI / 2), L(0x0c0c0d), -len * 0.38 + k * len * 0.068, 3.6, beam * 0.5 + 0.4);
+  r1.material = L(0x6e3b28);
+  m(new THREE.CylinderGeometry(0.12, 0.15, 8, 4), L(0x2e241b), -len * 0.47, 9, 0); m(new THREE.BoxGeometry(0.06, 2.0, 3.2), L(0xf2efe6), -len * 0.47, 11.8, -1.6);
+  return g;
+}
+export function makeFleet(U, specs) {
+  const group = new THREE.Group(), R = rng(1782), list = [];
+  for (const sp of specs) {   // sp: {kind, at:[E,N] | path:[[tv, E, N], …], heading (độ), t:[hiện, ẩn] (tv)}
+    let g; if (sp.kind === 'battery') g = sp.v6 ? batteryV6(R, { side: sp.side ?? -1, burning: !!sp.burning }) : batteryGroup(R);   // V6: pin nổi chi tiết theo bản khắc (ships6.js)
+    else { const tmp = new THREE.Group(); g = tmp; const len = sp.kind === 'line' ? 52 + 8 * R() : 36; const mm = (geo, mat, x, y, z) => { const o = new THREE.Mesh(geo, mat); o.position.set(x, y, z); o.castShadow = o.receiveShadow = true; g.add(o); };
+      mm(hullGeo(len, len * 0.27, 7, 0.2), L(0x3c2a1c), 0, -2.6, 0); mm(new THREE.BoxGeometry(len * 0.92, 1.0, len * 0.255), L(0xb09868), 0, 3.6, 0);
+      for (const [x, hh] of [[-len * 0.3, 28], [0, 34], [len * 0.28, 25]]) { mm(new THREE.CylinderGeometry(0.4, 0.5, hh, 5), L(0x3a2a1e), x, hh / 2 + 2, 0); for (let k = 0; k < 3; k++) mm(new THREE.BoxGeometry(0.4, hh * 0.22, len * 0.27 * (1 - k * 0.18)), L(0xece4d0), x + 0.6, 8 + k * hh * 0.26, 0); } }
+    g.visible = false; group.add(g); list.push({ sp, g });
+  }
+  const posAt = (sp, tv) => { if (!sp.path) return [sp.at[0], sp.at[1], null]; const P = sp.path; if (tv <= P[0][0]) return [P[0][1], P[0][2], null]; if (tv >= P[P.length - 1][0]) return [P[P.length - 1][1], P[P.length - 1][2], null];
+    let i = 1; while (P[i][0] < tv) i++; const [t0, e0, n0] = P[i - 1], [t1, e1, n1] = P[i], u = (tv - t0) / (t1 - t0), s = u * u * (3 - 2 * u); return [e0 + (e1 - e0) * s, n0 + (n1 - n0) * s, Math.atan2(n1 - n0, e1 - e0)]; };
+  return { group, list, n: list.length,
+    update(tv) { for (const { sp, g } of list) { const vis = !sp.t || (tv >= sp.t[0] && tv <= sp.t[1]); g.visible = vis; if (!vis) continue; const [e, n, hd] = posAt(sp, tv);
+      g.position.set(e, 0, -n); g.rotation.y = hd != null ? hd : (90 - (sp.heading || 0)) * Math.PI / 180; } },
+    positions(tv) { return list.map(({ sp }) => posAt(sp, tv)); } };
 }

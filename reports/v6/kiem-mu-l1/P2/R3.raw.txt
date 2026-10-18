@@ -1,0 +1,13 @@
+```json
+{
+  "A": {"craft": 5, "detail": 5, "toy_like": 7, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"],
+        "note": "Flat, evenly lit and washed out. Smooth water has little sparkle. The ships are slab hulls with floating flat sail cards, like game pieces. The town reads at a distance but has no people, smoke or life. Fortification walls are plain extruded boxes."},
+  "B": {"craft": 6, "detail": 5, "toy_like": 7, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"],
+        "note": "Same geometry as A, with more saturated colour and a livelier water surface with foam highlights. The ships are still toy-like, with no rigging, no wake and no crew. The water is a bit oversaturated and cartoonish, but it adds energy."},
+  "C": {"craft": 7, "detail": 6, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"],
+        "note": "Same geometry as B, with the best grading. Warm sunlight, stronger terrain shadows and contrast, and better material separation on the roofs and walls. It reads as a more cinematic golden-hour scene. The ships remain the weakest element: dark slab hulls with floating sail cards. Still no life in the harbour."},
+  "rank": ["C", "B", "A"],
+  "why": "The geometry is identical in all three, so the ranking comes down to lighting and grading. C has the warmest, most directional light and the best depth. B has livelier water. A is flat and washed out.",
+  "top_fix_for_best": "Rebuild the three ships with proper hull curvature, gunports, rigging, billowing sails and bow wakes. Then add harbour life: small boats, smoke from chimneys and batteries, and a few flags. The ships are the toy-like element that most undermines the otherwise convincing town."
+}
+```

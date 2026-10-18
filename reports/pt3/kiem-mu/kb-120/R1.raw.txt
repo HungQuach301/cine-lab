@@ -1,0 +1,9 @@
+```json
+{"X": {"craft": 6, "detail": 6, "period": 6, "ai_look": 4, "flicker": "no", "flags": ["toy_like"], "note": "Best of the three. The ashlar wall has believable weathering and a waterline stain, the parapet is a coherent object, and the textures stay fixed across the four frames. The barrack blocks behind it are bare grey boxes with a few holes, and the platform is a large flat gravel plane with nothing on it. It reads as a clean 3D model, not a living fortress."},
+ "Y": {"craft": 3, "detail": 7, "period": 4, "ai_look": 5, "flicker": "no", "flags": ["broken_render", "stretched_texture", "seams"], "note": "The photogrammetry-style rock and earth texture is rich, but the geometry is wrecked. A white, flat-shaded wall slab pops into the lower foreground across the four frames and covers the bastion. The base layer has a large untextured white patch, a floating grey panel at left, and a hard cut-off edge at the water. The textures streak and stretch. The shot is unusable as it stands."},
+ "Z": {"craft": 4, "detail": 3, "period": 4, "ai_look": 5, "flicker": "no", "flags": ["flat_slide_look", "toy_like"], "note": "The wall is a smooth, near-featureless white shell and the platform is a uniform dark asphalt-like slab, which looks like a modern car park. It is clean and stable, but it has almost no material character. The surfaces look like plastic or foam."},
+ "best": "X",
+ "worst": "Y",
+ "why": "X is the only version that is coherent, stable and textured like weathered limestone masonry, while Y has visible broken geometry and Z is bland plastic-looking surfaces.",
+ "anachronisms_seen": ["Z's platform surface looks like modern asphalt", "the barrack blocks look like bare modern concrete boxes", "X's bastion top is a flat, clean gravel plane with no gun platforms, embrasures or defenders", "pale, uniform white walls in Z that look like modern render"]}
+```

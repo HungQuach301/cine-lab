@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 7,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The buildings are strong: peeling stucco, balconies and soft haze over the bay. The crowd is the weak point. The figures are small, stiff and uniformly posed, with white sailors, khaki soldiers and a stack of crates or barrels that read as game assets. The flag and ship look believable."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "broken_render",
+   "cluttered"
+  ],
+  "note": "The setting is identical, with slightly more varied and stronger wall texture. The crowd is a clump of grey-green, clay-like mannequins with muddy colours and merged limbs. They look like unfinished 3D dolls, and there are no clear uniforms or props."
+ },
+ "better": "X",
+ "why": "X has the same convincing street, but its crowd is more legible, with distinct white naval and khaki army uniforms, a spread-out arrangement and props. Y's crowd is a muddy, doll-like clump.",
+ "top_fix_for_weaker": "Replace the clay-coloured mannequin crowd with fewer, properly clothed figures: correct 1943 uniforms, varied poses, cast shadows, and a bit of motion blur or depth-of-field softening. Spread them out so the cobbles and the leading lines to the harbour stay visible.",
+ "anachronisms_seen": [
+  "Uniforms in Y are indistinct, so the period can't be confirmed",
+  "Extremely clean, uniform cobbles and balcony railings that look modern",
+  "Pristine ship silhouette on the horizon looks generic rather than 1943 warship",
+  "Flag in both frames is a Union Jack, which is plausible, but it is too small and crisp"
+ ]
+}

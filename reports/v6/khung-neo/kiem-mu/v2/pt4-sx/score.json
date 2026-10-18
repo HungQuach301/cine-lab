@@ -1,0 +1,692 @@
+{
+ "khung": {
+  "1782-trua": {
+   "PT4_craft": [
+    5,
+    5,
+    5
+   ],
+   "PT4_detail": [
+    6,
+    5,
+    5
+   ],
+   "PT4_period": [
+    5,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    6,
+    6,
+    7
+   ],
+   "PT4_toy_like": [
+    8,
+    7,
+    8
+   ],
+   "PT4_flags": [
+    "broken_render",
+    "cluttered",
+    "toy_like"
+   ],
+   "PT4_note": {
+    "R1": "The buildings are strong, with believable weathered plaster and exposed brick. The figures are the problem. They are a muddled, semi-transparent crowd of stiff mannequins with ghosting and no grounded shadows. Red and blue uniforms are mixed together with no logic, and some figures have mismatched faces and heads. The foreground clump is a confusing pile, and the street is mostly cluttered with people.",
+    "R2": "The wall textures are strong. The figures are a mushy, semi-transparent clump of mismatched blue and red uniforms with ghosted legs, and they look like game assets pasted in. Some bodies are partly faded or merged. The foreground has no props or focal point, and the figures have inconsistent scale and no cast shadows.",
+    "R3": "The walls are strong and well lit. The figures are a cluster of semi-transparent, ghosted, plastic-looking mannequins with merged bodies and a blue-grey palette. They look like game assets pasted on, and their feet and shadows don't ground them. The foreground figures have no faces. The street is otherwise clear, with no barrels or props for scale."
+   },
+   "V6sx_craft": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_detail": [
+    7,
+    6,
+    6
+   ],
+   "V6sx_period": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_ai_look": [
+    6,
+    6,
+    7
+   ],
+   "V6sx_toy_like": [
+    7,
+    6,
+    7
+   ],
+   "V6sx_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "V6sx_note": {
+    "R1": "The setting is the same strong, weathered street. The figures are slightly more legible, with white breeches, cross-belts and tricorne-like hats. Barrels, a cannonball stack and sunlit rubble give the street more story and a sense of scale. The soldiers are still stiff, plastic-looking game figures lined up like toy soldiers, and the crowd is still dense and ambiguous. The blue-coated figures on the right are odd. Ground contact is better than in X.",
+    "R2": "The wall textures are the same, and they are the strongest part of the frame. Barrels, a cannonball stack and a rubble foreground add believable clutter. Light and shadow fall across the lane, and the soldiers read as a rough formation in tricorns and red, blue and white coats. They still look like glossy plastic figurines with uniform poses and weak grounding. The lane is too clean and wide for a besieged, bombarded town.",
+    "R3": "The setting is the same, with identical walls. The figures are more solid and better grounded, with visible shadows and more legible red, blue and white coats. Barrels, stacked shot and rubble in the foreground add scale and a sense of siege. The soldiers are still stiff, doll-like and clumped in a tight blob, with cartoonish faces. The big sunlit gap in the foreground is slightly empty."
+   },
+   "better": {
+    "R1": "V6sx",
+    "R2": "V6sx",
+    "R3": "V6sx"
+   },
+   "why": {
+    "R1": "Y has the same strong environment but cleaner, more readable figures with better ground contact, plus props (barrels, shot) that add siege context, whereas X's figures are ghosted and muddled.",
+    "R2": "Y has the same strong environment plus grounded props and more legible, better-lit soldiers, while X's figures are ghosted and smeared.",
+    "R3": "Y has more solid, better-grounded figures and useful siege props (barrels, shot), while X's people are ghostly, merged and plastic."
+   },
+   "fix": {
+    "R1": "Replace the ghosted, semi-transparent crowd with a few (4-6) solid, properly lit and shadowed British redcoats in a coherent uniform scheme (no random blue), and add siege props such as shot, powder barrels and damaged masonry.",
+    "R2": "Replace the translucent figure clump with a few properly lit, distinct soldiers. Give them correct scale, contact shadows and varied poses. Add foreground props like barrels, debris and a cart, and a clear focal subject.",
+    "R3": "Replace X's semi-transparent mannequins with fewer, solid, properly shadowed figures spread along the lane at varied scales and poses. Add foreground props (barrels, stacked shot, handcart) and give the figures period-correct coats, hats and faces."
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Flag with St Patrick's saltire (post-1801 design; the 1782 flag would be the 1707 Union without the Irish cross)",
+     "blue-coated soldiers mixed in with the British redcoats, which makes no sense for a British garrison",
+     "shutters and wall fronts look pristine, with no siege bombardment damage beyond generic decay",
+     "flat, even daylight with no smoke or haze from the bombardment"
+    ],
+    "R2": [
+     "British flag appears to be the 1707 Union Jack, which is correct for 1782, but it is flown very cleanly in a bombarded town",
+     "mixed blue and red uniforms in one British formation (blue could be Hanoverian or artillery, but looks inconsistent)",
+     "hats on some figures look like modern bowler or top-hat shapes rather than tricorns",
+     "intact, uniform stucco and window shutters despite the siege bombardment"
+    ],
+    "R3": [
+     "Soldiers' uniforms are generic and inconsistent, with the blue coats suggesting Hanoverian or foreign troops and the cross-belts and hats being generic tricorn or bicorn blobs",
+     "Union Jack flag shown in its post-1801 form instead of the 1606 design, which lacks the St Patrick's saltire",
+     "Clean glazed shutters and window frames look modern",
+     "Almost no civilians, which is odd for a town in this period"
+    ]
+   }
+  },
+  "1943-trua": {
+   "V6sx_craft": [
+    7,
+    6,
+    6
+   ],
+   "V6sx_detail": [
+    7,
+    6,
+    6
+   ],
+   "V6sx_period": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_ai_look": [
+    4,
+    4,
+    5
+   ],
+   "V6sx_toy_like": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "V6sx_note": {
+    "R1": "The buildings are strong: peeling stucco, balconies and soft haze over the bay. The crowd is the weak point. The figures are small, stiff and uniformly posed, with white sailors, khaki soldiers and a stack of crates or barrels that read as game assets. The flag and ship look believable.",
+    "R2": "Same CG street as Y with strong plaster texture and atmospheric depth. The figures are small and stiff, but they read as people in clear uniform types: white-clad sailors, khaki soldiers, navy ratings, and a stack of crates or barrels. The crowd is tighter and has some activity. The Union Jack and harbour ship are fine. The people are still generic, mannequin-like and posed in a static cluster.",
+    "R3": "Same 3D-render setup as Y, but the crowd reads better. Figures are distinct: white-uniformed sailors, khaki soldiers, a stack of barrels or tyres and carried boxes. Colours and uniforms look plausible, so it feels like a staged scene. The figures are still stiff, small and mannequin-like. The Union Jack in the distance is only a few pixels wide. Plaster and cobbles look good."
+   },
+   "PT4_craft": [
+    6,
+    5,
+    5
+   ],
+   "PT4_detail": [
+    6,
+    5,
+    5
+   ],
+   "PT4_period": [
+    5,
+    4,
+    5
+   ],
+   "PT4_ai_look": [
+    5,
+    5,
+    6
+   ],
+   "PT4_toy_like": [
+    8,
+    8,
+    8
+   ],
+   "PT4_flags": [
+    "broken_render",
+    "cluttered",
+    "toy_like"
+   ],
+   "PT4_note": {
+    "R1": "The setting is identical, with slightly more varied and stronger wall texture. The crowd is a clump of grey-green, clay-like mannequins with muddy colours and merged limbs. They look like unfinished 3D dolls, and there are no clear uniforms or props.",
+    "R2": "Identical environment, but the crowd is worse. The figures are a murky olive and blue, and some look like plastic or clay figurines. The clump of people is jumbled, with tangled silhouettes and no readable uniforms, gear or activity. They look like game-asset dolls pasted onto the cobbles. The rest of the frame is as good as X's, and the left-wall plaster is a little blotchier.",
+    "R3": "The crowd is a cluster of olive-green and blue clay-like figures with smeared faces and ambiguous poses. The figures merge into a blob and look like game or clay assets. The buildings are the same strong 3D render. Their weathering is slightly busier and more patchy, which looks a bit more arbitrary. The uniforms are unconvincing."
+   },
+   "better": {
+    "R1": "V6sx",
+    "R2": "V6sx",
+    "R3": "V6sx"
+   },
+   "why": {
+    "R1": "X has the same convincing street, but its crowd is more legible, with distinct white naval and khaki army uniforms, a spread-out arrangement and props. Y's crowd is a muddy, doll-like clump.",
+    "R2": "Same set, but X's crowd has readable period uniforms (white sailors, khaki soldiers, navy ratings), props and clearer silhouettes, while Y's is a muddy, doll-like clump.",
+    "R3": "The buildings and harbour backdrop are near-identical, but X's crowd is more readable, varied and uniform-plausible, while Y's figures look like melted clay dolls."
+   },
+   "fix": {
+    "R1": "Replace the clay-coloured mannequin crowd with fewer, properly clothed figures: correct 1943 uniforms, varied poses, cast shadows, and a bit of motion blur or depth-of-field softening. Spread them out so the cobbles and the leading lines to the harbour stay visible.",
+    "R2": "Replace the Y crowd with properly shaded, varied figures in correct 1943 uniforms (white sailor tops, khaki drill, navy), with realistic skin and cloth materials, contact shadows, and spacing into purposeful groups (queues, patrols, carrying crates). Add scale-appropriate motion blur or depth-of-field, and cut the saturated blue and olive cast.",
+    "R3": "Replace the clay-like crowd with fewer, larger, properly modelled figures in period uniforms (khaki battledress, white naval tropical kit). Give them distinct poses and cast shadows, and separate them so they don't merge into one mass."
+   },
+   "anachronisms": {
+    "R1": [
+     "Uniforms in Y are indistinct, so the period can't be confirmed",
+     "Extremely clean, uniform cobbles and balcony railings that look modern",
+     "Pristine ship silhouette on the horizon looks generic rather than 1943 warship",
+     "Flag in both frames is a Union Jack, which is plausible, but it is too small and crisp"
+    ],
+    "R2": [
+     "Generic modern-looking mannequin figures with ambiguous uniforms",
+     "Pristine, uniform wrought-iron balcony railings and shutters look newly CG-made rather than 1943 weathered",
+     "No visible wartime elements (sandbags, blackout paint, vehicles) for Gibraltar in 1943"
+    ],
+    "R3": [
+     "No clear anachronisms in either frame",
+     "Uniforms in Y are generic and ambiguous rather than clearly 1943 British",
+     "Union Jack is too tiny to verify"
+    ]
+   }
+  },
+  "1782-sang": {
+   "PT4_craft": [
+    6,
+    6,
+    5
+   ],
+   "PT4_detail": [
+    6,
+    6,
+    5
+   ],
+   "PT4_period": [
+    5,
+    5,
+    4
+   ],
+   "PT4_ai_look": [
+    5,
+    4,
+    6
+   ],
+   "PT4_toy_like": [
+    7,
+    7,
+    8
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "cluttered",
+    "toy_like"
+   ],
+   "PT4_note": {
+    "R1": "The street, walls and light are strong. The figures are the weak point: mannequin-stiff, with blue-trousered and bald, bare-headed figures in mid-stride that look like game assets. The soldiers have no muskets and the red-coat group is a clump. One figure's pose reads as broken. The empty rubble-lined lane in the foreground feels staged.",
+    "R2": "The environment is strong: well-textured peeling plaster, exposed brick, rubble, raking light and a good vanishing point. The figures are the weak point. They are low-poly mannequins, and the blue-trousered ones have bald, doll-like heads and stiff, odd walking poses. Red coats with white cross-belts read as British, but the blue figures look like undressed or unfinished models. Their shapes are inconsistent. The figure group is cut off from the street lighting and casts only one odd long shadow. Heavily smoothed faces, no hats on the blue figures. The Union flag has the post-1801 design, with the St Patrick cross, which is wrong for 1782.",
+    "R3": "The street and walls are strong, photoreal-looking CGI. The figures are mannequin-like game assets with a stiff walk and a clumsy mid-stride pose. Blue-trousered figures with bare bald heads look like unfinished models. The mid-street cluster of redcoats is a repetitive, overlapping blob. Cross-belts, caps and the flag are generic and plausibly period at best. The lone shadow on the ground has no clear source."
+   },
+   "V6sx_craft": [
+    7,
+    6,
+    6
+   ],
+   "V6sx_detail": [
+    7,
+    6,
+    5
+   ],
+   "V6sx_period": [
+    6,
+    5,
+    5
+   ],
+   "V6sx_ai_look": [
+    5,
+    4,
+    6
+   ],
+   "V6sx_toy_like": [
+    6,
+    8,
+    8
+   ],
+   "V6sx_flags": [
+    "anachronism",
+    "cluttered",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "V6sx_note": {
+    "R1": "It has the same excellent environment. The figures are more varied (a woman in a white dress, a civilian in a dark coat, soldiers in red with white cross-belts, a blue-coated figure), which tells more of a story. Their poses are still static and they look like standing dolls, some on pegs. The group is better composed, with a clear focal cluster. A long shadow in the middle has no visible source.",
+    "R2": "The environment is identical and good. The figures are posed standing in a clump like display mannequins or chess pieces. Several have peg-like legs and stands, two on the right look like they are on poles, and a woman in a white dress is fused with the soldiers. There is a lone dark figure in a tricorne-like hat in the midground. Costume variety (civilians, a mix of coats) is nicer than in X, and it adds some storytelling. But the stiff, grouped, static poses read as a toy diorama. The shadow on the ground is detached from any figure and lies in the middle of the street. The flag is the same anachronistic Union flag.",
+    "R3": "Same strong environment. The figures stand in a stiff, posed lineup like painted figurines or cardboard cutouts, with no motion and an odd white-gown figure at the centre. Several figures have no feet or sit on pegs. A dark civilian in a hat stands isolated. The posed groups look marginally more coherent and period-readable than X's blob. Their uniform colours and white breeches are closer to a plausible 1782 look. The shadows are detached from the figures."
+   },
+   "better": {
+    "R1": "V6sx",
+    "R2": "PT4",
+    "R3": "V6sx"
+   },
+   "why": {
+    "R1": "The environment is identical, but Y's figures are more varied and better grouped and read less like toys, while X's bald blue-trousered walkers look like game assets.",
+    "R2": "The environments are identical, but X's figures are in motion and spread across the lane, which reads less like a diorama than Y's stiff, clumped mannequins on pegs, even though Y has a little more costume variety.",
+    "R3": "The environment is identical, and Y's figures are a little more readable and period-plausible, but both are toy-like and Y is only marginally better."
+   },
+   "fix": {
+    "R1": "Replace the mannequin figures with properly posed, fully dressed soldiers (hats, coats, muskets, varied poses and spacing), and add contact shadows and a slight motion or depth-of-field treatment so they sit in the scene.",
+    "R2": "Replace the static, peg-legged figures with properly rigged characters in varied walking, working or carrying poses spread over the foreground and midground. Give them period clothing and headwear with natural cloth, ground contact and correct shadows. Remove the orphan shadow. Swap the flag for the pre-1801 Union flag, which has no red saltire.",
+    "R3": "Replace the mannequin figures in X with properly scaled, varied period soldiers (tricorne or round hats, correct coats, breeches and gaiters) in natural marching poses. Add grounded contact shadows and spread them out so they don't blob together."
+   },
+   "anachronisms": {
+    "R1": [
+     "bare-headed or bald soldiers in blue trousers with no 1782-style kit (no hats or muskets)",
+     "uniform proportions and blank, doll-like faces",
+     "pristine, flat-coloured uniforms with no wear in a besieged town",
+     "shutters and window frames that look too clean and modern",
+     "crisp, bright Union flag at a siege-era flagpole (the 1801 Union design, not the 1782 flag)"
+    ],
+    "R2": [
+     "Union Jack with St Patrick's saltire (post-1801 design) instead of the 1606 Union flag",
+     "Bare-headed blue-trousered figures without period hats or coats",
+     "Possible red-coat details such as the cross-belts look generic, not 1782-specific",
+     "Neat tile roofs and window shutters in a street that was supposedly bombarded"
+    ],
+    "R3": [
+     "Union Jack flag with the 1801 design (the 1782 Union flag had no St Patrick's cross)",
+     "Bare bald heads and blue trousers on X's figures, which suggest unfinished or mismatched models",
+     "Figures with pegs or no feet",
+     "Generic cross-belts and caps on the soldiers",
+     "Mannequin-like uniform rendering"
+    ]
+   }
+  },
+  "1943-sang": {
+   "PT4_craft": [
+    5,
+    5,
+    5
+   ],
+   "PT4_detail": [
+    5,
+    5,
+    5
+   ],
+   "PT4_period": [
+    5,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    6,
+    5,
+    5
+   ],
+   "PT4_toy_like": [
+    8,
+    8,
+    8
+   ],
+   "PT4_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "PT4_note": {
+    "R1": "The buildings and light are good. The crowd is made of faceless clay or mannequin figures in a scattered, directionless mass. They have no recognisable uniforms, and some are blue-grey ghosts with no ground contact. The cobbles are a strong saturated orange.",
+    "R2": "The buildings are well textured and the cobbles catch the light. The crowd is the problem. Figures are untextured mannequins in clay, olive and blue, with no faces, no period clothing and mixed scale. Many are semi-transparent and fogged. They stand scattered at random and look like game placeholders. The silhouettes have no uniform logic at all.",
+    "R3": "The buildings are well weathered and the lighting and haze are good. The people are faceless, clay-coloured mannequins in a loose scatter. They have no readable uniforms or roles, and some are semi-transparent. The scene looks like a game-engine crowd test and gives no sense of 1943 Gibraltar."
+   },
+   "V6sx_craft": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_detail": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_period": [
+    7,
+    7,
+    7
+   ],
+   "V6sx_ai_look": [
+    5,
+    4,
+    4
+   ],
+   "V6sx_toy_like": [
+    6,
+    6,
+    5
+   ],
+   "V6sx_flags": [
+    "toy_like"
+   ],
+   "V6sx_note": {
+    "R1": "The setting is the same, but the figures are clearer. There are white-uniformed sailors with sailor collars, khaki soldiers or sentries in shorts and caps, a rope or barrel stack, and a staged group in the middle distance that looks like a ceremony. The figures are still stiff, doll-like 3D assets with no faces, and their scale and shadows are inconsistent.",
+    "R2": "It uses the same strong environment, but the people read better. There are khaki soldiers in battle dress and berets, sailors in white and blue with round caps, and a guard-like pair in the foreground. A group stands at the far end of the square and the logs or barrels add a prop. The figures are still low-poly and stiff, and some are scaled oddly. The group of white sailors in the middle looks pasted in. The square is emptier and flatter, and the far-end cluster is vague.",
+    "R3": "The setting is the same, but the figures are clearly Royal Navy sailors in white, khaki-clad soldiers in shorts and pith helmets, and a group around crates at the end of the street. The staging has more purpose. The figures are still smooth, low-poly dolls with no faces and are partly washed out by haze. The foreground soldiers are stiff, and the stacked barrels or sandbags are crude."
+   },
+   "better": {
+    "R1": "V6sx",
+    "R2": "V6sx",
+    "R3": "V6sx"
+   },
+   "why": {
+    "R1": "Y's people read as period naval and army personnel with a purpose, while X's are an undifferentiated crowd of toy-like grey-green mannequins.",
+    "R2": "The environment is identical in both, but Y's figures have recognisable uniforms (khaki, sailors in whites, berets) and a clearer staging, while X's crowd is a scatter of faceless clay mannequins.",
+    "R3": "Y's figures have recognisable period roles (sailors in whites, khaki soldiers) and a clearer focal group, while X's are uniform grey-beige mannequins."
+   },
+   "fix": {
+    "R1": "Replace X's mannequins with fewer, properly scaled figures in identifiable 1943 dress (RN white and blues, khaki drill, civilian hats and jackets). Give them grounded contact shadows, consistent lighting and some purposeful grouping. Tone down the saturated orange cobbles.",
+    "R2": "Replace the untextured mannequins with fewer, properly clothed, scaled and shadow-grounded figures: 1943 khaki battle dress, naval whites, and civilians in period dress. Give them faces, hands and equipment. Pose them in purposeful groups rather than a random spread. Add contact shadows and remove the see-through, fogged look.",
+    "R3": "Replace X's clay mannequins with properly textured, period-correct figures: Royal Navy whites, khaki drill, civilians in 1940s clothing, with faces and varied poses. Cut the crowd to a few purposeful groups and ground them with contact shadows, so they are no longer transparent or floating."
+   },
+   "anachronisms": {
+    "R1": [
+     "Pristine modern-looking iron balcony railings and shutters on a heavily weathered facade",
+     "Generic blank mannequin figures with no identifiable 1943 uniforms (X)",
+     "Union Jack flown on a tall flagpole at the waterfront with a lone sailing-ship silhouette; the ship looks old, not 1943 (both)"
+    ],
+    "R2": [
+     "Mannequin figures in ambiguous modern-looking blue and olive with no identifiable 1943 uniform (X)",
+     "Generic sailor and soldier models without correct period insignia or kit (Y, minor)",
+     "Very clean, uniform modern-looking wrought-iron balcony railings and shutters (both, minor)",
+     "Ship at the far end looks like a generic masted vessel rather than a 1943 warship (both)"
+    ],
+    "R3": [
+     "No hard anachronisms found, but most of X's figures have no identifiable period clothing",
+     "Y's foreground soldiers in shorts and pith helmets look more colonial-era than 1943 wartime Gibraltar",
+     "No vehicles, signage or wartime features (shelter, sandbags, blackout gear) in either frame"
+    ]
+   }
+  },
+  "1782-chieu": {
+   "PT4_craft": [
+    6,
+    7,
+    6
+   ],
+   "PT4_detail": [
+    6,
+    6,
+    6
+   ],
+   "PT4_period": [
+    5,
+    5,
+    5
+   ],
+   "PT4_ai_look": [
+    4,
+    4,
+    5
+   ],
+   "PT4_toy_like": [
+    6,
+    6,
+    6
+   ],
+   "PT4_flags": [
+    "anachronism",
+    "toy_like"
+   ],
+   "PT4_note": {
+    "R1": "The lane is strong: textured crumbling plaster, backlit haze, a bright harbour, and a clear leading line to the flag. The figures are small, stiff, faceless, and have no real shading. Several wear flat shako-style black hats, which look wrong for 1782. The one dark figure in the middle reads as a silhouette cutout. The crowd is sparse, so the lane feels staged and mostly empty.",
+    "R2": "Strong lighting and wall materials, with a good vanishing-point composition and god-rays. The soldiers are sparse, small and seen from behind. They are stiff, mannequin-like figures with flat saturated colour, and the hats are odd shako/cylinder shapes. The 1782 British soldiers look wrong, and the blue-coated figures are ambiguous. The Union flag shows the post-1801 cross, though that is hard to confirm at this size. The empty foreground leaves the street feeling thin.",
+    "R3": "The walls, light and depth are strong. The soldiers are sparse, stiff and faceless, with simple shapes, and most of them face away from the camera. Their hats look like shakos or stovepipes, not 1782 cocked hats. Their coats are bright flat red with crossbelts, and two figures wear blue. The Union flag shows the 1801 design with the Irish cross, but it should be the 1606 design. The lane is quite empty."
+   },
+   "V6sx_craft": [
+    6,
+    7,
+    6
+   ],
+   "V6sx_detail": [
+    6,
+    7,
+    6
+   ],
+   "V6sx_period": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_ai_look": [
+    4,
+    4,
+    5
+   ],
+   "V6sx_toy_like": [
+    7,
+    7,
+    7
+   ],
+   "V6sx_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "V6sx_note": {
+    "R1": "It has the same strong environment. The troops wear tricorn or cocked hats and red coats with white cross-belts, which suits the 1780s better. The dense column gives scale and a sense of a event. But the figures are clones with stick legs, mismatched proportions, and olive or tan lower legs. They overlap into a muddy clump and look like game assets or dolls. Some figures merge into each other, and the pointing arm on the right is odd.",
+    "R2": "The environment is identical and strong. The crowd of redcoats in tricorne/cocked hats, white crossbelts and lapels reads more clearly as 1780s infantry. But the figures are clone-like, have glossy plastic skin, spindly legs and stiff poses, and look like game-asset or toy soldiers. They are packed into a blob with intersecting bodies and a weird pointing arm. The crowd gives a better sense of scale and story than X, but the repeated models are obvious.",
+    "R3": "The setting is identical to X. The crowd is denser and the figures read as British redcoats with cocked hats and crossbelts, which fits 1782 better. The figures are still uniform and look like game assets, with stick legs, flat colours and cloned poses. The crowd merges into a clump at the centre. It has more narrative, but the toy look is worse. The flag has the same problem as in X. The pale hats and gaiters look odd."
+   },
+   "better": {
+    "R1": "V6sx",
+    "R2": "V6sx",
+    "R3": "V6sx"
+   },
+   "why": {
+    "R1": "The environment is identical in both, and Y's crowd of tricorn-hatted redcoats gives more life and a more convincing period read, even though its figures are more doll-like and clumped.",
+    "R2": "Same excellent environment, but Y's tricorne-wearing redcoat crowd is more period-appropriate and fills the lane with life, even though its figures are still toy-like and repetitive.",
+    "R3": "Both frames share the same strong environment, but Y has a plausible crowd of cocked-hat redcoats that gives the scene a story, while X's few figures wear wrong headgear and leave the lane looking empty."
+   },
+   "fix": {
+    "R1": "Fix X's headgear: replace the shako-like black hats with cocked tricorns, and add more varied, properly shaded figures in the lane (garrison soldiers, civilians, carts) with realistic leg and boot proportions, instead of a few stiff, flat-lit silhouettes.",
+    "R2": "For X: replace the sparse, back-facing shako-style figures with a varied, properly scaled 1780s group (cocked hats, correct coats, mixed poses and heights, real cloth shading) and add foreground life such as civilians, carts or smoke so the lane feels inhabited.",
+    "R3": "Replace the shako-like hats with period cocked hats (tricorne). Add faces, varied poses, and cloth, leather and metal shading to the figures. Correct the flag to the 1606 Union Flag with no red saltire. Group the soldiers into a few clear clusters with some civilians, so they read less like sparse game assets."
+   },
+   "anachronisms": {
+    "R1": [
+     "shako-style tall black hats on soldiers in X",
+     "uniform stick-leg figures with olive lower legs reading as gaiters or skin in Y",
+     "very uniform shuttered windows and door frames, with no glazing or period ironwork"
+    ],
+    "R2": [
+     "Shako- or cylinder-style tall hats in X (post-1800 headgear)",
+     "Union Jack with the 1801 St Patrick's cross design (should be the 1606 two-cross Union flag)",
+     "Ambiguous blue-coated figures in X",
+     "Uniform, clone-like crowd with plastic-looking figures in Y",
+     "Pointing figure with an awkward arm in Y"
+    ],
+    "R3": [
+     "Union Flag with the 1801 Irish saltire",
+     "tall shako/stovepipe hats in X",
+     "uniform bright flat red coats",
+     "pristine matching crossbelts and gaiters on every figure",
+     "blue uniforms of unclear origin in X"
+    ]
+   }
+  },
+  "1943-chieu": {
+   "PT4_craft": [
+    7,
+    7,
+    7
+   ],
+   "PT4_detail": [
+    5,
+    6,
+    6
+   ],
+   "PT4_period": [
+    6,
+    6,
+    6
+   ],
+   "PT4_ai_look": [
+    6,
+    4,
+    5
+   ],
+   "PT4_toy_like": [
+    4,
+    4,
+    4
+   ],
+   "PT4_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "PT4_note": {
+    "R1": "The golden backlight and haze are atmospheric, and the weathered buildings look good. The crowd is a mass of dark, faceless silhouettes with no readable uniforms. Many figures are identical or ghostly, which looks like game crowd filler. The crowd hides the square and reads as a stand-in for real people.",
+    "R2": "The haze, backlight and long shadows give a cohesive cinematic atmosphere. The crowd is a mass of dark, smoky, semi-transparent silhouettes with no readable clothing, faces or uniforms. That hides the toy look but also hides any period information. The people look ghostly and don't sit properly on the cobbles. The buildings are strong, with convincing peeling plaster, shutters and balconies.",
+    "R3": "Backlit haze and long shadows give a cohesive, cinematic mood. The crowd is a mass of dark, semi-transparent silhouettes with no readable clothing or faces. They look like ghosted placeholder figures, but at this size they read as a distant crowd. Buildings are the same render as Y and are convincing."
+   },
+   "V6sx_craft": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_detail": [
+    6,
+    6,
+    6
+   ],
+   "V6sx_period": [
+    7,
+    6,
+    6
+   ],
+   "V6sx_ai_look": [
+    6,
+    4,
+    5
+   ],
+   "V6sx_toy_like": [
+    7,
+    7,
+    7
+   ],
+   "V6sx_flags": [
+    "cluttered",
+    "toy_like"
+   ],
+   "V6sx_note": {
+    "R1": "The setting is the same and equally good. The figures are fewer and readable: khaki uniforms, white sailor suits, grey suits. But they are stiff, flat-shaded, low-poly mannequins that stand in rigid poses and look like game assets. They also float on the ground without convincing contact shadows. The foreground figures are cut off at the left edge, which looks awkward.",
+    "R2": "The buildings, harbour and flag are identical to X and just as good. The figures are clearly readable as khaki soldiers, sailors in whites and civilians, which is a plus for period. But they are stiff, waxy, low-poly mannequins with plain colours and no real shading or cloth detail, so they look like game assets or dolls. They are also scattered unevenly and cut-out in feel. The black bollard-like block mid-street looks odd.",
+    "R3": "The same environment, but the people are crisp, low-poly, game-asset figures. They are stiff, plastic and flat-colored, and several are in white sailor suits and khaki uniforms. They are scattered and unevenly lit, and some seem to float. They look like Sims-style dolls and break the realism of the plate. A dark block on the ground is unexplained. The uniforms are at least legible and period-plausible."
+   },
+   "better": {
+    "R1": "V6sx",
+    "R2": "PT4",
+    "R3": "PT4"
+   },
+   "why": {
+    "R1": "Y's people are legible, with recognizable sailors and soldiers that suit 1943 Gibraltar, but they look more like toys than X's ghostly silhouette crowd. Y wins only narrowly, because X looks less toy-like and its crowd is less intrusive.",
+    "R2": "The environment is identical in both, but X's atmospheric silhouetted crowd feels more filmic and avoids Y's obvious doll-like, game-asset mannequins, even though Y's figures are more legible.",
+    "R3": "The backgrounds are identical, but X's hazy silhouetted crowd keeps the atmosphere and hides the weakness of the figures, while Y's sharp, plastic figures look like game assets."
+   },
+   "fix": {
+    "R1": "Not applicable if Y is the winner. For Y, replace the mannequin figures with properly modelled, shaded people and add contact shadows and varied poses. For X, give the crowd real uniforms, faces and variety, and cut the number of figures.",
+    "R2": "Replace the mannequin figures with properly modelled and textured people: wool uniforms with creases and folds, varied poses and animation, skin and cloth shaders, contact shadows and haze matched to the scene. Cluster them in believable groups and remove the stray black block.",
+    "R3": "Replace the low-poly figures with properly rendered or composited period people. Match them to the scene's light direction and haze. Add contact shadows, vary pose and scale, and cluster them in believable groups. Alternatively, push the crowd back into haze and depth blur as X does."
+   },
+   "anachronisms": {
+    "R1": [
+     "Union Jack flag (appropriate, but too small to check its detail)",
+     "No clear anachronisms; the modern-looking shutters and railings are plausible",
+     "The wall plaster and balcony railings look slightly too clean and uniform for 1943"
+    ],
+    "R2": [
+     "Union Jack flag has a clean modern look and the harbour ship is generic",
+     "Y: sailors' white uniforms and caps are generic and simplified",
+     "Y: stiff, generic figures with no period-specific kit or weapons",
+     "Y: unexplained black block in the street",
+     "Both: the large blue structure by the right-hand building is unidentifiable"
+    ],
+    "R3": [
+     "No clear anachronisms; the Union Jack flag and the 1940s-style uniforms are plausible.",
+     "The uniforms are generic and vague.",
+     "The balconies and shutters are generic Mediterranean rather than specifically Gibraltarian."
+    ]
+   }
+  }
+ },
+ "tb": {
+  "PT4": {
+   "craft": 5.72,
+   "detail": 5.5,
+   "period": 5.06,
+   "ai_look": 5.22,
+   "toy_like": 6.83
+  },
+  "V6sx": {
+   "craft": 6.17,
+   "detail": 6.17,
+   "period": 6.11,
+   "ai_look": 4.89,
+   "toy_like": 6.61
+  }
+ },
+ "tb_theo_moc": {
+  "1782": {
+   "PT4": {
+    "craft": 5.67,
+    "detail": 5.67,
+    "period": 4.89,
+    "ai_look": 5.22,
+    "toy_like": 7.0
+   },
+   "V6sx": {
+    "craft": 6.22,
+    "detail": 6.22,
+    "period": 5.78,
+    "ai_look": 5.22,
+    "toy_like": 7.0
+   }
+  },
+  "1943": {
+   "PT4": {
+    "craft": 5.78,
+    "detail": 5.33,
+    "period": 5.22,
+    "ai_look": 5.22,
+    "toy_like": 6.67
+   },
+   "V6sx": {
+    "craft": 6.11,
+    "detail": 6.11,
+    "period": 6.44,
+    "ai_look": 4.56,
+    "toy_like": 6.22
+   }
+  }
+ },
+ "phieu_better": {
+  "PT4": 3,
+  "V6sx": 15,
+  "tie": 0
+ },
+ "chi_phi_tong_so": 2.1068
+}

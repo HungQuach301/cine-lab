@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 5, "readability": 8, "clarity": 6, "flags": ["cluttered", "confusing"], "note": "Large readable text, but the callout box covers the town and the tower's upper edge, and its leader line is tiny. The tower is cropped at the bottom and the foreground is a muddle of buildings. A huge, flat, empty green plain takes up the upper half. The '18,659 residents' counter is not tied to anything visible. The attribution line 'Ministry for Heritage' reads as a source caption, not a label. Materials look low-poly and plain."},
+ "Y": {"craft": 7, "readability": 6, "clarity": 7, "flags": [], "note": "Cleaner and better composed. The water has real shading, there is a clear diagonal from the town to the fortifications, and the horizon and sky are atmospheric. The town is the obvious subject and nothing covers it. The text is smaller, though: the location pill and the source line are thin and will be hard to read on a phone. The foreground and right side are sparse, and the cast shadows look odd and unmotivated."},
+ "better": "Y",
+ "why": "Y has a cleaner composition and richer lighting and water, and its text stays off the subject, while X has an overlapping callout, a cropped landmark and a large empty plain.",
+ "top_fix_for_weaker": "Reframe X so the Tower of Homage sits fully in frame as the focal point. Move the callout to a clear area with a leader line that visibly touches the tower. Cut the empty plain by lowering the horizon or moving the camera closer. Tie the resident count to the town, for example with a small label near it."}
+```

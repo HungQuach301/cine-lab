@@ -1,0 +1,182 @@
+{
+ "W": 1920,
+ "lop": [
+  {
+   "id": "sm2-1782",
+   "loai": "bien_gioi_lich_su",
+   "nam": 1782,
+   "ngay": "1780-01 → 1782-10 (Minorca đổi chủ 1782-02-05)",
+   "nguon": "Cliopatria (Seshat)",
+   "nguon_doi_chieu": "OpenHistoricalMap",
+   "giay_phep": "CC-BY-4.0",
+   "giay_phep_doi_chieu": "CC0",
+   "nhan": "approx. borders c. 1782 — Cliopatria (Seshat)",
+   "khung_rong_km": 1450,
+   "km_px": 0.755,
+   "lech_tb_px": 17.77,
+   "kieu_mep": "mem",
+   "features": [
+    {
+     "id": "spain",
+     "ten": "Spain",
+     "faction_id": "spain",
+     "fill": "#c9a227",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 2169.2,
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 11.66,
+      "max_km": 91.2,
+      "n_diem": 16,
+      "lech_tb_px": 15.44,
+      "lech_max_px": 120.8,
+      "dt_lech_pct": 6.9
+     },
+     "doi_chu": [],
+     "claims": [
+      "T006"
+     ]
+    },
+    {
+     "id": "minorca",
+     "ten": "Minorca",
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 60.3,
+     "kieu_mep": "lien",
+     "lech": null,
+     "doi_chu": [
+      {
+       "ngay": "1782-02-05",
+       "faction_id": "spain",
+       "fill": "#c9a227",
+       "claims": [
+        "T020"
+       ]
+      }
+     ],
+     "claims": [
+      "T020"
+     ]
+    },
+    {
+     "id": "france",
+     "ten": "France",
+     "faction_id": "france",
+     "fill": "#2e5c8a",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 1240.2,
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 13.42,
+      "max_km": 73.7,
+      "n_diem": 7,
+      "lech_tb_px": 17.77,
+      "lech_max_px": 97.6,
+      "dt_lech_pct": 7.5
+     },
+     "doi_chu": [],
+     "claims": [
+      "T018"
+     ]
+    },
+    {
+     "id": "portugal",
+     "ten": "Portugal",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 1385.3,
+     "kieu_mep": "mem",
+     "lech": {
+      "tb_km": 4.13,
+      "max_km": 7.48,
+      "n_diem": 8,
+      "lech_tb_px": 5.47,
+      "lech_max_px": 9.9,
+      "dt_lech_pct": 11.4
+     },
+     "doi_chu": [],
+     "claims": []
+    },
+    {
+     "id": "morocco",
+     "ten": "Morocco",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 1027.8,
+     "kieu_mep": "lien",
+     "lech": null,
+     "doi_chu": [],
+     "claims": []
+    },
+    {
+     "id": "algiers",
+     "ten": "Regency of Algiers",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 1289.8,
+     "kieu_mep": "lien",
+     "lech": null,
+     "doi_chu": [],
+     "claims": []
+    },
+    {
+     "id": "others",
+     "ten": "Other states (not at war)",
+     "faction_id": "neutral",
+     "fill": "#a89f8a",
+     "ve": "dac",
+     "ban_dia": false,
+     "side_px": 2029.7,
+     "kieu_mep": "lien",
+     "lech": null,
+     "doi_chu": [],
+     "claims": []
+    }
+   ],
+   "diem": [
+    {
+     "id": "gibraltar",
+     "ten": "Gibraltar",
+     "ll": [
+      -5.353,
+      36.14
+     ],
+     "faction_id": "britain",
+     "fill": "#b03a2e",
+     "doi_chu": [],
+     "claims": [
+      "S040",
+      "S042"
+     ],
+     "ly_do": "≈ 6 km ở khung 1 450 km (≈ 0,76 km/px) → ≈ 8 px chiều dài, 1–2 px bề ngang: ĐIỂM (B5)"
+    }
+   ],
+   "chinh_tay": [
+    "Minorca tách khỏi 'Kingdom of Spain' (Cliopatria tô TBN từ 1781 — sai; OHM 1782-01-05 — sai): Anh trước 1782-02-05, TBN từ 1782-02-05 (T020)",
+    "'British Colonial Empire' (Gibraltar polygon) bỏ — Gibraltar là ĐIỂM (< 8 px)",
+    "Presidio Oran (TBN 1732–1792) có trong Cliopatria, không có trong mẫu OHM → giữ theo Cliopatria (đúng thời kỳ), ghi lệch nguồn ở đây; lệch biên đo theo HÀNH LANG Tây Ban Nha–Bồ Đào Nha (−7,6…−6,0°)",
+    "Chú giải ≤ 3 phe: Britain · Spain · France (đồng minh TBN, giữ màu riêng — E4); Bồ Đào Nha, Ma-rốc, Algiers xám \"không tham chiến\" ghi bằng TÊN trên bản đồ, không thêm mục chú giải"
+   ],
+   "ghi_cong": "Borders: Cliopatria v0.2.1 (Seshat Global History Databank), CC BY 4.0, changed (clipped to Natural Earth land, simplified; Minorca owner set by date from claim T020); cross-checked with OpenHistoricalMap contributors (CC0; includes data © Instituto Geográfico Nacional (CNIG), CC BY 4.0). Coast/land: Natural Earth (public domain). Relief: ETOPO 2022 (NOAA NCEI, CC0).",
+   "log": [],
+   "shot": [
+    "a/0"
+   ],
+   "t": [
+    0.0,
+    6.5
+   ]
+  }
+ ]
+}

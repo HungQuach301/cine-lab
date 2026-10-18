@@ -1,0 +1,49 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 7,
+  "period": 5,
+  "ai_look": 3,
+  "flicker": "no",
+  "flags": [
+   "broken_render",
+   "stretched_texture",
+   "seams",
+   "toy_like"
+  ],
+  "note": "The weathered stone has the most believable material detail, with waterline staining and varied blocks. The render has defects: black wedge-shaped holes in the wall, a white polygon patch at the right end, a dotted artifact at the lower right, and visible edge outlines. The reddish dirt terreplein is smeared, and the stone texture is stretched on the slopes. The untextured grey block buildings look like a game level."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 3,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "This is the cleanest and most coherent version. The pale limestone walls have fine joints and small embrasures, and the rubble terreplein has believable speckle. It looks sterile and bleached, like a model. The rail or kerb strip next to the road looks modern, and the surrounding buildings are blank grey boxes."
+ },
+ "Z": {
+  "craft": 5,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 2,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The walls are smooth, pale and nearly textureless, like a plastic maquette. The terreplein looks like fresh dark asphalt. The pavement kerb strip looks modern. The lighting is clean and the render is stable, but the material detail is minimal."
+ },
+ "best": "Y",
+ "worst": "Z",
+ "why": "Y is clean and free of artifacts and has believable limestone and rubble surfaces. X has richer stone but visible broken geometry, and Z is smooth and looks like asphalt.",
+ "anachronisms_seen": [
+  "asphalt-like dark terreplein surface (Z)",
+  "modern-looking kerb or rail strip along the road (Y, Z)",
+  "uniform blank grey block buildings with regular window grids in all three"
+ ]
+}

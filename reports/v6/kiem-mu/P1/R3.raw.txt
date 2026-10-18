@@ -1,0 +1,34 @@
+```json
+{
+  "A": {
+    "craft": 4,
+    "detail": 3,
+    "toy_like": 8,
+    "ai_look": 4,
+    "period": 3,
+    "flags": ["toy_look", "unreadable_scale", "confusing"],
+    "note": "The rock has the best, most believable sculpted form of the three. The troops are black cylinders standing on gold slabs, so they read as game pieces or pegs, not soldiers. The flat green plain has no relationship between the blocks and the walls. The town is a tiny sliver at the far edge and the rock is the only thing that works. Smoke is just a few faint smudges. The wall is a low plain box with no bastions."
+  },
+  "B": {
+    "craft": 6,
+    "detail": 6,
+    "toy_like": 4,
+    "ai_look": 4,
+    "period": 6,
+    "flags": ["unreadable_scale"],
+    "note": "The troops are grey-white line formations with red-cross flags, so they read as ranks of infantry. The foreground fortification wall, the stepped hillside works, the town with its church tower and the sea add depth. The smoke is noisy and grainy but reads as gunfire. The colour is the most pleasant, and the lighter troops stay readable on a small screen. The wall is still a smooth box, and the troops are tiny, near-identical clones. The rock is cropped, so the key landmark is missing."
+  },
+  "C": {
+    "craft": 6,
+    "detail": 6,
+    "toy_like": 4,
+    "ai_look": 4,
+    "period": 6,
+    "flags": ["unreadable_scale"],
+    "note": "Same layout as B. The wall has buttress shading and warmer stone. The hillside has darker, blotchier, faceted texture patches that look like a rendering artefact. The troops are dark brown and low-contrast against the green grass, so they are harder to read than B's. The troop colour looks muddy and the overall tone is slightly murkier."
+  },
+  "rank": ["B", "C", "A"],
+  "why": "B and C show a believable fortified isthmus with ranked troops, a town and the sea, while A's black-peg troops on gold slabs look like a tabletop game. B edges C because its lighter troops are more readable and its hillside texture is cleaner.",
+  "top_fix_for_best": "Make the troops bigger and add variation to B. Use varied red/white/blue coats, some individual officers, and visible muskets and bayonets. Then widen the framing so the whole rock sits behind the lines, and add bastion angles and gun embrasures to the wall so the scale reads on a phone."
+}
+```

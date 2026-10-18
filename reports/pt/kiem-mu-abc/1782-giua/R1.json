@@ -1,0 +1,43 @@
+{
+ "X": {
+  "craft": 3,
+  "detail": 2,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "Looks like a bare 3D mockup. The ground is a smooth pink plane, the buildings are blank white boxes, and the soldiers are flat cardboard cutouts. Cannonball piles and carts are sparse and low-poly. The red coats are broadly right, but the frame is too clean and empty to feel like a besieged fortress."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 2,
+  "period": 3,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look",
+   "anachronism"
+  ],
+  "note": "Same bare mockup as X with a grey, cold ground and grey buildings. The figures are blue-coated and read as the wrong army for a British garrison under a Union flag. The scene is flat and lifeless, with the same cutout soldiers and empty ground."
+ },
+ "Z": {
+  "craft": 8,
+  "detail": 8,
+  "period": 7,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Clearly the best of the three. The weathered, damaged stone has real texture, and the dirt is rutted with wheel tracks and strewn with rubble. Barrels, timber stacks, carts, powder wagons and soldier groups fill the space in believable places. The red-coated soldiers, the Union flag, the ships and the siege-damaged barracks suit 1782. It looks like high-end CGI rather than an AI image. The tiny figures are somewhat stiff, and the Union flag is slightly doubtful for the date."
+ },
+ "best": "Z",
+ "worst": "Y",
+ "why": "Z is a lived-in, textured, battle-worn fortress scene that would pass in a broadcast documentary, while X and Y are near-identical sterile mockups, and Y is worse because of its blue-coated soldiers and cold grey tone.",
+ "anachronisms_seen": [
+  "Y: blue-coated soldiers under a British flag",
+  "Union flag with the 1801 design (all frames; the 1606 Union flag would be correct for 1782)",
+  "X/Y: clean modern-looking blank white walls with no weathering or siege damage"
+ ]
+}

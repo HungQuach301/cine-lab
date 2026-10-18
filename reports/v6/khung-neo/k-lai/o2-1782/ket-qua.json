@@ -1,0 +1,216 @@
+{
+ "ok": true,
+ "ket_qua": null,
+ "loi": [],
+ "thieu": [],
+ "val": "3 khung soi · nghi vấn 0 ở 0 khung · ghi chú (tin < 0.5) 3 · chi phí $0.136 (TB $0.045/khung) · gọi mới 3 · claude-sonnet-5-5",
+ "khung": [
+  {
+   "id": "1782-sang-LAI-notext",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "fd94e1cf856831bd209b9a0a21ec6155856623f0ba38d9f9a88dae361fc9dc71",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A Union Flag flies from the flagpole at the end of the street. It looks like the modern Union Jack, with the red saltire of St Patrick over the white saltire of St Andrew.",
+     "ly_do": "The flag with St Patrick's cross dates from the 1801 Act of Union. In 1782 the British Union Flag was the 1606 design, with only the crosses of St George and St Andrew. The flag is small, so this is a moderate-confidence call.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      972,
+      441,
+      996,
+      467
+     ],
+     "do_tin": 0.55,
+     "xac_nhan": {
+      "vung_px": [
+       912,
+       382,
+       1056,
+       526
+      ],
+      "phong": 4.67,
+      "tra_loi": {
+       "vat": "A small flag on a tall pole. It looks like the Union Flag (Union Jack).",
+       "dac_diem": "The flag is small and roughly square. It has a blue field with a red upright cross, edged in white, and white and blue diagonals. This matches the red-and-white-on-blue Union pattern. The 1801 version has a red diagonal saltire of St Patrick, and I can't make out any red diagonals. The blur limits how much detail I can confirm.",
+       "co_tu_nam": 1606,
+       "da_co_nam_1782": "yes",
+       "ly_do": "The two-cross Union Flag (St George and St Andrew) was introduced in 1606 and was in use until 1801, so it was current in 1782. I can't see the red diagonals of the 1801 design, so the flag isn't anachronistic."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.007408,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 4.67×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.046151,
+   "cost_buoc2": 0.00741,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1120,
+     "cacheReadInputTokens": 2335,
+     "cacheCreationInputTokens": 10919,
+     "webSearchRequests": 0,
+     "costUSD": 0.038743,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 245,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 9.9,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A Union Flag flies from the flagpole at the end of the street. It looks like the modern Union Jack, with the red saltire of St Patrick over the white saltire of St Andrew.\",\"ly_do\":\"The flag with St Patrick's cross dates from the 1801 Act of Union. In 1782 the British Union Flag was the 1606 design, with only the crosses of St George and St Andrew. The flag is small, so this is a moderate-confidence call.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.506,0.408,0.519,0.432],\"do_tin\":0.55}]}",
+   "t": null
+  },
+  {
+   "id": "1782-trua-LAI-notext",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "343f745b1484e748767fb9122d895fae646268026fe7f78bbd98e07853fef0c1",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A Union Flag on a tall flagpole at the end of the street. It appears to be the post-1801 design, with the red saltire of St Patrick added to the crosses of St George and St Andrew.",
+     "ly_do": "In 1782 the British flag was the 1606 Union Flag, which had only the crosses of St George and St Andrew. The St Patrick's saltire was added on 1 January 1801 after the Act of Union with Ireland. The flag is small, so the identification is not certain.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      968,
+      437,
+      1004,
+      470
+     ],
+     "do_tin": 0.55,
+     "xac_nhan": {
+      "vung_px": [
+       914,
+       381,
+       1058,
+       525
+      ],
+      "phong": 4.67,
+      "tra_loi": {
+       "vat": "A flag on a tall white flagpole. It looks like the Union Flag (Union Jack).",
+       "dac_diem": "The flag is small and blurry. It has a blue field with a red upright cross and white diagonal stripes (saltires). I can't make out a red diagonal cross on top of the white ones. That fits the 1606 Great Union Flag, which has only the red St George's cross and white St Andrew's saltire on blue. It does not clearly show the 1801 design with the red St Patrick's saltire.",
+       "co_tu_nam": 1606,
+       "da_co_nam_1782": "yes",
+       "ly_do": "The 1606 Union Flag, with the St George and St Andrew crosses and no St Patrick's saltire, was in use in 1782. The 1801 version with the red diagonal was introduced later, and the image doesn't clearly show it."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.007547999999999999,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 4.67×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.044007000000000004,
+   "cost_buoc2": 0.00755,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1056,
+     "cacheReadInputTokens": 3020,
+     "cacheCreationInputTokens": 10234,
+     "webSearchRequests": 0,
+     "costUSD": 0.036459000000000005,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 172,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 8.4,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A Union Flag on a tall flagpole at the end of the street. It appears to be the post-1801 design, with the red saltire of St Patrick added to the crosses of St George and St Andrew.\",\"ly_do\":\"In 1782 the British flag was the 1606 Union Flag, which had only the crosses of St George and St Andrew. The St Patrick's saltire was added on 1 January 1801 after the Act of Union with Ireland. The flag is small, so the identification is not certain.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.504,0.405,0.523,0.435],\"do_tin\":0.55}]}",
+   "t": null
+  },
+  {
+   "id": "1782-chieu-LAI-notext",
+   "nam": 1782,
+   "noi": "Gibraltar",
+   "sha256": "5458bb1864b60af175c59e48d65e3556d2c774b412540ae1ed703a846bfd60f5",
+   "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+   "model": "claude-sonnet-5-5",
+   "nghi_van": [],
+   "ghi_chu": [
+    {
+     "muc": "co",
+     "mo_ta": "A Union Flag flies from a tall staff at the end of the street. It has the red St Patrick's saltire over the white saltire, which is the 1801 Union Jack design.",
+     "ly_do": "The 1801 Union Flag, which added St Patrick's cross for Ireland, did not exist in 1782. At the time, the British flag was the 1606 Union Flag of only the crosses of St George and St Andrew. Ships and garrisons at Gibraltar would have flown that version, or the red ensign.",
+     "nam_xuat_hien": 1801,
+     "toa_do_px": [
+      970,
+      437,
+      1004,
+      467
+     ],
+     "do_tin": 0.6,
+     "xac_nhan": {
+      "vung_px": [
+       915,
+       380,
+       1059,
+       524
+      ],
+      "phong": 4.67,
+      "tra_loi": {
+       "vat": "Flag on a tall flagpole, flying small in the distance",
+       "dac_diem": "Small, roughly square flag with a dark blue field. A red upright cross runs across the middle with a pale white edge. Pale white diagonal stripes run corner to corner. I can't make out any red in the diagonals. This matches the Union Flag of Great Britain, the 1606 design with the crosses of St George and St Andrew. It looks blurry and cream-tinted.",
+       "co_tu_nam": 1606,
+       "da_co_nam_1782": "yes",
+       "ly_do": "The design with a red cross and white diagonals on blue was the British Union Flag from 1606 until 1801, so it was in use in 1782. The 1801 version added the red St Patrick saltire, and I can't see that here. Because of the blur, I can't fully rule out thin red in the diagonals."
+      },
+      "da_co": "yes",
+      "giu": false,
+      "cost_usd": 0.0091157,
+      "loi": null
+     },
+     "ly_do_ha": "phóng to 4.67×: da_co_nam = 'yes' — không xác nhận"
+    }
+   ],
+   "cost_usd": 0.0455428,
+   "cost_buoc2": 0.00912,
+   "model_usage": {
+    "claude-sonnet-5-5": {
+     "inputTokens": 6,
+     "outputTokens": 1050,
+     "cacheReadInputTokens": 3026,
+     "cacheCreationInputTokens": 10245,
+     "webSearchRequests": 0,
+     "costUSD": 0.036427100000000004,
+     "contextWindow": 1000000,
+     "maxOutputTokens": 128000,
+     "thinkingTokens": 155,
+     "canonicalModel": "claude-sonnet-5-5",
+     "provider": "firstParty",
+     "costBasis": "list"
+    }
+   },
+   "secs": 10.3,
+   "so_anh_doc": 5,
+   "loi": null,
+   "tra_loi": "{\"nam\":1782,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"co\",\"mo_ta\":\"A Union Flag flies from a tall staff at the end of the street. It has the red St Patrick's saltire over the white saltire, which is the 1801 Union Jack design.\",\"ly_do\":\"The 1801 Union Flag, which added St Patrick's cross for Ireland, did not exist in 1782. At the time, the British flag was the 1606 Union Flag of only the crosses of St George and St Andrew. Ships and garrisons at Gibraltar would have flown that version, or the red ensign.\",\"nam_xuat_hien\":1801,\"toa_do\":[0.505,0.405,0.523,0.432],\"do_tin\":0.6}]}",
+   "t": null
+  }
+ ],
+ "chi_phi_usd": 0.1357,
+ "chi_phi_tb": 0.0452,
+ "ghi_chu_luat": "lưới lọc thứ hai — không thay kiểm nguồn (K-LAI-3)"
+}

@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 3,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 5,
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "Very dark game-engine render. The left third is a pure black void. The right facade has orange rust-like stains that look like a texture. The people are tiny dark silhouettes, stiff and game-asset-like. A Union Jack flies in the distance. The waterfront and hill are barely readable. The wet-looking paving has a repetitive texture."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 4,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame"
+  ],
+  "note": "Same underexposed game-engine look and the same black left third. The facade is more muted and plausibly weathered stucco, but it is flat and muddy. The people are nearly invisible apart from one blue-ish figure, so the square feels empty. There is a smooth sloped kerb or wall on the right. The paving is a featureless dark brown."
+ },
+ "better": "tie",
+ "why": "Both are nearly identical, murky night renders with a black void on the left; X has slightly more visible people and surface texture, while Y has a more natural facade but an emptier square.",
+ "top_fix_for_weaker": "Raise the exposure and add a warm lamp or window light spill. Light the people with rim light so they read as figures, and replace the black left building with a lit, textured facade.",
+ "anachronisms_seen": [
+  "none obvious; the Union Jack and shuttered Mediterranean facades are plausible",
+  "the stained texture and the people look like game assets rather than a 1943 scene"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "X1-X4": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "from": "Gibraltar (labelled Allied HQ). The legend says the people are civilians and the colour is Britain.",
+  "route": "Gibraltar out to London (north up the Atlantic), Madeira, Jamaica, and Casablanca (X1 only). Lines are drawn as faint cream strokes. The Madeira and Jamaica routes run almost on top of each other. The route lines run off-frame, so none of the destinations are actually shown.",
+  "when": "May\u2013Aug 1940. X1 also reads 'May\u2013Jun 1940' for the Casablanca leg.",
+  "where": "Strait of Gibraltar, at the southern tip of Iberia between Spain and Morocco.",
+  "note": "The relief map looks good. The cream route lines are thin and low-contrast against the pale-green sea, so on a phone they are hard to follow. The Casablanca label in X1 vanishes by X3 and Casablanca is not in the later labels. The legend says Britain is red, but nothing on the map is red except the Gibraltar dot. 'approx. borders c. 1941 \u2014 Cliopatria (Seshat)' is small, so it is a bit hard to read on a phone. The 'to Madeira' and 'to Jamaica' labels sit close together and nearly touch. Each destination only gets a label for the last 1\u20132 seconds."
+ },
+ "X5-X8": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "cluttered",
+   "confusing"
+  ],
+  "from": "Gibraltar (Allied HQ), plus two long arrows coming in from the Atlantic at the left edge.",
+  "route": "Two red arrows run from the west edge of the frame to the Moroccan coast (Casablanca) and to the Strait. A red line runs east through the Strait toward Oran and Algiers. A dotted red line is labelled 'aircraft to Oran'. Landings are listed as Casablanca, Oran and Algiers.",
+  "when": "8 Nov 1942.",
+  "where": "Gibraltar, at the Strait. The Atlantic fleets start off-screen to the west.",
+  "note": "The red arrows read well and give the shot a clear direction. The frame is re-centred and zoomed out compared with shot 1. In X5 a faded ghost label ('8 Nov ...') shows below Gibraltar and there is a stray red dot at the left, which look like glitches. The arrowheads cluster near Gibraltar and the 'aircraft to Oran' arrowhead overlaps the dotted line. The 'Allied landings' label is not next to the arrow it describes, and no arrow ends at the Casablanca, Oran or Algiers coastline. It is not clear that the Atlantic arrows are the convoys from the US and UK."
+ },
+ "split": true,
+ "why_split": "The two shots show opposite directions (civilians fleeing out in 1940, then forces landing in 1942), with different dates, different colours (cream vs red) and different legends, so one shot would blur them.",
+ "top_fix": "Make the 1940 routes thicker and higher-contrast, and keep one label on each destination for the whole shot. Fix the X5 ghost label and stray dot. Put the 'Allied landings' label at the landing arrow tips, and add a clear 'Atlantic convoys' label on the two incoming arrows. Increase the font size for the footnote."
+}

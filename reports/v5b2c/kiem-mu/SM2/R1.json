@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "confusing"
+  ],
+  "from": "England / Spithead (red lines enter from the top-left, Atlantic side)",
+  "route": "Down the Portuguese Atlantic coast, then east through the Strait to Gibraltar. Relief 1, 2 and 3 are drawn as red lines.",
+  "when": "1780\u201382 as one fixed range. The labels name Rodney, Darby and Howe but give no individual dates.",
+  "where": "Gibraltar, labelled at the southern tip of Spain",
+  "note": "Clean, handsome relief map with a gold Spain. There is no legend, so red lines and a gold Spain are unexplained. The date never changes, so the viewer can't tell when each relief happened. The Gibraltar marker is tiny. In the last frame the Howe label overlaps the route and the Gibraltar marker."
+ },
+ "Y": {
+  "craft": 8,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "from": "England / Spithead (red lines enter from the top-left, Atlantic side)",
+  "route": "Down the Portuguese Atlantic coast, then east through the Strait to Gibraltar. Arrowheads show the direction of travel.",
+  "when": "Jan 1780 (Rodney), Apr 1781 (Darby), Oct 1782 (Howe). The Minorca \u2192 Spain event is dated 5 Feb 1782.",
+  "where": "Gibraltar, shown as a white-and-red ring marker at the southern tip of Spain",
+  "note": "The Britain/Spain/France legend and the per-relief date caption make it much easier to follow. Arrowheads add direction. The Gibraltar ring marker is clearer than X's. The small grey caption about borders is a bit small for a phone. The Minorca callout is a distraction from the main story. Ghosted earlier routes build up as the sequence goes on. In the last frame the Howe label slightly crowds the route and the Gibraltar marker."
+ },
+ "better": "Y",
+ "why": "Y gives the viewer a legend, a changing date for each relief, arrowheads for direction and a clearer Gibraltar marker, so who, when and where are all answered. X shows only the same route lines under a fixed '1780\u201382'.",
+ "top_fix_for_weaker": "Replace the fixed '1780\u201382' with a date for each relief (Jan 1780, Apr 1781, Oct 1782). Add a Britain/Spain/France legend and arrowheads on the route lines. Swap the tiny red dot at Gibraltar for a ringed marker, and move the Howe label off the route and the Gibraltar label."
+}

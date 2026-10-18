@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The lane is strong: textured crumbling plaster, backlit haze, a bright harbour, and a clear leading line to the flag. The figures are small, stiff, faceless, and have no real shading. Several wear flat shako-style black hats, which look wrong for 1782. The one dark figure in the middle reads as a silhouette cutout. The crowd is sparse, so the lane feels staged and mostly empty."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "It has the same strong environment. The troops wear tricorn or cocked hats and red coats with white cross-belts, which suits the 1780s better. The dense column gives scale and a sense of a event. But the figures are clones with stick legs, mismatched proportions, and olive or tan lower legs. They overlap into a muddy clump and look like game assets or dolls. Some figures merge into each other, and the pointing arm on the right is odd."
+ },
+ "better": "Y",
+ "why": "The environment is identical in both, and Y's crowd of tricorn-hatted redcoats gives more life and a more convincing period read, even though its figures are more doll-like and clumped.",
+ "top_fix_for_weaker": "Fix X's headgear: replace the shako-like black hats with cocked tricorns, and add more varied, properly shaded figures in the lane (garrison soldiers, civilians, carts) with realistic leg and boot proportions, instead of a few stiff, flat-lit silhouettes.",
+ "anachronisms_seen": [
+  "shako-style tall black hats on soldiers in X",
+  "uniform stick-leg figures with olive lower legs reading as gaiters or skin in Y",
+  "very uniform shuttered windows and door frames, with no glazing or period ironwork"
+ ]
+}

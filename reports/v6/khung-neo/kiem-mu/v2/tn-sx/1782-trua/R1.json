@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Strong crumbling-plaster walls and a good lane perspective. The soldiers are a dense, stiff, mannequin-like clump with similar poses. Some shading gives them a little volume. Tricorns, red and blue coats and cross-belts read as roughly 18th-century British."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "flat_slide_look"
+  ],
+  "note": "The environment is identical to X. The soldiers are more saturated and flatter, like pasted cutouts or game sprites. The figures in the mid-lane are muddier and darker. The added barrel on the right is a small plus but doesn't fix the figures. Overall it looks slightly more game-asset than X."
+ },
+ "better": "X",
+ "why": "The walls and lighting are the same, but X's soldiers have slightly more volume and believable shading, while Y's look flatter and more like toy cutouts.",
+ "top_fix_for_weaker": "Break up the soldier block: fewer figures with varied poses, scale and spacing, plus grounded contact shadows, muted worn cloth colours and some dust or smoke haze so they sit in the lane. Also add small human clutter such as washing, a cart and a civilian or two.",
+ "anachronisms_seen": [
+  "Union flag detail is too small to verify; it may be the post-1801 design rather than the 1707 Union flag",
+  "Modern-looking louvred or panelled shutters and neat rectangular door frames",
+  "Soldiers look uniform and clean for the 3rd year of a siege",
+  "Tidy rectangular barrels"
+ ]
+}

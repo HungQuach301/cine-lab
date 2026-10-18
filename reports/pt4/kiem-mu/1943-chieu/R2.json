@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "flat_slide_look"
+  ],
+  "note": "Warm, saturated light and a convincing peeling-plaster wall, but the people are flat, translucent cardboard-like cutouts in pale grey and blue. They float with no grounding or contact shadows. The harbour backdrop looks like a pasted sprite, with a ship on a pale slab. The orange wash is oversaturated and cartoonish. Building trim is clean and repetitive."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 5,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "Atmospheric haze gives depth and a better tonal range. Wall materials are more varied, with stone courses, cornices, a plinth and weathering. The crowd is dark, silhouetted and hazy, which hides the dummy-like figures, though they are still stiff and low-detail. The harbour disappears into mist, so there is less visual payoff. Light is more naturalistic."
+ },
+ "better": "Y",
+ "why": "Y has more believable materials and architectural articulation, and its haze and silhouetted crowd hide the weak figures, whereas X exposes flat, ghostly cutout people and a pasted-looking harbour.",
+ "top_fix_for_weaker": "Replace the translucent flat figures with properly lit, opaque 3D humans in period uniforms and civilian clothes. Add grounded contact shadows, varied poses and scale. Tone down the orange saturation, add stone courses and cornices to the left building, and render the harbour and ship with real depth.",
+ "anachronisms_seen": [
+  "Modern-looking uniform-like figures in generic grey and blue caps, not clearly 1943 British service dress",
+  "Clean, uniform modern-looking balconies, railings and shutters",
+  "Blue box or kiosk with a modern look",
+  "Union Jack in a mid-air pose with no clear period context"
+ ]
+}

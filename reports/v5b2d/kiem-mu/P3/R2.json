@@ -1,0 +1,28 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 5,
+  "fit": 5,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "cluttered"
+  ],
+  "note": "Camera is roughly rooftop height, so the buildings are dense and fill the frame. The roofs are a uniform saturated orange with flat, untextured walls. There are floating orange roof slabs at left and a bare grid-textured ground plane. Troops are only a tiny red smear at left, and the few street figures are specks. Lighting is flat, and the view reads as a block model, not a lived-in street. It has more depth and building mass than Y, but the shot isn't a street-level view."
+ },
+ "Y": {
+  "craft": 5,
+  "richness": 4,
+  "fit": 4,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "empty_frame"
+  ],
+  "note": "This is a higher, more aerial view with a clearer composition: sea, sea wall, town, fortress tower and hills. The colours are slightly more varied and the sky is better. The blocks are neatly spaced like a model village, with large empty sand on the right and in the foreground. There are almost no people, just a few red dots, and no smoke, ships or street life. It reads as an overview, not a dense street."
+ },
+ "better": "X",
+ "why": "X packs the frame more densely with buildings and has a nearer, more street-like viewpoint with a hint of troops, while Y is sparse, aerial and model-village-like.",
+ "top_fix_for_weaker": "Drop the camera to eye level or just above the rooftops. Fill the streets and the empty sand with crowds, carts, troops and smoke, and add wall texture and ground detail so the blocks no longer look like a diorama.",
+ "top_fix_for_better": "Remove the floating roof slabs and the grid-textured ground. Add readable street-scale figures (marching troops, civilians, carts), chimney smoke, varied roof colours and weathered wall textures, and use a low sun angle to create real depth and shadow."
+}

@@ -1,0 +1,46 @@
+{
+ "A": {
+  "craft": 4,
+  "detail": 3,
+  "toy_like": 8,
+  "ai_look": 4,
+  "period": 3,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "confusing"
+  ],
+  "note": "The rock is the strongest element, with believable rock and grass texture. The troops are black-dotted amber slabs that look like cake trays or LEGO baseplates, not soldiers. Flat green foreground, bare walls and stray black poles. The lines read as abstract. Fortress and town are tiny and far away. The haze is the only atmosphere."
+ },
+ "B": {
+  "craft": 5,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "Better storytelling. The Rock sits at the edge, with walls climbing it, the town, a bay and smoke plumes. The troops read as grey massed lines with flags. The ground is a flat, empty green plane with uniform formations in rows. The walls are textureless slabs with a repeated pattern. The smoke looks like blobby cutouts. The distant bastions are decent."
+ },
+ "C": {
+  "craft": 5,
+  "detail": 5,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "Nearly the same as B. The darker, browner troops separate better from the grass and look more like red-coat or dark-coat lines. The wall buttresses give slightly better relief. The hillside has blocky, faceted shading artifacts on the left, which is a visible flaw. The slopes lose some of the wall detail B shows. Same empty green foreground and same cutout smoke."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "B and C have a readable siege geography (rock, town, bay, lines, flags, smoke) and troops that read as people in ranks, while A's amber trays are toy-like and its scale is unreadable. C edges B on the darker troop contrast and wall relief, but the faceted hillside artifacts nearly cancel that.",
+ "top_fix_for_best": "Break up the empty foreground. Add trenches, gabions, fascines, batteries with guns, tents and varied-height figures with muzzle flashes. Replace the flat green with textured, uneven ground and soft ambient-occlusion shadows. Fix the faceted shading on the hillside. Replace the blobby smoke with volumetric drifting smoke."
+}

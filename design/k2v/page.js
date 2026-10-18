@@ -6,10 +6,12 @@
 import * as THREE from '/cong3/shared/node_modules/three/build/three.module.js';
 import { createPipeline, createRenderer } from '/cong3/shared/post.js';
 import { GRADES } from '/ll-hero/kit.js';
+import { loadCube } from './tl/lut.js';   // V5b-2b (V5B2A §8.7): LUT A cho module k2v — CHỈ khi cảnh khai opt.lut (mặc định tắt: khung cũ không đổi)
 
 const GRADE = `
 uniform float gCanvas, gVig, gLift, gSat; uniform vec3 gShadowTint, gHiTint;
 uniform float uAA;
+uniform highp sampler3D tLut; uniform float uLutOn, uLutK, uLutN, uLutMode, uVib;
 // V3 (E6b): lọc khử răng cưa cho khung dựng SPP1 (relief, máy > spp1Km): phát hiện cạnh theo độ chênh sáng 4 lân cận, trộn về trung bình lân cận theo độ mạnh cạnh.
 // Đặt trong grade() của trang k2v (đọc được tAcc/res), không sửa post.js dùng chung với LL.
 vec3 aaS(vec2 p){ return pow(tonemap(max(texture(tAcc, p).rgb, 0.0)), vec3(1.0 / 2.2)); }
@@ -34,10 +36,15 @@ vec3 grade(vec3 c, vec2 uv){
   float tooth = cvn(p / 7.0) - 0.5;
   float midw = 4.0 * L * (1.0 - L);
   c *= 1.0 + gCanvas * (0.55 * weave + 0.9 * tooth) * (0.35 + 0.65 * midw);
+  if (uLutOn > 0.5) {   // LUT A (uLutMode 1: chỉ vùng tối) + vibrance — như design/k2v/tl/lut.js (V5b-1b, chọn bằng số đo)
+    vec3 qq = clamp(c, 0.0, 1.0) * ((uLutN - 1.0) / uLutN) + 0.5 / uLutN; float Y0 = dot(c, vec3(0.2126, 0.7152, 0.0722));
+    float wl = uLutMode > 0.5 ? 1.0 - smoothstep(0.10, 0.42, Y0) : 1.0; c = mix(c, texture(tLut, qq).rgb, uLutK * wl);
+    float Y = dot(c, vec3(0.2126, 0.7152, 0.0722)), s = max(c.r, max(c.g, c.b)) - min(c.r, min(c.g, c.b)); c = max(mix(vec3(Y), c, 1.0 + uVib * (1.0 - s)), 0.0); }
   vec2 q = (uv - 0.5) * vec2(1.0, 0.82);
   c *= mix(1.0, 1.0 - gVig, smoothstep(0.28, 0.75, length(q)));
   return c;
 }`;
+const LUT0 = () => { const t = new THREE.Data3DTexture(new Uint8Array(8 * 4).fill(255), 2, 2, 2); t.needsUpdate = true; return t; };   // ô trống khi tắt LUT (sampler phải có kết cấu)
 // tông riêng cho đồ hoạ thông tin k2v: ít vân vải (chữ/viền sắc), vignette nhẹ
 const K2V_GRADES = {
   info: { gCanvas: 0.004, gVig: 0.22, gLift: 0.015, gSat: 1.0, gShadowTint: [0.30, 0.38, 0.95], gHiTint: [1.0, 0.99, 0.96] },
@@ -53,7 +60,8 @@ window.setup = async (c) => {
     for (const p of ['d3-array/dist/d3-array.min.js', 'd3-geo/dist/d3-geo.min.js', 'topojson-client/dist/topojson-client.min.js']) await classic('/k2v/node_modules/' + p);
   }
   const renderer = createRenderer(c.W, c.H);   // module có thể khai TONE (GLSL tonemap riêng, vd. relief giữ bảng màu bản đồ); mặc định ACES như cũ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-  const uniforms = { uAA: { value: 0 }, gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
+  const lut = c.opt && c.opt.lut ? await loadCube('/cache/lut/' + c.opt.lut + '.cube') : null;   // .cube ở $K2V_CACHE/lut (scripts/k2tl/fetch_sources.py chép cùng tệp)
+  const uniforms = { tLut: { value: lut ? lut.tex : LUT0() }, uLutOn: { value: lut ? 1 : 0 }, uLutK: { value: (c.opt || {}).lutK ?? 1 }, uLutN: { value: lut ? lut.N : 2 }, uLutMode: { value: (c.opt || {}).lutMode ?? 1 }, uVib: { value: lut ? ((c.opt || {}).vib ?? 0.35) : 0 }, uAA: { value: 0 }, gCanvas: { value: 0 }, gVig: { value: 0 }, gLift: { value: 0 }, gSat: { value: 1 }, gShadowTint: { value: new THREE.Vector3() }, gHiTint: { value: new THREE.Vector3(1, 1, 1) } };
   pipe = createPipeline(renderer, c.W, c.H, { exposure: 1.0, gradeGLSL: GRADE, uniforms, ...(mod.TONE ? { toneGLSL: mod.TONE } : {}) });
   cur = await H({ W: c.W, H: c.H, dur: c.dur, v: c.variant || 'a', opt: c.opt || {}, renderer });
   const gr = (c.opt && c.opt.grade) || cur.grade || 'info', g = typeof gr === 'string' ? (K2V_GRADES[gr] || GRADES[gr]) : gr, u = pipe.outMat.uniforms;

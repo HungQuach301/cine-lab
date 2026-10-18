@@ -1,0 +1,28 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 4,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Clean, soft light and a nice hazy bay, but the foreground is a huge empty beige plane. The soldiers are tiny peg-doll figures, and the cannons and shot piles are crude primitives. The facades are plain white boxes with dark rectangular holes and no Georgian windows, shutters or arcades. The upper half of the frame is empty sky. The Grand Parade/Main Street identity isn't readable. The red-coat soldier at the bottom right is cut off by the frame edge. The caption honestly says 'not a photograph'. Ships and the flag are a nice touch."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 3,
+  "flags": [
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "An aerial game-engine style view with a readable town of terracotta roofs, trees and a crenellated tower, plus a clear 'Tower of Homage' callout and population stat. This works as an explainer frame. The terrain is a flat, low-poly green/olive plain with blurry textures, and the big empty plain takes up much of the frame. The buildings are repeated blocky models that look like a game map. The tower reads as a clean medieval keep and is plausible, but the town doesn't read as 1884 (no harbour, shipping or industrial/military context). The overlay text covers part of the tower area. The 'Ministry for Heritage' attribution is anachronistic as a source, but that's a caption, not the scene."
+ },
+ "better": "Y",
+ "why": "Y has more varied, readable structures and gives the viewer a real subject (the tower and the town) plus informative overlays, while X is a mostly empty beige plaza with peg-doll figures and bare white boxes.",
+ "top_fix_for_weaker": "For X, fill the foreground and bring the camera down to street level. Rebuild the facades with Georgian sash windows, shutters, balconies and arcades, add many properly modelled soldiers, civilians, carts and gun crews on the parade, and crop the sky to about 30%."
+}

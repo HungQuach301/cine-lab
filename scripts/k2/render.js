@@ -27,6 +27,9 @@ const SAMPLE = +arg('sample', 12);
   // cảnh đinh 3D (mẫu plate): đếm khung của mỗi thư mục, ghi p.n vào đặc tả; nạp đúng khung trước mỗi drawFrame (xem vòng lặp)
   const plates = spec.shots.filter((s) => s.tpl === 'plate').map((s) => { const d = path.isAbsolute(s.p.dir) ? s.p.dir : path.join(path.join(__dirname, '..', '..'), s.p.dir);
     s.p.n = fs.existsSync(d) ? fs.readdirSync(d).filter((x) => /^\d{5}\.jpg$/.test(x)).reduce((m, x) => Math.max(m, +x.slice(0, 5) + 1), 0) : 0;   /* T2 G1b: số khung = chỉ số lớn nhất + 1 (cảnh dựng --only từ frame0 không có khung đầu) */ if (!s.p.n) { console.error('thiếu khung plate', d); process.exitCode = 3; } return { s, d }; });
+  // V5b-2b (V5B2A §8.4, KHOP1 b): gom renderer từ meta.json của MỌI plate (và ô diptych) → .log.json, để bộ kiểm bắt trộn trình dựng trong một tập
+  const RENDS = {}; for (const d of new Set([...plates.map((x) => x.d), ...spec.shots.filter((s) => s.tpl === 'diptych').flatMap((s) => [s.p.left, s.p.right]).filter((q) => q && q.dir).map((q) => path.isAbsolute(q.dir) ? q.dir : path.join(REPO, q.dir))]))
+    try { const m = JSON.parse(fs.readFileSync(path.join(d, 'meta.json'), 'utf8')); RENDS[path.basename(d)] = m.renderer || (m.footage ? 'footage' : 'không ghi (trước V5b-2b)'); } catch (e) { RENDS[path.basename(d)] = 'thiếu meta.json'; }
   const ANCS = {}; for (const { s, d } of plates) { const af = path.join(d, 'anchors.json'); if (!ANCS[s.p.dir] && fs.existsSync(af)) ANCS[s.p.dir] = JSON.parse(fs.readFileSync(af, 'utf8')); }
   const plateFor = (f) => { const t = f / 24, need = [];
     // cửa sổ nạp khung sau t1 phải ≥ thời lượng hoà (fade mặc định 0,7 s, có hoà 1,0–1,4 s): 0,6 s cũ làm hiện "missing plate" khi hoà dài (G2 tập 8, T01)
@@ -37,8 +40,16 @@ const SAMPLE = +arg('sample', 12);
     return need; };
   const stkjs = stks.map((n) => `IMGS['stk:${n}']=Object.assign(new Image(),{src:'data:image/png;base64,${fs.readFileSync(path.join(REPO, 'design/k2v/stickers', n + '.png')).toString('base64')}'});`).join('');
   const imgjs = stkjs + imgs.map((f) => `IMGS[${JSON.stringify(f)}]=Object.assign(new Image(),{src:'data:image/jpeg;base64,${fs.readFileSync(path.join(REPO, f)).toString('base64')}'});`).join('');
+  // V5b-2b (AD3): bản đồ định vị góc — dữ liệu đường bờ design/k2v/inset/<tên>.json + ranh giới thời kỳ GeoJSON có nguồn (p.inset_bien, đường dẫn repo)
+  const INS = { maps: {}, bien: {} }; for (const s of spec.shots) { const q = s.p || {}; if (!q.inset) continue;
+    if (q.inset_map && !INS.maps[q.inset_map]) INS.maps[q.inset_map] = JSON.parse(fs.readFileSync(path.join(REPO, 'design/k2v/inset', q.inset_map + '.json'), 'utf8'));
+    if (q.inset_bien && !INS.bien[q.inset_bien]) { const G = JSON.parse(fs.readFileSync(path.join(REPO, q.inset_bien), 'utf8')), lines = [];
+      for (const f of G.features || []) { const gg = f.geometry || {}; const L = gg.type === 'LineString' ? [gg.coordinates] : gg.type === 'MultiLineString' || gg.type === 'Polygon' ? gg.coordinates : gg.type === 'MultiPolygon' ? gg.coordinates.flat() : []; lines.push(...L); }
+      INS.bien[q.inset_bien] = { lines, src: (G.nguon || G.source || (G.ghost && G.ghost.ghi_cong) || q.inset_bien) }; }
+    // V5b-2c (M14/B4): dấu chân khung máy mỗi khung của plate (meta.json frames_meta[f].foot, hero.js tl) → hộp đỏ trong inset
+    if (q.dir && !(INS.foot = INS.foot || {})[q.dir]) { const d = path.isAbsolute(q.dir) ? q.dir : path.join(REPO, q.dir); try { const fm = JSON.parse(fs.readFileSync(path.join(d, 'meta.json'), 'utf8')).frames_meta || {}; INS.foot[q.dir] = Object.fromEntries(Object.entries(fm).map(([k, v]) => [k, v.foot || null])); } catch (e) { INS.foot[q.dir] = {}; } } }
   const html = `<!doctype html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000"><canvas id="c"></canvas>
-<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};window.ANC=${JSON.stringify(ANCS)};${imgjs}</script><script>${libs}</script></body></html>`;
+<script>window.LL={fmt:'${fmt}'};window.SPEC=${JSON.stringify(spec)};window.IMGS={};window.PLATES={};window.ANC=${JSON.stringify(ANCS)};window.INSETS=${JSON.stringify(INS)};${imgjs}</script><script>${libs}</script></body></html>`;
   await page.setContent(html); await page.evaluate(() => document.fonts.ready); await page.evaluate(() => Promise.all(Object.values(window.IMGS).map((i) => i.decode())));
   const loadPlates = async (f) => { const need = plateFor(f); if (!need.length && !plates.length) return;
     await page.evaluate(async (L) => { const keep = new Set(L.map((x) => x[0])); for (const k of Object.keys(window.PLATES)) if (!keep.has(k)) delete window.PLATES[k];
@@ -51,12 +62,12 @@ const SAMPLE = +arg('sample', 12);
     await browser.close(); return; }
   const ff = spawn('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', '24', '-i', '-',
     '-c:v', 'libx264', '-preset', 'medium', '-crf', '10', '-pix_fmt', 'yuv444p', '-g', '48', '-r', '24', OUT], { stdio: ['pipe', 'inherit', 'inherit'] });
-  const act = [], fill = [], cam = [], texts = [], hit = []; const t0 = Date.now();
+  const act = [], fill = [], cam = [], texts = [], hit = [], insets = [], smpOk = (f) => f % SAMPLE === 0; const t0 = Date.now();   /* V5b-2b: log inset (diện tích riêng, nguồn) ở khung mẫu */
   for (let f = F0; f < F1; f++) {
     await loadPlates(f);
     const r = await page.evaluate(([f, smp]) => {
       LL.tlog = smp ? [] : null; window.drawFrame(f);
-      const c = document.getElementById('c'), out = { hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
+      const c = document.getElementById('c'), out = { occ: smp ? (LL.occ || []).map((b) => b.map(Math.round)) : null, legend: LL.legend || null, inset: LL.inset, hit: LL.hit ? 1 : 0, act: LL.act ? 1 : 0, fill: LL.fill ? 1 : 0, cam: isFinite(LL.camNear) ? +LL.camNear.toFixed(3) : null, img: c.toDataURL('image/jpeg', 0.96).slice(23) };
       if (smp) { const g = c.getContext('2d'), lum = (r, g2, b) => [r, g2, b].map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }).reduce((a, v, i) => a + v * [0.2126, 0.7152, 0.0722][i], 0);
         const parse = (s) => { if (s[0] === '#') return [1, 3, 5].map((i) => parseInt(s.slice(i, i + 2), 16)); const m = s.match(/[\d.]+/g).map(Number); return m.slice(0, 3); };
         out.text = LL.tlog.filter((e) => e.alpha >= 0.95).map((e) => { const [x0, y0, x1, y1] = e.box, X0 = Math.max(0, x0 - 5), Y0 = Math.max(0, y0 - 5), X1 = Math.min(c.width - 1, x1 + 5), Y1 = Math.min(c.height - 1, y1 + 5);
@@ -66,14 +77,14 @@ const SAMPLE = +arg('sample', 12);
           L.sort((a, b) => a - b); const bg = L[Math.floor(L.length / 2)], [cr, cg, cb] = parse(e.color), nom = lum(cr, cg, cb), I = [];
           for (let y = 5; y < hh - 5; y++) for (let x = 5; x < w - 5; x++) { const i = (y * w + x) * 4; I.push(lum(d[i], d[i + 1], d[i + 2])); }
           I.sort((a, b) => a - b); const ft = !I.length ? nom : nom < bg ? I[Math.floor(I.length * 0.05)] : I[Math.floor(I.length * 0.95)];   // màu chữ đo trên điểm ảnh (đã qua ánh rọi)
-          return { s: e.s, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
+          return { s: e.s, role: e.role || undefined, cap: e.cap, ratio: +((Math.max(bg, ft) + 0.05) / (Math.min(bg, ft) + 0.05)).toFixed(2), box: e.box, out: x0 < 0 || y0 < 0 || x1 > c.width || y1 > c.height ? 1 : 0 }; }).filter(Boolean);  out.zones = (LL.zones || []).map((z) => z.map((v) => Math.round(v))); }   /* Q-L20 (checks LL v2): vùng hình (isotype…) của khung, toạ độ khung */
       return out; }, [f, f % SAMPLE === 0]);
-    act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [] });
+    if (r.inset && smpOk(f)) insets.push(Object.assign({ f }, r.inset)); act.push(r.act); hit.push(r.hit); fill.push(r.fill); cam.push(r.cam); if (r.text) texts.push({ f, items: r.text, zones: r.zones || [], occ: r.occ || [] });   /* V5b-2c (K-1.14 §9): occ = bản sao LL.occ ở khung mẫu (BD-8 d) */
     if (!ff.stdin.write(Buffer.from(r.img, 'base64'))) await new Promise((res) => ff.stdin.once('drain', res));
     if ((f - F0) % 120 === 0) console.error(`[render ${SEG || SH}] ${f}/${F1} ${((Date.now() - t0) / 1000 / (f - F0 + 1)).toFixed(2)} s/khung`);
   }
   ff.stdin.end(); await new Promise((res) => ff.on('close', res));
   const raised = await page.evaluate(() => LL.stat); await browser.close();
-  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), hit: hit.join(''), fill: fill.join(''), cam, raised, text: texts }));
+  fs.writeFileSync(OUT + '.log.json', JSON.stringify({ id: SEG || SH, fmt, from: F0, to: F1, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3), act: act.join(''), hit: hit.join(''), fill: fill.join(''), cam, raised, text: texts, inset: insets, renderers: RENDS, renderer_set: [...new Set(Object.values(RENDS).filter((r) => r !== 'footage'))] }));
   console.log(JSON.stringify({ id: SEG || SH, frames: F1 - F0, s_per_frame: +((Date.now() - t0) / 1000 / (F1 - F0)).toFixed(3) }));
 })().catch((e) => { console.error(e); process.exit(1); });

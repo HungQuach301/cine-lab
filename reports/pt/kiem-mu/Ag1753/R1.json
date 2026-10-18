@@ -1,0 +1,30 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look",
+   "anachronism"
+  ],
+  "note": "Procedural 3D scene with a huge empty gravel plane and a few scattered cannonball piles and gun carriages. The soldiers are peg-doll figures cropped at the frame edges. The buildings are plain white boxes with blank dark window holes and no roofs, shutters or street life. The sky and bay are pleasant but empty. It does not read as a lived-in Grand Parade by Main Street. The caption admits the facade is procedural. The flag and ships are tiny. Overall it looks like a game-engine placeholder."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 3,
+  "flags": [
+   "text_issue",
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Aerial 3D city model with dense terracotta-roofed blocks, a walled waterfront, a hillside with a castle and tree scatter. It reads clearly as a real place and gives a good sense of scale. It looks like a GIS or game model: the terrain is smooth and flat-coloured, the water is a flat saturated blue, and the building massing is uniform. The roofline looks too modern and tidy, with some black rectangles and modern-looking multi-storey blocks. A faded caption overlaps the sea and is illegible ('1704 \u00b7 British and Dutch for...'). The 'No AI imagery \u00b7 Landsat 5' banner is odd, since Landsat 5 is a 1980s satellite and has nothing to do with 1752."
+ },
+ "better": "Y",
+ "why": "Y at least conveys a dense, believable town with scale and a readable layout, while X is a mostly empty plane with box buildings and peg-doll figures.",
+ "top_fix_for_weaker": "For X, drop the empty parade ground: add many people in period red-coat uniforms and civilians, plus carts, tents and stacked barrels. Give the buildings pitched or flat tiled roofs, shutters, balconies and arcades with textured stucco and stone. Move the camera closer, at street level, with a foreground subject and a depth-of-field or haze falloff."
+}

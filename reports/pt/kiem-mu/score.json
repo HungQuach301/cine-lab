@@ -1,0 +1,593 @@
+{
+ "cap": {
+  "AB1782": {
+   "X": "B",
+   "Y": "A",
+   "B_craft": [
+    4,
+    4,
+    4
+   ],
+   "B_craft_tb": 4.0,
+   "B_detail": [
+    3,
+    3,
+    3
+   ],
+   "B_detail_tb": 3.0,
+   "B_period": [
+    4,
+    4,
+    4
+   ],
+   "B_period_tb": 4.0,
+   "B_ai_look": [
+    4,
+    3,
+    3
+   ],
+   "B_ai_look_tb": 3.33,
+   "B_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "A_craft": [
+    5,
+    4,
+    5
+   ],
+   "A_craft_tb": 4.67,
+   "A_detail": [
+    4,
+    4,
+    4
+   ],
+   "A_detail_tb": 4.0,
+   "A_period": [
+    4,
+    5,
+    4
+   ],
+   "A_period_tb": 4.33,
+   "A_ai_look": [
+    4,
+    3,
+    3
+   ],
+   "A_ai_look_tb": 3.33,
+   "A_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "fix": {
+    "R1": "Replace the flat sand with textured stone paving or packed earth, and add weathered plaster, shutters, roof tiles and balconies to the buildings. Swap the peg-doll figures for properly proportioned redcoats and civilians in groups, and add foreground props or a lower camera angle so the sky stops dominating the frame.",
+    "R2": "Replace the smooth sand plane with a textured paved or compacted-earth surface. Then add real people (redcoat formations, civilians), period facades with balconies, shutters and tiled roofs, and a lower camera angle that cuts the empty sky.",
+    "R3": "Replace X's untextured sand-coloured ground with a cobbled or compacted-gravel texture with wear and shadow variation. Swap the peg-doll figures for proper scaled 1782 redcoats, and crop or lower the horizon so the sky doesn't fill half the frame."
+   }
+  },
+  "AB1943": {
+   "X": "B",
+   "Y": "A",
+   "B_craft": [
+    6,
+    6,
+    6
+   ],
+   "B_craft_tb": 6.0,
+   "B_detail": [
+    5,
+    5,
+    4
+   ],
+   "B_detail_tb": 4.67,
+   "B_period": [
+    5,
+    5,
+    4
+   ],
+   "B_period_tb": 4.67,
+   "B_ai_look": [
+    4,
+    3,
+    4
+   ],
+   "B_ai_look_tb": 3.67,
+   "B_flags": [
+    "empty_frame",
+    "toy_like"
+   ],
+   "A_craft": [
+    7,
+    7,
+    7
+   ],
+   "A_craft_tb": 7.0,
+   "A_detail": [
+    6,
+    6,
+    5
+   ],
+   "A_detail_tb": 5.67,
+   "A_period": [
+    6,
+    6,
+    5
+   ],
+   "A_period_tb": 5.67,
+   "A_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "A_ai_look_tb": 3.0,
+   "A_flags": [
+    "empty_frame",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "A",
+    "R2": "A",
+    "R3": "A"
+   },
+   "fix": {
+    "R1": "Replace the blocky peg-figures with properly modelled people in period uniforms and civilian clothing, and add weathering, wear and wartime elements (sandbag walls, blackout paint, signage, vehicles) so the street stops looking pristine and empty.",
+    "R2": "Replace the peg-doll figures with properly modelled people in 1940s clothing (uniforms, civilians, naval ratings), and make the sandbags look like real burlap sacks. Add period props such as jeeps, signage, awnings and laundry, and age the plaster and shutters so the scene doesn't look newly painted.",
+    "R3": "Replace the peg figures with properly modelled people in period uniforms and civilian clothes, add period vehicles and street clutter, and weather the walls and shutters with grime and wear so X doesn't look like a new, clean build."
+   }
+  },
+  "Ag1753": {
+   "X": "A",
+   "Y": "g1753",
+   "A_craft": [
+    4,
+    4,
+    4
+   ],
+   "A_craft_tb": 4.0,
+   "A_detail": [
+    3,
+    3,
+    3
+   ],
+   "A_detail_tb": 3.0,
+   "A_period": [
+    4,
+    4,
+    4
+   ],
+   "A_period_tb": 4.0,
+   "A_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "A_ai_look_tb": 3.0,
+   "A_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "g1753_craft": [
+    6,
+    6,
+    6
+   ],
+   "g1753_craft_tb": 6.0,
+   "g1753_detail": [
+    6,
+    6,
+    6
+   ],
+   "g1753_detail_tb": 6.0,
+   "g1753_period": [
+    5,
+    4,
+    4
+   ],
+   "g1753_period_tb": 4.33,
+   "g1753_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "g1753_ai_look_tb": 3.0,
+   "g1753_flags": [
+    "anachronism",
+    "cluttered",
+    "text_issue",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "g1753",
+    "R2": "g1753",
+    "R3": "g1753"
+   },
+   "fix": {
+    "R1": "For X, drop the empty parade ground: add many people in period red-coat uniforms and civilians, plus carts, tents and stacked barrels. Give the buildings pitched or flat tiled roofs, shutters, balconies and arcades with textured stucco and stone. Move the camera closer, at street level, with a foreground subject and a depth-of-field or haze falloff.",
+    "R2": "Rebuild X as a street-level view of Grand Parade that actually shows Main Street. Use varied Georgian/Genoese-style facades with shutters, balconies, arcades and chimneys, dress the square with soldiers in red coats, townspeople, carts and garrison props, and put a detailed ground texture and a lower camera in the foreground so the lower half is not an empty plain.",
+    "R3": "Reframe X lower and tighter on Main Street, with period facades (shutters, balconies, varied rooflines, chimneys) and a crowd of properly modelled soldiers and civilians, cutting the empty sky to roughly a quarter of the frame."
+   }
+  },
+  "Ag1885": {
+   "X": "g1885",
+   "Y": "A",
+   "g1885_craft": [
+    5,
+    5,
+    5
+   ],
+   "g1885_craft_tb": 5.0,
+   "g1885_detail": [
+    5,
+    5,
+    4
+   ],
+   "g1885_detail_tb": 4.67,
+   "g1885_period": [
+    4,
+    3,
+    3
+   ],
+   "g1885_period_tb": 3.33,
+   "g1885_ai_look": [
+    3,
+    2,
+    3
+   ],
+   "g1885_ai_look_tb": 2.67,
+   "g1885_flags": [
+    "anachronism",
+    "cluttered",
+    "empty_frame",
+    "flat_slide_look",
+    "text_issue",
+    "toy_like"
+   ],
+   "A_craft": [
+    6,
+    6,
+    6
+   ],
+   "A_craft_tb": 6.0,
+   "A_detail": [
+    3,
+    3,
+    4
+   ],
+   "A_detail_tb": 3.33,
+   "A_period": [
+    4,
+    4,
+    5
+   ],
+   "A_period_tb": 4.33,
+   "A_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "A_ai_look_tb": 3.0,
+   "A_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "text_issue",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "g1885",
+    "R2": "A",
+    "R3": "A"
+   },
+   "fix": {
+    "R1": "Crop or move the camera down and in to a street-level view with the buildings filling the frame. Replace the box facades with detailed period ones (shutters, balconies, arcades, textured stone) and add real figures in 1780s uniforms and civilian dress. Fix the flag to the pre-1801 Union flag and remove the empty sky and the bare ground.",
+    "R2": "Re-frame X as a low street-level or harbour-side shot of Main Street. Fill the empty plain with the Rock, harbour and shipping, add period-correct Genoese/Georgian facades with balconies and shutters, plus people and carts. Apply warm cinematic lighting and haze, and move the callout so it does not cover the town.",
+    "R3": "Re-frame X to a lower, closer street-level or tight aerial view of the town and the real castle, cutting the empty plain. Replace the generic tower with an accurate model. Add period-correct harbour and British-era details plus a few people. Use a sourced, rounded population figure ('about 19,000, 1881 census' or similar) and move the caption bar off the town."
+   }
+  },
+  "Av1782": {
+   "X": "A",
+   "Y": "v1782",
+   "A_craft": [
+    3,
+    4,
+    4
+   ],
+   "A_craft_tb": 3.67,
+   "A_detail": [
+    3,
+    3,
+    3
+   ],
+   "A_detail_tb": 3.0,
+   "A_period": [
+    4,
+    4,
+    4
+   ],
+   "A_period_tb": 4.0,
+   "A_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "A_ai_look_tb": 3.0,
+   "A_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "v1782_craft": [
+    6,
+    6,
+    6
+   ],
+   "v1782_craft_tb": 6.0,
+   "v1782_detail": [
+    6,
+    5,
+    6
+   ],
+   "v1782_detail_tb": 5.67,
+   "v1782_period": [
+    6,
+    5,
+    6
+   ],
+   "v1782_period_tb": 5.67,
+   "v1782_ai_look": [
+    3,
+    3,
+    3
+   ],
+   "v1782_ai_look_tb": 3.0,
+   "v1782_flags": [
+    "cluttered",
+    "text_issue",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "v1782",
+    "R2": "v1782",
+    "R3": "v1782"
+   },
+   "fix": {
+    "R1": "Fill the empty upper half by lowering the camera and framing the Rock of Gibraltar, with detailed facades (shutters, balconies, tiled roofs), textured ground, and modelled soldiers and gun crews in period red coats. Replace the black blob cannons with proper carriage guns.",
+    "R2": "Replace the empty gravel plain in X with a dense, populated scene: add Main Street houses with balconies, shutters, tiled roofs and varied heights, plus dozens of period-dressed soldiers and civilians, carts, and layered ground textures. Lower the camera to eye level and add depth with foreground props, so it is not a flat wide shot.",
+    "R3": "Re-frame X: crop out about half of the empty sky, lower the camera, and fill the parade ground with detailed gun batteries, red-coated troops and period Georgian facades (shutters, balconies, pitched tile roofs). Replace the peg figures and blob cannon with properly modelled assets, and enlarge the flag and key subjects."
+   }
+  },
+  "Bg1753": {
+   "X": "B",
+   "Y": "g1753",
+   "B_craft": [
+    4,
+    4,
+    4
+   ],
+   "B_craft_tb": 4.0,
+   "B_detail": [
+    3,
+    3,
+    3
+   ],
+   "B_detail_tb": 3.0,
+   "B_period": [
+    4,
+    4,
+    4
+   ],
+   "B_period_tb": 4.0,
+   "B_ai_look": [
+    4,
+    3,
+    3
+   ],
+   "B_ai_look_tb": 3.33,
+   "B_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "g1753_craft": [
+    6,
+    6,
+    6
+   ],
+   "g1753_craft_tb": 6.0,
+   "g1753_detail": [
+    7,
+    7,
+    7
+   ],
+   "g1753_detail_tb": 7.0,
+   "g1753_period": [
+    5,
+    4,
+    4
+   ],
+   "g1753_period_tb": 4.33,
+   "g1753_ai_look": [
+    3,
+    2,
+    3
+   ],
+   "g1753_ai_look_tb": 2.67,
+   "g1753_flags": [
+    "anachronism",
+    "cluttered",
+    "text_issue"
+   ],
+   "better": {
+    "R1": "g1753",
+    "R2": "g1753",
+    "R3": "g1753"
+   },
+   "fix": {
+    "R1": "Fill the frame: lower the camera and crop out the empty sky, add 30 or more period figures (soldiers, civilians, carts) and varied architecture on both sides, and give the ground paving, texture and clutter so it stops reading as an empty sandbox.",
+    "R2": "Fill and restage X. Cut the sky to about 25% and drop the camera to street level. Build a proper Georgian Main Street facade with sash windows, shutters, balconies, a colonnade and varied rooflines. Replace the peg-doll soldiers with detailed redcoats in formation plus civilians, carts and animals. Add cobbles, texture and shadow to the ground, and layer foreground, midground and background depth.",
+    "R3": "Reframe X as a tighter, lower-angle shot with the Main Street facades filling the frame. Add period-correct Georgian and Genoese detail (shutters, balconies, arcades), replace the peg-doll figures with proper red-coated soldiers and civilians in groups, and use real cannon models with carriages. Cut the empty sky and ground to well under a third of the frame, and use a bigger flag."
+   }
+  },
+  "Bg1885": {
+   "X": "B",
+   "Y": "g1885",
+   "B_craft": [
+    4,
+    4,
+    4
+   ],
+   "B_craft_tb": 4.0,
+   "B_detail": [
+    3,
+    3,
+    3
+   ],
+   "B_detail_tb": 3.0,
+   "B_period": [
+    4,
+    4,
+    5
+   ],
+   "B_period_tb": 4.33,
+   "B_ai_look": [
+    4,
+    3,
+    3
+   ],
+   "B_ai_look_tb": 3.33,
+   "B_flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_like"
+   ],
+   "g1885_craft": [
+    5,
+    5,
+    5
+   ],
+   "g1885_craft_tb": 5.0,
+   "g1885_detail": [
+    5,
+    5,
+    4
+   ],
+   "g1885_detail_tb": 4.67,
+   "g1885_period": [
+    5,
+    4,
+    4
+   ],
+   "g1885_period_tb": 4.33,
+   "g1885_ai_look": [
+    3,
+    2,
+    2
+   ],
+   "g1885_ai_look_tb": 2.33,
+   "g1885_flags": [
+    "anachronism",
+    "cluttered",
+    "empty_frame",
+    "flat_slide_look",
+    "text_issue",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "g1885",
+    "R2": "g1885",
+    "R3": "g1885"
+   },
+   "fix": {
+    "R1": "For X, fill the foreground and bring the camera down to street level. Rebuild the facades with Georgian sash windows, shutters, balconies and arcades, add many properly modelled soldiers, civilians, carts and gun crews on the parade, and crop the sky to about 30%.",
+    "R2": "Recompose X with a low, tight camera on Main Street or the Grand Parade, and crop out most of the sky. Add detailed Georgian facades with balconies, shutters, arcades and chimneys. Replace the peg-doll figures with proper redcoat soldiers and civilians, and add ground texture, shadows and some atmosphere.",
+    "R3": "Frame X: crop or lower the camera to cut the empty sky, then fill the Parade with scaled, detailed soldiers, carts and civilians. Add real facade detail (balconies, shutters, arcades, roof lines) and a title that names Grand Parade/Main Street, and keep the 'not a photograph' caption."
+   }
+  },
+  "Bv1782": {
+   "X": "B",
+   "Y": "v1782",
+   "B_craft": [
+    4,
+    3,
+    4
+   ],
+   "B_craft_tb": 3.67,
+   "B_detail": [
+    3,
+    2,
+    3
+   ],
+   "B_detail_tb": 2.67,
+   "B_period": [
+    4,
+    4,
+    4
+   ],
+   "B_period_tb": 4.0,
+   "B_ai_look": [
+    4,
+    3,
+    3
+   ],
+   "B_ai_look_tb": 3.33,
+   "B_flags": [
+    "anachronism",
+    "empty_frame",
+    "flat_slide_look",
+    "text_issue",
+    "toy_like"
+   ],
+   "v1782_craft": [
+    6,
+    6,
+    6
+   ],
+   "v1782_craft_tb": 6.0,
+   "v1782_detail": [
+    6,
+    5,
+    6
+   ],
+   "v1782_detail_tb": 5.67,
+   "v1782_period": [
+    6,
+    6,
+    6
+   ],
+   "v1782_period_tb": 6.0,
+   "v1782_ai_look": [
+    3,
+    2,
+    2
+   ],
+   "v1782_ai_look_tb": 2.33,
+   "v1782_flags": [
+    "cluttered",
+    "text_issue",
+    "toy_like"
+   ],
+   "better": {
+    "R1": "v1782",
+    "R2": "v1782",
+    "R3": "v1782"
+   },
+   "fix": {
+    "R1": "Crop or lower the camera so the buildings and ground fill the frame, and cut the empty sky. Replace the peg-doll soldiers with properly modelled 1780s redcoats. Fix the flag to the pre-1801 Union flag. Add texture and clutter to the ground and facades (cobbles, shutters, balconies, tiled roofs, stacked stores, people) so it reads as Gibraltar's Grand Parade.",
+    "R2": "Fill the plaza with a dense, varied scene: give the facades arcades, shutters, tiled roofs and balconies, and add a crowd of properly modelled 18th-century soldiers and civilians, limber wheels and gun crews. Crop the frame so the horizon sits higher and sky takes up no more than 20-25% of it. Use a lower, more dramatic camera with warm directional light and long shadows, and cut the caption to one slim line.",
+    "R3": "Crop or lower the horizon to remove the empty sky and fill the foreground. Give the facades Main Street detail: shuttered windows, balconies, tiled roofs, arches and varied heights. Replace the peg-doll soldiers with scaled figures in red coats and add people, carts and clutter on the Parade. Replace the flat orange ground with textured paving."
+   }
+  }
+ },
+ "chi_phi": 1.467
+}

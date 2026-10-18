@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Strong warm light and a good harbour vista, with convincing peeling plaster and shutters. The people are faceless, mannequin-like figures with no clothing detail. They stand in loose clusters and read as game assets. The Union Jack on a pole and the distant ship are fine. The left wall is a blown-out yellow smear and looks flat. The flag is tiny and the small-screen read is weak."
+ },
+ "Y": {
+  "craft": 7,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Better building detail than X: stone string courses, a stone retaining wall at the lower edge, and more varied plaster. Colour is more natural and the haze gives depth. The figures are the same grey-green mannequins, and a dense clump on the right is muddled. The paving on the square runs into a flat, empty beige band. The harbour view matches X."
+ },
+ "better": "Y",
+ "why": "Y has richer and more believable architectural detail and more natural colour and depth, while both frames share the same mannequin-like people.",
+ "top_fix_for_weaker": "Replace the mannequin figures in X with properly clothed, textured 1943 people (naval whites, khaki, civilians, with varied poses and faces) and tone down the blown-out yellow wall on the left. Add the string courses, and break up the wall surfaces with signage, laundry and awnings.",
+ "anachronisms_seen": [
+  "Uniform-looking, anonymous mannequin figures that don't read as 1943 dress",
+  "No wartime markers (sandbags, blackout paint, signage, vehicles), so the square looks generic and timeless",
+  "Pristine modern-looking black railings and shutters",
+  "Distant ship's superstructure looks more like a sailing vessel than a 1943 warship or merchant ship"
+ ]
+}

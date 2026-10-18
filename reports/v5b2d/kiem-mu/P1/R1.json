@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 4,
+  "richness": 2,
+  "fit": 3,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The rock is decent, but half the frame is empty sky and flat green field. The besiegers' lines are a few thin brown strips and one wall. There is almost no army: a single tiny block of troops and a few stray posts. It reads as a tourist view of a hill, not a siege."
+ },
+ "Y": {
+  "craft": 5,
+  "richness": 7,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "cluttered"
+  ],
+  "note": "The frame is filled with many troop blocks in rows, entrenchments and walls behind them, smoke puffs, flags, the town and harbour on the right, and the rock as a backdrop. It reads clearly as an army massed in siege lines on the isthmus. The troops are identical dark-peg blocks that look like trays of tokens. The flat lighting is bland and the smoke is weak."
+ },
+ "better": "Y",
+ "why": "Y actually shows a besieging army, with its lines, smoke and the town in view, while X is mostly empty field and sky with the rock as the only real subject.",
+ "top_fix_for_weaker": "Fill the foreground and midground with besieging troops, batteries, tents, and fascines or trenches. Lower the camera and crop out the empty sky so the lines and the rock fill the frame.",
+ "top_fix_for_better": "Replace the uniform peg-block troops with varied figures: uniform colours, officers, gun crews and artillery pieces. Add real gun-fire smoke plumes, and give the lighting some warm directional contrast. Break up the grid layout so the camp doesn't look like a tray of tokens."
+}

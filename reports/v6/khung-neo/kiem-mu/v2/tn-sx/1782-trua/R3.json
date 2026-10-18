@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 7,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Strong, believable ruined walls and raking light. The soldiers are small, uniformly lit, saturated and doll-like, packed into a tight clump with the same pose repeated. The left group is more varied and legible, with a drummer and an officer. The Union flag is tiny, and at this size the design can't be checked. The scale of the people against the buildings is slightly off."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 6,
+  "ai_look": 7,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "Same set and lighting as X. The left-hand figures are fewer and one has a smeared green-black face and torso, so it reads as a glitch. The figures look more like flat game-asset cutouts, with weaker silhouettes and a thinner crowd. An added barrel on the right is a small plus. The Union flag is the same tiny, unverifiable one."
+ },
+ "better": "X",
+ "why": "The environments are identical, but X's foreground soldiers are more varied and coherent, while Y has a malformed figure and a thinner, more toy-like group.",
+ "top_fix_for_weaker": "Redo the foreground soldiers: remove or regenerate the smeared green-faced figure, vary poses and spacing, and give them real shadows, contact grounding and scale-correct detail. Add smoke, dust or rubble interaction so they stop reading as pasted figures.",
+ "anachronisms_seen": [
+  "Union flag too small to verify; the post-1801 design with the St Patrick's saltire would be wrong for 1782",
+  "Uniform colours are uniformly saturated and clean for a besieged garrison",
+  "Shutters and windows are mostly intact despite the bombardment-ruined walls"
+ ]
+}

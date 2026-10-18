@@ -1,0 +1,31 @@
+```json
+{
+  "X": {
+    "craft": 5,
+    "detail": 4,
+    "period": 6,
+    "ai_look": 4,
+    "toy_like": 2,
+    "flags": ["empty_frame", "flat_slide_look"],
+    "note": "Competent CG dusk street with a symmetric one-point perspective, a good warm window glow and a Union flag as the focal point. Plaster texture is decent but repeated and noisy. The lane is crushed to near-black, so the middle of the frame is dead. One barely visible dark figure and some rubble add a little life. The sky is a flat saturated navy gradient with no clouds or atmosphere. The architecture is generic Mediterranean, not clearly Gibraltar."
+  },
+  "Y": {
+    "craft": 5,
+    "detail": 3,
+    "period": 6,
+    "ai_look": 4,
+    "toy_like": 2,
+    "flags": ["empty_frame", "flat_slide_look"],
+    "note": "Almost identical to X but darker and flatter. The street floor and midground are even more lost in black. The figures are only faint smudges and the rubble is harder to read. The sky is a similar flat blue. It has the same repeated wall texture and the same weak sense of place."
+  },
+  "better": "X",
+  "why": "The two frames are nearly the same scene, but X keeps slightly more readable lane detail, rubble and a figure for scale, while Y is murkier.",
+  "top_fix_for_weaker": "Lift the exposure in the lane. Add a low warm key light, such as a lantern or fire glow from the side, plus bounce light on the cobbles. Then add 3–5 clearly readable period figures in 1780s British garrison dress, with props like barrels, handcarts and washing lines. Add fog or smoke haze for depth, and a real Gibraltar element, such as the Rock or Moorish/Genoese façades, to replace the empty black void.",
+  "anachronisms_seen": [
+    "Union flag looks plausible for 1782 (pre-1801 design), no clear anachronism",
+    "Wall-mounted rectangular utility-like boxes or pipes on the right midground are ambiguous and read as modern",
+    "Long straight horizontal wire or cable line across the right wall looks modern",
+    "Tall thin flagpole with a small modern-proportioned flag"
+  ]
+}
+```

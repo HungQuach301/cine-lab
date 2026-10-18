@@ -1,0 +1,10 @@
+```json
+{
+  "A": {"craft": 5, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Calmest and cleanest version. The water is smooth with few highlights and no punch. The town and walls are decent, but the ships are tiny flat-black slabs with paper-thin sails, like game pieces. Ship hulls have no shading or detail. The frame is empty of life: no troops, no smoke, no wakes."},
+  "B": {"craft": 6, "detail": 5, "toy_like": 6, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Same scene as A with more sparkly water and slightly more contrast. The foam flecks look scattered at random. Ships are still flat, toy-like silhouettes with no rigging, and the walls and town are unchanged. The result is livelier than A but visually noisier."},
+  "C": {"craft": 7, "detail": 6, "toy_like": 5, "ai_look": 3, "period": 5, "flags": ["toy_look", "unreadable_scale"], "note": "Best lighting. The hillside has sculpted, raking shadows and visible terrain contours, and the walls and town pick up warmer, more directional light. Water is the same sparkly treatment as B but sits better against the richer terrain. Ships are unchanged and remain the weakest element: dark slab hulls with flat panel sails. There are still no people, smoke or activity."},
+  "rank": ["C", "B", "A"],
+  "why": "C has the most cinematic light and the most depth in the terrain and walls. All three share the same toy-like ships and lifeless harbour, so the gap between them is small.",
+  "top_fix_for_best": "Rebuild the ships with shaped hulls, gun ports, rigging, billowed sails and wakes, and make them larger. Then add life: cannon smoke, small boats, and flags or troops on the bastions. The water should have fewer random white blotches and more consistent wave scale."
+}
+```

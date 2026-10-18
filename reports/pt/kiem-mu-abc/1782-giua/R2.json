@@ -1,0 +1,43 @@
+{
+ "X": {
+  "craft": 3,
+  "detail": 2,
+  "period": 4,
+  "ai_look": 2,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "Clean but sterile CG. Flat pink-beige ground with no texture, wheel-less cannon carriages, and stiff cardboard-cutout soldiers. The white buildings look like untextured massing blocks. Props are sparse and scattered at random. The scene reads as a rough blockout, not a finished shot."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 2,
+  "period": 3,
+  "ai_look": 2,
+  "flags": [
+   "empty_frame",
+   "flat_slide_look",
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Same blockout as X with a grey, noisy ground and cooler light. The soldiers are in blue coats, which is wrong for the British garrison, who wore red. The ground texture is noisy and reads as asphalt or gravel. It has the same toy figures and wheel-less carts, and it is no better than X."
+ },
+ "Z": {
+  "craft": 8,
+  "detail": 8,
+  "period": 7,
+  "ai_look": 3,
+  "flags": [],
+  "note": "Same camera and layout, but properly dressed. The ground has rutted dirt, rubble and cart tracks. The weathered, pocked masonry is believable for a siege-damaged town. The barrels, timber stacks, hay wagon and wheeled carts add life. The soldiers are small but sensibly placed, with a distant gun crew and a parapet wall. Lighting and haze are cohesive. Weaknesses: the figures are still a bit stiff, the sky is empty, and the buildings are a little too uniform and modern-clean in their geometry. The blue-coated figure could be an officer or artillery, which is plausible."
+ },
+ "best": "Z",
+ "worst": "Y",
+ "why": "Z is the only frame with real materials, props and storytelling, while X and Y are untextured toy-like blockouts, and Y adds wrong-coloured blue uniforms on top of that.",
+ "anachronisms_seen": [
+  "Y: blue-coated soldiers where the British garrison would wear red",
+  "X and Y: cannon carriages with solid black disc wheels, not spoked wooden wheels",
+  "X and Y: smooth, untextured, modern-looking white walls and plain ground, with no sign of siege damage"
+ ]
+}

@@ -1,0 +1,85 @@
+id: v6-khung-neo
+title: V6 khung neo LAI (2 khung neo × 9 s, bản sản xuất 540p)
+out: /var/tmp/v6kn/k-lai-out
+segments:
+- id: kn1782
+  dur: 9.0
+  shots:
+  - type: scene3d
+    khung_neo: true
+    ai_image: true
+    p:
+      where: Gibraltar
+- id: kn1943
+  dur: 9.0
+  shots:
+  - type: scene3d
+    khung_neo: true
+    ai_image: true
+    p:
+      where: Gibraltar
+lai:
+  log_khung: k-lai/log-khung.jsonl
+  log_chu: k-lai/log-chu.json
+  kiem_du_kien: kiem-du-kien.json
+  goi_api: k-lai/goi-api-gop.jsonl
+  duyet: k-lai/duyet.yaml
+  bao_ve:
+  - lai: /var/tmp/v6kn/klai/1782-sang-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1782-sang-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1782.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1782.png
+  - lai: /var/tmp/v6kn/klai/1782-trua-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1782-trua-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1782.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1782.png
+  - lai: /var/tmp/v6kn/klai/1782-chieu-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1782-chieu-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1782.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1782.png
+  - lai: /var/tmp/v6kn/klai/1782-dem-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1782-dem-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1782.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1782.png
+  - lai: /var/tmp/v6kn/klai/1943-sang-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1943-sang-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1943.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1943.png
+  - lai: /var/tmp/v6kn/klai/1943-trua-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1943-trua-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1943.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1943.png
+  - lai: /var/tmp/v6kn/klai/1943-chieu-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1943-chieu-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1943.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1943.png
+  - lai: /var/tmp/v6kn/klai/1943-dem-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1943-dem-A-notext.png
+    mat_na: /var/tmp/v6kn/klai/bao_ve-1943.png
+    bat_buoc: /var/tmp/v6kn/klai/bat_buoc-1943.png
+  dem:
+  - lai: /var/tmp/v6kn/klai/1782-dem-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1782-dem-A-notext.png
+  - lai: /var/tmp/v6kn/klai/1943-dem-LAI-notext.png
+    a: /var/tmp/v6kn/klai/1943-dem-A-notext.png
+  khung_lai: /var/tmp/v6kn/klai/khung-lai
+  tong_s: 18.0
+o2:
+  nam_theo:
+  - t:
+    - 0
+    - 9
+    nam: 1782
+  - t:
+    - 9
+    - 18
+    nam: 1943
+  neo:
+  - 1.5
+  - 3.3
+  - 6.5
+  - 10.5
+  - 12.3
+  - 15.5
+  buoc: 5
+  noi: Gibraltar

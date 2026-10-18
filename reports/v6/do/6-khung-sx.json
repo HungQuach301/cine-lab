@@ -1,0 +1,914 @@
+{
+ "cach": "dieu-phoi measure_dp (640×360, y 60–300) · mặt nạ render.js --maskonly · px chiếu theo campath (1080p)",
+ "loai": {
+  "vay_ham": {
+   "canh": "eo6",
+   "khung": 48,
+   "v6_sach": {
+    "file": "sach-1/00048.jpg",
+    "sat_med": 0.373,
+    "colorful": 75.5,
+    "edges": 32.2,
+    "clip_pct": 0.33
+   },
+   "v6_chu_png": {
+    "file": "chu-1.png",
+    "sat_med": 0.349,
+    "colorful": 72.1,
+    "edges": 34.1,
+    "clip_pct": 1.83
+   },
+   "v5b2d_sach": {
+    "file": "reports/v5b2d/khung/d-1-vay-ham.jpg",
+    "sat_med": 0.404,
+    "colorful": 68.7,
+    "edges": 26.4,
+    "clip_pct": 0.0
+   },
+   "tot_sach": {
+    "file": "/var/tmp/cine-out/v6/tot/tot-1.png",
+    "sat_med": 0.447,
+    "colorful": 81.3,
+    "edges": 33.5,
+    "clip_pct": 0.28
+   },
+   "mat_na": {
+    "content_pct": 22.3,
+    "fabric_pct": 22.3,
+    "water_pct": 8.3,
+    "flat_nat_pct": 29.9,
+    "sky_pct": 32.1,
+    "dat_doc_pct": 1.8,
+    "bo_pct": 59.6,
+    "empty_pct": 38.1,
+    "content_center_pct": 25.6,
+    "co_trong_pct": 29.9,
+    "suon_pct": 5.6,
+    "nuoc_pct": 8.3,
+    "troi_pct": 32.1
+   },
+   "px": {
+    "quan_1m75": {
+     "n": 30,
+     "px_min": 16.5,
+     "px_med": 21.1,
+     "px_max": 34.0,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      210,
+      437
+     ]
+    },
+    "khoi_quan": {
+     "n": 30,
+     "px_min": 27.4,
+     "px_med": 38.7,
+     "px_max": 77.1,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      218,
+      443
+     ]
+    }
+   },
+   "hien": {
+    "quan": {
+     "don_vi": 108,
+     "nguoi": 28716,
+     "an_vi_khoi": 18,
+     "hien": 23838,
+     "v6": true,
+     "lod": [
+      {
+       "chi_tiet": 7444,
+       "tho": 16304
+      },
+      {
+       "chi_tiet": 26,
+       "tho": 64
+      }
+     ]
+    },
+    "song": {
+     "chim": 12,
+     "nguoi": 0,
+     "tau": 2
+    },
+    "ai_texture": null,
+    "s_khung": 23.916
+   },
+   "scene_meta": {
+    "quan": {
+     "don_vi": 108,
+     "nguoi": 28716,
+     "an_vi_khoi": 0,
+     "hien": 0,
+     "v6": true
+    },
+    "town": {
+     "lap_bo_gan": {
+      "bo": 0,
+      "r": 0,
+      "do_nat": 0
+     },
+     "vuon": {
+      "vuon": 2,
+      "cay": 18,
+      "nha": 0,
+      "m2": 12498.75
+     },
+     "diem_nhan": {
+      "nha_tho": {
+       "tam": [
+        -447,
+        -1289
+       ],
+       "cao_than": 13,
+       "cao_thap": 28.5
+      },
+      "convent": {
+       "tam": [
+        -461,
+        -1536
+       ],
+       "cao": 11
+      }
+     },
+     "do_nat": null
+    },
+    "kb_san": null,
+    "kb_phao": null,
+    "khoi_dau_nong": null,
+    "co": 20,
+    "khoi": 18,
+    "vuon": {
+     "vuon": 1,
+     "cay": 0,
+     "nha": 6,
+     "m2": 118662.75
+    },
+    "chay": null
+   }
+  },
+  "cang_bo": {
+   "canh": "vinh6",
+   "khung": 72,
+   "v6_sach": {
+    "file": "sach-2/00072.jpg",
+    "sat_med": 0.616,
+    "colorful": 108.3,
+    "edges": 44.5,
+    "clip_pct": 0.18
+   },
+   "v6_chu_png": {
+    "file": "chu-2.png",
+    "sat_med": 0.608,
+    "colorful": 102.7,
+    "edges": 46.5,
+    "clip_pct": 1.97
+   },
+   "v5b2d_sach": {
+    "file": "reports/v5b2d/khung/d-2-cang-bo.jpg",
+    "sat_med": 0.557,
+    "colorful": 94.8,
+    "edges": 28.2,
+    "clip_pct": 0.0
+   },
+   "tot_sach": {
+    "file": "/var/tmp/cine-out/v6/tot/tot-2.png",
+    "sat_med": 0.678,
+    "colorful": 112.5,
+    "edges": 44.4,
+    "clip_pct": 0.24
+   },
+   "mat_na": {
+    "content_pct": 20.9,
+    "fabric_pct": 26.2,
+    "water_pct": 43,
+    "flat_nat_pct": 5.9,
+    "sky_pct": 0.7,
+    "dat_doc_pct": 5.4,
+    "bo_pct": 56.3,
+    "empty_pct": 49,
+    "content_center_pct": 26.7,
+    "co_trong_pct": 5.9,
+    "suon_pct": 18.8,
+    "nuoc_pct": 43,
+    "troi_pct": 0.7
+   },
+   "px": {
+    "quan_1m75": null,
+    "khoi_quan": null,
+    "tau_than_6m": {
+     "n": 3,
+     "px_min": 32.1,
+     "px_med": 35.3,
+     "px_max": 36.6,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      265,
+      328
+     ]
+    }
+   },
+   "hien": {
+    "quan": {
+     "don_vi": 25,
+     "nguoi": 131,
+     "an_vi_khoi": 0,
+     "hien": 39,
+     "v6": true,
+     "lod": [
+      {
+       "chi_tiet": 0,
+       "tho": 0
+      },
+      {
+       "chi_tiet": 0,
+       "tho": 1
+      },
+      {
+       "chi_tiet": 0,
+       "tho": 24
+      },
+      {
+       "chi_tiet": 0,
+       "tho": 14
+      }
+     ]
+    },
+    "song": {
+     "chim": 24,
+     "tau": 4,
+     "khoi": 16
+    },
+    "ai_texture": false,
+    "s_khung": 16.891
+   },
+   "scene_meta": {
+    "quan": null,
+    "town": {
+     "lap_bo_gan": {
+      "bo": 4,
+      "r": 150,
+      "do_nat": 0
+     },
+     "vuon": {
+      "vuon": 2,
+      "cay": 18,
+      "nha": 0,
+      "m2": 12498.75
+     },
+     "diem_nhan": {
+      "nha_tho": {
+       "tam": [
+        -447,
+        -1289
+       ],
+       "cao_than": 13,
+       "cao_thap": 28.5
+      },
+      "convent": {
+       "tam": [
+        -461,
+        -1536
+       ],
+       "cao": 11
+      }
+     },
+     "do_nat": null
+    },
+    "kb_san": {
+     "dan": 18,
+     "thung": 24,
+     "lan": 3,
+     "lo": 1,
+     "lo_at": [
+      -612.3527030691131,
+      -1249.7340736773226
+     ]
+    },
+    "kb_phao": 23,
+    "khoi_dau_nong": 12,
+    "co": null,
+    "khoi": null,
+    "vuon": null,
+    "chay": null
+   }
+  },
+  "pho_day": {
+   "canh": "pho6",
+   "khung": 96,
+   "v6_sach": {
+    "file": "sach-3/00096.jpg",
+    "sat_med": 0.424,
+    "colorful": 55.0,
+    "edges": 37.4,
+    "clip_pct": 0.64
+   },
+   "v6_chu_png": {
+    "file": "chu-3.png",
+    "sat_med": 0.424,
+    "colorful": 55.0,
+    "edges": 37.4,
+    "clip_pct": 2.15
+   },
+   "v5b2d_sach": {
+    "file": "reports/v5b2d/khung/d-3-pho-day.jpg",
+    "sat_med": 0.416,
+    "colorful": 78.8,
+    "edges": 26.8,
+    "clip_pct": 0.0
+   },
+   "tot_sach": {
+    "file": "/var/tmp/cine-out/v6/tot/tot-3.png",
+    "sat_med": 0.471,
+    "colorful": 58.2,
+    "edges": 35.5,
+    "clip_pct": 0.82
+   },
+   "mat_na": {
+    "content_pct": 40.8,
+    "fabric_pct": 87.5,
+    "water_pct": 6.5,
+    "flat_nat_pct": 4.6,
+    "sky_pct": 0,
+    "dat_doc_pct": 0,
+    "bo_pct": 93.5,
+    "empty_pct": 11.1,
+    "content_center_pct": 49,
+    "co_trong_pct": 4.6,
+    "suon_pct": 1.4,
+    "nuoc_pct": 6.5,
+    "troi_pct": 0
+   },
+   "px": {
+    "dam_dong_1m75": {
+     "n": 9,
+     "px_min": 7.6,
+     "px_med": 12.3,
+     "px_max": 31.7,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      56,
+      298
+     ]
+    },
+    "khoi_dam_dong": {
+     "n": 9,
+     "px_min": 12.2,
+     "px_med": 22.9,
+     "px_max": 92.1,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      53,
+      295
+     ]
+    }
+   },
+   "hien": {
+    "quan": null,
+    "song": {
+     "chim": 14,
+     "nguoi": 23,
+     "dam_dong": 247,
+     "khoi": 24
+    },
+    "ai_texture": null,
+    "s_khung": 14.902
+   },
+   "scene_meta": {
+    "quan": null,
+    "town": {
+     "lap_bo_gan": {
+      "bo": 11,
+      "r": 150,
+      "do_nat": 18
+     },
+     "vuon": {
+      "vuon": 2,
+      "cay": 18,
+      "nha": 0,
+      "m2": 12498.75
+     },
+     "diem_nhan": {
+      "nha_tho": {
+       "tam": [
+        -447,
+        -1289
+       ],
+       "cao_than": 13,
+       "cao_thap": 28.5
+      },
+      "convent": {
+       "tam": [
+        -461,
+        -1536
+       ],
+       "cao": 11
+      }
+     },
+     "do_nat": {
+      "lo": 18,
+      "tuong_m": 6339,
+      "dong_gach": 825,
+      "dam": 127,
+      "m2": 22655
+     }
+    },
+    "kb_san": null,
+    "kb_phao": null,
+    "khoi_dau_nong": null,
+    "co": null,
+    "khoi": null,
+    "vuon": null,
+    "chay": null
+   }
+  },
+  "hero": {
+   "canh": "vinh6",
+   "khung": 192,
+   "v6_sach": {
+    "file": "sach-4/00192.jpg",
+    "sat_med": 0.471,
+    "colorful": 81.9,
+    "edges": 48.4,
+    "clip_pct": 0.97
+   },
+   "v6_chu_png": {
+    "file": "chu-4.png",
+    "sat_med": 0.443,
+    "colorful": 76.0,
+    "edges": 48.2,
+    "clip_pct": 4.65
+   },
+   "v5b2d_sach": {
+    "file": "reports/v5b2d/khung/d-4-hero.jpg",
+    "sat_med": 0.435,
+    "colorful": 71.3,
+    "edges": 32.3,
+    "clip_pct": 0.0
+   },
+   "tot_sach": {
+    "file": "/var/tmp/cine-out/v6/tot/tot-4.png",
+    "sat_med": 0.502,
+    "colorful": 86.0,
+    "edges": 48.3,
+    "clip_pct": 0.98
+   },
+   "mat_na": {
+    "content_pct": 62.1,
+    "fabric_pct": 64.5,
+    "water_pct": 13.7,
+    "flat_nat_pct": 2,
+    "sky_pct": 17.2,
+    "dat_doc_pct": 0.1,
+    "bo_pct": 69.1,
+    "empty_pct": 15.7,
+    "content_center_pct": 78.2,
+    "co_trong_pct": 2,
+    "suon_pct": 2.5,
+    "nuoc_pct": 13.7,
+    "troi_pct": 17.2
+   },
+   "px": {
+    "quan_1m75": {
+     "n": 22,
+     "px_min": 21.1,
+     "px_med": 35.0,
+     "px_max": 56.6,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      51,
+      137
+     ]
+    },
+    "khoi_quan": {
+     "n": 22,
+     "px_min": 25.8,
+     "px_med": 47.7,
+     "px_max": 89.4,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      49,
+      135
+     ]
+    },
+    "tau_than_6m": {
+     "n": 2,
+     "px_min": 13.4,
+     "px_med": 14.8,
+     "px_max": 16.1,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      694,
+      807
+     ]
+    }
+   },
+   "hien": {
+    "quan": {
+     "don_vi": 25,
+     "nguoi": 131,
+     "an_vi_khoi": 0,
+     "hien": 131,
+     "v6": true,
+     "lod": [
+      {
+       "chi_tiet": 67,
+       "tho": 5
+      },
+      {
+       "chi_tiet": 18,
+       "tho": 3
+      },
+      {
+       "chi_tiet": 24,
+       "tho": 0
+      },
+      {
+       "chi_tiet": 14,
+       "tho": 0
+      }
+     ]
+    },
+    "song": {
+     "chim": 24,
+     "tau": 4,
+     "khoi": 16
+    },
+    "ai_texture": true,
+    "s_khung": 19.408
+   },
+   "scene_meta": {
+    "quan": null,
+    "town": {
+     "lap_bo_gan": {
+      "bo": 4,
+      "r": 150,
+      "do_nat": 0
+     },
+     "vuon": {
+      "vuon": 2,
+      "cay": 18,
+      "nha": 0,
+      "m2": 12498.75
+     },
+     "diem_nhan": {
+      "nha_tho": {
+       "tam": [
+        -447,
+        -1289
+       ],
+       "cao_than": 13,
+       "cao_thap": 28.5
+      },
+      "convent": {
+       "tam": [
+        -461,
+        -1536
+       ],
+       "cao": 11
+      }
+     },
+     "do_nat": null
+    },
+    "kb_san": {
+     "dan": 18,
+     "thung": 24,
+     "lan": 3,
+     "lo": 1,
+     "lo_at": [
+      -612.3527030691131,
+      -1249.7340736773226
+     ]
+    },
+    "kb_phao": 23,
+    "khoi_dau_nong": 12,
+    "co": null,
+    "khoi": null,
+    "vuon": null,
+    "chay": null
+   }
+  },
+  "toan_canh": {
+   "canh": "toan6",
+   "khung": 72,
+   "v6_sach": {
+    "file": "sach-5/00072.jpg",
+    "sat_med": 0.412,
+    "colorful": 63.7,
+    "edges": 44.2,
+    "clip_pct": 0.53
+   },
+   "v6_chu_png": {
+    "file": "chu-5.png",
+    "sat_med": 0.404,
+    "colorful": 64.5,
+    "edges": 44.1,
+    "clip_pct": 2.2
+   },
+   "v5b2d_sach": {
+    "file": "reports/v5b2d/khung/d-5-toan-canh.jpg",
+    "sat_med": 0.408,
+    "colorful": 60.4,
+    "edges": 38.4,
+    "clip_pct": 0.0
+   },
+   "tot_sach": {
+    "file": "/var/tmp/cine-out/v6/tot/tot-5.png",
+    "sat_med": 0.478,
+    "colorful": 63.8,
+    "edges": 45.3,
+    "clip_pct": 0.57
+   },
+   "mat_na": {
+    "content_pct": 45.3,
+    "fabric_pct": 90.5,
+    "water_pct": 0,
+    "flat_nat_pct": 0,
+    "sky_pct": 0.1,
+    "dat_doc_pct": 0,
+    "bo_pct": 99.9,
+    "empty_pct": 0,
+    "content_center_pct": 43.8,
+    "co_trong_pct": 0,
+    "suon_pct": 9.5,
+    "nuoc_pct": 0,
+    "troi_pct": 0.1
+   },
+   "px": {
+    "quan_1m75": {
+     "n": 6,
+     "px_min": 18.9,
+     "px_med": 21.9,
+     "px_max": 25.7,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      93,
+      131
+     ]
+    },
+    "khoi_quan": {
+     "n": 6,
+     "px_min": 117.6,
+     "px_med": 164.6,
+     "px_max": 219.4,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      80,
+      116
+     ]
+    },
+    "dam_dong_1m75": {
+     "n": 8,
+     "px_min": 12.4,
+     "px_med": 13.6,
+     "px_max": 14.9,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      180,
+      233
+     ]
+    },
+    "khoi_dam_dong": {
+     "n": 8,
+     "px_min": 24.0,
+     "px_med": 27.2,
+     "px_max": 32.5,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      176,
+      228
+     ]
+    }
+   },
+   "hien": {
+    "quan": {
+     "don_vi": 6,
+     "nguoi": 822,
+     "an_vi_khoi": 0,
+     "hien": 822,
+     "v6": true,
+     "lod": [
+      {
+       "chi_tiet": 326,
+       "tho": 394
+      },
+      {
+       "chi_tiet": 3,
+       "tho": 3
+      },
+      {
+       "chi_tiet": 48,
+       "tho": 48
+      }
+     ]
+    },
+    "song": {
+     "chim": 16,
+     "nguoi": 122,
+     "dam_dong": 628,
+     "tau": 2,
+     "khoi": 22
+    },
+    "ai_texture": null,
+    "s_khung": 16.648
+   },
+   "scene_meta": {
+    "quan": {
+     "don_vi": 6,
+     "nguoi": 822,
+     "an_vi_khoi": 0,
+     "hien": 0,
+     "v6": true
+    },
+    "town": {
+     "lap_bo_gan": {
+      "bo": 2,
+      "r": 150,
+      "do_nat": 18
+     },
+     "vuon": {
+      "vuon": 2,
+      "cay": 18,
+      "nha": 0,
+      "m2": 12498.75
+     },
+     "diem_nhan": {
+      "nha_tho": {
+       "tam": [
+        -447,
+        -1289
+       ],
+       "cao_than": 13,
+       "cao_thap": 28.5
+      },
+      "convent": {
+       "tam": [
+        -461,
+        -1536
+       ],
+       "cao": 11
+      }
+     },
+     "do_nat": {
+      "lo": 18,
+      "tuong_m": 6339,
+      "dong_gach": 825,
+      "dam": 127,
+      "m2": 22655
+     }
+    },
+    "kb_san": null,
+    "kb_phao": null,
+    "khoi_dau_nong": null,
+    "co": null,
+    "khoi": null,
+    "vuon": null,
+    "chay": null
+   }
+  },
+  "bo_chien_su": {
+   "canh": "bo6",
+   "khung": 72,
+   "v6_sach": {
+    "file": "sach-6/00072.jpg",
+    "sat_med": 0.373,
+    "colorful": 80.3,
+    "edges": 34.2,
+    "clip_pct": 0.92
+   },
+   "v6_chu_png": {
+    "file": "chu-6.png",
+    "sat_med": 0.345,
+    "colorful": 75.9,
+    "edges": 38.0,
+    "clip_pct": 2.6
+   },
+   "v5b2d_sach": {
+    "file": "reports/v5b2d/khung/d-6-bo-chien-su.jpg",
+    "sat_med": 0.341,
+    "colorful": 64.7,
+    "edges": 18.2,
+    "clip_pct": 0.02
+   },
+   "tot_sach": {
+    "file": "/var/tmp/cine-out/v6/tot/tot-6.png",
+    "sat_med": 0.369,
+    "colorful": 83.1,
+    "edges": 33.8,
+    "clip_pct": 1.13
+   },
+   "mat_na": {
+    "content_pct": 13.5,
+    "fabric_pct": 16.3,
+    "water_pct": 30.4,
+    "flat_nat_pct": 1.2,
+    "sky_pct": 31.3,
+    "dat_doc_pct": 0.8,
+    "bo_pct": 38.3,
+    "empty_pct": 31.6,
+    "content_center_pct": 21.2,
+    "co_trong_pct": 1.2,
+    "suon_pct": 20.1,
+    "nuoc_pct": 30.4,
+    "troi_pct": 31.3
+   },
+   "px": {
+    "tau_than_6m": {
+     "n": 2,
+     "px_min": 41.3,
+     "px_med": 42.6,
+     "px_max": 43.9,
+     "n_duoi_6px": 0,
+     "tam_m": [
+      567,
+      599
+     ]
+    }
+   },
+   "hien": {
+    "quan": null,
+    "song": {
+     "chim": 10,
+     "tau": 7,
+     "khoi": 10
+    },
+    "ai_texture": null,
+    "s_khung": 16.69
+   },
+   "scene_meta": {
+    "quan": null,
+    "town": {
+     "lap_bo_gan": {
+      "bo": 0,
+      "r": 0,
+      "do_nat": 0
+     },
+     "vuon": {
+      "vuon": 2,
+      "cay": 18,
+      "nha": 0,
+      "m2": 12498.75
+     },
+     "diem_nhan": {
+      "nha_tho": {
+       "tam": [
+        -447,
+        -1289
+       ],
+       "cao_than": 13,
+       "cao_thap": 28.5
+      },
+      "convent": {
+       "tam": [
+        -461,
+        -1536
+       ],
+       "cao": 11
+      }
+     },
+     "do_nat": null
+    },
+    "kb_san": null,
+    "kb_phao": null,
+    "khoi_dau_nong": null,
+    "co": null,
+    "khoi": null,
+    "vuon": null,
+    "chay": [
+     4,
+     5
+    ]
+   }
+  }
+ },
+ "lua_do_pct": 0.048,
+ "lua_doi_pct": 0.404,
+ "do_cam_toan_khung_pct": 29.56,
+ "trung_vi_v6_sach": {
+  "sat_med": 0.418,
+  "colorful": 77.9,
+  "edges": 40.8,
+  "clip_pct": 0.585
+ },
+ "trung_vi_v6_chu_png": {
+  "sat_med": 0.414,
+  "colorful": 74.0,
+  "edges": 41.05,
+  "clip_pct": 2.175
+ },
+ "trung_vi_v5b2d_sach": {
+  "sat_med": 0.412,
+  "colorful": 70.0,
+  "edges": 27.5,
+  "clip_pct": 0.0
+ },
+ "trung_vi_tot_sach": {
+  "sat_med": 0.474,
+  "colorful": 82.2,
+  "edges": 39.95,
+  "clip_pct": 0.695
+ }
+}

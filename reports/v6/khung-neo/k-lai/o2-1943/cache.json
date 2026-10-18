@@ -1,0 +1,109 @@
+{
+ "f267be69b08c3649adb80e09c5ae67b6": {
+  "nam": 1943,
+  "noi": "Gibraltar",
+  "sha256": "6ed5ed8480651326bf38d6980fa62322dfcd3e0d10489cd87e260b185cd44487",
+  "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+  "model": "claude-sonnet-5-5",
+  "nghi_van": [],
+  "ghi_chu": [],
+  "cost_usd": 0.033399,
+  "cost_buoc2": 0.0,
+  "model_usage": {
+   "claude-sonnet-5-5": {
+    "inputTokens": 6,
+    "outputTokens": 750,
+    "cacheReadInputTokens": 3020,
+    "cacheCreationInputTokens": 10234,
+    "webSearchRequests": 0,
+    "costUSD": 0.033399,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 128000,
+    "thinkingTokens": 84,
+    "canonicalModel": "claude-sonnet-5-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "secs": 6.4,
+  "so_anh_doc": 5,
+  "loi": null,
+  "tra_loi": "{\"nam\":1943,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+ },
+ "7777a7ba1a6588fad3cefc1fcf45cd23": {
+  "nam": 1943,
+  "noi": "Gibraltar",
+  "sha256": "d99ed74de942acc3227a3a51951114ae8a1bd86f5743a5d956deff8fb36ffd3d",
+  "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+  "model": "claude-sonnet-5-5",
+  "nghi_van": [],
+  "ghi_chu": [],
+  "cost_usd": 0.033299,
+  "cost_buoc2": 0.0,
+  "model_usage": {
+   "claude-sonnet-5-5": {
+    "inputTokens": 6,
+    "outputTokens": 740,
+    "cacheReadInputTokens": 3020,
+    "cacheCreationInputTokens": 10234,
+    "webSearchRequests": 0,
+    "costUSD": 0.033299,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 128000,
+    "thinkingTokens": 74,
+    "canonicalModel": "claude-sonnet-5-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "secs": 6.8,
+  "so_anh_doc": 5,
+  "loi": null,
+  "tra_loi": "{\"nam\":1943,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+ },
+ "44a8a3692735de500474fc561f5d8897": {
+  "nam": 1943,
+  "noi": "Gibraltar",
+  "sha256": "34281666d1f6202304c62b0aa9ca10ed10d573a5fd3c52f0b85b55befed9dd7e",
+  "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+  "model": "claude-sonnet-5-5",
+  "nghi_van": [],
+  "ghi_chu": [
+   {
+    "muc": "tau",
+    "mo_ta": "A square-rigged, galleon-like sailing ship with a tall ochre or orange sail or stern sits in the harbour. A low grey hull lies beside it.",
+    "ly_do": "Wartime Gibraltar harbour in 1943 held steel warships, merchant steamers and auxiliaries in grey or dazzle paint. A square-rigged galleon-type vessel does not fit that. The hull and rig look like an earlier-era design.",
+    "nam_xuat_hien": null,
+    "toa_do_px": [
+     864,
+     562,
+     998,
+     632
+    ],
+    "do_tin": 0.35
+   }
+  ],
+  "cost_usd": 0.037417099999999995,
+  "cost_buoc2": 0.0,
+  "model_usage": {
+   "claude-sonnet-5-5": {
+    "inputTokens": 6,
+    "outputTokens": 1149,
+    "cacheReadInputTokens": 3026,
+    "cacheCreationInputTokens": 10245,
+    "webSearchRequests": 0,
+    "costUSD": 0.037417099999999995,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 128000,
+    "thinkingTokens": 273,
+    "canonicalModel": "claude-sonnet-5-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "secs": 11.1,
+  "so_anh_doc": 5,
+  "loi": null,
+  "tra_loi": "{\"nam\":1943,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"A square-rigged, galleon-like sailing ship with a tall ochre or orange sail or stern sits in the harbour. A low grey hull lies beside it.\",\"ly_do\":\"Wartime Gibraltar harbour in 1943 held steel warships, merchant steamers and auxiliaries in grey or dazzle paint. A square-rigged galleon-type vessel does not fit that. The hull and rig look like an earlier-era design.\",\"nam_xuat_hien\":null,\"toa_do\":[0.45,0.52,0.52,0.585],\"do_tin\":0.35}]}"
+ }
+}

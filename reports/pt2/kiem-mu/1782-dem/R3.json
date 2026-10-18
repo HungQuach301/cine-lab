@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 5,
+  "flags": [
+   "flat_slide_look",
+   "empty_frame",
+   "toy_like"
+  ],
+  "note": "Clean but sterile 3D render. Walls are smooth, flat gray planes with no weathering. The street is nearly black, and the only figure is an unreadable silhouette. The sky is a flat saturated blue gradient. The window glow is hot and blown out. The Union flag is tiny. The scene reads as a game-engine blockout rather than a besieged town."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 7,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 2,
+  "flags": [
+   "empty_frame"
+  ],
+  "note": "Same layout, but the plaster is peeling to brick, with stains, rubble and debris along the lane edge. This fits a town under bombardment and gives the walls real material quality. The street centre is still crushed to black, there are no people, and the sky is a flat blue gradient. The window glow is warm and reads better than in X. The brick and plaster texture looks a little repetitive."
+ },
+ "better": "Y",
+ "why": "Y has weathered plaster, brick and rubble that suggest siege damage, while X has smooth, featureless walls and looks like an untextured game asset.",
+ "top_fix_for_weaker": "Add weathered plaster, exposed masonry, stains and rubble to the walls and street. Lift the shadows so the lane is readable. Add a few people or props, such as a barrel, a cart or a sentry, and make the flag larger.",
+ "anachronisms_seen": [
+  "Flag looks like the 1801 Union Jack; in 1782 it should be the 1707 Great Union flag, which has no St Patrick's saltire, so the proportions and details need checking",
+  "Tall flagpole with a modern-looking thin pole",
+  "Uniform, regular window openings and clean roof edges are slightly modern in X"
+ ]
+}

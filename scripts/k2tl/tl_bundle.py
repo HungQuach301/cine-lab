@@ -29,6 +29,21 @@ def sang(frames_dir, mask_dir, hero_b=2):
     return out
 
 
+def nam_noi(mask_path, fps=24, t_off=0.0, f_off=0):
+    rows = json.load(open(mask_path)); out = {}
+    nk = [dict(f=r["f"] + f_off, nam_max=r["nam_khung"]) for r in rows if r.get("nam_khung")]
+    if nk: out["nam_khung"] = nk
+    win = []
+    for r in rows:
+        if not r.get("noi"): continue
+        t = round(r["f"] / fps + t_off, 3)
+        if win and win[-1]["noi"] == r["noi"]: win[-1]["t"][1] = round(t + 1 / fps, 3)
+        else: win.append(dict(t=[t, round(t + 1 / fps, 3)], noi=r["noi"]))
+    if win: out["noi"] = win
+    if any("ghost_pct" in r for r in rows): out["ghost_lan_dau_f"] = next((r["f"] + f_off for r in rows if r.get("ghost_pct", 0) > 0.05), None)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--run", required=True); ap.add_argument("--out", required=True); ap.add_argument("--cues", required=True)
     ap.add_argument("--sang"); ap.add_argument("--maskpng"); ap.add_argument("--rights", default=str(ROOT / "RIGHTS.md")); a = ap.parse_args()
@@ -51,6 +66,8 @@ def main():
           "nam_toa": {"nam_hien_tai": 2026, "moc": {"1941": "HM Government of Gibraltar 199/2018, 177/2023 (đường băng lấn vịnh 1941–1943)", "1987": "Landsat 5 TM 1987 (USGS)", "2026": "Copernicus Sentinel-2, 15/04/2026"},
                       "lop": {"Gibraltar (khối OSM, tầng chuẩn)": {"loai": "tang_chuan", "nguon": "goi-canh-meta.json stat gib_1987 + gib_2026", "nam": {"1987": meta["stat"]["gib_1987"], "2026": meta["stat"]["gib_2026"]}},
                               "đất theo năm (landY)": {"loai": "tang_chuan", "nguon": "goi-canh-meta.json landY_counts (0 = luôn là đất)", "nam": {k: v for k, v in meta["landY_counts"].items() if k != "0"}}}}}
+    # V5b-2b (K-1.13 §8.1): nam_khung [{f, nam_max: {lớp: năm}}] và noi theo cửa sổ [{t: [a, b], noi}] — từ mặt nạ mọi khung (page.js contentMask)
+    bo.update(nam_noi(R / "do" / "noi-dung-mask.json"))
     if a.sang and a.maskpng:
         S = sang(a.sang, a.maskpng); json.dump(S, open(O / "nhan-sang.json", "w"), indent=1)
         if S: bo["nhan_sang"] = [{"t": cues["pin"], "ti_le": round(float(np.median([x["ti_le"] for x in S])), 3)}]

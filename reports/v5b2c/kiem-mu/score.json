@@ -1,0 +1,222 @@
+{
+ "SM2": {
+  "nguoi": 3,
+  "m13": {
+   "craft": [
+    8,
+    8,
+    8
+   ],
+   "readability": [
+    7,
+    7,
+    8
+   ],
+   "clarity": [
+    8,
+    8,
+    8
+   ],
+   "dung": [
+    {
+     "from": true,
+     "route": true,
+     "when": true,
+     "where": true
+    },
+    {
+     "from": true,
+     "route": true,
+     "when": true,
+     "where": true
+    },
+    {
+     "from": true,
+     "route": true,
+     "when": true,
+     "where": true
+    }
+   ],
+   "tra_loi": [
+    {
+     "from": "England / Spithead (red lines enter from the top-left, Atlantic side)",
+     "route": "Down the Portuguese Atlantic coast, then east through the Strait to Gibraltar. Arrowheads show the direction of travel.",
+     "when": "Jan 1780 (Rodney), Apr 1781 (Darby), Oct 1782 (Howe). The Minorca → Spain event is dated 5 Feb 1782.",
+     "where": "Gibraltar, shown as a white-and-red ring marker at the southern tip of Spain"
+    },
+    {
+     "from": "England / Spithead (Relief 1 Rodney, Relief 2 Darby, Relief 3 Howe)",
+     "route": "Down the Atlantic past Portugal to the Strait of Gibraltar. Relief 3 then goes on into the Mediterranean. The earlier routes stay as faded ghost lines.",
+     "when": "Jan 1780, Apr 1781, Oct 1782 (a dated clock for each relief). A Minorca to Spain 5 Feb 1782 callout is also shown.",
+     "where": "Gibraltar at the southern tip of Spain, marked with a white pin and a label. The Britain, Spain and France legend explains the territory colours."
+    },
+    {
+     "from": "England (Rodney) and Spithead (Darby); Howe is not stated, but his route comes from the same northern Atlantic",
+     "route": "Atlantic route down the Portuguese coast to the Strait of Gibraltar; Howe's route goes on into the Med",
+     "when": "Jan 1780, Apr 1781, Oct 1782 (changing date per relief)",
+     "where": "Gibraltar, marked with a red-ringed dot at the strait on the southern tip of Spain"
+    }
+   ],
+   "flags": [],
+   "tb_craft": 8.0,
+   "tb_readability": 7.33,
+   "tb_clarity": 8.0,
+   "dung_tong": "12/12"
+  },
+  "du_phong": {
+   "craft": [
+    7,
+    7,
+    7
+   ],
+   "readability": [
+    7,
+    7,
+    7
+   ],
+   "clarity": [
+    6,
+    5,
+    5
+   ],
+   "dung": [
+    {
+     "from": true,
+     "route": true,
+     "when": true,
+     "where": true
+    },
+    {
+     "from": true,
+     "route": true,
+     "when": true,
+     "where": true
+    },
+    {
+     "from": true,
+     "route": true,
+     "when": true,
+     "where": true
+    }
+   ],
+   "tra_loi": [
+    {
+     "from": "England / Spithead (red lines enter from the top-left, Atlantic side)",
+     "route": "Down the Portuguese Atlantic coast, then east through the Strait to Gibraltar. Relief 1, 2 and 3 are drawn as red lines.",
+     "when": "1780–82 as one fixed range. The labels name Rodney, Darby and Howe but give no individual dates.",
+     "where": "Gibraltar, labelled at the southern tip of Spain"
+    },
+    {
+     "from": "England / Spithead (Relief 1 Rodney, Relief 2 Darby, Relief 3 Howe)",
+     "route": "Down the Atlantic past Portugal's coast to the Strait of Gibraltar. Relief 3 then goes on into the Mediterranean.",
+     "when": "1780–82 only. The date range never changes, and there are no individual dates.",
+     "where": "Gibraltar at the southern tip of Spain, labelled. The territory colours have no legend."
+    },
+    {
+     "from": "England / Spithead (Britain), via labels only",
+     "route": "Atlantic route down the Portuguese coast to the Strait of Gibraltar; the third relief goes on into the Med",
+     "when": "1780-82 (a single range, no per-relief dates)",
+     "where": "Gibraltar, labeled at the strait on the southern tip of Spain"
+    }
+   ],
+   "flags": [
+    "confusing"
+   ],
+   "tb_craft": 7.0,
+   "tb_readability": 7.0,
+   "tb_clarity": 5.33,
+   "dung_tong": "12/12"
+  },
+  "chon_m13": "3/3",
+  "why": [
+   "Y gives the viewer a legend, a changing date for each relief, arrowheads for direction and a clearer Gibraltar marker, so who, when and where are all answered. X shows only the same route lines under a fixed '1780–82'.",
+   "Y gives each relief its own date, includes a colour legend and keeps ghost trails of the earlier routes, so a viewer can follow who sailed, when, and to where. X only shows a static '1780–82' and has no legend.",
+   "Y adds specific dates, a color legend and direction arrowheads, which answer who, when and where much faster than X's single 1780-82 badge."
+  ],
+  "sua_yeu_hon": [
+   "Replace the fixed '1780–82' with a date for each relief (Jan 1780, Apr 1781, Oct 1782). Add a Britain/Spain/France legend and arrowheads on the route lines. Swap the tiny red dot at Gibraltar for a ringed marker, and move the Howe label off the route and the Gibraltar label.",
+   "In X, replace the static '1780–82' with a date that updates for each relief (Jan 1780, Apr 1781, Oct 1782). Add a Britain/Spain/France legend. Move the labels off the route line and the Gibraltar pin.",
+   "Replace the static '1780-82' badge with a date per relief (Jan 1780, Apr 1781, Oct 1782). Add a Britain/Spain/France legend and arrowheads on the route heads. Move the Howe label in the last frame off the route and away from the Gibraltar label."
+  ]
+ },
+ "SM3": {
+  "nguoi": 3,
+  "craft": [
+   6,
+   6,
+   6
+  ],
+  "clarity": [
+   4,
+   4,
+   4
+  ],
+  "readability": [
+   6,
+   7,
+   6
+  ],
+  "dung": [
+   {
+    "from": true,
+    "route": true,
+    "when": true,
+    "where": true
+   },
+   {
+    "from": true,
+    "route": true,
+    "when": true,
+    "where": true
+   },
+   {
+    "from": true,
+    "route": true,
+    "when": true,
+    "where": true
+   }
+  ],
+  "tra_loi": [
+   {
+    "from": "Gibraltar (Allied HQ). Early frames show civilians leaving. In the last frame, Allied forces arrive from the Atlantic, off the left edge of the map.",
+    "route": "Gibraltar to Casablanca (civilians). Gibraltar to Tangier. Gibraltar to London, Jamaica and Madeira. Allied landings at Casablanca, Oran and Algiers (red arrows from the west), plus aircraft to Oran.",
+    "when": "May 1940; 12–14 Jun 1940; Jul–Oct 1940; 8 Nov 1942",
+    "where": "Gibraltar, at the southern tip of Spain at the Strait, shown with a red dot. It is hard to find in frame 1 because it is small."
+   },
+   {
+    "from": "Gibraltar (Allied HQ). Civilians leave in 1940. In 1942 Allied forces come from the open Atlantic to the west.",
+    "route": "1940: Gibraltar to Casablanca (civilians), Tangier, London, Jamaica, Madeira. 1942: Allied landings at Casablanca, Oran and Algiers, plus aircraft from Gibraltar to Oran.",
+    "when": "May 1940; 12–14 Jun 1940 (Spain non-belligerent 12 Jun, Tangier Spanish-occupied from 14 Jun); Jul–Oct 1940; 8 Nov 1942",
+    "where": "Gibraltar, the red dot at the southern tip of Spain at the Strait. It is never labelled as being at the Strait or in the Iberian south."
+   },
+   {
+    "from": "Gibraltar (Allied HQ). Civilians leave it in 1940. In Nov 1942 red arrows come from the open Atlantic, off the left edge, and an aircraft route runs from Gibraltar.",
+    "route": "1940: Gibraltar to Casablanca (civilians), then to Tangier, London, Jamaica and Madeira (thin pale lines). 1942: red arrows to the Moroccan coast, with labels for Casablanca, Oran and Algiers, plus aircraft from Gibraltar to Oran.",
+    "when": "May 1940; May–Jun 1940; 12 Jun 1940; 12–14 Jun 1940 (Tangier Spanish-occupied from 14 Jun); Jul–Oct 1940; 8 Nov 1942. 'c. 1941' appears only as a borders caption.",
+    "where": "Gibraltar, the red dot at the southern tip of Spain at the Strait, lower-center of frame. It sits at about 65% across and 60% down in X1 and shifts around as the camera moves."
+   }
+  ],
+  "flags": [
+   "cluttered",
+   "confusing",
+   "text_overlap",
+   "too_many_things_at_once"
+  ],
+  "tach": [
+   true,
+   true,
+   true
+  ],
+  "why_split": [
+   "The 1940 civilian evacuations from Gibraltar and the Nov 1942 Allied landings (Operation Torch) are different stories with different directions of travel, so cramming them into one pan makes the viewer relearn the map.",
+   "A 1940 civilian evacuation and a 1942 Allied invasion are two different stories, 2.5 years apart, with different directions of movement and different actors, and the camera jump between them makes the map read as a different place.",
+   "The 1940 evacuation and the Nov 1942 Torch landings are different stories, with different directions, scales and framing, and 2.5 years apart. Putting both in one moving shot makes the camera zoom out and drag the viewer through unrelated routes."
+  ],
+  "top_fix": [
+   "Cut it into two shots: 1940 evacuation, then 1942 landings. Draw routes as thick, high-contrast, animated lines with arrowheads. Zoom in on Gibraltar at the start. Show one label at a time, at larger text size. Keep the red dot pulsing and the date card steady. Drop the credit line to a small footer.",
+   "Cut this into two shots. Shot 1 is the 1940 evacuation: lock the camera on the Strait, draw one bold, colour-coded animated route at a time with a single large label and a simple date. Shot 2 is the 8 Nov 1942 landings: hold a wider, stable camera and show the three invasion arrows in red with larger end labels. In both, drop the persistent credit line to a tiny end-card, and bring the Spain/Vichy/German-occupied labels in only when they matter.",
+   "Cut into two shots with a locked camera. Shot 1 is 1940 only: Gibraltar to Casablanca, Tangier, London and the islands, shown as thick high-contrast animated arrows with destination dots and fewer labels. Shot 2 is 8 Nov 1942 only: show the Atlantic, Casablanca, Oran and Algiers as marked dots and make the red arrows land on them. Make all type at least 1.5× bigger, move the credit line out of the way of the routes, and remove the repeated Spain card."
+  ]
+ },
+ "chi_phi": 0.537
+}

@@ -1,0 +1,42 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "empty_frame",
+   "flat_slide_look"
+  ],
+  "note": "The architecture is clean, but the walls are flat, pastel and unweathered. The two figures are blocky primitives, one with a tiny stick rifle, and they read as placeholders. The crates are plain stacked boxes and the square is empty. The look is a game-engine mockup."
+ },
+ "Y": {
+  "craft": 8,
+  "detail": 9,
+  "period": 8,
+  "ai_look": 6,
+  "flags": [],
+  "note": "The most convincing of the three. It has peeling plaster, drainpipes, rust-stained stone and a worn cobbled surface. Props include sandbags, barrels, a handcart, a bicycle, a military truck and crates. Small khaki and white-uniformed figures, a harbour ship and a flag give depth and a clear sense of scale. The light is soft and atmospheric. The far figures are tiny and slightly mushy, the props are a little evenly scattered, and the plaster decay looks procedural/AI-like. The cobbles are slightly too uniform."
+ },
+ "Z": {
+  "craft": 5,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 2,
+  "flags": [
+   "toy_like",
+   "empty_frame"
+  ],
+  "note": "It has better stone and shutter materials than X and a moodier palette, but it shares X's weaknesses. The street is empty, the two pixel-block figures read as toys, and there are only a few brick-like crates. The walls are cleaner and flatter than Y's, and the scene has a game-engine look."
+ },
+ "best": "Y",
+ "worst": "X",
+ "why": "Y is the only frame with weathered materials, believable wartime clutter and people at plausible scale, while X and Z are the same stripped-down scene with toy-like blocky figures and an empty square, and X is the flattest and most plastic.",
+ "anachronisms_seen": [
+  "Union Jack looks like a modern flag proportion/design but is acceptable for 1943",
+  "Y: the ship in the harbour has a modern-looking funnel/superstructure and is ambiguous for a 1943 warship or liner",
+  "X/Z: blocky pixel-style figures with no period-accurate uniform detail (X's blue-grey suit, Z's blue-clad figure)",
+  "Gibraltar's Main Street area shown as a quiet, near-empty plaza, unlike the crowded, busy military-port character of 1943"
+ ]
+}

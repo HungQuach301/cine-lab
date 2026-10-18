@@ -1,0 +1,12 @@
+```json
+{"X": {"craft": 6, "readability": 7, "clarity": 4,
+"flags": ["confusing", "too_many_things_at_once", "cluttered", "text_overlap"],
+"from": "Gibraltar (Allied HQ). Civilians leave in 1940. In 1942 Allied forces come from the open Atlantic to the west.",
+"route": "1940: Gibraltar to Casablanca (civilians), Tangier, London, Jamaica, Madeira. 1942: Allied landings at Casablanca, Oran and Algiers, plus aircraft from Gibraltar to Oran.",
+"when": "May 1940; 12–14 Jun 1940 (Spain non-belligerent 12 Jun, Tangier Spanish-occupied from 14 Jun); Jul–Oct 1940; 8 Nov 1942",
+"where": "Gibraltar, the red dot at the southern tip of Spain at the Strait. It is never labelled as being at the Strait or in the Iberian south.",
+"note": "The relief basemap looks good. The camera drifts and zooms between frames, so the map shifts and the labels chase it. X3 has the worst clutter, with the Spain label crowding 'to London' and the date caption overlapping the Jamaica/Madeira route lines. Route lines are thin, pale and low-contrast on the pale sea, so they are hard to follow on a phone. The 1940 routes are all the same cream colour with only small tags, so they don't tell you who moves or why. Only the 1942 routes are red, and the legend never explains that colour as a route. The small 'approx. borders… Cliopatria (Seshat)' credit is permanently stacked under the date and is illegible at phone size. In X4 the 'Allied landings' and 'Gibraltar' labels collide with the arrows and the Gibraltar dot. The tags are small and several labels are placed away from the thing they name. The legend wastes top-left space and its 'Britain & Allies' red never appears on the map until X4."},
+"split": true,
+"why_split": "A 1940 civilian evacuation and a 1942 Allied invasion are two different stories, 2.5 years apart, with different directions of movement and different actors, and the camera jump between them makes the map read as a different place.",
+"top_fix": "Cut this into two shots. Shot 1 is the 1940 evacuation: lock the camera on the Strait, draw one bold, colour-coded animated route at a time with a single large label and a simple date. Shot 2 is the 8 Nov 1942 landings: hold a wider, stable camera and show the three invasion arrows in red with larger end labels. In both, drop the persistent credit line to a tiny end-card, and bring the Spain/Vichy/German-occupied labels in only when they matter."}
+```

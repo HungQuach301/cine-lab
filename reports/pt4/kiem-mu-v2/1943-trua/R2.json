@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 3,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The buildings are well lit and the plaster weathering is convincing. The atmospheric depth to the bay is good. The crowd is the weak point: a cluster of faceless mannequins in flat blue and olive with no cloth detail, and a flat sandy gap beyond them where the plaza should continue. The flag is tiny, and a modern-looking ship sits in the distance. The building is a Mediterranean pastiche, not Gibraltar's Georgian or colonial Commercial Square."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 3,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The buildings are the same render, with stronger, more saturated plaster contrast. The figures are bigger, so the mannequin look is more obvious. They are spread out, with a few foreground figures and ghosted semi-transparent ones, so they read as scattered game assets. The paving carries through to the water edge, which reads better than X's sandy gap. The distant ship is a muddy glitchy blob. The colours are a little over-saturated."
+ },
+ "better": "X",
+ "why": "X is slightly better because its crowd is denser, so it reads as a gathering, and its muted palette is more believable. Y's larger, spaced-out figures with ghosted transparencies look more like toys, even though its paving is more continuous.",
+ "top_fix_for_weaker": "Replace the faceless capsule mannequins with properly modelled, clothed 1940s figures (naval whites, khaki battledress, civilian clothes, with faces, varied poses and contact shadows). Remove the ghosted transparent duplicates, fix the glitchy ship, and add period set dressing such as signage, vehicles, and sandbags or blackout detail.",
+ "anachronisms_seen": [
+  "Faceless uniform-colour mannequin crowd with no recognisable period kit",
+  "Distant ship looks modern or garbled",
+  "Generic Mediterranean facade with modern-looking metal balcony railings and shutters, not Gibraltar's Georgian architecture",
+  "No period signage, vehicles or wartime markings (blackout, sandbags)"
+ ]
+}

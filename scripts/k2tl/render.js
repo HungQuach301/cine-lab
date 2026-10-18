@@ -10,16 +10,14 @@ const { execSync } = require('child_process');
 const fs = require('fs'), path = require('path');
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const ROOT = path.resolve(__dirname, '../../design'), CACHE = process.env.K2TL_CACHE || '/var/tmp/cine-out/k2tl-cache';
-const GL = process.env.K2TL_GL || 'llvmpipe';
-const GLS = { llvmpipe: { flags: ['--use-gl=angle', '--use-angle=gl-egl'], want: /llvmpipe/i }, swiftshader: { flags: ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'], want: /SwiftShader/i } };
-if (!GLS[GL]) { console.error(`K2TL_GL không hợp lệ: ${GL} (llvmpipe | swiftshader)`); process.exit(2); }
+const GLM = require('./gl.js'), { gl: GL, flags: GLFLAGS } = GLM.pick();   // V5b-2b: chọn trình dựng dùng chung (gl.js; thêm vulkan | egl-gpu)
 const W = +arg('w', 1920), H = +arg('h', 1080), OUT = arg('out') ? path.resolve(arg('out')) : null;
 const rssAll = () => { try { return Math.round(execSync("ps -C chrome-headless-shell -o rss=").toString().trim().split('\n').map(Number).reduce((a, b) => a + b, 0) / 1024); } catch { return null; } };
 const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toString().trim().split('\n').map((l) => l.trim().split(/\s+/).map(Number));
   const k = new Set([pid]); let g = true; while (g) { g = false; for (const [p, pp] of o) if (k.has(pp) && !k.has(p)) { k.add(p); g = true; } } return Math.round(o.filter(([p]) => k.has(p)).reduce((a, [, , r]) => a + r, 0) / 1024); } catch { return null; } };
 (async () => {
   if (OUT) fs.mkdirSync(OUT, { recursive: true });
-  const flags = process.env.K2TL_GL_FLAGS ? JSON.parse(process.env.K2TL_GL_FLAGS) : GLS[GL].flags;   // chỉ để test cơ chế DỪNG (cờ sai → rơi trình dựng khác)
+  const flags = GLFLAGS;   // K2TL_GL_FLAGS: chỉ để test cơ chế DỪNG (cờ sai → rơi trình dựng khác)
   const browser = await chromium.launch({ args: [...flags, '--ignore-gpu-blocklist', '--font-render-hinting=none', '--force-color-profile=srgb', '--js-flags=--max-old-space-size=12000'] });
   const bpid = browser.process ? browser.process().pid : null;
   const page = await browser.newPage({ viewport: { width: 800, height: 600 }, deviceScaleFactor: 1 });
@@ -36,12 +34,11 @@ const rss = (pid) => { try { const o = execSync('ps -e -o pid=,ppid=,rss=').toSt
   });
   await page.goto('http://cine.local/tl.html'); await page.waitForFunction(() => window.ready === true, null, { timeout: 60000 });
   const pack = arg('pack', 'gib');
-  const cfg = { W, H, scene: arg('scene', 'gib20'), pack: `/cache/scene/${pack}/pack/`, lut: '/cache/lut/' + arg('lut', 'k2-a-thep-lanh') + '.cube', lutMode: +arg('lutmode', 1), vib: +arg('vib', 0.35), look: JSON.parse(arg('look', '{}')), photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{}')), lutK: +arg('lutk', 1) };
+  const cfg = { W, H, scene: arg('scene', 'gib20'), pack: `/cache/scene/${pack}/pack/`, lut: '/cache/lut/' + arg('lut', 'k2-a-thep-lanh') + '.cube', lutMode: +arg('lutmode', 1), vib: arg('vib') != null ? +arg('vib') : undefined,   /* V5b-2c: không khai → cảnh tự chọn (GRADE) hoặc 0,35 */ look: JSON.parse(arg('look', '{}')), photo: '/cache/loc/ng_crop.jpg', tech: JSON.parse(arg('tech', '{}')), lutK: +arg('lutk', 1), opt: JSON.parse(arg('opt', '{}')) };   // V5b-2b: --opt = opt của shot (cut, layers…) như scripts/k2/hero.js
   const tl0 = Date.now(); const info = await page.evaluate(async (c) => await window.setup(c), cfg); info.load_wall_s = (Date.now() - tl0) / 1000; info.rss_after_load_mb = rssAll();
   console.error('[info]', JSON.stringify(info));
   info.gl = GL; const RD = { renderer: info.renderer, gl: GL };
-  if (!GLS[GL].want.test(info.renderer || '')) { console.error(`[gl] DỪNG: yêu cầu ${GL} nhưng trình dựng thật là "${info.renderer}"`); await browser.close(); process.exit(6); }
-  console.error(`[gl] ${GL} · ${info.renderer}`);
+  await GLM.assertRenderer(GL, info.renderer, browser);
   const tagRows = (rows) => rows.map((r) => Object.assign(r, RD));   // mảng (mỗi khung) → mỗi phần tử mang renderer (bộ kiểm đọc mảng)
   if (arg('campath')) { fs.writeFileSync(arg('campath'), JSON.stringify(Object.assign(await page.evaluate(() => window.camLog()), RD))); await browser.close(); return; }
   if (arg('budget')) { fs.writeFileSync(arg('budget'), JSON.stringify(tagRows(await page.evaluate(() => window.budgetAll())))); await browser.close(); return; }

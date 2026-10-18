@@ -1,0 +1,100 @@
+{
+ "phien": "V6-khung-neo (phiên xưởng con)",
+ "ngay": "2026-10-18",
+ "cach_kiem": "Như PT2/PT4 (HC4): design/pt/lai/kiem_c.py (bản đồ khác biệt cấu trúc + màu bão hoà) trên KẾT QUẢ GHÉP thật (nền LAI d2) → 12 ứng viên phóng 400 % + 16 ô rà 200 % toàn khung, người rà (phiên) xem từng ô A|LAI; đối chiếu luật vật hai tầng Q-PT4-3 (sửa 12:55). KHÔNG dùng chấm mù",
+ "tam": [
+  {
+   "tam": "1943-d2-lan3",
+   "model": "gpt-image-2.5-sunburst",
+   "ly_do_sinh_lai": "hình học nền A 1943 đổi theo luật vật hai tầng (bỏ 102 chậu cây, bỏ 27/40 mái che, thêm 5 tường bao cát cửa, 1 chồng hòm, 2 nhóm phuy) → tấm lần 2 (PT4) không còn khớp; thêm MẶT NẠ BẢO VỆ MẶT ĐẤT XA (> 55 m, 1,54 % khung) thay ghép --dat-xa của PT4 (W7)",
+   "mat_na": "PT4 lần 2 (vùng bảo vệ PT2 + chặn kiến trúc: đá viền, sàn ban công, gờ, lan can + dải tường 0,7 m dưới chúng) + mặt đất > 55 m — 41,29 % khung được sửa",
+   "phat_hien": [
+    {
+     "ma": "W5",
+     "mo_ta": "công-xon dưới sàn ban công (PT2 lần 1)",
+     "ket_qua": "KHÔNG có ở lần 3 (rà 200 % mọi ban công trong khung)",
+     "loai": "đã hết"
+    },
+    {
+     "ma": "W6",
+     "mo_ta": "thanh kim loại trong lòng cửa tầng trệt (PT4 lần 2)",
+     "ket_qua": "không thấy; má cửa vẫn lấy từ A khi ghép (compose4 --ma-cua-A)",
+     "loai": "đã hết"
+    },
+    {
+     "ma": "W7",
+     "mo_ta": "tường thấp + bậc ở cuối quảng trường (PT4 lần 2)",
+     "ket_qua": "mặt đất > 55 m nằm trong vùng giữ của mặt nạ + prompt cấm tường/bậc/bó vỉa trên mặt đất; rà 200 %: mặt đá lát phẳng, không vật mới",
+     "loai": "đã hết"
+    },
+    {
+     "ma": "W8",
+     "mo_ta": "bóng nhà trên mặt đất phía trước (lượt trưa) C vẽ lại mềm và loang hơn A (vệt nắng lốm đốm trong vùng bóng)",
+     "loai": "bề mặt/ánh sáng — không phải vật mới",
+     "xu_ly": "giữ; lượt sáng/chiều/đêm vẫn chuyển bóng theo tỉ số lượt A (compose4)"
+    },
+    {
+     "ma": "W9",
+     "mo_ta": "viền 2–3 px nền A (xám lam) quanh tường bao cát gần máy (vùng bảo vệ nở 3 px)",
+     "loai": "không lỗi dữ kiện — mép ghép",
+     "xu_ly": "giữ (vùng bảo vệ phải là điểm ảnh A, K-LAI-4)"
+    },
+    {
+     "ma": "W1b",
+     "mo_ta": "màu sơn: toà trái hồng đất, toà phải kem → vàng đất loang",
+     "loai": "không lỗi dữ kiện (màu A là bảng màu thủ tục, không nguồn)",
+     "xu_ly": "giữ; chỉnh màu LAI riêng (Q-PT4-1)"
+    },
+    {
+     "ma": "W2",
+     "mo_ta": "vữa bong lộ gạch, loang ẩm, đá lát mòn",
+     "loai": "bề mặt — trong danh sách",
+     "xu_ly": "giữ"
+    }
+   ],
+   "vat_cam": "0 người, 0 cờ mới, 0 chữ/biển, 0 tàu mới, 0 nguồn sáng mới, 0 cây, 0 vật hiện đại, 0 khối kiến trúc mới trong kết quả ghép",
+   "loi_chac_cuoi": 0,
+   "nghi_van_con_lai": 0,
+   "ngoai_le_cho_duyet": [],
+   "ket_luan": "0 lỗi chắc; 0 nghi vấn còn lại; 0 ngoại lệ chờ duyệt",
+   "bang_chung": "reports/v6/khung-neo/kiem/bang-chung-1943-lan3.jpg"
+  },
+  {
+   "tam": "1782-d2-lan2",
+   "nguon_so": "reports/pt2/ai-c/goi-api.jsonl (PT2, dùng lại — không sinh lại trong V6)",
+   "ly_do": "hình học A 1782 V6 = PT4 + bỏ 1 mái che (ngoài khung) + 2 thùng vỡ + 1 giỏ (mã 9516, vùng BẢO VỆ = điểm ảnh A); ghép --nen-cu (nền PT2) chuyển bóng của vật mới bằng tỉ số A_d2/A_cũ_d2 (1,72 % khung có hình học đổi)",
+   "loi_chac_cuoi": 0,
+   "nghi_van_con_lai": 0,
+   "ngoai_le_cho_duyet": [],
+   "ket_luan": "giữ kết luận PT2/PT4 (0 lỗi chắc); vật mới V6 là điểm ảnh A (không qua AI)"
+  }
+ ],
+ "tong": {
+  "loi_chac_truoc_xu_ly": 0,
+  "loi_chac_cuoi": 0,
+  "nghi_van_cuoi_nhe": 0,
+  "nghi_van_cuoi": 0,
+  "ngoai_le_cho_duyet": 0
+ },
+ "nguon_vat_nen": {
+  "luat": "Q-PT4-3 (sửa 12:55): vật mang dữ kiện có nguồn hoặc ghi illustrative/approx.; vật nền phụ không cần nguồn riêng nếu đúng kiểu/vật liệu thời kỳ, không trái hoàn cảnh, không hiện đại, không chữ, mật độ vừa phải",
+  "danh_sach": "reports/v6/khung-neo/KHUNG-NEO-V6.md §3"
+ },
+ "bang_chung": "kiem/bang-chung-1943-lan3.jpg",
+ "khung_neo": {
+  "1782": {
+   "tam_C_dung": "1782-d2-lan2.png (lần sinh 2, PT2)",
+   "loi_chac_cuoi": 0,
+   "nghi_van_con_lai": 0,
+   "ngoai_le_cho_duyet": [],
+   "duoc_dung": true
+  },
+  "1943": {
+   "tam_C_dung": "1943-d2-lan3.png (lần sinh 3, V6)",
+   "loi_chac_cuoi": 0,
+   "nghi_van_con_lai": 0,
+   "ngoai_le_cho_duyet": [],
+   "duoc_dung": true
+  }
+ }
+}

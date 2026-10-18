@@ -1,0 +1,29 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "Warm, smooth sand-colored ground reads as a flat beach or a blank plane. Clean pale-blue sky and hazy sea are pleasant. The buildings are plain white boxes with dark door holes and no real Georgian or Genoese character. Soldiers are tiny peg-doll figures. Cannonball piles, carts and barrels are sparse and look like scattered primitives. The large empty sky takes up half the frame. The harbour and hills in the distance are the nicest part."
+ },
+ "Y": {
+  "craft": 4,
+  "detail": 4,
+  "period": 5,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "The composition is identical to X. The cooler grey-blue lighting and the cobbled or gravel ground texture make the parade ground read as a paved military square rather than a beach. The buildings look a little more like stone, with brick-coloured trim on the parapets and rubble. The peg-doll soldiers (red and blue coats) and primitive props are the same. The sky is still mostly empty. The ground texture is somewhat noisy and the colour palette is muddy and desaturated."
+ },
+ "better": "Y",
+ "why": "Same scene and same weaknesses, but Y's textured paving and cooler stone tones are more believable for a parade ground than X's smooth beach-like sand.",
+ "top_fix_for_weaker": "Replace the smooth sand plane with a textured paved or compacted-earth surface. Then add real people (redcoat formations, civilians), period facades with balconies, shutters and tiled roofs, and a lower camera angle that cuts the empty sky."
+}

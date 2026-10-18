@@ -1,0 +1,35 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Hazy light and weathered plaster on both facades look good. The figures are small, featureless grey-green and navy mannequins bunched in a tight clump. They look like game assets. The horizon haze is soft and the flag and ship are tiny. The pink-red left wall is plausible but heavily stained. The crowd reads as a cluster rather than a street scene."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "The warm orange stucco and the stronger light and shadow give it more punch. The larger foreground figures are plastic-looking mannequins with identical poses, and some are semi-transparent or ghosted. There is a visible smear at the bottom centre. The crowd is spread more naturally, but the large figures make the toy look more obvious. The ship and flag are the same weak, tiny elements as in X."
+ },
+ "better": "X",
+ "why": "X has cleaner, more consistent lighting and no ghosted figures, and its small distant crowd hides the mannequin look better than Y's large, transparent, doll-like foreground figures.",
+ "top_fix_for_weaker": "Replace the large ghosted mannequins in the foreground with fewer, properly rendered figures. Give them varied poses, period-correct uniforms and clothing, solid shadows on the cobbles, and no transparency.",
+ "anachronisms_seen": [
+  "Union Jack flag on a plain pole, tiny and indistinct",
+  "Uniform-style figures all wear near-identical navy or khaki outfits, with no civilians, which is unconvincing for a 1943 civilian square",
+  "Modern-looking dark balcony railings and shutters, uniform and clean",
+  "Ship on the horizon is vague and unidentifiable"
+ ]
+}

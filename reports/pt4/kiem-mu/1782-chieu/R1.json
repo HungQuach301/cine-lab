@@ -1,0 +1,37 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "Atmospheric haze, a strong light shaft and a clear vanishing point. The walls are good. Figures are flat, silhouetted, semi-transparent cutouts, and the central figure has a bare torso with a kilt-like skirt. Pale ghostly translucency on some figures. Fewer figures, so the street reads clearer. Hazy sky is more filmic than Y's."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "anachronism"
+  ],
+  "note": "Identical walls. Sky is a flat gradient. Distant bay with ships adds some context. The crowd of soldiers is a dense cluster of repeated low-poly game-asset figures in matching red and blue coats with white crossbelts. Cloned, stiff, mid-stride poses, floating feet. Blue-coated troops are odd for the British garrison. Crowd reads as a mass of copies and hides the lane."
+ },
+ "better": "X",
+ "why": "The walls and lighting are the same in both, but X's smaller, hazier group of figures reads less like a pile of cloned game assets and leaves the lane visible, while Y's dense, identical, toy-like crowd is distracting.",
+ "top_fix_for_weaker": "Reduce Y's crowd to about 6\u20138 varied figures with different poses, and give them correct 1782 British coat colours (red regimentals, with Hanoverian blue limited to a few). Use real cloth and shading rather than flat cutouts, and add contact shadows and haze or depth falloff.",
+ "anachronisms_seen": [
+  "Union Jack flag design (the 1801 version with St Patrick's cross); the 1606 Union flag would be correct for 1782",
+  "Blue-coated soldiers mixed in with redcoats (Y)",
+  "Bare-chested, kilt-like central figure (X)",
+  "Cloned figures with uniform modern-looking crossbelts and hats",
+  "Rendered, clean, non-bombarded buildings, which don't look like a town under months of bombardment"
+ ]
+}

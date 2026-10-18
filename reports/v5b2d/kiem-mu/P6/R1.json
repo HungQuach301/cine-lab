@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 5,
+  "richness": 3,
+  "fit": 4,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "The water is pretty and the line of batteries gives a clear sense of depth. But about 55% of the frame is empty water and the town is a tiny sliver at the far right. The batteries look like brown slabs with crosses for masts. The smoke is faint haze, and there is no visible bombardment, fire or fortress."
+ },
+ "Y": {
+  "craft": 6,
+  "richness": 6,
+  "fit": 6,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "The town, wall, hill and smoke fill the frame, and the town and batteries read as being in direct contact. The hill texture is good. Weaknesses: the batteries are small, flat and identical, set in a row on a flat plane. The water is plain, the smoke is blurry and grey, and there are no splashes or incoming fire. The composition is a flat horizontal strip."
+ },
+ "better": "Y",
+ "why": "Y puts the fortified town, the wall and the burning batteries together in one dense frame that reads as a bombardment, while X is mostly empty water with a tiny town and ships that look like toys.",
+ "top_fix_for_weaker": "Move the camera closer and lower, near the batteries with the town and fortress filling the right half. Add muzzle flashes, shot splashes and dense dark smoke. Crop out most of the empty foreground water.",
+ "top_fix_for_better": "Add depth and action. Put a large battery in the foreground at an angle. Add cannon flashes, shell splashes and fire on the town wall. Vary the ship sizes and add wake and wave texture to the water."
+}

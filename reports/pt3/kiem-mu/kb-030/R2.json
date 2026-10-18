@@ -1,0 +1,51 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 7,
+  "period": 4,
+  "ai_look": 3,
+  "flicker": "no",
+  "flags": [
+   "broken_render",
+   "stretched_texture",
+   "seams",
+   "toy_like"
+  ],
+  "note": "The rich weathered stone with waterline staining is the most convincing material of the three. The geometry is broken, though. Dark wedge-shaped holes and gaps cut into the wall face, there are visible white edge seams and a dotted artifact at the lower right, and the terrace texture is smeared. It looks like a scanned or photogrammetry mesh with holes. The surrounding buildings are untextured grey boxes. The flat grey tarmac-like road reads as modern."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 2,
+  "flicker": "no",
+  "flags": [
+   "toy_like",
+   "seams"
+  ],
+  "note": "This is the cleanest and most coherent render. The pale limestone walls are plausible, with slit openings and a gravel terrace. The parapet blocks look chunky and toy-like. The terrace has a pale paved or kerb strip along the road that looks modern. The background blocks are still untextured grey boxes, and the road is smooth tarmac. There is no flicker."
+ },
+ "Z": {
+  "craft": 5,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 2,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The walls are smooth, pale, near-featureless slabs with very little stone detail. The dark terrace looks like fresh asphalt or carpet. The result is clean but sterile, like a CG mock-up or architectural massing model. The road kerb strip and the grey box buildings add to the modern feel."
+ },
+ "best": "Y",
+ "worst": "Z",
+ "why": "Y has a clean, intact, believable stone bastion with a gravel terrace and no render defects, whereas X has the best material richness but visible holes and seam artifacts, and Z is sterile, featureless and asphalt-like.",
+ "anachronisms_seen": [
+  "smooth grey tarmac-like road around the bastion",
+  "kerb or paved strip along the road edge",
+  "dark asphalt-like terrace surface (Z)",
+  "untextured modern-looking grey box buildings",
+  "uniform pale clean masonry that looks newly cut rather than 1782 weathered limestone (Y, Z)"
+ ]
+}

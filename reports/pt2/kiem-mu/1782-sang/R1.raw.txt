@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 7, "detail": 8, "period": 6, "ai_look": 3, "toy_like": 6, "flags": ["toy_like", "anachronism"], "note": "Convincing siege-damaged plaster and exposed brick, rubble, barrels and warm window glow give it real atmosphere. The soldiers are stiff, doll-like 3D figures with identical poses. The Union flag is the 1801 design, not the 1782 one. The sky is flat and washed out. The tiny ship on the horizon is fine."},
+ "Y": {"craft": 5, "detail": 4, "period": 4, "ai_look": 3, "toy_like": 6, "flags": ["flat_slide_look", "toy_like", "anachronism"], "note": "Smooth, clean, bluish-grey walls look like an untextured CG model. The street is tidy with no siege damage, so it doesn't read as a besieged town. The same toy-like soldiers are lit flat, and the Union flag is the wrong 1801 design. The clean pavement and sidewalk-like curb edging look modern."},
+ "better": "X", "why": "X's weathered, bombarded textures, rubble and warm light make a believable besieged lane, while Y is a clean, untextured, flat-looking render that doesn't match the siege setting.",
+ "top_fix_for_weaker": "Add heavy weathering to the walls (cracked plaster, exposed stone, shell damage), replace the tidy curbed pavement with rubble-strewn dirt, and warm up the grading to cut the flat blue cast.",
+ "anachronisms_seen": ["Union flag with St Patrick's saltire (1801 design, not 1782)", "Y: clean curbed paving and smooth intact facades don't fit a besieged 1782 town", "Both: stiff, uniform soldier figures with simplified uniforms"]}
+```

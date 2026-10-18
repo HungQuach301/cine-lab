@@ -1,0 +1,34 @@
+```json
+{
+  "A": {
+    "craft": 4,
+    "detail": 4,
+    "toy_like": 7,
+    "ai_look": 4,
+    "period": 4,
+    "flags": ["flat_slide_look", "toy_look", "unreadable_scale", "confusing"],
+    "note": "Straight-on, static, symmetrical framing, like a slide. Three identical flat red-brown slab ships sit in a row with only a mast stick each. They are tiny and lined up on the horizon, so they read as game pieces. The blurry grey smoke is a flat overlay and doesn't seem to come from the guns. The town is a thin strip of white cubes, and the hill is low-poly with painterly texture. Water is a flat blue gradient with no reflections. Little depth or drama, and no sense of an attack."
+  },
+  "B": {
+    "craft": 6,
+    "detail": 5,
+    "toy_like": 6,
+    "ai_look": 4,
+    "period": 5,
+    "flags": ["toy_look", "unreadable_scale"],
+    "note": "Best of the three. The low three-quarter angle, hill diagonal, rippled reflective water, foreground debris and warm sunlight give real depth. Muzzle flashes on the left ship, a dark smoke column and a haze bank help sell the bombardment. The hull is still a blocky voxel box with a ribbed roof and stick masts. The town is distant cubes, and the walls are low sandy slabs. The smoke columns and haze are cleaner and more directional than in A. The black edges on the ridge are a visible polygon artifact. The right ship is idle, and no people or troops are visible."
+  },
+  "C": {
+    "craft": 5,
+    "detail": 5,
+    "toy_like": 6,
+    "ai_look": 4,
+    "period": 5,
+    "flags": ["toy_look", "unreadable_scale"],
+    "note": "Nearly identical to B, with the same composition, ships and water. The ridge is cleaner, with no black edge artifacts. The haze over the town is milkier, and the right-side smoke wipes out the town and hillside detail, leaving a smeared pale patch. The muzzle flashes are weaker. Slightly less punchy than B, though the hill silhouette is neater."
+  },
+  "rank": ["B", "C", "A"],
+  "why": "B and C share a dynamic low three-quarter angle, reflective water and smoke that reads as bombardment, and B has the stronger flashes and clearer town. A is a flat, static, symmetrical row of identical toy-like slabs behind blurry smoke.",
+  "top_fix_for_best": "Rebuild the floating batteries as believable 1782 hulls with sloped armoured sides and a visible gun-port row, rigging, a flag and some tiny crew. Add a few proper shore guns and tiny figures on the walls, with cannonball splashes on the water. Shape the town's roofs and fortress bastions, and fix the black polygon edge on the ridge."
+}
+```

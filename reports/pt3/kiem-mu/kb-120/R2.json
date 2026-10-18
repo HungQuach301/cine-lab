@@ -1,0 +1,48 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 3,
+  "flicker": "no",
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Weathered limestone ashlar and a mottled stone terreplein are consistent and stay fixed to the geometry. The background barracks are blank grey boxes with no texture. The terreplein is empty, with no gun carriages or people. The scene is clean and coherent but looks like a model."
+ },
+ "Y": {
+  "craft": 3,
+  "detail": 7,
+  "period": 4,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "broken_render",
+   "seams",
+   "stretched_texture",
+   "cluttered"
+  ],
+  "note": "The photogrammetry-style rock texture is rich, but the geometry is broken. It has a collapsed, ramp-like bastion face, floating pale slabs, holes and see-through water cut-outs. In the sequence a white wall slab from another layer pops in across the foreground. Textures are stretched on the slopes, and the bastion does not read as a fortification."
+ },
+ "Z": {
+  "craft": 5,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 4,
+  "flicker": "no",
+  "flags": [
+   "flat_slide_look",
+   "toy_like"
+  ],
+  "note": "The walls are clean and coherent but a smooth, plasticky white with faint horizontal striping. The terreplein is a uniform dark asphalt-like surface that looks like a tarmac car park. The result is stable but sterile and has very little material detail."
+ },
+ "best": "X",
+ "worst": "Y",
+ "why": "X is the only version with believable weathered masonry and ground that is both coherent and stable, while Y has broken geometry and pop-in slabs and Z looks like smooth plastic with tarmac.",
+ "anachronisms_seen": [
+  "asphalt-like uniform dark paving on the terreplein (Z, and the road in all three)",
+  "blank modern-looking grey box buildings in the background",
+  "empty, pristine, unpopulated bastion with no siege-era clutter (gun platforms, carriages, shot)"
+ ]
+}

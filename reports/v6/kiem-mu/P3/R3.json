@@ -1,0 +1,49 @@
+{
+ "A": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "empty_frame",
+   "unreadable_scale",
+   "confusing",
+   "toy_look"
+  ],
+  "note": "Ruined quarter shown as beige slab walls and umbrella-like rubble mounds that read as low-poly debris. Half the frame is bare sand. The only troops are a tiny cluster at the bottom edge, too small to read. No smoke, fire or ships, so the bombardment is not conveyed. Sun and shadows are decent."
+ },
+ "B": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "empty_frame",
+   "unreadable_scale",
+   "confusing",
+   "toy_look"
+  ],
+  "note": "Nearly identical to A. The rubble is slightly denser and the wall shards are a bit more varied, but it has the same bare sand, the same tiny troops and no atmosphere. The difference from A is marginal."
+ },
+ "C": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "flat_slide_look"
+  ],
+  "note": "The best of the three: a dense, intact town with a sea wall, bastion, harbour, hills, sky and haze that give real depth and a believable Mediterranean port. Buildings are repetitive boxes with uniform orange roofs and tiny green shutters, so it looks like a model-town or game asset. Texture is flat, with no smoke, ships or people. Troops are a few red specks. It doesn't show the ruin or bombardment the brief calls for."
+ },
+ "rank": [
+  "C",
+  "B",
+  "A"
+ ],
+ "why": "C has convincing scale, depth, sky and a readable town layout, while A and B are mostly empty sand with abstract, toy-like rubble and illegible figures.",
+ "top_fix_for_best": "Break up the repeated box houses with varied roof heights, rooflines and weathering. Add visible activity such as smoke columns, ships in the harbour, and larger troop and people groups on the streets. Add some bombardment damage, and use atmospheric haze plus texture variation to lose the model-town look."
+}

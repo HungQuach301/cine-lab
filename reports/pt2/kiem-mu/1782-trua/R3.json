@@ -1,0 +1,33 @@
+{
+ "X": {
+  "craft": 7,
+  "detail": 8,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "Weathered plaster, exposed brick, rubble and barrels give a believable besieged-town feel, and the warm light is good. The figures are stiff mannequin-like 3D assets that don't match the realism of the walls. They are clumped together and have smooth featureless faces. The window frames are plain, and the Union flag is tiny and distant."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 3,
+  "period": 5,
+  "ai_look": 5,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "flat_slide_look"
+  ],
+  "note": "The walls are clean, smooth, flat blue-grey surfaces with no damage, so it looks like an untouched modern CG block-out and not a town under siege. The street is tidy and shows no sign of bombardment. The figures are the same mannequin-like assets and look more pasted-in against the clean walls. The lighting is cold and flat."
+ },
+ "better": "X",
+ "why": "X's damaged, textured walls and debris-strewn lane tell the siege story and give far more believable detail, while Y's clean, flat surfaces look like an untextured game scene with the same toy-like figures.",
+ "top_fix_for_weaker": "Add heavy weathering to the walls (cracked lime plaster, exposed masonry, shell and shot damage, soot, stains), strew the street with rubble, broken timber and debris, and warm up the lighting. Replace the stiff figures with varied, better-posed and better-lit people.",
+ "anachronisms_seen": [
+  "Union flag with the 1801 design (St Patrick's cross) is not clearly shown at this size; the 1606 Union flag would be correct for 1782, so check the flag",
+  "Uniform coats with white cross-belts look generic and may not match 1782 regimental details",
+  "Uniform, regular windows with simple louvred shutters and clean modern-looking fa\u00e7ades in Y look more 19th-century/modern than 1782 Gibraltar"
+ ]
+}

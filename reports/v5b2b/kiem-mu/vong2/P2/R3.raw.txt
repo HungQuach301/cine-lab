@@ -1,0 +1,20 @@
+```json
+{
+  "X": {
+    "craft": 6,
+    "readability": 8,
+    "clarity": 8,
+    "flags": ["flat_slide_look"],
+    "note": "The labels are clean and well layered: location tag, event callout with source, date and time stamp, and a reconstruction credit. The text is big enough for a phone, with strong contrast on dark pills. The bastion is a big untextured beige slab, so the model looks like a low-poly placeholder. The water and the town are decent. The callout leader line ends on empty rooftop, and the four text blocks take up a lot of the frame."},
+  "Y": {
+    "craft": 5,
+    "readability": 6,
+    "clarity": 6,
+    "flags": ["text_overlap", "confusing", "empty_frame"],
+    "note": "The lower-third caption sits on top of the scene's checkpoint cars and people, and the source line ('HM Government of Gibraltar, 2023') is cramped against the headline. A thin yellow leader line crosses the big '1941' box and the caption, which looks like a stray artifact. The '≈ 19,047 residents' figure has no label saying what it counts or when, and 'approximately' sits oddly beside a figure given to the exact person. Most of the frame is empty flat green terrain. The runway is a convincing shape, but the key idea, a runway across the only road, is shown only by tiny blocky cars and people at the left edge."
+  },
+  "better": "X",
+  "why": "X has cleaner, non-colliding text hierarchy with sourcing and a clear subject, while Y has overlapping elements, a stray line, an unexplained statistic and mostly empty terrain.",
+  "top_fix_for_weaker": "Reframe the camera so the road and runway crossing is central and large. Move the caption off the checkpoint, with more padding between headline and source. Delete the stray leader line. Label the stat clearly (for example 'Gibraltar population, 1941') and drop the '≈' or round the number."
+}
+```

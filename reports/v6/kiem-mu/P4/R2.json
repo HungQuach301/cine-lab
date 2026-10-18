@@ -1,0 +1,49 @@
+{
+ "A": {
+  "craft": 6,
+  "detail": 6,
+  "toy_like": 6,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "anachronism"
+  ],
+  "note": "Clean, bright, readable. Troops are tiny uniform figures, with no scale or interaction. The parade-ground plateau is a large empty beige slab. The smoke is flat white puffs on the water. The ships are tiny box-like blobs. The Union flag fits the British garrison, but the flat midday light feels like a game."
+ },
+ "B": {
+  "craft": 3,
+  "detail": 3,
+  "toy_like": 9,
+  "ai_look": 2,
+  "period": 3,
+  "flags": [
+   "toy_look",
+   "flat_slide_look",
+   "unreadable_scale",
+   "anachronism"
+  ],
+  "note": "The troops are plain red and blue cylinders, so they read as game pieces and not people. The brick texture is a repeated pattern, the smoke is almost gone, and the lighting is flat. It looks like a placeholder or an unfinished render."
+ },
+ "C": {
+  "craft": 7,
+  "detail": 6,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale",
+   "anachronism"
+  ],
+  "note": "It has the same scene and figures as A with better grading. Warmer light, shadow depth and darker stone give the walls weight. The smoke clouds are more volumetric. Cast shadows and contrast help the town. The troops are still tiny toy-like figurines and the courtyard is still empty."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C and A share the same geometry and figures, but C's lighting, shadows, stone material and smoke give it more depth and a more cinematic look, while B's cylinder soldiers and flat texture read as a placeholder.",
+ "top_fix_for_best": "Replace the tiny uniform figures with larger, varied, properly modelled troops. Use pose variation, gun crews working the cannon, and visible muzzle flashes and smoke at the embrasures. Break up the empty parade ground with props and ground texture, and add scale cues and a stronger foreground element for depth."
+}

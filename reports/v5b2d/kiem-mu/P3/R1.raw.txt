@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 5, "richness": 6, "fit": 5, "flags": ["toy_look", "cluttered", "unreadable_scale"], "note": "Very dense, packed rooftops with a small red troop column on the left and a castle on the hill. It looks like a diorama of orange blocks, not a street. There are no street-level views, and the camera sits at rooftop height. Streets are hard to read, and stray orange roof slabs float on the bare ground at lower left. The colour is a uniform orange mass with little tonal variety."},
+ "Y": {"craft": 6, "richness": 5, "fit": 5, "flags": ["toy_look", "unreadable_scale", "empty_frame"], "note": "Cleaner composition. The sea, sea wall, a church tower, green plots and the hilltop fort give a good sense of place, with better depth and more varied roof colour. Streets are slightly more legible. But the right third is bare sand and shadow, the buildings are sparser, and there are almost no people (a few red dots). It reads as a town model seen from above, not a lived-in street."},
+ "better": "Y",
+ "why": "Y has the better composition, depth and landmark readability, though X is denser and has visible troops.",
+ "top_fix_for_weaker": "Drop the camera to street level, between buildings. Remove the floating roof slabs and add visible street geometry with people, carts and smoke. Vary roof and wall colours and add atmospheric haze for depth.",
+ "top_fix_for_better": "Fill the empty right side and foreground with buildings, plots and walls. Add many visible figures (troops, civilians, carts), chimney smoke and street detail. Lower the camera and add depth haze so it reads as a street, not a model."}
+```

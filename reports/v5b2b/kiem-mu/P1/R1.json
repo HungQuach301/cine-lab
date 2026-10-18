@@ -1,0 +1,23 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "empty_frame"
+  ],
+  "note": "Decent 3D terrain with a walled town, fort and hillside defences, and clean dark label chips. The bottom half is flat water with a stray tan artifact. The 'Map data: OpenStreetMap' chip is the most prominent text yet carries the least information. The date and source chips are legible, but the date chip is fairly small for a phone. The subject (fortifications, 1782 siege) isn't pointed out, and nothing marks what to look at."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Bold year, population figure and an archival inset photo with a connector line give strong context and a historic-versus-reconstruction contrast. The caption's second line is small and low-contrast on a phone. The inset and caption crowd the right side and cover part of the scene. The terrain is a large, flat green field with weak detail, though the runway lines lead the eye into the frame."
+ },
+ "better": "Y",
+ "why": "Y gives a clearer sense of place, time and scale through the large year, population number and archival inset, while X is half empty water with weak labelling of what matters.",
+ "top_fix_for_weaker": "Lower the camera or tilt it up so the town, walls and batteries fill the frame instead of the water. Replace the OSM credit chip with a label pointing at the key fortification, such as 'King's Bastion', and enlarge the date chip."
+}

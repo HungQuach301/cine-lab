@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "anachronism"
+  ],
+  "note": "The environment is strong: well-textured peeling plaster, exposed brick, rubble, raking light and a good vanishing point. The figures are the weak point. They are low-poly mannequins, and the blue-trousered ones have bald, doll-like heads and stiff, odd walking poses. Red coats with white cross-belts read as British, but the blue figures look like undressed or unfinished models. Their shapes are inconsistent. The figure group is cut off from the street lighting and casts only one odd long shadow. Heavily smoothed faces, no hats on the blue figures. The Union flag has the post-1801 design, with the St Patrick cross, which is wrong for 1782."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 4,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "anachronism",
+   "cluttered"
+  ],
+  "note": "The environment is identical and good. The figures are posed standing in a clump like display mannequins or chess pieces. Several have peg-like legs and stands, two on the right look like they are on poles, and a woman in a white dress is fused with the soldiers. There is a lone dark figure in a tricorne-like hat in the midground. Costume variety (civilians, a mix of coats) is nicer than in X, and it adds some storytelling. But the stiff, grouped, static poses read as a toy diorama. The shadow on the ground is detached from any figure and lies in the middle of the street. The flag is the same anachronistic Union flag."
+ },
+ "better": "X",
+ "why": "The environments are identical, but X's figures are in motion and spread across the lane, which reads less like a diorama than Y's stiff, clumped mannequins on pegs, even though Y has a little more costume variety.",
+ "top_fix_for_weaker": "Replace the static, peg-legged figures with properly rigged characters in varied walking, working or carrying poses spread over the foreground and midground. Give them period clothing and headwear with natural cloth, ground contact and correct shadows. Remove the orphan shadow. Swap the flag for the pre-1801 Union flag, which has no red saltire.",
+ "anachronisms_seen": [
+  "Union Jack with St Patrick's saltire (post-1801 design) instead of the 1606 Union flag",
+  "Bare-headed blue-trousered figures without period hats or coats",
+  "Possible red-coat details such as the cross-belts look generic, not 1782-specific",
+  "Neat tile roofs and window shutters in a street that was supposedly bombarded"
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 8,
+  "clarity": 7,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "The tower is a clear hero object, and the labels are large and high-contrast. But the big callout box covers the town and the cliff behind it. The tower is cropped by the bottom of the frame, and the foreground buildings are cut off. The large flat green and yellow terrain looks empty. The three overlays (population, year, callout) compete with each other. The callout's leader line is tiny and points at the tower top, not at anything that matches the label."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 6,
+  "clarity": 7,
+  "flags": [],
+  "note": "The composition is cleaner, with a good depth recession, water with specular highlights, and a believable town cluster against the fortification walls. The lighting is better. The text is small on a phone, especially the top-right location pill and the long source caption. The caption is accurate but reads like a footnote. There is no clear focal landmark, so it looks like a generic coastal town. The location pill says 'Main Street' while the view is wide, which is slightly confusing."
+ },
+ "better": "Y",
+ "why": "Y has more polished lighting, water and composition with unobstructed scenery, while X's oversized callout blocks the scene and its wide flat terrain looks empty.",
+ "top_fix_for_weaker": "In X, shrink the callout and move it to the empty terrain, and attach it to the tower with a longer leader line. Reframe the camera so the whole tower and the town sit in the lower two-thirds. Then reduce the empty foreground, add texture and variation to the flat grass, and add soft shadows."
+}

@@ -1,0 +1,486 @@
+{
+ "P1": {
+  "loai": "siege",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": [
+    5,
+    5,
+    5
+   ],
+   "richness": [
+    7,
+    6,
+    6
+   ],
+   "fit": [
+    7,
+    6,
+    6
+   ],
+   "tb_craft": 5.0,
+   "tb_richness": 6.33,
+   "tb_fit": 6.33,
+   "flags": [
+    "cluttered",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The frame is filled with many troop blocks in rows, entrenchments and walls behind them, smoke puffs, flags, the town and harbour on the right, and the rock as a backdrop. It reads clearly as an army massed in siege lines on the isthmus. The troops are identical dark-peg blocks that look like trays of tokens. The flat lighting is bland and the smoke is weak.",
+    "Many troop blocks in rows, a parallel line and flags, drifting smoke, the sea and the town on the right, and a lower camera that gives depth. It clearly reads as massed besiegers in front of the rock. The troop blocks look like orange crates of black pegs, not people, and are scattered unevenly on bare grass. The smoke is hazy and soft. Still no ships, guns, muzzle flashes or siege activity. Lighting is flat and the grass is plain.",
+    "Many troop blocks, siege lines, flags, drifting smoke, water and a visible town and church tower. The rock is more dramatic and the composition has depth. The troop blocks look like tiled brown crates or cork boards, not men, so scale is odd. The blocks are scattered with no clear order and the foreground is a bit repetitive. Even so, it reads as a besieging army in front of the rock."
+   ]
+  },
+  "v5b2c": {
+   "craft": [
+    4,
+    4,
+    4
+   ],
+   "richness": [
+    2,
+    2,
+    2
+   ],
+   "fit": [
+    3,
+    3,
+    3
+   ],
+   "tb_craft": 4.0,
+   "tb_richness": 2.0,
+   "tb_fit": 3.0,
+   "flags": [
+    "empty_frame",
+    "flat_slide_look",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The rock is decent, but half the frame is empty sky and flat green field. The besiegers' lines are a few thin brown strips and one wall. There is almost no army: a single tiny block of troops and a few stray posts. It reads as a tourist view of a hill, not a siege.",
+    "The rock is a decent hero shape, but the frame is mostly flat green field and empty sky. The only besieger content is one tiny dark troop block at lower right, a few stray posts and a thin trench line. The wall in the foreground is a plain textured box. No ships, no guns and no visible activity. The town is a tiny sliver at the horizon. It reads as a terrain test, not a siege.",
+    "The rock is a decent hero shape, but the foreground is a huge empty green field with a few bare wall segments, thin trench lines and one tiny block of troops. There are no ships, almost no smoke and no sense of a besieging army. The town is a speck on the far right. It reads as an empty landscape, not a siege."
+   ]
+  },
+  "chon_v5b2d": "3/3",
+  "hoa": 0,
+  "why": [
+   "Y actually shows a besieging army, with its lines, smoke and the town in view, while X is mostly empty field and sky with the rock as the only real subject.",
+   "Y puts the besieging army in the foreground, with the lines, smoke and sea, while X is mostly empty grass and sky with one tiny troop block.",
+   "Y actually shows an army and siege works on the isthmus with the town visible, while X is mostly empty grass and sky."
+  ],
+  "sua_ban_tot": [
+   "Replace the uniform peg-block troops with varied figures: uniform colours, officers, gun crews and artillery pieces. Add real gun-fire smoke plumes, and give the lighting some warm directional contrast. Break up the grid layout so the camp doesn't look like a tray of tokens.",
+   "Replace the crate-like troop blocks with real figures: varied uniforms, a visible mix of men and guns, some in motion. Add gun emplacements with muzzle flashes, ships in the bay, warmer low-angle lighting with cast shadows, and grass texture or mud.",
+   "Replace the crate-like troop blocks with readable soldier figures in lines or columns with varied colours. Add gun emplacements with visible fire and smoke, and organise the blocks into clear approach lines toward the fortress. Add ships on the water and make the town more visible."
+  ],
+  "sua_ban_yeu": [
+   "Fill the foreground and midground with besieging troops, batteries, tents, and fascines or trenches. Lower the camera and crop out the empty sky so the lines and the rock fill the frame.",
+   "Rebuild the shot with the camera lower and closer on the lines. Fill the foreground with many troops, gun batteries, gabions, tents and moving smoke. Add ships on the water, and crop the sky down to about 25% of the frame.",
+   "Fill the foreground with units: add massed infantry, gun batteries with muzzle smoke, tents and men working on the trenches. Add ships off the rock, and move the camera lower and closer so the lines lead the eye to the town."
+  ]
+ },
+ "P2": {
+  "loai": "harbour",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": [
+    6,
+    6,
+    6
+   ],
+   "richness": [
+    6,
+    6,
+    6
+   ],
+   "fit": [
+    7,
+    7,
+    7
+   ],
+   "tb_craft": 6.0,
+   "tb_richness": 6.0,
+   "tb_fit": 7.0,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Elevated view. The walled town with its terracotta roofs reads clearly against the hillside, and the water is vivid. The ships are small, flat-sailed, toy-like blocks. They float in a big empty blue foreground and look out of scale with the town. The hillside is smeared and blobby.",
+    "Elevated three-quarter view that reads well. The dense terracotta rooftops, bastion walls and hillside give a clear town-and-fortress layout. The ships are small, blocky and stiff, with flat sail slabs, and they sit isolated on a large empty stretch of water. There are no people, smoke or wakes. The lighting is flat and the water is too saturated.",
+    "High oblique view shows the fortified town clearly: walls, bastions, dense orange roofs and a hillside. The ships are tiny, flat, blocky shapes that look like toys. They sit oddly large against the town and float on a large empty patch of water. Lighting is decent, but the town has no people, no smoke and no harbour structures such as quays or docks."
+   ]
+  },
+  "v5b2c": {
+   "craft": [
+    5,
+    5,
+    5
+   ],
+   "richness": [
+    3,
+    3,
+    3
+   ],
+   "fit": [
+    5,
+    5,
+    5
+   ],
+   "tb_craft": 5.0,
+   "tb_richness": 3.0,
+   "tb_fit": 5.0,
+   "flags": [
+    "empty_frame",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The low-angle sea view has a nice sky and clouds. About 75% of the frame is empty water and sky. The town is squeezed into the right edge and is tiny. The four ships in a row look like pasted-on cardboard cutouts. The wall runs behind the ships as a flat brown strip.",
+    "Low water-level camera gives a nice sky and water sheen. About 60% of the frame is empty water and sky. The town is squeezed into the right corner and is too small to read. The ships are tiny, blocky and lined up in a row, and the sails look like cardboard. The wall is a featureless brown strip, and there is nothing alive in the scene.",
+    "Low water-level view with a nice sky and water surface. About 70% of the frame is empty sky and water. The town is a small cluster at the far right edge. The four ships in a row look pasted on, with boxy sails. The wall reads as a flat brown strip. The ships do not look anchored in a harbour."
+   ]
+  },
+  "chon_v5b2d": "3/3",
+  "hoa": 0,
+  "why": [
+   "X shows the town, walls and harbour clearly in one frame, while Y is mostly empty water and sky with the port pushed to the corner.",
+   "X shows the fortified town, walls and ships with real density and clear geography, while Y leaves most of the frame as empty water and sky with a tiny, hard-to-read town.",
+   "X shows a dense, readable fortified port town with walls and ships, while Y is mostly empty sky and water with the town pushed into one corner."
+  ],
+  "sua_ban_tot": [
+   "Scale the ships up and give them real hull and sail shapes, with wakes and flags. Fill the empty foreground water with small boats or a quay edge. Add smoke and people on the walls and docks, and add atmospheric haze for depth.",
+   "Add life and scale cues: bigger, better-modelled ships with curved sails, wakes and rigging. Add smoke from the town and bastions, figures and boats at the quay, and atmospheric haze and warmer, directional light to break the flat lighting.",
+   "Make the ships larger and better modelled, with curved sails, rigging and wakes, and place them near the quays. Add dockside activity and chimney smoke, and reduce the empty foreground water."
+  ],
+  "sua_ban_yeu": [
+   "Move the camera closer and higher, and frame the town and quay across the middle of the frame. Crop out most of the water. Add harbour activity such as boats, wharves, smoke and people, and scale the ships up so they read as large vessels.",
+   "Reframe closer and higher so the town, walls and quay fill at least half the frame. Make the ships larger, put them in the foreground at varied angles and distances, and add wakes, flags, smoke and people on the quay and walls.",
+   "Move the camera closer and frame the town and mole across the centre. Add quays, cranes, small boats and smoke, and cut the empty sky and water to under 40% of the frame."
+  ]
+ },
+ "P3": {
+  "loai": "dense_street",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": [
+    6,
+    5,
+    6
+   ],
+   "richness": [
+    5,
+    4,
+    5
+   ],
+   "fit": [
+    5,
+    4,
+    5
+   ],
+   "tb_craft": 5.67,
+   "tb_richness": 4.67,
+   "tb_fit": 4.67,
+   "flags": [
+    "empty_frame",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Cleaner composition. The sea, sea wall, a church tower, green plots and the hilltop fort give a good sense of place, with better depth and more varied roof colour. Streets are slightly more legible. But the right third is bare sand and shadow, the buildings are sparser, and there are almost no people (a few red dots). It reads as a town model seen from above, not a lived-in street.",
+    "This is a higher, more aerial view with a clearer composition: sea, sea wall, town, fortress tower and hills. The colours are slightly more varied and the sky is better. The blocks are neatly spaced like a model village, with large empty sand on the right and in the foreground. There are almost no people, just a few red dots, and no smoke, ships or street life. It reads as an overview, not a dense street.",
+    "The composition is cleaner. It has a readable sea wall, a bell tower, a green plaza with a tree grid, and a good sky and sea. It looks like a model viewed from a drone, not a street at low altitude. The wide beige ground at right is empty, and the blocky houses are sparse. The few figures are tiny."
+   ]
+  },
+  "v5b2c": {
+   "craft": [
+    5,
+    5,
+    5
+   ],
+   "richness": [
+    6,
+    5,
+    5
+   ],
+   "fit": [
+    5,
+    5,
+    5
+   ],
+   "tb_craft": 5.0,
+   "tb_richness": 5.33,
+   "tb_fit": 5.0,
+   "flags": [
+    "cluttered",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Very dense, packed rooftops with a small red troop column on the left and a castle on the hill. It looks like a diorama of orange blocks, not a street. There are no street-level views, and the camera sits at rooftop height. Streets are hard to read, and stray orange roof slabs float on the bare ground at lower left. The colour is a uniform orange mass with little tonal variety.",
+    "Camera is roughly rooftop height, so the buildings are dense and fill the frame. The roofs are a uniform saturated orange with flat, untextured walls. There are floating orange roof slabs at left and a bare grid-textured ground plane. Troops are only a tiny red smear at left, and the few street figures are specks. Lighting is flat, and the view reads as a block model, not a lived-in street. It has more depth and building mass than Y, but the shot isn't a street-level view.",
+    "Buildings are packed tightly and the lighting and colour are warm and decent. The tiles floating off the left buildings are glitchy, and the ground reads as flat beige. The only troops are a small red line and a few specks, too small to read. The rooftops form a dense orange mass with little street structure, so it's hard to tell where the streets run."
+   ]
+  },
+  "chon_v5b2d": "2/3",
+  "hoa": 0,
+  "why": [
+   "Y has the better composition, depth and landmark readability, though X is denser and has visible troops.",
+   "X packs the frame more densely with buildings and has a nearer, more street-like viewpoint with a hint of troops, while Y is sparse, aerial and model-village-like.",
+   "Y has clearer composition and landmarks (wall, tower, plaza) and no floating-roof glitches, though neither frame delivers a lively street scene."
+  ],
+  "sua_ban_tot": [
+   "Fill the empty right side and foreground with buildings, plots and walls. Add many visible figures (troops, civilians, carts), chimney smoke and street detail. Lower the camera and add depth haze so it reads as a street, not a model.",
+   "Remove the floating roof slabs and the grid-textured ground. Add readable street-scale figures (marching troops, civilians, carts), chimney smoke, varied roof colours and weathered wall textures, and use a low sun angle to create real depth and shadow.",
+   "Fill the empty right-hand ground with buildings, texture and people. Lower and tighten the camera into a street, and add larger troops, market stalls, smoke and shadows so it reads as a lived-in street, not an aerial model."
+  ],
+  "sua_ban_yeu": [
+   "Drop the camera to street level, between buildings. Remove the floating roof slabs and add visible street geometry with people, carts and smoke. Vary roof and wall colours and add atmospheric haze for depth.",
+   "Drop the camera to eye level or just above the rooftops. Fill the streets and the empty sand with crowds, carts, troops and smoke, and add wall texture and ground detail so the blocks no longer look like a diorama.",
+   "Remove the floating roof tiles in the left foreground. Drop the camera lower, with narrower streets and visible street-level detail. Add readable, larger troop and civilian groups, with smoke, so the shot reads as a street."
+  ]
+ },
+ "P4": {
+  "loai": "hero_fort",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": [
+    6,
+    5,
+    6
+   ],
+   "richness": [
+    7,
+    7,
+    7
+   ],
+   "fit": [
+    7,
+    7,
+    7
+   ],
+   "tb_craft": 5.67,
+   "tb_richness": 7.0,
+   "tb_fit": 7.0,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The bastion is populated with a flag, red and blue troops in formation, cannonball piles, boxy buildings and some smoke wisps. It reads as a garrison in action. The soldiers are plain cylinders, so they look like toy pegs or bowling pins. They are also oversized relative to the guns, and the smoke is faint.",
+    "The same scene, now with a Union flag, red and blue soldiers in formation, cannonball piles, crates and smoke puffs along the wall and in the distance. The soldiers are bare cylinders, like toy pegs, and the proportions are crude. Even so, the terrace has scale, life and a sense of action, and the flag gives the bastion an identity. There is still no real fire, smoke or hero-level action.",
+    "The same scene, now populated: a Union flag, red and blue soldiers in formation, gun crews, shot piles, outbuildings and a few puffs of smoke. The frame reads as a garrisoned fort in action. The soldiers are bare cylinders, like skittles or peg figures, so the look is toy-like. Their scale against the guns and the wall is hard to judge. The smoke is faint, there is no sign of an enemy or incoming fire, and the pale haze patches over the water look like artifacts."
+   ]
+  },
+  "v5b2c": {
+   "craft": [
+    5,
+    5,
+    6
+   ],
+   "richness": [
+    3,
+    3,
+    3
+   ],
+   "fit": [
+    4,
+    4,
+    4
+   ],
+   "tb_craft": 5.33,
+   "tb_richness": 3.0,
+   "tb_fit": 4.0,
+   "flags": [
+    "empty_frame",
+    "flat_slide_look"
+   ],
+   "note": [
+    "The scenery is decent: the water, the red-roofed town and the hill fort all look fine. The bastion's gun platform is a huge empty tan slab with tiny cannons. There are no people, no smoke and no flag. The ships are small and barely visible, so nothing says battle.",
+    "The city, water and hills are decent. The bastion terrace is a huge empty tan slab with only tiny cannon silhouettes. There are no troops, smoke, flag or sign of battle. The bright haze patch at upper left looks like an artifact. The enemy ships are small and barely readable. It reads as a static architectural model, not a battle.",
+    "The lighting, water and town backdrop are decent. The bastion's huge terreplein is a blank sand-coloured slab with tiny cannon stubs along the edges. There are no troops, no smoke and no flag, so nothing says 'battle'. Ships are small and sit at the far edge. The left haze looks like a lens smear."
+   ]
+  },
+  "chon_v5b2d": "3/3",
+  "hoa": 0,
+  "why": [
+   "Y puts a flag, troops and smoke on the bastion so it reads as a defended fort during a battle, while X is an empty sand-coloured platform.",
+   "Y fills the bastion with a flag, troops, ammunition and smoke, so it reads as a battle fort, while X is an empty plaza with the same camera and set.",
+   "Y fills the otherwise empty bastion with a flag, troops, gun crews and smoke, so it reads as a fort in battle, while X is a blank sand deck."
+  ],
+  "sua_ban_tot": [
+   "Replace the cylinder soldiers with simple humanoid figures at correct scale. Add real cannon smoke and muzzle flashes, and put visible incoming fire or enemy ships on the water.",
+   "Replace the peg-like cylinder soldiers with proper humanoid figures with varied poses and scale. Add thick gun smoke, muzzle flashes and enemy ships firing, and add shadow and ambient occlusion so the figures sit on the ground.",
+   "Swap the cylinder soldiers for proper stylised figures with heads, hats and muskets at a believable scale. Add dense gun smoke and flashes, and enemy ships firing with shot splashes, so the battle is visible. Drop the haze patches on the water."
+  ],
+  "sua_ban_yeu": [
+   "Fill the platform with gun crews, gunpowder smoke and muzzle flashes. Add a flag, shot piles and enemy ships firing in the foreground, so the bastion looks like it is under attack.",
+   "Populate the terrace with gun crews, officers and powder smoke and add a flag. Add muzzle flashes and incoming shot splashes, and remove the haze artifact at upper left.",
+   "Add many detailed gun crews, a flag, muzzle flashes and heavy smoke along the parapet. Add enemy ships firing, with splashes, in the foreground water. Break up the empty terreplein with props, shadows and texture, and remove the left-hand haze smear."
+  ]
+ },
+ "P5": {
+  "loai": "panorama",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": [
+    6,
+    6,
+    6
+   ],
+   "richness": [
+    7,
+    7,
+    6
+   ],
+   "fit": [
+    7,
+    8,
+    7
+   ],
+   "tb_craft": 6.0,
+   "tb_richness": 6.67,
+   "tb_fit": 7.33,
+   "flags": [
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "Higher camera angle with real depth. It shows bastion walls, a dense town, a church tower, gardens, open fields and distant outskirts. The lighting and shadows are softer and more cinematic. The people and troops are tiny and almost invisible, and the bastion in the foreground is a large empty tan slab. The buildings are still box-like and the ground texture is bland.",
+    "The high oblique camera reads as a real panorama. It shows bastioned walls, a town with a church tower, a green and a garden plot, outlying farmland and the sea. Depth layering and haze are decent. The bastion and wall in the foreground are large and clearly readable. The tan ground and texture are flat and there are almost no visible people or ships. Troops are only a few tiny red dots, so the frame is somewhat static.",
+    "A true elevated panorama. The bastion and curtain wall lead the eye in diagonally. Dense town blocks recede toward green countryside, with a church tower, a plaza, a garden plot and a small red troop formation. Lighting is warmer and softer, with better depth and atmosphere. Weaknesses: people and troops are nearly invisible, there is no smoke or ships, the foreground sand is bare, and the buildings are still simple boxes."
+   ]
+  },
+  "v5b2c": {
+   "craft": [
+    4,
+    4,
+    4
+   ],
+   "richness": [
+    4,
+    4,
+    3
+   ],
+   "fit": [
+    3,
+    3,
+    3
+   ],
+   "tb_craft": 4.0,
+   "tb_richness": 3.67,
+   "tb_fit": 3.0,
+   "flags": [
+    "confusing",
+    "empty_frame",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The camera is too close and too low, so it reads as a rooftop close-up and not a panorama. The top third is flat blue water with two tiny boats. The roofs are oversized, saturated orange blocks, and the troops are a small red smudge. The fortress wall is a thin strip and there is no sense of the town's extent. The smoke is faint and looks like a smear.",
+    "Low camera looks over huge, blocky roofs, so the scale reads like a model village and not a panorama. A third of the frame is flat blue water with two tiny boats and faint smoke wisps. The fortress wall is a thin strip. Troops show as a few red specks. Roofs are saturated orange and the ground is a flat tan plane, so the frame has little depth or atmosphere.",
+    "Camera is too low and too close, so the frame is mostly oversized orange roof slabs. A third of it is flat blue water with two tiny boats and faint smoke wisps. There is no sense of a whole fortified town. The wall is a thin strip at the back. The red troop block is tiny and easy to miss. Houses look like blocky toys, with large bare sand patches and no streets or people."
+   ]
+  },
+  "chon_v5b2d": "3/3",
+  "hoa": 0,
+  "why": [
+   "Y delivers an actual panorama, with the fortification, town density, landmarks and depth all readable, while X is a cramped close-up of roofs with a big empty water band.",
+   "Y delivers a true wide panorama with the fortifications, town, and surrounding land readable at proper scale, while X is a close-up of oversized roofs and empty water.",
+   "Y reads as a whole fortified town with the wall, landmarks and depth that a panorama needs, while X is a close-up of roofs and empty water."
+  ],
+  "sua_ban_tot": [
+   "Add visible life: troop columns, cannon smoke, ships in the harbour and people in the streets. Fill the empty bastion platform with guns or soldiers, and add atmospheric haze for depth.",
+   "Add visible life: ships in the harbour, readable troop columns and camp lines, cannon smoke, and street crowds. Break up the flat tan ground with texture and colour variation. Add atmospheric haze and warmer, more directional light for cinematic depth.",
+   "Add readable life: larger troop columns and crowds in the streets and plaza, ships at the bastion, cannon smoke or hearth smoke, and detail on the bare foreground sand and wall tops. Fix the toy-like uniform roofs with more variation."
+  ],
+  "sua_ban_yeu": [
+   "Raise the camera and pull it back to show the whole town and its walls. Crop out most of the empty water and add visible troops, ships and smoke with real scale.",
+   "Raise the camera and pull back to a high oblique angle with a wider lens. Shrink the buildings so the whole walled town fits the frame. Cut the water to a thin band, and add ships, troop columns, and smoke so the scene has action.",
+   "Raise the camera and pull back to a high oblique angle that shows the full wall circuit and town. Crop the water to a thin band. Add ships in the harbour, visible troop columns, smoke and street life."
+  ]
+ },
+ "P6": {
+  "loai": "shore_battle",
+  "nguoi": 3,
+  "v5b2d": {
+   "craft": [
+    6,
+    6,
+    6
+   ],
+   "richness": [
+    6,
+    6,
+    6
+   ],
+   "fit": [
+    6,
+    6,
+    6
+   ],
+   "tb_craft": 6.0,
+   "tb_richness": 6.0,
+   "tb_fit": 6.0,
+   "flags": [
+    "flat_slide_look",
+    "toy_look"
+   ],
+   "note": [
+    "The town, wall, hill and smoke fill the frame, and the town and batteries read as being in direct contact. The hill texture is good. Weaknesses: the batteries are small, flat and identical, set in a row on a flat plane. The water is plain, the smoke is blurry and grey, and there are no splashes or incoming fire. The composition is a flat horizontal strip.",
+    "The composition is stronger. A large hill with textured terrain sits behind a dense town and fortified wall, and three ships with fire glows and dark smoke plumes are placed on the waterline. The ships and town are clearly in opposition, so it reads as an attack. The scene is a flat, side-on layered 'diorama' with no depth or camera parallax. The ships are tiny, simple slabs, and the town is white cubes. The smoke is blurry and looks like a gaussian overlay. The water is flat and featureless, and the bottom 18% is empty. There is no visible gunfire or impact on the town.",
+    "The fortified town with its walls and many houses sits right behind the batteries, so it reads as a bombardment of a town. The hill texture is rich and there are muzzle flashes and smoke plumes. But the ships are flat, identical boxes in a straight row, the water is a flat blue band, and the smoke is a blurry gray fog that washes out the town. The framing is a static, flat side-on view with no depth."
+   ]
+  },
+  "v5b2c": {
+   "craft": [
+    5,
+    5,
+    5
+   ],
+   "richness": [
+    3,
+    3,
+    3
+   ],
+   "fit": [
+    4,
+    4,
+    4
+   ],
+   "tb_craft": 5.0,
+   "tb_richness": 3.0,
+   "tb_fit": 4.0,
+   "flags": [
+    "empty_frame",
+    "toy_look",
+    "unreadable_scale"
+   ],
+   "note": [
+    "The water is pretty and the line of batteries gives a clear sense of depth. But about 55% of the frame is empty water and the town is a tiny sliver at the far right. The batteries look like brown slabs with crosses for masts. The smoke is faint haze, and there is no visible bombardment, fire or fortress.",
+    "Water shimmer is pleasant, but about 60% of the frame is empty water. Ten identical box-barges with cross-shaped masts sit in a rigid line and read as toy blocks. The town is a tiny sliver at the far right edge, so the target is barely visible. The smoke is a soft, blurry haze with no real fire, muzzle flash or shot impacts, and nothing shows the ships attacking the town. There are no people and no sense of scale.",
+    "The water is nice and the perspective line of batteries is clear. But about 60% of the frame is empty water and sky. The batteries look like tiny brown rafts with crosses for masts. The town is a small sliver at the far right, so there's no sense of an attack on a fortress. The smoke is faint, and there are no visible gun flashes or troops."
+   ]
+  },
+  "chon_v5b2d": "3/3",
+  "hoa": 0,
+  "why": [
+   "Y puts the fortified town, the wall and the burning batteries together in one dense frame that reads as a bombardment, while X is mostly empty water with a tiny town and ships that look like toys.",
+   "Y shows the town, wall, hill, burning batteries and smoke in a readable engagement, while X is mostly empty water with a distant line of toy-like barges.",
+   "Y puts the fortified town, the batteries and the firing smoke in one frame so the attack reads clearly, while X is mostly empty water with a distant town and tiny ships."
+  ],
+  "sua_ban_tot": [
+   "Add depth and action. Put a large battery in the foreground at an angle. Add cannon flashes, shell splashes and fire on the town wall. Vary the ship sizes and add wake and wave texture to the water.",
+   "Add depth with a foreground element such as a battery's hull or guns at frame edge, and use a slight angled camera. Replace the blurry smoke overlay with volumetric plumes. Show cannon fire and shell impacts or fires in the town, and add wake, reflections and ripples to the water. Give the ships more detail (guns, rigging, crew) to remove the toy look.",
+   "Add depth and variety: angle the camera diagonally, overlap batteries at different distances, and add wave texture and wake around the hulls. Tighten the smoke into dark plumes and add impact bursts on the walls. Add defenders or fire on the ramparts, and replace the boxy ship silhouettes with detailed hulls and gun ports."
+  ],
+  "sua_ban_yeu": [
+   "Move the camera closer and lower, near the batteries with the town and fortress filling the right half. Add muzzle flashes, shot splashes and dense dark smoke. Crop out most of the empty foreground water.",
+   "Reframe closer on the batteries and the town with a low three-quarter angle. Reduce the water to about 25% of the frame, and vary the ship sizes and spacing. Add visible cannon flashes, dark smoke plumes, splashes and impact fires on the town walls. Add water detail around the hulls (wakes, foam).",
+   "Move the camera closer and lower, with the batteries large in the foreground and the town and walls filling the right two-thirds. Add visible gun flashes, shot splashes and denser dark smoke at the walls. Cut the empty water to under 30% of the frame and give the batteries real hull and gun-port detail."
+  ]
+ },
+ "chi_phi": 1.606
+}

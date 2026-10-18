@@ -1,0 +1,48 @@
+{
+ "A": {
+  "craft": 5,
+  "detail": 4,
+  "toy_like": 6,
+  "ai_look": 4,
+  "period": 5,
+  "flags": [
+   "empty_frame",
+   "unreadable_scale",
+   "toy_look"
+  ],
+  "note": "Same scene as B but with warmer, softer lighting. The huge flat tiled plaza is mostly empty. The troops are tiny blocks, and the ruins look like grey scraps. The right-hand foreground roofs are big, flat, clean slabs with white boxes on top that look modern. The upper-left fortress is cropped awkwardly. It's the least dark of the A/B pair, but it still reads like a game map."
+ },
+ "B": {
+  "craft": 4,
+  "detail": 4,
+  "toy_like": 7,
+  "ai_look": 3,
+  "period": 5,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale",
+   "flat_slide_look"
+  ],
+  "note": "Same layout as A but harsher and more contrasty. The ruins are black, which makes them look like holes. The troop blocks are tiny and dark, with no smoke and no real activity. The plaza is empty, and the flat roof boxes look like modern HVAC units. It's more game-engine than A."
+ },
+ "C": {
+  "craft": 7,
+  "detail": 8,
+  "toy_like": 5,
+  "ai_look": 3,
+  "period": 6,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "A dense, believable town of varied rooflines, a bell tower, a bastioned wall with embrasures, and a river and fields. It has real depth and scale, and the lighting is clean. Still weak: the garrison and ships are almost invisible, the water is a flat saturated blue, and the wall is a smooth tan slab with repeated tiny notches. The buildings are low-poly blocks with a uniform orange palette, so it reads as a city-builder game."
+ },
+ "rank": [
+  "C",
+  "A",
+  "B"
+ ],
+ "why": "C is the only frame that shows a convincing fortified town with density and scale, while A and B are near-identical empty plazas with tiny toy-like troop blocks and modern-looking roof boxes, and B is the harsher of the two.",
+ "top_fix_for_best": "Bring the garrison into view: add visible troop formations, flags and cannon smoke on the bastion and in the streets, and ships in the bay, at a scale that reads on a phone. Then break up the smooth wall and flat blue water with texture, stonework detail and wave or foam variation, and vary the roof colours so the palette isn't a uniform orange."
+}

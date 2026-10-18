@@ -1,0 +1,34 @@
+```json
+{
+  "A": {
+    "craft": 4,
+    "detail": 4,
+    "toy_like": 7,
+    "ai_look": 5,
+    "period": 4,
+    "flags": ["toy_look", "unreadable_scale", "flat_slide_look", "confusing"],
+    "note": "Straight-on, symmetrical frame with three identical flat slab ships lined up like game pieces. Their masts are thin sticks and their hulls are tiny, so scale is unreadable. The smoke is a blurry grey haze that smears over the hill and town and looks like a bad overlay. The water is flat blue with no reflections or motion. The town is a strip of tiny white cubes. The hill is the strongest element but is flat and low-res. No sense of attack or impact."
+  },
+  "B": {
+    "craft": 6,
+    "detail": 5,
+    "toy_like": 6,
+    "ai_look": 4,
+    "period": 4,
+    "flags": ["toy_look", "anachronism"],
+    "note": "Best frame. The angle is lower and diagonal, the water has real specular reflections, and there is a dark rising smoke column plus a warm haze bank. Muzzle flashes sit on the battery. The ships are still blocky brown boxes with pixelated hull textures, no sails or rigging, and cross-shaped masts. They look like rafts or barges, not the armoured floating batteries of 1782. The town is distant and cube-like. The hill has a hard black edge artefact at the ridge. Better than A and C, but the ships still read as game assets."
+  },
+  "C": {
+    "craft": 6,
+    "detail": 4,
+    "toy_like": 6,
+    "ai_look": 4,
+    "period": 4,
+    "flags": ["toy_look", "anachronism", "confusing"],
+    "note": "Almost the same as B, but the town on the right is washed out into a flat beige fog, which loses the target. The smoke there looks like a pale overlay. One fewer muzzle flash. The ridge is cleaner, without B's black edge. The ships have the same blocky pixel-textured, rigging-free look. The town is less readable than in B, so the shot has less narrative clarity."
+  },
+  "rank": ["B", "C", "A"],
+  "why": "B has the best sense of action, depth and legibility of the target (dark smoke column, muzzle flashes, reflective water, visible town). C is nearly the same but its fog hides the town. A is a flat, symmetrical, blurry lineup of toy-like ships.",
+  "top_fix_for_best": "Rebuild the batteries as heavy, high-sided, roofed hulls with visible gun ports, rigging, flags and a few figures for scale, with proper wood and pixel-free textures. Then fix the black ridge-line artefact and put a few visible fire or impact points on the fortifications, so it reads as an attack on a town and not boxes on water."
+}
+```

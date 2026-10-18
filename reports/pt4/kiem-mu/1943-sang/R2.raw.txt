@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 6, "detail": 5, "period": 5, "ai_look": 3, "toy_like": 7, "flags": ["toy_like", "cluttered"], "note": "Strong warm light and a convincing weathered facade, with a clear harbour backdrop that includes a ship and a flag. The figures are faceless, mannequin-like and evenly scattered, and they read as game assets. The left-hand wall is blown-out yellow, and the plaster looks like a repeated texture."},
+ "Y": {"craft": 5, "detail": 5, "period": 5, "ai_look": 3, "toy_like": 7, "flags": ["toy_like", "empty_frame"], "note": "The facades are more varied and believable, with banded cornices, plinths and shutters. The depth haze is good. But the harbour has washed out into a flat beige void with no ship, and the far end of the square is empty. The figures are the same stiff dolls, with some translucent and ghosted, and they clump awkwardly near the right wall."}, 
+ "better": "X",
+ "why": "X keeps a readable harbour with a ship and a flag, and its lighting is more dramatic, while Y's background is washed out and empty and its figures are ghosted and clumped.",
+ "top_fix_for_weaker": "Restore the harbour water, sky gradient and ship at the end of the square, remove the translucent figure ghosting, and replace the mannequin crowd with fewer, properly clothed and varied people in natural groups, with contact shadows and period uniforms.",
+ "anachronisms_seen": ["Union Jack flag drawn as a modern rectangular graphic, in the same form in both frames", "Uniform-less, generic mannequin figures whose clothing does not read as 1943 military dress", "Modern-looking dark metal balcony railings and clean louvered shutters"]}
+```

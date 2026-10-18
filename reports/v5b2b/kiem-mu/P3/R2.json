@@ -1,0 +1,22 @@
+{
+ "X": {
+  "craft": 5,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "cluttered",
+   "confusing"
+  ],
+  "note": "The 3D town is dense and the tower is small in the frame. The caption box nearly covers the tower's top. The '\u2248 18,452 residents' figure floats top-right with no link to the scene. The '1882' year is clear. The tower is only moderately readable as the subject. The 'Ministry for Heritage' sub-line is small on a phone. The caption box, residents box and year box each use a different layout and position."
+ },
+ "Y": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 7,
+  "flags": [],
+  "note": "The bastion is large and central, with a clean composition and good depth against the water. The materials are flat and low-poly, and the huge empty beige terrace and plain walls look untextured. The corner text is small but crisp. The location pin and the date/time and source captions are clear and consistent. The captions sit at the frame edges and don't block the subject."
+ },
+ "better": "Y",
+ "why": "Y has a clear hero structure, uncluttered framing and consistent, unobtrusive labels, while X crowds the frame and its caption sits on top of the tower.",
+ "top_fix_for_weaker": "Push the camera in on the Tower of Homage so it fills about a third of the frame, and move the title card off the tower to a lower-third. Fold the residents figure into one consistent stat chip, and use a larger font for the sub-line."
+}

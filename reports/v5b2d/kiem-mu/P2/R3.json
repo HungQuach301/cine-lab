@@ -1,0 +1,27 @@
+{
+ "X": {
+  "craft": 6,
+  "richness": 6,
+  "fit": 7,
+  "flags": [
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "High oblique view shows the fortified town clearly: walls, bastions, dense orange roofs and a hillside. The ships are tiny, flat, blocky shapes that look like toys. They sit oddly large against the town and float on a large empty patch of water. Lighting is decent, but the town has no people, no smoke and no harbour structures such as quays or docks."
+ },
+ "Y": {
+  "craft": 5,
+  "richness": 3,
+  "fit": 5,
+  "flags": [
+   "empty_frame",
+   "toy_look",
+   "unreadable_scale"
+  ],
+  "note": "Low water-level view with a nice sky and water surface. About 70% of the frame is empty sky and water. The town is a small cluster at the far right edge. The four ships in a row look pasted on, with boxy sails. The wall reads as a flat brown strip. The ships do not look anchored in a harbour."
+ },
+ "better": "X",
+ "why": "X shows a dense, readable fortified port town with walls and ships, while Y is mostly empty sky and water with the town pushed into one corner.",
+ "top_fix_for_weaker": "Move the camera closer and frame the town and mole across the centre. Add quays, cranes, small boats and smoke, and cut the empty sky and water to under 40% of the frame.",
+ "top_fix_for_better": "Make the ships larger and better modelled, with curved sails, rigging and wakes, and place them near the quays. Add dockside activity and chimney smoke, and reduce the empty foreground water."
+}

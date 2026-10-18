@@ -1,0 +1,30 @@
+{
+ "X": {
+  "craft": 4,
+  "detail": 3,
+  "period": 4,
+  "ai_look": 3,
+  "flags": [
+   "empty_frame",
+   "toy_like",
+   "flat_slide_look",
+   "anachronism"
+  ],
+  "note": "The top 40% of the frame is empty sky, and the parade ground is a huge flat noisy plane with a few props scattered on it. The cannon are crude black blobs on wheels, the cannonball piles are tiny, and the soldiers are peg-like toy figures with no real modelling. The buildings are plain white boxes with blue shadow wedges and dark door rectangles. They look modern or generic Mediterranean, with no Georgian Gibraltar character such as shutters, balconies or rooflines. The harbour and hills are soft and atmospheric, but the Union flag is tiny. The captions are legible and honest ('not a photograph'), but they are small and sit over the scene. Overall it reads as a low-poly procedural test scene."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 3,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "text_issue"
+  ],
+  "note": "This is an elevated aerial view with a readable town layout: terracotta-roofed blocks, a harbour wall or mole, a fortified ridge, water and a hill backdrop. The composition and lighting are decent and give a real sense of place. The trees are lumpy low-poly blobs and the terrain textures are repetitive, so it still looks like a game-engine model. The houses are small and uniform, but the overall impression of a walled Mediterranean town is plausible for 1782. Four overlays (top-left note, location pin, lower-left caption, bottom credit) crowd the frame and cover the foreground and lower-left. The text is big enough to read, and the caveats ('estimated', 'east side not drawn on the plan') are honest."
+ },
+ "better": "Y",
+ "why": "Y shows a real, readable town and landscape with a sense of scale and place, while X is a mostly empty sky over a flat plane with toy-like props and generic white boxes.",
+ "top_fix_for_weaker": "Re-frame X: crop out about half of the empty sky, lower the camera, and fill the parade ground with detailed gun batteries, red-coated troops and period Georgian facades (shutters, balconies, pitched tile roofs). Replace the peg figures and blob cannon with properly modelled assets, and enlarge the flag and key subjects."
+}

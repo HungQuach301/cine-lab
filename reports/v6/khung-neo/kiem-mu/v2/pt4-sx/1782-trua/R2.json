@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 5,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "broken_render"
+  ],
+  "note": "The wall textures are strong. The figures are a mushy, semi-transparent clump of mismatched blue and red uniforms with ghosted legs, and they look like game assets pasted in. Some bodies are partly faded or merged. The foreground has no props or focal point, and the figures have inconsistent scale and no cast shadows."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "The wall textures are the same, and they are the strongest part of the frame. Barrels, a cannonball stack and a rubble foreground add believable clutter. Light and shadow fall across the lane, and the soldiers read as a rough formation in tricorns and red, blue and white coats. They still look like glossy plastic figurines with uniform poses and weak grounding. The lane is too clean and wide for a besieged, bombarded town."
+ },
+ "better": "Y",
+ "why": "Y has the same strong environment plus grounded props and more legible, better-lit soldiers, while X's figures are ghosted and smeared.",
+ "top_fix_for_weaker": "Replace the translucent figure clump with a few properly lit, distinct soldiers. Give them correct scale, contact shadows and varied poses. Add foreground props like barrels, debris and a cart, and a clear focal subject.",
+ "anachronisms_seen": [
+  "British flag appears to be the 1707 Union Jack, which is correct for 1782, but it is flown very cleanly in a bombarded town",
+  "mixed blue and red uniforms in one British formation (blue could be Hanoverian or artillery, but looks inconsistent)",
+  "hats on some figures look like modern bowler or top-hat shapes rather than tricorns",
+  "intact, uniform stucco and window shutters despite the siege bombardment"
+ ]
+}

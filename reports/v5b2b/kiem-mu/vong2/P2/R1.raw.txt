@@ -1,0 +1,7 @@
+```json
+{"X": {"craft": 6, "readability": 8, "clarity": 7, "flags": [], "note": "Clean, well-ordered labels: location tag, event callout, source line and date chip. The water and the sunlit town look good. The bastion is a flat, untextured beige slab with no guns, gunfire or people, so 'guns open fire' is only told in text. Small text, such as the source line and the second line of the callout, will be tight on a phone."},
+ "Y": {"craft": 4, "readability": 6, "clarity": 5, "flags": ["text_overlap", "flat_slide_look", "confusing"], "note": "The empty green field and the runway are visually weak. The leader line cuts through the '1941' box, and the caption box covers the cars and people. The citation line is dim and sits crooked under the headline. The '19,047 residents' stat has nothing in the scene to tie it to. The tiny blocky cars and people look amateur. The huge '1941' is easy to read."},
+ "better": "X",
+ "why": "X has a clear subject, a clean label hierarchy and no collisions, while Y has overlapping elements, an empty scene and a disconnected statistic.",
+ "top_fix_for_weaker": "Move the leader line and caption off the cars and the '1941' box, and anchor the line to the runway or road. Tie the '19,047 residents' stat to the scene with a town or crowd in frame. Raise the contrast of the source line and enlarge it. Frame the runway or the crossing as the subject instead of empty grass."}
+```

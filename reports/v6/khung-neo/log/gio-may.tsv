@@ -1,0 +1,57 @@
+bg1782A-d1-bi-cat	300	143	06:40	threads=2 (d1 giữ, cắt ở d2 do lỗi thao tác)
+spr-test-1782	702	0	06:51	threads=1
+bg1782A	1147	0	06:51	threads=2
+bg1782old	293	0	06:56	threads=2
+spr-test-1782	820	0	07:05	threads=1
+comp1782L	12	0	07:06	
+bg1943A	1610	0	07:23	threads=2
+genc1943	35	0	07:24	
+comp1943L	10	0	07:24	
+kiem1943	3	0	07:24	
+spr1782	430	137	07:25	
+spr1943-dot1-dung-tay	1500	143	07:50	threads=2 (dừng tay vì RAM 8 GB; giữ 9 tờ linh~0..2)
+spr1782	1601	137	08:15	
+live-test1	12	0	08:16	
+live-test2	16	0	08:19	
+live-test3	9	0	08:19	
+spr-dot2-bo	1500	143	08:45	threads=2x2 (tờ cũ bỏ: sheen vải + OOM, dựng lại theo hàng)
+spr-dot3-bo	360	143	08:55	threads=2x2 (từng hàng: chậm, đổi sang cặp hàng)
+spr-dot4-2moc	2520x2	143	09:07	threads=2x2, 2 tiến trình song song (dừng để giảm dáng phụ; giữ tờ đã xong)
+spr1943-dot5-dung	1200	143	09:28	dừng theo yêu cầu phiên chính (RAM) — chạy tuần tự
+spr1782	4146	0	10:16	
+sx-LAI-st-1782	60	0	10:18	
+sx-LAI-st-1782b	130	0	13:06	
+spr1943-dot6	~3000	143	10:5x	bị dừng khi phiên tạm ngưng (giữ 10 tờ)
+spr1943	226	0	13:10	
+sx-LAI-st-1782	26	0	13:11	
+sx-LAI-sttext-1782	17	0	13:11	
+sx-A-st-1782	22	0	13:12	
+sx-LAI-vid-1782	95	0	13:13	
+sx-LAI-st-1943	142	0	13:16	
+sx-LAI-sttext-1943	23	0	13:16	
+sx-A-st-1943	27	0	13:17	
+sx-LAI-vid-1943	94	0	13:18	
+best1782-v1-bo	840	143	13:22	bỏ: kế hoạch người đổi ở vòng 2
+sx-LAI-st-1782	23	0	13:22	
+sx-LAI-sttext-1782	18	0	13:22	
+sx-A-st-1782	23	0	13:23	
+sx-LAI-vid-1782	82	0	13:24	
+sx-LAI-st-1943	22	0	13:25	
+sx-LAI-sttext-1943	18	0	13:25	
+sx-A-st-1943	23	0	13:25	
+sx-LAI-vid-1943	85	0	13:27	
+best1782-0	660	0	13:38	
+best1782-1	534	0	13:47	
+comp1782BL	3	1	13:48	
+tn-st-1782	1	1	13:48	
+comp1782BL	9	0	13:48	
+tn-st-1782	11	0	13:48	
+tn-st-1782b	13	0	13:49	
+best1943-0	804	0	14:01	
+best1943-1	601	0	14:11	
+comp1943BL	8	0	14:11	
+tn-st-1943	26	0	14:11	
+comp1943BL	8	0	14:12	
+tn-st-1943	25	0	14:12	
+comp1782BL	8	0	14:12	
+tn-st-1782	12	0	14:13	

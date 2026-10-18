@@ -1,0 +1,33 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 4,
+  "toy_like": 6,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "Same CG street as Y with strong plaster texture and atmospheric depth. The figures are small and stiff, but they read as people in clear uniform types: white-clad sailors, khaki soldiers, navy ratings, and a stack of crates or barrels. The crowd is tighter and has some activity. The Union Jack and harbour ship are fine. The people are still generic, mannequin-like and posed in a static cluster."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 5,
+  "period": 4,
+  "ai_look": 5,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Identical environment, but the crowd is worse. The figures are a murky olive and blue, and some look like plastic or clay figurines. The clump of people is jumbled, with tangled silhouettes and no readable uniforms, gear or activity. They look like game-asset dolls pasted onto the cobbles. The rest of the frame is as good as X's, and the left-wall plaster is a little blotchier."
+ },
+ "better": "X",
+ "why": "Same set, but X's crowd has readable period uniforms (white sailors, khaki soldiers, navy ratings), props and clearer silhouettes, while Y's is a muddy, doll-like clump.",
+ "top_fix_for_weaker": "Replace the Y crowd with properly shaded, varied figures in correct 1943 uniforms (white sailor tops, khaki drill, navy), with realistic skin and cloth materials, contact shadows, and spacing into purposeful groups (queues, patrols, carrying crates). Add scale-appropriate motion blur or depth-of-field, and cut the saturated blue and olive cast.",
+ "anachronisms_seen": [
+  "Generic modern-looking mannequin figures with ambiguous uniforms",
+  "Pristine, uniform wrought-iron balcony railings and shutters look newly CG-made rather than 1943 weathered",
+  "No visible wartime elements (sandbags, blackout paint, vehicles) for Gibraltar in 1943"
+ ]
+}

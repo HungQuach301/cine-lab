@@ -1,0 +1,116 @@
+{
+ "X1": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 4,
+  "flags": [
+   "confusing"
+  ],
+  "from": "Gibraltar (Allied HQ)",
+  "route": "civilians evacuated to Casablanca (the only route drawn)",
+  "when": "May\u2013Jun 1940 (label), May\u2013Aug 1940 (title)",
+  "where": "Strait of Gibraltar, southern tip of Iberia",
+  "note": "Route only starts to draw. Hardly any movement is visible, so the shot opens nearly static."
+ },
+ "X2": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 3,
+  "flags": [
+   "confusing",
+   "illegible_text"
+  ],
+  "from": "Gibraltar",
+  "route": "three or four pale lines fan out to the NW, W and SW with no labels",
+  "when": "May\u2013Aug 1940",
+  "where": "Gibraltar, southern Iberia",
+  "note": "Cream lines on a pale sea have low contrast. The destinations are unlabeled, so the frame is unreadable. The Casablanca label has gone."
+ },
+ "X3": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "cluttered",
+   "text_overlap"
+  ],
+  "from": "Gibraltar",
+  "route": "to London (north), to Madeira (west-southwest), to Jamaica (west-southwest)",
+  "when": "May\u2013Aug 1940",
+  "where": "Gibraltar, Strait of Gibraltar",
+  "note": "The Madeira and Jamaica tags sit on top of the route lines and crowd each other. The routes run off-frame, so the actual destinations are never shown. The Casablanca route is missing."
+ },
+ "X4": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "cluttered",
+   "flat_slide_look"
+  ],
+  "from": "Gibraltar",
+  "route": "to London, Madeira, Jamaica",
+  "when": "May\u2013Aug 1940",
+  "where": "Gibraltar, Strait of Gibraltar",
+  "note": "Nearly identical to X3, so the last second is a dead hold. The pale lines are low-contrast. Jamaica is shown as a short stub, which is geographically misleading."
+ },
+ "X5": {
+  "craft": 5,
+  "readability": 5,
+  "clarity": 3,
+  "flags": [
+   "broken_render",
+   "illegible_text",
+   "empty_frame"
+  ],
+  "from": "Gibraltar (arrows appear off-map to the west)",
+  "route": "not yet visible",
+  "when": "8 Nov 1942",
+  "where": "Gibraltar, southern Iberia",
+  "note": "A ghosted, half-faded '8 Nov\u2026' label sits just below Gibraltar. The frame is mid-transition with a stray red dot and arrowheads floating without lines. The map has also been re-framed against X4, so the cut feels jarring."
+ },
+ "X6": {
+  "craft": 6,
+  "readability": 6,
+  "clarity": 5,
+  "flags": [
+   "text_overlap",
+   "cluttered"
+  ],
+  "from": "Atlantic, west of Gibraltar, and Gibraltar itself",
+  "route": "two red arrows come in from the west (one to the Strait/Mediterranean, one to the Moroccan coast), plus a dotted line to Oran",
+  "when": "8 Nov 1942",
+  "where": "Gibraltar, Strait of Gibraltar and Moroccan coast",
+  "note": "The Gibraltar label, the landings box and the aircraft box crowd each other, and the arrows run through them. The landings box points at no specific place. Arrowhead sizes are inconsistent."
+ },
+ "X7": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "cluttered"
+  ],
+  "from": "Atlantic, west of Gibraltar, and Gibraltar (aircraft)",
+  "route": "one fleet arrow to the Moroccan Atlantic coast (Casablanca), one through the Strait toward Algiers, and a dotted aircraft line to Oran",
+  "when": "8 Nov 1942",
+  "where": "Gibraltar, Strait of Gibraltar",
+  "note": "The story is understandable, but the landings box floats without a pin. Casablanca, Oran and Algiers have no markers on the map, only a text list. The arrows overlap one another near Gibraltar."
+ },
+ "X8": {
+  "craft": 6,
+  "readability": 7,
+  "clarity": 6,
+  "flags": [
+   "cluttered",
+   "flat_slide_look"
+  ],
+  "from": "Atlantic, west of Gibraltar, and Gibraltar (aircraft)",
+  "route": "fleet arrows to the Moroccan coast and through the Strait eastward, dotted aircraft line to Oran",
+  "when": "8 Nov 1942",
+  "where": "Gibraltar, Strait of Gibraltar",
+  "note": "A static hold, identical to X7. The scene reads as 2D annotation on a flat map. The cities are still unmarked."
+ },
+ "split": true,
+ "why_split": "The two shots are separate episodes (the 1940 civilian evacuation from Gibraltar and the 1942 Torch landings) with different dates, legends and arrow logic, so the cut resets the viewer cleanly. The X5 transition glitch (ghost label, floating arrowheads) needs fixing, and each shot needs a longer hold.",
+ "top_fix": "Mark Casablanca, Oran, Algiers, London, Madeira and Jamaica with pins on the map, and draw the routes in a high-contrast color with end markers. Remove overlapping callouts, and clean the X5 crossfade so the old label doesn't ghost in. Add camera motion or route growth for the whole shot instead of holding a static frame."
+}

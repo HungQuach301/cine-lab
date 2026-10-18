@@ -1,0 +1,34 @@
+{
+ "X": {
+  "craft": 7,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 5,
+  "toy_like": 6,
+  "flags": [
+   "toy_like",
+   "cluttered"
+  ],
+  "note": "Convincing weathered buildings and hazy harbour light. The crowd is a dense cluster of stiff, pale, low-poly figures in sailor whites, khaki and navy, with crates and a stack of tyres or sandbags. It reads as a populated scene, but the figures look like game assets and the cluster is slightly messy."
+ },
+ "Y": {
+  "craft": 6,
+  "detail": 5,
+  "period": 5,
+  "ai_look": 6,
+  "toy_like": 8,
+  "flags": [
+   "toy_like",
+   "broken_render"
+  ],
+  "note": "Same buildings, slightly cleaner. The figures are greenish-grey, waxy, mannequin-like and posed oddly, some with arms raised, and they look like clay or plastic dolls. They have no props, so there is no clear activity. Colour and skin or fabric rendering are off, and the figures look melted and ghostly."
+ },
+ "better": "X",
+ "why": "X's crowd has varied uniforms, crates and a clear purpose, and it looks more believable. Y's figures are uniformly greenish, doll-like and awkwardly posed, which breaks an otherwise good set.",
+ "top_fix_for_weaker": "Replace the green-grey mannequin figures with properly shaded, varied-uniform people (period khaki, navy and whites) carrying cargo or walking naturally. Fix the skin and fabric materials, add contact shadows and vary the poses.",
+ "anachronisms_seen": [
+  "Possibly generic modern-looking steel balcony railings and shutters",
+  "Clean uniform colours and shapes that are not clearly period-accurate",
+  "Harbour ship that is too small and indistinct to verify"
+ ]
+}

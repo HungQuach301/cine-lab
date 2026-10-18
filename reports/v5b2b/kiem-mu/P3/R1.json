@@ -1,0 +1,21 @@
+{
+ "X": {
+  "craft": 6,
+  "readability": 8,
+  "clarity": 6,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "Aerial 3D city model with a clear tower and a callout pointing at it. Three text boxes compete for attention. The unrelated '18,452 residents' sits in the top right, away from the subject. The tower callout is large and covers the lake and sky. The year is big and readable. Terrain is flat and the geometry is low-poly. The tower is small in frame, so it is not really a close view."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 7,
+  "clarity": 8,
+  "flags": [],
+  "note": "Cleaner and closer on the bastion. The sunlit stone, blue water and town behind give good depth. Labels are small but crisp and tucked into the corners and bottom. The location pin, date and time, and source citation make it clear what is shown. The bastion's big flat beige surfaces look plain and untextured. Bottom text is small on a phone but still legible."
+ },
+ "better": "Y",
+ "why": "Y has a closer, cleaner composition with unobtrusive labels that explain the scene at once, while X's three competing text boxes clutter a distant subject.",
+ "top_fix_for_weaker": "Cut the frame to one label, drop or move the residents stat to its own beat, and move the camera closer so the tower fills about a third of the frame with a thinner callout."
+}

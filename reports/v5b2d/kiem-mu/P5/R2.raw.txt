@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 4, "richness": 4, "fit": 3, "flags": ["toy_look", "unreadable_scale", "confusing"], "note": "Low camera looks over huge, blocky roofs, so the scale reads like a model village and not a panorama. A third of the frame is flat blue water with two tiny boats and faint smoke wisps. The fortress wall is a thin strip. Troops show as a few red specks. Roofs are saturated orange and the ground is a flat tan plane, so the frame has little depth or atmosphere."},
+ "Y": {"craft": 6, "richness": 7, "fit": 8, "flags": ["toy_look"], "note": "The high oblique camera reads as a real panorama. It shows bastioned walls, a town with a church tower, a green and a garden plot, outlying farmland and the sea. Depth layering and haze are decent. The bastion and wall in the foreground are large and clearly readable. The tan ground and texture are flat and there are almost no visible people or ships. Troops are only a few tiny red dots, so the frame is somewhat static."},
+ "better": "Y",
+ "why": "Y delivers a true wide panorama with the fortifications, town, and surrounding land readable at proper scale, while X is a close-up of oversized roofs and empty water.",
+ "top_fix_for_weaker": "Raise the camera and pull back to a high oblique angle with a wider lens. Shrink the buildings so the whole walled town fits the frame. Cut the water to a thin band, and add ships, troop columns, and smoke so the scene has action.",
+ "top_fix_for_better": "Add visible life: ships in the harbour, readable troop columns and camp lines, cannon smoke, and street crowds. Break up the flat tan ground with texture and colour variation. Add atmospheric haze and warmer, more directional light for cinematic depth."}
+```

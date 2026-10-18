@@ -1,0 +1,36 @@
+{
+ "X": {
+  "craft": 6,
+  "detail": 6,
+  "period": 6,
+  "ai_look": 6,
+  "toy_like": 7,
+  "flags": [
+   "toy_like"
+  ],
+  "note": "The buildings are strong: peeling plaster, exposed brick, warm window glow and depth toward the harbour. The soldiers are smooth plastic mannequins with blank faces and stiff running poses. Their scale and shading don't match the walls. The red and blue mix looks like a game crowd. The group is fairly small and reads as a clump in the middle of the lane."
+ },
+ "Y": {
+  "craft": 5,
+  "detail": 6,
+  "period": 5,
+  "ai_look": 7,
+  "toy_like": 9,
+  "flags": [
+   "toy_like",
+   "cluttered",
+   "broken_render",
+   "anachronism"
+  ],
+  "note": "The environment is identical to X, but the figures are worse. They are larger, glossy, doll-like or wooden-soldier figures in a stiff standing crowd. Limbs and clothing clip or merge, and some figures have odd green or teal coats and mismatched hats. The foreground figures look like painted toy soldiers or museum dummies. They are overlapping and muddled, and they hide the lane. The pale trousers and uniform details look inconsistent."
+ },
+ "better": "X",
+ "why": "Both frames share the same convincing, weathered street, but X's smaller, more naturally spaced figures in motion read less like toys than Y's large, glossy, overlapping dolls with muddled colours.",
+ "top_fix_for_weaker": "Replace the large, posed mannequin crowd with fewer, smaller, properly scaled figures. Use consistent period uniforms (red coats with white facings, no green or teal coats). Add cloth and skin shading, varied poses and faces, grounded contact shadows, and spacing so figures don't overlap or clip.",
+ "anachronisms_seen": [
+  "Green/teal coats and mismatched tricorn/bicorn hats on some figures in Y",
+  "Pale blue-grey coats with white trousers in both frames look more like early 19th-century uniforms than a 1782 line regiment",
+  "Cross-belt and facing details look generic and inconsistent",
+  "Union Jack with the 1801 St Patrick's cross on the flag, used in 1782 (the 1606 Union flag lacked it)"
+ ]
+}

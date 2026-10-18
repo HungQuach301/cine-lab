@@ -1,0 +1,32 @@
+{
+  "id": "sm2-1782",
+  "_ghi_chu": "V5b-2c · lớp ranh SM2 (1780–82) theo channel-k2/k2c-t3-01/tuyen/ranh-gioi.json (gói TUYẾN, E1–E9 chủ dự án duyệt 17/10) + B1/B5/B6. Nguồn chính Cliopatria v0.2.1 năm 1782; đối chiếu OHM (mẫu NC-BD reports/nc-ban-do/mau/ohm-1782-tay-au.geojson, cắt −10,5…4,5 / 35,5…52 — phần ngoài mẫu không đối chiếu được).",
+  "bbox": [-18.0, 30.0, 10.0, 47.0],
+  "_bbox": "= nền relief sm2 (máy SM2 trượt bắc → nam; khung cuối ≈ −11,5…5 / 34…41,5 theo treatment-patch)",
+  "khung_rong_km": 1450,
+  "khung_px": 1920,
+  "raster_w": 4200,
+  "nam": 1782,
+  "ngay_ranh": "1780-01 → 1782-10 (Minorca đổi chủ 1782-02-05)",
+  "nguon_ngan": "Cliopatria (Seshat)",
+  "giay_phep": "CC-BY-4.0",
+  "nhan": "approx. borders c. 1782 — Cliopatria (Seshat)",
+  "doi_chieu": {"ten": "OpenHistoricalMap", "giay_phep": "CC0", "tep": "reports/nc-ban-do/mau/ohm-1782-tay-au.geojson", "ngay": "1782-06-01", "bbox": [-10.5, 35.5, 4.5, 52.0]},
+  "ghi_cong": "Borders: Cliopatria v0.2.1 (Seshat Global History Databank), CC BY 4.0, changed (clipped to Natural Earth land, simplified; Minorca owner set by date from claim T020); cross-checked with OpenHistoricalMap contributors (CC0; includes data © Instituto Geográfico Nacional (CNIG), CC BY 4.0). Coast/land: Natural Earth (public domain). Relief: ETOPO 2022 (NOAA NCEI, CC0).",
+  "chinh_tay": [
+    "Minorca tách khỏi 'Kingdom of Spain' (Cliopatria tô TBN từ 1781 — sai; OHM 1782-01-05 — sai): Anh trước 1782-02-05, TBN từ 1782-02-05 (T020)",
+    "'British Colonial Empire' (Gibraltar polygon) bỏ — Gibraltar là ĐIỂM (< 8 px)",
+    "Presidio Oran (TBN 1732–1792) có trong Cliopatria, không có trong mẫu OHM → giữ theo Cliopatria (đúng thời kỳ), ghi lệch nguồn ở đây; lệch biên đo theo HÀNH LANG Tây Ban Nha–Bồ Đào Nha (−7,6…−6,0°)",
+    "Chú giải ≤ 3 phe: Britain · Spain · France (đồng minh TBN, giữ màu riêng — E4); Bồ Đào Nha, Ma-rốc, Algiers xám \"không tham chiến\" ghi bằng TÊN trên bản đồ, không thêm mục chú giải"
+  ],
+  "thuc_the": [
+    {"id": "spain", "ten": "Spain", "cliopatria": ["Kingdom of Spain"], "ohm": ["Spain"], "vung_do": [[-7.6, 36.9, -6.0, 42.2], [-1.9, 42.2, 3.2, 43.4]], "faction_id": "spain", "mau": "#c9a227", "tru": [[[3.70, 39.75], [4.40, 39.75], [4.40, 40.12], [3.70, 40.12]]], "claims": ["T006"]},
+    {"id": "minorca", "ten": "Minorca", "ll": [[3.70, 39.75], [4.40, 39.75], [4.40, 40.12], [3.70, 40.12]], "faction_id": "britain", "mau": "#b03a2e", "doi_chu": [{"ngay": "1782-02-05", "faction_id": "spain", "fill": "#c9a227", "claims": ["T020"]}], "claims": ["T020"]},
+    {"id": "france", "ten": "France", "cliopatria": ["Kingdom of France"], "ohm": ["Kingdom of France"], "vung_do": [[-1.9, 42.2, 3.2, 43.4]], "faction_id": "france", "mau": "#2e5c8a", "claims": ["T018"]},
+    {"id": "portugal", "ten": "Portugal", "cliopatria": ["Kingdom of Portugal"], "ohm": ["Kingdom of Portugal"], "vung_do": [[-7.6, 36.9, -6.0, 41.5]], "faction_id": "neutral", "mau": "#a89f8a"},
+    {"id": "morocco", "ten": "Morocco", "cliopatria": ["Morocco"], "ohm": ["Alawi Sultanate"], "vung_do": [[-2.6, 34.0, -1.0, 35.5]], "faction_id": "neutral", "mau": "#a89f8a"},
+    {"id": "algiers", "ten": "Regency of Algiers", "cliopatria": ["Regency of Algiers"], "faction_id": "neutral", "mau": "#a89f8a"},
+    {"id": "others", "ten": "Other states (not at war)", "cliopatria": ["Kingdom of Sardinia", "Republic of Genoa", "Habsburg Monarchy", "Holy Roman Empire Minor States", "Swiss Confederation", "Republic of Venice", "Kingdom of Prussia", "Beylik of Tunis", "Principality of Monaco", "Comtat Venaissin", "County of Urgell"], "faction_id": "neutral", "mau": "#a89f8a", "_ghi_chu": "không tham chiến trong chiến tranh 1779–83 ở khung này (B6 xám nâu); Comtat Venaissin (Giáo hoàng) và Urgell (Andorra) nhỏ — tô cùng xám"},
+    {"id": "gibraltar", "ten": "Gibraltar", "diem": [-5.353, 36.140], "faction_id": "britain", "mau": "#b03a2e", "claims": ["S040", "S042"], "ly_do_diem": "≈ 6 km ở khung 1 450 km (≈ 0,76 km/px) → ≈ 8 px chiều dài, 1–2 px bề ngang: ĐIỂM (B5)"}
+  ]
+}

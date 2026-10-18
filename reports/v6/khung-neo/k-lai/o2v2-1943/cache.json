@@ -1,0 +1,130 @@
+{
+ "fce9d3a57242d126a4ad0d28f4728cd8": {
+  "nam": 1943,
+  "noi": "Gibraltar",
+  "sha256": "97e681ab482a039b846e78d79830ac1e0c1433cbe6daf8bc5866026572be3495",
+  "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+  "model": "claude-sonnet-5-5",
+  "nghi_van": [],
+  "ghi_chu": [],
+  "cost_usd": 0.0327152,
+  "cost_buoc2": 0.0,
+  "model_usage": {
+   "claude-sonnet-5-5": {
+    "inputTokens": 6,
+    "outputTokens": 676,
+    "cacheReadInputTokens": 3032,
+    "cacheCreationInputTokens": 10256,
+    "webSearchRequests": 0,
+    "costUSD": 0.0327152,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 128000,
+    "thinkingTokens": 0,
+    "canonicalModel": "claude-sonnet-5-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "secs": 8.7,
+  "so_anh_doc": 5,
+  "loi": null,
+  "tra_loi": "{\"nam\":1943,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+ },
+ "60c0f8342ebc0b52275ad4b7b005f6fe": {
+  "nam": 1943,
+  "noi": "Gibraltar",
+  "sha256": "11a8958bf3a11532f820d7f022df32c15b1870e2298bd0125bedb740bb5ead3b",
+  "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+  "model": "claude-sonnet-5-5",
+  "nghi_van": [],
+  "ghi_chu": [],
+  "cost_usd": 0.0327152,
+  "cost_buoc2": 0.0,
+  "model_usage": {
+   "claude-sonnet-5-5": {
+    "inputTokens": 6,
+    "outputTokens": 676,
+    "cacheReadInputTokens": 3032,
+    "cacheCreationInputTokens": 10256,
+    "webSearchRequests": 0,
+    "costUSD": 0.0327152,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 128000,
+    "thinkingTokens": 0,
+    "canonicalModel": "claude-sonnet-5-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "secs": 7.5,
+  "so_anh_doc": 5,
+  "loi": null,
+  "tra_loi": "{\"nam\":1943,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[]}"
+ },
+ "ba3bb49559e0dd44494080dcd8431748": {
+  "nam": 1943,
+  "noi": "Gibraltar",
+  "sha256": "982d778514177dfd41094f98621c8e2425a006acd0efb2c7bf03653e16fff2db",
+  "prompt_ver": "o2-v2 (K-1.15, 18/10/2026: + bước 2 xác nhận phóng to)",
+  "model": "claude-sonnet-5-5",
+  "nghi_van": [],
+  "ghi_chu": [
+   {
+    "muc": "tau",
+    "mo_ta": "A square-rigged, galleon-like sailing ship with an orange sail sits in the harbour. It is the main vessel in the distance, beside a low grey hull.",
+    "ly_do": "A square-rigged wooden sailing ship of this kind was obsolete by 1943. Gibraltar's wartime harbour held steam and motor warships, merchant ships and small craft. The ship looks like a historical or fantasy type, not one from 1943.",
+    "nam_xuat_hien": null,
+    "toa_do_px": [
+     893,
+     562,
+     998,
+     637
+    ],
+    "do_tin": 0.5,
+    "xac_nhan": {
+     "vung_px": [
+      788,
+      442,
+      1103,
+      757
+     ],
+     "phong": 2.13,
+     "tra_loi": {
+      "vat": "A small square-rigged sailing ship in the foreground of the bay, with a larger low grey cargo or ship hull behind it",
+      "dac_diem": "The sailing ship is small and hazy. It has a short hull, two or three masts and tan or brown square sails. A tall block-like sail or structure stands on the foremast. It looks like a galleon or carrack style. Behind it is a long, low grey hull with a red waterline stripe and a thin mast with a crosstree. I can't see any funnel on it. Both are heavily blurred by haze.",
+      "co_tu_nam": 1500,
+      "da_co_nam_1943": "yes",
+      "ly_do": "Square-rigged sailing ships existed long before 1943. They were rare as warships by then, but sailing vessels and merchant hulls were still present. The grey hull behind is a conventional steel ship of a kind that existed in 1943."
+     },
+     "da_co": "yes",
+     "giu": false,
+     "cost_usd": 0.011233400000000001,
+     "loi": null
+    },
+    "ly_do_ha": "phóng to 2.13×: da_co_nam = 'yes' — không xác nhận"
+   }
+  ],
+  "cost_usd": 0.04787670000000001,
+  "cost_buoc2": 0.01123,
+  "model_usage": {
+   "claude-sonnet-5-5": {
+    "inputTokens": 6,
+    "outputTokens": 1066,
+    "cacheReadInputTokens": 3038,
+    "cacheCreationInputTokens": 10267,
+    "webSearchRequests": 0,
+    "costUSD": 0.036643300000000004,
+    "contextWindow": 1000000,
+    "maxOutputTokens": 128000,
+    "thinkingTokens": 181,
+    "canonicalModel": "claude-sonnet-5-5",
+    "provider": "firstParty",
+    "costBasis": "list"
+   }
+  },
+  "secs": 13.2,
+  "so_anh_doc": 5,
+  "loi": null,
+  "tra_loi": "{\"nam\":1943,\"da_kiem\":[\"co\",\"quan_phuc\",\"tau\",\"den\",\"xe\",\"vat_hien_dai\",\"chu\",\"kien_truc\"],\"nghi_van\":[{\"muc\":\"tau\",\"mo_ta\":\"A square-rigged, galleon-like sailing ship with an orange sail sits in the harbour. It is the main vessel in the distance, beside a low grey hull.\",\"ly_do\":\"A square-rigged wooden sailing ship of this kind was obsolete by 1943. Gibraltar's wartime harbour held steam and motor warships, merchant ships and small craft. The ship looks like a historical or fantasy type, not one from 1943.\",\"nam_xuat_hien\":null,\"toa_do\":[0.465,0.52,0.52,0.59],\"do_tin\":0.5}]}"
+ }
+}

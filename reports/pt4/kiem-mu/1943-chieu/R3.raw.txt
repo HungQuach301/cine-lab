@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 6, "detail": 5, "period": 6, "ai_look": 5, "toy_like": 6, "flags": ["toy_like", "flat_slide_look"], "note": "Warm, saturated 3D render with strong light. The facades are streaky and look like an overlaid texture, with no cornices or string courses. The figures are flat, semi-transparent cutouts in uniform poses, and several look ghostly (the pale one at right). The harbour has a visible ship and a hazy hill, which helps. The union flag is clear and period-appropriate."},
+ "Y": {"craft": 7, "detail": 6, "period": 6, "ai_look": 4, "toy_like": 5, "flags": ["toy_like"], "note": "Atmospheric haze gives depth, and the facades have cornice bands, a plinth and varied weathering, so the architecture is more believable. The figures are still dark, low-detail silhouettes that look like game assets, but they are less glaring in the haze. The ship is lost in the haze. The flag is readable."},
+ "better": "Y",
+ "why": "Y has more credible architecture (cornices, stone base, varied wear) and haze that hides the weak figures, while X's figures are flat translucent cutouts and its facades look like streaky texture.",
+ "top_fix_for_weaker": "Replace the flat translucent figure sprites in X with properly lit, grounded people (shadows, varied 1943 uniforms and civilian dress), and add cornices and stringcourses to the facades so they stop looking like a streaky texture.",
+ "anachronisms_seen": ["none obvious; the wall-mounted blue box at right is ambiguous", "the uniforms are too generic to verify as 1943"]}
+```

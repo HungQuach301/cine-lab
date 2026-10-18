@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 5, "detail": 5, "period": 5, "ai_look": 5, "toy_like": 7, "flags": ["toy_like", "flat_slide_look"], "note": "The wall textures are strong, but the figures are flat, semi-transparent cutouts. They look like pasted game sprites with pale ghosting and uneven scale. The harsh orange patches look like overlay noise. The left wall has no cornices or string courses, so it reads as a flat slab. The ship and flag are tiny."},
+ "Y": {"craft": 7, "detail": 7, "period": 6, "ai_look": 5, "toy_like": 4, "flags": [], "note": "The framing and the layered depth haze look more cinematic. The facades have cornices, string courses and a stone plinth, which makes the architecture more believable. The figures are dark silhouettes that read better in haze, but they are still low-detail and uniform, with a few merged clumps. The ship and flag are tiny. Uniforms are unreadable, so period cues rest on the flag, shutters and balconies."},
+ "better": "Y",
+ "why": "Y has richer architectural detail, atmospheric depth and silhouette figures that look less like cutout toys than X's pale ghost sprites.",
+ "top_fix_for_weaker": "Replace X's semi-transparent cutout figures with properly lit, grounded figures with contact shadows and varied scale and clothing. Add cornices and string courses to the left building, and tone down the orange blotches so they don't look like overlay noise.",
+ "anachronisms_seen": ["none obvious", "uniforms too indistinct to verify 1943 dress", "modern-looking blue kiosk or container at the right end of the square"]}
+```

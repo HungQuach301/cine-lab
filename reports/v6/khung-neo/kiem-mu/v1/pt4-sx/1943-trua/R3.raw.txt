@@ -1,0 +1,8 @@
+```json
+{"X": {"craft": 6, "detail": 6, "period": 6, "ai_look": 5, "toy_like": 6, "flags": ["toy_like", "flat_slide_look"], "note": "The buildings are strong: peeling plaster, shutters and balconies are convincing. The crowd is a cluster of stiff, pale, low-poly figures that read as game assets. Sailors in white and khaki are legible, and there are boxes and a stack of tyres or barrels. This gives it story and a sense of activity. The crowd's lighting doesn't match the scene."},
+ "Y": {"craft": 5, "detail": 5, "period": 5, "ai_look": 6, "toy_like": 8, "flags": ["toy_like", "broken_render", "anachronism"], "note": "The buildings are almost identical to X. The people are worse: grey-green, waxy, mannequin-like figures with no props and no clear purpose. They stand in awkward poses and look like clay toys. Uniforms are unreadable, and the figures merge into a murky blob. The scene has no clear action."},
+ "better": "X",
+ "why": "The environment is nearly the same in both, but X's crowd has readable uniforms, props and colour variety, while Y's figures are murky, doll-like and purposeless.",
+ "top_fix_for_weaker": "Replace the clay-grey figures with correctly scaled, properly lit people in distinct, period-accurate uniforms (RN whites and navy, khaki battledress). Give them cargo or purposeful activity, add grounded contact shadows, and thin the group so individuals read at phone size.",
+ "anachronisms_seen": ["Y: uniform colours and cuts are unreadable and generic, so they can't be placed in 1943", "Both: the distant ship is vague and could be modern in silhouette", "Both: the crowd's modern-looking game-asset rendering doesn't match the weathered period architecture"]}
+```

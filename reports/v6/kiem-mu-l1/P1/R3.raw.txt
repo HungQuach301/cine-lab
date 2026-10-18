@@ -1,0 +1,34 @@
+```json
+{
+  "A": {
+    "craft": 4,
+    "detail": 3,
+    "toy_like": 9,
+    "ai_look": 4,
+    "period": 3,
+    "flags": ["toy_look", "unreadable_scale", "anachronism"],
+    "note": "The rock is the best thing in the frame: readable and nicely lit. The troops are black cylinders on tan slab bases, so they read as game pieces or barcode blocks, not soldiers. The ground is flat and the walls are plain boxes. Smoke is faint, and the town is a tiny sliver in the distance."
+  },
+  "B": {
+    "craft": 6,
+    "detail": 6,
+    "toy_like": 5,
+    "ai_look": 4,
+    "period": 6,
+    "flags": ["unreadable_scale"],
+    "note": "Troops are dense ranks of grey-blue figures that read as formations. Flags carry a red cross motif. The foreground works, with a trench or parapet, a bay and a rock slope with fortifications, and the red-roofed town and church tower show in the distance. The smoke plumes are believable. Weaknesses: the grass is flat and saturated, the walls are plain extruded boxes, and the troops are tiny, similar-looking texture blobs. The rock is cropped out of the frame."
+  },
+  "C": {
+    "craft": 6,
+    "detail": 6,
+    "toy_like": 5,
+    "ai_look": 4,
+    "period": 6,
+    "flags": ["unreadable_scale"],
+    "note": "Same composition as B. The walls have lighter, warmer stone with buttress-like bracing, which gives slightly better material read. The hillside is more faceted and has a hard-edged low-poly look. The troops are slightly darker and browner, which reads a little more like uniforms. Overall it is nearly identical to B, with a somewhat more stylised, polygonal hill."
+  },
+  "rank": ["C", "B", "A"],
+  "why": "B and C show readable massed infantry formations, flags, smoke and a believable bay and town setting, while A's black-cylinder-on-slab troops look like game pieces and its walls are bare boxes. C edges B on wall material and troop colour.",
+  "top_fix_for_best": "Reduce the soldiers' toy look: give each rank varied heights, poses and muskets, break the uniform spacing, and add some individual figures, such as officers or gun crews, at a larger scale in the foreground. Also give the walls real structure (embrasures, gabions, fascines) and break up the flat green ground with trenches, tracks and earth spoil, so the siege lines read as works instead of plain boxes."
+}
+```

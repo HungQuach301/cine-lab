@@ -1,0 +1,25 @@
+{
+ "X": {
+  "craft": 7,
+  "readability": 4,
+  "clarity": 5,
+  "flags": [
+   "text_overlap",
+   "illegible_text",
+   "cluttered"
+  ],
+  "note": "The dense terracotta town is rich and convincing, with good lighting and a clear water, town and hillside layering. The ghosted lower-third caption ('1704 \u00b7 British and Dutch for\u2026 Gibraltar / Gibraltar National Ma\u2026') is near-invisible against the water and looks like a mid-fade. It is also cut off by the frame and sits on top of the year box area. The top banner 'No AI imagery \u00b7 Census \u00b7 Catastro \u00b7 Landsat 5' is a vague source line, not information that helps the viewer. The hillside takes up about half the frame, and the year 1752 gives no sense of place or quantity."
+ },
+ "Y": {
+  "craft": 7,
+  "readability": 8,
+  "clarity": 8,
+  "flags": [
+   "cluttered"
+  ],
+  "note": "The composition is clean, with sea, a sparse reconstructed street, walls and distant hills, and the lighting and water look good. The chips are high-contrast and large enough for a phone, and they state place (Main Street, Gibraltar), year (1782), the source (Drinkwater plan) and the uncertainty (~21 m, east side not drawn). That is honest and clear. Four text chips crowd the frame, and the bottom caption chips cover the foreground buildings. The scene is sparse and the geometry is low-poly (spherical trees, blocky houses), so it looks less rich than X."
+ },
+ "better": "Y",
+ "why": "Y's overlays are legible and informative and the scene is clear at a glance, while X has a ghosted, cut-off caption that can't be read and a vague banner, even though its town render is denser.",
+ "top_fix_for_weaker": "In X, remove or fully fade in the lower-third so it is solid and fits on one line at 40px or larger, for example 'Gibraltar, 1752 \u00b7 captured 1704 by British and Dutch forces'. Replace the banner with a short place label. Reframe the camera lower so the town fills more of the frame than the empty hillside."
+}

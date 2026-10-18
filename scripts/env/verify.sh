@@ -32,6 +32,9 @@ K2="$(cd "$(dirname "$0")/../.." && pwd)/design/k2v"
 node -e "require('$K2/node_modules/d3-geo/package.json');require('$K2/node_modules/topojson-client/package.json')" 2>/dev/null && ok "k2v node_modules (d3-geo, topojson, atlas)" \
   || ko "k2v node_modules" "thiếu — chạy: (cd design/k2v && npm ci)"
 ls /opt/pw-browsers 2>/dev/null | grep -q chromium && ok "Chromium (Playwright)" || ko "Chromium" "chưa tải — kiểm tên miền playwright"
+# V5b-2b (V5B2A §8.9): trình dựng chuẩn llvmpipe (GG1) — Mesa 25.2.8 / LLVM 20 + renderer WebGL thật của Chromium (scripts/k2tl/env_check.sh)
+ET=$(bash "$(cd "$(dirname "$0")/../.." && pwd)/scripts/k2tl/env_check.sh" 2>&1); [ $? = 0 ] && ok "llvmpipe: $(grep -o 'mesa-libgallium [^ ]*' <<<"$ET") · $(grep -o 'llvmpipe (LLVM [^)]*)' <<<"$ET" | head -1)" \
+  || ko "llvmpipe (env_check)" "$(grep FAIL <<<"$ET" | head -2 | tr '\n' ' ')— trình dựng chuẩn K2TL_GL=llvmpipe sẽ DỪNG mã 6; dùng K2TL_GL=swiftshader tạm, ghi báo cáo"
 
 # Mạng
 code(){ curl -s -o /dev/null -w "%{http_code}" --max-time 20 "$1"; }
