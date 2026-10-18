@@ -1,0 +1,1350 @@
+{
+ "ghi_chu": "G1b T3 — AI đọc nguồn cho cảnh 1782 (Kinh thánh §12.2–12.3, lệnh AI-T3). Đầu vào: reports/nc-ai/aib/danh-sach-9-1782.json, lọc dung_duoc == true VÀ luot2 == \"correct\" (62/82 mục). Phân loại (a)/(b)/(c) do phiên con G1b làm bằng tay, đọc từng mục. Văn bản (bậc 2) KHÔNG cho vị trí: mọi tên nơi cần bậc 1 (bản đồ) trước khi đặt lên hình. Không gọi API. Chi tiết, bảng gác 7/9/1782 đọc từ ảnh trang và mật độ: g1b/ai-doc-nguon.md.",
+ "ngay": "2026-10-18",
+ "nguon_tep": {
+  "drinkwater1786": {
+   "url": "https://archive.org/download/historyoflatesie00driniala/historyoflatesie00driniala_djvu.txt",
+   "sha256": "7576bb8fb645db341cbf981383d7d41efae91fce1c9991737e21be4d04565212"
+  },
+  "spilsbury1908": {
+   "url": "https://archive.org/download/ajournalsiegegi00spilgoog/ajournalsiegegi00spilgoog_djvu.txt",
+   "sha256": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f"
+  },
+  "ancell1784": {
+   "url": "https://archive.org/download/acircumstantial00ancegoog/acircumstantial00ancegoog_djvu.txt",
+   "sha256": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526"
+  }
+ },
+ "dem": {
+  "tong_loc": 62,
+  "a_hoat_dong_nhin_thay": 12,
+  "b_mat_do_thanh_phan": 32,
+  "c_khong_dung_cho_hinh": 18
+ },
+ "chi_dung_trong_hem_KA1782": [
+  13,
+  6,
+  24
+ ],
+ "a_hoat_dong_nhin_thay": [
+  {
+   "id": 2,
+   "loai": "activity",
+   "mo_ta_en": "The rock gun maintained an almost incessant fire on the enemy battery.",
+   "trich_nguyen_van": "We have keptalmoftan inceffant fire fro© the rock gun upon it,",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-06",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Chỉ cảnh công sự có Rock Gun (bậc 1 cho vị trí); không phải hẻm phố",
+   "ghi_chu": "Bắn liên tục từ Rock Gun 6/9.",
+   "ten_noi_can_bac_1": [
+    "Rock gun",
+    "rock gun"
+   ]
+  },
+  {
+   "id": 6,
+   "loai": "activity",
+   "mo_ta_en": "Everyone able to fire a musket or carry a shot was required to take a post on an alarm.",
+   "trich_nguyen_van": "Every one that U aWe to fire a mufquet, or carry a {hot, muft take port upon any alarm.",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-06",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "2j (khẩu đội) và KA1782 chỉ khi báo động: người khiêng đạn",
+   "ghi_chu": "\"Every one … able to fire a musquet, or carry a shot, must take post upon any alarm\" — động tác khiêng đạn; văn bản không cho vị trí.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 7,
+   "loai": "activity",
+   "mo_ta_en": "Perspectives throughout the garrison were reportedly used to examine the floating batteries' rigging.",
+   "trich_nguyen_van": "I tiippofe there was not a perfpe&ive in the garriion but what was emolovcd in the examination of their Yann and rigging.",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Lính/sĩ quan dùng ống nhòm trên tường biển (Line Wall, Grand Parade, King's Bastion) — 2k/2m/cảnh Grand Parade; không trong hẻm kín",
+   "ghi_chu": "7/9: ống nhòm soi pin nổi. Vị trí tường lấy bậc 1.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 8,
+   "loai": "object",
+   "mo_ta_en": "Perspectives were present in the garrison for examining the floating batteries.",
+   "trich_nguyen_van": "I tiippofe there was not a perfpe&ive in the garriion but what was emolovcd in the examination of their Yann and rigging.",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Đạo cụ đi kèm #7 (ống nhòm)",
+   "ghi_chu": "Vật nền phụ có căn cứ bậc 2.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 13,
+   "loai": "activity",
+   "mo_ta_en": "Inhabitants were actively securing themselves and their property in anticipation of the attack.",
+   "trich_nguyen_van": "the inhabitants, apprehenfive of the confequences, Were wonderfully a&ive in fecuring themfelves and their property.",
+   "nguon": "drinkwater1786",
+   "trang": 351,
+   "ngay": null,
+   "sha256_tep_nguon": "7576bb8fb645db341cbf981383d7d41efae91fce1c9991737e21be4d04565212",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "KA1782 hẻm phố, 2o-phố, Grand Parade: dân mang/che chắn đồ đạc",
+   "ghi_chu": "Drinkwater tr. 351: \"the inhabitants … were wonderfully active in securing themselves and their property\". Ngày không ghi (đoạn trước 1/9/1782). Phần lớn dân đã rời phố từ 4/1781 (S062) → ít người.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 22,
+   "loai": "activity",
+   "mo_ta_en": "Sailors were carrying their baggage and other belongings to Europa.",
+   "trich_nguyen_van": "The sailors busy yet, carrving their baggage, &c., to Kuropa.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-04",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Thuỷ thủ khiêng hành lý về Europa (4/9) — chỉ đặt trên trục phố bắc–nam nếu bậc 1 cho tuyến; mặc định không trong hẻm",
+   "ghi_chu": "Văn bản cho đích (Europa), không cho đường đi.",
+   "ten_noi_can_bac_1": [
+    "Europa"
+   ]
+  },
+  {
+   "id": 23,
+   "loai": "object",
+   "mo_ta_en": "The sailors had baggage that they were moving to Europa.",
+   "trich_nguyen_van": "The sailors busy yet, carrving their baggage, &c., to Kuropa.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-04",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Đạo cụ đi kèm #22 (hành lý, hòm)",
+   "ghi_chu": "Vật nền phụ có căn cứ bậc 2.",
+   "ten_noi_can_bac_1": [
+    "Europa"
+   ]
+  },
+  {
+   "id": 26,
+   "loai": "activity",
+   "mo_ta_en": "The 39th Regiment was ordered to camp in South Port Ditch, with its flank companies in the Picquet Yard.",
+   "trich_nguyen_van": "The 39th Regiment to encamp in South Port Ditch, and their flank companies to go into the Picquet Yard.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-06",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Lều trại trung đoàn 39 ở South Port Ditch (6/9) — cần bậc 1 (South Port Ditch trên plan 1786); cảnh 2o/2g góc nhìn nam, không trong hẻm",
+   "ghi_chu": "Hoạt động: dựng trại.",
+   "ten_noi_can_bac_1": [
+    "Camp"
+   ]
+  },
+  {
+   "id": 76,
+   "loai": "activity",
+   "mo_ta_en": "At seven in the morning the batteries began their utmost fire of red-hot shot against the advanced works.",
+   "trich_nguyen_van": "At 7 a.m., by the Lieut.-Governor’s desire, our batteries began their utmost fire of red hot shot, &e., on their Advanced Works, kept it up till £ p.m., and destroyed the Mahon Battery.",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-08",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "2j: khẩu đội bắn đạn nung đỏ 8/9 từ 7 h đến 16 h — kíp pháo nạp đạn nóng, khói đầu nòng",
+   "ghi_chu": "Spilsbury tr. 75: \"our batteries began their utmost fire of red hot shot … on their Advanced Works\". Khớp lời 2j (S059).",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 77,
+   "loai": "object",
+   "mo_ta_en": "The garrison batteries fired red-hot shot.",
+   "trich_nguyen_van": "our batteries began their utmost fire of red hot shot, &e.,",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-08",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Đạo cụ 2j: đạn nung đỏ (kèm lò nung — vị trí lò minh hoạ theo V5b-2d)",
+   "ghi_chu": "",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 79,
+   "loai": "object",
+   "mo_ta_en": "A settee commanded by Lynch arrived from Algiers carrying bullocks, thirty sheep, wine and other cargo.",
+   "trich_nguyen_van": "About 1 p.m. arrived a settee,’ Lynch, from Algiers, laden bullocks, 30 sheep, and wine, &e.,",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-09",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Dỡ hàng thuyền settee từ Algiers (bò, 30 cừu, rượu) 9/9 — chỉ khi bậc 1 cho bến cập; không đặt trong hẻm",
+   "ghi_chu": "Văn bản không nói cập ở đâu.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 80,
+   "loai": "activity",
+   "mo_ta_en": "A cargo settee from Algiers arrived at about one in the afternoon.",
+   "trich_nguyen_van": "About 1 p.m. arrived a settee,’ Lynch, from Algiers, laden bullocks, 30 sheep, and wine, &e.,",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-09",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Như #79",
+   "ghi_chu": "",
+   "ten_noi_can_bac_1": []
+  }
+ ],
+ "b_mat_do_thanh_phan": [
+  {
+   "id": 0,
+   "loai": "crowd_density",
+   "mo_ta_en": "The garrison could muster only a little more than 5,900 men and boys, including the sick, wounded and disabled.",
+   "trich_nguyen_van": ":an mufler very few more than 5900 men ind boys, including fick, wou&ded J and ii£- ibled, to repulfe the efforts of fuch a fuperior Force,",
+   "nguon": "ancell1784",
+   "trang": 253,
+   "ngay": "1782-09-01",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "gan_dung",
+   "bac": 2,
+   "goi_y_dung": "Toàn cảnh/thẻ số, KHÔNG cho hẻm",
+   "ghi_chu": "Ancell: \"very few more than 5900 men and boys, including sick, wounded and disabled\" — lệch với số biên chế 7 535 (Spilsbury tr. 75, #72) và ~7 500 (S079, lời KA1782): Ancell nói người còn chiến đấu được; không thay số trong lời.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 4,
+   "loai": "crowd_density",
+   "mo_ta_en": "An additional field officer was ordered to the lines and a reinforcement to the New Mole Guard.",
+   "trich_nguyen_van": "An additional field officer is ordered to take port in the lines, and 2 reinforcement to the New Mole Guard.",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-06",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Khối lính ở Lines và New Mole (cảnh vây/bờ), không cho hẻm",
+   "ghi_chu": "Tăng cường 6/9.",
+   "ten_noi_can_bac_1": [
+    "Lines",
+    "Mole"
+   ]
+  },
+  {
+   "id": 5,
+   "loai": "activity",
+   "mo_ta_en": "The Corsican company was ordered to begin duty the following day.",
+   "trich_nguyen_van": "G'xfican company that were embodied Aug* 4th, are ordered for duty tomorrow.",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-06",
+   "sha256_tep_nguon": "67d61d0aced585978cd08b34717ca985699b3dc7e32d01014f974d1fe488b526",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Thành phần quân: có đại đội Corsica trực từ 7/9; không cho hẻm",
+   "ghi_chu": "Trang phục Corsica: chưa có nguồn (xem mục 3).",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 21,
+   "loai": "crowd_density",
+   "mo_ta_en": "As many as 1,200 men, including sailors and men of the 97th, had been employed at Willis' in a day.",
+   "trich_nguyen_van": "It appears we have had 1,200 men, sailors, 97th, Kc., employed at Willis’ ina day.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-02",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Toán lao động đông tại Willis' (công sự phía bắc), không cho hẻm",
+   "ghi_chu": "\"1,200 men, sailors, 97th, &c., employed at Willis' in a day\" (2/9).",
+   "ten_noi_can_bac_1": [
+    "Willis"
+   ]
+  },
+  {
+   "id": 34,
+   "loai": "activity",
+   "mo_ta_en": "Sailors took the Europa Advance and Little Bay guards, while Corsicans took the Windmill Hill guard.",
+   "trich_nguyen_van": "The sailors took Kuropa Advance, and the Little Bay Guards, the Corsicans Windmill TL Guard.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Thành phần gác phía nam (thuỷ thủ ở Europa Advance, Little Bay; Corsica ở Windmill Hill) — không cho hẻm",
+   "ghi_chu": "",
+   "ten_noi_can_bac_1": [
+    "Europa",
+    "Windmill"
+   ]
+  },
+  {
+   "id": 35,
+   "loai": "crowd_density",
+   "mo_ta_en": "An additional captain was assigned to Water Port and Mole Head reliefs, and an additional subaltern to Land Port and New Mole Head.",
+   "trich_nguyen_van": "Another Captain to Water Port, and to relieve each other at the Mole Head, and another Sub to Land Port and to the New Mole Head.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Gác cổng Water Port, Land Port, Mole Head, New Mole Head (thêm sĩ quan) — cảnh cổng",
+   "ghi_chu": "",
+   "ten_noi_can_bac_1": [
+    "Mole"
+   ]
+  },
+  {
+   "id": 36,
+   "loai": "crowd_density",
+   "mo_ta_en": "Two picquets each were assigned to Water Port, Land Port and the Lines.",
+   "trich_nguyen_van": "Two picquets go to Water Port, two to Land Port and two to the Lines.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Picquet ở Water Port, Land Port, Lines — cảnh cổng",
+   "ghi_chu": "",
+   "ten_noi_can_bac_1": [
+    "Lines"
+   ]
+  },
+  {
+   "id": 42,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Flag Staff guard entry lists 15 privates.",
+   "trich_nguyen_van": "Flag Staff oo... 1 | 2 15",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Gác Flag Staff",
+   "ghi_chu": "ĐỐI CHIẾU ẢNH TRANG: 15 là lính PHÁO BINH (cột \"Ptes.\" dưới ARTILLERY), không phải bộ binh; trang 74 (không phải 75).",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 44,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Main Guard entry lists 37 privates.",
+   "trich_nguyen_van": "Main Guard ...... 1 I ! { 2 37 I 3",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Main Guard — nếu khung có toà Main Guard trên plan (bậc 1)",
+   "ghi_chu": "Ảnh trang: 1 đại uý, 1 sub, 2 trung sĩ, 4 hạ sĩ, 2 tay trống, 37 lính + pháo binh 1 hạ sĩ quan, 3 lính; trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 46,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Castle guard entry lists 12 privates.",
+   "trich_nguyen_van": "Castle wo... ! 2 12",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Gác Castle",
+   "ghi_chu": "Ảnh trang: 1 trung sĩ, 2 hạ sĩ, 12 lính; trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 47,
+   "loai": "crowd_density",
+   "mo_ta_en": "The return lists separate guards for the South and North Line Walls.",
+   "trich_nguyen_van": "South Line Wall. I 2 y North Line Wall. 1 2 15",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Gác South Line Wall / North Line Wall (tường biển phía tây phố)",
+   "ghi_chu": "Ảnh trang: South Line Wall 1 trung sĩ, 2 hạ sĩ, 9 lính; North Line Wall 1, 2, 15; trang 74.",
+   "ten_noi_can_bac_1": [
+    "Line Wall"
+   ],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 49,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Middle Hill guard entry lists 30 privates.",
+   "trich_nguyen_van": "Middle Hill ...... I I I I 30 2",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Gác Middle Hill (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 30 lính (+2 hạ sĩ quan pháo binh); trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 50,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Artillery Guard entry lists 15 privates.",
+   "trich_nguyen_van": "Artillery Guard... I I 15",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Artillery Guard",
+   "ghi_chu": "Ảnh trang: 15 lính; trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 52,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Queen's Lines guard entry lists 30 privates.",
+   "trich_nguyen_van": "Queen's Lines... I I 1 2 1 30 1",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Queen's Lines (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 30; trang 74.",
+   "ten_noi_can_bac_1": [
+    "Lines"
+   ],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 53,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Prince's Lines guard entry lists 50 privates.",
+   "trich_nguyen_van": "Prince’s Lines... 1 3 th 1 50 2",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Prince's Lines (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 50; trang 74.",
+   "ten_noi_can_bac_1": [
+    "Lines"
+   ],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 54,
+   "loai": "crowd_density",
+   "mo_ta_en": "The King's Lines guard entry lists 50 privates.",
+   "trich_nguyen_van": "King’s Lines... I 1 4 1 50: 2",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "King's Lines (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 50; trang 74.",
+   "ten_noi_can_bac_1": [
+    "King",
+    "Lines"
+   ],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 55,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Europa guard entry lists 71 privates.",
+   "trich_nguyen_van": "europa... cee. . 1 3 3 5 3 71 2 1-",
+   "nguon": "spilsbury1908",
+   "trang": 74,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "gan_dung",
+   "bac": 2,
+   "goi_y_dung": "Europa (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 71 lính + 12 lính pháo binh; trang 74.",
+   "ten_noi_can_bac_1": [
+    "Europa"
+   ]
+  },
+  {
+   "id": 56,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Rosia guard entry lists 30 privates.",
+   "trich_nguyen_van": "Rosia 0. oo 1 I 2 I 30 2",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Rosia (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 30; trang 74.",
+   "ten_noi_can_bac_1": [
+    "Rosia"
+   ],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 57,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Mole guard entry lists 54 privates.",
+   "trich_nguyen_van": "Mole 00, I 2 3 3 2 54 3",
+   "nguon": "spilsbury1908",
+   "trang": 74,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Mole",
+   "ghi_chu": "ĐỐI CHIẾU ẢNH TRANG: 59 lính (OCR \"54\" sai; tổng SOUTH 266 chỉ khớp với 59); trang 74.",
+   "ten_noi_can_bac_1": [
+    "Mole"
+   ]
+  },
+  {
+   "id": 58,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Ragged Staff guard entry lists 30 privates.",
+   "trich_nguyen_van": "Ragped Stall... I 2 2 1 30 I",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Ragged Staff (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 30; trang 74.",
+   "ten_noi_can_bac_1": [
+    "Ragged"
+   ],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 59,
+   "loai": "crowd_density",
+   "mo_ta_en": "The South Shed guard entry lists 21 privates.",
+   "trich_nguyen_van": "South Shed ...... I 2 21",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "South Shed (ngoài phố)",
+   "ghi_chu": "Ảnh trang: 21; trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 61,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Magazine guard entry lists 13 privates.",
+   "trich_nguyen_van": "Magazine... 0... I I 13",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Magazine (khu nam)",
+   "ghi_chu": "Ảnh trang: 13; trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 63,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Hospital guard entry lists 12 privates.",
+   "trich_nguyen_van": "Hospital ... 2... I I 12",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Hospital (khu nam)",
+   "ghi_chu": "Ảnh trang: 12; trang 74.",
+   "ten_noi_can_bac_1": [],
+   "trang_doi_chieu_anh": 74
+  },
+  {
+   "id": 66,
+   "loai": "crowd_density",
+   "mo_ta_en": "The Lines subtotal lists 130 privates.",
+   "trich_nguyen_van": "LINES. 2 3 5 12 3 130 5",
+   "nguon": "spilsbury1908",
+   "trang": 74,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Tổng phụ LINES",
+   "ghi_chu": "Ảnh trang: 130 lính.",
+   "ten_noi_can_bac_1": [
+    "Lines"
+   ]
+  },
+  {
+   "id": 67,
+   "loai": "crowd_density",
+   "mo_ta_en": "The South subtotal lists 266 privates.",
+   "trich_nguyen_van": "SOUTH. 2 7 15 20 x 266 3 14",
+   "nguon": "spilsbury1908",
+   "trang": 74,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Tổng phụ SOUTH",
+   "ghi_chu": "Ảnh trang: 266 lính.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 68,
+   "loai": "crowd_density",
+   "mo_ta_en": "The guard return totals 793 privates.",
+   "trich_nguyen_van": "ToTaL... y 23 61 74 23 793 15 108",
+   "nguon": "spilsbury1908",
+   "trang": 74,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Tổng gác toàn đồn",
+   "ghi_chu": "Ảnh trang: 793 lính bộ binh + 108 lính pháo binh; cộng sĩ quan/hạ sĩ quan xem g1b/ai-doc-nguon.md §2.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 69,
+   "loai": "crowd_density",
+   "mo_ta_en": "The picquet table gives a private establishment of 435 for the artillery.",
+   "trich_nguyen_van": "Artillery ......... 1 I 4 1 3h 435",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Biên chế (không phải mật độ phố)",
+   "ghi_chu": "Pháo binh 435.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 70,
+   "loai": "crowd_density",
+   "mo_ta_en": "The picquet table gives a private establishment of 670 for the 97th.",
+   "trich_nguyen_van": "q7th a, 1 I I I 55 670",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Biên chế",
+   "ghi_chu": "Trung đoàn 97: 670.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 71,
+   "loai": "crowd_density",
+   "mo_ta_en": "The table gives an establishment of about 350 for Rheden's Regiment and 350 each for La Motte's and Sydow's.",
+   "trich_nguyen_van": "Rhedeu’s Regt... ! I ! 1 Rta abt. 350 La Motte’s “s. I I 1 1 38 350 Sydow's th .’ I I l I 38 350",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Thành phần: ba trung đoàn Hanover (Rheden, La Motte, Sydow) ~350 mỗi trung đoàn",
+   "ghi_chu": "Trang phục Hanover: chưa có nguồn trong repo.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 72,
+   "loai": "crowd_density",
+   "mo_ta_en": "The establishment table gives a total of 7,535.",
+   "trich_nguyen_van": "4 13 13 13 13 OH8g 7535",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Biên chế tổng 7 535 — khớp lời KA1782 \"about seven and a half thousand\" (S079)",
+   "ghi_chu": "Ảnh trang 75.",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 74,
+   "loai": "crowd_density",
+   "mo_ta_en": "The fatigue detail lists 240 men.",
+   "trich_nguyen_van": "Fatigue ........... 3 3 I 240",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "Toán lao dịch (Fatigue) 240 người — có thể là người sửa tường/dọn đổ nát, nhưng văn bản không cho vị trí",
+   "ghi_chu": "Ảnh trang 75: \"DUTY. QUARTER MASTER GENERAL. Fatigue … 240\"; thêm \"King's Works, &c.: Engineers … 800\".",
+   "ten_noi_can_bac_1": []
+  },
+  {
+   "id": 75,
+   "loai": "crowd_density",
+   "mo_ta_en": "One captain and two picquets stayed in the South.",
+   "trich_nguyen_van": "N.B.—One Captain and two Picquets stay at the South.",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-07",
+   "sha256_tep_nguon": "f6c2f3a940cde7ac88eb6745421b458f1f8c764c4a8affef42a784c54699dc1f",
+   "kiem_may": "nguyen_khoi",
+   "bac": 2,
+   "goi_y_dung": "1 đại uý + 2 picquet ở lại phía nam",
+   "ghi_chu": "Ảnh trang 75 (N.B.).",
+   "ten_noi_can_bac_1": []
+  }
+ ],
+ "c_khong_dung_cho_hinh": [
+  {
+   "id": 3,
+   "loai": "object",
+   "mo_ta_en": "A rock gun was used against the enemy battery.",
+   "nguon": "ancell1784",
+   "trang": 254,
+   "ngay": "1782-09-06",
+   "ghi_chu": "Vật (pháo) — vị trí/hình dạng phải từ bậc 1/3; trùng #2."
+  },
+  {
+   "id": 10,
+   "loai": "activity",
+   "mo_ta_en": "Lieutenant General Boyde took command of all the batteries from the grand battery.",
+   "nguon": "ancell1784",
+   "trang": 255,
+   "ngay": "1782-09-08",
+   "ghi_chu": "Một cá nhân chỉ huy ở Grand Battery; không thấy được ở tầm cảnh."
+  },
+  {
+   "id": 12,
+   "loai": "activity",
+   "mo_ta_en": "The men rejoiced and treated their destructive work as a pastime.",
+   "nguon": "ancell1784",
+   "trang": 255,
+   "ngay": "1782-09-08",
+   "ghi_chu": "Tâm trạng \"pastime\" của lính khi bắn — không dựng (Kinh thánh §10.6: không cổ vũ bạo lực)."
+  },
+  {
+   "id": 14,
+   "loai": "activity",
+   "mo_ta_en": "A small boat manned by English sailors sailed for Portugal in the evening.",
+   "nguon": "drinkwater1786",
+   "trang": 351,
+   "ngay": "1782-09-01",
+   "ghi_chu": "Thuyền đưa thư đi Bồ Đào Nha (đêm 1/9)."
+  },
+  {
+   "id": 15,
+   "loai": "object",
+   "mo_ta_en": "A small boat manned by English sailors was used for the voyage to Portugal.",
+   "nguon": "drinkwater1786",
+   "trang": 351,
+   "ngay": "1782-09-01",
+   "ghi_chu": "Như #14."
+  },
+  {
+   "id": 16,
+   "loai": "activity",
+   "mo_ta_en": "Lieutenant Campbell sailed with the Governor's dispatches for England.",
+   "nguon": "drinkwater1786",
+   "trang": 351,
+   "ngay": "1782-09-01",
+   "ghi_chu": "Như #14."
+  },
+  {
+   "id": 20,
+   "loai": "activity",
+   "mo_ta_en": "Lieutenant Campbell of the Brilliant departed by boat for Faro with dispatches for England.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-01",
+   "ghi_chu": "Như #14 (Spilsbury)."
+  },
+  {
+   "id": 24,
+   "loai": "object",
+   "mo_ta_en": "Sugar, tea, flour and butter could not be bought in Gibraltar.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-04",
+   "ghi_chu": "\"No sugar, tea, flour, or butter, to be bought here\" (4/9)."
+  },
+  {
+   "id": 28,
+   "loai": "activity",
+   "mo_ta_en": "The garrison was firing little.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-06",
+   "ghi_chu": "\"we fire but little\" (6/9) — chỉ điều chỉnh mức khói ngày 6/9."
+  },
+  {
+   "id": 29,
+   "loai": "activity",
+   "mo_ta_en": "Round shot and grape were fired at Bayside Guard house because enemy men were thought to be there.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-06",
+   "ghi_chu": "Bắn vào Bayside Guard house lúc 20 h — ngoài phố."
+  },
+  {
+   "id": 30,
+   "loai": "object",
+   "mo_ta_en": "Round shot and grape were used in firing at Bayside Guard house.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-06",
+   "ghi_chu": "Như #29."
+  },
+  {
+   "id": 31,
+   "loai": "activity",
+   "mo_ta_en": "Garrison sentries fired at enemy patrols.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-06",
+   "ghi_chu": "Lính gác bắn tuần tra địch — ở Lines, ban đêm."
+  },
+  {
+   "id": 32,
+   "loai": "activity",
+   "mo_ta_en": "A deserter came in during the preceding night.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-05",
+   "ghi_chu": "Một người đào ngũ."
+  },
+  {
+   "id": 33,
+   "loai": "object",
+   "mo_ta_en": "The magazines and works in the Lines were well finished.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-06",
+   "ghi_chu": "Trạng thái kho/công sự ở Lines — vật, ngoài phố."
+  },
+  {
+   "id": 37,
+   "loai": "activity",
+   "mo_ta_en": "The Lime Kiln Guard was removed.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-07",
+   "ghi_chu": "Bỏ gác Lime Kiln."
+  },
+  {
+   "id": 40,
+   "loai": "activity",
+   "mo_ta_en": "The 97th were displeased at not being put on duty.",
+   "nguon": "spilsbury1908",
+   "trang": 73,
+   "ngay": "1782-09-07",
+   "ghi_chu": "Thái độ của trung đoàn 97 — không phải hoạt động thấy được."
+  },
+  {
+   "id": 78,
+   "loai": "activity",
+   "mo_ta_en": "Several people were killed or wounded during the enemy's return fire, including Lieutenant Boag and Ensign Gordon among the wounded.",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-08",
+   "ghi_chu": "Thương vong — không dựng (Kinh thánh §10.6)."
+  },
+  {
+   "id": 81,
+   "loai": "activity",
+   "mo_ta_en": "One or two shots from the Spanish ships came ashore.",
+   "nguon": "spilsbury1908",
+   "trang": 75,
+   "ngay": "1782-09-09",
+   "ghi_chu": "Một hai phát đạn rơi lên bờ."
+  }
+ ],
+ "bang_gac_7_9_1782": {
+  "nguon": "John Spilsbury, A Journal of the Siege of Gibraltar 1779–1783, ed. B. H. T. Frere (Gibraltar Garrison Library, 1908), tr. 74 \"DETAILS OF THE GUARDS, GIBRALTAR, 7TH SEPTEMBER, 1782\" và tr. 75 (Picquets / Establishment / Fatigue)",
+  "ban_so": "Internet Archive ajournalsiegegi00spilgoog (University of Michigan copy, Google scan; possible-copyright-status NOT_IN_COPYRIGHT) — chỉ dùng dữ kiện, không đưa ảnh lên hình",
+  "anh_trang": [
+   {
+    "trang": 74,
+    "leaf": 140,
+    "url": "https://archive.org/download/ajournalsiegegi00spilgoog/page/n140.jpg",
+    "px": "3646x4822",
+    "sha256": "5e47b6e531be1fc11b29ad482b5436a3ea80c8a759fea139cf544f5bb9c3ce88"
+   },
+   {
+    "trang": 74,
+    "leaf": 142,
+    "ghi_chu": "bản quét thứ hai của cùng trang, dùng để đối chiếu ô mờ",
+    "url": "https://archive.org/download/ajournalsiegegi00spilgoog/page/n142.jpg",
+    "px": "3682x4816",
+    "sha256": "172aa7d6881126ecf17abad54e3b0bfe1c4d5cce1b1cc974efdfe1b49287a733"
+   },
+   {
+    "trang": 75,
+    "leaf": 145,
+    "url": "https://archive.org/download/ajournalsiegegi00spilgoog/page/n145.jpg",
+    "px": "3646x4822",
+    "sha256": "c5d5c32f7c7623ada1822fd58e62148f9a29c1a0c1f79d74f7a31200c6cecb40"
+   }
+  ],
+  "cot": [
+   "captains",
+   "subs",
+   "sergts",
+   "corpls",
+   "drums",
+   "privates",
+   "art_nco",
+   "art_ptes"
+  ],
+  "TOWN": {
+   "Governors": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    6,
+    0,
+    0
+   ],
+   "Lt-Governors": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    9,
+    0,
+    0
+   ],
+   "Willis'": [
+    1,
+    2,
+    0,
+    0,
+    0,
+    0,
+    6,
+    58
+   ],
+   "Flag Staff": [
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    2,
+    15
+   ],
+   "Land Port": [
+    1,
+    4,
+    5,
+    12,
+    2,
+    86,
+    0,
+    5
+   ],
+   "Water Port": [
+    2,
+    2,
+    4,
+    6,
+    2,
+    88,
+    0,
+    2
+   ],
+   "Main Guard": [
+    1,
+    1,
+    2,
+    4,
+    2,
+    37,
+    1,
+    3
+   ],
+   "Grand Battery": [
+    0,
+    1,
+    1,
+    4,
+    1,
+    26,
+    0,
+    0
+   ],
+   "Castle": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    12,
+    0,
+    0
+   ],
+   "South Line Wall": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    9,
+    0,
+    0
+   ],
+   "North Line Wall": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    15,
+    0,
+    0
+   ],
+   "South Port": [
+    0,
+    1,
+    2,
+    4,
+    1,
+    29,
+    0,
+    1
+   ],
+   "Middle Hill": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    30,
+    2,
+    0
+   ],
+   "Artillery Guard": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    15,
+    0,
+    0
+   ],
+   "Signal House": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    6,
+    1,
+    0
+   ],
+   "Victualling Office": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    9,
+    0,
+    0
+   ],
+   "Patroles": [
+    0,
+    0,
+    9,
+    0,
+    0,
+    18,
+    0,
+    0
+   ],
+   "Orderlies": [
+    0,
+    0,
+    9,
+    0,
+    2,
+    2,
+    0,
+    0
+   ]
+  },
+  "LINES": {
+   "Queen's Lines": [
+    1,
+    1,
+    1,
+    2,
+    1,
+    30,
+    0,
+    1
+   ],
+   "Prince's Lines": [
+    1,
+    1,
+    3,
+    6,
+    1,
+    50,
+    0,
+    2
+   ],
+   "King's Lines": [
+    0,
+    1,
+    1,
+    4,
+    1,
+    50,
+    0,
+    2
+   ]
+  },
+  "SOUTH": {
+   "Europa": [
+    1,
+    3,
+    3,
+    5,
+    3,
+    71,
+    2,
+    12
+   ],
+   "Rosia": [
+    0,
+    1,
+    1,
+    2,
+    1,
+    30,
+    0,
+    2
+   ],
+   "Mole": [
+    1,
+    2,
+    3,
+    3,
+    2,
+    59,
+    0,
+    3
+   ],
+   "Ragged Staff": [
+    0,
+    1,
+    2,
+    2,
+    1,
+    30,
+    0,
+    1
+   ],
+   "South Shed": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    21,
+    0,
+    0
+   ],
+   "P. W. Lines": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    6,
+    0,
+    0
+   ],
+   "Magazine": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    13,
+    0,
+    0
+   ],
+   "Camp": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    9,
+    0,
+    0
+   ],
+   "Hospital": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    12,
+    0,
+    0
+   ],
+   "Windmill Hill": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    6,
+    0,
+    0
+   ],
+   "Buena Vista": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    6,
+    1,
+    1
+   ],
+   "Gen. La Motte's": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    3,
+    0,
+    0
+   ],
+   "S. Barrack Orderly": [
+    0,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ]
+  },
+  "tong_in": {
+   "TOWN PARADE": [
+    5,
+    13,
+    41,
+    42,
+    12,
+    397,
+    12,
+    84
+   ],
+   "LINES": [
+    2,
+    3,
+    5,
+    12,
+    3,
+    130,
+    0,
+    5
+   ],
+   "SOUTH": [
+    2,
+    7,
+    15,
+    20,
+    8,
+    266,
+    3,
+    19
+   ],
+   "TOTAL": [
+    9,
+    23,
+    61,
+    74,
+    23,
+    793,
+    15,
+    108
+   ]
+  },
+  "tr75": {
+   "picquets_privates": 689,
+   "establishment_private_total": 7535,
+   "kings_works_engineers": 800,
+   "fatigue": 240,
+   "NB": "One Captain and two Picquets stay at the South."
+  },
+  "o_khong_chac": [
+   "Main Guard, cột Corpls: nét in gãy, đọc 4 (bản quét n142 rõ hơn) — tổng 42 chỉ khớp khi = 4",
+   "TOWN PARADE privates: chữ số giữa in mờ, đọc 397 — khớp tổng dòng và 397 + 130 + 266 = 793",
+   "Mole privates: OCR \"54\" sai; ảnh hai bản quét đọc 59; tổng SOUTH 266 chỉ khớp với 59"
+  ],
+  "kiem_tong": "Mọi cột của ba khu cộng lại đúng dòng tổng in (TOWN PARADE, LINES, SOUTH, TOTAL) sau khi đọc ảnh; kiểm bằng script."
+ }
+}
