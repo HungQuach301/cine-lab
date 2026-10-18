@@ -1,0 +1,1566 @@
+{
+"type": "FeatureCollection",
+"name": "ghost-1704",
+"ghost": {
+"moc": 1704,
+"crs": "EPSG:4326",
+"nguon": {
+"rijks-rp-p-ob-83400-exact-plan-1705": "An Exact Plan of the Town, Castle, Moles and Bay of Gibraltar, and the Enemies Approaches to the 7/18 of January 1704/5 (London: E. Castle & D. Mortier; J. Kip sculp.), Rijksmuseum RP-P-OB-83.400"
+},
+"ghi_cong": "Reconstructed from 'An Exact Plan of the Town … of Gibraltar', 1705 (Rijksmuseum). Map data from OpenStreetMap (ODbL) — https://www.openstreetmap.org/copyright",
+"giay_phep": "Bản đồ: Rijksmuseum CC0 1.0 — licenses/rijks-rp-p-ob-83400-exact-plan-1705.txt. Toạ độ điểm khống chế từ OpenStreetMap (ODbL 1.0) — licenses/osm-odbl-attribution.txt; dữ liệu dẫn xuất KHÔNG phát hành.",
+"nan": {
+"bac": {
+"bien_doi": "sim",
+"so_diem": 4,
+"rms_m": 30.0,
+"loo_rms_m": 67.4
+},
+"bac_aff": {
+"bien_doi": "affine",
+"so_diem": 4,
+"rms_m": 12.6,
+"loo_rms_m": 176.4
+}
+},
+"so_khoi": 26,
+"so_nha": 1,
+"dien_tich_khoi_m2": 66083,
+"ghi_chu_sai_so": "",
+"tao_boi": "channel-k2/k2c-t3-01/ghost/tools/ghost.py build so-hoa-1704-px.json",
+"ghi_chu": "Toạ độ điểm ảnh trên ảnh gốc 5240×3292 (SHA-256 d7a903a6…). Khối dò tay trên ảnh phân đoạn màu (vùng hồng) + ảnh gốc. Bản đồ chỉ có phần BẮC phố (Barcina, lâu đài, Old Mole, rìa bắc Turba); phần nam bị cắt mép khung. Bắc ≈ −x, đông ≈ −y."
+},
+"features": [
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-01",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "nhà trong thành lâu đài (khối cắt mép)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 783
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3498534,
+36.1431983
+],
+[
+-5.349798,
+36.142844
+],
+[
+-5.3502012,
+36.1432053
+],
+[
+-5.3501058,
+36.1433009
+],
+[
+-5.3498534,
+36.1431983
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-02",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "nhà trong thành lâu đài",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 1473
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3502475,
+36.142653
+],
+[
+-5.3504238,
+36.1423677
+],
+[
+-5.3508603,
+36.1425578
+],
+[
+-5.3506447,
+36.1428145
+],
+[
+-5.3502475,
+36.142653
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-03",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "nhà trong thành lâu đài",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 400
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3502881,
+36.1432407
+],
+[
+-5.3503503,
+36.1431148
+],
+[
+-5.3506152,
+36.1432225
+],
+[
+-5.3505529,
+36.1433484
+],
+[
+-5.3502881,
+36.1432407
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-04",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "nhà trong thành lâu đài",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 534
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.350429,
+36.14313
+],
+[
+-5.3505472,
+36.1429387
+],
+[
+-5.3507707,
+36.1430295
+],
+[
+-5.3506524,
+36.1432208
+],
+[
+-5.350429,
+36.14313
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-05",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "nhà trong thành lâu đài",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 269
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3507045,
+36.1429606
+],
+[
+-5.3507855,
+36.1428129
+],
+[
+-5.3509386,
+36.1428752
+],
+[
+-5.3508494,
+36.1430195
+],
+[
+-5.3507045,
+36.1429606
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-06",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "nhà trong thành lâu đài",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 966
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3507258,
+36.1425661
+],
+[
+-5.3507943,
+36.1423966
+],
+[
+-5.3509393,
+36.1423379
+],
+[
+-5.3511813,
+36.1424825
+],
+[
+-5.3510485,
+36.1426973
+],
+[
+-5.3507258,
+36.1425661
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-07",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "nhà trong thành lâu đài",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 781
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3505755,
+36.1434625
+],
+[
+-5.3506585,
+36.1433283
+],
+[
+-5.3511364,
+36.1435688
+],
+[
+-5.3510327,
+36.1436779
+],
+[
+-5.3505755,
+36.1434625
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-08",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "khối vòng quanh sân trong (gộp)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3603
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3506729,
+36.1433971
+],
+[
+-5.3510649,
+36.1428216
+],
+[
+-5.3512904,
+36.1429007
+],
+[
+-5.3514827,
+36.1430671
+],
+[
+-5.3514265,
+36.1433424
+],
+[
+-5.3511716,
+36.1435705
+],
+[
+-5.3506729,
+36.1433971
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-09",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2130
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3512105,
+36.1438677
+],
+[
+-5.3514117,
+36.1435758
+],
+[
+-5.3517886,
+36.1434435
+],
+[
+-5.3518692,
+36.1435812
+],
+[
+-5.3518047,
+36.143828
+],
+[
+-5.3515395,
+36.1439889
+],
+[
+-5.3512105,
+36.1438677
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-10",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3086
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3520492,
+36.1436418
+],
+[
+-5.3520722,
+36.1434874
+],
+[
+-5.3523394,
+36.1433566
+],
+[
+-5.3526336,
+36.1431739
+],
+[
+-5.3530186,
+36.1431541
+],
+[
+-5.3530019,
+36.1432649
+],
+[
+-5.3525728,
+36.143691
+],
+[
+-5.3523264,
+36.1437378
+],
+[
+-5.3520492,
+36.1436418
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-11",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2546
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3513582,
+36.1448854
+],
+[
+-5.3516321,
+36.1443836
+],
+[
+-5.3518825,
+36.144456
+],
+[
+-5.3520871,
+36.1447198
+],
+[
+-5.3518053,
+36.1449328
+],
+[
+-5.3515775,
+36.1449745
+],
+[
+-5.3513582,
+36.1448854
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-12",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "dải dọc tường ngăn (Barcina)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2018
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3521598,
+36.14451
+],
+[
+-5.3523817,
+36.1442096
+],
+[
+-5.3532769,
+36.1435404
+],
+[
+-5.3529866,
+36.1438592
+],
+[
+-5.352545,
+36.1443978
+],
+[
+-5.3523315,
+36.1445924
+],
+[
+-5.3521598,
+36.14451
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-13",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "khối 'U' (bãi tập dự kiến)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3816
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3521364,
+36.1449918
+],
+[
+-5.3525014,
+36.144527
+],
+[
+-5.3528531,
+36.1446701
+],
+[
+-5.3530867,
+36.1448869
+],
+[
+-5.3528897,
+36.1451805
+],
+[
+-5.3526413,
+36.1451971
+],
+[
+-5.3521364,
+36.1449918
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-14",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3344
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.352609,
+36.1445288
+],
+[
+-5.3531003,
+36.1439768
+],
+[
+-5.3532741,
+36.1440475
+],
+[
+-5.3533462,
+36.1443498
+],
+[
+-5.3531324,
+36.144813
+],
+[
+-5.352609,
+36.1445288
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-15",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 1496
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3532992,
+36.1438645
+],
+[
+-5.3533573,
+36.1437705
+],
+[
+-5.3536073,
+36.1441116
+],
+[
+-5.353723,
+36.1442762
+],
+[
+-5.3535696,
+36.1444994
+],
+[
+-5.3534309,
+36.1444556
+],
+[
+-5.3532992,
+36.1438645
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-16",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "sát courtine St Bernard",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 990
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3515459,
+36.1454111
+],
+[
+-5.3517533,
+36.1450754
+],
+[
+-5.3519892,
+36.1451713
+],
+[
+-5.3517817,
+36.145507
+],
+[
+-5.3515459,
+36.1454111
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-17",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "sát courtine St Bernard",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2082
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3518874,
+36.1454617
+],
+[
+-5.3519974,
+36.1452503
+],
+[
+-5.3526535,
+36.1453533
+],
+[
+-5.3525868,
+36.1456705
+],
+[
+-5.352297,
+36.1456283
+],
+[
+-5.3518874,
+36.1454617
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-18",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "sau bastion St Paul",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 1282
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3526241,
+36.1456689
+],
+[
+-5.3529124,
+36.1452024
+],
+[
+-5.3531174,
+36.1451975
+],
+[
+-5.3529408,
+36.1456339
+],
+[
+-5.3527772,
+36.1457479
+],
+[
+-5.3526241,
+36.1456689
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-19",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "vua",
+"ten": "cạnh cổng nước (V)",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 1865
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3531154,
+36.1451085
+],
+[
+-5.3534702,
+36.1445346
+],
+[
+-5.3537371,
+36.1446137
+],
+[
+-5.3535005,
+36.1450551
+],
+[
+-5.3532809,
+36.1451758
+],
+[
+-5.3531154,
+36.1451085
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-20",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba — ngoài vùng điểm khống chế",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 10398
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3526131,
+36.1429724
+],
+[
+-5.3524583,
+36.142628
+],
+[
+-5.3524,
+36.141315
+],
+[
+-5.353269,
+36.1416683
+],
+[
+-5.3530458,
+36.1429257
+],
+[
+-5.3526131,
+36.1429724
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-21",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3653
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3532094,
+36.1428705
+],
+[
+-5.3533723,
+36.1418027
+],
+[
+-5.3536746,
+36.1417577
+],
+[
+-5.353757,
+36.142018
+],
+[
+-5.3534433,
+36.1428774
+],
+[
+-5.3532094,
+36.1428705
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-22",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 6333
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3537265,
+36.1431731
+],
+[
+-5.354142,
+36.1420234
+],
+[
+-5.3548331,
+36.1423043
+],
+[
+-5.3544763,
+36.1429068
+],
+[
+-5.3537265,
+36.1431731
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-23",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2117
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.353651,
+36.1439488
+],
+[
+-5.3538129,
+36.1436534
+],
+[
+-5.3541067,
+36.1437141
+],
+[
+-5.3542534,
+36.1439543
+],
+[
+-5.3540626,
+36.1442043
+],
+[
+-5.3538412,
+36.1441437
+],
+[
+-5.353651,
+36.1439488
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-24",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3613
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3535541,
+36.1436868
+],
+[
+-5.3535936,
+36.1435055
+],
+[
+-5.3539314,
+36.143227
+],
+[
+-5.3543166,
+36.1430813
+],
+[
+-5.3546562,
+36.1430094
+],
+[
+-5.3542871,
+36.143548
+],
+[
+-5.3538107,
+36.1437155
+],
+[
+-5.3535541,
+36.1436868
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-25",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba — dải dọc tường biển",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 3532
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3539897,
+36.1445653
+],
+[
+-5.3543013,
+36.1437344
+],
+[
+-5.3545525,
+36.1431772
+],
+[
+-5.3546397,
+36.1430026
+],
+[
+-5.3547866,
+36.143033
+],
+[
+-5.3543108,
+36.1443976
+],
+[
+-5.3541926,
+36.1445889
+],
+[
+-5.3539897,
+36.1445653
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "K1704-26",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "khoi_pho",
+"do_tin": "thap",
+"ten": "Turba",
+"so_tang_uoc": 2,
+"cach_uoc_tang": "tầng chuẩn theo mốc (bản đồ không ghi tầng): 2 tầng, khoảng 1–3, lớp tái dựng city.js; tranh 'Prospect of the Town' cùng tờ chỉ cho thấy dãy nhà thấp (không đếm được tầng)",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2973
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3545799,
+36.1428313
+],
+[
+-5.3548786,
+36.1423228
+],
+[
+-5.3554827,
+36.1425685
+],
+[
+-5.3553478,
+36.1428454
+],
+[
+-5.3545799,
+36.1428313
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "N1704-01",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "nha",
+"do_tin": "vua",
+"ten": "X — The Castle (tháp chữ nhật) = Tower of Homage",
+"so_tang_uoc": 3,
+"cach_uoc_tang": "tháp — ước ≈ 3 tầng tương đương, không có số đo",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 1044
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3499126,
+36.1438649
+],
+[
+-5.3500453,
+36.1436501
+],
+[
+-5.3504343,
+36.1438083
+],
+[
+-5.3503015,
+36.1440231
+],
+[
+-5.3499126,
+36.1438649
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1704-01",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "A — St Paul's Bastion",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 1957
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3525384,
+36.146243
+],
+[
+-5.3527666,
+36.1458738
+],
+[
+-5.3531804,
+36.1460421
+],
+[
+-5.3529729,
+36.1464197
+],
+[
+-5.3525384,
+36.146243
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1704-02",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "B — Curtain of St Bernard (mặt đất liền, có T — Land Gate)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dai_m": 192
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.350801,
+36.1451166
+],
+[
+-5.3512934,
+36.1453252
+],
+[
+-5.3526941,
+36.1459074
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1704-03",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "O — curtain dọc biển từ St Paul qua V — Water Gate",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dai_m": 167
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3528908,
+36.1459243
+],
+[
+-5.35343,
+36.1451776
+],
+[
+-5.3541755,
+36.1449768
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1704-04",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "tường ngăn Barcina | Turba (từ lâu đài xuống biển)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dai_m": 312
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.352191,
+36.1428679
+],
+[
+-5.3533701,
+36.1435153
+],
+[
+-5.3542148,
+36.1450221
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1704-05",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "cong_su",
+"do_tin": "vua",
+"ten": "N — Old Mole",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dien_tich_m2": 2643
+},
+"geometry": {
+"type": "Polygon",
+"coordinates": [
+[
+[
+-5.3541444,
+36.1450271
+],
+[
+-5.3542583,
+36.1449685
+],
+[
+-5.3562542,
+36.1463469
+],
+[
+-5.3561817,
+36.1464224
+],
+[
+-5.3541444,
+36.1450271
+]
+]
+]
+}
+},
+{
+"type": "Feature",
+"properties": {
+"id": "C1704-06",
+"moc": 1704,
+"nguon_id": "rijks-rp-p-ob-83400-exact-plan-1705",
+"loai": "cong_su",
+"do_tin": "thap",
+"ten": "tường biển Turba (tới mép khung bản đồ)",
+"so_tang_uoc": 0,
+"cach_uoc_tang": "không áp dụng — công sự/tường",
+"vung_nan": "bac",
+"bien_doi": "sim",
+"sai_so_vi_tri_uoc_m": 67,
+"dai_m": 295
+},
+"geometry": {
+"type": "LineString",
+"coordinates": [
+[
+-5.3541755,
+36.1449768
+],
+[
+-5.3544666,
+36.1439612
+],
+[
+-5.3554414,
+36.1425517
+]
+]
+}
+}
+]
+}

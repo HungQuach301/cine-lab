@@ -1,0 +1,212 @@
+{
+ "nguon_id": "ia-drinkwater1786-plan-batteries",
+ "anh": "ia_historyoflatesie00drin_leaf373_drinkwater1786_plan_batteries_13sep1782.jpg",
+ "gcp": [
+  {
+   "ten": "King's Bastion — mũi (salient)",
+   "px": [
+    895,
+    1165
+   ],
+   "osm": "way/952588383 đỉnh cực tây",
+   "utm": [
+    288055,
+    4002009
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Orange Bastion — mũi",
+   "px": [
+    1333,
+    1268
+   ],
+   "osm": "way/950399540 đỉnh cực tây",
+   "utm": [
+    288144,
+    4002427
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Montagu Bastion — tâm",
+   "px": [
+    1540,
+    1395
+   ],
+   "osm": "way/951936002 tâm",
+   "utm": [
+    288174,
+    4002574
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Tower of Homage — tâm",
+   "px": [
+    1310,
+    1765
+   ],
+   "osm": "way/950058970 tâm",
+   "utm": [
+    288572,
+    4002466
+   ],
+   "vung": "pho",
+   "dung": false,
+   "ly_do_khong_dung": "nhận dạng ô vuông chữ X là Tower of Homage chưa chắc; lệch 87–153 m so với phần còn lại (phần lâu đài trên bản khắc dịch xuống dốc)"
+  },
+  {
+   "ten": "St Mary the Crowned (Spanish Church) — tâm",
+   "px": [
+    876,
+    1432
+   ],
+   "osm": "way/167262263 tâm",
+   "utm": [
+    288245,
+    4002013
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Southport Gates",
+   "px": [
+    315,
+    1432
+   ],
+   "osm": "node/243847822",
+   "utm": [
+    288296,
+    4001475
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Landport — cổng qua hào",
+   "px": [
+    1693,
+    1652
+   ],
+   "osm": "way/951660527 tâm",
+   "utm": [
+    288438,
+    4002609
+   ],
+   "vung": "pho",
+   "dung": false,
+   "ly_do_khong_dung": "không xác định được chắc cổng Landport trên bản khắc (nhãn đặt trên công sự ngoài); lệch 99–150 m"
+  },
+  {
+   "ten": "Fuerte de Santa Bárbara — mũi bastion nam",
+   "px": [
+    3438,
+    2573
+   ],
+   "osm": "way/462725331 đỉnh nam (tàn tích)",
+   "utm": [
+    289615,
+    4004205
+   ],
+   "vung": "eo_dat"
+  },
+  {
+   "ten": "Baluarte de San Benito",
+   "px": [
+    3510,
+    2265
+   ],
+   "osm": "node/12537395732 (di tích)",
+   "utm": [
+    289330,
+    4004281
+   ],
+   "vung": "eo_dat"
+  },
+  {
+   "ten": "Baluarte de San Fernando",
+   "px": [
+    3465,
+    1350
+   ],
+   "osm": "way/1253399689 tâm (di tích)",
+   "utm": [
+    288487,
+    4004231
+   ],
+   "vung": "eo_dat"
+  },
+  {
+   "ten": "South Bastion — góc tây bắc",
+   "px": [
+    365,
+    1281
+   ],
+   "osm": "way/963314875 đỉnh (288186,4001502)",
+   "utm": [
+    288186,
+    4001502
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "South Bastion — góc tây nam",
+   "px": [
+    248,
+    1278
+   ],
+   "osm": "way/963314875 đỉnh (288199,4001405)",
+   "utm": [
+    288199,
+    4001405
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Grand Parade (nay John Mackintosh Sq.) — đầu tây",
+   "px": [
+    1025,
+    1287
+   ],
+   "osm": "khoảng trống giữa toà, sát Line Wall Rd",
+   "utm": [
+    288132,
+    4002145
+   ],
+   "vung": "pho"
+  },
+  {
+   "ten": "Grand Parade — đầu đông (Main St.)",
+   "px": [
+    1025,
+    1425
+   ],
+   "osm": "way/250867611 Main Street giao quảng trường",
+   "utm": [
+    288245,
+    4002140
+   ],
+   "vung": "pho"
+  }
+ ],
+ "he_toa_do": "px = (cột, hàng) trên bản quét gốc 3995×2837; utm = (E, N) UTM 30N WGS84 (EPSG:32630) lấy từ OSM 17/10/2026",
+ "sha256_anh": "476cb89bb9288ce6d6580c7c446873c036939f1616e984a532645d9d89555117",
+ "vung": {
+  "pho": {
+   "bien_doi": "affine",
+   "diem": "pho",
+   "ly_do": "phố trong tường: 9 điểm quanh chu vi + trong phố; affine bền với nhiễu nhận dạng (10–20 m), không uốn theo từng điểm"
+  },
+  "eo_dat": {
+   "bien_doi": "sim",
+   "diem": "eo_dat",
+   "ly_do": "3 di tích Línea gần thẳng hàng → affine không xác định; đồng dạng (4 bậc tự do) đủ, tỷ lệ 0,923 m/px khớp tỷ lệ phố 0,92"
+  },
+  "giua": {
+   "bien_doi": "tps",
+   "diem": "tat_ca",
+   "lam": 0.01,
+   "ly_do": "bản khắc ghép hai phần lệch ~4° (phố vs Línea); dải giữa không còn điểm cố định nào → TPS 12 điểm nội suy trơn, sai số ước = chênh với biến đổi Línea"
+  }
+ }
+}
